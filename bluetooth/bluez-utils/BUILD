@@ -5,6 +5,7 @@
                 --localstatedir=/var                       \
                 --sbindir=/sbin                            \
                 --datadir=/usr/share                       \
+		--without-dbus				   \
                 $OPTS                                      &&
 
     default_make                                           

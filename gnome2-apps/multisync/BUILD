@@ -29,32 +29,19 @@
     default_make                                  &&
 
 if module_installed evolution; then  
-     cd $PLUGINDIR/evolution_sync                 
+     cd $PLUGINDIR/evolution2_sync                 
      ln -sf $AMAKE/INSTALL INSTALL             
-     ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
+     ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
                 --localstatedir=/var              \
-                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+                --infodir=${GNOME210_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
                 $OPTS                             
     default_make                                  
 fi    
 
-if module_installed evolution-beta; then
-     cd $PLUGINDIR/evolution_sync                 
-     ln -sf $AMAKE/INSTALL INSTALL             
-     ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
-                --build=$BUILD                    \
-                --sysconfdir=/etc                 \
-                --localstatedir=/var              \
-                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
-                $OPTS                             
-    default_make                                  
-fi   
-
-if module_installed bluez-kernel; then
+if module_installed bluez-libs; then
       cd $PLUGINDIR/irmc_sync                     
       ln -sf $AMAKE/INSTALL INSTALL             
      ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
