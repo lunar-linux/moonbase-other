@@ -20,7 +20,6 @@ fi
      gettext-runtime/intl-java/Makefile.am gettext-runtime/intl-java/Makefile.in \
      gettext-tools/man/Makefile.am gettext-tools/man/Makefile.in &&
 
-  sedit "s/ misc / /g" gettext-tools/Makefile.in &&
   touch *
 
   ./configure  --build=$BUILD            \
@@ -28,10 +27,10 @@ fi
                --prefix=/usr             \
                --sysconfdir=/etc         \
                --mandir=/usr/share/man   \
-	       --infodir=/usr/share/info \
-	       --disable-shared          \
-	       --disable-csharp          \
-	       --without-libintl-prefix  \
+               --infodir=/usr/share/info \
+               --disable-shared          \
+               --disable-csharp          \
+               --without-libintl-prefix  \
                $OPTS                     &&
   default_make
 
