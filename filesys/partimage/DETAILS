@@ -1,0 +1,37 @@
+          MODULE=partimage
+         VERSION=0.6.4
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=md5:ee56df4a6be1f78f53dc48454655aa8a
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+        WEB_SITE=http://www.partimage.org/
+         ENTERED=20040226
+         UPDATED=20040226
+           SHORT="Create smaller images of entire partitions"
+cat << EOF
+Partition Image is a Linux/UNIX utility which saves partitions in many
+formats (see below) to an image file. The image file can be compressed
+in the GZIP/BZIP2 formats to save disk space, and split into multiple
+files to be copied on removable floppies (ZIP for example), ... Partitions
+can be saved across the network since version 0.6.0.
+
+Partition Image will only copy data from the used portions of the partition.
+For speed and efficiency, free blocks are not written to the image file.
+This is unlike the 'dd' command, which also copies empty blocks. Partition
+Image also works for large, very full partitions. For example, a full 1 GB
+partition can be compressed with gzip down to 400MB.
+
+This is very useful to save partitions to an image in some cases:
+
+* First you can restore your linux partition if there is a problem (virus,
+file system errors, manipulation error) . When you have a problem, you just
+have to restore the partition, and after 10 minutes, you have the original
+partition. You can write the image to a CD-R if you don't want the image
+to use hard-disk space.
+
+* This utility can be used to install many identical PCs. For example, if
+you buy 50 PCs, with the same hardware, and you want to install the same
+linux systems on all 50 PCs, you will save a lot of time. Indeed, you just
+have to install on the first PC and create an image from it. For the 49
+others, you can use the image file and Partition Image's restore function.
+EOF
