@@ -1,3 +1,161 @@
+2003-09-20 08:53  florin
+
+	* x11/NVIDIA/CONFLICTS: it's no needed anymore
+
+2003-09-20 08:46  florin
+
+	* crypto/mcrypt/DETAILS: Bumped the version from 2.6.3 to 2.6.4. 
+	Fix the dl path, thanks to Dennis Veatch.
+
+2003-09-20 08:34  florin
+
+	* crypto/libmcrypt/DETAILS: fix the dl path, thanks to Dennis
+	Veatch.
+
+2003-09-20 08:17  florin
+
+	* libs/ClanLib/DETAILS: bump version from 0.6.5 to 0.7.4
+
+2003-09-20 03:27  tchan
+
+	* terminal/screen/DETAILS: Version bump to 4.0.1.  Updated md5sum
+	check.	Compiled with gcc-3.2.3 and glibc-2.3.2.
+
+2003-09-20 02:55  watryac04
+
+	* utils/module-init-tools/BUILD: Fixed the problem with moving
+	certain files in /sbin from $file to $file.old Module compiles
+	fine, installs all of its files, and looks good.  /sbin/*mod*.old
+	should only be backup copies of files installed by modutils
+
+2003-09-20 02:26  r0dzilla
+
+	* zbeta/fluxbox-devel/DETAILS: version bump of development version
+	of fluxbox
+
+2003-09-20 02:24  r0dzilla
+
+	* x11-wm/fluxbox/: CONFIGURE, DETAILS: disabled remember patch
+	since its deprecated and no longer supported by author
+
+2003-09-20 02:22  watryac04
+
+	* utils/module-init-tools/BUILD: "Fixed" the BUILD script for
+	module-init-tools.  It gets through compile now, but there's still
+	some work to be done...  It's not moving the symlinked files from
+	modutils in /sbin properly.
+
+2003-09-19 23:01  watryac04
+
+	* games/KBtin/DETAILS: Added KBtin module to the games section. 
+	KBtin is a MUD client, based on the classic tintin, but heavily
+	extended.  Supports regexp on the MUD command line, as well as the
+	ability to run programs from within the MUD client.  There is also
+	reported to be ICQ integration, this is left up to others to
+	discover.
+
+2003-09-19 23:00  r0dzilla
+
+	* x11-wm/fluxbox/CONFIGURE: correcting list of locales/languages
+
+2003-09-19 22:54  r0dzilla
+
+	* x11-wm/fluxbox/CONFIGURE: enabling NLS option again, solved NLS
+	compile errors
+
+2003-09-19 21:44  sofar
+
+	* utils/: lunar/DETAILS, theedge/DETAILS: Contain fixes
+
+2003-09-19 19:27  tchan
+
+	* perl/CPAN/DETAILS: Version bump to 1.76.  For those lunar users
+	that are using "lin CPAN" instead of CPAN to update itself.
+
+2003-09-19 19:04  tchan
+
+	* utils/rcs/: BUILD, DETAILS: Added md5sum check.  Changed BUILD
+	script to use uid operator instead of bin to get this module to
+	compile/install correctly, per Hendrik Visage's request.
+
+2003-09-19 18:21  nestu
+
+	* utils/module-init-tools/DETAILS:  * lunar cache mirror added
+	 * md5 added
+	 * UPDATED changed
+
+2003-09-19 18:19  nestu
+
+	* utils/module-init-tools/BUILD: cleaned the modutil's files
+	management
+
+2003-09-19 17:09  nhudson
+
+	* utils/file/DETAILS: 
+	Apparently I am mistaken
+
+2003-09-19 17:03  nhudson
+
+	* utils/file/DETAILS: 
+	Fixing the md5sum which was wrong tested on 2 boxes and downloaded
+	4 times to test the md5's and its diffrent
+
+2003-09-19 14:53  nestu
+
+	* utils/module-init-tools/DETAILS: Bump version as requested by
+	Dennis Veatch
+
+2003-09-19 14:18  moe
+
+	* x11-utils/nvtv/DEPENDS: boooh! Where is the NVIDIA module?!
+
+2003-09-19 13:58  tchan
+
+	* utils/fbset/DETAILS: Added md5sum check.  Added PSAFE=no.
+
+2003-09-19 13:53  elaine
+
+	* gnome2-core/linc/1.1.1/: BUILD, DEPENDS, DETAILS, POST_INSTALL:
+	Fixing gnome2.4/v.v -- files I forgot to cvs add
+
+2003-09-18 15:31  florin
+
+	* games/xmame/DETAILS: bump version from 0.72.1 to 0.74.1
+
+2003-09-18 14:56  tchan
+
+	* editors/emacs/DETAILS: Added md5sum check.  Our version of emacs
+	was fetched prior to the gnu.org being rooted, I think.  So this
+	version should be okay.
+
+2003-09-18 14:40  tchan
+
+	* x11-apps/xemacs-sumo/DETAILS: Version bump to 2003-08-31.
+
+2003-09-18 14:33  tchan
+
+	* x11-apps/xemacs/DETAILS: Version bump to 21.4.14.  Compiled with
+	gcc-3.2.3, glibc-2.3.2 and openMotif-2.2.2.
+
+2003-09-18 13:26  tchan
+
+	* x11-apps/xemacs-base/DETAILS: Version bump to 1.78 and added
+	md5sum check.
+
+2003-09-18 13:25  tchan
+
+	* libs/openMotif/DETAILS, x11-apps/xemacs-efs/DETAILS: Added md5sum
+	check.
+
+2003-09-18 13:15  moe
+
+	* mail/sylpheed/DETAILS: Bumping sylpheed to 0.9.6 ..
+
+2003-09-18 12:54  tchan
+
+	* video/ffmpeg/DETAILS: Version bump to 0.4.7 from Dem's patch. 
+	Compiled with gcc-3.2.3 and glibc-2.3.2.  Added md5sum check.
+
 2003-09-18 01:18  r0dzilla
 
 	* doc-tools/docbook-xsl/rebuild-docbook-catalog: removed debugging
@@ -2431,132 +2589,4 @@
 	This module is highly specialized and there didn't really seem to
 	be a need for it, but I had it laying around for a long time and
 	csm was asking about it.
-
-2003-08-20 23:00  nhudson
-
-	* web/screem/DETAILS: 
-	Updating screem to new version 0.7.2
-
-2003-08-20 20:10  sofar
-
-	* utils/: lilo/DETAILS, quota/DETAILS: Lilo bump, adding quota.
-
-2003-08-20 18:42  elaine
-
-	* x11-utils/gkrellflynn/DETAILS: Corrected Speeling of PACKAGE to
-	MODULE
-
-2003-08-20 18:22  sofar
-
-	* x11-wm/icewm/DETAILS: Worse then ImageMagick!
-
-2003-08-20 12:43  nhudson
-
-	* x11-apps/gnucash/DETAILS: 
-	Updating gnucash to new version 1.8.5
-
-2003-08-19 22:25  nhudson
-
-	* graphics/gthumb/DETAILS: 
-	Updating gthumb to new version 2.1.5
-
-2003-08-19 22:23  nhudson
-
-	* gnome2-apps/gok/DETAILS: 
-	Updating gok to new version 0.7.13
-
-2003-08-19 21:35  sofar
-
-	* devel/tcl-tk/DETAILS: Bumping version.
-
-2003-08-19 21:17  sofar
-
-	* devel/subversion/DETAILS: New version, thanks Antii
-
-2003-08-19 20:44  sofar
-
-	* x11-wm/icewm/DETAILS: Bumped version.
-
-2003-08-19 19:58  sofar
-
-	* net/ethereal/DETAILS: Gently touched the version.
-
-2003-08-19 18:15  sofar
-
-	* utils/Wine/DETAILS: Wine is early this year due to the hot
-	summer, apparently it will become an excellent Wine-year.
-
-2003-08-19 15:02  tchan
-
-	* news/pan/: DEPENDS, DETAILS: Reverting this module back to the
-	GTK+ version of Pan.  Pan2 is for the GTK+2 version.
-
-2003-08-19 11:27  florin
-
-	* games/tuxkart/BUILD: modifying the data directories for
-	conforming to the LSF, bins in /usr/games, static data in
-	/usr/share/games and variable data in /var/games
-
-2003-08-19 11:16  florin
-
-	* games/crimson/BUILD: modifying the data directories for
-	conforming to the LSF, bins in /usr/games, static data in
-	/usr/share/games and variable data in /var/games
-
-2003-08-19 11:12  florin
-
-	* games/: black-box/BUILD, black-box/DETAILS, bumprace/BUILD,
-	bumprace/DETAILS, bzflag/BUILD, bzflag/DETAILS,
-	castle-combat/BUILD, castle-combat/DETAILS, circuslinux/BUILD,
-	circuslinux/DETAILS, crimson/DETAILS, jumpnbump/BUILD,
-	jumpnbump/DETAILS, jumpnbump-levels/BUILD,
-	jumpnbump-levels/DETAILS, penguin-command/BUILD,
-	penguin-command/DETAILS, rockdodger/BUILD, rockdodger/DETAILS,
-	tuxpuck/BUILD, tuxpuck/DETAILS, xtux/BUILD, xtux/DETAILS: modifying
-	the data directories for conforming to the LSF, bins in /usr/games,
-	static data in /usr/share/games and variable data in /var/games
-
-2003-08-19 04:24  nhudson
-
-	* audio/sound-juicer/: BUILD, DEPENDS, DETAILS: 
-	Adding support for gnomesu to sound-juicer.  Sound-juicer is pretty
-	cool but for some reason it doesnt allow you to run it as user, you
-	have to run it as root or atleast I havent been able to get around
-	using it as root.  So gnomesu will take care of that for you
-	without logging into root
-
-2003-08-19 04:22  nhudson
-
-	* gnome2-apps/gnomesu/: BUILD, DEPENDS, DETAILS: 
-	Adding gnomesu to moonbase
-
-2003-08-19 03:58  nhudson
-
-	* audio/rhythmbox/DETAILS: 
-	Updating rhythmbox to new version 0.5.1
-
-2003-08-19 03:37  r0dzilla
-
-	* news/pan/: DEPENDS, DETAILS: bumped version, added gnet
-	dependency, added md5 SOURCE_VFY line
-
-2003-08-19 03:36  nhudson
-
-	* audio/: libmusicbrainz/DETAILS, sound-juicer/DETAILS: 
-	Updating libmusicbrainz to new version 2.0.2 and sound-juicer which
-	has to be one of the coolest apps for Gnome to new version 0.5.1
-
-2003-08-19 03:30  r0dzilla
-
-	* libs/gnet/DETAILS: added md5 SOURCE_VFY line to DETAILS
-
-2003-08-19 02:12  r0dzilla
-
-	* sql/mysql/DETAILS: corrected SOURCE_URL[0] to point to 4.0 dir
-	instead of 3.23 dir
-
-2003-08-19 02:12  elaine
-
-	* devel/tcl-tk/BUILD: eliminated spurious cp of tcl files over
-	glibc
 
