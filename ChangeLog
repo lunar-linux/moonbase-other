@@ -1,3 +1,99 @@
+2002-11-07 05:17  nhudson
+
+	* video/totem/DETAILS: Updated totem to new version 0.11.0
+	
+2002-11-07 01:38  nhudson
+
+	* gnome2-apps/pkgview/: BUILD, DEPENDS, DETAILS: Added pkgview to moonbase.  Pkgview is a app that tells you what
+	versions you have installed for your Gnome 2 desktop
+	
+2002-11-07 01:12  nhudson
+
+	* x11-wm/hackedbox/: BUILD, DETAILS: Updated hackedbox to new version 0.8.0 and fixed the BUILD script
+	because the options specified are no longer used
+	
+2002-11-07 01:09  nhudson
+
+	* chat/gnomemeeting/BUILD: Fixed a typo that I noticed today as I built this
+	
+2002-11-07 01:08  nhudson
+
+	* gnome2-apps/file-roller/DETAILS, gnome2-extras/metacity/DETAILS: Updating Metacity to version 2.4.1 and Fileroller to version 2.0.4
+	
+2002-11-07 01:06  nhudson
+
+	* filemanagers/rox/DEPENDS: As I was installing this today on a fresh install, it would not build
+	unless gdk-pixbuf and gnome-libs were installed, I added a dependancy
+	gdk-pixbuf to fix this problem
+	
+2002-11-07 01:04  nhudson
+
+	* graphics/gtk+-2/DETAILS: Updating Gtk+-2 to new version 2.0.7
+	
+2002-11-07 01:03  nhudson
+
+	* libs/glib-2/DETAILS: Updating glib-2 to new version 2.0.7
+	
+2002-11-06 21:36  kongar
+
+	* net/iproute2/: BUILD, DETAILS: added docs to iproute2, cosmetic changes
+	
+2002-11-06 20:24  xoritor
+
+	* net/iproute2/: BUILD, DETAILS: Adding iproute2
+	
+2002-11-06 19:50  xoritor
+
+	* security/shorewall/: BUILD, DEPENDS, DETAILS: Adding shorewall firewall.
+	
+2002-11-06 03:40  elaine
+
+	* compilers/gcc/: BUILD, DETAILS, PRE_BUILD: 
+	Changed gcc include directory installation to use cpio instead of tar
+	For reasons I'm not clear on the correct fix, a patch of 'gcc/configure'
+	failed to update 'gcc/Makefile' hence it's done by 'sedit'. The patch
+	is left in place to simplify making it 'correct'
+	
+2002-11-05 23:13  wizfactor
+
+	* archive/par/DETAILS: updated version to 1.1
+	
+2002-11-05 14:34  kongar
+
+	* x11-wm/icewm/BUILD: 
+	various new compiling switches for maximum features.
+	
+2002-11-05 13:26  elaine
+
+	* compilers/gcc/PRE_BUILD: 
+	Removed install patch, on some systems it causes headerfiles not to install
+	
+2002-11-05 07:28  kongar
+
+	* web/webmin/DETAILS: upgraded to 1.030
+	
+2002-11-05 05:36  niki
+
+	* compilers/php/CONFIGURE: Changed on request from Richard Pyne <rpyne@kinfolk.org>
+	
+2002-11-05 05:26  niki
+
+	* utils/openldap/: BUILD, DEPENDS: Hopefully I have completed it this time...
+	
+2002-11-04 19:51  elaine
+
+	* compilers/gcc/: DETAILS, PRE_BUILD: 
+	Added Florin Braescu's install patch changing the broken tar-install for
+	alternate cp install -- patch source on cache server
+	
+2002-11-04 18:48  tiomo
+
+	* web/quanta3/: BUILD, CONFLICTS, DEPENDS, DETAILS: quanta 3.0 for kde3
+	
+2002-11-04 13:48  kongar
+
+	* utils/Wine/DETAILS: upgraded to 20021031
+	
 2002-11-04 03:22  kc8apf
 
 	* x11-utils/gkrellkam2/: BUILD, DEPENDS, DETAILS: Add gkrellkam2
@@ -148,58 +244,4 @@
 
 	* chat/gnomemeeting/: BUILD, DEPENDS, DETAILS, PRE_BUILD: 
 	Added GnomeMeeting to moonbase, GnomeMeeting is a video confrencing application like NetMeeting.
-	
-2002-10-27 11:59  kongar
-
-	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS,
-	alsa-utils/DETAILS: upgraded to 0.9.0rc5
-	
-2002-10-27 10:46  kongar
-
-	* ftp/curl/DETAILS: upgraded to 7.10.1
-	
-2002-10-27 10:35  kongar
-
-	* video/xawtv/DETAILS: upgraded to 3.77
-	
-2002-10-27 07:09  kongar
-
-	* crypto/gnupg/DETAILS: upgraded to 1.2.1
-	
-2002-10-27 06:52  kongar
-
-	* utils/reiserfsprogs/DETAILS: upgraded to 3.6.4
-	
-2002-10-27 06:52  kongar
-
-	* filemanagers/worker/DETAILS: upgraded to 2.7.0
-	
-2002-10-27 01:35  dem
-
-	* gnome/: gnome-libs/DEPENDS, gnome-libs/POST_INSTALL,
-	gdk-pixbuf/DEPENDS: Fixing depends
-	
-2002-10-26 03:33  kc8apf
-
-	* net/gnaughty/: DEPENDS, DETAILS: Just cause
-	
-2002-10-25 12:40  kongar
-
-	* video/MPlayer/DETAILS: upgraded to 0.90pre9
-	
-2002-10-25 08:24  kongar
-
-	* ftp/: dc_gui/DETAILS, dctc/DETAILS: upgraded
-	
-2002-10-25 08:15  kongar
-
-	* libs/fltk/DETAILS: upgraded to 1.1.1
-	
-2002-10-25 05:11  kongar
-
-	* web/apache-mod_ssl/DETAILS: upgraded to pache-mod_ssl-2.8.12-1.3.27
-	
-2002-10-25 04:22  kongar
-
-	* net/netdude/DETAILS: upgraded to 0.3.2
 	
