@@ -1,7 +1,7 @@
-
 ( 
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
+  OPTS="$OPTS --enable-application=mail"
   OPTS="$OPTS --disable-mathml"
   OPTS="$OPTS --disable-installer"
   OPTS="$OPTS --disable-activex"
@@ -10,14 +10,14 @@
   OPTS="$OPTS --disable-oji"
   OPTS="$OPTS --disable-necko-disk-cache"
   OPTS="$OPTS --disable-profilesharing --enable-single-profile"
-  OPTS="$OPTS --enable-extensions=wallet,spellcheck,-irc"
+  OPTS="$OPTS --enable-extensions=wallet,spellcheck,xmlextras,webservices,-irc,-venkman"
   OPTS="$OPTS --enable-necko-protocols=http,file,jar,viewsource,res,data"
-  OPTS="$OPTS --enable-image-decoders=png,gif,jpeg"
+  OPTS="$OPTS --enable-image-decoders=default,-xbm"
   
   export MOZ_THUNDERBIRD=1
+  export BUILD_OFFICIAL=1
+  export MOZ_CO_PROJECT=mail
 
-  echo "$OPTS" > /tmp/mozz
-  
     ./configure \
     --prefix=/usr	 \
     --with-x             \
@@ -33,6 +33,7 @@
     --enable-default-toolkit=gtk2  \
     --with-gtk2          \
     --enable-crypto      \
+    --enable-optimize	 \
     $OPTS               &&
               
     default_make
