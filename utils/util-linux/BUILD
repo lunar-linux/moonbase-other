@@ -2,6 +2,7 @@
 
   sedit  "s/HAVE_SLN=no/HAVE_SLN=yes/"   MCONFIG &&
   sedit  "s/\$(OPT)//"                   MCONFIG &&
+  sedit  "s,linux/raw.h,sys/raw.h,"      disk-utils/raw.c &&
 
  ./configure  --build=$BUILD                  \
               --prefix=/usr                   &&
