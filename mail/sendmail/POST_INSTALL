@@ -1,16 +1,16 @@
-# initialize the database, should not croak
-touch /etc/mail/local-host-names
-touch /etc/mail/aliases
-    
-if [ -f /etc/mail/aliases ] ; then
-  newaliases
-fi
-if [ -f /etc/mail/virtusers ] ; then
-  makemap hash /etc/mail/virtusers.db < /etc/mail/virtusers
-fi
-if [ -f /etc/mail/genericstable ] ; then
-  makemap hash /etc/mail/genericstable.db < /etc/mail/genericstable
-fi
-if [ -f /etc/mail/access ] ; then
-  makemap hash /etc/mail/access.db < /etc/mail/access
-fi
+if [ ! -f /etc/mail/local-host-names ] ; then
+  touch /etc/mail/local-host-names
+fi  &&
+if [ ! -f /etc/mail/aliases ] ; then
+  touch /etc/mail/aliases
+fi  &&
+if [ ! -f /etc/mail/sendmail.mc ] ; then
+  install -m 0640 -g mail -o root $SOURCE_DIRECTORY/cf/cf/sendmail.mc /etc/mail/
+  ( cd /etc/mail && make sendmail.cf )
+fi  &&
+if [ ! -f /etc/mail/submit.mc ] ; then
+  install -m 0640 -g mail -o root $SOURCE_DIRECTORY/cf/cf/submit.mc /etc/mail/
+  ( cd /etc/mail && make submit.cf )
+fi  &&
+( cd /etc/mail && make all )
+
