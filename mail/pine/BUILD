@@ -14,7 +14,7 @@
     mkdir $SOURCE_DIRECTORY/ldap
     ln -s /usr/lib $SOURCE_DIRECTORY/ldap/libraries
     ln -s /usr/include $SOURCE_DIRECTORY/ldap/include
-    patch_it $SOURCE_CACHE/$SOURCE2 0
+    sedit "s;L1=\"'LDAPLIBS=../ldap/libraries/libldap.a ../ldap/libraries/liblber.a'\";L1=\"'LDAPLIBS=../ldap/libraries/liblber.so ../ldap/libraries/libldap.so'\";" build
   fi
 
   ./build $TARGET DEBUG="$CFLAGS" $OPTS &&
