@@ -129,3 +129,9 @@ if  ! grep -q "STRIP_TEST"  $MODULE_CONFIG; then
   fi
 fi
 
+if ! module_installed j2sdk; then
+   if query "Install j2sdk for Java support? " y; then 
+       lin j2sdk
+   fi
+fi
+
