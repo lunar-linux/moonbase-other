@@ -1,0 +1,17 @@
+# default: on
+# description: FAM is a file monitoring daemon. It can \
+# be used to get reports when files change.
+service sgi_fam
+{
+	disable	= no
+        type         = RPC UNLISTED
+        socket_type  = stream
+        user         = root
+        group        = nobody
+        server       = /usr/bin/fam
+        wait         = yes
+        protocol     = tcp
+        rpc_version  = 2
+        rpc_number   = 391002
+        bind         = 127.0.0.1
+}
