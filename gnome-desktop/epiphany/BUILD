@@ -1,13 +1,13 @@
 (
 
-   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
+   ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
                 --localstatedir=/var              \
-                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+                --infodir=${GNOME210_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
+		--with-mozilla=firefox		  \
                 $OPTS                             &&
-    default_make                                  &&
-    cp $SCRIPT_DIRECTORY/epiphany /usr/bin        
+    default_make                   
 
 ) > $C_FIFO 2>&1

@@ -13,12 +13,12 @@
  LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
  
  ./configure   --build=$BUILD                                        \
-               --prefix=${GNOME26_PREFIX:-/usr}                      \
+               --prefix=${GNOME210_PREFIX:-/usr}                      \
                --with-xinerama=yes				     \
                --sysconfdir=/etc/X11                                 \
                --localstatedir=/var                                  \
-               --infodir=${GNOME26_PREFIX:-/usr}/share/info 	     \
-               --mandir=${GNOME26_PREFIX:-/usr}/share/man            \
+               --infodir=${GNOME210_PREFIX:-/usr}/share/info 	     \
+               --mandir=${GNOME210_PREFIX:-/usr}/share/man            \
                $OPTS                                                 &&
 
  sedit 's#$(LINK)#$(LINK) $(LIBS)#' daemon/Makefile                  &&

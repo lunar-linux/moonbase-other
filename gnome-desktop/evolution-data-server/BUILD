@@ -4,8 +4,8 @@
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
                 --localstatedir=/var              \
-                --infodir=${GNOME28_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME28_PREFIX:-/usr}/share/man   \
+                --infodir=${GNOME210_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
                 $OPTS                             &&
     default_make                   
 
