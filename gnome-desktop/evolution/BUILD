@@ -20,10 +20,6 @@
   # tweaks I needed to get it up:
   if ! grep -q '/usr/lib/bonobo/servers' /etc/bonobo-activation/bonobo-activation-config.xml ; then
     sedit "s:<searchpath>:<searchpath>\n\t<item>/usr/lib/bonobo/servers</item>:" /etc/bonobo-activation/bonobo-activation-config.xml
-  fi								&&
-  
-  if [ ! -e /usr/lib/libgal-2.0.so.2 ] ; then
-    ln -s libgal-2.0.so.3 /usr/lib/libgal-2.0.so.2
   fi
 
 ) > $C_FIFO 2>&1
