@@ -5,8 +5,7 @@
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
   export USER=nobody
 
+  OPTS="$OPTS --enable-xinerama"
   default_cvs_build
-
-  install -m0755 build_icon.sh $MODULE_PREFIX/bin
 
 ) > $C_FIFO 2>&1
