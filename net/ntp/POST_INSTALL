@@ -1,6 +1,7 @@
-if ! grep -q server /etc/ntp.conf; then
+if [ ! -e /etc/ntp.conf ]; then
+  if ! grep -q server /etc/ntp.conf; then
 
-  SRV_LIST="time.nrc.ca \
+    SRV_LIST="time.nrc.ca \
 timelord.uregina.ca \
 ntp.tuxfamily.net \
 ntp1.tuxfamily.net \
@@ -33,20 +34,20 @@ ntp2.gbg.netnod.se \
 ntp1.mmo.netnod.se \
 ntp2.mmo.netnod.se"
 
-  if which ping >/dev/null 2>&1; then
-    echo -n "Checking for low ping ntp servers:"  
-    for srv in $SRV_LIST; do
-      roundtrip=`ping -c 2 $srv | grep round-trip | sed -re 's%.*= *[0-9\.]+/([0-9\.]+)/.*%\1%'`
-      echo "$roundtrip $srv"
-    done | sort -n -t ' ' -k 1 | head -n 5 | while read roundtrip srv; do
-      echo -n " $srv($roundtrip ms)"
-      echo "server $srv" >> /etc/ntp.conf
-    done
-  else
-    echo "Unable to check for lowest ping ntp servers, adding all"
-    for srv in $SRV_LIST; do
-      echo "server $srv" >> /etc/ntp.conf
-    done
+    if which ping >/dev/null 2>&1; then
+      echo -n "Checking for low ping ntp servers:"  
+      for srv in $SRV_LIST; do
+        roundtrip=`ping -c 2 $srv | grep round-trip | sed -re 's%.*= *[0-9\.]+/([0-9\.]+)/.*%\1%'`
+        echo "$roundtrip $srv"
+      done | sort -n -t ' ' -k 1 | head -n 5 | while read roundtrip srv; do
+        echo -n " $srv($roundtrip ms)"
+        echo "server $srv" >> /etc/ntp.conf
+      done
+    else
+      echo "Unable to check for lowest ping ntp servers, adding all"
+      for srv in $SRV_LIST; do
+        echo "server $srv" >> /etc/ntp.conf
+      done
+    fi
   fi
-
 fi
