@@ -1,0 +1,19 @@
+        MODULE=udev
+       VERSION=012
+        SOURCE=$MODULE-$VERSION.tar.bz2
+    SOURCE_URL=http://www.kernel.org/pub/linux/utils/kernel/hotplug/$MODULE-$VERSION.tar.bz2
+    SOURCE_VFY=md5:67868d5f8166b51cc63976b7f509f01f
+      WEB_SITE=http://www.kernel.org/pub/linux/utils/kernel/hotplug/
+       ENTERED=20040104
+       UPDATED=20040104
+         SHORT="Device naming from userspace for 2.6+ kernels"
+cat << EOF
+Future substitute of devfs in 2.6+ kernels. udev's goals:
+* run in userspace
+* create a dynamic /dev
+* allow everyone to not care about major/minor numbers
+* provide LSB standard names
+* provide consistent device naming if wanted
+* handles /sbin/hotplug call
+* provides protection for "out of order" invocations
+<< EOF
