@@ -1,7 +1,7 @@
 (
 	if [ $WITH_LEGACY ]; then
 	
-	  echo "Disabling legacy firmware loading ..."
+	  message "Enabling legacy firmware loading ..."
 	  sedit "s:# CONFIG_IPW2100_LEGACY_FW_LOAD=y:CONFIG_IPW2100_LEGACY_FW_LOAD=y:" Makefile
 	
 	fi
