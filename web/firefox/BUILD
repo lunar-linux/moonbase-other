@@ -2,7 +2,7 @@
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
   OPTS="$OPTS --enable-strip --enable-strip-libs"
-  OPTS="$OPTS --enable--application=browser"
+  OPTS="$OPTS --enable-application=browser"
   OPTS="$OPTS --with-system-zlib --with-system-png --with-system-jpeg"
   OPTS="$OPTS --disable-mathml"
   OPTS="$OPTS --disable-accessibility"
