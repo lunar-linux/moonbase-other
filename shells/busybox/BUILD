@@ -1,13 +1,10 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-
-  sedit "s/DOLFS = false/DOLFS = true/" Makefile
-
-  make || exit 1
-
+  make dep &&
+  make &&
   prepare_install &&
-  cp busybox $TARGET_DIR/bin || exit 1
+  cp busybox /bin &&
+  cp docs/BusyBox.1 /usr/share/man/man1/busybox.1
 
 ) > $C_FIFO 2>&1
 
