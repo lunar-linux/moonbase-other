@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Startup script for dbus
+#
+# chkconfig: 345 97 03
+# description: This is a daemon which broadcasts notifications of system events \
+#               and other messages. See http://www.freedesktop.org/software/dbus/
+# processname: dbus-daemon-1
+# pidfile: /var/run/messagebus.pid
+# sigreload: HUP
+
+ARGS="--fork --system"
+
+. /lib/lsb/init-functions $1
