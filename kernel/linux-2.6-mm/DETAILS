@@ -1,17 +1,21 @@
           MODULE=linux-2.6-mm
   KERNEL_VERSION=2.6.10
-      MM_VERSION=mm3
-         VERSION=${KERNEL_VERSION}-${MM_VERSION}
+      RC_VERSION=2.6.11-rc1
+      MM_VERSION=mm1
+         VERSION=${RC_VERSION}-${MM_VERSION}
           SOURCE=linux-${KERNEL_VERSION}.tar.bz2
-         SOURCE2=${VERSION}.bz2
+         SOURCE2=patch-${RC_VERSION}.bz2
+         SOURCE3=${VERSION}.bz2
    SOURCE_URL[0]=${KERNEL_URL}/pub/linux/kernel/v2.6/
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
-     SOURCE2_URL=ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/${KERNEL_VERSION}/${VERSION}/
+     SOURCE2_URL=http://www.kernel.org/pub/linux/kernel/v2.6/testing/
+     SOURCE3_URL=ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/${RC_VERSION}/${VERSION}/
       SOURCE_VFY=sha1:3c83791c20f9a397b287825a9a5984010a07e711
-     SOURCE2_VFY=sha1:f56ffae9f4aa808eb05cd1ca3814bbc69e27fb49
+     SOURCE2_VFY=sha1:61fc798fc5ec92d9ef80f61f1139087140a0c8f8
+     SOURCE3_VFY=sha1:216a9a3afab5b33f1741a4f3f553a235cdcd43ad
         WEB_SITE=http://www.kernel.org
          ENTERED=20041013
-         UPDATED=20050112
+         UPDATED=20050114
            SHORT="2.6 kernel with Andrew Morton's latest test patches."
 cat << EOF
 The -mm patches are a set of patches, released by Andrew Morton, against the 
