@@ -1,0 +1,5 @@
+# NOTE: this POST_INSTALL can go away after a reasonable time. 
+# Once we're sure every lunar user is converted over to Python-2.3
+if [ -d /usr/lib/python2.2/site-packages ]; then
+  cp -a /usr/lib/python2.2/site-packages/* /usr/lib/python2.3/site-packages
+fi
