@@ -1,3 +1,78 @@
+2004-11-04 11:48  sofar
+
+	* devel/ftnchek/DETAILS: ftnchek is a fortran syntax checker
+
+2004-11-04 10:56  sofar
+
+	* utils/lunar-tools/DETAILS: Yup indeed I didn't commit
+
+2004-11-04 09:33  sofar
+
+	* utils/: lunar/DETAILS, theedge/DETAILS: Bumping UPDATED on these
+	  as this will be required as moonbase changes are made later on.
+
+2004-11-04 08:46  sofar
+
+	* perl/perl/CONFIGURE: Strip down the message as it is clear anough
+	  what is the default
+
+2004-11-04 01:51  florin
+
+	* ftp/lftp/DETAILS: bump the version from 3.0.10 to 3.0.11.
+
+2004-11-04 01:08  florin
+
+	* kde3-apps/kmymoney2/DETAILS: bump the version from 0.6.3 to
+	  0.6.4.
+
+2004-11-03 22:18  sofar
+
+	* sql/mysql/BUILD: Hmmm this is needed? weird. Fresh install... can
+	  anyone tell my what the de/in-voke-installwatch is doing here?
+
+2004-11-03 22:08  sofar
+
+	* compilers/gcc/: BUILD, DETAILS, PRE_BUILD: Cleaning this up: you
+	  should never directly use '/usr/src' and BUILD can perfectly be
+	  WITHIN the buildroot without hacks.
+
+2004-11-03 22:04  sofar
+
+	* crypto/openssl/POST_INSTALL: This ended up in / which is not the
+	  right place. The Makefile should be known to people by now.
+	  /etc/ssl/certs is *the* location for certificates.
+
+2004-11-03 21:38  jol
+
+	* audio/speex/DETAILS: Bumped version to 1.1.6
+
+2004-11-03 20:07  nhudson
+
+	* zbeta/evolution-data-server-beta/DETAILS:
+	  Adding SOURCE_DIRECTORY to DETAILS file
+
+2004-11-03 19:35  florin
+
+	* devel/xxdiff/: BUILD, DETAILS: bump the version from 2.9.2 to
+	  3.0.3.
+
+2004-11-03 19:13  florin
+
+	* devel/tmake/DETAILS: bump the version from 1.8 to 1.13.
+
+2004-11-03 17:29  nestu
+
+	* chat/amsn/DEPENDS: adding a runtime depend on tk
+
+2004-11-03 16:21  nestu
+
+	* chat/amsn/DETAILS: d'oh! add the sha
+
+2004-11-03 16:18  nestu
+
+	* chat/amsn/: BUILD, DEPENDS, DETAILS: First inclulde. No compile
+	  needed, so no gcc, glibc, headers defined here :)
+
 2004-11-03 12:29  florin
 
 	* libs/libsigc++2/DETAILS: bump the version from 2.0.3 to 2.0.6.
@@ -3030,46 +3105,4 @@
 	  right, also updating the version to 6.8.1.  Hopefully a few more
 	  tests and everything will be good to go to change this to update
 	  the XOrg module
-
-2004-10-04 23:33  v3rt1g0
-
-	* games/fortune-meanwhile-in-lunar/DETAILS: 'bout that time.
-	  Converted over to a date based version scheme... much better.  We
-	  are up to about 60 quotes. YaY us :o)
-
-2004-10-04 19:14  florin
-
-	* mail/bogofilter/DETAILS: bump the version from 0.92.4 to 0.92.7.
-
-2004-10-04 18:53  florin
-
-	* games/prboom/DETAILS: bump the version from 2.2.5 to 2.2.6.
-
-2004-10-04 18:19  florin
-
-	* libs/allegro/DETAILS: bump the version from 4.1.12 to 4.1.16.
-
-2004-10-04 04:20  v3rt1g0
-
-	* audio/lame/: BUILD, DEPENDS: There we go :o)	Added missing
-	  depends.  Also added a build file to take advantage of some
-	  features we were missing out on.
-
-2004-10-04 04:19  v3rt1g0
-
-	* audio/lame/DETAILS: doh, forgot to add the new files... brb
-
-2004-10-04 03:25  nhudson
-
-	* zbeta/XOrg-test/BUILD:
-	  Fixing the DRI/DRM build and install locations
-
-2004-10-04 03:05  nhudson
-
-	* zbeta/XOrg-test/: BUILD, CONFIGURE:
-	  Removing the CONFIGURE script for now, as its not needed it looks
-	  anymore.  Also adding some stuff to the host.def file so that it
-	  will build some extra options.  Testing out to see if fontconfig
-	  from XOrg will work ok by itself so that we will not have any
-	  more problems with the fontconfig module
 
