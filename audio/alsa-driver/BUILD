@@ -1,23 +1,23 @@
 (
 
-# Look for sound support in kernel
-CONFIG_SOUND=$(grep "CONFIG_SOUND=" "${CONFIG_CACHE}/.config") &&
+  # Look for sound support in kernel
+  CONFIG_SOUND=$(grep "CONFIG_SOUND=" "${CONFIG_CACHE}/.config") &&
 
-#There a case or two that this could be "problematic"
-#So let's just "force it our way" :)
-#hvisage
+  #There a case or two that this could be "problematic"
+  #So let's just "force it our way" :)
+  #hvisage
   sedit "s/etc\/rc.d/etc/" Makefile
   # the following change is required to build rc3
   rm -f include/linux/isapnp.h               &&
 
-# Load soundcore if needed, fail if no sound support found
+  # Load soundcore if needed, fail if no sound support found
   case "${CONFIG_SOUND#*=}" in
       m)  modprobe soundcore ;;
       y)  true ;;
       *)  echo "*** No sound support found in kernel ***"; false ;;
   esac                                       &&
 
-# Correct the path to awk which is hardcoded in a script
+  # Correct the path to awk which is hardcoded in a script
   sedit "s:/usr/bin/awk:/bin/awk:" utils/convert_isapnp_ids
 
   ./configure  --prefix=/usr                 \
