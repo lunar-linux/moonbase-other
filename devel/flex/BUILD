@@ -1,5 +1,5 @@
 (
-  cat $SCRIPT_DIRECTORY/flex-2.5.4a-redhat-fixes.patch | patch -p1
+
   sedit "s/mandir = \$(prefix)\/man/mandir = \$(prefix)\/share\/man/" Makefile.in
   ./configure  --build=$BUILD  \
                --prefix=/usr   \
