@@ -15,7 +15,17 @@ optional_depends  "alsa-utils"     \
                   ""               \
                   ""               \
                   "for ALSA sound support"             &&
-		  
+
+optional_depends  "MPlayer-qt"     \
+                  ""               \
+		  ""               \
+		  "for QuickTime support"              &&
+
+optional_depends  "MPlayer-rm"     \
+                  ""               \
+		  ""               \
+		  "For RealMedia support"              &&
+
 case  $GUI  in
   y|Y|j|J)  depends  libpng  &&
             depends  gtk+

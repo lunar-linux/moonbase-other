@@ -1,26 +1,28 @@
-if  !  grep  -q  "GUI"  $MODULE_CONFIG;  then
+if ! grep -q "^OPTS=" $MODULE_CONFIG ; then
 
-  if    query  "Enable GUI support?" y
-  then  echo   "GUI=y"  >>  $MODULE_CONFIG
-  else  echo   "GUI=n"  >>  $MODULE_CONFIG
+  if query "Enable GUI support?" y  ; then
+    OPTS=$OPTS" --enable-gui"
   fi
 
-  if    query  "Enable 3DFX Framebuffer support? " n
-      then OPTS=$OPTS" --enable-tdfxfb"
+  if query "Enable 3DFX Framebuffer support? " n ; then
+    OPTS=$OPTS" --enable-tdfxfb"
   fi
 
-  if    query  "Enable Linux devfs support? " n
-      then OPTS=$OPTS" --enable-linux-devfs"
+  if query "Enable Linux devfs support? " n ; then
+    OPTS=$OPTS" --enable-linux-devfs"
   fi
 
-  if    query  "Enable OSD support? " n
-      then OPTS=$OPTS" --enable-menu"
+  if query "Enable OSD support? " n ; then
+    OPTS=$OPTS" --enable-menu"
   fi
 
-  if    query  "Enable Large File support? " n
-      then OPTS=$OPTS" --enable-largefiles"
+  if query "Enable Large File support? " n ; then
+    OPTS=$OPTS" --enable-largefiles"
   fi
 
-   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+  if query "Enable Live support ?" n ; then
+    OPTS=$OPTS" --enable-live"
+  fi      
+
+  echo 'OPTS='\"$OPTS\" >> $MODULE_CONFIG
 fi
