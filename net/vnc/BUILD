@@ -1,10 +1,10 @@
 (
 
-  patch  -p1  <  $SCRIPT_DIRECTORY/vnc.patch
-  xmkmf            &&
-  make  World      &&
+  ./configure      &&
+  make             &&
   cd    Xvnc       &&
-  make  World      &&
+  # somehow the normal CXXFLAGS will fail on the link stage:
+  make  World  BOOTSTRAPCFLAGS="$CFLAGS" CXXFLAGS="" &&
   prepare_install  &&
   cd    ..         &&
   ./vncinstall   /usr/bin              &&
@@ -12,6 +12,3 @@
   cp  classes/*  /usr/bin/vnc.classes
 
 ) > $C_FIFO 2>&1
-
-
-
