@@ -1,10 +1,16 @@
 (
 
   bad_flags -malign-double
-
-  # this is vitally important here:
-  export PATH=/bin:/usr/bin
+ 
+  # We really want this
+  OPTS="$OPTS --enable-largefile"
   
+  if [ ! -z $WITH_NLS ]; then
+    OPTS="$OPTS --enable-nls"
+  else
+    OPTS="$OPTS --disable-nls"
+  fi
+
   DEFAULT_POSIX2_VERSION=199209 default_build &&
   
   (
