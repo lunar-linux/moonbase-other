@@ -1,20 +1,13 @@
 (
 
-  devoke_installwatch &&
-  export CFLAGS= &&
-  export POSTINSTALL=NO &&
-
   ./configure --prefix=/usr \
               --sysconfdir=/etc \
 	      --localstatedir=/var \
               --mandir=/usr/share/man \
 	      --with-userid=lp \
 	      --with-groupid=lp &&
-  make &&
-  prepare_install     &&
-  invoke_installwatch &&
-  make install &&
-  
+  default_make  &&
+
   mkdir -p /usr/share/doc/lprng &&
   cp $SOURCE_DIRECTORY/printcap /usr/share/doc/lprng/ &&
   cp $SOURCE_DIRECTORY/lpd.conf /usr/share/doc/lprng/ &&
