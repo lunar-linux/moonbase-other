@@ -1,13 +1,14 @@
           MODULE=arch
-         VERSION=1.2.1
-          SOURCE=tla-$VERSION.tar.bz2
+         VERSION=1.3
+          SOURCE=tla-${VERSION}.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/tla-${VERSION}
-   SOURCE_URL[0]=http://release.gnuarch.org/tla-1.2/$VERSION/
-#  SOURCE_URL[1]=ftp://ftp.gnu.org/gnu/gnu-arch/
-      SOURCE_VFY=md5:86934fe28bb925d0c60dd119452aad69
+   SOURCE_URL[0]=$GNU_URL/gnu-arch/
+   SOURCE_URL[1]=http://release.gnuarch.org/tla/tla-$VERSION/
+   SOURCE_URL[2]=http://ftp.gnu.org/gnu/gnu-arch/
+      SOURCE_VFY=sha1:1bceae9bc1ce9bc2ef6b2dbcaf02e212f3275632
         WEB_SITE=http://www.gnuarch.org
          ENTERED=20020515
-         UPDATED=20040814
+         UPDATED=20041226
            PSAFE=no
            SHORT="arch is an amazingly cool revision control system"
 cat << EOF
