@@ -1,3 +1,156 @@
+2004-07-07 11:03  sofar
+
+	* mail/squirrelmail/DETAILS: Version bump. Tested
+
+2004-07-07 10:15  nestu
+
+	* filesys/jfsutils/: BUILD, DETAILS: rm the 5 errno sedits from
+	BUILD -no longer needed-, and rm the warning msg about these from
+	DETAILS
+
+2004-07-07 10:08  nestu
+
+	* filesys/jfsutils/DETAILS: Version bump: 1.1.1 -> 1.1.6. md5 added
+	too
+
+2004-07-07 09:50  sofar
+
+	* ftp/vsftpd/CONFIGURE: <niki> hmm... asks the same question 2
+	times :-/ <niki> but different text...
+
+2004-07-07 09:18  jmhodges
+
+	* libs/libgsf/DETAILS: fixing brokenness
+
+2004-07-07 08:51  sofar
+
+	* doc-tools/docbook-3.0/DETAILS, doc-tools/docbook-3.1/DETAILS,
+	doc-tools/docbook-4.1/DETAILS, doc-tools/docbook-dsssl/DETAILS,
+	doc-tools/iso8879-entities/DETAILS, mail/smtpclient/DETAILS,
+	security/cracklib/DETAILS, x11-utils/root-tail/DETAILS: Fix: the
+	cache should never be used as download url and is only for backups
+	(LRESORT). Please refer to http://lunar-linux.org/lunar/mirrors/ as
+	this directory never gets wiped automatically.
+
+2004-07-07 08:35  sofar
+
+	* utils/logrotate/DETAILS: Temp fix: you *MAY NEVER* directly point
+	to the cache !!!
+
+2004-07-07 07:54  sofar
+
+	* distributed/ipvsadm/: BUILD, DEPENDS, DETAILS: Load balancing
+	between machines using the kernel IPVS for network services - this
+	is the administration tool.
+
+2004-07-07 07:42  sofar
+
+	* security/iptables/DETAILS: I forgot to bump this yesterday
+
+2004-07-07 04:50  jmhodges
+
+	* graphics/hicolor-icon-theme/DETAILS: version bump to 0.5, fixes
+	the evo-beta icon issues! yeesh, im starting to wish i was getting
+	paid for this ;)
+
+2004-07-07 04:34  florin
+
+	* distributed/distcc/DETAILS: bump the version from 2.14 to 2.15.
+
+2004-07-06 22:20  jmhodges
+
+	* zbeta/evolution-beta/DETAILS: version bump to 1.5.90
+
+2004-07-06 22:20  jmhodges
+
+	* mail/evolution-data-server/DETAILS: version bump to 0.0.95
+
+2004-07-06 22:19  jmhodges
+
+	* graphics/gthumb/DETAILS: version bump to 2.4.1
+
+2004-07-06 22:14  jmhodges
+
+	* gnome2-core/GConf2/DETAILS: version bump to 2.6.3
+
+2004-07-06 22:14  jmhodges
+
+	* libs/gtkhtml31/DETAILS: version bump to 3.1.17
+
+2004-07-06 22:13  jmhodges
+
+	* libs/gal21/DETAILS: version bump to 2.1.11
+
+2004-07-06 21:22  sofar
+
+	* web/Zope/: BUILD, DEPENDS, DETAILS, POST_INSTALL: Yes, it's a
+	Zope module
+
+2004-07-06 20:10  sofar
+
+	* utils/: lunar/POST_INSTALL, theedge/POST_INSTALL: Shorter,
+	better, best
+
+2004-07-06 19:58  sofar
+
+	* mail/sylpheed/DETAILS: New version
+
+2004-07-06 16:49  watryac04
+
+	* x11/NVIDIA/PRE_BUILD: This has been bugging me for a while. 
+	Remove the source directory if it exists before we try to run the
+	extraction of the NVIDIA sources...  if we don't, and it exists,
+	the extract fails...
+
+2004-07-06 15:59  florin
+
+	* x11-apps/eclipse-bin/DETAILS: bump the version from 2.1.3 to 3.0.
+
+2004-07-06 15:47  sofar
+
+	* mail/thunderbird/: DETAILS, POST_INSTALL: New version!!!
+
+2004-07-06 15:17  florin
+
+	* graphics/gd/DETAILS: bump the version from 2.0.26 to 2.0.27.
+
+2004-07-06 15:09  tchan
+
+	* editors/sed/DETAILS: Version bump to sed-4.1.1.  The sed authors
+	have now fixed the chmod/chown problems they had in execute.c, so
+	"sed -i" is now usable again and sedit in lunar uses that
+	capability.  Compiled/tested with gcc-3.3.3, glibc-2.3.2, kernel
+	headers 2.4.x.	sed-4.1.x also has some other bug fixes over the
+	4.0.9 version.
+
+2004-07-06 15:04  florin
+
+	* libs/libxslt/: BUILD, DETAILS: bump the version from 1.1.7 to
+	1.1.8.
+
+2004-07-06 15:03  florin
+
+	* libs/libxml2/DETAILS: bump the version from 2.6.10 to 2.6.11.
+
+2004-07-06 14:01  sofar
+
+	* utils/cpufreqd/: DETAILS, POST_INSTALL, init.d/cpufreqd: Adding
+	cpufreqd for those that may be able to use it. userspace cpu
+	frequency daemon for powersaving.
+
+2004-07-06 13:28  sofar
+
+	* web/Net-SSLeay/DETAILS: Bumped
+
+2004-07-06 12:29  sofar
+
+	* filemanagers/mrcommander/: DEPENDS, DETAILS: gtk+-2 mc clone...
+	not bad
+
+2004-07-06 12:04  sofar
+
+	* graphics/gtkglext/DETAILS: New version
+
 2004-07-06 11:20  sofar
 
 	* science/pcb/: BUILD, DEPENDS, DETAILS: It's been a while since
@@ -1594,69 +1747,4 @@
 2004-06-07 01:43  jmhodges
 
 	* gnome2-core/gnome-icon-theme/DETAILS: version bump to 1.2.3
-
-2004-06-06 21:13  jmhodges
-
-	* zbeta/evolution-beta/DETAILS: version bump to 1.5.9.1
-
-2004-06-06 19:32  jmhodges
-
-	* mail/evolution-data-server/DETAILS: version bump to 0.0.94
-
-2004-06-06 19:32  jmhodges
-
-	* libs/gtkhtml31/DETAILS: version bump to 3.1.16
-
-2004-06-06 19:09  jmhodges
-
-	* libs/libsoup22/DETAILS: version bump to 2.1.11
-
-2004-06-06 18:53  jmhodges
-
-	* libs/gal21/DETAILS: version bump to 2.1.10
-
-2004-06-06 18:18  tchan
-
-	* chat/gaim/DETAILS: Fixed the UPDATED field for sofar, again.
-
-2004-06-06 17:05  jmhodges
-
-	* doc-tools/uTidylib/: BUILD, DEPENDS, DETAILS: adding uTidylib
-
-2004-06-06 17:03  jmhodges
-
-	* devel/: ctypes/BUILD, ctypes/DEPENDS, ctypes/DETAILS,
-	metakit/DETAILS: adding ctypes
-
-2004-06-06 14:11  sofar
-
-	* chat/gaim/DETAILS: Version bump... upped the opennap patch and
-	verified the blogger api patch too.
-
-2004-06-06 12:30  sofar
-
-	* app-themes/noia-icon-theme/BUILD, audio/ladspa_sdk/BUILD,
-	chat/gaim/BUILD, chat/xaric/BUILD, devel/Pyrex/BUILD,
-	doc-tools/docbook-xsl/BUILD, doc-tools/html2db/BUILD,
-	doc-tools/rdoc/BUILD, editors/eric/BUILD, gnome2-apps/meld/BUILD,
-	gnome2-apps/straw/BUILD, gnome2-extras/gnome2-icons/BUILD,
-	graphics/hicolor-icon-theme/BUILD, libs/ming/BUILD,
-	libs/reportlab/BUILD, mail/amavisd-new/BUILD,
-	net/adns-python/BUILD, net/ipw2100/BUILD, net/pppconfig/BUILD,
-	printer/pdf417_enc/BUILD, utils/buffer/BUILD, utils/hotplug/BUILD,
-	utils/module-init-tools/BUILD, utils/xmltv/BUILD,
-	video/divx4linux/BUILD, x11-apps/bitstream-vera/BUILD,
-	x11-apps/ifp-line/BUILD, x11-apps/ore/BUILD,
-	x11-utils/root-tail/BUILD, zbeta/michael/BUILD,
-	zbeta/prism54/BUILD: None of these had 'prepare_install' or the
-	default_make/build equivalent.
-
-2004-06-06 09:29  florin
-
-	* graphics/ImageMagick/DETAILS: bump the version from 6.0.1-4 to
-	6.0.2.
-
-2004-06-06 05:04  florin
-
-	* games/neverball/BUILD: fix the rebuild.
 
