@@ -1,3 +1,59 @@
+2005-03-11 11:11  nestu
+
+	* kernel/linux-2.6-mm/DETAILS: 2.6.11-mm1 -> 2.6.11-mm2. gcc 3.3.3,
+	  glibc 2.3.2, headers 2.6.10.0
+
+2005-03-11 10:59  nestu
+
+	* filesys/sysfsutils/POST_INSTALL: taking the test for the
+	  directory out, as -p doesn't b0rk if the dir already exists.
+
+2005-03-11 10:28  nestu
+
+	* filesys/sysfsutils/POST_INSTALL: <Moe> nestu: You need to use
+	  mkdir -p /sys and link "/sysfs" to /sys <nestu> AFAIK, the
+	  mountpoint is and has always been /sys <nestu> Moe:  that's so
+	  bloody lame Sorry, coudn't resist. Must be quotting day.
+	  <kelnos>^_~
+
+2005-03-11 09:33  nestu
+
+	* filesys/sysfsutils/POST_INSTALL: Typo. meh, I'm half asleep.
+
+2005-03-11 09:32  nestu
+
+	* filesys/sysfsutils/POST_INSTALL: quotting Richard Pyne:
+	  "suggestion, make the udev module create the /sys directory, it
+	  would have saved me several hours". Voilá.
+
+2005-03-11 07:34  florin
+
+	* utils/Wine/DETAILS: bump the version from 20050211 to 20050310.
+
+2005-03-10 17:44  v3rt1g0
+
+	* zbeta/sylpheed-dev/DETAILS: Version bump.  Buffer overflow fix.
+	  Also fixed some typos in the long description.
+
+2005-03-10 16:13  cmak
+
+	* doc-tools/scrollkeeper/DEPENDS: wtf i deleted docbook-dtd-xml not
+	  xml-i18n-tools! whats wrong with me.. :/
+
+2005-03-10 16:09  cmak
+
+	* doc-tools/scrollkeeper/DEPENDS: its not in the moonbase, so i
+	  think i have no choice...
+
+2005-03-10 14:15  tchan
+
+	* gnome2-extras/libgnomecups/DEPENDS: Oops. I deleted the wrong
+	  depends line.  Fixed it now.
+
+2005-03-10 13:40  florin
+
+	* libs/aqbanking/DEPENDS: add a final newline.
+
 2005-03-10 13:30  tchan
 
 	* gnome2-core/libgnomeprint/DEPENDS,
@@ -2106,73 +2162,4 @@
 2005-02-09 04:40  florin
 
 	* x11-utils/xpad/DETAILS: bump the version from 2.2 to 2.4.
-
-2005-02-08 19:26  florin
-
-	* web/apache2/: BUILD, CONFLICTS, DETAILS: bump the version from
-	  2.0.52 to 2.0.53. bug fixes and two security flaws fixed.
-
-2005-02-08 19:23  florin
-
-	* audio/gstreamer/DETAILS: bump the version from 0.8.8 to 0.8.9.
-
-2005-02-08 18:19  hardkrash
-
-	* libs/pth/DETAILS: inital import of pth the gnu portable threads
-	  library.
-
-	  i am kinda supprised we didnt already have a module for this
-	  already.
-
-	  did i dup a module???
-
-2005-02-08 17:48  florin
-
-	* games/TORCS/: BUILD, DEPENDS, DETAILS: bump the version from
-	  1.2.2 to 1.2.3.
-
-2005-02-08 16:14  tchan
-
-	* ftp/guiftp/DETAILS: Version bump to 0.1. Compiled/tested with
-	  gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2005-02-08 16:05  tchan
-
-	* devel/uml/: .config, DETAILS: Version bump to uml, using 2.4.28
-	  kernel and the uml-patch-2.4.27-1.
-
-2005-02-08 15:41  tchan
-
-	* compilers/fasm/DETAILS: Version bump to fasm-1.57. Source tarball
-	  from the dev's site is now unpacking correctly.
-
-2005-02-08 08:46  florin
-
-	* security/nmap/DETAILS: bump the version from 3.80 to 3.81.
-
-2005-02-08 05:30  florin
-
-	* security/sudo/DETAILS: bump the version from 1.6.8p6 to 1.6.8p7.
-
-2005-02-08 02:37  tchan
-
-	* editors/emacs/: BUILD, DETAILS: Version bump to emacs-21.4.
-	  Updated the BUILD script to use Lunar standards.  Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, XOrg-6.8.1.
-
-2005-02-08 02:12  tchan
-
-	* zbeta/emacs-cvs/DETAILS: Version bump to emacs-cvs-21.4. Changed
-	  the cvs notation as emacs 21.4 is now released. cvs used to say
-	  emacs-cvs-21.3.
-
-2005-02-08 01:57  tchan
-
-	* editors/zile/: BUILD, DETAILS: Version bump to zile-2.0.0.
-	  Hacked the module to use ncurses.  For some reason the brain-dead
-	  zile devs want to use termcap, which conflicts with ncurses AND
-	  ncurses is already installed on lunar boxes.	Patched some
-	  default zile keystrokes to make some more sense as well.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x, ncurses-5.4.
 
