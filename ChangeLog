@@ -1,3 +1,55 @@
+2004-07-22 06:59  florin
+
+	* libs/pygame/: DEPENDS, DETAILS: bump the version from 1.6 to
+	1.6.2.
+
+2004-07-22 06:17  florin
+
+	* libs/ucl/DETAILS: bump the version from 1.02 to 1.03.
+
+2004-07-22 06:01  florin
+
+	* graphics/gd/DETAILS: bump the version from 2.0.27 to 2.0.28.
+
+2004-07-22 02:28  tchan
+
+	* mail/balsa/: DEPENDS, DETAILS: Version bump to 2.2.0.  Major new
+	stable release.  Takes advantage of gnome-2.6 features.  Still
+	seems to work with gnome-2.4 as well.  Compiled and tested with
+	gcc-3.3.3, glibc-2.3.2, kernel headers 2.4.x.
+
+2004-07-22 01:58  tchan
+
+	* mail/gmime/: DEPENDS, DETAILS: Added the gmime module.  This is
+	used by the latest version of the balsa module (2.2.0).  NOTE: this
+	module also provides uudecode and uuencode, so I corrected the
+	uudeview module which was providing symlinks for uudecode and
+	uuencode.
+
+2004-07-22 01:52  tchan
+
+	* mail/uudeview/BUILD: Removed the BUILD script as it is no longer
+	needed.  The only thing the BUILD script provided was symlinks to
+	uudecode -> uudeview and uuencode -> uuenview.	uudecode and
+	uuencode are now also provided by the module gmime.  Also removed
+	the unneeded symlink for the man pages of uudecode and uuencode
+	that pointed to uudeview and uuenview.
+
+2004-07-22 01:40  jmhodges
+
+	* devel/pygtk2/DETAILS: yes im annoyed as well. version bump to
+	2.3.94
+
+2004-07-21 19:53  jol
+
+	* kde3-utils/krusader/DETAILS: Bumped version to 1.40 ChangeLog:
+	too much
+
+2004-07-21 18:47  tchan
+
+	* libs/libcddb/DETAILS: Version bump to 0.9.5. Compiled and tested
+	with gcc-3.3.3, glibc-2.3.2, kernel headers 2.4.x.
+
 2004-07-21 05:57  jmhodges
 
 	* audio/gstreamer/DETAILS: version bump to 0.8.4
@@ -1710,39 +1762,4 @@
 2004-06-22 04:06  florin
 
 	* video/xine-lib/DETAILS: bump the version from 1-rc4 to 1-rc5.
-
-2004-06-21 18:14  jol
-
-	* gnome2-core/gtkmm2/DETAILS: Bumped version to 2.4.3
-
-2004-06-21 18:12  jol
-
-	* devel/glibmm/DETAILS: bumped version to 2.4.3
-
-2004-06-21 13:21  nestu
-
-	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: version bump:
-	2.6.7rc3mm1 -> 2.6.7mm1
-
-2004-06-21 13:14  sofar
-
-	* security/iptables/DETAILS: New version, also bumped patch.
-
-2004-06-21 12:41  sofar
-
-	* mail/sendmail/DETAILS: Version bump. Tested. vendor provided
-	md5sum
-
-2004-06-21 12:22  sofar
-
-	* editors/biew/: BUILD, CONFIGURE, DEPENDS, DETAILS, PRE_BUILD:
-	Weird, not broken at all
-
-2004-06-21 10:29  sofar
-
-	* security/openvpn/DETAILS: New version. Tested and running
-
-2004-06-21 04:52  florin
-
-	* games/xpenguins_themes/BUILD: fix the install location.
 
