@@ -1,8 +1,8 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  # patch_it $SOURCE_CACHE/$SOURCE2 1 &&
  
-  cd $BUILD_DIRECTORY/vim61/src                               &&
+  cd src                                 &&
   
   ./configure  --prefix=/usr             \
                --bindir=/usr/bin         \
@@ -16,8 +16,9 @@
   rm -f /usr/bin/vim /usr/bin/vi         &&
   make                                   &&
   prepare_install                        &&
+  ( find /usr/share/vim -type d -exec rmdir {} \; &> /dev/null || true) &&
   make install                           &&
   ln  -sf  /usr/bin/vim  /usr/bin/vi     &&
-  cp -f $SCRIPT_DIRECTORY/vimrc /usr/share/vim/vim61/sample.vimrc
+  cp -f $SCRIPT_DIRECTORY/vimrc /usr/share/vim/vim${MAJOR}/sample.vimrc
 
 ) > $C_FIFO 2>&1
