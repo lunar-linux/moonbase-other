@@ -7,7 +7,7 @@
 # needed at init time! If you move it you could break your 
 # system!
 unset CC CXX 
-bzcat $SCRIPT_DIRECTORY/ncurses-gcc3.patch.bz2 | patch -p 0
+
 set -x
   ./configure  --build=$BUILD                           \
                --prefix=/usr                            \
