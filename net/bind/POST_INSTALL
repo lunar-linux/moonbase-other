@@ -34,3 +34,20 @@ if [ ! -e /etc/bind/rndc.conf ] ; then
   cp $SOURCE_DIRECTORY/bin/rndc/rndc.conf /etc/rndc.conf.sample
 fi
 
+cat << EOF
+ISC has added a patch to BIND intended to prevent domain registrars from misusing
+'wildcard' or 'synthesized' data. (E.g. Versign's attempt to direct mistyped 
+domains to their own sites by adding wildcard records for .com and .net.
+
+To use this new bind feature for disabling verisign's .com, .net wildcards, add 
+the following zones to a caching or recursive nameserver (/etc/named.conf):
+
+zone "net" {
+  type delegation-only;
+};
+
+zone "com" {
+  type delegation-only;
+};
+EOF
+
