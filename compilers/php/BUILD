@@ -8,10 +8,10 @@
   if [ "$IMAP" == "y" ]; then
      cd $SOURCE_DIRECTORY
      tar zxf $SOURCE_CACHE/$SOURCE2
-     cd imap-2002.RC2
+     cd imap-${IMAP_VERSION}
      make slx
      cd ..
-     OPTS="$OPTS --with-imap=imap-2002.RC2"
+     OPTS="$OPTS --with-imap=imap-${IMAP_VERSION}"
   fi
 
   if module_installed apache2 ; then
