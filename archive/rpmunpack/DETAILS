@@ -1,11 +1,14 @@
            MODULE=rpmunpack
          VERSION=0
           SOURCE=$MODULE.tar.gz
+	 SOURCE2=rpm2cpio
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+SOURCE2_DIRECTORY=$BUILD_DIRECTORY
    SOURCE_URL[0]=http://www.ibiblio.org/pub/Linux/utils/package/$SOURCE
+   SOURCE2_URL[0]=http://www.iagora.com/~espel/rpm2cpio
         WEB_SITE=unknown
          ENTERED=20011017
-         UPDATED=20011017
+         UPDATED=20040317
            SHORT="Program to extract an archive from a RPM file"
 cat << EOF
 This program converts rpm archives to cpio archives for cpio or afio.
