@@ -1,117 +1,101 @@
 (
-    patch -p1 < $SCRIPT_DIRECTORY/mozilla-lunar-home-page.patch
+  EXTENTIONS="--enable-extensions=default,finger"
 
-    if [ "$MAILNEWS" == "n" ] ; then 
-      OPTS="--disable-mailnews"
-    fi
+  STRIP_TEST=$(echo "$LDF" | grep "Strip")
 
-    if [ "$CALENDAR" == "y" ] ; then
-      OPTS="$OPTS --enable-calendar"
-    fi
+  if [ -n "$STRIP_TEST" ] ; then
+    OPTS="$OPTS --enable-strip --enable-strip-libs"
+  fi 
 
-    if [ "$XFT" == "y" ] ; then
-      patch -p1 < $SCRIPT_DIRECTORY/mozilla-ft-bytecode.patch
-      OPTS="$OPTS --enable-xft"
-    fi
+  # I'm considerign Gtk+1 obsolete here
+  if [ "$GTK1" == "y" ] ; then
+    OPTS="$OPTS --enable-toolkit-gtk"
+  else
+    OPTS="$OPTS --enable-default-toolkit=gtk2 --disable-toolkit-gtk"
+  fi 
 
-    if [ "$GTK2" == "y" ] ; then
-      patch -p0 < $SCRIPT_DIRECTORY/gtk2mozilla_head.patch
-      OPTS="$OPTS --disable-toolkit-gtk --enable-default-toolkit=gtk2"
-    fi
+  if [ "$MAIL" == "n" ] ; then
+    OPTS="$OPTS --disable-mailnews"
+  fi
 
-    EXTN="--enable-extensions=default,-xmlextras,-inspector"
+  if [ "$COM" == "n" ] ; then
+    OPTS="$OPTS --disable-composer"
+  fi
 
-    if [ "$IRC" == "n" ] ; then 
-      EXTN="$EXTN,-irc"
-    fi
+  if [ "$CAL" == "y" ] ; then
+    OPTS="$OPTS --enable-calendar"
+  fi
 
-    if [ "$MATHML" == "n" ] ; then
-      OPTS="$OPTS --disable-mathml"
-    fi
+  if [ "$IRC" == "n" ] ; then
+    EXTENTIONS="$EXTENTIONS,-irc"
+  fi  
 
-    if [ "$IP6" == "y" ] ; then
-      OPTS="$OPTS --enable-ipv6"
-    fi
+  if [ "$MATHML" == "n" ] ; then
+    OPTS="$OPTS --disable-mathml"
+  fi
 
-    if [ "$JSD" == "n" ] ; then
-      OPTS="$OPTS --disable-jsd"
-    fi
+  if [ "$SVG" == "y" ] ; then
+    OPTS="$OPTS --enable-svg"
+    export MOZ_INTERNAL_LIBART_LGPL=1
+  fi
 
-    if [ "$XCIN" == "y" ] ; then
-      OPTS="$OPTS --enable-xinerama"
-    fi
+  if [ "$ACC" == "n" ] ; then
+    OPTS="$OPTS --disable-accessibility"
+  fi
 
-    if [ "$CRYPT" == "y" ] ; then
-      OPTS="$OPTS --enable-crypto"
-    fi
+  if [ "$JSD" == "n" ] ; then
+    OPTS="$OPTS --disable-jsd"
+    EXTENTIONS="$EXTENTIONS,-venkman"
+  fi
 
-    if [ "$LDAP" == "n" ] ; then
-      OPTS="$OPTS --disable-ldap"
-    fi
-    
-    OPTS="$OPTS $EXTN"
+  if [ "$INS" == "n" ] ; then
+    EXTENTIONS="$EXTENTIONS,-inspector"
+  fi
 
-  CFLAGS=${CFLAGS//pentium4/pentium3}
-  CFLAGS=${CFLAGS//-msse2/}
-  
-  CXXFLAGS=${CXXFLAGS//pentium4/pentium3}
-  CXXFLAGS=${CXXFLAGS//-msse2/}
- 
-  CCOPT=${CCOPT//pentium4/pentium3}
-  CCOPT=${CCOPT//-msse2/}
+  if [ "$CRYPTO" == "y" ] ; then
+    OPTS="$OPTS --enable-crypto"
+  fi
 
-  COPT=${COPT//pentium4/pentium3}
-  COPT=${COPT//-msse2/}
+  if [ "$XFT" == "y" ] ; then
+    OPTS="$OPTS --enable-xft"
+    export MOZILLA_USE_XFT=1
+  fi
 
-  # Frequent crashes with, no crashes without?
-  CFLAGS=${CFLAGS//-funroll-loops/}
-  CFLAGS=${CFLAGS//-funroll-all-loops/}
-  CXXFLAGS=${CXXFLAGS//-funroll-loops/}
-  CXXFLAGS=${CXXFLAGS//-funroll-all-loops/}
-  CCOPT=${CCOPT//-funroll-loops/}
-  CCOPT=${CCOPT//-funroll-all-loops/}
-  COPT=${COPT//-funroll-loops/}
-  COPT=${COPT//-funroll-all-loops/}
- 
-  export CFLAGS CXXFLAGS CCOPT COPT
+  if [ "$LDAP" == "n" ] ; then
+    OPTS="$OPTS --disable-ldap"
+  fi
 
-  ./configure --prefix=/usr                                     \
-              --with-default-mozilla-five-home=/usr/lib/mozilla \
-              --disable-pedantic                                \
-              --disable-tests                                   \
-              --disable-debug                                   \
-              --disable-dtd-debug                               \
-              --disable-installer                               \
-              --enable-optimize="-w $CFLAGS"                    \
-              --without-jpeg                                    \
-              --enable-old-abi-compat-wrappers                  \
-              --without-zlib                                    \
-              --without-png                                     \
-              --enable-strip                                    \
-              $OPTS					        &&	  
- 
-  # Bleh, leave this alone
-  patch -p0 < $SCRIPT_DIRECTORY/autoconf.mk.patch               &&
+  if [ "$HELP" == "n" ] ; then
+    EXTENTIONS="$EXTENTIONS,-help"
+  fi
 
-  default_make
+  # Neeed for Xft
+  # export PKG_CONFIG_PATH="/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig"
 
-) > $C_FIFO 2>&1  &&  (
+  echo "$OPTS $EXTENTIONS" > /tmp/mozz
 
-   echo bleh
+  # Force Xinerama, it's small as hell and if some one wants to use it, he won't complain of recompiling mozilla
+  ./configure --prefix=/usr							\
+              --with-default-mozilla-five-home=/usr/lib/mozilla-$VERSION	\
+              --sysconfdir=/etc							\
+              --localstatedir=/var						\
+              --infodir=/usr/share/info						\
+              --mandir=/usr/share/man						\
+              --enable-xinerama							\
+              --with-system-jpeg						\
+              --with-system-zlib						\
+              --with-system-png							\
+              --with-system-mng							\
+              --enable-old-abi-compat-wrappers					\
+              --with-pthreads							\
+              --enable-reorder							\
+              --disable-tests							\
+              --disable-installer						\
+              --disable-pedantic						\
+              --disable-debug							\
+              --disable-dtd-debug						\
+              $OPTS								\
+              $EXTENTIONS							&&
 
-#  rm     -f                          /usr/lib/mozilla/component.reg
-#  mkdir  -p                          /usr/lib/mozilla
-#  cp     -rL  dist/bin/*             /usr/lib/mozilla
-#  mkdir  -p                      /usr/include/mozilla
-#  cp	 -rL  dist/include/*     /usr/include/mozilla
-#  cp  $SCRIPT_DIRECTORY/mozilla  /usr/bin
-
-#  export  MOZILLA_FIVE_HOME=/usr/lib/mozilla
-#  export    LD_LIBRARY_PATH=/usr/lib/mozilla:$LD_LIBRARY_PATH
-
-#         /usr/lib/mozilla/regxpcom
-#         /usr/lib/mozilla/regchrome
-#  touch  /usr/lib/mozilla/chrome/user-skins.rdf
-#  touch  /usr/lib/mozilla/chrome/user-locales.rdf
-
-)
+  default_make 
+) > $C_FIFO 2>&1

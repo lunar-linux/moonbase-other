@@ -1,0 +1,13 @@
+(
+  mk_source_dir $SOURCE_DIRECTORY &&
+
+  cd $BUILD_DIRECTORY &&
+  unpack $SOURCE &&
+
+  cd $SOURCE_DIRECTORY &&
+  unpack $SOURCE2 &&
+
+  # Lunar branding
+  patch -p1 < mozilla-$VERSION-lunar/mozilla-lunar-home-page.patch				&&
+  patch -p1 < mozilla-$VERSION-lunar/mozilla-lunar-mail-home-page.patch
+)

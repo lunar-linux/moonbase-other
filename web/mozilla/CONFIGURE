@@ -1,79 +1,120 @@
-if ! grep -q "MAILNEWS" $MODULE_CONFIG; then
- if query "Enable Mail and News Clients?" y
-   then echo "MAILNEWS=y" >> $MODULE_CONFIG
-   else echo "MAILNEWS=n" >> $MODULE_CONFIG
- fi
+if  ! grep -q "MAIL"  $MODULE_CONFIG; then
+  if  query  "Include mozilla mail and news?" y; then
+    echo  "MAIL=y"  >>  $MODULE_CONFIG
+  else
+    echo  "MAIL=n"  >>  $MODULE_CONFIG
+  fi
 fi
 
-if ! grep -q "IRC" $MODULE_CONFIG; then
- if query "Enable IRC client?" n
-   then echo "IRC=y" >> $MODULE_CONFIG
-   else echo "IRC=n" >> $MODULE_CONFIG
- fi
+# In this version we can finaly, not build composer
+if  ! grep -q "COM"  $MODULE_CONFIG; then
+  if  query  "Include mozilla Composer (gui html editing)?" y; then
+    echo  "COM=y"  >>  $MODULE_CONFIG
+  else
+    echo  "COM=n"  >>  $MODULE_CONFIG
+  fi
 fi
 
-# No libical in lunar yet
-# if ! grep -q "CALENDAR" $MODULE_CONFIG; then
-#  if query "Enable Mozilla Calendar?" n
-#    then echo "CALENDAR=y" >> $MODULE_CONFIG
-#    else echo "CALENDAR=n" >> $MODULE_CONFIG
-#  fi
+if  ! grep -q "CAL"  $MODULE_CONFIG; then
+  if  query  "Include mozilla calendar?" n; then
+    echo  "CAL=y"  >>  $MODULE_CONFIG
+  else
+    echo  "CAL=n"  >>  $MODULE_CONFIG
+  fi
+fi
+
+if  ! grep -q "IRC"  $MODULE_CONFIG; then
+  if  query  "Include Chatzilla (mozilla irc client)?" y; then
+    echo  "IRC=y"  >>  $MODULE_CONFIG
+  else
+    echo  "IRC=n"  >>  $MODULE_CONFIG
+  fi
+fi
+
+if  ! grep -q "MATHML"  $MODULE_CONFIG; then
+  if  query  "Include MathML support?" y; then
+    echo  "MATHML=y"  >>  $MODULE_CONFIG
+  else
+    echo  "MATHML=n"  >>  $MODULE_CONFIG
+  fi
+fi
+
+if  ! grep -q "SVG"  $MODULE_CONFIG; then
+  if  query  "Include SVG (Scalabe vector graphics, image format) support?" n; then
+    echo  "SVG=y"  >>  $MODULE_CONFIG
+  else
+    echo  "SVG=n"  >>  $MODULE_CONFIG
+  fi
+fi
+
+if  ! grep -q "ACC"  $MODULE_CONFIG; then
+  if  query  "Include Accesiblity support?" y; then
+    echo  "ACC=y"  >>  $MODULE_CONFIG
+  else
+    echo  "ACC=n"  >>  $MODULE_CONFIG
+  fi
+fi
+
+if  ! grep -q "JSD"  $MODULE_CONFIG; then
+  if  query  "Include JavaScript debugging support?" y; then
+    echo  "JSD=y"  >>  $MODULE_CONFIG
+  else
+    echo  "JSD=n"  >>  $MODULE_CONFIG
+  fi
+fi
+
+if  ! grep -q "INS"  $MODULE_CONFIG; then
+  if  query  "Include mozilla Inspector (html code inspector) support?" y; then
+    echo  "INS=y"  >>  $MODULE_CONFIG
+  else
+    echo  "INS=n"  >>  $MODULE_CONFIG
+  fi
+fi
+
+# Crypto not stock, but we do it default cause people bitch when they don't have htts
+#   and the have to recompile.
+if  ! grep -q "CRYPTO"  $MODULE_CONFIG; then
+  if  query  "Include crypto (htts) support?" y; then
+    echo  "CRYPTO=y"  >>  $MODULE_CONFIG
+  else
+    echo  "CRYPTO=n"  >>  $MODULE_CONFIG
+  fi
+fi
+
+# No Xft2 in lunar
+echo  "XFT=n"  >>  $MODULE_CONFIG
+
+# if  ! grep -q "XFT"  $MODULE_CONFIG; then
+#   if  query  "Include Xft (X client side fonts) support?" n; then
+#     echo  "XFT=y"  >>  $MODULE_CONFIG
+#   else
+#     echo  "XFT=n"  >>  $MODULE_CONFIG
+#   fi
 # fi
 
-echo "CALENDAR=n" >> $MODULE_CONFIG
-
-if ! grep -q "GTK2" $MODULE_CONFIG; then
-  if query "Enable Gtk+2 support?" n
-    then echo "GTK2=y" >> $MODULE_CONFIG
-    else echo "GTK2=n" >> $MODULE_CONFIG
+if  ! grep -q "LDAP"  $MODULE_CONFIG; then
+  if  query  "Include LDAP support?" n; then
+    echo  "LDAP=y"  >>  $MODULE_CONFIG
+  else
+    echo  "LDAP=n"  >>  $MODULE_CONFIG
   fi
 fi
 
-if ! grep -q "XFT" $MODULE_CONFIG; then
-  if query "Enable Xft support?" n
-    then echo "XFT=y" >> $MODULE_CONFIG
-    else echo "XFT=n" >> $MODULE_CONFIG
-  fi
-fi
+# Gtk+2 broken, works but half the stuff won't work, so use at your own risk
+echo  "GTK1=y"  >>  $MODULE_CONFIG
 
-if ! grep -q "MATHML" $MODULE_CONFIG; then
-  if query "Enable MathML support?" y 
-    then echo "MATHML=y" >> $MODULE_CONFIG
-    else echo "MATHML=n" >> $MODULE_CONFIG
-  fi
-fi
+#if  ! grep -q "GTK1"  $MODULE_CONFIG; then
+#  if  query  "Use Gtk+1 insted of gtk+2 (need for galeon 1)?" n; then
+#    echo  "GTK1=y"  >>  $MODULE_CONFIG
+#  else
+#    echo  "GTK1=n"  >>  $MODULE_CONFIG
+#  fi
+#fi
 
-if ! grep -q "IP6" $MODULE_CONFIG; then
-  if query "Enable IPv6 support?" n
-    then echo "IP6=y" >> $MODULE_CONFIG
-    else echo "IP6=n" >> $MODULE_CONFIG
-  fi
-fi
-
-if ! grep -q "JSD" $MODULE_CONFIG; then
-  if query "Enable Java script debugger support?" y 
-    then echo "JSD=y" >> $MODULE_CONFIG
-    else echo "JSD=n" >> $MODULE_CONFIG
-  fi
-fi
-
-if ! grep -q "XCIN" $MODULE_CONFIG; then
-  if query "Enable Xinerama support?" n
-    then echo "XCIN=y" >> $MODULE_CONFIG
-    else echo "XCIN=n" >> $MODULE_CONFIG
-  fi
-fi
-
-if ! grep -q "CRYPT" $MODULE_CONFIG; then
-  if query "Enable Crypto (https) support?" y 
-    then echo "CRYPT=y" >> $MODULE_CONFIG
-    else echo "CRYPT=n" >> $MODULE_CONFIG
-  fi
-fi
-
-if ! grep -q "LDAP" $MODULE_CONFIG; then
-  if query "Enable LDAP support?" y 
-    then echo "LDAP=y" >> $MODULE_CONFIG
-    else echo "LDAP=n" >> $MODULE_CONFIG
+if  ! grep -q "HELP"  $MODULE_CONFIG; then
+  if  query  "Include mozilla Help support?" y; then
+    echo  "HELP=y"  >>  $MODULE_CONFIG
+  else
+    echo  "HELP=n"  >>  $MODULE_CONFIG
   fi
 fi
