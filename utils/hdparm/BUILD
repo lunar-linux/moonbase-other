@@ -1,6 +1,5 @@
 (
-
-  sedit  "s/-O2/$CFLAGS $LDFLAGS/"  Makefile &&
+  sedit 's/^ *CFLAGS *:= *\(.*\) *-O2 *\(.*\)/CFLAGS := \1 \2/' Makefile &&
   make                   &&
   prepare_install        &&
   make  destdir=/usr           \
