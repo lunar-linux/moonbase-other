@@ -1,6 +1,7 @@
 bad_flags -malign-double
 
 OPTS=$OPTS" --bindir=/bin \
+	    --without-bash-malloc \
             --with-installed-readline \
             --with-curses \
             --enable-static-link"
