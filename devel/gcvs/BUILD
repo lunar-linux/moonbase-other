@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
   # Mad l33t hacks! ./configure passes CFLAGS/CXXFLAGS as command line switches o_O
   # configure dont like that!
 
