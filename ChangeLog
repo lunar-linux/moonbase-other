@@ -1,3 +1,50 @@
+2004-03-29 07:48  jmhodges
+
+	* libs/jabberpy/: BUILD, DEPENDS, DETAILS: jabberpy may suck right
+	now but hopefully my continually mailing them with their problems
+	will get it somewhere decent
+
+2004-03-29 04:40  nhudson
+
+	* ftp/gftp/DETAILS: 
+	Updating gftp to new version 2.0.17
+
+2004-03-28 23:30  tchan
+
+	* filesys/: acl/DETAILS, attr/DETAILS, dmapi/DETAILS,
+	xfsdump/DETAILS, xfsprogs/DETAILS: Version bumps to acl, attr,
+	xfsdump, xfsprogs.  md5sum changed on dmapi.  Compiled and tested
+	with gcc-3.3.3, kernel headers 2.4.x.
+
+2004-03-28 19:49  nestu
+
+	* filesys/udev/DEPENDS: udev needs it to query sysfs
+
+2004-03-28 19:08  tchan
+
+	* x11-apps/openoffice-bin/DETAILS: Version bump to 1.1.1 official
+	release.  Downloaded off of several mirrors to make sure its really
+	there.	Works fine.
+
+2004-03-28 18:21  nhudson
+
+	* zbeta/XOrg/: CONFIGURE, DEPENDS: 
+	Minor cleanups that niki pointed out to me.
+
+2004-03-28 16:29  florin
+
+	* kde3-i18n/: kde3-i18n-en_GB/DETAILS, koffice3-i18n-en_GB/DETAILS:
+	fix the SOURCE_DIRECTORY value.
+
+2004-03-28 16:27  florin
+
+	* kde3-i18n/kde3-i18n-en_GB/DETAILS: fix the SOURCEDIR value.
+
+2004-03-28 13:56  elaine
+
+	* net/ntp/POST_INSTALL: removed non-ping-ing servers from candidate
+	list -- need to actually fix the script tho
+
 2004-03-28 09:24  cmak
 
 	* audio/libsamplerate/DETAILS: version bump
@@ -1520,11 +1567,6 @@
 	* gnome2-extras/: gnopernicus/DETAILS, zenity/DEPENDS,
 	zenity/DETAILS: somebodys got some splain to do
 
-2004-03-08 16:14  nhudson
-
-	* graphics/gimp2/DETAILS: 
-	Updating gimp2 to new version 2.0pre4
-
 2004-03-08 16:13  nhudson
 
 	* mail/evolution/DETAILS: 
@@ -2071,110 +2113,4 @@
 
 	* graphics/psiconv/: BUILD, DEPENDS, DETAILS: dump the version from
 	0.8.3 to 0.9.3.
-
-2004-02-27 22:54  striker
-
-	* perl/: Net-RawSock/BUILD, Net-RawSock/DEPENDS,
-	Net-RawSock/DETAILS, NetPacket/BUILD, NetPacket/DEPENDS,
-	NetPacket/DETAILS, perlipq/BUILD, perlipq/DEPENDS, perlipq/DETAILS:
-	Depends for countertrace
-
-2004-02-27 16:39  florin
-
-	* kde3-apps/qcad/: BUILD, DEPENDS, DETAILS: move it from x11-apps
-	dir.
-
-2004-02-27 16:27  florin
-
-	* profiles/kde3/DEPENDS: add kdesdk3 and kdebindings3 modules.
-
-2004-02-27 16:22  florin
-
-	* kde3-utils/kcmpureftpd/: BUILD, DEPENDS, DETAILS: move it from
-	kde3-apps dir.
-
-2004-02-27 16:17  florin
-
-	* kde3-apps/quanta3/: BUILD, DEPENDS, DETAILS: move it from web
-	dir.
-
-2004-02-27 16:12  florin
-
-	* kde3-apps/okle/: BUILD, DEPENDS, DETAILS: move it from video dir.
-
-2004-02-27 16:09  florin
-
-	* kde3-utils/kbiff/: BUILD, DEPENDS, DETAILS: move it from mail
-	dir.
-
-2004-02-27 16:05  florin
-
-	* graphics/digikam/DETAILS: add the md5 sum.
-
-2004-02-27 15:38  florin
-
-	* kde3-utils/krusader/: BUILD, DEPENDS, DETAILS: move it from
-	filemanagers dir.
-
-2004-02-27 15:30  florin
-
-	* kde3-apps/: kcachegrind/BUILD, kcachegrind/DEPENDS,
-	kcachegrind/DETAILS, kdbg/BUILD, kdbg/DEPENDS, kdbg/DETAILS: move
-	it from devel dir.
-
-2004-02-27 15:24  florin
-
-	* kde3-apps/konversation/: BUILD, DEPENDS, DETAILS: move it from
-	chat dir.
-
-2004-02-27 15:22  florin
-
-	* kde3-apps/k3b/: BUILD, DEPENDS, DETAILS: move it from cd dir.
-
-2004-02-27 15:15  florin
-
-	* graphics/digikam/BUILD: fix the BUILD file.
-
-2004-02-27 15:03  florin
-
-	* filesys/submount/DETAILS: bump version from 0.8 to 0.9.
-
-2004-02-27 09:27  sofar
-
-	* mail/sendmail/BUILD: Adding code to allow failure with
-	permissions and chowns, since the box might be part of a nfs/nis
-	network with limited permissions.
-
-2004-02-27 08:36  florin
-
-	* games/kaf/BUILD: fix the BUILD file according to the modifs in
-	qt3.
-
-2004-02-27 07:23  florin
-
-	* kde3/qt3/profile.d/qt3.rc: i forget to put a $ char.
-
-2004-02-27 07:19  florin
-
-	* x11-apps/xscreensaver/DETAILS: bump version from 4.14 to 4.15.
-
-2004-02-27 03:49  nhudson
-
-	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: 
-	Updating gstremaer and gst-plugins to new version 0.7.5
-
-2004-02-27 03:45  nhudson
-
-	* gnome2-core/gnome-media2/BUILD: 
-	Removing the BUILD file as its no longer needed
-
-2004-02-27 03:44  nhudson
-
-	* gnome2-core/: gnome-media2/DETAILS, gnome-terminal/DETAILS: 
-	More updates
-
-2004-02-27 00:18  nhudson
-
-	* doc-tools/gtk-doc/DETAILS: 
-	Reverting gtk-doc for now seems it breaks Gnome 2.4.x modules
 
