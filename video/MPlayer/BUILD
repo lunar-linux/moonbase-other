@@ -1,5 +1,8 @@
 (
 
+  # bloody m*****s, gcc-3.3.3 is good 4u
+  sedit 's:die "Bad gcc version":echo "love and peace!":g' configure
+
   unset CFLAGS
  
   ./configure --prefix=/usr                   \
