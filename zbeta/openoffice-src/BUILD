@@ -1,27 +1,45 @@
+install_dicts ()
+{
+	# unpack the dictionaries
+	for file in $SOURCE_DIRECTORY/ooo-dicts-lunar/*
+	do
+		install -m 644 $file /usr/lib/ooo-1.1/share/dict/ooo/
+	done &&
+	# install the system dictionaries
+	install -m 444 $TMP_DICT_LIST \
+	    /usr/lib/ooo-1.1/share/dict/ooo/dictionary.lst 
+	# strip the cruft? READMES and such?
+} 
+
 (
   cd $SOURCE_DIRECTORY 				&&
 
   if module_installed j2sdk; then
     export OPTS="$OPTS --enable-java --with-jdk-home=/usr/lib/j2sdk1.4.1/"
-  fi   						
+  fi &&  						
 
   if module_installed j2sdk-beta; then
      export OPTS="$OPTS --enable-java --with-jdk-home=/usr/lib/j2sdk1.4.2/"
-  fi                                            
+  fi &&                      
+
+  # set language options in setup.in
+  sedit "/^LANGS=\"\$LANGS/d" bin/setup.in      &&
+  sedit "/^LANGS=/s/\".*\"/\"$SEL_LANGS\"/" bin/setup.in  &&
 
   ./configure	--prefix=/usr 			\
 		--sysconfdir=/etc 		\
                 --with-system-gcc 		\
                 --enable-devel    		\
                 --disable-dependency-tracking   \
+		--with-distro=LUNAR             \
                 --with-icons=gnome              \
                 --with-ccache-allowed           \
 		--with-docdir=/usr/share/OpenOffice.org \
 		--with-tag=OOO_1_1_3_fix2       \
                 --enable-gtk                    \
- 		$OPTS 				&&
-
+		$OPTS 				&&
   default_make   				&&
+  install_dicts                                 &&
 
   cp etc/autoresponse.conf /etc/openoffice 	&&
   cd desktop                               	&&
