@@ -3,6 +3,7 @@ OPTS=$OPTS" --bindir=/bin \
             --with-curses \
             --enable-static-link"
 
+patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 default_config                &&
 make                          &&
 prepare_install            
