@@ -1,0 +1,8 @@
+rm -fr $BOOST_LOCK
+
+if [ $PREV_VERSION -lt 12 ]; then
+  lin -c glibc
+  if module_installed glib-2; then 
+    lin -c glib-2; 
+  fi
+fi

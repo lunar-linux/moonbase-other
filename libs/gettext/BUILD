@@ -1,3 +1,9 @@
+if lvu installed gettext &> /dev/null; then
+  export PREV_VER=`lvu installed gettext | cut -d. -f2`
+else
+  export PREV_VER=0
+fi
+
 (
 
   patch_it $SOURCE_CACHE/$SOURCE2 1       &&
