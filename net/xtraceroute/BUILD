@@ -6,8 +6,8 @@
   make                              &&
 
   cd $SOURCE_DIRECTORY              &&
-  echo CFLAGS:= $CFLAGS
-  echo OPTS:= $OPTS
+  echo CFLAGS:= $CFLAGS             &&
+  echo OPTS:= $OPTS                 &&
   set -x && #Let's show the logs what we've used for debug
   ./configure  --build=$BUILD               \
                --prefix=/usr                \
@@ -19,8 +19,8 @@
   set +x     && ##turn it off so that the logs stay readable
   make                               &&
   prepare_install                    &&
-  make    install
-  mkdir -p /usr/share/$MODULE
+  make    install                    &&
+  mkdir -p /usr/share/$MODULE        &&
   cp host/host /usr/bin/tr_host                     &&
   cp host/host.1 /usr/share/man/man1/tr_host.1      &&
   cp hosts.cache  networks.cache /usr/share/$MODULE
