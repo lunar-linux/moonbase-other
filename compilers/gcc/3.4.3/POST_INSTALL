@@ -6,3 +6,7 @@ if [ ! -e /usr/bin/cc ] ; then
   ln -s gcc /usr/bin/cc
 fi
 
+if ! module_installed libstdc++5 ; then
+  lin -c libstdc++5
+fi
+
