@@ -30,15 +30,21 @@
   mkdir -p /var/spool/clientmqueue  &&
   
   # permissions, permissions, permissions!
-  chown -R root:mail /etc/mail  &&
-  chown mail:mail /var/spool/mail  &&
-  chown root:mail /var/spool/mqueue  &&
-  chown mail:mail /var/spool/clientmqueue  &&
+  (
+    chown -R root:mail /etc/mail  &&
+    chown mail:mail /var/spool/mail  &&
+    chown root:mail /var/spool/mqueue  &&
+    chown mail:mail /var/spool/clientmqueue  ||
+    message "${PROBLEM_COLOR}Warning${DEFAULT_COLOR}${MESSAGE_COLOR}: setting ownerships failed!${DEFAULT_COLOR}"
+  ) &&
  
-  chmod 0750 /etc/mail  &&
-  chmod 1777 /var/spool/mail  &&
-  chmod 0750 /var/spool/mqueue  &&
-  chmod 0770 /var/spool/clientmqueue  &&
+  (
+    chmod 0750 /etc/mail  &&
+    chmod 1777 /var/spool/mail  &&
+    chmod 0750 /var/spool/mqueue  &&
+    chmod 0770 /var/spool/clientmqueue  ||
+  message "${PROBLEM_COLOR}Warning${DEFAULT_COLOR}${MESSAGE_COLOR}: setting permissions failed!${DEFAULT_COLOR}"
+  ) && 
   
   # copy the m4 stuff over:
   mkdir -p /usr/share/sendmail  &&
