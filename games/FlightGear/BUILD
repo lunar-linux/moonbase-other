@@ -1,7 +1,8 @@
 (
 
-  ./configure  --prefix=/usr $OPTS  \
-               --bindir=/usr/games  &&
+  ./configure  --prefix=/usr        \
+               --bindir=/usr/games  \
+	       $OPTS               &&
 	       
   default_build
 
