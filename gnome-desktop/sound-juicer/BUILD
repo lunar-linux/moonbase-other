@@ -1,7 +1,5 @@
 (
 
-   sed -i "s/GST_MAJORMINOR=0.7/GST_MAJORMINOR=0.8/g" configure configure.in &&
-   patch_it $SOURCE_CACHE/$SOURCE3 0              &&
    ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
