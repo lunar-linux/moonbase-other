@@ -24,7 +24,7 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     OPTS="$OPTS --noapm"
   fi
   
-  if query "Enable airsnort patch for orinoco cards?" n; then
+  if query "Enable airsnort patch for orinoco cards?, UNTESTED AND MAY BE VERY BROKEN!" n; then
     echo 'AIRSNORT="y"' >> $MODULE_CONFIG
   fi
 

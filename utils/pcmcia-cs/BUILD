@@ -1,7 +1,7 @@
 (
 
   if [ "$AIRSNORT" == "y" ]; then
-    patch_it $SOURCE_CACHE/$SOURCE2 0
+    patch_it $SOURCE_CACHE/$SOURCE2 1
   fi		   &&
 
   patch_it $SOURCE_CACHE/$SOURCE3 0 &&
