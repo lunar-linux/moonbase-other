@@ -1,7 +1,7 @@
 (
 
   export CC="cc $CFLAGS"
-  patch_it $SOURCE3 0
+  patch_it /var/spool/lunar/$SOURCE3 0
   cd libImaging                     &&
   ./configure     --prefix=/usr      \
                   $OPTS             &&
@@ -10,7 +10,7 @@
   python setup.py build             &&
   prepare_install		                &&
   cd libImaging                     &&
-  cp ImConfig.h ImPlatform.h Imaging.h /usr/include/python2.2  &&
+  cp ImConfig.h ImPlatform.h Imaging.h /usr/include/python2.3  &&
   cd ..                             &&
   python setup.py install           &&
   mkdir -p $DOCUMENT_DIRECTORY/pil  &&
