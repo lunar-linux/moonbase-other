@@ -1,7 +1,7 @@
 (
 
-  prepare_install       &&
-  cd  $BUILD_DIRECTORY  &&
-  cp  -r  $SOURCE_DIRECTORY  /usr/lib
+  prepare_install                     &&
+  mkdir -p /usr/lib/FlightGear        &&
+  cp -avr data/* /usr/lib/FlightGear
 
 ) > $C_FIFO 2>&1
