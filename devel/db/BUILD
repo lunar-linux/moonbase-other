@@ -1,5 +1,5 @@
 (
-  if [ `lvu installed db | cut -d. -f1` == "3" ]; then
+  if [ `lvu installed db | cut -d. -f1` -eq "3" ]; then
     set_module_config OLD_DB y
   fi
 
