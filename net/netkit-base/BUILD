@@ -7,6 +7,31 @@
   sedit "s/^finger/#\0/" etc.sample/inetd.conf
   sedit "s/^ident/#\0/" etc.sample/inetd.conf
   sedit "s/^ntalk/#\0/" etc.sample/inetd.conf
+  mv etc.sample/ftpusers etc.sample/ftpusers.orig
+  cat > etc.sample/ftpusers << EOF
+# list of users disallowed any ftp access.
+bin
+bind
+daemon
+ftp
+games
+kmem
+lp
+mail
+man
+news
+nobody
+operator
+pop
+proxy
+root
+sync
+sys
+toor
+tty
+uucp
+#
+EOF
 
   ./configure  --prefix=/usr  &&
   make                        &&
