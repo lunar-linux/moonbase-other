@@ -1,12 +1,14 @@
           MODULE=ettercap
-        VERSION=0.6.6.6
-          SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://ettercap.sourceforge.net/download/$SOURCE
+        VERSION=0.7.0
+          SOURCE=$MODULE-NG-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-NG-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=md5:41eb78c0f047dddbcb81c5444ecbfc96
         WEB_SITE=http://ettercap.sourceforge.net/
          ENTERED=20011110
-         UPDATED=20020622
+         UPDATED=20020708
            SHORT="A multipurpose sniffer for switched LANs."
+
 cat << EOF
 Ettercap is a network sniffer/interceptor/logger for ethernet LANs. 
 It supports active and passive dissection of many protocols (even
