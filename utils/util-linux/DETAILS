@@ -1,5 +1,5 @@
           MODULE=util-linux
-         VERSION=2.12
+         VERSION=2.12a
           SOURCE=$MODULE-$VERSION.tar.gz
 	 SOURCE2=losetup-combined.patch
 	 SOURCE3=util-linux-2.12-kernel-2.6.patch
@@ -9,12 +9,12 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[2]=http://www.kernel.org/pub/linux/utils/$MODULE/$SOURCE
      SOURCE2_URL=http://www.stwing.org/~sluskyb/util-linux/$SOURCE2
      SOURCE3_URL=http://www.ece.cmu.edu/~rholzer/cryptoloop/$SOURCE3
-   SOURCE_VFY[0]=md5:997adf78b98d9d1c5db4f37ea982acff
+   SOURCE_VFY[0]=md5:5fa39c3d8761b48732be137a06853c64 
      SOURCE2_VFY=md5:d45c5888429f47fabfbedff2a86640af
      SOURCE3_VFY=md5:d927611f34139a40f1fc9f4162c61f8a
         WEB_SITE=ftp://ftp.win.tue.nl/pub/linux-local/utils/util-linux
          ENTERED=20010922
-         UPDATED=20030128
+         UPDATED=20030331
            SHORT="util-linux contains essential utilities for any Linux box."
 cat << EOF
 Util-linux is a suite of essential utilities for any Linux system. Its
@@ -22,4 +22,3 @@ primary audience is system integrators and DIY Linux hackers. Util-linux
 is attempting to be portable, but the only platform it has been tested
 much on is Linux i386.
 EOF
-
