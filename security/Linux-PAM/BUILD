@@ -21,7 +21,8 @@ EOF
   sedit  "s/examples//"  Makefile              &&
   sedit  "s/read yes//"     conf/install_conf  &&
   sedit  "s/read yes//"  modules/install_conf  &&
-  sedit  "s/HAVE_LIBCRYPT=no/HAVE_LIBCRYPT=yes/" Make.Rules 
+  sedit  "s/HAVE_LIBCRYPT=no/HAVE_LIBCRYPT=yes/" Make.Rules &&
+  sedit  "s/DYNAMIC=/DYNAMIC=-fPIC /" Make.Rules &&
   make                                         &&
   prepare_install                              &&
   make    install
