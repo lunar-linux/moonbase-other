@@ -4,7 +4,7 @@
                --sysconfdir=/etc                  \
                --localstatedir=/var               \
                --disable-debug                    \
-               --with-qt-dir=/opt/lunar/qt/2      \
+               --with-qt-dir=/opt/lunar/qt/3      \
                $OPTS     &&
   make                   &&
   prepare_install        &&
