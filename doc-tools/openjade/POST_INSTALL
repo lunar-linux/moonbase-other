@@ -14,4 +14,8 @@ fi                                             &&
 /usr/bin/install-catalog --add $centralized $CATALOGDIR/unicode/catalog  &&
 /usr/bin/install-catalog -r $centralized /etc/sgml/catalog &&   
 
+if ! grep -q "/usr/share/sgml/openjade-1.3" $centralized; then
+   /usr/bin/install-catalog -r $centralized /usr/share/sgml/openjade-1.3
+fi
+
 cp $SOURCE_CACHE/$SOURCE3 /usr/share/sgml/$MODULE-$VERSION/contrib/catalog
