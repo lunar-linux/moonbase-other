@@ -8,3 +8,8 @@ else
   echo 'Problem with either License Agreement or j2sdk binary'
   exit 1
 fi
+if [ -x /usr/bin/kinit ] || [ -x /usr/bin/klist ] ; then
+  rm -rf /tmp/krbsave
+  mkdir /tmp/krbsave
+  mv -f /usr/bin/kinit /usr/bin/klist /tmp/krbsave
+fi
