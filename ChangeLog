@@ -1,3 +1,87 @@
+2002-09-26 10:55  kongar
+
+	* gnome2/: gnome-terminal/DETAILS, gnome-utils2/DETAILS,
+	gnome2-user-docs/DETAILS, gtk-doc/DETAILS, gtk-engines2/DETAILS,
+	gtk-thinice-theme2/DETAILS, libgail-gnome/DETAILS, libgda2/DETAILS,
+	libgnomedb/DETAILS: fixed the urls
+	
+2002-09-26 10:47  kongar
+
+	* gnome2/: control-center2/DETAILS, gnome-applets2/DETAILS,
+	gnome-audio2/DETAILS, gnome-games2/DETAILS, gnome-media2/DETAILS,
+	gnome-panel/DETAILS, gnome-session/DETAILS,
+	gnome-system-monitor/DETAILS: fixed the urls
+	
+2002-09-26 10:36  sofar
+
+	* utils/e2fsprogs/init.d/mount: Skip Networked filesystems on boot!
+	
+2002-09-26 06:22  tchan
+
+	* devel/smake/: BUILD, DETAILS: Added Joerg Schilling's smake program to moonbase.  Compiled and tested.
+	Also used smake in Joerg's cdrtools and star to give much cleaner compiles.
+	
+2002-09-26 06:17  tchan
+
+	* cd/cdrtools/: BUILD, DEPENDS: Added the optional_depends smake.  When using smake instead of make, Joerg
+	Schilling's programs compile much cleaner.
+	
+2002-09-26 06:16  tchan
+
+	* archive/star/: BUILD, DEPENDS: Added the optional_depends for smake.  When using smake instead of make,
+	Joerg Schilling's programs compile much cleaner.
+	
+2002-09-26 04:41  tchan
+
+	* mail/fetchmail/BUILD: Fixed the "changing default system directory search order" bug in the
+	Makefile.
+	
+2002-09-26 01:25  dem
+
+	* web/mozilla/: BUILD, CONFIGURE: Mozilla changes
+	
+2002-09-26 01:21  dem
+
+	* ftp/gftp/: BUILD, CONFIGURE:  Gtk+2 support
+	
+2002-09-26 00:11  sofar
+
+	* libs/gmp/: BUILD, DETAILS, gmp-4.1_4.1-4.patch: Adding fix for the famous sawfish crash (needs recompile of sawfish!)
+	
+2002-09-25 21:58  nhudson
+
+	* compilers/: mcs/DETAILS, mono/DETAILS: Updated mono and mcs to version 0.15, tested and is working
+	
+2002-09-25 20:58  nhudson
+
+	* audio/: gst-plugins/BUILD, gst-plugins/DEPENDS,
+	gst-plugins/POST_INSTALL, gstreamer/BUILD: Ok I fixed some files for gstreamer and gst-plugins.  Added C_FIFO to the BUILD
+	scripts of gst-plugins and gstreamer.  Added a message at the end of the build
+	of gst-plugins to tell everyone how to register the plugins as user.  In
+	gst-plugins I added a line to the build script to register the plugins as root
+	user. Also I added mad to the list of Depends for gst-plugins as it is needed
+	
+2002-09-25 20:14  nhudson
+
+	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: Updated gstreamer and gst-plugins to version 0.4.1, tested and is workiing
+	
+2002-09-25 18:18  xoritor
+
+	* security/Linux-PAM/DETAILS: Updated version to 0.77 and added PSAFE=no to DETAILS, disabling parallel builds.
+	
+2002-09-25 18:15  xoritor
+
+	* editors/gawk/DETAILS, printer/ghostscript/DETAILS: Added PSAFE=no to DETAILS, disabling parallel builds.
+	
+2002-09-25 18:09  xoritor
+
+	* utils/textutils/DETAILS, doc-tools/texinfo/DETAILS,
+	libs/glibc/DETAILS, compilers/gcc/DETAILS: Added PSAFE=no to DETAILS, disabling parallel builds.
+	
+2002-09-25 17:30  sofar
+
+	* devel/db4/: POST_BUILD, profile.d/db4.rc: Adding profile.d/rc file for PATH modification to add /usr/bin/db4
+	
 2002-09-25 11:37  kongar
 
 	* web/squid/: BUILD, DEPENDS, DETAILS: 
@@ -538,34 +622,4 @@
 	* chat/: gaim/DETAILS, gaim-applet/DETAILS: 
 	
 	upgraded to 0.59.3
-	
-2002-09-15 20:05  kongar
-
-	* mail/qpopper3/: BUILD, DEPENDS, DETAILS, popper.conf.sample,
-	qpopper3.1.2-mysql-0.11.2.patch.bz2, services, pam.d/pop,
-	xinetd.d/qpopper: 
-	new module, qpopper-3 + mysql patch; perfectly suitable
-	for mysql + exim + qpopper virtual mail system :=D)
-	
-2002-09-15 17:27  kongar
-
-	* filemanagers/endeavour2/DETAILS: upgraded to 2.1.19
-	
-2002-09-15 16:11  kongar
-
-	* devel/cvsfs/: BUILD, DETAILS, cvsfs-1.1.6.patch.bz2: 
-	upgraded to 1.1.7
-	
-	removed the BUILD and the patch, no need anymore
-	
-2002-09-15 16:07  kongar
-
-	* printer/ImageMagick/DETAILS: upgraded to 5.4.9-1
-	
-2002-09-15 15:54  kongar
-
-	* mail/sylpheed/DETAILS: 
-	upgraded to 0.8.3
-	
-	added md5 checksum
 	
