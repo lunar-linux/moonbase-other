@@ -1,3 +1,52 @@
+2004-01-08 08:13  jasper
+
+	* app-themes/gtk-xfce-engine/DETAILS,
+	profiles/xfce4-extras-profile/DETAILS,
+	profiles/xfce4-profile/DETAILS, xfce4/libxfce4mcs/DETAILS,
+	xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/DETAILS,
+	xfce4/xfcalendar/BUILD, xfce4/xfcalendar/DETAILS,
+	xfce4/xfce-mcs-manager/DETAILS, xfce4/xfce-mcs-plugins/DETAILS,
+	xfce4/xfce-utils/DETAILS, xfce4/xfce4-iconbox/DETAILS,
+	xfce4/xfce4-mixer/DETAILS, xfce4/xfce4-panel/DETAILS,
+	xfce4/xfce4-systray/DETAILS, xfce4/xfce4-themes/DETAILS,
+	xfce4/xfce4-toys/DETAILS, xfce4/xfce4-trigger-launcher/DETAILS,
+	xfce4/xfdesktop/DETAILS, xfce4/xffm/DETAILS,
+	xfce4/xffm-icons/DETAILS, xfce4/xfprint/DETAILS,
+	xfce4/xfwm4/DETAILS, xfce4/xfwm4-themes/DETAILS: XFce 4.0.3. Bugfix
+	release.
+
+2004-01-07 21:52  hardkrash
+
+	* graphics/pil/BUILD: there may be a better fix to this but i'll
+	leave it to someone who knows python :-P
+
+2004-01-07 20:59  nestu
+
+	* kernel/linux-beta/DETAILS: Bump version
+
+2004-01-07 20:03  florin
+
+	* mail/bogofilter/DETAILS: bump version from 0.15.13 to 0.15.13.1.
+
+2004-01-07 18:49  jmhodges
+
+	* web/PyDS/DETAILS: 0.7.0 is still just a snapshot apparently,
+	downgrading until the real version comes out
+
+2004-01-07 16:45  elaine
+
+	* net/dhcp/init.d/dhcpd: Bkw's improved init script
+
+2004-01-07 14:14  sofar
+
+	* mail/sendmail/: BUILD, DETAILS, Makefile, POST_INSTALL: Rewriting
+	the sendmail config setup. This time we install the m4 .cf macro's,
+	so we can regenerate the etc/mail/*.cf files without reinstalling
+	sendmail. I've also added a Makefile so you can regenerate them
+	just by typing 'make'. Added a few .db files as well in there that
+	might need updating. Should keep everyone happy now! This is
+	becoming a nice module....
+
 2004-01-07 04:29  niki
 
 	* crypto/gnutls/DETAILS: Debumping gnutls from 1.0.4 to 0.9.98, as
@@ -1714,95 +1763,4 @@
 	* doc-tools/scrollkeeper/DEPENDS: 
 	Fixing problem with scrollkeeper.  Seems they changed XML parsers
 	from one that was broke to the perl module XML-Parser.
-
-2003-12-08 23:53  niki
-
-	* kernel/linux-openmosix/POST_INSTALL: lilo for one would proberbly
-	be more happy with this length of the kernel label ;-)
-
-2003-12-08 23:44  sofar
-
-	* kernel/linux-grsec/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD:
-	CVS, me, hate.
-
-2003-12-08 23:39  sofar
-
-	* kernel/linux-openmosix/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	POST_INSTALL, PRE_BUILD: CVS sucks okay???
-
-2003-12-08 23:28  sofar
-
-	* kernel/linux-grsec/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD:
-	Adding a basic -openmosix kernel including patchset etc etc... for
-	those cluster-oriented ppl around there. Still need the userspace
-	tools tho!
-
-2003-12-08 23:23  watryac04
-
-	* editors/e3/BUILD.alpha: Added alpha specific BUILD for e3 so that
-	we can use the C version of e3. Permits e3 to be removed from the
-	alpha blacklist.
-
-2003-12-08 23:03  watryac04
-
-	* kernel/linux/: BUILD.alpha, CONFIGURE.alpha, POST_INSTALL: Added
-	some stuff to make the DEC Alpha architecture able to use the nice
-	little linux kernel module. Tested on an EV56 (Miata).
-
-2003-12-08 22:33  nhudson
-
-	* devel/: gconfmm/BUILD, gconfmm/DEPENDS, gconfmm/DETAILS,
-	libbonobomm/BUILD, libbonobomm/DEPENDS, libbonobomm/DETAILS,
-	libbonobouimm/BUILD, libbonobouimm/DEPENDS, libbonobouimm/DETAILS,
-	libglademm/BUILD, libglademm/DEPENDS, libglademm/DETAILS,
-	libgnomecanvasmm/BUILD, libgnomecanvasmm/DEPENDS,
-	libgnomecanvasmm/DETAILS, libgnomemm/BUILD, libgnomemm/DEPENDS,
-	libgnomemm/DETAILS, libgnomeuimm/BUILD, libgnomeuimm/DEPENDS,
-	libgnomeuimm/DETAILS: 
-	Added the files back that were in gnomemm-all and are now back
-	seperate
-
-2003-12-08 17:58  niki
-
-	* terminal/screen/DETAILS: Proberbly a good idea to force a
-	recompile...
-
-2003-12-08 17:54  niki
-
-	* terminal/screen/: BUILD, DETAILS: Removed the patch as the
-	another fix for this issue is in screen allready.
-
-2003-12-08 17:14  niki
-
-	* security/nessus/DETAILS: Bumped version to 2.0.9, tested with gcc
-	3.3.2, glibc 2.3.2, and i have been doing some scans on my lan ;-)
-	And removed kongar as the maintainer...
-
-2003-12-08 05:03  jmhodges
-
-	* web/SOAPpy/: BUILD, DEPENDS, DETAILS: bump and added some depends
-
-2003-12-08 05:02  jmhodges
-
-	* devel/fpconst/: BUILD, DEPENDS, DETAILS: needed by SOAPpy
-
-2003-12-08 04:57  jmhodges
-
-	* web/Net-SSLeay/: BUILD, Makefile.patch: yeah no longer needed
-
-2003-12-08 04:11  nhudson
-
-	* mail/MozillaThunderbird/: BUILD, DETAILS, POST_INSTALL: 
-	Updating the MozillaThunderbird module to new version 0.4 also
-	updating the patch set for the new version
-
-2003-12-08 02:46  elaine
-
-	* utils/grep/BUILD: modesty edit
-
-2003-12-08 00:19  tchan
-
-	* utils/pcmcia-cs/DETAILS: Version bump to 3.2.6.  Compiled and
-	tested with gcc-3.2.3, glibc-2.3.2.  I updated the Configure and
-	the orinoco patches.
 
