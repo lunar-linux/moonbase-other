@@ -1,9 +1,12 @@
 (
 
-  ./configure  --prefix=/usr                   \
-               --with-qt-prefix=/opt/lunar/qt/3  &&
-  make                                  &&
-  prepare_install                       &&
-  make    install
+  export AVI_VERSION=`lvu installed avifile | cut -d. -f1,2`
+  
+  ./configure  --prefix=/usr                           \
+               --with-qt-prefix=${QT_PREFIX:-$QTDIR}  &&
+
+  default_make &&
+  
+  ln -sf /usr/include/avifile-$AVI_VERSION /usr/include/avifile
 
 ) > $C_FIFO 2>&1
