@@ -1,22 +1,21 @@
           MODULE=apache-mod_ssl
-         VERSION=2.8.16-1.3.29
-#         VERSION=2.8.15-1.3.28
+         VERSION=2.8.17-1.3.31
+#         VERSION=2.8.16-1.3.29
           SOURCE=mod_ssl-$VERSION.tar.gz
-         SOURCE2=apache_1.3.29.tar.gz
+         SOURCE2=apache_1.3.31.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
    SOURCE_URL[0]=http://www.modssl.org/source/$SOURCE
   SOURCE2_URL[0]=http://httpd.apache.org/dist/httpd/$SOURCE2
-     SOURCE_VFY=md5:4f6c580ffa07d33e8584406132b98e86
-    SOURCE2_VFY=md5:e97fe9bf51dc2c9c233d53f63b1347e3
+     SOURCE_VFY=md5:6c3f726b336f497793567591717d2a6b
+    SOURCE2_VFY=md5:bd548a06ac48dda496b4e613572bb020
         WEB_SITE=http://www.modssl.org
          ENTERED=20011219
-         UPDATED=20031102
+         UPDATED=20040515
            SHORT="SSL incorporation via mod_ssl to apache, a popular HTTP server."
 cat << EOF
 Apache is the world's most popular HTTP server, being quite possibly
 the best around in terms of functionality, efficiency, security and
 speed.
-
 This module (mod_ssl)  provides strong cryptography for the Apache 1.3
 webserver via the Secure Sockets Layer (SSL v2/v3) and Transport Layer
 Security (TLS v1) protocols by the help of the Open Source SSL/TLS toolkit 
