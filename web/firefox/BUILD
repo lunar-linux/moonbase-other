@@ -1,33 +1,30 @@
 
 ( 
-  MOZILLA_HOME=/opt/lunar/firefox/lib/mozilla 
+  MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
   OPTS="$OPTS --enable-strip --enable-strip-libs"
-  OPTS="$OPTS --disable-toolkit-gtk --enable-default-toolkit=gtk2 --enable-toolkit=gtk2 --with-gtk2"
   OPTS="$OPTS --disable-mathml"
   OPTS="$OPTS --disable-accessibility"
   OPTS="$OPTS --disable-jsd"
   OPTS="$OPTS --enable-xft"
+  OPTS="$OPTS --enable-xterm-updates"
   OPTS="$OPTS --disable-ldap"
-  OPTS="$OPTS --enable-svg --enable-svg-renderer-libart"
+  OPTS="$OPTS --enable-svg --enable-svg-renderer-cairo"
   OPTS="$OPTS --enable-extensions=default,-irc" 
 
   export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
   export MOZ_NSS_AUTOCONF=1
   export NATIVE_THEME_SUPPORT=1
   export MOZ_PHOENIX=1
-  export MOZ_INTERNAL_LIBART_LGPL=1
+  export MOZILLA_OFFICIAL=1
   export BUILD_OPT=1
 
   echo "$OPTS" > /tmp/mozz
 
   unpack $SOURCE2 &&
-  cd other-licenses &&
-  unpack $SOURCE3   &&
-  cd $SOURCE_DIRECTORY &&
-
+  
     ./configure \
-    --prefix=/opt/lunar/firefox    \
+    --prefix=/usr	\
     --with-x            \
     --with-pthreads     \
     --enable-reorder    \
@@ -41,6 +38,12 @@
     --disable-mailnews  \
     --disable-composer  \
     --enable-crypto     \
+    --disable-static	\
+    --disable-logging	\
+    --with-gtk2		\
+    --enable-default-toolkit=gtk2	\
+    --disable-toolkit-gtk	\
+    --with-user-appdir=".firefox"	\
     $OPTS               &&
               
     default_make      

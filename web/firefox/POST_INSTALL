@@ -1,37 +1,25 @@
-FIREFOX_HOME=/opt/lunar/firefox
-VERSION=1.6
+FIREFOX_HOME=/usr
+VERSION=0.9
 FFOX_VERSION=0.8
+FFOX_LIBDIR=firefox-$VERSION
+J2SDK_VER=`lvu installed j2sdk`
 
-if [ "-d $FIREFOX_HOME/lib/mozilla-$VERSION/plugins" ] ; then
-  mv $FIREFOX_HOME/lib/mozilla-$VERSION/plugins/libnullplugin.so $FIREFOX_HOME/mozilla-$VERSION
-  rm -Rf $FIREFOX_HOME/lib/mozilla-$VERSION/plugins
-fi
- 
-# Symlink
-cd $FIREFOX_HOME/lib
-rm -Rf $FIREFOX_HOME/lib/mozilla
-ln -sf "mozilla-$VERSION" mozilla
-
-cd $FIREFOX_HOME/include
-rm -Rf $FIREFOX_HOME/include/mozilla
-ln -sf "mozilla-$VERSION" mozilla
-
-cd $FIREFOX_HOME/lib/mozilla-$VERSION
 mkdir -p /opt/lunar/plugins
-ln -sf /opt/lunar/plugins plugins
+ln -sf /opt/lunar/plugins $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
 
-export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/mozilla-$VERSION:$FIREFOX_HOME/lib/mozilla-$VERSION/plugins:$FIREFOX_HOME/lib/mozilla-$VERSION/components"
-export MOZILLA_FIVE_HOME="$FIREFOX_HOME/lib/mozilla-$VERSION"
+export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/$FFOX_LIBDIR:$FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins:$FIREFOX_HOME/lib/$FFOX_LIBDIR/components"
+export MOZILLA_FIVE_HOME="$FIREFOX_HOME/lib/$FFOX_LIBDIR"
 ldconfig
 
-echo "skin,install,select,classic/1.0" >> chrome/installed-chrome.txt
-echo "locale,install,select,en-US" >> chrome/installed-chrome.txt
+echo "skin,install,select,classic/1.0" >> $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/installed-chrome.txt
+echo "locale,install,select,en-US" >> $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/installed-chrome.txt
 
+cd $FIREFOX_HOME/lib/$FFOX_LIBDIR
 ./regxpcom
 ./regchrome
 
 if module_installed j2sdk; then
-ln -sf /usr/lib/j2sdk1.4.1/jre/plugin/i386/mozilla/javaplugin_oji.so $FIREFOX_HOME/lib/mozilla/plugins/javaplugin_oji.so 
+ln -sf /usr/lib/j2sdk${J2SDK_VER}/jre/plugin/i386/mozilla/javaplugin_oji.so $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins/javaplugin_oji.so 
 fi
 
 if [ ! -d /usr/share/applications ] ; then
