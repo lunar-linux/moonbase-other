@@ -14,9 +14,3 @@
   default_make
   
 ) > $C_FIFO 2>&1
-arball=$SOURCE_CACHE/$SOURCE2 \
-	      $OPTS                                   &&
-
-  default_make 
-  
-) > $C_FIFO 2>&1
