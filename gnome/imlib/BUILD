@@ -4,7 +4,6 @@
 ####### AGAIN ANY TIME SOON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #######
 ####### --CSM #######
 
-  cat $SCRIPT_DIRECTORY/imlib-ac25x.patch                     | patch -p1  &&
   bzcat $SCRIPT_DIRECTORY/imlib-1.9-m4.patch.bz2              | patch -p0  &&
   bzcat $SCRIPT_DIRECTORY/imlib-1.9.10-path.patch.bz2         | patch -p1  &&
   bzcat $SCRIPT_DIRECTORY/imlib-1.9.14-no-locincpth.patch.bz2 | patch -p1  &&
