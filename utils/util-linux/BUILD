@@ -1,10 +1,8 @@
-patch -p0 <$SCRIPT_DIRECTORY/util-linux-2.11r.patch
-
-sedit  "s/HAVE_SLN=no/HAVE_SLN=yes/"   MCONFIG
-sedit  "s/# ADD_RAW=yes/ADD_RAW=yes/"  MCONFIG
-sedit  "s/\$(OPT)//"                   MCONFIG
-
 (
+
+  sedit  "s/HAVE_SLN=no/HAVE_SLN=yes/"   MCONFIG &&
+  sedit  "s/# ADD_RAW=yes/ADD_RAW=yes/"  MCONFIG &&
+  sedit  "s/\$(OPT)//"                   MCONFIG &&
 
  ./configure  --build=$BUILD                  \
               --prefix=/usr                   &&
@@ -15,6 +13,8 @@ sedit  "s/\$(OPT)//"                   MCONFIG
   prepare_install                             &&
   make    install                             &&
   
+  mkdir -p $DOCUMENT_DIRECTORY/util-linux     &&
+  cp -a HISTORY example.files $DOCUMENT_DIRECTORY/util-linux   &&
   install -g0 -o0 -m755 $SCRIPT_DIRECTORY/make-issue \
     /sbin/make-issue
 
