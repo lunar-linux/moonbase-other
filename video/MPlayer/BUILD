@@ -1,14 +1,14 @@
 (
-
   case  $GUI  in
     y|Y|j|J)  OPTS="$OPTS  --enable-gui"  ;;
   esac
-
+ 
   CFLAGS= ./configure  --prefix=/usr  \
                $OPTS          &&
   cd $SOURCE_DIRECTORY        &&
   echo `pwd`                  &&
   sedit "s/MANDIR = \${prefix}\/man/MANDIR =\/usr\/share\/man/" Makefile  &&
+  sedit "s:FREETYPE_LIB = -lfreetype:FREETYPE_LIB = -L/usr/lib -lfreetype:" config.mak &&
   make                        &&
   prepare_install             &&
 
