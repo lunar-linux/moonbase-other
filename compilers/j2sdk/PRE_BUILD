@@ -1,0 +1,10 @@
+cd $BUILD_DIRECTORY &&
+chmod +x $SOURCE_CACHE/$SOURCE &&
+$SOURCE_CACHE/$SOURCE
+if [ $? -eq 3 ]; then
+  cd $SOURCE_DIRECTORY &&
+  chown -R root:root .
+else
+  echo 'Problem with either License Agreement or j2sdk binary'
+  exit 1
+fi
