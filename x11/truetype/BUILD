@@ -8,12 +8,7 @@
      mkdir -p $TTFD                     
   fi                                        &&
 
-  cp -f $SOURCE_DIRECTORY/*.ttf $TTFD       &&
+  cp -f $SOURCE_DIRECTORY/*.ttf $TTFD       
 
-  (
-    cd $TTFD                                &&
-    ttmkfdir -o fonts.dir                   &&
-    ttmkfdir -o fonts.scale
-  )
 
 ) > $C_FIFO 2>&1
