@@ -1,0 +1,5 @@
+depends "glib-2" &&
+
+optional_depends "gnutls" "" "--with-ssl=no" "for SSL capabilities"        &&
+optional_depends "gtk-doc" "--enable-gtk-doc" "" "for extra documentation" &&
+optional_depends "gtk-sharp" "" "" "for C# (mono) support"
