@@ -1,7 +1,7 @@
 (
   export  PATH=${QT_PREFIX:-$QTDIR}/bin:$PATH
   export  LD_LIBRARY_PATH=${QT_PREFIX:-$QTDIR}/lib
-  export  KDE_PREFIX=${KDE_PREFIX:-$KDEDIR}}
+  export  KDE_PREFIX=${KDE_PREFIX:-$KDEDIR}
  
   ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}      \
                --with-qt-dir=${QT_PREFIX:-$QTDIR}   \
