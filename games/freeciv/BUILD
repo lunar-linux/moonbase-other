@@ -1,7 +1,12 @@
 (
 
+  if ! module_installed xfree86 ; then
+    OPTS=$OPTS" --enable-client=no"
+  fi
+
   ./configure  --prefix=/usr        \
-               --bindir=/usr/games  &&
+               --bindir=/usr/games  \
+	       $OPTS                &&
   make                              &&
   prepare_install                   &&
   make    install
