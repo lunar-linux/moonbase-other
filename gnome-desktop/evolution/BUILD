@@ -9,13 +9,13 @@
    make  install                                                &&
 
    cd  $SOURCE_DIRECTORY                                        &&
-   ./configure  --prefix=/opt/lunar/gnome/1                     \
+   ./configure  --prefix=/usr                                   \
                 --sysconfdir=/etc                               \
                 --localstatedir=/var                            \
                 --with-db3=$SOURCE_DIRECTORY/evolution-db3      \
-		--mandir=/opt/lunar/gnome/1/share/man		\
-		--infodir=/opt/lunar/gnome/1/share/info		\
-                $OPTS                                           &&
+		--mandir=/usr/share/man		                \
+		--infodir=/usr/share/info	                \
+                $OPTS                                          &&
     
    default_make
 
