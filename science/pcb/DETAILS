@@ -1,12 +1,18 @@
           MODULE=pcb
-         VERSION=1.6.3p
-          SOURCE=$MODULE-$VERSION.tgz
+         VERSION=20040530
+          SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://bach.ece.jhu.edu/~haceaton/$MODULE/$SOURCE
-        WEB_SITE=http://bach.ece.jhu.edu/~haceaton/pcb/
+      SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=md5:4a2463340d4eaf2045ef388986ad7e7f
+        WEB_SITE=http://pcb.sourceforge.net/
          ENTERED=20030112
-         UPDATED=20030112
-           SHORT=" PCB is free software for designing printed circuit board layouts."
+         UPDATED=20040706
+           SHORT="Software for designing printed circuit board layouts."
 cat << EOF
-It has many features and is capable of professional-quality output. It is available only for *NIX operating systems e.g. GNU/Linux (this means it does NOT run on Windows). pcb was orignally written by Thomas Nau of University of Ulm, Germany, and is now maintained by harry eaton of the Johns Hopkins University Applied Physics Laboratory, Laurel, Maryland, USA.
+PCB is an interactive printed circuit board editor for the X11 window
+system.  PCB includes a rats nest feature, design rule checking,
+and can provide industry standard RS-274-X (Gerber), NC drill, and
+centroid data (X-Y data) output for use in the board fabrication and
+assembly process. PCB offers high end features such as an autorouter
+and trace optimizer which can tremendously reduce layout time.
 EOF
