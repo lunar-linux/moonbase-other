@@ -1,0 +1,27 @@
+if  !  grep  -q  "CRON="  $MODULE_CONFIG;  then
+
+  message  "Exim can use either hc-cron or or fcron"  \
+           "to periodically attempt to resend undelivered mail."
+
+  if    query  "Attempt to resend undelivered via hc-cron?"  y
+  then  echo   "CRON=h"  >>  $MODULE_CONFIG
+  else  echo   "CRON=f"  >>  $MODULE_CONFIG
+  fi
+
+fi
+
+
+if  !  grep  -q  "IDENT_QUERIES="  $MODULE_CONFIG;  then
+
+  message  "Exim, by default, queries the ident server of"
+  message  "the connecting host. Timeout value is 30 seconds."
+  message  "If there is no identd running at the connecting"
+  message  "host, that 30 seconds becomes a connection delay"
+  message  "for every new connection."
+
+  if    query  "Do you want to enable ident queries?"  y
+     then  echo   "IDENT_QUERIES=y"  >>  $MODULE_CONFIG
+     else  echo   "IDENT_QUERIES=n"  >>  $MODULE_CONFIG
+  fi
+
+fi

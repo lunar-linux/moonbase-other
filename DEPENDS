@@ -1,0 +1,10 @@
+depends  db    &&
+depends  gawk  &&
+
+case  $CRON  in
+  f)  depends  fcron    ;;
+  *)  depends  hc-cron  ;;
+esac  &&
+
+optional_depends  tcp_wrappers  ""  ""  "for controlling remote access"
+optional_depends  mysql         ""  ""  "for mysql lookup tables"
