@@ -1,11 +1,14 @@
 (
-  sedit "s:XFormsNonstandardInstallDir /usr/local:XFormsNonstandardInstallDir /usr:" Imakefile &&
+  bad_flags linker &&
+  sedit "s/define BuildDemos NO/define BuildDemos YES/" Imakefile &&
   xmkmf -a                  &&
   for FILE in `ls */Makefile`; do
-  sedit "s:EXTENSIONLIB =  -lXext:EXTENSIONLIB = -L/usr/X11R6/lib  -lXext:" $FILE
+    sedit "s:EXTENSIONLIB =  -lXext:EXTENSIONLIB = -L/usr/X11R6/lib  -lXext:" $FILE
   done                      &&
-  make                      &&
-  prepare_install           &&
-  make install
+  default_make &&
+  make install.man &&
+  mkdir -p $DOCUMENT_DIRECTORY/$MODULE/demos &&
+  cp -a demos $DOCUMENT_DIRECTORY/$MODULE &&
+  rm $DOCUMENT_DIRECTORY/$MODULE/demos/*.o
 
 ) > $C_FIFO 2>&1
