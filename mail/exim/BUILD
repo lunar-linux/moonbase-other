@@ -6,9 +6,9 @@
   chmod 1777      /var/spool/mail
   chown mail:mail /var/spool/mail
 
- mkdir Local
+  mkdir Local
  
- if module_installed xserver ; then
+  if module_installed xserver ; then
     cp src/EDITME           Local/Makefile
     cp exim_monitor/EDITME  Local/eximon.conf
   else
@@ -43,6 +43,7 @@
   echo  "AUTH_CRAM_MD5=yes"                >>  Local/Makefile
   echo  "AUTH_PLAINTEXT=yes"               >>  Local/Makefile
   echo  "LOOKUP_NIS=yes"                   >>  Local/Makefile
+  echo  "SUPPORT_MAILDIR=yes"              >>  Local/Makefile
 
   default_make
 
