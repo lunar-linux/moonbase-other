@@ -12,13 +12,13 @@
 
  LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
  
- patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-
  ./configure   --build=$BUILD                                        \
-               --prefix=/usr		                             \
+               --prefix=${GNOME26_PREFIX:-/usr}                      \ 
                --with-xinerama=yes				     \
                --sysconfdir=/etc/X11                                 \
                --localstatedir=/var                                  \
+               --infodir=${GNOME26_PREFIX:-/usr}/share/info 	     \
+               --mandir=${GNOME26_PREFIX:-/usr}/share/man            \
                $OPTS                                                 &&
 
  sedit 's#$(LINK)#$(LINK) $(LIBS)#' daemon/Makefile                  &&

@@ -1,14 +1,12 @@
 (
 
-   ./configure  --build=$BUILD			\
-                --sysconfdir=/etc               \
-                --prefix=/usr			\
-		--localstatedir=/var		\
-		--infodir=/usr/info		\
-		--mandir=/usr/man		\
-                $OPTS
+   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
+                --build=$BUILD                    \
+                --sysconfdir=/etc                 \
+                --localstatedir=/var              \
+                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+                $OPTS                             &&
+    default_make                   
 
-   default_make
-   
 ) > $C_FIFO 2>&1
-

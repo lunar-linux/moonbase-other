@@ -1,6 +1,6 @@
 (
 
   prepare_install
-  make prefix=/opt/lunar/gnome/2.4 install
+  make install
 
 ) > $C_FIFO 2>&1

@@ -1,19 +1,16 @@
            MODULE=gdm
-         VERSION=2.4.4.5
-          SOURCE=gdm-$VERSION.tar.bz2
-         SOURCE2=$MODULE-pam-config-fix.patch
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/gdm-$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/gdm/2.4/$SOURCE
-      SOURCE_VFY=md5:eae456b3a59154e55d69263aad5e8a54
-  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
-     SOURCE2_VFY=md5:931153c30c910389f70e09e26f8a89f2
+         VERSION=2.6.0.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$GNOME_URL/sources/$MODULE/2.6/$SOURCE
+      SOURCE_VFY=md5:3dbf4074a4ec78627a5d099d30126d45
         WEB_SITE=http://www.gnome.org
          ENTERED=20020716
-         UPDATED=20031018
+         UPDATED=20040409
            SHORT="The Gnome Display Manager is a re-implementation of the well known xdm program"
 cat << EOF
 The Gnome Display Manager is a re-implementation of the well known xdm
-program.  gdm 2.2 implements all significant features required for
+program.  gdm 2.5 implements all significant features required for
 managing local and remote displays.
 
 gdm daemon:
