@@ -1,0 +1,15 @@
+OUR_NEW_READLINE_VVV=$(lvu version readline | perl -pe 's/([0-9]).+/$1/')
+
+if [[ "$OUR_NEW_READLINE_VVV" > "$OUR_OLD_READLINE_VVV" ]]; then
+
+  for MOD in $(lvu depends readline | grep -v -e theedge -e lunar -e arch ) ; do
+    if module_installed $MOD ; then
+      lin -c $MOD
+    fi
+  done
+
+fi
+
+rm -f /lib/libreadline.so.4 &&
+rm -f /lib/libhistory.so.4  &&
+unset $OUR_OLD_READLINE_VVV
