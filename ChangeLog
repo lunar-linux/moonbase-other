@@ -1,3 +1,91 @@
+2005-03-04 12:23  florin
+
+	* app-themes/QtCurve/DETAILS: use sha1 instead of md5.
+
+2005-03-04 12:18  florin
+
+	* app-themes/gtk-qt-engine/DETAILS: bump the version from 0.5 to
+	  0.6.
+
+2005-03-04 12:13  florin
+
+	* kde3/qt3/: BUILD, DETAILS: add a patch for flicker free.
+
+2005-03-04 12:07  florin
+
+	* sql/phpMyAdmin/DETAILS: bump the version from 2.6.1-pl2 to
+	  2.6.1-pl3. security release.
+
+2005-03-04 10:41  sofar
+
+	* devel/rapidsvn/: DEPENDS, DETAILS: new module: rapidsvn... a
+	  graphical SVN frontend that uses wxGTK. doesn't work with gtk2
+	  tho... you need to compile wxGTK against gtk1
+
+2005-03-04 10:39  sofar
+
+	* filemanagers/emelfm2/: BUILD, DEPENDS, DETAILS: new module: gtk2
+	  version of emelfm
+
+2005-03-04 10:28  moe
+
+	* web/firefox/POST_INSTALL: meh
+
+2005-03-04 10:17  florin
+
+	* mail/dbmail/: DEPENDS, DETAILS, PRE_BUILD: DBmail permit the
+	  storage of the mail in databases and providex pop3 and/or imap
+	  support.
+
+2005-03-04 10:03  florin
+
+	* security/iptables/: BUILD, DETAILS: bump the version from 1.2.11
+	  to 1.3.0. improvements and bugfixes. it works fine for three
+	  weeks on my system.
+
+2005-03-04 09:39  moe
+
+	* mail/sylpheed/DETAILS: New sylpheed
+
+2005-03-04 09:34  moe
+
+	* web/firefox/: BUILD, DEPENDS, POST_INSTALL, POST_REMOVE: * Put
+	  back the icon. Don't touch stuff you don't know about * Better
+	  handling of upgrades * Put nss libraries in the right place *
+	  Beautify the DEPENDS file
+
+2005-03-04 08:53  florin
+
+	* filesys/mtools/DETAILS: bump the version from 3.9.9 to 3.9.10.
+	  bugfix release.
+
+2005-03-04 07:53  florin
+
+	* x11-utils/xpad/DETAILS: bump the version from 2.4 to 2.5. bugfix
+	  release.
+
+2005-03-04 07:30  florin
+
+	* graphics/digikam/DEPENDS: use kdelibs3 instead of kdesdk3.
+
+2005-03-04 02:47  cmak
+
+	* web/firefox/POST_INSTALL: no such file
+
+2005-03-03 20:41  florin
+
+	* libs/numarray/DETAILS: bump the version from 1.2.2 to 1.2.3.
+
+2005-03-03 15:23  florin
+
+	* graphics/: digikam/BUILD, digikam/DETAILS, digikamplugins/BUILD,
+	  digikamplugins/DETAILS: bump the version from 0.7.1 to 0.7.2.
+
+2005-03-03 14:41  florin
+
+	* kde3-apps/lincvs/: BUILD, DEPENDS, DETAILS, POST_INSTALL: bump
+	  the version from 1.3.2 to 1.4.0.
+
 2005-03-03 07:15  florin
 
 	* x11-utils/fontconfig/DETAILS: bump the version from 2.2.3 to
@@ -1658,109 +1746,4 @@
 2005-02-02 10:47  florin
 
 	* games/briquolo/DETAILS: bump the version from 0.5 to 0.5.1.
-
-2005-02-01 23:33  tchan
-
-	* mail/sylpheed-claws/: DEPENDS, DETAILS: Version bump to
-	  sylpheed-claws-1.0.0. Compiled and tested with gcc-3.3.3,
-	  glibc-2.3.3, kernel headers 2.4.x.  NOTES: I had to remove aspell
-	  from the DEPENDS file, as the ./configure script fails when
-	  compiling an aspell test program.  If aspell is left as an
-	  optional depends and the user answers "N" then -claws will still
-	  compile, but if they answer "Y" then -claws will fail in the
-	  configure step.  If the user has gpgme-1.x installed and they
-	  answer "N" to the optional depends on gpgme-0.3.x then -claws
-	  will again fail to compile.  Its safest to just answer "Y" to
-	  gpgme-0.3.x.
-
-2005-02-01 22:56  jol
-
-	* kde3-apps/kmplayer/DETAILS: Bumped to version 0.8.4
-
-2005-02-01 18:11  sofar
-
-	* sql/postgresql/DETAILS: Florin! second time I caught you making
-	  this mistake!
-
-2005-02-01 16:27  tchan
-
-	* ftp/curl/DETAILS: Version bump to curl-7.13.0. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel header 2.4.x AND
-	  discover-2.0.4.  "discover -t", and "discover -b" both work just
-	  fine with curl-7.13.0. discover-2.0.4 recompiles just fine when
-	  linking against libcurl.so.3.
-
-2005-02-01 16:16  moe
-
-	* mail/sylpheed-claws/CONFLICTS: wee .. err?
-
-2005-02-01 16:13  moe
-
-	* zbeta/sylpheed-dev/: CONFLICTS, DEPENDS, DETAILS: This is the new
-	  GTK2 development version of sylpheed.  It works without the
-	  gdk-pixbuf crap .. and with gpgme 1.x too. Enjoy!
-
-	  PS: If somebody can shed some light on wether it works with
-	  compface .. please go ahead
-
-2005-02-01 16:10  moe
-
-	* mail/: sylpheed/CONFLICTS, sylpheed-claws/CONFLICTS: wee
-
-2005-02-01 16:04  florin
-
-	* sql/postgresql/DETAILS: bump the version from 7.4.6 to 8.0.1.
-
-2005-02-01 15:48  florin
-
-	* archive/tar/DEPENDS: add the texinfo module as an optional
-	  depend.
-
-2005-02-01 15:44  moe
-
-	* mail/sylpheed/: BUILD, DEPENDS, DETAILS: Sylpheed now supports
-	  gpgme 1.x.  Additional fixes:
-
-	   o  A warning is displayed if a key for encryption is untrusted.
-	   o The status of signature validity became more descriptive.
-	   o Signatures inside nested multipart are now recognized.
-	  * Messages are not retrieved multiple times anymore after POP3
-	  session is aborted.  * Other bugfixes have been made.
-
-2005-02-01 15:42  moe
-
-	* libs/gpgme/DETAILS: Updating this to 1.0.2.
-
-2005-02-01 10:34  nestu
-
-	* utils/theedge/DEPENDS: added a depend on net-tools, since
-	  connect.lunar needs ifconfig
-
-2005-02-01 09:31  sofar
-
-	* ftp/curl/DETAILS: sorry, downgrading. I need this to work to
-	  build my ISO. curl is *off limits* to anyone unless a solution is
-	  found with respect to discover (even their latest svn trunk is
-	  insatisfactory)
-
-	  ** DONT TOUCH **
-
-2005-02-01 06:04  tchan
-
-	* libs/dietlibc/DETAILS: Version bump to dietlibc-0.28.
-	  Compiled/tested with gcc-3.3.3, kernel headers 2.4.x.
-
-2005-02-01 05:30  florin
-
-	* libs/libusb/DETAILS: bump the version from 0.1.8 to 0.1.9.
-
-2005-02-01 05:25  perldude
-
-	* perl/: Glib-Perl/DETAILS, Gtk2-Perl/DETAILS: teh early morning
-	  (6:25am) version bump
-
-2005-02-01 04:33  tchan
-
-	* x11-apps/mupo/DETAILS: Version bump to mupo-0.44. Compiled/tested
-	  with gcc-3.3.3. glibc-2.3.3, kernel headers 2.4.x., fltk-1.1.6.
 
