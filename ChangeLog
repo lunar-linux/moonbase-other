@@ -1,96 +1,161 @@
-2002-08-24 18:12  tchan
+2002-08-26 13:03  kongar
+
+	* mail/sylpheed/DETAILS: 
+	upgraded to 0.8.2, tested
+
+2002-08-26 07:18  kongar
+
+	* utils/pciutils/DETAILS: 
+	now using ibiblio as the primary url location.
+
+2002-08-26 05:36  dem
+
+	* web/mozilla/: BUILD, CONFIGURE, mozilla-1.0-freetype.patch:
+	Reduce mozilla bloat, and add more features
+
+2002-08-26 04:35  tchan
+
+	* ftp/lftp/DETAILS: Bumped version number upto 2.6.1, up from
+	2.5.4.	Compiled and tested with gcc-3.2 and lunar-gcc wrapper.
+
+2002-08-25 21:45  tchan
+
+	* cd/cdrtools/DETAILS: Bumped version number up to 1.11a30, from
+	1.11a29.  Compiled and tested with gcc-3.2 and the lunar-gcc
+	wrapper.
+
+2002-08-25 18:04  dem
+
+	* devel/insight/: CONFLICTS, DETAILS: Inital module
+
+2002-08-25 16:29  niki
+
+	* chat/BitchX/BUILD: Fixed a typo (--infodir instead of --infordir)
+
+2002-08-25 13:28  sofar
+
+	* shells/bash/profile.d/bash-completion.rc: Added lget
+
+2002-08-25 13:02  sofar
+
+	* utils/readpst/: BUILD, DETAILS: New module: a PST-file (outlook)
+	to unix-mailbox converter
+
+2002-08-25 12:22  sofar
+
+	* libs/gnet/DETAILS: New version: 1.1.5
+
+2002-08-25 12:16  sofar
+
+	* ftp/gtm/DETAILS: Version update to 0.4.12
+
+2002-08-25 12:08  sofar
+
+	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS,
+	alsa-utils/DETAILS: Bumped version to 0.9.0rc3
+
+2002-08-25 12:04  sofar
+
+	* games/csmash/BUILD: Fixes build problems.
+
+2002-08-25 05:20  tchan
+
+	* shells/busybox/busybox.patch.bz2: This file seems to have gotten
+	lost in the shuffle of moving cvs so many times.
+
+2002-08-24 23:12  tchan
 
 	* video/totem/DETAILS: Updated the version info to 0.9.1. Fixed the
 	download location and the home page info.
 
-2002-08-24 15:35  dem
+2002-08-24 20:35  dem
 
 	* gnome/intltool/DETAILS: Big, gnome 2.0.1 update
 
-2002-08-24 15:25  dem
+2002-08-24 20:25  dem
 
 	* gnome2/: gnome-system-monitor/DETAILS, gnome-terminal/DETAILS:
 	Big, gnome 2.0.1 update
 
-2002-08-24 15:19  dem
+2002-08-24 20:19  dem
 
 	* gnome2/gconf-editor/: DETAILS, DETAILS: Big Gnome 2.0.1 update
 
-2002-08-24 15:14  dem
+2002-08-24 20:14  dem
 
 	* gnome2/control-center2/DETAILS: Big Gnome 2.0.1 update
 
-2002-08-24 15:09  dem
+2002-08-24 20:09  dem
 
 	* gnome2/GConf2/DETAILS: Big Gnome 2.0.1 update
 
-2002-08-24 15:05  dem
+2002-08-24 20:05  dem
 
 	* gnome2/: ORBit2/DETAILS, GConf2/DETAILS: Big Gnome 2.0.1 update
 
-2002-08-24 12:52  sofar
+2002-08-24 17:52  sofar
 
 	* net/minicom/DETAILS: Fixed md5 due to changed e-mail addys in
 	source file (grrr)
 
-2002-08-24 12:51  sofar
+2002-08-24 17:51  sofar
 
 	* security/Linux-PAM/DEPENDS: Linux-PAM will run FINE without
 	latex2html, so making this optional allows you to leave the 40M
 	teTeX out of your system.
 
-2002-08-24 01:54  tchan
+2002-08-24 06:54  tchan
 
 	* utils/devfsd/devfsd.conf: Added a line for ppp users.
 
-2002-08-24 00:57  tchan
+2002-08-24 05:57  tchan
 
 	* compilers/gcc/BUILD: Fixed the order of prepare_install and make
 	bootstrap_lean.  prepare_install is supposed to come AFTER the
 	initial call to make!
 
-2002-08-23 19:43  dem
+2002-08-24 00:43  dem
 
 	* web/mozilla/: BUILD, mozilla-1.0-abi-compat-wrappers.patch,
 	mozilla-1.0-asmfixes.patch: Now we can use binary only plugin
 	compiled with gcc 2, on gcc 3 mozilla
 
-2002-08-23 18:13  dem
+2002-08-23 23:13  dem
 
 	* web/flash-plugin/DETAILS: A important security update in flash
 
-2002-08-23 17:58  sofar
+2002-08-23 22:58  sofar
 
 	* security/Linux-PAM/POST_REMOVE: Hackfix: if parent process is lin
 	we can skip this safely!
 
-2002-08-23 17:56  xoritor
+2002-08-23 22:56  xoritor
 
 	* compilers/gcc/POST_INSTALL: Fixed incorrect cd command.
 
-2002-08-23 17:28  sofar
+2002-08-23 22:28  sofar
 
 	* mail/qpopper/CONFIGURE: ask openssl q only once
 
-2002-08-23 16:45  xoritor
+2002-08-23 21:45  xoritor
 
 	* compilers/gcc/BUILD: Minor change to BUILD:	Hard coded
 	optimizations to make.	  Decreased size of installation as well as
 	build.	  Set to "safe" levels of optimization so users
 	optimizations wont kill it.
 
-2002-08-23 13:56  tchan
+2002-08-23 18:56  tchan
 
 	* compilers/gcc/POST_INSTALL: Fixed the cpp symlinks.  Direction
 	was reversed.
 
-2002-08-23 00:48  tchan
+2002-08-23 05:48  tchan
 
 	* x11-apps/mupo/PRE_BUILD: This used to test for whether or not
 	gcc3 was installed.  Not necessary any more as gcc-3.2 is default
 	compiler now.  mupo will not build with gcc-2.95.3 c++ compiler.
 
-2002-08-22 17:11  xoritor
+2002-08-22 22:11  xoritor
 
 	* compilers/gcc/: BUILD, CONFIGURE, DETAILS, POST_INSTALL,
 	lunar-g++, lunar-gcc: Updating gcc module:   Builds in external
@@ -102,79 +167,79 @@
 	bootstrap-lean to compile smaller and faster (less resources
 	needed).
 
-2002-08-22 16:44  sofar
+2002-08-22 21:44  sofar
 
 	* games/csmash/DETAILS: New version
 
-2002-08-22 15:14  xoritor
+2002-08-22 20:14  xoritor
 
 	* web/apache2/DETAILS: Upped the version to 2.0.40 to be current.
 
-2002-08-22 14:30  dem
+2002-08-22 19:30  dem
 
 	* video/zapping/DETAILS: This cvs snapshot is much more stable
 	thatn current stable
 
-2002-08-21 23:51  tchan
+2002-08-22 04:51  tchan
 
 	* shells/zsh/DETAILS: Bumped version number to 4.0.6 per Hendrik's
 	request, as 4.0.4 is no longer available.
 
-2002-08-21 23:18  tchan
+2002-08-22 04:18  tchan
 
 	* utils/devfsd/devfsd.conf: Added some config line for ALSA/OSS. 
 	Hopefully this will take care of the people having ALSA problems
 	with devfsd.
 
-2002-08-21 22:27  tchan
+2002-08-22 03:27  tchan
 
 	* utils/devfsd/init.d/devfsd: Fixed some spelling mistakes in
 	init.d/devfsd
 
-2002-08-21 20:07  dem
+2002-08-22 01:07  dem
 
 	* utils/devfsd/init.d/devfsd: Fix a weird oddy when the file is
 	called devfsd insted of devfs, hmm
 
-2002-08-21 18:29  sofar
+2002-08-21 23:29  sofar
 
 	* x11-apps/abiword/BUILD: fixes build.
 
-2002-08-21 17:04  tchan
+2002-08-21 22:04  tchan
 
 	* utils/devfsd/init.d/devfsd: Fixed the error messages that happen
 	when invoking /etc/init.d/devfsd.  Problem was trying to get PID
 	from inside bash, returns multiple entries because of the grep
 	issue.
 
-2002-08-21 16:20  sofar
+2002-08-21 21:20  sofar
 
 	* mail/evolution/BUILD: Fixed manpath
 
-2002-08-21 09:40  hardkrash
+2002-08-21 14:40  hardkrash
 
 	* security/Linux-PAM/CONFIGURE: Added a if statment to the
 	CONFIGURE script to check if it has been answered will not ask
 	again if answered.! yes or no
 
-2002-08-20 22:20  dem
+2002-08-21 03:20  dem
 
 	* utils/attr/DETAILS: update for kernels better than 2.4.18
 
-2002-08-20 22:16  dem
+2002-08-21 03:16  dem
 
 	* utils/: xfsdump/DETAILS, dmapi/DETAILS, acl/DETAILS: update for
 	kernels better than 2.4.18
 
-2002-08-20 22:12  dem
+2002-08-21 03:12  dem
 
 	* utils/xfsprogs/DETAILS: fix date
 
-2002-08-20 22:05  dem
+2002-08-21 03:05  dem
 
 	* utils/xfsprogs/DETAILS: XFS tools 2.0, need for > 2.4.18
 
-2002-08-20 21:28  xoritor
+2002-08-21 02:28  xoritor
 
 	* kde3/arts/BUILD: Arts configure/build is broken, unsetting CC,
 	CCC, and CXX for now to compensatete.  This means no ccache or
