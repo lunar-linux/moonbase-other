@@ -1,3 +1,89 @@
+2005-02-22 13:30  moe
+
+	* profiles/docbook-profile/: DETAILS, POST_INSTALL: meh, broken. We
+	  don't need to check wether openjade's working or not because
+	  we've already done that before.
+
+2005-02-22 11:41  sofar
+
+	* LICENSE, profiles/anti-spam/DETAILS,
+	  profiles/default-profile/DETAILS,
+	  profiles/useful-profile/DETAILS: lunar-penguin, bye bye
+
+2005-02-22 10:16  ratler
+
+	* utils/hc-cron/CONFLICTS: Missing conflict
+
+2005-02-22 05:25  watryac04
+
+	* video/xanim/DETAILS: For now we update sources, later we decide
+	  if we should remove completely.
+
+2005-02-22 05:19  florin
+
+	* security/rkhunter/DETAILS: bump the version from 1.2.0 to 1.2.1.
+
+2005-02-22 03:50  watryac04
+
+	* zbeta/xforms/BUILD: YAY imake/xmkmf!!!!
+
+2005-02-22 03:45  watryac04
+
+	* video/xanim/PRE_BUILD: Missing linefeed at EOF (yeah, yeah,
+	  picky).
+
+2005-02-22 03:44  watryac04
+
+	* video/xanim/BUILD: imake/xmkmf path fix.  If i don't fix the
+	  sources on this one (time reasons), could someone look at it?
+
+2005-02-22 03:39  watryac04
+
+	* x11-utils/xfig/BUILD: xmkmf and imake path fix again.
+
+2005-02-22 03:16  watryac04
+
+	* filemanagers/xfm/BUILD: Another imake/xmkmf patch. There'll be a
+	  few more of these in the next few minutes.
+
+2005-02-22 03:12  watryac04
+
+	* graphics/glut/: BUILD, BUILD.alpha: fixing issues with
+	  /usr/X11R6/bin not being in path. xmkmf failed when
+	  /usr/X11R6/bin wasn't in path, because it was just calling imake,
+	  without checking where it was.
+
+2005-02-22 00:13  watryac04
+
+	* x11/fglrx/PRE_BUILD: Commenting out the patch logic for kernel
+	  >=2.6.10 because patch is no longer required (and leaving
+	  uncommented breaks build in 2.6.10+)...  leaving the code in
+	  because ATI has a habit of requiring patches, and it'll make
+	  future versions easier to update to when they are needed.
+
+2005-02-21 20:47  florin
+
+	* graphics/ImageMagick/DETAILS: bump the version from 6.1.8 to
+	  6.1.9.
+
+2005-02-21 18:44  jol
+
+	* compilers/mono/DETAILS: Bumped version to 1.0.6
+
+2005-02-21 16:10  moe
+
+	* filemanagers/rox/BUILD: Fixing rox to include /usr/X11/bin in
+	  it's PATH while compiling. Retarded building process.
+
+2005-02-21 15:32  florin
+
+	* games/wesnoth/DETAILS: bump the version from 0.8.10 to 0.8.11.
+
+2005-02-21 14:17  moe
+
+	* zbeta/sylpheed-dev/: DEPENDS, DETAILS: New sylpheed-dev 1.9.3.
+	  All i18n problems fixed!
+
 2005-02-21 13:37  moe
 
 	* audio/alsa-utils/alsasettings: GAH
@@ -1762,77 +1848,4 @@
 	* video/mjpegtools/DETAILS: - Add patch allowing to compile
 	  mjpegtools with gcc 3.4 - Add patch to fix correct creation of
 	  shared library
-
-2005-01-22 20:49  v3rt1g0
-
-	* utils/memtest86+/DETAILS: Version bump.  This version adds
-	  support for a hundful of new Intel chipsets, has better Athlong
-	  64 support, and some other misc bugs got squished.
-
-2005-01-22 18:31  v3rt1g0
-
-	* games/fortune-meanwhile-in-lunar/DETAILS: New weekly quotes.
-
-2005-01-22 07:36  florin
-
-	* perl/Archive-Tar/DETAILS: bump the version from 0.23 to 1.23.
-
-2005-01-22 07:31  florin
-
-	* perl/Apache-DBI/DETAILS: bump the version from 0.89 to 0.94.
-
-2005-01-22 07:24  florin
-
-	* perl/DBI/DETAILS: bump the version from 1.43 to 1.46.
-
-2005-01-22 07:23  florin
-
-	* perl/DBD-Pg/DETAILS: bump the version from 1.22 to 1.32 at
-	  Richard Pyne's request.
-
-2005-01-22 07:10  florin
-
-	* perl/Archive-Zip/DETAILS: bump the version from 1.05 to 1.14 at
-	  Richard Pyne's request.
-
-2005-01-22 07:01  florin
-
-	* utils/openldap/DETAILS: bump the version from 2.2.20 to 2.2.21.
-	  bugfix release.
-
-2005-01-22 06:56  florin
-
-	* utils/lsof/DETAILS: bump the version from 4.73 to 4.74.
-
-2005-01-22 06:33  florin
-
-	* audio/amarok/: BUILD, DEPENDS: add k3b as an optional depend.
-
-2005-01-22 06:28  florin
-
-	* kde3-apps/qbankmanager/: BUILD, DEPENDS, DETAILS: A frontend for
-	  aqbanking in KDE.
-
-2005-01-22 06:26  florin
-
-	* libs/aqbanking/DETAILS: bump the version from 0.9.9 to 1.0.1beta.
-
-2005-01-22 06:23  florin
-
-	* news/leafnode/DETAILS: bump the version from 1.10.7 to 1.10.8.
-
-2005-01-22 06:02  florin
-
-	* libs/gwenhywfar/DETAILS: bump the version from 1.5.0 to 1.6.0.
-
-2005-01-22 03:40  v3rt1g0
-
-	* web/w3c-libwww/: BUILD, DEPENDS, DETAILS: Version bump.  Also
-	  added missing depends and configure flags.  Updated the long
-	  description to match the website and added a SHA1 sum.
-
-2005-01-22 01:38  tchan
-
-	* kernel/linux-2.4-vanilla/DETAILS: Version bump to
-	  linux-2.4-vanilla 2.4.29.
 
