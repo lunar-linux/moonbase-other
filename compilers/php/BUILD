@@ -13,6 +13,13 @@
     make -C imap-${IMAP_VERSION} slx SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib"
     OPTS="$OPTS --with-imap=imap-${IMAP_VERSION}"
   fi
+  
+  if module_installed apache || module_installed apache-mod_ssl ; then
+    OPTS="$OPTS --with-apxs=/usr/sbin/apxs"
+  elif module_installed apache2 ; then
+    OPTS="$OPTS --with-apxs2=/usr/sbin/apxs"
+  fi
+      
 
   sedit "s:^:#include <errno.h>\n:" ext/mysql/libmysql/mysys_err.h	&&
 
