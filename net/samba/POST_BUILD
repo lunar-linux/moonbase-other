@@ -1,0 +1,6 @@
+#list bash commands here to perform after BUILD
+if [ ! -d /etc/samba/private ]
+	mkdir -p /etc/samba/private
+	chmod 700 /etc/samba/private
+fi
+default_post_build 
