@@ -1,12 +1,13 @@
           MODULE=autofs
-         VERSION=4.1.0
+         VERSION=4.1.3
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=ftp://ftp.kernel.org/pub/linux/daemons/$MODULE/v4/$SOURCE
+      SOURCE_URL=ftp://ftp.kernel.org/pub/linux/daemons/$MODULE/v4/$SOURCE
         WEB_SITE=ftp://ftp.kernel.org/pub/linux/daemons/$MODULE
          ENTERED=20040202
-         UPDATED=20040202
+         UPDATED=20040714
            SHORT="Kernel userspace automounter."
+PSAFE=no
 cat << EOF
 Kernel userspace automounter. You'll need kernel support for the v4 automounter
 and setup ypbind, nis, ldap etc if you want to use that... check the exmaples.
