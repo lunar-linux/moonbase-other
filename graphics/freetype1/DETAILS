@@ -1,8 +1,11 @@
-           MODULE=freetype1
+          MODULE=freetype1
          VERSION=1.3.1
           SOURCE=freetype-$VERSION.tar.gz
+	 SOURCE2=freetype-1.3.1-gcc3.3.3.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/freetype-$VERSION
    SOURCE_URL[0]=$SFORGE_URL/freetype/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+   OURCE2_VFY[0]=md5:e14b5067a046cb77742c3dc4cc52842c
         WEB_SITE=http://www.freetype.org
          ENTERED=20010922
          UPDATED=20010929
