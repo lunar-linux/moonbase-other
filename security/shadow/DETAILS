@@ -1,13 +1,15 @@
           MODULE=shadow
-         VERSION=4.0.3
+         VERSION=4.0.4.1
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=ftp://ftp.pld.net.pl/software/$MODULE/$SOURCE
-   SOURCE_URL[2]=http://www.wiretapped.be/security/host-security/shadow/$SOURCE
+   SOURCE_URL[0]=http://www.wiretapped.be/security/host-security/shadow/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.pld.net.pl/software/$MODULE/$SOURCE
+      SOURCE_VFY=md5:3a3d17d3d7c630b602baf66ae7434c61
         WEB_SITE=ftp://ftp.pld.org.pl/software/shadow
          ENTERED=20010922
-         UPDATED=20020501
-           SHORT="shadow contains the shadow password file utilities."
+         UPDATED=20040129
+        SHORT="shadow contains the shadow password file utilities."
+
 cat << EOF
 The Shadow password file utilities package includes the programs
 necessary to convert traditional V7 UNIX password files to the SVR4
