@@ -1,3 +1,105 @@
+2004-02-17 07:59  florin
+
+	* utils/console-data/CONFLICTS: add the CONFLICTS file regarding
+	kbd.
+
+2004-02-17 07:58  florin
+
+	* utils/console-tools/BUILD: a small fix.
+
+2004-02-17 07:58  florin
+
+	* utils/kbd/: BUILD, CONFLICTS, DETAILS: an console-utils like
+	program. it seems to be more modern than the console-tools suite.
+
+2004-02-17 03:14  nhudson
+
+	* doc-tools/gtk-doc/DETAILS: 
+	Updating gtk-doc to new version 1.2
+
+2004-02-17 03:12  nhudson
+
+	* gnome2-core/: gnome-desktop/DETAILS, libgtkhtml/DETAILS: 
+	Updating modules in GNOME_UNSTABLE
+
+2004-02-17 01:08  nestu
+
+	* security/p0f/: BUILD, DEPENDS, DETAILS, PRE_BUILD: Adding
+	Striker's module ;)
+
+2004-02-17 00:30  nestu
+
+	* cd/cdrtools/BUILD: Take out the include from /usr/src/include, so
+	it uses its own headers
+
+2004-02-16 22:09  nhudson
+
+	* devel/gconfmm/: DEPENDS, DETAILS: 
+	Adding glibmm and gconfmm to GNOME_UNSTABLE
+
+2004-02-16 21:21  florin
+
+	* cd/cdrdao/: BUILD, DETAILS: bump version from 1.1.7 to 1.1.8.
+
+2004-02-16 21:15  nhudson
+
+	* libs/libsigc++2/DETAILS: 
+	Adding libsigc++2 to GNOME_UNSTABLE for Gnome 2.5.x c++ wrapper
+	support
+
+2004-02-16 20:16  florin
+
+	* games/xtux/DEPENDS: add ggz optional depend.
+
+2004-02-16 20:09  tchan
+
+	* compilers/gcc/BUILD: Fixed the hard-coding of the version number
+	in the gcc build path.
+
+2004-02-16 19:06  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Bumped version
+
+2004-02-16 17:30  nhudson
+
+	* libs/atk/DETAILS: 
+	Updating atk to new version 1.5.4
+
+2004-02-16 17:29  nhudson
+
+	* gnome2-core/: gnome-system-monitor/DETAILS, libgtop2/DETAILS,
+	bug-buddy/DETAILS, gail/DETAILS, gnome-games2/DETAILS,
+	metacity/DETAILS: 
+	Updating modules in GNOME_UNSTABLE
+
+2004-02-16 15:44  tchan
+
+	* security/cracklib/DETAILS: Fixed the URL back to correct
+	www.lunar-linux.org/lunar/cache for downloading the source as a
+	tar.bz2 file with no "stinkin" commas in the name.  Which is
+	probably why we cached the source code in the first place.  Also
+	updated theedge/etc/lunar/mirrors/LRESORT.  Some users may need to
+	run lunar->option->Software Mirrors->LRESORT to update their
+	LRESORT locations.
+
+2004-02-16 14:20  sofar
+
+	* video/xawtv/DETAILS: New version, tested with a bt848 card
+
+2004-02-16 14:18  sofar
+
+	* utils/Wine/DETAILS: Updated version.
+
+2004-02-16 13:50  florin
+
+	* x11/xfree86/DEPENDS, zbeta/xfree86-beta/DEPENDS: libpng depends
+	on zlib, so i have removed the zlib depend.
+
+2004-02-16 13:14  florin
+
+	* graphics/blender/DEPENDS: libpng depends on zlib, so i have
+	removed the zlib depend.
+
 2004-02-16 11:22  florin
 
 	* kde3-apps/kpl/: BUILD, DEPENDS, DETAILS: a graphical
@@ -2461,11 +2563,4 @@
 
 	* devel/uml/DETAILS: Version bump on uml_utilities to 20040114. 
 	Compiled and tested with gcc-3.2.3, glibc-2.3.2, kernel 2.4.x.
-
-2004-01-17 06:17  florin
-
-	* net/ppp/: BUILD, DETAILS: bump version from 2.4.1 to 2.4.2.
-	Comment the FILTER option in the BUILD because if the kernel does
-	not have ppp filtering option enabled, the module won't compile
-	(missingh net/bpf.h).
 
