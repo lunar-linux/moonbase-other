@@ -1,0 +1,18 @@
+          MODULE=nforce
+         VERSION=1.0-0261
+          SOURCE=NVIDIA_$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL[0]=http://download.nvidia.com/XFree86/nforce/$VERSION/$SOURCE
+        WEB_SITE=http://www.nvidia.com/object/linux_nforce_1.0-0261.html
+         ENTERED=20040124
+         UPDATED=20040124
+      MAINTAINER=hardkrash@lunar-linux.org
+           SHORT="IA32 drivers for nforce/nforce2 chipsets, not graphics drivers"
+cat << EOF
+This page contains drivers and documentation for the nForce chipset. 
+The chipset includes hardware support for IDE disk control, ethernet networking, 
+audio support, win modem support, and a USB controller. 
+
+These packages have support for ethernet networking and basic ACI audio. 
+USB and IDE hardware will work with standard Linux drivers. There is no win modem support.
+EOF
