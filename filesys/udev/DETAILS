@@ -1,16 +1,17 @@
           MODULE=udev
-         VERSION=051
+         VERSION=052
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=scsi-devfs.sh.patch
       SOURCE_URL=http://www.kernel.org/pub/linux/utils/kernel/hotplug/
-     SOURCE2_URL=${PATCH_URL}/
-      SOURCE_VFY=sha1:336e9ed6ee43e3ae4d4867a47086e40507989386
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:b4ea3447ae147c8c7b7a006086e061ae69eafdfc
      SOURCE2_VFY=sha1:9fc20cdd3ae95476dc066b2ff20c167f5c41c736
         WEB_SITE=http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html
          ENTERED=20040104
-         UPDATED=20050218
+         UPDATED=20050224
            PSAFE=no
            SHORT="Device naming from userspace for 2.6+ kernels"
+
 cat << EOF
 Future substitute of devfs in 2.6+ kernels. udev's goals:
 * run in userspace

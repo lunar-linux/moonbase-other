@@ -14,23 +14,29 @@ KERNEL="root[p-za-e][0-9a-f]*",  OWNER="$local"
 KERNEL="vc/s*",                  OWNER="$local"                                 
 
 
+# cpu devices
+KERNEL="cpu[0-9]*",  NAME="cpu/%n/cpuid"
+KERNEL="msr[0-9]*",  NAME="cpu/%n/msr"
+KERNEL="microcode",  NAME="cpu/microcode"
+
+
 # tty devices
-KERNEL="tty",                                                        GROUP="tty", MODE="0666"
-KERNEL="tty[0-9]*",   NAME="vc/%n",   SYMLINK="%k",  OWNER="$local", GROUP="tty"
-KERNEL="ttyS[0-9]*",  NAME="tts/%n",  SYMLINK="%k",  OWNER="$local", GROUP="tty"
+KERNEL="tty",                                                         GROUP="tty", MODE="0666"
+KERNEL="tty[0-9]*",   NAME="vc/%n",   SYMLINK="%k",  OWNER="$local",  GROUP="tty"
+KERNEL="ttyS[0-9]*",  NAME="tts/%n",  SYMLINK="%k",  OWNER="$local",  GROUP="tty"
 
 
 # pty devices
-KERNEL="tty[p-za-e][0-9a-f]*", NAME="tty/s%n", SYMLINK="%k", OWNER="$local" 
-KERNEL="pty[p-za-e][0-9a-f]*", NAME="pty/m%n", SYMLINK="%k", OWNER="$local"                             
+KERNEL="tty[p-za-e][0-9a-f]*",  NAME="tty/s%n",  SYMLINK="%k",  OWNER="$local" 
+KERNEL="pty[p-za-e][0-9a-f]*",  NAME="pty/m%n",  SYMLINK="%k",  OWNER="$local"                             
 
 
 # vc devices
-KERNEL="vcc/*",                                     MODE="0600"                                
-KERNEL="vcs",         NAME="vcc/0",   SYMLINK="%k", MODE="0600"
-KERNEL="vcs[0-9]*",   NAME="vcc/%n",  SYMLINK="%k", MODE="0600"
-KERNEL="vcsa",                                      MODE="0600"
-KERNEL="vcsa[0-9]*",  NAME="vcc/a%n", SYMLINK="%k", MODE="0600"
+KERNEL="vcc/*",                                      MODE="0600"                                
+KERNEL="vcs",         NAME="vcc/0",   SYMLINK="%k",  MODE="0600"
+KERNEL="vcs[0-9]*",   NAME="vcc/%n",  SYMLINK="%k",  MODE="0600"
+KERNEL="vcsa",                                       MODE="0600"
+KERNEL="vcsa[0-9]*",  NAME="vcc/a%n", SYMLINK="%k",  MODE="0600"
 
 
 # mem
@@ -164,7 +170,7 @@ KERNEL="loop/*",                                      GROUP="disk"
 
 # optical devices
 KERNEL="cdrom*",    GROUP="cdrom"
-KERNEL="cdroms/*",  GROUP="cdrom "
+KERNEL="cdroms/*",  GROUP="cdrom"
 KERNEL="cdwriter",  GROUP="cdrom"
 KERNEL="sr*",       GROUP="cdrom"
 KERNEL="dvd",       GROUP="cdrom"
@@ -187,7 +193,7 @@ KERNEL="st*",       GROUP="tape"
 KERNEL="ht*",       GROUP="tape"
 
 
-# dm devioes
+# dm devices
 KERNEL="dm-[0-9]*", PROGRAM="/sbin/devmap_name %M %m", NAME="%k", SYMLINK="%c",  MODE="0640"
 
 
@@ -222,7 +228,7 @@ KERNEL="vbi*",                             GROUP="video"
 
 
 # input devices
-KERNEL="input/*",  MODE="644"
+KERNEL="input/*",  MODE="0644"
 
 
 # gpm devices
@@ -237,12 +243,11 @@ KERNEL="dri/*",                        GROUP="video"
 
 
 # mainboard devices
-KERNEL="apm_bios",                                 MODE="0600"
+KERNEL="apm_bios",                                  MODE="0600"
 KERNEL="i2c-[0-9]*",  NAME="i2c/%n", SYMLINK="%k"
 
 
 # serial + dialup devices
-KERNEL="ts*", NAME="input/%k"
 #KERNEL="ippp*"
 #KERNEL="ircomm*"
 #KERNEL="isdn*"
@@ -265,9 +270,15 @@ KERNEL="usb/*",                          GROUP="usb"
 
 
 # input
-KERNEL="djs*",	   NAME="input/%k"
-KERNEL="event*",   NAME="input/%k"
-KERNEL="js*",	   NAME="input/%k"
-KERNEL="kbd",	   NAME="input/%k"
-KERNEL="mice",	   NAME="input/%k",  SYMLINK="%k"
-KERNEL="mouse*",   NAME="input/%k"
+KERNEL="ts*",     NAME="input/%k",                 MODE="0600"
+KERNEL="event*",  NAME="input/%k",                 MODE="0600"
+KERNEL="djs*",	  NAME="input/%k",                 MODE="0644"
+KERNEL="js*",	  NAME="input/%k",                 MODE="0644"
+KERNEL="kbd",	  NAME="input/%k",                 MODE="0644"
+KERNEL="mice",	  NAME="input/%k",  SYMLINK="%k",  MODE="0644"
+KERNEL="mouse*",  NAME="input/%k",                 MODE="0644"
+
+
+# dvb devices
+KERNEL="dvb*",  PROGRAM="/etc/udev/scripts/dvb.sh %k",  NAME="%c",  GROUP="video"
+
