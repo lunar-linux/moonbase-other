@@ -1,10 +1,10 @@
 (
+ 
+  ./configure  --prefix=/opt/lunar/gnome/2.4 \
+               --disable-werror            \
+               $OPTS      &&
+  default_make  &&
 
-  OPTS="$OPTS --disable-werror --with-mozilla-snapshot=1.3"
-
-  default_config  &&
-  default_make    &&
-  echo  "YES"                     |
-  galeon-config-tool  --install-schemas --fix-gconf-permissions
-
-) > $C_FIFO 2>&1 
+  cp $SCRIPT_DIRECTORY/galeon /opt/lunar/gnome/2.4/bin
+  
+) > $C_FIFO 2>&1
