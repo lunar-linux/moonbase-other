@@ -2,8 +2,11 @@
 ######### DO NOT UPDATE BECAUSE IT BREAKS THINGS #########
 # note: tested several apps that link against this and
 # compile && run okay, so I'm upping the version (sofar)
+#
+# having lost track of the things this broke I am reverting 
+# the change. --csm
           MODULE=gettext
-         VERSION=0.11.5
+         VERSION=0.11.2
         #VERSION=0.11.2
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
@@ -11,7 +14,7 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE
         WEB_SITE=http://www.gnu.org/software/gettext
          ENTERED=20010922
-         UPDATED=20020903
+         UPDATED=20020904
            SHORT="gettext is the GNU internationalisation library."
 cat << EOF
 gettext is the GNU internationalisation library.

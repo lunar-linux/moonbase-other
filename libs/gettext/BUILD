@@ -29,7 +29,7 @@ module_present()  {
 
   ./configure  --build=$BUILD           \
                --host=$BUILD            \
-               --prefix=/usr            \
+               --prefix=/               \
                --sysconfdir=/etc        \
                --mandir=/usr/share/man  \
 	       --infodir=/usr/share/info \
