@@ -4,8 +4,10 @@ cp -f $SCRIPT_DIRECTORY/lunar-g++ /usr/bin/lunar-g++     &&
 cd /usr/bin                                              &&
 
 ln    -sf lunar-gcc cc                                   &&
-ln    -sf cpp  /usr/lib/gcc-lib/$BUILD/$VERSION/cpp      &&
-ln    -sf cpp  /lib/cpp && 
+cd /usr/lib/gcc-lib/$BUILD/$VERSION                      &&
+ln    -sf /usr/bin/cpp cpp                               &&
+cd /lib/cpp                                              &&
+ln    -sf /usr/bin/cpp cpp                               && 
 
 umount /usr/src/gcc-$VERSION-BUILD                       &&
 rm -rf /usr/src/gcc-$VERSION-BUILD /usr/src/gcc-$VERSION &&
