@@ -1,29 +1,35 @@
           MODULE=ht
-         VERSION=0.7.0
+         VERSION=0.8.0
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$SFORGE_URL/hte/$SOURCE
+      SOURCE_URL=$SFORGE_URL/hte/$SOURCE
+      SOURCE_VRY=sha1:86bd53b2c37c1e637ea2f1e1eaa89affda018767
         WEB_SITE=http://hte.sourceforge.net/
          ENTERED=20021021
-         UPDATED=20021021
+         UPDATED=20020918
       MAINTAINER=kongar@tsrsb.org.tr
-           SHORT="ht is a file editor/viewer/analyzer for executables."
-
+           SHORT="HT is a file editor/viewer/analyzer for executables."
 
 cat << EOF
-ht is a file editor/viewer/analyzer for executables.
+HT is a file viewer, editor, and analyser for test, binary, and
+especially executable files that attempts to combine the low-level
+functionality of a debugger and the usbility of an IDE.
 
-Support means that HT will be able to correctly display and modify the 
-executable header, image and other extensions specific to the file
-(import/export sections, relocations, debugging information etc.). 
-Support will probably include the following file formats:
+Below is a list of supported executable formats.  Supported means that
+HT will be able to correctly display and modify the executable header 
+and image.  Anything with "extended support" means it offers things 
+support above and beyond, like possibly import/export sections,
+relocations, or debugging information. 
 
-  * Win32 portable executables (PE) (good support)
-  * Unix executable and linkable format (ELF) (good support)
-  * DOS standard executables (MZ) (supported)
-  * Win32 linear executables (LE) (supported)
-  * Windows/OS2 "new" executables (NE) (supported)
-  * Unix common object file format (COFF) + DJGPP COFF (supported)
-  * OS2 linear executables (LX)
-  * M$ object files (.obj) 
+  * Win32 portable executables (PE32/PE64) (extended support)
+  * Unix executable and linkable format (ELF) (extended support)
+  * DOS standard executables (MZ)
+  * Win32 linear executables (LE) (extended support)
+  * Windows/OS2 "new" executables (NE) (extended support)
+  * Unix common object file format (COFF/XCOFF32)
+  * Java class files (CLASS)
+  * Mach exe/link format (Mach0)
+  * X-Box executables (XBE) (extended support)
+  * Flat (FLT)
+  * PowerPC executable format (PEF)
 EOF
