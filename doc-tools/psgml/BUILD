@@ -1,7 +1,7 @@
 (
 
     EMACSDIR=/usr/share/emacs/site-lisp       &&
-    cat psgml-init.el.in | sedit "s/@EMACSDIR@\/@NAME@/$EMACSDIR\/$MODULE/" > psgml-init.el                                             &&
+    cat $SOURCE_CACHE/psgml-init.el.in | sed "s?\@EMACSDIR\@/\@NAME\@?$EMACSDIR/$MODULE?" > psgml-init.el                                             &&
     default_config                            &&
     cp *.el       $EMACSDIR                   &&
     make                                      &&
