@@ -1,0 +1,18 @@
+           MODULE=libgnomeprint
+         VERSION=1.116.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$GNOME_URL/desktop/2.0/2.0.2/sources/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.gnome.org/pub/GNOME/desktop/2.0/2.0.2/sources/$SOURCE
+        WEB_SITE=http://www.gnome.org/projects/gnome-print
+         ENTERED=20020714
+         UPDATED=20020917
+           SHORT="gnome-print is an API that implements the Postscript imaging model."
+cat << EOF
+gnome-print is a C-based API that implements the Postscript imaging
+model. It is an actively developed project, and it is being used by
+various GNOME applications. There are two extensions to the Postscript
+imaging model supported by gnome-print: Alpha channel support and 
+anti-aliasing. gnome-print includes a rasterizing engine that
+transforms the requests into bitmaps for native drivers.
+EOF
