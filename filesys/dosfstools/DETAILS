@@ -1,0 +1,20 @@
+          MODULE=dosfstools
+         VERSION=2.10
+          SOURCE=$MODULE-$VERSION.src.tar.gz
+	 SOURCE2=$MODULE-2.9-man.patch.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/$SOURCE
+   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+       WEB_SITE=ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/
+       SOURCE_VFY=md5:59a02f311a891af8787c4c9e28c6b89b
+         ENTERED=20011217
+         UPDATED=20040103
+       MAINTAINER=sofar@lunar-linux.org
+       SHORT="Utilities to create and check MS-DOS filesystems under Linux"
+			  
+cat << EOF
+Utilities to create and check MS-DOS filesystems under Linux.
+Includes : 
+  mkdosfs mkfs.msdos mkfs.vfat 
+  dosfsck fsck.msdos fsck.vfat
+EOF
