@@ -1,6 +1,6 @@
 (
-
-  sedit "s/mandir = \$(prefix)\/man/mandir = \$(prefix)\/share\/man/" Makefile.in
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  sedit "s/mandir = \$(prefix)\/man/mandir = \$(prefix)\/share\/man/" Makefile.in &&
   ./configure  --build=$BUILD  \
                --prefix=/usr   \
                $OPTS           &&
