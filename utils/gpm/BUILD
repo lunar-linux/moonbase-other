@@ -35,7 +35,10 @@ patch_it $SOURCE_CACHE/$SOURCE11 1                     &&
   #sedit  "s/src doc contrib/src contrib/"  Makefile    &&
 
 # binary section
-  default_make                                         &&
+  make                                                 &&
+  prepare_install                                      &&
+  cp $SCRIPT_DIRECTORY/lmouse.8 /usr/share/man/man8/.  &&
+  make install                                         &&
   ldconfig                                             &&
 
 if [ -d "/etc/config.d" ]; then
