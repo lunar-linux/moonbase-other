@@ -1,16 +1,37 @@
-          MODULE=mkvtoolnix
-         VERSION=0.9.3
+          MODULE=libmatroska
+         VERSION=0.7.1
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://www.bunkus.org/videotools/$MODULE/sources/$SOURCE
-     SOURCE_VFY=ebdb8614247ae0abc65021d39821209f
-        WEB_SITE=http://www.bunkus.org/videotools/mkvtoolnix/
+   SOURCE_URL[0]=http://www.bunkus.org/videotools/mkvtoolnix/sources/$SOURCE
+   SOURCE_URL[1]=http://matroska.free.fr/downloads/$MODULE/$SOURCE
+     SOURCE_VFY=md5:6bbfeaa827f24ed62c41104f951a8c8a
+        WEB_SITE=http://www.matroska.org/
          ENTERED=20031113
-         UPDATED=20040719
-        MAINTAINER=florin@lunar-linux.org
-        SHORT="Tools for using Matroska audio/video container files."
+         UPDATED=20040725
+       MAINTAINER=florin@lunar-linux.org
+       SHORT="This library implements a multimedia container format."
 
 cat << EOF
-MKVtoolnix is a set of tools to create, alter and inspect Matroska audio/video
-container files, just what the OGMtools do for the OGM format.
+Matroska aims to become the Standard of Multimedia Container Formats. It is 
+based on EBML (Extensible Binary Meta Language), a binary derivative of XML. 
+EBML enables the Matroska Development Team to gain significant advantages in 
+terms of future format extensibility, without breaking file support in old 
+parsers.
+
+First, it is essential to clarify exactly "What an Audio/Video container is", 
+to avoid any misunderstandings.
+ - It is NOT a video compression format
+ - It cannot be used to compress music or pictures like MP3 or JPEG, as it is not a codec.
+ - It is an envelope for which there can be many audio, video and subtitles streams, allowing the user to store a complete movie in one single file. This ensures that the audio and video can be played in most Media players.
+
+Matroska is designed with the future in mind. It incorporates features you 
+would expect from a modern container format, like:
+ - Streamable over internet (HTTP and RTP)
+ - Fast seeking in the file
+ - High error recovery
+ - Menus (like DVDs have)
+ - Chapter entries
+ - Selectable subtitle streams
+ - Selectable audio streams
+ - Modularly Extendable
 EOF
