@@ -1,23 +1,21 @@
-install_drm()  {
+(
 
-  DRM_DIR="programs/Xserver/hw/xfree86/os-support/linux/drm/kernel"
-  DRM_DEST="/lib/modules/`uname -r`/kernel/drivers"
-  mkdir   -p                $DRM_DEST
-  cp          $DRM_DIR/*.o  $DRM_DEST  2>/dev/null
-  depmod  -a
-  true
+  install_drm()  {
+    DRM_DIR="programs/Xserver/hw/xfree86/os-support/linux/drm/kernel"
+    DRM_DEST="/lib/modules/`uname -r`/kernel/drivers"
+    mkdir   -p                $DRM_DEST
+    cp          $DRM_DIR/*.o  $DRM_DEST  2>/dev/null
+    depmod  -a
+    true
+  }
 
-}
+  if [ -e /etc/X11/xinit/xinitrc ]; then
+    cp /etc/X11/xinit/xinitrc /etc/X11/xinit/xinitrc.orig
+    echo "Your master xinitrc file has been backed up as /etc/X11/xinit/xinitrc.orig"
+  fi
 
-if [ -e /etc/X11/xinit/xinitrc ]; then
-   cp /etc/X11/xinit/xinitrc /etc/X11/xinit/xinitrc.orig
-   echo "Your master xinitrc file has been backed up as /etc/X11/xinit/xinitrc.orig"
-fi
+  message  "Building XOrg takes a very long time."
 
-message  "Building XOrg takes a very long time."
-
-
-( 
 
   echo  "#define  InstallXdmConfig    YES"  >>  config/cf/site.def
   echo  "#define  InstallXinitConfig  YES"  >>  config/cf/site.def
@@ -34,9 +32,14 @@ message  "Building XOrg takes a very long time."
   fi                                    &&
 
   cp $CONFIG_CACHE/host.def config/cf/host.def &&
-  # This must happen or it will cause the module to break
-  # claiming "Kernel only header included in userspace"
-  cp -rL /usr/src/linux/include/linux/{autoconf.h,config.h} /usr/include/linux &&
+
+	if grep -q "Compilation aborted" /usr/include/linux/config.h ; then
+	  # This must happen or it will cause the module to break
+    # claiming "Kernel only header included in userspace"
+		devoke_installwatch &&
+    cp -rL /usr/src/linux/include/linux/{autoconf.h,config.h} /usr/include/linux &&
+		invoke_installwatch
+	fi
 
   make World                            &&
   prepare_install                       &&
