@@ -5,8 +5,8 @@
       echo
       exit 1
   }
+  make                                                   &&
   prepare_install                                        &&
-  cp -f $SCRIPT_DIRECTORY/$MODULE-$VERSION /dev/MAKEDEV  &&
-  chmod 754 /dev/MAKEDEV
+  make install
 
 ) > $C_FIFO 2>&1
