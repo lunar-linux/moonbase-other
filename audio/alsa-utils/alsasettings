@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# alsasettings  Takes care of restoring the ALSA mixer values
+#		2.6.x kernel systems
+#
+# chkconfig: 2345 98 12
+# description: Restore ALSA settings on 2.6.x based systems
+# processname: alsactl
+
+if [ "$1" == "start" ]; then
+  ARGS="restore"
+else
+  ARGS="store"
+fi
+
+. /lib/lsb/init-functions

@@ -1,40 +1,15 @@
-if  [  !  -f  /etc/asound.state  ];  then
+# Store settings and run chkconfig
+ASOUND_FILE="/etc/asound.state"
 
-  alsactl  store
-  echo  "Mixer setting saved."
-  echo  "You can save the default ALSA mixer levels"
-  echo  "at anytime as root by running"
-  echo  "# alsactl store"
+if [ ! -f $ASOUND_FILE ]; then
+    alsactl  store
 
-fi
+    message  "Mixer setting saved to $ASOUND_FILE"
+    message  "You can save the default ALSA mixer levels"
+    message  "as root anytime by running:"
+    message  "# alsactl store"
+fi &&
 
-if module_installed linux-2.6 ; then	
-
-   if ! [ -e /etc/init.d/alsasettings  ];  then
-      cp  $SOURCE_CACHE/alsasettings  /etc/init.d
-      chmod +x /etc/init.d/alsasettings
-      rm -f /etc/rcS.d/S98alsasettings
-      ln -s /etc/init.d/alsasettings /etc/rcS.d/S98alsasettings
-   fi
-
-   if [ ! -e /etc/rcS.d/S98alsasettings ]; then
-      ln -s /etc/init.d/alsasettings /etc/rcS.d/S98alsasettings
-   fi
-
-   if [ ! -e /etc/rc0.d/K12alsasettings ]; then
-      ln -s /etc/init.d/alsasettings /etc/rc0.d/K12alsasettings
-   fi
-
-   if [ ! -e /etc/rc6.d/K12alsasettings ]; then
-      ln -s /etc/init.d/alsasettings /etc/rc6.d/K12alsasettings
-   fi
-
-   if [ ! -e /etc/rc1.d/K12alsasettings ]; then
-      ln -s /etc/init.d/alsasettings /etc/rc1.d/K12alsasettings
-   fi
-
-   if [ ! -e /etc/rc2.d/K12alsasettings ]; then
-      ln -s /etc/init.d/alsasettings /etc/rc2.d/K12alsasettings
-   fi
-
+if [ `uname -r | cut -d. -f2` -ge 6 ]; then
+  chkconfig --add alsasettings
 fi
