@@ -1,3 +1,62 @@
+2005-04-04 04:46  tchan
+
+	* gnome2-apps/abiword/DETAILS: Version bump to abiword-2.2.6.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2005-04-04 04:41  tchan
+
+	* chat/gaim/DETAILS: Version bump to gaim-1.2.1. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2005-04-03 22:57  nhudson
+
+	* gnome-desktop/gnome-panel/DETAILS:
+	  Updating gnome-panel to new version 2.10.1
+
+2005-04-03 21:04  cmak
+
+	* games/: qstat/DETAILS, xqf/DETAILS: bumpgun
+
+2005-04-03 19:47  cmak
+
+	* gnome-platform/hal/init.d/hald: adding pidfile: option
+
+2005-04-03 19:42  florin
+
+	* eclipse/eclipse-bin/DETAILS: bump the version from 3.0.1 to
+	  3.0.2.
+
+2005-04-03 19:31  florin
+
+	* chat/ircservices/DETAILS: bump the version from 5.0.50 to 5.0.51.
+	  bugfixes.
+
+2005-04-03 18:18  nestu
+
+	* net/iproute2/: DETAILS, BUILD: 2.6.11-050314 -> 2.6.11-050330.
+	  gcc 3.3.3, glibc 2.3.2, headers 2.6.11.1-i386.  The patch is no
+	  longer needed.  SOURCE_DIRECTORY is no longer needed as it
+	  unpacks as $MODULE-$VERSION.
+
+2005-04-03 17:01  v3rt1g0
+
+	* libs/gettext/BUILD: tchan reported that gettextize was not being
+	  installed, removing this sedit should resolve that.  it seems
+	  that the this release was mainly just modifications to the
+	  autofoo stuff, this was probably changed.
+
+2005-04-03 15:12  nhudson
+
+	* gnome-platform/hal/: BUILD, DETAILS:
+	  Adding a .desktop file for hal-device-manager so that it will
+	  show up in the Gnome menu
+
+2005-04-03 15:12  florin
+
+	* zbeta/php5/: BUILD, DETAILS: bump the version from 5.0.3 to
+	  5.0.4. features added and a lot of bugfixes.
+
 2005-04-03 11:45  sofar
 
 	* filemanagers/filer/DETAILS: new filer release
@@ -2786,147 +2845,4 @@
 	  2.6.11-2.1.2. gcc 3.3.3, glibc 2.3.2, headers 2.6.10.0 This
 	  release is not based on -as tree, as the fixes should have gone
 	  into vanilla.
-
-2005-03-04 23:12  florin
-
-	* ftp/curl/DETAILS: bump the version from 7.13.0 to 7.13.1. bugfix
-	  release.
-
-2005-03-04 22:04  v3rt1g0
-
-	* zbeta/evas-cvs/BUILD: The EFL's under went a "cleanup" to the
-	  autocruft stuff.  Looks like the README file isn't being properly
-	  generated from the README.in yet, so I'm adding the touch README
-	  as a temporary workaround for now.
-
-2005-03-04 21:56  v3rt1g0
-
-	* zbeta/eet-cvs/BUILD: The EFL's under went a "cleanup" to the
-	  autocruft stuff.  Looks like the README file isn't being properly
-	  generated from the README.in yet, so I'm adding the touch README
-	  as a temporary workaround for now.
-
-2005-03-04 21:44  moe
-
-	* kernel/linux-2.6/DETAILS: Weee .. updating this to the latest -as
-	  patchset.
-
-	  * Be a little more explainatory
-
-2005-03-04 20:09  tchan
-
-	* video/LiVES/DETAILS: Fixing UPDATED field.  It was < ENTERED
-	  field, and was clearly wrong.
-
-2005-03-04 20:08  tchan
-
-	* utils/lunar-tools/DETAILS: Fixing UPDATED field which was <
-	  ENTERED field.  Clearly wrong.
-
-2005-03-04 20:01  v3rt1g0
-
-	* zbeta/: imlib2-cvs/BUILD, imlib2_loaders-cvs/BUILD: The EFL's
-	  under went a "cleanup" to the autocruft stuff.  Looks like the
-	  README file isn't being properly generated from the README.in
-	  yet, so I'm adding the touch README as a temporary workaround for
-	  now.
-
-2005-03-04 17:42  tchan
-
-	* libs/libgsf/DEPENDS: the ./configure step checks for glib-2 and
-	  libxml2.  This has been overlooked for a while now.  Thanks to
-	  alzen for sort-of pointing this out.
-
-2005-03-04 17:00  jol
-
-	* ftp/mldonkey/: BUILD, DETAILS: Bumped to 2.5.28.1. Just a bugfix
-	  released
-
-2005-03-04 16:07  v3rt1g0
-
-	* games/fortune-meanwhile-in-lunar/DETAILS: Yummy quotes (this
-	  weeks and last weeks)
-
-2005-03-04 15:55  sofar
-
-	* devel/cvs2svn/DEPENDS: Adding these make it work okay under all
-	  circumstances.
-
-2005-03-04 14:29  sofar
-
-	* devel/cvs2svn/: BUILD, DEPENDS, DETAILS: Gonna need this!!!
-
-2005-03-04 12:23  florin
-
-	* app-themes/QtCurve/DETAILS: use sha1 instead of md5.
-
-2005-03-04 12:18  florin
-
-	* app-themes/gtk-qt-engine/DETAILS: bump the version from 0.5 to
-	  0.6.
-
-2005-03-04 12:13  florin
-
-	* kde3/qt3/: BUILD, DETAILS: add a patch for flicker free.
-
-2005-03-04 12:07  florin
-
-	* sql/phpMyAdmin/DETAILS: bump the version from 2.6.1-pl2 to
-	  2.6.1-pl3. security release.
-
-2005-03-04 10:41  sofar
-
-	* devel/rapidsvn/: DEPENDS, DETAILS: new module: rapidsvn... a
-	  graphical SVN frontend that uses wxGTK. doesn't work with gtk2
-	  tho... you need to compile wxGTK against gtk1
-
-2005-03-04 10:39  sofar
-
-	* filemanagers/emelfm2/: BUILD, DEPENDS, DETAILS: new module: gtk2
-	  version of emelfm
-
-2005-03-04 10:28  moe
-
-	* web/firefox/POST_INSTALL: meh
-
-2005-03-04 10:17  florin
-
-	* mail/dbmail/: DEPENDS, DETAILS, PRE_BUILD: DBmail permit the
-	  storage of the mail in databases and providex pop3 and/or imap
-	  support.
-
-2005-03-04 10:03  florin
-
-	* security/iptables/: BUILD, DETAILS: bump the version from 1.2.11
-	  to 1.3.0. improvements and bugfixes. it works fine for three
-	  weeks on my system.
-
-2005-03-04 09:39  moe
-
-	* mail/sylpheed/DETAILS: New sylpheed
-
-2005-03-04 09:34  moe
-
-	* web/firefox/: BUILD, DEPENDS, POST_INSTALL, POST_REMOVE: * Put
-	  back the icon. Don't touch stuff you don't know about * Better
-	  handling of upgrades * Put nss libraries in the right place *
-	  Beautify the DEPENDS file
-
-2005-03-04 08:53  florin
-
-	* filesys/mtools/DETAILS: bump the version from 3.9.9 to 3.9.10.
-	  bugfix release.
-
-2005-03-04 07:53  florin
-
-	* x11-utils/xpad/DETAILS: bump the version from 2.4 to 2.5. bugfix
-	  release.
-
-2005-03-04 07:30  florin
-
-	* graphics/digikam/DEPENDS: use kdelibs3 instead of kdesdk3.
-
-2005-03-04 02:47  cmak
-
-	* web/firefox/POST_INSTALL: no such file
 
