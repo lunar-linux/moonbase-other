@@ -3,35 +3,10 @@
  patch -p1 < $SCRIPT_DIRECTORY/mozilla-1.0-asmfixes.patch
  patch -p0 < $SCRIPT_DIRECTORY/mozilla-1.0-abi-compat-wrappers.patch
 
- OPTS=
-
-    if [ "$MAILNEWS" == "n" ] ; then 
-      OPTS="--disable-mailnews"
-    fi
-
-    if [ "$CALENDAR" == "y" ] ; then
-      OPTS="$OPTS --enable-calendar"
-    fi
-
-    # Mozilla won't build with freetype > 2.0.7
-
-    if [ "$XFT" == "y" ] ; then
-      OPTS="$OPTS --enable-xft"
-      patch -p1 < $SCRIPT_DIRECTORY/mozilla-1.0-freetype.patch
-    fi
-
-    if [ "$GTK2" == "y" ] ; then
-      OPTS="$OPTS --enable-default-toolkit=gtk2"
-    fi
-
-    EXTN="--enable-extensions=default,-xmlextras,-inspector"
-
-    if [ "$IRC" == "n" ] ; then 
-      EXTN="$EXTN,-irc"
-    fi
+    case $MAILNEWS in
+	n|N) OPTS="--disable-mailnews" ;;
+    esac
     
-    OPTS="$OPTS $EXTN"
-
   ./configure  --disable-tests              \
                --disable-debug              \
                --enable-optimize="$CFLAGS"  \
@@ -39,7 +14,6 @@
                --without-zlib               \
                --without-png                \
                --enable-crypto         	    \
-               --enable-strip               \
 	       $OPTS			    &&
   make                                      &&
   prepare_install
