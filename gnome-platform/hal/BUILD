@@ -1,5 +1,6 @@
 (
-   add_priv_user messagebus:messagebus -d /dev/null -s /bin/false &&
+   # add_priv_user messagebus:messagebus -d /dev/null -s /bin/false &&
+   
    ./configure  --prefix=/usr                     \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
