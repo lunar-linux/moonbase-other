@@ -5,8 +5,8 @@
   sedit "s:(prefix)/contrib:(prefix)/share/doc/$MODULE/contrib:g" */Makefile.in Makefile.in */*/Makefile.in &&
   sedit "s:(prefix)/doc:(prefix)/share/doc/$MODULE/doc:g" */Makefile.in Makefile.in &&
   OPTS="$OPTS --enable-local-libpng --enable-local-zlib --enable-static --enable-shared"
-  default_build
+  default_build &&
 
-  default_make
+  make site-perl-install
 
 ) > $C_FIFO 2>&1
