@@ -1,11 +1,13 @@
           MODULE=w32codec
          VERSION=0.90rc1
-          SOURCE=win32codecs.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/win32codecs
-   SOURCE_URL[0]=ftp://mplayerhq.hu/MPlayer/releases/codecs/$SOURCE
+           MAJOR=0.90
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MAJOR
+   SOURCE_URL[0]=ftp://ftp.lug.udel.edu/MPlayer/releases/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.mplayerhq.hu/MPlayer/releases/$SOURCE
         WEB_SITE=http://www.mplayerhq.hu
          ENTERED=20020111
-         UPDATED=20020909
+         UPDATED=20021210
            SHORT="w32codec contains codecs used for decoding video streams."
 cat << EOF
 w32codec contains codecs used for decoding video & audio streams on i386+

@@ -24,13 +24,15 @@
     cp                                 etc/example.conf  /etc/mplayer.conf
   fi  &&
 
-  cp -r  fonts  /usr/share/mplayer
+  cp -r  fonts  /usr/share/mplayer  &&
   
   if [ -d /usr/share/mplayer/font ]; then
     rm -rf /usr/share/mplayer/font
-  fi
+  fi &&
 
-  ln -sf /usr/share/mplayer/fonts/iso-8859-1/arial-18 /usr/share/mplayer/font
+  cd /usr/share/mplayer &&
+  ln -sf fonts/font-arial-18-iso-8859-1 font &&
+  cd - &&
 
   case  $GUI  in
     y|Y|j|J)  cp     -r  Skin   /usr/share/mplayer
