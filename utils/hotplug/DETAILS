@@ -1,14 +1,16 @@
           MODULE=hotplug
-         VERSION=2004_01_05
+         VERSION=2004_03_29
           SOURCE=$MODULE-$VERSION.tar.gz
 	 SOURCE2=firmware.agent
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$SFORGE_URL/linux-$MODULE/$SOURCE
   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+      SOURCE_VFY=md5:167bd479a1ca30243c51ca088e0942b3
         WEB_SITE=http://linux-hotplug.sourceforge.net/
          ENTERED=20020814
-         UPDATED=20040127
+         UPDATED=20040331
            SHORT="The user space hotplug device manager"
+
 cat <<EOF
 Starting with kernel 2.4 (in January 2001), hotplugging is a standard
 feature of GNU/Linux. Its goal is letting you plug in new devices and
