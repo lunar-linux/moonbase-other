@@ -3,12 +3,11 @@
    
    ./configure  --build=$BUILD					\
                 --sysconfdir=/etc                               \
-                --prefix=/opt/lunar/gnome/2			\
+                --prefix=/usr			\
 		--localstatedir=/var				\
                 --libdir=/usr/lib                               \
-		--infodir=/opt/lunar/gnome/2/share/info		\
-		--mandir=/opt/lunar/gnome/2/share/man		\
-		--enable-platform-gnome-2			&&
+		--infodir=/usr/info		\
+		--mandir=/usr/man		&&
 
    default_make
   

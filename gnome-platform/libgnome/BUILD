@@ -8,6 +8,7 @@
 		--localstatedir=/var				\
 		--infodir=/opt/lunar/gnome/2/share/info		\
 		--mandir=/opt/lunar/gnome/2/share/man		\
+		--disable-gtk-doc                               \
 		--enable-platform-gnome-2			&&
 
   default_make

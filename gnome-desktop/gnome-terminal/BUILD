@@ -1,9 +1,8 @@
 (
    export PATH=/opt/lunar/gnome/2/bin:$PATH &&
    export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
-
    sedit "s:TERM=xterm:TERM=xterm-color:" src/terminal-screen.c &&
-   
+      
    ./configure  --build=$BUILD					\
                 --sysconfdir=/etc                               \
                 --prefix=/opt/lunar/gnome/2			\

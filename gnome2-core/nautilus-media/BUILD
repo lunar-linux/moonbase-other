@@ -7,11 +7,9 @@
 		--localstatedir=/var				\
 		--infodir=/opt/lunar/gnome/2/share/info		\
 		--mandir=/opt/lunar/gnome/2/share/man		\
-		--enable-gdialog				\
-                --disable-gtk-doc                               &&
+		--enable-platform-gnome-2			&&
 
    default_make
-
-
+   
 ) > $C_FIFO 2>&1
 
