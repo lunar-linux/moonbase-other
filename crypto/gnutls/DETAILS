@@ -1,0 +1,14 @@
+          MODULE=gnutls
+# 0.9.92 is a DUD, there's a file missing in the tarball!
+         VERSION=0.9.91
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=ftp://ftp.gnutls.org/pub/$MODULE/$SOURCE
+      SOURCE_VFY=md5:2b5ebd6b5761a6469a627c40842c1f57
+        WEB_SITE=http://www.gnu.org/directory/security/libgcrypt.html
+         ENTERED=20020212
+         UPDATED=20031026
+           SHORT="A TLS library"
+cat << EOF
+GnuTLS is a project that aims to develop a library which provides a secure layer, over a reliable transport layer. Currently the GnuTLS library implements the proposed standards by the IETF's TLS working group.
+EOF
