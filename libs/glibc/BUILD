@@ -7,10 +7,8 @@
   sedit "s/ \-g/ \-g0 /g" Makeconfig
 
    cat > configparms <<- EOF
-      prefix = /usr
-      slibdir = /lib
-      sysconfdir = /etc
-      install_root = $INSTALL_ROOT
+   CFLAGS=-O
+   CXXFLAGS=-O
 EOF
 
   ./configure  --host=$BUILD                          \
@@ -27,25 +25,45 @@ EOF
                --prefix=/usr                \
                $OPTS                                  &&
   make                                        &&
-  make    install                             &&
+  
+  # Preserve the old glibc temporarily
+  cp /lib/ld-linux.so.2 /lib/ld-lunar.so      &&
+  cp /lib/libc.so.6 /lib/libc-lunar.so        &&
+  cp /lib/libdl.so.2 /lib/libdl-lunar.so      &&
+  cp /lib/libm.so.6 /lib/libm-lunar.so        &&
+  cp /lib/librt.so.1 /lib/librt-lunar.so      &&
+  cp /lib/libpthread.so.0 /lib/libpthread-lunar.so &&
+  cp /lib/libnss_files.so.2 /lib/libnss_files-lunar.so &&
 
+  # Setup links for libraries
+  sln /lib/ld-lunar.so /lib/ld-linux.so.2     &&
+  sln /lib/libc-lunar.so /lib/libc.so.6       &&
+  sln /lib/libdl-lunar.so /lib/libdl.so.2     &&
+  sln /lib/libm-lunar.so /lib/libm.so.6       &&
+  sln /lib/librt-lunar.so /lib/librt.so.1     &&
+  sln /lib/libpthread-lunar.so /lib/libpthread.so.0 &&
+  sln /lib/libnss_files-lunar.so /lib/libnss_files.so.2 &&
 
-  ldconfig $INSTALL_ROOT/lib                  &&
-  ldconfig $INSTALL_ROOT/usr/lib              &&
-
-  LD_LIBRARY_PATH="$INSTALL_ROOT/lib:$INSTALL_ROOT/usr/lib:"$LD_LIBRARY_PATH
-  export LD_LIBRARY_PATH
-
-  # removed the rm line as it was causing trouble
-  # this should overwrite the existing file
-  sln  $INSTALL_ROOT/lib/ld-$VERSION.so  /lib/ld-linux.so.2 
-
+  # This removes the old glibc
   prepare_install                             &&
 
-  make install install_root=/                 &&
+  # And now we install the new
+  make install                                &&
 
-  rm -f /etc/ld.so.cache 2>/dev/null
+  # Rebuild the ld cache
+  rm -f /etc/ld.so.cache 2>/dev/null          &&
+  ldconfig                                    &&
 
+  # Remove the temporary libc
+  rm /lib/ld-lunar.so                         &&
+  rm /lib/libc-lunar.so                       &&
+  rm /lib/libdl-lunar.so                      &&
+  rm /lib/libm-lunar.so                       &&
+  rm /lib/librt-lunar.so                      &&
+  rm /lib/libpthread-lunar.so                 &&
+  rm /lib/libnss_files-lunar.so               &&
+
+  # Generate locale info
   unset   LD_PRELOAD                          &&
   if  [  -z  "$GLIBC_LOCALES"  ];  then
     cat  $SCRIPT_DIRECTORY/locales  |
@@ -67,5 +85,5 @@ EOF
     done
     true
   fi
-
+  
 ) > $C_FIFO 2>&1  &&  ldconfig
