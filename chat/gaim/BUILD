@@ -7,6 +7,7 @@
                --infodir=/usr/share/info \
                --mandir=/usr/share/man   \
                --enable-gtk2             \
+               --enable-nss=no           \
                --disable-gnome           \
                --disable-artsc           \
                --disable-perl            \
