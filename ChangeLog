@@ -1,3 +1,47 @@
+2004-06-12 11:52  florin
+
+	* archive/: afio/DETAILS, lzo/DETAILS: arrange the format a bit.
+
+2004-06-12 08:00  florin
+
+	* graphics/ImageMagick/DETAILS: bump the version from 6.0.2-4 to
+	6.0.2-5.
+
+2004-06-12 07:15  tchan
+
+	* audio/zinf/DETAILS: Version bump to 2.2.5. Added md5sum. Compiled
+	and tested with gcc-3.3.3, glibc-2.3.2.
+
+2004-06-11 20:38  jmhodges
+
+	* gnome2-core/gdm/DETAILS: version bump to 2.6.0.3
+
+2004-06-11 19:47  jol
+
+	* devel/subversion/DETAILS: Bumped version to 1.0.5
+
+2004-06-11 19:43  jol
+
+	* video/xvidcore/DETAILS: Bumped version to 1.0.1.  Bugfix release
+
+2004-06-11 19:22  jmhodges
+
+	* graphics/gtk+-2/DETAILS: feel the 2.4.3 love
+
+2004-06-11 17:05  florin
+
+	* graphics/netpbm/: BUILD, DETAILS: bump the version from 10.4 to
+	10.18.13.
+
+2004-06-11 15:03  florin
+
+	* audio/mixxx/: BUILD, DEPENDS, DETAILS: bump the version from
+	1.2.1 to 1.3.1.
+
+2004-06-11 14:41  florin
+
+	* news/leafnode/DETAILS: bump the version from 1.9.54 to 1.10.0.
+
 2004-06-10 20:08  jmhodges
 
 	* sql/freetds/DETAILS: agh! this should have been commited already!
@@ -1335,165 +1379,4 @@
 	Adding gnome-cpufreq-applet to moonbase, this should let you use
 	the cpufreq function in the 2.6.x kernels to adjuct your cpu speed
 	on the fly
-
-2004-05-12 21:40  jol
-
-	* kde3-apps/kile/DETAILS: Bumped version OLD: 1.6.2  NEW: 1.6.3
-	
-	ChangeLog  - fix a crash when opening/closing projects with common
-	files  - warn if user tries to overwrite an existing file in the
-	"New Project" dialog  - make usertags/tools shortcuts configurable 
-	- place cursor after a bracket when inserting a usertag  - polished
-	up the "New File" wizard, the size and selected template are now   
-	remembered, an option to start the Quick Start wizard after
-	selecting an	empty template is also added  - double clicking on
-	a non-existent file results in a dialog requesting the	  creating
-	of this file, instead of just an error
-
-2004-05-12 17:18  florin
-
-	* mail/postfix/DETAILS: bump the version from 2.0.20 to 2.1.1.
-
-2004-05-12 15:03  sofar
-
-	* archive/tar/DETAILS: for GNU downloads: 1) first URL should use
-	$GNU_URL 2) second should be fallback to main site 3) in case
-	better mirrors exist they should come between 1) and 2)
-
-2004-05-12 14:39  sofar
-
-	* net/ypbind-mt/: BUILD, DETAILS: I had already moved it in the
-	init.d script (eek)... now it installs into /sbin. nice.
-
-2004-05-12 14:16  florin
-
-	* graphics/jpeg/BUILD: force the symlink creation.
-
-2004-05-12 13:54  sofar
-
-	* filesys/dmapi/DETAILS: They repackaged
-
-2004-05-12 13:42  sofar
-
-	* filesys/xfsprogs/: BUILD, DETAILS: Relocating this to /sbin!
-
-2004-05-12 13:21  prox
-
-	* archive/tar/: BUILD, DETAILS, tar-dots.patch.bz2,
-	tar-manpage.patch.bz2, tar-socket.patch.bz2: bump version, changed
-	way to make man page (use mktarman.pl in brutus/tools), removed the
-	old patches.
-
-2004-05-12 13:20  sofar
-
-	* filesys/reiserfsprogs/: BUILD, DETAILS: Relocating this to /sbin!
-
-2004-05-12 13:08  prox
-
-	* archive/tar-static/: BUILD, DETAILS: staticly linked tar,
-	installs in /bin/tar_static and /bin/rmt_static. Use for iso
-	creation mostly.
-
-2004-05-12 12:46  ratler
-
-	* graphics/ImageMagick/DETAILS: Bah md5sum missmatch, again.
-	ImageMagick ppl will never learn it seems
-
-2004-05-12 12:32  prox
-
-	* archive/tar/mktarman.pl: moved
-
-2004-05-12 12:22  prox
-
-	* archive/tar/mktarman.pl: mktarman.pl is a perl script for
-	generating a man page from the info page in. It will grab options
-	and operations from the file and make a nice uptodate man page.
-	'cat doc/tar.info | mktarman.pl > tar.1'. NOTE: no automaking of
-	the manual file is made when lining, this should only be done when
-	bumping.
-
-2004-05-12 12:16  nhudson
-
-	* mail/ximian-connector/DEPENDS: 
-	Adding openldap to the DEPENDS file
-
-2004-05-12 11:05  sofar
-
-	* net/finger/: BUILD, DETAILS, bsd-finger-0.16-allocbroken.patch,
-	bsd-finger-0.16-pts.patch, bsd-finger-0.17-exact.patch,
-	bsd-finger-0.17-rfc742.patch, bsd-finger-0.17-time.patch: more
-	patches-b-gone !
-
-2004-05-12 10:26  sofar
-
-	* mail/qpopper3/: BUILD, DEPENDS, DETAILS,
-	qpopper3.1.2-mysql-0.11.2.patch.bz2: Another patch gone
-
-2004-05-12 10:20  sofar
-
-	* graphics/gphoto/: BUILD, DETAILS, PRE_BUILD, gphoto-dir.patch,
-	gphoto-option.patch, gphoto-port.patch, gphoto-retry.patch,
-	gphoto-rsony.patch, gphoto-size.patch, gphoto-strcat.patch:
-	overhaul, removing 40k of in-moonbase patches, compiles with
-	gcc-3.3+ now too, in case people need it for their cameras
-
-2004-05-12 09:10  sofar
-
-	* graphics/jpeg/BUILD: Perhaps a link to the proper version helps
-	too
-
-2004-05-12 08:57  sofar
-
-	* graphics/jpeg/: POST_INSTALL, POST_REMOVE: ldconfig is called
-	automatically
-
-2004-05-12 08:56  sofar
-
-	* graphics/jpeg/BUILD: And we truly have a shared libjpeg.so now...
-	pffft
-
-2004-05-12 08:49  sofar
-
-	* graphics/jpeg/BUILD: Grrr, almost barfed it up myself
-
-2004-05-12 08:09  sofar
-
-	* graphics/jpeg/: BUILD, DETAILS, jpeg-c++.patch,
-	libjpeg-6b-arm.patch: Major cleanup. This was a mess!!!!
-
-2004-05-12 07:27  sofar
-
-	* audio/gramofile/: BUILD, DETAILS, lemley1.patch, pophal1.patch,
-	schewe1.patch, specht1.patch, tappin3a.patch, tappin3b.patch:
-	cleaning out patches from $MOONBASE!
-
-2004-05-12 06:44  ratler
-
-	* mail/pine/: BUILD, DETAILS: Bumped version and removed patch and
-	replaced it with a sedit. Compiles and run fine, ldap and imap
-	tested.
-
-2004-05-12 03:15  nhudson
-
-	* gnome/gnome-python/CONFLICTS: 
-	Adding conflicts to gnome-python because if you have 2 installed
-	things fo bonkers
-
-2004-05-12 03:14  nhudson
-
-	* devel/: pygtk/CONFLICTS, pygtk2/CONFLICTS: 
-	Adding conflicts for pygtk and 2 due to things go crazy when they
-	are both installed
-
-2004-05-12 03:12  nhudson
-
-	* gnome2-extras/gnome-python2/CONFLICTS: 
-	Adding a conflicts for gnome-python2, seems if you have both
-	gnome-python and 2 installed things go crazy
-
-2004-05-12 02:40  nhudson
-
-	* mail/ximian-connector/: DEPENDS, DETAILS: 
-	Adding ximian-connector to moonbase this was submitted to the
-	mailing list by Dave Brown <dagbrown@lart.ca>
 
