@@ -1,29 +1,27 @@
 (
-  export PWLIBDIR=$SOURCE_DIRECTORY/pwlib             &&
-  cd pwlib                                            &&
+  export PWLIBDIR=$SOURCE_DIRECTORY/pwlib-1.5.0             &&
+  export OPENH323DIR=$SOURCE_DIRECTORY/openh323-1.12.0      &&
 
- (
- #this fixes the build for bison 1.875
-  cd tools/asnparser                                  &&
-  make asn_grammar.cxx                                &&
-  sedit "s:\(__attribute__ ((__unused__))\):\1;:"  asn_grammar.cxx
- )
+  #Build pwlib 
+  cd $PWLIBDIR                                              &&
+  ./configure --disable-shared                              &&
+  make -j 1 optnoshared                                     &&
+  cd lib                                                    &&
+  ln -s libpt_linux_x86_r_s.a libpt.a                       &&
+  cd ../..                                                  &&
 
-  make optnoshared                                    &&
-  cd lib                                              &&
-  ln -s libpt_linux_x86_r_s.a libpt.a                 &&
-  cd ../..                                            &&
-  
-  export OPENH323DIR=$SOURCE_DIRECTORY/openh323       &&
-  cd openh323                                         &&
-  make optnoshared                                    &&
-  cd lib                                              &&
-  ln -s libh323_linux_x86_r_s.a libopenh323.a         &&
-  cd ../..                                            &&
-  
-  sedit 's/LIBPT_FILE=\"libpt.so\"/LIBPT_FILE=\"\"/' configure                    &&
-  sedit 's/LIBOPENH323_FILE=\"libopenh323.so\"/LIBOPENH323_FILE=\"\"/' configure  &&
-  sedit 's/\(H323_CFLAGS=\"-DSPEEX_CODEC\)/\1 -DSTATIC_LIBS_USED/' configure &&
+  #Build openh323
+  cd $OPENH323DIR                                           &&
+  ./configure --disable-shared                              &&
+  make -j 1 optnoshared                                     &&
+  cd lib                                                    &&
+  ln -s libh323_linux_x86_r_s.a libopenh323.a               &&
+
+  #Build gnomemeeting 
+  cd $SOURCE_DIRECTORY  
+  sedit 's/LIBPT_FILE=\"libpt.so\"/LIBPT_FILE=\"\"/' configure                        &&
+  sedit 's/LIBOPENH323_FILE=\"libopenh323.so\"/LIBOPENH323_FILE=\"\"/' configure      &&
+  sedit 's/ARCH_H323_CFLAGS=\"\"/ARCH_H323_CFLAGS=\"-DSTATIC_LIBS_USED\"/'  configure &&
 
   ./configure  --prefix=/opt/lunar/gnome/2                     \
                --datadir=/opt/lunar/gnome/2/share/gnomemeeting  \
