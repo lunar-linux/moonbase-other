@@ -4,7 +4,7 @@
      rm -Rf /usr/share/xml
   fi                                            &&
 
-  TARGET=/usr/share/docbook-sgml
+  TARGET=/usr/share/sgml/docbook/$MODULE-$VERSION
  
   cd $SOURCE_DIRECTORY                          &&
   prepare_install                               &&
@@ -12,6 +12,8 @@
        mkdir -p $TARGET
   fi                                            &&
  
-  cp -a * $TARGET
+  cp -a * $TARGET                               &&
+
+  ln -sf $TARGET/docbook.cat $TARGET/catalog  
   
 ) > $C_FIFO 2>&1

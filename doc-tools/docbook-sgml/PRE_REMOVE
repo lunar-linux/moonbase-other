@@ -1,1 +1,6 @@
-install-catalog -r /etc/sgml/catalog /usr/share/docbook-sgml/docbook.cat  
+export centralized=/etc/sgml/catalog
+export docbook_install_dir=/usr/share/sgml/$MODULE-$VERSION
+
+install-catalog -r $centralized $docbook_install_dir/docbook.cat  
+#For older installs
+install-catalog -r $centralized /usr/share/$MODULE/docbook.cat
