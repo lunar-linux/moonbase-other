@@ -4,7 +4,8 @@
   unset BUILD                         &&
 #
   sedit "s/top.desktop//" Makefile    &&
-  make                                &&
+  make oldps                          &&
+  make all                            &&
   prepare_install                     &&
   make  -e XSCPT='' PROCDIR=/bin USRBINDIR=/bin DESTDIR=/ MANDIR=/usr/share/man install
 
