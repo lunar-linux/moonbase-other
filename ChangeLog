@@ -1,3 +1,30 @@
+2003-04-04 21:57  niki
+
+	* kde3-apps/kile/: BUILD, DEPENDS, DETAILS: Added kile module, a
+	LaTeX front end for KDE, contributed by Joël Vennin
+	<joel.vennin@wanadoo.fr>
+
+2003-04-04 21:28  sofar
+
+	* zbeta/: libxfce4mcs-cvs/DEPENDS, xfce4-cvs/DEPENDS,
+	xfce4utils-cvs/DEPENDS, xfdesktop-cvs/DEPENDS, xffm4-cvs/DEPENDS,
+	xfprint-cvs/DEPENDS, xfwm4-cvs/DEPENDS: Bashing these into
+	something logical (oh and I read the compile logs to see what
+	pkgconfig looks for!). I should automate depends checking based on
+	packageconfig, would save a lot of time...
+
+2003-04-04 21:07  sofar
+
+	* utils/modutils/: BUILD, POST_INSTALL: Moving conf stuff out of
+	BUILD and into POST_INSTALL, so it doesn't get tagged by
+	installwatch and therefore overwritten.
+
+2003-04-04 20:21  niki
+
+	* ftp/: dc_gui/BUILD, dc_gui/CONFLICTS, dc_gui/DEPENDS,
+	dc_gui/DETAILS, dctc/DETAILS: dctc and dc_gui bumped to new
+	versions as requested by Aaron Watry <watryac04@uww.edu>
+
 2003-04-04 17:27  jmhodges
 
 	* graphics/pil/pil.patch: and heres the patch
@@ -44,9 +71,9 @@
 	libxfce4mcs-cvs/PRE_BUILD, libxfce4util-cvs/BUILD,
 	libxfce4util-cvs/CONFLICTS, libxfce4util-cvs/DEPENDS,
 	libxfce4util-cvs/DETAILS, libxfce4util-cvs/PRE_BUILD,
-	xfce4-cvs/DEPENDS, xfce4libs-cvs/PRE_BUILD, xfce4mcs-cvs/DEPENDS,
-	xfce4utils-cvs/DEPENDS, xfdesktop-cvs/DEPENDS, xfprint-cvs/DEPENDS:
-	Split up libraries from xfce4libs; they depend on each other.
+	xfce4-cvs/DEPENDS, xfce4mcs-cvs/DEPENDS, xfce4utils-cvs/DEPENDS,
+	xfdesktop-cvs/DEPENDS, xfprint-cvs/DEPENDS: Split up libraries from
+	xfce4libs; they depend on each other.
 
 2003-04-02 23:41  sofar
 
@@ -105,10 +132,10 @@
 2003-04-01 15:33  jasper
 
 	* zbeta/: xfce4-cvs/BUILD, xfce4iconbox-cvs/BUILD,
-	xfce4libs-cvs/BUILD, xfce4mcs-cvs/BUILD, xfce4utils-cvs/BUILD,
-	xfdesktop-cvs/BUILD, xffm4-cvs/BUILD, xfgtk2-engine-cvs/BUILD,
-	xfprint-cvs/BUILD, xfwm4-cvs/BUILD: Plain configure should work
-	now. No more autogen.sh.
+	xfce4mcs-cvs/BUILD, xfce4utils-cvs/BUILD, xfdesktop-cvs/BUILD,
+	xffm4-cvs/BUILD, xfgtk2-engine-cvs/BUILD, xfprint-cvs/BUILD,
+	xfwm4-cvs/BUILD: Plain configure should work now. No more
+	autogen.sh.
 
 2003-04-01 13:53  nhudson
 
@@ -505,95 +532,4 @@
 	Updating directfb to new version 0.9.17, this will work but for it
 	to be an effective module I need to include some patches with the
 	kernel patchset
-
-2003-03-25 23:21  wizfactor
-
-	* gnome2-apps/ggv2/DETAILS: fixed typo
-
-2003-03-25 22:58  sofar
-
-	* x11/xplanet/: BUILD, DETAILS, xplanet-uselessincludes.patch:
-	peek-a-boo
-
-2003-03-25 22:54  tiomo
-
-	* web/quanta3/: CONFLICTS, DETAILS: bumped version to 3.1-kde30,
-	removed CONFLICTS because conflicting module "quanta" was removed
-	from moonbase
-
-2003-03-25 22:16  sofar
-
-	* profiles/xfce4-cvs-profile/DETAILS: there is *NEVER* a need to
-	update a -profile module!!!
-
-2003-03-25 21:12  wizfactor
-
-	* x11-wm/fluxbox/CONFLICTS: Updated fluxbox to conflict with the
-	new fluxbox-devel
-
-2003-03-25 21:10  wizfactor
-
-	* zbeta/fluxbox-devel/: BUILD, CONFIGURE, CONFLICTS, DETAILS,
-	Fluxbox, POST_INSTALL: Initial creation of fluxbox-devel module
-
-2003-03-25 20:35  florin
-
-	* audio/sox/: BUILD, DETAILS: bugfixes and ogg compatibility. patch
-	added for symbolic links forcing.
-
-2003-03-25 20:15  florin
-
-	* utils/coreutils/DETAILS: this version may become the 5.0 version.
-	it seems very stable too.
-
-2003-03-25 19:58  kc8apf
-
-	* utils/aboot/DETAILS: Version bump
-
-2003-03-25 19:04  sofar
-
-	* editors/: gawk/DETAILS, sed/DETAILS: non-critical updates, have
-	been running here over a week now, severely tested and recompiled
-	multiple times.
-
-2003-03-25 15:42  wizfactor
-
-	* zbeta/pan-cvs/: BUILD, CONFLICTS, DEPENDS, DETAILS: Initial
-	creation of pan-cvs module
-
-2003-03-25 14:48  nhudson
-
-	* gnome2-extras/: gnome-python2/DETAILS, orbit-python/DETAILS: 
-	Updating orbit-python to new version 1.99.4 and gnome-python2 to
-	new version 1.99.16
-
-2003-03-25 14:46  nhudson
-
-	* libs/: libxml2/DETAILS, libxslt/DETAILS: 
-	Updating libxml2 to new version 2.5.5 and libxslt to new version
-	1.0.28
-
-2003-03-25 14:44  nhudson
-
-	* devel/pygtk2/DETAILS: 
-	Updating pygtk2 to new version 1.99.16
-
-2003-03-25 07:39  kc8apf
-
-	* net/net-tools/: lnet, init.d/network: Bug in the new gateway
-	handling
-
-2003-03-25 03:42  kc8apf
-
-	* mail/spamassassin/DETAILS: Version bump
-
-2003-03-25 02:20  kc8apf
-
-	* net/net-tools/init.d/network: module options were not being
-	passed
-
-2003-03-25 00:28  nhudson
-
-	* graphics/gimp2/DETAILS: 
-	Updating gimp2 to new version 1.3.13
 
