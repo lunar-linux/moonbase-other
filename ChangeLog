@@ -1,3 +1,28 @@
+2003-02-26 06:13  tchan
+
+	* doc-tools/teTeX-texmf/DETAILS: Fixed this module as the WRONG
+	source code was being downloaded.  This module requires
+	tetex-texmf-2.0.1.tar.gz NOT tetex-texmfsrc-2.0.1.tar.gz.  So all
+	teTeX users need to recompile teTeX-texmf, teTeX, and texinfo (in
+	that order).
+
+2003-02-26 06:05  tchan
+
+	* doc-tools/teTeX/DETAILS: Fixed the URL for the teTeX homepage. 
+	Also corrected the download mirror order as most Lunar users will
+	want to fetch the source from the USA mirror.
+
+2003-02-26 04:58  tchan
+
+	* doc-tools/teTeX/: BUILD, DETAILS: Added the BUILD script BACK
+	into moonbase.	It definitely is required!  This correctly installs
+	all the binaries into /usr/bin now, instead of
+	/usr/bin/i686-linux-gnu-pc.  The BUILD script also forces teTeX to
+	NOT build dialog and texinfo over again.  Building dialog and
+	texinfo is very bad as this would also overwrite the Lunar module
+	version of dialog and texinfo.	Touched the updated field to FORCE
+	a recompile to fix all the misplaced binaries.
+
 2003-02-25 22:07  tchan
 
 	* editors/nedit/DEPENDS: Added missing depends on bison.
@@ -523,101 +548,4 @@
 	* x11-apps/grubconf/: BUILD, DEPENDS, DETAILS: 
 	Adding grubconf to moonbase.  This will make things easier for
 	editing and making your grub menu.lst file
-
-2003-02-15 21:48  csm
-
-	* crypto/openssl/: BUILD, DEPENDS, DETAILS, POST_INSTALL: this will
-	add the imapd.pem and ipop3d.pem so that ssl pop and imap will be
-	functional. it also writes a brief instruction file which explains
-	how to use the new Makefile to add a cert for apache is you want
-	it.
-
-2003-02-15 21:45  hardkrash
-
-	* x11/fontconfig/POST_INSTALL: missing a ) --hardkrash
-
-2003-02-15 20:12  tchan
-
-	* games/pinball/: DEPENDS, DETAILS: Corrected sofar's correction to
-	DEPENDS.  lvu DEPENDS SDL_image already has SDL AND libpng, so
-	libpng is NOT necessary anymore in this DEPENDS file.  Also fixed
-	the UPDATED field, which Frantz had submitted but was left out of
-	sofar's commit for some reason.
-
-2003-02-15 20:09  kc8apf
-
-	* science/tkgate/DETAILS: Whoops, wrong version
-
-2003-02-15 20:08  kc8apf
-
-	* science/tkgate/: BUILD, DETAILS: Author supplied fix for nasty
-	bug
-
-2003-02-15 19:51  nhudson
-
-	* devel/pkgconfig/DETAILS: 
-	Updating pkgconfig to new version 0.15.0
-
-2003-02-15 19:50  nhudson
-
-	* libs/libart_lgpl/DETAILS: 
-	Updating libart_lgpl to new version 2.3.11
-
-2003-02-15 18:54  nhudson
-
-	* gnome2-core/gnome-terminal/DETAILS: 
-	I think im going to force a recompile also
-
-2003-02-15 18:53  nhudson
-
-	* gnome2-core/gnome-terminal/BUILD: 
-	Fixing the linking of the wrong libXft.so to gnome-terminal
-
-2003-02-15 18:47  nhudson
-
-	* gnome2-apps/vte/DETAILS: 
-	Updating vte to new version 0.10.20
-
-2003-02-15 18:46  nhudson
-
-	* gnome2-core/fontilus/DETAILS: 
-	Updating fontilus to new version 0.4
-
-2003-02-15 18:15  sofar
-
-	* games/pinball/DEPENDS: thank you and keep posting these
-	bugreports =^)
-
-2003-02-15 12:32  sofar
-
-	* zbeta/blender-cvs/: BUILD, DEPENDS, DETAILS: Doing what hardkrash
-	said he would.
-
-2003-02-15 01:42  nhudson
-
-	* x11/fontconfig/BUILD: 
-	Doing a cvscompile.sh script instead of the configure script
-
-2003-02-15 01:28  nhudson
-
-	* audio/net-rhythmbox/DETAILS: 
-	Updating net-rhythmbox to new version 0.4.5
-
-2003-02-15 00:41  nhudson
-
-	* graphics/gtk+-2/: BUILD, DETAILS: 
-	Ok fixing the gtk+-2 module so it will compile with Xft.  Also
-	forcing a update of the module, this should fix everything now
-
-2003-02-15 00:39  nhudson
-
-	* libs/pango/BUILD: 
-	Fixing BUILD file for pango for the new directories of Xft
-
-2003-02-15 00:36  nhudson
-
-	* x11/Xft/: BUILD, DETAILS: 
-	Ok I think this might actually be fixed now.  I had to move the
-	include headers back to /usr/X11R6/include for anything to compile
-	correctly.  This fixes the bug issued to the bug track.
 
