@@ -1,7 +1,7 @@
 (
 
   sedit "s/SYS_TIME_H 1/SYS_TIME_H 0/" compat.h           &&
-  patch -p1 < $SOURCE_CACHE/$SOURCE2                      &&
+  patch_it $SOURCE2 1                                     &&
 
   make                                                    &&
   prepare_install                                         &&
