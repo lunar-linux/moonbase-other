@@ -11,8 +11,8 @@
 		--mandir=/usr/share/man           \
 		--sysconfdir=/etc                 \
 		--localstatedir=/var/cache        &&
-  prepare_install
   make                                            &&
+  prepare_install                                 &&
   make install                                    &&
   
   if [ -e "/etc/init.d/ntp.sh" ]; then
