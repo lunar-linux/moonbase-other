@@ -1,6 +1,6 @@
 (
-  sedit "s:LFLAGS =:LDFLAGS = -lintl:" src/Makefile.in &&
-  sedit "s:LFLAGS:LDFLAGS:g" src/Makefile.in           || exit 1
+  sedit "s:LFLAGS =:LDFLAGS = -lintl:" src/Makefile &&
+  sedit "s:LFLAGS:LDFLAGS:g" src/Makefile           || exit 1
   
 #lets add KDEDIR var to enviro, if it is not defined AND if kdebase3
 #is installed  
@@ -14,11 +14,13 @@
 #the support maybe set to on/off via preferences
 
   which gnome-config 2>/dev/null >/dev/null && 
-  OPTS=$OPTS" --with-gnome-menus"
+  OPTS=$OPTS" --with-gnome-menus --with-icesound=oss,esd"
 
 #here are some options :=) with anti-aliasing support  
   OPTS=$OPTS" --with-docdir=/usr/share/doc --enable-nls \
-  --enable-i18n --enable-xfreetype --enable-antialiasing"
+  --disable-debug --enable-movesize-fx --enable-i18n \
+  --enable-gradients --enable-shaped-decorations \
+  --enable-guievents --enable-xfreetype --enable-antialiasing"
 
 #lets default build the beast 
   default_build
