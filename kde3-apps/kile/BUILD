@@ -6,6 +6,7 @@
   ./configure    --prefix=/opt/lunar/kde/3             \
                  --with-qt-dir=/opt/lunar/qt/3         \
                  --disable-debug                       \
+                 --enable-final                        \
                  --enable-fast-malloc=full             \
                  --with-xinerama                       \
                  $OPTS                                &&
@@ -17,4 +18,3 @@
  
 ) > $C_FIFO 2>&1
 
-#                --enable-final                        \
