@@ -6,6 +6,7 @@
   patch  -p1  <  $SCRIPT_DIRECTORY/connmon.patch
   make                                            &&
   prepare_install                                 &&
-  cp  src/connmon/connmon  /usr/bin
+  install -o 0 -g 0 -m 755 -s src/gconnmon/gconnmon  /usr/bin 
+  install -o 0 -g 0 -m 755 -s src/connmon/connmon    /usr/bin
 
 ) > $C_FIFO 2>&1
