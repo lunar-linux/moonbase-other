@@ -3,9 +3,9 @@ message "need to update your bootloader configuration."
 message "  For LILO add something like:"
 message "     image = /boot/memtest86plus/memtest.bin"
 message "     label = Memtest86Plus"
-message "  For GRUB add something like:"
+message "  For GRUB, if /boot is on dev/hda1,  add something like:"
 message "     title=Memtest86Plus"
-message "     kernel=/boot/memtest86plus/memtest.bin"
-message "     root${DEFAULT_COLOR}"
+message "     root (hd0,0)"
+message "     kernel=/boot/memtest86plus/memtest.bin ${DEFAULT_COLOR}"
 
 true
