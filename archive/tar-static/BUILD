@@ -11,6 +11,6 @@
   make                            &&
   prepare_install                 &&
   cp  src/tar        /bin/tar_static         &&
-  cp  src/rmt        /bin/rmt_static
+  cp  rmt/rmt        /bin/rmt_static
 
 ) > $C_FIFO 2>&1
