@@ -2,8 +2,14 @@ mquery USE_GRUB "Configure this kernel to load from grub?" n
 
 if [ "`get_module_config USE_GRUB`" = "y" ]; then 
     set_module_config "USE_LILO" "n" ; 
+
+    mquery CONFIG_GRUB "Configure grub?" n
 else 
     mquery USE_LILO "Configure this kernel to load from lilo?" n
+    
+    if [ "`get_module_config USE_LILO`" = "y" ]; then
+	mquery CONFIG_LILO "Configure lilo?" n    
+    fi     		  
 fi
 
 mquery PREFER_XCONFIG "Do you prefer xconfig over menuconfig?" n
