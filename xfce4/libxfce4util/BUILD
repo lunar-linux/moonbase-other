@@ -1,7 +1,7 @@
 
 ( 
    ./configure  --build=$BUILD					\
-                --prefix=${XFCE4_PREFIX:-/opt/lunar/xfce/4.0}	\
+                --prefix=${XFCE4_PREFIX:-/opt/lunar/xfce/4.2}	\
                 $OPTS                                           &&
 
    default_make

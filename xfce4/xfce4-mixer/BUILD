@@ -1,11 +1,11 @@
 
 ( 
    # make sure proper PKG_CONFIG_PATH is set
-   export PKG_CONFIG_PATH="${XFCE4_PREFIX:-/opt/lunar/xfce/4.0}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
+   export PKG_CONFIG_PATH="${XFCE4_PREFIX:-/opt/lunar/xfce/4.2}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
    
    ./configure  --build=$BUILD					\
-                --prefix=${XFCE4_PREFIX:-/opt/lunar/xfce/4.0}	\
-                --disable-static				\
+                --prefix=${XFCE4_PREFIX:-/opt/lunar/xfce/4.2}	\
+		--disable-static				\
                 $OPTS                                           &&
 
    default_make
