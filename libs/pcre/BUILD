@@ -7,7 +7,8 @@
                 --libdir=/lib                           \
                 --includedir=/usr/include               \
                 --infodir=/usr/share/info               \
-                --mandir=/usr/share/man                 &&
+                --mandir=/usr/share/man                 \
+	        --enable-utf8                           &&
    default_make
 
 ) > $C_FIFO 2>&1
