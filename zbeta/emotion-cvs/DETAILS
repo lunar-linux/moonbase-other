@@ -1,0 +1,17 @@
+          MODULE=emotion-cvs
+         VERSION=beta
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/emotion
+      SOURCE_URL=cvs://:pserver:anonymous@cvs.sourceforge.net:/cvsroot/enlightenment:e17/libs/emotion
+        WEB_SITE=http://www.enlightenment.org/pages/emotion.html
+         ENTERED=20041002
+         UPDATED=`date -u +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="An Evas smart-object library providing video capabilities"
+
+cat << EOF
+Emotion is an Evas smart-object library providing video capabilites.
+Emotion leverages xine-lib 1.0 and integrates seemlessly with the rest
+of the EFL.  Because it is based on xine-lib, any format that it 
+supports (Theora, DiVX, MPEG2, etc) is available using Emotion.
+EOF
