@@ -14,15 +14,16 @@ if [ "$USE_GTK" = "y" ] ; then
     depends libglade &&
     optional_depends "control-center" "" "" "Gnome control-center support for xscreensaver"
   fi
-  
-  depends libxml2  # needed only for the gtk version of xscreensaver-demo
+
+  # needed only for the gtk version of xscreensaver-demo  
+  depends libxml2
 else
   # Nope, gtk was not asked for, that's too bad, will instead use 
   # deprecated (but still usable) openMotif version
   depends openMotif  
 fi
 
-depends netpbm &&   # used for webcollage and vidwhacker
+depends netpbm &&
 depends bc     &&
 depends glut   &&
 depends perl   &&

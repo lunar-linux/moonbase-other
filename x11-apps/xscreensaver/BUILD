@@ -6,18 +6,11 @@
   else
     OPTS="$OPTS --with-motif --without-gtk --without-gdk-pixbuff"
   fi
+
+  # Enable locking abilities of xscreensaver
+  OPTS="$OPTS --enable-locking"
   
-  ./configure	--build=$BUILD                         \
-            	--prefix=$MODULE_PREFIX                \
-           	--mandir=$MODULE_PREFIX/share/man      \
-                --x-libraries=/usr/X11R6/lib           \
-                --x-includes=/usr/X11R6/include        \
-                --enable-locking                       \ 
-                # All "--with-*" options are on by default, but are 
-                # only enabled if ./configure sees it is possible
-		$OPTS                                  &&
-  
-  default_make &&
+  default_build &&
 
   # KDE seems to enjoy having this symlink
   if module_installed "kde3" ; then
