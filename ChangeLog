@@ -1,3 +1,57 @@
+2004-05-08 21:18  nhudson
+
+	* gnome2-apps/gnome-btdownload/: BUILD, DEPENDS, DETAILS: 
+	Adding gnome-btdownload to gnome2-apps, gnome-btdownload is yes you
+	guessed it a Gnome/GTK2 based UI for BitTorrent
+
+2004-05-08 17:39  nhudson
+
+	* gnome2-core/gnome-applets2/: BUILD, DEPENDS: 
+	Adding a few configure opts to the BUILD and adding gstreamer as a
+	optional depends
+
+2004-05-08 15:49  sofar
+
+	* gnustep/gnustep-make/DETAILS: Cleaning up
+
+2004-05-08 15:27  florin
+
+	* compilers/Python/BUILD: reinstalling the module may fail if the
+	old one is not uninstalled first.
+
+2004-05-08 15:20  sofar
+
+	* gnustep/Gorm/DETAILS: Please check these properly people
+
+2004-05-08 14:41  jol
+
+	* devel/ffcall/DETAILS: Bumped version OLD: 1.8d NEW: 1.9
+
+2004-05-08 14:11  jol
+
+	* gnustep/: Addresses/BUILD, Addresses/DEPENDS, Addresses/DETAILS,
+	GNUMail/BUILD, GNUMail/DEPENDS, GNUMail/DETAILS, GWorkspace/BUILD,
+	GWorkspace/DEPENDS, GWorkspace/DETAILS, Gorm/BUILD, Gorm/DEPENDS,
+	Gorm/DETAILS, Pantomime/BUILD, Pantomime/DEPENDS,
+	Pantomime/DETAILS, gnustep-back/BUILD, gnustep-back/DEPENDS,
+	gnustep-back/DETAILS, gnustep-base/BUILD, gnustep-base/DETAILS,
+	gnustep-base/POST_INSTALL, gnustep-gui/BUILD, gnustep-gui/DETAILS,
+	gnustep-make/BUILD, gnustep-make/DETAILS,
+	gnustep-make/profile.d/gnustep.rc: gnustep update.  There were 3
+	packages since 2002 12 25. We can do nothing with only 3 basics
+	pakages.  So i've bumped version for gnustep-base, gnustep-make,
+	gnustep-gui.  I've added gnustep-back, GWorkspace, Gorm, Pantomime,
+	GNUMail and Addresses.	It's working only if you add the ObjC
+	support of your gcc. When you install gnustep-make you need to
+	logout and login again to load the gnustep.rc profile file. After
+	you can compile all (its seems) without any problem.  Enjoy, i'll
+	add other gnustep apps in few days.
+
+2004-05-08 13:21  florin
+
+	* video/MPlayer/: BUILD, DETAILS: bump the version from 1.0pre3 to
+	1.0pre4.
+
 2004-05-08 06:54  florin
 
 	* doc-tools/doxygen/DETAILS: bump the version from 1.3.6 to 1.3.7.
@@ -2521,150 +2575,4 @@
 
 	* gnome2-apps/gnumeric2/profile.d/gnumeric.rc: 
 	Fixing typo
-
-2004-04-08 17:04  nhudson
-
-	* gnome2-apps/gnumeric2/DETAILS: 
-	Updating gnumeric2 to new version 1.2.9
-
-2004-04-08 16:42  nhudson
-
-	* gnome2-core/: gail/DETAILS, ggv/DETAILS, libgtop2/DETAILS: 
-	Updating gail ggv and libgtop2... I will start updating Gnome in
-	moonbase tonight finally!!
-
-2004-04-08 16:40  nhudson
-
-	* mail/evolution/DETAILS: 
-	Updating evolution to a bug fix version of 1.5.6.2
-
-2004-04-08 16:37  florin
-
-	* games/neverball/DETAILS: bump the version from 1.1.0 to 1.2.0.
-
-2004-04-08 16:25  florin
-
-	* kernel/: linux-beta/POST_INSTALL, linux-beta-mm/POST_INSTALL:
-	remove the NVIDIA26 module relin, put the NVIDIA relin instead.
-
-2004-04-08 16:23  florin
-
-	* x11/xfree86/POST_INSTALL, zbeta/xfree86-beta/POST_INSTALL: remove
-	the NVIDIA26 module relin.
-
-2004-04-08 16:16  florin
-
-	* devel/expect/DETAILS: bump the version from 5.40.0 to 5.40.1.
-
-2004-04-08 15:04  florin
-
-	* kde3-apps/scribus/: BUILD, DEPENDS, DETAILS: move it from
-	graphics dir. fix the BUILD file.
-
-2004-04-08 13:29  prox
-
-	* net/oidentd/DETAILS: added md5sum
-
-2004-04-08 13:27  prox
-
-	* net/oidentd/DETAILS: bump version
-
-2004-04-08 12:51  prox
-
-	* audio/xmms-equ/: BUILD, DEPENDS, DETAILS: new module xmms-equ
-
-2004-04-08 12:33  prox
-
-	* net/libpcap/DETAILS: bump version due to Vulnerabilities in
-	ISAKMP Parsing
-
-2004-04-08 11:16  nestu
-
-	* filesys/sysfsutils/DETAILS: Change the 'what' description, since
-	the lsbus utility has been removed from the package.
-
-2004-04-08 10:54  nestu
-
-	* filesys/sysfsutils/DETAILS: Bump version. SOURCE_URL has been
-	fixed so it uses $SOURCE
-
-2004-04-08 07:08  tchan
-
-	* devel/qemu/BUILD: Reworked this module to take advantage of the
-	new static libs in XOrg.
-
-2004-04-08 05:09  tchan
-
-	* devel/tk/DEPENDS, doc-tools/teTeX/DEPENDS, editors/emacs/DEPENDS,
-	graphics/gtk+/DEPENDS, graphics/gtk+-2/DEPENDS,
-	libs/openMotif/DEPENDS, printer/espgs/DEPENDS,
-	profiles/useful-profile/DEPENDS, science/gnuplot/DEPENDS,
-	zbeta/emacs-cvs/DEPENDS: Switched moonbase over to nhudson's newer
-	and better named xservers-profile.  The goal is to re-use the
-	xserver module name for the X11R6 fork of xfree86 named "xserver".
-
-2004-04-08 05:02  tchan
-
-	* x11-utils/root-tail/DEPENDS: This app is located in x11-utils. 
-	It clearly is a GUI app.  I'm removing the redundant DEPENDS on
-	xserver or the new xservers-profile.
-
-2004-04-08 04:54  tchan
-
-	* profiles/xservers-profile/CONFIGURE: Reworded the help message a
-	little.  Fixed some typos.
-
-2004-04-08 04:53  florin
-
-	* kde3/qt3/DEPENDS: in DEPENDS use xservers-profile instead of
-	xserver.
-
-2004-04-08 04:53  florin
-
-	* distributed/BitTorrent/DETAILS: fix the md5sum.
-
-2004-04-08 03:27  nhudson
-
-	* devel/monodoc/BUILD: 
-	Might as well do this now or I will forget about it tomorrow
-
-2004-04-08 03:25  nhudson
-
-	* devel/: gtk-sharp/DEPENDS, monodoc/BUILD, monodoc/DEPENDS,
-	monodoc/DETAILS: 
-	Adding monodoc module and changing the gtk-sharp DEPENDS so that
-	monodoc works correctly
-
-2004-04-08 03:05  florin
-
-	* utils/file/DETAILS: bump the version from 4.08 to 4.09.
-
-2004-04-08 01:41  nhudson
-
-	* profiles/xservers-profile/: BUILD, CONFIGURE: 
-	Adding in a message stating what each choice will be
-
-2004-04-08 01:33  nhudson
-
-	* profiles/xservers-profile/: BUILD, DEPENDS, DETAILS, POST_BUILD,
-	PRE_BUILD: 
-	Adding a better name for this profile so that it might not confuse
-	people
-
-2004-04-08 01:26  nhudson
-
-	* x11/XOrg/POST_INSTALL: 
-	Now adding a message stating the config diffrences from xorg and
-	xfree86.
-
-2004-04-08 01:21  nhudson
-
-	* x11-utils/fontconfig/POST_INSTALL: 
-	Adding pango to rebuild after you compile fontconfig
-
-2004-04-08 01:18  nhudson
-
-	* x11/XOrg/POST_INSTALL: 
-	Removing pango from the rebuild list on XOrg and moving it to
-	fontconfig
 
