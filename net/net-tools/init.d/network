@@ -39,7 +39,7 @@ function device_start() {
 
 	# load module if specified
 	if [ ! -z $MODULE ]; then
-	    modprobe $MODULE;
+	    modprobe $MODULE $MODULE_OPTIONS;
 	fi;
 
 	if ( [ ! -z $WIRELESS_MODE ] || [ ! -z $WIRELESS_KEY ] || [ ! -z $WIRELESS_RATE ] || [ ! -z $WIRELESS_ESSID ] ); then
