@@ -20,7 +20,7 @@ lesspipe() {
   *.Z) gzip -dc $1  2>/dev/null ;;
   *.zip) unzip -l $1 2>/dev/null ;;
   *.rpm) rpm -qilp "$1" 2>/dev/null ;;
-  *.[0-9].[0-9]) ;;
+  *.[0-9].[0-9] | *-[0-9].[0-9]) ;;
   *.[1-9] | *.n | *.man)
     [ "$(file -L $1 | cut -d ' ' -f 2)" = "troff" -o \
     "$(file -L $1 | cut -d ' ' -f 2)" = "ASCII" ] &&
