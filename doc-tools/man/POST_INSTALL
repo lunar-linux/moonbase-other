@@ -1,0 +1,6 @@
+if `module_installed xfree86`; then
+  if [ ! -e "/etc/man.conf" ] ; then
+    cd /etc &&
+    ln -sf /usr/share/misc/man.conf man.conf
+  fi
+fi

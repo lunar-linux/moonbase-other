@@ -1,12 +1,14 @@
           MODULE=man
          VERSION=1.5k
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-$VERSION-patchset-r1.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/utils/$MODULE/$SOURCE
    SOURCE_URL[1]=ftp://ftp.kernel.org/pub/linux/utils/$MODULE/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
         WEB_SITE=http://ftp.kernel.org/pub/linux/utils/man/
          ENTERED=20010922
-         UPDATED=20020903
+         UPDATED=20030311
            SHORT="man displays the on-line manual pages."
 cat << EOF
 man - Display the on-line manual.

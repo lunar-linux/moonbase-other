@@ -1,6 +1,6 @@
 (
 
-  cat $SCRIPT_DIRECTORY/whatis.patch | patch -p1 &&
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
   ./configure  -d  &&
   make             &&
   prepare_install  &&
