@@ -1,27 +1,21 @@
            MODULE=cups
-         VERSION=1.1.20
-
+         VERSION=1.1.21
           SOURCE=$MODULE-$VERSION-source.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.easysw.com/pub/cups/$VERSION/$SOURCE
    SOURCE_URL[1]=ftp://ftp.funet.fi/pub/mirrors/ftp.easysw.com/pub/$MODULE/$VERSION/$SOURCE
    SOURCE_URL[2]=ftp://ftp.mpg.goe.ni.schule.de/pub/internet/printing/$MODULE/$VERSION/$SOURCE
-   
          SOURCE2=foomatic-rip
      SOURCE2_URL=http://www.linuxprinting.org/$SOURCE2	
-     
  	 SOURCE3=foomatic-gswrapper
      SOURCE3_URL=http://www.linuxprinting.org/$SOURCE3
-     
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-
-     SOURCE_VFY=md5:09d0be2bad1b0617bc0eba6eef81f6e9
-
+     SOURCE_VFY=sha1:b8f71742ff08c66dbeaccc039a63f9b83ea08d82
       MAINTAINER=sofar@lunar-linux.org
-
         WEB_SITE=http://www.cups.org
          ENTERED=20020218
-         UPDATED=20031125
+         UPDATED=20040918
            SHORT="cups provides a portable printing layer."
+
 cat << EOF
 CUPS provides a portable printing layer for UNIX(r)-based operating
 systems. It has been developed to promote a standard printing solution
