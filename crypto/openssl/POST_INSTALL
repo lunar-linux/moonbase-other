@@ -1,2 +1,19 @@
 rm  -f  $BOOST_LOCK
 if  module_installed  openssh;  then  lin  openssh;  fi
+
+#fixup certs for imaps and pop3s
+CERTHOME="/etc/ssl/certs"
+if [ -d $CERTHOME ]; then
+   cd $CERTHOME
+   if [ ! -e imapd.pem ]; then
+      make imapd.pem
+   fi
+   if [ ! -e ipop3d.pem ]; then
+      make ipop3d.pem
+   fi
+fi
+#leave a note about how to make an apache cert from the new makefile
+if [ ! -e $CERTHOME/make.apache.cert.note ]; then
+   echo "To create a test certificate for use with Apache, run: make testcert" > $CERTHOME/make.apache.cert.note
+fi
+
