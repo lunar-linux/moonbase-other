@@ -3,16 +3,16 @@
 NEWMSG="A new config file (mouse.new) has been installed in /etc/config.d. SA please check for new options."                 &&
 BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA please configure!"                               &&
 
-#cat $SCRIPT_DIRECTORY/gpm.patch                       | patch -p1      &&
-#cat $SCRIPT_DIRECTORY/gpm-nops.patch                  | patch -p1      &&
-#cat $SCRIPT_DIRECTORY/gpm-1.19.3-docfix.patch         | patch -p1      &&
-#cat $SCRIPT_DIRECTORY/gpm-1.19.3-root.patch           | patch -p1      &&
-#cat $SCRIPT_DIRECTORY/gpm-root.patch                  | patch -p1      &&
-#cat $SCRIPT_DIRECTORY/gpm-1.19.1-secenhance.patch     | patch -p1      &&
-#cat $SCRIPT_DIRECTORY/gpm-1.19.2-limits.patch         | patch -p1      &&
-#cat $SCRIPT_DIRECTORY/gpm-1.19.3-serialconsole.patch  | patch -p1      &&
-#cat $SCRIPT_DIRECTORY/gpm-1.19.3-devfs.patch          | patch -p1      &&
-#cat $SCRIPT_DIRECTORY/gpm-1.19.3-noworldwrite.patch   | patch -p1      &&
+patch_it $SOURCE_CACHE/$SOURCE2 1                      &&
+patch_it $SOURCE_CACHE/$SOURCE3 1                      &&
+patch_it $SOURCE_CACHE/$SOURCE4 1                      &&
+patch_it $SOURCE_CACHE/$SOURCE5 1                      &&
+patch_it $SOURCE_CACHE/$SOURCE6 1                      &&
+patch_it $SOURCE_CACHE/$SOURCE7 1                      &&
+patch_it $SOURCE_CACHE/$SOURCE8 1                      &&
+patch_it $SOURCE_CACHE/$SOURCE9 1                      &&
+patch_it $SOURCE_CACHE/$SOURCE10 1                     &&
+patch_it $SOURCE_CACHE/$SOURCE11 1                     &&
 
 # ************************ WARNING *************************
 # DO NOT MESS WITH THE CONFIGURE STUFF here unless you 
@@ -20,7 +20,7 @@ BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA plea
 # specifically so we could link this to ncurses and then
 # link ncurses to bash which is needed at init time! If you 
 # move it you could break your system!
-
+  
   ./configure  --build=$BUILD                          \
                --prefix=/usr                           \
                --bindir=/usr/bin                       \
@@ -32,7 +32,7 @@ BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA plea
                --infodir=/usr/share/info               \
                --mandir=/usr/share/man                 &&
                
-  sedit  "s/src doc contrib/src contrib/"  Makefile    &&
+  #sedit  "s/src doc contrib/src contrib/"  Makefile    &&
 
 # binary section
   default_make                                         &&
