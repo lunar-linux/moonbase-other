@@ -1,5 +1,5 @@
 (
-  export patchdir=$SOURCE_DIRECTORY/$MODULE-$VERSION-lunar &&
+  export patchdir=$SOURCE_DIRECTORY/$MODULE-1.5-lunar &&
   EXTENTIONS="--enable-extensions=default,finger,spellcheck"
 
   if [ "$COM" == "n" ] ; then
