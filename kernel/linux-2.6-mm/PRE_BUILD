@@ -14,24 +14,23 @@ if [ ! -d /usr/src/linux-${VERSION} ]; then
     mv linux-${KERNEL_VERSION} linux-${VERSION}
     
     ln -sf linux-${VERSION}  linux
-       
+    
     chown root.root linux
     
     cd linux
     
     patch_it $SOURCE2 1
-    patch_it $SOURCE3 1
 
-    for config in .config-2.6-mm .config.2.6.stable .config.beta
-      do
-      if [  -f  $CONFIG_CACHE/${config} ]; then 
+    for config in .config-2.6-mm .config.2.6.stable
+      do	
+      if [ -f  $CONFIG_CACHE/${config} ]; then 
 	  cp  $CONFIG_CACHE/${config}  /usr/src/linux/.config
 	  message "Importing ${config} as kernel default configuration"
       else	
 	  break
       fi
     done
-
+    
 else
 
     message "Sources found: /usr/src/linux-${VERSION}"
@@ -42,3 +41,4 @@ else
     fi
 
 fi
+
