@@ -1,15 +1,22 @@
           MODULE=gocr
          VERSION=0.39
           SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=$MODULE-0.37-manpages-path.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=$SFORGE_URL/jocr/$SOURCE
-      SOURCE_VFY=md5:35b024988af7d3ddb00971db4e6d53a1
+      SOURCE_URL[0]=$SFORGE_URL/jocr/$SOURCE
+     SOURCE2_URL[1]=$PATCH_URL/$SOURCE2
+      SOURCE_VFY[0]=md5:35b024988af7d3ddb00971db4e6d53a1
+     SOURCE2_VFY[1]=md5:120a43230170568a6ff650e71ef53fa0
         WEB_SITE=http://jocr.sourceforge.net
          ENTERED=20030308
-         UPDATED=20040710
+         UPDATED=20040711
       MAINTAINER=kc8apf@kc8apf.net
            SHORT="gocr is a optical character recognition system"
+
 cat << EOF
-GOCR/JOCR is an OCR (Optical Character Recognition) program, developed under the GNU Public License.
-GOCR can be used with different front-ends, which makes it very easy to port to different OSes and architectures. It can open many different image formats, and its quality have been improving in a daily basis.
+GOCR/JOCR is an OCR (Optical Character Recognition) program, developed under 
+the GNU Public License. GOCR can be used with different front-ends, which 
+makes it very easy to port to different OSes and architectures. It can open 
+many different image formats, and its quality have been improving in a daily 
+basis.
 EOF
