@@ -3,6 +3,6 @@ export QTDIR="/opt/lunar/qt/3"
 default_pre_build &&
 
 cd $SOURCE_DIRECTORY &&
-python build.py  -b /usr/bin         \
+echo "yes" | python build.py  -b /usr/bin         \
                    -q /opt/lunar/qt/3  \
                    $OPTS               
