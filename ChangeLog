@@ -1,3 +1,62 @@
+2004-06-27 10:59  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.7mm2 -> 2.6.7mm3
+
+2004-06-27 10:23  sofar
+
+	* xfce4/xfce4-wavelan-plugin/: BUILD, DEPENDS, DETAILS: Something
+	went wrong there
+
+2004-06-27 10:20  sofar
+
+	* xfce4/xfce4-cpugraph-plugin/: BUILD, DEPENDS, DETAILS: New panel
+	plugin
+
+2004-06-27 07:11  florin
+
+	* filesys/udev/DETAILS: bump the version from 027 to 028.
+
+2004-06-27 06:34  florin
+
+	* filesys/LVM2/DETAILS: bump the version from 2.00.17 to 2.00.18.
+
+2004-06-27 02:20  cmak
+
+	* x11/artwiz-aleczapka/DETAILS: tweaky!
+
+2004-06-27 02:00  cmak
+
+	* libs/libtrash/: BUILD, DEPENDS, DETAILS: a trashcan for linux.
+	highly configurable, when you rm <something>, <something> will be
+	moved to trash instead of being deleted. you can make an alias
+	(alias hardrm='TRASH_OFF=YES rm') to get normal behavior, choose
+	what dirs or filetypes are being ignored and so on...  you _must_
+	read /usr/share/doc/libtrash/README !! :)
+
+2004-06-26 18:59  cmak
+
+	* gnome2-core/gnome-themes/DEPENDS: dis''true
+
+2004-06-26 18:19  sofar
+
+	* utils/smartmontools/DETAILS: New version
+
+2004-06-26 18:00  cmak
+
+	* kde3-apps/k3b/DEPENDS: k3b need kdesu which comes with kdebase3
+
+2004-06-26 17:57  cmak
+
+	* utils/shared-mime-info/DEPENDS: depends on this
+
+2004-06-26 16:23  sofar
+
+	* kernel/linux-openmosix/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD:
+	The migshm patch fails to distribute processes completely, so I'm
+	reverting this back to tab's patchset with is confirmed OK. Perhaps
+	later I'll know what was wrong with the migshm patch but for now I
+	will leave it alone.
+
 2004-06-25 20:48  striker
 
 	* editors/nano/nanorc: Tweaks: Added a *real* PHP syntax with 2991
@@ -1476,55 +1535,4 @@
 2004-05-28 21:10  cmak
 
 	* doc-tools/docbook-utils/DETAILS: version bump
-
-2004-05-27 20:56  cmak
-
-	* docs/man-pages/DETAILS: date fixed
-
-2004-05-27 20:15  florin
-
-	* web/apache-mod_ssl/DETAILS: bump the version from 2.8.17 to
-	2.8.18.
-
-2004-05-27 19:30  ratler
-
-	* games/showeq/: BUILD, DETAILS: Showeq should now work again from
-	the EverQuest patch yesterday that changed some opcodes
-
-2004-05-27 19:20  florin
-
-	* utils/psmisc/DETAILS: bump the version from 21.3 to 21.5.
-
-2004-05-27 17:54  moe
-
-	* web/flash-plugin/: BUILD, DETAILS: Updating this to ver.7
-
-2004-05-27 17:44  jol
-
-	* compilers/Python/DETAILS: Bumped version OLD: 2.3.3 NEW: 2.3.4
-	Bug fix release
-
-2004-05-27 14:01  prox
-
-	* devel/db4/: BUILD, DETAILS: db4 changed url for download, added
-	new patch, put patch in patches, added all md5sums.
-
-2004-05-27 12:20  prox
-
-	* crypto/cyrus-sasl/: BUILD, DETAILS, cyrus-sasl-1.5.27.patch.bz2,
-	smtpd.conf: Bump and small moves of files, I dont know about
-	smtpd.conf, where it should be or if it should really be with this
-	package. Seems wrong that a smtpd configure file is included in a
-	simple auth lib.
-
-2004-05-27 10:12  sofar
-
-	* graphics/ImageMagick/DETAILS: bleh. Complaint sent to upstream
-	authors
-
-2004-05-27 09:09  moe
-
-	* graphics/gimp/DEPENDS: This is broken and I fix it. And unless
-	somebody steps up and decides about the new function Jerry
-	introduced it shall remain like that.
 
