@@ -3,9 +3,9 @@
 dist_bin=`dirname $0`
 
 if test -n "$MOZILLA_FIVE_HOME"; then
-	MOZILLA_HOME=$MOZILLA_FIVE_HOME
-elif [ -f /usr/lib/mozilla-1.3.1/chrome/comm.jar ]; then
-	MOZILLA_HOME=/usr/lib/mozilla-1.3.1
+	MOZILLA_HOME=/usr/lib/mozilla
+elif [ -f /usr/lib/mozilla/chrome/comm.jar ]; then
+	MOZILLA_HOME=/usr/lib/mozilla
 else
 	echo "Cannot find mozilla installation directory. Please set MOZILLA_FIVE_HOME to your mozilla directory"
 	exit
