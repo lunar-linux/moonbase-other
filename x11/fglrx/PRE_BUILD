@@ -2,6 +2,17 @@ mk_source_dir $SOURCE_DIRECTORY &&
 cd $SOURCE_DIRECTORY &&
 rpmunpack $SOURCE_CACHE/$SOURCE &&
 gunzip $(echo $SOURCE | sed 's:i386.rpm$:cpio.gz:') &&
-cpio -i --no-absolute-filenames --make-directories < $(echo $SOURCE | sed 's:i386.rpm$:cpio:')
-cd $SOURCE_DIRECTORY/lib/modules/fglrx/build_mod
-#patch_it $SOURCE_CACHE/$SOURCE2 1
+cpio -i --no-absolute-filenames --make-directories < $(echo $SOURCE | sed 's:i386.rpm$:cpio:') &&
+
+#The patch is only valid for 2.6.10 or higher, so skip it on others
+#Also, we can only compile against running kernels, so it is legal
+#to use uname to grab kernel version number.
+if [ `uname -r | cut -d. -f1,2` = "2.6" ]; then
+  if [ `uname -r | cut -d. -f3` -ge "10" ]; then
+    cd $SOURCE_DIRECTORY/lib/modules/fglrx/build_mod &&
+    patch_it $SOURCE_CACHE/$SOURCE2 0
+  fi
+fi
+
+
+

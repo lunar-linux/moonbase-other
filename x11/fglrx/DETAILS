@@ -1,14 +1,17 @@
           MODULE=fglrx
          VERSION=8.8.25
-          SOURCE=${MODULE}_6_8_0-${VERSION}-1.i386.rpm
+          SOURCE=${MODULE}_6_8_0-$VERSION-1.i386.rpm
+	 SOURCE2=8.08-kernel-2.6.10.patch
       SOURCE_URL=http://www2.ati.com/drivers/linux/
       SOURCE_VFY=sha1:3796d34190b4ad41e94bcd8f4578c4c1183a347e
+     SOURCE2_URL=http://zinx.xmms.org/ati/$SOURCE2
+     SOURCE2_VFY=sha1:98465c50d08b1e469e28e1edc5a02322450432a4
         WEB_SITE=http://www.ati.com/
          ENTERED=20040220
          UPDATED=20050118
-           SHORT="Proprietary xfree86 driver for the ati 9x00."
+           SHORT="Proprietary X.org driver for the ati 9x00."
 cat << EOF
-Proprietary xfree86 driver for the ATI 8500 and 9x00 series. Contains
+Proprietary X.Org driver for the ATI 8500 and 9x00 series. Contains
 binary kernel module (fglrx.o) and ATI's X11 tools, includes and GLX
 header files.
 EOF
