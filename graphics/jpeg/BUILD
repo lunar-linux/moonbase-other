@@ -12,5 +12,6 @@
   prepare_install &&
   make install &&
   install -m755 -oroot -groot .libs/libjpeg.so /usr/lib/
+  ln -s libjpeg.so /usr/lib/libjpeg.so.62
 
 ) > $C_FIFO 2>&1
