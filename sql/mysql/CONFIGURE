@@ -14,6 +14,23 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     if  query  "Enable RAID Support? " n; then
       OPTS="$OPTS --with-raid"
     fi
+
+    if  query  "Include the corba-based MySQL file system? " n; then
+      OPTS="$OPTS --with-mysqlfs"
+    fi
+
+    if  query  "Include the Virtual IO support? " n; then
+      OPTS="$OPTS --with-vio"
+    fi
+
+  fi
+
+  if    query  "Include the OpenSSL support? " n; then
+    OPTS="$OPTS --with-openssl"
+  fi
+
+  if    query  "Build embedded server (libmysqld) ? " n; then
+    OPTS="$OPTS --with-embedded-server"
   fi
 
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG

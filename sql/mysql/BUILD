@@ -6,13 +6,16 @@
 
   set -x
   ./configure  --prefix=/usr                              \
+               --disable-dependency-tracking              \
                --without-bench                            \
                --without-debug                            \
+	       --enable-thread-safe-client                \
                --enable-assembler                         \
                --localstatedir=/var/lib/mysql             \
                --infodir=/usr/share/info                  \
                --mandir=/usr/share/man                    \
                --with-extra-charset=all                   \
+	       --with-pthread                             \
                $OPTS                                      &&
   set +x &&             
   invoke_installwatch                                     &&
