@@ -1,20 +1,24 @@
 (
-  cd $SOURCE_DIRECTORY &&
+  cd $SOURCE_DIRECTORY 				&&
 
-  ./configure	--prefix=/usr \
-		--sysconfdir=/etc \
-                --with-system-gcc \
-                --enable-devel    \
-                --enable-bonobo   \
-                --disable-dependency-tracking \
- 		$OPTS &&
+  if module_installed j2sdk; then
+    export OPTS="$OPTS --enable-java --with-jdk-home=/usr/lib/j2sdk1.4.1/"
+  fi   						&&
 
-  default_make   &&
+  ./configure	--prefix=/usr 			\
+		--sysconfdir=/etc 		\
+                --with-system-gcc 		\
+                --enable-devel    		\
+                --enable-bonobo   		\
+                --disable-dependency-tracking   \
+ 		$OPTS 				&&
 
-  cp etc/autoresponse.conf /etc/openoffice &&
-  cd desktop                               &&
+  default_make   				&&
+
+  cp etc/autoresponse.conf /etc/openoffice 	&&
+  cd desktop                               	&&
   cp drawing.desktop presentation.desktop spreadsheet.desktop textdoc.desktop /usr/share/applications/ &&
-  cp *png /usr/share/pixmaps               &&
+  cp *png /usr/share/pixmaps               	&&
   cd $SOURCE_DIRECTORY     
   
 ) > $C_FIFO 2>&1
