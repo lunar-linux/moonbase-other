@@ -1,6 +1,6 @@
 (
     cd $SOURCE_DIRECTORY &&
-    ./configure --prefix=/usr $OPTS &&
+    ./configure --prefix=/usr --disable-gtk-doc $OPTS &&
     make &&
     touch docs/html/index.sgml &&
     prepare_install &&
