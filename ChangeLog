@@ -1,3 +1,41 @@
+2005-02-05 13:29  perldude
+
+	* filemanagers/filer/DETAILS: version bump (requested by sofar)
+
+2005-02-05 10:44  moe
+
+	* graphics/gtk+-2/: BUILD, CONFIGURE, DETAILS: Updating GTK2 to
+	  2.6.x
+
+	  * Removed shadow patch. Olivier hasn't released an updated
+	  patch yet. If you want shadows, use the XComposite extensions
+
+2005-02-05 10:42  moe
+
+	* libs/: atk/DETAILS, glib-2/DETAILS, pango/DETAILS: Update GTK2 to
+	  2.6.x
+
+2005-02-04 23:31  nestu
+
+	* filesys/udev/POST_INSTALL: Added ram0 (with ram symlink) and ram1
+	  needed for booting ramdisks, since udev will not be running yet
+	  at that time of the boot. Symlink support has been added, and
+	  some cleanup has been done too.
+
+2005-02-04 21:20  florin
+
+	* devel/strace/DETAILS: bump the version from 4.5.8 to 4.5.9.
+
+2005-02-04 19:55  nestu
+
+	* kernel/linux-2.6-mm/DETAILS: 2.6.11-rc2-mm2 -> 2.6.11-rc3-mm1.
+	  gcc 3.3.3, glibc 2.3.2, headers 2.6.10.0
+
+2005-02-04 19:36  jol
+
+	* kde3-apps/k3b/DETAILS: Bumped version to 0.11.20. This is a
+	  bugfix release.
+
 2005-02-03 20:29  moe
 
 	* kernel/: linux-2.4/PRE_BUILD, linux-2.4-agr/PRE_BUILD,
@@ -1838,81 +1876,4 @@
 
 	* printer/gtklp/: DEPENDS, DETAILS: Inital import.  gtk frontend to
 	  cupsd.  Oh i wish i was an Oscar Mayer wenner.
-
-2005-01-05 21:21  tchan
-
-	* docs/diveintopython/: BUILD, DETAILS: Added the GNU Free
-	  Documentation licensed book "Diving into Python" to moonbase.
-	  Version 5.4.
-
-2005-01-05 17:50  tchan
-
-	* chat/silc-client/: BUILD, DEPENDS, DETAILS: Version bump to
-	  silc-client-1.0.1. Compiled/tested with gcc-3.3.3, glibc-2.3.3,
-	  kernel headers 2.4.x.
-
-2005-01-05 16:49  tchan
-
-	* utils/syslinux/: BUILD, DETAILS: Version bump to syslinux-3.02.
-	  H. Peter Anvin included a fix for glibc-2.3.3 headers importing
-	  the broken fs.h from the 2.4.28 kernel headers (see extlinux.c).
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-01-05 16:07  florin
-
-	* x11-utils/synergy/DETAILS: bump the version from 1.0.14 to 1.2.1.
-
-2005-01-05 16:00  moe
-
-	* gnome2-apps/katoob/: BUILD, DEPENDS: gtksourceview is evil.
-	  Therefore its optional now.
-
-	  * Moved gtksourceview into an optional_depends
-
-2005-01-05 15:57  florin
-
-	* libs/glew/DETAILS: bump the version from 1.2.5 to 1.3.0.
-
-2005-01-05 08:07  hardkrash
-
-	* graphics/digikam/DEPENDS: really a required depends
-
-2005-01-05 05:47  florin
-
-	* web/elinks/DETAILS: bump the version from 0.10.0 to 0.10.1.
-
-2005-01-05 05:45  florin
-
-	* kde3-apps/ksubtile/DETAILS: bump the version from 1.01 to 1.1.
-
-2005-01-05 04:53  tchan
-
-	* devel/bison/DETAILS: Fixed the indentation of the DETAILS file.
-
-2005-01-05 04:48  tchan
-
-	* devel/bison/: BUILD, DEPENDS, DETAILS, yacc: Updated this module
-	  to bison-2.0.  Removed the unneeded script yacc as bison-2.0
-	  automatically builds a /usr/bin/yacc script.	Also added a
-	  DEPENDS file as bison needs m4.  Updated the BUILD script to
-	  remove the unneeded patch.  Updated the DETAILS file to remove
-	  the patch.  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel
-	  headers 2.4.x. I also recompiled teTeX, nedit, fetchmail,
-	  modutils, as test cases of using the new bison.
-
-2005-01-05 04:27  v3rt1g0
-
-	* devel/autotoolset/DETAILS: Typo in long description fixed.
-
-2005-01-05 04:19  v3rt1g0
-
-	* devel/autotoolset/: DEPENDS, DETAILS: Inital Import.	Module
-	  created by jas0n (jasonm@iit-sourcetech.com).
-
-2005-01-05 00:03  v3rt1g0
-
-	* utils/x86info/: BUILD, DETAILS: Version bump.  Change it to go to
-	  /usr/bin vs /usr/sbin because a regular user can use the app (in
-	  a partly limited environment).  Other misc tweaks (SHA, etc).
 
