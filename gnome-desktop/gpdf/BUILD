@@ -7,9 +7,6 @@
 		--localstatedir=/var				\
 		--infodir=/opt/lunar/gnome/2/share/info		\
 		--mandir=/opt/lunar/gnome/2/share/man		\
-                --enable-a4-paper                               \
-                --enable-opi                                    \
-                --enable-multithreaded                          \
                 --disable-gtk-doc                               &&
 
    default_make
