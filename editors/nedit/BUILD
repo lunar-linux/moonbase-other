@@ -1,9 +1,9 @@
 (
 
-  sedit "s/CFLAGS\=/CFLAGS:=/"  makefiles/Makefile.linux           &&
-  sedit "s/-DUSE_LPR_PRINT_CMD/& \$\(CFLAGS\)/" makefiles/Makefile.linux &&
-  sedit "s/-lm/-lm -lXmu/" makefiles/Makefile.linux      &&
-  make  linux                                            &&
+  sedit "s/CFLAGS\=/CFLAGS:=-DBUILD_UNTESTED_NEDIT/"  makefiles/Makefile.linux  &&
+  sedit "s/-DUSE_LPR_PRINT_CMD/& \$\(CFLAGS\)/" makefiles/Makefile.linux        &&
+  sedit "s/-lm/-lm -lXmu/" makefiles/Makefile.linux   &&
+  make  linux                                         &&
   prepare_install
 
 ) > $C_FIFO 2>&1  &&  (
