@@ -1,9 +1,19 @@
 depends   gtk+-2      &&
 
-optional_depends  "gnutls"               \
+optional_depends  "mozilla"                                        \
+                  "--enable-gnutls=no                              \
+                   --with-nspr-libs=/usr/lib/mozilla/              \
+                   --with-nspr-includes=/usr/include/mozilla/nspr/ \
+                   --with-nss-libs=/usr/lib/mozilla/               \
+                   --with-nss-includes=/usr/include/mozilla/nss/   \
+                   --enable-nss=yes"                               \
+                  ""                                               \
+                  "-*required* for msn support (say 'n' to gnutls if you say 'y' here)" &&
+
+optional_depends  "gnutls"               		\
                   "--enable-nss=no --enable-gnutls=yes" \
-                  ""                     \
-		  "- *required* for MSN" &&
+                  ""                                    \
+		  "- *required* for msn support (say 'y' here if you said 'n' to mozilla)" && 
 
 optional_depends  "audiofile"            \
                   "--enable-audiofile"   \
@@ -23,4 +33,4 @@ optional_depends  "gtkspell"		\
 optional_depends  "perl"		\
 		  "--enable-perl"	\
 		  "--disable-perl"	\
-		  "to enable perl plugin support"
+		  "to enable perl plugin support" 
