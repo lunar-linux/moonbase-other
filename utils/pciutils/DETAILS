@@ -1,10 +1,12 @@
           MODULE=pciutils
          VERSION=2.1.10
           SOURCE=${MODULE}-${VERSION}.tar.gz
+	 SOURCE2=${MODULE}-${VERSION}-patchset-1.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$KERNEL_URL/pub/software/utils/pciutils/$SOURCE
    SOURCE_URL[1]=http://www.ibiblio.org/pub/Linux/hardware/$SOURCE
    SOURCE_URL[2]=ftp://atrey.karlin.mff.cuni.cz/pub/linux/pci/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
         WEB_SITE=unknown
          ENTERED=20020125
          UPDATED=20020331

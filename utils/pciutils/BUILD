@@ -1,4 +1,6 @@
 (
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1         &&
   default_make                              &&
   mkdir -p     /usr/include/pci/            &&
   cp lib/pci.h /usr/include/pci/pci.h       &&
