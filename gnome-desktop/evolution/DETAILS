@@ -1,17 +1,15 @@
-          MODULE=evolution
-           MAJOR=1.2
-         VERSION=1.2.4
+          MODULE=evolution-devel
+           MAJOR=1.4
+         VERSION=1.4.0
        DBVERSION=3.1.17
-          SOURCE=$MODULE-$VERSION.tar.gz
+          SOURCE=evolution-$VERSION.tar.bz2
          SOURCE2=db-$DBVERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=ftp://ftp.ximian.com/pub/ximian-evolution/source/$SOURCE
-   SOURCE_URL[1]=$GNOME_URL/sources/$MODULE/$MAJOR/$SOURCE
-   SOURCE_URL[2]=ftp://ftp.gnome.org/pub/GNOME/sources/$MODULE/$MAJOR/$SOURCE
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/evolution-$VERSION
+   SOURCE_URL[0]=$GNOME_URL/sources/evolution/$MAJOR/$SOURCE
   SOURCE2_URL[0]=http://www.sleepycat.com/update/snapshot/$SOURCE2
         WEB_SITE=http://www.ximian.com/products/ximian_evolution
          ENTERED=20011109
-         UPDATED=20030405
+         UPDATED=20030609
            SHORT="Ximian Evolution is an information management solution."
 cat << EOF
 Ximian Evolution^(TM) is the premiere personal and workgroup
