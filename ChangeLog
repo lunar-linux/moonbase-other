@@ -1,3 +1,99 @@
+2004-04-11 11:30  florin
+
+	* printer/hpijs/DETAILS: bump the version from 1.5 to 1.6. tested
+	with cups, espgs and kernel 2.6.5.
+
+2004-04-11 10:01  cmak
+
+	* filemanagers/rox/DETAILS: version bump
+
+2004-04-11 09:57  nestu
+
+	* kernel/linux-beta-mm/DETAILS: version bump
+
+2004-04-11 09:45  florin
+
+	* net/whois/DETAILS: bump the version from 4.6.9 to 4.6.13.
+
+2004-04-11 09:30  cmak
+
+	* audio/: liblrdf/DETAILS, qjackctl/DETAILS: version bumps
+
+2004-04-11 06:14  tchan
+
+	* gnome2-apps/regexxer/: DEPENDS, DETAILS: Version bump to 0.6. 
+	Fixed so this module now compiles with the newer gnome2.6 stuff. 
+	Added more DEPENDS.  Compiled and tested with gcc-3.3.3, kernel
+	headers 2.4.x.
+
+2004-04-11 06:08  tchan
+
+	* devel/gnome-vfsmm/DETAILS: Version bump to 1.3.5.  Compiled and
+	tested with gcc-3.3.3, kernel headers 2.4.x.
+
+2004-04-11 05:57  tchan
+
+	* gnome2-core/gtkmm2/DETAILS: Version bump to 2.2.11.  Compiled and
+	tested with gcc-3.3.3, kernel headers 2.4.x.
+
+2004-04-11 05:52  florin
+
+	* utils/hotplug/: BUILD, PRE_BUILD: remove the PRE_INSTALL file. i
+	guess that it's a more simle and better solution now.
+
+2004-04-11 05:43  florin
+
+	* utils/hotplug/PRE_BUILD: unpack the source first in order to
+	compile.
+
+2004-04-11 04:55  nhudson
+
+	* x11-utils/xrestop/: BUILD, DETAILS: 
+	Adding xrestop to moonbase, submitted by v3rt1g0 via the mailing
+	list
+
+2004-04-11 04:48  nhudson
+
+	* graphics/gimp/DETAILS: 
+	Adding a new mirror for Gimp suggested by Chad
+	Kittel(vertigo@wi.rr.com) from the mailing list
+
+2004-04-11 04:37  nhudson
+
+	* profiles/gnome2/DEPENDS: 
+	Cleaning up the DEPENDS file a bit, removing some double
+	dependancies
+
+2004-04-11 04:23  nhudson
+
+	* gnome2-core/: libgnomeprint/BUILD, librsvg/BUILD: 
+	Disabling doc building for now just to be on the safe side
+
+2004-04-11 04:06  nhudson
+
+	* gnome2-core/libgda2/BUILD: 
+	Fixing libgda2 build so that it doesnt error out when making docs,
+	there is a newer version of libgda2 out, but it doesnt compile
+	either for a diffrent reason
+
+2004-04-10 22:06  nestu
+
+	* utils/hotplug/: DETAILS, PRE_BUILD: Added the patch so that the
+	initscript creates /var/lock/subsys/
+
+2004-04-10 18:51  florin
+
+	* graphics/plib/DETAILS: bump the version from 1.8.2 to 1.8.3.
+
+2004-04-10 18:20  tchan
+
+	* gnome2-core/linc/DETAILS: Removed the extra UPDATED= line.
+
+2004-04-10 15:00  florin
+
+	* kde3-apps/qcad/: BUILD, DEPENDS, DETAILS, profile.d/qcad.rc: bump
+	the version from 1.5.4 to 2.0.3.1.
+
 2004-04-10 04:42  florin
 
 	* x11/libxklavier/DETAILS: bump the version from 1.00 to 1.01.
@@ -1647,6 +1743,11 @@
 
 2004-03-18 04:22  nhudson
 
+	* audio/rhythmbox/CONFIGURE: file CONFIGURE was initially added on
+	branch GNOME_UNSTABLE.
+
+2004-03-18 04:22  nhudson
+
 	* audio/rhythmbox/: CONFIGURE, POST_INSTALL: 
 	Adding iPod support to rhythmbox if you have a iPod and want to set
 	things up refer to the README.iPod file in Gnome CVS
@@ -1655,11 +1756,6 @@
 	&rev=&root=/cvs/gnome
 	
 	Have fun
-
-2004-03-18 04:22  nhudson
-
-	* audio/rhythmbox/CONFIGURE: file CONFIGURE was initially added on
-	branch GNOME_UNSTABLE.
 
 2004-03-18 04:02  nhudson
 
@@ -1805,13 +1901,13 @@
 
 2004-03-16 18:30  nhudson
 
-	* audio/gst-ffmpeg/: DEPENDS, DETAILS, POST_INSTALL: 
-	Adding gst-ffmpeg to GNOME_UNSTABLE
+	* audio/gst-ffmpeg/DETAILS: file DETAILS was initially added on
+	branch GNOME_UNSTABLE.
 
 2004-03-16 18:30  nhudson
 
-	* audio/gst-ffmpeg/DETAILS: file DETAILS was initially added on
-	branch GNOME_UNSTABLE.
+	* audio/gst-ffmpeg/: DEPENDS, DETAILS, POST_INSTALL: 
+	Adding gst-ffmpeg to GNOME_UNSTABLE
 
 2004-03-16 18:30  nhudson
 
@@ -2032,23 +2128,23 @@
 
 2004-03-13 18:05  nhudson
 
+	* gnome2-core/shared-mime-info/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
+
+2004-03-13 18:05  nhudson
+
+	* gnome2-core/shared-mime-info/BUILD: file BUILD was initially
+	added on branch GNOME_UNSTABLE.
+
+2004-03-13 18:05  nhudson
+
 	* gnome2-core/shared-mime-info/: BUILD, DEPENDS, DETAILS: 
 	If you are using GNOME_UNSTABLE thigs work much better if you
 	install this... I have no idea why I didnt know about this before!!
 
 2004-03-13 18:05  nhudson
 
-	* gnome2-core/shared-mime-info/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-03-13 18:05  nhudson
-
 	* gnome2-core/shared-mime-info/DETAILS: file DETAILS was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-03-13 18:05  nhudson
-
-	* gnome2-core/shared-mime-info/BUILD: file BUILD was initially
 	added on branch GNOME_UNSTABLE.
 
 2004-03-13 15:59  nhudson
@@ -2081,6 +2177,12 @@
 
 2004-03-13 15:30  nhudson
 
+	* gnome2-core/: gnome-keyring/BUILD, gnome-mag/BUILD,
+	gnome-netstatus/BUILD: file BUILD was initially added on branch
+	GNOME_UNSTABLE.
+
+2004-03-13 15:30  nhudson
+
 	* gnome2-core/: gnome-common2/BUILD, gnome-desktop/BUILD,
 	gnome-games2/BUILD, gnome-icon-theme/BUILD, gnome-keyring/BUILD,
 	gnome-mag/BUILD, gnome-media2/BUILD, gnome-mime-data2/BUILD,
@@ -2088,12 +2190,6 @@
 	gnome-system-monitor/BUILD, gnome-terminal/BUILD,
 	gnome-themes/BUILD: 
 	More BUILD files
-
-2004-03-13 15:30  nhudson
-
-	* gnome2-core/: gnome-keyring/BUILD, gnome-mag/BUILD,
-	gnome-netstatus/BUILD: file BUILD was initially added on branch
-	GNOME_UNSTABLE.
 
 2004-03-13 15:23  nhudson
 
@@ -2286,85 +2382,4 @@
 
 	* devel/sip/: BUILD, DETAILS, PRE_BUILD: bump the version from 3.8
 	to 3.10.1.
-
-2004-03-11 22:20  cmak
-
-	* gnome2-extras/gnome-cups-manager/DEPENDS: added libgnomeui to
-	depends
-
-2004-03-11 20:25  florin
-
-	* kde3-apps/quanta3/DETAILS: bump the version from 3.2.0 to 3.2.1.
-
-2004-03-11 18:45  nestu
-
-	* kernel/linux-beta/: DETAILS, PRE_BUILD: Version bump. NO WAR, NO
-	TERRORISM, NO BS POLITICS!
-
-2004-03-11 16:09  tchan
-
-	* chat/gaim/DEPENDS: Added a missing &&.
-
-2004-03-11 16:09  tchan
-
-	* zbeta/gaim-cvs/DEPENDS: Fixed this file to match the regular gaim
-	DEPENDS
-
-2004-03-11 15:53  florin
-
-	* x11-utils/fontconfig/DETAILS: bump the version from 2.2.0 to
-	2.2.1.
-
-2004-03-11 15:35  florin
-
-	* kde3-apps/kdevelop3/DETAILS: bump the version from 3.0.1 to
-	3.0.2.
-
-2004-03-11 15:28  nhudson
-
-	* devel/: ruby-gnome2/CONFLICTS, ruby-gtk2/BUILD,
-	ruby-gtk2/CONFLICTS, ruby-gtk2/DEPENDS, ruby-gtk2/DETAILS: 
-	Adding in ruby-gtk2 for those who want to play with ruby and gtk
-	but not install all the Gnome modules to do so.  Also adding a
-	CONFLICTS file to ruby-gnome2 to remove ruby-gtk2 when installed
-
-2004-03-11 14:52  nhudson
-
-	* x11-apps/ore/: BUILD, DEPENDS, DETAILS: 
-	Adding ore to moonbase, ore is a nice clean ruby editor written in
-	gtk/gnome
-
-2004-03-11 14:49  nhudson
-
-	* devel/ruby-gtksourceview/: BUILD, DEPENDS, DETAILS: 
-	Adding ruby-gtksourceview to moonbase and removing old ruby-gtk and
-	ruby-gconf those 2 modules are now apart of ruby-gnome2
-
-2004-03-11 14:30  nhudson
-
-	* devel/: pygtk2/DETAILS, ruby-gnome2/DETAILS: 
-	Updating pygtk2 to new version 2.2.0, updating ruby-gnome2 to new
-	version 0.9.0 and removing the old ruby-gnome stuff because it is
-	no longer used or developed
-
-2004-03-11 04:32  florin
-
-	* kde3-apps/bookcase/DETAILS: bump the version from 0.8.4 to 0.8.5.
-
-2004-03-11 03:02  jmhodges
-
-	* gnome2-core/file-roller/DETAILS: doh
-
-2004-03-11 03:02  jmhodges
-
-	* gnome2-core/file-roller/DETAILS: version bump, compiles now
-
-2004-03-11 02:30  jmhodges
-
-	* gnome2-core/gnome-vfs2/DETAILS: version bump
-
-2004-03-11 01:42  tchan
-
-	* devel/smake/DETAILS: Version bump to 1.2a22.	Compiled and tested
-	withg gcc-3.3.3 and kernel headers 2.4.x.
 
