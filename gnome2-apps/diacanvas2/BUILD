@@ -1,14 +1,12 @@
 (
- 
 
-./configure --prefix=/usr                  \
-            --disable-python               \
-            --disable-gtk-doc              \
-            $OPTS                          &&
-make                                    &&
-prepare_install                         &&
-touch doc/ref/html/index.sgml           &&
-make install     
- 
+   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
+                --build=$BUILD                    \
+                --sysconfdir=/etc                 \
+                --localstatedir=/var              \
+                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+                $OPTS                             &&
+    default_make                   
 
 ) > $C_FIFO 2>&1

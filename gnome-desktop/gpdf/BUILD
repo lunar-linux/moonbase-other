@@ -1,6 +1,14 @@
 (
    
-   export OPTS="$OPTS --enable-a4-paper"
-   default_build
+   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
+                --build=$BUILD                    \
+                --sysconfdir=/etc                 \
+                --localstatedir=/var              \
+                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+                --enable-a4-paper                 \
+                $OPTS                             &&
+    default_make
+
 
 ) > $C_FIFO 2>&1
