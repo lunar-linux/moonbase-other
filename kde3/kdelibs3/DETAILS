@@ -1,13 +1,17 @@
           MODULE=kdelibs3
-         VERSION=3.1.3a
+         VERSION=3.1.4
           SOURCE=kdelibs-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdelibs-$VERSION
-   SOURCE_URL[0]=$KDE_URL/stable/3.1.3/src/$SOURCE
+   SOURCE_URL[0]=$KDE_URL/stable/$VERSION/src/$SOURCE
+   SOURCE_VFY=md5:82c265de78d53c7060a09c5cb1a78942
         WEB_SITE=http://www.kde.org/
          ENTERED=20020523
-         UPDATED=20030906
-           SHORT="kdelibs contain the base libraries upon which KDE is written."
+         UPDATED=20030920
+        SHORT="kdelibs contain the base libraries upon which KDE is written."
+        MAINTAINER="florin@lunar-linux.org"
+	MAINTAINER="jol@lunar-linux.org"
 
 cat << EOF
 kdelibs contain the base libraries that are used to develop KDE software.
 EOF
+
