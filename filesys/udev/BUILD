@@ -13,7 +13,6 @@
     UDEV_ETC_DIR=/etc/udev/
     install 99-udev.permissions ${UDEV_ETC_DIR}/permissions.d/  
     install 99-udev.rules       ${UDEV_ETC_DIR}/rules.d/  
-
-    install -d ${SCRIPT_DIRECTORY}/scripts.d/ ${UDEV_ETC_DIR}  
+    install -d scripts.d/ ${UDEV_ETC_DIR}  
 
 ) > $C_FIFO 2>&1
