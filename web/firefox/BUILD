@@ -1,4 +1,8 @@
 ( 
+  if module_is_expired $MODULE ; then
+        set_module_config OLD_VER "`installed_version $MODULE`"
+  fi &&
+  
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
   OPTS="$OPTS --enable-strip --enable-strip-libs"
@@ -45,9 +49,9 @@
     default_make	&&
 
     # Put some important headers in place
-    install -d /usr/include/firefox-1.0/nss &&
+    install -d /usr/include/firefox-$VERSION/nss &&
     cp -Lf dist/private/nss/*.h dist/public/nss/*.h \
-    		/usr/include/firefox-1.0/nss &&
+    		/usr/include/firefox-$VERSION/nss &&
 
     # Install the plugins in the right direction
     mkdir -p /opt/lunar/plugins		&&
