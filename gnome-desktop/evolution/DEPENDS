@@ -1,5 +1,6 @@
 depends  bonobo-conf  &&
-depends  gtkhtml      &&
+depends  gtkhtml2     &&
+depends  soup         &&
 
 optional_depends  "pilot-link" "--enable-pilotlinktest"            \
                   ""                                               \
@@ -18,9 +19,9 @@ optional_depends  "mozilla"                                        \
                    --with-nss-includes=/usr/include/mozilla        \
                    --with-nss-libs=/usr/lib/mozilla"               \
                   ""                                               \
-                  "for mozilla support"                            &&
+                  "for mozilla support"                            
 
-optional_depends  "openldap"             \
-                  "--with-openldap=yes"  \
-                  ""                     \
-                  "for LDAP support"
+#optional_depends  "openldap"             \
+#                  "--with-openldap=yes"  \
+#                  ""                     \
+#                  "for LDAP support"
