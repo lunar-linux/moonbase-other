@@ -1,10 +1,10 @@
 (
    
     ./configure --sysconfdir=/etc                               \
-                --prefix=/usr					\
+                --prefix=/opt/lunar/$MOD		 	\
 		--localstatedir=/var				\
-		--infodir=/usr/share/info			\
-		--mandir=/usr/share/man				\
+		--infodir=/opt/lunar/$MOD/share/info		\
+		--mandir=/opt/lunar/$MOD/share/man		\
                 --with-python                                   \
                 --with-guile                                    \
                 --with-gda                                      \
