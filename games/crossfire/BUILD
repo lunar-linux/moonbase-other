@@ -1,15 +1,18 @@
 (
+  ./configure  --prefix=/usr               \
+               --sysconfdir=/etc           \
+               --localstatedir=/var/games  \
+               --bindir=/usr/games         \
+	       --datadir=/usr/share/games  \
+               $OPTS                      &&
 
-  ./configure  --prefix=/usr             \
-               --sysconfdir=/etc         \
-               --localstatedir=/var/lib  \
-               --bindir=/usr/games       \
-               $OPTS                     &&
-
-  default_make                           &&
+  default_make  &&
   
-  cd      /usr/share/crossfire           &&
-  unpack  $SOURCE2                       &&
-  unpack  $SOURCE3
-
+  cd /usr/share/games/crossfire  &&
+  unpack $SOURCE2                &&
+  unpack $SOURCE3                &&
+  cd /var/games/crossfire        &&
+  chmod -R 666 *                 &&
+  ln -sf /usr/share/games/crossfire/maps-bigworld /usr/share/games/crossfire/maps
+ 
 ) > $C_FIFO 2>&1
