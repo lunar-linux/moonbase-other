@@ -3,8 +3,12 @@
   if uname -a | grep -q SMP ; then
     SMP="-SMP"
   fi
-  KMOD=fglrx.$(uname -r)${SMP}.o
-  NMOD=fglrx.o
+  if ls /usr/src/linux -l | grep -q 2.6 ; then
+    unset K
+    K=k
+  fi
+  KMOD=fglrx.$(uname -r)${SMP}.${K}o
+  NMOD=fglrx.${K}o
 
   chown -R root:root . &&
   find . -type d -exec chmod 755 {} \; &&
