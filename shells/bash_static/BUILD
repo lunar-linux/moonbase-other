@@ -1,3 +1,5 @@
+bad_flags -malign-double
+
 OPTS=$OPTS" --bindir=/bin \
             --with-installed-readline \
             --with-curses \
