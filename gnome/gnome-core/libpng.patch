@@ -1,0 +1,14 @@
+--- ./configure.in.old	2002-12-18 10:19:13.000000000 -0800
++++ ./configure.in	2002-12-18 10:24:06.000000000 -0800
+@@ -204,9 +204,9 @@
+ dnl
+ PNG_LIBS=
+ AC_CHECK_LIB(png, png_init_io, [
+-	     PNG_LIBS="-lpng -lz"],[
++	     PNG_LIBS="-lpng -lz -lm"],[
+ 	     AC_MSG_ERROR(libpng is required for gnome-core)],
+-	     -lz)
++	     -lz -lm)
+ AC_SUBST(PNG_LIBS)
+ 
+ dnl
