@@ -1,12 +1,7 @@
 (
 
   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-  ./configure  -d  &&
-  make             &&
-  prepare_install  &&
-  make    install
-# sedit is not needed because groff is back at 1.17.2.  If we go back to > 1.17.2
-# then this sedit will probably be needed again.
-# sedit 's/\/usr\/bin\/less -is$/\/usr\/bin\/less -isR/g' /usr/share/misc/man.conf
+  ./configure  -d  -compatibility_mode_for_colored_groff &&
+  default_make
 
 ) > $C_FIFO 2>&1
