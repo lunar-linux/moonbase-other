@@ -11,6 +11,7 @@
 
   rm -rf missing                                &&
   gettextize --copy --force                     &&
+  libtoolize --force                            &&
   aclocal                                       &&
   autoconf                                      &&
   automake -a -c -f                             &&
