@@ -1,10 +1,12 @@
 (
 
-  # make sure the customer has the source for this one!
-  if module_is_expired $MODULE ; then
-	set_module_config OLD_VER="$(installed_version openssl)"
+  OLDV=$(installed_version openssl)
+  # only tag for recompile if MAJOR version change
+  if [ ${OLDV:0:5} != ${VERSION:0:5} ]; then
+    set_module_config OLD_VER="$(installed_version openssl)"
   fi &&
 
+  # make sure the customer has the source for this one!
   download_module wget &
 
   ./config  --prefix=/usr                       \
