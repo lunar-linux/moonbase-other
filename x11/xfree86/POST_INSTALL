@@ -1,6 +1,7 @@
 rm  -f  $BOOST_LOCK
 if    module_installed  NVIDIA_GLX;  then  lin  NVIDIA_GLX;  fi
 if    module_installed  fontconfig;  then  lin  fontconfig;  fi
+if    module_installed  Xft;   then   lin  Xft;  fi
 
 if ! grep -q '. /etc/profile' /etc/X11/xdm/Xsession; then
   sedit 2s:#:.\ /etc/profile: /etc/X11/xdm/Xsession
