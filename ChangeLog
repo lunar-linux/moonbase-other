@@ -1,3 +1,76 @@
+2004-03-19 04:52  tchan
+
+	* devel/qemu/BUILD: Modified the target-list to prevent qemu-fast
+	from building (which requires static X11 libs and we currently
+	don't support that in Lunar).
+
+2004-03-19 04:11  nhudson
+
+	* gnome2-core/: gail/DETAILS, gedit/DETAILS,
+	gnome-applets2/DETAILS, gnome-games2/DETAILS, gnome-panel/DETAILS,
+	gnome-desktop/DETAILS, gnome-session/DETAILS,
+	gnome-system-monitor/DETAILS, gnome-vfs2/DETAILS: 
+	Updating for Gnome 2.6.0 rc2
+
+2004-03-19 02:11  tchan
+
+	* devel/qemu/BUILD: Added some extra documentation.
+
+2004-03-19 01:31  watryac04
+
+	* filemanagers/fsv/DEPENDS: Looks like I missed a dependency... 
+	oops, I did it again.
+
+2004-03-18 23:25  tchan
+
+	* web/elinks/DETAILS: Fixed some indentation.
+
+2004-03-18 23:17  tchan
+
+	* devel/qemu/: BUILD, DEPENDS, DETAILS: Added this new module to
+	moonbase.  Compiled and tested with gcc-3.3.3, kernel-headers
+	2.4.x.
+
+2004-03-18 23:08  watryac04
+
+	* filemanagers/fsv/: BUILD, DETAILS: Nice file system visualizer
+	that can help to visually pinpoint where all that disk space went.
+
+2004-03-18 22:31  tchan
+
+	* devel/bochs/: BUILD, CONFIGURE, DEPENDS, DETAILS: Moved this
+	module from utils to devel.  This is now in the same section as UML
+	and qemu.
+
+2004-03-18 21:43  watryac04
+
+	* games/armagetron/DEPENDS: was missing a depends on SDL_image, all
+	better now.
+
+2004-03-18 21:19  watryac04
+
+	* net/xtraceroute/: BUILD, DETAILS: cleaned up the build a bit.
+	updated version to 0.9.1
+
+2004-03-18 20:53  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump
+
+2004-03-18 18:50  nestu
+
+	* utils/util-linux/: DETAILS, PRE_BUILD: Patched version, so it
+	works with 2.6 headers. Tested with 2.4 and 2.6 headers, gcc 3.3.3.
+
+2004-03-18 17:33  tchan
+
+	* utils/dialog/DETAILS: Version bump to 20040316.  Minor bug fixes,
+	automake, autoconf, libtools changes and doc updates.
+
+2004-03-18 15:30  florin
+
+	* video/xine-lib/DETAILS: bump the version from 1-rc3a to 1-rc3b.
+	it compiles with gcc 3.3.3 and kernel-headers 2.6.x now.
+
 2004-03-18 05:08  tchan
 
 	* utils/apmd/: BUILD, DETAILS, apmdNoX.patch,
@@ -2414,129 +2487,4 @@
 	 This will fix the security hole in pwlib but i cant get anything
 	to compile due to a segmentation fault when building openh323.	So
 	niki jmhodges or anyone gets a chance please test this.
-
-2004-02-17 22:55  nhudson
-
-	* libs/libxslt/DETAILS: 
-	Updating libxslt to new version 1.1.3
-
-2004-02-17 22:53  nhudson
-
-	* graphics/gthumb/DETAILS: 
-	Updating gthumb to new version 2.3.1
-
-2004-02-17 22:45  nhudson
-
-	* web/epiphany/DETAILS: 
-	More updates
-
-2004-02-17 22:40  nhudson
-
-	* gnome2-apps/gpdf/DETAILS: 
-	Updating gpdf to new version 0.123
-
-2004-02-17 21:52  tchan
-
-	* cd/cdrdao/DETAILS: Fixing a typo in the description.
-
-2004-02-17 21:50  tchan
-
-	* cd/cdrdao/DETAILS: Fixed the UDPATED field for florin.
-
-2004-02-17 20:04  jol
-
-	* kde3-apps/kdevelop3/DETAILS: Bumped version OLD: 3.0.0  NEW:
-	3.0.1 IMPROVED - User Manual.  IMPROVED - Fixed many typos. 
-	IMPROVED - Restructured and updated the todo file.  IMPROVED -
-	KCModule Template to use KDE 3.0 API and KGenericFactory.  IMPROVED
-	- Updated to the latest Doxygen version.  IMPROVED - Make source
-	files generated with appwizard honor the selected file templates. 
-	IMPROVED - Clanlib documentation IMPROVED - Ask if user tries to
-	reload the already opened project.  IMPROVED - Project templates by
-	ignoring irrelevant documentation and other small fixes.  ADDED -
-	Add ConfigWidgetProxy class for config widget demand load support
-	(reduces memory).  ADDED - SearchText in QEditor ADDED -
-	Possibility to change fontsize in documentation browser.  FIXED -
-	Make Haskell language support work again FIXED - Clear all
-	breakpoints FIXED - A case where unsaved files aren't queried for
-	saving when KDevelop is closed.  FIXED - Bug 58999 : Debugger will
-	not start (libtool issue) FIXED - Bug 62888 : Back and forward
-	buttons available in context menu.  FIXED - Bug 69035 : Run Options
-	not honored (custom makefiles) FIXED - Bug 70175 : Problems on
-	minimum wxWindows version test.  FIXED - Bug 70176 : wxWindows
-	apptemplate broke compilation with Unicode compiled wxWindows FIXED
-	- Bug 71003 : Cannot translate project due to srcdir != builddir. 
-	FIXED - Bug 72502 : Kdevelop crashes when closing multiple files
-	via Keyboard.  FIXED - Bug 72523 : Grep dialog doesn't prepopulate
-	with selected text.  FIXED - Bug 72552 : Unsaved changes icon
-	disappears even if save could not be performed.  FIXED - Bug 72582
-	: Crashes while loading plugins after unloading plugins.  FIXED -
-	Bug 73025 : expand text (ctrl+J) crashes kdevelop.  FIXED - Bug
-	73039 : cvs tools may crash kdevelop.  FIXED - Bug 73116 : Kdevelop
-	crashes when typing a dot at the end of a comment.  FIXED - Bug
-	73467 : Incomplete make clean for parts/appwizard/common.  FIXED -
-	Bug 73567 : Use -u instead of -u3 since it is obsoleted.  FIXED -
-	Bug 74955 : Crash when working with Java ant projects.
-
-2004-02-17 17:19  nestu
-
-	* kernel/linux-beta/DETAILS: version bump
-
-2004-02-17 17:05  florin
-
-	* utils/kbd/BUILD: fix the install dir for loadkeys.
-
-2004-02-17 17:01  nhudson
-
-	* gnome2-core/: ORBit2/DETAILS, gnome-session/BUILD,
-	gnome-session/DETAILS, gnome-panel/DETAILS: 
-	Updating gnome-panel and gnome-session to new version 2.5.5 and
-	ORBit2 to 2.9.8
-
-2004-02-17 16:40  sofar
-
-	* distributed/dsh/: BUILD, DETAILS: dsh is the distributed shell
-
-2004-02-17 16:38  sofar
-
-	* distributed/ganglia/: BUILD, DEPENDS, DETAILS: Adding ganglia
-	(gmond/gmetad). Note this is not the web-frontend.
-
-2004-02-17 16:37  sofar
-
-	* utils/rrdtool/: BUILD, DETAILS: Adding rrdtool
-
-2004-02-17 07:59  florin
-
-	* utils/console-data/CONFLICTS: add the CONFLICTS file regarding
-	kbd.
-
-2004-02-17 07:58  florin
-
-	* utils/console-tools/BUILD: a small fix.
-
-2004-02-17 07:58  florin
-
-	* utils/kbd/: BUILD, CONFLICTS, DETAILS: an console-utils like
-	program. it seems to be more modern than the console-tools suite.
-
-2004-02-17 03:14  nhudson
-
-	* doc-tools/gtk-doc/DETAILS: 
-	Updating gtk-doc to new version 1.2
-
-2004-02-17 03:12  nhudson
-
-	* gnome2-core/: gnome-desktop/DETAILS, libgtkhtml/DETAILS: 
-	Updating modules in GNOME_UNSTABLE
-
-2004-02-17 01:08  nestu
-
-	* security/p0f/: BUILD, DEPENDS, DETAILS, PRE_BUILD: Adding
-	Striker's module ;)
-
-2004-02-17 00:30  nestu
-
-	* cd/cdrtools/BUILD: Take out the include from /usr/src/include, so
-	it uses its own headers
 
