@@ -2,7 +2,7 @@
          VERSION=0.10.1
           SOURCE=$MODULE-1.0PR-source.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
-   SOURCE_URL[0]=ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$VERSION/
+      SOURCE_URL=ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$VERSION/
       SOURCE_VFY=sha1:e12f861c8e55fe591053f30e9c9259fa8e662c41
         WEB_SITE=http://www.mozilla.org/projects/firefox
          ENTERED=20030810
@@ -10,24 +10,30 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
       MAINTAINER="tchan@lunar-linux.org"
            FUZZY="off"
            SHORT="Mozilla Firefox is a speedy, full-featured web browser."
+
 cat << EOF
 Mozilla Firefox is the successor of Mozilla Firebird.
 
-Firefox includes
-  comprehensive popup controls to keep unwanted advertising off your desktop;
-  a tab browsing mode that lets you open several pages in a single window,
-    allowing you to load links in the background without leaving the page you're on;
-  integrated Google search ;
-  industry leading accessibility with Find As You Type - find links and pagei
-    text by simply typing;
-  simplified privacy controls that let you cover your tracks more effectively;
-  a streamlined browser window that lets you see more of the page than any
-    other browser while at the same time being more configurable;
-  a large variety of free downloadable extensions and themes that add specific
-    functionality and visual changes to the browser;
+Firefox includes:
+  * comprehensive popup controls to keep unwanted advertising off 
+    your desktop
+  * a tab browsing mode that lets you open several pages in a single
+    window, allowing you to load links in the background without 
+    leaving the page you're on
+  * integrated Google search
+  * industry leading accessibility with Find As You Type - find links
+    and page text by simply typing
+  * simplified privacy controls that let you cover your tracks more 
+    effectively
+  * a streamlined browser window that lets you see more of the page 
+    than any other browser while at the same time being more 
+    configurable
+  * a large variety of free downloadable extensions and themes that
+    add specific functionality and visual changes to the browser
 
-NOTE: This Lunar version of Firefox has crypto enabled and is gtk+-2.  NOTHING
-ELSE IS CONFIGURED IN !!! (i.e NO mail, irc, composer, gpg, calendar, MathML, 
-Javascript debugger, html code inspector, LDAP, help support.  If you
-want any of that use the regular mozilla module.
+------- NOTE -------
+The Lunar version of Firefox has crypto enabled and uses only gtk+-2.
+NOTHING ELSE IS CONFIGURED IN! No mail, irc, composer, gpg, calendar,
+MathML, Javascript debugger, html code inspector, LDAP, help support.
+If you want any of that use the regular mozilla module.
 EOF
