@@ -1,3 +1,60 @@
+2003-02-14 02:12  csm
+
+	* printer/cups/DEPENDS: shit shit shit shit shit shit shit!
+	
+	Bloody hell if we have a mandatory dependency then lets add it alright?
+	
+2003-02-13 17:53  niki
+
+	* libs/pango/BUILD: Corrected the path to the Xft pkgconfig file.
+	
+2003-02-13 16:52  nhudson
+
+	* zbeta/abiword2/BUILD: Updating the BUILD file for abiword2 to make it compile with -02 only
+	-
+	
+2003-02-13 16:27  tchan
+
+	* x11-apps/abiword/BUILD: Unsetting cflags, cxxflags, cppflags, appears to have fixed the abiword
+	segfault upon exiting problem.  It compiles with -O2 as a default, which
+	works just fine now.
+	
+2003-02-13 15:52  nhudson
+
+	* gnome2-apps/vte/DETAILS: Updating vte to new version 0.10.19
+	
+2003-02-13 13:39  nhudson
+
+	* printer/hpijs/DETAILS: Updating hpijs to version 1.3.1
+	
+2003-02-13 10:23  sofar
+
+	* distributed/BitTorrent/DETAILS: Making executable too
+	
+2003-02-13 10:21  sofar
+
+	* utils/tpconfig/DETAILS: DETAILS was not executable
+	
+2003-02-13 10:09  sofar
+
+	* net/ntp/init.d/: ntp, ntpd: renaming this.
+	
+2003-02-13 05:32  nhudson
+
+	* gnome2-apps/battfink/: BUILD, DEPENDS, DETAILS: 
+	Adding battfink to moonbase, this is a Energy Saving Preference dialog
+	with an associating battery notification icon for gnome 2
+	
+2003-02-13 05:19  nhudson
+
+	* x11/xfree86/POST_INSTALL: 
+	Aslo adding a recompile of Xft
+	
+2003-02-13 05:11  nhudson
+
+	* x11/xfree86/POST_INSTALL: 
+	Adding a recompile of fontconfig to the POST_INSTALL
+	
 2003-02-13 04:26  nhudson
 
 	* x11/fontconfig/POST_INSTALL: 
@@ -7,10 +64,6 @@
 
 	* web/screem/DETAILS: 
 	Updating screem to new version 0.6.0
-	
-2003-02-12 22:19  tchan
-
-	* utils/blender/DEPENDS: Added the most critical module to the DEPENDS file -- CVS !!!
 	
 2003-02-12 21:51  nhudson
 
@@ -750,63 +803,4 @@
 	* gnome/gal/POST_INSTALL: Seems like a forced recompile of gtkhtml is necessary after installing a
 	newer gal module.  Came across this error during an upgrade to gnucash-1.8.0
 	from 1.6.4.
-	
-2003-02-03 23:56  tchan
-
-	* devel/guile/POST_INSTALL: Added another forced recompile, g-wrap needs to be recompiled after installing
-	a newer guile.
-	
-2003-02-03 22:50  nhudson
-
-	* gnome2-apps/acme/DETAILS: Rolling back to version 1.99.18 because of incompatibility with libwnck
-	0.18, I will update this when Gnome 2.2 is out in a few weeks.  This also
-	fixes Bug# 213
-	
-2003-02-03 22:46  tchan
-
-	* devel/guile/POST_INSTALL: Added this to force a recompile of slib, when a new guile is installed.
-	Otherwise its possible that slib will be installed in the wrong guile tree.
-	
-2003-02-03 21:29  nhudson
-
-	* gnome2-apps/pkgview/DETAILS: Updating pkgview to new version 1.0.0
-	
-2003-02-03 21:01  lurch
-
-	* utils/blender/: BUILD, DEPENDS, DETAILS: Blender added
-	
-2003-02-03 20:20  hardkrash
-
-	* mail/: sylpheed/BUILD, sylpheed/CONFLICTS, sylpheed-claws/BUILD,
-	sylpheed-claws/CONFLICTS: Fixed linking error when gpgme 0.4 was installed
-	
-2003-02-03 19:10  sofar
-
-	* devel/g-wrap/BUILD, devel/g-wrap/DETAILS, x11-apps/gnucash/BUILD,
-	x11-apps/gnucash/DETAILS: Here ya go: gnucash 1.8.0, with required update of g-wrap.
-	
-2003-02-03 18:26  tchan
-
-	* utils/util-linux/make-issue: This should fix the problem of failed login prompts display garbage.
-	
-2003-02-03 17:55  tchan
-
-	* utils/less/: CONFIGURE, DETAILS: Version bump and added a CONFIGURE script to enable/disable largefile support.
-	
-2003-02-03 15:32  nhudson
-
-	* gnome2-core/librsvg2/DETAILS: Fixing the directory it builds in
-	
-2003-02-03 15:31  nhudson
-
-	* gnome2-core/librsvg2/: BUILD, DEPENDS, DETAILS: Updating librsvg2 to version 2.2.2.1 and adding libgsf to the DEPENDS file
-	and fixing the BUILD file so it will build
-	
-2003-02-03 06:47  wizfactor
-
-	* x11-utils/gkrellmd2/DEPENDS: Added missing depends to glib-2
-	
-2003-02-03 06:11  kc8apf
-
-	* libs/libfwbuilder/DETAILS, security/fwbuilder/DETAILS: Version bump and I rememberd UPDATED for once
 	
