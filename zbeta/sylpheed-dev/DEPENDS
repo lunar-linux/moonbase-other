@@ -1,0 +1,24 @@
+depends gtk+-2  &&
+
+optional_depends  "compface"    ""  ""  "for X-Face support"               &&
+
+optional_depends  "openssl"              \
+                  "--enable-ssl"         \
+                  ""                     \
+                  "for pop3s and imaps"  &&
+
+optional_depends  "openldap"             \
+                  "--enable-ldap"        \
+		  ""                     \
+		  "for ldap support"     &&
+
+optional_depends  "gpgme" \
+                  "--enable-gpgme" \
+                  "--disable-gpgme"  \
+                  "for encrypted email"  &&
+
+optional_depends  "jpilot"               \
+                  "--enable-jpilot"      \
+                  ""                     \
+                  "to use jpilot address book"
+
