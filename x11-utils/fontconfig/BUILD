@@ -2,6 +2,7 @@
 
 ./configure --prefix=/usr/X11R6 \
             --with-confdir=/etc/fonts \
+            --disable-docs      \
             $OPTS               &&
 default_make  &&
 ln -sf /usr/X11R6/lib/pkgconfig/fontconfig.pc /usr/lib/pkgconfig/fontconfig.pc
