@@ -1,15 +1,16 @@
           MODULE=iptables
-         VERSION=1.2.9
+         VERSION=1.2.10
           SOURCE=$MODULE-$VERSION.tar.bz2
-	 SOURCE2=grsecurity-$VERSION-$MODULE.patch.bz2
+         SOURCE2=grsecurity-$VERSION-$MODULE.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://www.netfilter.org/files/$SOURCE
-  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
-     SOURCE2_VFY=md5:6b5943078840fb0b1e4be59f58360fad
+      SOURCE_URL=http://www.netfilter.org/files/$SOURCE
+      SOURCE_VFY=md5:ca877a03e5af5f003444313e11b3672a
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
+     SOURCE2_VFY=md5:5df2b2bc990f920b3f700baf54bcfd49
         WEB_SITE=http://www.netfilter.org
          ENTERED=20010922
-         UPDATED=20031108
-           SHORT="iptables enables the creation of packet alteration and firwall rules."
+         UPDATED=20040621
+           SHORT="Tool to create netfilter rules"
 cat << EOF
 iptables is built on top of netfilter: the new packet alteration
 framework for Linux 2.4. It is an enhancement on ipchains, and is used
