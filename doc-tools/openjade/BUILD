@@ -37,16 +37,6 @@
   cp -r develdoc  $DOCDIR                                    &&
   cp -r jadedoc   $DOCDIR                                    &&
   make    install                                            &&
-  ln -sf `which openjade` /usr/bin/jade                      &&
-
-
-  # The symlinks below is added so that openjade can replace
-  # the module called sp, because openjade includes opensp.
-  # All 3 packages is made by the same author
-  ln -sf /usr/bin/onsgmls   /usr/bin/nsgmls                  &&
-  ln -sf /usr/bin/osgmlnorm /usr/bin/sgmlnorm                &&
-  ln -sf /usr/bin/ospam     /usr/bin/spam                    &&
-  ln -sf /usr/bin/ospent    /usr/bin/spent                   &&
-  ln -sf /usr/bin/osx       /usr/bin/sx
+  ln -sf `which openjade` /usr/bin/jade
 
 ) > $C_FIFO 2>&1
