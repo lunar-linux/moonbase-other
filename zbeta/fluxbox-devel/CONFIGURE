@@ -1,0 +1,20 @@
+if ! grep -q "GNOME" $MODULE_CONFIG; then
+ if query "Enable Gnome (wm specs) support?" y
+   then echo "GNOME=y" >> $MODULE_CONFIG
+   else echo "GNOME=n" >> $MODULE_CONFIG
+ fi
+fi
+
+if ! grep -q "KDE" $MODULE_CONFIG; then
+ if query "Enable KDE (KDE dock, in Slit) support?" n 
+   then echo "KDE=y" >> $MODULE_CONFIG
+   else echo "KDE=n" >> $MODULE_CONFIG
+ fi
+fi
+
+if ! grep -q "XIN" $MODULE_CONFIG; then
+ if query "Enable Xinerama support?" n
+   then echo "XIN=y" >> $MODULE_CONFIG
+   else echo "XIN=n" >> $MODULE_CONFIG
+ fi
+fi
