@@ -1,26 +1,25 @@
-(
-    cd /usr/src/linux/
+  cd /usr/src/linux/
 
-    while
-    if [ "$CONFIG_KERNEL" == "y" ]; then
-        if [ "$PREFER_XCONFIG" == "y" -a -n "$DISPLAY" ]; then
-	    make xconfig || make menuconfig || make config
-        elif [ "$PREFER_MENUCONFIG" == "y" ]; then
-	    make menuconfig || make config
-	else
-	    make config
-	fi
-        if ! query "Repeat configuration?" n; then
-            CONFIG_KERNEL=n
-        fi
-    else
-        false
-    fi
-      do
-      true
-    done
+  while
+  if [ "$CONFIG_KERNEL" == "y" ]; then
+      if [ "$PREFER_XCONFIG" == "y" -a -n "$DISPLAY" ]; then
+	  make xconfig || make menuconfig || make config
+      elif [ "$PREFER_MENUCONFIG" == "y" ]; then
+	  make menuconfig || make config
+      else
+	  make config
+      fi
+      if ! query "Repeat configuration?" n; then
+          CONFIG_KERNEL=n
+      fi
+  else
+      false
+  fi
+    do
+    true
+  done
     
-) && (
+(
     
     yes n | make oldconfig
     LD_PRELOAD= cp .config $CONFIG_CACHE/.config-2.6-grsec
