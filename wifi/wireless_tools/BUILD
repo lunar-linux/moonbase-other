@@ -7,6 +7,8 @@
   cp libiw.so.${VERSION} /usr/lib                              &&
   cp iwlib.h /usr/include                                      &&
   ln -s /usr/lib/libiw.so.${VERSION} /usr/lib/libiw.so         &&
-  ldconfig
+  ldconfig                                                     &&
+
+  gather_docs HOTPLUG.txt PCMCIA.txt
 
 ) > $C_FIFO 2>&1

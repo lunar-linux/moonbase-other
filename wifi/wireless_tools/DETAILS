@@ -7,11 +7,19 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
         WEB_SITE=http://hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
          ENTERED=20020219
          UPDATED=20041120
-           SHORT="Tools for wireless networking."
+           SHORT="Tools for wireless networking"
+
 cat << EOF
-Wireless tools. Includes:
-    * iwconfig manipulate the basic wireless parameters
-    * iwlist (formerly part of iwspy) allow to list addresses, frequencies, bit-rates...
-    * iwspy allow to get per node link quality
-    * iwpriv allow to manipulate the Wireless Extensions specific to a driver (private)
+The Wireless Tools (WT) is a set of (reference implementation) tools
+allowing to manipulate the Wireless Extensions.  They use a textual
+interface and are rather crude, but aim to support the full Wireless
+Extension. 
+
+  * iwconfig manipulate the basic wireless parameters
+  * iwlist allow to initiate scanning and list frequencies, bit-rates,
+    encryption keys... 
+  * iwspy allow to get per node link quality
+  * iwpriv allow to manipulate the Wireless Extensions specific to a
+    driver (private)
+  * ifrename allow to name interfaces based on various static criteria
 EOF
