@@ -16,12 +16,6 @@ fi                                                                     &&
 #not from xinetd, kongar, 20020516
 #
 OPTS=$OPTS" --sysconfdir=/etc/ssh --with-md5-passwords"                &&
-default_build                                                          &&
-
-if [ -e /etc/init.d/ssh ]; then
-   chkconfig --del ssh
-   mv /etc/init.d/ssh /etc/init.d/ssh.orig
-   message "/etc/init.d/ssh backed up as /etc/init.d/ssh.orig"
-fi
+default_build 
 
 ) > $C_FIFO 2>&1

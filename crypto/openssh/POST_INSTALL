@@ -1,5 +1,4 @@
-[ -e /etc/pam.d/openssh ] && rm /etc/pam.d/openssh
-if [ -n $INITDSCRIPTS ] ; then
+if [ -n "$INITDSCRIPTS" ] ; then
   message "Ssh cannot be restarted during a lunar update or lin if you are"
   message "logged in remotely. Please wait for lunar to finish and type"
   message "/etc/init.d/sshd remote-restart to restart the ssh daemon manually."
