@@ -1,12 +1,15 @@
            MODULE=gdm
-         VERSION=2.4.4.1
+         VERSION=2.4.4.3
           SOURCE=gdm-$VERSION.tar.bz2
+         SOURCE2=$MODULE-pam-config-fix.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/gdm-$VERSION
    SOURCE_URL[0]=$GNOME_URL/sources/gdm/2.4/$SOURCE
-      SOURCE_VFY=md5:50e5fd07bf1a15b1638f41787415f81c
+      SOURCE_VFY=md5:64a1ae7d5ac975b8ebb0e0cdbc0e271f
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+     SOURCE2_VFY=md5:931153c30c910389f70e09e26f8a89f2
         WEB_SITE=http://www.gnome.org
          ENTERED=20020716
-         UPDATED=20030915
+         UPDATED=20031007
            SHORT="The Gnome Display Manager is a re-implementation of the well known xdm program"
 cat << EOF
 The Gnome Display Manager is a re-implementation of the well known xdm

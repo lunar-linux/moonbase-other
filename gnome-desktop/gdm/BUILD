@@ -11,6 +11,8 @@
  OPTS="$OPTS --enable-authentication-scheme=$SCHEME"
 
  LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
+ 
+ patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
  ./configure   --build=$BUILD                                        \
                --prefix=/opt/lunar/gnome/2.4                         \
@@ -33,6 +35,7 @@
  install --mode=644 $SCRIPT_DIRECTORY/gdm.conf /etc/X11/gdm/gdm.conf
  install --mode=755 $SCRIPT_DIRECTORY/Sessions/gnome.desktop /etc/X11/dm/Sessions
  install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/PreSession/
+ install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/Sessions 
 
 
 ) > $C_FIFO 2>&1
