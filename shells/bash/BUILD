@@ -1,30 +1,33 @@
-bad_flags -malign-double
 (
 
+  bad_flags -malign-double
+
   OPTS=$OPTS" --bindir=/bin --with-installed-readline --with-curses"
+  LDFLAGS="$LDFLAGS -lintl"
   
   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
-  default_build                 &&
-  ln  -sf  bash      /bin/sh    &&
-  ln  -f   /bin/bash /bin/rbash &&
+  default_build &&
+  ln -sf bash /bin/sh &&
+  ln -f /bin/bash /bin/rbash &&
 
-  rm -f /usr/share/man/man1/bash.1
-  rm -f /usr/share/man/man1/bashbug.1
+  rm -f /usr/share/man/man1/bash.1 &&
+  rm -f /usr/share/man/man1/bashbug.1 &&
 
-  cd  doc
+  for MANPAGE in doc/*.1 ; do
+    gzip -9 $MANPAGE &&
+    install -m0644 $MANPAGE.gz /usr/share/man/man1
+  done &&
 
-  for  MANPAGE  in  `ls  *.1`;  do
-    gzip  -9  $MANPAGE
-    cp  $MANPAGE.gz  /usr/share/man/man1
-  done
-
-  mkdir  -p  /etc/skel
+  mkdir -p /etc/skel &&
   
-  [ -L  /etc/skel/.bashrc       ]  &&
-    rm  /etc/skel/.bashrc
+  if [ -L /etc/skel/.bashrc ] ; then
+    rm /etc/skel/.bashrc
+  fi &&
 
-  [ -f  /etc/profile.d ] && rm /etc/profile.d
+  if [ -f /etc/profile.d ] ; then
+    rm /etc/profile.d
+  fi &&
 
   if [ ! -d /etc/profile.d ]; then
     mkdir -p /etc/profile.d
@@ -54,9 +57,13 @@ bad_flags -malign-double
       fi
       message "${MESSAGE_COLOR}Make sure your users also get the new .bash* from /etc/skel! ${DEFAULT_COLOR}"
     fi
-  fi
+  fi &&
 
-  [ -e /etc/profile ] || install -m 644 -o root -g root $SCRIPT_DIRECTORY/profile /etc/profile
-  [ -e /etc/bashrc  ] || install -m 644 -o root -g root $SCRIPT_DIRECTORY/bashrc /etc/bashrc
+  if [ ! -e /etc/profile ] ; then
+    install -m 644 -o root -g root $SCRIPT_DIRECTORY/profile /etc/profile
+  fi &&
+  if [ ! -e /etc/bashrc ] ; then
+    install -m 644 -o root -g root $SCRIPT_DIRECTORY/bashrc /etc/bashrc
+  fi
 
 ) > $C_FIFO 2>&1
