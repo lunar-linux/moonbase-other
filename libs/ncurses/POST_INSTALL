@@ -1,0 +1,6 @@
+#  Recompile of gcc is necessary as it "fixes" its own copy of the
+# ncurses.h and slang.h include files.  This will allow gcc to correctly
+# recompile a ncurses/slang app.
+
+rm  -f  $BOOST_LOCK
+lin -c gcc
