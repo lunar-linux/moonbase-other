@@ -1,97 +1,11 @@
 [ -d /dev ] || /bin/mkdir /dev
 /usr/sbin/groupadd -g 25 -r -f floppy > /dev/null 2>/dev/null
 /usr/sbin/useradd -c "virtual console memory owner" -u 69 -s /sbin/nologin -d /dev vcsa
-
-makedev() {
-          /dev/MAKEDEV -c /etc/makedev.d -d /dev -M $@
-          }
-
-makedev agpgart
-makedev apm_bios
-makedev beep
-makedev capi20
-makedev cdrom
-makedev cfs
-makedev compaq
-makedev -m 32 console
-makedev cpu
-makedev -m 4 cua
-makedev -m 16 cui
-makedev dri
-makedev enskip
-makedev fb
-makedev fd0
-makedev fd1
-makedev ftape
-makedev -m 2 ht
-makedev -m 2 i2c
-makedev i2o
-makedev ibcs
-makedev -m 33 ide
-makedev initrd
-makedev -m 32 input
-makedev -m 16 ip
-makedev -m 16 ipfilter
-makedev ir
-makedev -m 2 iscc
-makedev -m 16 isdn
-makedev -m 4 js
-makedev kpoll
-makedev -m 32 loop
-makedev -m 1 log
-makedev -m 8 lp
-makedev md
-makedev mouse
-makedev -m 32 nb
-makedev net/tun
-makedev netlink
-makedev -m 2 nht
-makedev -m 4 nosst
-makedev -m 16 nst
-makedev -m 4 osst
-makedev -m 8 par
-makedev -m 4 pcd
-makedev pd
-makedev -m 4 pf
-makedev -m 4 pg
-makedev -m 4 ppp
-makedev pt
-makedev ptmx
-makedev pty
-makedev qng
-makedev -m 20 ram
-makedev random
-makedev raid
-makedev raw
-makedev rmt
-makedev rtc
-makedev -m 8 scd
-makedev -m 16 scramdisk
-makedev sd
-makedev -m 32 sg
-makedev smpt
-makedev sound
-makedev -m 16 st
-makedev systty
-makedev -m 4 staliomem
-makedev std
-makedev tlk
-makedev -m 32 tty
-makedev urandom
-makedev -m 32 usb
-makedev -m 4 v4l
-makedev vcs
-makedev video1394
-makedev vmmon
-makedev -m 4 vnet
-makedev vsys
-makedev -m 4 winradio
-makedev xda
-makedev xdb
-
-install -d -m 755 /dev/pts
-install -d -m 755 /dev/shm
-
+cp $SCRIPT_DIRECTORY/install-devices.sh /dev
+chmod 0700 /dev/install-devices.sh
+echo ""
+echo "Please run /dev/install-devices.sh"
+echo ""
 exit 0
 
 ########### following are devices for non i386 $arch ##########

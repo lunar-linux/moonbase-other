@@ -7,6 +7,8 @@
   }
   make                                                   &&
   prepare_install                                        &&
+  install -d -m 755 /dev/pts                             &&
+  install -d -m 755 /dev/shm                             &&
   make install
 
 ) > $C_FIFO 2>&1
