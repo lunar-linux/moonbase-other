@@ -17,8 +17,6 @@
              
   default_make &&
   cd ../abiword-docs &&
-  sedit "s/\/local//" Makefile &&
-  make &&
   cp man/abiword.1 /usr/share/man/man1 &&
   mkdir -p $DOCUMENT_DIRECTORY/$MODULE &&
   cp -p Manual/en/*.abw Changelog/*.abw $DOCUMENT_DIRECTORY/$MODULE/
