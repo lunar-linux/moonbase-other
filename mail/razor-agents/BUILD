@@ -1,7 +1,7 @@
 (
 
   cd $SOURCE_DIRECTORY    &&
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+#  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   perl Makefile.PL        &&
   make                    &&
   make test               &&
