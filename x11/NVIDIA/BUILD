@@ -1,5 +1,6 @@
 (
   cd $SOURCE_DIRECTORY                         &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1            &&
   prepare_install                              &&
   mkdir -p /usr/X11R6/lib/modules/extensions   &&
   mkdir -p /usr/X11R6/lib/modules/drivers      &&

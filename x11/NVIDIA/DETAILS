@@ -2,10 +2,13 @@
          VERSION=1.0-5336
 #         VERSION=1.0-6106
           SOURCE=$MODULE-Linux-x86-$VERSION-pkg1.run
+         SOURCE2=$MODULE-$VERSION-sysfs.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-Linux-x86-$VERSION-pkg1
    SOURCE_URL[0]=http://download.nvidia.com/XFree86/Linux-x86/$VERSION/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
       SOURCE_VFY=md5:6d7361347ebbef5dfdbe6bdcb560fda8
 #      SOURCE_VFY=md5:5432f919f0211ce36b854d87108d7db0
+     SOURCE2_VFY=md5:1c155b01c12af99c39fe2a5f96e6864f
         WEB_SITE=http://www.nvidia.com
          ENTERED=20030804
          UPDATED=20040703
