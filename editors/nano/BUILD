@@ -12,7 +12,9 @@
    fi
   
   default_build						&&
-  install -m 0644 $SCRIPT_DIRECTORY/nanorc /etc/
+  if [ ! -f "/etc/nanorc" ]; then
+    install -m 0644 $SCRIPT_DIRECTORY/nanorc /etc/
+  fi
 
 ) > $C_FIFO 2>&1
 
