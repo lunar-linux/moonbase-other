@@ -1,3 +1,55 @@
+2005-04-01 10:19  sofar
+
+	* devel/tkcvs/: BUILD, DEPENDS, DETAILS: Adding tkcvs, which
+	  includes tkdiff.
+
+2005-04-01 07:01  moe
+
+	* xfce4/xfce4-genmon-plugin/DETAILS: Apparently they changed the
+	  tarball without notice or release. Lame.
+
+2005-04-01 06:59  nhudson
+
+	* gnome-desktop/glade2/: BUILD, DEPENDS, DETAILS:
+	  Adding glade2 to gnome-desktop and updating to new version 2.10.0
+
+2005-04-01 04:32  v3rt1g0
+
+	* x11-apps/xscreensaver/BUILD: The bane of my existance (at least
+	  for today).  This symlink still isn't right and I don't know if
+	  we really care to have it here as we do provide a
+	  xscreensaver-kde module anyway.  ARGH!  *crys in his beer*
+
+2005-04-01 03:18  florin
+
+	* mail/bogofilter/DETAILS: bump the version from 0.94.2 to 0.94.3.
+	  bugfixes release.
+
+2005-04-01 02:59  florin
+
+	* chat/xchat/: BUILD, DETAILS: bump the version from 2.4.2 to
+	  2.4.3. bugfixes and a plugin api change.
+
+2005-04-01 02:48  florin
+
+	* devel/m4/: BUILD, DETAILS, POST_REMOVE: bump the version from
+	  1.4.2 to 1.4.3. bugfixes and optimizations.
+
+2005-03-31 23:58  v3rt1g0
+
+	* zbeta/e_modules-cvs/BUILD: Needed until their autof00 scripts get
+	  a bit more mature
+
+2005-03-31 17:02  tchan
+
+	* net/rsync/DETAILS: Version bump to rsync-2.6.4. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2005-03-31 16:08  nhudson
+
+	* gnome-desktop/totem/DETAILS:
+	  Updating totem to new version 1.0.1
+
 2005-03-31 12:20  cmak
 
 	* xfce4/xfce-extra-icons/BUILD: didnt install for me...now it does
@@ -2813,90 +2865,4 @@
 	* gnome-desktop/evolution/DEPENDS: really enable ssl support (check
 	  how the dirs differ). maybe someone has a smarter solution to fix
 	  this (extra symlink in mozilla install or something)?
-
-2005-03-01 23:05  nestu
-
-	* filesys/udev/: 49-udev.rules, BUILD, DETAILS, udev: 052 -> 054.
-	  gcc 3.3.3, glibc 2.3.2, headers 2.6.10.0 rules:   * raid support
-	  added (via new script for scripts.d)	 * /dev/cdrom* symlinks.
-	  Needs some testing on ide and scsi.	  Doesn't work completely
-	  well on my box, but it is harmless,	  and I need feedback.
-	  udev initscript: removed chkconfig support. It should not be
-	  added to boot since there is already support in the mount script
-	  provided by e2fsprogs.
-
-2005-03-01 13:45  florin
-
-	* sql/sqlite/DEPENDS: fix the compile with tcl option.
-
-2005-03-01 13:25  florin
-
-	* sql/sqlite/DETAILS: small tweak.
-
-2005-03-01 13:17  prox
-
-	* sql/sqlite/DETAILS: bump
-
-2005-03-01 12:57  moe
-
-	* net/ipw2100/: BUILD, CONFIGURE, DEPENDS, DETAILS: Update to the
-	  latest ipw2100 driver. Has to use hotplug now.
-
-2005-03-01 12:13  florin
-
-	* web/elinks/DETAILS: bump the version from 0.10.1 to 0.10.2.
-
-2005-03-01 12:03  nestu
-
-	* kernel/linux-2.6-prepatch/DETAILS: 2.6.11rc4 -> 2.6.11rc5. gcc
-	  3.3.3, glibc 2.3.2, headers 2.6.10.0
-
-2005-03-01 11:55  ratler
-
-	* wifi/kismet/: BUILD, DETAILS: Version bump, mainly bugfixes.
-	  Compiled and tested for each optional_depend. ImageMagick fix
-	  removed, no longer needed.
-
-2005-03-01 10:52  moe
-
-	* archive/bzip2/DETAILS: Ah comawn .. we all know that bzip2 is
-	  free and all ..  No need to mention it twice.
-
-2005-03-01 10:46  florin
-
-	* archive/bzip2/: BUILD, DETAILS: bump the version from 1.0.2 to
-	  1.0.3. bugfix release.
-
-2005-03-01 10:26  florin
-
-	* archive/unzip/DETAILS: bump the version from 5.51 to 5.52. many
-	  improvements and bugfixes.
-
-2005-03-01 05:47  tchan
-
-	* gnome2-apps/abiword/DETAILS: Version bump to abiword-2.2.4.
-	  Source seems to be available only from abisource.com.  Perhaps
-	  sourceforge will eventually catch up again?!
-
-2005-03-01 05:43  tchan
-
-	* chat/gaim-encryption/DETAILS: Version bump to
-	  gaim-encryption-2.35. Compiled/tested with gaim-1.1.4, gcc-3.3.3,
-	  glibc-2.3.3, kernel headers 2.4.x.
-
-2005-03-01 03:12  tchan
-
-	* gnome-desktop/ximian-connector/DETAILS: Version bump to
-	  ximian-connector-2.0.4. Part of the upgrade to evolution-2.0.4.
-
-2005-03-01 03:11  tchan
-
-	* gnome-desktop/evolution/DETAILS: Version bump to evolution-2.0.4.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x., gtk+-2 2.6.2, glib-2 2.6.2.
-
-2005-03-01 02:46  tchan
-
-	* gnome-desktop/evolution-data-server/DETAILS: Version bump
-	  evolution-data-server-1.0.4. Getting ready for evolution-2.0.4.
 
