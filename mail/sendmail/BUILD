@@ -6,6 +6,11 @@
   echo "define(\`confTRUSTED_USER', \`mail')" >> devtools/Site/site.config.m4  &&
   echo "define(\`confRUN_AS_USER', \`mail:mail')"  >> devtools/Site/site.config.m4  &&
   echo "define(\`confMANROOT', \`/usr/share/man/man')" >> devtools/Site/site.config.m4  &&
+
+  if [ "$MILTER" == "y" ] ; then
+    echo "APPENDDEF(\`conf_sendmail_ENVDEF', \`-DMILTER')" >> devtools/Site/site.config.m4
+  fi  &&
+
   # global stuff for submit.mc:
   echo "define(\`confTRUSTED_USER', \`mail')" >> cf/cf/submit.mc  &&
   echo "define(\`confRUN_AS_USER', \`mail:mail')" >> cf/cf/submit.mc  &&
@@ -16,12 +21,20 @@
 
   sh Build  &&
 
+  cd libmilter  &&
+  sh Build  &&
+  cd ..  &&
+
   prepare_install  &&
 
   # users to be created:
   add_priv_user mail:mail  &&
   
   sh Build install
+
+  cd libmilter  &&
+  sh Build install  &&
+  cd ..  &&
 
   # directories and files:
   mkdir -p /etc/mail  &&
