@@ -1,3 +1,55 @@
+2004-05-08 06:54  florin
+
+	* doc-tools/doxygen/DETAILS: bump the version from 1.3.6 to 1.3.7.
+
+2004-05-08 06:08  florin
+
+	* libs/gmp/DETAILS: bump the version from 4.1.2 to 4.1.3.
+
+2004-05-07 17:40  moe
+
+	* shells/tcsh/DETAILS: Not psafe
+
+2004-05-07 17:07  florin
+
+	* kde3-i18n/: koffice3-i18n-af/DETAILS, koffice3-i18n-bg/DETAILS,
+	koffice3-i18n-ca/DETAILS, koffice3-i18n-cs/DETAILS,
+	koffice3-i18n-da/DETAILS, koffice3-i18n-de/DETAILS,
+	koffice3-i18n-el/DETAILS, koffice3-i18n-en_GB/DETAILS,
+	koffice3-i18n-eo/DETAILS, koffice3-i18n-es/DETAILS,
+	koffice3-i18n-et/DETAILS, koffice3-i18n-fa/DETAILS,
+	koffice3-i18n-fi/DETAILS, koffice3-i18n-fr/DETAILS,
+	koffice3-i18n-he/DETAILS, koffice3-i18n-hu/DETAILS,
+	koffice3-i18n-it/DETAILS, koffice3-i18n-ja/DETAILS,
+	koffice3-i18n-lo/DETAILS, koffice3-i18n-mt/DETAILS,
+	koffice3-i18n-nb/DETAILS, koffice3-i18n-nl/DETAILS,
+	koffice3-i18n-nn/DETAILS, koffice3-i18n-pl/DETAILS,
+	koffice3-i18n-pt/DETAILS, koffice3-i18n-pt_BR/DETAILS,
+	koffice3-i18n-ru/DETAILS, koffice3-i18n-se/DETAILS,
+	koffice3-i18n-sk/DETAILS, koffice3-i18n-sl/DETAILS,
+	koffice3-i18n-sr/DETAILS, koffice3-i18n-sv/DETAILS,
+	koffice3-i18n-tg/BUILD, koffice3-i18n-tg/DEPENDS,
+	koffice3-i18n-tg/DETAILS, koffice3-i18n-th/DETAILS,
+	koffice3-i18n-tr/DETAILS, koffice3-i18n-ven/DETAILS,
+	koffice3-i18n-xh/DETAILS, koffice3-i18n-zh_CN/DETAILS,
+	koffice3-i18n-zh_TW/DETAILS, koffice3-i18n-zu/DETAILS: bump the
+	version from 1.3 to 1.3.1.
+
+2004-05-07 14:13  florin
+
+	* audio/speex/DETAILS: bump the version from 1.1.4 to 1.1.5.
+
+2004-05-07 13:57  florin
+
+	* utils/Wine/DETAILS: bump the version from 20040408 to 20040505.
+
+2004-05-07 13:49  nhudson
+
+	* gnome2-core/: ORBit2/DETAILS, gdm/BUILD, gdm/DETAILS: 
+	Updating ORBit2 to new version 2.10.2, gdm to new version 2.6.0.2
+	and adding a if tag to remove a /etc/X11/gdm/Sessions file if it is
+	there instead of a directory
+
 2004-05-07 10:49  moe
 
 	* security/nss_ldap/BUILD: Here too
@@ -2332,16 +2384,16 @@
 
 2004-04-09 15:32  nhudson
 
+	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
+	on branch GNOME_UNSTABLE.
+
+2004-04-09 15:32  nhudson
+
 	* gnome2-extras/: ghex/BUILD, glade2/BUILD, gnome-python2/BUILD,
 	gnome-speech/BUILD, gnome-spell/BUILD, gnopernicus/BUILD,
 	libcroco/BUILD, libgnomecups/BUILD, libgnomedb/BUILD,
 	magicdev/BUILD, pyorbit/BUILD: 
 	Adding BUILD files to merge into HEAD
-
-2004-04-09 15:32  nhudson
-
-	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
-	on branch GNOME_UNSTABLE.
 
 2004-04-09 15:24  nhudson
 
@@ -2615,109 +2667,4 @@
 	* x11/XOrg/POST_INSTALL: 
 	Removing pango from the rebuild list on XOrg and moving it to
 	fontconfig
-
-2004-04-07 21:45  nhudson
-
-	* gnome2-apps/gnumeric2/: BUILD, profile.d/gnumeric.rc: 
-	Moving gnumeric2 to /opt/lunar/gnumeric so that it doesnt conflict
-	with gnumeric module.
-
-2004-04-07 19:24  florin
-
-	* filesys/udev/DETAILS: fix the SOURCE3 path.
-
-2004-04-07 18:30  cmak
-
-	* x11/XOrg/CONFIGURE: removed some double entries
-
-2004-04-07 18:28  nhudson
-
-	* x11-apps/bitstream-vera/POST_INSTALL: 
-	Adding the exact PATH to the POST_INSTALL file
-
-2004-04-07 18:27  nestu
-
-	* filesys/udev/BUILD: Take out hardcoded /var/spool/lunar/ and
-	change for SOURCE_CACHE
-
-2004-04-07 18:14  jmhodges
-
-	* filesys/udev/: BUILD, DETAILS: yeah they may only last 4 days but
-	they are nice to have
-
-2004-04-07 18:09  nhudson
-
-	* x11/XOrg/DEPENDS: 
-	Fixing circular depends with fontconfig expat and freetype2. 
-	fontconfig depends on expat and freetype2 and XOrg depends on
-	fontconfig
-
-2004-04-07 18:08  nhudson
-
-	* x11-utils/fontconfig/DETAILS: 
-	Updating the version of fontconfig to 2.2.2 for the new XOrg's
-	xserver, also changed the URL to the new location.
-
-2004-04-07 18:04  nhudson
-
-	* x11/XOrg/CONFIGURE: 
-	Adding in to not compile and install the internal Fontconfig Libs
-	because they are built as a dependancy
-
-2004-04-07 17:56  tchan
-
-	* profiles/xserver/DEPENDS: Added XOrg as a choice now that its
-	stable and in moonbase/x11/XOrg.
-
-2004-04-07 17:51  tchan
-
-	* x11/XOrg/: BUILD, CONFIGURE, CONFLICTS, DEPENDS, DETAILS,
-	POST_INSTALL, POST_REMOVE, PRE_BUILD, xsession, pam.d/xdm: Moved
-	from zbeta to x11.  Reworked the module to use the stable X11R6.7.0
-	release from xdesktop.org.  Compiled and tested with gcc-3.3.3, and
-	kernel headers 2.4.x.
-
-2004-04-07 11:30  jol
-
-	* distributed/BitTorrent/DETAILS: Bumped version OLD: 3.4.1a  NEW:
-	3.4.2
-	
-	Fixed some bugs, including an important tracker bug Added 'warning
-	message' so trackers can send non-fatal human readable messages to
-	clients Fixed problem where some users got 'could not find file'
-	message
-	
-	Note: I've changed my sf url to http://heanet.dl.sourceforge.net
-	which is updated.
-
-2004-04-07 10:50  nestu
-
-	* net/maradns/lunar_install.locations: changed prefix to /usr and
-	not /usr/ (just some cosmetics)
-
-2004-04-07 10:48  nestu
-
-	* net/maradns/lunar_install.locations: Change prefix to /usr/
-	instead of /usr/local/
-
-2004-04-07 04:23  florin
-
-	* ftp/lftp/DETAILS: bump the version from 3.0.0 to 3.0.1.
-
-2004-04-07 03:26  nhudson
-
-	* devel/gtk-sharp/DETAILS: 
-	Updating gtk-sharp to new version 0.18
-
-2004-04-07 02:54  tchan
-
-	* security/shadow/: BUILD, DETAILS: Used the slackware patch that
-	couannette found for the newgrp/getlogin bug.  Compiled and tested
-	withg gcc-3.3.3, kernel headers 2.4.x.	Basically newgrp.c
-	incorrectly assumes getlogin will always return a value.  The patch
-	adds a test for getlogin() ret val.
-
-2004-04-07 02:01  jmhodges
-
-	* gnome2-core/control-center2/DETAILS: big bug fix apparently
 
