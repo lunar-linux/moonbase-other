@@ -1,0 +1,10 @@
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  if  query  "Enable legacy firmware loading?" y;  then
+    WITH_LEGACY="y"
+  fi
+
+  echo  'WITH_LEGANCY='\"$WITH_LEGANCY\"    >>  $MODULE_CONFIG
+  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+
+fi
