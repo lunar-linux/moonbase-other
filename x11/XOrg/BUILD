@@ -72,7 +72,10 @@
     invoke_installwatch
   fi
   
-  make World                            &&
+  # explicitly exit here now and not later on
+  make World                            ||
+  exit 1
+  
   prepare_install                       &&
   cd $SOURCE_DIRECTORY                  &&
   make install                          &&
