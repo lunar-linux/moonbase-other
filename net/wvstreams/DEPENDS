@@ -1,4 +1,6 @@
-depends db &&
+depends db       &&
+depends openssl  &&
+depends zlib     &&
 optional_depends  "fam"                 \
                   "--with-fam"          \
                   "--without-fam"       \
@@ -24,11 +26,6 @@ optional_depends  "libogg"              \
                   "--without-ogg"       \
                   "lib OGG support"
 
-optional_depends  "openssl"             \
-                  "--with-openssl"      \
-                  "--without-openssl"   \
-                  "OpenSSL support"
-
 optional_depends  "Linux-PAM"           \
                   "--with-pam"          \
                   "--without-pam"       \
@@ -44,7 +41,3 @@ optional_depends  "speex"               \
                   "--without-speex"     \
                   "Speex support"
 
-optional_depends  "zlib"                \
-                  "--with-zlib"         \
-                  "--without-zlib"      \
-                  "zlib support"
