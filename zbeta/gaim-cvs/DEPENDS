@@ -8,10 +8,35 @@ optional_depends  "audiofile"            \
 optional_depends  "esound"             \
                   "--enable-esd"       \
                   "--disable-esdtest"  \
-                  "to enable enlightenment sound daemon for output"
+                  "to enable enlightenment sound daemon for output" &&
 
 optional_depends  "gtkspell"            \
                   "--enable-gtkspell"   \
                   "--disable-gtkspell"  \
-                  "to enable spell checking"
+                  "to enable spell checking" &&
+
+optional_depends  "libgnomeui"          \
+                  "--enable-gnome"      \
+                  ""                    \
+                  "for gnome support"   &&
+
+optional_depends  "perl"                \
+                  "--enable-perl"       \
+                  ""                    \
+                  "for perl support"    &&
+
+optional_depends  "mozilla"             \
+                  "--enable-gnutls=no                              \
+                   --with-nspr-libs=/usr/lib/mozilla/              \
+                   --with-nspr-includes=/usr/include/mozilla/nspr/ \
+                   --with-nss-libs=/usr/lib/mozilla/               \
+                   --with-nss-includes=/usr/include/mozilla/nss/   \
+                   --enable-nss=yes"                               \
+                  "for msn ssl support (say 'n' to gnutls if you said 'y' here)" &&
+
+optional_depends  "gnutls"               \
+                  "--enable-gnutls=yes"  \
+                  "--enable-gnutls=no"   \
+                  "for msn ssl support (say 'y' here if you said 'n' to mozilla)" 
+  
 
