@@ -1,21 +1,33 @@
-#!/bin/sh
+#!/bin/bash
+#
+# /etc/init.d/rc script, supports switching back and forth runlevels
+# -sofar
+#
 
-PATH1="/sbin:/usr/sbin:/usr/local/sbin"
-PATH2="/bin:/usr/bin:/usr/local/bin"
-PATH3="/usr/games:/usr/local/games"
-PATH4="/usr/bin/X11:."
- PATH="$PATH1:$PATH2:$PATH3:$PATH4"
+umask 022
+trap ":" INT QUIT TSTP
 
-export  PATH
-umask   022
-trap    ":" INT QUIT TSTP
+echo "Init: leaving runlevel $PREVLEVEL"
 
-RUNLEVEL=$1
+if [ "$PREVLEVEL" != "N" ] ; then
+  for SCRIPT in /etc/rc$RUNLEVEL.d/K* ; do
+    BASENAME=${SCRIPT:14}
+    [ ! -e /etc/rc$PREVLEVEL.d/K??$BASENAME ]  &&
+      [ -h /etc/rc$RUNLEVEL.d/K??$BASENAME  ]  &&
+      [ -e /etc/init.d/$BASENAME            ]  &&
+      /etc/init.d/$BASENAME stop
+  done
+fi
 
-for  SCRIPT  in  /etc/rc$RUNLEVEL.d/K*;  do
-  [  -x  $SCRIPT  ]  &&  $SCRIPT  stop
+echo "Init: leaving runlevel $PREVLEVEL complete, entering runlevel $RUNLEVEL"
+
+for SCRIPT in /etc/rc$RUNLEVEL.d/S* ; do
+  BASENAME=${SCRIPT:14}
+  [ ! -e /etc/rc$PREVLEVEL.d/S??$BASENAME ]  &&
+    [ -h /etc/rc$RUNLEVEL.d/S??$BASENAME  ]  &&
+    [ -e /etc/init.d/$BASENAME            ]  &&
+    /etc/init.d/$BASENAME start
 done
 
-for  SCRIPT  in  /etc/rc$RUNLEVEL.d/S*;  do
-  [  -x  $SCRIPT  ]  &&  $SCRIPT  start
-done
+echo "Init: entering runlevel $RUNLEVEL complete"
+
