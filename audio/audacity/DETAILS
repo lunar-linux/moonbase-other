@@ -1,12 +1,14 @@
-           MODULE=audacity
-         VERSION=src-1.1.1-3
-          SOURCE=$MODULE-$VERSION.tgz
+          MODULE=audacity
+         VERSION=src-1.2.0-pre3
+          SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+   SOURCE_URL[0]=http://audacity.sourceforge.net/beta/audacity-src.php/$MODULE-src.tar.bz2
+  #SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
         WEB_SITE=http://audacity.sourceforge.net/
       MAINTAINER=scarecrow.143@attbi.com
+	  SOURCE_VFY=md5:a7efddd64e2ce3e380614796d689e11f
          ENTERED=20011217
-         UPDATED=20020727
+         UPDATED=20040102
            SHORT="audacity is a simple soundfile editor"
 cat << EOF
 Audacity is a program that lets you manipulate digital audio waveforms.
