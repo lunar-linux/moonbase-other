@@ -18,8 +18,9 @@ fi
   sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" \
      gettext-tools/doc/Makefile.am gettext-tools/doc/Makefile.in \
      gettext-runtime/intl-java/Makefile.am gettext-runtime/intl-java/Makefile.in \
-     gettext-tools/man/Makefile.am gettext-tools/man/Makefile.in
+     gettext-tools/man/Makefile.am gettext-tools/man/Makefile.in &&
 
+  sedit "s/ misc / /g" gettext-tools/Makefile.in &&
   touch *
 
   ./configure  --build=$BUILD            \
