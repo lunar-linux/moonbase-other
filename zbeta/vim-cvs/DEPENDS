@@ -1,3 +1,13 @@
 depends ncurses &&
-optional_depends "gtk+-2" "--enable-gtk2-check" "" "build gvim with gtk2" &&
-optional_depends "libgnomeui" "--enable-gnome-check" "" "Build with Gnome support?"
+optional_depends "Python"	"--enable-pythoninterp" \
+				"" 			\
+				"to enable Python intepreter support"	&&
+optional_depends "perl" 	"--enable-perlinterp" \
+				"" \
+				"to enable Perl interpreter support" &&
+optional_depends "tcl"		"--enable-tclinterp" \
+				"" \
+				"to enable Tcl interpreter support" &&
+optional_depends "ruby"		"--enable-rubyinterp" \
+				"" \
+				"to enable Ruby interpreter support"
