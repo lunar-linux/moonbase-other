@@ -1,5 +1,4 @@
 (
-  patch_it $SOURCE2 1 && 
   cd config &&
   autoconf  &&
   cd ..     &&
