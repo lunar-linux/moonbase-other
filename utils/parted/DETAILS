@@ -2,13 +2,15 @@
          VERSION=1.6.6
         #VERSION=1.6.5
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-disk_sun-1.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$GNU_URL/$MODULE/$SOURCE
    SOURCE_URL[1]=ftp://ftp.gnu.org/gnu/$MODULE/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
    SOURCE_VFY[0]=md5:563ab3855124c2ed706ea71eb8e47cf5
         WEB_SITE=http://www.gnu.org/software/parted
          ENTERED=20010922
-         UPDATED=20030903
+         UPDATED=20031018
            SHORT="GNU Parted allows you to create, destroy, resize, and copy partitions."
 cat << EOF
 GNU Parted allows you to create, destroy, resize, and copy partitions.  
