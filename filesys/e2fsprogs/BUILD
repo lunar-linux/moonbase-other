@@ -1,6 +1,6 @@
 (
   set -x                                 &&
-  ./configure  --host=$BUILD             \
+  ./configure  --build=$BUILD            \
                --prefix=/usr             \
                --with-root-prefix=       \
                --infodir=/usr/share/info \
