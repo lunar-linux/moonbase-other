@@ -7,7 +7,8 @@
 		--infodir=/usr/share/info	\
 		--mandir=/usr/share/man		\
 		$OPTS				&&
-  make dest_only_libafs
+  make dest_only_libafs &&
+  prepare_install
 
 ) > $C_FIFO 2>&1
   
