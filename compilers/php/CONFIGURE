@@ -3,7 +3,7 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
   if    module_installed  apache  ||
         module_installed  apache-mod_ssl
   then 
-    OPTS="$OPTS --with-apxs"
+    OPTS="$OPTS --with-apxs=/usr/sbin/axps"
   fi
 
   if  query  "Install ftp support?" y;  then
