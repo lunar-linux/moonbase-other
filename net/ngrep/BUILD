@@ -1,3 +1,7 @@
-sedit "s/\/man\/man8/\/share\0/" Makefile.in
-touch *
-default_build
+(
+
+  sedit "s/\/man\/man8/\/share\0/" Makefile.in
+  touch *
+  default_build
+ 
+) > $C_FIFO 2>&1
