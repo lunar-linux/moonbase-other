@@ -17,10 +17,8 @@ unset CC CXX
                --infodir=/usr/share/info \
                --mandir=/usr/share/man   \
                --prefix=/usr             &&
-  make                                &&
-  prepare_install                     &&
-  make    install                     &&
 
+  default_make  &&
 
   # Install man pages.
 
