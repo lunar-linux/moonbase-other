@@ -114,7 +114,7 @@ function device_start() {
 		    fi;
 		fi;
 	    ;;
-	    ?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9])
+	    *)
 		if [ ! -x /sbin/ifconfig ]; then
 		    echo -n "ifconfig not installed";
 		    return -1;
@@ -141,10 +141,6 @@ function device_start() {
 		    /sbin/route $ROUTECMD
 		  fi
 		done
-	    ;;
-	    *)
-		echo -n "address type not currently supported";
-		return -3;
 	    ;;
 	esac
 	return 0;
@@ -207,7 +203,7 @@ function device_stop() {
 		    esac
 	        fi;
 	    ;;
-	    ?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9])
+	    *)
 		if [ `ifconfig | grep $1 | wc -l` -eq 1 ]; then
 		    if [ ! -x /sbin/ifconfig ]; then
 	    	   	echo -n "ifconfig not installed";
@@ -222,9 +218,6 @@ function device_stop() {
 			;;
 		    esac
 		fi;
-	    ;;
-	    *)
-	    	/sbin/ifconfig $1 down
 	    ;;
 	esac
 	
@@ -255,7 +248,7 @@ start() {
 	    done;
 	    if [ -e /etc/config.d/gateway ]; then
 	       GATEWAY=`cat /etc/config.d/gateway`
-	       if [ -n "$GATEWAY" ] && ! $(route -n | grep -qw UG) ; then
+	       if [ -n "$GATEWAY" ] && ! $(route -n | "^0\.0\.0\.0.*UG.*$") ; then
 	           echo -n " * setting default route: "
 	           if [ ! -x /sbin/route ]; then
 	            echo -n "route not installed";
