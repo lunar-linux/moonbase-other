@@ -1,5 +1,6 @@
 unset CC CXX
 (
+patch_it $SOURCE_CACHE/$SOURCE2 1
 
 cat  <<  EOF  >>  config.site
 DIR_BIN="/usr/bin"
