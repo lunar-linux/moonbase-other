@@ -10,7 +10,6 @@
                --without-bench                            \
                --without-debug                            \
                --enable-assembler                         \
-               --with-mysqld-ldflags=-all-static          \
                --localstatedir=/var/lib/mysql             \
                --infodir=/usr/share/info                  \
                --mandir=/usr/share/man                    \
