@@ -1,10 +1,5 @@
 (
 
-  if [ $WITH_LEGACY == "y" ]; then
-    message "Enabling legacy firmware loading ..."
-    sedit "s:# CONFIG_IPW2100_LEGACY_FW_LOAD=y:CONFIG_IPW2100_LEGACY_FW_LOAD=y:" Makefile
-  fi
-
   if [ $WITH_WPA == "y" ]; then
     message "Enabling WPA support ..."
     sedit "s:# CONFIG_IEEE80211_WPA:CONFIG_IEEE80211_WPA:" Makefile
@@ -14,13 +9,6 @@
   message "Disabling debug messages ..."
   sedit "s:CONFIG_IPW_DEBUG=y:#CONFIG_IPW_DEBUG=y:" Makefile
 
-  make &&
-  prepare_install &&
-  
-  if [ -d /lib/modules/`uname -r`/kernel/drivers/net/wireless/ipw2100 ]; then
-    rm -rf /lib/modules/`uname -r`/kernel/drivers/net/wireless/ipw2100;
-  fi &&
-  
-  make install
+  default_make
 
 ) > $C_FIFO 2>&1
