@@ -1,6 +1,7 @@
 (
 
   make  oldconfig  &&
+  sedit "s:/etc/rc.d:/etc:" config.out &&
   make  all        &&
   prepare_install  &&
   make    install  &&
