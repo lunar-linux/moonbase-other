@@ -17,6 +17,8 @@
     gzip -dc  $SOURCE_CACHE/$SOURCE2 | patch -p1 
   fi && 
 
+patch -p1 < $SOURCE_CACHE/$SOURCE3
+
   libtoolize --force \
   && aclocal \
   && automake \
