@@ -16,22 +16,16 @@
 
   message "Building XOrg takes a very long time."
 
-  echo  "#define  InstallXdmConfig    YES"  >>  config/cf/site.def
-  echo  "#define  InstallXinitConfig  YES"  >>  config/cf/site.def
-
-  export CFLAGS=`echo $CFLAGS | sed s/-funroll-loops//`
-  export CFLAGS=`echo $CFLAGS | sed s/-ffast-math//`
-  export CXXFLAGS=`echo $CXXFLAGS | sed s/-funroll-loops//`
-  export CXXFLAGS=`echo $CXXFLAGS | sed s/-ffast-math//`
-  export CPPFLAGS=`echo $CPPFLAGS | sed s/-funroll-loops//`
-  export CPPFLAGS=`echo $CPPFLAGS | sed s/-ffast-math//`
+  bad_flags '-funroll-loops' '-ffast-math'
 
   # first copy the stored settings over:
   cp $CONFIG_CACHE/host.def config/cf/host.def &&
 
   # then add stuff on the fly:
+  echo  "#define InstallXdmConfig YES"          >> config/cf/host.def &&
+  echo  "#define InstallXinitConfig YES"        >> config/cf/host.def &&
   if module_installed Linux-PAM ; then
-    echo "#define HasPam YES" >> config/cf/site.def
+    echo "#define HasPam YES"                   >> config/cf/host.def &&
   fi &&
 
   echo  "#define DefaultCCOptions      $CFLAGS" >> config/cf/host.def &&
