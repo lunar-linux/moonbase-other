@@ -1,0 +1,21 @@
+          MODULE=cdt
+         VERSION=2.0
+	   EXTRA=linux.gtk.x86
+          SOURCE=org.eclipse.cdt.sdk-$VERSION-$EXTRA.zip
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/eclipse
+      SOURCE_URL=http://download.eclipse.org/tools/cdt/releases/new/zips/$SOURCE
+      SOURCE_VFY=md5:1f79ccd9be5e060aab51247f230d25dc
+        WEB_SITE=http://eclipse.org/cdt/
+         ENTERED=20040728
+         UPDATED=20040728
+           SHORT="Provide a functional C and C++ IDE for the Eclipse platform"
+cat << EOF
+CDT features are:
+ - C/C++ Editor (basic functionality, syntax highlighting, code completion etc.) 
+ - C/C++ Debugger (APIs & Default implementation, using GDB) 
+ - C/C++ Launcher (APIs & Default implementation, launches and external application) 
+ - Parser
+ - Search Engine
+ - Content Assist Provider
+ - Makefile generator
+EOF
