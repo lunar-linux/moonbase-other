@@ -27,6 +27,20 @@
     
     OPTS="$OPTS $EXTN"
 
+  CFLAGS=${CFLAGS//pentium4/pentium3}
+  CFLAGS=${CFLAGS//-msse2/}
+  
+  CXXFLAGS=${CXXFLAGS//pentium4/pentium3}
+  CXXFLAGS=${CXXFLAGS//-msse2/}
+  
+  CCOPT=${CCOPT//pentium4/pentium3}
+  CCOPT=${CCOPT//-msse2/}
+  
+  COPT=${COPT//pentium4/pentium3}
+  COPT=${COPT//-msse2/}
+  
+  export CFLAGS CXXFLAGS CCOPT COPT
+
   ./configure  --disable-tests              \
                --disable-debug              \
                --disable-dtd-debug          \
