@@ -1,3 +1,143 @@
+2003-11-06 05:47  florin
+
+	* video/: ogle/DETAILS, ogle_gui/DETAILS: bump version from 1.9.1
+	to 0.9.2.
+
+2003-11-06 05:47  florin
+
+	* video/libdvdcss/DETAILS: bump version from 1.2.7 to 1.2.8.
+
+2003-11-06 05:14  florin
+
+	* kde3-apps/karchiver/DETAILS: bump version from 3.0.6 to 3.0.7.
+	bugfix release.
+
+2003-11-06 03:21  tchan
+
+	* zbeta/mkinitrd/DETAILS: Version bump to mkinitrd-3.5.14. 
+	Compiled with gcc-3.2.3 and glibc-2.3.2.
+
+2003-11-06 03:01  tchan
+
+	* libs/dietlibc/DETAILS: Version bump to 0.23.	Compiled and tested
+	with gcc-3.2.3.
+
+2003-11-06 02:55  tchan
+
+	* utils/grub/: DETAILS, menu.lst: Updated the sample menu.lst and
+	the help text in the DETAILS file.
+
+2003-11-06 02:48  tchan
+
+	* x11-apps/xpdf/DETAILS: Version bump to 2.03.	Compiled and tested
+	with gcc-3.2.3, glibc-2.3.2.
+
+2003-11-06 02:39  tchan
+
+	* mail/uudeview/DETAILS: Version bump 0.5.19.  Compiled and tested
+	with gcc-3.2.3, glibc-2.3.2.
+
+2003-11-06 02:22  tchan
+
+	* devel/uml/: .config, DETAILS: Version bump to 2.4.22 kernel and
+	uml patch set #5.  Also updated uml utilities to 20030903 version. 
+	Compiled and tested with gcc-3.2.3 and glibc-2.3.2.
+
+2003-11-06 02:21  tchan
+
+	* graphics/xzgv/DETAILS: Version bump to 0.8.  Compiled and tested
+	with gcc-3.2.3, glibc-2.3.2.  Yes this is a gtk+ app and damn proud
+	of it! :-)
+
+2003-11-06 01:47  tchan
+
+	* distributed/distcc/DETAILS: Version bump to 2.11.2.  Compiled and
+	tested with gcc-3.2.3 and glibc-2.3.2.
+
+2003-11-06 01:42  tchan
+
+	* mail/balsa2/DETAILS: Version bump to 2.0.15.	Mostly a bugfix
+	release.  Compiled and tested with gcc-3.2.3, and glibc-2.3.2.
+
+2003-11-05 23:03  sofar
+
+	* devel/tk/DEPENDS: heh, just in time for next moonbase export.
+
+2003-11-05 22:54  sofar
+
+	* x11-utils/lavaps/: DEPENDS, DETAILS: It's become a gtk+-2 app, so
+	in here is a better place for it.
+
+2003-11-05 22:17  sofar
+
+	* audio/agqt/DEPENDS, compilers/Python/DEPENDS,
+	crypto/krb5/DEPENDS, devel/db4/DEPENDS, devel/expect/DEPENDS,
+	devel/metakit/DEPENDS, filemanagers/FileRunner/DEPENDS,
+	games/pysol/DEPENDS, games/tuxracer/DEPENDS,
+	graphics/sketch/DEPENDS, kde3/kdemultimedia3/DEPENDS,
+	mail/tkrat/DEPENDS, mail/uudeview/DEPENDS, devel/tcl/BUILD,
+	devel/tcl/DETAILS, devel/tk/BUILD, devel/tk/DETAILS,
+	devel/tk/PRE_BUILD, science/tkgate/DEPENDS, utils/catdoc/DEPENDS:
+	Removing tcl-tk and creating 2 simpler modules: tcl and tk. tk
+	depends on tcl, and actually uses the source from tcl for
+	compiling. Other than that, tcl compiles without Xfree86 or tk (as
+	expected). This will resolve some issues since it was possible to
+	install tcl-tk without the tk-libs, and other apps depending on
+	those would not be able to resolve that problem. Also all depends
+	on tcl-tk were screened and changed either into tcl or tk. Hope you
+	followed all of this. /me out. (beer)
+
+2003-11-05 20:36  jol
+
+	* video/mplayerplug-in/: BUILD, DETAILS: Bumped version OLD: 0.95 
+	NEW: 1.0pre2 Thanks to Ray Maung
+
+2003-11-05 20:24  sofar
+
+	* net/ethereal/DETAILS: Version bump. My keyboard is doing weird...
+
+2003-11-05 20:08  jmhodges
+
+	* libs/libofx/DETAILS: version bump, apparently just a bugfix
+
+2003-11-05 20:02  sofar
+
+	* graphics/blender/DETAILS: New version, thank you.
+
+2003-11-05 19:14  nhudson
+
+	* graphics/gimp2/DETAILS: 
+	Updating gimp to new version 1.3.22
+
+2003-11-05 18:23  jmhodges
+
+	* web/PyDS/: BUILD, DETAILS: version bump to 0.6.3 and removal of
+	patch due to docutils bump
+
+2003-11-05 18:21  jmhodges
+
+	* doc-tools/docutils/DETAILS: version bump
+
+2003-11-05 16:09  moe
+
+	* audio/beep-media-player/DETAILS: Alright you didn't see that
+	commit
+
+2003-11-05 16:04  moe
+
+	* audio/beep-media-player/DETAILS: Bumping version .. the author
+	noticed some glintches
+
+2003-11-05 12:21  sofar
+
+	* mail/imap/DETAILS: Bumped version, as well as in php.
+
+2003-11-05 12:20  sofar
+
+	* compilers/php/: CONFIGURE, DETAILS: New version, including bumped
+	imap version. Note that the --with-apxs{2} options are now
+	mandatory, since otherwise php won't build the DSO's.
+
 2003-11-05 11:27  sofar
 
 	* graphics/ImageMagick/DETAILS: New version!
@@ -1785,60 +1925,4 @@
 	* devel/automake/DETAILS: Version bump to 1.7.8.  Small bug fix
 	release from 1.7.7.  Compiled and tested with gcc-3.2.3,
 	glibc-2.3.2.
-
-2003-10-06 21:46  jol
-
-	* kde3-apps/kexchange3/: BUILD, DETAILS: Bumped version OLD: 0.3 
-	NEW: 0.3.1 clean some code
-
-2003-10-06 20:40  jol
-
-	* devel/PyQt/DETAILS: Bumped version OLD: 3.8  NEW: 3.8.1
-
-2003-10-06 20:29  jmhodges
-
-	* compilers/Python/DETAILS: version bump
-
-2003-10-06 20:22  florin
-
-	* graphics/tiff/DETAILS: bumped version from 3.5.7 to 3.6.0
-
-2003-10-06 19:11  sofar
-
-	* utils/: lunar/DETAILS, theedge/DETAILS: Important bugfixes two
-	days ago, bumping UPDATED
-
-2003-10-06 17:18  jol
-
-	* kde3/: arts/DEPENDS, arts/DETAILS, kdeaddons3/BUILD,
-	kdeaddons3/DETAILS, kdeadmin3/BUILD, kdeadmin3/DETAILS,
-	kdeartwork3/BUILD, kdeartwork3/DETAILS, kdebase3/BUILD,
-	kdebase3/DETAILS, kdebindings3/BUILD, kdebindings3/DETAILS,
-	kdeedu3/BUILD, kdeedu3/DETAILS, kdegames3/BUILD, kdegames3/DETAILS,
-	kdegraphics3/BUILD, kdegraphics3/DETAILS, kdelibs3/BUILD,
-	kdelibs3/DEPENDS, kdelibs3/DETAILS, kdemultimedia3/BUILD,
-	kdemultimedia3/DETAILS, kdenetwork3/BUILD, kdenetwork3/DETAILS,
-	kdepim3/BUILD, kdepim3/DETAILS, kdesdk3/BUILD, kdesdk3/DETAILS,
-	kdetoys3/BUILD, kdetoys3/DETAILS, kdeutils3/BUILD,
-	kdeutils3/DETAILS: Clean BUILD all kde3 build file. Add somes
-	missed depends
-
-2003-10-06 15:54  florin
-
-	* audio/alsa-driver/DETAILS: bumped version from 0.9.7 to 0.9.7a.
-	bugfix version.
-
-2003-10-06 15:32  florin
-
-	* security/nmap/DETAILS: bumped version from 3.47 to 3.48.
-
-2003-10-06 08:06  jasper
-
-	* profiles/xfce4-extras-profile/: DEPENDS, DETAILS: Add notes
-	plugin to profile
-
-2003-10-06 08:03  jasper
-
-	* xfce4/xfce4-notes-plugin/: BUILD, DEPENDS, DETAILS: yay\! a
-	sticky notes plugin for xfce 4
 
