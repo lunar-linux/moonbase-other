@@ -11,6 +11,7 @@
 	      --with-userid=lp \
 	      --with-groupid=lp &&
   make &&
+  prepare_install     &&
   invoke_installwatch &&
   make install &&
   
