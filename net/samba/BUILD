@@ -13,7 +13,11 @@
                --with-fhs              \
                --mandir=/usr/share/man \
                $WITH_PAM               \
-               $OPTS                   &&
+               $OPTS                   || exit 1
+               
+  cp Makefile Makefile.orig            &&
+  sedit "s/-msse2//g" Makefile
+
   make                                 &&
   prepare_install                      &&
   mkdir  -p  /etc/samba                &&
