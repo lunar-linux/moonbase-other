@@ -1,3 +1,90 @@
+2004-12-25 12:57  florin
+
+	* devel/ruby-dbi/: BUILD, DETAILS: bump the version from 0.0.16 to
+	  0.0.23.
+
+2004-12-25 12:44  florin
+
+	* web/elinks/DETAILS: bump the version from 0.9.3 to 0.10.0.
+
+2004-12-25 12:39  florin
+
+	* devel/ruby-postgres/: BUILD, DEPENDS, DETAILS: some tweakings.
+
+2004-12-25 12:13  florin
+
+	* compilers/ruby/DETAILS: bump the version from 1.8.1 to 1.8.2.
+
+2004-12-25 11:51  florin
+
+	* devel/sip/DETAILS: bump the version 4.0.1 to 4.1.1.
+
+2004-12-25 09:39  florin
+
+	* games/scummvm/DETAILS: bump the version from 0.6.1b to 0.7.0.
+
+2004-12-25 07:37  florin
+
+	* graphics/openvrml/DETAILS: bump the version from 0.15.1 to
+	  0.15.3.
+
+2004-12-25 07:21  florin
+
+	* utils/dialog/DETAILS: bump the version from 20041219 to 20041222.
+	  more bugfixes.
+
+2004-12-25 07:16  florin
+
+	* audio/gstreamer/DETAILS: bump the version from 0.8.7 to 0.8.8.
+
+2004-12-25 06:25  florin
+
+	* devel/db4/DETAILS: bump the version from 4.3.21 to 4.3.27.
+
+2004-12-25 04:58  v3rt1g0
+
+	* zbeta/engage-cvs/DEPENDS: Added new optional depends on examine
+	  to make configuration easier on the user
+
+2004-12-25 04:57  v3rt1g0
+
+	* zbeta/examine-cvs/: BUILD, DEPENDS, DETAILS: Inital Import.  e17
+	  cvs app used in EFL based app configurations
+
+2004-12-25 04:47  v3rt1g0
+
+	* zbeta/engage-cvs/: BUILD, DEPENDS, DETAILS: Inital import of the
+	  cool looking EFL based iconbar
+
+2004-12-25 04:16  v3rt1g0
+
+	* zbeta/equate-cvs/: BUILD, DEPENDS, DETAILS: Inital import.  This
+	  is an edje-themeable, ewl based calculator.
+
+2004-12-25 00:51  v3rt1g0
+
+	* games/bumprace/DETAILS: Added missing source_vry and provided a
+	  more accurate website
+
+2004-12-24 22:04  tchan
+
+	* zbeta/irssi-cvs/: BUILD, DEPENDS, DETAILS: For the irssi-cvs
+	  fans.
+
+2004-12-24 20:02  v3rt1g0
+
+	* games/gl-117/: BUILD, DETAILS: Looks like this patch must have
+	  been removed.
+
+2004-12-24 19:08  v3rt1g0
+
+	* graphics/ImageMagick/DEPENDS: A user was having issues with
+	  'import' not finding tiff, adding the missing optional depends.
+
+2004-12-24 16:46  v3rt1g0
+
+	* perl/NetPacket/DETAILS: Version bumppy.  Merry Christmas!
+
 2004-12-24 05:31  tchan
 
 	* video/MPlayer-rm/: BUILD, DETAILS: Added sha1sum, fixed the BUILD
@@ -1975,122 +2062,4 @@
 
 	* utils/file/DETAILS: Version bump to file-4.12. Compiled/tested
 	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-11-24 23:43  moe
-
-	* x11/XOrg/BUILD: Workaround to include the fonts directory if you
-	  are using an old XF86Config
-
-2004-11-24 21:12  hardkrash
-
-	* science/: geda-docs/DETAILS, geda-gnetlist/DETAILS,
-	  geda-gschem/DETAILS, geda-gsymcheck/DETAILS,
-	  geda-symbols/DETAILS, geda-utils/DETAILS, libgeda/DETAILS: wow
-	  this one slipt by me.....
-
-2004-11-24 21:09  hardkrash
-
-	* science/usb_pickit/: BUILD, DEPENDS, DETAILS: finally adding the
-	  usb_pickit module for programming flash pic microcontrollers via
-	  a nice cheap $35 usb powered programmer.
-
-2004-11-24 20:59  hardkrash
-
-	* libs/confuse/DETAILS: confuse is a library for simple
-	  configuration parsing
-
-2004-11-24 20:57  hardkrash
-
-	* science/ftdi_eeprom/: DEPENDS, DETAILS: adding an eeprom
-	  generator for the ftdi chips
-
-2004-11-24 20:56  hardkrash
-
-	* science/libftdi/: DEPENDS, DETAILS: adding the drivers for the
-	  FTDI usb to serial chip, these drivers provide more control over
-	  the chip than the serial only drivers in the kernel.
-
-2004-11-24 16:55  jasper
-
-	* filesys/udev/: BUILD, DETAILS: Not PSAFE+ properly check if build
-	  fails
-
-2004-11-24 15:39  sofar
-
-	* x11/XOrg/POST_INSTALL: Blooper. This really needs to be added
-
-2004-11-24 13:04  sofar
-
-	* x11/XOrg/: CONFIGURE, drivers: Modified the driver list to list
-	  proper card names. The list is short and not complete yet.
-
-2004-11-24 12:12  moe
-
-	* utils/acpid/BUILD: Even betta
-
-2004-11-24 11:46  prox
-
-	* utils/acpid/: BUILD, DETAILS, init.d/acpid: typo in url, made
-	  events dir and added init.d script
-
-2004-11-24 10:36  nestu
-
-	* filesys/e2fsprogs/init.d/mount: Removing the warning line that
-	  udev is already running for the udev initscript, as now the
-	  checks have been moved to /udev.tdb, and not the /var/lock file.
-
-2004-11-24 10:34  nestu
-
-	* filesys/udev/udev: No longer we create /var/lock/subsys/udev. The
-	  checks are done on udev.tdb.	If it is under udev_root then udev
-	  is running. Stopping while using udev as /dev in now disallowed
-
-2004-11-24 10:18  nestu
-
-	* filesys/e2fsprogs/init.d/mount:  /var may not be mounted.
-	  Commented out for know. NEEDS FIXING
-
-2004-11-24 10:16  nestu
-
-	* filesys/e2fsprogs/init.d/mount: the udev initscript needs to know
-	  that udev is running
-
-2004-11-24 10:12  nestu
-
-	* filesys/udev/udev: Change so the script's defaults are overriden
-	  later by the settings in udev.conf
-
-2004-11-24 10:01  sofar
-
-	* shells/bash/skel/.bash_profile: Typo... string tests need to be
-	  "quoted".
-
-2004-11-24 07:28  florin
-
-	* kde3-i18n/: koffice3-i18n-af/DETAILS, koffice3-i18n-bg/DETAILS,
-	  koffice3-i18n-ca/DETAILS, koffice3-i18n-cs/DETAILS,
-	  koffice3-i18n-cy/DETAILS, koffice3-i18n-da/DETAILS,
-	  koffice3-i18n-de/DETAILS, koffice3-i18n-el/DETAILS,
-	  koffice3-i18n-en_GB/DETAILS, koffice3-i18n-eo/DETAILS,
-	  koffice3-i18n-es/DETAILS, koffice3-i18n-et/DETAILS,
-	  koffice3-i18n-fa/DETAILS, koffice3-i18n-fi/DETAILS,
-	  koffice3-i18n-fr/DETAILS, koffice3-i18n-he/DETAILS,
-	  koffice3-i18n-hsb/DETAILS, koffice3-i18n-hu/DETAILS,
-	  koffice3-i18n-it/DETAILS, koffice3-i18n-ja/DETAILS,
-	  koffice3-i18n-lo/DETAILS, koffice3-i18n-mt/DETAILS,
-	  koffice3-i18n-nb/DETAILS, koffice3-i18n-nl/DETAILS,
-	  koffice3-i18n-nn/DETAILS, koffice3-i18n-pl/DETAILS,
-	  koffice3-i18n-pt/DETAILS, koffice3-i18n-pt_BR/DETAILS,
-	  koffice3-i18n-ru/DETAILS, koffice3-i18n-se/DETAILS,
-	  koffice3-i18n-sk/DETAILS, koffice3-i18n-sl/DETAILS,
-	  koffice3-i18n-sr/DETAILS, koffice3-i18n-sv/DETAILS,
-	  koffice3-i18n-tg/DETAILS, koffice3-i18n-th/DETAILS,
-	  koffice3-i18n-tr/DETAILS, koffice3-i18n-ven/DETAILS,
-	  koffice3-i18n-xh/DETAILS, koffice3-i18n-zh_CN/DETAILS,
-	  koffice3-i18n-zh_TW/DETAILS, koffice3-i18n-zu/DETAILS: bump the
-	  version from 1.3.4 to 1.3.5.
-
-2004-11-24 00:03  moe
-
-	* x11/XOrg/POST_INSTALL: Tweaks
 
