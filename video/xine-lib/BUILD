@@ -1,6 +1,7 @@
 (
-
+  export LDFLAGS="$LDFLAGS -lm"
   sedit 's:archopt_val="pentiumpro":archopt_val="i686":g' configure &&
+  sedit 's:#  include <linux/config.h>::' src/audio_out/audio_oss_out.c &&
   unset CFLAGS &&
   ./configure  --build=$BUILD              \
                --prefix=/usr               \
