@@ -1,17 +1,14 @@
           MODULE=e17-cvs
          VERSION=beta
           SOURCE=$MODULE-$VERSION.tar.bz2
-#         SOURCE2=$MODULE-$VERSION-SPLIT.tar.bz2
-#	 SOURCE3=$MODULE-$VERSION-evidence.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/e17
-      SOURCE_URL=cvs://:pserver:anonymous@cvs.enlightenment.sourceforge.net:/cvsroot/enlightenment:e17
-#     SOURCE2_URL=cvs://:pserver:anonymous@cvs.enlightenment.sourceforge.net:/cvsroot/enlightenment:e17/libs/ecore:SPLIT
-#     SOURCE3_URL=cvs://:pserver:anonymous@cvs.evidence.sourceforge.net:/cvsroot/evidence:evidence
-        WEB_SITE=http://www.enlightenment.org/
-         ENTERED=20030209
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/e
+      SOURCE_URL=cvs://:pserver:anonymous@cvs.sourceforge.net:/cvsroot/enlightenment:e17/apps/e
+         WEBSITE=http://enlightenment.org/pages/enlightenment.html
+         ENTERED=20041228
          UPDATED=`date -u +%Y%m%d`
-           SHORT="See enlightenment" 
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="This is the CVS version of e17"
+
 cat << EOF
-This is the cvs version of enlightenment, which is way ahead of the stable one
-usually!
+This is the CVS version of the upcoming e17.
 EOF
