@@ -2,13 +2,15 @@
          VERSION=1.2.11
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=grsecurity-1.2.10-$MODULE.patch.bz2
+		 SOURCE3=006-modprobe.patch
       SOURCE_URL=http://www.netfilter.org/files/
       SOURCE_VFY=md5:0a5f5f226e41ce408a895bec995e8c05
      SOURCE2_URL=$PATCH_URL/
      SOURCE2_VFY=md5:5df2b2bc990f920b3f700baf54bcfd49
+	 SOURCE3_URL=${PATCH_URL}/
         WEB_SITE=http://www.netfilter.org
          ENTERED=20010922
-         UPDATED=20040706
+         UPDATED=20041112
            SHORT="Tool to create netfilter rules"
 cat << EOF
 iptables is built on top of netfilter: the new packet alteration

@@ -1,6 +1,6 @@
 (
-  patch_it  $SOURCE_CACHE/$SOURCE2 1
-
+  patch_it  $SOURCE2 1
+  patch_it  $SOURCE3 2  	
 #I think this optimization must be carefully considered,
 # seeing these are kernel stuff...
 # The -O2 is needed, as there are some "#ifndef __OPTIMIZE__" stuff
