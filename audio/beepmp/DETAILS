@@ -1,12 +1,15 @@
           MODULE=beepmp
          VERSION=0.9.6.1
           SOURCE=bmp-$VERSION.tar.gz
-      SOURCE_URL=$SFORGE_URL/beepmp/$SOURCE
+         SOURCE2=bmp-0.9.6.1-plugin_dirs-fix.patch.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/bmp-$VERSION
+      SOURCE_URL=$SFORGE_URL/beepmp/$SOURCE
       SOURCE_VFY=md5:0102233416eb8efaec775c415f5308eb
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
+     SOURCE2_VFY=md5:7cf3b09625a54a54ad64c66771342820
         WEB_SITE=http://beepmp.sourceforge.net/
          ENTERED=20031101
-         UPDATED=20031229
+         UPDATED=20040519
            SHORT="A gtk2 port of xmms"
 cat << EOF
 Beepmp is a media player based on XMMS (http://www.xmms.org). The primary
