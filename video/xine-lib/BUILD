@@ -1,5 +1,7 @@
 (
 
+  sedit 's:archopt_val="pentiumpro":archopt_val="i686":g' configure &&
+  unset CFLAGS &&
   ./configure  --build=$BUILD              \
                --prefix=/usr               \
                --sysconfdir=/etc           \
