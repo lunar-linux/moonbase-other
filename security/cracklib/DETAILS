@@ -1,12 +1,14 @@
           MODULE=cracklib
          VERSION=2.7
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-$VERSION.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://www.lunar-linux.com/lunar/mirrors/$SOURCE
-        WEB_SITE=http://www.users.dircon.co.uk/~crypto/
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+        WEB_SITE=http://www.crypticide.org/users/alecm/
          ENTERED=20020313
-         UPDATED=20020620
-      MAINTAINER=kongar@tsrsb.org.tr
+         UPDATED=20040129
+           PSAFE=no
            SHORT="cracklib is a library which may be used in a passwd-like program."
 cat << EOF
 cracklib is a library which may be used in a passwd-like program.

@@ -1,5 +1,6 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   make all                                     &&
   prepare_install                              &&
   mkdir -p /usr/share/dict                     &&
