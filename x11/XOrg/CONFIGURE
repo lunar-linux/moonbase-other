@@ -148,11 +148,6 @@ initialize()  {
 
 generate_host_def()  {
 
-  echo  "#define DefaultCCOptions      $CFLAGS"
-  echo  "#define DefaultGcc2i386Opt    $CFLAGS"
-  echo  "#define LibraryCDebugFlags    $CFLAGS"
-  echo  "#define DefaultCDebugFlags    $CFLAGS"
-  echo  "#define OptimizedCDebugFlags  $CFLAGS"
   echo  "#define HasZlib YES"
   echo  "#define HasFreetype2 YES"
   echo  "#define ForceNormalLib  YES"
@@ -187,7 +182,6 @@ generate_host_def()  {
   fi
 
 
-
   if  [  -z  "$XInputDrivers"  ];  then
     echo  "#define XInputDrivers mouse"
   else
@@ -195,7 +189,6 @@ generate_host_def()  {
 ' ' '`
     echo  "#define XInputDrivers $XInputDrivers"
   fi
-
 
 
   for  ITEM  in   $YES_FONT_OPTIONS;  do
