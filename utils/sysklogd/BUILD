@@ -5,9 +5,7 @@
   make MANDIR=/usr/share/man   install  &&
 
   if  !  [  -e  /etc/syslog.conf  ];  then
-    sedit  "s/usr/var/"  syslog.conf &&
-    sedit  "s/adm/log/"  syslog.conf &&
-    cp                   syslog.conf  /etc
+    cp $SCRIPT_DIRECTORY/syslog.conf  /etc
   fi &&
 
   if [ -e "/etc/init.d/sysklogd.sh" ]; then
