@@ -1,5 +1,4 @@
 ( 
-    sedit "s/lqt/lqt-mt/" tmake/lib/linux-g++/tmake.conf &&
 
     if [ -f src/Makefile ]; then
       message "${MESSAGE_COLOR}Makefile's detected, doing make distclean before compiling${DEFAULT_COLOR}" &&
@@ -7,13 +6,13 @@
       make distclean
     fi &&
 
-    ./configure --platform linux-g++         \
-                --install /usr/bin/install   \
-		$OPTS &&
+    ./configure --platform linux-g++        \
+                --install /usr/bin/install  \
+		$OPTS                      &&
     
-    make                                     &&
-    make docs                                &&
-    prepare_install                          &&
+    make             &&
+    make docs        &&
+    prepare_install  &&
     make install                             
 
 ) > $C_FIFO 2>&1
