@@ -1,3 +1,120 @@
+2004-12-16 12:28  moe
+
+	* mail/sylpheed/DETAILS: sofar decided to go with the beta releases
+	  so .. here we go ;-)
+
+	  * Bumped to 1.0.0rc. Tested on/with 2.6.x, gcc 3.3.3
+
+2004-12-16 09:30  nestu
+
+	* utils/util-linux/DETAILS: 2.12k -> 2.12l. gcc 3.3.3, glibc 2.3.2,
+	  headers 2.6.9.1.  Seems the issue with 2.6 has not been fixed
+	  upstream, so the patch is still needed.
+
+2004-12-16 05:31  tchan
+
+	* utils/syslinux/DETAILS: Version bump to syslinux-2.13.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x. Florin tested this with kernel headers 2.6.x.
+
+2004-12-16 05:15  v3rt1g0
+
+	* web/cadaver/DEPENDS: Misread my depends tree. expat doesn't
+	  necessarly come along with libxml2 so I broke it out into it's
+	  own optional depends.
+
+2004-12-16 05:06  v3rt1g0
+
+	* devel/diffutils/DETAILS: Added the missing website and prettified
+	  the module's long description.
+
+2004-12-16 04:50  v3rt1g0
+
+	* web/cadaver/DEPENDS: Added missing optional depends on openssl
+	  and libxml2
+
+2004-12-16 04:24  florin
+
+	* net/ethereal/DETAILS: bump the version from 0.10.7 to 0.10.8.
+
+2004-12-16 04:20  v3rt1g0
+
+	* x11-apps/usbview/: DEPENDS, DETAILS: This module actually
+	  requires gtk+ not gtk+-2.  Also added a sha1 sum and tidyed up
+	  the DETAILS file a bit.
+
+2004-12-16 04:20  florin
+
+	* mail/sendmail/DETAILS: bump the version from 8.13.1 to 8.13.2.
+	  bugfix release.
+
+2004-12-16 04:12  v3rt1g0
+
+	* x11-apps/planner/: BUILD, CONFLICTS, DETAILS: Removed the BUILD
+	  file as it was just calling default_build.  Removed the CONFLICTS
+	  file as the conflicts it listed were not event modules in the
+	  moonbase.  Cleaned up the DETAILS a bit.  The EOF had spaces
+	  after it which caused 'EOF' to be printed in the 'lvu what'
+	  output.
+
+2004-12-16 03:49  v3rt1g0
+
+	* x11-apps/xdiskusage/DETAILS: Version bump and added sha1 sum
+
+2004-12-16 02:53  florin
+
+	* graphics/: gphoto2/BUILD, libgphoto2/DETAILS, gphoto2/DETAILS:
+	  bump the version from 2.1.4 to 2.1.5.
+
+2004-12-15 19:17  florin
+
+	* video/xine-lib/DETAILS: fix the sha1 sum.
+
+2004-12-15 16:57  moe
+
+	* video/mplayerplug-in/: BUILD, DETAILS: yay for mplayerplug-in
+	  2.75
+
+	  * Compiled and tested on/with 2.6.x, gcc 3.3.3
+
+2004-12-15 16:41  moe
+
+	* video/gxine/: BUILD, DETAILS: Bumped to 0.4.0
+
+	  * This is the first module I ever created *sniff   Has been left
+	  untouched for a long time but finally   there is a new version.
+	  Tested with 2.6.x and gcc 3.3.3
+
+	  * Removed the link to /opt/lunar/plugins since the mozilla
+	  plugin is horribly broken and is just crashing the browser
+	  instead of showing video most of the time
+
+2004-12-15 16:32  moe
+
+	* video/xine-lib/: BUILD, DETAILS: Bumped to rc8
+
+	  * Edited out the modifications at the top of the BUILD file
+	  Anyone able to tell me if they are still required?   --> Delete
+	  BUILD file if not
+
+	    For me (2.6.x, gcc 3.3.3) xine-lib compiles without errors
+	    (Optimization settings aren't really risky though)
+
+	  * xine-ui and gxine are both working while compiled against
+	  this new version
+
+2004-12-15 16:26  sofar
+
+	* compilers/gcc/3.4.3/POST_INSTALL: Adding ob. build of
+	  libstdc++.so.5 library to provide compatibility while it
+	  lasts....
+
+2004-12-15 16:12  sofar
+
+	* libs/libstdc++5/: BUILD, CONFIGURE, DETAILS: Adding libstdc++5
+	  and checks to not have it compile with gcc-3.3.x. it should be
+	  installed if you upgrade gcc to 3.4.3
+
 2004-12-15 05:35  florin
 
 	* devel/swig/DETAILS: fix the update date.
@@ -1831,99 +1948,4 @@
 	* graphics/libkipi/profile.d/libkipi.rc: fun filled package config
 	  paths,  should we have a more orgnized way to manipulate these
 	  paths???
-
-2004-11-15 20:22  jol
-
-	* libs/boost/: BUILD, DEPENDS, DETAILS: First import of boost Boost
-	  is a cross-platform supplement to the C++ standard library. It
-	  provides many things, among them  - help for non-compliant
-	  implementations of the standard library  - additional containers,
-	  iterators, and smart-pointer types  - help for templates  - ...
-
-2004-11-15 20:21  jol
-
-	* devel/boost-jam/: BUILD, DETAILS: First import of Boost Jam Boost
-	  Jam is a build tool based on FTJam. It used by the boost project.
-
-2004-11-15 20:14  moe
-
-	* web/firefox/: BUILD, POST_INSTALL: Some slight tweaks
-
-2004-11-15 19:56  moe
-
-	* net/ipw2200/: BUILD, CONFIGURE, DEPENDS, DETAILS: Adding the
-	  driver for the IPW2200 wireless device. Testers needed (and a
-	  possible maintainer) needed!
-
-2004-11-15 19:28  moe
-
-	* net/ipw2100/: BUILD, DETAILS, PRE_BUILD: 1.0.0. This driver is
-	  really mature. Featuring hotplug, legacy firmware loading, WEP,
-	  WAP and .. no debug messages ;^)
-
-2004-11-15 19:14  moe
-
-	* zbeta/giftfast-cvs/BUILD: Fixing broken autotools. Almost all of
-	  the gift packages seem to suffer from the same terrificly good
-	  autotools magic
-
-2004-11-15 18:29  jol
-
-	* audio/libsndfile/DETAILS: Bumped version to 1.0.11
-	  ----------------------------------------------------------------------
-
-2004-11-15 18:18  jol
-
-	* x11-apps/dia/DETAILS: - bumped version to 0.94 - fix the URL to
-	  allow the -w option
-
-2004-11-15 12:52  prox
-
-	* x11-utils/xpad/: DETAILS, BUILD: bump version and added opts, it
-	  seems it wanted to build static (binreloc) also disabled rpath
-	  shouldnt be needed
-
-2004-11-15 11:22  nestu
-
-	* kernel/linux-2.6-prepatch/DETAILS: 2.6.10rc1 -> 2.6.10rc2. gcc
-	  3.3.3, glibc 2.3.2, headers 2.6.9.1
-
-2004-11-15 09:35  sofar
-
-	* filesys/e2fsprogs/init.d/mount: yes this was the original fix
-	  rev1.2
-
-2004-11-15 09:35  sofar
-
-	* filesys/e2fsprogs/init.d/mount: Ever wonder why your box didn't
-	  fsck again on boot? no? well I fixed this a while ago and some
-	  people were really happy with it. Until of course the error gets
-	  added back in because of the way the init scripts were not being
-	  tracked by modules in the past. I hope you are getting the idea
-	  now and you should really make sure that the foles you are
-	  editing are the right versions. Please please please do.
-
-2004-11-15 09:15  sofar
-
-	* utils/installwatch/BUILD: Make sure installwatch.so is tagged for
-	  logging/cache include
-
-2004-11-15 04:29  v3rt1g0
-
-	* audio/beepmp/: BUILD, DEPENDS, DETAILS: Bumping version. This new
-	  version is technically a RC, but it has proven to be more stable
-	  for most people and it seems that any new beep-media-player only
-	  plugins are written for the 0.9.7 api rather than the 0.9.6.	The
-	  patch is no longer needed nor is the BUILD file.  Let me know if
-	  there are any problems.  Also added a few extra optional depends.
-
-2004-11-15 01:42  v3rt1g0
-
-	* chat/gaim-themes/: DETAILS, PRE_BUILD: Looks like some of the
-	  themes went buhbye
-
-2004-11-15 01:29  v3rt1g0
-
-	* chat/autoprofile/: BUILD, DEPENDS, DETAILS: Initial import of a
-	  profile manager type plugin for Gaim.  Quite robust.
 
