@@ -1,5 +1,6 @@
 (
 
+  export PATH=$QTDIR/bin:$PATH
   cd qt                             &&
   qmake -o Makefile qscintilla.pro  &&
   default_make                      &&
