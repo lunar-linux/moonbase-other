@@ -9,9 +9,13 @@ unset CC CXX
   sedit "s/examples//"  Makefile.am   &&
   sedit "s/examples//"  Makefile.in   &&
 
-  ./configure  --host=$BUILD           \
-               --mandir=/usr/share/man \
-               --prefix=/usr          &&
+  ./configure  --host=$BUILD             \
+               --bindir=/bin             \
+               --sbindir=/sbin           \
+               --sysconfdir=/etc         \
+               --infodir=/usr/share/info \
+               --mandir=/usr/share/man   \
+               --prefix=/usr             &&
   make                                &&
   prepare_install                     &&
   make    install                     &&
