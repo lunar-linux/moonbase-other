@@ -1,0 +1,4 @@
+root @hourly  for i in ls /etc/cron.hourly/*  ; do $i;done > /dev/null 2>&1
+root @daily   for d in ls /etc/cron.daily/*   ; do $d;done > /dev/null 2>&1
+root @weekly  for w in ls /etc/cron.weekly/*  ; do $w;done > /dev/null 2>&1
+root @monthly for m in ls /etc/cron.monthly/* ; do $m;done > /dev/null 2>&1
