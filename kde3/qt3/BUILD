@@ -1,5 +1,6 @@
 (
   export  YACC=byacc
+  export  QT_PREFIX=${QT_PREFIX:-/opt/lunar/qt/3}
   export  QTDIR=$SOURCE_DIRECTORY
   export  PATH=$QTDIR/bin:$PATH
   export  LD_LIBRARY_PATH=$QTDIR/lib
