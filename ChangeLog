@@ -1,3 +1,153 @@
+2004-04-14 11:32  prox
+
+	* zbeta/gkrellm2-beta/: BUILD, CONFLICTS, DEPENDS, DETAILS: adding
+	gkrellm2-beta (2.2.0-test1), this fix font problems with new gtk+-2
+	and gkrellm2. Check http://web.wt.net/~billw/gkrellm/Bugs.html for
+	more information.
+
+2004-04-14 04:36  florin
+
+	* graphics/gimp/DETAILS: bump the version from 2.0.0 to 2.0.1.
+	tested with kernel 2.6.5, kernel-headers-2.6.
+
+2004-04-14 03:43  nhudson
+
+	* gnome2-extras/gnopernicus/DEPENDS: 
+	Adding gnome-mag to gnopernicus's DEPENDS
+
+2004-04-14 03:32  florin
+
+	* kde3-apps/koffice3/DEPENDS: add a newline char at the end.
+
+2004-04-14 03:27  tchan
+
+	* x11-apps/gnucash/DETAILS: Version bump to 1.8.9.  Compiled and
+	tested with gcc-3.3.3, kernel headers 2.4.x. Tested on a gnome2.6
+	updated box and that has not broken any of the gnome1.x libs needed
+	by gnucash.
+
+2004-04-14 03:27  florin
+
+	* kde3-apps/koffice3/DEPENDS: add wv2 optional depend. thx to Dave
+	Brown for pointing it.
+
+2004-04-14 02:52  tchan
+
+	* video/camE/DEPENDS: Added a missing && in the file.
+
+2004-04-14 02:52  nhudson
+
+	* graphics/gimp/DETAILS: 
+	Updating gimp to new version 2.0.1 and added a md5sum to the module
+
+2004-04-14 02:50  tchan
+
+	* utils/dosbox/DETAILS: Removed an extra quotation mark in the
+	short description.
+
+2004-04-14 01:49  nhudson
+
+	* gnome2-core/startup-notification/DETAILS: 
+	Updating startup notification to new version 0.6
+
+2004-04-14 00:37  nhudson
+
+	* web/epiphany-extensions/DETAILS: 
+	Updating epiphany-extentions to new version 0.8.2
+
+2004-04-14 00:34  nhudson
+
+	* gnome2-apps/mozilla-bonobo/: BUILD, DETAILS: 
+	Updating mozilla-bonobo to new version 0.4.1
+
+2004-04-14 00:31  nhudson
+
+	* gnome2-applets/teatime/DETAILS: 
+	Updating teatime to new version 2.4
+
+2004-04-14 00:27  nhudson
+
+	* x11/libxklavier/DETAILS: 
+	Updating libxklavier to new version 1.02
+
+2004-04-14 00:22  nhudson
+
+	* libs/: gal21/BUILD, gal21/DEPENDS, gal21/DETAILS,
+	gtkhtml31/BUILD, gtkhtml31/DEPENDS, gtkhtml31/DETAILS: 
+	Adding gal21 and gtkhtml31 to moonbase for the module
+	evolution-beta
+
+2004-04-14 00:16  nhudson
+
+	* zbeta/evolution-beta/: BUILD, DEPENDS, DETAILS: 
+	Adding evolution-beta to moonbase.  This is the beta version of
+	evolution and its expected to crash alot but I find it var superior
+	to the stable evolution version in moonbase currently.	It uses the
+	eds backend now for its DB instead of the old db3 version you have
+	to use with evolution now
+
+2004-04-14 00:05  nhudson
+
+	* audio/sound-juicer/: BUILD, DETAILS: 
+	Updating sound-juicer to new version 0.5.11, removing patch to make
+	it build with gstreamer 0.8
+
+2004-04-13 23:55  nhudson
+
+	* gnome2-applets/contact-lookup-applet/: BUILD, DEPENDS, DETAILS: 
+	Adding contact lookup applet to moonbase.  This uses the
+	functionallity of evolution-data-server as a backend to lookup
+	contacts in your evo contact list
+
+2004-04-13 19:40  striker
+
+	* gnome2-core/gdm/BUILD: trailing escaped space (not escaped
+	newline) killing configure
+
+2004-04-13 16:11  moe
+
+	* net/pptp/: BUILD, DETAILS: Updating pptp tp 1.4.0. Cleaning up
+	the BUILD file too.  Works with 2.6.4, gcc 3.3.3
+
+2004-04-13 16:00  nhudson
+
+	* devel/glibmm/: BUILD, DEPENDS: 
+	Fixing DEPENDS as it should have had doxygen in it
+
+2004-04-13 15:51  nhudson
+
+	* doc-tools/openjade/POST_INSTALL: 
+	Adding this to as it was a older version also
+
+2004-04-13 15:47  nhudson
+
+	* doc-tools/openjade/POST_INSTALL: 
+	Checking in some changes to the POST_INSTALL as tchan had a problem
+	due to left over old openjade installs in his /etc/sgml/catalog
+	file.  From now on we will have to just remove these if they are
+	present when we upgrade
+
+2004-04-13 15:37  nhudson
+
+	* doc-tools/docbook-xsl/rebuild-docbook-catalog: 
+	Changing email address for myself and adding another echo to the
+	build for fun.
+
+2004-04-13 13:42  nhudson
+
+	* profiles/docbook-profile/DEPENDS: 
+	I dont know why I never added this before
+
+2004-04-13 13:25  nhudson
+
+	* libs/libxml++/DEPENDS: 
+	Forgot to add the new depends on gtkmm2
+
+2004-04-13 13:24  nhudson
+
+	* libs/libxml++/DETAILS: 
+	Updating libxml++ to new version 2.6.0, now depends on gtkmm2
+
 2004-04-13 04:44  nhudson
 
 	* gnome2-core/gtkmm2/DEPENDS: 
@@ -831,6 +981,11 @@
 
 	* mail/: evolution/DETAILS, evolution-data-server/DETAILS: 
 	Updating evolution to 1.5.6 and eds to 0.0.91
+
+2004-04-06 04:49  nhudson
+
+	* libs/: gal21/DETAILS, gtkhtml31/DETAILS: 
+	Updating libsoup gal21 and gtkhtml31 for new version of evolution
 
 2004-04-05 18:26  tchan
 
@@ -2004,8 +2159,8 @@
 
 2004-03-16 18:30  nhudson
 
-	* audio/gst-ffmpeg/: DEPENDS, DETAILS, POST_INSTALL: 
-	Adding gst-ffmpeg to GNOME_UNSTABLE
+	* audio/gst-ffmpeg/DEPENDS: file DEPENDS was initially added on
+	branch GNOME_UNSTABLE.
 
 2004-03-16 18:30  nhudson
 
@@ -2019,8 +2174,8 @@
 
 2004-03-16 18:30  nhudson
 
-	* audio/gst-ffmpeg/DEPENDS: file DEPENDS was initially added on
-	branch GNOME_UNSTABLE.
+	* audio/gst-ffmpeg/: DEPENDS, DETAILS, POST_INSTALL: 
+	Adding gst-ffmpeg to GNOME_UNSTABLE
 
 2004-03-16 18:01  nhudson
 
@@ -2146,83 +2301,4 @@
 2004-03-15 03:14  hardkrash
 
 	* devel/bdb/DETAILS: well it isnt psafe gerrrrr
-
-2004-03-14 23:42  tchan
-
-	* cd/burgner/: BUILD, DETAILS: Fixed this module to compile
-	correctly under gcc-3.3.3.  It was also missing quotation marks in
-	the BUILD script.  Reformatted the DETAILS file.
-
-2004-03-14 22:37  nestu
-
-	* security/shorewall/: BUILD, DETAILS: Version bump ;)
-
-2004-03-14 21:22  nhudson
-
-	* gnome/gdk-pixbuf/DEPENDS: 
-	gdk-pixbuf doesnt need gnome-libs to build
-
-2004-03-14 18:10  florin
-
-	* filesys/udev/: BUILD, DETAILS: add a patch pointed by jmhodges.
-	thank you Jeff.
-
-2004-03-14 17:52  hardkrash
-
-	* web/ctorrent/DETAILS: <threebadwheels> threebadwheels@patchouli ~
-	$ lvu search transcode <threebadwheels> video/transcode
-	<threebadwheels> /bin/lvu: line 1: s: command not found <hardkrash>
-	no probably thre first line of a module <hardkrash> try a debug run
-	<elaine_> threebadwheels, lvu --debug search transcode
-	<threebadwheels> in the DETAILS file ... for ctorrent ... the
-	CTorrent`s is causing this issue
-	
-	fixed it thanks threebadwheels
-
-2004-03-14 15:42  nhudson
-
-	* mail/evolution/DETAILS: 
-	Updating evolution to new version 1.4.6
-
-2004-03-14 15:41  nhudson
-
-	* gnome2-extras/gal2/DETAILS: 
-	Updating gal2 to new version 1.99.11
-
-2004-03-14 15:39  nhudson
-
-	* gnome2-core/: gnome-vfs2/DETAILS, librsvg/DETAILS: 
-	Updating gnome-vfs2 to new version 2.4.3 and librsvg to new version
-	2.6.1
-
-2004-03-14 15:36  nhudson
-
-	* gnome/: gtkhtml3/DETAILS, libsoup/DETAILS: 
-	Updating libsoup to new version 1.99.28 and gtkhtml3 to new version
-	3.0.10
-
-2004-03-14 14:24  florin
-
-	* audio/alsa-lib/DETAILS: bump the version from 1.0.3a to 1.0.3b.
-	bugfix release.
-
-2004-03-14 07:05  florin
-
-	* filesys/udev/DETAILS: bump the version from 021 to 022.
-
-2004-03-14 07:03  florin
-
-	* utils/lsof/DETAILS: bump the version from 4.70 to 4.71.
-
-2004-03-14 06:51  florin
-
-	* perl/DBI/DETAILS: bump the version from 1.41 to 1.42.
-
-2004-03-14 03:48  tchan
-
-	* utils/coreutils/DETAILS: Version bump to coreutils-5.2.1.  Some
-	bug fixes, most notably in mv, cp --sparse=always, join, expr.	The
-	coreutils devs have synced their automake files to use
-	automake-1.8.3 (which has been current in Lunar as of 20040308). 
-	Compiled and tested with gcc-3.3.3, kernel headers 2.4.25.
 
