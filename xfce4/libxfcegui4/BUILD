@@ -2,6 +2,7 @@
 ( 
    ./configure  --build=$BUILD					\
                 --prefix=/opt/lunar/xfce/4.0			\
+		--enable-xinerama				\
                 $OPTS                                           &&
 
    default_make
