@@ -11,6 +11,11 @@
   QTDIR=/opt/lunar/qt/3
   KDEDIR=/opt/lunar/kde/3
 
+  ## fix problem with ccache
+  CC=${CC//ccache/} &&
+  CXX=${CXX//ccache/} &&
+  export CC CXX       &&
+
   ./configure    --prefix=/opt/lunar/kde/3             \
                  --enable-final                        \
                  --disable-debug                       \
