@@ -1,19 +1,11 @@
 (
 
-  cd $SOURCE_DIRECTORY                                      &&
-  # cp $MOONBASE/x11-apps/$MODULE/*.patch .                   &&
-  
-  # The order of these two patches is important. 
-  # DO NOT CHANGE THEM AROUND!
-  
-#  patch -p0<columns.patch                                   &&
-#  patch -p0<centering.patch                                 &&
-
   ./configure  --prefix=/usr                                \
                --bindir=/usr/bin                            \
 	       --datadir=/usr/share                         \
 	       --sysconfdir=/etc                            \
 	       --libdir=/usr/lib                            \
+               --enable-gtk2                                \
 	       --infodir=/usr/share/info                    \
 	       --mandir=/usr/share/man                      &&
   make                                                      &&
