@@ -1,16 +1,20 @@
-          MODULE=cube-bin
-         VERSION=2002_10_20
-          SOURCE=cube_${VERSION}.zip
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/cube
-   SOURCE_URL[0]=http://ludo.uib.no/cube/$SOURCE
+         MODULE=cube-bin
+         VERSION=2003_12_23
+         SOURCE=cube_${VERSION}.zip
+ SOURCE_DIRECTORY=$BUILD_DIRECTORY/cube
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+   SOURCE_URL[1]=http://tunes.org/~eihrul/$SOURCE
+   SOURCE_URL[2]=http://ludo.uib.no/cube/$SOURCE
+   SOURCE_URL[3]=http://www.idi.ntnu.no/~jonasf/cube/$SOURCE
+   SOURCE_URL[4]=http://www.geneticrose.com/$SOURCE
         WEB_SITE=http://wouter.fov120.com/cube/
          ENTERED=20030129
-         UPDATED=20030129
-           SHORT="Dude, you mean you don't know what cube is?"
-cat << EOF
+         UPDATED=20031226
+        SHORT="Dude, you mean you don't know what cube is?"
 
-This module installs the BINARY version with which you can play online
-on the public main servers.
+cat << EOF
+This module will build an optimized client and server, one that won't work
+together with the official binaries.
 
 Landscape-style engine that pretends to be an indoor first person shooter
 engine. Combines very high precision dynamic occlusion culling with a

@@ -1,5 +1,6 @@
 (
 
+  cd cube
   prepare_install
   set -x
   mkdir -p /usr/games/cube
