@@ -1,0 +1,26 @@
+#!/bin/bash
+#   description: mount and umount the filesystem
+#
+# chkconfig: 345 11 89
+
+
+start() {
+  mount -t nfs,smbfs -a                              && 
+    echo -e "Mounting network shares:$RESULT_OK"     ||
+    echo -e "Mounting network shares:$RESULT_FAIL"
+}
+
+stop() {
+  umount -t nfs,smbfs -a -f -l                       &&
+    echo -e "Unmounting network shares:$RESULT_OK"   ||
+    echo -e "Unmounting network shares:$RESULT_FAIL"
+}
+
+# to avoid confusion we force only these options as being valid:
+case "$1" in
+  start|stop|uninstall|install) ;;
+           *) echo  "Usage: $0 {start|stop}"  ;;
+esac
+
+. /lib/lsb/init-functions
+
