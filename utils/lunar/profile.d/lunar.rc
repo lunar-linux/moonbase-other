@@ -10,7 +10,7 @@ _lunar ()
 	prev=${COMP_WORDS[COMP_CWORD-1]}
 
 	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
-		COMPREPLY=( $( compgen -W 'update rebuild' $cur ))
+		COMPREPLY=( $( compgen -W 'prune renew update rebuild optimize fix nofix fixdepends set resurrect install remove hold unhold exile unexile' $cur ))
 	else
 		COMPREPLY=( $( compgen -f $cur ))
 	fi
@@ -26,11 +26,11 @@ _lvu ()
 	prev=${COMP_WORDS[COMP_CWORD-1]}
 
 	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
-		COMPREPLY=( $( compgen -W 'DETAILS DEPENDS CONFLICTS BUILD PRE_BUILD POST_BUILD CONFIGURE POST_INSTALL PRE_REMOVE POST_REMOVE what where cd alien from leafs orphans search service website install size installed compile compiler links sources maintainer version sum md5sum export import section moonbase html updatelog activity newer older prune voyeur pam depends tree eert' $cur ))
+		COMPREPLY=( $( compgen -W 'DETAILS DEPENDS CONFLICTS BUILD PRE_BUILD POST_BUILD CONFIGURE POST_INSTALL PRE_REMOVE POST_REMOVE what where cd alien from leafs orphans search service website install size installed compile compiler links sources maintainer version sum md5sum export import section moonbase html updatelog activity newer older prune voyeur pam depends tree eert stree leert' $cur ))
 	elif [ $COMP_CWORD -eq 2 -a $prev = "from" ]; then
 	        COMPREPLY=( $(compgen -f "$cur") )
 	elif [ $COMP_CWORD -eq 2 ]; then
-		COMPREPLY=( $( compgen -W "`cd /var/lib/lunar/moonbase ; echo */* | sed 's/[a-zA-Z0-9\-]*\///g'`" $cur ))
+		COMPREPLY=( $( compgen -W "`cat /var/state/lunar/module.index | cut -d: -f1`" $cur ))
 	fi
 	return 0
 }
@@ -40,7 +40,7 @@ _modules ()
 {
 	local cur
 	cur=${COMP_WORDS[COMP_CWORD]}
-	COMPREPLY=( $( compgen -W "`cd /var/lib/lunar/moonbase ; echo */* | sed 's/[a-zA-Z0-9\-]*\///g'`" $cur ))
+	COMPREPLY=( $( compgen -W "`cat /var/state/lunar/module.index | cut -d: -f1`" $cur ))
 }
 complete -F _modules lin lget
 
@@ -48,7 +48,7 @@ _modules_installed ()
 {
 	local cur
 	cur=${COMP_WORDS[COMP_CWORD]}
-	COMPREPLY=( $( compgen -W "`lvu installed | cut -d : -f 1-1`" $cur ))
+	COMPREPLY=( $( compgen -W "`cat /var/state/lunar/packages | cut -d: -f1`" $cur ))
 }
 
 complete -F _modules_installed lrm
