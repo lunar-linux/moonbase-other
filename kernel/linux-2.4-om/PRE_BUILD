@@ -15,7 +15,14 @@ mk_source_dir $SOURCE_DIRECTORY
 rm -f /usr/src/linux
 ln -s $SOURCE_DIRECTORY /usr/src/linux
 cd $SOURCE_DIRECTORY
-tar jxf $SOURCE_CACHE/$SOURCE --no-same-owner --no-same-permissions --strip-path=1
+
+# Yes, this is a workaround. Blame tar. Or sofar.
+
+if ! [ `lvu installed tar` == 1.15.1 ]; then
+  tar jxf $SOURCE_CACHE/$SOURCE --no-same-owner --no-same-permissions --strip-path=1
+else
+  tar xf $SOURCE_CACHE/$SOURCE --no-same-owner --no-same-permissions --strip-components=1
+fi
 
 if [ -f $CONFIG_CACHE/.config.om ]; then
   cp $CONFIG_CACHE/.config.om /usr/src/linux/.config
