@@ -1,12 +1,13 @@
 #!/bin/bash
 
-if [ -z "$1" -o -z "$2" ]; then
-  echo "$0 requires two arguments: infile outfile"
-  exit 1
+if [ -z "$1" -a -z "$2" ]; then
+  # use STDIN and STDOUT
+  cat - | recode --force IBMPC..Latin1
+elif [ -n "$1" -a -n "$2" ]; then
+  # INFILE and OUTFILE
+  recode --force IBMPC..Latin1 < "$1" > "$2"
 else
-  TMPFILE=$(mktemp)
-  cp "$1" $TMPFILE
-  recode --force IBMPC..Latin1 $TMPFILE
-  mv $TMPFILE "$2"
+  echo "$0 requires zero or two arguments: [infile] [outfile]"
+  exit 1
 fi
 
