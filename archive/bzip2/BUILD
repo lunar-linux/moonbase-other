@@ -2,7 +2,6 @@
 #  sedit  's/$(CC) $(CFLAGS) -o/$(CC) $(CFLAGS) $(LDFLAGS) -o/'  Makefile
 # make  LDFLAGS="-s -static"     &&
 
-
   sedit  "s/-O2/$CFLAGS/"  Makefile
   sedit  "s/ln/ln -f/"  Makefile
   sedit  "s/\$(PREFIX)\/man/\$(PREFIX)\/share\/man/g" Makefile
