@@ -1,6 +1,7 @@
 (
+  NEON_PREFIX="`neon-config --prefix`"
 
-  OPTS="$OPTS --with-ssl"
+  OPTS="$OPTS --with-ssl --with-neon=$NEON_PREFIX"
 
   default_build
 
