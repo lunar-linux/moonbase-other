@@ -1,3 +1,92 @@
+2003-11-17 07:22  florin
+
+	* video/mkvtoolnix/: DEPENDS, DETAILS: bump version from 0.7.5 to
+	0.7.7. added an optional depend on flac audio codec.
+
+2003-11-17 05:52  tchan
+
+	* net/netkit-tftp/CONFLICTS: Added a CONFLICTS file because this
+	module and tftp-hpa are in direct conflict now.
+
+2003-11-17 05:51  tchan
+
+	* net/tftp-hpa/: CONFLICTS, DETAILS, services: Added this module
+	per Couanette's request.  Added the CONFLICTS file and the services
+	file as well.  This module could probably use an xinetd.d directory
+	too, but I'm not sure how to write an entry for xinetd.
+
+2003-11-17 05:41  jmhodges
+
+	* science/octave/DETAILS: new version, anyone want to help me make
+	octave-forge work? (octave.sf.net) C'mon im sure somebody other
+	than me would like that :)
+
+2003-11-17 04:45  nhudson
+
+	* graphics/inkscape/: BUILD, DEPENDS, DETAILS: 
+	Adding inkscape to moonbase, this is a fork of sodipodi with more
+	attention to GNOME intagration and development
+
+2003-11-16 22:13  hardkrash
+
+	* crypto/libgcrypt/DETAILS: bugfix bump
+
+2003-11-16 22:13  hardkrash
+
+	* crypto/cryptplug/DETAILS: version bump, allows new libgcrypt, 
+	kmail users enjoy you gnupg plugin :-)
+
+2003-11-16 21:56  hardkrash
+
+	* libs/gpgme/DEPENDS: <Bellyeye> gpgme is missing dependency on
+	libgpg-error
+
+2003-11-16 21:38  hardkrash
+
+	* compilers/gcc/BUILD: THis is for when gcc desides to compile
+	something in the make install phase Gerrrrr  hardkrash
+
+2003-11-16 21:35  hardkrash
+
+	* science/maxima/: DEPENDS, DETAILS: a symbolic math program
+
+2003-11-16 21:34  jol
+
+	* kde3-apps/kxmleditor/: BUILD, DEPENDS, DETAILS: First import of
+	kxmleditor
+
+2003-11-16 18:57  florin
+
+	* kde3-apps/kaffeine/DETAILS: fix a misspell.
+
+2003-11-16 18:53  florin
+
+	* kde3-apps/kaffeine/: BUILD, DEPENDS, DETAILS: a kde media player
+	based on xine.
+
+2003-11-16 18:37  tchan
+
+	* mail/exim4/POST_INSTALL: Added a test to see if the exim3 conf
+	file has already been backed up.  If it has then we don't need to
+	convert it to exim4 again.
+
+2003-11-16 17:59  sofar
+
+	* perl/mod_perl/: BUILD, DETAILS: It really only needed a bump.
+
+2003-11-16 16:44  jol
+
+	* cd/k3b/: DEPENDS, DETAILS: Add depends on dvd+rw-tools
+
+2003-11-16 16:39  jol
+
+	* cd/dvd+rw-tools/: BUILD, DETAILS: First import of dvd burning
+	tools
+
+2003-11-16 16:05  florin
+
+	* filemanagers/krusader/DETAILS: bump version from 1.20 to 1.30.
+
 2003-11-16 05:34  florin
 
 	* kde3/qt3/DETAILS: bump version from 3.2.2 to 3.2.3. bugfix
@@ -1870,77 +1959,4 @@
 2003-10-18 06:29  florin
 
 	* kde3-apps/kexchange3/DETAILS: bump version from 0.3.1 to 0.3.2
-
-2003-10-17 23:43  nhudson
-
-	* web/MozillaFirebird/POST_REMOVE: 
-	Somehow this didnt get in there when I updated the module
-
-2003-10-17 23:42  nhudson
-
-	* web/epiphany/DETAILS: 
-	Updating epiphany to new version 1.0.3 which now word with moz 1.5
-	which should be updated sometime this weekend
-
-2003-10-17 22:49  nhudson
-
-	* web/MozillaFirebird/: BUILD, DETAILS, POST_INSTALL,
-	firebird-nsRegisterChrome.cpp.patch: 
-	Updating MozillaFirebird to new version 0.7 and removing the patch
-	that was needed before.
-
-2003-10-17 20:53  elaine
-
-	* libs/glibc/: BUILD, POST_INSTALL: Don't make/install headers if
-	we already have the tarballs Not a perfect solution but I can't
-	think of anything better atm
-
-2003-10-17 20:48  florin
-
-	* utils/Wine/DETAILS: bump version to 20031016
-
-2003-10-17 20:37  elaine
-
-	* kernel/kernel-headers/2.4.20/DETAILS: add md5chksum
-
-2003-10-17 20:10  elaine
-
-	* shells/tcsh/POST_INSTALL: Added /bin/csh symlink
-
-2003-10-17 19:17  elaine
-
-	* devel/cvs/BUILD: Added BUILD file to disable gssapi (which breaks
-	build if krb5 is present)
-
-2003-10-17 18:16  elaine
-
-	* kernel/linux-stable/BUILD: Put nestu's corrected BUILD back in
-	place
-
-2003-10-17 18:16  elaine
-
-	* kernel/linux-vanilla/BUILD: Put nestu's corrected BUILD back
-
-2003-10-17 18:07  florin
-
-	* video/xawtv/DETAILS: bump version from 3.88.1 to 3.90
-
-2003-10-17 17:57  florin
-
-	* kde3/qt3/DETAILS: bump version from 3.2.1 to 3.2.2. bugfix
-	version.
-
-2003-10-17 14:59  florin
-
-	* web/links2/DETAILS: bump version from 2.1pre12 to 2.1pre13
-
-2003-10-17 04:46  florin
-
-	* mail/sendmail/: BUILD, DETAILS: bump version from 8.12.9 to
-	8.12.10. the parse patch is no longer needed.
-
-2003-10-17 02:24  nhudson
-
-	* gnome2-apps/battfink/DEPENDS: 
-	Fixing DEPENDS pointed out to me by maddog in irc
 
