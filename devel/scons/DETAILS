@@ -1,0 +1,20 @@
+          MODULE=scons
+         VERSION=0.96.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE/
+      SOURCE_VFY=sha1:9ba5c47ffc1fa947b9984700d9a4f4c2368d74aa
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+        WEB_SITE=http://www.scons.org/
+         ENTERED=20041011
+         UPDATED=20041011
+           SHORT="Pathetic attempt to replace make"
+cat << EOF
+SCons is a software construction tool (build tool substitute for Make)
+implemented in Python. It features a modular build engine that can be embedded
+in other software. SCons configuration files are Python scripts that call the
+build engine API. It can scan files to detect dependencies automatically and
+maintain a global view of all dependencies in a build tree, and uses MD5
+signatures to detect changed file contents reliably. Timestamps can be used if
+you prefer. SCons also supports parallel builds and is easily extensible
+through user-defined builder and scanner objects.
+EOF
