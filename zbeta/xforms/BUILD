@@ -1,6 +1,6 @@
 (
   bad_flags linker &&
-  sedit "s/define BuildDemos NO/define BuildDemos YES/" Imakefile &&
+  patch_it  $SOURCE_CACHE/$SOURCE2 0 &&
   xmkmf -a                  &&
   for FILE in `ls */Makefile`; do
     sedit "s:EXTENSIONLIB =  -lXext:EXTENSIONLIB = -L/usr/X11R6/lib  -lXext:" $FILE
