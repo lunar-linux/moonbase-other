@@ -4,6 +4,7 @@
   ./configure	--prefix=/usr \
 		--sysconfdir=/etc \
                 --with-system-gcc \
+                --enable-devel    \
                 --enable-bonobo   \
                 --disable-dependency-tracking \
  		$OPTS &&
