@@ -1,3 +1,94 @@
+2004-03-12 10:22  moe
+
+	* utils/acpid/DETAILS: Updating this to 1.0.3. Now with 2.6.x
+	kernel support and a ton of bugfixes.
+
+2004-03-12 05:30  nhudson
+
+	* video/xine-lib/BUILD: 
+	Fixing so it builds with 2.6.x kernel headers
+
+2004-03-12 04:52  nhudson
+
+	* gnome2-core/: control-center2/DETAILS, libgnomeprint/DETAILS,
+	libgnomeprintui/DETAILS, libgtop2/DETAILS: 
+	Updating libgnomeprint/ui to 2.5.4, libgtop2 to 2.5.2,
+	control-center2 to 2.5.4 and gcalctool to 4.3.50
+
+2004-03-12 04:32  florin
+
+	* libs/qscintilla/: BUILD, DEPENDS, DETAILS: some cosmetic changes.
+
+2004-03-12 04:20  florin
+
+	* sql/postgresql/: BUILD, DETAILS: bump the version from 7.4.1 to
+	7.4.2.
+
+2004-03-12 04:17  florin
+
+	* devel/sip/: BUILD, DETAILS, PRE_BUILD: bump the version from 3.8
+	to 3.10.1.
+
+2004-03-11 22:20  cmak
+
+	* gnome2-extras/gnome-cups-manager/DEPENDS: added libgnomeui to
+	depends
+
+2004-03-11 20:25  florin
+
+	* kde3-apps/quanta3/DETAILS: bump the version from 3.2.0 to 3.2.1.
+
+2004-03-11 18:45  nestu
+
+	* kernel/linux-beta/: DETAILS, PRE_BUILD: Version bump. NO WAR, NO
+	TERRORISM, NO BS POLITICS!
+
+2004-03-11 16:09  tchan
+
+	* chat/gaim/DEPENDS: Added a missing &&.
+
+2004-03-11 16:09  tchan
+
+	* zbeta/gaim-cvs/DEPENDS: Fixed this file to match the regular gaim
+	DEPENDS
+
+2004-03-11 15:53  florin
+
+	* x11-utils/fontconfig/DETAILS: bump the version from 2.2.0 to
+	2.2.1.
+
+2004-03-11 15:35  florin
+
+	* kde3-apps/kdevelop3/DETAILS: bump the version from 3.0.1 to
+	3.0.2.
+
+2004-03-11 15:28  nhudson
+
+	* devel/: ruby-gnome2/CONFLICTS, ruby-gtk2/BUILD,
+	ruby-gtk2/CONFLICTS, ruby-gtk2/DEPENDS, ruby-gtk2/DETAILS: 
+	Adding in ruby-gtk2 for those who want to play with ruby and gtk
+	but not install all the Gnome modules to do so.  Also adding a
+	CONFLICTS file to ruby-gnome2 to remove ruby-gtk2 when installed
+
+2004-03-11 14:52  nhudson
+
+	* x11-apps/ore/: BUILD, DEPENDS, DETAILS: 
+	Adding ore to moonbase, ore is a nice clean ruby editor written in
+	gtk/gnome
+
+2004-03-11 14:49  nhudson
+
+	* devel/ruby-gtksourceview/: BUILD, DEPENDS, DETAILS: 
+	Adding ruby-gtksourceview to moonbase and removing old ruby-gtk and
+	ruby-gconf those 2 modules are now apart of ruby-gnome2
+
+2004-03-11 14:30  nhudson
+
+	* devel/: pygtk2/DETAILS, ruby-gnome2/DETAILS: 
+	Updating pygtk2 to new version 2.2.0, updating ruby-gnome2 to new
+	version 0.9.0 and removing the old ruby-gnome stuff because it is
+	no longer used or developed
+
 2004-03-11 04:32  florin
 
 	* kde3-apps/bookcase/DETAILS: bump the version from 0.8.4 to 0.8.5.
@@ -2598,176 +2689,4 @@
 2004-02-11 00:14  cmak
 
 	* audio/alsa-lib/POST_INSTALL: the commit sais it all...
-
-2004-02-10 23:43  tchan
-
-	* zbeta/: dillo-cvs/CONFLICTS, mutt-cvs/CONFLICTS: Forgot to add
-	the necessary CONFLICTS files for mutt-cvs and dillo-cvs.
-
-2004-02-10 23:41  tchan
-
-	* zbeta/: dillo-cvs/CONFIGURE, dillo-cvs/DEPENDS,
-	dillo-cvs/DETAILS, mutt-cvs/BUILD, mutt-cvs/DEPENDS,
-	mutt-cvs/DETAILS: Just for grins.  Added dillo-cvs and mutt-cvs to
-	the zbeta section.
-
-2004-02-10 22:04  nhudson
-
-	* audio/sound-juicer/DETAILS: 
-	Updating sound-juicer to new version 0.5.10.1
-
-2004-02-10 21:58  tchan
-
-	* web/dillo/: BUILD, DETAILS: Test for /etc/dillorc was incorrect
-	and the newer dillo installs over /etc/dillorc by default now.	No
-	need for a BUILD script since default_build is sufficient.
-
-2004-02-10 21:37  nestu
-
-	* web/dillo/DETAILS: Bump version, and fix urls
-
-2004-02-10 21:05  niki
-
-	* filesys/autofs/DETAILS: fixed the dl url
-
-2004-02-10 20:47  nhudson
-
-	* mail/evolution/: BUILD, DEPENDS: 
-	Finally getting evolution to build with nss3 support for ssl
-	connections, makeing mozill a hard dependancy for now
-
-2004-02-10 20:23  florin
-
-	* games/neverball/: BUILD, DEPENDS, DETAILS: this is a funny game
-	with a ball in an obstacle course.
-
-2004-02-10 20:18  nestu
-
-	* kernel/linux-beta/DETAILS: version bump
-
-2004-02-10 19:58  nhudson
-
-	* gnome2-apps/gok/DETAILS: 
-	Updating gok to new version 0.9.6
-
-2004-02-10 19:56  nhudson
-
-	* chat/gossip/DETAILS: 
-	Updating gossip to new version 0.7.2
-
-2004-02-10 19:55  nhudson
-
-	* gnome2-core/: at-spi/DETAILS, yelp/DETAILS: 
-	Updating gnome-mag, yelp and at-spi to new versions
-
-2004-02-10 19:48  florin
-
-	* graphics/blender/DETAILS: bump version from 2.31a 2.32
-
-2004-02-10 18:13  florin
-
-	* video/MPlayer/DETAILS: bump version for live to 2004.02.09.
-
-2004-02-10 18:03  florin
-
-	* kde3-apps/kbarcode/DETAILS: bump version from 1.6.1 to 1.6.2.
-
-2004-02-10 17:34  florin
-
-	* games/gl-117/DETAILS: fix the home site url.
-
-2004-02-10 16:53  florin
-
-	* games/gl-117/DETAILS: bump version from 1.1 to 1.2. tested by my
-	son :)
-
-2004-02-10 16:28  hardkrash
-
-	* x11/: NVIDIA/BUILD, NVIDIA26/BUILD: i thought the grouping would
-	have worked
-
-2004-02-10 15:53  florin
-
-	* x11/: NVIDIA26/BUILD, NVIDIA/BUILD: fix the compile of the
-	module.
-
-2004-02-10 15:48  moe
-
-	* shells/bash/DETAILS: Adding PSAFE=no as reported by Striker bash
-	won't work with distcc :)
-
-2004-02-10 15:34  nhudson
-
-	* mail/evolution/DETAILS: 
-	I have no clue why this wasnt updated earlier, anyway evolution is
-	updated to 1.5.4 and evolution-data-server to 0.0.7
-
-2004-02-10 12:47  sofar
-
-	* utils/pciutils/: BUILD, DETAILS: urr something going wrong here
-	with ssh... hmmm
-
-2004-02-10 12:37  sofar
-
-	* utils/pciutils/DETAILS: Todays goody: free fresh pci.ids for
-	everyone!
-
-2004-02-10 12:34  sofar
-
-	* utils/pciutils/: BUILD, DETAILS: update: install *current* pci
-	ids database instead of 2yr old one. Note this file is updated
-	daily, and once downloaded, you'll have to wipe the cache version
-	:^(.
-
-2004-02-10 09:23  sofar
-
-	* LICENSE: Updating this a bit .... :^o
-
-2004-02-10 04:43  florin
-
-	* video/mkvtoolnix/DETAILS: bump version from 0.8.2 to 0.8.3.
-
-2004-02-10 04:38  tchan
-
-	* net/samba/DETAILS: Version bump to 3.0.2.  A big security fix and
-	lots of smaller bug fixes.  The samba web page recommends upgrading
-	ASAP.  They also recommend getting the 3.0.2 source and at least
-	compiling the pdbedit tool and running that on 3.0.1 samba servers
-	or lower if you cannot upgrade to 3.0.2.
-	
-	Compiled and tested with gcc-3.2.3, and kernel header 2.4.x
-
-2004-02-10 04:31  nhudson
-
-	* mail/evolution/DEPENDS: 
-	Updating DEPENDS file for recient changes
-
-2004-02-10 04:30  nhudson
-
-	* gnome2-extras/gal2/DETAILS: 
-	Reverting gal2 back to the version in moonbase
-
-2004-02-10 01:23  niki
-
-	* video/mjpegtools/DETAILS: this module isnt psafe.
-
-2004-02-10 00:48  nhudson
-
-	* libs/loudmouth/BUILD: 
-	Removing the BUILD file for loudmouth
-
-2004-02-10 00:46  nhudson
-
-	* chat/gossip/DETAILS: 
-	Updating gossip to new version 0.7
-
-2004-02-10 00:42  nhudson
-
-	* libs/loudmouth/DETAILS: 
-	Updating loudmouth to new version 0.15.1
-
-2004-02-10 00:10  moe
-
-	* utils/clamav/DETAILS: Bumping after user request. Tested on
-	2.4/gcc 3.2.3
 
