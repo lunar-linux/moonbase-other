@@ -5,9 +5,11 @@
     DRI_DIR="extras/drm/linux"
     DRM_DEST="/lib/modules/$(uname -r)/kernel/drivers/drm"
     mkdir -p $DRM_DEST
-    cd $DRM_DIR && make
+    cd $DRM_DIR &&
+    make
     cd $SOURCE_DIRECTORY 
-    cd $DRI_DIR && make
+    cd $DRI_DIR &&
+    make
     cp $DRI_DIR/*.o $DRM_DEST 2>/dev/null
     depmod -a
     true
@@ -18,14 +20,10 @@
     echo "Your master xinitrc file has been backed up as /etc/X11/xinit/xinitrc.orig"
   fi
 
-  message "Building XOrg takes a very long time."
-
   bad_flags '-funroll-loops' '-ffast-math'
 
-  # first copy the stored settings over:
-  #cp $CONFIG_CACHE/host.def config/cf/host.def &&
+  # Here we go for our host.def
 
-  # then add stuff on the fly:
   echo  "#define InstallXdmConfig YES"          >> config/cf/host.def &&
   echo  "#define InstallXinitConfig YES"        >> config/cf/host.def &&
   echo  "#define InstallXserverSetUID YES"      >> config/cf/host.def &&
@@ -36,28 +34,31 @@
     echo "#define HasPamMisc YES"               >> config/cf/host.def 
   fi 
 
+  if [ -n "$XORG_DRIVERS" ]; then
+    echo "#define XF86CardDrivers $XORG_DRIVERS" >> config/cf/host.def
+  fi
+
   echo  "#define DefaultCCOptions      $CFLAGS" >> config/cf/host.def &&
   echo  "#define LibraryCDebugFlags    $CFLAGS" >> config/cf/host.def &&
   echo  "#define DefaultCDebugFlags    $CFLAGS" >> config/cf/host.def &&
   echo  "#define OptimizedCDebugFlags  $CFLAGS" >> config/cf/host.def &&
-  echo  "#define XVendorString \"Lunar-Linux.org (The X.Org Foundation $VERSION)\"" >> config/cf/host.def &&
-  echo  "#define FontDir /usr/share/fonts"      >> config/cf/host.def &&
+  echo  "#define XVendorString \"Lunar-Linux.org (xorg.freedesktop.org $VERSION)\"" >> config/cf/host.def &&
   echo  "#define HasZlib YES"                   >> config/cf/host.def &&
   echo  "#define HasFreetype2 YES"              >> config/cf/host.def &&
-  echo  "#define HasFontconfig YES"		>> config/cf/host.def &&
   echo  "#define ForceNormalLib  YES"           >> config/cf/host.def &&	
   echo  "#define HasExpat  YES"			>> config/cf/host.def &&
   echo  "#define UseExpat  YES"                 >> config/cf/host.def &&
   echo  "#define HasLibpng YES"			>> config/cf/host.def &&
-  if module_installed libxml2 ; then
-    echo  "#define HasLibxml2 YES"		>> config/cf/host.def
-  else
-    echo  "#define HasLibxml2 NO"		>> config/cf/host.def
-  fi
+  echo  "#define BuildDocs NO"			>> config/cf/host.def &&
+  echo  "#define HasLibxml2 YES"		>> config/cf/host.def &&
   echo  "#define InstallFontconfigLibrary NO"   >> config/cf/host.def &&
   echo  "#define SharedLibXft YES"		>> config/cf/host.def &&
   echo  "#define PreferXdmcpIPv6 YES"		>> config/cf/host.def &&
-
+  echo  "#define BuildFontServer NO"		>> config/cf/host.def &&
+  echo  "#define BuildFonts NO"			>> config/cf/host.def &&
+  echo  "#define MakeLocalFontDir NO"		>> config/cf/host.def &&
+  echo  "#define InstallFSConfig NO"		>> config/cf/host.def &&
+  
   if grep -q "Compilation aborted" /usr/include/linux/config.h ; then
     # This must happen or it will cause the module to break
     # claiming "Kernel only header included in userspace"
@@ -66,44 +67,66 @@
     invoke_installwatch
   fi
   
-  make World                            &&
+  # explicitly exit here now and not later on
+  make World                            ||
+  exit 1
+  
   prepare_install                       &&
   cd $SOURCE_DIRECTORY                  &&
   make install                          &&
-  make  install.man                     &&
+  make install.man                      &&
   install_drm                           &&
   mkdir -p /usr/X11R6/include/GL        &&
-  rm     -f /usr/X11R6/lib/libz.a       &&
+  rm     -f  /usr/X11R6/lib/libz.a      &&
   rm     -f /usr/X11R6/include/zlib.h   &&
   rm     -f /usr/X11R6/include/zconf.h  &&
   rm     -f /usr/X11R6/lib/libz.a       &&
 
-  if  [  !  -e                      /etc/skel/.xsession  ];  then
-    cp  $SCRIPT_DIRECTORY/xsession  /etc/skel/.xsession
-  fi  &&
+  if [ ! -e /etc/skel/.xsession ]; then
+    cp $SCRIPT_DIRECTORY/xsession /etc/skel/.xsession
+  fi &&
 
-  if  [  !  -e                    /usr/bin/X11  ];  then
-    ln      -sf   /usr/X11R6/bin  /usr/bin/X11
-  fi  &&
+  if [ ! -d /usr/bin/X11 ]; then
+    ln -sf /usr/X11R6/bin /usr/bin/X11
+  fi &&
 
-  if  [  !  -e          /usr/X11  ];  then
-    ln      -sf  X11R6  /usr/X11
-  fi  &&
+  if [ ! -d /usr/X11 ]; then
+    ln -sf /usr/X11R6 /usr/X11
+  fi &&
 
-  if  [  !  -e                         /usr/include/X11  ];  then
-    ln      -sf  ../X11R6/include/X11  /usr/include/X11
-  fi  &&
+  if [ ! -e /usr/include/X11 ]; then
+    ln -sf  /usr/X11R6/include/X11 /usr/include/X11
+  fi &&
 
-  if  [  !  -e                     /usr/lib/X11  ];  then
-    ln      -sf  ../X11R6/lib/X11  /usr/lib/X11
-  fi  &&
+  if [ ! -d /usr/lib/X11 ]; then
+    ln -sf /usr/X11R6/lib/X11 /usr/lib/X11
+  fi &&
+  
+  if [ ! -d /usr/X11R6/lib/X11/fonts ]; then
+    ln -sf /usr/share/fonts /usr/X11R6/lib/X11/fonts
+  fi &&
 
-  if  [  !  -e                     /usr/lib/libMesaGLU.so ];  then
-    ln      -sf  /usr/X11R6/lib/libGLU.so.1.3 /usr/lib/libMesaGLU.so
-  fi  &&
+  if [ ! -e  /usr/lib/libMesaGLU.so ]; then
+    ln -sf /usr/X11R6/lib/libGLU.so.1.3 /usr/lib/libMesaGLU.so
+  fi &&
 
-  if  [  !  -e                /usr/X11R6/lib/libMesaGL.so ];  then
-    ln      -sf  /usr/X11R6/lib/libGL.so.1.2 /usr/X11R6/lib/libMesaGL.so
+  if [ ! -e /usr/X11R6/lib/libMesaGL.so ]; then
+    ln -sf /usr/X11R6/lib/libGL.so.1.2 /usr/X11R6/lib/libMesaGL.so
+  fi &&
+  
+  if [ ! -e /usr/lib/pkgconfig/xft.pc ]; then
+    ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig/xft.pc
+  fi
+
+  if [ ! -d /tmp/.ICE-unix ]; then
+    mkdir -p /tmp/.ICE-unix
+    chown root /tmp/.ICE-unix
+    chmod 777 /tmp/.ICE-unix
+  fi
+  
+  if [ -e /etc/X11/xinit/xinitrc.orig ]; then
+    cp /etc/X11/xinit/xinitrc.orig /etc/X11/xinit/xinitrc
+    echo "Your master xinitrc file has been restored from /etc/X11/xinit/xinitrc.orig"
   fi
 
 ) > $C_FIFO 2>&1
