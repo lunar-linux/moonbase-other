@@ -1,11 +1,16 @@
-           MODULE=gsview
-         VERSION=4.3
+          MODULE=gsview
+         VERSION=4.6
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/${SOURCE}
+	 SOURCE2=$MODULE-$VERSION.patch
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:0d2037fce3bfd546bde4e6156083221d63dc7c7a
+     SOURCE2_VFY=sha1:632eb956c0b6bb5ee754fc8456229829222265d4
         WEB_SITE=http://www.cs.wisc.edu/~ghost/gsview
          ENTERED=20011122
-         UPDATED=20020611
-           SHORT="GSView is a nice GUI for viewing PDF & PS files via AFPL ghostscript."
+         UPDATED=20041120
+           SHORT="GSView is a nice GUI for viewing PDF & PS files"
 cat << EOF
 GSview is a graphical interface for Ghostscript, an interpreter for the
 PostScript page description language used by laser printers. 
