@@ -1,9 +1,9 @@
 (
 
-  unset CC
+  ./configure  --prefix=/usr        \
+               --bindir=/usr/games  \
+	       --datadir=/usr/share/games &&
 
-  make             &&
-  prepare_install  &&
-  cp  tuxpuck  /usr/games
+  default_make
 
 ) > $C_FIFO 2>&1
