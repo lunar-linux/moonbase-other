@@ -1,8 +1,7 @@
 (
-  patch_it $SOURCE_CACHE/$SOURCE2 1 && 
+#  patch_it $SOURCE_CACHE/$SOURCE2 1 &&  # as near as I can see, not needed
   ./configure  --prefix=/opt/lunar/gnome/2.4 \
                --disable-werror            \
-                --with-mozilla-snapshot=trunk \
                $OPTS      &&
   default_make  &&
 
