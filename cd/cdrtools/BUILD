@@ -1,5 +1,9 @@
 (
 
+  # this will make it use its own headers
+  # not the last linned kernel headers
+  sedit "s?/usr/src/linux/include? ?g" DEFAULTS/Defaults.linux 
+    
   if  `module_installed smake`; then
     THISMAKE=smake
   else
