@@ -36,7 +36,8 @@ EOF
   LD_LIBRARY_PATH="$INSTALL_ROOT/lib:$INSTALL_ROOT/usr/lib:"$LD_LIBRARY_PATH
   export LD_LIBRARY_PATH
 
-  ln  -sf  $INSTALL_ROOT/lib/ld-$VERSION.so  /lib/ld-linux.so.2 &&
+  rm -f /lib/ld-linux.so.2 &&
+  sln  $INSTALL_ROOT/lib/ld-$VERSION.so  /lib/ld-linux.so.2 &&
 
   prepare_install                             &&
 
