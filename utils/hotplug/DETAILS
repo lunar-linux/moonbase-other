@@ -2,14 +2,18 @@
          VERSION=2004_04_01
           SOURCE=$MODULE-$VERSION.tar.gz
 	 SOURCE2=firmware.agent
+	 SOURCE3=hotplug_initscript.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://kernel.org/pub/linux/utils/kernel/$MODULE/$SOURCE
    SOURCE_URL[1]=$SFORGE_URL/linux-$MODULE/$SOURCE
-  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
+     SOURCE3_URL=$PATCH_URL/$SOURCE3
       SOURCE_VFY=md5:d677a75d6dd6cabbb929470418ad8018
+     SOURCE2_VFY=md5:f95adaf4c43ce30a158fd2bb5b570e27
+     SOURCE3_VFY=md5:86a6d6e4c0397a4616ec4aaa03d9c956 
         WEB_SITE=http://linux-hotplug.sourceforge.net/
          ENTERED=20020814
-         UPDATED=20040404
+         UPDATED=20040410
            SHORT="The user space hotplug device manager"
 
 cat <<EOF
