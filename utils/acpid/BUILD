@@ -1,10 +1,8 @@
 (
 
-  make &&
-  prepare_install &&
-  make install &&
-  mkdir -p /usr/share/doc/acpid &&
-  install samples/acpi_handler.sh samples/sample.conf /usr/share/doc/acpid &&
-  mkdir -p /etc/acpi/events
+  default_make &&
+  mkdir -p /etc/acpi/events &&
+
+  gather_docs samples/acpi_handler.sh samples/sample.conf
 
 ) > $C_FIFO 2>&1
