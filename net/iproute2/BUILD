@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 1 &&
-
   ./configure &&
   KERNEL_INCLUDE=/usr/include/ make SBINDIR=/sbin &&
   prepare_install &&
