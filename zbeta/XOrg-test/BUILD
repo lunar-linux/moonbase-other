@@ -31,10 +31,10 @@
   echo  "#define InstallXserverSetUID YES"      >> config/cf/host.def &&
   echo  "#define BuildServersOnly NO"           >> config/cf/host.def &&
 
- # if module_installed Linux-PAM ; then
- #   echo "#define HasPam YES"                   >> config/cf/host.def &&
- #   echo "#define HasPamMisc YES"               >> config/cf/host.def 
- # fi 
+  if module_installed Linux-PAM ; then
+    echo "#define HasPam YES"                   >> config/cf/host.def &&
+    echo "#define HasPamMisc YES"               >> config/cf/host.def 
+  fi 
 
   echo  "#define DefaultCCOptions      $CFLAGS" >> config/cf/host.def &&
   echo  "#define LibraryCDebugFlags    $CFLAGS" >> config/cf/host.def &&
@@ -48,8 +48,12 @@
   echo  "#define HasExpat  YES"			>> config/cf/host.def &&
   echo  "#define UseExpat  YES"                 >> config/cf/host.def &&
   echo  "#define HasLibpng YES"			>> config/cf/host.def &&
-  echo  "#define HasLibxml2 YES"		>> config/cf/host.def &&
-  echo  "#define InstallFontconfigLibrary YES"  >> config/cf/host.def &&
+  if module_installed libxml2 ; then
+    echo  "#define HasLibxml2 YES"		>> config/cf/host.def
+  else
+    echo  "#define HasLibxml2 NO"		>> config/cf/host.def
+  fi
+  echo  "#define InstallFontconfigLibrary NO"   >> config/cf/host.def &&
   echo  "#define SharedLibXft YES"		>> config/cf/host.def &&
   echo  "#define PreferXdmcpIPv6 YES"		>> config/cf/host.def &&
 
@@ -68,7 +72,7 @@
   make  install.man                     &&
   install_drm                           &&
   mkdir -p /usr/X11R6/include/GL        &&
-  rm     -f  /usr/X11R6/lib/libz.a      &&
+  rm     -f /usr/X11R6/lib/libz.a       &&
   rm     -f /usr/X11R6/include/zlib.h   &&
   rm     -f /usr/X11R6/include/zconf.h  &&
   rm     -f /usr/X11R6/lib/libz.a       &&
