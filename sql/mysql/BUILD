@@ -4,7 +4,6 @@
 
   devoke_installwatch        &&
 
-#  set -x &&
   if [ "`arch`" == "alpha" ]; then
   	export CFLAGS="$CFLAGS -fPIC"
 	export CXXFLAGS="$CXXFLAGS -fPIC"
@@ -24,10 +23,11 @@
                --with-extra-charset=all        \
 	       --with-pthread                  \
                $OPTS                          &&
-  set +x &&             
   invoke_installwatch                         &&
+
   make  pkglibdir=/usr/lib                    &&
   prepare_install                             &&
+  mkdir -p /var/lib/mysql                     &&
   make  pkglibdir=/usr/lib  install           &&
   rm    -rf  /usr/mysql-test                  &&
   if ! grep  -q  "\--without-server" $MODULE_CONFIG;  then
