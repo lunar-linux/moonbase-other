@@ -1,9 +1,52 @@
+2003-12-18 01:00  hardkrash
+
+	* net/net-tools/init.d/network: fixed some bad pratices with the !
+	-z stuff :-P fixed a bug with infinite lease times, now warns
+	instead of fails corrected slight bug with a blank gateway file
+
+2003-12-17 20:36  tchan
+
+	* filemanagers/mc/DEPENDS: Added some depends.	e2fsprogs is
+	actually a required depends since the lunar module is using
+	--with-libext2fs flag.	mc by default uses the included mcslang,
+	but this is just a stripped version of slang, so might as well use
+	the real thing.
+
+2003-12-17 20:14  tchan
+
+	* devel/arch/DETAILS: Fixed the UPDATED field for jmhodges, again.
+
+2003-12-17 19:31  tchan
+
+	* distributed/distcc/init.d/distcc: Returned init.d/distcc to
+	moonbase.  I believe distcc does work from init.d.  I returned it
+	to still give users the choice of running the daemon from init.d or
+	xinetd.
+
+2003-12-17 19:20  hardkrash
+
+	* security/nmap/DEPENDS: fix for bug 377
+
+2003-12-17 18:57  hardkrash
+
+	* utils/openmosix-tools/: BUILD, DETAILS: adding open mosix tools,
+	requires open mosix patched kernel sources in /usr/src/linux though
+
+2003-12-17 15:28  sofar
+
+	* net/ethereal/DETAILS: bumped.
+
 2003-12-17 10:40  sofar
 
 	* graphics/gtk+-2/DEPENDS, devel/tk/DEPENDS, graphics/gtk+/DEPENDS,
 	kde3/qt3/DEPENDS: You did not see this (it's for n00bs only, and
 	yeah that may be lame but having people dump on us every time is
 	lame too)
+
+2003-12-17 10:27  sofar
+
+	* distributed/distcc/init.d/distcc: The init.d script is unneeded.
+	xinetd is the proper way.
 
 2003-12-17 05:25  nhudson
 
@@ -1568,58 +1611,4 @@
 
 	* devel/arch/: BUILD, DETAILS: because i like being able to use
 	"tla file-find", its a patch
-
-2003-11-17 19:00  jmhodges
-
-	* devel/subversion/: BUILD, DETAILS: version bump, compiles w/o the
-	makefile sedits 0.32.1->0.33.0
-
-2003-11-17 16:55  florin
-
-	* sql/postgresql/DETAILS: bump version from 7.3.4 to 7.4.
-
-2003-11-17 16:25  florin
-
-	* docs/man-pages/DETAILS: bump version from 1.62 to 1.63.
-
-2003-11-17 15:24  jmhodges
-
-	* editors/scite/DETAILS: version bump, 1.51->1.56
-
-2003-11-17 14:33  sofar
-
-	* perl/mod_perl/POST_INSTALL: Be nice, help out a bit.
-
-2003-11-17 14:31  jmhodges
-
-	* libs/Twisted/DETAILS: version bump
-
-2003-11-17 07:22  florin
-
-	* video/mkvtoolnix/: DEPENDS, DETAILS: bump version from 0.7.5 to
-	0.7.7. added an optional depend on flac audio codec.
-
-2003-11-17 05:52  tchan
-
-	* net/netkit-tftp/CONFLICTS: Added a CONFLICTS file because this
-	module and tftp-hpa are in direct conflict now.
-
-2003-11-17 05:51  tchan
-
-	* net/tftp-hpa/: CONFLICTS, DETAILS, services: Added this module
-	per Couanette's request.  Added the CONFLICTS file and the services
-	file as well.  This module could probably use an xinetd.d directory
-	too, but I'm not sure how to write an entry for xinetd.
-
-2003-11-17 05:41  jmhodges
-
-	* science/octave/DETAILS: new version, anyone want to help me make
-	octave-forge work? (octave.sf.net) C'mon im sure somebody other
-	than me would like that :)
-
-2003-11-17 04:45  nhudson
-
-	* graphics/inkscape/: BUILD, DEPENDS, DETAILS: 
-	Adding inkscape to moonbase, this is a fork of sodipodi with more
-	attention to GNOME intagration and development
 
