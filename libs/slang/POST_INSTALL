@@ -16,11 +16,14 @@ hostend=`expr index "$hostarch" ' '`
 hostpath=${hostarch:0:$hostend-1}
 # build filename for location of slang.h
 filename="/usr/lib/gcc-lib/$hostpath/$gccver/include/slang.h"
-# gets slang version info from gcc's private slang.h
-gcc_slang=`grep "define SLANG_VERSION_STRING " $filename`
-gcc_slang_front=${gcc_slang#*\"}
-gcc_slang_ver=${gcc_slang_front%\"}
-if [ "$slangver" != "$gcc_slang_ver" ]
-then
-  lin -c gcc
-fi  
+# if file doesn't exist then we are done and its not internal to gcc
+if [ -e $filename ]; then
+  # gets slang version info from gcc's private slang.h
+  gcc_slang=`grep "define SLANG_VERSION_STRING " $filename`
+  gcc_slang_front=${gcc_slang#*\"}
+  gcc_slang_ver=${gcc_slang_front%\"}
+  if [ "$slangver" != "$gcc_slang_ver" ]
+  then
+    lin -c gcc
+  fi
+fi

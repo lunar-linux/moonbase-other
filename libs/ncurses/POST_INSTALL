@@ -17,11 +17,14 @@ hostend=`expr index "$hostarch" ' '`
 hostpath=${hostarch:0:$hostend-1}
 # build filename for location of ncurses.h
 filename="/usr/lib/gcc-lib/$hostpath/$gccver/include/ncurses.h"
-# gets ncurses version info from gcc's private ncurses.h
-gcc_ncurse=`grep "define NCURSES_VERSION " $filename`
-gcc_ncurse_front=${gcc_ncurse#*\"}
-gcc_ncurse_ver=${gcc_ncurse_front%\"}
-if [ "$ncursever" != "$gcc_ncurse_ver" ]
-then
-  lin -c gcc
+# if file doesn't exist then we are done and its not internal to gcc
+if [ -e $filename ]; then
+  # gets ncurses version info from gcc's private ncurses.h
+  gcc_ncurse=`grep "define NCURSES_VERSION " $filename`
+  gcc_ncurse_front=${gcc_ncurse#*\"}
+  gcc_ncurse_ver=${gcc_ncurse_front%\"}
+  if [ "$ncursever" != "$gcc_ncurse_ver" ]
+  then
+    lin -c gcc
+  fi
 fi  
