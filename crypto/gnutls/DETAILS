@@ -1,12 +1,16 @@
           MODULE=gnutls
-         VERSION=1.0.11
+         VERSION=1.0.12
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=gnutls-1.0.12-compile-error.patch.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=ftp://ftp.gnutls.org/pub/$MODULE/$SOURCE
-      SOURCE_VFY=md5:e3ccd02dec264ad3b9baa9c5c5c39f0b
+      SOURCE_VFY=md5:9900410b93cb9675903388c697e18b0f
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
+     SOURCE2_VFY=md5:98a8bb3724b1ce2a7ce3db83fb4d9435
         WEB_SITE=http://www.gnu.org/software/gnutls/
+      MAINTAINER=prox@lunar-linux.org
          ENTERED=20020212
-         UPDATED=20040426
+         UPDATED=20040428
            SHORT="A TLS library"
 
 cat << EOF
