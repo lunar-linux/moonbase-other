@@ -1,22 +1,20 @@
 (
 
-  sedit "s/CFLAGS\=/CFLAGS:=-DBUILD_UNTESTED_NEDIT/"  makefiles/Makefile.linux  &&
-  sedit "s/-DUSE_LPR_PRINT_CMD/& \$\(CFLAGS\)/" makefiles/Makefile.linux        &&
+  sedit "s/CFLAGS\=/CFLAGS:=-DBUILD_UNTESTED_NEDIT/"  makefiles/Makefile.linux &&
+  sedit "s/-DUSE_LPR_PRINT_CMD/& \$\(CFLAGS\)/" makefiles/Makefile.linux &&
   sedit "s/-lm/-lm -lXmu/" makefiles/Makefile.linux   &&
   make  linux                                         &&
   prepare_install
 
-) > $C_FIFO 2>&1  &&  (
-
   strip      source/nedit                           &&
   strip      source/nc                              &&
-  cp         source/nc         /usr/bin             &&
-  cp         source/nedit      /usr/bin             &&
-  cp         doc/nc.man        nc.1                 &&
-  cp         doc/nedit.man     nedit.1              &&
+  install    source/nc         /usr/bin/            &&
+  install    source/nedit      /usr/bin/            &&
+  install    doc/nc.man        nc.1                 &&
+  install    doc/nedit.man     nedit.1              &&
   gzip  -9   nc.1                                   &&
   gzip  -9   nedit.1                                &&
-  cp         nc.1.gz           /usr/share/man/man1  &&
-  cp         nedit.1.gz        /usr/share/man/man1
+  install    nc.1.gz           /usr/share/man/man1/ &&
+  install    nedit.1.gz        /usr/share/man/man1/
 
-)
+) > $C_FIFO 2>&1
