@@ -1,4 +1,5 @@
 (
+  unpack $SOURCE3	&&
   patch_it $SOURCE2 1	&&
   ./regen.sh		&& 
 
@@ -45,10 +46,10 @@
   fi &&	
 
   # Installing some db files
-  install -p -m 644 $SCRIPT_DIRECTORY/etc/openafs-CellServDB /usr/vice/etc/CellServDB &&
-  install -p -m 644 $SCRIPT_DIRECTORY/etc/openafs-SuidCells /usr/vice/etc/SuidCells &&
-  install -p -m 644 $SCRIPT_DIRECTORY/etc/openafs-cacheinfo /usr/vice/etc/cacheinfo &&
-  install -p -m 755 $SCRIPT_DIRECTORY/etc/openafs-afsmodname /usr/vice/etc/afsmodname &&
+  install -p -m 644 $SOURCE_DIRECTORY/etc/openafs-CellServDB /usr/vice/etc/CellServDB &&
+  install -p -m 644 $SOURCE_DIRECTORY/etc/openafs-SuidCells /usr/vice/etc/SuidCells &&
+  install -p -m 644 $SOURCE_DIRECTORY/etc/openafs-cacheinfo /usr/vice/etc/cacheinfo &&
+  install -p -m 755 $SOURCE_DIRECTORY/etc/openafs-afsmodname /usr/vice/etc/afsmodname &&
 
   # Copy conf and rc files
   sedit "s;^OPTIONS=.*;OPTIONS=\"\$MEDIUM -nosettime\";" $SOURCE_DIRECTORY/src/afsd/afs.conf.linux &&
