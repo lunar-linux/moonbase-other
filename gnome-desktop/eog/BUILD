@@ -10,6 +10,9 @@
                 --mandir=/opt/lunar/gnome/2/share/man           \
                 --enable-platform-gnome-2                       &&
 
-   default_make
+   make                                                         &&
+   prepare_install                                              &&
+   cp gnome-eog.png /usr/share/icons/.                          &&
+   make install
 
 ) > $C_FIFO 2>&1
