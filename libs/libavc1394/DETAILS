@@ -1,0 +1,20 @@
+          MODULE=libavc1394
+         VERSION=0.4.1
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+   SOURCE_VFY[0]=md5:cca44f87bda7d5572473290dec7cd81e
+        WEB_SITE=http://sourceforge.net/projects/libraw1394
+         ENTERED=20030909
+         UPDATED=20030909
+      MAINTAINER=couannette@free.fr
+           SHORT="Library Interface for AV/C devices"
+cat << EOF
+libavc1394 is a programming interface to the AV/C specification from
+the 1394 Trade Assocation. AV/C stands for Audio/Video Control.  Currently,
+applications use the library to control the tape transport mechansim on DV
+camcorders. However, there are many devices and functions of devices that
+can be controlled via AV/C. Eventually, the library will be expanded to
+implement more of the specification and to provide high level interfaces
+to various devices.
+EOF
