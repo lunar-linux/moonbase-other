@@ -23,9 +23,12 @@ cat /usr/share/gnome/apps/Internet/mozilla-compose.desktop | sed -e 's/mozilla-c
 cat /usr/share/gnome/apps/Internet/mozilla-profile.desktop | sed -e 's/migrate-icon.gif/mozilla-icon.png/' > /usr/share/gnome/apps/Internet/mozilla-profile.desktop
 
 
-if [ "$MAILNEWS" == "y" ] ; then
+if [ "$MAILNEWS" == "n" ] ; then
   install -m 644 $BUILD_DIRECTORY/$MODULE/build/package/rpm/SOURCES/mozilla-mail.desktop /usr/share/gnome/apps/Internet
   cat /usr/share/gnome/apps/Internet/mozilla-mail.desktop | sed -e 's/mozilla-mail-icon.gif/mozilla-icon.png/' > /usr/share/gnome/apps/Internet/mozilla-mail.desktop
 fi
 
-
+export	MOZILLA_FIVE_HOME=/usr/lib/mozilla
+export	LD_LIBRARY_PATH=/usr/lib/mozilla:$LD_LIBRARY_PATH
+/usr/lib/mozilla/regxpcom
+/usr/lib/mozilla/regchrome
