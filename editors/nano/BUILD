@@ -1,19 +1,20 @@
 (
-   if [ "$COLOR" == "y" ] ; then
-    OPTS="$OPTS --enable-color"
-   fi
 
-   if [ "$NANORC" == "y" ] ; then
+  if [ "$COLOR" == "y" ] ; then
+    OPTS="$OPTS --enable-color"
+  fi
+  if [ "$NANORC" == "y" ] ; then
     OPTS="$OPTS --enable-nanorc"
-   fi
-  
-   if [ "$MULTI" == "y" ] ; then
+  fi
+  if [ "$MULTI" == "y" ] ; then
     OPTS="$OPTS --enable-multibuffer"
-   fi
+  fi
   
   default_build						&&
+
   if [ ! -f "/etc/nanorc" ]; then
-    install -m 0644 $SCRIPT_DIRECTORY/nanorc /etc/
+    bzcat $SOURCE_CACHE/$SOURCE2 > nanorc
+    install -m 0644 nanorc /etc/
   fi
 
 ) > $C_FIFO 2>&1
