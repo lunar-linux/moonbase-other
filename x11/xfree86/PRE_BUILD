@@ -16,4 +16,9 @@ unpack         $SOURCE6                                  &&
 unpack         $SOURCE7                                  &&
 
 cd $SOURCE_DIRECTORY                                     &&
-patch_it $SOURCE_CACHE/$SOURCE8 1
+patch_it $SOURCE_CACHE/$SOURCE8 1			 &&
+# Quick fix for local exploit in fontfile
+cd $SOURCE_DIRECTORY/lib/font/fontfile                   && 
+patch_it $SOURCE_CACHE/$SOURCE10 0                       &&
+cd $SOURCE_DIRECTORY
+
