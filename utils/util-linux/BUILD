@@ -1,4 +1,5 @@
 (
+  patch_it $SOURCE2 0 &&
 
   sedit  "s/HAVE_SLN=no/HAVE_SLN=yes/"   MCONFIG &&
   sedit  "s/\$(OPT)//"                   MCONFIG &&

@@ -1,10 +1,13 @@
           MODULE=util-linux
          VERSION=2.12k
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=fsck-compat.patch
    SOURCE_URL[0]=ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/utils/$MODULE/
    SOURCE_URL[1]=$KERNEL_URL/pub/linux/utils/$MODULE/
    SOURCE_URL[2]=http://www.kernel.org/pub/linux/utils/$MODULE/
-      SOURCE_VFY=sha1:fb1809eedf9fcf69586db42e3b24f4e18282d7a2 
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:fb1809eedf9fcf69586db42e3b24f4e18282d7a2
+     SOURCE2_VFY=sha1:b87c7fe95b0fee3b3ad6c39440a3f468bd61032c
         WEB_SITE=ftp://ftp.win.tue.nl/pub/linux-local/utils/util-linux
          ENTERED=20010922
          UPDATED=20041214
