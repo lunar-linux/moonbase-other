@@ -8,5 +8,6 @@
   make                 &&
   prepare_install      &&
   make install &&
-  cp qextscintilla*.h $QTDIR/include
+  cp qextscintilla*.h $QTDIR/include &&
+  ln -f -s /opt/lunar/qt/3/libqscintilla.so.3 /opt/lunar/qt/3/libqscintilla.so 
 ) > $C_FIFO 2>&1
