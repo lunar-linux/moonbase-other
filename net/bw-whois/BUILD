@@ -6,7 +6,8 @@
   prepare_install                                   &&
   cp -f whois /usr/bin                              &&
   cp -f whois.1 /usr/share/man/man1                 &&
-  cp -f tld.conf whois.conf /etc                    &&
+  mkdir -p /etc/whois				    &&
+  cp -f tld.conf whois.conf sd.conf /etc/whois      &&
   
   if [ ! -d /usr/share/doc/bw-whois ]; then
      mkdir -p /usr/share/doc/bw-whois
