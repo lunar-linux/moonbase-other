@@ -1,5 +1,9 @@
 (
 
+    if [ "$XINER" == "y" ] ; then
+    OPTS="$OPTS --enable-xinerama"
+    fi
+
    ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
