@@ -1,4 +1,5 @@
 (
+  patch_it  $SOURCE_CACHE/$SOURCE2 1
 
 #I think this optimization must be carefully considered,
 # seeing these are kernel stuff...
