@@ -1,5 +1,6 @@
 (
 
+  bad_flags "-z combreloc"
   CF=$CFLAGS &&
   unset CFLAGS CXXFLAGS &&
 
