@@ -1,0 +1,24 @@
+if ! grep -q "COLOR" $MODULE_CONFIG; then
+  if query "Enable color and syntax highlighting?" y; then
+     echo "COLOR=y" >> $MODULE_CONFIG
+  else
+     echo "COLOR=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if ! grep -q "NANORC" $MODULE_CONFIG; then
+  if query "Enable use of .nanorc file?" y; then
+     echo "NANORC=y" >> $MODULE_CONFIG
+  else 
+     echo "NANORC=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if ! grep -q "MULTI" $MODULE_CONFIG; then
+  if query "Enable multiple file buffers?" y; then
+     echo "MULTI=y" >> $MODULE_CONFIG
+  else
+     echo "MULTI=n" >> $MODULE_CONFIG
+  fi
+fi
+
