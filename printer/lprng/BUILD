@@ -5,6 +5,7 @@
 	      --localstatedir=/var \
               --mandir=/usr/share/man \
 	      --with-userid=lp \
+	      --with-initpath=no \
 	      --with-groupid=lp &&
   default_make  &&
 
