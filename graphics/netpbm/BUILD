@@ -7,6 +7,7 @@ gnu
 regular
 shared
 n
+
 libjpeg.so
 default
 libtiff.so
