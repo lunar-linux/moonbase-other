@@ -1,11 +1,16 @@
           MODULE=NetPacket
-         VERSION=0.03
+         VERSION=0.04
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=ftp://cpan.cse.msu.edu/authors/id/T/TI/TIMPOTTER/NetPacket-0.03.tar.gz
-        WEB_SITE=http://search.cpan.org/search?dist=NetPacket
+      SOURCE_URL=http://search.cpan.org/CPAN/authors/id/A/AT/ATRAK/
+      SOURCE_VRY=sha1:998e3bf1cb530de19bb04af4454682bf33856f45
+        WEB_SITE=http://search.cpan.org/search?dist=$MODULE
          ENTERED=20040217
-         UPDATED=20040217
-           SHORT="NetPacket - Base class for NetPacket::* object hierarchy."
+         UPDATED=20041224
+           SHORT="Base clss for the NetPacket::* object hierarchy"
+
 cat << EOF
-NetPacket - Base class for NetPacket::* object hierarchy.
+NetPacket provides a base class for a cluster of modules related to
+decoding and encoding of network protocols.  Each NetPacket descendent
+module knows how to encode and decode packets for the network protocol
+it implements.
 EOF
