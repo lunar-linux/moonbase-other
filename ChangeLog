@@ -1,3 +1,60 @@
+2004-02-07 10:35  ratler
+
+	* utils/gpsdrive/BUILD, utils/gpsdrive/DEPENDS,
+	utils/gpsdrive/DETAILS, wifi/kismet/BUILD, wifi/kismet/CONFIGURE,
+	wifi/kismet/DEPENDS, wifi/kismet/DETAILS: Added kismet and
+	gpsdrive, kismet is tested and works fine. Gpsdrive untested since
+	i dont own gps hardware.
+
+2004-02-07 07:45  florin
+
+	* audio/alsa-driver/DETAILS: bump version from 1.0.2 to 1.0.2c.
+	note that this module should be used only with 2.4.x linux kernels.
+	the 2.6.x linux kernels have builtin alsa driver.
+
+2004-02-07 07:34  florin
+
+	* graphics/ImageMagick/DETAILS: bump version from 5.5.7-15 to
+	5.5.7-16.
+
+2004-02-07 05:48  tchan
+
+	* x11-apps/openoffice-bin/DETAILS: Version bump to 1.1.1b. 
+	Installed and tested with kernel-2.4.x.
+
+2004-02-07 04:54  nhudson
+
+	* gnome2-core/yelp/DETAILS: 
+	Updating yelp to new version 2.5.4
+
+2004-02-07 04:51  nhudson
+
+	* gnome2-apps/gucharmap/DETAILS: 
+	Updating gucharmap to new version 1.3.0
+
+2004-02-07 04:46  nhudson
+
+	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS, rhythmbox/BUILD,
+	rhythmbox/DEPENDS, rhythmbox/DETAILS, rhythmbox/POST_INSTALL: 
+	Updating gstreamer and gst-plugins to new version 0.7.4 and adding
+	the development version of rhythmbox to GNOME_UNSTABLE version
+	0.7.0
+
+2004-02-06 18:10  ratler
+
+	* wifi/wlan-ng-utils/: BUILD, DETAILS: Moving wlan-ng-utils from
+	utils to wifi section
+
+2004-02-06 18:06  ratler
+
+	* wifi/wlan-ng-driver/: BUILD, CONFIGURE, DEPENDS, DETAILS,
+	POST_INSTALL, PRE_BUILD: Moving wlan-ng-driver from utils to wifi
+	section
+
+2004-02-06 15:30  florin
+
+	* filesys/udev/DETAILS: bump version from 015 to 016.
+
 2004-02-06 05:20  florin
 
 	* web/lynx/DETAILS: bump version from 2.8.4 to 2.8.5.
@@ -1901,42 +1958,4 @@
 	xfce4/xffm-icons/DETAILS, xfce4/xfprint/DETAILS,
 	xfce4/xfwm4/DETAILS, xfce4/xfwm4-themes/DETAILS: XFce 4.0.3. Bugfix
 	release.
-
-2004-01-07 21:52  hardkrash
-
-	* graphics/pil/BUILD: there may be a better fix to this but i'll
-	leave it to someone who knows python :-P
-
-2004-01-07 20:59  nestu
-
-	* kernel/linux-beta/DETAILS: Bump version
-
-2004-01-07 20:03  florin
-
-	* mail/bogofilter/DETAILS: bump version from 0.15.13 to 0.15.13.1.
-
-2004-01-07 18:49  jmhodges
-
-	* web/PyDS/DETAILS: 0.7.0 is still just a snapshot apparently,
-	downgrading until the real version comes out
-
-2004-01-07 16:45  elaine
-
-	* net/dhcp/init.d/dhcpd: Bkw's improved init script
-
-2004-01-07 14:14  sofar
-
-	* mail/sendmail/: BUILD, DETAILS, Makefile, POST_INSTALL: Rewriting
-	the sendmail config setup. This time we install the m4 .cf macro's,
-	so we can regenerate the etc/mail/*.cf files without reinstalling
-	sendmail. I've also added a Makefile so you can regenerate them
-	just by typing 'make'. Added a few .db files as well in there that
-	might need updating. Should keep everyone happy now! This is
-	becoming a nice module....
-
-2004-01-07 04:29  niki
-
-	* crypto/gnutls/DETAILS: Debumping gnutls from 1.0.4 to 0.9.98, as
-	this version breaks the build of at least gaim, and last time i
-	bumped it to 1.0.0 it also affected evolution compiles...
 
