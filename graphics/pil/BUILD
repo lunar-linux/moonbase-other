@@ -1,7 +1,9 @@
 (
 
   export CC="cc $CFLAGS"
-#  patch_it /var/spool/lunar/$SOURCE3 0
+
+  sedit "s:freetype/freetype.h>:ft2build.h>\n#include FT_FREETYPE_H:" _imagingft.c  &&
+
   cd libImaging                     &&
   ./configure     --prefix=/usr      \
                   $OPTS             &&
@@ -12,7 +14,7 @@
   python setup.py build             &&
   prepare_install		                &&
   cd libImaging                     &&
-  cp ImConfig.h ImPlatform.h Imaging.h /usr/include/python2.3  &&
+  cp ImConfig.h ImPlatform.h Imaging.h /usr/include/python2.4  &&
   cd ..                             &&
   python setup.py install           &&
   mkdir -p $DOCUMENT_DIRECTORY/pil  &&
