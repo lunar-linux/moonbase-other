@@ -41,6 +41,7 @@
     rm -rf /usr/share/mplayer/font
   fi                                          &&
 
-  ln -sf fonts/font-arial-18-iso-8859-1 /usr/share/mplayer/font
+  rm -f /usr/share/mplayer/font &&
+  ln -sf fonts/font-arial-iso-8859-1/font-arial-18-iso-8859-1 /usr/share/mplayer/font
 
 ) > $C_FIFO 2>&1
