@@ -5,7 +5,8 @@
 # chkconfig: 345 80 20
 # description: distcc daemon
 # processname: distccd
-# runas:       nobody
+
+ARGS="--daemon --user nobody --nice 19 -P /var/run/distccd.pid"
 
 reload () {
 	default_restart
