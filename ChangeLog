@@ -1,3 +1,133 @@
+2005-01-25 11:50  nestu
+
+	* kernel/linux-2.6-mm/DETAILS: 2.6.11-rc1-mm1 -> 2.6.11-rc2-mm1.
+	  gcc 3.3.3, glibc 2.3.2, headers 2.6.10.0 2.6.11-rc1-mm2 did not
+	  compile.
+
+2005-01-25 07:30  ratler
+
+	* devel/db/POST_INSTALL: Added -r to lin otherwise modules like
+	  php/php5 will still use --with-db3 from the depends file
+
+2005-01-25 05:20  florin
+
+	* utils/openldap/DETAILS: bump the version from 2.2.21 to 2.2.22.
+	  bugfix release.
+
+2005-01-25 04:17  florin
+
+	* web/usermin/DETAILS: bump the version from 1.100 to 1.110.
+
+2005-01-25 04:16  florin
+
+	* web/webmin/DETAILS: bump the version from 1.170 to 1.180.
+
+2005-01-25 03:55  florin
+
+	* graphics/xsane/DETAILS: bump the version from 0.96 to 0.97.
+
+2005-01-25 03:52  florin
+
+	* mail/squirrelmail/: BUILD, DETAILS: bump the version from 1.4.3a
+	  to 1.4.4. security release.
+
+2005-01-25 03:44  florin
+
+	* utils/xmltv/DETAILS: bump the version from 0.5.37 to 0.5.38.
+
+2005-01-25 03:17  florin
+
+	* mail/bogofilter/: DEPENDS, DETAILS: bump the version from 0.93.4
+	  to 0.93.5. add db as a depend.
+
+2005-01-25 02:32  florin
+
+	* libs/libart_lgpl/DETAILS: bump the version from 2.3.16 to 2.3.17.
+
+2005-01-25 02:18  florin
+
+	* filesys/lvm2/DETAILS: bump the version from 2.00.33 to 2.01.02.
+
+2005-01-24 23:34  v3rt1g0
+
+	* zbeta/e_utils-cvs/DETAILS: They just added an additional app
+	  (e17setroot) to this collection of utils.  Figured it is about
+	  time to start listing them :)
+
+2005-01-24 23:31  v3rt1g0
+
+	* zbeta/ecore-cvs/DETAILS: Just a tweak to the description.
+
+2005-01-24 23:07  ratler
+
+	* devel/db/: BUILD, POST_INSTALL: Final fix for auto rebuild if db
+	  still version 3.x
+
+2005-01-24 22:03  tchan
+
+	* libs/slang/DETAILS: Get a better internet connection.  slang
+	  downloads everytime correctly for me.  Reset the main URL
+	  download location back to the original.
+
+2005-01-24 21:59  tchan
+
+	* gnome2-apps/gnumeric2/profile.d/gnumeric.rc: Setting
+	  LD_LIBRARY_PATH is NOT needed for gnumeric and it probably messes
+	  up several other modules.  Commented that line out from
+	  gnumeric.rc.
+
+2005-01-24 21:18  moe
+
+	* devel/db/POST_INSTALL: Failsafe'isher .. I hope
+
+2005-01-24 20:40  moe
+
+	* utils/openldap/BUILD: meh
+
+2005-01-24 20:39  ratler
+
+	* compilers/php/DEPENDS, zbeta/php5/DEPENDS: Fixed the darn text
+	  too, thanks Moe
+
+2005-01-24 20:31  ratler
+
+	* compilers/php/DEPENDS, zbeta/php5/DEPENDS: Fix for the db rehaul
+
+2005-01-24 20:25  moe
+
+	* devel/db/POST_INSTALL: Thanks for that Terry
+
+2005-01-24 20:16  moe
+
+	* mail/sylpheed/DETAILS: Yeah yeah .. rather late'ish update ..
+	  still ..
+
+	  * Bumped to 1.0.0
+
+2005-01-24 19:57  moe
+
+	* crypto/cyrus-sasl/DEPENDS, devel/bdb-ruby/DEPENDS,
+	  devel/db/BUILD, devel/db/CONFIGURE, devel/db/DEPENDS,
+	  devel/db/DETAILS, devel/db/POST_INSTALL, devel/db/PRE_BUILD,
+	  devel/subversion/DEPENDS, games/crimson/DEPENDS,
+	  gnome2-apps/straw/DEPENDS, mail/postfix/DEPENDS,
+	  utils/openldap/DEPENDS, zbeta/gift-cvs/BUILD: This is the big db
+	  rehaul. Some migration code (meh!) ..  but since we haven't got
+	  the 'is_at_latest_version' function yet it is necessary (/me
+	  nudges sofar)
+
+	  * Changed the db module to 4.x (going to remove db4 later)   and
+	  made sure nothing breaks incase db 3.x had been   installed
+	  before. Turned any db4 dependency into a db dependency   (All of
+	  them have been tested and approved to work with db 4.x) * Tiny
+	  crimson and gift-cvs sneaking in behind your backs.
+
+2005-01-24 16:54  watryac04
+
+	* x11/fglrx/: DETAILS, PRE_BUILD: Adding patch for new fglrx
+	  version that is required to get fglrx module loaded in kernels >=
+	  2.6.10
+
 2005-01-24 11:51  prox
 
 	* net/net-snmp/init.d/snmpd: changed options (they where
@@ -1618,11 +1748,6 @@
 	  linux-2.6-cko/PRE_BUILD: update linux-2.6-ck and linux-2.6-cko
 	  modules (based on the new linux-2.6 module rewritten by Moe)
 
-2004-12-27 18:29  florin
-
-	* devel/db4/BUILD: fix the build in order for db4 to be detected at
-	  configure by some apps (php).
-
 2004-12-27 18:27  florin
 
 	* devel/db/BUILD: minor tweak.
@@ -1706,102 +1831,4 @@
 
 	* security/stunnel/: BUILD, DETAILS: bump the version from 4.05 to
 	  4.06.
-
-2004-12-25 19:19  florin
-
-	* games/jumpnbump/BUILD: fix the path for data files.
-
-2004-12-25 18:38  florin
-
-	* games/frozen-bubble/: BUILD, DETAILS: fix the compile with the
-	  new SDL_perl version.
-
-2004-12-25 18:25  florin
-
-	* games/csmash/: BUILD, DETAILS: add sha1 sum. some tweaks.
-
-2004-12-25 18:17  florin
-
-	* devel/mod_ruby/DETAILS: bump the version frpm 1.2.3 to 1.2.4.
-
-2004-12-25 16:34  striker
-
-	* video/xvidcap/BUILD: forgot to remove this before comitting
-
-2004-12-25 16:33  striker
-
-	* video/xvidcap/: BUILD, DEPENDS, DETAILS: adding xvidcap, screen
-	  capture tool for X
-
-2004-12-25 15:56  striker
-
-	* video/ffmpeg/BUILD: install development libs and headers
-
-2004-12-25 12:57  florin
-
-	* devel/ruby-dbi/: BUILD, DETAILS: bump the version from 0.0.16 to
-	  0.0.23.
-
-2004-12-25 12:44  florin
-
-	* web/elinks/DETAILS: bump the version from 0.9.3 to 0.10.0.
-
-2004-12-25 12:39  florin
-
-	* devel/ruby-postgres/: BUILD, DEPENDS, DETAILS: some tweakings.
-
-2004-12-25 12:13  florin
-
-	* compilers/ruby/DETAILS: bump the version from 1.8.1 to 1.8.2.
-
-2004-12-25 11:51  florin
-
-	* devel/sip/DETAILS: bump the version 4.0.1 to 4.1.1.
-
-2004-12-25 09:39  florin
-
-	* games/scummvm/DETAILS: bump the version from 0.6.1b to 0.7.0.
-
-2004-12-25 07:37  florin
-
-	* graphics/openvrml/DETAILS: bump the version from 0.15.1 to
-	  0.15.3.
-
-2004-12-25 07:21  florin
-
-	* utils/dialog/DETAILS: bump the version from 20041219 to 20041222.
-	  more bugfixes.
-
-2004-12-25 07:16  florin
-
-	* audio/gstreamer/DETAILS: bump the version from 0.8.7 to 0.8.8.
-
-2004-12-25 06:25  florin
-
-	* devel/db4/DETAILS: bump the version from 4.3.21 to 4.3.27.
-
-2004-12-25 04:58  v3rt1g0
-
-	* zbeta/engage-cvs/DEPENDS: Added new optional depends on examine
-	  to make configuration easier on the user
-
-2004-12-25 04:57  v3rt1g0
-
-	* zbeta/examine-cvs/: BUILD, DEPENDS, DETAILS: Inital Import.  e17
-	  cvs app used in EFL based app configurations
-
-2004-12-25 04:47  v3rt1g0
-
-	* zbeta/engage-cvs/: BUILD, DEPENDS, DETAILS: Inital import of the
-	  cool looking EFL based iconbar
-
-2004-12-25 04:16  v3rt1g0
-
-	* zbeta/equate-cvs/: BUILD, DEPENDS, DETAILS: Inital import.  This
-	  is an edje-themeable, ewl based calculator.
-
-2004-12-25 00:51  v3rt1g0
-
-	* games/bumprace/DETAILS: Added missing source_vry and provided a
-	  more accurate website
 
