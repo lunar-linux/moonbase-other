@@ -1,6 +1,8 @@
 ( 
   sedit "s/-malign/-falign/g" memdisk/Makefile &&
-  default_make
+  make installer &&
+  prepare_install &&
+  make install 
 
 ) > $C_FIFO 2>&1  &&  (
 
