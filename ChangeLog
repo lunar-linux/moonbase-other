@@ -1,3 +1,13 @@
+2003-06-19 21:50  sofar
+
+	* printer/cups/: BUILD, DEPENDS, DETAILS, POST_INSTALL, PRE_REMOVE,
+	init.d/cups, init.d/cupsd: Large cups rewrite:
+	
+	- adding foomatic-rip for easily dropping in PPD's from
+	linuxprinting.org - updating init.d script to something less
+	offensive - removing all the unneeded code and cleaning up.  -
+	dropping my nick as maintainer in here for now (blame me)
+
 2003-06-19 17:48  jol
 
 	* ham/unixcw/: BUILD, DEPENDS, DETAILS: Remove qt-x11 depends, now
@@ -1275,135 +1285,4 @@
 
 	* devel/gob2/DETAILS: 
 	Updating gob2 to new version 2.0.6
-
-2003-05-20 23:28  niki
-
-	* kernel/linux-stable/DETAILS: Now it cleans up after previus
-	kernels...
-
-2003-05-20 23:11  kc8apf
-
-	* utils/yaboot/DETAILS: Update yaboot
-
-2003-05-20 23:10  niki
-
-	* kernel/linux-stable/PRE_BUILD: now it uses the patch_it function
-
-2003-05-20 23:01  kc8apf
-
-	* libs/glibc/BUILD: Fix filename for ppc
-
-2003-05-20 22:55  florin
-
-	* kde3-i18n/: kde3-i18n-af/DETAILS, kde3-i18n-ar/DETAILS,
-	kde3-i18n-bg/DETAILS, kde3-i18n-bs/DETAILS, kde3-i18n-ca/DETAILS,
-	kde3-i18n-cs/DETAILS, kde3-i18n-da/DETAILS, kde3-i18n-de/DETAILS,
-	kde3-i18n-el/DETAILS, kde3-i18n-en_GB/DETAILS,
-	kde3-i18n-eo/DETAILS, kde3-i18n-es/DETAILS, kde3-i18n-et/DETAILS,
-	kde3-i18n-eu/DETAILS, kde3-i18n-fa/DETAILS, kde3-i18n-fi/DETAILS,
-	kde3-i18n-fr/DETAILS, kde3-i18n-he/DETAILS, kde3-i18n-hr/DETAILS,
-	kde3-i18n-hu/DETAILS, kde3-i18n-is/DETAILS, kde3-i18n-it/DETAILS,
-	kde3-i18n-ja/DETAILS, kde3-i18n-lt/DETAILS, kde3-i18n-mt/DETAILS,
-	kde3-i18n-nb/DETAILS, kde3-i18n-nl/DETAILS, kde3-i18n-nn/DETAILS,
-	kde3-i18n-nso/DETAILS, kde3-i18n-pl/DETAILS, kde3-i18n-pt/DETAILS,
-	kde3-i18n-pt_BR/DETAILS, kde3-i18n-ro/DETAILS,
-	kde3-i18n-ru/DETAILS, kde3-i18n-se/DETAILS, kde3-i18n-sk/DETAILS,
-	kde3-i18n-sl/DETAILS, kde3-i18n-sr/DETAILS, kde3-i18n-ss/DETAILS,
-	kde3-i18n-sv/DETAILS, kde3-i18n-ta/DETAILS, kde3-i18n-th/DETAILS,
-	kde3-i18n-tr/DETAILS, kde3-i18n-uk/DETAILS, kde3-i18n-ven/DETAILS,
-	kde3-i18n-vi/DETAILS, kde3-i18n-xh/DETAILS,
-	kde3-i18n-zh_CN/DETAILS, kde3-i18n-zh_TW/DETAILS,
-	kde3-i18n-zu/DETAILS, koffice3-i18n-af/BUILD,
-	koffice3-i18n-af/DEPENDS, koffice3-i18n-af/DETAILS,
-	koffice3-i18n-ar/BUILD, koffice3-i18n-ar/DEPENDS,
-	koffice3-i18n-ar/DETAILS, koffice3-i18n-bs/BUILD,
-	koffice3-i18n-bs/DEPENDS, koffice3-i18n-bs/DETAILS,
-	koffice3-i18n-ca/BUILD, koffice3-i18n-ca/DEPENDS,
-	koffice3-i18n-ca/DETAILS, koffice3-i18n-el/BUILD,
-	koffice3-i18n-el/DEPENDS, koffice3-i18n-el/DETAILS,
-	koffice3-i18n-he/BUILD, koffice3-i18n-he/DEPENDS,
-	koffice3-i18n-he/DETAILS, koffice3-i18n-lv/BUILD,
-	koffice3-i18n-lv/DEPENDS, koffice3-i18n-lv/DETAILS,
-	koffice3-i18n-nb/BUILD, koffice3-i18n-nb/DEPENDS,
-	koffice3-i18n-nb/DETAILS, koffice3-i18n-nn/BUILD,
-	koffice3-i18n-nn/DEPENDS, koffice3-i18n-nn/DETAILS,
-	koffice3-i18n-th/BUILD, koffice3-i18n-th/DEPENDS,
-	koffice3-i18n-th/DETAILS, koffice3-i18n-ven/BUILD,
-	koffice3-i18n-ven/DEPENDS, koffice3-i18n-ven/DETAILS,
-	koffice3-i18n-xh/BUILD, koffice3-i18n-xh/DEPENDS,
-	koffice3-i18n-xh/DETAILS, koffice3-i18n-zh_TW/BUILD,
-	koffice3-i18n-zh_TW/DEPENDS, koffice3-i18n-zh_TW/DETAILS,
-	koffice3-i18n-zu/BUILD, koffice3-i18n-zu/DEPENDS,
-	koffice3-i18n-zu/DETAILS: updated the translations list for KDE and
-	koffice. fixed the updated field.
-
-2003-05-20 22:48  nhudson
-
-	* graphics/gtk+-2/: BUILD, DETAILS: 
-	Updating the gtk+-2 menu-shadow patch.	This new patch fixes a few
-	bugs and it looks a ton better.  Thanks goes to Oliver on the XFCE
-	team for the nice patch.
-
-2003-05-20 21:13  florin
-
-	* audio/alsa-driver/DETAILS: bumped version. compiled and tested on
-	my system.
-
-2003-05-20 21:10  florin
-
-	* kde3-i18n/kde3-i18n-zu/: BUILD, DEPENDS, DETAILS: bumped version.
-	many thanks to jol for testing. updated the translations modules as
-	well.
-
-2003-05-20 21:00  florin
-
-	* kde3-i18n/kde3-i18n-eu/BUILD, kde3-i18n/kde3-i18n-eu/DEPENDS,
-	kde3-i18n/kde3-i18n-eu/DETAILS, kde3/arts/DETAILS,
-	kde3/kdeaddons3/DETAILS, kde3/kdeadmin3/DETAILS,
-	kde3/kdeartwork3/DETAILS, kde3/kdebase3/DETAILS,
-	kde3/kdebindings3/DETAILS, kde3/kdeedu3/DETAILS,
-	kde3/kdegames3/DETAILS, kde3/kdegraphics3/DETAILS,
-	kde3/kdelibs3/DETAILS, kde3/kdemultimedia3/DETAILS,
-	kde3/kdenetwork3/DETAILS, kde3/kdepim3/DETAILS,
-	kde3/kdesdk3/DETAILS, kde3/kdetoys3/DETAILS,
-	kde3/kdeutils3/DETAILS, kde3-i18n/kde3-i18n-af/DETAILS,
-	kde3-i18n/kde3-i18n-ar/DETAILS, kde3-i18n/kde3-i18n-bg/DETAILS,
-	kde3-i18n/kde3-i18n-bs/DETAILS, kde3-i18n/kde3-i18n-ca/DETAILS,
-	kde3-i18n/kde3-i18n-cs/DETAILS, kde3-i18n/kde3-i18n-da/DETAILS,
-	kde3-i18n/kde3-i18n-de/DETAILS, kde3-i18n/kde3-i18n-el/DETAILS,
-	kde3-i18n/kde3-i18n-en_GB/DETAILS, kde3-i18n/kde3-i18n-eo/DETAILS,
-	kde3-i18n/kde3-i18n-es/DETAILS, kde3-i18n/kde3-i18n-et/DETAILS,
-	kde3-i18n/kde3-i18n-fa/BUILD, kde3-i18n/kde3-i18n-fa/DEPENDS,
-	kde3-i18n/kde3-i18n-fa/DETAILS, kde3-i18n/kde3-i18n-fi/DETAILS,
-	kde3-i18n/kde3-i18n-fr/DETAILS, kde3-i18n/kde3-i18n-he/DETAILS,
-	kde3-i18n/kde3-i18n-hr/DETAILS, kde3-i18n/kde3-i18n-hu/DETAILS,
-	kde3-i18n/kde3-i18n-is/DETAILS, kde3-i18n/kde3-i18n-it/DETAILS,
-	kde3-i18n/kde3-i18n-ja/DETAILS, kde3-i18n/kde3-i18n-lt/DETAILS,
-	kde3-i18n/kde3-i18n-mt/DETAILS, kde3-i18n/kde3-i18n-nb/DETAILS,
-	kde3-i18n/kde3-i18n-nl/DETAILS, kde3-i18n/kde3-i18n-nn/DETAILS,
-	kde3-i18n/kde3-i18n-nso/BUILD, kde3-i18n/kde3-i18n-nso/DEPENDS,
-	kde3-i18n/kde3-i18n-nso/DETAILS, kde3-i18n/kde3-i18n-pl/DETAILS,
-	kde3-i18n/kde3-i18n-pt/DETAILS, kde3-i18n/kde3-i18n-pt_BR/DETAILS,
-	kde3-i18n/kde3-i18n-ro/DETAILS, kde3-i18n/kde3-i18n-ru/DETAILS,
-	kde3-i18n/kde3-i18n-se/BUILD, kde3-i18n/kde3-i18n-se/DEPENDS,
-	kde3-i18n/kde3-i18n-se/DETAILS, kde3-i18n/kde3-i18n-sk/DETAILS,
-	kde3-i18n/kde3-i18n-sl/DETAILS, kde3-i18n/kde3-i18n-sr/DETAILS,
-	kde3-i18n/kde3-i18n-ss/BUILD, kde3-i18n/kde3-i18n-ss/DEPENDS,
-	kde3-i18n/kde3-i18n-ss/DETAILS, kde3-i18n/kde3-i18n-sv/DETAILS,
-	kde3-i18n/kde3-i18n-ta/DETAILS, kde3-i18n/kde3-i18n-th/DETAILS,
-	kde3-i18n/kde3-i18n-tr/DETAILS, kde3-i18n/kde3-i18n-uk/DETAILS,
-	kde3-i18n/kde3-i18n-ven/DETAILS, kde3-i18n/kde3-i18n-vi/DETAILS,
-	kde3-i18n/kde3-i18n-xh/DETAILS, kde3-i18n/kde3-i18n-zh_CN/DETAILS,
-	kde3-i18n/kde3-i18n-zh_TW/DETAILS: bumped version. many thanks to
-	jol for testing. updated the translations modules as well.
-
-2003-05-20 20:57  niki
-
-	* mail/pop-before-smtp/POST_INSTALL: Removed "[ $1 = 1 ] || exit 0"
-	don't see any reason for it $1 is empty so the module errors out.
-
-2003-05-20 15:21  florin
-
-	* video/xine-ui/DETAILS: bumped version at Moe's request. fixes and
-	improvements.
 
