@@ -1,3 +1,205 @@
+2004-11-08 13:28  sofar
+
+	* audio/alsa-driver/CONFIGURE, cd/cdrtools/CONFIGURE,
+	  chat/BitchX/CONFIGURE, chat/licq/CONFIGURE,
+	  compilers/gcc/CONFIGURE, compilers/php/CONFIGURE,
+	  devel/bochs/CONFIGURE, editors/biew/CONFIGURE,
+	  editors/nano/CONFIGURE, editors/scite/CONFIGURE,
+	  ftp/proftpd/CONFIGURE, ftp/vsftpd/CONFIGURE,
+	  games/quake2/CONFIGURE, games/xmame/CONFIGURE,
+	  graphics/freetype2/CONFIGURE, graphics/gtk+-2/CONFIGURE,
+	  kde3/qt3/CONFIGURE, libs/libdv/CONFIGURE, mail/exim/CONFIGURE,
+	  mail/qpopper/CONFIGURE, mail/sendmail/CONFIGURE,
+	  mail/spamassassin/CONFIGURE, net/netkit-bootparamd/CONFIGURE,
+	  net/ppp/CONFIGURE, net/wpa_supplicant/CONFIGURE,
+	  net/rp-pppoe/CONFIGURE, perl/perl/CONFIGURE,
+	  science/seismicunix/CONFIGURE, utils/lcdproc/CONFIGURE,
+	  utils/lilo/CONFIGURE, utils/linux-wlan-ng/CONFIGURE,
+	  utils/lirc/CONFIGURE, utils/pcmcia-cs/CONFIGURE,
+	  web/apache2/CONFIGURE, web/mozilla/CONFIGURE,
+	  wifi/wlan-ng-driver/CONFIGURE, x11-wm/fluxbox/CONFIGURE,
+	  zbeta/BitchX-cvs/CONFIGURE, zbeta/fluxbox-devel/CONFIGURE,
+	  zbeta/mozilla-nightly/CONFIGURE, zbeta/php5/CONFIGURE: moving
+	  mquery stuff into CONFIGUREs
+
+2004-11-08 13:08  nestu
+
+	* filesys/e2fsprogs/DETAILS: Bump UPDATED so ppl start getting the
+	  new mount script with udev support commited today
+
+2004-11-08 11:46  sofar
+
+	* filesys/udev/: BUILD, DETAILS: Moved into patch
+
+2004-11-08 11:21  sofar
+
+	* filesys/devfsd/: BUILD, DETAILS, devfsd.conf: Cleaning this one
+	  out too
+
+2004-11-08 11:14  sofar
+
+	* filesys/udev/: 99-udev.permissions, 99-udev.rules, BUILD,
+	  DETAILS: nestu> you can change it if you like, but I am against
+	  it
+
+2004-11-08 09:55  nestu
+
+	* filesys/udev/: 99-udev.permissions, 99-udev.rules, BUILD,
+	  POST_INSTALL, udev: Changing udev so it works OOTB with the new
+	  mount script.
+
+2004-11-08 09:36  nestu
+
+	* filesys/e2fsprogs/init.d/mount: Modified mount script that now
+	  includes udev support
+
+2004-11-08 06:12  v3rt1g0
+
+	* games/castle-combat/: BUILD, DEPENDS, DETAILS: This module was
+	  overwriting things installed by SDL_net.  Changed so that does
+	  not happen anymore.  Also added some missing depends and cleaned
+	  up the DETAILS file a bit.
+
+2004-11-08 05:36  florin
+
+	* graphics/sane-backends/DETAILS: bump the version from 1.0.14 to
+	  1.0.15.
+
+2004-11-08 05:21  florin
+
+	* graphics/digikam/: DEPENDS, DETAILS: bump the version to 0.7. it
+	  depends on imlib2 from now.
+
+2004-11-07 22:56  sofar
+
+	* utils/util-linux/make-issue: This is needed!
+
+2004-11-07 21:29  sofar
+
+	* net/net-tools/init.d/netmount: This is needed to make it show up
+	  nicer in scripts
+
+2004-11-07 19:26  jol
+
+	* audio/taglib/DETAILS: Bumped version to 1.3.1
+
+2004-11-07 18:14  florin
+
+	* x11-wm/icewm/DETAILS: bump the version from 1.2.16 to 1.2.17.
+
+2004-11-07 16:58  florin
+
+	* video/ogmtools/DETAILS: bump the version from 1.4.1 to 1.5.
+
+2004-11-07 16:52  florin
+
+	* utils/lirc/DETAILS: fix the update date.
+
+2004-11-07 16:51  florin
+
+	* utils/lirc/DETAILS: bump the version from 0.6.6 to 0.7.0.
+
+2004-11-07 16:31  sofar
+
+	* compilers/gcc/3.4.3/DETAILS, devel/scons/DETAILS,
+	  games/freedroid/DETAILS, libs/ode/DETAILS,
+	  net/wpa_supplicant/DETAILS, utils/findutils/DETAILS,
+	  utils/smsclient/DETAILS, video/transcode/DETAILS: Keep it clean
+	  people
+
+2004-11-07 16:12  cmak
+
+	* doc-tools/docbook-dsssl/Makefile: fixed Makefile
+
+2004-11-07 14:31  sofar
+
+	* sql/mysql/DETAILS: *** PLEASE make sure you don't add the old
+	  stuff back in !!! ***
+
+2004-11-07 07:20  florin
+
+	* doc-tools/intltool/DETAILS: bump the version from 0.31.2 to
+	  0.32.1.
+
+2004-11-07 07:14  florin
+
+	* filesys/udev/DETAILS: bump the version from 042 to 043.
+
+2004-11-07 07:09  florin
+
+	* devel/xxdiff/DETAILS: bump the version from 3.1 to 3.0.4. back on
+	  the stable branch :)
+
+2004-11-07 04:04  v3rt1g0
+
+	* audio/speex/BUILD: Added a build file because it thinks it knows
+	  where to install docs, but it really doesn't.
+
+2004-11-07 03:44  v3rt1g0
+
+	* audio/speex/: DEPENDS, DETAILS: Speedx makes use of ogg if it is
+	  installed, so making it an optional depends.	Also some pointless
+	  cosmetic touchups in DETAILS.
+
+2004-11-06 23:35  florin
+
+	* libs/gpgme/DETAILS: bump the version from 0.4.7 to 1.0.1.
+
+2004-11-06 23:16  florin
+
+	* crypto/gnutls/DETAILS: bump the version from 1.0.19 to 1.0.22.
+
+2004-11-06 23:05  florin
+
+	* compilers/gcc/3.4.3/: BUILD, CONFIGURE, DETAILS, POST_INSTALL,
+	  POST_REMOVE: The 3.4.3 version of gcc is a bugfix release
+	  version.
+
+2004-11-06 22:45  florin
+
+	* utils/sysstat/DETAILS: bump the version from 5.1.1 to 5.1.2.
+
+2004-11-06 21:45  florin
+
+	* security/nmap/DETAILS: bump the version from 3.75 to 3.76.
+
+2004-11-06 20:33  tchan
+
+	* mail/thunderbird/DETAILS: Version bump to thunderbird-0.9.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2004-11-06 18:14  moe
+
+	* kernel/linux-2.6-ck/DETAILS: That guy's name is actually
+	  'Kolivas'
+
+2004-11-06 18:01  v3rt1g0
+
+	* libs/libfpx/DETAILS: Inital import of a library used to
+	  manipulate FlashPIX images
+
+2004-11-06 17:25  perldude
+
+	* kernel/linux-2.6-ck/DETAILS: update to the lastest available CK
+	  patch for kernel 2.6.9.
+
+2004-11-06 17:21  v3rt1g0
+
+	* x11/NVIDIA/DETAILS: s/XFree86/X11/ so there wouldn't be aany
+	  confusion reguarding if this module would work on X.Org or just
+	  XFree86.  Plus it's probably more accurate this way.
+
+2004-11-06 14:43  moe
+
+	* x11/NVIDIA/DETAILS: Updating Nvidia. This one should also be
+	  running with 2.6 powered systems again. Tested by beko. Nag him
+	  about any problems that occur ;^)
+
+2004-11-06 13:45  florin
+
+	* devel/xxdiff/DETAILS: bump the version from 3.0.3 to 3.1.
+
 2004-11-06 13:35  florin
 
 	* games/penguin-command/DETAILS: bump the version from 1.6.6 to
@@ -1967,130 +2169,4 @@
 2004-10-09 13:45  florin
 
 	* net/tftp-hpa/DETAILS: bump the version from 0.38 to 0.40.
-
-2004-10-08 22:16  nestu
-
-	* utils/hotplug/: BUILD, DETAILS: Version bump: 2004_04_01 ->
-	  2004_09_23. gcc 3.3.3, glibc 2.3.2, headers 2.6.8.1 Removed the
-	  firmware.agent patch, that now is served from the source tarball
-	  ;)
-
-2004-10-08 20:58  nestu
-
-	* filesys/udev/DETAILS: D'oh, forgot to change the date! Thnx,
-	  florin ;)
-
-2004-10-08 20:52  nestu
-
-	* filesys/udev/DETAILS: Version bump: 033 -> 034. gcc 3.3.3, glibc
-	  2.3.2, headers 2.6.8.1.  florin gave me the 'thumbs up' to commit
-	  this ]:-)
-
-2004-10-08 19:13  striker
-
-	* utils/dd_rescue/DETAILS: bump to 1.10
-
-2004-10-08 17:18  ratler
-
-	* libs/libfwbuilder2/DETAILS, security/fwbuilder2/DETAILS: New
-	  version with some good fixes and some new handy features
-
-2004-10-08 16:55  ratler
-
-	* security/sudo/BUILD: Think its better if the build really take
-	  advantage of the optional depends
-
-2004-10-08 13:29  v3rt1g0
-
-	* filesys/udev/DETAILS: Set web_site to the (new?) pretty page for
-	  udev instead of the directory listing.  Also it looks like
-	  version 034 is out, didn't bump, I'll leave that in the hands of
-	  the experts :)
-
-2004-10-08 09:08  sofar
-
-	* graphics/ImageMagick/DETAILS: Yes another ImageMagick version
-
-2004-10-08 05:43  nhudson
-
-	* mail/evolution/: BUILD, DETAILS, PRE_BUILD:
-	  Removing the db stuff from evo, its no longer needed now with
-	  evo-data-server
-
-2004-10-08 03:58  tchan
-
-	* chat/gaim/DETAILS: Version bump to gaim-1.0.1.  Some small bug
-	  fixes and two new small features added. Compiled/tested with
-	  gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-10-08 03:33  florin
-
-	* video/mkvtoolnix/DETAILS: bump the version from 0.9.5 to 0.9.6.
-
-2004-10-08 03:26  florin
-
-	* video/libmatroska/DETAILS: bump the version from 0.7.3 to 0.7.4.
-
-2004-10-08 03:19  florin
-
-	* video/libebml/DETAILS: bump the version from 0.7.1 to 0.7.2.
-
-2004-10-08 02:42  florin
-
-	* audio/gst-plugins/DETAILS: bump the version from 0.8.4 to 0.8.5.
-
-2004-10-08 01:56  v3rt1g0
-
-	* utils/cutter/DETAILS: Corrected the previously incorrect
-	  discription of this little application and added a sha1sum.
-
-2004-10-07 22:08  v3rt1g0
-
-	* x11/artwiz-aleczapka/DETAILS: Version bump: 1.0 -> 1.3
-
-2004-10-07 18:18  florin
-
-	* audio/gst-plugins/DETAILS: bump the version from 0.8.4 to 0.8.5.
-
-2004-10-07 16:55  florin
-
-	* audio/gstreamer/DETAILS: fix the update date.
-
-2004-10-07 16:54  florin
-
-	* audio/gstreamer/DETAILS: bump the version from 0.8.6 to 0.8.7.
-
-2004-10-07 14:03  tchan
-
-	* mail/balsa/DETAILS: Version bump to balsa-2.2.5. NOTE: this
-	  version REQUIRES gmime >= 2.1.9, which has already been updated
-	  in moonbase.	So if your balsa will not compile, make sure you
-	  have the latest version of gmime.  Compiled/tested with
-	  gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-10-07 13:58  tchan
-
-	* mail/gmime/: DETAILS, PRE_BUILD: Removed the unneeded patch file
-	  and PRE_BUILD script.  Version bump to gmime-2.1.9.  This version
-	  or higher is now REQUIRED by balsa-2.2.5.  Compiled and tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-10-07 13:42  tchan
-
-	* mail/exim/DETAILS: Version bump to exim-4.43. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-10-07 11:02  sofar
-
-	* x11-apps/lyx/DETAILS: That worked! Version bump.
-
-2004-10-07 08:32  nestu
-
-	* filesys/udev/DETAILS: Version bump: 032 -> 033. gcc 3.3.3, glibc
-	  2.3.2, headers 2.6.8.1
-
-2004-10-07 03:28  tchan
-
-	* news/slrn/DETAILS: Version bump to slrn-0.9.8.1. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
 
