@@ -1,3 +1,46 @@
+2004-11-24 23:43  moe
+
+	* x11/XOrg/BUILD: Workaround to include the fonts directory if you
+	  are using an old XF86Config
+
+2004-11-24 21:12  hardkrash
+
+	* science/: geda-docs/DETAILS, geda-gnetlist/DETAILS,
+	  geda-gschem/DETAILS, geda-gsymcheck/DETAILS,
+	  geda-symbols/DETAILS, geda-utils/DETAILS, libgeda/DETAILS: wow
+	  this one slipt by me.....
+
+2004-11-24 21:09  hardkrash
+
+	* science/usb_pickit/: BUILD, DEPENDS, DETAILS: finally adding the
+	  usb_pickit module for programming flash pic microcontrollers via
+	  a nice cheap $35 usb powered programmer.
+
+2004-11-24 20:59  hardkrash
+
+	* libs/confuse/DETAILS: confuse is a library for simple
+	  configuration parsing
+
+2004-11-24 20:57  hardkrash
+
+	* science/ftdi_eeprom/: DEPENDS, DETAILS: adding an eeprom
+	  generator for the ftdi chips
+
+2004-11-24 20:56  hardkrash
+
+	* science/libftdi/: DEPENDS, DETAILS: adding the drivers for the
+	  FTDI usb to serial chip, these drivers provide more control over
+	  the chip than the serial only drivers in the kernel.
+
+2004-11-24 16:55  jasper
+
+	* filesys/udev/: BUILD, DETAILS: Not PSAFE+ properly check if build
+	  fails
+
+2004-11-24 15:39  sofar
+
+	* x11/XOrg/POST_INSTALL: Blooper. This really needs to be added
+
 2004-11-24 13:04  sofar
 
 	* x11/XOrg/: CONFIGURE, drivers: Modified the driver list to list
@@ -2134,55 +2177,4 @@
 	  app.	gtk+-2 is only in the unstable 1.99.1 version (beta test
 	  code).  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel
 	  headers 2.4.x.
-
-2004-10-25 23:24  v3rt1g0
-
-	* x11-apps/xscreensaver/: BUILD, CONFIGURE, DEPENDS, DETAILS: This
-	  should be the last of it.  Until alias groups are implemented we
-	  can deal with 3 seperate xscreensaver modules.
-
-2004-10-25 23:23  v3rt1g0
-
-	* x11-apps/xscreensaver-gtk1/: BUILD, CONFLICTS, DEPENDS, DETAILS,
-	  pam.d/xscreensaver: More fixing of my evil sin of logic in the
-	  depends file.
-
-2004-10-25 23:21  v3rt1g0
-
-	* x11-apps/xscreensaver-openMotif/: BUILD, CONFLICTS, DEPENDS,
-	  DETAILS, pam.d/xscreensaver: Fixing my sin of having LOGIC in a
-	  DEPENDS file!  Temporary fix untill alias groups are implemented.
-
-2004-10-25 19:21  nestu
-
-	* filesys/udev/DETAILS: Version bump: 039 -> 042. gcc 3.3.3, glibc
-	  2.3.2, headers 2.6.8.1
-
-2004-10-25 18:22  florin
-
-	* video/mkvtoolnix/DETAILS: bump the version from 0.9.6 to 0.9.7.
-
-2004-10-25 18:20  nestu
-
-	* kernel/linux-2.6-prepatch/: BUILD, BUILD.alpha, CONFIGURE,
-	  DEPENDS, DETAILS, POST_INSTALL, PRE_BUILD: Moving here the old
-	  linux-beta module. It will only hold rc kernels, since we have a
-	  stable 2.6 module.  2.6.10rc1. gcc 3.3.3, glibc 2.3.2, headers
-	  2.6.8.1
-
-2004-10-25 16:30  tchan
-
-	* crypto/openssl/DETAILS: Version bump to openssl-0.9.7e. Minor bug
-	  fixes and cert fixes. Compiled and tested with gcc-3.3.3,
-	  glibc-2.3.3, kernel-headers 2.4.x.
-
-2004-10-25 16:23  tchan
-
-	* audio/ripperX/DETAILS: Version bump to ripperX-2.6.3.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel-headers
-	  2.4.x.
-
-2004-10-25 04:06  florin
-
-	* games/xmame/DETAILS: bump the version from 0.84.1 to 0.86.
 
