@@ -16,7 +16,14 @@ rm -f /usr/src/linux
 ln -s $SOURCE_DIRECTORY /usr/src/linux
 cd $SOURCE_DIRECTORY
 
-tar xf $SOURCE_CACHE/$SOURCE --no-same-owner --no-same-permissions --strip-components=1
+# Check wether we're running an up-to-date tar
+if [ `lvu installed tar | cut -d. -f2` -ge 15 ]; then
+  tar xf $SOURCE_CACHE/$SOURCE --no-same-owner \
+  --no-same-permissions --strip-components=1
+else
+  echo "${PROBLEM_COLOR}Error:${DEFAULT_COLOR} Please update your tar module"
+  exit 1
+fi
 
 if  [ -f $CONFIG_CACHE/.config.2.6.stable ]; then
     cp $CONFIG_CACHE/.config.2.6.stable $BUILD_DIRECTORY/linux/.config;
