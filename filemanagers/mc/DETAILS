@@ -1,16 +1,25 @@
           MODULE=mc
          VERSION=4.6.0
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE1=$MODULE-$VERSION-stderr.patch.bz2
+         SOURCE2=$MODULE-$VERSION-vcsa.patch.bz2
+         SOURCE3=$MODULE-$VERSION-security.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://www.ibiblio.org/pub/Linux/utils/file/managers/mc/$SOURCE
-      SOURCE_VFY=md5:70804dc9e2049e24f294ff7090a82a12
+   SOURCE_URL=http://www.ibiblio.org/pub/Linux/utils/file/managers/$MODULE/$SOURCE
+  SOURCE1_URL=$PATCH_URL/$SOURCE1
+  SOURCE2_URL=$PATCH_URL/$SOURCE2
+  SOURCE3_URL=$PATCH_URL/$SOURCE3
+      SOURCE_VFY=sha1:815668f4f1e7a0b1a7d55d307f44f90a18f3160f
+     SOURCE1_VFY=sha1:16a83f53c9fd6373e6a9825f3fe24b67293d31b0
+     SOURCE2_VFY=sha1:2b350a93b1f22fc01a60f91dc0573fb3138c4e53
+     SOURCE3_VFY=sha1:77db3d5a370ff406573d59cdc17255349c9b93ee
         WEB_SITE=http://www.ibiblio.org/mc/
          ENTERED=20010922
-         UPDATED=20030701
+         UPDATED=20040918
            SHORT="The GNU Midnight Commander is a Unix file manager and shell"
 
 cat << EOF
-The GNU Midnight Commander is a Unix file manager and shell, useful to novice 
-and guru alikes. Being a console application, it emulates look and feel of the 
-Norton Commander. A new GNOME frontend is currently under development.
+The GNU Midnight Commander is a Unix file manager and shell, useful to 
+novice and guru alikes. Being a console application, it emulates look and 
+feel of the Norton Commander. 
 EOF
