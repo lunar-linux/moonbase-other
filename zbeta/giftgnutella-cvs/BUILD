@@ -1,7 +1,7 @@
 (
-
+  touch COPYING INSTALL NEWS ChangeLog   &&
   ./autogen.sh --build=$BUILD            \
-               --prefix=/usr          \
+               --prefix=/usr             \
                --sysconfdir=/etc         \
                --localstatedir=/var      \
                --infodir=/usr/share/info \
