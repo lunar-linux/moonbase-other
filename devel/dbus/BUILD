@@ -12,8 +12,10 @@
 
   # The following used to be in POST_INSTALL but the service wasn't starting
   # on FIRST install due to the lack of existing /var/lib/dbus
+  message "${MESSAGE_COLOR}Adding new group: ${DBUS_GROUPNAME}${DEFAULT_COLOR}"
   groupadd $DBUS_GROUPNAME                   2>/dev/null
-  useradd  $DBUS_USERNAME -g $DBUS_GROUPNAME 2>/dev/null
+  message "${MESSAGE_COLOR}Adding new user: ${DBUS_USERNAME}${DEFAULT_COLOR}"
+  useradd  $DBUS_USERNAME -g $DBUS_GROUPNAME -d /dev/null -s /bin/false 2>/dev/null
   mkdir -p /var/lib/dbus
   chown -R ${DBUS_GROUPNAME}:$DBUS_GROUPNAME /var/lib/dbus
 
