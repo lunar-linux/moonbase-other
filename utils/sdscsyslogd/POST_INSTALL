@@ -1,8 +1,4 @@
-if ! $(id syslog &> /dev/null) ; then
-     groupadd syslog &> /dev/null || true
-     useradd -g syslog -d /var/log -s /bin/false syslog
-fi
-
+add_priv_user syslog:syslog -d /var/log -s /bin/false
 
 if ! [[ -e /etc/syslogd.conf ]]; then
   cp /usr/share/SDSCSyslogd/syslogd.conf.sample /etc/syslogd.conf

@@ -1,76 +1,52 @@
 (
 
-GRP=`which groupadd`                                                  &&
-USER=`which useradd`                                                  &&
-QUEUE=/var/spool/postfix                                              &&
-
-perl -e '$gid=getgrnam("postdrop"); exit 1 if ! defined( $gid )' || {
-    echo "Adding postdrop group to system"
-    $GRP postdrop
-}                                                                     &&
-                                                                                         
-perl -e '$gid=getgrnam("postfix"); exit 1 if ! defined( $gid )' || {
-    echo "Adding postfix group to system"
-    $GRP postfix   
-}                                                                     &&
-                                                                                        
-perl -e '$uid=getpwnam("postfix"); exit 1 if ! defined( $uid )' || {
-    echo "Adding postfix user to system"
-    $USER -d $QUEUE -s /bin/true -g postfix -M postfix
-}                                                                     &&
-
-perl -e '$uid=getpwnam("mail"); exit 1 if ! defined( $uid )' || {
-    echo "Adding mail user to system"
-    $USER mail -g mail
-}                                                                     &&
+  add_priv_user postdrop:postdrop &&
+  add_priv_user postfix:postfix   &&
+  add_priv_user mail:mail         &&
+  QUEUE=/var/spool/postfix        &&
 
   mkdir  -p         /var/spool/mail                                   &&
   chmod  1777       /var/spool/mail                                   &&
   chown  mail:mail  /var/spool/mail                                   &&
 
 
-  if  module_installed  openldap
-  then  AUXLIBS="-lldap -llber"
-         CCARGS="-DHAS_LDAP"
+  if module_installed openldap ; then
+    AUXLIBS="-lldap -llber"
+    CCARGS="-DHAS_LDAP"
   fi                                                                  &&
 
-  if  module_installed  Linux-PAM
-  then  AUXLIBS=$AUXLIBS" -lpam -lpam_misc"
-         CCARGS=$CCARGS" -DHAS_PAM"
+  if module_installed Linux-PAM ; then
+    AUXLIBS=$AUXLIBS" -lpam -lpam_misc"
+    CCARGS=$CCARGS" -DHAS_PAM"
   fi                                                                  &&
 
-  if  module_installed mysql
-  then  AUXLIBS=$AUXLIBS" -lmysqlclient -lz -lm"
-         CCARGS=$CCARGS" -DHAS_MYSQL -I/usr/include/mysql"
+  if module_installed mysql ; then
+    AUXLIBS=$AUXLIBS" -lmysqlclient -lz -lm"
+    CCARGS=$CCARGS" -DHAS_MYSQL -I/usr/include/mysql"
   fi                                                                  &&
 
-  if  module_installed cyrus-sasl
-  then  AUXLIBS=$AUXLIBS" -lsasl2 -lssl -lcrypto"
-         CCARGS=$CCARGS" -DUSE_SASL_AUTH -I/usr/include/sasl -DHAS_SSL -I/usr/include/openssl"
+  if module_installed cyrus-sasl ; then
+    AUXLIBS=$AUXLIBS" -lsasl2 -lssl -lcrypto"
+    CCARGS=$CCARGS" -DUSE_SASL_AUTH -I/usr/include/sasl -DHAS_SSL -I/usr/include/openssl"
   fi                                                                  &&
 
-echo CCARGS=$CCARGS                                                   &&
-echo AUXLIBS=$AUXLIBS                                                 &&
-sleep 1                                                               &&
+  echo CCARGS=$CCARGS                                                 &&
+  echo AUXLIBS=$AUXLIBS                                               &&
   
-#  make  "CC=gcc"               \
-#        "OPT=$CFLAGS"          \
-#        "AUXLIBS=$AUXLIBS"     \
-#        "CCARGS=$CCARGS"       &&
   cp /var/spool/lunar/$SOURCE $BUILD_DIRECTORY        &&
   cd $BUILD_DIRECTORY                                 &&
   tar xzvf $SOURCE                                    &&
   true                                                &&
+
   cd $SOURCE_DIRECTORY         &&
   echo $PWD                    &&
-  sleep 2                      &&
   make  "OPT=$CFLAGS"          \
         "AUXLIBS=$AUXLIBS"     \
         "CCARGS=$CCARGS"       &&
 
   prepare_install              &&
 
-sh postfix-install -non-interactive                    \
+  sh postfix-install -non-interactive                  \
        config_directory=/etc/postfix                   \
        daemon_directory=/usr/libexec/postfix           \
        command_directory=/usr/sbin                     \

@@ -8,8 +8,7 @@
         
   make &&
   prepare_install && (
-   groupadd  nsd             2>/dev/null
-   useradd   nsd  -g  nsd    2>/dev/null
+   add_priv_user nsd:nsd
    mkdir  -p                  /var/nsd 
    mkdir  -p                  /etc/nsd/keys
   ) &&

@@ -1,6 +1,6 @@
 (
-  groupadd  mysql             2>/dev/null
-  useradd   mysql  -g  mysql  2>/dev/null
+
+  add_priv_user mysql:mysql
 
   devoke_installwatch                                     &&
 

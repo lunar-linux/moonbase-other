@@ -125,10 +125,7 @@
   #
   
   # users to be created:
-  id mail &> /dev/null || (
-    groupadd mail         2>/dev/null
-    useradd  mail -g mail 2>/dev/null
-  )
+  add_priv_user mail:mail
   
   # directories and files:
   mkdir -p /var/spool/mail

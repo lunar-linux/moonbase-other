@@ -8,8 +8,7 @@
   EDITOR=`which $EDITOR  2>/dev/null`  ||
   EDITOR=`which nano`
 
-  groupadd fcron
-  useradd -g fcron fcron
+  add_priv_user fcron:fcron
 
   sedit  "s/-O2/$CFLAGS/"  configure
 

@@ -1,19 +1,12 @@
 (
 
-  groupadd  -g 1006 mailman          2>/dev/null
-  useradd   mailman  -g 1006         2>/dev/null
+  add_priv_user mailman:mailman
 
   mkdir /var/mailman                 2>/dev/null
   chown mailman.mailman /var/mailman 2>/dev/null
   chmod 02775 /var/mailman           2>/dev/null
 
-  if  module_installed postfix 
-  then  MAIL_GID="1006"
-  fi
-
-  if  module_installed exim
-  then  MAIL_GID="8"
-  fi
+  MAIL_GID=$(id -g mail)
 
   ./configure --prefix=/var/mailman            \
               --with-var-prefix=/var/mailman   \
@@ -22,7 +15,7 @@
 	      --with-python=/usr/bin/python    \
 	      --with-mail-gid=$MAIL_GID        \
               --with-cgi-id=65534              \
-	      --with-cgi-gid=65534             
+	      --with-cgi-gid=65534             &&
 	      
   make  "CC=gcc"                               \
         "OPT=$CFLAGS"                          \
