@@ -1,13 +1,15 @@
           MODULE=ccache
-         VERSION=2.2
-        #VERSION=2.1.1
+         VERSION=2.3
+        #VERSION=2.2
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://ccache.samba.org/ftp/ccache/$SOURCE
+     SOURCE_VFY=md5:5e4afc0b170bf282d1813aeaf3d577d2
         WEB_SITE=http://ccache.samba.org/
          ENTERED=20020701
-         UPDATED=20030227
-           SHORT="ccache is a compiler cache."
+         UPDATED=20030903
+       SHORT="ccache is a compiler cache."
+
 cat << EOF
 ccache is a compiler cache. It acts as a caching pre-processor to C/C++
 compilers, using the -E compiler switch and a hash to detect when a
