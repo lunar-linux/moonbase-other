@@ -1,3 +1,34 @@
+2003-02-12 17:35  tchan
+
+	* x11/Xft/POST_INSTALL: Updated with a test for Xft/lib already in /etc/ld.so.conf
+	
+2003-02-12 17:25  nhudson
+
+	* x11/Xft/POST_INSTALL: Fixing this
+	
+2003-02-12 17:06  nhudson
+
+	* x11/fontconfig/POST_INSTALL: Adding some more messages in the POST_INSTALL file
+	
+2003-02-12 16:47  nhudson
+
+	* x11/Xft/: BUILD, DETAILS, POST_INSTALL: 
+	Forcing a update of Xft because come to find out that it overrides the
+	Xft1 lib in the X library path.  Now it installs to /opt/lunar/Xft.
+	modified the BUILD file so that it will relink your Xft1 libs without
+	breaking X also it will copy the xft.pc file to a reasonable place. Added
+	a POST_INSTALL script to recompile pango if it is installed to pick up on
+	the new location of Xft in /opt/lunar/Xft.  There shouldnt be any more
+	problems now.
+	
+2003-02-12 16:32  kc8apf
+
+	* utils/mdadm/: BUILD, DETAILS: Add mdadm
+	
+2003-02-12 15:59  nhudson
+
+	* web/webmin/DETAILS: Updating webmin to new version 1.060
+	
 2003-02-12 15:44  nhudson
 
 	* sql/postgresql/DETAILS: Updating postgresql to new version 7.3.2
