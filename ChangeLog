@@ -1,3 +1,129 @@
+2004-04-26 11:23  florin
+
+	* net/whois/DETAILS: bump the version from 4.6.13 to 4.6.13.
+
+2004-04-26 10:52  florin
+
+	* ftp/curl/DETAILS: bump the version from 7.11.1 to 7.11.2. bugfix
+	release.
+
+2004-04-26 10:23  florin
+
+	* security/shorewall/DEPENDS: add the iptables dependency as
+	requested by Remco Lubbers.
+
+2004-04-26 10:09  prox
+
+	* sql/mysql/DETAILS: corrected syntax for version, since i didnt
+	know renew checks UPDATED also
+
+2004-04-26 10:08  prox
+
+	* chat/gaim/DETAILS: backed to 0.76, 0.77 doesnt work well with
+	gtk+-2.4 (scroll is f-ed)
+
+2004-04-26 07:47  prox
+
+	* graphics/ImageMagick/: BUILD, DETAILS: bump to 6.0.0-4, patch no
+	longer needed
+
+2004-04-26 07:18  prox
+
+	* ftp/lftp/DETAILS: bump to 3.0.3
+
+2004-04-26 03:58  tchan
+
+	* utils/parted/DETAILS: Version bump to 1.6.11.  Compiled and
+	tested with gcc-3.3.3, kernel headers 2.4.x.  Small bug fix
+	release.
+
+2004-04-26 03:30  florin
+
+	* devel/automake/DETAILS: bump the version from 1.8.3 to 1.8.4.
+	bugfix release.
+
+2004-04-26 02:33  nhudson
+
+	* zbeta/xorg-dri/: BUILD, CONFIGURE, DEPENDS, DETAILS,
+	POST_INSTALL, PRE_BUILD: 
+	Adding a xorg-dri module to zbeta, this will fetch and build dri
+	and drm code from cvs and build the selected drm/dri modules for
+	the XOrg Xserver
+
+2004-04-26 02:31  nhudson
+
+	* x11/XOrg/BUILD: 
+	Making XOrg build when you enable DRM/DRI now, you shouldnt get the
+	famious "Kernel only header included in userspace" anymore now. 
+	Beware these dri/drm modules arent fully optimized and maybe old. 
+	If you need full dri/drm modules please check out the xorg-dri
+	module
+
+2004-04-26 02:20  nhudson
+
+	* gnome2-extras/ghex/DETAILS: 
+	Updating ghex to new version 2.6.0
+
+2004-04-25 23:17  nhudson
+
+	* gnome2-apps/abiword/: BUILD, DEPENDS, DETAILS: 
+	Fixng abiword build in GNOME_UNSTABLE, adding plugin support and
+	compiling plugins.  Adding more depends and optional depends, now
+	things should work alot better than before.
+
+2004-04-25 22:57  striker
+
+	* zbeta/turck-mmcache/BUILD: more shuffling
+
+2004-04-25 19:42  jasper
+
+	* xfce4/xfce4-windowlist-plugin/DETAILS: Too much copy/paste makes
+	you blind. No wait that's something else ...
+
+2004-04-25 19:39  jasper
+
+	* xfce4/: xfce4-taskbar-plugin/BUILD, xfce4-taskbar-plugin/DEPENDS,
+	xfce4-taskbar-plugin/DETAILS, xfce4-windowlist-plugin/BUILD,
+	xfce4-windowlist-plugin/DEPENDS, xfce4-windowlist-plugin/DETAILS:
+	Add two panel plugins by Andre Lerche. Very nice.
+
+2004-04-25 16:25  florin
+
+	* graphics/SDL_ttf/BUILD: comment the fix for freetype2 2.1.8
+	version.
+
+2004-04-25 15:45  nhudson
+
+	* chat/gaim/DETAILS: 
+	Updating gaim to new version 0.77
+
+2004-04-25 15:08  nhudson
+
+	* libs/: atk/DETAILS, gal21/DEPENDS, gal21/DETAILS,
+	gtkhtml31/BUILD, gtkhtml31/DEPENDS, gtkhtml31/DETAILS: 
+	Updating atk to new devel version 1.7.0 and removing gtkhtml32
+	gal21 and libsoup as they are all now in moonbase now
+
+2004-04-25 15:01  nhudson
+
+	* audio/rhythmbox/DETAILS: 
+	Updating rhythmbox to new version 0.8.1
+
+2004-04-25 14:56  nhudson
+
+	* graphics/gthumb/DETAILS: 
+	Bug fix release for gthumb
+
+2004-04-25 14:54  nhudson
+
+	* libs/gnet2/DETAILS: 
+	Updatikng gnet2 to new version 2.0.5
+
+2004-04-25 12:11  florin
+
+	* games/foobillard/: BUILD, DETAILS: bump the version from 3.0 to
+	3.0a.
+
 2004-04-25 09:07  jasper
 
 	* archive/pax/DETAILS: Linux port of OpenBSD archive utility pax.
@@ -1452,9 +1578,13 @@
 	gnopernicus/DETAILS, libcroco/BUILD, libcroco/DETAILS,
 	libcroco/POST_INSTALL, libgnomecups/BUILD, libgnomecups/DETAILS,
 	libgnomedb/BUILD, libgnomedb/DETAILS, magicdev/BUILD,
-	magicdev/DETAILS, nautilus-gtkhtml/BUILD, pyorbit/BUILD,
-	pyorbit/DETAILS: 
+	magicdev/DETAILS, pyorbit/BUILD, pyorbit/DETAILS: 
 	Updating more modules for Gnome 2.6.0 release
+
+2004-04-09 15:32  nhudson
+
+	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
+	on branch GNOME_UNSTABLE.
 
 2004-04-09 15:32  nhudson
 
@@ -1463,11 +1593,6 @@
 	libcroco/BUILD, libgnomecups/BUILD, libgnomedb/BUILD,
 	magicdev/BUILD, pyorbit/BUILD: 
 	Adding BUILD files to merge into HEAD
-
-2004-04-09 15:32  nhudson
-
-	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
-	on branch GNOME_UNSTABLE.
 
 2004-04-09 15:24  nhudson
 
@@ -2347,31 +2472,4 @@
 2004-03-27 01:42  tchan
 
 	* doc-tools/gtk-doc/DETAILS: Fixed a typo for nhudson.
-
-2004-03-26 23:23  sofar
-
-	* games/koules/: BUILD, DETAILS: hot damn good old game... thanks
-	to debian for the patch!
-
-2004-03-26 21:08  florin
-
-	* net/ethereal/DETAILS: bump the version from 0.10.2 to 0.10.3.
-
-2004-03-26 15:45  striker
-
-	* games/gljewel/BUILD: Helps to not forget prepare_install
-
-2004-03-26 15:42  striker
-
-	* games/gljewel/: BUILD, DETAILS: <TauNeutrino> hey Striker sofar
-	told me to request you to put a module in
-
-2004-03-26 15:08  florin
-
-	* filesys/udev/: BUILD, DETAILS: bump the version from 022 to 023.
-	the patch is no longer needed.
-
-2004-03-26 15:06  florin
-
-	* kde3-utils/kbiff/DETAILS: bump the version from 3.7 to 3.7.1.
 
