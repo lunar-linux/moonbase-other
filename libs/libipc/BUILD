@@ -1,5 +1,7 @@
 (
 
+  sedit "s/if ( usb_find_busses() ) return -1;/usb_find_busses();/g" src/base.c &&
+  sedit "s/if ( usb_find_devices() ) return -1;/usb_find_devices();/g" src/base.c &&
   default_config                   &&
   cd src && make                   &&
   gcc -o libipkc.so.0 -Wl,--whole-archive \
