@@ -5,7 +5,7 @@
 #  ln  -s /usr/bin         /tmp/unixcw_qt/bin
 #  ln  -s /usr/lib/qt      /tmp/unixcw_qt/lib
 
-  export QTDIR=/opt/lunar/qt/3/
+  export QTDIR=${QT_PREFIX:-$QTDIR}/
 # need to hack Makefile.in
   sedit "s/lqt/lqt-mt/" xcwcp/Makefile.in
 

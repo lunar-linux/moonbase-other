@@ -1,10 +1,10 @@
 (
 
-  export PATH=/opt/lunar/qt/3/bin:/opt/lunar/kde/3/bin:$PATH
-  export KDEDIR=/opt/lunar/kde/3
+  export PATH=${QT_PREFIX:-$QTDIR}/bin:${KDE_PREFIX:-$KDEDIR}/bin:$PATH
+  export KDEDIR=${KDE_PREFIX:-$KDEDIR}
 
-  ./configure    --prefix=/opt/lunar/kde/3             \
-                 --with-qt-dir=/opt/lunar/qt/3         \
+  ./configure    --prefix=${KDE_PREFIX:-$KDEDIR}             \
+                 --with-qt-dir=${QT_PREFIX:-$QTDIR}         \
                  --disable-debug                       \
                  --with-xinerama                       \
                  $OPTS                                &&

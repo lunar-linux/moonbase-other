@@ -1,12 +1,12 @@
 (
   
-  export LD_LIBRARY_PATH=/opt/lunar/qt/3/lib
-  export PATH=/opt/lunar/kde/3/bin:/opt/lunar/qt/3/bin:$PATH
-  export LD_RUN_PATH=/opt/lunar/kde/3/lib:/opt/lunar/kde/3/lib/kde3
+  export LD_LIBRARY_PATH=${QT_PREFIX:-$QTDIR}/lib
+  export PATH=${KDE_PREFIX:-$KDEDIR}/bin:${QT_PREFIX:-$QTDIR}/bin:$PATH
+  export LD_RUN_PATH=${KDE_PREFIX:-$KDEDIR}/lib:${KDE_PREFIX:-$KDEDIR}/lib/kde3
 
-  ./configure  --prefix=/opt/lunar/kde/3      \
+  ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}      \
                --disable-debug                \
-               --with-qt-dir=/opt/lunar/qt/3  \
+               --with-qt-dir=${QT_PREFIX:-$QTDIR}  \
                $OPTS                          &&
 
   default_make

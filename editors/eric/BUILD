@@ -1,7 +1,7 @@
 (
 
-  export PATH=/opt/lunar/qt/3/bin:/opt/lunar/kde/3/bin:$PATH
-  export KDEDIR=/opt/lunar/kde/3
+  export PATH=${QT_PREFIX:-$QTDIR}/bin:${KDE_PREFIX:-$KDEDIR}/bin:$PATH
+  export KDEDIR=${KDE_PREFIX:-$KDEDIR}
 	prepare_install &&
   sedit "s/usr\/local\/bin/usr\/bin\//" install.py &&
   python install.py

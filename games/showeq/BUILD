@@ -6,7 +6,7 @@
                --localstatedir=/var  		\
                --infodir=/usr/share/info	\
 	       --mandir=/usr/share/man		\
-               --with-qt-dir=/opt/lunar/qt/3	\
+               --with-qt-dir=${QT_PREFIX:-$QTDIR}	\
 	       --datadir=/usr/share		\
                $OPTS				&&
    default_make

@@ -6,7 +6,7 @@
 
   module_installed kdebase3 && 
   [ -z "$KDEDIR" ]          && 
-  export KDEDIR=/opt/lunar/kde/3
+  export KDEDIR=${KDE_PREFIX:-$KDEDIR}
   
   # lets add kde and gnome menu support to the build, iff
   # there is a gnome-config avail :=)
