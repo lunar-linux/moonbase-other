@@ -1,7 +1,9 @@
 if  module_installed openssl ; then
-  if query "Enable OpenSSL on startup? " y ; then
-    echo "OPENSSL=y" >> $MODULE_CONFIG
-  else
-    echo "OPENSSL=n" >> $MODULE_CONFIG
+  if ! grep -q "OPENSSL=" $MODULE_CONFIG ; then
+    if query "Enable OpenSSL on startup? " y ; then
+      echo "OPENSSL=y" >> $MODULE_CONFIG
+    else
+      echo "OPENSSL=n" >> $MODULE_CONFIG
+    fi
   fi
 fi
