@@ -2,6 +2,7 @@
   #Patch stuff
   patch_it $SOURCE_CACHE/$SOURCE3 1             # Via c3
   patch_it $SOURCE_CACHE/$SOURCE4 1             # old static-bin segfault
+  patch_it $SOURCE_CACHE/$SOURCE5 1		# gcc 3.3 glibc patch
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
   fi
