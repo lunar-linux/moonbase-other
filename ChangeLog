@@ -1,3 +1,97 @@
+2004-02-20 11:50  sofar
+
+	* utils/coreutils/BUILD: BUGFIX, set PATH=/bin:/usr/bin to make
+	sure no bash searchpath corruption occurs. Needs testing on
+	machines going from 5.0 to 5.2.0 !!!
+
+2004-02-20 10:53  sofar
+
+	* net/dante/: DETAILS, init.d/sockd: Submitted by
+	simon.brenner@home.se
+
+2004-02-20 10:08  sofar
+
+	* x11/ati/: BUILD, DEPENDS, DETAILS, PRE_BUILD: ATI 8500 ant 9x00
+	series graphics drivers, just as the NVIDIA this is a binary
+	module. Please revert all flames to ati.com.
+
+2004-02-20 09:56  sofar
+
+	* utils/coreutils/BUILD: Coreutils breaks because /usr/bin/mv is
+	being mv'ed... workaround by using cp and rm
+
+2004-02-20 07:51  tchan
+
+	* utils/coreutils/: DETAILS, POST_REMOVE: Its that time again -- a
+	new coreutils.	This is relatively painless. Just make sure your
+	/var/lib/lunar/protected file is current.  I've bumped that file in
+	theedge and lunar, with fixes for coreutils installation.  Lots of
+	new features and bug fixes since 5.0.  Compiled and tested with
+	gcc-3.3.3, on 4 very different lunar boxes.  Even works great on
+	sparc64.
+
+2004-02-20 04:39  florin
+
+	* kde3-apps/konserve/DETAILS: bump version from 0.10.1 to 0.10.2.
+
+2004-02-20 03:30  tchan
+
+	* audio/faad/DEPENDS: Striker says id3lib depends is needed.
+
+2004-02-20 02:29  tchan
+
+	* audio/faad/: BUILD, DEPENDS, DETAILS, PRE_BUILD: Version bump to
+	faad2-2.0.  Made xmms an optional_depends.  This module compiles
+	just fine withOUT id3lib and vorbis-tools.  id3lib and vorbis-tools
+	are NOT depends that the configure script recognizes nor are they
+	mentioned in any docs.	So I removed them from the DEPENDS file. 
+	Someone that uses xmms and faad plugin will need to test this some
+	more.  Compiles with gcc-3.3.3.
+
+2004-02-19 20:04  florin
+
+	* zbeta/xfree86-beta/: BUILD, DETAILS, POST_INSTALL: update the
+	module's patches. fixed the drm patch and added the freely
+	available patch fontfile which is a security patch.
+
+2004-02-19 19:23  florin
+
+	* x11/xfree86/POST_INSTALL: fix the test for xserver module.
+
+2004-02-19 19:23  florin
+
+	* x11-apps/xscreensaver/DEPENDS: for a system without the gnome
+	installed (like mine's :) the module does not compile with the
+	gtk+-2 option selected. that's why i make this depend optional
+	again.
+
+2004-02-19 18:06  striker
+
+	* devel/gcvs/BUILD: evil typos
+
+2004-02-19 17:59  striker
+
+	* devel/gcvs/: BUILD, DEPENDS, DETAILS: adding gcvs
+
+2004-02-19 15:43  florin
+
+	* audio/: vorbis-tools/DEPENDS, icecast/DEPENDS: put a newline at
+	the end of the file.
+
+2004-02-19 15:40  florin
+
+	* audio/vorbis-tools/DEPENDS: rearange the order of depends.
+
+2004-02-19 15:38  florin
+
+	* audio/icecast/: BUILD, DEPENDS, DETAILS: bump version from 1.3.12
+	to 2.0.0.
+
+2004-02-19 12:26  elaine
+
+	* kernel/kernel-headers/DETAILS: Correcting longdesc/lvu what --
+	docfix
+
 2004-02-19 05:28  tchan
 
 	* graphics/xlockmore/: BUILD, DETAILS: Version bump to 5.11.1. 
@@ -2558,99 +2652,4 @@
 2004-01-21 01:29  jmhodges
 
 	* video/MPlayer/DETAILS: live update
-
-2004-01-20 23:37  nestu
-
-	* gnome2-core/gdm/Default: Fix, fix, fix typo.
-
-2004-01-20 23:02  nestu
-
-	* gnome2-core/gdm/Default: Fix a typo
-
-2004-01-20 22:44  jmhodges
-
-	* gnome2-core/gdm/Default: fixed a VERY VERY silly typo. this
-	should make things run better.	Thanks to Striker
-
-2004-01-20 20:07  hardkrash
-
-	* kde3-apps/lincvs/start-ssh.sh: added support for already running
-	ssh-agents
-
-2004-01-20 19:20  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Version bump.
-
-2004-01-20 19:10  moe
-
-	* x11-utils/gkrellm2/DETAILS: Here we go for .25. Merely bugfixes.
-	Compiled and tested with gcc 3.3.2
-
-2004-01-20 17:58  hardkrash
-
-	* kde3-apps/lincvs/lincvs: cleanup the startup sctipt, we dont need
-	erronous error messages
-
-2004-01-20 17:46  hardkrash
-
-	* science/gputils/DETAILS: version bump
-
-2004-01-20 17:44  hardkrash
-
-	* science/: geda-gnetlist/DETAILS, geda-gschem/DETAILS,
-	geda-gschem/gschem.log, geda-gsymcheck/DETAILS,
-	geda-symbols/DETAILS, geda-utils/DETAILS, gerbv/DETAILS,
-	libgeda/DETAILS: version bumps and removing a .log file that
-	shoulden't be in there
-
-2004-01-20 17:42  hardkrash
-
-	* science/geda-docs/DETAILS: version bump
-
-2004-01-20 17:21  florin
-
-	* kde3-apps/konserve/DETAILS: bump version from 0.10 to 0.10.1.
-
-2004-01-20 16:14  florin
-
-	* utils/lsof/DETAILS: bump version from 4.68 to 4.70.
-
-2004-01-20 16:04  florin
-
-	* filesys/udev/DETAILS: bump version from 012 to 013.
-
-2004-01-20 15:47  florin
-
-	* graphics/gphoto2/DETAILS: bump version from 2.1.3 to 2.1.4.
-
-2004-01-20 15:46  florin
-
-	* graphics/libgphoto2/: DEPENDS, DETAILS: move it from lib
-	directory. bump the version from 2.1.2 to 2.1.4. add the md5 sum.
-
-2004-01-20 15:27  niki
-
-	* kernel/chpax/BUILD: No need to overwrite the config if its
-	allready there...
-
-2004-01-20 15:22  florin
-
-	* security/nmap/DETAILS: bump version from 3.48 to 3.50.
-
-2004-01-20 15:00  florin
-
-	* kde3-apps/kaffeine/DETAILS: bump version from 0.4 to 0.4.1.
-
-2004-01-20 14:43  niki
-
-	* kernel/chpax/: BUILD, DETAILS: Added chpax, so that executables
-	can be manipulated to run under a PaX/GRSecurity if they violate
-	the PaX security features.
-
-2004-01-20 02:03  tchan
-
-	* devel/uml/DETAILS: Version bump on the kernel patch to 2.4.23-2. 
-	Patch is not yet widely available (i.e. Sourceforge link is broken)
-	so I cached it on dbguin, just in case.  Compiled and tested with
-	gcc-3.2.3.
 
