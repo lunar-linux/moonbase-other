@@ -4,6 +4,6 @@
 auth		required	pam_unix.so shadow nodelay
 auth		required	pam_nologin.so
 account		required	pam_unix.so
-password	required	pam_unix.so shadow md5 nullok
+password	required	pam_unix.so shadow md5 nullok use_authtok
 session		required	pam_unix.so
 session		required	pam_limits.so
