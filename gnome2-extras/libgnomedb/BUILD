@@ -11,7 +11,9 @@
 		--mandir=/opt/lunar/gnome/2/share/man		\
 		--disable-gtk-doc				&&
 
-   default_make
+   make    &&
+   touch doc/C/html/index.sgml &&
+   make install  
 
 ) > $C_FIFO 2>&1
 
