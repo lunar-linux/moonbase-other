@@ -1,11 +1,14 @@
 (
-
+  
+  bzcat $SCRIPT_DIRECTORY/bzflag-fix-for-gcc3.1.patch.bz2 | patch -p1 &&
   make  linux                                &&
   make  all                                  &&
   prepare_install                            &&
-  cp    bin/*     /usr/games                 &&
-  mkdir   -p      /usr/X11R6/lib/X11/bzflag  &&
+  mkdir -p        /usr/games                 &&
+  cp     bin/*    /usr/games                 &&
+  mkdir -p        /usr/X11R6/lib/X11/bzflag  &&
   cp    -r  data  /usr/X11R6/lib/X11/bzflag  &&
+  mkdir -p /usr/share/man/man6               &&
   cp man/bzflag.6 man/bzfls.6 man/bzfrelay.6 man/bzfs.6 /usr/share/man/man6 
 
 ) > $C_FIFO 2>&1
