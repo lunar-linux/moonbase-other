@@ -1,11 +1,8 @@
 (
-
   unset CFLAGS
 
   ./configure  --prefix=/usr  &&
-  make                        &&
-  prepare_install             &&
-  make    install	      &&
+  default_make                &&
   ./MAKEDEV.v4l
 
 ) > $C_FIFO 2>&1
