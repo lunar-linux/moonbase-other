@@ -3,8 +3,8 @@
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
                 --localstatedir=/var              \
-                --infodir=${GNOME2*_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME2*_PREFIX:-/usr}/share/man   \
+                --infodir=${GNOME28_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME28_PREFIX:-/usr}/share/man   \
                 $OPTS                             &&
     default_make
 
