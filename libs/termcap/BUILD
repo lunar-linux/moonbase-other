@@ -1,6 +1,7 @@
 (
 
   ./configure  --prefix=/usr              \
+               --enable-install-termcap   \
                $OPTS                     &&
 
   default_make
