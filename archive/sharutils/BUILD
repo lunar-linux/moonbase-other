@@ -1,4 +1,4 @@
-OPTS=$OPTS" --disable-uucode --disable-nls"
+OPTS=$OPTS" --disable-nls"
 (
 
   ./configure  --build=$BUILD            \
