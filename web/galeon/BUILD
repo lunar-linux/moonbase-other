@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --disable-werror"
+  OPTS="$OPTS --disable-werror --with-mozilla-snapshot=1.3"
 
   default_config  &&
   default_make    &&
