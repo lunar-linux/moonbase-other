@@ -1,9 +1,9 @@
           MODULE=xfce4-showdesktop-plugin
-          PKG=$MODULE
          VERSION=0.4.0
-          SOURCE=${PKG}-${VERSION}.tar.gz
-   SOURCE_URL[0]="http://download.berlios.de/xfce-goodies/${SOURCE}"
-     SOURCE_VFY=md5:4cf1da73f50a81088bc03ad9222821a9
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL=http://download.berlios.de/xfce-goodies/
+     SOURCE_VFY=sha1:9b902cc43ecb6bf37ed08ba3ab0d0b237a9b5b79
       MAINTAINER=jasper@lunar-linux.org
          WEBSITE=http://www.xfce.org
          ENTERED=20030827
@@ -11,6 +11,6 @@
            SHORT="XFce 4 panel plugin to hide/show all windows on a workspace"
 
 cat << EOF
-xfce4-showdesktop-plugin -- XFce 4 panel plugin to hide/show all windows on a workspace
-
+xfce4-showdesktop-plugin -- XFce 4 panel plugin to hide/show all windows 
+on a workspace.
 EOF
