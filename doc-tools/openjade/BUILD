@@ -1,4 +1,9 @@
 (
+  # We need to remove the old catalog entries upon an update
+  if module_is_expired $MODULE ; then
+ 	set_module_config OLD_VER "`installed_version $MODULE`"
+  fi &&
+
   CATALOGDIR="/usr/share/sgml/$MODULE-$VERSION"
   PTEXTD="$CATALOGDIR/pubtext"
 
@@ -31,6 +36,5 @@
   cp -r contrib   $CATALOGDIR                                &&
   cp -r unicode   $CATALOGDIR                                &&
   cp -r develdoc  $CATALOGDIR                                &&
-  ln -sf `which openjade` /usr/bin/jade                      &&
-  ln -sf `which onsgmls` /usr/bin/nsgmls 
+  ln -sf `which openjade` /usr/bin/jade
 ) > $C_FIFO 2>&1

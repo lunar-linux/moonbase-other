@@ -1,8 +1,6 @@
 CATALOGDIR="/usr/share/sgml/$MODULE-$VERSION"
-centralized="/etc/sgml/catalog"
+CENTRALIZED="/etc/sgml/catalog"
 
-/usr/bin/install-catalog --remove $centralized $CATALOGDIR/catalog
-/usr/bin/install-catalog --remove $centralized $CATALOGDIR/pubtext/catalog
-/usr/bin/install-catalog --remove $centralized $CATALOGDIR/contrib/catalog
-/usr/bin/install-catalog --remove $centralized $CATALOGDIR/unicode/catalog
-/usr/bin/install-catalog --remove $centralized $CATALOGDIR/dsssl/catalog
+/usr/bin/install-catalog --remove $CENTRALIZED $CATALOGDIR/pubtext/catalog
+/usr/bin/install-catalog --remove $CENTRALIZED $CATALOGDIR/contrib/catalog
+/usr/bin/install-catalog --remove $CENTRALIZED $CATALOGDIR/unicode/catalog

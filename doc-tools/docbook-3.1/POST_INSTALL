@@ -7,5 +7,15 @@ if ! [ -e "$CENTRALIZED" ]; then
      touch $CENTRALIZED
 fi
 
+install-catalog --remove $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog
+
 install-catalog --add $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog
-install-catalog -r $CENTRALIZED /etc/sgml/catalog
+install-catalog --remove $CENTRALIZED /etc/sgml/catalog
+
+cat >> /usr/share/sgml/docbook/3.1/catalog << "EOF"
+  -- Begin Single Major Version catalog changes --
+
+PUBLIC "-//Davenport//DTD DocBook V3.0//EN" "docbook.dtd"
+
+  -- End Single Major Version catalog changes --
+EOF

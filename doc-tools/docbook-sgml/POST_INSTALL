@@ -1,5 +1,7 @@
+OLD_VER=`get_module_config OLD_VER`
 CENTRALIZED=/etc/sgml/catalog 
-DOCBOOK_INSTALL_DIR=/usr/share/sgml/docbook/$MODULE-$VERSION
+CATALOGDIR=/usr/share/sgml/docbook/$MODULE-$VERSION
+CATALOGDIR_OLD=/usr/share/sgml/docbook/$MODULE-$OLD_VER
 
 if ! [ -e "$CENTRALIZED" ]; then
      echo "Creating $CENTRALIZED"
@@ -7,5 +9,30 @@ if ! [ -e "$CENTRALIZED" ]; then
      touch $CENTRALIZED
 fi
 
-install-catalog --add $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog
-install-catalog -r $CENTRALIZED /etc/sgml/catalog
+if [ ! -z $OLD_VER ]; then
+  install-catalog --remove $CENTRALIZED $CATALOGDIR_OLD/catalog
+fi
+
+install-catalog --remove $CENTRALIZED $CATALOGDIR/catalog
+
+install-catalog --add $CENTRALIZED $CATALOGDIR/catalog
+install-catalog --remove $CENTRALIZED /etc/sgml/catalog
+
+if ! grep -q "/usr/share/sgml/docbook/$MODULE-$VERSION" $CENTRALIZED; then
+   /usr/bin/install-catalog --remove $CENTRALIZED $CATALOGDIR
+fi
+
+# We do not have any other docbook's installed
+cat >> $CATALOGDIR/catalog << "EOF"
+  -- Begin Single Major Version catalog changes --
+
+PUBLIC "-//OASIS//DTD DocBook V4.2//EN" "docbook.dtd"
+PUBLIC "-//OASIS//DTD DocBook V4.1//EN" "docbook.dtd"
+PUBLIC "-//OASIS//DTD DocBook V4.0//EN" "docbook.dtd"
+
+  -- End Single Major Version catalog changes --
+EOF
+
+if module_installed docbook-xml; then lin -c docbook-xml; fi
+
+unset_module_config OLD_VER

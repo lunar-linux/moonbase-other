@@ -1,12 +1,18 @@
-centralized="/etc/sgml/catalog"
-VER=$VERSION
-if ! [ -e "$centralized" ]; then
-     echo "Creating $centralized!"
-     touch $centralized
+OLD_VER=`get_module_config OLD_VER`
+CENTRALIZED=/etc/sgml/catalog 
+CATALOGDIR=/usr/share/sgml/dsssl/dsssl-stylesheets-$VERSION
+CATALOGDIR_OLD=/usr/share/sgml/dsssl/dsssl-stylesheets-$OLD_VER
+
+if [ ! -z $OLD_VER ]; then
+  install-catalog --remove $CENTRALIZED $CATALOGDIR_OLD/catalog
 fi
 
-install-catalog --add $centralized /usr/share/sgml/dsssl/dsssl-stylesheets-$VER/catalog
-install-catalog -r $centralized /etc/sgml/catalog
+install-catalog --remove $CENTRALIZED $CATALOGDIR/catalog
 
-cp $SOURCE_CACHE/$SOURCE2 /usr/share/sgml/dsssl/dsssl-stylesheets-$VER/html
-cp $SOURCE_CACHE/$SOURCE2 /usr/share/sgml/dsssl/dsssl-stylesheets-$VER/print
+install-catalog --add $CENTRALIZED $CATALOGDIR/catalog
+install-catalog --remove $CENTRALIZED $CENTRALIZED
+
+cp $SOURCE_CACHE/$SOURCE2 $CATALOGDIR/html
+cp $SOURCE_CACHE/$SOURCE2 $CATALOGDIR/print
+
+unset_module_config OLD_VER
