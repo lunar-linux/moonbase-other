@@ -7,6 +7,7 @@
   ./configure  --prefix=/opt/lunar/kde/3      \
                --disable-debug                \
                --with-qt-dir=/opt/lunar/qt/3  \
+               --with-xinerama                \
                $OPTS                          &&
 
   default_make

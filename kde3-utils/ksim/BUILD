@@ -6,7 +6,8 @@
   ./configure    --prefix=/opt/lunar/kde/3             \
                  --with-qt-dir=/opt/lunar/qt/3         \
                  --disable-debug                       \
-		 --enable-fast-malloc=full             \
+                 --enable-fast-malloc=full             \
+                 --with-xinerama                       \
                  $OPTS                                &&
 
   make                 &&
