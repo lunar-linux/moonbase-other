@@ -1,3 +1,43 @@
+2004-03-05 07:46  jasper
+
+	* xfce4/xfce4-weather-plugin/: BUILD, DEPENDS, DETAILS: Add weather
+	plugin.
+
+2004-03-05 06:50  watryac04
+
+	* video/mythtv/: BUILD, DEPENDS, DETAILS: New module some people
+	may have heard about...  mythtv.
+
+2004-03-05 05:18  tchan
+
+	* x11-utils/synergy/: DEPENDS, DETAILS: Removed the DEPENDS on
+	xserver.  No more propagating depends on xfree86, xfree86-beta,
+	xserver etc.  xserver DEPENDS are strictly for qt3, gtk+-2 and some
+	of the other major gui-libs and then only to prevent luser
+	questions like why can't I "lin kde3" without having xfree86
+	installed first ?
+	
+	Also reformatted DETAILS file to fit in 80 columns.
+
+2004-03-05 05:14  tchan
+
+	* gnome2-apps/abiword/: BUILD, DETAILS: Version bump to 2.0.4. 
+	Compiled and tested with gcc-3.3.3 and kernel-headers 2.4.x. 
+	Temporary hack in BUILD to remove extra automake cruft that abiword
+	devs forgot about.
+
+2004-03-04 22:37  sofar
+
+	* x11-utils/synergy/: DEPENDS, DETAILS: Bwahahahahaha
+
+2004-03-04 22:34  nestu
+
+	* kernel/kernel-headers-2.6/DETAILS: bump dee bump dee bump ! ;)
+
+2004-03-04 12:47  nestu
+
+	* kernel/linux-beta/DETAILS: Version bump
+
 2004-03-04 07:23  tchan
 
 	* graphics/svgalib/BUILD: Reverted the BUILD so that prefix=/usr is
@@ -351,15 +391,15 @@
 
 2004-02-29 05:35  nhudson
 
-	* gnome_unstable_gcc3.3.3_compat_list: 
-	Running a list of modules that do and dont work with gcc 3.3.3 and
-	2.6.x kernels
-
-2004-02-29 05:35  nhudson
-
 	* gnome_unstable_gcc3.3.3_compat_list: file
 	gnome_unstable_gcc3.3.3_compat_list was initially added on branch
 	GNOME_UNSTABLE.
+
+2004-02-29 05:35  nhudson
+
+	* gnome_unstable_gcc3.3.3_compat_list: 
+	Running a list of modules that do and dont work with gcc 3.3.3 and
+	2.6.x kernels
 
 2004-02-29 05:25  florin
 
@@ -2129,15 +2169,15 @@
 
 2004-02-11 04:08  nhudson
 
+	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
+	added on branch GNOME_UNSTABLE.
+
+2004-02-11 04:08  nhudson
+
 	* rebuild-gnome-unstable: 
 	From a suggesting of niki's I made a script that will rebuild your
 	Gnome installation and build it for the GNOME_UNSTABLE branch. 
 	Please test if you are running GNOME_UNSTABLE
-
-2004-02-11 04:08  nhudson
-
-	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
-	added on branch GNOME_UNSTABLE.
 
 2004-02-11 04:04  nhudson
 
@@ -2875,74 +2915,4 @@
 
 	* net/samba/DETAILS: Confirmed NOT parallel safe. Finally a decent
 	box to test these things on ;^)
-
-2004-02-03 22:51  nhudson
-
-	* doc-tools/intltool/DETAILS: 
-	Updating intltool to new version 0.30
-
-2004-02-03 22:01  nhudson
-
-	* video/mjpegtools/DETAILS: 
-	Updating mjpegtools to newer version 1.6.1.93
-
-2004-02-03 20:09  florin
-
-	* audio/alsa-driver/DETAILS: fix the md5 sum. many thanks to
-	nhudson for pointing this out.
-
-2004-02-03 18:17  jmhodges
-
-	* gnome2-core/gnome-panel/DETAILS: whoops.. also, i may have missed
-	some UPDATED fields.. cant remember ..	will look
-
-2004-02-03 18:16  jmhodges
-
-	* gnome2-core/gdm/DETAILS, gnome2-core/gnome-applets2/DETAILS,
-	gnome2-core/gnome-games2/DETAILS, gnome2-core/gnome-panel/DETAILS,
-	gnome2-core/gnome-vfs2/DETAILS,
-	gnome2-core/nautilus-cd-burner/DETAILS,
-	gnome2-extras/gnome-speech/DETAILS: apparently, GNOME decided to
-	release 2.5.3 two days after I get everything working.	This is
-	actually a good thing.	I'm seriously happy they fixed that fscking
-	stupid gnome-panel crap
-
-2004-02-03 16:44  jmhodges
-
-	* x11-apps/planner/DETAILS: thanks to sofar for noticing this
-
-2004-02-03 16:26  jmhodges
-
-	* gnome2-core/libgda2/DETAILS: tchan fixed this in the moonbase. 
-	rock on, tchan \m/
-
-2004-02-03 16:21  tchan
-
-	* gnome2-core/libgda2/DETAILS: Once again, the MAKES bug fix. 
-	PSAFE=no.
-
-2004-02-03 16:18  moe
-
-	* video/MPlayer/: BUILD, DETAILS: Gosh .. me isn't in the swing of
-	things it seems
-
-2004-02-03 16:14  moe
-
-	* video/MPlayer/BUILD: MPlayer md5sum for live was wrong. Also
-	remove the deprecated xine-dvdnav module. Xine has been shipping
-	with full DVD nad support for ages.
-
-2004-02-03 16:10  nhudson
-
-	* graphics/gtk+-2/DEPENDS: 
-	Removing the dependancy on xfree86, yes I know it needs xfree86 to
-	compile but it should be understood that you must have xfree86
-	installed before installing this module.  Also if you dont have the
-	xfree86 module installed and have the xfree86-beta module installed
-	this could cause some trouble
-
-2004-02-03 16:06  nhudson
-
-	* graphics/gtk+-2/DETAILS: 
-	Updating gtk+-2 to new version 2.3.2
 
