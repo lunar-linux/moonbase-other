@@ -23,6 +23,6 @@ if  !  grep  -q  "CARD="  $MODULE_CONFIG;  then
                 0 0 10                                   \
                 $CARDS`                                  &&
 
-  echo  "CARD=$CARD"  >>  $MODULE_CONFIG
+  set_module_config CARD "$CARD"
 
 fi

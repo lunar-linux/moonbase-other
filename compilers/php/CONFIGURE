@@ -1,11 +1,10 @@
+mquery IMAP "Install imap support?" y
+mquery REGGLOBALS "Enable global variable support (potential security risk)?" n
+
 if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
 
   if  query  "Install ftp support?" y;  then
     OPTS="$OPTS --enable-ftp"
-  fi
-
-  if  query   "Install imap support?" y; then
-    echo 'IMAP="y"' >> $MODULE_CONFIG
   fi
 
   if  query  "Enable transparent session id?" y;  then
@@ -14,10 +13,6 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
   
   if  query  "Enable sockets support (experimental)?" y;  then
     OPTS="$OPTS --enable-sockets"
-  fi
-
-  if  query  "Enable global variable support (potential security risk)?" n; then
-    echo  'REGGLOBALS="y"'  >>  $MODULE_CONFIG
   fi
 
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG

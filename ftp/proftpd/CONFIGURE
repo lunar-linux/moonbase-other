@@ -1,12 +1,5 @@
 PROFTPD_MODULES="mod_ifsession mod_ldap mod_radius mod_ratio mod_readme mod_rewrite mod_sql mod_sql_mysql mod_sql_postgres mod_tls mod_wrap"
 
-if query "Configure contributed modules? " n; then 
-  for mod in $PROFTPD_MODULES; do
-    if ! grep -q "MOD_$mod" $MODULE_CONFIG; then
-      if query "Enable $mod? " n
-        then echo "MOD_$mod=y" >> $MODULE_CONFIG
-        else echo "MOD_$mod=n" >> $MODULE_CONFIG
-      fi
-    fi
-  done
-fi
+for mod in $PROFTPD_MODULES; do
+  mquery MOD_$mod "Enable $mod? " n
+done

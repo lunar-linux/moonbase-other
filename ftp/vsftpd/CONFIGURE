@@ -1,21 +1,3 @@
-if [ -z "$(get_module_config USE_TCP_WRAPPERS)" ] ; then
-  if query "Use tcp wrappers ?" y ; then
-    set_module_config USE_TCP_WRAPPERS y
-  else
-    set_module_config USE_TCP_WRAPPERS n
-  fi
-fi
-if [ -z "$(get_module_config USE_PAM)" ] ; then
-  if query "Use Linux-PAM ?" y ; then
-    set_module_config USE_PAM y
-  else
-    set_module_config USE_PAM n
-  fi
-fi
-if [ -z "$(get_module_config USE_SSL)" ] ; then
-  if query "Use SSL?" y ; then
-    set_module_config USE_SSL y
-  else
-    set_module_config USE_SSL n
-  fi
-fi
+mquery USE_TCP_WRAPPERS "Use tcp wrappers ?" y
+mquery USE_PAM "Use Linux-PAM ?" y
+mquery USE_SSL "Use SSL?" y

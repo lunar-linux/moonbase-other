@@ -8,41 +8,8 @@ echo "      bg_BG     C         da_DK     es_ES     et_EE     fr_FR"
 echo "      it_IT     ja_JP     lv_LV     pt_BR     pt_PT     ru_RU"
 echo "      sv_SE     tr_TR"
 echo
-if ! grep -q "NLS" $MODULE_CONFIG; then
 
-# Remember patch is deprecated and no longer supported for 0.1.14
-echo "REM=n" >> $MODULE_CONFIG
-
-# if query "Enable NLS? (if not disables Remember patch)" y ; then
- if query "Enable NLS?" y ; then
-   echo "NLS=y" >> $MODULE_CONFIG
-#   if ! grep -q "REM" $MODULE_CONFIG; then
-#     if query "Enable Remember patch?" y
-#       then echo "REM=y" >> $MODULE_CONFIG
-#       else echo "REM=n" >> $MODULE_CONFIG
-#     fi
-#   fi
-  else echo "NLS=n" >> $MODULE_CONFIG
- fi
-fi
-
-if ! grep -q "GNOME" $MODULE_CONFIG; then
- if query "Enable Gnome (wm specs) support?" y
-   then echo "GNOME=y" >> $MODULE_CONFIG
-   else echo "GNOME=n" >> $MODULE_CONFIG
- fi
-fi
-
-if ! grep -q "KDE" $MODULE_CONFIG; then
- if query "Enable KDE (KDE dock, in Slit) support?" n 
-   then echo "KDE=y" >> $MODULE_CONFIG
-   else echo "KDE=n" >> $MODULE_CONFIG
- fi
-fi
-
-if ! grep -q "XIN" $MODULE_CONFIG; then
- if query "Enable Xinerama support?" n
-   then echo "XIN=y" >> $MODULE_CONFIG
-   else echo "XIN=n" >> $MODULE_CONFIG
- fi
-fi
+mquery NLS "Enable NLS?" y
+mquery GNOME "Enable Gnome (wm specs) support?" y
+mquery KDE "Enable KDE (KDE dock, in Slit) support?" n
+mquery XIN "Enable Xinerama support?" n

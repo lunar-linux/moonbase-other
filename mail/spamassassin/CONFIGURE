@@ -1,9 +1,1 @@
-FOO="TESTS"
-if ! grep -q "$FOO" $MODULE_CONFIG; then
-  if query "Perform make test?" y; then
-     echo "$FOO=y" >> $MODULE_CONFIG
-  else
-     echo "$FOO=n" >> $MODULE_CONFIG
-  fi
-fi
-
+mquery TESTS "Perform make test?" y

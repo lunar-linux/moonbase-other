@@ -1,17 +1,1 @@
-#FOO=""
-#if ! grep -q "$FOO" $MODULE_CONFIG; then
-#  if query "" y; then
-#     echo "$FOO=y" >> $MODULE_CONFIG
-#  else
-#     echo "$FOO=n" >> $MODULE_CONFIG
-#  fi
-#fi
-
-FOO="MILTER"
-if ! grep -q "$FOO" $MODULE_CONFIG; then
-  if query "Build libmilter extension (required for spamassassin)?" y; then
-     echo "$FOO=y" >> $MODULE_CONFIG
-  else
-     echo "$FOO=n" >> $MODULE_CONFIG
-  fi
-fi
+mquery MILTER "Build libmilter extension (required for spamassassin)?" y

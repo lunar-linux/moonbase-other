@@ -1,8 +1,1 @@
-if  !  grep  -q  "BYTECODE="  $MODULE_CONFIG;  then
-
-  if    query  "Enable bytecode interpreter?"  n
-  then  echo   "BYTECODE=y"  >>  $MODULE_CONFIG
-  else  echo   "BYTECODE=n"  >>  $MODULE_CONFIG
-  fi
-
-fi
+mquery BYTECODE "Enable bytecode interpreter?" y

@@ -1,128 +1,14 @@
-if  !  grep  -q "ALL" $MODULE_CONFIG;  then
-  if    query  "Enable all safe optimizations?" y
-  then  
-    echo   "ALL=y"  >>  $MODULE_CONFIG
-  else  echo   "ALL=n"  >>  $MODULE_CONFIG
-  fi
-else
-  if  !  grep  -q "G2H" $MODULE_CONFIG;  then
-    if    query  "Enable guest to host tlb (speed)?" y
-    then  
-      echo   "G2H=y"  >>  $MODULE_CONFIG
-      
-    else  echo   "G2H=n"  >>  $MODULE_CONFIG
-    fi
-  fi
-
-  if  !  grep  -q "REPEAT" $MODULE_CONFIG;  then
-     if    query  "Enable repeat speedups?" y
-    then  
-      echo   "REPEAT=y"  >>  $MODULE_CONFIG
-      
-    else  echo   "REPEAT=n"  >>  $MODULE_CONFIG
-    fi
-  fi
-
-  if  !  grep  -q "ICACHE" $MODULE_CONFIG;  then
-    if    query  "Enable icache (speed)?" y
-    then  
-      echo   "ICACHE=y"  >>  $MODULE_CONFIG
-      
-    else  echo   "ICACHE=n"  >>  $MODULE_CONFIG
-    fi
-  fi
-
-  if  !  grep  -q "ASM" $MODULE_CONFIG;  then
-    if    query  "Enable host specific asms?" y
-    then  
-      echo   "ASM=y"  >>  $MODULE_CONFIG
-      
-    else  echo   "ASM=n"  >>  $MODULE_CONFIG
-    fi
-  fi
-fi
-
-if  !  grep  -q "SB16" $MODULE_CONFIG;  then
-  if    query  "Emulate SB16?" n
-  then  
-    echo   "SB16=y"  >>  $MODULE_CONFIG
-    
-  else  echo   "SB16=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  !  grep  -q "SSE" $MODULE_CONFIG;  then
-  if    query  "Enable SSE?" y
-  then  
-    echo   "SSE=y"  >>  $MODULE_CONFIG
-    
-  else  echo   "SSE=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  !  grep  -q "MMX" $MODULE_CONFIG;  then
-  if    query  "Enable MMX?" y
-  then  
-    echo   "MMX=y"  >>  $MODULE_CONFIG
-    
-  else  echo   "MMX=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  !  grep  -q "PLUGINS" $MODULE_CONFIG;  then
-  if    query  "Enable plugins?" n
-  then  
-    echo   "PLUGINS=y"  >>  $MODULE_CONFIG
-    
-  else  echo   "PLUGINS=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  !  grep  -q "GLOBAL" $MODULE_CONFIG;  then
-  if    query  "Enable global pages?" n
-  then  
-    echo   "GLOBAL=y"  >>  $MODULE_CONFIG
-    
-  else  echo   "GLOBAL=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  !  grep  -q "SLOWDOWN" $MODULE_CONFIG;  then
-  if    query  "Enable timer slowdown?" n
-  then  
-    echo   "SLOWDOWN=y"  >>  $MODULE_CONFIG
-    
-  else  echo   "SLOWDOWN=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  !  grep  -q "IDLE" $MODULE_CONFIG;  then
-  if    query  "Enable idle hack?" n
-  then  
-    echo   "IDLE=y"  >>  $MODULE_CONFIG 
-    
-  else  echo   "IDLE=n"  >>  $MODULE_CONFIG 
-  fi
-fi
-
-if  !  grep  -q "NE2000" $MODULE_CONFIG;  then
-  if    query  "Emulate NE2000 network card?" n
-  then  
-    echo   "NE2000=y"  >>  $MODULE_CONFIG 
-    
-  else  echo   "NE2000=n"  >>  $MODULE_CONFIG 
-  fi
-fi
-
-if  !  grep  -q "MSR" $MODULE_CONFIG;  then
-  if    query  "Ignore bad msr (Don't stop on error)?" n
-  then  
-    echo   "MSR=y"  >>  $MODULE_CONFIG 
-    
-  else  echo   "MSR=n"  >>  $MODULE_CONFIG 
-  fi
-fi
-
-
-
-
+mquery ALL "Enable all safe optimizations?" y
+mquery G2H "Enable guest to host tlb (speed)?" y
+mquery REPEAT "Enable repeat speedups?" y
+mquery ICACHE "Enable icache (speed)?" y
+mquery ASM "Enable host specific asms?" y
+mquery SB16 "Emulate SB16?" n
+mquery SSE "Enable SSE?" y
+mquery MMX "Enable MMX?" y
+mquery PLUGINS "Enable plugins?" n
+mquery GLOBAL "Enable global pages?" n
+mquery SLOWDOWN "Enable timer slowdown?" n
+mquery IDLE "Enable idle hack?" n
+mquery NE2000 "Emulate NE2000 network card?" n
+mquery MSR "Ignore bad msr (Don't stop on error)?" n

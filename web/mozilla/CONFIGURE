@@ -1,20 +1,7 @@
-for OPTION in \
-"COM:y:Include mozilla Composer (gui html editing)?" \
-"IRC:y:Include Chatzilla (mozilla irc client)?" \
-"MATHML:y:Include MathML support?" \
-"ACC:y:Include Accesiblity support?" \
-"JSD:y:Include JavaScript debugging support?" \
-"INS:y:Include mozilla Inspector (html code inspector) support?" \
-"HELP:y:Include mozilla Help support?" \
-    ; do
-  NAME="$(echo "$OPTION" | cut -d: -f1)"
-  DEF="$(echo "$OPTION" | cut -d: -f2)"
-  DESC="$(echo "$OPTION" | cut -d: -f3-)"
-  if [ -z "$(get_module_config "$NAME")" ] ; then
-    if query "$DESC" $DEF ; then
-      set_module_config "$NAME" "y"
-    else
-      set_module_config "$NAME" "n"
-    fi
-  fi
-done
+mquery COM "Include mozilla Composer (gui html editing)?" y
+mquery IRC "Include Chatzilla (mozilla irc client)?" y
+mquery MATHML "Include MathML support?" y
+mquery ACC "Include Accesiblity support?" y
+mquery JSD "Include JavaScript debugging support?" y
+mquery INS "Include mozilla Inspector (html code inspector) support?" y
+mquery HELP "Include mozilla Help support?" y

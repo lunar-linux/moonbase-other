@@ -1,8 +1,1 @@
-if  !  grep  -q  "IDE_SCSI="  $MODULE_CONFIG;  then
-
-  if    query  "Will you need ide-scsi?"  n
-  then  echo  "IDE_SCSI=y"  >>  $MODULE_CONFIG
-  else  echo  "IDE_SCSI=n"  >>  $MODULE_CONFIG
-  fi
-
-fi
+mquery IDE_SCSI "Will you need ide-scsi?" n

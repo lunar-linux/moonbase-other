@@ -1,7 +1,1 @@
-if [ -z "$(get_module_config OLD_FILE_SELECT)" ] ; then
-  if query "Disable GTK+ 2.4 file select dialog box?" n; then
-     set_module_config OLD_FILE_SELECT y
-  else
-     set_module_config OLD_FILE_SELECT n
-  fi
-fi
+mquery OLD_FILE_SELECT "Disable GTK+ 2.4 file select dialog box?" n

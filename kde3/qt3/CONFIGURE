@@ -1,17 +1,2 @@
-if ! grep -q "SAMPIN"  $MODULE_CONFIG; then
-  
-  if    query  "Install QT3 examples and tutorials?" y
-  then  echo   "SAMPIN=y" >> $MODULE_CONFIG
-  else  echo   "SAMPIN=n" >> $MODULE_CONFIG
-  fi
-
-  if ! grep -q "SAMPCOMP"  $MODULE_CONFIG; then
-    
-    if    query  "Pre-compile QT3 examples and tutorials?" n
-    then  echo   "SAMPCOMP=y" >> $MODULE_CONFIG
-    else  echo   "SAMPCOMP=n" >> $MODULE_CONFIG
-    fi
-  
-  fi
-
-fi
+mquery SAMPIN "Install QT3 examples and tutorials?" y
+mquery SAMPCOMP "Pre-compile QT3 examples and tutorials?" n
