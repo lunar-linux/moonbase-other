@@ -1,13 +1,19 @@
 (
 
-  make  all                                          &&
+  ./configure  --prefix=/usr                         \
+               --bindir=/usr/bin                     \
+	       --sbindir=/sbin                       \
+	       --datadir=/usr/share                  \
+	       --sysconfdir=/etc                     \
+	       --mandir=/usr/share/man               \
+	       --enable-mandatory-headers            \
+	       --with-init-dir=/etc/init.d           \
+	       --with-rc-dir=/etc                    \
+               --enable-mandatory-headers            \
+	       --with-xinetd-dir=/etc/xinetd.d       &&
+	       
+  make                                               &&
   prepare_install                                    &&
-  mkdir -p /etc/rc.d/init.d                          &&
-  ln -sf /etc/rc.d/init.d /etc/init.d                &&
-  for n in 0 1 2 3 4 5 6; do
-    mkdir -p /etc/rc.d/rc${n}.d
-    ln -sf /etc/rc.d/rc${n}.d /etc/
-  done                                               &&
-  make install
+  make    install
   
 ) > $C_FIFO 2>&1
