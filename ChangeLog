@@ -1,3 +1,149 @@
+2004-12-18 13:05  florin
+
+	* kde3/kdebase3/: BUILD, POST_INSTALL, kdm: fix the bug #631.
+
+2004-12-18 09:18  florin
+
+	* libs/glew/DETAILS: bump the version from 1.2.4 to 1.2.5.
+
+2004-12-18 09:08  florin
+
+	* x11-apps/xdesktopwaves/DETAILS: bump the version from 1.2 to 1.3.
+
+2004-12-17 22:52  florin
+
+	* video/xine-ui/DETAILS: bump the version from 0.99.2 to 0.99.3.
+
+2004-12-17 22:45  florin
+
+	* crypto/gnupg/DETAILS: bump the version from 1.2.6 to 1.4.0.
+
+2004-12-17 22:43  florin
+
+	* sql/mysql/DETAILS: bump the version from 4.1.7 to 4.1.8.
+
+2004-12-17 18:34  jol
+
+	* chat/gnomemeeting/DETAILS: - fix, i've made a mistake in the
+	  source file
+
+2004-12-17 18:03  florin
+
+	* perl/SDL_perl/BUILD: small tweak.
+
+2004-12-17 17:08  tchan
+
+	* perl/SDL_perl/DEPENDS: Updated SDL_perl to add a hidden CPAN
+	  depends on Module-Build.
+
+2004-12-17 17:07  tchan
+
+	* perl/Module-Build/: BUILD, DEPENDS, DETAILS: Added another perl
+	  cpan module to moonbase.  Its needed by the latest SDL_perl
+	  module to build correctly.  Yet another case of hidden CPAN
+	  depends!
+
+2004-12-17 10:55  jol
+
+	* libs/libavc1394/DEPENDS: - add a dependancy on libraw1394,
+	  without this dependancy this module doesn't compile ...
+
+2004-12-17 10:51  jol
+
+	* chat/gnomemeeting/: BUILD, DEPENDS, DETAILS, PRE_BUILD: - Bumped
+	  version to 1.2.0 - remove the PRE_BUILD file - pwlib and openh323
+	  was inside this module, now i've created a module   for each one.
+	  In fact, these modules have now a "valid" installation schema.  -
+	  Add a dependancy on the evolution-data-server because it requires
+	  the libebook.
+
+2004-12-17 10:45  jol
+
+	* libs/: openh323/DEPENDS, openh323/DETAILS, pwlib/DEPENDS,
+	  pwlib/DETAILS: - First import of pwlib and openh323 - These two
+	  new modules are required by gnomemeeting
+
+2004-12-17 06:15  tchan
+
+	* docs/man-pages/DETAILS: Version bump to man-pages-2.00.
+
+2004-12-17 03:23  tchan
+
+	* perl/SDL_perl/: BUILD, DEPENDS, DETAILS: Version bump
+	  SDL_perl-2.1.2.  Unfortunately the SDL perl devs changed the
+	  source tarball name to SDL_Perl from SDL_perl.  I've left the
+	  moonbase module name alone and fixed the module internally to use
+	  the new name. Compiled/tested with perl-5.8.6.
+
+2004-12-17 02:07  v3rt1g0
+
+	* devel/gob2/: DEPENDS, DETAILS: Version bump.	This version is
+	  supposed to support compiling with gcc 3.4.  Also investigated
+	  the depends a bit and cleaned them up.
+
+2004-12-17 01:54  v3rt1g0
+
+	* devel/gob/DETAILS: Reformatted the long description so it wasn't
+	  ugly and added a missing sha1 sum.
+
+2004-12-17 01:38  tchan
+
+	* perl/perl/DETAILS: Version bump to perl-5.8.6. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.  Yes, power
+	  perl users will still have to reinstall any CPAN modules that
+	  they previously installed for perl-5.8.5.  Yes, CPAN is still a
+	  brain dead system when it comes to sharing its dependency
+	  information with other tools.  Take it up with the CPAN devs.
+
+2004-12-16 22:33  moe
+
+	* xfce4/xfwm4/BUILD: garrr matey
+
+2004-12-16 22:30  moe
+
+	* xfce4/xfwm4/: BUILD, CONFIGURE: The compositor should not be
+	  enabled by default.
+
+2004-12-16 21:54  cmak
+
+	* xfce4/xfwm4/BUILD: should be the default now
+
+2004-12-16 21:08  tchan
+
+	* devel/metakit/BUILD: Editted the hack that is the unix/configure
+	  script in the module. They have Python hardcoded at 2.3, while
+	  moonbase is at Python 2.4.  Compiled/tested with gcc-3.3.3,
+	  glibc-2.3.3, kernel headers 2.4.x, Python-2.4.
+
+2004-12-16 20:25  tchan
+
+	* graphics/SDL/DETAILS: Removed the unneeded SOURCE2_URL for an
+	  older patch???
+
+2004-12-16 18:49  florin
+
+	* graphics/SDL/: DETAILS, PRE_BUILD: bump the version from 1.2.7 to
+	  1.2.8.
+
+2004-12-16 18:45  florin
+
+	* games/briquolo/DETAILS: fix the sha1 sum.
+
+2004-12-16 17:54  florin
+
+	* zbeta/php5/: BUILD, DETAILS: bump the version from 5.0.2 to
+	  5.0.3. bugfix release.
+
+2004-12-16 17:40  florin
+
+	* compilers/php/: BUILD, DETAILS: bump the version from 4.3.9 to
+	  4.3.10. bugfix release. compiles with gcc 3.4.3.
+
+2004-12-16 16:56  florin
+
+	* net/samba/DETAILS: bump the version from 3.0.9 to 3.0.10.
+	  security fixes.
+
 2004-12-16 12:28  moe
 
 	* mail/sylpheed/DETAILS: sofar decided to go with the beta releases
@@ -1778,174 +1924,4 @@
 
 	* audio/ices/DETAILS: set the WEB_SITE to a more exact location and
 	  added a bit more info the the module's long description
-
-2004-11-17 20:55  jol
-
-	* ftp/mldonkey/: BUILD, DETAILS: - Bumped version to the 2.5.28 -
-	  add a patch 2.5.28h
-
-2004-11-17 18:21  florin
-
-	* libs/numarray/DETAILS: bump the version from 1.1. to 1.1.1.
-
-2004-11-17 18:10  florin
-
-	* ftp/gift/DETAILS: bump the version from 0.11.7 to 0.11.8.
-
-2004-11-17 18:03  ratler
-
-	* kernel/openafs-driver/CONFLICTS,
-	  zbeta/openafs-driver-devel/CONFLICTS: Added driver conflicts
-
-2004-11-17 17:59  ratler
-
-	* filesys/openafs/BUILD: oops forgot one thing...
-
-2004-11-17 17:57  ratler
-
-	* filesys/openafs/: BUILD, CONFLICTS, DETAILS: Cleaned up DETAILS,
-	  moved etc files into a tarball
-
-2004-11-17 17:51  ratler
-
-	* zbeta/openafs-devel/: BUILD, CONFLICTS, DETAILS: Moved openafs
-	  etc files into a tarball
-
-2004-11-17 17:45  florin
-
-	* video/mkvtoolnix/DETAILS: bump the version from 0.9.7 to 1.0.
-
-2004-11-17 15:48  sofar
-
-	* zbeta/XOrg-test/BUILD: Even better
-
-2004-11-17 15:40  prox
-
-	* zbeta/: openafs-devel/BUILD, openafs-devel/DEPENDS,
-	  openafs-devel/DETAILS, openafs-devel/POST_INSTALL,
-	  openafs-driver-devel/BUILD, openafs-driver-devel/DEPENDS,
-	  openafs-driver-devel/DETAILS, openafs-driver-devel/POST_INSTALL:
-	  added developer version of openafs, this works on both 2.4 and
-	  2.6
-
-2004-11-17 14:39  v3rt1g0
-
-	* libs/loudmouth/: DEPENDS, DETAILS: Version bump.  Changed the
-	  source url as the old one was giving me strange wget results (as
-	  in it grabbed the source twice, but in the end lunar said it
-	  never grabbed it.. *shrug*).	Also added some missing
-	  dependancies.
-
-2004-11-17 14:35  sofar
-
-	* zbeta/XOrg-test/BUILD: Random untested changes.
-
-2004-11-17 13:00  prox
-
-	* editors/emacs/BUILD: removed linker optimization since it doesnt
-	  work, emacs passes LDFLAGS directly to ld and you cant rewrite it
-	  to -O1 since the makefiles adds LDFLAGS to all gcc's also
-
-2004-11-17 12:33  prox
-
-	* gnome2-core/yelp/DEPENDS: more depends needed
-
-2004-11-17 12:32  sofar
-
-	* utils/acct/DETAILS: Merci a couanetter, closes #558
-
-2004-11-17 12:25  prox
-
-	* gnome2-core/gnome-panel/DEPENDS: more more MORE depends needed =)
-
-2004-11-17 12:22  prox
-
-	* gnome2-core/gnome-desktop/DEPENDS: more depends needed
-
-2004-11-17 12:14  prox
-
-	* web/firefox/DEPENDS: added optional gssapi support to firefox via
-	  heimdal
-
-2004-11-17 12:12  prox
-
-	* gnome2-core/libglade2/DEPENDS: remove libgnome depend, it depend
-	  loops with it and compiles fine without
-
-2004-11-17 12:03  sofar
-
-	* net/netkit-base/CONFLICTS: Missing conflicts!
-
-2004-11-17 10:40  moe
-
-	* utils/speedfreq/: BUILD, DEPENDS, DETAILS, Makefile,
-	  init.d/speedfreqd: Adding this shiny new speedstep utility
-
-2004-11-17 09:31  prox
-
-	* gnome2-core/libbonobo/DEPENDS: added more req, wont compile
-	  without these on a fresh install
-
-2004-11-16 20:50  jol
-
-	* kde3-utils/superkaramba/DETAILS: bumped version to 0.35
-
-2004-11-16 19:25  nestu
-
-	* kernel/linux-2.6-mm/DETAILS: 2.6.10rc1mm4 -> 2.6.10rc2mm1. gcc
-	  3.3.3, glibc 2.3.2, headers 2.6.9.1
-
-2004-11-16 15:35  hardkrash
-
-	* printer/foomatic-filters/: DEPENDS, DETAILS: Adding a module for
-	  the foomatic filters so that we have easy use of the foomatic
-	  PPDs
-
-2004-11-16 13:59  moe
-
-	* wifi/kismet/: BUILD, CONFIGURE, DETAILS: Doodeedeleedoo
-
-2004-11-16 13:50  florin
-
-	* games/gl-117/DETAILS: bump the version from 1.3 to 1.3.1.
-
-2004-11-16 12:37  florin
-
-	* kde3-apps/kdetv/DETAILS: bump the version from 0.8.3 to 0.8.4.
-
-2004-11-16 11:23  florin
-
-	* graphics/ImageMagick/DETAILS: bump the version from 6.1.3 to
-	  6.1.4.
-
-2004-11-16 10:12  florin
-
-	* utils/fcron/DETAILS: bump the version from 2.9.5 to 2.0.2. back
-	  on the stable branch :) security release.
-
-2004-11-16 09:45  florin
-
-	* docs/abs-guide/DETAILS: bump the version from 3.0 to 3.1.
-
-2004-11-16 09:42  sofar
-
-	* printer/ghostscript/DEPENDS: This one I forgot. I really should
-	  just implement the aliases everywhere...
-
-2004-11-16 09:41  prox
-
-	* crypto/openssh/DEPENDS: added optional support for heimdal
-	  (GSSAPI)
-
-2004-11-16 09:39  sofar
-
-	* printer/ghostscript/: BUILD, CONFLICTS, DETAILS: Adding GNU
-	  ghostscript *BACK* to moonbase. I need it and it's a useful
-	  module. Please do not remove it from moonbase.
-
-2004-11-16 03:05  hardkrash
-
-	* graphics/libkipi/profile.d/libkipi.rc: fun filled package config
-	  paths,  should we have a more orgnized way to manipulate these
-	  paths???
 
