@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export ESDL_PATH=/usr/lib/esdl
+export WINGS_PATH=/usr/share/wings
+
+exec /usr/bin/erl -pa $ESDL_PATH/ebin -pa $WINGS_PATH/ebin -run wings_start start_halt ${1+"$@"}
