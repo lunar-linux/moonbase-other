@@ -135,6 +135,12 @@ function device_start() {
 		    echo -n "failed to set address";
 		    return -1;
 		fi;
+		for ROUTECMD in "$ROUTE_1" "$ROUTE_2" "$ROUTE_3" "$ROUTE_4" ; do
+		  if [ -n "$ROUTECMD" ] ; then
+	            echo -e "\n    adding route: $ROUTECMD"
+		    /sbin/route $ROUTECMD
+		  fi
+		done
 	    ;;
 	    *)
 		echo -n "address type not currently supported";
@@ -152,6 +158,17 @@ function device_stop() {
 
 	. $CONFIGS/$1;
 	
+	for ROUTECMD in "$ROUTE_4" "$ROUTE_3" "$ROUTE_2" "$ROUTE_1" ; do
+	  if [ -n "$ROUTECMD" ] ; then
+	    if $(echo $ROUTECMD | grep -q "^add ") ; then
+	      ROUTECMD=$(echo $ROUTECMD | sed 's/^add /del /')
+	    elif $(echo $ROUTECMD | grep -q "^del ") ; then
+	      ROUTECMD=$(echo $ROUTECMD | sed 's/^del /add /')
+	    fi
+	    echo -e "\n    deleting route: $ROUTECMD"
+	    /sbin/route $ROUTECMD
+	  fi
+	done
 	case $ADDRESS in
 	    [dD][hH][cC][pP])
 	        case $DHCP_CLIENT in
