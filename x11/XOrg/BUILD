@@ -91,11 +91,11 @@
     cp $SCRIPT_DIRECTORY/xsession /etc/skel/.xsession
   fi &&
 
-  if [ ! -e /usr/bin/X11 ]; then
+  if [ ! -d /usr/bin/X11 ]; then
     ln -sf /usr/X11R6/bin /usr/bin/X11
   fi &&
 
-  if [ ! -e /usr/X11 ]; then
+  if [ ! -d /usr/X11 ]; then
     ln -sf /usr/X11R6 /usr/X11
   fi &&
 
@@ -103,11 +103,11 @@
     ln -sf  /usr/X11R6/include/X11 /usr/include/X11
   fi &&
 
-  if [ ! -e /usr/lib/X11 ]; then
+  if [ ! -d /usr/lib/X11 ]; then
     ln -sf /usr/X11R6/lib/X11 /usr/lib/X11
   fi &&
   
-  if [ ! -e /usr/X11R6/lib/X11/fonts ]; then
+  if [ ! -d /usr/X11R6/lib/X11/fonts ]; then
     ln -sf /usr/share/fonts /usr/X11R6/lib/X11/fonts
   fi &&
 
@@ -121,6 +121,12 @@
   
   if [ ! -e /usr/lib/pkgconfig/xft.pc ]; then
     ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig/xft.pc
+  fi
+
+  if [ ! -d /tmp/.ICE-unix ]; then
+    mkdir -p /tmp/.ICE-unix
+    chown root /tmp/.ICE-unix
+    chmod 777 /tmp/.ICE-unix
   fi
   
 ) > $C_FIFO 2>&1
