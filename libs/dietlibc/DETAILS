@@ -1,0 +1,18 @@
+          MODULE=dietlibc
+         VERSION=0.22
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.kernel.org/pub/linux/libs/$MODULE/$SOURCE
+   SOURCE_URL[1]=http://www.fefe.de/dietlibc/$SOURCE
+        WEB_SITE=http://www.fefe.de/dietlibc/
+         ENTERED=20021224
+         UPDATED=20030218
+           SHORT="dietlibc is a libc optimized for small size."
+           PSAFE="no"
+     GCCWRAPPERS="off"    
+     KEEP_SOURCE="on"
+cat << EOF
+The diet libc is a libc that is optimized for small size.  It can be used to
+create small statically linked binaries for Linux on alpha, arm, hppa, ia64,
+i386, mips, s390, sparc, sparc64, ppc, and x86_64.
+EOF
