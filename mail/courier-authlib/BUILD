@@ -1,11 +1,6 @@
 (
 
-  ./configure  --prefix=/usr             \
-               --sysconfdir=/etc	 \
-               --mandir=/usr/share/man   \
-               --localstatedir=/var      \
-	       --build=$BUILD            \
-               $OPTS                    &&
+  default_config                        &&
   make                                  &&
   prepare_install                       &&
   make install                          &&
