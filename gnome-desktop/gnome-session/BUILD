@@ -17,7 +17,7 @@ fi
 		--enable-platform-gnome-2			&&
 
    default_make                                                 &&
-   cp $SOURCE_CACHE/$SOURCE3 /opt/lunar/gnome/2/share/pixmaps/splash/$SOURCE3 
+   cp $SOURCE_CACHE/$SOURCE3 /opt/lunar/gnome/2/share/pixmaps/splash/gnome-splash.png 
 
 ) > $C_FIFO 2>&1
 
