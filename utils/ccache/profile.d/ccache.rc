@@ -1,0 +1,6 @@
+# store the SA's ccache in a global location instead of /root/
+if [ "$UID" == "0" ] ; then
+  CCACHE_NOLINK=no
+  CCACHE_DIR=/var/cache/ccache
+  CCACHE_LOGFILE=/var/log/ccache
+fi
