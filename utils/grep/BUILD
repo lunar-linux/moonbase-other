@@ -2,16 +2,7 @@
 #where it needs to be! -csm
 sedit "s/SYMLINK=\"ln -s\"/SYMLINK=\"ln -sf\"/" configure
 (
-   ./configure  --prefix=/usr                           \
-                --build=$BUILD                          \
-                --bindir=/bin                           \
-                --sbindir=/sbin                         \
-                --datadir=/usr/share                    \
-                --localstatedir=/var                    \
-                --libdir=/lib                           \
-                --includedir=/include                   \
-                --infodir=/usr/share/info               \
-                --mandir=/usr/share/man                 &&
-   default_make
+   OPTS=$OPTS" --bindir=/bin --sbindir=/sbin --libdir=/lib --includedir=/include"
+   default_build
 
 ) > $C_FIFO 2>&1
