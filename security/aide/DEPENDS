@@ -1,5 +1,10 @@
 depends  mhash    &&
 
+optional_depends  "libgcrypt"         \
+                  "--with-gcrypt"     \
+                  "--without-gcrypt"  \
+                  "use gcrypt lib"          &&
+                  
 optional_depends  "zlib"            \
                   "--with-zlib"     \
                   "--without-zlib"  \
