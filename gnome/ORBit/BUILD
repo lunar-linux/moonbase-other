@@ -1,7 +1,6 @@
 (
 
-  ./configure  CC='gcc' CFLAGS="$CFLAGS"	\
-               --prefix=/usr             	\
+  ./configure  --prefix=/usr             	\
                --infodir=/usr/share/info 	\
 	       --mandir=/usr/share/man   	&&
   make                        &&
