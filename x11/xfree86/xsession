@@ -7,6 +7,12 @@ fi
 if    [  -x /usr/bin/enlightenment  ]
 then  exec           enlightenment
 
+elif  [  -x /opt/lunar/kde/3/bin/startkde  ]
+then  exec  /opt/lunar/kde/3/bin/startkde
+
+elif  [  -x /opt/lunar/kde/2/bin/startkde  ]
+then  exec  /opt/lunar/kde/2/bin/startkde
+
 elif  [  -x /usr/bin/wmaker  ]
 then  [  -d ~/GNUstep        ]  ||
                      wmaker.inst
@@ -20,4 +26,5 @@ then  exec           blackbox
 
 elif  [  -x /usr/bin/fvwm2  ]
 then  exec           fvwm2
+
 fi

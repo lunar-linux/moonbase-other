@@ -30,16 +30,21 @@ message  "Building XFree86 takes a very long time."
   then  echo  "#define  HasPam  YES"  >>  config/cf/site.def
   fi
 
-  # The following patch was used for xfree86 4.1.0 with linux 2.4.17
-  # patch  -p1  <  $SCRIPT_DIRECTORY/drm.h.patch
-
+  # Patch for X version of bad version of zlib
+  gzip -d < $SOURCE_CACHE/4.2.0-4.2.1.diff.gz | patch -p1     &&
+  patch -p1 < $SOURCE_CACHE/4.2.1-mit-shm-security.patch      &&
+  
   # patch for programs/Xserver/hw/xfree86/os-support/linux/drm/kernel/Makefile.linux. The patch removes i810 and i830 from DRM because they are broken.
   patch -p1 <  $SCRIPT_DIRECTORY/xfree86-drm.patch               &&
-  
-  # Patch for X version of bad version of zlib
-  patch  -p1  <  $SCRIPT_DIRECTORY/4.2.0-zlib-security.patch     &&
 
-  make  World                                                    &&
+  export CFLAGS=`echo $CFLAGS | sed s/-funroll-loops//`
+  export CFLAGS=`echo $CFLAGS | sed s/-ffast-math//`
+  export CXXFLAGS=`echo $CXXFLAGS | sed s/-funroll-loops//`
+  export CXXFLAGS=`echo $CXXFLAGS | sed s/-ffast-math//`
+  export CPPFLAGS=`echo $CPPFLAGS | sed s/-funroll-loops//`
+  export CPPFLAGS=`echo $CPPFLAGS | sed s/-ffast-math//`
+
+  make World     &&
   prepare_install                                                &&
   cd    $SOURCE_DIRECTORY                                        &&
   make  install                                                  &&

@@ -1,3 +1,8 @@
+optimize_platform $GCCVER 
+  CFLAGS=`echo $CFLAGS | sed s/-funroll-loops//`
+  CFLAGS=`echo $CFLAGS | sed s/-ffast-math//`
+echo $CFLAGS
+
 build_checklist()  {
 
   STATUS=$1
@@ -117,12 +122,19 @@ initialize()  {
 
 
   YES_FONT_OPTIONS="MakeLocalFontDir Build75DpiFonts Build100DpiFonts"
-   NO_FONT_OPTIONS="BuildCIDFonts     BuildCyrillicFonts
-                    BuildLatin2Fonts  UseKoi8RForCyrillic
-                    BuildFontServer   InstallFSConfig"
+   NO_FONT_OPTIONS="BuildCIDFonts      BuildCyrillicFonts
+                    BuildLatin2Fonts   UseKoi8RForCyrillic
+		    BuildArabicFonts   BuildISO8859_6Fonts
+		    BuildGreekFonts    BuildISO8859_7Fonts
+		    BuildHebrewFonts   BuildISO8859_8Fonts
+		    BuildKOI8_RFonts   BuildJapaneseFonts
+		    BuildJISX0201Fonts BuildKoreanFonts
+		    BuildChineseFonts  BuildFontServer
+		    InstallFSConfig    SharedLibFont
+		    CompressAllFonts   GzipFontCompression"
       FONT_OPTIONS="$YES_FONT_OPTIONS  $NO_FONT_OPTIONS"
 
-  YES_MISC_OPTIONS="HasShm BuildXF86DRI BuildXF86DRM BuildGLULibrary BuildGLXLibrary BuildGlxExt InstallXinitConfig InstallXdmConfig XprtServer"
+  YES_MISC_OPTIONS="HasShm BuildXF86DRI BuildXF86DRM BuildGLULibrary BuildGLXLibrary BuildGlxExt InstallXinitConfig InstallXdmConfig XprtServer ThreadedX"
    NO_MISC_OPTIONS="BuildServersOnly  BuildPexExt  XnestServer
                     LinuxFBDevSupport XVirtualFramebufferServer"
       MISC_OPTIONS="$YES_MISC_OPTIONS  $NO_MISC_OPTIONS"
@@ -132,11 +144,34 @@ initialize()  {
 
 generate_host_def()  {
 
-  echo  "#define DefaultCCOptions      $CFLAGS"
-  echo  "#define DefaultGcc2i386Opt    $CFLAGS"
-  echo  "#define LibraryCDebugFlags    $CFLAGS"
-  echo  "#define DefaultCDebugFlags    $CFLAGS"
-  echo  "#define OptimizedCDebugFlags  $CFLAGS"
+
+  echo  "#define DefaultCCOptions      $CFLAGS $LDFLAGS"
+  echo  "#define DefaultGcc2i386Opt    $CFLAGS $LDFLAGS"
+  echo  "#define LibraryCDebugFlags    $CFLAGS $LDFLAGS"
+  echo  "#define DefaultCDebugFlags    $CFLAGS $LDFLAGS"
+  echo  "#define OptimizedCDebugFlags  $CFLAGS $LDFLAGS"
+
+  if [[ $COPT != "" ]]; then
+    echo "#define GccWarningOptions $COPT"
+  fi
+
+  if [[ -f /proc/mtrr ]]; then
+    echo "#define HasMTRRSupport         YES"
+  fi
+
+  case $CPU in
+  Pentium*)echo "#define HasMMXSupport   YES"
+           echo "#define HasSSESupport   YES"
+	   echo "#define MesaUseKatmai   YES"
+#           if [[ CPU == "Pentium4" ]]; 
+#             echo "#define HasSSE2Support YES"
+#           fi
+           ;;
+   Athlon*)echo "#define HasMMXSupport   YES"
+           echo "#define Has3DNowSupport YES"
+	   echo "#define MesaUse3DNow    YES"
+           ;;
+  esac 
 
   if  [  -z  "$XF86CardDrivers"  ];  then
     XF86CardDrivers="$ON_CARD_DRIVERS"
@@ -155,8 +190,6 @@ generate_host_def()  {
     echo  "#define DriDrivers $DriDrivers"
   fi
 
-
-
   if  [  -z  "$XInputDrivers"  ];  then
     echo  "#define XInputDrivers mouse"
   else
@@ -165,8 +198,6 @@ generate_host_def()  {
     echo  "#define XInputDrivers $XInputDrivers"
   fi
 
-
-
   for  ITEM  in   $YES_FONT_OPTIONS;  do
     echo  "#define $ITEM  YES"
   done
@@ -174,6 +205,12 @@ generate_host_def()  {
   for  ITEM  in  $NO_FONT_OPTIONS;  do
     echo  "#define $ITEM  NO"
   done
+
+  if module_installed freetype2; then
+    echo "#define HasFreetype2              YES"
+    echo "#define BuildFreetype2Library     NO"
+    echo "#define Freetype2Dir              /usr"
+  fi
 
   for  ITEM  in   $YES_MISC_OPTIONS;  do
     echo  "#define $ITEM  YES"
