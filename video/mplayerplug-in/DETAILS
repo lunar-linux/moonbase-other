@@ -1,12 +1,15 @@
           MODULE=mplayerplug-in
-         VERSION=1.2
+         VERSION=2.66
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=gecko-sdk-i686-pc-linux-gnu-1.7.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}
    SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
-     SOURCE_VFY=md5:76e76136aa11613ce6fb37e52ea1a98e
+  SOURCE2_URL[0]=http://ftp.mozilla.org/pub/mozilla.org/mozilla/releases/mozilla1.7/$SOURCE2
+      SOURCE_VFY=md5:c47806370986a6adf7c8f5ef3e70eaa9
+     SOURCE2_VFY=md5:d90e2d8ed88bf043828b93f4f468413d
         WEB_SITE=http://mplayerplug-in.sourceforge.net
          ENTERED=20030323
-         UPDATED=20040121
+         UPDATED=20040728
         SHORT="mplayerplug-in is a plugin for Mozilla/Netscape + Konqueror to show videos"
 
 cat << EOF
