@@ -11,7 +11,7 @@
                --libexecdir=/bin  \
                --infodir=/usr/share/info \
                --bindir=/bin      &&
-  make  LDFLAGS=-static           &&
+  make                            &&
   prepare_install                 &&
   cp  src/tar        /bin         &&
   cp  src/rmt        /bin         &&
