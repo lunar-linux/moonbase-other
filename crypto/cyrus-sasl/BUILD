@@ -1,6 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
   cp configure configure.old                                           &&
   sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/"  utils/Makefile.in \
                               sample/Makefile.in saslauthd/Makefile.in &&
@@ -19,14 +18,11 @@
               --with-saslauthd=/var/lib/sasl "
 
   default_config           &&
-  make                     &&
-  prepare_install          &&
   mkdir -p /var/lib/sasl/  &&
-  make install             &&
+  default_make             &&
   if [ ! -e /usr/lib/sasl2/smtpd.conf ] ; then
     install $SOURCE_CACHE/$SOURCE2 /usr/lib/sasl2/smtpd.conf.gz &&
     gunzip /usr/lib/sasl2/smtpd.conf.gz
   fi
 
 ) > $C_FIFO 2>&1 
-
