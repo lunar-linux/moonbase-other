@@ -1,5 +1,6 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   mkdir -p /var/webmin/html &&
   prepare_install           &&
   cp -a * /var/webmin/html  &&
