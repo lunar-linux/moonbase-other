@@ -1,5 +1,7 @@
 (
   patch -p1 < $SCRIPT_DIRECTORY/licq-1.2.0-vectorcheck.patch
+
+  CPPFLAGS=$CPPFLAGS" -Wno-deprecated"             \
   ./configure  --prefix=/usr                       \
                --sysconfdir=/etc                   \
                --localstatedir=/var                &&
@@ -7,6 +9,7 @@
 
 if [ "$CONSOLEPLUGIN" = "y" ] ; then
   cd  $SOURCE_DIRECTORY/plugins/console-$PLUGIN_VERSION   &&
+  CPPFLAGS=$CPPFLAGS" -Wno-deprecated"             \
   ./configure  --prefix=/usr                       \
                --sysconfdir=/etc                   \
                --localstatedir=/var                &&
@@ -18,6 +21,7 @@ if [ "$QTPLUGIN" = "y" ] ; then
 
     cd  $SOURCE_DIRECTORY/plugins/qt-gui-$PLUGIN_VERSION  &&
     KDEDIR=/opt/lunar/kde/2                        &&
+    CPPFLAGS=$CPPFLAGS" -Wno-deprecated"           \
     ./configure  --prefix=/usr                     \
                  --sysconfdir=/etc                 \
                  --localstatedir=/var              \
