@@ -4,8 +4,10 @@ depends zlib &&
 optional_depends "openssl"       \
                  "--with-ssl"    \
                  "--without-ssl" \
-                 "to link with OpenSSL" &&
-optional_depends "mysql"           \
-                 "--with-mysql"    \
-                 "--without-mysql" \
-                 "for support for mysql access"
+                 "to link with OpenSSL"
+
+# causes loopy depends -- commenting out for now
+#optional_depends "mysql"           \
+#                 "--with-mysql"    \
+#                 "--without-mysql" \
+#                 "for support for mysql access"
