@@ -14,19 +14,19 @@ if [ ! -d /usr/src/linux-${VERSION} ]; then
     mv linux-${KERNEL_VERSION} linux-${VERSION}
 
     ln  -sf     linux-${VERSION}  linux
-    
-    
+       
     chown root.root linux
-    chown -R root.root linux-${VERSION}
     
     cd linux
 
     patch_it $SOURCE2 1
-    patch_it $SOURCE3 1
 
-    if  [  -f   $CONFIG_CACHE/.config.beta  ];  then
-	cp  $CONFIG_CACHE/.config.beta  /usr/src/linux/.config 
-    fi
+	for config in .config-2.6-mm .config.2.6.stable .config.beta
+	do
+		test  -f  $CONFIG_CACHE/${config} || continue
+		cp  $CONFIG_CACHE/${config}  /usr/src/linux/.config
+		message "Importing ${config} as kernel default configuration"
+    done
 
 else
 

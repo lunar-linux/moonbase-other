@@ -37,7 +37,7 @@ done
 
 (
     yes  n  |  make  oldconfig
-    cp  .config  $CONFIG_CACHE/.config.beta
+    cp  .config  $CONFIG_CACHE/.config-2.6-mm
     rm -f arch/i386/boot/bzImage
 
    # Because parallel make seems not to work, a hack   
