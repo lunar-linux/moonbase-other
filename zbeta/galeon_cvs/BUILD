@@ -4,7 +4,7 @@
  cd $SOURCE_DIRECTORY/galeon &&
 ./autogen.sh --prefix=/opt/lunar/gnome/2 \
              --disable-werror            \
-             --enable-nautilus-view      &&
+             $OPTS      &&
 default_make 
   
 ) > $C_FIFO 2>&1
