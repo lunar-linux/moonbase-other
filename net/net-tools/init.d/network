@@ -9,11 +9,6 @@
 
 shopt -s extglob
 CONFIGS=/etc/config.d/network
-IFCONFIG=/sbin/ifconfig
-IWCONFIG=/usr/sbin/iwconfig
-ROUTE=/sbin/route
-DHCPCD=/usr/sbin/dhcpcd
-DHCLIENT=/sbin/dhclient
 
 function device_start() {
 	if [ ! -e $CONFIGS/$1 ]; then
@@ -38,7 +33,7 @@ function device_start() {
 	fi;
 
 	if ( [ ! -z $WIRELESS_MODE ] || [ ! -z $WIRELESS_KEY ] || [ ! -z $WIRELESS_RATE ] || [ ! -z $WIRELESS_ESSID ] ); then
-		if [ ! -x $IWCONFIG ]; then
+		if [ ! -x /usr/sbin/iwconfig ]; then
 		    echo "Wireless tools not installed";
 		    return -1;
 		fi;
@@ -57,7 +52,7 @@ function device_start() {
 	fi;
 
 	if [ -z $ADDRESS ]; then
-	    $IFCONFIG $1 up
+	    /sbin/ifconfig $1 up
 	    echo "Device $1: missing address";
 	    echo "Device $1: interface brought up but not configured";
 	    return -1;
@@ -72,11 +67,11 @@ function device_start() {
 		case $DHCP_CLIENT in
 		    [dD][hH][cC][pP][cC][dD])
 		    	PIDFILE=/etc/dhcpc/dhcpcd-$1.pid
-			RUNFILE=$DHCPCD
+			RUNFILE=/usr/sbin/dhcpcd
 		    ;;
 		    [dD][hH][cC][lL][iI][eE][nN][tT])
 		        PIDFILE=/var/run/dhclient-$1.pid
-			RUNFILE=$DHCLIENT
+			RUNFILE=/sbin/dhclient
 			DHCP_OPTIONS="$DHCP_OPTIONS -pf $PIDFILE -lf /var/state/dhcp/dhclient-$1.leases"
 		    ;;
 		esac
@@ -100,29 +95,33 @@ function device_start() {
 		fi;
 	    ;;
 	    ?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9])
-		if [ ! $1 == "lo" ] && [ $($IFCONFIG | grep $1 | wc -l) -ge 1 ]; then
-		    echo "Device $1: already started";
+		if [ ! -x /sbin/ifconfig ]; then
+		    echo "ifconfig not installed";
 		    return -1;
 		fi;
-		IFCONFIG_OPT="$1 $ADDRESS";
+		if [ ! $1 == "lo" ] && [ $(/sbin/ifconfig | grep $1 | wc -l) -ge 1 ]; then
+		    echo "Device $1: Already started";
+		    return -1;
+		fi;
+		IFCONFIG="$1 $ADDRESS";
 		if [ ! -z $NETMASK ]; then
-		    IFCONFIG_OPT="$IFCONFIG_OPT netmask $NETMASK";
+		    IFCONFIG="$IFCONFIG netmask $NETMASK";
 		fi;
 		if [ ! -z $BROADCAST ]; then
-		    IFCONFIG_OPT="$IFCONFIG_OPT broadcast $BROADCAST";
+		    IFCONFIG="$IFCONFIG broadcast $BROADCAST";
 		fi;
-		$IFCONFIG $IFCONFIG_OPT >/dev/null 2>&1
-		if [ `$IFCONFIG | grep $ADDRESS | wc -l` -ne 1 ]; then
+		/sbin/ifconfig $IFCONFIG >/dev/null 2>&1
+		if [ `/sbin/ifconfig | grep $ADDRESS | wc -l` -ne 1 ]; then
 		    echo "Device $1: failed to set address";
 		    return -1;
 		fi;
 		if [ ! -z $GATEWAY ]; then
-	    	    if [ ! -x $ROUTE ]; then
-		        echo "Device $1: missing $ROUTE";
+	    	    if [ ! -x /sbin/route ]; then
+		        echo "route not installed";
 	    	    fi;
-		    $ROUTE add -host $GATEWAY $1;
-	    	    $ROUTE add default gateway $GATEWAY;
-	    	    if [ `$ROUTE -n | grep $GATEWAY | wc -l` -lt 1 ]; then
+		    /sbin/route add -host $GATEWAY $1;
+	    	    /sbin/route add default gateway $GATEWAY;
+	    	    if [ `route -n | grep $GATEWAY | wc -l` -lt 1 ]; then
 			echo "Device $1: failed to set gateway";
 			return -1;
 	   	    fi;
@@ -156,6 +155,7 @@ function device_stop() {
 	    [dD][hH][cC][pP])
 	        case $DHCP_CLIENT in
 		    [dD][hH][cC][pP][cC][dD])
+			KILLCMD="dhcpcd -k"
 		    	PIDFILE=/etc/dhcpc/dhcpcd-$1.pid
 		    ;;
 		    [dD][hH][cC][lL][iI][eE][nN][tT])
@@ -163,11 +163,20 @@ function device_stop() {
 		    ;;
 		esac
 		if [ -e $PIDFILE ]; then
-	            kill `cat $PIDFILE`;
+		    if [ -z "$KILLCMD" ]; then
+	                kill `cat $PIDFILE`;
+		    else
+			$KILLCMD
+		    fi
 		    if [ -e $PIDFILE ]; then
 		        rm -f $PIDFILE;
 		    fi;
-		    $IFCONFIG $1 down;
+		    if [ ! -x /sbin/ifconfig ]; then
+	    	        echo "ifconfig not installed";
+	    	        return -1;
+		    fi;
+		    sleep 2;
+		    /sbin/ifconfig $1 down;
 		else
 		    case $AUTO in
 		        [!yY])
@@ -178,8 +187,12 @@ function device_stop() {
 	        fi;
 	    ;;
 	    ?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9])
-		if [ `$IFCONFIG | grep $1 | wc -l` -eq 1 ]; then
-		    $IFCONFIG $1 down;
+		if [ `ifconfig | grep $1 | wc -l` -eq 1 ]; then
+		    if [ ! -x /sbin/ifconfig ]; then
+	    	   	echo "ifconfig not installed";
+	    		return -1;
+		    fi;
+		    /sbin/ifconfig $1 down;
 		else
 		    case $AUTO in
 			[!yY])
@@ -190,7 +203,7 @@ function device_stop() {
 		fi;
 	    ;;
 	    *)
-	    	$IFCONFIG $1 down
+	    	/sbin/ifconfig $1 down
 	    ;;
 	esac
 	
@@ -203,17 +216,12 @@ function device_stop() {
 
 export -f device_start device_stop;
 
-if [ ! -x $IFCONFIG ]; then
-    echo "Error: $IFCONFIG missing";
-    return -1;
-fi;
-
 case $1 in
     start)
     	# Add routing entry for loopback interface
-	if [ ! $($ROUTE -n | grep 127.0.0.0 | wc -l) -ge 1 ]; then
-		$IFCONFIG lo 127.0.0.1 netmask 255.0.0.0;
-		$ROUTE add -net 127.0.0.0 netmask 255.0.0.0 dev lo;
+	if [ ! $(route -n | grep 127.0.0.0 | wc -l) -ge 1 ]; then
+		/sbin/ifconfig lo 127.0.0.1 netmask 255.0.0.0;
+		/sbin/route add -net 127.0.0.0 netmask 255.0.0.0 dev lo;
 	fi;
 
 	# Do startup for all interfaces if none is specified
@@ -228,7 +236,7 @@ case $1 in
 
     stop)
 	if [ -z $2 ]; then
-	    for device in `$IFCONFIG | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
+	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
 		device_stop $device auto;
 	    done;
 	else
@@ -283,6 +291,9 @@ case $1 in
     ;;
 
     resume)
+    ;;
+
+    check)
     ;;
 
     *)
