@@ -1,7 +1,9 @@
 ( 
 if module_installed scrollkeeper; then
+   export FORCELINSK="yes" &&
    message "Rebuilding docbook catalogs" &&
-   $SCRIPT_DIRECTORY/rebuild-docbook-catalog
+   $SCRIPT_DIRECTORY/rebuild-docbook-catalog &&
+   unset FORCELINSK
 fi
 )
                                                                                 
