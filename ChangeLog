@@ -1,3 +1,47 @@
+2003-01-16 10:14  sofar
+
+	* utils/sysklogd/syslog.conf: The things you find on new boxes....
+	
+2003-01-16 09:57  sofar
+
+	* mail/elm/BUILD: Adding this dir since elm insists on installing stuff there.
+	
+2003-01-16 09:51  sofar
+
+	* distributed/distcc/PRE_BUILD: mmmkay this is trickier then I thought!
+	
+2003-01-16 09:31  sofar
+
+	* distributed/distcc/PRE_BUILD: Right, this should fix it.
+	
+2003-01-16 07:29  jasper
+
+	* zbeta/xfce4_cvs_utils/BUILD: Add xfdesktop to utils
+	
+2003-01-16 05:44  tchan
+
+	* utils/devfsd/devfsd.conf: Added some lines for /dev/dvd symlink.  Uncomment the line if you need devfs
+	to create that symlink for you.
+	
+2003-01-16 01:27  niki
+
+	* distributed/distcc/DETAILS: Bumped to v. 1.0 from 0.15.
+	
+2003-01-15 23:59  niki
+
+	* distributed/distcc/: BUILD, DETAILS, PRE_BUILD, services: Bumped distcc to 0.15, and changed the services file to represent distcc's
+	official port number 3632, and added PRE_BUILD to remove the old one (4200).
+	Test and works ok here for me.
+	
+2003-01-15 23:07  tchan
+
+	* devel/linux/: CONFIGURE, DETAILS, PRE_BUILD, alpha_cia_fix.patch: Updated this for kernel-2.4.20 and dem's r1 patchset.  alpah_cia_fix is now
+	included in dem's patchset.
+	
+2003-01-15 22:36  niki
+
+	* doc-tools/latex2html/DEPENDS: Added netpbm to required depends, as requested by fasa <tremon_r@epita.fr>
+	
 2003-01-15 02:19  tchan
 
 	* utils/: lunar/DETAILS, theedge/DETAILS: Updated the descriptions to finally remove "spells" and other old references.
@@ -284,59 +328,4 @@
 2003-01-06 09:17  sofar
 
 	* utils/hc-cron/: BUILD, DETAILS, crontab, hc-cron.patch: Adding /etc/cron.* scheme and moved patch out to website.
-	
-2003-01-05 22:09  xoritor
-
-	* shells/: bash/BUILD, bash_static/BUILD: Fixing bash to never use -malign-double EVER!
-	
-2003-01-05 22:08  tchan
-
-	* devel/cvs/DETAILS: Fixed the url for cvs source code.
-	
-2003-01-05 20:36  xoritor
-
-	* devel/cvs/DETAILS, gnome/libxml2/DETAILS,
-	graphics/gtk+-2/DETAILS, libs/atk/DETAILS, libs/glib-2/DETAILS,
-	libs/pango/DETAILS: Bumping versions:
-	  libxml2
-	  glib2
-	  atk
-	  pango
-	  gtk+-2
-	
-2003-01-05 20:30  xoritor
-
-	* graphics/feh/DETAILS: Bumping version to newer version.
-	
-2003-01-05 20:29  xoritor
-
-	* devel/cvs/DETAILS: Bumping to new cvs version.
-	
-2003-01-05 10:06  kc8apf
-
-	* net/net-snmp/init.d/snmpd: Fix mis-use of $ in init script
-	
-2003-01-05 09:55  kc8apf
-
-	* net/net-snmp/: snmpd, init.d/snmpd: Added logfile parameter to snmpd config
-	
-2003-01-05 09:53  kc8apf
-
-	* net/net-snmp/: BUILD, snmpd, init.d/snmpd: Added init script for snmpd
-	
-2003-01-05 08:56  kc8apf
-
-	* security/iptables/init.d/iptables: Add init script for iptables
-	
-2003-01-05 08:29  kc8apf
-
-	* chat/reaim/: BUILD, reaim, init.d/reaim: ReAIM is finished
-	
-2003-01-05 08:22  kc8apf
-
-	* chat/reaim/init.d/reaim: Add configuration to ReAIM
-	
-2003-01-05 05:39  kc8apf
-
-	* chat/reaim/: BUILD, DETAILS, init.d/reaim: Add ReAIM
 	
