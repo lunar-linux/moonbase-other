@@ -1,2 +1,8 @@
-depends  emacs        &&
-depends  sgml-common
+depends  sgml-common &&
+
+if [ "$EMACS" == "y" ] ; then
+  depends emacs-cvs
+else
+  depends emacs
+fi
+

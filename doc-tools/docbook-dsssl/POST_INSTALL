@@ -6,6 +6,8 @@ if ! [ -e "$centralized" ]; then
 fi
 
 install-catalog --add $centralized /usr/share/sgml/dsssl/dsssl-stylesheets-$VER/catalog
+install-catalog --add $centralized /usr/share/sgml/dsssl/catalog
+install-catalog -r $centralized /etc/sgml/catalog
 
 cp $SOURCE_CACHE/$SOURCE2 /usr/share/sgml/dsssl/dsssl-stylesheets-$VER/html
 cp $SOURCE_CACHE/$SOURCE2 /usr/share/sgml/dsssl/dsssl-stylesheets-$VER/print
