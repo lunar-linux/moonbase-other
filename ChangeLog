@@ -1,3 +1,145 @@
+2004-09-21 13:05  v3rt1g0
+
+	* utils/ripmime/DETAILS: Version bump 1.2.16.21 -> 1.4.0.0 Mainly
+	  bugfixes and security updates.
+
+2004-09-21 13:02  sofar
+
+	* perl/ExtUtils-PkgConfig/DETAILS: New version
+
+2004-09-21 12:48  sofar
+
+	* perl/PathTools/: BUILD, DEPENDS, DETAILS: File::Spec in the new
+	  wrapper PathTools
+
+2004-09-21 12:31  sofar
+
+	* perl/: Time-HiRes/DETAILS, MIME-Base64/DETAILS: New version
+
+2004-09-21 12:26  sofar
+
+	* perl/URI/DETAILS: New version
+
+2004-09-21 04:15  tchan
+
+	* graphics/ImageMagick/DETAILS: Version bump to
+	  ImageMagick-6.0.8-3.
+
+2004-09-21 03:27  v3rt1g0
+
+	* ftp/pure-ftpd/: DEPENDS, DETAILS: Reloacted the optional
+	  kcmpureftpd depends to here (instead of kcmpureftpd not
+	  optionally depending on pureftpd).  Figured this is a good time
+	  to ask the user if they want the ability to do server management
+	  in kde.  Also a cosmetic touchup.
+
+2004-09-21 03:20  v3rt1g0
+
+	* kde3-utils/kcmpureftpd/: DEPENDS, DETAILS: Cosmetic cleanups.
+	  Also removed the depends on pure-ftpd as it is really not needed
+	  for this module to be built/installed.  I plan on adding it as an
+	  optional to the pure-ftpd module as a convenance.
+
+2004-09-21 03:00  v3rt1g0
+
+	* kde3-utils/kompose/DETAILS: Version bump 0.4.1 -> 0.4.2
+
+2004-09-21 02:25  v3rt1g0
+
+	* crypto/newpg/DEPENDS: Removed a dependancy as libksba now depends
+	  on libgcrypt, no longer needed here.
+
+2004-09-21 02:22  v3rt1g0
+
+	* crypto/libksba/: DEPENDS, DETAILS: Version bump 0.4.6 -> 0.9.8
+	  Added new dependancies also
+
+2004-09-21 01:51  v3rt1g0
+
+	* crypto/mhash/DETAILS: Version bump 0.8.18 -> 0.9.1
+
+2004-09-21 01:20  v3rt1g0
+
+	* libs/libofx/: DEPENDS, DETAILS: Version bump and added a missing
+	  depends of opensp.
+
+2004-09-20 22:06  jol
+
+	* compilers/ocaml/DETAILS: Bumped version to 3.08.1
+
+2004-09-20 21:15  jol
+
+	* libs/wxGTK/: BUILD, DETAILS: - change website to
+	  www.wxwidgets.org - use sha1 checksum - add a patch which removes
+	  error when you use wxPython.
+
+2004-09-20 19:07  jol
+
+	* graphics/gtk+-2/DETAILS: Bumped version to 2.4.10.  This is a
+	  release bugfix. Source and binary compatible.
+
+2004-09-20 17:48  florin
+
+	* doc-tools/: docbook-3.0/POST_INSTALL, docbook-3.0/POST_REMOVE,
+	  docbook-3.1/POST_INSTALL, docbook-3.1/POST_REMOVE,
+	  docbook-4.0/POST_INSTALL, docbook-4.0/POST_REMOVE,
+	  docbook-4.1/POST_INSTALL, docbook-4.1/POST_REMOVE: fix the
+	  install.
+
+2004-09-20 17:34  florin
+
+	* ftp/lftp/DETAILS: version bump from 3.0.8 to 3.0.9.
+
+2004-09-20 17:32  florin
+
+	* security/chkrootkit/DETAILS: bump the version from 0.43 to 0.44.
+
+2004-09-20 17:22  florin
+
+	* devel/automake/DETAILS: bump the version from 1.9.1 to 1.9.2.
+	  mostly bugfixes.
+
+2004-09-20 16:02  sofar
+
+	* utils/: lunar/DETAILS, theedge/DETAILS: Get a new one:
+	  courier-imap needs to have /etc/courier protected!
+
+2004-09-20 15:59  sofar
+
+	* mail/courier-imap/DETAILS: Version bump blah blah rewritten blah
+	  blah adding sha1sum too
+
+2004-09-20 15:56  sofar
+
+	* mail/courier-imap/: BUILD, CONFIGURE, DETAILS, POST_INSTALL,
+	  PRE_REMOVE, init.d/imap: Version bump, and I did some *WHACK*
+	  *WHACK* *WHACK* adjusting to make it behave like a normal module.
+	  Watch lunar->protected entry too... heavily needed. (Striker,
+	  she's all yours!)
+
+2004-09-20 15:05  moe
+
+	* kernel/kernel-reqs/BUILD: And here too
+
+2004-09-20 15:03  moe
+
+	* kernel/: linux/POST_INSTALL, linux-beta/POST_INSTALL,
+	  linux-beta-mm/POST_INSTALL, linux-grsec/POST_INSTALL,
+	  linux-openmosix/POST_INSTALL, linux-vanilla/POST_INSTALL: Adding
+	  hostap-driver
+
+2004-09-20 14:26  florin
+
+	* kde3-apps/kbarcode/BUILD: fix the build.
+
+2004-09-20 14:20  moe
+
+	* video/vlc/DETAILS: And updated to 0.7.2 at bramble's request
+
+2004-09-20 14:13  moe
+
+	* video/vlc/DEPENDS: mad => libmad
+
 2004-09-20 13:23  sofar
 
 	* graphics/glut/BUILD: Cleaned up and added a bit of optimizations
@@ -1943,98 +2085,4 @@
 2004-08-22 06:06  florin
 
 	* kde3-i18n/kde3-i18n-eo/: BUILD, DEPENDS, DETAILS: minor tweaking.
-
-2004-08-21 21:38  tchan
-
-	* net/samba/BUILD: Fixed a bug in a missing symlink: "ln -sf
-	  /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so.0"
-
-2004-08-21 18:52  florin
-
-	* net/ipw2100/DEPENDS: depends on stable hostap-driver now.
-
-2004-08-21 18:51  florin
-
-	* net/hostap-driver/: BUILD, CONFLICTS, DETAILS: bump the version
-	  from 0.1.3 to 0.2.4.
-
-2004-08-21 15:53  nhudson
-
-	* gnome2-core/: eog/DETAILS, gail/BUILD, gail/DEPENDS,
-	  gail/DETAILS, gnome-themes/DETAILS, libwnck/DETAILS:
-	  More updates to GNOME_UNSTABLE and adding back gail
-
-2004-08-21 15:50  nhudson
-
-	* gnome2-extras/: gnome-cups-manager/DETAILS, libgnomecups/DETAILS:
-
-	  Updating libgnomecups to new version 0.1.10 and
-	  gnome-cups-manager to new version 0.23
-
-2004-08-21 15:34  nhudson
-
-	* gnome2-core/: ORBit2/DETAILS, libIDL/DETAILS:
-	  Updating libIDL to new version 0.8.4 and ORBit2 to new version
-	  2.10.4
-
-2004-08-21 15:29  nhudson
-
-	* gnome2-core/: GConf2/DETAILS, ORBit2/DETAILS,
-	  gnome-desktop/DETAILS, gnome-netstatus/DETAILS,
-	  gnome-panel/DETAILS, gnome-session/DETAILS,
-	  nautilus-cd-burner/DETAILS:
-	  A few updates to Gnome 2.7.91
-
-2004-08-21 15:11  nhudson
-
-	* news/liferea/DETAILS:
-	  Updating lifera to new version 0.5.3b
-
-2004-08-21 15:05  nhudson
-
-	* web/evolution-webcal/DETAILS:
-	  Updtaing evolution-webcal to new version 1.0.9
-
-2004-08-21 15:03  nhudson
-
-	* web/epiphany/DETAILS:
-	  Updating epiphany to new version 1.2.8
-
-2004-08-21 15:01  nhudson
-
-	* web/: epiphany/BUILD, epiphany/DEPENDS, epiphany/DETAILS,
-	  epiphany/epiphany, epiphany-extensions/BUILD,
-	  epiphany-extensions/DEPENDS, epiphany-extensions/DETAILS:
-	  Adding epiphany and epiphany-extensions to GNOME_UNSTABLE
-
-2004-08-21 14:25  florin
-
-	* net/samba/: BUILD, DEPENDS: minor tweaking.
-
-2004-08-21 13:51  perldude
-
-	* profiles/kde3/DEPENDS: tweak the depends
-
-2004-08-21 10:43  perldude
-
-	* science/galculator/DETAILS: version bump -> 1.2.3
-
-2004-08-21 10:07  cmak
-
-	* security/shorewall/DETAILS: version bump
-
-2004-08-21 09:09  nestu
-
-	* kernel/linux-beta-mm/DETAILS: version bump: 2.6.8.1mm2 ->
-	  2.6.8.1mm3. gcc 3.3.3, glibc 2.3.2, headers 2.6.8.0
-
-2004-08-21 03:05  jmhodges
-
-	* libs/libexif/DETAILS: desperately needed version bump
-
-2004-08-21 01:23  tchan
-
-	* devel/uml/DETAILS: Version bump to the latest UML patchset
-	  2.4.26-3um.  I tested and applied this patchset to the 2.4.27
-	  kernel, so I bumped this module to uml-2.4.27-3um.  gcc-3.3.3.
 
