@@ -1,3 +1,72 @@
+2003-11-20 05:47  florin
+
+	* ftp/lftp/DETAILS: bump version from 2.6.8 to 2.6.9.
+
+2003-11-20 04:53  nhudson
+
+	* gnome2-apps/abiword/DETAILS: 
+	Updating abiword to new version 2.0.1-2 changed the md5 also
+
+2003-11-20 00:04  nhudson
+
+	* x11-apps/gnucash/DETAILS: 
+	Updating gnucash to new version 1.8.8
+
+2003-11-19 22:04  jol
+
+	* libs/wxPython/DETAILS: Bumped version OLD: 2.4.1.2  NEW: 2.4.2.4
+
+2003-11-19 21:42  jol
+
+	* libs/wxGTK/DETAILS: Bumped Version OLD: 2.4.1.2  NEW: 2.4.2.4
+
+2003-11-19 21:17  nestu
+
+	* kernel/linux-beta/POST_INSTALL: changed message to show "[y|N]"
+	as it should
+
+2003-11-19 21:13  tchan
+
+	* kernel/linux/: BUILD, CONFIGURE, POST_INSTALL: Added the Sparc64
+	changes for the linux module.
+
+2003-11-19 03:06  nhudson
+
+	* chat/gossip/DETAILS: 
+	Updating gossip to new version 0.6 and adding a md5sum
+
+2003-11-19 03:01  nhudson
+
+	* libs/loudmouth/DETAILS: 
+	Updating loudmouth to new version 0.14.1 and added a md5sum
+
+2003-11-18 23:38  nhudson
+
+	* devel/ruby-gnome2/DETAILS: 
+	Updating ruby-gnome2 to new version 0.8.0 also adding a md5sum
+
+2003-11-18 20:25  hardkrash
+
+	* crypto/gnutls/DETAILS: version bump, thanks Yoav
+
+2003-11-18 20:11  niki
+
+	* kernel/linux/DETAILS: removed some backup (~) files...
+
+2003-11-18 18:56  niki
+
+	* kernel/linux/DETAILS: renamed the patchset to r2.1.4 from rc2.1.4
+
+2003-11-18 18:05  niki
+
+	* kernel/linux/DETAILS: fixed the details file so it doesn't say
+	it's a devel/test kernel...
+
+2003-11-18 17:57  niki
+
+	* kernel/linux/: DETAILS, PRE_BUILD: moved the kernel out of
+	versioning on tchan's request.
+
 2003-11-18 03:59  tchan
 
 	* utils/lvm/DETAILS: Version bump to 1.0.8.  Compiled and tested
@@ -146,15 +215,6 @@
 
 	* kde3-apps/karchiver/DETAILS: bump version from 3.0.7 to 3.0.8.
 	bugfix version.
-
-2003-11-15 05:23  tchan
-
-	* kernel/linux/2.4.22-test_only/DETAILS: Bumped the patchset
-	revision level.  I added PATA/SATA support patches (see the new
-	menu choice in the scsi low-level drivers section, under the ATA
-	Support option).  I also fixed a bug in the aggressive patch set
-	relating to sched.c.  Bumped the revision level text inside the
-	patch set as well.  Also updated patch-list.txt
 
 2003-11-14 19:51  florin
 
@@ -1852,111 +1912,4 @@
 	http://enigmail.mozdev.org due to it was getting to cumbersome to
 	compile with the mozilla build.  Also I added SVG support in the
 	browser now
-
-2003-10-20 21:14  jol
-
-	* devel/PyKDE/: BUILD, DEPENDS, DETAILS, kzip.patch: First import
-	of PyKDE. You know what :p
-
-2003-10-20 21:09  jol
-
-	* devel/psyco/: BUILD, DEPENDS, DETAILS: First import of psyco.
-	Psyco is a JIT for Python.
-
-2003-10-20 19:17  elaine
-
-	* libs/glibc/: BUILD, DETAILS: Fixes for initgroups vulnerability,
-	added patch and added md5's to all sources. Tested on 3 systems,
-	minimal change, security issue
-
-2003-10-20 18:46  jol
-
-	* audio/xmms-kde/: BUILD, DEPENDS, DETAILS: Import of xmms-kde.
-	It's a kapplet to control noatun, xmms and smpeg ...
-
-2003-10-20 05:36  jmhodges
-
-	* web/PyDS/: BUILD, DETAILS: bah, compiles now
-
-2003-10-20 04:57  jmhodges
-
-	* devel/PyXML/DETAILS, graphics/pil/BUILD, graphics/pil/DETAILS,
-	libs/medusa/DETAILS, web/PyDS/BUILD, web/PyDS/DETAILS,
-	web/SOAPpy/BUILD, web/SOAPpy/DETAILS: updates and additions, all
-	for PyDS.. heh. dont even use it too much
-
-2003-10-20 03:13  nhudson
-
-	* doc-tools/: openjade/POST_INSTALL, opensp/BUILD, opensp/DETAILS,
-	opensp/POST_INSTALL: 
-	Updating opensp to new version 1.5.1 also rebuilding openjade after
-	the install just to make sure everything meshes.. also I fixed the
-	openjade POST_INSTALL as openjade was installing "CATALOG
-	/etc/sgml/catalog" to the file /etc/sgml/catalog which causes a
-	major loop so I removed the /etc/sgml/catalog from the file
-	/etc/sgml/catalog :)
-
-2003-10-19 16:39  nestu
-
-	* kernel/linux-beta/DETAILS: bump date
-
-2003-10-19 15:54  csm
-
-	* kernel/kernel-headers/2.4.22/DETAILS: still putzing around with
-	these!
-
-2003-10-19 15:27  csm
-
-	* kernel/kernel-headers/2.4.22/DETAILS: geezuz! it works okay
-	now... goodness me but versioning is a pita! :-)
-
-2003-10-19 12:50  nestu
-
-	* kernel/linux-beta/DETAILS: Version bump
-
-2003-10-19 12:06  niki
-
-	* gnome2-core/gdm/POST_INSTALL: Fixed two Syntax errors.
-
-2003-10-19 11:55  niki
-
-	* devel/cvs/BUILD: Added default_make to make cvs actualy build.
-
-2003-10-19 06:13  tchan
-
-	* utils/parted/: BUILD, DEPENDS, DETAILS: Added a patch to get
-	parted to build correctly with gcc-3.3.x.  Added several depends
-	that were just missing.
-
-2003-10-19 04:46  csm
-
-	* kernel/kernel-headers/2.4.22/: BUILD, DETAILS, PRE_BUILD: okay...
-	*now* we have specific headers for 2.4.22 and they work fine.  I
-	have compiled iputils on two machines with these and it was broken
-	with both before these fixes!
-
-2003-10-19 04:44  csm
-
-	* kernel/kernel-headers/DETAILS: woops... forgot to put it under
-	2.4.22...
-	
-	alright... fixed these back to how they were before and have added
-	the 2.4.22 dir with the correct files
-
-2003-10-19 04:42  csm
-
-	* kernel/kernel-headers/DETAILS: fixing the headers as they were
-	broken without a "version" string! also added md5sums
-
-2003-10-19 04:10  nhudson
-
-	* gnome2-core/: gdm/DETAILS, gdm/POST_INSTALL, gedit/DETAILS: 
-	Updating gdm to new version 2.4.4.5 and gedit to new version 2.4.1
-
-2003-10-19 04:09  csm
-
-	* net/iputils/: BUILD, DETAILS, POST_INSTALL: okay... this module
-	builds and installs just fine now!
-	
-	added a POST_INSTALL to set permissions... fun, fun, fun! :-)
 
