@@ -48,9 +48,16 @@ depends gedit2			&&
 depends librep2			&&
 depends rep-gtk2		&&
 
-if query "Install metacity instead of sawfish?" n
-  then depends metacity
-  else depends sawfish
+echo "Fucker"
+
+if  ! grep -q "METACITY"  $MODULE_CONFIG; then
+  if query "Install metacity instead of sawfish?" y ; then 
+    depends metacity
+    echo  "METACITY=y"  >>  $MODULE_CONFIG
+  else
+    depends sawfish
+    echo  "METACITY=n"  >>  $MODULE_CONFIG
+  fi
 fi                              &&
 
 depends gnome-media2		&&
