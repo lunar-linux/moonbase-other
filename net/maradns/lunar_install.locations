@@ -7,9 +7,9 @@
 # We allow the user to supply the prefix on the command line, e.g.
 # PREFIX=/usr/ ; make install
 # Thanks to D Richard Felker III for this suggestion
-
-BINDIR="/usr"
-DOCDIR="/usr/share"
+if [ -z "$PREFIX" ]; then
+	PREFIX="/usr/local"
+fi
 
 # Try to determine which language to use
 if [ -z "$LANGUAGE" ]; then
@@ -22,15 +22,17 @@ if [ ! -d doc/$LANGUAGE/man ]; then
 fi
 
 # The location of programs that the end user may wish to use
-BIN="$BINDIR/bin/"
+BIN="$PREFIX/bin/"
 # The location of the server programs
-SBIN="$BINDIR/sbin/"
+SBIN="$PREFIX/sbin/"
+
+DOCS="/usr"
 # The directory to put man pages which describe the end-user programs
-MAN1="$DOCDIR/man/man1/"
+MAN1="$DOCS/man/man1/"
 # The directory to put man pages which describe configuration file formats
-MAN5="$DOCDIR/man/man5/"
+MAN5="$DOCS/man/man5/"
 # The directory to put man pages which describe the server programs
-MAN8="$DOCDIR/man/man8/"
+MAN8="$DOCS/man/man8/"
 # The directory to put a copy of the MaraDNS documents on the system
-DOCS="$DOCDIR/doc/maradns-$VERSION"
+DOCS="$DOCS/doc/maradns-$VERSION"
 
