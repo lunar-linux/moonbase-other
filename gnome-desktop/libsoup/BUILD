@@ -1,4 +1,4 @@
 (
-patch_it $SOURCE_CACHE/$SOURCE2 1	&&
-default_build
+  sedit 's|GNUTLS_CERT_NOT_TRUSTED|GNUTLS_CERT_INVALID|g' libsoup/soup-gnutls.c &&
+  default_build
 ) > $C_FIFO 2>&1
