@@ -1,3 +1,235 @@
+2003-02-12 15:44  nhudson
+
+	* sql/postgresql/DETAILS: Updating postgresql to new version 7.3.2
+	
+2003-02-12 03:50  nhudson
+
+	* app-themes/scalable-gorilla/: BUILD, DEPENDS, DETAILS: Adding scalable-gorilla icon theme to moonbase
+	
+2003-02-12 03:35  nhudson
+
+	* gnome2-core/fontilus/BUILD: Adding correct PKG_CONFIG_PATH
+	
+2003-02-12 03:10  nhudson
+
+	* x11/: Xft/DETAILS, Xrender/DETAILS: Adding more descriptions
+	
+2003-02-12 03:08  nhudson
+
+	* x11/fontconfig/DETAILS: Adding a description to Fontconfig
+	
+2003-02-12 02:23  csm
+
+	* x11-utils/ttmkfdir/CONFLICTS: installing this does bad things to apps that require freetype2
+	
+2003-02-11 18:27  tchan
+
+	* news/pan2/: DEPENDS, DETAILS: Version bump at the request of Florin Braescu.  Added the depends for gnet.
+	Compiled and tested with gcc-3.2.2.
+	
+2003-02-11 18:25  tchan
+
+	* libs/gnet/DETAILS: Version bump to 1.1.8. Compiled and tested with gcc-3.2.2.
+	
+2003-02-11 16:18  hardkrash
+
+	* chat/xchat/DETAILS: version bump -- hardkrash
+	
+2003-02-11 16:03  tchan
+
+	* graphics/gtk+-2/BUILD: nhudson had the wrong permission set on his BUILD script.  I had to edit
+	the BUILD script (added a blank line) and set the permissions to 755 to get
+	it to commit to cvs correctly.
+	
+2003-02-11 15:42  tchan
+
+	* utils/grep/DETAILS: Version bump to 2.5.1.  Compiled and tested with gcc-3.2.2.  Switched over
+	to tar.bz2 instead of tar.gz for a slightly smaller/faster source download.
+	
+2003-02-11 14:47  nhudson
+
+	* gnome2-core/: eel2/DETAILS, nautilus/BUILD, nautilus/DETAILS: 
+	Updating eel2 to new version 2.2.1 and nautilus to new version 2.2.1 also took
+	out a patch that is now part of nautilus
+	
+2003-02-11 14:40  kc8apf
+
+	* printer/espgs/DETAILS: Version bump
+	
+2003-02-11 14:16  nhudson
+
+	* libs/: libxml2/DETAILS, libxslt/DETAILS: 
+	Updating libxml2 to new version 2.5.3 and libxslt to new version
+	1.0.26
+	
+2003-02-11 14:09  nhudson
+
+	* libs/libxml2/: BUILD, DEPENDS, DETAILS, Makefiles.patch,
+	POST_INSTALL: Putting libxml2 where it belongs in the libs directory of moonbase
+	
+2003-02-11 13:03  csm
+
+	* doc-tools/opensp/BUILD: fixeing the symlink problem
+	
+2003-02-11 06:53  wizfactor
+
+	* devel/pccts/BUILD: Fixed so mkdir wouldn't error out if the directory already exists
+	
+2003-02-11 05:34  hardkrash
+
+	* video/MPlayer/BUILD: added a comment about the new sedit for the library path stuff -- hardkrash
+	
+2003-02-11 05:25  csm
+
+	* video/MPlayer/BUILD: updating to fix the build bug caused by a pointer to the wrong freetype libs.
+	
+2003-02-11 01:52  kc8apf
+
+	* graphics/: sane-backends/DETAILS, sane-frontends/DETAILS: Small download fix
+	
+2003-02-11 01:50  csm
+
+	* mail/mailman/DETAILS: version update
+	
+2003-02-11 00:28  nhudson
+
+	* graphics/freetype2/: BUILD, DETAILS: Ok fixing the freetype2 module to actually add the bytecode interpreter
+	though I do have to warn if you turn it on most fonts look bad
+	
+2003-02-11 00:25  sofar
+
+	* utils/modutils/profile.d/modutils-completion.rc: Goody goody: tab-completion for modprobe, insmod and rmmod !!!
+	
+2003-02-10 23:05  nhudson
+
+	* devel/ruby-gnome2/DETAILS: 
+	Updating ruby-gnome2 to new version 0.3.0
+	
+2003-02-10 22:35  nhudson
+
+	* gnome2-core/gnome-vfs2/DETAILS: 
+	Updating gnome-vfs2 to new version 2.2.1
+	
+2003-02-10 20:48  sofar
+
+	* net/mtr/DETAILS: Found a new version
+	
+2003-02-10 17:15  tchan
+
+	* crypto/pycrypto/: BUILD, DEPENDS, DETAILS: Added this new module to moonbase from Joel Vennin.  Apparently the download
+	location plays web games to verify your download address.  If the download
+	fails for you I did put a copy of the source in the Lunar cache, so you should
+	be able to get it from the Lunar backup servers.
+	
+2003-02-10 16:50  tchan
+
+	* devel/swig/DETAILS: Version bump.  Compiled and tested with gcc-3.2.2.
+	
+2003-02-10 07:35  tchan
+
+	* video/MPlayer/DETAILS: Added md5sum in case some people are having problems with their downloads.
+	
+2003-02-10 07:31  tchan
+
+	* video/MPlayer/DETAILS: Version bump.  And we DID test it.  It compiles cleanly for me with gcc-3.2.2.
+	Works flawlessly on every mpeg, avi, and wmv I tried.
+	
+2003-02-10 06:07  nhudson
+
+	* audio/: flac/DEPENDS, flac/DETAILS, net-rhythmbox/BUILD,
+	net-rhythmbox/DEPENDS, net-rhythmbox/DETAILS: 
+	Adding flac and net-rhythmbox to moonbase.  Net-Rhythmbox is a fork
+	of rhythmbox, while rhythmbox is buggy net-rhythmbox is pretty stable
+	and adds a nice internet radio section using gstreamer
+	
+2003-02-10 04:56  csm
+
+	* video/MPlayer/DETAILS: rc4 does *NOT* build!
+	
+	You gotta test things before you upgrade them people!
+	
+2003-02-10 03:44  kc8apf
+
+	* graphics/: sane-backends/DETAILS, sane-frontends/DETAILS,
+	xsane/DETAILS: New sane versions
+	
+2003-02-10 01:14  wizfactor
+
+	* video/MPlayer/DETAILS: Version bump to 0.90rc4
+	
+2003-02-09 23:59  nhudson
+
+	* graphics/sodipodi/DETAILS: 
+	Updating sodipodi to new version 0.30.1
+	
+2003-02-09 21:05  tchan
+
+	* x11-apps/abiword/DETAILS: Version bump to 1.0.4.  Compiled and tested with gcc-3.2.2.
+	
+2003-02-09 18:20  nhudson
+
+	* devel/: gconfmm/BUILD, gconfmm/DEPENDS, gconfmm/DETAILS,
+	libgnomeuimm/DEPENDS: 
+	Adding gconfmm to moonbase this is C+= bindings for GConf2
+	
+2003-02-09 18:14  nhudson
+
+	* devel/: libgnomecanvasmm/BUILD, libgnomecanvasmm/DEPENDS,
+	libgnomecanvasmm/DETAILS, libgnomeuimm/DEPENDS: 
+	Adding libgnomecanvasmm to moonbase I forgot this one before, fixing the
+	DEPENDS fie for libgnomeuimm
+	
+2003-02-09 17:49  nhudson
+
+	* devel/libgnomeuimm/DEPENDS: 
+	Adding another dep to the DEPENDS file
+	
+2003-02-09 17:47  nhudson
+
+	* devel/: libbonobomm/BUILD, libbonobomm/DEPENDS,
+	libbonobomm/DETAILS, libbonobouimm/BUILD, libbonobouimm/DEPENDS,
+	libbonobouimm/DETAILS, libglademm/BUILD, libglademm/DEPENDS,
+	libglademm/DETAILS, libgnomemm/BUILD, libgnomemm/DEPENDS,
+	libgnomemm/DETAILS, libgnomeuimm/BUILD, libgnomeuimm/DEPENDS,
+	libgnomeuimm/DETAILS, orbitcpp/BUILD, orbitcpp/DEPENDS,
+	orbitcpp/DETAILS: 
+	Adding C++ binding modules for libglade, orbit, libgnome, libgnomeui,
+	libbonobo, and libbonoboui
+	
+2003-02-09 17:06  tchan
+
+	* utils/file/: BUILD, DETAILS: Version bump to 3.40.  Removed BUILD file as it was no longer needed.  Tested
+	and compiled with gcc-3.2.2.
+	
+2003-02-09 02:40  tchan
+
+	* libs/fltk/DETAILS: Version bump 1.1.2.  Also cleaned up the double set of documentation in
+	/usr/share/doc/fltk.
+	
+2003-02-09 02:08  tchan
+
+	* x11-apps/mupo/DETAILS: Version bump to 0.36. Compiled and tested with gcc-3.2.2.
+	
+2003-02-09 01:48  tchan
+
+	* devel/uml/DETAILS: Version bump of kernel patch and uml_utilities.  Compiled and tested with gcc-3.2.2.
+	
+2003-02-09 01:42  tchan
+
+	* utils/calc/DETAILS: Version bump.  Compiled and tested with gcc-3.2.2.
+	
+2003-02-09 01:30  tchan
+
+	* archive/unrar/DETAILS: Found an even newer version of unrar and bumped it up.
+	
+2003-02-09 01:17  tchan
+
+	* archive/unrar/: BUILD, DETAILS: Updated to version 3.1.1.  Compiled and tested with gcc-3.2.2.
+	
+2003-02-08 22:38  niki
+
+	* graphics/gimp2/BUILD: Fixed man install path.
+	
 2003-02-08 21:14  csm
 
 	* compilers/gcc/DETAILS: updating to the new 3.2.2 release which is bug fixes only!
@@ -218,10 +450,6 @@
 
 	* libs/libxslt/DETAILS: Updating again to new version 1.0.25
 	
-2003-02-05 16:58  nhudson
-
-	* gnome/libxml2/DETAILS: Well as soon as I updated it, it was updated again to new version 2.5.2
-	
 2003-02-05 16:24  nhudson
 
 	* app-themes/spheres-and-crystals/: DEPENDS, DETAILS: Adding spheres-and-crystals theme to moonbase
@@ -241,11 +469,6 @@
 2003-02-05 15:24  nhudson
 
 	* libs/libxslt/DETAILS: Updating libxslt to new version 1.0.24
-	
-2003-02-05 15:22  nhudson
-
-	* gnome/libxml2/DETAILS: Updating libxml2 to new version 2.5.1 also im thinking of moving this
-	out of the gnome directory and putting it into libs
 	
 2003-02-05 13:55  nhudson
 
@@ -675,186 +898,4 @@
 2003-02-02 00:18  csm
 
 	* utils/gpm/: BUILD, lmouse.8: adding the man page for lmouse
-	
-2003-02-01 23:25  csm
-
-	* compilers/gcc/CONFIGURE: removing the option for Ada... what bullshit!
-	
-2003-02-01 21:39  wizfactor
-
-	* gnome/soup/BUILD: Added BUILD file to sedit a broken makefile when working with Apache2. Squashes Bug 212
-	
-2003-02-01 21:37  csm
-
-	* net/net-tools/BUILD: updating the build to install the lnet man page into man8
-	
-2003-02-01 21:34  csm
-
-	* net/net-tools/lnet.8: man page for lnet
-	
-2003-02-01 20:36  csm
-
-	* editors/manedit/: BUILD, DETAILS: updating this package to the newest version (had to patch it and I followed proper procedures for that)
-	
-2003-02-01 20:15  sofar
-
-	* gnome2-apps/acme/DETAILS: Now we know what it is!
-	
-2003-02-01 12:48  sofar
-
-	* zbeta/openal-cvs/BUILD: This seems needed.
-	
-2003-02-01 07:12  csm
-
-	* utils/linux_logo/: BUILD, DETAILS: fixing the version and believe it or not... this one still said it was a SPELL!
-	
-2003-02-01 07:08  tchan
-
-	* docs/ruby-doc-bundle/: BUILD, DETAILS, PRE_BUILD: Added a bundle of ruby docs. This includes the Programming Ruby book,
-	which is also a separate lunar module.
-	
-2003-02-01 04:09  csm
-
-	* x11/NVIDIA_GLX/BUILD: fixing the location of ldconfig
-	
-2003-01-31 23:13  kc8apf
-
-	* video/transcode/DETAILS: Version bump
-	
-2003-01-31 21:04  nhudson
-
-	* libs/libgsf/BUILD: Updating the BUILD file so that it might build correctly with gtk-doc
-	
-2003-01-31 17:05  sofar
-
-	* utils/lilo/DETAILS: well I did test this!
-	
-2003-01-31 16:55  sofar
-
-	* printer/ImageMagick/DETAILS: Heh, so... I really really tested this, ok?
-	
-2003-01-31 15:32  sofar
-
-	* mail/pine/DETAILS: *cough*
-	
-2003-01-31 12:42  sofar
-
-	* games/tuxracer/BUILD: Fix for tux's build.
-	
-2003-01-31 11:49  sofar
-
-	* science/seismicunix/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	Makefile.config: Big update: reworked, new version
-	
-2003-01-31 10:43  sofar
-
-	* science/seismicunix/DEPENDS: stupid
-	
-2003-01-31 10:09  sofar
-
-	* net/vnc/DETAILS: adding PSAFE=no
-	
-2003-01-31 09:55  sofar
-
-	* shells/bash/profile.d/bash-completion.rc: Adding a few lvu tc's
-	
-2003-01-31 02:17  tchan
-
-	* devel/linux/: CONFIGURE, PRE_BUILD: Fixing Mantis Bug ID #230.  Also fixed a typo in YABOOT configuration.
-	
-2003-01-31 02:03  tchan
-
-	* profiles/kde3/DEPENDS: Corrected a typo in one of the description fields.
-	
-2003-01-31 01:06  niki
-
-	* profiles/gnome/DEPENDS: Changed gnome2-profile to gnome2, as there is no gnome2-profile anymore.
-	
-2003-01-31 00:02  sofar
-
-	* games/: cube/DEPENDS, cube-bin/DEPENDS: :^P
-	
-2003-01-30 23:41  sofar
-
-	* zbeta/openal-cvs/: BUILD, DETAILS: The former Loki Open Audio Library OpenAL...
-	
-2003-01-30 23:10  sofar
-
-	* games/epiar/: BUILD, DEPENDS, DETAILS, epiar: A 2D space game in development.
-	
-2003-01-30 21:57  sofar
-
-	* graphics/SDL_ttf/: BUILD, DEPENDS, DETAILS: Needed for the next game.
-	
-2003-01-30 21:02  sofar
-
-	* games/: cube/BUILD, cube/CONFLICTS, cube/DETAILS, cube/PRE_BUILD,
-	cube/cube, cube-bin/BUILD, cube-bin/CONFLICTS, cube-bin/DETAILS,
-	cube-bin/PRE_BUILD, cube-bin/cube: New 3D shooter: cube, the self compiled and cube-bin, for playing on the main servers !
-	
-2003-01-30 16:26  kc8apf
-
-	* science/libgeda/DEPENDS: Attempting fix of mode of DEPENDS
-	
-2003-01-30 16:26  kc8apf
-
-	* science/libgeda/DEPENDS: Attempting to fix mode of DEPENDS
-	
-2003-01-30 05:05  nhudson
-
-	* gnome2-applets/netspeed_applet/DETAILS: Updating netspeed_applet to new version 0.8
-	
-2003-01-30 04:54  nhudson
-
-	* zbeta/gnumeric2/: DEPENDS, DETAILS: Updating gnumeric2 to new version 1.1.16 and fixing the DEPENDS file
-	
-2003-01-30 04:53  nhudson
-
-	* gnome2-extras/gal2/DETAILS: Updating gal2 to version 1.99.1
-	
-2003-01-30 04:50  nhudson
-
-	* libs/libgsf/DETAILS: Updating libgsf to new version 1.7.2
-	
-2003-01-30 04:36  tchan
-
-	* utils/grub/menu.lst: Updated the text in menu.lst for 2.4.20 kernel.
-	
-2003-01-30 01:45  tchan
-
-	* devel/linux/PRE_BUILD: Modified the chown command that is required because the kernel source comes
-	with strange UID GID settings.
-	
-2003-01-30 01:38  tchan
-
-	* utils/util-linux/: BUILD, DETAILS, make-issue: Version bump.  Compiled and tested in various configurations on several lunar
-	boxes.  This version seems like some small features added/changed and of course
-	some bug fixes.
-	
-2003-01-29 20:50  wizfactor
-
-	* net/net-tools/lnet: Fixed typo in lnet
-	
-2003-01-29 19:58  sofar
-
-	* perl/perl/DEPENDS: Suuuure.
-	
-2003-01-29 19:53  sofar
-
-	* profiles/gnome2/DEPENDS: THX TAJ!
-	
-2003-01-29 11:26  sofar
-
-	* net/net-tools/lnet: Adding udhcpc to the list here (note it doesn't work OOTB yet!)
-	
-2003-01-29 11:22  sofar
-
-	* net/udhcp/: BUILD, DETAILS: Adding a *tiny* dhcp client/server.
-	
-2003-01-29 05:07  kc8apf
-
-	* net/net-tools/init.d/network: Fix in network shutdown code.  This makes a graceful shutdown for all
-	interfaces if no device is specified.  Previously, devices that had
-	AUTO=n were not shutdown.  This makes PCMCIA network cards shutdown
-	gracefully and gets rid of errors with dhcpcd.
 	
