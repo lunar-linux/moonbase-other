@@ -1,11 +1,13 @@
           MODULE=File-Tail
          VERSION=0.98
           SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=ptail.pl
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://search.cpan.org/CPAN/authors/id/M/MG/MGRABNAR/$SOURCE
+  SOURCE2_URL[0]=http://www.sial.org/code/perl/scripts/$SOURCE2
         WEB_SITE=http://search.cpan.org/search?dist=File-Tail
          ENTERED=20021228
-         UPDATED=20021228
+         UPDATED=20030123
       MAINTAINER=csm@moongroup.com
            SHORT="File::Tail reads files which are continously appended to"
 cat << EOF
@@ -25,4 +27,7 @@ just because it gets more than one line/second).
 
 The file logwatch is a simple example of use. Try it with 
 ./logwatch /var/log/syslog 1 if you want to see how File::Tail works.
+
+This module also comes with ptail.pl, an example and generic File::Tail
+perl script.
 EOF
