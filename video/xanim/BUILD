@@ -1,5 +1,5 @@
 (
-
+  export PATH=${PATH}:/usr/X11R6/bin
   sedit  "s:/usr/local/xanim/mods:/usr/lib/xanim/mods:"  Imakefile  &&
   sedit  "s:XCOMM  XA_MULTIBUF = -DXMBUF:XA_MULTIBUF = -DXMBUF:"  Imakefile &&
   xmkmf  &&
