@@ -1,3 +1,8 @@
+2003-03-09 04:38  hardkrash
+
+	* games/tuxpuck/DETAILS: well what do you know it isnt smp safe for
+	the build, thanks hangman :-P
+
 2003-03-08 22:48  tchan
 
 	* utils/calc/DETAILS: Version bump to 2.11.7.  Compiled and tested
@@ -591,54 +596,4 @@
 
 	* video/totem/DETAILS: 
 	Updating totem to new version 0.95.1
-
-2003-02-26 22:39  sofar
-
-	* printer/espgs/BUILD: Chaining these to make sure some other bug
-	didn't get affected by it.
-
-2003-02-26 22:24  jmhodges
-
-	* printer/enscript/DEPENDS: the depends for enscript.. silly
-
-2003-02-26 22:23  jmhodges
-
-	* printer/enscript/: BUILD, DETAILS: new module
-
-2003-02-26 13:15  niki
-
-	* printer/espgs/DETAILS: Not psafe.
-
-2003-02-26 13:04  niki
-
-	* games/jumpnbump/DEPENDS, games/sarien/DEPENDS,
-	games/xboard/DEPENDS, games/xpenguins/DEPENDS,
-	games/xpilot/DEPENDS, graphics/KXL/DEPENDS, graphics/dri/DEPENDS,
-	x11-utils/xmove/DEPENDS, zbeta/blender-cvs/DEPENDS: Removed some
-	depends on xfree86 module
-
-2003-02-26 06:13  tchan
-
-	* doc-tools/teTeX-texmf/DETAILS: Fixed this module as the WRONG
-	source code was being downloaded.  This module requires
-	tetex-texmf-2.0.1.tar.gz NOT tetex-texmfsrc-2.0.1.tar.gz.  So all
-	teTeX users need to recompile teTeX-texmf, teTeX, and texinfo (in
-	that order).
-
-2003-02-26 06:05  tchan
-
-	* doc-tools/teTeX/DETAILS: Fixed the URL for the teTeX homepage. 
-	Also corrected the download mirror order as most Lunar users will
-	want to fetch the source from the USA mirror.
-
-2003-02-26 04:58  tchan
-
-	* doc-tools/teTeX/: BUILD, DETAILS: Added the BUILD script BACK
-	into moonbase.	It definitely is required!  This correctly installs
-	all the binaries into /usr/bin now, instead of
-	/usr/bin/i686-linux-gnu-pc.  The BUILD script also forces teTeX to
-	NOT build dialog and texinfo over again.  Building dialog and
-	texinfo is very bad as this would also overwrite the Lunar module
-	version of dialog and texinfo.	Touched the updated field to FORCE
-	a recompile to fix all the misplaced binaries.
 
