@@ -1,6 +1,6 @@
           MODULE=MPlayer
-         VERSION=0.90rc5
-        #VERSION=0.90rc4
+         VERSION=0.90
+        #VERSION=0.90rc5
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=font-arial-iso-8859-1.tar.bz2
          SOURCE3=font-arial-iso-8859-2.tar.bz2
@@ -17,6 +17,9 @@
         SOURCE14=font-arial-cp1250.tar.bz2
         SOURCE15=mp-iso-8859-7.tar.bz2
 	SOURCE16=live.2003.03.28.tar.gz
+	SOURCE17=Blue-1.0.tar.bz2 
+	SOURCE18=krystal-1.0.tar.bz2 
+	#SOURCE19=Orange-1.0%0aOrange.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.lug.udel.edu/$MODULE/releases/$SOURCE
    SOURCE_URL[1]=ftp://ftp2.mplayerhq.hu/$MODULE/releases/$SOURCE
@@ -49,11 +52,17 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
  SOURCE15_URL[0]=ftp://ftp.lug.udel.edu/$MODULE/releases/fonts/$SOURCE15
  SOURCE15_URL[1]=ftp://ftp2.mplayerhq.hu/$MODULE/releases/fonts/$SOURCE15
  SOURCE16_URL[0]=http://www.live.com/liveMedia/public/$SOURCE16
+ SOURCE17_URL[0]=ftp://ftp.lug.udel.edu/$MODULE/Skin/$SOURCE17
+ SOURCE17_URL[1]=ftp://ftp2.mplayerhq.hu/$MODULE/Skin/$SOURCE17
+ SOURCE18_URL[0]=ftp://ftp.lug.udel.edu/$MODULE/Skin/$SOURCE18
+ SOURCE18_URL[1]=ftp://ftp2.mplayerhq.hu/$MODULE/Skin/$SOURCE18
+# SOURCE19_URL[0]=ftp://ftp.lug.udel.edu/$MODULE/Skin/$SOURCE19
+# SOURCE19_URL[1]=ftp://ftp2.mplayerhq.hu/$MODULE/Skin/$SOURCE19
         WEB_SITE=http://www.mplayerhq.hu
          ENTERED=20010922
-         UPDATED=20030329
-      SOURCE_MD5=056c2cd23286ca5464a70defd4649134
-           SHORT="MPlayer is a movie and animation player."
+         UPDATED=20030407
+      SOURCE_MD5=9a9f294bbaab2071ecbc327f4e870be8
+         SHORT="MPlayer is a movie and animation player."
 cat << EOF
 MPlayer is a movie and animation player based on the 0.90pre5 version of
 MPEGplayer and the Avifile library. It uses mpeg2dec/libmpeg2 for MPEG
