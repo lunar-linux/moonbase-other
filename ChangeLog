@@ -1,3 +1,82 @@
+2004-02-25 10:51  sofar
+
+	* utils/rrdtool/DEPENDS: Requires libpng
+
+2004-02-25 09:28  sofar
+
+	* distributed/ganglia/init.d/gmond: Adding gmond init script
+
+2004-02-25 09:22  sofar
+
+	* distributed/ganglia/DETAILS: Sorry about that... I must have been
+	in a hurry ;^)
+
+2004-02-25 08:21  florin
+
+	* perl/DBI/: BUILD, DETAILS: bump version from 1.20 to 1.41.
+
+2004-02-25 07:29  florin
+
+	* mail/mutt/DETAILS: add an alternate dl path. the primary one
+	seems to be slow and some ppl are experiencing problems with it.
+
+2004-02-25 05:48  tchan
+
+	* crypto/openssh/DETAILS: Verson bump to 3.8p1.  Small
+	changes/fixes.	Seems more like a license rewrite of sections of
+	code to remove the last remaining "problem" areas.  Compiled and
+	tested with gcc-3.3.3 and kernel-headers 2.4.x.
+
+2004-02-25 02:04  nhudson
+
+	* gnome2-core/: GConf2/DETAILS, gtksourceview/DETAILS,
+	libgnome/DETAILS, libgnomecanvas/DETAILS, libgnomeui/DETAILS,
+	bug-buddy/DETAILS, gedit/DETAILS, gnome-applets2/DETAILS,
+	libbonoboui/DETAILS, libwnck/DETAILS, nautilus/DETAILS: 
+	Updating modules
+
+2004-02-25 01:12  nhudson
+
+	* libs/: glib-2/DETAILS, atk/DETAILS: 
+	Updating glib-2 to new version 2.3.3 and atk to new version 1.5.5
+
+2004-02-24 18:41  florin
+
+	* video/xvidcore/DETAILS: update the updating date :)
+
+2004-02-24 18:39  florin
+
+	* video/xvidcore/DETAILS: bump version from 0.9.2 to 1.0.0-rc2. the
+	linux part seems to be stable enough. tested on 2.6.3 kernel with
+	gcc 3.3.3.
+
+2004-02-24 17:42  florin
+
+	* libs/fribidi/: BUILD, DETAILS: remove the BUILD file. add md5
+	sum.
+
+2004-02-24 17:33  florin
+
+	* video/avifile/: BUILD, DETAILS: a fix for the new install scheme
+	of kde.
+
+2004-02-24 15:45  florin
+
+	* audio/madplay/: BUILD, DETAILS: bump version from 0.15.1b to
+	0.15.2b. the alsa patch is no longer necessary. the devs have
+	applied our patch (emailed to them).
+
+2004-02-24 15:26  nhudson
+
+	* libs/: libxml2/DETAILS, libxslt/DETAILS: 
+	Updating libxml2 to new version 2.6.7 and libxslt to new version
+	1.1.4 tested with gcc 3.3.3 and kernel 2.4.24
+
+2004-02-24 14:34  sofar
+
+	* distributed/lam/DETAILS: Distributed computing with lunar....
+	yummmmm
+
 2004-02-24 10:58  florin
 
 	* doc-tools/wv2/: DEPENDS, DETAILS: a library for importing M$ Word
@@ -1442,15 +1521,15 @@
 
 2004-02-11 04:08  nhudson
 
+	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
+	added on branch GNOME_UNSTABLE.
+
+2004-02-11 04:08  nhudson
+
 	* rebuild-gnome-unstable: 
 	From a suggesting of niki's I made a script that will rebuild your
 	Gnome installation and build it for the GNOME_UNSTABLE branch. 
 	Please test if you are running GNOME_UNSTABLE
-
-2004-02-11 04:08  nhudson
-
-	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
-	added on branch GNOME_UNSTABLE.
 
 2004-02-11 04:04  nhudson
 
@@ -2787,89 +2866,4 @@
 	the request of bramble.  NOTE: I had to hack the src/Makefile.in
 	because steghide's author must have used an older libtool (1.4.x or
 	less).	Compiled and tested with gcc-3.2.3, kernel-headers 2.4.x.
-
-2004-01-25 21:23  tchan
-
-	* crypto/cryptoapi/DETAILS: Updated the home page URL.
-
-2004-01-25 20:32  florin
-
-	* libs/libtool/DETAILS: bump version from 1.5 to 1.5.2. bugfix
-	release.
-
-2004-01-25 20:00  tchan
-
-	* crypto/util-linux-crypto/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
-	PRE_BUILD, bootmisc, make-issue, init.d/bootmisc: Updated at the
-	request of bramble.  Also fixed this module to be more like
-	util-linux and the recent changes that have gone into that module. 
-	Compiled and tested with gcc-3.2.3, kernel-2.4.x headers.
-
-2004-01-25 19:36  tchan
-
-	* crypto/cryptoapi/: BUILD, DETAILS: Updated this module to get it
-	to correctly compile again.  Tested with gcc-3.2.3, and
-	kernel-headers 2.4.24.
-
-2004-01-25 19:31  tchan
-
-	* utils/util-linux/make-issue: Updated this file for Lunar-1.3.3.
-
-2004-01-25 19:20  florin
-
-	* cd/k3b/DETAILS: bump version from 0.11 to 0.11.1.
-
-2004-01-25 17:24  moe
-
-	* audio/alsa-utils/POST_REMOVE: This is part of the alsa sound
-	restore on 2.6 kernels.
-
-2004-01-25 17:24  moe
-
-	* audio/alsa-utils/: DETAILS, POST_INSTALL: This is some init
-	script to restore the alsa sound settings on 2.6 kernels. Its
-	tested by me .. comments are appreciated.
-
-2004-01-25 11:54  moe
-
-	* xfce4/xfce4-session/DETAILS: Reverting this since we ain't got
-	the most recent libxfce4util needed for this version.
-
-2004-01-25 10:50  moe
-
-	* xfce4/xfce4-session/DETAILS: Jasper asked me to update it so here
-	we go: This one now features a --disable-tcp flag so the manager
-	won't listen on random ports for connections on startup (rather
-	annoying IMHO).
-
-2004-01-25 09:39  florin
-
-	* security/chkrootkit/DETAILS: fix the dates.
-
-2004-01-25 09:38  florin
-
-	* net/bmon/: DEPENDS, DETAILS: bmon is an interface bandwidth
-	monitor. added at Striker's request.
-
-2004-01-25 08:00  florin
-
-	* devel/subversion/DETAILS: bump version from 0.35.1 to 0.36.0.
-
-2004-01-25 04:37  hardkrash
-
-	* science/octave/DETAILS: version bump
-
-2004-01-25 04:20  hardkrash
-
-	* kernel/: kernel-reqs/BUILD, linux/POST_INSTALL,
-	linux-grsec/POST_INSTALL, linux-openmosix/POST_INSTALL,
-	linux-vanilla/POST_INSTALL: added nforce to post_builds
-	
-	are we going to change the other modules over to the kernel-reqs
-	style anytine soon?
-
-2004-01-25 04:14  hardkrash
-
-	* kernel/nforce/: BUILD, DETAILS: adding a module for nforce
-	chipset drivers, for network and audio
 
