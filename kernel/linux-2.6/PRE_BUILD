@@ -26,5 +26,5 @@ elif [ -f $CONFIG_CACHE/.config.beta ]; then
     cp $CONFIG_CACHE/.config.beta $BUILD_DIRECTORY/linux/.config;
 fi
 
-( cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY/ && gunzip $SOURCE2 ) &&
-patch_it $AS_NAME 1
+( cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY/ && bunzip2 $SOURCE2 ) &&
+patch_it patch-$VERSION 1
