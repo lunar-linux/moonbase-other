@@ -1,16 +1,16 @@
           MODULE=alsa-driver
-         VERSION=1.0.2c
+         VERSION=1.0.3
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.alsa-project.org/pub/driver/$SOURCE
    SOURCE_URL[1]=ftp://ftp.silug.org/pub/alsa/driver/$SOURCE
    SOURCE_URL[2]=ftp://ftp.sunet.se/pub/Linux/alsa/driver/$SOURCE
-   SOURCE_VFY=md5:3a0f049d8d0f331f869d52029a724419
+   SOURCE_VFY=md5:76d5ecd13c12510a97fffc6494c2d558
         WEB_SITE=http://www.alsa-project.org/
          ENTERED=20010922
-         UPDATED=20040207
-	 PSAFE="no"
-       SHORT="ALSA drivers are sound drivers from the Advanced Linux Sound Architecture project."
+         UPDATED=20040301
+	PSAFE="no"
+        SHORT="ALSA drivers are sound drivers from the Advanced Linux Sound Architecture project."
 
 cat << EOF
 From http://www.alsa-project.org/intro.php3
@@ -19,21 +19,15 @@ Linux operating system and is released under version 2 of the GPL (GNU
 general public license) and the LGPL (GNU library general public license).
 
 Primary goals: 
-
 1. Create a fully modularized sound driver which supports kerneld and kmod.
-
 2. Create the ALSA Kernel API which surpasses the current OSS API.
-
 3. Maintain compatibility with most OSS/Lite binaries.
-
 4. Create the ALSA Library (C, C++), which simplifies ALSA application
-development.
-
+   development.
 5. Create the ALSA Manager, an interactive configuration program for
-the driver.
+   the driver.
 
 Lastly, this lunar MODULE supports one and only one sound card.
 If you have more or it is ISA, then you will likely have to create
 a custom MODULE.
-
 EOF
