@@ -1,7 +1,7 @@
 (
-
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-  default_build                     &&
+  ./configure --enable-gpl  \
+              $OPTS        &&
+  default_make  &&
   make installlib
 
 ) > $C_FIFO 2>&1
