@@ -1,21 +1,16 @@
           MODULE=slurm
-         VERSION=0.3.2
+         VERSION=0.3.3
           SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=http://www.raisdorf.net/files/$MODULE/
-      SOURCE_VFY=md5:c07b2ecca4151cb011e040a5501ae79e
-        WEB_SITE=http://www.raisdorf.net/slurm
+      SOURCE_VFY=sha1:232a7f28ec3457b2e9d554ed844a45642dea1cc5
+        WEB_SITE=http://www.raisdorf.net/projects/slurm
          ENTERED=20040422
-         UPDATED=20040422
-           SHORT="network load monitor for console"
+         UPDATED=200401120
+           SHORT="A console network load monitor based on FreeBSD's pppstatus"
+
 cat << EOF
-From the author's website --
-
-slurm started as a pppstatus port to FreeBSD. As I ripped off several functions
-here is an overview of the features:
-
-    * realtime traffic statistics divided into incoming and outgoing
-    * optional combined view
-    * can monitor any kind of network interface (testers welcome!)
-    * shows detailed statistics about the interface.
-    * it's themeable (since 0.3.0)
+slurm started as a port of pppstatus to FreeBSD and now is a generic
+netowrk load monitor.  It features three difference modes with real-
+time ASCII graphs and interface statistics for all kinds of network
+interfaces.  It is also themeable (as of version 0.3.0).
 EOF
