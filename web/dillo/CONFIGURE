@@ -6,9 +6,9 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     OPTS="$OPTS --disable-cookies"
   fi
   if  query  "Enable IPv6 support?" n;  then
-    OPTS="$OPTS --disable-ipv6"
-  else
     OPTS="$OPTS --enable-ipv6"
+  else
+    OPTS="$OPTS --disable-ipv6"
   fi                                                                                                                                
 
   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
