@@ -1,9 +1,8 @@
 (
 
-  sedit 's:(localstatedir)/locatedb:(localstatedir)/cache/locate/locatedb:g' locate/Makefile.in                                 &&
+  sedit 's:(localstatedir)/locatedb:(localstatedir)/cache/locate/locatedb:g' locate/Makefile.in                            &&
   sedit 's:PRUNEPATHS="/tmp /usr/tmp /var/tmp /afs":PRUNEPATHS="/tmp /usr/tmp /var/tmp /afs /proc":g' locate/updatedb.sh   &&
  
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   default_build                            &&
   mkdir -p /var/cache/locate               &&
   if [ -f /var/cache/locatedb ] ; then
