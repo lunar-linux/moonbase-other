@@ -1,3 +1,61 @@
+2004-03-23 04:52  nhudson
+
+	* gnome2-apps/abiword/DETAILS: 
+	Updating abiword to new version 2.1.1
+
+2004-03-23 04:34  nhudson
+
+	* graphics/gthumb/DETAILS: 
+	Updating gthumb to new version 2.3.2
+
+2004-03-23 04:33  nhudson
+
+	* web/epiphany/DETAILS: 
+	Updating epiphany to new version 1.2.1
+
+2004-03-23 04:30  nhudson
+
+	* gnome2-apps/gok/DETAILS: 
+	Updating gok to new version 0.10.0
+
+2004-03-23 04:26  nhudson
+
+	* gnome2-apps/gpdf/DETAILS: 
+	Updating gpdf to new version 0.130
+
+2004-03-23 04:20  nhudson
+
+	* gnome2-core/: GConf2/DETAILS, ORBit2/DETAILS, at-spi/DETAILS,
+	bug-buddy/DETAILS, eel/DETAILS, gail/DETAILS, gconf-editor/DETAILS,
+	gedit/DETAILS, gnome-applets2/DETAILS, gnome-desktop/DETAILS,
+	gnome-games2/DETAILS, gnome-icon-theme/DETAILS,
+	gnome-panel/DETAILS, gnome-session/DETAILS, gnome-themes/DETAILS,
+	gnome-system-monitor/DETAILS, gnome-terminal/DETAILS,
+	gnome-utils2/DETAILS, gnome-vfs2/DETAILS, libgnome/DETAILS,
+	libgnomecanvas/DETAILS, libgnomeprint/DETAILS,
+	libgnomeprintui/DETAILS, libgnomeui/DETAILS, libgtkhtml/DETAILS,
+	librsvg/DETAILS, libwnck/DETAILS, metacity/DETAILS,
+	nautilus/DETAILS, nautilus-cd-burner/DETAILS, yelp/DETAILS: 
+	Updating to Gnome 2.6.0, Gnome 2.6.0 Desktop should be announced in
+	a few days
+
+2004-03-22 17:24  striker
+
+	* sql/mysqltcl/: DEPENDS, DETAILS: simple mysql api for TCL
+
+2004-03-22 16:38  tchan
+
+	* distributed/distcc/DEPENDS: Fixed per mecklet's suggestion for
+	installing gnome compile monitor.
+
+2004-03-22 16:02  tchan
+
+	* mail/MozillaThunderbird/: BUILD, DETAILS, POST_INSTALL: The long
+	awaited update to thunderbird-0.5.  NOTE: the source for now is
+	best downloaded from the Lunar Cache, unfortunately.  This is due
+	to the mozilla devs and the problems they have building a source
+	tarball that doesn't have CRLFs in it.
+
 2004-03-22 09:37  sofar
 
 	* kernel/linux-openmosix/: DETAILS, PRE_BUILD: Bumping after this
@@ -1710,15 +1768,15 @@
 
 2004-02-29 05:35  nhudson
 
-	* gnome_unstable_gcc3.3.3_compat_list: file
-	gnome_unstable_gcc3.3.3_compat_list was initially added on branch
-	GNOME_UNSTABLE.
-
-2004-02-29 05:35  nhudson
-
 	* gnome_unstable_gcc3.3.3_compat_list: 
 	Running a list of modules that do and dont work with gcc 3.3.3 and
 	2.6.x kernels
+
+2004-02-29 05:35  nhudson
+
+	* gnome_unstable_gcc3.3.3_compat_list: file
+	gnome_unstable_gcc3.3.3_compat_list was initially added on branch
+	GNOME_UNSTABLE.
 
 2004-02-29 05:25  florin
 
@@ -2341,104 +2399,4 @@
 2004-02-22 12:28  florin
 
 	* kde3-apps/apollon/DETAILS: bump version from 0.9.1 to 0.9.2.
-
-2004-02-21 21:55  florin
-
-	* filesys/submount/BUILD: added a worning message. the module
-	compile and works only on 2.6.x linux kerrnels. it does not compile
-	on 2.4.x ones.
-
-2004-02-21 18:07  tchan
-
-	* libs/t1lib/: DETAILS, POST_INSTALL: Added a POST_INSTALL to force
-	recompiling of xpdf, since the major version number of t1lib has
-	changed.  Otherwise xpdf will contain broken lib links.
-
-2004-02-21 17:08  florin
-
-	* kde3-utils/kdirstat/: BUILD, DEPENDS, DETAILS: rename the module
-	kdirstat3 into kdirstat.
-
-2004-02-21 17:05  florin
-
-	* kde3-utils/kdevmon/: BUILD, DEPENDS, DETAILS: rename the module
-	kdevmon3 into kdevmon.
-
-2004-02-21 16:54  florin
-
-	* kernel/: linux-beta/POST_INSTALL, linux-beta-mm/POST_INSTALL: add
-	newline chars.
-
-2004-02-21 16:34  florin
-
-	* kernel/: linux-beta/POST_INSTALL, linux-beta-mm/POST_INSTALL: add
-	the submount relin.
-
-2004-02-21 16:14  florin
-
-	* utils/sh-utils/DETAILS: add the md5 sum.
-
-2004-02-21 16:04  florin
-
-	* filesys/submount/: BUILD, DEPENDS, DETAILS: A kernel module and
-	two programs which automatically mounts and unmounts removable
-	media devices.
-
-2004-02-21 15:21  florin
-
-	* filesys/udev/DETAILS: some minor tweaking.
-
-2004-02-21 15:01  florin
-
-	* filesys/udev/BUILD: use the standard default_make.
-
-2004-02-21 13:31  florin
-
-	* kde3-apps/kexchange/: BUILD, DEPENDS, DETAILS: rename the module
-	kexchange3 into kexchange.
-
-2004-02-21 12:57  florin
-
-	* kde3-apps/apollon/: BUILD, DEPENDS, DETAILS: this is the new
-	model of installing the KDE apps. it's inspired from sofar's idea
-	applied to xfce4. the KDEDIR and QTDIR vars are defined using the
-	profiles in /etc/profile.d as default dirs. the KDE_PREFIX and
-	QT_PREFIX can be defined in /etc/lunar/config in order to change
-	the default dirs to other locations.
-
-2004-02-21 12:38  sofar
-
-	* graphics/gqview/CONFLICTS: Not needed anymore.
-
-2004-02-21 12:22  moe
-
-	* graphics/gqview/: DEPENDS, DETAILS: Updating this thingy to
-	1.4.0. Its ported to gtk2 now and currectly its more recent than
-	gqview-devel.
-
-2004-02-21 10:54  florin
-
-	* kde3-apps/kbear/: BUILD, DETAILS: bump version from 2.1 to 2.1.1.
-
-2004-02-21 09:45  florin
-
-	* kde3-apps/bookcase/: BUILD, DEPENDS, DETAILS: a collections
-	keeping track app for KDE.
-
-2004-02-21 07:44  florin
-
-	* libs/t1lib/: BUILD, DETAILS: bump version from 1.3.1 to 5.0.1.
-	tested with gcc 3.3.3 and linux 2.6.3.
-
-2004-02-21 06:39  florin
-
-	* libs/libxml++/DETAILS: bump version from 0.27.0 to 1.0.2.
-
-2004-02-21 06:34  florin
-
-	* games/xmame/DETAILS: bump version from 0.78.1 to 0.79.1.
-
-2004-02-21 06:10  florin
-
-	* news/leafnode/DETAILS: bump version from 1.9.46 to 1.9.50.
 
