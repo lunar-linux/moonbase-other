@@ -1,3 +1,52 @@
+2003-10-01 06:50  sofar
+
+	* x11-apps/openoffice-bin/DETAILS: They seemed to have made 1.1rc5
+	1.1.0, md5sums match, even after complete re-download. This also
+	means no new downloads.
+
+2003-10-01 05:16  niki
+
+	* compilers/php/POST_INSTALL: Php POST_INSTALL kept failing untill
+	i added this little change
+
+2003-10-01 02:22  elaine
+
+	* crypto/openssl/0.9.6k/: BUILD, POST_INSTALL: added no-rebuild
+	logic if not bumping x.y.z version
+
+2003-09-30 22:43  elaine
+
+	* crypto/openssl/: BUILD, POST_INSTALL: Added hack to save building
+	dependencies if v.v.v isn't changed
+
+2003-09-30 22:02  sofar
+
+	* graphics/sane-frontends/DETAILS: Dropping down the version since
+	it doesn't seem to exist at all :^(
+
+2003-09-30 21:27  sofar
+
+	* graphics/ImageMagick/DETAILS: Lets hope they keep it calm there
+	again now.
+
+2003-09-30 21:12  sofar
+
+	* x11-apps/lyx/DEPENDS: As requested, untested.
+
+2003-09-30 17:31  elaine
+
+	* crypto/openssl/DETAILS: Bumped UPDATED var
+
+2003-09-30 17:07  elaine
+
+	* crypto/openssl/DETAILS: Bumped version against ASN.1 flaws fixed
+	in 0.9.7c
+
+2003-09-30 16:59  elaine
+
+	* crypto/openssl/0.9.6k/: BUILD, DEPENDS, DETAILS, POST_INSTALL:
+	Adding fixed 0.9.6 (k) openssl for people not running 0.9.7
+
 2003-09-30 07:01  sofar
 
 	* x11-apps/lyx/DETAILS: Bumping version
@@ -2627,41 +2676,4 @@
 
 	* video/totem/DETAILS: 
 	Updating totem to new version 0.99.3
-
-2003-08-31 22:33  sofar
-
-	* video/: xine-lib/BUILD, xine-lib/DETAILS, xine-ui/DETAILS:
-	Bumping these 2 versions, adding a slight fix for pentium4's since
-	xine-lib now ignores CFLAGS which actually could cause the compiles
-	to break (hence we unset them)
-
-2003-08-31 21:04  kc8apf
-
-	* science/galculator/DETAILS: Version bump
-
-2003-08-31 17:34  tchan
-
-	* zbeta/xforms/BUILD: Added one more doc file to the doc-dir.
-
-2003-08-31 17:30  tchan
-
-	* zbeta/xforms/: BUILD, DETAILS: Updated to the stable 1.0 release.
-	 Fixed the BUILD script to correctly compile and install the demos
-	directory too.	Removed the stripping of the debug symbols from
-	this library.
-
-2003-08-31 16:40  florin
-
-	* ftp/dctc/DETAILS: bump version from 0.85.3 to 0.85.5
-
-2003-08-31 16:20  florin
-
-	* ftp/dc_gui/DETAILS: bump version from 0.74 to 0.76
-
-2003-08-31 03:26  tchan
-
-	* utils/syslinux/: BUILD, DETAILS: Version bump to 2.06.  Compiled
-	and tested with gcc-3.2.3, glibc-2.3.2, nasm-0.98.36.  Build
-	process is now slightly modified.  Also added the newer md5sum code
-	check from lunar coretools.
 
