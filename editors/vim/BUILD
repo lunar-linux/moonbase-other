@@ -14,7 +14,7 @@
                --datadir=/usr/share      \
                --localstatedir=/var      &&
   
-  rm /usr/bin/vim /usr/bin/vi            &&
+  rm -f /usr/bin/vim /usr/bin/vi         &&
   make                                   &&
   prepare_install                        &&
   make install                           &&
