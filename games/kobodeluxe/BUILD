@@ -1,8 +1,7 @@
 (
 
-  cp   configure  configure.original
-  sed  's:$(prefix)/games/kobo-deluxe:/var/state/kobo-deluxe:'  \
-       configure.original  >  configure
+  sedit 's:$(prefix)/games/kobo-deluxe:/var/state/kobo-deluxe:'  \
+       configure
 
   ./configure  --prefix=/usr        \
                --bindir=/usr/games  \

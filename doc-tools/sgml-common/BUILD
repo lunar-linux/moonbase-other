@@ -4,15 +4,11 @@
   ##with fscking symlinks to the requisite pieces of automake!
 
   cd $BUILD_DIRECTORY/$MODULE-$VERSION                   &&
-  rm -f COPYING                                          &&
+  rm -f COPYING INSTALL install-sh missing mkinstalldirs &&
   ln -sf /usr/share/automake/COPYING COPYING             &&
-  rm -f INSTALL                                          &&
   ln -sf /usr/share/automake/INSTALL INSTALL             &&
-  rm -f install-sh                                       &&
   ln -sf /usr/share/automake/install-sh install-sh       &&
-  rm -f missing                                          &&
   ln -sf /usr/share/automake/missing missing             &&
-  rm -f mkinstalldirs                                    &&
   ln -sf /usr/share/automake/mkinstalldirs mkinstalldirs &&
 
   for FILE in `find . -name Makefile.in` ; do

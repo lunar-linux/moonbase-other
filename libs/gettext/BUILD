@@ -9,10 +9,9 @@ module_present()  {
   if  !  module_present  teTeX  ||
       !  module_present  linuxdoc-tools;  then
 
-    cp   Makefile.am                      Makefile.am.original
-    sed  's/cd doc && $(MAKE) ps//'       Makefile.am.original  |
-    sed  's/cd doc && $(MAKE) pdf//'                            |
-    sed  's/cd doc && $(MAKE) html//'  >  Makefile.am
+    sedit 's/cd doc && $(MAKE) ps//'   Makefile.am
+    sedit 's/cd doc && $(MAKE) pdf//'  Makefile.am
+    sedit 's/cd doc && $(MAKE) html//' Makefile.am
 
   fi
 

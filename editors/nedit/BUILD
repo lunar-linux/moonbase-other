@@ -1,11 +1,7 @@
 (
 
-  cd   makefiles                                         &&
-  cp   Makefile.linux  Makefile.linux.orig               &&
-  sed  "s/CFLAGS\=/CFLAGS:=/"  Makefile.linux.orig       |
-  sed  "s/-DUSE_LPR_PRINT_CMD/& \$\(CFLAGS\)/"  >        \
-       Makefile.linux
-  cd   ..                                                &&
+  sedit "s/CFLAGS\=/CFLAGS:=/"  makefiles/Makefile.linux           &&
+  sedit "s/-DUSE_LPR_PRINT_CMD/& \$\(CFLAGS\)/" makefiles/Makefile.linux &&
   sedit "s/-lm/-lm -lXmu/" makefiles/Makefile.linux      &&
   make  linux                                            &&
   prepare_install

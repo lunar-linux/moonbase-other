@@ -1,7 +1,6 @@
 (
 
-  cp    makeconfig           makeconfig.original
-  sed  "s:/usr/local:/usr:"  makeconfig.original  >  makeconfig
+  sedit "s:/usr/local:/usr:" makeconfig
 
   ./makeconfig  CONFIG=/etc          \
                 INETDCONF=/dev/null  \

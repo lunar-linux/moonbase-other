@@ -1,11 +1,7 @@
 (
 
-  cp   audio/midi_drivers/forked_player.cc  \
-       audio/midi_drivers/forked_player.cc.original
-
-  sed  's:"playmidi","-v","-v","-e":"playmus","playmus","-r","44100":'  \
-       audio/midi_drivers/forked_player.cc.original  >     \
-       audio/midi_drivers/forked_player.cc
+  sedit 's:"playmidi","-v","-v","-e":"playmus","playmus","-r","44100":' \
+    audio/midi_drivers/forked_player.cc
 
   ./configure  --prefix=/usr         \
                --sysconfdir=/etc     \

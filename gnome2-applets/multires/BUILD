@@ -3,7 +3,8 @@
    export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
   
    # Wrong path 
-   sed '/\/usr\/bin/ s/\/usr\/bin/\/opt\/lunar\/gnome\/2\/bin/g' src/GNOME_MultiresApplet.server.in | cat > src/GNOME_MultiresApplet.server.in
+   sedit '/\/usr\/bin/ s/\/usr\/bin/\/opt\/lunar\/gnome\/2\/bin/g' \
+     src/GNOME_MultiresApplet.server.in
    
    ./configure  --build=$BUILD					\
                 --sysconfdir=/etc                               \

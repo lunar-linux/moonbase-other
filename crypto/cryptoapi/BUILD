@@ -1,7 +1,5 @@
 no_export_symbol()  {
-  cp  api/cryptoapi.c api/cryptoapi.c.old
-  sed  "s/EXPORT_SYMBOL/\/\/ EXPORT_SYMBOL/"  \
-      api/cryptoapi.c.old  >  api/cryptoapi.c
+  sedit "s/EXPORT_SYMBOL/\/\/ EXPORT_SYMBOL/" api/cryptoapi.c
 }
 
 

@@ -1,8 +1,6 @@
 (
 
-  cp    Makefile  Makefile.original
-  sed   "s:\$(PREFIX)/bin:\$(PREFIX)/games:"  \
-        Makefile.original  >  Makefile
+  sedit "s:\$(PREFIX)/bin:\$(PREFIX)/games:" Makefile
   make  PREFIX=/usr  &&
   prepare_install    &&
   make  PREFIX=/usr  install

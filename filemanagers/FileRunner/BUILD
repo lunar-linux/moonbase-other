@@ -1,10 +1,6 @@
 (
 
-  cd           Makefiles
-  cp           Makefile.linux_gcc  Makefile.linux_gcc.orig
-  sed          "s/CFLAGS = -Wall/CFLAGS := \$\(CFLAGS\) -Wall/"  \
-               Makefile.linux_gcc.orig  Makefile.linux_gcc
-  cd           ..
+  sedit "s/CFLAGS = -Wall/CFLAGS := \$\(CFLAGS\) -Wall/" Makefiles/Makefile.linux_gcc
 
   make   -f    Makefiles/Makefile.linux_gcc       &&  
   prepare_install                                 &&

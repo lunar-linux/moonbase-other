@@ -1,7 +1,6 @@
 (
   unset CC CXX                                         &&
-  sed 's/\/usr\/local/\/usr/g' < Makefile > Makefile~  &&
-  mv Makefile~ Makefile                                &&
+  sedit 's/\/usr\/local/\/usr/g' Makefile              &&
   make                                                 &&
   prepare_install                                      &&
   make    install

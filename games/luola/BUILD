@@ -1,7 +1,6 @@
 (
 
-  cp    src/fs.c  src/fs.c.old
-  sed   "s:../data:/usr/share/luola/data:"  src/fs.c.old  >  src/fs.c
+  sedit "s:../data:/usr/share/luola/data:" src/fs.c
 
   rm  -f  config.status
   rm  -f  config.cache

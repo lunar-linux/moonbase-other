@@ -7,9 +7,8 @@
                           >  portsentry_config.h
   echo  $PS_CONF         >>  portsentry_config.h
 
-  cp    Makefile  Makefile.orig
-  sed   "s/CFLAGS = -O -Wall/CFLAGS := -O -Wall \$\(CFLAGS\)/"  \
-        Makefile.orig  >  Makefile
+  sedit "s/CFLAGS = -O -Wall/CFLAGS := -O -Wall \$\(CFLAGS\)/"  \
+        Makefile
 
   make  linux                       &&
   prepare_install                   &&
