@@ -13,7 +13,7 @@
 
 # if the user didn't set them we might as well give defined system defaults:
 LANG=${LANG:-en_US}
-[ -z $EDITOR ] && {
+[ -z "$EDITOR" ] && {
     # an editor has not been set, go find a decent one, the last one
     # found in the row is picked and set.
     [ -x /usr/bin/pico  ] && EDITOR="pico"
