@@ -1,17 +1,17 @@
           MODULE=linux-2.6-cko
-  KERNEL_VERSION=2.6.9
+  KERNEL_VERSION=2.6.10
      CKO_VERSION=cko3
          VERSION=$KERNEL_VERSION-$CKO_VERSION
           SOURCE=linux-$KERNEL_VERSION.tar.bz2
 	 SOURCE2=patch-$VERSION.bz2 
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6/$SOURCE
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/$SOURCE
-     SOURCE2_URL=http://kem.p.lodz.pl/~peter/cko/$SOURCE2
-	SOURCE_VFY=sha1:dd8f8b0c43b83339a42246d322cb48c6f2323236
-	SOURCE2_VFY=sha1:ed46e18945daf0808db3fe5180f2267d56f52142	
+     SOURCE2_URL=http://kem.p.lodz.pl/~peter/cko/rel/$SOURCE2
+	SOURCE_VFY=sha1:3c83791c20f9a397b287825a9a5984010a07e711
+	SOURCE2_VFY=sha1:c4f3bf80eb0fc4541ba2abebd2a147e1a196259d
 	WEB_SITE=http://www.kernel.org
          ENTERED=20041106
-         UPDATED=20041106
+         UPDATED=20050119
      KEEP_SOURCE="on"
            SHORT="2.6 kernel with Con Kolivas Overloaded patches"
 cat << EOF
