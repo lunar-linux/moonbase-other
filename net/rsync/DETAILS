@@ -1,19 +1,16 @@
           MODULE=rsync
-         VERSION=2.6.2
+         VERSION=2.6.3
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-$VERSION-lastdir-corruption.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://rsync.samba.org/ftp/rsync/$SOURCE
    SOURCE_URL[1]=ftp://rsync.samba.org/pub/rsync/$SOURCE
-  SOURCE2_URL[1]=$PATCH_URL/$SOURCE2
-      SOURCE_VFY=md5:bcacd9a9108a9e4760832212ec3d658d
-     SOURCE2_VFY=sha1:4dd134ef52e467e1805376197756282ed34b39de
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
+      SOURCE_VFY=sha1:4e96255bd01d6529bcdb6be3e211fdc5603e5a2e
         WEB_SITE=http://rsync.samba.org
          ENTERED=20010922
-         UPDATED=20040918
-           PSAFE=no
+         UPDATED=20041001
            SHORT="rsync is a replacement for rcp."
-
+PSAFE=no
 cat << EOF
 rsync is a replacement for rcp (and scp) that has many more features.
 It uses the "rsync algorithm" which provides a very fast method for
