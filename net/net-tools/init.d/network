@@ -29,7 +29,7 @@ function device_start() {
 	# include config file for interface
 	. $CONFIGS/$1;
 
-	if ( [ ! -z $2 ] && [ $2 == auto ] ); then
+	if ( [ -n "$2" ] && [ $2 == auto ] ); then
 	    case $AUTO in
 		[!yY])
 		    return -2; 
@@ -38,30 +38,30 @@ function device_start() {
 	fi;
 
 	# load module if specified
-	if [ ! -z $MODULE ]; then
+	if [ -n "$MODULE" ]; then
 	    modprobe $MODULE;
 	fi;
 
-	if ( [ ! -z $WIRELESS_MODE ] || [ ! -z $WIRELESS_KEY ] || [ ! -z $WIRELESS_RATE ] || [ ! -z $WIRELESS_ESSID ] ); then
+	if ( [ -n "$WIRELESS_MODE" ] || [ -n "$WIRELESS_KEY" ] || [ -n "$WIRELESS_RATE" ] || [ -n "$WIRELESS_ESSID" ] ); then
 		if [ ! -x /usr/sbin/iwconfig ]; then
 		    echo "Wireless tools not installed";
 		    return -1;
 		fi;
-		if [ ! -z $WIRELESS_MODE ]; then
+		if [ -n "$WIRELESS_MODE" ]; then
 		    /usr/sbin/iwconfig $1 mode $WIRELESS_MODE;
 		fi;
-		if [ ! -z $WIRELESS_KEY ]; then
+		if [ -n "$WIRELESS_KEY" ]; then
 		    /usr/sbin/iwconfig $1 key $WIRELESS_KEY;
 		fi;
-		if [ ! -z $WIRELESS_RATE ]; then
+		if [ -n "$WIRELESS_RATE" ]; then
 		    /usr/sbin/iwconfig $1 rate $WIRELESS_RATE;
 		fi;
-		if [ ! -z $WIRELESS_ESSID ]; then
+		if [ -n "$WIRELESS_ESSID" ]; then
 		    /usr/sbin/iwconfig $1 essid $WIRELESS_ESSID;
 		fi;
 	fi;
 
-	if [ -z $ADDRESS ]; then
+	if [ -z "$ADDRESS" ]; then
 	    /sbin/ifconfig $1 up
 	    echo -n "missing address";
 	    return -1;
@@ -102,10 +102,16 @@ function device_start() {
 		    fi;
 		fi;
 		$RUNFILE $DHCP_OPTIONS $1 >/dev/null 2>&1;
+		DHCP_EXIT=$?
 		sleep 1;
 		if [ ! -e $PIDFILE ]; then
-		    echo -n "DHCP failed";
-		    return -1;
+		    if [ $DHCP_EXIT -eq 0 ]; then
+		        echo -n "DHCP exited cleanly"
+			return -3
+		    else
+		        echo -n "DHCP failed";
+		        return -1;
+		    fi;
 		fi;
 	    ;;
 	    ?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9])
@@ -118,10 +124,10 @@ function device_start() {
 		    return -3;
 		fi;
 		IFCONFIG="$1 $ADDRESS";
-		if [ ! -z $NETMASK ]; then
+		if [ -n "$NETMASK" ]; then
 		    IFCONFIG="$IFCONFIG netmask $NETMASK";
 		fi;
-		if [ ! -z $BROADCAST ]; then
+		if [ -n "$BROADCAST" ]; then
 		    IFCONFIG="$IFCONFIG broadcast $BROADCAST";
 		fi;
 		/sbin/ifconfig $IFCONFIG >/dev/null 2>&1
@@ -202,7 +208,7 @@ function device_stop() {
 	    ;;
 	esac
 	
-	if [ ! -z $MODULE ]; then
+	if [ -n "$MODULE" ]; then
 	    modprobe -r $MODULE;
 	fi;
 	return 0;
@@ -221,7 +227,7 @@ start() {
 	fi;
 
 	# Do startup for all interfaces if none is specified
-	if [ -z $2 ]; then
+	if [ -z "$2" ]; then
 	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
 	        echo -n " * Starting $device: "
 		device_start $device auto
@@ -229,7 +235,7 @@ start() {
 	    done;
 	    if [ -e /etc/config.d/gateway ]; then
 	       GATEWAY=`cat /etc/config.d/gateway`
-	       if [ ! -z $GATEWAY -a ! $(route -n | grep $GATEWAY | wc -l) -ge 1 ]; then
+	       if [ -n "$GATEWAY" -a ! $(route -n | grep $GATEWAY | wc -l) -ge 1 ]; then
 	           echo -n " * setting default route: "
 	           if [ ! -x /sbin/route ]; then
 	            echo -n "route not installed";
@@ -253,7 +259,7 @@ start() {
 
 stop() {
 	echo "Stopping network:"
-	if [ -z $2 ]; then
+	if [ -z "$2" ]; then
 	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo | sort -r`; do
 	        echo -n " * Stopping $device: "
 		device_stop $device;
@@ -268,7 +274,7 @@ stop() {
 
 restart() {
 	echo "Restarting network:"
-	if [ -z $2 ]; then
+	if [ -z "$2" ]; then
 	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
 	    	echo -n " * Stopping $device: "
 		device_stop $device auto;
@@ -294,7 +300,7 @@ switch-profile() {
 	# 2. remove the config file for the device (e.g. /etc/config.d/network/eth0)
 	# 3. run /etc/init.d/network switch-profile (profile)
 	# 4. enjoy!
-	if [ ! -z $2 ]; then
+	if [ -n "$2" ]; then
 	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
 		device_stop $device;
 	    done;
