@@ -30,6 +30,7 @@
 	       --enable-dbase		     \
 	       --enable-dbx		     \
 	       --enable-dio		     \
+	       --with-readline               \
                $OPTS                         && 
   make                                       &&
   prepare_install                            &&
