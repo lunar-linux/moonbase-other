@@ -32,6 +32,7 @@
   [  -e  /etc/login.defs       ]  ||  cp  login.defs.linux  /etc/login.defs
   [  -e  /etc/defaults         ]  ||  mkdir                 /etc/defaults
   [  -f  /usr/sbin/vigr        ]  ||  ln  /usr/sbin/vipw    /usr/sbin/vigr
+  [  -f  /etc/securetty        ]  ||  cp  $SCRIPT_DIRECTORY/securetty /etc
 
   sedit "s/CRACKLIB_DICTPATH	\/var\/cache\/cracklib\/cracklib_dict/CRACKLIB_DICTPATH	\/usr\/share\/dict\/pw_dict/" /etc/login.defs
   sedit "s/#MD5_CRYPT_ENAB	no/MD5_CRYPT_ENAB	yes/" /etc/login.defs
