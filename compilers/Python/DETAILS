@@ -1,11 +1,13 @@
           MODULE=Python
          VERSION=2.2.2
           SOURCE=$MODULE-$VERSION.tgz
+	SOURCE2=Python-2.2.2-Tkinter.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=ftp://ftp.python.org/pub/python/$VERSION/$SOURCE
-        WEB_SITE=http://www.python.org
+   SOURCE_URL[0]=ftp://ftp.python.org/pub/python/$VERSION/$SOURCE   
+SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+     WEB_SITE=http://www.python.org
          ENTERED=20010922
-         UPDATED=20021015
+         UPDATED=20030430
            SHORT="Python is an interpreted, interactive, object-oriented programming language."
 cat << EOF
 Python is an interpreted, interactive, object-oriented programming
