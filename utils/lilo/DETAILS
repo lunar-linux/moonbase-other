@@ -1,15 +1,15 @@
           MODULE=lilo
-         VERSION=22.5.9
-          SOURCE=lilo-$VERSION.tar.gz
+         VERSION=22.6
+          SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=$MODULE-$VERSION-kernel-2.6.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=http://www.ibiblio.org/pub/Linux/system/boot/$MODULE/$SOURCE
-      SOURCE_VFY=md5:d5b561190cbe0968d50e09e0031edb79
-         SOURCE2=lilo-22.5.9-kernel-2.6.7.patch.bz2
-     SOURCE2_URL=$PATCH_URL/$SOURCE2
-     SOURCE2_VFY=md5:796e04e5f2df4c565710cc0f39da2c1f
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:13c89d424930df54d601c007154c4a0e399d4fff
+     SOURCE2_VFY=sha1:ad0b08a64e9839f9203dca2410eabd5d6c464cf9
         WEB_SITE=http://home.san.rr.com/johninsd/pub/linux/lilo/
          ENTERED=20010922
-         UPDATED=20040513
+         UPDATED=20041003
            SHORT="Boot loader for Linux/x86 and other PC operating systems."
 cat << EOF
 Lilo is a Boot loader for Linux/x86 and other PC operating systems.
