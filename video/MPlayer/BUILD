@@ -8,6 +8,9 @@
   cd $SOURCE_DIRECTORY        &&
   echo `pwd`                  &&
   sedit "s/MANDIR = \${prefix}\/man/MANDIR =\/usr\/share\/man/" Makefile  &&
+  # the following sedit fixes some library issues with freetype2 and xfree86
+  # if MPlayer seems to be acting up and having other issues try commenting
+  # this sedit
   sedit "s:FREETYPE_LIB = -lfreetype:FREETYPE_LIB = -L/usr/lib -lfreetype:" config.mak &&
   make                        &&
   prepare_install             &&
