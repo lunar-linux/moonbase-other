@@ -1,0 +1,21 @@
+          MODULE=libraw1394
+         VERSION=0.9.0
+          SOURCE=${MODULE}_${VERSION}.tar.gz
+	 SOURCE2=${MODULE}-gcc-3.3-fix1.patch.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURC2
+   SOURCE_VFY[0]=md5:56fc0bc6f00efdebb635dcc52d91f7bc
+  SOURCE2_VFY[0]=md5:97f204f306c42cf3925c77f27bec517b
+        WEB_SITE=http://sourceforge.net/projects/libraw1394
+         ENTERED=20030909
+         UPDATED=20030909
+      MAINTAINER=couannette@free.fr
+           SHORT="Library Interface for FireWire devices"
+cat << EOF
+libraw1394 is the only supported interface to the kernel side raw1394 of
+the Linux IEEE-1394 subsystem, which provides direct access to the connected
+1394 buses to user space.  Through libraw1394/raw1394, applications can directly
+send to and receive from other nodes without requiring a kernel driver for the
+protocol in question.
+EOF
