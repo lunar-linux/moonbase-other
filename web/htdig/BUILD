@@ -6,6 +6,9 @@
   if module_installed apache-mod_ssl; then
     HTDIGDIR=/usr/share/httpsd/htdig
     CGIBINDIR=/usr/share/httpd/cgi-bin
+  elif module_installed apache2 ; then
+    HTDIGDIR=/var/www/htdig
+    CGIBINDIR=/var/www/cgi-bin
   else
     HTDIGDIR=/usr/share/httpd/htdig
     CGIBINDIR=/usr/share/httpd/cgi-bin
@@ -13,6 +16,9 @@
 
   SEARCHFORM=search.html
   WEBPREFIX=/htdig
+
+  echo "OPTS=$OPTS"
+  echo "CFLAGS=$CFLAGS"
 
   ./configure  --prefix=/usr                      \
                --sysconfdir=/etc                  \
