@@ -1,3 +1,245 @@
+2003-01-10 20:57  xoritor
+
+	* graphics/jpeg/BUILD: Fixing another -malign-double victim.
+	
+2003-01-10 20:11  niki
+
+	* sql/mysql-beta/DETAILS: Bump version to 4.0.8-gamma from 4.0.4-beta.
+	
+2003-01-10 18:26  xoritor
+
+	* compilers/ruby/BUILD: Fixing ruby so it will build without -fomit-frame-pointers, this breaks the install and everything for ruby.
+	
+2003-01-10 15:29  xoritor
+
+	* utils/fileutils/BUILD: Yet another fix to core utils to keep -malign-double from causing problems.
+	
+2003-01-10 15:18  xoritor
+
+	* devel/diffutils/BUILD: Making sure -malign-double does not kill this one too.
+	
+2003-01-10 15:14  xoritor
+
+	* utils/modutils/BUILD: Again makind sure -malign-double does not kill things.
+	
+2003-01-10 15:07  xoritor
+
+	* utils/textutils/BUILD: Making sure textutils does not die with -malign-double selected.
+	
+2003-01-10 11:01  niki
+
+	* chat/gaim/DETAILS: Bumped to version 0.59.8 from 0.59.7. Tested and works for me.
+	
+2003-01-10 00:14  niki
+
+	* utils/ccache/: BUILD, DETAILS, ccache.patch.bz2: Bumped to version 2.1.1 from 1.9, and removed the patch and Build file.
+	
+2003-01-09 16:38  hardkrash
+
+	* x11-apps/usbview/: DEPENDS, DETAILS: inital import -- hardkrash
+	
+2003-01-09 16:22  hardkrash
+
+	* libs/libusb/DETAILS: version bump -- hardkrash
+	
+2003-01-09 00:48  hardkrash
+
+	* libs/libexif-gtk/DETAILS: inital import -- hardkrash
+	
+2003-01-08 23:40  hardkrash
+
+	* libs/libgphoto2/: DEPENDS, DETAILS: inital import -- hardkrash
+	
+2003-01-08 23:37  hardkrash
+
+	* graphics/gtkam/DETAILS: updated gtkam to new version -- Hardkrash
+	
+2003-01-08 23:36  hardkrash
+
+	* graphics/gphoto2/: DEPENDS, DETAILS: bumped version and added preview support, note the libraries were split in to own module. - hardkrash
+	
+2003-01-08 23:18  hardkrash
+
+	* libs/libexif/DETAILS: inital import -- Hardkrash
+	
+2003-01-08 21:40  kc8apf
+
+	* chat/xchat/BUILD: Why was Perl plugin support not enabled?
+	
+2003-01-08 20:58  hardkrash
+
+	* utils/usbutils/DETAILS: inital import -- Hardkrash
+	
+2003-01-08 19:32  tchan
+
+	* gnome/imlib/DEPENDS: imlib was missing a depends on libtool.  It does appear to require libtool
+	as it is used throughout the configure script.
+	
+2003-01-08 16:58  hardkrash
+
+	* mail/sylpheed/DETAILS: corrected website url -- Hardkrash
+	
+2003-01-08 15:11  sofar
+
+	* utils/logrotate/BUILD: Better installation: don't overwrite system config, and state file goes in /var/state.
+	
+2003-01-08 05:04  kc8apf
+
+	* utils/tpconfig/: POST_INSTALL, touchpad, init.d/touchpad: Add init script for tpconfig
+	
+2003-01-08 01:48  hardkrash
+
+	* x11-apps/gpa/DETAILS: touched UPDATED :-P
+	
+2003-01-08 01:46  hardkrash
+
+	* x11-apps/gpa/: DEPENDS, DETAILS: Upgraded to current version -- Hardkrash
+	
+2003-01-08 01:45  hardkrash
+
+	* libs/gpgme/DETAILS: Updated to latest devel version for gpa
+	
+2003-01-08 01:05  hardkrash
+
+	* security/airsnort/: BUILD, DEPENDS, DETAILS: inital import -- Hardkrash
+	
+2003-01-07 23:25  kc8apf
+
+	* x11-utils/gkrellmwireless2/DETAILS: Obviously i'm the only one who uses this, but it's fixed now
+	
+2003-01-07 22:44  jasper
+
+	* zbeta/: xfce4_cvs_utils/BUILD, xffm_cvs/BUILD: Fix installation paths. Thanks Terry for pointing it out to me.
+	
+2003-01-07 20:52  tchan
+
+	* graphics/libpng/: BUILD, DETAILS: Fixed the horrible mess that was the old BUILD script for libpng.  It now
+	correctly links in the needed libraries, libz and libm.  This uses the
+	new patch system.  It also respects Lunar CFLAGS, so for all you speed
+	freaks out there libpng can now be optimized to your dangerous little
+	heart's content!  The old libpng BUILD did not optimize correctly.  Yes
+	mmx even works now.
+	
+2003-01-07 15:03  sofar
+
+	* utils/hc-cron/crontab: Bugfix: bad syntax, proper templated too.
+	
+2003-01-07 08:27  kc8apf
+
+	* mail/spamassassin/init.d/spamd: Add init script for spamd
+	
+2003-01-07 08:26  kc8apf
+
+	* perl/: MIME-tools/BUILD, MIME-tools/DEPENDS, MIME-tools/DETAILS,
+	Mail-Audit/BUILD, Mail-Audit/DEPENDS, Mail-Audit/DETAILS,
+	MailTools/BUILD, MailTools/DEPENDS, MailTools/DETAILS: Add a few more perl modules
+	
+2003-01-07 05:04  kc8apf
+
+	* graphics/gtk+-2/DETAILS: Fix download URL
+	
+2003-01-07 03:52  kc8apf
+
+	* libs/: atk/DETAILS, pango/DETAILS: Fix download URL
+	
+2003-01-07 03:52  kc8apf
+
+	* libs/glib-2/DETAILS: Fixed download URL
+	
+2003-01-06 23:54  tchan
+
+	* devel/uml/: .config, DETAILS: Version bump to uml kernel patch 2.4.19-45.
+	
+2003-01-06 23:17  kc8apf
+
+	* editors/gtkspell/BUILD: Fix install location
+	
+2003-01-06 23:10  kc8apf
+
+	* gnome2-core/ORBit2/DETAILS: Fix download location
+	
+2003-01-06 23:07  kc8apf
+
+	* editors/gtkspell/: BUILD, DEPENDS, DETAILS: Add gtkspell
+	
+2003-01-06 22:09  sofar
+
+	* x11-wm/icewm/DETAILS: Yet Another New IceWM Version (1.2.5)
+	
+2003-01-06 21:42  kc8apf
+
+	* net/net-tools/init.d/network: Profile handling couldn't cope with missing device links.  Now it gives a
+	warning and fixes it.
+	
+2003-01-06 19:18  sofar
+
+	* graphics/gtk+-2/DETAILS, libs/atk/DETAILS, libs/glib-2/DETAILS,
+	libs/pango/DETAILS: Again, sigh
+	
+2003-01-06 14:43  niki
+
+	* graphics/lnab/DEPENDS: Removed the dependency on xfree86, as ppl. would have X installed any
+	way, and it fskc up xfree86-cvs.
+	
+2003-01-06 13:29  nhudson
+
+	* chat/xchat/DETAILS: Updating versions on xchat to 1.9.8
+	
+2003-01-06 09:17  sofar
+
+	* utils/hc-cron/: BUILD, DETAILS, crontab, hc-cron.patch: Adding /etc/cron.* scheme and moved patch out to website.
+	
+2003-01-05 22:09  xoritor
+
+	* shells/: bash/BUILD, bash_static/BUILD: Fixing bash to never use -malign-double EVER!
+	
+2003-01-05 22:08  tchan
+
+	* devel/cvs/DETAILS: Fixed the url for cvs source code.
+	
+2003-01-05 20:36  xoritor
+
+	* devel/cvs/DETAILS, gnome/libxml2/DETAILS,
+	graphics/gtk+-2/DETAILS, libs/atk/DETAILS, libs/glib-2/DETAILS,
+	libs/pango/DETAILS: Bumping versions:
+	  libxml2
+	  glib2
+	  atk
+	  pango
+	  gtk+-2
+	
+2003-01-05 20:30  xoritor
+
+	* graphics/feh/DETAILS: Bumping version to newer version.
+	
+2003-01-05 20:29  xoritor
+
+	* devel/cvs/DETAILS: Bumping to new cvs version.
+	
+2003-01-05 10:06  kc8apf
+
+	* net/net-snmp/init.d/snmpd: Fix mis-use of $ in init script
+	
+2003-01-05 09:55  kc8apf
+
+	* net/net-snmp/: snmpd, init.d/snmpd: Added logfile parameter to snmpd config
+	
+2003-01-05 09:53  kc8apf
+
+	* net/net-snmp/: BUILD, snmpd, init.d/snmpd: Added init script for snmpd
+	
+2003-01-05 08:56  kc8apf
+
+	* security/iptables/init.d/iptables: Add init script for iptables
+	
+2003-01-05 08:29  kc8apf
+
+	* chat/reaim/: BUILD, reaim, init.d/reaim: ReAIM is finished
+	
+2003-01-05 08:22  kc8apf
+
+	* chat/reaim/init.d/reaim: Add configuration to ReAIM
+	
 2003-01-05 05:39  kc8apf
 
 	* chat/reaim/: BUILD, DETAILS, init.d/reaim: Add ReAIM
@@ -269,425 +511,4 @@
 2003-01-01 16:44  nhudson
 
 	* graphics/gimp2/DETAILS: Updating gimp2 to new version 1.3.11
-	
-2003-01-01 02:41  csm
-
-	* mail/mailman/DETAILS: version update for mailman
-	
-2003-01-01 01:02  sofar
-
-	* news/pan2/DETAILS: New version. HAPPY NEW YEAR EVERYONE!!!
-	
-2002-12-31 16:32  tchan
-
-	* devel/binutils/DETAILS: Version bump to 2.13.2.  Compiles and tested with gcc-3.2.1 and glibc-2.3.1.
-	
-2002-12-31 16:27  tchan
-
-	* shells/bash_static/: BUILD, DETAILS: Fixed this to use the new patch scheme.  It shares the patches from regular
-	bash module, which are now located in lunar-linux.org/lunar/patches
-	
-2002-12-31 16:26  tchan
-
-	* shells/bash/: BUILD, DETAILS: Fixed this to use the new patch scheme.  By moving the patches out of moonbase,
-	bash_static is also able to use the same set of patches.
-	
-2002-12-31 15:35  sofar
-
-	* web/htdig/: BUILD, DEPENDS: Adopted for apache2
-	
-2002-12-31 13:52  jasper
-
-	* zbeta/xfwm4_cvs/BUILD: Fix location example file
-	
-2002-12-31 13:26  jasper
-
-	* zbeta/xfwm4_cvs/BUILD: Add sample config file
-	
-2002-12-31 09:29  sofar
-
-	* web/apache2/POST_INSTALL: Added another warning to be sure.
-	
-2002-12-31 09:27  sofar
-
-	* web/apache2/POST_INSTALL: Chickening out here....
-	
-2002-12-31 09:13  sofar
-
-	* web/apache2/: BUILD, CONFIGURE, POST_INSTALL: Here goes: apache2 new install locations, unforced but unavoidable.
-	
-2002-12-31 07:49  csm
-
-	* utils/logrotate/: BUILD, DETAILS: adding this new module to help rotate logs!
-	
-2002-12-31 05:35  nhudson
-
-	* mail/sylpheed-claws/DETAILS: Updating sylpheed-claws yet again to new version 0.8.8
-	
-2002-12-31 05:26  dem
-
-	* x11-wm/: waimea/DETAILS, waimea/POST_INSTALL, wampager/BUILD,
-	wampager/DEPENDS, wampager/DETAILS: Waimea updates
-	
-2002-12-31 05:08  csm
-
-	* security/logcheck/: BUILD, DETAILS, POST_INSTALL: adding the logsentry/logcheck module
-	
-2002-12-31 02:20  csm
-
-	* doc-tools/man2html/BUILD: one more fix to handle apache2
-	
-2002-12-31 02:15  csm
-
-	* doc-tools/man2html/BUILD: fixing bugs
-	
-2002-12-31 02:11  csm
-
-	* doc-tools/man2html/BUILD: fixes!
-	
-2002-12-31 02:03  csm
-
-	* doc-tools/man2html/BUILD: fixing the cgi install location
-	
-2002-12-31 00:28  csm
-
-	* gnome/bonobo/DETAILS: version update
-	
-2002-12-31 00:02  csm
-
-	* games/crafty/DETAILS: dammit! version update with the right version # this time!
-	
-2002-12-30 23:54  csm
-
-	* games/crafty/DETAILS: version update
-	
-2002-12-30 23:48  csm
-
-	* devel/sip/DETAILS: version update
-	
-2002-12-30 23:44  csm
-
-	* devel/PyQt/DETAILS: version update... obviously NOBODY HAS BEEN TAKING CARE OF THIS ONE!
-	
-2002-12-30 23:37  csm
-
-	* devel/: glademm/DETAILS, gob2/DETAILS: version update
-	
-2002-12-30 23:32  csm
-
-	* chat/naim/DETAILS: URL change
-	
-2002-12-30 23:29  csm
-
-	* chat/naim/DETAILS: version update
-	
-2002-12-30 23:25  csm
-
-	* chat/ircii/DETAILS: updating the version
-	
-2002-12-30 20:39  xoritor
-
-	* x11-wm/fluxbox/: BUILD, DETAILS: Updating version, fixing build issue.
-	
-2002-12-30 19:46  sofar
-
-	* compilers/php/DETAILS: Update version to 4.3.0
-	
-2002-12-30 19:16  csm
-
-	* filemanagers/FileRunner/DETAILS: changing the URL
-	
-2002-12-30 19:14  csm
-
-	* editors/TeXmacs/DETAILS: updated version
-	
-2002-12-30 03:21  tchan
-
-	* libs/uClibc/: BUILD, DETAILS, Makefile.diff.bz2: Fixed this module to use the new patch scheme.
-	
-2002-12-30 02:52  csm
-
-	* utils/lsof/DETAILS: updated the md5sum
-	
-2002-12-30 02:50  csm
-
-	* utils/lsof/DETAILS: lsof version updated
-	
-2002-12-30 02:48  tchan
-
-	* x11-apps/mupo/: BUILD, DETAILS, mupo-recurringtodo.patch: Fixed this module to use the new patch location scheme.
-	
-2002-12-30 02:40  tchan
-
-	* shells/sash/: BUILD, DETAILS, sash-readline-plus.patch: Fixed this module to use the new patch location scheme.
-	
-2002-12-29 23:36  nhudson
-
-	* chat/gnomeicu2/DEPENDS: Changing DEPENDS to gnome-panel instead of libgnomeui
-	
-2002-12-29 22:53  nhudson
-
-	* ftp/gftp/DETAILS: Fixing typo
-	
-2002-12-29 22:53  nhudson
-
-	* ftp/gftp/: BUILD, CONFIGURE, DEPENDS, DETAILS: ok merging gftp and gftp2, it will now compile with gtk+-2 support only.  This will get rid of 1 of the 2 modules.  It now installs to /usr instead of /opt/lunar/gnome/2 because it doesnt require anything Gnome2 only gtk+-2
-	
-2002-12-29 21:55  nhudson
-
-	* devel/ruby-gnome2/: BUILD, DEPENDS, DETAILS: Adding ruby-gnome2 to moonbase version 0.2.  These are ruby bindings for gtk+-2 and Gnome2 modules
-	
-2002-12-29 19:18  csm
-
-	* shells/bash/DETAILS: the patches build just fine so I am bumping the date!
-	
-2002-12-29 19:17  csm
-
-	* shells/bash/BUILD: adding 4 bigfix patches to bash:
-	
-	Bash-Release: 2.05b
-	Patch-ID: bash205b-001
-	
-	Bug-Reported-by:    taviso@sdf.lonestar.org
-	Bug-Reference-ID:   <200208021107.g72B723d021352@darkstar.example.net>
-	Bug-Reference-URL:  http://mail.gnu.org/pipermail/bug-bash/2002-August/004980.html
-	
-	Bug-Description:
-	
-	Bash goes into an infinite loop and eventually crashes with a SIGSEGV
-	when some keys on the numeric keypad are pressed, possibly in combination
-	with the shift key.
-	
-	Bash-Release: 2.05b
-	Patch-ID: bash205b-002
-	
-	Bug-Reported-by:  rwhron@earthlink.net
-	Bug-Reference-ID: <20020724000454.GA15210@rushmore> (bug-bash)
-	Bug-Reference-URL: http://mail.gnu.org/pipermail/bug-bash/2002-July/004856.html
-	
-	Bug-Description:
-	
-	Repeating an edit in vi-mode with `.' does not work.
-	
-	Bash-Release: 2.05b
-	Patch-ID: bash205b-003
-	
-	Bug-Reported-by:   jan.q.bruun-andersen@posten.se
-	Bug-Reference-ID:  <BE156C6450189B4ABAF7381F0AD4724A0165674F@002exmbs002.ad.posten.se>
-	Bug-Reference-URL: http://mail.gnu.org/pipermail/bug-bash/2002-July/004789.html
-	
-	Bug-Description:
-	
-	In certain cases, Bash appends a space instead of a slash to a directory
-	name relative to the current directory when performing command name
-	completion.  This affects partial completion of intermediate directory
-	names.
-	
-	Bash-Release: 2.05b
-	Patch-ID: bash205b-004
-	
-	Bug-Reported-by:   c.f.a.johnson@rogers.com
-	Bug-Reference-ID:  <aji8sb$1aa9bi$2@ID-136730.news.dfncis.de>
-	Bug-Reference-URL: http://mail.gnu.org/pipermail/bug-bash/2002-August/005074.html
-	
-	Bug-Description:
-	
-	A bug in the bash variable expansion code causes leading blanks in a
-	variable's value to be ignored when computing its length.
-	
-2002-12-29 17:54  nhudson
-
-	* devel/anjuta/DEPENDS: Adding gtkmm2 to the depends file for gtk+-2 c++ support
-	
-2002-12-29 17:51  nhudson
-
-	* devel/anjuta/DETAILS: Updating Anjuta to new version 1.0.1
-	
-2002-12-29 17:08  dem
-
-	* audio/monkey-media/DETAILS, audio/rhythmbox/DETAILS,
-	video/zapping/DETAILS: Updates
-	
-2002-12-29 16:53  nhudson
-
-	* gnome2-extras/gnome-python2/DETAILS: Found out that the new version of gnome-python2 will not work with some modules (meld and straw) for some reason they took out the bonobo part of the package, so im reverting to the previous version 1.99.13
-	
-2002-12-29 03:15  tchan
-
-	* compilers/php/DEPENDS: No this DEPENDS file is NOW correctly fixed. The brain-dead old way of using
-	pspell with the new aspell interface is to use --with-pspell flag and
-	to have it depends on aspell.  It was correct at revision level 1.5.
-	
-2002-12-29 00:25  csm
-
-	* compilers/php/DEPENDS: fixed the pspell aspell dependency!
-	
-2002-12-28 23:00  tchan
-
-	* utils/grep/: BUILD, CONFIGURE, DEPENDS, DETAILS: Had to rework the grep module to prevent it from automatically linking in
-	the pcre module.  Also added support for large files and the option to disable
-	nls.  Try this now with "lin -r -c grep".  The grep on the testiso was linking
-	in pcre by accident.
-	
-2002-12-28 22:41  kc8apf
-
-	* audio/grip/DETAILS: Version bump
-	
-2002-12-28 22:41  kc8apf
-
-	* audio/digitaldj/: DEPENDS, DETAILS: Add DigitalDJ
-	
-2002-12-28 21:53  csm
-
-	* utils/pilot-link/DETAILS: I forgot to iterate the date
-	
-2002-12-28 21:50  csm
-
-	* utils/pilot-link/DETAILS: updating the pilot-link version
-	
-2002-12-28 18:14  csm
-
-	* mail/pop-before-smtp/BUILD, mail/pop-before-smtp/DEPENDS,
-	mail/pop-before-smtp/DETAILS, mail/pop-before-smtp/POST_INSTALL,
-	perl/File-Tail/BUILD, perl/File-Tail/DEPENDS,
-	perl/File-Tail/DETAILS, perl/Net-Netmask/BUILD,
-	perl/Net-Netmask/DEPENDS, perl/Net-Netmask/DETAILS,
-	perl/TimeDate/BUILD, perl/TimeDate/DEPENDS, perl/TimeDate/DETAILS: adding pop-before-smtp as a module with all of it's dependencies.
-	
-2002-12-28 16:56  nhudson
-
-	* devel/pygtk2/DETAILS: Updating pygtk2 to new version 1.99.4
-	
-2002-12-28 16:53  nhudson
-
-	* gnome2-extras/: gnome-python2/DETAILS, orbit-python/DETAILS: Updating gnome-python2 to verson 1.99.4 orbit-python to version 1.99.3
-	
-2002-12-28 09:04  jasper
-
-	* zbeta/xfce4_cvs_gtk2_engine/CONFLICTS: Add missing conflicts file
-	
-2002-12-28 07:11  tchan
-
-	* security/aide/DEPENDS: Modified the DEPENDS again, as libgcrypt is really an optional depends.
-	
-2002-12-28 07:04  tchan
-
-	* security/aide/DEPENDS: libgcrypt is no longer a dependency of aide.  mhash is now a required
-	dependency of aide-0.9
-	
-2002-12-28 06:54  tchan
-
-	* crypto/libgcrypt/DETAILS, security/aide/DETAILS: Version bump libgcrypt to 1.1.11 and aide to 0.9
-	
-2002-12-28 06:33  tchan
-
-	* devel/gdb/DETAILS: Version bump to gdb-5.3
-	
-2002-12-27 23:04  xoritor
-
-	* zbeta/ntop/: BUILD, DEPENDS: Adding nmap and lsof support fixing some build issues.
-	
-2002-12-27 21:52  xoritor
-
-	* zbeta/ntop/: BUILD, DETAILS, POST_INSTALL: Fixed module to build and bumped version, should work
-	
-2002-12-27 21:16  csm
-
-	* x11/: NVIDIA_GLX/DETAILS, NVIDIA_kernel/DETAILS: version upgrade... works fine here!
-	
-2002-12-27 20:03  nhudson
-
-	* profiles/gnome2/DETAILS: Should have done this a long time ago but I updated the version of Gnome2
-	on the profile to 2.0.3 to reflect what is in moonbase
-	
-2002-12-27 19:29  nhudson
-
-	* sql/: mysql/DETAILS, postgresql/DETAILS: Updating MySQL to new version 3.23.54a and Postgresql version 7.3.1
-	
-2002-12-27 17:13  csm
-
-	* zbeta/xffm_cvs/DETAILS: changing the description and the creator...
-	
-2002-12-27 17:10  jasper
-
-	* zbeta/: xfce4_cvs/CONFLICTS, xfwm4_cvs/CONFLICTS: Add missing CONFLICTS files
-	
-2002-12-27 17:06  jasper
-
-	* profiles/xfce4_cvs_profile/BUILD,
-	profiles/xfce4_cvs_profile/DEPENDS,
-	profiles/xfce4_cvs_profile/DETAILS,
-	profiles/xfce4_cvs_profile/POST_BUILD,
-	profiles/xfce4_cvs_profile/PRE_BUILD, zbeta/xfce4_cvs/BUILD,
-	zbeta/xfce4_cvs/DEPENDS, zbeta/xfce4_cvs/DETAILS,
-	zbeta/xfce4_cvs_gtk2_engine/BUILD,
-	zbeta/xfce4_cvs_gtk2_engine/DEPENDS,
-	zbeta/xfce4_cvs_gtk2_engine/DETAILS, zbeta/xfce4_cvs_utils/BUILD,
-	zbeta/xfce4_cvs_utils/DEPENDS, zbeta/xfce4_cvs_utils/DETAILS,
-	zbeta/xfwm4_cvs/BUILD, zbeta/xfwm4_cvs/DEPENDS,
-	zbeta/xfwm4_cvs/DETAILS: Add xfce4 cvs modules
-	
-2002-12-27 17:05  csm
-
-	* libs/dbh/: BUILD, DETAILS: adding dbh as an xffm dependency
-	
-2002-12-27 17:04  csm
-
-	* zbeta/xffm_cvs/: BUILD, DEPENDS, DETAILS: adding xffm_cvs for the new xfce4 profile
-	
-2002-12-27 12:14  niki
-
-	* utils/bonnie++/DETAILS: Bumped version to 1.03 from 1.02a.
-	
-2002-12-27 01:24  csm
-
-	* mail/postfix/DETAILS: updating postfix to 2.0.0.1
-	
-2002-12-27 00:17  xoritor
-
-	* devel/pkgconfig/profile.d/pkgconfig.rc: Fixing pathing issue.
-	
-2002-12-26 22:47  xoritor
-
-	* devel/pkgconfig/profile.d/pkgconfig.rc: Adding environment variable PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig in profile.d for use system wide.
-	
-2002-12-26 20:57  xoritor
-
-	* graphics/freetype1/DETAILS: Fixed to adjust PSAFE=no so it wont fail building anymore.
-	
-2002-12-26 19:47  xoritor
-
-	* libs/wxGTK/DETAILS: Fixed date field.
-	
-2002-12-26 19:45  xoritor
-
-	* utils/bochs/DETAILS: Fixed date field
-	
-2002-12-26 19:25  xoritor
-
-	* utils/bochs/: BUILD, CONFIGURE, DEPENDS, DETAILS: Updating to current version and added support for more build options.
-	
-2002-12-26 19:23  xoritor
-
-	* libs/wxGTK/DEPENDS: fixed DEPENDS to add optional gtk+-2
-	
-2002-12-26 19:22  xoritor
-
-	* libs/wxGTK/: BUILD, CONFIGURE, DETAILS: Updating wxGTK to current version and adding gtk+-2 support (still testing).
-	
-2002-12-26 18:29  tchan
-
-	* utils/procps/DETAILS: Version bump to procps-3.1.5.
-	
-2002-12-26 18:21  tchan
-
-	* editors/sed/DETAILS: Version bump of sed to 4.0.5.  Bugfix from the sed developers.
-	
-2002-12-26 13:01  sofar
-
-	* video/MPlayer/DETAILS: New version!
-	
-2002-12-26 12:36  sofar
-
-	* printer/ImageMagick/DETAILS: New version.
 	
