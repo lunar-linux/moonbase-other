@@ -1,3 +1,59 @@
+2004-03-04 07:23  tchan
+
+	* graphics/svgalib/BUILD: Reverted the BUILD so that prefix=/usr is
+	set correctly.	Otherwise this module installs into /usr/local by
+	default and that is not good.
+
+2004-03-04 07:07  florin
+
+	* kde3/: kdelibs3/PRE_BUILD, qt3/PRE_BUILD: add a small phrase.
+
+2004-03-04 06:51  florin
+
+	* x11-wm/fvwm/DETAILS: bump the version from 2.4.4 to 2.4.17.
+
+2004-03-04 04:19  tchan
+
+	* devel/uml/.config: Updated uml kernel .config because the skas3
+	patch does not work with 2.4.25.
+
+2004-03-04 03:37  tchan
+
+	* devel/uml/: .config, DETAILS: Version bump to use kernel-2.4.25. 
+	Also bumped the uml patch to 2.4.24-1, which applies very well to
+	kernel-2.4.25.	Compiled and tested with gcc-3.3.3.
+
+2004-03-03 21:52  nhudson
+
+	* zbeta/openoffice-src/: BUILD, CONFIGURE, DEPENDS, DETAILS,
+	PRE_BUILD: 
+	Updating OpenOffice.org Source module again.  Sorry for the update
+	so shortly but this new version will compile with Java.  have fun!
+
+2004-03-03 17:02  tchan
+
+	* distributed/distcc/DETAILS: Version bump to 2.13.  Some security
+	fixes, so upgrading is recommended by the distcc author.  Compiled
+	and tested with gcc-3.3.3.
+
+2004-03-03 16:39  tchan
+
+	* filesys/udev/DETAILS: Fixing the indentation and formatting of
+	the DETAILS file for nestu.
+
+2004-03-03 16:08  tchan
+
+	* zbeta/tar-beta/: BUILD, DETAILS: NOTE: this is tar-beta because
+	it will not compile correctly unless it is patched.  Also this tar
+	will not compile at all as a static binary so it is useless for ISO
+	purposes.  Added to moonbase at nOpROX's request for the bug fix
+	when using the "-T" tar option.  Compiled and tested with gcc-3.3.3
+	and kernel-headers 2.4.x.
+
+2004-03-03 12:11  sofar
+
+	* libs/termcap/BUILD: I find this *very* handy
+
 2004-03-03 10:00  nestu
 
 	* filesys/udev/DETAILS: Aggg! Truely adding, w/o doubt, a \n at
@@ -2889,72 +2945,4 @@
 
 	* graphics/gtk+-2/DETAILS: 
 	Updating gtk+-2 to new version 2.3.2
-
-2004-02-02 22:56  jmhodges
-
-	* doc-tools/docbook-xsl/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
-	POST_REMOVE, rebuild-docbook-catalog: there again
-
-2004-02-02 22:53  jmhodges
-
-	* doc-tools/docbook-xsl/rebuild-docbook-catalog: cvs sucks
-
-2004-02-02 22:48  jmhodges
-
-	* doc-tools/docbook-xsl/rebuild-docbook-catalog: there
-
-2004-02-02 22:35  jmhodges
-
-	* doc-tools/intltool/: DEPENDS, DETAILS, POST_INSTALL: needed
-
-2004-02-02 22:29  jmhodges
-
-	* audio/gst-plugins/DEPENDS, gnome2-apps/gpdf/DETAILS,
-	gnome2-apps/meld/meld, gnome2-apps/mozilla-bonobo/POST_INSTALL,
-	gnome2-core/ORBit2/DETAILS, gnome2-core/eel/DETAILS,
-	gnome2-core/gdm/Default, gnome2-core/gdm/POST_INSTALL,
-	gnome2-core/gdm/gdm.conf, gnome2-core/gdm/gnomerc,
-	gnome2-core/gdm/Sessions/gnome.desktop, gnome2-core/gdm/init.d/gdm,
-	gnome2-core/gnome-audio/BUILD, gnome2-core/gnome-common2/BUILD,
-	gnome2-core/gnome-games2/BUILD,
-	gnome2-core/gnome-icon-theme/DETAILS,
-	gnome2-core/gnome-media2/BUILD, gnome2-core/libIDL/DETAILS,
-	gnome2-core/libbonobo/DETAILS, gnome2-core/libbonoboui/DETAILS,
-	gnome2-core/libgail-gnome/BUILD, gnome2-core/libzvt/BUILD,
-	gnome2-core/linc/BUILD, gnome2-core/linc/DETAILS,
-	gnome2-core/linc/POST_INSTALL,
-	gnome2-core/linc/profile.d/gnome2.rc, gnome2-core/nautilus/DETAILS,
-	gnome2-core/nautilus-cd-burner/BUILD,
-	gnome2-core/nautilus-media/BUILD, gnome2-extras/gal2/DETAILS,
-	gnome2-extras/gnome-vfs-extras/BUILD,
-	gnome2-extras/gnome-vfs-sftp/BUILD, gnome2-extras/libgnomedb/BUILD,
-	gnome2-extras/nautilus-gtkhtml/BUILD, gnome2-extras/pyorbit/BUILD,
-	gnome2-extras/zenity/DETAILS, libs/glib-2/DETAILS,
-	libs/pango/DETAILS, mail/evolution/BUILD, mail/evolution/DEPENDS,
-	mail/evolution/DETAILS: Can you say GNOME 2.5?
-
-2004-02-02 20:13  sofar
-
-	* utils/coreutils/BUILD: Cosmetix.
-
-2004-02-02 17:58  florin
-
-	* archive/unrar/DETAILS: bum the version from 3.3.5 to 3.3.6.
-
-2004-02-02 17:17  florin
-
-	* kde3-apps/lincvs/DETAILS: bumped version from 1.3.0-rc2 to 1.3.0
-
-2004-02-02 17:16  florin
-
-	* devel/expect/DETAILS: bumped version from 5.39 to 5.40.
-
-2004-02-02 15:33  florin
-
-	* security/xinetd/DETAILS: bump version from 2.3.12 to 2.3.13.
-	bugfix release.
-
-2004-02-02 09:20  sofar
-
-	* mail/gotmail/: BUILD, DEPENDS, DETAILS: quite okay... useful!
 
