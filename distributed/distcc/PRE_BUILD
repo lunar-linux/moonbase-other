@@ -1,0 +1,8 @@
+SERVICES="/etc/services"
+DISTCC_LINE=$(grep "4200" $SERVICES)
+
+if [ $(echo $DISTCC_LINE | cut -d " " -f 1) == "distccd" ]
+then
+  mv $SERVICES $SERVICES.old &&
+  grep -v "$DISTCC_LINE" $SERVICES.old > $SERVICES
+fi
