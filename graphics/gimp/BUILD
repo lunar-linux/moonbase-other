@@ -1,3 +1,4 @@
-sedit "s/-I\/usr\/local\/include//g" configure           &&
-sedit "/^GIMP_PRINT_RELEASE_DATE=/s/\\\ //g" configure   &&
-default_build
+(
+  export OPTS="$OPTS --without-sendmail"
+  default_build
+) > $C_FIFO 2>&1
