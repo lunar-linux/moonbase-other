@@ -1,28 +1,25 @@
-sedit  "s/HAVE_SLN=no/HAVE_SLN=yes/"   MCONFIG
-sedit  "s/# ADD_RAW=yes/ADD_RAW=yes/"  MCONFIG
-sedit  "s/\$(OPT)//"                   MCONFIG
 (
 
-  patch  -p1  < cryptoapi-2.4.7.0/doc/util-linux-2.11b.patch
+  sedit  "s/HAVE_SLN=no/HAVE_SLN=yes/"   MCONFIG &&
+  sedit  "s/\$(OPT)//"                   MCONFIG &&
+  sedit  "s,linux/raw.h,sys/raw.h,"      disk-utils/raw.c &&
+  
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
 
  ./configure  --build=$BUILD           \
               --prefix=/usr            &&
   make                                 &&
   if    module_installed      util-linux
   then  lrm      --nosustain  util-linux
-  fi                                   &&
+  fi                                          &&
   prepare_install                      &&
   make    install
 
-) > $C_FIFO 2>&1  &&
+  mkdir -p $DOCUMENT_DIRECTORY/util-linux     &&
+  cp -a HISTORY example.files $DOCUMENT_DIRECTORY/util-linux   &&
+  install -g0 -o0 -m755 $SCRIPT_DIRECTORY/make-issue \
+    /sbin/make-issue
 
-if [ -e /etc/init.d/bootmisc.sh ]; then
-   rm -f /etc/init.d/bootmisc.sh
-   cp $SCRIPT_DIRECTORY/bootmisc  /etc/init.d
-elif ! [ -x /etc/init.d/bootmisc ]; then
-  cp $SCRIPT_DIRECTORY/bootmisc /etc/init.d
-fi
+) > $C_FIFO 2>&1
 
-if ! [ -e /etc/rcS.d/S99bootmisc ]; then
-     ln -s /etc/init.d/bootmisc /etc/rcS.d/S99bootmisc
-fi
