@@ -6,7 +6,7 @@
               --target-list="i386-user i386-softmmu arm-user sparc-user ppc-user" \
               $OPTS &&
   default_make &&
-  mkdir -p $DOCUMENT_DIRECTORY/qemu &&
-  cp qemu-doc.html TODO $DOCUMENT_DIRECTORY/qemu/
+  mkdir -p $DOCUMENT_DIRECTORY/$MODULE &&
+  cp qemu-doc.html TODO $DOCUMENT_DIRECTORY/$MODULE/
   
 ) > $C_FIFO 2>&1
