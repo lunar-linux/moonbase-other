@@ -4,35 +4,11 @@
 #                 named (BIND DNS server).
 #
 # chkconfig: 345 45 55
+# processname: named
 # description: named (BIND) is a Domain Name Server (DNS) \
 # that is used to resolve host names to IP addresses.
 # probe: true
+# config: /var/named/named.conf
 
-if [ -e "/var/run/named.pid" ]; then
-   PIF=/var/run/named.pid
-   XID=`cat $PIF`
-fi
+. /lib/lsb/init-functions
 
-BIND=`which named`
-
-case $1 in
-  start|restart)  echo   "$1ing Berkley Internet Name Domain"
-                  if [ -s "$PIF" ]; then
-		     kill -9 $XID
-		     rm -f $PIF
-		     $BIND -u bind
-		     exit 0
-		  fi
-                  $BIND -u bind
-		  exit 0
-                  ;;
-              
-           stop)  echo   "$1ping BIND"
-		     kill -9 $XID
-		     rm -f $PIF
-		     exit 0
-                  ;;
-
-              *)  echo  "Usage: $0 {start|stop|restart}"
-                  ;;
-esac
