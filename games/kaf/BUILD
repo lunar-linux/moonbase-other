@@ -1,7 +1,4 @@
 (
-
-  export QTDIR=/opt/lunar/qt/3
-  
   ./configure	       		&&
   make                 		&&
   prepare_install      		&&
