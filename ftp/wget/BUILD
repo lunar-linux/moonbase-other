@@ -1,5 +1,6 @@
-unset CC CXX
 (
+
+  LDFLAGS="$LDFLAGS -lintl"
   ./configure --build=$BUILD             \
               --prefix=/usr              \
               --bindir=/usr/bin          \
@@ -13,7 +14,6 @@ unset CC CXX
               --mandir=/usr/share/man    \
               $OPTS
 
-   default_make
-              
+   default_make       
               
 ) > $C_FIFO 2>&1
