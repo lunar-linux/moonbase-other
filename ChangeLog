@@ -1,3 +1,99 @@
+2005-02-01 10:34  nestu
+
+	* utils/theedge/DEPENDS: added a depend on net-tools, since
+	  connect.lunar needs ifconfig
+
+2005-02-01 09:31  sofar
+
+	* ftp/curl/DETAILS: sorry, downgrading. I need this to work to
+	  build my ISO. curl is *off limits* to anyone unless a solution is
+	  found with respect to discover (even their latest svn trunk is
+	  insatisfactory)
+
+	  ** DONT TOUCH **
+
+2005-02-01 06:04  tchan
+
+	* libs/dietlibc/DETAILS: Version bump to dietlibc-0.28.
+	  Compiled/tested with gcc-3.3.3, kernel headers 2.4.x.
+
+2005-02-01 05:30  florin
+
+	* libs/libusb/DETAILS: bump the version from 0.1.8 to 0.1.9.
+
+2005-02-01 05:25  perldude
+
+	* perl/: Glib-Perl/DETAILS, Gtk2-Perl/DETAILS: teh early morning
+	  (6:25am) version bump
+
+2005-02-01 04:33  tchan
+
+	* x11-apps/mupo/DETAILS: Version bump to mupo-0.44. Compiled/tested
+	  with gcc-3.3.3. glibc-2.3.3, kernel headers 2.4.x., fltk-1.1.6.
+
+2005-01-31 22:19  jol
+
+	* audio/amarok/: DEPENDS, DETAILS: - Bumped version to 1.2-beta4
+
+2005-01-31 18:37  florin
+
+	* kde3-utils/smb4k/DETAILS: bump the version from 0.5.0 to 0.5.1.
+
+2005-01-31 17:58  florin
+
+	* kde3-apps/kdetv/DETAILS: bump the version from 0.8.4 to 0.8.5.
+
+2005-01-31 17:54  florin
+
+	* libs/aqbanking/DETAILS: bump the version from 1.0.3 beta to
+	  1.0.4beta.
+
+2005-01-31 17:40  florin
+
+	* libs/gwenhywfar/DETAILS: bump the version from 1.7.1 to 1.7.2.
+
+2005-01-31 17:17  moe
+
+	* compilers/gcc/DEPENDS: The depedency is covered by either theedge
+	  or lunar.  Please be more carefull with adding dependencies. A
+	  simple 'lvu leert cpio' would've solved your issue (aka 'Use you
+	  brain!')
+
+2005-01-31 17:15  florin
+
+	* archive/tar/BUILD: a better approach, i think.
+
+2005-01-31 17:03  nestu
+
+	* compilers/gcc/DEPENDS: cpio is needed for the compile: find .
+	  -print | cpio -pdum
+	  /usr/lib/gcc-lib/i486-pc-linux-gnu/3.3.3/include /bin/sh: cpio:
+	  command not found make[1]: *** [install-headers-cpio] Error 127
+
+2005-01-31 16:46  florin
+
+	* archive/tar/DEPENDS: removed the texinfo depend. it does compile
+	  just fine without texinfo installed.
+
+2005-01-31 15:39  nestu
+
+	* libs/popt/DEPENDS: popt depends on gettext :)
+
+2005-01-31 15:14  nestu
+
+	* archive/tar/DEPENDS: depends on texinfo :)
+
+2005-01-31 14:13  nestu
+
+	* devel/flex/DEPENDS: Adding depends on bison :)
+
+2005-01-31 14:09  nestu
+
+	* devel/binutils/DEPENDS: Compile time depend: checking lex output
+	  file root... ./configure: line 4505: lex: command not found
+	  configure: error: cannot find output from lex; giving up make:
+	  *** [configure-ld] Error 1
+
 2005-01-31 11:23  sofar
 
 	* sql/mysql/POST_INSTALL: Fixes broken message and remaining src
@@ -1791,27 +1887,4 @@
 2005-01-02 09:12  florin
 
 	* games/luola/DETAILS: bump the version from 1.2.3 to 1.2.5.
-
-2005-01-01 10:09  florin
-
-	* utils/openldap/DETAILS: bump the version from 2.2.19 to 2.2.20.
-	  bugfix release.
-
-2005-01-01 10:07  florin
-
-	* audio/moc/DETAILS: bump the version from 2.1.0 to 2.1.4.
-
-2005-01-01 09:54  florin
-
-	* doc-tools/doxygen/DETAILS: bump the version from 1.3.9.1 to
-	  1.4.0.
-
-2005-01-01 09:53  florin
-
-	* video/MPlayer/DETAILS: bump the version from 1.0pre6 to 1.0pre6a.
-
-2005-01-01 09:47  jasper
-
-	* kernel/linux-2.6/PRE_BUILD: Hmm. Guess no-one relinned linux-2.6
-	  yet...
 
