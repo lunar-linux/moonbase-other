@@ -1,3 +1,94 @@
+2004-08-17 09:28  prox
+
+	* utils/console-tools/: BUILD, DETAILS: added patch for segv when
+	using compressed fonts, also cleaned up details and build
+
+2004-08-17 07:25  prox
+
+	* net/net-snmp/DETAILS: bump
+
+2004-08-17 04:35  florin
+
+	* utils/hdparm/BUILD: remove the patch. it's not needed anymore.
+
+2004-08-17 04:27  florin
+
+	* utils/hdparm/DETAILS: bump the version from 5.5 to 5.6.
+
+2004-08-17 03:26  nhudson
+
+	* audio/gstreamer/DETAILS: 
+	Updating gstreamer to new version 0.8.5
+
+2004-08-17 03:18  nhudson
+
+	* gnome2-core/: libgtop2/DETAILS, file-roller/DETAILS: 
+	forgot these 2 modules
+
+2004-08-17 03:16  nhudson
+
+	* gnome2-core/: eel/DETAILS, gedit/DETAILS, gnome-applets2/DETAILS,
+	gnome-games2/DETAILS, gnome-icon-theme/DETAILS, gnome-vfs2/DETAILS,
+	libgnome/DETAILS, libgnomecanvas/DETAILS, libgnomeui/DETAILS,
+	nautilus/DETAILS: 
+	Updating a few modules in GNOME_UNSTABLE and adding the new module
+	gnome-games-extra-data
+
+2004-08-17 00:10  tchan
+
+	* graphics/libpng/: BUILD, DETAILS: Version bump to libpng-1.2.6. 
+	Security patches are incorporated into the regular code now. 
+	Dropped the 2nd patchset.  The makefile patchset is still needed to
+	allow CFLAGS and to correct the install directories.  Compiled and
+	tested with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2004-08-16 21:29  florin
+
+	* x11-wm/icewm/DETAILS: bump the version from 1.2.15 to 1.2.16.
+
+2004-08-16 21:10  florin
+
+	* games/qstat/DETAILS: bump the version from 2.5c to 2.6.
+
+2004-08-16 21:02  florin
+
+	* games/xqf/DETAILS: bump the version from 0.9.14 to 1.0.
+
+2004-08-16 20:52  florin
+
+	* kde3/qt3/BUILD: fix the build in order to install the binary of
+	qmake
+
+2004-08-16 20:09  tchan
+
+	* graphics/xzgv/DETAILS: Fixed the homepage URL and the download
+	locations.
+
+2004-08-16 18:27  florin
+
+	* audio/alsa-utils/DETAILS: bump the version from 1.0.5 to 1.0.6.
+
+2004-08-16 16:18  tchan
+
+	* mail/balsa/DETAILS: Version bump to balsa-2.2.3. Compiled/tested
+	with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2004-08-16 15:59  tchan
+
+	* graphics/ImageMagick/DETAILS: Version bump to
+	ImageMagick-6.0.5-1.
+
+2004-08-16 15:50  tchan
+
+	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS: Version bump to
+	alsa-driver-1.0.6a and alsa-lib-1.0.6.	Compiled and tested with
+	gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2004-08-16 15:31  tchan
+
+	* utils/parted/DETAILS: Version bump to parted-1.6.12. 
+	Compiled/tested with gcc-3.3.3, glib-2.3.3, kernel headers 2.4.x.
+
 2004-08-16 09:51  prox
 
 	* archive/: unzip/DETAILS, zip/DETAILS: changed url to more stable
@@ -2222,98 +2313,4 @@
 
 	* perl/Glib-Perl/DETAILS: added path to SOURCE_DIRECTORY. Module
 	was broken due to the name change.
-
-2004-07-17 23:50  cmak
-
-	* utils/rrdtool/BUILD: Doing this reliefs you from using 'use lib'
-	in your scripts.
-
-2004-07-17 22:58  tchan
-
-	* mail/exim/DETAILS: Version bump to 4.40.  Bux fixes and some new
-	features.  Compiled and tested with gcc-3.3.3, glibc-2.3.2, kernel
-	headers 2.4.x.
-
-2004-07-17 16:54  florin
-
-	* utils/Sablot/DETAILS: bump the version from 1.0 to 1.0.1. Tested
-	by v3rt1g0.
-
-2004-07-17 15:26  florin
-
-	* web/apache-mod_ssl/DETAILS: bump the version from 2.8.18 to
-	2.8.19. security release.
-
-2004-07-17 15:03  florin
-
-	* net/dhcp/DETAILS: bump the version from 3.0pl2 to 3.0.1.
-
-2004-07-17 14:41  florin
-
-	* utils/pcmcia-cs/DETAILS: bump the version from 3.2.6 to 3.2.8.
-
-2004-07-17 07:16  cmak
-
-	* ftp/gtk-gnutella/DETAILS: version bump
-
-2004-07-17 06:00  florin
-
-	* mail/pine/DETAILS: bump the version from 4.60 to 4.61.
-
-2004-07-17 05:43  cmak
-
-	* security/shorewall/DETAILS: version bump
-
-2004-07-17 05:24  jmhodges
-
-	* libs/feedparser/DETAILS: version bump to 3.3.. this thing is so
-	incredibly handy
-
-2004-07-17 05:07  florin
-
-	* doc-tools/man/DETAILS: bump the version from 1.5m2 to 1.5n.
-
-2004-07-17 04:44  striker
-
-	* sql/freetds/DETAILS: bump to 0.62.4; add md5sum; fixed filename
-
-2004-07-17 01:20  nhudson
-
-	* gnome2-apps/meld/DETAILS: 
-	Updating meld to new version 0.9.4.1
-
-2004-07-17 01:06  nhudson
-
-	* gnome2-apps/monodevelop/DETAILS: 
-	Updating monodevelop now that I got gtksourceview-sharp installed
-	right.	Updating to new version 0.5 to work with mono 1.0
-
-2004-07-17 01:05  nhudson
-
-	* devel/gtksourceview-sharp/BUILD: 
-	Hacking the BUILD file so that it will link to the correct location
-
-2004-07-17 00:44  nhudson
-
-	* devel/monodoc/: BUILD, DETAILS: 
-	fscking mono doesnt put all the dll's in.  Anyway updating monodoc
-	to new version 1.0
-
-2004-07-17 00:29  nhudson
-
-	* devel/: gecko-sharp/DETAILS, gtksourceview-sharp/DETAILS: 
-	Updating gtksourceview-sharp and gecko-sharp to new versions 0.5,
-	fixing URL's and cleaning up the scripts.  Now to get Monodoc to
-	compile correctly I will be feeling better.
-
-2004-07-17 00:20  nhudson
-
-	* devel/gtk-sharp/: BUILD, DETAILS: 
-	Adding BUILD file to fix some problems building gtk-sharp.  Also
-	using a diffrent Makefile so that it builds correctly
-
-2004-07-17 00:13  nhudson
-
-	* compilers/: mcs/DETAILS, mono/DETAILS: 
-	Fixing URL for download.
 
