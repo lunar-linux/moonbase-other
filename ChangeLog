@@ -1,3 +1,108 @@
+2002-12-29 19:18  csm
+
+	* shells/bash/DETAILS: the patches build just fine so I am bumping the date!
+	
+2002-12-29 19:17  csm
+
+	* shells/bash/: BUILD, patches/bash205b-001, patches/bash205b-002,
+	patches/bash205b-003, patches/bash205b-004: adding 4 bigfix patches to bash:
+	
+	Bash-Release: 2.05b
+	Patch-ID: bash205b-001
+	
+	Bug-Reported-by:    taviso@sdf.lonestar.org
+	Bug-Reference-ID:   <200208021107.g72B723d021352@darkstar.example.net>
+	Bug-Reference-URL:  http://mail.gnu.org/pipermail/bug-bash/2002-August/004980.html
+	
+	Bug-Description:
+	
+	Bash goes into an infinite loop and eventually crashes with a SIGSEGV
+	when some keys on the numeric keypad are pressed, possibly in combination
+	with the shift key.
+	
+	Bash-Release: 2.05b
+	Patch-ID: bash205b-002
+	
+	Bug-Reported-by:  rwhron@earthlink.net
+	Bug-Reference-ID: <20020724000454.GA15210@rushmore> (bug-bash)
+	Bug-Reference-URL: http://mail.gnu.org/pipermail/bug-bash/2002-July/004856.html
+	
+	Bug-Description:
+	
+	Repeating an edit in vi-mode with `.' does not work.
+	
+	Bash-Release: 2.05b
+	Patch-ID: bash205b-003
+	
+	Bug-Reported-by:   jan.q.bruun-andersen@posten.se
+	Bug-Reference-ID:  <BE156C6450189B4ABAF7381F0AD4724A0165674F@002exmbs002.ad.posten.se>
+	Bug-Reference-URL: http://mail.gnu.org/pipermail/bug-bash/2002-July/004789.html
+	
+	Bug-Description:
+	
+	In certain cases, Bash appends a space instead of a slash to a directory
+	name relative to the current directory when performing command name
+	completion.  This affects partial completion of intermediate directory
+	names.
+	
+	Bash-Release: 2.05b
+	Patch-ID: bash205b-004
+	
+	Bug-Reported-by:   c.f.a.johnson@rogers.com
+	Bug-Reference-ID:  <aji8sb$1aa9bi$2@ID-136730.news.dfncis.de>
+	Bug-Reference-URL: http://mail.gnu.org/pipermail/bug-bash/2002-August/005074.html
+	
+	Bug-Description:
+	
+	A bug in the bash variable expansion code causes leading blanks in a
+	variable's value to be ignored when computing its length.
+	
+2002-12-29 17:54  nhudson
+
+	* devel/anjuta/DEPENDS: Adding gtkmm2 to the depends file for gtk+-2 c++ support
+	
+2002-12-29 17:51  nhudson
+
+	* devel/anjuta/DETAILS: Updating Anjuta to new version 1.0.1
+	
+2002-12-29 17:08  dem
+
+	* audio/monkey-media/DETAILS, audio/rhythmbox/DETAILS,
+	video/zapping/DETAILS: Updates
+	
+2002-12-29 16:53  nhudson
+
+	* gnome2-extras/gnome-python2/DETAILS: Found out that the new version of gnome-python2 will not work with some modules (meld and straw) for some reason they took out the bonobo part of the package, so im reverting to the previous version 1.99.13
+	
+2002-12-29 03:15  tchan
+
+	* compilers/php/DEPENDS: No this DEPENDS file is NOW correctly fixed. The brain-dead old way of using
+	pspell with the new aspell interface is to use --with-pspell flag and
+	to have it depends on aspell.  It was correct at revision level 1.5.
+	
+2002-12-29 00:25  csm
+
+	* compilers/php/DEPENDS: fixed the pspell aspell dependency!
+	
+2002-12-28 23:00  tchan
+
+	* utils/grep/: BUILD, CONFIGURE, DEPENDS, DETAILS: Had to rework the grep module to prevent it from automatically linking in
+	the pcre module.  Also added support for large files and the option to disable
+	nls.  Try this now with "lin -r -c grep".  The grep on the testiso was linking
+	in pcre by accident.
+	
+2002-12-28 22:41  kc8apf
+
+	* audio/grip/DETAILS: Version bump
+	
+2002-12-28 21:53  csm
+
+	* utils/pilot-link/DETAILS: I forgot to iterate the date
+	
+2002-12-28 21:50  csm
+
+	* utils/pilot-link/: DETAILS, patch/pilot-uid-patch.diff: updating the pilot-link version
+	
 2002-12-28 18:14  csm
 
 	* mail/pop-before-smtp/BUILD, mail/pop-before-smtp/DEPENDS,
@@ -461,43 +566,4 @@
 2002-12-19 05:21  kc8apf
 
 	* x11-utils/gkrellmwireless2/: BUILD, DEPENDS, DETAILS: Add gkrellm-wireless for gkrellm2
-	
-2002-12-19 04:58  kc8apf
-
-	* science/galculator/: DEPENDS, DETAILS: Add galculator
-	
-2002-12-19 03:50  tchan
-
-	* libs/slang/DETAILS: Version bump to 1.4.7.  Compiled this for 386 and 686 and then compiled gcc
-	for the new slangs.  Everything works.  Tested with slrn and that compiles
-	with the new slang as well. glibc-2.3.1.
-	
-2002-12-18 20:43  hardkrash
-
-	* gnome/gnome-core/: BUILD, libpng.patch: Fixed libpng dection issue (bug #205) added -lm to check in configure file -- hardkrash
-	
-2002-12-18 19:04  tchan
-
-	* devel/STLport/DETAILS: Fixed a typo.
-	
-2002-12-18 19:03  tchan
-
-	* devel/STLport/DETAILS: Version bumped to get it to correctly compile with gcc-3.2.1.  Download
-	location has changed as well.
-	
-2002-12-18 10:43  sofar
-
-	* mail/sylpheed/DETAILS: New version
-	
-2002-12-18 10:11  sofar
-
-	* x11-utils/gkrellm2/DETAILS: New version
-	
-2002-12-18 08:49  sofar
-
-	* web/apache2/BUILD: Adding symlink from httpsd to httpd.
-	
-2002-12-18 08:48  sofar
-
-	* web/apache2/init.d/httpsd: Adding template init.d script for httpsd server.
 	
