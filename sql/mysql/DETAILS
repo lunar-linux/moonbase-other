@@ -1,12 +1,10 @@
           MODULE=mysql
-     REALVERSION=4.0.18
-      PATCHLEVEL=1
-         VERSION=$REALVERSION-$PATCHLEVEL
-          SOURCE=$MODULE-$REALVERSION.tar.gz
+         VERSION=4.0.18
+          SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=mysql-4.0.18-mysqlbug-symlink-fix.patch.gz
          SOURCE3=mysql-4.0.18-mysqlbug.sh-symlink-fix.patch.gz
          SOURCE4=mysql-4.0.18-mysqld_multi.sh-symlink-fix.patch.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$REALVERSION
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://mirror.services.wisc.edu/mysql/Downloads/MySQL-4.0/$SOURCE
       SOURCE_VFY=md5:702151a3e21d9e5f32e8850032aefdad
   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
@@ -17,7 +15,7 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$REALVERSION
   SOURCE4_VFY[0]=md5:27c3a9cb7ee0ab8e2f310a60261790e5
         WEB_SITE=http://www.mysql.com
          ENTERED=20011114
-         UPDATED=20040416
+         UPDATED=20040426
         SHORT="MySQL is a widely used and fast SQL database server."
 
 cat << EOF
