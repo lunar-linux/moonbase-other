@@ -50,7 +50,7 @@ case  "`arch`" in
 	  CRYPT=/lib/libcrypt.so.1.1
 	  ;;
    ppc)
-	  LD=/lib/ld.so.2
+	  LD=/lib/ld.so.1
 	  GLIBC=/lib/libc.so.6
 	  DL=/lib/libdl.so.2
 	  M=/lib/libm.so.6
