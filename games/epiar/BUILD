@@ -1,6 +1,4 @@
 (
-
-  unpack $SOURCE2     &&
   cd openal/linux     &&
 
   default_config      &&
@@ -10,12 +8,14 @@
   devoke_installwatch &&
   cd ../..            &&
   
-  sedit "s:^CFLAGS=:CFLAGS=$CFLAGS :" Makefile
+  sedit "s:^CFLAGS=:CFLAGS=$CFLAGS :" Makefile.linux
+  sedit "s:-pg::"                     Makefile.linux
   
-  make                &&
-  invoke_installwatch &&
+  make -f Makefile.linux  &&
+  invoke_installwatch     &&
+  
   
   mkdir -p /usr/games/epiar
-  cp -a data audio plugins epiar /usr/games/epiar/
+  cp -a missions *.eaf epiar /usr/games/epiar/
 
 ) > $C_FIFO 2>&1
