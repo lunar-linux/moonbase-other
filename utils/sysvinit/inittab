@@ -21,14 +21,15 @@ l6:6:wait:/etc/init.d/rc 6
 
 ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
 
-vc1:12345:respawn:/sbin/agetty /devices/vc/1 9600
-vc2:12345:respawn:/sbin/agetty /devices/vc/2 9600
-vc3:12345:respawn:/sbin/agetty /devices/vc/3 9600
-vc4:1234:respawn:/sbin/agetty /devices/vc/4 9600
-vc5:1234:respawn:/sbin/agetty /devices/vc/5 9600
-vc6:1234:respawn:/sbin/agetty /devices/vc/6 9600
+c1:12345:respawn:/sbin/agetty 38400 tty1
+c2:2345:respawn:/sbin/agetty 38400 tty2
+c3:2345:respawn:/sbin/agetty 38400 tty3
+c4:234:respawn:/sbin/agetty 38400 tty4
+c5:234:respawn:/sbin/agetty 38400 tty5
+c6:234:respawn:/sbin/agetty 38400 tty6
 
 # xfs:5:once:/usr/X11R6/bin/xfs
 gdm:5:once:/usr/bin/gdm
 kdm:5:once:/usr/bin/kdm
 xdm:5:once:/usr/X11R6/bin/xdm
+issu::once:/sbin/make-issue
