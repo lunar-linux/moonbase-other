@@ -1,3 +1,30 @@
+2004-11-26 11:07  florin
+
+	* devel/: tcl/DETAILS, tk/DETAILS: bump the version from 8.4.7 to
+	  8.4.8.
+
+2004-11-26 06:03  cmak
+
+	* xfce4/xfmedia/DETAILS: bump
+
+2004-11-26 05:54  florin
+
+	* graphics/netpbm/DETAILS: bump the version from 10.18.16 to
+	  10.18.17.
+
+2004-11-25 17:00  florin
+
+	* net/mtr/DEPENDS: depends on gtk+-2 now.
+
+2004-11-25 16:54  florin
+
+	* net/mtr/DETAILS: bump the version from 0.58 to 0.65.
+
+2004-11-25 16:11  tchan
+
+	* utils/file/DETAILS: Version bump to file-4.12. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
 2004-11-24 23:43  moe
 
 	* x11/XOrg/BUILD: Workaround to include the fonts directory if you
@@ -2039,142 +2066,4 @@
 	* terminal/multi-aterm/: BUILD, DEPENDS, DETAILS: Inital import of
 	  a aterm based terminal.  Main difference is its interface
 	  supports tabs.
-
-2004-10-26 22:59  v3rt1g0
-
-	* x11-apps/xosview/: BUILD, DETAILS: Version bump from 1.8.0 ->
-	  1.8.2 Also removed the unnecessary BUILD file as it works great
-	  without it.
-
-2004-10-26 22:41  tchan
-
-	* web/dillo/DETAILS: dillo-0.8.3.  Version bump.  Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-10-26 20:32  nhudson
-
-	* mail/ximian-connector/: DEPENDS, DETAILS:
-	  Updating ximian-connector to new version 2.0.2 and adding heimdal
-	  as a depends as it works alot better than the krb5 module
-
-2004-10-26 19:26  ratler
-
-	* security/Linux-PAM/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
-	  POST_REMOVE, PRE_BUILD, pam.d/system-auth: Heavily revorked PAM,
-	  lots of patches to fix some rare bugs. Also comes with a few new
-	  useful pam modules such as pam_stack and pam_console. Pam console
-	  is patched to work with both tmpfs and devfs. During the comming
-	  days pam.d files for other moonbase modules will be modified to
-	  accomodate pam_stack feature.
-
-2004-10-26 19:09  ratler
-
-	* x11-utils/gtk-chtheme/: BUILD, DEPENDS, DETAILS: Yet another gtk+
-	  2 theme changer, original module sent in by crypticreign. Did
-	  some minor adjustments.
-
-2004-10-26 18:29  florin
-
-	* graphics/ImageMagick/DETAILS: bump the version from 6.1.1 to
-	  6.1.2.
-
-2004-10-26 17:41  florin
-
-	* mail/bogofilter/DETAILS: bump the version from 0.92.7 to 0.92.8.
-
-2004-10-26 17:28  florin
-
-	* x11-utils/lineak_xosdplugin/DETAILS: bump the version from 0.8 to
-	  0.8.1.
-
-2004-10-26 17:12  florin
-
-	* utils/: lineakd/DETAILS, lineak_defaultplugin/DETAILS: bump the
-	  version from 0.8 to 0.8.1.
-
-2004-10-26 17:04  perldude
-
-	* kernel/linux-2.6-ck/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	  POST_INSTALL, PRE_BUILD: module for 2.6 kernel with CK patches.
-	  submitted by Alex Hunsaker.
-
-2004-10-26 16:56  florin
-
-	* x11-wm/WindowMaker/DETAILS: bump the version from 0.90.0 to
-	  0.91.0.
-
-2004-10-26 16:24  florin
-
-	* x11-apps/: xscreensaver-openMotif/CONFLICTS,
-	  xscreensaver-openMotif/DETAILS, xscreensaver-gtk1/CONFLICTS,
-	  xscreensaver-gtk1/DETAILS, xscreensaver/CONFLICTS: tweaking the
-	  module.
-
-2004-10-26 16:24  florin
-
-	* x11-apps/xscreensaver-kde/: BUILD, CONFLICTS, DEPENDS, DETAILS:
-	  add the fourth way (a KDE way).
-
-2004-10-26 16:05  nhudson
-
-	* utils/gamin/DETAILS:
-	  Updating gamin to new version 0.0.16, this module will replace
-	  the fam module soon
-
-2004-10-26 16:02  nhudson
-
-	* net/howl/init.d/: mDNSResponder, nifd:
-	  Changing it so that it will actually start when you boot up
-
-2004-10-26 15:41  nestu
-
-	* kernel/linux-2.6-mm/: BUILD, DETAILS, PRE_BUILD: 2.6.9rc4mm1 ->
-	  2.6.9mm1. gcc 3.3.3, glibc 2.3.2, headers 2.6.8.1
-
-2004-10-26 15:21  moe
-
-	* graphics/gtk+-2/DETAILS: Updating GTK2 to 2.4.13. Mostly
-	  bugfixes.  Tested against 2.6.9, gcc 3.3.3, glibc 2.3.3
-
-2004-10-26 15:20  moe
-
-	* libs/: glib-2/DETAILS, pango/DETAILS: Updating GTK2 to the latest
-	  available version. Althoug pango is at a higher release level it
-	  is still considered stable and supposed to work with the 2.4.x
-	  branch.
-
-2004-10-26 14:47  prox
-
-	* zbeta/mkinitrd/DEPENDS: removed lvm since its not depends on
-	  building mkinitrd itself
-
-2004-10-26 14:32  ratler
-
-	* crypto/heimdal/BUILD: Minor ./configure fix
-
-2004-10-26 14:28  ratler
-
-	* crypto/heimdal/: BUILD, CONFLICTS, DEPENDS, DETAILS,
-	  xinetd.d/krb5-telnet, xinetd.d/kx: Initial release of heimdal
-	  kerberos 5 implementation. Need a few more updates with xinet.d
-	  service files and probably some hints on how to setup a server.
-
-2004-10-26 13:55  ratler
-
-	* filesys/lvm2/CONFLICTS: Added lvm conflicts
-
-2004-10-26 13:20  v3rt1g0
-
-	* x11-apps/xscreensaver/CONFLICTS: Seems I forgot this...
-
-2004-10-26 12:58  moe
-
-	* printer/cups/DETAILS: Pushing around mirrors
-
-2004-10-26 03:48  tchan
-
-	* audio/easytag/DETAILS: Version bump to easytag-1.0. Still a gtk+
-	  app.	gtk+-2 is only in the unstable 1.99.1 version (beta test
-	  code).  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel
-	  headers 2.4.x.
 
