@@ -1,3 +1,104 @@
+2005-03-17 10:43  sofar
+
+	* utils/psmisc/DETAILS: foo
+
+2005-03-17 10:22  sofar
+
+	* xfce4/xfmedia/DETAILS: w00t!!!
+
+2005-03-17 03:01  cmak
+
+	* libs/pwlib/DETAILS: updated
+
+2005-03-17 02:12  v3rt1g0
+
+	* crypto/outguess/DETAILS: Provide more stable source URL.  Add a
+	  sha1 sum too.
+
+2005-03-17 01:07  v3rt1g0
+
+	* x11-wm/evilwm/DETAILS: Small typo.  meh
+
+2005-03-17 01:06  v3rt1g0
+
+	* libs/roadrunner/DETAILS: Misc formatting tweaks that I forgot to
+	  commit like a month ago.
+
+2005-03-16 23:24  nestu
+
+	* kernel/linux-2.6-mm/DETAILS: 2.6.11-mm3 -> 2.6.11-mm4. gcc 3.3.3,
+	  glibc 2.3.2, headers 2.6.11.0
+
+2005-03-16 20:45  moe
+
+	* zbeta/weechat/BUILD: We want perl plugin support
+
+2005-03-16 19:53  florin
+
+	* doc-tools/hd2u/DETAILS: bump the version from 0.8.2 to 1.0.0.
+
+2005-03-16 19:37  florin
+
+	* games/xmame/DETAILS: bump the version from 0.92 to 0.94.
+
+2005-03-16 19:27  florin
+
+	* graphics/tiff/DETAILS: bump the version from 3.7.1 to 3.7.2.
+
+2005-03-16 19:16  florin
+
+	* perl/DBI/DETAILS: bump the version from 1.47 to 1.48.
+
+2005-03-16 19:10  florin
+
+	* video/mkvtoolnix/DETAILS: bump the version from 1.4.0 to 1.4.1.
+
+2005-03-16 18:47  florin
+
+	* news/leafnode/: BUILD, DETAILS: bump the version from 1.10.8 to
+	  1.11.0.
+
+2005-03-16 18:35  florin
+
+	* kde3-apps/k3b/: BUILD, DETAILS: bump the version from 0.11.21 to
+	  0.11.22. flac compile fix.
+
+2005-03-16 16:40  nestu
+
+	* utils/gradm/DETAILS: 2.0.1 -> 2.1.3. gcc 3.3.3, glibc 2.3.2,
+	  headers 2.6.11.0
+
+2005-03-16 15:58  sofar
+
+	* kernel/: linux-2.4/DETAILS, linux-2.4-agr/DETAILS,
+	  linux-2.4-grsec/DETAILS, linux-2.4-om/DETAILS,
+	  linux-2.4-om/PRE_BUILD, linux-2.4-stable/DETAILS: Finishing the
+	  2.4.29 patchset: both -om and -grs now include main patches (acls
+	  etc) and om also includes migshm (experimental). More testing
+	  later this week.
+
+2005-03-16 15:34  cmak
+
+	* devel/dbus/init.d/messagebus: oops
+
+2005-03-16 15:33  cmak
+
+	* devel/dbus/: BUILD, DETAILS, init.d/messagebus: we need this one
+
+2005-03-16 15:29  nestu
+
+	* kernel/modutils-wrappers/DETAILS: 0.3 -> 0.4 . Now the scripts
+	  set their own PATH to make sure they can find the binaries they
+	  need (incase the caller sets its own PATH)
+
+2005-03-16 15:19  cmak
+
+	* utils/gamin/DETAILS: update
+
+2005-03-16 13:40  cmak
+
+	* devel/dbus/DETAILS: forgot
+
 2005-03-16 13:15  cmak
 
 	* devel/dbus/DETAILS: update
@@ -2330,88 +2431,4 @@
 
 	* web/w3c-libwww/DEPENDS: This fixes a loopy depends revolving
 	  mysql, popt, gettext, tetex, and so on and so forth.
-
-2005-02-14 23:22  nestu
-
-	* filesys/udev/: BUILD, DETAILS: Added a patch for the scsi node
-	  creation symlink script, since we cannot assure that /usr is
-	  mounted ( readlink is at /usr/bin/readlink). We use a dummy func,
-	  provided by the patch intead
-
-2005-02-14 20:52  florin
-
-	* games/asc/DETAILS: bump the version from 1.15.2 to 1.15.3.
-
-2005-02-14 17:19  moe
-
-	* compilers/j2sdk/CONFLICTS: And while we're at it ..
-
-2005-02-14 17:17  moe
-
-	* compilers/j2sdk/BUILD: Well, doh!
-
-2005-02-14 17:06  moe
-
-	* compilers/j2sdk/BUILD: Put the plugin in place. Doesn't matter if
-	  we need it or not.  It won't hurt.
-
-2005-02-14 17:06  moe
-
-	* web/: firefox/POST_INSTALL, mozilla/POST_INSTALL: We're doing
-	  that from the j2sdk module now
-
-2005-02-14 16:51  moe
-
-	* compilers/j2sdk/: BUILD, DETAILS, POST_REMOVE, PRE_BUILD:
-	  Shuuweed. I think the testing is done.
-
-	  * Merged j2sdk-beta into j2sdk
-
-2005-02-14 15:27  nestu
-
-	* filesys/udev/49-udev.rules: missing comma to separate fields.
-	  pointed out by dveatch, bug:
-	  http://lunar-linux.org/?q=node/view/722
-
-2005-02-14 12:46  moe
-
-	* doc-tools/openjade/: DETAILS, POST_INSTALL: Fix openjade. The
-	  catalog file handling still is pretty braindead.  Not our fault
-	  though.
-
-2005-02-14 12:19  moe
-
-	* doc-tools/: teTeX/DETAILS, teTeX-texmf/DETAILS,
-	  teTeX-texmf/POST_INSTALL: florin makes me a saaaad panda. dammit.
-
-	  * We need to update teTeX-texmf _at the same time_ as teTeX!
-
-2005-02-14 10:28  nestu
-
-	* kernel/linux-2.6-prepatch/DETAILS: 2.6.11-rc3 -> 2.6.11-rc4. gcc
-	  3.3.3, glibc 2.3.2, headers 2.6.10.0
-
-2005-02-14 08:19  moe
-
-	* video/: MPlayer/POST_INSTALL, mplayerplug-in/DETAILS: * Bumping
-	  mplayerplug-in to 2.80. Tested with the latest MPlayer   and
-	  2.6.x, gcc 3.3.3.  * Added a POST_INSTALL for MPlayer as
-	  mplayerplug-in needs to be   recompiled if MPlayer has been
-	  updated
-
-2005-02-14 08:07  sofar
-
-	* utils/sysklogd/: BUILD, DETAILS: *smacks* nestu for saying old
-	  software isn't good.
-
-2005-02-14 03:31  tchan
-
-	* utils/clamav/DETAILS: Version bump to clamav-0.83.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-02-14 02:37  v3rt1g0
-
-	* mail/embrace/: BUILD, DEPENDS, DETAILS, POST_INSTALL: This went
-	  gold today, so I'll add a "stable" one and remove the -cvs one.
 
