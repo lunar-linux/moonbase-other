@@ -1,5 +1,5 @@
 (
-  CFLAGS=`echo $CFLAGS | sed -e "s/-funroll-loops//"`  &&
+  bad_flags -funroll-loops
   ./configure $BUILD --prefix=/usr --with-pic         && 
   make  PREFIX=/usr                                   &&
   prepare_install                                     &&
