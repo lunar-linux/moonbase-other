@@ -1,8 +1,9 @@
 (
 #the below is necessary for procps to compile with the new
 #optimization code.
-  unset BUILD
+  unset BUILD                         &&
 #
+  sedit "s/top.desktop//" Makefile    &&
   make                                &&
   prepare_install                     &&
   make  -e XSCPT='' PROCDIR=/bin USRBINDIR=/bin DESTDIR=/ MANDIR=/usr/share/man install
