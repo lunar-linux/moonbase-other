@@ -19,13 +19,13 @@ if [ -n "$RECONFIGURE" ] ; then
                    "${OPTIONS[@]}"`
 
     LANGUAGES="c++,$(echo $RESULT | sed 's/ /,/g')"
-    set_module_config LANGUAGES "$LANGUAGES\""
+    set_module_config LANGUAGES "$LANGUAGES"
 
   else
 
     LANGUAGES=$(get_module_config LANGUAGES)
     [ -z "$LANGUAGES" ]  && LANGUAGES=${LANGUAGES:=c++}
-    set_module_config LANGUAGES "$LANGUAGES\""
+    set_module_config LANGUAGES "$LANGUAGES"
 
   fi
 
