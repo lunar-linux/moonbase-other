@@ -1,14 +1,15 @@
           MODULE=gmp
-	 VERSION=4.1.1
+	 VERSION=4.1.2
+	#VERSION=4.1.1
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$GNU_URL/$MODULE/$SOURCE
    SOURCE_URL[1]=ftp://ftp.informatik.rwth-aachen.de/pub/gnu/$MODULE/$SOURCE
-   SOURCE_URL[3]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE
+   SOURCE_URL[2]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE
+      SOURCE_VFY=md5:ed39b34dd14014cc504840776af5ba10
         WEB_SITE=http://www.swox.com/gmp/
          ENTERED=20010922
-         UPDATED=20030824
-      MAINTAINER=kongar@tsrsb.org.tr
+         UPDATED=20040112
            SHORT="gmp is the GNU mathematics precision library."
 cat << EOF
 GNUmp is a library operating on signed integers, rational numbers, and
