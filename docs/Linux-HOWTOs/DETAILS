@@ -1,0 +1,19 @@
+          MODULE=Linux-HOWTOs
+         VERSION=20020528
+          SOURCE=$MODULE.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL[0]=http://www.ibiblio.org/pub/Linux/docs/HOWTO/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.fi.muni.cz/pub/linux/sunsite/docs/howto/$SOURCE
+        WEB_SITE=http://www.linuxdoc.org/docs.html#howto
+         ENTERED=20011228
+         UPDATED=20020528
+#    CLEAR_CACHE=on
+      MAINTAINER=kongar@tsrsb.org.tr
+           SHORT="Detailed how-to documents on specific subjects"
+cat << EOF
+The Linux HOWTOs and mini-HOWTOs are detailed how-to documents
+on specific subjects.
+
+To update the documents, remove the $SOURCE from the 
+$SOURCE_CACHE and relin the MODULE.
+EOF

@@ -1,0 +1,22 @@
+          MODULE=xlog
+         VERSION=0.6.1
+#         VERSION=0.5
+          SOURCE=${MODULE}-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://people.debian.org/~pa3aba/download/$SOURCE
+        WEB_SITE=http://people.debian.org/~pa3aba/xlog.html
+        ENTERED=20011110
+        UPDATED=20020329
+          SHORT="xlog is a ham radio logging program for X"
+      MAINTAINER=w9ya@amsat.org
+
+cat << EOF
+Xlog will display a log with the most recent contacts added to the top.
+You can add, delete and edit log entries. The log is saved into a text
+file.  When clicking on the log column called "Call", you can sort the
+log either ascending, descending or by entry.  Xlog is able to do DXCC
+lookups and will display country information, CQ and ITU zone, location
+in latitude and longitude and distance and heading in kilometers or
+miles, both for short and long path.
+EOF
+

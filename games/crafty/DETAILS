@@ -1,0 +1,25 @@
+          MODULE=crafty
+         VERSION=18.15
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=crafty.doc.ascii
+         SOURCE3=read.me
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://ftp.cis.uab.edu/pub/hyatt/v18/$SOURCE
+  SOURCE2_URL[0]=ftp://ftp.cis.uab.edu/pub/hyatt/v18/$SOURCE2
+  SOURCE3_URL[0]=ftp://ftp.cis.uab.edu/pub/hyatt/$SOURCE3
+        WEB_SITE=ftp://ftp.cis.uab.edu/pub/hyatt
+         ENTERED=20020501
+         UPDATED=20020501
+      MAINTAINER="jacksonje@health.missouri.edu"
+           SHORT="Crafty is a text based chess program."
+cat << EOF
+Crafty is a chess program written by Bob Hyatt (hyatt@cis.uab.edu).
+It is modeled after Cray Blitz (also written by Bob).
+
+Crafty has the following features:
+- written in C
+- can be compiled with the GNU C compiler on various platforms
+- has a customizable opening book
+- supports tablebases (Steven Edward's endgame database)
+- text interface
+EOF

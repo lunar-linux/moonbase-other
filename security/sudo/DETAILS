@@ -1,0 +1,17 @@
+           MODULE=sudo
+         VERSION=1.6.6
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://ftp.sudo.ws/pub/$MODULE/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.courtesan.com/pub/$MODULE/$SOURCE
+        WEB_SITE=http://www.courtesan.com/sudo
+      MAINTAINER="kc8apf@kc8apf.net"
+         ENTERED=20010922
+         UPDATED=20020424
+           SHORT="Grant limited superuser ability to users."
+cat << EOF
+Sudo (superuser do) allows a system administrator to give certain users
+(or groups of users) the ability to run some (or all) commands as root
+while logging all commands and arguments. Sudo operates on a per-command
+basis, it is not a replacement for the shell.
+EOF

@@ -1,0 +1,29 @@
+depends  bonobo-conf  &&
+depends  gnome-vfs    &&
+depends  gtkhtml      &&
+depends  libxml       &&
+depends  perl         &&
+
+optional_depends  "pilot-link" "--enable-pilotlinktest"            \
+                  ""                                               \
+                  "for Palm support"                              &&
+
+optional_depends  "gnome-pilot" "--enable-pilot-conduits=yes"      \
+                  ""                                               \
+                  "for Palm Pilot support"                         &&
+                  
+optional_depends  "openssl"  ""  ""  "for SSL support"             &&
+optional_depends  "gnupg"    ""  ""  "for encrypted mail support"  &&
+
+optional_depends  "mozilla"                                        \
+                  "--with-nspr-includes=/usr/include/mozilla/nspr  \
+                   --with-nspr-libs=/usr/lib/mozilla               \
+                   --with-nss-includes=/usr/include/mozilla        \
+                   --with-nss-libs=/usr/lib/mozilla"               \
+                  ""                                               \
+                  "for mozilla support"                            &&
+
+optional_depends  "openldap"             \
+                  "--with-openldap=yes"  \
+                  ""                     \
+                  "for LDAP support"

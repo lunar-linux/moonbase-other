@@ -1,0 +1,14 @@
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  if  query  "Enable graphics support?" y;  then
+    OPTS="$OPTS --enable-graphics"
+  fi
+
+  if  query  "Enable javascript interpreter?" y;  then
+    OPTS="$OPTS --enable-javascript"
+  fi
+  
+  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+
+fi

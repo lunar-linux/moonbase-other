@@ -1,0 +1,11 @@
+depends  ncurses &&
+
+optional_depends  "openssl"               \
+                  "--with-ssl"            \
+                  "--without-ssl"         \
+                  "encryption for HTTPS"
+
+optional_depends  "svgalib"               \
+                  "--with-svgalib"        \
+                  "--without-svgalib"     \
+                  "for console graphics support"

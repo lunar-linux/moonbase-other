@@ -1,0 +1,14 @@
+EMACSDIR=/usr/share/emacs/site-lisp
+
+SS=$EMACSDIR/site-start.el
+
+# must version the load
+V=$VERSION
+if [ ! -e $SS ]; then touch $SS; fi
+if grep -q psgml-auto-setup-$V $SS
+then
+  echo "psgml already in $SS"
+else
+  echo "adding psgml hook to $SS"
+  echo '(load "psgml-init") ;; psgml-auto-setup-'$V >> $SS
+fi

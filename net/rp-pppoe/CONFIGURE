@@ -1,0 +1,14 @@
+if  grep  -q  "CONFIG_PPPOE="  $MODULE_CONFIG  &&
+    [  -f  /etc/ppp/pppoe.conf  ]
+then  CONFIG_PPPOE=n;  message  "Reconfiguration is optional"
+else  CONFIG_PPPOE=y
+fi
+
+if    query  "Configure Roaring Penguin PPPOE?"  $CONFIG_PPPOE
+then  CONFIG_PPPOE="y"
+else  CONFIG_PPPOE="n"
+fi
+
+TEMP=`grep  -v  "CONFIG_PPPOE="               $MODULE_CONFIG`
+echo  "$TEMP"                              >  $MODULE_CONFIG
+echo  "CONFIG_PPPOE=$CONFIG_PPPOE"         >  $MODULE_CONFIG

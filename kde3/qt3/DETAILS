@@ -1,0 +1,34 @@
+          MODULE=qt3
+         VERSION=copy-3.0.4
+#          SOURCE=qt-x11-free-$VERSION.tar.bz2
+          SOURCE=qt-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/qt-$VERSION
+#   SOURCE_URL[0]=ftp://ftp.trolltech.com/qt/source/$SOURCE
+   SOURCE_URL[0]=$KDE_URL/stable/3.0.1/src/$SOURCE
+        WEB_SITE=http://www.trolltech.com/qt
+         ENTERED=20020420
+         UPDATED=20020725
+         GARBAGE=off
+           SHORT="Qt is a C++ toolkit for application development."
+      MAINTAINER="JacksonJE@health.missouri.edu"
+
+cat << EOF
+Qt is a C++ toolkit for application development. It lets application 
+developers target all major operating systems with a single application 
+source code.
+
+Qt provides a platform-independent API to all central platform 
+functionality: GUI, database access, networking, file handling, etc. The 
+Qt library encapsulates the different APIs of different operating systems, 
+providing the application programmer with a single, common API for all 
+operating systems. The native C APIs are encapsulated in a set of 
+well-designed, fully object-oriented C++ classes. 
+
+Certain envrionment variables must be defined before compiling and using 
+applications that depend on qt3.
+QTDIR=/opt/lunar/qt/3
+PATH=/opt/lunar/qt/3/bin:$PATH
+
+The order of the PATH variable is important if qt3 and qt2 both exist on the 
+same machine.
+EOF

@@ -1,0 +1,22 @@
+           MODULE=lsof
+         VERSION=4.64
+#         VERSION=4.63
+          SOURCE=${MODULE}_${VERSION}.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}_${VERSION}
+   SOURCE_URL[0]=ftp://vic.cc.purdue.edu/pub/tools/unix/lsof/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.cerias.purdue.edu/pub/tools/unix/sysutils/lsof/$SOURCE
+   SOURCE_URL[2]=ftp://ftp.sunet.se/pub/unix/admin/lsof/$SOURCE
+   SOURCE_URL[3]=ftp://wuarchive.wustl.edu/packages/security/lsof/$SOURCE
+        WEB_SITE=unknown
+         ENTERED=20011005
+         UPDATED=20020710
+      MAINTAINER=kongar@tsrsb.org.tr
+           SHORT="lsof lists open files."
+cat << EOF
+
+Lsof is a Unix-specific diagnostic tool. Its name stands for LiSt Open
+Files, and it does just that. It lists information about any files that
+are open by processes currently running on the system. It can also list
+communications open by each process.
+
+EOF

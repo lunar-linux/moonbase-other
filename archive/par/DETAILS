@@ -1,0 +1,18 @@
+          MODULE=par
+         VERSION=1.0
+          SOURCE=${MODULE}-v${VERSION}.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-cmdline-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/parchive/$SOURCE
+        WEB_SITE=http://parchive.sourceforge.net
+         ENTERED=20020719
+         UPDATED=20020719
+      MAINTAINER=tpchan@attbi.com  
+           SHORT="Parity Archive Volume Set tool"
+cat << EOF
+par
+A command-line client for Linux and other UNIX platforms, to post and
+recover multi-part archives on Usenet.  Current filespec and clients support
+the "Reed-Solomon Code" implementation that allows for recovery of any 'x'
+volumes for 'x' parity volumes present.  Complies with "Parity Volume Set
+Specification 1.0".
+EOF

@@ -1,0 +1,9 @@
+(
+./configure.rb --prefix=/usr    \
+               --with-apxs      \
+               --enable-eruby   \
+               --enable-shared &&
+make           &&
+make install
+
+) > $C_FIFO 2>&1

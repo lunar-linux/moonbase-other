@@ -1,0 +1,11 @@
+depends  libgcrypt &&
+
+optional_depends  "mhash"         \
+                  "--with-mhash"  \
+                  ""              \
+                  "for mhash lib instead of built-in"  &&
+
+optional_depends  "zlib"            \
+                  "--with-zlib"     \
+                  "--without-zlib"  \
+                  "for compression support"

@@ -1,0 +1,6 @@
+(
+        xmkmf         &&
+        make          &&
+        make install
+
+) > $C_FIFO 2>&1

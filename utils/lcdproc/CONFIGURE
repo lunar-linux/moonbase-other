@@ -1,0 +1,8 @@
+if  !  grep  -q  "LCDPROC_BOOT="  $MODULE_CONFIG;  then
+
+  if    query  "Invoke Lcdproc during boot?" y
+  then  echo   "LCDPROC_BOOT=y"  >>  $MODULE_CONFIG
+  else  echo   "LCDPROC_BOOT=n"  >>  $MODULE_CONFIG
+  fi
+
+fi

@@ -1,0 +1,24 @@
+           MODULE=stegdetect
+         VERSION=0.4
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL[0]=http://www.outguess.org/$SOURCE
+        WEB_SITE=http://www.outguess.org
+         ENTERED=20020116
+         UPDATED=20020116
+           SHORT="Stegdetect is an automated tool for detecting steganographic content in images"
+cat << EOF
+Stegdetect is an automated tool for detecting steganographic content in
+images.  It is capable of detecting several different steganographic
+methods to embed hidden information in JPEG images.  Currently, the
+detectable schemes are
+
+- jsteg,
+- jphide (unix and windows),
+- invisible secrets,
+- and outguess 0.13b.
+
+OutGuess 0.2 can not be detected using these techniques.
+Stegbreak is used to launch dictionary attacks against JSteg-Shell,
+JPHide and OutGuess 0.13b.
+EOF

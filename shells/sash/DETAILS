@@ -1,0 +1,22 @@
+          MODULE=sash
+         VERSION=3.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.pcug.org.au/~dbell/programs/$SOURCE
+        WEB_SITE=http://www.pcug.org.au/~dbell
+         ENTERED=20020526
+         UPDATED=20020526
+      MAINTAINER=tpchan@attbi.com
+           SHORT="sash is a stand-alone shell with many built-in commands"
+cat << EOF
+sash - Stand Alone SHell
+The purpose of this program is to make system recovery possible in
+many cases where there are missing shared libraries or executables.
+It does this by firstly being linked statically, and secondly by
+including versions of many of the standard utilities within itself.
+Patched to include some GNU Readline features:
+1. The TAB key for command and filename completion.
+2. The keys Ctrl-N and Ctrl-P for a command history.
+Further patched to include the chroot, pivot_root, and losetup functions.
+Simple shell variable expansion support has also been added.
+EOF

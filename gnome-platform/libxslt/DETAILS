@@ -1,0 +1,18 @@
+          MODULE=libxslt
+         VERSION=1.0.19
+#        VERSION=1.0.18
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$GNOME_URL/stable/sources/libxslt/$SOURCE
+        WEB_SITE=http://xmlsoft.org
+         ENTERED=20011010
+         UPDATED=20020709
+           SHORT="libxslt is an XSLT processing library."
+cat << EOF
+Libxslt is a C library for GNOME which allows developers to work with XSLT. It
+is based on libxml for XML parsing, tree manipulation, and XPath support. It
+is written in plain C, making as few assumptions as possible, and sticking
+closely to ANSI C/POSIX for easy embedding. It should work on Linux, Unix, and
+Windows. Though not designed primarily with performances in mind, libxslt
+seems to be a relatively fast processor. 
+EOF

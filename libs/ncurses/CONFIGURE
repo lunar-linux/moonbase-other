@@ -1,0 +1,26 @@
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  if    query  "Do you want to install debug libraries ?" n
+  then
+      OPTS=$OPTS" --with-debug"
+  else
+      OPTS=$OPTS" --without-debug"
+  fi
+
+  if    query  "Do you want to install profiling libraries ?" n
+  then
+      OPTS=$OPTS" --with-profile"
+  else
+      OPTS=$OPTS" --without-profile"
+  fi
+
+  if    query  "Do you want to link ncurses against gpm libraries ?" n
+  then
+      OPTS=$OPTS" --with-gpm"
+  else
+      OPTS=$OPTS" --without-gpm"
+  fi
+
+  echo  OPTS=\"$OPTS\"    >>  $MODULE_CONFIG
+  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+fi

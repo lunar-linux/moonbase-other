@@ -1,0 +1,21 @@
+          MODULE=util-linux-crypto
+         VERSION=2.11n
+          SOURCE=util-linux-$VERSION.tar.bz2
+         SOURCE2=cryptoapi-2.4.7.0.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/util-linux-$VERSION
+#   SOURCE_URL[0]=$KERNEL_URL/pub/linux/utils/$MODULE/$SOURCE
+   SOURCE_URL[0]=http://www.kernel.org/pub/linux/utils/util-linux/$SOURCE
+  SOURCE2_URL[0]=$SFORGE_URL/cryptoapi/$SOURCE2
+        WEB_SITE=ftp://ftp.win.tue.nl/pub/linux-local/utils/util-linux
+         ENTERED=20010924
+         UPDATED=20011211
+           SHORT="util-linux contains essential utilities for any Linux box."
+cat << EOF
+Util-linux is a suite of essential utilities for any Linux system. Its
+primary audience is system integrators and DIY Linux hackers. Util-linux
+is attempting to be portable, but the only platform it has been tested
+much on is Linux i386.
+
+This version is patched with crypto from cryptoapi.
+
+EOF

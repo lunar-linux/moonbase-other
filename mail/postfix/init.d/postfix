@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# postfix      Postfix Mail Transfer Agent
+#
+# chkconfig: 2345 80 30
+# description: Postfix is a Mail Transport Agent, which is the program \
+#              that moves mail from one machine to another.
+# processname: master
+# pidfile: /var/spool/postfix/pid/master.pid
+# config: /etc/postfix/main.cf
+# config: /etc/postfix/master.cf
+
+case $1 in
+  start|restart)  echo     "$1ing postfix MTA."
+                  postfix  stop  2>/dev/null
+                  newaliases
+                  postfix  start
+                  ;;
+           stop)  echo     "$1ping postfix"
+                  postfix  stop
+                  ;;
+              *)  echo     "Usage: $0 {start|stop|restart}"
+                  ;;
+esac

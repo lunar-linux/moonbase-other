@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#
+# chkconfig:    345 80 20
+# description:  DHCP Server
+# processname:  dhcpd
+# config:       /etc/config.d/dhcpd
+# config:       /etc/dhcpd.conf
+#
+
+# Get service config
+[ -f /etc/config.d/dhcpd ] && . /etc/config.d/dhcpd
+
+ARGS="-q $DHCPD_INTERFACES"
+
+reload () {
+	# dhcpd cannot reload
+	$0 restart
+}
+
+. /lib/lsb/init-functions
+

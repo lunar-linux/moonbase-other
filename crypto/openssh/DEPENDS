@@ -1,0 +1,15 @@
+# depends  xinetd                   &&
+depends  zlib                     &&
+depends  openssl                  &&
+depends  sh-utils                 &&
+depends  psmisc                   &&
+
+optional_depends  "tcp_wrappers"         \
+                  "--with-tcp-wrappers"  \
+                  ""                     \
+                  "for an optional method of controlling ssh access."  &&
+
+optional_depends "Linux-PAM"             \
+                 "--with-pam"            \
+                 "--without-pam"         \
+                 "for Linux PAM support"  

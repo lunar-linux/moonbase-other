@@ -1,0 +1,18 @@
+           MODULE=rdate
+         VERSION=1.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.corpit.ru/ftp/rdate/$MODULE-$VERSION.tar.gz
+        WEB_SITE=http://www.corpit.ru/
+         ENTERED=20020212
+         UPDATED=20020212
+           SHORT="The rdate utility retrieves the date and time from another machine on your network"
+     MAINTAINER=csm@moongroup.com
+cat << EOF
+The rdate utility retrieves the date and time from another machine on
+your network, using the protocol described in RFC 868.  If you run
+rdate as root, it will set your machine's local time to the time of
+the machine that you queried.  Note that rdate isn't scrupulously
+accurate.  If you are worried about milliseconds, install the xntp3
+package, which includes the xntpd daemon, instead.
+EOF

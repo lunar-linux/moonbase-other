@@ -1,0 +1,17 @@
+           MODULE=libungif
+         VERSION=4.1.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.ibiblio.org/pub/Linux/libs/graphics/$SOURCE
+   SOURCE_URL[1]=ftp://prtr-13.ucsc.edu/pub/libungif/$SOURCE
+   SOURCE_URL[2]=http://metalab.unc.edu/pub/Linux/libs/graphics
+        WEB_SITE=http://prtr-13.ucsc.edu/~badger/software/libungif
+         ENTERED=20010922
+         UPDATED=20010922
+           SHORT="libungif is a library for uncompressed GIF images."
+cat << EOF
+libungif is a library for reading and writing gif images.  The save
+functionality uses an uncompressed gif algorithm to avoid the Unisys LZW
+patent. This library is based heavily on Eric Raymond's libgif package
+and implements a superset of that_library's API.
+EOF

@@ -1,0 +1,19 @@
+          MODULE=libmcrypt
+         VERSION=2.5.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://mcrypt.hellug.gr/pub/mcrypt/libmcrypt/$SOURCE
+	     WEB_SITE=http://mcrypt.hellug.gr/#_libmcrypt
+         ENTERED=20011123
+         UPDATED=20020601
+      MAINTAINER=kongar@tsrsb.org.tr
+           SHORT="libmcrypt implements all the algorithms and modes found in mcrypt."
+cat << EOF
+Libmcrypt is a library which provides a uniform interface to several
+symmetric encryption algorithms. It is intended to have a simple
+interface to access encryption algorithms in ofb, cbc, cfb, and ecb
+modes. The algorithms it supports are DES, 3DES, RIJNDAEL, Twofish,
+IDEA, GOST, CAST-256, ARCFOUR, SERPENT, SAFER+, and more. The
+algorithms and modes are also modular so you can add and remove them
+on the fly without recompiling the library.
+EOF

@@ -1,0 +1,34 @@
+id:3:initdefault:
+si::sysinit:/etc/init.d/rcS
+~~:S:wait:/sbin/sulogin
+
+# Runlevels
+# 0: halt the computer
+# 1: single-user mode
+# 2: multi-user mode without networking
+# 3: multi-user mode with networking
+# 4: reserved for customization, otherwise does the same as 3
+# 5: same as 4, it is usually used for GUI login (xdm, gdm, kdm)
+# 6: reboot the computer
+
+l0:0:wait:/etc/init.d/rc 0
+l1:1:wait:/etc/init.d/rc 1
+l2:2:wait:/etc/init.d/rc 2
+l3:3:wait:/etc/init.d/rc 3
+l4:4:wait:/etc/init.d/rc 4
+l5:5:wait:/etc/init.d/rc 5
+l6:6:wait:/etc/init.d/rc 6
+
+ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
+
+vc1:12345:respawn:/sbin/agetty /devices/vc/1 9600
+vc2:12345:respawn:/sbin/agetty /devices/vc/2 9600
+vc3:12345:respawn:/sbin/agetty /devices/vc/3 9600
+vc4:1234:respawn:/sbin/agetty /devices/vc/4 9600
+vc5:1234:respawn:/sbin/agetty /devices/vc/5 9600
+vc6:1234:respawn:/sbin/agetty /devices/vc/6 9600
+
+# xfs:5:once:/usr/X11R6/bin/xfs
+gdm:5:once:/usr/bin/gdm
+kdm:5:once:/usr/bin/kdm
+xdm:5:once:/usr/X11R6/bin/xdm

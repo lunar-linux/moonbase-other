@@ -1,0 +1,12 @@
+# this is for removing the lunar module from the
+# package listing WITHOUT removing its contents
+# kongar, 20020524
+module_installed lunar && remove_module lunar
+
+[ "$LUNAR_MODULE" != "theedge" ] &&
+write_config "LUNAR_MODULE=" "LUNAR_MODULE=theedge"
+
+write_config "optimize"
+
+true
+

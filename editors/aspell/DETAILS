@@ -1,0 +1,18 @@
+          MODULE=aspell
+         VERSION=.33.7.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+        WEB_SITE=http://aspell.sourceforge.net
+         ENTERED=20010922
+         UPDATED=20020412
+           SHORT="Aspell is a spell checker designed to eventually replace ispell."
+cat << EOF
+Aspell is a spell checker designed to eventually replace ispell. Its
+main feature is that it does a much better job of coming up with
+possible suggestions than ispell does. It also has support for checking
+(La)TeX and HTML files, and run-time support for other non-English
+languages. Aspell also is a library; however, the recommended way to use
+aspell is through the pspell library, as the actual interface to the
+aspell library is constantly changing.
+EOF

@@ -1,0 +1,19 @@
+           MODULE=powertweak
+         VERSION=0.99.4
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/powertweak
+   SOURCE_URL[0]=$SFORGE_URL/powertweak/$MODULE-$VERSION.tar.gz
+        WEB_SITE=http://powertweak.sourceforge.net
+         ENTERED=20020125
+         UPDATED=20020125
+           SHORT="Powertweak tunes your kernel and hardware settings"
+cat << EOF
+Powertweak-Linux is a tool to tune your system to its optimal
+performance settings.  It started life as the replacement for the now
+obsolete kernel option 'tune PCI bridges', and has been extended to
+provide more features and support more chipsets.  It can also tune
+network/filesystem performance using /proc/sys entries, disk elevator 
+settings, and x86 CPU registers (needs 2.2.18 or 2.4.0test kernel),
+CDROM speeds, hdparm type features, and Sony VAIO backlight. It has
+both GTK and ncurses GUIs.
+EOF

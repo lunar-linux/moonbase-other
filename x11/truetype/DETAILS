@@ -1,0 +1,80 @@
+          MODULE=truetype
+         VERSION=1
+          SOURCE=mtcom32.exe
+         SOURCE1=webdin32.exe
+         SOURCE2=trebuc32.exe
+         SOURCE3=georgi32.exe
+         SOURCE4=verdan32.exe
+         SOURCE5=comic32.exe
+         SOURCE6=arialb32.exe
+         SOURCE7=impact32.exe
+         SOURCE8=arial32.exe
+         SOURCE9=times32.exe
+        SOURCE10=courie32.exe
+	SOURCE11=IELPKTH.CAB
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL[0]=$SFORGE_URL/corefonts/$SOURCE
+  SOURCE1_URL[0]=$SFORGE_URL/corefonts/$SOURCE1
+  SOURCE2_URL[0]=$SFORGE_URL/corefonts/$SOURCE2
+  SOURCE3_URL[0]=$SFORGE_URL/corefonts/$SOURCE3
+  SOURCE4_URL[0]=$SFORGE_URL/corefonts/$SOURCE4
+  SOURCE5_URL[0]=$SFORGE_URL/corefonts/$SOURCE5
+  SOURCE6_URL[0]=$SFORGE_URL/corefonts/$SOURCE6
+  SOURCE7_URL[0]=$SFORGE_URL/corefonts/$SOURCE7
+  SOURCE8_URL[0]=$SFORGE_URL/corefonts/$SOURCE8
+  SOURCE9_URL[0]=$SFORGE_URL/corefonts/$SOURCE9
+ SOURCE10_URL[0]=$SFORGE_URL/corefonts/$SOURCE10
+ SOURCE11_URL[0]=$SFORGE_URL/corefonts/$SOURCE11
+        WEB_SITE=http://corefonts.sourceforge.net/
+         ENTERED=20020124
+         UPDATED=20020820
+           SHORT="TrueType core fonts for the Web"
+cat << EOF
+Install these high quality TrueType fonts, and whenever you visit a Web site
+that specifies them, you'll see pages exactly as the site designer intended.
+
+Monotype.com is included now as andale32.exe is no longer available from
+Microsoft downloads.
+
+Webdings was designed in 1997 as a collaborative work between Microsoft's
+Vincent Connare and top Monotype designers Sue Lightfoot, Ian Patterson and
+Geraldine Wade. The images are intended for web designers who wish to include
+live fonts as a fast way of rendering graphics.
+
+Trebuchet MS, designed by Vincent Connare in 1996, is a humanist sans serif
+designed for easy screen readability. Trebuchet takes its inspiration from the
+sans serifs of the 1930s which had large x heights and round features intended
+to promote readability on signs.
+
+Georgia by Matthew Carter, hinted by Thomas Rickner.
+
+Verdana by Matthew Carter, hinted by Thomas Rickner.
+
+Comic Sans, Designed by Microsoft's Vincent Connare, this is a face based on
+the lettering from comic magazines.
+
+Arial® Black is part of the extremely versatile Arial family of typefaces
+which can be used with equal success for text setting in reports,
+presentations, magazines etc, and for display use in newspapers, advertising
+and promotions.
+
+Geoffrey Lee designed ImpactTM, first issued in 1965 by the famous Sheffield
+foundry, Stephenson Blake.
+
+Arial® is an extremely versatile family of typefaces which can be used with
+equal success for text setting in reports, presentations, magazines etc, and
+for display use in newspapers, advertising and promotions.
+
+Times New Roman® first appeared in 1932 in The Times of London newspaper, for
+which it was designed. It has subsequently become one of the world's most
+successful type creations.
+
+CourierTM New, originally designed as a typewriter face for IBM, was redrawn
+by Adrian Frutiger for IBM Selectric series. A typical fixed pitch design,
+monotone in weight and slab serif in concept.
+
+Note:  To do anything useful with these fonts you'll have to add the line
+'FontPath "/usr/share/fonts/truetype"' to the Files section of your
+/etc/X11/XF86Config file, and 'dir "/usr/share/fonts/truetype"' to your
+/etc/X11/XftConfig file.
+EOF

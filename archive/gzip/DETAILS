@@ -1,0 +1,26 @@
+           MODULE=gzip
+       # Due to an exploit in gzip 1.2.4a we are temporarily using the
+       # alpha version.
+       # Version 1.3.2 is alpha code.
+       # VERSION=1.3.2
+         VERSION=1.3.3
+       # VERSION=1.2.4a
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://lunar-linux.org/lunar/mirrors/$SOURCE
+ # SOURCE_URL[0]=ftp://alpha.gnu.org/pub/gnu/$MODULE/$SOURCE
+ # alpha.gnu.org seems down to me, luckily there is funet!
+ #  SOURCE_URL[0]=http://www.funet.fi/pub/gnu/alpha/gnu/$MODULE/$SOURCE
+ # SOURCE_URL[0]=$GNU_URL/$MODULE/$SOURCE
+ # SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE
+        WEB_SITE=http://www.gzip.org
+         ENTERED=20010922
+         UPDATED=20020421
+           SHORT="gzip is a compression utility designed to replace compress."
+cat << EOF
+gzip - Compresses and decompresses files
+A compression utility designed to replace compress. Much better
+compression and freedom from patented algorithms are its main advantages
+over compress. Gzip decompresses files created by gzip, compress, or
+pack; it detects the input format automatically.
+EOF

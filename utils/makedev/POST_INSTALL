@@ -1,0 +1,14 @@
+. $MODULE_CONFIG
+
+case  $RUN_MAKEDEV  in
+      y|Y) pushd . >/dev/null
+           cd /dev
+           message "creating devices"
+           ./MAKEDEV generic
+           message "done."
+           sedit "s/RUN_MAKEDEV=\"y\"/RUN_MAKEDEV=\"n\"/" $MODULE_CONFIG
+           popd >/dev/null
+           ;;
+         *) true
+            ;;
+   esac

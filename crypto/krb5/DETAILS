@@ -1,0 +1,17 @@
+           MODULE=krb5
+         VERSION=1.2.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.crypto-publish.org/dist/mit-kerberos5/$SOURCE
+        WEB_SITE=http://web.mit.edu/kerberos/www/
+         ENTERED=20020218
+         UPDATED=20020308
+           SHORT="Kerberos5 is the latest version of the network security protocol"
+cat << EOF
+Kerberos was created by MIT as a solution to network security problems.
+The Kerberos protocol uses strong cryptography so that a client can
+prove its identity to a server (and vice versa) across an insecure
+network connection. After a client and server has used Kerberos to
+prove their identity, they can also encrypt all of their communications
+to assure privacy and data integrity as they go about their business.
+EOF

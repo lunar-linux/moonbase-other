@@ -1,0 +1,40 @@
+echo ""
+echo "Kerberos configuration is complex. The MIT documentation will "
+echo "be installed at: "
+echo "     file:///usr/doc/krb5/doc/install_toc.html"
+echo "     file:///usr/doc/krb5/doc/user-guide_toc.html"
+echo "     file:///usr/doc/krb5/doc/admin_toc.html"
+echo ""
+echo "This script will (optionally) install sample configuration files in /etc "
+echo "and init scripts in /etc/init.d. The build config enables DNS kerberos"
+echo "TXT records to allow for clients to automatically discover their KDC's"
+echo "and REALMS."
+echo "************"
+echo "In order to run the kerberized versions of [rshd rlogind telnetd ftpd]"
+echo "you will need to obtain a copy of the master keyfile"
+echo "(default: /etc//krb5.keytab)"
+echo "************"
+echo "This must be transferred by a secure channel! You may use ssh's scp"
+echo "if openssh is installed or, after installing kerberos rcp -x command"
+echo "to accomplish this securely"
+echo "************"
+
+if   query "do you want to have xinetd run any of the kerberized daemons" n ; then
+  mkdir $SCRIPT_DIRECTORY/xinetd.d
+  for i in ftpd telnetd kshd klogind
+  do {
+    if query "do you want to have xinetd run $i" n ; then
+      cp $SCRIPT_DIRECTORY/xinetd.configs/$i $SCRIPT_DIRECTORY/xinetd.d
+    fi
+  } done
+fi
+
+if   query "Will this machine be serving as a KDC?" n
+  then cp $SCRIPT_DIRECTORY/krb5.sh /etc/init.d/krb5.sh
+  [  -f  /etc/kdc.conf   ]  || \
+   sed 's/local\///' src/config-files/kdc.conf >  /etc/kdc.conf
+fi
+
+if   query "Will this machine be serving as the Master KDC" n
+  then sedit 's/krb5kdc/krb5kdc kadmind/' /etc/init.d/krb5.sh
+fi 

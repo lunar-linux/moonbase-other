@@ -1,0 +1,66 @@
+add_status()  {
+
+  while  [  -n  "$1"  ];  do
+    echo  "$1"
+    echo  "$2"
+    echo  "off"
+    shift 2
+  done
+
+}
+
+
+make_locales_checklist()  {
+
+  add_status  `cat  $SCRIPT_DIRECTORY/locales`
+
+}
+
+
+select_locales()  {
+
+  BACKTITLE="Glibc Configuration"
+      TITLE="Locale Selection"
+       HELP="Translated messages are automatically installed, 
+but the locale database that controls other behavior is not.  
+Please select desired locale or locales.
+If none are selected then all will be installed."
+
+  dialog  --backtitle  "$BACKTITLE"  \
+          --title      "$TITLE"      \
+          --stdout                   \
+          --separate-output          \
+          --checklist  "$HELP"       \
+          0 0 0                      \
+         `make_locales_checklist`
+
+}
+
+#check to see if already configured
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+   if    grep  -q  "GLIBC_LOCALES="  $MODULE_CONFIG
+      then  message  "Selecting locales is optional"
+   fi
+
+   if  query  "Would you like to select locales? (if not selected, all locales will be installed)" n
+      then
+         OLD_IFS=$IFS
+         export  IFS="	
+"
+         GLIBC_LOCALES=`select_locales`
+         TEMP=`grep  -v  "GLIBC_LOCALES="             $MODULE_CONFIG`
+         echo  "$TEMP"                             >  $MODULE_CONFIG
+         echo  "GLIBC_LOCALES=\"$GLIBC_LOCALES\""  >> $MODULE_CONFIG
+         export  IFS=$OLD_IFS
+   fi
+
+   if  query  "Would you like to disable building of profiling libs?" y
+   then
+      echo  'OPTS="$OPTS --disable-profile"'  >>  $MODULE_CONFIG
+   fi
+
+   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+
+fi
+

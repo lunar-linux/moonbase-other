@@ -1,0 +1,20 @@
+          MODULE=ferm
+         VERSION=1.1-pre7
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.geo.vu.nl/~koka/ferm/$SOURCE
+        WEB_SITE=http://www.geo.vu.nl/~koka/ferm/
+         ENTERED=20020514
+         UPDATED=20020514
+           SHORT="FERM is a tool to maintain complex firewalls"
+cat << EOF
+FERM is a tool to maintain complex firewalls, without having the trouble
+to rewrite the complex rules over and over again. FERM allows the entire
+firewall rule set to be stored in a separate file, and to be loaded with
+one command. The firewall configuration resembles structured
+programming-like language, which can contain levels and lists.
+
+Ferm is written in perl, so it requires perl5, and one of the kernel
+firewall programs (ipchains/iptables/ipfwadm) to work, although you may
+test firewall rule generation on any platform that supports perl.
+EOF

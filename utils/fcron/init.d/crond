@@ -1,0 +1,24 @@
+#! /bin/bash
+#
+# fcron          Start/Stop the cron clock daemon.
+#
+# chkconfig: 2345 90 60
+# description: cron is a standard UNIX program that runs user-specified \
+#              programs at periodic scheduled times. vixie cron adds a \
+#              number of features to the basic UNIX cron, including better \
+#              security and more powerful configuration options.
+# processname: fcron
+# config: /etc/crontab
+# pidfile: /var/run/crond.pid
+
+case $1 in
+  start|restart)  echo   "$1ing fcron periodic scheduler."
+                  pkill  "^fcron$"
+                  fcron  -b
+                  ;;
+           stop)  echo   "$1ing fcron."
+                  pkill  "^fcron$"
+                  ;;
+              *)  echo   "Usage: $0 {start|stop|restart}"
+                  ;;
+esac

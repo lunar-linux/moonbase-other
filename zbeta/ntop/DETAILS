@@ -1,0 +1,14 @@
+          MODULE=ntop
+         VERSION=2.1.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+        WEB_SITE=http://www.ntop.org
+         ENTERED=20020803
+         UPDATED=20020803
+      MAINTAINER=michalsc@email.uc.edu
+           SHORT="ntop is a network traffic probe."
+cat << EOF
+ntop is a network traffic probe that shows the network usage, similar to what the popular top Unix command does. ntop is based on libpcap and it has been written in a portable way in order to virtually run on every Unix platform and on Win32 as well. 
+ntop users can use a a web browser (e.g. netscape) to navigate through ntop (that acts as a web server) traffic information and get a dump of the network status. In the latter case, ntop can be seen as a simple RMON-like agent with an embedded web interface.
+EOF

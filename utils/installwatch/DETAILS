@@ -1,0 +1,18 @@
+           MODULE=installwatch
+         VERSION=0.6.3
+          SOURCE=$MODULE-$VERSION.tgz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://asic-linux.com.mx/~izto/checkinstall/files/source/$SOURCE
+   SOURCE_URL[1]=http://www.lunar-linux.org/lunar/mirrors/$SOURCE
+        WEB_SITE=http://asic-linux.com.mx/~izto/installwatch.html
+         ENTERED=20011230
+         UPDATED=20011230
+           SHORT="installwatch is a utility for tracking files during the installation of software."
+cat << EOF
+Installwatch is a simple utility which keeps track of which files are 
+created and modified during the installation of a new program. It's
+fast and easy to use. It doesn't require a "pre-install" phase
+because it monitors processes while they run. Installwatch works with 
+every dynamically linked ELF program, by intercepting system calls
+that cause file system alterations.
+EOF

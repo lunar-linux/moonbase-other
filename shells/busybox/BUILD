@@ -1,0 +1,18 @@
+(
+
+  cp Config.h Config.h.orig
+  bzcat $SCRIPT_DIRECTORY/busybox.patch.bz2 | patch -p0 &&
+
+  make || exit 1
+
+  prepare_install &&
+  cp busybox $TARGET_DIR/bin || exit 1
+
+) > $C_FIFO 2>&1
+
+#  cat busybox.links |
+#  while read LINKNAME; do
+#    (chroot $TARGET_DIR/ /bin/busybox ln -s /bin/busybox $LINKNAME 2>/dev/null)
+#  done
+#
+#  true

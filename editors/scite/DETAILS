@@ -1,0 +1,19 @@
+          MODULE=scite
+# VERSION=146 is buggy, unable to compile, kongar, 20020513
+         VERSION=147
+          SOURCE=$MODULE$VERSION.tgz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL[0]=http://www.scintilla.org/$SOURCE
+        WEB_SITE=http://www.scintilla.org/SciTE.html
+         ENTERED=20020505
+         UPDATED=20020805
+      MAINTAINER=kazami@ntlworld.com
+           SHORT=" SciTE is a SCIntilla based Text Editor"
+cat << EOF
+SciTE is a Scintilla based Text Editor. Originally built to demonstrate Scintilla.
+Scintilla is a free source code editing component.
+As well as features found in standard text editing components,
+Scintilla includes features especially useful when editing and debugging source code.
+These include support for syntax styling, error indicators, 
+code completion and call tips. 
+EOF

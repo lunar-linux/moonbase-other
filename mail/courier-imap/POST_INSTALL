@@ -1,0 +1,6 @@
+sedit  "s:pam_pwdb.so:pam_unix.so:"  /etc/pam.d/imap
+sedit  "s:pam_pwdb.so:pam_unix.so:"  /etc/pam.d/pop3
+
+if  [  -x  /etc/init.d/imapd  ]; then
+           /etc/init.d/imapd  start
+fi

@@ -1,0 +1,17 @@
+          MODULE=sybase-ase
+         VERSION=11_0_3_3-6
+      PATCH_FILE=sybase-ase.SGL.patches
+          SOURCE=$MODULE-${VERSION}_i386.rpm
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://download.sybase.com/pub/ase1103_linux/$SOURCE
+#  SOURCE_URL[1]=http://linux.sybase.com/REL1103/ase1103_linux/$SOURCE
+        WEB_SITE=http://www.sybase.com/linux/ase/
+         ENTERED=20011112
+         UPDATED=20011112
+           SHORT="Sybase Advanced Server 11.0.3.3 for Linux"
+cat << EOF
+Sybase Advanced Server 11.0.3.3 for Linux
+Note: This is NOT a source installation, but rather a .rpm that
+get's installed into /opt/sybase of the Sybase executables
+
+EOF

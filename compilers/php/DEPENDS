@@ -1,0 +1,68 @@
+optional_depends  "pspell"                      \
+                  "--with-pspell"               \
+                  ""                            \
+                  "for spelling functions"      &&
+    
+optional_depends  "bzip2"                       \
+                  "--with-bz2"                  \
+                  ""                            \
+                  "for compression support"     &&
+
+optional_depends  "mhash"                       \
+                  "--with-mhash"                \
+                  ""                            \
+                  "for hash functions support"  &&
+
+optional_depends  "mcrypt"                      \
+                  "--with-mcrypt"               \
+                  ""                            \
+                  "for crypto library"          &&
+
+optional_depends  "gmp"                         \
+                  "--with-gmp"                  \
+                  ""                            \
+                  "GNU math lib support"        &&
+
+optional_depends  "openssl"                     \
+                  "--with-openssl"              \
+                  ""                            \
+                  "for OpenSSL support"         &&
+
+optional_depends  "gettext"                     \
+                  "--with-gettext"              \
+                  ""                            \
+                  "for GNU gettext support"     &&
+    
+optional_depends  "postgresql"                  \
+                  "--with-pgsql=/usr"           \
+                  ""                            \
+                  "for Postgresql support"      &&
+    
+optional_depends  "mysql"                       \
+                  "--with-mysql=/usr"           \
+                  ""                            \
+                  "for native MySQL support"    &&
+
+optional_depends "sybase-ocsd"                     \
+                 "--with-sybase=/opt/lunar/sybase" \
+                 ""                                \
+                 "for SyBase support"              &&
+
+optional_depends "freetype2"                    \
+                 "--with-freetype-dir=/usr"     \
+                 ""                             \
+                 "for freetype2 support"        &&
+
+optional_depends "pdflib"                       \
+                 "--with-pdflib"                \
+                 ""                             \
+                 "for pdflib support"           &&
+
+optional_depends "gd"                           \
+                 "--with-gd \
+                  --enable-gd-native-ttf \
+                  --with-jpeg-dir=/usr   \
+                  --with-png-dir=/usr    \
+                  --with-zlib"           \
+                 ""                             \
+                  "for on the fly graphics"

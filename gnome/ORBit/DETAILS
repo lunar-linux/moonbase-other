@@ -1,0 +1,27 @@
+          MODULE=ORBit
+         VERSION=0.5.16
+       # VERSION=0.5.13
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$GNOME_URL/stable/sources/$MODULE/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.gnome.org/pub/GNOME/stable/sources/$MODULE/$SOURCE
+        WEB_SITE=http://orbit-resource.sourceforge.net
+         ENTERED=20010922
+         UPDATED=20020528
+           SHORT="ORBit is a COBRA 2.2-compliant Object Request Broker."
+cat << EOF
+ORBit is a CORBA 2.2-compliant Object Request Broker (ORB) featuring
+mature C and Perl bindings. Bindings (in various degrees of
+completeness) are also available for C++, Lisp, Pascal, Python, Ruby,
+and TCL; others are in-progress. It supports POA, DII, DSI, TypeCode,
+Any, IR and IIOP.
+Optional features including INS and threading are available. ORBit is
+engineered for the desktop workstation environment, with a focus on
+performance, low resource usage, and security.
+The core ORB is written in C, and runs under Linux, UNIX (BSD, Solaris,
+HP-UX, ...), and Windows. ORBit is developed and released as open source
+software under GPL/LGPL.
+* Note also includes libIDL and will overwrite a pre-existing
+installation of libIDL
+
+EOF

@@ -1,0 +1,32 @@
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  if    module_installed  apache  ||
+        module_installed  apache-mod_ssl
+  then 
+    OPTS="$OPTS --with-apxs"
+  fi
+
+  if  query  "Install ftp support?" y;  then
+    OPTS="$OPTS --enable-ftp"
+  fi
+
+  if  query   "Install imap support?" y; then
+    echo 'IMAP="y"' >> $MODULE_CONFIG
+  fi
+
+  if  query  "Enable transparant session id?" y;  then
+    OPTS="$OPTS --enable-trans-sid"
+  fi
+  
+  if  query  "Enable sockets support (experimental)?" y;  then
+    OPTS="$OPTS --enable-sockets"
+  fi
+
+  if  query  "Enable global variable support (potential security risk)?" n; then
+    echo  'REGGLOBALS="y"'  >>  $MODULE_CONFIG
+  fi
+
+  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+
+fi

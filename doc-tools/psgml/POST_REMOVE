@@ -1,0 +1,14 @@
+EMACSDIR=/usr/share/emacs/site-lisp
+
+SS=$EMACSDIR/site-start.el
+
+V=$VERSION
+if [ -e $SS ]
+then
+  if grep -q psgml-auto-setup-$V $SS
+  then
+     echo "clearing psgml-init reference from $SS"
+     grep -v psgml-auto-setup-$V $SS > $SS.new
+     mv $SS.new $SS
+  fi
+fi

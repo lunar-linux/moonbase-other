@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# ntop		The network traffic probe that shows the network usage
+#
+# chkconfig: 345 90 10
+# description: ntop daemon
+# processname: ntop
+# config:      /etc/config.d/ntop.conf
+
+if [ -f /etc/config.d/ntop.conf ]; then
+  . /etc/config.d/ntop.conf
+else
+  ARGS="--daemon --user nobody"
+fi
+
+start () {
+  if [ ! -f /var/ntop/addressCache.db ]; then
+    # cannot initialize the database because it prompts for a password
+    echo -e "Cannot initialize the database!"
+    echo -e "Pleas run ntop --set-admin-password=<pass>$RESULT_FAIL"
+    exit 1
+  fi
+  default_start
+}
+
+reload () {
+  default_restart
+}
+
+. /lib/lsb/init-functions
+

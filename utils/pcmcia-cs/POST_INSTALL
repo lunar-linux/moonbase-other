@@ -1,0 +1,4 @@
+if [ -e /etc/init.d/network ]; then
+    mv /etc/pcmcia/network /etc/pcmcia/network.old
+    ln -s /etc/init.d/network /etc/pcmcia/network
+fi;

@@ -1,0 +1,14 @@
+  echo "Fixing permissions on spool directories (Warnings are OK)"
+  checkpc -f
+
+  if [ ! -f /etc/printcap ]; then
+    install -m 644 printcap /etc/
+  fi
+  if [ ! -f /etc/lpd.conf ]; then
+    install -m 644 lpd.conf /etc/
+  fi
+  if [ ! -f /etc/lpd.perms ]; then
+    install -m 644 lpd.perms /etc/
+  fi
+
+  true

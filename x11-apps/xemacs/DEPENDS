@@ -1,0 +1,20 @@
+depends  jpeg         &&
+depends  libpng       &&
+depends  zlib         &&
+depends  gdbm         &&
+depends  db           &&
+depends  xemacs-base  &&
+depends  xemacs-efs   &&
+
+optional_depends  "lesstif"                                      \
+                  ""                                             \
+                  ""  \
+                  "for OSF/Motif standard GUI"
+optional_depends  "gtk+"                                      \
+                  "--with-gtk"                                             \
+                  ""  \
+                  "for EXPERIMENTAL gtk support GUI, known to be not okay"
+optional_depends  "gnome-libs"                                      \
+                  "--with-gnome"                                             \
+                  ""  \
+                  "for EXPERIMENTAL Gnome support GUI, known to be not okay"

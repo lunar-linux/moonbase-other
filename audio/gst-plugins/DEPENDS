@@ -1,0 +1,13 @@
+depends gstreamer &&
+depends gnome-vfs2 &&
+depends audiofile &&
+optional_depends "alsa-utils" "" "--disable-alsa" "for alsa support" &&
+optional_depends "vorbis-tools" "--enable-vorbis" "" "for ogg-vorbis support" &&
+optional_depends "aalib" "--enable-aalib" "" "for aalib support" &&
+optional_depends "cdparanoia" "--enable-cdparanoia" "" "for cd-r support" &&
+optional_depends "libdvdread" "--enable-dvdread" "" "for dvd support" &&
+optional_depends "esound" "--enable-esd" "" "for esound support" &&
+optional_depends "lame" "--enable-lame" "" "for lame mp3 support" &&
+optional_depends "libmikmod" "--enable-mikmod" "" "for libmikmod support" &&
+optional_depends "SDL" "--enable-sdl" "" "for SDL support" &&
+optional_depends "xmms" "--enable-xmms" "" "for xmms support" 

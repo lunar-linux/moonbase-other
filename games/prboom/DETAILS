@@ -1,0 +1,21 @@
+           MODULE=prboom
+         VERSION=2.2.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=doom-1.8.wad.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/prboom/$SOURCE
+  SOURCE2_URL[0]=ftp://ftp.idsoftware.com/idstuff/doom/$SOURCE2
+        WEB_SITE=http://prboom.sourceforge.net/
+         ENTERED=20011123
+         UPDATED=20011228
+      MAINTAINER=kongar@tsrsb.org.tr
+           SHORT="a portable POSIX Doom port"
+cat << EOF
+PrBoom is a game engine - it provides a program to play Doom levels, but 
+it doesn't include any levels itself. More importantly, you need all the 
+sounds, sprites, and other graphics that make up the Doom environment. 
+So to play PrBoom, you need one of the main Doom date files from id 
+Software - either doom.wad, doom2.wad, tnt.wad or plutonia.wad from one 
+of the commercial Doom games, or the shareware doom1.wad. This file 
+is called the IWAD.
+EOF

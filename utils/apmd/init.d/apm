@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# apm       The Advanded Power Management daemon
+#
+# chkconfig: 2345 80 20
+# description: apm daemon
+# processname: apmd
+# config: /etc/apmd_proxy
+
+if [ -f /etc/apmd_proxy ]; then
+  ARGS="-P /etc/apmd_proxy"
+fi
+
+reload () {
+	default_restart
+}
+
+. /lib/lsb/init-functions
+

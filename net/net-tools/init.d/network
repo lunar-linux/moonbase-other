@@ -1,0 +1,293 @@
+#! /bin/bash
+#
+# network       Bring up/down networking
+#
+# chkconfig: 345 10 90
+# description: Activates/Deactivates all network interfaces configured to \
+#              start at boot time.
+# probe: true
+
+shopt -s extglob
+CONFIGS=/etc/config.d/network
+IFCONFIG=/sbin/ifconfig
+IWCONFIG=/usr/sbin/iwconfig
+ROUTE=/sbin/route
+DHCPCD=/usr/sbin/dhcpcd
+DHCLIENT=/sbin/dhclient
+
+function device_start() {
+	if [ ! -e $CONFIGS/$1 ]; then
+	   echo "Missing config file for $1";
+	   exit 1;
+	fi;
+
+	# include config file for interface
+	. $CONFIGS/$1;
+
+	if ( [ ! -z $2 ] && [ $2 == auto ] ); then
+	    case $AUTO in
+		[!yY])
+		    return -2; 
+		;;
+	    esac;
+	fi;
+
+	# load module if specified
+	if [ ! -z $MODULE ]; then
+	    modprobe $MODULE;
+	fi;
+
+	if ( [ ! -z $WIRELESS_MODE ] || [ ! -z $WIRELESS_KEY ] || [ ! -z $WIRELESS_RATE ] || [ ! -z $WIRELESS_ESSID ] ); then
+		if [ ! -x $IWCONFIG ]; then
+		    echo "Wireless tools not installed";
+		    return -1;
+		fi;
+		if [ ! -z $WIRELESS_MODE ]; then
+		    /usr/sbin/iwconfig $1 mode $WIRELESS_MODE;
+		fi;
+		if [ ! -z $WIRELESS_KEY ]; then
+		    /usr/sbin/iwconfig $1 key $WIRELESS_KEY;
+		fi;
+		if [ ! -z $WIRELESS_RATE ]; then
+		    /usr/sbin/iwconfig $1 rate $WIRELESS_RATE;
+		fi;
+		if [ ! -z $WIRELESS_ESSID ]; then
+		    /usr/sbin/iwconfig $1 essid $WIRELESS_ESSID;
+		fi;
+	fi;
+
+	if [ -z $ADDRESS ]; then
+	    $IFCONFIG $1 up
+	    echo "Device $1: missing address";
+	    echo "Device $1: interface brought up but not configured";
+	    return -1;
+	fi;
+
+	case $ADDRESS in
+	    [dD][hH][cC][pP])
+	    	if [ -z $DHCP_CLIENT ]; then
+		    echo "Device $1: missing DHCP client";
+		    return -1;
+		fi;
+		case $DHCP_CLIENT in
+		    [dD][hH][cC][pP][cC][dD])
+		    	PIDFILE=/etc/dhcpc/dhcpcd-$1.pid
+			RUNFILE=$DHCPCD
+		    ;;
+		    [dD][hH][cC][lL][iI][eE][nN][tT])
+		        PIDFILE=/var/run/dhclient-$1.pid
+			RUNFILE=$DHCLIENT
+			DHCP_OPTIONS="$DHCP_OPTIONS -pf $PIDFILE -lf /var/state/dhcp/dhclient-$1.leases"
+		    ;;
+		esac
+		if [ ! -x $RUNFILE ]; then
+		    echo "$DHCP_CLIENT not installed";
+		    return -1;
+		fi;
+		if [ -e $PIDFILE ]; then
+		    if [ $(ps ax | grep `cat $PIDFILE` | grep -v grep | wc -l) -ge 1 ]; then
+		        echo "Device $1: already started";
+		        return -1;
+		    else
+		        rm -f $PIDFILE;
+		    fi;
+		fi;
+		$RUNFILE $DHCP_OPTIONS $1 >/dev/null 2>&1;
+		sleep 1;
+		if [ ! -e $PIDFILE ]; then
+		    echo "Device $1: DHCP failed";
+		    return -1;
+		fi;
+	    ;;
+	    ?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9])
+		if [ ! $1 == "lo" ] && [ $($IFCONFIG | grep $1 | wc -l) -ge 1 ]; then
+		    echo "Device $1: already started";
+		    return -1;
+		fi;
+		IFCONFIG_OPT="$1 $ADDRESS";
+		if [ ! -z $NETMASK ]; then
+		    IFCONFIG_OPT="$IFCONFIG_OPT netmask $NETMASK";
+		fi;
+		if [ ! -z $BROADCAST ]; then
+		    IFCONFIG_OPT="$IFCONFIG_OPT broadcast $BROADCAST";
+		fi;
+		$IFCONFIG $IFCONFIG_OPT >/dev/null 2>&1
+		if [ `$IFCONFIG | grep $ADDRESS | wc -l` -ne 1 ]; then
+		    echo "Device $1: failed to set address";
+		    return -1;
+		fi;
+		if [ ! -z $GATEWAY ]; then
+	    	    if [ ! -x $ROUTE ]; then
+		        echo "Device $1: missing $ROUTE";
+	    	    fi;
+		    $ROUTE add -host $GATEWAY $1;
+	    	    $ROUTE add default gateway $GATEWAY;
+	    	    if [ `$ROUTE -n | grep $GATEWAY | wc -l` -lt 1 ]; then
+			echo "Device $1: failed to set gateway";
+			return -1;
+	   	    fi;
+		fi;
+	    ;;
+	    *)
+		echo "Device $1: address not currently supported";
+	    ;;
+	esac
+	echo "Device $1: UP";
+	return 0;
+};
+
+function device_stop() {
+	if [ ! -e $CONFIGS/$1 ]; then
+	    echo "Missing config for $1";
+	    exit 1;
+	fi;
+
+	. $CONFIGS/$1;
+	
+	if ( [ ! -z $2 ] && [ $2 == auto ] ); then
+	    case $AUTO in
+		[!yY])
+		    return -2; 
+		;;
+	    esac;
+	fi;
+
+	case $ADDRESS in
+	    [dD][hH][cC][pP])
+	        case $DHCP_CLIENT in
+		    [dD][hH][cC][pP][cC][dD])
+		    	PIDFILE=/etc/dhcpc/dhcpcd-$1.pid
+		    ;;
+		    [dD][hH][cC][lL][iI][eE][nN][tT])
+		    	PIDFILE=/var/run/dhclient-$1.pid
+		    ;;
+		esac
+		if [ -e $PIDFILE ]; then
+	            kill `cat $PIDFILE`;
+		    if [ -e $PIDFILE ]; then
+		        rm -f $PIDFILE;
+		    fi;
+		    $IFCONFIG $1 down;
+		else
+		    case $AUTO in
+		        [!yY])
+		             echo "Device $1: not started";
+		             return -1;
+		        ;;
+		    esac
+	        fi;
+	    ;;
+	    ?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9])
+		if [ `$IFCONFIG | grep $1 | wc -l` -eq 1 ]; then
+		    $IFCONFIG $1 down;
+		else
+		    case $AUTO in
+			[!yY])
+			    echo "Device $1: not started";
+		    	    return -1;
+			;;
+		    esac
+		fi;
+	    ;;
+	    *)
+	    	$IFCONFIG $1 down
+	    ;;
+	esac
+	
+	if [ ! -z $MODULE ]; then
+	    modprobe -r $MODULE;
+	fi;
+	echo "Device $1: DOWN";
+	return 0;
+};
+
+export -f device_start device_stop;
+
+if [ ! -x $IFCONFIG ]; then
+    echo "Error: $IFCONFIG missing";
+    return -1;
+fi;
+
+case $1 in
+    start)
+    	# Add routing entry for loopback interface
+	if [ ! $($ROUTE -n | grep 127.0.0.0 | wc -l) -ge 1 ]; then
+		$IFCONFIG lo 127.0.0.1 netmask 255.0.0.0;
+		$ROUTE add -net 127.0.0.0 netmask 255.0.0.0 dev lo;
+	fi;
+
+	# Do startup for all interfaces if none is specified
+	if [ -z $2 ]; then
+	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
+		device_start $device auto
+	    done;
+	else
+	    device_start $2;
+	fi;
+    ;;
+
+    stop)
+	if [ -z $2 ]; then
+	    for device in `$IFCONFIG | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
+		device_stop $device auto;
+	    done;
+	else
+	    device_stop $2;
+	fi;
+    ;;
+
+    restart)
+	if [ -z $2 ]; then
+	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
+		device_stop $device auto;
+		device_start $device auto;
+	    done;
+	else
+	    device_stop $2;
+	    device_start $2;
+	fi;
+    ;;
+
+    switch-profile)
+	# Quick instructions
+	# 1. make config files in the form of interface-profile for each interface and profile
+	#        (e.g. /etc/config.d/network/eth0-home)
+	# 2. remove the config file for the device (e.g. /etc/config.d/network/eth0)
+	# 3. run /etc/init.d/network switch-profile (profile)
+	# 4. enjoy!
+	if [ ! -z $2 ]; then
+	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
+		device_stop $device;
+	    done;
+	    for dev in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
+		if [ -e $CONFIGS/$dev-$2 ] ; then
+		    if [ -h $CONFIGS/$dev ]; then
+			rm -f $CONFIGS/$dev;
+			ln -s $CONFIGS/$dev-$2 $CONFIGS/$dev;
+		    else
+			echo "Device $dev: static config, skipped";
+		    fi;
+		else
+		    echo "Device $dev: missing config for profile $2";
+		fi;
+	    done;
+	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq` ; do
+		device_start $device auto;
+	    done;
+	else
+	    echo "Usage: $0 switch-profile profile";
+	fi;
+    ;;
+
+    suspend)
+    ;;
+
+    resume)
+    ;;
+
+    *)
+	echo "Usage: $0 {start|stop|restart|suspend|resume} [device]";
+	echo "       $0 switch-profile profile";
+    ;;
+esac
+exit 0;

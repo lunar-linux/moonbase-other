@@ -1,0 +1,32 @@
+if  !  module_installed emacs &&
+    !  module_installed vim
+then
+
+message "Choose emacs with psgml and/or vim for editing docbook code"
+
+    optional_depends  "emacs" "" "" "for editing docbook code"
+    optional_depends  "vim"   "" "" "for editing docbook code"
+fi
+
+if module_installed emacs
+then
+    message ""
+    message "Emacs detected!"
+    message ""
+    message "Checking for major-mode psgml which is essential for docbook work!"
+    message ""
+    depends psgml
+fi
+
+depends  sgml-common          &&
+depends  openjade             &&
+depends  SGMLSpm              &&
+depends  docbook-dsssl        &&
+depends  docbook-dtd30-sgml   &&
+depends  docbook-dtd31-sgml   &&
+depends  docbook-dtd41-sgml   &&
+depends  docbook-dtd-xml      &&
+depends  docbook-xsl          &&
+depends  docbook-utils        &&
+depends  docbook-book         &&
+optional_depends  "linuxdoc-tools" "" "" "These are the old linuxdoc tools. You may or may not need them!"

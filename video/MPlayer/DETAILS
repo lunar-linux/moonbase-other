@@ -1,0 +1,42 @@
+           MODULE=MPlayer
+         VERSION=0.90pre6
+        #VERSION=0.90pre5
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=mp-arial-iso-8859-1.zip
+         SOURCE3=mp-arial-iso-8859-2.zip
+         SOURCE4=BlueHeart.tar.bz2
+         SOURCE5=Cyrus.tar.bz2
+         SOURCE6=MidnightLove.tar.bz2
+         SOURCE7=WindowsMediaPlayer6.tar.bz2
+         SOURCE8=avifile.tar.bz2
+         SOURCE9=default.tar.bz2
+        SOURCE10=neutron.tar.bz2
+        SOURCE11=plastic.tar.bz2
+        SOURCE12=xanim.tar.bz2
+        SOURCE13=xine-lcd.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://mplayerhq.hu/$MODULE/releases/$SOURCE
+  SOURCE2_URL[0]=ftp://mplayerhq.hu/$MODULE/releases/$SOURCE2
+  SOURCE3_URL[0]=ftp://mplayerhq.hu/$MODULE/releases/$SOURCE3
+  SOURCE4_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE4
+  SOURCE5_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE5
+  SOURCE6_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE6
+  SOURCE7_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE7
+  SOURCE8_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE8
+  SOURCE9_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE9
+ SOURCE10_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE10
+ SOURCE11_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE11
+ SOURCE12_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE12
+ SOURCE13_URL[0]=ftp://mplayerhq.hu/$MODULE/Skin/$SOURCE13
+        WEB_SITE=http://www.mplayerhq.hu
+         ENTERED=20010922
+         UPDATED=20020809
+           SHORT="MPlayer is a movie and animation player."
+cat << EOF
+MPlayer is a movie and animation player based on the 0.90pre5 version of
+MPEGplayer and the Avifile library. It uses mpeg2dec/libmpeg2 for MPEG
+decoding. The supported file formats are: MPEG 1/2 (MPG, DAT, BIN, VOB)
+and AVI (Mpeg/PCM/AC3/DivX/MS-ADPCM/aLaw audio and MPEG4/DivX/Indeo/CVID
+video codecs). It supports hardware YUV colorspace conversion and
+scaling via mga_vid/syncfb devices or the X11 Xv extension.
+EOF

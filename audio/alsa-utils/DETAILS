@@ -1,0 +1,22 @@
+           MODULE=alsa-utils
+         VERSION=0.9.0rc2
+         #VERSION=0.5.10
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://ftp.alsa-project.org/pub/utils/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.silug.org/pub/alsa/utils/$SOURCE
+   SOURCE_URL[2]=ftp://ftp.sunet.se/pub/Linux/alsa/utils/$SOURCE
+        WEB_SITE=http://www.alsa-project.org/
+         ENTERED=20010922
+         UPDATED=20020424
+           SHORT="ALSA utilities provides some sound programs that use the Advanced Linux Sound Architecture."
+cat << EOF
+ALSA utilities provides these sound programs that use the Advanced Linux Sound Architecture API.
+alsamixer - Native, curses-based mixer
+amixer    - Native command-line mixer
+aplay     - Simple, native command-line PCM (wav,au,raw,voc) player
+arecord   - Simple, native command-line PCM recorder
+aconnect  - ALSA sequencer connection manager
+aseqnet   - ALSA sequencer connectors over network
+alsactl   - Saves/restores mixer settings to/from /etc/asound.state
+EOF

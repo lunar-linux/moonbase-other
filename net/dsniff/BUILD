@@ -1,0 +1,7 @@
+(
+cd $SOURCE_DIRECTORY &&
+./configure &&
+sedit "s/#define HAVE_SYS_QUEUE_H/\/\//" config.h &&
+make &&
+make install
+) > $C_FIFO

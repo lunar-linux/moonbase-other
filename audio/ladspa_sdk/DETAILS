@@ -1,0 +1,20 @@
+           MODULE=ladspa_sdk
+         VERSION=0.02.03.31
+#version added by maintainer
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL[0]=http://www.lunar-linux.org/lunar/mirrors/$SOURCE
+        WEB_SITE=http://www.ladspa.org/
+      MAINTAINER=scarecrow.143@attbi.com
+         ENTERED=20020331
+         UPDATED=20020331
+           SHORT="ladspa Linux Audio Developers Simple API."
+cat << EOF
+LADSPA: Linux Audio Developers Simple API. Many audio synthesis and
+recording packages are in use or in development on Linux. These work in
+many different ways. LADSPA provides a standard way for 'plugin' audio
+processors to be used with a wide range of these packages. For instance,
+this allows a developer to make a reverb program and bundle it into a
+LADSPA plugin library. Ordinary users can then use this reverb within
+any LADSPA-friendly audio application.  
+EOF

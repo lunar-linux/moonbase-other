@@ -1,0 +1,22 @@
+(
+#the below is necessary for procps to compile with the new
+#optimization code.
+  unset BUILD
+#
+  make                                &&
+  prepare_install                     &&
+  make  -e XSCPT='' PROCDIR=/bin USRBINDIR=/bin DESTDIR=/ MANDIR=/usr/share/man install
+
+) > $C_FIFO 2>&1  &&  (
+
+if [ -e /etc/init.d/sysctl.sh ]; then
+   rm -f /etc/init.d/sysctl.sh
+   rm -f /etc/rcS.d/S99sysctl
+   cp  $SCRIPT_DIRECTORY/init.d/sysctl  /etc/init.d
+   ln  -sf     ../init.d/sysctl  /etc/rcS.d/S99sysctl
+else
+  cp  $SCRIPT_DIRECTORY/init.d/sysctl  /etc/init.d
+  ln  -sf     ../init.d/sysctl  /etc/rcS.d/S99sysctl
+fi
+
+)

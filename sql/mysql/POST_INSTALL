@@ -1,0 +1,12 @@
+TMPFS=`mount | grep "/tmp"`
+echo $TMPFS | grep -q ^tmpfs && {
+cat << END
+
+if /tmp is tmpfs and if mysql is being used against big 
+tables (> 2G) there is a big possibility of data/index 
+corruption, especially on myisamchk.
+
+Consider mounting /tmp on a regular file system
+
+END
+}

@@ -1,0 +1,35 @@
+#####
+#From: ian@linuxcare.com (Ian Macdonald)
+#Newsgroups: comp.unix.shell
+#Subject: More bash 2.04 completions
+#Date: 12 Aug 2000 09:53:40 GMT
+#Organization: Linuxcare, Inc.
+#Lines: 274
+#Message-ID: <slrn8pa7l2.jgm.ian@lovelorn.linuxcare.com>
+#Reply-To: ian@linuxcare.com
+#####
+
+# Turn on extended globbing
+shopt -s extglob
+
+# cvs(1) completion
+#
+_cvs ()
+{
+	local cur prev
+
+        COMPREPLY=()
+        cur=${COMP_WORDS[COMP_CWORD]}
+        prev=${COMP_WORDS[COMP_CWORD-1]}
+
+	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
+		COMPREPLY=( $( compgen -W 'add admin checkout commit diff \
+		export history import log rdiff release remove rtag status \
+		tag update' $cur ))
+	else
+		COMPREPLY=( $( compgen -f $cur ))
+	fi
+	return 0
+}
+complete -F _cvs cvs
+

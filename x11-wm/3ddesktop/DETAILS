@@ -1,0 +1,33 @@
+          MODULE=3ddesktop
+         VERSION=0.2.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.systemtoolbox.com/bard/3ddesktop/dl/$SOURCE
+        WEB_SITE=http://www.systemtoolbox.com/bard/3ddesktop/
+         ENTERED=20020501
+         UPDATED=20020808
+      MAINTAINER=kongar@tsrsb.org.tr
+           SHORT="3ddeskop is for switching virtual desktops"
+cat << EOF
+3ddestkop is an OpenGL program for switching virtual desktops 
+in a seamless 3-dimensional manner.
+
+To setup:
+   Run the daemon:
+        /usr/bin/3ddeskd --acquire
+     The --acquire will cycle to all your virtual desktops
+     and grab an image for displaying. *Don't be alarmed!*
+
+   Bind a key to the client:
+        /usr/bin/3ddesk
+
+   Pressing key binding (running 3ddesk) activates
+
+
+Add a global keybinding ("shortcut") via the window manager to run
+/usr/bin/3ddesk.  Something like C-M-s (Control-Meta/Alt-s) or
+whatever won't conflict with anything else.  When you press this key
+combination 3ddesk signals 3ddeskd to start up and it zooms out to
+show you the "3d visualization" of your desktop.  Then you select the
+screen you want to switch to by pressing ENTER.
+EOF

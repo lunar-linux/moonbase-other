@@ -1,0 +1,13 @@
+message  "${MESSAGE_COLOR}If Linux-PAM is being installed for"  \
+         "the first time then all installed or held pam aware"  \
+         "MODULEs should be re-lin for them to use Linux-PAM"   \
+         "to authenticate.${DEFAULT_COLOR}"
+
+if    query  "Re-lin all Linux-PAM aware MODULEs?" n
+then  RElin_PAM_AWARE="y"
+else  RElin_PAM_AWARE="n"
+fi
+
+TEMP=`grep  -v  "RElin_PAM_AWARE="             $MODULE_CONFIG`
+echo  "$TEMP"                               >   $MODULE_CONFIG
+echo  "RElin_PAM_AWARE=$RElin_PAM_AWARE"  >>  $MODULE_CONFIG

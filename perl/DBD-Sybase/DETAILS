@@ -1,0 +1,23 @@
+           MODULE=DBD-Sybase
+         VERSION=0.93
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.mbay.net/~mpeppler/DBD/$SOURCE
+        WEB_SITE=http://www.mbay.net/~mpeppler/
+         ENTERED=20011108
+         UPDATED=20011108
+           SHORT="the Sybase DBD modules for perl DBI"
+cat << EOF
+I now have a reasonably complete implementation of the DBI API for 
+Sybase in the DBD::Sybase module. It isn't 100% compliant yet.  
+It is an alpha release, so test thoroughly before using, and be
+forwarned that certain aspects of the Sybase specific section of the
+API (Sybase specific attributes, for example) could change in future 
+versions (although it's unlikely). For more info on DBI try
+http://dbi.perl.org. Please help make this module better - report any
+problems you get so that I can try to fix the problems 
+(it's even better if you add include a patch that fixes the problem!) 
+
+Note: you can check for patches and experimental versions at 
+http://www.peppler.org/downloads
+EOF

@@ -1,0 +1,17 @@
+          MODULE=neomail
+         VERSION=1.25
+          SOURCE=$MODULE-${VERSION}.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/sourceforge/neomail/$SOURCE
+        WEB_SITE=http://neomail.sourceforge.net/
+      MAINTAINER=kongar@tsrsb.org.tr
+         ENTERED=20020507
+         UPDATED=20020507
+           SHORT="neomail is a web-based e-mail client"
+cat << EOF
+NeoMail is a web-based e-mail client that can be installed on 
+any UNIX mail server that is also running a web server.  
+It requires Perl 5, suidperl (included with Perl, or unneeded 
+if you have secure suid script support in your UNIX kernel), 
+and a current version of the CGI and MD5 Perl modules.
+EOF

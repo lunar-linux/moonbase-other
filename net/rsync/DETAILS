@@ -1,0 +1,19 @@
+           MODULE=rsync
+         VERSION=2.5.5
+#         VERSION=2.5.4
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://rsync.samba.org/ftp/rsync/$SOURCE
+   SOURCE_URL[1]=ftp://rsync.samba.org/pub/rsync/$SOURCE
+#   SOURCE_URL[0]=http://www.lunar-penguin.org/lunar/$SOURCE
+        WEB_SITE=http://rsync.samba.org
+         ENTERED=20010922
+         UPDATED=20020422
+           SHORT="rsync is a replacement for rcp."
+cat << EOF
+rsync is a replacement for rcp (and scp) that has many more features.
+It uses the "rsync algorithm" which provides a very fast method for
+remote files into sync. It does this by sending just the differences in
+the files across the link, without requiring that both sets of files are
+present at one of the ends of the link beforehand.
+EOF

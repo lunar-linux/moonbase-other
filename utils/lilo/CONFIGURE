@@ -1,0 +1,8 @@
+if  !  grep  -q  "RUN_LILO"  $MODULE_CONFIG;  then
+
+  if    query  "Run LILO automatically upon LILO upgrades?" n
+  then  echo   "RUN_LILO=y"  >>  $MODULE_CONFIG
+  else  echo   "RUN_LILO=n"  >>  $MODULE_CONFIG
+  fi
+
+fi

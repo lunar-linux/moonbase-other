@@ -1,0 +1,19 @@
+          MODULE=psgml
+         VERSION=1.2.5
+	  SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=psgml-init.el.in
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://ftp.lysator.liu.se/pub/sgml/$SOURCE
+   SOURCE_URL[1]=http://lunar-linux.org/lunar/mirrors/docbook/$SOURCE
+  SOURCE2_URL[0]=ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/$SOURCE2
+  SOURCE2_URL[1]=http://lunar-linux.org/lunar/mirrors/docbook/$SOURCE2
+        WEB_SITE=http://www.lysator.liu.se/projects/about_psgml.html
+         ENTERED=20020630
+         UPDATED=20020719
+      MAINTAINER=csm@moongroup.com
+           SHORT="PSGML emacs mode for SGML editing"
+cat << EOF
+ Emacs is an advanced and extensible editor. A Major Mode customizes Emacs for editing text of a particular sort. PSGML is a major mode for SGML documents.
+
+ PSGML has several functions for editing SGML documents. Indentation according to element nesting depth and identification of structural errors (but it is not a validating SGML parser). Menus and commands for inserting tags with only the contextually valid tags. Attribute values can be edited in a separate window with information about types and defaults. Structure based editing includes movement and killing; and also several commands for folding editing. 
+EOF

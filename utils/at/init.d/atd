@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+#       /etc/init.d/atd
+#
+# Starts the at daemon
+#
+# chkconfig: 345 95 5
+# description: Runs commands scheduled by the at command at the time \
+#    specified when at was run, and runs batch commands when the load \
+#    average is low enough.
+# processname: atd
+
+ATD_PID=/var/run/atd.pid
+
+case $1 in
+   start|restart) echo   "$1ing atd periodic scheduler."
+                  [ -e "$ATD_PID" ] && kill `cat $ATD_PID`
+		  atd
+		  ;;
+
+	stop)     echo   "$1ping atd."
+                  [ -e "$ATD_PID" ] && kill `cat $ATD_PID`
+                  ;;
+           *)     echo   "Usage: $0 {start|stop|restart}"
+                  ;;
+esac

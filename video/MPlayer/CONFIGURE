@@ -1,0 +1,8 @@
+if  !  grep  -q  "GUI"  $MODULE_CONFIG;  then
+
+  if    query  "Enable GUI support?" y
+  then  echo   "GUI=y"  >>  $MODULE_CONFIG
+  else  echo   "GUI=n"  >>  $MODULE_CONFIG
+  fi
+
+fi

@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# chkconfig: 2345 85 15
+# description: GPM adds mouse support to text-based Linux applications such \
+#              the Midnight Commander. Is also allows mouse-based console \
+#              cut-and-paste operations, and includes support for pop-up \
+#              menus on the console.
+# processname: gpm
+# pidfile: /var/run/gpm.pid
+# config: /etc/config.d/mouse
+
+. /lib/lsb/init-functions
+. /etc/config.d/mouse
+
+GPMPID="/var/run/gpm.pid"
+
+case $1 in
+          start)
+		  [ -e "$GPMPID" ] && kill `cat $GPMPID` && rm -f $GPMPID
+		  gpm $OPTIONS -t $MOUSETYPE -m $DEVICE
+                  ;;
+           stop)
+                  [ -e "$GPMPID" ] && kill `cat $GPMPID` && rm -f $GPMPID
+		  ;;
+        restart) 
+	          $0 stop;
+		  $0 start;
+		  ;;
+              *)  
+esac

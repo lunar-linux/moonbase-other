@@ -1,0 +1,22 @@
+          MODULE=aide
+         VERSION=0.8
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.cs.tut.fi/~rammer/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.cs.tut.fi/pub/src/gnu/$SOURCE
+        WEB_SITE=http://www.cs.tut.fi/~rammer/aide.html
+         ENTERED=20011207
+         UPDATED=20020418
+      MAINTAINER=kongar@tsrsb.org.tr
+           SHORT="AIDE (Advanced Intrusion Detection Environment) is a file integrity checker"
+cat << EOF
+AIDE (Advanced Intrusion Detection Environment) is a file integrity
+checker. It creates a database from the regular expression rules that it
+finds from the config file. Once this database is initialized it
+can be used to verify the integrity of the files. It has several 
+message digest algorithms (md5,sha1,rmd160,tiger,haval,etc.) that 
+are used to check the integrity of the file. More algorithms can 
+be added with relative ease. All of the usual file attributes can 
+also be checked for inconsistencies. It can read databases from older 
+or newer versions.
+EOF

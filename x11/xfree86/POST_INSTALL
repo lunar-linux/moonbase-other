@@ -1,0 +1,6 @@
+rm  -f  $BOOST_LOCK
+if    module_installed  NVIDIA_GLX;  then  lin  NVIDIA_GLX;  fi
+
+if ! grep -q '. /etc/profile' /etc/X11/xdm/Xsession; then
+  sedit 2s:#:.\ /etc/profile: /etc/X11/xdm/Xsession
+fi

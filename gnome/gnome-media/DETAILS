@@ -1,0 +1,18 @@
+           MODULE=gnome-media
+         VERSION=1.2.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$GNOME_URL/stable/sources/$MODULE/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.gnome.org/pub/GNOME/stable/sources/$MODULE/$SOURCE
+        WEB_SITE=http://www.gnome.org
+         ENTERED=20010922
+         UPDATED=20010922
+           SHORT="gnome-media provides audio utilities for GNOME."
+cat << EOF
+These are the GNOME media tools.
+gtcd/           - GNOME CD player, with CDDB support.
+cddbslave/      - Helper daemon for Tcd's CDDB support.
+gmix/           - GNOME audio mixer for OSS devices.
+vumeter/        - ESD volume level meter
+grecord/        - GNOME Sound recorder.
+EOF

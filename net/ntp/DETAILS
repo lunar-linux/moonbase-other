@@ -1,0 +1,28 @@
+           MODULE=ntp
+         VERSION=4.1.1a
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.udel.edu/pub/ntp/ntp4/$SOURCE
+   SOURCE_URL[2]=http://uiarchive.uiuc.edu/mirrors/ftp/ftp.udel.edu/pub/ntp/ntp4/$SOURCE
+        WEB_SITE=http://www.eecis.udel.edu/~ntp
+         ENTERED=20011004
+         UPDATED=20020628
+           SHORT="ntp syncs your time with an ntp server "
+cat << EOF
+NTP (Network Time Protocol) tries to keep servers in sync
+
+Very usefull with GPS timesources, but typically used in a third
+level setup to your ISP (Which typicall syncs to a first level timesource)
+
+Several methods, use "ntpd -g -q ntp.server.dom" in a crontab
+(or after connecting), or create /etc/ntp.conf and start "ntpd -g"
+
+The -g is needed to enable a big step, otherwise it takes too long to sync.
+
+Note: issue the "ntpd -g" command ASAP after the network is initialized,
+and check out ntp-wait to not have it take too long to sync in why other
+server's starts (and their logs get bad).
+It's fastest slew rate is 0.5ms/sec, ie. 2000 secs to fix a secon
+
+EOF

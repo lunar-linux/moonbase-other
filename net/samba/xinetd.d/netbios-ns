@@ -1,0 +1,9 @@
+service netbios-ns
+{
+	socket_type	= dgram
+	protocol	= udp
+	wait		= yes
+	user		= root
+	group		= root
+	server		= /usr/sbin/nmbd
+}

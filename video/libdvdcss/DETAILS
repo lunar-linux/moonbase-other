@@ -1,0 +1,27 @@
+           MODULE=libdvdcss
+        VERSION=1.2.1
+         SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+  SOURCE_URL[0]=http://www.videolan.org/pub/videolan/$MODULE/$VERSION/$SOURCE
+#   SOURCE_URL[0]=http://www.dtek.chalmers.se/groups/dvd/dist/$SOURCE
+        WEB_SITE=http://www.videolan.org
+         ENTERED=20010927
+         UPDATED=20020602
+           SHORT="libdvdcss is a library for DVD CSS decrpytion."
+cat << EOF
+libdvdcss is a cross-platform library for transparent DVD device
+access with on the fly CSS decryption. It currently runs under Linux, 
+FreeBSD, BSD/OS, Solaris, BeOS, Win98 and Win2k. It is used for the
+vlc DVD player because of its portability and because, unlike similar 
+libraries, it does not require your DVD drive to be region-locked.
+
+There are new features in libdvdcss with the 1.2.1 release. 
+You have to choose your decryption method with a run time environment variable:
+
+export DVDCSS_METHOD=title
+export DVDCSS_METHOD=disc
+export DVDCSS_METHOD=key
+
+Reportedly the "key" method will work the same way things did before.
+
+EOF

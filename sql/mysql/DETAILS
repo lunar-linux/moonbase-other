@@ -1,0 +1,18 @@
+          MODULE=mysql
+         VERSION=3.23.52
+        #VERSION=3.23.52
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_MD5="88705b7f38e64b5c21ebb68c77b75e5a"
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://mysql.fastmirror.com/Downloads/MySQL-3.23/$SOURCE
+   SOURCE_URL[1]=$SFORGE_URL/$MODULE/$SOURCE
+        WEB_SITE=http://www.mysql.com
+         ENTERED=20011114
+         UPDATED=20020815
+           FUZZY=off
+           SHORT="MySQL is a widely used and fast SQL database server."
+cat << EOF
+MySQL is a widely used and fast SQL database server. It is a
+client/server implementation that consists of a server daemon (mysqld)
+and many different client programs/libraries.
+EOF

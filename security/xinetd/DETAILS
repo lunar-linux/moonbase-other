@@ -1,0 +1,21 @@
+          MODULE=xinetd
+         VERSION=2.3.7
+        #VERSION=2.3.6
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.xinetd.org/$SOURCE
+        WEB_SITE=http://www.xinetd.org
+         ENTERED=20010922
+         UPDATED=20020812
+           SHORT="xinetd is a replacement for inetd, the internet services daemon."
+cat << EOF
+xinetd is a replacement for inetd, the internet services daemon. Anybody
+can use it to start servers that don't require privileged ports because
+xinetd does not require that the services in its configuration file be
+listed in /etc/services. It can do access control on all services based
+on the address of the remote host and time of access. Access control
+works on all services, whether multi-threaded or single-threaded and for
+both the TCP and UDP protocols. xinetd supports both internal access
+control, and the use of the libwrap library. IPv6 with access control is
+also supported.
+EOF

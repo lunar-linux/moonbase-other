@@ -1,0 +1,8 @@
+if ! grep -q "MAILNEWS" $MODULE_CONFIG; then
+
+ if query "Enable Mail and News Clients?" y
+ then echo "MAILNEWS=y" >> $MODULE_CONFIG
+ else echo "MAILNEWS=n" >> $MODULE_CONFIG
+ fi
+
+fi

@@ -1,0 +1,16 @@
+           MODULE=dd_rescue
+         VERSION=1.02
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL[0]=http://www.garloff.de/kurt/linux/ddrescue/$SOURCE
+        WEB_SITE=http://www.garloff.de/kurt/linux/ddrescue/
+         ENTERED=20020420
+         UPDATED=20020420
+      MAINTAINER="jacksonje@health.missouri.edu"
+           SHORT="dd_rescue copies data and can handle bad media."
+cat << EOF
+Like dd, dd_rescue copies data from one file or block device to another.
+You can specify file positions (called seek and Skip in dd). However, 
+dd_rescue does not abort on errors. It can also copy starting from the end
+of a file.
+EOF

@@ -1,0 +1,7 @@
+if  !  grep  -q  "LIRC_BOOT="  $MODULE_CONFIG;  then
+  if    query  "Invoke Lirc during boot?" y
+  then  echo   "LIRC_BOOT=y"  >>  $MODULE_CONFIG
+  else  echo   "LIRC_BOOT=n"  >>  $MODULE_CONFIG
+  fi
+fi
+

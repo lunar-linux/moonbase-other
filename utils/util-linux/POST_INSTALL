@@ -1,0 +1,20 @@
+if ! [ -d /etc/init.d ]; then
+     mkdir -p /etc/init.d
+fi
+
+if [ -s /etc/init.d/bootmisc.sh ]; then
+   mv /etc/init.d/bootmisc.sh /etc/init.d/bootmisc
+   rm -f /etc/rcS.d/S99bootmisc
+   ln -s /etc/init.d/bootmisc /etc/rcS.d/S99bootmisc
+fi
+
+if ! [ -e /etc/init.d/bootmisc  ];  then
+  cp  $SCRIPT_DIRECTORY/init.d/bootmisc  /etc/init.d
+  rm -f /etc/rcS.d/S99bootmisc
+  ln -s /etc/init.d/bootmisc /etc/rcS.d/S99bootmisc
+fi
+
+if [ ! -e /etc/rcS.d/S99bootmisc ] ; then
+  ln -s /etc/init.d/bootmisc /etc/rcS.d/S99bootmisc
+fi
+

@@ -1,0 +1,11 @@
+(   
+
+  sedit 's/usr\/local/usr/' Makefile  &&
+  make logos-all                      &&
+  prepare_install                     &&
+  make install
+
+) > $C_FIFO 2>&1
+
+
+

@@ -1,0 +1,21 @@
+           MODULE=xzgv
+         VERSION=0.7
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://xzgv.browser.org/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.ibiblio.org/pub/Linux/apps/graphics/viewers/X/$SOURCE
+        WEB_SITE=http://xzgv.browser.org
+         ENTERED=20020516
+         UPDATED=20020516
+      MAINTAINER=tpchan@attbi.com
+           SHORT="Handy, smaller, image viewer, many formats, thumbnails"
+cat << EOF
+xzgv is a picture viewer for X, with a thumbnail-based file selector.  It uses
+gtk+ and imlib.  Most file formats are supported and the thumbnails used are
+compatible with xv, zgv, and the Gimp.  xzgv differs from other picture viewers
+for X in that is uses one window for both the file selector and viewer, it
+(unlike xv) allows both scrolling and fit-to-window methods of view large
+pictures, and it (unlike xv and some others) doesn't ever mangle the picture's
+aspect ration without you telling it to.  Extensive keyboard support.
+xzgv has a fair amount in common with the author's original svgalib-based zgv.
+EOF

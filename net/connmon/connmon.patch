@@ -1,0 +1,12 @@
+diff  -u  connmon-0.8.0/src/connmon/Makefile connmon-0.8.0/src/connmon/Makefile
+--- connmon-0.8.0/src/connmon/Makefile	Mon Nov 19 09:51:41 2001
++++ connmon-0.8.0/src/connmon/Makefile	Mon Nov 19 09:51:59 2001
+@@ -21,7 +21,7 @@
+ 	rm -f *.o connmon config.c
+ 
+ connmon: $(LDOBJS)
+-	$(CC) $(CFLAGS) -o connmon $(LDFLAGS) $(LDOBJS)
++	$(CC) $(CFLAGS) -o connmon  $(LDOBJS) $(LDFLAGS)
+ 
+ %.o: %.c connmon.h curses-util.h
+ 	$(CC) $(CFLAGS) -c $<

@@ -1,0 +1,13 @@
+if module_installed  libdvdread; then lin -c -r libdvdread; fi
+
+echo " "
+echo " "
+cat << EOF
+Do not forget to set the DVDCSS_METHOD environment variable.
+Following are the possible options:
+
+export DVDCSS_METHOD=title
+export DVDCSS_METHOD=disc
+export DVDCSS_METHOD=key
+
+EOF

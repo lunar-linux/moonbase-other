@@ -1,0 +1,8 @@
+centralized="/etc/sgml/docbook.cat"
+
+if ! [ -e "$centralized" ]; then
+     echo "Creating $centralized!" 
+     touch $centralized
+fi
+
+/usr/bin/install-catalog --add $centralized /usr/share/sgml/sgml-iso-entities-8879.1986/catalog

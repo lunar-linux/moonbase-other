@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# portmap
+#
+# chkconfig: 345 31 88
+# description: the portmapper is the RPC port broker
+#
+
+ID=`pgrep -u daemon portmap`
+EX=`which portmap`
+
+case $1 in
+  start|restart)  echo "$1ing portmap."
+                  if [ -n "$ID" ]; then 
+			  kill -9  $ID
+                          sleep 2
+                          exec $EX
+                          exit 0
+		  fi
+                  exec $EX
+                  exit 0
+                  ;;
+
+           stop)  echo "$1ping portmap."
+	          if [ -n "$ID" ]; then
+		          kill -9  $ID
+                          exit 0
+		  fi
+                  ;;
+
+              *)  echo  "Usage: $0 {start|stop|restart}"
+                  ;;
+esac

@@ -1,0 +1,18 @@
+          MODULE=audiofile
+         VERSION=0.2.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+# sunet is not upgraded
+#SOURCE_URL[0]=ftp://ftp.sunet.se/pub/X11/GNOME/stable/sources/$MODULE/$SOURCE
+   SOURCE_URL[0]=ftp://oss.sgi.com/projects/audiofile/download/$SOURCE
+   SOURCE_URL[1]=ftp://www.netsw.org/audio/libs/$SOURCE
+        WEB_SITE=http://oss.sgi.com/projects/audiofile
+      MAINTAINER=scarecrow.143@attbi.com
+         ENTERED=20010922
+         UPDATED=20020404
+           SHORT="audiofile provides a uniform API for accessing standard digital audio formats." 
+cat << EOF
+The Silicon Graphics Audio File Library provides a uniform and elegant
+API for accessing standard digital audio file formats, such as
+AIFF/AIFF-C, WAVE, and NeXT/Sun .snd/.au.
+EOF

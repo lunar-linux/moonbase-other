@@ -1,0 +1,15 @@
+           MODULE=x86info
+         VERSION=1.7
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+        WEB_SITE=http://sourceforge.net/projects/x86info/
+         ENTERED=20011122
+         UPDATED=20011218
+           SHORT="x86info probes the CPU registers"
+cat << EOF
+Unlike other cpuinfo tools which just parse /proc/cpuinfo, x86info
+probes the CPU registers to find out a lot more information. It can
+discover the contents of model-specific registers, discover CPU silicon
+revisions, and lots more.
+EOF

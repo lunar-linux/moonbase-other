@@ -1,0 +1,8 @@
+if  !  grep  -q  "CUSTOM="  $MODULE_CONFIG;  then
+
+  if    query  "Would you like to edit the makefile?"  n
+  then  echo   "CUSTOM=y"  >>  $MODULE_CONFIG
+  else  echo   "CUSTOM=n"  >>  $MODULE_CONFIG
+  fi
+
+fi

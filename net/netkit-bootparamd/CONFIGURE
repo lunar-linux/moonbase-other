@@ -1,0 +1,8 @@
+if  !  grep  -q  "BOOTPARAMD_BOOT="  $MODULE_CONFIG;  then
+
+  if    query  "Invoke BOOTPARAMD at boot?" n
+  then  echo   "BOOTPARAMD_BOOT=y"  >>  $MODULE_CONFIG
+  else  echo   "BOOTPARAMD_BOOT=n"  >>  $MODULE_CONFIG
+  fi
+
+fi
