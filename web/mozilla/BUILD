@@ -34,6 +34,7 @@
   export MOZ_NSS_AUTOCONF=1
   export NATIVE_THEME_SUPPORT=1
   export MOZILLA_USE_XFT=1
+  export BUILD_OPT=1
   export MOZ_INTERNAL_LIBART_LGPL=1
 
   echo "$OPTS $EXTENTIONS" > /tmp/mozz
