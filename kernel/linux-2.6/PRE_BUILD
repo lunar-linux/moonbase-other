@@ -1,4 +1,4 @@
-# Bail if we're not running a core with kernel functions
+# Bail if we're not running a core with kernel fuctions
 
 if [ ! -e $FUNCTIONS/kernel.lunar ] ; then
   message "${PROBLEM_COLOR}Bailing out, ${DEFAULT_COLOR}Lunar (or theedge) code version too old"
@@ -25,6 +25,3 @@ if  [ -f $CONFIG_CACHE/.config.2.6.stable ]; then
 elif [ -f $CONFIG_CACHE/.config.beta ]; then
     cp $CONFIG_CACHE/.config.beta $BUILD_DIRECTORY/linux/.config;
 fi
-
-( cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY/ && bunzip2 $SOURCE2 ) &&
-patch_it patch-$VERSION 1
