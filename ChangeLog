@@ -1,3 +1,55 @@
+2004-11-06 13:35  florin
+
+	* games/penguin-command/DETAILS: bump the version from 1.6.6 to
+	  1.6.8.
+
+2004-11-06 11:15  nestu
+
+	* kernel/linux-2.6-mm/: DETAILS, PRE_BUILD: 2.6.9,mm1 ->
+	  2.610rc1mm3. gcc 3.3.3, glibc 2.3.2, headers 2.6.9.1 mm1 and mm2
+	  were not commited since their compile b0rked (truncating the
+	  kernel image)
+
+2004-11-05 20:58  sofar
+
+	* utils/discover/BUILD: Bah
+
+2004-11-05 20:54  sofar
+
+	* utils/discover/BUILD: More changes: discover-modprobe should go
+	  into /sbin really, but we leave a simlink
+
+2004-11-05 18:19  florin
+
+	* doc-tools/docbook-dsssl-doc/DETAILS: bump the version from 1.78
+	  to 1.79.
+
+2004-11-05 18:14  florin
+
+	* doc-tools/docbook-dsssl/DETAILS: bump the version from 1.78 to
+	  1.79.
+
+2004-11-05 15:38  moe
+
+	* net/ipw2100/: BUILD, CONFIGURE, DETAILS: Updating this module to
+	  use the new mquery function.	Note: I'm not bumping it to the
+	  latest version available since it doesn't compile (at all). All
+	  the others in between are broken.
+
+2004-11-05 15:32  florin
+
+	* utils/apcupsd/DETAILS: bump the version from 3.10.15 to 3.10.16.
+
+2004-11-05 14:25  v3rt1g0
+
+	* docs/abs-guide/: BUILD, DETAILS: New 3.0 version so now you can
+	  learn even more up-to-date fancy things
+
+2004-11-05 14:04  sofar
+
+	* ftp/curl/DETAILS: DOWNGRADE, curl-7.12.2 breaks 'discover'.
+	  Pending fixes in either curl or discover this one is hands-off!
+
 2004-11-05 08:32  sofar
 
 	* perl/DBD-mysql/: BUILD, DETAILS: Need a version bump to compile
@@ -2041,93 +2093,4 @@
 
 	* news/slrn/DETAILS: Version bump to slrn-0.9.8.1. Compiled/tested
 	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-10-06 20:19  sofar
-
-	* net/net-tools/init.d/network: Important fix: if you have
-	  Host-Gateways that's something else than a DEFAULT gateway.
-	  Specifically this only checks for the Default GW in the route
-	  table
-
-2004-10-06 19:43  florin
-
-	* doc-tools/doxygen/DETAILS: bump the version freom 1.3.8 to 1.3.9.
-
-2004-10-06 16:05  sofar
-
-	* net/net-tools/init.d/network: Adding the final (tested) support
-	  for extra route commands in cooperation with lnet. This will
-	  allow you to add post-ifconfig route commands in a more complext
-	  routing setup.
-
-2004-10-06 15:52  sofar
-
-	* net/net-tools/lnet: Bugfix: --defaultno can't be used with
-	  --yesno boxes! Feature: allow up to 4 extra route commands to be
-	  set through lnet
-
-2004-10-06 15:15  tchan
-
-	* utils/calc/DETAILS: Version bump to calc-2.11.10. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-10-06 15:07  tchan
-
-	* compilers/fasm/DETAILS: Version bump to fasm-1.56.
-
-2004-10-06 15:05  tchan
-
-	* web/elinks/DETAILS: Version bump to elinks-0.9.2.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2004-10-06 15:01  tchan
-
-	* audio/ripperX/DETAILS: Version bump to ripperX-2.6.1.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.  Long time hold over in my moonbase, it just recently
-	  caught my attention during sofar's massive moonbase mods.
-
-2004-10-06 09:51  sofar
-
-	* net/ndiswrapper/: BUILD, DETAILS, POST_INSTALL: Adding
-	  ndiswrapper for those people who have cheap^H^H^H^H^Hunsupported
-	  hardware.
-
-2004-10-06 09:15  sofar
-
-	* devel/db/DETAILS, games/fortune-meanwhile-in-lunar/DETAILS,
-	  kde3/KDE-Documentation/DETAILS, mail/gnu-pop3d/DETAILS: More URL
-	  adjustments
-
-2004-10-06 09:09  sofar
-
-	* chat/gtkBitchX/DETAILS, net/gridentd/DETAILS, utils/grub/DETAILS,
-	  web/elinks/DETAILS, zbeta/XDirectFB/DETAILS,
-	  zbeta/initscripts/BUILD: Cleaning up some mistakes!
-
-2004-10-06 08:06  sofar
-
-	* graphics/gthumb/DEPENDS: Cleaned up and adding libgphoto2 so the
-	  link to libexif is clearer too.
-
-2004-10-06 02:56  hardkrash
-
-	* chat/guifications/: DEPENDS, DETAILS: A toaster popup plugin for
-	  gaim,  theamable and quite spiffy configurable to all end and
-	  overall a nice plugin.
-
-2004-10-06 01:16  tchan
-
-	* web/mozilla/DETAILS: Fixed the SOURCE3 URL typo.
-
-2004-10-06 01:08  tchan
-
-	* web/mozilla/DETAILS: Moved SOURCE3 to lunar/mirrors/ instead of
-	  forcing everyone to download from Italy.
-
-2004-10-06 00:38  v3rt1g0
-
-	* cd/cdlabelgen/: BUILD, DEPENDS, DETAILS: Version bump: 1.5.0 ->
-	  3.0.0 Also added a depends of perl.  Compiled and tested
 
