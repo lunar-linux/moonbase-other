@@ -1,12 +1,10 @@
-depends  mhash    &&
-depends  bison    &&
+depends  mhash      &&
+depends  bison      &&
+depends  flex       &&
+depends  libgcrypt  &&
+depends  postgresql &&
 
-optional_depends  "libgcrypt"         \
-                  "--with-gcrypt"     \
-                  "--without-gcrypt"  \
-                  "use gcrypt lib"          &&
-                  
-optional_depends  "zlib"            \
-                  "--with-zlib"     \
-                  "--without-zlib"  \
+optional_depends  "zlib"              \
+                  "--with-zlib"       \
+                  "--without-zlib"    \
                   "for compression support"

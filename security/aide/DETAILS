@@ -1,14 +1,13 @@
           MODULE=aide
-         VERSION=0.9
-        #VERSION=0.8
+         VERSION=0.10
+        #VERSION=0.9
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://www.cs.tut.fi/~rammer/$SOURCE
-   SOURCE_URL[1]=ftp://ftp.cs.tut.fi/pub/src/gnu/$SOURCE
-        WEB_SITE=http://www.cs.tut.fi/~rammer/aide.html
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=md5:39eb7d21064cac7b409c45d038b86cd8
+        WEB_SITE=http://aide.sourceforge.net
          ENTERED=20011207
-         UPDATED=20021228
-      MAINTAINER=kongar@tsrsb.org.tr
+         UPDATED=20031208
            SHORT="AIDE (Advanced Intrusion Detection Environment) is a file integrity checker"
 cat << EOF
 AIDE (Advanced Intrusion Detection Environment) is a file integrity
