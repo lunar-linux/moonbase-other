@@ -126,41 +126,4 @@ esac
 
   # Rebuild the ld cache
   rm -f /etc/ld.so.cache 2>/dev/null          &&
-  ldconfig                                    &&
-
-  # Remove the temporary libc
-  rm /lib/ld-lunar.so                         &&
-  rm /lib/libc-lunar.so                       &&
-  rm /lib/libdl-lunar.so                      &&
-  rm /lib/libm-lunar.so                       &&
-  rm /lib/librt-lunar.so                      &&
-  rm /lib/libpthread-lunar.so                 &&
-  rm /lib/libnss_files-lunar.so               &&
-  rm /lib/libutil-lunar.so                    &&
-  rm /lib/libnsl-lunar.so                     &&
-  rm /lib/libcrypt-lunar.so                   &&
-
-  # Generate locale info
-  unset   LD_PRELOAD                          &&
-  if  [  -z  "$GLIBC_LOCALES"  ];  then
-    cat  $SCRIPT_DIRECTORY/locales  |
-    while  read  LOCALE  DESCRIPTION;  do
-      INPUTFILE=`echo  $LOCALE  |  cut  -d /  -f1`
-        CHARMAP=`echo  $LOCALE  |  cut  -d /  -f2`
-      mkdir  -p  /usr/lib/locale/$INPUTFILE
-      echo "localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE"
-            localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE
-    done
-    true
-  else
-    for  LOCALE  in  $GLIBC_LOCALES;  do
-      INPUTFILE=`echo  $LOCALE  |  cut  -d /  -f1`
-        CHARMAP=`echo  $LOCALE  |  cut  -d /  -f2`
-      mkdir  -p  /usr/lib/locale/$INPUTFILE
-      echo "localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE"
-            localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE
-    done
-    true
-  fi
-  
-) > $C_FIFO 2>&1  &&  ldconfig
+  ldconfig                         

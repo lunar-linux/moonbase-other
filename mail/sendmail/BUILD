@@ -127,23 +127,4 @@
   # users to be created:
   add_priv_user mail:mail
   
-  # directories and files:
-  mkdir -p /var/spool/mail
-  mkdir -p /var/spool/mqueue
-  mkdir -p /var/spool/clientmqueue
-  
-  # permissions, permissions, permissions!
-  chown -R root:mail /etc/mail
-  chown mail:mail /var/spool/mail
-  chown root:mail /var/spool/mqueue
-  chown mail:mail /var/spool/clientmqueue
-  
-  chmod 1777 /var/spool/mail
-  chmod 0750 /var/spool/mqueue
-  chmod 0770 /var/spool/clientmqueue
-  
-  # have sendmail's install do it all over again
-  prepare_install
-  sh Build install
-  
-) > $C_FIFO 2>&1
+  # directories and

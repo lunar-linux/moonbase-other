@@ -1,12 +1,12 @@
 (
 
-  ./configure --prefix=/opt/lunar/gnome/2.4		\
-              --bindir=/opt/lunar/gnome/2.4/bin		\
-              --sbindir=/opt/lunar/gnome/2.4/sbin		\
-              --datadir=/opt/lunar/gnome/2.4/share	\
+  ./configure --prefix=/opt/lunar/gnome/2		\
+              --bindir=/opt/lunar/gnome/2/bin		\
+              --sbindir=/opt/lunar/gnome/2/sbin		\
+              --datadir=/opt/lunar/gnome/2/share	\
               --sysconfdir=/etc				\
-              --infodir=/opt/lunar/gnome/2.4/share/info	\
-              --mandir=/opt/lunar/gnome/2.4/share/man	\
+              --infodir=/opt/lunar/gnome/2/share/info	\
+              --mandir=/opt/lunar/gnome/2/share/man	\
               --disable-gdk_pixbuftest			&&
   default_make
 

@@ -1,6 +1,6 @@
 (
  
-./configure --prefix=/opt/lunar/gnome/2.4 \
+./configure --prefix=/opt/lunar/gnome/2 \
             $OPTS                       &&
 default_make            
  

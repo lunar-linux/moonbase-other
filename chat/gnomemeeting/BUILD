@@ -23,8 +23,8 @@
   sedit 's/LIBOPENH323_FILE=\"libopenh323.so\"/LIBOPENH323_FILE=\"\"/' configure      &&
   sedit 's/ARCH_H323_CFLAGS=\"\"/ARCH_H323_CFLAGS=\"-DSTATIC_LIBS_USED\"/'  configure &&
 
-  ./configure  --prefix=/opt/lunar/gnome/2.4                     \
-               --datadir=/opt/lunar/gnome/2.4/share/gnomemeeting  \
+  ./configure  --prefix=/opt/lunar/gnome/2                     \
+               --datadir=/opt/lunar/gnome/2/share/gnomemeeting  \
                --sysconfdir=/etc/gnomemeeting                  \
                --with-openh323-includes=$OPENH323DIR/include   \
                --with-openh323-libs=$OPENH323DIR/lib           \
