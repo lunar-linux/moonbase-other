@@ -1,3 +1,35 @@
+2004-06-18 09:55  nestu
+
+	* kernel/linux-beta/: DETAILS, PRE_BUILD: Version bump: 2.6.7rc3 ->
+	2.6.7
+
+2004-06-18 09:07  sofar
+
+	* profiles/default-profile/DETAILS: Ewps
+
+2004-06-18 01:23  tchan
+
+	* editors/sed/DETAILS: tchan downgraded back to sed-4.0.9 as
+	sed-4.1 is severely broken in "sed -i".  Don't upgrade until the
+	sed authors fix "sed -i", specifically the code they use in
+	execute.c does NOT set chown and chmod correctly!!!  This means
+	sedit in lunar core does NOT set permissions correctly because "sed
+	-i" is broken.	This is NOT a lunar problem and is clearly a SED
+	problem.
+
+2004-06-18 00:33  jmhodges
+
+	* web/bluefish/DEPENDS: added optional depends on tidy, because it
+	does.. :-P
+
+2004-06-17 18:11  tchan
+
+	* video/kino/DETAILS: Added md5sum.
+
+2004-06-17 14:02  sofar
+
+	* science/grace/: DEPENDS, DETAILS: grace bump, now uses openMotif
+
 2004-06-17 09:42  moe
 
 	* kernel/linux-stable/: DETAILS, PRE_BUILD: Bumping this to 2.4.26.
@@ -1463,21 +1495,4 @@
 	* audio/beepmp/: BUILD, DETAILS: Effect and General was missing in
 	beep-config and pkg defs, also make build ensure that they are
 	created
-
-2004-05-18 18:46  jol
-
-	* gnustep/ImageViewer/: BUILD, DEPENDS, DETAILS: First import of
-	the GNUStep ImageViewer
-
-2004-05-18 18:37  florin
-
-	* video/xvidcore/DETAILS: bump the version from 1.0.0-rc2 to 1.0.0.
-
-2004-05-18 17:47  striker
-
-	* net/delegate/DETAILS: bump from 8.9.3 to 8.9.4
-
-2004-05-18 11:47  prox
-
-	* crypto/libtasn1/DETAILS: bump
 
