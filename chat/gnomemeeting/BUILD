@@ -17,7 +17,7 @@
   sedit 's/LIBOPENH323_FILE=\"libopenh323.so\"/LIBOPENH323_FILE=\"\"/' configure  &&
   
   ./configure  --prefix=/opt/lunar/gnome/2                     \
-               --datadir=/optlunar/gnome/2/share/gnomemeeting  \
+               --datadir=/opt/lunar/gnome/2/share/gnomemeeting  \
                --sysconfdir=/etc/gnomemeeting                  \
                --with-openh323-includes=$OPENH323DIR/include   \
                --with-openh323-libs=$OPENH323DIR/lib           \
