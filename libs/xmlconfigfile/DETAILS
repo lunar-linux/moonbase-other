@@ -1,0 +1,22 @@
+           MODULE=xmlconfigfile
+         VERSION=0.9.0
+          SOURCE=${MODULE}_$VERSION.zip
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}_${VERSION}
+   SOURCE_URL[0]=http://www.maik-schmidt.de/projects/xmlconfigfile/dist/${SOURCE}
+        WEB_SITE=http://www.maik-schmidt.de/projects/xmlconfigfile
+           SHORT="Easy handling of XML configuration files for ruby"
+         ENTERED=20030518
+         UPDATED=20030518
+cat << EOF
+xmlconfigfile is a ruby library that allows the easy handling of 
+configuration files. It has a few nice features:
+
+Configuration parameters can be accessed using xpath expressions
+
+Default values can be given in case a parameter is not present in a
+configuration file
+
+Environment variables can be referenced from configuration files
+
+The configuration can be reloaded periodically
+EOF
