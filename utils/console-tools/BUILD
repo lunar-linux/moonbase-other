@@ -12,6 +12,7 @@ unset CC CXX
   ./configure  --host=$BUILD             \
                --bindir=/bin             \
                --sbindir=/sbin           \
+               --libdir=/lib             \
                --sysconfdir=/etc         \
                --infodir=/usr/share/info \
                --mandir=/usr/share/man   \
