@@ -35,18 +35,30 @@ perl -e '$uid=getpwnam("mail"); exit 1 if ! defined( $uid )' || {
   fi
 
   if  module_installed  Linux-PAM
-  then  AUXLIBS="$AUXLIBS -lpam -lpam_misc"
-         CCARGS="-DHAS_PAM"
+  then  AUXLIBS=$AUXLIBS" -lpam -lpam_misc"
+         CCARGS=$CCARGS" -DHAS_PAM"
   fi
 
   if  module_installed mysql
-  then  AUXLIBS="$AUXLIBS -lmysqlclient -lz -lm"
-         CCARGS="-DHAS_MYSQL"
+  then  AUXLIBS=$AUXLIBS" -lmysqlclient -lz -lm"
+         CCARGS=$CCARGS" -DHAS_MYSQL -I/usr/include/mysql"
   fi
 
+  if  module_installed cyrus-sasl
+  then  AUXLIBS=$AUXLIBS" -lsasl -lssl -lcrypto"
+         CCARGS=$CCARGS" -DUSE_SASL_AUTH -I/usr/include -DHAS_SSL -I/usr/include/openssl"
+  fi
 
-  make  "CC=gcc"               \
-        "OPT=$CFLAGS"          \
+echo CCARGS=$CCARGS 
+echo AUXLIBS=$AUXLIBS  
+sleep 1
+  
+#  make  "CC=gcc"               \
+#        "OPT=$CFLAGS"          \
+#        "AUXLIBS=$AUXLIBS"     \
+#        "CCARGS=$CCARGS"       &&
+
+  make  "OPT=$CFLAGS"          \
         "AUXLIBS=$AUXLIBS"     \
         "CCARGS=$CCARGS"       &&
 
