@@ -113,11 +113,11 @@
 
   if [ ! -e  /usr/lib/libMesaGLU.so ]; then
     ln -sf /usr/X11R6/lib/libGLU.so.1.3 /usr/lib/libMesaGLU.so
-  fi  &&
+  fi &&
 
   if [ ! -e /usr/X11R6/lib/libMesaGL.so ]; then
     ln -sf /usr/X11R6/lib/libGL.so.1.2 /usr/X11R6/lib/libMesaGL.so
-  fi
+  fi &&
   
   if [ ! -e /usr/lib/pkgconfig/xft.pc ]; then
     ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig/xft.pc
