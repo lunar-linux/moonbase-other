@@ -3,11 +3,15 @@
   sedit "s:/usr/local/:/usr/:g" ulogd.conf
   default_config &&
   make &&
-  ( module_installed libpcap && make -C pcap ) &&
+  if module_installed libpcap ; then
+    make -C pcap
+  fi &&  
   prepare_install &&
   make install &&
   install -m644 libipulog/libipulog.a /usr/lib &&
-  ( module_installed libpcap && make -C pcap install ) &&
+  if module_installed libpcap ; then
+    make -C pcap install
+  fi &&
   mkdir -p /usr/share/doc/ulogd &&
   install doc/my* doc/ul* /usr/share/doc/ulogd
 
