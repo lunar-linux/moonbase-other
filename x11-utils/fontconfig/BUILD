@@ -5,9 +5,9 @@
   # syntax in a comment located in /etc/fonts/fonts.conf.
   sedit "s:\`date\`::" configure        &&
   
-  ./configure --prefix=/usr             \
-              --with-confdir=/etc/fonts \
-              --disable-docs            \
+  ./configure --prefix=/usr              \
+              --with-confdir=/etc/fonts  \
+              --disable-docs             \
               $OPTS                     &&
   
    default_make  
