@@ -1,7 +1,5 @@
 (
   
-  patch_it $SOURCE2 1	&&
-
   if module_installed ndiswrapper;  then
 	OPTS="$OPTS CONFIG_DRIVER_NDISWRAPPER=y"
   fi &&
@@ -31,6 +29,7 @@
   done &&
 
   make  &&
+  prepare_install  &&
   install -m755 wpa_supplicant	/usr/bin	&&
   install -m755 wpa_cli 	/usr/bin	&&
   install -m755 wpa_passphrase	/usr/bin	&&
