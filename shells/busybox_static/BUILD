@@ -1,20 +1,14 @@
 (
 
-  mv    Config.h  Config.h.original
-  echo  "#define BB_PIVOT_ROOT"                     >>  Config.h
-  echo  "#define BB_INSMOD"                         >>  Config.h
-  echo  "#define BB_LSMOD"                          >>  Config.h
-  echo  "#define BB_RMMOD"                          >>  Config.h
-  echo  "#define BB_FEATURE_SH_STANDALONE_SHELL"    >>  Config.h
-  echo  "#define BB_FEATURE_SH_APPLETS_ALWAYS_WIN"  >>  Config.h
-  cat   Config.h.original                           >>  Config.h
+  cp Config.h Config.h.orig
+  bzcat $SCRIPT_DIRECTORY/busybox.patch.bz2 | patch -p0 &&
 
-  sedit "s/DOSTATIC = false/DOSTATIC = true/" Makefile
   sedit "s/DOLFS = false/DOLFS = true/" Makefile
-
+  sedit "s/DOSTATIC = false/DOSTATIC = true/" Makefile
 
   make             &&
   prepare_install  &&
   cp      busybox  /sbin/busybox_static
+
 
 ) > $C_FIFO 2>&1
