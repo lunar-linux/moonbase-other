@@ -1,0 +1,5 @@
+#restore previous config
+if [ -e "/tmp/postfix/main.cf" ]; then
+   cp /tmp/postfix/* /etc/postfix/.
+   /etc/init.d/postfix restart
+fi
