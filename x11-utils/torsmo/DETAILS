@@ -1,14 +1,20 @@
           MODULE=torsmo
          VERSION=0.17
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-   SOURCE_URL[0]=$SFORGE_URL/$MODULE/
-        WEB_SITE=http://torsmo.sourceforge.net
-         ENTERED=20041010
-         UPDATED=20041010
-           SHORT="Desktop system monitor"
-cat << EOF
-Torsmo is a system monitor for Linux that sits in the corner of your
-desktop.  Torsmo renders itself on the root window (on the desktop)
-or to its own transparent window.
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE/
+      SOURCE_VFY=sha1:5f5efe2a1b2d0331a112e9e167d7cee4d908b20d
+        WEB_SITE=http://$MODULE.sourceforge.net
+         ENTERED=20040908
+         UPDATED=20040908
+           SHORT="A system monitor for X that renders itself on the root window."
 
+cat << EOF
+Torsmo is a system monitor that sits in the corner of your desktop. 
+It's very simple, customizable and it renders only text on the 
+desktop (and percentagebars if you want it to ;) and the only lib 
+it uses is Xlib.
+
+Torsmo can show various information about your system and it's 
+peripherals, including things like the Kernel version, Uptime, 
+System time, etc. etc.
 EOF
