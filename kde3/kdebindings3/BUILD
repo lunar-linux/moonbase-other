@@ -13,15 +13,15 @@
     OPTS="$OPTS --without-java"
   fi  &&
 
- ./configure    --prefix=$KDEDIR                      \
-                 --enable-final                        \
-                 --disable-debug                       \
-                 --with-qt-dir=$QTDIR                  \
-                 --with-xinerama                       \
-                 $OPTS                                &&
+ ./configure    --prefix=$KDEDIR         \
+                 --enable-final          \
+                 --disable-debug         \
+                 --with-qt-dir=$QTDIR    \
+                 --with-xinerama         \
+                 $OPTS                   &&
 
-  make                 &&
-  prepare_install      &&
+  make             &&
+  prepare_install  &&
   make install   
  
 ) > $C_FIFO 2>&1

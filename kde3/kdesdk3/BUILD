@@ -8,23 +8,16 @@
  
   sedit "s:-ldb4:-ldb-4:" configure.in
 
- ## fix problem with ccache
-#  CC=${CC//ccache/} &&
-#  CXX=${CXX//ccache/} &&
-#  export CC CXX       &&
+  ./configure    --prefix=$KDEDIR        \
+                 --enable-final          \
+                 --disable-debug         \
+                 --with-qt-dir=$QTDIR    \
+                 --with-xinerama         \
+                 $OPTS                   &&
 
-
-  ./configure    --prefix=$KDEDIR                      \
-                 --enable-final                        \
-                 --disable-debug                       \
-                 --with-qt-dir=$QTDIR                  \
-                 --with-xinerama                       \
-                 $OPTS                                &&
-
-  make                 &&
-  prepare_install      &&
+  make              &&
+  prepare_install   &&
   make install         
-
  
 ) > $C_FIFO 2>&1
 		   

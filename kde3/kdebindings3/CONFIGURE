@@ -1,6 +1,13 @@
-if ! module_installed j2sdk; then
-  if query "Install j2sdk for Java support? " y; then
+if ! grep -q "CONFIG_JAVA="  $MODULE_CONFIG; then
+  if query "Enable java support (lin j2sdk if not installed) ?" n  ; then
+    if ! module_installed j2sdk; then
       lin j2sdk
+    fi
+    echo 'OPTS="$OPTS --with-java"' > $MODULE_CONFIG
+    CONFIG_JAVA=y
+  else
+    echo 'OPTS="$OPTS --without-java"' > $MODULE_CONFIG
+    CONFIG_JAVA=n
   fi
+  echo "CONFIG_JAVA=$CONFIG_JAVA" >> $MODULE_CONFIG
 fi
-  

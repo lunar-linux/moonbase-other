@@ -2,21 +2,16 @@
   export  PATH=/opt/lunar/qt/3/bin:$PATH
   export  LD_LIBRARY_PATH=/opt/lunar/qt/3/lib
 
-  ## fix problem with ccache
-  CC=${CC//ccache/} &&
-  CXX=${CXX//ccache/} &&
-  export CC CXX       &&
+  ./configure    --prefix=/opt/lunar/kde/3       \
+                 --enable-final                  \
+                 --disable-debug                 \
+                 --with-qt-dir=/opt/lunar/qt/3   \
+                 --with-xinerama                 \
+                 $OPTS                           &&
 
-  ./configure    --prefix=/opt/lunar/kde/3             \
-                 --enable-final                        \
-                 --disable-debug                       \
-                 --with-qt-dir=/opt/lunar/qt/3         \
-                 --with-xinerama                       \
-                 $OPTS                                &&
-
-  make              &&
-  prepare_install   &&
-  make install      &&
+  make             &&
+  prepare_install  &&
+  make install     &&
 
   if ! grep -q "/opt/lunar/kde/3/lib" /etc/ld.so.conf; then
     echo "/opt/lunar/kde/3/lib" >> /etc/ld.so.conf  
