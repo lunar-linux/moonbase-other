@@ -5,6 +5,9 @@
 
   ./configure  --prefix=/usr  \
                --shared       &&
+  if [ "`arch`" == "alpha" ]; then
+      sedit "s/CFLAGS=/CFLAGS=-fPIC /";
+  fi                          &&
   make                        &&
   prepare_install             &&
   make    install             &&
