@@ -1,5 +1,6 @@
 (
-  
+
+  sedit "s:/usr/local:/usr:g" Makefile */Makefile &&
   make                              &&
   prepare_install                   &&
   make  INSTALLDIR=/usr/bin         \
