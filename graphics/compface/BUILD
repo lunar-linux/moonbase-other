@@ -1,7 +1,8 @@
 (
 
- patch_it  $SOURCE_CACHE/$SOURCE2 1  &&
- 
- default_build
+  WANT_AUTOCONF=2.5 autoconf
+  
+  default_build &&
+  install -m0755 xbm2xface.pl /usr/bin
 
 ) > $C_FIFO 2>&1
