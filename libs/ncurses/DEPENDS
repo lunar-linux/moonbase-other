@@ -1,5 +1,5 @@
 depends gawk &&
 depends sed  &&
 
-grep -q "with-gpm" $MODULE_CONFIG && depends gpm
-true
+optional_depends "gpm" "--with-gpm" "--without-gpm" "To link against gpm"
+

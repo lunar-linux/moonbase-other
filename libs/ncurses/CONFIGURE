@@ -14,13 +14,6 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
       OPTS=$OPTS" --without-profile"
   fi
 
-  if    query  "Do you want to link ncurses against gpm libraries ?" n
-  then
-      OPTS=$OPTS" --with-gpm"
-  else
-      OPTS=$OPTS" --without-gpm"
-  fi
-
   echo  OPTS=\"$OPTS\"    >>  $MODULE_CONFIG
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
 fi
