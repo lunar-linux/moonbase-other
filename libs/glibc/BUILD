@@ -1,15 +1,16 @@
 (
-  CFLAGS=`echo $CFLAGS | sed s/-ffast-math//`
-  CXXFLAGS=`echo $CXXFLAGS | sed s/-ffast-math//`
+  unset CFLAGS CXXFLAGS CPPFLAGS
 
   INSTALL_ROOT=$SOURCE_DIRECTORY/glibcroot
 
-  sedit "s/ \-g/ \-g0 /g" Makeconfig
 
-   cat > configparms <<- EOF
-   CFLAGS=-O
-   CXXFLAGS=-O
+if [[ $PLATFORM == "Alpha" ]]; then
+  sedit "s/ \-g/ \-g0 /g" Makeconfig
+  cat > configparms <<- EOF
+  CFLAGS=-O
+  CXXFLAGS=-O
 EOF
+fi
 
   ./configure  --host=$BUILD                          \
                --build=$BUILD                         \
@@ -18,6 +19,7 @@ EOF
                --with-elf                             \
                --with-headers=/usr/src/linux/include  \
                --with-gd=no                           \
+               --with-tls                             \
                --without-cvs                          \
                --enable-shared                        \
                --infodir=/usr/share/info              \
