@@ -1,0 +1,13 @@
+depends kdelibs3 &&
+depends taglib &&
+
+optional_depends "gstreamer" "--with-gstreamer" \
+		 "--without-gstreamer" \
+		 "for GStreamer support (HIGHLY RECOMMENDED)" && 
+
+optional_depends "xine-lib" "--with-xine" \
+		 "--without-xine" \
+		 "for Xine support" &&
+
+optional_depends "arts" "--with-arts" "--without-arts" \
+		 "for ARTS support"
