@@ -1,9 +1,11 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1
-  sedit "s/-O2 -fomit-frame-pointer/$CFLAGS/" Makefile
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
 
-  MAKE_OPTS="PREFIX=/usr  MANDIR=/usr/man/man8"
+  sedit "s/-O2 -fomit-frame-pointer/$CFLAGS/" Makefile &&
+
+  MAKE_OPTS="PREFIX=/usr  MANDIR=/usr/man/man8"  &&
 
   make  $MAKE_OPTS  &&
   prepare_install   &&
