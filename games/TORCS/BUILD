@@ -9,9 +9,20 @@
   unpack $SOURCE6
   unpack $SOURCE7
   unpack $SOURCE8
+  unpack $SOURCE9
+  unpack $SOURCE10
+  unpack $SOURCE11
+  unpack $SOURCE12
+  unpack $SOURCE13
+  unpack $SOURCE14
+  unpack $SOURCE15
+  unpack $SOURCE16
+  unpack $SOURCE17
 
-  ./configure  --prefix=/usr       \
-               --bindir=/usr/games &&
+  ./configure  --prefix=/usr         \
+               --bindir=/usr/games   \
+	       --datadir=/usr/share  \
+               $OPTS                &&
 
   rm     -rf  /usr/games/torcs     &&
   default_make                     &&
