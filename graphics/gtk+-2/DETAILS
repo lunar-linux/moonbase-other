@@ -1,15 +1,17 @@
           MODULE=gtk\+-2
-         VERSION=4.13
+         VERSION=4.14
           SOURCE=$MODULE.$VERSION.tar.bz2
          SOURCE2=gtk+-2.4.0-menushadow.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
-      SOURCE_URL=ftp://ftp.gtk.org/pub/gtk/v2.4/
-      SOURCE_VFY=sha1:d57ad7165317e580cb7fda7719e767232e6697b6
+   SOURCE_URL[0]=ftp://ftp.gtk.org/pub/gtk/v2.4/
+   SOURCE_URL[1]=http://www.zentek-international.com/mirrors/gnome/sources/gtk+/2.4/
+   SOURCE_URL[2]=http://mirror.isp.net.au/ftp/pub/GNOME/sources/gtk+/2.4/gtk+-2.4.14.tar.bz2
+      SOURCE_VFY=sha1:c1acb2f438c747420e6e704a4019e0b2c8b60398
      SOURCE2_URL=$SFORGE_URL/xfce/
      SOURCE2_VFY=sha1:3cfbbeba70914eb57b78cc17154e41b470cc9823
         WEB_SITE=http://www.gtk.org
          ENTERED=20020313
-         UPDATED=20041026
+         UPDATED=20041205
            SHORT="gtk+ is a multi-platform toolkit for creating GUIs."
 cat << EOF
 GTK+
