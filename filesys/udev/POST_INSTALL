@@ -18,28 +18,27 @@ create_node()
   echo -ne "\tTesting for /dev/${NODE}: "
 
   if [ -e ${DEVPREFIX}/${NODE} ]; then
-     echo -n "node already present. " 
+     echo "node already present. " 
   else
      mknod -m $PERMS ${DEVPREFIX}/${NODE} ${TYPE} ${MAJOR} ${MINOR} || { echo "cannot create node."; exit 1; }
-     echo -n "node created. "
+     echo "node created. "
   fi
   
-  if [ -z "${SYMLINK}" ]; then
-     echo ""
-     return 0
-  fi
+  test -z "${SYMLINK}" &&  return 0
+
+  echo -ne "\tTesting for /dev/${SYMLINK} -> /dev/${NODE} symlink: "
 
   if [ -e ${DEVPREFIX}/${SYMLINK} ]; then
      if [ "`readlink ${DEVPREFIX}/${SYMLINK}`" = "${NODE}" ]; then 
-        echo "/dev/${SYMLINK} symlink already present."
+        echo "already present."
         return 0
      fi 
 
      rm ${DEVPREFIX}/${SYMLINK}
   fi
 
-  ln -sf ${NODE} ${DEVPREFIX}/${SYMLINK} || { echo "cannot create /dev/${SYMLINK} symlink."; exit 1; }
-  echo "/dev/${SYMLINK} symlink to /dev/${NODE} created."
+  ln -sf ${NODE} ${DEVPREFIX}/${SYMLINK} || { echo "cannot create."; exit 1; }
+  echo "created."
 
   return 0  
 }
@@ -57,10 +56,25 @@ create_node 0600 ram1    b 1 1      &&
 echo -n "Unmounting fake root... "   && umount ${FAKEROOT} && echo "done." && 
 echo -n "Removing fake root dir... " && rm -rf ${FAKEROOT} && echo "done." &&
 
+echo -en "\nMaking sure mount script has udev support... "
+
+if grep -q "udev" /etc/init.d/mount ; then
+   echo "yes."
+else
+   echo "no."
+   echo -e "Reinstalling e2fsprogs to get an updated initscript with udev support:"
+   echo -en "\t* Renaming mount initscript to mount.old... " && 
+   mv /etc/init.d/mount /etc/init.d/mount.old && echo "done."
+   echo -e "\t* re-lin'ing e2fsprogs...\n"
+   lin -c e2fsprogs
+fi
+
 cat << EOF
 
 
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                                                                       *
+*   UDEV WARNING                                                        *
 *                                                                       *
 *   Next time you reboot with a 2.6.X kernel your box will try to       *
 *   boot with udev. Make sure your kernel has support for udev.         *
@@ -79,4 +93,3 @@ cat << EOF
 
 
 EOF
-
