@@ -26,6 +26,11 @@ optional_depends  "MPlayer-rm"     \
 		  ""               \
 		  "For RealMedia support"              &&
 
+optional_depends "faad"		   \
+		 "--enable-faad"   \
+		 ""		   \
+		 "For FAAD2 (MPA/AAC) support" &&
+
 case  $GUI  in
   y|Y|j|J)  depends  libpng          &&
             depends  gtk+            &&
