@@ -1,3 +1,86 @@
+2004-04-20 10:55  sofar
+
+	* compilers/swi-prolog/DETAILS: Submission approved.
+
+2004-04-20 09:50  sofar
+
+	* security/pwgen/DETAILS: request approved
+
+2004-04-20 03:20  tchan
+
+	* editors/zile/DEPENDS: Added the required DEPENDS for ncurses. 
+	This module uses teTeX to build docs but its not clear how to
+	disable that feature.  It auto-detects if you have teTeX installed
+	and builds docs appropriately.	No teTeX, no docs (I guess).
+
+2004-04-20 02:30  striker
+
+	* compilers/php/: BUILD, DETAILS: Committing patch for PHP PCRE
+	extension causing segfaults during graceful restarts of Apache. 
+	Bug http://bugs.php.net/bug.php?id=27810 Patch from
+	http://www.freebsd.org/cgi/cvsweb.cgi/ports/lang/php4/files/patch-e
+	xt%3a%3apcre%3a%3aphp_pcre.c?rev=1.1&content-type=text/x-cvsweb-mar
+	kup
+
+2004-04-20 02:16  tchan
+
+	* editors/zile/DETAILS: Version bump 1.6.2.  Latest stable release
+	on sourceforge.  Yes 1.7-b3 is also available, but its a beta
+	release.  Compiled and tested with gcc-3.3.3, kernel headers 2.4.x.
+
+2004-04-20 02:09  hardkrash
+
+	* gnome2-core/gnome-applets2/DETAILS: tchan told jbrocklin to take
+	out the makes=2 in his config and it fixed it,	yeah
+
+2004-04-19 23:54  tchan
+
+	* editors/vim/BUILD: Added the missing $OPTS for passing extra
+	./configure arguments.
+
+2004-04-19 20:57  nhudson
+
+	* x11-utils/fontconfig/BUILD: 
+	Fixing fontconfig build
+
+2004-04-19 19:52  striker
+
+	* net/iplog/: BUILD, DETAILS: patch for gcc3.3.3 compatibility
+
+2004-04-19 19:13  striker
+
+	* utils/clamav/: DETAILS, POST_INSTALL: bump to 0.70 + minute fix
+	to POST_INSTALL
+
+2004-04-19 17:14  tchan
+
+	* crypto/openssh/DETAILS: Version bump to 3.8.1p1.  Compiled and
+	tested with gcc-3.3.3, kernel headers 2.4.x.
+
+2004-04-19 15:43  tchan
+
+	* gnome2-apps/gnumeric2/DETAILS: Version bump to 1.2.11.  Some
+	small bug fixes.  Compiled with gcc-3.3.3, kernel headers 2.4.x.
+
+2004-04-19 15:13  tchan
+
+	* libs/: libxml2/DETAILS, libxslt/DETAILS: Fixed the indentation. 
+	Removed an outdated MAINTAINER line.
+
+2004-04-19 15:08  florin
+
+	* video/zapping/DETAILS: bump the version from 0.6.6 to 0.6.8.
+
+2004-04-19 14:44  florin
+
+	* video/zvbi/DETAILS: bump the version from 0.2.4 to 0.2.7.
+
+2004-04-19 12:08  nestu
+
+	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: version bump.
+	.config.beta is included only on source unpack (only once) and
+	2.4's config is not included anymore
+
 2004-04-19 11:13  prox
 
 	* perl/perl/: BUILD, CONFIGURE, DETAILS: added suidperl as optional
@@ -919,16 +1002,16 @@
 
 2004-04-09 15:32  nhudson
 
-	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
-	on branch GNOME_UNSTABLE.
-
-2004-04-09 15:32  nhudson
-
 	* gnome2-extras/: ghex/BUILD, glade2/BUILD, gnome-python2/BUILD,
 	gnome-speech/BUILD, gnome-spell/BUILD, gnopernicus/BUILD,
 	libcroco/BUILD, libgnomecups/BUILD, libgnomedb/BUILD,
 	magicdev/BUILD, pyorbit/BUILD: 
 	Adding BUILD files to merge into HEAD
+
+2004-04-09 15:32  nhudson
+
+	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
+	on branch GNOME_UNSTABLE.
 
 2004-04-09 15:24  nhudson
 
@@ -2133,87 +2216,4 @@
 2004-03-21 06:44  florin
 
 	* audio/libao/DETAILS: bump the version from 0.8.3 to 0.8.5.
-
-2004-03-20 19:44  florin
-
-	* chat/micq/: DEPENDS, DETAILS: fix the DETAILS file.
-
-2004-03-20 19:00  tchan
-
-	* chat/micq/DETAILS: Fixed a typo.
-
-2004-03-20 19:00  florin
-
-	* devel/subversion/DETAILS: bump the version from 1.0.0 to 1.0.1.
-
-2004-03-20 18:50  sofar
-
-	* chat/micq/: DEPENDS, DETAILS: Submitted by ep98. nice code,
-	smooth install
-
-2004-03-20 18:46  tchan
-
-	* utils/parted/: BUILD, DETAILS: Version bump to 1.6.7.  Compiled
-	and tested with gcc-3.3.3 and kernel-headers 2.4.x.  The patch from
-	1.6.6 is no longer necessary and was removed.
-
-2004-03-20 17:41  nhudson
-
-	* graphics/f-spot/: BUILD, DEPENDS, DETAILS: 
-	Adding f-spot to moonbase.  f-spot is a photo managment tool for
-	Gnome wirtten in mono and gtk#
-
-2004-03-20 17:28  florin
-
-	* kde3-apps/krename/: BUILD, DEPENDS, DETAILS: the 2.8.5 version is
-	the stable one.
-
-2004-03-20 17:25  nhudson
-
-	* compilers/: mcs/DETAILS, mono/DETAILS: 
-	Updating mono and mcs to new version 0.31
-
-2004-03-20 17:19  florin
-
-	* graphics/psiconv/DETAILS: bump the version from 0.9.3 to 0.9.4.
-
-2004-03-20 17:15  florin
-
-	* kde3-apps/knetmap/: DEPENDS, DETAILS: cosmetic changes.
-
-2004-03-20 14:41  florin
-
-	* kde3/arts/: BUILD, profile.d/kde3.rc: it seems that there are
-	situations where the default values were not initialized. this must
-	fix all this cases. many thanks to ep98 for pointed this error. mea
-	culpa.
-
-2004-03-20 12:42  florin
-
-	* web/apache2/DETAILS: bump the version from 2.0.48 to 2.0.49.
-
-2004-03-20 11:53  florin
-
-	* mail/postfix/DETAILS: bump the version from 2.0.18 to 2.0.19. it
-	works on my system for about a week.
-
-2004-03-20 10:39  nestu
-
-	* kernel/linux-beta/DETAILS: Version bump
-
-2004-03-20 04:29  tchan
-
-	* filesys/reiserfsprogs/DETAILS: Version bump to 3.6.14.  Compiled
-	and tested with gcc-3.3.3, kernel-headers 2.4.x.
-
-2004-03-20 02:13  tchan
-
-	* ftp/curl/DETAILS: Fixing identation.
-
-2004-03-20 00:12  nhudson
-
-	* web/mozilla/: BUILD, CONFIGURE, CONFLICTS, DEPENDS, DETAILS,
-	POST_INSTALL, POST_REMOVE, PRE_BUILD: 
-	Adding mozilla 1.7b and I added support for gnome-vfs2 to look at
-	smb network with mozilla
 
