@@ -10,12 +10,16 @@
 
   prepare_install &&
   make install &&
-  ( module_installed xfree86 && make xtinstall ) &&
+  if module_installed xfree86 ; then
+    make xtinstall
+  fi &&
   if [ "$BUILD_GL" == "on" ] ; then
     make mglinstall
   fi &&
   make utils &&
-  ( module_installed xfree86 && make xminstall ) &&
+  if module_installed xfree86 ; then
+    make xminstall
+  fi &&
   make sfinstall &&
 
   # Now this is a dumb install ;-)
@@ -24,6 +28,5 @@
   cp -R $CWPROOT/src/doc /opt/lunar/su/src                          &&
   cp -R $CWPROOT/src/faq /opt/lunar/su/src                          &&
   cp -R $CWPROOT/src/demos /opt/lunar/su/src
-
 
 ) > $C_FIFO 2>&1
