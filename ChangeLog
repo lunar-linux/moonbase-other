@@ -1,3 +1,123 @@
+2004-04-22 11:14  sofar
+
+	* utils/theedge/POST_INSTALL: Fixing slight mishap by calling *new*
+	code explicitly
+
+2004-04-22 10:21  niki
+
+	* libs/libbtctl/: DEPENDS, DETAILS: Not PSAFE, and fixed some
+	missing deps.
+
+2004-04-22 08:41  sofar
+
+	* filesys/encfs/DEPENDS, filesys/encfs/DETAILS, libs/rlog/DETAILS:
+	Adding encfs with all deps (which includes fuse). works. approved
+	;^)
+
+2004-04-22 07:52  sofar
+
+	* filesys/fuse/DETAILS: Added by request.
+
+2004-04-22 04:30  nhudson
+
+	* web/epiphany/DETAILS: 
+	Updating epiphany to new version 1.2.3
+
+2004-04-22 04:16  nhudson
+
+	* app-themes/gnome-themes-extras/DETAILS: 
+	Updating gnome-themes-extras to new version 0.7
+
+2004-04-22 04:15  nhudson
+
+	* gnome2-extras/libcroco/DETAILS: 
+	Updating libcroco to new version 0.5.1
+
+2004-04-22 04:14  tchan
+
+	* devel/dosemu/: BUILD, DEPENDS, DETAILS: Added dosemu-1.2.1 to the
+	moonbase.  Rewrote the module submitted by Benoit Valiron.  Added a
+	DEPENDS file.  Combined the freedos binary required by dosemu into
+	the dosemu module.  No need for a separate freedos module. 
+	Corrected the ./configure params in the BUILD file.  Compiled and
+	tested with gcc-3.3.3, kernel headers 2.4.x.
+
+2004-04-22 04:12  nhudson
+
+	* gnome2-core/dasher/DETAILS: 
+	Forgot this module dasher update to 3.2.10
+
+2004-04-22 04:12  nhudson
+
+	* gnome2-core/gnome-mag/DETAILS: 
+	Updating gnome-mag to new version 0.10.11
+
+2004-04-22 04:09  nhudson
+
+	* gnome2-apps/: gok/DETAILS, gpdf/DETAILS, gucharmap/DETAILS: 
+	Updating gok gucharmap and gpdf to new versions
+
+2004-04-22 04:04  nhudson
+
+	* gnome2-core/: gtksourceview/DETAILS, libgnomecanvas/DETAILS,
+	libgnomeprint/DETAILS, libgnomeprintui/DETAILS, libgtkhtml/DETAILS,
+	libwnck/DETAILS, nautilus/DETAILS, nautilus-cd-burner/DETAILS,
+	yelp/DETAILS, zenity/DETAILS: 
+	Finishing up the rest of the updates in gnome2-core for now
+
+2004-04-22 03:55  nhudson
+
+	* gnome2-core/: gail/DETAILS, gnome-desktop/DETAILS,
+	gnome-games2/DETAILS, gnome-icon-theme/DETAILS,
+	gnome-keyring/DETAILS, gnome-media2/DETAILS,
+	gnome-netstatus/DETAILS, gnome-panel/DETAILS,
+	gnome-session/DETAILS, gnome-themes/DETAILS, gnome-utils2/DETAILS,
+	gnome-vfs2/DETAILS, libgail-gnome/DETAILS, libgnome/DETAILS,
+	libgnomeui/DETAILS: 
+	More Gnome 2.6.1 updates
+
+2004-04-22 03:42  nhudson
+
+	* gnome2-core/: GConf2/DETAILS, ORBit2/DETAILS, at-spi/DETAILS,
+	eel/DETAILS, file-roller/DETAILS: 
+	Starting of some Gnome 2.6.1 updates
+
+2004-04-21 23:28  nestu
+
+	* filesys/udev/: BUILD, DETAILS: Version bump. Patches are now in
+	source tarball, so they have been removed
+
+2004-04-21 22:51  tchan
+
+	* mail/: postfix/CONFLICTS, sendmail/CONFLICTS: Removed exim4 from
+	moonbase and fixed sendmail and postfix CONFLICTS to just conflict
+	with exim (now defaulting to exim4).
+
+2004-04-21 22:50  tchan
+
+	* mail/exim/: BUILD, CONFLICTS, DETAILS: Changing "exim" module
+	from exim3 to exim4.  Removed the POST_INSTALL exim3 conversion to
+	exim4.
+
+2004-04-21 21:11  nestu
+
+	* kernel/kernel-headers-2.6/DETAILS: Version bump
+
+2004-04-21 15:28  tchan
+
+	* graphics/graphviz/DEPENDS: Added tk as an optional_depends. 
+	graphviz clearly builds on a lunar box with NO tcl AND NO tk.  It
+	will autodetect if tcl AND tk are installed and then build more
+	tools.	If just tcl is installed it will blow-up in compile.  Bug
+	reported to graphviz devs by sofar.  Also blows-up when no X but
+	tcl is installed.
+
+2004-04-21 13:34  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump. The patches are now
+	downloaded via ftp, since http has been a little b0rked lately, now
+	and then
+
 2004-04-21 11:47  nestu
 
 	* kernel/linux-beta/DETAILS: Version bump
@@ -425,12 +545,6 @@
 2004-04-16 07:29  prox
 
 	* zbeta/gkrellm2-beta/DETAILS: added md5sum
-
-2004-04-16 03:16  tchan
-
-	* mail/exim4/DETAILS: Version bump to 4.32.  Compiled and tested
-	with gcc-3.3.3, kernel headers 2.4.x.  Some small bug fixes and
-	some new features in exinext tool.
 
 2004-04-16 03:03  nhudson
 
@@ -1891,11 +2005,6 @@
 
 	* utils/procps/DETAILS: bump the version from 3.2.0 to 3.2.1.
 
-2004-03-29 18:39  tchan
-
-	* mail/exim4/DETAILS: Version bump to 4.31.  Compiled and tested
-	with gcc-3.3.3, kernel headers 2.4.x.
-
 2004-03-29 18:22  sofar
 
 	* utils/uptimed/: BUILD, DETAILS, init.d/uptimed: Accepted slightly
@@ -2238,49 +2347,4 @@
 	yelp/DETAILS: 
 	Updating to Gnome 2.6.0, Gnome 2.6.0 Desktop should be announced in
 	a few days
-
-2004-03-22 17:24  striker
-
-	* sql/mysqltcl/: DEPENDS, DETAILS: simple mysql api for TCL
-
-2004-03-22 16:38  tchan
-
-	* distributed/distcc/DEPENDS: Fixed per mecklet's suggestion for
-	installing gnome compile monitor.
-
-2004-03-22 16:02  tchan
-
-	* mail/MozillaThunderbird/: BUILD, DETAILS, POST_INSTALL: The long
-	awaited update to thunderbird-0.5.  NOTE: the source for now is
-	best downloaded from the Lunar Cache, unfortunately.  This is due
-	to the mozilla devs and the problems they have building a source
-	tarball that doesn't have CRLFs in it.
-
-2004-03-22 09:37  sofar
-
-	* kernel/linux-openmosix/: DETAILS, PRE_BUILD: Bumping after this
-	kernel has testrun for 72 hours non-stop. it is *VITAL* that you
-	recompile your openmosix-tools AFTER installing the kernel, or
-	otherwise you will see strange things.
-
-2004-03-22 05:48  tchan
-
-	* devel/qemu/BUILD: Small mod to make qemu/BUILD more portable.
-
-2004-03-22 05:44  florin
-
-	* games/tuxkart/DETAILS: bump the version from 0.2.0 to 0.4.0.
-
-2004-03-22 05:41  florin
-
-	* kde3-apps/k3b/DETAILS: bump the version from 0.11.6 to 0.11.7.
-
-2004-03-22 05:36  florin
-
-	* kde3/kdemultimedia3/DEPENDS: vorbis-tools already depends on
-	libvorbis.
-
-2004-03-22 05:24  florin
-
-	* graphics/plib/DETAILS: bump the version from 1.6.0 to 1.8.0.
 
