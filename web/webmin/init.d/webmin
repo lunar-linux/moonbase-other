@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# Start/stop Webmin
+#
+# chkconfig: 345 90 10
+# description: Webmin WEB Admin Tool
+# processname: miniserv.pl
+# pidfile: /var/webmin/miniserv.pid
+
+start () {
+  echo -n "Starting webmin:"
+  /etc/webmin/start >/dev/null 2>&1 </dev/null &&
+  echo -e $RESULT_OK ||
+  echo -e $RESULT_FAIL
+}
+
+
+stop () {
+  echo -n "Stopping webmin:"
+  /etc/webmin/stop &&
+  echo -e $RESULT_OK ||
+  echo -e $RESULT_FAILp
+}
+
+
+restart () {
+  $0 stop
+  $0 start
+}
+
+. /lib/lsb/init-functions
+ 
