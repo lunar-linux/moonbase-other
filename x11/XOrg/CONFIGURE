@@ -325,8 +325,10 @@ configure_host_def()  {
 
 if [ ! -f $CONFIG_CACHE/host.def ] ; then
   configure_host_def
-elif query "Configure host.def?" n ; then
+else
   message "Reconfiguration is optional."
-  configure_host_def
+  if query "Configure host.def?" n ; then
+    configure_host_def
+  fi
 fi
 
