@@ -1,7 +1,9 @@
-(
+( 
+    sedit "s/lqt/lqt-mt/" tmake/lib/linux-g++/tmake.conf
 
     ./configure --platform linux-g++         \
-                --install /usr/bin/install   &&
+                --install /usr/bin/install   \
+		$OPTS &&
     
     make                                     &&
     make docs                                &&
