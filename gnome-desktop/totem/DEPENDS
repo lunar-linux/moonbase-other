@@ -1,2 +1,11 @@
-depends  xine-lib &&
+if  ! grep -q "GST"  $MODULE_CONFIG; then
+  if query "Use Xine-Lib instead of Gstreamer?" y ; then
+    depends xine-lib
+    echo  "GST=y"  >>  $MODULE_CONFIG
+  else
+    depends gst-plugins
+    echo  "GST=n"  >>  $MODULE_CONFIG
+  fi
+fi       
+
 depends  eel2
