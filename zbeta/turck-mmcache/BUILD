@@ -10,12 +10,12 @@
   make							&&
 
   # This should not be in the install log
-  mkdir -p /usr/lib/php/extensions			&&
   mkdir -p /var/cache/mmcache				&&
   chmod 1777 /var/cache/mmcache				&&
 
   prepare_install					&&
 
+  mkdir -p /usr/lib/php/extensions			&&
   install -m 0755 modules/mmcache.so /usr/lib/php/extensions/turck-mmcache.so
 
 ) > $C_FIFO 2>&1
