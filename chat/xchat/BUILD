@@ -2,6 +2,9 @@
 
   export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1      &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1      &&
+
   ./configure  --build=$BUILD            \
                --prefix=/usr             \
                --enable-ipv6             \
