@@ -1,5 +1,4 @@
 (
-  OPTS=""  
 
   if [ "$KDE" == "y" ] ; then
     OPTS="$OPTS --enable-kde"
