@@ -1,3 +1,136 @@
+2003-12-06 06:42  florin
+
+	* kde3/kdemultimedia3/: BUILD, 3.2_test/BUILD: let the module use
+	gtk+ if it's already installed (good for using apps like xmms).
+
+2003-12-06 04:54  tchan
+
+	* video/avifile/DETAILS: Version bump to 0.7.38.  Naming convention
+	of the different versions has changed on sourceforge for this
+	project.  This latest version compiles for me with NO problems
+	using gcc-3.2.3, glibc-2.3.2.  Tested it with MAD and libvorbis,
+	again compiled with no problems.
+
+2003-12-06 03:43  tchan
+
+	* ftp/wu-ftpd/: BUILD, DETAILS: Fixed wu-ftpd to compile again. 
+	The wu-ftpd devs have a corrupted file named src/ftpcmd.y (a bison
+	input file).  I also added the two security patches named on the
+	front of the wu-ftpd website.  Compiled and tested with gcc-3.2.3,
+	glibc-2.3.2.
+
+2003-12-06 02:38  tchan
+
+	* net/: wvdial/BUILD, wvdial/DETAILS, wvdial/POST_INSTALL,
+	wvstreams/BUILD, wvstreams/DEPENDS, wvstreams/DETAILS,
+	wvstreams/libwvstreams-3.70-gcc3.patch: Version bumped wvdial. 
+	Fixed wvstreams to use the latest available release 3.74.0.  Added
+	a DEPENDS file just full of optional_depends (hey it's a LIBRARY
+	and there is no getting around all choices!)
+	
+	Made db a required DEPENDS (the devs have it listed as optional) as
+	wvstreams-3.74.0 will NOT compile at all unless Berkely DB is
+	present and I even had to hack their vars.mk file as their
+	configure script is borked and does not correctly detect that
+	Berkely DB3 is present and working on a Lunar box.
+	
+	Compiled and tested with gcc-3.2.3, glibc-2.3.2.
+
+2003-12-05 23:12  nhudson
+
+	* x11-apps/planner/: BUILD, CONFLICTS, DEPENDS, DETAILS: 
+	Adding planner to moonbase which takes place of libmrproject and
+	mrproject
+
+2003-12-05 23:09  nhudson
+
+	* gnome2-apps/multisync/DETAILS: 
+	Updating multisync to new version 0.81
+
+2003-12-05 23:01  nhudson
+
+	* gnome2-applets/gnome-netstatus/: BUILD, DEPENDS, DETAILS: 
+	Adding gnome-netstatus applet to moonbase
+
+2003-12-05 22:58  nhudson
+
+	* gnome2-apps/gcalctool/DETAILS: 
+	Updating gcalctool to new version 4.3.29
+
+2003-12-05 22:53  nhudson
+
+	* doc-tools/scrollkeeper/DETAILS: 
+	Updating scrollkeeper to new version 0.3.13
+
+2003-12-05 22:09  elaine
+
+	* kernel/: linux/BUILD, linux-beta/BUILD, linux-grsec/BUILD,
+	linux-stable/BUILD, linux-vanilla/BUILD: wiping extra && we hates
+	the bash precious, we hates it forever!
+
+2003-12-05 22:02  elaine
+
+	* kernel/: linux/BUILD, linux-beta/BUILD, linux-grsec/BUILD,
+	linux-stable/BUILD, linux-vanilla/BUILD: Stop making / removing
+	symlinks
+
+2003-12-05 21:21  jol
+
+	* x11-apps/eclipse-bin/DETAILS: Bumped version OLD:2.1.1  NEW:
+	2.1.2
+
+2003-12-05 21:17  jol
+
+	* kde3-apps/kxmleditor/DETAILS: Bumped version OLD: 0.8.3  NEW:
+	0.8.4
+
+2003-12-05 19:58  sofar
+
+	* crypto/openssh/profile.d/ssh-completion.rc: Adding tab completion
+	for ssh since it's the best thing "since sliced bread" (quote
+	Tauneutrino)
+
+2003-12-05 19:55  niki
+
+	* x11/xsnow/DETAILS: Version bumped, and this fixes the issue with
+	it not showing up on on the root x screen.
+	
+	Merry Christmas all ;-)
+
+2003-12-05 19:47  niki
+
+	* kernel/: linux/BUILD, linux-stable/BUILD, linux-vanilla/BUILD:
+	removed some "&&" which makes the first build of the kernel fail...
+
+2003-12-05 17:32  tchan
+
+	* archive/zlib/: BUILD, DETAILS: Version bump to 1.2.1.  Fixed the
+	URLs in DETAILS.  Moved the rm libz.a from zlib to xfree86 where it
+	belongs.  Also the current BUILD correctly runs make twice to build
+	the static and dynamic versions of the lib.
+
+2003-12-05 17:30  tchan
+
+	* x11/xfree86/BUILD: Added the "rm /usr/X11R6/lib/libz.a" to the
+	BUILD script.  xfree86 libz.a is outdated and the newer version of
+	libz.a should be used.	Part of the version bump of zlib-1.2.1.
+
+2003-12-05 16:04  elaine
+
+	* kernel/kernel-headers/DETAILS: Corrected arch edit for x86
+
+2003-12-05 16:01  florin
+
+	* kde3/kdemultimedia3/: BUILD, DEPENDS, 3.2_test/BUILD,
+	3.2_test/DEPENDS: get rid of gtk+ depend, and disable it's use.
+
+2003-12-05 15:26  florin
+
+	* kde3/kdegraphics3/: DEPENDS, 3.2_test/DEPENDS: get rid of imlib
+	(gtk+,	glib) and xpdf depends. it's old stuff (gnome 1.x) or there
+	are better kde replacement (kghost view). add an optional gphoto2
+	depend.
+
 2003-12-05 11:08  niki
 
 	* kernel/linux/POST_INSTALL: readded some removed recompiles...
@@ -1553,103 +1686,4 @@
 
 	* mail/balsa2/DETAILS: Version bump to 2.0.15.	Mostly a bugfix
 	release.  Compiled and tested with gcc-3.2.3, and glibc-2.3.2.
-
-2003-11-05 23:03  sofar
-
-	* devel/tk/DEPENDS: heh, just in time for next moonbase export.
-
-2003-11-05 22:54  sofar
-
-	* x11-utils/lavaps/: DEPENDS, DETAILS: It's become a gtk+-2 app, so
-	in here is a better place for it.
-
-2003-11-05 22:17  sofar
-
-	* audio/agqt/DEPENDS, compilers/Python/DEPENDS,
-	crypto/krb5/DEPENDS, devel/db4/DEPENDS, devel/expect/DEPENDS,
-	devel/metakit/DEPENDS, filemanagers/FileRunner/DEPENDS,
-	games/pysol/DEPENDS, games/tuxracer/DEPENDS,
-	graphics/sketch/DEPENDS, kde3/kdemultimedia3/DEPENDS,
-	mail/tkrat/DEPENDS, mail/uudeview/DEPENDS, devel/tcl/BUILD,
-	devel/tcl/DETAILS, devel/tk/BUILD, devel/tk/DETAILS,
-	devel/tk/PRE_BUILD, science/tkgate/DEPENDS, utils/catdoc/DEPENDS:
-	Removing tcl-tk and creating 2 simpler modules: tcl and tk. tk
-	depends on tcl, and actually uses the source from tcl for
-	compiling. Other than that, tcl compiles without Xfree86 or tk (as
-	expected). This will resolve some issues since it was possible to
-	install tcl-tk without the tk-libs, and other apps depending on
-	those would not be able to resolve that problem. Also all depends
-	on tcl-tk were screened and changed either into tcl or tk. Hope you
-	followed all of this. /me out. (beer)
-
-2003-11-05 20:36  jol
-
-	* video/mplayerplug-in/: BUILD, DETAILS: Bumped version OLD: 0.95 
-	NEW: 1.0pre2 Thanks to Ray Maung
-
-2003-11-05 20:24  sofar
-
-	* net/ethereal/DETAILS: Version bump. My keyboard is doing weird...
-
-2003-11-05 20:08  jmhodges
-
-	* libs/libofx/DETAILS: version bump, apparently just a bugfix
-
-2003-11-05 20:02  sofar
-
-	* graphics/blender/DETAILS: New version, thank you.
-
-2003-11-05 19:14  nhudson
-
-	* graphics/gimp2/DETAILS: 
-	Updating gimp to new version 1.3.22
-
-2003-11-05 18:23  jmhodges
-
-	* web/PyDS/: BUILD, DETAILS: version bump to 0.6.3 and removal of
-	patch due to docutils bump
-
-2003-11-05 18:21  jmhodges
-
-	* doc-tools/docutils/DETAILS: version bump
-
-2003-11-05 16:09  moe
-
-	* audio/beep-media-player/DETAILS: Alright you didn't see that
-	commit
-
-2003-11-05 16:04  moe
-
-	* audio/beep-media-player/DETAILS: Bumping version .. the author
-	noticed some glintches
-
-2003-11-05 12:21  sofar
-
-	* mail/imap/DETAILS: Bumped version, as well as in php.
-
-2003-11-05 12:20  sofar
-
-	* compilers/php/: CONFIGURE, DETAILS: New version, including bumped
-	imap version. Note that the --with-apxs{2} options are now
-	mandatory, since otherwise php won't build the DSO's.
-
-2003-11-05 11:27  sofar
-
-	* graphics/ImageMagick/DETAILS: New version!
-
-2003-11-05 05:44  florin
-
-	* kde3-apps/kcmpureftpd/DETAILS: bump version from 0.9 to 0.9.1.
-	bugfix release.
-
-2003-11-05 02:54  nhudson
-
-	* libs/: libxml2/DETAILS, libxslt/DETAILS: 
-	Updating libxml2 to new version 2.6.2 and libxslt to new version
-	1.1.0, this also fixes a bug with xsltproc
-
-2003-11-05 01:07  niki
-
-	* audio/alsa-driver/sound.cards: Updated the sound card list to
-	reflect the current alsa-driver modules supported cards
 
