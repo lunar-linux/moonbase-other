@@ -1,3 +1,5 @@
+  patch_it  $SOURCE_CACHE/$SOURCE2 1                &&
+
 if  [  -f  $CONFIG_CACHE/net-tools.config.h  ];  then
   cp       $CONFIG_CACHE/net-tools.config.h  config.h
 else
@@ -9,7 +11,7 @@ fi
 
   #sedit  "s:-g #:$CFLAGS $LDFLAGS #:"  Makefile
   #sedit  "s:LOPTS =:LOPTS = -lintl:" Makefile
-
+  
   make                                              &&
   prepare_install                                   &&
   make  BASEDIR=/  install                          &&
