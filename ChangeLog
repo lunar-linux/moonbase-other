@@ -1,3 +1,50 @@
+2004-04-11 19:45  nhudson
+
+	* graphics/gtk+-2/: BUILD, CONFIGURE, DETAILS: 
+	Adding the gtk menushadow patch as a option to building gtk+-2. 
+	Personally I think the patch is a bit flakey, but use it at your
+	own risk
+
+2004-04-11 19:35  florin
+
+	* mail/bogofilter/DETAILS: bump the version from 0.15.3.2 to
+	0.17.5. many improvements and code cleanup. many thanks to elaine
+	for testing it.
+
+2004-04-11 19:28  nhudson
+
+	* audio/muine/BUILD: 
+	Forgot to add support for gstreamer instead of xine-lib
+
+2004-04-11 18:48  nhudson
+
+	* audio/: libmusicbrainz/DETAILS, sound-juicer/BUILD,
+	sound-juicer/DETAILS: 
+	Updating libmusicbrainz to new version 2.1.1, and updating
+	sound-juicer so that it will build with gstreamer 0.8
+
+2004-04-11 18:15  nhudson
+
+	* audio/: muine/BUILD, muine/DEPENDS, muine/DETAILS,
+	rhythmbox/DETAILS: 
+	Updating rhythmbox to new version 0.6.10, this should now compile
+	with the new gnome2.6 stuff and gtk2.4, also added muine a gnome
+	media player based off of rhythmbox but written in c#
+
+2004-04-11 17:51  nhudson
+
+	* gnome2-extras/libgnomedb/BUILD: 
+	Fixing libgnomedb when it errors out when making docs
+
+2004-04-11 15:53  florin
+
+	* doc-tools/texinfo/DETAILS: bump the version from 4.6 to 4.7.
+
+2004-04-11 15:30  florin
+
+	* libs/libtool/DETAILS: bump the version from 1.5.4 to 1.5.6.
+	bugfix release.
+
 2004-04-11 11:30  florin
 
 	* printer/hpijs/DETAILS: bump the version from 1.5 to 1.6. tested
@@ -318,16 +365,16 @@
 
 2004-04-09 15:32  nhudson
 
-	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
-	on branch GNOME_UNSTABLE.
-
-2004-04-09 15:32  nhudson
-
 	* gnome2-extras/: ghex/BUILD, glade2/BUILD, gnome-python2/BUILD,
 	gnome-speech/BUILD, gnome-spell/BUILD, gnopernicus/BUILD,
 	libcroco/BUILD, libgnomecups/BUILD, libgnomedb/BUILD,
 	magicdev/BUILD, pyorbit/BUILD: 
 	Adding BUILD files to merge into HEAD
+
+2004-04-09 15:32  nhudson
+
+	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
+	on branch GNOME_UNSTABLE.
 
 2004-04-09 15:24  nhudson
 
@@ -1743,11 +1790,6 @@
 
 2004-03-18 04:22  nhudson
 
-	* audio/rhythmbox/CONFIGURE: file CONFIGURE was initially added on
-	branch GNOME_UNSTABLE.
-
-2004-03-18 04:22  nhudson
-
 	* audio/rhythmbox/: CONFIGURE, POST_INSTALL: 
 	Adding iPod support to rhythmbox if you have a iPod and want to set
 	things up refer to the README.iPod file in Gnome CVS
@@ -1756,6 +1798,11 @@
 	&rev=&root=/cvs/gnome
 	
 	Have fun
+
+2004-03-18 04:22  nhudson
+
+	* audio/rhythmbox/CONFIGURE: file CONFIGURE was initially added on
+	branch GNOME_UNSTABLE.
 
 2004-03-18 04:02  nhudson
 
@@ -1896,8 +1943,8 @@
 
 2004-03-16 18:30  nhudson
 
-	* audio/gst-ffmpeg/DEPENDS: file DEPENDS was initially added on
-	branch GNOME_UNSTABLE.
+	* audio/gst-ffmpeg/: DEPENDS, DETAILS, POST_INSTALL: 
+	Adding gst-ffmpeg to GNOME_UNSTABLE
 
 2004-03-16 18:30  nhudson
 
@@ -1906,13 +1953,13 @@
 
 2004-03-16 18:30  nhudson
 
-	* audio/gst-ffmpeg/: DEPENDS, DETAILS, POST_INSTALL: 
-	Adding gst-ffmpeg to GNOME_UNSTABLE
+	* audio/gst-ffmpeg/POST_INSTALL: file POST_INSTALL was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-03-16 18:30  nhudson
 
-	* audio/gst-ffmpeg/POST_INSTALL: file POST_INSTALL was initially
-	added on branch GNOME_UNSTABLE.
+	* audio/gst-ffmpeg/DEPENDS: file DEPENDS was initially added on
+	branch GNOME_UNSTABLE.
 
 2004-03-16 18:01  nhudson
 
@@ -2128,12 +2175,7 @@
 
 2004-03-13 18:05  nhudson
 
-	* gnome2-core/shared-mime-info/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-03-13 18:05  nhudson
-
-	* gnome2-core/shared-mime-info/BUILD: file BUILD was initially
+	* gnome2-core/shared-mime-info/DETAILS: file DETAILS was initially
 	added on branch GNOME_UNSTABLE.
 
 2004-03-13 18:05  nhudson
@@ -2144,7 +2186,12 @@
 
 2004-03-13 18:05  nhudson
 
-	* gnome2-core/shared-mime-info/DETAILS: file DETAILS was initially
+	* gnome2-core/shared-mime-info/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
+
+2004-03-13 18:05  nhudson
+
+	* gnome2-core/shared-mime-info/BUILD: file BUILD was initially
 	added on branch GNOME_UNSTABLE.
 
 2004-03-13 15:59  nhudson
@@ -2177,12 +2224,6 @@
 
 2004-03-13 15:30  nhudson
 
-	* gnome2-core/: gnome-keyring/BUILD, gnome-mag/BUILD,
-	gnome-netstatus/BUILD: file BUILD was initially added on branch
-	GNOME_UNSTABLE.
-
-2004-03-13 15:30  nhudson
-
 	* gnome2-core/: gnome-common2/BUILD, gnome-desktop/BUILD,
 	gnome-games2/BUILD, gnome-icon-theme/BUILD, gnome-keyring/BUILD,
 	gnome-mag/BUILD, gnome-media2/BUILD, gnome-mime-data2/BUILD,
@@ -2190,6 +2231,12 @@
 	gnome-system-monitor/BUILD, gnome-terminal/BUILD,
 	gnome-themes/BUILD: 
 	More BUILD files
+
+2004-03-13 15:30  nhudson
+
+	* gnome2-core/: gnome-keyring/BUILD, gnome-mag/BUILD,
+	gnome-netstatus/BUILD: file BUILD was initially added on branch
+	GNOME_UNSTABLE.
 
 2004-03-13 15:23  nhudson
 
@@ -2300,86 +2347,4 @@
 	2.6.4 and mm1 patch level, at peltco's request.  He tested this
 	updated module as I have no box for compiling/testing 2.6.x.
 	kernels.
-
-2004-03-12 22:37  watryac04
-
-	* audio/ladspa_sdk/BUILD:
-	-------------------------------------------------------------------
-	--- module was using /usr/local for both lib/ and bin/
-	directories...	now using /usr/lib and /usr/bin
-
-2004-03-12 21:46  nhudson
-
-	* devel/gtk-sharp/DETAILS: 
-	Updating gtk-sharp to new version 0.17
-
-2004-03-12 21:27  nhudson
-
-	* sql/freetds/DETAILS: 
-	Fixing build problem with freetds
-
-2004-03-12 20:42  nhudson
-
-	* compilers/: mcs/DETAILS, mono/DETAILS: 
-	Updating mono and mcs to new versions 0.30.2
-
-2004-03-12 19:18  sofar
-
-	* devel/expect/: BUILD, DEPENDS, DETAILS, POST_INSTALL, PRE_BUILD:
-	Making the hack into something usefull: don't use /tmp but a
-	subtree of $SOURCE_DIRECTORY. Also upstream author releases
-	versioned tarballs.
-
-2004-03-12 17:08  moe
-
-	* audio/gst-plugins/DEPENDS: You didn't eat up so NO MORE LIBDVDNAV
-	FOR YOU!
-
-2004-03-12 13:23  moe
-
-	* utils/openobex/DETAILS: Readding openobex .. don't know where it
-	went.  Woo .. now I can play with my bluetooth cellphone ;)
-
-2004-03-12 13:03  moe
-
-	* compilers/gcc/DETAILS: Whoops
-
-2004-03-12 12:54  ratler
-
-	* compilers/gcc/DETAILS: Someone did a OOPS in DETAILS
-
-2004-03-12 12:34  cmak
-
-	* distributed/BitTorrent/DETAILS: version bump
-
-2004-03-12 10:22  moe
-
-	* utils/acpid/DETAILS: Updating this to 1.0.3. Now with 2.6.x
-	kernel support and a ton of bugfixes.
-
-2004-03-12 05:30  nhudson
-
-	* video/xine-lib/BUILD: 
-	Fixing so it builds with 2.6.x kernel headers
-
-2004-03-12 04:52  nhudson
-
-	* gnome2-core/: control-center2/DETAILS, libgnomeprint/DETAILS,
-	libgnomeprintui/DETAILS, libgtop2/DETAILS: 
-	Updating libgnomeprint/ui to 2.5.4, libgtop2 to 2.5.2,
-	control-center2 to 2.5.4 and gcalctool to 4.3.50
-
-2004-03-12 04:32  florin
-
-	* libs/qscintilla/: BUILD, DEPENDS, DETAILS: some cosmetic changes.
-
-2004-03-12 04:20  florin
-
-	* sql/postgresql/: BUILD, DETAILS: bump the version from 7.4.1 to
-	7.4.2.
-
-2004-03-12 04:17  florin
-
-	* devel/sip/: BUILD, DETAILS, PRE_BUILD: bump the version from 3.8
-	to 3.10.1.
 
