@@ -1,7 +1,7 @@
 (
 
   cd $SOURCE_DIRECTORY                                      &&
-  cp $MOONBASE/x11-apps/$MODULE/*.patch .                   &&
+  # cp $MOONBASE/x11-apps/$MODULE/*.patch .                   &&
   
   # The order of these two patches is important. 
   # DO NOT CHANGE THEM AROUND!
