@@ -1,0 +1,19 @@
+          MODULE=burgner
+         VERSION=0.1.3
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://burgner.tuxfamily.org/$SOURCE
+        WEB_SITE=http://burgner.tuxfamily.org
+         ENTERED=20030907
+         UPDATED=20030907
+       MAINTAINER=nhudson@lunar-linux.org
+           SHORT="The Burgner project aims to be a complete free burning 
+suite, totally rewritten from scratch"
+cat << EOF
+The Burgner project aims to be a complete free burning suite, totally 
+rewritten from scratch. 
+* can generate ISO9660 images, with the RockRidge and ElTorito extensions (these extensions are obviously optional), directories relocating (infinite directory level support with RockRidge), with various optimizations (inodes caching, optimal file system's items arranging, etc.).
+* can burn CD-DA and CD-ROM tracks (to MMC compliants drives).
+* can burn CD-EXTRA ! (CDs that contains audio and data, but that seems to be "audio-only" CDs in CD players (no first void track). See below.
+* fully asynchronous and event-oriented API, designed to be easily used within a GTK+/GNOME application.
+EOF
