@@ -29,10 +29,6 @@
   
   cp -rvp html /usr/share/doc/$MODULE             &&
   
-  if [ -e /etc/ntp.conf ]; then
-     mv /etc/ntp.conf /etc/config.d/ntp.conf
-  fi
- 
   if [ ! -e /etc/ntp.conf ]
    then
    cat > /etc/ntp.conf << EOF
@@ -42,8 +38,10 @@
 # file:///usr/share/docs/$MODULE/html/confopt.htm 
 # or
 # http://www.eecis.udel.edu/~ntp/documentation.html 
-server ntp.your.isp
-peer local.machine
+
+logfile /var/log/ntp.log
+driftfile /var/state/ntp.drift
+
 EOF
    fi
    

@@ -1,3 +1,46 @@
-
-echo " Don't forget to edit /etc/config.d/ntp.conf "
-
+if ! grep -q server /etc/ntp.conf; then
+  SRV_LIST=$(mktemp -p /tmp -t "ntp.$$.candidates.XXXXXXX")
+  cat > $SRV_LIST << EOF 
+ntp.saard.net
+time.nrc.ca
+timelord.uregina.ca
+ntp.tuxfamily.net
+ntp1.tuxfamily.net
+ntp2.tuxfamily.net
+ntp.univ-lyon1.fr
+zg2.ntp.carnet.hr
+st.ntp.carnet.hr
+ri.ntp.carnet.hr
+os.ntp.carnet.hr
+fartein.ifi.uio.no
+ntp.shim.org
+time.ijs.si
+time.ijs.si
+ntp2a.mcc.ac.uk
+ntp2b.mcc.ac.uk
+ntp2d.mcc.ac.uk
+time-server.ndo.com
+clock.sjc.he.net
+ntp1.linuxmedialabs.com
+ntp-1.cso.uiuc.edu
+ntp-2.cso.uiuc.edu
+gilbreth.ecn.purdue.edu
+harbor.ecn.purdue.edu
+clock.psu.edu
+ntp-2.ece.cmu.edu
+ntp-1.vt.edu
+ntp.cmr.gov
+EOF
+  
+  for i in `cat $SRV_LIST`; do 
+    echo -n $i;  ping -c 2 $i | sed 's/time=//' | grep octet |          \
+    gawk '{sum += $7} END {avg=sum/FNR; printf "%20.6f \n", avg}';      \
+  done |                                                                \
+  grep -v '0\.0' | sort -n +1 | head -4 |                               \
+  gawk '{printf "server %s\n", $1}' >> /etc/ntp.conf 
+  rm -f $SRV_LIST
+  
+  echo "low ping time servers have been added to  /etc/ntp.conf "
+else
+  echo "no servers added to /etc/ntp.conf"
+fi
