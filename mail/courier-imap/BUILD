@@ -5,7 +5,6 @@
                --localstatedir=/var      \
                --disable-root-check      \
                --without-authpgsql       \
-               --without-authmysql       \
                --without-authldap        \
                --mandir=/usr/share/man   \
                $OPTS                    &&
