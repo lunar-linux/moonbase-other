@@ -1,14 +1,16 @@
           MODULE=xfce4-session
           PKG=$MODULE
-         VERSION=4.1.90
+         VERSION=4.1.91
+	 RELEASE=4.1.91
           SOURCE=${PKG}-${VERSION}.tar.gz
 SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${PKG}-${VERSION}
    SOURCE_URL[0]="http://de.lunar-linux.org/xfce4/${SOURCE}"
-     SOURCE_VFY=md5:18191d6fd1f9ae5bc8b454affe3e6071
+   SOURCE_URL[1]="ftp://ftp.berlios.de/pub/xfce-goodies/${RELEASE}/${SOURCE}"
+     SOURCE_VFY=md5:bb61d9bb1f1265e61b9de2d015389525
       MAINTAINER=jasper@lunar-linux.org
          WEBSITE=http://www.xfce.org
 	 ENTERED=20030715
-	 UPDATED=20041003
+	 UPDATED=20041031
            SHORT="Session manager for XFce 4"
 
 cat << EOF
