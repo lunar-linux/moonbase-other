@@ -1,8 +1,5 @@
 (
 
-
-  sedit "s/MANDIR := \$(PREFIX)\$(MANDIR)/MANDIR := \/usr\/share\/\$(MANDIR)/" man/Makefile &&
-  sedit "s/XMANDIR := \$(PREFIX)\$(XMANDIR)/XMANDIR := \/usr\/share\/\$(XMANDIR)/" man/Makefile &&
   make  oldconfig  &&
   make  all        &&
   prepare_install  &&
