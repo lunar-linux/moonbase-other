@@ -1,3 +1,84 @@
+2005-02-02 12:46  moe
+
+	* gnome/: gal/DETAILS, gnome-libs/DETAILS: Updating those to newer
+	  versions. I don't need them .. but hey
+
+2005-02-02 10:47  florin
+
+	* games/briquolo/DETAILS: bump the version from 0.5 to 0.5.1.
+
+2005-02-01 23:33  tchan
+
+	* mail/sylpheed-claws/: DEPENDS, DETAILS: Version bump to
+	  sylpheed-claws-1.0.0. Compiled and tested with gcc-3.3.3,
+	  glibc-2.3.3, kernel headers 2.4.x.  NOTES: I had to remove aspell
+	  from the DEPENDS file, as the ./configure script fails when
+	  compiling an aspell test program.  If aspell is left as an
+	  optional depends and the user answers "N" then -claws will still
+	  compile, but if they answer "Y" then -claws will fail in the
+	  configure step.  If the user has gpgme-1.x installed and they
+	  answer "N" to the optional depends on gpgme-0.3.x then -claws
+	  will again fail to compile.  Its safest to just answer "Y" to
+	  gpgme-0.3.x.
+
+2005-02-01 22:56  jol
+
+	* kde3-apps/kmplayer/DETAILS: Bumped to version 0.8.4
+
+2005-02-01 18:11  sofar
+
+	* sql/postgresql/DETAILS: Florin! second time I caught you making
+	  this mistake!
+
+2005-02-01 16:27  tchan
+
+	* ftp/curl/DETAILS: Version bump to curl-7.13.0. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel header 2.4.x AND
+	  discover-2.0.4.  "discover -t", and "discover -b" both work just
+	  fine with curl-7.13.0. discover-2.0.4 recompiles just fine when
+	  linking against libcurl.so.3.
+
+2005-02-01 16:16  moe
+
+	* mail/sylpheed-claws/CONFLICTS: wee .. err?
+
+2005-02-01 16:13  moe
+
+	* zbeta/sylpheed-dev/: CONFLICTS, DEPENDS, DETAILS: This is the new
+	  GTK2 development version of sylpheed.  It works without the
+	  gdk-pixbuf crap .. and with gpgme 1.x too. Enjoy!
+
+	  PS: If somebody can shed some light on wether it works with
+	  compface .. please go ahead
+
+2005-02-01 16:10  moe
+
+	* mail/: sylpheed/CONFLICTS, sylpheed-claws/CONFLICTS: wee
+
+2005-02-01 16:04  florin
+
+	* sql/postgresql/DETAILS: bump the version from 7.4.6 to 8.0.1.
+
+2005-02-01 15:48  florin
+
+	* archive/tar/DEPENDS: add the texinfo module as an optional
+	  depend.
+
+2005-02-01 15:44  moe
+
+	* mail/sylpheed/: BUILD, DEPENDS, DETAILS: Sylpheed now supports
+	  gpgme 1.x.  Additional fixes:
+
+	   o  A warning is displayed if a key for encryption is untrusted.
+	   o The status of signature validity became more descriptive.
+	   o Signatures inside nested multipart are now recognized.
+	  * Messages are not retrieved multiple times anymore after POP3
+	  session is aborted.  * Other bugfixes have been made.
+
+2005-02-01 15:42  moe
+
+	* libs/gpgme/DETAILS: Updating this to 1.0.2.
+
 2005-02-01 10:34  nestu
 
 	* utils/theedge/DEPENDS: added a depend on net-tools, since
@@ -1845,46 +1926,4 @@
 
 	* security/stunnel/DETAILS: bump the version from 4.06 to 4.07.
 	  bugfix release.
-
-2005-01-02 23:53  tchan
-
-	* gnome2-apps/blogtk/DETAILS: Fixed an invalid UPDATED field (was <
-	  ENTERED field).
-
-2005-01-02 20:31  v3rt1g0
-
-	* games/fortune-dubya/DETAILS: Version bump.  Only includes two new
-	  quotes.
-
-2005-01-02 17:33  v3rt1g0
-
-	* games/fortune-meanwhile-in-lunar/DETAILS: Boy was i late on this
-	  one :(  Happy new years *hick*
-
-2005-01-02 17:18  v3rt1g0
-
-	* terminal/Eterm/: BUILD, DETAILS: Version bump.  Cleaned up the
-	  BUILD file a bit too.
-
-2005-01-02 17:17  v3rt1g0
-
-	* libs/libast/: DEPENDS, DETAILS: Version bump.  This will come
-	  along with a version bump of Eterm too.
-
-2005-01-02 16:21  tchan
-
-	* news/leafnode/DETAILS: Fixed the homepage URL.
-
-2005-01-02 14:41  perldude
-
-	* kernel/: linux-2.6-ck/PRE_BUILD, linux-2.6-cko/PRE_BUILD: update
-	  to new PRE_BUILD files
-
-2005-01-02 14:22  moe
-
-	* gnome2-core/libglade2/DEPENDS: This one needs GTK2
-
-2005-01-02 09:12  florin
-
-	* games/luola/DETAILS: bump the version from 1.2.3 to 1.2.5.
 
