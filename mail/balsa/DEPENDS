@@ -1,10 +1,14 @@
-depends  gnome-libs  &&
+depends  libgnomeui  &&
+depends  libgnomeprintui &&
 depends  libesmtp    &&
 depends  aspell      &&
+depends  libtool     &&
 
-optional_depends "gtkhtml"      \
+optional_depends "libgtkhtml"      \
                  "--enable-gtkhtml" \
                  ""             \
                  "to enable display of html messages"
 
 optional_depends "openssl" "--with-ssl" "" "for SSL support"
+
+optional_depends "openldap" "--enable-ldap" "" "for ldap support"
