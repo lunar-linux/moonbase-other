@@ -6,6 +6,12 @@ module_present()  {
 
 (
 
+  if [ "$(installed_version gettext)" == "0.11.2" ] ; then
+    verbose_msg "forcing recompile of glibc"
+    export REBUILD_GLIBC=on
+  fi
+
+
   if  !  module_present  teTeX  ||
       !  module_present  linuxdoc-tools;  then
 
@@ -15,14 +21,10 @@ module_present()  {
 
   fi
 
-   sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" doc/Makefile.am
-   sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" doc/Makefile.in
-
-   sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" intl-java/Makefile.am
-   sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" intl-java/Makefile.in
-
-   sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" man/Makefile.am
-   sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" man/Makefile.in
+  sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" \
+     doc/Makefile.am doc/Makefile.in \
+     intl-java/Makefile.am intl-java/Makefile.in \
+     man/Makefile.am man/Makefile.in
 
   touch *
 
@@ -34,8 +36,6 @@ module_present()  {
 	       --infodir=/usr/share/info \
                --with-included-gettext   \
                $OPTS                     &&
-  make                                   &&
-  prepare_install                        &&
-  make    install
+  default_make
 
 ) > $C_FIFO 2>&1

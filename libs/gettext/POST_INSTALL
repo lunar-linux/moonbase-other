@@ -1,0 +1,8 @@
+if [ "$REBUILD_GLIBC" == "on" ] ; then
+  verbose_msg "rebuilding glibc..."
+  lin -c glibc
+  if [ $(module_installed glib-2) ] ; then
+    verbose_msg "rebuilding glib-2..."
+    lin -c glib-2
+  fi
+fi
