@@ -1,3 +1,30 @@
+2004-12-04 13:29  sofar
+
+	* net/ntp/POST_INSTALL: Do not overwrite existing ntp.conf!!!
+
+2004-12-04 11:56  nestu
+
+	* kernel/linux-2.6-prepatch/DETAILS: 2.6.10rc2 -> 2.6.10rc3. gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.9.1
+
+2004-12-04 07:58  florin
+
+	* graphics/ImageMagick/DETAILS: bump the version from 6.1.5 to
+	  6.1.6.
+
+2004-12-04 07:32  florin
+
+	* ftp/lftp/DETAILS: bump the version from 3.0.11 to 3.0.12.
+
+2004-12-04 04:11  tchan
+
+	* gnome2-apps/abiword/: BUILD, DETAILS: Sorry Moe, you were right
+	  abiword-2.2.1 is now the stable branch as of 20041203.  Version
+	  bumped the module back up to abiword-2.2.1. Compiled/tested with
+	  gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.  The docs are still
+	  included in the source tarball download, so they still should be
+	  installed (you've already wasted the download time :-)
+
 2004-12-03 08:23  moe
 
 	* compilers/Python/DETAILS: Okay, I agree on that part
@@ -1865,72 +1892,4 @@
 
 	* kde3-apps/kmymoney2/DETAILS: bump the version from 0.6.3 to
 	  0.6.4.
-
-2004-11-03 22:18  sofar
-
-	* sql/mysql/BUILD: Hmmm this is needed? weird. Fresh install... can
-	  anyone tell my what the de/in-voke-installwatch is doing here?
-
-2004-11-03 22:08  sofar
-
-	* compilers/gcc/: BUILD, DETAILS, PRE_BUILD: Cleaning this up: you
-	  should never directly use '/usr/src' and BUILD can perfectly be
-	  WITHIN the buildroot without hacks.
-
-2004-11-03 22:04  sofar
-
-	* crypto/openssl/POST_INSTALL: This ended up in / which is not the
-	  right place. The Makefile should be known to people by now.
-	  /etc/ssl/certs is *the* location for certificates.
-
-2004-11-03 21:38  jol
-
-	* audio/speex/DETAILS: Bumped version to 1.1.6
-
-2004-11-03 20:07  nhudson
-
-	* zbeta/evolution-data-server-beta/DETAILS:
-	  Adding SOURCE_DIRECTORY to DETAILS file
-
-2004-11-03 19:35  florin
-
-	* devel/xxdiff/: BUILD, DETAILS: bump the version from 2.9.2 to
-	  3.0.3.
-
-2004-11-03 19:13  florin
-
-	* devel/tmake/DETAILS: bump the version from 1.8 to 1.13.
-
-2004-11-03 17:29  nestu
-
-	* chat/amsn/DEPENDS: adding a runtime depend on tk
-
-2004-11-03 16:21  nestu
-
-	* chat/amsn/DETAILS: d'oh! add the sha
-
-2004-11-03 16:18  nestu
-
-	* chat/amsn/: BUILD, DEPENDS, DETAILS: First inclulde. No compile
-	  needed, so no gcc, glibc, headers defined here :)
-
-2004-11-03 12:29  florin
-
-	* libs/libsigc++2/DETAILS: bump the version from 2.0.3 to 2.0.6.
-
-2004-11-03 12:28  florin
-
-	* sql/sqlite/DETAILS: bump the version from 3.0.7 to 3.0.8.
-
-2004-11-03 07:48  sofar
-
-	* editors/scite/CONFIGURE: umm like this of course
-
-2004-11-03 07:47  sofar
-
-	* editors/scite/CONFIGURE: This is how it should be done
-
-2004-11-03 05:59  florin
-
-	* graphics/gd/DETAILS: bump the version from 2.0.31 to 2.0.32.
 
