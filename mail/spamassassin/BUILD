@@ -2,12 +2,14 @@
 
   if [ -d ~/.spamassassin ]; then
      mv ~/.spamassassin ~/.spamassassin.old
-     fi                   &&
+  fi                                            &&
   echo ""
-  echo "You old /root/.spamassassin directory has been preserved as /root/.spamassassin.old"                        &&
-  echo ""
-  cd $SOURCE_DIRECTORY    &&
-  perl Makefile.PL        &&
+  echo "Your old ~/.spamassassin directory has been preserved as ~/.spamassassin.old" &&
+  echo ""     
+ 
+  sedit "s/unpack N16/unpack 'N16'/" lib/Mail/SpamAssassin/SHA1.pm &&
+  default_config                                 &&
+  perl Makefile.PL                               &&
   make                    &&
   make test               &&
   prepare_install         &&
