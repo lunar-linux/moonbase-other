@@ -1,16 +1,12 @@
 (
-  
-   # Wrong path 
-   sedit '/\/usr\/bin/ s/\/usr\/bin/\/opt\/lunar\/gnome\/2.4\/bin/g' \
-     src/GNOME_MultiresApplet.server.in
-   
-   ./configure  --build=$BUILD					\
-                --sysconfdir=/etc                               \
-                --prefix=/opt/lunar/gnome/2.4			\
-		--localstatedir=/var				\
-		--infodir=/opt/lunar/gnome/2.4/share/info	\
-		--mandir=/opt/lunar/gnome/2.4/share/man		&&
 
-   default_make
-   
+   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
+                --build=$BUILD                    \
+                --sysconfdir=/etc                 \
+                --localstatedir=/var              \
+                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+                $OPTS                             &&
+    default_make                   
+
 ) > $C_FIFO 2>&1
