@@ -1,14 +1,17 @@
           MODULE=vte
          VERSION=0.11.11
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-$VERSION-termcap.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/$MODULE/0.11/$SOURCE
+      SOURCE_URL=$GNOME_URL/sources/$MODULE/0.11/
+     SOURCE2_URL=$PATCH_URL/
       SOURCE_VFY=md5:4d7a3674df5b8be7f1adffa981c1fc3d
+     SOURCE2_VFY=sha1:7446b031e0f8d7fe5095c3e9022d42c52ff5c11d
         WEB_SITE=http://gnome.org
-	MAINTAINER=nhudson@lunar-linux.org
+      MAINTAINER=nhudson@lunar-linux.org
          ENTERED=20021013
-         UPDATED=20040505
-           SHORT="vte"
+         UPDATED=20041002
+           SHORT="Experimental Virtual Terminal Emulator widget"
 cat << EOF
 VTE is an experimental terminal emulator widget for use with GTK+ 2.0.
 EOF
