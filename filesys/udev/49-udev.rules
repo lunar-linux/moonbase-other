@@ -16,7 +16,7 @@ KERNEL="vc/s*",                  OWNER="$local"
 
 
 # tty devices
-KERNEL="tty",                                                        GROUP="tty"
+KERNEL="tty",                                                        GROUP="tty", MODE="0666"
 KERNEL="tty[0-9]*",   NAME="vc/%n",   SYMLINK="%k",  OWNER="$local", GROUP="tty"
 KERNEL="ttyS[0-9]*",  NAME="tts/%n",  SYMLINK="%k",  OWNER="$local", GROUP="tty"
 
