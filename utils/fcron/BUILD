@@ -15,6 +15,7 @@
 
   ./configure  --prefix=/usr          \
                --with-answer-all=no   \
+	       --without-sendmail     \
                $WITH_PAM              \
                --with-editor=$EDITOR  &&
   make                                &&
