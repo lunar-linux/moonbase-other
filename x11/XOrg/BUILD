@@ -103,6 +103,10 @@
   if [ ! -e /usr/lib/X11 ]; then
     ln -sf /usr/X11R6/lib/X11 /usr/lib/X11
   fi &&
+  
+  if [ ! -e /usr/X11R6/lib/X11/fonts ]; then
+    ln -sf /usr/share/fonts /usr/X11R6/lib/X11/fonts
+  fi &&
 
   if [ ! -e  /usr/lib/libMesaGLU.so ]; then
     ln -sf /usr/X11R6/lib/libGLU.so.1.3 /usr/lib/libMesaGLU.so
