@@ -1,14 +1,16 @@
           MODULE=gal2
-         VERSION=1.99.11
+         VERSION=2.4.0
           SOURCE=gal-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/gal-$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/gal/1.99/
-      SOURCE_VFY=md5:906c0640d3160a55aac98974aecfb316
+      SOURCE_URL=$GNOME_URL/sources/gal/2.4/
+      SOURCE_VFY=sha1:debf9c5653babb2733d19b7236e2eb8630852226
         WEB_SITE=http://www.gnome.org
          ENTERED=20020701
-         UPDATED=20040409
-           SHORT="gal2"
-PSAFE=no
+         UPDATED=20050308
+           PSAFE=no
+           SHORT="GAL are the Gnome Application Libraries"
 cat << EOF
-gal2
+This module contains some library functions that came from Gnumeric and
+Evolution.  The idea is to reuse the code across various larger GNOME
+applications that might want to use it.
 EOF
