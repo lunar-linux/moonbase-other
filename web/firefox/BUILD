@@ -1,4 +1,3 @@
-
 ( 
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
@@ -22,9 +21,7 @@
 
   echo "$OPTS" > /tmp/mozz
 
-  unpack $SOURCE2 &&
-  
-    ./configure \
+  ./configure \
     --prefix=/usr	\
     --with-x            \
     --with-pthreads     \
@@ -47,6 +44,15 @@
     --with-user-appdir=".firefox"	\
     $OPTS               &&
               
-    default_make      
+    default_make	&&
+
+    # Install the plugins in the right direction
+    mkdir -p /opt/lunar/plugins		&&
+    for plugin in `ls /usr/lib/firefox-$VERSION/plugins`; do
+	 `install -m755 /usr/lib/firefox-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
+    
+    # Now the .desktop files
+    mkdir -p /usr/share/applications	&&
+    install -m644 $SCRIPT_DIRECTORY/firefox.desktop /usr/share/applications
 
 ) > $C_FIFO 2>&1

@@ -1,13 +1,6 @@
 FIREFOX_HOME=/usr
-# Never put VERSION in here!!
-FFOX_VERSION=0.8
 FFOX_LIBDIR=firefox-$VERSION
 J2SDK_VER=`lvu installed j2sdk`
-
-mkdir -p /opt/lunar/plugins
-cp -f $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins/* /opt/lunar/plugins
-rm -rf $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
-ln -sf /opt/lunar/plugins $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
 
 export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/$FFOX_LIBDIR:$FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins:$FIREFOX_HOME/lib/$FFOX_LIBDIR/components"
 export MOZILLA_FIVE_HOME="$FIREFOX_HOME/lib/$FFOX_LIBDIR"
@@ -20,15 +13,13 @@ cd $FIREFOX_HOME/lib/$FFOX_LIBDIR
 ./regxpcom
 ./regchrome
 
+rm -rf $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
+ln -sf /opt/lunar/plugins $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
+
 if module_installed j2sdk; then
-ln -sf /usr/lib/j2sdk${J2SDK_VER}/jre/plugin/i386/mozilla/libjavaplugin_oji.so $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins/libjavaplugin_oji.so 
+ln -sf /usr/lib/j2sdk${J2SDK_VER}/jre/plugin/i386/mozilla/libjavaplugin_oji.so \
+	$FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins/libjavaplugin_oji.so 
 fi
 
-if [ ! -d /usr/share/applications ] ; then
-  mkdir -p /usr/share/applications
-fi
-if [ ! -d /usr/share/pixmaps ] ; then
-  mkdir -p /usr/share/pixmaps
-fi
-cp $SOURCE_DIRECTORY/firefox-$FFOX_VERSION-lunar/firefox.desktop /usr/share/applications/firefox.desktop &&
-cp $SOURCE_DIRECTORY/firefox-$FFOX_VERSION-lunar/firefox.xpm /usr/share/pixmaps/firefox.xpm
+mkdir -p /usr/share/pixmaps
+ln -sf $FIREFOX_HOME/lib/$FFOX_LIBDIR/icons/default.xpm /usr/share/pixmaps/firefox.xpm
