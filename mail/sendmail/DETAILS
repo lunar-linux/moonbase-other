@@ -1,13 +1,16 @@
           MODULE=sendmail
          VERSION=8.12.9
           SOURCE=$MODULE.$VERSION.tar.gz
+         SOURCE2=sendmail_parse_patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.sendmail.org/pub/$MODULE/$SOURCE
    SOURCE_URL[1]=http://www.sendmail.org/ftp/$SOURCE
+  SOURCE2_URL[0]=http://lunar-linux.org/lunar/cache/sendmail_parse_patch
       SOURCE_VFY=md5:3dba3b6d769b3681640d0a38b0eba48c
+     SOURCE2_VFY=md5:c32a9b2618b6f3febe13cdc335963d35
         WEB_SITE=http://www.sendmail.org
          ENTERED=20010922
-         UPDATED=20030303
+         UPDATED=20030917
            SHORT="sendmail is the de-facto SMTP server."
 cat << EOF
 Sendmail is the de-facto standard SMTP server for relaying e-mail around
