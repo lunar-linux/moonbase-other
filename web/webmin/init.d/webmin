@@ -4,24 +4,10 @@
 #
 # chkconfig: 345 90 10
 # description: Webmin WEB Admin Tool
-# processname: miniserv.pl
+# processname: /var/webmin/html/miniserv.pl
 # pidfile: /var/webmin/miniserv.pid
 
-start () {
-  echo -n "Starting webmin:"
-  /etc/webmin/start >/dev/null 2>&1 </dev/null &&
-  echo -e $RESULT_OK ||
-  echo -e $RESULT_FAIL
-}
-
-
-stop () {
-  echo -n "Stopping webmin:"
-  /etc/webmin/stop &&
-  echo -e $RESULT_OK ||
-  echo -e $RESULT_FAILp
-}
-
+ARGS="/etc/webmin/miniserv.conf"
 
 restart () {
   $0 stop
