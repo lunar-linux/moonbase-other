@@ -14,7 +14,12 @@
 		--mandir=/usr/share/man				\
 		--with-sys-wv                                   &&
              
-  default_make 
-            
+  default_make &&
+  cd ../abiword-docs &&
+  sedit "s/\/local//" Makefile &&
+  make &&
+  cp man/abiword.8 /usr/share/man/man8 &&
+  mkdir -p $DOCUMENT_DIRECTORY/$MODULE &&
+  cp -p Manual/en/* Changelog/* $DOCUMENT_DIRECTORY/$MODULE/
 
 ) > $C_FIFO 2>&1
