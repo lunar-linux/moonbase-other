@@ -1,7 +1,6 @@
 (
 
-  cp Config.h Config.h.orig
-  patch_it $SCRIPT_DIRECTORY/busybox.patch.bz2 0 &&
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
   sedit "s/DOLFS = false/DOLFS = true/" Makefile
   sedit "s/DOSTATIC = false/DOSTATIC = true/" Makefile

@@ -1,12 +1,14 @@
           MODULE=busybox
          VERSION=0.60.5
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-$VERSION-Config.h-1.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://www.busybox.net/downloads/$SOURCE
+  SOURCE_URL2[0]=$PATCH_URL/$SOURCE2 
            SHORT="busybox is a time statically linked rescue shell."
         WEB_SITE=http://busybox.lineo.com
          ENTERED=20011020
-         UPDATED=20021222
+         UPDATED=20030122
 cat << EOF
 
 BusyBox combines tiny versions of many common UNIX utilities into a
