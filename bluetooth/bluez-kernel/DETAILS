@@ -1,0 +1,21 @@
+           MODULE=bluez-kernel
+         VERSION=2.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=hci_usb.patch
+         SOURCE3=obextool.patch
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://bluez.sf.net/download/$SOURCE
+      SOURCE_VFY=md5:1193a6242a0b1f607dcdde7aaeb2095c
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+     SOURCE2_VFY=md5:c035e711e5bfa7a3a7d876d5760c874d
+  SOURCE3_URL[0]=$PATCH_URL/$SOURCE3
+     SOURCE3_VFY=md5:49d02416ebf5e6f9807dfe481474d0b9
+        WEB_SITE=http://bluez.sf.net
+         ENTERED=20030927
+         UPDATED=20031013
+           SHORT=" BlueZ provides support for core Bluetooth layers and 
+protocols"
+cat << EOF
+ BlueZ provides support for core Bluetooth layers and protocols. It is 
+flexible, efficient and modular implementation.
+EOF
