@@ -11,9 +11,6 @@ GCOPTS=""
 OPTIMIZER="$CFLAGS"
 EOF
 
-  ./configure  --noninteractive  &&
-  make                           &&
-  prepare_install                &&
-  make    install
+  default_build
 
 ) > $C_FIFO 2>&1
