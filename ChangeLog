@@ -1,1056 +1,470 @@
+2002-11-24 21:07  elaine
+
+	* compilers/php/CONFIGURE: fixed typo // apxs in OPTS was axps
+	
+2002-11-24 18:35  tchan
+
+	* libs/libxslt/DETAILS: Fixed the UPDATED field again for niki.
+	
+2002-11-24 18:29  tchan
+
+	* gnome/libxml2/DETAILS: Fixed the UPDATED field again for niki.
+	
+2002-11-24 18:27  tchan
+
+	* doc-tools/: docbook-dtd-xml/BUILD, docbook-dtd-xml/DETAILS,
+	scrollkeeper/BUILD: Removed BUILD script as it contained a bunch of sed commands on files that
+	no longer exist.  Afer removing sed command BUILD was down to a single
+	"default_build" line.  Alos fixed docbook-dtd-xml/BUILD to correctly
+	setup /etc/xml/catalog.  If your /etc/xml/catalog is a zero-byte length
+	file then your docbook-dtd-xml did NOT install correctly and will cause
+	scrollkeeper to fail in its install.
+	
+2002-11-24 17:41  tchan
+
+	* graphics/SDL/: BUILD, DETAILS, directfb-kbd-evts.patch: Bumped version number of SDL upto 1.2.5.  The patch is no longer necessary.
+	That made the BUILD script unnecessary too -- one line "default build", so I
+	removed it.
+	
+2002-11-24 17:26  tchan
+
+	* doc-tools/scrollkeeper/DETAILS: Fixed the UPDATED field for niki again.
+	
+2002-11-24 17:16  tchan
+
+	* libs/gdbm/DETAILS: Fixed the UPDATED field which niki forgot when he bumped the version upto
+	1.8.3.
+	
+2002-11-24 17:14  tchan
+
+	* graphics/libpng/DETAILS: Bumped version number upto 1.2.5 at Florin's request.
+	
+2002-11-24 17:09  tchan
+
+	* editors/sed/DETAILS: Bumped version number upto 4.0.3 from 4.0.1.  Compiled and tested under
+	glibc-2.3.1.
+	
+2002-11-24 04:33  tchan
+
+	* graphics/gtk+-2/DETAILS: Bumped version number upto 0.9.  dem says this fixes some segfaults in
+	metactiy and some other gnome apps.  Tested the compile under glibc-2.3.1 and
+	gcc-3.2.
+	
+2002-11-24 02:33  tchan
+
+	* printer/gimp-print/POST_INSTALL: Fixed this module for the "sleep 5" problem.  It was not removing boost_lock.
+	
+2002-11-24 02:33  tchan
+
+	* kde3/qt3/POST_INSTALL, video/libdvdcss/POST_INSTALL: Fixed this module for the "sleep 5" problem.  It was not removing the boost_lock.
+	
+2002-11-24 00:18  wizfactor
+
+	* chat/xchat/CONFLICTS: added conflict with xchat2
+	
+2002-11-23 17:10  wizfactor
+
+	* video/avifile/DETAILS: Updated version to 0.7.21
+	
+2002-11-23 16:34  tchan
+
+	* graphics/freetype2/POST_INSTALL: Fixed one of the infamous "sleep 5" bugs.  Someone was forcing a recompile
+	of pango WITHOUT removing the boost_lock!  See the fix in POST_INSTALL.
+	
+2002-11-23 16:08  lurch
+
+	* net/samba/DETAILS: Forgot the UPDATED field..
+	
+2002-11-23 12:18  lurch
+
+	* net/samba/DETAILS: Bumped version to 2.2.7
+	
+2002-11-23 06:59  tchan
+
+	* libs/: ncurses/POST_INSTALL, slang/POST_INSTALL: Added some tests for the correct versions of slang.h and ncurses.h in gcc
+	private header files.  If the headers are the wrong versions then a recompile
+	of gcc is forced.
+	
+2002-11-22 20:56  elaine
+
+	* devel/linux-stable/: BUILD, CONFIGURE, DEPENDS, DETAILS,
+	POST_INSTALL, PRE_BUILD: 
+	Linus tree kernel with critical patches (e.g. security)
+	
+2002-11-22 20:53  elaine
+
+	* devel/linux-vanilla/: DETAILS, PRE_BUILD: 
+	removed security patch from linux-vanilla module per xoritor
+	
+2002-11-22 20:38  elaine
+
+	* devel/linux/DETAILS: 
+	Updated the UPDATED field
+	
+2002-11-22 19:28  kc8apf
+
+	* devel/linux/BUILD: Small cleanup
+	
+2002-11-22 19:19  kc8apf
+
+	* devel/linux/PRE_BUILD: one character off bug
+	
+2002-11-22 18:35  tchan
+
+	* libs/ncurses/: DETAILS, POST_INSTALL: With a recompile of gcc after ncurses-5.3 is installed, then gcc will
+	now correctly recompile any ncurses based apps.  gcc needs to "fix" its
+	own copies of the ncurses.h (also slang.h).  When ncurses.h is out of sync
+	with the ncurses libraries that's when ncurses-based apps start to fail on
+	recompiles.
+	
+2002-11-22 15:17  wizfactor
+
+	* chat/ircd/DETAILS: Fixed typo in UPDATED line
+	
 2002-11-22 05:54  hardkrash
 
-	* doc-tools/yawl/DETAILS: Bummped UPDATED field so users have a
-	optimised yawl :-P -- Hardkrash
-
+	* doc-tools/yawl/DETAILS: Bummped UPDATED field so users have a optimised yawl :-P -- Hardkrash
+	
 2002-11-22 05:54  hardkrash
 
-	* doc-tools/yawl/BUILD: Fixed pentium specific compile options by
-	replacing with Lunar custom options.  Sorry kc8apf I got rid of
-	your :-P and alpha pentiums :-P -- Hardkrash
-
+	* doc-tools/yawl/BUILD: Fixed pentium specific compile options by replacing with Lunar custom options.
+	Sorry kc8apf I got rid of your :-P and alpha pentiums :-P -- Hardkrash
+	
 2002-11-22 05:51  hardkrash
 
-	* doc-tools/yawl/yawl-0.2.patch: Fixed patch to optimize for your
-	system in the makefile. --Hardkrash
-
+	* doc-tools/yawl/yawl-0.2.patch: Fixed patch to optimize for your system in the makefile. --Hardkrash
+	
 2002-11-22 05:31  tchan
 
-	* libs/ncurses/: BUILD, DETAILS, ncurses-gcc3.patch.bz2: Bumped
-	version to 5.3.  Compiled with gcc-3.2 and glibc-2.3.1.  Tested
-	against mutt, Midnight Commander, lynx and kernel's "make
-	menuconfig".  All work just fine for me.
-
+	* libs/ncurses/: BUILD, DETAILS, ncurses-gcc3.patch.bz2: Bumped version to 5.3.  Compiled with gcc-3.2 and glibc-2.3.1.  Tested against
+	mutt, Midnight Commander, lynx and kernel's "make menuconfig".  All work just
+	fine for me.
+	
 2002-11-22 04:44  nhudson
 
-	* graphics/wings/: BUILD, DEPENDS, DETAILS, wings3d: Adding Wings3D
-	to moonbase a 3D modeling tool
-
+	* graphics/wings/: BUILD, DEPENDS, DETAILS, wings3d: Adding Wings3D to moonbase a 3D modeling tool
+	
 2002-11-22 04:42  nhudson
 
 	* libs/: erlang/DEPENDS, erlang/DETAILS, esdl/BUILD, esdl/DEPENDS,
-	esdl/DETAILS, esdl/Makefile: Adding Erlang and Esdl to moonbase
-	these are the requirements for Wings3D a 3D modeling application
-	under GPL
-
+	esdl/DETAILS, esdl/Makefile: Adding Erlang and Esdl to moonbase these are the requirements for
+	Wings3D a 3D modeling application under GPL
+	
 2002-11-21 21:48  kc8apf
 
 	* gnome/gnome-print/DEPENDS: Case 42: The missing dependency
-
+	
 2002-11-21 20:25  kc8apf
 
 	* mail/imap/BUILD: Hopefully last fix for a while
-
+	
 2002-11-21 19:46  tchan
 
 	* perl/CPAN/DETAILS: Updated version of CPAN from 1.61 to 1.63.
-
+	
 2002-11-21 18:36  kc8apf
 
 	* mail/imap/BUILD: Fix small error in SSL variables
-
+	
 2002-11-21 18:31  kc8apf
 
-	* mail/imap/: BUILD, DEPENDS: Fix build.  It now requires OpenSSL. 
-	Need to figure out how to not force the user to answer y or n.
-
+	* mail/imap/: BUILD, DEPENDS: Fix build.  It now requires OpenSSL.  Need to figure out how to not force
+	the user to answer y or n.
+	
 2002-11-21 18:16  kc8apf
 
-	* doc-tools/docbook-utils/BUILD: Fix symlink of automake (made it
-	version independent)
-
+	* doc-tools/docbook-utils/BUILD: Fix symlink of automake (made it version independent)
+	
 2002-11-21 16:40  tchan
 
-	* libs/newt/DEPENDS: Added CPAN as a dependency.  A lunar user
-	reports that newt installs correctly when CPAN is installed.  No
-	simple way to test this without removing CPAN from my lunar box.
-
+	* libs/newt/DEPENDS: Added CPAN as a dependency.  A lunar user reports that newt installs correctly
+	when CPAN is installed.  No simple way to test this without removing CPAN from
+	my lunar box.
+	
 2002-11-21 16:31  tchan
 
-	* libs/newt/BUILD: Added a missing documentation file, newt.spec to
-	/usr/share/doc/newt.
-
+	* libs/newt/BUILD: Added a missing documentation file, newt.spec to /usr/share/doc/newt.
+	
 2002-11-21 15:23  kc8apf
 
 	* mail/imap/DETAILS: Bump UPDATED
-
+	
 2002-11-21 12:10  kc8apf
 
 	* compilers/gcl/BUILD: Fix installation paths
-
+	
 2002-11-21 10:44  jasper
 
 	* devel/linux/BUILD: remove final &&; this breaks the build
-
+	
 2002-11-21 08:26  sofar
 
 	* utils/pcmcia-cs/BUILD: Bugfix #187
-
+	
 2002-11-21 07:40  niki
 
-	* utils/raidtools/DETAILS: Updated field bumped, because some ppl
-	might have updated before the fix (Like me...)
-
+	* utils/raidtools/DETAILS: Updated field bumped, because some ppl might have updated before the fix
+	(Like me...)
+	
 2002-11-21 06:02  kc8apf
 
 	* utils/raidtools/BUILD: Fix manpage location
-
+	
 2002-11-21 04:53  tchan
 
-	* net/net-tools/lnet: Patched with Elaine's new lnet code.  Adds
-	Domain name and catch signal code.
-
+	* net/net-tools/lnet: Patched with Elaine's new lnet code.  Adds Domain name and catch signal code.
+	
 2002-11-20 23:01  niki
 
 	* libs/ClanLib/DETAILS: Updated version to 0.6.5 from 0.4.4.
-
+	
 2002-11-20 21:30  niki
 
-	* ftp/curl/DETAILS: Version updated to 7.10.2 from 7.10.1. Noticed
-	by Florin Braescu <braescu_f@yahoo.com>
-
+	* ftp/curl/DETAILS: Version updated to 7.10.2 from 7.10.1. Noticed by Florin Braescu
+	<braescu_f@yahoo.com>
+	
 2002-11-20 21:27  niki
 
-	* libs/libxslt/DETAILS: Version updated to 1.0.23 from 1.0.20.
-	Noticed by Florin Braescu <braescu_f@yahoo.com>
-
+	* libs/libxslt/DETAILS: Version updated to 1.0.23 from 1.0.20. Noticed by Florin Braescu
+	<braescu_f@yahoo.com>
+	
 2002-11-20 21:24  niki
 
-	* gnome/libxml2/: BUILD, DETAILS: Updated version to 2.4.27 from
-	2.4.24. Noticed by Florin Braescu <braescu_f@yahoo.com> Patch
-	"disabled" in Build file.
-
+	* gnome/libxml2/: BUILD, DETAILS: Updated version to 2.4.27 from 2.4.24. Noticed by Florin Braescu
+	<braescu_f@yahoo.com>
+	Patch "disabled" in Build file.
+	
 2002-11-20 20:28  niki
 
-	* doc-tools/scrollkeeper/DETAILS: Version updated to 0.3.11 from
-	0.3.9. Noticed by Florin Braescu <braescu_f@yahoo.com>
-
+	* doc-tools/scrollkeeper/DETAILS: Version updated to 0.3.11 from 0.3.9. Noticed by Florin Braescu
+	<braescu_f@yahoo.com>
+	
 2002-11-20 20:24  niki
 
-	* games/prboom/DETAILS: Updated version to 2.2.3 from 2.2.2.
-	Noticed by Florin Braescu <braescu_f@yahoo.com>
-
+	* games/prboom/DETAILS: Updated version to 2.2.3 from 2.2.2. Noticed by Florin Braescu
+	<braescu_f@yahoo.com>
+	
 2002-11-20 20:21  niki
 
-	* libs/gdbm/DETAILS: Updated to version 1.8.3 from 1.8.0. Noticed
-	by Florin Braescu <braescu_f@yahoo.com>
-
+	* libs/gdbm/DETAILS: Updated to version 1.8.3 from 1.8.0. Noticed by Florin Braescu
+	<braescu_f@yahoo.com>
+	
 2002-11-20 18:35  kc8apf
 
 	* utils/raidtools/DETAILS: Version bump
-
+	
 2002-11-20 18:14  kc8apf
 
-	* devel/linux/: BUILD, PRE_BUILD, alpha_cia_fix.patch: Small Alpha
-	fixes
-
+	* devel/linux/: BUILD, PRE_BUILD, alpha_cia_fix.patch: Small Alpha fixes
+	
 2002-11-20 15:36  tchan
 
-	* x11/xfree86/: BUILD, CONFIGURE, DEPENDS, DETAILS, xsession: Moved
-	Xoritor's crater version of xfree86 into moonbase.  To use this new
-	version you must recompile xfree86 and edit your host.def file to
-	get the new optimizations.  UPDATED field is not touched so no
-	automatic recompiles of X.
-
+	* x11/xfree86/: BUILD, CONFIGURE, DEPENDS, DETAILS, xsession: Moved Xoritor's crater version of xfree86 into moonbase.  To use this new
+	version you must recompile xfree86 and edit your host.def file to get the
+	new optimizations.  UPDATED field is not touched so no automatic recompiles
+	of X.
+	
 2002-11-20 09:57  sofar
 
 	* games/: ggz-client-libs/DETAILS, ggz-gtk-client/DETAILS,
 	ggz-gtk-games/DETAILS, ggz-kde-client/DETAILS,
 	ggz-kde-games/DETAILS, ggz-server/DETAILS, ggz-txt-client/DETAILS,
-	libggz/DETAILS: Bumping versions to 0.0.6, which includes fix for
-	#148.
-
+	libggz/DETAILS: Bumping versions to 0.0.6, which includes fix for #148.
+	
 2002-11-20 08:57  niki
 
 	* mail/imap/DETAILS: Imap version updated to 2002 from 2002.RC10.
-
+	
 2002-11-20 08:53  niki
 
-	* compilers/php/DETAILS: Imap source updated to version 2002 from
-	2002.RC10.
-
+	* compilers/php/DETAILS: Imap source updated to version 2002 from 2002.RC10.
+	
 2002-11-20 02:02  tchan
 
-	* devel/automake/: BUILD, DETAILS: Corrected the /usr/share
-	symlinks for automake.	Touched the UPDATED field to force a
-	rebuild.
-
+	* devel/automake/: BUILD, DETAILS: Corrected the /usr/share symlinks for automake.  Touched the UPDATED field to
+	force a rebuild.
+	
 2002-11-20 02:01  tchan
 
-	* doc-tools/sgml-common/: BUILD, DETAILS: Fixed for the newer
-	version of automake-1.7.1 instead of 1.6.
-
+	* doc-tools/sgml-common/: BUILD, DETAILS: Fixed for the newer version of automake-1.7.1 instead of 1.6.
+	
 2002-11-19 23:44  nhudson
 
 	* gnome/gal/DETAILS: Fixing another typo
-
+	
 2002-11-19 21:31  nhudson
 
 	* gnome2-core/: eel2/DETAILS, gnome-applets2/DETAILS,
-	gnome-media2/DETAILS, libgtkhtml/DETAILS, nautilus2/DETAILS:
-	Updating eel2 to version 2.0.8, nautilus2 to 2.0.8, gnome-applets
-	to 2.0.4 libgtkhtml to 2.0.3, gnome-media2 to 2.0.3
-
+	gnome-media2/DETAILS, libgtkhtml/DETAILS, nautilus2/DETAILS: Updating eel2 to version 2.0.8, nautilus2 to 2.0.8, gnome-applets to
+	2.0.4 libgtkhtml to 2.0.3, gnome-media2 to 2.0.3
+	
 2002-11-19 18:50  nhudson
 
 	* mail/evolution/BUILD: bleh fixing typo
-
+	
 2002-11-19 16:30  sofar
 
-	* crypto/openssh/init.d/sshd: Typo: should be sshd instead of ssh
-	now.
-
+	* crypto/openssh/init.d/sshd: Typo: should be sshd instead of ssh now.
+	
 2002-11-19 16:16  nhudson
 
-	* gnome2-core/: gedit2/DETAILS, gnome-utils2/DETAILS: Updating
-	gnome-utils2 to version 2.0.6 and gedit2 to version 2.0.6
-
+	* gnome2-core/: gedit2/DETAILS, gnome-utils2/DETAILS: Updating gnome-utils2 to version 2.0.6 and gedit2 to version 2.0.6
+	
 2002-11-19 15:39  nhudson
 
-	* mail/evolution/: BUILD, DEPENDS, DETAILS: Yay ok finally we have
-	Evolution 1.2 in moonbase, it still doesnot compile with openldap
-	so that dependancy is removed from the DEPENDS file, I have tested
-	this all weekend and found it to be very stable and worthy now of
-	being put into moonbase, hope everyone enjoys.
-
+	* mail/evolution/: BUILD, DEPENDS, DETAILS: Yay ok finally we have Evolution 1.2 in moonbase, it still doesnot
+	compile with openldap so that dependancy is removed from the DEPENDS
+	file, I have tested this all weekend and found it to be very stable and
+	worthy now of being put into moonbase, hope everyone enjoys.
+	
 2002-11-19 15:29  nhudson
 
-	* gnome/gal/DETAILS: Updating gal to version 0.21, this works fine
-	with all the modules that depend on it eg. gnumeric, abiword.  This
-	is upgraded mainly because Evolution 1.2 needs gal 0.20 or greater
-	to compile
-
+	* gnome/gal/DETAILS: Updating gal to version 0.21, this works fine with all the modules that
+	depend on it eg. gnumeric, abiword.  This is upgraded mainly because
+	Evolution 1.2 needs gal 0.20 or greater to compile
+	
 2002-11-19 04:39  nhudson
 
 	* gnome2-apps/meld/DETAILS: Fixed typo
-
+	
 2002-11-19 03:48  nhudson
 
-	* gnome2-apps/meld/: BUILD, DEPENDS, DETAILS, meld: Adding meld to
-	moonbase, Dem owes me a 6 pack of Abita for this :)
-
+	* gnome2-apps/meld/: BUILD, DEPENDS, DETAILS, meld: Adding meld to moonbase, Dem owes me a 6 pack of Abita for this :)
+	
 2002-11-19 03:18  nhudson
 
 	* gnome2-extras/: gnome-python2/BUILD, gnome-python2/DEPENDS,
 	gnome-python2/DETAILS, orbit-python/BUILD, orbit-python/DEPENDS,
-	orbit-python/DETAILS: Adding gnome-python2 for Gnome 2.0 Python
-	binding support, and orbit-python for ORBit 2.0 COBRA binding
-	support
-
+	orbit-python/DETAILS: Adding gnome-python2 for Gnome 2.0 Python binding support, and
+	orbit-python for ORBit 2.0 COBRA binding support
+	
 2002-11-19 02:36  tchan
 
 	* security/shorewall/DETAILS: Bumped version to 1.3.10.
-
+	
 2002-11-18 23:52  nhudson
 
 	* gnome/gtkhtml2/DETAILS: Added a mirror to the list
-
+	
 2002-11-18 23:49  nhudson
 
-	* gnome2-core/: gnome-games2/DETAILS, yelp/DETAILS: Updating
-	Gnome-games to version 2.0.6 and yelp to version 1.0.7
-
+	* gnome2-core/: gnome-games2/DETAILS, yelp/DETAILS: Updating Gnome-games to version 2.0.6 and yelp to version 1.0.7
+	
 2002-11-18 23:11  nhudson
 
-	* gnome/gtkhtml2/: BUILD, DEPENDS, DETAILS: This is tkhtml2 which
-	is not like gtkhtml, it uses a diffrent set of libs.  This is
-	needed for Evolution 1.2 which will be added later tonight, once
-	more testing is done.
-
+	* gnome/gtkhtml2/: BUILD, DEPENDS, DETAILS: This is tkhtml2 which is not like gtkhtml, it uses a diffrent set of
+	libs.  This is needed for Evolution 1.2 which will be added later
+	tonight, once more testing is done.
+	
 2002-11-18 19:24  nhudson
 
-	* x11-apps/: libmrproject/DEPENDS, mrproject/DEPENDS: Fixing typo
-	and I added the libgsf depends to the wrong file which is fixed now
-
+	* x11-apps/: libmrproject/DEPENDS, mrproject/DEPENDS: Fixing typo and I added the libgsf depends to the wrong file which is
+	fixed now
+	
 2002-11-18 19:24  nhudson
 
 	* x11-apps/: libmrproject/DETAILS, mrproject/DEPENDS,
-	mrproject/DETAILS: Updating mrproject and libmrproject to new
-	versions 0.7, libgsf is now required by libmrproject to build
-
+	mrproject/DETAILS: Updating mrproject and libmrproject to new versions 0.7, libgsf is now
+	required by libmrproject to build
+	
 2002-11-18 19:22  nhudson
 
-	* libs/libgsf/: BUILD, DETAILS: Adding libgsf to moonbase, this
-	takes the place of libole2 for Gnome 2.x
-
+	* libs/libgsf/: BUILD, DETAILS: Adding libgsf to moonbase, this takes the place of libole2 for Gnome 2.x
+	
 2002-11-18 16:32  elaine
 
 	* devel/: linux/DETAILS, linux/PRE_BUILD, linux-vanilla/DETAILS,
 	linux-vanilla/PRE_BUILD: 
-	Added patch (Petr Vandrovec <vandrove@vc.cvut.cz> to fix (local)
-	kernel Dos fault
-
+	Added patch (Petr Vandrovec <vandrove@vc.cvut.cz> to fix (local) kernel
+	Dos fault
+	
 2002-11-18 14:37  sofar
 
-	* web/calamaris/: BUILD, DETAILS: Adding new module: a proxy log
-	file analyzer.
-
+	* web/calamaris/: BUILD, DETAILS: Adding new module: a proxy log file analyzer.
+	
 2002-11-18 03:51  dem
 
 	* x11/NVIDIA_kernel/: BUILD, CONFIGURE, DETAILS: Nvidia patch
-
+	
 2002-11-18 03:25  nhudson
 
-	* gnome2-apps/pkgview/DETAILS: Updating pkgview to new version
-	0.0.7
-
+	* gnome2-apps/pkgview/DETAILS: Updating pkgview to new version 0.0.7
+	
 2002-11-17 23:56  kc8apf
 
 	* utils/sysstat/DETAILS: Version bump
-
+	
 2002-11-17 18:27  sofar
 
-	* perl/URI/DETAILS: Updating version number due to missing dl.
-	(untested)
-
+	* perl/URI/DETAILS: Updating version number due to missing dl. (untested)
+	
 2002-11-17 18:25  sofar
 
 	* doc-tools/man/BUILD: removing trailing '&&'
-
+	
 2002-11-17 17:07  tchan
 
-	* archive/cabextract/DETAILS: Bumped version number to 0.6. 
-	Compiled and tested under glibc-2.3.1.
-
+	* archive/cabextract/DETAILS: Bumped version number to 0.6.  Compiled and tested under glibc-2.3.1.
+	
 2002-11-17 16:36  sofar
 
 	* utils/e2fsprogs/BUILD: Removing /devices from being made...
-
+	
 2002-11-16 20:08  tchan
 
-	* devel/automake/DETAILS: Bumped version number to 1.7.1 from
-	1.6.3.	Compiled under glibc-2.3.1 and test compiled imlib which
-	uses automake.	Dem also tested automake with several of his
-	projects and it seems to work correctly.
-
+	* devel/automake/DETAILS: Bumped version number to 1.7.1 from 1.6.3.  Compiled under glibc-2.3.1 and
+	test compiled imlib which uses automake.  Dem also tested automake with
+	several of his projects and it seems to work correctly.
+	
 2002-11-16 19:40  tchan
 
-	* doc-tools/texinfo/DETAILS: Bumped version number to 4.3. 
-	Compiled and tested under glibc-2.3.1.
-
+	* doc-tools/texinfo/DETAILS: Bumped version number to 4.3.  Compiled and tested under glibc-2.3.1.
+	
 2002-11-16 19:15  tchan
 
-	* utils/less/lesspipe.sh: Removed the lesspipe.sh hacks I put in
-	for groff-1.18.*, since groff is now rolled back to 1.17.2.
-
+	* utils/less/lesspipe.sh: Removed the lesspipe.sh hacks I put in for groff-1.18.*, since groff is now
+	rolled back to 1.17.2.
+	
 2002-11-16 19:03  tchan
 
-	* utils/lunar/DEPENDS: Added a missing depends "diffutils".  lvu
-	requires diff.	This was already correct in "theedge".
-
+	* utils/lunar/DEPENDS: Added a missing depends "diffutils".  lvu requires diff.  This was already
+	correct in "theedge".
+	
 2002-11-16 18:45  tchan
 
-	* doc-tools/man/BUILD: Removed the sedit hack on man.conf, since
-	I've rolled groff back to 1.17.2.  Hack is only necessary for groff
-	> 1.17.2.
-
+	* doc-tools/man/BUILD: Removed the sedit hack on man.conf, since I've rolled groff back to 1.17.2.
+	Hack is only necessary for groff > 1.17.2.
+	
 2002-11-16 18:37  tchan
 
-	* doc-tools/groff/: BUILD, DETAILS: Rolled groff back to 1.17.2. 
-	Keep it at this version until all the MAN page problems are
-	resolved, i.e. hacking man.conf with "less -R", emacs M-x man
+	* doc-tools/groff/: BUILD, DETAILS: Rolled groff back to 1.17.2.  Keep it at this version until all the MAN page
+	problems are resolved, i.e. hacking man.conf with "less -R", emacs M-x man
 	broken, lesspipe.sh hacks, etc.
-
+	
 2002-11-16 07:16  kc8apf
 
-	* video/vcdimager/DETAILS: Version bump.  NOTE: this is an alpha
-	build but currently only version that works on gcc3.  It has worked
-	successfuly for me.
-
+	* video/vcdimager/DETAILS: Version bump.  NOTE: this is an alpha build but currently only version
+	that works on gcc3.  It has worked successfuly for me.
+	
 2002-11-16 02:47  kc8apf
 
 	* gnome/gnome-python/DEPENDS: Fix dependency
-
+	
 2002-11-15 22:11  tchan
 
-	* utils/e2fsprogs/init.d/mount: Committed Dem's newer mount script.
-	 Several lunar developers have tested it now and it seems to work
-	better than the old script.
-
+	* utils/e2fsprogs/init.d/mount: Committed Dem's newer mount script.  Several lunar developers have tested it
+	now and it seems to work better than the old script.
+	
 2002-11-15 22:07  niki
 
-	* devel/db4/BUILD: Added Richard Pyne's <rpyne@kinfolk.org>
-	modified Build script which fixes the problem with postfix and db4
-
+	* devel/db4/BUILD: Added Richard Pyne's <rpyne@kinfolk.org> modified Build script which fixes
+	the problem with postfix and db4
+	
 2002-11-15 08:43  niki
 
-	* perl/perl/DETAILS: Have problems getting perl to compile in
-	parallel, have set PSAFE=no
-
+	* perl/perl/DETAILS: Have problems getting perl to compile in parallel, have set PSAFE=no
+	
 2002-11-15 08:42  tchan
 
-	* utils/less/lesspipe.sh: Added some flags to groff to correctly
-	display a man page.
-
-2002-11-15 04:55  dem
-
-	* audio/: easytag/DETAILS, gst-plugins/DETAILS, gstreamer/DETAILS,
-	monkey-media/BUILD, monkey-media/DEPENDS, monkey-media/DETAILS,
-	rhythmbox/BUILD, rhythmbox/DETAILS, ripperX/DETAILS: Audio programs
-	updated
-
-2002-11-14 21:41  kc8apf
-
-	* compilers/gcl/: BUILD, DEPENDS: Fixup to make this build properly
-
-2002-11-14 18:09  kc8apf
-
-	* compilers/gcl/: DEPENDS, DETAILS: 
-	Added GCL
-
-2002-11-14 14:59  dem
-
-	* zbeta/XDirectFB/: BUILD, DEPENDS, DETAILS, PRE_BUILD: Danger
-	XDirectFB
-
-2002-11-13 23:59  dem
-
-	* video/DirectFB/DETAILS: DirectFB update, tested
-
-2002-11-13 23:51  dem
-
-	* graphics/sodipodi/: BUILD, DEPENDS, DETAILS: Sodipodi vector
-	graphics editing app strait from mat
-
-2002-11-13 20:19  kc8apf
-
-	* security/snort/DETAILS: MD5 fix
-
-2002-11-13 18:23  tchan
-
-	* utils/procps/DETAILS: Bumped the updated field to force a rebuild
-	of procps-3.1.0.  This now correctly installs the binaries in /bin
-	instead of /usr/bin.
-
-2002-11-13 18:22  tchan
-
-	* utils/procps/BUILD: Fixed the BUILD script to correctly install
-	the procps binaries in /bin, instead of /usr/bin.  Ver 3.1.0's
-	Makefile does NOT respect USRBINDIR, PROCDIR, and MANDIR env
-	variables anymore.
-
-2002-11-13 18:07  kc8apf
-
-	* utils/mrtg/DETAILS: Update bump
-
-2002-11-13 17:57  kc8apf
-
-	* utils/mrtg/DETAILS: Version bump
-
-2002-11-13 17:42  tchan
-
-	* utils/less/lesspipe.sh: Fixed a bug where lesspipe incorrectly
-	displays certain text files as man pages.
-
-2002-11-13 14:42  sofar
-
-	* net/tcpdump/DETAILS: Possible backdoor: added md5sum and bumped
-	updated field.
-
-2002-11-13 14:41  sofar
-
-	* net/libpcap/DETAILS: Possible backdoor: md5sum verification
-	enabled and touched updated.
-
-2002-11-13 06:16  jmhodges
-
-	* gnome2-extras/gal2/DETAILS: dem moved these and somehow we had a
-	"doubling" going on.  so i moved gal2 gnome2-extras (as dem did)
-	but this time made sure the gal2 in gnome2 was removed :), left
-	nhudsons changes in effect though
-
-2002-11-12 23:55  nhudson
-
-	* chat/xchat2/DETAILS: Updating xchat2 to new version 1.9.4
-
-2002-11-12 20:38  tiomo
-
-	* cd/k3b/DETAILS: updated to version 0.7.4
-
-2002-11-12 05:02  nhudson
-
-	* terminal/Eterm/DETAILS: Updating Eterm to new version 0.9.2,
-	tested
-
-2002-11-11 22:20  elaine
-
-	* devel/glademm/DETAILS: 
-	Bumped rev to 1.1.2 on request / advice of jol
-
-2002-11-11 18:21  jasper
-
-	* x11-wm/xfce/: BUILD, DETAILS: Update to latest version.
-
-2002-11-11 17:22  nhudson
-
-	* video/MPlayer/DETAILS: Updating MPlayer to new version 0.90pre10,
-	tested
-
-2002-11-11 17:10  nhudson
-
-	* security/snort/DETAILS: Updating snort to new version 1.9.0,
-	tested
-
-2002-11-11 17:03  nhudson
-
-	* printer/ImageMagick/DETAILS: Updating ImageMagick to new version
-	5.5.1-6, tested
-
-2002-11-11 16:48  nhudson
-
-	* x11-wm/WindowMaker/DETAILS: Updating WindowMaker to new version
-	0.80.2, tested
-
-2002-11-11 13:30  nhudson
-
-	* chat/gnomeicu2/DETAILS: Updating GnomeICU2 to version 0.98.126
-
-2002-11-11 05:49  tchan
-
-	* libs/uClibc/: .config.bz2, Makefile.diff.bz2: Adding the new
-	.config file and the patch for uClibc-0.9.16.
-
-2002-11-11 05:46  tchan
-
-	* libs/uClibc/: BUILD, Config.bz2, DETAILS: Updated to
-	uClibc-0.9.16.	New style .config file.  Tested with glibc-2.3.1. 
-	uClibc-0.9.15 will not correctly install under glibc-2.3.1, it will
-	compile.  Note: Makefile is patched because 0.9.16 appears to have
-	a sequencing logic error in "cp -a" and creating some symlinks.
-
-2002-11-10 22:13  nhudson
-
-	* gnome2-apps/pkgview/DETAILS: Updating pkgview to new version
-	0.0.6
-
-2002-11-10 21:45  kongar
-
-	* utils/e2fsprogs/DETAILS: upgraded to 1.31, tested
-
-2002-11-10 18:36  tchan
-
-	* x11-apps/xpdf/: BUILD, DEPENDS, DETAILS: Upgraded to xpdf-2.00. 
-	This now REQUIRES openMotif.  Lunar apps in general should be
-	moving AWAY from lesstif. xpdf now requires a toolkit!
-
-2002-11-10 18:35  jmhodges
-
-	* utils/lm_sensors/DETAILS, libs/i2c/DETAILS: updated from 2.6.3 to
-	2.6.5
-
-2002-11-10 07:15  xoritor
-
-	* ftp/vsftpd/: BUILD, CONFIGURE: Adding support for tcp_wrappers if
-	installed.
-
-2002-11-10 06:21  xoritor
-
-	* web/apache2/BUILD: Fixing default apache module:   Now includes
-	basic auth.    Now builds all modules.	  All modules are DSO
-	modules.    Includes Support for Berkeley DB.	 Uses Worker MPM
-	for better scalibility.
-
-2002-11-10 04:06  xoritor
-
-	* editors/sed/DETAILS: Updating version.
-
-2002-11-10 03:56  xoritor
-
-	* utils/procps/DETAILS: Various updates left over.
-
-2002-11-10 03:55  xoritor
-
-	* utils/procps/: BUILD, DETAILS: Updating version and build... new
-	code SHOULD optimize ok.
-
-2002-11-10 03:15  xoritor
-
-	* security/shorewall/DETAILS: Added a description.
-
-2002-11-10 03:12  xoritor
-
-	* net/iputils/DETAILS: Udating description.
-
-2002-11-10 03:07  xoritor
-
-	* net/iproute2/DETAILS: Updating website to point to lartc.org and
-	adding better description.
-
-2002-11-10 03:03  xoritor
-
-	* ftp/vsftpd/DETAILS: Fixed URL and description fields.
-
-2002-11-10 02:58  xoritor
-
-	* ftp/vsftpd/: BUILD, CONFIGURE, CONFLICTS, DETAILS, services,
-	init.d/ftpd, pam.d/ftp, xinetd.d/vsftpd: Adding the vsftpd server.
-
-2002-11-10 01:12  nhudson
-
-	* graphics/gtk+-2/DETAILS: Updating gtk+-2 again due to the quick
-	release of gtk+ 2.0.8, this fixes a bug in gdkpixbuf
-
-2002-11-09 20:18  niki
-
-	* editors/jed/DETAILS: Updated version number
-
-2002-11-09 20:10  niki
-
-	* libs/slang/DETAILS: Updated to new version
-
-2002-11-09 18:06  tchan
-
-	* utils/less/lesspipe.sh: Fixed a bug where lesspipe.sh would
-	incorrectly parse a file name like glibc-2.2.5 and invoke groff by
-	mistake.
-
-2002-11-09 09:41  lurch
-
-	* audio/alsa-driver/BUILD: More elaborate test on sound support in
-	kernel
-
-2002-11-09 09:41  lurch
-
-	* audio/alsa-driver/sound.cards: changed via8233 to via82xx
-
-2002-11-09 03:56  kongar
-
-	* web/links2/DETAILS: upgraded to 2.2.1pre7
-
-2002-11-08 22:41  nhudson
-
-	* graphics/gimp2/: BUILD, DEPENDS, DETAILS: Moved Gimp2 out of
-	zbeta and into moonbase/graphics where it should belong
-
-2002-11-08 19:10  tchan
-
-	* devel/swig/DETAILS: Updated to version 1.3.16.
-
-2002-11-08 18:36  xoritor
-
-	* mail/postfix/BUILD: Fixed sasl include path.
-
-2002-11-08 18:23  jmhodges
-
-	* audio/mpg123/DETAILS: add a missing UPDATED field, set the date
-	to the ENTERED, should fix any problems with lunar renew and update
-	trying to install it every time
-
-2002-11-08 18:04  xoritor
-
-	* mail/postfix/BUILD: Fixed sasl2 issue with building.
-
-2002-11-08 13:09  kongar
-
-	* net/vnc/DETAILS: upgraded to 3.3.5
-
-2002-11-08 08:58  kongar
-
-	* chat/: gaim/DETAILS, gaim-applet/DETAILS: upgraded to 0.59.6,
-	both tested
-
-2002-11-08 08:54  kongar
-
-	* cd/zisofs-tools/DETAILS: upgraded to 1.0.4
-
-2002-11-08 02:19  tchan
-
-	* devel/uml/DETAILS: Updated UML for 2.4.19-27 and uml_utilities to
-	20021103.
-
-2002-11-07 17:31  xoritor
-
-	* net/iputils/BUILD: Adding man page installation to iputils.
-
-2002-11-07 17:19  xoritor
-
-	* net/iputils/: BUILD, CONFLICTS, DETAILS: Adding iputils.
-
-2002-11-07 07:03  kongar
-
-	* gnome2-extras/glade2/: BUILD, DETAILS, glade2-glademm.patch:
-	upgraded to 1.1.3
-
-2002-11-07 06:50  kongar
-
-	* devel/anjuta/DETAILS: upgraded to 1.0.0
-
-2002-11-07 05:17  nhudson
-
-	* video/totem/DETAILS: Updated totem to new version 0.11.0
-
-2002-11-07 01:38  nhudson
-
-	* gnome2-apps/pkgview/: BUILD, DEPENDS, DETAILS: Added pkgview to
-	moonbase.  Pkgview is a app that tells you what versions you have
-	installed for your Gnome 2 desktop
-
-2002-11-07 01:12  nhudson
-
-	* x11-wm/hackedbox/: BUILD, DETAILS: Updated hackedbox to new
-	version 0.8.0 and fixed the BUILD script because the options
-	specified are no longer used
-
-2002-11-07 01:09  nhudson
-
-	* chat/gnomemeeting/BUILD: Fixed a typo that I noticed today as I
-	built this
-
-2002-11-07 01:08  nhudson
-
-	* gnome2-apps/file-roller/DETAILS, gnome2-extras/metacity/DETAILS:
-	Updating Metacity to version 2.4.1 and Fileroller to version 2.0.4
-
-2002-11-07 01:06  nhudson
-
-	* filemanagers/rox/DEPENDS: As I was installing this today on a
-	fresh install, it would not build unless gdk-pixbuf and gnome-libs
-	were installed, I added a dependancy gdk-pixbuf to fix this problem
-
-2002-11-07 01:04  nhudson
-
-	* graphics/gtk+-2/DETAILS: Updating Gtk+-2 to new version 2.0.7
-
-2002-11-07 01:03  nhudson
-
-	* libs/glib-2/DETAILS: Updating glib-2 to new version 2.0.7
-
-2002-11-06 21:36  kongar
-
-	* net/iproute2/: BUILD, DETAILS: added docs to iproute2, cosmetic
-	changes
-
-2002-11-06 20:24  xoritor
-
-	* net/iproute2/: BUILD, DETAILS: Adding iproute2
-
-2002-11-06 19:50  xoritor
-
-	* security/shorewall/: BUILD, DEPENDS, DETAILS: Adding shorewall
-	firewall.
-
-2002-11-06 03:40  elaine
-
-	* compilers/gcc/: BUILD, DETAILS, PRE_BUILD: 
-	Changed gcc include directory installation to use cpio instead of
-	tar For reasons I'm not clear on the correct fix, a patch of
-	'gcc/configure' failed to update 'gcc/Makefile' hence it's done by
-	'sedit'. The patch is left in place to simplify making it 'correct'
-
-2002-11-05 23:13  wizfactor
-
-	* archive/par/DETAILS: updated version to 1.1
-
-2002-11-05 14:34  kongar
-
-	* x11-wm/icewm/BUILD: 
-	various new compiling switches for maximum features.
-
-2002-11-05 13:26  elaine
-
-	* compilers/gcc/PRE_BUILD: 
-	Removed install patch, on some systems it causes headerfiles not to
-	install
-
-2002-11-05 07:28  kongar
-
-	* web/webmin/DETAILS: upgraded to 1.030
-
-2002-11-05 05:36  niki
-
-	* compilers/php/CONFIGURE: Changed on request from Richard Pyne
-	<rpyne@kinfolk.org>
-
-2002-11-05 05:26  niki
-
-	* utils/openldap/: BUILD, DEPENDS: Hopefully I have completed it
-	this time...
-
-2002-11-04 19:51  elaine
-
-	* compilers/gcc/: DETAILS, PRE_BUILD: 
-	Added Florin Braescu's install patch changing the broken
-	tar-install for alternate cp install -- patch source on cache
-	server
-
-2002-11-04 18:48  tiomo
-
-	* web/quanta3/: BUILD, CONFLICTS, DEPENDS, DETAILS: quanta 3.0 for
-	kde3
-
-2002-11-04 13:48  kongar
-
-	* utils/Wine/DETAILS: upgraded to 20021031
-
-2002-11-04 03:22  kc8apf
-
-	* x11-utils/gkrellkam2/: BUILD, DEPENDS, DETAILS: Add gkrellkam2
-
-2002-11-04 02:56  kc8apf
-
-	* x11-utils/gkrellkam/: BUILD, DEPENDS, DETAILS: Add gkrellkam
-
-2002-11-03 22:36  kongar
-
-	* utils/lvm/DETAILS: upgraded to 1.0.6
-
-2002-11-03 22:18  kongar
-
-	* sql/postgresql/DETAILS: upgraded to 7.2.3
-
-2002-11-03 21:06  kongar
-
-	* web/links2/: BUILD, DETAILS, links-2.1pre5.patch.bz2: upgraded to
-	2.1pre5
-
-2002-11-03 12:16  kongar
-
-	* web/links2/: BUILD, DETAILS, links-2.1pre5.patch.bz2: upgraded to
-	2.1pre4
-
-2002-11-03 11:53  kongar
-
-	* utils/lilo/DETAILS: upgraded to 22.3.4
-
-2002-11-02 21:24  kongar
-
-	* cd/cdrtools/DETAILS: upgraded to 1.11a39
-
-2002-11-02 21:03  kongar
-
-	* graphics/: sane-backends/DETAILS, sane-frontends/DETAILS,
-	xsane/DETAILS: 
-	sane-backends and sane-frontends are upgraded to 1.0.9
+	* utils/less/lesspipe.sh: Added some flags to groff to correctly display a man page.
 	
-	xsane is upgraded to 0.89
-	
-	tested against each other AND kdegraphics3
-
-2002-11-02 20:40  kongar
-
-	* printer/ImageMagick/DETAILS: upgraded to 5.5.1-4, tested
-
-2002-11-02 20:18  kongar
-
-	* utils/e2fsprogs/DETAILS: upgraded to 1.30, tested
-
-2002-11-02 19:56  kongar
-
-	* mail/fetchmail/DETAILS: upgraded to 6.1.2, tested
-
-2002-11-02 18:44  niki
-
-	* compilers/php/DETAILS: Forgot to update the MD5 sum for the
-	file...
-
-2002-11-01 18:16  wizfactor
-
-	* crypto/cyrus-sasl/DETAILS: Updated URL
-
-2002-11-01 15:00  kongar
-
-	* x11-wm/icewm/: BUILD, DEPENDS: 
-	added KDEDIR var to enviro, if it is not defined AND if kdebase3 is
-	installed
-	
-	added kde and gnome menu support to the build, iff there is a
-	gnome-config avail :=) the support maybe set to on/off via
-	preferences
-	
-	added anti-aliasing support
-	
-	added freetype2 to depends
-
-2002-11-01 13:09  kongar
-
-	* x11-wm/icewm/BUILD: added antialiasing support to compile options
-
-2002-11-01 06:08  hardkrash
-
-	* devel/: linux/BUILD, linux-testing/BUILD, linux-vanilla/BUILD:
-	Hardkrash: Added checking for a x display in build script falls
-	back to menuconfig if not found.
-
-2002-11-01 03:49  nhudson
-
-	* graphics/gimp-freetype/: BUILD, DEPENDS, DETAILS: Added a plugin
-	for Gimp2 this is the freetype plugin that better handles fonts in
-	Gimp2
-
-2002-11-01 03:36  kc8apf
-
-	* archive/cpio/cpio-2.4.2.SGL-patch.gz: file cleanup
-
-2002-11-01 03:35  kc8apf
-
-	* archive/cpio/DETAILS: version bump
-
-2002-10-31 18:33  niki
-
-	* compilers/php/DETAILS, mail/imap/DETAILS: Version of imap bumped.
-
-2002-10-31 18:27  niki
-
-	* crypto/cyrus-sasl/: BUILD, DETAILS: Bumped version number, and
-	disabled the patch in the BUILD file
-
-2002-10-31 18:21  niki
-
-	* utils/openldap/DEPENDS: Added TCP wrappers as optional depends.
-
-2002-10-30 18:47  kc8apf
-
-	* archive/zlib/BUILD: stupid mistake in a sedit
-
-2002-10-30 13:32  nhudson
-
-	* mail/balsa2/: BUILD, DEPENDS: Fixing some problems some people
-	had
-
-2002-10-30 01:20  nhudson
-
-	* mail/balsa2/: BUILD, CONFLICTS, DEPENDS, DETAILS: 
-	Added Balsa2 to moonbase, just like balsa but with Gnome 2 support
-
-2002-10-30 00:10  nhudson
-
-	* video/DirectFB/DETAILS: 
-	Updated DirectFB to version 0.9.13
-
-2002-10-29 12:16  kc8apf
-
-	* mail/imap/DETAILS: Version Bump
-
-2002-10-29 12:13  kc8apf
-
-	* compilers/php/DETAILS: Version Bump
-
-2002-10-29 08:41  jasper
-
-	* science/gnuplot/: BUILD, DEPENDS, DETAILS: Add gnuplot module.
-
-2002-10-28 12:50  kc8apf
-
-	* libs/glibc/BUILD: Fix install problem
-
-2002-10-28 09:29  kongar
-
-	* zbeta/xforms/: BUILD, DETAILS, flags.patch, libs.patch: upgraded
-	to 1.0RC5.2, better patched
-
-2002-10-28 02:08  nhudson
-
-	* chat/gnomemeeting/: BUILD, DEPENDS, DETAILS, PRE_BUILD: 
-	Added GnomeMeeting to moonbase, GnomeMeeting is a video confrencing
-	application like NetMeeting.
-
-2002-10-27 11:59  kongar
-
-	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS,
-	alsa-utils/DETAILS: upgraded to 0.9.0rc5
-
-2002-10-27 10:46  kongar
-
-	* ftp/curl/DETAILS: upgraded to 7.10.1
-
-2002-10-27 10:35  kongar
-
-	* video/xawtv/DETAILS: upgraded to 3.77
-
-2002-10-27 07:09  kongar
-
-	* crypto/gnupg/DETAILS: upgraded to 1.2.1
-
-2002-10-27 06:52  kongar
-
-	* utils/reiserfsprogs/DETAILS: upgraded to 3.6.4
-
-2002-10-27 06:52  kongar
-
-	* filemanagers/worker/DETAILS: upgraded to 2.7.0
-
-2002-10-27 01:35  dem
-
-	* gnome/: gnome-libs/DEPENDS, gnome-libs/POST_INSTALL,
-	gdk-pixbuf/DEPENDS: Fixing depends
-
-2002-10-26 03:33  kc8apf
-
-	* net/gnaughty/: DEPENDS, DETAILS: Just cause
-
-2002-10-25 12:40  kongar
-
-	* video/MPlayer/DETAILS: upgraded to 0.90pre9
-
-2002-10-25 08:24  kongar
-
-	* ftp/: dc_gui/DETAILS, dctc/DETAILS: upgraded
-
-2002-10-25 08:15  kongar
-
-	* libs/fltk/DETAILS: upgraded to 1.1.1
-
-2002-10-25 05:11  kongar
-
-	* web/apache-mod_ssl/DETAILS: upgraded to
-	pache-mod_ssl-2.8.12-1.3.27
-
-2002-10-25 04:22  kongar
-
-	* net/netdude/DETAILS: upgraded to 0.3.2
-
-2002-10-24 14:34  kongar
-
-	* kde3-utils/komba2/: BUILD, DEPENDS, DETAILS: 
-	
-	new module, komba2: an smb browser for kde3
-
-2002-10-24 12:01  sofar
-
-	* graphics/SDL/: BUILD, directfb-kbd-evts.patch: Adding patch to
-	compile against DirectFB (compiles BUT directfb through SDL does
-	not necessarily work)
-
-2002-10-24 10:09  kongar
-
-	* kde3/kdemultimedia3/BUILD: -O3 is replace with -O2 if set; -O3
-	causes problems
-
-2002-10-24 08:48  kongar
-
-	* kde3/kdebase3/BUILD: oopps, wrong commit, rolled back
-
-2002-10-24 08:46  kongar
-
-	* kde3/: kdebase3/BUILD, kexchange3/BUILD, kexchange3/DEPENDS,
-	kexchange3/DETAILS: kexchange is now for kde3
-
-2002-10-24 08:37  kongar
-
-	* graphics/xscreensaver/DETAILS: upgraded to 4.0.6
-
-2002-10-23 17:23  kc8apf
-
-	* archive/tar/: BUILD, DETAILS: Tar needs to be dynamic for switch
-	to glibc 2.3.1
-
-2002-10-23 15:37  kc8apf
-
-	* libs/glibc/DETAILS: Bump UPDATED
-
-2002-10-23 15:17  jasper
-
-	* compilers/gcc/: DETAILS, PRE_BUILD: Put back the patch. It's
-	needed to compile with glibc 2.3.x
-
-2002-10-23 15:17  kc8apf
-
-	* libs/glibc/BUILD: Really fixed glibc for good.  This should work
-	perfectly forever.
-
-2002-10-23 13:47  nhudson
-
-	* utils/recover/: BUILD, DEPENDS, DETAILS: Added reover to
-	moonbase, this allows you to recove deleted files off a ext2 and
-	ext3 filesystem.
-
