@@ -1,11 +1,15 @@
           MODULE=bind
          VERSION=9.2.2
           SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=$MODULE-$VERSION-verisign-fix.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.isc.org/isc/bind9/$VERSION/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+   SOURCE_VFY[0]=md5:6ea7d64a0856893ab3eb541ab7bbc725
+  SOURCE2_VFY[0]=md5:f46d62f145269e461a34d0220deea701
         WEB_SITE=http://www.isc.org/products/BIND
          ENTERED=20010922
-         UPDATED=20030304
+         UPDATED=20030917
            PSAFE=no
            SHORT="BIND is DNS server."
 cat << EOF
