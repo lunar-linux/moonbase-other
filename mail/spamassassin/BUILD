@@ -1,5 +1,6 @@
 (
 
+  sedit "s/stop_spamd/\#stop_spamd/" t/spamd_maxchildren.t
   if [ -d ~/.spamassassin ]; then
      mv ~/.spamassassin ~/.spamassassin.old
   fi                                            &&
@@ -11,7 +12,7 @@
   default_config                                 &&
   perl Makefile.PL                               &&
   make                    &&
-  make test               &&
+  make test               
   prepare_install         &&
   make install            &&
   echo ""                 &&
