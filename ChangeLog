@@ -1,3 +1,79 @@
+2005-01-14 12:45  nestu
+
+	* kernel/linux-2.6-mm/: DETAILS, PRE_BUILD: 2.6.10mm3 ->
+	  2.6.11rc1mm1. gcc 3.3.3, glibc 2.3.2, headers 2.6.10.0
+
+2005-01-14 10:55  ratler
+
+	* libs/libidn/DETAILS: Version bump and DETAILS cleanup
+
+2005-01-14 10:27  sofar
+
+	* utils/lm_sensors-2.6/DETAILS: tsk
+
+2005-01-14 02:46  v3rt1g0
+
+	* science/xephem/: BUILD, DEPENDS, DETAILS: Commited module
+	  inspired by couannette as posted on the Lunar ML.  Major
+	  differences than the one he posted was: this is a newer version,
+	  shortened the long description, and reworked the BUILD file to be
+	  a little more direct.
+
+2005-01-14 01:02  v3rt1g0
+
+	* zbeta/elicit-cvs/: BUILD, DEPENDS, DETAILS: Yet another EFL based
+	  app.	This one is a zoomer and colorpicker.  Good for a themer.
+
+2005-01-13 21:23  florin
+
+	* doc-tools/doxygen/: BUILD, DEPENDS: fix the compile using ben's
+	  suggestions. thank you ben.
+
+2005-01-13 20:26  florin
+
+	* doc-tools/doxygen/DEPENDS: add the needed python dependency.
+
+2005-01-13 20:06  florin
+
+	* kde3-utils/kbanking/DETAILS: bump the version from 0.9.5 to
+	  0.9.6.
+
+2005-01-13 20:01  florin
+
+	* libs/aqbanking/DETAILS: bump the version from 0.9.8 to 0.9.9.
+
+2005-01-13 18:13  florin
+
+	* crypto/mhash/DETAILS: bump the version from 0.9.1 to 0.9.2.
+
+2005-01-13 17:58  florin
+
+	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS,
+	  alsa-utils/DETAILS: bump the version from 1.0.7 to 1.0.8.
+
+2005-01-13 17:16  florin
+
+	* kernel/module-init-tools/: BUILD, DETAILS, POST_INSTALL: fix the
+	  compile by avoiding to recreate the man pages.
+
+2005-01-13 17:02  florin
+
+	* mail/sendmail/DETAILS: bump the version from 8.13.2 to 8.13.3.
+
+2005-01-13 16:03  nestu
+
+	* kernel/module-init-tools/DETAILS: 3.0 -> 3.1. gcc 3.3.3, glibc
+	  2.3.2, headers 2.6.10.0
+
+2005-01-13 14:21  v3rt1g0
+
+	* video/xvidcap/DETAILS: SOURCE_URL was missing the trailing / so
+	  this module was not downloading.
+
+2005-01-13 14:11  v3rt1g0
+
+	* utils/fdutils/DETAILS: Format tweaks and added a SHA1 sum
+
 2005-01-13 13:06  nestu
 
 	* kernel/module-init-tools/: BUILD, DETAILS, POST_INSTALL,
@@ -1886,128 +1962,4 @@
 	* editors/aspell/BUILD: Fixed this module to include a LOT of
 	  missing documentation.  The html docs are already included in the
 	  source tarball, so I installed them.
-
-2004-12-14 22:35  striker
-
-	* x11/XOrg/drivers: Reorder the driver list: * Move generic drivers
-	  to the top * Move most common (default on) under generic,
-	  alphabetical * Sort the rest alphabetically
-
-2004-12-14 22:35  tchan
-
-	* compilers/gcc/3.4.3/BUILD: Corrected a path problem in the BUILD
-	  script.  Should be ../gcc/config.build NOT gcc/config.build
-
-2004-12-14 21:36  tchan
-
-	* libs/glibc/BUILD.sparc64: Updated this with the latest changes
-	  sofar made to the regular BUILD script.
-
-2004-12-14 21:29  sofar
-
-	* compilers/gcc/3.4.3/: BUILD, CONFIGURE, POST_INSTALL: This should
-	  do the trick. note the change in path in POST_INSTALL and slight
-	  adjustment of BUILD
-
-2004-12-14 21:24  sofar
-
-	* libs/glibc/: BUILD, DETAILS, PRE_BUILD: Adding gcc-3.4.3
-	  compatibility with an optional patchset. Tested with both
-	  gcc-3.3.3 and gcc-3.4.3 and both upgrades grom glibc-2.3.3
-
-2004-12-14 21:19  moe
-
-	* x11/XOrg/drivers: Minor adjustments
-
-2004-12-14 21:04  sofar
-
-	* libs/glibc/POST_INSTALL: last adjustment!
-
-2004-12-14 20:57  sofar
-
-	* kernel/kernel-headers-2.4/: BUILD, DETAILS, PRE_BUILD: adding the
-	  header equivalen of -2.4*
-
-2004-12-14 20:49  sofar
-
-	* x11/XOrg/: CONFIGURE, drivers: Is this what you want Moe?
-
-2004-12-14 20:43  moe
-
-	* x11/XOrg/drivers: * Added some proper describtions. Adjust at
-	  will.    (Some of them might be too long)
-
-2004-12-14 20:23  moe
-
-	* net/ipw2100/: BUILD, DEPENDS, DETAILS: * No longer depends on
-	  hostap-driver * Bumped to 1.0.2 * Added a workaround to really
-	  get rid of the modules   in /lib. If anyone knows a
-	  leaner/cleaner way of   doing that please tell me about it
-
-2004-12-14 18:50  florin
-
-	* audio/beepmp/: DEPENDS, DETAILS: bump the version from 0.9.7rc2
-	  to 0.9.7.
-
-2004-12-14 18:05  florin
-
-	* games/briquolo/DETAILS: bump the version to 0.5.
-
-2004-12-14 17:59  moe
-
-	* utils/util-linux/: BUILD, DETAILS: well .. some 2.6 compatibility
-	  work. PAGE_SIZE is determined dynamicly in 2.6.x based kernels
-	  and therefore the call in fsck.cramfs.c returns nothing since
-	  asm/page.h calls a function (which is not included in the
-	  util-linux source tree of course).  A mail is out to the
-	  maintainer for a request to fix it.
-
-2004-12-14 17:49  striker
-
-	* games/fortune/profile.d/fortune.rc: fix the "fortune: command not
-	  found" problem with users that dont have /usr/games in their
-	  $PATH
-
-2004-12-14 16:11  moe
-
-	* mail/thunderbird/: DETAILS, POST_INSTALL: Here we go for
-	  thunderbird 1.0. Nothing special about it.  Compiled on a 2.6er
-	  box with gcc 3.3.3
-
-2004-12-14 13:12  sofar
-
-	* devel/pychecker/: BUILD, DETAILS: new version
-
-2004-12-14 09:38  sofar
-
-	* libs/glib/: DETAILS, PRE_BUILD: adding gcc-34 fixes. will test
-	  shortly if it compiles with gcc33 (which it prolly will anyway)
-
-2004-12-14 09:07  sofar
-
-	* utils/mmv/: BUILD, DETAILS: Typo, more cleanups, and also
-	  verified that the patch doesn't break gcc-3.3
-
-2004-12-14 08:57  sofar
-
-	* utils/mmv/: BUILD, DETAILS: fixes for gcc-34 and the normal build
-	  cleaned up a bit.
-
-2004-12-14 06:24  tchan
-
-	* devel/qemu/DETAILS: version bump to qemu-0.6.1. Many bug fixes
-	  and new disk image formats supported.  Compiled/tested with
-	  gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-12-14 06:07  tchan
-
-	* utils/util-linux/DETAILS: Version bump to util-linux-2.12k.
-	  Minor changes.  The devs adds gcc-3.4.0 detection and -mtune.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2004-12-14 05:31  florin
-
-	* games/bomberclone/DETAILS: bump the version form 0.11.3 to
-	  0.11.4.
 
