@@ -13,9 +13,9 @@ optional_depends  "openldap"             \
 		  ""                     \
 		  "for ldap support"     &&
 
-optional_depends  "gpgme-0.3.x"                \
-                  "--enable-gpgme --with-gpgme-prefix=/opt/lunar/gpgme-0.3.x" \
-                  ""                     \
+optional_depends  "gpgme" \
+                  "--enable-gpgme" \
+                  "--disable-gpgme"  \
                   "for encrypted email"  &&
 
 optional_depends  "jpilot"               \
