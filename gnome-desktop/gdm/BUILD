@@ -15,7 +15,7 @@
  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
  ./configure   --build=$BUILD                                        \
-               --prefix=/opt/lunar/gnome/2.4                         \
+               --prefix=/usr		                             \
                --with-xinerama=yes				     \
                --sysconfdir=/etc/X11                                 \
                --localstatedir=/var                                  \

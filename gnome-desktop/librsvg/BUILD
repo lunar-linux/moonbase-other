@@ -1,15 +1,6 @@
 (
    
-   ./configure  --build=$BUILD					\
-                --sysconfdir=/etc                               \
-                --prefix=/usr	                		\
-		--localstatedir=/var				\
-		--infodir=/usr/share/info	           	\
-		--mandir=/usr/share/man		                \
-                --with-croco                                    \
-                --with-svgz                                     \
-                $OPTS                                           &&
-
-   default_make
+   export OPTS="$OPTS --with-croco --with-svgz"
+   default_build
 
 ) > $C_FIFO 2>&1
