@@ -1,6 +1,10 @@
 (
   OPTS=""  
 
+  if [ "$NLS" == "n" ] ; then
+    OPTS="$OPTS --disable-nls"
+  fi
+
   if [ "$KDE" == "y" ] ; then
     OPTS="$OPTS --enable-kde"
   fi

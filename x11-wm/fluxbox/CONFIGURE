@@ -1,7 +1,13 @@
-if ! grep -q "REM" $MODULE_CONFIG; then
- if query "Enable Rember patch?" y
-   then echo "REM=y" >> $MODULE_CONFIG
-   else echo "REM=n" >> $MODULE_CONFIG
+if ! grep -q "NLS" $MODULE_CONFIG; then
+ if query "Enable NLS? (if not disables Remember patch)" y ; then
+   echo "NLS=y" >> $MODULE_CONFIG
+   if ! grep -q "REM" $MODULE_CONFIG; then
+     if query "Enable Remember patch?" y
+       then echo "REM=y" >> $MODULE_CONFIG
+       else echo "REM=n" >> $MODULE_CONFIG
+     fi
+   fi
+  else echo "NLS=n" >> $MODULE_CONFIG
  fi
 fi
 
