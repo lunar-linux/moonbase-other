@@ -61,6 +61,8 @@
     # Now the .desktop file and the icon
     install -d /usr/share/applications /usr/share/pixmaps &&
     install -m644 $SCRIPT_DIRECTORY/firefox.desktop /usr/share/applications
+    # please, dont just let the lin fail because /usr/share/pixmaps/firefox.xpm is an existing symlink...
+    rm -f /usr/share/pixmaps/firefox.xpm &&
     install -m644 $MOZILLA_HOME/icons/default.xpm \
 		  /usr/share/pixmaps/firefox.xpm
 
