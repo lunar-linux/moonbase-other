@@ -1,0 +1,20 @@
+           MODULE=vim-cvs
+          VERSION=cvs
+           SOURCE=$MODULE-$VERSION.tar.bz2
+           SOURCE2=vim-gtk2-20030316.patch.gz
+ SOURCE_DIRECTORY=$BUILD_DIRECTORY/vim
+    SOURCE_URL[0]=cvs://:pserver:anonymous@cvs.vim.sourceforge.net:/cvsroot/vim:vim
+    SOURCE2_URL[0]=http://regexxer.sourceforge.net/vim/$SOURCE2
+         WEB_SITE=http://vim.sf.net
+          ENTERED=20030315
+          UPDATED=20030315
+            SHORT="VIM is an improved version of vi."
+cat << EOF
+VIM is an improved version of the editor vi, one of the standard text
+editors on UNIX systems.
+VIM adds many of the features that you would expect in an editor:
+Unlimited undo, syntax coloring, split windows, visual selection,
+graphical user interface (read: menus, mouse control, scrollbars, text
+selection), and much much more.
+Now using the SINGLE tar.bz2 VIM source instead of four tar.gz files!
+EOF
