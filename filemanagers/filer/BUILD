@@ -1,4 +1,5 @@
 (
+    cd $BUILD_DIRECTORY/$MODULE
 
     prepare_install &&
     make install
