@@ -1,6 +1,6 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1 			 &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1       &&
   
   if ! module_installed teTeX || ! module_installed linuxdoc-tools ; then
     sedit "s:SUBDIRS = doc:SUBDIRS =:" Makefile.am Makefile.in
@@ -23,6 +23,7 @@
                --mandir=/usr/share/man   \
 	       --infodir=/usr/share/info \
 	       --disable-shared          \
+	       --disable-csharp          \
 	       --without-libintl-prefix  \
                $OPTS                     &&
   default_make
