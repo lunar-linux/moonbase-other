@@ -21,7 +21,8 @@
   	/usr/share/doc/pptp/Documentation                &&
   install -g 0 -o 0 -m 644 debian/pptp.8 \
         /usr/share/man/man8				 &&
-  install -g ppp -o 0 -m 644 ../options.pptp \
-  	/etc/ppp
+  if [ ! -f /etc/ppp/options.pptp ] ; then
+    install -g ppp -o 0 -m 640 ../options.pptp /etc/ppp
+  fi
  
 ) > $C_FIFO 2>&1
