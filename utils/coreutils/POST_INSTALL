@@ -1,11 +1,13 @@
 (
 
-  remove_module fileutils &&
-  remove_module sh-utils  &&
-  remove_module textutils &&
+  if module_installed fileutils ; then
+    remove_module fileutils
+    remove_module sh-utils
+    remove_module textutils
 
-  remove_depends fileutils &&
-  remove_depends sh-utils  &&
-  remove_depends textutils 
+    remove_depends fileutils
+    remove_depends sh-utils
+    remove_depends textutils 
+  fi
 
 )
