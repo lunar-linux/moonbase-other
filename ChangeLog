@@ -1,3 +1,74 @@
+2005-01-28 12:05  nestu
+
+	* shells/bash_static/POST_BUILD: Not needed anymore :)
+
+2005-01-28 12:04  nestu
+
+	* shells/bash_static/BUILD: Fix missing "() > $C_FIFO 2>&1"
+
+2005-01-28 11:49  moe
+
+	* kernel/linux-2.6/DETAILS: Adding a better describtion
+
+2005-01-28 11:46  moe
+
+	* kernel/linux-2.6/DETAILS: well .. we need the sources
+
+2005-01-28 11:12  nestu
+
+	* kernel/linux-2.6-grsec/DETAILS: 2.6.10-2.1.0 -> 2.6.10-2.1.1. gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.10.0 The grsec tree now lies on
+	  top of the -as security only kernel tree.
+
+2005-01-28 09:33  sofar
+
+	* mail/postfix/: BUILD, DEPENDS: Adding pgsql stuff so we have
+	  another happy user ;^)
+
+2005-01-28 08:07  ratler
+
+	* net/iproute2/DEPENDS: /sbin/arpd depends on db but someone forgot
+	  to add db to DEPENDS
+
+2005-01-28 05:50  florin
+
+	* libs/gwenhywfar/DETAILS: bump the version from 1.7.0 to 1.7.1.
+
+2005-01-28 05:34  florin
+
+	* crypto/gnutls/: DEPENDS, DETAILS: bump the version from 1.0.23 to
+	  1.2.0.
+
+2005-01-28 05:29  florin
+
+	* crypto/libtasn1/DETAILS: bump the version from 0.2.12 to 0.2.13.
+
+2005-01-28 05:22  florin
+
+	* games/wesnoth/DETAILS: bump the version from 0.8.8 to 0.8.9.
+
+2005-01-27 21:56  perldude
+
+	* perl/ExtUtils-Depends/DETAILS: fix version
+
+2005-01-27 17:16  florin
+
+	* sql/phpMyAdmin/: BUILD, DETAILS: bump the version to 2.6.1. the
+	  module preserves from now the config.inc.php file.
+
+2005-01-27 16:40  florin
+
+	* security/snort/DETAILS: bump the version from 2.2.0 to 2.3.0.
+
+2005-01-27 15:50  florin
+
+	* libs/aqbanking/DETAILS: bump the version from 1.0.2beta to
+	  1.0.3beta.
+
+2005-01-27 15:49  florin
+
+	* libs/gwenhywfar/DETAILS: bump the version from 1.6.0 to 1.7.0.
+
 2005-01-27 08:23  florin
 
 	* graphics/openvrml/DETAILS: bomp the version from 0.15.5 to
@@ -1748,91 +1819,4 @@
 
 	* x11/xsnow/: BUILD, DETAILS: Minor tweaks.  let er snow, let er
 	  snow, let er snow!
-
-2004-12-28 16:58  tchan
-
-	* chat/gaim/DETAILS: Version bump to gaim-1.1.1. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x. Uploaded a
-	  copy of gaim-1.1.1.tar.bz2 to espresso, as the sourceforge
-	  mirrors seems very slow to get a copy of the tarball.
-
-2004-12-28 15:28  florin
-
-	* security/nessus/DETAILS: bump the version to 2.3.0.
-
-2004-12-28 12:48  moe
-
-	* kernel/linux-2.6/PRE_BUILD: More checks .. more secure .. (?)
-
-2004-12-28 10:36  jol
-
-	* kde3-utils/kompose/DETAILS: Bumped version to 0.5.1
-
-2004-12-28 10:33  moe
-
-	* kernel/: linux-2.4/PRE_BUILD, linux-2.4-agr/PRE_BUILD,
-	  linux-2.4-grsec/PRE_BUILD, linux-2.4-om/PRE_BUILD,
-	  linux-2.4-stable/PRE_BUILD, linux-2.4-vanilla/PRE_BUILD: Fixing
-	  the PRE_BUILD files of all the kernel modules so that they are
-	  going to work with the latest available tar. Tested with the
-	  latest tar and gcc 3.3.3, glibc 2.3.3.
-
-	  PS: The PRE_BUILD's are looking really strange :-/
-
-2004-12-28 06:02  florin
-
-	* games/neverball/BUILD: small tweak.
-
-2004-12-28 05:01  v3rt1g0
-
-	* games/neverball/: BUILD, DETAILS: Cleaned up the DETAILS file a
-	  bit, simplified the BUILD, and most importantly we are now
-	  installing neverputt! mmmmm minigolf.
-
-2004-12-28 02:59  v3rt1g0
-
-	* games/geekcode/: BUILD, DETAILS: Inital Import.  Yay for long
-	  annoying .sigs
-
-2004-12-28 01:53  v3rt1g0
-
-	* x11-apps/xscreensaver-gtk1/DETAILS: Yeah, that message not almost
-	  not made no sense.
-
-2004-12-28 01:49  v3rt1g0
-
-	* x11-apps/: xscreensaver-kde/DEPENDS,
-	  xscreensaver-openMotif/DEPENDS: xsnow as optional_depends
-
-2004-12-28 01:48  v3rt1g0
-
-	* x11-apps/xscreensaver-gtk1/DEPENDS: Added new optional_depends of
-	  xsnow
-
-2004-12-28 01:47  v3rt1g0
-
-	* x11-apps/xscreensaver/DEPENDS: Added missing && and added a new
-	  optional_depends of xsnow
-
-2004-12-28 01:16  v3rt1g0
-
-	* x11-apps/xscreensaver-gtk1/DETAILS: xscreensaver developers has
-	  dropped support for the gtk+1 version, making note of this in the
-	  DETAILS file and hence no version bump.  If a dev feels strongly
-	  about this they can just remove this module completely.  I won't
-	  shed a tear. :)
-
-2004-12-28 01:13  v3rt1g0
-
-	* x11-apps/xscreensaver-openMotif/DETAILS: Version bump of the
-	  openMotif one
-
-2004-12-28 01:12  v3rt1g0
-
-	* x11-apps/xscreensaver-kde/DETAILS: Version bump. -- kde version
-
-2004-12-28 01:11  v3rt1g0
-
-	* x11-apps/xscreensaver/DETAILS: Version bump.	4 new hacks added
-	  and some others got an update.
 
