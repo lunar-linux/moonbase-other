@@ -1,12 +1,23 @@
           MODULE=mysql
-         VERSION=4.0.18
-          SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL[0]=http://mirror.services.wisc.edu/mysql/Downloads/MySQL-4.0/$SOURCE
+     REALVERSION=4.0.18
+      PATCHLEVEL=1
+         VERSION=$REALVERSION-$PATCHLEVEL
+          SOURCE=$MODULE-$REALVERSION.tar.gz
+         SOURCE2=mysql-4.0.18-mysqlbug-symlink-fix.patch.gz
+         SOURCE3=mysql-4.0.18-mysqlbug.sh-symlink-fix.patch.gz
+         SOURCE4=mysql-4.0.18-mysqld_multi.sh-symlink-fix.patch.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$REALVERSION
+   SOURCE_URL[0]=http://mirror.services.wisc.edu/mysql/Downloads/MySQL-4.0/$SOURCE
       SOURCE_VFY=md5:702151a3e21d9e5f32e8850032aefdad
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+  SOURCE2_VFY[0]=md5:cbabc2af0539089dc9b116080e5f8422
+  SOURCE3_URL[0]=$PATCH_URL/$SOURCE3
+  SOURCE3_VFY[0]=md5:661f33afc56ec054975ca0aa12bcfe45
+  SOURCE4_URL[0]=$PATCH_URL/$SOURCE4
+  SOURCE4_VFY[0]=md5:27c3a9cb7ee0ab8e2f310a60261790e5
         WEB_SITE=http://www.mysql.com
          ENTERED=20011114
-         UPDATED=20040215
+         UPDATED=20040416
         SHORT="MySQL is a widely used and fast SQL database server."
 
 cat << EOF
