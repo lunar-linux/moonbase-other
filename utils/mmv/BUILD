@@ -1,6 +1,7 @@
 (  
 
   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  chmod 644 * &&
   gcc "-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64" ${CFLAGS} ${LDFLAGS} mmv.c -o mmv &&
   prepare_install      &&
   cp mmv /usr/bin &&
