@@ -1,8 +1,7 @@
 (
 
-  ./configure  --prefix=/usr  --enable-final \
+  ./configure  --prefix=/usr  \
                $OPTS          &&
-  patch -p0 < $SCRIPT_DIRECTORY/rdesktop-fix-makefile.patch &&
   make                        &&
   prepare_install             &&
   make    PREFIX=/usr install
