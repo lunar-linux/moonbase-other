@@ -9,14 +9,19 @@ echo "      it_IT     ja_JP     lv_LV     pt_BR     pt_PT     ru_RU"
 echo "      sv_SE     tr_TR"
 echo
 if ! grep -q "NLS" $MODULE_CONFIG; then
- if query "Enable NLS? (if not disables Remember patch)" y ; then
+
+# Remember patch is deprecated and no longer supported for 0.1.14
+echo "REM=n" >> $MODULE_CONFIG
+
+# if query "Enable NLS? (if not disables Remember patch)" y ; then
+ if query "Enable NLS?" y ; then
    echo "NLS=y" >> $MODULE_CONFIG
-   if ! grep -q "REM" $MODULE_CONFIG; then
-     if query "Enable Remember patch?" y
-       then echo "REM=y" >> $MODULE_CONFIG
-       else echo "REM=n" >> $MODULE_CONFIG
-     fi
-   fi
+#   if ! grep -q "REM" $MODULE_CONFIG; then
+#     if query "Enable Remember patch?" y
+#       then echo "REM=y" >> $MODULE_CONFIG
+#       else echo "REM=n" >> $MODULE_CONFIG
+#     fi
+#   fi
   else echo "NLS=n" >> $MODULE_CONFIG
  fi
 fi
