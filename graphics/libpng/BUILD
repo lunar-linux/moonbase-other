@@ -1,8 +1,6 @@
 (
   cd ..                             &&
   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-  patch_it $SOURCE_CACHE/$SOURCE3 0 &&
-  patch_it $SOURCE_CACHE/$SOURCE4 0 &&
   cd $SOURCE_DIRECTORY              &&
 
 # the funroll-loops is there from the authors of libpng.  Its not my idea!
