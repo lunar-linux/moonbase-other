@@ -1,3 +1,70 @@
+2002-08-29 08:40  kongar
+
+	* mail/postfix/: BUILD, DEPENDS: 
+	added cyrus-sasl and openssl support
+	
+	fixed CC to be used with wrappers
+	
+	tested
+
+2002-08-29 08:19  kongar
+
+	* zbeta/cyrus-sasl/: BUILD, DEPENDS, DETAILS,
+	cyrus-sasl-1.5.27.patch.bz2: moved cyrus-sasl to crypto
+
+2002-08-29 07:19  kongar
+
+	* mail/exim/BUILD: added CRAM_MD5 authentication code for SMTP AUTH
+
+2002-08-29 06:27  tchan
+
+	* devel/linux/: CONFIGURE, PRE_BUILD, lunar-patch-set-2.4.19.list:
+	Fixed the lunar module once and for all to just use Dem's patchset.
+	 XFS is enabled in this kernel by default after the patchset is
+	successful. No more allowing the user to choose the patch or not.
+	If you want no patches, use linux-vanilla.
+
+2002-08-29 04:29  csm
+
+	* web/mozilla/CONFIGURE: Xft support does not work. I have turned
+	it off to get this to build.
+
+2002-08-29 02:37  csm
+
+	* web/mozilla/CONFIGURE: fixing a spelling error!
+
+2002-08-29 00:15  csm
+
+	* utils/devfsd/POST_INSTALL: eliminating an error message
+
+2002-08-28 22:22  sofar
+
+	* zbeta/mozilla-nightly/: BUILD, CONFIGURE, DEPENDS, DETAILS,
+	mozilla: New module: mozilla-nightly, for those who want the
+	bleedin' edge
+
+2002-08-28 21:44  sofar
+
+	* devel/linux/PRE_BUILD: related fix to CONFIGURE
+
+2002-08-28 20:49  sofar
+
+	* devel/linux/CONFIGURE: Fixed patch selection dialog
+
+2002-08-28 19:49  dem
+
+	* web/mozilla/CONFIGURE: Without calendar for timebeing
+
+2002-08-28 19:21  sofar
+
+	* shells/bash/profile.d/bash-completion.rc: Added compiler, removed
+	lfix
+
+2002-08-28 18:46  csm
+
+	* cd/cdrdao/: BUILD, cdrdao-1.1.15-endianness.patch,
+	cdrdao-1.1.5-c++.patch: this needs testing but it builds for me!
+
 2002-08-28 18:20  csm
 
 	* utils/e2fsprogs/BUILD: the wrappers work so there is no need for
