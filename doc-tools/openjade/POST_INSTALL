@@ -5,28 +5,28 @@ if ! [ -e "$centralized" ]; then
      echo "Creating $centralized!" 
      mkdir -p /etc/sgml
      touch $centralized
-fi                                                                               &&
+fi                                                                          &&
 
-/usr/bin/install-catalog --add $centralized $CATALOGDIR/dsssl/catalog            &&
-/usr/bin/install-catalog --add $centralized $CATALOGDIR/pubtext/catalog          &&
-/usr/bin/install-catalog --add $centralized $CATALOGDIR/contrib/catalog          &&
-/usr/bin/install-catalog --add $centralized $CATALOGDIR/unicode/catalog          &&
+/usr/bin/install-catalog --add $centralized $CATALOGDIR/dsssl/catalog       &&
+/usr/bin/install-catalog --add $centralized $CATALOGDIR/pubtext/catalog     &&
+/usr/bin/install-catalog --add $centralized $CATALOGDIR/contrib/catalog     &&
+/usr/bin/install-catalog --add $centralized $CATALOGDIR/unicode/catalog     &&
 
-echo "Testing openjade install!"                                                 &&
-echo ""                                                                          &&
-export SGML_CATALOG_FILES=/usr/share/sgml/docbook/sgml-dtd-4.1/catalog           &&
+echo "Testing openjade install!"                                            &&
+echo ""                                                                     &&
+export SGML_CATALOG_FILES=/usr/share/sgml/docbook/sgml-dtd-4.1/catalog      &&
 
-mkdir /usr/src/testkit                                                           &&
-cd /usr/src/testkit                                                              &&
+mkdir /usr/src/testkit                                                      &&
+cd /usr/src/testkit                                                         &&
 wget http://docbook.sourceforge.net/release/dsssl/current/doc/testdata/jtest.sgm &&
 wget http://docbook.sourceforge.net/release/dsssl/current/doc/testdata/jtest.dsl &&
 
-/usr/bin/jade -t rtf -d jtest.dsl jtest.sgm                                      &&
+/usr/bin/jade -t rtf -d jtest.dsl jtest.sgm                                &&
 
-if [ -e /usr/src/testkit/jtest.rtf]; then
-   echo ""
-   echo "Openjade install is good!"
-fi                                                                               &&
+if [ -e /usr/src/testkit/jtest.rtf ]; then
+   message ""
+   message "Openjade install is good!"
+fi                                                                         &&
 
 cd ..                                                                            
 #rm -Rf /usr/src/testkit                                                          
