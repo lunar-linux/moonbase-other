@@ -10,7 +10,7 @@
     TARGET="slx"
   fi
 
-  if module_installed openldap ; then
+  if is_depends openldap ; then
     mkdir $SOURCE_DIRECTORY/ldap
     ln -s /usr/lib $SOURCE_DIRECTORY/ldap/libraries
     ln -s /usr/include $SOURCE_DIRECTORY/ldap/include
