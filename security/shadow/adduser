@@ -3,6 +3,7 @@
 # by Hrvoje Dogan <hdogan@student.math.hr>, Dec 1995.
 # Modified by Patrick Volkerding, Oct 1997, Mar 1999, May 2000.
 # Modified by Kagan Kongar, 20020315
+# Modified by Auke Kok, 20030703 (Added upg scheme)
 
 if  ! [  "$UID"  ==  0  ];  then
   echo "You have to be r00t for that. Enter root password for su"
@@ -10,12 +11,16 @@ if  ! [  "$UID"  ==  0  ];  then
   exit
 fi
 
+
 echo
-echo -n "Login name for new user []: "
+echo -n "Login name for new user [$1]: "
 read LOGIN
 if [ -z "$LOGIN" ]; then
-  echo "Come on, man, you can't leave the login field empty..."
-  exit
+  LOGIN=$1
+  if [ -z "$LOGIN" ]; then
+    echo "Come on, man, you can't leave the login field empty..."
+    exit
+  fi
 fi
 echo
 echo -n "User id for $LOGIN [ defaults to next available]: "
@@ -26,10 +31,10 @@ if [ -z "$ID" ]; then
 fi
 
 echo
-echo -n "Initial group for $LOGIN [users]: "
+echo -n "Initial group for $LOGIN [$LOGIN]: "
 read GID
 if [ -z "$GID" ]; then
-  GID="users"
+  GID="$LOGIN"
 fi
 GGID="-g $GID"
 
@@ -105,6 +110,10 @@ echo "This is it... if you want to bail out, hit Control-C.  Otherwise, press"
 echo "ENTER to go ahead and make the account."
 read FOO
 echo
+if ! grep -q "^$GID:" /etc/group ; then
+  echo Making new group...
+  /usr/sbin/groupadd $GID
+fi
 echo Making new account...
 /usr/sbin/useradd $GHME -m $GEXP $GGID $GAGID $GSHL $GUID $LOGIN
 if [ -d $HME ]; then
