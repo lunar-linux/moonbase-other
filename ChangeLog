@@ -1,3 +1,101 @@
+2003-10-31 11:41  jasper
+
+	* utils/fam/xinetd.d/sgi_fam: We don't seem to have a nobody group.
+	At least I didn't.
+
+2003-10-31 03:11  nhudson
+
+	* x11/xfree86/CONFIGURE: 
+	Fixing freetype2 problem in xfree build
+
+2003-10-31 02:33  csm
+
+	* init/chkconfig/: BUILD, DEPENDS, DETAILS: updating chkconfig!
+
+2003-10-31 01:58  csm
+
+	* utils/fam/xinetd.d/sgi_fam: adding an xinetd.d script for fam
+	instead of the old init script
+
+2003-10-31 01:15  csm
+
+	* zbeta/initscripts/DETAILS: updating the version
+
+2003-10-31 00:46  csm
+
+	* zbeta/initscripts/: BUILD, PRE_BUILD: the PRE_BUILD broke
+	things... removing it
+
+2003-10-31 00:35  csm
+
+	* zbeta/initscripts/PRE_BUILD: making the sleep period longer to
+	give people a chance to read this
+
+2003-10-31 00:33  csm
+
+	* zbeta/initscripts/PRE_BUILD: fixing a missing quote!
+
+2003-10-31 00:18  csm
+
+	* zbeta/initscripts/DEPENDS: adding a missed dep
+
+2003-10-31 00:16  csm
+
+	* zbeta/initscripts/: POST_INSTALL, PRE_BUILD: adding a pre-build
+	warning telling the user what to do prior to installation
+
+2003-10-31 00:07  csm
+
+	* zbeta/initscripts/DETAILS: updating the version
+
+2003-10-30 23:56  nhudson
+
+	* audio/rhythmbox/DEPENDS: 
+	Readding sound-juicer seems there was a funcion I didnt know about
+
+2003-10-30 23:31  nhudson
+
+	* audio/rhythmbox/DEPENDS: 
+	Fixing the DEPENDS file, last I checked rhythmbox doesnt rip CD's
+	by using sound-juicer, also it no longer uses musicbrainz
+
+2003-10-30 20:56  jasper
+
+	* utils/coreutils/: BUILD, DETAILS: Remove usleep from coreutils.
+	The implementation in new initscripts package is preferable.
+
+2003-10-30 19:35  jmhodges
+
+	* audio/easytag/: BUILD, DETAILS: added patches
+
+2003-10-30 15:14  moe
+
+	* zbeta/xqf-cvs/DEPENDS: Work without qstat
+
+2003-10-30 15:09  moe
+
+	* zbeta/xqf-cvs/DEPENDS: We want GTK2!
+
+2003-10-30 15:08  moe
+
+	* zbeta/xqf-cvs/DETAILS: Describtion added
+
+2003-10-30 15:06  moe
+
+	* zbeta/xqf-cvs/: BUILD, DEPENDS, DETAILS: This is a GTK based
+	server browser for many different games (Q3, UT or Enemy
+	territory). This is the CVS version .. and its based on GTK2! YAY!
+	(Note: Describtion is ahead)
+
+2003-10-30 13:41  sofar
+
+	* science/proj-4/DETAILS: Thanks to Vincent (evo) for this one!
+
+2003-10-30 13:14  nhudson
+
+	* gnome2-apps/conglomerate/DETAILS: 
+	Updating conglomerate to new version 0.7.6
+
 2003-10-30 07:24  jasper
 
 	* utils/coreutils/BUILD: Move usleep to /bin, so that it can be
@@ -1666,58 +1764,4 @@
 
 	* crypto/openssl/0.9.6k/: BUILD, POST_INSTALL: added no-rebuild
 	logic if not bumping x.y.z version
-
-2003-09-30 22:43  elaine
-
-	* crypto/openssl/: BUILD, POST_INSTALL: Added hack to save building
-	dependencies if v.v.v isn't changed
-
-2003-09-30 22:02  sofar
-
-	* graphics/sane-frontends/DETAILS: Dropping down the version since
-	it doesn't seem to exist at all :^(
-
-2003-09-30 21:27  sofar
-
-	* graphics/ImageMagick/DETAILS: Lets hope they keep it calm there
-	again now.
-
-2003-09-30 21:12  sofar
-
-	* x11-apps/lyx/DEPENDS: As requested, untested.
-
-2003-09-30 17:31  elaine
-
-	* crypto/openssl/DETAILS: Bumped UPDATED var
-
-2003-09-30 17:07  elaine
-
-	* crypto/openssl/DETAILS: Bumped version against ASN.1 flaws fixed
-	in 0.9.7c
-
-2003-09-30 16:59  elaine
-
-	* crypto/openssl/0.9.6k/: BUILD, DEPENDS, DETAILS, POST_INSTALL:
-	Adding fixed 0.9.6 (k) openssl for people not running 0.9.7
-
-2003-09-30 07:01  sofar
-
-	* x11-apps/lyx/DETAILS: Bumping version
-
-2003-09-30 07:01  sofar
-
-	* graphics/blender/: BUILD, DEPENDS, DETAILS: The normal blender
-	module!
-
-2003-09-30 03:15  jmhodges
-
-	* web/MozillaFirebird/BUILD: er. .somehow a typo got in AFTER
-	testing it.. grr..
-
-2003-09-30 03:13  jmhodges
-
-	* web/MozillaFirebird/: BUILD, firebird-nsRegisterChrome.cpp.patch:
-	allows for install of extensions
-	http://bugzilla.mozilla.org/show_bug.cgi?id=109044 and for more
-	info on extensions http://texturizer.net/firebird/extensions/
 
