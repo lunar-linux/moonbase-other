@@ -1,10 +1,7 @@
 depends  "kdelibs3"   &&
-depends  "imlib"      &&
 
-optional_depends  "teTeX"          ""  ""  "for dvi support"  &&
-optional_depends  "espgs"    ""  ""  "for ps support"   &&
-optional_depends  "xpdf"           ""  ""  "for pdf support"  &&
-optional_depends  "sane-backends"  ""  ""  "for scanning support"
-optional_depends "gocr" "" "" "to enable optical character recognition"
-
-#add gphoto2 depends when module comes available
+optional_depends  "teTeX"          ""  ""  "dvi support"            &&
+optional_depends  "espgs"          ""  ""  "ps support"             &&
+optional_depends  "sane-backends"  ""  ""  "scanning support"       &&
+optional_depends  "gphoto2"        ""  ""  "enable the digital cameras usage" &&
+optional_depends  "gocr"           ""  ""  "enable optical character recognition"
