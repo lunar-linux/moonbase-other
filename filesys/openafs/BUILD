@@ -39,15 +39,7 @@
   sedit "s;^OPTIONS=.*;OPTIONS=\"\$MEDIUM -nosettime\";" $SOURCE_DIRECTORY/src/afsd/afs.conf.linux
   install -p -m 644 $SOURCE_DIRECTORY/src/afsd/afs.conf.linux /etc/config.d/afs	 &&
   sedit "s;^SYSCNF=.*;SYSCNF=/etc/config.d/afs;" $SOURCE_DIRECTORY/src/afsd/afs.rc.linux	&&
-  install -p -m 755 $SOURCE_DIRECTORY/src/afsd/afs.rc.linux /etc/init.d/afs &&
-
- 
-  message ""
-  message "Before starting AFS remember to add your AFS cell"
-  message "to /usr/vice/etc/ThisCell. You might also want to"
-  message "change the cache size which is by default 100Mb"
-  message "in /usr/vice/etc/cacheinfo."
-  message ""
+  install -p -m 755 $SOURCE_DIRECTORY/src/afsd/afs.rc.linux /etc/init.d/afs
  
 ) > $C_FIFO 2>&1
   
