@@ -2,8 +2,6 @@ test -d /etc/modules.d/   || mkdir -p /etc/modules.d
 test -f /etc/modules      || touch /etc/modules
 test -f /etc/modules.conf || touch /etc/modules.conf
 
-module_installed modutils-wrappers || lin -c modutils-wrappers
-
 source /etc/profile.d/modutils-completion.rc
 
 message  "
