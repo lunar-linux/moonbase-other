@@ -24,11 +24,11 @@ lesspipe() {
   *.[1-9] | *.n | *.man)
     [ "$(file -L $1 | cut -d ' ' -f 2)" = "troff" -o \
     "$(file -L $1 | cut -d ' ' -f 2)" = "ASCII" ] &&
-    groff -S -s -p -t -e -Tascii -mandoc "$1" 2>/dev/null ;;
+    groff -P-cbu -S -s -p -t -e -Tascii -mandoc "$1" 2>/dev/null ;;
   *.[1-9].gz | *.n.gz | *.man.gz)
     [ "$(gzip -dc $1 2>/dev/null|file -|tr -s ' '|cut -d ' ' -f3)" = "troff" -o \
     "$(gzip -dc $1 2>/dev/null|file -|tr -s ' '|cut -d ' ' -f3)" = "ASCII" ] &&
-    gzip -dc $1 2>/dev/null | groff -S -s -p -t -e -Tascii -mandoc ;;
+    gzip -dc $1 2>/dev/null | groff -P-cbu -S -s -p -t -e -Tascii -mandoc ;;
   *.gz) gzip -dc $1  2>/dev/null ;; # keep this after the above statement :)
   *) FILE="$(file -L $1)"
     FILE1="$(echo $FILE | cut -d ' ' -f 2)"
