@@ -1,7 +1,7 @@
 (
 
-  if  module_installed  Linux-PAM;  then
-    WITH_PAM="--with-pam"
+  if module_installed Linux-PAM;  then
+    OPTS="$OPTS --with-pam"
   fi
 
   ./configure  --sysconfdir=/etc        \
@@ -9,18 +9,11 @@
                --mandir=/usr/share/man  \
                --localstatedir=/var     \
                --with-everything        \
-               $WITH_PAM                \
                $OPTS                    &&
-
-  make                              &&
-  prepare_install                   &&
-  make    install
-
-) > $C_FIFO 2>&1  &&  (
-
-
-  if    [  !  -f  /etc/ftpusers  ]
-  then  cp  pam/ftpusers  /etc
+  default_make &&
+  gather_docs *.conf &&
+  if [ ! -f /etc/ftpusers ]; then
+    cp pam/ftpusers /etc
   fi
 
-)
+) > $C_FIFO 2>&1
