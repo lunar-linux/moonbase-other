@@ -4,12 +4,12 @@
    sedit 's/AC_CHECK_LIB/#AC_CHECK_LIB/' configure.in &&
    autoconf &&
    
-   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
+   ./configure  --prefix=${GNOME28_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
                 --localstatedir=/var              \
-                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+                --infodir=${GNOME28_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME28_PREFIX:-/usr}/share/man   \
                 $OPTS                             &&
 
     for f in $(find -name Makefile) ; do
