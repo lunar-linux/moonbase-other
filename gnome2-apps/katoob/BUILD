@@ -6,7 +6,8 @@
                 --localstatedir=/var              \
                 --infodir=${GNOME26_PREFIX:-/usr}/share/info \
                 --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
-                $OPTS                             &&
+		--enable-highlight			\
+		$OPTS                             &&
     default_make                   
 
 ) > $C_FIFO 2>&1
