@@ -1,8 +1,9 @@
 (
-
-  patch -p1 < $SCRIPT_DIRECTORY/flags.patch   &&
+  sedit "s:XFormsNonstandardInstallDir /usr/local:XFormsNonstandardInstallDir /usr:" Imakefile &&
   xmkmf -a                  &&
-  patch -p1 < $SCRIPT_DIRECTORY/libs.patch    &&
+  for FILE in `ls */Makefile`; do
+  sedit "s:EXTENSIONLIB =  -lXext:EXTENSIONLIB = -L/usr/X11R6/lib  -lXext:" $FILE
+  done                      &&
   make                      &&
   make install
 
