@@ -1,7 +1,7 @@
 (
  
 
-./configure --prefix=/opt/lunar/gnome/2.4  \
+./configure --prefix=/usr                  \
             --disable-python               \
             --disable-gtk-doc              \
             $OPTS                          &&

@@ -1,6 +1,6 @@
 ( 
-  INSTDIR=/opt/lunar/gnome/2.4/share/meld &&
-  BIN=/opt/lunar/gnome/2.4/bin/meld &&
+  INSTDIR=/usr/share/meld &&
+  BIN=/usr/bin/meld &&
 
 if ! [ -e "$INSTDIR" ]; then
      mkdir -p $INSTDIR
@@ -13,12 +13,12 @@ mkdir -p $INSTDIR &&
 
 prepare_install &&
 
-cp -R * /opt/lunar/gnome/2.4/share/meld
+cp -R * /usr/share/meld &&
 
-cp $SCRIPT_DIRECTORY/meld /opt/lunar/gnome/2.4/bin
+cp $SCRIPT_DIRECTORY/meld /usr/bin &&
 
-chown -R root.root $INSTDIR
-chown -R root.root $BIN
-chown -R root.root /opt/lunar/gnome/2.4/bin/meld
+chown -R root.root $INSTDIR &&
+chown -R root.root $BIN &&
+chown -R root.root $INSTDIR/meld
 
 ) > $C_FIFO 2>&1
