@@ -1,8 +1,5 @@
 (
 
-  cp           fr                 fr.original
-  sed          "s/wish/wish8.3/"  fr.original  >  fr
-
   cd           Makefiles
   cp           Makefile.linux_gcc  Makefile.linux_gcc.orig
   sed          "s/CFLAGS = -Wall/CFLAGS := \$\(CFLAGS\) -Wall/"  \
