@@ -1,3 +1,132 @@
+2005-03-15 13:38  sofar
+
+	* editors/recode/: BUILD, dos2unix, unix2dos: Adding these std
+	  tools
+
+2005-03-15 11:41  cmak
+
+	* gnome2-core/: file-roller/DETAILS, gcalctool/DETAILS,
+	  gconf-editor/DETAILS, gedit/DETAILS, ggv/DETAILS,
+	  gnome-applets2/BUILD, gnome-applets2/DETAILS,
+	  gnome-common2/DETAILS, gnome-icon-theme/DETAILS,
+	  gnome-netstatus/DETAILS, gnome-panel/DETAILS,
+	  gnome-session/DETAILS, gnome-terminal/DETAILS,
+	  gnome-themes/DETAILS, gnome2-user-docs/DETAILS,
+	  gtk-engines2/DETAILS, gtksourceview/DETAILS,
+	  libgail-gnome/DETAILS, libwnck/DETAILS, metacity/DETAILS,
+	  nautilus-cd-burner/DETAILS, yelp/DEPENDS, yelp/DETAILS,
+	  zenity/DETAILS, gnome-doc-utils/DETAILS: more 2.8 modules...
+
+2005-03-15 06:37  cmak
+
+	* gnome2-core/: eog/DETAILS, gnome-system-monitor/DETAILS,
+	  libgtop2/DETAILS: even more tested, working updates
+
+2005-03-15 06:27  cmak
+
+	* gnome2-core/startup-notification/DETAILS: version bump
+
+2005-03-15 06:21  v3rt1g0
+
+	* x11-wm/WindowMaker/POST_INSTALL: There is no gdm2, I assume this
+	  is now just our gdm.
+
+2005-03-15 06:05  cmak
+
+	* gnome2-core/: control-center2/DETAILS, gnome-desktop/DETAILS:
+	  some more tested, working updates
+
+2005-03-15 05:44  cmak
+
+	* gnome2-core/: eel/DETAILS, nautilus/DETAILS: update to make
+	  nautilus work with vfs version in moonbase again...tested, much
+	  better
+
+2005-03-15 05:32  cmak
+
+	* devel/desktop-file-utils/POST_INSTALL,
+	  utils/shared-mime-info/POST_INSTALL: smart as we are...
+
+2005-03-15 04:24  v3rt1g0
+
+	* devel/strace/DETAILS: Version bump 4.5.9 -> 4.5.10.  Also fixed a
+	  few typos
+
+2005-03-15 03:09  cmak
+
+	* gnome2-core/nautilus/DEPENDS: adding librsvg to nautilus' depends
+
+2005-03-15 02:18  cmak
+
+	* gnome2-core/GConf2/DETAILS: no brain
+
+2005-03-14 22:54  tchan
+
+	* web/evolution-webcal/: BUILD, DEPENDS, DETAILS: Version bump to
+	  evolution-webcal-2.2.0.
+
+2005-03-14 21:12  cmak
+
+	* compilers/gcc/POST_INSTALL: this dir isnt created.
+
+2005-03-14 16:31  moe
+
+	* x11/fglrx/: DETAILS, PRE_BUILD: Fixing the ati drivers.
+
+	  Thank you ati for supplying the linux community with broken
+	  drivers since 1998.
+
+2005-03-14 16:28  jasper
+
+	* xfce4/: libxfce4mcs/DETAILS, libxfce4util/DETAILS,
+	  libxfcegui4/DETAILS, xfcalendar/DETAILS,
+	  xfce-extra-icons/DETAILS, xfce-mcs-manager/DETAILS,
+	  xfce-mcs-plugins/DETAILS, xfce-utils/DETAILS,
+	  xfce4-appfinder/DETAILS, xfce4-battery-plugin/DETAILS,
+	  xfce4-clipman-plugin/DETAILS, xfce4-datetime-plugin/DETAILS,
+	  xfce4-icon-theme/DETAILS, xfce4-iconbox/DETAILS,
+	  xfce4-minicmd-plugin/DETAILS, xfce4-mixer/DETAILS,
+	  xfce4-netload-plugin/DETAILS, xfce4-notes-plugin/DETAILS,
+	  xfce4-panel/DETAILS, xfce4-session/DETAILS,
+	  xfce4-systemload-plugin/DETAILS, xfce4-systray/DETAILS,
+	  xfce4-taskbar-plugin/DETAILS, xfce4-toys/DETAILS,
+	  xfce4-trigger-launcher/DETAILS, xfce4-weather-plugin/DETAILS,
+	  xfce4-windowlist-plugin/DETAILS, xfdesktop/DETAILS, xffm/DETAILS,
+	  xfprint/DETAILS, xfwm4/DETAILS, xfwm4-themes/DETAILS: Cleanup by
+	  sofar. Thanks.
+
+2005-03-14 16:06  tchan
+
+	* ftp/lftp/DETAILS: Version bump to lftp-3.1.0. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2005-03-14 15:47  moe
+
+	* kernel/linux-2.6/DETAILS: New stable release. Fixes a few bugs.
+
+2005-03-14 14:57  moe
+
+	* devel/db/POST_INSTALL: Moved the rm to the top. Otherwise the
+	  compiled modules could still be trying to use the old library.
+
+2005-03-14 14:53  florin
+
+	* devel/db/POST_INSTALL: remove the added symlink.
+
+2005-03-14 14:39  florin
+
+	* devel/db/: BUILD, POST_INSTALL: some apps seems to prefer the
+	  header files in /usr/include/db4. added a symlink with that name.
+
+2005-03-14 14:31  florin
+
+	* games/gl-117/DETAILS: bump the version from 1.3.1 to 1.3.2.
+
+2005-03-14 14:13  florin
+
+	* filesys/dosfstools/: BUILD, DETAILS: bump the version from 2.10
+	  to 2.11.
+
 2005-03-14 11:48  florin
 
 	* x11-utils/xpad/DETAILS: bump the version from 2.5 to 2.6.
@@ -2238,77 +2367,4 @@
 	* devel/automake/DETAILS: Version bump to automake-1.9.5.
 	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
 	  2.4.x.
-
-2005-02-12 19:25  nestu
-
-	* audio/alsa-utils/POST_INSTALL: <bramble> POST_INSTALL says
-	  "alsactl save", it should be "alsactl store". Done :) rm'ed
-	  linux-beta-* since they are no longer in moonbase
-
-2005-02-12 19:02  nestu
-
-	* filesys/udev/: 49-udev.rules, BUILD, DETAILS: 050 -> 051. gcc
-	  3.3.3. glibc 2.3.2, headers 2.6.10.0 THis version now has merged
-	  rules and permissions in one single file, so 49-udev.rules, that
-	  is Lunar old defaults file -updated to the new scheme-, is being
-	  added.
-
-2005-02-12 18:13  florin
-
-	* net/SDL_net/: BUILD, DETAILS: add sha1 sum.
-
-2005-02-12 18:10  florin
-
-	* audio/SDL_mixer/: BUILD, DEPENDS, DETAILS: add sha1 sum and small
-	  tweaks.
-
-2005-02-12 18:01  florin
-
-	* graphics/SDL_image/DETAILS: add sha1 sum.
-
-2005-02-12 17:58  florin
-
-	* graphics/SDL_ttf/: BUILD, DEPENDS, DETAILS: add sha1 sum. small
-	  tweaks.
-
-2005-02-12 17:55  florin
-
-	* graphics/XaoS/DETAILS: bump the version from 3.1 to 3.1.2.
-
-2005-02-12 16:39  hardkrash
-
-	* chat/guifications/DETAILS: New version of just a simple bump
-
-2005-02-12 16:04  florin
-
-	* libs/libtool/DETAILS: bump the version from 1.5.12 to 1.5.14.
-	  bugfix release.
-
-2005-02-12 14:01  florin
-
-	* archive/zip/DETAILS: force the rebuild of the module.
-
-2005-02-12 14:00  florin
-
-	* archive/zip/: BUILD, DETAILS: add a security patch to prevent a
-	  buffer overflow.
-
-2005-02-12 13:09  nestu
-
-	* filesys/udev/POST_INSTALL: meh, removed the "exit 0" and the end
-	  of the file that made the source dir be left behind.
-
-2005-02-12 09:49  florin
-
-	* security/nessus/DETAILS: bump the version from 2.3.0
-	  (experimental labeled now) to 2.2.3 (last stable version).
-
-2005-02-12 09:24  florin
-
-	* web/squid/DETAILS: bump the version from 2.5.STABLE7 to
-	  2.5.STABLE8. bugfix release with some security fixes too.
-
-2005-02-12 09:12  florin
-
-	* utils/Wine/DETAILS: bump the version from 20050111 to 20050211.
 
