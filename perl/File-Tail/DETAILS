@@ -1,0 +1,28 @@
+          MODULE=File-Tail
+         VERSION=0.98
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://search.cpan.org/CPAN/authors/id/M/MG/MGRABNAR/$SOURCE
+        WEB_SITE=http://search.cpan.org/search?dist=File-Tail
+         ENTERED=20021228
+         UPDATED=20021228
+      MAINTAINER=csm@moongroup.com
+           SHORT="File::Tail reads files which are continously appended to"
+cat << EOF
+The File::Tail module is designed for reading files which are continously
+appended to (the name comes from the tail -f directive). Usualy such files are
+logfiles of some description.
+
+The module tries hard not to busy wait on the file, dynamicaly calcultaing 
+how long it should wait before it pays to try reading the file again.
+
+The module should handle normal log truncations ("close; move; open"
+or "cat /dev/null >file") transparently, without losing any input.
+
+Currently this package requires Time::HiRes, because it often needs to sleep
+for less than one second. (I don't beleive one should busy wait on a file
+just because it gets more than one line/second).
+
+The file logwatch is a simple example of use. Try it with 
+./logwatch /var/log/syslog 1 if you want to see how File::Tail works.
+EOF
