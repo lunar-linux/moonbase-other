@@ -1,3 +1,65 @@
+2004-04-05 11:50  moe
+
+	* graphics/gqview/DETAILS: Bumped to 1.4.2. Temp URL workaround
+	since the tarball isn't mirrored on all sf.net mirrors yet.
+
+2004-04-05 09:29  prox
+
+	* crypto/: gnutls/DEPENDS, gnutls/DETAILS, libgcrypt/DETAILS,
+	libtasn1/DETAILS, opencdk/DETAILS: updated gnutls to 1.0.10 and
+	underlaying libs libgcrypt 1.1.94, libtasn1 0.2.7, opencdk 0.5.4.
+	Also added query about recompiling gaim after gnutls, default Yes
+	since it cant be used otherwise
+
+2004-04-05 05:30  tchan
+
+	* chat/gaim/DETAILS: Fixed a spelling mistake in the description of
+	gaim.
+
+2004-04-05 04:36  florin
+
+	* audio/taglib/DETAILS: bump the version from 1.0 to 1.1.
+
+2004-04-05 04:34  florin
+
+	* news/leafnode/DETAILS: bump the version from 1.9.50 to 1.9.52.
+
+2004-04-05 00:44  nhudson
+
+	* zbeta/openoffice-src/DEPENDS: 
+	No onger need gnome-cups-manager only libgnomecups now
+
+2004-04-05 00:43  nhudson
+
+	* zbeta/openoffice-src/: BUILD, DETAILS: 
+	Updating openoffice-src module to new version 1.1.1 compiled with
+	gcc 3.3.3 and kernel 2.6.4 headers.  Bonobo control patches no
+	longer compile in this module so I disabled it for the time being.
+
+2004-04-04 18:32  tchan
+
+	* devel/qemu/DETAILS: Version bump to 0.5.3.  Compiled and tested
+	with gcc-3.3.3, kernel headers 2.4.x.  Adds Bochs VESA VBE support,
+	IDE fixes, CPU interrupt fixes, and other bug fixes.
+
+2004-04-04 13:50  nestu
+
+	* kernel/linux-beta/: DETAILS, PRE_BUILD: Version bump
+
+2004-04-04 13:26  florin
+
+	* utils/hotplug/DETAILS: bump the version from 2004_03_29 to
+	2004_04_01.
+
+2004-04-04 13:12  florin
+
+	* filesys/udev/DETAILS: bump the version from 023 to 024.
+
+2004-04-04 13:00  florin
+
+	* games/epiar/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD: bump the
+	version from 0.2.2 to 0.5.0.
+
 2004-04-04 08:27  florin
 
 	* audio/: alsa-driver/DETAILS, alsa-utils/DETAILS: bump the version
@@ -1941,63 +2003,4 @@
 
 	* profiles/gnome2-fifth-toe/DEPENDS, audio/gst-plugins/DEPENDS:
 	Double
-
-2004-03-05 21:33  nhudson
-
-	* gnome_unstable_gcc3.3.3_compat_list: 
-	Updating this
-
-2004-03-05 21:32  nhudson
-
-	* graphics/gtk+-2/DETAILS: 
-	Updating gtk+-2 to new version 2.3.5
-
-2004-03-05 21:30  nhudson
-
-	* gnome2-core/: gnome-panel/DETAILS, libgnomeui/DETAILS: 
-	Updating gnome-panel to 2.5.91 and libgnomeui to 2.5.90.1
-
-2004-03-05 20:43  nestu
-
-	* filesys/udev/DETAILS: Change formatting, and fix a bash error
-
-2004-03-05 20:13  nestu
-
-	* filesys/udev/DETAILS: version bump
-
-2004-03-05 20:12  nestu
-
-	* filesys/udev/init.d/udev: change perms to 755
-
-2004-03-05 19:54  nestu
-
-	* filesys/udev/init.d/udev: adding our own initscript
-
-2004-03-05 07:46  jasper
-
-	* xfce4/xfce4-weather-plugin/: BUILD, DEPENDS, DETAILS: Add weather
-	plugin.
-
-2004-03-05 06:50  watryac04
-
-	* video/mythtv/: BUILD, DEPENDS, DETAILS: New module some people
-	may have heard about...  mythtv.
-
-2004-03-05 05:18  tchan
-
-	* x11-utils/synergy/: DEPENDS, DETAILS: Removed the DEPENDS on
-	xserver.  No more propagating depends on xfree86, xfree86-beta,
-	xserver etc.  xserver DEPENDS are strictly for qt3, gtk+-2 and some
-	of the other major gui-libs and then only to prevent luser
-	questions like why can't I "lin kde3" without having xfree86
-	installed first ?
-	
-	Also reformatted DETAILS file to fit in 80 columns.
-
-2004-03-05 05:14  tchan
-
-	* gnome2-apps/abiword/: BUILD, DETAILS: Version bump to 2.0.4. 
-	Compiled and tested with gcc-3.3.3 and kernel-headers 2.4.x. 
-	Temporary hack in BUILD to remove extra automake cruft that abiword
-	devs forgot about.
 
