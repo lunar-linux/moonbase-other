@@ -85,4 +85,14 @@ optional_depends "curl"                         \
 optional_depends "ming"                         \
                  "--with-ming"                  \
 		 "--without-ming"               \
-		 "for dynamic FLASH generation"
+		 "for dynamic FLASH generation" &&
+
+optional_depends "Sablot"                       \
+                 "--enable-xslt --with-xslt-sablot=/usr"  \
+                 ""                             \
+                 "for xslt support"             &&
+
+optional_depends "expat"                        \
+                 "--with-expat-dir=/usr"        \
+                 ""                             \
+                 "for expat xml support"
