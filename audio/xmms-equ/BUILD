@@ -1,18 +1,9 @@
 (
-  EQ_SSE=
-  for A in ${XTRA[@]}; do
-    case $A in
-      SSE)  EQ_SSE='--enable-sse'
-        ;;
-      SSE2) EQ_SSE='--enable-sse2'
-        ;;
-    esac
-  done
-
-  ./configure  $EQ_SSE \
+  ./configure  \
                --prefix=/usr                      \
                --sysconfdir=/etc                  \
-               --localstatedir=/var               &&
+               --localstatedir=/var               \
+               --enable-autodetect                &&
   make	&&
   prepare_install &&
   make install
