@@ -1,3 +1,5 @@
 depends  gtk+-2  &&
-depends  openssl &&
-depends  libpcap
+depends  openssl "--with-ssl" &&
+depends  libpcap &&
+
+optional_depends heimdal "--with-krb5" "--without-krb5" "Kerberos 5 support"
