@@ -1,8 +1,7 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  sedit "s:$(DESTDIR)/usr/bin:$(DESTDIR)/usr/games:" Makefile
 
-  make
-  make install
+  default_make
 
 ) > $C_FIFO 2>&1
