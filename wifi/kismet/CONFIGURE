@@ -1,6 +1,2 @@
-if ! grep -q "^OPTS=" $MODULE_CONFIG; then
-    if query "Enable kernel ACPI support?" n; then
-	OPTS=$OPTS" --enable-acpi"
-    fi
-    echo 'OPTS='\"$OPTS\" >> $MODULE_CONFIG
-fi
+mquery WITH_ACPI "Enable ACPI support?" n
+mquery SUIDINSTALL "Install kismet with the suid root bit set? (not recommened!)" n
