@@ -5,6 +5,9 @@
   #the ulrich.patch patch came from here: http://sources.redhat.com/ml/libc-hacker/2002-05/msg00031.html 
   cat $SCRIPT_DIRECTORY/ulrich.patch                |     patch -p0  &&
   cat $SCRIPT_DIRECTORY/glibc-2.2.5-getdents.patch  |     patch -p1  &&
+  if [ "`arch`" == "alpha" ]; then
+      cat $SCRIPT_DIRECTORY/glibc-2.2.5-alpha-pcdyn.patch | patch -p1
+  fi;
   
   unset  LDFLAGS
   unset  CFLAGS
