@@ -1,3 +1,51 @@
+2004-01-09 09:20  nestu
+
+	* kernel/linux-beta/: DETAILS, PRE_BUILD: Bump version to new
+	stable. Full tarball is DLed, so no patching needed for now ;)
+
+2004-01-09 01:27  tchan
+
+	* x11/: NVIDIA/DETAILS, NVIDIA26/DETAILS: Fixing the INVALID
+	UPDATED fields.  UPDATED MUST BE >= ENTERED date.
+
+2004-01-08 23:04  jmhodges
+
+	* sql/freetds/DETAILS: fixed the SOURCE_DIRECTORY
+
+2004-01-08 19:48  nestu
+
+	* kernel/linux-beta/DETAILS: Version bump yet again.
+
+2004-01-08 18:49  florin
+
+	* chat/konversation/: BUILD, DEPENDS, DETAILS: konversation is one
+	of the best irc client for KDE.
+
+2004-01-08 18:00  tchan
+
+	* utils/ibackup/BUILD: Fixed a typo in the comments.
+
+2004-01-08 17:43  florin
+
+	* games/crimson/DETAILS: bump version from 0.3.7 to 0.3.8.
+
+2004-01-08 15:41  florin
+
+	* audio/madplay/: BUILD, DETAILS: add a patch for alsa-1.0.0rc2.
+	thx to Chris for pointing it out.
+
+2004-01-08 15:38  florin
+
+	* audio/: libid3tag/DETAILS, libmad/DETAILS: some cosmetic changes.
+
+2004-01-08 15:35  florin
+
+	* audio/: alsa-driver/DETAILS, alsa-lib/DEPENDS, alsa-lib/DETAILS,
+	alsa-utils/DETAILS: bump version from 0.9.8 to 1.0.0rc2. for
+	alsa-lib module i have changed the depending on alsa-driver to an
+	optional one (the 2.6.x kernels does not need it). thx to Chris for
+	help.
+
 2004-01-08 08:13  jasper
 
 	* app-themes/gtk-xfce-engine/DETAILS,
@@ -1638,129 +1686,4 @@
 2003-12-10 00:22  niki
 
 	* x11/libxklavier/DETAILS: No it can be downloaded too...
-
-2003-12-09 19:51  hardkrash
-
-	* net/iproute2/BUILD: Added missing && from the BUILD file, will
-	now error out if build fails
-
-2003-12-09 19:49  nhudson
-
-	* doc-tools/scrollkeeper/BUILD: 
-	Fixing BUILD file
-
-2003-12-09 19:49  watryac04
-
-	* graphics/glut/BUILD.alpha: glut now works on the alpha.  porting
-	to other architectures should be cake.	this might be all that's
-	needed to get tuxracer working on alphas now too.
-
-2003-12-09 19:49  nhudson
-
-	* doc-tools/scrollkeeper/DETAILS: 
-	Updating scrollkeeper to new version 0.3.14 bug fix release
-
-2003-12-09 19:47  watryac04
-
-	* video/smpeg/DETAILS: Got a working mirror going with smpeg
-
-2003-12-09 18:18  watryac04
-
-	* games/tuxracer/DEPENDS: Cleaned up the tuxracer module so that
-	it'll work with systems with non-Nvidia graphics cards.
-
-2003-12-09 17:13  tchan
-
-	* utils/dialog/DETAILS: Version bump to 0.9b-20031207.	Bugfix
-	release and the dialog ftp site no longer has the 20031008 source
-	code available.  Compiled and tested with gcc-3.2.3, glibc-2.3.2.
-
-2003-12-09 14:49  niki
-
-	* devel/cvs/DETAILS: Security update (Only relevant for pservers),
-	bumped to version 1.11.10.
-
-2003-12-09 05:42  tchan
-
-	* security/aide/: BUILD, DEPENDS: Thanks to elaine for pointing out
-	how to get aide to compile with installing postgresql and
-	libgcrypt.  Returned them to their optional_depends state, rather
-	than forcing them to be installed.
-
-2003-12-09 05:22  nhudson
-
-	* gnome2-extras/gnome-vfs-extras/BUILD,
-	doc-tools/scrollkeeper/BUILD: 
-	Not needed
-
-2003-12-09 05:17  florin
-
-	* video/MPlayer/DETAILS: bump version from 1.0pre2 to 1.0pre3. it
-	compiles only with 2.4 kernel-headers. tested with gcc 3.3.2.
-
-2003-12-09 05:14  nhudson
-
-	* gnome2-extras/gnome-vfs-extras/: BUILD, DETAILS: 
-	Updating gnome-vfs-extras to new version 0.99.12
-
-2003-12-09 03:56  tchan
-
-	* security/aide/: BUILD, DEPENDS, DETAILS: Version bump to 0.10. 
-	aide has now moved to sourceforge.  BIG module changes to get this
-	to compile.  postgresql and libgcrypt are no longer
-	optional_depends due to the aide devs borking their configure
-	script.  Instead postgresql and libgcrypt MUST be installed,
-	otherwise their configure script will die a horrible death.  Once
-	those two apps/libs are installed then the aide configure script
-	will merrily compile away, but since those two apps/libs need to be
-	installed now, I just forced them on in the configure step.  Also
-	mhash needs to be recompiled to get the static lib build in
-	addition to the shared libs.  I updated the mhash module to reflect
-	that fact!
-
-2003-12-09 03:33  tchan
-
-	* crypto/mhash/: BUILD, DETAILS: Added a BUILD script as mhash MUST
-	build the static as well as the default shared libs, now.  The aide
-	module (>= 0.10) REQUIRES the static version of mhash.	Touched the
-	UPDATED field in DETAILS to try and force everyone using mhash to
-	recompile.
-
-2003-12-09 02:57  nhudson
-
-	* doc-tools/intltool/POST_INSTALL: 
-	Adding a recompile of scrollkeeper after a rebuild of intltool to
-	make sure compatibility is inforced.
-
-2003-12-09 02:50  nhudson
-
-	* doc-tools/scrollkeeper/: BUILD, DETAILS: 
-	Finally fixing the problem with scrollkeeper with a patch that
-	correctly identifies the correct intltool module for XML-Parser.
-
-2003-12-09 02:06  nhudson
-
-	* doc-tools/scrollkeeper/DEPENDS: 
-	Removing depends on XML-Parser as its recursive with intltool
-
-2003-12-09 02:05  nhudson
-
-	* doc-tools/intltool/: DEPENDS, DETAILS: 
-	Adding intltool to doc-tools where it should be, also updating it
-	to new version 0.28 and also adding a depends on XML-Parser
-
-2003-12-09 02:01  hardkrash
-
-	* utils/theedge/DETAILS: and expecially this one
-
-2003-12-09 02:01  hardkrash
-
-	* utils/lunar/DETAILS: we can't be keeping this source now can we
-	:-P
-
-2003-12-09 01:58  nhudson
-
-	* doc-tools/scrollkeeper/DEPENDS: 
-	Fixing problem with scrollkeeper.  Seems they changed XML parsers
-	from one that was broke to the perl module XML-Parser.
 
