@@ -1,4 +1,8 @@
 (
+   
+    # Quick fix for ImageMagick C++ API change
+    sedit 's:leg_di->text_antialias = 1;:leg_di->text_antialias = MagickTrue;:' $SOURCE_DIRECTORY/gpsmap.cc
+
     if ! module_installed gpsdrive ; then
 	OPTS="$OPTS --disable-gps"
     fi &&
