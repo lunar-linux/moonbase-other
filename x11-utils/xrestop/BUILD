@@ -1,7 +1,6 @@
 (
-  ./configure  --prefix=/usr        \
-               --with-x &&
-	       
-  default_make
+
+  OPTS="$OPTS --with-x" 
+  default_build
 
 ) > $C_FIFO 2>&1
