@@ -1,8 +1,8 @@
 (
 
     patch_it $SOURCE2 1 					&&
+	patch_it $SOURCE3 0                     &&
   
-#    sedit "s:prefix}/udev:prefix}/dev:"  Makefile  &&
     default_make						&&
  
     # install the init.d script
