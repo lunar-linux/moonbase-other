@@ -1,3 +1,33 @@
+2003-10-24 03:28  florin
+
+	* video/DirectFB/DETAILS: bump version from 0.9.18 to 0.9.20.
+
+2003-10-24 03:09  florin
+
+	* editors/sed/DETAILS: bump version from 4.0.7 to 4.0.8. bugfix
+	release.
+
+2003-10-23 22:08  hardkrash
+
+	* utils/pcmcia-cs/: BUILD, CONFIGURE, DETAILS: pushing the update
+	for the latest version of pcmcia-cs finally -- hardkrash
+
+2003-10-23 17:09  watryac04
+
+	* gnome2-core/gdm/gdm.conf: The emo-blue theme is not installed by
+	default, and was breaking gdm for both me and other users... 
+	setting this back to the gdm default.
+
+2003-10-23 13:30  elaine
+
+	* compilers/j2sdk/: POST_INSTALL, PRE_BUILD: j2sdk overwrites 2
+	kerberos-installed binaries, save and restore if present
+
+2003-10-23 12:12  jasper
+
+	* xfce4/: libxfce4util/DETAILS, libxfcegui4/DETAILS: Hmm, missing
+	MODULE variables, rather embarrassing.
+
 2003-10-23 04:50  florin
 
 	* ftp/wget/DETAILS: bump version from 1.8.2 to 1.9.
@@ -1594,92 +1624,4 @@
 
 	* libs/libxml++/: DEPENDS, DETAILS: 
 	Adding libxml++ to moonbase
-
-2003-09-23 23:45  sofar
-
-	* ftp/proftpd/DETAILS: Security upgrade...important fixes included.
-
-2003-09-23 19:32  sofar
-
-	* x11-apps/openoffice-bin/DETAILS: Correcting md5sum. OOPS. Sorry
-	DV.
-
-2003-09-23 17:38  elaine
-
-	* audio/mpg123/: BUILD, DETAILS, 0.59r/BUILD, 0.59r/DETAILS:
-	Correcting client remotely exploitable buffer overflow.  Ref:
-	http://fakehalo.deadpig.org/xmpg123.c
-
-2003-09-23 16:44  elaine
-
-	* crypto/openssh/DETAILS: Changed UPDATED field
-
-2003-09-23 16:43  elaine
-
-	* crypto/openssh/DETAILS: Version bump for PAM security issue:	
-	Portable OpenSSH version 3.7p1 and 3.7.1p1 contain multiple  
-	vulnerabilities in the new PAM authentication code. At least one of
-	  these bugs is remotely exploitable (under a non-standard  
-	configuration, with privsep disabled).
-
-2003-09-23 14:27  niki
-
-	* gnome2-extras/gnome-vfs-sftp/DETAILS: Fixed the date in the
-	UPDATED field
-
-2003-09-23 14:00  tchan
-
-	* ftp/wput/DETAILS: Shortened the SOURCE url.
-
-2003-09-23 12:31  nhudson
-
-	* x11-apps/dia/: BUILD, DEPENDS, DETAILS: 
-	Updating dia to new version 0.92-pre3 also fixing the DEPENDS file
-	adding support for Gnome and Python.  Fixed the BUILD script so it
-	works a bit better than before
-
-2003-09-23 12:10  niki
-
-	* ftp/wput/: BUILD, DETAILS: Added new module, which is the oposit
-	of wget, contributed by will (njd@irc) <genes1s@paradise.net.nz>
-
-2003-09-23 12:00  niki
-
-	* kernel/linux/2.4.22-test_only/: CONFIGURE, DETAILS, PRE_BUILD:
-	Now it comes with Aggressive. New patch version -rc2.1.2
-
-2003-09-23 11:33  niki
-
-	* gnome2-core/libglade2/: POST_INSTALL, POST_REMOVE,
-	2.0.1/POST_INSTALL, 2.0.1/POST_REMOVE: Ok, now it always returns
-	true, which i hope is what you wanted to achive.
-
-2003-09-23 03:32  nhudson
-
-	* web/epiphany/BUILD: 
-	Making it so that things dont get confused when you have
-	MozillaFirebird installed
-
-2003-09-23 02:57  nhudson
-
-	* web/MozillaFirebird/DEPENDS: 
-	Taking something out I should have done before
-
-2003-09-23 02:57  nhudson
-
-	* web/MozillaFirebird/: BUILD, CONFLICTS, DEPENDS, DETAILS,
-	POST_INSTALL, profile.d/firebird.rc: 
-	Ok I have been hacking on this all night and finally I got a
-	solution that will work.  It will install firebird to /opt so that
-	mozilla can be installed at the same time and nothing will
-	conflict.  I added a icon and a .desktop file so that it will show
-	up in the KDE and Gnome menu's.  I removed the CONFLICTS file
-	because its no longer needed and at last I added xft support for
-	much better looking fonts
-
-2003-09-23 02:09  nhudson
-
-	* gnome2-core/: gnome-themes/DEPENDS, gnome-themes/2.4.0/DEPENDS,
-	libglade2/POST_INSTALL, libglade2/POST_REMOVE: 
-	Fixing a problem evildrew pointed out
 
