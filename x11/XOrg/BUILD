@@ -34,6 +34,9 @@ message  "Building XOrg takes a very long time."
   fi                                    &&
 
   cp $CONFIG_CACHE/host.def config/cf/host.def &&
+  # This must happen or it will cause the module to break
+  # claiming "Kernel only header included in userspace"
+  cp -rL /usr/src/linux/include/linux/{autoconf.h,config.h} /usr/include/linux &&
 
   make World                            &&
   prepare_install                       &&
