@@ -1,3 +1,33 @@
+2003-11-21 06:37  niki
+
+	* audio/libvorbis/DETAILS: Fixed the description, libvorbis isn't a
+	network sniffer yet, but who knows what the future brings ;-)
+
+2003-11-21 06:01  florin
+
+	* audio/libvorbis/DETAILS: bump version from 1.0 to 1.0.1.
+
+2003-11-21 05:44  florin
+
+	* audio/libogg/DETAILS: bump version from 1.0 to 1.1.
+
+2003-11-21 05:14  florin
+
+	* compilers/ruby/BUILD: by deleting the win32 related directories i
+	managed to compile it under gcc 3.3.2.
+
+2003-11-21 05:11  florin
+
+	* video/ogmtools/DETAILS: bump version from 1.1 to 1.2.
+
+2003-11-20 16:57  tchan
+
+	* ftp/lftp/DETAILS: Updated the md5sum.  Downloaded the source from
+	both URLs and they both have the newer md5sum that I just
+	corrected.  Another dev that changes their source tarballs without
+	updating the version numbers!!!  Consider dropping the md5sum check
+	for this module.
+
 2003-11-20 05:47  florin
 
 	* ftp/lftp/DETAILS: bump version from 2.6.8 to 2.6.9.
@@ -1832,84 +1862,4 @@
 2003-10-22 00:19  jmhodges
 
 	* web/PyDS/DEPENDS: damn, forgot this
-
-2003-10-21 23:32  nhudson
-
-	* web/MozillaFirebird/BUILD, mail/MozillaThunderbird/BUILD: 
-	Disabling irc support
-
-2003-10-21 19:52  florin
-
-	* graphics/gphoto2/DETAILS: bump version from 2.1.2 to 2.1.3.
-
-2003-10-21 18:57  niki
-
-	* devel/ddd/: BUILD, DETAILS, ddd-3.3.1-gcc3-gentoo.patch: Bumped
-	version to 3.3.7
-
-2003-10-21 18:56  niki
-
-	* devel/insight/DETAILS: Bumped version to 6.0
-
-2003-10-21 05:08  elaine
-
-	* zbeta/rpm/BUILD: python bindings break build, removing
-
-2003-10-21 04:12  nhudson
-
-	* web/galeon/: BUILD, DETAILS: 
-	Adding a patch to fix some issues with galeon and moz 1.5
-
-2003-10-21 03:56  nhudson
-
-	* web/galeon/BUILD: 
-	Forgot to add this so it builds with mozilla 1.5
-
-2003-10-21 03:25  nhudson
-
-	* web/mozilla/POST_INSTALL: 
-	Removing the old galeon2 module now that I have moved it to galeon
-	to be compatible with mozilla 1.5, also fixed the recompile in the
-	POST_INSTALL of the mozilla module from galeon2 to galeon
-
-2003-10-21 03:23  nhudson
-
-	* web/galeon/: BUILD, DEPENDS, DETAILS, galeon: 
-	With the update of Mozilla 1.5 and it being compiled with gtk2 by
-	default we can no longer have a galeon 1.2.x module due to 1.2.x is
-	compiled with gtk1 and mozilla would have to be also.  So I am
-	updating this module to new version 1.3.9 to be compatible with our
-	version of mozilla
-
-2003-10-21 03:14  nhudson
-
-	* mail/MozillaThunderbird/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
-	POST_REMOVE, profile.d/thunderbird.rc: 
-	Adding MozillaThunderbird to moonbase.	This serves as a mail MUA
-	for those who dont want to install the Mozilla Environment.
-
-2003-10-21 02:56  nhudson
-
-	* x11-apps/dia/DETAILS: 
-	Updating dia to new version 0.92
-
-2003-10-21 02:54  nhudson
-
-	* gnome2-apps/file-roller/DETAILS: 
-	Updating file-roller to new version 2.4.1.1
-
-2003-10-21 02:12  nhudson
-
-	* web/mozilla/DETAILS: 
-	Adding a 3rd d/l option just incase the md5sum on the mozilla ftp
-	server is still screwed
-
-2003-10-21 02:10  nhudson
-
-	* web/mozilla/: BUILD, CONFIGURE, DEPENDS, DETAILS, PRE_BUILD: 
-	Updating mozilla to new version 1.5, I took out enigmail support as
-	you can install it via the enigmail website
-	http://enigmail.mozdev.org due to it was getting to cumbersome to
-	compile with the mozilla build.  Also I added SVG support in the
-	browser now
 
