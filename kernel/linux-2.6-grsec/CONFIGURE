@@ -1,56 +1,19 @@
-if  !  grep  -q  "BOOT_LOADER"  $MODULE_CONFIG;  then
-    #  message  "The Linux Kernel requires a boot loader"
-    message  "Choose either GRUB or LILO"
-    # BOOT_LOADER=lilo
-    
-    if  query  "Use  LILO?"  y ; then  
-	BOOT_LOADER=lilo
-    else  
-	BOOT_LOADER=grub
-    fi
-    
-    echo  "BOOT_LOADER=$BOOT_LOADER"  >>  $MODULE_CONFIG
+mquery USE_GRUB "Configure this kernel to load from grub?" n
+
+if [ "`get_module_config USE_GRUB`" = "y" ]; then 
+    set_module_config "USE_LILO" "n" ; 
+else 
+    mquery USE_LILO "Configure this kernel to load from lilo?" n
 fi
 
-CONFIG_GRUB="n"
-CONFIG_LILO="n"
+mquery PREFER_XCONFIG "Do you prefer xconfig over menuconfig?" n
 
-if  grep  -q  "BOOT_LOADER=grub"  $MODULE_CONFIG  && query  "Configure grub?"  n ; then  
-    CONFIG_GRUB=y
+if [ "`get_module_config PREFER_XCONFIG`" = "y" ]; then
+    set_module_config "PREFER_MENUCONFIG" "n" ; 
+else 
+    mquery PREFER_MENUCONFIG "Do you prefer menuconfig over config?" y
 fi
 
-if  grep  -q  "BOOT_LOADER=lilo"  $MODULE_CONFIG  && query  "Configure lilo?"  n ; then  
-    CONFIG_LILO=y
-fi
+unset_module_config CONFIG_KERNEL
+mquery CONFIG_KERNEL "Configure linux kernel?" n
 
-
-if  !  grep  -q  "CONFIG_METHOD="  $MODULE_CONFIG ; then
-    
-    if  query  "Do you prefer make menuconfig over make config"  y ; then  
-	CONFIG_METHOD="menuconfig"
-    else  
-	CONFIG_METHOD="config"
-    fi
-    
-    echo  "CONFIG_METHOD=$CONFIG_METHOD"  >>  $MODULE_CONFIG
-fi
-
-if [ ! -f $CONFIG_CACHE/.config-2.6-grsec ]; then
-    message  "Preparing to make menuconfig."
-    CONFIG_KERNEL="y"
-else
-    message  "Reconfiguration is optional."
-    
-    if  query  "Configure linux kernel?"  n ; then  
-	CONFIG_KERNEL=y
-    else  
-	CONFIG_KERNEL=n
-    fi
-fi
-
-TEMP=`grep  -v  "CONFIG_KERNEL=" $MODULE_CONFIG | grep  -v  "CONFIG_LILO=" | grep  -v  "CONFIG_GRUB="`
-
-echo  "$TEMP"                         >   $MODULE_CONFIG
-echo  "CONFIG_KERNEL=$CONFIG_KERNEL"  >>  $MODULE_CONFIG
-echo  "CONFIG_LILO=$CONFIG_LILO"      >>  $MODULE_CONFIG
-echo  "CONFIG_GRUB=$CONFIG_GRUB"      >>  $MODULE_CONFIG

@@ -1,18 +1,21 @@
           MODULE=linux-2.6-grsec
-  KERNEL_VERSION=2.6.7
-   GRSEC_VERSION=2.0.1
+  KERNEL_VERSION=2.6.10
+   GRSEC_VERSION=2.1.0
          VERSION=${KERNEL_VERSION}-${GRSEC_VERSION}	  
           SOURCE=linux-${KERNEL_VERSION}.tar.bz2
-         SOURCE2=grsecurity-${GRSEC_VERSION}-${KERNEL_VERSION}.patch
+         SOURCE2=grsecurity-${GRSEC_VERSION}-${KERNEL_VERSION}-200501071049.patch
+         SOURCE3=linux-2.6.10-secfix-200501071130.patch
 SOURCE_DIRECTORY=linux-${KERNEL_VERSION}-grsec-${GRSEC_VERSION} 
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6/
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
      SOURCE2_URL=http://www.grsecurity.org/
-      SOURCE_VFY=sha1:a030a9c6dcd10c5d90a86f915ad4710084cbca71
-     SOURCE2_VFY=sha1:caa94787653362783849a4424d3e24430acf29ab
+     SOURCE3_URL=http://www.grsecurity.org/
+      SOURCE_VFY=sha1:3c83791c20f9a397b287825a9a5984010a07e711
+     SOURCE2_VFY=sha1:754182d24b9e11facbdaf3b95b81701c0454f1cb
+     SOURCE3_VFY=sha1:3af49efed94c2c982f9da2400201d3f59b9ae4ca
     	WEB_SITE=http://www.kernel.org
          ENTERED=20041012
-         UPDATED=20041012
+         UPDATED=20050107
      KEEP_SOURCE="on"
            SHORT="The Linux kernel with the latest grsecurity patch"
 cat << EOF
