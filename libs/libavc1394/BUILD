@@ -4,10 +4,8 @@
 	       --prefix=/usr            \
 	       --mandir=/usr/share/man  \
                --localstatedir=/var     \
-	       $OPTS                    &&
-  make                                  &&
-  prepare_install                       &&
-  make    install
+	       $OPTS                   &&
+  default_make
 
 ) > $C_FIFO 2>&1
 
