@@ -1,14 +1,15 @@
           MODULE=mcrypt
          VERSION=2.6.4
-#         VERSION=2.6.3
+        #VERSION=2.6.3
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
-   SOURCE_VFY=md5:0556254f76b2ad7640456cb4fcf724ff
-         WEB_SITE=http://mcrypt.hellug.gr/#_mcrypt
+   SOURCE_URL[0]=http://public.planetmirror.com/pub/$MODULE/$SOURCE
+# Don't use SOURCEFORGE as their tar.gz is incorrectly labelled!!!
+#  SOURCE_URL[1]=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=md5:5a011846fd0f166428c8d97359aaa6b3
+        WEB_SITE=http://sourceforge.net/projects/$MODULE
          ENTERED=20011123
-         UPDATED=20030920
-      MAINTAINER=kongar@tsrsb.org.tr
+         UPDATED=20030921
            SHORT="mcrypt is intended to be a replacement of the old unix crypt(1) under the GPL"
 cat << EOF
 mcrypt is a program for encrypting files or streams. It is intended
