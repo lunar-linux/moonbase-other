@@ -1,3 +1,70 @@
+2003-09-04 03:01  nhudson
+
+	* gnome2-apps/glabels/: DEPENDS, DETAILS: 
+	Updating glabels to new version 1.92.0
+
+2003-09-04 03:00  nhudson
+
+	* gnome2-apps/pkgview/DETAILS: 
+	Updating pkgview to new version 1.0.2
+
+2003-09-04 02:06  nhudson
+
+	* gnome2-extras/: gnome-python2/DEPENDS, pyorbit/DEPENDS: 
+	Updating depends for these two modules they seemed to be backwards
+
+2003-09-04 02:02  nhudson
+
+	* gnome2-extras/: gnome-python2/DETAILS, pyorbit/DETAILS: 
+	Updating gnome-python2 and pyorbit to new version 2.0.0
+
+2003-09-04 01:52  nhudson
+
+	* video/totem/DETAILS: 
+	Updating totem to new version 0.99.4
+
+2003-09-04 01:50  nhudson
+
+	* audio/esound/DETAILS: 
+	Updating esound to new version 0.3.32
+
+2003-09-03 23:01  sofar
+
+	* utils/parted/DETAILS: Version bump, the source is in the cache...
+	get it from there
+
+2003-09-03 20:49  elaine
+
+	* security/stunnel/: CONFIGURE, DETAILS: Updated version for
+	security flaw, stunnel allows local user acces to its socket FH.
+	see:
+	http://www.securityfocus.com/archive/1/335996/2003-08-31/2003-09-06
+	/0 http://www.web-insights.net/env_audit/report.txt
+
+2003-09-03 20:43  niki
+
+	* devel/bison/: BUILD, DETAILS: Added a fix, as requested from
+	nhudson, this fixes bug #367, and proberbly some unknown issues,
+	this patch was found by Hendrik Visage <hvisage@envisage.co.za>
+
+2003-09-03 19:38  sofar
+
+	* audio/gstreamer/BUILD: Fixes for gcc >= 3.3
+
+2003-09-03 18:21  florin
+
+	* graphics/SDL/: BUILD, DETAILS: bump version from 1.2.5 to 1.2.6.
+	the patch is no longer necessary.
+
+2003-09-03 18:18  florin
+
+	* graphics/SDL_gfx/DETAILS: bump version from 2.0.7 to 2.0.8
+
+2003-09-03 18:05  nhudson
+
+	* gnome2-core/gdm/DETAILS: 
+	Updating gdm to new version 2.4.4.0
+
 2003-09-03 04:44  florin
 
 	* graphics/gphoto2/DETAILS: bump version from 2.1.1 to 2.1.2
@@ -1671,100 +1738,4 @@
 
 	* security/Linux-PAM/POST_REMOVE: fixing a reference to "spells" we
 	no longer have any of those and haven't for more than a year!
-
-2003-08-04 23:48  sofar
-
-	* chat/gnomemeeting/DETAILS, compilers/php/DETAILS,
-	crypto/openssl/DETAILS, kernel/linux-grsec/DETAILS,
-	kernel/linux-stable/DETAILS, security/iptables/DETAILS,
-	security/nessus/DETAILS, web/mozilla/DETAILS, x11/xfree86/DETAILS:
-	Fixing the cases with more md5sums.
-
-2003-08-04 23:41  sofar
-
-	* archive/unrar/DETAILS, audio/gst-plugins/DETAILS,
-	audio/gstreamer/DETAILS, audio/xmms-alarm/DETAILS,
-	audio/xmms-crossfade/DETAILS, audio/xmms-goodnight/DETAILS,
-	audio/xmms-nebulus/DETAILS, cd/k3b/DETAILS, chat/BitchX/DETAILS,
-	chat/gnomemeeting/DETAILS, chat/gtkBitchX/DETAILS,
-	compilers/php/DETAILS, crypto/cyrus-sasl/DETAILS,
-	crypto/gnupg/DETAILS, crypto/openssh/DETAILS,
-	crypto/openssl/DETAILS, devel/PyQt/DETAILS, devel/sip/DETAILS,
-	docs/man-fr/DETAILS, editors/eric/DETAILS, ftp/lftp/DETAILS,
-	gnome2-apps/gucharmap/DETAILS, ham/unixcw/DETAILS,
-	kde3-apps/apollon/DETAILS, kde3-utils/superkaramba/DETAILS,
-	kernel/linux-vanilla/DETAILS, kernel/snare-core/DETAILS,
-	libs/gpgme/DETAILS, libs/gpgme-0.3.x/DETAILS, libs/i2c/DETAILS,
-	libs/qscintilla/DETAILS, mail/kbiff/DETAILS, mail/postfix/DETAILS,
-	mail/sendmail/DETAILS, net/arpwatch/DETAILS, net/bw-whois/DETAILS,
-	net/libpcap/DETAILS, net/minicom/DETAILS, net/tcpdump/DETAILS,
-	perl/perl-tk/DETAILS, security/integrit/DETAILS,
-	security/logcheck/DETAILS, security/nessus/DETAILS,
-	security/snort/DETAILS, security/xinetd/DETAILS, sql/mysql/DETAILS,
-	sql/mysql-beta/DETAILS, utils/e2fsprogs/DETAILS,
-	utils/hfsutils/DETAILS, utils/lm_sensors/DETAILS,
-	utils/lsof/DETAILS, video/MPlayer/DETAILS, video/totem/DETAILS,
-	web/apache2/DETAILS, web/epiphany/DETAILS, web/galeon/DETAILS,
-	web/mozilla/DETAILS, web/squid/DETAILS, x11/xfree86/DETAILS,
-	x11-apps/openoffice-bin/DETAILS, x11-wm/3ddesktop/DETAILS:
-	Re-enabling md5sum checking for theedge with the new syntax
-
-2003-08-04 22:35  moe
-
-	* utils/theedge/BUILD: Adding -R since the CVS dir won't get
-	removed otherwise. Note: -R and -r are the same. I was told that -R
-	would be saver.
-
-2003-08-04 21:47  tchan
-
-	* kernel/linux-grsec/DETAILS: Fixed a typo in the UPDATED field. 
-	200300517 is not a valid date.
-
-2003-08-04 21:21  tchan
-
-	* doc-tools/man/DETAILS: Version bump to 1.5m1 from 1.5m.  Stupid
-	kernel.org and their one day version number bumps.
-
-2003-08-04 16:49  tchan
-
-	* compilers/ruby/: BUILD, DETAILS: Version bump to 1.8.0.  Added
-	the missing Lunar-isms in the BUILD script.  The compiled version
-	of ruby passes the "make test" script, so it appears to be a
-	working ruby binary.
-
-2003-08-04 16:11  jmhodges
-
-	* audio/faad/BUILD, audio/faad/DEPENDS, audio/faad/DETAILS,
-	audio/faad/PRE_BUILD, video/MPlayer/DEPENDS, web/PyDS/DETAILS:
-	added faad and faad support to mplayer.. now go watch that howard
-	dean qt vid or other such things
-
-2003-08-04 16:05  tchan
-
-	* doc-tools/man/DETAILS: Version bump to 1.5m.	Updated the patch
-	for man as well.
-
-2003-08-04 14:28  elaine
-
-	* utils/: lunar/BUILD, theedge/BUILD: Added rm of $FUNCTIONS files,
-	'lin' normally only removes files known to be owned by the module,
-	if the dev/stable versions of 'lin' have different files, not
-	everything gets removed. For the moment /var/lib/lunar/functions at
-	leat seems to be the only place where it's an issue
-
-2003-08-04 13:51  nhudson
-
-	* doc-tools/iso8879-entities/: BUILD, DEPENDS, DETAILS, PRE_BUILD: 
-	Adding iso8870-entities to moonbase
-
-2003-08-04 13:42  nhudson
-
-	* doc-tools/docbook-dsssl/DETAILS: 
-	Ok fixing a bug found with this, reported by huysmans via bug
-	tracker.
-
-2003-08-04 01:15  nhudson
-
-	* web/epiphany/DETAILS: 
-	Updating epiphany to new version 0.8.2
 
