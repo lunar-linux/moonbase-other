@@ -5,10 +5,10 @@
 # description: NTP is used to synchronize computer clocks
 #  on a connected network or via GPS/phone/etc.
 # processname: ntpd
-# config: /etc/config.d/ntp.conf
+# config: /etc/ntp.conf
 
 ARGS="-g"
-[ -f "/etc/config.d/ntp.conf" ] && ARGS="$ARGS -c /etc/config.d/ntp.conf"
+[ -f "/etc/ntp.conf" ] && ARGS="$ARGS -c /etc/ntp.conf"
 
 reload () {
 	# ntp is not reload-safe
