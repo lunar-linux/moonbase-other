@@ -1,4 +1,8 @@
 (
-   make INSTALL_DIR=$DEFAULT_PREFIX INSTALL_DIR_MAN=$DEFAULT_PREFIX/share/man/man1 install
+  
+  prepare_install &&
+  make INSTALL_DIR=$DEFAULT_PREFIX                    \
+       INSTALL_DIR_MAN=$DEFAULT_PREFIX/share/man/man1 \
+       install
 
 ) > $C_FIFO 2>&1
