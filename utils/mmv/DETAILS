@@ -1,0 +1,17 @@
+          MODULE=mmv
+         VERSION=1.01b
+          SOURCE=${MODULE}_${VERSION}.orig.tar.gz
+         SOURCE2=${MODULE}_${VERSION}-12.diff.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-${VERSION}.orig
+   SOURCE_URL[0]=http://ftp.debian.org/debian/pool/main/m/mmv/$SOURCE
+  SOURCE2_URL[0]=http://ftp.debian.org/debian/pool/main/m/mmv/$SOURCE2
+        WEB_SITE=http://packages.debian.org/unstable/utils/mmv.html
+         ENTERED=20031207
+         UPDATED=20031207
+           SHORT="move/copy/append/link multiple files according to a set of wildcard patterns."
+cat << EOF
+mmv is a handy set of tools that allow some wildcard pattern
+move/copy/append/links, like --  mmv "*.htm" "#1.html"
+which would give all the *.htm files an html extension AND keep the first part
+of the wildcard intact.
+EOF
