@@ -5,7 +5,8 @@
     DRI_DIR="extras/drm/linux"
     DRM_DEST="/lib/modules/$(uname -r)/kernel/drivers/drm"
     mkdir -p $DRM_DEST
-    cd $DRM_DIR && make 
+    cd $DRM_DIR && make
+    cd $SOURCE_DIRECTORY 
     cd $DRI_DIR && make
     cp $DRI_DIR/*.o $DRM_DEST 2>/dev/null
     depmod -a
@@ -49,11 +50,8 @@
   echo  "#define HasLibpng YES"			>> config/cf/host.def &&
   echo  "#define HasLibxml2 YES"		>> config/cf/host.def &&
   echo  "#define InstallFontconfigLibrary YES"  >> config/cf/host.def &&
-  echo  "#define UseFontconfig YES"		>> config/cf/host.def &&
-  echo  "#define HasFontconfig YES"		>> config/cf/host.def &&
   echo  "#define SharedLibXft YES"		>> config/cf/host.def &&
   echo  "#define PreferXdmcpIPv6 YES"		>> config/cf/host.def &&
-  echo  "#define ProPoliceSupport YES"		>> config/cf/host.def &&
 
   if grep -q "Compilation aborted" /usr/include/linux/config.h ; then
     # This must happen or it will cause the module to break
