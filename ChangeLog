@@ -1,3 +1,86 @@
+2004-08-30 09:37  sofar
+
+	* compilers/mcs/DETAILS: typo.
+
+2004-08-30 09:14  sofar
+
+	* utils/: lunar/DETAILS, theedge/DETAILS: Bumping these dates...
+	both lunar&theedge now contain sha1: code and since most devs are
+	actually using it it doesn't make sense to keep this anymore.
+	People should update their cores ASAP.
+
+2004-08-30 04:39  florin
+
+	* cd/dvd+rw-tools/: BUILD, DETAILS: bump the version from
+	5.20.4.10.8 to 5.21.4.10.8.
+
+2004-08-30 03:01  nhudson
+
+	* devel/monodoc/DETAILS: 
+	Updating monodoc to new version 1.0.1 added sha1sum
+
+2004-08-30 02:59  nhudson
+
+	* libs/libgdiplus/DETAILS: 
+	Updating libgdiplus to new version 1.0.1 added sha1sum
+
+2004-08-30 02:57  nhudson
+
+	* compilers/: mcs/DETAILS, mono/DETAILS: 
+	updating mono and mcs to new versions 1.0.1 also adding the new
+	sha1sum
+
+2004-08-30 02:19  nhudson
+
+	* gnome2-core/gnome-vfs2/DEPENDS: 
+	Adding hal to gnome-vfs2
+
+2004-08-29 21:39  tchan
+
+	* x11-apps/xpdf/BUILD: Patched xpdf to correctly compile when
+	freetype2 > 2.1.5.  Uses the newer ft2build.h syntax and I had to
+	correct the CXXFLAGS -I params the way the xpdf author suggested on
+	his home page.	Compiled with freetype2-2.1.7, gcc-3.3.3,
+	glibc-2.3.3, kernel headers 2.4.x.
+
+2004-08-29 19:28  jmhodges
+
+	* gnome2-core/gdm/BUILD: one char broke the whole BUILD
+
+2004-08-29 17:09  florin
+
+	* games/bzflag/DETAILS: bump the version from 1.7g2 to
+	1.10.6.20040515.
+
+2004-08-29 15:14  florin
+
+	* x11-utils/gkrellmms/: BUILD, DETAILS, gkrellmms-path.patch: bump
+	the version from 2.1.12 to 2.1.20.
+
+2004-08-29 14:40  florin
+
+	* x11-utils/gkrellm_bubblyfishmon/DEPENDS: it depends on gkrellm2.
+
+2004-08-29 13:08  florin
+
+	* x11-wm/enlightenment/: BUILD, DEPENDS, DETAILS: bump the version
+	from 0.16.6 to 0.16.7.1. add the sha1 sum. depends on imlib2 now.
+
+2004-08-29 12:37  florin
+
+	* graphics/imlib2_loaders/DETAILS: bump the version from 1.0.4 to
+	1.1.1. add the sha1 sum.
+
+2004-08-29 12:36  florin
+
+	* graphics/imlib2/DETAILS: add the sha1 sum.
+
+2004-08-29 12:21  florin
+
+	* graphics/: imlib2/BUILD, imlib2/DEPENDS, imlib2/DETAILS,
+	imlib2_loaders/DEPENDS, imlib2_loaders/DETAILS: move it from gnome
+	directory.
+
 2004-08-29 10:40  florin
 
 	* games/supertux/DETAILS: add sha1 sum. the tarball was renewed by
@@ -2046,10 +2129,6 @@
 	* graphics/xsane/: DEPENDS, DETAILS: bump the version from 0.90 to
 	0.94. it use gtk+-2 now instead of gtk+.
 
-2004-08-03 21:12  florin
-
-	* gnome/imlib2/DETAILS: bump the version from 1.1.0 to 1.1.1.
-
 2004-08-03 20:35  florin
 
 	* crypto/gnutls/DETAILS: bump the version from 1.0.16 to 1.0.17.
@@ -2364,125 +2443,4 @@
 2004-07-31 05:33  florin
 
 	* utils/apcupsd/DETAILS: bump the version from 3.8.6 to 3.10.14.
-
-2004-07-30 21:33  jol
-
-	* cd/dvd+rw-tools/DETAILS: bumped version to 5.20.4.10.8
-
-2004-07-30 20:51  jol
-
-	* eclipse/freemem/: BUILD, DEPENDS, DETAILS, PRE_BUILD: First
-	import of freemem which displays memory usage of eclipse
-
-2004-07-30 20:12  jol
-
-	* eclipse/collab/: BUILD, DEPENDS, DETAILS, PRE_BUILD: First import
-	of a eclipse plugin which allows collaboration between differents
-	project and users.
-
-2004-07-30 17:25  striker
-
-	* kde3-utils/ksetisaver/DETAILS: Hopefully a fix for lunar prune --
-	URL's with "&" in them should be enclosed in quotes
-
-2004-07-30 16:28  tchan
-
-	* mail/imap/: BUILD, DETAILS: Version bump to 2004a.  2002e no
-	longer exists.	Fixed BUILD script for incorrect man page mv
-	commands.
-
-2004-07-30 15:50  tchan
-
-	* net/nc/DETAILS: Fixed a broken download URL.
-
-2004-07-30 15:15  tchan
-
-	* games/xmame/DETAILS: Fixed the horrid indentation and removed the
-	TAB chars from this file.
-
-2004-07-30 15:09  tchan
-
-	* devel/db/DETAILS: Fixed broken download URLs.  Sleepycat keeps
-	changing where they store old code like db-3.3.11.
-
-2004-07-30 14:57  tchan
-
-	* utils/util-linux/DETAILS: Fixed a broken download URL.
-
-2004-07-30 14:51  tchan
-
-	* utils/sdscsyslogd/DETAILS: Fixed the download URL.
-
-2004-07-30 14:41  tchan
-
-	* utils/clamav/DETAILS: Version bump to 0.75.1.  Compiled and
-	tested with gcc-3.3.3, glibc-2.3.2, kernel headers 2.4.x.
-
-2004-07-30 10:03  cmak
-
-	* audio/jack/DEPENDS, compilers/php/DEPENDS,
-	compilers/ruby/DEPENDS, printer/gimp-print/DEPENDS: continuing work
-	of tchan...
-
-2004-07-30 10:00  ratler
-
-	* libs/libfwbuilder2/BUILD, libs/libfwbuilder2/CONFLICTS,
-	libs/libfwbuilder2/DEPENDS, libs/libfwbuilder2/DETAILS,
-	security/fwbuilder2/BUILD, security/fwbuilder2/CONFLICTS,
-	security/fwbuilder2/DEPENDS, security/fwbuilder2/DETAILS: New
-	release of fwbuilder, depends are completely new and now use QT for
-	gui, the xml files data is stored in got a new format too. So
-	decided to add a fwbuilder2 (2.0.0) since they changes are pretty
-	big. The new GUI is MUCH faster too.
-
-2004-07-30 06:45  florin
-
-	* security/proxychains/: BUILD, DETAILS: add the patch for the 2.1
-	version. it works now :)
-
-2004-07-30 06:30  florin
-
-	* graphics/ImageMagick/DETAILS: bump the version from 6.0.3 to
-	6.0.4.
-
-2004-07-30 05:51  florin
-
-	* doc-tools/docutils/DETAILS: bump the version from 0.3 to 0.3.5.
-
-2004-07-30 04:36  tchan
-
-	* perl/perl/POST_INSTALL: Added SGMLSpm to the list of modules that
-	must be recompiled when a new version of perl is installed.
-
-2004-07-30 04:15  tchan
-
-	* gnome2-core/libgda2/DEPENDS: Added readline as
-	/usr/bin/gda-config-tool uses libreadline.
-
-2004-07-30 04:01  tchan
-
-	* devel/uml/: DEPENDS, DETAILS: Added ncurses and readline to
-	DEPENDS.  /usr/bin/uml_console uses both readline and ncurses. 
-	Version bump to 2.4.26-2um.  Compiled and tested with gcc-3.3.3,
-	glibc-2.3.2, kernel headers 2.4.x.
-
-2004-07-30 03:45  tchan
-
-	* net/ntp/DEPENDS: Added ncurses and readline to DEPENDS.  ntpdc
-	and ntpq both use ncurses and readline.
-
-2004-07-30 03:36  tchan
-
-	* net/samba/DEPENDS: Added ncurses and readline to samba DEPENDS. 
-	smbclient, and rpcclient both use ncurses and readline.
-
-2004-07-30 03:32  tchan
-
-	* video/xine-ui/DEPENDS: Added ncurses and readline to xine-ui
-	DEPENDS.  /usr/bin/xine-remote clearly links to ncurses and
-	readline.
-
-2004-07-30 00:45  tchan
-
-	* utils/units/DEPENDS: Added depends for ncurses and readline.
 
