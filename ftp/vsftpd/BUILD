@@ -33,6 +33,8 @@
     cp vsftpd.conf /etc
     if get_module_config INITDSCRIPTS | grep -qw vsftpd ; then
       echo -e "\n\n# standalone mode requires these settings:\nlisten=YES\nbackground=YES\n\n" >> /etc/vsftpd.conf
+		else
+		  echo -e "\n\n# standalone mode requires these settings:\n# listen=YES\n# background=YES\n\n" >> /etc/vsftpd.conf
     fi
   fi
 
