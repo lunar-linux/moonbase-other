@@ -1,0 +1,22 @@
+          MODULE=tnftp
+         VERSION=20030825
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=ftp://ftp.netbsd.org/pub/NetBSD/misc/$MODULE/$SOURCE
+      SOURCE_VFY=md5:9b633ae6cacc01dbdadc6b9e3f180b4f
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+        WEB_SITE=ftp://ftp.netbsd.org/pub/NetBSD/misc/$MODULE/
+         ENTERED=20031223
+         UPDATED=20031223
+           SHORT="The classical BSD ftp client"
+cat << EOF
+tnftp is what previously was known as lukemftp.
+
+A port of the NetBSD FTP client to other systems, lukemftp derives its
+name from the author of most of the enhanced features, which include:
+command-line editing, command-line fetches of FTP and HTTP URLs
+(including via proxies), command-line uploads of FTP URLs,
+context-sensitive word completion, dynamic progress bar, IPv6 support,
+modification time preservation, paging of local and remote files,
+passive mode support (with fallback to active mode), SOCKS support,
+TIS FWTK gate-ftp server support, and transfer rate throttling. 
+EOF
