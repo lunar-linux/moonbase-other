@@ -1,4 +1,5 @@
 (
+  sedit 's/trap 0/trap "" 0/' ../gcc-$VERSION/configure &&
 
   # next line will aid in recognizing which languages were selected
   # so we output it here:
