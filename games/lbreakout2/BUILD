@@ -1,8 +1,7 @@
 (
-
-  ./configure     --prefix=/usr                                      \
-                  --with-highscore-path=/usr/share/games/lbreakout2  \
-                  --with-doc-path=/usr/share/doc/lbreakout2          \
+  ./configure     --prefix=/usr                                \
+                  --localstatedir=/usr/share/games/lbreakout2  \
+                  --with-doc-path=/usr/share/doc/lbreakout2    \
                   $OPTS                 &&
   make                                  &&
   prepare_install                       &&
