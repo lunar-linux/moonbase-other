@@ -1,9 +1,6 @@
 (
 
-  if  !  module_installed  linuxdoc-tools  ||
-      !  module_installed  teTeX;          then
-    export  HAVE_SGML2LATEX=no
-  fi
+  export HAVE_SGML2LATEX=no
 
   cat >> modules/pam_limits/limits.skel << EOF
 
