@@ -1,0 +1,42 @@
+cd /usr/src
+
+if [ ! -d /usr/src/linux-${VERSION} ]; then
+    
+    rm  -rf  linux-${VERSION}-inotify # we remove this one just in case
+    rm  -rf  linux-${VERSION}
+    rm  -rf  linux
+
+    unpack  $SOURCE
+
+    # the main kernel tarball unpacks with 2.6.X name, not with the -mm added
+    # so, f.e.: linux-2.6.X will be renamed as linux-2.6.X-mmY
+
+    mv linux-${VERSION} linux-${VERSION}-inotify
+
+    ln  -sf     linux-${VERSION}-inotify  linux
+    
+    chown root.root /usr/src/linux
+    chown root.root /usr/src/linux-${VERSION}-inotify
+ 
+    patch_it $SOURCE2 0 
+    
+    cd linux
+
+	for config in .config-2.6.inotify .config.2.6.stable
+	do
+		test -f ${CONFIG_CACHE}/${config} || continue
+		message "using ${config} as default configuration
+		cp ${CONFIG_CACHE}/${config} /usr/src/linux/.config
+		break
+	done
+
+else
+
+    message "Sources found: /usr/src/linux-${VERSION}-inotify"
+    
+    if [ "`readlink linux`" != "linux-${VERSION}-inotify" ]; then
+		rm -rf linux	
+		ln -s linux-${VERSION}-inotify linux
+    fi
+
+fi
