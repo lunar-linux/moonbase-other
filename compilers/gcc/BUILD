@@ -20,9 +20,9 @@
   sedit 's/= install-headers-tar/= install-headers-cpio/' gcc/Makefile  &&
   make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean                            &&
   OLD_PATH=$PATH			     &&
-  PATH=$PATH:/usr/src/gcc-3.2.3-BUILD/gcc    &&
+  PATH=$PATH:/usr/src/gcc-{$VERSION}-BUILD/gcc    &&
   OLD_LD_PATH=$LD_LIBRARY_PATH		     &&
-  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/src/gcc-3.2.3-BUILD/old.libraries &&
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/src/gcc-{$VERSION}-BUILD/old.libraries &&
   prepare_install                            && 
   make install  			     &&                             
   PATH=$OLD_PATH                             &&
