@@ -1,0 +1,8 @@
+optional_depends "gnutls" "--with-ssl=gnutls" "--with-ssl=openssl" \
+                 "For alternative SSL/TLS support" &&
+optional_depends "postgresql" "--with-pgsql" "--without-pgsql" \
+                 "For Postgresql support" &&
+optional_depends "mysql" "--with-mysql" "--without-mysql" \
+		 "For Mysql support" &&
+optional_depends "openldap" "--with-ldap" "--with-ldap" \
+		 "For openldap support"
