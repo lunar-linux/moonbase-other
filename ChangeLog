@@ -1,3 +1,93 @@
+2003-12-05 11:08  niki
+
+	* kernel/linux/POST_INSTALL: readded some removed recompiles...
+
+2003-12-05 11:05  sofar
+
+	* net/whois/BUILD: Fixing compile bug due to changed Makefile
+	format (wrong prefix broke install).
+
+2003-12-05 11:02  niki
+
+	* kernel/: linux-grsec/BUILD, linux-stable/BUILD,
+	linux-vanilla/BUILD: Made all the kernel modules remove the symlink
+	to from $VERSION to $VERSION-EXTRAVERSION befor attemptin to create
+	a new one.
+
+2003-12-05 10:59  niki
+
+	* kernel/linux/: BUILD, CONFIGURE, DETAILS, POST_INSTALL,
+	PRE_BUILD: Bumped the Linux module to 2.4.23 with patchset r3.1.1,
+	and this time the module has been converted to elaines kenel module
+	"framework" ;-)
+
+2003-12-05 06:15  tchan
+
+	* mail/exim4/DETAILS: Version bump to 4.30.  Compiled and tested
+	with gcc-3.2.3, and glibc-2.3.2.
+
+2003-12-05 05:39  florin
+
+	* audio/libmad/DETAILS: fix the DETAILS file commentary.
+
+2003-12-05 03:52  florin
+
+	* cd/k3b/DETAILS: bump version from 0.10.2 to 0.10.3. bugfix
+	version.
+
+2003-12-05 03:32  florin
+
+	* net/whois/DETAILS: fix the md5 sum. thx to Vincent Vandeweijer
+	for notice.
+
+2003-12-04 22:15  florin
+
+	* kde3/arts/: DEPENDS, DETAILS, 1.2_test/DEPENDS, 1.2_test/DETAILS:
+	fix the DEPENDS file. the mad module is obsolete. the new depend is
+	now called libmad.
+
+2003-12-04 21:58  nestu
+
+	* audio/libmad/DETAILS: First import. This is a substitute for the
+	old mad module.
+
+2003-12-04 21:29  hardkrash
+
+	* ftp/d4x/CONFLICTS: replaces nt
+
+2003-12-04 21:23  hardkrash
+
+	* ftp/d4x/: BUILD, DEPENDS, DETAILS: bumped version of nt and
+	changed name so here it is
+
+2003-12-04 20:50  florin
+
+	* graphics/ImageMagick/DETAILS: fix the md5 sum. thx to Arnald for
+	notice.
+
+2003-12-04 17:41  nestu
+
+	* audio/jack/BUILD: BUILD removed since with Lunar's default_build
+	everything builds OK
+
+2003-12-04 17:17  elaine
+
+	* terminal/screen/: BUILD, DETAILS: Added patch for potential
+	suid-root screen overflow
+
+2003-12-04 16:40  florin
+
+	* net/whois/DETAILS: bump version from 4.6.8 to 4.6.9.
+
+2003-12-04 16:29  nestu
+
+	* audio/jack/POST_INSTALL: Bleh, I meant a /usr/lib/jack entry.
+
+2003-12-04 16:25  nestu
+
+	* audio/jack/: BUILD, DETAILS, POST_INSTALL: Version bump.
+	POST_INSTALL added to put a /etc/lib/jack entry in /etc/ld.so.conf
+
 2003-12-04 09:36  niki
 
 	* net/rsync/DETAILS: Bumped rsync to 2.5.7, this fixes a possible
@@ -1562,24 +1652,4 @@
 
 	* audio/alsa-driver/sound.cards: Updated the sound card list to
 	reflect the current alsa-driver modules supported cards
-
-2003-11-04 13:52  nhudson
-
-	* graphics/gthumb/DETAILS: 
-	Updating gthumb to new version 2.1.8
-
-2003-11-04 13:51  nhudson
-
-	* x11-apps/dia/DETAILS: 
-	Updating dia to new version 0.92.2
-
-2003-11-04 13:50  nhudson
-
-	* gnome2-apps/acme/DETAILS: 
-	Updating acme to new version 2.4.1 and fixing description
-
-2003-11-04 13:47  nhudson
-
-	* gnome2-core/libbonobo/DETAILS: 
-	Updating libbonobo to new version 2.4.2
 
