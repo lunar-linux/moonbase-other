@@ -2,11 +2,15 @@
          VERSION=1.02
           SOURCE=$MODULE-$VERSION.tgz
       SOURCE_URL=http://www.lowth.com/$MODULE/
+      SOURCE_VRY=sha1:97cde1ee6364dd2247aa331db43e75fbba74be98
          WEBSITE=http://www.lowth.com/cutter/
          ENTERED=20030617
 	 UPDATED=20030617
-           SHORT="A network traffic monitor for the console"
+           SHORT="A TCP/IP connection cutter for IPtables based firewalls"
+
 cat << EOF
-A curses based network monitor that shows various aspects of network traffic
-passing your machine.
+Cutter allows network administrators to close TCP/IP connections 
+running over a Linux/IPtables firewall.  It closes the connection in
+such a way as to lead BOTH ends (client and server) to believe that
+it was aborted by the other.
 EOF
