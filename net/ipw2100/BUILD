@@ -1,11 +1,11 @@
 (
 
-  if [ $WITH_LEGACY ]; then
+  if [ $WITH_LEGACY == "y" ]; then
     message "Enabling legacy firmware loading ..."
     sedit "s:# CONFIG_IPW2100_LEGACY_FW_LOAD=y:CONFIG_IPW2100_LEGACY_FW_LOAD=y:" Makefile
   fi
 
-  if [ $WITH_WPA ]; then
+  if [ $WITH_WPA == "y" ]; then
     message "Enabling WPA support ..."
     sedit "s:# CONFIG_IEEE80211_WPA:CONFIG_IEEE80211_WPA:" Makefile
   fi

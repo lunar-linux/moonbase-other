@@ -1,15 +1,2 @@
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
-
-  if  query  "Enable legacy firmware loading?" y;  then
-    WITH_LEGACY="y"
-  fi
-
-  if  query  "Enable WPA support?" y;  then
-    WITH_WPA="y"
-  fi
-
-  echo  'WITH_LEGACY='\"$WITH_LEGACY\"    >>  $MODULE_CONFIG
-  echo  'WITH_WPA='\"$WITH_WPA\"    >>  $MODULE_CONFIG
-  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-
-fi
+mquery WITH_LEGACY "Enable legacy firmware loading?" y
+mquery WITH_WPA	   "Enable WPA support?" y
