@@ -1,0 +1,26 @@
+          MODULE=dvgrab
+         VERSION=1.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=$MODULE-$VERSION-missing-asserts.patch.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://kino.schirmacher.de/filemanager/download/8/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+   SOURCE_VFY[0]=md5:ccd3386eba2fb8526787846ebb135914
+  SOURCE2_VFY[0]=md5:03e320f5d47c8f6dd97fe45c8fe355c7
+        WEB_SITE=http://kino.schirmacher.de/
+         ENTERED=20030909
+         UPDATED=20030909
+      MAINTAINER=couannette@free.fr
+           SHORT="Grab your videos from DV camera"
+cat << EOF
+If you have properly configured your kernel and your ieee1394 device
+drivers, you should end up with about 30 MByte of DV image data nicely
+packed in a file myfilm001.avi (digits and extension automatically
+appended), which can be displayed with the Microsoft Media Player or a
+similar program (remember to install the required DV codecs, software
+should be included with your hardware).
+
+Use the program at your own risk. The ieee1394 subsystem is still
+experimental. Do not use any ieee1394 related software on a system
+that you cannot afford to lose.
+EOF
