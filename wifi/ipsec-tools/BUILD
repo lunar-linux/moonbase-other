@@ -1,11 +1,6 @@
 (
-  # complains of a "invalid host type"
-  # if they are set
-  unset CFLAGS CXXFLAGS
+  export CPPFLAGS="$CPPFLAGS -include /usr/include/linux/errno.h"
 
-  ./configure      &&
-  make             &&
-  prepare_install  &&
-  make    install
+  default_build
 
 ) > $C_FIFO 2>&1
