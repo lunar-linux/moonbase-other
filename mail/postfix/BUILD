@@ -45,7 +45,7 @@ perl -e '$uid=getpwnam("mail"); exit 1 if ! defined( $uid )' || {
   fi
 
   if  module_installed cyrus-sasl
-  then  AUXLIBS=$AUXLIBS" -lsasl -lssl -lcrypto"
+  then  AUXLIBS=$AUXLIBS" -lsasl2 -lssl -lcrypto"
          CCARGS=$CCARGS" -DUSE_SASL_AUTH -I/usr/include -DHAS_SSL -I/usr/include/openssl"
   fi
 
