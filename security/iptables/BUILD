@@ -1,7 +1,6 @@
 (
-  patch_it  $SOURCE2 1
-  patch_it  $SOURCE3 2  	
-#I think this optimization must be carefully considered,
+
+# I think this optimization must be carefully considered,
 # seeing these are kernel stuff...
 # The -O2 is needed, as there are some "#ifndef __OPTIMIZE__" stuff
 # that would break the compilation as they add duplicates in the
@@ -10,8 +9,8 @@
 # modes of GCC)
 # hevisko
   sedit  "s/-O2/$CFLAGS -O2/"  Makefile  &&
-  make  LIBDIR=/usr/lib              &&
-  prepare_install                    &&
+  make  LIBDIR=/usr/lib             &&
+  prepare_install                   &&
   make  LIBDIR=/usr/lib              \
         BINDIR=/usr/sbin             \
         MANDIR=/usr/share/man        \
