@@ -2,6 +2,7 @@
   cd unrar &&
   cp makefile.unix Makefile &&
   sedit  "s/-O2/$CFLAGS/"  Makefile  &&
+  sedit  's:template:#include "global.hpp"\ntemplate:' array.hpp
   make             &&
   prepare_install  &&
   cp unrar /usr/bin &&
