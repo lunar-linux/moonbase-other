@@ -1,2 +1,20 @@
 rm -f $BOOST_LOCK
+
+# awkward, but might save us a lawsuit^H^H^H^H^H^H^H fight or two
+if [ -d /usr/share/httpd ] ; then
+  # MOVE APACHE2 TO PROPER LOCATIONS
+  message "Apache2 needs to be moved to proper locations, please double"
+  message "check and watch the httpd output at startup. "
+  message "WARNING: httpd.conf will now be in /etc/httpd/conf!"
+  
+  cp /etc/httpd/httpd.conf /etc/httpd/httpd.conf-old
+  cp /etc/httpd/ssl.conf   /etc/httpd/ssl.conf-old
+  cat /etc/httpd/httpd.conf | sed "s:/usr/share/httpd:/var/www:g" >
+      /etc/httpd/conf/httpd.conf
+  cat /etc/httpd/ssl.conf | sed "s:/usr/share/httpd:/var/www:g" >
+      /etc/httpd/conf/ssl.conf
+  mv /usr/share/httpd /var/www
+
+fi
+
 if module_installed php ; then lin php ; fi

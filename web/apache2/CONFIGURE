@@ -1,0 +1,14 @@
+if ! grep -q ENABLE_SSL $MODULE_CONFIG ; then
+  if query "Enable TLS/SSL ?" y ; then
+    ENABLE_SSL="y"
+  fi
+  if query "Enable Proxy support ?" y ; then
+    ENABLE_PROXY="y"
+  fi
+  if query "Enable suexec ?" y ; then
+    ENABLE_SUEXEC="y"
+  fi
+  echo "ENABLE_SSL=$ENABLE_SSL" > $MODULE_CONFIG
+  echo "ENABLE_PROXY=$ENABLE_PROXY" >> $MODULE_CONFIG
+  echo "ENABLE_SUEXEC=$ENABLE_SUEXEC" >> $MODULE_CONFIG
+fi

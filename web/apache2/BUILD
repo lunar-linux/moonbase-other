@@ -1,35 +1,60 @@
 (
 
-  ./configure  --prefix=/usr/share/httpd                        \
+  OPTS="$OPTS  --prefix=/etc/httpd                              \
+	       --sysconfdir=/etc/httpd/conf                     \
                --exec-prefix=/usr                               \
                --sbindir=/usr/sbin                              \
-               --libexecdir=/usr/libexec                        \
-               --datadir=/usr/share/httpd                       \
-               --sysconfdir=/etc/httpd                          \
-               --sharedstatedir=/var/run/apache                 \
+               --libexecdir=/usr/libexec/httpd/modules          \
+               --datadir=/var/www                               \
+               --sharedstatedir=/var/run/httpd                  \
                --localstatedir=/var                             \
                --libdir=/usr/lib                                \
-               --includedir=/usr/include/apache2                \
+               --includedir=/usr/include/httpd                  \
                --infodir=/usr/share/info                        \
                --mandir=/usr/share/man                          \
-               --enable-shared-modules=all                      \
                --enable-so                                      \
+               --enable-shared-modules=all                      \
                --enable-info                                    \
                --enable-cgi                                     \
                --enable-rewrite                                 \
                --enable-speling                                 \
                --enable-usertrack                               \
                --enable-deflate                                 \
-               --enable-ssl                                     \
                --enable-mime-magic                              \
-               --with-mpm=worker                                \
                --with-berkeley-db                               \
                --enable-layout=GNU                              \
-               $OPTS                                            &&
+	       --with-mpm=prefork"
+  #            --with-mpm=worker
+
+  if [ "$ENABLE_SUEXEC" == "y" ] ; then
+    OPTS="$OPTS --enable-suexec --with-suexec                   \
+	       --with-suexec-caller=nobody                      \
+	       --with-suexec-docroot=/var/www                   \
+	       --with-suexec-logfile=/var/log/httpd/suexec      \
+	       --with-suexec-bin=/usr/sbin/suexec               \
+	       --with-suexec-uidmin=500                         \
+	       --with-suexec-gidmin=500"
+  fi
+
+  if [ "$ENABLE_SSL" == "y" ] ; then
+    OPTS="$OPTS --enable-ssl --with-ssl"
+  fi
+
+  if [ "$ENABLE_PROXY" == "y" ] ; then
+    OPTS="$OPTS --enable-proxy --enable-proxy-connect            \
+	       --enable-proxy-http --enable-proxy-ftp"
+  fi
+
+  echo "CFLAGS=$CFLAGS"                          &&
+  echo "OPTS=`echo $OPTS`"                       &&
+
+  ./configure $OPTS                              &&
 
   make                                           &&
   prepare_install                                &&
   make    install                                &&
-  ln -s httpd /usr/sbin/httpsd
+  if [ ! -e /usr/sbin/httpsd ] ; then
+    ln -s httpd /usr/sbin/httpsd
+  fi
 
 ) > $C_FIFO 2>&1
