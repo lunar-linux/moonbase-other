@@ -1,15 +1,17 @@
           MODULE=iproute2
            MAJOR=2.6.9
            MINOR=041019
-         VERSION=$MAJOR-$MINOR
-          SOURCE=$MODULE-$VERSION.tar.gz
+         VERSION=${MAJOR}-${MINOR}
+          SOURCE=${MODULE}-${VERSION}.tar.gz
          SOURCE2=${MODULE}-${MAJOR}_${MINOR}-remove_db-1.patch
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MAJOR
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${MODULE}-${MAJOR}
       SOURCE_URL=http://developer.osdl.org/dev/iproute2/download/
      SOURCE2_URL=http://www.linuxfromscratch.org/patches/lfs/cvs/testing/
+	  SOURCE_VFY=sha1:d28de32a6da7f8411718873f831a7131b437a081
+     SOURCE2_VFY=sha1:0a1caf5490521d6210b3e4973aea46daf9c02507
         WEB_SITE=http://developer.osdl.org/dev/iproute2
          ENTERED=20021106
-         UPDATED=20040904
+         UPDATED=20050117
            SHORT="Professional tools to control networking in Linux kernels."
 cat << EOF
 Most Linux distributions, and most UNIX's, currently use the venerable arp,
