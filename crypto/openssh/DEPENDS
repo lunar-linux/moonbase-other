@@ -11,4 +11,9 @@ optional_depends  "tcp_wrappers"         \
 optional_depends "Linux-PAM"             \
                  "--with-pam"            \
                  "--without-pam"         \
-                 "for Linux PAM support"  
+                 "for Linux PAM support"  &&
+
+optional_depends heimdal \
+                 "--with-kerberos5=/usr/include/heimdal" \
+                 "" \
+                 "Heimdal Kerberos5/GSSAPI Support"
