@@ -1,6 +1,6 @@
 (
 
-  prepare_install
+  prepare_install 
 
   PREFIX=/var/squirrelmail
   DATADIR=$PREFIX/data
