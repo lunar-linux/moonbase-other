@@ -4,7 +4,7 @@
   DBUS_GROUPNAME=messagebus
   
   OPTS="$OPTS --enable-glib --enable-x --enable-checks --enable-verbose-mode \
-        --disable-xml-docs --with-system-pid-file=/var/run/messagebus.pid    \
+        --with-xml=libxml --with-system-pid-file=/var/run/messagebus.pid    \
         --with-system-socket=/var/lib/dbus/system_bus_socket                 \
         --with-session-socket-dir=/tmp"
   
