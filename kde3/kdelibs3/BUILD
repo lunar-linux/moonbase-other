@@ -1,17 +1,20 @@
 (
-  export PATH=/opt/lunar/qt/3/bin:/opt/lunar/kde/3/bin:$PATH
-  export KDEDIR=/opt/lunar/kde/3
+ export QTDIR=/opt/lunar/qt/3 
+ export KDEDIR=/opt/lunar/kde/3 
+ 
+ export PATH=$QTDIR/bin:/$KDEDIR/bin:$PATH
+ 
 
   ## fix problem with ccache
-  CC=${CC//ccache/} &&
-  CXX=${CXX//ccache/} &&
-  export CC CXX       &&
+#  CC=${CC//ccache/} &&
+#  CXX=${CXX//ccache/} &&
+#  export CC CXX       &&
 
-  ./configure    --prefix=/opt/lunar/kde/3             \
+  ./configure    --prefix=$KDEDIR                      \
                  --enable-final                        \
                  --disable-debug                       \
-                 --with-qt-dir=/opt/lunar/qt/3         \
-                 --with-xinerama                     \
+                 --with-qt-dir=$QTDIR                  \
+                 --with-xinerama                       \
                  $OPTS                                &&
 
   make                 &&
