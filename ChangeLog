@@ -1,3 +1,48 @@
+2004-01-24 09:52  florin
+
+	* security/chkrootkit/: BUILD, DETAILS, POST_INSTALL: add Striker's
+	module for chkrootkit.
+
+2004-01-24 08:38  florin
+
+	* video/MPlayer/DETAILS: bump version for live from 2004.01.19 to
+	2004.01.23. thanks to Carl Powers for finding it.
+
+2004-01-24 07:24  hardkrash
+
+	* devel/valgrind/DETAILS: version bump, mental note dosent work
+	with 2.6 headers in this version :-)
+
+2004-01-24 05:47  florin
+
+	* ftp/lftp/DETAILS: bump version from 2.6.11 to 2.6.12.
+
+2004-01-23 21:36  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Changed SHORT to something more
+	appropiate
+
+2004-01-23 20:50  florin
+
+	* web/elinks/DETAILS: bump version from 0.9.0 to 0.9.1.
+
+2004-01-23 20:02  florin
+
+	* audio/mp3blaster/DETAILS: mp3blaster breaks if mulitple makes are
+	used. thanks to peltco for pointed it out.
+
+2004-01-23 18:04  florin
+
+	* crypto/cyrus-sasl/DETAILS: bump version from 2.1.15 to 2.1.17.
+
+2004-01-23 17:04  florin
+
+	* cd/k3b/DETAILS: bump version from 0.10.3 to 0.11.
+
+2004-01-23 16:00  jmhodges
+
+	* crypto/libmcrypt/DETAILS: SOURCE_URL change, thanks to Ranitha
+
 2004-01-23 00:00  watryac04
 
 	* audio/rhythmbox/DETAILS: updated the source md5 and bumped the
@@ -508,14 +553,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-01-15 18:54  niki
-
 	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
 	the version, added a depends on hicolor-icon-theme, and moved it
 	out of /opt/lunar
+
+2004-01-15 18:54  niki
+
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:22  niki
 
@@ -1744,112 +1789,4 @@
 
 	* libs/libxml2/DETAILS: bump version from 2.6.3 to 2.6.4. bugfix
 	version.
-
-2003-12-24 23:09  florin
-
-	* crypto/gnupg/DETAILS: bump version from 1.2.3 to 1.2.4.
-
-2003-12-24 23:00  florin
-
-	* utils/file/DETAILS: bump version from 4.06 to 4.07.
-
-2003-12-24 22:59  florin
-
-	* archive/afio/DETAILS: bump version from 2.4.7 to 2.5.
-
-2003-12-24 17:23  jmhodges
-
-	* graphics/gthumb/DETAILS: and early xmas present. or a late
-	solsitice present or .. screw it Happy Set of Holidays, folks!
-
-2003-12-24 15:57  florin
-
-	* sql/postgresql/DETAILS: bump version from 7.4 to 7.4.1.
-
-2003-12-24 15:52  tchan
-
-	* science/seismicunix/: DETAILS, Makefile.config: Version bump to
-	37, submitted by evo on the Lunar ML.  NOTE: Answering yes to the
-	Mesa/GL configure option breaks the compile for me, so don't build
-	this with Mesa/GL support unless you're sure you have the Mesa/GL
-	tools/libs built correctly.  gcc-3.2.3, glibc-2.3.2.
-
-2003-12-24 14:51  nhudson
-
-	* devel/orbitcpp/BUILD: 
-	Forgot one
-
-2003-12-24 14:50  nhudson
-
-	* devel/: gconfmm/BUILD, gnome-vfsmm/BUILD, libbonobomm/BUILD,
-	libbonobouimm/BUILD, libglademm/BUILD, libgnomecanvasmm/BUILD,
-	libgnomemm/BUILD, libgnomeuimm/BUILD: 
-	More removing of stuff from /opt
-
-2003-12-24 14:48  nhudson
-
-	* chat/gnomemeeting/POST_INSTALL: 
-	This also
-
-2003-12-24 14:46  nhudson
-
-	* audio/sound-juicer/BUILD: 
-	Forgot about this
-
-2003-12-24 14:46  nhudson
-
-	* chat/: gnomemeeting/BUILD, gossip/BUILD: 
-	Moving things to /usr again
-
-2003-12-24 14:43  nhudson
-
-	* cd/burgner/BUILD: 
-	Fixing install location
-
-2003-12-24 14:42  nhudson
-
-	* audio/sound-juicer/BUILD: 
-	Changing installation to /usr
-
-2003-12-24 14:41  nhudson
-
-	* gnome2-core/: bug-buddy/BUILD, eog/BUILD, gconf-editor/BUILD,
-	gdm/BUILD, gedit/BUILD, gnome-system-monitor/BUILD,
-	gnome-terminal/BUILD, libgda2/BUILD, libole2-2/BUILD,
-	librsvg/BUILD: 
-	Removing Gnome BUILD files again I am keeping the core stuff in
-	/opt for now till I can find a good way to migrate over slowly
-	before Gnome 2.6 arrives in April
-
-2003-12-24 14:33  nhudson
-
-	* gnome2-extras/: ghex/BUILD, glade2/BUILD,
-	gnome-cups-manager/BUILD, gnome-speech/BUILD, gnome2-icons/BUILD,
-	gnopernicus/BUILD, libcroco/BUILD, libgnomecups/BUILD,
-	libgnomedb/BUILD, libole2-2/BUILD, magicdev/BUILD, mergeant/BUILD,
-	zenity/BUILD: 
-	Cleaning up Gnome things to move back into /usr instead of
-	/opt/lunar/gnome/2.4 crap we have been doing.  This will make for
-	easier upgrades and less of a headache when major versions come
-	out.  I am not forcing updates either which should keep people
-	quiet...
-
-2003-12-24 07:25  jasper
-
-	* xfce4/xfce4-session/DETAILS: New tarball for xfce4-session
-
-2003-12-24 04:47  tchan
-
-	* utils/syslinux/DETAILS: Version bump to 2.08.  Compiled and
-	tested with gcc-3.2.3, glibc-2.3.2.
-
-2003-12-24 04:14  tchan
-
-	* libs/newt-perl/BUILD: Fixing the calls to patch_it.  Must use
-	$SOURCE_CACHE and NOT /var/spool/lunar.
-
-2003-12-24 04:12  tchan
-
-	* audio/easytag/BUILD: Fixing the calls to patch_it.  Must use
-	$SOURCE_CACHE not /var/spool/lunar!
 
