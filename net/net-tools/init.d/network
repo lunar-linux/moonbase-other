@@ -74,6 +74,11 @@ function device_start() {
 			RUNFILE=/sbin/dhclient
 			DHCP_OPTIONS="$DHCP_OPTIONS -pf $PIDFILE -lf /var/state/dhcp/dhclient-$1.leases"
 		    ;;
+		    [uU][dD][hH][cC][pP][cC])
+		        PIDFILE=/var/run/udhcpc-$1.pid
+			RUNFILE=/sbin/udhcpc
+			DHCP_OPTIONS="$DHCP_OPTIONS -p $PIDFILE -i"
+		    ;;
 		esac
 		if [ ! -x $RUNFILE ]; then
 		    echo "$DHCP_CLIENT not installed";
