@@ -20,9 +20,12 @@
     echo "${KDE_PREFIX}/lib/kde3" >> /etc/ld.so.conf
   fi
 
+  mkdir -p ${KDE_PREFIX:-$KDEDIR}/lib/pkgconfig
+
   if [ ! -f /etc/profile.d/kde3.rc ]; then
     echo "export KDEDIR=$KDE_PREFIX" > /etc/profile.d/kde3.rc
     echo "export PATH=\$KDEDIR/bin:\$PATH" >> /etc/profile.d/kde3.rc
+    echo "export PKG_CONFIG_PATH=$KDEDIR/lib:\$PKG_CONFIG_PATH" >> /etc/profile.d/kde3.rc
   fi
 
 ) > $C_FIFO 2>&1
