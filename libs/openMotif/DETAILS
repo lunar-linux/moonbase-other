@@ -1,16 +1,21 @@
           MODULE=openMotif
-         VERSION=2.2.2
-          SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=ftp://ftp.sgi.com/other/motifzone/2.2/src/$SOURCE
-      SOURCE_VFY=md5:19cb43c657876624026a9e77c435a71e
+         VERSION=2.1.30-5
+        #VERSION=2.2.2
+          SOURCE=openmotif-${VERSION}_ICS.src.tgz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/motif
+   SOURCE_URL[0]=ftp://ftp.sgi.com/other/motifzone/src/$SOURCE
+      SOURCE_VFY=md5:486814f49fcd9745c1a104f4b5d0f78e
         WEB_SITE=http://www.opengroup.org/openmotif
          ENTERED=20021007
-         UPDATED=20021007
+         UPDATED=20031125
            SHORT="Open Motif is a source code version of Motif, the OSF/Motif GUI X11 toolkit."
            PSAFE="no"
 cat << EOF
 Open Motif is the freely available source code distribution for a user
 interface component toolkit.  Open Motif is built on top of the standard
 X Toolkit(Xt) and X11 libraries.
+
+Downgraded openmotif to 2.1.30 as 2.2.2 is known to be broken, see these URL's:
+        http://www.motifdeveloper.com/tips/tip22.html
+        http://www.motifdeveloper.com/tips/Motif22Review.pdf
 EOF
