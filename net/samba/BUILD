@@ -24,7 +24,11 @@
   mkdir  -p  /etc/samba                &&
   mkdir  -p  /usr/share/samba          &&
   mkdir  -p  /var/log/samba            &&
-  make    install
+  make    install                      &&
+
+  if module_installed cups ; then
+    ln -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
+  fi
 
 ) > $C_FIFO 2>&1  &&  (
 
