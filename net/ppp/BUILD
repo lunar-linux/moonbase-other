@@ -1,4 +1,5 @@
-sedit "s/usr\/man/usr\/share\/man/" linux/Makefile.top
+sedit "s/FILTER=y/#FILTER=y/"       pppd/Makefile.linux  &&
+sedit "s/usr\/man/usr\/share\/man/" linux/Makefile.top   &&
 default_build  &&
 ( 
 
