@@ -1,4 +1,6 @@
 (
+#if you're gonna change something in here make doggone sure you
+#eyeball the init script too!
 
   ./configure   --build=$BUILD                    \
                 --prefix=/usr                     \
@@ -27,8 +29,8 @@
   
   cp -rvp html /usr/share/doc/$MODULE             &&
   
-  if [ -e /etc/config.d/ntp.conf ]; then
-     mv /etc/config.d/ntp.conf /etc/ntp.conf
+  if [ -e /etc/ntp.conf ]; then
+     mv /etc/ntp.conf /etc/config.d/ntp.conf
   fi
  
   if [ ! -e /etc/ntp.conf ]
