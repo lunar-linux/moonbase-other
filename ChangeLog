@@ -1,10 +1,112 @@
-2004-06-13 11:37  moe
+2004-06-14 10:53  moe
 
-	* app-themes/gtk-industrial-engine/: BUILD, DEPENDS, DETAILS:
-	Adding this rather cute theme engine. Debian stole it from Ximian
-	and we're stealing it from Debian now. Apart from that its ..
-	surprise surprise (Its made by Debian) .. horribly broken. I
-	_tried_ to fix it and it _should_ work for everyone.
+	* video/xine-lib/DEPENDS: Don't look at me. I'm as surprised as you
+	are
+
+2004-06-14 09:23  sofar
+
+	* crypto/openssl/POST_INSTALL, mail/imap/POST_INSTALL: Moving imap
+	SSL certificates into imap/POST_INSTALL... it makes no sense on a
+	clean ISO install that openSSL asks for this at all.
+
+2004-06-14 08:58  prox
+
+	* crypto/cyrus-sasl/BUILD: patching it would be good also
+
+2004-06-14 08:58  moe
+
+	* net/ipw2100/DETAILS: New release features _loads_ of bugfixes.
+	Tested by me.
+
+2004-06-14 08:49  prox
+
+	* crypto/cyrus-sasl/DETAILS: patch for compile error if you enable
+	HAVE_AUTHDAEMON and not any of HAVE_PWCHECK/HAVE_SASLAUTHD, might
+	not consern us but ill add it anyway.
+
+2004-06-14 02:31  florin
+
+	* kde3-i18n/: kde3-i18n-is/DETAILS, kde3-i18n-ja/DETAILS,
+	kde3-i18n-lt/DETAILS, kde3-i18n-nds/DETAILS, kde3-i18n-tg/DETAILS:
+	fix a typo in the modules names.
+
+2004-06-13 21:44  jol
+
+	* gnustep/: gnustep-back/DETAILS, gnustep-gui/DETAILS: Bumped
+	version to 0.9.3
+
+2004-06-13 20:16  jmhodges
+
+	* gnome2-extras/libcroco/DETAILS: version bump to 0.6.0
+
+2004-06-13 19:16  jmhodges
+
+	* gnome2-core/nautilus/DETAILS: typo in md5sum
+
+2004-06-13 17:27  florin
+
+	* filesys/LVM2/DETAILS: bump the version from 2.00.15 to 2.00.16.
+
+2004-06-13 17:23  florin
+
+	* games/gl-117/DETAILS: bump the version from 1.2 to 1.3.
+
+2004-06-13 17:08  florin
+
+	* utils/lm_sensors-2.6/: BUILD, DETAILS: for 2.6 kernels this
+	module must be used instead of lm_sensors.
+
+2004-06-13 17:07  florin
+
+	* utils/lm_sensors/DETAILS: bump the version from 2.8.0 to 2.8.7.
+
+2004-06-13 17:01  florin
+
+	* filesys/submount/BUILD: cosmetic.
+
+2004-06-13 16:28  florin
+
+	* video/mkvtoolnix/DETAILS: bump the version from 0.9.0 to 0.9.1.
+
+2004-06-13 15:59  florin
+
+	* games/stellarium/BUILD: cosmetic.
+
+2004-06-13 15:57  florin
+
+	* games/stellarium/: BUILD, DETAILS: fix the install location of
+	the game.
+
+2004-06-13 15:40  florin
+
+	* games/: adonthell/BUILD, adonthell/DEPENDS, adonthell/DETAILS,
+	wastesedge/BUILD, wastesedge/DETAILS: fix the install location of
+	the game.
+
+2004-06-13 14:38  florin
+
+	* kernel/kernel-headers-2.6/DETAILS: fix the updated field.
+
+2004-06-13 13:23  jol
+
+	* chat/psi/DETAILS: Bumped version to 0.9.2 ChangeLog:	File
+	transfer   Event queue is saved to disk at all times for fault
+	protection  Enable/disable accounts	    Groupchat nickname
+	tab-completion	     Groupchat trackbar to mark last read text when
+	unfocused	 *bold*, /italic/, _underline_	 Fixed bug where
+	the roster window could get lost on Windows	'Compact' mode for
+	chat window  Tip of the day  Hidden roster group     Ability to
+	export history as readable text      Event queue sorting by type   
+	 Type-ahead search in the roster	 External programs can now
+	have parameters       Toolbar configuration is now accessed from
+	the right-click menu	     Show dates in local format      Use
+	the gnome-open utility for opening URLs with GNOME2	    Fixed
+	"broken pipe" crash when receiving GnuPG errors ...
+
+2004-06-13 13:17  florin
+
+	* games/frozen-bubble/: BUILD, DETAILS: fix the install location of
+	the game.
 
 2004-06-13 10:38  florin
 
@@ -1277,69 +1379,4 @@
 2004-05-15 05:56  striker
 
 	* utils/pearpc/: BUILD, DETAILS: PearPC - PPC Emulator
-
-2004-05-14 22:35  sofar
-
-	* graphics/ImageMagick/DETAILS: Bumped and adjusted md5
-
-2004-05-14 15:11  sofar
-
-	* net/ethereal/DETAILS: bump
-
-2004-05-14 14:47  florin
-
-	* video/xine-lib/DETAILS: bump the version from 1-rc4 to 1-rc4a.
-
-2004-05-14 14:14  sofar
-
-	* x11/XOrg/CONFIGURE: DOH of course like this
-
-2004-05-14 14:12  sofar
-
-	* x11/XOrg/CONFIGURE: Fixing mishaps with people trying to bypass
-	the configure stage on a clean install, the now *MUST* run the
-	configuration. and so we just go into the config. Also some small
-	cleanup regarding bad_flags.
-
-2004-05-14 13:42  nhudson
-
-	* gnome2-core/libbonoboui/DETAILS: 
-	Forgot to update this earlier libbonoboui to new version 2.6.1
-
-2004-05-14 12:58  nhudson
-
-	* profiles/gnome2/DETAILS: 
-	Updating gnome2 to new version 2.6.1
-
-2004-05-14 12:57  nhudson
-
-	* gnome2-core/eog/DETAILS: 
-	Now finally we are updated to Gnome Desktop 2.6.1
-
-2004-05-14 09:16  sofar
-
-	* filesys/reiserfsprogs/DETAILS: Update. they must have goofed
-	something up in .14
-
-2004-05-14 09:02  niki
-
-	* utils/mdadm/DETAILS: Bumped version to 1.5.0, and tested on my
-	raid arrys.
-
-2004-05-14 07:34  ratler
-
-	* printer/lprng/: BUILD, CONFLICTS, DETAILS, POST_INSTALL,
-	init.d/lpd: Version bump and some tuning on the installation part
-
-2004-05-14 07:25  sofar
-
-	* kde3/qt3/DETAILS: Adding a http mirror cos trolltech's ftp is a
-	piece of [insert favorite excrement here]. Also, there can only be
-	one maintainer for a module (sorry ;^))
-
-2004-05-14 02:30  nhudson
-
-	* gnome2-core/: gnome-applets2/DETAILS, gnome-media2/DETAILS: 
-	Updating gnome-applets2 to new version 2.6.1 and gnome-media to
-	2.6.2
 
