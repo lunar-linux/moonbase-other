@@ -1,4 +1,6 @@
 (
+bad_flags -Wno-deprecated 
+
 export CPPFLAGS="$CPPFLAGS -I/usr/include/db4"
 
   ./configure  --build=$BUILD            \
