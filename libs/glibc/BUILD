@@ -35,28 +35,52 @@
   make                                        &&
 
   # Preserve the old glibc temporarily
-  cp /lib/ld-linux.so.2 /lib/ld-lunar.so      &&
-  cp /lib/libc.so.6 /lib/libc-lunar.so        &&
-  cp /lib/libdl.so.2 /lib/libdl-lunar.so      &&
-  cp /lib/libm.so.6 /lib/libm-lunar.so        &&
-  cp /lib/librt.so.1 /lib/librt-lunar.so      &&
-  cp /lib/libpthread.so.0 /lib/libpthread-lunar.so &&
-  cp /lib/libnss_files.so.2 /lib/libnss_files-lunar.so &&
-  cp /lib/libutil.so.1 /lib/libutil-lunar.so  &&
-  cp /lib/libnsl.so.1 /lib/libnsl-lunar.so    &&
-  cp /lib/libcrypt.so.1 /lib/libcrypt-lunar.so &&
+if [ "`arch`" == "alpha" ]; then
+  LD=/lib/ld-linux.so.2
+  GLIBC=/lib/libc.so.6.1
+  DL=/lib/libdl.so.2.1
+  M=/lib/libm.so.6.1
+  RT=/lib/librt.so.1
+  PTHREAD=/lib/libpthread.so.0
+  NSS=/lib/libnss_files.so.2
+  UTIL=/lib/libutil.so.1.1
+  NSL=/lib/libnsl.so.1.1
+  CRYPT=/lib/libcrypt.so.1.1
+else
+  LD=/lib/ld-linux.so.2
+  GLIBC=/lib/libc.so.6
+  DL=/lib/libdl.so.2
+  M=/lib/libm.so.6
+  RT=/lib/librt.so.1
+  PTHREAD=/lib/libpthread.so.0
+  NSS=/lib/libnss_files.so.2
+  UTIL=/lib/libutil.so.1
+  NSL=/lib/libnsl.so.1
+  CRYPT=/lib/libcrypt.so.1
+fi
+
+  cp $LD /lib/ld-lunar.so      &&
+  cp $GLIBC /lib/libc-lunar.so        &&
+  cp $DL /lib/libdl-lunar.so      &&
+  cp $M /lib/libm-lunar.so        &&
+  cp $RT /lib/librt-lunar.so      &&
+  cp $PTHREAD /lib/libpthread-lunar.so &&
+  cp $NSS /lib/libnss_files-lunar.so &&
+  cp $UTIL /lib/libutil-lunar.so  &&
+  cp $NSL /lib/libnsl-lunar.so    &&
+  cp $CRYPT /lib/libcrypt-lunar.so &&
 
   # Setup links for libraries
-  sln /lib/ld-lunar.so /lib/ld-linux.so.2     &&
-  sln /lib/libc-lunar.so /lib/libc.so.6       &&
-  sln /lib/libdl-lunar.so /lib/libdl.so.2     &&
-  sln /lib/libm-lunar.so /lib/libm.so.6       &&
-  sln /lib/librt-lunar.so /lib/librt.so.1     &&
-  sln /lib/libpthread-lunar.so /lib/libpthread.so.0 &&
-  sln /lib/libnss_files-lunar.so /lib/libnss_files.so.2 &&
-  sln /lib/libutil-lunar.so /lib/libutil.so.1 &&
-  sln /lib/libnsl-lunar.so /lib/libnsl.so.1   &&
-  sln /lib/libcrypt-lunar.so /lib/libcrypt.so.1 &&
+  sln /lib/ld-lunar.so $LD     &&
+  sln /lib/libc-lunar.so $GLIBC       &&
+  sln /lib/libdl-lunar.so $DL     &&
+  sln /lib/libm-lunar.so $M       &&
+  sln /lib/librt-lunar.so $RT     &&
+  sln /lib/libpthread-lunar.so $PTHREAD &&
+  sln /lib/libnss_files-lunar.so $NSS &&
+  sln /lib/libutil-lunar.so $UTIL &&
+  sln /lib/libnsl-lunar.so $NSL   &&
+  sln /lib/libcrypt-lunar.so $CRYPT &&
 
   # This removes the old glibc
   prepare_install                             &&
