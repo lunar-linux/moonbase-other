@@ -1,7 +1,13 @@
 (
 
-  make  oldconfig  &&
-  sedit "s:/etc/rc.d:/etc:" config.out &&
+  if [ "$AIRSNORT" == "y" ]; then
+    patch -p0 < $SOURCE_CACHE/$SOURCE2
+  fi		   &&
+
+  patch -p0 < $SCRIPT_DIRECTORY/Configure.patch &&
+  
+  make clean       &&
+  ./Configure -n --sysv --srctree $OPTS &&
   make  all        &&
   prepare_install  &&
   make    install  &&
