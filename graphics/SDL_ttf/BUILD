@@ -5,7 +5,7 @@
                --prefix=/usr         \
                --sysconfdir=/etc     \
                --localstatedir=/var  \
-               $OPTS                 &&
+               $OPTS                &&
   default_make
 
 ) > $C_FIFO 2>&1
