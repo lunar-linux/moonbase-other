@@ -1,18 +1,18 @@
-if  [  -f  /etc/stunnel.pem  ];  then
+if  [  -f  /etc/stunnel.pem  ] ;  then
   mv  /etc/stunnel.pem  /etc/ssl/certs/
 fi
 
-if  [  !  -f  /etc/ssl/certs/stunnel.pem  ]
-then  message  "Stay nearby please.  You will be asked"  \
+if  [  !  -f  /etc/ssl/certs/stunnel.pem  ] ; then
+  message  "Stay nearby please.  You will be asked"  \
                "questions to generate a self signed certificate."
-      CERTIFICATE="y"
-elif  query  "Generate a self signed certificate?" n
-then  CERTIFICATE="y"
-else  CERTIFICATE="n"
+  CERTIFICATE="y"
+elif  query  "Generate a self signed certificate?" n ;  then
+  CERTIFICATE="y"
+else
+  CERTIFICATE="n"
 fi
 
-if  query  "Generate self signed certificate?" $CERTIFICATE
-then  
+if  query  "Generate self signed certificate?" $CERTIFICATE ;  then  
 
   TEMP=`grep  -v  "CERTIFICATE="        $MODULE_CONFIG`
   echo  "$TEMP"                     >   $MODULE_CONFIG
