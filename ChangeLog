@@ -1,3 +1,84 @@
+2004-02-26 11:49  florin
+
+	* video/alevt/DETAILS: bump version from 1.6.0 to 1.6.1.
+
+2004-02-26 11:38  sofar
+
+	* filesys/partimage/: BUILD, DEPENDS, DETAILS: A partition imaging
+	and cloning too with compression support etc etc. very nice.
+
+2004-02-26 11:38  moe
+
+	* filesys/dosfstools/DETAILS: whooops florin ;^)
+
+2004-02-26 11:32  florin
+
+	* filesys/dosfstools/DETAILS: the rest of the update.
+
+2004-02-26 11:18  sofar
+
+	* x11-apps/OOodi2/: DEPENDS, DETAILS: This is the OpenOffice.Org
+	dicionary installer. It works really good!
+
+2004-02-26 06:56  florin
+
+	* filesys/dosfstools/BUILD: add the hardkrash pointed patch for 2.6
+	kernels. compiled and tested with gcc 3.3.3 and kernel 2.6.3
+
+2004-02-26 04:48  jmhodges
+
+	* libs/Twisted/DETAILS: version bump
+
+2004-02-26 03:59  nhudson
+
+	* gnome2-extras/magicdev/DETAILS: 
+	Updating magicdev to new version 1.1.6
+
+2004-02-26 03:58  nhudson
+
+	* gnome2-apps/gok/DETAILS: 
+	Updating gok to new version 0.9.8
+
+2004-02-26 03:57  nhudson
+
+	* gnome2-core/: yelp/DETAILS, at-spi/DETAILS, gail/DETAILS: 
+	Updating modules
+
+2004-02-26 03:43  nhudson
+
+	* libs/pango/DETAILS: 
+	Updating pango to new version 1.3.3
+
+2004-02-26 03:40  nhudson
+
+	* graphics/gtk+-2/DETAILS: 
+	Updating gtk+-2 to new version 2.3.4
+
+2004-02-25 16:33  tchan
+
+	* archive/tar/: BUILD, DETAILS: Reverting the changes to the tar
+	module until I get a chance to fix it right.
+
+2004-02-25 16:32  florin
+
+	* audio/libsndfile/DETAILS: bump version from 1.0.6 to 1.0.7. some
+	bugfixes.
+
+2004-02-25 15:30  striker
+
+	* audio/xmms-shell/: BUILD, DEPENDS, DETAILS: adding xmms-shell for
+	everyone's pleasure :)
+
+2004-02-25 14:47  jmhodges
+
+	* graphics/SDL/DETAILS: md5sum change.. argh
+
+2004-02-25 11:56  ratler
+
+	* archive/tar/: BUILD, DETAILS: Bumped tar version, the new version
+	correctly handle the -T option for exactly matching /path/file
+	instead of ^file
+
 2004-02-25 10:51  sofar
 
 	* utils/rrdtool/DEPENDS: Requires libpng
@@ -2767,103 +2848,4 @@
 	* libs/xerces-c++/: BUILD, DEPENDS, DETAILS: Added this module at
 	bramble's request.  Compiled and tested with gcc-3.2.3, kernel
 	2.4.x headers.	It is NOT psafe.
-
-2004-01-26 23:48  nestu
-
-	* chat/centericq/DETAILS: Bump version
-
-2004-01-26 22:45  tchan
-
-	* kernel/linux-beta-mm/DETAILS: Fixed a typo in the descriptions.
-
-2004-01-26 20:25  tchan
-
-	* archive/upx/DETAILS: Added PSAFE=no flag.  NOTE: this compiles
-	correctly against ucl-1.01, but not with ucl-1.02.  gcc-3.2.3,
-	kernel-headers 2.4.x.
-
-2004-01-26 20:11  tchan
-
-	* cd/bchunk/: BUILD, DETAILS: Moved this module from filesys
-	section to the cd section of moonbase.
-
-2004-01-26 20:03  cmak
-
-	* mail/spamassassin/DETAILS: Version bump to 2.63. tested.
-
-2004-01-26 19:25  tchan
-
-	* filesys/ntfsprogs/DETAILS: Added this new module to work with
-	NTFS under linux.  Compiled and tested with gcc-3.2.3, 2.4.x
-	kernel-headers.
-
-2004-01-26 19:17  jmhodges
-
-	* science/ScientificPython/: BUILD, DEPENDS, DETAILS: Weeee!
-	another science module! rock on, scientists, rock on
-
-2004-01-26 19:14  tchan
-
-	* utils/grub/: BUILD, DETAILS, menu.lst: Version bump to 0.94 from
-	florin.  He tested on gcc-3.3.2.  I tested on gcc-3.2.3.  Works
-	fine on all my x86 lunar boxes.
-
-2004-01-26 18:58  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Fixed typo in the module's short
-	and long description.  Doh, my spelling is terrible! Good job tchan
-	is around to help! ;)))
-
-2004-01-26 18:49  florin
-
-	* video/MPlayer/DETAILS: update the live version.
-
-2004-01-26 17:56  tchan
-
-	* news/pan2/DETAILS: Version bump to 0.14.2.91.  More bug fixes
-	over the 0.14.2 release.  Compiled and tested with gcc-3.2.3,
-	kernel-headers 2.4.x.
-
-2004-01-26 17:28  tchan
-
-	* mail/balsa2/DETAILS: Version bump to 2.0.16.	This is a stable
-	version bump.  Compiled and tested with gcc-3.2.3, kernel-2.4.x
-	headers.  Yes 2.1.0 devel release is out for testing but do NOT
-	bump balsa2 to the testing release version (way too buggy)!
-
-2004-01-26 17:16  tchan
-
-	* gnome2-core/libIDL/DEPENDS: Removed glib-2 from DEPENDS as the
-	linc already depends on glib-2.  Cutting down the depends recursion
-	some more.
-
-2004-01-26 16:27  moe
-
-	* audio/alsa-utils/: DETAILS, POST_INSTALL: We want restored
-	settings in runlevel 3!
-
-2004-01-26 10:34  florin
-
-	* ftp/dc_gui/DETAILS: bump version from 0.79 to 0.80.
-
-2004-01-26 10:34  florin
-
-	* ftp/dctc/DETAILS: bump version from 0.85.8 to 0.85.9.
-
-2004-01-26 09:48  nestu
-
-	* kernel/linux-beta/DETAILS: Version bump
-
-2004-01-26 03:29  tchan
-
-	* security/proxychains/DETAILS: Another module added to moonbase at
-	bramble's request.  Compiled and tested with gcc-3.2.3,
-	kernel-headers 2.4.x.
-
-2004-01-26 03:18  tchan
-
-	* crypto/steghide/: BUILD, DEPENDS, DETAILS: Added this module at
-	the request of bramble.  NOTE: I had to hack the src/Makefile.in
-	because steghide's author must have used an older libtool (1.4.x or
-	less).	Compiled and tested with gcc-3.2.3, kernel-headers 2.4.x.
 
