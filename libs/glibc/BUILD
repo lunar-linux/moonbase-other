@@ -1,15 +1,12 @@
 (
   #Patch stuff
-  patch_it $SOURCE_CACHE/$SOURCE3 1             # Via c3
-  patch_it $SOURCE_CACHE/$SOURCE4 1             # old static-bin segfault
-  patch_it $SOURCE_CACHE/$SOURCE5 1		# gcc 3.3 glibc patch
-  patch_it $SOURCE_CACHE/$SOURCE6 1             # initgroups fault patch
+  patch_it $SOURCE_CACHE/$SOURCE3 1             # old static-bin segfault
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
   fi
 
   # Don't allow too much damage
-  unset CFLAGS CXXFLAGS CPPFLAGS
+  unset CFLAGS CXXFLAGS CPPFLAGS LD_LIBRARY_PATH
   export CC=gcc
 
   # Don't fully strip libc
@@ -123,12 +120,12 @@ esac
 
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
-    for FN in ld-2.3.2.so libanl-2.3.2.so libBrokenLocale-2.3.2.so libc-2.3.2.so   \
-              libcrypt-2.3.2.so libdl-2.3.2.so libm-2.3.2.so libmemusage.so        \
-              libnsl-2.3.2.so libnss_compat-2.3.2.so libnss_files-2.3.2.so         \
-              libnss_hesiod-2.3.2.so libnss_nis-2.3.2.so libnss_nisplus-2.3.2.so   \
-              libpcprofile.so libpthread-0.10.so libresolv-2.3.2.so libSegFault.so \
-              libthread_db-1.0.so libutil-2.3.2.so
+    for FN in ld-2.3.3.so libanl-2.3.3.so libBrokenLocale-2.3.3.so libc-2.3.3.so   \
+              libcrypt-2.3.3.so libdl-2.3.3.so libm-2.3.3.so libmemusage.so        \
+              libnsl-2.3.3.so libnss_compat-2.3.3.so libnss_files-2.3.3.so         \
+              libnss_hesiod-2.3.3.so libnss_nis-2.3.3.so libnss_nisplus-2.3.3.so   \
+              libpcprofile.so libpthread-0.10.so libresolv-2.3.3.so libSegFault.so \
+              libthread_db-1.0.so libutil-2.3.3.so
     do
       strip -S /lib/$FN
     done
