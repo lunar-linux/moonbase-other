@@ -1,6 +1,6 @@
 (
  
-  unset CC CXX MAKEFLAGS
+  unset CFLAGS CXXFLAGS CPPFLAGS LDFLAGS 
 
   bunzip2  -cd  $SCRIPT_DIRECTORY/gcc-2.95.3-2.patch.bz2  |
   patch  -p 1
