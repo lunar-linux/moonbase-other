@@ -1,3 +1,82 @@
+2004-04-16 09:44  nestu
+
+	* utils/util-linux/DETAILS: Fix losetup-combined.patch URL (has
+	been moved)
+
+2004-04-16 09:22  prox
+
+	* sql/mysql/: BUILD, DETAILS, services: security update. 3 patches
+	for mysql, fixes CAN-2004-0381 and CAN-2004-0388.
+
+2004-04-16 09:19  sofar
+
+	* x11-apps/xmbase_grok/: BUILD, DEPENDS, DETAILS: Useless tool ;^)
+
+2004-04-16 08:55  sofar
+
+	* compilers/php/DETAILS: New version, many bugfixes
+
+2004-04-16 08:00  sofar
+
+	* graphics/ImageMagick/DETAILS: New version. Compiled both against
+	XOrg and xfree86. Note difficulties with ati driver installed may
+	cause this to break. Major API changes. If you do anything besides
+	converting formats you should cehck out the IM homepage.
+
+2004-04-16 07:36  prox
+
+	* devel/cvs/DETAILS: bump to 1.11.15, due to security update
+
+2004-04-16 07:29  prox
+
+	* zbeta/gkrellm2-beta/DETAILS: added md5sum
+
+2004-04-16 03:16  tchan
+
+	* mail/exim4/DETAILS: Version bump to 4.32.  Compiled and tested
+	with gcc-3.3.3, kernel headers 2.4.x.  Some small bug fixes and
+	some new features in exinext tool.
+
+2004-04-16 03:03  nhudson
+
+	* gnome2-extras/glade2/DETAILS: 
+	Updating glade2 to new version 2.6.0
+
+2004-04-15 20:01  florin
+
+	* ftp/lftp/DETAILS: bump the version from 3.0.1 to 3.0.2.
+
+2004-04-15 17:00  nhudson
+
+	* gnome2-extras/gnopernicus/DETAILS: 
+	Updating gnopernicus to new version 0.8.3
+
+2004-04-15 16:59  nhudson
+
+	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: 
+	Updating gstreamer and gst-plugins to new version 0.8.1
+
+2004-04-15 16:57  nhudson
+
+	* graphics/gimp-gap/DETAILS: 
+	Forgot to add a md5sum
+
+2004-04-15 16:56  nhudson
+
+	* graphics/gimp-gap/: DEPENDS, DETAILS: 
+	Adding the animation plugin for Gimp to moonbase
+
+2004-04-15 15:14  florin
+
+	* video/ogmtools/DETAILS: bump the version from 1.3 to 1.4.
+
+2004-04-15 12:26  nestu
+
+	* kernel/linux-beta/: DETAILS, PRE_BUILD: Version bump. In
+	PRE_BUILD: * the .config.beta is only imported once now, on the
+	first source unpack.  * 2.4's .config is not included anymore, at
+	it has been problematic.
+
 2004-04-15 07:47  sofar
 
 	* utils/shared-mime-info/: BUILD, DETAILS: Newer version, extra
@@ -439,11 +518,6 @@
 
 	* audio/abcde/DETAILS: bump the version from 2.115 to 2.1.19.
 
-2004-04-10 02:06  tchan
-
-	* gnome2-core/shared-mime-info/DETAILS: Fixed a line break in the
-	SHORT description.  Fixed the indentation.
-
 2004-04-10 00:24  nestu
 
 	* kernel/linux-beta-mm/DETAILS: version bump
@@ -729,9 +803,8 @@
 	metacity/DETAILS, nautilus/BUILD, nautilus/DETAILS,
 	nautilus-cd-burner/BUILD, nautilus-cd-burner/DETAILS,
 	nautilus-media/BUILD, nautilus-media/DETAILS,
-	shared-mime-info/BUILD, shared-mime-info/DEPENDS,
-	shared-mime-info/DETAILS, startup-notification/BUILD, yelp/BUILD,
-	yelp/DETAILS, zenity/BUILD, zenity/DEPENDS, zenity/DETAILS: 
+	startup-notification/BUILD, yelp/BUILD, yelp/DETAILS, zenity/BUILD,
+	zenity/DEPENDS, zenity/DETAILS: 
 	Updating to Gnome 2.6.0 Desktop Release, I have to say that cvs
 	merging is alot easier to do than moving the files over by hand. 
 	Now go get yourself a 40 and do some updating!
@@ -2073,11 +2146,6 @@
 
 2004-03-18 04:22  nhudson
 
-	* audio/rhythmbox/CONFIGURE: file CONFIGURE was initially added on
-	branch GNOME_UNSTABLE.
-
-2004-03-18 04:22  nhudson
-
 	* audio/rhythmbox/: CONFIGURE, POST_INSTALL: 
 	Adding iPod support to rhythmbox if you have a iPod and want to set
 	things up refer to the README.iPod file in Gnome CVS
@@ -2086,6 +2154,11 @@
 	&rev=&root=/cvs/gnome
 	
 	Have fun
+
+2004-03-18 04:22  nhudson
+
+	* audio/rhythmbox/CONFIGURE: file CONFIGURE was initially added on
+	branch GNOME_UNSTABLE.
 
 2004-03-18 04:02  nhudson
 
@@ -2197,157 +2270,4 @@
 
 	* audio/rhythmbox/DETAILS: version bump, seems to work with latest
 	gstreamer!
-
-2004-03-16 23:11  jmhodges
-
-	* gnome2-core/at-spi/DETAILS: md5sum bump
-
-2004-03-16 19:42  nestu
-
-	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: Yup, this one gets
-	bumped too  ;)))
-
-2004-03-16 19:38  sofar
-
-	* libs/termcap/DETAILS, utils/coreutils/DETAILS: URL's
-
-2004-03-16 19:34  sofar
-
-	* devel/binutils/DETAILS: pwetty
-
-2004-03-16 18:56  nestu
-
-	* kernel/linux-beta/: DETAILS, PRE_BUILD: Version bump
-
-2004-03-16 18:32  nhudson
-
-	* audio/gst-ffmpeg/POST_INSTALL: 
-	Fixing
-
-2004-03-16 18:30  nhudson
-
-	* audio/gst-ffmpeg/: DEPENDS, DETAILS, POST_INSTALL: 
-	Adding gst-ffmpeg to GNOME_UNSTABLE
-
-2004-03-16 18:30  nhudson
-
-	* audio/gst-ffmpeg/DETAILS: file DETAILS was initially added on
-	branch GNOME_UNSTABLE.
-
-2004-03-16 18:30  nhudson
-
-	* audio/gst-ffmpeg/POST_INSTALL: file POST_INSTALL was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-03-16 18:30  nhudson
-
-	* audio/gst-ffmpeg/DEPENDS: file DEPENDS was initially added on
-	branch GNOME_UNSTABLE.
-
-2004-03-16 18:01  nhudson
-
-	* gnome2-core/bug-buddy/DETAILS: 
-	Updating bug-buddy to 2.5.92
-
-2004-03-16 18:00  nhudson
-
-	* audio/esound/DETAILS: 
-	Updating esound to new versioin 0.2.34
-
-2004-03-16 17:59  nhudson
-
-	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: 
-	Updating gstreamer and gst-plugins to new version 0.8.0
-
-2004-03-16 17:57  nhudson
-
-	* gnome2-core/libgnome/DETAILS: 
-	libgnome updated again within the last 5 minutes
-
-2004-03-16 17:56  nhudson
-
-	* gnome2-apps/gpdf/DETAILS: 
-	Updating gpdf
-
-2004-03-16 17:49  nhudson
-
-	* gnome2-apps/gucharmap/DETAILS: 
-	Updating gucharmap
-
-2004-03-16 17:49  nhudson
-
-	* gnome2-core/: dasher/DETAILS, file-roller/DETAILS, eog/DETAILS,
-	gdm/DETAILS, libgnome/DETAILS, libgnomecanvas/DETAILS,
-	libgnomeui/DETAILS: 
-	Updating more modules
-
-2004-03-16 17:29  tchan
-
-	* gnome2-apps/gnumeric2/DETAILS: Version bump to 1.2.7.  Compiled
-	and tested with gcc-3.3.3 and kernel headers 2.4.x.
-
-2004-03-16 16:49  tchan
-
-	* utils/grub/DETAILS: Fixed some typos.
-
-2004-03-16 16:41  florin
-
-	* i18n/aspell-sk/DETAILS: bump the version from 0.51-0 to 0.51-1.
-
-2004-03-16 16:40  florin
-
-	* i18n/aspell-fo/DETAILS: bump the version from 0.50-2 to 0.51-0.
-
-2004-03-16 14:10  sofar
-
-	* video/MPlayer-essentials/BUILD: echo doesn't work
-
-2004-03-16 13:45  sofar
-
-	* video/MPlayer-essentials/: BUILD, DETAILS: Make sure not to
-	overwrite mplayer-qt/mplayer base pluygins
-
-2004-03-16 13:10  sofar
-
-	* video/MPlayer/DEPENDS: Reverting back these changes as cmak
-	committed them after he consulted me and I told him I didn't
-	approve.
-
-2004-03-16 12:32  cmak
-
-	* video/: MPlayer/DEPENDS, MPlayer-essentials/BUILD,
-	MPlayer-essentials/DETAILS: adding MPlayer-essentials module.
-	includes only the DLLs which aren't supported by any of the open
-	source codecs.
-
-2004-03-16 05:05  watryac04
-
-	* video/mythtv/: POST_INSTALL, mythfilldatabasecron: Almost forgot
-	these...  bad Veer.
-
-2004-03-16 05:03  watryac04
-
-	* video/mythtv/: BUILD, DETAILS: Fixed up the setup process mostly.
-	 The old one wouldn't create the mythconverg database, this one
-	does (if it doesn't exist already). It also takes care of various
-	notices to users for the steps that they need to perform
-	(configuration) in the post_install script.
-
-2004-03-16 03:11  nhudson
-
-	* web/epiphany/: BUILD, DEPENDS, DETAILS: 
-	Updating epiphany to new version 1.2.0 and making some depends
-	changes and BUILD file changes
-
-2004-03-16 03:08  nhudson
-
-	* gnome2-apps/gok/DETAILS: 
-	Updating gok to new version 0.9.11
-
-2004-03-16 03:03  nhudson
-
-	* gnome2-core/: at-spi/DETAILS, eel/DETAILS, gnome-mag/DETAILS,
-	gnome-themes/DETAILS, nautilus/DETAILS, nautilus-cd-burner/DETAILS:
-	
-	Updating modules
 
