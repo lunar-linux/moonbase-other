@@ -14,8 +14,8 @@ LANGUAGES=c++
                --with-gnu-ld                 \
                --with-system-zlib            \
                --enable-shared               &&
-  prepare_install                            && 
   make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean                        &&
+  prepare_install                            && 
   make install                               
 
 ) > $C_FIFO 2>&1
