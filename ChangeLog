@@ -1,3 +1,37 @@
+2003-11-15 11:29  moe
+
+	* x11-utils/root-tail/: BUILD, DEPENDS, DETAILS, PRE_BUILD: Adding
+	new root-tail module to the moonbase. Since xfdesktop is no longer
+	occupieing the root window every XFce4 may use it as well ;-)
+
+2003-11-15 07:53  florin
+
+	* kde3-apps/karchiver/DETAILS: bump version from 3.0.7 to 3.0.8.
+	bugfix version.
+
+2003-11-15 05:23  tchan
+
+	* kernel/linux/2.4.22-test_only/DETAILS: Bumped the patchset
+	revision level.  I added PATA/SATA support patches (see the new
+	menu choice in the scsi low-level drivers section, under the ATA
+	Support option).  I also fixed a bug in the aggressive patch set
+	relating to sched.c.  Bumped the revision level text inside the
+	patch set as well.  Also updated patch-list.txt
+
+2003-11-14 19:51  florin
+
+	* docs/man-pages/DETAILS: bump version from 1.61 to 1.62. it's the
+	second this day, what a speed :)
+
+2003-11-14 17:55  tchan
+
+	* libs/uClibc/: .config.bz2, BUILD, DETAILS: Version bump to
+	0.9.23.  Added this module to the architecture blacklist for Alpha,
+	PPC, SPARC.  Those are supported archs, but the current Lunar
+	module for uClibc will NOT build correctly on anything but x86. 
+	This module needs a major rewrite to add the arch-type support into
+	it.
+
 2003-11-14 05:46  florin
 
 	* ftp/wget/DETAILS: bump version from 1.9 to 1.9.1.
@@ -1942,52 +1976,4 @@
 	* gnome2-core/: bug-buddy/DETAILS, gnome-desktop/DETAILS: 
 	Updating gnome-desktop to new version 2.4.1.1 and bug-buddy to new
 	version 2.4.1
-
-2003-10-15 22:27  elaine
-
-	* kernel/linux-stable/BUILD: reverting, prior ocmmit does not parse
-
-2003-10-15 22:26  elaine
-
-	* kernel/linux-vanilla/BUILD: reverting, prior commit does not
-	parse
-
-2003-10-15 18:54  florin
-
-	* mail/bogofilter/DETAILS: bump version from 0.11.1.3 to 0.15.7
-
-2003-10-15 18:32  florin
-
-	* utils/file/DETAILS: bump version from 4.05 to 4.06
-
-2003-10-15 18:25  nestu
-
-	* kernel/linux-vanilla/BUILD: Adding fallbacks if the selected
-	configuration method is not available
-
-2003-10-15 18:15  nestu
-
-	* kernel/linux-stable/BUILD: Added a fallback for the case that the
-	selected configure method is not available
-
-2003-10-15 17:43  nestu
-
-	* kernel/linux-beta/BUILD: Adding fallbacks if the selected
-	configuration method is not available
-
-2003-10-15 14:54  moe
-
-	* x11-utils/mynetmonitor-systray-plugin/: BUILD, DEPENDS, DETAILS:
-	Adding new systray plugin. It shows the current state of any net
-	based connection and much more. I think its neat .. so, here you
-	are.
-
-2003-10-15 10:40  moe
-
-	* mail/sylpheed/DETAILS: Bump me! .. here comes 0.9.7 (tested)
-
-2003-10-15 01:26  nestu
-
-	* kernel/linux-beta/: BUILD, CONFIGURE, PRE_BUILD: adapting to new
-	kernel versioning system, as well as lilo and grub entries
 
