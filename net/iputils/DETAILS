@@ -1,7 +1,7 @@
           MODULE=iputils
          VERSION=ss020927
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE1=bonding-0.2.tar.gz
+         SOURCE1=ifenslave.c
          SOURCE2=iputils-20001007-rh7.patch
          SOURCE3=iputils-20020124-countermeasures.patch
          SOURCE4=iputils-20020124-ping_sparcfix.patch
@@ -10,6 +10,7 @@
 	 SOURCE7=iputils-20020927-icmp_seq.patch
 	 SOURCE8=iputils-20020927-ping-subint.patch
          SOURCE9=traceroute6.patch
+        SOURCE10=README.bonding
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
    SOURCE_URL[0]=ftp://ftp.inr.ac.ru/ip-routing/$SOURCE
    SOURCE1_URL[0]=$LRESORT_URL/$SOURCE1
@@ -21,9 +22,21 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
    SOURCE7_URL[0]=$PATCH_URL/$SOURCE7
    SOURCE8_URL[0]=$PATCH_URL/$SOURCE8
    SOURCE9_URL[0]=$PATCH_URL/$SOURCE9
+  SOURCE10_URL[0]=$LRESORT_URL/$SOURCE10
         WEB_SITE=ftp://ftp.inr.ac.ru/ip-routing/
+     SOURCE0_VFY=md5:b5493f7a2997130a4f86c486c9993b86
+     SOURCE1_VFY=md5:d4b7c0f1f218d6f2e540604e2cdd9890
+     SOURCE2_VFY=md5:245450f0d87da8b2d0ba1513bf2765c7
+     SOURCE3_VFY=md5:6df1222a7bcec28e167bd45827f0b126
+     SOURCE4_VFY=md5:5f6b76b5aa61b736b737f266acb9fb83
+     SOURCE5_VFY=md5:a49524772f27a3ba91d7f20dd61d6dc5
+     SOURCE6_VFY=md5:f76a28b748aaf8f1ccf2bf714ad13add
+     SOURCE7_VFY=md5:4083a3050d62350c7cc2624bec23c73b
+     SOURCE8_VFY=md5:6383b85702e430a6ca9fc5b1b98fa403
+     SOURCE9_VFY=md5:1fcba5d1bb4aad7f36c8c4af92e70e85
+    SOURCE10_VFY=md5:6947cb0362be68d7978ca9c77f43d5fc
          ENTERED=20021106
-         UPDATED=20031011
+         UPDATED=20031018
            SHORT="Essential utilities for IP networks."
 
 cat << EOF
