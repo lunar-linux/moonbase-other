@@ -1,22 +1,16 @@
-unset CC CXX
 (
-   default_build  
-
-) > $C_FIFO 2>&1 &&
-
-(
-
-  mkdir  -p  /var/log/xinetd
 
   if [ -e "/etc/init.d/xinetd.sh" ]; then
-     rm -f /etc/init.d/xinetd.sh
-     rm -f /etc/rc?.d/???xinetd.sh
+    rm -f /etc/init.d/xinetd.sh /etc/rc?.d/???xinetd.sh
   fi
 
-  ID="includedir  /etc/xinetd.d"
-  mkdir  -p       /etc/xinetd.d
+  default_config &&
+  make &&
+  prepare_install &&
+  mkdir -p /var/log/xinetd /etc/xinetd &&
+  make install &&
+  if [ ! -f /etc/xinetd.conf ]; then
+    echo "includedir /etc/xinetd.d" > /etc/xinetd.conf
+  fi
 
-  [  -f           /etc/xinetd.conf  ]  ||
-  echo  "$ID"  >  /etc/xinetd.conf
-
-)
+) > $C_FIFO 2>&1
