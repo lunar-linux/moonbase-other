@@ -1,3 +1,73 @@
+2004-11-23 12:48  florin
+
+	* kde3-apps/koffice3/DETAILS: bump the version from 1.3.4 to 1.3.5.
+
+2004-11-23 11:40  florin
+
+	* utils/file/DETAILS: bump the version from 4.10 to 4.11.
+
+2004-11-23 08:23  sofar
+
+	* x11/: XOrg-fonts-base/BUILD, XOrg-fonts-extra/BUILD: Make it
+	  update-proof ;^)
+
+2004-11-23 06:16  florin
+
+	* devel/ltrace/BUILD: small tweaks.
+
+2004-11-22 19:01  moe
+
+	* net/ipw2100/DETAILS: Reverting to 1.0.0. 1.0.1 is broken.
+
+2004-11-22 18:31  moe
+
+	* x11/: XOrg/BUILD, XOrg/CONFIGURE, XOrg/CONFLICTS, XOrg/DEPENDS,
+	  XOrg/DETAILS, XOrg/POST_INSTALL, XOrg/POST_REMOVE,
+	  XOrg/PRE_BUILD, XOrg-fonts-base/BUILD, XOrg-fonts-base/DEPENDS,
+	  XOrg-fonts-base/DETAILS, XOrg-fonts-extra/BUILD,
+	  XOrg-fonts-extra/DEPENDS, XOrg-fonts-extra/DETAILS: Aaaalllright.
+	  This is the all new and shiny XOrg module.  Split up into several
+	  smaller ones. This one's compiling in 30 minutes on a P-M 1.4Ghz.
+	  - fontconfig issues solved (and it doesn't break pango either
+	  yay!) - Driver selection possible (might need some slight
+	  improvements (like a sidebar) but works for now) - Updated to
+	  6.8.1 (fixes a serious security hole) - Other stuff I forgot
+	  about
+
+2004-11-22 17:33  nestu
+
+	* kernel/linux-2.6-mm/DETAILS: 2.6.10rc2mm2 -> 2.6.10rc2mm3. gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.9.1
+
+2004-11-22 16:38  hardkrash
+
+	* xfce4/libxfcegui4/DEPENDS: it seems that xfce needs xml,  if this
+	  is the wrong dependicy, xfce4 devs please correct me here, but
+	  this is causing problems with building xfce4 on freshly installed
+	  systems, if other packages can install the required xml parsing
+	  stuff please make an alias.
+
+2004-11-22 16:27  tchan
+
+	* mail/balsa/DETAILS: Version bump to balsa-2.2.6. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2004-11-22 14:20  prox
+
+	* net/ethereal/DEPENDS: openssl wasnt used unless it was given
+	  --with-ssl and if heimdal was installed it would croak if it
+	  didnt get --without-krb5 if you didnt want to use it (krb5 was
+	  default yes if it was found but needed ssl also and that was
+	  default no)
+
+2004-11-22 14:03  florin
+
+	* chat/ircservices/DETAILS: bump the version from 5.0.41 to 5.0.42.
+
+2004-11-22 13:57  moe
+
+	* net/ipw2200/DETAILS: Bump
+
 2004-11-22 05:14  florin
 
 	* devel/guile/DETAILS: bump the version from 1.6.4 to 1.6.5.
@@ -2115,48 +2185,4 @@
 2004-10-24 10:22  florin
 
 	* sql/postgresql/DETAILS: bump the version from 7.4.5 to 7.4.6.
-
-2004-10-23 15:08  florin
-
-	* filesys/udev/DETAILS: fix the update date.
-
-2004-10-23 15:07  florin
-
-	* games/lbreakout2/BUILD: small tweak.
-
-2004-10-23 13:53  florin
-
-	* doc-tools/opensp/: BUILD, DETAILS: add a small patch in order to
-	  compile with gcc 3.4.x.
-
-2004-10-23 13:42  florin
-
-	* games/kaf/BUILD: small tweak.
-
-2004-10-23 13:14  florin
-
-	* devel/subversion/DETAILS: bump the version from 1.0.9 to 1.1.1.
-
-2004-10-23 12:27  florin
-
-	* audio/mixxx/DETAILS: bump the version from 1.3.2 to 1.4.2.
-
-2004-10-23 11:03  florin
-
-	* x11-wm/WindowMaker/: DETAILS, WindowMaker: bump the version from
-	  0.80.2 to 0.90.0.
-
-2004-10-23 08:52  perldude
-
-	* printer/cups/DEPENDS: add hpijs as an optional depends.
-
-2004-10-23 07:06  florin
-
-	* printer/pdf417_enc/DETAILS: bump the version from 3.8 to 4.0.
-
-2004-10-23 03:17  tchan
-
-	* utils/calc/DETAILS: Version bump to calc-2.11.10.1.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
 
