@@ -1,3 +1,152 @@
+2004-10-04 04:20  v3rt1g0
+
+	* audio/lame/: BUILD, DEPENDS: There we go :o)	Added missing
+	  depends.  Also added a build file to take advantage of some
+	  features we were missing out on.
+
+2004-10-04 04:19  v3rt1g0
+
+	* audio/lame/DETAILS: doh, forgot to add the new files... brb
+
+2004-10-04 03:25  nhudson
+
+	* zbeta/XOrg-test/BUILD:
+	  Fixing the DRI/DRM build and install locations
+
+2004-10-04 03:05  nhudson
+
+	* zbeta/XOrg-test/: BUILD, CONFIGURE:
+	  Removing the CONFIGURE script for now, as its not needed it looks
+	  anymore.  Also adding some stuff to the host.def file so that it
+	  will build some extra options.  Testing out to see if fontconfig
+	  from XOrg will work ok by itself so that we will not have any
+	  more problems with the fontconfig module
+
+2004-10-03 23:10  v3rt1g0
+
+	* utils/catdoc/: DEPENDS, DETAILS: Version bump 0.90.3 -> 0.93.3.
+	  Feature and bugfix update.  Also some cosmetic touchups.
+
+2004-10-03 19:07  sofar
+
+	* utils/lilo/: BUILD, DEPENDS, DETAILS, PRE_BUILD: update to 22.6:
+	  - tested with both 2.4 and 2.6 - bumped patch up too/recreated
+	  patch - no longer needs nasm
+
+2004-10-03 18:54  jasper
+
+	* xfce4/xfce4-icon-theme/BUILD: Put in /usr
+
+2004-10-03 18:39  jasper
+
+	* xfce4/: libxfce4mcs/BUILD, libxfce4util/BUILD,
+	  libxfce4util/profile.d/xfce4.rc, libxfcegui4/BUILD,
+	  xfcalendar/BUILD, xfce-mcs-manager/BUILD, xfce-mcs-plugins/BUILD,
+	  xfce-utils/BUILD, xfce4-appfinder/BUILD,
+	  xfce4-battery-plugin/BUILD, xfce4-battery-plugin/DETAILS,
+	  xfce4-clipman-plugin/BUILD, xfce4-cpugraph-plugin/BUILD,
+	  xfce4-cpugraph-plugin/DETAILS, xfce4-datetime-plugin/BUILD,
+	  xfce4-diskperf-plugin/BUILD, xfce4-fsguard-plugin/BUILD,
+	  xfce4-fsguard-plugin/DETAILS, xfce4-icon-theme/BUILD,
+	  xfce4-iconbox/BUILD, xfce4-minicmd-plugin/BUILD,
+	  xfce4-minicmd-plugin/DETAILS, xfce4-mixer/BUILD,
+	  xfce4-netload-plugin/BUILD, xfce4-notes-plugin/BUILD,
+	  xfce4-notes-plugin/DETAILS, xfce4-panel/BUILD,
+	  xfce4-session/BUILD, xfce4-showdesktop-plugin/BUILD,
+	  xfce4-showdesktop-plugin/DETAILS, xfce4-systemload-plugin/BUILD,
+	  xfce4-systemload-plugin/DETAILS, xfce4-systray/BUILD,
+	  xfce4-taskbar-plugin/BUILD, xfce4-taskbar-plugin/DETAILS,
+	  xfce4-toys/BUILD, xfce4-trigger-launcher/BUILD,
+	  xfce4-wavelan-plugin/BUILD, xfce4-weather-plugin/BUILD,
+	  xfce4-windowlist-plugin/BUILD, xfce4-windowlist-plugin/DETAILS,
+	  xfdesktop/BUILD, xffm/BUILD, xfprint/BUILD, xfwm4/BUILD,
+	  xfwm4-themes/BUILD: Change default location to /opt/lunar/xfce4
+	  and touch UPDATED fields on plugins to force a rebuild. Hope that
+	  didn't cause too much trouble.
+
+2004-10-03 17:59  jasper
+
+	* xfce4/xfce4-mixer/: DEPENDS, DETAILS: Use original tarball,
+	  disable alsa for now
+
+2004-10-03 17:34  jasper
+
+	* xfce4/libxfcegui4/DEPENDS: Make sure our default themes are
+	  installed
+
+2004-10-03 17:05  jasper
+
+	* app-themes/gtk-xfce-engine/DETAILS, libs/dbh/DETAILS,
+	  profiles/xfce4-extras-profile/DEPENDS,
+	  profiles/xfce4-extras-profile/DETAILS,
+	  profiles/xfce4-profile/DEPENDS, profiles/xfce4-profile/DETAILS,
+	  xfce4/libxfce4mcs/BUILD, xfce4/libxfce4mcs/DETAILS,
+	  xfce4/libxfce4util/BUILD, xfce4/libxfce4util/DETAILS,
+	  xfce4/libxfce4util/POST_INSTALL,
+	  xfce4/libxfce4util/profile.d/xfce4.rc, xfce4/libxfcegui4/BUILD,
+	  xfce4/libxfcegui4/DETAILS, xfce4/xfcalendar/BUILD,
+	  xfce4/xfcalendar/DETAILS, xfce4/xfce-mcs-manager/BUILD,
+	  xfce4/xfce-mcs-manager/DETAILS, xfce4/xfce-mcs-plugins/BUILD,
+	  xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/BUILD,
+	  xfce4/xfce-utils/DETAILS, xfce4/xfce4-appfinder/BUILD,
+	  xfce4/xfce4-appfinder/DEPENDS, xfce4/xfce4-appfinder/DETAILS,
+	  xfce4/xfce4-battery-plugin/BUILD,
+	  xfce4/xfce4-clipman-plugin/BUILD,
+	  xfce4/xfce4-clipman-plugin/DETAILS,
+	  xfce4/xfce4-cpugraph-plugin/BUILD,
+	  xfce4/xfce4-datetime-plugin/BUILD,
+	  xfce4/xfce4-datetime-plugin/DETAILS,
+	  xfce4/xfce4-diskperf-plugin/BUILD,
+	  xfce4/xfce4-diskperf-plugin/DETAILS,
+	  xfce4/xfce4-fsguard-plugin/BUILD, xfce4/xfce4-icon-theme/BUILD,
+	  xfce4/xfce4-icon-theme/DETAILS, xfce4/xfce4-iconbox/BUILD,
+	  xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-minicmd-plugin/BUILD,
+	  xfce4/xfce4-mixer/BUILD, xfce4/xfce4-mixer/DETAILS,
+	  xfce4/xfce4-netload-plugin/BUILD,
+	  xfce4/xfce4-netload-plugin/DETAILS,
+	  xfce4/xfce4-notes-plugin/BUILD, xfce4/xfce4-panel/BUILD,
+	  xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/BUILD,
+	  xfce4/xfce4-session/DETAILS,
+	  xfce4/xfce4-showdesktop-plugin/BUILD,
+	  xfce4/xfce4-systemload-plugin/BUILD, xfce4/xfce4-systray/BUILD,
+	  xfce4/xfce4-systray/DETAILS, xfce4/xfce4-taskbar-plugin/BUILD,
+	  xfce4/xfce4-toys/BUILD, xfce4/xfce4-toys/DETAILS,
+	  xfce4/xfce4-trigger-launcher/BUILD,
+	  xfce4/xfce4-trigger-launcher/DETAILS,
+	  xfce4/xfce4-wavelan-plugin/BUILD,
+	  xfce4/xfce4-wavelan-plugin/DETAILS,
+	  xfce4/xfce4-weather-plugin/BUILD,
+	  xfce4/xfce4-weather-plugin/DETAILS,
+	  xfce4/xfce4-windowlist-plugin/BUILD, xfce4/xfdesktop/BUILD,
+	  xfce4/xfdesktop/DEPENDS, xfce4/xfdesktop/DETAILS,
+	  xfce4/xffm/BUILD, xfce4/xffm/DETAILS, xfce4/xfprint/BUILD,
+	  xfce4/xfprint/DETAILS, xfce4/xfwm4/BUILD, xfce4/xfwm4/DETAILS,
+	  xfce4/xfwm4-themes/BUILD, xfce4/xfwm4-themes/DETAILS: There goes
+	  4.1.90. It's beta, but very stable.
+
+2004-10-03 15:09  sofar
+
+	* utils/vacation/: BUILD, CONFLICTS, DETAILS: Replacement vacation
+	  program for when you don't run sendmail
+
+2004-10-03 15:02  sofar
+
+	* graphics/ImageMagick/DETAILS: New version
+
+2004-10-03 14:34  sofar
+
+	* web/mozilla/: BUILD, CONFIGURE, DETAILS, POST_INSTALL, PRE_BUILD:
+	  Mozilla update: rewritten some of the files extensively, update
+	  to 1.7.3 (yes it works the libart_lgpl now needs to be inserted
+	  externally).
+
+2004-10-03 14:17  v3rt1g0
+
+	* zbeta/etox-cvs/: BUILD, DEPENDS, DETAILS: Continuing to add the
+	  CVS versions of some EFL libraries in hopes of plans of
+	  eventually getting some "e17"ish applications in the moonbase.
+	  (like entrance, eRSS, and the such)
+
 2004-10-03 12:57  florin
 
 	* x11-wm/fvwm/DETAILS: bump the version from 2.4.18 to 2.4.19.
