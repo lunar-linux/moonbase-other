@@ -20,7 +20,7 @@
   # statically (but not now :^P )
   
   # certified GOOD:
-  for DIR in libs/edb libs/eet libs/imlib2 libs/imlib2_loaders libs/evas libs/ecore libs/ebits libs/ebg libs/ewd libs/estyle libs/etox libs/edje libs/ewl apps/efsd apps/e apps/ebindings apps/ebony apps/esmall apps/etcher apps/entice apps/evidence apps/imlib2_tools apps/med apps/entrance ; do
+  for DIR in libs/edb libs/eet libs/imlib2 libs/imlib2_loaders libs/evas libs/ecore libs/ebits libs/ebg libs/ewd libs/estyle libs/etox libs/edje libs/ewl apps/efsd apps/e apps/ebindings apps/ebony apps/esmall apps/etcher apps/entice apps/imlib2_tools apps/med apps/entrance ; do
     (
       message "${MESSAGE_COLOR}Building $DIR...${DEFAULT_COLOR}" &&
       cd $DIR                                    &&
