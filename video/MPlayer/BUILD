@@ -4,6 +4,8 @@
   esac
  
   CFLAGS= ./configure  --prefix=/usr  \
+		       --with-reallibdir=/usr/lib/mplayer/rp8codecs \
+                       --enable-live \
                $OPTS          &&
   cd $SOURCE_DIRECTORY        &&
   echo `pwd`                  &&
