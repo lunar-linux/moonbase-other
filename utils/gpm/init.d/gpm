@@ -16,11 +16,11 @@ GPMPID="/var/run/gpm.pid"
 
 case $1 in
           start)
-		  [ -e "$GPMPID" ] && pkill gpm && rm -f $GPMPID
+		  [ -e "$GPMPID" ] && gpm -k && rm -f $GPMPID
 		  gpm $OPTIONS -t $MOUSETYPE -m $DEVICE
                   ;;
            stop)
-                  [ -e "$GPMPID" ] && pkill gpm && rm -f $GPMPID
+                  [ -e "$GPMPID" ] && gpm -k && rm -f $GPMPID
 		  ;;
         restart) 
 	          $0 stop;

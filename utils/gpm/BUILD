@@ -4,15 +4,15 @@ NEWMSG="A new config file (mouse.new) has been installed in /etc/config.d. SA pl
 BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA please configure!"                               &&
 
 #cat $SCRIPT_DIRECTORY/gpm.patch                       | patch -p1      &&
-cat $SCRIPT_DIRECTORY/gpm-nops.patch                  | patch -p1      &&
-cat $SCRIPT_DIRECTORY/gpm-1.19.3-docfix.patch         | patch -p1      &&
-cat $SCRIPT_DIRECTORY/gpm-1.19.3-root.patch           | patch -p1      &&
-cat $SCRIPT_DIRECTORY/gpm-root.patch                  | patch -p1      &&
-cat $SCRIPT_DIRECTORY/gpm-1.19.1-secenhance.patch     | patch -p1      &&
-cat $SCRIPT_DIRECTORY/gpm-1.19.2-limits.patch         | patch -p1      &&
-cat $SCRIPT_DIRECTORY/gpm-1.19.3-serialconsole.patch  | patch -p1      &&
-cat $SCRIPT_DIRECTORY/gpm-1.19.3-devfs.patch          | patch -p1      &&
-cat $SCRIPT_DIRECTORY/gpm-1.19.3-noworldwrite.patch   | patch -p1      &&
+#cat $SCRIPT_DIRECTORY/gpm-nops.patch                  | patch -p1      &&
+#cat $SCRIPT_DIRECTORY/gpm-1.19.3-docfix.patch         | patch -p1      &&
+#cat $SCRIPT_DIRECTORY/gpm-1.19.3-root.patch           | patch -p1      &&
+#cat $SCRIPT_DIRECTORY/gpm-root.patch                  | patch -p1      &&
+#cat $SCRIPT_DIRECTORY/gpm-1.19.1-secenhance.patch     | patch -p1      &&
+#cat $SCRIPT_DIRECTORY/gpm-1.19.2-limits.patch         | patch -p1      &&
+#cat $SCRIPT_DIRECTORY/gpm-1.19.3-serialconsole.patch  | patch -p1      &&
+#cat $SCRIPT_DIRECTORY/gpm-1.19.3-devfs.patch          | patch -p1      &&
+#cat $SCRIPT_DIRECTORY/gpm-1.19.3-noworldwrite.patch   | patch -p1      &&
 
 # ************************ WARNING *************************
 # DO NOT MESS WITH THE CONFIGURE STUFF here unless you 
