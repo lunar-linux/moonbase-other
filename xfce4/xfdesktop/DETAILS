@@ -1,15 +1,16 @@
-          MODULE=xfdesktop
-         VERSION=3.99.4
-         RELEASE=rc4
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-   SOURCE_URL[0]="http://www.xfce.org/archive/xfce4-${RELEASE}/src/${SOURCE}"
+          PKG=xfdesktop
+          MODULE=$PKG
+         VERSION=4.0.0
+         RELEASE=4.0.0
+          SOURCE=${PKG}-${VERSION}.tar.gz
+   SOURCE_URL[0]="http://www.xfce.org/archive/xfce-${RELEASE}/src/${SOURCE}"
    SOURCE_URL[1]="ftp://ftp.berlios.de/pub/xfce-goodies/${RELEASE}/${SOURCE}"
-SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${MODULE}-${VERSION}
-     SOURCE_VFY=md5:059191b1a391239f04ac633cec7d87ff
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${PKG}-${VERSION}
+     SOURCE_VFY=md5:c2fa7652a76ae5cc9d12a9fe4a1e64d0
       MAINTAINER=jasper@lunar-linux.org
          WEBSITE=http://www.xfce.org
          ENTERED=20030715
-         UPDATED=20030910
+         UPDATED=20030925
            SHORT="Desktop manager for XFce 4"
 
 cat << EOF

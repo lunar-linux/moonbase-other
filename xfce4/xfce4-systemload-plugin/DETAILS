@@ -1,13 +1,14 @@
-          MODULE=xfce4-systemload-plugin
+          PKG=xfce4-systemload-plugin
+          MODULE=$PKG
          VERSION=0.3.2
-          SOURCE=${MODULE}-${VERSION}.tar.gz
+          SOURCE=${PKG}-${VERSION}.tar.gz
    SOURCE_URL[0]="http://download.berlios.de/xfce-goodies/${SOURCE}"
-SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${MODULE}-${VERSION}
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${PKG}-${VERSION}
      SOURCE_VFY=md5:54f940ea77261bb61ca54dd77253c222
       MAINTAINER=jasper@lunar-linux.org
          WEBSITE=http://www.xfce.org
          ENTERED=20030827
-         UPDATED=20030827
+         UPDATED=20030925
            SHORT="System load monitor for XFce 4"
 
 cat << EOF
