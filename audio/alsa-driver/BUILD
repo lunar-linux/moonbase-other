@@ -17,6 +17,9 @@ CONFIG_SOUND=$(grep "CONFIG_SOUND=" "${CONFIG_CACHE}/.config") &&
       *)  echo "*** No sound support found in kernel ***"; false ;;
   esac                                       &&
 
+# Correct the path to awk which is hardcoded in a script
+  sedit "s:/usr/bin/awk:/bin/awk:" utils/convert_isapnp_ids
+
   ./configure  --prefix=/usr                 \
                --with-isapnp=auto            \
                --with-sequencer=yes          \
