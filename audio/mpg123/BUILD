@@ -1,5 +1,6 @@
 (
 
+  sedit 's/while(1)/while(maxlen>pos)/' httpget.c &&
   make  PREFIX=/usr  linux    &&
   prepare_install             &&
   make  PREFIX=/usr  install
