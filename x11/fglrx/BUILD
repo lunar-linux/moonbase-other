@@ -3,12 +3,14 @@
   if uname -a | grep -q SMP ; then
     SMP="-SMP"
   fi
-  if ls /usr/src/linux -l | grep -q 2.6 ; then
-    unset K
-    K=k
+  KERNEL_VERSION=$(grep UTS_RELEASE /usr/src/linux/include/linux/version.h  | cut -d'"' -f2)
+  if echo $KERNEL_VERSION | grep -q '^2.6' ; then
+    MOD_EXT=ko
+  else
+    MOD_EXT=o
   fi
-  KMOD=fglrx.$(uname -r)${SMP}.${K}o
-  NMOD=fglrx.${K}o
+  KMOD=fglrx.$(uname -r)${SMP}.${MOD_EXT}
+  NMOD=fglrx.${MOD_EXT}
 
   chown -R root:root . &&
   find . -type d -exec chmod 755 {} \; &&
