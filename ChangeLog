@@ -1,3 +1,102 @@
+2003-10-29 08:54  sofar
+
+	* net/bind/: BUILD, DETAILS: Updating bind. The patch is no longer
+	needed because it was merged upstream.
+
+2003-10-29 04:49  tchan
+
+	* devel/arch/: BUILD, DEPENDS, DETAILS: Version bump to the latest
+	1.1pre8 version of arch.  Simplified the DEPENDS file
+	(bash->ncurses->sed,gawk).  Added the online tutorial from the
+	source tarbal into /usr/share/doc/arch/html.
+
+2003-10-29 04:35  florin
+
+	* ftp/pure-ftpd/DETAILS: bump version from 1.0.16b to 1.0.16c.
+	bugfix version.
+
+2003-10-29 03:50  csm
+
+	* utils/makedev/: BUILD, CONFIGURE, POST_INSTALL,
+	install-devices.sh: removing configure script and adding a script
+	to create all the devices after installation if it fails!
+
+2003-10-29 01:41  csm
+
+	* zbeta/initscripts/BUILD: more mod's... making it safer!
+	
+	later... once the process is complete we need to remove the whole
+	"backup /etc thing"
+
+2003-10-29 01:18  csm
+
+	* zbeta/initscripts/POST_INSTALL: adding another post note
+
+2003-10-29 01:03  csm
+
+	* zbeta/initscripts/: BUILD, POST_INSTALL: fixing this so it does a
+	better job of setting things up
+
+2003-10-29 00:39  jmhodges
+
+	* audio/easytag/DETAILS: version bump
+
+2003-10-28 23:57  sofar
+
+	* chat/BitchX/: BUILD, DETAILS, bitchx: Adding some gadgets, since
+	BitchX can be such a pain: * freenode is now the default network
+	(like you ever chatted on efnet) * default realname now has some
+	honour in it * added "bitchx" wrapper that tags your nick and
+	autojoins #lunar
+
+2003-10-28 23:06  jmhodges
+
+	* audio/gst-player/DETAILS: md5sum change.. sigh.
+
+2003-10-28 22:58  sofar
+
+	* web/apache2/DETAILS: Version bump.
+
+2003-10-28 22:29  sofar
+
+	* chat/BitchX/: BUILD, DETAILS: Adding a gcc-3.3.x patch fix found
+	for free (/me kisses the FSF). Tchan will test it on a gcc-3.2.x
+	box for ya I'm sure.
+
+2003-10-28 22:09  tchan
+
+	* devel/subversion/: DEPENDS, DETAILS: Version bump to 0.32.1. 
+	Corrected the db4 requirement to a "depends" as it is NOT an
+	optional-depends any longer.  0.27.1 and higher automatically link
+	with -ldb4 and will fail if db4 is not found.
+
+2003-10-28 20:37  florin
+
+	* games/xmame/DETAILS: bump version from 0.74.1 to 0.76.1.
+
+2003-10-28 20:17  tchan
+
+	* utils/calc/DETAILS: Version bump.  Compiled with gcc-3.2.3 and
+	glibc-2.3.2.
+
+2003-10-28 18:25  jasper
+
+	* ftp/pure-ftpd/BUILD: There's no ftplockout file, just ftpusers.
+	Using that instead.
+
+2003-10-28 16:07  florin
+
+	* ftp/dctc/DETAILS: bump version from 0.85.5 to 0.85.6.
+
+2003-10-28 16:07  florin
+
+	* ftp/dc_gui/DETAILS: bump version from 0.76 to 0.77.
+
+2003-10-28 13:12  nhudson
+
+	* gnome2-core/metacity/DETAILS: 
+	Updating metacity to new version 2.6.3
+
 2003-10-28 04:58  nhudson
 
 	* web/MozillaFirebird/BUILD: 
@@ -1607,30 +1706,4 @@
 2003-09-29 17:12  sofar
 
 	* chat/gaim/DETAILS: New version, yewha should work again now.
-
-2003-09-28 21:47  niki
-
-	* kernel/linux/2.4.22-test_only/DETAILS: Added a fix that makes
-	Masqurading work again.  Thanks to Nick for finding this one.
-
-2003-09-28 19:25  csm
-
-	* devel/gnomemm-all/DETAILS: fixing broken url
-
-2003-09-28 17:26  nestu
-
-	* kernel/linux-beta/DETAILS: version bump to test6
-
-2003-09-28 17:20  nestu
-
-	* kernel/linux-beta/PRE_BUILD: Fixing the .config copy path from
-	/usr/src/linux to /usr/src/linux-$VERSION
-
-2003-09-28 14:37  sofar
-
-	* x11-wm/icewm/DETAILS: New version
-
-2003-09-28 05:33  florin
-
-	* audio/audiofile/DETAILS: bump the version from 0.2.3 to 0.2.4.
 
