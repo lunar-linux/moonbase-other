@@ -29,6 +29,7 @@
 
   make                                           &&
   prepare_install                                &&
-  make    install
+  make    install                                &&
+  ln -s httpd /usr/sbin/httpsd
 
 ) > $C_FIFO 2>&1
