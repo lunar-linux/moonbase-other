@@ -5,16 +5,20 @@
 #           src/dns_internal.c
 #  fi
 
- sedit  "s:\$(localstatedir)/logs/squid\.pid:/var/run/squid\.pid:"  \
-         src/Makefile.in
+
+ sedit "s:\$(DEFAULT_LOG_PREFIX)/squid\.pid:/var/run/squid\.pid:" src/Makefile.in &&
+
+set -x         &&
 
   ./configure  --prefix=/usr                     \
                --sysconfdir=/etc/squid           \
                --localstatedir=/var/cache/squid  \
                --enable-async-io                 \
                --enable-snmp                     \
+               --enable-gnuregex                 \
                --enable-linux-netfilter          \
                $OPTS                             &&
+  set +x                                         &&             
   default_make                                   &&
 
   if [ -e /etc/init.d/squid.sh ]; then
