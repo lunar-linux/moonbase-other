@@ -1,2 +1,7 @@
-sedit "s/-I\/usr\/local\/include//g" configure
-default_build
+(
+
+  OPTS="$OPTS --enable-gtk2 --enable-usr-local=no --enable-randpkt"
+  
+  default_build
+
+) >> $C_FIFO 2>&1
