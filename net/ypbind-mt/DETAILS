@@ -1,18 +1,20 @@
           MODULE=ypbind-mt
-         VERSION=1.12
-#         VERSION=1.11
+         VERSION=1.17.3
+#         VERSION=1.12
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/utils/net/NIS/$SOURCE
    SOURCE_URL[1]=ftp://ftp.kernel.org/pub/linux/utils/net/NIS/$SOURCE
-        WEB_SITE=http://www.linux-nis.org/nis/ypbind-mt/index.html
+     WEB_SITE=http://www.linux-nis.org/nis/ypbind-mt/index.html
+       SOURCE_VFY=md5:c20c706cfdd6ceac9938c138d3d61fa7
          ENTERED=20010922
-         UPDATED=20020618
-SHORT="ypbind-mt is a multi-threaded implementation of a NIS binding daemon."
+         UPDATED=20040501
+            SHORT="ypbind-mt is a multi-threaded implementation of a NIS binding daemon."
+
 cat << EOF
 ypbind-mt is a multi-threaded implementation of a NIS binding daemon. 
-ypbind-mt compiles and works on Linux with glibx 2.x (libc6). It should 
-work on every System with POSIX threads and glibc 2.x. It works under 
-Linux with libc5 and linuxthreads 0.7.1, but this C library isn't really 
-thread safe and shouldn't be used with threads.
+ypbind-mt compiles and works on Linux with glibx 2.x (libc6). It should work on 
+every System with POSIX threads and glibc 2.x. It works under Linux with libc5 
+and linuxthreads 0.7.1, but this C library isn't really thread safe and 
+shouldn't be used with threads.
 EOF
