@@ -104,6 +104,15 @@ esac
   # And now we install the new
   make install                                &&
 
+  # Make kernel header files for kernel-headers module
+
+  cd /usr/src/linux/include && 
+  HDRS_VER="$(uname -s)-$(uname -r | sed 's/[-a-z].*//')-$(uname -m | sed 's/[456]/3/')" &&
+  tar -cjf /var/spool/lunar/kernel-headers-"$HDRS_VER".tar.bz2 linux &&
+  tar -cjf /var/spool/lunar/asm-headers-"$HDRS_VER".tar.bz2 asm/* &&
+
+  cd $INSTALL_ROOT
+
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
     for FN in ld-2.3.2.so libanl-2.3.2.so libBrokenLocale-2.3.2.so libc-2.3.2.so   \

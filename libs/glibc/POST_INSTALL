@@ -1,0 +1,5 @@
+# Install the kernel headers which we created in BUILD
+
+mv /var/lock/installing.glibc /var/lock/installing.$$
+lin -c kernel-headers
+mv /var/lock/installing.$$ /var/lock/installing.glibc
