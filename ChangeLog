@@ -1,3 +1,103 @@
+2002-09-25 11:37  kongar
+
+	* web/squid/: BUILD, DEPENDS, DETAILS: 
+	upgraded to 2.5.STABLE1
+	
+	added gnuregex support
+	
+	added ssl support
+	
+	added MD5 chksum to source
+	
+	added a mirror URL
+	
+	converted the source file extension from tar.gz to tar.bz2
+	
+2002-09-25 06:47  kongar
+
+	* security/xinetd/DETAILS: upgraded to 2.3.9
+	
+2002-09-25 06:39  kongar
+
+	* gnome2/gkrellm2/DETAILS: upgraded to 2.0.4
+	
+2002-09-25 06:34  kongar
+
+	* utils/e2fsprogs/DETAILS: 
+	upgraded to 1.29
+	
+	added MD5 signature
+	
+2002-09-25 06:28  kongar
+
+	* distributed/distcc/DETAILS: upgraded to 0.11
+	
+2002-09-25 00:04  xoritor
+
+	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Updating module for new version.
+	  Increased version to 2.1.7
+	  Fixed depends to use db4.
+	
+2002-09-24 23:43  xoritor
+
+	* utils/openldap/: BUILD, DEPENDS, DETAILS: Updating to version 2.1.5.
+	  Fixes broken build with db 4.1.24.
+	
+2002-09-24 16:01  xoritor
+
+	* utils/openldap/: BUILD, DEPENDS, DETAILS: Adding depends:
+	  DB4 - required
+	  cyrus-sasl - optional
+	  openssl - optional
+	
+	Added BUILD file.
+	
+2002-09-24 15:29  wizfactor
+
+	* libs/id3lib/: BUILD, DETAILS, id3lib_strings.h: Updated to version 3.8.0 and patched to build with gcc 3.2
+	
+2002-09-24 10:47  kongar
+
+	* editors/vim/: POST_INSTALL, PRE_BUILD, vim-6.0-fixkeys.patch: 
+	now working, added a couple of gcc3 patches.
+	
+2002-09-24 08:38  sofar
+
+	* gnome2/xchat2/BUILD: Disabling perl, bugfix #152
+	
+2002-09-24 07:21  wizfactor
+
+	* web/webmin/PRE_BUILD: 	web/webmin/PRE_BUILD: Webmin now keeps its source directory
+	
+2002-09-24 04:52  tchan
+
+	* shells/sash/: DETAILS, sash-readline-plus.patch: Bumped version number upto 3.6 and modifiex patch to work with ver. 3.6.
+	
+2002-09-24 04:00  kongar
+
+	* cd/cdrtools/DETAILS: upgraded to 1.11a34
+	
+2002-09-24 03:53  kongar
+
+	* mail/fetchmail/DETAILS: upgraded to 6.1.0
+	
+2002-09-24 02:48  tchan
+
+	* archive/unrar/: BUILD, DETAILS: Fixed to compile under gcc-3.2 or greater.  Will not compile with gcc-2.95
+	anymore.
+	
+2002-09-23 23:09  sofar
+
+	* printer/ghostscript/DEPENDS: making libpng optional
+	
+2002-09-23 22:58  sofar
+
+	* printer/ghostscript/: BUILD, no-png.patch, no-x.patch: Miscellaneous cleanups and support for building without libpng
+	
+2002-09-23 20:52  sofar
+
+	* x11-apps/qcad/: BUILD, DEPENDS, DETAILS: New module: qcad 1.5.3
+	
 2002-09-23 05:18  tchan
 
 	* devel/uml/DETAILS: Bumped version of UML upto 2.4.19-6
@@ -468,207 +568,4 @@
 	upgraded to 0.8.3
 	
 	added md5 checksum
-	
-2002-09-13 19:11  wizfactor
-
-	* x11-wm/fluxbox/DETAILS: Upgraded to 0.1.12
-	
-2002-09-13 12:58  sofar
-
-	* audio/ardour/DEPENDS, doc-tools/SGMLSpm/DEPENDS,
-	doc-tools/docbook-utils/DEPENDS, kde/kdevelop/DEPENDS,
-	kde3/kdevelop3/DEPENDS, profiles/gnome2-profile/DEPENDS,
-	security/snare/DEPENDS, video/gsubedit/DEPENDS,
-	x11-wm/xfce-stable/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 12:40  sofar
-
-	* kde3-i18n/: kde3-i18n-af/DEPENDS, kde3-i18n-ar/DEPENDS,
-	kde3-i18n-az/DEPENDS, kde3-i18n-bg/DEPENDS, kde3-i18n-bs/DEPENDS,
-	kde3-i18n-ca/DEPENDS, kde3-i18n-cs/DEPENDS, kde3-i18n-da/DEPENDS,
-	kde3-i18n-de/DEPENDS, kde3-i18n-el/DEPENDS,
-	kde3-i18n-en_GB/DEPENDS, kde3-i18n-eo/DEPENDS,
-	kde3-i18n-es/DEPENDS, kde3-i18n-et/DEPENDS, kde3-i18n-fi/DEPENDS,
-	kde3-i18n-fr/DEPENDS, kde3-i18n-he/DEPENDS, kde3-i18n-hr/DEPENDS,
-	kde3-i18n-hu/DEPENDS, kde3-i18n-id/DEPENDS, kde3-i18n-is/DEPENDS,
-	kde3-i18n-it/DEPENDS, kde3-i18n-ja/DEPENDS, kde3-i18n-ko/DEPENDS,
-	kde3-i18n-lt/DEPENDS, kde3-i18n-lv/DEPENDS, kde3-i18n-mt/DEPENDS,
-	kde3-i18n-nb/DEPENDS, kde3-i18n-nl/DEPENDS, kde3-i18n-nn/DEPENDS,
-	kde3-i18n-pl/DEPENDS, kde3-i18n-pt/DEPENDS,
-	kde3-i18n-pt_BR/DEPENDS, kde3-i18n-ro/DEPENDS,
-	kde3-i18n-ru/DEPENDS, kde3-i18n-sk/DEPENDS, kde3-i18n-sl/DEPENDS,
-	kde3-i18n-sr/DEPENDS, kde3-i18n-sv/DEPENDS, kde3-i18n-ta/DEPENDS,
-	kde3-i18n-th/DEPENDS, kde3-i18n-tr/DEPENDS, kde3-i18n-uk/DEPENDS,
-	kde3-i18n-ven/DEPENDS, kde3-i18n-vi/DEPENDS, kde3-i18n-xh/DEPENDS,
-	kde3-i18n-zh_CN/DEPENDS, kde3-i18n-zh_TW/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 12:27  sofar
-
-	* x11-wm/3ddesktop/DEPENDS, x11-wm/ROX-Session/DEPENDS,
-	x11-wm/gtk-xfce-engine/DEPENDS, x11-wm/sawfish/DEPENDS,
-	x11-wm/xfce/DEPENDS, x11-wm/xfce-stable/DEPENDS,
-	x11-wm/xfwm4/DEPENDS, zbeta/kudzu/DEPENDS,
-	zbeta/mozilla-nightly/DEPENDS, zbeta/neomail/DEPENDS,
-	zbeta/ntop/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 12:20  sofar
-
-	* x11/xalf/DEPENDS, x11-apps/dia/DEPENDS, x11-apps/glade/DEPENDS,
-	x11-apps/gnofin/DEPENDS, x11-apps/gnucash/DEPENDS,
-	x11-apps/mlview/DEPENDS, x11-apps/openoffice-bin/DEPENDS,
-	x11-apps/xcdroast/DEPENDS, x11-apps/xemacs/DEPENDS,
-	x11-utils/xfig/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 11:38  sofar
-
-	* video/DirectFB/DEPENDS: Fixing typo
-	
-2002-09-13 11:37  sofar
-
-	* video/brcalc/DEPENDS, video/gsubedit/DEPENDS,
-	video/ogle_gui/DEPENDS, video/xine-dvdnav/DEPENDS,
-	video/xine-lib/DEPENDS, web/Net-SSLeay/DEPENDS,
-	web/bluefish/DEPENDS, web/dillo/DEPENDS, web/encompass/DEPENDS,
-	web/galeon/DEPENDS, web/mozilla/DEPENDS, web/screem/DEPENDS,
-	web/skipstone/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 11:32  sofar
-
-	* utils/: acl/DEPENDS, at/DEPENDS, console-tools/DEPENDS,
-	less/DEPENDS, lunar/DEPENDS, memprof/DEPENDS, mrtg/DEPENDS,
-	theedge/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 11:28  sofar
-
-	* profiles/anti-spam/DEPENDS, profiles/default-profile/DEPENDS,
-	profiles/docbook-profile/DEPENDS, profiles/gnome2-profile/DEPENDS,
-	profiles/kde/DEPENDS, profiles/useful-profile/DEPENDS,
-	security/firestarter/DEPENDS, security/fwbuilder/DEPENDS,
-	terminal/multi-gnome-terminal/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 11:21  sofar
-
-	* net/dhcp/DEPENDS, net/ethereal/DEPENDS, net/netdude/DEPENDS,
-	net/nfs-utils/DEPENDS, news/bbdb/DEPENDS, perl/DBD-Sybase/DEPENDS,
-	perl/DBD-mysql/DEPENDS, perl/Date-Calc/DEPENDS,
-	perl/HTML-Parser/DEPENDS, perl/MD5/DEPENDS,
-	perl/libwww-perl/DEPENDS, printer/a2ps/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 11:17  sofar
-
-	* libs/gettext/DEPENDS, libs/wxPython/DEPENDS,
-	mail/evolution/DEPENDS, mail/razor-agents/DEPENDS,
-	mail/spamassassin/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 11:09  sofar
-
-	* kde/kdebindings/DEPENDS, kde/kdemultimedia/DEPENDS,
-	kde/kexchange/DEPENDS, kde/kzoom/DEPENDS, kde/qt-x11/DEPENDS,
-	kde3/kdelibs3/DEPENDS, kde3/kdevelop3/DEPENDS, kde3/qt3/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 10:57  sofar
-
-	* graphics/evas/DEPENDS, graphics/gd/DEPENDS,
-	graphics/gdkxft/DEPENDS, graphics/gphoto/DEPENDS,
-	graphics/gqview/DEPENDS, graphics/gtk+-2/DEPENDS,
-	graphics/gtklookat/DEPENDS, graphics/openvrml/DEPENDS,
-	graphics/pil/DEPENDS, graphics/scrot/DEPENDS,
-	graphics/sketch/DEPENDS, graphics/xsane/DEPENDS,
-	graphics/xzgv/DEPENDS, ham/kpsk/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 10:46  sofar
-
-	* gnome/: GConf/DEPENDS, Guppi/DEPENDS, bonobo/DEPENDS,
-	bonobo-conf/DEPENDS, control-center/DEPENDS, ee/DEPENDS,
-	gal/DEPENDS, gdk-pixbuf/DEPENDS, gdm/DEPENDS, ggv/DEPENDS,
-	gnome-admin/DEPENDS, gnome-applets/DEPENDS, gnome-chess/DEPENDS,
-	gnome-core/DEPENDS, gnome-games/DEPENDS, gnome-libs/DEPENDS,
-	gnome-mud/DEPENDS, gnome-objc/DEPENDS, gnome-pilot/DEPENDS,
-	gnome-pilot-conduits/DEPENDS, gnome-python/DEPENDS,
-	gnome-utils/DEPENDS, gnome-vfs/DEPENDS, gnomeicu/DEPENDS,
-	gnomemm/DEPENDS, gnumeric/DEPENDS, gtkhtml/DEPENDS, gtkmm/DEPENDS,
-	imlib/DEPENDS, imlib2/DEPENDS, libgda/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 10:28  sofar
-
-	* games/: CriticalMass/DEPENDS, FlightGear/DEPENDS,
-	Maelstrom/DEPENDS, TORCS/DEPENDS, asc/DEPENDS, black-box/DEPENDS,
-	bumprace/DEPENDS, bzedit/DEPENDS, castle-combat/DEPENDS,
-	circuslinux/DEPENDS, csmash/DEPENDS, dopewars/DEPENDS,
-	eboard/DEPENDS, exult/DEPENDS, frozen-bubble/DEPENDS, gMOO/DEPENDS,
-	ggz-client-libs/DEPENDS, ggz-gtk-client/DEPENDS,
-	ggz-kde-client/DEPENDS, ggz-server/DEPENDS, glaxium/DEPENDS,
-	gltron/DEPENDS, knights3/DEPENDS, kobodeluxe/DEPENDS,
-	lbreakout2/DEPENDS, luola/DEPENDS, moon-lander/DEPENDS,
-	penguin-command/DEPENDS, rockdodger/DEPENDS, teg/DEPENDS,
-	tuxracer/DEPENDS, vectoroids/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 10:20  sofar
-
-	* doc-tools/SGMLSpm/DEPENDS, doc-tools/docbook-dsssl/DEPENDS,
-	doc-tools/docbook-dtd41-sgml/DEPENDS,
-	doc-tools/docbook-utils/DEPENDS, doc-tools/docbook-xsl/DEPENDS,
-	doc-tools/latex2html/DEPENDS, doc-tools/openjade/DEPENDS,
-	doc-tools/scrollkeeper/DEPENDS, doc-tools/teTeX/DEPENDS,
-	filemanagers/nautilus/DEPENDS, ftp/dc_gui/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 10:15  sofar
-
-	* devel/glademm/DEPENDS, devel/gob/DEPENDS, devel/gob2/DEPENDS,
-	devel/mod_ruby/DEPENDS, devel/paragui/DEPENDS,
-	devel/ruby-gnome/DEPENDS, distributed/BitTorrent/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 10:08  sofar
-
-	* cd/eroaster/DEPENDS, cd/gtktalog/DEPENDS, chat/gabber/DEPENDS,
-	chat/gaim-applet/DEPENDS, chat/ickle/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 09:41  sofar
-
-	* audio/: ardour/DEPENDS, easytag/DEPENDS, glame/DEPENDS,
-	gqmpeg/DEPENDS, grip/DEPENDS, mp3kult3/DEPENDS, smpeg-xmms/DEPENDS,
-	tagtool/DEPENDS, xmms/DEPENDS, xmms-infinity/DEPENDS,
-	xmms-jess/DEPENDS, xmms-nebulus/DEPENDS, xmms-normalize/DEPENDS: cleaning DEPENDS files
-	
-2002-09-13 09:18  sofar
-
-	* x11-apps/abiword/DEPENDS: cleaning DEPENDS
-	
-2002-09-13 09:14  sofar
-
-	* x11-apps/abiword/DETAILS: New version: 1.0.3
-	
-2002-09-13 08:46  kongar
-
-	* printer/gimp-print/DETAILS: upgraded to 4.3.4
-	
-2002-09-13 08:25  kongar
-
-	* sql/mysqlnavigator/DETAILS: upgraded to 1.4
-	
-2002-09-13 08:17  kongar
-
-	* distributed/distcc/DETAILS: upgraded to 0.10.1
-	
-2002-09-13 06:18  csm
-
-	* games/bzedit2/BUILD: it appears to be ccache safe
-	
-2002-09-13 06:17  csm
-
-	* graphics/gtkglarea2/: BUILD, DEPENDS, DETAILS: this is a dependency for bzedit2
-	
-2002-09-13 06:15  csm
-
-	* games/bzedit2/: BUILD, DEPENDS, DETAILS: adding the newer version of bzedit! This tool is used to build bzflag maps
-	
-2002-09-13 05:44  tchan
-
-	* x11-apps/mupo/: BUILD, DETAILS, mupo-recurringtodo.patch: I added a patch to this module, because it would NOT allow recurring events
-	to have a start/stop time.  I needed weekly recurring events at 08:00 to 08:30,
-	and the original code would not allow that.
-	
-2002-09-12 23:53  sofar
-
-	* x11-apps/gnucash/DEPENDS: Removing unnecessary DEPENDS!
 	
