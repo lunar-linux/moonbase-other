@@ -1,11 +1,13 @@
           MODULE=coreutils
-         VERSION=5.0
+         VERSION=5.2.0
+        #VERSION=5.0
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.gnu.org/gnu/$MODULE/$SOURCE
+      SOURCE_VFY=md5:ea024eaf04ee7a2a4270655d584445d2
         WEB_SITE=http://www.gnu.org/software/coreutils/
          ENTERED=20030217
-         UPDATED=20030930
+         UPDATED=20040220
            SHORT="contains latest sh-utils, textutils and fileutils"
 cat << EOF
 Tools included perform the following file operations:
@@ -37,9 +39,10 @@ fmt             --      simple optimal text formatter
 fold            --      wrap each input line to fit in specified width 
 groups		--	prints the groups the user belongs to 
 head            --      output the first part of files 
+hostid          --      print the numeric id (in hex) for the current host
 hostname	--	prints or sets the machine name 
 id		--	print real/effective/uid/gid
-install		--	copies and sets permissions
+install         --      copies and sets permissions
 join            --      join lines of two files on a common field 
 ln		--	creates links
 logname		--	prints current login name 
@@ -61,13 +64,16 @@ printenv	--	prints environment variables
 printf		--	formats and prints data 
 ptx             --      produce a permuted index of file contents 
 pwd		--	prints the working (current) directory 
+readlink        --      display value of a symbolic link on standard output
 rm		--	removes (deletes)
 rmdir		--	removes empty directories
-seq		--	prints numeric sequences 
+seq		--	prints numeric sequences
+sha1sum         --      print or check SHA1 (160-bit) checksums
 shred		--	deletes a file securely
 sleep		--	suspends execution for a specified time 
 sort            --      sort lines of text files 
 split           --      split a file into pieces 
+stat            --      display file or filesystem status
 stty		--	prints/changes terminal settings 
 su		--	lets you adopt the ID of another user or superuser 
 sum             --      checksum and count the blocks in a file 
@@ -84,6 +90,7 @@ tty		--	prints terminal name
 uname		--	prints system information 
 unexpand        --      convert spaces to tabs 
 uniq            --      remove duplicate lines from a sorted file 
+unlink          --      call the unlink function to remove the specified FILE
 uptime		--	tells how long the system has been running 
 users		--	prints current user names 
 vdir		--	long directory listing (like ls -l)
