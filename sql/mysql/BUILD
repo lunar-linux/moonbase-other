@@ -10,10 +10,6 @@
 	export CXXFLAGS="$CXXFLAGS -fPIC"
   fi &&
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
-  patch_it $SOURCE_CACHE/$SOURCE4 1  &&
-
   ./configure  --prefix=/usr                              \
                --disable-dependency-tracking              \
                --without-bench                            \
