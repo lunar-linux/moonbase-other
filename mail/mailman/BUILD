@@ -14,7 +14,7 @@
 	      --with-groupname=mailman         \
 	      --with-python=/usr/bin/python    \
 	      --with-mail-gid=$MAIL_GID        \
-	      --with-cgi-gid=nogroup           &&
+	      --with-cgi-gid=$MAILMAN_GID      &&
 	      
   make  "CC=gcc"                               \
         "OPT=$CFLAGS"                          \
