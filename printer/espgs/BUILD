@@ -7,8 +7,10 @@
        sedit "s,\$(INSTALL_PROGRAM) \$(GSSOX) \$(bindir)/\$(GSSOX_XENAME),," src/unix-dll.mak
    fi &&
    default_config &&
+   make &&
    make so &&
    prepare_install &&
+   make install &&
    make soinstall
 
 ) > $C_FIFO 2>&1
