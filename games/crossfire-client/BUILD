@@ -9,9 +9,9 @@
                --disable-alsa        \
                --with-sound-dir=/usr/share/crossfire-client/sounds  \
                $OPTS                       &&
-  make                                     &&
-  prepare_install                          &&
-  make    install                          &&
+
+  default_make                             &&
+  
   mkdir   -p  /usr/share/crossfire-client  &&
   cd          /usr/share/crossfire-client  &&
   unpack  $SOURCE1                         &&

@@ -5,8 +5,7 @@
   sedit  "s/-lvorbis/-lvorbis -lvorbisfile/"  \
          makefile                             &&
   sedit '/#define HAVE_LIBZ 1/d' config.h     &&
-  make                                        &&
-  prepare_install                             &&
-  make    install
+
+  default_make
 
 ) > $C_FIFO 2>&1

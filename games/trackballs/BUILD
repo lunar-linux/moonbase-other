@@ -1,8 +1,12 @@
 (
 
-  unpack $SOURCE2                             &&
   export LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"  &&
-  cp -a trackballs/share/* share              &&
-  default_build
+
+  ./configure  --prefix=/usr/games          \
+               --with-sdl-prefix=/usr       \
+               --with-sdl-exec-prefix=/usr  \
+               $OPTS                        &&
+
+  default_make
 
 ) > $C_FIFO 2>&1

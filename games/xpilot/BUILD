@@ -7,8 +7,7 @@
 	sedit "s:INSTLIBDIR = \$(PREFIX)/lib/xpilot:INSTLIBDIR = /usr/share/xpilot:" $i 
 	sedit "s:INSTBINDIR = \$(PREFIX)/bin:INSTBINDIR = /usr/games:" $i 
       done
-  make				       &&
-  prepare_install                      &&
-  make    install
+
+  default_make
 
 ) > $C_FIFO 2>&1

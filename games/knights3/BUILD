@@ -9,8 +9,6 @@
                --with-qt-dir=/opt/lunar/qt/3  \
                $OPTS                          &&
 
-  make                              &&
-  prepare_install                   &&
-  make    install
+  default_make
 
 ) > $C_FIFO 2>&1

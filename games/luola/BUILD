@@ -11,9 +11,9 @@
                --with-sdl-prefix=/usr       \
                --with-sdl-exec-prefix=/usr  \
                $OPTS                        &&
-  make                                      &&
-  prepare_install                           &&
-  make    install                           &&
+
+  default_make                              &&
+  
   cd      /usr/games/share/luola/levels     &&
   unpack  $SOURCE2                          
 

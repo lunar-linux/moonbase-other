@@ -5,9 +5,9 @@
                --localstatedir=/var/lib  \
                --bindir=/usr/games       \
                $OPTS                     &&
-  make                                   &&
-  prepare_install                        &&
-  make    install                        &&
+
+  default_make                           &&
+  
   cd      /usr/share/crossfire           &&
   unpack  $SOURCE2                       &&
   unpack  $SOURCE3

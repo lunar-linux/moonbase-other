@@ -5,9 +5,8 @@
                --sysconfdir=/etc       \
                --localstatedir=/var    \
                --bindir=/usr/games     \
-	       --mandir=/usr/share/man && 
-  make                                 &&
-  prepare_install                      &&
-  make    install
+               --mandir=/usr/share/man && 
+
+  default_make
 
 ) > $C_FIFO 2>&1

@@ -12,12 +12,11 @@
 
   ./configure  --prefix=/usr       \
                --bindir=/usr/games &&
-  make                             &&
-  prepare_install                  &&
+
   rm     -rf  /usr/games/torcs     &&
-  make    install                  &&
-  mkdir  -p                 $USRD  &&
-  cp     -rv  cars  categories     \
-              data menu tracks  $USRD
+  default_make                     &&
+  mkdir  -p   $USRD                &&
+  cp     -rv  cars categories      \
+              data menu tracks $USRD
 
 ) > $C_FIFO 2>&1

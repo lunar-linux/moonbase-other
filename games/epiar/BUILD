@@ -2,10 +2,10 @@
 
   unpack $SOURCE2     &&
   cd openal/linux     &&
+
   default_config      &&
-  make                &&
-  prepare_install     &&
-  make install        &&
+
+  default_make        &&
   
   devoke_installwatch &&
   cd ../..            &&
