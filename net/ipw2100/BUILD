@@ -7,7 +7,7 @@
 
   if [ $WITH_WPA ]; then
     message "Enabling WPA support ..."
-    sedit "s:# CONFIG_IEEE80211_WPA=$(CONFIG_IEEE80211_CRYPT):CONFIG_IEEE80211_WPA=$(CONFIG_IEEE80211_CRYPT):" Makefile
+    sedit "s:# CONFIG_IEEE80211_WPA:CONFIG_IEEE80211_WPA:" Makefile
   fi
 	
   # Debug sucks
