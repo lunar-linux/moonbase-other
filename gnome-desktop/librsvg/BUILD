@@ -8,6 +8,7 @@
                 --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
                 --with-croco                      \
                 --with-svgz                       \
+                --disable-gtk-doc                 \
                 $OPTS                              &&
     default_make                   
 
