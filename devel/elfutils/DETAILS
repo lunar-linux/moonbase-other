@@ -1,23 +1,26 @@
           MODULE=elfutils
          VERSION=0.91
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-$VERSION-extra.patch
+         SOURCE2=$MODULE-$VERSION-extra.patch.bz2
+         SOURCE3=$MODULE-$VERSION-datadir.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://lunar-linux.org/lunar/mirrors/$SOURCE
-  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
-      SOURCE_VFY=md5:044d8c6a2a4e6ed24bbb992f6b07b640
-     SOURCE2_VFY=md5:49034ca07e1a022c35a8988e9a8804d8
+   SOURCE_URL=http://lunar-linux.org/lunar/mirrors/$SOURCE
+  SOURCE2_URL=$PATCH_URL/$SOURCE2
+  SOURCE3_URL=$PATCH_URL/$SOURCE3
+      SOURCE_VFY=sha1:5e01052fdd3aeaea370c144ed90ab93515c9d2c0
+     SOURCE2_VFY=sha1:968236c121e0aa5412eeab8cc9fc1928ec5beb40
+     SOURCE3_VFY=sha1:9e33fa1a21266d4f60451dc2b18eaec029b8828d
         WEB_SITE=http://www.rpm.org
          ENTERED=20021102
          UPDATED=20040207
            PSAFE=no
            SHORT="Utilities related to the creation and maintenance of ELF objects"
+
 cat << EOF
-Elfutils is a collection of utilities, including ld (a linker),
-nm (for listing symbols from object files), size (for listing the
-section sizes of an object or archive file), strip (for discarding
-symbols), readelf (to see the raw ELF file structures), and elflint
-(to check for well-formed ELF files).  Also included are numerous
-helper libraries which implement DWARF, ELF, and machine-specific ELF
-handling.
+Elfutils is a collection of utilities, including ld (a linker), nm (for 
+listing symbols from object files), size (for listing the section sizes 
+of an object or archive file), strip (for discarding symbols), readelf 
+(to see the raw ELF file structures), and elflint (to check for 
+well-formed ELF files).  Also included are numerous helper libraries 
+which implement DWARF, ELF, and machine-specific ELF handling.
 EOF
