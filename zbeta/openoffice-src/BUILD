@@ -45,6 +45,7 @@ install_dicts ()
 
   cp etc/autoresponse.conf /etc/openoffice 	&&
   cd desktop                               	&&
+  mkdir -p /usr/share/applications /usr/share/pixmaps         &&
   cp drawing.desktop presentation.desktop spreadsheet.desktop textdoc.desktop /usr/share/applications/ &&
   cp *png /usr/share/pixmaps               	&&
   cd $SOURCE_DIRECTORY     
