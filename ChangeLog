@@ -1,3 +1,138 @@
+2004-12-06 12:47  sofar
+
+	* gnome2-core/metacity/CONFIGURE: cleanup + typo fix
+
+2004-12-06 12:11  sofar
+
+	* x11-apps/openoffice-bin/CONFIGURE: soory Remco ;^)
+
+2004-12-06 12:01  sofar
+
+	* doc-tools/openjade/POST_INSTALL: Reordered and REMOVED A
+	  HARDCODED VERSION ... cause of bug #581
+
+2004-12-06 10:24  sofar
+
+	* profiles/docbook-profile/DEPENDS: This depend is now supplied
+	  through scrollkeeper which needs it first
+
+2004-12-06 10:24  sofar
+
+	* doc-tools/scrollkeeper/DEPENDS: This is needed!!!
+
+2004-12-06 08:40  sofar
+
+	* kernel/: linux-2.4/DETAILS, linux-2.4-agr/DETAILS,
+	  linux-2.4-grsec/DETAILS, linux-2.4-om/DETAILS,
+	  linux-2.4-stable/DETAILS: 2.4 r8.0 patchset fix: affects -grsec
+	  and -aggressive. I didn't bump the UPDATED field of the other
+	  modules.
+
+2004-12-06 05:20  florin
+
+	* x11/xplanet/DETAILS: bump the version from 1.1.1 to 1.1.2.
+
+2004-12-06 05:14  florin
+
+	* ftp/gift-openft/DETAILS: bump the version from 0.2.1.4 to
+	  0.2.1.5.
+
+2004-12-06 02:50  v3rt1g0
+
+	* graphics/cairo/: BUILD, DETAILS: There is no "gl" option for
+	  ./configure.	The two options I did disable though are because we
+	  do not have those modules in the moonbase.  If we get them, we
+	  could add them as optional_depends.
+
+2004-12-06 01:29  v3rt1g0
+
+	* zbeta/erss-cvs/: BUILD, DEPENDS, DETAILS: Inital import of the
+	  EFL based RSS feed reader.
+
+2004-12-06 01:19  v3rt1g0
+
+	* zbeta/engrave-cvs/: BUILD, DEPENDS, DETAILS: Inital import of a
+	  library used for editing the contents of an edje .eet file.  This
+	  is not offically part of the EFL, but may become part one day?
+
+2004-12-06 01:13  v3rt1g0
+
+	* zbeta/: emotion-cvs/BUILD, emotion-cvs/DEPENDS,
+	  emotion-cvs/DETAILS, ewl-cvs/BUILD, ewl-cvs/DEPENDS,
+	  ewl-cvs/DETAILS: I had held of on these modules about a month ago
+	  due to the lame edje_cc issue.  As of today, I have had 3 people
+	  and myslef test these modules and the edje_cc thing has seemed to
+	  stope existing.  So I'm committing the last two modules of the
+	  EFL.	Striker will be making a e17 module for the actual wm!
+	  w00t!  If anyone is still having edje_cc issues using all of the
+	  already commited -cvs modules let me know!
+
+2004-12-05 21:59  nestu
+
+	* utils/util-linux/DETAILS: 2.12i -> 2.12j. gcc 3.3.3, glibc 2.3.2,
+	  headers 2.6.9.1
+
+2004-12-05 21:19  sofar
+
+	* graphics/gtk+-2/DETAILS: Update. I'm adding 2 extra mirrors since
+	  the main one seems to be down atm. they may be removed later
+
+2004-12-05 19:48  sofar
+
+	* graphics/blender/DETAILS: Forgotten I had tested this one already
+
+2004-12-05 17:50  v3rt1g0
+
+	* filemanagers/xfe/: BUILD, DEPENDS, DETAILS: Removed unneeded
+	  build file.  Also tweaked the depends a bit.
+
+2004-12-05 16:25  florin
+
+	* utils/hotplug/BUILD: fix bug #507.
+
+2004-12-05 16:00  sofar
+
+	* kernel/: linux-2.4/BUILD, linux-2.4/CONFIGURE, linux-2.4/DEPENDS,
+	  linux-2.4/DETAILS, linux-2.4/POST_INSTALL, linux-2.4/PRE_BUILD,
+	  linux-2.4-agr/BUILD, linux-2.4-agr/CONFIGURE,
+	  linux-2.4-agr/DEPENDS, linux-2.4-agr/DETAILS,
+	  linux-2.4-agr/POST_INSTALL, linux-2.4-agr/PRE_BUILD,
+	  linux-2.4-grsec/BUILD, linux-2.4-grsec/CONFIGURE,
+	  linux-2.4-grsec/DEPENDS, linux-2.4-grsec/DETAILS,
+	  linux-2.4-grsec/POST_INSTALL, linux-2.4-grsec/PRE_BUILD,
+	  linux-2.4-om/BUILD, linux-2.4-om/CONFIGURE, linux-2.4-om/DEPENDS,
+	  linux-2.4-om/DETAILS, linux-2.4-om/POST_INSTALL,
+	  linux-2.4-om/PRE_BUILD, linux-2.4-stable/BUILD,
+	  linux-2.4-stable/CONFIGURE, linux-2.4-stable/DEPENDS,
+	  linux-2.4-stable/DETAILS, linux-2.4-stable/POST_INSTALL,
+	  linux-2.4-stable/PRE_BUILD, linux-2.4-vanilla/BUILD,
+	  linux-2.4-vanilla/CONFIGURE, linux-2.4-vanilla/DEPENDS,
+	  linux-2.4-vanilla/DETAILS, linux-2.4-vanilla/POST_INSTALL,
+	  linux-2.4-vanilla/PRE_BUILD: adding the final linux-2.4 v28
+	  kernels with the r8.0 patchset (unchanged)
+
+2004-12-05 15:36  florin
+
+	* libs/libelf/DETAILS: ELF object file access library. contributed
+	  by couannette.
+
+2004-12-05 15:21  florin
+
+	* kde3/kdebase3/: POST_INSTALL, kde: add kde session for gdm.
+
+2004-12-05 15:12  florin
+
+	* graphics/inkscape/: DEPENDS, DETAILS: bump the version from 0.39
+	  to 0.40. many thanks to Woody Gilk.
+
+2004-12-05 14:53  florin
+
+	* libs/lesstif/DETAILS: bump the version from 0.93.94 to 0.94.0.
+
+2004-12-05 14:21  florin
+
+	* filesys/fuse/DETAILS: bump the version from 1.3 to 2.1.
+
 2004-12-05 13:31  sofar
 
 	* utils/rrdtool/DETAILS: New version
@@ -1810,72 +1945,4 @@
 	  2.610rc1mm3. gcc 3.3.3, glibc 2.3.2, headers 2.6.9.1 mm1 and mm2
 	  were not commited since their compile b0rked (truncating the
 	  kernel image)
-
-2004-11-05 20:58  sofar
-
-	* utils/discover/BUILD: Bah
-
-2004-11-05 20:54  sofar
-
-	* utils/discover/BUILD: More changes: discover-modprobe should go
-	  into /sbin really, but we leave a simlink
-
-2004-11-05 18:19  florin
-
-	* doc-tools/docbook-dsssl-doc/DETAILS: bump the version from 1.78
-	  to 1.79.
-
-2004-11-05 18:14  florin
-
-	* doc-tools/docbook-dsssl/DETAILS: bump the version from 1.78 to
-	  1.79.
-
-2004-11-05 15:38  moe
-
-	* net/ipw2100/: BUILD, CONFIGURE, DETAILS: Updating this module to
-	  use the new mquery function.	Note: I'm not bumping it to the
-	  latest version available since it doesn't compile (at all). All
-	  the others in between are broken.
-
-2004-11-05 15:32  florin
-
-	* utils/apcupsd/DETAILS: bump the version from 3.10.15 to 3.10.16.
-
-2004-11-05 14:25  v3rt1g0
-
-	* docs/abs-guide/: BUILD, DETAILS: New 3.0 version so now you can
-	  learn even more up-to-date fancy things
-
-2004-11-05 14:04  sofar
-
-	* ftp/curl/DETAILS: DOWNGRADE, curl-7.12.2 breaks 'discover'.
-	  Pending fixes in either curl or discover this one is hands-off!
-
-2004-11-05 08:32  sofar
-
-	* perl/DBD-mysql/: BUILD, DETAILS: Need a version bump to compile
-	  with latest mysql versions
-
-2004-11-05 06:03  florin
-
-	* graphics/gimp/DETAILS: bump the version from 2.0.5 to 2.0.6.
-
-2004-11-05 05:55  nestu
-
-	* graphics/cairo/DETAILS: Correcting the checksum. Changing to sha
-	  too ;)
-
-2004-11-05 05:31  florin
-
-	* utils/procps/DETAILS: bump the version from 3.2.3 to 3.2.4.
-
-2004-11-05 05:23  florin
-
-	* audio/icecast/DETAILS: bump the version from 2.0.2 to 2.1.0.
-
-2004-11-05 03:43  tchan
-
-	* utils/util-linux/DETAILS: Version bump to util-linux-2.12i.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
 
