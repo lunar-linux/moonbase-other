@@ -31,7 +31,9 @@
     sedit "s:#local_enable=YES:local_enable=YES:" vsftpd.conf
     sedit "s:#write_enable=YES:write_enable=YES:" vsftpd.conf
     cp vsftpd.conf /etc
+    if get_module_config INITDSCRIPTS | grep -qw vsftpd ; then
+      echo -e "\n\n# standalone mode requires these settings:\nlisten=YES\nbackground=YES\n\n" >> /etc/vsftpd.conf
+    fi
   fi
 
 ) > $C_FIFO 2>&1
-
