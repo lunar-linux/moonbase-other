@@ -1,6 +1,6 @@
 (
   unset  CFLAGS
-  sedit "s:freetype/freetype.h>:ft2build.h>\n#include FT_FREETYPE_H:" SDL_ttf.c &&
+#  sedit "s:freetype/freetype.h>:ft2build.h>\n#include FT_FREETYPE_H:" SDL_ttf.c &&
   ./configure  --build=$BUILD        \
                --prefix=/usr         \
                --sysconfdir=/etc     \
