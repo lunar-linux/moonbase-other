@@ -1,3 +1,142 @@
+2005-03-18 12:46  cmak
+
+	* ftp/mldonkey/DETAILS: bump
+
+2005-03-18 12:39  cmak
+
+	* compilers/ocaml/: BUILD, DETAILS: bump
+
+2005-03-18 12:06  cmak
+
+	* devel/pygtk2/DETAILS: be carful and bump the updated field too
+
+2005-03-18 12:05  cmak
+
+	* devel/pygtk2/DETAILS: bumpi
+
+2005-03-18 11:27  ratler
+
+	* utils/vixie-cron/: BUILD, DETAILS: Fixed no mail validation, MTA
+	  does that. Made permission checks lighter for /etc/cron.d/. Minor
+	  PAM fix added. Fixed unitialized values
+
+2005-03-18 08:27  sofar
+
+	* editors/recode/: dos2unix, unix2dos: More flexible and simple: no
+	  tmpfiles needed and passthru STDIO usage.
+
+2005-03-18 07:28  tchan
+
+	* web/elinks/DETAILS: Version bump to elinks-0.10.3.
+
+2005-03-18 07:19  tchan
+
+	* zbeta/weechat-cvs/: BUILD, DEPENDS, DETAILS: Wrote a proper cvs
+	  module for "weechat".  Solved the anonymous cvs problem -- the
+	  weechat devs webpage is outdated for the correct instructions on
+	  fetching from savannah.  This module has the advantage over the
+	  other zbeta/weechat module in that it doesn't mess around with
+	  "rm" of files in /var/spool/lunar.
+
+2005-03-18 06:40  tchan
+
+	* mail/evolution/: BUILD, DETAILS: Verson bump to stable 2.2.1.
+	  Removing zbeta/evolution-beta as its no longer relevant.
+
+2005-03-18 06:25  tchan
+
+	* gnome/gtkhtml3/DETAILS: Version bump to gtkhtml3 to 3.6.1. This
+	  is also required by evo-2.2.1.
+
+2005-03-18 06:19  tchan
+
+	* mail/evolution-data-server/DETAILS: Version bump to
+	  evolution-data-server-1.2.1. This is needed by evo-2.2.1.
+
+2005-03-18 06:06  tchan
+
+	* gnome2-extras/gal2/DETAILS: Version bump to gal2 2.4.1.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2005-03-18 05:48  tchan
+
+	* chat/gaim/DETAILS: Version bump to gaim-1.2.0. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2005-03-18 03:42  v3rt1g0
+
+	* chat/gaim-themes/: BUILD, DETAILS, PRE_BUILD: Stripped out some
+	  dead links and made the BUILD saner
+
+2005-03-17 23:03  jol
+
+	* crypto/cyrus-sasl/BUILD: I've fix a dirty problem from the
+	  libsasl. In fact some people has a link error on the libsasl. If
+	  you want to know if you should recompile libsasl make this
+	  command: ldd -r /usr/lib/libsasl.so Thus if you have a undefined
+	  crypt symbol you need to recompile it.  Jol
+
+2005-03-17 20:52  moe
+
+	* wifi/ipsec-tools/: BUILD, DETAILS: Fix0red! It actually compiles
+	  now.
+
+2005-03-17 19:21  jasper
+
+	* xfce4/xfce4-panel/DETAILS: Ok, I suck. Anyone using 4.2.1 should
+	  update.
+
+2005-03-17 18:34  sofar
+
+	* games/falconseye/DETAILS, gnome2-extras/gnome-spell/DETAILS: -fix
+	  url
+
+2005-03-17 18:27  sofar
+
+	* archive/bzip2/DETAILS: tsk ;^)
+
+2005-03-17 18:23  sofar
+
+	* kernel/: linux-2.4-agr/DETAILS, linux-2.4/DETAILS,
+	  linux-2.4-grsec/DETAILS, linux-2.4-om/DETAILS: Adj. text info of
+	  these
+
+2005-03-17 17:45  hardkrash
+
+	* science/pcb/DETAILS: Boy have i been slacking, there have been 4
+	  updates since i have updated this package.  great news is though
+	  a gtk based front end is under way :-) not that i have anything
+	  aginst the xaw interface :-P
+
+2005-03-17 17:36  hardkrash
+
+	* audio/gtkpod/DETAILS: Inital import of gtkpod, an interface to
+	  your favorite mp3 and aac player the iPod
+
+2005-03-17 16:53  tchan
+
+	* utils/findutils/DETAILS: Version bump to findutils-4.2.20.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2005-03-17 15:44  sofar
+
+	* gnome/gdk-pixbuf/BUILD: The new query needs this
+
+2005-03-17 15:09  sofar
+
+	* video/divx4linux/DETAILS: Classical breakage for ldd_check here
+
+2005-03-17 15:08  sofar
+
+	* compilers/j2sdk/DETAILS: Don't check this one either
+
+2005-03-17 15:07  sofar
+
+	* x11-apps/openoffice-bin/DETAILS: do no LDD_CHECK this module
+	  (this is new: only works with theedge ATM)
+
 2005-03-17 10:43  sofar
 
 	* utils/psmisc/DETAILS: foo
@@ -696,11 +835,6 @@
 	  and prints a binary hash as output. Output useable as an
 	  encryption key (such as for cryptsetup).
 
-2005-03-09 13:56  tchan
-
-	* zbeta/evolution-beta/: BUILD, DETAILS: Bumping evo-beta to the
-	  preview release of evo-2.2.0.
-
 2005-03-09 10:13  sofar
 
 	* net/ipw2200/DETAILS: Yes, a new version. WFFM (works fine for me)
@@ -827,21 +961,11 @@
 	* gnome2-extras/gal2/: BUILD, DEPENDS, DETAILS: Version bumping
 	  gal2 to 2.4.0. removing gal24 from moonbase.
 
-2005-03-08 20:48  tchan
-
-	* zbeta/evolution-beta/DEPENDS: Removed evolution-data-server-beta
-	  as regular evolution-data-server is now at 1.2.0.
-
 2005-03-08 20:47  tchan
 
 	* mail/evolution-data-server/: DEPENDS, DETAILS: Version bumped to
 	  evolution-data-server-1.2.0. Fixed the depends to use libsoup
 	  which is now at 2.2.2.
-
-2005-03-08 20:45  tchan
-
-	* zbeta/evolution-beta/DEPENDS: gtkhtml36 is removed from moonbase,
-	  use gtkhtml3 which is version bumped to 3.6.0.
 
 2005-03-08 20:41  tchan
 
@@ -2107,11 +2231,6 @@
 
 	* libs/gwenhywfar/DETAILS: bump the version from 1.7.2 to 1.8.0.
 
-2005-02-20 06:08  florin
-
-	* kde3-apps/akregator/DETAILS: update the sha1 sum. the tarball was
-	  remade.
-
 2005-02-19 16:38  florin
 
 	* security/shorewall/DETAILS: bump the version from 2.2.0 to 2.2.1.
@@ -2172,11 +2291,6 @@
 2005-02-17 21:23  florin
 
 	* libs/libavc1394/DETAILS: bump the version from 0.4.1 to 0.5.0.
-
-2005-02-17 21:06  florin
-
-	* kde3-apps/akregator/: BUILD, DETAILS: bump the version from
-	  1.0._beta8 to 1.0_beta10.
 
 2005-02-17 19:00  moe
 
@@ -2346,89 +2460,4 @@
 	* doc-tools/sgml-common/: DETAILS, POST_INSTALL, PRE_REMOVE: This
 	  is absolutely nothing compared to the shiat I'm working on at the
 	  moment. Prepare for the best.
-
-2005-02-15 21:59  sofar
-
-	* net/whois/DETAILS: bump
-
-2005-02-15 19:38  moe
-
-	* doc-tools/opensp/DETAILS: I'm dancing the sanitize blues.
-
-2005-02-15 19:33  moe
-
-	* doc-tools/sgml-common/: BUILD, DETAILS, POST_INSTALL, PRE_REMOVE:
-	  Well, this will tell you sgml-common! BEHAVE!
-
-2005-02-15 19:16  florin
-
-	* shells/bash_static/DETAILS: use sha1 sum instead of md5 one.
-
-2005-02-15 19:13  florin
-
-	* shells/bash/DETAILS: use sha1 sum instead of the md5 one.
-
-2005-02-15 19:08  florin
-
-	* graphics/netpbm/DETAILS: bump the version from 10.26.2 to
-	  10.26.3.
-
-2005-02-15 18:11  moe
-
-	* doc-tools/docbook-3.1/POST_REMOVE: GOTCHA!
-
-2005-02-15 18:11  moe
-
-	* doc-tools/docbook-3.1/: BUILD, POST_INSTALL, PRE_BUILD,
-	  PRE_REMOVE: Small 3.0 fix and moving on to 3.1. You're next 4.0!
-
-2005-02-15 18:03  ratler
-
-	* shells/bash/: BUILD, DETAILS: Added the GNU official patches for
-	  bash 3.0, they solve numerous bugs. Some of which I have
-	  encountered myself. Compiled and tested with gcc-3.3.3,
-	  glibc-2.3.3, kernel-2.4 headers. Moe gave thumbs up too
-
-2005-02-15 11:50  moe
-
-	* doc-tools/docbook-sgml/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD,
-	  PRE_REMOVE: This module has been (by way far) the worst module I
-	  have ever seen since I'm with lunar. It made me a very sad panda.
-	   So I almost completely rewrote it.
-
-	  I'm too lame to count up on all the changes. Have a look for
-	  yourself and ask if you need an explaination.
-
-2005-02-15 05:51  watryac04
-
-	* net/madwifi/: BUILD, DEPENDS, DETAILS: Added in support for the
-	  atheros tools that are provided by madwifi.  Not using the "make
-	  install", because it misses half the programs.
-
-2005-02-15 04:40  watryac04
-
-	* kernel/kernel-reqs/: BUILD, DETAILS: Syncing up the module list
-	  in DETAILS with what actually is compiled in BUILD.  Adding
-	  madwifi to the list as well.
-
-2005-02-15 04:36  watryac04
-
-	* net/madwifi/: BUILD, DEPENDS, DETAILS: Madwifi is a driver for
-	  Atheros chipset based wireless cards (802.11A/B/G).
-
-2005-02-15 04:12  watryac04
-
-	* archive/sharutils/BUILD: Need to enable building of uudecode and
-	  by proxy uuencode to unarchive madwifi drivers (module to appear
-	  shortly).
-
-2005-02-15 03:12  tchan
-
-	* editors/zile/DETAILS: Version bump to zile-2.0.1. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2005-02-15 00:37  v3rt1g0
-
-	* web/w3c-libwww/DEPENDS: This fixes a loopy depends revolving
-	  mysql, popt, gettext, tetex, and so on and so forth.
 
