@@ -1,0 +1,39 @@
+          MODULE=firefox
+         VERSION=0.8
+          SOURCE=$MODULE-source-$VERSION.tar.bz2
+         SOURCE2=firefox-0.8-lunar.tar.bz2
+         SOURCE3=mozilla-libart.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
+   SOURCE_URL[0]=http://ftp.mozilla.org/pub/firefox/releases/$VERSION/$SOURCE
+      SOURCE_VFY=md5:cdc85152f4219bf3e3f1a8dc46e04654
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+     SOURCE2_VFY=md5:5aeecf3bdf9dcc9995d2d961d290439f
+  SOURCE3_URL[0]=http://dbguin.lunar-linux.org/~nhudson/mozilla/$SOURCE3
+     SOURCE3_VFY=md5:119f20f0c50b8554a1794ffdb6706c8d
+        WEB_SITE=http://www.mozilla.org/projects/firefox
+         ENTERED=20030810
+         UPDATED=20040209
+      MAINTAINER="tchan@lunar-linux.org"
+           FUZZY="off"
+           SHORT="Mozilla Firefox is a speedy, full-featured web browser."
+cat << EOF
+Mozilla Firefox is the successor of Mozilla Firebird.
+
+Firefox includes
+  comprehensive popup controls to keep unwanted advertising off your desktop;
+  a tab browsing mode that lets you open several pages in a single window,
+    allowing you to load links in the background without leaving the page you're on;
+  integrated Google search ;
+  industry leading accessibility with Find As You Type - find links and pagei
+    text by simply typing;
+  simplified privacy controls that let you cover your tracks more effectively;
+  a streamlined browser window that lets you see more of the page than any
+    other browser while at the same time being more configurable;
+  a large variety of free downloadable extensions and themes that add specific
+    functionality and visual changes to the browser;
+
+NOTE: This Lunar version of Firefox has crypto enabled and is gtk+-2.  NOTHING
+ELSE IS CONFIGURED IN !!! (i.e NO mail, irc, composer, gpg, calendar, MathML, 
+Javascript debugger, html code inspector, LDAP, help support.  If you
+want any of that use the regular mozilla module.
+EOF

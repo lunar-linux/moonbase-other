@@ -1,0 +1,44 @@
+FIREFOX_HOME=/opt/lunar/firefox
+VERSION=1.6
+FFOX_VERSION=0.8
+
+if [ "-d $FIREFOX_HOME/lib/mozilla-$VERSION/plugins" ] ; then
+  mv $FIREFOX_HOME/lib/mozilla-$VERSION/plugins/libnullplugin.so $FIREFOX_HOME/mozilla-$VERSION
+  rm -Rf $FIREFOX_HOME/lib/mozilla-$VERSION/plugins
+fi
+ 
+# Symlink
+cd $FIREFOX_HOME/lib
+rm -Rf $FIREFOX_HOME/lib/mozilla
+ln -sf "mozilla-$VERSION" mozilla
+
+cd $FIREFOX_HOME/include
+rm -Rf $FIREFOX_HOME/include/mozilla
+ln -sf "mozilla-$VERSION" mozilla
+
+cd $FIREFOX_HOME/lib/mozilla-$VERSION
+mkdir -p /opt/lunar/plugins
+ln -sf /opt/lunar/plugins plugins
+
+export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/mozilla-$VERSION:$FIREFOX_HOME/lib/mozilla-$VERSION/plugins:$FIREFOX_HOME/lib/mozilla-$VERSION/components"
+export MOZILLA_FIVE_HOME="$FIREFOX_HOME/lib/mozilla-$VERSION"
+ldconfig
+
+echo "skin,install,select,classic/1.0" >> chrome/installed-chrome.txt
+echo "locale,install,select,en-US" >> chrome/installed-chrome.txt
+
+./regxpcom
+./regchrome
+
+if module_installed j2sdk; then
+ln -sf /usr/lib/j2sdk1.4.1/jre/plugin/i386/mozilla/javaplugin_oji.so $FIREFOX_HOME/lib/mozilla/plugins/javaplugin_oji.so 
+fi
+
+if [ ! -d /usr/share/applications ] ; then
+  mkdir -p /usr/share/applications
+fi
+if [ ! -d /usr/share/pixmaps ] ; then
+  mkdir -p /usr/share/pixmaps
+fi
+cp $SOURCE_DIRECTORY/firefox-$FFOX_VERSION-lunar/firefox.desktop /usr/share/applications/firefox.desktop &&
+cp $SOURCE_DIRECTORY/firefox-$FFOX_VERSION-lunar/firefox.xpm /usr/share/pixmaps/firefox.xpm
