@@ -1,4 +1,6 @@
 (
+    patch_it $SOURCE2 0        &&
+
     make udevdir=/dev          &&
     prepare_install            &&
     make udevdir=/dev install  &&
