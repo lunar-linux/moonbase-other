@@ -1,3 +1,86 @@
+2003-10-21 05:08  elaine
+
+	* zbeta/rpm/BUILD: python bindings break build, removing
+
+2003-10-21 04:12  nhudson
+
+	* web/galeon/: BUILD, DETAILS: 
+	Adding a patch to fix some issues with galeon and moz 1.5
+
+2003-10-21 03:56  nhudson
+
+	* web/galeon/BUILD: 
+	Forgot to add this so it builds with mozilla 1.5
+
+2003-10-21 03:25  nhudson
+
+	* web/mozilla/POST_INSTALL: 
+	Removing the old galeon2 module now that I have moved it to galeon
+	to be compatible with mozilla 1.5, also fixed the recompile in the
+	POST_INSTALL of the mozilla module from galeon2 to galeon
+
+2003-10-21 03:23  nhudson
+
+	* web/galeon/: BUILD, DEPENDS, DETAILS, galeon: 
+	With the update of Mozilla 1.5 and it being compiled with gtk2 by
+	default we can no longer have a galeon 1.2.x module due to 1.2.x is
+	compiled with gtk1 and mozilla would have to be also.  So I am
+	updating this module to new version 1.3.9 to be compatible with our
+	version of mozilla
+
+2003-10-21 03:14  nhudson
+
+	* mail/MozillaThunderbird/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
+	POST_REMOVE, profile.d/thunderbird.rc: 
+	Adding MozillaThunderbird to moonbase.	This serves as a mail MUA
+	for those who dont want to install the Mozilla Environment.
+
+2003-10-21 02:56  nhudson
+
+	* x11-apps/dia/DETAILS: 
+	Updating dia to new version 0.92
+
+2003-10-21 02:54  nhudson
+
+	* gnome2-apps/file-roller/DETAILS: 
+	Updating file-roller to new version 2.4.1.1
+
+2003-10-21 02:12  nhudson
+
+	* web/mozilla/DETAILS: 
+	Adding a 3rd d/l option just incase the md5sum on the mozilla ftp
+	server is still screwed
+
+2003-10-21 02:10  nhudson
+
+	* web/mozilla/: BUILD, CONFIGURE, DEPENDS, DETAILS, PRE_BUILD: 
+	Updating mozilla to new version 1.5, I took out enigmail support as
+	you can install it via the enigmail website
+	http://enigmail.mozdev.org due to it was getting to cumbersome to
+	compile with the mozilla build.  Also I added SVG support in the
+	browser now
+
+2003-10-20 21:14  jol
+
+	* devel/PyKDE/: BUILD, DEPENDS, DETAILS, kzip.patch: First import
+	of PyKDE. You know what :p
+
+2003-10-20 21:09  jol
+
+	* devel/psyco/: BUILD, DEPENDS, DETAILS: First import of psyco.
+	Psyco is a JIT for Python.
+
+2003-10-20 19:17  elaine
+
+	* libs/glibc/: BUILD, DETAILS: Fixes for initgroups vulnerability,
+	added patch and added md5's to all sources. Tested on 3 systems,
+	minimal change, security issue
+
+2003-10-20 18:46  jol
+
+	* audio/xmms-kde/: BUILD, DEPENDS, DETAILS: Import of xmms-kde.
+	It's a kapplet to control noatun, xmms and smpeg ...
+
 2003-10-20 05:36  jmhodges
 
 	* web/PyDS/: BUILD, DETAILS: bah, compiles now
@@ -1644,111 +1727,4 @@
 
 	* mail/squirrelmail/: BUILD, DEPENDS, DETAILS, POST_INSTALL: New
 	module!!!
-
-2003-09-20 22:22  sofar
-
-	* x11-apps/openoffice-bin/DETAILS: Yup, new version. Also cleaned
-	up DETAILS a bit, moved a sensible mirror site to top and not a
-	student box from hickeyland-east netherlands.
-
-2003-09-20 18:45  xoritor
-
-	* zbeta/oprofile/: BUILD, DETAILS: Adding oprofile.
-
-2003-09-20 18:11  sofar
-
-	* web/links2/DETAILS: version bump
-
-2003-09-20 15:02  jmhodges
-
-	* science/octave/DEPENDS: silly rabbit, gnuplot is for octave!
-
-2003-09-20 13:07  tchan
-
-	* crypto/mhash/DETAILS: Version bump to 0.8.18.  Compiled and
-	tested with gcc-3.2.3, glibc-2.3.2.
-
-2003-09-20 11:56  florin
-
-	* kde3/arts/DETAILS, kde3/kdeaddons3/DETAILS,
-	kde3/kdeadmin3/DETAILS, kde3/kdeartwork3/DETAILS,
-	kde3/kdebase3/DETAILS, kde3/kdebindings3/DETAILS,
-	kde3/kdeedu3/DETAILS, kde3/kdegames3/DETAILS,
-	kde3/kdegraphics3/DETAILS, kde3/kdelibs3/DETAILS,
-	kde3/kdemultimedia3/DETAILS, kde3/kdenetwork3/DETAILS,
-	kde3/kdepim3/DETAILS, kde3/kdesdk3/DETAILS, kde3/kdetoys3/DETAILS,
-	kde3/kdeutils3/DETAILS, kde3-i18n/kde3-i18n-af/DETAILS,
-	kde3-i18n/kde3-i18n-ar/DETAILS, kde3-i18n/kde3-i18n-bg/DETAILS,
-	kde3-i18n/kde3-i18n-bs/DETAILS, kde3-i18n/kde3-i18n-ca/DETAILS,
-	kde3-i18n/kde3-i18n-cs/DETAILS, kde3-i18n/kde3-i18n-da/DETAILS,
-	kde3-i18n/kde3-i18n-de/DETAILS, kde3-i18n/kde3-i18n-el/DETAILS,
-	kde3-i18n/kde3-i18n-en_GB/DETAILS, kde3-i18n/kde3-i18n-eo/DETAILS,
-	kde3-i18n/kde3-i18n-es/DETAILS, kde3-i18n/kde3-i18n-et/DETAILS,
-	kde3-i18n/kde3-i18n-eu/DETAILS, kde3-i18n/kde3-i18n-fa/DETAILS,
-	kde3-i18n/kde3-i18n-fi/DETAILS, kde3-i18n/kde3-i18n-fr/DETAILS,
-	kde3-i18n/kde3-i18n-he/DETAILS, kde3-i18n/kde3-i18n-hr/DETAILS,
-	kde3-i18n/kde3-i18n-hu/DETAILS, kde3-i18n/kde3-i18n-is/DETAILS,
-	kde3-i18n/kde3-i18n-it/DETAILS, kde3-i18n/kde3-i18n-ja/DETAILS,
-	kde3-i18n/kde3-i18n-lt/DETAILS, kde3-i18n/kde3-i18n-mk/DETAILS,
-	kde3-i18n/kde3-i18n-mt/DETAILS, kde3-i18n/kde3-i18n-nb/DETAILS,
-	kde3-i18n/kde3-i18n-nl/DETAILS, kde3-i18n/kde3-i18n-nn/DETAILS,
-	kde3-i18n/kde3-i18n-nso/DETAILS, kde3-i18n/kde3-i18n-pl/DETAILS,
-	kde3-i18n/kde3-i18n-pt/DETAILS, kde3-i18n/kde3-i18n-pt_BR/DETAILS,
-	kde3-i18n/kde3-i18n-ro/DETAILS, kde3-i18n/kde3-i18n-ru/DETAILS,
-	kde3-i18n/kde3-i18n-se/DETAILS, kde3-i18n/kde3-i18n-sk/DETAILS,
-	kde3-i18n/kde3-i18n-sl/DETAILS, kde3-i18n/kde3-i18n-sr/DETAILS,
-	kde3-i18n/kde3-i18n-ss/DETAILS, kde3-i18n/kde3-i18n-sv/DETAILS,
-	kde3-i18n/kde3-i18n-ta/DETAILS, kde3-i18n/kde3-i18n-th/DETAILS,
-	kde3-i18n/kde3-i18n-tr/DETAILS, kde3-i18n/kde3-i18n-uk/DETAILS,
-	kde3-i18n/kde3-i18n-ven/DETAILS, kde3-i18n/kde3-i18n-vi/DETAILS,
-	kde3-i18n/kde3-i18n-xh/DETAILS, kde3-i18n/kde3-i18n-zh_CN/DETAILS,
-	kde3-i18n/kde3-i18n-zh_TW/DETAILS, kde3-i18n/kde3-i18n-zu/DETAILS:
-	bump the version from 3.1.3 to 3.1.4.
-
-2003-09-20 08:53  florin
-
-	* x11/NVIDIA/CONFLICTS: it's no needed anymore
-
-2003-09-20 08:46  florin
-
-	* crypto/mcrypt/DETAILS: Bumped the version from 2.6.3 to 2.6.4. 
-	Fix the dl path, thanks to Dennis Veatch.
-
-2003-09-20 08:34  florin
-
-	* crypto/libmcrypt/DETAILS: fix the dl path, thanks to Dennis
-	Veatch.
-
-2003-09-20 08:17  florin
-
-	* libs/ClanLib/DETAILS: bump version from 0.6.5 to 0.7.4
-
-2003-09-20 03:27  tchan
-
-	* terminal/screen/DETAILS: Version bump to 4.0.1.  Updated md5sum
-	check.	Compiled with gcc-3.2.3 and glibc-2.3.2.
-
-2003-09-20 02:55  watryac04
-
-	* utils/module-init-tools/BUILD: Fixed the problem with moving
-	certain files in /sbin from $file to $file.old Module compiles
-	fine, installs all of its files, and looks good.  /sbin/*mod*.old
-	should only be backup copies of files installed by modutils
-
-2003-09-20 02:26  r0dzilla
-
-	* zbeta/fluxbox-devel/DETAILS: version bump of development version
-	of fluxbox
-
-2003-09-20 02:24  r0dzilla
-
-	* x11-wm/fluxbox/: CONFIGURE, DETAILS: disabled remember patch
-	since its deprecated and no longer supported by author
-
-2003-09-20 02:22  watryac04
-
-	* utils/module-init-tools/BUILD: "Fixed" the BUILD script for
-	module-init-tools.  It gets through compile now, but there's still
-	some work to be done...  It's not moving the symlinked files from
-	modutils in /sbin properly.
 
