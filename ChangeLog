@@ -1,3 +1,147 @@
+2004-02-16 11:22  florin
+
+	* kde3-apps/kpl/: BUILD, DEPENDS, DETAILS: a graphical
+	representation progrm for functions and data sets i8n 2D and 3D for
+	KDE.
+
+2004-02-16 08:36  florin
+
+	* security/stunnel/DETAILS: bump version from 4.04 to 4.05.
+
+2004-02-16 07:27  florin
+
+	* games/liquidwar/: DEPENDS, DETAILS: a new and shinning game. have
+	fun.
+
+2004-02-16 07:22  florin
+
+	* libs/allegro/DETAILS: bump version from 4.0.3 to 4.1.12.
+
+2004-02-16 05:28  watryac04
+
+	* security/cracklib/DETAILS: Needed a working source for the
+	.tar.gz  Also had to updated it to look for the source in
+	$MODULE,$VERSION instead of $MODULE-$VERSION since it seems the
+	author has changed the dash to a comma
+
+2004-02-16 04:35  niki
+
+	* gnome2-core/libgtkhtml/DETAILS: Module not PSAFE...
+
+2004-02-16 04:29  hardkrash
+
+	* net/portmap/DEPENDS: spelling error :-P I finally found one :-P
+
+2004-02-16 04:17  tchan
+
+	* net/portmap/: BUILD, DEPENDS: Fixed the test correctly now for
+	passing whether or not tcp_wrappers should be supported in portmap.
+	 The old test was incorrect.  Also changed the OPTS passed from
+	YES/NO to --with-tcpwrappers/--without-tcpwrappers to clarify what
+	was being passed.
+
+2004-02-16 04:06  niki
+
+	* mail/evolution/DEPENDS: One mozilla depends is enough per module
+	isn't it ??
+
+2004-02-16 03:36  niki
+
+	* gnome2-apps/meld/BUILD: Fixed the BUILD file so that meld,
+	doesn't bork on every 2nd sequent install attempt...
+
+2004-02-16 03:26  hardkrash
+
+	* net/portmap/BUILD: missing " oopsy
+
+2004-02-16 02:04  nhudson
+
+	* gnome2-core/gdm/DETAILS: 
+	Updating gdm to new version 2.5.90.1, this version of gdm works
+	quite well with the setup we put in.  All WM Sessions go into
+	/etc/X11/dm and you can look at the /etc/X11/dm/Sessions file for a
+	good example on how to make one.
+
+2004-02-16 00:17  nhudson
+
+	* devel/devhelp/DETAILS: 
+	Fscking devs changing the source without changing versions!!!!
+
+2004-02-15 23:48  florin
+
+	* graphics/scribus/DETAILS: bump version from 1.1.4 to 1.1.5. the
+	patch is not needed anymore.
+
+2004-02-15 23:12  florin
+
+	* sql/mysql/DETAILS: bump version from 4.0.17 to 4.0.18. tested
+	with gcc 3.3.2.
+
+2004-02-15 17:43  florin
+
+	* filesys/udev/DETAILS: bump version from 016 to 017.
+
+2004-02-15 17:06  florin
+
+	* libs/libusb/DETAILS: bump version from 0.1.7 to 0.1.8.
+
+2004-02-15 16:41  tchan
+
+	* science/R/: BUILD, DEPENDS, DETAILS, PRE_BUILD: Version bump to
+	1.8.1.	Reworked the module.  This version of the R language seems
+	to REQUIRE a fortran compiler, so I added a PRE_BUILD that tests
+	for /usr/bin/g77 or else it prints a warning and aborts.  Compiled
+	and tested with gcc-3.3.2, with kernel headers 2.4.x.
+
+2004-02-15 16:29  florin
+
+	* cd/k3b/DETAILS: bump version from 0.11.2 to 0.11.3.
+
+2004-02-15 16:10  nhudson
+
+	* chat/gaim/: BUILD, DEPENDS, DETAILS: 
+	Removing gaim for GNOME_UNSTABLE also
+
+2004-02-15 16:09  nhudson
+
+	* web/mozilla/: BUILD, CONFIGURE, CONFLICTS, DEPENDS, DETAILS,
+	POST_INSTALL, POST_REMOVE, PRE_BUILD: 
+	Removing this as I just put the new stuff into moonbase
+
+2004-02-15 16:06  nhudson
+
+	* zbeta/gaim-cvs/: BUILD, DEPENDS: 
+	Fixing gaim-cvs module to work with either moz nss or gnutls
+
+2004-02-15 16:05  nhudson
+
+	* chat/gaim/: BUILD, DEPENDS: 
+	Fixing the gaim module to include a option for moz nss or gnutls if
+	you dont have moz installed.
+
+2004-02-15 16:00  nhudson
+
+	* web/mozilla/PRE_BUILD: 
+	Forgot this, removed $SOURCE3 and also we are not applying the
+	patches anymore due to they are old and outdated.
+
+2004-02-15 15:59  nhudson
+
+	* web/mozilla/: BUILD, DETAILS, POST_INSTALL: 
+	Fixing the mozilla module to install the NSS header files needed to
+	compile some modules with ssl support, for example gaim.  Also I
+	took out the SOURCE3 because its no longer needed and cleaned up
+	the POST_INSTALL file because some of those things arent needed
+	anymore.
+
+2004-02-15 15:52  florin
+
+	* kde3/qt3/DEPENDS: add the xserver dependency.
+
+2004-02-15 15:48  florin
+
+	* utils/less/DETAILS: bump version from 381 to 382. minor modifs.
+
 2004-02-15 11:55  nestu
 
 	* kernel/linux-beta/DETAILS: bump dee bump dee bump !
@@ -462,15 +606,15 @@
 
 2004-02-11 04:08  nhudson
 
+	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
+	added on branch GNOME_UNSTABLE.
+
+2004-02-11 04:08  nhudson
+
 	* rebuild-gnome-unstable: 
 	From a suggesting of niki's I made a script that will rebuild your
 	Gnome installation and build it for the GNOME_UNSTABLE branch. 
 	Please test if you are running GNOME_UNSTABLE
-
-2004-02-11 04:08  nhudson
-
-	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
-	added on branch GNOME_UNSTABLE.
 
 2004-02-11 04:04  nhudson
 
@@ -2324,68 +2468,4 @@
 	Comment the FILTER option in the BUILD because if the kernel does
 	not have ppp filtering option enabled, the module won't compile
 	(missingh net/bpf.h).
-
-2004-01-16 19:50  ratler
-
-	* libs/libxml/DETAILS: Confused Ratler fixing little misstake,
-	*sigh*
-
-2004-01-16 19:41  ratler
-
-	* libs/libxml/DETAILS: Ops, forgot to bump date
-
-2004-01-16 19:39  ratler
-
-	* libs/libxml/DETAILS: libxml have problem with paralell makes,
-	fixed
-
-2004-01-16 17:55  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Bump version. This kernel includes
-	a new arch menu, so make *config HAS to be run -you *have* to
-	select your arch again, otherwise you will get an error.
-
-2004-01-16 12:08  niki
-
-	* gnome2-extras/gal2/: DETAILS, PRE_BUILD: Bumped the version
-
-2004-01-16 11:31  niki
-
-	* gnome2-core/gnome-utils2/: BUILD, DETAILS: Bumped version, and
-	moved it out of /opt/lunar
-
-2004-01-16 10:36  niki
-
-	* gnome2-core/eog/DETAILS: Bumped version to 2.5.3
-
-2004-01-16 05:49  florin
-
-	* archive/unrar/DETAILS: bump version from 3.3.2 to 3.3.4.
-
-2004-01-16 05:36  florin
-
-	* video/mplayerplug-in/DETAILS: bump version from 1.0 to 1.1.
-
-2004-01-16 04:10  florin
-
-	* kde3/kdebindings3/: CONFIGURE, CONFIGURE: change the attribs.
-
-2004-01-16 00:52  niki
-
-	* gnome2-core/gedit/DETAILS: Bumped the version
-
-2004-01-16 00:41  niki
-
-	* gnome2-core/libgnomeprintui/: BUILD, DETAILS: Version bumped, and
-	module moved out of /opt/lunar
-
-2004-01-16 00:35  niki
-
-	* gnome2-core/libgnomeprint/: BUILD, DETAILS: bumped version, and
-	moved out of /opt/lunar
-
-2004-01-16 00:21  niki
-
-	* gnome2-core/yelp/: BUILD, DETAILS: Version bumped, moved out of
-	/opt/lunar
 
