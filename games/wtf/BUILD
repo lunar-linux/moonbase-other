@@ -1,12 +1,12 @@
 (
 
-  sedit "s/ACRONYMDB\:\-\/usr\/share\/misc\/acronyms/ACRONYMDB\:\-\/usr\/share\/games\/acronyms/" wtf &&
-  prepare_install &&
-  # YMMV but i prefer it this way ^^)
-  mkdir -p /usr/share/games /usr/share/man/man6
+  sedit "s:/usr/share/misc:/usr/share/games:" wtf &&
+  
+  prepare_install               &&
   cat acronyms.comp >> acronyms &&
-  install -m755 wtf /usr/games/ &&
-  install -m0644 acronyms /usr/share/games/ &&
-  install -m0644 wtf.6 /usr/share/man/man6/
+  
+  install -m755 -D wtf /usr/games/wtf                  &&
+  install -m0644 -D acronyms /usr/share/games/acronyms &&
+  install -m0644 -D wtf.6 /usr/share/man/man6/wtf.6
 
 ) > $C_FIFO 2>&1
