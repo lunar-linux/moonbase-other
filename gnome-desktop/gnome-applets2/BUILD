@@ -1,5 +1,6 @@
 (
-
+ 
+   patch_it $SOURCE_CACHE/$SOURCE2 1              &&
    ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \

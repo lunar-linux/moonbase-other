@@ -1,9 +1,12 @@
            MODULE=gnome-applets2
          VERSION=2.6.1
           SOURCE=gnome-applets-$VERSION.tar.bz2
+         SOURCE2=gnome-applets-$VERSION-ppp-fix.diff
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/gnome-applets-$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/gnome-applets/2.6/$SOURCE
-      SOURCE_VFY=md5:d189c15d771267077596910d44a7eaf6 
+      SOURCE_URL=$GNOME_URL/sources/gnome-applets/2.6/$SOURCE 
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
+      SOURCE_VFY=md5:d189c15d771267077596910d44a7eaf6
+     SOURCE2_VFY=md5:a7b2a63dbf253da0ebc10033bd19460d 
         WEB_SITE=http://www.gnome.org
          ENTERED=20020701
          UPDATED=20040514
