@@ -1,4 +1,20 @@
-depends  gdbm  
-optional_depends  "mysql"      "--with-authmysql"  "--without-authmysql"  "for mysql authentication support" 
-#optional_depends  "openldap"   ""  ""  "for ldap authentication support"  &&
-#optional_depends  "postgresql" ""  ""  "for postgresql authentication support"
+depends gdbm  &&
+
+optional_depends  "mysql"                                   \
+                  "--with-authmysql"                        \
+		  "--without-authmysql"                     \
+		  "for mysql authentication support"        &&
+
+optional_depends  "openldap"                                \
+                  "--with-authldap"                         \
+		  "--without-authldap"                      \
+		  "for ldap authentication support"         &&
+
+optional_depends  "postgresql"                              \
+                  "--with-auth-pgsql"                       \
+		  "--without-authpgsql"                     \
+		  "for postgresql authentication support"   &&
+		  
+optional_depends  "expect"                                  \
+                  ""  ""                                    \
+		  "for webmail support to change passwords"

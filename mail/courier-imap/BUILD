@@ -4,8 +4,6 @@
                --sysconfdir=/etc/courier \
                --localstatedir=/var      \
                --disable-root-check      \
-               --without-authpgsql       \
-               --without-authldap        \
                --mandir=/usr/share/man   \
                $OPTS                    &&
   make                                  &&
