@@ -1,5 +1,8 @@
 (
 
+  # make sure the customer has the source for this one!
+  download_module wget &
+
   ./config  --prefix=/usr                       \
             --openssldir=/etc/ssl               \
             shared                              &&
