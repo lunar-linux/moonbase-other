@@ -7,7 +7,7 @@
                 --enable-devel    \
                 --enable-bonobo   \
                 --enable-java     \
-                --with-jdk-home=/usr/lib/j2sdk1.4.1/bin \
+                --with-jdk-home=/usr/lib/j2sdk1.4.1 \
                 --disable-dependency-tracking \
  		$OPTS &&
 
