@@ -1,17 +1,21 @@
-        MODULE=submount
-       VERSION=0.9
-        SOURCE=$MODULE-$VERSION.tar.gz
+          MODULE=submount
+         VERSION=0.9
+          SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-    SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
-    SOURCE_VFY=md5:f6abac328dbfb265eff18561065575c6
-      WEB_SITE=http://submount.sourceforge.net/
-       ENTERED=20040221
-       UPDATED=20040227
-      SHORT="Automatically mounts and unmounts removable media devices."
+      SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=md5:f6abac328dbfb265eff18561065575c6
+        WEB_SITE=http://submount.sourceforge.net/
+         ENTERED=20040221
+         UPDATED=20040227
+           SHORT="Automatically mounts and unmounts removable media devices."
 
 cat << EOF
-The submount system automatically mounts and unmounts removable
-media devices when their mountpoints are accessed.
-Install submount if you do not wish to mount and unmount removable media
-devices manually.
-<< EOF
+The submount system automatically mounts and unmounts removable media
+devices (like cdroms and floppy disk drives) when their mount points 
+are accessed.  It essentially allows removable media drives to be
+accessed as if they were permanently mounted.
+
+Submount is composed of two parts:
+a kernel module called "subfs"
+a user program called "submountd"
+EOF
