@@ -20,6 +20,6 @@
   make &&
   cp man/abiword.8 /usr/share/man/man8 &&
   mkdir -p $DOCUMENT_DIRECTORY/$MODULE &&
-  cp -p Manual/en/* Changelog/* $DOCUMENT_DIRECTORY/$MODULE/
+  cp -p Manual/en/*.abw Changelog/*.abw $DOCUMENT_DIRECTORY/$MODULE/
 
 ) > $C_FIFO 2>&1
