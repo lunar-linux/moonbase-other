@@ -1,8 +1,35 @@
 if ! grep -q "MAILNEWS" $MODULE_CONFIG; then
-
  if query "Enable Mail and News Clients?" y
- then echo "MAILNEWS=y" >> $MODULE_CONFIG
- else echo "MAILNEWS=n" >> $MODULE_CONFIG
+   then echo "MAILNEWS=y" >> $MODULE_CONFIG
+   else echo "MAILNEWS=n" >> $MODULE_CONFIG
  fi
-
 fi
+
+if ! grep -q "IRC" $MODULE_CONFIG; then
+ if query "Enable IRC client?" n
+   then echo "IRC=y" >> $MODULE_CONFIG
+   else echo "IRC=n" >> $MODULE_CONFIG
+ fi
+fi
+
+if ! grep -q "CALENDAR" $MODULE_CONFIG; then
+ if query "Enable Mozilla Calendar?" n
+   then echo "CALENDAR=y" >> $MODULE_CONFIG
+   else echo "CALENDAR=n" >> $MODULE_CONFIG
+ fi
+fi
+
+if ! grep -q "XFT" $MODULE_CONFIG; then
+ if query "Enable Xft exetntions?" n
+   then echo "XFT=y" >> $MODULE_CONFIG
+   else echo "XFT=n" >> $MODULE_CONFIG
+ fi
+fi
+
+# Gtk2 is broken in 1.1, eg dosn't compile
+# if query "Enable gtk2 support?" n
+#   then echo "GTK2=y" >> $MODULE_CONFIG
+#   else echo "GTK2=n" >> $MODULE_CONFIG
+# fi
+
+echo "GTK2=n" >> $MODULE_CONFIG
