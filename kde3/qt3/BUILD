@@ -21,6 +21,7 @@
                                -no-g++-exceptions             \
                                -thread                        \
                                -no-stl                        \
+                               -dlopen-opengl                 \
                                -prefix ${QT_PREFIX:-$QTDIR}   \
                                -xft                           \
                                $OPTS                         &&
@@ -34,10 +35,13 @@
     *)
       make  symlinks sub-src sub-tools
       ;;
-  esac              &&
+  esac  &&
 
-  prepare_install   &&
-  make  install     &&
+  rm bin/qmake &&     
+  cp qmake/qmake bin/qmake &&
+
+  prepare_install  &&
+  make  install    &&
 
   case  $SAMPIN  in
     y|Y|j|J)
