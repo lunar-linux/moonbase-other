@@ -1,7 +1,6 @@
 export  SSL_BASE=SYSTEM
 export  EAPI_MM=SYSTEM
 
-
 APACHE_CONFIGURE=\
 "./configure  --prefix=/usr
               --sysconfdir=/etc/httpsd
@@ -18,14 +17,13 @@ APACHE_CONFIGURE=\
               --disable-module=auth_dbm
               --with-layout=GNU"
 
-
 case  $CERTIFICATE  in
 
   y|Y|j|J)
 
     cd  mod_ssl-$VERSION                         &&
-    ./configure  --with-apache=../apache_1.3.27  &&
-    cd  ../apache_1.3.27                         &&
+    ./configure  --with-apache=../apache_1.3.28  &&
+    cd  ../apache_1.3.28                         &&
     $APACHE_CONFIGURE                            &&
     make  certificate  TYPE="custom"             &&
     echo  "CERTIFICATE=done"  >>  $MODULE_CONFIG  &&
@@ -38,8 +36,8 @@ case  $CERTIFICATE  in
   *)
 
     (  cd  mod_ssl-$VERSION                         &&
-       ./configure  --with-apache=../apache_1.3.27  &&
-       cd  ../apache_1.3.27                         &&
+       ./configure  --with-apache=../apache_1.3.28  &&
+       cd  ../apache_1.3.28                         &&
        $APACHE_CONFIGURE                            &&
        make  certificate  TYPE="existing"           \
              CRT=/etc/httpsd/ssl.crt/server.crt     &&
