@@ -1,5 +1,5 @@
           MODULE=samba
-         VERSION=3.0.1
+         VERSION=3.0.2
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://us1.samba.org/$MODULE/ftp/$SOURCE
@@ -8,10 +8,11 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[3]=http://us6.samba.org/$MODULE/ftp/$SOURCE
    SOURCE_URL[4]=ftp://se.samba.org/pub/$MODULE/$SOURCE
    SOURCE_URL[5]=ftp://de.samba.org/samba.org/$SOURCE
-      SOURCE_VFY=md5:2a3d494f139ab7402d8902b0e68c463f
+      SOURCE_VFY=md5:20d4bd08cfdc627d68a7112285caa1b2
         WEB_SITE=http://www.samba.org
          ENTERED=20010922
-         UPDATED=20031228
+         UPDATED=20040209
+           PSAFE=no
            SHORT="Samba provides seamless file and print services to SMB/CIFS clients."
 cat << EOF
 SMB server to provide Windows NT and LAN manager-style file and print
@@ -19,5 +20,3 @@ services to SMB clients such as Windows. A NetBIOS nameserver which
 can provide browsing support. A ftp-like SMB client for accessing PC
 resources from Unix. 
 EOF
-
-PSAFE=no
