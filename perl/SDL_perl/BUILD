@@ -1,9 +1,9 @@
 (
 
-  ./configure &&
-  sedit "s/\/usr\/man\//\/usr\/share\/man\//g" Makefile &&
-  make &&
+  perl  Build.PL  &&
+  ./Build &&
+  ./Build test &&
   prepare_install &&
-  make install
+  ./Build install
 
 ) > $C_FIFO 2>&1
