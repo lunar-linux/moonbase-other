@@ -1,12 +1,15 @@
           MODULE=logcheck
          VERSION=1.1.1
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-misc.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$SFORGE_URL/sentrytools/$SOURCE
+      SOURCE_URL=$SFORGE_URL/sentrytools/$SOURCE
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
         WEB_SITE=http://sourceforge.net/projects/sentrytools/
       SOURCE_VFY=md5:e97c2f096e219e20310c1b80e9e1bc29
+     SOURCE2_VFY=md5:53e0a53589fa9e7093839d28ad79ef35
          ENTERED=20021230
-         UPDATED=20030807
+         UPDATED=20031213
            SHORT="Logsentry is a program that automatically monitors your system logs and mails security violations to you on a periodic basis."
 cat << EOF
 LogSentry (formerly Logcheck) automatically monitors your system logs
