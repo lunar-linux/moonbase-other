@@ -4,6 +4,10 @@ ln    -sf /usr/bin/cpp cpp                               &&
 cd /lib/                                                 &&
 ln    -sf /usr/bin/cpp cpp                               && 
 
+if [ ! -e /usr/bin/cc ] ; then
+  ln -s gcc /usr/bin/cc
+fi                                                       &&
+
 rm_source_dir /usr/src/gcc-$VERSION-BUILD                &&
 rm_source_dir /usr/src/gcc-$VERSION                      &&
 
