@@ -27,10 +27,7 @@ case  $CERTIFICATE  in
     $APACHE_CONFIGURE                             &&
     make  certificate  TYPE="custom"              &&
     echo  "CERTIFICATE=done"  >>  $MODULE_CONFIG  &&
-    (  make             &&
-       prepare_install  &&
-       make    install
-    ) > $C_FIFO 2>&1
+    (  default_make  ) > $C_FIFO 2>&1
   ;;
 
   *)
@@ -41,9 +38,7 @@ case  $CERTIFICATE  in
        $APACHE_CONFIGURE                            &&
        make  certificate  TYPE="existing"           \
              CRT=/etc/httpsd/ssl.crt/server.crt     &&
-       make                                         &&
-       prepare_install                              &&
-       make    install
+       default_make
     ) > $C_FIFO 2>&1
   ;;
 
