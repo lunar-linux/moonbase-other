@@ -11,7 +11,7 @@ optional_depends  "openssl"              \
 optional_depends  "gpgme-0.3.x"  \
                   "--enable-gpgme --with-gpgme-prefix=/opt/lunar/gpgme-0.3.x" \
                   ""                     \
-                  "for encrypted email"  &&
+                  "for encrypted email, and say Y here if you have gpgme-1.x installed!!!"  &&
 
 optional_depends  "jpilot"               \
                   "--enable-jpilot"      \
@@ -21,9 +21,10 @@ optional_depends  "jpilot"               \
 optional_depends  "openldap"             \
                   "--enable-ldap"        \
                   ""                     \
-                  "to view ldap directories"  &&
-
-optional_depends  "aspell"		\
-		  "--enable-pspell --with-pspell-prefix=/usr"     \
-		  ""                    \
-		  "for spell checking"
+                  "to view ldap directories" 
+#                 "to view ldap directories" &&
+#
+#optional_depends  "aspell"              \
+#                  "--enable-aspell"     \
+#                  ""                    \
+#                  "for spell checking"
