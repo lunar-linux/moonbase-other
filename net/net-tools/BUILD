@@ -10,9 +10,10 @@ fi
   #sedit  "s:-g #:$CFLAGS $LDFLAGS #:"  Makefile
   #sedit  "s:LOPTS =:LOPTS = -lintl:" Makefile
 
-  make             &&
-  prepare_install  &&
-  make  BASEDIR=/  install
+  make                                              &&
+  prepare_install                                   &&
+  make  BASEDIR=/  install                          &&
+  cp $SCRIPT_DIRECTORY/lnet.8 /usr/share/man/man8/.
 
 ) > $C_FIFO 2>&1  &&  (
 
