@@ -1,5 +1,20 @@
 depends   gtk+-2      &&
 
+optional_depends  "mozilla"                                        \
+                  "--enable-gnutls=no                              \
+                   --with-nspr-libs=/usr/lib/mozilla/              \
+                   --with-nspr-includes=/usr/include/mozilla/nspr/ \
+                   --with-nss-libs=/usr/lib/mozilla/               \
+                   --with-nss-includes=/usr/include/mozilla/nss/   \
+                   --enable-nss=yes"                               \
+                  ""                                               \
+                  "-*required* for msn support (say 'n' to gnutls if you say 'y' here)" &&
+
+optional_depends  "gnutls"               		\
+                  "--enable-nss=no --enable-gnutls=yes" \
+                  ""                                    \
+		  "- *required* for msn support (say 'y' here if you said 'n' to mozilla)" && 
+
 optional_depends  "audiofile"            \
                   "--enable-audiofile"   \
                   "--disable-audiofile"  \
@@ -15,28 +30,7 @@ optional_depends  "gtkspell"            \
                   "--disable-gtkspell"  \
                   "to enable spell checking" &&
 
-optional_depends  "libgnomeui"          \
-                  "--enable-gnome"      \
-                  ""                    \
-                  "for gnome support"   &&
-
 optional_depends  "perl"                \
                   "--enable-perl"       \
-                  ""                    \
-                  "for perl support"    &&
-
-optional_depends  "mozilla"             \
-                  "--enable-gnutls=no                              \
-                   --with-nspr-libs=/usr/lib/mozilla/              \
-                   --with-nspr-includes=/usr/include/mozilla/nspr/ \
-                   --with-nss-libs=/usr/lib/mozilla/               \
-                   --with-nss-includes=/usr/include/mozilla/nss/   \
-                   --enable-nss=yes"                               \
-                  "for msn ssl support (say 'n' to gnutls if you said 'y' here)" &&
-
-optional_depends  "gnutls"               \
-                  "--enable-gnutls=yes"  \
-                  "--enable-gnutls=no"   \
-                  "for msn ssl support (say 'y' here if you said 'n' to mozilla)" 
-  
-
+                  "--disable-perl"      \
+                  "to enable perl plugin support" 
