@@ -9,6 +9,7 @@
   make install.man &&
   mkdir -p $DOCUMENT_DIRECTORY/$MODULE/demos &&
   cp -a demos $DOCUMENT_DIRECTORY/$MODULE &&
-  rm $DOCUMENT_DIRECTORY/$MODULE/demos/*.o
+  rm $DOCUMENT_DIRECTORY/$MODULE/demos/*.o &&
+  cp 00README $DOCUMENT_DIRECTORY/$MODULE
 
 ) > $C_FIFO 2>&1
