@@ -1,11 +1,11 @@
 (
 
-  bzcat $SCRIPT_DIRECTORY/tar-dots.patch.bz2    | patch -p 0 &&
-  bzcat $SCRIPT_DIRECTORY/tar-socket.patch.bz2  | patch -p 0 &&
   bzcat $SCRIPT_DIRECTORY/tar-manpage.patch.bz2 | patch -p 0 &&
+  zcat $SOURCE_CACHE/$SOURCE2 | patch -p 1 &&
 
   gzip -9 tar.1 &&
 
+  autoconf &&
   ./configure  --build=$BUILD     \
                --prefix=/usr      \
                --libexecdir=/bin  \
