@@ -143,14 +143,6 @@ function device_stop() {
 
 	. $CONFIGS/$1;
 	
-	if ( [ ! -z $2 ] && [ $2 == auto ] ); then
-	    case $AUTO in
-		[!yY])
-		    return -2; 
-		;;
-	    esac;
-	fi;
-
 	case $ADDRESS in
 	    [dD][hH][cC][pP])
 	        case $DHCP_CLIENT in
@@ -237,7 +229,7 @@ case $1 in
     stop)
 	if [ -z $2 ]; then
 	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
-		device_stop $device auto;
+		device_stop $device;
 	    done;
 	else
 	    device_stop $2;
@@ -261,24 +253,22 @@ case $1 in
 	# 1. make config files in the form of interface-profile for each interface and profile
 	#        (e.g. /etc/config.d/network/eth0-home)
 	# 2. remove the config file for the device (e.g. /etc/config.d/network/eth0)
-	# 3. make a symbolic link from one of your profiles to the device (e.g. ln -s /etc/config.d/network/eth0-home /etc/config.d/network/eth0)
-	# 4. run /etc/init.d/network switch-profile (profile)
-	# 5. enjoy!
+	# 3. run /etc/init.d/network switch-profile (profile)
+	# 4. enjoy!
 	if [ ! -z $2 ]; then
 	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
 		device_stop $device;
 	    done;
 	    for dev in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
-	        if [ -h $CONFIGS/$dev -a -e $CONFIGS/$dev-$2 ]; then
-		    rm -f $CONFIGS/$dev;
-		    ln -s $CONFIGS/$dev-$2 $CONFIGS/$dev;
-		elif [ -h $CONFIGS/$dev -a ! -e $CONFIGS/$dev-$2 ]; then
-		    echo "Device $dev: has no config for profile $2";
-		elif [ -e $CONFIGS/$dev ]; then
-		    echo "Device $dev: static config, skipped";
+		if [ -e $CONFIGS/$dev-$2 ] ; then
+		    if [ -h $CONFIGS/$dev ]; then
+			rm -f $CONFIGS/$dev;
+			ln -s $CONFIGS/$dev-$2 $CONFIGS/$dev;
+		    else
+			echo "Device $dev: static config, skipped";
+		    fi;
 		else
-		    echo "Device $dev: profiles exist but missing device link, creating";
-		    ln -s $CONFIGS/$dev-$2 $CONFIGS/$dev;
+		    echo "Device $dev: missing config for profile $2";
 		fi;
 	    done;
 	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq` ; do
