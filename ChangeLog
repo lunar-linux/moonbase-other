@@ -1,3 +1,134 @@
+2003-07-20 07:43  jasper
+
+	* mail/sylpheed-gtk2/DETAILS: Fix module name
+
+2003-07-20 01:07  jol
+
+	* utils/lm_sensors/DETAILS: Bumped version OLD: 2.6.5  NEW: 2.8.0
+	Add MD5 field
+
+2003-07-20 01:05  jol
+
+	* libs/i2c/: CONFLICTS, DETAILS: Bumped version OLD: 2.6.5  NEW:
+	2.8.0 Add MD5 field Add conflicts with linux beta because sensors
+	are integrated in 2.5
+
+2003-07-20 00:24  jol
+
+	* docs/man-fr/: BUILD, CONFLICTS, DETAILS: Add man pages in french
+	There is several languages disponible at
+	http://www.tldp.org/docs.html#man
+
+2003-07-19 23:37  moe
+
+	* zbeta/sylpheed-gtk2-beta/: BUILD, CONFLICTS, DEPENDS, DETAILS:
+	This module is the GTK2 version of sylpheed 0.9.1.  Its quite an
+	ungly hack at the moment and you must have gpgme installed to get
+	it to work. The autotools are borked if you don't have it
+	installed.
+	
+	If you want to fix it find a way to edit configure.ac to strip out
+	the lines defining wether to use gpgme or not if chosen to not
+	install with gpgme support. I would have done it myself but I'm a)
+	too tired and b) maybe not skilled enough to do it. Feel free to go
+	ahead.
+	
+	hint: If you want a stable (though outdated) GTK2 sylpheed use the
+	sylpheed-gtk2 module
+	
+	Moe
+
+2003-07-19 22:29  nhudson
+
+	* mail/sylpheed-gtk2/DETAILS: 
+	The MODULE line in the DETAILS file was named sylpheed and not
+	sylpheed-gtk2, there was some unpacking problems with this so I
+	fixed it :)
+
+2003-07-19 21:33  moe
+
+	* mail/sylpheed-gtk2/: BUILD, CONFLICTS, DEPENDS, DETAILS: Weeee!
+	Here comes sylpheed with GTK2 support! ENJOY!
+
+2003-07-19 20:23  csm
+
+	* gnome2-apps/pkgview/DETAILS: fixed broken URL
+
+2003-07-19 20:05  nhudson
+
+	* mail/balsa2/DETAILS: 
+	Updating balsa2 to new version 2.0.12
+
+2003-07-19 20:03  nhudson
+
+	* audio/sound-juicer/DETAILS: 
+	Updating sound-juicer to new version 0.4.1
+
+2003-07-19 20:01  nhudson
+
+	* gnome2-apps/: gcalctool/DETAILS, pkgview/DETAILS: 
+	updating gcalctool to new version and updating pkgview to new
+	version 1.0.1
+
+2003-07-19 19:57  nhudson
+
+	* gnome2-core/libglade2/: BUILD, DETAILS, PRE_BUILD: 
+	Removing the PRE_BUILD file due to that its an ugly hack, now that
+	Python will be built with expat it is no longer needed
+
+2003-07-19 19:53  nhudson
+
+	* compilers/Python/DEPENDS: 
+	Adding expat as a dependancy to Python, to fix a libglade2 problem
+
+2003-07-19 19:33  sofar
+
+	* security/shadow/adduser: Adding the upg scheme to adduser!
+
+2003-07-19 16:31  nhudson
+
+	* chat/gossip/: BUILD, DEPENDS, DETAILS: 
+	Adding gossip to moonbase, Gossip is a Gnome2 based jabber client
+
+2003-07-19 16:30  nhudson
+
+	* libs/loudmouth/: BUILD, DETAILS: 
+	Adding loudmouth to moonbase, Loudmouth is a library for Gossip a
+	Gnome2 based Jabber client
+
+2003-07-19 14:52  nhudson
+
+	* gnome2-apps/meld/DEPENDS: 
+	Changing orbit-python to pyorbit in the depends file
+
+2003-07-19 14:49  nhudson
+
+	* gnome2-extras/pyorbit/: BUILD, DEPENDS, DETAILS: 
+	Changing the name of orbit-python to its newer name pyorbit and
+	updating the version to 1.99.5
+
+2003-07-19 14:35  moe
+
+	* app-themes/gtk-thinice-engine/: DEPENDS, DETAILS: Adding ThinIce
+	GTK engine
+
+2003-07-19 14:33  moe
+
+	* app-themes/gtk-thincream-engine/DETAILS: Thincream is not Thinice
+
+2003-07-19 14:29  csm
+
+	* chat/gaim/DETAILS: updating... fixed segfault... mv ~/.gaim
+	~/.gaim-backup is reuired prior to execution
+
+2003-07-19 12:00  sofar
+
+	* docs/man-pages/DETAILS: version bump.
+
+2003-07-19 11:57  sofar
+
+	* web/bluefish/DETAILS: Version bump.
+
 2003-07-19 00:23  csm
 
 	* chat/gaim/DETAILS: reverting since the new one segfaults!
@@ -1441,76 +1572,4 @@
 
 	* kernel/linux-vanilla/POST_INSTALL: the label for vanilla was too
 	long for lilo
-
-2003-06-19 21:50  sofar
-
-	* printer/cups/: BUILD, DEPENDS, DETAILS, POST_INSTALL, PRE_REMOVE,
-	init.d/cups, init.d/cupsd: Large cups rewrite:
-	
-	- adding foomatic-rip for easily dropping in PPD's from
-	linuxprinting.org - updating init.d script to something less
-	offensive - removing all the unneeded code and cleaning up.  -
-	dropping my nick as maintainer in here for now (blame me)
-
-2003-06-19 17:48  jol
-
-	* ham/unixcw/: BUILD, DEPENDS, DETAILS: Remove qt-x11 depends, now
-	use qt3 with a small fix.  Add MD5_SOURCE
-
-2003-06-19 12:38  nhudson
-
-	* zbeta/gnumeric2/DETAILS: 
-	Updating gnumeric2 to new version 1.1.9
-
-2003-06-19 12:37  nhudson
-
-	* gnome2-core/: libgnomeprint/DETAILS, libgnomeprintui/DETAILS: 
-	Updating libgnomeprint and libgnomeprintui to new version 2.2.1.3
-
-2003-06-19 09:42  niki
-
-	* devel/gtranslator/DEPENDS: Found a dependency list, and updated
-	the DEPENDS file acordingly.
-
-2003-06-19 09:23  niki
-
-	* devel/gtranslator/DEPENDS: Added a depends file.
-
-2003-06-19 08:37  niki
-
-	* devel/gtranslator/DETAILS: Just saw that gtranslator development
-	has become active again, so here is a app to aide in translation of
-	.po files.
-
-2003-06-19 03:00  csm
-
-	* utils/calcdate/BUILD: another stupid change to test the commits
-	mailing list
-
-2003-06-19 02:46  csm
-
-	* utils/calcdate/BUILD: a stupid change to monitor commits
-
-2003-06-19 01:36  csm
-
-	* net/bw-whois/DETAILS: dunno who might have installed it and havce
-	it fail due to the previous config
-
-2003-06-19 01:26  csm
-
-	* net/bw-whois/BUILD: some of the default file locations for this
-	have changed... this fixes them!
-
-2003-06-19 01:23  nhudson
-
-	* doc-tools/gtk-doc/: DEPENDS, DETAILS: 
-	Ok I am moving gtk-doc to doc-tools where it should have been all
-	along, also I am forcing a rebuild because the install will go to
-	/usr now instead of /opt/lunar/gnome/2
-
-2003-06-19 00:53  jol
-
-	* video/vlc/: BUILD, DEPENDS, DETAILS: Change version OLD: 0.4.3 
-	NEW: 0.5.3 All lots of depends Remove qt-x11 depends, now qt3
-	support
 
