@@ -1,5 +1,4 @@
 (
-   patch_it $SOURCE_CACHE/$SOURCE2 0      &&
   
   ./configure  --prefix=/usr             \
                --bindir=/usr/bin         \
