@@ -1,6 +1,14 @@
 (
   export PWLIBDIR=$SOURCE_DIRECTORY/pwlib             &&
   cd pwlib                                            &&
+
+ (
+ #this fixes the build for bison 1.875
+  cd tools/asnparser                                  &&
+  make asn_grammar.cxx                                &&
+  sedit "s:\(__attribute__ ((__unused__))\):\1;:"  asn_grammar.cxx
+ )
+
   make optnoshared                                    &&
   cd lib                                              &&
   ln -s libpt_linux_x86_r_s.a libpt.a                 &&
