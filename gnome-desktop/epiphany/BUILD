@@ -1,4 +1,6 @@
-(
+(   
+    export LD_LIBRARY_PATH=/opt/lunar/gnome/2.4/lib:/usr/lib:/lib
+ 
     ./configure --build=$BUILD                                  \
                 --sysconfdir=/etc                               \
                 --prefix=/opt/lunar/gnome/2.4                     \
