@@ -2,10 +2,16 @@ depends  bonobo-conf  &&
 depends  gtkhtml2     &&
 depends  soup         &&
 
-optional_depends  "openssl"     ""  ""  "for SSL support"             &&
 optional_depends  "gnupg"       ""  ""  "for encrypted mail support"  &&
 optional_depends  "gnome-spell" ""  ""  "For spellcheck support"      &&
 
+optional_depends  "openssl"                                           \
+                  "--enable-openssl=yes                               \
+		  --with-openssl-includes=/usr/include/openssl        \
+		  --with-openssl-libs=/usr/lib"                       \
+		  "--enable-openssl=no"                               \
+		  "for SSL support"                                   &&
+		  
 optional_depends  "pilot-link" "--enable-pilotlinktest"               \
                   ""                                                  \
                   "for Palm support"                                  &&
