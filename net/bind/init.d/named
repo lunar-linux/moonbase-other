@@ -12,5 +12,11 @@
 
 ARGS="-u bind"
 
+start() {
+  pgrep -P 1 named || rm $PIDFILE &> /dev/null
+  echo -n "Starting named:"
+  /usr/sbin/named $ARGS && echo -e $RESULT_OK || echo -e $RESULT_FAIL
+}
+
 . /lib/lsb/init-functions
 
