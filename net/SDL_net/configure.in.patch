@@ -1,0 +1,11 @@
+--- configure.in.old	2002-04-13 09:34:42.000000000 -0500
++++ configure.in	2002-12-12 20:41:01.000000000 -0600
+@@ -100,7 +100,7 @@
+ [  --enable-gui            Try to build the GUI test programs [default=yes]],
+               , enable_gui=yes)
+ if test x$enable_gui = xyes; then
+-    AC_CHECK_LIB(GUI, GUI_Create, have_GUI=yes)
++    AC_CHECK_LIB(GUI, GUI_Create, have_GUI=yes,,-lstdc++)
+     if test x$have_GUI != xyes; then
+         AC_MSG_WARN([*** Can't find the GUI library - not building test programs
+ The GUI library can be found at:
