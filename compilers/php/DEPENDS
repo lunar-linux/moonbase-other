@@ -97,6 +97,16 @@ optional_depends "expat"                        \
                  ""                             \
                  "for expat xml support"        &&
 
+optional_depends "libxml2"			\
+		"--with-dom=/usr --with-zlib-dir=/usr" \
+		""				\
+		"for DOMXML support"		&&
+
+optional_depends "libxslt"			\
+		"--with-dom-xslt=/usr --with-dom-exslt=/usr" \
+		""				\
+		"for DOM Xslt support"		&&
+
 optional_depends "openldap"                     \
                  "--with-ldap"                  \
 		 ""                             \
