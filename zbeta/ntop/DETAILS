@@ -1,12 +1,17 @@
           MODULE=ntop
-         VERSION=2.1.2
+         VERSION=2.1.3
           SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+SOURCE_DIRECTORY2=$SOURCE_DIRECTORY/gdchart0.94c
+SOURCE_DIRECTORY3=zlib-1.1.4
+SOURCE_DIRECTORY4=gd-1.8.3
+SOURCE_DIRECTORY5=$SOURCE_DIRECTORY4/libpng-1.2.1
+SOURCE_DIRECTORY6=$SOURCE_DIRECTORY/$MODULE
+
    SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
         WEB_SITE=http://www.ntop.org
          ENTERED=20020803
          UPDATED=20020803
-      MAINTAINER=michalsc@email.uc.edu
            SHORT="ntop is a network traffic probe."
 cat << EOF
 ntop is a network traffic probe that shows the network usage, similar to what the popular top Unix command does. ntop is based on libpcap and it has been written in a portable way in order to virtually run on every Unix platform and on Win32 as well. 
