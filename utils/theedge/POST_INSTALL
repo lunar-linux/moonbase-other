@@ -1,12 +1,12 @@
 # this is for removing the lunar module from the
 # package listing WITHOUT removing its contents
 # kongar, 20020524
-module_installed lunar && remove_module lunar
+if module_installed lunar ; then
+  remove_module lunar
+fi
 
-[ "$LUNAR_MODULE" != "theedge" ] &&
-write_config "LUNAR_MODULE=" "LUNAR_MODULE=theedge"
+if [ "$LUNAR_MODULE" != "theedge" ] ; then
+  set_lunar_config "LUNAR_MODULE" "$LUNAR_MODULE"
+fi
 
-write_config "optimize"
-
-true
 
