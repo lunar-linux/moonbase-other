@@ -8,7 +8,7 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     echo 'IMAP="y"' >> $MODULE_CONFIG
   fi
 
-  if  query  "Enable transparant session id?" y;  then
+  if  query  "Enable transparent session id?" y;  then
     OPTS="$OPTS --enable-trans-sid"
   fi
   
