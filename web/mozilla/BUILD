@@ -1,76 +1,13 @@
 (
  OPTS=
 
-    if [ "$MAILNEWS" == "n" ] ; then 
-      OPTS="--disable-mailnews"
-    fi
-
-    if [ "$CALENDAR" == "y" ] ; then
-      OPTS="$OPTS --enable-calendar"
-    fi
-
-    # Mozilla won't build with freetype > 2.0.7
-
-    if [ "$XFT" == "y" ] ; then
-      OPTS="$OPTS --enable-xft"
-    fi
-
-    if [ "$GTK2" == "y" ] ; then
-      OPTS="$OPTS --enable-default-toolkit=gtk2"
-    fi
-
-    EXTN="--enable-extensions=default,-xmlextras,-inspector"
-
-    if [ "$IRC" == "n" ] ; then 
-      EXTN="$EXTN,-irc"
-    fi
-    
-    OPTS="$OPTS $EXTN"
-
-  CFLAGS=${CFLAGS//pentium4/pentium3}
-  CFLAGS=${CFLAGS//-msse2/}
+  if [ "$GTK2" == "y" ] ; then 
+    OPTS="--enable-gtk20"
+  fi
   
-  CXXFLAGS=${CXXFLAGS//pentium4/pentium3}
-  CXXFLAGS=${CXXFLAGS//-msse2/}
-  
-  CCOPT=${CCOPT//pentium4/pentium3}
-  CCOPT=${CCOPT//-msse2/}
-  
-  COPT=${COPT//pentium4/pentium3}
-  COPT=${COPT//-msse2/}
-  
-  export CFLAGS CXXFLAGS CCOPT COPT
-
-  ./configure  --disable-tests              \
-               --disable-debug              \
-               --disable-dtd-debug          \
-               --disable-logging            \
-               --disable-installer          \
-               --enable-optimize="-w $CFLAGS" \
-               --without-jpeg               \
-               --without-zlib               \
-               --without-png                \
-               --enable-crypto         	    \
-               --enable-strip               \
+  ./configure  --build=$BUILD               \
+               --prefix=/usr	            \
 	       $OPTS			    &&
-  make                                      &&
-  prepare_install
+  default_make
 
-) > $C_FIFO 2>&1  &&  (
-
-  rm     -f                          /usr/lib/mozilla/component.reg
-  mkdir  -p                          /usr/lib/mozilla
-  cp     -rL  dist/bin/*             /usr/lib/mozilla
-  mkdir  -p                      /usr/include/mozilla
-  cp	 -rL  dist/include/*     /usr/include/mozilla
-  cp  $SCRIPT_DIRECTORY/mozilla  /usr/bin
-
-  export  MOZILLA_FIVE_HOME=/usr/lib/mozilla
-  export    LD_LIBRARY_PATH=/usr/lib/mozilla:$LD_LIBRARY_PATH
-
-         /usr/lib/mozilla/regxpcom
-         /usr/lib/mozilla/regchrome
-  touch  /usr/lib/mozilla/chrome/user-skins.rdf
-  touch  /usr/lib/mozilla/chrome/user-locales.rdf
-
-)
+) > $C_FIFO 2>&1
