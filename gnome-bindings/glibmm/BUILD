@@ -6,7 +6,7 @@
                 --localstatedir=/var              \
                 --infodir=${GNOME26_PREFIX:-/usr}/share/info \
                 --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
-                --disable-doxygen                 \
+                --disable-fulldocs                \
                 $OPTS                             &&
     default_make                   
 
