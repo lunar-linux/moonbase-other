@@ -1,9 +1,6 @@
 (
 
-  ./configure  --prefix=/usr  &&
-  make                        &&
-  prepare_install             &&
-  make    install             &&
+  default_build &&
   make    install-dev         &&        
   make    install-lib
 
