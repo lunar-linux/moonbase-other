@@ -1,6 +1,6 @@
 (
 
-if [[ `lvu installed xfree86` = "xfree86 is not installed" ]]
+if !module_installed xserver
 then
     message "xfree86 server is not installed, so xapm will not be built"
     cat $SCRIPT_DIRECTORY/apmdNoX.patch | patch -p1

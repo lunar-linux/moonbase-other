@@ -1,5 +1,5 @@
 (
-  if module_installed xfree86; then
+  if module_installed xserver; then
     OPTS="$OPTS --enable-x"
   else
     OPTS="$OPTS --disable-x"
