@@ -1,6 +1,6 @@
 (
 
-#  ./autogen.sh
+  unset CC CXX &&
   ./configure  --prefix=/usr        \
                --bindir=/usr/games  &&
   make                              &&
