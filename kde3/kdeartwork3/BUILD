@@ -12,10 +12,16 @@
                  --with-xinerama                    \
                  $OPTS                                &&
 
+  if module_installed NVIDIA_GLX ; then
+    mv /usr/X11R6/include/GL/glx.h /usr/X11R6/include/GL/glx.NVIDIA &&
+    cp $SCRIPT_DIRECTORY/glx.h /usr/X11R6/include/GL/ 
+  fi                   &&
   make                 &&
   prepare_install      &&
   make install         
 
- 
+  if [ -e /usr/X11R6/include/GL/glx.NVIDIA ]; then
+   mv /usr/X11R6/include/GL/glx.NVIDIA /usr/X11R6/include/GL/glx.h
+  fi
 ) > $C_FIFO 2>&1
 		   
