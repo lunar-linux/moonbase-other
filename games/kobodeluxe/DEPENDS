@@ -1,4 +1,2 @@
 depends  SDL_image  &&
-if  [  -n  "$KOBO_OGL"  ];  then
-  depends  glut
-fi
+optional_depends "glut" "--enable-gl" "" "For OpenGL support"

@@ -1,13 +1,3 @@
-if  !  grep  -q  "KOBO_OGL="  $MODULE_CONFIG;  then
-
-  if  query  "Enable OpenGL rendering layer support (experimental) ?" n
-  then  KOBO_OGL="--enable-opengl"
-  else  KOBO_OGL=""
-  fi
-  echo  "KOBO_OGL=\"$KOBO_OGL\""  >> $MODULE_CONFIG
-
-fi
-
 if  !  grep  -q  "KOBO_OSS="  $MODULE_CONFIG;  then
 
   if  query  "Support OSS audio API (in addition to SDL audio) ?" n
