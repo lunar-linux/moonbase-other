@@ -8,7 +8,6 @@
                $OPTS                                             &&
 
   default_make                                                   &&
-  cp scripts/spell scripts/ispell scripts/aspell-import /usr/bin &&
-  chmod 755 /usr/bin/ispell /usr/bin/spell
-
+  install -m755 scripts/spell scripts/ispell \
+		scripts/aspell-import /usr/bin
 ) > $C_FIFO 2>&1 
