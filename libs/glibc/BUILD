@@ -1,6 +1,5 @@
 (
-  #Patch stuff
-  patch_it $SOURCE_CACHE/$SOURCE3 1             # old static-bin segfault
+
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
   fi
