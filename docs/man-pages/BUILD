@@ -1,6 +1,6 @@
 (
 
   prepare_install                           &&
-  make MANDIR=/usr/share/man gz install
+  make allgz
 
 ) > $C_FIFO 2>&1
