@@ -75,6 +75,9 @@
 
     default_make   &&
 
+# jol change. On clean install /usr/share/applications
+mkdir -p /usr/share/applications 
+
 cp $patchdir/mozilla.desktop /usr/share/applications/mozilla.desktop &&
 cp $patchdir/mozilla.png /usr/share/pixmaps/mozilla.png &&
 
