@@ -94,7 +94,7 @@ function device_start() {
 		    return -1;
 		fi;
 		if [ -e $PIDFILE ]; then
-		    if [ $(ps ax | grep `cat $PIDFILE` | grep -v grep | wc -l) -ge 1 ]; then
+		    if [ $(ps ax | grep `cat $PIDFILE` | grep $DHCP_CLIENT | grep -v grep | wc -l) -ge 1 ]; then
 		        echo -n "already started";
 		        return -3;
 		    else
