@@ -1,0 +1,25 @@
+          MODULE=libmodplug
+         VERSION=0.7
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/modplug-xmms/$SOURCE
+#     SOURCE_VFY=md5:4d6726fd02ce02f6e24824e594b0949a
+        WEB_SITE=http://modplug-xmms.sourceforge.net
+         ENTERED=20040302
+         UPDATED=20040302
+           SHORT="libmodplug is a library for decoding .mod audio files."
+cat << EOF
+libmodplug is a library that can decode various types of MOD files, such as: 
+
+- Plays 22 different mod formats, including:
+    MOD, S3M, XM, IT, 669, AMF (both of them), AMS, DBM, DMF, DSM, FAR,
+    MDL, MED, MTM, OKT, PTM, STM, ULT, UMX, MT2, PSM
+- Plays zip, rar, gzip, and bzip2 compressed mods.  The following
+    extensions are recognized:
+    zip:  MDZ,  S3Z,  XMZ,  ITZ
+    rar:  MDR,  S3R,  XMR,  ITR
+    gzip: MDGZ, S3GZ, XMGZ, ITGZ
+   You can also load plain old ZIP, RAR, and GZ files.  If ModPlug finds
+   a mod in them, it will play it.
+
+EOF
