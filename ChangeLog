@@ -1,3 +1,85 @@
+2003-10-07 11:47  florin
+
+	* games/crimson/DETAILS: bumped version from 0.3.6 to 0.3.7.
+
+2003-10-07 04:27  jmhodges
+
+	* perl/mod_perl/DETAILS: stupid version changes without tarball
+	number change.. fun! added md5sum
+
+2003-10-07 04:02  nhudson
+
+	* gnome2-core/gdm/: BUILD, DETAILS, Default, POST_INSTALL, gnomerc,
+	init.d/gdm, pam.d/gdm-autologin: 
+	Commiting changes to gdm, adding a POST_INSTALL to notify the user
+	of adding /opt/lunar/gnome/2.4/bin to their /etc/profile for now
+	till we can find a better way of doing this.  Also updating to new
+	version 2.4.4.3 and changing the md5sum and adding a patch that
+	fixes some problems with pam
+
+2003-10-07 03:31  nhudson
+
+	* libs/glib-2/DEPENDS: 
+	Adding in depend on gtk-doc now that we are building documetation
+
+2003-10-07 03:28  nhudson
+
+	* libs/glib-2/BUILD: 
+	Adding a BUILD file so that it will build both a static lib and
+	dynamic libs for glib-2
+
+2003-10-07 02:49  tchan
+
+	* devel/automake/DETAILS: Version bump to 1.7.8.  Small bug fix
+	release from 1.7.7.  Compiled and tested with gcc-3.2.3,
+	glibc-2.3.2.
+
+2003-10-06 21:46  jol
+
+	* kde3-apps/kexchange3/: BUILD, DETAILS: Bumped version OLD: 0.3 
+	NEW: 0.3.1 clean some code
+
+2003-10-06 20:40  jol
+
+	* devel/PyQt/DETAILS: Bumped version OLD: 3.8  NEW: 3.8.1
+
+2003-10-06 20:29  jmhodges
+
+	* compilers/Python/DETAILS: version bump
+
+2003-10-06 20:22  florin
+
+	* graphics/tiff/DETAILS: bumped version from 3.5.7 to 3.6.0
+
+2003-10-06 19:11  sofar
+
+	* utils/: lunar/DETAILS, theedge/DETAILS: Important bugfixes two
+	days ago, bumping UPDATED
+
+2003-10-06 17:18  jol
+
+	* kde3/: arts/DEPENDS, arts/DETAILS, kdeaddons3/BUILD,
+	kdeaddons3/DETAILS, kdeadmin3/BUILD, kdeadmin3/DETAILS,
+	kdeartwork3/BUILD, kdeartwork3/DETAILS, kdebase3/BUILD,
+	kdebase3/DETAILS, kdebindings3/BUILD, kdebindings3/DETAILS,
+	kdeedu3/BUILD, kdeedu3/DETAILS, kdegames3/BUILD, kdegames3/DETAILS,
+	kdegraphics3/BUILD, kdegraphics3/DETAILS, kdelibs3/BUILD,
+	kdelibs3/DEPENDS, kdelibs3/DETAILS, kdemultimedia3/BUILD,
+	kdemultimedia3/DETAILS, kdenetwork3/BUILD, kdenetwork3/DETAILS,
+	kdepim3/BUILD, kdepim3/DETAILS, kdesdk3/BUILD, kdesdk3/DETAILS,
+	kdetoys3/BUILD, kdetoys3/DETAILS, kdeutils3/BUILD,
+	kdeutils3/DETAILS: Clean BUILD all kde3 build file. Add somes
+	missed depends
+
+2003-10-06 15:54  florin
+
+	* audio/alsa-driver/DETAILS: bumped version from 0.9.7 to 0.9.7a.
+	bugfix version.
+
+2003-10-06 15:32  florin
+
+	* security/nmap/DETAILS: bumped version from 3.47 to 3.48.
+
 2003-10-06 08:06  jasper
 
 	* profiles/xfce4-extras-profile/: DEPENDS, DETAILS: Add notes
@@ -2429,119 +2511,4 @@
 2003-09-07 02:05  csm
 
 	* gnome2-applets/goats/DETAILS: an updated version of goats!
-
-2003-09-06 20:28  sofar
-
-	* audio/easytag/DETAILS: Version bump.
-
-2003-09-06 19:31  jmhodges
-
-	* games/: pysol/DEPENDS, pysol-cardsets/BUILD,
-	pysol-cardsets/DEPENDS, pysol-cardsets/DETAILS, pysol-music/BUILD,
-	pysol-music/DEPENDS, pysol-music/DETAILS,
-	pysol-sound-server/DEPENDS, pysol-sound-server/DETAILS: some pysol
-	additions, i was bored and looking for some src code to use when i
-	saw all of this .. :)
-
-2003-09-06 19:15  sofar
-
-	* archive/flexbackup/DETAILS: Version bump
-
-2003-09-06 19:08  sofar
-
-	* app-themes/lighthouseblue-gtk2/DETAILS: Version bump
-
-2003-09-06 19:05  sofar
-
-	* app-themes/gtk-smooth-engine/DETAILS: Version bump.
-
-2003-09-06 18:11  jmhodges
-
-	* libs/pygame/: BUILD, DEPENDS, DETAILS: initial import
-
-2003-09-06 15:58  florin
-
-	* games/tuxpuck/: BUILD, DETAILS: simplifying the patch for
-	makefile.
-
-2003-09-06 15:53  florin
-
-	* kde3/kdesdk3/: BUILD, DETAILS: simplifying the patch for db4.
-
-2003-09-06 15:34  florin
-
-	* doc-tools/man/DETAILS: bump version from 1.5m1 to 1.5m2
-
-2003-09-06 12:45  florin
-
-	* games/xsoldier/: BUILD, DETAILS: modifying the data directories
-	for conforming to the LSB, bins in /usr/games, static data in
-	/usr/share/games and variable data in /var/games.
-
-2003-09-06 12:28  florin
-
-	* games/: xpenguins/BUILD, xpenguins/DETAILS, xpilot/BUILD,
-	xpilot/DETAILS: modifying the data directories for conforming to
-	the LSB, bins in /usr/games, static data in /usr/share/games and
-	variable data in /var/games.
-
-2003-09-06 12:06  florin
-
-	* games/armagetron/DETAILS: fix the files attr
-
-2003-09-06 11:29  florin
-
-	* games/vectoroids/: BUILD, DETAILS: modifying the data directories
-	for conforming to the LSB, bins in /usr/games, static data in
-	/usr/share/games and variable data in /var/games.
-
-2003-09-06 11:17  florin
-
-	* games/trackballs/: BUILD, DETAILS: modifying the data directories
-	for conforming to the LSB, bins in /usr/games, static data in
-	/usr/share/games and variable data in /var/games.
-
-2003-09-06 11:10  florin
-
-	* games/tuxpuck/: BUILD, DETAILS: modifying the data directories
-	for conforming to the LSB, bins in /usr/games, static data in
-	/usr/share/games and variable data in /var/games.
-
-2003-09-06 09:41  florin
-
-	* games/pysol/DETAILS: bump version from 4.81 to 4.82
-
-2003-09-06 09:36  florin
-
-	* games/openuniverse/: BUILD, DETAILS: modifying the data
-	directories for conforming to the LSB, bins in /usr/games, static
-	data in /usr/share/games and variable data in /var/games.
-
-2003-09-06 09:12  florin
-
-	* games/luola/: BUILD, DETAILS: modifying the data directories for
-	conforming to the LSB, bins in /usr/games, static data in
-	/usr/share/games and variable data in /var/games.  bumped version
-	from 1.0.3 to 1.2.0
-
-2003-09-06 05:46  csm
-
-	* utils/module-init-tools/BUILD: this module did not work properly
-	and was leaving out some things.  insmod from modutils is actually
-	a symbolic link and it was not being handled properly by this
-	module (insmod.old was not being made properly) and
-	/etc/modprobe.conf and /etc/modprobe.devfs were not being created.
-	Hopefully this will fix it for now.
-
-2003-09-06 03:26  nhudson
-
-	* gnome2-applets/gnome-blog/: BUILD, DEPENDS, DETAILS: 
-	Adding gnome-blog to moonbase which is a nice gnome applet if you
-	use a blogger from movabletype or blogger.com, it will allow you to
-	add intries to your blog from the gnome panel
-
-2003-09-06 02:20  watryac04
-
-	* audio/rhythmbox/DEPENDS: Added optional depends sound-juicer to
-	rhythmbox to add cd-ripping support.
 
