@@ -1,3 +1,5 @@
 depends freetype2 &&
 depends libpng    &&
-depends glut
+depends glut      &&
+optional_depends "NVIDIA_GLX" "--enable-bumpref=yes" "--enable-bumpref=no" \
+                 "for extended NV OpenGL functions"

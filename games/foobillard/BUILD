@@ -1,5 +1,6 @@
 (
-  ./configure --prefix=/usr --bindir=/usr/games &&
-  default_make
+
+  ./configure --prefix=/usr --bindir=/usr/games $OPTS  &&
+  default_build
 
 ) > $C_FIFO 2>&1
