@@ -4,7 +4,7 @@ service rsync
         socket_type             = stream
         wait                    = no
         user                    = root
-        server                  = /usr/sbin/rsync-wrapper
+        server                  = /usr/sbin/rsync
         server_args             = --daemon
         log_type                = FILE /var/log/xinetd/rsync
         log_on_success          += HOST EXIT DURATION
