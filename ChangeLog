@@ -1,3 +1,55 @@
+2003-12-11 11:54  ratler
+
+	* chat/irssi/DETAILS: Bumped version. New version contain fix for
+	the potential remote crash bug discovered. Tested by Ratler and
+	seem to work fine.
+
+2003-12-11 04:15  hardkrash
+
+	* x11/xfree86/BUILD: fixing xfree86 and freetype2 once and for all
+	:-P  see bug 414
+
+2003-12-11 04:09  jmhodges
+
+	* video/MPlayer/DEPENDS: faad fix, compiles now, yaaay!
+
+2003-12-11 03:50  jmhodges
+
+	* video/MPlayer/DETAILS: fscking md5sum change
+
+2003-12-11 03:06  tchan
+
+	* ftp/gtm/: DEPENDS, DETAILS: Added a missing depends --
+	gnome-core.  Now gtm compiles correctly.  This closes Bug #409 from
+	the Lunar Bug tracker page.  Compiled and tested with gcc-3.2.3,
+	glibc-2.3.2.
+
+2003-12-10 22:45  nhudson
+
+	* gnome2-apps/conglomerate/DETAILS: 
+	Updating conglomerate to new version 0.7.7
+
+2003-12-10 22:44  florin
+
+	* games/asteroids3D/: BUILD, DETAILS: made the install dirs LSB
+	compliant.
+
+2003-12-10 19:03  niki
+
+	* crypto/: gnutls/DEPENDS, opencdk/DEPENDS, opencdk/DETAILS: Seems
+	like gnutls now needs opencdk, which i here by add ;-)
+
+2003-12-10 18:25  florin
+
+	* profiles/kde3/DEPENDS: move kdeaddons3 depend to the end as it
+	needs kdepim3 installed for the 3.2 version.
+
+2003-12-10 15:00  niki
+
+	* chat/gaim/DETAILS, crypto/gnutls/DETAILS,
+	crypto/libgcrypt/DETAILS, crypto/libgpg-error/DETAILS: Bumped all
+	GnuTLS components, which also includes a rebuild of gaim.
+
 2003-12-10 04:06  jmhodges
 
 	* games/bzflag/DETAILS: making it d/l from sf.net
@@ -306,8 +358,8 @@
 
 2003-12-07 07:52  florin
 
-	* kde3/kdebindings3/: DEPENDS, 3.2_test/DEPENDS: remove the gtk+
-	and glib depends. old stuff must go away i think.
+	* kde3/kdebindings3/DEPENDS: remove the gtk+ and glib depends. old
+	stuff must go away i think.
 
 2003-12-07 07:38  florin
 
@@ -363,8 +415,8 @@
 
 2003-12-06 06:42  florin
 
-	* kde3/kdemultimedia3/: BUILD, 3.2_test/BUILD: let the module use
-	gtk+ if it's already installed (good for using apps like xmms).
+	* kde3/kdemultimedia3/BUILD: let the module use gtk+ if it's
+	already installed (good for using apps like xmms).
 
 2003-12-06 04:54  tchan
 
@@ -484,15 +536,14 @@
 
 2003-12-05 16:01  florin
 
-	* kde3/kdemultimedia3/: BUILD, DEPENDS, 3.2_test/BUILD,
-	3.2_test/DEPENDS: get rid of gtk+ depend, and disable it's use.
+	* kde3/kdemultimedia3/: BUILD, DEPENDS: get rid of gtk+ depend, and
+	disable it's use.
 
 2003-12-05 15:26  florin
 
-	* kde3/kdegraphics3/: DEPENDS, 3.2_test/DEPENDS: get rid of imlib
-	(gtk+,	glib) and xpdf depends. it's old stuff (gnome 1.x) or there
-	are better kde replacement (kghost view). add an optional gphoto2
-	depend.
+	* kde3/kdegraphics3/DEPENDS: get rid of imlib (gtk+,  glib) and
+	xpdf depends. it's old stuff (gnome 1.x) or there are better kde
+	replacement (kghost view). add an optional gphoto2 depend.
 
 2003-12-05 11:08  niki
 
@@ -538,9 +589,8 @@
 
 2003-12-04 22:15  florin
 
-	* kde3/arts/: DEPENDS, DETAILS, 1.2_test/DEPENDS, 1.2_test/DETAILS:
-	fix the DEPENDS file. the mad module is obsolete. the new depend is
-	now called libmad.
+	* kde3/arts/: DEPENDS, DETAILS: fix the DEPENDS file. the mad
+	module is obsolete. the new depend is now called libmad.
 
 2003-12-04 21:58  nestu
 
@@ -982,37 +1032,6 @@
 
 	* profiles/kde3/3.2_test/: BUILD, DEPENDS, DETAILS, POST_BUILD,
 	PRE_BUILD: Add profile for kde 3.2_test
-
-2003-11-25 19:25  jol
-
-	* kde3/: arts/1.2_test/BUILD, arts/1.2_test/DEPENDS,
-	arts/1.2_test/DETAILS, kdeaddons3/3.2_test/BUILD,
-	kdeaddons3/3.2_test/DEPENDS, kdeaddons3/3.2_test/DETAILS,
-	kdeadmin3/3.2_test/BUILD, kdeadmin3/3.2_test/DEPENDS,
-	kdeadmin3/3.2_test/DETAILS, kdeartwork3/3.2_test/BUILD,
-	kdeartwork3/3.2_test/DEPENDS, kdeartwork3/3.2_test/DETAILS,
-	kdeartwork3/3.2_test/glx.h, kdebase3/3.2_test/BUILD,
-	kdebase3/3.2_test/DEPENDS, kdebase3/3.2_test/DETAILS,
-	kdebindings3/3.2_test/BUILD, kdebindings3/3.2_test/CONFIGURE,
-	kdebindings3/3.2_test/DEPENDS, kdebindings3/3.2_test/DETAILS,
-	kdeedu3/3.2_test/BUILD, kdeedu3/3.2_test/DEPENDS,
-	kdeedu3/3.2_test/DETAILS, kdegames3/3.2_test/BUILD,
-	kdegames3/3.2_test/DEPENDS, kdegames3/3.2_test/DETAILS,
-	kdegraphics3/3.2_test/BUILD, kdegraphics3/3.2_test/DEPENDS,
-	kdegraphics3/3.2_test/DETAILS, kdelibs3/3.2_test/BUILD,
-	kdelibs3/3.2_test/DEPENDS, kdelibs3/3.2_test/DETAILS,
-	kdemultimedia3/3.2_test/BUILD, kdemultimedia3/3.2_test/DEPENDS,
-	kdemultimedia3/3.2_test/DETAILS, kdenetwork3/3.2_test/BUILD,
-	kdenetwork3/3.2_test/DEPENDS, kdenetwork3/3.2_test/DETAILS,
-	kdepim3/3.2_test/BUILD, kdepim3/3.2_test/DEPENDS,
-	kdepim3/3.2_test/DETAILS, kdesdk3/3.2_test/#DET#,
-	kdesdk3/3.2_test/BUILD, kdesdk3/3.2_test/DEPENDS,
-	kdesdk3/3.2_test/DETAILS, kdetoys3/3.2_test/BUILD,
-	kdetoys3/3.2_test/DEPENDS, kdetoys3/3.2_test/DETAILS,
-	kdeutils3/3.2_test/BUILD, kdeutils3/3.2_test/DEPENDS,
-	kdeutils3/3.2_test/DETAILS: First import of kde 3.2_test. For now
-	only kdebinding and kdesdk don't compile.  Compile with gcc-3.3.2,
-	kernel 2.4.22
 
 2003-11-25 18:33  tchan
 
@@ -1676,93 +1695,4 @@
 	* gnome2-core/: gnome-terminal/DETAILS, yelp/DETAILS: 
 	Updating gnome-terminal to new version 2.4.2 and yelp to new
 	version 2.4.2
-
-2003-11-10 23:43  jmhodges
-
-	* web/PyDS/DETAILS: version bump
-
-2003-11-10 23:38  tchan
-
-	* mail/: exim/CONFLICTS, exim4/BUILD, exim4/CONFIGURE,
-	exim4/CONFLICTS, exim4/DEPENDS, exim4/DETAILS, exim4/POST_INSTALL,
-	exim4/PRE_REMOVE, exim4/services, exim4/init.d/exim,
-	postfix/CONFLICTS, sendmail/CONFLICTS: Here are the changes needed
-	for an exim4 module.  It tries to run the automatic conversion
-	script on /etc/exim.conf to get that file into exim4 format, but
-	the output MUST be checked as the script can NOT handle complex
-	exim setups.  Exim4 should stay as a separate module and not a
-	version subdir.  Added exim4 to the CONFLICTS files for sendmail,
-	postfix, and exim.  Good luck working on your new /etc/exim.conf
-	files the new exim4 manual is $60 U.S.	Your old exim.conf file has
-	been backed up to /etc/exim.conf.3
-
-2003-11-10 19:34  watryac04
-
-	* games/KBtin/DETAILS: Forgot to change the UPDATED field before. 
-	Also, changed my email to something more appropriate to lunar
-	development work.
-
-2003-11-10 19:19  watryac04
-
-	* games/KBtin/DETAILS: New version of KBtin (1.0.5)  Updated
-	version, and computed new MD5.
-
-2003-11-10 18:03  florin
-
-	* ftp/gftp/DETAILS: bump version from 2.0.15 to 2.0.16.
-
-2003-11-10 17:52  sofar
-
-	* utils/openldap/BUILD: Adding a plethora of options to get the old
-	behaviour again (most importantly, get ldbm to work). Someone might
-	be interested in the --enable-sql option, perhaps it works with
-	mysql.
-
-2003-11-10 16:39  florin
-
-	* devel/automake/DETAILS: bump version from 1.7.8 to 1.7.9. bugfix
-	release.
-
-2003-11-10 16:30  florin
-
-	* devel/anjuta/DETAILS: bump version from 1.1.97 to 1.1.98.
-
-2003-11-10 16:06  sofar
-
-	* compilers/php/DEPENDS: Need this, sigh...
-
-2003-11-10 15:43  florin
-
-	* games/armagetron/: DEPENDS, DETAILS: bump version from 0.2.5.2 to
-	0.2.6.0.
-
-2003-11-10 08:06  jasper
-
-	* profiles/xfce4-extras-profile/: DEPENDS, DETAILS: Update extras
-	profile
-
-2003-11-10 08:03  jasper
-
-	* xfce4/: libxfce4mcs/CONFLICTS, libxfce4util/CONFLICTS,
-	libxfcegui4/CONFLICTS, xfce-mcs-manager/CONFLICTS,
-	xfce-mcs-plugins/CONFLICTS, xfce-utils/CONFLICTS,
-	xfce4-battery-plugin/CONFLICTS, xfce4-clipman-plugin/BUILD,
-	xfce4-clipman-plugin/DEPENDS, xfce4-clipman-plugin/DETAILS,
-	xfce4-datetime-plugin/BUILD, xfce4-datetime-plugin/DEPENDS,
-	xfce4-datetime-plugin/DETAILS, xfce4-diskperf-plugin/BUILD,
-	xfce4-diskperf-plugin/DEPENDS, xfce4-diskperf-plugin/DETAILS,
-	xfce4-fsguard-plugin/BUILD, xfce4-fsguard-plugin/DEPENDS,
-	xfce4-fsguard-plugin/DETAILS, xfce4-iconbox/CONFLICTS,
-	xfce4-minicmd-plugin/CONFLICTS, xfce4-minicmd-plugin/DETAILS,
-	xfce4-mixer/CONFLICTS, xfce4-netload-plugin/CONFLICTS,
-	xfce4-netload-plugin/DETAILS, xfce4-notes-plugin/DETAILS,
-	xfce4-panel/CONFLICTS, xfce4-session/CONFLICTS,
-	xfce4-showdesktop-plugin/CONFLICTS,
-	xfce4-showdesktop-plugin/DETAILS,
-	xfce4-systemload-plugin/CONFLICTS, xfce4-systemload-plugin/DETAILS,
-	xfce4-systray/CONFLICTS, xfce4-themes/CONFLICTS,
-	xfce4-toys/CONFLICTS, xfce4-trigger-launcher/CONFLICTS,
-	xfdesktop/CONFLICTS, xffm/CONFLICTS, xffm-icons/CONFLICTS,
-	xfprint/CONFLICTS, xfwm4/CONFLICTS, xfwm4-themes/CONFLICTS: Adding
-	and updating some panel plugins
 
