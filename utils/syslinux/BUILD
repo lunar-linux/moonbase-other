@@ -1,5 +1,5 @@
 ( 
-
+  sedit "s/-malign/-falign/g" memdisk/Makefile &&
   make             &&
   prepare_install  &&
   make    install
