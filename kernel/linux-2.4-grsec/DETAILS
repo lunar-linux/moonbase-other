@@ -15,10 +15,15 @@
             SHORT="Security enhanced linux kernel"
 KEEP_SOURCE="on"
 cat << EOF
-This is the same as the linux module but with a fixed patch set with all
+This is the same as the linux-2.4 module but with a fixed patch set with all
 the main patches and with these additional patches:
  
- grsecurity
+ NX enforcement
+ chroot restrictions
+ randomized PIDs, memory
+ hiding kernel processes and /proc data
+ socket restrictions
+ ... and more
 
 Features are enabled or disabled by the standard kernel configuration tools,
 i.e. "make menuconfig" or "make config" or "make xconfig".

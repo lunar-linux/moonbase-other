@@ -12,16 +12,16 @@
           WEBSITE=http://www.kernel.org/
           ENTERED=20030227
           UPDATED=20050316
-            SHORT="Stable linux kernel with only critical patches"
+            SHORT="OpenMosix enabled cluster kernel"
 KEEP_SOURCE="on"
 cat << EOF
-This is the Linus-tree Linux kernel with only critical patches included.
+This is the linux-2.4 module with the same patches and on top of that:
 
-Linux is a clone of the Unix kernel, written from scratch by Linus
-Torvalds with assistance from a loosely-knit team of hackers across the
-Net. It aims towards POSIX and Single UNIX Specification compliance. It
-has all the features you would expect in a modern fully-fledged Unix
-kernel, including true multitasking, virtual memory, shared libraries,
-demand loading, shared copy-on-write executables, proper memory
-management, and TCP/IP networking.
+ OpenMosix MigSHM memory patch
+
+OpenMosix allows transparent process migration so that multiple machines
+can automatically share the CPU load, without the need for user manipulation.
+Cluster nodes can be added and removed from a cluster without the need
+to stop jobs. This specific patchset (optional) allows for the migration
+of tasks that use shared memory (experimental) like apache and mysql.
 EOF
