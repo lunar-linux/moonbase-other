@@ -1,3 +1,89 @@
+2005-02-21 13:37  moe
+
+	* audio/alsa-utils/alsasettings: GAH
+
+2005-02-21 13:34  moe
+
+	* kernel/linux-2.6/: DETAILS, PRE_BUILD: New AS patchset
+
+2005-02-21 13:34  moe
+
+	* audio/alsa-utils/alsasettings: I'm lame
+
+2005-02-21 11:05  moe
+
+	* audio/alsa-utils/: BUILD, DETAILS, POST_INSTALL, POST_REMOVE,
+	  PRE_REMOVE, alsasettings: It's all new and shiny and better and
+	  wipes your ass and ..  Well, at least it's less hacky and uses
+	  lunar's build-in init.d routines now.
+
+	  * Moved the alsasettings script into the script's directory *
+	  Completely rewrote the alsasettings script to work with   the
+	  init-functions * Better install tracking * We don't leave
+	  anything behind
+
+2005-02-21 08:13  ratler
+
+	* libs/libfwbuilder2/DETAILS, security/fwbuilder2/DETAILS: Version
+	  bumps, compiled and tested OK
+
+2005-02-20 20:50  moe
+
+	* xfce4/mousepad/DETAILS: teh tiny mouse's editor is at 0.2.1
+
+2005-02-20 18:40  florin
+
+	* kde3-utils/aqhbci-qt-tools/: BUILD, DEPENDS, DETAILS: setup
+	  wizard and debuger for HBCI support in aqhbci library.
+
+2005-02-20 18:25  florin
+
+	* kde3-utils/aqdtaus-qt-tools/: BUILD, DEPENDS, DETAILS: setup
+	  wizard and deguber for HBCI support in aqbanking.
+
+2005-02-20 18:17  florin
+
+	* libs/aqhbci-rsacard/: DEPENDS, DETAILS: plugin for RSA cards for
+	  aqhbci.
+
+2005-02-20 18:17  florin
+
+	* libs/aqhbci-ddvcard/: DEPENDS, DETAILS: plugin for DDV cards for
+	  aqhbci.
+
+2005-02-20 18:15  florin
+
+	* libs/aqhbci/: DEPENDS, DETAILS: the HBCI backend for aqbanking
+	  library.
+
+2005-02-20 18:12  florin
+
+	* libs/libchipcard2/: DEPENDS, DETAILS: the new version of the
+	  libchipcard library.
+
+2005-02-20 16:37  florin
+
+	* utils/findutils/DETAILS: bump the version from 4.2.15 to 4.2.18.
+	  improvements and bug fixes.
+
+2005-02-20 16:30  florin
+
+	* filesys/fuse/DETAILS: bump the version from 2.1 to 2.2.
+
+2005-02-20 16:12  florin
+
+	* libs/aqdtaus/: DEPENDS, DETAILS: the DTAUS backend for aqbanking
+	  library.
+
+2005-02-20 14:46  florin
+
+	* devel/PyQt/: BUILD, DEPENDS, DETAILS: bump the version from 3.13
+	  to 3.14.
+
+2005-02-20 13:48  florin
+
+	* games/stella/DETAILS: bump the version from 1.4.1 to 1.4.2.
+
 2005-02-20 13:33  florin
 
 	* devel/PyKDE/DEPENDS: small tweaks.
@@ -1749,95 +1835,4 @@
 
 	* kernel/linux-2.4-vanilla/DETAILS: Version bump to
 	  linux-2.4-vanilla 2.4.29.
-
-2005-01-21 20:08  moe
-
-	* x11/XOrg/BUILD: Lame fix .. yet imported when somebody is using a
-	  session manager
-
-2005-01-21 20:04  moe
-
-	* libs/glibc/: BUILD, BUILD.sparc64, POST_INSTALL: Stripping the
-	  header generation as this is now done by the new
-	  kernel-headers-2.4 module
-
-2005-01-21 20:03  moe
-
-	* kernel/kernel-headers-2.4/: BUILD, DETAILS: New
-	  kernel-headers-2.4 module
-
-	  * Replaces the header generation of glibc * Tested by Ratler on
-	  2.4.x and me on 2.6.x
-
-2005-01-21 19:37  florin
-
-	* net/ethereal/DETAILS: bump the version from 0.10.8 to 0.10.9.
-
-2005-01-21 19:10  florin
-
-	* x11-wm/AfterStep/DETAILS: bump the version from 2.00.01 to
-	  2.00.02.
-
-2005-01-21 17:33  moe
-
-	* libs/glibc/POST_INSTALL: Preparing the kernel-headers module
-
-2005-01-21 16:10  moe
-
-	* games/fgfs-base/DETAILS: meh
-
-2005-01-21 15:46  tchan
-
-	* chat/gaim/POST_INSTALL: Added this as gaim-encryption will cause
-	  errors in gaim, unless its recompiled after every update of gaim.
-
-2005-01-21 15:43  nestu
-
-	* kernel/: modutils/POST_INSTALL, module-init-tools/POST_INSTALL:
-	  Make sure we install the wrappers!
-
-2005-01-21 15:42  nestu
-
-	* kernel/modutils-wrappers/: BUILD, DETAILS, POST_INSTALL,
-	  PRE_BUILD: 0.2 -> 0.3.  Changes: * Now all scripts are installed
-	  (before it depended on if you had m-i-t and/or modutils
-	  installed).  * Each script warns if it should not be called with
-	  this kernel version.	* Spits out a warning message to lin
-	  modutils or m-i-t, depending on your running kernel, if the
-	  binary being called is valid, but is not there.  * With PRE_BUILD
-	  we make sure that modutils and m-i-t, are in the right location
-	  so they are not   overwritten (not done in POST_INSTALL anymore).
-
-2005-01-21 13:49  tchan
-
-	* gnome2-apps/abiword/DETAILS: Stupid abiword devs repacked their
-	  source tarball and did NOT version bump it.
-
-2005-01-21 13:43  tchan
-
-	* chat/gaim/DETAILS: Version bump to gaim-1.1.2. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2005-01-21 09:08  ratler
-
-	* zbeta/fluxbox-devel/: BUILD, DETAILS, DEPENDS: Version bump and
-	  added support for imlib2
-
-2005-01-21 06:57  jasper
-
-	* xfce4/xfce4-weather-plugin/DETAILS: Update to use 4.2 file
-	  locations
-
-2005-01-21 03:56  tchan
-
-	* utils/util-linux/DETAILS: Version bump to util-linux-2.12q.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-01-21 00:04  v3rt1g0
-
-	* chat/everybuddy/: DEPENDS, DETAILS: The module is old :)  The
-	  project has been dead for about 2 years, and kinda branched off
-	  into two new applications.  But anyhow, this was  missing a few
-	  depends.
 
