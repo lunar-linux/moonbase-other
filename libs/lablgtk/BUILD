@@ -1,6 +1,6 @@
 (
 
-  make configure USE_GNOME=1 USE_GLADE=1 &&
+  default_config &&
   make &&
   make opt &&
   prepare_install &&
