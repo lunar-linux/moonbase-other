@@ -8,6 +8,7 @@
   make &&
   make check &&
   prepare_install &&
+  rm -f /usr/sbin/discover-modprobe &&
   make install &&
   mv /usr/sbin/discover-modprobe /sbin/ &&
   ln -s /sbin/discover-modprobe /usr/sbin/discover-modprobe
