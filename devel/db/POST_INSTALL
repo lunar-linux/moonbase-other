@@ -6,7 +6,7 @@ if [ "$OLD_DB" == "y" ]; then
 	     perl php php5 wvstreams xemacs bdb-ruby \
 	     cyrus-sasl openldap postfix straw subversion; do
     if module_installed $mod; then
-      lin -c $mod;
+      lin -r -c $mod;
     fi;
   done;
 fi
