@@ -1,8 +1,12 @@
 (
-export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:/usr/lib/pkgconfig &&
-
-./configure --prefix=/opt/lunar/gnome/2 \
-            $OPTS                       &&
+    ./configure --build=$BUILD                                  \
+                --sysconfdir=/etc                               \
+                --prefix=/opt/lunar/gnome/2                     \
+                --localstatedir=/var                            \
+                --infodir=/opt/lunar/gnome/2/share/info         \
+                --mandir=/opt/lunar/gnome/2/share/man           \
+                --enable-cpp-rtti                               \
+                $OPTS                                           &&
 
 default_make  &&
 
