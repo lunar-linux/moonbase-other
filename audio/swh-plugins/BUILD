@@ -1,6 +1,12 @@
 (
   sedit "s/usr\/local\/lib\/ladspa/usr\/lib\/ladspa/" Makefile.am
 
+  # automake -a -c -f
+  ln -sf /usr/share/automake/depcomp depcomp
+  aclocal
+  automake --gnu --include-deps Makefile
+  autoconf
+
   ./configure  --prefix=/usr         \
                --exec-prefix=/usr    \
                --bindir=/usr/bin     \
