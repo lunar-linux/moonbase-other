@@ -1,3 +1,33 @@
+2004-05-24 11:34  sofar
+
+	* filesys/nrg2iso/: BUILD, DETAILS: I just needed this... fsck fsck
+	fsck!!!
+
+2004-05-24 04:32  florin
+
+	* graphics/ImageMagick/DETAILS: bump the version from 6.0.1-3 to
+	6.0.1-4.
+
+2004-05-23 13:55  florin
+
+	* kde3-apps/kvirc/: BUILD, DEPENDS, DETAILS: move it from zbeta
+	dir. update the version to 3.0.0.
+
+2004-05-23 13:22  sofar
+
+	* devel/automake/DETAILS: *PLEASE* do not use sources.redhat.com as
+	main mirror as it is constantly overloaded!!!!!!!!
+
+2004-05-23 12:38  sofar
+
+	* utils/sysvinit/init.d/rc: -rwxr-xr-x	1 root root 778 Apr 23 
+	2003 /etc/init.d/rc
+	
+	I wrote this rc script in april last year. Unfortunately I should
+	have committed it way way way before, since what we have now is a
+	disgrace for an rc script, since it doesn't even support switching
+	between say level 3 and 5 properly. This one does
+
 2004-05-23 06:20  florin
 
 	* docs/man-pages/DETAILS: bump the version from 1.66 to 1.67.
@@ -1834,141 +1864,4 @@
 
 	* editors/joe/DETAILS: bump the version from 2.9.8 to 3.0. UTF-8
 	support, syntax highlighting, other fixes.
-
-2004-04-23 23:50  nhudson
-
-	* gnome2-core/libgnomeui/DETAILS: 
-	Reverting libgnomeui back to 2.6.0 for now as 2.6.1 doesnt seem to
-	want to compile with the newer version of gnome-vfs2
-
-2004-04-23 21:35  striker
-
-	* zbeta/turck-mmcache/BUILD: grrr...lrm removes
-	/usr/lib/php/extensions, even though it doesnt belong to this
-	module...
-
-2004-04-23 21:25  nhudson
-
-	* gnome2-apps/straw/: BUILD, DEPENDS, DETAILS: 
-	Adding back straw to moonbase now that it works correctly with
-	gnome-python and it actually grabs news feeds
-
-2004-04-23 21:24  nhudson
-
-	* net/adns-python/: BUILD, DEPENDS, DETAILS: 
-	Adding adns-python to moonbase so that straw will compile
-
-2004-04-23 21:22  nhudson
-
-	* devel/bsddb3/DETAILS: 
-	Updating bsddb3 to new version 4.2.4 so that straw will work again
-
-2004-04-23 20:55  striker
-
-	* mail/spamass-milter/BUILD: forgot one =]
-
-2004-04-23 20:53  nhudson
-
-	* gnome2-apps/gramps/: BUILD, DEPENDS, DETAILS: 
-	Adding gramps to moobase as requested by a HOT CHICK!!! :)
-
-2004-04-23 20:47  nhudson
-
-	* libs/reportlab/: BUILD, DEPENDS, DETAILS: 
-	Adding reportlab to moonbase, reportlab is a high quality pdf
-	generator written in python
-
-2004-04-23 20:43  striker
-
-	* mail/spamass-milter/init.d/spamass-milter: spamass-militer init
-	script
-
-2004-04-23 20:42  striker
-
-	* mail/spamass-milter/: CONFIGURE, DEPENDS, DETAILS: adding
-	spamass-milter, spamassassin plugin for sendmail
-
-2004-04-23 20:40  striker
-
-	* mail/sendmail/: BUILD, CONFIGURE, POST_INSTALL: Adding support
-	for libmilter (required for use with spamassassin)
-
-2004-04-23 20:39  striker
-
-	* mail/spamassassin/init.d/spamd: Fix for log message: Still
-	running as root: user not specified with -u, not found, or set to
-	root.  Fall back to nobody.
-
-2004-04-23 20:30  nhudson
-
-	* graphics/freetype2/: BUILD, DETAILS: 
-	Reverting the freetype update for now as it breaks a few modules in
-	moonbase, a major one expecially firefox and pil.
-
-2004-04-23 19:58  florin
-
-	* video/mkvtoolnix/DETAILS: bump the version from 0.8.5 to 0.8.8.
-
-2004-04-23 19:58  florin
-
-	* video/libmatroska/: BUILD, DETAILS: bump the version from 0.6.2
-	to 0.7.0.
-
-2004-04-23 19:48  florin
-
-	* video/libebml/: BUILD, DETAILS: bump the version from 0.6.4 to
-	0.7.0.
-
-2004-04-23 19:19  florin
-
-	* graphics/freetype2/BUILD: simplify the BUILD file.
-
-2004-04-23 19:19  florin
-
-	* games/foobillard/DETAILS: bump the version from 2.9 to 3.0.
-
-2004-04-23 18:54  florin
-
-	* graphics/SDL_ttf/BUILD: fix a compile bug related to the new
-	freetype2 version.
-
-2004-04-23 14:46  striker
-
-	* net/libnet/DETAILS: Bump from 1.1.1 to 1.1.2.1
-
-2004-04-23 14:24  sofar
-
-	* gnome2-applets/teatime/DETAILS: It's friday, lets correct
-	spelling errors...
-
-2004-04-23 14:13  sofar
-
-	* kde3-apps/scribus/: BUILD, DETAILS: Bumped version, small build
-	adjustment (morons)
-
-2004-04-23 13:56  florin
-
-	* gnome2-applets/teatime/DETAILS: fix a typo.
-
-2004-04-23 13:56  moe
-
-	* zbeta/bmp-cvs/: BUILD, DEPENDS, DETAILS: Doodeedeleedoo .. this
-	seems to be the better place for this module ;-)
-
-2004-04-23 11:28  sofar
-
-	* graphics/ImageMagick/DETAILS: sloppy
-
-2004-04-23 11:27  sofar
-
-	* graphics/ImageMagick/DETAILS: Version bump. patch still applies
-	cleanly
-
-2004-04-23 09:30  sofar
-
-	* utils/openldap/DETAILS: New version.
-
-2004-04-23 06:55  sofar
-
-	* gnome2-applets/teatime/DETAILS: Fixing typo
 
