@@ -6,7 +6,7 @@
                 --localstatedir=/var                            \
                 --infodir=/opt/lunar/gnome/2.4/share/info       \
                 --mandir=/opt/lunar/gnome/2.4/share/man         \
-                --with-html-dir/usr/share/gtk-doc/html          \
+                --with-html-dir=/usr/share/gtk-doc/html          \
                 $OPTS                                           &&
 
    default_make
