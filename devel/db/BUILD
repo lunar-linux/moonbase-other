@@ -9,13 +9,11 @@
 
 #                    --enable-java       \
 
-  make                                   &&
-  prepare_install                        &&
-  make    install                        &&
+  default_make                           &&
   mkdir -p $DOCUMENT_DIRECTORY/db        &&
   cp -a /usr/docs $DOCUMENT_DIRECTORY/db &&
-  rm    -rf     /usr/docs                &&
-  rm    -f      /usr/include/db3         &&
-  ln    -s   .  /usr/include/db3
+  rm -rf   /usr/docs                     &&
+  rm -f    /usr/include/db3              &&
+  ln -s  . /usr/include/db3
 
 ) > $C_FIFO 2>&1
