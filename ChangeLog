@@ -1,3 +1,97 @@
+2004-01-28 09:21  jmhodges
+
+	* science/R/: DETAILS, DETAILS: typo fix
+
+2004-01-28 05:02  florin
+
+	* utils/module-init-tools/DETAILS: fix the kernel version in the
+	short text description.
+
+2004-01-28 05:00  florin
+
+	* utils/module-init-tools/: BUILD, DETAILS: add the Chris work in
+	creating a better BUILD file. it now works by selecting the right
+	modules on 2.4 and 2.6 kernels. the order of install is by "lin
+	modutils module-init-tools". thank you Chris for the great job.
+
+2004-01-28 04:56  florin
+
+	* x11/NVIDIA/DETAILS: bump version from 1.0-5328 to 1.0-5336.
+	tested on kernel 2.4.24 with aggressive patch applied and with gcc
+	3.3.2.
+
+2004-01-28 04:45  florin
+
+	* x11/NVIDIA26/: BUILD, DETAILS: bump version from 1.0-5328 to
+	1.0-5336. tested on kernel 2.6.2rc2 with gcc 3.3.2.
+
+2004-01-28 02:27  tchan
+
+	* devel/uml/DETAILS: Tested uml-2.4.23-2 patch against
+	kernel-2.4.24 and it works, so I modified the DETAILS file a little
+	to get uml to use kernel-2.4.24 sources and hacked the version
+	string result accordingly.  A temporary change in the DETAILS file
+	until the UML authors release a 2.4.24 based (or higher) uml patch.
+	 This removes the need to carry 2.4.23 and 2.4.24 kernel sources.
+
+2004-01-28 02:16  tchan
+
+	* archive/upx/: BUILD, DETAILS: Added md5sum check.  Added an sedit
+	to BUILD for the newer version of ucl lib.  Compiled and tested
+	with gcc-3.2.3.
+
+2004-01-28 02:14  tchan
+
+	* libs/ucl/DETAILS: Version bump to 1.02.  Added md5sum check. 
+	Compiled and tested with gcc-3.2.3 and this lib is only used by the
+	upx module, which required an sedit to work correctly with the
+	newer ucl.
+
+2004-01-28 01:07  tchan
+
+	* libs/ncurses/DETAILS, doc-tools/groff/DETAILS: Case is
+	significant in bash.  PSAFE=no.
+
+2004-01-28 00:38  hardkrash
+
+	* doc-tools/groff/DETAILS: more punsafe <Striker> well ncurses and
+	groff dies with distcc <Striker> i've reproduced that on 3 systems
+
+2004-01-28 00:36  hardkrash
+
+	* libs/ncurses/DETAILS: yet another non psafe <Striker> well
+	ncurses and groff dies with distcc <Striker> i've reproduced that
+	on 3 systems
+
+2004-01-27 18:57  florin
+
+	* security/shorewall/DETAILS: bump version from 1.4.6c to 1.4.9 at
+	the request of Richard Pyne. tested with gcc 3.3.2.
+
+2004-01-27 18:30  florin
+
+	* archive/unrar/DETAILS: bump version from 3.3.4 to 3.3.5.
+
+2004-01-27 16:04  cmak
+
+	* audio/: abcde/DETAILS, ardour/DETAILS, liblrdf/DETAILS,
+	qjackctl/DETAILS: Version bumping of some audio tools/apps. tested
+	of course!
+
+2004-01-27 14:04  ratler
+
+	* audio/alsa-driver/DETAILS: Stupid alsa-project updated source
+	because of typo so md5 missmatch, md5 should now be correct
+
+2004-01-27 12:45  sofar
+
+	* chat/gaim/DETAILS: nah du, du, du !!!
+
+2004-01-27 12:26  ratler
+
+	* utils/hotplug/: BUILD, DETAILS: Updated version and added agent
+	for uploading firmware to for example a WiFi card
+
 2004-01-27 11:51  nestu
 
 	* wifi/ipsec-tools/: BUILD, DEPENDS, DETAILS: Adding this module
@@ -811,14 +905,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
-	the version, added a depends on hicolor-icon-theme, and moved it
-	out of /opt/lunar
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
+	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
+	the version, added a depends on hicolor-icon-theme, and moved it
+	out of /opt/lunar
 
 2004-01-15 18:22  niki
 
@@ -1833,70 +1927,4 @@
 2003-12-29 00:44  jol
 
 	* kde3-apps/kmplayer/DETAILS: Bumped version 0.8b to 0.8.1a
-
-2003-12-28 22:41  sofar
-
-	* graphics/wings/: BUILD, DETAILS: This is the latest version that
-	works, upstream developer contacted about breakage between 16 and
-	16a
-
-2003-12-28 22:38  sofar
-
-	* libs/esdl/: BUILD, DETAILS, Makefile: nove versione
-
-2003-12-28 22:37  sofar
-
-	* libs/erlang/BUILD: Needed, also
-
-2003-12-28 22:37  sofar
-
-	* libs/erlang/: DEPENDS, DETAILS: nouveau version.
-
-2003-12-28 22:07  florin
-
-	* graphics/tiff/DETAILS: shorten the DETAILS description a little
-	bit.
-
-2003-12-28 22:07  tchan
-
-	* net/samba/DETAILS: Version bump to 3.0.1.  Compiled and tested
-	with gcc-3.2.3, glibc-2.3.2, kernel headers 2.4.23.
-
-2003-12-28 22:04  florin
-
-	* graphics/tiff/DETAILS: bump version from 3.6.0 to 3.6.1. bugfix
-	release with few new features.
-
-2003-12-28 21:50  jmhodges
-
-	* audio/: abcde/BUILD, abcde/DEPENDS, abcde/DETAILS,
-	cd-discid/BUILD, cd-discid/DETAILS, id3/BUILD, id3/DETAILS,
-	id3v2/BUILD, id3v2/DEPENDS, id3v2/DETAILS: cmak's abcde module and
-	its dependencies
-
-2003-12-28 11:41  florin
-
-	* graphics/openvrml/: CONFIGURE, DEPENDS: reusing tchan's great
-	work from db4 i think that's the proper fix for j2sdk install
-	problem.
-
-2003-12-28 08:53  tchan
-
-	* devel/db4/: CONFIGURE, DETAILS: I had to revert db4 back down to
-	4.1.25.  4.2.52 will not work correctly with --enable-java and
-	blackdown j2sdk.  It errors out during ./configure with:
-	
-	checking if java works... configure: error: The Java VM java failed
-	(see config.log, check the CLASSPATH?)
-	
-	So if anyone bumps db4 back above 4.1.25, they have to fix the java
-	problem first!
-	
-	I've fixed the Lunar CONFIGURE script to correctly pass the
-	--enable-java flag in the $OPTS var.  $OPTS if set in CONFIGURE,
-	MUST be echoed out to $MODULE_CONFIG, otherwise the lunar core will
-	just unset the OPTS var in satisfy_depends (depends.lunar).
-	
-	db4 4.1.25 correctly compiles with java enabled and tested with
-	gcc-3.2.3, glibc-2.3.2.
 
