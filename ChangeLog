@@ -1,3 +1,133 @@
+2004-04-24 07:11  florin
+
+	* video/xawtv/: BUILD, DEPENDS, DETAILS: bump the version from 3.91
+	to 3.92.
+
+2004-04-24 07:08  florin
+
+	* editors/joe/DETAILS: bump the version from 2.9.8 to 3.0. UTF-8
+	support, syntax highlighting, other fixes.
+
+2004-04-23 23:50  nhudson
+
+	* gnome2-core/libgnomeui/DETAILS: 
+	Reverting libgnomeui back to 2.6.0 for now as 2.6.1 doesnt seem to
+	want to compile with the newer version of gnome-vfs2
+
+2004-04-23 21:35  striker
+
+	* zbeta/turck-mmcache/BUILD: grrr...lrm removes
+	/usr/lib/php/extensions, even though it doesnt belong to this
+	module...
+
+2004-04-23 21:25  nhudson
+
+	* gnome2-apps/straw/: BUILD, DEPENDS, DETAILS: 
+	Adding back straw to moonbase now that it works correctly with
+	gnome-python and it actually grabs news feeds
+
+2004-04-23 21:24  nhudson
+
+	* net/adns-python/: BUILD, DEPENDS, DETAILS: 
+	Adding adns-python to moonbase so that straw will compile
+
+2004-04-23 21:22  nhudson
+
+	* devel/bsddb3/DETAILS: 
+	Updating bsddb3 to new version 4.2.4 so that straw will work again
+
+2004-04-23 20:55  striker
+
+	* mail/spamass-milter/BUILD: forgot one =]
+
+2004-04-23 20:53  nhudson
+
+	* gnome2-apps/gramps/: BUILD, DEPENDS, DETAILS: 
+	Adding gramps to moobase as requested by a HOT CHICK!!! :)
+
+2004-04-23 20:47  nhudson
+
+	* libs/reportlab/: BUILD, DEPENDS, DETAILS: 
+	Adding reportlab to moonbase, reportlab is a high quality pdf
+	generator written in python
+
+2004-04-23 20:43  striker
+
+	* mail/spamass-milter/init.d/spamass-milter: spamass-militer init
+	script
+
+2004-04-23 20:42  striker
+
+	* mail/spamass-milter/: CONFIGURE, DEPENDS, DETAILS: adding
+	spamass-milter, spamassassin plugin for sendmail
+
+2004-04-23 20:40  striker
+
+	* mail/sendmail/: BUILD, CONFIGURE, POST_INSTALL: Adding support
+	for libmilter (required for use with spamassassin)
+
+2004-04-23 20:39  striker
+
+	* mail/spamassassin/init.d/spamd: Fix for log message: Still
+	running as root: user not specified with -u, not found, or set to
+	root.  Fall back to nobody.
+
+2004-04-23 20:30  nhudson
+
+	* graphics/freetype2/: BUILD, DETAILS: 
+	Reverting the freetype update for now as it breaks a few modules in
+	moonbase, a major one expecially firefox and pil.
+
+2004-04-23 19:58  florin
+
+	* video/mkvtoolnix/DETAILS: bump the version from 0.8.5 to 0.8.8.
+
+2004-04-23 19:58  florin
+
+	* video/libmatroska/: BUILD, DETAILS: bump the version from 0.6.2
+	to 0.7.0.
+
+2004-04-23 19:48  florin
+
+	* video/libebml/: BUILD, DETAILS: bump the version from 0.6.4 to
+	0.7.0.
+
+2004-04-23 19:19  florin
+
+	* graphics/freetype2/BUILD: simplify the BUILD file.
+
+2004-04-23 19:19  florin
+
+	* games/foobillard/DETAILS: bump the version from 2.9 to 3.0.
+
+2004-04-23 18:54  florin
+
+	* graphics/SDL_ttf/BUILD: fix a compile bug related to the new
+	freetype2 version.
+
+2004-04-23 14:46  striker
+
+	* net/libnet/DETAILS: Bump from 1.1.1 to 1.1.2.1
+
+2004-04-23 14:24  sofar
+
+	* gnome2-applets/teatime/DETAILS: It's friday, lets correct
+	spelling errors...
+
+2004-04-23 14:13  sofar
+
+	* kde3-apps/scribus/: BUILD, DETAILS: Bumped version, small build
+	adjustment (morons)
+
+2004-04-23 13:56  florin
+
+	* gnome2-applets/teatime/DETAILS: fix a typo.
+
+2004-04-23 13:56  moe
+
+	* zbeta/bmp-cvs/: BUILD, DEPENDS, DETAILS: Doodeedeleedoo .. this
+	seems to be the better place for this module ;-)
+
 2004-04-23 11:28  sofar
 
 	* graphics/ImageMagick/DETAILS: sloppy
@@ -2288,68 +2418,4 @@
 2004-03-25 00:23  florin
 
 	* kde3-apps/kile/DETAILS: bump the version from 1.6.1 to 1.6.2.
-
-2004-03-24 23:37  florin
-
-	* x11/xplanet/DETAILS: bump the version from 1.0.4 to 1.0.5.
-
-2004-03-24 19:01  florin
-
-	* libs/libxslt/DETAILS: bump the version from 1.1.4 to 1.1.5. i was
-	unable to find a .bz2 archive so i have used a .gz one.
-
-2004-03-24 18:42  florin
-
-	* libs/libxml2/DETAILS: bump the version from 2.6.7 to 2.6.8.
-
-2004-03-24 18:42  striker
-
-	* sql/sqlite/DETAILS: bump version from 2.8.9 to 2.8.13
-
-2004-03-24 18:35  florin
-
-	* graphics/libmng/DETAILS: bump the version from 1.0.6 to 1.0.7.
-
-2004-03-24 17:05  tchan
-
-	* security/ulogd/BUILD: Fixed the poor bash logic in the BUILD
-	script to correctly take care of the case when the user does NOT
-	have libpcap module installed.	The old BUILD script would just
-	abort because of the faultly logic and the use of &&
-	prepare_instal.
-
-2004-03-24 15:56  niki
-
-	* kernel/linux-grsec/: BUILD, POST_INSTALL: It was the BUILD file
-	that needed the fix... :-)
-
-2004-03-24 11:20  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Version bump. Hangs on my box
-	aswell, as 2.6.5rc2mm1
-
-2004-03-24 11:00  sofar
-
-	* kernel/linux-grsec/POST_INSTALL: Fixing kernel naming
-
-2004-03-24 02:02  nhudson
-
-	* gnome2-core/librsvg/DEPENDS: 
-	Changing DEPENDS from gimp2 to gimp
-
-2004-03-24 02:01  nhudson
-
-	* graphics/gimp-freetype/DEPENDS: 
-	Fixing DEPENDS for gimp-freetype now it depends on gimp instead of
-	gimp2
-
-2004-03-24 02:00  nhudson
-
-	* printer/gimp-print/POST_INSTALL: 
-	Removing gimp2 rebuild
-
-2004-03-24 01:58  nhudson
-
-	* graphics/gimp/: BUILD, DEPENDS, DETAILS: 
-	Updating gimp to new stable version 2.0.0 now with gtk+-2 support!
 
