@@ -1,3 +1,177 @@
+2002-08-28 18:20  csm
+
+	* utils/e2fsprogs/BUILD: the wrappers work so there is no need for
+	this fix any longer
+
+2002-08-28 17:11  xoritor
+
+	* kde3/qt3/BUILD: fixed BUILD file to work again.
+
+2002-08-28 16:51  dem
+
+	* web/mozilla/DEPENDS: Thx timo, for pointing out a missing dep
+
+2002-08-28 15:32  dem
+
+	* web/mozilla/: mozilla-1.0-abi-compat-wrappers.patch,
+	mozilla-1.0-asmfixes.patch, mozilla-1.0-freetype.patch: Remove moz
+	1.0 patches from 1.1
+
+2002-08-28 15:30  dem
+
+	* web/mozilla/mozilla-1.0.patch: Remove moz 1.0 patches
+
+2002-08-28 15:26  dem
+
+	* web/mozilla/: BUILD, CONFIGURE, DETAILS: Mozilla 1.1 take one
+
+2002-08-28 14:28  tiomo
+
+	* filemanagers/krusader/DETAILS: forgot to change UPDATED field ;)
+
+2002-08-28 14:23  tiomo
+
+	* filemanagers/krusader/: BUILD, DEPENDS, DETAILS: Update to
+	version 1.10 compiles now against kde3 and qt3
+
+2002-08-28 12:43  sofar
+
+	* utils/theedge/DEPENDS: Removed Makedev since it breaks on devfs.
+
+2002-08-28 07:48  kongar
+
+	* cd/cdrtools/DETAILS: updated to 1.11a31
+
+2002-08-28 04:46  csm
+
+	* x11-utils/mailwatch/DETAILS: i forgot to update the date on this
+
+2002-08-28 04:38  csm
+
+	* x11-utils/gkrellm_volume/: BUILD, DETAILS,
+	gkrellm-volume-path.patch: updating for gkrellm2
+
+2002-08-28 04:25  csm
+
+	* x11-utils/gkrellmms/: BUILD, DETAILS, gkrellmms-path.patch:
+	fixing up for gkrellm2
+
+2002-08-28 04:19  xoritor
+
+	* kde3/: KDE-Documentation/BUILD, arts/BUILD, kdeaddons3/BUILD,
+	kdeadmin3/BUILD, kdeartwork3/BUILD, kdebase3/BUILD,
+	kdebindings3/BUILD, kdeedu3/BUILD, kdegames3/BUILD,
+	kdegraphics3/BUILD, kdelibs3/BUILD, kdemultimedia3/BUILD,
+	kdenetwork3/BUILD, kdepim3/BUILD, kdesdk3/BUILD, kdetoys3/BUILD,
+	kdeutils3/BUILD, kdevelop3/BUILD, kdoc2/BUILD, koffice3/BUILD,
+	mosfet-liquid/BUILD, qt3/BUILD: Cleaning up kde3 BUILD scripts:  
+	Removed LDFLAGS setting.
+
+2002-08-28 04:13  csm
+
+	* x11-utils/mailwatch/: BUILD, DEPENDS, DETAILS,
+	mailwatch-0.7.2.patch, mailwatch-paths.patch: updating for gkrellm2
+
+2002-08-28 02:46  csm
+
+	* web/mozilla/: BUILD, CONFIGURE: reverting the changes to mozilla!
+	they broke shit badly!
+
+2002-08-28 01:34  csm
+
+	* devel/linux/DETAILS: fixing the module name!
+
+2002-08-28 01:17  csm
+
+	* devel/linux/: BUILD, CONFIGURE, DEPENDS, DETAILS, POST_INSTALL,
+	PRE_BUILD, lunar-patch-set-2.4.19.list: updating this to 2.4.19
+
+2002-08-28 01:16  csm
+
+	* devel/linux/: BUILD, CONFIGURE, DEPENDS, DETAILS, POST_INSTALL,
+	PRE_BUILD, linux-2.4.17.xfs.speakup.patch,
+	netfilter_security.patch, patch-cia-jay,
+	zlib_krnl_security.patch.bz2: finally removing this beast!
+
+2002-08-27 23:34  csm
+
+	* utils/e2fsprogs/BUILD: e2fsprogs would not build with the new
+	wrapper... this fixes it!
+
+2002-08-27 16:50  tchan
+
+	* libs/pcre/BUILD: Fixed includedir path to /usr/include.
+
+2002-08-27 15:57  tchan
+
+	* editors/vim/PRE_BUILD: Forced the removal of /usr/bin/vim if it
+	exists in the PRE_BUILD.  Covers the case of a vim symlink or other
+	binary being installed by some means other than using lin.
+
+2002-08-27 14:20  xoritor
+
+	* compilers/gcc/: lunar-g++, lunar-gcc: Fixed bug in wrappers:	
+	Changed $* to $@ to remove shell expansion.
+
+2002-08-27 14:04  kongar
+
+	* chat/: gaim/DETAILS, gaim-applet/DETAILS: 
+	upgraded to 0.59.1
+
+2002-08-27 13:31  kongar
+
+	* zbeta/cyrus-sasl/: BUILD, DEPENDS, DETAILS,
+	cyrus-sasl-1.5.27.patch.bz2: 
+	new module: SASL is the Simple Authentication and Security Layer
+
+2002-08-27 00:18  kongar
+
+	* utils/makedev/BUILD: 
+	if /dev is mounted as devfs, BUILD exits with message and error 1
+
+2002-08-26 22:42  niki
+
+	* libs/gpgme/DETAILS: Updated to version 0.3.9
+
+2002-08-26 17:59  sofar
+
+	* compilers/php/POST_INSTALL: Added AddType statements for php for
+	apache conf
+
+2002-08-26 16:02  sofar
+
+	* compilers/php/BUILD: Adding right path to file2patch
+
+2002-08-26 16:01  sofar
+
+	* compilers/php/BUILD: Fix for php -- apache2
+
+2002-08-26 15:13  sofar
+
+	* compilers/php/BUILD: Fixed IMAP_VERSION, now referring to DETAILS
+	file
+
+2002-08-26 15:11  sofar
+
+	* web/apache2/DETAILS: bumped UPDATED
+
+2002-08-26 15:06  jmhodges
+
+	* mail/imap/DETAILS: updated imap version
+
+2002-08-26 14:41  sofar
+
+	* compilers/php/DETAILS: New imap version
+
+2002-08-26 14:33  dem
+
+	* gnome/ORBit/BUILD: This is a fix untill Xoritor fixes his
+	lunar-gcc, should acctualy compile
+
+2002-08-26 13:24  kongar
+
+	* filemanagers/worker/DETAILS: upgraded to 2.6.1
+
 2002-08-26 13:03  kongar
 
 	* mail/sylpheed/DETAILS: 
