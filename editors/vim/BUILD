@@ -1,7 +1,6 @@
 (
-  
-  cat $SCRIPT_DIRECTORY/vim-5.1-vimnotvi.patch | patch -p1    &&
-  cat $SCRIPT_DIRECTORY/vim-6.0-fixkeys.patch  | patch -p1    &&
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
  
   cd $BUILD_DIRECTORY/vim61/src                               &&
   

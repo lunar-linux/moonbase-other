@@ -1,11 +1,14 @@
            MODULE=vim
-          VERSION=6.1
+          VERSION=6.1.405
            SOURCE=$MODULE-$VERSION.tar.bz2
  SOURCE_DIRECTORY=$BUILD_DIRECTORY/vim61
     SOURCE_URL[0]=ftp://ftp.vim.org/pub/vim/unix/$SOURCE
+          SOURCE2=$MODULE-$VERSION-misc.patch.tar.bz2
+   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
          WEB_SITE=http://vim.sf.net
+       MAINTAINER=sofar@lunar-linux.org
           ENTERED=20010922
-          UPDATED=20020815
+          UPDATED=20030503
             SHORT="VIM is an improved version of vi."
 cat << EOF
 VIM is an improved version of the editor vi, one of the standard text
