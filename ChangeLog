@@ -1,3 +1,111 @@
+2004-12-15 05:35  florin
+
+	* devel/swig/DETAILS: fix the update date.
+
+2004-12-15 05:34  florin
+
+	* devel/swig/DETAILS: bump the version from 1.3.23 to 1.3.24.
+
+2004-12-15 03:40  tchan
+
+	* editors/aspell/BUILD: Never mind.  The extra html docs are
+	  already incorporated into the two .info files that are already
+	  being installed.  So no need for the html docs and the .info
+	  files.
+
+2004-12-15 03:37  tchan
+
+	* editors/aspell/BUILD: Fixed this module to include a LOT of
+	  missing documentation.  The html docs are already included in the
+	  source tarball, so I installed them.
+
+2004-12-14 22:35  striker
+
+	* x11/XOrg/drivers: Reorder the driver list: * Move generic drivers
+	  to the top * Move most common (default on) under generic,
+	  alphabetical * Sort the rest alphabetically
+
+2004-12-14 22:35  tchan
+
+	* compilers/gcc/3.4.3/BUILD: Corrected a path problem in the BUILD
+	  script.  Should be ../gcc/config.build NOT gcc/config.build
+
+2004-12-14 21:36  tchan
+
+	* libs/glibc/BUILD.sparc64: Updated this with the latest changes
+	  sofar made to the regular BUILD script.
+
+2004-12-14 21:29  sofar
+
+	* compilers/gcc/3.4.3/: BUILD, CONFIGURE, POST_INSTALL: This should
+	  do the trick. note the change in path in POST_INSTALL and slight
+	  adjustment of BUILD
+
+2004-12-14 21:24  sofar
+
+	* libs/glibc/: BUILD, DETAILS, PRE_BUILD: Adding gcc-3.4.3
+	  compatibility with an optional patchset. Tested with both
+	  gcc-3.3.3 and gcc-3.4.3 and both upgrades grom glibc-2.3.3
+
+2004-12-14 21:19  moe
+
+	* x11/XOrg/drivers: Minor adjustments
+
+2004-12-14 21:04  sofar
+
+	* libs/glibc/POST_INSTALL: last adjustment!
+
+2004-12-14 20:57  sofar
+
+	* kernel/kernel-headers-2.4/: BUILD, DETAILS, PRE_BUILD: adding the
+	  header equivalen of -2.4*
+
+2004-12-14 20:49  sofar
+
+	* x11/XOrg/: CONFIGURE, drivers: Is this what you want Moe?
+
+2004-12-14 20:43  moe
+
+	* x11/XOrg/drivers: * Added some proper describtions. Adjust at
+	  will.    (Some of them might be too long)
+
+2004-12-14 20:23  moe
+
+	* net/ipw2100/: BUILD, DEPENDS, DETAILS: * No longer depends on
+	  hostap-driver * Bumped to 1.0.2 * Added a workaround to really
+	  get rid of the modules   in /lib. If anyone knows a
+	  leaner/cleaner way of   doing that please tell me about it
+
+2004-12-14 18:50  florin
+
+	* audio/beepmp/: DEPENDS, DETAILS: bump the version from 0.9.7rc2
+	  to 0.9.7.
+
+2004-12-14 18:05  florin
+
+	* games/briquolo/DETAILS: bump the version to 0.5.
+
+2004-12-14 17:59  moe
+
+	* utils/util-linux/: BUILD, DETAILS: well .. some 2.6 compatibility
+	  work. PAGE_SIZE is determined dynamicly in 2.6.x based kernels
+	  and therefore the call in fsck.cramfs.c returns nothing since
+	  asm/page.h calls a function (which is not included in the
+	  util-linux source tree of course).  A mail is out to the
+	  maintainer for a request to fix it.
+
+2004-12-14 17:49  striker
+
+	* games/fortune/profile.d/fortune.rc: fix the "fortune: command not
+	  found" problem with users that dont have /usr/games in their
+	  $PATH
+
+2004-12-14 16:11  moe
+
+	* mail/thunderbird/: DETAILS, POST_INSTALL: Here we go for
+	  thunderbird 1.0. Nothing special about it.  Compiled on a 2.6er
+	  box with gcc 3.3.3
+
 2004-12-14 13:12  sofar
 
 	* devel/pychecker/: BUILD, DETAILS: new version
@@ -1818,83 +1926,4 @@
 
 	* chat/autoprofile/: BUILD, DEPENDS, DETAILS: Initial import of a
 	  profile manager type plugin for Gaim.  Quite robust.
-
-2004-11-14 22:22  sofar
-
-	* kernel/kernel-headers/BUILD: But this is even better in case the
-	  tarballs are missing
-
-2004-11-14 22:22  sofar
-
-	* kernel/kernel-headers/: BUILD, PRE_BUILD: We really want to call
-	  prepare_install here folks...
-
-2004-11-14 21:59  jasper
-
-	* app-themes/gtk-xfce-engine/DETAILS,
-	  profiles/xfce4-extras-profile/DETAILS,
-	  profiles/xfce4-profile/DETAILS, xfce4/libxfce4mcs/DETAILS,
-	  xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/DETAILS,
-	  xfce4/xfcalendar/DETAILS, xfce4/xfce-mcs-manager/DETAILS,
-	  xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/DETAILS,
-	  xfce4/xfce4-appfinder/DETAILS, xfce4/xfce4-icon-theme/DETAILS,
-	  xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-mixer/DETAILS,
-	  xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/DETAILS,
-	  xfce4/xfce4-systray/DETAILS, xfce4/xfce4-toys/DETAILS,
-	  xfce4/xfce4-trigger-launcher/DETAILS, xfce4/xfdesktop/DETAILS,
-	  xfce4/xffm/DETAILS, xfce4/xfprint/DETAILS, xfce4/xfwm4/DETAILS,
-	  xfce4/xfwm4-themes/DETAILS: Xfce 4.2 RC1
-
-2004-11-14 21:51  florin
-
-	* web/webmin/DETAILS: bump the version from 1.160 to 1.170.
-
-2004-11-14 21:18  florin
-
-	* graphics/gd/DETAILS: bump the version from 2.0.32 to 2.0.33.
-
-2004-11-14 21:18  florin
-
-	* web/usermin/DETAILS: bump the version from 1.090 to 1.100.
-
-2004-11-14 21:03  florin
-
-	* utils/dialog/DETAILS: bump the version from 20040731 to 20040920.
-
-2004-11-14 20:13  florin
-
-	* audio/: alsa-lib/DETAILS, alsa-utils/DETAILS: bump the version
-	  from 1.0.6 to 1.0.7.
-
-2004-11-14 20:13  florin
-
-	* audio/alsa-driver/DETAILS: bump the version from 1.0.6a to 1.0.7.
-
-2004-11-14 20:09  sofar
-
-	* security/xinetd/BUILD: Fixed up a little
-
-2004-11-14 19:53  sofar
-
-	* utils/procps/: BUILD, POST_INSTALL: Moving installation of config
-	  file into BUILD!!!
-
-2004-11-14 19:51  sofar
-
-	* libs/exo/DETAILS, terminal/Terminal/DETAILS: New versions
-
-2004-11-14 16:35  sofar
-
-	* security/shadow/: BUILD, securetty: Add a default securetty. The
-	  default might be too restrictive but it's a good start.
-
-2004-11-14 13:33  moe
-
-	* kernel/pctel/BUILD: Fixing florin's fix ;-)
-
-2004-11-14 03:12  v3rt1g0
-
-	* audio/esound/: BUILD, DEPENDS, DETAILS: Added a missing optional
-	  depends, clened up the essay paper that was the long description,
-	  and added some extra documentation to be installed.
 
