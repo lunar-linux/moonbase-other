@@ -19,7 +19,7 @@
   bad_flags '-funroll-loops' '-ffast-math'
 
   # first copy the stored settings over:
-  cp $CONFIG_CACHE/host.def config/cf/host.def &&
+  #cp $CONFIG_CACHE/host.def config/cf/host.def &&
 
   # then add stuff on the fly:
   echo  "#define InstallXdmConfig YES"          >> config/cf/host.def &&
@@ -38,6 +38,19 @@
   echo  "#define OptimizedCDebugFlags  $CFLAGS" >> config/cf/host.def &&
   echo  "#define XVendorString \"Lunar-Linux.org (The X.Org Foundation $VERSION)\"" >> config/cf/host.def &&
   echo  "#define FontDir /usr/share/fonts"      >> config/cf/host.def &&
+  echo  "#define HasZlib YES"                   >> config/cf/host.def &&
+  echo  "#define HasFreetype2 YES"              >> config/cf/host.def &&
+  echo  "#define ForceNormalLib  YES"           >> config/cf/host.def &&	
+  echo  "#define HasExpat  YES"			>> config/cf/host.def &&
+  echo  "#define UseExpat  YES"                 >> config/cf/host.def &&
+  echo  "#define HasLibpng YES"			>> config/cf/host.def &&
+  echo  "#define HasLibxml2 YES"		>> config/cf/host.def &&
+  echo  "#define InstallFontconfigLibrary YES"  >> config/cf/host.def &&
+  echo  "#define UseFontconfig YES"		>> config/cf/host.def &&
+  echo  "#define HasFontconfig YES"		>> config/cf/host.def &&
+  echo  "#define SharedLibXft YES"		>> config/cf/host.def &&
+  echo  "#define PreferXdmcpIPv6 YES"		>> config/cf/host.def &&
+  echo  "#define ProPoliceSupport YES"		>> config/cf/host.def &&
 
   if grep -q "Compilation aborted" /usr/include/linux/config.h ; then
     # This must happen or it will cause the module to break
@@ -47,7 +60,6 @@
     invoke_installwatch
   fi
   
-  mkdir -p /usr/src/xc/programs     &&
   make World                            &&
   prepare_install                       &&
   cd $SOURCE_DIRECTORY                  &&
