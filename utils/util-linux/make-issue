@@ -6,7 +6,7 @@ for ISSUE in /etc/issue /etc/issue.net ; do
   else
     echo "Lunar Linux 1.2 (Pico)" > $ISSUE
   fi
-  echo "Kernel \r on an \m" >> $ISSUE
+  echo "Kernel `uname -r` on an `uname -m`" >> $ISSUE
   echo "" >> $ISSUE
 done
 
