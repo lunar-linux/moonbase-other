@@ -7,13 +7,6 @@ depends  hicolor-icon-theme &&
 optional_depends  "gnupg"       ""  ""  "for encrypted mail support"  &&
 optional_depends  "gnome-spell" ""  ""  "For spellcheck support"      &&
 
-optional_depends  "openssl"                                           \
-                  "--enable-openssl=yes                               \
-		  --with-openssl-includes=/usr/include/openssl        \
-		  --with-openssl-libs=/usr/lib"                       \
-		  "--enable-openssl=no"                               \
-		  "for SSL support"                                   &&
-		  
 optional_depends  "pilot-link" "--enable-pilotlinktest"               \
                   ""                                                  \
                   "for Palm support"                                  &&
@@ -25,10 +18,12 @@ optional_depends  "gnome-pilot" "--enable-pilot-conduits=yes"         \
 optional_depends  "mozilla"                                           \
                   "--with-nspr-includes=/usr/include/mozilla/nspr     \
                    --with-nspr-libs=/usr/lib/mozilla                  \
-                   --with-nss-includes=/usr/include/mozilla           \
-                   --with-nss-libs=/usr/lib/mozilla"                  \
+                   --with-nss-includes=/usr/include/mozilla/nss       \
+                   --with-nss-libs=/usr/lib/mozilla                   \
+		   --enable-nss=yes				      \
+		   --enable-smime=yes"				      \
                   ""                                                  \
-                  "for mozilla support"                               &&
+                  "for mozilla support, SSL and SMIME"                               &&
 
 optional_depends  "openldap"             \
                   "--with-openldap=yes"  \
