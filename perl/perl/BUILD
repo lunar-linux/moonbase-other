@@ -1,4 +1,9 @@
 #bzcat $SCRIPT_DIRECTORY/perl-gcc3.patch.bz2 | patch -p 0
+
+cd $SOURCE_DIRECTORY/hints
+sedit "s/-O3/$CFLAGS/" linux.sh
+cd $SOURCE_DIRECTORY
+
 case  $CUSTOM  in
   y|Y|j|J)  sound  REPORT
             ./Configure  -Dprefix=/usr   \
