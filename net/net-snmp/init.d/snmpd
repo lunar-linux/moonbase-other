@@ -12,15 +12,15 @@ ARGS="-P /var/run/snmpd.pid"
 if [ -e /etc/config.d/snmpd ]; then
     . /etc/config.d/snmpd
     if [ ! -z $USER ]; then
-        $ARGS="$ARGS -u $USER"
+        ARGS="$ARGS -u $USER"
     fi;
     if [ ! -z $GROUP ]; then
-        $ARGS="$ARGS -g $GROUP"
+        ARGS="$ARGS -g $GROUP"
     fi;
     if [ ! -z $LOGFILE ]; then
-        $ARGS="$ARGS -l $LOGFILE"
+        ARGS="$ARGS -l $LOGFILE"
     else
-        $ARGS="$ARGS -s"
+        ARGS="$ARGS -s"
     fi
 fi;
 
