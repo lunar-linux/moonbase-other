@@ -16,7 +16,8 @@ fi
 		--mandir=/opt/lunar/gnome/2/share/man		\
 		--enable-platform-gnome-2			&&
 
-   default_make                                                 
+   default_make                                                 &&
+   cp $SOURCE_CACHE/$SOURCE3 /opt/lunar/gnome/2/share/pixmaps/splash/$SOURCE3 
 
 ) > $C_FIFO 2>&1
 
