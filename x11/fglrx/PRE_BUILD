@@ -3,3 +3,5 @@ cd $SOURCE_DIRECTORY &&
 rpmunpack $SOURCE_CACHE/$SOURCE &&
 gunzip $(echo $SOURCE | sed 's:i386.rpm$:cpio.gz:') &&
 cpio -i --no-absolute-filenames --make-directories < $(echo $SOURCE | sed 's:i386.rpm$:cpio:')
+cd $SOURCE_DIRECTORY/lib/modules/fglrx/build_mod &&
+patch_it $SOURCE_CACHE/$SOURCE2 1
