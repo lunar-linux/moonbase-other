@@ -118,10 +118,6 @@
   #
   # First compile the source code
   #
-  # Apply prescan fix
-  cd sendmail
-  patch_it $SOURCE_CACHE/sendmail_parse_patch "0 -l"
-  cd ..
   sh Build
 
   #
