@@ -6,7 +6,7 @@ unset CC CXX
   sedit "s/examples//"  Makefile.am  &&
   sedit "s/examples//"  Makefile.in  &&
 
-  patch -p0 < $SCRIPT_DIRECTORY/bootstrap.0.2.3.patch &&
+  patch -p1 < $SCRIPT_DIRECTORY/bootstrap.0.2.3.patch &&
   ./configure  --host=$BUILD           \
                --mandir=/usr/share/man \
                --prefix=/usr           &&
