@@ -11,6 +11,11 @@
 -#ifdef GL_EXT_point_parameters
 +#ifdef GL_EXT_point_parameters_UNDEFINED
 EOF
-  default_build
 
+  ./configure  --prefix=/usr                \
+               --bindir=/usr/games          \
+	       --datadir=/usr/share/games   &&
+
+  default_make
+  
 ) > $C_FIFO 2>&1
