@@ -1,8 +1,6 @@
 (
   
-  bzcat $SCRIPT_DIRECTORY/bzflag-fix-for-gcc3.1.patch.bz2 | patch -p1               &&
   make  linux                                                                       &&
-  cat $SCRIPT_DIRECTORY/config-sys.patch                  | patch -p1               &&
   make  all                                  &&
   prepare_install                            &&
   mkdir -p        /usr/games                 &&
