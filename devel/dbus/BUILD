@@ -11,6 +11,8 @@
   # on FIRST install due to the lack of existing /var/lib/dbus
   add_priv_user messagebus:messagebus -d /dev/null -s /bin/false &&
   mkdir -p /var/lib/dbus  &&
-  chown -R messagebus:messagebus /var/lib/dbus
+  chown -R messagebus:messagebus /var/lib/dbus &&
+
+  cp $SCRIPT_DIRECTORY/30-dbus /etc/X11/xinit/xinitrc.d/ 
 
 ) > $C_FIFO 2>&1
