@@ -4,7 +4,13 @@
   sedit 's:die "Bad gcc version":echo "love and peace!":g' configure
 
   unset CFLAGS
- 
+  
+  cp $SOURCE_CACHE/$SOURCE6 $SOURCE_DIRECTORY/libmpdemux/ &&
+  cd $SOURCE_DIRECTORY/libmpdemux
+  patch_it $SOURCE6 0
+  cd $SOURCE_DIRECTORY
+  
+
   ./configure --prefix=/usr                   \
 	      --confdir=/etc                  \
 	      --mandir=/usr/share/man         \
