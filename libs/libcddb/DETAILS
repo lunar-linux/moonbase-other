@@ -1,0 +1,18 @@
+          MODULE=libcddb
+         VERSION=0.9.4
+          SOURCE=${MODULE}-$VERSION.tar.gz
+      SOURCE_VFY=md5:366095f09e1d89d91915a2dd7c7c1478
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
+        WEB_SITE=http://libcddb.sourceforge.net
+         ENTERED=20040711
+         UPDATED=20040711
+           SHORT="Libcddb is a C library to access data on a CDDB server"
+cat << EOF
+It allows you to: 
+  search the database for possible CD matches;
+  retrieve detailed information about a specific CD;
+  submit new CD entries to the database.
+
+Libcddb supports both the custom CDDB protocol and tunnelling the query and read operations over plain HTTP. It is also possible to use an HTTP proxy server. If you want to speed things up, you can make use of the built-in caching facility provided by the library. 
+EOF
