@@ -5,16 +5,19 @@
 
   unset CFLAGS
   
-  cp $SOURCE_CACHE/$SOURCE6 $SOURCE_DIRECTORY/libmpdemux/ &&
-  cd $SOURCE_DIRECTORY/libmpdemux
-  patch_it $SOURCE6 0
-  cd $SOURCE_DIRECTORY
-  
 
-  ./configure --prefix=/usr                   \
-	      --confdir=/etc                  \
-	      --mandir=/usr/share/man         \
-	      $OPTS                           &&
+  if module_installed kernel-headers-2.6; then
+      ./configure --prefix=/usr                   \
+  	          --confdir=/etc                  \
+	          --mandir=/usr/share/man         \
+	          --disable-fbdev                 \
+	          $OPTS                           ;
+    else
+      ./configure --prefix=/usr                   \
+  	          --confdir=/etc                  \
+	          --mandir=/usr/share/man         \
+	          $OPTS                           ;
+  fi  &&
 
   sedit "s/MANDIR = \${prefix}\/man/MANDIR =\/usr\/share\/man/" Makefile  &&
   # the following sedit fixes some library issues with freetype2 and xfree86
