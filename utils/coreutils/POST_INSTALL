@@ -2,11 +2,16 @@
 
   if module_installed fileutils ; then
     remove_module fileutils
-    remove_module sh-utils
-    remove_module textutils
-
     remove_depends fileutils
+  fi
+
+  if module_installed sh-utils ; then
+    remove_module sh-utils
     remove_depends sh-utils
+  fi
+
+  if module_installed textutils ; then
+    remove_module textutils
     remove_depends textutils 
   fi
 
