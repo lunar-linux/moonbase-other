@@ -4,6 +4,6 @@ _fortune ()
 {
 	local cur
 	cur=${COMP_WORDS[COMP_CWORD]}
-	COMPREPLY=( $( compgen -W "`ls /usr/share/games/fortunes/* | sed -e s:.dat:: -e s:/usr/share/games/fortunes/:: -e s/.*://`" $cur ))
+	COMPREPLY=( $( compgen -W "`ls -d /usr/share/games/fortunes/* /usr/share/games/fortunes/*/* | sed -e s:.dat:: -e s:/usr/share/games/fortunes/::`" $cur ))
 }
 complete -F _fortune fortune	
