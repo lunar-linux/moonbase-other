@@ -6,6 +6,7 @@
   ( module_installed libpcap && make -C pcap ) &&
   prepare_install &&
   make install &&
+  install -m644 libipulog/libipulog.a /usr/lib &&
   ( module_installed libpcap && make -C pcap install ) &&
   mkdir -p /usr/share/doc/ulogd &&
   install doc/my* doc/ul* /usr/share/doc/ulogd
