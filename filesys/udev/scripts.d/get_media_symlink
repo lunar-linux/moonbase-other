@@ -1,0 +1,36 @@
+#!/bin/bash
+# it echoes the number of the next symlink to be created (taking as example "cdrom"):
+#    * if no previos cdrom* link exists, it creates a "cdrom" link
+#    * if the last was the cdrom link, the next will be 1
+#    * if the last was n, the next is n+1
+
+# the name of the device, for example, "hda"
+if [ -z "$1" ]; then
+    # we need to know the device so we leave
+    echo "$0 : missing device param" >&2
+    exit 1;
+else
+    case $1 in
+	sd? )          DRIVE=scsi ; SYMLINK=disk ;;
+	s[r,g][0-9]* ) DRIVE=scsi ; SYMLINK=cdrom ;;
+	hd? )          DRIVE=ide  ; SYMLINK=`cat /proc/ide/$1/media` ;; # media can be cdrom or disk
+	* )            echo "$0 : unknown device $1" >&2 ; exit 1;;
+    esac
+fi
+	
+(
+    cd /dev
+    last=`ls -1 ${SYMLINK}[0-9]* 2> /dev/null | tail -n 1 | sed -e "s/${SYMLINK}//g"`
+    
+    if [ -z "$last" ]; then
+	echo "${SYMLINK}"
+    elif [ "$last" = "${SYMLINK}" ]; then
+	echo "${SYMLINK}1" 
+    else
+	next=$(( $last + 1 )) 
+	echo "${SYMLINK}${next}"
+    fi
+)
+
+exit 0
+ 
