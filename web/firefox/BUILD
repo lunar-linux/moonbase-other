@@ -10,7 +10,8 @@
   OPTS="$OPTS --enable-xterm-updates"
   OPTS="$OPTS --disable-ldap"
   OPTS="$OPTS --enable-svg --enable-svg-renderer-cairo"
-  OPTS="$OPTS --enable-extensions=default,-irc" 
+  OPTS="$OPTS --enable-extensions=default,-irc"
+  OPTS="$OPTS --enable-single-profile --disable-profilesharing" 
 
   export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
   export MOZ_NSS_AUTOCONF=1

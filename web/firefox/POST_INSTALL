@@ -5,6 +5,8 @@ FFOX_LIBDIR=firefox-$VERSION
 J2SDK_VER=`lvu installed j2sdk`
 
 mkdir -p /opt/lunar/plugins
+cp -f $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins/* /opt/lunar/plugins
+rm -rf $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
 ln -sf /opt/lunar/plugins $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
 
 export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/$FFOX_LIBDIR:$FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins:$FIREFOX_HOME/lib/$FFOX_LIBDIR/components"
@@ -19,7 +21,7 @@ cd $FIREFOX_HOME/lib/$FFOX_LIBDIR
 ./regchrome
 
 if module_installed j2sdk; then
-ln -sf /usr/lib/j2sdk${J2SDK_VER}/jre/plugin/i386/mozilla/javaplugin_oji.so $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins/javaplugin_oji.so 
+ln -sf /usr/lib/j2sdk${J2SDK_VER}/jre/plugin/i386/mozilla/libjavaplugin_oji.so $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins/libjavaplugin_oji.so 
 fi
 
 if [ ! -d /usr/share/applications ] ; then
