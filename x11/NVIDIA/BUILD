@@ -12,7 +12,9 @@
   cd $BUILD_DIRECTORY                          &&
   rmdir $SOURCE_DIRECTORY                      &&
 
- [ -e "/etc/ld.so.preload" ] && sedit "/libgcc_s/d" /etc/ld.so.preload || true 
+if [ -e "/etc/ld.so.preload" ]; then
+  sedit "/libgcc_s/d" /etc/ld.so.preload || true
+fi
 
 ) > $C_FIFO 2>&1
 
