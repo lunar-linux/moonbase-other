@@ -6,6 +6,7 @@
   sedit "s/\/opt\/antiword\/share/\/usr\/share\/antiword/" antiword.h &&
 
   make all        &&
+  strip antiword  &&
   prepare_install &&
   make install    &&
 
