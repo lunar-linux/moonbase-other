@@ -1,3 +1,60 @@
+2005-01-12 13:19  nestu
+
+	* kernel/linux-2.6-prepatch/: BUILD, BUILD.alpha, CONFIGURE,
+	  DETAILS, POST_INSTALL, PRE_BUILD: 2.6.10-rc3 -> 2.6.11-rc1- gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.10.0 Some cosmetics to all files.
+	  Removed BUILD.alpha till further notice.
+
+2005-01-12 10:48  florin
+
+	* kde3-utils/smb4k/DETAILS: bump the version from 0.4.0 to 0.5.0.
+
+2005-01-12 06:19  tchan
+
+	* audio/abcde/BUILD: Added an sedit to fix a metaflac command-line
+	  options change in flac-1.1.1.
+
+2005-01-12 03:47  tchan
+
+	* editors/manedit/: BUILD, DETAILS: version bump to manedit-0.5.12.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x. NOTE: this is still a gtk+ app.  No gtk+2 version.
+
+2005-01-11 21:03  moe
+
+	* audio/amarok/: BUILD, DEPENDS, DETAILS: Adding a slightly
+	  modified version of amarok.  Module submitted by Alexandre
+	  Courbot <gnurou@gmail.com>
+
+2005-01-11 18:50  tchan
+
+	* net/unison/: BUILD, DEPENDS, DETAILS: Added unison-2.9.1 to the
+	  moonbase.  Another file synchronization tool.  Cross platform
+	  too.	Works on windows and unix boxes. GTK+ gui or text mode char
+	  app.	GTK+2 version does not work.
+
+2005-01-11 18:46  tchan
+
+	* libs/lablgtk/: BUILD, DEPENDS, DETAILS: Lowered this module to
+	  lablgtk-1.2.7.  This is the stable release and is gtk+ only.
+	  lablgtk-2.4.0 is gtk+-2 and does NOT correctly work with
+	  unison-2.9.1.  Compiled and tested with gcc-3.3.3, glibc-2.3.3,
+	  kernel headers 2.4.x.
+
+2005-01-11 16:41  tchan
+
+	* gnome/gnome-print/: BUILD, DETAILS: Fixed another module that
+	  freetype2 devs broke.
+
+2005-01-11 16:19  tchan
+
+	* x11-apps/gnucash/DEPENDS: Small mod as gnucash-1.8.10 now checks
+	  for gtkhtml-1.1+ so that is gtkhtml2 in moonbase.
+
+2005-01-11 15:21  tchan
+
+	* gnome/gal/DETAILS: Added PSAFE=no to gal/DETAILS.
+
 2005-01-11 13:35  ratler
 
 	* chat/psi/DEPENDS, chat/psi/DETAILS, security/qca-tls/DETAILS,
@@ -2017,76 +2074,4 @@
 	* video/tvtime/: BUILD, DEPENDS, DETAILS: Version bump.  SDL
 	  support has been dropped (according to their bugtracker) so it is
 	  no longer a depends.
-
-2004-12-12 23:44  v3rt1g0
-
-	* video/libtheora/DETAILS: Updated source uri as suggested by
-	  Cursory in #lunar.  Also fixed up the sha1 sum.
-
-2004-12-12 22:30  moe
-
-	* zbeta/openoffice-src/DETAILS: Fix bug #603
-
-2004-12-12 22:21  sofar
-
-	* graphics/ImageMagick/DETAILS: dont touch
-
-2004-12-12 22:21  v3rt1g0
-
-	* audio/abcde/DETAILS: Version bump 2.1.19 -> 2.2.0
-
-2004-12-12 21:56  v3rt1g0
-
-	* cd/cdw/DEPENDS: Fixed a typo
-
-2004-12-12 21:40  v3rt1g0
-
-	* cd/cdw/: DEPENDS, DETAILS: Inital commit of some ncurses/Gtk+-2
-	  cd ripping/burning/sacrificing thing-a-ma-bob
-
-2004-12-12 21:22  sofar
-
-	* audio/grip/DETAILS: Version bump... in testing ;^)
-
-2004-12-12 16:41  florin
-
-	* crypto/libtasn1/DETAILS: bump the version from 0.2.10 to 0.2.12.
-
-2004-12-12 16:34  tchan
-
-	* gnome/imlib/: BUILD, DEPENDS, DETAILS, imlib-ac25x.patch: Version
-	  bump to imlib-1.9.15. Removed the unneeded imlib-ac25x.patch.
-	  The other patches still apply.  Someone with more time can move
-	  the patches in moonbase into the patchdir scheme. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-12-12 16:33  florin
-
-	* kde3-apps/kxmleditor/DETAILS: bump the version from 1.1.3 to
-	  1.1.4.
-
-2004-12-12 16:10  florin
-
-	* security/nmap/DETAILS: bump the version from 3.77 to 3.78.
-
-2004-12-12 16:02  florin
-
-	* chat/amsn/DEPENDS: the tk module depends on tcl already.
-
-2004-12-12 15:52  florin
-
-	* chat/amsn/POST_REMOVE: clean up after uninstall.
-
-2004-12-12 15:46  florin
-
-	* graphics/ImageMagick/DETAILS: bump the version fronm 6.1.6-0 to
-	  6.1.6-5.
-
-2004-12-12 13:22  cmak
-
-	* compilers/swi-prolog/DETAILS: version bump
-
-2004-12-12 07:09  florin
-
-	* chat/amsn/BUILD: fix the install bug.
 
