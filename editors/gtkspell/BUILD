@@ -1,6 +1,6 @@
 (
     cd $SOURCE_DIRECTORY &&
-    ./configure $OPTS &&
+    ./configure --prefix=/usr $OPTS &&
     make &&
     touch docs/html/index.sgml &&
     make install
