@@ -28,8 +28,9 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     echo 'AIRSNORT="y"' >> $MODULE_CONFIG
   fi
 
-
-
+  if query "Build client modules from the pcmcia-cs? (adds extra hardware support for some devices)" n ; then
+    echo 'BUILD_CLIENT="y"' >> $MODULE_CONFIG
+  fi
   
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
