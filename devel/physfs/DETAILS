@@ -1,16 +1,16 @@
           MODULE=physfs
-         VERSION=0.1.9
+         VERSION=1.0.0
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://icculus.org/physfs/downloads/$SOURCE
-     SOURCE_VFY=md5:ee61f31d15563a3f785adbd800933631
+     SOURCE_VFY=md5:d02a8543a95d0550490cf4f96e0ddebf
         WEB_SITE=http://icculus.org/physfs
          ENTERED=20030215
-         UPDATED=20031028
-           SHORT=" PhysicsFS is a library to provide abstract access to
-various archives."
+         UPDATED=20040110
+        SHORT=" PhysicsFS is a library to provide abstract access to various archives."
+
 cat << EOF
- PhysicsFS is a library to provide abstract access to various archives. It
+PhysicsFS is a library to provide abstract access to various archives. It
 is intended for use in video games, and the design was somewhat inspired by
 Quake 3's file subsystem. The programmer defines a "write directory" on the
 physical filesystem. No file writing done through the PhysicsFS API can
@@ -24,6 +24,5 @@ This makes for easy access to ZIP files in the same way as you access a file
 directly on the disk, and it makes it easy to ship a new archive that will
 override a previous archive on a per-file basis. Finally, PhysicsFS gives
 you platform-abstracted means to determine if CD-ROMs are available, the
-user's home directory, where in the real filesystem your program is running,
-etc
+user's home directory, where in the real filesystem your program is running.
 EOF
