@@ -1,3 +1,159 @@
+2005-03-30 13:39  nhudson
+
+	* gnome-platform/gnome-vfs2/: BUILD, DEPENDS:
+	  Adding support for howl and gnutls if you want it, also removing
+	  fam from the list because fam is no longer used.
+
+2005-03-30 13:23  sofar
+
+	* compilers/jikes/DETAILS: Update by Goran. tested and in use by
+	  him.
+
+2005-03-30 11:14  sofar
+
+	* utils/theedge/DEPENDS: This can be removed since unzip is now
+	  added properly to the correct list of modules
+
+2005-03-30 11:11  sofar
+
+	* devel/pccts/DEPENDS, doc-tools/docbook-3.1/DEPENDS,
+	  doc-tools/docbook-4.1/DEPENDS, doc-tools/docbook-4.2/DEPENDS,
+	  docs/diveintopython/DEPENDS, docs/docbook-book/DEPENDS,
+	  doc-tools/docbook-sgml/DEPENDS, doc-tools/docbook-xml/DEPENDS,
+	  doc-tools/uTidylib/DEPENDS, games/BASS/DEPENDS,
+	  games/cube/DEPENDS, games/cube-bin/DEPENDS, games/FOTAQ/DEPENDS,
+	  games/epiar/DEPENDS, games/exult/DEPENDS,
+	  games/falconseye/DEPENDS, libs/feedparser/DEPENDS,
+	  libs/xmlconfigfile/DEPENDS: Adding proper dependencies to unzip.
+
+2005-03-30 10:55  sofar
+
+	* archive/rpmunpack/DEPENDS, utils/theedge/DEPENDS: Moved the cpio
+	  depends to rpmunpack: without cpio rpmunpack is useless but only
+	  modules that need rpmunpack need cpio
+
+2005-03-30 10:53  sofar
+
+	* sql/sybase-ocsd/DEPENDS, sql/sybase-doc/DEPENDS,
+	  sql/sybase-ase/DEPENDS, utils/theedge/DEPENDS: Move depends on
+	  rpmunpack to only the modules that need it
+
+2005-03-30 10:49  sofar
+
+	* archive/rpmunpack/plugin.d/unpack-rpm.plugin,
+	  archive/unzip/plugin.d/unpack-zip.plugin,
+	  devel/cvs/plugin.d/download-cvs.plugin,
+	  devel/subversion/plugin.d/download-svn.plugin,
+	  libs/gpgme/plugin.d/verify-gpg.plugin,
+	  utils/grub/plugin.d/bootloader-grub.plugin,
+	  utils/lilo/plugin.d/bootloader-lilo.plugin: Merging in
+	  module-dependent plugins
+
+2005-03-30 07:39  nhudson
+
+	* net/howl/: BUILD, DETAILS:
+	  Adding a patch to howl so that it will compile
+
+2005-03-30 03:50  tchan
+
+	* chat/xchat/DEPENDS: Added a depends on libtool for the libtoolize
+	  call in BUILD.
+
+2005-03-30 03:40  v3rt1g0
+
+	* graphics/glass/DETAILS: Typo in the WEB_SITE
+
+2005-03-30 02:29  nhudson
+
+	* graphics/cairo/DETAILS:
+	  Reverting cairo back to 0.2.0 for now grr
+
+2005-03-30 01:38  nhudson
+
+	* graphics/cairo/DETAILS:
+	  Updating cairo to new version 0.4.0
+
+2005-03-30 01:37  nhudson
+
+	* libs/libpixman/DETAILS:
+	  Updating libpixman to new version 0.1.4
+
+2005-03-30 00:51  v3rt1g0
+
+	* x11-apps/: xscreensaver/DETAILS, xscreensaver-openMotif/DETAILS:
+	  Version bump 4.20 -> 4.21.  New hack, misc bug fixes and
+	  enhancements.
+
+2005-03-29 23:00  nhudson
+
+	* utils/gamin/: DEPENDS, DETAILS:
+	  Updating gamin to new version 0.0.26 and fixing the DEPENDS file
+
+2005-03-29 22:50  nhudson
+
+	* utils/inotify-utils/: BUILD, DETAILS:
+	  Updating inotify-utils to version 0.21
+
+2005-03-29 22:12  nhudson
+
+	* graphics/tiff/DETAILS:
+	  Adding mirror to download as it looks like the main download
+	  mirror is not availiable right now
+
+2005-03-29 21:52  nhudson
+
+	* kernel/linux-2.6-inotify/: BUILD, CONFIGURE, DEPENDS, DETAILS,
+	  POST_INSTALL, PRE_BUILD:
+	  Updating 2.6 inotify kernel to latest version 0.21 with 2.6.11
+	  kernel.
+
+2005-03-29 21:15  florin
+
+	* libs/libchipcard2/DETAILS: bump the version from 1.9.10 to
+	  1.9.12. some api changes.
+
+2005-03-29 21:13  florin
+
+	* kde3-apps/qbankmanager/DETAILS: bump the version from 0.9.18 to
+	  0.9.19. improvements.
+
+2005-03-29 20:28  florin
+
+	* kde3-utils/kbanking/DETAILS: bump the version from 0.9.7 to
+	  0.9.8. improved PrintDialog.
+
+2005-03-29 20:22  florin
+
+	* libs/aqdtaus/DETAILS: bump the version from 0.9.1 to 0.9.2.
+	  adapted to the new aqbanking release.
+
+2005-03-29 20:17  florin
+
+	* libs/aqbanking/DETAILS: bump the version from 1.0.6 to 1.0.7. a
+	  few additions.
+
+2005-03-29 20:12  florin
+
+	* libs/gwenhywfar/DETAILS: bump the version from 1.9.0 to 1.10.0.
+
+2005-03-29 20:10  florin
+
+	* games/scummvm/DETAILS: bump the version from 0.7.0 to 0.7.1.
+	  bugfixes some addons a a few optimizations.
+
+2005-03-29 19:53  florin
+
+	* gnome-desktop/librsvg/BUILD: a better alignement (i hope).
+
+2005-03-29 18:53  hardkrash
+
+	* net/howl/: BUILD, DETAILS: bug fix bump and fix the build to not
+	  fail when the directory exists...
+
+2005-03-29 13:50  cmak
+
+	* gnome-desktop/librsvg/BUILD: system lib
+
 2005-03-29 13:29  sofar
 
 	* gnome-desktop/vte/: BUILD, DETAILS: Adding *BACK* the termcap
@@ -2665,30 +2821,4 @@
 
 	* editors/zile/DETAILS: Version bump to zile-2.0.2. Compiled/tested
 	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2005-02-27 18:45  v3rt1g0
-
-	* utils/doodle/: DEPENDS, DETAILS: Inital Import of a search tool.
-	  This is used within evidence (an EFL based file manager), which I
-	  hope to get cleaned up and commited sometime soon.
-
-2005-02-27 18:23  v3rt1g0
-
-	* libs/libextractor/: DEPENDS, DETAILS: Inital Import.	A little
-	  library that extras meta-data from files, kinda like the 'file'
-	  command.
-
-2005-02-27 16:29  florin
-
-	* video/mkvtoolnix/DETAILS: bump the version from 1.0.2 to 1.4.0.
-
-2005-02-27 16:22  cmak
-
-	* graphics/gimp-help/DETAILS: see me, feel me, touch me, help me
-
-2005-02-27 03:48  tchan
-
-	* graphics/gqview/: DEPENDS, DETAILS: Version bump to stable 2.0.0.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x., gtk+-2 2.4.14.  Added libpng as a depends.
 
