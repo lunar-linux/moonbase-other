@@ -5,45 +5,42 @@
   export  PATH=$QTDIR/bin:$PATH
   export  LD_LIBRARY_PATH=$QTDIR/lib
 
-  sedit  "s/-O2/$CXXFLAGS/"   mkspecs/linux-g++/qmake.conf
-#  sedit  "s/MAKE=/MAKE=make/" configure
+  prepare_install  &&
+
+  sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
 
   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
-  echo  "yes"  |  ./configure  -release                       \
-                               -shared                        \
-                               -thread                        \
-                               -qt-gif                        \
-                               -plugin-imgfmt-mng             \
-                               -system-libpng                 \
-                               -system-libjpeg                \
-                               -system-zlib                   \
-                               -no-g++-exceptions             \
-                               -thread                        \
-                               -no-stl                        \
-                               -dlopen-opengl                 \
-                               -prefix ${QT_PREFIX:-$QTDIR}   \
-                               -xft                           \
-                               $OPTS                         &&
+  echo  "yes"  |  ./configure  -release                      \
+                               -shared                       \
+                               -thread                       \
+                               -qt-gif                       \
+                               -plugin-imgfmt-mng            \
+                               -system-libpng                \
+                               -system-libjpeg               \
+                               -system-zlib                  \
+                               -no-g++-exceptions            \
+                               -thread                       \
+                               -no-stl                       \
+                               -dlopen-opengl                \
+                               -prefix ${QT_PREFIX:-$QTDIR}  \
+                               -xft                          \
+                               $OPTS                        &&
 
-#  sedit 's:strip "$(INSTALL_ROOT)${QT_PREFIX:-$QTDIR}/doc/html/"::'  src/Makefile &&
-
-  case  $SAMPCOMP  in
+  case $SAMPCOMP in
     y|Y|j|J)
       make
       ;;
     *)
-      make  symlinks sub-src sub-tools
+      make symlinks sub-src sub-tools
       ;;
   esac  &&
 
-  rm bin/qmake &&     
-  cp qmake/qmake bin/qmake &&
+  rm bin/qmake              &&     
+  cp qmake/qmake bin/qmake  &&
+  make install              &&
 
-  prepare_install  &&
-  make  install    &&
-
-  case  $SAMPIN  in
+  case $SAMPIN in
     y|Y|j|J)
       mv examples  ${QT_PREFIX:-$QTDIR}  &&
       mv tutorial  ${QT_PREFIX:-$QTDIR}
