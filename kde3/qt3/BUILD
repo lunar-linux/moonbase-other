@@ -5,7 +5,10 @@
   export  PATH=$QTDIR/bin:$PATH
   export  LD_LIBRARY_PATH=$QTDIR/lib
 
-  sedit  "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf
+  sedit  "s/-O2/$CXXFLAGS/"   mkspecs/linux-g++/qmake.conf
+#  sedit  "s/MAKE=/MAKE=make/" configure
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
   echo  "yes"  |  ./configure  -release                       \
                                -shared                        \
