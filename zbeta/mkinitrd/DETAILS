@@ -1,0 +1,19 @@
+          MODULE=mkinitrd
+         VERSION=3.5.8
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://lunar-linux.org/lunar/mirrors/$SOURCE
+      SOURCE_VFY=md5:f75b663b51f8ef246f633742a92b0f47
+        WEB_SITE=http://speakeasy.rpmfind.net/linux/RPM/rawhide/1.0/i386/RedHat/RPMS/mkinitrd-3.5.8-2.i386.html
+         ENTERED=20030825
+         UPDATED=20030825
+      MAINTAINER="tchan@lunar-linux.org"
+           SHORT="Creates an initial ramdisk image for preloading modules"
+cat << EOF
+Mkinitrd creates filesystem images for use as initial ramdisk (initrd)
+images.  These ramdisk images are often used to preload the block
+device modules (SCSI or RAID) needed to access the root filesystem.
+
+mkinitrd is a shell script and a few binaries that help iso creators make
+an initrd in an automated fashion.
+EOF

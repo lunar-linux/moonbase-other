@@ -1,0 +1,6 @@
+#  Need to re-lin modutils if insmod.static doesn't exist
+if [ ! -e /sbin/insmod.static ] ; then
+  rm -f $BOOST_LOCK
+  lin modutils
+fi
+true
