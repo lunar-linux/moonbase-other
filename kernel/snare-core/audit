@@ -1,0 +1,58 @@
+#!/bin/bash
+#
+# Startup script for the Audit module and audit daemon
+#
+# description: SNARE System iNtrusion Analysis and Reporting Environment
+# processname: auditd
+# config: /etc/audit/audit.conf
+
+# Source function library.
+#. /etc/rc.d/init.d/functions
+
+# Path to the auditd binary.
+auditd=/usr/sbin/auditd
+killproc="/usr/bin/pkill -f"
+RETVAL=0
+
+start() {
+   mkdir -p /var/lock/subsys
+	echo -n $"Installing Audit Module: "
+	insmod auditmodule
+	echo
+	echo -n $"Starting $auditd: "
+	$auditd &
+	RETVAL=$?
+	echo
+	[ $RETVAL = 0 ] && touch /var/lock/subsys/auditd
+	return $RETVAL
+}
+stop() {
+	echo -n $"Stopping $auditd: "
+	$killproc $auditd && sleep 3
+	RETVAL=$?
+	echo
+	[ $RETVAL = 0 ] && rm -f /var/lock/subsys/auditd /var/run/auditd.pid
+	rmmod auditmodule
+}
+
+# See how we were called.
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  status)
+	status $auditd
+	;;
+  restart)
+	stop
+	start
+	;;
+  *)
+	echo $"Usage: audit {start|stop|restart|status}"
+	exit 1
+esac
+
+exit $RETVAL
