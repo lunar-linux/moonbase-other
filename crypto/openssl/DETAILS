@@ -1,22 +1,23 @@
           MODULE=openssl
-	  # tchan and sofar say: "Please leave me at 0.9.6.x if you want your
-	  # box to do something useful!  The 0.9.7.x series does not work."
-         VERSION=0.9.6i
-        #VERSION=0.9.6h
-          SOURCE=$MODULE-$VERSION.tar.gz
-	 SOURCE2=Makefile.openssl-certs
+         VERSION=0.9.7b
+        #VERSION=0.9.6i
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_MD5=fae4bec090fa78e20f09d76d55b6ccff
    SOURCE_URL[0]=ftp://opensores.thebunker.net/pub/mirrors/openssl/source/$SOURCE
    SOURCE_URL[1]=http://www.dentarthurdent.com/transfer/openssl/$SOURCE
    SOURCE_URL[2]=http://www.openssl.org/source/$SOURCE
    SOURCE_URL[3]=ftp://ftp.infoscience.co.jp/pub/Crypto/SSL/openssl/source/$SOURCE
    SOURCE_URL[4]=ftp://ftp.duth.gr/pub/OpenSSL/source/$SOURCE
+
+	 SOURCE2=Makefile.openssl-certs
      SOURCE2_URL=$LRESORT_URL/$SOURCE2
-      SOURCE_MD5=9c4db437c17e0b6412c5e4645b6fcf5c
      SOURCE2_MD5=5ce126820eded42138d2236f54932f56
+
         WEB_SITE=http://www.openssl.org
          ENTERED=20010922
-         UPDATED=20030220
+         UPDATED=20030607
            SHORT="openssl is a library for providing encrypted transport layers."
 cat << EOF
 OpenSSL
