@@ -1,0 +1,24 @@
+           MODULE=ap-utils
+         VERSION=1.3.3
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=md5:5adfcbec9b0de14832c93da9c1d4c1b1
+        WEB_SITE=http://ap-utils.polesye.net
+      MAINTAINER=nhudson@speakeasy.net
+         ENTERED=20020704
+         UPDATED=20040207
+           SHORT="Tools for configuring wireless access points"
+cat << EOF
+Wireless Access Point Utilites for Unix - it's a set of utilites to configure
+and monitor Wireless Access Points under Unix.
+Utilites writen by Roman Festchook and released under GPL.
+
+As for version 1.0 package include four utils:
+
+ap-atmel  - to config and get stats from Atmel-chipset based AP;
+ap-nwn	  - to config and get stats from devices that support 
+	    MIB-II, IEEE 802.11 MIB and NWN DOT11EXT MIB;
+	    ap-mrtg   - to get stat from AP and return it in MRTG parsable format;
+	    ap-trapd  - to receive, parse and log trap messages from AP
+EOF
