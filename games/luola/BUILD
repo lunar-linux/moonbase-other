@@ -6,13 +6,16 @@
   rm  -f  config.cache
   rm  -f  config.log
 
-  ./configure  --prefix=/usr                \
+  ./configure  --prefix=/usr/games          \
                --enable-sound               \
                --with-sdl-prefix=/usr       \
                --with-sdl-exec-prefix=/usr  \
                $OPTS                        &&
   make                                      &&
   prepare_install                           &&
-  make    install
+  make    install                           &&
+  mkdir   /usr/games/share/luola/levels     &&
+  cd      /usr/games/share/luola/levels     &&
+  unpack  $SOURCE2                          
 
 ) > $C_FIFO 2>&1
