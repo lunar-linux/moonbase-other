@@ -4,4 +4,4 @@
   
   default_build
 
-) >> $C_FIFO 2>&1
+) > $C_FIFO 2>&1
