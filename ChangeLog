@@ -1,3 +1,28 @@
+2003-12-16 03:17  florin
+
+	* graphics/ImageMagick/DETAILS: bump version from 5.5.7-14 to
+	5.5.7-15.
+
+2003-12-15 22:56  sofar
+
+	* security/logcheck/DETAILS: Emergency fix: the "make install"
+	phase would chmod 0700 /tmp, which is b.a.d.
+
+2003-12-15 14:06  sofar
+
+	* net/netatalk/DETAILS: Whatever
+
+2003-12-15 13:52  sofar
+
+	* utils/: wlan-ng-driver/BUILD, wlan-ng-driver/CONFIGURE,
+	wlan-ng-driver/DEPENDS, wlan-ng-driver/DETAILS,
+	wlan-ng-driver/POST_INSTALL, wlan-ng-driver/PRE_BUILD,
+	wlan-ng-utils/BUILD, wlan-ng-utils/DETAILS: Adding alternate
+	wlan-ng modules, split up into a -driver module and a -utils module
+	for the userspace stuff. This will allow for a more strict
+	recompiling scheme. Waiting to remove the old linux-wlan-ng until
+	these modules become accepted.
+
 2003-12-15 11:15  sofar
 
 	* net/openafs/DETAILS: I recently forgot to commit this... hope
@@ -1578,15 +1603,4 @@
 2003-11-16 00:21  hardkrash
 
 	* chat/naim/DETAILS: bumped version, compiles and runs
-
-2003-11-15 11:29  moe
-
-	* x11-utils/root-tail/: BUILD, DEPENDS, DETAILS, PRE_BUILD: Adding
-	new root-tail module to the moonbase. Since xfdesktop is no longer
-	occupieing the root window every XFce4 may use it as well ;-)
-
-2003-11-15 07:53  florin
-
-	* kde3-apps/karchiver/DETAILS: bump version from 3.0.7 to 3.0.8.
-	bugfix version.
 
