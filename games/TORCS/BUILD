@@ -16,13 +16,11 @@
   unpack $SOURCE13
   unpack $SOURCE14
   unpack $SOURCE15
-  unpack $SOURCE16
-  unpack $SOURCE17
 
-  ./configure  --prefix=/usr         \
-               --bindir=/usr/games   \
-	       --datadir=/usr/share  \
-               $OPTS                &&
+  ./configure --prefix=/usr         \
+              --bindir=/usr/games   \
+	      --datadir=/usr/share  \
+              $OPTS                &&
 
   rm     -rf  /usr/games/torcs     &&
   default_make                     &&
