@@ -7,9 +7,9 @@
 
   ./configure	--prefix=/usr 			\
 		--sysconfdir=/etc 		\
+                --with-tag=OOO_1_1_1            \
                 --with-system-gcc 		\
                 --enable-devel    		\
-                --enable-bonobo   		\
                 --disable-dependency-tracking   \
  		$OPTS 				&&
 
