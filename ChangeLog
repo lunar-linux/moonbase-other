@@ -1,3 +1,98 @@
+2004-06-16 11:40  sofar
+
+	* graphics/povray/: BUILD, DETAILS: I know, the license is a bit
+	icky but it's a user app and should not pose problems to lunar in
+	any way. It's extremely fast and you should certainly submite lunar
+	benchmarks here:
+	http://www.haveland.com/index.htm?povbench/index.php
+
+2004-06-16 11:25  moe
+
+	* docs/man-fr/: CONFLICTS, DETAILS: F1x0r3d! .. and bumped to
+	1.58.0
+
+2004-06-16 10:07  sofar
+
+	* graphics/yafray/DETAILS: As we speak this is rendering on my
+	box....
+
+2004-06-16 09:35  moe
+
+	* web/firefox/: BUILD, DETAILS, POST_INSTALL, POST_REMOVE: Vital
+	update to this module before announcing the update.  Switching back
+	to mozilla.org (Tarball is working now), couple of ./configure
+	tweaks and POST_INSTALL updates (plugins should go to the right
+	place now). Also remove the firefox's remains after lrm.  FIXME:
+	Firefox needs to be started as root for the first time since it
+	needs to create some garbage in /usr/lib/firefox-0.9.  Thunderbird
+	(even the latest one) doesn't dothis (rediculous) behaviour and
+	Firefox 0.8 didn't do that either.
+
+2004-06-16 09:24  moe
+
+	* mail/thunderbird/POST_REMOVE: Need to remove this too
+
+2004-06-16 07:19  florin
+
+	* sql/postgresql/DETAILS: bump the version from 7.4.2 to 7.4.3.
+	bugfix release.
+
+2004-06-16 05:30  tchan
+
+	* utils/edict/BUILD: Someone obviously forgot to test this module
+	and removed the BUILD script.  The BUILD script contains a
+	"default_make" which is REQUIRED as there is no configure script in
+	the source tarball and if BUILD is removed, then lunar runs
+	default_build which invokes ./configure (NOT a good thing in this
+	module).  Tested with gcc-3.3.3, glibc-2.3.2, kernel-headers 2.4.x.
+
+2004-06-16 00:36  jmhodges
+
+	* graphics/gimp/DETAILS: beaten by distrowatch, damn. bumped to
+	2.0.2
+
+2004-06-15 21:11  striker
+
+	* mail/imap/POST_INSTALL: Makefile doesnt exist on new installs
+	until openssl 0.9.7d is installed (1.4.0 ISO has 0.9.7c) Also, fix
+	for 'if ! query' typo
+
+2004-06-15 18:55  florin
+
+	* crypto/gnutls/DETAILS: bump the version from 1.0.13 to 1.0.14.
+
+2004-06-15 17:40  moe
+
+	* utils/linux-wlan-ng/DETAILS: Bumping this to pre21
+
+2004-06-15 17:21  moe
+
+	* web/firefox/: BUILD, DEPENDS, DETAILS, POST_INSTALL, POST_REMOVE:
+	Complete rework of this module. Also prepared our own tarball since
+	the one from the mozilla ftp is broken (No chrome, browser or
+	toolkit directories).  Switching to cairo for svg rendering (works
+	good) since libart_lgpl doesn't seem to work for this fox. Did some
+	tweaks on the BUILD file and simplified POST_INSTALL and
+	POST_REMOVE.  Last but not least: Moved firefox out of /opt and
+	into /usr
+
+2004-06-15 17:19  florin
+
+	* kde3-apps/k3b/DETAILS: bump the version from 0.11.10 to 0.11.11.
+
+2004-06-15 16:27  tchan
+
+	* filesys/xfsprogs/: BUILD.sparc64, POST_INSTALL: Added a
+	POST_INSTALL to fix some problems created by sofar moving this from
+	/usr/lib to /lib.  Updated the BUILD.sparc64 to match the changes
+	sofar made in BUILD.
+
+2004-06-15 15:11  tchan
+
+	* filesys/: attr/DETAILS, dmapi/DETAILS, xfsdump/DETAILS,
+	xfsprogs/DETAILS: Version bumps for the xfs toolset.  Compiled and
+	tested with gcc-3.3.3, kernel headers 2.4.x.
+
 2004-06-15 11:00  sofar
 
 	* compilers/php/: BUILD, DETAILS: New php version. imap also bumped
@@ -1374,16 +1469,4 @@
 
 	* devel/automake/DETAILS: bump the version from 1.8.4 to 1.8.5.
 	bugfix release.
-
-2004-05-16 21:56  sofar
-
-	* mail/mailman/DETAILS: Mailman bump!
-
-2004-05-16 21:50  sofar
-
-	* web/cadaver/DETAILS: Requested by chipig
-
-2004-05-16 16:39  florin
-
-	* net/ethereal/DETAILS: bump the version from 0.10.3 to 0.10.4.
 
