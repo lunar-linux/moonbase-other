@@ -1,8 +1,6 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-  sedit "s:TRUE:true:g" lib/url-xml.c &&
-  sedit "s:FALSE:false:g" lib/url-xml.c &&
+  sedit 's:${DOCBOOKTOMAN}:docbook2man:g' doctools/docbook.mk
   default_config && 
   make &&
   make check &&
