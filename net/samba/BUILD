@@ -12,6 +12,7 @@
                --with-smbmount         \
                --with-fhs              \
                --mandir=/usr/share/man \
+	       --with-swatdir=/usr/share/samba/swat \
                $WITH_PAM               \
                $OPTS                   || exit 1
                
