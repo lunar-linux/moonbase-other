@@ -16,23 +16,18 @@
 
  ./configure   --build=$BUILD                                        \
                --prefix=/opt/lunar/gnome/2                           \
-               --with-xinerama=yes				     \
+               --with-xinerama=yes                                   \
                --sysconfdir=/etc/X11                                 \
                --localstatedir=/var                                  &&
 
  sedit 's#$(LINK)#$(LINK) $(LIBS)#' daemon/Makefile                  &&
- make                                                                &&
- prepare_install                                                     &&
- make install                                                        &&
+ default_make                                                        &&
 
  mkdir  -p           /var/gdm                                        &&
  chown  -R  gdm:gdm  /var/gdm                                        &&
  chmod  750          /var/gdm                                        &&
 
- if ! module_installed gdm; then
-   install --mode=644 $SCRIPT_DIRECTORY/gnomerc /etc/X11/gdm/gnomerc
-   install --mode=644 $SCRIPT_DIRECTORY/gdm.conf /etc/X11/gdm/gdm.conf
-   install --mode=755 $SCRIPT_DIRECTORY/Sessions/Gnome2 /etc/X11/gdm/Sessions
- fi
+ install --mode=755 $SCRIPT_DIRECTORY/Sessions/Gnome /etc/X11/gdm/Sessions  &&
+ install --mode=755 $SCRIPT_DIRECTORY/gnomerc /etc/X11/gdm/gnomerc
 
 ) > $C_FIFO 2>&1

@@ -6,3 +6,27 @@
 # sigreload: HUP
 
 . /lib/lsb/init-functions $1
+
+restart() {
+  PIDFILE=`grep '^PidFile=' /etc/X11/gdm/gdm.conf | sed -e 's/^PidFile=//'`
+
+  if test x$PIDFILE = x ; then
+    echo $RESULT_WARN
+    echo "Can't find the PID file in the configuration file, going to try:"
+    echo "/var/run/gdm.pid"
+    PIDFILE=/var/run/gdm.pid
+  fi
+
+  if test '!' -f $PIDFILE ; then
+    echo $RESULT_WARN
+  fi
+
+  # exec the kill to get the correct return code
+  exec kill -USR1 `cat $PIDFILE`
+}
+
+forcerestart() {
+  echo "poo"
+  
+}
+
