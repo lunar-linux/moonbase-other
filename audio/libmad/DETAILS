@@ -1,15 +1,15 @@
            MODULE=libmad
          VERSION=0.15.0b
           SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
      SOURCE_URL=ftp://ftp.mars.org/pub/mpeg/$SOURCE
         WEB_SITE=http://www.mars.org/home/rob/proj/mpeg/
          ENTERED=20031204
          UPDATED=20031204
-           SHORT="mad is a 24 bit capable .mp3 decoder"
+        SHORT="libmad is a MPOEG audio decoder library"
+
 cat << EOF
-From the mad home page:
-MAD is a high-quality MPEG audio decoder. It currently supports
+Libmad is a high-quality MPEG audio decoder library. It currently supports
 MPEG-1 and the MPEG-2  extension to Lower Sampling Frequencies, as
 well as the so-called MPEG 2.5 format. All three audio layers 
 (Layer I, Layer II, and Layer III a.k.a. MP3) are fully implemented.
@@ -20,11 +20,10 @@ MAD has the following special features:
    * completely new implementation based on the ISO/IEC standards
    * distributed under the terms of the GNU General Public License (GPL)
 
-Because MAD provides full 24-bit PCM output, applications using MAD
+Because libmad provides full 24-bit PCM output, applications using libmad
 are able to produce high quality audio. Even when the output device
 supports only 16-bit PCM, applications can use the extra resolution to
 increase the audible dynamic range through the use of dithering or
 noise shaping.
 
 EOF
-
