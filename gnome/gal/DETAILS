@@ -1,16 +1,14 @@
           MODULE=gal
-#        VERSION=0.20 --> for evo > 1.1.0
-           MAJOR=0.19
-         VERSION=0.19.2
+         VERSION=0.21
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/$MODULE/$MAJOR/$SOURCE
-   SOURCE_URL[1]=ftp://ftp.gnome.org/pub/GNOME/sources/$MODULE/$MAJOR/$SOURCE
+   SOURCE_URL[0]=$GNOME_URL/sources/$MODULE/$$VERSION/$SOURCE
+SOURCE_URL[1]=ftp://ftp.gnome.org/pub/GNOME/sources/$MODULE/$VERSION/$SOURCE
       MAINTAINER=rodzilla@r0dzilla.net
         WEB_SITE=http://www.gnome.org
            SHORT="GAL are the Gnome Application Libraries"
          ENTERED=20011009
-         UPDATED=20020920
+         UPDATED=20021119
 
 cat << EOF
 
