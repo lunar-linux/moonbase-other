@@ -1,3 +1,5 @@
- echo /usr/lib/octave >> /etc/ld.so.conf &&
+ if [ ! `grep /usr/lib/octave /etc/ld.so.conf` ]; then
+ echo /usr/lib/octave >> /etc/ld.so.conf 
+ fi &&
  ln -s /usr/lib/octave-${VERSION} /usr/lib/octave &&
  ldconfig
