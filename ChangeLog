@@ -1,3 +1,122 @@
+2004-11-15 12:52  prox
+
+	* x11-utils/xpad/: DETAILS, BUILD: bump version and added opts, it
+	  seems it wanted to build static (binreloc) also disabled rpath
+	  shouldnt be needed
+
+2004-11-15 11:22  nestu
+
+	* kernel/linux-2.6-prepatch/DETAILS: 2.6.10rc1 -> 2.6.10rc2. gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.9.1
+
+2004-11-15 09:35  sofar
+
+	* filesys/e2fsprogs/init.d/mount: yes this was the original fix
+	  rev1.2
+
+2004-11-15 09:35  sofar
+
+	* filesys/e2fsprogs/init.d/mount: Ever wonder why your box didn't
+	  fsck again on boot? no? well I fixed this a while ago and some
+	  people were really happy with it. Until of course the error gets
+	  added back in because of the way the init scripts were not being
+	  tracked by modules in the past. I hope you are getting the idea
+	  now and you should really make sure that the foles you are
+	  editing are the right versions. Please please please do.
+
+2004-11-15 09:15  sofar
+
+	* utils/installwatch/BUILD: Make sure installwatch.so is tagged for
+	  logging/cache include
+
+2004-11-15 04:29  v3rt1g0
+
+	* audio/beepmp/: BUILD, DEPENDS, DETAILS: Bumping version. This new
+	  version is technically a RC, but it has proven to be more stable
+	  for most people and it seems that any new beep-media-player only
+	  plugins are written for the 0.9.7 api rather than the 0.9.6.	The
+	  patch is no longer needed nor is the BUILD file.  Let me know if
+	  there are any problems.  Also added a few extra optional depends.
+
+2004-11-15 01:42  v3rt1g0
+
+	* chat/gaim-themes/: DETAILS, PRE_BUILD: Looks like some of the
+	  themes went buhbye
+
+2004-11-15 01:29  v3rt1g0
+
+	* chat/autoprofile/: BUILD, DEPENDS, DETAILS: Initial import of a
+	  profile manager type plugin for Gaim.  Quite robust.
+
+2004-11-14 22:22  sofar
+
+	* kernel/kernel-headers/BUILD: But this is even better in case the
+	  tarballs are missing
+
+2004-11-14 22:22  sofar
+
+	* kernel/kernel-headers/: BUILD, PRE_BUILD: We really want to call
+	  prepare_install here folks...
+
+2004-11-14 21:59  jasper
+
+	* app-themes/gtk-xfce-engine/DETAILS,
+	  profiles/xfce4-extras-profile/DETAILS,
+	  profiles/xfce4-profile/DETAILS, xfce4/libxfce4mcs/DETAILS,
+	  xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/DETAILS,
+	  xfce4/xfcalendar/DETAILS, xfce4/xfce-mcs-manager/DETAILS,
+	  xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/DETAILS,
+	  xfce4/xfce4-appfinder/DETAILS, xfce4/xfce4-icon-theme/DETAILS,
+	  xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-mixer/DETAILS,
+	  xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/DETAILS,
+	  xfce4/xfce4-systray/DETAILS, xfce4/xfce4-toys/DETAILS,
+	  xfce4/xfce4-trigger-launcher/DETAILS, xfce4/xfdesktop/DETAILS,
+	  xfce4/xffm/DETAILS, xfce4/xfprint/DETAILS, xfce4/xfwm4/DETAILS,
+	  xfce4/xfwm4-themes/DETAILS: Xfce 4.2 RC1
+
+2004-11-14 21:51  florin
+
+	* web/webmin/DETAILS: bump the version from 1.160 to 1.170.
+
+2004-11-14 21:18  florin
+
+	* graphics/gd/DETAILS: bump the version from 2.0.32 to 2.0.33.
+
+2004-11-14 21:18  florin
+
+	* web/usermin/DETAILS: bump the version from 1.090 to 1.100.
+
+2004-11-14 21:03  florin
+
+	* utils/dialog/DETAILS: bump the version from 20040731 to 20040920.
+
+2004-11-14 20:13  florin
+
+	* audio/: alsa-lib/DETAILS, alsa-utils/DETAILS: bump the version
+	  from 1.0.6 to 1.0.7.
+
+2004-11-14 20:13  florin
+
+	* audio/alsa-driver/DETAILS: bump the version from 1.0.6a to 1.0.7.
+
+2004-11-14 20:09  sofar
+
+	* security/xinetd/BUILD: Fixed up a little
+
+2004-11-14 19:53  sofar
+
+	* utils/procps/: BUILD, POST_INSTALL: Moving installation of config
+	  file into BUILD!!!
+
+2004-11-14 19:51  sofar
+
+	* libs/exo/DETAILS, terminal/Terminal/DETAILS: New versions
+
+2004-11-14 16:35  sofar
+
+	* security/shadow/: BUILD, securetty: Add a default securetty. The
+	  default might be too restrictive but it's a good start.
+
 2004-11-14 13:33  moe
 
 	* kernel/pctel/BUILD: Fixing florin's fix ;-)
@@ -2023,88 +2142,4 @@
 
 	* profiles/kde3/: DEPENDS, DETAILS: update to the new 3.3.1
 	  version.
-
-2004-10-15 20:41  striker
-
-	* games/qstat/: BUILD, DETAILS: Install templates, more optional
-	  docs, added sha1sum
-
-2004-10-15 20:06  florin
-
-	* games/crimson/DETAILS: bump the versionm from 0.4.4 to 0.4.5.
-
-2004-10-15 19:55  ratler
-
-	* filemanagers/xfe/BUILD: Apparently the source neeed some patching
-	  to move the default dir for icons which default to
-	  _libdir/foxicons.
-
-2004-10-15 19:36  ratler
-
-	* filemanagers/xfe/BUILD, filemanagers/xfe/DEPENDS,
-	  filemanagers/xfe/DETAILS, libs/fox/BUILD, libs/fox/DEPENDS,
-	  libs/fox/DETAILS: New filemanager, MS explorer like and very
-	  quick. Comes with fox graphics library as dep
-
-2004-10-15 16:48  tchan
-
-	* gnome2-core/librsvg/DEPENDS: Removed libxml2 from DEPENDS.
-	  libcroco is included, which already depends on libxml2.
-
-2004-10-15 16:47  tchan
-
-	* gnome2-core/libgtkhtml/DEPENDS: Added gail to DEPENDS.  My
-	  compile log for libgtkhtml does indeed check for the gail >= 1.3.
-
-2004-10-15 13:30  v3rt1g0
-
-	* web/calamaris/: BUILD, DEPENDS, DETAILS: Version bump.  Cleaned
-	  up the BUILD file a bit and added a missing depends on perl.
-
-2004-10-15 12:36  perldude
-
-	* kde3-apps/akregator/DETAILS: bump
-
-2004-10-15 05:52  hardkrash
-
-	* x11-utils/xdaliclock/DETAILS: bump, clear maintainer
-
-2004-10-15 05:21  tchan
-
-	* graphics/ImageMagick/DETAILS: Version bump to
-	  ImageMagick-6.1.1-2. Compiled/tested with gcc-3.3.3, glibc-2.3.3,
-	  kernel headers 2.4.x.
-
-2004-10-15 04:21  florin
-
-	* kde3-i18n/: koffice3-i18n-af/DETAILS, koffice3-i18n-bg/DETAILS,
-	  koffice3-i18n-ca/DETAILS, koffice3-i18n-cs/DETAILS,
-	  koffice3-i18n-cy/DETAILS, koffice3-i18n-da/DETAILS,
-	  koffice3-i18n-el/DETAILS, koffice3-i18n-en_GB/DETAILS,
-	  koffice3-i18n-eo/DETAILS, koffice3-i18n-es/DETAILS,
-	  koffice3-i18n-et/DETAILS, koffice3-i18n-fa/DETAILS,
-	  koffice3-i18n-fi/DETAILS, koffice3-i18n-fr/DETAILS,
-	  koffice3-i18n-he/DETAILS, koffice3-i18n-hsb/DETAILS,
-	  koffice3-i18n-hu/DETAILS, koffice3-i18n-it/DETAILS,
-	  koffice3-i18n-ja/DETAILS, koffice3-i18n-lo/DETAILS,
-	  koffice3-i18n-mt/DETAILS, koffice3-i18n-nb/DETAILS,
-	  koffice3-i18n-nl/DETAILS, koffice3-i18n-nn/DETAILS,
-	  koffice3-i18n-pl/DETAILS, koffice3-i18n-pt/DETAILS,
-	  koffice3-i18n-pt_BR/DETAILS, koffice3-i18n-ru/DETAILS,
-	  koffice3-i18n-se/DETAILS, koffice3-i18n-sk/DETAILS,
-	  koffice3-i18n-sl/DETAILS, koffice3-i18n-sr/DETAILS,
-	  koffice3-i18n-sv/DETAILS, koffice3-i18n-tg/DETAILS,
-	  koffice3-i18n-th/DETAILS, koffice3-i18n-tr/DETAILS,
-	  koffice3-i18n-ven/DETAILS, koffice3-i18n-xh/DETAILS,
-	  koffice3-i18n-zh_CN/DETAILS, koffice3-i18n-zh_TW/DETAILS,
-	  koffice3-i18n-zu/DETAILS: fix the source name. stupid mistake,
-	  sorry.
-
-2004-10-15 03:32  florin
-
-	* zbeta/php5/DEPENDS: fix a small typo.
-
-2004-10-15 03:30  florin
-
-	* printer/hpijs/DETAILS: bump the version from 1.6.2 to 1.7.
 
