@@ -18,7 +18,7 @@
     cp  courier-imap.sysvinit /etc/init.d/imapd
   fi
 
-  chmod +x /etc/init.d/imapd                   &&
+  chmod +x /etc/init.d/imapd  &&
 
   case  $IMAP_BOOT  in
     y|Y|j|J)  chkconfig --add imapd 
