@@ -1,6 +1,5 @@
-(
+DBTARGET="/usr/share/xml/slides-3.0.0"
+centralized="/etc/xml/catalog"
+/usr/bin/install-catalog -r $centralized /usr/share/xml/slides-3.0.0/xcatalog &&
+rm -Rf     $DBTARGET
 
-  DBTARGET="/usr/share/xml/slides-3.0.0" &&
-  rm -Rf     $DBTARGET
-
-) > $C_FIFO 2>&1

@@ -1,0 +1,8 @@
+centralized="/etc/xml/catalog"
+
+if ! [ -e "$centralized" ]; then
+     echo "Creating $centralized!" 
+     touch $centralized
+fi
+
+/usr/bin/install-catalog --add $centralized /usr/share/xml/slides-3.0.0/xcatalog

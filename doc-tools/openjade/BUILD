@@ -2,7 +2,6 @@
   CATALOGDIR="/usr/share/sgml/openjade-1.3"
   DOCDIR="/usr/share/doc/openjade"
   PTEXTD="$CATALOGDIR/pubtext"
-  
 
   ./configure --build=$BUILD                                 \
               --prefix=/usr                                  \
