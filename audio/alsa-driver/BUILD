@@ -18,9 +18,11 @@
   make                                       &&
   prepare_install                            &&
   make    install                            &&
-  ./snddevices                               &&
   #rm  -Rf  /dev/snd                          &&
   #ln  -sf  /devices/snd  /dev/snd            &&
-  ln  -sf  ../init.d/alsasound  /etc/rcS.d/S99alsasound
- 
+  ln  -sf  ../init.d/alsasound  /etc/rcS.d/S99alsasound &&
+  if ! module_installed devfsd ; then
+     ./snddevices
+  fi
+
 ) > $C_FIFO 2>&1
