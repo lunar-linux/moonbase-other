@@ -1,1 +1,6 @@
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/lunar/gpgme-0.3.x/lib
+if [ "x$LD_LIBRARY_PATH" == "x" ]
+then
+  export LD_LIBRARY_PATH=/opt/lunar/gpgme-0.3.x/lib
+else
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/lunar/gpgme-0.3.x/lib
+fi
