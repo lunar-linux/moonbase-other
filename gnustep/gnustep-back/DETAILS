@@ -1,0 +1,20 @@
+          MODULE=gnustep-back
+         VERSION=0.9.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://ftp.gnustep.org/pub/gnustep/core/$SOURCE
+        WEB_SITE=http://www.gnustep.org
+         ENTERED=20040509
+         UPDATED=20040509
+           SHORT="It is a back-end component for the GNUstep GUI Library."
+cat << EOF
+It is a back-end component for the GNUstep GUI Library.  The
+implementation of the GNUstep GUI Library is designed in two parts.  The
+first part is the front-end component which is independent of platform
+and display system.  This front-end is combined with a back-end
+component which handles all of the display system dependent such as
+specific calls to the X Window System.  This design allows the GNUstep
+applications to have the "look and feel" of the underlying display
+system without any changes to the application, and the library can be
+easily ported to other display systems.
+EOF

@@ -1,14 +1,11 @@
 (
   # before load GNUSTEP variables
-  source /System/Makefiles/GNUstep.sh
+  . $GNUSTEP_SYSTEM_ROOT/Makefiles/GNUstep.sh &&
 
-  ./configure $OPTS  &&
-  make                              &&
-  prepare_install                   &&
-  make    install
+  default_config &&
+  default_make 
 
-  if ! grep -q "/System/Libraries/ix86/linux-gnu/gnu-gnu-gnu" /etc/ld.so.conf; then
-    echo "/System/Libraries/ix86/linux-gnu/gnu-gnu-gnu" >> /etc/ld.so.conf  
+  if ! grep -q "$GNUSTEP_SYSTEM_ROOT/Library/Libraries/" /etc/ld.so.conf; then
+    echo "$GNUSTEP_SYSTEM_ROOT/Library/Libraries/" >> /etc/ld.so.conf  
   fi
-
 ) > $C_FIFO 2>&1
