@@ -1,4 +1,5 @@
 (
+	LDFLAGS="$LDFLAGS -lintl" 
    	./configure	--build=$BUILD \
 			--prefix=/usr \
 			--sysconfdir=/etc \
