@@ -23,10 +23,12 @@ if [ ! -d linux-${VERSION} ]; then
 else
 
     message "Sources found: $BUILD_DIRECTORY/linux-${VERSION}"
-        
-    if [ "`readlink linux`" != "linux-${VERSION}" ]; then
-	rm -rf linux
+    if ! validate_source_dir ; then
+      exit 1
+    else
+      if [ "`readlink linux`" != "linux-${VERSION}" ]; then
+        rm -rf linux
 	ln -s linux-${VERSION} linux
+      fi
     fi
-			    
 fi
