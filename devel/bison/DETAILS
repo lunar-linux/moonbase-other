@@ -2,12 +2,16 @@
           VERSION=1.875
          #VERSION=1.35
           SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=$MODULE-yyerror-1.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$GNU_URL/$MODULE/$SOURCE
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
         WEB_SITE=http://www.gnu.org/software/bison/bison.html
+	SOURCE_VFY=md5:278515c1195194cad633bf40c892f512
+       SOURCE2_VFY=md5:706eefbd3f1ac48dfb647a0a70013f88
          ENTERED=20010922
-         UPDATED=20030208
+         UPDATED=20030903
            SHORT="bison is a replacement for the parser generator yacc"
 cat << EOF
 bison - Replacement for the parser generator yacc
