@@ -2,11 +2,8 @@
 # only lin -r gcc will trigger the language selector!
 if [ -n "$RECONFIGURE" ] ; then
 
-  if ! grep -q LANGUAGES $MODULE_CONFIG ; then
-    [ -z "$LANGUAGES" ]  && LANGUAGES=${LANGUAGES:=c++}
-  else
-    eval $(echo $MODULE_CONFIG)
-  fi
+  LANGUAGES=$(get_module_config LANGUAGES)
+  [ -z "$LANGUAGES" ]  && LANGUAGES=${LANGUAGES:=c++}
 
   if query "Do you want to select additional compiler languages ? " n ; then
     OPTIONS=(
@@ -22,14 +19,13 @@ if [ -n "$RECONFIGURE" ] ; then
                    "${OPTIONS[@]}"`
 
     LANGUAGES="c++,$(echo $RESULT | sed 's/ /,/g')"
-    echo "LANGUAGES=\"$LANGUAGES\"" >> $MODULE_CONFIG 
+    set_module_config LANGUAGES "$LANGUAGES"
 
   else
 
-    if ! grep -q LANGUAGES $MODULE_CONFIG ; then
-      [ -z "$LANGUAGES" ]  && LANGUAGES=${LANGUAGES:=c++}
-      echo "LANGUAGES=\"$LANGUAGES\"" >> $MODULE_CONFIG
-    fi
+    LANGUAGES=$(get_module_config LANGUAGES)
+    [ -z "$LANGUAGES" ]  && LANGUAGES=${LANGUAGES:=c++}
+    set_module_config LANGUAGES "$LANGUAGES"
 
   fi
 
