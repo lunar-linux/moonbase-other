@@ -1,0 +1,6 @@
+if ! grep -q "^OPTS=" $MODULE_CONFIG; then
+    if query "Enable kernel ACPI support?" n; then
+	OPTS=$OPTS" --enable-acpi"
+    fi
+    echo 'OPTS='\"$OPTS\" >> $MODULE_CONFIG
+fi
