@@ -13,7 +13,7 @@ if [ -z "$(get_module_config USE_PAM)" ] ; then
   fi
 fi
 if [ -z "$(get_module_config USE_SSL)" ] ; then
-  if query "Use tcp wrappers?" y ; then
+  if query "Use SSL?" y ; then
     set_module_config USE_SSL y
   else
     set_module_config USE_SSL n
