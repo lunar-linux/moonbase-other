@@ -1,0 +1,26 @@
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  message "If the pcmcia-cs module is present the pcmcia-cs driver will be built."
+  
+  if query "Build Prism2 PLX9052 based PCI (_plx) adapter driver? " n; then
+  	echo 'PRISM2_PLX="y"' >> $MODULE_CONFIG
+  else 
+  	echo 'PRISM2_PLX="n"' >> $MODULE_CONFIG
+  fi
+  
+  if query "Build Prism2.5 native PCI (_pci) driver? " n; then
+  	echo 'PRISM2_PCI="y"' >> $MODULE_CONFIG
+  else
+	echo 'PRISM2_PCI="n"' >> $MODULE_CONFIG
+  fi
+  
+  if query "Build Prism2.5 USB (_usb) driver? " n; then
+  	echo 'PRISM2_USB="y"' >> $MODULE_CONFIG
+  else
+	echo 'PRISM2_USB="n"' >> $MODULE_CONFIG
+  fi
+
+  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+
+fi
