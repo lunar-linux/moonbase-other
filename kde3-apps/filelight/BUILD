@@ -1,7 +1,4 @@
 (
-  cd src &&
-  uic settingsdialog.ui > settingsdialog.h &&
-  cd .. &&
   ./configure    --prefix=${KDE_PREFIX:-$KDEDIR}       \
                  --with-qt-dir=${QT_PREFIX:-$QTDIR}    \
                  --disable-debug                       \
