@@ -27,8 +27,9 @@ optional_depends  "MPlayer-rm"     \
 		  "For RealMedia support"              &&
 
 case  $GUI  in
-  y|Y|j|J)  depends  libpng  &&
-            depends  gtk+
+  y|Y|j|J)  depends  libpng          &&
+            depends  gtk+            &&
+	    depends  MPlayer-Skins
             ;;
         *)
             optional_depends  "libpng"         \

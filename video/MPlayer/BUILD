@@ -41,10 +41,6 @@
     rm -rf /usr/share/mplayer/font
   fi                                          &&
 
-  ln -sf fonts/font-arial-18-iso-8859-1 /usr/share/mplayer/font  &&
-
-  if $(echo $OPTS | grep -q "enable-gui") ; then
-    cp -r Skin /usr/share/mplayer
-  fi
+  ln -sf fonts/font-arial-18-iso-8859-1 /usr/share/mplayer/font
 
 ) > $C_FIFO 2>&1
