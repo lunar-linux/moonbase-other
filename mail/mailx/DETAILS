@@ -1,9 +1,10 @@
-           MODULE=mailx
-          VERSION=8.1.1.orig
-	   SOURCE=mailx_8.1.1.orig.tar.gz
-          #SOURCE=$MODULE_${VERSION}.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://www.lunar-linux.com/lunar/mirrors/$SOURCE
+          MODULE=mailx
+         VERSION=8.1.1
+          SOURCE=${MODULE}_$VERSION.orig.tar.gz
+      SOURCE_URL=http://lunar-linux.org/lunar/mirrors/$SOURCE
+         SOURCE2=${MODULE}_$VERSION-10.diff.bz2
+     SOURCE2_URL=http://lunar-linux.org/lunar/mirrors/$SOURCE2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION.orig
         WEB_SITE=none
          ENTERED=20020514
          UPDATED=20020514

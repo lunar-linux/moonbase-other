@@ -1,5 +1,6 @@
 (
-  bzcat $SCRIPT_DIRECTORY/mailx_8.1.1-10.diff.bz2 | patch -p1  &&
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1                            &&
   sedit "s/usr\/man\/man1/usr\/share\/man\/man1/" Makefile     &&
   make                                                         &&
   prepare_install  &&
