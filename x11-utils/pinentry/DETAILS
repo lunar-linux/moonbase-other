@@ -1,0 +1,19 @@
+          MODULE=pinentry
+         VERSION=0.6.8
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://ftp.gnupg.org/gcrypt/pinentry/$SOURCE
+        WEB_SITE=http://www.gnupg.org/aegypten/development.en.html
+         ENTERED=20030310
+         UPDATED=20030310
+      MAINTAINER=michalsc@email.uc.edu
+           SHORT="This is a collection of simple PIN or passphrase entry dialogs"
+cat << EOF
+This is a collection of simple PIN or passphrase entry dialogs which
+utilize the Assuan protocol as described by the aegypten project; see
+http://www.gnupg.org/aegypten/ for details.
+
+There are programs for different toolkits available.  For all GUIs it
+is automatically detected which modules can be built, but it can also
+be requested explicitely.
+EOF
