@@ -1,3 +1,120 @@
+2004-07-17 07:16  cmak
+
+	* ftp/gtk-gnutella/DETAILS: version bump
+
+2004-07-17 06:00  florin
+
+	* mail/pine/DETAILS: bump the version from 4.60 to 4.61.
+
+2004-07-17 05:43  cmak
+
+	* security/shorewall/DETAILS: version bump
+
+2004-07-17 05:24  jmhodges
+
+	* libs/feedparser/DETAILS: version bump to 3.3.. this thing is so
+	incredibly handy
+
+2004-07-17 05:07  florin
+
+	* doc-tools/man/DETAILS: bump the version from 1.5m2 to 1.5n.
+
+2004-07-17 04:44  striker
+
+	* sql/freetds/DETAILS: bump to 0.62.4; add md5sum; fixed filename
+
+2004-07-17 01:20  nhudson
+
+	* gnome2-apps/meld/DETAILS: 
+	Updating meld to new version 0.9.4.1
+
+2004-07-17 01:06  nhudson
+
+	* gnome2-apps/monodevelop/DETAILS: 
+	Updating monodevelop now that I got gtksourceview-sharp installed
+	right.	Updating to new version 0.5 to work with mono 1.0
+
+2004-07-17 01:05  nhudson
+
+	* devel/gtksourceview-sharp/BUILD: 
+	Hacking the BUILD file so that it will link to the correct location
+
+2004-07-17 00:44  nhudson
+
+	* devel/monodoc/: BUILD, DETAILS: 
+	fscking mono doesnt put all the dll's in.  Anyway updating monodoc
+	to new version 1.0
+
+2004-07-17 00:29  nhudson
+
+	* devel/: gecko-sharp/DETAILS, gtksourceview-sharp/DETAILS: 
+	Updating gtksourceview-sharp and gecko-sharp to new versions 0.5,
+	fixing URL's and cleaning up the scripts.  Now to get Monodoc to
+	compile correctly I will be feeling better.
+
+2004-07-17 00:20  nhudson
+
+	* devel/gtk-sharp/: BUILD, DETAILS: 
+	Adding BUILD file to fix some problems building gtk-sharp.  Also
+	using a diffrent Makefile so that it builds correctly
+
+2004-07-17 00:13  nhudson
+
+	* compilers/: mcs/DETAILS, mono/DETAILS: 
+	Fixing URL for download.
+
+2004-07-16 23:59  jmhodges
+
+	* perl/Gtk2-Perl/DEPENDS: fixing depends before anyone gets
+	suspicious
+
+2004-07-16 23:57  jmhodges
+
+	* perl/Glib-Perl/: BUILD, DEPENDS, DETAILS: fixed the poor name..
+	dont mess with my gnome users :)
+
+2004-07-16 20:51  cmak
+
+	* audio/xmmsskins/DETAILS: fixed permissions -> new md5sum
+
+2004-07-16 20:42  cmak
+
+	* audio/xmmsskins/DETAILS: corrected uid/gids thx tchan
+
+2004-07-16 20:35  cmak
+
+	* audio/xmmsskins/DETAILS: <tchan> patzer
+
+2004-07-16 20:29  cmak
+
+	* audio/xmmsskins/DETAILS: some eyecandy added
+
+2004-07-16 19:41  florin
+
+	* kde3-utils/smb4k/DETAILS: bump the version from 0.3.2 to 0.4.0.
+
+2004-07-16 19:30  florin
+
+	* kde3-utils/libchipcard-kde/: BUILD, DEPENDS, DETAILS: KDE tools
+	for LibChipCards.
+
+2004-07-16 19:08  tchan
+
+	* compilers/fasm/DETAILS: Version bump to 1.53.
+
+2004-07-16 16:33  florin
+
+	* printer/gimp-print/DETAILS: bump the version from 4.2.6 to 4.2.7.
+
+2004-07-16 16:28  florin
+
+	* utils/lsof/DETAILS: bump the version from 4.71 to 4.72.
+
+2004-07-16 14:36  cmak
+
+	* audio/sound-juicer/: BUILD, DETAILS: nhudson, please point to
+	/usr/bin/sound-juicer in your .desktop
+
 2004-07-15 20:38  cmak
 
 	* app-themes/GTK2-Milk/PRE_BUILD: this is better
@@ -180,9 +297,8 @@
 
 	* perl/: ExtUtils-Depends/BUILD, ExtUtils-Depends/DETAILS,
 	ExtUtils-PkgConfig/BUILD, ExtUtils-PkgConfig/DEPENDS,
-	ExtUtils-PkgConfig/DETAILS, Glib/BUILD, Glib/DEPENDS, Glib/DETAILS,
-	Gtk2-Perl/BUILD, Gtk2-Perl/DEPENDS, Gtk2-Perl/DETAILS: added
-	Gtk2-Perl module and its dependencies.
+	ExtUtils-PkgConfig/DETAILS, Gtk2-Perl/BUILD, Gtk2-Perl/DEPENDS,
+	Gtk2-Perl/DETAILS: added Gtk2-Perl module and its dependencies.
 
 2004-07-12 15:36  florin
 
@@ -1663,125 +1779,4 @@
 2004-06-17 01:19  jmhodges
 
 	* mail/evolution-data-server/DETAILS: version bump to 0.0.94.1
-
-2004-06-16 23:36  tchan
-
-	* video/kino/: BUILD, DEPENDS, DETAILS: Added kino-0.7.1 to the
-	moonbase.  Its a non-linear Digital Video editor from the dvgrab
-	authors.  Requires most of gnome1 or gnome2 to be installed, I
-	think.	Compiled and tested with gcc-3.3.3, glibc-2.3.2, kernel
-	headers 2.4.x.	If you find some missing DEPENDS let me know.
-
-2004-06-16 22:24  cmak
-
-	* kde3-i18n/: kde3-i18n-ar/DETAILS, koffice3-i18n-de/DETAILS:
-	ugh...anyone know a way to fix all of those quick?
-
-2004-06-16 22:08  tchan
-
-	* video/dvgrab/: BUILD, DEPENDS, DETAILS: Added a patch to the
-	configure script to correctly use openquicktime.  The default
-	configure script from the developer only uses libquicktime or
-	quicktime4linux.  Requires running autoconf/automake to regenerate
-	the configure script and Makefile.
-
-2004-06-16 21:42  moe
-
-	* mail/thunderbird/: BUILD, DETAILS, POST_INSTALL: Bumping this to
-	0.7. Same behaviour as for firefox required to make it work
-
-2004-06-16 21:36  tchan
-
-	* video/dvgrab/: BUILD, DEPENDS, DETAILS: Version bumped to 1.5. 
-	Added libdv as a depends.  Removed the unnecessary patch for
-	asserts (with libdv added, ver 1.5 compiles with no
-	warnings/errors).  Tested with gcc-3.3.3, glibc-2.3.2, kernel
-	headers 2.4.x.
-
-2004-06-16 18:50  florin
-
-	* games/bomberclone/DETAILS: bump the version from 0.11.2 to
-	0.11.3.
-
-2004-06-16 17:27  florin
-
-	* filesys/udev/DETAILS: bump the version from 026 to 027.
-
-2004-06-16 17:21  florin
-
-	* utils/Wine/DETAILS: bump the version from 20040505 to 20040615.
-
-2004-06-16 17:17  florin
-
-	* audio/libsndfile/DETAILS: bump the version from 1.0.9 to 1.0.10.
-
-2004-06-16 16:20  florin
-
-	* editors/sed/DETAILS: bump the version from 4.0.9 to 4.1.
-
-2004-06-16 16:11  moe
-
-	* x11-wm/blackbox/BUILD: Eat moy shortz
-
-2004-06-16 15:54  moe
-
-	* x11-wm/blackbox/: BUILD, Blackbox, DETAILS, POST_INSTALL,
-	POST_REMOVE, blackbox.desktop: This module is working again now
-
-2004-06-16 12:06  cmak
-
-	* games/kaf/DETAILS: version bump
-
-2004-06-16 11:40  sofar
-
-	* graphics/povray/: BUILD, DETAILS: I know, the license is a bit
-	icky but it's a user app and should not pose problems to lunar in
-	any way. It's extremely fast and you should certainly submite lunar
-	benchmarks here:
-	http://www.haveland.com/index.htm?povbench/index.php
-
-2004-06-16 11:25  moe
-
-	* docs/man-fr/: CONFLICTS, DETAILS: F1x0r3d! .. and bumped to
-	1.58.0
-
-2004-06-16 10:07  sofar
-
-	* graphics/yafray/DETAILS: As we speak this is rendering on my
-	box....
-
-2004-06-16 09:35  moe
-
-	* web/firefox/: BUILD, DETAILS, POST_INSTALL, POST_REMOVE: Vital
-	update to this module before announcing the update.  Switching back
-	to mozilla.org (Tarball is working now), couple of ./configure
-	tweaks and POST_INSTALL updates (plugins should go to the right
-	place now). Also remove the firefox's remains after lrm.  FIXME:
-	Firefox needs to be started as root for the first time since it
-	needs to create some garbage in /usr/lib/firefox-0.9.  Thunderbird
-	(even the latest one) doesn't dothis (rediculous) behaviour and
-	Firefox 0.8 didn't do that either.
-
-2004-06-16 09:24  moe
-
-	* mail/thunderbird/POST_REMOVE: Need to remove this too
-
-2004-06-16 07:19  florin
-
-	* sql/postgresql/DETAILS: bump the version from 7.4.2 to 7.4.3.
-	bugfix release.
-
-2004-06-16 05:30  tchan
-
-	* utils/edict/BUILD: Someone obviously forgot to test this module
-	and removed the BUILD script.  The BUILD script contains a
-	"default_make" which is REQUIRED as there is no configure script in
-	the source tarball and if BUILD is removed, then lunar runs
-	default_build which invokes ./configure (NOT a good thing in this
-	module).  Tested with gcc-3.3.3, glibc-2.3.2, kernel-headers 2.4.x.
-
-2004-06-16 00:36  jmhodges
-
-	* graphics/gimp/DETAILS: beaten by distrowatch, damn. bumped to
-	2.0.2
 
