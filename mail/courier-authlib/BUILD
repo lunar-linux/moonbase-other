@@ -1,6 +1,7 @@
 (
 
   ./configure  --prefix=/usr             \
+               --sysconfdir=/	         \
                --mandir=/usr/share/man   \
                $OPTS                    &&
   make                                  &&
