@@ -7,10 +7,10 @@
 #              HTML files and CGI.
 # processname: httpd
 # pidfile: /var/run/httpd.pid
-# config: /etc/httpd/access.conf
-# config: /etc/httpd/httpd.conf
-# config: /etc/httpd/srm.conf
-# config: /etc/httpd/ssl.conf
+# config: /etc/httpd/conf/access.conf
+# config: /etc/httpd/conf/httpd.conf
+# config: /etc/httpd/conf/srm.conf
+# config: /etc/httpd/conf/ssl.conf
 
 # this passes the default startup stuff nicely:
 
@@ -18,7 +18,7 @@ function graceful () {
 	$PROCESS -k graceful
 }
 function startssl () {
-	$PROCESS -f /etc/httpd/ssl.conf -k start -DSSL &&
+	$PROCESS -f /etc/httpd/conf/ssl.conf -k start -DSSL &&
 		echo -en "Starting apache+SSL:$RESULT_OK" ||
 		echo -en "Starting apache+SSL:$RESULT_FAIL"
 }
