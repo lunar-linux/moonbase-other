@@ -1,4 +1,5 @@
 (
+  cp $SCRIPT_DIRECTORY/term.sh . &&
 
   ./configure  --with-sys-screenrc=/etc/screenrc  \
                --prefix=/usr                      \
