@@ -1,13 +1,21 @@
            MODULE=cups
-#         VERSION=1.1.19
          VERSION=1.1.19
-#          SUBVER=1
-#          SOURCE=$MODULE-$VERSION-$SUBVER-source.tar.bz2
+
           SOURCE=$MODULE-$VERSION-source.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.easysw.com/pub/cups/$VERSION/$SOURCE
    SOURCE_URL[1]=ftp://ftp.funet.fi/pub/mirrors/ftp.easysw.com/pub/$MODULE/$VERSION/$SOURCE
    SOURCE_URL[2]=ftp://ftp.mpg.goe.ni.schule.de/pub/internet/printing/$MODULE/$VERSION/$SOURCE
+   
+         SOURCE2=foomatic-rip
+     SOURCE2_URL=http://www.linuxprinting.org/$SOURCE2	
+     
+ 	 SOURCE3=foomatic-gswrapper
+     SOURCE3_URL=http://www.linuxprinting.org/$SOURCE3
+     
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+
+      MAINTAINER=sofar@lunar-linux.org
+
         WEB_SITE=http://www.cups.org
          ENTERED=20020218
          UPDATED=20030529

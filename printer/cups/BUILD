@@ -1,9 +1,5 @@
-
 (
 
-#There a case or two that this could be "problematic"
-#So let's just "force it our way" :)
-#hvisage
   sedit "s/etc\/rc.d/etc/" Makedefs.in
   sedit 's/etc\/rc.d/etc/g' configure
   ./configure  --bindir=/usr/bin           \
@@ -16,6 +12,15 @@
                $OPTS                 &&
   make                               &&
   prepare_install                    &&
-  make    install
+  make    install                    &&
+
+  install -m755 $SOURCE_CACHE/$SOURCE2 /usr/bin &&
+  install -m755 $SOURCE_CACHE/$SOURCE3 /usr/bin &&
+  if [ ! -e /usr/lib/cups/filter/$SOURCE2 ] ; then
+    ln -s ../../../bin/$SOURCE2 /usr/lib/cups/filter/$SOURCE2
+  fi &&
+  if [ -e /etc/init.d/cups ] ; then
+    rm -f /etc/init.d/cups
+  fi
 
 ) > $C_FIFO 2>&1
