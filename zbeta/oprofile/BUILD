@@ -1,0 +1,16 @@
+(
+
+if [[ `uname -r` > 2.5 ]]; then
+  KO="--with-kernel-support"
+else
+  KO="--with-linux=/usr/src/linux"
+fi
+
+./configure --prefix=/usr \
+            $KO           &&
+
+make                      &&
+prepare_install           &&
+make install
+
+) > $C_FIFO 2>&1
