@@ -1,6 +1,6 @@
 (
 
-  export AVI_VERSION=`lvu installed avifile | cut -d. -f1,2`
+  export AVI_VERSION=`lvu version avifile | cut -d. -f1,2`
   
   ./configure  --prefix=/usr                           \
                --with-qt-prefix=${QT_PREFIX:-$QTDIR}  &&
