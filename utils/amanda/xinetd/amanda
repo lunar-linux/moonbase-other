@@ -1,0 +1,10 @@
+service amanda
+{
+        socket_type             = dgram
+        protocol                = udp
+        wait                    = yes
+        user                    = amanda
+        group                   = amanda
+        groups                  = yes
+        server                  = /usr/libexec/amandad
+}
