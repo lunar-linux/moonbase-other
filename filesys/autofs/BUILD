@@ -2,7 +2,11 @@
 
   default_config                                &&
   make                                          &&
+
+  # bad hack: something goes wrong here:
+  rm -f /usr/lib/autofs/mount_ext3.so           &&
   prepare_install                               &&
+  
   make -C daemon install                        &&
   make -C lib install                           &&
   make -C modules install                       &&
