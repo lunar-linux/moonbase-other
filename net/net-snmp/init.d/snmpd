@@ -17,6 +17,11 @@ if [ -e /etc/config.d/snmpd ]; then
     if [ ! -z $GROUP ]; then
         $ARGS="$ARGS -g $GROUP"
     fi;
+    if [ ! -z $LOGFILE ]; then
+        $ARGS="$ARGS -l $LOGFILE"
+    else
+        $ARGS="$ARGS -s"
+    fi
 fi;
 
 . /lib/lsb/init-functions
