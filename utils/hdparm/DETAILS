@@ -1,15 +1,15 @@
           MODULE=hdparm
-         VERSION=5.4
-#          VERSION=5.3
+         VERSION=5.5
+#         VERSION=5.4
          SOURCE=$MODULE-$VERSION.tar.gz
-#         SOURCE2=$MODULE-$VERSION-buildfixes.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://www.ibiblio.org/pub/Linux/system/hardware/$SOURCE
-#  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+      SOURCE_VFY=md5:b3d65aa96d93fc08bc807fd1d9497c21
         WEB_SITE=http://www.ibiblio.org/pub/Linux/system/hardware
          ENTERED=20010922
-         UPDATED=20030521
-           SHORT="hdparm is a utility to access/tune Linux's EIDE drivers."
+         UPDATED=20040130
+        SHORT="hdparm is a utility to access/tune Linux's EIDE drivers."
+
 cat << EOF
 hdparm is a shell utility to access/tune ioctl features of the Linux
 hard disk and (E)IDE drivers for kernel 1.3.61+. Its primary use is for
