@@ -1,3 +1,64 @@
+2003-11-08 11:07  jmhodges
+
+	* gnome2-extras/glade2/DETAILS: stupid UPDATED field
+
+2003-11-08 11:06  jmhodges
+
+	* gnome2-extras/glade2/DETAILS: version bump 2.0.0 -> 2.0.1
+
+2003-11-08 05:02  tchan
+
+	* editors/vim/CONFLICTS: Removed the CONFLICTS file from vim and
+	elvis.	Elvis no longer makes the /usr/bin/vi symlink.	Only VIM
+	does that now.	Elvis and VIM can no co-exist.
+
+2003-11-08 05:01  tchan
+
+	* editors/elvis/: BUILD, CONFLICTS, DEPENDS, DETAILS: Updated elvis
+	to version 2.2_0.  Removed the CONFLICTS with vim.  VIM is the only
+	vi clone that gets the /usr/bin/vi symlink.  Elvis is
+	/usr/bin/elvis or /usr/bin/xelvis.  Added the DEPENDS file for
+	ncurses.
+
+2003-11-07 23:13  sofar
+
+	* mail/courier-imap/DETAILS: Bumping version
+
+2003-11-07 19:37  tchan
+
+	* mail/MozillaThunderbird/DEPENDS: Cleaned up the DEPENDS.  Similar
+	to fixes in mozilla, firebird and galeon.
+
+2003-11-07 19:24  tchan
+
+	* web/: MozillaFirebird/DEPENDS, mozilla/DEPENDS: Cleaned up the
+	DEPENDS files for firebird and mozilla.  Made both trees smaller by
+	hand checking the depends.
+
+2003-11-07 19:11  tchan
+
+	* web/galeon/DEPENDS: Removed librsvg and libmng as those depends
+	are already in mozilla's DEPENDS file.
+
+2003-11-07 18:52  tchan
+
+	* web/galeon/DEPENDS: Trimmed the DEPENDS down a bit.  Still not
+	sure if all of the new DEPENDS are actually necessary as now galeon
+	uses some gnome1 and gnome2 modules.
+
+2003-11-07 17:06  florin
+
+	* kde3-utils/kdeaccessibility/: BUILD, DEPENDS, DETAILS: three
+	programs for KDE. many thanks to the original creator and for Niki
+	for sending it to me.
+
+2003-11-07 16:29  elaine
+
+	* web/galeon/: BUILD, DEPENDS, DETAILS: version bumped, removed
+	patch (seems to not be needed for moz 1.[45] Added all the depends
+	I found doing an instal with no gnome components priorly existing.
+	I'm sure the list could be trimmed.
+
 2003-11-07 09:54  florin
 
 	* video/transcode/DETAILS: bump version from 0.6.10 to 0.6.11.
@@ -1861,62 +1922,4 @@
 
 	* kde3-apps/kexchange3/DETAILS: fix the update date. add the md5
 	sum.
-
-2003-10-08 23:33  watryac04
-
-	* ftp/dcgui-qt/: BUILD, DEPENDS, DETAILS: Added dcgui-qt.  This is
-	a program that allows people to connect to Direct Connect hubs,
-	chat with people, and transfer files to each other.  As the name
-	implies, it uses qt3
-
-2003-10-08 23:31  watryac04
-
-	* libs/dclib/: BUILD, DEPENDS, DETAILS: Added the dclib module to
-	the moonbase.  It is a library used for the dcgui-qt program to
-	assist in the connection to Direct Connect hubs.
-
-2003-10-08 18:44  florin
-
-	* video/xine-lib/DETAILS: bumped version from 1-rc0a to 1-rc1.
-
-2003-10-08 18:14  moe
-
-	* zbeta/sylpheed-gtk2-cvs/: BUILD, CONFLICTS, DEPENDS, DETAILS:
-	Removing the old sylpheed-gtk2-beta module since its obsolete. 
-	Added a new -cvs module since the gtk2 version has its own project
-	at SF.net now. Note that SSL support is currently broken and
-	therefore disabled until the developers got it fixed. Have fun.
-
-2003-10-08 17:56  florin
-
-	* kde3-apps/karchiver/DETAILS: bumped version from 3.0.5 to 3.0.6.
-
-2003-10-08 17:44  florin
-
-	* video/MPlayer/: DETAILS, PRE_BUILD: bumped version from 1.0pre1
-	to 1.0pre2. security bug fix version.
-
-2003-10-08 11:52  nhudson
-
-	* graphics/gimp2/DETAILS: 
-	Updating gimp2 to new version 1.3.21 and changing the md5sum
-
-2003-10-08 07:08  sofar
-
-	* zbeta/e17-cvs/BUILD: tssss
-
-2003-10-08 03:48  hardkrash
-
-	* libs/gettext/: BUILD, DETAILS: Added patch for gettextize to not
-	have it bark at you about the headers and require you to press
-	return to continue.  one more automation bug out of the way :-)
-	
-	I did not bump the updated field because I didnt feel the need to
-	have everyone re-compile glibc
-	
-	-- Hardkrash
-
-2003-10-08 02:21  hardkrash
-
-	* security/fwbuilder/DEPENDS: missing depends :-P
 
