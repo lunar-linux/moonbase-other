@@ -11,7 +11,8 @@
     OPTS="$OPTS --enable-multibuffer"
    fi
   
-  default_build
+  default_build						&&
+  install -m 0644 $SCRIPT_DIRECTORY/nanorc /etc/
 
 ) > $C_FIFO 2>&1
 
