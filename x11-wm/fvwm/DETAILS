@@ -1,11 +1,13 @@
-           MODULE=fvwm
+          MODULE=fvwm
          VERSION=2.4.4
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-$VERSION-Makefile-utils.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.fvwm.org/pub/fvwm/version-2/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2 
         WEB_SITE=http://www.fvwm.org
          ENTERED=20010922
-         UPDATED=20011216
+         UPDATED=20030408
            SHORT="fvwm is a multiple large virtual desktop X11 windows manager."
 cat << EOF
 FVWM is a multiple large virtual desktop window manager originally
