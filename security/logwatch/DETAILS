@@ -1,12 +1,15 @@
           MODULE=logwatch
          VERSION=5.2.2
           SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=$MODULE-$VERSION-misc.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=ftp://ftp.kaybee.org/pub/linux/
+     SOURCE2_URL=$PATCH_URL/
         WEB_SITE=http://www.logwatch.org/
       SOURCE_VFY=sha1:0599f5605edad60cb0f8bc585843b90c1ac8c131
+     SOURCE2_VFY=sha1:ac89048dcfd03f43d4be29154b9f15a16cd210c4
          ENTERED=20040913
-         UPDATED=20040913
+         UPDATED=20040922
            SHORT="Monitor log files realtime"
 cat << EOF
 Logwatch is a customizable log analysis system. Logwatch parses
