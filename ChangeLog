@@ -1,3 +1,180 @@
+2003-11-11 05:59  tchan
+
+	* web/elinks/DEPENDS: Fixed a typo in the DEPENDS file.
+
+2003-11-11 05:57  tchan
+
+	* web/elinks/DETAILS: Added the MAINTAINER line.
+
+2003-11-11 05:56  tchan
+
+	* web/elinks/: BUILD, DEPENDS, DETAILS: Added the elinks text-mode
+	browser.  An advanced version of the Links browser that is actively
+	being developed/maintained.
+
+2003-11-11 05:26  nhudson
+
+	* gnome2-core/: bug-buddy/DETAILS, gnome-icon-theme/DETAILS: 
+	Updating bug-buddy to new version 2.4.1.1 and gnome-icon-theme to
+	new version 1.1.1.1
+
+2003-11-11 05:24  nhudson
+
+	* gnome2-apps/: multisync/BUILD, multisync/DEPENDS,
+	multisync/DETAILS, phonemgr/BUILD, phonemgr/DEPENDS,
+	phonemgr/DETAILS: 
+	Adding phonemgr and multisync to moonbase
+
+2003-11-11 05:22  nhudson
+
+	* libs/gsmlib/: DEPENDS, DETAILS: 
+	Adding gsmnlib to moonbase
+
+2003-11-11 05:20  nhudson
+
+	* utils/: obexftp/DEPENDS, obexftp/DETAILS, openobex-apps/DEPENDS,
+	openobex-apps/DETAILS: 
+	Adding openobex-apps and obexftp to moonbase
+
+2003-11-11 05:18  nhudson
+
+	* libs/openobex/DETAILS: 
+	Adding openobex to moonbase
+
+2003-11-11 05:17  nhudson
+
+	* gnome2-applets/gnome-bluetooth/: BUILD, DEPENDS, DETAILS: 
+	Adding gnome-bluetooth to moonbas3e
+
+2003-11-11 05:15  nhudson
+
+	* libs/libbtctl/: BUILD, DEPENDS, DETAILS: 
+	Adding libbtctl to moonbase
+
+2003-11-11 05:12  nhudson
+
+	* utils/: bluez-bluefw/DEPENDS, bluez-bluefw/DETAILS,
+	bluez-hcidump/DEPENDS, bluez-hcidump/DETAILS, bluez-hciemu/DEPENDS,
+	bluez-hciemu/DETAILS, bluez-pan/DEPENDS, bluez-pan/DETAILS,
+	bluez-pan/init.d/btdund, bluez-sdp/DEPENDS, bluez-sdp/DETAILS,
+	bluez-sdp/init.d/btsdpd, bluez-utils/BUILD, bluez-utils/DEPENDS,
+	bluez-utils/DETAILS, bluez-utils/POST_INSTALL,
+	bluez-utils/init.d/bthcid: 
+	Adding a number of bluetooth modules to moonbase
+
+2003-11-11 05:03  nhudson
+
+	* libs/bluez-libs/DETAILS: 
+	Adding bluez-libs to moonbase
+
+2003-11-11 05:02  nhudson
+
+	* kernel/bluez-kernel/: BUILD, DETAILS: 
+	Adding bluez-kernel module to moonbase
+
+2003-11-11 04:41  nhudson
+
+	* gnome2-apps/gnomesu/DEPENDS: 
+	As requested by jmhodges libzvt is added to the DEPENDS file :)
+
+2003-11-11 04:24  tchan
+
+	* mail/exim4/POST_INSTALL: Fixed the POST_INSTALL to use exim4's
+	method of determinig the arch type for calling the converter
+	script.  Solves the hardcoding of i386 that used to be in the
+	POST_INSTALL file.  Works on the Sparc64 I'm testing on.  PPC and
+	Alpha guys will need to test this as well.
+
+2003-11-11 04:03  nhudson
+
+	* devel/orbitcpp/DETAILS: 
+	Updating orbitcpp to new version 1.3.8
+
+2003-11-11 03:58  nhudson
+
+	* libs/libxml++/DETAILS: 
+	Updating libxml++ to new version 0.27.0
+
+2003-11-11 03:56  nhudson
+
+	* gnome2-core/gnome-utils2/DETAILS: 
+	Updating gnome-utils2 to new version 2.4.1
+
+2003-11-11 03:21  nhudson
+
+	* web/epiphany/DETAILS: 
+	Updating epiphany to new version 1.0.6
+
+2003-11-11 03:20  nhudson
+
+	* video/totem/DETAILS: 
+	Updating totem to new version 0.99.8
+
+2003-11-11 03:12  nhudson
+
+	* gnome2-core/: gnome-terminal/DETAILS, yelp/DETAILS: 
+	Updating gnome-terminal to new version 2.4.2 and yelp to new
+	version 2.4.2
+
+2003-11-10 23:43  jmhodges
+
+	* web/PyDS/DETAILS: version bump
+
+2003-11-10 23:38  tchan
+
+	* mail/: exim/CONFLICTS, exim4/BUILD, exim4/CONFIGURE,
+	exim4/CONFLICTS, exim4/DEPENDS, exim4/DETAILS, exim4/POST_INSTALL,
+	exim4/PRE_REMOVE, exim4/services, exim4/init.d/exim,
+	postfix/CONFLICTS, sendmail/CONFLICTS: Here are the changes needed
+	for an exim4 module.  It tries to run the automatic conversion
+	script on /etc/exim.conf to get that file into exim4 format, but
+	the output MUST be checked as the script can NOT handle complex
+	exim setups.  Exim4 should stay as a separate module and not a
+	version subdir.  Added exim4 to the CONFLICTS files for sendmail,
+	postfix, and exim.  Good luck working on your new /etc/exim.conf
+	files the new exim4 manual is $60 U.S.	Your old exim.conf file has
+	been backed up to /etc/exim.conf.3
+
+2003-11-10 19:34  watryac04
+
+	* games/KBtin/DETAILS: Forgot to change the UPDATED field before. 
+	Also, changed my email to something more appropriate to lunar
+	development work.
+
+2003-11-10 19:19  watryac04
+
+	* games/KBtin/DETAILS: New version of KBtin (1.0.5)  Updated
+	version, and computed new MD5.
+
+2003-11-10 18:03  florin
+
+	* ftp/gftp/DETAILS: bump version from 2.0.15 to 2.0.16.
+
+2003-11-10 17:52  sofar
+
+	* utils/openldap/BUILD: Adding a plethora of options to get the old
+	behaviour again (most importantly, get ldbm to work). Someone might
+	be interested in the --enable-sql option, perhaps it works with
+	mysql.
+
+2003-11-10 16:39  florin
+
+	* devel/automake/DETAILS: bump version from 1.7.8 to 1.7.9. bugfix
+	release.
+
+2003-11-10 16:30  florin
+
+	* devel/anjuta/DETAILS: bump version from 1.1.97 to 1.1.98.
+
+2003-11-10 16:06  sofar
+
+	* compilers/php/DEPENDS: Need this, sigh...
+
+2003-11-10 15:43  florin
+
+	* games/armagetron/: DEPENDS, DETAILS: bump version from 0.2.5.2 to
+	0.2.6.0.
+
 2003-11-10 08:06  jasper
 
 	* profiles/xfce4-extras-profile/: DEPENDS, DETAILS: Update extras
@@ -1824,63 +2001,4 @@
 
 	* kde3-apps/kopete/: BUILD, DETAILS: Bumped version OLD: 0.7.2 
 	NEW: 0.7.3
-
-2003-10-11 22:51  csm
-
-	* net/iproute2/: BUILD, DETAILS: fixups to allow this module to
-	build correctly.  credit redhat for thew patches.
-
-2003-10-11 19:17  nhudson
-
-	* web/screem/DETAILS: 
-	Updating screem to new version 0.9.0
-
-2003-10-11 19:15  nhudson
-
-	* x11-apps/dia/DETAILS: 
-	Updating dia to new version 0.92-pre5
-
-2003-10-11 19:14  nhudson
-
-	* gnome2-apps/gcalctool/DETAILS: 
-	Updating gcalctool to new version 4.3.15
-
-2003-10-11 19:12  nhudson
-
-	* gnome2-core/libgtkhtml/DETAILS: 
-	Forgot to update the updated field
-
-2003-10-11 19:12  nhudson
-
-	* gnome2-core/libgtkhtml/DETAILS: 
-	Updating libgtkhtml to new version 2.4.1
-
-2003-10-11 10:15  jol
-
-	* kde3-utils/superkaramba/DETAILS: Forgot updated field :)
-
-2003-10-11 10:14  jol
-
-	* kde3-utils/superkaramba/: BUILD, DETAILS: Bumbed version OLD:
-	0.29 NEW: 0.32b remake build file
-
-2003-10-11 10:07  jol
-
-	* kde3-utils/kdirstat3/: BUILD, DETAILS: Bumped version old: 2.3.7 
-	new: 2.4.0 remake BUILD file
-
-2003-10-11 05:47  florin
-
-	* games/KBtin/: BUILD, DETAILS: install in /usr/games and
-	/usr/games/share. add the md5 sum.
-
-2003-10-11 01:17  elaine
-
-	* perl/perl/5.8.0/: BUILD, CONFIGURE, DEPENDS, DETAILS: perl 5.8.0
-	-- just in case the old rev is needed
-
-2003-10-11 01:13  elaine
-
-	* perl/perl/: DETAILS, perl-gcc3.patch.bz2: Bumped perl version,
-	added md5 check and removed the old patch
 
