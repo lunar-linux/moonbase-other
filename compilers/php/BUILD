@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE3 0 &&
-
   if [ -s /etc/httpsd/httpd.conf ] ; then
     cp /etc/httpsd/httpd.conf /etc/httpsd/httpd.conf.`date +%Y%m%d`
   fi
@@ -36,9 +34,7 @@
 	       --enable-dbx		     \
 	       --enable-dio		     \
 	       --with-readline               \
-               $OPTS                         && 
-  make                                       &&
-  prepare_install                            &&
-  make    install 
+               $OPTS                         &&
+	default_make
 
 ) > $C_FIFO 2>&1
