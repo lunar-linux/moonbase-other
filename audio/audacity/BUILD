@@ -2,7 +2,8 @@ mkdir  -p  /usr/share/doc/audacity
 
 (
 
-  if `grep -q UNICODE=n /etc/lunar/local/depends/wxGTK`; then
+# Fix for bug #370 - just commenting out for now...
+#  if `grep -q UNICODE=n /etc/lunar/local/depends/wxGTK`; then
     ./configure  --prefix=/usr         \
                  --sysconfdir=/etc     \
                  --localstatedir=/var  \
@@ -10,10 +11,10 @@ mkdir  -p  /usr/share/doc/audacity
     make                               &&
     prepare_install                    &&
     make    install
-  else
-    message "Audacity will not compile with wxGTK compiled with unicode support."
-    message "Please recompile wxGTK with out unicode support."
-    false
-  fi
+#  else
+#    message "Audacity will not compile with wxGTK compiled with unicode support."
+#    message "Please recompile wxGTK with out unicode support."
+#    false
+#  fi
 
 ) > $C_FIFO 2>&1
