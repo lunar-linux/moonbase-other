@@ -9,4 +9,8 @@ depends gtk+-2 &&
 depends cairo  &&
 
 optional_depends "flash-plugin" "" "" "to enable shockwave flash" &&
-optional_depends "gnome-vfs2" "" "--disable-gnomevfs" "for Gnome VFS support"
+optional_depends "gnome-vfs2" "" "--disable-gnomevfs" "for Gnome VFS support" &&
+optional_depends heimdal \
+                 "--with-gssapi=/usr/include/heimdal" \
+                 "" \
+                 "Heimdal GSSAPI Support"
