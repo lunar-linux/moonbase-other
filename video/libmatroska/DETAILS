@@ -1,0 +1,31 @@
+          MODULE=libmatroska
+         VERSION=0.6.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://matroska.free.fr/downloads/$MODULE/$SOURCE
+     SOURCE_VFY=md5:61d5665e7c1050aa934aecc57cf392cd
+        WEB_SITE=http://www.matroska.org/
+         ENTERED=20031113
+         UPDATED=20031113
+        MAINTAINER="florin@lunar-linux.org"
+           SHORT="This library implements a multimedia container format."
+cat << EOF
+Matroska aims to become the Standard of Multimedia Container Formats. It is based on EBML (Extensible Binary Meta Language), a binary derivative of XML. EBML enables the Matroska Development Team to gain significant advantages in terms of future format extensibility, without breaking file support in old parsers.
+
+First, it is essential to clarify exactly "What an Audio/Video container is", to avoid any misunderstandings.
+ 
+ - It is NOT a video compression format
+ - It cannot be used to compress music or pictures like MP3 or JPEG, as it is not a codec.
+ - It is an envelope for which there can be many audio, video and subtitles streams, allowing the user to store a complete movie in one single file. This ensures that the audio and video can be played in most Media players.
+
+Matroska is designed with the future in mind. It incorporates features you would expect from a modern container format, like:
+ 
+ - Streamable over internet (HTTP and RTP)
+ - Fast seeking in the file
+ - High error recovery
+ - Menus (like DVDs have)
+ - Chapter entries
+ - Selectable subtitle streams
+ - Selectable audio streams
+ - Modularly Extendable
+EOF
