@@ -5,4 +5,7 @@ if ! [ -e "$centralized" ]; then
      touch $centralized
 fi
 
-/usr/bin/install-catalog --add $centralized /usr/share/sgml/docbook/dsssl-stylesheets-$VER/catalog
+install-catalog --add $centralized /usr/share/sgml/dsssl/dsssl-stylesheets-$VER/catalog
+
+cp $SOURCE_CACHE/$SOURCE2 /usr/share/sgml/dsssl/dsssl-stylesheets-$VER/html
+cp $SOURCE_CACHE/$SOURCE2 /usr/share/sgml/dsssl/dsssl-stylesheets-$VER/print
