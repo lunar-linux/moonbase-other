@@ -1,3 +1,95 @@
+2004-09-26 12:50  florin
+
+	* libs/gwenhywfar/DETAILS: bump the version from 1.1 to 1.2.
+
+2004-09-26 12:41  niki
+
+	* games/prboom/DETAILS: Bumping prboom...
+
+2004-09-26 04:14  v3rt1g0
+
+	* utils/theedge/profile.d/theedge.rc: Syncing lvu's tab completion
+	  with valid sub-commands.  This commit partly resolves issue #356
+	  (which is now just waiting on an update to lvu's man page).  Also
+	  made the tab complete a bit "smarter" when it comes to
+	  sub-commands that do not take a module name (like 'lvu leafs')
+
+2004-09-25 23:53  v3rt1g0
+
+	* kde3-utils/kssh/: DEPENDS, DETAILS: Added a quite obvious missing
+	  depends of openssh ;) Also, some cosmetic cleanups to the DETAILS
+	  file.
+
+2004-09-25 22:46  cmak
+
+	* gnome2-core/librsvg/DETAILS: bump
+
+2004-09-25 21:01  florin
+
+	* games/prboom/DETAILS: bump the version from 2.2.4 to 2.2.5.
+
+2004-09-25 18:14  v3rt1g0
+
+	* x11-utils/fontconfig/: BUILD, DEPENDS, DETAILS: Thanks to help
+	  from jas0n (jdmelbye@wisc.edu) we finally tracked down the XML
+	  syntax error that sometimes appeared in /etc/fonts/fonts.conf.
+	  If the user does not have a local timezone set, the ./configure
+	  script puts a comment in the file that leads to invalid xml
+	  syntax.  This prevents X from starting because it cannot parse
+	  the file.  Removed the totally unnecessay date call which
+	  prevents this from ever happening.
+
+2004-09-25 15:57  v3rt1g0
+
+	* docs/autobook/: BUILD, DETAILS: Initial Import of a book about
+	  the three GNU tools: Autoconf, Automake, and Libtool
+
+2004-09-25 15:38  v3rt1g0
+
+	* libs/gpgme/: DEPENDS, DETAILS: Version bump: 0.4.3 -> 0.4.7 Added
+	  additional depends of libtool and an optional depends of gettext
+	  for NLS support
+
+2004-09-25 14:45  florin
+
+	* i18n/: aspell-ro/DETAILS, aspell-ru/DETAILS, aspell-sk/DETAILS,
+	  aspell-sv/DETAILS, aspell-uk/DETAILS: minor tweaking.
+
+2004-09-25 14:42  florin
+
+	* i18n/: aspell-es/DETAILS, aspell-fo/DETAILS, aspell-fr/DETAILS,
+	  aspell-ga/DETAILS, aspell-is/DETAILS, aspell-it/DETAILS,
+	  aspell-nl/DETAILS, aspell-no/DETAILS, aspell-pl/DETAILS,
+	  aspell-pt/DETAILS: minor tweaking.
+
+2004-09-25 14:39  florin
+
+	* i18n/: aspell-br/DETAILS, aspell-ca/DETAILS, aspell-cs/DETAILS,
+	  aspell-cy/DETAILS, aspell-da/DETAILS, aspell-de/DETAILS,
+	  aspell-el/DETAILS, aspell-en/DETAILS, aspell-eo/DETAILS: minor
+	  tweaking.
+
+2004-09-25 14:32  florin
+
+	* graphics/gimp/DETAILS: bump the version from 2.0.4 to 2.0.5.
+
+2004-09-25 14:20  florin
+
+	* archive/unrar/DETAILS: bump the version from 3.4.2 to 3.4.3.
+
+2004-09-25 14:11  florin
+
+	* net/ettercap/DETAILS: bump the version from 0.7.0 to 0.7.1.
+
+2004-09-25 13:57  florin
+
+	* kde3-apps/kdetv/DETAILS: bump the version from 0.8.2 to 0.8.3.
+
+2004-09-25 13:35  moe
+
+	* libs/neon/: DEPENDS, DETAILS: Updating neon to latest version and
+	  adding an optional DEPENDS on openssl. Also added sha1sum.
+
 2004-09-25 13:32  florin
 
 	* science/gputils/DETAILS: bump the version from 0.12.3 to 0.12.4.
@@ -2031,66 +2123,4 @@
 2004-08-27 04:34  florin
 
 	* news/leafnode/DETAILS: bump the version from 1.10.4 to 1.10.5.
-
-2004-08-26 17:19  florin
-
-	* kde3/kdelibs3/: BUILD, PRE_BUILD: fix the build script.
-
-2004-08-26 17:18  florin
-
-	* kde3/qt3/: BUILD, PRE_BUILD: fix the build script. i hope there
-	  will be no more problems with it.
-
-2004-08-26 15:17  florin
-
-	* ftp/mutella/DETAILS: bump the version from 0.4.3 to 0.4.5.
-
-2004-08-26 13:59  prox
-
-	* zbeta/sqlite3/: CONFIGURE, DEPENDS, DETAILS: added beta sqlite3,
-	  will soon be stable
-
-2004-08-26 07:41  florin
-
-	* crypto/gnupg/: BUILD, DETAILS: bump the version from 1.2.5 to
-	  1.2.6. The patch is no longer needed.
-
-2004-08-26 05:34  tchan
-
-	* chat/gaim/: BUILD, DETAILS: Security/bug fix release of
-	  gaim-0.82.  Compiled and tested with gcc-3.3.3, glibc-2.3.3,
-	  kernel headers 2.4.x.  Added prox's scrollbuffer patch since it's
-	  still not included in regular gaim source.
-
-2004-08-26 03:25  nhudson
-
-	* gnome2-core/: bug-buddy/DETAILS, gconf-editor/DETAILS:
-	  Updating gconf-editor and bug-buddy to new version 2.7.91
-
-2004-08-26 03:22  nhudson
-
-	* gnome2-apps/drivel/: DEPENDS, DETAILS:
-	  Drivel is a live journal client for Gnome, this module was
-	  submitted by crypticreign <paul.norton@rcn.com>
-
-2004-08-26 03:19  nhudson
-
-	* gnome2-extras/: gnome-cups-manager/DETAILS, libgnomecups/DETAILS:
-
-	  Updating libgnomecups to new version 0.1.11 and
-	  gnome-cups-manager to new version 0.24
-
-2004-08-26 02:55  nhudson
-
-	* gnome2-core/GConf2/DETAILS:
-	  Updating GConf2 to new version 2.6.4
-
-2004-08-26 02:38  nhudson
-
-	* gnome2-applets/contact-lookup-applet/DETAILS:
-	  Updating contact-lookup-applet to new version 0.8
-
-2004-08-26 00:19  perldude
-
-	* kde3-apps/akregator/DETAILS: bump version
 
