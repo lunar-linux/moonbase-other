@@ -1,3 +1,63 @@
+2004-08-09 03:10  tchan
+
+	* x11-apps/dia/DETAILS: Fixed the homepage URL.
+
+2004-08-08 23:15  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.8rc2mm2 ->
+	2.6.8rc3mm2. gcc 3.3.3, glibc 2.3.2, headers 2.6.7.0 No 2.6.8rc3mm1
+	update in between due to compile problems.
+
+2004-08-08 21:14  tchan
+
+	* mail/gmime/: DETAILS, PRE_BUILD: Added a patch to preven gmime
+	sigs from appearing as another attachment.  Compiled and tested
+	with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.  Patch is from
+	the balsa devs and is recommended by them.  gmime is currently only
+	used in balsa, at least in the moonbase....
+
+2004-08-08 21:04  tchan
+
+	* mail/balsa/DETAILS: Version bump to 2.2.2.  Compiled and tested
+	with gcc-3.3.3, glibc-2.3,3, kernel headers 2.4.x.
+
+2004-08-08 20:09  jol
+
+	* compilers/ocaml/BUILD: make a fix around the head command. In
+	fact, sine the coreutils update the head has changed some line
+	arguments. the head -1 is now obsolete.  You should use head -n 1.
+
+2004-08-08 17:55  tchan
+
+	* x11-apps/mupo/POST_INSTALL: Added a POST_INSTALL to correct the
+	directory permissions of /usr/share/doc/mupo/odcumentation. 
+	Permissions were 700, should be 755.
+
+2004-08-08 17:40  tchan
+
+	* chat/gaim/PRE_BUILD: Cleaned up the left over code from
+	gaim-blogger in PRE_BUILD.
+
+2004-08-08 17:36  tchan
+
+	* chat/gaim/: BUILD, DETAILS: Cleaned up the commented out lines in
+	BUILD and DETAILS.
+
+2004-08-08 17:13  tchan
+
+	* web/mozilla/DETAILS: Version bump to 1.7.2.  Moz-devs have
+	FINALLY uploaded a corrected source tarball.  Compiled with
+	gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2004-08-08 17:04  perldude
+
+	* perl/: Digest-SHA1/DETAILS, HTML-Parser/DETAILS,
+	MIME-Base64/DETAILS, Net-DNS/DETAILS, Test-Simple/DETAILS,
+	URI/DETAILS, libwww-perl/DETAILS: bumped several perl modules:
+	
+	libwww-perl => 5.800 URI => 1.31 MIME-Base64 => 3.01 HTML-Parser =>
+	3.36 Digest-SHA1 => 2.10 Test-Simple => 0.47 Net-DNS => 0.47
+
 2004-08-08 03:02  tchan
 
 	* libs/libtool/DETAILS: Version bump to 1.5.8. Compiled and tested
@@ -2122,81 +2182,4 @@
 2004-07-10 08:02  jmhodges
 
 	* x11-apps/planner/DETAILS: version bump to 0.12, handy app
-
-2004-07-09 20:51  florin
-
-	* kde3-apps/qcad/DETAILS: bump the version from 2.0.3.1 to 2.0.3.3.
-
-2004-07-09 16:42  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.7mm6 -> 2.6.7mm7
-
-2004-07-09 11:06  sofar
-
-	* x11/XOrg/: DETAILS, PRE_BUILD: This fixes an ati kernel/dri
-	problem with headers. Thanks to gokr for this fix.
-
-2004-07-09 10:05  sofar
-
-	* x11/XOrg/BUILD: b0rk (tm)
-
-2004-07-09 08:57  sofar
-
-	* x11/XOrg/BUILD: Even better: put it all in host.def in the build
-	tree, and use bad_flags to sed out the bad stuff...
-
-2004-07-09 08:26  sofar
-
-	* x11/XOrg/: BUILD, CONFIGURE: Cosmetics and semantics: * the
-	CFLAGS are now stripped before they are put in the host.def file *
-	this CFLAGS are now added in the BUILD on-the-fly so recompiling
-	them with different optimizations does make a difference (and you
-	don't have to reconfigure) * reshuffled so that PAM options really
-	*DO* get applied I sooo want to rewrite the menus that they
-	remember the user settings now...
-
-2004-07-09 05:04  florin
-
-	* kde3-apps/koffice3/DETAILS: bump the version from 1.3.1 to 1.3.2.
-
-2004-07-09 04:51  florin
-
-	* kde3-i18n/: koffice3-i18n-af/DETAILS, koffice3-i18n-bg/DETAILS,
-	koffice3-i18n-ca/DETAILS, koffice3-i18n-cs/DETAILS,
-	koffice3-i18n-da/DETAILS, koffice3-i18n-de/DETAILS,
-	koffice3-i18n-el/DETAILS, koffice3-i18n-en_GB/DETAILS,
-	koffice3-i18n-eo/DETAILS, koffice3-i18n-es/DETAILS,
-	koffice3-i18n-et/DETAILS, koffice3-i18n-fa/DETAILS,
-	koffice3-i18n-fi/DETAILS, koffice3-i18n-fr/DETAILS,
-	koffice3-i18n-he/DETAILS, koffice3-i18n-hu/DETAILS,
-	koffice3-i18n-it/DETAILS, koffice3-i18n-ja/DETAILS,
-	koffice3-i18n-lo/DETAILS, koffice3-i18n-mt/DETAILS,
-	koffice3-i18n-nb/DETAILS, koffice3-i18n-nl/DETAILS,
-	koffice3-i18n-nn/DETAILS, koffice3-i18n-pl/DETAILS,
-	koffice3-i18n-pt/DETAILS, koffice3-i18n-pt_BR/DETAILS,
-	koffice3-i18n-ru/DETAILS, koffice3-i18n-se/DETAILS,
-	koffice3-i18n-sl/DETAILS, koffice3-i18n-sr/DETAILS,
-	koffice3-i18n-sv/DETAILS, koffice3-i18n-tg/DETAILS,
-	koffice3-i18n-th/DETAILS, koffice3-i18n-tr/DETAILS,
-	koffice3-i18n-ven/DETAILS, koffice3-i18n-xh/DETAILS,
-	koffice3-i18n-zh_CN/DETAILS, koffice3-i18n-zh_TW/DETAILS,
-	koffice3-i18n-zu/DETAILS: bump the version from 1.3.1 to 1.3.2.
-
-2004-07-09 04:50  florin
-
-	* kde3-i18n/koffice3-i18n-hsb/: BUILD, DEPENDS, DETAILS: add a new
-	translation. bump the version to 1.3.2.
-
-2004-07-09 04:16  florin
-
-	* chat/ircservices/DETAILS: bump the version from 5.0.33 to 5.0.35.
-
-2004-07-09 00:43  striker
-
-	* graphics/hicolor-icon-theme/BUILD: odd...looks like this module
-	wasnt tested before being bumped *tsk* *tsk* :P
-
-2004-07-09 00:20  jmhodges
-
-	* libs/libxslt/: BUILD, DETAILS: fixes lots of things
 
