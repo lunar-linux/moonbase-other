@@ -166,7 +166,7 @@ start() {
 	  FORCE="-f"
       fi
       echo      -n " * Checking all file systems"
-      fsck      -A -y -a &> /dev/null
+      fsck      -A -y &> /dev/null
       if [ "$?" -eq "0" ] ; then
 	  echo    -e $RESULT_OK
       else
