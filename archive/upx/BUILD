@@ -2,13 +2,13 @@
 
   export UCLDIR=/usr &&
   cd src &&
-  sedit "s/CC = gcc/CC = g++/" Makefile &&
-  sedit "s/__UCL_ENTRY/__UCL_CDECL/" conf.h &&
   make target=linux &&
   cd ../doc &&
   make &&
   prepare_install &&
   gzip -9 upx.1 && cp upx.1.gz /usr/share/man/man1 &&
+  mkdir -p $DOCUMENT_DIRECTORY/upx &&
+  cp upx.html upx.doc $DOCUMENT_DIRECTORY/upx &&
   cp ../src/upx /usr/bin
   
 ) > $C_FIFO 2>&1
