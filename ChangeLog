@@ -1,3 +1,61 @@
+2004-02-19 05:28  tchan
+
+	* graphics/xlockmore/: BUILD, DETAILS: Version bump to 5.11.1. 
+	Added md5sum.  Minor update to BUILD (exchanged 3 lines for
+	default_make).	Compiled and tested with gcc-3.3.3.  Kernel-headers
+	2.4.24.
+
+2004-02-19 05:24  nhudson
+
+	* x11-apps/xscreensaver/: BUILD, DEPENDS: 
+	Fixing problems with compiling thanks to v3rt1g0 for pointing this
+	out in irc
+
+2004-02-19 05:10  tchan
+
+	* graphics/glut/DETAILS: Fixed the download url and added md5sum
+	check.
+
+2004-02-19 01:50  tchan
+
+	* chat/gaim/DETAILS: Surprisingly, this needs PSAFE=no.  On my SMP
+	lunar box with no distcc installed and MAKES=8, gaim dies a
+	horrible death, unless PSAFE=no.  Now gaim compiles again.  Tested
+	with gcc-3.3.3 too!
+
+2004-02-18 22:01  tchan
+
+	* docs/abs-guide/DETAILS: Version bump to 2.5.
+
+2004-02-18 20:49  sofar
+
+	* xfce4/: libxfce4mcs/BUILD, libxfce4util/BUILD, libxfcegui4/BUILD,
+	xfcalendar/BUILD, xfce-mcs-manager/BUILD, xfce-mcs-plugins/BUILD,
+	xfce-utils/BUILD, xfce4-battery-plugin/BUILD,
+	xfce4-clipman-plugin/BUILD, xfce4-datetime-plugin/BUILD,
+	xfce4-diskperf-plugin/BUILD, xfce4-fsguard-plugin/BUILD,
+	xfce4-iconbox/BUILD, xfce4-minicmd-plugin/BUILD, xfce4-mixer/BUILD,
+	xfce4-netload-plugin/BUILD, xfce4-notes-plugin/BUILD,
+	xfce4-panel/BUILD, xfce4-session/BUILD,
+	xfce4-showdesktop-plugin/BUILD, xfce4-systemload-plugin/BUILD,
+	xfce4-systray/BUILD, xfce4-themes/BUILD, xfce4-toys/BUILD,
+	xfce4-trigger-launcher/BUILD, xfdesktop/BUILD, xffm/BUILD,
+	xffm-icons/BUILD, xfprint/BUILD, xfwm4/BUILD, xfwm4-themes/BUILD:
+	Modifying prefix, defaults to /opt/lunar/xfce/4.0, but SA can
+	override this with a variable in /etc/lunar/local/config or even in
+	the shell. Works like a charm. thanks jazman for the bash trick I
+	forgot about. I Propose adding this to KDE and GNOME too.
+
+2004-02-18 15:47  florin
+
+	* audio/: libid3tag/DETAILS, libmad/DETAILS, madplay/DETAILS: bump
+	version from 0.15.0b to 0.15.1b. the alsa patch remains for the
+	moment :(
+
+2004-02-18 15:00  nestu
+
+	* kernel/linux-beta/: DETAILS, PRE_BUILD: version bump
+
 2004-02-18 11:53  florin
 
 	* kernel/: linux/POST_INSTALL, linux-grsec/POST_INSTALL,
@@ -2595,58 +2653,4 @@
 	Patch is not yet widely available (i.e. Sourceforge link is broken)
 	so I cached it on dbguin, just in case.  Compiled and tested with
 	gcc-3.2.3.
-
-2004-01-19 20:37  tchan
-
-	* shells/sash/DETAILS: Version bump to 3.7.  I re-made the sash
-	patch to match this newer version.  Compiled and tested with
-	gcc-3.2.3.
-
-2004-01-19 19:15  jol
-
-	* audio/libmikmod/DETAILS: The old source url failed, because the
-	site has moved.  So i've just update the source url
-
-2004-01-19 18:18  tchan
-
-	* devel/smake/DETAILS: Version bump to 1.2a20.	Compiled and tested
-	with gcc-3.2.3.
-
-2004-01-19 17:58  tchan
-
-	* libs/dietlibc/DETAILS: Version bump to 0.24.	Compiled and tested
-	with gcc-3.2.3.
-
-2004-01-19 17:49  tchan
-
-	* compilers/fasm/DETAILS: Version bump to 1.50.
-
-2004-01-19 17:47  tchan
-
-	* libs/uClibc/DETAILS: Version bump to 0.9.26.	Small bugfix
-	release.  Compiled and tested with gcc-3.2.3, kernel 2.4.x.
-
-2004-01-19 15:36  niki
-
-	* editors/elvis/BUILD: Couldnt we have made this optional the first
-	time ?? As i dont have X on my firewall...
-
-2004-01-19 13:03  nestu
-
-	* net/maradns/DETAILS: doh! put the md5 back!
-
-2004-01-19 12:58  nestu
-
-	* net/maradns/: BUILD, DETAILS, POST_INSTALL, POST_REMOVE,
-	lunar_install.locations: Bumped version, Major cleanup: * Now the
-	tarball has its own initscript.  * Doesn't ask any questions, and
-	set ups a default config.
-
-2004-01-19 10:31  jmhodges
-
-	* web/mozilla/DEPENDS: typo fix
-
-2004-01-19 08:52  jmhodges
-
-	* editors/scite/DETAILS: version bump
 
