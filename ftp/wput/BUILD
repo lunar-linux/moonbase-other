@@ -1,8 +1,6 @@
-( 
-  make            &&
+(
 
-  prepare_install &&
+  OPTS="$OPTS --disable-g-switch"
+  default_build
 
-  cp wput /usr/bin
-  
 ) > $C_FIFO 2>&1
