@@ -1,7 +1,5 @@
-           MODULE=zapping
-# Hate to use use this version but it is a lot more stable than the latest current
-# version that compiled (0.6.4 and 0.6.3 won't compile with gcc3)
-         VERSION=0.6.5
+          MODULE=zapping
+         VERSION=0.6.6
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
@@ -9,6 +7,7 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
          ENTERED=20011124
          UPDATED=20011128
            SHORT="zapping, a tv viewer app"
+      MAINTAINER="dem@lunar-linux.org"
 cat << EOF
 Zapping is a TV viewer for GNOME that supports Video4Linux,
 Video4Linux2, and XVideo. It's extensible through plugins.
