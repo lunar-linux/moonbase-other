@@ -1,9 +1,9 @@
 ( 
   cd $SOURCE_DIRECTORY &&
     if  module_installed  Linux-PAM
-      then  make lnp SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib"
+      then  make lnp SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib" SSLTYPE=unix
 
-      else  make slx SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib"
+      else  make slx SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib" SSLTYPE=unix
 
     fi &&
     cp imapd/imapd /usr/sbin/imapd                         &&
