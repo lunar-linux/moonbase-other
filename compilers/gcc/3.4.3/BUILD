@@ -3,7 +3,7 @@
   mkdir BUILD                                &&
   cd BUILD                                   &&
 
-  sedit 's/= install-headers-tar/= install-headers-cpio/' gcc/config.build  &&
+  sedit 's/= install-headers-tar/= install-headers-cpio/' ../gcc/config.build  &&
   sedit 's/trap 0/trap "" 0/' ../configure   &&
 
   LANGUAGES=${LANGUAGES:=c++}                &&
