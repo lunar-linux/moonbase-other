@@ -9,7 +9,8 @@
 	       --enable-mandatory-headers            \
 	       --with-init-dir=/etc/init.d           \
 	       --with-rc-dir=/etc                    \
-	       --with-xinetd-dir=/etc/xinetd.d
+               --enable-mandatory-headers            \
+	       --with-xinetd-dir=/etc/xinetd.d       &&
 	       
   make                                               &&
   prepare_install                                    &&
