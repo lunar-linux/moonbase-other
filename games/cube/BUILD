@@ -11,17 +11,17 @@
   prepare_install
   
   set -x
-  mkdir -p /usr/lib/cube/bin_unix
-  install -m 755 source/src/cube_client /usr/lib/cube/bin_unix/cube_client
-  install -m 755 source/src/cube_server /usr/lib/cube/bin_unix/cube_server
+  mkdir -p /usr/games/cube/bin_unix
+  install -m 755 source/src/cube_client /usr/games/cube/bin_unix/cube_client
+  install -m 755 source/src/cube_server /usr/games/cube/bin_unix/cube_server
   for DIR in data docs packages ; do
-    cp -a $DIR /usr/lib/cube
+    cp -a $DIR /usr/games/cube
   done
   for FILE in autoexec.cfg readme.html servers.cfg ; do
-    cp $FILE /usr/lib/cube
+    cp $FILE /usr/games/cube
   done
-  cp $SCRIPT_DIRECTORY/cube /usr/bin
-  chmod 755 /usr/bin/cube /usr/lib/cube/bin_unix/*
+  cp $SCRIPT_DIRECTORY/cube /usr/games/cube
+  chmod 755 /usr/games/cube/cube /usr/games/cube/bin_unix/*
   set +x
 
 

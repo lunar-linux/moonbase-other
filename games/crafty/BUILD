@@ -1,6 +1,6 @@
 (
 
-  make    linux-i686-elf                               &&
+  make    linux-elf                                    &&
   prepare_install                                      &&
   cp crafty /usr/games                                 &&
   cp $MOONBASE/games/$MODULE/craftyx /usr/games        &&
