@@ -5,10 +5,9 @@
 # for each node
 
 # console
-KERNEL="console",                          MODE="0600"                      
-KERNEL="root[0-9][0-9]*",  OWNER="$local"
-KERNEL="vc/[0-9]*",        OWNER="$local"                 
-
+KERNEL="console",                                 MODE="0600"                      
+KERNEL="root[0-9][0-9]*",        OWNER="$local"
+KERNEL="vc/[0-9]*",              OWNER="$local"                 
 KERNEL="ptmx",                   OWNER="$local",  MODE="0666"
 KERNEL="pty/m*",                 OWNER="$local" 
 KERNEL="root[p-za-e][0-9a-f]*",  OWNER="$local"
@@ -46,10 +45,12 @@ KERNEL="full",                    MODE="0666"
 
 
 # miscelaneous
-KERNEL="microdrive*", GROUP="disk"
-#KERNEL="nvram"
-#KERNEL="rtc"
-#KERNEL="rtc", NAME="misc/%k", SYMLINK="%k"
+KERNEL="agpgart",      NAME="misc/%k",  SYMLINK="%k", GROUP="video"
+KERNEL="rtc",          NAME="misc/%k",  SYMLINK="%k", MODE="0664"
+KERNEL="inotify",      NAME="misc/%k",  SYMLINK="%k", MODE="0666"
+KERNEL="psaux",        NAME="misc/%k",  SYMLINK="%k"
+KERNEL="uinput",       NAME="misc/%k",  SYMLINK="%k"
+KERNEL="nvram",        NAME="misc/%k"
 
 
 # floppy
@@ -153,6 +154,7 @@ KERNEL="discs/*/*",      GROUP="disk"
 KERNEL="ide/*/*/*/*/*",  GROUP="disk"
 KERNEL="ataraid*",       GROUP="disk"
 KERNEL="pg*",            GROUP="disk"
+KERNEL="microdrive*",    GROUP="disk"
 
 
 # loop devices
@@ -228,11 +230,10 @@ KERNEL="gpmctl",  MODE="0700"
 
 
 # dri devices
-KERNEL="3dfx*",                                      GROUP="video"
-KERNEL="agpgart",  NAME="misc/%k",     SYMLINK="%k", GROUP="video"
-KERNEL="card*",    NAME="dri/card%n",                GROUP="video" 
-KERNEL="nvidia*",                                    GROUP="video"
-KERNEL="dri/*",                                      GROUP="video"
+KERNEL="3dfx*",                        GROUP="video"
+KERNEL="card*",    NAME="dri/card%n",  GROUP="video" 
+KERNEL="nvidia*",                      GROUP="video"
+KERNEL="dri/*",                        GROUP="video"
 
 
 # mainboard devices
@@ -268,7 +269,5 @@ KERNEL="djs*",	   NAME="input/%k"
 KERNEL="event*",   NAME="input/%k"
 KERNEL="js*",	   NAME="input/%k"
 KERNEL="kbd",	   NAME="input/%k"
-KERNEL="psaux",    NAME="misc/%k",   SYMLINK="%k"
 KERNEL="mice",	   NAME="input/%k",  SYMLINK="%k"
 KERNEL="mouse*",   NAME="input/%k"
-KERNEL="uinput",   NAME="misc/%k",   SYMLINK="%k"
