@@ -2,7 +2,9 @@
 ( 
    # make sure proper PKG_CONFIG_PATH is set
    export PKG_CONFIG_PATH="${XFCE4_PREFIX:-/opt/lunar/xfce4}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
-   
+
+   PATH="$PATH:/usr/X11/bin"
+
    ./configure  --build=$BUILD					\
                 --prefix=${XFCE4_PREFIX:-/opt/lunar/xfce4}	\
                 $OPTS                                           &&
