@@ -1,5 +1,11 @@
 (
 
+  if  grep  -q  "enable-gtk"  $MODULE_CONFIG;  then
+    if  !  module_installed gtk+; then
+      lin gtk+
+    fi
+  fi
+
   LIBOPTS=$LIBOPTS"--enable-release --enable-nessuspcap --enable-cipher"
   LIBNASLOPTS=""
   COREOPTS=$COREOPTS" --enable-release --enable-syslog"
