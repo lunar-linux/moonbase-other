@@ -17,6 +17,7 @@
   export NATIVE_THEME_SUPPORT=1
   export MOZ_PHOENIX=1
   export MOZ_INTERNAL_LIBART_LGPL=1
+  export BUILD_OPT=1
 
   echo "$OPTS" > /tmp/mozz
 
