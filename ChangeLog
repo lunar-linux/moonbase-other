@@ -1,3 +1,70 @@
+2005-04-06 08:14  moe
+
+	* devel/subversion/plugin.d/download-svn.plugin: I'm teh awesome
+
+	  1) Added https and svn+ssh support to the svn plugin	  (note:
+	  svn+ssh is a <method>+<tunnel> notation; for further	  input
+	  go'n dig up the svn cookbook) 2) Made the verbose message about
+	  the update treshold a regular    message. Otherwise the regular
+	  user wouldn't see anything	at all. Applied a temporary color
+	  hack since MESSAGE_COLOR    is broken (Defined two times
+	  currently) 3) Made sofar's day AGAIN .. :p
+
+2005-04-06 03:36  florin
+
+	* editors/scite/: BUILD, DETAILS: bump the version from 1.62 to
+	  1.63.
+
+2005-04-06 03:11  florin
+
+	* ftp/curl/DETAILS: bump the version from 7.13.1 to 7.13.2.
+	  bugfixes and some features added.
+
+2005-04-06 01:46  florin
+
+	* kde3-apps/gwenview/BUILD: small tweaks.
+
+2005-04-06 01:17  florin
+
+	* kde3-apps/gwenview/: DEPENDS, DETAILS: bump the version to 1.2.0.
+	  add kipi-plugin optional support.
+
+2005-04-06 01:12  florin
+
+	* graphics/libgphoto2/DEPENDS: small tweaks.
+
+2005-04-06 01:07  florin
+
+	* graphics/gphoto2/DEPENDS: small tweaks.
+
+2005-04-06 01:05  florin
+
+	* graphics/libpng/: BUILD, DETAILS: add a patch which prevents some
+	  compiles to fail.
+
+2005-04-06 00:43  tchan
+
+	* devel/gecko-sharp/DETAILS: Fixed the file for sha1sum.  It was
+	  incorrectly referring to the sha1sum as an md5sum.
+
+2005-04-05 18:52  florin
+
+	* filesys/lvm2/DETAILS: bump the version from 2.01.08 to 2.01.09.
+
+2005-04-05 18:45  florin
+
+	* devel/subversion/DETAILS: bump the version from 1.1.3 to 1.1.4. a
+	  lot of bugfixes.
+
+2005-04-05 15:52  moe
+
+	* utils/coreutils/: BUILD, CONFIGURE, DETAILS: 1) Added large file
+	  support as a mandatory configure    options. About time we did
+	  that 2) Reworked the CONFIGURE and the BUILD files to use mquery
+	  3) Fixed some DETAILS oddities
+
+	  <sofar> you just made my day ;^)
+
 2005-04-05 04:53  cmak
 
 	* devel/dbus/init.d/messagebus: shut down a bit later/properly
@@ -2760,86 +2827,4 @@
 	* graphics/compface/: BUILD, DETAILS: Version bump.  Patch no
 	  longer required.  Added sha1 sum.  Installed the xbm-to-XFace
 	  perl script.
-
-2005-03-06 22:34  moe
-
-	* utils/lard/: BUILD, DEPENDS, DETAILS, init.d/lard: Adding lard.
-	  http://lard.foo-projects.org
-
-2005-03-06 19:59  v3rt1g0
-
-	* games/trackballs/DETAILS: Small format tweaks, synced the
-	  description up with the website and changed from md5 to sha.
-
-2005-03-06 17:52  moe
-
-	* compilers/Python/: BUILD, POST_INSTALL: Be smarter about
-	  upgrades. Now all the compiled python modules are preserved. They
-	  might fail of course. Still, it's a lot less buggy.
-
-2005-03-06 16:42  v3rt1g0
-
-	* security/p0f/DETAILS: Version bump.  "Major feature enhancements"
-	  according to freshmeat.
-
-2005-03-06 16:31  tchan
-
-	* libs/gettext/DETAILS: Fixed some indentation problems.
-
-2005-03-06 16:29  tchan
-
-	* libs/gettext/DETAILS: Version bump to gettext-0.14.2. From
-	  florin's module submitted to the lunar-dev ML. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x. Florin tested
-	  with gcc-3.4.3, glibc-2.3.4, kernel headers 2.6.10.
-
-2005-03-06 16:02  florin
-
-	* chat/ircservices/DETAILS: bump the version from 5.0.46 to 5.0.49.
-
-2005-03-06 15:39  florin
-
-	* net/vnc/: BUILD, DETAILS: bump the version from 3.3.7 to 4.1.
-
-2005-03-06 14:30  moe
-
-	* zbeta/XOrg-test/CONFLICTS: Unbreak this
-
-2005-03-06 12:20  florin
-
-	* archive/unarj/: BUILD, DETAILS: bump the version from 2.43 to
-	  2.65. added two security patches.
-
-2005-03-06 11:58  florin
-
-	* zbeta/XOrg-test/: BUILD, CONFIGURE, CONFLICTS, DEPENDS, DETAILS,
-	  POST_INSTALL, PRE_BUILD, drivers, xsession, pam.d/xserver: use
-	  XOrg 6.8.2 instead of 6.8.1. This module is installed on my
-	  system and it works just fine.
-
-2005-03-06 11:24  florin
-
-	* graphics/kipi-plugins/: DEPENDS, DETAILS: bump the version from
-	  0.1-beta1 to 0.1.0-beta2. add the depends file.
-
-2005-03-06 11:22  florin
-
-	* graphics/digikam/DEPENDS: use kipi-plugins instead of libkipi for
-	  optional depend.
-
-2005-03-06 11:19  florin
-
-	* devel/cvsd/DETAILS: bump the version from 1.0.0 to 1.0.5.
-
-2005-03-06 07:06  florin
-
-	* graphics/libkipi/DETAILS: bump the version from 0.1 to 0.1.1.
-
-2005-03-06 06:40  florin
-
-	* ftp/dclib/DETAILS: bump the version from 0.3.2 to 0.3.7.
-
-2005-03-06 06:18  florin
-
-	* kde3-apps/kasablanca/DETAILS: use sha1 instead of md5.
 
