@@ -1,7 +1,104 @@
-2004-01-03 08:57  jasper
+2004-01-04 08:22  florin
 
-	* archive/ibackup/: BUILD, DEPENDS, DETAILS: Add iBackup tool.
-	Contributed by bkw. Works well for me.
+	* utils/hotplug/BUILD: make the /var/lock/subsys dir. i know that
+	/var/lock is a tmpfs type dir, but at install time we don't get a
+	warning that this dir is missing.
+
+2004-01-04 07:01  cmak
+
+	* audio/jack/DEPENDS: making doxygen an option as its quite huge
+	and not needed for jack to work...
+
+2004-01-04 02:02  tchan
+
+	* graphics/gtksee/DETAILS: Adjusting the indentation style, as
+	requested/submitted by bkw.
+
+2004-01-04 00:40  nestu
+
+	* filesys/udev/: BUILD, DEPENDS, DETAILS: Bringing the devfs
+	substitute to moonbase. 2.6+ kernels only.
+
+2004-01-03 23:45  tchan
+
+	* utils/ibackup/BUILD: Added an sedit to fix the screwy naming
+	convention of the backup tarball, from DDMMYYYY to the Lunar norm
+	of YYYYMMDD.
+
+2004-01-03 23:21  nestu
+
+	* utils/hotplug/: BUILD, DETAILS: Version bump, and BUILD update
+	aswell.
+
+2004-01-03 23:03  tchan
+
+	* utils/ibackup/DETAILS: Updated the long description at bkw's
+	request.
+
+2004-01-03 22:47  nestu
+
+	* filesys/sysfsutils/DETAILS: Adding these utilities for sysfs.
+	Therefore, only 2.6.X kernels.
+
+2004-01-03 21:50  sofar
+
+	* utils/devfsd/: POST_INSTALL, devfsd.conf: Removed, moved to
+	filesys
+
+2004-01-03 21:50  sofar
+
+	* filesys/devfsd/: BUILD, DETAILS, POST_INSTALL, devfsd.conf,
+	init.d/devfsd: Moving into filesys
+
+2004-01-03 21:45  sofar
+
+	* filesys/: dosfstools/BUILD, dosfstools/DETAILS, hfsutils/DETAILS,
+	mtools/BUILD, mtools/DETAILS: Moving into filesys
+
+2004-01-03 19:10  tchan
+
+	* utils/ibackup/: BUILD, DEPENDS, DETAILS: Moved ibackup from
+	archive section into the utils section at elaine's suggestion.	My
+	problem with sysconf was operator error as usual.
+
+2004-01-03 18:51  florin
+
+	* kde3/qt3/DETAILS: we don't have qt2 in moonbase.
+
+2004-01-03 18:04  tchan
+
+	* libs/uClibc/: .config.bz2, DETAILS: Version bump to
+	uClibc-0.9.25.	A bugfix release.  NOTE: uClibc is heading down the
+	same path a glibc in that it USES the /usr/src/linux link to parse
+	kernel header info.  It will NOT compile correctly using the
+	headers installed into /usr/include/linux.  Tested with
+	kernel-2.4.23 and gcc-3.2.3.
+
+2004-01-03 17:22  cmak
+
+	* audio/: ardour/BUILD, jack/DEPENDS: added doxygen to jack's
+	DEPENDS (for Documentation) ardour needs no BUILD (default build is
+	fine)
+
+2004-01-03 16:42  cmak
+
+	* audio/audacity/: BUILD, DEPENDS: i used optional_depends wrong in
+	the first place. fixed
+
+2004-01-03 15:12  nestu
+
+	* kernel/linux-beta/: DETAILS, PRE_BUILD: Sources are removed and
+	then unpacked and patched now.
+
+2004-01-03 14:59  nestu
+
+	* kernel/linux-beta-mm/PRE_BUILD: Changing the source's permissions
+	to root.root
+
+2004-01-03 13:49  nestu
+
+	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: Bumping to
+	2.6.1-rc1-mm1. 2.6.0 patched to rc1, and rc1 patched again to mm1.
 
 2004-01-02 22:58  cmak
 
@@ -1847,58 +1944,4 @@
 
 	* net/whois/DETAILS: fix the md5 sum. thx to Vincent Vandeweijer
 	for notice.
-
-2003-12-04 22:15  florin
-
-	* kde3/arts/: DEPENDS, DETAILS: fix the DEPENDS file. the mad
-	module is obsolete. the new depend is now called libmad.
-
-2003-12-04 21:58  nestu
-
-	* audio/libmad/DETAILS: First import. This is a substitute for the
-	old mad module.
-
-2003-12-04 21:29  hardkrash
-
-	* ftp/d4x/CONFLICTS: replaces nt
-
-2003-12-04 21:23  hardkrash
-
-	* ftp/d4x/: BUILD, DEPENDS, DETAILS: bumped version of nt and
-	changed name so here it is
-
-2003-12-04 20:50  florin
-
-	* graphics/ImageMagick/DETAILS: fix the md5 sum. thx to Arnald for
-	notice.
-
-2003-12-04 17:17  elaine
-
-	* terminal/screen/: BUILD, DETAILS: Added patch for potential
-	suid-root screen overflow
-
-2003-12-04 16:40  florin
-
-	* net/whois/DETAILS: bump version from 4.6.8 to 4.6.9.
-
-2003-12-04 16:29  nestu
-
-	* audio/jack/POST_INSTALL: Bleh, I meant a /usr/lib/jack entry.
-
-2003-12-04 16:25  nestu
-
-	* audio/jack/: DETAILS, POST_INSTALL: Version bump. POST_INSTALL
-	added to put a /etc/lib/jack entry in /etc/ld.so.conf
-
-2003-12-04 09:36  niki
-
-	* net/rsync/DETAILS: Bumped rsync to 2.5.7, this fixes a possible
-	heap overflow which is suspeced to have been used to compromise the
-	debian systems, and together with the do_brk bug in the kernel it
-	can give root access.
-
-2003-12-04 07:33  niki
-
-	* utils/gradm/DETAILS: Forgot all about updating this module to the
-	new version when i release the new linux-grsec.
 
