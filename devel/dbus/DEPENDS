@@ -3,5 +3,8 @@ depends libxml2   &&
 
 optional_depends "mono"   "--enable-mono"   "" "for mono/c# bindings" &&
 optional_depends "gtk+-2" "--enable-gtk"    "" "for Gtk+-2 bindings"  &&
-optional_depends "Pyrex"  "--enable-python" "" "for Python bindings"  &&
+optional_depends "Pyrex"  "--enable-python" \
+			  "--disable-python" \
+			  "for Python bindings"  &&
+
 optional_depends "qt3"    "--enable-qt"     "" "for QT bindings"
