@@ -1,3 +1,57 @@
+2003-06-26 11:53  nhudson
+
+	* perl/mod_perl/: BUILD, DETAILS: 
+	Updating mod_perl to new version 2.0-current, I am updating this
+	because we have no module for mod_perl for apache2.  I am assuming
+	that most everyone uses apache2.  Maybe this should be done another
+	way??
+
+2003-06-26 11:48  nhudson
+
+	* gnome2-core/yelp/DETAILS: 
+	Updating yelp to new version 2.2.3
+
+2003-06-26 02:27  elaine
+
+	* editors/ex/: BUILD, DEPENDS, DETAILS: Module ex for ex/vi current
+	version of the original BSD version of vi
+
+2003-06-26 02:09  nhudson
+
+	* gnome2-apps/conglomerate/: DEPENDS, DETAILS: 
+	initial import of conglomerate 0.5.4, Conglomerate is a nice gtk2
+	based XML editor that will make nice and easy docbook documents and
+	will also export docbook docs to html.
+
+2003-06-26 00:51  tchan
+
+	* distributed/distcc/DETAILS: Minor portability fix version. 
+	Bumped to 2.7.1.
+
+2003-06-25 22:17  sofar
+
+	* x11-utils/: gkrellm2/DETAILS, gkrellmd2/DETAILS: New versions at
+	your convenience
+
+2003-06-25 19:29  jol
+
+	* x11-wm/bbconf/: BUILD, DEPENDS, DETAILS: Bumped version  OLD: 1.5
+	 NEW: 1.10 Support qt3 instead of qt-x11
+
+2003-06-25 16:35  jmhodges
+
+	* devel/pychecker/: BUILD, DEPENDS, DETAILS: initial import.. about
+	time :)
+
+2003-06-25 14:29  tchan
+
+	* utils/lsof/DETAILS: Corrected the md5sum for csm.
+
+2003-06-25 12:22  jol
+
+	* video/vlc/: BUILD, DEPENDS, DETAILS: Bumped Version OLD: 0.5.3   
+	NEW: .0.6.0 mpg2dec was disabled wxwindows activated
+
 2003-06-25 01:01  nhudson
 
 	* gnome2-applets/drwright/DETAILS: 
@@ -1177,92 +1231,4 @@
 
 	* gnome2-core/gtksourceview/: BUILD, DEPENDS, DETAILS: 
 	Adding gtksourceview to moonbase
-
-2003-05-26 19:00  nhudson
-
-	* app-themes/Nuvola/: DEPENDS, DETAILS: 
-	Adding Nuvola SVG Theme to moonbase
-
-2003-05-26 18:47  jol
-
-	* devel/tcl-tk/DETAILS: Change version
-
-2003-05-26 17:31  nhudson
-
-	* libs/gettext/: CONFIGURE, DETAILS, POST_INSTALL: 
-	Ok updating gettext to new version 0.12, also forcing a rebuild of
-	glibc and glib-2 if you have it installed.  You need to rebuild
-	glibc after gettext if it is not rebuilt things will break.  Also
-	removed the CONFIGURE file as it is not needed anymore.
-
-2003-05-26 16:26  florin
-
-	* games/crimson/DETAILS: bumped version. have fun
-
-2003-05-26 16:17  florin
-
-	* web/webmin/DETAILS: bumped version. ppp, vpn, postfix and samba
-	improvements.
-
-2003-05-26 05:11  nhudson
-
-	* zbeta/galeon_cvs/: BUILD, galeon: 
-	Blah same as below
-
-2003-05-26 05:06  nhudson
-
-	* web/galeon2/: BUILD, galeon: 
-	Adding this script for galeon so that it uses mozillas plugins
-
-2003-05-26 04:57  nhudson
-
-	* web/epiphany/: BUILD, epiphany: 
-	Adding this script to start epiphany so that it will use the
-	mozilla plugins.
-
-2003-05-26 04:39  nhudson
-
-	* gnome2-apps/mozilla-bonobo/DETAILS: 
-	Fixing download location and website
-
-2003-05-26 04:26  nhudson
-
-	* gnome2-apps/battfink/DETAILS: 
-	Updating battfink to new version 0.5
-
-2003-05-26 03:56  nhudson
-
-	* gnome2-apps/acme/DETAILS: 
-	Updating acme to new version 2.0.4
-
-2003-05-26 03:52  nhudson
-
-	* doc-tools/: docbook-dsssl/DETAILS, docbook-dsssl/POST_INSTALL,
-	docbook-dsssl/PRE_REMOVE, docbook-dsssl-doc/DETAILS,
-	docbook-dsssl-doc/POST_REMOVE: 
-	Updating docbook-dsssl and docbook-dsssl-doc to new versions 1.78
-	and making sure they update the catalog correctly
-
-2003-05-26 03:23  nhudson
-
-	* gnome2-core/gail/: BUILD, DETAILS: 
-	Ok sorry for the forcing of more updates but this might fix some
-	problems some people are having with gail.  Now finally I think we
-	are able to build Gnome Documentation correctly.  I added
-	docbook-profile to gtk-docs DEPENDS file, I also took out
-	--disable-gtk-doc in gail which for some stupid reason causes it to
-	bork, now it builds with full documentation.
-
-2003-05-26 03:19  nhudson
-
-	* doc-tools/: docbook-xsl/BUILD, docbook-xsl/DETAILS, slides/BUILD,
-	slides/DETAILS, slides/POST_INSTALL: 
-	Ok making some changes to these two modules.  For one now the
-	docbook catalog rebuild script is now in /usr/sbin so that you can
-	use it as you wish.  Also I fixed a typo to slides I made
-	yesterday, I had to registering with the xml catalog and it should
-	only be the sgml catalog.  I have tried the best I could to remove
-	the entry to the xml catalog, if it gets borked just use
-	/usr/sbin/rebuild-docbook-catalog and it will fix all your
-	problems.
 
