@@ -1,3 +1,147 @@
+2004-03-10 10:13  cmak
+
+	* audio/jack/DETAILS: version bump
+
+2004-03-10 08:14  jmhodges
+
+	* gnome2-core/gnome-vfs2/DETAILS: md5sum correction
+
+2004-03-10 07:45  ratler
+
+	* net/net-snmp/DETAILS: Added PSAFE=no
+
+2004-03-10 06:32  watryac04
+
+	* utils/modutils/POST_INSTALL: added an "if module_installed
+	module-init-tools ..." to make it so that updates of modutils don't
+	break the module loaders on systems with module-init-tools and
+	modutils installed (people with kernels 2.4.x and 2.6.x installed
+	simultaneously).
+
+2004-03-10 06:31  watryac04
+
+	* utils/module-init-tools/BUILD: cleaned up module-init-tools to
+	work without modutils installed.  for those of us running only the
+	2.6.x kernel.
+
+2004-03-10 03:40  nhudson
+
+	* gnome2-core/: gnome-vfs2/BUILD, gnome-vfs2/DEPENDS,
+	gnome-desktop/BUILD, gnome-panel/DEPENDS: 
+	Enabling new features
+
+2004-03-10 03:00  nhudson
+
+	* gnome2-core/: gnome-media2/DETAILS, nautilus-media/DETAILS: 
+	More updates
+
+2004-03-10 02:36  nhudson
+
+	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: 
+	Updating gstreamer and gst-plugins to new versions 0.7.6
+
+2004-03-10 02:34  nhudson
+
+	* gnome2-core/gnome-games2/DETAILS: 
+	One more
+
+2004-03-10 02:28  nhudson
+
+	* gnome2-core/: nautilus/DETAILS, eog/DETAILS,
+	gconf-editor/DETAILS, gedit/DETAILS, nautilus-cd-burner/DETAILS: 
+	Updating more modules to Gnome 2.6 beta1
+
+2004-03-10 01:51  nhudson
+
+	* gnome2-core/: gnome-icon-theme/DETAILS, gnome-themes/DETAILS: 
+	More updates
+
+2004-03-10 01:49  nhudson
+
+	* gnome2-core/: gconf-editor/BUILD, gnome-panel/BUILD,
+	gtkmm2/BUILD, libgnome/BUILD: 
+	Removing usless BUILD files
+
+2004-03-10 01:41  nhudson
+
+	* gnome2-core/: gnome-desktop/DETAILS, gnome-panel/DETAILS,
+	gtksourceview/DETAILS, eel/DETAILS, gnome-session/DETAILS,
+	yelp/DETAILS: 
+	Updating for Gnome 2.6. Beta 1
+
+2004-03-10 01:36  nhudson
+
+	* gnome2-core/: libbonobo/DETAILS, libbonoboui/DETAILS: 
+	More updates and fixes
+
+2004-03-10 01:34  nhudson
+
+	* gnome2-core/: gnome-vfs2/DETAILS, libbonobo/DETAILS,
+	libgnome/DETAILS, libgnomecanvas/DETAILS, libgnomeui/DETAILS: 
+	Updating things to Gnome D&DP 2.5.90 or 2.6 beta1
+
+2004-03-10 01:01  nhudson
+
+	* web/epiphany/DETAILS: 
+	Updating epiphany to new version 1.1.12
+
+2004-03-10 00:58  nhudson
+
+	* graphics/gtk+-2/DETAILS: 
+	Updating gtk+-2 to new version 2.3.6
+
+2004-03-10 00:57  nhudson
+
+	* libs/: atk/DETAILS, glib-2/DETAILS, pango/DETAILS: 
+	Update atk to 1.6.0 pango to 1.3.6 glib-2 to 2.3.6
+
+2004-03-10 00:30  tchan
+
+	* gnome2-apps/abiword/: BUILD, DETAILS: Removed the temporary hack
+	I had to include in 2.0.4.  2.0.5 builds with gcc-3.3.3,
+	kernel-headers 2.4.x and the autogen.sh step is no longer needed
+	either!
+
+2004-03-09 21:46  tchan
+
+	* libs/ncurses/DETAILS: Version bump to ncurses-5.4.  Compiled and
+	tested with gcc-3.3.3, kernel headers 2.4.x.  Installed on the
+	Lunar-1.4.0 iso as well.
+
+2004-03-09 21:45  tchan
+
+	* compilers/gcc/DETAILS: Version bump to gcc-3.3.3.  It is now the
+	default compiler in Lunar and is installed on the Lunar-1.4.0 iso. 
+	Bumping ncurses-5.4 as well.
+
+2004-03-09 18:20  tchan
+
+	* ftp/: lftp/CONFLICTS, pure-ftpd/BUILD, tnftp/CONFLICTS: There is
+	NO conflict between tnftp and lftp.  tnftp install /usr/bin/ftp and
+	lftp installs /usr/bin/lftp.  Removed some extra set -x and set +x
+	from pure-ftpd/BUILD.
+
+2004-03-09 17:42  cmak
+
+	* audio/ardour/DETAILS: typo fix
+
+2004-03-09 17:32  cmak
+
+	* audio/ardour/DETAILS: version bump
+
+2004-03-09 17:17  cmak
+
+	* audio/: abcde/DETAILS, qjackctl/DETAILS: version bump
+
+2004-03-09 17:15  watryac04
+
+	* kernel/lufs/DETAILS: As usual, forgot the UPDATED field.
+
+2004-03-09 17:14  watryac04
+
+	* kernel/lufs/DETAILS: newer version of lufs.  this one works on
+	kernel 2.6.x too
+
 2004-03-09 09:20  sofar
 
 	* perl/mod_perl/DETAILS: mod_perl is not psafe
@@ -2329,15 +2473,15 @@
 
 2004-02-11 04:08  nhudson
 
-	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-02-11 04:08  nhudson
-
 	* rebuild-gnome-unstable: 
 	From a suggesting of niki's I made a script that will rebuild your
 	Gnome installation and build it for the GNOME_UNSTABLE branch. 
 	Please test if you are running GNOME_UNSTABLE
+
+2004-02-11 04:08  nhudson
+
+	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-02-11 04:04  nhudson
 
@@ -2585,132 +2729,4 @@
 	the amaya BUILD script was not something I wanted to tackle at this
 	time.  If there are any Amaya users that need RDF enabled, please
 	feel free to fix this module to compile/include those features.
-
-2004-02-08 23:14  florin
-
-	* graphics/scribus/: BUILD, DETAILS: add Couannette's patch.
-
-2004-02-08 21:38  nhudson
-
-	* gnome2-core/control-center2/: BUILD, DETAILS: 
-	Adding a patch to control-center2 to build with libxklavlier 0.97
-	and hopefully fix all of my xkb problems with Gnome
-
-2004-02-08 21:22  nhudson
-
-	* gnome2-core/eog/DETAILS: 
-	Updating eog to new version 2.5.4
-
-2004-02-08 19:49  florin
-
-	* audio/libsndfile/DETAILS: bump version from 1.0.5 to 1.0.6.
-
-2004-02-08 19:29  hardkrash
-
-	* wifi/wireless_tools/BUILD: fix to allow kdenetwork3 build
-	kwifimanager
-
-2004-02-08 19:07  sofar
-
-	* compilers/php/BUILD: Ading small adjustment for Sablot enabled
-	build.
-
-2004-02-08 18:07  florin
-
-	* games/: ggz-client-libs/DETAILS, ggz-gnome-client/DEPENDS,
-	ggz-gnome-client/DETAILS, ggz-gtk-client/DETAILS,
-	ggz-gtk-games/DEPENDS, ggz-gtk-games/DETAILS, ggz-kde-client/BUILD,
-	ggz-kde-client/DETAILS, ggz-kde-games/BUILD, ggz-kde-games/DEPENDS,
-	ggz-kde-games/DETAILS, ggz-sdl-games/DEPENDS,
-	ggz-sdl-games/DETAILS, ggz-server/DETAILS, ggz-txt-client/DEPENDS,
-	ggz-txt-client/DETAILS, libggz/DETAILS: bump version from 0.0.7 to
-	0.0.8. add two new modules.
-
-2004-02-08 12:12  watryac04
-
-	* video/MPlayer/CONFIGURE: The build of mencoder was breaking the
-	compile of MPlayer on my machine with a 2.6.2-rc2 kernel. Since
-	most people don't use mencoder, I made it an option that you can
-	disable in the configure process.  The new --disable-mencoder
-	configure flag has been tested and works just fine.
-
-2004-02-08 08:52  jmhodges
-
-	* libs/loudmouth/DETAILS: what is wrong with me today?
-
-2004-02-08 08:48  jmhodges
-
-	* libs/loudmouth/DETAILS: added loudmouth. we hates s' /opt, we
-	hates s' it. remind me to work in gossip
-
-2004-02-08 08:11  florin
-
-	* games/asc/: DEPENDS, DETAILS: bump version from 1.13.9.1 to
-	1.14.0.0. add a depend on libsigc++2.
-
-2004-02-08 08:05  jmhodges
-
-	* audio/gst-plugins/DEPENDS: depends change
-
-2004-02-08 07:49  jmhodges
-
-	* gnome2-core/: libbonobo/DETAILS, libgnome/DETAILS,
-	libgnomecanvas/DETAILS, libgnomeprint/DETAILS,
-	libgnomeprintui/DETAILS, libgnomeui/DETAILS: im a friggin' mental
-	giant
-
-2004-02-08 07:23  florin
-
-	* profiles/kde3/: DEPENDS, DETAILS: update the kde3 profile with
-	the modules in kde 3.2 suite.
-
-2004-02-08 07:21  florin
-
-	* kde3/qt3/DEPENDS: remove the xfree86 depend. some ppl use
-	xfree86-beta (on 2.6 kernel).
-
-2004-02-08 05:20  tchan
-
-	* perl/XML-Parser/DETAILS: Update the URL for downloading this
-	module.  Version bump as well.
-
-2004-02-08 05:08  tchan
-
-	* graphics/ImageMagick/DETAILS: This module needs the added
-	PSAFE=no.  Compiled and tested with gcc-3.2.3, kernel headers
-	2.4.x.
-
-2004-02-08 04:47  tchan
-
-	* zbeta/rpm/: DEPENDS, DETAILS: Version bump to rpm-4.2.  Compiled
-	and tested with gcc-3.2.3, kernel headers 2.4.x.  Should compile
-	just fine under gcc-3.3.2.  Added the elfutils module to
-	moonbase/devel to get this version of rpm to compile correctly. 
-	Source is not distributed as tar.gz from RedHat, so I rpmunpack'd a
-	src.rpm and put it into /var/spool/lunar on dbguin.  Same for
-	elfutils module.
-
-2004-02-08 04:45  tchan
-
-	* devel/elfutils/: BUILD, DETAILS: Need this module for rpm-4.2 to
-	compile correctly.  Compiled and tested with gcc-3.2.3, kernel
-	headers 2.4.x .
-
-2004-02-08 04:25  tchan
-
-	* perl/perl/POST_INSTALL: Added this because when Perl changes
-	versions, the site specific perl modules tend to get lost. 
-	Moonbase modules that add their own perl modules to /usr/lib/perl
-	need a recompile to ensure proper function.  irssi, ImageMagick,
-	SDL_perl are all that I could find at the moment.  I'm sure this
-	list will need expanding.
-
-2004-02-08 00:28  jmhodges
-
-	* gnome2-apps/gnumeric2/DETAILS, gnome2-core/libbonobo/DETAILS,
-	gnome2-core/libgnome/DETAILS, gnome2-core/libgnomecanvas/DETAILS,
-	gnome2-core/libgnomeprint/DETAILS,
-	gnome2-core/libgnomeprintui/DETAILS,
-	gnome2-core/libgnomeui/DETAILS, gnome2-extras/libgnomedb/DETAILS:
-	lib updates, yay for libs
 
