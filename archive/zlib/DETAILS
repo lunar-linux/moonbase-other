@@ -1,14 +1,15 @@
           MODULE=zlib
-         VERSION=1.2.1
-          SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-$VERSION-alt-inflate.patch.bz2
-   SOURCE_URL=http://www.gzip.org/$MODULE/
+         VERSION=1.2.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-1.2.1-alt-inflate.patch.bz2
+   SOURCE_URL[0]=http://www.gzip.org/$MODULE/
+   SOURCE_URL[1]=http://www.winimage.com/zLibDll/
   SOURCE2_URL=$PATCH_URL/
-      SOURCE_VFY=sha1:13bd164df955911c25342adfad805c1cad5e398e
+      SOURCE_VFY=sha1:e6ec67108bfd1f321eb4f1bd192b648725219595
      SOURCE2_VFY=sha1:00f53af5c8602f5040bf76e54fd24dcd94f63ed6
         WEB_SITE=http://www.gzip.org/$MODULE
          ENTERED=20010922
-         UPDATED=20040910
+         UPDATED=20041012
            SHORT="zlib is a lossless data compression library."
 
 cat << EOF
