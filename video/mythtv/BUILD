@@ -1,5 +1,4 @@
 (
-
 	sedit "s:PREFIX = .*:PREFIX=/usr:" settings.pro
 	#if use alsa
 	sedit "s:#CONFIG += using_alsa:CONFIG += using_alsa:" settings.pro
@@ -10,13 +9,13 @@
 	./configure		\
 	--prefix=/usr		&&
 	qmake mythtv.pro	&&
-	make qmake		&&
+	make 			&&
 	# To enable parallel builds the librarys must be built in this order
-	make -C libs/libavcodec		&&
-	make -C libs/libavformat	&&
-	make -C libs/libmyth		&&
-	make -C libs/libmythtv		&&
-	make			&&
+	#make -C libs/libavcodec		&&
+	#make -C libs/libavformat	&&
+	#make -C libs/libmyth		&&
+	#make -C libs/libmythtv		&&
+	#make			&&
 	prepare_install		&&
 	make install		&&
 	#copy other installable files to their locations
