@@ -1,18 +1,19 @@
           MODULE=uptimed
-         VERSION=0.3.1
+         VERSION=0.3.3
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=http://unixcode.org/downloads/uptimed/
-      SOURCE_VFY=md5:2f777e0fdd7ae85d359ee2066cacb541
-        WEB_SITE=http://www.unixcode.org/uptimed/
+      SOURCE_URL=http://unixcode.org/downloads/$MODULE/$SOURCE
+      SOURCE_VFY=sah1:d50328ace539ed8e3c53bb3bddeb86d462fbc0e1
+        WEB_SITE=http://www.unixcode.org/$MODULE/
          ENTERED=20040329
 	 UPDATED=20040329
            SHORT="Uptimed is a simple system uptime record daemon"
+
 cat << EOF
-Uptimed is a simple uptime record daemon that is started at boot that will
-keep track of the highest uptimes on your system. it comes with a console
-front-end to parse the records and can also send you a short e-mail when
-a milestone or record has been broken.  uptimed is started at boot and
-uprecords is the log viewer.
+Uptimed is a simple uptime record daemon that is started at boot 
+that will keep track of the highest uptimes on your system. it comes
+with a console front-end to parse the records and can also send you a
+short e-mail when a milestone or record has been broken.  uptimed is
+started at boot and 'uprecords' is the log viewer.
 EOF
 
