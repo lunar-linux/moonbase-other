@@ -12,9 +12,9 @@ top_srcdir = $(srcdir)
 prefix = /usr
 exec_prefix = $(prefix)
 
-bindir = $(exec_prefix)/bin
+bindir = $(exec_prefix)/games
 libdir = $(exec_prefix)/lib
-datadir = $(prefix)/share
+datadir = $(prefix)/share/games
 mandir = $(prefix)/man
 
 pkgdatadir = $(datadir)/$(PACKAGE)/$(VERSION)
