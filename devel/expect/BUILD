@@ -1,9 +1,14 @@
 (
-
- ./configure $OPTS                          \
-             --with-tcl=/usr/lib            \
-             --with-tk=/usr/lib             \
-             --with-tclinclude=/usr/include \
+ cd $SOURCE_DIRECTORY/                                  &&
+ ./configure $OPTS                                      \
+             --prefix=/usr                              \
+             --sysconfdir=/etc                          \
+             --localstatedir=/var                       \
+             --infodir=/usr/share/info                  \
+             --mandir=/usr/share/man                    \
+             --with-tcl=/tmp/libtke/tcl/unix            \
+             --with-tk=/tmp/libtke/tk/unix              \
+             --with-tclinclude=/tmp/libtke/tcl/generic  \
              --enable-gcc                   &&
  make                                       &&
  prepare_install                            &&
