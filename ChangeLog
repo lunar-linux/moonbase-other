@@ -1,3 +1,24 @@
+2004-01-15 07:36  jmhodges
+
+	* science/octave/BUILD: bad_flags reenabled.. hk told me of an
+	issue with it.. awesome
+
+2004-01-14 20:01  nestu
+
+	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: Fix the SOURCE
+	numbering. Before: SOURCE1 and SOURCE3 (2 was commented out). Now:
+	SOURCE1 and SOURCE2 (3 removed). Lin didn't like it before.
+
+2004-01-14 19:12  florin
+
+	* zbeta/xfree86-beta/: BUILD, CONFIGURE, CONFLICTS, DEPENDS,
+	DETAILS, POST_INSTALL, xsession, pam.d/xdm: move it from
+	xfree86-dev module.
+
+2004-01-14 12:37  nestu
+
+	* kernel/linux-beta-mm/DETAILS: bump version
+
 2004-01-13 17:42  jmhodges
 
 	* web/PyDS/DETAILS: version bump, for real this time.. yaaay
@@ -376,8 +397,7 @@
 
 2004-01-06 20:01  florin
 
-	* x11/xfree86/POST_INSTALL, zbeta/xfree86-dev/POST_INSTALL: add the
-	NVIDIA26 rebuild if needed.
+	* x11/xfree86/POST_INSTALL: add the NVIDIA26 rebuild if needed.
 
 2004-01-06 19:22  niki
 
@@ -1398,12 +1418,6 @@
 
 	* video/xine-lib/DETAILS: Bumpedibumbumpme to rc3. Tested of course
 
-2003-12-21 18:31  florin
-
-	* zbeta/xfree86-dev/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	POST_INSTALL: bump version from 4.3.99.16 to 4.3.99.902. compiled
-	and tested with gcc 3.3.2, kernel and kernel-headers version 2.6.
-
 2003-12-21 18:24  florin
 
 	* security/shadow/BUILD: fix a weird situation of installing man
@@ -1682,33 +1696,4 @@
 
 	* graphics/ImageMagick/DETAILS: bump version from 5.5.7-14 to
 	5.5.7-15.
-
-2003-12-15 22:56  sofar
-
-	* security/logcheck/DETAILS: Emergency fix: the "make install"
-	phase would chmod 0700 /tmp, which is b.a.d.
-
-2003-12-15 14:06  sofar
-
-	* net/netatalk/DETAILS: Whatever
-
-2003-12-15 13:52  sofar
-
-	* utils/: wlan-ng-driver/BUILD, wlan-ng-driver/CONFIGURE,
-	wlan-ng-driver/DEPENDS, wlan-ng-driver/DETAILS,
-	wlan-ng-driver/POST_INSTALL, wlan-ng-driver/PRE_BUILD,
-	wlan-ng-utils/BUILD, wlan-ng-utils/DETAILS: Adding alternate
-	wlan-ng modules, split up into a -driver module and a -utils module
-	for the userspace stuff. This will allow for a more strict
-	recompiling scheme. Waiting to remove the old linux-wlan-ng until
-	these modules become accepted.
-
-2003-12-15 04:53  hardkrash
-
-	* science/maxima/DEPENDS: rename of tcl-tk to tk
-
-2003-12-15 03:29  nhudson
-
-	* gnome2-core/librsvg/: DEPENDS, DETAILS: 
-	Updating librsvg to new version 2.5.0 which fixes bug #422
 
