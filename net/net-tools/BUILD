@@ -1,4 +1,5 @@
   patch_it  $SOURCE_CACHE/$SOURCE2 1                &&
+  patch_it  $SOURCE_CACHE/$SOURCE3 0                &&
 
 if  [  -f  $CONFIG_CACHE/net-tools.config.h  ];  then
   cp       $CONFIG_CACHE/net-tools.config.h  config.h
