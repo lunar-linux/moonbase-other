@@ -1,6 +1,10 @@
-if ! grep -q "^OPTS=" $MODULE_CONFIG; then
-    if query "Install net-snmp perl modules?" n; then
-        OPTS=$OPTS"  --with-perl-modules"
-    fi
-    echo 'OPTS='\"$OPTS\" >> $MODULE_CONFIG
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  if  query  "Enable IPv6?" n;  then
+    OPTS="$OPTS --enable-ipv6"
+  fi
+
+  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+
 fi

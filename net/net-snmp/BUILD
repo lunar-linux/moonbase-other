@@ -16,6 +16,7 @@
   make    install                    &&
   if [ ! -e /etc/config.d/snmpd ]; then
       cp $SCRIPT_DIRECTORY/snmpd /etc/config.d/snmpd
-  fi
+  fi &&
+  mkdir -p /var/state/ucd-snmp
 
 ) > $C_FIFO 2>&1
