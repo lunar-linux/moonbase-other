@@ -1,5 +1,4 @@
 (
-  sedit "s:LFLAGS =:LDFLAGS = -lintl:" src/Makefile &&
   sedit "s:LFLAGS:LDFLAGS:g" src/Makefile           || exit 1
   
   # lets add KDEDIR var to enviro, if it is not defined AND if kdebase3
