@@ -13,6 +13,10 @@ if  module_installed  linux;  then
     2.4.18)  no_export_symbol  ;;
     2.4.19)  no_export_symbol  ;;
     2.4.20)  no_export_symbol  ;;
+    2.4.21)  no_export_symbol  ;;
+    2.4.22)  no_export_symbol  ;;
+    2.4.23)  no_export_symbol  ;;
+    2.4.24)  no_export_symbol  ;;
   esac
 fi
 
