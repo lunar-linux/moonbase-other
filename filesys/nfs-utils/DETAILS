@@ -1,0 +1,23 @@
+           MODULE=nfs-utils
+         VERSION=1.0.6
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://download.sourceforge.net/nfs/$SOURCE
+     SOURCE_VFY=md5:f17e9983457e1cf61c37f0be4493fce6
+        WEB_SITE=http://nfs.sourceforge.net
+           SHORT="NFS is The Network File System"
+         ENTERED=20011023
+         UPDATED=20030917
+cat << EOF
+
+The Network File System (NFS) was developed to allow machines to mount
+a disk partition on a remote machine as if it were on a local hard
+drive. This allows for fast, seamless sharing of files across a network.
+
+It also gives the potential for unwanted people to access your hard
+drive over the network (and thereby possibly read your email and delete
+all your files as well as break into your system) if you set it up
+incorrectly. So please read the Security section of the NFS-HOWTO
+carefully if you intend to implement an NFS setup.
+
+EOF 
