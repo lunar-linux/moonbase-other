@@ -1,3 +1,59 @@
+2003-12-12 05:39  florin
+
+	* video/mkvtoolnix/DETAILS: bump version from 0.7.8 to 0.7.9.
+
+2003-12-12 05:05  florin
+
+	* ftp/lftp/DETAILS: bump version from 2.6.9 to 2.6.10. tested with
+	gcc 3.3.2.
+
+2003-12-11 21:56  elaine
+
+	* kernel/linux-stable/POST_INSTALL: replace list with lin of the
+	post-kernel-reqs module
+
+2003-12-11 21:55  elaine
+
+	* kernel/kernel-reqs/: BUILD, DETAILS, POST_BUILD, PRE_BUILD:
+	Pulling common code out of linux* modules into a common
+	post-install mod.
+
+2003-12-11 20:41  tchan
+
+	* devel/automake/: BUILD, DEPENDS: Fixed the DEPENDS, as automake
+	depends on autoconf which already depends on perl.  Fixed the
+	symlink in the BUILD file to actually use automake-1.8.
+
+2003-12-11 17:57  florin
+
+	* libs/pcre/DETAILS: bump version from 4.4 to 4.5. tested with gcc
+	3.3.2.
+
+2003-12-11 17:38  florin
+
+	* mail/bogofilter/DETAILS: bump version from 0.15.9 to 0.15.10.
+	tested with gcc 3.3.2.
+
+2003-12-11 17:37  florin
+
+	* graphics/SDL_gfx/DETAILS: bump version from 2.0.9 to 2.0.10.
+	tested with gcc 3.3.2.
+
+2003-12-11 17:36  florin
+
+	* devel/automake/DETAILS: bump version from 1.7.9 to 1.8. tested
+	with gcc 3.3.2.
+
+2003-12-11 15:20  nhudson
+
+	* graphics/inkscape/DETAILS: 
+	Updating inkscape to new version 0.36
+
+2003-12-11 14:55  nhudson
+
+	* libs/: libxml2/DETAILS, libxslt/DETAILS: 
+	Updating libxml2 and libxslt to new versions
+
 2003-12-11 11:54  ratler
 
 	* chat/irssi/DETAILS: Bumped version. New version contain fix for
@@ -1536,163 +1592,4 @@
 
 	* utils/linux-wlan-ng/PRE_BUILD: Looking at code, I found some of
 	my errors from before. I fixed them and cleaned up the code
-
-2003-11-11 22:48  hardkrash
-
-	* net/samba/BUILD: This is where this belongs, now cups users can
-	print to smb printers
-
-2003-11-11 22:31  sofar
-
-	* mail/courier-imap/: BUILD, DEPENDS: Here is an updated module
-	that includes the optional dependencies for authpgsql and authldap.
-	I have also added an optional dependency for expect to allow users
-	of webmail to change their passwords.  -- Richard B.
-	Pynerpyne@kinfolk.org
-
-2003-11-11 21:56  hardkrash
-
-	* printer/cups/: BUILD, DEPENDS: im a dumbass i really am
-
-2003-11-11 21:54  hardkrash
-
-	* printer/cups/: BUILD, DEPENDS: added depends on samba for smb
-	printing, put symlink creation in build file
-
-2003-11-11 18:52  florin
-
-	* libs/allegro/DETAILS: bump version from 4.0.0 to 4.0.3.
-
-2003-11-11 18:50  elaine
-
-	* crypto/krb5/DETAILS: The pgp sig seems to be causing problems,
-	reverted to md5
-
-2003-11-11 18:29  hardkrash
-
-	* x11-apps/openoffice-bin/POST_INSTALL: This message is to warn
-	users that they need to relin freetype2 is bytecode is not on.
-
-2003-11-11 16:22  tchan
-
-	* web/links2/DETAILS: Version bump to 2.1pre14.  Compiled and
-	tested with gcc-3.2.3, glibc-2.3.2.
-
-2003-11-11 15:59  florin
-
-	* kde3-utils/superkaramba/DETAILS: bump version from0.32b to 0.33.
-	thanks to Chad Kittel.
-
-2003-11-11 15:06  niki
-
-	* profiles/gnome2-fifth-toe/DEPENDS: Cleaning up after the removal
-	of gimp-freetype
-
-2003-11-11 13:46  nhudson
-
-	* gnome2-apps/: glabels/DETAILS, pkgview/DETAILS: 
-	Adding md5sums to these modules
-
-2003-11-11 13:45  nhudson
-
-	* science/galculator/DETAILS: 
-	Updating galculator to new version 1.1.4 and added a md5sum
-
-2003-11-11 13:43  nhudson
-
-	* gnome2-apps/: glabels/DETAILS, pkgview/DEPENDS, pkgview/DETAILS: 
-	Updating glabels to new version 1.92.3 and updated pkgview to new
-	version 1.0.3 also added XML-Parser as a dependancy
-
-2003-11-11 05:59  tchan
-
-	* web/elinks/DEPENDS: Fixed a typo in the DEPENDS file.
-
-2003-11-11 05:57  tchan
-
-	* web/elinks/DETAILS: Added the MAINTAINER line.
-
-2003-11-11 05:56  tchan
-
-	* web/elinks/: BUILD, DEPENDS, DETAILS: Added the elinks text-mode
-	browser.  An advanced version of the Links browser that is actively
-	being developed/maintained.
-
-2003-11-11 05:26  nhudson
-
-	* gnome2-core/: bug-buddy/DETAILS, gnome-icon-theme/DETAILS: 
-	Updating bug-buddy to new version 2.4.1.1 and gnome-icon-theme to
-	new version 1.1.1.1
-
-2003-11-11 05:24  nhudson
-
-	* gnome2-apps/: multisync/BUILD, multisync/DEPENDS,
-	multisync/DETAILS, phonemgr/BUILD, phonemgr/DEPENDS,
-	phonemgr/DETAILS: 
-	Adding phonemgr and multisync to moonbase
-
-2003-11-11 05:22  nhudson
-
-	* libs/gsmlib/: DEPENDS, DETAILS: 
-	Adding gsmnlib to moonbase
-
-2003-11-11 05:20  nhudson
-
-	* utils/: obexftp/DEPENDS, obexftp/DETAILS, openobex-apps/DEPENDS,
-	openobex-apps/DETAILS: 
-	Adding openobex-apps and obexftp to moonbase
-
-2003-11-11 05:17  nhudson
-
-	* gnome2-applets/gnome-bluetooth/: BUILD, DEPENDS, DETAILS: 
-	Adding gnome-bluetooth to moonbas3e
-
-2003-11-11 05:15  nhudson
-
-	* libs/libbtctl/: BUILD, DEPENDS, DETAILS: 
-	Adding libbtctl to moonbase
-
-2003-11-11 04:41  nhudson
-
-	* gnome2-apps/gnomesu/DEPENDS: 
-	As requested by jmhodges libzvt is added to the DEPENDS file :)
-
-2003-11-11 04:24  tchan
-
-	* mail/exim4/POST_INSTALL: Fixed the POST_INSTALL to use exim4's
-	method of determinig the arch type for calling the converter
-	script.  Solves the hardcoding of i386 that used to be in the
-	POST_INSTALL file.  Works on the Sparc64 I'm testing on.  PPC and
-	Alpha guys will need to test this as well.
-
-2003-11-11 04:03  nhudson
-
-	* devel/orbitcpp/DETAILS: 
-	Updating orbitcpp to new version 1.3.8
-
-2003-11-11 03:58  nhudson
-
-	* libs/libxml++/DETAILS: 
-	Updating libxml++ to new version 0.27.0
-
-2003-11-11 03:56  nhudson
-
-	* gnome2-core/gnome-utils2/DETAILS: 
-	Updating gnome-utils2 to new version 2.4.1
-
-2003-11-11 03:21  nhudson
-
-	* web/epiphany/DETAILS: 
-	Updating epiphany to new version 1.0.6
-
-2003-11-11 03:20  nhudson
-
-	* video/totem/DETAILS: 
-	Updating totem to new version 0.99.8
-
-2003-11-11 03:12  nhudson
-
-	* gnome2-core/: gnome-terminal/DETAILS, yelp/DETAILS: 
-	Updating gnome-terminal to new version 2.4.2 and yelp to new
-	version 2.4.2
 
