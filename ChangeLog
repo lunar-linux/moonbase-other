@@ -1,3 +1,229 @@
+2002-09-10 22:10  sofar
+
+	* devel/swig/DETAILS: New version: 1.3.15
+	
+2002-09-10 21:37  tchan
+
+	* devel/linux-vanilla/POST_INSTALL: Fixed the timeout in GRUB install.  It now sets timeout to -1.
+	
+2002-09-10 21:36  tchan
+
+	* devel/linux/POST_INSTALL: Fixed the timeout in the GRUB install.  Timeout is now set to -1.
+	
+2002-09-10 20:39  sofar
+
+	* compilers/gcc/BUILD: Proper default LANGUAGES for the future when we might include a language selection menu.
+	
+2002-09-10 20:27  sofar
+
+	* news/: pan/CONFLICTS, pan2/CONFLICTS: Adding conflicts to eachother since they install in the same slot.
+	
+2002-09-10 20:20  sofar
+
+	* news/pan/DETAILS: Reverting pan for gnome-1.4 back to the old version, since pan-0.13.0 is strictly for gtk2. The pan2 module will help pan lovers to a gnome2-version.
+	
+2002-09-10 15:25  csm
+
+	* news/pan/DETAILS: updating the date
+	
+2002-09-10 15:24  csm
+
+	* news/pan/DETAILS: updating version
+	
+2002-09-10 12:22  kongar
+
+	* utils/shlock/BUILD: 
+	patched the source code to display the usage properly
+	
+2002-09-10 10:51  kongar
+
+	* chat/: gaim/DETAILS, gaim-applet/DETAILS: 
+	upgraded to 0.59.2, tested
+	
+2002-09-10 06:29  kongar
+
+	* devel/cvsfs/: DETAILS, PRE_BUILD: upgraded to 1.1.5 and marked as broken
+	
+2002-09-10 04:49  tchan
+
+	* utils/dialog/DETAILS: Bumped version number upto 20020814, up from 20020622.  Compiled under gcc-3.2
+	and lunar menus still seem to be working.
+	
+2002-09-10 00:20  csm
+
+	* games/bzflag/: BUILD, config-sys.patch: first part of bzflag fix
+	
+2002-09-09 20:57  nhudson
+
+	* devel/pygtk/DETAILS: Fixed broken download link
+	
+2002-09-09 20:45  kongar
+
+	* utils/shlock/: BUILD, DETAILS: 
+	new module: shlock produce reliable locks for shell scripts, by Peter Honeyman as told
+	to Rich
+	
+2002-09-09 20:04  sofar
+
+	* utils/BasiliskII/: BUILD, DETAILS: New module: BasiliskII - a macintosh 68k emulator
+	
+2002-09-09 19:37  sofar
+
+	* utils/ccache/profile.d/ccache.rc: Added export to settings!
+	
+2002-09-09 19:33  sofar
+
+	* utils/ccache/profile.d/ccache.rc: default root settings
+	
+2002-09-09 17:51  sofar
+
+	* news/pan2/DETAILS: New version (tested OK)
+	
+2002-09-09 14:04  nhudson
+
+	* gnome2/gkrellm2/DETAILS: Updated gkrellm2 to version 2.0.2, tested downloaded and compile fine.
+	
+2002-09-09 06:44  kongar
+
+	* utils/theedge/DEPENDS: 
+	added diffutils to depends, seems that sofar's new fix code is
+	using "diff"
+	
+2002-09-09 03:12  tchan
+
+	* video/xmovie/CONFIGURE: This CONFIGURE was testing for module_installed gcc3.  That is no longer
+	necessary as gcc-3.2 is now the default compiler.  Thanks to jbrocklin for
+	pointing this out.
+	
+2002-09-09 01:48  csm
+
+	* x11-utils/gkrellm_volume/: BUILD, DEPENDS: adding a missing depends and fixing build script
+	
+2002-09-08 23:32  sofar
+
+	* chat/irssi/: BUILD, DETAILS: Re-Added this with out the breaking perl plugin that segfaults it (0.8.5)
+	
+2002-09-08 20:21  tchan
+
+	* cd/zisofs-tools/BUILD: This file is not necessary.  The cdrtools patch doesn't need to be saved as
+	it is already incorporated into cdrtools.  So I removed the BUILD script.
+	
+2002-09-08 19:28  tchan
+
+	* cd/zisofs-tools/BUILD: Added BUILD script as this is necessary to preserve the cdrtools patch that
+	is located in this source code.  Copied the patch to
+	/usr/share/doc/zisofs-tools/, so that a user would have access to the patch
+	without bunzipping the source code.
+	
+2002-09-08 19:08  tchan
+
+	* cd/zisofs-tools/POST_INSTALL: Fixed the POST_INSTALL to correctly append zisofs.magic to /usr/share/misc/magic.
+	
+2002-09-08 18:33  tchan
+
+	* utils/less/lesspipe.sh: Upgraded the lesspipe.sh to include a few more common file types.  NOTE:
+	if you are using a tar that has -j instead of -y you will need to edit
+	this file to suit your version of tar.  The tar supported in this lesspipe.sh
+	is for the version of tar included in Lunar.
+	
+2002-09-08 15:38  csm
+
+	* net/bw-whois/DETAILS: version update
+	
+2002-09-08 13:29  sofar
+
+	* utils/Wine/DETAILS: Bumped version
+	
+2002-09-08 12:57  sofar
+
+	* compilers/php/DETAILS: New version: 4.2.3
+	
+2002-09-08 12:22  sofar
+
+	* x11-wm/icewm/DETAILS: New version: 1.2.2
+	
+2002-09-07 20:44  kongar
+
+	* terminal/screen/DETAILS: upgraded to 3.9.13
+	
+2002-09-07 19:42  niki
+
+	* utils/gpm/init.d/gpm: gpm now does less output when started.
+	
+2002-09-07 18:51  niki
+
+	* utils/gpm/: BUILD, DETAILS, init.d/gpm: Updated to 1.20.1rc1 from 1.93, and fix the init scrip to remove stale
+	pidfiles.
+	
+2002-09-07 15:03  kongar
+
+	* printer/ImageMagick/DETAILS: upgraded to 5.4.8-3
+	
+2002-09-07 14:32  kongar
+
+	* filemanagers/gentoo/DETAILS: upgraded to 0.11.34
+	
+2002-09-07 14:27  kongar
+
+	* security/xinetd/DETAILS: 
+	
+	upgraded to 2.3.8
+	
+	added md5sum to file
+	
+2002-09-07 07:16  csm
+
+	* games/bzedit/: BUILD, DEPENDS, DETAILS, base.patch.bz2,
+	box.patch.bz2, element.patch.bz2, ground.patch.bz2, link.patch.bz2,
+	model-tga.patch.bz2, object.patch.bz2, pyramid.patch.bz2,
+	teleporter.patch.bz2, texture.patch.bz2, walls.patch.bz2,
+	world.patch.bz2: this is an editor for bzflag worlds... version 2.1 will be coming out soon!
+	
+2002-09-07 06:34  tchan
+
+	* devel/linux-vanilla/: CONFIGURE, POST_INSTALL: Finally added GRUB choices back into kernel installation.  You can now use
+	GRUB as your boot loader instead of LILO.  grub module is located in
+	utils/grub now.
+	
+2002-09-07 06:32  tchan
+
+	* devel/linux/: CONFIGURE, POST_INSTALL: Finally added the GRUB choices back into the kernel installation!  You can
+	now use GRUB as your boot loader instead of LILO.  grub module is located
+	in utils/grub.
+	
+2002-09-07 05:48  csm
+
+	* utils/lunar/DEPENDS: fixed
+	
+2002-09-07 04:21  tchan
+
+	* utils/grub/: BUILD, DEPENDS, DETAILS, menu.lst: Removed grub-beta and made it just plain "grub".  Corrected the download
+	location of the source code and fixed the menu.lst to use the new Lunar /dev
+	structure instead of /devices.  This is still alpha gnu software!
+	
+2002-09-07 02:03  tchan
+
+	* sql/postgresql/DETAILS: Bumped the version number up to 7.2.2, since 7.2.1 is no longer available from
+	the PostgreSQL web page.  Compiled 7.2.2 with gcc-3.2 and the latest gcc wrappers.
+	It cleanly compiles, but I have not tested it with any SQL code, as I don't use
+	PostgreSQL.
+	
+2002-09-06 21:46  sofar
+
+	* net/tightvnc/DETAILS: Updated version: 1.2.6
+	
+2002-09-06 20:51  dem
+
+	* gnome2/xchat2/DETAILS: New version
+	
+2002-09-06 20:15  sofar
+
+	* mail/fetchmail/DETAILS: New version: 5.9.14
+	
+2002-09-06 14:17  tiomo
+
+	* x11/NVIDIA_GLX/BUILD: /usr/lib/libgcc_s.so is added to /etc/ld.so.preload if it's not already in it to make the NVidia glx module for X11 load.
+	
 2002-09-06 14:14  sofar
 
 	* zbeta/mozilla-nightly/DETAILS: Typo fix
@@ -537,329 +763,4 @@
 
 	* gnome2/xchat2/DETAILS: Corrected the description for xchat2.  It had the description of xscreensaver
 	for some odd reason.
-	
-2002-08-31 00:29  dem
-
-	* gnome2/gnome-utils2/DETAILS: Gnome2 update
-	
-2002-08-31 00:01  dem
-
-	* gnome2/: gedit2/DETAILS, nautilus2/DETAILS: Gnome2 update
-	
-2002-08-30 23:57  dem
-
-	* gnome2/: gnome-games2/DETAILS, yelp/DETAILS: Gnome2 update
-	
-2002-08-30 23:55  dem
-
-	* gnome2/: gnome-panel/DETAILS, gnome-session/DETAILS: Forgot date bump
-	
-2002-08-30 23:39  dem
-
-	* gnome2/: gnome-session/DETAILS, gnome-panel/DETAILS: Gnome update
-	
-2002-08-30 18:41  csm
-
-	* gnome2/metatheme/BUILD: more cleanup
-	
-2002-08-30 18:41  csm
-
-	* gnome2/libgnomeui/BUILD: cleaning up ugly layout
-	
-2002-08-30 14:31  kongar
-
-	* compilers/php/DETAILS: IMAP version is now 2002.RC4
-	
-2002-08-30 11:58  sofar
-
-	* shells/bash/profile.d/bash-completion.rc: Typo: lget completion for all modules instead of installed ones
-	
-2002-08-30 09:09  sofar
-
-	* gnome2/libIDL/BUILD: Fixed build bug: a wrapper cardiac bypass fixes
-	
-2002-08-30 08:37  sofar
-
-	* gnome/ORBit/DETAILS: New version: 0.5.17, compiles OK on 3 boxes here
-	
-2002-08-30 06:14  csm
-
-	* chat/BitchX/BUILD: changes to allow cvs to run without segfaulting...
-	
-2002-08-30 05:32  niki
-
-	* printer/ImageMagick/DETAILS: Updated the version to 5.4.8-2 from 5.4.8
-	
-2002-08-30 03:06  csm
-
-	* utils/pcmcia-cs/DETAILS: bumped the date
-	
-2002-08-30 03:06  csm
-
-	* utils/pcmcia-cs/BUILD: fixing the man page paths...
-	
-2002-08-29 23:39  rodzilla
-
-	* graphics/ico2xpm/DETAILS: Adding ico2xpm to graphics section of moonbase
-	
-2002-08-29 23:18  xoritor
-
-	* audio/alsa-driver/DETAILS: Rollback version to rc2 due to rc3 build failures.
-	
-2002-08-29 23:17  xoritor
-
-	* audio/alsa-lib/DETAILS: Rolling back version to rc2 due to rc3 build failures.
-	
-2002-08-29 23:14  tchan
-
-	* devel/linux/POST_INSTALL: It is not enough to lin pcmcia-cs again.  If kernel is recompiled, pcmcia-cs
-	should be recompiled as well with "lin -r -c pcmcia-cs".  Without this fix,
-	depmod -a will give errors with standalone pcmcia-cs drivers.
-	
-2002-08-29 23:02  tchan
-
-	* devel/linux/DETAILS: Modified the description of the patches.
-	
-2002-08-29 21:58  tchan
-
-	* devel/linux-vanilla/: BUILD, CONFIGURE, PRE_BUILD, patch-cia-jay: This module is now back to being LINUX-VANILLA, which means absolutely NO
-	patches allowed!!!  If you are looking for your alpha port code, see
-	linux-vanilla-alpha-arch module.
-	
-2002-08-29 21:53  tchan
-
-	* devel/linux-vanilla-alpha-arch/: BUILD, CONFIGURE, DEPENDS,
-	DETAILS, POST_INSTALL, PRE_BUILD, patch-cia-jay: This used to be linux-vanilla, but someone patched the NO patches version,
-	so I moved it to linux-vanilla-alpha-arch.
-	
-2002-08-29 20:30  sofar
-
-	* devel/pygtk2/DETAILS: New version: 1.99.13
-	
-2002-08-29 19:18  sofar
-
-	* mail/mailman/DETAILS: New version: 2.0.13
-	
-2002-08-29 18:42  sofar
-
-	* gnome/libxml2/DETAILS, libs/libxslt/DETAILS: Updated versions on these, tested and compile OK
-	
-2002-08-29 18:07  sofar
-
-	* zbeta/sendmail/DETAILS: New version: 8.12.6
-	
-2002-08-29 18:01  sofar
-
-	* x11-apps/seismicunix/DEPENDS: Added deps for lesstif
-	
-2002-08-29 17:54  sofar
-
-	* utils/pcmcia-cs/DETAILS: New version: 3.2.1
-	
-2002-08-29 17:48  csm
-
-	* docs/docbook-book/DETAILS: bumping the date
-	
-2002-08-29 17:48  csm
-
-	* docs/docbook-book/DETAILS: updating the version
-	
-2002-08-29 12:48  kongar
-
-	* mail/sylpheed-claws/DETAILS: upgraded to 0.8.2
-	
-2002-08-29 12:24  kongar
-
-	* filemanagers/endeavour2/DETAILS: upgraded to 2.1.18
-	
-2002-08-29 12:04  sofar
-
-	* gnome2/libIDL/DEPENDS: Better depends: glib-2 is also needed and depends on pkgconfig
-	
-2002-08-29 12:02  sofar
-
-	* gnome2/libIDL/DEPENDS: Adding required pkgconfig
-	
-2002-08-29 10:57  kongar
-
-	* mail/exim/BUILD: added plaintext auth method to build
-	
-2002-08-29 08:40  kongar
-
-	* mail/postfix/: BUILD, DEPENDS: 
-	added cyrus-sasl and openssl support
-	
-	fixed CC to be used with wrappers
-	
-	tested
-	
-2002-08-29 08:33  kongar
-
-	* crypto/cyrus-sasl/: BUILD, DEPENDS, DETAILS,
-	cyrus-sasl-1.5.27.patch.bz2, smtpd.conf: 
-	cyrus-sasl module
-	
-2002-08-29 07:19  kongar
-
-	* mail/exim/BUILD: added CRAM_MD5 authentication code for SMTP AUTH
-	
-2002-08-29 06:27  tchan
-
-	* devel/linux/: CONFIGURE, PRE_BUILD, lunar-patch-set-2.4.19.list: Fixed the lunar module once and for all to just use Dem's patchset.  XFS
-	is enabled in this kernel by default after the patchset is successful. No
-	more allowing the user to choose the patch or not. If you want no patches,
-	use linux-vanilla.
-	
-2002-08-29 04:29  csm
-
-	* web/mozilla/CONFIGURE: Xft support does not work. I have turned it off to get this to build.
-	
-2002-08-29 02:37  csm
-
-	* web/mozilla/CONFIGURE: fixing a spelling error!
-	
-2002-08-29 00:15  csm
-
-	* utils/devfsd/POST_INSTALL: eliminating an error message
-	
-2002-08-28 22:22  sofar
-
-	* zbeta/mozilla-nightly/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	mozilla: New module: mozilla-nightly, for those who want the bleedin' edge
-	
-2002-08-28 21:44  sofar
-
-	* devel/linux/PRE_BUILD: related fix to CONFIGURE
-	
-2002-08-28 20:49  sofar
-
-	* devel/linux/CONFIGURE: Fixed patch selection dialog
-	
-2002-08-28 19:49  dem
-
-	* web/mozilla/CONFIGURE: Without calendar for timebeing
-	
-2002-08-28 19:21  sofar
-
-	* shells/bash/profile.d/bash-completion.rc: Added compiler, removed lfix
-	
-2002-08-28 18:46  csm
-
-	* cd/cdrdao/: BUILD, cdrdao-1.1.15-endianness.patch,
-	cdrdao-1.1.5-c++.patch: this needs testing but it builds for me!
-	
-2002-08-28 18:20  csm
-
-	* utils/e2fsprogs/BUILD: the wrappers work so there is no need for this fix any longer
-	
-2002-08-28 17:11  xoritor
-
-	* kde3/qt3/BUILD: fixed BUILD file to work again.
-	
-2002-08-28 16:51  dem
-
-	* web/mozilla/DEPENDS: Thx timo, for pointing out a missing dep
-	
-2002-08-28 15:32  dem
-
-	* web/mozilla/: mozilla-1.0-abi-compat-wrappers.patch,
-	mozilla-1.0-asmfixes.patch, mozilla-1.0-freetype.patch: Remove moz 1.0 patches from 1.1
-	
-2002-08-28 15:30  dem
-
-	* web/mozilla/mozilla-1.0.patch: Remove moz 1.0 patches
-	
-2002-08-28 15:26  dem
-
-	* web/mozilla/: BUILD, CONFIGURE, DETAILS: Mozilla 1.1 take one
-	
-2002-08-28 14:28  tiomo
-
-	* filemanagers/krusader/DETAILS: forgot to change UPDATED field ;)
-	
-2002-08-28 14:23  tiomo
-
-	* filemanagers/krusader/: BUILD, DEPENDS, DETAILS: Update to version 1.10
-	compiles now against kde3 and qt3
-	
-2002-08-28 12:43  sofar
-
-	* utils/theedge/DEPENDS: Removed Makedev since it breaks on devfs.
-	
-2002-08-28 07:48  kongar
-
-	* cd/cdrtools/DETAILS: updated to 1.11a31
-	
-2002-08-28 04:46  csm
-
-	* x11-utils/mailwatch/DETAILS: i forgot to update the date on this
-	
-2002-08-28 04:38  csm
-
-	* x11-utils/gkrellm_volume/: BUILD, DETAILS,
-	gkrellm-volume-path.patch: updating for gkrellm2
-	
-2002-08-28 04:25  csm
-
-	* x11-utils/gkrellmms/: BUILD, DETAILS, gkrellmms-path.patch: fixing up for gkrellm2
-	
-2002-08-28 04:19  xoritor
-
-	* kde3/: KDE-Documentation/BUILD, arts/BUILD, kdeaddons3/BUILD,
-	kdeadmin3/BUILD, kdeartwork3/BUILD, kdebase3/BUILD,
-	kdebindings3/BUILD, kdeedu3/BUILD, kdegames3/BUILD,
-	kdegraphics3/BUILD, kdelibs3/BUILD, kdemultimedia3/BUILD,
-	kdenetwork3/BUILD, kdepim3/BUILD, kdesdk3/BUILD, kdetoys3/BUILD,
-	kdeutils3/BUILD, kdevelop3/BUILD, kdoc2/BUILD, koffice3/BUILD,
-	mosfet-liquid/BUILD, qt3/BUILD: Cleaning up kde3 BUILD scripts:
-	  Removed LDFLAGS setting.
-	
-2002-08-28 04:13  csm
-
-	* x11-utils/mailwatch/: BUILD, DEPENDS, DETAILS,
-	mailwatch-0.7.2.patch, mailwatch-paths.patch: updating for gkrellm2
-	
-2002-08-28 02:46  csm
-
-	* web/mozilla/: BUILD, CONFIGURE: reverting the changes to mozilla! they broke shit badly!
-	
-2002-08-28 01:34  csm
-
-	* devel/linux/DETAILS: fixing the module name!
-	
-2002-08-28 01:17  csm
-
-	* devel/linux/: BUILD, CONFIGURE, DEPENDS, DETAILS, POST_INSTALL,
-	PRE_BUILD, lunar-patch-set-2.4.19.list: updating this to 2.4.19
-	
-2002-08-28 01:16  csm
-
-	* devel/linux/: BUILD, CONFIGURE, DEPENDS, DETAILS, POST_INSTALL,
-	PRE_BUILD, linux-2.4.17.xfs.speakup.patch,
-	netfilter_security.patch, patch-cia-jay,
-	zlib_krnl_security.patch.bz2: finally removing this beast!
-	
-2002-08-27 23:34  csm
-
-	* utils/e2fsprogs/BUILD: e2fsprogs would not build with the new wrapper... this fixes it!
-	
-2002-08-27 16:50  tchan
-
-	* libs/pcre/BUILD: Fixed includedir path to /usr/include.
-	
-2002-08-27 15:57  tchan
-
-	* editors/vim/PRE_BUILD: Forced the removal of /usr/bin/vim if it exists in the PRE_BUILD.  Covers
-	the case of a vim symlink or other binary being installed by some means other
-	than using lin.
-	
-2002-08-27 14:20  xoritor
-
-	* compilers/gcc/: lunar-g++, lunar-gcc: Fixed bug in wrappers:
-	  Changed $* to $@ to remove shell expansion.
-	
-2002-08-27 14:04  kongar
-
-	* chat/: gaim/DETAILS, gaim-applet/DETAILS: 
-	upgraded to 0.59.1
 	
