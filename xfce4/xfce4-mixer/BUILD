@@ -8,6 +8,9 @@
 		--disable-static				\
                 $OPTS                                           &&
 
+   # bug in 4.1.90
+   cp settings/stringlist.inc lib/				&&
+
    default_make
 
 ) > $C_FIFO 2>&1
