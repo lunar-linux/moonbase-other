@@ -1,10 +1,12 @@
 (
 
-  # Had to add the target-list, otherwise it builds i386 target which needs
-  # static X11 libs, like libX11.a and libXext.a
-  ./configure --prefix=/usr \
-              --target-list="i386-user i386-softmmu arm-user sparc-user ppc-user" \
-              $OPTS &&
+  if [ -e /usr/X11R6/lib/libX11.a ]; then
+    ./configure --prefix=/usr $OPTS
+  else
+    ./configure --prefix=/usr \
+                --target-list="i386-user i386-softmmu arm-user sparc-user ppc-user" \
+                $OPTS
+  fi &&
   default_make &&
   mkdir -p $DOCUMENT_DIRECTORY/$MODULE &&
   cp qemu-doc.html TODO $DOCUMENT_DIRECTORY/$MODULE/
