@@ -1,122 +1,183 @@
-2002-08-20 14:34  sofar
+2002-08-24 18:12  tchan
 
-	* zbeta/lunar-kernel/CONFIGURE: Added selector for config,
-	menuconfig or xconfig
+	* video/totem/DETAILS: Updated the version info to 0.9.1. Fixed the
+	download location and the home page info.
 
-2002-08-20 14:12  sofar
+2002-08-24 15:35  dem
 
-	* zbeta/lunar-kernel/POST_INSTALL: Added ltmodem to re-lin list
+	* gnome/intltool/DETAILS: Big, gnome 2.0.1 update
 
-2002-08-20 14:11  sofar
+2002-08-24 15:25  dem
 
-	* net/ltmodem/: BUILD, DETAILS: New module: Lucent Winmodem drivers
-	(proprietary driver package)
+	* gnome2/: gnome-system-monitor/DETAILS, gnome-terminal/DETAILS:
+	Big, gnome 2.0.1 update
 
-2002-08-20 10:11  sofar
+2002-08-24 15:19  dem
 
-	* x11/truetype/BUILD: Made installer even simpler
+	* gnome2/gconf-editor/: DETAILS, DETAILS: Big Gnome 2.0.1 update
 
-2002-08-20 10:10  sofar
+2002-08-24 15:14  dem
 
-	* x11/truetype/DETAILS: Bumped UPDATED field because of new font
+	* gnome2/control-center2/DETAILS: Big Gnome 2.0.1 update
 
-2002-08-20 09:48  sofar
+2002-08-24 15:09  dem
 
-	* x11/truetype/: BUILD, DETAILS, PRE_BUILD: Fixed download location
-	and simplified installer
+	* gnome2/GConf2/DETAILS: Big Gnome 2.0.1 update
 
-2002-08-20 09:34  sofar
+2002-08-24 15:05  dem
 
-	* zbeta/lunar-kernel/CONFIGURE: Fixed writing of var in
-	MODULE_CONFIG
+	* gnome2/: ORBit2/DETAILS, GConf2/DETAILS: Big Gnome 2.0.1 update
 
-2002-08-20 07:40  tchan
+2002-08-24 12:52  sofar
 
-	* utils/devfsd/devfsd.conf: Added a section to create ps2 mouse. 
-	Corrected permissions on the file devfsd.conf
+	* net/minicom/DETAILS: Fixed md5 due to changed e-mail addys in
+	source file (grrr)
 
-2002-08-20 05:16  tchan
+2002-08-24 12:51  sofar
 
-	* utils/devfsd/BUILD: Corrected a typo in the chmod for
-	/etc/init.d/devfsd
+	* security/Linux-PAM/DEPENDS: Linux-PAM will run FINE without
+	latex2html, so making this optional allows you to leave the 40M
+	teTeX out of your system.
 
-2002-08-20 00:51  sofar
+2002-08-24 01:54  tchan
 
-	* zbeta/lunar-kernel/DETAILS: Added source3-md5
+	* utils/devfsd/devfsd.conf: Added a line for ppp users.
 
-2002-08-20 00:48  sofar
+2002-08-24 00:57  tchan
 
-	* zbeta/lunar-kernel/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	POST_INSTALL, PRE_BUILD, PRE_INSTALL: Modified installer
+	* compilers/gcc/BUILD: Fixed the order of prepare_install and make
+	bootstrap_lean.  prepare_install is supposed to come AFTER the
+	initial call to make!
 
-2002-08-20 00:47  sofar
+2002-08-23 19:43  dem
 
-	* zbeta/lunar-kernel/lunar-patch-set-2.4.19.list: Added
+	* web/mozilla/: BUILD, mozilla-1.0-abi-compat-wrappers.patch,
+	mozilla-1.0-asmfixes.patch: Now we can use binary only plugin
+	compiled with gcc 2, on gcc 3 mozilla
 
-2002-08-19 20:37  csm
+2002-08-23 18:13  dem
 
-	* zbeta/lunar-kernel/: CONFIGURE, DETAILS: committing some changes
-	for sofar to carry on!
+	* web/flash-plugin/DETAILS: A important security update in flash
 
-2002-08-19 20:25  csm
+2002-08-23 17:58  sofar
 
-	* utils/devfsd/: BUILD, DETAILS, POST_INSTALL, devfsd.conf,
-	init.d/devfsd: adding it all back
+	* security/Linux-PAM/POST_REMOVE: Hackfix: if parent process is lin
+	we can skip this safely!
 
-2002-08-19 20:24  sofar
+2002-08-23 17:56  xoritor
 
-	* video/MPlayer/DEPENDS: Made libdvdread optional
+	* compilers/gcc/POST_INSTALL: Fixed incorrect cd command.
 
-2002-08-19 20:22  csm
+2002-08-23 17:28  sofar
 
-	* utils/devfsd/: BUILD, DETAILS, POST_INSTALL, devfsd.conf:
-	removing
+	* mail/qpopper/CONFIGURE: ask openssl q only once
 
-2002-08-19 20:22  csm
+2002-08-23 16:45  xoritor
 
-	* utils/devfsd/init.d/devfsd: rmeoving
+	* compilers/gcc/BUILD: Minor change to BUILD:	Hard coded
+	optimizations to make.	  Decreased size of installation as well as
+	build.	  Set to "safe" levels of optimization so users
+	optimizations wont kill it.
 
-2002-08-19 19:08  sofar
+2002-08-23 13:56  tchan
 
-	* games/teg/DEPENDS: Fixed depends on gnome.
+	* compilers/gcc/POST_INSTALL: Fixed the cpp symlinks.  Direction
+	was reversed.
 
-2002-08-19 17:49  dem
+2002-08-23 00:48  tchan
 
-	* utils/devfsd/: BUILD, DETAILS, POST_INSTALL, devfsd.conf,
-	init.d/devfsd: compatible with new mount script moved from zbeta
+	* x11-apps/mupo/PRE_BUILD: This used to test for whether or not
+	gcc3 was installed.  Not necessary any more as gcc-3.2 is default
+	compiler now.  mupo will not build with gcc-2.95.3 c++ compiler.
 
-2002-08-19 17:42  dem
+2002-08-22 17:11  xoritor
 
-	* zbeta/lunar-kernel/POST_INSTALL: moveing
+	* compilers/gcc/: BUILD, CONFIGURE, DETAILS, POST_INSTALL,
+	lunar-g++, lunar-gcc: Updating gcc module:   Builds in external
+	dir.	Installs lunar wrappers for gcc and g++ (lunar-gcc and
+	lunar-g++).    Creates symbolic link from cc to lunar-gcc instead
+	of gcc.    Enables ccache, distcc, and -pipe (as well as others) to
+	work.	 Enables many modules to compile that did not before.	
+	Enables reccomened compile option (--enable-__cxa_atexit).    Uses
+	bootstrap-lean to compile smaller and faster (less resources
+	needed).
 
-2002-08-19 03:06  csm
+2002-08-22 16:44  sofar
 
-	* zbeta/lunar-kernel/DETAILS: fixing SOURCE2
+	* games/csmash/DETAILS: New version
 
-2002-08-19 01:45  csm
+2002-08-22 15:14  xoritor
 
-	* zbeta/lunar-kernel/: DETAILS, PRE_BUILD: fixing some spelling
-	errors... no code changes
+	* web/apache2/DETAILS: Upped the version to 2.0.40 to be current.
 
-2002-08-19 01:29  csm
+2002-08-22 14:30  dem
 
-	* zbeta/lunar-kernel/DEPENDS: adding the ampersands
+	* video/zapping/DETAILS: This cvs snapshot is much more stable
+	thatn current stable
 
-2002-08-19 01:28  csm
+2002-08-21 23:51  tchan
 
-	* zbeta/lunar-kernel/: BUILD, CONFIGURE: first fixes
+	* shells/zsh/DETAILS: Bumped version number to 4.0.6 per Hendrik's
+	request, as 4.0.4 is no longer available.
 
-2002-08-19 01:10  dem
+2002-08-21 23:18  tchan
 
-	* zbeta/lunar-kernel/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	POST_INSTALL, PRE_BUILD, PRE_INSTALL: First lunar kernel, almost
-	done
+	* utils/devfsd/devfsd.conf: Added some config line for ALSA/OSS. 
+	Hopefully this will take care of the people having ALSA problems
+	with devfsd.
 
-2002-08-19 01:00  csm
+2002-08-21 22:27  tchan
 
-	* devel/pkgconfig/DETAILS: fixing the URL for pkgconfig
+	* utils/devfsd/init.d/devfsd: Fixed some spelling mistakes in
+	init.d/devfsd
 
-2002-08-19 00:30  csm
+2002-08-21 20:07  dem
 
-	* utils/textutils/BUILD: fixing tr so it lives in /bin
+	* utils/devfsd/init.d/devfsd: Fix a weird oddy when the file is
+	called devfsd insted of devfs, hmm
+
+2002-08-21 18:29  sofar
+
+	* x11-apps/abiword/BUILD: fixes build.
+
+2002-08-21 17:04  tchan
+
+	* utils/devfsd/init.d/devfsd: Fixed the error messages that happen
+	when invoking /etc/init.d/devfsd.  Problem was trying to get PID
+	from inside bash, returns multiple entries because of the grep
+	issue.
+
+2002-08-21 16:20  sofar
+
+	* mail/evolution/BUILD: Fixed manpath
+
+2002-08-21 09:40  hardkrash
+
+	* security/Linux-PAM/CONFIGURE: Added a if statment to the
+	CONFIGURE script to check if it has been answered will not ask
+	again if answered.! yes or no
+
+2002-08-20 22:20  dem
+
+	* utils/attr/DETAILS: update for kernels better than 2.4.18
+
+2002-08-20 22:16  dem
+
+	* utils/: xfsdump/DETAILS, dmapi/DETAILS, acl/DETAILS: update for
+	kernels better than 2.4.18
+
+2002-08-20 22:12  dem
+
+	* utils/xfsprogs/DETAILS: fix date
+
+2002-08-20 22:05  dem
+
+	* utils/xfsprogs/DETAILS: XFS tools 2.0, need for > 2.4.18
+
+2002-08-20 21:28  xoritor
+
+	* kde3/arts/BUILD: Arts configure/build is broken, unsetting CC,
+	CCC, and CXX for now to compensatete.  This means no ccache or
+	distcc for compiling arts also no -pipe support.  Bug report
+	submitted to bugs.kde.org.
 
