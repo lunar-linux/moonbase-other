@@ -1,3 +1,86 @@
+2003-12-07 11:23  florin
+
+	* audio/gst-plugins/DEPENDS, audio/gst-plugins/0.7.1/DEPENDS,
+	video/ogle/DEPENDS: the mad module is deprecated. it is now
+	stripped in three modules madplay, libmad and libid3tag.
+
+2003-12-07 11:19  florin
+
+	* video/avifile/DEPENDS: the mad module is deprecated. however
+	using gcc 3.3.2 the module does not compile (no matter mad or
+	libmad is used). it only compiles on gcc 3.2.3.
+
+2003-12-07 11:09  florin
+
+	* audio/madplay/: DEPENDS, DETAILS: madplay is a MAD audio command
+	line player.
+
+2003-12-07 10:30  florin
+
+	* audio/libmad/DETAILS: fix a typo.
+
+2003-12-07 10:18  florin
+
+	* audio/libid3tag/DETAILS: move the module to the audio section.
+	it's a part of the mad.
+
+2003-12-07 07:52  florin
+
+	* kde3/kdebindings3/: DEPENDS, 3.2_test/DEPENDS: remove the gtk+
+	and glib depends. old stuff must go away i think.
+
+2003-12-07 07:38  florin
+
+	* crypto/libgcrypt/DETAILS: bump version from 1.1.44 to 1.1.90.
+
+2003-12-07 07:09  florin
+
+	* utils/units/DETAILS: add the md5 sum.
+
+2003-12-06 23:27  nestu
+
+	* audio/ladspa_sdk/: BUILD, DETAILS: Bumping version, and adapting
+	build to the new one
+
+2003-12-06 23:22  tchan
+
+	* utils/calc/DETAILS: Added md5sum from the authors webpage.
+
+2003-12-06 23:18  sofar
+
+	* graphics/blender/DETAILS: sick!
+
+2003-12-06 22:53  tchan
+
+	* terminal/screen/DETAILS: Version bump to screen-4.0.2.  Compiled
+	and tested with gcc-3.2.3, glibc-2.3.2.  Used the patch from 4.0.1,
+	as it still applies cleanly.
+
+2003-12-06 21:16  ratler
+
+	* ftp/pure-ftpd/DETAILS: Bumped version
+
+2003-12-06 20:29  tchan
+
+	* utils/units/: BUILD, DETAILS: Version bump (long overdue). 
+	Compiled and tested with gcc-3.2.3, glibc2-3.2.  The author rewrote
+	the parser and added a bunch of new features.
+
+2003-12-06 19:39  tchan
+
+	* libs/gettext/DETAILS: Version bump to 0.13.  Painless update. 
+	Tested by florin, tchan, and niki.
+
+2003-12-06 15:56  sofar
+
+	* web/mozilla/: BUILD, DETAILS, PRE_BUILD: Updating to 1.5.1, the
+	patch stays, so I leave it.
+
+2003-12-06 12:50  sofar
+
+	* net/wvstreams/DEPENDS: Openssl and zlib are required, not
+	optional.
+
 2003-12-06 06:42  florin
 
 	* kde3/kdemultimedia3/: BUILD, 3.2_test/BUILD: let the module use
@@ -380,11 +463,6 @@
 	xfree86_xkb_xml/DETAILS: 
 	Adding xfree86_xkb_xml and libxklavier to moonbase
 
-2003-12-01 06:46  niki
-
-	* libs/libid3tag/DETAILS: Fixed the DETAILS file so that it can
-	fetch the source.
-
 2003-12-01 06:37  florin
 
 	* video/okle/DETAILS: bump version from 0.3 to 0.4.
@@ -408,12 +486,6 @@
 	Updating rhythmbox to new version 0.6.1, this is alot more stable
 	that the 0.6.0 release along with that it handles the id3tags for
 	mp3 better.
-
-2003-12-01 04:18  nhudson
-
-	* libs/libid3tag/DETAILS: 
-	Adding libid3tag to moonbase, finally I think I have found the
-	problem withrhythmbox compiling
 
 2003-11-30 23:31  sofar
 
@@ -1582,108 +1654,4 @@
 2003-11-07 04:02  elaine
 
 	* x11-wm/enlightenment/DETAILS: An official bump to e16? 'mazing
-
-2003-11-06 21:31  sofar
-
-	* compilers/php/: BUILD, CONFIGURE: CONFIGURE scripts are *bad*
-	ideas anyway...
-
-2003-11-06 21:29  florin
-
-	* kde3-apps/kplayer/DETAILS: bump version from 0.3.1 to 0.4.0.
-
-2003-11-06 17:53  sofar
-
-	* chat/gaim/: BUILD, DEPENDS, DETAILS, POST_REMOVE: Bumping
-	version, making gnutls optional, removing obsoleted POST_REMOVE.
-	I'm not sure how to compile it against nss from Mozilla, perhaps
-	someone can try to figure out what options to pass for that... it
-	works... don't break it. (BTW I never tested the compile without
-	gnutls, other than before it was even in the gaim module...)
-
-2003-11-06 16:48  tchan
-
-	* devel/binutils-sparc64/: BUILD, DETAILS,
-	profile.d/binutils-sparc64.rc: A binutils for sparc64 that gets
-	installed into /opt/lunar/binutils-sparc64, as SPARCS need regular
-	binutils for building 32bit apps and these special 64bit binutils
-	to correctly compile a 64bit kernel.
-
-2003-11-06 16:45  tchan
-
-	* compilers/egcs64/: BUILD, DETAILS, profile.d/egcs64.rc: Added the
-	64bit egcs compiler for SPARCS that is needed to build 64bit
-	Kernels on all Sparc64 cpus.  This is needed because although
-	gcc-3.3.x claims to be configurable as a 64bit sparc compiler, I
-	have not found anyone who has successfully done so.
-
-2003-11-06 16:43  florin
-
-	* cd/k3b/DETAILS: bump version from 0.10.1 to 0.10.2.
-
-2003-11-06 16:40  tchan
-
-	* devel/autoconf/DETAILS: Version bump to 2.58.  Compiled and
-	tested with gcc-3.2.3, glibc-2.3.2.
-
-2003-11-06 05:47  florin
-
-	* video/: ogle/DETAILS, ogle_gui/DETAILS: bump version from 1.9.1
-	to 0.9.2.
-
-2003-11-06 05:47  florin
-
-	* video/libdvdcss/DETAILS: bump version from 1.2.7 to 1.2.8.
-
-2003-11-06 05:14  florin
-
-	* kde3-apps/karchiver/DETAILS: bump version from 3.0.6 to 3.0.7.
-	bugfix release.
-
-2003-11-06 03:21  tchan
-
-	* zbeta/mkinitrd/DETAILS: Version bump to mkinitrd-3.5.14. 
-	Compiled with gcc-3.2.3 and glibc-2.3.2.
-
-2003-11-06 03:01  tchan
-
-	* libs/dietlibc/DETAILS: Version bump to 0.23.	Compiled and tested
-	with gcc-3.2.3.
-
-2003-11-06 02:55  tchan
-
-	* utils/grub/: DETAILS, menu.lst: Updated the sample menu.lst and
-	the help text in the DETAILS file.
-
-2003-11-06 02:48  tchan
-
-	* x11-apps/xpdf/DETAILS: Version bump to 2.03.	Compiled and tested
-	with gcc-3.2.3, glibc-2.3.2.
-
-2003-11-06 02:39  tchan
-
-	* mail/uudeview/DETAILS: Version bump 0.5.19.  Compiled and tested
-	with gcc-3.2.3, glibc-2.3.2.
-
-2003-11-06 02:22  tchan
-
-	* devel/uml/: .config, DETAILS: Version bump to 2.4.22 kernel and
-	uml patch set #5.  Also updated uml utilities to 20030903 version. 
-	Compiled and tested with gcc-3.2.3 and glibc-2.3.2.
-
-2003-11-06 02:21  tchan
-
-	* graphics/xzgv/DETAILS: Version bump to 0.8.  Compiled and tested
-	with gcc-3.2.3, glibc-2.3.2.  Yes this is a gtk+ app and damn proud
-	of it! :-)
-
-2003-11-06 01:47  tchan
-
-	* distributed/distcc/DETAILS: Version bump to 2.11.2.  Compiled and
-	tested with gcc-3.2.3 and glibc-2.3.2.
-
-2003-11-06 01:42  tchan
-
-	* mail/balsa2/DETAILS: Version bump to 2.0.15.	Mostly a bugfix
-	release.  Compiled and tested with gcc-3.2.3, and glibc-2.3.2.
 
