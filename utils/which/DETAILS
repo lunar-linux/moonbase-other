@@ -1,12 +1,14 @@
           MODULE=which
-         VERSION=2.14
+         VERSION=2.15
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$GNU_URL/$MODULE/$SOURCE
-   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE
+   SOURCE_URL[0]=http://www.xs4all.nl/~carlo17/$MODULE/$SOURCE
+   SOURCE_URL[1]=$GNU_URL/$MODULE/$SOURCE
+   SOURCE_URL[2]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE
+   SOURCE_VFY[0]=md5:d749036d9be9132a00fc2360e61d92e5
         WEB_SITE=http://www.gnu.org
          ENTERED=20011101
-         UPDATED=20020726
+         UPDATED=20030912
            SHORT="Which finds the executable/alias"
 cat << EOF
 WHICH- searches through the $PATH & environment
