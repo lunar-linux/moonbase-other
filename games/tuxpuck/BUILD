@@ -1,9 +1,8 @@
 (
 
-  ./configure  --prefix=/usr        \
-               --bindir=/usr/games  \
-	       --datadir=/usr/share/games &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
-  default_make
+  make
+  make install
 
 ) > $C_FIFO 2>&1
