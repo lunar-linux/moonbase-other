@@ -12,6 +12,7 @@
                 --with-graphs                                   \
                 $OPTS                                           && 
 
-   default_make
+   default_make                                                 &&
+   cp /opt/lunar/$MOD/share/pixmaps/gnome-gnumeric.png /usr/share/pixmaps
 
 ) > $C_FIFO 2>&1
