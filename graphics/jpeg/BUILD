@@ -1,20 +1,12 @@
 (
 
   bad_flags -malign-double
-  
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
-
-  ./configure  --build=$BUILD               \
-               --prefix=/usr                \
-	       --bindir=/usr/bin            \
-	       --datadir=/usr/share         \
-	       --mandir=/usr/share/man      \
-	       --enable-shared              \
-	       --enable-static              &&
+  export CC="gcc"
+  OPTS="$OPTS --enable-shared --enable-static"
 
   default_config &&
-  make &&
+  sedit "s/\$(prefix)\/man\/man\$(manext)/\/usr\/share\/man\/man\$(manext)/" Makefile &&
+  make  &&
   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD make test &&
   prepare_install &&
   make install
