@@ -6,7 +6,7 @@
   QTDIR=/opt/lunar/qt/3
   KDEDIR=/opt/lunar/kde/3
 
-  patch_it  $SOURCE_CACHE/$SOURCE2 1 &&
+  sedit "s:-ldb4:-ldb-4:" configure.in
 
  ## fix problem with ccache
   CC=${CC//ccache/} &&
