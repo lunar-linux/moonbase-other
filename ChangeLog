@@ -1,3 +1,104 @@
+2003-08-12 11:34  niki
+
+	* compilers/hugs98/: BUILD, DETAILS: Added contributed module from
+	Ranitha Mapatuna <ranitha@optusnet.com.au>, this module provides a
+	hugs Haskell interpreter, I have compiled it with gcc 3.3.1 and it
+	seems to run fine.
+
+2003-08-12 11:19  sofar
+
+	* archive/unrar/DETAILS, audio/gst-plugins/DETAILS,
+	audio/gstreamer/DETAILS, audio/xmms-alarm/DETAILS,
+	audio/xmms-crossfade/DETAILS, audio/xmms-goodnight/DETAILS,
+	audio/xmms-nebulus/DETAILS, cd/k3b/DETAILS, chat/BitchX/DETAILS,
+	chat/gnomemeeting/DETAILS, chat/gtkBitchX/DETAILS,
+	compilers/php/DETAILS, crypto/cyrus-sasl/DETAILS,
+	crypto/gnupg/DETAILS, crypto/openssh/DETAILS,
+	crypto/openssl/DETAILS, devel/PyQt/DETAILS, devel/sip/DETAILS,
+	docs/man-fr/DETAILS, editors/eric/DETAILS, ftp/lftp/DETAILS,
+	gnome2-apps/gucharmap/DETAILS, ham/unixcw/DETAILS,
+	kde3-apps/apollon/DETAILS, kde3-utils/superkaramba/DETAILS,
+	kernel/linux-vanilla/DETAILS, kernel/snare-core/DETAILS,
+	libs/gpgme/DETAILS, libs/gpgme-0.3.x/DETAILS, libs/i2c/DETAILS,
+	libs/qscintilla/DETAILS, mail/kbiff/DETAILS, mail/postfix/DETAILS,
+	mail/sendmail/DETAILS, net/arpwatch/DETAILS, net/bw-whois/DETAILS,
+	net/libpcap/DETAILS, net/minicom/DETAILS, net/tcpdump/DETAILS,
+	perl/perl-tk/DETAILS, security/integrit/DETAILS,
+	security/logcheck/DETAILS, security/nessus/DETAILS,
+	security/portsentry/DETAILS, security/snort/DETAILS,
+	security/xinetd/DETAILS, sql/mysql/DETAILS, sql/mysql-beta/DETAILS,
+	utils/e2fsprogs/DETAILS, utils/hfsutils/DETAILS,
+	utils/lm_sensors/DETAILS, utils/lsof/DETAILS,
+	video/MPlayer/DETAILS, video/totem/DETAILS, web/apache2/DETAILS,
+	web/epiphany/DETAILS, web/galeon/DETAILS, utils/lunar/DETAILS,
+	utils/theedge/DETAILS, web/mozilla/DETAILS, web/squid/DETAILS,
+	x11/xfree86/DETAILS, x11-apps/openoffice-bin/DETAILS,
+	x11-wm/3ddesktop/DETAILS: Removing obsolete SOURCE_MD5 syntaxes,
+	fixing missing SOURCE_FY for portsentry. Also bumping theedge+lunar
+	UPDATED so everyone needs to get a new core to make sure they get
+	the new verification code. spread the word!
+
+2003-08-12 03:47  nhudson
+
+	* audio/esound/DETAILS: 
+	Updating esound to new version 0.2.31
+
+2003-08-12 03:14  r0dzilla
+
+	* audio/alsa-driver/: DETAILS, POST_INSTALL: removed/corrected
+	outdated alsa options in /etc/modules.d/alsa file created by
+	POST_INSTALL
+
+2003-08-12 02:22  tchan
+
+	* terminal/rxvt/DETAILS: Version bump to 2.7.10.  Compiled with
+	gcc-3.2.3 and glibc-2.3.2.  NOTE: this source code is also
+	available now via sourceforge but only as a tar.gz.  The 100k
+	smaller tar.bz2 is only available from rxvt.org.
+
+2003-08-11 19:57  jol
+
+	* kde3-apps/kplayer/DETAILS: Bumped version OLD: 0.2.0	NEW: 0.3.1
+
+2003-08-11 16:48  niki
+
+	* kde3-apps/kopete/DETAILS: Version bump requested by Ralph
+	Crongeyer <rcrongeyer@rpicc.com>, which also has tested it.
+
+2003-08-11 16:40  tchan
+
+	* news/bbdb/DETAILS: Fixed the description of bbdb.
+
+2003-08-11 16:29  tchan
+
+	* news/bbdb/: BUILD, DETAILS: Fixed the BUILD script to install the
+	info files to the correct dir of /usr/share/info, per Veerappen's
+	request.
+
+2003-08-11 15:49  jasper
+
+	* mail/evolution/BUILD: Missing &&
+
+2003-08-11 15:45  tchan
+
+	* news/gnus/BUILD: Forgot a trailing "&&".
+
+2003-08-11 15:41  tchan
+
+	* news/gnus/: BUILD, DETAILS: Made the version change requested by
+	user Veerappan.  Fixed the BUILD script to install info files to
+	the correct location.  Seems to compile/install okay, but a real
+	emacs and gnus user needs to verify this works.
+
+2003-08-11 15:11  jasper
+
+	* printer/cups-drivers/POST_INSTALL: The cups init script is called
+	cupsd
+
+2003-08-11 13:33  csm
+
+	* net/nfs-utils/: BUILD, DETAILS: removing references to SOURCE2
+
 2003-08-11 03:12  nhudson
 
 	* libs/: libxml2/DETAILS, libxslt/DETAILS: 
@@ -1670,67 +1771,4 @@
 
 	* zbeta/xfce4-session-cvs/DETAILS: Install additional theme
 	"MoeSpecial" by default.
-
-2003-07-12 20:45  sofar
-
-	* devel/automake/DETAILS: . <- just a small bump.
-
-2003-07-12 17:42  sofar
-
-	* utils/Wine/DETAILS: After a while you just need some new Wine
-
-2003-07-12 14:04  jol
-
-	* archive/unrar/DETAILS: Bumped version OLD: 3.1.4  NEW: 3.2.0
-
-2003-07-12 13:37  jol
-
-	* audio/xmms-nebulus/DETAILS: Add MD5 field ...
-
-2003-07-12 13:34  jol
-
-	* audio/xmms-nebulus/DETAILS: Bumped version 0.3 to 0.5
-
-2003-07-12 13:29  jol
-
-	* audio/xmms-goodnight/DETAILS: Bumped version OLD: 0.3.1  NEW:
-	0.3.2 Add MD5 field
-
-2003-07-12 13:25  jol
-
-	* audio/xmms-crossfade/DETAILS: Bumped version OLD: 0.2.9 NEW:
-	0.3.2 Add MD5 field
-
-2003-07-12 13:23  jol
-
-	* audio/xmms-alarm/DETAILS: Bumped version  OLD: 0.2.2 NEW: 0.3.3
-	Add MD5 field
-
-2003-07-12 13:14  jol
-
-	* kde3-utils/superkaramba/DETAILS: Bumped version OLD: 0.28  NEW:
-	0.29 add md5 field
-
-2003-07-12 13:00  jol
-
-	* devel/PyQt/DEPENDS: Add qscintilla has optional depends
-
-2003-07-12 12:57  jol
-
-	* editors/eric/: BUILD, DEPENDS, DETAILS: Add eric, a powerfull
-	editor for python and some other languages
-
-2003-07-12 12:53  jol
-
-	* libs/qscintilla/: BUILD, DEPENDS, DETAILS: Add qscintilla. It's a
-	library to create editor
-
-2003-07-12 12:44  jol
-
-	* utils/module-init-tools/DETAILS: Bumped version OLD: 0.11a  NEW:
-	0.12
-
-2003-07-12 10:06  jol
-
-	* ftp/lftp/DETAILS: Correct the MD5 sum
 
