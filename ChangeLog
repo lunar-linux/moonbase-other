@@ -1,3 +1,52 @@
+2003-12-23 05:53  tchan
+
+	* zbeta/giftcurs-cvs/DETAILS: Fixed this cvs module to use the
+	:ext: method of accessing anonymous cvs on savannah as :pserver: is
+	no longer supported.
+
+2003-12-23 05:48  tchan
+
+	* zbeta/emacs-cvs/DETAILS: Whoops, savannah is back up but they
+	nolonger support pserver for cvs access.  You must use ssh2 keys
+	and :ext: for anonymous cvs access.  Corrected the URL again.
+
+2003-12-23 05:38  tchan
+
+	* zbeta/emacs-cvs/DETAILS: Restored the URL to the regular cvs
+	access, now that Savannah is back online.
+
+2003-12-23 05:30  florin
+
+	* editors/vile/DETAILS: bump version from 9.3 to 9.4.
+
+2003-12-23 05:27  florin
+
+	* x11-utils/MenuMaker/DETAILS: add the md5 sum.
+
+2003-12-23 05:20  florin
+
+	* ftp/lftp/DETAILS: bump version from 2.6.10 to 2.6.11. bugfix
+	version.
+
+2003-12-22 23:50  sofar
+
+	* x11-utils/MenuMaker/DETAILS: suckers.... this is GOOD sSTUFFfff!
+
+2003-12-22 15:40  florin
+
+	* audio/audiofile/DETAILS: bump version from 0.2.4 to 0.2.5. bugfix
+	version.
+
+2003-12-22 13:35  sofar
+
+	* kernel/linux-openmosix/DETAILS: Bumping patch version, this one
+	is much more stable. Hope it works for people
+
+2003-12-22 13:31  sofar
+
+	* utils/: wlan-ng-driver/DETAILS, wlan-ng-utils/DETAILS: Bumping
+	versions here tew
+
 2003-12-22 10:28  tchan
 
 	* zbeta/emacs-cvs/DETAILS: Fixed emacs-cvs to use Savannah's latest
@@ -329,12 +378,8 @@
 
 2003-12-17 05:02  nhudson
 
-	* gnome2-apps/: abiword/BUILD, acme/BUILD, battfink/BUILD,
-	diacanvas2/BUILD, file-roller/BUILD, gcalctool/BUILD, ggv/BUILD,
-	glabels/BUILD, gnome-network/BUILD, gnomesu/BUILD, gnumeric2/BUILD,
-	gok/BUILD, gpdf/BUILD, gucharmap/BUILD, meld/BUILD,
-	mozilla-bonobo/BUILD, phonemgr/BUILD, pkgview/BUILD,
-	regexxer/BUILD, ticker/BUILD: 
+	* gnome2-apps/: abiword/BUILD, diacanvas2/BUILD, gnumeric2/BUILD,
+	gpdf/BUILD, meld/BUILD, mozilla-bonobo/BUILD: 
 	Moving non core apps away from /opt/lunar/gnome/2.4 and removing
 	BUILD files as they are not needed anymore.  Also removing
 	metacity-setup from moonbase as its no longer needed sue to all the
@@ -903,13 +948,8 @@
 
 2003-12-07 19:43  hardkrash
 
-	* libs/glib-2/: CONFIGURE, DEPENDS: The proper way to do this is
-	with an optional depends.
-
-2003-12-07 18:57  florin
-
-	* libs/glib-2/CONFIGURE: added a CONFIGURE file for an optional
-	documentation  generation.
+	* libs/glib-2/DEPENDS: The proper way to do this is with an
+	optional depends.
 
 2003-12-07 18:20  florin
 
@@ -1283,11 +1323,10 @@
 
 2003-12-03 10:47  niki
 
-	* kernel/linux-grsec/: BUILD, CONFIGURE, CONFLICTS, DETAILS,
-	POST_INSTALL, PRE_BUILD: Module bumped to kernel version 2.4.23,
-	and patchset to r3.1.1, and the kernel module has been converted to
-	the elaine new kernel module framework.  Tested, and produces
-	runnable kernel ;-)
+	* kernel/linux-grsec/: BUILD, CONFIGURE, DETAILS, POST_INSTALL,
+	PRE_BUILD: Module bumped to kernel version 2.4.23, and patchset to
+	r3.1.1, and the kernel module has been converted to the elaine new
+	kernel module framework.  Tested, and produces runnable kernel ;-)
 
 2003-12-03 03:46  nhudson
 
@@ -1709,18 +1748,4 @@
 2003-11-23 06:45  florin
 
 	* ftp/pure-ftpd/DETAILS: bump version from 1.0.16c to 1.0.17.
-
-2003-11-22 20:22  jasper
-
-	* xfce4/xfce4-fsguard-plugin/DETAILS: Update. Most importantly it
-	fixes a mem leak.
-
-2003-11-22 13:49  florin
-
-	* utils/Wine/DETAILS: bump version from 20031016 to 20031118.
-
-2003-11-22 12:51  florin
-
-	* graphics/ImageMagick/DETAILS: bump version from 5.5.7-12 to
-	5.5.7-13.
 
