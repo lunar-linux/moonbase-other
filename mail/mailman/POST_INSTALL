@@ -1,0 +1,4 @@
+crontab -u mailman /var/mailman/cron/crontab.in
+cp /var/mailman/scripts/mailman /etc/init.d/mailman
+/etc/init.d/mailman start
+/sbin/chkconfig --add mailman
