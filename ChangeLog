@@ -1,117 +1,124 @@
+2003-08-06 21:39  jasper
+
+	* web/mozilla/CONFIGURE, web/mozilla/DEPENDS, web/mozilla/DETAILS,
+	x11-apps/openoffice-bin/DETAILS: Fix j2sdk issue for mozilla and bump updated filed for OO as well
+	
+2003-08-06 21:25  jasper
+
+	* x11-apps/openoffice-bin/: CONFIGURE, DEPENDS, DETAILS: Fix for the j2sdk issue. Updated to 1.1rc2. Please test: csm reported font problems, I don't see them.
+	
+2003-08-06 19:36  jasper
+
+	* libs/dbh/DEPENDS: This can be dumped now as well
+	
+2003-08-06 19:32  jasper
+
+	* libs/dbh/: BUILD, DETAILS: Updating dbh, builds fine now without BUILD
+	
+2003-08-06 14:52  sofar
+
+	* distributed/BitTorrent/DEPENDS: Needed, it can't live without Python!
+	
 2003-08-06 11:52  niki
 
 	* kernel/: linux/POST_INSTALL, linux-beta/POST_INSTALL,
 	linux-grsec/POST_INSTALL, linux-stable/POST_INSTALL,
-	linux-vanilla/POST_INSTALL: Moe told me that users still can have
-	the old nvidia driver installed.
-
+	linux-vanilla/POST_INSTALL: Moe told me that users still can have the old nvidia driver installed.
+	
 2003-08-06 09:50  sofar
 
-	* distributed/BitTorrent/DEPENDS: BitTorrent doesn't need WxPython
-	to run... this enables us to run BitTorrent on dbguin serving files
-	without installing gtk/xfree86. =^D
-
+	* distributed/BitTorrent/DEPENDS: BitTorrent doesn't need WxPython to run... this enables us to run BitTorrent on dbguin serving files without installing gtk/xfree86. =^D
+	
 2003-08-06 03:38  niki
 
 	* kernel/linux-grsec/POST_INSTALL: Your welcome Nick ;-)
 	
 	Changing this one to also rebuild NVIDIA instead of NVIDIA_kernel
-
+	
 2003-08-06 03:10  nhudson
 
 	* kernel/: linux/POST_INSTALL, linux-beta/POST_INSTALL,
 	linux-stable/POST_INSTALL, linux-vanilla/POST_INSTALL: 
 	Changing these to rebuild NVIDIA instead of NVIDIA_kernel
-
+	
 2003-08-06 03:04  nhudson
 
 	* x11/xfree86/POST_INSTALL: 
-	Changing the POST_INSTALL to recompile the newer NVIDIA module
-	instead of the NVIDIA_GLX module
-
+	Changing the POST_INSTALL to recompile the newer NVIDIA module instead of the
+	NVIDIA_GLX module
+	
 2003-08-05 23:16  csm
 
-	* x11-utils/xpad/DETAILS: updating the version on thie cool little
-	application!
-
+	* x11-utils/xpad/DETAILS: updating the version on thie cool little application!
+	
 2003-08-05 22:56  csm
 
-	* doc-tools/iso8879-entities/DETAILS: adding a throw away version
-	number to get this to build and store a proper install log. The
-	following error was ocurring at evey install:
+	* doc-tools/iso8879-entities/DETAILS: adding a throw away version number to get this to build and store a proper
+	install log. The following error was ocurring at evey install:
 	
 	+ module size is Install log for iso8879-entities is not found
-
+	
 2003-08-05 21:02  sofar
 
-	* crypto/openssh/: BUILD, POST_INSTALL: Adding proper calls fir
-	this. tested, niiiiice. Only need to add this to the iso install
-	somewhere so this is called somehow.
-
+	* crypto/openssh/: BUILD, POST_INSTALL: Adding proper calls fir this. tested, niiiiice. Only need to add this to the iso install somewhere so this is called somehow.
+	
 2003-08-05 20:42  sofar
 
-	* crypto/openssh/Makefile: Adding a Makefile for generation of
-	"server-keys" and private keys. Works like the ssl example, but
-	will not overwrite current existing host keys.
-
+	* crypto/openssh/Makefile: Adding a Makefile for generation of "server-keys" and private keys. Works like the ssl example, but will not overwrite current existing host keys.
+	
 2003-08-05 20:25  jasper
 
 	* science/R/DETAILS: Update to 1.7.1
-
+	
 2003-08-05 20:06  nestu
 
-	* zbeta/emacs-cvs/CONFLICTS: Added the conflict with emacs. Jasper
-	allowed me to do this one :")
-
+	* zbeta/emacs-cvs/CONFLICTS: Added the conflict with emacs. Jasper allowed me to do this one :")
+	
 2003-08-05 18:53  jmhodges
 
 	* science/octave/PRE_BUILD: fixed
-
+	
 2003-08-05 18:19  jasper
 
-	* zbeta/emacs-cvs/: BUILD, DEPENDS, DETAILS: Add emacs cvs build
-	with optional gtk2 interface
-
+	* zbeta/emacs-cvs/: BUILD, DEPENDS, DETAILS: Add emacs cvs build with optional gtk2 interface
+	
 2003-08-05 16:16  jasper
 
 	* audio/faad/DEPENDS: Apparently faad depends on id3lib as well
-
+	
 2003-08-05 12:01  elaine
 
-	* utils/: lunar/BUILD, theedge/BUILD: quieted rm with -f, added the
-	 r switch to lunar/BUILD
-
+	* utils/: lunar/BUILD, theedge/BUILD: quieted rm with -f, added the  r switch to lunar/BUILD
+	
 2003-08-05 03:58  tchan
 
-	* utils/reiserfsprogs/DETAILS: Version bump to 3.6.11.	Compiled
-	and tested with gcc-3.2.3 and glibc-2.3.2.
-
+	* utils/reiserfsprogs/DETAILS: Version bump to 3.6.11.  Compiled and tested with gcc-3.2.3 and glibc-2.3.2.
+	
 2003-08-05 03:55  csm
 
 	* devel/highlight/DETAILS: updating this to the latest version
-
+	
 2003-08-05 02:37  nhudson
 
 	* libs/loudmouth/DETAILS: 
 	Updating loudmouth to new version 0.13
-
+	
 2003-08-05 02:28  nhudson
 
 	* gnome2-core/libbonoboui/DETAILS: 
 	Updating libbonoboui to new version 2.2.4
-
+	
 2003-08-05 02:18  nhudson
 
 	* x11/NVIDIA/: BUILD, CONFLICTS, DETAILS, PRE_BUILD: 
-	Adding the new NVIDIA drivers.	This is in a new format where it is
-	all 1 package and not broken up in 2 seperate modules.	Of course
-	this conflicts with the NVIDIA_GLX and NVIDIA_kernel modules.
-
+	Adding the new NVIDIA drivers.  This is in a new format where it is all 1 package and not broken up in 2 seperate modules.  Of course this conflicts with the
+	NVIDIA_GLX and NVIDIA_kernel modules.
+	
 2003-08-05 02:09  nhudson
 
 	* profiles/docbook-profile/: DEPENDS, DETAILS: 
 	Updating docbook-profile to fit the new way of doing docbook
-
+	
 2003-08-05 02:09  nhudson
 
 	* doc-tools/: docbook-3.0/DETAILS, docbook-3.1/DETAILS,
@@ -119,39 +126,37 @@
 	docbook-dtd-xml/DETAILS, docbook-sgml/DETAILS, docbook-xsl/DETAILS,
 	iso8879-entities/DETAILS, openjade/DETAILS, opensp/DETAILS,
 	scrollkeeper/DETAILS: 
-	Updating the updated field of all these modules.  This is a total
-	rework of the docbook installation.
-
+	Updating the updated field of all these modules.  This is a total rework of
+	the docbook installation.
+	
 2003-08-05 01:53  csm
 
-	* utils/pciutils/BUILD: adding a sedit to fix the prefix in the
-	Makefile from /usr/local to /usr
-
+	* utils/pciutils/BUILD: adding a sedit to fix the prefix in the Makefile from /usr/local to /usr
+	
 2003-08-05 01:49  csm
 
 	* utils/pciutils/: BUILD, DETAILS: updating pciutils
-
+	
 2003-08-05 01:36  csm
 
 	* doc-tools/linuxdoc-tools/DEPENDS: added opensp to depends
-
+	
 2003-08-05 01:21  csm
 
 	* doc-tools/latex2html/DETAILS: updating latex2html
-
+	
 2003-08-05 01:14  csm
 
-	* security/Linux-PAM/POST_REMOVE: fixing a reference to "spells" we
-	no longer have any of those and haven't for more than a year!
-
+	* security/Linux-PAM/POST_REMOVE: fixing a reference to "spells" we no longer have any of those and
+	haven't for more than a year!
+	
 2003-08-04 23:48  sofar
 
 	* chat/gnomemeeting/DETAILS, compilers/php/DETAILS,
 	crypto/openssl/DETAILS, kernel/linux-grsec/DETAILS,
 	kernel/linux-stable/DETAILS, security/iptables/DETAILS,
-	security/nessus/DETAILS, web/mozilla/DETAILS, x11/xfree86/DETAILS:
-	Fixing the cases with more md5sums.
-
+	security/nessus/DETAILS, web/mozilla/DETAILS, x11/xfree86/DETAILS: Fixing the cases with more md5sums.
+	
 2003-08-04 23:41  sofar
 
 	* archive/unrar/DETAILS, audio/gst-plugins/DETAILS,
@@ -178,272 +183,241 @@
 	utils/lsof/DETAILS, video/MPlayer/DETAILS, video/totem/DETAILS,
 	web/apache2/DETAILS, web/epiphany/DETAILS, web/galeon/DETAILS,
 	web/mozilla/DETAILS, web/squid/DETAILS, x11/xfree86/DETAILS,
-	x11-apps/openoffice-bin/DETAILS, x11-wm/3ddesktop/DETAILS:
-	Re-enabling md5sum checking for theedge with the new syntax
-
+	x11-apps/openoffice-bin/DETAILS, x11-wm/3ddesktop/DETAILS: Re-enabling md5sum checking for theedge with the new syntax
+	
 2003-08-04 22:35  moe
 
-	* utils/theedge/BUILD: Adding -R since the CVS dir won't get
-	removed otherwise. Note: -R and -r are the same. I was told that -R
-	would be saver.
-
+	* utils/theedge/BUILD: Adding -R since the CVS dir won't get removed otherwise. Note: -R and -r are the same. I was told that -R would be saver.
+	
 2003-08-04 21:47  tchan
 
-	* kernel/linux-grsec/DETAILS: Fixed a typo in the UPDATED field. 
-	200300517 is not a valid date.
-
+	* kernel/linux-grsec/DETAILS: Fixed a typo in the UPDATED field.  200300517 is not a valid date.
+	
 2003-08-04 21:21  tchan
 
-	* doc-tools/man/DETAILS: Version bump to 1.5m1 from 1.5m.  Stupid
-	kernel.org and their one day version number bumps.
-
+	* doc-tools/man/DETAILS: Version bump to 1.5m1 from 1.5m.  Stupid kernel.org and their one day version
+	number bumps.
+	
 2003-08-04 16:49  tchan
 
-	* compilers/ruby/: BUILD, DETAILS: Version bump to 1.8.0.  Added
-	the missing Lunar-isms in the BUILD script.  The compiled version
-	of ruby passes the "make test" script, so it appears to be a
-	working ruby binary.
-
+	* compilers/ruby/: BUILD, DETAILS: Version bump to 1.8.0.  Added the missing Lunar-isms in the BUILD script.
+	The compiled version of ruby passes the "make test" script, so it appears
+	to be a working ruby binary.
+	
 2003-08-04 16:11  jmhodges
 
 	* audio/faad/BUILD, audio/faad/DEPENDS, audio/faad/DETAILS,
-	audio/faad/PRE_BUILD, video/MPlayer/DEPENDS, web/PyDS/DETAILS:
-	added faad and faad support to mplayer.. now go watch that howard
-	dean qt vid or other such things
-
+	audio/faad/PRE_BUILD, video/MPlayer/DEPENDS, web/PyDS/DETAILS: added faad and faad support to mplayer.. now go watch that howard dean
+	qt vid or other such things
+	
 2003-08-04 16:05  tchan
 
-	* doc-tools/man/DETAILS: Version bump to 1.5m.	Updated the patch
-	for man as well.
-
+	* doc-tools/man/DETAILS: Version bump to 1.5m.  Updated the patch for man as well.
+	
 2003-08-04 14:28  elaine
 
-	* utils/: lunar/BUILD, theedge/BUILD: Added rm of $FUNCTIONS files,
-	'lin' normally only removes files known to be owned by the module,
-	if the dev/stable versions of 'lin' have different files, not
-	everything gets removed. For the moment /var/lib/lunar/functions at
-	leat seems to be the only place where it's an issue
-
+	* utils/: lunar/BUILD, theedge/BUILD: Added rm of $FUNCTIONS files, 'lin' normally only removes files known to
+	be owned by the module, if the dev/stable versions of 'lin' have different
+	files, not everything gets removed. For the moment /var/lib/lunar/functions
+	at leat seems to be the only place where it's an issue
+	
 2003-08-04 13:51  nhudson
 
 	* doc-tools/iso8879-entities/: BUILD, DEPENDS, DETAILS, PRE_BUILD: 
 	Adding iso8870-entities to moonbase
-
+	
 2003-08-04 13:42  nhudson
 
 	* doc-tools/docbook-dsssl/DETAILS: 
-	Ok fixing a bug found with this, reported by huysmans via bug
-	tracker.
-
+	Ok fixing a bug found with this, reported by huysmans via bug tracker.
+	
 2003-08-04 01:15  nhudson
 
 	* web/epiphany/DETAILS: 
 	Updating epiphany to new version 0.8.2
-
+	
 2003-08-03 20:26  jasper
 
-	* audio/alsa-driver/BUILD: I needed to move the sedit after
-	configure to make it work
-
+	* audio/alsa-driver/BUILD: I needed to move the sedit after configure to make it work
+	
 2003-08-03 19:54  tchan
 
 	* libs/: wxGTK/BUILD, wxGTK/CONFIGURE, wxGTK/DETAILS,
 	wxPython/BUILD, wxPython/CONFIGURE, wxPython/DEPENDS,
-	wxPython/DETAILS: Reworked the wxGTK and wxPython modules, from
-	cmak.  Now only ONE 12 Meg download is needed for both wxGTK and
-	wxPython, instead of two 12 Meg downloads and wxPython no longer
-	needs to build the entire wxGTK library all over again.  Tested
-	against audacity and BitTorrent modules. gcc-3.2.3, glibc-2.3.2. 
-	Unicode is disabled because it simply breaks too many modules.
-
+	wxPython/DETAILS: Reworked the wxGTK and wxPython modules, from cmak.  Now only ONE 12 Meg
+	download is needed for both wxGTK and wxPython, instead of two 12 Meg downloads
+	and wxPython no longer needs to build the entire wxGTK library all over again.
+	Tested against audacity and BitTorrent modules. gcc-3.2.3, glibc-2.3.2.  Unicode
+	is disabled because it simply breaks too many modules.
+	
 2003-08-03 17:59  moe
 
-	* zbeta/xfce4-showdesktop-plugin-cvs/: BUILD, DEPENDS, DETAILS:
-	Adding new "Show the desktop" plugin for the XFce4 panel. CVS only
-	for now.
-
+	* zbeta/xfce4-showdesktop-plugin-cvs/: BUILD, DEPENDS, DETAILS: Adding new "Show the desktop" plugin for the XFce4 panel. CVS only for now.
+	
 2003-08-03 12:50  sofar
 
-	* security/portsentry/: BUILD, init.d/portsentry: Adding init.d
-	wrappers for portsentry: a portsentry.modes default file for better
-	hinting how to startup portsentry, and a proper init.d script that
-	doesn't need any editing. Should make portsentry a lot easier to
-	install!
-
+	* security/portsentry/: BUILD, init.d/portsentry: Adding init.d wrappers for portsentry: a portsentry.modes default file for better hinting how to startup portsentry, and a proper init.d script that doesn't need any editing. Should make portsentry a lot easier to install!
+	
 2003-08-03 04:45  nhudson
 
 	* gnome2-core/control-center2/DEPENDS: 
-	Fixing control-centers depends to include nautilus and a optional
-	depends on xscreensaver
-
+	Fixing control-centers depends to include nautilus and a optional depends on
+	xscreensaver
+	
 2003-08-03 04:18  tchan
 
-	* libs/wxGTK/: BUILD, DETAILS: Fixed the UPDATED field again. 
-	Added the correct FIFO stuff for the BUILD script.  Please follow
-	the standard moonbase indentation, especially for the DETAILS
-	scripts.
-
+	* libs/wxGTK/: BUILD, DETAILS: Fixed the UPDATED field again.  Added the correct FIFO stuff for the BUILD
+	script.  Please follow the standard moonbase indentation, especially for
+	the DETAILS scripts.
+	
 2003-08-02 22:35  nhudson
 
 	* gnome2-core/libgnomeprintui/DEPENDS: 
 	I took out libgnomeui as a dependancy and added libgnomecanvas
-
+	
 2003-08-02 18:55  elaine
 
-	* crypto/krb5/DETAILS: Version bump kerberos from 1.3.x now builds
-	ok with gcc 3.2x
-
+	* crypto/krb5/DETAILS: Version bump kerberos from 1.3.x now builds ok with gcc 3.2x
+	
 2003-08-02 18:07  nhudson
 
 	* mail/evolution/DETAILS: 
 	Updating evolution to new version 1.4.4
-
+	
 2003-08-02 14:33  nhudson
 
 	* gnome2-extras/: gal2/DETAILS, gnome-spell/DETAILS: 
-	Updating gal2 to new version 1.99.9 and gnome-spell to new version
-	1.0.5
-
+	Updating gal2 to new version 1.99.9 and gnome-spell to new version 1.0.5
+	
 2003-08-02 14:32  nhudson
 
 	* gnome/gtkhtml3/DETAILS: 
-	Updating gtkhtml3 to new version 3.0.8 for the new evolution
-	version
-
+	Updating gtkhtml3 to new version 3.0.8 for the new evolution version
+	
 2003-08-02 14:29  nhudson
 
 	* audio/esound/DETAILS: 
 	Updating esound to new version 0.2.30
-
+	
 2003-08-02 06:49  jmhodges
 
 	* graphics/pil/BUILD: missed this during the python 2.3 debacle
-
+	
 2003-08-02 06:11  jmhodges
 
-	* devel/metakit/: BUILD, DEPENDS: metakit sucks, if a version bump
-	happens ill be estactic because this is an ugly ass BUILD. 
-	metakit's python support had hardcoded paths to python 2.2 and a
-	variable rename in python borked things (LONG_LONG is now
-	PY_LONG_LONG).
-
+	* devel/metakit/: BUILD, DEPENDS: metakit sucks, if a version bump happens ill be estactic because this is
+	an ugly ass BUILD.  metakit's python support had hardcoded paths to
+	python 2.2 and a variable rename in python borked things (LONG_LONG is
+	now PY_LONG_LONG).
+	
 2003-08-02 01:46  tchan
 
-	* compilers/Python/POST_INSTALL: Added a default true line so as to
-	not confuse installwatch.
-
+	* compilers/Python/POST_INSTALL: Added a default true line so as to not confuse installwatch.
+	
 2003-08-01 22:43  nhudson
 
 	* chat/xchat-systray-plugin/DEPENDS: 
 	Changing the depends to include xfce4-systray
-
+	
 2003-08-01 19:32  niki
 
-	* mail/smtpclient/DEPENDS: Removed the dependency to spamassassin,
-	which results in an circular dependency.
-
+	* mail/smtpclient/DEPENDS: Removed the dependency to spamassassin, which results in an circular
+	dependency.
+	
 2003-08-01 15:21  niki
 
-	* audio/: alsa-lib/DETAILS, alsa-utils/DETAILS: Forgot the UPDATED
-	field
-
+	* audio/: alsa-lib/DETAILS, alsa-utils/DETAILS: Forgot the UPDATED field
+	
 2003-08-01 15:19  tchan
 
-	* chat/xchat/: BUILD, DETAILS: Fixed xchat with a patch that now
-	works correctly for python2.2 and python2.3.  This patch can be
-	submitted to the xchat devs.  This patch also needs to be removed
-	once the xchat devs get their act together and fix xchat correctly.
-
+	* chat/xchat/: BUILD, DETAILS: Fixed xchat with a patch that now works correctly for python2.2 and python2.3.
+	This patch can be submitted to the xchat devs.  This patch also needs to
+	be removed once the xchat devs get their act together and fix xchat correctly.
+	
 2003-08-01 15:19  niki
 
-	* audio/: alsa-lib/DETAILS, alsa-utils/DETAILS: Bumped the last two
-	in the alsa series.
-
+	* audio/: alsa-lib/DETAILS, alsa-utils/DETAILS: Bumped the last two in the alsa series.
+	
 2003-08-01 14:43  tchan
 
-	* compilers/Python/: DETAILS, POST_INSTALL: Added a temporary
-	POST_INSTALL to copy over /usr/lib/python2.2/site-packages to the
-	2.3 location.  Touched the UPDATED field to force a Python
-	recompile.
-
+	* compilers/Python/: DETAILS, POST_INSTALL: Added a temporary POST_INSTALL to copy over /usr/lib/python2.2/site-packages
+	to the 2.3 location.  Touched the UPDATED field to force a Python recompile.
+	
 2003-08-01 13:44  nhudson
 
 	* doc-tools/docbook-sgml/: BUILD, POST_INSTALL, POST_REMOVE,
 	PRE_REMOVE: 
 	
 	Ok This is thefinal one for now till I can get home today.
-
+	
 2003-08-01 13:42  nhudson
 
 	* doc-tools/docbook-dsssl/: BUILD, DETAILS, Makefile, POST_INSTALL,
 	POST_REMOVE, PRE_REMOVE: 
 	
 	Adding for the new docbook format
-
+	
 2003-08-01 13:31  nhudson
 
 	* doc-tools/docbook-xml/: BUILD, DEPENDS, POST_INSTALL,
 	POST_REMOVE, PRE_REMOVE: 
 	
 	Once again making fixes for the new docbook install
-
+	
 2003-08-01 13:23  nhudson
 
 	* doc-tools/openjade/POST_REMOVE: 
 	
 	I forgot to add this before
-
+	
 2003-08-01 13:22  nhudson
 
 	* doc-tools/: openjade/BUILD, openjade/POST_INSTALL,
 	openjade/PRE_REMOVE, opensp/BUILD: 
 	
 	Adding more new stuff for docbook
-
+	
 2003-08-01 13:20  nhudson
 
 	* devel/gnome-vfsmm/DETAILS: 
 	
 	I forgot to update this ... version bump to 1.3.2
-
+	
 2003-08-01 13:19  nhudson
 
 	* gnome2-extras/pyorbit/DETAILS: 
 	
 	Updating pyorbit to new version 1.99.7
-
+	
 2003-08-01 13:18  nhudson
 
 	* devel/pygtk2/DETAILS: 
 	
 	Updating pygtk2 to new version 1.99.17
-
+	
 2003-08-01 13:16  nhudson
 
 	* gnome2-apps/gcalctool/DETAILS: 
 	
 	Updating gcalctool to new version 4.2.103
-
+	
 2003-08-01 12:38  nhudson
 
 	* gnome2-core/gdm/DETAILS: 
 	Updating gdm to new version 2.4.1.5
-
+	
 2003-08-01 04:40  tchan
 
-	* compilers/Python/BUILD: Copied some missing documentation to the
-	/usr/share/doc/Python directory.
-
+	* compilers/Python/BUILD: Copied some missing documentation to the /usr/share/doc/Python directory.
+	
 2003-08-01 03:57  csm
 
-	* compilers/Python/: BUILD, DETAILS: re-reverting Python now that
-	the build is fixed
-
+	* compilers/Python/: BUILD, DETAILS: re-reverting Python now that the build is fixed
+	
 2003-08-01 03:56  csm
 
-	* chat/xchat/BUILD: updated build to make xchat work preoprly with
-	the new Python
-
+	* chat/xchat/BUILD: updated build to make xchat work preoprly with the new Python
+	
 2003-08-01 02:16  nhudson
 
 	* doc-tools/: docbook-3.0/BUILD, docbook-3.0/DEPENDS,
@@ -456,1343 +430,184 @@
 	docbook-4.1/DETAILS, docbook-4.1/POST_INSTALL,
 	docbook-4.1/POST_REMOVE, docbook-4.1/PRE_BUILD,
 	docbook-4.1/PRE_REMOVE: 
-	 Adding docbook 3.0, 3.1, and 4.1 to moonbase.	This is for the new
-	docbook
+	 Adding docbook 3.0, 3.1, and 4.1 to moonbase.  This is for the new docbook
 	 install
-
+	
 2003-08-01 02:04  nhudson
 
 	* chat/xchat-systray-plugin/: BUILD, DEPENDS, DETAILS: 
-	Adding xchat-systray-plugin a plugin for xchat that will put a
-	applet on your gnome-panel.
-
+	Adding xchat-systray-plugin a plugin for xchat that will put a applet on
+	your gnome-panel.
+	
 2003-08-01 00:45  csm
 
 	* compilers/Python/DETAILS: reverting the Python update
-
+	
 2003-07-31 21:22  jol
 
 	* kde3/qt3/DETAILS: Downgrade the version to 3.1.2
-
+	
 2003-07-31 15:49  nhudson
 
 	* zbeta/abiword2/: DEPENDS, DETAILS: 
 	
-	Updating abiword2 to new version 1.99.3 and added a new dependancy
-	libgda2
-
+	Updating abiword2 to new version 1.99.3 and added a new dependancy libgda2
+	
 2003-07-31 14:02  jmhodges
 
 	* compilers/Python/DETAILS: version bump
-
+	
 2003-07-31 12:49  nhudson
 
 	* x11-utils/fontconfig/DEPENDS: 
 	Adding expat as a depends for fontconfig
-
+	
 2003-07-31 12:27  nestu
 
 	* kernel/linux-beta/DETAILS: pump up the volume to 2.6.0-test2!
-
+	
 2003-07-31 12:06  nhudson
 
 	* chat/xchat/: BUILD, DETAILS: 
 	Updating xchat to new version 2.0.4 also cleaning up the BUILD file
-
+	
 2003-07-31 02:01  csm
 
 	* x11-utils/gkrellm-multiping/BUILD: added another sedit
-
+	
 2003-07-31 01:44  csm
 
 	* x11-utils/: gkrellm-multiping/BUILD, gkrellm-multiping/DEPENDS,
 	gkrellm-multiping/DETAILS, gkrellweather/BUILD,
-	gkrellweather/DEPENDS, gkrellweather/DETAILS, mailwatch/DETAILS:
-	updating multiping and adding gkrellweather
-
+	gkrellweather/DEPENDS, gkrellweather/DETAILS, mailwatch/DETAILS: updating multiping and adding gkrellweather
+	
 2003-07-31 00:35  csm
 
 	* net/ntp/DETAILS: a long overdue update to ntp
-
+	
 2003-07-31 00:31  csm
 
 	* x11-utils/gkrellmms/DETAILS: updating this to the latest code
-
+	
 2003-07-30 23:54  csm
 
-	* x11-utils/gkrellm-volume/: BUILD, DEPENDS, DETAILS: renamed
-	gkrellm-volumae
-
+	* x11-utils/gkrellm-volume/: BUILD, DEPENDS, DETAILS: renamed gkrellm-volumae
+	
 2003-07-30 23:30  csm
 
-	* net/maradns/: BUILD, POST_REMOVE, init.d/maradns, init.d/named:
-	fixing this module to use the correct name for its initscript.
+	* net/maradns/: BUILD, POST_REMOVE, init.d/maradns, init.d/named: fixing this module to use the correct name for its initscript.
 	
 	see:
 	
 	http://www.lanana.org/lsbreg/init/init.txt
 	
 	for reference.
-
+	
 2003-07-30 23:03  nestu
 
 	* net/maradns/: BUILD, CONFLICT, DETAILS, POST_INSTALL,
-	POST_REMOVE, lunar_install.locations, init.d/named: Added light and
-	quick dns server maradns to repository
-
+	POST_REMOVE, lunar_install.locations, init.d/named: Added light and quick dns server maradns to repository
+	
 2003-07-30 19:50  niki
 
 	* libs/wxPython/BUILD: Patch from Jan <cmak_@t-online.de> applied.
-
+	
 2003-07-30 19:49  niki
 
-	* mail/razor-agents/BUILD: Patch from Jan <cmak_@t-online.de>
-	applied
-
+	* mail/razor-agents/BUILD: Patch from Jan <cmak_@t-online.de> applied
+	
 2003-07-30 12:08  nhudson
 
 	* gnome2-apps/gpdf/DETAILS: 
 	Updating gpdf to new version 0.105
-
+	
 2003-07-30 12:06  nhudson
 
 	* gnome2-core/libbonoboui/DETAILS: 
 	Updating libbonoboui to new version 2.2.3
-
+	
 2003-07-30 11:37  niki
 
 	* security/snort/DETAILS: Sorry, forgot to bump UPDATED too.
-
+	
 2003-07-30 11:20  niki
 
-	* security/snort/: BUILD, DETAILS, config.d/snort.sysconfig: Bumped
-	to version 2.0.1, and it should run per derfault now.
-
+	* security/snort/: BUILD, DETAILS, config.d/snort.sysconfig: Bumped to version 2.0.1, and it should run per derfault now.
+	
 2003-07-30 10:39  moe
 
 	* x11-utils/gkrellm2/DETAILS: DOH! Forgot UPDATED field again
-
+	
 2003-07-30 10:26  moe
 
 	* x11-utils/gkrellm2/DETAILS: Bumped to 2.1.15
-
+	
 2003-07-30 03:19  csm
 
-	* audio/alsa-driver/DETAILS: updating alsa-driver... builds and
-	works fine here
-
+	* audio/alsa-driver/DETAILS: updating alsa-driver... builds and works fine here
+	
 2003-07-30 02:37  csm
 
-	* utils/e2fsprogs/DETAILS: an updated version builds and functions
-	fine here
-
+	* utils/e2fsprogs/DETAILS: an updated version builds and functions fine here
+	
 2003-07-30 01:58  csm
 
-	* net/net-tools/DETAILS: deleting the extra date info that tchan's
-	vi session inserted when it went bonkers:
+	* net/net-tools/DETAILS: deleting the extra date info that tchan's vi session inserted when it went bonkers:
 	
 	729729729729729729
-
+	
 2003-07-30 01:40  tchan
 
-	* net/net-tools/: DETAILS, lnet: Fixed a typo in lnet and yes I
-	bumped the UPDATED field to force a recompile of net-tools to
-	reinstall lnet.
-
+	* net/net-tools/: DETAILS, lnet: Fixed a typo in lnet and yes I bumped the UPDATED field to force a recompile
+	of net-tools to reinstall lnet.
+	
 2003-07-30 00:52  tchan
 
-	* net/net-tools/DETAILS: Bumping the UPDATED field again for
-	kc8apf.  The UPDATED field MUST be kept current as that is the ONLY
-	mechanism the lunar coretools have to signal to Lunar users that a
-	module needs to be updated!
-
+	* net/net-tools/DETAILS: Bumping the UPDATED field again for kc8apf.  The UPDATED field MUST be kept
+	current as that is the ONLY mechanism the lunar coretools have to signal to
+	Lunar users that a module needs to be updated!
+	
 2003-07-29 17:32  jasper
 
-	* app-themes/gtk-xfce-engine/DETAILS: Fix indentation. Thanks
-	Terry.
-
+	* app-themes/gtk-xfce-engine/DETAILS: Fix indentation. Thanks Terry.
+	
 2003-07-28 22:30  sofar
 
 	* sql/postgresql/DETAILS: eek!
-
+	
 2003-07-28 22:29  sofar
 
 	* sql/postgresql/: BUILD, DETAILS: As requested by ML
-
+	
 2003-07-28 19:10  moe
 
-	* zbeta/giftgnutella-cvs/: BUILD, DEPENDS, DETAILS, POST_INSTALL:
-	There you are .. Gnutella plugin for giftd.
-
+	* zbeta/giftgnutella-cvs/: BUILD, DEPENDS, DETAILS, POST_INSTALL: There you are .. Gnutella plugin for giftd.
+	
 2003-07-28 19:07  moe
 
 	* zbeta/giftopenft-cvs/DETAILS: Darn! Forgot the describtion.
-
+	
 2003-07-28 19:00  moe
 
-	* zbeta/giftopenft-cvs/: BUILD, DEPENDS, DETAILS, POST_INSTALL:
-	gift-cvs now requires extra packages for certain protocols. This is
-	the module for the OpenFT network.
-
+	* zbeta/giftopenft-cvs/: BUILD, DEPENDS, DETAILS, POST_INSTALL: gift-cvs now requires extra packages for certain protocols. This is the module for the OpenFT network.
+	
 2003-07-28 12:01  moe
 
 	* mail/teapop/DETAILS: Bumped version. Tested by Belleye.
-
+	
 2003-07-28 05:30  csm
 
 	* web/bluefish/DETAILS: updating bluefish... tested and good
-
+	
 2003-07-28 05:10  csm
 
 	* crypto/cyrus-sasl/DETAILS: I forgot to update the md5sum
-
+	
 2003-07-27 23:29  csm
 
 	* crypto/cyrus-sasl/DETAILS: updating cyrus-sasl
-
+	
 2003-07-27 19:16  csm
 
-	* profiles/xfce4-profile/DETAILS: a minor change making note of the
-	fact that all is rc2
-
-2003-07-26 21:26  sofar
-
-	* utils/theedge/DEPENDS: Needed!
-
-2003-07-26 21:05  jol
-
-	* graphics/graphviz/DETAILS: Bumped Version  OLD: 1.9  NEW: 1.10
-
-2003-07-26 20:01  moe
-
-	* zbeta/xfce4-session-cvs/CONFLICTS: Forgot a little "conflicts" ..
-	eh jazman? ;-)
-
-2003-07-26 17:05  tchan
-
-	* docs/man-pages/DETAILS: Version bump to 1.58, as noted from the
-	distrowatch emails.
-
-2003-07-26 17:02  tchan
-
-	* utils/reiserfsprogs/DETAILS: Version bump to 3.6.10.	Compiled
-	with gcc-3.2.3 and glibc-2.3.2.
-
-2003-07-26 12:41  jol
-
-	* kde3-apps/karchiver/DETAILS: Bumped Version OLD : 3.0.3  NEW:
-	3.0.4
-
-2003-07-26 12:40  jol
-
-	* kde3/qt3/DETAILS: Forgot the update field ...
-
-2003-07-26 12:34  jol
-
-	* kde3/qt3/DETAILS: Bumped version OLD: 3.1.2  NEW: 3.2.0 I've
-	tested it on two box with KDE and PyQt for each.
-
-2003-07-26 01:35  tchan
-
-	* ham/wwl/BUILD: Added a missing "/" in the chmod command, per
-	Veerappan's request.
-
-2003-07-26 00:11  niki
-
-	* ham/xtalfind/BUILD: Fixed a chmod error...
-
-2003-07-25 23:52  jol
-
-	* doc-tools/doxygen/DETAILS: Bumped version OLD: 1.3.2	NEW: 1.3.3
-
-2003-07-25 21:18  nhudson
-
-	* graphics/gimp2/DETAILS: 
-	Reverting back for now
-
-2003-07-25 20:18  nhudson
-
-	* graphics/gimp2/DETAILS: 
-	Updating gimp2 to new version 1.3.17
-
-2003-07-25 20:17  nhudson
-
-	* web/apache/DETAILS: 
-	Updating apache to new version 1.3.28 per Hendrik Visage
-	<hvisage@envisage.co.za>
-
-2003-07-25 13:50  csm
-
-	* utils/devfsd/devfsd.conf: adding usb palm pilot config. If they
-	don't have one this hurts nothing... but if they do have one it
-	makes it work properly by setting the permissions and creating
-	/dev/palm0 and /dev/palm1 symlinks.
-
-2003-07-25 11:32  moe
-
-	* mail/sylpheed/DETAILS: Bumped version to 0.9.4. Tested and
-	approved.
-
-2003-07-25 03:38  csm
-
-	* utils/pilot-link/DETAILS, x11-apps/jpilot/DETAILS: updating the
-	versions on both of these apps to the latest...  they compile and
-	work fine here!
-
-2003-07-24 20:21  elaine
-
-	* doc-tools/html2db/: BUILD, DETAILS, PRE_BUILD: Initial import,
-	rudimentary html -> sgml tool for the sgml-impaired
-
-2003-07-24 17:17  nhudson
-
-	* web/mozilla/POST_REMOVE: 
-	Adding a POST_REMOVE to mozilla because if you do not remove the
-	older installs of mozilla then galeon will crash.  I have no idea
-	why they arent being uninstalled when you lrm, but this fixes it
-	for now and gets rid of all galeon2 crashes.  Thanks goes to niki
-	for finding this one out!
-
-2003-07-24 07:33  jasper
-
-	* zbeta/: libxfce4gui-cvs/CONFLICTS, libxfce4mcs-cvs/CONFLICTS,
-	libxfce4util-cvs/CONFLICTS, xfce4-battery-plugin-cvs/CONFLICTS,
-	xfce4-cvs/CONFLICTS, xfce4-extras-cvs/CONFLICTS,
-	xfce4mcs-cvs/CONFLICTS, xfce4-session-cvs/CONFLICTS,
-	xfce4-systemload-plugin-cvs/CONFLICTS, xfce4utils-cvs/CONFLICTS,
-	xfdesktop-cvs/CONFLICTS, xffm4-cvs/CONFLICTS,
-	xfgtk2-engine-cvs/CONFLICTS, xfprint-cvs/CONFLICTS: Add proper
-	conflicts with stable version
-
-2003-07-23 20:37  niki
-
-	* editors/elvis/: BUILD, DETAILS: Made a patch to get elvis to
-	compile again with X support.
-
-2003-07-23 17:10  niki
-
-	* utils/raidtools/: BUILD, DETAILS: Made a patch to fix gcc 3.3
-	compile errors.
-
-2003-07-23 12:27  nhudson
-
-	* web/galeon2/DETAILS: 
-	Updating galeon2 yet again to version 1.3.7, apparently 1.3.6 was
-	buggy
-
-2003-07-23 11:20  sofar
-
-	* libs/ncurses/: CONFIGURE, DEPENDS: gpm can be optional much
-	better, since it allows you to automatically insert configure
-	strings. This also makes the dependency system a bit more happy.
-
-2003-07-23 10:50  niki
-
-	* devel/arch/DETAILS: Fixed the website to a correct url.
-
-2003-07-23 09:05  niki
-
-	* devel/arch/: BUILD, DEPENDS, DETAILS: Seems like arch is alive
-	and kicking again.
-
-2003-07-23 05:20  niki
-
-	* zbeta/zsnes-cvs/: BUILD, DEPENDS, DETAILS: Added zsnes cvs module
-	made by Aaron Watry <watryac04@uww.edu> aka Veerappan.
-
-2003-07-23 03:55  csm
-
-	* doc-tools/txt2man/: BUILD, DEPENDS, DETAILS: adding the txtman
-	util. could be useful!
-
-2003-07-23 02:02  csm
-
-	* distributed/distcc/DETAILS: updating the version
-
-2003-07-23 01:33  csm
-
-	* mail/teapop/DETAILS: updating to the latest version
-
-2003-07-23 01:21  csm
-
-	* devel/highlight/: BUILD, DETAILS: Highlight is a universal
-	sourcecode converter for Linux and Windows, which transforms code
-	to HTML, XHTML, RTF, LaTeX or TeX - files with syntax highlighting.
-	(X)HTML output is formatted by CSS.
-
-2003-07-22 23:25  csm
-
-	* x11-utils/MenuMaker/: BUILD, menu2-howto.txt: adding a brief
-	howto by joe klemmer to /usr/share/doc/MenuMaker/
-
-2003-07-22 23:12  csm
-
-	* x11-utils/MenuMaker/: BUILD, DEPENDS, DETAILS: adding menumaker
-	for those4 of us using xfce4 who want to extend our xfce4 menus!
-
-2003-07-22 21:49  jmhodges
-
-	* libs/wxPython/PRE_BUILD:
-	-------------------------------------------------------------------
-	--- apparently not needed with no theedge.. yeesh
-
-2003-07-22 21:44  jmhodges
-
-	* libs/wxPython/PRE_BUILD: sigh.. just a chown
-
-2003-07-22 20:54  sofar
-
-	* utils/: figfonts-contrib/BUILD, figfonts-contrib/DETAILS,
-	figlet/BUILD, figlet/DEPENDS, figlet/DETAILS: Fun For Striker``.
-	everyone enjoy:
+	* profiles/xfce4-profile/DETAILS: a minor change making note of the fact that all is rc2
 	
-	 d8b w	    8	     w
-	  8'  w .d88 8 .d88b w8ww
-	  w8ww 8 8  8 8 8.dP'  8
-	   8   8 `Y88 8 `Y88P  Y8P
-		  wwdP
-
-2003-07-22 18:28  csm
-
-	* web/amaya/DETAILS: forgot to bump the date
-
-2003-07-22 18:24  csm
-
-	* web/amaya/DETAILS: upgrading the version
-
-2003-07-22 15:34  kc8apf
-
-	* sql/mysql/BUILD: Fix build on alpha
-
-2003-07-22 15:09  jol
-
-	* devel/valgrind/DETAILS: Bumped version to a stable version but
-	not a release.	Why because the last version 1.9.6 compile fine but
-	unusable (libpthread link) This version works fine with lunar
-
-2003-07-22 14:14  sofar
-
-	* utils/hnb/: BUILD, DETAILS: <v3rt1g0-work> update request: 'hnb'
-
-2003-07-22 13:48  sofar
-
-	* utils/num-utils/: BUILD, DEPENDS, DETAILS:
-	http://ask.slashdot.org/askslashdot/03/07/22/0539240.shtml?tid=130&
-	tid=185&tid=190
-
-2003-07-22 05:46  jasper
-
-	* xfce4/: xfce-mcs-plugins/DEPENDS, xfce4-iconbox/DEPENDS: Fix
-	depends
-
-2003-07-22 05:11  hardkrash
-
-	* terminal/rdesktop/: BUILD, DEPENDS, DETAILS,
-	rdesktop-fix-makefile.patch: Updating to version 1.2.0 -- Hardkrash
-
-2003-07-22 04:28  jmhodges
-
-	* libs/wxPython/: BUILD, CONFIGURE, DEPENDS, DETAILS: some of you
-	think im committing a crime against humanity for messing with
-	wxPython, i on the other hand am happy i can now run pype.  Version
-	bump and with it a fairly large retooling of the module (read: it
-	compiles, unlike the last one).  have fun kiddies
-
-2003-07-22 02:42  nhudson
-
-	* gnome2-core/ORBit2/DETAILS: 
-	Updating ORBit2 to new version 2.6.3
-
-2003-07-22 02:39  nhudson
-
-	* web/galeon2/DETAILS: 
-	Updating galeon2 to new version 1.3.6
-
-2003-07-21 21:56  sofar
-
-	* ftp/TekNap/: BUILD, DETAILS: gcc3.3 fixes
-
-2003-07-21 21:31  moe
-
-	* libs/gnet2/: DEPENDS, DETAILS: Readding gnet2
-
-2003-07-21 21:25  moe
-
-	* libs/gnet/: DEPENDS, DETAILS: Falling back to 1.1.9 since
-	gnomeicu still needs the old version *grr*
-
-2003-07-21 21:12  sofar
-
-	* x11-apps/bitstream-vera/DETAILS: This makes the lunar menu not
-	break.
-
-2003-07-21 21:07  sofar
-
-	* games/armagetron/: DEPENDS, DETAILS: For Striker``, have fun.
-
-2003-07-21 20:35  moe
-
-	* zbeta/xfce4-session-cvs/: BUILD, DETAILS: Added new funky Lunar
-	linux splash theme. Go and check it out ;-)
-
-2003-07-21 18:01  sofar
-
-	* games/stella/BUILD: fix
-
-2003-07-20 21:37  jasper
-
-	* xfce4/: libxfce4mcs/DETAILS, libxfce4util/DETAILS,
-	libxfcegui4/DETAILS, xfce-mcs-manager/DETAILS,
-	xfce-mcs-plugins/DETAILS, xfce-utils/DETAILS,
-	xfce4-iconbox/DETAILS, xfce4-mixer/DETAILS, xfce4-panel/DETAILS,
-	xfce4-session/DETAILS, xfce4-systray/DETAILS, xfce4-themes/DETAILS,
-	xfce4-toys/DETAILS, xfce4-trigger-launcher/DETAILS,
-	xfdesktop/DETAILS, xffm/DETAILS, xffm-icons/DETAILS,
-	xfprint/DETAILS, xfwm4/DETAILS, xfwm4-themes/DETAILS: Update to
-	xfce4 rc2
-
-2003-07-20 21:14  jasper
-
-	* app-themes/gtk-xfce-engine/DETAILS: Update for xfce4 rc2 release
-
-2003-07-20 20:38  moe
-
-	* libs/gnet/: DEPENDS, DETAILS: Updating gnet to stable (glib-2
-	depended) 2.0.3
-
-2003-07-20 19:34  sofar
-
-	* utils/: lunar/DEPENDS, lunar/DETAILS, theedge/DEPENDS,
-	theedge/DETAILS: Setting PARTIAL to off, adding 'cvs' as optional
-	depends since this can be used now realitively okaish.
-
-2003-07-20 16:43  nhudson
-
-	* zbeta/sylpheed-gtk2-beta/BUILD: 
-	Fixing the BUILD file because there is no /opt/lunar/gpgme-0.4.x,
-	there is only /opt/lunar/gpgme-0.3.x
-
-2003-07-20 15:37  sofar
-
-	* zbeta/: ieee1394-svn/DETAILS, linux-devel-svn/BUILD,
-	linux-devel-svn/CONFIGURE, linux-devel-svn/DEPENDS,
-	linux-devel-svn/DETAILS, linux-devel-svn/POST_INSTALL,
-	linux-devel-svn/PRE_BUILD: Adding two example modules with svn://
-	urls, note that they might now be fully functional but the
-	lget/download part is tested and OK. Anyone wishing to extend these
-	2 modules is more than welcome.
-
-2003-07-20 07:43  jasper
-
-	* mail/sylpheed-gtk2/DETAILS: Fix module name
-
-2003-07-20 01:07  jol
-
-	* utils/lm_sensors/DETAILS: Bumped version OLD: 2.6.5  NEW: 2.8.0
-	Add MD5 field
-
-2003-07-20 01:05  jol
-
-	* libs/i2c/: CONFLICTS, DETAILS: Bumped version OLD: 2.6.5  NEW:
-	2.8.0 Add MD5 field Add conflicts with linux beta because sensors
-	are integrated in 2.5
-
-2003-07-20 00:24  jol
-
-	* docs/man-fr/: BUILD, CONFLICTS, DETAILS: Add man pages in french
-	There is several languages disponible at
-	http://www.tldp.org/docs.html#man
-
-2003-07-19 23:37  moe
-
-	* zbeta/sylpheed-gtk2-beta/: BUILD, CONFLICTS, DEPENDS, DETAILS:
-	This module is the GTK2 version of sylpheed 0.9.1.  Its quite an
-	ungly hack at the moment and you must have gpgme installed to get
-	it to work. The autotools are borked if you don't have it
-	installed.
-	
-	If you want to fix it find a way to edit configure.ac to strip out
-	the lines defining wether to use gpgme or not if chosen to not
-	install with gpgme support. I would have done it myself but I'm a)
-	too tired and b) maybe not skilled enough to do it. Feel free to go
-	ahead.
-	
-	hint: If you want a stable (though outdated) GTK2 sylpheed use the
-	sylpheed-gtk2 module
-	
-	Moe
-
-2003-07-19 22:29  nhudson
-
-	* mail/sylpheed-gtk2/DETAILS: 
-	The MODULE line in the DETAILS file was named sylpheed and not
-	sylpheed-gtk2, there was some unpacking problems with this so I
-	fixed it :)
-
-2003-07-19 21:33  moe
-
-	* mail/sylpheed-gtk2/: BUILD, CONFLICTS, DEPENDS, DETAILS: Weeee!
-	Here comes sylpheed with GTK2 support! ENJOY!
-
-2003-07-19 20:23  csm
-
-	* gnome2-apps/pkgview/DETAILS: fixed broken URL
-
-2003-07-19 20:05  nhudson
-
-	* mail/balsa2/DETAILS: 
-	Updating balsa2 to new version 2.0.12
-
-2003-07-19 20:03  nhudson
-
-	* audio/sound-juicer/DETAILS: 
-	Updating sound-juicer to new version 0.4.1
-
-2003-07-19 20:01  nhudson
-
-	* gnome2-apps/: gcalctool/DETAILS, pkgview/DETAILS: 
-	updating gcalctool to new version and updating pkgview to new
-	version 1.0.1
-
-2003-07-19 19:57  nhudson
-
-	* gnome2-core/libglade2/: BUILD, DETAILS, PRE_BUILD: 
-	Removing the PRE_BUILD file due to that its an ugly hack, now that
-	Python will be built with expat it is no longer needed
-
-2003-07-19 19:53  nhudson
-
-	* compilers/Python/DEPENDS: 
-	Adding expat as a dependancy to Python, to fix a libglade2 problem
-
-2003-07-19 19:33  sofar
-
-	* security/shadow/adduser: Adding the upg scheme to adduser!
-
-2003-07-19 16:31  nhudson
-
-	* chat/gossip/: BUILD, DEPENDS, DETAILS: 
-	Adding gossip to moonbase, Gossip is a Gnome2 based jabber client
-
-2003-07-19 16:30  nhudson
-
-	* libs/loudmouth/: BUILD, DETAILS: 
-	Adding loudmouth to moonbase, Loudmouth is a library for Gossip a
-	Gnome2 based Jabber client
-
-2003-07-19 14:52  nhudson
-
-	* gnome2-apps/meld/DEPENDS: 
-	Changing orbit-python to pyorbit in the depends file
-
-2003-07-19 14:49  nhudson
-
-	* gnome2-extras/pyorbit/: BUILD, DEPENDS, DETAILS: 
-	Changing the name of orbit-python to its newer name pyorbit and
-	updating the version to 1.99.5
-
-2003-07-19 14:35  moe
-
-	* app-themes/gtk-thinice-engine/: DEPENDS, DETAILS: Adding ThinIce
-	GTK engine
-
-2003-07-19 14:33  moe
-
-	* app-themes/gtk-thincream-engine/DETAILS: Thincream is not Thinice
-
-2003-07-19 14:29  csm
-
-	* chat/gaim/DETAILS: updating... fixed segfault... mv ~/.gaim
-	~/.gaim-backup is reuired prior to execution
-
-2003-07-19 12:00  sofar
-
-	* docs/man-pages/DETAILS: version bump.
-
-2003-07-19 11:57  sofar
-
-	* web/bluefish/DETAILS: Version bump.
-
-2003-07-19 00:23  csm
-
-	* chat/gaim/DETAILS: reverting since the new one segfaults!
-
-2003-07-18 20:46  moe
-
-	* chat/gaim/DETAILS: b0rk! Forgot the UPDATED field ..
-
-2003-07-18 20:42  moe
-
-	* chat/gaim/: BUILD, DETAILS: Bumped version to 0.66 and removed
-	the patches (since they got merged into 0.66)
-
-2003-07-18 17:10  jol
-
-	* cd/k3b/DETAILS: Bumped version  OLD: 0.8.1  NEW: 0.9
-
-2003-07-18 16:18  jmhodges
-
-	* libs/PyOpenGL/: BUILD, DEPENDS: it compiles now, yay, but no
-	tcl/tk support, enh
-
-2003-07-18 16:17  jmhodges
-
-	* libs/numpy/DETAILS: version bump
-
-2003-07-18 07:12  kc8apf
-
-	* video/transcode/DETAILS: Update version
-
-2003-07-17 23:36  csm
-
-	* mail/fetchmail/DETAILS, utils/reiserfsprogs/DETAILS: updated
-	version
-
-2003-07-17 22:18  sofar
-
-	* x11-utils/gkrellm2/BUILD: Stay out of /usr/local!!!
-
-2003-07-17 21:40  sofar
-
-	* utils/lilo/DETAILS: AND YEAH I TESTED THIS WITH A FEW REBOOTS!!!
-
-2003-07-17 20:22  moe
-
-	* zbeta/xfce4-systemload-plugin-cvs/: BUILD, DEPENDS, DETAILS:
-	Adding CPU monitor plugin for the XFce4 panel
-
-2003-07-17 20:20  moe
-
-	* zbeta/xfce4-battery-plugin-cvs/: BUILD, DEPENDS, DETAILS: Adding
-	new battery monitor for the XFce4 panel
-
-2003-07-17 20:14  moe
-
-	* x11-utils/nvtv/: BUILD, DEPENDS, DETAILS: Added module nvtv for
-	TV-out tweaking of Nvidia based cards.	It features an (optional)
-	GTK2 interface.
-
-2003-07-17 14:54  jasper
-
-	* xfce4/: libxfce4mcs/DETAILS, libxfce4util/DETAILS,
-	libxfcegui4/DETAILS, xfce-mcs-manager/DETAILS,
-	xfce-mcs-plugins/DETAILS, xfce-utils/DETAILS,
-	xfce4-iconbox/DETAILS, xfce4-mixer/DETAILS, xfce4-panel/DETAILS,
-	xfce4-session/DETAILS, xfce4-systray/DETAILS, xfce4-themes/DETAILS,
-	xfce4-toys/DETAILS, xfce4-trigger-launcher/DETAILS,
-	xfdesktop/DETAILS, xffm/DETAILS, xffm-icons/DETAILS,
-	xfprint/DETAILS, xfwm4/DETAILS, xfwm4-themes/DETAILS: Forgot to
-	properly indent DETAILS
-
-2003-07-17 13:24  nhudson
-
-	* profiles/gnome2/DEPENDS: 
-	Adding gnome-audio to the list of depends
-
-2003-07-17 13:22  nhudson
-
-	* gnome2-core/gnome-audio/: BUILD, DETAILS: 
-	Renaming gnome-audio2 to gnome-audio
-
-2003-07-17 02:17  csm
-
-	* editors/cooledit/DETAILS: updating
-
-2003-07-17 00:18  csm
-
-	* editors/cc-mode/BUILD: cc-mode was broken... now fixed
-
-2003-07-17 00:13  csm
-
-	* editors/manedit/: BUILD, DETAILS: updating the version of manedit
-
-2003-07-16 22:36  csm
-
-	* docs/abs-guide/DETAILS: updating to the latest version
-
-2003-07-16 21:02  nhudson
-
-	* gnome/gnome-libs/DEPENDS: 
-	Adding libxml to the depends list for gnome-libs
-
-2003-07-16 20:07  sofar
-
-	* utils/openldap/DETAILS: yeah another version, lets keep it
-	up-to-date a bit now...
-
-2003-07-15 21:55  nhudson
-
-	* web/epiphany/DETAILS: 
-	God I swear im stupid thx jasper
-
-2003-07-15 20:31  niki
-
-	* gnome2-extras/ghex/: BUILD, DETAILS: Added a patch so that ghex
-	will compile again. Thanks goes to dannym on #xfce, for telling we
-	how va_start and va_end is used, when i had to make the patch ;-)
-
-2003-07-15 20:13  jasper
-
-	* xfce4/xfce4-session/DETAILS: This one is still much more in
-	development than the other xfce4 modules. Bumped to 0.1.1
-
-2003-07-15 18:17  jasper
-
-	* doc-tools/auctex/: BUILD, DEPENDS, DETAILS: Add auctex, Latex
-	mode for emacs.
-
-2003-07-15 17:27  jasper
-
-	* xfce4/libxfce4mcs/CONFLICTS, xfce4/libxfce4mcs/DEPENDS,
-	xfce4/libxfce4mcs/DETAILS, xfce4/libxfce4util/CONFLICTS,
-	xfce4/libxfce4util/DEPENDS, xfce4/libxfce4util/DETAILS,
-	xfce4/libxfcegui4/CONFLICTS, xfce4/libxfcegui4/DEPENDS,
-	xfce4/libxfcegui4/DETAILS, xfce4/xfce-mcs-manager/CONFLICTS,
-	xfce4/xfce-mcs-manager/DEPENDS, xfce4/xfce-mcs-manager/DETAILS,
-	xfce4/xfce-mcs-plugins/CONFLICTS, xfce4/xfce-mcs-plugins/DEPENDS,
-	xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/CONFLICTS,
-	xfce4/xfce-utils/DEPENDS, xfce4/xfce-utils/DETAILS,
-	xfce4/xfce4-iconbox/CONFLICTS, xfce4/xfce4-iconbox/DEPENDS,
-	xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-mixer/CONFLICTS,
-	xfce4/xfce4-mixer/DEPENDS, xfce4/xfce4-mixer/DETAILS,
-	xfce4/xfce4-panel/CONFLICTS, xfce4/xfce4-panel/DEPENDS,
-	xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/CONFLICTS,
-	xfce4/xfce4-session/DEPENDS, xfce4/xfce4-session/DETAILS,
-	xfce4/xfce4-systray/CONFLICTS, xfce4/xfce4-systray/DEPENDS,
-	xfce4/xfce4-systray/DETAILS, xfce4/xfce4-themes/CONFLICTS,
-	xfce4/xfce4-themes/DEPENDS, xfce4/xfce4-themes/DETAILS,
-	xfce4/xfce4-toys/CONFLICTS, xfce4/xfce4-toys/DEPENDS,
-	xfce4/xfce4-toys/DETAILS, xfce4/xfce4-trigger-launcher/CONFLICTS,
-	xfce4/xfce4-trigger-launcher/DEPENDS,
-	xfce4/xfce4-trigger-launcher/DETAILS, xfce4/xfdesktop/CONFLICTS,
-	xfce4/xfdesktop/DEPENDS, xfce4/xfdesktop/DETAILS,
-	xfce4/xffm/CONFLICTS, xfce4/xffm/DEPENDS, xfce4/xffm/DETAILS,
-	xfce4/xffm-icons/CONFLICTS, xfce4/xffm-icons/DEPENDS,
-	xfce4/xffm-icons/DETAILS, xfce4/xfprint/CONFLICTS,
-	xfce4/xfprint/DEPENDS, xfce4/xfprint/DETAILS,
-	xfce4/xfwm4/CONFLICTS, xfce4/xfwm4/DEPENDS, xfce4/xfwm4/DETAILS,
-	profiles/xfce4-extras-profile/BUILD,
-	profiles/xfce4-extras-profile/DEPENDS,
-	profiles/xfce4-extras-profile/DETAILS,
-	profiles/xfce4-extras-profile/POST_BUILD,
-	profiles/xfce4-extras-profile/PRE_BUILD,
-	profiles/xfce4-profile/BUILD, profiles/xfce4-profile/DEPENDS,
-	profiles/xfce4-profile/DETAILS, profiles/xfce4-profile/POST_BUILD,
-	profiles/xfce4-profile/PRE_BUILD, xfce4/xfwm4-themes/CONFLICTS,
-	xfce4/xfwm4-themes/DEPENDS, xfce4/xfwm4-themes/DETAILS: Add xfce4
-	section with packages for rc1 (4.0 soon) and two new profiles
-
-2003-07-15 17:16  jasper
-
-	* app-themes/gtk-xfce-engine/: CONFLICTS, DEPENDS, DETAILS: Update
-	xfce engine to 2.1.2
-
-2003-07-15 16:47  sofar
-
-	* devel/mod_python/DETAILS: Fixing the thick fingerwork of Nick ;^)
-
-2003-07-15 12:34  nhudson
-
-	* web/epiphany/: BUILD, DETAILS: 
-	Updating epiphany to new version 0.8.0.  If you have a customized
-	UI then you will need to remember what you did because it will not
-	save it due to improvements to the UI
-
-2003-07-15 07:17  sofar
-
-	* zbeta/xfce4-session-cvs/BUILD: Last time I thouch this
-	one...okay?
-
-2003-07-14 23:11  csm
-
-	* net/nfs-utils/: BUILD, DETAILS: this is a security fix... all
-	users should update!
-
-2003-07-14 22:44  sofar
-
-	* zbeta/xfce4-session-cvs/: BUILD, POST_INSTALL: Properly adding
-	Moe's themes, note the mkdir -p. people who had installed
-	xfce4-session-cvs before might have to manually remove the 2
-	offending themes since they were not tracked properly. Once you
-	remove them this module works fine.
-
-2003-07-14 19:37  elaine
-
-	* chat/dancer-ircd/: BUILD, CONFLICTS, DETAILS, POST_INSTALL,
-	services, init.d/dancer-ircd: Initial import of dancer module into
-	lunar, goes with dancer-services
-
-2003-07-14 15:50  csm
-
-	* graphics/gtk+-2/DETAILS: fixing the URL for the shadow patch
-
-2003-07-14 11:43  nhudson
-
-	* app-themes/gnome-themes-extras/DETAILS: 
-	Removing scalable-gorilla and Nuvola icon themes from moonbase
-	because they are both in gnome-themes-extras and are not needed
-	anymore.
-
-2003-07-14 11:40  nhudson
-
-	* libs/libart_lgpl/DETAILS: 
-	updating libart_lgpl to new version 2.3.13
-
-2003-07-14 11:38  nhudson
-
-	* gnome2-core/bonobo-activation/DETAILS: 
-	Updating bonobo-activation to new version 2.2.3.  If you are
-	running evolution you will have to either restart or run
-	"bonobo-slay" to get things working again.
-
-2003-07-14 03:34  kc8apf
-
-	* gnustep/gnustep-make/BUILD: Fix build for gnustep-make to located
-	gnustep correctly in /
-
-2003-07-14 01:26  csm
-
-	* mail/smtpclient/DEPENDS: I had commented this out for testing...
-	I forgot to uncomment it
-
-2003-07-14 01:14  csm
-
-	* mail/smtpclient/: DEPENDS, DETAILS, POST_INSTALL: okay so
-	smtpclient installs and configs postfix properly if spamassasin and
-	postfix are installed
-
-2003-07-14 00:45  csm
-
-	* mail/postfix/DEPENDS: adding some useful optional_depends
-
-2003-07-14 00:29  csm
-
-	* mail/spamassassin/DEPENDS: adding an optional depends for
-	smtpclient which is very useful with spamassassin and postfix if
-	you are using Maildir ala courier-imap
-
-2003-07-14 00:26  csm
-
-	* mail/smtpclient/DETAILS: adding smtpclient. this is very useful
-	with postfix and spamassassin if you want to run spamassassin as a
-	daemon and still be able to avoid the use of procmail for local
-	delivery. i am using it with Maildir and courier-imap so that
-	spamassasin will work as a daemon.
-	
-	See http://jessen.ch/articles/enidans-spamassassin.shtml for more
-	info!
-
-2003-07-13 21:59  sofar
-
-	* zbeta/blender-cvs/DETAILS: This is the new blender CVS version,
-	this will force you to freshly checkout blender-cvs, and that's
-	needed because the tree slightly changed beyond CVS's powers.
-
-2003-07-13 20:29  sofar
-
-	* chat/dancer-services/: BUILD, DETAILS: Adding the dancer-ircd
-	services (unusable for now...)
-
-2003-07-13 15:03  sofar
-
-	* chat/ircservices/: BUILD, DETAILS: Adding IRC services... beware
-	this is still crude stuff.
-
-2003-07-13 14:12  moe
-
-	* zbeta/xfce4-session-cvs/DETAILS: Added new lunar mirrors
-
-2003-07-13 13:58  moe
-
-	* zbeta/xfce4-session-cvs/POST_INSTALL: Added some tweaks and the
-	FrancoisSpecial theme.
-
-2003-07-13 13:57  moe
-
-	* zbeta/xfce4-session-cvs/DETAILS: Final fix, added FrancoisSpecial
-	theme.
-
-2003-07-13 13:15  moe
-
-	* games/eboard/DETAILS: Version has been bumped to 0.9.0
-
-2003-07-13 13:12  sofar
-
-	* chat/ircd-hybrid/: BUILD, DETAILS, init.d/irc, init.d/ircd: I'm
-	giving up on it now.. its too big a mess...
-
-2003-07-13 12:55  moe
-
-	* zbeta/xfce4-session-cvs/POST_INSTALL: Added POST_INSTALL for
-	theme installing.
-
-2003-07-13 12:54  moe
-
-	* zbeta/xfce4-session-cvs/DETAILS: Install additional theme
-	"MoeSpecial" by default.
-
-2003-07-12 20:45  sofar
-
-	* devel/automake/DETAILS: . <- just a small bump.
-
-2003-07-12 17:42  sofar
-
-	* utils/Wine/DETAILS: After a while you just need some new Wine
-
-2003-07-12 14:04  jol
-
-	* archive/unrar/DETAILS: Bumped version OLD: 3.1.4  NEW: 3.2.0
-
-2003-07-12 13:37  jol
-
-	* audio/xmms-nebulus/DETAILS: Add MD5 field ...
-
-2003-07-12 13:34  jol
-
-	* audio/xmms-nebulus/DETAILS: Bumped version 0.3 to 0.5
-
-2003-07-12 13:29  jol
-
-	* audio/xmms-goodnight/DETAILS: Bumped version OLD: 0.3.1  NEW:
-	0.3.2 Add MD5 field
-
-2003-07-12 13:25  jol
-
-	* audio/xmms-crossfade/DETAILS: Bumped version OLD: 0.2.9 NEW:
-	0.3.2 Add MD5 field
-
-2003-07-12 13:23  jol
-
-	* audio/xmms-alarm/DETAILS: Bumped version  OLD: 0.2.2 NEW: 0.3.3
-	Add MD5 field
-
-2003-07-12 13:14  jol
-
-	* kde3-utils/superkaramba/DETAILS: Bumped version OLD: 0.28  NEW:
-	0.29 add md5 field
-
-2003-07-12 13:00  jol
-
-	* devel/PyQt/DEPENDS: Add qscintilla has optional depends
-
-2003-07-12 12:57  jol
-
-	* editors/eric/: BUILD, DEPENDS, DETAILS: Add eric, a powerfull
-	editor for python and some other languages
-
-2003-07-12 12:53  jol
-
-	* libs/qscintilla/: BUILD, DEPENDS, DETAILS: Add qscintilla. It's a
-	library to create editor
-
-2003-07-12 12:44  jol
-
-	* utils/module-init-tools/DETAILS: Bumped version OLD: 0.11a  NEW:
-	0.12
-
-2003-07-12 10:06  jol
-
-	* ftp/lftp/DETAILS: Correct the MD5 sum
-
-2003-07-11 22:38  nhudson
-
-	* doc-tools/: docbook-xsl/POST_INSTALL, gtk-doc/DEPENDS,
-	scrollkeeper/POST_INSTALL: 
-	Trying to fix somethings so that gtk-doc works out of the box, I
-	hope this works!
-
-2003-07-11 22:28  nhudson
-
-	* profiles/docbook-profile/POST_INSTALL: 
-	Adding a POST_INSTALL to rebuild all docbook catalogs after you
-	install the profile
-
-2003-07-11 21:46  sofar
-
-	* kernel/linux-beta/CONFIGURE: Its really nice to see all the
-	commit logs, especially since I can see how hard everyone is
-	working. Nestu: I just added some color to your pwetty configure,
-	and removed one unneeded thingy. cute....
-
-2003-07-11 19:35  nestu
-
-	* kernel/linux-beta/CONFIGURE: The user is prompted: * Install of
-	module-init-tools (because it mucks up modutils install) * Use an
-	alternative .config file
-
-2003-07-11 19:32  nestu
-
-	* kernel/linux-beta/DETAILS: Bumped the version up to 2.5.75
-
-2003-07-11 17:29  nhudson
-
-	* profiles/gnome2-fifth-toe/DEPENDS: 
-	Updating gnome-fifth-toe
-
-2003-07-11 15:33  nhudson
-
-	* zbeta/abiword2/DETAILS: 
-	Updating abiwrod2 to new version 1.99.2 which is 2.0.0 beta2
-
-2003-07-11 15:32  nhudson
-
-	* gnome2-extras/gal2/DETAILS: 
-	Updating gal2 to new version 1.99.8
-
-2003-07-11 15:31  nhudson
-
-	* gnome/gtkhtml3/DETAILS: 
-	Updating gtkhtml3 to new version 3.0.7
-
-2003-07-11 15:30  nhudson
-
-	* mail/evolution/: BUILD, DEPENDS, DETAILS: 
-	Updating evolution to new version 1.4.3, I added ipv6 support and
-	also now (jmhodges should love this) LDAP works again.
-
-2003-07-11 14:24  sofar
-
-	* editors/gawk/DETAILS: Bumping version.
-
-2003-07-11 07:04  jol
-
-	* devel/sip/DETAILS: Fix a typo ...
-
-2003-07-11 07:01  jol
-
-	* devel/: sip/DETAILS, PyQt/DETAILS: Bumped version OLD: 3.6  NEW:
-	3.7 Add MD5 field
-
-2003-07-11 01:43  nhudson
-
-	* gnome2-core/: libgnome/DETAILS, libgnomeui/DETAILS,
-	libgtkhtml/DETAILS: 
-	Bringing the version of Gnome Desktop Environment up to 2.2.2, have
-	fun!
-
-2003-07-10 22:22  moe
-
-	* libs/dbh/: DEPENDS, POST_INSTALL: dbh depends on automake. Added
-	a POST_INSTALL for ldconfig.
-
-2003-07-10 22:21  moe
-
-	* libs/dbh/DETAILS: Some updates and fixes
-
-2003-07-10 22:20  moe
-
-	* libs/dbh/BUILD: Some cleanups like getting ldconfig to
-	POST_INSTALL
-
-2003-07-10 21:39  jasper
-
-	* zbeta/xfce4-extras-cvs/DEPENDS: xfcalendar depends on dbh
-
-2003-07-10 21:37  sofar
-
-	* graphics/ImageMagick/: BUILD, DEPENDS, DETAILS: 1) Updated to
-	newer version.	2) moved completely to /graphics/, because
-	ImageMagick has no bloody clue whatsoever about any printer.
-	PERIOD. It's a lib with image manipulation stuff, okay?
-
-2003-07-10 21:36  nhudson
-
-	* gnome2-core/: gnome-media2/DETAILS, gnome-panel/DETAILS: 
-	
-	Updating gnome-panel to new version 2.2.2.2, gnome-audio2 to new
-	version 2.0.0 and gnome-media to new version 2.2.2
-
-2003-07-10 21:29  sofar
-
-	* ftp/lftp/DETAILS: no b0rky b0rky this time, new version of lftp
-
-2003-07-10 21:03  sofar
-
-	* net/netatalk/DETAILS: New version of netatalk...
-
-2003-07-10 20:19  sofar
-
-	* ftp/vsftpd/DETAILS: Updated to new version, removing init.d
-	script since it doesn't work anyways.
-
-2003-07-10 19:54  sofar
-
-	* mail/imap/BUILD: This doesn't fix #310, but it's a bit more
-	decent...
-
-2003-07-10 14:42  niki
-
-	* libs/libxml2/POST_INSTALL: Removed rodzillas old message, which
-	is obsolite now.
-
-2003-07-10 13:03  nhudson
-
-	* devel/mod_python/: BUILD, DEPENDS, DETAILS: 
-	Adding mod_python to moonbase, this module works with apache2 only
-	as far as I can tell.  I havent done any testing with apache 1.3.x
-
-2003-07-10 09:54  jasper
-
-	* zbeta/xfce4-extras-cvs/BUILD: minor fix
-
-2003-07-10 09:52  jasper
-
-	* profiles/xfce4-cvs-profile/DEPENDS, zbeta/xfce4-extras-cvs/BUILD:
-	Iconbox moved to extras
-
-2003-07-10 03:53  csm
-
-	* mail/mailman/POST_INSTALL: making it "quiet"
-
-2003-07-10 03:52  csm
-
-	* mail/mailman/POST_INSTALL: fixing mailman to add the required
-	mailman list when necessary
-
-2003-07-10 03:46  csm
-
-	* net/whois/CONFLICTS: whois conflicts with bw-whois. this is a bad
-	thing!
-
-2003-07-09 21:32  sofar
-
-	* mail/imap/DETAILS: Bumping this, it's been in php for ages
-	already...
-
-2003-07-09 21:25  nhudson
-
-	* web/epiphany/DETAILS: 
-	Man I have no idea why this wasnt updated earlier, anyway updated
-	to 0.7.3
-
-2003-07-09 21:18  nhudson
-
-	* zbeta/galeon_cvs/BUILD: 
-	Fixing the BUILD script so it works with Moz 1.4
-
-2003-07-09 03:43  nhudson
-
-	* web/apache2/DETAILS: 
-	Updating apache2 to new version 2.0.47, have fun!
-
-2003-07-09 03:13  nhudson
-
-	* perl/mod_perl-old/: BUILD, DEPENDS, DETAILS: 
-	Adding mod_perl-old to moonbase, this is the older version of
-	mod_perl that works with older version of Apache 1.3.x series.
-
-2003-07-09 03:06  nhudson
-
-	* devel/anjuta/DETAILS: 
-	Reverting back to Anjuta 1.0.2 because of some nasty bugs that have
-	come up with the newer version
-
-2003-07-08 14:17  nhudson
-
-	* gnome2-extras/libcroco/POST_INSTALL: 
-	Adding a POST_INSTALL to this module as the new version breaks ABI
-	code from the older version.  If nautilus and librsvg arent rebuilt
-	they break.
-
-2003-07-08 13:16  nhudson
-
-	* gnome2-apps/mozilla-bonobo/: BUILD, POST_INSTALL: 
-	Fixing mozilla-bonobo, the plugin install directory was
-	/opt/lunar/gnome/2 and not /opt/lunar/gnome/2/lib, also the
-	POST_INSTALL and POST_REMOVE files where not chmod +x, that is
-	fixed now also.
-
-2003-07-08 12:33  nhudson
-
-	* gnome2-applets/quick-lounge-applet/DETAILS: 
-	Updating quick-lounge-applet to new version 2.0.0
-
-2003-07-08 12:32  nhudson
-
-	* graphics/gthumb/DETAILS: 
-	Updating gthumb to new version 2.1.3
-
-2003-07-08 12:31  nhudson
-
-	* libs/: libxml2/DETAILS, libxslt/DETAILS: 
-	Updating libxml2 to new version 2.5.8 and libxslt to new version
-	1.0.31
-
-2003-07-08 12:29  nhudson
-
-	* gnome2-extras/libcroco/DETAILS: 
-	Updating libcroco to new version 0.3.0
-
-2003-07-08 12:03  nhudson
-
-	* gnome2-apps/battfink/DETAILS: 
-	Updating battfink to new version 0.6
-
-2003-07-08 05:49  kc8apf
-
-	* video/ogmtools/DETAILS: Version bump
-
-2003-07-08 05:41  kc8apf
-
-	* mail/courier-imap/DETAILS: Version bump
-
-2003-07-08 04:38  kc8apf
-
-	* science/galculator/: DEPENDS, DETAILS: Version bump and depends
-	addition
-
-2003-07-08 02:51  csm
-
-	* mail/postfix/DETAILS: updating to the newest version
-
-2003-07-08 00:59  csm
-
-	* x11-utils/xpad/: DEPENDS, DETAILS: this is a cool new app that
-	puts a yellow sticky pad on your X11 desktop!
-	
-	very cool!
-
-2003-07-07 22:03  jasper
-
-	* profiles/xfce4-cvs-profile/DEPENDS,
-	zbeta/xfce4-session-cvs/BUILD, zbeta/xfce4-session-cvs/DEPENDS,
-	zbeta/xfce4-session-cvs/DETAILS: Add xfce4 session manager
-
-2003-07-07 21:17  sofar
-
-	* profiles/netutils-profile/: BUILD, DEPENDS, DETAILS, POST_BUILD,
-	PRE_BUILD: Adding this module that contains the *basic* networking
-	tools required for normal networking operation like ping,
-	traceroute, traffic monitoring, ftp, rsync, nmap, iptables, ntp.
-	It's also an open invitation to all devs to add other modules in
-	here that can be considered part of basic needed networking tools.
-	
-	Main reason is I keep forgetting to install basic networking stuff
-	on new boxes, you know, the tools you only use on occasion but in
-	the end quite often. So by making it a profile I only have to
-	remember once which things I use and just take a small moment
-	installing then (hey, they're all quite small anyway....)
-	
-	hmm this log message seems way more than adequate.
-	
-	no wait!
-	
-	aaargh.
-
-2003-07-07 20:38  niki
-
-	* zbeta/giftui-cvs/DETAILS: Corrected a miss pasting...
-	
-	<sofar> so? fix it and get 10 credits... tssss <niki> lol... /me
-	runs all he can to fix sofar miss pasting ;-) * sofar smacks niki
-
-2003-07-07 17:04  sofar
-
-	* chat/xchat/: BUILD, DETAILS: Bah 2 extra official patches for
-	xchat... no more segfaults with tinted transparancy...
-
-2003-07-07 15:16  tchan
-
-	* libs/uClibc/: .config.bz2, DETAILS: Version bump to 0.9.20. 
-	Compiled and tested with gcc-3.2.3.
-
