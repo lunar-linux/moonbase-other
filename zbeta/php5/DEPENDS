@@ -1,4 +1,5 @@
 depends  readline  &&
+
 optional_depends  "aspell"                      \
                   "--with-pspell"               \
                   ""                            \
@@ -68,7 +69,7 @@ optional_depends "gd"                           \
                  "--with-gd                     \
                   --enable-gd-native-ttf        \
                   --with-jpeg-dir=/usr          \
-                  --with-png-dir=/usr"                  \
+                  --with-png-dir=/usr"          \
                  ""                             \
                   "for on the fly graphics"     &&
 
@@ -87,10 +88,10 @@ optional_depends "expat"                        \
                  ""                             \
                  "for expat xml support"        &&
 
-optional_depends "libxml2"				\
-		"--with-libxml-dir=/usr" \
-		"--disable-libxml"	\
-		"for DOMXML support"			&&
+optional_depends "libxml2"			\
+		"--with-libxml-dir=/usr"        \
+		"--disable-libxml"	        \
+		"for DOMXML support"		&&
 
 optional_depends "libxslt"			\
 		"--with-xsl=/usr" \
