@@ -39,7 +39,7 @@ function device_start() {
 
 	# load module if specified
 	if [ ! -z $MODULE ]; then
-	    modprobe $MODULE $MODULE_OPTIONS;
+	    modprobe $MODULE;
 	fi;
 
 	if ( [ ! -z $WIRELESS_MODE ] || [ ! -z $WIRELESS_KEY ] || [ ! -z $WIRELESS_RATE ] || [ ! -z $WIRELESS_ESSID ] ); then
@@ -217,7 +217,7 @@ start() {
 	        echo -n " * Starting lo: "
 		/sbin/ifconfig lo 127.0.0.1 netmask 255.0.0.0;
 		/sbin/route add -net 127.0.0.0 netmask 255.0.0.0 dev lo;
-	        echo $RESULT_OK
+	        echo -e $RESULT_OK
 	fi;
 
 	# Do startup for all interfaces if none is specified
@@ -227,20 +227,20 @@ start() {
 		device_start $device auto
 		chkresult
 	    done;
-	    if [ -e $CONFIG_DIR/gateway ]; then
-	       GATEWAY=`cat $CONFIG_DIR/gateway`
+	    if [ -e /etc/config.d/gateway ]; then
+	       GATEWAY=`cat /etc/config.d/gateway`
 	       if [ ! -z $GATEWAY -a ! $(route -n | grep $GATEWAY | wc -l) -ge 1 ]; then
 	           echo -n " * setting default route: "
 	           if [ ! -x /sbin/route ]; then
 	            echo -n "route not installed";
-		    echo $RESULT_FAIL;
+		    echo -e $RESULT_FAIL;
 	           else
 	            /sbin/route add default gateway $GATEWAY;
 	            if [ `route -n | grep $GATEWAY | wc -l` -lt 1 ]; then
 		      echo -n "failed to set gateway";
-		      echo $RESULT_FAIL;
+		      echo -e $RESULT_FAIL;
 	            fi;
-	            echo $RESULT_OK
+	            echo -e $RESULT_OK
 	           fi;
 	       fi;
 	   fi;
@@ -254,7 +254,7 @@ start() {
 stop() {
 	echo "Stopping network:"
 	if [ -z $2 ]; then
-	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
+	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo | sort -r`; do
 	        echo -n " * Stopping $device: "
 		device_stop $device;
 		chkresult
