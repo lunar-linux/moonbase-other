@@ -1,3 +1,58 @@
+2003-10-19 11:55  niki
+
+	* devel/cvs/BUILD: Added default_make to make cvs actualy build.
+
+2003-10-19 06:13  tchan
+
+	* utils/parted/: BUILD, DEPENDS, DETAILS: Added a patch to get
+	parted to build correctly with gcc-3.3.x.  Added several depends
+	that were just missing.
+
+2003-10-19 04:46  csm
+
+	* kernel/kernel-headers/2.4.22/: BUILD, DETAILS, PRE_BUILD: okay...
+	*now* we have specific headers for 2.4.22 and they work fine.  I
+	have compiled iputils on two machines with these and it was broken
+	with both before these fixes!
+
+2003-10-19 04:44  csm
+
+	* kernel/kernel-headers/DETAILS: woops... forgot to put it under
+	2.4.22...
+	
+	alright... fixed these back to how they were before and have added
+	the 2.4.22 dir with the correct files
+
+2003-10-19 04:42  csm
+
+	* kernel/kernel-headers/DETAILS: fixing the headers as they were
+	broken without a "version" string! also added md5sums
+
+2003-10-19 04:10  nhudson
+
+	* gnome2-core/: gdm/DETAILS, gdm/POST_INSTALL, gedit/DETAILS: 
+	Updating gdm to new version 2.4.4.5 and gedit to new version 2.4.1
+
+2003-10-19 04:09  csm
+
+	* net/iputils/: BUILD, DETAILS, POST_INSTALL: okay... this module
+	builds and installs just fine now!
+	
+	added a POST_INSTALL to set permissions... fun, fun, fun! :-)
+
+2003-10-18 15:12  tchan
+
+	* libs/: ncurses/POST_INSTALL, slang/POST_INSTALL: Added an
+	existance test for ncurses.h and slang.h as internal to gcc. 
+	gcc-3.3.1 seems to not include both of these .h files anymore as
+	being internal so a test is needed.  Actually ncurses.h seems not
+	to be internal anymore but the test won't hurt so I added it to
+	both slang and ncurses.
+
+2003-10-18 15:10  moe
+
+	* web/MozillaFirebird/POST_INSTALL: *squash* Fixed as well
+
 2003-10-18 10:03  florin
 
 	* games/d2x/DETAILS: oops, fix another mis-spell. sorry
@@ -1725,61 +1780,4 @@
 
 	* gnome2-core/linc/1.1.1/: BUILD, DEPENDS, DETAILS, POST_INSTALL:
 	Fixing gnome2.4/v.v -- files I forgot to cvs add
-
-2003-09-18 15:31  florin
-
-	* games/xmame/DETAILS: bump version from 0.72.1 to 0.74.1
-
-2003-09-18 14:56  tchan
-
-	* editors/emacs/DETAILS: Added md5sum check.  Our version of emacs
-	was fetched prior to the gnu.org being rooted, I think.  So this
-	version should be okay.
-
-2003-09-18 14:40  tchan
-
-	* x11-apps/xemacs-sumo/DETAILS: Version bump to 2003-08-31.
-
-2003-09-18 14:33  tchan
-
-	* x11-apps/xemacs/DETAILS: Version bump to 21.4.14.  Compiled with
-	gcc-3.2.3, glibc-2.3.2 and openMotif-2.2.2.
-
-2003-09-18 13:26  tchan
-
-	* x11-apps/xemacs-base/DETAILS: Version bump to 1.78 and added
-	md5sum check.
-
-2003-09-18 13:25  tchan
-
-	* libs/openMotif/DETAILS, x11-apps/xemacs-efs/DETAILS: Added md5sum
-	check.
-
-2003-09-18 13:15  moe
-
-	* mail/sylpheed/DETAILS: Bumping sylpheed to 0.9.6 ..
-
-2003-09-18 12:54  tchan
-
-	* video/ffmpeg/DETAILS: Version bump to 0.4.7 from Dem's patch. 
-	Compiled with gcc-3.2.3 and glibc-2.3.2.  Added md5sum check.
-
-2003-09-18 01:18  r0dzilla
-
-	* doc-tools/docbook-xsl/rebuild-docbook-catalog: removed debugging
-	messages
-
-2003-09-18 00:54  r0dzilla
-
-	* doc-tools/: docbook-xsl/POST_INSTALL,
-	docbook-xsl/rebuild-docbook-catalog, scrollkeeper/POST_INSTALL:
-	finishing up docbook-xsl/scrollkeeper fix
-
-2003-09-18 00:51  tchan
-
-	* compilers/fasm/DETAILS: Version bump to 1.49.  Added md5sum.
-
-2003-09-18 00:19  niki
-
-	* security/portsentry/: BUILD, DETAILS: Gcc 3.3.1 fix added.
 
