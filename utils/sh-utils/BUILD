@@ -12,6 +12,11 @@
   mv  -f  /usr/bin/stty      /bin
   mv  -f  /usr/bin/true      /bin
   mv  -f  /usr/bin/uname     /bin
+  mv  -f  /usr/bin/sleep     /bin
+  mv  -f  /usr/bin/id        /bin
+  mv  -f  /usr/bin/basename  /bin
+  mv  -f  /usr/bin/nice      /bin
+  mv  -f  /usr/bin/chroot    /usr/sbin  
   rm  -f  /usr/bin/hostname
   rm  -f  /usr/bin/su
 
