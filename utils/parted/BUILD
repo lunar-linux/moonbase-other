@@ -1,6 +1,9 @@
 (
 
-  patch_it  $SOURCE_CACHE/$SOURCE2 1 &&
+  # Hopefully this is a temporary hack to clean up the mess the parted devs made.
+  sedit "/^intl\/Makefile/d" configure.in &&
+  aclocal &&
+  autoconf &&
 
   default_build
 
