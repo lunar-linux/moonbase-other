@@ -292,11 +292,11 @@ configure_host_def()  {
 
 }
 
-message  "${MESSAGE_COLOR}The DRI in xfree86 4.2.0 is not"  \
-         "compatibile with the DRM in linux-2.4.17."
-message  "If you use DRI/DRM please disable DRM in the"     \
+message  "${MESSAGE_COLOR}The DRI/DRM in xfree86 4.2.0 is not"  \
+         "compatibile with the DRI/DRM in linux-2.4.19."
+message  "If you use DRI/DRM please enable DRM in the"     \
          "linux configuration"
-message  "and enable it in the xfree86 configuration.${DEFAULT_COLOR}"
+message  "and disable it in the xfree86 configuration.${DEFAULT_COLOR}"
 
 
 if    [  -f  $CONFIG_CACHE/host.def  ]
