@@ -1,12 +1,12 @@
 (
 
-  make    linux-elf                                    &&
+  make target=LINUX CFLAGS="$CFLAGS"                   \
+       CXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS -lstdc++" \
+       opt=' -DCOMPACT_ATTACKS -DUSE_ATTACK_FUNCTIONS  \
+       -DUSE_ASSEMBLY_A -DUSE_ASSEMBLY_B -DFAST'       \
+       asm=X86-elf.o crafty-make                       &&
   prepare_install                                      &&
-  cp crafty /usr/games                                 &&
-  cp $MOONBASE/games/$MODULE/craftyx /usr/games        &&
-  chmod +x /usr/games/craftyx                          &&
-  mkdir -p $DOCUMENT_DIRECTORY/crafty                  &&
-  cp $SOURCE_CACHE/$SOURCE2 $DOCUMENT_DIRECTORY/crafty &&
-  cp $SOURCE_CACHE/$SOURCE3 $DOCUMENT_DIRECTORY/crafty
+  install -m755 crafty /usr/games                      &&
+  install -m755 $SCRIPT_DIRECTORY/craftyx /usr/games   
 
 ) > $C_FIFO 2>&1
