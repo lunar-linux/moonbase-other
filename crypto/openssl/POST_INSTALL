@@ -16,8 +16,3 @@ if [ ! $OUR_NEW_SSL_VVV==$OUR_OLD_SSL_VVV ]; then
   done
 fi
 
-#leave a note about how to make an apache cert from the new makefile
-if [ ! -e $CERTHOME/make.apache.cert.note ]; then
-  echo "To create a test certificate for use with Apache, run: make testcert" > $CERTHOME/make.apache.cert.note
-fi
-
