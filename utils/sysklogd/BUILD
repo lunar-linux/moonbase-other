@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1                   &&
+
   make MANDIR=/usr/share/man            &&
   prepare_install                       &&
   make MANDIR=/usr/share/man   install  &&
@@ -14,5 +16,4 @@
     rm -f /etc/init.d/sysklogd.sh
   fi
 
-) > $C_FIFO 2>&1 
-
+) > $C_FIFO 2>&1
