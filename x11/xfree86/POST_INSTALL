@@ -23,12 +23,10 @@ if   !   [  -d  /usr/lib/pkgconfig  ]
 then  mkdir -p /usr/lib/pkgconfig
 fi 
 
-ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig &&
+ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig        &&
 ln -sf /usr/X11R6/lib/pkgconfig/fontconfig.pc /usr/lib/pkgconfig &&
 
 message "Running fc-cache please be patient" &&
 /usr/X11R6/bin/fc-cache -f 
 
-rm -f /usr/X11R6/include/zlib.h
 cp $SOURCE_CACHE/$SOURCE9 /usr/X11R6/lib/pkgconfig/xft.pc
-
