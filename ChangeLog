@@ -1,3 +1,105 @@
+2004-06-17 09:42  moe
+
+	* kernel/linux-stable/: DETAILS, PRE_BUILD: Bumping this to 2.4.26.
+	Includes the fpu fix.
+
+2004-06-17 08:44  cmak
+
+	* kde3-i18n/kde3-i18n-ar/DETAILS: oops
+
+2004-06-17 08:21  sofar
+
+	* mail/imap/POST_INSTALL: Kick me!
+
+2004-06-17 07:57  ratler
+
+	* chat/psi/DETAILS: Just some some cleaning in DETAILS, 73 char
+	wrap, removal of [0] of sourceurl
+
+2004-06-17 04:52  florin
+
+	* games/exult/DETAILS: bump the version from 1.00 to 1.2.
+
+2004-06-17 04:34  florin
+
+	* games/jumpnbump/DETAILS: bump the version from 1.41 to 1.50.
+
+2004-06-17 01:19  jmhodges
+
+	* zbeta/evolution-beta/DETAILS: version bump to 1.5.9.2
+
+2004-06-17 01:19  jmhodges
+
+	* mail/evolution-data-server/DETAILS: version bump to 0.0.94.1
+
+2004-06-16 23:36  tchan
+
+	* video/kino/: BUILD, DEPENDS, DETAILS: Added kino-0.7.1 to the
+	moonbase.  Its a non-linear Digital Video editor from the dvgrab
+	authors.  Requires most of gnome1 or gnome2 to be installed, I
+	think.	Compiled and tested with gcc-3.3.3, glibc-2.3.2, kernel
+	headers 2.4.x.	If you find some missing DEPENDS let me know.
+
+2004-06-16 22:24  cmak
+
+	* kde3-i18n/: kde3-i18n-ar/DETAILS, koffice3-i18n-de/DETAILS:
+	ugh...anyone know a way to fix all of those quick?
+
+2004-06-16 22:08  tchan
+
+	* video/dvgrab/: BUILD, DEPENDS, DETAILS: Added a patch to the
+	configure script to correctly use openquicktime.  The default
+	configure script from the developer only uses libquicktime or
+	quicktime4linux.  Requires running autoconf/automake to regenerate
+	the configure script and Makefile.
+
+2004-06-16 21:42  moe
+
+	* mail/thunderbird/: BUILD, DETAILS, POST_INSTALL: Bumping this to
+	0.7. Same behaviour as for firefox required to make it work
+
+2004-06-16 21:36  tchan
+
+	* video/dvgrab/: BUILD, DEPENDS, DETAILS: Version bumped to 1.5. 
+	Added libdv as a depends.  Removed the unnecessary patch for
+	asserts (with libdv added, ver 1.5 compiles with no
+	warnings/errors).  Tested with gcc-3.3.3, glibc-2.3.2, kernel
+	headers 2.4.x.
+
+2004-06-16 18:50  florin
+
+	* games/bomberclone/DETAILS: bump the version from 0.11.2 to
+	0.11.3.
+
+2004-06-16 17:27  florin
+
+	* filesys/udev/DETAILS: bump the version from 026 to 027.
+
+2004-06-16 17:21  florin
+
+	* utils/Wine/DETAILS: bump the version from 20040505 to 20040615.
+
+2004-06-16 17:17  florin
+
+	* audio/libsndfile/DETAILS: bump the version from 1.0.9 to 1.0.10.
+
+2004-06-16 16:20  florin
+
+	* editors/sed/DETAILS: bump the version from 4.0.9 to 4.1.
+
+2004-06-16 16:11  moe
+
+	* x11-wm/blackbox/BUILD: Eat moy shortz
+
+2004-06-16 15:54  moe
+
+	* x11-wm/blackbox/: BUILD, Blackbox, DETAILS, POST_INSTALL,
+	POST_REMOVE, blackbox.desktop: This module is working again now
+
+2004-06-16 12:06  cmak
+
+	* games/kaf/DETAILS: version bump
+
 2004-06-16 11:40  sofar
 
 	* graphics/povray/: BUILD, DETAILS: I know, the license is a bit
@@ -1378,95 +1480,4 @@
 2004-05-18 11:47  prox
 
 	* crypto/libtasn1/DETAILS: bump
-
-2004-05-17 22:25  jol
-
-	* kde3/kdelibs3/: BUILD, DETAILS: Important Security patch The
-	telnet, rlogin, ssh and mailto URI handlers in KDE do not check for
-	'-' at the beginning of the hostname passed, which makes it
-	possible to pass an option to the programs started by the handlers.
-	
-	KDE Security Advisory: URI Handler Vulnerabilities Original Release
-	Date: 2004-05-17 URL:
-	http://www.kde.org/info/security/advisory-20040517-1.txt
-
-2004-05-17 20:45  nhudson
-
-	* gnome2-core/libglade2/DETAILS: 
-	Fixing typo I made yesterday
-
-2004-05-17 18:04  florin
-
-	* filesys/ntfsprogs/DETAILS: bump the version from 1.9.1 to 1.9.2.
-
-2004-05-17 18:00  florin
-
-	* graphics/SDL_gfx/DETAILS: bump the version from 2.0.10 to 2.0.11.
-
-2004-05-17 14:25  florin
-
-	* kde3-apps/kaffeine/DETAILS: bump the version from 0.4.3 to
-	0.4.3b.
-
-2004-05-17 14:25  florin
-
-	* kde3-apps/apollon/DETAILS: bump the version from 0.9.3 to 0.9.4.
-
-2004-05-17 13:33  nhudson
-
-	* gnome2-core/libglade2/: DETAILS, POST_INSTALL, POST_REMOVE: 
-	Updating libglade2 to new version 2.4.0 and fixing some typos that
-	have been there too long
-
-2004-05-17 13:27  nhudson
-
-	* libs/libgsf/DETAILS: 
-	Updating libgsf to new version 1.9.1
-
-2004-05-17 13:27  sofar
-
-	* gnome2-apps/abiword/DETAILS: I just beat nick ;^)
-
-2004-05-17 13:26  sofar
-
-	* games/koules/DETAILS: B0RK
-
-2004-05-17 13:24  nhudson
-
-	* web/epiphany-extensions/DETAILS: 
-	Updating epiphany-extensions to new version 0.9.0
-
-2004-05-17 13:22  nhudson
-
-	* x11-apps/mlview/DETAILS: 
-	Updating mlview to new version 0.6.3
-
-2004-05-17 12:40  sofar
-
-	* graphics/blender/: BUILD, DETAILS: Blender is a PITA!!!
-
-2004-05-17 12:09  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.6mm2 -> 2.6.6mm3
-
-2004-05-17 08:50  sofar
-
-	* filesys/reiserfsprogs/DETAILS: There's something wrong with their
-	release schedule... seriously
-
-2004-05-17 08:04  sofar
-
-	* x11-utils/: gkrellm2/DETAILS, gkrellmd2/DETAILS: Updated to 2.2.0
-	which features AA fonts inside the graphs
-
-2004-05-17 07:46  sofar
-
-	* video/cinelerra/: BUILD, DETAILS: Bumped. Relatively nice update:
-	they are starting to use ./configure/make themed building (tho
-	preliminary and hacked).
-
-2004-05-17 04:42  florin
-
-	* devel/automake/DETAILS: bump the version from 1.8.4 to 1.8.5.
-	bugfix release.
 
