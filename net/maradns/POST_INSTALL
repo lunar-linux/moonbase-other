@@ -1,0 +1,34 @@
+finished=0
+
+until [ $finished -eq 1 ]; do
+    echo "What do you want to do?"
+    echo "1) set up a default recursive DNS server config file."
+    echo "2) set up a default full featured DNS server config file."
+    echo "3) finished."
+    
+    cd ${SOURCE_DIRECTORY}/doc/en/examples/ || { echo "Unable to enter ${SOURCE_DIRECTORY}/doc/en/examples directory" && exit 1; } 
+    
+    read answer
+    
+    case $answer in
+	1 ) 	echo "Setting up a default recursive config file at /etc/mararc"
+		cp example_recursive_mararc.txt /etc/mararc
+		echo "done."
+		finished=1
+		;;
+
+ 	2 )	echo "Setting up a default full featured config file at /etc/mararc"
+		cp example_full_mararc /etc/mararc
+		echo "done."
+	    	finished=1
+		;;
+
+	3 ) 	echo "done."
+		finished=1
+		;; # just quit
+
+    	* ) 	echo "$answer is not a valid selection. Please try again."
+		echo ""
+		;;
+    esac
+done
