@@ -8,12 +8,12 @@ if [ -d /usr/share/httpd ] ; then
   message "WARNING: httpd.conf will now be in /etc/httpd/conf!"
   
   cp /etc/httpd/httpd.conf /etc/httpd/httpd.conf-old
-  cp /etc/httpd/ssl.conf   /etc/httpd/ssl.conf-old
-  cat /etc/httpd/httpd.conf | sed "s:/usr/share/httpd:/var/www:g" >
+  cp /etc/httpd/ssl.conf /etc/httpd/ssl.conf-old
+  cat /etc/httpd/httpd.conf | sed "s:/usr/share/httpd:/var/www:g" > \
       /etc/httpd/conf/httpd.conf
-  cat /etc/httpd/ssl.conf | sed "s:/usr/share/httpd:/var/www:g" >
+  cat /etc/httpd/ssl.conf | sed "s:/usr/share/httpd:/var/www:g" > \
       /etc/httpd/conf/ssl.conf
-  mv /usr/share/httpd /var/www
+  # mv /usr/share/httpd /var/www
 
 fi
 
