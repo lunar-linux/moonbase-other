@@ -1,12 +1,15 @@
           MODULE=SDL
          VERSION=1.2.7
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-gcc34.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=http://www.libsdl.org/release/$SOURCE
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
       SOURCE_VFY=md5:d29b34b6ba3ed213893fc9d8d35e357a 
+     SOURCE2_VFY=md5:4783c3e0393ae38b382e9306e88fb3c8
         WEB_SITE=http://www.libsdl.org
          ENTERED=20010922
-         UPDATED=20030424
+         UPDATED=20030814
         SHORT="SDL is a portable game library for low-level access to hardware."
 
 cat << EOF
