@@ -1,11 +1,80 @@
+2004-04-04 08:27  florin
+
+	* audio/: alsa-driver/DETAILS, alsa-utils/DETAILS: bump the version
+	from 1.0.3 to 1.0.4. mostly bugfixes.
+
+2004-04-04 08:26  florin
+
+	* audio/alsa-lib/DETAILS: bump the version from 1.0.3b to 1.0.4.
+
+2004-04-04 07:11  tchan
+
+	* gnome2-apps/abiword/: BUILD, DETAILS: Version bump to 2.0.6. 
+	Compiled and tested with gcc-3.3.3 and kernel headers 2.4.x. 
+	Reworked the BUILD script to install a large portion of the abiword
+	Docs that were simply being ignored previously.
+
+2004-04-04 03:04  tchan
+
+	* libs/libtool/DETAILS: Version bump to 1.5.4.	Bug fix release. 
+	Compiled and tested with gcc-3.3.3, kernel headers 2.4.x.
+
+2004-04-04 01:38  tchan
+
+	* utils/parted/DETAILS: Version bump to 1.6.9.	The devs re-ran
+	libtoolize.  Compiled and tested with gcc-3.3.3 and kernel headers
+	2.4.x.
+
+2004-04-03 20:22  jmhodges
+
+	* chat/gaim/DETAILS: url fix
+
+2004-04-03 20:11  jmhodges
+
+	* chat/gaim/: BUILD, DETAILS: gaim 0.76 works.. now has an evo
+	contact plugin and other things
+
+2004-04-03 18:08  tchan
+
+	* docs/Linux-HOWTOs/: BUILD, DETAILS: Fixed this module to
+	correctly compile two times in a row.  Lunar boxes that have
+	statically linked, gzip, and bzip2 will fail unless the "rm -f" is
+	present in the BUILD script.  Installwatch does NOT track
+	statically linked binaries, so the old version of the Linux-HOWTOs
+	is not cleaned up correctly.
+
+2004-04-03 17:43  tchan
+
+	* docs/Linux-HOWTOs/DETAILS: Fixed the indentation again.
+
+2004-04-03 13:52  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump
+
+2004-04-03 13:09  jol
+
+	* x11-apps/xemacs-efs/DETAILS: bumped version OLD: 1.29  NEW:1.32
+
+2004-04-03 13:07  jol
+
+	* x11-apps/xemacs-base/DETAILS: bumped version OLD: 1.78 NEW: 1.84
+
+2004-04-03 13:04  jol
+
+	* x11-apps/xemacs/DETAILS: Bumped version OLD: 21.4.14 NEW: 21.4.15
+
+2004-04-03 12:53  moe
+
+	* printer/a2ps/DETAILS: Fixing this since its absolutely out of
+	date.
+
 2004-04-03 05:45  florin
 
 	* net/mtr/DETAILS: bump the version from 0.52 to 0.55.
 
 2004-04-03 05:15  florin
 
-	* docs/: Linux-HOWTOs/DETAILS, Linux-mini-HOWTOs/DETAILS: arange a
-	few lines.
+	* docs/Linux-HOWTOs/DETAILS: arange a few lines.
 
 2004-04-03 02:51  tchan
 
@@ -1931,41 +2000,4 @@
 	Compiled and tested with gcc-3.3.3 and kernel-headers 2.4.x. 
 	Temporary hack in BUILD to remove extra automake cruft that abiword
 	devs forgot about.
-
-2004-03-04 22:37  sofar
-
-	* x11-utils/synergy/: DEPENDS, DETAILS: Bwahahahahaha
-
-2004-03-04 22:34  nestu
-
-	* kernel/kernel-headers-2.6/DETAILS: bump dee bump dee bump ! ;)
-
-2004-03-04 12:47  nestu
-
-	* kernel/linux-beta/DETAILS: Version bump
-
-2004-03-04 07:23  tchan
-
-	* graphics/svgalib/BUILD: Reverted the BUILD so that prefix=/usr is
-	set correctly.	Otherwise this module installs into /usr/local by
-	default and that is not good.
-
-2004-03-04 07:07  florin
-
-	* kde3/: kdelibs3/PRE_BUILD, qt3/PRE_BUILD: add a small phrase.
-
-2004-03-04 06:51  florin
-
-	* x11-wm/fvwm/DETAILS: bump the version from 2.4.4 to 2.4.17.
-
-2004-03-04 04:19  tchan
-
-	* devel/uml/.config: Updated uml kernel .config because the skas3
-	patch does not work with 2.4.25.
-
-2004-03-04 03:37  tchan
-
-	* devel/uml/: .config, DETAILS: Version bump to use kernel-2.4.25. 
-	Also bumped the uml patch to 2.4.24-1, which applies very well to
-	kernel-2.4.25.	Compiled and tested with gcc-3.3.3.
 
