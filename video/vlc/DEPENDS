@@ -61,7 +61,13 @@ optional_depends  "libvorbis" 	   \
 optional_depends  "libdv" 	   \
 		  "--enable-dv"   \
       		  "--disable-dv"  \
-		  "for dv decoder support" 
+		  "for dv decoder support" &&
+
+optional_depends  "wxGTK"              \
+                  "--enable-wxwindows"      \
+                  "--disable-wxwindows"      \
+                  "for wxWindows support"
+
 
 #optional_depends  "mpeg2dec"		\
 #		  "--enable-libmpeg2"	\
@@ -69,8 +75,3 @@ optional_depends  "libdv" 	   \
 #		  "for mpeg2 decoder support" &&
 #
 
-#optional_depends  "wxGTK"              \
-#                  "--enable-wxwindows"      \
-#                  "--disable-wxwindows"      \
-#                  "for wxWindows support"    &&
-#

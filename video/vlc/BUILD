@@ -6,8 +6,9 @@ unset  CXXFLAGS
   ./configure  --prefix=/usr               \
                --sysconfdir=/etc           \
                --localstatedir=/var        \
-	       --disable-wxwindows	   \
-               $OPTS                       &&
+ 	       --disable-ffmpeg	   	   \
+               --disable-libmpeg2          \
+	       $OPTS                       &&
   make                                     &&
   prepare_install                          &&
   make    install                          
