@@ -1,4 +1,7 @@
 (
+if module_installed tcp_wrappers; then
+  sedit "s/undef/define/" builddefs.h
+fi
 
 make CFLAGS="$CFLAGS" &&
 
