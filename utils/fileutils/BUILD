@@ -1,3 +1,4 @@
+bad_flags -malign-double
 (
 
   ./configure  --build=$BUILD          \
