@@ -10,8 +10,8 @@
    if [ "$MULTI" == "y" ] ; then
     OPTS="$OPTS --enable-multibuffer"
    fi
-
   
   default_build
+
 ) > $C_FIFO 2>&1
 
