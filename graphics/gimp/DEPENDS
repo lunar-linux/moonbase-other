@@ -1,8 +1,10 @@
-depends  gtk+-2 &&
-depends  libart_lgpl &&
-depends  aalib &&
-depends  fontconfig &&
+depends gtk+-2      &&
+depends libart_lgpl &&
+depends fontconfig  &&
+
+optional_depends "libmng" "" "--without-libmng" "for MNG file support"    &&
+optional_depends "aalib" "" "--without-aa" "for ASCII art support"        &&
 optional_depends "gimp-print" "" "--disable-print" "For Printing Support" &&
 optional_depends "gnome-desktop" "--enable-gnome-desktop" "" "For Gnome2 Support" &&
-optional_depends "pygtk2" "--enable-python" "" "For Python Support" &&
+optional_depends "pygtk2" "--enable-python" "" "For Python Support"       &&
 optional_depends "gtk-doc" "--enable-gtk-doc" "" "For GIMP Help Files"
