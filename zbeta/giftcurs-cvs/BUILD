@@ -1,6 +1,8 @@
 (
-  touch ./INSTALL
-  ./autogen.sh &&
+  ./autogen.sh
+
+  automake --add-missing --copy --gnu &&
+  autoconf &&
   ./configure  --build=$BUILD            \
                --prefix=/usr             \
                --sysconfdir=/etc         \
