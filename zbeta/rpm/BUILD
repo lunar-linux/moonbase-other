@@ -1,4 +1,7 @@
 (
+
+  LDFLAGS=$(echo $LDFLAGS | sed  s/"-z combreloc"// )
+
  ./configure --prefix=/usr  \
 		--localstatedir=/var  \
 		--sysconfdir=/etc  \
