@@ -1,3 +1,134 @@
+2005-01-22 07:36  florin
+
+	* perl/Archive-Tar/DETAILS: bump the version from 0.23 to 1.23.
+
+2005-01-22 07:31  florin
+
+	* perl/Apache-DBI/DETAILS: bump the version from 0.89 to 0.94.
+
+2005-01-22 07:24  florin
+
+	* perl/DBI/DETAILS: bump the version from 1.43 to 1.46.
+
+2005-01-22 07:23  florin
+
+	* perl/DBD-Pg/DETAILS: bump the version from 1.22 to 1.32 at
+	  Richard Pyne's request.
+
+2005-01-22 07:10  florin
+
+	* perl/Archive-Zip/DETAILS: bump the version from 1.05 to 1.14 at
+	  Richard Pyne's request.
+
+2005-01-22 07:01  florin
+
+	* utils/openldap/DETAILS: bump the version from 2.2.20 to 2.2.21.
+	  bugfix release.
+
+2005-01-22 06:56  florin
+
+	* utils/lsof/DETAILS: bump the version from 4.73 to 4.74.
+
+2005-01-22 06:33  florin
+
+	* audio/amarok/: BUILD, DEPENDS: add k3b as an optional depend.
+
+2005-01-22 06:28  florin
+
+	* kde3-apps/qbankmanager/: BUILD, DEPENDS, DETAILS: A frontend for
+	  aqbanking in KDE.
+
+2005-01-22 06:26  florin
+
+	* libs/aqbanking/DETAILS: bump the version from 0.9.9 to 1.0.1beta.
+
+2005-01-22 06:23  florin
+
+	* news/leafnode/DETAILS: bump the version from 1.10.7 to 1.10.8.
+
+2005-01-22 06:02  florin
+
+	* libs/gwenhywfar/DETAILS: bump the version from 1.5.0 to 1.6.0.
+
+2005-01-22 03:40  v3rt1g0
+
+	* web/w3c-libwww/: BUILD, DEPENDS, DETAILS: Version bump.  Also
+	  added missing depends and configure flags.  Updated the long
+	  description to match the website and added a SHA1 sum.
+
+2005-01-22 01:38  tchan
+
+	* kernel/linux-2.4-vanilla/DETAILS: Version bump to
+	  linux-2.4-vanilla 2.4.29.
+
+2005-01-21 20:08  moe
+
+	* x11/XOrg/BUILD: Lame fix .. yet imported when somebody is using a
+	  session manager
+
+2005-01-21 20:04  moe
+
+	* libs/glibc/: BUILD, BUILD.sparc64, POST_INSTALL: Stripping the
+	  header generation as this is now done by the new
+	  kernel-headers-2.4 module
+
+2005-01-21 20:03  moe
+
+	* kernel/kernel-headers-2.4/: BUILD, DETAILS: New
+	  kernel-headers-2.4 module
+
+	  * Replaces the header generation of glibc * Tested by Ratler on
+	  2.4.x and me on 2.6.x
+
+2005-01-21 19:37  florin
+
+	* net/ethereal/DETAILS: bump the version from 0.10.8 to 0.10.9.
+
+2005-01-21 19:10  florin
+
+	* x11-wm/AfterStep/DETAILS: bump the version from 2.00.01 to
+	  2.00.02.
+
+2005-01-21 17:33  moe
+
+	* libs/glibc/POST_INSTALL: Preparing the kernel-headers module
+
+2005-01-21 16:10  moe
+
+	* games/fgfs-base/DETAILS: meh
+
+2005-01-21 15:46  tchan
+
+	* chat/gaim/POST_INSTALL: Added this as gaim-encryption will cause
+	  errors in gaim, unless its recompiled after every update of gaim.
+
+2005-01-21 15:43  nestu
+
+	* kernel/: modutils/POST_INSTALL, module-init-tools/POST_INSTALL:
+	  Make sure we install the wrappers!
+
+2005-01-21 15:42  nestu
+
+	* kernel/modutils-wrappers/: BUILD, DETAILS, POST_INSTALL,
+	  PRE_BUILD: 0.2 -> 0.3.  Changes: * Now all scripts are installed
+	  (before it depended on if you had m-i-t and/or modutils
+	  installed).  * Each script warns if it should not be called with
+	  this kernel version.	* Spits out a warning message to lin
+	  modutils or m-i-t, depending on your running kernel, if the
+	  binary being called is valid, but is not there.  * With PRE_BUILD
+	  we make sure that modutils and m-i-t, are in the right location
+	  so they are not   overwritten (not done in POST_INSTALL anymore).
+
+2005-01-21 13:49  tchan
+
+	* gnome2-apps/abiword/DETAILS: Stupid abiword devs repacked their
+	  source tarball and did NOT version bump it.
+
+2005-01-21 13:43  tchan
+
+	* chat/gaim/DETAILS: Version bump to gaim-1.1.2. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
 2005-01-21 09:08  ratler
 
 	* zbeta/fluxbox-devel/: BUILD, DETAILS, DEPENDS: Version bump and
@@ -1722,40 +1853,4 @@
 	* kernel/: kernel-headers-2.4/CONFLICTS,
 	  kernel-headers-2.6/CONFLICTS: We need those. sofar should've been
 	  more carefull
-
-2004-12-22 22:46  cmak
-
-	* graphics/gimp-gap/DETAILS: version bump
-
-2004-12-22 22:23  cmak
-
-	* graphics/gimp-help/: DEPENDS, DETAILS: help files for the GIMP
-	  help browser
-
-2004-12-22 17:44  cmak
-
-	* graphics/gimp/BUILD: pretty workaround, no?
-
-2004-12-22 15:19  nestu
-
-	* utils/util-linux/DETAILS: 2.12m -> 2.12o. gcc 3.3.3, glibc 2.3.2,
-	  headers 2.6.9.1 'n' was released, but they jumped quickly to 'o'.
-	  Some nasty bug, I suppose :)
-
-2004-12-22 13:37  moe
-
-	* web/firefox/BUILD: When the heck did that sneack in?
-
-2004-12-22 13:27  moe
-
-	* web/firefox/: BUILD, POST_REMOVE: Tweaking firefox as well
-
-2004-12-22 05:58  florin
-
-	* editors/aspell/DETAILS: bump the version from 0.60.1.1 to 0.60.2.
-
-2004-12-22 05:55  florin
-
-	* video/DirectFB/: DEPENDS, DETAILS: bump the version from 0.9.20
-	  to 0.9.21.
 
