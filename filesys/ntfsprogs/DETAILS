@@ -1,0 +1,19 @@
+          MODULE=ntfsprogs
+         VERSION=1.8.4
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_VFY=md5:13b3f3d03c3402101b03c98b34490087
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/linux-ntfs/$SOURCE
+        WEB_SITE=http://linux-ntfs.sourceforge.net
+         ENTERED=20040126
+         UPDATED=20040126
+           SHORT="ntfsprogs contains utilities and libraries for the NTFS file system."
+cat << EOF
+The goals of this project are: create a new Linux kernel driver for the NTFS
+file system (v1.2 and later 3.0), user space utilities (e.g. format, ntfs
+check, etc.) and a library to avoid code duplication and provide access to
+NTFS to other GPLed programs.
+
+Currently included are: libntfs, ntfsfix, mkntfs, ntfslabel, ntfsundelete,
+ntfsresize, ntfsclone, ntfscluster, ntfsinfo, ntfsls, ntfscat.
+EOF
