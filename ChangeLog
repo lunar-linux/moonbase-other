@@ -1,3 +1,96 @@
+2004-02-09 06:26  sofar
+
+	* utils/Wine/DETAILS: New Wine
+
+2004-02-09 06:14  hardkrash
+
+	* x11/NVIDIA26/BUILD: group the true statment so that the lin will
+	fail if the build fails
+
+2004-02-09 06:13  hardkrash
+
+	* x11/NVIDIA/BUILD: group in that true so that if part of the build
+	process fails the lin will fail
+
+2004-02-09 04:31  nhudson
+
+	* x11/libxklavier/DETAILS: 
+	Updating libxklavier to new version 0.97
+
+2004-02-09 03:30  jmhodges
+
+	* gnome2-core/libgnomeprintui/DETAILS: broken UPDATED
+
+2004-02-09 02:34  tchan
+
+	* zbeta/vim-cvs/CONFLICTS: Removed the conflicts with elvis.  Elvis
+	no longer conflicts with vim or vim-cvs.
+
+2004-02-09 01:36  tchan
+
+	* web/amaya/DETAILS: Added the md5sum check.
+
+2004-02-09 01:35  tchan
+
+	* web/amaya/: BUILD, DEPENDS, DETAILS: Version bump to 8.2. 
+	Removed the gtk+ optional_depends as this already depends on
+	openMotif.  The old DEPENDS file would not correctly build amaya as
+	an openMotif app.  Fixed the BUILD script to correctly build this
+	as an openMotif app and to use the system libs for jpeg, libpng,
+	and zlib.  The Redland (RDF) source code is now included in the
+	amaya download but to get that extra lib/app to build from inside
+	the amaya BUILD script was not something I wanted to tackle at this
+	time.  If there are any Amaya users that need RDF enabled, please
+	feel free to fix this module to compile/include those features.
+
+2004-02-08 23:14  florin
+
+	* graphics/scribus/: BUILD, DETAILS: add Couannette's patch.
+
+2004-02-08 21:38  nhudson
+
+	* gnome2-core/control-center2/: BUILD, DETAILS: 
+	Adding a patch to control-center2 to build with libxklavlier 0.97
+	and hopefully fix all of my xkb problems with Gnome
+
+2004-02-08 21:22  nhudson
+
+	* gnome2-core/eog/DETAILS: 
+	Updating eog to new version 2.5.4
+
+2004-02-08 19:49  florin
+
+	* audio/libsndfile/DETAILS: bump version from 1.0.5 to 1.0.6.
+
+2004-02-08 19:29  hardkrash
+
+	* wifi/wireless_tools/BUILD: fix to allow kdenetwork3 build
+	kwifimanager
+
+2004-02-08 19:07  sofar
+
+	* compilers/php/BUILD: Ading small adjustment for Sablot enabled
+	build.
+
+2004-02-08 18:07  florin
+
+	* games/: ggz-client-libs/DETAILS, ggz-gnome-client/DEPENDS,
+	ggz-gnome-client/DETAILS, ggz-gtk-client/DETAILS,
+	ggz-gtk-games/DEPENDS, ggz-gtk-games/DETAILS, ggz-kde-client/BUILD,
+	ggz-kde-client/DETAILS, ggz-kde-games/BUILD, ggz-kde-games/DEPENDS,
+	ggz-kde-games/DETAILS, ggz-sdl-games/DEPENDS,
+	ggz-sdl-games/DETAILS, ggz-server/DETAILS, ggz-txt-client/DEPENDS,
+	ggz-txt-client/DETAILS, libggz/DETAILS: bump version from 0.0.7 to
+	0.0.8. add two new modules.
+
+2004-02-08 12:12  watryac04
+
+	* video/MPlayer/CONFIGURE: The build of mencoder was breaking the
+	compile of MPlayer on my machine with a 2.6.2-rc2 kernel. Since
+	most people don't use mencoder, I made it an option that you can
+	disable in the configure process.  The new --disable-mencoder
+	configure flag has been tested and works just fine.
+
 2004-02-08 08:52  jmhodges
 
 	* libs/loudmouth/DETAILS: what is wrong with me today?
@@ -2026,38 +2119,4 @@
 
 	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: more version bumping
 	;)
-
-2004-01-09 22:20  florin
-
-	* video/transcode/DETAILS: bump version from 0.6.11 to 0.6.12.
-
-2004-01-09 21:27  florin
-
-	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS,
-	alsa-utils/DETAILS: bump version from 1.0.0rc2 to 1.0.1.
-
-2004-01-09 21:22  florin
-
-	* graphics/SDL/: BUILD, DETAILS: add a patch for alsa-1.0.0rc2.
-
-2004-01-09 17:53  niki
-
-	* mail/razor-agents/: BUILD, DETAILS: Added a patch which removes
-	some error messages from the system logs.  Patch is from this url:
-	http://wiki.spamassassin.org/w/RazorInsecureDependency
-
-2004-01-09 17:40  tchan
-
-	* distributed/distcc/DETAILS: Version bump to 2.12.1.  Compiled and
-	tested with gcc-3.2.3, glibc-2.3.2
-
-2004-01-09 09:20  nestu
-
-	* kernel/linux-beta/: DETAILS, PRE_BUILD: Bump version to new
-	stable. Full tarball is DLed, so no patching needed for now ;)
-
-2004-01-09 01:27  tchan
-
-	* x11/: NVIDIA/DETAILS, NVIDIA26/DETAILS: Fixing the INVALID
-	UPDATED fields.  UPDATED MUST BE >= ENTERED date.
 
