@@ -1,3 +1,145 @@
+2004-05-12 11:05  sofar
+
+	* net/finger/: BUILD, DETAILS, bsd-finger-0.16-allocbroken.patch,
+	bsd-finger-0.16-pts.patch, bsd-finger-0.17-exact.patch,
+	bsd-finger-0.17-rfc742.patch, bsd-finger-0.17-time.patch: more
+	patches-b-gone !
+
+2004-05-12 10:26  sofar
+
+	* mail/qpopper3/: BUILD, DEPENDS, DETAILS,
+	qpopper3.1.2-mysql-0.11.2.patch.bz2: Another patch gone
+
+2004-05-12 10:20  sofar
+
+	* graphics/gphoto/: BUILD, DETAILS, PRE_BUILD, gphoto-dir.patch,
+	gphoto-option.patch, gphoto-port.patch, gphoto-retry.patch,
+	gphoto-rsony.patch, gphoto-size.patch, gphoto-strcat.patch:
+	overhaul, removing 40k of in-moonbase patches, compiles with
+	gcc-3.3+ now too, in case people need it for their cameras
+
+2004-05-12 09:10  sofar
+
+	* graphics/jpeg/BUILD: Perhaps a link to the proper version helps
+	too
+
+2004-05-12 08:57  sofar
+
+	* graphics/jpeg/: POST_INSTALL, POST_REMOVE: ldconfig is called
+	automatically
+
+2004-05-12 08:56  sofar
+
+	* graphics/jpeg/BUILD: And we truly have a shared libjpeg.so now...
+	pffft
+
+2004-05-12 08:49  sofar
+
+	* graphics/jpeg/BUILD: Grrr, almost barfed it up myself
+
+2004-05-12 08:09  sofar
+
+	* graphics/jpeg/: BUILD, DETAILS, jpeg-c++.patch,
+	libjpeg-6b-arm.patch: Major cleanup. This was a mess!!!!
+
+2004-05-12 07:27  sofar
+
+	* audio/gramofile/: BUILD, DETAILS, lemley1.patch, pophal1.patch,
+	schewe1.patch, specht1.patch, tappin3a.patch, tappin3b.patch:
+	cleaning out patches from $MOONBASE!
+
+2004-05-12 06:44  ratler
+
+	* mail/pine/: BUILD, DETAILS: Bumped version and removed patch and
+	replaced it with a sedit. Compiles and run fine, ldap and imap
+	tested.
+
+2004-05-12 03:15  nhudson
+
+	* gnome/gnome-python/CONFLICTS: 
+	Adding conflicts to gnome-python because if you have 2 installed
+	things fo bonkers
+
+2004-05-12 03:14  nhudson
+
+	* devel/: pygtk/CONFLICTS, pygtk2/CONFLICTS: 
+	Adding conflicts for pygtk and 2 due to things go crazy when they
+	are both installed
+
+2004-05-12 03:12  nhudson
+
+	* gnome2-extras/gnome-python2/CONFLICTS: 
+	Adding a conflicts for gnome-python2, seems if you have both
+	gnome-python and 2 installed things go crazy
+
+2004-05-12 02:40  nhudson
+
+	* mail/ximian-connector/: DEPENDS, DETAILS: 
+	Adding ximian-connector to moonbase this was submitted to the
+	mailing list by Dave Brown <dagbrown@lart.ca>
+
+2004-05-11 21:21  sofar
+
+	* net/netdate/: BUILD, DETAILS, PRE_BUILD: Larry, I took the
+	liberty of subscribing you to lunar-commits, hopefully you can use
+	the diff's that get posted here to get around in lunar modules etc.
+	(BTW see small changes I made to the BUILD)
+
+2004-05-11 21:09  ratler
+
+	* filesys/LVM2/BUILD, filesys/LVM2/DEPENDS, filesys/LVM2/DETAILS,
+	libs/device-mapper/BUILD, libs/device-mapper/DETAILS: Initial add
+	of LVM2 and device-mapper. Original module submitted by Jol. I
+	modified it slightly. TODO: Add device-mapper kernel patch for 2.4
+
+2004-05-11 21:03  striker
+
+	* devel/ruby-postgres/: BUILD, DETAILS: Adding ruby-postgresql for
+	postgresql support in Ruby
+
+2004-05-11 20:45  cmak
+
+	* doc-tools/doxygen/DETAILS: fixed md5sum
+
+2004-05-11 20:36  sofar
+
+	* zbeta/idesk/: BUILD, DETAILS, PRE_BUILD: grmbl.... desktop icons
+	.... hmmmm xfce.... hmm need imlib2? gtk+? bah!
+
+2004-05-11 18:42  nhudson
+
+	* x11-utils/bbkeys/DETAILS: 
+	Trimming down the description a bit, didnt notice how long it was
+	before, thx sofar for pointing that out.
+
+2004-05-11 18:20  nhudson
+
+	* x11-wm/hackedbox/BUILD: 
+	The BUILD file isnt needed
+
+2004-05-11 18:19  nhudson
+
+	* x11-utils/bbkeys/DETAILS: 
+	Adding bbkeys to moonbase, this is a key grabbing tool for the *box
+	window managers.  Submitted by larry@scrudgeware.org
+
+2004-05-11 16:02  ratler
+
+	* kernel/: linux/POST_INSTALL, linux-grsec/POST_INSTALL,
+	linux-vanilla/POST_INSTALL: Added trigger to rebuild openafs-driver
+	after kernel build.
+
+2004-05-11 15:56  ratler
+
+	* kernel/openafs-driver/BUILD: Removed one line to much from BUILD
+
+2004-05-11 14:05  ratler
+
+	* kernel/openafs-driver/: BUILD, DETAILS, POST_INSTALL: Changed the
+	way the kernel module is installed. It will no longer remove the
+	old module if kernel is upgraded. This make it possible to have
+	multiple kernel and openafs-driver modules
+
 2004-05-11 09:44  sofar
 
 	* utils/: discover/BUILD, discover/DEPENDS, discover/DETAILS,
@@ -2197,129 +2339,4 @@
 	* graphics/skencil/: BUILD, DEPENDS, DETAILS: Moved the sketch app
 	to its new, rename directory skencil.  Bumped the version number to
 	0.6.16.  This should work now with tcl/tk 8.4.
-
-2004-04-11 19:45  nhudson
-
-	* graphics/gtk+-2/: BUILD, CONFIGURE, DETAILS: 
-	Adding the gtk menushadow patch as a option to building gtk+-2. 
-	Personally I think the patch is a bit flakey, but use it at your
-	own risk
-
-2004-04-11 19:35  florin
-
-	* mail/bogofilter/DETAILS: bump the version from 0.15.3.2 to
-	0.17.5. many improvements and code cleanup. many thanks to elaine
-	for testing it.
-
-2004-04-11 19:28  nhudson
-
-	* audio/muine/BUILD: 
-	Forgot to add support for gstreamer instead of xine-lib
-
-2004-04-11 18:48  nhudson
-
-	* audio/: libmusicbrainz/DETAILS, sound-juicer/BUILD,
-	sound-juicer/DETAILS: 
-	Updating libmusicbrainz to new version 2.1.1, and updating
-	sound-juicer so that it will build with gstreamer 0.8
-
-2004-04-11 18:15  nhudson
-
-	* audio/: muine/BUILD, muine/DEPENDS, muine/DETAILS,
-	rhythmbox/DETAILS: 
-	Updating rhythmbox to new version 0.6.10, this should now compile
-	with the new gnome2.6 stuff and gtk2.4, also added muine a gnome
-	media player based off of rhythmbox but written in c#
-
-2004-04-11 17:51  nhudson
-
-	* gnome2-extras/libgnomedb/BUILD: 
-	Fixing libgnomedb when it errors out when making docs
-
-2004-04-11 15:53  florin
-
-	* doc-tools/texinfo/DETAILS: bump the version from 4.6 to 4.7.
-
-2004-04-11 15:30  florin
-
-	* libs/libtool/DETAILS: bump the version from 1.5.4 to 1.5.6.
-	bugfix release.
-
-2004-04-11 11:30  florin
-
-	* printer/hpijs/DETAILS: bump the version from 1.5 to 1.6. tested
-	with cups, espgs and kernel 2.6.5.
-
-2004-04-11 10:01  cmak
-
-	* filemanagers/rox/DETAILS: version bump
-
-2004-04-11 09:57  nestu
-
-	* kernel/linux-beta-mm/DETAILS: version bump
-
-2004-04-11 09:45  florin
-
-	* net/whois/DETAILS: bump the version from 4.6.9 to 4.6.13.
-
-2004-04-11 09:30  cmak
-
-	* audio/: liblrdf/DETAILS, qjackctl/DETAILS: version bumps
-
-2004-04-11 06:14  tchan
-
-	* gnome2-apps/regexxer/: DEPENDS, DETAILS: Version bump to 0.6. 
-	Fixed so this module now compiles with the newer gnome2.6 stuff. 
-	Added more DEPENDS.  Compiled and tested with gcc-3.3.3, kernel
-	headers 2.4.x.
-
-2004-04-11 06:08  tchan
-
-	* devel/gnome-vfsmm/DETAILS: Version bump to 1.3.5.  Compiled and
-	tested with gcc-3.3.3, kernel headers 2.4.x.
-
-2004-04-11 05:57  tchan
-
-	* gnome2-core/gtkmm2/DETAILS: Version bump to 2.2.11.  Compiled and
-	tested with gcc-3.3.3, kernel headers 2.4.x.
-
-2004-04-11 05:52  florin
-
-	* utils/hotplug/: BUILD, PRE_BUILD: remove the PRE_INSTALL file. i
-	guess that it's a more simle and better solution now.
-
-2004-04-11 05:43  florin
-
-	* utils/hotplug/PRE_BUILD: unpack the source first in order to
-	compile.
-
-2004-04-11 04:55  nhudson
-
-	* x11-utils/xrestop/: BUILD, DETAILS: 
-	Adding xrestop to moonbase, submitted by v3rt1g0 via the mailing
-	list
-
-2004-04-11 04:48  nhudson
-
-	* graphics/gimp/DETAILS: 
-	Adding a new mirror for Gimp suggested by Chad
-	Kittel(vertigo@wi.rr.com) from the mailing list
-
-2004-04-11 04:37  nhudson
-
-	* profiles/gnome2/DEPENDS: 
-	Cleaning up the DEPENDS file a bit, removing some double
-	dependancies
-
-2004-04-11 04:23  nhudson
-
-	* gnome2-core/: libgnomeprint/BUILD, librsvg/BUILD: 
-	Disabling doc building for now just to be on the safe side
-
-2004-04-11 04:06  nhudson
-
-	* gnome2-core/libgda2/BUILD: 
-	Fixing libgda2 build so that it doesnt error out when making docs,
-	there is a newer version of libgda2 out, but it doesnt compile
-	either for a diffrent reason
 
