@@ -17,8 +17,6 @@
                    
   #Fix bzip2 warning
   sedit "s/--repetitive-best/-9/" lib/mc.menu         &&
-  #fix mc.sh                                  
-  sedit "s/rm \"/rm -f \"/g" lib/mc.sh                &&
   
   default_make
 
