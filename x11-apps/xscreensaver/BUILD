@@ -1,11 +1,7 @@
 (
 
-  # Enable/Disable certain opts based on the use of gtk
-  if [ "$USE_GTK" = "y" ] ; then
-    OPTS="$OPTS --without-motif --with-gtk --with-xml"
-  else
-    OPTS="$OPTS --with-motif --without-gtk --without-gdk-pixbuff"
-  fi
+  # Enable gtk support
+  OPTS="$OPTS --without-motif --with-gtk --with-xml"
 
   # Enable locking abilities of xscreensaver
   OPTS="$OPTS --enable-locking"

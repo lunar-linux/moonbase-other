@@ -1,33 +1,12 @@
-# Note: this style of depends throws off 'lvu tree xscreensaver.'
+depends gtk+-2    &&
+depends libglade2 &&
+depends libxml2   &&
+depends netpbm    &&
+depends bc        &&
+depends glut      &&
+depends perl      &&
 
-# Did the user tell us we should be using gtk?
-if [ "$USE_GTK" = "y" ] ; then
-  #Yes they did, what version?
-  if [ "$USE_GTK2" = "y" ] ; then
-    # depends needed to enable gtk+-2 support
-    depends gtk+-2    &&
-    depends libglade2 &&
-    optional_depends "yelp" "" "" "help browser support in Gnome"
-  else
-    # depends needed to enable gtk+ support
-    depends gtk+     &&
-    depends libglade &&
-    optional_depends "control-center" "" "" "Gnome control-center support for xscreensaver"
-  fi
-
-  # needed only for the gtk version of xscreensaver-demo  
-  depends libxml2
-else
-  # Nope, gtk was not asked for, that's too bad, will instead use 
-  # deprecated (but still usable) openMotif version
-  depends openMotif  
-fi
-
-depends netpbm &&
-depends bc     &&
-depends glut   &&
-depends perl   &&
-
-optional_depends "gle" "" "" "to enable any screensavers that use this library" &&
+optional_depends "yelp" "" "" "help browser support in Gnome"
+optional_depends "gle" "--with-gle" "--without-gle" "to enable any screensavers that use this library" &&
 optional_depends "gettext" "--enable-nls" "--disable-nls" "Enable NLS support"  &&
 optional_depends "fortune" "--with-fortune=/usr/games/fortune" "" "for screensavers that use fortune"
