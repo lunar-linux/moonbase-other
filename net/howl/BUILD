@@ -1,4 +1,5 @@
 (
+   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
    default_build                     &&
    ln -sf /usr/include/$MODULE /usr/include/$MODULE-$VERSION &&
    mkdir -p /etc/howl                &&
