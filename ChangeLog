@@ -1,3 +1,44 @@
+2004-05-29 11:21  jol
+
+	* devel/PyKDE/: BUILD, DETAILS, PRE_BUILD, kzip.patch: bumped
+	version to 3.11rc1.  Now PyKDE compile fine. This package was
+	broken since a long time ...
+
+2004-05-29 11:19  jol
+
+	* devel/PyQt/: BUILD, DETAILS, PRE_BUILD: Bumped version to 3.12. 
+	It's compile fine now using the sip 4.0rc4.
+
+2004-05-29 11:18  jol
+
+	* libs/qscintilla/: BUILD, DETAILS: Just a little change inside the
+	BUILD file.  I've added a symbolic link to libqscintilla.so.
+
+2004-05-29 11:16  jol
+
+	* devel/sip/: BUILD, DETAILS, PRE_BUILD: Bumped version to 4.0rc4. 
+	I've updated it in order to compile fine PyQT and PyKDE, just wait
+	a moment please
+
+2004-05-29 08:04  niki
+
+	* bluetooth/: bluez-hcidump/DETAILS, bluez-libs/DETAILS,
+	bluez-utils/DETAILS, bluez-utils/POST_INSTALL: Bumped some
+	bluetooth apps, and now i can compile some more of them ;-)
+
+2004-05-29 03:51  florin
+
+	* kde3-apps/bookcase/DETAILS: bump the version from 0.9.1 to 0.9.3.
+
+2004-05-29 03:05  tchan
+
+	* devel/qemu/DETAILS: Version bump to 0.5.5.  Compiled and tested
+	with gcc-3.3.3, glibc-2.3.2.
+
+2004-05-28 21:10  cmak
+
+	* doc-tools/docbook-utils/DETAILS: version bump
+
 2004-05-27 20:56  cmak
 
 	* docs/man-pages/DETAILS: date fixed
@@ -1776,51 +1817,4 @@
 
 	* compilers/lua/DETAILS, x11-wm/ion-2/DEPENDS,
 	x11-wm/ion-2/DETAILS: Adding ion-2 and dependency lua.
-
-2004-04-28 21:15  sofar
-
-	* utils/acpi4asus/DETAILS: requested bump. works on tau's lappy
-
-2004-04-28 20:31  nhudson
-
-	* gnome2-apps/straw/DETAILS: 
-	Revrting straw because it seemed the new version is broken and wont
-	view any new news feeds that come up.
-
-2004-04-28 18:29  nhudson
-
-	* chat/gossip/DETAILS: 
-	Updating gossip to new version 0.7.5
-
-2004-04-28 11:10  prox
-
-	* perl/DBD-mysql/DETAILS: serious bump =)
-
-2004-04-28 09:51  nestu
-
-	* kernel/linux-beta/DETAILS: Version bump
-
-2004-04-28 09:02  prox
-
-	* graphics/ImageMagick/DETAILS: our daily bump of ImageMagick, oh
-	yoy
-
-2004-04-28 08:59  prox
-
-	* crypto/gnutls/: POST_INSTALL, PRE_BUILD: This is to recompile
-	gaim if users jump from 0.9.x version (since gaim breaks then)
-
-2004-04-28 08:59  prox
-
-	* crypto/gnutls/BUILD: adding patch
-
-2004-04-28 08:58  prox
-
-	* crypto/: gnutls/DETAILS, libgcrypt/DETAILS, libtasn1/DETAILS,
-	libgpg-error/DETAILS: gnutls 1.0.12, libtasn1 0.2.9, libgcrypt
-	1.2.0, libgpg-error 0.7. Updated all libs that affect gnutls and
-	bumped gnutls. libgcrypt has moved out of alpha and into stable,
-	nice to see. Added patch to gnutls which just had some makefiles
-	oops (mail sent to devs). gnutls 1.0.12 tested with gaim 0.76 and
-	working.
 
