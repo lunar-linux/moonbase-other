@@ -7,3 +7,36 @@ if  [  !  -f  /etc/asound.state  ];  then
   echo  "# alsactl  save"
 
 fi
+
+if module_installed linux-beta || module_installed linux-beta-mm ; then	
+	if ! [ -e /etc/init.d/alsasettings  ];  then
+	  cp  $SOURCE_CACHE/alsasettings  /etc/init.d
+	  chmod +x /etc/init.d/alsasettings
+	  rm -f /etc/rcS.d/S98alsasettings
+	  ln -s /etc/init.d/alsasettings /etc/rcS.d/S98alsasettings
+	fi
+
+	if [ ! -e /etc/rcS.d/S98alsasettings ]; then
+	  ln -s /etc/init.d/alsasettings /etc/rcS.d/S98alsasettings
+	fi
+
+	if [ ! -e /etc/rc0.d/K12alsasettings ]; then
+	  ln -s /etc/init.d/alsasettings /etc/rc0.d/K12alsasettings
+	fi
+
+	if [ ! -e /etc/rc6.d/K12alsasettings ]; then
+	  ln -s /etc/init.d/alsasettings /etc/rc6.d/K12alsasettings
+	fi
+
+	if [ ! -e /etc/rc1.d/K12alsasettings ]; then
+	  ln -s /etc/init.d/alsasettings /etc/rc1.d/K12alsasettings
+	fi
+
+	if [ ! -e /etc/rc2.d/K12alsasettings ]; then
+	  ln -s /etc/init.d/alsasettings /etc/rc2.d/K12alsasettings
+	fi
+
+	if [ ! -e /etc/rc3.d/K12alsasettings ]; then
+	  ln -s /etc/init.d/alsasettings /etc/rc3.d/K12alsasettings
+	fi
+fi
