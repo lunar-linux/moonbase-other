@@ -1,3 +1,81 @@
+2003-12-27 08:32  florin
+
+	* x11/xplanet/: BUILD, DETAILS: bump version from 1.0.1 to 1.0.2.
+
+2003-12-27 07:53  florin
+
+	* libs/pango/pangoxft.pc: this file is not used anymore.
+
+2003-12-27 07:38  florin
+
+	* mail/bogofilter/DETAILS: bump version from 0.15.12 to 0.15.13.
+	bugfix release.
+
+2003-12-27 05:07  tchan
+
+	* web/elinks/: BUILD, DETAILS, elinks.conf: Fixed elinks to use
+	/etc/elinks.conf for systemwide settings.  Made the default
+	async_dns=0 (much safer this way) vs. the default setting of 1.
+
+2003-12-27 04:52  watryac04
+
+	* audio/mpg123/BUILD.alpha: Turns out that since mpg123 doesn't
+	have a configure script, we have to specify the target cpu type on
+	the "make" command line.  so instead of doing a "make linux" and
+	then a "make install", we do a "make linux-alpha" and then the
+	install.
+
+2003-12-27 03:35  jmhodges
+
+	* chat/naim/DETAILS: update and link change
+
+2003-12-26 23:09  sofar
+
+	* x11-wm/pwm/: BUILD, DETAILS: Someone submitted this... it
+	works... thanks...
+
+2003-12-26 23:06  nhudson
+
+	* x11-apps/ifp-line/: BUILD, DEPENDS, DETAILS, POST_INSTALL: 
+	ifp-line is a driver for the iRiver ifp-3xx and ifp-5xx line of mp3
+	players.  This uses mc to transferfiles over to the player
+
+2003-12-26 16:58  tchan
+
+	* libs/uClibc/: .config.bz2, BUILD, DETAILS: Version bump to
+	0.9.24.  Compiled and tested with gcc-3.2.3, glibc-2.3.2.  Another
+	bugfix release.
+
+2003-12-26 16:48  florin
+
+	* sql/sqlite/DETAILS: fix some odd indentation.
+
+2003-12-26 16:46  tchan
+
+	* web/elinks/: BUILD, DEPENDS: Removed guile as an
+	optional-depends.  Guile is not fully supported in elinks (see the
+	note in their ./configure script.  That and it needs guile-1.4
+	scripts otherwise its broken.  Fixed BUILD to disable guile.
+
+2003-12-26 16:46  florin
+
+	* sql/sqlite/DETAILS: bump version from 2.8.6 to 2.8.8.
+
+2003-12-26 16:36  florin
+
+	* audio/beepmp/DETAILS, compilers/ruby/DETAILS,
+	kde3-apps/ksubtile/DETAILS, video/mpeg2dec/DETAILS: fix some odd
+	indentation..
+
+2003-12-26 16:15  florin
+
+	* graphics/openvrml/DETAILS: fix some odd indentation..
+
+2003-12-26 14:03  florin
+
+	* graphics/openvrml/: BUILD, DEPENDS, DETAILS: bump version from
+	0.11.2 to 0.14.3.
+
 2003-12-26 11:14  florin
 
 	* web/elinks/DETAILS: bump version from 0.4.3 to 0.9.0.
@@ -1795,44 +1873,4 @@
 	* mail/amavisd-new/DETAILS: Version bumped to 20030616-p6 on
 	Richard B. Pyne <rpyne@kinfolk.org> request, and i have fixed the
 	build dir, so that it uses the right place.
-
-2003-11-26 20:43  florin
-
-	* web/bluefish/DETAILS: bump version from 0.11 to 0.12.
-
-2003-11-26 17:59  florin
-
-	* devel/db4/CONFIGURE: moved the OPTS assign after the j2sdk test.
-
-2003-11-26 17:29  florin
-
-	* devel/db4/: BUILD, CONFIGURE, DETAILS: bump version from 4.1.25
-	to 4.2.50. the patch is no no longer needed.
-
-2003-11-26 17:08  florin
-
-	* mail/kbiff/DETAILS: bump version from 3.6.3 to 3.7.
-
-2003-11-26 16:52  tchan
-
-	* devel/uml/: .config, DETAILS: Updated to latest uml kernel
-	patchset.  Compiled and tested with gcc-3.2.3.
-
-2003-11-26 16:50  florin
-
-	* mail/libesmtp/DETAILS: bump version from 1.0 to 1.0.1.
-
-2003-11-26 16:39  florin
-
-	* mail/bogofilter/DETAILS: bump version from 0.15.8 to 0.15.9.
-
-2003-11-26 16:38  florin
-
-	* utils/dialog/DETAILS: add the md5 sum.
-
-2003-11-26 04:44  tchan
-
-	* devel/arch/DETAILS: Version bump to tla-1.1pre9.  Compiled and
-	tested with gcc-3.2.3, glibc-2.3.2.  Yes, it passes all "make test"
-	section of the BUILD script (still).
 
