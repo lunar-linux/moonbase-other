@@ -1,3 +1,51 @@
+2004-04-07 11:30  jol
+
+	* distributed/BitTorrent/DETAILS: Bumped version OLD: 3.4.1a  NEW:
+	3.4.2
+	
+	Fixed some bugs, including an important tracker bug Added 'warning
+	message' so trackers can send non-fatal human readable messages to
+	clients Fixed problem where some users got 'could not find file'
+	message
+	
+	Note: I've changed my sf url to http://heanet.dl.sourceforge.net
+	which is updated.
+
+2004-04-07 10:50  nestu
+
+	* net/maradns/lunar_install.locations: changed prefix to /usr and
+	not /usr/ (just some cosmetics)
+
+2004-04-07 10:48  nestu
+
+	* net/maradns/lunar_install.locations: Change prefix to /usr/
+	instead of /usr/local/
+
+2004-04-07 04:23  florin
+
+	* ftp/lftp/DETAILS: bump the version from 3.0.0 to 3.0.1.
+
+2004-04-07 03:26  nhudson
+
+	* devel/gtk-sharp/DETAILS: 
+	Updating gtk-sharp to new version 0.18
+
+2004-04-07 02:54  tchan
+
+	* security/shadow/: BUILD, DETAILS: Used the slackware patch that
+	couannette found for the newgrp/getlogin bug.  Compiled and tested
+	withg gcc-3.3.3, kernel headers 2.4.x.	Basically newgrp.c
+	incorrectly assumes getlogin will always return a value.  The patch
+	adds a test for getlogin() ret val.
+
+2004-04-07 02:01  jmhodges
+
+	* gnome2-core/control-center2/DETAILS: big bug fix apparently
+
+2004-04-06 17:36  florin
+
+	* devel/gdb/DETAILS: bump the version from 6.0 to 6.1.
+
 2004-04-06 04:51  nhudson
 
 	* mail/evolution/DETAILS: 
@@ -1972,36 +2020,4 @@
 
 	* utils/modutils/DETAILS: Version bump to 2.4.27.  Compiled and
 	tested with gcc-3.3.3, kernel headers 2.4.x.
-
-2004-03-07 23:22  sofar
-
-	* crypto/newpg/DEPENDS: YIKES!!!
-
-2004-03-07 19:11  moe
-
-	* graphics/scribus/BUILD: There is no patch
-
-2004-03-07 15:12  sofar
-
-	* perl/Gtk-Perl/DEPENDS: C'mon folks!
-
-2004-03-07 05:33  florin
-
-	* devel/: tcl/BUILD, tcl/DETAILS, tk/DETAILS: bump the version from
-	8.4.5 to 8.4.6. bugfix version mostly.
-
-2004-03-07 05:31  tchan
-
-	* net/iplog/DETAILS: No time travel allowed!  It really confuses
-	the lunar core tools.  :-)
-
-2004-03-07 05:28  tchan
-
-	* ftp/pure-ftpd/DETAILS: Fixing identation.
-
-2004-03-07 01:07  striker
-
-	* net/iplog/: DEPENDS, DETAILS: network connection logger similar
-	to tcpdump (but prints less information) and has different uses
-	(e.g. scan detection).
 
