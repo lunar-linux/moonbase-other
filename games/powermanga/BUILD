@@ -1,8 +1,9 @@
 (
 
-  ./configure  --prefix=/usr        \
-               --bindir=/usr/games  \
-	       --datadir=/usr/share &&
+  ./configure  --prefix=/usr           \
+               --bindir=/usr/games     \
+	       --datadir=/usr/share    \
+	       --mandir=/usr/man/man6 &&
 
   default_make
 
