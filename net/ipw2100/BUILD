@@ -16,6 +16,11 @@
 
   make &&
   prepare_install &&
+  
+  if [ -d /lib/modules/`uname -r`/kernel/drivers/net/wireless/ipw2100 ]; then
+    rm -rf /lib/modules/`uname -r`/kernel/drivers/net/wireless/ipw2100;
+  fi &&
+  
   make install
 
 ) > $C_FIFO 2>&1
