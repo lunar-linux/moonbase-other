@@ -21,7 +21,7 @@ if    [  -f  $CONFIG_CACHE/host.def  ]; then
     then
       sedit "/ HasFreetype2/d"                $CONFIG_CACHE/host.def
       sedit "/ BuildFreetype2Library/d"       $CONFIG_CACHE/host.def
-      sedit "/ Freetype2Dir/"                 $CONFIG_CACHE/host.def
+      sedit "/ Freetype2Dir/d"                 $CONFIG_CACHE/host.def
       echo "#define HasFreetype2              YES"  >> $CONFIG_CACHE/host.def
       echo "#define BuildFreetype2Library     NO"   >> $CONFIG_CACHE/host.def
       echo "#define Freetype2Dir              /usr" >> $CONFIG_CACHE/host.def
