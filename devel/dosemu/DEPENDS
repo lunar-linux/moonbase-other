@@ -1,2 +1,5 @@
-depends bison &&
-depends flex
+depends slang &&
+
+optional_depends "svgalib" "--enable-use-svgalib"   \
+                 "" "to build with svgalib support" &&
+optional_depends "gpm" "" "--without-gpm" "for mouse support in the CLI"

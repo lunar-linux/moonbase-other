@@ -1,16 +1,8 @@
 (
 
-  ./configure --prefix=/usr                           \
-              --exec-prefix=/usr                      \
-              --sysconfdir=/etc                       \
-              --localstatedir=/var                    \
-              --datadir=/usr/share                    \
-              --infodir=/usr/share/info               \
-              --mandir=/usr/share/man                 \
-	      --with-x                                \
-              --with-fdtarball=$SOURCE_CACHE/$SOURCE2 \
-	      $OPTS                                  &&
-  
-  default_make
-  
+  sedit "s:cp -a:cp -aL:" src/arch/linux/Makefile.main &&
+
+  OPTS="$OPTS --with-x --with-fdtarball=$SOURCE_CACHE/$SOURCE2"
+  default_build
+
 ) > $C_FIFO 2>&1
