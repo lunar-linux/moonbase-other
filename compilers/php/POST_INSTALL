@@ -1,3 +1,14 @@
 [ -s /var/run/httpd/httpd.pid  ] && /usr/sbin/apachectl  graceful
 [ -s /var/run/httpsd/httpd.pid ] && /etc/init.d/apache_modssl restart
+if [ -f /etc/httpd/httpd.conf ] ; then
+  if ! grep -q "x-httpd-php" /etc/httpd/httpd.conf ; then
+    cat >> /etc/httpd/httpd.conf << EOF
+
+# AddType required for php to work:
+AddType  application/x-httpd-php         .php .php4 .php3 .phtml
+AddType  application/x-httpd-php-source  .phps
+
+EOF
+  fi
+fi
 true
