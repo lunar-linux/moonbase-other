@@ -3,6 +3,13 @@
   sedit "s/SYS_TIME_H 1/SYS_TIME_H 0/" compat.h           &&
   patch_it $SOURCE2 1                                     &&
 
+  if [ "$SYSLOG" == "y" ]; then
+    echo "#define SYSLOG 1" >> config.h
+  fi                                                      &&
+  if [ "$LOG_FILE" == "y" ]; then
+    sedit "/LOG_FILE/d" pathnames.h
+  fi                                                      &&
+
   make                                                    &&
   prepare_install                                         &&
   make    install                                         &&
