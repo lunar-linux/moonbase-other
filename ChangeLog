@@ -1,3 +1,92 @@
+2004-05-07 10:49  moe
+
+	* security/nss_ldap/BUILD: Here too
+
+2004-05-07 10:49  moe
+
+	* security/pam_ldap/BUILD: We want /lib
+
+2004-05-07 10:34  sofar
+
+	* filesys/autofs/init.d/autofs: Order adjustment: right after
+	ypbind this can be run and should before anything else. Also
+	simplified and integrated a bit more.
+
+2004-05-07 10:27  sofar
+
+	* net/ypbind-mt/init.d/ypbind: Boot order adjustments: after
+	portmap but way before any real daemons that might need /usr
+	etc....
+
+2004-05-07 10:20  sofar
+
+	* net/portmap/init.d/portmap: This is better.
+
+2004-05-07 09:39  sofar
+
+	* graphics/ImageMagick/DETAILS: I was wrong, I regretted it within
+	the hour. :^(
+
+2004-05-07 08:23  cmak
+
+	* graphics/graphviz/DETAILS: version bump
+
+2004-05-07 07:57  sofar
+
+	* graphics/ImageMagick/DETAILS: Tomorrow I will have regretted this
+	bump already ;^)
+
+2004-05-07 07:48  sofar
+
+	* games/eboard/DETAILS: Mentioned on IRC last night.
+
+2004-05-07 04:38  florin
+
+	* video/mkvtoolnix/DETAILS: bump the version from 0.8.8 to 0.8.9.
+
+2004-05-06 22:44  nhudson
+
+	* audio/muine/DETAILS: 
+	Updating muine to new version 0.6.0 which now compiles with mono
+	0.91 and also added a md5sum
+
+2004-05-06 22:17  moe
+
+	* security/nss_ldap/: DEPENDS, DETAILS: And this .. ah .. and LDAP
+	STILL FSCKING SUCKS A$$!
+
+2004-05-06 22:16  moe
+
+	* security/pam_ldap/: DEPENDS, DETAILS: This is needed for a
+	PAM/LDAP configuration. Ah .. and ..  LDAP SUCKS FSCKING A$$!
+
+2004-05-06 19:47  cmak
+
+	* audio/: id3v2/DETAILS, qjackctl/DETAILS: version bump(s)
+
+2004-05-06 18:34  striker
+
+	* net/delegate/: BUILD, CONFIGURE, DETAILS: adding delegate,
+	multi-protocol proxy
+
+2004-05-06 14:22  nhudson
+
+	* libs/libgdiplus/: DEPENDS, DETAILS: 
+	Adding libgdiplus to moonbase to go along with the Mono stuff I put
+	in yesterday
+
+2004-05-06 14:17  nhudson
+
+	* x11-wm/hackedbox/DETAILS: 
+	Updating hackedbox to new version 0.8.3, now compiles with gcc
+	3.3.3, thx goes to scrudge for fixing this
+
+2004-05-06 13:26  sofar
+
+	* x11/fglrx/: BUILD, DEPENDS, DETAILS, PRE_BUILD: Renaming the
+	'ati' module to 'fglrx', updating it to 3.7.6 after tested
+	succesfully!!!
+
 2004-05-06 09:03  nestu
 
 	* kernel/linux-beta-mm/DETAILS: Version bump 2.6.6-rc3-mm1 ->
@@ -2243,16 +2332,16 @@
 
 2004-04-09 15:32  nhudson
 
-	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
-	on branch GNOME_UNSTABLE.
-
-2004-04-09 15:32  nhudson
-
 	* gnome2-extras/: ghex/BUILD, glade2/BUILD, gnome-python2/BUILD,
 	gnome-speech/BUILD, gnome-spell/BUILD, gnopernicus/BUILD,
 	libcroco/BUILD, libgnomecups/BUILD, libgnomedb/BUILD,
 	magicdev/BUILD, pyorbit/BUILD: 
 	Adding BUILD files to merge into HEAD
+
+2004-04-09 15:32  nhudson
+
+	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
+	on branch GNOME_UNSTABLE.
 
 2004-04-09 15:24  nhudson
 
@@ -2631,18 +2720,4 @@
 2004-04-07 02:01  jmhodges
 
 	* gnome2-core/control-center2/DETAILS: big bug fix apparently
-
-2004-04-06 17:36  florin
-
-	* devel/gdb/DETAILS: bump the version from 6.0 to 6.1.
-
-2004-04-06 04:51  nhudson
-
-	* mail/: evolution/DETAILS, evolution-data-server/DETAILS: 
-	Updating evolution to 1.5.6 and eds to 0.0.91
-
-2004-04-06 04:49  nhudson
-
-	* libs/: gal21/DETAILS, gtkhtml31/DETAILS: 
-	Updating libsoup gal21 and gtkhtml31 for new version of evolution
 
