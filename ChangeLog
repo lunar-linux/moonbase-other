@@ -1,3 +1,94 @@
+2004-03-25 10:57  sofar
+
+	* video/mjpegtools/DETAILS: I had this update available already for
+	a while
+
+2004-03-25 10:40  sofar
+
+	* games/cube-bin/DEPENDS: Yup, also this one needed that.
+
+2004-03-25 05:15  florin
+
+	* games/xqf/DETAILS: fix the update date.
+
+2004-03-25 05:08  florin
+
+	* kde3-apps/kaffeine/: BUILD, DETAILS: bump the version from 0.4.1
+	to 0.4.2. the app does not compile with --enable-final configure
+	option.
+
+2004-03-25 05:05  florin
+
+	* games/xqf/: DEPENDS, DETAILS: bump the version from 0.9.13 to
+	0.9.14.
+
+2004-03-25 04:19  tchan
+
+	* audio/sound-juicer/DETAILS: Fixed the indentation.
+
+2004-03-25 03:55  nhudson
+
+	* gnome2-apps/gucharmap/DETAILS: 
+	Updating gucharmap to new version 1.4.0
+
+2004-03-25 03:53  nhudson
+
+	* gnome2-core/: gnome-media2/DETAILS, gnome2-user-docs/DETAILS,
+	gtksourceview/DETAILS: 
+	Updating more modules to the 2.6.0 release that has been pushed
+	back till the 31st of March
+
+2004-03-25 02:46  tchan
+
+	* ftp/dcgui-qt/DETAILS: Fixed the indentation.
+
+2004-03-25 02:43  tchan
+
+	* utils/clamav/DETAILS: Version bump to 0.68-1.
+
+2004-03-25 01:00  florin
+
+	* kde3-utils/kcmpureftpd/BUILD: the app does not compile with
+	--enable-final configure option.
+
+2004-03-25 00:23  florin
+
+	* kde3-apps/kile/DETAILS: bump the version from 1.6.1 to 1.6.2.
+
+2004-03-24 23:37  florin
+
+	* x11/xplanet/DETAILS: bump the version from 1.0.4 to 1.0.5.
+
+2004-03-24 19:01  florin
+
+	* libs/libxslt/DETAILS: bump the version from 1.1.4 to 1.1.5. i was
+	unable to find a .bz2 archive so i have used a .gz one.
+
+2004-03-24 18:42  florin
+
+	* libs/libxml2/DETAILS: bump the version from 2.6.7 to 2.6.8.
+
+2004-03-24 18:42  striker
+
+	* sql/sqlite/DETAILS: bump version from 2.8.9 to 2.8.13
+
+2004-03-24 18:35  florin
+
+	* graphics/libmng/DETAILS: bump the version from 1.0.6 to 1.0.7.
+
+2004-03-24 17:05  tchan
+
+	* security/ulogd/BUILD: Fixed the poor bash logic in the BUILD
+	script to correctly take care of the case when the user does NOT
+	have libpcap module installed.	The old BUILD script would just
+	abort because of the faultly logic and the use of &&
+	prepare_instal.
+
+2004-03-24 15:56  niki
+
+	* kernel/linux-grsec/: BUILD, POST_INSTALL: It was the BUILD file
+	that needed the fix... :-)
+
 2004-03-24 11:20  nestu
 
 	* kernel/linux-beta-mm/DETAILS: Version bump. Hangs on my box
@@ -1817,15 +1908,15 @@
 
 2004-02-29 05:35  nhudson
 
-	* gnome_unstable_gcc3.3.3_compat_list: 
-	Running a list of modules that do and dont work with gcc 3.3.3 and
-	2.6.x kernels
-
-2004-02-29 05:35  nhudson
-
 	* gnome_unstable_gcc3.3.3_compat_list: file
 	gnome_unstable_gcc3.3.3_compat_list was initially added on branch
 	GNOME_UNSTABLE.
+
+2004-02-29 05:35  nhudson
+
+	* gnome_unstable_gcc3.3.3_compat_list: 
+	Running a list of modules that do and dont work with gcc 3.3.3 and
+	2.6.x kernels
 
 2004-02-29 05:25  florin
 
@@ -2323,67 +2414,4 @@
 	* zbeta/elmo-cvs/: DEPENDS, DETAILS: Their optional depends on
 	gpgme is not so optional.  It will not compile for me without gpgme
 	installed.  Also bumped the version number to 1.1.x.
-
-2004-02-23 18:39  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Version bump
-
-2004-02-23 15:33  florin
-
-	* chat/licq/CONFIGURE: put back the CONFIGURE file.
-
-2004-02-23 15:31  florin
-
-	* chat/licq/CONFLICTS: remove the CONFLICTS file as we do not have
-	an licq3 module in moonbase.
-
-2004-02-23 11:05  sofar
-
-	* gnome2-extras/gal2/PRE_BUILD: less files better
-
-2004-02-23 10:50  sofar
-
-	* ftp/vsftpd/CONFIGURE: ~ftp is not always /home/ftp
-
-2004-02-23 10:23  sofar
-
-	* gnome2-extras/gal2/DETAILS: another one!
-
-2004-02-23 10:14  sofar
-
-	* graphics/SDL/: BUILD, DETAILS: Removing patch and bumping
-	version.
-
-2004-02-23 09:00  sofar
-
-	* video/MPlayer/BUILD: Don't spread hatred, make love!
-
-2004-02-23 08:54  sofar
-
-	* video/MPlayer/PRE_BUILD: bah!
-
-2004-02-23 08:54  sofar
-
-	* video/MPlayer/: BUILD, CONFIGURE, DETAILS: Anyone that puts live
-	support back in will have to DAILY check if they didn't remove
-	their old tarballs again. (yep, it's monday again).
-
-2004-02-23 08:01  florin
-
-	* chat/licq/: BUILD, CONFIGURE, DEPENDS, DETAILS: remove the
-	CONFLICTS file as we do not have an licq3 module in moonbase. add
-	md5 sum.
-
-2004-02-23 07:01  florin
-
-	* video/mkvtoolnix/DETAILS: bump version from 0.8.3 to 0.8.5.
-
-2004-02-23 07:01  florin
-
-	* video/: libebml/DETAILS, libmatroska/DETAILS: format the details
-	comment.
-
-2004-02-23 06:53  florin
-
-	* kde3-apps/bookcase/DETAILS: bump version from 0.8.3 to 0.8.4.
 
