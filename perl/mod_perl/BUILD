@@ -1,8 +1,5 @@
 (
 
-  perl  Makefile.PL  NO_HTTPD=1  &&
-  make                           &&
-  prepare_install                &&
-  make    install
-
+  perl  Makefile.PL MP_APXS=/usr/sbin/apxs  &&
+  default_make
 ) > $C_FIFO 2>&1
