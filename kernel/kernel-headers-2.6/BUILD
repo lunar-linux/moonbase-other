@@ -1,17 +1,10 @@
 (
-    cd /usr/include/
-    
-    for dir in asm linux scsi
-    do
-	test -e $dir 2> /dev/null && rm -rf $dir  
-    done
-    
     cd ${SOURCE_DIRECTORY}/include/
     
     # asm is a special case, since it is arch specific
     mv asm-i386 asm
     
-    for dir in asm linux scsi  
+    for dir in asm linux scsi sound
     do
     
 	cp    -a $dir      /usr/include/
