@@ -14,8 +14,6 @@
   message "Disabling debug messages ..."
   sedit "s:CONFIG_IPW_DEBUG=y:#CONFIG_IPW_DEBUG=y:" Makefile
 
-  patch_it $SOURCE3 0  &&
-	
   make HOSTAP=hostap-driver-$HOSTAPVER	&&
   prepare_install &&
   make install
