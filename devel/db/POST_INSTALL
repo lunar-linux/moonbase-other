@@ -1,5 +1,9 @@
 # Migration code sucks
+
+rm -rf  /usr/include/db3
+
 OLD_DB=`get_module_config OLD_DB`
+
 if [ "$OLD_DB" = "y" ]; then
   for mod in apache apache-mod_ssl bsddb3 dctc        \
 	     drac exim gnome-libs heimdal latex2html  \
@@ -10,6 +14,5 @@ if [ "$OLD_DB" = "y" ]; then
     fi;
   done;
 fi
-unset_module_config OLD_DB
 
-rm -f  /usr/include/db3
+unset_module_config OLD_DB
