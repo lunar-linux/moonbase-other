@@ -41,6 +41,11 @@ optional_depends "faad"		   \
 		 ""		   \
 		 "For external FAAD2 (MPA/AAC) support" &&
 
+optional_depends "libtheora"         \
+                 "--enable-theora"   \
+                 "--disable-theora"  \
+                 "For OGG/Theora Video Playback" &&
+
 case  $GUI  in
   y|Y|j|J)  depends  libpng          &&
             depends  gtk+            &&
