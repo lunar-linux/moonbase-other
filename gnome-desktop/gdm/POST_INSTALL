@@ -1,2 +1,8 @@
+rm -fr $BOOST_LOCK
+
+if module_installed gnome-session; then lin -c gnome-session fi
+if module_installed gnome-desktop; then lin -c gnome-desktop fi
+
 echo "You might want to add /opt/lunar/gnome/2.4/bin to your /etc/profile"
-echo "for now till we can find a better way of doing this."
+echo "for now till we can find a better way of doing this. If for some"
+echo "reason you still cant login recompile gnome-session and gnome-desktop"
