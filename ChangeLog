@@ -1,3 +1,78 @@
+2004-01-25 11:54  moe
+
+	* xfce4/xfce4-session/DETAILS: Reverting this since we ain't got
+	the most recent libxfce4util needed for this version.
+
+2004-01-25 10:50  moe
+
+	* xfce4/xfce4-session/DETAILS: Jasper asked me to update it so here
+	we go: This one now features a --disable-tcp flag so the manager
+	won't listen on random ports for connections on startup (rather
+	annoying IMHO).
+
+2004-01-25 09:39  florin
+
+	* security/chkrootkit/DETAILS: fix the dates.
+
+2004-01-25 09:38  florin
+
+	* net/bmon/: DEPENDS, DETAILS: bmon is an interface bandwidth
+	monitor. added at Striker's request.
+
+2004-01-25 08:00  florin
+
+	* devel/subversion/DETAILS: bump version from 0.35.1 to 0.36.0.
+
+2004-01-25 04:37  hardkrash
+
+	* science/octave/DETAILS: version bump
+
+2004-01-25 04:20  hardkrash
+
+	* kernel/: kernel-reqs/BUILD, linux/POST_INSTALL,
+	linux-grsec/POST_INSTALL, linux-openmosix/POST_INSTALL,
+	linux-vanilla/POST_INSTALL: added nforce to post_builds
+	
+	are we going to change the other modules over to the kernel-reqs
+	style anytine soon?
+
+2004-01-25 04:14  hardkrash
+
+	* kernel/nforce/: BUILD, DETAILS: adding a module for nforce
+	chipset drivers, for network and audio
+
+2004-01-24 17:38  florin
+
+	* games/krcon/: BUILD, DEPENDS, DETAILS: Krconlinux is an KDE tool
+	for managing, browsing and queueing the games servers.
+
+2004-01-24 15:27  hardkrash
+
+	* devel/kcachegrind/DEPENDS: added a runtime depends
+
+2004-01-24 13:25  florin
+
+	* security/nessus/DETAILS: bump version from 2.0.9 to 2.0.10.
+
+2004-01-24 13:08  florin
+
+	* devel/kcachegrind/DETAILS: i have forget about the SOURCE line.
+	sorry.
+
+2004-01-24 12:57  florin
+
+	* devel/kcachegrind/: BUILD, DEPENDS, DETAILS: an KDE frontend for
+	valgrind profiler tool. added at the hardkrash's request.
+
+2004-01-24 12:56  florin
+
+	* devel/calltree/: DEPENDS, DETAILS: an plugin for valgrind
+	profiler tool. added at the hardkrash's request.
+
+2004-01-24 12:00  florin
+
+	* kde3-apps/karchiver/DETAILS: bump version from 3.0.8 to 3.0.10.
+
 2004-01-24 09:52  florin
 
 	* security/chkrootkit/: BUILD, DETAILS, POST_INSTALL: add Striker's
@@ -553,14 +628,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
-	the version, added a depends on hicolor-icon-theme, and moved it
-	out of /opt/lunar
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
+	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
+	the version, added a depends on hicolor-icon-theme, and moved it
+	out of /opt/lunar
 
 2004-01-15 18:22  niki
 
@@ -1757,36 +1832,4 @@
 	* compilers/ruby/: BUILD, DETAILS: bump version from 1.8.0 to
 	1.8.1. this is mainly a bugfix release. passed all the tests
 	included in the package without errors or failures.
-
-2003-12-25 17:54  florin
-
-	* audio/beepmp/: BUILD, DETAILS: fix an compile error.
-
-2003-12-25 17:26  florin
-
-	* audio/beepmp/: BUILD, DEPENDS, DETAILS: rename it from
-	beep-media-player module.
-
-2003-12-25 17:06  florin
-
-	* kde3-apps/ksubtile/: BUILD, DEPENDS, DETAILS: a KDE based SRT
-	subtitle files editor.
-
-2003-12-25 16:12  florin
-
-	* utils/procps/DETAILS: bump version from 3.1.14 to 3.1.15.
-
-2003-12-25 15:13  florin
-
-	* video/mpeg2dec/DETAILS: bump version from 0.3.1 to 0.4.0.
-
-2003-12-25 15:12  florin
-
-	* libs/libxslt/DETAILS: bump version from 1.1.1 to 1.1.2. bugfix
-	version.
-
-2003-12-25 15:11  florin
-
-	* libs/libxml2/DETAILS: bump version from 2.6.3 to 2.6.4. bugfix
-	version.
 
