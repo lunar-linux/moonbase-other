@@ -10,6 +10,8 @@
   cat   Config.h.original                           >>  Config.h
 
   sedit "s/DOSTATIC = false/DOSTATIC = true/" Makefile
+  sedit "s/DOLFS = false/DOLFS = true/" Makefile
+
 
   make             &&
   prepare_install  &&

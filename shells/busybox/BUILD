@@ -3,6 +3,8 @@
   cp Config.h Config.h.orig
   bzcat $SCRIPT_DIRECTORY/busybox.patch.bz2 | patch -p0 &&
 
+  sedit "s/DOLFS = false/DOLFS = true/" Makefile
+
   make || exit 1
 
   prepare_install &&
