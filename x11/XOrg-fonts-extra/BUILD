@@ -1,4 +1,6 @@
 (
+
+  prepare_install &&
   mkdir -p /usr/share/fonts &&
   for fonts in $SOURCE_DIRECTORY/*; do
     cp -rf $fonts /usr/share/fonts;
