@@ -4,9 +4,9 @@
 
   default_build &&
   
-  for FILE in basename cat cp chgrp chmod chown cut date dd df echo     \
-              false groups id ln ls mkdir mknod nice pwd rm rmdir sleep \
-	      sort stty sync tail tr true uname mv ; do
+  for FILE in basename cat cp chgrp chmod chown cut date dd df echo false   \
+              groups head id ln ls mkdir mknod nice pwd rm rmdir sleep sort \
+	      stty sync tail tr true uname mv ; do
     mv -f /usr/bin/$FILE /bin
   done &&
   mv -f /usr/bin/chroot /usr/sbin  &&
