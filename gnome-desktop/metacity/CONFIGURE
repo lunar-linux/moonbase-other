@@ -1,0 +1,7 @@
+if ! grep -q "XINER" $MODULE_CONFIG; then
+ if query "Enable Xinerama Support?" y
+   then echo "GNOME=y" >> $MODULE_CONFIG
+   else echo "GNOME=n" >> $MODULE_CONFIG
+ fi
+fi
+
