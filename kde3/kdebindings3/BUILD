@@ -5,6 +5,13 @@
   QTDIR=/opt/lunar/qt/3
   KDEDIR=/opt/lunar/kde/3
 
+## java support ?
+  if module_installed j2sdk; then
+    OPTS="$OPTS --with-java=/usr/lib/j2sdk1.4.1"
+  else
+    OPTS="$OPTS --without-java"
+  fi  &&
+
 ## fix problem with ccache
   CC=${CC//ccache/} &&
   CXX=${CXX//ccache/} &&
