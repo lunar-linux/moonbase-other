@@ -2,7 +2,7 @@
 
 #  sed  s/"const char \*what"/"__const char \*what"/ portmap.c > portmap.c~  &&
 #  mv  portmap.c~  portmap.c  &&
-  if [ $OPTS == "NO" ]
+  if [ "$OPTS" == "NO" ]
   then
    sedit "s|\$(WRAP_DIR)/libwrap.a||" Makefile &&
    sedit "s|^HOSTS_ACCESS=|#HOSTS_ACCESS=|" Makefile
