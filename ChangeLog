@@ -1,3 +1,81 @@
+2004-11-13 12:49  florin
+
+	* doc-tools/doxygen/BUILD: fix the install path.
+
+2004-11-13 11:03  cmak
+
+	* x11/fglrx/DETAILS: version bump, doom3 should work now :)
+
+2004-11-13 06:32  florin
+
+	* cd/eject/: BUILD, DETAILS, eject-2.0.13-kernel25-support.patch:
+	  movet the patch to the PATCH_URL.
+
+2004-11-13 06:04  florin
+
+	* crypto/cyrus-sasl/DETAILS: bump the version from 2.1.19 to
+	  2.1.20.
+
+2004-11-13 04:43  tchan
+
+	* distributed/distcc/DETAILS: Version bump to distcc-2.18.2.  A
+	  small bug fix release. Compiled and tested with gcc-3.3.3,
+	  glibc-2.3.3, kernel headers 2.4.x.
+
+2004-11-13 03:18  v3rt1g0
+
+	* libs/mm/DETAILS: Version bump.  This application is now marked as
+	  "finished" on the developers webpage.
+
+2004-11-13 01:15  v3rt1g0
+
+	* games/powermanga/DETAILS: Version bump
+
+2004-11-12 23:50  v3rt1g0
+
+	* cd/eject/: BUILD, DETAILS, eject-2.0.13-kernel25-support.patch: I
+	  thought this patch was added a long time ago when I first found
+	  it..	*shrug*  Anyhow, this patch makes eject 2.6 friendly.
+
+2004-11-12 23:26  florin
+
+	* devel/swig/DETAILS: bump the version from 1.3.22 to 1.3.23.
+
+2004-11-12 23:23  v3rt1g0
+
+	* cd/libcdaudio/: BUILD, DETAILS: Version bump and a little
+	  simplification of the code
+
+2004-11-12 22:55  florin
+
+	* devel/check/DETAILS: bump the version from 0.9.1 to 0.9.2.
+
+2004-11-12 19:38  nestu
+
+	* security/iptables/DETAILS: taken tabs out of my last commit, and
+	  changed md5 for sha's
+
+2004-11-12 19:25  nestu
+
+	* security/iptables/: BUILD, DETAILS: Adding patch to fix
+	  vulnerability:
+	  http://securitytracker.com/alerts/2004/Nov/1012025.html
+
+2004-11-12 17:02  moe
+
+	* x11-wm/openbox/DEPENDS: Adding a requiered dependency: libxml2
+
+2004-11-12 17:01  moe
+
+	* net/ipw2100/: BUILD, DETAILS: Updating this thingy to 0.62.
+	  Stupid patches not needed anylonger. Hope this is working with
+	  suspension and hibernation again
+
+2004-11-12 15:52  tchan
+
+	* chat/gaim/DETAILS: Version bump to gaim-1.0.3. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
 2004-11-12 07:40  v3rt1g0
 
 	* video/gxine/: BUILD, DEPENDS: Okay, I suck... last commit, I
@@ -2142,130 +2220,4 @@
 2004-10-14 01:50  florin
 
 	* games/FlightGear/DETAILS: bump the version from 0.9.5 to 0.9.6.
-
-2004-10-13 20:53  tchan
-
-	* distributed/distcc/: DETAILS, POST_INSTALL, init.d/distcc,
-	  xinetd.d/distccd: Version bump to distcc-2.18.  distcc daemon
-	  mode now FORCES "--allow IPaddrs".  I modified the initscripts to
-	  use "--allow 127.0.0.1", which WILL have to be edited by a
-	  sysadmin.  That message appears in POST_INSTALL.  If you don't
-	  edit the initscripts, distcc will ONLY allow 127.0.0.1.  This was
-	  the simple way to get the new distcc to stop/restart correctly.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2004-10-13 19:17  florin
-
-	* kde3-apps/apollon/DETAILS: bump the version from 1.0 to 1.0.1.
-
-2004-10-13 18:58  florin
-
-	* games/bzflag/DETAILS: bump the version from 1.10.8-20041005 to
-	  1.10.8-20041007.
-
-2004-10-13 18:09  nestu
-
-	* kernel/linux-2.6-mm/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	  POST_INSTALL, PRE_BUILD: Moving to new kernel naming scheme. This
-	  is here instead of linux-beta-mm.  Version bump: 2.6.9-rc3-mm1
-	  (linux-beta-mm) -> 2.6.9-rc4-mm1 (this).  gcc 3.3.3, glibc 2.3.2,
-	  headers 2.6.8.1
-
-2004-10-13 15:41  tchan
-
-	* shells/busybox/: BUILD, DETAILS, PRE_BUILD: Version bump to
-	  busybox-1.00. Added sha1sums. Added a PRE_BUILD to copy a default
-	  .config file so users won't have to answer a LOT of config
-	  questions.  Compiled and tested with gcc-3.3.3, glibc-2.3.3,
-	  kernel headers 2.4.x.
-
-2004-10-13 13:45  nestu
-
-	* filesys/udev/DETAILS: 034 -> 036. gcc 3.3.3, glibc 2.3.2, headers
-	  2.6.8.1
-
-2004-10-13 11:06  sofar
-
-	* libs/libxml++-1/: DEPENDS, DETAILS: Added, needed for
-	  passepartout upgrade later on
-
-2004-10-13 10:16  sofar
-
-	* libs/exo/DETAILS, terminal/Terminal/DETAILS: New Terminal version
-	  and exo version bump (thanks benny)
-
-2004-10-13 06:36  moe
-
-	* web/firefox/DEPENDS: Hopefully this is the last 'tweak' .. I'm
-	  getting tweaky
-
-2004-10-13 05:49  v3rt1g0
-
-	* net/iplog/: BUILD, DEPENDS: Install an example config file that
-	  comes with the source.  Also a quick cosmetic touchup to the
-	  DEPENDS file.
-
-2004-10-13 05:38  v3rt1g0
-
-	* filemanagers/jaffm/: BUILD, DEPENDS, DETAILS: Inital import.	Due
-	  to my lack of gtk+ on this box I could not compile/test it, so I
-	  had beko compile and test it for me, thanx beko.
-
-2004-10-13 05:20  v3rt1g0
-
-	* web/firefox/DETAILS: Cosmetic cleanup, nothing more.
-
-2004-10-13 05:15  v3rt1g0
-
-	* web/firefox/DEPENDS: Tweak the depends.  It has been found the
-	  ORBit2 is not really a depends of firefox, but one of its
-	  dependencies is, libIDL.  Also added a few other missing depends,
-	  and an optional depends to disable the bulding of any gnomevfs
-	  stuff.
-
-2004-10-13 04:56  nhudson
-
-	* zbeta/openoffice-src/DETAILS:
-	  Cleaning up a bit and adding sha1sums
-
-2004-10-13 04:41  hardkrash
-
-	* zbeta/openoffice-src/DETAILS: forgot the trailing / on the source
-	  urls and removed a debugging comment
-
-2004-10-13 04:38  tchan
-
-	* graphics/ImageMagick/DETAILS: Version bump to
-	  ImageMagick-6.1.0-8.	Will this madness never end ???
-
-2004-10-13 04:28  hardkrash
-
-	* zbeta/openoffice-src/: BUILD, CONFIGURE, DETAILS, PRE_BUILD,
-	  ooo-langs:
-	  new and improved oo-src module now builds in a third of the time,
-	  as long as you dont make the 23 localizations!
-
-	  now has a lunar patch set and a lunar logo the logo kind is
-	  lacking but its nicer that the novell one
-
-	  enjoy
-
-2004-10-13 03:40  v3rt1g0
-
-	* chat/pork/: BUILD, DEPENDS, DETAILS: Inital import of pork.  That
-	  just sounds odd.  Anyhow, it's just a ncurses based AIM client.
-
-2004-10-13 03:38  tchan
-
-	* docs/man-pages/DETAILS: Version bump to man-pages-1.69.
-
-2004-10-13 02:53  v3rt1g0
-
-	* games/fortune/BUILD: Make use of the new gather_docs()
-
-2004-10-13 00:04  v3rt1g0
-
-	* devel/sshole/: DEPENDS, DETAILS: Inital import of a little
-	  program to help debug SSL-encrypted protocols.
 
