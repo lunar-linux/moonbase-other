@@ -39,7 +39,7 @@ function device_start() {
 
 	# load module if specified
 	if [ -n "$MODULE" ]; then
-	    modprobe $MODULE;
+	    modprobe $MODULE $MODULE_OPTIONS
 	fi;
 
 	if ( [ -n "$WIRELESS_MODE" ] || [ -n "$WIRELESS_KEY" ] || [ -n "$WIRELESS_RATE" ] || [ -n "$WIRELESS_ESSID" ] ); then
@@ -161,6 +161,9 @@ function device_stop() {
 		    ;;
 		    [dD][hH][cC][lL][iI][eE][nN][tT])
 		    	PIDFILE=/var/run/dhclient-$1.pid
+		    ;;
+		    [uU][dD][hH][cC][pP][cC])
+		        PIDFILE=/var/run/udhcpc-$1.pid
 		    ;;
 		esac
 		if [ -e $PIDFILE ]; then
