@@ -4,8 +4,6 @@
                --prefix=/usr         \
                --sysconfdir=/etc     \
                --localstatedir=/var  \
-               --with-psql           \
-               --with-gcrypt         \
                $OPTS                 &&
  
   default_make
