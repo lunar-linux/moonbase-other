@@ -1,6 +1,9 @@
 default_pre_build                &&
 
 cd      $SOURCE_DIRECTORY        &&
+cd      libmpdemux               &&
+patch_it $SOURCE_CACHE/$SOURCE7 0&&
+cd      $SOURCE_DIRECTORY        &&
 unpack  $SOURCE6                 &&
 
 mkdir   $SOURCE_DIRECTORY/fonts  &&
