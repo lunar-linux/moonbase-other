@@ -8,14 +8,12 @@
                --infodir=/usr/share/info \
                --mandir=/usr/share/man   \
                --with-system-zlib        \
-               --with-system-pnglib      \
                --with-system-ncurses     \
                --with-system-libwww      \
-               --with-system-ncurses     \
                --without-texinfo         \
                --without-dialog          \
                --disable-multiplatform   \
-               $OMIT_X11                 &&
+               $OPTS                     &&
   make  all                              &&
   prepare_install                        &&
   make    install
