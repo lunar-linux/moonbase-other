@@ -4,6 +4,10 @@ if ! grep -q "^OPTS=" $MODULE_CONFIG ; then
     OPTS=$OPTS" --enable-gui"
   fi
 
+  if query "Disable building of MEncoder ?" n ; then
+    OPTS=$OPTS" --disable-mencoder"
+  fi      
+
   if query "Enable 3DFX Framebuffer support? " n ; then
     OPTS=$OPTS" --enable-tdfxfb"
   fi
