@@ -21,6 +21,7 @@
                --enable-usertrack                               \
                --enable-deflate                                 \
                --enable-mime-magic                              \
+               --enable-exception-hook                          \
                --with-berkeley-db                               \
                --enable-layout=GNU                              \
 	       --with-mpm=prefork"
