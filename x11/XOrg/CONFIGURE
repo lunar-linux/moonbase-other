@@ -4,7 +4,7 @@ if [ -n "$RECONFIGURE" ] || query "Select specific video drivers to build?" n ; 
     ALL_XORG_DRIVERS=$(cat $SCRIPT_DIRECTORY/drivers | cut -d: -f1)
     XORG_DRIVERS=$(get_module_config XORG_DRIVERS)
     if [ -z "$XORG_DRIVERS" ]; then
-        XORG_DRIVERS="$ALL_XORG_DRIVERS"
+        XORG_DRIVERS=$(grep ':on$' $SCRIPT_DIRECTORY/drivers | cut -d: -f1)
     fi
     
     # if it's empty we just enable all
@@ -14,7 +14,7 @@ if [ -n "$RECONFIGURE" ] || query "Select specific video drivers to build?" n ; 
         unset IFS
         for DRIVER in $ALL_XORG_DRIVERS; do
             echo $DRIVER
-            echo $(grep ^$DRIVER: $SCRIPT_DIRECTORY/drivers | cut -d: -f2-)
+            echo $(grep ^$DRIVER: $SCRIPT_DIRECTORY/drivers | cut -d: -f2)
             if echo $XORG_DRIVERS | grep -qw $DRIVER; then
                 echo on
             else
