@@ -5,5 +5,6 @@
    sedit "s/cflags\`/cflags\` $NEWFLAGS/" Makefile &&
 	make && 
 	prepare_install &&
-	make install
+	make install &&
+   install hot-babe.1 /usr/share/man/man1
 ) > $C_FIFO 2>&1
