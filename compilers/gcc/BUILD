@@ -1,7 +1,9 @@
 (
 
-  LANGUAGES=${LANGUAGES:=c++}
- 
+  # next line will aid in recognizing which languages were selected
+  # so we output it here:
+  set -x                                     &&
+  LANGUAGES=${LANGUAGES:=c++}                &&
   ../gcc-$VERSION/configure  --host=$BUILD   \
                --enable-languages=$LANGUAGES \
                --prefix=/usr                 \
@@ -14,7 +16,8 @@
                --with-gnu-ld                 \
                --with-system-zlib            \
                --enable-shared               &&
-  make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean                        &&
+  set +x                                     &&
+  make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean                            &&
   prepare_install                            && 
   make install                               
 

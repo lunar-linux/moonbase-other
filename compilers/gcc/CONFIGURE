@@ -1,2 +1,38 @@
-mkdir /usr/src/gcc-$VERSION-BUILD
+
+# only lin -r gcc will trigger the language selector!
+if [ -n "$RECONFIGURE" ] ; then
+
+  if ! grep -q LANGUAGES $MODULE_CONFIG ; then
+    [ -z "$LANGUAGES" ]  && LANGUAGES=${LANGUAGES:=c++}
+  else
+    eval $(echo $MODULE_CONFIG)
+  fi
+
+  if query "Do you want to select additional compiler languages ? " n ; then
+    OPTIONS=(
+      "ada"  "Ada"          "off"
+      "f77"  "Fortran"      "off"
+      "java" "Java"         "off"
+      "objc" "Objective C"  "off"
+    )
+    RESULT=`dialog --title "Select additional compiler languages"   \
+                   --stdout                                         \
+                   --separate-output                                \
+                   --checklist  "Available additional languages:"   \
+                    0 0 0                                           \
+                   "${OPTIONS[@]}"`
+
+    LANGUAGES="c++,$(echo $RESULT | sed 's/ /,/g')"
+    echo "LANGUAGES=\"$LANGUAGES\"" >> $MODULE_CONFIG 
+
+  else
+
+    if ! grep -q LANGUAGES $MODULE_CONFIG ; then
+      [ -z "$LANGUAGES" ]  && LANGUAGES=${LANGUAGES:=c++}
+      echo "LANGUAGES=\"$LANGUAGES\"" >> $MODULE_CONFIG
+    fi
+
+  fi
+
+fi
 
