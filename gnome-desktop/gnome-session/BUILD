@@ -1,6 +1,12 @@
 (
    export PATH=/opt/lunar/gnome/2/bin:$PATH &&
    export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
+
+if  [ "$FADE" == "y" ] ; then
+   cd gnome-session &&
+   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+   cd $SOURCE_DIRECTORY 
+fi
    
    ./configure  --build=$BUILD					\
                 --sysconfdir=/etc                               \
