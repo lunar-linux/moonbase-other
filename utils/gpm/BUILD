@@ -1,11 +1,18 @@
 (
 
-MODHOME=$MOONBASE/utils/$MODULE    &&
 NEWMSG="A new config file (mouse.new) has been installed in /etc/config.d. SA please check for new options."                 &&
 BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA please configure!"                               &&
 
-cp $SCRIPT_DIRECTORY/gpm.patch $SOURCE_DIRECTORY &&
-patch -p1 < gpm.patch                                  &&
+#cat $SCRIPT_DIRECTORY/gpm.patch                       | patch -p1      &&
+cat $SCRIPT_DIRECTORY/gpm-nops.patch                  | patch -p1      &&
+cat $SCRIPT_DIRECTORY/gpm-1.19.3-docfix.patch         | patch -p1      &&
+cat $SCRIPT_DIRECTORY/gpm-1.19.3-root.patch           | patch -p1      &&
+cat $SCRIPT_DIRECTORY/gpm-root.patch                  | patch -p1      &&
+cat $SCRIPT_DIRECTORY/gpm-1.19.1-secenhance.patch     | patch -p1      &&
+cat $SCRIPT_DIRECTORY/gpm-1.19.2-limits.patch         | patch -p1      &&
+cat $SCRIPT_DIRECTORY/gpm-1.19.3-serialconsole.patch  | patch -p1      &&
+cat $SCRIPT_DIRECTORY/gpm-1.19.3-devfs.patch          | patch -p1      &&
+cat $SCRIPT_DIRECTORY/gpm-1.19.3-noworldwrite.patch   | patch -p1      &&
 
 # ************************ WARNING *************************
 # DO NOT MESS WITH THE CONFIGURE STUFF here unless you 
@@ -33,21 +40,21 @@ patch -p1 < gpm.patch                                  &&
 
 if [ -d "/etc/config.d" ]; then
    if [ -e /etc/config.d/mouse ]; then
-   	cp $MODHOME/mouse /etc/config.d/mouse.new
+   	cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse.new
 	echo $NEWMSG
    else
-   	cp $MODHOME/mouse /etc/config.d/mouse
+   	cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse
 	echo $BASEMSG
    fi
 else
    mkdir -p /etc/config.d
-   cp $MODHOME/mouse /etc/config.d
+   cp $SCRIPT_DIRECTORY/mouse /etc/config.d
    echo $BASEMSG
 fi                                  &&
 
 chmod 0644 /etc/config.d/mouse      &&
 
-cp $MODHOME/lmouse /usr/sbin/lmouse &&
+cp $SCRIPT_DIRECTORY/lmouse /usr/sbin/lmouse &&
 chmod +x /usr/sbin/lmouse           &&
 
 if [ -e /etc/rcS.d/???rpm ]; then
