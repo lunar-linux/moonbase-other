@@ -1,3 +1,257 @@
+2003-09-17 11:35  nestu
+
+	* web/MozillaFirebird/BUILD: pkgconfig path fix
+
+2003-09-17 06:10  tchan
+
+	* web/MozillaFirebird/POST_INSTALL: Fixed the POST_INSTALL because
+	the VERSION variable is set for Firebird's 0.6.1, but this is
+	really mozilla-1.5a so VERSION=1.5a, not 0.6.1.
+
+2003-09-17 04:11  tchan
+
+	* web/MozillaFirebird/BUILD: Updated the BUILD script to correctly
+	disable the extra Firebird stuff like composer, news, help, etc.
+
+2003-09-17 04:03  nhudson
+
+	* graphics/gimp2/: BUILD, DEPENDS, DETAILS: 
+	Updating gimp2 to new version 1.3.20 also disabling printing sue to
+	its borked for now
+
+2003-09-17 03:56  nhudson
+
+	* audio/sound-juicer/DETAILS: 
+	Updating sound-juicer to new version 0.5.4 and adding md5's
+
+2003-09-17 03:01  tchan
+
+	* web/MozillaFirebird/: BUILD, CONFLICTS, DEPENDS, DETAILS,
+	POST_INSTALL: Added the MozillaFirebird module to moonbase.
+
+2003-09-17 02:19  niki
+
+	* crypto/openssh/DETAILS: Here we go again.... It has changes to
+	the same section of code that was changed with the reported
+	Bufferoverflow.
+
+2003-09-17 01:34  r0dzilla
+
+	* doc-tools/docbook-xsl/: DETAILS, rebuild-docbook-catalog: added
+	code in rebuild-docbook-catalog to re-compile scrollkeeper if its
+	dtd files cant be found...
+
+2003-09-16 22:22  r0dzilla
+
+	* gnome/intltool/DETAILS: version bump
+
+2003-09-16 21:20  niki
+
+	* x11/xfree86/DEPENDS: Forgot to remove the "&&"
+
+2003-09-16 20:26  niki
+
+	* kernel/linux/2.4.22-test_only/DETAILS: making versioning work on
+	it
+
+2003-09-16 16:36  niki
+
+	* kernel/linux/2.4.22-test_only/: CONFIGURE, DETAILS, PRE_BUILD:
+	Now ppl can run the kernel i currently run
+
+2003-09-16 16:11  niki
+
+	* kernel/linux/2.4.22-test_only/: BUILD, CONFIGURE, DEPENDS,
+	DETAILS, POST_INSTALL, PRE_BUILD: copied linux kernel module to
+	2.4.22 test versioned module as a base...
+
+2003-09-16 16:00  elaine
+
+	* app-themes/gtk-thinice-theme2/2.0.2/DEPENDS,
+	app-themes/gtk-thinice-theme2/2.0.2/DETAILS,
+	audio/libao/0.8.3/DETAILS, audio/mpg123/0.59r/BUILD,
+	audio/mpg123/0.59r/DETAILS, audio/vorbis-tools/1.0/DEPENDS,
+	audio/vorbis-tools/1.0/DETAILS, ftp/curl/7.10.7/DEPENDS,
+	ftp/curl/7.10.7/DETAILS, gnome2-apps/gcalctool/4.3.3/BUILD,
+	gnome2-apps/gcalctool/4.3.3/DEPENDS,
+	gnome2-apps/gcalctool/4.3.3/DETAILS,
+	gnome2-apps/gucharmap/1.0.0/BUILD,
+	gnome2-apps/gucharmap/1.0.0/DEPENDS,
+	gnome2-apps/gucharmap/1.0.0/DETAILS, gnome2-apps/vte/0.11.10/BUILD,
+	gnome2-apps/vte/0.11.10/DEPENDS, gnome2-apps/vte/0.11.10/DETAILS,
+	gnome2-core/GConf2/2.4.0.1/BUILD,
+	gnome2-core/GConf2/2.4.0.1/DEPENDS,
+	gnome2-core/GConf2/2.4.0.1/DETAILS, gnome2-core/ORBit2/2.8.1/BUILD,
+	gnome2-core/ORBit2/2.8.1/DEPENDS, gnome2-core/ORBit2/2.8.1/DETAILS,
+	gnome2-core/at-spi/1.3.7/BUILD, gnome2-core/at-spi/1.3.7/DEPENDS,
+	gnome2-core/at-spi/1.3.7/DETAILS,
+	gnome2-core/bug-buddy/2.4.0/BUILD,
+	gnome2-core/bug-buddy/2.4.0/DEPENDS,
+	gnome2-core/bug-buddy/2.4.0/DETAILS,
+	gnome2-core/control-center2/2.4.0/BUILD,
+	gnome2-core/control-center2/2.4.0/DEPENDS,
+	gnome2-core/control-center2/2.4.0/DETAILS,
+	gnome2-core/eel/2.4.0/BUILD, gnome2-core/eel/2.4.0/DEPENDS,
+	gnome2-core/eel/2.4.0/DETAILS, gnome2-core/eog/2.4.0/BUILD,
+	gnome2-core/eog/2.4.0/DEPENDS, gnome2-core/eog/2.4.0/DETAILS,
+	gnome2-core/gail/1.4.0/BUILD, gnome2-core/gail/1.4.0/DEPENDS,
+	gnome2-core/gail/1.4.0/DETAILS, gnome2-core/gedit/2.4.0/BUILD,
+	gnome2-core/gedit/2.4.0/DEPENDS, gnome2-core/gedit/2.4.0/DETAILS,
+	gnome2-core/gnome-applets2/2.4.0/BUILD,
+	gnome2-core/gnome-applets2/2.4.0/CONFLICTS,
+	gnome2-core/gnome-applets2/2.4.0/DEPENDS,
+	gnome2-core/gnome-applets2/2.4.0/DETAILS,
+	gnome2-core/gnome-desktop/2.4.0/BUILD,
+	gnome2-core/gnome-desktop/2.4.0/DEPENDS,
+	gnome2-core/gnome-desktop/2.4.0/DETAILS,
+	gnome2-core/gnome-games2/2.4.0/BUILD,
+	gnome2-core/gnome-games2/2.4.0/CONFLICTS,
+	gnome2-core/gnome-games2/2.4.0/DEPENDS,
+	gnome2-core/gnome-games2/2.4.0/DETAILS,
+	gnome2-core/gnome-icon-theme/1.0.9/BUILD,
+	gnome2-core/gnome-icon-theme/1.0.9/DETAILS,
+	gnome2-core/gnome-media2/2.4.0/BUILD,
+	gnome2-core/gnome-media2/2.4.0/CONFLICTS,
+	gnome2-core/gnome-media2/2.4.0/DEPENDS,
+	gnome2-core/gnome-media2/2.4.0/DETAILS,
+	gnome2-core/gnome-mime-data2/2.4.0/BUILD,
+	gnome2-core/gnome-mime-data2/2.4.0/DEPENDS,
+	gnome2-core/gnome-mime-data2/2.4.0/DETAILS,
+	gnome2-core/gnome-panel/2.4.0/BUILD,
+	gnome2-core/gnome-panel/2.4.0/DEPENDS,
+	gnome2-core/gnome-panel/2.4.0/DETAILS,
+	gnome2-core/gnome-session/2.4.0/BUILD,
+	gnome2-core/gnome-session/2.4.0/DEPENDS,
+	gnome2-core/gnome-session/2.4.0/DETAILS,
+	gnome2-core/gnome-system-monitor/2.4.0/BUILD,
+	gnome2-core/gnome-system-monitor/2.4.0/DEPENDS,
+	gnome2-core/gnome-system-monitor/2.4.0/DETAILS,
+	gnome2-core/gnome-terminal/2.4.0.1/BUILD,
+	gnome2-core/gnome-terminal/2.4.0.1/DEPENDS,
+	gnome2-core/gnome-terminal/2.4.0.1/DETAILS,
+	gnome2-core/gnome-themes/2.4.0/BUILD,
+	gnome2-core/gnome-themes/2.4.0/DEPENDS,
+	gnome2-core/gnome-themes/2.4.0/DETAILS,
+	gnome2-core/gnome-utils2/2.4.0/BUILD,
+	gnome2-core/gnome-utils2/2.4.0/DEPENDS,
+	gnome2-core/gnome-utils2/2.4.0/DETAILS,
+	gnome2-core/gnome-vfs2/2.4.0/BUILD,
+	gnome2-core/gnome-vfs2/2.4.0/DEPENDS,
+	gnome2-core/gnome-vfs2/2.4.0/DETAILS,
+	gnome2-core/gnome2-user-docs/2.4.0/BUILD,
+	gnome2-core/gnome2-user-docs/2.4.0/DEPENDS,
+	gnome2-core/gnome2-user-docs/2.4.0/DETAILS,
+	gnome2-core/gtk-engines2/2.2.0/BUILD,
+	gnome2-core/gtk-engines2/2.2.0/DEPENDS,
+	gnome2-core/gtk-engines2/2.2.0/DETAILS,
+	gnome2-core/gtksourceview/0.6.0/BUILD,
+	gnome2-core/gtksourceview/0.6.0/DEPENDS,
+	gnome2-core/gtksourceview/0.6.0/DETAILS,
+	gnome2-core/libIDL/0.8.2/BUILD, gnome2-core/libIDL/0.8.2/DEPENDS,
+	gnome2-core/libIDL/0.8.2/DETAILS,
+	gnome2-core/libIDL/0.8.2/POST_INSTALL,
+	gnome2-core/libbonobo/2.4.0/BUILD,
+	gnome2-core/libbonobo/2.4.0/CONFLICTS,
+	gnome2-core/libbonobo/2.4.0/DEPENDS,
+	gnome2-core/libbonobo/2.4.0/DETAILS,
+	gnome2-core/libbonoboui/2.4.0/BUILD,
+	gnome2-core/libbonoboui/2.4.0/DEPENDS,
+	gnome2-core/libbonoboui/2.4.0/DETAILS,
+	gnome2-core/libgail-gnome/1.0.2/BUILD,
+	gnome2-core/libgail-gnome/1.0.2/DEPENDS,
+	gnome2-core/libgail-gnome/1.0.2/DETAILS,
+	gnome2-core/libglade2/2.0.1/BUILD,
+	gnome2-core/libglade2/2.0.1/DEPENDS,
+	gnome2-core/libglade2/2.0.1/DETAILS,
+	gnome2-core/libglade2/2.0.1/POST_INSTALL,
+	gnome2-core/libglade2/2.0.1/POST_REMOVE,
+	gnome2-core/libgnome/2.4.0/BUILD,
+	gnome2-core/libgnome/2.4.0/DEPENDS,
+	gnome2-core/libgnome/2.4.0/DETAILS,
+	gnome2-core/libgnomecanvas/2.4.0/BUILD,
+	gnome2-core/libgnomecanvas/2.4.0/DEPENDS,
+	gnome2-core/libgnomecanvas/2.4.0/DETAILS,
+	gnome2-core/libgnomeprint/2.3.1/BUILD,
+	gnome2-core/libgnomeprint/2.3.1/DEPENDS,
+	gnome2-core/libgnomeprint/2.3.1/DETAILS,
+	gnome2-core/libgnomeprintui/2.3.1/BUILD,
+	gnome2-core/libgnomeprintui/2.3.1/DEPENDS,
+	gnome2-core/libgnomeprintui/2.3.1/DETAILS,
+	gnome2-core/libgnomeui/2.4.0.1/BUILD,
+	gnome2-core/libgnomeui/2.4.0.1/DEPENDS,
+	gnome2-core/libgnomeui/2.4.0.1/DETAILS,
+	gnome2-core/libgtkhtml/2.4.0/BUILD,
+	gnome2-core/libgtkhtml/2.4.0/DEPENDS,
+	gnome2-core/libgtkhtml/2.4.0/DETAILS,
+	gnome2-core/libgtop2/2.0.5/BUILD,
+	gnome2-core/libgtop2/2.0.5/DEPENDS,
+	gnome2-core/libgtop2/2.0.5/DETAILS,
+	gnome2-core/librsvg/2.4.0/BUILD, gnome2-core/librsvg/2.4.0/DEPENDS,
+	gnome2-core/librsvg/2.4.0/DETAILS,
+	gnome2-core/libwnck/2.4.0.1/BUILD,
+	gnome2-core/libwnck/2.4.0.1/DEPENDS,
+	gnome2-core/libwnck/2.4.0.1/DETAILS,
+	gnome2-core/linc/1.1.1/profile.d/gnome2.rc,
+	gnome2-core/metacity/2.6.1/BUILD,
+	gnome2-core/metacity/2.6.1/DEPENDS,
+	gnome2-core/metacity/2.6.1/DETAILS,
+	gnome2-core/nautilus/2.4.0/BUILD,
+	gnome2-core/nautilus/2.4.0/DEPENDS,
+	gnome2-core/nautilus/2.4.0/DETAILS,
+	gnome2-core/nautilus-cd-burner/0.5.3/BUILD,
+	gnome2-core/nautilus-cd-burner/0.5.3/DEPENDS,
+	gnome2-core/nautilus-cd-burner/0.5.3/DETAILS,
+	gnome2-core/nautilus-media/0.3.3.1/BUILD,
+	gnome2-core/nautilus-media/0.3.3.1/DEPENDS,
+	gnome2-core/nautilus-media/0.3.3.1/DETAILS,
+	gnome2-core/startup-notification/0.5/BUILD,
+	gnome2-core/startup-notification/0.5/DETAILS,
+	gnome2-core/yelp/2.4.0/BUILD, gnome2-core/yelp/2.4.0/DEPENDS,
+	gnome2-core/yelp/2.4.0/DETAILS, libs/libart_lgpl/2.3.16/BUILD,
+	libs/libart_lgpl/2.3.16/DETAILS, libs/medusa/0.5.3/BUILD,
+	libs/medusa/0.5.3/DEPENDS, libs/medusa/0.5.3/DETAILS,
+	profiles/gnome2/2.4.0/BUILD, profiles/gnome2/2.4.0/DEPENDS,
+	profiles/gnome2/2.4.0/DETAILS, profiles/gnome2/2.4.0/POST_BUILD,
+	profiles/gnome2/2.4.0/PRE_BUILD: Profile module gnome/2.4.0 commit,
+	lin gnome/2.4.0 (only with theedge later than 9/14/03 to install,
+	*should* preserve gnome 2.2 but in any case does not conflict / lrm
+	existing base and depended modules. Some systems opt- depends may
+	cause issues I haven't tested
+
+2003-09-16 15:56  niki
+
+	* x11/xfree86/DEPENDS: Breaking a cirkular dependency for the
+	moment...
+
+2003-09-16 15:23  jmhodges
+
+	* gnome/gnumeric/DEPENDS: added libglade depends
+
+2003-09-16 15:22  florin
+
+	* security/nmap/DETAILS: bump version from 3.30 to 3.45
+
+2003-09-16 15:08  florin
+
+	* utils/procps/DETAILS: bump version from 3.1.9 to 3.1.12
+
+2003-09-16 13:12  jasper
+
+	* devel/db4/BUILD, devel/db4/CONFIGURE, devel/db4/DEPENDS,
+	kde3/kdebindings3/BUILD, kde3/kdebindings3/CONFIGURE,
+	kde3/kdebindings3/DEPENDS, libs/erlang/CONFIGURE,
+	libs/erlang/DEPENDS: j2sdk cannot be installed as dependency
+
+2003-09-16 13:06  niki
+
+	* crypto/openssh/DETAILS: Bumped openssh to 3.7p1 which contains a
+	bufferoverflow...
+
+2003-09-16 12:07  nhudson
+
+	* libs/expat/DETAILS: 
+	Updating expat to 1.95.6 and adding a md5sum
+
 2003-09-16 04:49  florin
 
 	* utils/which/DETAILS: bump version from 2.1.5 to 2.1.6
@@ -2351,87 +2605,4 @@
 	* doc-tools/: docbook-sgml/DETAILS, docbook-xml/DETAILS: 
 	Fixing the download url to point to the lunar servers due to the
 	shittyness of the oasis-open.org servers all the time
-
-2003-08-17 21:36  r0dzilla
-
-	* x11-wm/fluxbox/CONFIGURE: disabling NLS support until a fix can
-	be found
-
-2003-08-17 21:15  sofar
-
-	* chat/gaim/DETAILS: Right, this really doesn't get my heart to
-	beat faster (anymore)
-
-2003-08-17 20:42  niki
-
-	* kernel/: linux/DETAILS, linux-grsec/DETAILS,
-	linux-stable/DETAILS: Security update of the patchset, and now the
-	kernel modules also have md5sums for the sources.
-	
-	The security fix is in the netfilter part of the kernel.
-
-2003-08-17 16:51  florin
-
-	* editors/nano/DETAILS: bumped version to 1.2.2
-
-2003-08-17 16:31  nhudson
-
-	* gnome2-apps/gcalctool/DETAILS: 
-	Updating gcalctool to new version 4.3.0
-
-2003-08-17 16:25  nhudson
-
-	* gnome2-core/: libIDL/DETAILS, librsvg/DETAILS: 
-	Updating libIDL to new version 0.8.2 and librsvg to new version
-	2.3.1
-
-2003-08-17 16:23  nhudson
-
-	* libs/libart_lgpl/DETAILS: 
-	Updating libart_lgpl to new version 2.4.14
-
-2003-08-17 16:10  nhudson
-
-	* audio/rhythmbox/: DEPENDS, DETAILS: 
-	Finally a new version of rhythmbox 0.5.0, I removed net-rhythmbox
-	and monkey-media as they are merged with the rhythbox branch and
-	are no longer needed.
-
-2003-08-17 14:51  csm
-
-	* devel/: expect/BUILD, expect/DEPENDS, expect/DETAILS,
-	tcl-tk/BUILD: adding an expect module. It DOES NOT WORK YET!
-	
-	there are some weird problems with tcl-tk that I do not have time
-	to solve right now. I am committing it simply so someone else can
-	take over the process of getting it to work.
-
-2003-08-17 14:20  jmhodges
-
-	* compilers/Python/DEPENDS: this is needed to build with tkinter
-	support
-
-2003-08-17 14:13  nestu
-
-	* net/pppconfig/DETAILS: The Boss told me to add checksum do so I
-	did ;)
-
-2003-08-17 13:51  nestu
-
-	* net/pppconfig/DETAILS: Added those boring {} to delimit vars...
-
-2003-08-17 13:48  nestu
-
-	* net/pppconfig/BUILD: Added 3 missing dirs under /etc/ppp/, that
-	should have been created. Thanks to elaine.
-
-2003-08-17 11:14  jol
-
-	* kde3-apps/karchiver/DETAILS: Bumped version  OLD: 3.0.4  NEW:
-	3.0.5
-
-2003-08-17 04:48  jmhodges
-
-	* gnome2-extras/gal2/: DEPENDS, PRE_BUILD: fixed DEPENDS, and added
-	PKG_CONFIG_PATH so that it compiles
 
