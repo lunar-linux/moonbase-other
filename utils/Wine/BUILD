@@ -7,7 +7,9 @@
 
   find . -type f -name 'Makefile' -print | while read i ; do
     sedit "s:^CFLAGS    = -g -O2 -Wall -mpreferred-stack-boundary=2 \$(EXTRACFLAGS):CFLAGS    = -g -Wall $CF \$(EXTRACFLAGS):" $i
-  done
+  done &&
+
+  sedit "s:-pthread: :" dlls/winmm/winearts/Makefile && 
 
   make depend               &&
   make                      &&
