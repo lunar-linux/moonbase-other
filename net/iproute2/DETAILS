@@ -1,15 +1,18 @@
-            MODULE=iproute2
-          VERSION=2.4.7-now-ss010824
-           SOURCE=$MODULE-$VERSION.tar.gz
-          SOURCE2=$MODULE-toc.html
- SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
-    SOURCE_URL[0]=ftp://ftp.inr.ac.ru/ip-routing/$SOURCE
-   SOURCE2_URL[0]=http://www.linuxgrill.com/$SOURCE2
-         WEB_SITE=http://www.shorewall.net
-          ENTERED=20021106
-          UPDATED=20021106
-            SHORT="iproute2"
+MODULE=iproute2
+VERSION=2.4.7-now-ss010824
+SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE2=$MODULE-toc.html
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+SOURCE_URL[0]=ftp://ftp.inr.ac.ru/ip-routing/$SOURCE
+SOURCE2_URL[0]=http://www.linuxgrill.com/$SOURCE2
+WEB_SITE=http://lartc.org/howto/
+ENTERED=20021106
+UPDATED=20021106
+SHORT="Professional tools to control networking in Linux kernels."
 
 cat << EOF
-iproute2
+Most Linux distributions, and most UNIX's, currently use the venerable arp, ifconfig and route commands. While these tools work, they show some unexpected behaviour under Linux 2.2 and up. For example, GRE tunnels are an integral part of routing these days, but require completely different tools.
+
+
+With iproute2, tunnels are an integral part of the tool set.
 EOF
