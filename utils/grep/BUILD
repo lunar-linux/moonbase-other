@@ -2,7 +2,8 @@
 #where it needs to be! -csm
 sedit "s/SYMLINK=\"ln -s\"/SYMLINK=\"ln -sf\"/" configure
 (
-   ./configure  --build=$BUILD                          \
+   ./configure  --prefix=/usr                           \
+                --build=$BUILD                          \
                 --bindir=/bin                           \
                 --sbindir=/sbin                         \
                 --datadir=/usr/share                    \
