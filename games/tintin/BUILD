@@ -10,11 +10,6 @@
     prepare_install &&
     cp tt++ /usr/games
 
-    # Install some docs that will be missed by lunar's auto doc installer
-    if [ $GARBAGE == on ] ; then
-      mkdir -p $DOCUMENT_DIRECTORY/$MODULE &&
-      cd .. &&
-      cp BETAFIXES BUGS CREDITS TODO $DOCUMENT_DIRECTORY/$MODULE
-    fi
-    
+    gather_docs BETAFIXES BUGS TODO
+
 ) > $C_FIFO 2>&1
