@@ -19,7 +19,10 @@
   elif module_installed apache2 ; then
     OPTS="$OPTS --with-apxs2=/usr/sbin/apxs"
   fi
-      
+
+  if echo $OPTS | grep -q --enable-xslt ; then
+    LDFLAGS="$LDFLAGS -lstdc++"
+  fi
 
   sedit "s:^:#include <errno.h>\n:" ext/mysql/libmysql/mysys_err.h	&&
 
