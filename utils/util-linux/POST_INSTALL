@@ -18,7 +18,7 @@ if [ ! -e /etc/rcS.d/S99bootmisc ] ; then
   ln -s /etc/init.d/bootmisc /etc/rcS.d/S99bootmisc
 fi
 
-if ! grep -q "^issue:S:once:/sbin/make-issue" /etc/inittab ; then
-  echo "issue:S:once:/sbin/make-issue" >> /etc/inittab
+if ! grep -q "^issu:S:once:/sbin/make-issue" /etc/inittab ; then
+  echo "issu:S:once:/sbin/make-issue" >> /etc/inittab
 fi
 
