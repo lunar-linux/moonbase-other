@@ -1,8 +1,23 @@
 (
 
-  if module_installed tcp_wrappers; then
-    sedit "s/undef/define/" builddefs.h
+  echo -e "#ifndef VSF_BUILDDEFS_H\n#define VSF_BUILDDEFS_H" > builddefs.h
+  if [ $(get_module_config USE_TCP_WRAPPERS) == "n" ] ; then
+    echo "#undef VSF_BUILD_TCPWRAPPERS" >> builddefs.h
+  else
+    echo "#define VSF_BUILD_TCPWRAPPERS" >> builddefs.h
   fi
+  if [ $(get_module_config USE_PAM) == "n" ] ; then
+    echo "#undef VSF_BUILD_PAM" >> builddefs.h
+  else
+    echo "#define VSF_BUILD_PAM" >> builddefs.h
+  fi
+  if [ $(get_module_config USE_SSL) == "n" ] ; then
+    echo "#undef VSF_BUILD_SSL" >> builddefs.h
+  else
+    echo "#define VSF_BUILD_SSL" >> builddefs.h
+  fi
+  echo "#endif /* VSF_BUILDDEFS_H */" >> builddefs.h
+  cat builddefs.h
 
   make CFLAGS="$CFLAGS" &&
   prepare_install
