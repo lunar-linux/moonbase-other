@@ -1,9 +1,12 @@
           MODULE=portsentry
          VERSION=1.2
           SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=$MODULE-$VERSION-gcc3.3.1-newlinefix.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$SFORGE_URL/sentrytools/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
       SOURCE_VFY=md5:3ebd3618ba9abfea2525e236bd44cebd
+     SOURCE2_VFY=md5:8277597d753d8440ad4475f7316745c3
         WEB_SITE=http://sourceforge.net/projects/sentrytools/
          ENTERED=20011210
          UPDATED=20030807

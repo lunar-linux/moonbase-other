@@ -1,4 +1,5 @@
 (
+  patch_it $SOURCE_CACHE/$SOURCE2 1
 
   PS_CONF='#define  CONFIG_FILE "/etc/portsentry/portsentry.conf"'
 
