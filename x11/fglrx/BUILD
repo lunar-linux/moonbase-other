@@ -1,8 +1,8 @@
 (
 
-  if uname -a | grep -q SMP ; then
-    SMP="-SMP"
-  fi
+  #if uname -a | grep -q SMP ; then
+  #  SMP="-SMP"
+  #fi
   KERNEL_VERSION=$(grep UTS_RELEASE /usr/src/linux/include/linux/version.h  | cut -d'"' -f2)
   if echo $KERNEL_VERSION | grep -q '^2.6' ; then
     MOD_EXT=ko
