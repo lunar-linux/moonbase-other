@@ -1,3 +1,88 @@
+2005-02-15 11:50  moe
+
+	* doc-tools/docbook-sgml/: BUILD, DETAILS, POST_INSTALL,
+	  POST_REMOVE, PRE_BUILD, PRE_REMOVE: This module has been (by way
+	  far) the worst module I have ever seen since I'm with lunar. It
+	  made me a very sad panda.  So I almost completely rewrote it.
+
+	  I'm too lame to count up on all the changes. Have a look for
+	  yourself and ask if you need an explaination.
+
+2005-02-15 05:51  watryac04
+
+	* net/madwifi/: BUILD, DEPENDS, DETAILS: Added in support for the
+	  atheros tools that are provided by madwifi.  Not using the "make
+	  install", because it misses half the programs.
+
+2005-02-15 04:40  watryac04
+
+	* kernel/kernel-reqs/: BUILD, DETAILS: Syncing up the module list
+	  in DETAILS with what actually is compiled in BUILD.  Adding
+	  madwifi to the list as well.
+
+2005-02-15 04:36  watryac04
+
+	* net/madwifi/: BUILD, DEPENDS, DETAILS: Madwifi is a driver for
+	  Atheros chipset based wireless cards (802.11A/B/G).
+
+2005-02-15 04:12  watryac04
+
+	* archive/sharutils/BUILD: Need to enable building of uudecode and
+	  by proxy uuencode to unarchive madwifi drivers (module to appear
+	  shortly).
+
+2005-02-15 03:12  tchan
+
+	* editors/zile/DETAILS: Version bump to zile-2.0.1. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2005-02-15 00:37  v3rt1g0
+
+	* web/w3c-libwww/DEPENDS: This fixes a loopy depends revolving
+	  mysql, popt, gettext, tetex, and so on and so forth.
+
+2005-02-14 23:22  nestu
+
+	* filesys/udev/: BUILD, DETAILS: Added a patch for the scsi node
+	  creation symlink script, since we cannot assure that /usr is
+	  mounted ( readlink is at /usr/bin/readlink). We use a dummy func,
+	  provided by the patch intead
+
+2005-02-14 20:52  florin
+
+	* games/asc/DETAILS: bump the version from 1.15.2 to 1.15.3.
+
+2005-02-14 17:19  moe
+
+	* compilers/j2sdk/CONFLICTS: And while we're at it ..
+
+2005-02-14 17:17  moe
+
+	* compilers/j2sdk/BUILD: Well, doh!
+
+2005-02-14 17:06  moe
+
+	* compilers/j2sdk/BUILD: Put the plugin in place. Doesn't matter if
+	  we need it or not.  It won't hurt.
+
+2005-02-14 17:06  moe
+
+	* web/: firefox/POST_INSTALL, mozilla/POST_INSTALL: We're doing
+	  that from the j2sdk module now
+
+2005-02-14 16:51  moe
+
+	* compilers/j2sdk/: BUILD, DETAILS, POST_REMOVE, PRE_BUILD:
+	  Shuuweed. I think the testing is done.
+
+	  * Merged j2sdk-beta into j2sdk
+
+2005-02-14 15:27  nestu
+
+	* filesys/udev/49-udev.rules: missing comma to separate fields.
+	  pointed out by dveatch, bug:
+	  http://lunar-linux.org/?q=node/view/722
+
 2005-02-14 12:46  moe
 
 	* doc-tools/openjade/: DETAILS, POST_INSTALL, catalog: Fix
@@ -1671,58 +1756,4 @@
 	  start because a directory has yet to be created.  Putting it in
 	  the BUILD file fixes that.  Also removed the required depends on
 	  Python as it is really optional.
-
-2005-01-15 18:17  florin
-
-	* utils/syslinux/DETAILS: bump the version from 3.06 to 3.07. a few
-	  bugfixes.
-
-2005-01-15 15:23  florin
-
-	* x11-utils/gkrellmms/DETAILS: bump the version from 2.1.20 to
-	  2.1.21.
-
-2005-01-15 15:12  florin
-
-	* devel/subversion/DETAILS: bump the version from 1.1.2 to 1.1.3.
-
-2005-01-15 13:46  florin
-
-	* games/lbreakout2/DETAILS: bump the version from 2.5.1 to 2.5.2.
-
-2005-01-15 11:01  nestu
-
-	* kernel/: linux-2.6/CONFIGURE, linux-2.6-ck/CONFIGURE,
-	  linux-2.6-cko/CONFIGURE: Adding the questions that ask about
-	  editing the conf file after linning
-
-2005-01-15 10:32  nestu
-
-	* filesys/udev/POST_INSTALL: Typo fix, now the config file is
-	  /etc/udev/udev.conf.	Some cleanup of the udev on boot warning
-	  msg too.
-
-2005-01-15 08:54  florin
-
-	* libs/gwenhywfar/DETAILS: bump the version from 1.4.1 to 1.5.0.
-
-2005-01-15 08:47  florin
-
-	* filesys/udev/udev: small tweak.
-
-2005-01-15 04:34  tchan
-
-	* mail/exim/DETAILS: Version bump to exim-4.44. Bugfix release.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-01-15 00:43  v3rt1g0
-
-	* x11-wm/pwm/DETAILS: Updated URIs to be a little more correct and
-	  added a SHA1 sum
-
-2005-01-15 00:28  v3rt1g0
-
-	* x11-wm/3ddesktop/DETAILS: Version bump.  YaY for waste of CPU
-	  apps!
 
