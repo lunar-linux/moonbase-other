@@ -1,6 +1,9 @@
 (
  
   cd  $SOURCE_DIRECTORY/src              &&
+  cd tla				 &&
+  patch_it /var/spool/lunar/$SOURCE2 1			 &&
+  cd ..					 &&	
   mkdir -p build                         &&
   cd  build                              &&
 
