@@ -26,6 +26,10 @@
     rm -f /etc/init.d/fcron.sh
     rm -f /etc/rc?.d/???fcron.sh
   fi
+  if [ -e /etc/init.d/crond ]; then
+    rm -f /etc/init.d/crond
+    rm -f /etc/rc?.d/???crond
+  fi
 
   [ -e /etc/fcron.allow ]  ||  cp  files/fcron.allow  /etc
   [ -e /etc/fcron.deny  ]  ||  cp  files/fcron.deny   /etc
