@@ -1,3 +1,161 @@
+2003-12-09 05:42  tchan
+
+	* security/aide/: BUILD, DEPENDS: Thanks to elaine for pointing out
+	how to get aide to compile with installing postgresql and
+	libgcrypt.  Returned them to their optional_depends state, rather
+	than forcing them to be installed.
+
+2003-12-09 05:22  nhudson
+
+	* gnome2-extras/gnome-vfs-extras/BUILD,
+	doc-tools/scrollkeeper/BUILD: 
+	Not needed
+
+2003-12-09 05:17  florin
+
+	* video/MPlayer/DETAILS: bump version from 1.0pre2 to 1.0pre3. it
+	compiles only with 2.4 kernel-headers. tested with gcc 3.3.2.
+
+2003-12-09 05:14  nhudson
+
+	* gnome2-extras/gnome-vfs-extras/: BUILD, DETAILS: 
+	Updating gnome-vfs-extras to new version 0.99.12
+
+2003-12-09 03:56  tchan
+
+	* security/aide/: BUILD, DEPENDS, DETAILS: Version bump to 0.10. 
+	aide has now moved to sourceforge.  BIG module changes to get this
+	to compile.  postgresql and libgcrypt are no longer
+	optional_depends due to the aide devs borking their configure
+	script.  Instead postgresql and libgcrypt MUST be installed,
+	otherwise their configure script will die a horrible death.  Once
+	those two apps/libs are installed then the aide configure script
+	will merrily compile away, but since those two apps/libs need to be
+	installed now, I just forced them on in the configure step.  Also
+	mhash needs to be recompiled to get the static lib build in
+	addition to the shared libs.  I updated the mhash module to reflect
+	that fact!
+
+2003-12-09 03:33  tchan
+
+	* crypto/mhash/: BUILD, DETAILS: Added a BUILD script as mhash MUST
+	build the static as well as the default shared libs, now.  The aide
+	module (>= 0.10) REQUIRES the static version of mhash.	Touched the
+	UPDATED field in DETAILS to try and force everyone using mhash to
+	recompile.
+
+2003-12-09 02:57  nhudson
+
+	* doc-tools/intltool/POST_INSTALL: 
+	Adding a recompile of scrollkeeper after a rebuild of intltool to
+	make sure compatibility is inforced.
+
+2003-12-09 02:50  nhudson
+
+	* doc-tools/scrollkeeper/: BUILD, DETAILS: 
+	Finally fixing the problem with scrollkeeper with a patch that
+	correctly identifies the correct intltool module for XML-Parser.
+
+2003-12-09 02:06  nhudson
+
+	* doc-tools/scrollkeeper/DEPENDS: 
+	Removing depends on XML-Parser as its recursive with intltool
+
+2003-12-09 02:05  nhudson
+
+	* doc-tools/intltool/: DEPENDS, DETAILS: 
+	Adding intltool to doc-tools where it should be, also updating it
+	to new version 0.28 and also adding a depends on XML-Parser
+
+2003-12-09 02:01  hardkrash
+
+	* utils/theedge/DETAILS: and expecially this one
+
+2003-12-09 02:01  hardkrash
+
+	* utils/lunar/DETAILS: we can't be keeping this source now can we
+	:-P
+
+2003-12-09 01:58  nhudson
+
+	* doc-tools/scrollkeeper/DEPENDS: 
+	Fixing problem with scrollkeeper.  Seems they changed XML parsers
+	from one that was broke to the perl module XML-Parser.
+
+2003-12-08 23:53  niki
+
+	* kernel/linux-openmosix/POST_INSTALL: lilo for one would proberbly
+	be more happy with this length of the kernel label ;-)
+
+2003-12-08 23:44  sofar
+
+	* kernel/linux-grsec/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD:
+	CVS, me, hate.
+
+2003-12-08 23:39  sofar
+
+	* kernel/linux-openmosix/: BUILD, CONFIGURE, DEPENDS, DETAILS,
+	POST_INSTALL, PRE_BUILD: CVS sucks okay???
+
+2003-12-08 23:28  sofar
+
+	* kernel/linux-grsec/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD:
+	Adding a basic -openmosix kernel including patchset etc etc... for
+	those cluster-oriented ppl around there. Still need the userspace
+	tools tho!
+
+2003-12-08 23:23  watryac04
+
+	* editors/e3/BUILD.alpha: Added alpha specific BUILD for e3 so that
+	we can use the C version of e3. Permits e3 to be removed from the
+	alpha blacklist.
+
+2003-12-08 23:03  watryac04
+
+	* kernel/linux/: BUILD.alpha, CONFIGURE.alpha, POST_INSTALL: Added
+	some stuff to make the DEC Alpha architecture able to use the nice
+	little linux kernel module. Tested on an EV56 (Miata).
+
+2003-12-08 22:33  nhudson
+
+	* devel/: gconfmm/BUILD, gconfmm/DEPENDS, gconfmm/DETAILS,
+	libbonobomm/BUILD, libbonobomm/DEPENDS, libbonobomm/DETAILS,
+	libbonobouimm/BUILD, libbonobouimm/DEPENDS, libbonobouimm/DETAILS,
+	libglademm/BUILD, libglademm/DEPENDS, libglademm/DETAILS,
+	libgnomecanvasmm/BUILD, libgnomecanvasmm/DEPENDS,
+	libgnomecanvasmm/DETAILS, libgnomemm/BUILD, libgnomemm/DEPENDS,
+	libgnomemm/DETAILS, libgnomeuimm/BUILD, libgnomeuimm/DEPENDS,
+	libgnomeuimm/DETAILS: 
+	Added the files back that were in gnomemm-all and are now back
+	seperate
+
+2003-12-08 18:04  florin
+
+	* utils/e2fsprogs/: BUILD, DETAILS: added a patch to compile under
+	2.6 kernel-headers.
+
+2003-12-08 17:58  niki
+
+	* terminal/screen/DETAILS: Proberbly a good idea to force a
+	recompile...
+
+2003-12-08 17:54  niki
+
+	* terminal/screen/: BUILD, DETAILS: Removed the patch as the
+	another fix for this issue is in screen allready.
+
+2003-12-08 17:14  niki
+
+	* security/nessus/DETAILS: Bumped version to 2.0.9, tested with gcc
+	3.3.2, glibc 2.3.2, and i have been doing some scans on my lan ;-)
+	And removed kongar as the maintainer...
+
+2003-12-08 16:03  tchan
+
+	* utils/e2fsprogs/init.d/mount: Corrected a typo in the comments
+	and made a change in the fsck code.  ML suggested the change to get
+	the fsck code to work a little better.
+
 2003-12-08 05:03  jmhodges
 
 	* web/SOAPpy/: BUILD, DEPENDS, DETAILS: bump and added some depends
@@ -1628,47 +1786,4 @@
 
 	* utils/linux-wlan-ng/DETAILS: Bumping version... can't hurt I
 	think :^/
-
-2003-11-08 21:10  jmhodges
-
-	* x11-apps/gpa/DETAILS: fsck.. UPDATED
-
-2003-11-08 21:10  jmhodges
-
-	* x11-apps/gpa/DETAILS: md5sum!
-
-2003-11-08 20:40  jmhodges
-
-	* x11-apps/gpa/DETAILS: version bump
-
-2003-11-08 20:27  tchan
-
-	* libs/gpgme/DETAILS: Version bump to 0.4.3.
-
-2003-11-08 17:24  nhudson
-
-	* web/epiphany/DETAILS: 
-	Updating epiphany to new version 1.0.5
-
-2003-11-08 11:07  jmhodges
-
-	* gnome2-extras/glade2/DETAILS: stupid UPDATED field
-
-2003-11-08 11:06  jmhodges
-
-	* gnome2-extras/glade2/DETAILS: version bump 2.0.0 -> 2.0.1
-
-2003-11-08 05:02  tchan
-
-	* editors/vim/CONFLICTS: Removed the CONFLICTS file from vim and
-	elvis.	Elvis no longer makes the /usr/bin/vi symlink.	Only VIM
-	does that now.	Elvis and VIM can no co-exist.
-
-2003-11-08 05:01  tchan
-
-	* editors/elvis/: BUILD, CONFLICTS, DEPENDS, DETAILS: Updated elvis
-	to version 2.2_0.  Removed the CONFLICTS with vim.  VIM is the only
-	vi clone that gets the /usr/bin/vi symlink.  Elvis is
-	/usr/bin/elvis or /usr/bin/xelvis.  Added the DEPENDS file for
-	ncurses.
 
