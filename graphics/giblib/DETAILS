@@ -1,16 +1,17 @@
-           MODULE=giblib
-         VERSION=1.2.2
+          MODULE=giblib
+         VERSION=1.2.3
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://linuxbrit.net/downloads/$SOURCE
-        WEB_SITE=http://linuxbrit.net/giblib
-        MAINTAINER="nhudson@speakeasy.net"
+      SOURCE_URL=http://linuxbrit.co.uk/downloads/$SOURCE
+      SOURCE_VFY=md5:06ae3113fdfe9f05a642bd844cc85eab
+        WEB_SITE=http://linuxbrit.co.uk/giblib
+        MAINTAINER="nhudson@lunar-linux.org"
          ENTERED=20011101
-         UPDATED=20011101
+         UPDATED=20040823
            SHORT="library used with feh"
 cat << EOF
 Giblib is a library that feh uses as a wrapper to imlib2.  The wrapper
-does 2 things, gives you access to fontstyles which can be loadedfrom
-files or defined dynamicly through the API, it also and more importantly
-wraps imlib2's context API.
+does two things -- gives you access to fontstyles which can be loaded from
+files, saved to files or defined dynamically through the API. It also, and
+more importantly, wraps imlib2's context API.
 EOF
