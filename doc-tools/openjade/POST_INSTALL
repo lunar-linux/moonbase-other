@@ -8,7 +8,7 @@ if ! [ -e "$centralized" ]; then
      touch $centralized
 fi  &&
 
-cp $SOURCE_CACHE/$SOURCE3 /usr/share/sgml/$MODULE-$VERSION/contrib/catalog &&
+cp $SCRIPT_DIRECTORY/catalog /usr/share/sgml/$MODULE-$VERSION/contrib/ &&
 
 /usr/bin/install-catalog --add $centralized $CATALOGDIR/catalog  &&
 /usr/bin/install-catalog --add $centralized $CATALOGDIR/pubtext/catalog  &&
