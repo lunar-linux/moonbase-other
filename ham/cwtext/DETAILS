@@ -1,17 +1,21 @@
-           MODULE=cwtext
-         VERSION=0.90
+          MODULE=cwtext
+         VERSION=0.94
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
-        WEB_SITE=http://sourceforge.net/projects/$MODULE/
+      SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VRY=sha1:ad2dc3002cbb977d8b735680820d4264bb7cc184
+        WEB_SITE=http://$MODULE.sourceforge.net
          ENTERED=20011212
-         UPDATED=20011212
+         UPDATED=20040905
            SHORT="Converts text to morse code"
       MAINTAINER=w9ya@amsat.org
 
 cat << EOF
-Convert text to International Morse Code.  Input is ASCII text. 
-Output can be: - . -..- - on the console, raw 8bit PCM suitable for
-piping to /dev/audio, .wav files or even (mp3|ogg).  Good for headlines
-on your MP3 player or code practice.
+cwtext converts plain ASCII to International Morse Code.
+
+It includes three programs,
+ cwtext: convert text to 'dotscii' - . -..- -
+  cwpcm: convert text to raw 8bit PCM audio stream
+   cwmm: convert text to MorseMail XML format (see 
+         http://www.seanet.com/~harrypy/MorseMail/ for information)
 EOF
