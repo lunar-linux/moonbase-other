@@ -1,13 +1,15 @@
           MODULE=grub
          VERSION=0.93
         #VERSION=0.92
-          SOURCE=$MODULE-$VERSION.tar.gz
+           SOURCE=$MODULE-$VERSION.tar.gz
+          SOURCE2=$MODULE-$VERSION-type-fix.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=ftp://alpha.gnu.org/gnu/grub/$SOURCE
-   SOURCE_URL[1]=http://www.funet.fi/pub/gnu/alpha/gnu/grub/$SOURCE
+    SOURCE_URL[0]=ftp://alpha.gnu.org/gnu/grub/$SOURCE
+    SOURCE_URL[1]=http://www.funet.fi/pub/gnu/alpha/gnu/grub/$SOURCE
+   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
         WEB_SITE=http://www.gnu.org/software/grub
          ENTERED=20020310
-         UPDATED=20021211
+         UPDATED=20030518
            SHORT="GNU GRUB boot loader"
       MAINTAINER=tpchan@attbi.com 
 cat << EOF

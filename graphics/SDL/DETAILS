@@ -2,11 +2,13 @@
          VERSION=1.2.5
         #VERSION=1.2.4
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-missing-quotes.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://www.libsdl.org/release/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
         WEB_SITE=http://www.libsdl.org
          ENTERED=20010922
-         UPDATED=20021124
+         UPDATED=20030518
            SHORT="SDL is a portable game library for low-level access to hardware."
 cat << EOF
 SDL is a library that allows you portable low-level access to a video

@@ -1,5 +1,7 @@
 (
 
+  patch_it  $SOURCE_CACHE/$SOURCE2 1 &&
+
   unset CFLAGS CXXFLAGS CPPFLAGS &&
   default_build &&            
   gzip -9 ChangeLog &&

@@ -2,12 +2,14 @@
          VERSION=0.50.3
         #VERSION=.33.7.1
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-missing-include.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$GNU_URL/$MODULE/$SOURCE
-   SOURCE_URL[1]=$SFORGE_URL/$MODULE/$SOURCE
+    SOURCE_URL[0]=$GNU_URL/$MODULE/$SOURCE
+    SOURCE_URL[1]=$SFORGE_URL/$MODULE/$SOURCE
+   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
         WEB_SITE=http://aspell.net
          ENTERED=20010922
-         UPDATED=20021127
+         UPDATED=20030518
            SHORT="Aspell is a spell checker designed to eventually replace ispell."
 cat << EOF
 Aspell is a spell checker designed to eventually replace ispell. Its
