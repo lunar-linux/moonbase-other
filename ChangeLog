@@ -1,3 +1,161 @@
+2004-12-13 11:46  sofar
+
+	* libs/glibc/BUILD: more explicit exits needed
+
+2004-12-13 09:16  prox
+
+	* editors/gtkspell/: BUILD, DETAILS: patch for aspell/configure,
+	  disabled gtk-docs since it fails today (tries to open an URL as a
+	  file)
+
+2004-12-13 08:56  sofar
+
+	* compilers/php/BUILD: Meh... cmon that's a lame one
+
+2004-12-13 08:47  tchan
+
+	* x11-apps/gnucash/DETAILS: Version bump to gnucash-1.8.10.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2004-12-13 08:24  prox
+
+	* libs/libsoup22/DEPENDS: libsoup finds gnutls and I think it
+	  should be default, encryption is a good thing. NOTE it seems it
+	  links it in a strange way (gives this in evolution-data-server:
+	  /usr/lib/libsoup-2.2.so: undefined reference to
+	  'gnutls_certificate_set_x509_key_file@GNUTLS_REL_1_0_9') so
+	  libsoup might need recompiling when gnutls change. (maybe
+	  something for the recompile tagging?)
+
+2004-12-13 08:19  sofar
+
+	* x11/XOrg/BUILD: small adj.
+
+2004-12-13 08:19  sofar
+
+	* x11/XOrg/: BUILD, drivers: explicitly exit BUILD when make World
+	  fails. Also removed agpgartdrivers
+
+2004-12-13 07:40  jasper
+
+	* xfce4/libxfce4mcs/DETAILS, xfce4/libxfce4util/DETAILS,
+	  xfce4/libxfcegui4/DETAILS, xfce4/xfcalendar/DETAILS,
+	  xfce4/xfce-mcs-manager/DETAILS, xfce4/xfce-mcs-plugins/DETAILS,
+	  xfce4/xfce-utils/DETAILS, xfce4/xfce4-appfinder/DETAILS,
+	  xfce4/xfce4-battery-plugin/DETAILS,
+	  xfce4/xfce4-clipman-plugin/DETAILS,
+	  xfce4/xfce4-cpugraph-plugin/DETAILS,
+	  xfce4/xfce4-datetime-plugin/DETAILS,
+	  xfce4/xfce4-diskperf-plugin/DETAILS,
+	  xfce4/xfce4-fsguard-plugin/DETAILS,
+	  xfce4/xfce4-genmon-plugin/DETAILS,
+	  xfce4/xfce4-icon-theme/DETAILS, xfce4/xfce4-iconbox/DETAILS,
+	  xfce4/xfce4-minicmd-plugin/DETAILS, xfce4/xfce4-mixer/DETAILS,
+	  xfce4/xfce4-netload-plugin/DETAILS,
+	  xfce4/xfce4-notes-plugin/DETAILS, xfce4/xfce4-panel/DETAILS,
+	  xfce4/xfce4-session/DETAILS,
+	  xfce4/xfce4-showdesktop-plugin/DETAILS,
+	  xfce4/xfce4-systemload-plugin/DETAILS,
+	  xfce4/xfce4-systray/DETAILS, xfce4/xfce4-taskbar-plugin/DETAILS,
+	  xfce4/xfce4-toys/DETAILS, xfce4/xfce4-trigger-launcher/DETAILS,
+	  xfce4/xfce4-wavelan-plugin/DETAILS,
+	  xfce4/xfce4-weather-plugin/DETAILS,
+	  xfce4/xfce4-windowlist-plugin/DETAILS, xfce4/xfdesktop/DETAILS,
+	  xfce4/xffm/DETAILS, xfce4/xfprint/DETAILS,
+	  app-themes/gtk-xfce-engine/DETAILS,
+	  profiles/xfce4-extras-profile/DETAILS,
+	  profiles/xfce4-profile/DETAILS, xfce4/xfwm4/DETAILS,
+	  xfce4/xfwm4-themes/DETAILS: Xfce 4.2-RC2
+
+2004-12-13 07:30  sofar
+
+	* chat/guifications/DETAILS: Typo. Please check these carefully!
+
+2004-12-13 05:33  florin
+
+	* chat/amsn/: BUILD, POST_REMOVE: fix the build.
+
+2004-12-13 05:31  florin
+
+	* filesys/lvm2/DETAILS: bump the version from 2.00.29 to 2.00.31.
+
+2004-12-13 01:52  v3rt1g0
+
+	* ftp/wput/: BUILD, DETAILS: Version bump 0.3.4 -> 0.5 Cleaned up
+	  the BUILD file a bit too, disabled compiling with debug support
+	  (which it does by default).
+
+2004-12-13 00:28  v3rt1g0
+
+	* video/tvtime/: BUILD, DEPENDS, DETAILS: Version bump.  SDL
+	  support has been dropped (according to their bugtracker) so it is
+	  no longer a depends.
+
+2004-12-12 23:44  v3rt1g0
+
+	* video/libtheora/DETAILS: Updated source uri as suggested by
+	  Cursory in #lunar.  Also fixed up the sha1 sum.
+
+2004-12-12 22:30  moe
+
+	* zbeta/openoffice-src/DETAILS: Fix bug #603
+
+2004-12-12 22:21  sofar
+
+	* graphics/ImageMagick/DETAILS: dont touch
+
+2004-12-12 22:21  v3rt1g0
+
+	* audio/abcde/DETAILS: Version bump 2.1.19 -> 2.2.0
+
+2004-12-12 21:56  v3rt1g0
+
+	* cd/cdw/DEPENDS: Fixed a typo
+
+2004-12-12 21:40  v3rt1g0
+
+	* cd/cdw/: DEPENDS, DETAILS: Inital commit of some ncurses/Gtk+-2
+	  cd ripping/burning/sacrificing thing-a-ma-bob
+
+2004-12-12 21:22  sofar
+
+	* audio/grip/DETAILS: Version bump... in testing ;^)
+
+2004-12-12 16:41  florin
+
+	* crypto/libtasn1/DETAILS: bump the version from 0.2.10 to 0.2.12.
+
+2004-12-12 16:34  tchan
+
+	* gnome/imlib/: BUILD, DEPENDS, DETAILS, imlib-ac25x.patch: Version
+	  bump to imlib-1.9.15. Removed the unneeded imlib-ac25x.patch.
+	  The other patches still apply.  Someone with more time can move
+	  the patches in moonbase into the patchdir scheme. Compiled/tested
+	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2004-12-12 16:33  florin
+
+	* kde3-apps/kxmleditor/DETAILS: bump the version from 1.1.3 to
+	  1.1.4.
+
+2004-12-12 16:10  florin
+
+	* security/nmap/DETAILS: bump the version from 3.77 to 3.78.
+
+2004-12-12 16:02  florin
+
+	* chat/amsn/DEPENDS: the tk module depends on tcl already.
+
+2004-12-12 15:52  florin
+
+	* chat/amsn/POST_REMOVE: clean up after uninstall.
+
+2004-12-12 15:46  florin
+
+	* graphics/ImageMagick/DETAILS: bump the version fronm 6.1.6-0 to
+	  6.1.6-5.
+
 2004-12-12 13:22  cmak
 
 	* compilers/swi-prolog/DETAILS: version bump
@@ -1715,129 +1873,4 @@
 2004-11-13 01:15  v3rt1g0
 
 	* games/powermanga/DETAILS: Version bump
-
-2004-11-12 23:50  v3rt1g0
-
-	* cd/eject/: BUILD, DETAILS, eject-2.0.13-kernel25-support.patch: I
-	  thought this patch was added a long time ago when I first found
-	  it..	*shrug*  Anyhow, this patch makes eject 2.6 friendly.
-
-2004-11-12 23:26  florin
-
-	* devel/swig/DETAILS: bump the version from 1.3.22 to 1.3.23.
-
-2004-11-12 23:23  v3rt1g0
-
-	* cd/libcdaudio/: BUILD, DETAILS: Version bump and a little
-	  simplification of the code
-
-2004-11-12 22:55  florin
-
-	* devel/check/DETAILS: bump the version from 0.9.1 to 0.9.2.
-
-2004-11-12 19:38  nestu
-
-	* security/iptables/DETAILS: taken tabs out of my last commit, and
-	  changed md5 for sha's
-
-2004-11-12 19:25  nestu
-
-	* security/iptables/: BUILD, DETAILS: Adding patch to fix
-	  vulnerability:
-	  http://securitytracker.com/alerts/2004/Nov/1012025.html
-
-2004-11-12 17:02  moe
-
-	* x11-wm/openbox/DEPENDS: Adding a requiered dependency: libxml2
-
-2004-11-12 17:01  moe
-
-	* net/ipw2100/: BUILD, DETAILS: Updating this thingy to 0.62.
-	  Stupid patches not needed anylonger. Hope this is working with
-	  suspension and hibernation again
-
-2004-11-12 15:52  tchan
-
-	* chat/gaim/DETAILS: Version bump to gaim-1.0.3. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-11-12 07:40  v3rt1g0
-
-	* video/gxine/: BUILD, DEPENDS: Okay, I suck... last commit, I
-	  promiss.  Added an optional depends on lirc and removed the
-	  unneeded symlinks for the plugin
-
-2004-11-12 07:30  v3rt1g0
-
-	* video/gxine/BUILD: Sorry for the back-to-back commit.  Adding the
-	  plugin was an after thought.
-
-2004-11-12 07:23  v3rt1g0
-
-	* video/gxine/BUILD: Makeing this build!  This is a known defect
-	  that has not yet been fixed upstream.
-
-2004-11-12 05:12  v3rt1g0
-
-	* x11-utils/imwheel/: BUILD, DETAILS: Inital import.  A rather
-	  popular mouse wheel/button function setter for X.
-
-2004-11-12 04:22  v3rt1g0
-
-	* audio/audiotag/: BUILD, DEPENDS, DETAILS: Inital import of a perl
-	  script that is used for meta-tagging your audio files en mass.
-
-2004-11-12 03:54  v3rt1g0
-
-	* games/gnugo/: BUILD, DETAILS: Minor tweaks
-
-2004-11-12 03:30  v3rt1g0
-
-	* games/wtf/: BUILD, DETAILS: Simplified this module a bit and
-	  added the missing long description.
-
-2004-11-12 00:47  v3rt1g0
-
-	* libs/ecore/CONFLICTS: Not needed anymore now that the e17 modules
-	  are being set to /opt
-
-2004-11-12 00:43  v3rt1g0
-
-	* graphics/: imlib2/CONFLICTS, imlib2_loaders/CONFLICTS,
-	  evas/CONFLICTS: Not needed anymore now that the e17 modules are
-	  being set to /opt
-
-2004-11-12 00:41  v3rt1g0
-
-	* zbeta/etox-cvs/: BUILD, DETAILS: Making using of the /opt
-	  directory as suggested by sofar.
-
-2004-11-12 00:38  v3rt1g0
-
-	* zbeta/: epsilon-cvs/BUILD, epsilon-cvs/DETAILS, embryo-cvs/BUILD,
-	  embryo-cvs/DETAILS, edje-cvs/BUILD, edje-cvs/DEPENDS,
-	  edje-cvs/DETAILS, esmart-cvs/BUILD, esmart-cvs/DETAILS: Making
-	  using of the /opt directory as suggested by sofar.
-
-2004-11-12 00:37  v3rt1g0
-
-	* zbeta/ecore-cvs/: BUILD, CONFLICTS, DETAILS: Making using of the
-	  /opt directory as suggested by sofar.  This also negates the need
-	  for the conflicts file.
-
-2004-11-12 00:35  v3rt1g0
-
-	* zbeta/: eet-cvs/BUILD, eet-cvs/DEPENDS, eet-cvs/DETAILS,
-	  epeg-cvs/BUILD, epeg-cvs/DETAILS: Making using of the /opt
-	  directory as suggested by sofar.
-
-2004-11-12 00:33  v3rt1g0
-
-	* zbeta/: imlib2-cvs/BUILD, imlib2-cvs/CONFLICTS,
-	  imlib2-cvs/DETAILS, edb-cvs/BUILD, edb-cvs/CONFLICTS,
-	  edb-cvs/DETAILS, imlib2_loaders-cvs/BUILD,
-	  imlib2_loaders-cvs/CONFLICTS, imlib2_loaders-cvs/DETAILS,
-	  evas-cvs/BUILD, evas-cvs/CONFLICTS, evas-cvs/DEPENDS,
-	  evas-cvs/DETAILS: Making using of the /opt directory as suggested
-	  by sofar.  This also negates the need for the conflicts file.
 
