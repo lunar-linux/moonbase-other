@@ -6,6 +6,7 @@
             	--infodir=/usr/share/info \
            	--mandir=/usr/share/man   \
 		--with-gl                 \
+                --with-xml                \
 		$OPTS                     &&
   default_make
 
