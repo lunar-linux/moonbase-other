@@ -1,3 +1,119 @@
+2003-08-19 11:27  florin
+
+	* games/tuxkart/BUILD: modifying the data directories for
+	conforming to the LSF, bins in /usr/games, static data in
+	/usr/share/games and variable data in /var/games
+
+2003-08-19 11:16  florin
+
+	* games/crimson/BUILD: modifying the data directories for
+	conforming to the LSF, bins in /usr/games, static data in
+	/usr/share/games and variable data in /var/games
+
+2003-08-19 11:12  florin
+
+	* games/: black-box/BUILD, black-box/DETAILS, bumprace/BUILD,
+	bumprace/DETAILS, bzflag/BUILD, bzflag/DETAILS,
+	castle-combat/BUILD, castle-combat/DETAILS, circuslinux/BUILD,
+	circuslinux/DETAILS, crimson/DETAILS, jumpnbump/BUILD,
+	jumpnbump/DETAILS, jumpnbump-levels/BUILD,
+	jumpnbump-levels/DETAILS, penguin-command/BUILD,
+	penguin-command/DETAILS, rockdodger/BUILD, rockdodger/DETAILS,
+	tuxpuck/BUILD, tuxpuck/DETAILS, xtux/BUILD, xtux/DETAILS: modifying
+	the data directories for conforming to the LSF, bins in /usr/games,
+	static data in /usr/share/games and variable data in /var/games
+
+2003-08-19 04:24  nhudson
+
+	* audio/sound-juicer/: BUILD, DEPENDS, DETAILS: 
+	Adding support for gnomesu to sound-juicer.  Sound-juicer is pretty
+	cool but for some reason it doesnt allow you to run it as user, you
+	have to run it as root or atleast I havent been able to get around
+	using it as root.  So gnomesu will take care of that for you
+	without logging into root
+
+2003-08-19 04:22  nhudson
+
+	* gnome2-apps/gnomesu/: BUILD, DEPENDS, DETAILS: 
+	Adding gnomesu to moonbase
+
+2003-08-19 03:58  nhudson
+
+	* audio/rhythmbox/DETAILS: 
+	Updating rhythmbox to new version 0.5.1
+
+2003-08-19 03:37  r0dzilla
+
+	* news/pan/: DEPENDS, DETAILS: bumped version, added gnet
+	dependency, added md5 SOURCE_VFY line
+
+2003-08-19 03:36  nhudson
+
+	* audio/: libmusicbrainz/DETAILS, sound-juicer/DETAILS: 
+	Updating libmusicbrainz to new version 2.0.2 and sound-juicer which
+	has to be one of the coolest apps for Gnome to new version 0.5.1
+
+2003-08-19 03:30  r0dzilla
+
+	* libs/gnet/DETAILS: added md5 SOURCE_VFY line to DETAILS
+
+2003-08-19 02:12  r0dzilla
+
+	* sql/mysql/DETAILS: corrected SOURCE_URL[0] to point to 4.0 dir
+	instead of 3.23 dir
+
+2003-08-19 02:12  elaine
+
+	* devel/tcl-tk/BUILD: eliminated spurious cp of tcl files over
+	glibc
+
+2003-08-18 22:11  sofar
+
+	* archive/unrar/BUILD: Adding gcc-3.3 fix for unrar.
+
+2003-08-18 21:45  sofar
+
+	* net/bind/init.d/named: Changing the init.d script from default to
+	custom, this one is a bit more tolerant and lets named make its own
+	pid files. Works better.
+
+2003-08-18 19:53  niki
+
+	* devel/cvs/services: Added services file, requested by Striker
+
+2003-08-18 18:10  r0dzilla
+
+	* sql/mysql/DETAILS: correcting md5sum for mysql version bump
+
+2003-08-18 17:53  jmhodges
+
+	* x11-apps/gnucash/BUILD: this is so much cleaner, and it
+	compiles.. but that might have been for other reasons
+
+2003-08-18 17:39  r0dzilla
+
+	* sql/mysql/DETAILS: version bump for mysql
+
+2003-08-18 17:04  sofar
+
+	* video/totem/DETAILS: Changing md5sum to the correct value.
+
+2003-08-18 13:11  niki
+
+	* kernel/linux-stable/DETAILS: Added md5sum's for the two new
+	patches.
+
+2003-08-18 12:30  niki
+
+	* kernel/linux/DETAILS: Bumping updated field, to make sure all
+	gets the new patchset.
+
+2003-08-18 12:24  niki
+
+	* kernel/linux/DETAILS: Removed the patch number 29 in main section
+	which should have fixed KDE compilations. Will have to see it's
+	fixed in KDE.
+
 2003-08-18 04:34  florin
 
 	* libs/gmp/: BUILD, DETAILS, gmp-4.1_4.1-4.patch: bumped version to
@@ -1659,118 +1775,4 @@
 	* docs/man-fr/: BUILD, CONFLICTS, DETAILS: Add man pages in french
 	There is several languages disponible at
 	http://www.tldp.org/docs.html#man
-
-2003-07-19 23:37  moe
-
-	* zbeta/sylpheed-gtk2-beta/: BUILD, CONFLICTS, DEPENDS, DETAILS:
-	This module is the GTK2 version of sylpheed 0.9.1.  Its quite an
-	ungly hack at the moment and you must have gpgme installed to get
-	it to work. The autotools are borked if you don't have it
-	installed.
-	
-	If you want to fix it find a way to edit configure.ac to strip out
-	the lines defining wether to use gpgme or not if chosen to not
-	install with gpgme support. I would have done it myself but I'm a)
-	too tired and b) maybe not skilled enough to do it. Feel free to go
-	ahead.
-	
-	hint: If you want a stable (though outdated) GTK2 sylpheed use the
-	sylpheed-gtk2 module
-	
-	Moe
-
-2003-07-19 22:29  nhudson
-
-	* mail/sylpheed-gtk2/DETAILS: 
-	The MODULE line in the DETAILS file was named sylpheed and not
-	sylpheed-gtk2, there was some unpacking problems with this so I
-	fixed it :)
-
-2003-07-19 21:33  moe
-
-	* mail/sylpheed-gtk2/: BUILD, CONFLICTS, DEPENDS, DETAILS: Weeee!
-	Here comes sylpheed with GTK2 support! ENJOY!
-
-2003-07-19 20:23  csm
-
-	* gnome2-apps/pkgview/DETAILS: fixed broken URL
-
-2003-07-19 20:05  nhudson
-
-	* mail/balsa2/DETAILS: 
-	Updating balsa2 to new version 2.0.12
-
-2003-07-19 20:03  nhudson
-
-	* audio/sound-juicer/DETAILS: 
-	Updating sound-juicer to new version 0.4.1
-
-2003-07-19 20:01  nhudson
-
-	* gnome2-apps/: gcalctool/DETAILS, pkgview/DETAILS: 
-	updating gcalctool to new version and updating pkgview to new
-	version 1.0.1
-
-2003-07-19 19:57  nhudson
-
-	* gnome2-core/libglade2/: BUILD, DETAILS, PRE_BUILD: 
-	Removing the PRE_BUILD file due to that its an ugly hack, now that
-	Python will be built with expat it is no longer needed
-
-2003-07-19 19:53  nhudson
-
-	* compilers/Python/DEPENDS: 
-	Adding expat as a dependancy to Python, to fix a libglade2 problem
-
-2003-07-19 19:33  sofar
-
-	* security/shadow/adduser: Adding the upg scheme to adduser!
-
-2003-07-19 16:31  nhudson
-
-	* chat/gossip/: BUILD, DEPENDS, DETAILS: 
-	Adding gossip to moonbase, Gossip is a Gnome2 based jabber client
-
-2003-07-19 16:30  nhudson
-
-	* libs/loudmouth/: BUILD, DETAILS: 
-	Adding loudmouth to moonbase, Loudmouth is a library for Gossip a
-	Gnome2 based Jabber client
-
-2003-07-19 14:52  nhudson
-
-	* gnome2-apps/meld/DEPENDS: 
-	Changing orbit-python to pyorbit in the depends file
-
-2003-07-19 14:49  nhudson
-
-	* gnome2-extras/pyorbit/: BUILD, DEPENDS, DETAILS: 
-	Changing the name of orbit-python to its newer name pyorbit and
-	updating the version to 1.99.5
-
-2003-07-19 14:35  moe
-
-	* app-themes/gtk-thinice-engine/: DEPENDS, DETAILS: Adding ThinIce
-	GTK engine
-
-2003-07-19 14:33  moe
-
-	* app-themes/gtk-thincream-engine/DETAILS: Thincream is not Thinice
-
-2003-07-19 14:29  csm
-
-	* chat/gaim/DETAILS: updating... fixed segfault... mv ~/.gaim
-	~/.gaim-backup is reuired prior to execution
-
-2003-07-19 12:00  sofar
-
-	* docs/man-pages/DETAILS: version bump.
-
-2003-07-19 11:57  sofar
-
-	* web/bluefish/DETAILS: Version bump.
-
-2003-07-19 00:23  csm
-
-	* chat/gaim/DETAILS: reverting since the new one segfaults!
 
