@@ -1,3 +1,73 @@
+2003-09-23 11:33  niki
+
+	* gnome2-core/libglade2/: POST_INSTALL, POST_REMOVE,
+	2.0.1/POST_INSTALL, 2.0.1/POST_REMOVE: Ok, now it always returns
+	true, which i hope is what you wanted to achive.
+
+2003-09-23 03:32  nhudson
+
+	* web/epiphany/BUILD: 
+	Making it so that things dont get confused when you have
+	MozillaFirebird installed
+
+2003-09-23 02:57  nhudson
+
+	* web/MozillaFirebird/DEPENDS: 
+	Taking something out I should have done before
+
+2003-09-23 02:57  nhudson
+
+	* web/MozillaFirebird/: BUILD, CONFLICTS, DEPENDS, DETAILS,
+	POST_INSTALL, profile.d/firebird.rc: 
+	Ok I have been hacking on this all night and finally I got a
+	solution that will work.  It will install firebird to /opt so that
+	mozilla can be installed at the same time and nothing will
+	conflict.  I added a icon and a .desktop file so that it will show
+	up in the KDE and Gnome menu's.  I removed the CONFLICTS file
+	because its no longer needed and at last I added xft support for
+	much better looking fonts
+
+2003-09-23 02:09  nhudson
+
+	* gnome2-core/: gnome-themes/DEPENDS, gnome-themes/2.4.0/DEPENDS,
+	libglade2/POST_INSTALL, libglade2/POST_REMOVE: 
+	Fixing a problem evildrew pointed out
+
+2003-09-22 23:20  sofar
+
+	* sql/mysql/DETAILS: Version bump!
+
+2003-09-22 22:14  sofar
+
+	* gnome2-apps/gnumeric2/: DEPENDS, DETAILS: nhudson forgot I had
+	already bumped it to 1.2.0
+
+2003-09-22 21:32  sofar
+
+	* compilers/php/: BUILD, DEPENDS, POST_INSTALL: Cleanup, not
+	touching UPDATED. Adding db/dbx features since they are builtin and
+	not dependent on other code, movind stuff around to proper places,
+	cleaning up patches.
+
+2003-09-22 16:09  florin
+
+	* utils/procps/DETAILS: bump the version from 3.1.12 to 3.1.13.
+
+2003-09-22 15:35  xoritor
+
+	* zbeta/shfs/: BUILD, DETAILS: Adding module shfs.
+
+2003-09-22 14:49  nhudson
+
+	* printer/gimp-print/DETAILS: 
+	Ok I have no idea why this didnt get updated when I did it before
+	but anyway this should fix the gimp2 problem that csm was having
+
+2003-09-22 12:40  florin
+
+	* kde3-apps/apollon/: DEPENDS, DETAILS: bump the version from 0.8
+	to 0.8.7. added gift-cvs dependency.
+
 2003-09-22 10:16  florin
 
 	* security/snort/DETAILS: bump the version from 2.0.1 to 2.0.2.
@@ -2621,49 +2691,4 @@
 2003-08-24 04:18  kc8apf
 
 	* video/transcode/DETAILS: Version bump
-
-2003-08-23 19:48  tchan
-
-	* chat/dancer-ircd/DETAILS: Corrected the UPDATED field.  UPDATED
-	can NOT be < ENTERED field.
-
-2003-08-23 17:20  nhudson
-
-	* web/epiphany/DETAILS: 
-	Updating epiphany to new version 0.9.1
-
-2003-08-23 16:56  nestu
-
-	* kernel/linux-beta/DETAILS: Updated version to new 2.6.0test4
-
-2003-08-23 12:51  niki
-
-	* gnome2-extras/gal2/PRE_BUILD: Fixed the PRE_BUILD so that there
-	at least is something to compile.
-
-2003-08-23 12:35  florin
-
-	* games/xmame/DETAILS: bump version from 0.70.1 to 0.72.1
-
-2003-08-23 12:33  florin
-
-	* x11-apps/xscreensaver/DETAILS: bump version from 4.11 to 4.12
-
-2003-08-23 12:32  florin
-
-	* ftp/curl/DETAILS: bump version from 7.10.5 to 7.10.7
-
-2003-08-23 12:31  florin
-
-	* net/tightvnc/DETAILS: bump version from 1.2.8 to 1.2.9
-
-2003-08-23 08:05  jmhodges
-
-	* editors/nano/: BUILD, CONFIGURE: added color and syntax
-	highlighting, .nanorc and multiple file buffering support.  closing
-	the bug
-
-2003-08-23 06:59  florin
-
-	* games/jumpnbump/DETAILS: fixing the patch path
 
