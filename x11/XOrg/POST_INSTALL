@@ -5,27 +5,12 @@ if ! grep -q '. /etc/profile' /etc/X11/xdm/Xsession; then
   sedit 2s:#:.\ /etc/profile: /etc/X11/xdm/Xsession
 fi
 
-# run xfs only on unix socket:
-if [ -f /etc/X11/fs/config ] ; then
-  if ! grep -q "no-listen = tcp" /etc/X11/fs/config ; then
-    cat >> /etc/X11/fs/config <<EOF
-
-# more secure: do not listen on tcp ports
-no-listen = tcp
-
-EOF
-  fi
-fi
-
-if   !   [  -d  /usr/lib/pkgconfig  ]
-then  mkdir -p /usr/lib/pkgconfig
+if ! [ -d  /usr/lib/pkgconfig ]; then
+  mkdir -p /usr/lib/pkgconfig
 fi 
 
-ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig        &&
-ln -sf /usr/X11R6/lib/pkgconfig/fontconfig.pc /usr/lib/pkgconfig &&
+message "Running fc-cache..." &&
+/usr/bin/fc-cache -f 
 
-message "Running fc-cache please be patient" &&
-/usr/X11R6/bin/fc-cache -f 
-
-message "Somethings are diffrent than XFree86, xf86config=xorgconfig" 
+message "Some things are diffrent from XFree86 f.e. xf86config=xorgconfig" 
 message "xf86cfg=xorgcfg and /etc/X11/XF86Config=/etc/X11/xorg.conf"
