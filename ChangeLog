@@ -1,41 +1,56 @@
+2003-06-29 11:34  sofar
+
+	* net/netselect/: BUILD, DETAILS: nestu said we needed this, but I
+	doubt it somewhat. Added netselect.
+
+2003-06-29 08:23  florin
+
+	* graphics/xscreensaver/: BUILD, DETAILS: disable the demo programs
+	(require motif or gtk).
+
+2003-06-29 06:20  florin
+
+	* games/kobodeluxe/DETAILS: fix the module name.
+
 2003-06-29 04:07  csm
 
 	* doc-tools/scrollkeeper/POST_INSTALL: fixing scrollkeeper
-	
+
 2003-06-29 01:00  elaine
 
 	* audio/gst-plugins/DEPENDS: added gstreamer dependency
-	
+
 2003-06-28 18:26  elaine
 
 	* doc-tools/gtk-doc/DEPENDS: Added libxml2 as a depend for gtk-doc
-	
+
 2003-06-28 17:49  csm
 
 	* utils/: lunar/DETAILS, theedge/DETAILS: bumping the updated field
-	
+
 2003-06-28 17:17  csm
 
 	* mail/pop-before-smtp/DETAILS: updationg the version to the latest
-	
+
 2003-06-28 16:39  florin
 
 	* filemanagers/krusader/DETAILS, games/knights3/DETAILS,
 	games/kobodeluxe/DETAILS, gnome2-extras/xscreensaver2/DETAILS,
 	graphics/scribus/DETAILS, graphics/xscreensaver/DETAILS,
 	x11-apps/qcad/DETAILS: verifying and cleaning up the moonbase.
-	
+
 2003-06-28 16:38  tchan
 
-	* utils/dialog/DETAILS: Version bump to 20030308.  Memory leak fixes and some more widgets added.
-	Compiled with gcc-3.2.3 and glibc-2.3.2.
-	
+	* utils/dialog/DETAILS: Version bump to 20030308.  Memory leak
+	fixes and some more widgets added.  Compiled with gcc-3.2.3 and
+	glibc-2.3.2.
+
 2003-06-28 15:48  nhudson
 
 	* web/epiphany/: DETAILS, epiphany: 
-	Updating epiphany to new version 0.7.1, now builds with gcc 3.3 for those
-	few of us who use it.
-	
+	Updating epiphany to new version 0.7.1, now builds with gcc 3.3 for
+	those few of us who use it.
+
 2003-06-28 15:22  florin
 
 	* kde3-apps/kexchange3/DETAILS, kde3-apps/kmplayer/DETAILS,
@@ -44,368 +59,1207 @@
 	kde3-utils/keybled/DETAILS, kde3-utils/kkeyled/DETAILS,
 	kde3-utils/komba2/DETAILS, kde3-utils/ksetisaver/DETAILS,
 	kde3-utils/ksetiwatch/DETAILS, kde3-utils/ksim/DETAILS,
-	kde3-utils/ksplashml/DETAILS: verifying and cleaning up the moonbase.
-	
+	kde3-utils/ksplashml/DETAILS: verifying and cleaning up the
+	moonbase.
+
 2003-06-28 13:40  florin
 
 	* games/chromium/DEPENDS: removed the qt-x11 depend
-	
+
 2003-06-28 13:32  florin
 
-	* games/chromium/DEPENDS, net/whois/DETAILS: verifying and cleaning up the moonbase.
-	
+	* games/chromium/DEPENDS, net/whois/DETAILS: verifying and cleaning
+	up the moonbase.
+
 2003-06-28 13:28  sofar
 
-	* gnome2-apps/ggv/DETAILS: Don't forget to edit DETAILS to reflect the new module name now!
-	
+	* gnome2-apps/ggv/DETAILS: Don't forget to edit DETAILS to reflect
+	the new module name now!
+
 2003-06-28 03:06  nhudson
 
 	* x11/truetype/: BUILD, DEPENDS, DETAILS, POST_INSTALL: 
-	Now that X 4.3.0 is out we no longer need ttmkfdir for installing fonts.  I
-	took out the dependancy for it and changed it so that it will register with
-	fontconfig and xft
-	
+	Now that X 4.3.0 is out we no longer need ttmkfdir for installing
+	fonts.	I took out the dependancy for it and changed it so that it
+	will register with fontconfig and xft
+
 2003-06-28 02:30  nhudson
 
 	* chat/gnomeicu/: BUILD, DEPENDS, DETAILS: 
 	Moving gnomeicu2 to gnomeicu
-	
+
 2003-06-28 02:25  nhudson
 
 	* gnome2-extras/ghex/: BUILD, DEPENDS, DETAILS: 
 	Moving ghex2 to ghex
-	
+
 2003-06-28 02:22  nhudson
 
 	* gnome2-apps/ggv/: BUILD, DEPENDS, DETAILS: 
-	Moving ggv2 to ggv in gnome2-apps, this replaces the older gtk1 app I removed
-	a few minutes ago
-	
+	Moving ggv2 to ggv in gnome2-apps, this replaces the older gtk1 app
+	I removed a few minutes ago
+
 2003-06-28 02:17  nhudson
 
 	* gnome2-core/: bug-buddy/BUILD, bug-buddy/DEPENDS,
 	bug-buddy/DETAILS, eel/BUILD, eel/DEPENDS, eel/DETAILS,
 	eog/DEPENDS, gdm/DEPENDS, gedit/DEPENDS, gnome-terminal/DEPENDS,
 	librsvg/BUILD, librsvg/DEPENDS, librsvg/DETAILS, nautilus/DEPENDS: 
-	Removing some "2" modules and moving them to non "2" modules, trying to rid of some older modules that are cluddering moonbase.  Also I changed some DEPENDS
-	files to show the changes of the names of the modules, makes since right??
-	
+	Removing some "2" modules and moving them to non "2" modules,
+	trying to rid of some older modules that are cluddering moonbase. 
+	Also I changed some DEPENDS files to show the changes of the names
+	of the modules, makes since right??
+
 2003-06-27 15:17  sofar
 
-	* security/ulogd/: BUILD, DETAILS: freeze! gah it's just a ulogd update.... once I hope to write a complete portsentry replacement that uses libipulog and libiptc, so we can get rid of that POS portsentry and write a DECENT adaptive filter that doesn't require 3 or 4 system() calls. Sad, so sad...
-	
+	* security/ulogd/: BUILD, DETAILS: freeze! gah it's just a ulogd
+	update.... once I hope to write a complete portsentry replacement
+	that uses libipulog and libiptc, so we can get rid of that POS
+	portsentry and write a DECENT adaptive filter that doesn't require
+	3 or 4 system() calls. Sad, so sad...
+
 2003-06-27 11:59  elaine
 
 	* kernel/linux-stable/DETAILS: reverted .20, kept per-version label
-	
+
 2003-06-27 11:30  nhudson
 
 	* compilers/: mcs/DETAILS, mono/DETAILS: 
 	Updating mono and mcs to new versions 0.25
-	
+
 2003-06-27 11:28  nhudson
 
 	* graphics/gimp2/DETAILS: 
 	Updating gimp2 to new version 1.3.16
-	
+
 2003-06-27 03:53  florin
 
 	* mail/spamassassin/DETAILS: bumped version to 2.55
-	
+
 2003-06-27 03:05  nhudson
 
 	* science/galculator/DETAILS: 
 	updating galculator to new version 1.1.1
-	
+
 2003-06-27 02:57  nhudson
 
 	* devel/anjuta/: DEPENDS, DETAILS: 
-	Updating anjuta to new version 1.1.97, takes it from a Gnome 1.x project to a
-	Gnome 2.x project
-	
+	Updating anjuta to new version 1.1.97, takes it from a Gnome 1.x
+	project to a Gnome 2.x project
+
 2003-06-26 22:54  jol
 
 	* graphics/XaoS/DETAILS: Bumped version OLD: 3.1pre5  NEW: 3.1
-	
+
 2003-06-26 20:12  florin
 
 	* utils/openldap/DETAILS: bumped version to 2.1.21.
-	
+
 2003-06-26 19:36  sofar
 
-	* kde3/kdebase3/init.d/kdm: Adding a proper init.d script for KDM (finally!!!)
-	
+	* kde3/kdebase3/init.d/kdm: Adding a proper init.d script for KDM
+	(finally!!!)
+
 2003-06-26 15:34  florin
 
 	* chat/licq/DETAILS: bumped version to 1.2.7 at sofar's request.
-	
+
 2003-06-26 15:19  nhudson
 
 	* doc-tools/opensp/: BUILD, DETAILS: 
-	Adding a patch for compiling opensp with gcc 3.3, this patch does not
-	effect it with gcc 3.2.3 at all.
-	
+	Adding a patch for compiling opensp with gcc 3.3, this patch does
+	not effect it with gcc 3.2.3 at all.
+
 2003-06-26 11:53  nhudson
 
 	* perl/mod_perl/: BUILD, DETAILS: 
-	Updating mod_perl to new version 2.0-current, I am updating this because we
-	have no module for mod_perl for apache2.  I am assuming that most everyone
-	uses apache2.  Maybe this should be done another way??
-	
+	Updating mod_perl to new version 2.0-current, I am updating this
+	because we have no module for mod_perl for apache2.  I am assuming
+	that most everyone uses apache2.  Maybe this should be done another
+	way??
+
 2003-06-26 11:48  nhudson
 
 	* gnome2-core/yelp/DETAILS: 
 	Updating yelp to new version 2.2.3
-	
+
 2003-06-26 02:27  elaine
 
-	* editors/ex/: BUILD, DEPENDS, DETAILS: Module ex for ex/vi current version of the original BSD version of vi
-	
+	* editors/ex/: BUILD, DEPENDS, DETAILS: Module ex for ex/vi current
+	version of the original BSD version of vi
+
 2003-06-26 02:09  nhudson
 
 	* gnome2-apps/conglomerate/: DEPENDS, DETAILS: 
-	initial import of conglomerate 0.5.4, Conglomerate is a nice gtk2 based
-	XML editor that will make nice and easy docbook documents and will also
-	export docbook docs to html.
-	
+	initial import of conglomerate 0.5.4, Conglomerate is a nice gtk2
+	based XML editor that will make nice and easy docbook documents and
+	will also export docbook docs to html.
+
 2003-06-26 00:51  tchan
 
-	* distributed/distcc/DETAILS: Minor portability fix version.  Bumped to 2.7.1.
-	
+	* distributed/distcc/DETAILS: Minor portability fix version. 
+	Bumped to 2.7.1.
+
 2003-06-25 22:17  sofar
 
-	* x11-utils/: gkrellm2/DETAILS, gkrellmd2/DETAILS: New versions at your convenience
-	
+	* x11-utils/: gkrellm2/DETAILS, gkrellmd2/DETAILS: New versions at
+	your convenience
+
 2003-06-25 19:29  jol
 
-	* x11-wm/bbconf/: BUILD, DEPENDS, DETAILS: Bumped version  OLD: 1.5  NEW: 1.10
-	Support qt3 instead of qt-x11
-	
+	* x11-wm/bbconf/: BUILD, DEPENDS, DETAILS: Bumped version  OLD: 1.5
+	 NEW: 1.10 Support qt3 instead of qt-x11
+
 2003-06-25 16:35  jmhodges
 
-	* devel/pychecker/: BUILD, DEPENDS, DETAILS: initial import.. about time :)
-	
+	* devel/pychecker/: BUILD, DEPENDS, DETAILS: initial import.. about
+	time :)
+
 2003-06-25 14:29  tchan
 
 	* utils/lsof/DETAILS: Corrected the md5sum for csm.
-	
+
 2003-06-25 12:22  jol
 
-	* video/vlc/: BUILD, DEPENDS, DETAILS: Bumped Version OLD: 0.5.3    NEW: .0.6.0
-	mpg2dec was disabled
-	wxwindows activated
-	
+	* video/vlc/: BUILD, DEPENDS, DETAILS: Bumped Version OLD: 0.5.3   
+	NEW: .0.6.0 mpg2dec was disabled wxwindows activated
+
 2003-06-25 01:01  nhudson
 
 	* gnome2-applets/drwright/DETAILS: 
 	Updating drwright to new version 0.17
-	
+
 2003-06-25 00:17  nhudson
 
 	* gnome2-extras/: gnome-cups-manager/BUILD,
 	gnome-cups-manager/DEPENDS, gnome-cups-manager/DETAILS,
 	libgnomecups/BUILD, libgnomecups/DEPENDS, libgnomecups/DETAILS: 
 	inital import of libgnomecups and gnome-cups-manager
-	
+
 2003-06-24 23:40  jol
 
 	* video/libdvdcss/DETAILS: Bumped Version OLD: 1.2.6  NEW: 1.2.7
-	
+
 2003-06-24 23:29  jol
 
-	* kde3-utils/superkaramba/: BUILD, DEPENDS, DETAILS: Add superkaramba version 0.28
-	
+	* kde3-utils/superkaramba/: BUILD, DEPENDS, DETAILS: Add
+	superkaramba version 0.28
+
 2003-06-24 23:26  jol
 
 	* devel/guile/DETAILS: Bumped version  OLD: 1.6.3   NEW: 1.6.4
-	
+
 2003-06-24 23:13  nhudson
 
 	* gnome2-core/libgnome/DETAILS: 
 	Happy now sofar? :) Libgnome has been updated to new version 2.2.2
-	
+
 2003-06-24 23:11  jol
 
 	* devel/kdbg/DETAILS: Bumped version  OLD: 1.2.5   NEW: 1.2.8
-	
+
 2003-06-24 21:44  sofar
 
-	* x11-wm/icewm/: BUILD, DETAILS: This bump includes a fix for the gettext mishap in 1.2.8!
-	
+	* x11-wm/icewm/: BUILD, DETAILS: This bump includes a fix for the
+	gettext mishap in 1.2.8!
+
 2003-06-24 13:19  sofar
 
-	* utils/Wine/DETAILS: Had this working already for 3 days, so bumping the version up.
-	
+	* utils/Wine/DETAILS: Had this working already for 3 days, so
+	bumping the version up.
+
 2003-06-24 11:21  sofar
 
-	* printer/cups/CONFLICTS: Adding this since lprng and cups do not like to cohabit your boxes ;^)
-	
+	* printer/cups/CONFLICTS: Adding this since lprng and cups do not
+	like to cohabit your boxes ;^)
+
 2003-06-24 11:20  sofar
 
-	* printer/cups/: services, xinetd.d/cups-lpd: Adding support for starting cups-lpd in order to accept printer jobs on port 515 (aka the ordinary lpd protocol). Note it is only needed to run this if you wish to have a genuine lpd daemon running.
-	
+	* printer/cups/: services, xinetd.d/cups-lpd: Adding support for
+	starting cups-lpd in order to accept printer jobs on port 515 (aka
+	the ordinary lpd protocol). Note it is only needed to run this if
+	you wish to have a genuine lpd daemon running.
+
 2003-06-24 05:13  hardkrash
 
 	* chat/gaim-e/CONFLICTS: oops forgot this one
-	
+
 2003-06-24 05:10  hardkrash
 
 	* chat/gaim-e/: BUILD, CONFIGURE, DEPENDS, DETAILS: inital import
-	
+
 2003-06-23 22:00  nhudson
 
 	* gnome2-apps/gucharmap/DETAILS: 
-	Updating guchapmap to new version 0.8.0, which now works fine without any
-	crashes in abowrod2
-	
+	Updating guchapmap to new version 0.8.0, which now works fine
+	without any crashes in abowrod2
+
 2003-06-23 19:09  jmhodges
 
-	* ftp/gtk-gnutella/: DEPENDS, DETAILS: version bump, plus gtk+-2 support
-	
+	* ftp/gtk-gnutella/: DEPENDS, DETAILS: version bump, plus gtk+-2
+	support
+
 2003-06-23 16:54  nhudson
 
 	* zbeta/abiword2/DETAILS: 
-	Updating abiword2 to new version 1.99.1 which is 2.0 beta1.  Hopefully soon
-	we can merge this with the abiword module
-	
+	Updating abiword2 to new version 1.99.1 which is 2.0 beta1. 
+	Hopefully soon we can merge this with the abiword module
+
 2003-06-23 14:47  niki
 
 	* x11-apps/xpdf/DETAILS: Updated the UPDATED field.
-	
+
 2003-06-23 13:50  niki
 
-	* x11-apps/xpdf/DETAILS: Security update. Bumped to version 2.02pl1... Tested by Moe, Blame him ;-)
-	
+	* x11-apps/xpdf/DETAILS: Security update. Bumped to version
+	2.02pl1... Tested by Moe, Blame him ;-)
+
 2003-06-23 05:05  kc8apf
 
-	* net/net-tools/lnet: Prevent symlinks from showing up in lnet as config files
-	
+	* net/net-tools/lnet: Prevent symlinks from showing up in lnet as
+	config files
+
 2003-06-23 04:19  florin
 
 	* games/asc/DETAILS: bumped version to 1.13.6.
-	
+
 2003-06-23 02:08  nhudson
 
 	* video/totem/DETAILS: 
 	Updating totem to new version 0.99.1
-	
+
 2003-06-22 23:58  tchan
 
-	* perl/perl/BUILD: Reverted back to version 1.1.  Removing the sedit as this will cause a
-	performance LOSS for anyone not running their OPTS at -O3.
-	
+	* perl/perl/BUILD: Reverted back to version 1.1.  Removing the
+	sedit as this will cause a performance LOSS for anyone not running
+	their OPTS at -O3.
+
 2003-06-22 14:03  elaine
 
-	* perl/perl/BUILD: Added sedit to put lunar optimizations into perl build hints/linux.sh file
-	*note* this will fail if perl changes the hints file
-	
+	* perl/perl/BUILD: Added sedit to put lunar optimizations into perl
+	build hints/linux.sh file *note* this will fail if perl changes the
+	hints file
+
 2003-06-22 09:53  florin
 
-	* devel/cvs/DETAILS: bumped version to 1.11.6. fixes for the new automake and autoconf versions.
-	
+	* devel/cvs/DETAILS: bumped version to 1.11.6. fixes for the new
+	automake and autoconf versions.
+
 2003-06-22 07:32  florin
 
-	* filemanagers/mc/DEPENDS: mc now depends on glib-2 instead of glib.
-	
+	* filemanagers/mc/DEPENDS: mc now depends on glib-2 instead of
+	glib.
+
 2003-06-21 22:30  nhudson
 
 	* gnome2-core/linc/DETAILS: 
 	Updating linc to new version 1.0.3
-	
+
 2003-06-21 17:20  nhudson
 
 	* graphics/sodipodi/DETAILS: 
 	Updating sodipodi to new version 0.32
-	
+
 2003-06-21 14:53  elaine
 
-	* kernel/linux-stable/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD: linux-stable bumped to 2.4.21, correctec problems in build, pre_build
-	
+	* kernel/linux-stable/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD:
+	linux-stable bumped to 2.4.21, correctec problems in build,
+	pre_build
+
 2003-06-21 13:54  florin
 
 	* zbeta/abiword2/DEPENDS: added libglade2 in DEPENDS file.
-	
+
 2003-06-20 17:59  florin
 
 	* games/xmame/DETAILS: bumped version.
-	
+
 2003-06-20 14:53  niki
 
 	* devel/subversion/DETAILS: Version bumped to 0.24.2
-	
+
 2003-06-20 12:30  nhudson
 
 	* gnome2-core/gtkmm2/DETAILS: Updating gtkmm2 to new version 2.2.3
-	
+
 2003-06-20 12:28  nhudson
 
 	* devel/orbitcpp/DETAILS: 
 	Updating orbitcpp to new version 1.3.6
-	
+
 2003-06-20 12:26  nhudson
 
 	* libs/atk/DETAILS: 
 	Updating atk to new version 1.3.4
-	
+
 2003-06-20 04:45  florin
 
-	* printer/cups/POST_INSTALL: force rm in POST_INSTALL file to avoid failing of lin operation.
-	
+	* printer/cups/POST_INSTALL: force rm in POST_INSTALL file to avoid
+	failing of lin operation.
+
 2003-06-20 04:09  kc8apf
 
-	* printer/gimp-print/DEPENDS: Prevent circular dependency (gimp depends on gimp-print which could depend on gimp)
-	
+	* printer/gimp-print/DEPENDS: Prevent circular dependency (gimp
+	depends on gimp-print which could depend on gimp)
+
 2003-06-20 03:17  csm
 
 	* devel/strace/DETAILS: updating to the new version
-	
+
 2003-06-20 02:44  csm
 
 	* devel/ltrace/: BUILD, DETAILS: updating the version
-	
+
 2003-06-20 02:01  csm
 
 	* utils/lsof/DETAILS: updating to the latest version
-	
+
 2003-06-20 00:25  csm
 
-	* kernel/linux-vanilla/POST_INSTALL: the label for vanilla was too long for lilo
-	
+	* kernel/linux-vanilla/POST_INSTALL: the label for vanilla was too
+	long for lilo
+
 2003-06-19 21:50  sofar
 
 	* printer/cups/: BUILD, DEPENDS, DETAILS, POST_INSTALL, PRE_REMOVE,
 	init.d/cups, init.d/cupsd: Large cups rewrite:
 	
-	- adding foomatic-rip for easily dropping in PPD's from linuxprinting.org
-	- updating init.d script to something less offensive
-	- removing all the unneeded code and cleaning up.
-	- dropping my nick as maintainer in here for now (blame me)
-	
+	- adding foomatic-rip for easily dropping in PPD's from
+	linuxprinting.org - updating init.d script to something less
+	offensive - removing all the unneeded code and cleaning up.  -
+	dropping my nick as maintainer in here for now (blame me)
+
 2003-06-19 17:48  jol
 
-	* ham/unixcw/: BUILD, DEPENDS, DETAILS: Remove qt-x11 depends, now use qt3 with a small fix.
-	Add MD5_SOURCE
-	
+	* ham/unixcw/: BUILD, DEPENDS, DETAILS: Remove qt-x11 depends, now
+	use qt3 with a small fix.  Add MD5_SOURCE
+
 2003-06-19 12:38  nhudson
 
 	* zbeta/gnumeric2/DETAILS: 
 	Updating gnumeric2 to new version 1.1.9
-	
+
 2003-06-19 12:37  nhudson
 
 	* gnome2-core/: libgnomeprint/DETAILS, libgnomeprintui/DETAILS: 
 	Updating libgnomeprint and libgnomeprintui to new version 2.2.1.3
-	
+
 2003-06-19 09:42  niki
 
-	* devel/gtranslator/DEPENDS: Found a dependency list, and updated the DEPENDS file acordingly.
-	
+	* devel/gtranslator/DEPENDS: Found a dependency list, and updated
+	the DEPENDS file acordingly.
+
 2003-06-19 09:23  niki
 
 	* devel/gtranslator/DEPENDS: Added a depends file.
-	
+
 2003-06-19 08:37  niki
 
-	* devel/gtranslator/DETAILS: Just saw that gtranslator development has become active again, so here is a
-	app to aide in translation of .po files.
-	
+	* devel/gtranslator/DETAILS: Just saw that gtranslator development
+	has become active again, so here is a app to aide in translation of
+	.po files.
+
+2003-06-19 03:00  csm
+
+	* utils/calcdate/BUILD: another stupid change to test the commits
+	mailing list
+
+2003-06-19 02:46  csm
+
+	* utils/calcdate/BUILD: a stupid change to monitor commits
+
+2003-06-19 01:36  csm
+
+	* net/bw-whois/DETAILS: dunno who might have installed it and havce
+	it fail due to the previous config
+
+2003-06-19 01:26  csm
+
+	* net/bw-whois/BUILD: some of the default file locations for this
+	have changed... this fixes them!
+
+2003-06-19 01:23  nhudson
+
+	* doc-tools/gtk-doc/: DEPENDS, DETAILS: 
+	Ok I am moving gtk-doc to doc-tools where it should have been all
+	along, also I am forcing a rebuild because the install will go to
+	/usr now instead of /opt/lunar/gnome/2
+
+2003-06-19 00:53  jol
+
+	* video/vlc/: BUILD, DEPENDS, DETAILS: Change version OLD: 0.4.3 
+	NEW: 0.5.3 All lots of depends Remove qt-x11 depends, now qt3
+	support
+
+2003-06-18 23:48  jol
+
+	* video/avifile/: BUILD, DEPENDS, DETAILS: Change version Remove
+	qt-x11 depends, now it use qt3
+
+2003-06-18 20:10  sofar
+
+	* gnome2-extras/gnome-spell/DETAILS: Reported in the ML... Thx Yoav
+
+2003-06-18 19:22  florin
+
+	* doc-tools/scrollkeeper/: DEPENDS, DETAILS: depends on libxml2
+	now. try to reduce the libxml 1.x usage.
+
+2003-06-18 19:20  florin
+
+	* games/bzflag/: BUILD, DETAILS: bumped version. fixed the BUILD
+	file.
+
+2003-06-18 18:53  florin
+
+	* terminal/multi-gnome-terminal/DEPENDS: doxygen optional depends
+	on qt3 now.
+
+2003-06-18 18:38  sofar
+
+	* x11-utils/: gkrellm2/DETAILS, gkrellmd2/DETAILS: new meat!
+
+2003-06-18 14:49  tchan
+
+	* gnome/imlib/BUILD: Added the libtoolize --force line.  csm was
+	missing this line and it is REQUIRED for proper rebuilding of the
+	imlib module.  This fixes the shared libraries rebuilding correctly
+	and their symlinks (among other problems).
+
+2003-06-18 02:39  csm
+
+	* kernel/linux-vanilla/: BUILD, POST_INSTALL, PRE_BUILD: fixing
+	this module so it is separate and distinct from the other kernel
+	modules
+
+2003-06-18 00:35  jol
+
+	* doc-tools/doxygen/: BUILD, DEPENDS, DETAILS: Remove qt-x11
+	depends, and make a fix to support qt3
+
+2003-06-17 19:57  sofar
+
+	* utils/cutter/: BUILD, DETAILS: Seen on /.!
+
+2003-06-17 12:46  sofar
+
+	* utils/: lunar/DETAILS, theedge/DETAILS: Forcing everyone the new
+	core code up their butts
+
+2003-06-17 09:31  sofar
+
+	* x11-utils/gkrellmd2/DETAILS: Didn't spot this...
+
+2003-06-16 23:28  sofar
+
+	* gnome2-core/bonobo-activation/BUILD: This traps the evo crapping
+	out thingy before it happens!
+
+2003-06-16 21:28  nhudson
+
+	* gnome2-core/: gedit/DETAILS, gnome-panel/DETAILS: 
+	Updating gnome-panel to new version 2.2.2.1 and gedit to new
+	version 2.2.2
+
+2003-06-16 20:13  niki
+
+	* distributed/distcc/: DEPENDS, DETAILS: Bumped to version 2.7, and
+	added support for the new gnome monitor GUI.
+
+2003-06-16 18:52  niki
+
+	* distributed/distcc/DETAILS: Bumped version to 2.6
+
+2003-06-16 18:47  niki
+
+	* devel/subversion/DETAILS: Bumped version to 0.24.1
+
+2003-06-16 18:37  nhudson
+
+	* graphics/gimp/DETAILS: 
+	Updating gimp to new version 1.2.5
+
+2003-06-16 18:36  nhudson
+
+	* web/galeon/DETAILS: 
+	Updating galeon to new version 1.2.11
+
+2003-06-16 10:09  jol
+
+	* doc-tools/doxygen/DETAILS: Change version  OLD: 1.3.1  NEW: 1.3.2
+
+2003-06-16 06:16  tchan
+
+	* doc-tools/docbook-dsssl/: DETAILS, Makefile, POST_INSTALL,
+	PRE_REMOVE: Fixed the Makefile, POST_INSTALL, and PRE_REMOVE files
+	to point to the correct version location.  nhudson had POST_INSTALL
+	and PRE_REMOVE pointing to 1.77, when they should have been
+	pointing to 1.78.  Updated Makefile to reflect version 1.78,
+	instead of 1.77.  Touched the DETAILS file updated field to force a
+	rebuild of docbook-dsssl because it is installed to the wrong dir
+	in /usr/share/sgml/docbook.
+
+2003-06-16 05:34  tchan
+
+	* libs/Hermes/CONFLICTS: This CONFLICTS file was a total error! 
+	There is absolutely NO conflict between compiling Hermes and having
+	libtool present on the lunar box.  In fact Hermes USES libtool!!!
+
+2003-06-16 05:25  tchan
+
+	* mail/libesmtp/DETAILS: Version bump to 1.0.  Balsa2 requires this
+	lib.  Compiled and tested with gcc-3.2.3 and glibc-2.3.2 and
+	openssl-0.9.7b.
+
+2003-06-16 04:29  florin
+
+	* printer/hpijs/DETAILS: bumped version.
+
+2003-06-15 17:05  florin
+
+	* security/nmap/DETAILS: bumped version. some bugfix and
+	improvements.
+
+2003-06-15 16:38  dem
+
+	* devel/cgdb/DETAILS: Version bump, using this for a long time now
+
+2003-06-15 10:54  sofar
+
+	* app-themes/gtk-smooth-engine/: DEPENDS, DETAILS: new engine
+
+2003-06-15 07:16  csm
+
+	* mail/mailman/: BUILD, DETAILS: updating the version and fixing
+	the build so that mailman will work
+
+2003-06-15 06:12  csm
+
+	* mail/mailman/DEPENDS: adding apache2 as an optional depends
+
+2003-06-15 05:03  csm
+
+	* mail/mailman/POST_INSTALL: adding a POST_INSTALL to get things
+	running
+
+2003-06-15 04:46  csm
+
+	* mail/mailman/BUILD: fixing a bug in the mailman install
+
+2003-06-14 20:28  niki
+
+	* net/LinNeighborhood/DETAILS: Bumped version
+
+2003-06-14 19:52  sofar
+
+	* compilers/php/DEPENDS: Adding expat/Sablot as depends
+
+2003-06-14 19:47  sofar
+
+	* utils/Sablot/: DEPENDS, DETAILS: Posted on the BB by amadeus!
+
+2003-06-14 16:38  sofar
+
+	* audio/gst-player/DETAILS: New version was available... =^D
+
+2003-06-14 16:38  florin
+
+	* ftp/dctc/DEPENDS: it depends on glib-2 and db.
+
+2003-06-14 16:21  florin
+
+	* ftp/: dc_gui/DETAILS, dctc/DETAILS: bumped version.
+
+2003-06-14 02:19  csm
+
+	* libs/dbh/DETAILS: updating dbh
+
+2003-06-14 00:41  csm
+
+	* kernel/linux-vanilla/DETAILS: updating vanilla to 2.4.21
+
+2003-06-13 20:45  tchan
+
+	* utils/calc/DETAILS: Version bump to 2.11.8.  Compiled and tested
+	with gcc-3.2.3, glibc-2.3.2.
+
+2003-06-13 12:19  nhudson
+
+	* gnome2-extras/: libgnomedb/DETAILS, mergeant/DETAILS: 
+	Updating mergeant to new version 0.12.1 and libgnomedb to new
+	version 0.12.2
+
+2003-06-13 07:08  tchan
+
+	* devel/binutils/DETAILS: Version bump to 2.14.  Compiled and
+	tested with gcc-3.2.3 and glibc-2.3.2.
+
+2003-06-13 04:38  tchan
+
+	* devel/uml/DETAILS: Version bump of UML utilities 20030605 and UML
+	kernel patches version 2.4.20-6.
+
+2003-06-13 02:19  nhudson
+
+	* app-themes/gnome-themes-extras/: BUILD, DEPENDS, DETAILS: 
+	Adding gnome-themes-extra to moonbase, this adds several svg based
+	themes for Gnome to your theme list.
+
+2003-06-13 02:17  tchan
+
+	* gnome2-core/gail/: DEPENDS, DETAILS: Corrected a typo in DETAILS
+	description.  Added gtk-doc to the DEPENDS.  gail will actually
+	fail to install correctly when generating docs for libgail-util if
+	gtk-doc is not already installed.
+
+2003-06-13 02:16  nhudson
+
+	* gnome2-core/libbonobo/: BUILD, DETAILS: 
+	Updating libbonobo to new version 2.2.3
+
+2003-06-12 23:43  sofar
+
+	* x11-apps/abiword/: BUILD, DETAILS: boy, I love those BUILD
+	instructions some people hand out.
+
+2003-06-12 23:26  csm
+
+	* mail/postfix/DETAILS: updating the md5sum for the sources
+
+2003-06-12 23:23  csm
+
+	* mail/postfix/DETAILS: updating to the latest version
+
+2003-06-12 23:15  sofar
+
+	* mail/evolution/DEPENDS: this moved to gtkhtml3
+
+2003-06-12 23:14  sofar
+
+	* gnome/gtkhtml3/DEPENDS: more adjustments
+
+2003-06-12 22:48  sofar
+
+	* gnome/libsoup/DETAILS: Apparently this update bounced as well,
+	fortunately it's not a big problem...
+
+2003-06-12 22:25  sofar
+
+	* mail/evolution/DEPENDS: These are needed as well, should have
+	checked! Let me know if more are needed...
+
+2003-06-12 22:15  sofar
+
+	* doc-tools/texinfo/DETAILS: New version
+
+2003-06-12 21:15  jol
+
+	* net/ethereal/DETAILS: Bumped version. OLD: 0.9.12   NEW: 0.0.13
+
+2003-06-12 10:39  florin
+
+	* games/foobillard/DETAILS: bumped version. some bugfix and display
+	improvements.
+
+2003-06-11 22:14  wizfactor
+
+	* cd/cdrdao/DEPENDS: cdrdao no longer depends on gtkmm
+
+2003-06-11 22:12  wizfactor
+
+	* x11-utils/gkrellmd2/DETAILS: Bumped version to match with current
+	GKrellM2
+
+2003-06-11 07:53  sofar
+
+	* chat/gaim/DEPENDS: This should have been noticed earlier
+
+2003-06-11 02:40  nhudson
+
+	* gnome2-core/gnome-session/: BUILD, DETAILS: 
+	Adding a new and better splash screen to the Gnome startup, this
+	was made by andrew2 (sorry I dont know your email address) looks
+	alot better, maybe now we can get a Gnome2 Desktop theme up and
+	going for Lunar.  Also I moved the install of librsvg2 to /usr so
+	that it works correctly.
+
+2003-06-11 02:19  nhudson
+
+	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: 
+	Updating gstreamer and gst-plugins to new version 0.6.2, also
+	changed download location to the Gnome Servers
+
+2003-06-11 02:14  nhudson
+
+	* gnome2-core/: gnome-icon-theme/DETAILS, libgda2/DETAILS,
+	nautilus-media/DETAILS: 
+	Updating gnome-icon-theme to version 1.0.5, nautilus-media to
+	version 0.2.2 and libgda2 to version 0.12.1
+
+2003-06-11 01:38  nhudson
+
+	* graphics/gimp2/DETAILS: 
+	Updating gimp2 to new version 1.3.15
+
+2003-06-10 22:39  sofar
+
+	* web/galeon2/: BUILD, DETAILS: dude, where's my car?
+
+2003-06-10 18:41  tchan
+
+	* devel/valgrind/DETAILS: Version bump to 1.9.6.  Compiled and
+	tested with gcc-3.2.3 and glibc-2.3.2.
+
+2003-06-10 18:15  sofar
+
+	* gnome/gtkhtml3/DETAILS: man this is not my day
+
+2003-06-10 17:54  sofar
+
+	* gnome2-extras/gal2/DETAILS: YEEPERS!
+
+2003-06-10 17:41  jmhodges
+
+	* graphics/gtk+-2/DETAILS, libs/glib-2/DETAILS, libs/pango/DETAILS:
+	so somebody wanted these or something, version bump
+
+2003-06-10 13:37  sofar
+
+	* graphics/gphoto2/DEPENDS: Doesn't need that, so get rid of it!
+
+2003-06-10 13:04  sofar
+
+	* mail/evolution/DEPENDS: Needed
+
+2003-06-10 13:02  sofar
+
+	* mail/evolution/BUILD: better
+
+2003-06-10 13:01  sofar
+
+	* gnome/gtkhtml3/DEPENDS: Fixing these horrible errors.
+
+2003-06-10 12:33  sofar
+
+	* mail/evolution/: DEPENDS, DETAILS: Yikes!
+
+2003-06-10 10:08  sofar
+
+	* mail/evolution/: BUILD, DEPENDS, DETAILS: WHOAH THIS ROCKS!!!
+
+2003-06-10 09:07  jol
+
+	* libs/wxGTK/DETAILS: Change version. OLD: 2.4.0  NEW: 2.4.1
+
+2003-06-09 21:08  sofar
+
+	* kernel/linux-beta/: BUILD, DETAILS, PRE_BUILD: bumping version,
+	and, since this is the test kernel, we leave the symlinks alone so
+	your apps are still compiled against the 2.4.xxx headers. (don't
+	compile anything under 2.5 !!!)
+
+2003-06-09 20:20  jmhodges
+
+	* kernel/linux-stable/DETAILS: added KEEP_SOURCE=on to keep the
+	/usr/src/linux-2.4.20 dir from being deleted (thanks sofar)
+
+2003-06-09 19:38  csm
+
+	* zbeta/rpm/DEPENDS: removing extra && from DEPENDS
+
+2003-06-09 19:37  csm
+
+	* zbeta/rpm/DEPENDS: removing excess white space from depends file
+
+2003-06-09 16:46  niki
+
+	* sql/mysql/: BUILD, CONFIGURE, DETAILS, init.d/mysqld: Bumped
+	version to 4.0.13
+
+2003-06-09 14:49  sofar
+
+	* security/Linux-PAM/BUILD: Right! ok?
+
+2003-06-09 10:33  florin
+
+	* games/dopewars/DETAILS: bumped version. some bugfix version.
+
+2003-06-09 10:23  florin
+
+	* graphics/SDL_gfx/DETAILS: bumped version. some cleanups and
+	improvements of the code.
+
+2003-06-09 09:40  florin
+
+	* games/: ggz-client-libs/DETAILS, ggz-gtk-client/DETAILS,
+	ggz-gtk-games/DETAILS, ggz-kde-client/DETAILS,
+	ggz-kde-games/DETAILS, ggz-server/DETAILS, ggz-txt-client/DETAILS:
+	bumped version.
+
+2003-06-09 05:36  hardkrash
+
+	* zbeta/rpm/DEPENDS: fix for bug #300, i have seen this 2 times
+	from different people
+
+2003-06-08 20:20  sofar
+
+	* crypto/openssl/BUILD: build adjustment: download wget to make
+	sure update isn't broken
+
+2003-06-08 19:41  sofar
+
+	* mail/imap/CONFLICTS: requested by ML
+
+2003-06-08 19:40  sofar
+
+	* mail/courier-imap/CONFLICTS: requested in ML
+
+2003-06-08 11:39  sofar
+
+	* printer/ImageMagick/DETAILS: dude!
+
+2003-06-08 10:22  sofar
+
+	* crypto/openssl/POST_INSTALL: Make wget compile first.
+
+2003-06-07 21:53  niki
+
+	* ftp/gtk-gnutella/DETAILS: Version bumped.
+
+2003-06-07 19:39  sofar
+
+	* crypto/openssl/: DETAILS, POST_INSTALL: OpenSSL update! please
+	let it complete... more in the ML.
+
+2003-06-07 16:06  nhudson
+
+	* gnome2-extras/gal2/DETAILS: 
+	Updating gal2 to new version 1.99.6
+
+2003-06-07 16:05  nhudson
+
+	* libs/libgsf/DETAILS: 
+	Updating libgsf to new version 1.8.1
+
+2003-06-07 08:22  niki
+
+	* utils/indent/DETAILS: Version bumped
+
+2003-06-07 05:34  nhudson
+
+	* gnome2-core/: gnome-system-monitor/DETAILS, yelp/DETAILS: 
+	Updating gnome-system-monitor to new version 2.0.5 and yelp to
+	2.2.2
+
+2003-06-07 05:31  nhudson
+
+	* gnome2-apps/gpdf/DETAILS: 
+	Updating gpdf to new version 0.103
+
+2003-06-07 05:29  nhudson
+
+	* web/epiphany/DETAILS: 
+	Updating epiphany to new version 0.7.0
+
+2003-06-06 22:35  sofar
+
+	* audio/: alsa-driver/BUILD, alsa-driver/DETAILS, alsa-lib/DETAILS,
+	alsa-utils/DETAILS, alsaplayer/DETAILS: New alsa versions!
+
+2003-06-06 22:22  jol
+
+	* web/quanta3/DETAILS: Bumped version. OLD: 3.1.1  NEW: 3.1.2
+
+2003-06-06 22:18  tchan
+
+	* utils/e2fsprogs/init.d/mount: Changed the fsck options to remove
+	the -a.  From Ralph Crongeyer's suggestion.
+
+2003-06-06 20:24  jol
+
+	* kde3-apps/koffice3/DEPENDS: Add libart_lgpl as optional depend,
+	to enable karbon and kontour compile ...
+
+2003-06-06 15:15  jmhodges
+
+	* gnome2-core/gnome-games2/DETAILS: version bump
+
+2003-06-06 14:33  florin
+
+	* games/: FlightGear/DETAILS, SimGear/DETAILS, fgfs-base/DETAILS:
+	bumped version. new download mirror for fgfs-base.
+
+2003-06-06 12:50  niki
+
+	* mail/sylpheed/DETAILS: Bumped version on request from Moe.
+
+2003-06-06 11:52  nhudson
+
+	* doc-tools/scrollkeeper/POST_INSTALL: 
+	Fixing typo ....
+
+2003-06-06 02:44  nhudson
+
+	* gnome2-core/yelp/DETAILS: 
+	Updating yelp to new version 2.2.1
+
+2003-06-05 21:01  nhudson
+
+	* doc-tools/: docbook-xsl/DETAILS,
+	docbook-xsl/rebuild-docbook-catalog, scrollkeeper/DETAILS,
+	scrollkeeper/POST_INSTALL: 
+	Ok sorry for the forced rebuild but I fixed some problems in the
+	docbook rebuild script, also I added scrollkeeper to the script.  I
+	added a POST_INSTALL file to the scrollkeeper module so that it
+	will run the script after the install
+
+2003-06-05 18:01  tchan
+
+	* distributed/distcc/DETAILS: Version bump to 2.5.1.  Small bugfix
+	release.  Compiled and tested.
+
+2003-06-05 07:42  kc8apf
+
+	* utils/aboot/: BUILD, DETAILS: Cleanup aboot module
+
+2003-06-04 17:08  jmhodges
+
+	* science/octave/PRE_BUILD: unnecesary `rm /usr/lib/octave`
+
+2003-06-04 17:05  jmhodges
+
+	* science/octave/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
+	POST_REMOVE, PRE_BUILD: initial import
+
+2003-06-04 16:53  nhudson
+
+	* gnome2-core/gnome-icon-theme/DETAILS: 
+	Updating gnome-icon-theme to new version 1.0.4
+
+2003-06-04 13:47  sofar
+
+	* compilers/php/DETAILS, web/apache2/BUILD, web/apache2/DETAILS:
+	Fixes for the modules disappering (we do not want the default mods
+	shared... its too much a drag to enable them all anyways for our
+	stock apache2). New versions for apache2, php, including imap
+	subcode bump. Happy serving!
+
+2003-06-04 12:12  nhudson
+
+	* gnome2-core/gconf-editor/DETAILS: 
+	Updating gconf-editor to new version 0.5.0
+
+2003-06-04 11:28  sofar
+
+	* x11-utils/gkrellm2/DETAILS: New version
+
+2003-06-04 03:21  nhudson
+
+	* utils/fam/DETAILS: 
+	Forcing a update since I have taken away some patches and added a
+	better dnotify patch, so I bumpped the patch version to 1.1
+
+2003-06-04 03:19  nhudson
+
+	* utils/fam/: BUILD, DEPENDS, DETAILS, init.d/fam: 
+	Adding fam to the utils section of moonbase and out of zbeta.  I
+	have finally came up with a better way of starting fam so that it
+	will start at boottime.
+
+2003-06-03 21:43  niki
+
+	* web/squid/DETAILS: Version bumped.
+
+2003-06-03 21:19  nhudson
+
+	* gnome2-core/libgnomeui/DETAILS: 
+	Updating libgnomeui to new version 2.2.1
+
+2003-06-03 21:04  sofar
+
+	* mail/pine/DETAILS: mmmm pine...
+
+2003-06-03 20:50  elaine
+
+	* devel/strace/DETAILS: simple version bump 4.4.94 Glibc 2.3.2
+	added nanos timing <sys/stat.h> st_?time which broke v 4.4_1
+
+2003-06-03 17:54  tchan
+
+	* ftp/dc_gui/DETAILS: Version bump to 0.73.  I had to physically
+	remove the /usr/share/applications file from my box to get this app
+	to compile correctly.  Several gnome based apps want
+	/usr/share/applications to be a dir not a file!!!
+
+2003-06-03 17:52  sofar
+
+	* editors/vim/: BUILD, DETAILS: New version, hacked the install a
+	bit to wipe vim61 skeleton remains, and unified the versioning.
+	Also took out the patches.
+
+2003-06-03 08:53  kc8apf
+
+	* perl/Gtk-Perl/BUILD: Fix module build
+
+2003-06-03 05:50  kc8apf
+
+	* perl/: XML-Parser/BUILD, XML-Parser/DEPENDS, XML-Parser/DETAILS,
+	XML-Twig/BUILD, XML-Twig/DEPENDS, XML-Twig/DETAILS,
+	XML-Writer/BUILD, XML-Writer/DEPENDS, XML-Writer/DETAILS: XML perl
+	modules
+
+2003-06-03 05:14  kc8apf
+
+	* perl/Gtk-Perl/: BUILD, DEPENDS, DETAILS: Add gtk-perl
+
+2003-06-03 03:31  nhudson
+
+	* gnome2-apps/gnome-network/: BUILD, DEPENDS, DETAILS: 
+	Ok moving gnome-network to gnome2-apps and updating to new version
+	1.99.0
+
+2003-06-03 03:21  nhudson
+
+	* audio/gst-plugins/DEPENDS: 
+	Adding ffmpeg as a dependancy instead of a optional dependancy
+
+2003-06-03 02:02  nhudson
+
+	* gnome2-core/: GConf2/DETAILS, gnome-mime-data2/DETAILS,
+	gnome-terminal/DETAILS, libwnck/DETAILS: 
+	Updating a few modules here GConf2 to 2.2.1, libwnck to 2.2.2,
+	gnome-terminal to 2.2.2, and gnome-mime-data2 to 2.2.2
+
+2003-06-02 23:28  jol
+
+	* video/DirectFB/DETAILS: Bumped version. OLD: 0.9.17  NEW: 0.9.18
+
+2003-06-02 18:54  jol
+
+	* devel/: sip/PRE_BUILD, PyQt/PRE_BUILD: Now no need to enter yes
+	at the licence prompt
+
+2003-06-02 18:39  tchan
+
+	* compilers/Python/: BUILD, DETAILS: Version bump to 2.2.3. 
+	Removed the TKinter patch as it is already included in the latest
+	code.  Compile and tested.
+
+2003-06-02 18:21  nhudson
+
+	* profiles/gnome2/DETAILS: 
+	version bump this should have been done along time ago
+
+2003-06-02 15:00  nhudson
+
+	* gnome2-core/: control-center2/DETAILS, gail/DETAILS: 
+	Updating control-center to new version 2.2.2 and gail to new
+	version 1.3.3
+
+2003-06-02 06:18  sofar
+
+	* printer/ImageMagick/DETAILS: I'm back!!!
+
+2003-06-02 05:31  kc8apf
+
+	* graphics/: sane-backends/DETAILS, sane-frontends/DETAILS: Version
+	bump
+
+2003-06-01 21:59  nhudson
+
+	* libs/: atk/DETAILS, pango/DETAILS: 
+	Updating pango to new version 1.2.2 and added another mirror for
+	its source, also updating atk to new version 1.3.3
+
+2003-06-01 21:57  nhudson
+
+	* gnome2-extras/zenity/DETAILS: 
+	Updating zenity to new version 1.3
+
+2003-06-01 21:52  nhudson
+
+	* doc-tools/docbook-xsl/rebuild-docbook-catalog: 
+	Fixing some stuff that has nothing to do with lunar
+
+2003-06-01 21:30  nhudson
+
+	* doc-tools/docbook-xml/: DETAILS, POST_INSTALL, PRE_REMOVE: 
+	Fixing the catalog entry of docbook-xml catalog, it was being pout
+	in the wrong place it should be going to /etc/sgml/catalog
+
+2003-06-01 16:36  niki
+
+	* x11-apps/gnucash/DETAILS: Version bumped. Been playing with it
+	most of the day, so it should be ok ;-)
+
+2003-06-01 16:34  niki
+
+	* x11-apps/xcdroast/DETAILS: Version bumped. Moe says it's ok, so
+	here goes...
+
+2003-06-01 04:36  florin
+
+	* utils/procps/DETAILS: bumped version. some bugfixes.
+
+2003-05-31 20:16  niki
+
+	* chat/gaim/DETAILS: Bumped version to 0.64, compiles and runs ok
+
+2003-05-31 19:29  nhudson
+
+	* gnome2-apps/gpdf/POST_INSTALL: 
+	Ok fixing this so it works with non teTeX boxen
+
+2003-05-31 17:42  florin
+
+	* sql/postgresql/DETAILS: bumped version.
+
+2003-05-31 14:46  niki
+
+	* libs/xmlconfigfile/: BUILD, DEPENDS, DETAILS: Added new module
+	made by George Mochrie <geo@drasil.no-ip.org>
+
+2003-05-31 14:42  florin
+
+	* net/tightvnc/DETAILS: bumped version. a lot of improvements,
+	bugfixes and extensions.
+
+2003-05-31 13:57  nhudson
+
+	* gnome2-apps/gpdf/POST_INSTALL: 
+	Adding a POST_INSTALL script to run fmtutil command to help with
+	teTex documents thx niki :)
+
+2003-05-31 13:32  niki
+
+	* gnome2-extras/mergeant/DETAILS: Corrected the dl location.
+
+2003-05-31 06:12  florin
+
+	* audio/crystality-plugin/: BUILD, DETAILS: added a patch for gcc
+	3.3 compiling. many thanks to hardkrash for help.
+
+2003-05-30 23:46  nhudson
+
+	* gnome2-core/libgda2/DETAILS: 
+	Updating libgda2 to new version 0.12.0
+
+2003-05-30 23:44  nhudson
+
+	* gnome2-extras/: libgnomedb/DETAILS, mergeant/DETAILS: 
+	Updating libgnomedb and mergeant to new version 0.12.0
+
+2003-05-30 19:20  jol
+
+	* mail/sylpheed/DETAILS: ..
+
+2003-05-30 17:23  florin
+
+	* libs/pcre/DETAILS: bumped version. code improvement and UTF-8
+	extensions
+
+2003-05-30 04:22  florin
+
+	* utils/psmisc/: BUILD, DETAILS, DETAILS: bumped version. gcc 3.3
+	compile fix
+
