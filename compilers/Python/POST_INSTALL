@@ -1,6 +1,17 @@
-# NOTE: this POST_INSTALL can go away after a reasonable time. 
-# Once we're sure every lunar user is converted over to Python-2.3
-if [ -d /usr/lib/python2.2/site-packages ]; then
-  cp -a /usr/lib/python2.2/site-packages/* /usr/lib/python2.3/site-packages
+# Don't break any Python depended application.
+# Note: This is a workaround and needs some more attention ..
+#       a working soluation might also help solving the same issue
+#       with perl
+
+NEWPYTHONDIR=/usr/lib/python2.4
+OLDPYTHONDIR=/usr/lib/python2.3
+
+if [ -d $OLDPYTHONDIR ]; then
+  if [ -d $OLDPYTHONDIR/site-packages ]; then
+    for ext in $OLDPYTHONDIR/site-packages; do
+      cp -a $ext $NEWPYTHONDIR;
+    done;
+  fi
+  # Remove the old location
+  rm -rf $OLDPYTHONDIR
 fi
-true
