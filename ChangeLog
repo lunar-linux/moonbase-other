@@ -1,3 +1,113 @@
+2003-09-26 11:05  elaine
+
+	* video/MPlayer/: DETAILS, PRE_BUILD: Added patch for remote (asx
+	stream) exploit vuln.
+
+2003-09-26 07:22  jasper
+
+	* xfce4/xfce4-mixer/BUILD: First real bug in 4.0, thanks Chuck.
+
+2003-09-26 02:56  csm
+
+	* mail/postfix/DETAILS: updating postfix to the new version.  I am
+	planning to add some more stuff to this *soon* (tm)
+
+2003-09-26 02:40  tchan
+
+	* xfce4/xfce4-session/POST_INSTALL: Niki says the mkdir -p is in
+	error not the cp command.
+
+2003-09-26 00:21  tchan
+
+	* xfce4/xfce4-session/POST_INSTALL: Corrected a typo in the
+	destination of the "cp" command.
+
+2003-09-25 23:17  nhudson
+
+	* gnome2-apps/conglomerate/DETAILS: 
+	Now with syntax highlighting.... updating conglomerate to new
+	version 0.7.4, also updated the md5sum
+
+2003-09-25 23:06  tchan
+
+	* xfce4/libxfce4mcs/BUILD: Adjusted prefix to be consistent with
+	the rest of xfce4 4.0.	/opt/lunar/xfce/4.0
+
+2003-09-25 22:31  nhudson
+
+	* net/samba/DETAILS: 
+	I cant believe this hasnt been updated yet! Well anyway samba is
+	now updated to 3.0.0 and I added a md5sum to the module
+
+2003-09-25 22:25  jasper
+
+	* app-themes/gtk-xfce-engine/DETAILS: Also update this one
+
+2003-09-25 22:23  jasper
+
+	* xfce4/: libxfce4mcs/DETAILS, libxfce4util/DETAILS,
+	libxfcegui4/DETAILS, xfce4-battery-plugin/DETAILS,
+	xfce4-iconbox/DETAILS, xfce4-minicmd-plugin/DETAILS,
+	xfce4-mixer/DETAILS, xfce4-netload-plugin/DETAILS,
+	xfce4-panel/DETAILS, xfce-mcs-manager/DETAILS,
+	xfce-mcs-plugins/DETAILS, xfce-utils/DETAILS,
+	xfce4-session/DETAILS, xfce4-showdesktop-plugin/DETAILS,
+	xfce4-systemload-plugin/DETAILS, xfce4-systray/DETAILS,
+	xfce4-themes/DETAILS, xfce4-toys/DETAILS,
+	xfce4-trigger-launcher/DETAILS, xfdesktop/DETAILS, xffm/DETAILS,
+	xffm-icons/DETAILS, xfprint/DETAILS, xfwm4/DETAILS,
+	xfwm4-themes/DETAILS: non-explicit MODULE naming can confuse core
+	tools. Thanks Terry.
+
+2003-09-25 21:54  jasper
+
+	* xfce4/libxfcegui4/DETAILS: grr, missed this one
+
+2003-09-25 20:37  jasper
+
+	* xfce4/libxfce4util/profile.d/xfce4.rc: Forgot this one
+
+2003-09-25 20:35  jasper
+
+	* profiles/xfce4-profile/DEPENDS, xfce4/libxfce4mcs/BUILD,
+	xfce4/libxfce4mcs/DETAILS, xfce4/libxfce4util/BUILD,
+	xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/BUILD,
+	xfce4/libxfcegui4/DETAILS, xfce4/xfce-mcs-manager/BUILD,
+	xfce4/xfce-mcs-manager/DETAILS, xfce4/xfce-mcs-plugins/BUILD,
+	xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/BUILD,
+	xfce4/xfce-utils/DETAILS, xfce4/xfce4-battery-plugin/BUILD,
+	xfce4/xfce4-battery-plugin/DEPENDS,
+	xfce4/xfce4-battery-plugin/DETAILS, xfce4/xfce4-iconbox/BUILD,
+	xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-minicmd-plugin/BUILD,
+	xfce4/xfce4-minicmd-plugin/DEPENDS,
+	xfce4/xfce4-minicmd-plugin/DETAILS, xfce4/xfce4-mixer/BUILD,
+	xfce4/xfce4-mixer/DETAILS, xfce4/xfce4-netload-plugin/BUILD,
+	xfce4/xfce4-netload-plugin/DEPENDS,
+	xfce4/xfce4-netload-plugin/DETAILS, xfce4/xfce4-panel/BUILD,
+	xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/BUILD,
+	xfce4/xfce4-session/DETAILS, xfce4/xfce4-showdesktop-plugin/BUILD,
+	xfce4/xfce4-showdesktop-plugin/DEPENDS,
+	xfce4/xfce4-showdesktop-plugin/DETAILS,
+	xfce4/xfce4-systemload-plugin/BUILD,
+	xfce4/xfce4-systemload-plugin/DEPENDS,
+	xfce4/xfce4-systemload-plugin/DETAILS, xfce4/xfce4-systray/BUILD,
+	xfce4/xfce4-systray/DETAILS, xfce4/xfce4-themes/BUILD,
+	xfce4/xfce4-themes/DETAILS, xfce4/xfce4-toys/BUILD,
+	xfce4/xfce4-toys/DETAILS, xfce4/xfce4-trigger-launcher/BUILD,
+	xfce4/xfce4-trigger-launcher/DEPENDS,
+	xfce4/xfce4-trigger-launcher/DETAILS, xfce4/xfdesktop/BUILD,
+	xfce4/xfdesktop/DETAILS, xfce4/xffm/BUILD, xfce4/xffm/DETAILS,
+	xfce4/xffm-icons/BUILD, xfce4/xffm-icons/DETAILS,
+	xfce4/xfprint/BUILD, xfce4/xfprint/DETAILS, xfce4/xfwm4/BUILD,
+	xfce4/xfwm4/DETAILS, xfce4/xfwm4-themes/BUILD,
+	xfce4/xfwm4-themes/DETAILS: This is it, 4.0, first distro to have
+	it, get it while it's hot. It's basically the same as rc4 though.
+	Moved to new location /opt/lunar/xfce/4.0/
+
+2003-09-25 17:47  sofar
+
+	* distributed/BitTorrent/DETAILS: New version, please upgrade!
+
 2003-09-25 03:14  nhudson
 
 	* libs/libxml++/DETAILS: 
@@ -2628,56 +2738,4 @@
 
 	* libs/: atk/DETAILS, glib-2/DETAILS, pango/DETAILS: 
 	Updating atk glib-2 and pango to new version
-
-2003-08-26 22:43  csm
-
-	* utils/linux-wlan-ng/DETAILS: i cannot test this but wuss912 is
-	requesting a version bump so here goes nothing!
-
-2003-08-26 22:40  csm
-
-	* net/wireless_tools/DETAILS: bumping version per Wuss912's
-	request.
-
-2003-08-26 15:04  tchan
-
-	* audio/lunaric-sound/BUILD: Fixed the "cp" options so that lrm
-	will correctly remove all the files, per Joe Rocklin's request.
-
-2003-08-26 05:23  tchan
-
-	* audio/lunaric-sound/CONFLICTS: Removed as there no longer is a
-	lunar-sound module in moonbase.
-
-2003-08-26 04:32  tchan
-
-	* zbeta/mkinitrd/: BUILD, DEPENDS, DETAILS, POST_INSTALL: Adding
-	mkinitrd module to zbeta as this module is HIGHLY experimental!  It
-	compiles for the most part, but the loadinitrd dir does not compile
-	for me and it requires even MORE dependencies (i.e. newt).  Not
-	sure if that dir is necessary or not. See notes in mkinitrd.spec.
-
-2003-08-26 04:29  tchan
-
-	* libs/dietlibc/: BUILD, DETAILS: Fixed a problem with
-	/usr/bin/diet.	Binary was being copied from the wrong location and
-	at the wrong time in the BUILD script.	Touched UPDATED field to
-	force a rebuild.  This is in preparation for adding the mkinitrd
-	module to moonbase.
-
-2003-08-26 03:30  niki
-
-	* kernel/: linux/BUILD, linux-beta/BUILD, linux-grsec/BUILD,
-	linux-stable/BUILD, linux-vanilla/BUILD: This is a fix for Bug
-	#359, and the issue was that gcc was using include files from an
-	older kernel which don't have the changes required by ifenslave.
-
-2003-08-26 01:13  csm
-
-	* x11/NVIDIA/DETAILS: dammit!
-
-2003-08-26 00:53  csm
-
-	* x11/NVIDIA/PRE_BUILD: fixed a bug in the PRE_BUILD. (silly florin
-	:-)
 
