@@ -1,7 +1,7 @@
 (
 
   ./configure  --prefix=/usr                   \
-               --with-qt-dir=/opt/lunar/qt/2  &&
+               --with-qt-prefix=/opt/lunar/qt/3  &&
   make                                  &&
   prepare_install                       &&
   make    install
