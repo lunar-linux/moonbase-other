@@ -1,0 +1,23 @@
+if [ "$USE_LILO" == "y" ]; then
+    update_lilo $VERSION-$PVERSION-grs $VERSION-grs
+fi
+if [ "$USE_GRUB" == "y" ]; then
+    update_grub $VERSION-$PVERSION-grs $VERSION-grs
+fi
+
+#  Reinstall packages that add their own kernel modules
+if  module_installed  ftpfs;          then  lin  ftpfs;          fi
+if  module_installed  cvsfs;          then  lin  cvsfs;          fi
+if  module_installed  NVIDIA;         then  lin  NVIDIA;         fi
+if  module_installed  alsa-driver;    then  lin  alsa-driver;    fi
+if  module_installed  iptables;       then  lin  iptables;       fi
+if  module_installed  cryptoapi;      then  lin  cryptoapi;      fi
+if  module_installed  pcmcia-cs;      then  lin  pcmcia-cs;      fi
+if  module_installed  mwavem;         then  lin  mwavem;         fi
+if  module_installed  cipe;           then  lin  cipe;           fi
+if  module_installed  snare-core;     then  lin  snare-core;     fi
+if  module_installed  ltmodem;        then  lin  ltmodem;        fi
+if  module_installed  bluez-kernel;   then  lin  bluez-kernel;   fi
+if  module_installed  nforce;         then  lin  nforce;         fi
+if  module_installed  openafs-driver; then  lin  openafs-driver; fi
+if  module_installed  hostap-driver;  then  lin  hostap-driver;  fi

@@ -1,0 +1,24 @@
+           MODULE=linux-2.4-agr
+          VERSION=2.4.28
+         PVERSION=r8.0
+           SOURCE=linux-$VERSION.tar.bz2
+          SOURCE2=ll-${PVERSION}.tar.bz2
+ SOURCE_DIRECTORY=/usr/src/linux-$VERSION-agr
+    SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.4/
+    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.4/
+      SOURCE2_URL=$PATCH_URL/
+       SOURCE_VFY=sha1:52504e175b57c0d2f409f468d93e6346962b3312
+      SOURCE2_VFY=sha1:682895d01402afb4aa624409c40598c056707c47
+          WEBSITE=http://www.kernel.org/
+          ENTERED=20030227
+          UPDATED=20041201
+            SHORT="The Linux kernel with the lunar patch set"
+KEEP_SOURCE="on"
+cat << EOF
+This is the Linux kernel with the Lunar Linux kernel patch set.
+
+Features are enabled or disabled by the standard kernel configuration tools,
+i.e. "make menuconfig" or "make config" or "make xconfig".
+
+For patch information please see the patch-list.txt file in the patchset.
+EOF

@@ -1,0 +1,27 @@
+           MODULE=linux-2.4-om
+          VERSION=2.4.28
+         PVERSION=r8.0
+           SOURCE=linux-$VERSION.tar.bz2
+          SOURCE2=ll-${PVERSION}.tar.bz2
+ SOURCE_DIRECTORY=/usr/src/linux-$VERSION-om
+    SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.4/
+    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.4/
+      SOURCE2_URL=$PATCH_URL/
+       SOURCE_VFY=sha1:52504e175b57c0d2f409f468d93e6346962b3312
+      SOURCE2_VFY=sha1:682895d01402afb4aa624409c40598c056707c47
+          WEBSITE=http://www.kernel.org/
+          ENTERED=20030227
+          UPDATED=20041201
+            SHORT="Stable linux kernel with only critical patches"
+KEEP_SOURCE="on"
+cat << EOF
+This is the Linus-tree Linux kernel with only critical patches included.
+
+Linux is a clone of the Unix kernel, written from scratch by Linus
+Torvalds with assistance from a loosely-knit team of hackers across the
+Net. It aims towards POSIX and Single UNIX Specification compliance. It
+has all the features you would expect in a modern fully-fledged Unix
+kernel, including true multitasking, virtual memory, shared libraries,
+demand loading, shared copy-on-write executables, proper memory
+management, and TCP/IP networking.
+EOF
