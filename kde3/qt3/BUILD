@@ -3,6 +3,7 @@
   export  YACC=byacc
   export  QTDIR=$SOURCE_DIRECTORY
   export  PATH=$QTDIR/bin:$PATH
+  export  LD_LIBRARY_PATH=$QTDIR/lib
 
   sedit  "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf
 
