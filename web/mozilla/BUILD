@@ -1,5 +1,8 @@
 (
  patch -p0 < $SCRIPT_DIRECTORY/mozilla-1.0.patch
+ patch -p1 < $SCRIPT_DIRECTORY/mozilla-1.0-asmfixes.patch
+ patch -p0 < $SCRIPT_DIRECTORY/mozilla-1.0-abi-compat-wrappers.patch
+
     case $MAILNEWS in
 	n|N) OPTS="--disable-mailnews" ;;
     esac
