@@ -1,5 +1,6 @@
 (
 
+  add_priv_user postgres:postgres       &&
   ./configure  --prefix=/usr            \
                --with-libs="-lncurses"  &&
   make                                  &&
