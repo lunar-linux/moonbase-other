@@ -1,0 +1,17 @@
+          MODULE=callgrind
+         VERSION=0.9.9
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://kcachegrind.sourceforge.net/$SOURCE
+      SOURCE_VFY=sha1:ef0b0298352b72ec7a4fdad340f5d6207478a5a7
+        WEB_SITE=http://kcachegrind.sourceforge.net/cgi-bin/show.cgi
+         ENTERED=20040124
+         UPDATED=20040904
+         GARBAGE=off
+        SHORT="callgrind is a plugin for valgrind."
+
+cat << EOF
+This is a skin (aka plugin) for Valgrind, a program instrumentation system 
+for x86-linux. It is based on the cachegrind skin, a cache simulator from 
+the valgrind core package. It adds call-graph profiling.
+EOF
