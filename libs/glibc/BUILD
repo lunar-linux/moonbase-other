@@ -34,6 +34,7 @@ EOF
   cp /lib/librt.so.1 /lib/librt-lunar.so      &&
   cp /lib/libpthread.so.0 /lib/libpthread-lunar.so &&
   cp /lib/libnss_files.so.2 /lib/libnss_files-lunar.so &&
+  cp /lib/libutil.so.1 /lib/libutil-lunar.so  &&
 
   # Setup links for libraries
   sln /lib/ld-lunar.so /lib/ld-linux.so.2     &&
@@ -43,6 +44,7 @@ EOF
   sln /lib/librt-lunar.so /lib/librt.so.1     &&
   sln /lib/libpthread-lunar.so /lib/libpthread.so.0 &&
   sln /lib/libnss_files-lunar.so /lib/libnss_files.so.2 &&
+  sln /lib/libutil-lunar.so /lib/libutil.so.1 &&
 
   # This removes the old glibc
   prepare_install                             &&
@@ -62,6 +64,7 @@ EOF
   rm /lib/librt-lunar.so                      &&
   rm /lib/libpthread-lunar.so                 &&
   rm /lib/libnss_files-lunar.so               &&
+  rm /lib/libutil-lunar.so                    &&
 
   # Generate locale info
   unset   LD_PRELOAD                          &&
