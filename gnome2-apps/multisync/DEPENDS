@@ -1,4 +1,8 @@
-depends bluez-bluefw &&
-depends openobex-apps &&
-depends openldap &&
-depends evolution 
+depends libgnomeui &&
+depends openssl    &&
+depends wbxml2     &&
+optional_depends "evolution" "" "" "for evolution support" &&
+optional_depends "evolution-beta" "" "" "for evolution-beta support(must have said 'n' to previous question)" &&
+optional_depends "bluez-kernel" "" "" "for bluetooth support" &&
+optional_depends "openobex" "" "" "for file transfer support on irda and bluetooth" &&
+optional_depends "expat" "" "" "for opie syncing support" 
