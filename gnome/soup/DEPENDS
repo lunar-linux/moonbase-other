@@ -1,0 +1,11 @@
+depends  glib    &&
+depends  libxml2 &&
+optional_depends  "openssl"  ""  ""  "for SSL support"             &&
+
+optional_depends  "mozilla"                                        \
+                  "--with-nspr-includes=/usr/include/mozilla/nspr  \
+                   --with-nspr-libs=/usr/lib/mozilla               \
+                   --with-nss-includes=/usr/include/mozilla        \
+                   --with-nss-libs=/usr/lib/mozilla"               \
+                  ""                                               \
+                  "for mozilla support"
