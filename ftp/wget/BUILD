@@ -1,6 +1,5 @@
 (
 
-  LDFLAGS="$LDFLAGS -lintl"
   ./configure --build=$BUILD             \
               --prefix=/usr              \
               --bindir=/usr/bin          \
