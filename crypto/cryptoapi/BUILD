@@ -19,6 +19,7 @@ fi
 
 (
 
+  aclocal
   sedit  "s/-O2/$CFLAGS/"  configure
 
   ./configure  --prefix=/usr  &&
