@@ -10,7 +10,6 @@
   unset CFLAGS
  
   ./configure --prefix=/usr                   \
-              --disable-inet6		      \
 	      --confdir=/etc                  \
 	      --mandir=/usr/share/man         \
 	      $OPTS                           &&
