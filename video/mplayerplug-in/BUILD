@@ -1,4 +1,5 @@
 (
+  ./configure $OPTS
   make                                  &&
   prepare_install                       &&
   mkdir -p /opt/lunar/plugins           &&
