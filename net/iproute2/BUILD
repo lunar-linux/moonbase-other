@@ -1,4 +1,13 @@
 (
+  patch_it $SOURCE_CACHE/$SOURCE3 1
+  patch_it $SOURCE_CACHE/$SOURCE4 1
+  patch_it $SOURCE_CACHE/$SOURCE5 1
+  patch_it $SOURCE_CACHE/$SOURCE6 1
+  patch_it $SOURCE_CACHE/$SOURCE7 1
+  patch_it $SOURCE_CACHE/$SOURCE8 1
+  patch_it $SOURCE_CACHE/$SOURCE9 1
+  patch_it $SOURCE_CACHE/$SOURCE10 1
+  patch_it $SOURCE_CACHE/$SOURCE11 1
   make &&
   prepare_install &&
 

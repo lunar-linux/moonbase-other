@@ -2,15 +2,32 @@
          VERSION=2.4.7-now-ss010824
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=$MODULE-toc.html
+	 SOURCE3=iproute2-2.2.4-docmake.patch
+	 SOURCE4=iproute2-2.4.7-config.patch
+	 SOURCE5=iproute2-2.4.7-crosscompile.patch
+	 SOURCE6=iproute2-2.4.7-hex.patch
+	 SOURCE7=iproute2-2.4.7-htb3-tc.patch
+	 SOURCE8=iproute2-config.patch
+	 SOURCE9=iproute2-in_port_t.patch
+	SOURCE10=iproute2-makefile.patch
+	SOURCE11=iproute2-misc.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
    SOURCE_URL[0]=http://www.shorewall.net/pub/shorewall/iproute/$SOURCE
    SOURCE_URL[1]=ftp://ftp.inr.ac.ru/ip-routing/$SOURCE
   SOURCE2_URL[0]=http://www.linuxgrill.com/$SOURCE2
+  SOURCE3_URL[0]=$PATCH_URL/$SOURCE3
+  SOURCE4_URL[0]=$PATCH_URL/$SOURCE4
+  SOURCE5_URL[0]=$PATCH_URL/$SOURCE5
+  SOURCE6_URL[0]=$PATCH_URL/$SOURCE6
+  SOURCE7_URL[0]=$PATCH_URL/$SOURCE7
+  SOURCE8_URL[0]=$PATCH_URL/$SOURCE8
+  SOURCE9_URL[0]=$PATCH_URL/$SOURCE9
+  SOURCE10_URL[0]=$PATCH_URL/$SOURCE10
+  SOURCE11_URL[0]=$PATCH_URL/$SOURCE11
         WEB_SITE=http://lartc.org/howto/
          ENTERED=20021106
-         UPDATED=20021106
+         UPDATED=20031011
            SHORT="Professional tools to control networking in Linux kernels."
-
 cat << EOF
 Most Linux distributions, and most UNIX's, currently use the venerable arp,
 ifconfig and route commands. While these tools work, they show some
