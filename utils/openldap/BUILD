@@ -1,7 +1,7 @@
 (
-bad_flags -Wno-deprecated 
+  bad_flags -Wno-deprecated 
 
-export CPPFLAGS="$CPPFLAGS -I/usr/include/db4"
+  export CPPFLAGS="$CPPFLAGS -I/usr/include/db4"
 
   ./configure  --build=$BUILD            \
                --prefix=/usr             \
@@ -14,6 +14,15 @@ export CPPFLAGS="$CPPFLAGS -I/usr/include/db4"
                --enable-dynamic          \
                --with-gnu-ld             \
                --enable-shared           \
+	       --enable-rewrite          \
+	       --enable-ldbm             \
+	       --enable-ldap             \
+	       --enable-meta             \
+	       --enable-monitor          \
+	       --enable-null             \
+	       --enable-passwd           \
+	       --enable-shell            \
+	       --enable-dnssrv           \
                $OPTS                    &&
   make depend                           &&
   default_make  
