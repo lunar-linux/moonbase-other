@@ -21,7 +21,7 @@ if [ -n "$RECONFIGURE" ] || query "Select specific video drivers to build?" n ; 
         done
     }
 
-    XORG_DRIVERS=`dialog --backtitle "XOrg video driver selection" --stdout --separate-output --checklist "Key:  [X] = on, [ ] = off" 18 55 10 $(list_xorg_drivers)`
+    XORG_DRIVERS=`dialog --backtitle "XOrg video driver selection" --stdout --separate-output --checklist "Key:  [X] = on, [ ] = off" 0 0 0 $(list_xorg_drivers)`
     # hack to strip newlines
     set_module_config XORG_DRIVERS "$(echo $XORG_DRIVERS)"
 fi
