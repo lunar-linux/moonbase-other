@@ -1,3 +1,63 @@
+2005-01-05 08:07  hardkrash
+
+	* graphics/digikam/DEPENDS: really a required depends
+
+2005-01-05 05:47  florin
+
+	* web/elinks/DETAILS: bump the version from 0.10.0 to 0.10.1.
+
+2005-01-05 05:45  florin
+
+	* kde3-apps/ksubtile/DETAILS: bump the version from 1.01 to 1.1.
+
+2005-01-05 04:53  tchan
+
+	* devel/bison/DETAILS: Fixed the indentation of the DETAILS file.
+
+2005-01-05 04:48  tchan
+
+	* devel/bison/: BUILD, DEPENDS, DETAILS, yacc: Updated this module
+	  to bison-2.0.  Removed the unneeded script yacc as bison-2.0
+	  automatically builds a /usr/bin/yacc script.	Also added a
+	  DEPENDS file as bison needs m4.  Updated the BUILD script to
+	  remove the unneeded patch.  Updated the DETAILS file to remove
+	  the patch.  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel
+	  headers 2.4.x. I also recompiled teTeX, nedit, fetchmail,
+	  modutils, as test cases of using the new bison.
+
+2005-01-05 04:27  v3rt1g0
+
+	* devel/autotoolset/DETAILS: Typo in long description fixed.
+
+2005-01-05 04:19  v3rt1g0
+
+	* devel/autotoolset/: DEPENDS, DETAILS: Inital Import.	Module
+	  created by jas0n (jasonm@iit-sourcetech.com).
+
+2005-01-05 00:03  v3rt1g0
+
+	* utils/x86info/: BUILD, DETAILS: Version bump.  Change it to go to
+	  /usr/bin vs /usr/sbin because a regular user can use the app (in
+	  a partly limited environment).  Other misc tweaks (SHA, etc).
+
+2005-01-04 22:06  florin
+
+	* graphics/digikamplugins/DETAILS: fix the DETAILS file.
+
+2005-01-04 22:05  florin
+
+	* graphics/digikam/DEPENDS: add the optional depends on new added
+	  libs.
+
+2005-01-04 21:56  florin
+
+	* filesys/encfs/DETAILS: bump the version from 1.1.10 to 1.1.11.
+
+2005-01-04 20:10  florin
+
+	* security/sudo/DETAILS: bump the version from 1.6.8p5 to 1.6.8p6.
+	  a few bugfixes.
+
 2005-01-04 07:07  hardkrash
 
 	* graphics/kipi-plugins/: BUILD, DETAILS: adding kipi plugins beta,
@@ -1991,83 +2051,4 @@
 	  EFL.	Striker will be making a e17 module for the actual wm!
 	  w00t!  If anyone is still having edje_cc issues using all of the
 	  already commited -cvs modules let me know!
-
-2004-12-05 21:59  nestu
-
-	* utils/util-linux/DETAILS: 2.12i -> 2.12j. gcc 3.3.3, glibc 2.3.2,
-	  headers 2.6.9.1
-
-2004-12-05 21:19  sofar
-
-	* graphics/gtk+-2/DETAILS: Update. I'm adding 2 extra mirrors since
-	  the main one seems to be down atm. they may be removed later
-
-2004-12-05 19:48  sofar
-
-	* graphics/blender/DETAILS: Forgotten I had tested this one already
-
-2004-12-05 17:50  v3rt1g0
-
-	* filemanagers/xfe/: BUILD, DEPENDS, DETAILS: Removed unneeded
-	  build file.  Also tweaked the depends a bit.
-
-2004-12-05 16:25  florin
-
-	* utils/hotplug/BUILD: fix bug #507.
-
-2004-12-05 16:00  sofar
-
-	* kernel/: linux-2.4/BUILD, linux-2.4/CONFIGURE, linux-2.4/DEPENDS,
-	  linux-2.4/DETAILS, linux-2.4/POST_INSTALL, linux-2.4/PRE_BUILD,
-	  linux-2.4-agr/BUILD, linux-2.4-agr/CONFIGURE,
-	  linux-2.4-agr/DEPENDS, linux-2.4-agr/DETAILS,
-	  linux-2.4-agr/POST_INSTALL, linux-2.4-agr/PRE_BUILD,
-	  linux-2.4-grsec/BUILD, linux-2.4-grsec/CONFIGURE,
-	  linux-2.4-grsec/DEPENDS, linux-2.4-grsec/DETAILS,
-	  linux-2.4-grsec/POST_INSTALL, linux-2.4-grsec/PRE_BUILD,
-	  linux-2.4-om/BUILD, linux-2.4-om/CONFIGURE, linux-2.4-om/DEPENDS,
-	  linux-2.4-om/DETAILS, linux-2.4-om/POST_INSTALL,
-	  linux-2.4-om/PRE_BUILD, linux-2.4-stable/BUILD,
-	  linux-2.4-stable/CONFIGURE, linux-2.4-stable/DEPENDS,
-	  linux-2.4-stable/DETAILS, linux-2.4-stable/POST_INSTALL,
-	  linux-2.4-stable/PRE_BUILD, linux-2.4-vanilla/BUILD,
-	  linux-2.4-vanilla/CONFIGURE, linux-2.4-vanilla/DEPENDS,
-	  linux-2.4-vanilla/DETAILS, linux-2.4-vanilla/POST_INSTALL,
-	  linux-2.4-vanilla/PRE_BUILD: adding the final linux-2.4 v28
-	  kernels with the r8.0 patchset (unchanged)
-
-2004-12-05 15:36  florin
-
-	* libs/libelf/DETAILS: ELF object file access library. contributed
-	  by couannette.
-
-2004-12-05 15:21  florin
-
-	* kde3/kdebase3/: POST_INSTALL, kde: add kde session for gdm.
-
-2004-12-05 15:12  florin
-
-	* graphics/inkscape/: DEPENDS, DETAILS: bump the version from 0.39
-	  to 0.40. many thanks to Woody Gilk.
-
-2004-12-05 14:53  florin
-
-	* libs/lesstif/DETAILS: bump the version from 0.93.94 to 0.94.0.
-
-2004-12-05 14:21  florin
-
-	* filesys/fuse/DETAILS: bump the version from 1.3 to 2.1.
-
-2004-12-05 13:31  sofar
-
-	* utils/rrdtool/DETAILS: New version
-
-2004-12-05 12:13  florin
-
-	* mail/bogofilter/DETAILS: bump the version from 0.93.1 to 0.93.2.
-
-2004-12-05 04:28  tchan
-
-	* chat/gaim/DETAILS: Version bump to gaim-1.1.0. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
 
