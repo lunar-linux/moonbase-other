@@ -34,9 +34,7 @@ EOF
   sedit  "s/examples//"  Makefile              &&
   sedit  "s/read yes//"     conf/install_conf  &&
   sedit  "s/read yes//"  modules/install_conf  &&
-  make                                         &&
-  prepare_install                              &&
-  make    install                              &&
+  default_make                                 &&
  
   # Module documents are nice
   if [ ! -d /usr/share/doc/Linux-PAM/text ]; then
