@@ -1,3 +1,83 @@
+2004-02-04 09:31  sofar
+
+	* crypto/gnupg/DETAILS: Added mirror site on http since the ftp
+	server is nasty!
+
+2004-02-04 08:36  sofar
+
+	* net/samba/DETAILS: Confirmed NOT parallel safe. Finally a decent
+	box to test these things on ;^)
+
+2004-02-03 22:51  nhudson
+
+	* doc-tools/intltool/DETAILS: 
+	Updating intltool to new version 0.30
+
+2004-02-03 22:01  nhudson
+
+	* video/mjpegtools/DETAILS: 
+	Updating mjpegtools to newer version 1.6.1.93
+
+2004-02-03 20:09  florin
+
+	* audio/alsa-driver/DETAILS: fix the md5 sum. many thanks to
+	nhudson for pointing this out.
+
+2004-02-03 18:17  jmhodges
+
+	* gnome2-core/gnome-panel/DETAILS: whoops.. also, i may have missed
+	some UPDATED fields.. cant remember ..	will look
+
+2004-02-03 18:16  jmhodges
+
+	* gnome2-core/gdm/DETAILS, gnome2-core/gnome-applets2/DETAILS,
+	gnome2-core/gnome-games2/DETAILS, gnome2-core/gnome-panel/DETAILS,
+	gnome2-core/gnome-vfs2/DETAILS,
+	gnome2-core/nautilus-cd-burner/DETAILS,
+	gnome2-extras/gnome-speech/DETAILS: apparently, GNOME decided to
+	release 2.5.3 two days after I get everything working.	This is
+	actually a good thing.	I'm seriously happy they fixed that fscking
+	stupid gnome-panel crap
+
+2004-02-03 16:44  jmhodges
+
+	* x11-apps/planner/DETAILS: thanks to sofar for noticing this
+
+2004-02-03 16:26  jmhodges
+
+	* gnome2-core/libgda2/DETAILS: tchan fixed this in the moonbase. 
+	rock on, tchan \m/
+
+2004-02-03 16:21  tchan
+
+	* gnome2-core/libgda2/DETAILS: Once again, the MAKES bug fix. 
+	PSAFE=no.
+
+2004-02-03 16:18  moe
+
+	* video/MPlayer/: BUILD, DETAILS: Gosh .. me isn't in the swing of
+	things it seems
+
+2004-02-03 16:14  moe
+
+	* video/MPlayer/BUILD: MPlayer md5sum for live was wrong. Also
+	remove the deprecated xine-dvdnav module. Xine has been shipping
+	with full DVD nad support for ages.
+
+2004-02-03 16:10  nhudson
+
+	* graphics/gtk+-2/DEPENDS: 
+	Removing the dependancy on xfree86, yes I know it needs xfree86 to
+	compile but it should be understood that you must have xfree86
+	installed before installing this module.  Also if you dont have the
+	xfree86 module installed and have the xfree86-beta module installed
+	this could cause some trouble
+
+2004-02-03 16:06  nhudson
+
+	* graphics/gtk+-2/DETAILS: 
+	Updating gtk+-2 to new version 2.3.2
+
 2004-02-03 11:06  florin
 
 	* mail/elmo/DETAILS: bump version from 0.8.3 to 1.0.4.
@@ -862,10 +942,6 @@
 
 	* kde3-apps/konserve/DETAILS: bump version from 0.10 to 0.10.1.
 
-2004-01-20 16:54  florin
-
-	* kde3-apps/kopete/DETAILS: bump version from 0.7.4 to 0.7.5.
-
 2004-01-20 16:14  florin
 
 	* utils/lsof/DETAILS: bump version from 4.68 to 4.70.
@@ -1194,14 +1270,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
-	the version, added a depends on hicolor-icon-theme, and moved it
-	out of /opt/lunar
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
+	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
+	the version, added a depends on hicolor-icon-theme, and moved it
+	out of /opt/lunar
 
 2004-01-15 18:22  niki
 
@@ -1491,17 +1567,9 @@
 
 	* editors/sed/DETAILS: bump version from 4.0.8 to 4.0.9.
 
-2004-01-10 12:46  jol
-
-	* kde3-apps/kopete/DETAILS: Update the Update field
-
 2004-01-10 12:20  jol
 
 	* mail/elmo/DETAILS: First import of elmo
-
-2004-01-10 11:51  jol
-
-	* kde3-apps/kopete/DETAILS: Bumped version OLD: 0.7.3  NEW: 0.7.4
 
 2004-01-10 10:47  florin
 
@@ -1767,67 +1835,4 @@
 
 	* kernel/linux-beta/BUILD.alpha: Making it possible to build 2.6.x
 	on an alpha... Might be more stuff on the way.
-
-2004-01-04 23:31  sofar
-
-	* graphics/gtkglext/: DEPENDS, DETAILS: Adding gtk GL extensions
-
-2004-01-04 21:25  florin
-
-	* net/tcpdump/: BUILD, DETAILS: bump version from 3.7.2 to 3.8.1.
-
-2004-01-04 19:58  jol
-
-	* compilers/mono/DETAILS: Bumped version OLD: 0.26 NEW: 0.29
-
-2004-01-04 19:56  jol
-
-	* kde3-apps/kbudget/DETAILS: put the good md5 checksum
-
-2004-01-04 19:25  florin
-
-	* ftp/dc_gui/DETAILS: bump version from 0.77 to 0.79.
-
-2004-01-04 19:25  florin
-
-	* ftp/dctc/DETAILS: bump version from 0.85.7 to 0.85.8.
-
-2004-01-04 13:27  sofar
-
-	* cd/k3b/DETAILS, devel/PyQt/DETAILS, devel/byacc/DETAILS,
-	devel/kdbg/DETAILS, devel/sip/DETAILS, devel/tmake/DETAILS,
-	devel/xxdiff/DETAILS, docs/Grokking-the-GIMP/DETAILS,
-	filemanagers/gentoo/DETAILS, games/knights3/DETAILS,
-	games/lbreakout2/DETAILS, graphics/lsysexp/DETAILS,
-	graphics/pil/DETAILS, graphics/scribus/DETAILS,
-	graphics/sketch/DETAILS, kde3/KDE-Documentation/DETAILS,
-	kde3-apps/kdevelop3/DETAILS, kde3-apps/koffice3/DETAILS,
-	kde3/mosfet-liquid/DETAILS, libs/lcms/DETAILS,
-	libs/libsmb++/DETAILS, libs/termcap/DETAILS,
-	mail/sylpheed-claws/DETAILS, utils/catdoc/DETAILS,
-	utils/dd_rescue/DETAILS, video/Bcast/DETAILS, video/xanim/DETAILS,
-	web/apache/DETAILS, web/apache-mod_ssl/DETAILS, web/htdig/DETAILS,
-	x11-apps/calcoo/DETAILS, x11-apps/x3270/DETAILS: Unfortunately we
-	have not seen houkan in a while now... we miss him.
-
-2004-01-04 08:22  florin
-
-	* utils/hotplug/BUILD: make the /var/lock/subsys dir. i know that
-	/var/lock is a tmpfs type dir, but at install time we don't get a
-	warning that this dir is missing.
-
-2004-01-04 07:01  cmak
-
-	* audio/jack/DEPENDS: making doxygen an option as its quite huge
-	and not needed for jack to work...
-
-2004-01-04 02:02  tchan
-
-	* graphics/gtksee/DETAILS: Adjusting the indentation style, as
-	requested/submitted by bkw.
-
-2004-01-04 00:40  nestu
-
-	* filesys/udev/: BUILD, DEPENDS, DETAILS: Bringing the devfs
-	substitute to moonbase. 2.6+ kernels only.
 
