@@ -22,6 +22,13 @@
 @@ -93 +93 @@
 -#if !MODULE_MAGIC_AT_LEAST(20020506,0)
 +#if !AP_MODULE_MAGIC_AT_LEAST(20020506,0)
+--- sapi_apache2.c	2002-08-26 19:56:53.000000000 +0200
++++ sapi_apache2.c	2002-08-26 19:58:43.000000000 +0200
+@@ -534,2 +534,2 @@
+-	ap_register_output_filter("PHP", php_output_filter, AP_FTYPE_RESOURCE);
+-	ap_register_input_filter("PHP", php_input_filter, AP_FTYPE_RESOURCE);
++	ap_register_output_filter("PHP", php_output_filter, NULL, AP_FTYPE_RESOURCE);
++	ap_register_input_filter("PHP", php_input_filter, NULL, AP_FTYPE_RESOURCE);
 EOF
   fi
 
