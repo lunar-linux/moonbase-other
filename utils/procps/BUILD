@@ -1,11 +1,7 @@
 (
-#the below is necessary for procps to compile with the new
-#optimization code.
-  unset BUILD                         &&
-#
   sedit "s/top.desktop//" Makefile    &&
-  make oldps                          &&
-  make all                            &&
+  make CFLAGS="$CFLAGS"                             &&
+
   prepare_install                     &&
   make  -e XSCPT='' PROCDIR=/bin USRBINDIR=/bin DESTDIR=/ MANDIR=/usr/share/man install
 
