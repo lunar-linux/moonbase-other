@@ -1,3 +1,97 @@
+2004-03-02 04:42  tchan
+
+	* kde3/qt3/: BUILD, DETAILS: Fixed indentation for DETAILS file. 
+	Fixed a more serious bash logic problem for florin, in that
+	QT_PREFIX is not set and QTDIR is set to $SOURCE_DIRECTORY in early
+	part of BUILD script so that forces QT_PREFIX to install into
+	$SOURCE_DIRECTORY.  Not the intended effect.  Set QT_PREFIX to a
+	sane default.  Tested fix and compiled with gcc-3.3.3 and
+	kernel-headers 2.4.x.
+
+2004-03-02 04:10  nhudson
+
+	* audio/esound/DETAILS: 
+	Updating esound to new version 0.2.33
+
+2004-03-02 04:08  nhudson
+
+	* gnome2-apps/gok/DETAILS: 
+	Updating gok to 0.9.9
+
+2004-03-02 04:07  nhudson
+
+	* gnome2-core/at-spi/DETAILS: 
+	Updating at-spi to new version 1.3.14
+
+2004-03-02 04:05  nhudson
+
+	* libs/: glib-2/DETAILS, pango/DETAILS: 
+	Updating glib-2 to new version 2.3.5 and pango to 1.3.5
+
+2004-03-02 01:10  watryac04
+
+	* zbeta/ntop/: BUILD, DETAILS: old version was broken, so it's been
+	updated (last update was 2 years ago).	Doesn't build with kernel
+	2.6 headers, but this is already better than it was.  At least it
+	builds on 2.4 now.  I'll check into the ntop 3.0 stuff. Maybe that
+	handles 2.6.x as well.	Either way, this is a bit better than it
+	was before.
+
+2004-03-02 00:11  nhudson
+
+	* devel/: rexml/DETAILS, ruby-gnome2/DETAILS: 
+	Adding a md5 to rexml and updating ruby-gnome2 module
+
+2004-03-02 00:09  nhudson
+
+	* devel/rexml/DETAILS: 
+	Updating rexml to new version 2.7.4
+
+2004-03-01 21:03  tchan
+
+	* filemanagers/mc/DETAILS: Restoring the indentation.
+
+2004-03-01 20:36  florin
+
+	* filemanagers/mc/: BUILD, CONFLICTS, DEPENDS, DETAILS: mc can be
+	build without slang (with ncurses).
+
+2004-03-01 19:04  florin
+
+	* cd/dcd/CHANGELOG: not needed for install.
+
+2004-03-01 15:39  florin
+
+	* kde3-apps/k3b/DETAILS: bump the version from 0.11.5 to 0.11.6.
+
+2004-03-01 15:32  florin
+
+	* kde3-apps/qtella/: BUILD, DEPENDS, DETAILS: move it from ftp
+	directory.
+
+2004-03-01 15:12  florin
+
+	* audio/: alsa-lib/DETAILS, alsa-utils/DETAILS: bump the version
+	from 1.0.2 to 1.0.3. tested with gcc 3.3.3 and kernel 2.4.24,
+	2.6.4-rc1.
+
+2004-03-01 15:12  florin
+
+	* audio/alsa-driver/DETAILS: bump the version from 1.0.2c to 1.0.3.
+	tested with gcc 3.3.3 and kernel 2.4.24.
+
+2004-03-01 13:55  nestu
+
+	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: Version bump
+
+2004-03-01 12:50  florin
+
+	* cd/cdparanoia/DETAILS: move it from audio dir.
+
+2004-03-01 12:26  florin
+
+	* kde3/: kdelibs3/PRE_BUILD, qt3/PRE_BUILD: missed that.
+
 2004-03-01 10:34  florin
 
 	* kde3-utils/keybled/DEPENDS: the module depend on kdesdk3.
@@ -1859,15 +1953,15 @@
 
 2004-02-11 04:08  nhudson
 
+	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
+	added on branch GNOME_UNSTABLE.
+
+2004-02-11 04:08  nhudson
+
 	* rebuild-gnome-unstable: 
 	From a suggesting of niki's I made a script that will rebuild your
 	Gnome installation and build it for the GNOME_UNSTABLE branch. 
 	Please test if you are running GNOME_UNSTABLE
-
-2004-02-11 04:08  nhudson
-
-	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
-	added on branch GNOME_UNSTABLE.
 
 2004-02-11 04:04  nhudson
 
@@ -2757,34 +2851,4 @@
 
 	* libs/gettext/POST_INSTALL: Fixing hardkrash's "fix" so that it
 	actually works.
-
-2004-01-31 18:18  hardkrash
-
-	* libs/gettext/: BUILD, POST_INSTALL: put in the check for older
-	versions of gettext for recompiles og glibc and glib-2
-
-2004-01-31 17:25  niki
-
-	* libs/gettext/POST_INSTALL: Pointless having this file around...
-
-2004-01-31 12:54  moe
-
-	* app-themes/gtk2-bluecurve-engine/: DEPENDS, DETAILS: Adding this
-	rather nice engine. I use it since Mist became too boring ;)
-
-2004-01-31 09:24  nestu
-
-	* kernel/linux-beta/: BUILD, DETAILS, PRE_BUILD: * Version bump *
-	Copy System.map to boot * If sources are already there, do not
-	unpack and patch again
-
-2004-01-31 08:13  florin
-
-	* kde3-apps/kmplayer/DETAILS: bump version from 0.8.1a to 0.8.2.
-
-2004-01-31 07:47  florin
-
-	* libs/gettext/: BUILD, DETAILS, POST_INSTALL: bump version from
-	0.13.1 to 0.14. the glibc and glib-2 modules build was commented
-	out in POST-INSTALL.
 
