@@ -1,0 +1,23 @@
+          MODULE=discover
+         VERSION=2.0.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=discover-nonterminatingstrings.patch.bz2
+      SOURCE_URL=http://archive.progeny.com/progeny/discover/$SOURCE
+     SOURCE@_URL=$PATCH_URL/$SOURCE2
+      SOURCE_VFY=md5:0b01a00b0ff6534e99b15b0e61501281
+     SOURCE2_VFY=md5:ae6756c8dc176e6be06061ea7b5c9a2e
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+        WEB_SITE=http://platform.progeny.com/discover/
+         ENTERED=20031129
+         UPDATED=20031129
+           SHORT="A set of hardware recognition tools"
+cat << EOF
+Discover is a set of libraries and utilities for gathering and reporting
+information about a system's hardware. It uses OS-specific modules to
+detect the hardware present on the system, and provides a system-independent
+interface for querying XML data sources about this hardware.
+
+Discover can be used by linking against its C libraries or by invoking
+the "discover" command. Other interfaces may follow in the future for
+languages such as Perl and Python.
+EOF
