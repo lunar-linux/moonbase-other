@@ -35,29 +35,44 @@
   make                                        &&
 
   # Preserve the old glibc temporarily
-if [ "`arch`" == "alpha" ]; then
-  LD=/lib/ld-linux.so.2
-  GLIBC=/lib/libc.so.6.1
-  DL=/lib/libdl.so.2.1
-  M=/lib/libm.so.6.1
-  RT=/lib/librt.so.1
-  PTHREAD=/lib/libpthread.so.0
-  NSS=/lib/libnss_files.so.2
-  UTIL=/lib/libutil.so.1.1
-  NSL=/lib/libnsl.so.1.1
-  CRYPT=/lib/libcrypt.so.1.1
-else
-  LD=/lib/ld-linux.so.2
-  GLIBC=/lib/libc.so.6
-  DL=/lib/libdl.so.2
-  M=/lib/libm.so.6
-  RT=/lib/librt.so.1
-  PTHREAD=/lib/libpthread.so.0
-  NSS=/lib/libnss_files.so.2
-  UTIL=/lib/libutil.so.1
-  NSL=/lib/libnsl.so.1
-  CRYPT=/lib/libcrypt.so.1
-fi
+case  "`arch`" in
+  "alpha")
+	  LD=/lib/ld-linux.so.2
+	  GLIBC=/lib/libc.so.6.1
+	  DL=/lib/libdl.so.2.1
+	  M=/lib/libm.so.6.1
+	  RT=/lib/librt.so.1
+	  PTHREAD=/lib/libpthread.so.0
+	  NSS=/lib/libnss_files.so.2
+	  UTIL=/lib/libutil.so.1.1
+	  NSL=/lib/libnsl.so.1.1
+	  CRYPT=/lib/libcrypt.so.1.1
+	  ;;
+   ppc)
+	  LD=/lib/ld.so.2
+	  GLIBC=/lib/libc.so.6
+	  DL=/lib/libdl.so.2
+	  M=/lib/libm.so.6
+	  RT=/lib/librt.so.1
+	  PTHREAD=/lib/libpthread.so.0
+	  NSS=/lib/libnss_files.so.2
+	  UTIL=/lib/libutil.so.1
+	  NSL=/lib/libnsl.so.1
+	  CRYPT=/lib/libcrypt.so.1
+	  ;;
+  *)
+	  LD=/lib/ld-linux.so.2
+	  GLIBC=/lib/libc.so.6
+	  DL=/lib/libdl.so.2
+	  M=/lib/libm.so.6
+	  RT=/lib/librt.so.1
+	  PTHREAD=/lib/libpthread.so.0
+	  NSS=/lib/libnss_files.so.2
+	  UTIL=/lib/libutil.so.1
+	  NSL=/lib/libnsl.so.1
+	  CRYPT=/lib/libcrypt.so.1
+	  ;;
+esac
 
   cp $LD /lib/ld-lunar.so      &&
   cp $GLIBC /lib/libc-lunar.so        &&
