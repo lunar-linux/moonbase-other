@@ -1,5 +1,4 @@
 (
-   export ACLOCAL_FLAGS='-I /usr/local/share/aclocal'
 
    patch_it $SOURCE_CACHE/$SOURCE2 0 &&
    intltoolize --copy --force --automake &&
