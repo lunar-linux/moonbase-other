@@ -1,3 +1,11 @@
+2002-09-23 05:18  tchan
+
+	* devel/uml/DETAILS: Bumped version of UML upto 2.4.19-6
+	
+2002-09-22 13:39  kongar
+
+	* mail/sylpheed-claws/DETAILS: upgraded tp 0.8.3
+	
 2002-09-22 08:03  kc8apf
 
 	* printer/cups/DETAILS: Rollback cups as 1.1.15-1 requires a patch to ghostscript.
@@ -663,89 +671,4 @@
 2002-09-12 23:53  sofar
 
 	* x11-apps/gnucash/DEPENDS: Removing unnecessary DEPENDS!
-	
-2002-09-12 20:16  kongar
-
-	* x11/NVIDIA_GLX/BUILD: 
-	added a true if the fix fails
-	
-2002-09-12 19:57  kongar
-
-	* devel/cvsfs/: BUILD, DETAILS, cvsfs-1.1.6.patch.bz2: 
-	upgraded to 1.1.6
-	
-	applied the patch supplied by Mr. Petric Frank
-	
-2002-09-12 14:15  kongar
-
-	* graphics/feh/DETAILS: upgraded to 1.2.1
-	
-2002-09-12 13:27  sofar
-
-	* web/links2/DETAILS: Updated version
-	
-2002-09-12 12:59  kongar
-
-	* distributed/distcc/DETAILS: upgraded to 0.10
-	
-2002-09-12 10:53  kongar
-
-	* web/apache-mod_ssl/init.d/apache_modssl: 
-	added 345 to chkconfig line
-	
-2002-09-12 06:27  kongar
-
-	* x11/: NVIDIA_GLX/BUILD, NVIDIA_GLX/DETAILS,
-	NVIDIA_kernel/DETAILS, NVIDIA_kernel/POST_INSTALL: 
-	driver is upgraded to 1.0-3123
-	
-	driver module is now trying to rmmod NVDriver, if fails, notifies SA;
-	this is a MUST, because if the old driver (module) is in memory it
-	is not possible to restart X w/o first unloading it.
-	
-	GLX module is hacked and no more /etc/ld.so.preload file entry. Also,
-	the previous entry about libgcc_s.so is being removed from the ld.so.preload
-	
-	The problem is, ld.so.preload is a system-wide preloader and it is not
-	possible for some systems to reboot.
-	
-2002-09-12 05:14  kongar
-
-	* x11-wm/3ddesktop/DETAILS: upgraded to 0.2.3
-	
-2002-09-12 03:26  tchan
-
-	* x11-apps/gnucash/BUILD: Fixed the stupid "changing search order for system directory" bug.
-	
-2002-09-12 01:25  tchan
-
-	* gnome/gtkhtml/BUILD: Fixed the stupid "changing search order for system directory" bug.
-	
-2002-09-12 01:09  tchan
-
-	* gnome/control-center/BUILD: Fixed the stupid "changing search order for system directory" bug.
-	
-2002-09-12 00:41  tchan
-
-	* gnome/gnome-vfs/BUILD: Fixed the stupid "changing search order for system directory" bug.
-	
-2002-09-11 23:16  tchan
-
-	* gnome/GConf/BUILD: Fixed the stupid "changing search order for system directory" bug.
-	
-2002-09-11 23:12  tchan
-
-	* gnome/Guppi/BUILD: Fixed the stupid "changing search order for system directory" bug.
-	
-2002-09-11 22:56  tchan
-
-	* gnome/bonobo/BUILD: Fixed the stupid "changing search order for system directory" bug.
-	
-2002-09-11 22:56  sofar
-
-	* compilers/gcc/: BUILD, CONFIGURE, POST_INSTALL, PRE_BUILD: Added support for compilation with more languages (lin -r!), and made the BUILD directory through the functions instead of mkdir, so it can be in tmpfs and does not hinder a relin after a broken compile.
-	
-2002-09-11 22:25  tchan
-
-	* gnome/gnome-libs/BUILD: Fixing the stupid "changing search order for system directory /usr/include" bug.
 	
