@@ -1,3 +1,69 @@
+2004-03-21 07:09  florin
+
+	* x11-wm/fvwm/DETAILS: bump the version from 2.4.17 to 2.4.18.
+
+2004-03-21 06:44  florin
+
+	* audio/libao/DETAILS: bump the version from 0.8.3 to 0.8.5.
+
+2004-03-20 19:44  florin
+
+	* chat/micq/: DEPENDS, DETAILS: fix the DETAILS file.
+
+2004-03-20 19:00  tchan
+
+	* chat/micq/DETAILS: Fixed a typo.
+
+2004-03-20 19:00  florin
+
+	* devel/subversion/DETAILS: bump the version from 1.0.0 to 1.0.1.
+
+2004-03-20 18:50  sofar
+
+	* chat/micq/: DEPENDS, DETAILS: Submitted by ep98. nice code,
+	smooth install
+
+2004-03-20 18:46  tchan
+
+	* utils/parted/: BUILD, DETAILS: Version bump to 1.6.7.  Compiled
+	and tested with gcc-3.3.3 and kernel-headers 2.4.x.  The patch from
+	1.6.6 is no longer necessary and was removed.
+
+2004-03-20 17:41  nhudson
+
+	* graphics/f-spot/: BUILD, DEPENDS, DETAILS: 
+	Adding f-spot to moonbase.  f-spot is a photo managment tool for
+	Gnome wirtten in mono and gtk#
+
+2004-03-20 17:28  florin
+
+	* kde3-apps/krename/: BUILD, DEPENDS, DETAILS: the 2.8.5 version is
+	the stable one.
+
+2004-03-20 17:25  nhudson
+
+	* compilers/: mcs/DETAILS, mono/DETAILS: 
+	Updating mono and mcs to new version 0.31
+
+2004-03-20 17:19  florin
+
+	* graphics/psiconv/DETAILS: bump the version from 0.9.3 to 0.9.4.
+
+2004-03-20 17:15  florin
+
+	* kde3-apps/knetmap/: DEPENDS, DETAILS: cosmetic changes.
+
+2004-03-20 14:41  florin
+
+	* kde3/arts/: BUILD, profile.d/kde3.rc: it seems that there are
+	situations where the default values were not initialized. this must
+	fix all this cases. many thanks to ep98 for pointed this error. mea
+	culpa.
+
+2004-03-20 12:42  florin
+
+	* web/apache2/DETAILS: bump the version from 2.0.48 to 2.0.49.
+
 2004-03-20 11:53  florin
 
 	* mail/postfix/DETAILS: bump the version from 2.0.18 to 2.0.19. it
@@ -1776,13 +1842,12 @@
 	kdebindings3/BUILD, kdebindings3/DEPENDS, kdeedu3/BUILD,
 	kdeedu3/DEPENDS, kdegames3/BUILD, kdegames3/DEPENDS,
 	kdegraphics3/BUILD, kdegraphics3/DEPENDS, kdelibs3/BUILD,
-	kdelibs3/DEPENDS, kdelibs3/profile.d/kde3.rc, kdemultimedia3/BUILD,
-	kdemultimedia3/DEPENDS, kdenetwork3/BUILD, kdenetwork3/DEPENDS,
-	kdepim3/BUILD, kdepim3/DEPENDS, kdesdk3/BUILD, kdesdk3/DEPENDS,
-	kdetoys3/BUILD, kdetoys3/DEPENDS, kdeutils3/BUILD,
-	kdeutils3/DEPENDS, qt3/BUILD, qt3/DEPENDS, qt3/DETAILS,
-	qt3/POST_INSTALL, qt3/profile.d/qt3.rc: a second commit for the new
-	install scheme of kde.
+	kdelibs3/DEPENDS, kdemultimedia3/BUILD, kdemultimedia3/DEPENDS,
+	kdenetwork3/BUILD, kdenetwork3/DEPENDS, kdepim3/BUILD,
+	kdepim3/DEPENDS, kdesdk3/BUILD, kdesdk3/DEPENDS, kdetoys3/BUILD,
+	kdetoys3/DEPENDS, kdeutils3/BUILD, kdeutils3/DEPENDS, qt3/BUILD,
+	qt3/DEPENDS, qt3/DETAILS, qt3/POST_INSTALL, qt3/profile.d/qt3.rc: a
+	second commit for the new install scheme of kde.
 
 2004-02-26 11:49  florin
 
@@ -2400,73 +2465,4 @@
 	mentioned in any docs.	So I removed them from the DEPENDS file. 
 	Someone that uses xmms and faad plugin will need to test this some
 	more.  Compiles with gcc-3.3.3.
-
-2004-02-19 20:04  florin
-
-	* zbeta/xfree86-beta/: BUILD, DETAILS, POST_INSTALL: update the
-	module's patches. fixed the drm patch and added the freely
-	available patch fontfile which is a security patch.
-
-2004-02-19 19:23  florin
-
-	* x11/xfree86/POST_INSTALL: fix the test for xserver module.
-
-2004-02-19 19:23  florin
-
-	* x11-apps/xscreensaver/DEPENDS: for a system without the gnome
-	installed (like mine's :) the module does not compile with the
-	gtk+-2 option selected. that's why i make this depend optional
-	again.
-
-2004-02-19 18:06  striker
-
-	* devel/gcvs/BUILD: evil typos
-
-2004-02-19 17:59  striker
-
-	* devel/gcvs/: BUILD, DEPENDS, DETAILS: adding gcvs
-
-2004-02-19 15:43  florin
-
-	* audio/: vorbis-tools/DEPENDS, icecast/DEPENDS: put a newline at
-	the end of the file.
-
-2004-02-19 15:40  florin
-
-	* audio/vorbis-tools/DEPENDS: rearange the order of depends.
-
-2004-02-19 15:38  florin
-
-	* audio/icecast/: BUILD, DEPENDS, DETAILS: bump version from 1.3.12
-	to 2.0.0.
-
-2004-02-19 12:26  elaine
-
-	* kernel/kernel-headers/DETAILS: Correcting longdesc/lvu what --
-	docfix
-
-2004-02-19 05:28  tchan
-
-	* graphics/xlockmore/: BUILD, DETAILS: Version bump to 5.11.1. 
-	Added md5sum.  Minor update to BUILD (exchanged 3 lines for
-	default_make).	Compiled and tested with gcc-3.3.3.  Kernel-headers
-	2.4.24.
-
-2004-02-19 05:24  nhudson
-
-	* x11-apps/xscreensaver/: BUILD, DEPENDS: 
-	Fixing problems with compiling thanks to v3rt1g0 for pointing this
-	out in irc
-
-2004-02-19 05:10  tchan
-
-	* graphics/glut/DETAILS: Fixed the download url and added md5sum
-	check.
-
-2004-02-19 01:50  tchan
-
-	* chat/gaim/DETAILS: Surprisingly, this needs PSAFE=no.  On my SMP
-	lunar box with no distcc installed and MAKES=8, gaim dies a
-	horrible death, unless PSAFE=no.  Now gaim compiles again.  Tested
-	with gcc-3.3.3 too!
 
