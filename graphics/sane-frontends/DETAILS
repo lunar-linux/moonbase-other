@@ -1,14 +1,22 @@
           MODULE=sane-frontends
-         VERSION=1.0.11
+         VERSION=1.0.12
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.mostang.com/pub/sane/sane-frontends-$VERSION/$SOURCE
-        WEB_SITE=http://www.mostang.com/sane/
+     WEB_SITE=http://www.mostang.com/sane/
+       SOURCE_VFY=md5:6a6166428491b268f5ebe03f16d1bc1f
          ENTERED=20020412
-         UPDATED=20030426
+         UPDATED=20040503
            SHORT="SANE is a universal scanner interface."
-cat << EOF
-SANE stands for "Scanner Access Now Easy" and is an application programming interface (API) that provides standardized access to any raster image scanner hardware (flatbed scanner, hand-held scanner, video- and still-cameras, frame-grabbers, etc.). The SANE API is public domain and its discussion and development is open to everybody. The current source code is written for UNIX (including GNU/Linux) and is available under the GNU General Public License (the SANE API is available to proprietary applications and backends as well, however).
 
+cat << EOF
+SANE stands for "Scanner Access Now Easy" and is an application programming 
+interface (API) that provides standardized access to any raster image scanner 
+hardware (flatbed scanner, hand-held scanner, video- and still-cameras, 
+frame-grabbers, etc.). The SANE API is public domain and its discussion and 
+development is open to everybody. The current source code is written for UNIX 
+(including GNU/Linux) and is available under the GNU General Public License 
+(the SANE API is available to proprietary applications and backends as well, 
+however).
 sane-frontends provides the graphical interfaces to the sane libraries.
 EOF
