@@ -31,7 +31,8 @@
                --mandir=/usr/share/man                \
                --prefix=/usr                          \
                $OPTS                                  &&
-  make                                        &&
+  # explicitly exit here since the following code unsets $?
+  make || exit 1
 
   # Preserve the old glibc temporarily
 case  "`arch`" in
