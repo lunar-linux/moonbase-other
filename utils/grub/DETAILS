@@ -1,17 +1,17 @@
           MODULE=grub
          VERSION=0.93
         #VERSION=0.92
-           SOURCE=$MODULE-$VERSION.tar.gz
-          SOURCE2=$MODULE-$VERSION-type-fix.patch.bz2
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-type-fix.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-    SOURCE_URL[0]=ftp://alpha.gnu.org/gnu/grub/$SOURCE
-    SOURCE_URL[1]=http://www.funet.fi/pub/gnu/alpha/gnu/grub/$SOURCE
-   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+   SOURCE_URL[0]=ftp://alpha.gnu.org/gnu/grub/$SOURCE
+   SOURCE_URL[1]=http://www.funet.fi/pub/gnu/alpha/gnu/grub/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
         WEB_SITE=http://www.gnu.org/software/grub
          ENTERED=20020310
          UPDATED=20030518
            SHORT="GNU GRUB boot loader"
-      MAINTAINER=tpchan@attbi.com 
+      MAINTAINER=tchan@lunar-linux.com
 cat << EOF
 GNU GRUB is a Multiboot boot loader. It was derived from GRUB, GRand
 Unified Bootloader, which was originally designed and implemented by
@@ -33,8 +33,8 @@ Sample /boot/grub/menu.lst file is:
 
 default 0
 timeout 30
-title=Lunar kernel 2.4.19
+title=Lunar kernel 2.4.22
 root (hd0,0)
-kernel /vmlinubz-2.4.19 root=/dev/hda3 devfs=nomount
+kernel /vmlinubz-2.4.22 root=/dev/hda3 devfs=nomount
 
 EOF
