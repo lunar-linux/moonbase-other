@@ -1,3 +1,75 @@
+2004-05-04 09:53  nestu
+
+	* kernel/kernel-headers-2.6/DETAILS: Version bump: 2.6.5.0 ->
+	2.6.5.1
+
+2004-05-04 04:24  florin
+
+	* kde3-apps/bookcase/DETAILS: bump the version from 0.9 to 0.9.1.
+
+2004-05-04 04:23  nhudson
+
+	* web/epiphany/DETAILS: 
+	Updating epiphany to new version 1.2.5
+
+2004-05-04 04:22  nhudson
+
+	* audio/rhythmbox/DETAILS: 
+	Updating rhythmbox to new version 0.8.3
+
+2004-05-03 20:55  florin
+
+	* graphics/sane-frontends/: DEPENDS, DETAILS: bump the version from
+	1.0.11 to 1.0.12.
+
+2004-05-03 19:25  moe
+
+	* mail/thunderbird/: DETAILS, POST_INSTALL, POST_REMOVE: Fixing
+	this for good (Thanks for the hints Nick ;-) and adding back the
+	POST_REMOVE to get rid of the .desktop file (As seen with the
+	mozilla module .. also changed by Nick).
+
+2004-05-03 19:00  nhudson
+
+	* mail/thunderbird/POST_INSTALL: 
+	Need to set it to look in $SOURCE_CACHE or it will not find
+	$SOURCE2 also moved the mozicon50.xpm icon to the
+	/usr/share/pixmaps directory so that the .desktop file will find
+	its icon.  One last thing is that the .desktop file needs to be
+	changed to that it will use the mozicon50.xpm icon.  I cant change
+	it because the files perms belong to Moe!! :)
+
+2004-05-03 18:12  nhudson
+
+	* web/mozilla/POST_REMOVE: 
+	Adding the removal of the .desktop files from
+	/usr/share/applications when you remove mozilla
+
+2004-05-03 17:47  florin
+
+	* graphics/sane-backends/DETAILS: bump the version from 1.0.13 to
+	1.0.14.
+
+2004-05-03 16:46  moe
+
+	* mail/thunderbird/: BUILD, DEPENDS, DETAILS, POST_INSTALL: Adding
+	this whole new Tbird module. All users are encouraged to switch to
+	this one as its going to be our new default Thunderbird module from
+	now on.  Module has been tested and approved by .. me :p
+
+2004-05-03 14:52  nhudson
+
+	* gnome2-core/gedit/DETAILS: 
+	Updating gedit to new version 2.6.1
+
+2004-05-03 14:40  florin
+
+	* ftp/mldonkey/DETAILS: bump the version from 2.5.18 to 2.5.19.
+
+2004-05-03 14:35  florin
+
+	* kde3-apps/kaffeine/DETAILS: bump the version from 0.4.2 to 0.4.3.
+
 2004-05-02 20:09  jmhodges
 
 	* graphics/gimp/DEPENDS: doh, sorry folks
@@ -2506,55 +2578,4 @@
 	* utils/parted/DETAILS: Version bump to 1.6.9.	The devs re-ran
 	libtoolize.  Compiled and tested with gcc-3.3.3 and kernel headers
 	2.4.x.
-
-2004-04-03 20:22  jmhodges
-
-	* chat/gaim/DETAILS: url fix
-
-2004-04-03 20:11  jmhodges
-
-	* chat/gaim/: BUILD, DETAILS: gaim 0.76 works.. now has an evo
-	contact plugin and other things
-
-2004-04-03 18:08  tchan
-
-	* docs/Linux-HOWTOs/: BUILD, DETAILS: Fixed this module to
-	correctly compile two times in a row.  Lunar boxes that have
-	statically linked, gzip, and bzip2 will fail unless the "rm -f" is
-	present in the BUILD script.  Installwatch does NOT track
-	statically linked binaries, so the old version of the Linux-HOWTOs
-	is not cleaned up correctly.
-
-2004-04-03 17:43  tchan
-
-	* docs/Linux-HOWTOs/DETAILS: Fixed the indentation again.
-
-2004-04-03 13:52  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Version bump
-
-2004-04-03 13:09  jol
-
-	* x11-apps/xemacs-efs/DETAILS: bumped version OLD: 1.29  NEW:1.32
-
-2004-04-03 13:07  jol
-
-	* x11-apps/xemacs-base/DETAILS: bumped version OLD: 1.78 NEW: 1.84
-
-2004-04-03 13:04  jol
-
-	* x11-apps/xemacs/DETAILS: Bumped version OLD: 21.4.14 NEW: 21.4.15
-
-2004-04-03 12:53  moe
-
-	* printer/a2ps/DETAILS: Fixing this since its absolutely out of
-	date.
-
-2004-04-03 05:45  florin
-
-	* net/mtr/DETAILS: bump the version from 0.52 to 0.55.
-
-2004-04-03 05:15  florin
-
-	* docs/Linux-HOWTOs/DETAILS: arange a few lines.
 
