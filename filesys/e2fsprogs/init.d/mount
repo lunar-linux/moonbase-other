@@ -1,0 +1,275 @@
+#!/bin/bash
+
+# description: mount and umount the filesystem
+
+# Lunar devfsd save location
+DEVFSDD=/var/state/devfsd
+ 
+chkresult() {
+  if [ $? -eq "0" ] ; then
+    echo -e $RESULT_OK
+  else
+    echo -e $RESULT_FAIL
+  fi
+}
+
+# flips a file upside down
+flip() {
+  local STRING
+  while read -r STRING ; do
+    flip
+    echo "$STRING"        # New line needed
+    break
+  done
+
+}
+
+start() {
+
+  echo "Mounting filesystems:"
+  mount       -n -o  remount,ro / >& /dev/null
+
+  # I hate this, but it's required to make swapoff work if devfs is runing on /dev
+  # it's clean and also simplifies the devfsd module
+  # This scews up mtab
+  grep -v '#' /etc/fstab | grep -v ^$ | grep -v noauto | \
+  while read DEVICE MOUNTPOINT FSTYPE REST ; do 
+    if [ "$DEVICE" = "devfs" ] ; then
+      echo         -n " * Mounting: $MOUNTPOINT"     
+      mount        -n $MOUNTPOINT  &> /dev/null
+      if [ $? -eq "0" ] ; then
+        if [ -x /sbin/devfsd ] ; then
+          echo     -e $RESULT_OK
+          echo     -n "   * Starting devfsd on $MOUNTPOINT:"
+          devfsd   $MOUNTPOINT  &> /dev/null
+          chkresult
+        fi
+      else
+        echo  -e $RESULT_FAIL
+      fi
+    fi
+  done
+
+  echo        -n " * Mounting swap"
+  swapon      -a &> /dev/null
+  chkresult
+
+  if  [ ! -e /fastboot ] ; then 
+    if [ -e /forcefsck ] ; then
+      FORCE="-f"
+    fi
+    echo      -n " * Checking all file systems"
+    fsck      -A -y
+    if [ "$?" -eq "0" ] ; then
+      echo    -e $RESULT_OK
+    else
+      if [ "$?" -eq "1" ] ; then    # Don't force the poor guy into rescue mode, if fscked cleaned it
+        echo  -e $RESULT_WARN
+      else
+        echo  -e " * fsck failed.$RESULT_FAIL"
+        echo  "  * Please repair your file system"
+        echo  "  * manually by running /sbin/fsck"
+        echo  "  * without the -a option"
+        sulogin
+        reboot  -f
+      fi
+    fi
+  fi
+
+  echo       -n " * Remounting root readwrite"
+  mount      -n -o remount,rw /  &> /dev/null
+  echo       > /etc/mtab
+  rm         -f /etc/mtab~*      &> /dev/null
+  mount      -f -o remount,rw /  &> /dev/null
+  chkresult  
+
+  echo       " * Mounting remaining filesystems:"
+  
+  # Mounting /proc to maintain compatibility with LVM
+  echo -n "  * Mounting: /proc"
+  mount      /proc    &> /dev/null
+  chkresult
+
+  # Enable LVM or LVM2 if configured
+  if [ -e /etc/config.d/lvm -a -x /sbin/vgscan -a -x /sbin/vgchange ]; then
+      /sbin/vgscan
+      /sbin/vgchange -a y
+  fi
+
+  # /etc/fast should be in order
+  # ex. /usr should comes before /usr/local
+  # and /proc before /proc/bus/usb
+  # better to fail if a mounting dosn't exist than, do it silently
+  grep -v '#' /etc/fstab | grep -v ^$ | grep -v noauto | grep -v ^proc |
+  while  read  DEVICE MOUNTPOINT FSTYPE REST;  do
+  
+    # Filter out already mounted fs's: devfs and root
+    # We should have mounted all devfs before, now a hack to get it into /etc/mtab
+    if [ "$DEVICE" == "devfs" ] ; then
+      mount -f -t devfs devfs $MOUNTPOINT
+      continue
+    fi 
+    if [ "$MOUNTPOINT" == "/" ] ; then
+      continue
+    fi
+
+    # we don't do networked fs's yet!
+    case "$FSTYPE" in
+      nfs|smbfs) continue ;;
+    esac
+
+    # End filter
+
+    if [ "$MOUNTPOINT" != "none" ] ; then
+      echo    -n "  * Mounting: $MOUNTPOINT"
+      mount   $MOUNTPOINT         &> /dev/null
+      if [ $? -ne "0" ] ; then
+        if [ "$DEVICE" == "usbdevfs" ] || [ "$DEVICE" == "usbfs" ] ; then          # Load the module for usbdevfs if need
+          modprobe usbcore        &> /dev/null
+          mount    $MOUNTPOINT    &> /dev/null
+          chkresult
+        else
+          echo -e $RESULT_FAIL
+        fi
+      else
+        echo  -e $RESULT_OK
+      fi
+    fi
+
+  done
+
+  rm         -f /fastboot /forcefsck
+}
+
+
+stop() {
+
+  # Establish where to get mount table from, save these since the files change if we unmount something
+  if [ -r /proc/mounts ] ; then
+    MOUNTS=/proc/mounts
+  else
+    MOUNTS=/etc/mtab
+  fi
+	
+  # Umount all tmpfs mounts fist
+  # cat it with a pipe cause it  will change if we umount anything 
+
+  # write wtmp in /var before umounting /var
+  reboot -w
+
+  echo -n " * Deactivating swap space:"
+  swapoff  -a
+  chkresult
+
+  echo "Umounting all filesystems:"
+
+  cat $MOUNTS | flip | \
+  while read TYPE PNT FS REST ; do
+    
+    SIG="-3"
+
+    if [ "$FS" == "nfs" ] || [ "$FS" == "smbfs" ] ; then              # Don't umount smbfs and nfs because they should of been handled by another script
+      continue                                                        # and if they are here that means they are frozen, don't want anymore freezing
+    fi
+    if [ "$PNT" == "/" ] || [ "$PNT" == "/proc" ] ; then              # Leave these two for last
+      continue
+    fi
+    if [ "$PNT" == "/dev" ] ; then                                    # No need to umount /dev, and it has some unwanted sideffects anyways
+      continue
+    fi
+
+    echo  -n " * Umounting: $PNT"
+    sync ; sync                                                       # Flush buffers
+
+    if [[ "$TYPE" == "/dev/loop*" ]] ; then
+      if [ -e $PNT ] ; then                                           # Devfs and some loopback devices (iso images)
+        echo:      -n "  * Deataching loopback device $PNT:"          # can take care of them selfs
+        losetup    -d $PNT &> /dev/null
+        chkresult
+        continue                                                      # Not much we can do with loop devices
+      fi
+    fi
+
+    for TRY in "1" "2" "3" "4" ; do
+      if [ "$TRY" -eq "1" ] ; then
+        umount    $PNT  &> /dev/null
+      else
+        sleep      1                                                 # Do a little break before trying again, this helps a lot in some cases
+        if [ "$TRY" -eq "3" ] ; then
+          SIG="-9"
+        fi
+        fuser      -s -km $SIG $PNT &> /dev/null
+        sleep      1                                                 # Small delay, to make sure it gets killed
+        if [ "$TRY" -eq "4" ] ; then                                 # A real last resort
+          umount   -lf $PNT &> /dev/null
+          sleep    4                                                 # Hudge delay here, since it's lazy umount
+          sync; sync   
+        else
+          umount   $PNT &> /dev/null 
+        fi
+      fi
+
+      TEST=$(cat $MOUNTS | grep "$PNT" | awk '{ print $1}')
+      if [ -z "$TEST" ] ; then
+        echo       -e $RESULT_OK
+        continue   2
+      fi
+
+      # Debug!!!!!
+      # fuser -m -v $PNT
+
+      if [ "$TEST" == "$TYPE" ] && [ $TRY -eq "3" ] ; then            # Last resort
+        echo       -e $RESULT_WARN
+        echo       -n "  * Attempting to remount read only: $PNT"
+        sleep      1                                                  # This can help sometimes, so why not wait?
+        mount      -o remount,ro $PNT &> /dev/null
+        chkresult
+      fi
+    done
+  done
+  
+  # Deactivate LVM or LVM2
+  if [ -e /etc/config.d/lvm -a -x /sbin/vgchange ]; then
+      /sbin/vgchange -a n
+  fi
+  
+  sync; sync
+
+  # Don't umpunt /proc because it can and will crash when umounting any remaining filesystems
+  # on some systems
+
+  echo     -n " * Remounting root readonly"
+  mount    -no remount,ro / &> /dev/null
+  if [ "$?" -ne  "0" ] ; then                                         # Lazy remount, last resort
+    umount -L -O remount,ro / &> /dev/null
+    sleep  4                                                          # Again lazy needs a long timeout
+  fi
+   
+  if [ $? -ne "0" ] ; then
+    echo   -e $RESULT_FAIL
+    read   -n 1  -t 30  -p  "Do you want to login? (y/n) "  CONFIRM
+    echo   ""
+    case $CONFIRM in
+      y|Y)  sulogin ;;
+    esac
+  else
+    echo   -e $RESULT_OK
+  fi
+
+  # Last chance to flush before reboot
+  sync; sync
+
+  # Should probly use hdparm at this point to put the hds to sleep
+  # Give the hd a chance to slow down
+  sleep 2
+}
+
+# to avoid confusion we force only these options as being valid:
+case "$1" in
+  start|stop) ;;
+  *)     echo "Warning: $0 should never be called directly"; exit 1  ;;
+esac
+
+. /lib/lsb/init-functions
+
+exit
