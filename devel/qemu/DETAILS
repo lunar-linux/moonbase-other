@@ -1,0 +1,27 @@
+          MODULE=qemu
+         VERSION=0.5.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://fabrice.bellard.free.fr/qemu/$SOURCE
+      SOURCE_VFY=81acda062219c82973e82585b0eb357a
+        WEB_SITE=http://fabrice.bellard.free.fr/qemu/
+         ENTERED=20040318
+         UPDATED=20040318
+           SHORT="QEMU is a FAST! processor emulator."
+      MAINTAINER=tchan@lunar-linux.org
+cat << EOF
+By using dynamic translation it achieves a reasonable speed while being easy
+to port on new host CPUs. QEMU has two operating modes:
+
+User mode emulation. In this mode, QEMU can launch Linux processes compiled
+for one CPU on another CPU. Linux system calls are converted because of
+endianness and 32/64 bit mismatches. Wine (Windows API emulator) and DOSEMU
+(DOS emulation) are the main targets for QEMU.
+
+Full system emulation. In this mode, QEMU emulates a full system, including
+a processor and various peripherials. It enables easier testing and
+debugging of system code. It can also be used to provide virtual hosting of
+several virtual PC on a single server.
+
+As QEMU requires no host kernel patches to run, it is very safe and easy to use.
+EOF
