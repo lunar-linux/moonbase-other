@@ -1,3 +1,97 @@
+2004-02-27 09:27  sofar
+
+	* mail/sendmail/BUILD: Adding code to allow failure with
+	permissions and chowns, since the box might be part of a nfs/nis
+	network with limited permissions.
+
+2004-02-27 08:36  florin
+
+	* games/kaf/BUILD: fix the BUILD file according to the modifs in
+	qt3.
+
+2004-02-27 07:23  florin
+
+	* kde3/qt3/profile.d/qt3.rc: i forget to put a $ char.
+
+2004-02-27 07:19  florin
+
+	* x11-apps/xscreensaver/DETAILS: bump version from 4.14 to 4.15.
+
+2004-02-27 03:49  nhudson
+
+	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: 
+	Updating gstremaer and gst-plugins to new version 0.7.5
+
+2004-02-27 03:45  nhudson
+
+	* gnome2-core/gnome-media2/BUILD: 
+	Removing the BUILD file as its no longer needed
+
+2004-02-27 03:44  nhudson
+
+	* gnome2-core/: gnome-media2/DETAILS, gnome-terminal/DETAILS: 
+	More updates
+
+2004-02-27 00:18  nhudson
+
+	* doc-tools/gtk-doc/DETAILS: 
+	Reverting gtk-doc for now seems it breaks Gnome 2.4.x modules
+
+2004-02-26 23:14  striker
+
+	* games/neverball/DETAILS: Fixed invalid download URL
+
+2004-02-26 22:23  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Dee version bump, broda!
+
+2004-02-26 20:38  tchan
+
+	* kernel/kernel-headers-2.6/CONFLICTS: Added EOL char for the
+	stranger editor that was used last on this file.
+
+2004-02-26 20:03  nestu
+
+	* libs/glibc/POST_INSTALL: add a line at EOF ;)
+
+2004-02-26 20:00  nestu
+
+	* libs/glibc/POST_INSTALL: If kernel-headers-2.6 is installed, do
+	not install the headers generated in BUILD
+
+2004-02-26 19:50  nestu
+
+	* kernel/kernel-headers-2.6/: BUILD, CONFLICTS, DETAILS: first
+	commit ;) ¿impressive log msg, huh?
+
+2004-02-26 16:51  florin
+
+	* ftp/dclib/DETAILS: fix the update date.
+
+2004-02-26 16:04  florin
+
+	* ftp/: dcgui-qt/BUILD, dcgui-qt/DEPENDS, dcgui-qt/DETAILS,
+	dclib/DEPENDS, dclib/DETAILS: bump version from 0.2.20 to 0.2.21.
+	move the dclib module from libs.
+
+2004-02-26 13:59  florin
+
+	* kde3/: KDE-Documentation/BUILD, KDE-Documentation/DETAILS,
+	arts/BUILD, arts/DEPENDS, kdeaccessibility3/BUILD,
+	kdeaccessibility3/DEPENDS, kdeaddons3/BUILD, kdeaddons3/DEPENDS,
+	kdeadmin3/BUILD, kdeadmin3/DEPENDS, kdeartwork3/BUILD,
+	kdeartwork3/DEPENDS, kdebase3/BUILD, kdebase3/DEPENDS,
+	kdebindings3/BUILD, kdebindings3/DEPENDS, kdeedu3/BUILD,
+	kdeedu3/DEPENDS, kdegames3/BUILD, kdegames3/DEPENDS,
+	kdegraphics3/BUILD, kdegraphics3/DEPENDS, kdelibs3/BUILD,
+	kdelibs3/DEPENDS, kdelibs3/profile.d/kde3.rc, kdemultimedia3/BUILD,
+	kdemultimedia3/DEPENDS, kdenetwork3/BUILD, kdenetwork3/DEPENDS,
+	kdepim3/BUILD, kdepim3/DEPENDS, kdesdk3/BUILD, kdesdk3/DEPENDS,
+	kdetoys3/BUILD, kdetoys3/DEPENDS, kdeutils3/BUILD,
+	kdeutils3/DEPENDS, qt3/BUILD, qt3/DEPENDS, qt3/DETAILS,
+	qt3/POST_INSTALL, qt3/profile.d/qt3.rc: a second commit for the new
+	install scheme of kde.
+
 2004-02-26 11:49  florin
 
 	* video/alevt/DETAILS: bump version from 1.6.0 to 1.6.1.
@@ -2783,69 +2877,4 @@
 	* libs/ncurses/DETAILS: yet another non psafe <Striker> well
 	ncurses and groff dies with distcc <Striker> i've reproduced that
 	on 3 systems
-
-2004-01-27 18:57  florin
-
-	* security/shorewall/DETAILS: bump version from 1.4.6c to 1.4.9 at
-	the request of Richard Pyne. tested with gcc 3.3.2.
-
-2004-01-27 18:30  florin
-
-	* archive/unrar/DETAILS: bump version from 3.3.4 to 3.3.5.
-
-2004-01-27 16:04  cmak
-
-	* audio/: abcde/DETAILS, ardour/DETAILS, liblrdf/DETAILS,
-	qjackctl/DETAILS: Version bumping of some audio tools/apps. tested
-	of course!
-
-2004-01-27 14:04  ratler
-
-	* audio/alsa-driver/DETAILS: Stupid alsa-project updated source
-	because of typo so md5 missmatch, md5 should now be correct
-
-2004-01-27 12:45  sofar
-
-	* chat/gaim/DETAILS: nah du, du, du !!!
-
-2004-01-27 12:26  ratler
-
-	* utils/hotplug/: BUILD, DETAILS: Updated version and added agent
-	for uploading firmware to for example a WiFi card
-
-2004-01-27 11:51  nestu
-
-	* wifi/ipsec-tools/: BUILD, DEPENDS, DETAILS: Adding this module
-	for IPsec under 2.6+ kernels
-
-2004-01-27 11:21  moe
-
-	* chat/gaim/: BUILD, DETAILS: Security fix. Upgrading is highly
-	recommended!
-
-2004-01-27 11:00  nestu
-
-	* security/openvpn/: DEPENDS, DETAILS, POST_INSTALL: Moved from
-	net/ to security/
-
-2004-01-27 05:14  tchan
-
-	* filesys/ntfsprogs/POST_BUILD: Added this as a hack for modules
-	that use ntfsprogs library, like testdisk.
-
-2004-01-27 05:00  florin
-
-	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS,
-	alsa-utils/DETAILS: bump version from 1.0.1 to 1.0.2.
-
-2004-01-27 04:36  florin
-
-	* libs/libxml2/DETAILS: bump version from 2.6.4 to 2.6.5. bugfix
-	release.
-
-2004-01-27 03:05  tchan
-
-	* libs/xerces-c++/: BUILD, DEPENDS, DETAILS: Added this module at
-	bramble's request.  Compiled and tested with gcc-3.2.3, kernel
-	2.4.x headers.	It is NOT psafe.
 
