@@ -1,0 +1,30 @@
+           MODULE=dbmail
+         VERSION=2.0.2
+          SOURCE=$MODULE-$VERSION.tgz
+   SOURCE_URL=http://www.dbmail.org/download/
+     SOURCE_VFY=sha1:503a26b003694311c4017edc5e1c8e9f14d8bd6d
+        WEB_SITE=http://www.dbmail.org/
+         ENTERED=20050304
+         UPDATED=20050304
+           SHORT="DBMail enables email to be stored in and retrieved from a database."
+
+cat << EOF
+DBMail is a collection of programs that enables email to be
+stored in and retrieved from a database. 
+Why is it usefull?
+Well, for me it's usefull because a number of reasons. 
+- it enables me to create mailboxes without the need of system users.
+- mail is more effeciently stored and therefore it can
+  be inserted an retrieved much faster dan any regular system 
+  (DBMail is currently able to retrieve aprox. 250 mail messages per 
+  second)
+- it's more expandable. A database is much easier to access than
+  a flat file or a Maildir. We don't need to parse first.
+- In my case, i can easily link a mailbox to a certain client
+  which enables me to let the client maintaining his/her own mailboxes
+  without me needing to technically support it.
+- It's scalable. You can run the dbmail programs on different servers
+  talking to the same database(cluster).
+- It is more secure. There's no need to maintain system users or write 
+  to the filesystem. All this is done through the database.
+EOF
