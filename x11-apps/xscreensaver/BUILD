@@ -6,7 +6,7 @@
   # Enable locking abilities of xscreensaver
   OPTS="$OPTS --enable-locking"
 
-  default_build &&
+  default_build
 
   # KDE seems to enjoy having this symlink
   #if module_installed "kde3" ; then
