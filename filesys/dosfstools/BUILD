@@ -1,7 +1,6 @@
 (
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
 
   sedit "s/-O2 -fomit-frame-pointer/$CFLAGS/" Makefile &&
 
