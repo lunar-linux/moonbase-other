@@ -1,3 +1,144 @@
+2004-02-11 04:08  nhudson
+
+	* rebuild-gnome-unstable: 
+	From a suggesting of niki's I made a script that will rebuild your
+	Gnome installation and build it for the GNOME_UNSTABLE branch. 
+	Please test if you are running GNOME_UNSTABLE
+
+2004-02-11 04:08  nhudson
+
+	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
+	added on branch GNOME_UNSTABLE.
+
+2004-02-11 04:04  nhudson
+
+	* gnome2-apps/gnumeric2/DEPENDS: 
+	Fixing DEPENDS to fit the new gal21 module for GNOME_UNSTABLE
+
+2004-02-11 00:14  cmak
+
+	* audio/alsa-lib/POST_INSTALL: the commit sais it all...
+
+2004-02-10 23:43  tchan
+
+	* zbeta/: dillo-cvs/CONFLICTS, mutt-cvs/CONFLICTS: Forgot to add
+	the necessary CONFLICTS files for mutt-cvs and dillo-cvs.
+
+2004-02-10 23:41  tchan
+
+	* zbeta/: dillo-cvs/CONFIGURE, dillo-cvs/DEPENDS,
+	dillo-cvs/DETAILS, mutt-cvs/BUILD, mutt-cvs/DEPENDS,
+	mutt-cvs/DETAILS: Just for grins.  Added dillo-cvs and mutt-cvs to
+	the zbeta section.
+
+2004-02-10 22:04  nhudson
+
+	* audio/sound-juicer/DETAILS: 
+	Updating sound-juicer to new version 0.5.10.1
+
+2004-02-10 21:58  tchan
+
+	* web/dillo/: BUILD, DETAILS: Test for /etc/dillorc was incorrect
+	and the newer dillo installs over /etc/dillorc by default now.	No
+	need for a BUILD script since default_build is sufficient.
+
+2004-02-10 21:37  nestu
+
+	* web/dillo/DETAILS: Bump version, and fix urls
+
+2004-02-10 21:05  niki
+
+	* filesys/autofs/DETAILS: fixed the dl url
+
+2004-02-10 20:47  nhudson
+
+	* mail/evolution/: BUILD, DEPENDS: 
+	Finally getting evolution to build with nss3 support for ssl
+	connections, makeing mozill a hard dependancy for now
+
+2004-02-10 20:23  florin
+
+	* games/neverball/: BUILD, DEPENDS, DETAILS: this is a funny game
+	with a ball in an obstacle course.
+
+2004-02-10 20:18  nestu
+
+	* kernel/linux-beta/DETAILS: version bump
+
+2004-02-10 19:58  nhudson
+
+	* gnome2-apps/gok/DETAILS: 
+	Updating gok to new version 0.9.6
+
+2004-02-10 19:56  nhudson
+
+	* chat/gossip/DETAILS: 
+	Updating gossip to new version 0.7.2
+
+2004-02-10 19:55  nhudson
+
+	* gnome2-core/: at-spi/DETAILS, yelp/DETAILS: 
+	Updating gnome-mag, yelp and at-spi to new versions
+
+2004-02-10 19:48  florin
+
+	* graphics/blender/DETAILS: bump version from 2.31a 2.32
+
+2004-02-10 18:13  florin
+
+	* video/MPlayer/DETAILS: bump version for live to 2004.02.09.
+
+2004-02-10 18:03  florin
+
+	* kde3-apps/kbarcode/DETAILS: bump version from 1.6.1 to 1.6.2.
+
+2004-02-10 17:34  florin
+
+	* games/gl-117/DETAILS: fix the home site url.
+
+2004-02-10 16:53  florin
+
+	* games/gl-117/DETAILS: bump version from 1.1 to 1.2. tested by my
+	son :)
+
+2004-02-10 16:28  hardkrash
+
+	* x11/: NVIDIA/BUILD, NVIDIA26/BUILD: i thought the grouping would
+	have worked
+
+2004-02-10 15:53  florin
+
+	* x11/: NVIDIA26/BUILD, NVIDIA/BUILD: fix the compile of the
+	module.
+
+2004-02-10 15:48  moe
+
+	* shells/bash/DETAILS: Adding PSAFE=no as reported by Striker bash
+	won't work with distcc :)
+
+2004-02-10 15:34  nhudson
+
+	* mail/evolution/DETAILS: 
+	I have no clue why this wasnt updated earlier, anyway evolution is
+	updated to 1.5.4 and evolution-data-server to 0.0.7
+
+2004-02-10 12:47  sofar
+
+	* utils/pciutils/: BUILD, DETAILS: urr something going wrong here
+	with ssh... hmmm
+
+2004-02-10 12:37  sofar
+
+	* utils/pciutils/DETAILS: Todays goody: free fresh pci.ids for
+	everyone!
+
+2004-02-10 12:34  sofar
+
+	* utils/pciutils/: BUILD, DETAILS: update: install *current* pci
+	ids database instead of 2yr old one. Note this file is updated
+	daily, and once downloaded, you'll have to wipe the cache version
+	:^(.
+
 2004-02-10 09:23  sofar
 
 	* LICENSE: Updating this a bit .... :^o
@@ -1877,14 +2018,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-01-15 18:54  niki
-
 	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
 	the version, added a depends on hicolor-icon-theme, and moved it
 	out of /opt/lunar
+
+2004-01-15 18:54  niki
+
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:22  niki
 
@@ -2040,111 +2181,4 @@
 
 	* perl/XML-Twig/DEPENDS: extra depends on perl, XML-Praser already
 	depends om perl
-
-2004-01-11 16:36  ratler
-
-	* filesys/openafs/BUILD, filesys/openafs/DETAILS,
-	kernel/openafs-driver/DETAILS: Version bumped to 1.2.11, compiled
-	and tested OK. Old patch is still ok so dont mind the patch
-	version.
-
-2004-01-11 15:59  florin
-
-	* kde3-apps/kbarcode/: BUILD, DEPENDS, DETAILS: an KDE application
-	for printing barcodes on standard printers.
-
-2004-01-11 15:57  florin
-
-	* printer/pdf417_enc/: BUILD, DETAILS: an encoder for barcodes in
-	the pdf417 format.
-
-2004-01-11 11:39  cmak
-
-	* audio/qjackctl/: DEPENDS, DETAILS: adding qjackctl, a qt3 JACK
-	daemon controller
-
-2004-01-11 08:04  florin
-
-	* printer/barcode/DETAILS: barcode is an utility to generate
-	barcodes from ascii strings on conventional printers.
-
-2004-01-11 07:06  florin
-
-	* kde3-apps/konserve/: BUILD, DEPENDS, DETAILS: konserve is an
-	incremental backup utility for KDE.
-
-2004-01-11 05:58  tchan
-
-	* devel/flex/: BUILD, flex-2.5.4a-redhat-fixes.patch: I'm removing
-	this patch from moonbase, until its properly applied, i.e. in the
-	patches directory on dbguin AND until its explained why we need
-	this patch at all.
-
-2004-01-11 05:54  tchan
-
-	* filesys/: acl/DETAILS, attr/DETAILS, xfsdump/DETAILS: Updated the
-	rest of the xfs filesys utils as well.
-
-2004-01-11 05:27  nhudson
-
-	* gnome2-apps/conglomerate/DETAILS: 
-	Updating conglomerate to new version 0.7.10
-
-2004-01-11 05:23  nhudson
-
-	* gnome2-apps/: abiword/DETAILS, acme/DEPENDS, acme/DETAILS,
-	conglomerate/DETAILS, file-roller/DEPENDS, file-roller/DETAILS,
-	gcalctool/DEPENDS, gcalctool/DETAILS, ggv/DEPENDS, ggv/DETAILS,
-	gok/DETAILS, gpdf/DETAILS, gucharmap/DETAILS: 
-	Removing some modules I moved to gnome2-core and updating this
-	directory
-
-2004-01-11 05:05  nhudson
-
-	* gnome2-core/: gnome-panel/DETAILS, gnome-session/DETAILS,
-	gnome-system-monitor/DETAILS, gnome-terminal/DETAILS,
-	gnome-themes/DETAILS, gnome-utils2/DETAILS, gnome-vfs2/DETAILS,
-	libbonobo/DETAILS, libbonoboui/DETAILS, libglade2/DETAILS,
-	libgnome/DETAILS, libgnomecanvas/DETAILS, libgnomeprint/DETAILS,
-	libgnomeprintui/DETAILS, libgnomeui/DETAILS, libgtkhtml/DETAILS,
-	libgtop2/DETAILS, libwnck/DETAILS, nautilus/DETAILS,
-	nautilus-cd-burner/DETAILS, nautilus-media/DETAILS, yelp/DETAILS: 
-	Finishing up updates to GNOME_UNSTABLE in this directory
-
-2004-01-11 04:32  jmhodges
-
-	* chat/gaim/DETAILS: um.. yeah finally looked heh.. new version!
-	love me for taking sofar's spot
-
-2004-01-11 04:31  nhudson
-
-	* gnome2-core/: bug-buddy/DETAILS, control-center2/DETAILS,
-	eel/DETAILS, eog/DETAILS, gail/DETAILS, gconf-editor/DETAILS,
-	gdm/BUILD, gdm/DETAILS, gedit/DETAILS, gnome-applets2/DETAILS,
-	gnome-desktop/DETAILS, gnome-games2/DETAILS,
-	gnome-icon-theme/DETAILS, gnome-media2/DETAILS,
-	gnome-mime-data2/DETAILS: 
-	Updating things in GNOME_UNSTABLE adding in modules that make a
-	complete GNOME desktop
-
-2004-01-11 03:54  watryac04
-
-	* filesys/xfsprogs/DETAILS: Forgot to bump the UPDATED field.
-
-2004-01-11 03:06  nhudson
-
-	* gnome2-core/ORBit2/DETAILS: 
-	Updates to GNOME_UNSTABLE branch, one of these days I will have
-	this working correctly
-
-2004-01-11 02:26  watryac04
-
-	* filesys/xfsprogs/DETAILS: Updating version of xfsprogs, as the
-	old version isn't on sgi's site anymore, and it's not in the lunar
-	cache..  have test compiled the 2.6.2 version and made a filesystem
-	with it successfully.
-
-2004-01-11 00:04  jol
-
-	* devel/flex/: BUILD, flex-2.5.4a-redhat-fixes.patch: Add a patch
 
