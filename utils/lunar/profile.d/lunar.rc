@@ -1,0 +1,55 @@
+
+# Turn on extended globbing
+shopt -s extglob
+
+_lunar () 
+{
+	local cur prev
+	COMPREPLY=()
+	cur=${COMP_WORDS[COMP_CWORD]}
+	prev=${COMP_WORDS[COMP_CWORD-1]}
+
+	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
+		COMPREPLY=( $( compgen -W 'update rebuild' $cur ))
+	else
+		COMPREPLY=( $( compgen -f $cur ))
+	fi
+	return 0
+}
+complete -F _lunar lunar
+
+_lvu ()
+{
+	local cur prev
+	COMPREPLY=()
+	cur=${COMP_WORDS[COMP_CWORD]}
+	prev=${COMP_WORDS[COMP_CWORD-1]}
+
+	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
+		COMPREPLY=( $( compgen -W 'DETAILS DEPENDS CONFLICTS BUILD PRE_BUILD POST_BUILD CONFIGURE POST_INSTALL PRE_REMOVE POST_REMOVE what where cd alien from leafs orphans search service website install size installed compile compiler links sources maintainer version sum md5sum export import section moonbase html updatelog activity newer older prune voyeur pam depends tree eert' $cur ))
+	elif [ $COMP_CWORD -eq 2 -a $prev = "from" ]; then
+	        COMPREPLY=( $(compgen -f "$cur") )
+	elif [ $COMP_CWORD -eq 2 ]; then
+		COMPREPLY=( $( compgen -W "`cd /var/lib/lunar/moonbase ; echo */* | sed 's/[a-zA-Z0-9\-]*\///g'`" $cur ))
+	fi
+	return 0
+}
+complete -F _lvu lvu
+
+_modules ()
+{
+	local cur
+	cur=${COMP_WORDS[COMP_CWORD]}
+	COMPREPLY=( $( compgen -W "`cd /var/lib/lunar/moonbase ; echo */* | sed 's/[a-zA-Z0-9\-]*\///g'`" $cur ))
+}
+complete -F _modules lin lget
+
+_modules_installed ()
+{
+	local cur
+	cur=${COMP_WORDS[COMP_CWORD]}
+	COMPREPLY=( $( compgen -W "`lvu installed | cut -d : -f 1-1`" $cur ))
+}
+
+complete -F _modules_installed lrm
+
