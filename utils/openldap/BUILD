@@ -1,5 +1,5 @@
 (
-export CPPFLAGS="$CPPFLAGS -I /usr/include/db4"
+export CPPFLAGS="$CPPFLAGS -I/usr/include/db4"
 
   ./configure  --build=$BUILD            \
                --prefix=/usr             \
@@ -10,10 +10,11 @@ export CPPFLAGS="$CPPFLAGS -I /usr/include/db4"
                --enable-modules          \
                --enable-wrappers         \
                --enable-crypt            \
+               --enable-dynamic          \
                --with-gnu-ld             \
                --enable-shared           \
                $OPTS                    &&
   make depend                           &&
-  default_make
+  default_make  
   
 ) > $C_FIFO 2>&1
