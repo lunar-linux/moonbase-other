@@ -1,11 +1,26 @@
 (
+  #Patch stuff
+  patch_it $SOURCE_CACHE/$SOURCE3 1             # Via c3
+  patch_it $SOURCE_CACHE/$SOURCE4 1             # old static-bin segfault
+
+  # Allow users to do a little damage
+  if [[ "$CFLAGS" == *-fomit-frame-pointer* ]] ; then
+    $OPTS="$OPTS --enable-omitfp"
+  fi
+
+  # Don't allow too much damage
   unset CFLAGS CXXFLAGS CPPFLAGS
+
+  # Don't fully strip libc
+  if [[ "$LDFLAGS" == *-s* ]] ; then
+    STRIP=y
+  fi
+  unset LDFLAGS 
 
   INSTALL_ROOT=$SOURCE_DIRECTORY/glibcroot
 
   ./configure  --host=$BUILD                          \
                --build=$BUILD                         \
-               --enable-kernel=current \
                --enable-add-ons=linuxthreads          \
                --with-elf                             \
                --with-headers=/usr/src/linux/include  \
@@ -14,10 +29,14 @@
                --enable-shared                        \
                --infodir=/usr/share/info              \
                --mandir=/usr/share/man                \
-               --prefix=/usr                \
+               --prefix=/usr                          \
                $OPTS                                  &&
   make                                        &&
-  
+
+  if [ "$STRIP" == "y" ] ; then
+    find . -name "*.so" | xargs strip -S
+  fi                                          && 
+
   # Preserve the old glibc temporarily
   cp /lib/ld-linux.so.2 /lib/ld-lunar.so      &&
   cp /lib/libc.so.6 /lib/libc-lunar.so        &&

@@ -1,40 +1,43 @@
-add_status()  {
-
-  while  [  -n  "$1"  ];  do
-    echo  "$1"
-    echo  "$2"
-    echo  "off"
-    shift 2
-  done
-
-}
-
-
 make_locales_checklist()  {
-
-  add_status  `cat  $SCRIPT_DIRECTORY/locales`
-
+  cat  $SCRIPT_DIRECTORY/locales |
+  while read -r ONE REST ; do
+    echo -n "\"$ONE\" \"$REST\" \"off\" "
+  done 
 }
 
+#make_abi_checklist()  {
+#  cat  $SCRIPT_DIRECTORY/abi |
+#  while read -r ONE REST ; do
+#    echo -n "\"$ONE\" \"$REST\" "
+#  done
+#}
 
 select_locales()  {
-
   BACKTITLE="Glibc Configuration"
       TITLE="Locale Selection"
-       HELP="Translated messages are automatically installed, 
-but the locale database that controls other behavior is not.  
-Please select desired locale or locales.
-If none are selected then all will be installed."
+       HELP="Translated messages are automatically installed, but the locale database that controls other behavior is not.  Please select desired locale or locales.  If none are selected then all will be installed."
 
+  make_locales_checklist | xargs \
   dialog  --backtitle  "$BACKTITLE"  \
           --title      "$TITLE"      \
           --stdout                   \
           --separate-output          \
           --checklist  "$HELP"       \
-          0 0 0                      \
-         `make_locales_checklist`
-
+          0 0 0
 }
+
+#select_abi() {
+#   BACKTITLE="Glibc Configuration"
+#       TITLE="ABI Selection"
+#        HELP="Select the last ABI you want to be compatible with."
+#
+#  make_abi_checklist | xargs \
+#  dialog  --backtitle  "$BACKTITLE"  \
+#          --title      "$TITLE"      \
+#          --stdout                   \
+#          --menu  "$HELP"            \
+#          0 0 0
+#}
 
 #check to see if already configured
 if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
@@ -43,24 +46,24 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
       then  message  "Selecting locales is optional"
    fi
 
-   if  query  "Would you like to select locales? (if not selected, all locales will be installed)" n
-      then
-         OLD_IFS=$IFS
-         export  IFS="	
-"
-         GLIBC_LOCALES=`select_locales`
-         TEMP=`grep  -v  "GLIBC_LOCALES="             $MODULE_CONFIG`
-         echo  "$TEMP"                             >  $MODULE_CONFIG
-         echo  "GLIBC_LOCALES=\"$GLIBC_LOCALES\""  >> $MODULE_CONFIG
-         export  IFS=$OLD_IFS
+   if  query  "Would you like to select locales? (if not selected, all locales will be installed)" n ; then
+     GLIBC_LOCALES=`select_locales`
+     TEMP=`grep  -v  "GLIBC_LOCALES="             $MODULE_CONFIG`
+     echo  "$TEMP"                             >  $MODULE_CONFIG
+     echo  "GLIBC_LOCALES=\"$GLIBC_LOCALES\""  >> $MODULE_CONFIG
    fi
+
+#   GLIBC_ABI=2.0
+#   if  query  "Would you like to select the oldest glibc ABI to be supported (Default 2.0)?" n ; then
+#     GLIBC_ABI=`select_abi`
+#   fi
+#   OPTS="$OPTS --enable-oldest-abi=$GLIBC_ABI"
 
    if  query  "Would you like to disable building of profiling libs?" y
    then
-      echo  'OPTS="$OPTS --disable-profile"'  >>  $MODULE_CONFIG
+     OPTS="$OPTS --disable-profile"
    fi
 
-   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-
+   echo "OPTS=\"\$OPTS $OPTS\""                >> $MODULE_CONFIG
+   echo "CONFIGURED=y"                         >> $MODULE_CONFIG
 fi
-

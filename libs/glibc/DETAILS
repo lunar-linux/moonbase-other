@@ -2,14 +2,19 @@
          VERSION=2.3.1
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=glibc-linuxthreads-$VERSION.tar.gz
+         SOURCE3=glibc-2.3.1-cmove.patch
+         SOURCE4=glibc-2.3.1-ctype-compat.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$GNU_URL/$MODULE/$SOURCE
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE
   SOURCE2_URL[0]=$GNU_URL/$MODULE/$SOURCE2
   SOURCE2_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE2
+  SOURCE3_URL[0]=$PATCH_URL/$SOURCE3
+  SOURCE4_URL[0]=$PATCH_URL/$SOURCE4
         WEB_SITE=http://www.gnu.org/software/libc
+      MAINTAINER=dem@lunar-linux.org
          ENTERED=20010922
-         UPDATED=20021023
+         UPDATED=20030119
            PSAFE=no
            SHORT="glibc is a C library for use with GNU/Hurd and GNU/Linux."
 cat << EOF
