@@ -1,3 +1,66 @@
+2003-05-26 05:11  nhudson
+
+	* zbeta/galeon_cvs/: BUILD, galeon: 
+	Blah same as below
+
+2003-05-26 05:06  nhudson
+
+	* web/galeon2/: BUILD, galeon: 
+	Adding this script for galeon so that it uses mozillas plugins
+
+2003-05-26 04:57  nhudson
+
+	* web/epiphany/: BUILD, epiphany: 
+	Adding this script to start epiphany so that it will use the
+	mozilla plugins.
+
+2003-05-26 04:39  nhudson
+
+	* gnome2-apps/mozilla-bonobo/DETAILS: 
+	Fixing download location and website
+
+2003-05-26 04:26  nhudson
+
+	* gnome2-apps/battfink/DETAILS: 
+	Updating battfink to new version 0.5
+
+2003-05-26 03:56  nhudson
+
+	* gnome2-apps/acme/DETAILS: 
+	Updating acme to new version 2.0.4
+
+2003-05-26 03:52  nhudson
+
+	* doc-tools/: docbook-dsssl/DETAILS, docbook-dsssl/POST_INSTALL,
+	docbook-dsssl/PRE_REMOVE, docbook-dsssl-doc/DETAILS,
+	docbook-dsssl-doc/POST_REMOVE: 
+	Updating docbook-dsssl and docbook-dsssl-doc to new versions 1.78
+	and making sure they update the catalog correctly
+
+2003-05-26 03:23  nhudson
+
+	* gnome2-core/: gail/BUILD, gail/DETAILS, gtk-doc/DEPENDS,
+	gtk-doc/DETAILS: 
+	Ok sorry for the forcing of more updates but this might fix some
+	problems some people are having with gail.  Now finally I think we
+	are able to build Gnome Documentation correctly.  I added
+	docbook-profile to gtk-docs DEPENDS file, I also took out
+	--disable-gtk-doc in gail which for some stupid reason causes it to
+	bork, now it builds with full documentation.
+
+2003-05-26 03:19  nhudson
+
+	* doc-tools/: docbook-xsl/BUILD, docbook-xsl/DETAILS, slides/BUILD,
+	slides/DETAILS, slides/POST_INSTALL: 
+	Ok making some changes to these two modules.  For one now the
+	docbook catalog rebuild script is now in /usr/sbin so that you can
+	use it as you wish.  Also I fixed a typo to slides I made
+	yesterday, I had to registering with the xml catalog and it should
+	only be the sgml catalog.  I have tried the best I could to remove
+	the entry to the xml catalog, if it gets borked just use
+	/usr/sbin/rebuild-docbook-catalog and it will fix all your
+	problems.
+
 2003-05-25 22:59  nhudson
 
 	* libs/Hermes/: BUILD, CONFLICTS, DETAILS: 
@@ -1211,62 +1274,4 @@
 
 	* chat/irssi/: BUILD, DETAILS: Bumped version, and re-added perl
 	support.
-
-2003-04-25 22:33  sofar
-
-	* mail/pine/: BUILD, DETAILS: New version
-
-2003-04-25 20:54  sofar
-
-	* compilers/gcc/: BUILD, DETAILS: there is time to play and time to
-	enjoy watching your PC compile. This is quite a seamless upgrade,
-	the easiest available I'd say. enjoy the weekend!
-
-2003-04-25 19:18  sofar
-
-	* devel/automake/BUILD, devel/automake/DETAILS,
-	libs/libtool/DETAILS: No big updates, seem solid. also tested with
-	gcc-3.2.3 already
-
-2003-04-25 19:16  sofar
-
-	* security/nmap/DETAILS: New version
-
-2003-04-25 16:57  florin
-
-	* security/sudo/DETAILS: bumped to the latest version.
-
-2003-04-25 16:46  florin
-
-	* utils/metalog/DETAILS: bumped version. great stuff.
-
-2003-04-25 12:22  nhudson
-
-	* libs/libxml2/DETAILS: 
-	Updating libxml2 to new version 2.5.7
-
-2003-04-25 11:03  sofar
-
-	* utils/lsof/BUILD: hide this...
-
-2003-04-25 02:57  nhudson
-
-	* x11/xfree86/: POST_INSTALL, PRE_BUILD: 
-	Fixing the xfree86 module so that it will compile fontconfig after
-	it installs.  You want to install the new fontconfig because it
-	fixes bugs that was in the fontconfig from the Xfree Team.
-
-2003-04-25 02:51  nhudson
-
-	* x11-apps/bitstream-vera/BUILD: 
-	Fixing the BUILD script so that it will install the local.conf file
-	to the correct location
-
-2003-04-25 02:48  nhudson
-
-	* x11-utils/fontconfig/: BUILD, DEPENDS, DETAILS, POST_INSTALL: 
-	Adding back in fontconfig, this is a update of what comes with the
-	xfree86 module and will find and adding fonts when you compile it. 
-	It will automaticly set up the /etc/fonts/fonts.conf file for you
-	when you compile fontconfig.
 
