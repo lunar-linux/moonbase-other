@@ -51,8 +51,10 @@
     for plugin in `ls /usr/lib/firefox-$VERSION/plugins`; do
 	 `install -m755 /usr/lib/firefox-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
     
-    # Now the .desktop files
-    mkdir -p /usr/share/applications	&&
+    # Now the .desktop file and the icon
+    install -d /usr/share/applications /usr/share/pixmaps &&
     install -m644 $SCRIPT_DIRECTORY/firefox.desktop /usr/share/applications
+    install -m644 $MOZILLA_HOME/icons/default.xpm \
+		  /usr/share/pixmaps/firefox.xpm
 
 ) > $C_FIFO 2>&1

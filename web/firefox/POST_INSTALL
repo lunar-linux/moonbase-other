@@ -21,5 +21,7 @@ ln -sf /usr/lib/j2sdk${J2SDK_VER}/jre/plugin/i386/mozilla/libjavaplugin_oji.so \
 	$FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins/libjavaplugin_oji.so 
 fi
 
-mkdir -p /usr/share/pixmaps
-ln -sf $FIREFOX_HOME/lib/$FFOX_LIBDIR/icons/default.xpm /usr/share/pixmaps/firefox.xpm
+# Replace the default icon
+rm -f $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default.xpm
+ln -sf $FIREFOX_HOME/lib/$FFOX_LIBDIR/icons/default.xpm \
+	$FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default/default.xpm
