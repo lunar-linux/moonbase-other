@@ -1,3 +1,71 @@
+2005-02-17 10:51  moe
+
+	* profiles/docbook-profile/DEPENDS: We need those here
+
+2005-02-17 10:50  moe
+
+	* doc-tools/: docbook-4.1/BUILD, docbook-4.1/DEPENDS,
+	  docbook-4.1/DETAILS, docbook-4.1/POST_INSTALL,
+	  docbook-4.1/POST_REMOVE, docbook-4.1/PRE_BUILD,
+	  docbook-4.1/PRE_REMOVE, docbook-4.2/BUILD, docbook-4.2/DEPENDS,
+	  docbook-4.2/DETAILS, docbook-4.2/POST_INSTALL,
+	  docbook-4.2/POST_REMOVE, docbook-4.2/PRE_BUILD,
+	  docbook-4.2/PRE_REMOVE, docbook-sgml/POST_INSTALL: I'm adding
+	  those back for now. They are necessary for some modules (i.e.
+	  gdk-pixbuf) to build their documentation. I'm going to chat with
+	  the LFS guys about the 4.3 replacement though .. this is not over
+	  yet
+
+2005-02-17 08:45  moe
+
+	* doc-tools/docbook-sgml/POST_INSTALL: Didn't hurt. Still, isn't
+	  needed at all.
+
+2005-02-17 00:33  moe
+
+	* x11/XOrg/DETAILS: Fixalicious!
+
+	  I wonder why nobody spotted this one before. Anyway ..  Put in
+	  some new urlZ .. we all know, sofar doesn't like ftp://
+
+2005-02-17 00:27  moe
+
+	* x11-utils/fontconfig/DETAILS: fontconfig-2.2.9x -> BETA
+
+	  Do not use fontconfig beta releases. It makes me a very sad
+	  panda.  Confirmed to work with the latest XOrg and gcc 3.3.3,
+	  2.6.x
+
+2005-02-16 23:43  watryac04
+
+	* kernel/mwavem/DETAILS: New version of mwavem that actually builds
+	  in 2.6.x kernels
+
+2005-02-16 20:26  florin
+
+	* sql/mysql/DETAILS: bump the version from 4.1.9 to 4.1.10.
+
+2005-02-16 20:14  florin
+
+	* libs/libusb/DETAILS: bump the version from 0.1.9 to 0.1.10a.
+
+2005-02-16 19:41  jol
+
+	* libs/esdl/DETAILS: Bumped version to 0.94.1025
+
+2005-02-16 19:40  jol
+
+	* libs/erlang/DETAILS: - Bumped version to R9C-2 - maybe we should
+	  move erlang to compilers
+
+2005-02-16 15:30  moe
+
+	* doc-tools/scrollkeeper/POST_INSTALL: We don't need it anymore
+	  because I'm smarter than any other living being in the universe
+
+	  Or it might just be the order I'm recompiling the modules with is
+	  just saner?
+
 2005-02-16 11:54  moe
 
 	* libs/gettext/DEPENDS: Fixing loops. If those are there .. you
@@ -28,7 +96,10 @@
 
 2005-02-16 02:19  moe
 
-	* doc-tools/: docbook-3.1/POST_INSTALL, docbook-dsssl/BUILD,
+	* doc-tools/: docbook-3.1/POST_INSTALL, docbook-4.1/BUILD,
+	  docbook-4.1/DEPENDS, docbook-4.1/DETAILS,
+	  docbook-4.1/POST_INSTALL, docbook-4.1/PRE_BUILD,
+	  docbook-4.1/PRE_REMOVE, docbook-dsssl/BUILD,
 	  docbook-dsssl/Makefile, docbook-dsssl/POST_INSTALL,
 	  docbook-dsssl/PRE_REMOVE, docbook-sgml/BUILD,
 	  docbook-sgml/DETAILS, docbook-sgml/POST_INSTALL,
@@ -1716,39 +1787,4 @@
 
 	* utils/dialog/DETAILS: bump the version from 1.0-20041222 to
 	  1.0-20050116.
-
-2005-01-17 21:06  moe
-
-	* audio/amarok/DETAILS: meh. Must have been out of my mind :-(
-
-2005-01-17 20:40  florin
-
-	* games/luola/DETAILS: bump the version from 1.2.5 to 1.2.6.
-
-2005-01-17 20:28  florin
-
-	* graphics/plib/DETAILS: bump the version from 1.8.3 to 1.8.4.
-
-2005-01-17 19:01  tchan
-
-	* gnome2-apps/gnumeric2/DETAILS: Verson bump to gnumeric-1.4.2.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-01-17 09:01  ratler
-
-	* net/net-tools/init.d/network: Little bug. If power is lost to a
-	  machine configured for dhcp it is possible that another process
-	  already took the PID number that was left in the pidfile. This
-	  check will also check for processname along with the pid
-
-2005-01-17 01:50  v3rt1g0
-
-	* libs/lcms/: BUILD, DEPENDS, DETAILS: Version bump.  All of the
-	  depends were actually optional.  Added optional depends on
-	  Python.  Also the BUILD script simplified a bit.
-
-2005-01-17 00:21  nestu
-
-	* net/iproute2/DETAILS: Adding sha sums, and some cosmetics.
 
