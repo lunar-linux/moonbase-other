@@ -1,0 +1,27 @@
+          MODULE=linux-2.6-ck
+  KERNEL_VERSION=2.6.9
+      CK_VERSION=ck2
+         VERSION=${KERNEL_VERSION}-${CK_VERSION}
+          SOURCE=linux-${KERNEL_VERSION}.tar.bz2
+	 SOURCE2=patch-${VERSION}.bz2 
+   SOURCE_URL[0]=${KERNEL_URL}/pub/linux/kernel/v2.6/${SOURCE}
+   SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/${SOURCE}
+     SOURCE2_URL=http://ck.kolivas.org/patches/2.6/${KERNEL_VERSION}/${KERNEL_VERSION}-${CK_VERSION}/${SOURCE2}
+	SOURCE_VFY=sha1:dd8f8b0c43b83339a42246d322cb48c6f2323236
+	SOURCE2_VFY=sha1:64f3621c5351c556ec7a5dfab1197d1802bee485	
+	WEB_SITE=http://www.kernel.org
+         ENTERED=20041228
+         UPDATED=20040705
+     KEEP_SOURCE="on"
+           SHORT="2.6 kernel with Con Kolvias patches with emphasis on the desktop.."
+cat << EOF
+2.6 kernel with Con Kolvias patches to improve system responsiveness.
+
+Linux is a clone of the Unix kernel, written from scratch by Linus
+Torvalds with assistance from a loosely-knit team of hackers across the
+Net. It aims towards POSIX and Single UNIX Specification compliance. It
+has all the features you would expect in a modern fully-fledged Unix
+kernel, including true multitasking, virtual memory, shared libraries,
+demand loading, shared copy-on-write executables, proper memory
+management, and TCP/IP networking.
+EOF
