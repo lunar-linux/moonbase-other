@@ -1,9 +1,10 @@
 (
   sedit "s/top.desktop//" Makefile    &&
+  sedit "s/\/usr\/bin/\/bin/g" Makefile &&
   make CFLAGS="$CFLAGS"                             &&
 
   prepare_install                     &&
-  make  -e XSCPT='' PROCDIR=/bin USRBINDIR=/bin DESTDIR=/ MANDIR=/usr/share/man install
+  make  -e XSCPT='' DESTDIR=/ install
 
   [ -s "/etc/sysctl.conf" ] || install -g 0 -o 0 -m 0600 $SCRIPT_DIRECTORY/sysctl.conf /etc
 
