@@ -1,5 +1,5 @@
-optional_depends "gnutls" "--with-ssl=gnutls" "--with-ssl=openssl" \
-                 "For alternative SSL/TLS support" &&
+depends openssl &&
+
 optional_depends "postgresql" "--with-pgsql" "--without-pgsql" \
                  "For Postgresql support" &&
 optional_depends "mysql" "--with-mysql" "--without-mysql" \
