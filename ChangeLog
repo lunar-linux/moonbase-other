@@ -1,3 +1,71 @@
+2004-09-08 10:04  nestu
+
+	* compilers/gcc/3.4.2/: BUILD, CONFIGURE, DETAILS, POST_INSTALL,
+	  POST_REMOVE, PRE_BUILD: Inicial import
+
+2004-09-08 09:12  nestu
+
+	* shells/bash_static/BUILD: Add the --without-bash-malloc so it
+	  doesn't collide with glibc's and break compile
+
+2004-09-08 07:47  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.9-rc1-mm3 ->
+	  2.6.9-rc1-mm4.  gcc 3.3.3, glibc 2.3.2, headers 2.6.8.1
+
+2004-09-08 02:56  nhudson
+
+	* gnome2-core/nautilus/DETAILS:
+	  Taking out the patches I put in earler
+
+2004-09-08 01:00  tchan
+
+	* utils/parted/DETAILS: Added the md5 back again.  We are NOT
+	  switching over to sha1 only moonbase yet.  Stop removing the
+	  md5sums from modules.  Feel free to add sha1sums.
+
+2004-09-07 23:06  v3rt1g0
+
+	* games/fortune/: DETAILS, profile.d/fortune-completion.rc: Added a
+	  tab completion file i just whipped together.
+
+2004-09-07 21:54  v3rt1g0
+
+	* games/fortune-xfiles/: BUILD, DEPENDS, DETAILS: Adding some extra
+	  fortune cookies for fortune. These are quotes from the TV show
+	  "X-Files."
+
+2004-09-07 21:50  nhudson
+
+	* gnome2-core/nautilus/: DEPENDS, DETAILS, POST_INSTALL:
+	  Adding a few patches so that nautilus will use gstreamer for
+	  audio and adding a cell render fix for version 2.7.92.  Also
+	  added a POST_INSTALL telling you how to get rid of spacial if you
+	  do not like it.
+
+2004-09-07 20:58  jmhodges
+
+	* gnome2-apps/: gok/DETAILS, gpdf/DETAILS: cleaning up stupid
+	  things
+
+2004-09-07 20:54  jmhodges
+
+	* gnome2-apps/: gok/BUILD, gok/DEPENDS, gok/DETAILS, gpdf/DETAILS:
+	  version bumping and adding gok
+
+2004-09-07 19:04  watryac04
+
+	* libs/fuse-python/DETAILS: minor change to long description
+
+2004-09-07 19:02  watryac04
+
+	* libs/fuse-python/: BUILD, DEPENDS, DETAILS: fuse-python provides
+	  python 2.3.1+ bindings for FUSE (Filesystem in User-space).
+
+2004-09-07 16:14  sofar
+
+	* x11-utils/hot-babe/DETAILS: not at work
+
 2004-09-07 08:51  perldude
 
 	* gnome2-core/librsvg/DETAILS: fixed source url
@@ -2058,66 +2126,4 @@
 2004-08-09 03:10  tchan
 
 	* x11-apps/dia/DETAILS: Fixed the homepage URL.
-
-2004-08-08 23:15  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.8rc2mm2 ->
-	  2.6.8rc3mm2. gcc 3.3.3, glibc 2.3.2, headers 2.6.7.0 No
-	  2.6.8rc3mm1 update in between due to compile problems.
-
-2004-08-08 21:14  tchan
-
-	* mail/gmime/: DETAILS, PRE_BUILD: Added a patch to preven gmime
-	  sigs from appearing as another attachment.  Compiled and tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.  Patch is from
-	  the balsa devs and is recommended by them.  gmime is currently
-	  only used in balsa, at least in the moonbase....
-
-2004-08-08 21:04  tchan
-
-	* mail/balsa/DETAILS: Version bump to 2.2.2.  Compiled and tested
-	  with gcc-3.3.3, glibc-2.3,3, kernel headers 2.4.x.
-
-2004-08-08 20:09  jol
-
-	* compilers/ocaml/BUILD: make a fix around the head command. In
-	  fact, sine the coreutils update the head has changed some line
-	  arguments. the head -1 is now obsolete.  You should use head -n
-	  1.
-
-2004-08-08 17:55  tchan
-
-	* x11-apps/mupo/POST_INSTALL: Added a POST_INSTALL to correct the
-	  directory permissions of /usr/share/doc/mupo/odcumentation.
-	  Permissions were 700, should be 755.
-
-2004-08-08 17:40  tchan
-
-	* chat/gaim/PRE_BUILD: Cleaned up the left over code from
-	  gaim-blogger in PRE_BUILD.
-
-2004-08-08 17:36  tchan
-
-	* chat/gaim/: BUILD, DETAILS: Cleaned up the commented out lines in
-	  BUILD and DETAILS.
-
-2004-08-08 17:13  tchan
-
-	* web/mozilla/DETAILS: Version bump to 1.7.2.  Moz-devs have
-	  FINALLY uploaded a corrected source tarball.	Compiled with
-	  gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-08-08 17:04  perldude
-
-	* perl/: Digest-SHA1/DETAILS, HTML-Parser/DETAILS,
-	  MIME-Base64/DETAILS, Net-DNS/DETAILS, Test-Simple/DETAILS,
-	  URI/DETAILS, libwww-perl/DETAILS: bumped several perl modules:
-
-	  libwww-perl => 5.800 URI => 1.31 MIME-Base64 => 3.01 HTML-Parser
-	  => 3.36 Digest-SHA1 => 2.10 Test-Simple => 0.47 Net-DNS => 0.47
-
-2004-08-08 03:02  tchan
-
-	* libs/libtool/DETAILS: Version bump to 1.5.8. Compiled and tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.  Bug fixes.
 
