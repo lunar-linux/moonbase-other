@@ -5,7 +5,7 @@
    if ! module_installed gtk+; then
        sedit "s,\$(GSSOC) \$(GSSOX),\$(GSSOC)," src/unix-dll.mak
        sedit "s,\$(INSTALL_PROGRAM) \$(GSSOX) \$(bindir)/\$(GSSOX_XENAME),," src/unix-dll.mak
-   fi;
+   fi &&
    default_config &&
    make so &&
    prepare_install &&
