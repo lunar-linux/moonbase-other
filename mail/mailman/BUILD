@@ -6,8 +6,6 @@
   chown mailman.mailman /var/mailman 2>/dev/null
   chmod 02775 /var/mailman           2>/dev/null
 
-  MAIL_GID=$(id -g nobody)
-
   ./configure --prefix=/var/mailman            \
               --with-var-prefix=/var/mailman   \
 	      --with-username=mailman          \
