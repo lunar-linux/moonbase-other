@@ -1,0 +1,40 @@
+set -x
+
+cd /usr/src
+
+SOURCE_DIR_NAME=linux-${KERNEL_VERSION}-grsec-${GRSEC_VERSION}
+
+if [ ! -d ${SOURCE_DIR_NAME} ]; then
+    
+    rm  -rf  linux-${KERNEL_VERSION}    
+    rm  -rf  linux						
+    
+    unpack  $SOURCE 
+    
+    # let's make our source dir have a unique name
+
+    mv linux-${KERNEL_VERSION} ${SOURCE_DIR_NAME} &&    
+    ln  -s   ${SOURCE_DIR_NAME}  linux             &&
+    
+    cd  linux/ &&
+
+    patch_it  ${SOURCE2}  1 &&
+    
+    for config in .config-2.6-grsec .config.beta 
+    do
+      if [ -f ${CONFIG_CACHE}/${config} ]; then
+    	  cp $CONFIG_CACHE/${config} /usr/src/linux/.config 
+	  break
+      fi	
+    done
+    
+else
+    
+    message "Sources found: /usr/src/${SOURCE_DIR_NAME}" 
+    
+    if [ "`readlink linux`" != "${SOURCE_DIR_NAME}" ]; then
+		rm -rf linux
+		ln -s ${SOURCE_DIR_NAME} linux
+    fi
+    
+fi

@@ -1,0 +1,35 @@
+          MODULE=linux-2.6-grsec
+  KERNEL_VERSION=2.6.7
+   GRSEC_VERSION=2.0.1
+         VERSION=${KERNEL_VERSION}-${GRSEC_VERSION}	  
+          SOURCE=linux-${KERNEL_VERSION}.tar.bz2
+         SOURCE2=grsecurity-${GRSEC_VERSION}-${KERNEL_VERSION}.patch
+SOURCE_DIRECTORY=linux-${KERNEL_VERSION}-grsec-${GRSEC_VERSION} 
+   SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6/
+   SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
+     SOURCE2_URL=http://www.grsecurity.org/
+      SOURCE_VFY=sha1:a030a9c6dcd10c5d90a86f915ad4710084cbca71
+     SOURCE2_VFY=sha1:caa94787653362783849a4424d3e24430acf29ab
+    	WEB_SITE=http://www.kernel.org
+         ENTERED=20041012
+         UPDATED=20041012
+     KEEP_SOURCE="on"
+           SHORT="The Linux kernel with the latest grsecurity patch"
+cat << EOF
+grsecurity is an innovative approach to security utilizing a multi-layered 
+detection, prevention, and containment model. It is licensed under the GPL.
+
+It offers among many other features:
+  * An intelligent and robust Role-Based Access Control (RBAC) system that can 
+    generate least privilege policies for your entire system with no 
+    configuration
+  * Change root (chroot) hardening
+  * /tmp race prevention
+  * Extensive auditing
+  * Prevention of entire classes of exploits related to address space bugs 
+    (from the PaX project)
+  * Additional randomness in the TCP/IP stack
+  * A restriction that allows a user to only view his/her processes
+  * Every security alert or audit contains the IP address of the person that 
+    caused the event
+EOF
