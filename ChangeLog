@@ -1,3 +1,79 @@
+2004-05-14 09:16  sofar
+
+	* filesys/reiserfsprogs/DETAILS: Update. they must have goofed
+	something up in .14
+
+2004-05-14 09:02  niki
+
+	* utils/mdadm/DETAILS: Bumped version to 1.5.0, and tested on my
+	raid arrys.
+
+2004-05-14 07:34  ratler
+
+	* printer/lprng/: BUILD, CONFLICTS, DETAILS, POST_INSTALL,
+	init.d/lpd: Version bump and some tuning on the installation part
+
+2004-05-14 07:25  sofar
+
+	* kde3/qt3/DETAILS: Adding a http mirror cos trolltech's ftp is a
+	piece of [insert favorite excrement here]. Also, there can only be
+	one maintainer for a module (sorry ;^))
+
+2004-05-14 02:30  nhudson
+
+	* gnome2-core/: gnome-applets2/DETAILS, gnome-media2/DETAILS: 
+	Updating gnome-applets2 to new version 2.6.1 and gnome-media to
+	2.6.2
+
+2004-05-13 21:57  ratler
+
+	* games/showeq/: BUILD, DEPENDS, DETAILS: Initial import of showeq,
+	enjoy all EQ gamers
+
+2004-05-13 20:25  sofar
+
+	* x11/XOrg/CONFIGURE: The trident driver DOES NOT EXIST (at least
+	this has broken 2 compiles ;^))
+
+2004-05-13 20:13  sofar
+
+	* utils/acpi/DETAILS: merde
+
+2004-05-13 19:20  florin
+
+	* kde3-utils/ksambaplugin/: BUILD, DEPENDS, DETAILS: a Samba
+	configuration frontend for KDE.
+
+2004-05-13 17:48  watryac04
+
+	* perl/mod_perl/DETAILS: mod_perl people seem to have updated
+	source file, ans since we use mod_perl-current.tar.blah, we've
+	gotta update the module or the mod_perl source is unusable.
+
+2004-05-13 16:52  florin
+
+	* doc-tools/groff/DETAILS: bump the version from 1.19 to 1.19.1.
+
+2004-05-13 16:04  sofar
+
+	* utils/acpi/DETAILS: Thanks to Alex Hunsaker (badalex)
+
+2004-05-13 14:38  sofar
+
+	* utils/lilo/DETAILS: M00
+
+2004-05-13 14:25  sofar
+
+	* utils/lilo/DETAILS: pfff, finally back where I was
+
+2004-05-13 14:04  florin
+
+	* devel/mod_ruby/DETAILS: bump the version from 1.1.2 to 1.2.0.
+
+2004-05-13 13:20  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.6mm1 -> 2.6.6mm2
+
 2004-05-13 09:32  ratler
 
 	* utils/discover/BUILD: &&
@@ -2325,101 +2401,4 @@
 	* audio/sound-juicer/: BUILD, DETAILS: 
 	Updating sound-juicer to new version 0.5.11, removing patch to make
 	it build with gstreamer 0.8
-
-2004-04-13 23:55  nhudson
-
-	* gnome2-applets/contact-lookup-applet/: BUILD, DEPENDS, DETAILS: 
-	Adding contact lookup applet to moonbase.  This uses the
-	functionallity of evolution-data-server as a backend to lookup
-	contacts in your evo contact list
-
-2004-04-13 19:40  striker
-
-	* gnome2-core/gdm/BUILD: trailing escaped space (not escaped
-	newline) killing configure
-
-2004-04-13 16:11  moe
-
-	* net/pptp/: BUILD, DETAILS: Updating pptp tp 1.4.0. Cleaning up
-	the BUILD file too.  Works with 2.6.4, gcc 3.3.3
-
-2004-04-13 16:00  nhudson
-
-	* devel/glibmm/: BUILD, DEPENDS: 
-	Fixing DEPENDS as it should have had doxygen in it
-
-2004-04-13 15:51  nhudson
-
-	* doc-tools/openjade/POST_INSTALL: 
-	Adding this to as it was a older version also
-
-2004-04-13 15:47  nhudson
-
-	* doc-tools/openjade/POST_INSTALL: 
-	Checking in some changes to the POST_INSTALL as tchan had a problem
-	due to left over old openjade installs in his /etc/sgml/catalog
-	file.  From now on we will have to just remove these if they are
-	present when we upgrade
-
-2004-04-13 15:37  nhudson
-
-	* doc-tools/docbook-xsl/rebuild-docbook-catalog: 
-	Changing email address for myself and adding another echo to the
-	build for fun.
-
-2004-04-13 13:42  nhudson
-
-	* profiles/docbook-profile/DEPENDS: 
-	I dont know why I never added this before
-
-2004-04-13 13:25  nhudson
-
-	* libs/libxml++/DEPENDS: 
-	Forgot to add the new depends on gtkmm2
-
-2004-04-13 13:24  nhudson
-
-	* libs/libxml++/DETAILS: 
-	Updating libxml++ to new version 2.6.0, now depends on gtkmm2
-
-2004-04-13 04:44  nhudson
-
-	* gnome2-core/gtkmm2/DEPENDS: 
-	Forgot to add dependancy for glibmm now to gtkmm2
-
-2004-04-13 04:44  nhudson
-
-	* gnome2-apps/regexxer/DETAILS: 
-	Changing md5sum of regexxer, as the devs changed the source with
-	out changing the version.  Also forcing a update after I updated
-	all the c++ bindings it now needs to compile
-
-2004-04-13 04:42  nhudson
-
-	* gnome2-core/gtkmm2/DETAILS: 
-	Updating gtkmm2 to new version 2.4.0
-
-2004-04-13 04:40  nhudson
-
-	* devel/: gconfmm/DETAILS, glibmm/BUILD, glibmm/DEPENDS,
-	glibmm/DETAILS, gnome-vfsmm/DETAILS, libglademm/DETAILS,
-	libgnomecanvasmm/DETAILS, libgnomemm/DETAILS, libgnomeuimm/DETAILS:
-	
-	Updating Gnome 2.6.0 Desktop C++ Bindings to surrent versions
-
-2004-04-13 04:32  nhudson
-
-	* libs/libsigc++2/DETAILS: 
-	Updating libsigc++2 to new version 2.0.0
-
-2004-04-13 04:22  florin
-
-	* video/avifile/BUILD: fix the BUILD file as proposed in the ML. it
-	works well on my system.
-
-2004-04-13 01:34  nhudson
-
-	* gnome2-core/gnome-applets2/DEPENDS: 
-	Fixing DEPENDS for gnome-applets2, adding libxklavier per
-	suggestion of someone on mailing list
 
