@@ -1,6 +1,6 @@
 (
 
-if [[ `uname -r` > 2.5 ]]; then
+if module_installed linux-beta ; then
   KO="--with-kernel-support"
 else
   KO="--with-linux=/usr/src/linux"
