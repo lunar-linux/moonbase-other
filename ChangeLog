@@ -1,3 +1,53 @@
+2003-09-09 11:50  nestu
+
+	* kernel/linux-beta/DETAILS: Version bump from test4 to test5
+
+2003-09-09 02:56  nhudson
+
+	* libs/pango/DETAILS: 
+	Adding a md5 for pango
+
+2003-09-09 02:08  nhudson
+
+	* gnome2-apps/: gcalctool/DETAILS, gucharmap/DETAILS: 
+	upodating gucharmap to 1.0.0 and gcalctool to 4.3.3
+
+2003-09-09 01:52  nhudson
+
+	* doc-tools/: docbook-dsssl/DETAILS, docbook-dsssl/POST_INSTALL,
+	docbook-dsssl/PRE_REMOVE, openjade/DETAILS, openjade/POST_INSTALL,
+	psgml/DEPENDS: 
+	Fixing these so it will build documentation correctly
+
+2003-09-08 17:45  florin
+
+	* games/si3d/: BUILD, DETAILS: modifying the data directories for
+	conforming to the LSB, bins in /usr/games, static data in
+	/usr/share/games and variable data in /var/games.
+
+2003-09-08 15:37  florin
+
+	* kde3/kdelibs3/profile.d/kde3.rc: moved the profile.d directory
+	and the kde3.rc file from the kdebase3 to the kdelibs3 directory.
+	many thanks to nick hudson for the sugestion.
+
+2003-09-08 15:31  florin
+
+	* graphics/scribus/: BUILD, DETAILS: delete the
+	/usr/X11R6/include/zlib.h file after install. it's an old version
+	header file of zlib. thanks to couannette. bumped version from 0.8
+	to 1.0.1.
+
+2003-09-08 15:30  florin
+
+	* x11/xfree86/POST_INSTALL: delete teh /usr/X11R6/include/zlib.h
+	file after install. it's an old version header file of zlib. thanks
+	to couannette.
+
+2003-09-08 15:06  niki
+
+	* audio/easytag/DETAILS: Fixed the name of the binary to dl.
+
 2003-09-08 04:50  florin
 
 	* devel/kdbg/DETAILS: bump version from 1.2.8 to 1.2.9
@@ -1734,15 +1784,4 @@
 2003-08-10 02:51  jmhodges
 
 	* libs/wxGTK/DEPENDS: apparently im a slacker
-
-2003-08-09 06:33  niki
-
-	* kernel/ksymoops/: BUILD, DETAILS: Added ksymoops so that we can
-	decode kernel oopses, when reporting such happenings to lkml or
-	similar lists.
-
-2003-08-09 02:23  jmhodges
-
-	* utils/edict/: BUILD, DEPENDS, DETAILS: too darn handy to go
-	without, initial import
 
