@@ -19,10 +19,10 @@
 
 # patch_it $SOURCE_CACHE/$SOURCE3 1
 
-  libtoolize --force \
-  && aclocal \
-  && automake \
-  && autoconf && 
+#  libtoolize --force \
+#  && aclocal \
+#  && automake \
+#  && autoconf && 
 
   ./configure  --build=$BUILD            \
                --sysconfdir=/etc         \
