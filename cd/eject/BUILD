@@ -1,7 +1,7 @@
 (
 
   # 2.6 kernel support
-  patch_it $SCRIPT_DIRECTORY/eject-2.0.13-kernel25-support.patch 0 &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
   sedit "s:-I/usr/src/linux -I/usr/src/linux/include::" Makefile.in &&
   default_build &&
