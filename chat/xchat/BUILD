@@ -6,13 +6,13 @@
   autoconf &&
   automake -a -c -f --foreign &&
 
-  ./configure  --build=$BUILD            \
-               --prefix=/usr             \
-               --enable-ipv6             \
-               --sysconfdir=/etc         \
-               --localstatedir=/var      \
-               --infodir=/usr/share/info \
-               --mandir=/usr/share/man   \
+  ./configure  --build=$BUILD             \
+               --prefix=/usr              \
+               --enable-ipv6              \
+               --sysconfdir=/etc          \
+               --localstatedir=/var       \
+               --infodir=/usr/share/info  \
+               --mandir=/usr/share/man    \
                $OPTS                     &&
 
   default_make 
