@@ -1,8 +1,6 @@
 (
 
-  cd sounds             &&
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-  cd $SOURCE_DIRECTORY  &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   prepare_install       &&
   make install
 
