@@ -1,6 +1,7 @@
 (
 
-  ./configure --prefix=/usr  &&
+  ./configure --prefix=/usr  \
+              $OPTS          &&
   make without_doc           &&
   prepare_install            &&
   make    install
