@@ -1,20 +1,26 @@
           MODULE=iproute2
            MAJOR=2.6.10
-           MINOR=ss050112
-         VERSION=${MAJOR}-${MINOR}
+           MINOR=050124
+         VERSION=${MAJOR}-ss${MINOR}
           SOURCE=${MODULE}-${VERSION}.tar.gz
-SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${MODULE}-${VERSION}
+         SOURCE2=iproute2-iptunnel-lunar.patch
+         SOURCE3=iproute2-Makefile.patch
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${MODULE}-${MINOR}
       SOURCE_URL=http://developer.osdl.org/dev/iproute2/download/
-	  SOURCE_VFY=sha1:1c2f24c27487cd0901bb76a7b736a90cb79d6c97
+     SOURCE2_URL=${PATCH_URL}/
+     SOURCE3_URL=${PATCH_URL}/
+      SOURCE_VFY=sha1:3b10ea57395de46355300e3af567739a2102f29a
+     SOURCE2_VFY=sha1:42ce2faed1782ec47afef27949f793316a4cf833
+     SOURCE3_VFY=sha1:c35fc2b6fe4abbd21dcd9c137a3564bd27897588
         WEB_SITE=http://developer.osdl.org/dev/iproute2
          ENTERED=20021106
-         UPDATED=20050120
+         UPDATED=20050209
            SHORT="Professional tools to control networking in Linux kernels."
+
 cat << EOF
 Most Linux distributions, and most UNIX's, currently use the venerable arp,
 ifconfig and route commands. While these tools work, they show some
 unexpected behaviour under Linux 2.2 and up. For example, GRE tunnels are an
 integral part of routing these days, but require completely different tools.
-
 With iproute2, tunnels are an integral part of the tool set.
 EOF
