@@ -1,4 +1,6 @@
 (
+  
+  sedit "s:(LOADKEYS_BINDIR):(BINDIR):" src/Makefile.in   &&
 
   ./configure  &&
 	       
