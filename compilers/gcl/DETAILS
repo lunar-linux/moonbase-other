@@ -1,13 +1,15 @@
            MODULE=gcl
-         VERSION=2.5.2
-          SOURCE=$MODULE-$VERSION.tgz
+         VERSION=2.5.3
+          SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$GNU_URL/gcl/$SOURCE
-      MAINTAINER=kc8apf@kc8apf.net
-        WEB_SITE=http://www.gnu.org/software/gcl/
-           SHORT="GCL is a Common Lisp interpreter and compiler"
+   SOURCE_URL[0]=$GNU_URL/$MODULE/$SOURCE
+      SOURCE_VFY=md5:42c24f9a8d4f823c7c411cbf77edb36f
+        WEB_SITE=http://www.gnu.org/software/$MODULE/
          ENTERED=20021114
          UPDATED=20030520
+        MAINTAINER=kc8apf@kc8apf.net
+        SHORT="GCL is a Common Lisp interpreter and compiler"
+
 cat << EOF
 GNU Common Lisp (GCL, formerly known as Austin Kyoto Common Lisp) is a compiler and interpreter for Common Lisp. GCL is very portable and extremely efficient on a wide class of applications, and compares favorably in performance with commercial Lisps on several large theorem--prover and symbolic algebra systems. GCL supports the CLtL1 specification.
 EOF
