@@ -1,61 +1,96 @@
+2003-10-08 03:48  hardkrash
+
+	* libs/gettext/: BUILD, DETAILS: Added patch for gettextize to not have it bark at you about the headers
+	and require you to press return to continue.
+	one more automation bug out of the way :-)
+	
+	I did not bump the updated field because I didnt feel the need to have
+	everyone re-compile glibc
+	
+	-- Hardkrash
+	
+2003-10-08 02:21  hardkrash
+
+	* security/fwbuilder/DEPENDS: missing depends :-P
+	
+2003-10-07 22:25  sofar
+
+	* printer/a2ps/DEPENDS: This clears 160M of my already full HD
+	
+2003-10-07 21:32  watryac04
+
+	* graphics/tiff/DETAILS: Corrected the MD5 sum of the tiff source.
+	
+2003-10-07 21:15  sofar
+
+	* devel/cvs/DETAILS: New version. Lotsa fixers!!!
+	
+2003-10-07 20:53  moe
+
+	* x11-utils/gkrellm2/DETAILS: This is the new sh .. ehm .. bugfix release especially for 2.6.x users
+	
+2003-10-07 20:51  moe
+
+	* xfce4/xfce4-notes-plugin/DETAILS: Note to myself: Update notes .. err .. here we go
+	
+2003-10-07 17:37  watryac04
+
+	* gnome2-core/gdm/DETAILS: Fixed MD5 sum for updated version of gdm
+	
+2003-10-07 16:45  florin
+
+	* devel/gdb/DETAILS: bump version from 5.3 to 6.0.
+	
 2003-10-07 11:47  florin
 
 	* games/crimson/DETAILS: bumped version from 0.3.6 to 0.3.7.
-
+	
 2003-10-07 04:27  jmhodges
 
-	* perl/mod_perl/DETAILS: stupid version changes without tarball
-	number change.. fun! added md5sum
-
+	* perl/mod_perl/DETAILS: stupid version changes without tarball number change.. fun! added md5sum
+	
 2003-10-07 04:02  nhudson
 
 	* gnome2-core/gdm/: BUILD, DETAILS, Default, POST_INSTALL, gnomerc,
 	init.d/gdm, pam.d/gdm-autologin: 
-	Commiting changes to gdm, adding a POST_INSTALL to notify the user
-	of adding /opt/lunar/gnome/2.4/bin to their /etc/profile for now
-	till we can find a better way of doing this.  Also updating to new
-	version 2.4.4.3 and changing the md5sum and adding a patch that
-	fixes some problems with pam
-
+	Commiting changes to gdm, adding a POST_INSTALL to notify the user of adding /opt/lunar/gnome/2.4/bin to their /etc/profile for now till we can find a better way of doing this.  Also updating to new version 2.4.4.3 and changing the md5sum and adding a patch that fixes some problems with pam
+	
 2003-10-07 03:31  nhudson
 
 	* libs/glib-2/DEPENDS: 
 	Adding in depend on gtk-doc now that we are building documetation
-
+	
 2003-10-07 03:28  nhudson
 
 	* libs/glib-2/BUILD: 
-	Adding a BUILD file so that it will build both a static lib and
-	dynamic libs for glib-2
-
+	Adding a BUILD file so that it will build both a static lib and dynamic libs for glib-2
+	
 2003-10-07 02:49  tchan
 
-	* devel/automake/DETAILS: Version bump to 1.7.8.  Small bug fix
-	release from 1.7.7.  Compiled and tested with gcc-3.2.3,
-	glibc-2.3.2.
-
+	* devel/automake/DETAILS: Version bump to 1.7.8.  Small bug fix release from 1.7.7.  Compiled and tested
+	with gcc-3.2.3, glibc-2.3.2.
+	
 2003-10-06 21:46  jol
 
-	* kde3-apps/kexchange3/: BUILD, DETAILS: Bumped version OLD: 0.3 
-	NEW: 0.3.1 clean some code
-
+	* kde3-apps/kexchange3/: BUILD, DETAILS: Bumped version OLD: 0.3  NEW: 0.3.1
+	clean some code
+	
 2003-10-06 20:40  jol
 
 	* devel/PyQt/DETAILS: Bumped version OLD: 3.8  NEW: 3.8.1
-
+	
 2003-10-06 20:29  jmhodges
 
 	* compilers/Python/DETAILS: version bump
-
+	
 2003-10-06 20:22  florin
 
 	* graphics/tiff/DETAILS: bumped version from 3.5.7 to 3.6.0
-
+	
 2003-10-06 19:11  sofar
 
-	* utils/: lunar/DETAILS, theedge/DETAILS: Important bugfixes two
-	days ago, bumping UPDATED
-
+	* utils/: lunar/DETAILS, theedge/DETAILS: Important bugfixes two days ago, bumping UPDATED
+	
 2003-10-06 17:18  jol
 
 	* kde3/: arts/DEPENDS, arts/DETAILS, kdeaddons3/BUILD,
@@ -68,2447 +103,294 @@
 	kdemultimedia3/DETAILS, kdenetwork3/BUILD, kdenetwork3/DETAILS,
 	kdepim3/BUILD, kdepim3/DETAILS, kdesdk3/BUILD, kdesdk3/DETAILS,
 	kdetoys3/BUILD, kdetoys3/DETAILS, kdeutils3/BUILD,
-	kdeutils3/DETAILS: Clean BUILD all kde3 build file. Add somes
-	missed depends
-
+	kdeutils3/DETAILS: Clean BUILD all kde3 build file. Add somes missed depends
+	
 2003-10-06 15:54  florin
 
-	* audio/alsa-driver/DETAILS: bumped version from 0.9.7 to 0.9.7a.
-	bugfix version.
-
+	* audio/alsa-driver/DETAILS: bumped version from 0.9.7 to 0.9.7a. bugfix version.
+	
 2003-10-06 15:32  florin
 
 	* security/nmap/DETAILS: bumped version from 3.47 to 3.48.
-
+	
 2003-10-06 08:06  jasper
 
-	* profiles/xfce4-extras-profile/: DEPENDS, DETAILS: Add notes
-	plugin to profile
-
+	* profiles/xfce4-extras-profile/: DEPENDS, DETAILS: Add notes plugin to profile
+	
 2003-10-06 08:03  jasper
 
-	* xfce4/xfce4-notes-plugin/: BUILD, DEPENDS, DETAILS: yay\! a
-	sticky notes plugin for xfce 4
-
+	* xfce4/xfce4-notes-plugin/: BUILD, DEPENDS, DETAILS: yay\! a sticky notes plugin for xfce 4
+	
 2003-10-05 19:51  niki
 
 	* kernel/linux/: BUILD, POST_INSTALL: Reverting elaines changes.
-
+	
 2003-10-05 19:12  sofar
 
-	* web/links2/DETAILS: Stupid, the guy changed the tarball after
-	releasing.
-
+	* web/links2/DETAILS: Stupid, the guy changed the tarball after releasing.
+	
 2003-10-05 18:51  florin
 
 	* games/: pysol/DETAILS, pysol/Makefile, pysol-cardsets/BUILD,
-	pysol-cardsets/DEPENDS, pysol-cardsets/DETAILS: install pysol in
-	/usr/games and the data in the /ush/share/games directories.
-
+	pysol-cardsets/DEPENDS, pysol-cardsets/DETAILS: install pysol in /usr/games and the data in the /ush/share/games directories.
+	
 2003-10-05 07:02  florin
 
-	* graphics/scribus/: DEPENDS, DETAILS: bumped version from 1.0.1 to
-	1.1.1
-
+	* graphics/scribus/: DEPENDS, DETAILS: bumped version from 1.0.1 to 1.1.1
+	
 2003-10-05 06:30  florin
 
 	* printer/hpijs/DETAILS: bumped version to 1.5
-
+	
 2003-10-05 05:33  florin
 
-	* editors/aspell/: BUILD, DETAILS: bumped version from 0.50.3 to
-	0.50.4. the patch is no more needed.
-
+	* editors/aspell/: BUILD, DETAILS: bumped version from 0.50.3 to 0.50.4. the patch is no more needed.
+	
 2003-10-04 23:04  jol
 
 	* video/mplayerplug-in/DETAILS: Bumped version OLD: 0.91  NEW: 0.95
-
+	
 2003-10-04 16:34  nhudson
 
 	* zbeta/giftoxic-cvs/DEPENDS: 
-	Adding support for OpenFT and Gnutella giftoxic really doesnt work
-	without these
-
+	Adding support for OpenFT and Gnutella giftoxic really doesnt work without these
+	
 2003-10-04 16:31  florin
 
 	* kde3-apps/apollon/DETAILS: bump version from 0.8.7 to 0.9
-
+	
 2003-10-04 16:03  niki
 
 	* zbeta/e17-cvs/POST_INSTALL: Fixed the path to the e17 libs
-
+	
 2003-10-04 15:20  sofar
 
 	* mail/imap/BUILD: We don't need to ask stupid questions.
-
+	
 2003-10-04 06:02  nhudson
 
 	* devel/libgdamm/: BUILD, DEPENDS, DETAILS: 
 	Adding libgdamm to moonbase
-
+	
 2003-10-04 05:44  florin
 
 	* security/nmap/DETAILS: bumped version from 3.46 to 3.47.
-
+	
 2003-10-04 01:03  nhudson
 
 	* gnome2-apps/mozilla-bonobo/: DETAILS, POST_INSTALL: 
 	Updating mozilla-bonobo to new version 0.4.0 and adding a md5sum
-
+	
 2003-10-04 01:01  nhudson
 
 	* web/epiphany/DETAILS: 
 	Updating epiphany to new version 1.0.1 and changing the md5sum
-
+	
 2003-10-03 23:47  sofar
 
 	* zbeta/e17-cvs/: BUILD, CONFLICTS, DEPENDS, DETAILS, POST_INSTALL,
-	PRE_BUILD, profile.d/e17-cvs.rc: I forbid everyone doing serious
-	coding work on lunar to waste time on this (yes that includes you
-	elaine!)
-
+	PRE_BUILD, profile.d/e17-cvs.rc: I forbid everyone doing serious coding work on lunar to waste time on this (yes that includes you elaine!)
+	
 2003-10-03 21:12  elaine
 
-	* kernel/linux/: BUILD, POST_INSTALL: Added saving of kernels (2
-	levels) Added lilo/grub edits to support .old kernels, but it seems
-	to not work yet
-
+	* kernel/linux/: BUILD, POST_INSTALL: Added saving of kernels (2 levels)
+	Added lilo/grub edits to support .old kernels, but it seems to not work yet
+	
 2003-10-03 20:15  florin
 
-	* games/quakeforge/0.5.5/: BUILD, DEPENDS, DETAILS: aded the 0.5.5
-	version. this is a developement branch of the module.
-
+	* games/quakeforge/0.5.5/: BUILD, DEPENDS, DETAILS: aded the 0.5.5 version. this is a developement branch of the module.
+	
 2003-10-03 19:38  elaine
 
-	* kernel/linux-vanilla/: BUILD, PRE_BUILD: fixed backup routine and
-	added -f switch to ln commands
-
+	* kernel/linux-vanilla/: BUILD, PRE_BUILD: fixed backup routine and added -f switch to ln commands
+	
 2003-10-03 19:08  florin
 
-	* games/quakeforge/: BUILD, DETAILS: add a patch to fix the loading
-	of saved games.
-
+	* games/quakeforge/: BUILD, DETAILS: add a patch to fix the loading of saved games.
+	
 2003-10-03 18:52  jmhodges
 
 	* gnome2-core/eog/: DEPENDS, 2.4.0/DEPENDS: depends on eel :-/
-
+	
 2003-10-03 14:44  florin
 
 	* games/quakeforge/DEPENDS: add the DEPENDS file.
-
+	
 2003-10-03 14:40  florin
 
 	* games/quakeforge/: BUILD, DETAILS: A Quake I port. Have fun.
-
+	
 2003-10-03 14:38  florin
 
 	* games/trackballs/DETAILS: bumped version to 0.9.1
-
+	
 2003-10-03 14:34  florin
 
 	* games/: crafty/BUILD, crafty/DETAILS, cube/BUILD, cube/cube,
-	cube-bin/BUILD, cube-bin/cube, trackballs/DETAILS: A Quake I port.
-	Have fun.
-
+	cube-bin/BUILD, cube-bin/cube, trackballs/DETAILS: A Quake I port. Have fun.
+	
 2003-10-03 04:26  elaine
 
-	* kernel/linux-stable/POST_INSTALL: Added lilo and grub edits for
-	.old kernels
-
+	* kernel/linux-stable/POST_INSTALL: Added lilo and grub edits for .old kernels
+	
 2003-10-03 04:22  elaine
 
-	* kernel/linux-vanilla/POST_INSTALL: Add .old kernel to lilo / grub
-	menu defs
-
+	* kernel/linux-vanilla/POST_INSTALL: Add .old kernel to lilo / grub menu defs
+	
 2003-10-03 03:53  florin
 
 	* utils/ccache/DETAILS: bumped version form 2.2 to 2.3
-
+	
 2003-10-02 22:08  hardkrash
 
 	* docs/abs-guide/DETAILS: new version :-)
-
+	
 2003-10-02 16:53  hardkrash
 
-	* science/octave/: POST_INSTALL, PRE_BUILD: corrected error message
-	in PRE_BUILD, added check for ld.so.conf line
-
+	* science/octave/: POST_INSTALL, PRE_BUILD: corrected error message in PRE_BUILD, added check for ld.so.conf line
+	
 2003-10-02 12:25  nhudson
 
 	* gnome2-core/gnome-common2/DETAILS: 
 	Updating gnome-common2 to new version 2.4.0 and added a md5sum
-
+	
 2003-10-02 04:07  nhudson
 
 	* audio/sound-juicer/DETAILS: 
 	Updating sound-juicer to new version 0.5.5
-
+	
 2003-10-02 03:55  nhudson
 
 	* x11-apps/dia/DETAILS: 
 	Updating dia to new version 0.92-pre4 and updating md5sum
-
+	
 2003-10-02 03:40  nhudson
 
 	* app-themes/gnome-themes-extras/DETAILS: 
 	Updating gnome-themes-extras to new version 0.4 and adding a md5sum
-
+	
 2003-10-02 03:38  nhudson
 
 	* gnome2-core/metacity/DETAILS: 
 	Forgot metacity update to 2.6.2
-
+	
 2003-10-02 03:36  nhudson
 
 	* gnome2-core/: gtkmm2/DETAILS, libgnomeprint/DETAILS,
 	libgnomeprintui/DETAILS: 
-	Updating gtkmm2 to new version 2.2.8 and updating libgnomeprint and
-	libgnomeprintui to new version 2.4.0
-
+	Updating gtkmm2 to new version 2.2.8 and updating libgnomeprint and libgnomeprintui to new version 2.4.0
+	
 2003-10-01 23:17  csm
 
 	* x11-utils/xpad/DETAILS: changing the extension from .gz to .bz2
-
+	
 2003-10-01 23:14  csm
 
 	* x11-utils/xpad/DETAILS: updating the version and adding an md5sum
-
+	
 2003-10-01 06:50  sofar
 
-	* x11-apps/openoffice-bin/DETAILS: They seemed to have made 1.1rc5
-	1.1.0, md5sums match, even after complete re-download. This also
-	means no new downloads.
-
+	* x11-apps/openoffice-bin/DETAILS: They seemed to have made 1.1rc5 1.1.0, md5sums match, even after complete re-download. This also means no new downloads.
+	
 2003-10-01 05:16  niki
 
-	* compilers/php/POST_INSTALL: Php POST_INSTALL kept failing untill
-	i added this little change
-
+	* compilers/php/POST_INSTALL: Php POST_INSTALL kept failing untill i added this little change
+	
 2003-10-01 02:22  elaine
 
-	* crypto/openssl/0.9.6k/: BUILD, POST_INSTALL: added no-rebuild
-	logic if not bumping x.y.z version
-
+	* crypto/openssl/0.9.6k/: BUILD, POST_INSTALL: added no-rebuild logic if not bumping x.y.z version
+	
 2003-09-30 22:43  elaine
 
-	* crypto/openssl/: BUILD, POST_INSTALL: Added hack to save building
-	dependencies if v.v.v isn't changed
-
+	* crypto/openssl/: BUILD, POST_INSTALL: Added hack to save building dependencies if v.v.v isn't changed
+	
 2003-09-30 22:02  sofar
 
-	* graphics/sane-frontends/DETAILS: Dropping down the version since
-	it doesn't seem to exist at all :^(
-
+	* graphics/sane-frontends/DETAILS: Dropping down the version since it doesn't seem to exist at all :^(
+	
 2003-09-30 21:27  sofar
 
-	* graphics/ImageMagick/DETAILS: Lets hope they keep it calm there
-	again now.
-
+	* graphics/ImageMagick/DETAILS: Lets hope they keep it calm there again now.
+	
 2003-09-30 21:12  sofar
 
 	* x11-apps/lyx/DEPENDS: As requested, untested.
-
+	
 2003-09-30 17:31  elaine
 
 	* crypto/openssl/DETAILS: Bumped UPDATED var
-
+	
 2003-09-30 17:07  elaine
 
-	* crypto/openssl/DETAILS: Bumped version against ASN.1 flaws fixed
-	in 0.9.7c
-
+	* crypto/openssl/DETAILS: Bumped version against ASN.1 flaws fixed in 0.9.7c
+	
 2003-09-30 16:59  elaine
 
-	* crypto/openssl/0.9.6k/: BUILD, DEPENDS, DETAILS, POST_INSTALL:
-	Adding fixed 0.9.6 (k) openssl for people not running 0.9.7
-
+	* crypto/openssl/0.9.6k/: BUILD, DEPENDS, DETAILS, POST_INSTALL: Adding fixed 0.9.6 (k) openssl for people not running 0.9.7
+	
 2003-09-30 07:01  sofar
 
 	* x11-apps/lyx/DETAILS: Bumping version
-
+	
 2003-09-30 07:01  sofar
 
-	* graphics/blender/: BUILD, DEPENDS, DETAILS: The normal blender
-	module!
-
+	* graphics/blender/: BUILD, DEPENDS, DETAILS: The normal blender module!
+	
 2003-09-30 03:15  jmhodges
 
-	* web/MozillaFirebird/BUILD: er. .somehow a typo got in AFTER
-	testing it.. grr..
-
+	* web/MozillaFirebird/BUILD: er. .somehow a typo got in AFTER testing it.. grr..
+	
 2003-09-30 03:13  jmhodges
 
-	* web/MozillaFirebird/: BUILD, firebird-nsRegisterChrome.cpp.patch:
-	allows for install of extensions
-	http://bugzilla.mozilla.org/show_bug.cgi?id=109044 and for more
-	info on extensions http://texturizer.net/firebird/extensions/
-
+	* web/MozillaFirebird/: BUILD, firebird-nsRegisterChrome.cpp.patch: allows for install of extensions
+	http://bugzilla.mozilla.org/show_bug.cgi?id=109044
+	and for more info on extensions
+	http://texturizer.net/firebird/extensions/
+	
 2003-09-29 20:35  jmhodges
 
-	* devel/mod_python/: BUILD, mod_python-3.0.3.patch: now it
-	compiles! LONG_LONG set to PY_LONG_LONG (change in vars in new
+	* devel/mod_python/: BUILD, mod_python-3.0.3.patch: now it compiles! LONG_LONG set to PY_LONG_LONG (change in vars in new
 	Python release)
-
+	
 2003-09-29 20:11  jmhodges
 
 	* devel/mod_python/BUILD: whooops real typo fix
-
+	
 2003-09-29 20:10  jmhodges
 
 	* devel/mod_python/BUILD: typo fix
-
+	
 2003-09-29 19:13  niki
 
-	* editors/hexedit/DETAILS: Added a hexeditor contributed by
-	Striker.  Compiled and tested with gcc 3.3.1, glibc 3.2.3
-
+	* editors/hexedit/DETAILS: Added a hexeditor contributed by Striker.
+	Compiled and tested with gcc 3.3.1, glibc 3.2.3
+	
 2003-09-29 17:12  sofar
 
 	* chat/gaim/DETAILS: New version, yewha should work again now.
-
+	
 2003-09-28 21:47  niki
 
-	* kernel/linux/2.4.22-test_only/DETAILS: Added a fix that makes
-	Masqurading work again.  Thanks to Nick for finding this one.
-
+	* kernel/linux/2.4.22-test_only/DETAILS: Added a fix that makes Masqurading work again.
+	Thanks to Nick for finding this one.
+	
 2003-09-28 19:25  csm
 
 	* devel/gnomemm-all/DETAILS: fixing broken url
-
+	
 2003-09-28 17:26  nestu
 
 	* kernel/linux-beta/DETAILS: version bump to test6
-
+	
 2003-09-28 17:20  nestu
 
-	* kernel/linux-beta/PRE_BUILD: Fixing the .config copy path from
-	/usr/src/linux to /usr/src/linux-$VERSION
-
+	* kernel/linux-beta/PRE_BUILD: Fixing the .config copy path from /usr/src/linux to /usr/src/linux-$VERSION
+	
 2003-09-28 14:37  sofar
 
 	* x11-wm/icewm/DETAILS: New version
-
+	
 2003-09-28 05:33  florin
 
 	* audio/audiofile/DETAILS: bump the version from 0.2.3 to 0.2.4.
-
-2003-09-27 20:35  sofar
-
-	* shells/bash/profile.d/bash-completion.rc: Removed tab completion
-	out of bash module!
-
-2003-09-27 20:34  sofar
-
-	* utils/theedge/profile.d/theedge.rc: Moving tab completion into
-	lunar/theedge modules, out of bash module
-
-2003-09-27 20:33  sofar
-
-	* utils/lunar/profile.d/lunar.rc: Moving tab completion out of bash
-	module
-
-2003-09-27 20:30  sofar
-
-	* mail/postfix/profile.d/postfix.rc: Moving tabcompletion out of
-	bash module
-
-2003-09-27 19:57  sofar
-
-	* x11/artwiz-aleczapka/: BUILD, DETAILS, POST_INSTALL: Added on
-	request by striker... nice font set.
-
-2003-09-27 18:17  sofar
-
-	* x11-apps/eclipse-bin/: BUILD, DEPENDS, DETAILS,
-	profile.d/eclipse-bin.rc: Adding binary module for eclipse!
-	enjoy!!!
-
-2003-09-27 12:45  florin
-
-	* compilers/fasm/DETAILS: Fixed the md5 sum. Thanks to Dennis
-	Veatch.
-
-2003-09-26 23:51  watryac04
-
-	* devel/anjuta/DEPENDS: Finished up the dependencies for anjuta.. 
-	GUI C++ programs should be much easier now.
-
-2003-09-26 23:01  watryac04
-
-	* devel/anjuta/: DEPENDS, DETAILS: Updated anjuta to 1.1.97, and
-	fixed the dependancies up a bit. More to come later hopefully.
-
-2003-09-26 17:04  sofar
-
-	* net/samba/BUILD: /me spanks nhudson for not noticing this horror!
-
-2003-09-26 16:57  sofar
-
-	* chat/gaim/: BUILD, DETAILS: New gaim, note this won't fix your
-	yahew problems.
-
-2003-09-26 15:24  sofar
-
-	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS,
-	alsa-utils/DETAILS: New Alsa!
-
-2003-09-26 15:12  florin
-
-	* compilers/nasm/DETAILS: bump the version from 0.98.37 to 0.98.38.
-	it's a bugfix version.
-
-2003-09-26 13:31  sofar
-
-	* doc-tools/doxygen/DETAILS: Updating Doxygen.
-
-2003-09-26 11:05  elaine
-
-	* video/MPlayer/: DETAILS, PRE_BUILD: Added patch for remote (asx
-	stream) exploit vuln.
-
-2003-09-26 07:22  jasper
-
-	* xfce4/xfce4-mixer/BUILD: First real bug in 4.0, thanks Chuck.
-
-2003-09-26 02:56  csm
-
-	* mail/postfix/DETAILS: updating postfix to the new version.  I am
-	planning to add some more stuff to this *soon* (tm)
-
-2003-09-26 02:40  tchan
-
-	* xfce4/xfce4-session/POST_INSTALL: Niki says the mkdir -p is in
-	error not the cp command.
-
-2003-09-26 00:21  tchan
-
-	* xfce4/xfce4-session/POST_INSTALL: Corrected a typo in the
-	destination of the "cp" command.
-
-2003-09-25 23:17  nhudson
-
-	* gnome2-apps/conglomerate/DETAILS: 
-	Now with syntax highlighting.... updating conglomerate to new
-	version 0.7.4, also updated the md5sum
-
-2003-09-25 23:06  tchan
-
-	* xfce4/libxfce4mcs/BUILD: Adjusted prefix to be consistent with
-	the rest of xfce4 4.0.	/opt/lunar/xfce/4.0
-
-2003-09-25 22:31  nhudson
-
-	* net/samba/DETAILS: 
-	I cant believe this hasnt been updated yet! Well anyway samba is
-	now updated to 3.0.0 and I added a md5sum to the module
-
-2003-09-25 22:25  jasper
-
-	* app-themes/gtk-xfce-engine/DETAILS: Also update this one
-
-2003-09-25 22:23  jasper
-
-	* xfce4/: libxfce4mcs/DETAILS, libxfce4util/DETAILS,
-	libxfcegui4/DETAILS, xfce4-battery-plugin/DETAILS,
-	xfce4-iconbox/DETAILS, xfce4-minicmd-plugin/DETAILS,
-	xfce4-mixer/DETAILS, xfce4-netload-plugin/DETAILS,
-	xfce4-panel/DETAILS, xfce-mcs-manager/DETAILS,
-	xfce-mcs-plugins/DETAILS, xfce-utils/DETAILS,
-	xfce4-session/DETAILS, xfce4-showdesktop-plugin/DETAILS,
-	xfce4-systemload-plugin/DETAILS, xfce4-systray/DETAILS,
-	xfce4-themes/DETAILS, xfce4-toys/DETAILS,
-	xfce4-trigger-launcher/DETAILS, xfdesktop/DETAILS, xffm/DETAILS,
-	xffm-icons/DETAILS, xfprint/DETAILS, xfwm4/DETAILS,
-	xfwm4-themes/DETAILS: non-explicit MODULE naming can confuse core
-	tools. Thanks Terry.
-
-2003-09-25 21:54  jasper
-
-	* xfce4/libxfcegui4/DETAILS: grr, missed this one
-
-2003-09-25 20:37  jasper
-
-	* xfce4/libxfce4util/profile.d/xfce4.rc: Forgot this one
-
-2003-09-25 20:35  jasper
-
-	* profiles/xfce4-profile/DEPENDS, xfce4/libxfce4mcs/BUILD,
-	xfce4/libxfce4mcs/DETAILS, xfce4/libxfce4util/BUILD,
-	xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/BUILD,
-	xfce4/libxfcegui4/DETAILS, xfce4/xfce-mcs-manager/BUILD,
-	xfce4/xfce-mcs-manager/DETAILS, xfce4/xfce-mcs-plugins/BUILD,
-	xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/BUILD,
-	xfce4/xfce-utils/DETAILS, xfce4/xfce4-battery-plugin/BUILD,
-	xfce4/xfce4-battery-plugin/DEPENDS,
-	xfce4/xfce4-battery-plugin/DETAILS, xfce4/xfce4-iconbox/BUILD,
-	xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-minicmd-plugin/BUILD,
-	xfce4/xfce4-minicmd-plugin/DEPENDS,
-	xfce4/xfce4-minicmd-plugin/DETAILS, xfce4/xfce4-mixer/BUILD,
-	xfce4/xfce4-mixer/DETAILS, xfce4/xfce4-netload-plugin/BUILD,
-	xfce4/xfce4-netload-plugin/DEPENDS,
-	xfce4/xfce4-netload-plugin/DETAILS, xfce4/xfce4-panel/BUILD,
-	xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/BUILD,
-	xfce4/xfce4-session/DETAILS, xfce4/xfce4-showdesktop-plugin/BUILD,
-	xfce4/xfce4-showdesktop-plugin/DEPENDS,
-	xfce4/xfce4-showdesktop-plugin/DETAILS,
-	xfce4/xfce4-systemload-plugin/BUILD,
-	xfce4/xfce4-systemload-plugin/DEPENDS,
-	xfce4/xfce4-systemload-plugin/DETAILS, xfce4/xfce4-systray/BUILD,
-	xfce4/xfce4-systray/DETAILS, xfce4/xfce4-themes/BUILD,
-	xfce4/xfce4-themes/DETAILS, xfce4/xfce4-toys/BUILD,
-	xfce4/xfce4-toys/DETAILS, xfce4/xfce4-trigger-launcher/BUILD,
-	xfce4/xfce4-trigger-launcher/DEPENDS,
-	xfce4/xfce4-trigger-launcher/DETAILS, xfce4/xfdesktop/BUILD,
-	xfce4/xfdesktop/DETAILS, xfce4/xffm/BUILD, xfce4/xffm/DETAILS,
-	xfce4/xffm-icons/BUILD, xfce4/xffm-icons/DETAILS,
-	xfce4/xfprint/BUILD, xfce4/xfprint/DETAILS, xfce4/xfwm4/BUILD,
-	xfce4/xfwm4/DETAILS, xfce4/xfwm4-themes/BUILD,
-	xfce4/xfwm4-themes/DETAILS: This is it, 4.0, first distro to have
-	it, get it while it's hot. It's basically the same as rc4 though.
-	Moved to new location /opt/lunar/xfce/4.0/
-
-2003-09-25 17:47  sofar
-
-	* distributed/BitTorrent/DETAILS: New version, please upgrade!
-
-2003-09-25 03:14  nhudson
-
-	* libs/libxml++/DETAILS: 
-	Updating libxml++ to new version 0.26.0
-
-2003-09-25 00:48  csm
-
-	* shells/bash/profile.d/bash-completion.rc: adding autocompletion
-	for postfix configuration.  some may find it useful
-
-2003-09-24 23:12  nhudson
-
-	* gnome2-core/gtksourceview/: DEPENDS, 0.6.0/DEPENDS: 
-	Fixing DEPENDS file
-
-2003-09-24 22:48  nhudson
-
-	* mail/evolution/DETAILS: 
-	fixing typo
-
-2003-09-24 22:43  nhudson
-
-	* mail/evolution/DETAILS: 
-	Updating evolution to new version 1.4.5 and adding md5sums
-
-2003-09-24 22:30  sofar
-
-	* web/webmin/init.d/webmin: Better!
-
-2003-09-24 22:08  sofar
-
-	* web/webmin/DETAILS: Making os_type generic-linuc, automating it,
-	adjusted patchset. Bumped update to make sure everyone gets that,
-	see e-mail to ML.
-
-2003-09-24 18:13  niki
-
-	* kernel/linux/DETAILS: Added the kde-fix1 patch made by Hardkrash,
-	so that the kdemultimedia3 will build with our kernel.
-
-2003-09-24 17:51  niki
-
-	* devel/devhelp/DETAILS: Fixed the dl url, as it seems to have
-	moved to gnome ftp.
-
-2003-09-24 14:47  florin
-
-	* kde3/qt3/: BUILD, DETAILS: bump the version from 3.1.2 to 3.2.1.
-
-2003-09-24 12:45  niki
-
-	* mail/evolution/DETAILS: Reverting the update, as it seems like
-	Nick has something planned for this update.
-
-2003-09-24 12:14  niki
-
-	* mail/evolution/DETAILS: Version bumped to 1.4.5, tested and runs
-	fine.
-
-2003-09-24 03:53  nhudson
-
-	* gnome/: gtkhtml3/DETAILS, libsoup/DETAILS: 
-	Updating libsoup to new version 1.99.26 and added a md5sum, updated
-	gtkhtml3 to new version 3.0.9 and added a md5sum
-
-2003-09-24 03:51  nhudson
-
-	* gnome2-extras/gal2/DETAILS: 
-	Updating gal2 to new version 1.99.10 and adding a md5sum
-
-2003-09-24 03:19  nhudson
-
-	* libs/libxml++/DETAILS: 
-	Adding a md5sum to the module
-
-2003-09-24 03:11  nhudson
-
-	* x11-apps/passepartout/: BUILD, DEPENDS, DETAILS: 
-	Adding passepartout to moonbase.  passepartout is a gtk2 c++ based
-	desktop publishing app
-
-2003-09-24 03:09  nhudson
-
-	* libs/libxml++/: DEPENDS, DETAILS: 
-	Adding libxml++ to moonbase
-
-2003-09-23 23:45  sofar
-
-	* ftp/proftpd/DETAILS: Security upgrade...important fixes included.
-
-2003-09-23 19:32  sofar
-
-	* x11-apps/openoffice-bin/DETAILS: Correcting md5sum. OOPS. Sorry
-	DV.
-
-2003-09-23 17:38  elaine
-
-	* audio/mpg123/: BUILD, DETAILS, 0.59r/BUILD, 0.59r/DETAILS:
-	Correcting client remotely exploitable buffer overflow.  Ref:
-	http://fakehalo.deadpig.org/xmpg123.c
-
-2003-09-23 16:44  elaine
-
-	* crypto/openssh/DETAILS: Changed UPDATED field
-
-2003-09-23 16:43  elaine
-
-	* crypto/openssh/DETAILS: Version bump for PAM security issue:	
-	Portable OpenSSH version 3.7p1 and 3.7.1p1 contain multiple  
-	vulnerabilities in the new PAM authentication code. At least one of
-	  these bugs is remotely exploitable (under a non-standard  
-	configuration, with privsep disabled).
-
-2003-09-23 14:27  niki
-
-	* gnome2-extras/gnome-vfs-sftp/DETAILS: Fixed the date in the
-	UPDATED field
-
-2003-09-23 14:00  tchan
-
-	* ftp/wput/DETAILS: Shortened the SOURCE url.
-
-2003-09-23 12:31  nhudson
-
-	* x11-apps/dia/: BUILD, DEPENDS, DETAILS: 
-	Updating dia to new version 0.92-pre3 also fixing the DEPENDS file
-	adding support for Gnome and Python.  Fixed the BUILD script so it
-	works a bit better than before
-
-2003-09-23 12:10  niki
-
-	* ftp/wput/: BUILD, DETAILS: Added new module, which is the oposit
-	of wget, contributed by will (njd@irc) <genes1s@paradise.net.nz>
-
-2003-09-23 12:00  niki
-
-	* kernel/linux/2.4.22-test_only/: CONFIGURE, DETAILS, PRE_BUILD:
-	Now it comes with Aggressive. New patch version -rc2.1.2
-
-2003-09-23 11:33  niki
-
-	* gnome2-core/libglade2/: POST_INSTALL, POST_REMOVE,
-	2.0.1/POST_INSTALL, 2.0.1/POST_REMOVE: Ok, now it always returns
-	true, which i hope is what you wanted to achive.
-
-2003-09-23 03:32  nhudson
-
-	* web/epiphany/BUILD: 
-	Making it so that things dont get confused when you have
-	MozillaFirebird installed
-
-2003-09-23 02:57  nhudson
-
-	* web/MozillaFirebird/DEPENDS: 
-	Taking something out I should have done before
-
-2003-09-23 02:57  nhudson
-
-	* web/MozillaFirebird/: BUILD, CONFLICTS, DEPENDS, DETAILS,
-	POST_INSTALL, profile.d/firebird.rc: 
-	Ok I have been hacking on this all night and finally I got a
-	solution that will work.  It will install firebird to /opt so that
-	mozilla can be installed at the same time and nothing will
-	conflict.  I added a icon and a .desktop file so that it will show
-	up in the KDE and Gnome menu's.  I removed the CONFLICTS file
-	because its no longer needed and at last I added xft support for
-	much better looking fonts
-
-2003-09-23 02:09  nhudson
-
-	* gnome2-core/: gnome-themes/DEPENDS, gnome-themes/2.4.0/DEPENDS,
-	libglade2/POST_INSTALL, libglade2/POST_REMOVE: 
-	Fixing a problem evildrew pointed out
-
-2003-09-22 23:20  sofar
-
-	* sql/mysql/DETAILS: Version bump!
-
-2003-09-22 22:14  sofar
-
-	* gnome2-apps/gnumeric2/: DEPENDS, DETAILS: nhudson forgot I had
-	already bumped it to 1.2.0
-
-2003-09-22 21:32  sofar
-
-	* compilers/php/: BUILD, DEPENDS, POST_INSTALL: Cleanup, not
-	touching UPDATED. Adding db/dbx features since they are builtin and
-	not dependent on other code, movind stuff around to proper places,
-	cleaning up patches.
-
-2003-09-22 16:09  florin
-
-	* utils/procps/DETAILS: bump the version from 3.1.12 to 3.1.13.
-
-2003-09-22 15:35  xoritor
-
-	* zbeta/shfs/: BUILD, DETAILS: Adding module shfs.
-
-2003-09-22 14:49  nhudson
-
-	* printer/gimp-print/DETAILS: 
-	Ok I have no idea why this didnt get updated when I did it before
-	but anyway this should fix the gimp2 problem that csm was having
-
-2003-09-22 12:40  florin
-
-	* kde3-apps/apollon/: DEPENDS, DETAILS: bump the version from 0.8
-	to 0.8.7. added gift-cvs dependency.
-
-2003-09-22 10:16  florin
-
-	* security/snort/DETAILS: bump the version from 2.0.1 to 2.0.2.
-
-2003-09-22 10:06  florin
-
-	* video/mplayerplug-in/: BUILD, DETAILS: added the md5sum. create
-	the install directory if it does not exist.
-
-2003-09-22 09:16  florin
-
-	* kde3-apps/kopete/DETAILS: added the md5sum.
-
-2003-09-22 08:20  florin
-
-	* web/quanta3/DETAILS: bump the version from 3.1.3 to 3.1.4.
-
-2003-09-22 03:36  tchan
-
-	* web/MozillaFirebird/: BUILD, DETAILS: Modified this BUILD per
-	Moe's suggestion to add the "export MOZ_PHOENIX=1" line.  Now this
-	MozillaFirebird module is closer to what Firebird really should
-	look like when it is correctly compiled.  Note: Now the module
-	creates /usr/bin/MozillaFirebird.  /usr/bin/mozilla may be left
-	over on your Lunar box from a previous mozilla module.	The proper
-	method to invoke the Firebird binary is "/usr/bin/MozillaFirebird"
-
-2003-09-22 02:23  tchan
-
-	* crypto/mcrypt/DETAILS: Okay this module is now fixed correctly. 
-	Do NOT change this module back to downloading the source code from
-	SourceForge until the mcrypt devs fix their source code to
-	correctly download a REAL tar.gz file and not some mislabelled tar
-	file.  Their source code has NOT been updated since 20030221, so
-	this doesn't appear to be under active development anyways.
-
-2003-09-21 22:33  nhudson
-
-	* gnome2-apps/gnumeric2/: BUILD, DEPENDS, DETAILS: 
-	Adding gnumeric2 to gnome2-apps
-
-2003-09-21 22:23  nhudson
-
-	* gnome2-apps/conglomerate/DETAILS: 
-	updating conglomerate to new version 0.7.2 and adding a md5sum
-
-2003-09-21 20:44  jol
-
-	* video/mplayerplug-in/DETAILS: Bumped version OLD: 0.80 NEW: 0.91
-
-2003-09-21 20:40  jol
-
-	* kde3-apps/kopete/DETAILS: Bumped version NEW: 0.7.1  OLD: 0.7.2
-
-2003-09-21 20:39  xoritor
-
-	* zbeta/oprofile/DETAILS: Fixed missing "" in DETAILS file for the
-	SHORT description. Thanks sofar!
-
-2003-09-21 19:21  csm
-
-	* chat/xchat/: BUILD, DETAILS: updated version. the patch which was
-	in use previously does not seem to be needed any longer so it has
-	been removed.
-
-2003-09-21 19:18  xoritor
-
-	* zbeta/oprofile/BUILD: Making the oprofile module more "lunar
-	specific" by using module_installed instead of `uname -r`
-
-2003-09-21 17:54  sofar
-
-	* web/PostNuke/: BUILD, DEPENDS, DETAILS, POST_INSTALL: Adding
-	PostNuke module! read the notes carefully upon installing, it's
-	kinda nasty.
-
-2003-09-21 17:13  xoritor
-
-	* utils/openldap/BUILD: Found that openldap will not build with
-	-Wno-deprecated so I added a bad_flags statement to clear it up.
-
-2003-09-21 09:50  florin
-
-	* games/prboom/DETAILS: bump the version from 2.2.3 to 2.2.4
-
-2003-09-21 09:16  florin
-
-	* security/nmap/DETAILS: bump the version from 3.45 to 3.46
-
-2003-09-21 00:07  sofar
-
-	* mail/squirrelmail/: BUILD, DEPENDS, DETAILS, POST_INSTALL: New
-	module!!!
-
-2003-09-20 22:22  sofar
-
-	* x11-apps/openoffice-bin/DETAILS: Yup, new version. Also cleaned
-	up DETAILS a bit, moved a sensible mirror site to top and not a
-	student box from hickeyland-east netherlands.
-
-2003-09-20 18:45  xoritor
-
-	* zbeta/oprofile/: BUILD, DETAILS: Adding oprofile.
-
-2003-09-20 18:11  sofar
-
-	* web/links2/DETAILS: version bump
-
-2003-09-20 15:02  jmhodges
-
-	* science/octave/DEPENDS: silly rabbit, gnuplot is for octave!
-
-2003-09-20 13:07  tchan
-
-	* crypto/mhash/DETAILS: Version bump to 0.8.18.  Compiled and
-	tested with gcc-3.2.3, glibc-2.3.2.
-
-2003-09-20 11:56  florin
-
-	* kde3/arts/DETAILS, kde3/kdeaddons3/DETAILS,
-	kde3/kdeadmin3/DETAILS, kde3/kdeartwork3/DETAILS,
-	kde3/kdebase3/DETAILS, kde3/kdebindings3/DETAILS,
-	kde3/kdeedu3/DETAILS, kde3/kdegames3/DETAILS,
-	kde3/kdegraphics3/DETAILS, kde3/kdelibs3/DETAILS,
-	kde3/kdemultimedia3/DETAILS, kde3/kdenetwork3/DETAILS,
-	kde3/kdepim3/DETAILS, kde3/kdesdk3/DETAILS, kde3/kdetoys3/DETAILS,
-	kde3/kdeutils3/DETAILS, kde3-i18n/kde3-i18n-af/DETAILS,
-	kde3-i18n/kde3-i18n-ar/DETAILS, kde3-i18n/kde3-i18n-bg/DETAILS,
-	kde3-i18n/kde3-i18n-bs/DETAILS, kde3-i18n/kde3-i18n-ca/DETAILS,
-	kde3-i18n/kde3-i18n-cs/DETAILS, kde3-i18n/kde3-i18n-da/DETAILS,
-	kde3-i18n/kde3-i18n-de/DETAILS, kde3-i18n/kde3-i18n-el/DETAILS,
-	kde3-i18n/kde3-i18n-en_GB/DETAILS, kde3-i18n/kde3-i18n-eo/DETAILS,
-	kde3-i18n/kde3-i18n-es/DETAILS, kde3-i18n/kde3-i18n-et/DETAILS,
-	kde3-i18n/kde3-i18n-eu/DETAILS, kde3-i18n/kde3-i18n-fa/DETAILS,
-	kde3-i18n/kde3-i18n-fi/DETAILS, kde3-i18n/kde3-i18n-fr/DETAILS,
-	kde3-i18n/kde3-i18n-he/DETAILS, kde3-i18n/kde3-i18n-hr/DETAILS,
-	kde3-i18n/kde3-i18n-hu/DETAILS, kde3-i18n/kde3-i18n-is/DETAILS,
-	kde3-i18n/kde3-i18n-it/DETAILS, kde3-i18n/kde3-i18n-ja/DETAILS,
-	kde3-i18n/kde3-i18n-lt/DETAILS, kde3-i18n/kde3-i18n-mk/DETAILS,
-	kde3-i18n/kde3-i18n-mt/DETAILS, kde3-i18n/kde3-i18n-nb/DETAILS,
-	kde3-i18n/kde3-i18n-nl/DETAILS, kde3-i18n/kde3-i18n-nn/DETAILS,
-	kde3-i18n/kde3-i18n-nso/DETAILS, kde3-i18n/kde3-i18n-pl/DETAILS,
-	kde3-i18n/kde3-i18n-pt/DETAILS, kde3-i18n/kde3-i18n-pt_BR/DETAILS,
-	kde3-i18n/kde3-i18n-ro/DETAILS, kde3-i18n/kde3-i18n-ru/DETAILS,
-	kde3-i18n/kde3-i18n-se/DETAILS, kde3-i18n/kde3-i18n-sk/DETAILS,
-	kde3-i18n/kde3-i18n-sl/DETAILS, kde3-i18n/kde3-i18n-sr/DETAILS,
-	kde3-i18n/kde3-i18n-ss/DETAILS, kde3-i18n/kde3-i18n-sv/DETAILS,
-	kde3-i18n/kde3-i18n-ta/DETAILS, kde3-i18n/kde3-i18n-th/DETAILS,
-	kde3-i18n/kde3-i18n-tr/DETAILS, kde3-i18n/kde3-i18n-uk/DETAILS,
-	kde3-i18n/kde3-i18n-ven/DETAILS, kde3-i18n/kde3-i18n-vi/DETAILS,
-	kde3-i18n/kde3-i18n-xh/DETAILS, kde3-i18n/kde3-i18n-zh_CN/DETAILS,
-	kde3-i18n/kde3-i18n-zh_TW/DETAILS, kde3-i18n/kde3-i18n-zu/DETAILS:
-	bump the version from 3.1.3 to 3.1.4.
-
-2003-09-20 08:53  florin
-
-	* x11/NVIDIA/CONFLICTS: it's no needed anymore
-
-2003-09-20 08:46  florin
-
-	* crypto/mcrypt/DETAILS: Bumped the version from 2.6.3 to 2.6.4. 
-	Fix the dl path, thanks to Dennis Veatch.
-
-2003-09-20 08:34  florin
-
-	* crypto/libmcrypt/DETAILS: fix the dl path, thanks to Dennis
-	Veatch.
-
-2003-09-20 08:17  florin
-
-	* libs/ClanLib/DETAILS: bump version from 0.6.5 to 0.7.4
-
-2003-09-20 03:27  tchan
-
-	* terminal/screen/DETAILS: Version bump to 4.0.1.  Updated md5sum
-	check.	Compiled with gcc-3.2.3 and glibc-2.3.2.
-
-2003-09-20 02:55  watryac04
-
-	* utils/module-init-tools/BUILD: Fixed the problem with moving
-	certain files in /sbin from $file to $file.old Module compiles
-	fine, installs all of its files, and looks good.  /sbin/*mod*.old
-	should only be backup copies of files installed by modutils
-
-2003-09-20 02:26  r0dzilla
-
-	* zbeta/fluxbox-devel/DETAILS: version bump of development version
-	of fluxbox
-
-2003-09-20 02:24  r0dzilla
-
-	* x11-wm/fluxbox/: CONFIGURE, DETAILS: disabled remember patch
-	since its deprecated and no longer supported by author
-
-2003-09-20 02:22  watryac04
-
-	* utils/module-init-tools/BUILD: "Fixed" the BUILD script for
-	module-init-tools.  It gets through compile now, but there's still
-	some work to be done...  It's not moving the symlinked files from
-	modutils in /sbin properly.
-
-2003-09-19 23:01  watryac04
-
-	* games/KBtin/DETAILS: Added KBtin module to the games section. 
-	KBtin is a MUD client, based on the classic tintin, but heavily
-	extended.  Supports regexp on the MUD command line, as well as the
-	ability to run programs from within the MUD client.  There is also
-	reported to be ICQ integration, this is left up to others to
-	discover.
-
-2003-09-19 23:00  r0dzilla
-
-	* x11-wm/fluxbox/CONFIGURE: correcting list of locales/languages
-
-2003-09-19 22:54  r0dzilla
-
-	* x11-wm/fluxbox/CONFIGURE: enabling NLS option again, solved NLS
-	compile errors
-
-2003-09-19 21:44  sofar
-
-	* utils/: lunar/DETAILS, theedge/DETAILS: Contain fixes
-
-2003-09-19 19:27  tchan
-
-	* perl/CPAN/DETAILS: Version bump to 1.76.  For those lunar users
-	that are using "lin CPAN" instead of CPAN to update itself.
-
-2003-09-19 19:04  tchan
-
-	* utils/rcs/: BUILD, DETAILS: Added md5sum check.  Changed BUILD
-	script to use uid operator instead of bin to get this module to
-	compile/install correctly, per Hendrik Visage's request.
-
-2003-09-19 18:21  nestu
-
-	* utils/module-init-tools/DETAILS:  * lunar cache mirror added
-	 * md5 added
-	 * UPDATED changed
-
-2003-09-19 18:19  nestu
-
-	* utils/module-init-tools/BUILD: cleaned the modutil's files
-	management
-
-2003-09-19 17:09  nhudson
-
-	* utils/file/DETAILS: 
-	Apparently I am mistaken
-
-2003-09-19 17:03  nhudson
-
-	* utils/file/DETAILS: 
-	Fixing the md5sum which was wrong tested on 2 boxes and downloaded
-	4 times to test the md5's and its diffrent
-
-2003-09-19 14:53  nestu
-
-	* utils/module-init-tools/DETAILS: Bump version as requested by
-	Dennis Veatch
-
-2003-09-19 14:18  moe
-
-	* x11-utils/nvtv/DEPENDS: boooh! Where is the NVIDIA module?!
-
-2003-09-19 13:58  tchan
-
-	* utils/fbset/DETAILS: Added md5sum check.  Added PSAFE=no.
-
-2003-09-19 13:53  elaine
-
-	* gnome2-core/linc/1.1.1/: BUILD, DEPENDS, DETAILS, POST_INSTALL:
-	Fixing gnome2.4/v.v -- files I forgot to cvs add
-
-2003-09-18 15:31  florin
-
-	* games/xmame/DETAILS: bump version from 0.72.1 to 0.74.1
-
-2003-09-18 14:56  tchan
-
-	* editors/emacs/DETAILS: Added md5sum check.  Our version of emacs
-	was fetched prior to the gnu.org being rooted, I think.  So this
-	version should be okay.
-
-2003-09-18 14:40  tchan
-
-	* x11-apps/xemacs-sumo/DETAILS: Version bump to 2003-08-31.
-
-2003-09-18 14:33  tchan
-
-	* x11-apps/xemacs/DETAILS: Version bump to 21.4.14.  Compiled with
-	gcc-3.2.3, glibc-2.3.2 and openMotif-2.2.2.
-
-2003-09-18 13:26  tchan
-
-	* x11-apps/xemacs-base/DETAILS: Version bump to 1.78 and added
-	md5sum check.
-
-2003-09-18 13:25  tchan
-
-	* libs/openMotif/DETAILS, x11-apps/xemacs-efs/DETAILS: Added md5sum
-	check.
-
-2003-09-18 13:15  moe
-
-	* mail/sylpheed/DETAILS: Bumping sylpheed to 0.9.6 ..
-
-2003-09-18 12:54  tchan
-
-	* video/ffmpeg/DETAILS: Version bump to 0.4.7 from Dem's patch. 
-	Compiled with gcc-3.2.3 and glibc-2.3.2.  Added md5sum check.
-
-2003-09-18 01:18  r0dzilla
-
-	* doc-tools/docbook-xsl/rebuild-docbook-catalog: removed debugging
-	messages
-
-2003-09-18 00:54  r0dzilla
-
-	* doc-tools/: docbook-xsl/POST_INSTALL,
-	docbook-xsl/rebuild-docbook-catalog, scrollkeeper/POST_INSTALL:
-	finishing up docbook-xsl/scrollkeeper fix
-
-2003-09-18 00:51  tchan
-
-	* compilers/fasm/DETAILS: Version bump to 1.49.  Added md5sum.
-
-2003-09-18 00:19  niki
-
-	* security/portsentry/: BUILD, DETAILS: Gcc 3.3.1 fix added.
-
-2003-09-17 23:33  niki
-
-	* gnome2-apps/abiword/DETAILS: Updated the md5sum, as the abiword
-	devs seem to have made a new secret release
-
-2003-09-17 22:58  niki
-
-	* gnome2-apps/abiword/DETAILS: Fixing the dl url for abiword
-
-2003-09-17 22:39  nhudson
-
-	* graphics/gimp2/: BUILD, DEPENDS: 
-	re enabling printing due to the downgrade in the versioon of
-	gimp-print
-
-2003-09-17 22:03  sofar
-
-	* web/galeon2/DETAILS: Version bump, should be an easy upgrade.
-
-2003-09-17 20:21  elaine
-
-	* net/bind/POST_INSTALL: added usage examples for delegation-only
-	type zones
-
-2003-09-17 20:11  sofar
-
-	* web/squid/DETAILS: bumped version
-
-2003-09-17 18:34  niki
-
-	* net/bind/: BUILD, DETAILS: Added a patch which prevents
-	VeriSign's use of wildcards, to harvest ppl.  for there site when
-	the miss type a .com and .net domains.
-
-2003-09-17 17:19  florin
-
-	* net/nfs-utils/DETAILS: bump version from 1.0.5 to 1.0.6
-
-2003-09-17 16:50  elaine
-
-	* mail/sendmail/: BUILD, DETAILS: Added prescan patch to sendmail
-	build
-
-2003-09-17 11:35  nestu
-
-	* web/MozillaFirebird/BUILD: pkgconfig path fix
-
-2003-09-17 06:10  tchan
-
-	* web/MozillaFirebird/POST_INSTALL: Fixed the POST_INSTALL because
-	the VERSION variable is set for Firebird's 0.6.1, but this is
-	really mozilla-1.5a so VERSION=1.5a, not 0.6.1.
-
-2003-09-17 04:11  tchan
-
-	* web/MozillaFirebird/BUILD: Updated the BUILD script to correctly
-	disable the extra Firebird stuff like composer, news, help, etc.
-
-2003-09-17 04:03  nhudson
-
-	* graphics/gimp2/: BUILD, DEPENDS, DETAILS: 
-	Updating gimp2 to new version 1.3.20 also disabling printing sue to
-	its borked for now
-
-2003-09-17 03:56  nhudson
-
-	* audio/sound-juicer/DETAILS: 
-	Updating sound-juicer to new version 0.5.4 and adding md5's
-
-2003-09-17 03:01  tchan
-
-	* web/MozillaFirebird/: BUILD, CONFLICTS, DEPENDS, DETAILS,
-	POST_INSTALL: Added the MozillaFirebird module to moonbase.
-
-2003-09-17 02:19  niki
-
-	* crypto/openssh/DETAILS: Here we go again.... It has changes to
-	the same section of code that was changed with the reported
-	Bufferoverflow.
-
-2003-09-17 01:34  r0dzilla
-
-	* doc-tools/docbook-xsl/: DETAILS, rebuild-docbook-catalog: added
-	code in rebuild-docbook-catalog to re-compile scrollkeeper if its
-	dtd files cant be found...
-
-2003-09-16 22:22  r0dzilla
-
-	* gnome/intltool/DETAILS: version bump
-
-2003-09-16 21:20  niki
-
-	* x11/xfree86/DEPENDS: Forgot to remove the "&&"
-
-2003-09-16 20:26  niki
-
-	* kernel/linux/2.4.22-test_only/DETAILS: making versioning work on
-	it
-
-2003-09-16 16:36  niki
-
-	* kernel/linux/2.4.22-test_only/: CONFIGURE, DETAILS, PRE_BUILD:
-	Now ppl can run the kernel i currently run
-
-2003-09-16 16:11  niki
-
-	* kernel/linux/2.4.22-test_only/: BUILD, CONFIGURE, DEPENDS,
-	DETAILS, POST_INSTALL, PRE_BUILD: copied linux kernel module to
-	2.4.22 test versioned module as a base...
-
-2003-09-16 16:00  elaine
-
-	* app-themes/gtk-thinice-theme2/2.0.2/DEPENDS,
-	app-themes/gtk-thinice-theme2/2.0.2/DETAILS,
-	audio/libao/0.8.3/DETAILS, audio/mpg123/0.59r/BUILD,
-	audio/mpg123/0.59r/DETAILS, audio/vorbis-tools/1.0/DEPENDS,
-	audio/vorbis-tools/1.0/DETAILS, ftp/curl/7.10.7/DEPENDS,
-	ftp/curl/7.10.7/DETAILS, gnome2-apps/gcalctool/4.3.3/BUILD,
-	gnome2-apps/gcalctool/4.3.3/DEPENDS,
-	gnome2-apps/gcalctool/4.3.3/DETAILS,
-	gnome2-apps/gucharmap/1.0.0/BUILD,
-	gnome2-apps/gucharmap/1.0.0/DEPENDS,
-	gnome2-apps/gucharmap/1.0.0/DETAILS, gnome2-apps/vte/0.11.10/BUILD,
-	gnome2-apps/vte/0.11.10/DEPENDS, gnome2-apps/vte/0.11.10/DETAILS,
-	gnome2-core/GConf2/2.4.0.1/BUILD,
-	gnome2-core/GConf2/2.4.0.1/DEPENDS,
-	gnome2-core/GConf2/2.4.0.1/DETAILS, gnome2-core/ORBit2/2.8.1/BUILD,
-	gnome2-core/ORBit2/2.8.1/DEPENDS, gnome2-core/ORBit2/2.8.1/DETAILS,
-	gnome2-core/at-spi/1.3.7/BUILD, gnome2-core/at-spi/1.3.7/DEPENDS,
-	gnome2-core/at-spi/1.3.7/DETAILS,
-	gnome2-core/bug-buddy/2.4.0/BUILD,
-	gnome2-core/bug-buddy/2.4.0/DEPENDS,
-	gnome2-core/bug-buddy/2.4.0/DETAILS,
-	gnome2-core/control-center2/2.4.0/BUILD,
-	gnome2-core/control-center2/2.4.0/DEPENDS,
-	gnome2-core/control-center2/2.4.0/DETAILS,
-	gnome2-core/eel/2.4.0/BUILD, gnome2-core/eel/2.4.0/DEPENDS,
-	gnome2-core/eel/2.4.0/DETAILS, gnome2-core/eog/2.4.0/BUILD,
-	gnome2-core/eog/2.4.0/DEPENDS, gnome2-core/eog/2.4.0/DETAILS,
-	gnome2-core/gail/1.4.0/BUILD, gnome2-core/gail/1.4.0/DEPENDS,
-	gnome2-core/gail/1.4.0/DETAILS, gnome2-core/gedit/2.4.0/BUILD,
-	gnome2-core/gedit/2.4.0/DEPENDS, gnome2-core/gedit/2.4.0/DETAILS,
-	gnome2-core/gnome-applets2/2.4.0/BUILD,
-	gnome2-core/gnome-applets2/2.4.0/CONFLICTS,
-	gnome2-core/gnome-applets2/2.4.0/DEPENDS,
-	gnome2-core/gnome-applets2/2.4.0/DETAILS,
-	gnome2-core/gnome-desktop/2.4.0/BUILD,
-	gnome2-core/gnome-desktop/2.4.0/DEPENDS,
-	gnome2-core/gnome-desktop/2.4.0/DETAILS,
-	gnome2-core/gnome-games2/2.4.0/BUILD,
-	gnome2-core/gnome-games2/2.4.0/CONFLICTS,
-	gnome2-core/gnome-games2/2.4.0/DEPENDS,
-	gnome2-core/gnome-games2/2.4.0/DETAILS,
-	gnome2-core/gnome-icon-theme/1.0.9/BUILD,
-	gnome2-core/gnome-icon-theme/1.0.9/DETAILS,
-	gnome2-core/gnome-media2/2.4.0/BUILD,
-	gnome2-core/gnome-media2/2.4.0/CONFLICTS,
-	gnome2-core/gnome-media2/2.4.0/DEPENDS,
-	gnome2-core/gnome-media2/2.4.0/DETAILS,
-	gnome2-core/gnome-mime-data2/2.4.0/BUILD,
-	gnome2-core/gnome-mime-data2/2.4.0/DEPENDS,
-	gnome2-core/gnome-mime-data2/2.4.0/DETAILS,
-	gnome2-core/gnome-panel/2.4.0/BUILD,
-	gnome2-core/gnome-panel/2.4.0/DEPENDS,
-	gnome2-core/gnome-panel/2.4.0/DETAILS,
-	gnome2-core/gnome-session/2.4.0/BUILD,
-	gnome2-core/gnome-session/2.4.0/DEPENDS,
-	gnome2-core/gnome-session/2.4.0/DETAILS,
-	gnome2-core/gnome-system-monitor/2.4.0/BUILD,
-	gnome2-core/gnome-system-monitor/2.4.0/DEPENDS,
-	gnome2-core/gnome-system-monitor/2.4.0/DETAILS,
-	gnome2-core/gnome-terminal/2.4.0.1/BUILD,
-	gnome2-core/gnome-terminal/2.4.0.1/DEPENDS,
-	gnome2-core/gnome-terminal/2.4.0.1/DETAILS,
-	gnome2-core/gnome-themes/2.4.0/BUILD,
-	gnome2-core/gnome-themes/2.4.0/DEPENDS,
-	gnome2-core/gnome-themes/2.4.0/DETAILS,
-	gnome2-core/gnome-utils2/2.4.0/BUILD,
-	gnome2-core/gnome-utils2/2.4.0/DEPENDS,
-	gnome2-core/gnome-utils2/2.4.0/DETAILS,
-	gnome2-core/gnome-vfs2/2.4.0/BUILD,
-	gnome2-core/gnome-vfs2/2.4.0/DEPENDS,
-	gnome2-core/gnome-vfs2/2.4.0/DETAILS,
-	gnome2-core/gnome2-user-docs/2.4.0/BUILD,
-	gnome2-core/gnome2-user-docs/2.4.0/DEPENDS,
-	gnome2-core/gnome2-user-docs/2.4.0/DETAILS,
-	gnome2-core/gtk-engines2/2.2.0/BUILD,
-	gnome2-core/gtk-engines2/2.2.0/DEPENDS,
-	gnome2-core/gtk-engines2/2.2.0/DETAILS,
-	gnome2-core/gtksourceview/0.6.0/BUILD,
-	gnome2-core/gtksourceview/0.6.0/DEPENDS,
-	gnome2-core/gtksourceview/0.6.0/DETAILS,
-	gnome2-core/libIDL/0.8.2/BUILD, gnome2-core/libIDL/0.8.2/DEPENDS,
-	gnome2-core/libIDL/0.8.2/DETAILS,
-	gnome2-core/libIDL/0.8.2/POST_INSTALL,
-	gnome2-core/libbonobo/2.4.0/BUILD,
-	gnome2-core/libbonobo/2.4.0/CONFLICTS,
-	gnome2-core/libbonobo/2.4.0/DEPENDS,
-	gnome2-core/libbonobo/2.4.0/DETAILS,
-	gnome2-core/libbonoboui/2.4.0/BUILD,
-	gnome2-core/libbonoboui/2.4.0/DEPENDS,
-	gnome2-core/libbonoboui/2.4.0/DETAILS,
-	gnome2-core/libgail-gnome/1.0.2/BUILD,
-	gnome2-core/libgail-gnome/1.0.2/DEPENDS,
-	gnome2-core/libgail-gnome/1.0.2/DETAILS,
-	gnome2-core/libglade2/2.0.1/BUILD,
-	gnome2-core/libglade2/2.0.1/DEPENDS,
-	gnome2-core/libglade2/2.0.1/DETAILS,
-	gnome2-core/libglade2/2.0.1/POST_INSTALL,
-	gnome2-core/libglade2/2.0.1/POST_REMOVE,
-	gnome2-core/libgnome/2.4.0/BUILD,
-	gnome2-core/libgnome/2.4.0/DEPENDS,
-	gnome2-core/libgnome/2.4.0/DETAILS,
-	gnome2-core/libgnomecanvas/2.4.0/BUILD,
-	gnome2-core/libgnomecanvas/2.4.0/DEPENDS,
-	gnome2-core/libgnomecanvas/2.4.0/DETAILS,
-	gnome2-core/libgnomeprint/2.3.1/BUILD,
-	gnome2-core/libgnomeprint/2.3.1/DEPENDS,
-	gnome2-core/libgnomeprint/2.3.1/DETAILS,
-	gnome2-core/libgnomeprintui/2.3.1/BUILD,
-	gnome2-core/libgnomeprintui/2.3.1/DEPENDS,
-	gnome2-core/libgnomeprintui/2.3.1/DETAILS,
-	gnome2-core/libgnomeui/2.4.0.1/BUILD,
-	gnome2-core/libgnomeui/2.4.0.1/DEPENDS,
-	gnome2-core/libgnomeui/2.4.0.1/DETAILS,
-	gnome2-core/libgtkhtml/2.4.0/BUILD,
-	gnome2-core/libgtkhtml/2.4.0/DEPENDS,
-	gnome2-core/libgtkhtml/2.4.0/DETAILS,
-	gnome2-core/libgtop2/2.0.5/BUILD,
-	gnome2-core/libgtop2/2.0.5/DEPENDS,
-	gnome2-core/libgtop2/2.0.5/DETAILS,
-	gnome2-core/librsvg/2.4.0/BUILD, gnome2-core/librsvg/2.4.0/DEPENDS,
-	gnome2-core/librsvg/2.4.0/DETAILS,
-	gnome2-core/libwnck/2.4.0.1/BUILD,
-	gnome2-core/libwnck/2.4.0.1/DEPENDS,
-	gnome2-core/libwnck/2.4.0.1/DETAILS,
-	gnome2-core/linc/1.1.1/profile.d/gnome2.rc,
-	gnome2-core/metacity/2.6.1/BUILD,
-	gnome2-core/metacity/2.6.1/DEPENDS,
-	gnome2-core/metacity/2.6.1/DETAILS,
-	gnome2-core/nautilus/2.4.0/BUILD,
-	gnome2-core/nautilus/2.4.0/DEPENDS,
-	gnome2-core/nautilus/2.4.0/DETAILS,
-	gnome2-core/nautilus-cd-burner/0.5.3/BUILD,
-	gnome2-core/nautilus-cd-burner/0.5.3/DEPENDS,
-	gnome2-core/nautilus-cd-burner/0.5.3/DETAILS,
-	gnome2-core/nautilus-media/0.3.3.1/BUILD,
-	gnome2-core/nautilus-media/0.3.3.1/DEPENDS,
-	gnome2-core/nautilus-media/0.3.3.1/DETAILS,
-	gnome2-core/startup-notification/0.5/BUILD,
-	gnome2-core/startup-notification/0.5/DETAILS,
-	gnome2-core/yelp/2.4.0/BUILD, gnome2-core/yelp/2.4.0/DEPENDS,
-	gnome2-core/yelp/2.4.0/DETAILS, libs/libart_lgpl/2.3.16/BUILD,
-	libs/libart_lgpl/2.3.16/DETAILS, libs/medusa/0.5.3/BUILD,
-	libs/medusa/0.5.3/DEPENDS, libs/medusa/0.5.3/DETAILS,
-	profiles/gnome2/2.4.0/BUILD, profiles/gnome2/2.4.0/DEPENDS,
-	profiles/gnome2/2.4.0/DETAILS, profiles/gnome2/2.4.0/POST_BUILD,
-	profiles/gnome2/2.4.0/PRE_BUILD: Profile module gnome/2.4.0 commit,
-	lin gnome/2.4.0 (only with theedge later than 9/14/03 to install,
-	*should* preserve gnome 2.2 but in any case does not conflict / lrm
-	existing base and depended modules. Some systems opt- depends may
-	cause issues I haven't tested
-
-2003-09-16 15:56  niki
-
-	* x11/xfree86/DEPENDS: Breaking a cirkular dependency for the
-	moment...
-
-2003-09-16 15:23  jmhodges
-
-	* gnome/gnumeric/DEPENDS: added libglade depends
-
-2003-09-16 15:22  florin
-
-	* security/nmap/DETAILS: bump version from 3.30 to 3.45
-
-2003-09-16 15:08  florin
-
-	* utils/procps/DETAILS: bump version from 3.1.9 to 3.1.12
-
-2003-09-16 13:12  jasper
-
-	* devel/db4/BUILD, devel/db4/CONFIGURE, devel/db4/DEPENDS,
-	kde3/kdebindings3/BUILD, kde3/kdebindings3/CONFIGURE,
-	kde3/kdebindings3/DEPENDS, libs/erlang/CONFIGURE,
-	libs/erlang/DEPENDS: j2sdk cannot be installed as dependency
-
-2003-09-16 13:06  niki
-
-	* crypto/openssh/DETAILS: Bumped openssh to 3.7p1 which contains a
-	bufferoverflow...
-
-2003-09-16 12:07  nhudson
-
-	* libs/expat/DETAILS: 
-	Updating expat to 1.95.6 and adding a md5sum
-
-2003-09-16 04:49  florin
-
-	* utils/which/DETAILS: bump version from 2.1.5 to 2.1.6
-
-2003-09-16 03:04  tchan
-
-	* utils/file/DETAILS: Version bump to 4.04.  Bugfix for largefile
-	support.  Compiled with gcc-3.2.3, glibc-2.3.2.  Added md5sum.
-
-2003-09-15 21:59  r0dzilla
-
-	* audio/audacity/BUILD: Fix for Bug #370
-
-2003-09-15 18:50  jasper
-
-	* xfce4/xfce4-session/POST_INSTALL: hehe, I thought that was a typo
-	;-)
-
-2003-09-15 18:25  jasper
-
-	* xfce4/xfce4-session/xfce.desktop: better to actually add the file
-	...
-
-2003-09-15 18:25  jasper
-
-	* xfce4/xfce4-session/POST_INSTALL: Add gdm session file. Thanks
-	Jason.
-
-2003-09-15 15:29  nhudson
-
-	* web/screem/DETAILS: 
-	Updating screem to new version 0.8.0 and adding a md5 sum
-
-2003-09-15 15:10  nhudson
-
-	* video/totem/DETAILS: 
-	Updating totem to new verson 0.99.5
-
-2003-09-15 15:08  nhudson
-
-	* gnome2-extras/libgnomedb/DETAILS: 
-	Updating libgnomedb to new version 1.0.0 and adding a md5sum
-
-2003-09-15 15:06  nhudson
-
-	* gnome2-core/libgda2/DETAILS: 
-	Updating libgda to new version 1.0.0
-
-2003-09-15 15:03  nhudson
-
-	* libs/libgsf/DETAILS: 
-	Updating libgsf to new version 1.8.2 and adding a md5sum to the
-	module
-
-2003-09-15 14:35  nhudson
-
-	* gnome2-core/linc/: DETAILS, profile.d/gnome2.rc: 
-	Cleaning this up to make sure the env var's are set correctly,
-	forcing a rebuild
-
-2003-09-15 13:10  tchan
-
-	* x11-apps/gnucash/DETAILS: Added md5sum.
-
-2003-09-15 13:06  tchan
-
-	* x11-apps/gnucash/DETAILS: Version bump to 1.8.7.  Some small bug
-	fixes.	Compiled with gcc-3.2.3, glibc-2.3.2.
-
-2003-09-15 11:56  nhudson
-
-	* gnome2-core/gdm/Sessions/gnome.desktop: 
-	Making this better
-
-2003-09-15 11:53  nhudson
-
-	* gnome2-core/gdm/: BUILD, DETAILS, Default, Sessions/Gnome2,
-	Sessions/gnome.desktop: 
-	Fixing the gdm build so that it will actually log you into gnome
-	correctly
-
-2003-09-15 03:41  nhudson
-
-	* profiles/gnome2/DETAILS: 
-	fixing this
-
-2003-09-15 03:27  nhudson
-
-	* profiles/gnome2/2.4/: BUILD, DEPENDS, DETAILS, POST_BUILD,
-	PRE_BUILD: 
-	Versioning for gnome 2.4
-
-2003-09-14 23:38  niki
-
-	* gnome2-core/libglade2/: POST_INSTALL, POST_REMOVE: made sure that
-	the build won't fail beacuse of these files.
-
-2003-09-14 23:10  nhudson
-
-	* gnome2-core/libglade2/: DETAILS, POST_INSTALL, POST_REMOVE: 
-	Ok making sure the docbook rebuild file gets ran all the time if it
-	is there and its ran when libglade is removed
-
-2003-09-14 22:59  nhudson
-
-	* gnome2-core/libglade2/DEPENDS: 
-	adding docbook-xsl
-
-2003-09-14 22:58  nhudson
-
-	* gnome2-extras/gnome-speech/: BUILD, DEPENDS, DETAILS: 
-	Adding gnome-speech to moonbase
-
-2003-09-14 22:49  nhudson
-
-	* x11-apps/: libmrproject/DETAILS, mrproject/DETAILS: 
-	Updating libmrproject and mrproject to new version 0.10 and added
-	md5's to the modules
-
-2003-09-14 22:48  nhudson
-
-	* gnome2-core/libglade2/POST_INSTALL: 
-	Fixing typo
-
-2003-09-14 22:32  nhudson
-
-	* gnome2-core/libglade2/POST_INSTALL: 
-	Adding a POST_INSTALL so that it will not break your docbook
-	catalogs
-
-2003-09-14 21:56  nhudson
-
-	* doc-tools/docbook-xsl/rebuild-docbook-catalog: 
-	Fix so it doesnt error out when scrollkeeper isnt installed
-
-2003-09-14 21:52  nhudson
-
-	* doc-tools/docbook-xsl/rebuild-docbook-catalog: 
-	This is alot better when you dont have libglade installed
-
-2003-09-14 21:37  nhudson
-
-	* doc-tools/docbook-xsl/: DETAILS, rebuild-docbook-catalog: 
-	Fixing the rebuild script so that it will look for libglade's dtd
-	file and put it into the correct place
-
-2003-09-14 20:47  niki
-
-	* gnome2-apps/meld/: BUILD, DETAILS: Some more moving to 2.4
-
-2003-09-14 20:40  niki
-
-	* gnome2-core/libole2-2/: BUILD, DETAILS: and some more goes to 2.4
-
-2003-09-14 20:29  sofar
-
-	* x11-wm/3ddesktop/DETAILS: About 5 revisions ago someone forgot to
-	change this!!!
-
-2003-09-14 19:59  sofar
-
-	* x11-wm/evilwm/: BUILD, DETAILS: Version bump
-
-2003-09-14 19:48  sofar
-
-	* gnome2-apps/abiword/: BUILD, DEPENDS, DETAILS: finished moving
-	abiword into gnome2-apps, bumping it to 2.0.0, and making it
-	externally compile against wv-1.0.0. Enjoy!
-
-2003-09-14 19:28  niki
-
-	* games/pysol-sound-server/: BUILD, DETAILS: Fixed it to cleanup
-	correctly after compiling.
-
-2003-09-14 18:59  csm
-
-	* audio/gst-plugins/DETAILS: fixing the download url and the md5sum
-
-2003-09-14 18:53  jasper
-
-	* x11-apps/openoffice-bin/DETAILS: Update to 1.1rc4
-
-2003-09-14 18:05  niki
-
-	* video/mjpegtools/DETAILS: Bumped version to a compilable one.
-
-2003-09-14 17:59  sofar
-
-	* x11-wm/aewm/: DEPENDS, DETAILS, POST_INSTALL: Updating to 1.2.3,
-	which now depends on gtk+-2!
-
-2003-09-14 17:33  sofar
-
-	* doc-tools/wv/DETAILS: Updated to 1.0.0
-
-2003-09-14 17:26  nhudson
-
-	* audio/gst-player/DETAILS: 
-	Updating gst-player to new version 0.6.0
-
-2003-09-14 17:21  nhudson
-
-	* gnome2-applets/gnome-blog/DETAILS: 
-	Updating gnome-blog to new version and adding a md5
-
-2003-09-14 17:18  nhudson
-
-	* gnome2-apps/ggv/DETAILS: 
-	Updating ggv to new version 2.4.0.1 and adding a md5
-
-2003-09-14 15:23  sofar
-
-	* web/webmin/: BUILD, DETAILS: New version, includes patches to
-	facilitate automatic distro recognition and default stuff
-	locations. only ssl options and password are being asked!
-
-2003-09-14 13:03  elaine
-
-	* security/stunnel/DETAILS: Version bump
-
-2003-09-14 12:12  niki
-
-	* utils/figlet/DEPENDS: Added optional depends for figfonts-intl.
-
-2003-09-14 12:10  niki
-
-	* utils/figfonts-intl/: BUILD, DETAILS: Added some additional
-	font's for figlet, contributed by Jon S.  <striker@interhact.net>
-
-2003-09-14 11:08  nestu
-
-	* x11-wm/3ddesktop/DETAILS: New website
-
-2003-09-14 10:20  niki
-
-	* gnome2-apps/file-roller/: BUILD, DETAILS: Moved to the new gnome
-	location...
-
-2003-09-14 10:17  niki
-
-	* gnome2-applets/goats/: BUILD, DETAILS: Moved to the new gnome
-	location...
-
-2003-09-14 07:59  florin
-
-	* x11/xfree86/DETAILS: fix the md5sum for xft.pc
-
-2003-09-14 07:58  florin
-
-	* x11/NVIDIA/BUILD: remove a empty symlink after install.
-
-2003-09-14 05:28  nhudson
-
-	* profiles/gnome2/CONFLICTS: 
-	Removing this
-
-2003-09-14 05:26  nhudson
-
-	* gnome2-core/gdm/DETAILS: 
-	Updating gdm to new version 2.4.4.1
-
-2003-09-13 23:54  jmhodges
-
-	* gnome2-core/gdm/gdm.conf: path fix.. yaaaaay!
-
-2003-09-13 21:55  florin
-
-	* libs/libart_lgpl/DETAILS: fix the updating day.
-
-2003-09-13 20:39  csm
-
-	* devel/highlight/DETAILS: updating the version
-
-2003-09-13 20:34  niki
-
-	* gnome2-apps/acme/DETAILS: hmm... MD5 didn't fit the downloaded
-	file.
-
-2003-09-13 20:13  nhudson
-
-	* gnome2-core/gnome-themes/DEPENDS: 
-	Fixing DEPENDS
-
-2003-09-13 20:08  nhudson
-
-	* gnome2-core/gnome-terminal/DEPENDS: 
-	Fixing gnome-terminal DEPENDS file
-
-2003-09-13 19:56  sofar
-
-	* x11-utils/: gkrellm2/DETAILS, gkrellmd2/DETAILS: New version
-
-2003-09-13 19:45  sofar
-
-	* graphics/gthumb/DETAILS: Adding md5sum from repository
-
-2003-09-13 19:11  nhudson
-
-	* x11/xfree86/DEPENDS: 
-	Adding freetype
-
-2003-09-13 18:59  nhudson
-
-	* x11/xfree86/DEPENDS: 
-	Fixing the DEPENDS file
-
-2003-09-13 18:55  nhudson
-
-	* x11/xfree86/: DETAILS, POST_INSTALL: 
-	Adding fix for freetype stuff
-
-2003-09-13 18:40  nhudson
-
-	* gnome2-core/linc/POST_INSTALL: 
-	Making this better
-
-2003-09-13 18:27  nhudson
-
-	* gnome2-core/linc/POST_INSTALL: 
-	Adding a POST_INSTALL to add the correct line to /etc/ld.so.conf
-
-2003-09-13 18:26  sofar
-
-	* gnome2-extras/libgnomedb/BUILD: /me pats nick on the back (rough
-	night?)
-
-2003-09-13 18:06  nhudson
-
-	* profiles/gnome2/: CONFLICTS, DEPENDS: 
-	Fixing some problems
-
-2003-09-13 17:52  nhudson
-
-	* gnome2-extras/ghex/DETAILS: 
-	Fixing ghex so that it will build
-
-2003-09-13 17:25  nhudson
-
-	* gnome2-core/gdm/gdm.conf: 
-	putting back gdm.conf
-
-2003-09-13 15:33  sofar
-
-	* gnome2-apps/acme/BUILD, gnome2-apps/battfink/BUILD,
-	gnome2-apps/diacanvas2/BUILD, gnome2-apps/gcalctool/BUILD,
-	gnome2-apps/ggv/BUILD, gnome2-apps/glabels/BUILD,
-	gnome2-apps/gnome-network/BUILD, gnome2-apps/gnomesu/BUILD,
-	gnome2-apps/gok/BUILD, gnome2-apps/gpdf/BUILD,
-	gnome2-apps/gucharmap/BUILD, gnome2-apps/metacity-setup/BUILD,
-	gnome2-apps/mozilla-bonobo/BUILD, gnome2-apps/pkgview/BUILD,
-	gnome2-apps/regexxer/BUILD, gnome2-apps/ticker/BUILD,
-	gnome2-apps/vte/BUILD, gnome2-core/GConf2/BUILD,
-	gnome2-core/at-spi/BUILD, gnome2-core/bug-buddy/BUILD,
-	gnome2-core/control-center2/BUILD, gnome2-core/eel/BUILD,
-	gnome2-core/eog/BUILD, gnome2-core/gail/BUILD,
-	gnome2-core/gconf-editor/BUILD, gnome2-core/gdm/BUILD,
-	gnome2-core/gedit/BUILD, gnome2-core/gnome-applets2/BUILD,
-	gnome2-core/gnome-audio/BUILD, gnome2-core/gnome-common2/BUILD,
-	gnome2-core/gnome-desktop/BUILD, gnome2-core/gnome-games2/BUILD,
-	gnome2-core/gnome-icon-theme/BUILD, gnome2-core/gnome-media2/BUILD,
-	gnome2-core/gnome-mime-data2/BUILD, gnome2-core/gnome-panel/BUILD,
-	gnome2-core/gnome-session/BUILD,
-	gnome2-core/gnome-system-monitor/BUILD,
-	gnome2-core/gnome-terminal/BUILD, gnome2-core/gnome-utils2/BUILD,
-	gnome2-core/gnome-vfs2/BUILD, gnome2-core/gnome2-user-docs/BUILD,
-	gnome2-core/gtksourceview/BUILD, gnome2-core/libIDL/BUILD,
-	gnome2-core/libbonobo/BUILD, gnome2-core/libbonoboui/BUILD,
-	gnome2-core/libgail-gnome/BUILD, gnome2-core/libgda2/BUILD,
-	gnome2-core/libglade2/BUILD, gnome2-core/libgnome/BUILD,
-	gnome2-core/libgnomecanvas/BUILD, gnome2-core/libgnomeprint/BUILD,
-	gnome2-core/libgnomeprintui/BUILD, gnome2-core/libgnomeui/BUILD,
-	gnome2-core/libgtkhtml/BUILD, gnome2-core/libgtop2/BUILD,
-	gnome2-core/libwnck/BUILD, gnome2-core/libzvt/BUILD,
-	gnome2-core/linc/BUILD, gnome2-core/linc/profile.d/gnome2.rc,
-	gnome2-core/metacity/BUILD, gnome2-core/nautilus/BUILD,
-	gnome2-core/nautilus-cd-burner/BUILD,
-	gnome2-core/nautilus-media/BUILD,
-	gnome2-core/startup-notification/BUILD, gnome2-core/yelp/BUILD,
-	gnome2-extras/ghex/BUILD, gnome2-extras/glade2/BUILD,
-	gnome2-extras/gnome-cups-manager/BUILD,
-	gnome2-extras/gnome-vfs-extras/BUILD,
-	gnome2-extras/gnome-vfs-sftp/BUILD,
-	gnome2-extras/gnome2-icons/BUILD, gnome2-extras/libcroco/BUILD,
-	gnome2-extras/libgnomecups/BUILD, gnome2-extras/libgnomedb/BUILD,
-	gnome2-extras/libole2-2/BUILD, gnome2-extras/magicdev/BUILD,
-	gnome2-extras/mergeant/BUILD, gnome2-extras/nautilus-gtkhtml/BUILD,
-	gnome2-extras/zenity/BUILD, graphics/gthumb/BUILD,
-	libs/glibc/BUILD, libs/libgsf/BUILD, libs/loudmouth/BUILD,
-	mail/balsa2/BUILD, mail/sendmail/BUILD, terminal/tsclient/BUILD,
-	web/epiphany/BUILD, web/galeon2/BUILD, web/peacock/BUILD,
-	web/screem/BUILD, zbeta/galeon_cvs/BUILD: reverting
-
-2003-09-13 15:32  sofar
-
-	* app-themes/lighthouseblue-metacity/BUILD, audio/rhythmbox/BUILD,
-	audio/sound-juicer/BUILD, cd/burgner/BUILD,
-	chat/gnomemeeting/BUILD, chat/gossip/BUILD,
-	devel/gnome-vfsmm/BUILD, devel/gnomemm-all/BUILD,
-	devel/orbitcpp/BUILD, games/bzedit2/BUILD,
-	gnome2-applets/apotheke/BUILD, gnome2-applets/devilspie/BUILD,
-	gnome2-applets/drwright/BUILD, gnome2-applets/gnome-blog/BUILD,
-	gnome2-applets/grandr_applet/BUILD,
-	gnome2-applets/led_applet/BUILD, gnome2-applets/multires/BUILD,
-	gnome2-applets/netmon_applet/BUILD,
-	gnome2-applets/netspeed_applet/BUILD,
-	gnome2-applets/quick-lounge-applet/BUILD,
-	gnome2-applets/shermans_aquarium/BUILD,
-	gnome2-applets/teatime/BUILD: We apologise for the inconvenienve,
-	the situation is under control now. Do not panic!
-
-2003-09-13 15:10  dem
-
-	* app-themes/lighthouseblue-metacity/BUILD, audio/rhythmbox/BUILD,
-	audio/sound-juicer/BUILD, cd/burgner/BUILD,
-	chat/gnomemeeting/BUILD, chat/gossip/BUILD,
-	devel/gnome-vfsmm/BUILD, devel/gnomemm-all/BUILD,
-	devel/orbitcpp/BUILD, games/bzedit2/BUILD,
-	gnome2-applets/apotheke/BUILD, gnome2-applets/devilspie/BUILD,
-	gnome2-applets/drwright/BUILD, gnome2-applets/gnome-blog/BUILD,
-	gnome2-applets/grandr_applet/BUILD,
-	gnome2-applets/led_applet/BUILD, gnome2-applets/multires/BUILD,
-	gnome2-applets/netmon_applet/BUILD,
-	gnome2-applets/netspeed_applet/BUILD,
-	gnome2-applets/quick-lounge-applet/BUILD,
-	gnome2-applets/shermans_aquarium/BUILD,
-	gnome2-applets/teatime/BUILD, gnome2-apps/acme/BUILD,
-	gnome2-apps/battfink/BUILD, gnome2-apps/diacanvas2/BUILD,
-	gnome2-apps/gcalctool/BUILD, gnome2-apps/ggv/BUILD,
-	gnome2-apps/glabels/BUILD, gnome2-apps/gnome-network/BUILD,
-	gnome2-apps/gnomesu/BUILD, gnome2-apps/gok/BUILD,
-	gnome2-apps/gpdf/BUILD, gnome2-apps/gucharmap/BUILD,
-	gnome2-apps/metacity-setup/BUILD, gnome2-apps/mozilla-bonobo/BUILD,
-	gnome2-apps/pkgview/BUILD, gnome2-apps/regexxer/BUILD,
-	gnome2-apps/ticker/BUILD, gnome2-apps/vte/BUILD,
-	gnome2-core/GConf2/BUILD, gnome2-core/at-spi/BUILD,
-	gnome2-core/bug-buddy/BUILD, gnome2-core/control-center2/BUILD,
-	gnome2-core/eel/BUILD, gnome2-core/eog/BUILD,
-	gnome2-core/gail/BUILD, gnome2-core/gconf-editor/BUILD,
-	gnome2-core/gdm/BUILD, gnome2-core/gedit/BUILD,
-	gnome2-core/gnome-applets2/BUILD, gnome2-core/gnome-audio/BUILD,
-	gnome2-core/gnome-common2/BUILD, gnome2-core/gnome-desktop/BUILD,
-	gnome2-core/gnome-games2/BUILD, gnome2-core/gnome-icon-theme/BUILD,
-	gnome2-core/gnome-media2/BUILD, gnome2-core/gnome-mime-data2/BUILD,
-	gnome2-core/gnome-panel/BUILD, gnome2-core/gnome-session/BUILD,
-	gnome2-core/gnome-system-monitor/BUILD,
-	gnome2-core/gnome-terminal/BUILD, gnome2-core/gnome-utils2/BUILD,
-	gnome2-core/gnome-vfs2/BUILD, gnome2-core/gnome2-user-docs/BUILD,
-	gnome2-core/gtksourceview/BUILD, gnome2-core/libIDL/BUILD,
-	gnome2-core/libbonobo/BUILD, gnome2-core/libbonoboui/BUILD,
-	gnome2-core/libgail-gnome/BUILD, gnome2-core/libgda2/BUILD,
-	gnome2-core/libglade2/BUILD, gnome2-core/libgnome/BUILD,
-	gnome2-core/libgnomecanvas/BUILD, gnome2-core/libgnomeprint/BUILD,
-	gnome2-core/libgnomeprintui/BUILD, gnome2-core/libgnomeui/BUILD,
-	gnome2-core/libgtkhtml/BUILD, gnome2-core/libgtop2/BUILD,
-	gnome2-core/libwnck/BUILD, gnome2-core/libzvt/BUILD,
-	gnome2-core/linc/BUILD, gnome2-core/linc/profile.d/gnome2.rc,
-	gnome2-core/metacity/BUILD, gnome2-core/nautilus/BUILD,
-	gnome2-core/nautilus-cd-burner/BUILD,
-	gnome2-core/nautilus-media/BUILD,
-	gnome2-core/startup-notification/BUILD, gnome2-core/yelp/BUILD,
-	gnome2-extras/ghex/BUILD, gnome2-extras/glade2/BUILD,
-	gnome2-extras/gnome-cups-manager/BUILD,
-	gnome2-extras/gnome-vfs-extras/BUILD,
-	gnome2-extras/gnome-vfs-sftp/BUILD,
-	gnome2-extras/gnome2-icons/BUILD, gnome2-extras/libcroco/BUILD,
-	gnome2-extras/libgnomecups/BUILD, gnome2-extras/libgnomedb/BUILD,
-	gnome2-extras/libole2-2/BUILD, gnome2-extras/magicdev/BUILD,
-	gnome2-extras/mergeant/BUILD, gnome2-extras/nautilus-gtkhtml/BUILD,
-	gnome2-extras/zenity/BUILD, graphics/gthumb/BUILD,
-	libs/glibc/BUILD, libs/libgsf/BUILD, libs/loudmouth/BUILD,
-	mail/balsa2/BUILD, mail/sendmail/BUILD, terminal/tsclient/BUILD,
-	web/epiphany/BUILD, web/galeon2/BUILD, web/peacock/BUILD,
-	web/screem/BUILD, zbeta/galeon_cvs/BUILD: s\gnome/2.4\gnome/2\ for
-	gnome
-
-2003-09-13 14:57  sofar
-
-	* games/: qstat/BUILD, qstat/DETAILS, xqf/DEPENDS, xqf/DETAILS:
-	Adding qstat and xqf! perhaps florin likes these moved to
-	/usr/games, but here is allright for now.
-
-2003-09-13 13:55  florin
-
-	* games/epiar/epiar: no need it anymore.
-
-2003-09-13 13:53  florin
-
-	* games/epiar/: BUILD, DETAILS: install it in the /usr/games/epiar
-	directory
-
-2003-09-13 11:40  florin
-
-	* graphics/freetype2/DETAILS: bump version from 2.1.4 to 2.1.5
-
-2003-09-13 11:37  florin
-
-	* devel/automake/DETAILS: bump version from 1.7.6 to 1.7.7
-
-2003-09-13 09:38  sofar
-
-	* gnome2-extras/mergeant/BUILD: typo.
-
-2003-09-13 07:48  nhudson
-
-	* gnome2-core/libgda2/: BUILD, DETAILS: 
-	I swear I checked this in last night, I have no idea how this got
-	left out
-
-2003-09-13 07:43  nhudson
-
-	* gnome2-core/: GConf2/DEPENDS, ORBit2/DEPENDS, at-spi/DEPENDS,
-	bug-buddy/DEPENDS, control-center2/DEPENDS, eel/DEPENDS,
-	eog/DEPENDS, gedit/DEPENDS, gnome-applets2/DEPENDS,
-	gnome-desktop/DEPENDS, gnome-games2/DEPENDS, gnome-media2/DEPENDS,
-	gnome-mime-data2/DEPENDS, gnome-session/CONFIGURE,
-	gnome-session/DEPENDS, gnome-system-monitor/DEPENDS,
-	gnome-terminal/DEPENDS, gnome-themes/DEPENDS, gnome-utils2/DEPENDS,
-	gnome-vfs2/DEPENDS, gnome2-user-docs/DEPENDS, libIDL/DEPENDS,
-	libbonoboui/DEPENDS, libgail-gnome/DEPENDS, libglade2/DEPENDS,
-	libgnomecanvas/DEPENDS, libgnomeprint/DEPENDS,
-	libgnomeprintui/DEPENDS, libgtkhtml/DEPENDS, librsvg/DEPENDS,
-	libwnck/DEPENDS, linc/DEPENDS, metacity/DEPENDS, nautilus/DEPENDS,
-	startup-notification/DEPENDS, yelp/DEPENDS: 
-	Fixing the DEPENDS files on modules so they are not recursive. 
-	This seems to work alot better in installing gnome 2.4 than the
-	previous way
-
-2003-09-13 07:41  nhudson
-
-	* gnome2-apps/vte/DEPENDS: 
-	Fixing some depend files so they work better with the install of
-	gnome 2.4.  These seem to be less recursive than before and look to
-	work better
-
-2003-09-13 06:48  nhudson
-
-	* gnome2-core/gnome-media2/DEPENDS: Fixing the DEPDNS file -
-
-2003-09-13 06:33  csm
-
-	* devel/orbitcpp/DETAILS: updating this as a dep for gnomemm-all
-
-2003-09-13 06:11  csm
-
-	* gnome2-core/gtkmm2/DETAILS: update to 2.2.5 is required at
-	minimum.
-
-2003-09-13 05:11  jmhodges
-
-	* gnome2-core/gdm/gnomerc: path fix
-
-2003-09-13 02:38  jmhodges
-
-	* gnome2-core/gdm/init.d/gdm: changed path to 2.4
-
-2003-09-13 02:32  jmhodges
-
-	* gnome2-core/gdm/Sessions/Gnome2: now to figure out where that
-	gdm.conf is! commenting it out in my personal BUILD
-
-2003-09-13 02:32  jmhodges
-
-	* gnome2-core/gdm/Sessions/Gnome: moving to Gnome2 so that gdm
-	install works
-
-2003-09-13 02:04  tchan
-
-	* x11-apps/gnucash/DETAILS: Version bump to 1.8.6.  Compiled and
-	tested with gcc-3.2.3, glibc-2.3.2, and gnome-2.2.
-
-2003-09-13 00:14  csm
-
-	* gnome2-apps/vte/BUILD: I had to sedit *ALL* the Makefiles to set
-	the proper freetype2 path
 	
-	Also gtk+ is not compatible with this module
-
-2003-09-12 23:08  sofar
-
-	* utils/Wine/DETAILS: Le nouveau vin cet annee est tres to^t, mais
-	desormais excellent! :
-	-------------------------------------------------------------------
-	---
-
-2003-09-12 21:37  nestu
-
-	* security/shorewall/DETAILS: Bumped version from 1.4b to 1.4c
-
-2003-09-12 21:06  csm
-
-	* gnome/gdk-pixbuf/DETAILS: adding the md5sum
-
-2003-09-12 21:00  csm
-
-	* gnome2-apps/vte/DETAILS: adding a rational explanation for what
-	vte is
-
-2003-09-12 20:56  csm
-
-	* gnome/gdk-pixbuf/DETAILS: updating this so that librsvg for gnome
-	2.4 will build
-
-2003-09-12 19:32  florin
-
-	* utils/which/DETAILS: bump version from 2.14 to 2.15
-
-2003-09-12 17:12  florin
-
-	* libs/libxslt/DETAILS: bump version from 1.0.32 to 1.0.33
-
-2003-09-12 17:07  florin
-
-	* net/whois/DETAILS: bump version from 4.6.6 to 4.6.7
-
-2003-09-12 13:46  nhudson
-
-	* profiles/: gnome2/DEPENDS, gnome2-fifth-toe/DEPENDS,
-	gnome2-fifth-toe/DETAILS: 
-	Updating the profiles
-
-2003-09-12 13:44  nhudson
-
-	* gnome2-applets/gnome-blog/DETAILS: 
-	Updating gnome-blog to new version 0.6
-
-2003-09-12 12:25  nhudson
-
-	* gnome2-extras/gal2/PRE_BUILD: 
-	Fixing this removing the old pkgconfigpath
-
-2003-09-12 10:44  niki
-
-	* devel/pkgconfig/: DETAILS, profile.d/pkgconfig.rc: Ok, this time
-	it will not reset the gnome2 PKG_CONFIG_PATH settings.	Forcing an
-	update to get it out to the masses.
-
-2003-09-12 10:32  jasper
-
-	* gnome2-core/at-spi/BUILD: Fix typo in BUILD
-
-2003-09-12 04:18  watryac04
-
-	* compilers/nasm/DETAILS: Fixed the UDPATED field in the nasm
-	update
-
-2003-09-12 04:10  nhudson
-
-	* profiles/gnome2/DETAILS: 
-	Fixing these
-
-2003-09-12 04:03  nhudson
-
-	* profiles/gnome2/: CONFLICTS, DEPENDS, DETAILS: 
-	Adding this for gnome 2.4.0
-
-2003-09-12 03:53  watryac04
-
-	* compilers/nasm/DETAILS: nasm version bumped.	Has tested fine on
-	multiple machines as well as rebuilt versions of lilo.
-
-2003-09-12 03:52  nhudson
-
-	* app-themes/gnome-themes-extras/BUILD,
-	app-themes/gnome-themes-extras/DETAILS,
-	app-themes/lighthouseblue-metacity/BUILD,
-	app-themes/lighthouseblue-metacity/DETAILS, audio/gst-editor/BUILD,
-	audio/gst-editor/DETAILS, audio/gst-player/BUILD,
-	audio/gst-plugins/BUILD, audio/gstreamer/BUILD,
-	audio/rhythmbox/BUILD, audio/rhythmbox/DETAILS,
-	audio/sound-juicer/BUILD, audio/sound-juicer/DETAILS,
-	cd/burgner/BUILD, cd/burgner/DETAILS, chat/gnomeicu/BUILD,
-	chat/gnomeicu/DETAILS, chat/gnomemeeting/BUILD,
-	chat/gnomemeeting/DETAILS, chat/gnomemeeting/POST_INSTALL,
-	chat/gossip/BUILD, chat/gossip/DETAILS, chat/xchat/DETAILS,
-	devel/gnome-vfsmm/BUILD, devel/gnome-vfsmm/DETAILS,
-	devel/gnomemm-all/BUILD, devel/gnomemm-all/DETAILS,
-	devel/orbitcpp/BUILD, devel/orbitcpp/DETAILS, games/bzedit2/BUILD,
-	games/bzedit2/DETAILS, gnome2-applets/apotheke/BUILD,
-	gnome2-applets/apotheke/DETAILS, gnome2-applets/devilspie/BUILD,
-	gnome2-applets/devilspie/DETAILS, gnome2-applets/drwright/BUILD,
-	gnome2-applets/drwright/DETAILS, gnome2-applets/gnome-blog/BUILD,
-	gnome2-applets/gnome-blog/DETAILS,
-	gnome2-applets/grandr_applet/BUILD,
-	gnome2-applets/grandr_applet/DETAILS,
-	gnome2-applets/led_applet/BUILD, gnome2-applets/led_applet/DETAILS,
-	gnome2-applets/multires/BUILD, gnome2-applets/multires/DETAILS,
-	gnome2-applets/netmon_applet/BUILD,
-	gnome2-applets/netmon_applet/DETAILS,
-	gnome2-applets/netspeed_applet/BUILD,
-	gnome2-applets/netspeed_applet/DETAILS,
-	gnome2-applets/quick-lounge-applet/BUILD,
-	gnome2-applets/quick-lounge-applet/DETAILS,
-	gnome2-applets/shermans_aquarium/BUILD,
-	gnome2-applets/shermans_aquarium/DETAILS,
-	gnome2-applets/teatime/BUILD, gnome2-applets/teatime/DETAILS,
-	gnome2-apps/acme/BUILD, gnome2-apps/acme/DETAILS,
-	gnome2-apps/battfink/BUILD, gnome2-apps/battfink/DETAILS,
-	gnome2-apps/conglomerate/DETAILS, gnome2-apps/diacanvas2/BUILD,
-	gnome2-apps/diacanvas2/DETAILS, gnome2-apps/file-roller/DETAILS,
-	gnome2-apps/gcalctool/BUILD, gnome2-apps/gcalctool/DETAILS,
-	gnome2-apps/ggv/BUILD, gnome2-apps/ggv/DETAILS,
-	gnome2-apps/glabels/BUILD, gnome2-apps/glabels/DETAILS,
-	gnome2-apps/gnome-network/BUILD, gnome2-apps/gnome-network/DETAILS,
-	gnome2-apps/gnomesu/BUILD, gnome2-apps/gnomesu/DETAILS,
-	gnome2-apps/gok/BUILD, gnome2-apps/gok/DETAILS,
-	gnome2-apps/gpdf/BUILD, gnome2-apps/gpdf/DETAILS,
-	gnome2-apps/gucharmap/BUILD, gnome2-apps/gucharmap/DETAILS,
-	gnome2-apps/katoob/DETAILS, gnome2-apps/metacity-setup/BUILD,
-	gnome2-apps/metacity-setup/DETAILS,
-	gnome2-apps/mozilla-bonobo/BUILD,
-	gnome2-apps/mozilla-bonobo/DETAILS, gnome2-apps/pkgview/BUILD,
-	gnome2-apps/pkgview/DETAILS, gnome2-apps/regexxer/BUILD,
-	gnome2-apps/regexxer/DETAILS, gnome2-apps/ticker/BUILD,
-	gnome2-apps/ticker/DETAILS, gnome2-apps/vte/BUILD,
-	gnome2-apps/vte/DEPENDS, gnome2-apps/vte/DETAILS,
-	gnome2-core/GConf2/BUILD, gnome2-core/GConf2/DETAILS,
-	gnome2-core/ORBit2/BUILD, gnome2-core/ORBit2/DETAILS,
-	gnome2-core/at-spi/BUILD, gnome2-core/at-spi/DETAILS,
-	gnome2-core/bug-buddy/BUILD, gnome2-core/bug-buddy/DETAILS,
-	gnome2-core/control-center2/BUILD,
-	gnome2-core/control-center2/DEPENDS,
-	gnome2-core/control-center2/DETAILS, gnome2-core/eel/BUILD,
-	gnome2-core/eel/DETAILS, gnome2-core/eog/BUILD,
-	gnome2-core/eog/DEPENDS, gnome2-core/eog/DETAILS,
-	gnome2-core/gail/BUILD, gnome2-core/gail/DEPENDS,
-	gnome2-core/gail/DETAILS, gnome2-core/gconf-editor/BUILD,
-	gnome2-core/gconf-editor/DETAILS, gnome2-core/gdm/BUILD,
-	gnome2-core/gdm/DEPENDS, gnome2-core/gdm/DETAILS,
-	gnome2-core/gedit/BUILD, gnome2-core/gedit/DEPENDS,
-	gnome2-core/gedit/DETAILS, gnome2-core/gnome-applets2/BUILD,
-	gnome2-core/gnome-applets2/DETAILS, gnome2-core/gnome-audio/BUILD,
-	gnome2-core/gnome-audio/DETAILS, gnome2-core/gnome-common2/BUILD,
-	gnome2-core/gnome-common2/DETAILS, gnome2-core/gnome-desktop/BUILD,
-	gnome2-core/gnome-desktop/DETAILS, gnome2-core/gnome-games2/BUILD,
-	gnome2-core/gnome-games2/DETAILS,
-	gnome2-core/gnome-icon-theme/BUILD,
-	gnome2-core/gnome-icon-theme/DETAILS,
-	gnome2-core/gnome-media2/BUILD, gnome2-core/gnome-media2/DEPENDS,
-	gnome2-core/gnome-media2/DETAILS,
-	gnome2-core/gnome-mime-data2/BUILD,
-	gnome2-core/gnome-mime-data2/DETAILS,
-	gnome2-core/gnome-panel/BUILD, gnome2-core/gnome-panel/DETAILS,
-	gnome2-core/gnome-session/BUILD, gnome2-core/gnome-session/DETAILS,
-	gnome2-core/gnome-system-monitor/BUILD,
-	gnome2-core/gnome-system-monitor/DETAILS,
-	gnome2-core/gnome-terminal/BUILD,
-	gnome2-core/gnome-terminal/DETAILS, gnome2-core/gnome-themes/BUILD,
-	gnome2-core/gnome-themes/DEPENDS, gnome2-core/gnome-themes/DETAILS,
-	gnome2-core/gnome-utils2/BUILD, gnome2-core/gnome-utils2/DETAILS,
-	gnome2-core/gnome-vfs2/BUILD, gnome2-core/gnome-vfs2/DETAILS,
-	gnome2-core/gnome2-user-docs/BUILD,
-	gnome2-core/gnome2-user-docs/DETAILS,
-	gnome2-core/gtk-engines2/BUILD, gnome2-core/gtk-engines2/DETAILS,
-	gnome2-core/gtkmm2/BUILD, gnome2-core/gtksourceview/BUILD,
-	gnome2-core/gtksourceview/DETAILS, gnome2-core/libIDL/BUILD,
-	gnome2-core/libIDL/DETAILS, gnome2-core/libbonobo/BUILD,
-	gnome2-core/libbonobo/CONFLICTS, gnome2-core/libbonobo/DEPENDS,
-	gnome2-core/libbonobo/DETAILS, gnome2-core/libbonoboui/BUILD,
-	gnome2-core/libbonoboui/DETAILS, gnome2-core/libgail-gnome/BUILD,
-	gnome2-core/libgail-gnome/DETAILS, gnome2-core/libglade2/BUILD,
-	gnome2-core/libglade2/DETAILS, gnome2-core/libgnome/BUILD,
-	gnome2-core/libgnome/DETAILS, gnome2-core/libgnomecanvas/BUILD,
-	gnome2-core/libgnomecanvas/DETAILS,
-	gnome2-core/libgnomeprint/BUILD, gnome2-core/libgnomeprint/DETAILS,
-	gnome2-core/libgnomeprintui/BUILD,
-	gnome2-core/libgnomeprintui/DEPENDS,
-	gnome2-core/libgnomeprintui/DETAILS, gnome2-core/libgnomeui/BUILD,
-	gnome2-core/libgnomeui/DETAILS, gnome2-core/libgtkhtml/BUILD,
-	gnome2-core/libgtkhtml/DETAILS, gnome2-core/libgtop2/BUILD,
-	gnome2-core/libgtop2/DETAILS, gnome2-core/librsvg/BUILD,
-	gnome2-core/librsvg/DETAILS, gnome2-core/libwnck/BUILD,
-	gnome2-core/libwnck/DETAILS, gnome2-core/libzvt/BUILD,
-	gnome2-core/libzvt/DETAILS, gnome2-core/linc/BUILD,
-	gnome2-core/linc/DETAILS, gnome2-core/linc/profile.d/gnome2.rc,
-	gnome2-core/metacity/BUILD, gnome2-core/metacity/DEPENDS,
-	gnome2-core/metacity/DETAILS, gnome2-core/nautilus/BUILD,
-	gnome2-core/nautilus/DEPENDS, gnome2-core/nautilus/DETAILS,
-	gnome2-core/nautilus-cd-burner/BUILD,
-	gnome2-core/nautilus-cd-burner/DETAILS,
-	gnome2-core/nautilus-media/BUILD,
-	gnome2-core/nautilus-media/DETAILS,
-	gnome2-core/startup-notification/BUILD,
-	gnome2-core/startup-notification/DETAILS, gnome2-core/yelp/BUILD,
-	gnome2-core/yelp/DETAILS, gnome2-extras/gal2/DETAILS,
-	gnome2-extras/ghex/BUILD, gnome2-extras/ghex/DETAILS,
-	gnome2-extras/glade2/BUILD, gnome2-extras/glade2/DETAILS,
-	gnome2-extras/gnome-cups-manager/BUILD,
-	gnome2-extras/gnome-cups-manager/DETAILS,
-	gnome2-extras/gnome-python2/BUILD,
-	gnome2-extras/gnome-python2/DETAILS,
-	gnome2-extras/gnome-spell/DETAILS,
-	gnome2-extras/gnome-vfs-extras/BUILD,
-	gnome2-extras/gnome-vfs-extras/DETAILS,
-	gnome2-extras/gnome-vfs-sftp/BUILD,
-	gnome2-extras/gnome-vfs-sftp/DETAILS,
-	gnome2-extras/gnome2-icons/BUILD,
-	gnome2-extras/gnome2-icons/DETAILS, gnome2-extras/libcroco/BUILD,
-	gnome2-extras/libcroco/DETAILS, gnome2-extras/libgnomecups/BUILD,
-	gnome2-extras/libgnomecups/DETAILS, gnome2-extras/libgnomedb/BUILD,
-	gnome2-extras/libgnomedb/DETAILS, gnome2-extras/libole2-2/BUILD,
-	gnome2-extras/libole2-2/DETAILS, gnome2-extras/magicdev/BUILD,
-	gnome2-extras/magicdev/DETAILS, gnome2-extras/mergeant/BUILD,
-	gnome2-extras/mergeant/DETAILS,
-	gnome2-extras/nautilus-gtkhtml/BUILD,
-	gnome2-extras/nautilus-gtkhtml/DETAILS,
-	gnome2-extras/pyorbit/DETAILS, gnome2-extras/zenity/BUILD,
-	gnome2-extras/zenity/DETAILS, graphics/gthumb/BUILD,
-	graphics/gthumb/DETAILS, libs/libart_lgpl/DETAILS,
-	libs/libgsf/BUILD, libs/libgsf/DETAILS, libs/loudmouth/BUILD,
-	libs/loudmouth/DETAILS, mail/balsa2/BUILD, mail/balsa2/DETAILS,
-	mail/evolution/DETAILS, terminal/tsclient/BUILD,
-	terminal/tsclient/DETAILS, video/totem/BUILD, video/totem/DETAILS,
-	web/epiphany/BUILD, web/epiphany/DETAILS, web/galeon2/BUILD,
-	web/galeon2/DETAILS, web/mozilla/BUILD, web/mozilla/DETAILS,
-	web/peacock/BUILD, web/peacock/DETAILS, web/screem/BUILD,
-	web/screem/DETAILS, x11-apps/grubconf/BUILD,
-	x11-apps/grubconf/DETAILS, x11-apps/libmrproject/BUILD,
-	x11-apps/libmrproject/DETAILS, x11-apps/mrproject/BUILD,
-	x11-apps/mrproject/DETAILS, zbeta/galeon_cvs/BUILD: 
-	Ok this is Gnome 2.4.0 Desktop Release.  I hope everyone enjoys. We
-	moved it from /opt/lunar/gnome/2 to /opt/lunar/gnome/2.4.  I tried
-	chaging all the modules that compile with Gnome to recompile but
-	some of them may have been missed.  If you run into a problem and a
-	module will not compile please let us know.  If you run into a
-	problem where a app will not work recompile and everything should
-	be ok.
-
-2003-09-12 03:51  tchan
-
-	* zbeta/xforms/: BUILD, DETAILS: Added a patch to the Imakefile
-	that hopefully fixes the libXpm problem once and for all.
-
-2003-09-11 13:37  elaine
-
-	* compilers/gcc/3.3/BUILD: no longer testing, put it in gcc/3.3
-
-2003-09-11 13:37  niki
-
-	* devel/pkgconfig/DETAILS: forcing update to get that extra newline
-	removed from ppl. systems, becasue Veerappan was hit by it.
-
-2003-09-11 03:11  csm
-
-	* mail/: pine/DETAILS, postfix/DETAILS: version bump with md5sums
-	and dates of these two modules
-
-2003-09-11 00:34  csm
-
-	* devel/pkgconfig/profile.d/pkgconfig.rc: removing a line break
-	from this file which was causing all kinds of hell
-
-2003-09-10 22:36  jasper
-
-	* app-themes/gtk-xfce-engine/DETAILS,
-	profiles/xfce4-extras-profile/DETAILS,
-	profiles/xfce4-profile/DETAILS, xfce4/libxfce4mcs/DETAILS,
-	xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/DETAILS,
-	xfce4/xfce-mcs-manager/DETAILS, xfce4/xfce-mcs-plugins/DETAILS,
-	xfce4/xfce-utils/DETAILS, xfce4/xfce4-battery-plugin/DETAILS,
-	xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-mixer/DETAILS,
-	xfce4/xfce4-netload-plugin/DETAILS, xfce4/xfce4-panel/DETAILS,
-	xfce4/xfce4-systray/DETAILS, xfce4/xfce4-themes/DETAILS,
-	xfce4/xfce4-toys/DETAILS, xfce4/xfce4-trigger-launcher/DETAILS,
-	xfce4/xfdesktop/DETAILS, xfce4/xffm/DETAILS,
-	xfce4/xffm-icons/DETAILS, xfce4/xfprint/DETAILS,
-	xfce4/xfwm4/DETAILS, xfce4/xfwm4-themes/DETAILS: Here goes rc4
-
-2003-09-10 21:35  nhudson
-
-	* devel/pkgconfig/: DETAILS, profile.d/pkgconfig.rc: 
-	Forcing a upgrade of pkgconfig to fix a problem with
-	PKG_CONFIG_PATH
-
-2003-09-10 20:42  sofar
-
-	* net/ethereal/DETAILS: New version.
-
-2003-09-10 18:55  nhudson
-
-	* doc-tools/docbook-dsssl/DETAILS: 
-	Forcing a update
-
-2003-09-10 18:54  nhudson
-
-	* doc-tools/openjade/DETAILS: 
-	Updating this adding md5sums and I updates the SOURCE3
-
-2003-09-10 18:47  nhudson
-
-	* doc-tools/docbook-dsssl/POST_INSTALL: 
-	Fixing this
-
-2003-09-10 16:48  sofar
-
-	* terminal/screen/DETAILS: Screen major version bump, /etc/screenrc
-	might not be compatible, spread the word...
-
-2003-09-10 02:44  tchan
-
-	* libs/uClibc/: .config.bz2, BUILD, DETAILS: Version bump to
-	0.9.21.  As with previous versions of uClibc, it is not binary
-	compatible with older versions, so you MUST recompile your uClibc
-	based apps.  Tested and compiled with gcc-3.2.3.
-
-2003-09-09 19:45  jasper
-
-	* web/epiphany/DETAILS: Update epiphany to 1.0
-
-2003-09-09 18:10  niki
-
-	* video/dvgrab/DEPENDS: Fixed a little typo.
-
-2003-09-09 18:04  niki
-
-	* video/dvgrab/DEPENDS: Added some dependencies, as per Couanette's
-	wish.
-
-2003-09-09 17:16  florin
-
-	* games/Maelstrom/: BUILD, DETAILS: moving the install directory in
-	/usr/games.
-
-2003-09-09 16:46  florin
-
-	* games/: geki2/BUILD, geki2/DETAILS, geki3/BUILD, geki3/DETAILS:
-	simplifying the patches.
-
-2003-09-09 15:48  florin
-
-	* video/transcode/DETAILS: bump version from 0.6.9 to 0.6.10
-
-2003-09-09 15:32  florin
-
-	* libs/libxml2/DETAILS: bump version from 2.5.10 to 2.5.11
-
-2003-09-09 13:03  niki
-
-	* video/dvgrab/: BUILD, DETAILS: Added dvgrab contributed by
-	Couannette <couannette@free.fr>.  Added md5sum to the module. 
-	Added a patch, because gcc complained about undeclared use of
-	assert.  Builds fine here, but not tested on hardware.
-
-2003-09-09 12:14  niki
-
-	* libs/libavc1394/: BUILD, DETAILS: Added FireWire AV/C library
-	contributed by Couannette <couannette@free.fr>.  Added md5 to the
-	module, compiles fine.	Not tested, as i don't have any FireWire
-	hardware.
-
-2003-09-09 11:58  niki
-
-	* libs/libraw1394/: BUILD, DETAILS: Added Firewire library
-	contributed by Couannette <couannette@free.fr>.  Added md5's, and a
-	gcc 3.3 compile fix.  Compiles fine, but don't have FireWire here
-	to test it on.
-
-2003-09-09 11:50  nestu
-
-	* kernel/linux-beta/DETAILS: Version bump from test4 to test5
-
-2003-09-09 02:56  nhudson
-
-	* libs/pango/DETAILS: 
-	Adding a md5 for pango
-
-2003-09-09 02:08  nhudson
-
-	* gnome2-apps/: gcalctool/DETAILS, gucharmap/DETAILS: 
-	upodating gucharmap to 1.0.0 and gcalctool to 4.3.3
-
-2003-09-09 01:52  nhudson
-
-	* doc-tools/: docbook-dsssl/DETAILS, docbook-dsssl/POST_INSTALL,
-	docbook-dsssl/PRE_REMOVE, openjade/DETAILS, openjade/POST_INSTALL,
-	psgml/DEPENDS: 
-	Fixing these so it will build documentation correctly
-
-2003-09-08 17:45  florin
-
-	* games/si3d/: BUILD, DETAILS: modifying the data directories for
-	conforming to the LSB, bins in /usr/games, static data in
-	/usr/share/games and variable data in /var/games.
-
-2003-09-08 15:37  florin
-
-	* kde3/kdelibs3/profile.d/kde3.rc: moved the profile.d directory
-	and the kde3.rc file from the kdebase3 to the kdelibs3 directory.
-	many thanks to nick hudson for the sugestion.
-
-2003-09-08 15:31  florin
-
-	* graphics/scribus/: BUILD, DETAILS: delete the
-	/usr/X11R6/include/zlib.h file after install. it's an old version
-	header file of zlib. thanks to couannette. bumped version from 0.8
-	to 1.0.1.
-
-2003-09-08 15:30  florin
-
-	* x11/xfree86/POST_INSTALL: delete teh /usr/X11R6/include/zlib.h
-	file after install. it's an old version header file of zlib. thanks
-	to couannette.
-
-2003-09-08 15:06  niki
-
-	* audio/easytag/DETAILS: Fixed the name of the binary to dl.
-
-2003-09-08 04:50  florin
-
-	* devel/kdbg/DETAILS: bump version from 1.2.8 to 1.2.9
-
-2003-09-08 04:40  florin
-
-	* x11-apps/xscreensaver/DETAILS: bump version from 4.12 to 4.13
-
-2003-09-08 01:40  nhudson
-
-	* devel/ruby-gnome2/DETAILS: 
-	Updating ruby-gnome2 to new version 0.7.0
-
-2003-09-07 22:51  nhudson
-
-	* gnome2-extras/gnome-python2/DETAILS: 
-	Cleaning up the DETAILS file
-
-2003-09-07 22:49  nhudson
-
-	* gnome2-extras/gnome-python2/: BUILD, DEPENDS, DETAILS: 
-	Adding a patch to gnome-python2 and also changing the DEPENDS file
-	to get rid of recursive depends
-
-2003-09-07 22:09  elaine
-
-	* compilers/gcc/: 3.3/POST_INSTALL, 3.3.1/BUILD, 3.3.1/CONFIGURE,
-	3.3.1/DETAILS, 3.3.1/POST_INSTALL, 3.3.1/POST_REMOVE,
-	3.3.1/PRE_BUILD: added 3.3.1 version, corrected POST_INSTALL
-
-2003-09-07 21:12  nhudson
-
-	* cd/burgner/: BUILD, DEPENDS, DETAILS: 
-	Adding burgner to moonbase, its a command line cd burning suite
-	using gnome-vfs2 and gObject.  It isnt apart of cdrtools, it is
-	written from scratch
-
-2003-09-07 20:58  nhudson
-
-	* web/peacock/BUILD: 
-	That shouldnt be in there
-
-2003-09-07 20:56  nhudson
-
-	* web/peacock/: BUILD, DEPENDS, DETAILS: 
-	Adding peacock to moonbase.  Peacock is a Gnome2 based WYSIWYG HTML
-	editor that works quite well.
-
-2003-09-07 20:44  sofar
-
-	* mail/sendmail/init.d/sendmail: Should fix the problems... cause:
-	new pidfile code of sendmail, yeck!
-
-2003-09-07 20:24  niki
-
-	* devel/gtranslator/DETAILS: Forgot the md5.
-
-2003-09-07 20:22  niki
-
-	* devel/gtranslator/DETAILS: Version bumped, to version 1.0, tested
-	and runs fine here.
-
-2003-09-07 18:39  sofar
-
-	* utils/quota/DETAILS: B0rk...
-
-2003-09-07 18:12  sofar
-
-	* utils/util-linux/DETAILS: version bump
-
-2003-09-07 18:02  sofar
-
-	* audio/lame/DETAILS: version bump
-
-2003-09-07 16:19  sofar
-
-	* audio/grip/DETAILS: Version bump.
-
-2003-09-07 16:01  florin
-
-	* games/: asc/BUILD, asc/DETAILS, tuxkart/BUILD, tuxkart/DETAILS:
-	modifying the data directories for conforming to the LSB, bins in
-	/usr/games, static data in /usr/share/games and variable data in
-	/var/games.
-
-2003-09-07 06:50  florin
-
-	* utils/util-linux/DETAILS: add an alternate download patch.
-
-2003-09-07 06:19  florin
-
-	* web/apache-mod_ssl/: BUILD, DETAILS: bump version from 2.8.12 to
-	2.8.15
-
-2003-09-07 02:05  csm
-
-	* gnome2-applets/goats/DETAILS: an updated version of goats!
-
