@@ -7,7 +7,8 @@
                 --prefix=/opt/lunar/gnome/2			\
 		--localstatedir=/var				\
 		--infodir=/opt/lunar/gnome/2/share/info		\
-		--mandir=/opt/lunar/gnome/2/share/man		&&
+		--mandir=/opt/lunar/gnome/2/share/man	        \
+                --disable-gtk-doc                               &&
 
   default_make
   
