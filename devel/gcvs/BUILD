@@ -15,7 +15,7 @@ done
 
 ./configure.wrapper \$ARGS
 
-exit $?
+exit \$?
 EOF
 
   default_build
