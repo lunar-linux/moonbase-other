@@ -1,3 +1,67 @@
+2005-02-13 12:54  nestu
+
+	* filesys/udev/49-udev.rules: Add 0666 mode to /dev/tty
+
+2005-02-13 04:14  tchan
+
+	* devel/automake/DETAILS: Version bump to automake-1.9.5.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2005-02-12 19:25  nestu
+
+	* audio/alsa-utils/POST_INSTALL: <bramble> POST_INSTALL says
+	  "alsactl save", it should be "alsactl store". Done :) rm'ed
+	  linux-beta-* since they are no longer in moonbase
+
+2005-02-12 19:02  nestu
+
+	* filesys/udev/: 49-udev.rules, BUILD, DETAILS: 050 -> 051. gcc
+	  3.3.3. glibc 2.3.2, headers 2.6.10.0 THis version now has merged
+	  rules and permissions in one single file, so 49-udev.rules, that
+	  is Lunar old defaults file -updated to the new scheme-, is being
+	  added.
+
+2005-02-12 18:13  florin
+
+	* net/SDL_net/: BUILD, DETAILS: add sha1 sum.
+
+2005-02-12 18:10  florin
+
+	* audio/SDL_mixer/: BUILD, DEPENDS, DETAILS: add sha1 sum and small
+	  tweaks.
+
+2005-02-12 18:01  florin
+
+	* graphics/SDL_image/DETAILS: add sha1 sum.
+
+2005-02-12 17:58  florin
+
+	* graphics/SDL_ttf/: BUILD, DEPENDS, DETAILS: add sha1 sum. small
+	  tweaks.
+
+2005-02-12 17:55  florin
+
+	* graphics/XaoS/DETAILS: bump the version from 3.1 to 3.1.2.
+
+2005-02-12 16:39  hardkrash
+
+	* chat/guifications/DETAILS: New version of just a simple bump
+
+2005-02-12 16:04  florin
+
+	* libs/libtool/DETAILS: bump the version from 1.5.12 to 1.5.14.
+	  bugfix release.
+
+2005-02-12 14:01  florin
+
+	* archive/zip/DETAILS: force the rebuild of the module.
+
+2005-02-12 14:00  florin
+
+	* archive/zip/: BUILD, DETAILS: add a security patch to prevent a
+	  buffer overflow.
+
 2005-02-12 13:09  nestu
 
 	* filesys/udev/POST_INSTALL: meh, removed the "exit 0" and the end
@@ -1641,100 +1705,4 @@
 
 	* zbeta/elicit-cvs/: BUILD, DEPENDS, DETAILS: Yet another EFL based
 	  app.	This one is a zoomer and colorpicker.  Good for a themer.
-
-2005-01-13 21:23  florin
-
-	* doc-tools/doxygen/: BUILD, DEPENDS: fix the compile using ben's
-	  suggestions. thank you ben.
-
-2005-01-13 20:26  florin
-
-	* doc-tools/doxygen/DEPENDS: add the needed python dependency.
-
-2005-01-13 20:06  florin
-
-	* kde3-utils/kbanking/DETAILS: bump the version from 0.9.5 to
-	  0.9.6.
-
-2005-01-13 20:01  florin
-
-	* libs/aqbanking/DETAILS: bump the version from 0.9.8 to 0.9.9.
-
-2005-01-13 18:13  florin
-
-	* crypto/mhash/DETAILS: bump the version from 0.9.1 to 0.9.2.
-
-2005-01-13 17:58  florin
-
-	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS,
-	  alsa-utils/DETAILS: bump the version from 1.0.7 to 1.0.8.
-
-2005-01-13 17:16  florin
-
-	* kernel/module-init-tools/: BUILD, DETAILS, POST_INSTALL: fix the
-	  compile by avoiding to recreate the man pages.
-
-2005-01-13 17:02  florin
-
-	* mail/sendmail/DETAILS: bump the version from 8.13.2 to 8.13.3.
-
-2005-01-13 16:03  nestu
-
-	* kernel/module-init-tools/DETAILS: 3.0 -> 3.1. gcc 3.3.3, glibc
-	  2.3.2, headers 2.6.10.0
-
-2005-01-13 14:21  v3rt1g0
-
-	* video/xvidcap/DETAILS: SOURCE_URL was missing the trailing / so
-	  this module was not downloading.
-
-2005-01-13 14:11  v3rt1g0
-
-	* utils/fdutils/DETAILS: Format tweaks and added a SHA1 sum
-
-2005-01-13 13:06  nestu
-
-	* kernel/module-init-tools/: BUILD, DETAILS, POST_INSTALL,
-	  profile.d/module_init_tools-completion.rc: Moved this here from
-	  utils. Now it is using the modutils-wrappers script way of
-	  working
-
-2005-01-13 12:59  nestu
-
-	* kernel/modutils/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
-	  profile.d/modutils-completion.rc: Moving modutils here to kernel
-	  with the new script wrappers scheme
-
-2005-01-13 12:43  nestu
-
-	* kernel/modutils-wrappers/: BUILD, DETAILS, init.d/modutils:
-	  Initial import :)
-
-2005-01-13 12:36  cmak
-
-	* cd/cdparanoia/DETAILS: paranoia is no good
-
-2005-01-13 03:16  v3rt1g0
-
-	* wifi/wireless_tools/: BUILD, DETAILS, POST_INSTALL: Small cleanup
-	  in the DETAILS file.	Also installed some extra docs that come
-	  with the source.  And removed some files that were being copied
-	  to the document directory that didn't need to be.
-
-2005-01-13 02:39  v3rt1g0
-
-	* zbeta/embrace-cvs/: BUILD, DEPENDS, DETAILS, POST_INSTALL: Inital
-	  commit.  A EFL based mailbox checker that handles mbox, maildir,
-	  imap, and pop3
-
-2005-01-13 00:45  tchan
-
-	* gnome2-apps/abiword/DETAILS: Version bump to abiword-2.2.3.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3,3, kernel headers
-	  2.4.x.
-
-2005-01-13 00:02  v3rt1g0
-
-	* games/fortune-meanwhile-in-lunar/DETAILS: shhh, only a FEW days
-	  late :)
 
