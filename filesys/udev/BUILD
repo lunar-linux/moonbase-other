@@ -1,8 +1,4 @@
 (
-
-    patch_it $SOURCE2 1  &&
-    patch_it $SOURCE3 0  &&
-  
     make udevdir=/dev          &&
     prepare_install            &&
     make udevdir=/dev install  &&
@@ -13,10 +9,8 @@
     # and would interfere with boot/{reboot,halt}
     install ${SCRIPT_DIRECTORY}/udev /etc/init.d/   		&&
 
-    UDEV_ETC_DIR=/etc/udev/					&&
-    mkdir -p ${UDEV_ETC_DIR}/scripts.d				&&
-    install 99-udev.permissions ${UDEV_ETC_DIR}/permissions.d/  &&
-    install 99-udev.rules       ${UDEV_ETC_DIR}/rules.d/  	&&
-    install scripts.d/*         ${UDEV_ETC_DIR}/scripts.d/
-
+    install ${SCRIPT_DIRECTORY}/49-udev.rules  /etc/udev/rules.d/      &&
+    mkdir -p /etc/udev/scripts.d/                         
+    install  extras/{ide-devfs.sh,scsi-devfs.sh} /etc/udev/scripts.d/
+     
 ) > $C_FIFO 2>&1
