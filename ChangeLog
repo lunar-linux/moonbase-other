@@ -1,3 +1,99 @@
+2004-08-20 10:27  prox
+
+	* net/ntp/POST_INSTALL: reworked code, added check for ping since
+	perldude has lost his ping =)
+
+2004-08-20 08:17  sofar
+
+	* gnome/gnome-libs/POST_INSTALL: is now empty
+
+2004-08-20 08:05  sofar
+
+	* compilers/mcs/POST_INSTALL, devel/guile/POST_INSTALL,
+	doc-tools/intltool/POST_INSTALL, doc-tools/opensp/POST_INSTALL,
+	ftp/wget/POST_INSTALL, gnome/gal/POST_INSTALL,
+	gnome/gdk-pixbuf/POST_INSTALL, gnome/gnome-libs/POST_INSTALL,
+	gnome2-core/gdm/POST_INSTALL,
+	gnome2-core/gtksourceview/POST_INSTALL,
+	gnome2-extras/libcroco/POST_INSTALL,
+	graphics/freetype2/POST_INSTALL, kde3/qt3/POST_INSTALL,
+	kernel/linux/POST_INSTALL, kernel/linux-beta/POST_INSTALL,
+	kernel/linux-beta-mm/POST_INSTALL, kernel/linux-grsec/POST_INSTALL,
+	kernel/linux-openmosix/POST_INSTALL,
+	kernel/linux-stable/POST_INSTALL,
+	kernel/linux-vanilla/POST_INSTALL, libs/gettext/POST_INSTALL,
+	libs/ncurses/POST_INSTALL, libs/t1lib/POST_INSTALL,
+	perl/perl/POST_INSTALL, printer/gimp-print/POST_INSTALL,
+	security/Linux-PAM/POST_INSTALL, video/libdvdcss/POST_INSTALL,
+	video/libtheora/POST_INSTALL, web/apache2/POST_INSTALL,
+	web/mozilla/POST_INSTALL, x11/xfree86/POST_INSTALL,
+	x11/XOrg/POST_INSTALL, x11-utils/fontconfig/POST_INSTALL,
+	zbeta/linux-devel-svn/POST_INSTALL, zbeta/mkinitrd/POST_INSTALL,
+	zbeta/xfree86-beta/POST_INSTALL: Removing BOOST_LOCK in
+	POST_INSTALL is obsoleted by about 8-12 months as the boost()
+	function in the core cleans up the boostlock before POST_INSTALL is
+	ran. Removing the obsolete calls from moonbase since they confuse
+	people.
+
+2004-08-20 05:37  hardkrash
+
+	* devel/gendiff/DETAILS: a touch of clean up
+
+2004-08-20 05:32  hardkrash
+
+	* devel/gendiff/PRE_BUILD: correcting prebuild to fail, added &&'s
+
+2004-08-20 03:09  jmhodges
+
+	* compilers/j2sdk/profile.d/j2sdk.rc: this is better
+
+2004-08-20 01:31  florin
+
+	* crypto/cyrus-sasl/DETAILS: update the date.
+
+2004-08-20 01:26  florin
+
+	* crypto/cyrus-sasl/: DEPENDS, DETAILS: make it use db4 instead db
+	lib.
+
+2004-08-20 01:25  florin
+
+	* devel/db4/BUILD: tweak the BUILD file.
+
+2004-08-19 22:14  jmhodges
+
+	* net/adns/DETAILS: version bump to 1.1
+
+2004-08-19 22:03  jmhodges
+
+	* devel/bdb-ruby/: BUILD, DEPENDS, DETAILS: renaming bdb to
+	bdb-ruby to avoid confusion
+
+2004-08-19 18:02  nestu
+
+	* kernel/kernel-headers-2.6/DETAILS: version bump: 2.6.7.0 ->
+	2.6.8.0
+
+2004-08-19 17:55  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.8.1mm1 ->
+	2.6.8.1mm2. gcc 3.3.3, glibc 2.3.2, headers 2.6.7.0
+
+2004-08-19 15:36  perldude
+
+	* perl/SDL_perl/: BUILD, DEPENDS, DETAILS: moved SDL_perl to
+	section perl. bumped to version 1.19.2.  tested with frozen-bubble.
+
+2004-08-19 15:31  florin
+
+	* graphics/SDL/: BUILD, DETAILS: commented out the gcc34 patch. it
+	creates problems under gcc 3.3.3.
+
+2004-08-19 15:15  florin
+
+	* compilers/gcc/3.4.1/POST_INSTALL: fix the patch for gcc symlink
+	in /usr/lib/gcc.
+
 2004-08-19 07:54  florin
 
 	* sql/postgresql/DETAILS: bump the version from 7.4.3 to 7.4.5.
@@ -2344,54 +2440,4 @@
 
 	* graphics/netpbm/DETAILS: bump the version from 10.18.13 to
 	10.18.14.
-
-2004-07-20 13:27  florin
-
-	* games/stella/: BUILD, DETAILS: bump the version from 1.3 to 1.4.
-
-2004-07-20 07:58  florin
-
-	* ftp/pure-ftpd/DETAILS: bump the version from 1.0.19 to 1.0.20.
-	just to keep the versions to date. no changes for linux platform.
-
-2004-07-20 06:10  jmhodges
-
-	* devel/pygtk2/DETAILS: version bump to 2.3.93
-
-2004-07-20 06:08  florin
-
-	* security/nessus/: BUILD, CONFIGURE, DEPENDS: reworked the BUILD
-	and DEPENDS files. nessus use now gtk+-2.
-
-2004-07-20 06:06  jmhodges
-
-	* graphics/gtk+-2/DETAILS: version bump to 2.4.4
-
-2004-07-20 06:05  florin
-
-	* kde3-apps/kmymoney2/DETAILS: bump the version from 0.6 to 0.6.1.
-
-2004-07-20 06:02  florin
-
-	* video/MPlayer/DETAILS: bump the version from 1.0pre4 to 1.0pre5.
-
-2004-07-20 05:46  florin
-
-	* games/crimson/DETAILS: bump the version from 0.4.1 to 0.4.3.
-
-2004-07-20 05:35  jmhodges
-
-	* libs/atk/DETAILS: version bump to 1.6.1
-
-2004-07-20 05:23  jmhodges
-
-	* libs/glib-2/DETAILS: version bump to 2.4.4
-
-2004-07-20 04:45  florin
-
-	* security/nessus/DETAILS: bump the version from 2.0.10a to 2.0.11.
-
-2004-07-20 04:19  florin
-
-	* editors/scite/DETAILS: bump the version from 158 to 161.
 
