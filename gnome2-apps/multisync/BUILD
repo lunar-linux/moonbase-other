@@ -1,13 +1,13 @@
 (
-   export AUTOMAKE=/usr/share/automake
+   export AMAKE=/usr/share/automake
    export PLUGINDIR=$SOURCE_DIRECTORY/plugins
    #God I hate when devs hard link autotool crap to their projects 
-   ln -sf $AUTOMAKE/config.guess &&
-   ln -sf $AUTOMAKE/config.sub config.sub  &&
-   ln -sf $AUTOMAKE/depcomp depcomp &&
-   ln -sf $AUTOMAKE/install-sh install-sh &&
-   ln -sf $AUTOMAKE/missing missing  &&
-   ln -sf $AUTOMAKE/mkinstalldirs mkinstalldirs &&
+   ln -sf $AMAKE/config.guess &&
+   ln -sf $AMAKE/config.sub config.sub  &&
+   ln -sf $AMAKE/depcomp depcomp &&
+   ln -sf $AMAKE/install-sh install-sh &&
+   ln -sf $AMAKE/missing missing  &&
+   ln -sf $AMAKE/mkinstalldirs mkinstalldirs &&
  
    ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
@@ -30,7 +30,7 @@
 
 if module_installed evolution; then  
      cd $PLUGINDIR/evolution_sync                 
-     ln -sf $AUTOMAKE/INSTALL INSTALL             
+     ln -sf $AMAKE/INSTALL INSTALL             
      ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
@@ -43,7 +43,7 @@ fi
 
 if module_installed evolution-beta; then
      cd $PLUGINDIR/evolution_sync                 
-     ln -sf $AUTOMAKE/INSTALL INSTALL             
+     ln -sf $AMAKE/INSTALL INSTALL             
      ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
@@ -56,7 +56,7 @@ fi
 
 if module_installed bluez-kernel; then
       cd $PLUGINDIR/irmc_sync                     
-      ln -sf $AUTOMAKE/INSTALL INSTALL             
+      ln -sf $AMAKE/INSTALL INSTALL             
      ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
@@ -101,7 +101,7 @@ fi
 
 if module_installed expat; then
     cd $PLUGINDIR/opie_sync                     
-    ln -sf $AUTOMAKE/INSTALL INSTALL              
+    ln -sf $AMAKE/INSTALL INSTALL              
     ./configure  --prefix=${GNOME26_PREFIX:-/usr} \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
