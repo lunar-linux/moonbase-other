@@ -1,8 +1,6 @@
 (
-
-cat $SCRIPT_DIRECTORY/gkrellmms-path.patch | patch -p1  &&
-make                                                    &&
-prepare_install                                         &&
-make install
+  
+  sedit "s:/usr/local/lib:/usr/lib:" Makefile  &&
+  default_make
 
 ) > $C_FIFO 2>&1
