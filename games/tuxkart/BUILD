@@ -1,8 +1,10 @@
 (
 
+  sedit "s:datadir):datadir)/games:" doc/Makefile.in &&
+
   ./configure  --prefix=/usr        \
                --bindir=/usr/games  \
-	       --datadir=/usr/share/games &&
+	       --datadir=/usr/share &&
 
   default_make
 
