@@ -1,13 +1,15 @@
           MODULE=libxslt
-         VERSION=1.1.4
-          SOURCE=$MODULE-$VERSION.tar.bz2
+         VERSION=1.1.5
+          SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/libxslt/1.1/$SOURCE
-     SOURCE_VFY=md5:1fcbbb28a34b83c0ea18147574b011a0
+   SOURCE_URL[0]=ftp://xmlsoft.org/$SOURCE
+   SOURCE_URL[1]=$GNOME_URL/sources/libxslt/1.1/$SOURCE
+     SOURCE_VFY=md5:37625f01452884aac4bdef79a1dae1a6
         WEB_SITE=http://xmlsoft.org
          ENTERED=20011010
-         UPDATED=20040224
+         UPDATED=20040324
            SHORT="libxslt is an XSLT processing library."
+
 cat << EOF
 Libxslt is a C library for GNOME which allows developers to work with XSLT. It
 is based on libxml for XML parsing, tree manipulation, and XPath support. It
