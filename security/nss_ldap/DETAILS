@@ -1,13 +1,18 @@
           MODULE=nss_ldap
-         VERSION=217
+         VERSION=220
           SOURCE=$MODULE.tgz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=http://www.padl.com/download/$SOURCE
         WEB_SITE=http://www.padl.com/OSS/nss_ldap.html
          ENTERED=20040507
-         UPDATED=20040507
-          SHORT="nss_ldap"
+         UPDATED=20040919
+          SHORT="nss_ldap provides NSS services for LDAP"
 cat << EOF
-nss_ldap
+The resolution of the entities defined in RFC 2307
+is generally performed by a set of UNIX C library
+calls (such as getpwnam() to return the attributes of a user).
+The nss_ldap module provides the means for workstations
+to this information (such as users, hosts, and groups)
+from LDAP directories.
 EOF
 
