@@ -1,15 +1,12 @@
 (
-   export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
 
-   ./configure  --build=$BUILD					\
-                --sysconfdir=/etc                               \
-                --prefix=/usr			                \
-		--localstatedir=/var				\
-		--infodir=/usr/share/info		        \
-		--mandir=/usr/share/man		                \
-		--enable-platform-gnome-2			&&
+   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
+                --build=$BUILD                    \
+                --sysconfdir=/etc                 \
+                --localstatedir=/var              \
+                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+                $OPTS                             &&
+    default_make                   
 
-   default_make
-   
 ) > $C_FIFO 2>&1
-
