@@ -1,35 +1,52 @@
+2002-09-27 10:46  sofar
+
+	* audio/monkey-media/DEPENDS: Cleaning DEPENDS: mad dep is
+	inherited.
+
+2002-09-27 08:03  kongar
+
+	* compilers/php/: DEPENDS, DETAILS: 
+	added SOURCE_MD5
+	
+	added db3 support
+
 2002-09-26 22:52  sofar
 
-	* audio/libvorbis/CONFLICTS: confirmed bad conflicts with autoconf & automake
-	
+	* audio/libvorbis/CONFLICTS: confirmed bad conflicts with autoconf
+	& automake
+
 2002-09-26 22:44  sofar
 
-	* gnome/libgtop/CONFLICTS: removing conflicts with autoconf and automake
-	
+	* gnome/libgtop/CONFLICTS: removing conflicts with autoconf and
+	automake
+
 2002-09-26 16:08  xoritor
 
 	* crypto/cyrus-sasl/DETAILS: Fixed url.
-	
+
 2002-09-26 15:28  sofar
 
 	* web/apache2/POST_BUILD: Adding default_post_build
-	
+
 2002-09-26 15:28  sofar
 
-	* web/apache2/POST_BUILD: Adding POST_BUILD to recompile php automatically
-	
+	* web/apache2/POST_BUILD: Adding POST_BUILD to recompile php
+	automatically
+
 2002-09-26 15:25  sofar
 
-	* web/apache2/DETAILS: Bumping version to 2.0.42 (was 2.0.40) after succefull tests.
-	
+	* web/apache2/DETAILS: Bumping version to 2.0.42 (was 2.0.40) after
+	succefull tests.
+
 2002-09-26 15:13  sofar
 
 	* news/pan/DETAILS: Fixed download location
-	
+
 2002-09-26 13:09  xoritor
 
-	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Rolling back version and depends, this should fix the postfix issue.
-	
+	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Rolling back version and
+	depends, this should fix the postfix issue.
+
 2002-09-26 11:14  kongar
 
 	* gnome2/: at-spi/DETAILS, bug-buddy2/DETAILS, gedit2/DETAILS,
@@ -38,95 +55,108 @@
 	metacity-setup/DETAILS, metatheme/DETAILS,
 	nautilus-gtkhtml/DETAILS, rep-gtk2/DETAILS, sawfish2/DETAILS,
 	xchat2/DETAILS, xscreensaver2/DETAILS, yelp/DETAILS: fixed the urls
-	
+
 2002-09-26 10:58  kongar
 
-	* security/Linux-PAM/: BUILD, Linux-PAM-0.76.patch: removed the patch, already in.
-	
+	* security/Linux-PAM/: BUILD, Linux-PAM-0.76.patch: removed the
+	patch, already in.
+
 2002-09-26 10:55  kongar
 
 	* gnome2/: gnome-terminal/DETAILS, gnome-utils2/DETAILS,
 	gnome2-user-docs/DETAILS, gtk-doc/DETAILS, gtk-engines2/DETAILS,
 	gtk-thinice-theme2/DETAILS, libgail-gnome/DETAILS, libgda2/DETAILS,
 	libgnomedb/DETAILS: fixed the urls
-	
+
 2002-09-26 10:47  kongar
 
 	* gnome2/: control-center2/DETAILS, gnome-applets2/DETAILS,
 	gnome-audio2/DETAILS, gnome-games2/DETAILS, gnome-media2/DETAILS,
 	gnome-panel/DETAILS, gnome-session/DETAILS,
 	gnome-system-monitor/DETAILS: fixed the urls
-	
+
 2002-09-26 10:36  sofar
 
 	* utils/e2fsprogs/init.d/mount: Skip Networked filesystems on boot!
-	
+
 2002-09-26 06:22  tchan
 
-	* devel/smake/: BUILD, DETAILS: Added Joerg Schilling's smake program to moonbase.  Compiled and tested.
-	Also used smake in Joerg's cdrtools and star to give much cleaner compiles.
-	
+	* devel/smake/: BUILD, DETAILS: Added Joerg Schilling's smake
+	program to moonbase.  Compiled and tested.  Also used smake in
+	Joerg's cdrtools and star to give much cleaner compiles.
+
 2002-09-26 06:17  tchan
 
-	* cd/cdrtools/: BUILD, DEPENDS: Added the optional_depends smake.  When using smake instead of make, Joerg
-	Schilling's programs compile much cleaner.
-	
+	* cd/cdrtools/: BUILD, DEPENDS: Added the optional_depends smake. 
+	When using smake instead of make, Joerg Schilling's programs
+	compile much cleaner.
+
 2002-09-26 06:16  tchan
 
-	* archive/star/: BUILD, DEPENDS: Added the optional_depends for smake.  When using smake instead of make,
-	Joerg Schilling's programs compile much cleaner.
-	
+	* archive/star/: BUILD, DEPENDS: Added the optional_depends for
+	smake.	When using smake instead of make, Joerg Schilling's
+	programs compile much cleaner.
+
 2002-09-26 04:41  tchan
 
-	* mail/fetchmail/BUILD: Fixed the "changing default system directory search order" bug in the
-	Makefile.
-	
+	* mail/fetchmail/BUILD: Fixed the "changing default system
+	directory search order" bug in the Makefile.
+
 2002-09-26 01:25  dem
 
 	* web/mozilla/: BUILD, CONFIGURE: Mozilla changes
-	
+
 2002-09-26 01:21  dem
 
-	* ftp/gftp/: BUILD, CONFIGURE:  Gtk+2 support
-	
+	* ftp/gftp/: BUILD, CONFIGURE:	Gtk+2 support
+
 2002-09-26 00:11  sofar
 
-	* libs/gmp/: BUILD, DETAILS, gmp-4.1_4.1-4.patch: Adding fix for the famous sawfish crash (needs recompile of sawfish!)
-	
+	* libs/gmp/: BUILD, DETAILS, gmp-4.1_4.1-4.patch: Adding fix for
+	the famous sawfish crash (needs recompile of sawfish!)
+
 2002-09-25 21:58  nhudson
 
-	* compilers/: mcs/DETAILS, mono/DETAILS: Updated mono and mcs to version 0.15, tested and is working
-	
+	* compilers/: mcs/DETAILS, mono/DETAILS: Updated mono and mcs to
+	version 0.15, tested and is working
+
 2002-09-25 20:58  nhudson
 
 	* audio/: gst-plugins/BUILD, gst-plugins/DEPENDS,
-	gst-plugins/POST_INSTALL, gstreamer/BUILD: Ok I fixed some files for gstreamer and gst-plugins.  Added C_FIFO to the BUILD
-	scripts of gst-plugins and gstreamer.  Added a message at the end of the build
-	of gst-plugins to tell everyone how to register the plugins as user.  In
-	gst-plugins I added a line to the build script to register the plugins as root
-	user. Also I added mad to the list of Depends for gst-plugins as it is needed
-	
+	gst-plugins/POST_INSTALL, gstreamer/BUILD: Ok I fixed some files
+	for gstreamer and gst-plugins.	Added C_FIFO to the BUILD scripts
+	of gst-plugins and gstreamer.  Added a message at the end of the
+	build of gst-plugins to tell everyone how to register the plugins
+	as user.  In gst-plugins I added a line to the build script to
+	register the plugins as root user. Also I added mad to the list of
+	Depends for gst-plugins as it is needed
+
 2002-09-25 20:14  nhudson
 
-	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: Updated gstreamer and gst-plugins to version 0.4.1, tested and is workiing
-	
+	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: Updated gstreamer
+	and gst-plugins to version 0.4.1, tested and is workiing
+
 2002-09-25 18:18  xoritor
 
-	* security/Linux-PAM/DETAILS: Updated version to 0.77 and added PSAFE=no to DETAILS, disabling parallel builds.
-	
+	* security/Linux-PAM/DETAILS: Updated version to 0.77 and added
+	PSAFE=no to DETAILS, disabling parallel builds.
+
 2002-09-25 18:15  xoritor
 
-	* editors/gawk/DETAILS, printer/ghostscript/DETAILS: Added PSAFE=no to DETAILS, disabling parallel builds.
-	
+	* editors/gawk/DETAILS, printer/ghostscript/DETAILS: Added PSAFE=no
+	to DETAILS, disabling parallel builds.
+
 2002-09-25 18:09  xoritor
 
 	* utils/textutils/DETAILS, doc-tools/texinfo/DETAILS,
-	libs/glibc/DETAILS, compilers/gcc/DETAILS: Added PSAFE=no to DETAILS, disabling parallel builds.
-	
+	libs/glibc/DETAILS, compilers/gcc/DETAILS: Added PSAFE=no to
+	DETAILS, disabling parallel builds.
+
 2002-09-25 17:30  sofar
 
-	* devel/db4/: POST_BUILD, profile.d/db4.rc: Adding profile.d/rc file for PATH modification to add /usr/bin/db4
-	
+	* devel/db4/: POST_BUILD, profile.d/db4.rc: Adding profile.d/rc
+	file for PATH modification to add /usr/bin/db4
+
 2002-09-25 11:37  kongar
 
 	* web/squid/: BUILD, DEPENDS, DETAILS: 
@@ -141,114 +171,117 @@
 	added a mirror URL
 	
 	converted the source file extension from tar.gz to tar.bz2
-	
+
 2002-09-25 06:47  kongar
 
 	* security/xinetd/DETAILS: upgraded to 2.3.9
-	
+
 2002-09-25 06:39  kongar
 
 	* gnome2/gkrellm2/DETAILS: upgraded to 2.0.4
-	
+
 2002-09-25 06:34  kongar
 
 	* utils/e2fsprogs/DETAILS: 
 	upgraded to 1.29
 	
 	added MD5 signature
-	
+
 2002-09-25 06:28  kongar
 
 	* distributed/distcc/DETAILS: upgraded to 0.11
-	
+
 2002-09-25 00:04  xoritor
 
-	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Updating module for new version.
-	  Increased version to 2.1.7
-	  Fixed depends to use db4.
-	
+	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Updating module for new
+	version.    Increased version to 2.1.7	  Fixed depends to use db4.
+
 2002-09-24 23:43  xoritor
 
-	* utils/openldap/: BUILD, DEPENDS, DETAILS: Updating to version 2.1.5.
-	  Fixes broken build with db 4.1.24.
-	
+	* utils/openldap/: BUILD, DEPENDS, DETAILS: Updating to version
+	2.1.5.	  Fixes broken build with db 4.1.24.
+
 2002-09-24 16:01  xoritor
 
-	* utils/openldap/: BUILD, DEPENDS, DETAILS: Adding depends:
-	  DB4 - required
-	  cyrus-sasl - optional
-	  openssl - optional
+	* utils/openldap/: BUILD, DEPENDS, DETAILS: Adding depends:   DB4 -
+	required   cyrus-sasl - optional   openssl - optional
 	
 	Added BUILD file.
-	
+
 2002-09-24 15:29  wizfactor
 
-	* libs/id3lib/: BUILD, DETAILS, id3lib_strings.h: Updated to version 3.8.0 and patched to build with gcc 3.2
-	
+	* libs/id3lib/: BUILD, DETAILS, id3lib_strings.h: Updated to
+	version 3.8.0 and patched to build with gcc 3.2
+
 2002-09-24 10:47  kongar
 
 	* editors/vim/: POST_INSTALL, PRE_BUILD, vim-6.0-fixkeys.patch: 
 	now working, added a couple of gcc3 patches.
-	
+
 2002-09-24 08:38  sofar
 
 	* gnome2/xchat2/BUILD: Disabling perl, bugfix #152
-	
+
 2002-09-24 07:21  wizfactor
 
-	* web/webmin/PRE_BUILD: 	web/webmin/PRE_BUILD: Webmin now keeps its source directory
-	
+	* web/webmin/PRE_BUILD: 	web/webmin/PRE_BUILD: Webmin now
+	keeps its source directory
+
 2002-09-24 04:52  tchan
 
-	* shells/sash/: DETAILS, sash-readline-plus.patch: Bumped version number upto 3.6 and modifiex patch to work with ver. 3.6.
-	
+	* shells/sash/: DETAILS, sash-readline-plus.patch: Bumped version
+	number upto 3.6 and modifiex patch to work with ver. 3.6.
+
 2002-09-24 04:00  kongar
 
 	* cd/cdrtools/DETAILS: upgraded to 1.11a34
-	
+
 2002-09-24 03:53  kongar
 
 	* mail/fetchmail/DETAILS: upgraded to 6.1.0
-	
+
 2002-09-24 02:48  tchan
 
-	* archive/unrar/: BUILD, DETAILS: Fixed to compile under gcc-3.2 or greater.  Will not compile with gcc-2.95
-	anymore.
-	
+	* archive/unrar/: BUILD, DETAILS: Fixed to compile under gcc-3.2 or
+	greater.  Will not compile with gcc-2.95 anymore.
+
 2002-09-23 23:09  sofar
 
 	* printer/ghostscript/DEPENDS: making libpng optional
-	
+
 2002-09-23 22:58  sofar
 
-	* printer/ghostscript/: BUILD, no-png.patch, no-x.patch: Miscellaneous cleanups and support for building without libpng
-	
+	* printer/ghostscript/: BUILD, no-png.patch, no-x.patch:
+	Miscellaneous cleanups and support for building without libpng
+
 2002-09-23 20:52  sofar
 
 	* x11-apps/qcad/: BUILD, DEPENDS, DETAILS: New module: qcad 1.5.3
-	
+
 2002-09-23 05:18  tchan
 
 	* devel/uml/DETAILS: Bumped version of UML upto 2.4.19-6
-	
+
 2002-09-22 13:39  kongar
 
 	* mail/sylpheed-claws/DETAILS: upgraded tp 0.8.3
-	
+
 2002-09-22 08:03  kc8apf
 
-	* printer/cups/DETAILS: Rollback cups as 1.1.15-1 requires a patch to ghostscript.
+	* printer/cups/DETAILS: Rollback cups as 1.1.15-1 requires a patch
+	to ghostscript.
 	
 	Will discuss problem with other devs to find better option.
-	
+
 2002-09-22 04:49  tchan
 
 	* audio/esound/DETAILS, chat/gabber/DETAILS,
 	docs/gnome-user-docs/DETAILS, graphics/gtk+/DETAILS,
 	libs/glib/DETAILS, mail/evolution/DETAILS, x11/xalf/DETAILS,
 	x11-apps/dia/DETAILS, x11-apps/glade/DETAILS,
-	x11-apps/gtop/DETAILS: Fixed all remaining occurences of the GNOME ftp directory changeover.
-	
+	x11-apps/gtop/DETAILS: Fixed all remaining occurences of the GNOME
+	ftp directory changeover.
+
 2002-09-22 04:33  tchan
 
 	* gnome/: GConf/DETAILS, Guppi/DETAILS, ORBit/DETAILS,
@@ -267,264 +300,278 @@
 	gtkhtml/DETAILS, gtkmm/DETAILS, imlib/DETAILS, intltool/DETAILS,
 	libgda/DETAILS, libghttp/DETAILS, libglade/DETAILS,
 	libgtop/DETAILS, libole2/DETAILS, librsvg/DETAILS,
-	libunicode/DETAILS, panelmm/DETAILS, xml-i18n-tools/DETAILS: Fixed all these gnome modules for the new ftp directory structure at
+	libunicode/DETAILS, panelmm/DETAILS, xml-i18n-tools/DETAILS: Fixed
+	all these gnome modules for the new ftp directory structure at
 	ftp.gnome.org
-	
+
 2002-09-22 03:05  niki
 
-	* web/galeon/DEPENDS: Removed a none valid depends to gnome-applet...
-	
+	* web/galeon/DEPENDS: Removed a none valid depends to
+	gnome-applet...
+
 2002-09-21 22:54  tchan
 
-	* gnome/ORBit/DETAILS: Fixed the URL source code download.  Gnome ftp site re-org again.
-	
+	* gnome/ORBit/DETAILS: Fixed the URL source code download.  Gnome
+	ftp site re-org again.
+
 2002-09-21 21:19  kongar
 
 	* web/flash-plugin/DETAILS: upgraded to 5.0r51
-	
+
 2002-09-21 20:35  kongar
 
 	* gnome2/gkrellm2/DETAILS: upgraded to 2.0.3
-	
+
 2002-09-21 20:23  kongar
 
 	* gnome/eel/DETAILS, gnome2/eel2/DETAILS, gnome2/gail/DETAILS,
 	gnome2/gnome-desktop/DETAILS, gnome2/librsvg2/DETAILS: 
 	
 	fixed the url
-	
+
 2002-09-21 20:21  kongar
 
 	* gnome2/nautilus2/DETAILS: upgraded to 2.0.7
-	
+
 2002-09-21 03:27  tchan
 
-	* devel/linux-vanilla/POST_INSTALL: Fixing GRUB install again, as bash read does not like -1 for a timeout value.
-	
+	* devel/linux-vanilla/POST_INSTALL: Fixing GRUB install again, as
+	bash read does not like -1 for a timeout value.
+
 2002-09-21 03:26  tchan
 
-	* devel/linux/POST_INSTALL: Fixing GRUB install again, as bash read does not like -1 for timeout.
-	
+	* devel/linux/POST_INSTALL: Fixing GRUB install again, as bash read
+	does not like -1 for timeout.
+
 2002-09-20 22:50  sofar
 
 	* x11-utils/hot-babe/DEPENDS: cleaning DEPENDS
-	
+
 2002-09-20 22:48  sofar
 
 	* gnome2/: bug-buddy2/DEPENDS, gal2/DEPENDS, gdm2/DEPENDS,
 	gkrellm2/DEPENDS, glade2/DEPENDS, gnome-utils2/DEPENDS,
-	metacity/DEPENDS, xscreensaver2/DEPENDS: cleaning DEPENDS
-	VS: ----------------------------------------------------------------------
-	
+	metacity/DEPENDS, xscreensaver2/DEPENDS: cleaning DEPENDS VS:
+	-------------------------------------------------------------------
+	---
+
 2002-09-20 22:46  sofar
 
 	* cd/gtoaster/DEPENDS, net/SDL_net/DEPENDS: cleaning DEPENDS
-	
+
 2002-09-20 22:18  kongar
 
 	* filemanagers/nautilus/DETAILS, gnome/gnome-mime-data/DETAILS,
 	gnome2/libwnck/DETAILS: fixed url
-	
+
 2002-09-20 22:12  kongar
 
 	* gnome2/: libbonoboui/DETAILS, libglade2/DETAILS,
 	libgnomeprintui/DETAILS, libgnomeui/DETAILS: fixed url
-	
+
 2002-09-20 22:11  kongar
 
 	* gnome2/glade2/: BUILD, DETAILS: upgraded to 1.1.2
-	
+
 2002-09-20 22:03  kongar
 
 	* x11-utils/hot-babe/BUILD: added system CFLAGS
-	
+
 2002-09-20 21:46  jmhodges
 
-	* x11-utils/hot-babe/: BUILD, DEPENDS, DETAILS: hot-babe added there ya happy now? ;)
-	
+	* x11-utils/hot-babe/: BUILD, DEPENDS, DETAILS: hot-babe added
+	there ya happy now? ;)
+
 2002-09-20 21:11  kongar
 
 	* gnome2/: gnome-mime-data2/DETAILS, gnome-vfs2/DETAILS,
 	libgnome/DETAILS, libgnomecanvas/DETAILS: fixed the url
-	
+
 2002-09-20 20:25  kongar
 
 	* gnome2/libbonobo/DETAILS: fixed the url
-	
+
 2002-09-20 20:19  kongar
 
 	* gnome2/bonobo-activation/DETAILS: fixed the url
-	
+
 2002-09-20 20:06  kongar
 
 	* gnome2/linc/DETAILS: fixed the url
-	
+
 2002-09-20 20:00  kongar
 
 	* gnome2/libIDL/DETAILS: fixed the url
-	
+
 2002-09-20 19:56  kongar
 
 	* gnome2/gnome-common2/DETAILS: fixed the url
-	
+
 2002-09-20 18:59  kc8apf
 
-	* libs/libfwbuilder/DETAILS, security/fwbuilder/DETAILS: Version bump on fwbuilder
-	
+	* libs/libfwbuilder/DETAILS, security/fwbuilder/DETAILS: Version
+	bump on fwbuilder
+
 2002-09-20 18:25  csm
 
 	* devel/linux/DETAILS: adding the md5sum for the patches
-	
+
 2002-09-20 18:19  csm
 
 	* devel/linux/DETAILS: updating kernel patches
-	
+
 2002-09-20 16:09  wizfactor
 
 	* devel/GUIlib/DEPENDS: Requires SDL
-	
+
 2002-09-20 15:35  tchan
 
-	* video/smpeg/BUILD: Fixed to compile smpeg with gcc-3.2.  wyatt_earp found this fix from smpeg
-	mailing list -- change all occurances of gcc to g++ in Makefile.  It now
-	compiles and works with gcc-3.2.  Removed smpeg from /var/state/lunar/gcc.x86
-	as well.
-	
+	* video/smpeg/BUILD: Fixed to compile smpeg with gcc-3.2. 
+	wyatt_earp found this fix from smpeg mailing list -- change all
+	occurances of gcc to g++ in Makefile.  It now compiles and works
+	with gcc-3.2.  Removed smpeg from /var/state/lunar/gcc.x86 as well.
+
 2002-09-20 14:50  kongar
 
 	* gnome2/GConf2/DETAILS: fixed the url
-	
+
 2002-09-20 14:38  kongar
 
 	* gnome2/ORBit2/DETAILS: fixed the url
-	
+
 2002-09-20 14:35  kongar
 
 	* gnome2/libgnomeprint/DETAILS: fixed the url
-	
+
 2002-09-20 14:31  kongar
 
 	* libs/libart_lgpl/DETAILS: fixed the url
-	
+
 2002-09-20 14:19  kongar
 
 	* printer/cups/DETAILS: upgraded to 1.1.15
-	
+
 2002-09-20 14:12  kongar
 
-	* gnome/: gal/DETAILS, gtkhtml/DETAILS: the versions are reverted back for evo 1.0.8 compatibility
-	
+	* gnome/: gal/DETAILS, gtkhtml/DETAILS: the versions are reverted
+	back for evo 1.0.8 compatibility
+
 2002-09-20 14:09  kongar
 
 	* cd/cdrtools/DETAILS: upgraded to 1.11a33
-	
+
 2002-09-20 13:57  kongar
 
 	* mail/fetchmail/DETAILS: upgraded to 6.0.0
-	
+
 2002-09-20 13:03  kongar
 
 	* gnome/soup/: DEPENDS, DETAILS: 
 	
 	Soup is a SOAP (Simple Object Access Protocol) implementation in C.
-	
+
 2002-09-20 12:25  kongar
 
 	* gnome/gtkhtml/DETAILS: upgraded to 1.1.2
-	
+
 2002-09-20 12:19  kongar
 
 	* gnome/gal/DETAILS: upgraded to 0.20
-	
+
 2002-09-20 11:53  kongar
 
 	* gnome/oaf/DETAILS: upgraded to 0.6.10, urls fixed
-	
+
 2002-09-20 11:43  kongar
 
 	* devel/db4/DETAILS: upgraded to 4.1.24
-	
+
 2002-09-20 10:03  kongar
 
 	* devel/cvsfs/DETAILS: upgraded to 1.1.8
-	
+
 2002-09-20 10:01  kongar
 
 	* x11-wm/blackbox/DETAILS: upgraded to 0.65.0
-	
+
 2002-09-20 02:40  hardkrash
 
-	* net/minicom/: BUILD, DETAILS: build fixed to correct new build style of minicom details updated to reflect changes in packaging
-	
+	* net/minicom/: BUILD, DETAILS: build fixed to correct new build
+	style of minicom details updated to reflect changes in packaging
+
 2002-09-20 02:30  kc8apf
 
 	* libs/libxslt/DETAILS: Fixed download URL
-	
+
 2002-09-20 01:23  kc8apf
 
 	* gnome/libxml2/DETAILS: Fixed broken download URL
-	
+
 2002-09-19 22:50  sofar
 
 	* video/MPlayer/DETAILS: New version: 0.90pre8
-	
+
 2002-09-19 21:09  sofar
 
 	* video/w32codec/DETAILS: this one needed a bump too!
-	
+
 2002-09-19 20:56  sofar
 
-	* net/net-tools/init.d/netmount: Adding network share mount/umount script
-	
+	* net/net-tools/init.d/netmount: Adding network share mount/umount
+	script
+
 2002-09-19 20:10  kongar
 
 	* security/: snare/DETAILS, snare-core/BUILD, snare-core/DETAILS: 
 	core is upgraded to 0.9.1 so I touched snore's timestamp too.
-	
+
 2002-09-19 19:15  csm
 
-	* utils/util-linux/DETAILS: just making sure the update gets kicked into existing machines with a date change
-	
+	* utils/util-linux/DETAILS: just making sure the update gets kicked
+	into existing machines with a date change
+
 2002-09-19 18:30  sofar
 
-	* utils/util-linux/POST_INSTALL: issu::.... is the correct way of doing stuff right after boot, and issu:S: doesn't work.
-	
+	* utils/util-linux/POST_INSTALL: issu::.... is the correct way of
+	doing stuff right after boot, and issu:S: doesn't work.
+
 2002-09-19 18:22  sofar
 
 	* utils/util-linux/POST_INSTALL: init field maximum 4 chars
-	
+
 2002-09-19 18:18  sofar
 
 	* utils/util-linux/POST_INSTALL: Make grep quiet
-	
+
 2002-09-19 18:17  sofar
 
-	* utils/util-linux/: BUILD, POST_INSTALL, make-issue: Adding /etc/issue generating code
-	
+	* utils/util-linux/: BUILD, POST_INSTALL, make-issue: Adding
+	/etc/issue generating code
+
 2002-09-19 12:00  kongar
 
 	* doc-tools/doxygen/DETAILS: upgraded to 1.2.18
-	
+
 2002-09-19 11:50  kongar
 
 	* cd/gtoaster/: DEPENDS, DETAILS: 
-	new package, gnome toaster, by
-	Joel Vennin <joel.vennin@wanadoo.fr>
-	
+	new package, gnome toaster, by Joel Vennin <joel.vennin@wanadoo.fr>
+
 2002-09-19 11:39  kongar
 
 	* mail/spamassassin/: BUILD, DETAILS: upgraded to 2.41
-	
+
 2002-09-19 08:05  kongar
 
-	* shells/busybox_static/busybox.patch.bz2: added a left behind patch
-	
+	* shells/busybox_static/busybox.patch.bz2: added a left behind
+	patch
+
 2002-09-19 08:04  kongar
 
 	* shells/: busybox/DETAILS, busybox/busybox.patch.bz2,
 	busybox_static/BUILD, busybox_static/DETAILS: 
 	upgraded to 0.60.4
-	
+
 2002-09-19 07:37  kongar
 
 	* editors/TeXmacs/: BUILD, DETAILS: 
@@ -534,39 +581,41 @@
 	warnings
 	
 	now using default_build
-	
+
 2002-09-19 03:57  tchan
 
-	* devel/guile/DETAILS: Do not use version 1.6.0 of guile.  It breaks gnucash-1.6.8.  It also does
-	NOT cleanly install.  This is a snippet of the results of lin with guile-1.6.0:
+	* devel/guile/DETAILS: Do not use version 1.6.0 of guile.  It
+	breaks gnucash-1.6.8.  It also does NOT cleanly install.  This is a
+	snippet of the results of lin with guile-1.6.0:
 	
-	Creating /var/log/lunar/install/guile-1.6.0
-	/sbin/lin: line 108: [: /usr/share/guile/1.6.0/ice-9/and-let*.scm: binary operator expected
+	Creating /var/log/lunar/install/guile-1.6.0 /sbin/lin: line 108: [:
+	/usr/share/guile/1.6.0/ice-9/and-let*.scm: binary operator expected
 	Creating /var/cache/lunar/guile-1.6.0-i686-pc-linux-gnu.tar.bz2
 	
 	Reverted guile back to the working version 1.4.
-	
+
 2002-09-18 08:24  sofar
 
 	* gnome/gnumeric/DEPENDS: Added guile
-	
+
 2002-09-18 08:23  sofar
 
 	* devel/guile/DETAILS: New version: 1.6.0
-	
+
 2002-09-17 22:14  sofar
 
 	* gnome/gal/DEPENDS: Adding gnome-print since it's required
-	
+
 2002-09-17 21:46  jasper
 
 	* x11-wm/: gtk-xfce-engine/DEPENDS, gtk-xfce-engine/DETAILS,
-	xfwm4/DETAILS: Updating gtk-xfce-engine and xfwm4 to latest versions
-	
+	xfwm4/DETAILS: Updating gtk-xfce-engine and xfwm4 to latest
+	versions
+
 2002-09-17 21:02  sofar
 
 	* devel/autoconf/DETAILS: New version: 2.54
-	
+
 2002-09-17 20:42  sofar
 
 	* profiles/: anti-spam/POST_BUILD, anti-spam/PRE_BUILD,
@@ -575,31 +624,33 @@
 	gnome2-profile/PRE_BUILD, kde/POST_BUILD, kde/PRE_BUILD,
 	kde3/POST_BUILD, kde3/PRE_BUILD, useful-profile/POST_BUILD,
 	useful-profile/PRE_BUILD: More OOPS fixes
-	
+
 2002-09-17 20:37  sofar
 
 	* profiles/docbook-profile/: POST_BUILD, PRE_BUILD: big OOPS
-	
+
 2002-09-17 09:31  sofar
 
 	* devel/linux/DETAILS: Modified for Dem's new patchset
-	
+
 2002-09-17 04:40  tchan
 
 	* devel/uml/: .config, BUILD, CONFIGURE, DEPENDS, DETAILS,
-	PRE_BUILD: This is a working User Mode Linux with linux-vanilla kernel 2.4.19 and
-	uml patch 2.4.19-5.  You still have to download/create your own root_fs.
-	I use this now to test/work on the Lunar testiso's.
-	
+	PRE_BUILD: This is a working User Mode Linux with linux-vanilla
+	kernel 2.4.19 and uml patch 2.4.19-5.  You still have to
+	download/create your own root_fs.  I use this now to test/work on
+	the Lunar testiso's.
+
 2002-09-16 23:52  sofar
 
 	* gnome/gnome-core/DETAILS: New version: 1.4.2
-	
+
 2002-09-16 23:14  sofar
 
 	* doc-tools/sp/POST_BUILD, doc-tools/sp/PRE_BUILD,
-	docs/Grokking-the-GIMP/PRE_BUILD: removing these unnecessary files (empty)
-	
+	docs/Grokking-the-GIMP/PRE_BUILD: removing these unnecessary files
+	(empty)
+
 2002-09-16 23:12  sofar
 
 	* profiles/anti-spam/POST_BUILD, profiles/anti-spam/PRE_BUILD,
@@ -611,17 +662,14 @@
 	profiles/gnome2-profile/PRE_BUILD, profiles/kde/POST_BUILD,
 	profiles/kde/PRE_BUILD, profiles/kde3/POST_BUILD,
 	profiles/kde3/PRE_BUILD, profiles/useful-profile/POST_BUILD,
-	profiles/useful-profile/PRE_BUILD, utils/lunar-iso/PRE_BUILD: Removing these unnecessary files (empty)
-	
+	profiles/useful-profile/PRE_BUILD, utils/lunar-iso/PRE_BUILD:
+	Removing these unnecessary files (empty)
+
 2002-09-16 22:48  sofar
 
 	* audio/sox/DEPENDS: Removing empty file
-	
+
 2002-09-16 22:17  sofar
 
 	* web/webmin/DETAILS: New version: 1.000, and new dl location
-	
-2002-09-16 21:59  sofar
 
-	* gnome/imlib/DEPENDS: cleaning DEPENDS
-	
