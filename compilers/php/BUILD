@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE3 0 &&
+
   if [ -s /etc/httpsd/httpd.conf ] ; then
     cp /etc/httpsd/httpd.conf /etc/httpsd/httpd.conf.`date +%Y%m%d`
   fi
