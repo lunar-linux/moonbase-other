@@ -1,0 +1,13 @@
+          MODULE=acpid
+         VERSION=1.0.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=md5:15884aaf0b82717954f9366b5c00808b
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+        WEB_SITE=httpd://acpid.sourceforge.net/
+         ENTERED=20031102
+         UPDATED=20031102
+           SHORT="An ACPI event monitor daemon"
+cat << EOF
+ACPID is a completely flexible, totally extensible daemon for delivering ACPI events. It listens on a file (/proc/acpi/event) and when an event occurs, executes programs to handle the event. The programs it executes are configured through a set of configuration files, which can be dropped into place by packages or by the admin.
+EOF
