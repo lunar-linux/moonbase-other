@@ -1,3 +1,116 @@
+2004-02-12 11:20  nestu
+
+	* kernel/linux-beta-mm/DETAILS: version bump
+
+2004-02-12 10:51  ratler
+
+	* chat/psi/BUILD, chat/psi/DEPENDS, chat/psi/DETAILS,
+	chat/psi/POST_INSTALL, security/qca-tls/BUILD,
+	security/qca-tls/DEPENDS, security/qca-tls/DETAILS: Initial release
+	of psi jabber client and ssl/tls QT plugin
+
+2004-02-12 08:16  sofar
+
+	* perl/mod_perl/DETAILS: mod_perl update, needed for md5sum. loads
+	okay in apache2
+
+2004-02-12 08:11  sofar
+
+	* gnome2-core/nautilus/DETAILS: Buming nautilus... 1:1 upgrade.
+
+2004-02-12 08:04  ratler
+
+	* web/apache/DETAILS: Updated download URL
+
+2004-02-12 06:35  nhudson
+
+	* web/MozillaFirebird/BUILD: 
+	Adding export BUILD_OPT=1 to the build, this actually makes the run
+	time a bit faster
+
+2004-02-12 05:49  florin
+
+	* video/cinelerra/DETAILS: bump version from 1.1.8 to 1.1.9.
+
+2004-02-12 04:30  florin
+
+	* games/toppler/: BUILD, DEPENDS, DETAILS: a climb into a tower
+	game.
+
+2004-02-12 03:38  florin
+
+	* video/xmovie/: BUILD, DEPENDS, DETAILS, PRE_BUILD: bump version
+	from 1.9.7 to 1.9.12. i have added a symlink for glib2 in order to
+	build it.
+
+2004-02-12 03:26  niki
+
+	* gnome2-extras/gal2/: DEPENDS, DETAILS: Removed gal2, as the new
+	one is called gal21
+
+2004-02-12 03:25  florin
+
+	* mail/mutt/DETAILS: bump version from 1.4.1i to 1.4.2i.
+
+2004-02-12 01:36  nhudson
+
+	* gnome2-core/: eel/DETAILS, gnome-vfs2/DETAILS, nautilus/DETAILS: 
+	Updating modules
+
+2004-02-12 00:18  niki
+
+	* devel/anjuta/DETAILS: Bumped anjuta...
+
+2004-02-11 22:30  niki
+
+	* gnome2-core/gtksourceview/POST_INSTALL: Haven't i done this befor
+	?
+
+2004-02-11 20:29  tchan
+
+	* crypto/gnutls/DEPENDS: opencdk already has a DEPENDS on
+	libgcrypt.  I hereby remove the DEPENDS on libgcrypt from gnutls,
+	since niki added the depends on opencdk.  :-)
+
+2004-02-11 18:49  niki
+
+	* gnome2-core/nautilus-cd-burner/DETAILS: Bumped version.
+
+2004-02-11 18:24  niki
+
+	* gnome2-apps/gucharmap/DETAILS: Fixed the dl url.
+
+2004-02-11 18:04  niki
+
+	* gnome2-core/gnome-media2/BUILD: Some build file magic is needed
+	for this module to build...
+
+2004-02-11 16:14  nhudson
+
+	* gnome2-apps/conglomerate/: DETAILS, DETAILS: 
+	Updating conglomerate to new version 0.7.11
+
+2004-02-11 15:57  nhudson
+
+	* gnome2-core/gnome-icon-theme/DETAILS: 
+	Updating gnome-keyring and gnome-icon-theme to new versions
+
+2004-02-11 14:45  niki
+
+	* gnome2-core/metacity/DETAILS: Module is not PSAFE...
+
+2004-02-11 13:13  niki
+
+	* gnome2-core/gnome-panel/DETAILS: Module not PSAFE...
+
+2004-02-11 13:04  niki
+
+	* rebuild-gnome-unstable: added a missing module
+
+2004-02-11 12:41  moe
+
+	* utils/clamav/DETAILS: Bumping this to security-fix version 0.66
+
 2004-02-11 04:08  nhudson
 
 	* rebuild-gnome-unstable: 
@@ -2154,31 +2267,4 @@
 
 	* devel/arch/DEPENDS: reverted the addition of gmp to arch depends,
 	as that is first needed for tla 1.2.
-
-2004-01-12 23:59  tchan
-
-	* x11-apps/openoffice-bin/CONFIGURE: Fixed the logic of the
-	freetype2 test.  grep -v means select lines NOT matching the given
-	string, and that is NOT what this test needs.  Also if the string
-	is NOT found then we want the error message to print.  So if grep
-	-qv string files ; print errormsg should really be: if ! grep -q
-	string files ; print errormsg
-
-2004-01-12 22:29  niki
-
-	* devel/arch/DEPENDS: Added a depends on gmp, as nestu hit a
-	missing header file from this module when wompiling tla-1.2pre0+
-
-2004-01-12 17:54  hardkrash
-
-	* x11-apps/openoffice-bin/: CONFIGURE, POST_INSTALL: changed the
-	default behavior for openoffice-bin without bytecode enabled
-	
-	package will now fail if it is not enabled. to many emails about
-	openoffice and no fonts :-/
-
-2004-01-12 01:12  hardkrash
-
-	* perl/XML-Twig/DEPENDS: extra depends on perl, XML-Praser already
-	depends om perl
 
