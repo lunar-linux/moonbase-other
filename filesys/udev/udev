@@ -1,9 +1,9 @@
 #! /bin/bash
 #
-# udev	init script to setup /udev
+# udev	init script to setup /dev
 #
 # chkconfig: 2345 20 80
-# description: manage user-space device nodes in /udev
+# description: manage user-space device nodes in /dev
 
 # . /etc/rc.d/init.d/functions
 
@@ -12,7 +12,6 @@ prog=udev
 sysfs_dir=/sys
 bin=/sbin/udev
 udevd=/sbin/udevd
-udev_root=/udev
 
 . /etc/udev/udev.conf
 
@@ -112,7 +111,7 @@ case "$1" in
 		rm -f $udev_root/.udev.tdb
 	fi
 
-	# propogate /udev from /sys - we only need this while we do not
+	# propogate /dev from /sys - we only need this while we do not
 	# have initramfs and an early user-space with which to do early
 	# device bring up
 	export ACTION=add
