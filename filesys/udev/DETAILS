@@ -1,17 +1,16 @@
           MODULE=udev
-         VERSION=046
-	   PSAFE=no
+         VERSION=048
           SOURCE=$MODULE-$VERSION.tar.bz2
       SOURCE_URL=http://www.kernel.org/pub/linux/utils/kernel/hotplug/
-      SOURCE_VFY=sha1:c403fa33be064aa3b7eb30f4fac478b767b120da
+      SOURCE_VFY=sha1:9d10b05404e3ed2519c438de39784a892b9b0593
          SOURCE2=$MODULE-defaults-3.patch.bz2
      SOURCE2_URL=$PATCH_URL/
      SOURCE2_VFY=sha1:634f80608b8f58510fe9f8bbaa517fa8786fee6f
         WEB_SITE=http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html
          ENTERED=20040104
-         UPDATED=20041121
+         UPDATED=20041209
+           PSAFE=no
            SHORT="Device naming from userspace for 2.6+ kernels"
-
 cat << EOF
 Future substitute of devfs in 2.6+ kernels. udev's goals:
 * run in userspace
