@@ -5,12 +5,12 @@
 SHELL = /bin/sh
 
 PACKAGE = pysol
-VERSION = 4.80
+VERSION = 4.81
 
 srcdir = .
 top_srcdir = $(srcdir)
 prefix = /usr
-exec_prefix = /usr
+exec_prefix = $(prefix)
 
 bindir = $(exec_prefix)/bin
 libdir = $(exec_prefix)/lib
