@@ -29,3 +29,7 @@ ln -sf /usr/X11R6/lib/pkgconfig/fontconfig.pc /usr/lib/pkgconfig &&
 
 # running fc-cache please be patient
 /usr/X11R6/bin/fc-cache -f 
+
+if !module_installed xserver; then
+  lin xserver
+fi
