@@ -4,14 +4,13 @@
   sedit "s/-m 644 COPYING/-D -m 644 COPYING/g"   $SOURCE_DIRECTORY/Makefile.in &&
   sedit "s/ChangeLog//g"			 $SOURCE_DIRECTORY/Makefile.in &&
 
-  ./configure --prefix=/usr           \
-              --bindir=/usr/bin       \
-              --sbindir=/usr/sbin     \
-              --datadir=/usr/share    \
-	      --sysconfdir=/etc       \
+  ./configure --prefix=/usr            \
+              --bindir=/usr/bin        \
+              --sbindir=/usr/sbin      \
+              --datadir=/usr/share     \
+	      --sysconfdir=/etc        \
 	      --mandir=/usr/share/man &&
-  make                                                                      &&
-  prepare_install                                                           &&
-  make    install
+
+  default_make
 
 ) > $C_FIFO 2>&1
