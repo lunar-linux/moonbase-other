@@ -1,3 +1,108 @@
+2003-07-14 11:43  nhudson
+
+	* app-themes/gnome-themes-extras/DETAILS: 
+	Removing scalable-gorilla and Nuvola icon themes from moonbase
+	because they are both in gnome-themes-extras and are not needed
+	anymore.
+
+2003-07-14 11:40  nhudson
+
+	* libs/libart_lgpl/DETAILS: 
+	updating libart_lgpl to new version 2.3.13
+
+2003-07-14 11:38  nhudson
+
+	* gnome2-core/bonobo-activation/DETAILS: 
+	Updating bonobo-activation to new version 2.2.3.  If you are
+	running evolution you will have to either restart or run
+	"bonobo-slay" to get things working again.
+
+2003-07-14 03:34  kc8apf
+
+	* gnustep/gnustep-make/BUILD: Fix build for gnustep-make to located
+	gnustep correctly in /
+
+2003-07-14 01:26  csm
+
+	* mail/smtpclient/DEPENDS: I had commented this out for testing...
+	I forgot to uncomment it
+
+2003-07-14 01:14  csm
+
+	* mail/smtpclient/: DEPENDS, DETAILS, POST_INSTALL: okay so
+	smtpclient installs and configs postfix properly if spamassasin and
+	postfix are installed
+
+2003-07-14 00:45  csm
+
+	* mail/postfix/DEPENDS: adding some useful optional_depends
+
+2003-07-14 00:29  csm
+
+	* mail/spamassassin/DEPENDS: adding an optional depends for
+	smtpclient which is very useful with spamassassin and postfix if
+	you are using Maildir ala courier-imap
+
+2003-07-14 00:26  csm
+
+	* mail/smtpclient/DETAILS: adding smtpclient. this is very useful
+	with postfix and spamassassin if you want to run spamassassin as a
+	daemon and still be able to avoid the use of procmail for local
+	delivery. i am using it with Maildir and courier-imap so that
+	spamassasin will work as a daemon.
+	
+	See http://jessen.ch/articles/enidans-spamassassin.shtml for more
+	info!
+
+2003-07-13 21:59  sofar
+
+	* zbeta/blender-cvs/DETAILS: This is the new blender CVS version,
+	this will force you to freshly checkout blender-cvs, and that's
+	needed because the tree slightly changed beyond CVS's powers.
+
+2003-07-13 20:29  sofar
+
+	* chat/dancer-services/: BUILD, DETAILS: Adding the dancer-ircd
+	services (unusable for now...)
+
+2003-07-13 15:03  sofar
+
+	* chat/ircservices/: BUILD, DETAILS: Adding IRC services... beware
+	this is still crude stuff.
+
+2003-07-13 14:12  moe
+
+	* zbeta/xfce4-session-cvs/DETAILS: Added new lunar mirrors
+
+2003-07-13 13:58  moe
+
+	* zbeta/xfce4-session-cvs/POST_INSTALL: Added some tweaks and the
+	FrancoisSpecial theme.
+
+2003-07-13 13:57  moe
+
+	* zbeta/xfce4-session-cvs/DETAILS: Final fix, added FrancoisSpecial
+	theme.
+
+2003-07-13 13:15  moe
+
+	* games/eboard/DETAILS: Version has been bumped to 0.9.0
+
+2003-07-13 13:12  sofar
+
+	* chat/ircd-hybrid/: BUILD, DETAILS, init.d/irc, init.d/ircd: I'm
+	giving up on it now.. its too big a mess...
+
+2003-07-13 12:55  moe
+
+	* zbeta/xfce4-session-cvs/POST_INSTALL: Added POST_INSTALL for
+	theme installing.
+
+2003-07-13 12:54  moe
+
+	* zbeta/xfce4-session-cvs/DETAILS: Install additional theme
+	"MoeSpecial" by default.
+
 2003-07-12 20:45  sofar
 
 	* devel/automake/DETAILS: . <- just a small bump.
@@ -1383,43 +1488,4 @@
 2003-06-14 00:41  csm
 
 	* kernel/linux-vanilla/DETAILS: updating vanilla to 2.4.21
-
-2003-06-13 20:45  tchan
-
-	* utils/calc/DETAILS: Version bump to 2.11.8.  Compiled and tested
-	with gcc-3.2.3, glibc-2.3.2.
-
-2003-06-13 12:19  nhudson
-
-	* gnome2-extras/: libgnomedb/DETAILS, mergeant/DETAILS: 
-	Updating mergeant to new version 0.12.1 and libgnomedb to new
-	version 0.12.2
-
-2003-06-13 07:08  tchan
-
-	* devel/binutils/DETAILS: Version bump to 2.14.  Compiled and
-	tested with gcc-3.2.3 and glibc-2.3.2.
-
-2003-06-13 04:38  tchan
-
-	* devel/uml/DETAILS: Version bump of UML utilities 20030605 and UML
-	kernel patches version 2.4.20-6.
-
-2003-06-13 02:19  nhudson
-
-	* app-themes/gnome-themes-extras/: BUILD, DEPENDS, DETAILS: 
-	Adding gnome-themes-extra to moonbase, this adds several svg based
-	themes for Gnome to your theme list.
-
-2003-06-13 02:17  tchan
-
-	* gnome2-core/gail/: DEPENDS, DETAILS: Corrected a typo in DETAILS
-	description.  Added gtk-doc to the DEPENDS.  gail will actually
-	fail to install correctly when generating docs for libgail-util if
-	gtk-doc is not already installed.
-
-2003-06-13 02:16  nhudson
-
-	* gnome2-core/libbonobo/: BUILD, DETAILS: 
-	Updating libbonobo to new version 2.2.3
 
