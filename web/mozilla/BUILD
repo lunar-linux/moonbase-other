@@ -99,9 +99,9 @@
               $EXTENTIONS							&&
 
   default_make &&
-  cp mozilla-1.3-lunar/mozilla.desktop /usr/share/applications &&
-  cp mozilla-1.3-lunar/mozilla-mail.desktop /usr/share/applications &&
-  cp mozilla-1.3-lunar/mozilla.png /usr/share/pixmaps &&
-  cp mozilla-1.3-lunar/mozilla-mail.png /usr/share/pixmaps 
+  cp mozilla-1.3.1-lunar/mozilla.desktop /usr/share/applications &&
+  cp mozilla-1.3.1-lunar/mozilla-mail.desktop /usr/share/applications &&
+  cp mozilla-1.3.1-lunar/mozilla.png /usr/share/pixmaps &&
+  cp mozilla-1.3.1-lunar/mozilla-mail.png /usr/share/pixmaps 
 
 ) > $C_FIFO 2>&1
