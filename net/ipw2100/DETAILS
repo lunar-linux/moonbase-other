@@ -1,14 +1,17 @@
 	  MODULE=ipw2100
-	 VERSION=0.56
+	 VERSION=0.61
 	  SOURCE=$MODULE-$VERSION.tgz
        HOSTAPVER=0.2.5
 	 SOURCE2=hostap-driver-$HOSTAPVER.tar.gz
+	 SOURCE3=stupid-fixes.patch
       SOURCE_URL=$SFORGE_URL/$MODULE/
      SOURCE2_URL=http://hostap.epitest.fi/releases/
-      SOURCE_VFY=sha1:211a8c12723f156c94264c5799226ad28c7bc090
+     SOURCE3_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:27f68c977ddcd61c25f46e53151754a124605046
      SOURCE2_VFY=sha1:46f269f9f9425c3f1fd053a1b4210cf17a0c902c
+     SOURCE3_VFY=sha1:722c05e9892c7038272609e9d5baa7f24e51e367
 	 ENTERED=20040430
-	 UPDATED=20041101
+	 UPDATED=20041109
 	   SHORT="Intel PRO/Wireless 2100 Driver for Linux"
 cat << EOF
 This project was created by Intel to enable support for the Intel
