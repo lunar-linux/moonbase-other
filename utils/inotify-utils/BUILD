@@ -1,5 +1,6 @@
 (
    make  &&
+   prepare_install &&
    cp -a inotify.h /usr/include/linux/inotify.h &&
    cp -a inotify_test /usr/bin 
     
