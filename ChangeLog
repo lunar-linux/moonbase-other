@@ -1,3 +1,104 @@
+2002-10-21 07:16  kongar
+
+	* editors/ht/: BUILD, DETAILS: 
+	new module:
+	
+	ht is a file editor/viewer/analyzer for executables
+	
+2002-10-21 06:41  kongar
+
+	* kde3/arts/DETAILS: fixed the d/l IRL
+	
+2002-10-20 21:26  kongar
+
+	* utils/ccache/: BUILD, DETAILS, ccache.patch.bz2: 
+	optionally merged with CVS version to support -MT and friends.
+	
+2002-10-20 21:21  kongar
+
+	* mail/fetchmail/DETAILS: upgraded to 6.1.1
+	
+2002-10-20 20:36  tiomo
+
+	* kde3/: arts/DETAILS, kdeaddons3/DETAILS, kdeadmin3/DETAILS,
+	kdeartwork3/DETAILS, kdebase3/DETAILS, kdebindings3/DETAILS,
+	kdeedu3/DETAILS, kdegames3/DETAILS, kdegraphics3/DETAILS,
+	kdelibs3/DETAILS, kdemultimedia3/DETAILS, kdenetwork3/DETAILS,
+	kdepim3/DETAILS, kdesdk3/DETAILS, kdetoys3/DETAILS,
+	kdeutils3/DETAILS: changed version to 3.0.4
+	
+2002-10-20 17:00  kongar
+
+	* printer/ImageMagick/DETAILS: upgraded to 5.5.1-2
+	
+2002-10-20 14:38  kongar
+
+	* devel/bison/DETAILS: added a warning to DETAILS
+	
+2002-10-20 13:10  jasper
+
+	* devel/bison/DETAILS: reverted bison to 1.35 due to problem with gcc 3.2.1
+	
+2002-10-20 05:19  nhudson
+
+	* utils/fcron/BUILD: Fixing fcron it would bork but still install for some reason.  Its looking for sendmail so its built --without-sendmail
+	
+2002-10-20 05:07  nhudson
+
+	* utils/fcron/DETAILS: Found that fcron will not download and that it has a new version, so I updated :)
+	
+2002-10-19 19:53  tiomo
+
+	* kde3-utils/kopete/DETAILS: update kopete to version 0.5
+	
+2002-10-19 13:31  nhudson
+
+	* compilers/gcc/DETAILS: Cleaning up the DETAILS file, and removing the download of the patch for glibc sence it isnt used anymore
+	
+2002-10-19 01:17  kc8apf
+
+	* doc-tools/yawl/BUILD: Alpha comment
+	
+2002-10-19 01:16  kc8apf
+
+	* archive/zlib/BUILD: Comment Alpha fix
+	
+2002-10-19 01:14  kc8apf
+
+	* doc-tools/yawl/BUILD, archive/zlib/BUILD: Alpha fix
+	
+2002-10-19 01:13  kc8apf
+
+	* utils/aboot/DETAILS: Version bump
+	
+2002-10-18 23:28  nhudson
+
+	* compilers/gcc/PRE_BUILD: Updated the gcc module to make it so that it will build aginst glibc 2.3.1.  I removed the patch which was for glibc 2.3 only, if gcc was is patched with this it breaks the build.  I tested this without the patch and it compiles fine.
+	
+2002-10-18 13:33  sofar
+
+	* games/pinball/: DEPENDS, DETAILS: New game (alpha, but nice) pinball.
+	
+2002-10-18 11:06  kongar
+
+	* utils/time/DETAILS: 
+	GNU time
+	
+2002-10-18 10:01  kongar
+
+	* crypto/openssh/: BUILD, DETAILS, POST_INSTALL: 
+	added MD5sum
+	
+	module cleanups
+	
+2002-10-18 09:36  kongar
+
+	* mail/spamassassin/: BUILD, DETAILS: upgraded to 2.43
+	
+2002-10-18 09:25  kongar
+
+	* games/tuxpuck/: BUILD, DETAILS: upgraded to 0.8.1
+	
 2002-10-17 16:53  sofar
 
 	* games/geki3/: DEPENDS, DETAILS, POST_BUILD, star.bmp: New game: geki3
@@ -18,9 +119,7 @@
 
 	* games/: jumpnbump/BUILD, jumpnbump/DEPENDS, jumpnbump/DETAILS,
 	jumpnbump-levels/BUILD, jumpnbump-levels/DETAILS,
-	jumpnbump-levels/PRE_BUILD, jumpnbump-levels/level-list,
-	jumpnbump_menu/BUILD, jumpnbump_menu/DEPENDS,
-	jumpnbump_menu/DETAILS: New game!!! jumpnbump
+	jumpnbump-levels/PRE_BUILD, jumpnbump-levels/level-list: New game!!! jumpnbump
 	
 2002-10-17 11:36  sofar
 
@@ -284,126 +383,4 @@
 
 	* zbeta/gimp2/DETAILS: 
 	Gimp2 was update to version 1.3.9, tested
-	
-2002-10-09 20:57  jasper
-
-	* app-themes/gtk-xfce-engine/DETAILS: Updated xfce engine module. Also updated crater, hope that's ok
-	
-2002-10-09 16:27  kongar
-
-	* sql/mysqlnavigator/: BUILD, DEPENDS, DETAILS: 
-	upgraded to 1.4.1
-	
-	now using qt3
-	
-	hacked src/main/Makefile.in for correct linking.
-	
-2002-10-09 16:16  kongar
-
-	* games/tuxpuck/: BUILD, DEPENDS, DETAILS: 
-	new game, tuxpuck. It beats me all the time, version 0.8.0
-	
-2002-10-09 12:35  kongar
-
-	* devel/cvsfs/DETAILS: upgraded to 1.1.9
-	
-2002-10-09 12:32  kongar
-
-	* utils/Wine/DETAILS: upgraded to 20021007
-	
-2002-10-09 11:32  kongar
-
-	* x11-apps/jpilot/: BUILD, DETAILS, centering.patch, columns.patch: 
-	upgraded to 0.99.3
-	
-	patches removed since they are now applied to source
-	
-2002-10-09 11:31  kongar
-
-	* mail/sylpheed-claws/DETAILS: upgraded to 0.8.5
-	
-2002-10-09 10:23  sofar
-
-	* gnome2-core/ORBit2/BUILD: Fixing PKG_CONFIG_PATH, needed to find linc.pc
-	
-2002-10-09 09:47  sofar
-
-	* utils/hc-cron/BUILD: Beautify installer and dirs.
-	
-2002-10-09 00:29  tchan
-
-	* web/screem/: BUILD, DEPENDS, DETAILS: Moved Dem's version from crater into moonbase.
-	
-2002-10-09 00:28  tchan
-
-	* graphics/gthumb/: BUILD, DEPENDS, DETAILS: Moved this from crater into moonbase.
-	
-2002-10-09 00:26  tchan
-
-	* gnome2-extras/libgnomedb/DETAILS: Corrected a spelling mistake.
-	
-2002-10-08 20:26  kongar
-
-	* utils/tree/: BUILD, DETAILS: 
-	new module, tree, directory tree view by Richard Pyne
-	
-2002-10-08 19:02  tchan
-
-	* libs/: lesstif/CONFLICTS, openMotif/CONFLICTS: Changed the permissions to 755 on the CONFLICTS files
-	
-2002-10-08 18:17  xoritor
-
-	* games/wastesedge/: BUILD, DEPENDS, DETAILS: Adding wasteedge for adonthell.
-	
-2002-10-08 13:34  sofar
-
-	* ftp/wu-ftpd/CONFLICTS: adding conflicts with proftpd
-	
-2002-10-08 13:34  sofar
-
-	* ftp/proftpd/CONFLICTS: Adding conflicts with wu-ftpd
-	
-2002-10-08 13:31  sofar
-
-	* ftp/proftpd/init.d/: ftp, ftpd: Changed init.d script name to ftpd.
-	
-2002-10-08 13:23  sofar
-
-	* ftp/wu-ftpd/: DETAILS, init.d/ftpd, pam.d/ftp, xinetd.d/wu-ftpd: New module: wu-ftpd
-	
-2002-10-08 10:34  sofar
-
-	* graphics/gphoto2/DEPENDS: Adding libusb as optional depends
-	
-2002-10-08 10:27  sofar
-
-	* libs/libusb/: BUILD, DETAILS: New module: libusb - generic USB layer library
-	
-2002-10-08 07:38  tchan
-
-	* editors/nedit/BUILD: Added the -lXmu flag to use openMotif.
-	
-2002-10-08 07:07  tchan
-
-	* x11-apps/xemacs/: DEPENDS, DETAILS: Converted over from lesstif to openMotif.  It is still an optional-depends
-	
-2002-10-08 07:04  tchan
-
-	* editors/nedit/: DEPENDS, DETAILS: Converted over to openMotif, instead of lesstif.
-	
-2002-10-08 07:03  tchan
-
-	* devel/ddd/: DEPENDS, DETAILS: Converted ddd over to openMotif libs.  The fonts now correctly work. lesstif
-	seems borked with ddd and gcc-3.2.
-	
-2002-10-08 07:01  tchan
-
-	* libs/: lesstif/CONFLICTS, openMotif/BUILD, openMotif/CONFLICTS,
-	openMotif/DETAILS, openMotif/include-order.diff: Added openMotif to moonbase. It does conflict with lesstif.  Some apps seem
-	to work better with openMotif than lesstif.
-	
-2002-10-08 04:34  tchan
-
-	* devel/ddd/: BUILD, DETAILS, ddd-3.3.1-gcc3-gentoo.patch: Borrowed the gentoo patch to fix ddd for compiling under gcc-3.x.  Tested
-	and compiled under gcc-3.2 now.  Removed ddd from the blacklist.
 	
