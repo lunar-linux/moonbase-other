@@ -5,7 +5,7 @@
                 --datadir=/usr/share                    \
                 --localstatedir=/var                    \
                 --libdir=/lib                           \
-                --includedir=/include                   \
+                --includedir=/usr/include               \
                 --infodir=/usr/share/info               \
                 --mandir=/usr/share/man                 &&
    default_make
