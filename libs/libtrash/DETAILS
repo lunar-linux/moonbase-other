@@ -1,0 +1,15 @@
+          MODULE=libtrash
+         VERSION=2.2
+          SOURCE=$MODULE-latest.tgz
+      SOURCE_URL=http://pwp.netcabo.pt/0154115101/software/libtrash/$SOURCE
+      SOURCE_VFY=md5:33feaef8dab40080b6cb126fd5ad8cbf
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+        WEB_SITE=http://pwp.netcabo.pt/0154115101/software/libtrash/
+         ENTERED=20040627
+         UPDATED=20040627
+           SHORT="A shared library which implements a trash can on GNU/Linux."
+cat << EOF
+libtrash is a shared library which implements a trash can on GNU/Linux.
+When preloaded, it intercepts calls to a series of GNU libc functions and,
+instead of permanently destroying files, moves them to a "trash can".
+EOF
