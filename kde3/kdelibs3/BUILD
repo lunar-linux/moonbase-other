@@ -6,6 +6,7 @@
                  --enable-final                        \
                  --disable-debug                       \
                  --with-qt-dir=/opt/lunar/qt/3         \
+                 --with-xinerama                     \
                  $OPTS                                &&
 
   make                 &&
