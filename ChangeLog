@@ -1,3 +1,101 @@
+2002-12-20 07:15  tchan
+
+	* utils/syslinux/: BUILD, DETAILS: Bumped to version 2.00. 
+	Compiled and tested with gcc-3.2.1, glibc-2.3.1.
+
+2002-12-20 04:48  tchan
+
+	* utils/sysvinit/POST_INSTALL: Fixed a typo that was still creating
+	/devices dir.
+
+2002-12-19 19:26  dem
+
+	* zbeta/rpm/: BUILD, DEPENDS, DETAILS: rpm, because lkthomas is too
+	damn lazy
+
+2002-12-19 19:19  xoritor
+
+	* compilers/gcc2/BUILD: fixed CFLAGS issue.
+
+2002-12-19 16:07  sofar
+
+	* utils/shrotate/: BUILD, DEPENDS, DETAILS: New module: shrotate, a
+	simple perl based logfile rotator
+
+2002-12-19 15:51  sofar
+
+	* shells/shtool/DETAILS: New GNU module: shtool
+
+2002-12-19 05:22  kc8apf
+
+	* x11-utils/gkrellmwireless/: BUILD, DEPENDS: Small update
+
+2002-12-19 05:21  kc8apf
+
+	* x11-utils/gkrellmwireless2/: BUILD, DEPENDS, DETAILS: Add
+	gkrellm-wireless for gkrellm2
+
+2002-12-19 04:58  kc8apf
+
+	* science/galculator/: DEPENDS, DETAILS: Add galculator
+
+2002-12-19 03:50  tchan
+
+	* libs/slang/DETAILS: Version bump to 1.4.7.  Compiled this for 386
+	and 686 and then compiled gcc for the new slangs.  Everything
+	works.	Tested with slrn and that compiles with the new slang as
+	well. glibc-2.3.1.
+
+2002-12-18 20:43  hardkrash
+
+	* gnome/gnome-core/: BUILD, libpng.patch: Fixed libpng dection
+	issue (bug #205) added -lm to check in configure file -- hardkrash
+
+2002-12-18 19:04  tchan
+
+	* devel/STLport/DETAILS: Fixed a typo.
+
+2002-12-18 19:03  tchan
+
+	* devel/STLport/DETAILS: Version bumped to get it to correctly
+	compile with gcc-3.2.1.  Download location has changed as well.
+
+2002-12-18 10:43  sofar
+
+	* mail/sylpheed/DETAILS: New version
+
+2002-12-18 10:11  sofar
+
+	* x11-utils/gkrellm2/DETAILS: New version
+
+2002-12-18 08:49  sofar
+
+	* web/apache2/BUILD: Adding symlink from httpsd to httpd.
+
+2002-12-18 08:48  sofar
+
+	* web/apache2/init.d/httpsd: Adding template init.d script for
+	httpsd server.
+
+2002-12-18 04:59  hardkrash
+
+	* mail/evolution/BUILD: Work-around for gtk-doc error when X
+	windows in unavail in place. -- hardkrash
+
+2002-12-17 22:18  hardkrash
+
+	* gnome/libglade/BUILD: Fixed gtk-doc scan problem, see BUILD for
+	details -- hardkrash
+
+2002-12-17 12:58  sofar
+
+	* web/apache2/services: Adding https as it seems to function!
+
+2002-12-17 11:39  sofar
+
+	* web/apache2/: BUILD, POST_BUILD, POST_INSTALL: Modified for
+	proper rebuilding of php, adding SSL support with --enable-ssl.
+
 2002-12-17 09:56  sofar
 
 	* devel/autoconf/DETAILS, devel/automake/DETAILS,
@@ -1338,136 +1436,4 @@
 2002-11-19 23:44  nhudson
 
 	* gnome/gal/DETAILS: Fixing another typo
-
-2002-11-19 21:31  nhudson
-
-	* gnome2-core/: eel2/DETAILS, gnome-applets2/DETAILS,
-	gnome-media2/DETAILS, libgtkhtml/DETAILS, nautilus2/DETAILS:
-	Updating eel2 to version 2.0.8, nautilus2 to 2.0.8, gnome-applets
-	to 2.0.4 libgtkhtml to 2.0.3, gnome-media2 to 2.0.3
-
-2002-11-19 18:50  nhudson
-
-	* mail/evolution/BUILD: bleh fixing typo
-
-2002-11-19 16:30  sofar
-
-	* crypto/openssh/init.d/sshd: Typo: should be sshd instead of ssh
-	now.
-
-2002-11-19 16:16  nhudson
-
-	* gnome2-core/: gedit2/DETAILS, gnome-utils2/DETAILS: Updating
-	gnome-utils2 to version 2.0.6 and gedit2 to version 2.0.6
-
-2002-11-19 15:39  nhudson
-
-	* mail/evolution/: BUILD, DEPENDS, DETAILS: Yay ok finally we have
-	Evolution 1.2 in moonbase, it still doesnot compile with openldap
-	so that dependancy is removed from the DEPENDS file, I have tested
-	this all weekend and found it to be very stable and worthy now of
-	being put into moonbase, hope everyone enjoys.
-
-2002-11-19 15:29  nhudson
-
-	* gnome/gal/DETAILS: Updating gal to version 0.21, this works fine
-	with all the modules that depend on it eg. gnumeric, abiword.  This
-	is upgraded mainly because Evolution 1.2 needs gal 0.20 or greater
-	to compile
-
-2002-11-19 04:39  nhudson
-
-	* gnome2-apps/meld/DETAILS: Fixed typo
-
-2002-11-19 03:48  nhudson
-
-	* gnome2-apps/meld/: BUILD, DEPENDS, DETAILS, meld: Adding meld to
-	moonbase, Dem owes me a 6 pack of Abita for this :)
-
-2002-11-19 03:18  nhudson
-
-	* gnome2-extras/: gnome-python2/BUILD, gnome-python2/DEPENDS,
-	gnome-python2/DETAILS, orbit-python/BUILD, orbit-python/DEPENDS,
-	orbit-python/DETAILS: Adding gnome-python2 for Gnome 2.0 Python
-	binding support, and orbit-python for ORBit 2.0 COBRA binding
-	support
-
-2002-11-19 02:36  tchan
-
-	* security/shorewall/DETAILS: Bumped version to 1.3.10.
-
-2002-11-18 23:52  nhudson
-
-	* gnome/gtkhtml2/DETAILS: Added a mirror to the list
-
-2002-11-18 23:49  nhudson
-
-	* gnome2-core/: gnome-games2/DETAILS, yelp/DETAILS: Updating
-	Gnome-games to version 2.0.6 and yelp to version 1.0.7
-
-2002-11-18 23:11  nhudson
-
-	* gnome/gtkhtml2/: BUILD, DEPENDS, DETAILS: This is tkhtml2 which
-	is not like gtkhtml, it uses a diffrent set of libs.  This is
-	needed for Evolution 1.2 which will be added later tonight, once
-	more testing is done.
-
-2002-11-18 19:24  nhudson
-
-	* x11-apps/: libmrproject/DEPENDS, mrproject/DEPENDS: Fixing typo
-	and I added the libgsf depends to the wrong file which is fixed now
-
-2002-11-18 19:24  nhudson
-
-	* x11-apps/: libmrproject/DETAILS, mrproject/DEPENDS,
-	mrproject/DETAILS: Updating mrproject and libmrproject to new
-	versions 0.7, libgsf is now required by libmrproject to build
-
-2002-11-18 19:22  nhudson
-
-	* libs/libgsf/: BUILD, DETAILS: Adding libgsf to moonbase, this
-	takes the place of libole2 for Gnome 2.x
-
-2002-11-18 16:32  elaine
-
-	* devel/: linux/DETAILS, linux/PRE_BUILD, linux-vanilla/DETAILS,
-	linux-vanilla/PRE_BUILD: 
-	Added patch (Petr Vandrovec <vandrove@vc.cvut.cz> to fix (local)
-	kernel Dos fault
-
-2002-11-18 14:37  sofar
-
-	* web/calamaris/: BUILD, DETAILS: Adding new module: a proxy log
-	file analyzer.
-
-2002-11-18 03:51  dem
-
-	* x11/NVIDIA_kernel/: BUILD, CONFIGURE, DETAILS: Nvidia patch
-
-2002-11-18 03:25  nhudson
-
-	* gnome2-apps/pkgview/DETAILS: Updating pkgview to new version
-	0.0.7
-
-2002-11-17 23:56  kc8apf
-
-	* utils/sysstat/DETAILS: Version bump
-
-2002-11-17 18:27  sofar
-
-	* perl/URI/DETAILS: Updating version number due to missing dl.
-	(untested)
-
-2002-11-17 18:25  sofar
-
-	* doc-tools/man/BUILD: removing trailing '&&'
-
-2002-11-17 17:07  tchan
-
-	* archive/cabextract/DETAILS: Bumped version number to 0.6. 
-	Compiled and tested under glibc-2.3.1.
-
-2002-11-17 16:36  sofar
-
-	* utils/e2fsprogs/BUILD: Removing /devices from being made...
 
