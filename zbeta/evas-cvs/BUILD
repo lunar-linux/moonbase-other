@@ -4,7 +4,9 @@
   export CPPFLAGS="$CPPFLAGS -I$MODULE_PREFIX/include"
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
   export USER=nobody
-	
+
+  touch README
+
   ./autogen.sh --build=$BUILD                      \
                --prefix=$MODULE_PREFIX             \
                --sysconfdir=/etc                   \
