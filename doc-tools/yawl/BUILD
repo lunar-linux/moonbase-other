@@ -1,10 +1,8 @@
 (
 
   patch < $SCRIPT_DIRECTORY/yawl-0.2.patch     &&
-  if [ "`arch`" == "alpha" ]; then
-# Alpha's don't accept -mpentium =)
-      sedit "s/-mpentium//" Makefile;
-  fi                                           &&
+  sedit "s/SeDcFlAgS/$CFLAGS/g" Makefile       &&
+  
   make                                         &&
   prepare_install                              &&
   make install
