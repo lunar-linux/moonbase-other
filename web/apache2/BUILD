@@ -13,7 +13,7 @@
                --infodir=/usr/share/info                        \
                --mandir=/usr/share/man                          \
                --enable-so                                      \
-               --enable-shared-modules=all                      \
+               --enable-mods-shared=all		                \
                --enable-info                                    \
                --enable-cgi                                     \
                --enable-rewrite                                 \
