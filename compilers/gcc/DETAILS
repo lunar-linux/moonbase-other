@@ -1,21 +1,20 @@
           MODULE=gcc
-         VERSION=3.2.2
-        #VERSION=3.2.1
-          SOURCE=$MODULE-$VERSION.tar.gz
+         VERSION=3.2.3
+        #VERSION=3.2.2
+          SOURCE=$MODULE-$VERSION.tar.bz2
         #SOURCE2=gcc-3.2-glibc-2.3-compat.diff
         #SOURCE3=gcc.cpio.install.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-BUILD
-   SOURCE_URL[0]=$GNU_URL/gcc/$SOURCE
-   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/gcc/$SOURCE
+   SOURCE_URL[0]=$GNU_URL/gcc/$MODULE-$VERSION/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/gcc/$MODULE-$VERSION/$SOURCE
  #SOURCE2_URL[0]=http://www.haible.de/bruno/$SOURCE2
  #SOURCE3_URL[0]=http://cache.fwsystems.com/files/data/$SOURCE3
  #SOURCE3_URL[1]=http://www.lunar-linux.com/lunar/mirrors/$SOURCE3
         WEB_SITE=http://gcc.gnu.org
          ENTERED=20020628
-         UPDATED=20030208
+         UPDATED=20030425
            SHORT="gcc is the GNU compiler collection."
            PSAFE=no
-
 cat << EOF
 gcc - GNU Compiler Collection.
 The GNU Compiler Collection is a suite of compilers that compile C, C++,
