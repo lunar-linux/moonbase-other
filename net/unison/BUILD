@@ -1,9 +1,8 @@
 (
 
   unset CFLAGS CXXFLAGS &&
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   if module_installed lablgtk ; then
-    make UISTYLE=gtk
+    make UISTYLE=gtk2
   else
     make UISTYLE=text
   fi &&
