@@ -11,7 +11,8 @@ if [ -d /usr/share/httpd ] ; then
   cp /etc/httpd/ssl.conf /etc/httpd/ssl.conf-old
 
   cat /etc/httpd/httpd.conf | sed "s:/usr/share/httpd:/var/www:g" | \
-    sed "s:/usr/libexec/libphp4.so:/usr/libexec/httpd/modules/libphp4.so:g" > \
+    sed "s:/usr/libexec/libphp4.so:/usr/libexec/httpd/modules/libphp4.so:g" | |
+    sed "s:/etc/httpd/ssl.conf:/etc/httpd/conf/ssl.conf:g" > \
     /etc/httpd/conf/httpd.conf
   cat /etc/httpd/ssl.conf | sed "s:/usr/share/httpd:/var/www:g" > \
     /etc/httpd/conf/ssl.conf
