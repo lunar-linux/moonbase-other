@@ -5,7 +5,7 @@
   # this is vitally important here:
   export PATH=/bin:/usr/bin
   
-  default_build &&
+  DEFAULT_POSIX2_VERSION=199209 default_build &&
   
   (
     for FILE in basename cat cp chgrp chmod chown cut date dd df echo false   \
