@@ -1,3 +1,95 @@
+2005-01-17 09:01  ratler
+
+	* net/net-tools/init.d/network: Little bug. If power is lost to a
+	  machine configured for dhcp it is possible that another process
+	  already took the PID number that was left in the pidfile. This
+	  check will also check for processname along with the pid
+
+2005-01-17 01:50  v3rt1g0
+
+	* libs/lcms/: BUILD, DEPENDS, DETAILS: Version bump.  All of the
+	  depends were actually optional.  Added optional depends on
+	  Python.  Also the BUILD script simplified a bit.
+
+2005-01-17 00:21  nestu
+
+	* net/iproute2/DETAILS: Adding sha sums, and some cosmetics.
+
+2005-01-16 23:33  nestu
+
+	* net/iproute2/: BUILD, DETAILS: 2.6.9-ss040831 -> 2.6.9-041019.
+	  gcc 3.3.3, glibc 2.3.2, headers 2.6.10.0 Done some cleaning in
+	  the BUILD, too :)
+
+2005-01-16 22:35  jasper
+
+	* xfce4/: xfce-extra-icons/BUILD, xfce-extra-icons/DETAILS,
+	  xfce-extra-icons/PRE_BUILD, xfce4-icon-theme/DEPENDS,
+	  xfce4-netload-plugin/DETAILS, xfce4-notes-plugin/DETAILS,
+	  xfce4-systemload-plugin/DETAILS, xfce4-weather-plugin/DETAILS:
+	  Add extra icons package and update some plugins
+
+2005-01-16 21:44  jasper
+
+	* profiles/xfce4-extras-profile/DEPENDS: Bah
+
+2005-01-16 21:01  jasper
+
+	* app-themes/gtk-xfce-engine/DETAILS, xfce4/libxfce4mcs/DETAILS,
+	  xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/DETAILS,
+	  xfce4/xfcalendar/DETAILS, xfce4/xfce-mcs-manager/DETAILS,
+	  xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/DETAILS,
+	  xfce4/xfce4-appfinder/DETAILS, xfce4/xfce4-icon-theme/DETAILS,
+	  xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-mixer/DETAILS,
+	  xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/DETAILS,
+	  xfce4/xfce4-systray/DETAILS, xfce4/xfce4-toys/DETAILS,
+	  xfce4/xfce4-trigger-launcher/DETAILS, xfce4/xfdesktop/DETAILS,
+	  xfce4/xffm/DETAILS, xfce4/xfprint/DETAILS, xfce4/xfwm4/DETAILS,
+	  xfce4/xfwm4-themes/DETAILS: Use bz2 so Moe's mirror (and
+	  sha1sum's) are correct
+
+2005-01-16 19:46  nestu
+
+	* kernel/modutils-wrappers/POST_INSTALL: Adding the recompile of
+	  modutils and module-init-tools, if they are installed.  That way
+	  we make sure they are in the correct location
+
+2005-01-16 19:44  nestu
+
+	* kernel/: module-init-tools/POST_INSTALL, modutils/POST_INSTALL:
+	  This module will be relinned from modutils-wrappers' POST_INSTALL
+	  Removed the relin of modutils-wrappers here so there's no
+	  circular depends.
+
+2005-01-16 19:20  jasper
+
+	* app-themes/gtk-xfce-engine/DETAILS,
+	  profiles/xfce4-extras-profile/DEPENDS,
+	  profiles/xfce4-extras-profile/DETAILS,
+	  profiles/xfce4-profile/DETAILS, xfce4/libxfce4mcs/DETAILS,
+	  xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/DETAILS,
+	  xfce4/xfcalendar/DETAILS, xfce4/xfce-mcs-manager/DETAILS,
+	  xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/DETAILS,
+	  xfce4/xfce4-appfinder/DETAILS, xfce4/xfce4-icon-theme/DETAILS,
+	  xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-mixer/DETAILS,
+	  xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/DETAILS,
+	  xfce4/xfce4-systray/DETAILS, xfce4/xfce4-toys/DETAILS,
+	  xfce4/xfce4-trigger-launcher/DETAILS, xfce4/xfdesktop/DETAILS,
+	  xfce4/xffm/DETAILS, xfce4/xfprint/DETAILS, xfce4/xfwm4/DETAILS,
+	  xfce4/xfwm4-themes/DETAILS: Xfce 4.2.0. Enjoy.
+
+2005-01-16 15:28  tchan
+
+	* compilers/fasm/DETAILS: Fixed the stupid fasm dev's source
+	  tarball for fasm-1.56.  They have updated their source tarball
+	  WITHOUT modifying the version number AND their tarball is
+	  incorrectly packed (it gunzips with errors/garbage).	So I've
+	  temporarily moved a corrected tarball to /lunar/mirrors/.  Once
+	  the fasm devs learn how to create proper tar.gz files we can
+	  point the download back to their main site.  If some other than
+	  tchan fixes this module, make SURE that the tarball from the main
+	  dev's site correctly unpacks!!!
+
 2005-01-16 10:08  florin
 
 	* compilers/nasm/DETAILS: bump the version from 0.98.38 to 0.98.39.
@@ -1824,89 +1916,4 @@
 2004-12-18 09:08  florin
 
 	* x11-apps/xdesktopwaves/DETAILS: bump the version from 1.2 to 1.3.
-
-2004-12-17 22:52  florin
-
-	* video/xine-ui/DETAILS: bump the version from 0.99.2 to 0.99.3.
-
-2004-12-17 22:45  florin
-
-	* crypto/gnupg/DETAILS: bump the version from 1.2.6 to 1.4.0.
-
-2004-12-17 22:43  florin
-
-	* sql/mysql/DETAILS: bump the version from 4.1.7 to 4.1.8.
-
-2004-12-17 18:34  jol
-
-	* chat/gnomemeeting/DETAILS: - fix, i've made a mistake in the
-	  source file
-
-2004-12-17 18:03  florin
-
-	* perl/SDL_perl/BUILD: small tweak.
-
-2004-12-17 17:08  tchan
-
-	* perl/SDL_perl/DEPENDS: Updated SDL_perl to add a hidden CPAN
-	  depends on Module-Build.
-
-2004-12-17 17:07  tchan
-
-	* perl/Module-Build/: BUILD, DEPENDS, DETAILS: Added another perl
-	  cpan module to moonbase.  Its needed by the latest SDL_perl
-	  module to build correctly.  Yet another case of hidden CPAN
-	  depends!
-
-2004-12-17 10:55  jol
-
-	* libs/libavc1394/DEPENDS: - add a dependancy on libraw1394,
-	  without this dependancy this module doesn't compile ...
-
-2004-12-17 10:51  jol
-
-	* chat/gnomemeeting/: BUILD, DEPENDS, DETAILS, PRE_BUILD: - Bumped
-	  version to 1.2.0 - remove the PRE_BUILD file - pwlib and openh323
-	  was inside this module, now i've created a module   for each one.
-	  In fact, these modules have now a "valid" installation schema.  -
-	  Add a dependancy on the evolution-data-server because it requires
-	  the libebook.
-
-2004-12-17 10:45  jol
-
-	* libs/: openh323/DEPENDS, openh323/DETAILS, pwlib/DEPENDS,
-	  pwlib/DETAILS: - First import of pwlib and openh323 - These two
-	  new modules are required by gnomemeeting
-
-2004-12-17 06:15  tchan
-
-	* docs/man-pages/DETAILS: Version bump to man-pages-2.00.
-
-2004-12-17 03:23  tchan
-
-	* perl/SDL_perl/: BUILD, DEPENDS, DETAILS: Version bump
-	  SDL_perl-2.1.2.  Unfortunately the SDL perl devs changed the
-	  source tarball name to SDL_Perl from SDL_perl.  I've left the
-	  moonbase module name alone and fixed the module internally to use
-	  the new name. Compiled/tested with perl-5.8.6.
-
-2004-12-17 02:07  v3rt1g0
-
-	* devel/gob2/: DEPENDS, DETAILS: Version bump.	This version is
-	  supposed to support compiling with gcc 3.4.  Also investigated
-	  the depends a bit and cleaned them up.
-
-2004-12-17 01:54  v3rt1g0
-
-	* devel/gob/DETAILS: Reformatted the long description so it wasn't
-	  ugly and added a missing sha1 sum.
-
-2004-12-17 01:38  tchan
-
-	* perl/perl/DETAILS: Version bump to perl-5.8.6. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.  Yes, power
-	  perl users will still have to reinstall any CPAN modules that
-	  they previously installed for perl-5.8.5.  Yes, CPAN is still a
-	  brain dead system when it comes to sharing its dependency
-	  information with other tools.  Take it up with the CPAN devs.
 
