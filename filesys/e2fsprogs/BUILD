@@ -25,9 +25,12 @@ if [ -e "/etc/init.d/mount.sh" ]; then
    rm -f /etc/init.d/mount.sh
 fi                                           &&
 
-for DIR in `ls -d /etc/rc*`; do
-   rm -f $DIR/???mount 
-   rm -f $DIR/???mount.sh
+for DIR in /etc/rc*.d; do
+   # Sanity checks first...
+   if [ -d "$DIR" ]; then
+      rm -f $DIR/???mount 
+      rm -f $DIR/???mount.sh
+   fi
 done                                         &&
 
 ln -sf /etc/init.d/mount /etc/rcS.d/S10mount &&
