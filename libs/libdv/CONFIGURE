@@ -1,0 +1,8 @@
+if  !  grep  -q  "MMX"  $MODULE_CONFIG;  then
+
+ if  query  "Does Your CPU support MMX?"  y
+  then  echo  "MMX=y"  >>  $MODULE_CONFIG
+  else  echo  "MMX=n"  >>  $MODULE_CONFIG
+ fi
+ 
+fi

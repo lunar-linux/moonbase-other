@@ -1,0 +1,20 @@
+           MODULE=libdv
+         VERSION=0.98
+          SOURCE=$MODULE-$VERSION.tar.gz
+          SOURCE2=$MODULE-mxx.patch
+          SOURCE3=$MODULE-no-mxx.patch
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+   SOURCE3_URL[0]=$PATCH_URL/$SOURCE3
+        WEB_SITE=http://libdv.sourceforge.net/
+         ENTERED=20030529
+         UPDATED=20030529
+           SHORT="Quasar DV (libdv) is a software codec for DV video, used by mini-dv camcorders."
+cat << EOF
+The Quasar DV codec (libdv) is a software codec for DV video, the
+encoding format used by most digital camcorders, typically those that
+support the IEEE 1394 (FireWire or i.Link) interface. Libdv was
+developed according to the official standards for DV video: IEC 61834
+and SMPTE 314M.
+EOF
