@@ -13,7 +13,11 @@
     install ${SCRIPT_DIRECTORY}/udev /etc/init.d/  &&
 
     install ${SCRIPT_DIRECTORY}/49-udev.rules /etc/udev/rules.d/  &&
-    mkdir -p /etc/udev/scripts.d/                         
-    install extras/{ide-devfs.sh,scsi-devfs.sh,dvb.sh} /etc/udev/scripts.d/
+
+    mkdir -p /etc/udev/scripts.d/                          
+    for script in ide-devfs.sh scsi-devfs.sh dvb.sh raid-devfs.sh
+    do
+        install extras/${script} /etc/udev/scripts.d/
+    done
      
 ) > $C_FIFO 2>&1

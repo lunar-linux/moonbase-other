@@ -144,11 +144,11 @@ KERNEL="ram[0-9]*", NAME="rd/%n",  SYMLINK="%k",  GROUP="disk"
 
 
 # disk devices
-BUS="ide",  KERNEL="hd[a-z]",  SYSFS{removable}="1", PROGRAM="/etc/udev/scripts.d/ide-devfs.sh %k %b %n",  NAME="%k", SYMLINK="%c{1} %c{2}", GROUP="cdrom"
-BUS="ide",  KERNEL="hd*",                            PROGRAM="/etc/udev/scripts.d/ide-devfs.sh %k %b %n",  NAME="%k", SYMLINK="%c{1} %c{2}", GROUP="disk"
+BUS="ide",  KERNEL="hd[a-z]",  SYSFS{removable}="1", PROGRAM="/etc/udev/scripts.d/ide-devfs.sh %k %b %n", NAME="%k", SYMLINK="%c{1} %c{2} cdrom%e", GROUP="cdrom"
+BUS="ide",  KERNEL="hd*",                            PROGRAM="/etc/udev/scripts.d/ide-devfs.sh %k %b %n", NAME="%k", SYMLINK="%c{1} %c{2}",         GROUP="disk"
 
-BUS="scsi", KERNEL="sr*", SYSFS{type}="5", PROGRAM="/etc/udev/scripts.d/scsi-devfs.sh sr %b %n", NAME="%c{1}", SYMLINK="%c{2} %k %c{3} %c{4}", GROUP="cdrom"
-BUS="scsi", KERNEL="sg*", SYSFS{type}="5", PROGRAM="/etc/udev/scripts.d/scsi-devfs.sh sg %b %n", NAME="%c{1}", SYMLINK="%c{2} %k %c{3} %c{4}", GROUP="cdrom"
+BUS="scsi", KERNEL="sr*", SYSFS{type}="5", PROGRAM="/etc/udev/scripts.d/scsi-devfs.sh sr %b %n", NAME="%c{1}", SYMLINK="%c{2} %k %c{3} %c{4} cdrom%e", GROUP="cdrom"
+BUS="scsi", KERNEL="sg*", SYSFS{type}="5", PROGRAM="/etc/udev/scripts.d/scsi-devfs.sh sg %b %n", NAME="%c{1}", SYMLINK="%c{2} %k %c{3} %c{4} cdrom%e", GROUP="cdrom"
 ## IAC, scsi devices are disks ##
 BUS="scsi", KERNEL="sd*", PROGRAM="/etc/udev/scripts.d/scsi-devfs.sh sd %b %n", NAME="%c{1}", SYMLINK="%c{2} %k %c{3} %c{4}", GROUP="disk"
 BUS="scsi", KERNEL="sr*", PROGRAM="/etc/udev/scripts.d/scsi-devfs.sh sr %b %n", NAME="%c{1}", SYMLINK="%c{2} %k %c{3} %c{4}", GROUP="disk"
@@ -162,6 +162,10 @@ KERNEL="ataraid*",       GROUP="disk"
 KERNEL="pg*",            GROUP="disk"
 KERNEL="microdrive*",    GROUP="disk"
 
+# raid devices
+KERNEL="cciss!*", PROGRAM="/etc/udev/scripts/raid-devfs.sh %k", NAME="%c{1}", SYMLINK="%k", GROUP="disk"
+KERNEL="ida!*",   PROGRAM="/etc/udev/scripts/raid-devfs.sh %k", NAME="%c{1}", SYMLINK="%k", GROUP="disk"
+KERNEL="rd!*",    PROGRAM="/etc/udev/scripts/raid-devfs.sh %k", NAME="%c{1}", SYMLINK="%k", GROUP="disk"
 
 # loop devices
 KERNEL="loop",        NAME="loop/0",   SYMLINK="%k",  GROUP="disk"
@@ -169,14 +173,14 @@ KERNEL="loop[0-9]*",  NAME="loop/%n",  SYMLINK="%k",  GROUP="disk"
 KERNEL="loop/*",                                      GROUP="disk"
 
 # optical devices
-KERNEL="cdrom*",    GROUP="cdrom"
-KERNEL="cdroms/*",  GROUP="cdrom"
-KERNEL="cdwriter",  GROUP="cdrom"
-KERNEL="sr*",       GROUP="cdrom"
-KERNEL="dvd",       GROUP="cdrom"
-KERNEL="rdvd",      GROUP="cdrom"
-KERNEL="pcd*",      GROUP="cdrom"
-KERNEL="scd*",      GROUP="cdrom"
+KERNEL="cdrom*",                                  GROUP="cdrom"
+KERNEL="cdroms/*",  NAME="%k", SYMLINK="cdrom%e", GROUP="cdrom"
+KERNEL="cdwriter",  NAME="%k", SYMLINK="cdrom%e", GROUP="cdrom"
+KERNEL="sr*",       NAME="%k", SYMLINK="cdrom%e", GROUP="cdrom"
+KERNEL="dvd",       NAME="%k", SYMLINK="cdrom%e", GROUP="cdrom"
+KERNEL="rdvd",      NAME="%k", SYMLINK="cdrom%e", GROUP="cdrom"
+KERNEL="pcd*",      NAME="%k", SYMLINK="cdrom%e", GROUP="cdrom"
+KERNEL="scd*",      NAME="%k", SYMLINK="cdrom%e", GROUP="cdrom"
 
 
 # md block devices

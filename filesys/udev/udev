@@ -1,12 +1,6 @@
 #! /bin/bash
 #
-# udev	init script to setup /dev
-#
-# chkconfig: 2345 20 80
-# description: manage user-space device nodes in /dev
-
-# . /etc/rc.d/init.d/functions
-
+# udev init script to setup /dev
 
 prog=udev
 sysfs_dir=/sys
@@ -74,7 +68,7 @@ run_udev () {
 make_extra_nodes () {
 	# there are a few things that sysfs does not export for us.
 	# these things go here (and remember to remove them in 
-	# remove_extra_nodes()
+  	# remove_extra_nodes()
 	#
 	# Thanks to Gentoo for the initial list of these.
 	ln -snf /proc/self/fd $udev_root/fd
