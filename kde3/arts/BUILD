@@ -21,8 +21,4 @@
     echo "/opt/lunar/kde/3/lib/kde3" >> /etc/ld.so.conf
   fi
 
-  if ! grep -q 'export  PATH=/opt/lunar/kde/3/bin:$PATH'  /etc/profile; then
-    echo "export  PATH=/opt/lunar/kde/3/bin:\$PATH" >> /etc/profile
-  fi
-
 ) > $C_FIFO 2>&1
