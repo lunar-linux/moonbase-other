@@ -1,4 +1,5 @@
 (
+ OPTS="$OPTS --enable-perl" &&
  default_build &&
  
  # Make sure we are getting a fresh tarball
