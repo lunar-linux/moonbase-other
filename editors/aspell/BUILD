@@ -9,7 +9,7 @@
                $OPTS                                           &&
 
   default_make                                                 &&
-  cp scripts/spell scripts/ispell scrips/aspell-import usr/bin &&
+  cp scripts/spell scripts/ispell scripts/aspell-import usr/bin &&
   chmod 755 /usr/bin/ispell /usr/bin/spell
 
 ) > $C_FIFO 2>&1 
