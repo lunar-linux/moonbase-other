@@ -23,7 +23,6 @@
   ./configure    --prefix=$KDEDIR                      \
                  --enable-final                        \
                  --disable-debug                       \
-		 --disable-gtk                         \
                  --with-qt-dir=$QTDIR                  \
                  --with-xinerama                       \
                  $OPTS                                &&
