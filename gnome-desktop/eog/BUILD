@@ -12,6 +12,9 @@
 
    make                                                         &&
    prepare_install                                              &&
+   if [ ! -d /usr/share/icons ]; then
+       mkdir /usr/share/icons
+   fi								&&
    cp gnome-eog.png /usr/share/icons/.                          &&
    make install
 
