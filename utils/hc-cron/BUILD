@@ -9,6 +9,11 @@
   prepare_install                      &&
   make    install                      &&
 
+  mkdir -p /var/cache/locate           &&
+  if [ -f /var/cache/locatedb ] ; then
+    mv /var/cache/locatedb /var/cache/locate/locatedb
+  fi                                   &&
+
 if [ -e "/etc/init.d/crond.sh" ]; then
    rm -f /etc/init.d/crond.sh
    rm -f /etc/rc?.d/???crond.sh
