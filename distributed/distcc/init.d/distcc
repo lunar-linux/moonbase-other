@@ -6,7 +6,7 @@
 # description: distcc daemon
 # processname: distccd
 
-ARGS="--daemon --user nobody --nice 19 -P /var/run/distccd.pid"
+ARGS="--daemon --user nobody --nice 19 -P /var/run/distccd.pid --allow 127.0.0.1"
 
 reload () {
 	default_restart
