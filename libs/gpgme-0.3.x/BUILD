@@ -21,4 +21,5 @@ $OPTS                     &&
 set +x      ##turn it off so that the logs stay readable
 sedit "s:INFO_DEPS = gpgme.info:INFO_DEPS = gpgme-0.3.x.info:" doc/Makefile
 default_make
+message "Please log out and back in to make LD_LIBRARY_PATH take effect."
 ) > $C_FIFO 2>&1
