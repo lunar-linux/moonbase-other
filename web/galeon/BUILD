@@ -1,5 +1,5 @@
 (
- 
+  patch_it $SOURCE_CACHE/$SOURCE2 1 && 
   ./configure  --prefix=/opt/lunar/gnome/2.4 \
                --disable-werror            \
                 --with-mozilla-snapshot=trunk \
