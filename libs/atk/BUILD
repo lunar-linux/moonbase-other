@@ -1,8 +1,6 @@
 (
-  ./configure --prefix=/usr      \
-              $OPTS              &&
-  make                           &&
-  prepare_install                &&
-  make    install
+  ./configure --prefix=/usr  \
+              $OPTS         &&
+  default_make
 
 ) > $C_FIFO 2>&1
