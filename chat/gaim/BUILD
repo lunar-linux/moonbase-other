@@ -6,6 +6,8 @@
                --disable-gnome           \
                --disable-artsc           \
                --disable-perl            \
+	       --enable-nss=no           \
+	       --enable-gnutls=yes       \
 	       $OPTS                     &&
   default_make
 
