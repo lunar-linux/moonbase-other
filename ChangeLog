@@ -1,3 +1,68 @@
+2004-03-20 11:53  florin
+
+	* mail/postfix/DETAILS: bump the version from 2.0.18 to 2.0.19. it
+	works on my system for about a week.
+
+2004-03-20 10:39  nestu
+
+	* kernel/linux-beta/DETAILS: Version bump
+
+2004-03-20 04:29  tchan
+
+	* filesys/reiserfsprogs/DETAILS: Version bump to 3.6.14.  Compiled
+	and tested with gcc-3.3.3, kernel-headers 2.4.x.
+
+2004-03-20 02:13  tchan
+
+	* ftp/curl/DETAILS: Fixing identation.
+
+2004-03-20 00:12  nhudson
+
+	* web/mozilla/: BUILD, CONFIGURE, CONFLICTS, DEPENDS, DETAILS,
+	POST_INSTALL, POST_REMOVE, PRE_BUILD: 
+	Adding mozilla 1.7b and I added support for gnome-vfs2 to look at
+	smb network with mozilla
+
+2004-03-19 21:32  sofar
+
+	* utils/openmosix-tools/DETAILS: I shit you not!!!
+
+2004-03-19 21:18  florin
+
+	* ftp/curl/DETAILS: bump the version from 7.11.0 to 7.11.1. bugfix
+	release.
+
+2004-03-19 21:17  florin
+
+	* kde3-apps/knetmap/BUILD: simplify the BUILD file.
+
+2004-03-19 19:44  jol
+
+	* x11-apps/eclipse-bin/DETAILS: Bumped version OLD: 2.1.2  NEW:
+	2.1.3 Bug fix
+
+2004-03-19 19:24  jol
+
+	* kde3-apps/krename/: BUILD, DEPENDS, DETAILS: First Import of
+	krename Krename offers an easy way to rename hundreds of files in
+	one go, giving you as much freedom as you need
+
+2004-03-19 19:14  jol
+
+	* kde3-apps/knetmap/: BUILD, DEPENDS, DETAILS: First import of
+	knetmap ! KNetmap is a network discovery, scanning, and probing
+	tool for KDE.
+
+2004-03-19 18:12  jol
+
+	* cd/dvd+rw-tools/DETAILS: Bumped version OLD: 5.13.4.7.4 TO:
+	5.17.4.8.6
+
+2004-03-19 18:08  jol
+
+	* devel/psyco/DETAILS: Bumped version OLD: 1.1.1  NEW: 1.2   -
+	number of smaller bug fixes.
+
 2004-03-19 04:52  tchan
 
 	* devel/qemu/BUILD: Modified the target-list to prevent qemu-fast
@@ -2404,87 +2469,4 @@
 	lunar box with no distcc installed and MAKES=8, gaim dies a
 	horrible death, unless PSAFE=no.  Now gaim compiles again.  Tested
 	with gcc-3.3.3 too!
-
-2004-02-18 22:01  tchan
-
-	* docs/abs-guide/DETAILS: Version bump to 2.5.
-
-2004-02-18 20:49  sofar
-
-	* xfce4/: libxfce4mcs/BUILD, libxfce4util/BUILD, libxfcegui4/BUILD,
-	xfcalendar/BUILD, xfce-mcs-manager/BUILD, xfce-mcs-plugins/BUILD,
-	xfce-utils/BUILD, xfce4-battery-plugin/BUILD,
-	xfce4-clipman-plugin/BUILD, xfce4-datetime-plugin/BUILD,
-	xfce4-diskperf-plugin/BUILD, xfce4-fsguard-plugin/BUILD,
-	xfce4-iconbox/BUILD, xfce4-minicmd-plugin/BUILD, xfce4-mixer/BUILD,
-	xfce4-netload-plugin/BUILD, xfce4-notes-plugin/BUILD,
-	xfce4-panel/BUILD, xfce4-session/BUILD,
-	xfce4-showdesktop-plugin/BUILD, xfce4-systemload-plugin/BUILD,
-	xfce4-systray/BUILD, xfce4-themes/BUILD, xfce4-toys/BUILD,
-	xfce4-trigger-launcher/BUILD, xfdesktop/BUILD, xffm/BUILD,
-	xffm-icons/BUILD, xfprint/BUILD, xfwm4/BUILD, xfwm4-themes/BUILD:
-	Modifying prefix, defaults to /opt/lunar/xfce/4.0, but SA can
-	override this with a variable in /etc/lunar/local/config or even in
-	the shell. Works like a charm. thanks jazman for the bash trick I
-	forgot about. I Propose adding this to KDE and GNOME too.
-
-2004-02-18 15:47  florin
-
-	* audio/: libid3tag/DETAILS, libmad/DETAILS, madplay/DETAILS: bump
-	version from 0.15.0b to 0.15.1b. the alsa patch remains for the
-	moment :(
-
-2004-02-18 15:00  nestu
-
-	* kernel/linux-beta/: DETAILS, PRE_BUILD: version bump
-
-2004-02-18 11:53  florin
-
-	* kernel/: linux/POST_INSTALL, linux-grsec/POST_INSTALL,
-	linux-openmosix/POST_INSTALL, linux-vanilla/POST_INSTALL: the
-	module NVIDIA_kernel does not exist for a long time. remove it from
-	POST_INSTALL files.
-
-2004-02-18 11:49  florin
-
-	* editors/nano/: BUILD, CONFIGURE, DETAILS: bump version from 1.2.2
-	to 1.2.3.
-
-2004-02-18 10:46  sofar
-
-	* shells/ksh/: BUILD, DETAILS, PRE_BUILD, skel/.kshrc: Adding ksh,
-	many thanks to Striker!
-
-2004-02-18 07:07  florin
-
-	* filesys/mtools/DEPENDS: add a depend on texinfo. mtools  does not
-	install without it.
-
-2004-02-18 05:57  nhudson
-
-	* gnome2-core/gnome-terminal/DETAILS: 
-	Updating gnome-terminal to new version 2.5.5
-
-2004-02-18 05:04  tchan
-
-	* x11-apps/xpdf/DETAILS: Version bump to 3.00.	Compiled with
-	2.4.24 kernel headers and gcc-3.2.3 and gcc-3.3.3.
-
-2004-02-18 03:39  niki
-
-	* web/epiphany/DETAILS: Let me guess that the 0 shoule have been a
-	9 ?? At least the md5sum fits now...
-
-2004-02-18 03:19  jmhodges
-
-	* gnome2-apps/meld/DETAILS: fixed typo
-
-2004-02-18 03:03  nhudson
-
-	* chat/gnomemeeting/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
-	PRE_BUILD: 
-	I am putting this here because I need this module tested by others.
-	 This will fix the security hole in pwlib but i cant get anything
-	to compile due to a segmentation fault when building openh323.	So
-	niki jmhodges or anyone gets a chance please test this.
 
