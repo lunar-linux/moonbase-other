@@ -1,9 +1,15 @@
           MODULE=transcode
          VERSION=0.6.12
-          SOURCE=${MODULE}-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-$VERSION
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-gcc34.patch.bz2
+         SOURCE3=$MODULE-$VERSION-fix_dv.patch.bz2
+         SOURCE4=$MODULE-$VERSION-fix_largefile_split.patch.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://zebra.fh-weingarten.de/~transcode/pre/
    SOURCE_URL[1]=http://www.theorie.physik.uni-goettingen.de/~ostreich/transcode/
+   SOURCE2_URL=$PATCH_URL/
+   SOURCE3_URL=$PATCH_URL/
+   SOURCE4_URL=$PATCH_URL/
       SOURCE_VFY=md5:550214ed9f85224423ca8c7308ed96ce
       WEB_SITE=http://www.theorie.physik.uni-goettingen.de/~ostreich/transcode
       MAINTAINER="kc8apf@kc8apf.net"
