@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1
+ 
   cd  src
   sedit  "s!/usr/local/bin!/usr/bin!"        Makefile
   sedit  "s!/var/local/iptraf!/var/iptraf!"  Makefile
