@@ -1,5 +1,1 @@
-#restore previous config
-if [ -e "/tmp/postfix/main.cf" ]; then
-   cp /tmp/postfix/* /etc/postfix/.
-   /etc/init.d/postfix restart
-fi
+  sedit  "s:#mail_spool_directory = /var/spool/mail:mail_spool_directory = /var/spool/mail:" /etc/postfix/main.cf

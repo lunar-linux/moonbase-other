@@ -9,7 +9,6 @@
   chmod  1777       /var/spool/mail                                   &&
   chown  mail:mail  /var/spool/mail                                   &&
 
-
   if module_installed openldap ; then
     AUXLIBS="-lldap -llber"
     CCARGS="-DHAS_LDAP"
@@ -33,13 +32,6 @@
   echo CCARGS=$CCARGS                                                 &&
   echo AUXLIBS=$AUXLIBS                                               &&
   
-  cp /var/spool/lunar/$SOURCE $BUILD_DIRECTORY        &&
-  cd $BUILD_DIRECTORY                                 &&
-  tar xzvf $SOURCE                                    &&
-  true                                                &&
-
-  cd $SOURCE_DIRECTORY         &&
-  echo $PWD                    &&
   make  "OPT=$CFLAGS"          \
         "AUXLIBS=$AUXLIBS"     \
         "CCARGS=$CCARGS"       &&
@@ -66,14 +58,9 @@
   ln  -sf  postfix/aliases     \
               /etc/aliases
 
-) > $C_FIFO 2>&1  &&  (
-
   if [ -e "/etc/init.d/postfix.sh" ]; then
      rm -f /etc/init.d/postfix.sh
      rm -f /etc/rc?.d/???postfix.sh
   fi
-  
-  sedit  "s:#mail_spool_directory = /var/spool/mail:mail_spool_directory = /var/spool/mail:"  \
-         /etc/postfix/main.cf
 
-)
+) > $C_FIFO 2>&1

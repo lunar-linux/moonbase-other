@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # postfix      Postfix Mail Transfer Agent
 #
@@ -10,15 +10,26 @@
 # config: /etc/postfix/main.cf
 # config: /etc/postfix/master.cf
 
-case $1 in
-  start|restart)  echo     "$1ing postfix MTA."
-                  postfix  stop  2>/dev/null
-                  newaliases
-                  postfix  start
-                  ;;
-           stop)  echo     "$1ping postfix"
-                  postfix  stop
-                  ;;
-              *)  echo     "Usage: $0 {start|stop|restart}"
-                  ;;
-esac
+
+start () {
+  newaliases
+  postfix start &&
+  echo -e $RESULT_OK ||
+  echo -e $RESULT_FAIL
+}
+
+
+stop () {
+  postfix stop &&
+  echo -e $RESULT_OK ||
+  echo -e $RESULT_FAIL
+}
+
+
+restart () {
+  $0 stop
+  $0 start
+}
+
+
+. /lib/lsb/init-functions
