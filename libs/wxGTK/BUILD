@@ -1,16 +1,11 @@
-(
-  case  $OPENGL  in
-    y|Y|j|J)  OPTS="$OPTS --with-opengl" 
-              if module_installed NVIDIA_kernel
-	      then if ! module_installed glut; then lin glut; fi 
-              elif ! module_installed Mesa; then lin Mesa
-              fi
-  esac
-  ./configure --prefix=/usr      \
-              --with-gtk         \
-	      $OPTS		 &&
-  make                           &&
-  prepare_install                &&
-  make    install
+OPTS="$OPTS --enable-no-rtti"
+OPTS="$OPTS --enable-no_exceptions"
 
-) > $C_FIFO 2>&1
+if [[ $GTK2 == "y" ]]; then
+  OPTS="$OPTS --enable-gtk2 "
+fi
+if [[ $UNICODE == "y" ]]; then
+  OPTS="$OPTS --enable-unicode"
+fi
+
+default_build
