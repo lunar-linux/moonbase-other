@@ -1,3 +1,116 @@
+2004-03-18 05:08  tchan
+
+	* utils/apmd/: BUILD, DETAILS, apmdNoX.patch,
+	apmsleep-2.4.19.patch: Updated this to apmd-3.2.1-4 from debian. 
+	Supposedly this now compiles under kernel 2.6.	Compiled and tested
+	under gcc-3.3.3, kernel headers 2.4.x.
+
+2004-03-18 04:22  nhudson
+
+	* audio/rhythmbox/CONFIGURE: file CONFIGURE was initially added on
+	branch GNOME_UNSTABLE.
+
+2004-03-18 04:22  nhudson
+
+	* audio/rhythmbox/: CONFIGURE, POST_INSTALL: 
+	Adding iPod support to rhythmbox if you have a iPod and want to set
+	things up refer to the README.iPod file in Gnome CVS
+	
+	http://cvs.gnome.org/bonsai/cvsblame.cgi?file=rhythmbox/README.iPod
+	&rev=&root=/cvs/gnome
+	
+	Have fun
+
+2004-03-18 04:02  nhudson
+
+	* x11/libxklavier/DETAILS: 
+	Updating libxklavier to new version 1.00
+
+2004-03-18 03:50  nhudson
+
+	* devel/ruby-gnome2/DETAILS: 
+	Updating ruby-gnome2 to new version 0.9.1
+
+2004-03-18 03:49  nhudson
+
+	* devel/devhelp/DETAILS: 
+	Updating devhelp to new version 0.9
+
+2004-03-18 03:47  nhudson
+
+	* gnome2-extras/: glade2/DETAILS, libcroco/DETAILS: 
+	Updating libcroco to 0.5.0 and glade2 to 2.5.0
+
+2004-03-18 03:45  nhudson
+
+	* gnome2-core/: eel/DETAILS, yelp/DETAILS: 
+	Updating yelp to 2.5.91 and eel to 2.5.91.1
+
+2004-03-18 03:29  tchan
+
+	* crypto/openssl/DETAILS: Version bump to 0.9.7d.  Security fix and
+	some bug fixes too.  Compiled and tested with gcc-3.3.3 and
+	kernel-headers 2.4.x.
+
+2004-03-17 21:57  jmhodges
+
+	* archive/rpmunpack/: BUILD, DETAILS: looks redundant but
+	file-roller needs rpm2cpio.  yes it sucks and is kludgy but its the
+	best way i could figure of doing this
+
+2004-03-17 18:52  tchan
+
+	* docs/abs-guide/DETAILS: Version bump to 2.6.
+
+2004-03-17 17:23  jmhodges
+
+	* gnome2-apps/gnumeric2/DETAILS: yes i know tchan just updated this
+	in the moonbase, but we need it here too
+
+2004-03-17 16:57  tchan
+
+	* gnome2-apps/gnumeric2/DETAILS: Version bump to 1.2.8.  A rather
+	quick bug release fix. Compiled and tested with gcc-3.3.3,
+	kernel-headers 2.4.x.
+
+2004-03-17 16:40  jmhodges
+
+	* audio/rhythmbox/DETAILS: wtf is wrong with my fingers
+
+2004-03-17 16:30  jmhodges
+
+	* audio/rhythmbox/DETAILS: dammit missed one
+
+2004-03-17 15:26  cmak
+
+	* utils/fcron/init.d/: crond, fcron: rename fcron to crond to make
+	things work...thx florin :)
+
+2004-03-17 14:57  niki
+
+	* gnome2-core/at-spi/DETAILS: /me wonders if this isn't what nick
+	intended to do...
+
+2004-03-17 13:57  nhudson
+
+	* libs/: glib-2/DETAILS, pango/DETAILS: 
+	Updating glib-2 to 2.4.0 and pango to 1.4.0
+
+2004-03-17 13:54  nhudson
+
+	* graphics/gtk+-2/DETAILS: 
+	Updating gtk+-2 to new version 2.4.0
+
+2004-03-17 13:31  cmak
+
+	* utils/fcron/init.d/fcron: typo fix
+
+2004-03-17 13:13  cmak
+
+	* utils/fcron/: BUILD, init.d/crond, init.d/fcron: updating fcrons
+	init script to use the lunar functions as the old doesnt work for
+	me...
+
 2004-03-17 11:36  florin
 
 	* i18n/aspell-cs/DETAILS: bump the version from 0.50-2 to 0.51-0.
@@ -2426,141 +2539,4 @@
 
 	* cd/cdrtools/BUILD: Take out the include from /usr/src/include, so
 	it uses its own headers
-
-2004-02-16 22:09  nhudson
-
-	* devel/gconfmm/: DEPENDS, DETAILS: 
-	Adding glibmm and gconfmm to GNOME_UNSTABLE
-
-2004-02-16 21:21  florin
-
-	* cd/cdrdao/: BUILD, DETAILS: bump version from 1.1.7 to 1.1.8.
-
-2004-02-16 21:15  nhudson
-
-	* libs/libsigc++2/DETAILS: 
-	Adding libsigc++2 to GNOME_UNSTABLE for Gnome 2.5.x c++ wrapper
-	support
-
-2004-02-16 20:16  florin
-
-	* games/xtux/DEPENDS: add ggz optional depend.
-
-2004-02-16 20:09  tchan
-
-	* compilers/gcc/BUILD: Fixed the hard-coding of the version number
-	in the gcc build path.
-
-2004-02-16 19:06  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Bumped version
-
-2004-02-16 17:30  nhudson
-
-	* libs/atk/DETAILS: 
-	Updating atk to new version 1.5.4
-
-2004-02-16 17:29  nhudson
-
-	* gnome2-core/: gnome-system-monitor/DETAILS, libgtop2/DETAILS,
-	bug-buddy/DETAILS, gail/DETAILS, gnome-games2/DETAILS,
-	metacity/DETAILS: 
-	Updating modules in GNOME_UNSTABLE
-
-2004-02-16 15:44  tchan
-
-	* security/cracklib/DETAILS: Fixed the URL back to correct
-	www.lunar-linux.org/lunar/cache for downloading the source as a
-	tar.bz2 file with no "stinkin" commas in the name.  Which is
-	probably why we cached the source code in the first place.  Also
-	updated theedge/etc/lunar/mirrors/LRESORT.  Some users may need to
-	run lunar->option->Software Mirrors->LRESORT to update their
-	LRESORT locations.
-
-2004-02-16 14:20  sofar
-
-	* video/xawtv/DETAILS: New version, tested with a bt848 card
-
-2004-02-16 14:18  sofar
-
-	* utils/Wine/DETAILS: Updated version.
-
-2004-02-16 13:50  florin
-
-	* x11/xfree86/DEPENDS, zbeta/xfree86-beta/DEPENDS: libpng depends
-	on zlib, so i have removed the zlib depend.
-
-2004-02-16 13:14  florin
-
-	* graphics/blender/DEPENDS: libpng depends on zlib, so i have
-	removed the zlib depend.
-
-2004-02-16 11:22  florin
-
-	* kde3-apps/kpl/: BUILD, DEPENDS, DETAILS: a graphical
-	representation progrm for functions and data sets i8n 2D and 3D for
-	KDE.
-
-2004-02-16 08:36  florin
-
-	* security/stunnel/DETAILS: bump version from 4.04 to 4.05.
-
-2004-02-16 07:27  florin
-
-	* games/liquidwar/: DEPENDS, DETAILS: a new and shinning game. have
-	fun.
-
-2004-02-16 07:22  florin
-
-	* libs/allegro/DETAILS: bump version from 4.0.3 to 4.1.12.
-
-2004-02-16 05:28  watryac04
-
-	* security/cracklib/DETAILS: Needed a working source for the
-	.tar.gz  Also had to updated it to look for the source in
-	$MODULE,$VERSION instead of $MODULE-$VERSION since it seems the
-	author has changed the dash to a comma
-
-2004-02-16 04:35  niki
-
-	* gnome2-core/libgtkhtml/DETAILS: Module not PSAFE...
-
-2004-02-16 04:29  hardkrash
-
-	* net/portmap/DEPENDS: spelling error :-P I finally found one :-P
-
-2004-02-16 04:17  tchan
-
-	* net/portmap/: BUILD, DEPENDS: Fixed the test correctly now for
-	passing whether or not tcp_wrappers should be supported in portmap.
-	 The old test was incorrect.  Also changed the OPTS passed from
-	YES/NO to --with-tcpwrappers/--without-tcpwrappers to clarify what
-	was being passed.
-
-2004-02-16 04:06  niki
-
-	* mail/evolution/DEPENDS: One mozilla depends is enough per module
-	isn't it ??
-
-2004-02-16 03:36  niki
-
-	* gnome2-apps/meld/BUILD: Fixed the BUILD file so that meld,
-	doesn't bork on every 2nd sequent install attempt...
-
-2004-02-16 03:26  hardkrash
-
-	* net/portmap/BUILD: missing " oopsy
-
-2004-02-16 02:04  nhudson
-
-	* gnome2-core/gdm/DETAILS: 
-	Updating gdm to new version 2.5.90.1, this version of gdm works
-	quite well with the setup we put in.  All WM Sessions go into
-	/etc/X11/dm and you can look at the /etc/X11/dm/Sessions file for a
-	good example on how to make one.
-
-2004-02-16 00:17  nhudson
-
-	* devel/devhelp/DETAILS: 
-	Fscking devs changing the source without changing versions!!!!
 
