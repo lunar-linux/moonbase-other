@@ -1,4 +1,4 @@
 ( 
-export kde_datadir=/opt/lunar/kde/3/share/apps/ &&
-default_build
+  export kde_datadir=${KDE_PREFIX:-$KDEDIR}/share/apps/ &&
+  default_build
 ) > $C_FIFO 2>&1
