@@ -1,6 +1,5 @@
 (
 
-  cd gaim &&
   ./autogen.sh &&
   default_build
 
