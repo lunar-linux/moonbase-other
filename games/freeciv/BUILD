@@ -1,6 +1,6 @@
 (
 
-  if ! module_installed xfree86 ; then
+  if ! module_installed xserver ; then
     OPTS=$OPTS" --enable-client=no"
   else
     if module_installed gtk+-2 ; then

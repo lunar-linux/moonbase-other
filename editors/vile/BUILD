@@ -1,7 +1,7 @@
 (
 
     default_build                           &&
-    if    module_installed xfree86
+    if    module_installed xserver
     then  OPTS="$OPTS --with-screen=x11"    &&
           default_config                    &&
           make                              &&

@@ -4,7 +4,7 @@
   sedit "s/for dir in \$mandir/mandir=\/usr\/share\/man\/man1 ; \0/" instman.sh
   sedit  "s/-O2/$CFLAGS $LDFLAGS/"  configure     &&
   
-  if module_installed xfree86 -o module_installed xfree-beta; then
+  if module_installed xserver; then
     ./configure  --with-x linux            \
                  --bindir=/usr/bin         \
                  --datadir=/var/lib/elvis  &&
@@ -20,7 +20,7 @@
   prepare_install &&
   make install &&
   
-  if module_installed xfree86 -o module_installed xfree86-beta; then
+  if module_installed xserver; then
     cp xelvis /usr/bin/xelvis
   fi
 
