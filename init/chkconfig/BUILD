@@ -1,5 +1,6 @@
 (
 
+  LDFLAGS="$LDFLAGS -lintl"
   ./configure  --prefix=/usr                         \
                --bindir=/usr/bin                     \
 	       --sbindir=/sbin                       \
