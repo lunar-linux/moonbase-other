@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-gtk2 --disable-gnome --disable-artsc --with-static-prpls=gg,irc,jabber,msn,napster,novell,oscar,yahoo,zephyr,toc --with-dynamic-prpls=gg,irc,jabber,msn,napster,novell,oscar,yahoo,zephyr,toc"
+  OPTS="$OPTS --enable-gtk2 --disable-gnome --disable-artsc --with-static-prpls=gg,irc,jabber,msn,napster,novell,oscar,yahoo,zephyr,toc --with-dynamic-prpls=gg,irc,jabber,msn,napster,novell,oscar,yahoo,zephyr,toc --disable-gevolution"
   default_config &&
   make &&
   make -C gaim-blogger-$VERSION &&
