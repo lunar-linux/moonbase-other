@@ -48,9 +48,4 @@
     echo "/opt/lunar/qt/3/lib" >> /etc/ld.so.conf  
   fi
 
-  if ! grep -q "QTDIR=/opt/lunar/qt/3" /etc/profile; then
-    echo "export  QTDIR=/opt/lunar/qt/3" >> /etc/profile
-  fi
-
-
 ) > $C_FIFO 2>&1
