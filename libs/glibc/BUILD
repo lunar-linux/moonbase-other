@@ -19,7 +19,6 @@ fi
                --with-elf                             \
                --with-headers=/usr/src/linux/include  \
                --with-gd=no                           \
-               --with-tls                             \
                --without-cvs                          \
                --enable-shared                        \
                --infodir=/usr/share/info              \
