@@ -1,5 +1,8 @@
 (
 
+  CFLAGS="$CFLAGS -Wno-deprecated"
+  CCFLAGS="$CCFLAGS -Wno-deprecated"
+  cat $SCRIPT_DIRECTORY/htdig-gcc3.2-config.patch | patch -p0
   if module_installed apache-mod_ssl; then
     HTDIGDIR=/usr/share/httpsd/htdig
     CGIBINDIR=/usr/share/httpd/cgi-bin
