@@ -1,0 +1,20 @@
+        MODULE=openafs
+       VERSION=1.2.10a
+        SOURCE=openafs-$VERSION-src.tar.bz2
+       SOURCE2=openafs-$VERSION-m4.patch.bz2
+ SOURCE_URL[0]=http://www.openafs.org/dl/openafs/$VERSION/$SOURCE
+SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+      WEB_SITE=http://www.openafs.org/
+ SOURCE_VFY[0]=md5:5bd7b440ea4db7041a98953f0e9d93e4
+SOURCE2_VFY[0]=md5:2266359f9a5e09c07bd21a909dbd8177
+       ENTERED=20031216
+       UPDATED=20031216
+    MAINTAINER="ratler@lunar-linux.org"
+         SHORT="OpenAFS distributed filesystem"
+         PSAFE="no"
+cat << EOF
+OpenAFS distributed filesystem. AFS is a distributed filesystem
+allowing cross-platform sharing of files among multiple computers.
+Facilities are provided for access control, authentication, backup and
+adminsitrative management.
+EOF
