@@ -1,14 +1,16 @@
           MODULE=freetype2
-         VERSION=2.1.4
-        #VERSION=2.1.3
+         VERSION=2.1.5
+        #VERSION=2.1.4
           SOURCE=freetype-$VERSION.tar.bz2
-          SOURCE2=freetype-$VERSION-patchset-1.tar.bz2
+          SOURCE2=freetype-$VERSION-patchset-1.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/freetype-$VERSION
    SOURCE_URL[0]=$SFORGE_URL/freetype/$SOURCE
-   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+   SOURCE_VFY=md5:54537b518b84d04190a1eccd393a29df
+  SOURCE2_VFY=md5:a292221cdf2247eeec0704fa63c8e037
         WEB_SITE=http://www.freetype.org
          ENTERED=20010922
-         UPDATED=20030415
+         UPDATED=20030913
            SHORT="freetype is a free, quality, portable font engine."
 cat << EOF
 A Free, Quality, and Portable Font Engine
