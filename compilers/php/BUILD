@@ -9,7 +9,7 @@
      cd $SOURCE_DIRECTORY
      tar zxf $SOURCE_CACHE/$SOURCE2
      cd imap-${IMAP_VERSION}
-     make slx
+     make slx SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib"
      cd ..
      OPTS="$OPTS --with-imap=imap-${IMAP_VERSION}"
   fi
