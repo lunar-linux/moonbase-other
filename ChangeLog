@@ -1,3 +1,104 @@
+2002-10-05 22:27  tchan
+
+	* devel/make/DETAILS: Bumped version number to 3.80.  Latest and greatest stable release of GNU Make.
+	First new version in over 2 years.
+	
+2002-10-05 19:20  kongar
+
+	* editors/TeXmacs/DETAILS: upgraded to 1.0.18
+	
+2002-10-05 19:09  kongar
+
+	* cd/gtktalog/DETAILS: upgraded to 1.0rc3
+	
+2002-10-05 18:59  kongar
+
+	* utils/procps/sysctl.conf: disabled the lines in sysctl
+	
+2002-10-05 17:32  xoritor
+
+	* video/w32codec/DETAILS: Fixed issue of $VERSION being incorrect in $SOURCE_DIRECTORY, it now finds and installs correctly.
+	
+2002-10-05 15:58  tchan
+
+	* editors/vile/: BUILD, DEPENDS: Corrected this module.  For this case the DEPENDS clearly does NOT belong here
+	and the test needs to be done INSIDE the BUILD script.  vile needs to be
+	explictly compiled twice.  Once WITHOUT the --with-screen=x11 to build
+	a proper cli version and then a test must be performed for the xfree86
+	option and another default_config,make,make install should be run inside
+	the if test.  The compile should not happen twice if xfree86 is not installed.
+	
+2002-10-05 06:19  tchan
+
+	* utils/less/: DETAILS, lesspipe.sh: Fixed lesspipe.sh to use the new version of tar-1.13.25, with the "-j" flag
+	for bzip2 compression.  Touched the DETAILS, updated field to force less
+	to be recompiled for the "lunar update" users.
+	
+2002-10-05 06:07  jmhodges
+
+	* doc-tools/teTeX/: BUILD, DEPENDS: actually this was first, changed bah
+	
+2002-10-05 06:05  jmhodges
+
+	* editors/vile/: BUILD, DEPENDS: fixed xfree86 support, the first of many
+	
+2002-10-05 05:35  tchan
+
+	* archive/tar/: BUILD, DETAILS: Fixed the BUILD script for the missing binary /bin/rmt and forced tar to be
+	linked static.  This is necessary saftey step since tar is used for rescue
+	iso.
+	
+2002-10-05 04:54  tchan
+
+	* kde3/KDE-Documentation/BUILD: Fixed this script to remove the bzip2 flag tar dependency.  Latest tar uses -j
+	instead of -y for bzip2 decompress.  Solution is to just use bzcat.
+	
+2002-10-05 04:47  nhudson
+
+	* gnome2-applets/led_applet/DETAILS: 
+	Fixed download of led_applet, for some reason it was downloading and saving it as version 0.1 but when it would build it would look for version 0.2.  Tested and works now
+	
+2002-10-05 04:09  dem
+
+	* gnome2-applets/goats/DETAILS: Date errors
+	
+2002-10-05 04:05  dem
+
+	* gnome2-applets/: goats/BUILD, goats/DEPENDS, goats/DETAILS,
+	netmon_applet/DETAILS: fix: Mv and omitt error
+	
+2002-10-04 23:54  kc8apf
+
+	* libs/glibc/: BUILD, glibc-2.2.5-alpha-pcdyn.patch: Patch to fix build on alpha
+	
+2002-10-04 23:13  nhudson
+
+	* chat/gnomeicu2/DEPENDS: 
+	I added gnet to the list of DEPENDS, I was building this and it borked because of it
+	
+2002-10-04 19:36  dem
+
+	* video/ogle_gui/DETAILS: Updated to match new ogle version
+	
+2002-10-04 19:34  dem
+
+	* video/ogle/DETAILS: A new version of ogle that acctualy builds
+	
+2002-10-04 19:33  dem
+
+	* video/ogle/DEPENDS: Missing dependency that resaults in failure if not installed
+	
+2002-10-04 19:32  dem
+
+	* video/libdvdcss/DETAILS: Updated to a new version required by ogle
+	
+2002-10-04 14:33  kongar
+
+	* web/apache-mod_ssl/: BUILD, DETAILS, init.d/apache_modssl: 
+	upgraded to mod_ssl 2.8.11 for Apache 1.3.27
+	
+	added a sleep to init's restart
+	
 2002-10-04 14:15  kongar
 
 	* utils/e2fsprogs/: BUILD, CONFIGURE: 
@@ -170,10 +271,6 @@
 2002-10-01 10:30  sofar
 
 	* utils/findutils/profile.d/findutils.rc: Bugfix: LOCATE_PATH was not exported
-	
-2002-10-01 07:51  tchan
-
-	* gnome2/glade2/: BUILD, DEPENDS, DETAILS, glade2-glademm.patch: More cleanup.
 	
 2002-10-01 06:53  tchan
 
@@ -576,62 +673,4 @@
 2002-09-25 06:28  kongar
 
 	* distributed/distcc/DETAILS: upgraded to 0.11
-	
-2002-09-25 00:04  xoritor
-
-	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Updating module for new version.
-	  Increased version to 2.1.7
-	  Fixed depends to use db4.
-	
-2002-09-24 23:43  xoritor
-
-	* utils/openldap/: BUILD, DEPENDS, DETAILS: Updating to version 2.1.5.
-	  Fixes broken build with db 4.1.24.
-	
-2002-09-24 16:01  xoritor
-
-	* utils/openldap/: BUILD, DEPENDS, DETAILS: Adding depends:
-	  DB4 - required
-	  cyrus-sasl - optional
-	  openssl - optional
-	
-	Added BUILD file.
-	
-2002-09-24 15:29  wizfactor
-
-	* libs/id3lib/: BUILD, DETAILS, id3lib_strings.h: Updated to version 3.8.0 and patched to build with gcc 3.2
-	
-2002-09-24 10:47  kongar
-
-	* editors/vim/: POST_INSTALL, PRE_BUILD, vim-6.0-fixkeys.patch: 
-	now working, added a couple of gcc3 patches.
-	
-2002-09-24 07:21  wizfactor
-
-	* web/webmin/PRE_BUILD: 	web/webmin/PRE_BUILD: Webmin now keeps its source directory
-	
-2002-09-24 04:52  tchan
-
-	* shells/sash/: DETAILS, sash-readline-plus.patch: Bumped version number upto 3.6 and modifiex patch to work with ver. 3.6.
-	
-2002-09-24 04:00  kongar
-
-	* cd/cdrtools/DETAILS: upgraded to 1.11a34
-	
-2002-09-24 03:53  kongar
-
-	* mail/fetchmail/DETAILS: upgraded to 6.1.0
-	
-2002-09-24 02:48  tchan
-
-	* archive/unrar/: BUILD, DETAILS: Fixed to compile under gcc-3.2 or greater.  Will not compile with gcc-2.95
-	anymore.
-	
-2002-09-23 23:09  sofar
-
-	* printer/ghostscript/DEPENDS: making libpng optional
-	
-2002-09-23 22:58  sofar
-
-	* printer/ghostscript/: BUILD, no-png.patch, no-x.patch: Miscellaneous cleanups and support for building without libpng
 	
