@@ -1,18 +1,9 @@
 (
-  # the Makefile's path for the man page is hardcoded... it does 
-  # not accept the configure option. We fix this here:
-  sedit "s/usr\/man\/man1/usr\/share\/man\/man1/" Makefile.in &&
+  # Fixes the Makefile's hardcoded path for the man page
+  sedit "s:usr/man/man1:usr/share/man/man1:" Makefile.in &&
 
-  (
-  patch -p0 <<EOF
---- netwatch.c	2001-02-26 04:27:07.000000000 +0100
-+++ netwatch.c	2002-07-08 00:50:59.000000000 +0200
-@@ -72,2 +72,3 @@
- */
-+#include <time.h>
- #include <sys/wait.h>
-EOF
-  ) &&
+  # Add a missing include
+  sedit "s:<sys/time.h>:<sys/time.h>\n#include <time.h>:" netwatch.c &&
 
   default_build
  
