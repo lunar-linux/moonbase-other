@@ -1,10 +1,10 @@
 (
 
-  ./configure  --prefix=${GNOME26_PREFIX:-/usr}	                 \
+  ./configure  --prefix=${GNOME28_PREFIX:-/usr}	                 \
                --sysconfdir=/etc                                 \
                --localstatedir=/var                              \
-               --mandir=${GNOME26_PREFIX:-/usr}/share/man        \
-     	       --infodir=${GNOME26_PREFIX:-/usr}/share/info      \
+               --mandir=${GNOME28_PREFIX:-/usr}/share/man        \
+     	       --infodir=${GNOME28_PREFIX:-/usr}/share/info      \
                --enable-ipv6=yes                                 \
                --enable-nntp=yes				 \
                --enable-imap4					 \
