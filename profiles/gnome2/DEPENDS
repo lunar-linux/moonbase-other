@@ -1,7 +1,7 @@
+depends docbook-profile         &&
 depends freetype2		&&
 depends pkgconfig		&&
 depends glib-2			&&
-depends pango                   &&
 depends gtk+-2			&&
 depends audiofile		&&
 depends esound			&&
@@ -9,10 +9,9 @@ depends gtk-doc 		&&
 depends linc			&&
 depends atk			&&
 depends gnome-common2		&&
+depends pango			&&
 depends libIDL			&&
 depends ORBit2			&&
-depends bonobo-activation	&&
-depends startup-notification    &&
 depends GConf2			&&
 depends libart_lgpl		&&
 depends libzvt			&&
@@ -22,22 +21,21 @@ depends gnome-vfs2		&&
 depends libglade2		&&
 depends libgnome		&&
 depends libgnomecanvas		&&
+depends zenity                  &&
 depends libbonoboui		&&
+depends gtk-engines2            &&
+depends gnome-themes            &&
+depends gnome-icon-theme        &&
 depends libgnomeui		&&
 depends libwnck			&&
 depends libgnomeprint		&&
 depends libgnomeprintui		&&
-depends libgnomeprint20         &&
-depends libgnomeprintui20       &&
 depends libgtop2		&&
 depends librsvg 		&&
 depends gail			&&
-depends eel 			&&
+depends eel			&&
 depends libgtkhtml		&&
-depends gtk-engines2		&&
 depends gnome-desktop		&&
-depends gnome-themes            &&
-depends gnome-icon-theme        &&
 depends gnome-panel		&&
 depends gnome-session		&&
 depends gnome-terminal		&&
@@ -45,29 +43,17 @@ depends gnome-utils2		&&
 depends gnome-applets2		&&
 depends control-center2		&&
 depends bug-buddy		&&
-depends eog 			&&
-depends nautilus 		&&
-depends nautilus-media          &&
+depends eog			&&
+depends nautilus		&&
 depends gnome-system-monitor	&&
 depends yelp			&&
-depends gedit 			&&
-depends librep2			&&
-depends rep-gtk2		&&
-
-if  ! grep -q "METACITY"  $MODULE_CONFIG; then
-  if query "Install metacity instead of sawfish?" y ; then 
-    depends metacity
-    echo  "METACITY=y"  >>  $MODULE_CONFIG
-  else
-    depends sawfish
-    echo  "METACITY=n"  >>  $MODULE_CONFIG
-  fi
-fi                              &&
-
+depends gedit			&&
+depends metacity                &&
 depends gnome-media2		&&
 depends gdm			&&
 depends at-spi			&&
 depends libgail-gnome		&&
 depends gconf-editor		&&
-depends gnome-audio             &&
+depends gcalctool               &&
+depends gucharmap               &&
 depends gnome2-user-docs
