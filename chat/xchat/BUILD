@@ -4,6 +4,7 @@
 
   ./configure  --build=$BUILD            \
                --prefix=/usr             \
+               --enable-ipv6             \
                --sysconfdir=/etc         \
                --localstatedir=/var      \
                --infodir=/usr/share/info \
