@@ -8,7 +8,7 @@
                $OPTS                     &&
     default_make			 &&
 
-    cp $SOURCE_CACHE/$SOURCE2 /usr/lib/xcdroast-0.98/bin/cdrecord.prodvd &&
-    chmod 755 /usr/lib/xcdroast-0.98/bin/cdrecord.prodvd
+    mkdir -p /usr/lib/$MODULE-$MAJOR_VERSION/bin/ &&
+    install -m0755 $SOURCE_CACHE/$SOURCE2 /usr/lib/$MODULE-$MAJOR_VERSION/bin/cdrecord.prodvd
 
 ) > $C_FIFO 2>&1
