@@ -1,3 +1,76 @@
+2004-04-28 11:10  prox
+
+	* perl/DBD-mysql/DETAILS: serious bump =)
+
+2004-04-28 09:51  nestu
+
+	* kernel/linux-beta/DETAILS: Version bump
+
+2004-04-28 09:02  prox
+
+	* graphics/ImageMagick/DETAILS: our daily bump of ImageMagick, oh
+	yoy
+
+2004-04-28 08:59  prox
+
+	* crypto/gnutls/: POST_INSTALL, PRE_BUILD: This is to recompile
+	gaim if users jump from 0.9.x version (since gaim breaks then)
+
+2004-04-28 08:59  prox
+
+	* crypto/gnutls/BUILD: adding patch
+
+2004-04-28 08:58  prox
+
+	* crypto/: gnutls/DETAILS, libgcrypt/DETAILS, libtasn1/DETAILS,
+	libgpg-error/DETAILS: gnutls 1.0.12, libtasn1 0.2.9, libgcrypt
+	1.2.0, libgpg-error 0.7. Updated all libs that affect gnutls and
+	bumped gnutls. libgcrypt has moved out of alpha and into stable,
+	nice to see. Added patch to gnutls which just had some makefiles
+	oops (mail sent to devs). gnutls 1.0.12 tested with gaim 0.76 and
+	working.
+
+2004-04-27 21:42  nhudson
+
+	* gnome2-apps/straw/DETAILS: 
+	Updating straw to new version 0.23
+
+2004-04-27 18:51  striker
+
+	* devel/gcvs/DETAILS: oops, forgot to remove PSAFE=no after testing
+	=]
+
+2004-04-27 18:45  striker
+
+	* devel/gcvs/: BUILD, DETAILS: Compatibility patch for gcc3.3.3
+	from http://www.freebsd.org/cgi/cvsweb.cgi/ports/devel/gcvs/files/
+
+2004-04-27 18:18  striker
+
+	* gnome2-core/gdm/BUILD: How this bug lasted longer than 6 months,
+	I'll never know...only affects NEW installations of gdm
+
+2004-04-27 18:17  striker
+
+	* gnome2-applets/quick-lounge-applet/DETAILS: cant use md5sum from
+	a bz2 if you arent using the bz2 :)
+
+2004-04-27 16:12  tchan
+
+	* editors/nedit/DEPENDS: Reverting this back.  Please don't add
+	more dependencies on lesstif. openMotif is by far a more correct
+	implementation and lesstif is to be discouraged in moonbase.
+
+2004-04-27 13:47  sofar
+
+	* science/grace/: BUILD, DEPENDS, DETAILS: Adding grace (xmgrace)
+	built against lesstif.
+
+2004-04-27 13:15  sofar
+
+	* editors/nedit/: DEPENDS, DETAILS: Works with lesstif. Reworked a
+	bit.
+
 2004-04-27 11:13  nestu
 
 	* kernel/linux-beta-mm/DETAILS: Version bump
@@ -1669,16 +1742,16 @@
 
 2004-04-09 15:32  nhudson
 
-	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
-	on branch GNOME_UNSTABLE.
-
-2004-04-09 15:32  nhudson
-
 	* gnome2-extras/: ghex/BUILD, glade2/BUILD, gnome-python2/BUILD,
 	gnome-speech/BUILD, gnome-spell/BUILD, gnopernicus/BUILD,
 	libcroco/BUILD, libgnomecups/BUILD, libgnomedb/BUILD,
 	magicdev/BUILD, pyorbit/BUILD: 
 	Adding BUILD files to merge into HEAD
+
+2004-04-09 15:32  nhudson
+
+	* gnome2-extras/gnome-spell/BUILD: file BUILD was initially added
+	on branch GNOME_UNSTABLE.
 
 2004-04-09 15:24  nhudson
 
@@ -2456,59 +2529,4 @@
 
 	* ftp/gftp/DETAILS: 
 	Updating gftp to new version 2.0.17
-
-2004-03-28 23:30  tchan
-
-	* filesys/: acl/DETAILS, attr/DETAILS, dmapi/DETAILS,
-	xfsdump/DETAILS, xfsprogs/DETAILS: Version bumps to acl, attr,
-	xfsdump, xfsprogs.  md5sum changed on dmapi.  Compiled and tested
-	with gcc-3.3.3, kernel headers 2.4.x.
-
-2004-03-28 19:49  nestu
-
-	* filesys/udev/DEPENDS: udev needs it to query sysfs
-
-2004-03-28 19:08  tchan
-
-	* x11-apps/openoffice-bin/DETAILS: Version bump to 1.1.1 official
-	release.  Downloaded off of several mirrors to make sure its really
-	there.	Works fine.
-
-2004-03-28 16:29  florin
-
-	* kde3-i18n/: kde3-i18n-en_GB/DETAILS, koffice3-i18n-en_GB/DETAILS:
-	fix the SOURCE_DIRECTORY value.
-
-2004-03-28 16:27  florin
-
-	* kde3-i18n/kde3-i18n-en_GB/DETAILS: fix the SOURCEDIR value.
-
-2004-03-28 13:56  elaine
-
-	* net/ntp/POST_INSTALL: removed non-ping-ing servers from candidate
-	list -- need to actually fix the script tho
-
-2004-03-28 09:24  cmak
-
-	* audio/libsamplerate/DETAILS: version bump
-
-2004-03-28 05:47  florin
-
-	* graphics/plib/DETAILS: bump the version from 1.8.0 to 1.8.2.
-
-2004-03-28 05:29  tchan
-
-	* mail/uudeview/: BUILD, DETAILS: Version bump to 0.5.20.  Buffer
-	overflow fix.  Compiled and tested with gcc-3.3.3, kernel headers
-	2.4.x.
-
-2004-03-28 04:16  tchan
-
-	* x11-apps/mupo/: BUILD, DETAILS: Version bump to 0.41. Compiled
-	and tested with gcc-3.3.3, kernel headers 2.4.x, fltk-1.1.4.
-
-2004-03-28 03:10  tchan
-
-	* libs/dietlibc/DETAILS: Version bump to 0.25.	Compiled and tested
-	with gcc-3.3.3, kernel headers 2.4.x.  Some bug fixes.
 
