@@ -12,7 +12,7 @@
   OPTS="$OPTS --enable-svg --enable-svg-renderer-libart"
   OPTS="$OPTS --enable-extensions=default,-irc" 
 
-  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig:/opt/lunar/gnome/2.4/lib/pkgconfig:/opt/lunar/gnome/2/lib/pkgconfig
+  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
   export MOZ_NSS_AUTOCONF=1
   export NATIVE_THEME_SUPPORT=1
   export MOZ_PHOENIX=1

@@ -4,14 +4,14 @@
      ln  -sf  /usr/include/gdk-pixbuf-1.0/gdk-pixbuf /usr/include/gdk-pixbuf
   fi							&&
 
-  ./configure --prefix=/opt/lunar/gnome/2.4		\
-              --bindir=/opt/lunar/gnome/2.4/bin		\
-              --sbindir=/opt/lunar/gnome/2.4/sbin		\
-              --datadir=/opt/lunar/gnome/2.4/share	\
-              --sysconfdir=/etc				\
-              --infodir=/opt/lunar/gnome/2.4/share/info	\
-              --mandir=/opt/lunar/gnome/2.4/share/man	\
-              --disable-gdk_pixbuftest			&&
-  default_make
+  ./configure   --prefix=${GNOME26_PREFIX:-/usr}  \
+                --build=$BUILD                    \
+                --sysconfdir=/etc                 \
+                --localstatedir=/var              \
+                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
+                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+                --disable-gdk_pixbuftest          \
+                $OPTS                             &&
+    default_make
 
 ) > $C_FIFO 2>&1
