@@ -1,15 +1,20 @@
           MODULE=hd2u
-         VERSION=0.8.0
+         VERSION=0.8.2
 	  SOURCE=$MODULE-$VERSION.tgz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://www.megaloman.com/~hany/_data/hd2u/$SOURCE
+      SOURCE_URL=http://www.megaloman.com/~hany/_data/hd2u/$SOURCE
+      SOURCE_VRY=sha1:4989d2959491884f804c2568387e703a9a6437f6
         WEB_SITE=http://www.megaloman.com/~hany/software/hd2u/
          ENTERED=20020711
-         UPDATED=20020711
+         UPDATED=20040916
       MAINTAINER=csm@moongroup.com
            SHORT="hd2u is a filter used to convert EOLs"
+
 cat << EOF
 hd2u is Hany's Dos <-> Unix convertor.
 
-dos2unix is filter used to convert plain texts from DOS (CR/LF) format to UNIX format (CR) and vice versa.
+dos2unix is filter used to convert plain texts from DOS (CR/LF) 
+format to UNIX format (CR) and vice versa.  It can also handle
+files in Macintosh format (LF) and convert them into other
+formats.
 EOF
