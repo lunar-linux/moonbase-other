@@ -1,10 +1,14 @@
           MODULE=logrotate
-         VERSION=3.6.6
+         VERSION=3.7
           SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=http://lunar-linux.org/lunar/mirrors/$SOURCE
+         SOURCE2=$MODULE-$VERSION.patch.gz
+   SOURCE_URL[0]=http://ftp.su.se/lunar/source-archive/
+   SOURCE_URL[1]=http://kenny.it.su.se/lunar/source-archive/
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=md5:bf0de3a495294300f32e71f136119c41
+     SOURCE2_VFY=md5:3027835a152c9457b2c25b606aa4a5a0
          ENTERED=20021231
-         UPDATED=20021231
+         UPDATED=20040707
            SHORT="automatic rotation compression, removal, of log files."
 cat << EOF
 The logrotate utility is designed to simplify the administration of
