@@ -8,7 +8,7 @@
 
  sedit "s:\$(DEFAULT_LOG_PREFIX)/squid\.pid:/var/run/squid\.pid:" src/Makefile.in &&
 
-set -x         &&
+   set -x                                       &&
 
   ./configure  --prefix=/usr                     \
                --sysconfdir=/etc/squid           \
@@ -17,14 +17,14 @@ set -x         &&
                --enable-snmp                     \
                --enable-gnuregex                 \
                --enable-linux-netfilter          \
-               $OPTS                             &&
-  set +x                                         &&             
-  default_make                                   &&
+               $OPTS                            &&
+  set +x                                        &&             
+  default_make                                  &&
 
   if [ -e /etc/init.d/squid.sh ]; then
     rm -f /etc/init.d/squid.sh
     rm -f /etc/rc?.d/???squid.sh
-  fi                                              &&
+  fi                                            &&
 
   chown  -R  nobody.nogroup  /var/cache/squid
 
