@@ -11,7 +11,8 @@
                --infodir=/usr/share/info \
                --mandir=/usr/share/man   \
                --datadir=/usr/share      \
-               --localstatedir=/var      &&
+               --localstatedir=/var      \
+               $OPTS                     &&
   
   rm -f /usr/bin/vim /usr/bin/vi         &&
   make                                   &&
