@@ -3,7 +3,7 @@
     sedit 's:${DOCBOOKTOMAN}:docbook2man:g' doctools/docbook.mk
   else
     sedit 's:docbook-to-man:echo:' doctools/docbook.mk
-  fi
+  fi &&
   default_config && 
   make &&
   make check &&
