@@ -1,3 +1,73 @@
+2003-09-05 09:25  jasper
+
+	* graphics/gtk+-2/DETAILS: emergency release to fix GtkTreeView
+	problem
+
+2003-09-05 06:26  hardkrash
+
+	* utils/module-init-tools/DETAILS: bumped updated field to force
+	the update.
+
+2003-09-05 06:24  hardkrash
+
+	* utils/module-init-tools/: BUILD, CONFLICTS: fixed the module to
+	build properly with modutils installed, and removed the confilcts.
+
+2003-09-05 05:06  jmhodges
+
+	* libs/fftw/DETAILS: new version, there is a 3.0.1 but it is
+	incompatible with 2.x.x API.  running through some tests on octave
+	etc to see what it will and will on work with
+
+2003-09-05 03:47  nhudson
+
+	* gnome2-core/gnome-icon-theme/DETAILS: 
+	Updating gnome-icon-theme to new version 1.0.8
+
+2003-09-05 03:47  elaine
+
+	* compilers/gcc/3.3/: BUILD, CONFIGURE, DETAILS, POST_INSTALL,
+	POST_REMOVE, PRE_BUILD: Gcc 3.3 version module, useful only with
+	hacked theege core code version
+
+2003-09-05 03:44  nhudson
+
+	* gnome2-apps/gcalctool/DETAILS: 
+	Updating gcalctool to new version 4.3.2
+
+2003-09-05 03:41  nhudson
+
+	* libs/atk/DETAILS: 
+	Updating atk to new version 1.4.0
+
+2003-09-05 03:37  nhudson
+
+	* libs/libart_lgpl/DETAILS: 
+	Updating libart_lgpl to new version 2.3.15
+
+2003-09-04 19:28  elaine
+
+	* mail/sylpheed/DETAILS: Version bump 0.9.4 -> 5
+
+2003-09-04 18:43  florin
+
+	* games/gnugo/DETAILS: bump version from 3.2 to 3.4
+
+2003-09-04 17:48  florin
+
+	* games/armagetron/DETAILS: bump version from 0.2.4 to 0.2.5.2
+
+2003-09-04 16:35  florin
+
+	* games/crimson/DETAILS: bump version from 0.3.5 to 0.3.6. changed
+	the home and download url.
+
+2003-09-04 12:52  nhudson
+
+	* x11-apps/mlview/: DEPENDS, DETAILS: 
+	Yay another Gnome 1.4 app gone, updating mlview to new version
+	0.6.0
+
 2003-09-04 03:01  nhudson
 
 	* gnome2-apps/glabels/: DEPENDS, DETAILS: 
@@ -1623,119 +1693,4 @@
 	* x11/xfree86/POST_INSTALL: 
 	Changing the POST_INSTALL to recompile the newer NVIDIA module
 	instead of the NVIDIA_GLX module
-
-2003-08-05 23:16  csm
-
-	* x11-utils/xpad/DETAILS: updating the version on thie cool little
-	application!
-
-2003-08-05 22:56  csm
-
-	* doc-tools/iso8879-entities/DETAILS: adding a throw away version
-	number to get this to build and store a proper install log. The
-	following error was ocurring at evey install:
-	
-	+ module size is Install log for iso8879-entities is not found
-
-2003-08-05 21:02  sofar
-
-	* crypto/openssh/: BUILD, POST_INSTALL: Adding proper calls fir
-	this. tested, niiiiice. Only need to add this to the iso install
-	somewhere so this is called somehow.
-
-2003-08-05 20:42  sofar
-
-	* crypto/openssh/Makefile: Adding a Makefile for generation of
-	"server-keys" and private keys. Works like the ssl example, but
-	will not overwrite current existing host keys.
-
-2003-08-05 20:25  jasper
-
-	* science/R/DETAILS: Update to 1.7.1
-
-2003-08-05 20:06  nestu
-
-	* zbeta/emacs-cvs/CONFLICTS: Added the conflict with emacs. Jasper
-	allowed me to do this one :")
-
-2003-08-05 18:53  jmhodges
-
-	* science/octave/PRE_BUILD: fixed
-
-2003-08-05 18:19  jasper
-
-	* zbeta/emacs-cvs/: BUILD, DEPENDS, DETAILS: Add emacs cvs build
-	with optional gtk2 interface
-
-2003-08-05 16:16  jasper
-
-	* audio/faad/DEPENDS: Apparently faad depends on id3lib as well
-
-2003-08-05 12:01  elaine
-
-	* utils/: lunar/BUILD, theedge/BUILD: quieted rm with -f, added the
-	 r switch to lunar/BUILD
-
-2003-08-05 03:58  tchan
-
-	* utils/reiserfsprogs/DETAILS: Version bump to 3.6.11.	Compiled
-	and tested with gcc-3.2.3 and glibc-2.3.2.
-
-2003-08-05 03:55  csm
-
-	* devel/highlight/DETAILS: updating this to the latest version
-
-2003-08-05 02:37  nhudson
-
-	* libs/loudmouth/DETAILS: 
-	Updating loudmouth to new version 0.13
-
-2003-08-05 02:28  nhudson
-
-	* gnome2-core/libbonoboui/DETAILS: 
-	Updating libbonoboui to new version 2.2.4
-
-2003-08-05 02:18  nhudson
-
-	* x11/NVIDIA/: BUILD, CONFLICTS, DETAILS, PRE_BUILD: 
-	Adding the new NVIDIA drivers.	This is in a new format where it is
-	all 1 package and not broken up in 2 seperate modules.	Of course
-	this conflicts with the NVIDIA_GLX and NVIDIA_kernel modules.
-
-2003-08-05 02:09  nhudson
-
-	* profiles/docbook-profile/: DEPENDS, DETAILS: 
-	Updating docbook-profile to fit the new way of doing docbook
-
-2003-08-05 02:09  nhudson
-
-	* doc-tools/: docbook-3.0/DETAILS, docbook-3.1/DETAILS,
-	docbook-4.1/DETAILS, docbook-dsssl-doc/DETAILS,
-	docbook-dtd-xml/DETAILS, docbook-sgml/DETAILS, docbook-xsl/DETAILS,
-	iso8879-entities/DETAILS, openjade/DETAILS, opensp/DETAILS,
-	scrollkeeper/DETAILS: 
-	Updating the updated field of all these modules.  This is a total
-	rework of the docbook installation.
-
-2003-08-05 01:53  csm
-
-	* utils/pciutils/BUILD: adding a sedit to fix the prefix in the
-	Makefile from /usr/local to /usr
-
-2003-08-05 01:49  csm
-
-	* utils/pciutils/: BUILD, DETAILS: updating pciutils
-
-2003-08-05 01:36  csm
-
-	* doc-tools/linuxdoc-tools/DEPENDS: added opensp to depends
-
-2003-08-05 01:21  csm
-
-	* doc-tools/latex2html/DETAILS: updating latex2html
-
-2003-08-05 01:14  csm
-
-	* security/Linux-PAM/POST_REMOVE: fixing a reference to "spells" we
-	no longer have any of those and haven't for more than a year!
 
