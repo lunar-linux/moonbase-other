@@ -1,4 +1,5 @@
 (
+  patch_it $SOURCE2 1
   sedit 's/^ *CFLAGS *:= *\(.*\) *-O2 *\(.*\)/CFLAGS := \1 \2/' Makefile &&
   make                   &&
   prepare_install        &&
