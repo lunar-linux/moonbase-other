@@ -8,7 +8,6 @@ export CPPFLAGS="$CPPFLAGS -I/usr/include/db4"
                --infodir=/usr/share/info \
                --mandir=/usr/share/man   \
                --enable-modules          \
-               --enable-wrappers         \
                --enable-crypt            \
                --enable-dynamic          \
                --with-gnu-ld             \
