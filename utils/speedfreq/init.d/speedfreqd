@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# speedfreqd    This shell script takes care of starting and stopping
+#               the CPU speed management daemon.
+#
+# chkconfig: - 11 90
+# description: speedfreqd is a daemon for controlling the speed of the CPU \
+#              on a laptop.
+#
+# processname: speedfreqd
+# pidfile: /var/run/speedfreqd.pid
+
+ARGS="-u -P /var/run/speedfreqd.pid"
+
+reload () {
+	default_restart
+}
+
+# Source function library.
+. /lib/lsb/init-functions
