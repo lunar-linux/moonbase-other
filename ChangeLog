@@ -1,3 +1,94 @@
+2003-12-30 00:25  sofar
+
+	* profiles/netutils-profile/DEPENDS: meep meep
+
+2003-12-30 00:20  cmak
+
+	* shells/bash/profile.d/bash-aliases-base.rc: why having an ls.rc
+	when we dont use it? -> use it :)
+
+2003-12-29 23:21  sofar
+
+	* graphics/yafray/: DEPENDS, DETAILS: New module: a free raytracer,
+	niiiiice
+
+2003-12-29 22:27  sofar
+
+	* graphics/wings/: BUILD, DETAILS, wings, wings3d: Fixed problem,
+	updated to latest version
+
+2003-12-29 21:42  tchan
+
+	* filesys/: acl/BUILD, acl/DETAILS, attr/BUILD, attr/DETAILS,
+	dmapi/BUILD, dmapi/DETAILS, xfsdump/BUILD, xfsdump/DETAILS,
+	xfsprogs/BUILD, xfsprogs/DETAILS: Version bumps to latest on sgi
+	ftp site.  Cleanups in the BUILD scripts.  xfsdump will now build
+	correctly since xfsprogs is "fixed" to copy the libs to the correct
+	locations now.
+
+2003-12-29 19:55  ratler
+
+	* kernel/openafs-driver/: BUILD, DEPENDS, DETAILS: Moved this
+	module from net to kernel
+
+2003-12-29 19:52  ratler
+
+	* filesys/openafs/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
+	etc/openafs-CellServDB, etc/openafs-SuidCells,
+	etc/openafs-afsmodname, etc/openafs-cacheinfo: Moved this module
+	from net to filesys
+
+2003-12-29 19:21  tchan
+
+	* filesys/nfs-utils/: BUILD, DEPENDS, DETAILS, init.d/nfs,
+	init.d/nfslock: Moved this module from the net section to the new
+	filesys section of moonbase.
+
+2003-12-29 19:05  tchan
+
+	* filesys/reiserfsprogs/DETAILS: Moved from utils to the filesys
+	section of moonbase.
+
+2003-12-29 18:58  tchan
+
+	* filesys/: acl/BUILD, acl/DEPENDS, acl/DETAILS, attr/BUILD,
+	attr/DEPENDS, attr/DETAILS, dmapi/BUILD, dmapi/DEPENDS,
+	dmapi/DETAILS, e2fsprogs/BUILD, e2fsprogs/CONFIGURE,
+	e2fsprogs/DEPENDS, e2fsprogs/DETAILS, e2fsprogs/init.d/mount,
+	jfsutils/BUILD, jfsutils/DEPENDS, jfsutils/DETAILS,
+	raidtools/BUILD, raidtools/DETAILS, xfsdump/BUILD, xfsdump/DEPENDS,
+	xfsdump/DETAILS, xfsprogs/BUILD, xfsprogs/DEPENDS,
+	xfsprogs/DETAILS: Moved these modules out of utils and into the new
+	filesys section of moonbase.  Version bumped acl, attr, dmapi,
+	xfsdump, xfsprogs to the SGI 1.3.1 release of XFS.  Added md5
+	checks to the xfs tools.  Removed the old MAINTAINER from the xfs
+	tools.
+
+2003-12-29 14:14  moe
+
+	* video/xine-ui/DETAILS: Bump!
+
+2003-12-29 14:13  moe
+
+	* video/xine-lib/DETAILS: GAH
+
+2003-12-29 14:08  moe
+
+	* video/xine-lib/DETAILS: No I'm not dead. Bumping this to rc3a
+
+2003-12-29 13:43  sofar
+
+	* net/SDL_net/DEPENDS: Inherited dependency
+
+2003-12-29 13:20  nhudson
+
+	* gnome2-apps/pigeon/: DEPENDS, DETAILS: 
+	Adding pigeon to moonbase ... this is a nice Gnome2 cd burner app
+
+2003-12-29 12:25  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Updating to patch mm2
+
 2003-12-29 11:15  nestu
 
 	* kernel/linux-beta-mm/: BUILD, CONFIGURE, DEPENDS, DETAILS,
@@ -634,10 +725,6 @@
 
 	* audio/gst-plugins/DEPENDS: Fixed the "speach" typo.
 
-2003-12-19 10:18  ratler
-
-	* net/openafs/BUILD: Added -nosettime as default option
-
 2003-12-19 08:48  florin
 
 	* graphics/ImageMagick/DETAILS: fix the m,d5 sum. it seems that the
@@ -777,36 +864,14 @@
 
 	* xfce4/xfce4-clipman-plugin/DETAILS: Update version to 0.4.0
 
-2003-12-16 18:46  ratler
-
-	* utils/e2fsprogs/init.d/mount: Fixed minor bug that could try to
-	mount /proc twice
-
 2003-12-16 16:27  florin
 
 	* archive/unrar/DETAILS: bump version from 3.2.0 to 3.3.2.
-
-2003-12-16 14:08  ratler
-
-	* net/openafs/: BUILD, DETAILS, etc/m4.patch: Moved patch to
-	$PATCH_URL
 
 2003-12-16 13:08  sofar
 
 	* utils/: hc-cron/crontab, vixie-cron/crontab: Simplyfying
 	crontabs... it should either be $(ls xxx/*) or just xxx/*
-
-2003-12-16 12:07  ratler
-
-	* net/openafs-driver/: BUILD, DEPENDS, DETAILS: OpenAFS kernel
-	driver
-
-2003-12-16 12:02  ratler
-
-	* net/openafs/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
-	etc/m4.patch, etc/openafs-CellServDB, etc/openafs-SuidCells,
-	etc/openafs-afsmodname, etc/openafs-cacheinfo: It compiles and run
-	fine. Would be nice if a few more that use openafs can test it out
 
 2003-12-16 03:17  florin
 
@@ -832,11 +897,6 @@
 	for the userspace stuff. This will allow for a more strict
 	recompiling scheme. Waiting to remove the old linux-wlan-ng until
 	these modules become accepted.
-
-2003-12-15 11:15  sofar
-
-	* net/openafs/DETAILS: I recently forgot to commit this... hope
-	people can use it... still needs some polishing.
 
 2003-12-15 04:53  hardkrash
 
@@ -1255,11 +1315,6 @@
 	Added the files back that were in gnomemm-all and are now back
 	seperate
 
-2003-12-08 18:04  florin
-
-	* utils/e2fsprogs/: BUILD, DETAILS: added a patch to compile under
-	2.6 kernel-headers.
-
 2003-12-08 17:58  niki
 
 	* terminal/screen/DETAILS: Proberbly a good idea to force a
@@ -1275,12 +1330,6 @@
 	* security/nessus/DETAILS: Bumped version to 2.0.9, tested with gcc
 	3.3.2, glibc 2.3.2, and i have been doing some scans on my lan ;-)
 	And removed kongar as the maintainer...
-
-2003-12-08 16:03  tchan
-
-	* utils/e2fsprogs/init.d/mount: Corrected a typo in the comments
-	and made a change in the fsck code.  ML suggested the change to get
-	the fsck code to work a little better.
 
 2003-12-08 05:03  jmhodges
 
@@ -1864,54 +1913,4 @@
 2003-11-30 21:23  sofar
 
 	* gnome2-apps/meld/DEPENDS: Need this, still doesn't work.
-
-2003-11-29 17:26  nhudson
-
-	* profiles/useful-profile/DEPENDS: 
-	For some reason my cvs update didnt change this ... I am reverting
-	it back to what it was before I changed it by accedent to version
-	1.2 per cvs
-
-2003-11-29 17:23  nhudson
-
-	* profiles/: gnome2/DETAILS, useful-profile/DEPENDS: 
-	Changing the Gnome2 profile version to 2.4.1
-
-2003-11-29 17:21  nhudson
-
-	* gnome2-core/: gnome-applets2/DETAILS, gnome-vfs2/DETAILS: 
-	Updating sources to match the new release of Gnome Desktop 2.4.1
-
-2003-11-29 17:21  nhudson
-
-	* gnome2-apps/: gcalctool/DETAILS, ggv/DETAILS: 
-	Updating sources to Gnome Desktop 2.4.1
-
-2003-11-29 17:07  nhudson
-
-	* gnome2-core/librsvg/: BUILD, DEPENDS: 
-	Fixing build for librsvg seems that with the latest gimp2 version
-	it breaks the svg plugin that librsvg tries to build
-
-2003-11-29 15:15  florin
-
-	* chat/gaim/DETAILS: bump version from 0.73 to 0.74.
-
-2003-11-29 09:39  florin
-
-	* graphics/sane-backends/DETAILS: bump version from 1.0.12 to
-	1.0.13. tested on a HP scanner with USB interface.
-
-2003-11-29 08:23  florin
-
-	* docs/man-pages/DETAILS: bump version from 1.63 to 1.64.
-
-2003-11-29 07:51  florin
-
-	* graphics/scribus/DETAILS: bump version from 1.1.1 to 1.1.3.
-
-2003-11-29 04:39  tchan
-
-	* kernel/linux-vanilla/DETAILS: Version bump to 2.4.23 and
-	recomputed md5sum.
 
