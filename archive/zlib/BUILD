@@ -1,5 +1,6 @@
 (
-
+  patch_it  $SOURCE_CACHE/$SOURCE2 1
+ 
   rm  -f  /usr/X11R6/lib/libz.a
   sedit  "s/-O/$CFLAGS/"  Makefile
 
