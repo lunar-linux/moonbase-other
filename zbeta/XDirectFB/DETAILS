@@ -1,0 +1,32 @@
+          MODULE=XDirectFB
+         VERSION=1.0-rc3
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=X420src-1.tgz
+         SOURCE3=X420src-2.tgz
+         SOURCE4=X420src-3.tgz
+         SOURCE5=4.2.0-4.2.1.diff
+         SOURCE6=4.2.1-mit-shm-security.patch
+         SOURCE7=xfree86-4.2.1-4.2.99_111202.patch.bz2
+         SOURCE8=X-cvs-binaries-111202.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.directfb.org/download/$MODULE/$SOURCE
+  SOURCE2_URL[0]=$XFREE86_URL/4.2.0/source/$SOURCE2
+  SOURCE2_URL[1]=ftp://ftp.xfree86.org/pub/XFree86/4.2.0/source/$SOURCE2
+  SOURCE3_URL[0]=$XFREE86_URL/4.2.0/source/$SOURCE3
+  SOURCE3_URL[1]=ftp://ftp.xfree86.org/pub/XFree86/4.2.0/source/$SOURCE3
+  SOURCE4_URL[0]=$XFREE86_URL/4.2.0/source/$SOURCE4
+  SOURCE4_URL[1]=ftp://ftp.xfree86.org/pub/XFree86/4.2.0/source/$SOURCE4
+  SOURCE5_URL[0]=$XFREE86_URL/4.2.1/patches/$SOURCE5
+  SOURCE5_URL[1]=ftp://ftp.xfree86.org/pub/XFree86/4.2.1/patches/$SOURCE5
+  SOURCE6_URL[0]=$XFREE86_URL/4.2.1/fixes/$SOURCE6
+  SOURCE6_URL[1]=ftp://ftp.xfree86.org/pub/XFree86/4.2.1/fixes/$SOURCE6
+  SOURCE7_URL[0]=http://www.lunar-linux.com/lunar/mirrors/dem/$SOURCE7
+  SOURCE8_URL[0]=http://www.lunar-linux.com/lunar/mirrors/dem/$SOURCE8
+        WEB_SITE=http://www.directfb.org
+         ENTERED=
+         UPDATED=
+           SHORT="A rootless X server using DirectFB"
+cat << EOF
+XDirectFB is a rootless X Server using DirectFB windows for
+X11 toplevel windows.
+EOF
