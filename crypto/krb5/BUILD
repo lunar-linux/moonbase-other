@@ -1,6 +1,7 @@
 (
 
-  cd  src
+  cd  src                       &&
+  ( cd lib/krb5/os && patch_it $SOURCE_CACHE/$SOURCE2 0 )   && 
   ./configure  --enable-dns-for-kdc     \
                --enable-dns-for-realm   \
                --infodir=/usr/share     \
