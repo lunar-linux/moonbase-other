@@ -1,8 +1,9 @@
 (
 
-  ./configure  --prefix=/usr             \
-               --infodir=/usr/share/info \
-	       --mandir=/usr/share/man   &&
+  ./configure  CC='gcc' CFLAGS="$CFLAGS"	\
+               --prefix=/usr             	\
+               --infodir=/usr/share/info 	\
+	       --mandir=/usr/share/man   	&&
   make                        &&
   prepare_install             &&
   make    install             
