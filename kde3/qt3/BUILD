@@ -1,15 +1,15 @@
 (
 
-  export  YACC='byacc -d'
+  export  YA
   export  LDFLAGS="$LDFLAGS "
   export  QTDIR=$SOURCE_DIRECTORY
   export  PATH=$QTDIR/bin:$PATH
 
   make -f Makefile.cvs    &&
 
-  sedit  "s/gcc/$CC/"  mkspecs/linux-g++/qmake.conf    &&
-  sedit  "s/g++/$CXX/"  mkspecs/linux-g++/qmake.conf    &&
-  sedit  "s/-O2/$CXXFLAGS/"  mkspecs/linux-g++/qmake.conf    &&
+  sedit  "s/gcc/$
+  sedit  "s/g++/$
+  sedit  "s/-O2/$
 
   echo  "yes"  |  ./configure  -release                       \
                                -shared                        \
