@@ -1,3 +1,52 @@
+2004-01-13 10:32  moe
+
+	* mail/sylpheed/DETAILS: I guess because nobody is as dumb as me
+
+2004-01-13 10:31  moe
+
+	* mail/sylpheed/DETAILS: I wonder why nobody did that before
+
+2004-01-13 06:43  jasper
+
+	* xfce4/xfwm4/DETAILS: Bug fix in focus handling
+
+2004-01-13 05:26  florin
+
+	* mail/bogofilter/DETAILS: bump version from 0.15.13.1 to
+	0.15.13.2.
+
+2004-01-13 01:28  tchan
+
+	* libs/gmp/DETAILS: Version bump to 4.1.2.  Added the md5sum. 
+	Compiled and tested with gcc-3.2.3, kernel headers 2.4.x
+
+2004-01-13 00:02  niki
+
+	* devel/arch/DEPENDS: reverted the addition of gmp to arch depends,
+	as that is first needed for tla 1.2.
+
+2004-01-12 23:59  tchan
+
+	* x11-apps/openoffice-bin/CONFIGURE: Fixed the logic of the
+	freetype2 test.  grep -v means select lines NOT matching the given
+	string, and that is NOT what this test needs.  Also if the string
+	is NOT found then we want the error message to print.  So if grep
+	-qv string files ; print errormsg should really be: if ! grep -q
+	string files ; print errormsg
+
+2004-01-12 22:29  niki
+
+	* devel/arch/DEPENDS: Added a depends on gmp, as nestu hit a
+	missing header file from this module when wompiling tla-1.2pre0+
+
+2004-01-12 17:54  hardkrash
+
+	* x11-apps/openoffice-bin/: CONFIGURE, POST_INSTALL: changed the
+	default behavior for openoffice-bin without bytecode enabled
+	
+	package will now fail if it is not enabled. to many emails about
+	openoffice and no fonts :-/
+
 2004-01-12 01:12  hardkrash
 
 	* perl/XML-Twig/DEPENDS: extra depends on perl, XML-Praser already
@@ -1704,54 +1753,4 @@
 
 	* gnome2-apps/file-roller/DETAILS: Fixed the illegal UPDATED field.
 	 Was 200310, should have been 20031021.
-
-2003-12-13 16:58  sofar
-
-	* security/logcheck/DETAILS: Added an unset to get rid of env var
-	pollution
-
-2003-12-13 16:29  sofar
-
-	* audio/alsa-driver/sound.cards: Yes, by putting 'all' on top we SO
-	help the n00b...
-
-2003-12-13 15:56  moe
-
-	* x11-utils/gkrellmd2/DETAILS: Bump bump bump .. here we go for
-	2.1.22
-
-2003-12-13 15:35  sofar
-
-	* security/logcheck/: BUILD, DETAILS: Adding patch!
-
-2003-12-13 15:12  elaine
-
-	* chat/gaim/DETAILS: bump updated to sync gnutls
-
-2003-12-13 14:52  elaine
-
-	* crypto/gnutls/DETAILS: gnutls update reported to break evolution,
-	reverting until this is worked out
-
-2003-12-13 13:18  florin
-
-	* utils/at/: BUILD, DETAILS: add a patch to comment out an #error
-	which caused the compilation process to fail.
-
-2003-12-13 13:06  florin
-
-	* utils/at/PRE_BUILD: there is no patch to apply.
-
-2003-12-13 07:42  florin
-
-	* games/kaf/: BUILD, DEPENDS, DETAILS: add the kaf module of cmak.
-	it's a QT based frontend for xmame games emulator.
-
-2003-12-13 03:36  jmhodges
-
-	* libs/numarray/DETAILS: version bump
-
-2003-12-13 01:28  moe
-
-	* x11-utils/gkrellm2/DETAILS: 2.1.22 here we go!
 
