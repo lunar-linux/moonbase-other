@@ -4,13 +4,17 @@
 
 rm -rf /usr/lib/gcc-lib/*/$(installed_version gcc)/include/openssl &> /dev/null
 
-lin -c openssh wget
+OUR_NEW_SSL_VVV=$(lvu version openssl | perl -pe 's/([0-9]\.[0-9]\.[0-9]).+/$1/')
 
-for MOD in $(lvu depends openssl | grep -v -e openssh -e theedge -e lunar -e wget) pine ; do
-  if module_installed $MOD ; then
-    lin -c $MOD
-  fi
-done
+if [ ! $OUR_NEW_SSL_VVV==$OUR_OLD_SSL_VVV ]; then
+  lin -c openssh wget
+
+  for MOD in $(lvu depends openssl | grep -v -e openssh -e theedge -e lunar -e wget) pine ; do
+    if module_installed $MOD ; then
+      lin -c $MOD
+    fi
+  done
+fi
 
 #fixup certs for imaps and pop3s
 CERTHOME="/etc/ssl/certs"

@@ -1,6 +1,7 @@
 (
 
   # make sure the customer has the source for this one!
+  export OUR_OLD_SSL_VVV=$(lvu installed openssl | perl -pe 's/([0-9]\.[0-9]\.[0-9]).+/$1/') &&
   download_module wget &
 
   ./config  --prefix=/usr                       \
