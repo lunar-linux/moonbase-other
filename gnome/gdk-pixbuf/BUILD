@@ -4,7 +4,7 @@
   message "Please open a new xterm and type \"xhost +localhost\" to give root access"
   message ""
   
-  query "Press <Enter> to continue..." ok
+  query "Press <Enter> to continue..." y
   
   export DISPLAY=:0.0
   
