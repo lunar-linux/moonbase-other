@@ -1,8 +1,8 @@
 centralized="/etc/sgml/catalog"
-
+VER=1.77
 if ! [ -e "$centralized" ]; then
      echo "Creating $centralized!"
      touch $centralized
 fi
 
-/usr/bin/install-catalog --add $centralized /usr/share/sgml/docbook/dsssl-stylesheets-$VERSION/catalog
+/usr/bin/install-catalog --add $centralized /usr/share/sgml/docbook/dsssl-stylesheets-$VER/catalog
