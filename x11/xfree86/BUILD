@@ -47,6 +47,7 @@ message  "Building XFree86 takes a very long time."
   rm     -f  /usr/X11R6/lib/libz.a      &&
   rm     -f /usr/X11R6/include/zlib.h   &&
   rm     -f /usr/X11R6/include/zconf.h  &&
+  rm     -f /usr/X11R6/lib/libz.a       &&
 
   if  [  !  -e                      /etc/skel/.xsession  ];  then
     cp  $SCRIPT_DIRECTORY/xsession  /etc/skel/.xsession
