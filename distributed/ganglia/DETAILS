@@ -3,11 +3,25 @@
           SOURCE=$MODULE-monitor-core-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-monitor-core-$VERSION
       SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
-#      SOURCE_VFY=md5:34c465416f261b980db46a9df6d66c75
-        WEB_SITE=http://distcc.samba.org/
+      SOURCE_VFY=51b0066369063fdbfd7073fe4f443340
+        WEB_SITE=http://ganglia.sourceforge.net/
          ENTERED=20040216
          UPDATED=20040216
-           SHORT=""
+           SHORT="A cluster monitoring toolkit"
 cat << EOF
+Ganglia is a scalable distributed monitoring system for high-performance
+computing systems such as clusters and Grids. It is based on a hierarchical
+design targeted at federations of clusters. It relies on a multicast-based
+listen/announce protocol to monitor state within clusters and uses a tree
+of point-to-point connections amongst representative cluster nodes to
+federate clusters and aggregate their state. It leverages widely used
+technologies such as XML for data representation, XDR for compact, portable
+data transport, and RRDtool for data storage and visualization. It uses
+carefully engineered data structures and algorithms to achieve very low
+per-node overheads and high concurrency. The implementation is robust,
+has been ported to an extensive set of operating systems and processor
+architectures, and is currently in use on over 500 clusters around the
+world. It has been used to link clusters across university campuses and
+around the world and can scale to handle clusters with 2000 nodes.
 EOF
 
