@@ -1,12 +1,30 @@
-MODULE=iputils
-VERSION=ss020927
-SOURCE=$MODULE-$VERSION.tar.gz
+          MODULE=iputils
+         VERSION=ss020927
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE1=bonding-0.2.tar.gz
+         SOURCE2=iputils-20001007-rh7.patch
+         SOURCE3=iputils-20020124-countermeasures.patch
+         SOURCE4=iputils-20020124-ping_sparcfix.patch
+         SOURCE5=iputils-20020124-rdisc-server.patch
+	 SOURCE6=iputils-20020927-addrcache.patch
+	 SOURCE7=iputils-20020927-icmp_seq.patch
+	 SOURCE8=iputils-20020927-ping-subint.patch
+         SOURCE9=traceroute6.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
-SOURCE_URL[0]=ftp://ftp.inr.ac.ru/ip-routing/$SOURCE
-WEB_SITE=ftp://ftp.inr.ac.ru/ip-routing/
-ENTERED=20021106
-UPDATED=20021106
-SHORT="Essential utilities for IP networks."
+   SOURCE_URL[0]=ftp://ftp.inr.ac.ru/ip-routing/$SOURCE
+   SOURCE1_URL[0]=$LRESORT_URL/$SOURCE1
+   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+   SOURCE3_URL[0]=$PATCH_URL/$SOURCE3
+   SOURCE4_URL[0]=$PATCH_URL/$SOURCE4
+   SOURCE5_URL[0]=$PATCH_URL/$SOURCE5
+   SOURCE6_URL[0]=$PATCH_URL/$SOURCE6
+   SOURCE7_URL[0]=$PATCH_URL/$SOURCE7
+   SOURCE8_URL[0]=$PATCH_URL/$SOURCE8
+   SOURCE9_URL[0]=$PATCH_URL/$SOURCE9
+        WEB_SITE=ftp://ftp.inr.ac.ru/ip-routing/
+         ENTERED=20021106
+         UPDATED=20031011
+           SHORT="Essential utilities for IP networks."
 
 cat << EOF
 
