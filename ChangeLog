@@ -1,3 +1,70 @@
+2005-01-15 11:01  nestu
+
+	* kernel/: linux-2.6/CONFIGURE, linux-2.6-ck/CONFIGURE,
+	  linux-2.6-cko/CONFIGURE: Adding the questions that ask about
+	  editing the conf file after linning
+
+2005-01-15 10:32  nestu
+
+	* filesys/udev/POST_INSTALL: Typo fix, now the config file is
+	  /etc/udev/udev.conf.	Some cleanup of the udev on boot warning
+	  msg too.
+
+2005-01-15 08:54  florin
+
+	* libs/gwenhywfar/DETAILS: bump the version from 1.4.1 to 1.5.0.
+
+2005-01-15 08:47  florin
+
+	* filesys/udev/udev: small tweak.
+
+2005-01-15 04:34  tchan
+
+	* mail/exim/DETAILS: Version bump to exim-4.44. Bugfix release.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2005-01-15 00:43  v3rt1g0
+
+	* x11-wm/pwm/DETAILS: Updated URIs to be a little more correct and
+	  added a SHA1 sum
+
+2005-01-15 00:28  v3rt1g0
+
+	* x11-wm/3ddesktop/DETAILS: Version bump.  YaY for waste of CPU
+	  apps!
+
+2005-01-14 23:14  nestu
+
+	* filesys/udev/: BUILD, POST_INSTALL: Now udev works OOTB (is
+	  installed with a default run on /dev instead of /udev).  I have
+	  added BIG and FAT warning at POST_INSTALL to make sure people get
+	  the idea.
+
+2005-01-14 22:40  nestu
+
+	* filesys/udev/BUILD: Added the use of the new change to 0660 patch
+
+2005-01-14 22:37  nestu
+
+	* filesys/udev/DETAILS: Reordered the file a little. I have added a
+	  patch to set default perms in udev.conf to 0660.
+
+2005-01-14 21:56  florin
+
+	* sql/mysql/: BUILD, DETAILS: bump the version from 4.1.8a to
+	  4.1.9.
+
+2005-01-14 21:38  florin
+
+	* filesys/encfs/DETAILS: bump the version from 1.1.11-3 to
+	  1.1.11-4.
+
+2005-01-14 14:25  v3rt1g0
+
+	* games/fortune-meanwhile-in-lunar/DETAILS: Three new weekly
+	  quotes.
+
 2005-01-14 12:45  nestu
 
 	* kernel/linux-2.6-mm/: DETAILS, PRE_BUILD: 2.6.10mm3 ->
@@ -1892,74 +1959,4 @@
 
 	* graphics/: gphoto2/BUILD, libgphoto2/DETAILS, gphoto2/DETAILS:
 	  bump the version from 2.1.4 to 2.1.5.
-
-2004-12-15 19:17  florin
-
-	* video/xine-lib/DETAILS: fix the sha1 sum.
-
-2004-12-15 16:57  moe
-
-	* video/mplayerplug-in/: BUILD, DETAILS: yay for mplayerplug-in
-	  2.75
-
-	  * Compiled and tested on/with 2.6.x, gcc 3.3.3
-
-2004-12-15 16:41  moe
-
-	* video/gxine/: BUILD, DETAILS: Bumped to 0.4.0
-
-	  * This is the first module I ever created *sniff   Has been left
-	  untouched for a long time but finally   there is a new version.
-	  Tested with 2.6.x and gcc 3.3.3
-
-	  * Removed the link to /opt/lunar/plugins since the mozilla
-	  plugin is horribly broken and is just crashing the browser
-	  instead of showing video most of the time
-
-2004-12-15 16:32  moe
-
-	* video/xine-lib/: BUILD, DETAILS: Bumped to rc8
-
-	  * Edited out the modifications at the top of the BUILD file
-	  Anyone able to tell me if they are still required?   --> Delete
-	  BUILD file if not
-
-	    For me (2.6.x, gcc 3.3.3) xine-lib compiles without errors
-	    (Optimization settings aren't really risky though)
-
-	  * xine-ui and gxine are both working while compiled against
-	  this new version
-
-2004-12-15 16:26  sofar
-
-	* compilers/gcc/3.4.3/POST_INSTALL: Adding ob. build of
-	  libstdc++.so.5 library to provide compatibility while it
-	  lasts....
-
-2004-12-15 16:12  sofar
-
-	* libs/libstdc++5/: BUILD, CONFIGURE, DETAILS: Adding libstdc++5
-	  and checks to not have it compile with gcc-3.3.x. it should be
-	  installed if you upgrade gcc to 3.4.3
-
-2004-12-15 05:35  florin
-
-	* devel/swig/DETAILS: fix the update date.
-
-2004-12-15 05:34  florin
-
-	* devel/swig/DETAILS: bump the version from 1.3.23 to 1.3.24.
-
-2004-12-15 03:40  tchan
-
-	* editors/aspell/BUILD: Never mind.  The extra html docs are
-	  already incorporated into the two .info files that are already
-	  being installed.  So no need for the html docs and the .info
-	  files.
-
-2004-12-15 03:37  tchan
-
-	* editors/aspell/BUILD: Fixed this module to include a LOT of
-	  missing documentation.  The html docs are already included in the
-	  source tarball, so I installed them.
 
