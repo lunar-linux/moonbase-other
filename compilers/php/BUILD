@@ -34,6 +34,7 @@
 	       --enable-dbx		     \
 	       --enable-dio		     \
 	       --with-readline               \
+	       --with-apxs2                  \
                $OPTS                        &&
 	default_make
 
