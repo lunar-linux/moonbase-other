@@ -22,7 +22,7 @@ select_card_drivers()  {
   HELP="Key:  [X] = on, [ ] = off"
 
   CHECKLIST="`build_checklist ON   Graphics   $ON_CARD_DRIVERS`
-             `build_checklist OFF  Grahpics  $OFF_CARD_DRIVERS`"
+             `build_checklist OFF  Graphics  $OFF_CARD_DRIVERS`"
 
   if  XF86CardDrivers=`dialog  --backtitle  "$BACKTITLE"  \
                                --title      "$TITLE"      \
@@ -103,25 +103,27 @@ initialize()  {
   BACKTITLE="lunar XFree86 host.def Configuration Menu"
 
    ON_CARD_DRIVERS="vga vesa v4l"
-  OFF_CARD_DRIVERS="mga glint nv tga s3virge sis rendition neomagic i740
+  OFF_CARD_DRIVERS="mga glint nv tga s3virge sis s3 rendition neomagic i740
                     tdfx savage cirrus vmware tseng trident chips apm
                     GlideDriver fbdev i128 ati ark cyrix 
-                    siliconmotion"
+                    siliconmotion i810 imstt nsc tga"
       CARD_DRIVERS="$ON_CARD_DRIVERS  $OFF_CARD_DRIVERS"
 
 
    ON_DRI=""
-  OFF_DRI="gamma TdfxDriDriver mga r128 radeon sis"
+  OFF_DRI="gamma TdfxDriDriver mga r128 i810 radeon sis"
       DRI="$ON_DRI  $OFF_DRI"
 
 
-   ON_INPUT_DRIVERS="mouse"
+   ON_INPUT_DRIVERS="mouse keyboard"
   OFF_INPUT_DRIVERS="dynapro elographics magellan microtouch mutouch 
-                     spaceorb wacom void citron"
+                     spaceorb wacom void citron digitaledge dmc elographics
+                     fpit hyperpen js_x kbd palmax penmount summa 
+                     tek4957 ur98"
       INPUT_DRIVERS="$ON_INPUT_DRIVERS  $OFF_INPUT_DRIVERS"
 
 
-  YES_FONT_OPTIONS="MakeLocalFontDir Build75DpiFonts Build100DpiFonts"
+  YES_FONT_OPTIONS="MakeLocalFontDir Build75DpiFonts Build100DpiFonts BuildFontServer"
    NO_FONT_OPTIONS="BuildCIDFonts      BuildCyrillicFonts
                     BuildLatin2Fonts   UseKoi8RForCyrillic
 		    BuildArabicFonts   BuildISO8859_6Fonts
@@ -129,14 +131,15 @@ initialize()  {
 		    BuildHebrewFonts   BuildISO8859_8Fonts
 		    BuildKOI8_RFonts   BuildJapaneseFonts
 		    BuildJISX0201Fonts BuildKoreanFonts
-		    BuildChineseFonts  BuildFontServer
-		    InstallFSConfig    SharedLibFont
-		    CompressAllFonts   GzipFontCompression"
+		    BuildChineseFonts  InstallFSConfig   
+                    SharedLibFont      CompressAllFonts  
+                    GzipFontCompression"
       FONT_OPTIONS="$YES_FONT_OPTIONS  $NO_FONT_OPTIONS"
 
-  YES_MISC_OPTIONS="HasShm BuildXF86DRI BuildXF86DRM BuildGLULibrary BuildGLXLibrary BuildGlxExt InstallXinitConfig InstallXdmConfig XprtServer ThreadedX"
+  YES_MISC_OPTIONS="HasShm BuildGLULibrary BuildGLXLibrary BuildGlxExt BuildDBE BuildRECORD InstallXinitConfig InstallXdmConfig XprtServer ThreadedX"
    NO_MISC_OPTIONS="BuildServersOnly  BuildPexExt  XnestServer
-                    LinuxFBDevSupport XVirtualFramebufferServer"
+                    LinuxFBDevSupport XVirtualFramebufferServer
+                    BuildXF86DRI BuildXF86DRM"
       MISC_OPTIONS="$YES_MISC_OPTIONS  $NO_MISC_OPTIONS"
 
 }
@@ -329,11 +332,16 @@ configure_host_def()  {
 
 }
 
-message  "${MESSAGE_COLOR}The DRI/DRM in xfree86 4.2.0 is not"  \
+message  "${MESSAGE_COLOR}**WARNING** If you are running this inside a" \
+         "existing X server installation I would suggest that you close" \
+         "X and run this from the Linux Console"
+message  "If you have any problems with installation please remove" \
+         "your existing xfree86 module and remove /usr/X11R6"
+message  "${MESSAGE_COLOR}The DRI/DRM in xfree86 4.3.0 is not"  \
          "compatibile with the DRI/DRM in linux-2.4.20."
 message  "If you use DRI/DRM please enable DRM in the"     \
-         "linux configuration"
-message  "and disable it in the xfree86 configuration.${DEFAULT_COLOR}"
+         "xfree86 configuration"
+message  "and disable it in the linux configuration.${DEFAULT_COLOR}"
 
 
 if    [  -f  $CONFIG_CACHE/host.def  ]

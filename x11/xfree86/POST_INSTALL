@@ -1,7 +1,6 @@
 rm  -f  $BOOST_LOCK
 if    module_installed  NVIDIA_GLX;  then  lin  NVIDIA_GLX;  fi
-if    module_installed  fontconfig;  then  lin  fontconfig;  fi
-if    module_installed  Xft;   then   lin  Xft;  fi
+if    module_installed  pango;  then  lin  -c  pango;  fi 
 
 if ! grep -q '. /etc/profile' /etc/X11/xdm/Xsession; then
   sedit 2s:#:.\ /etc/profile: /etc/X11/xdm/Xsession
@@ -18,3 +17,13 @@ no-listen = tcp
 EOF
   fi
 fi
+
+if   !   [  -d  /usr/lib/pkgconfig  ]
+then  mkdir -p /usr/lib/pkgconfig
+fi 
+
+ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig &&
+ln -sf /usr/X11R6/lib/pkgconfig/fontconfig.pc /usr/lib/pkgconfig &&
+
+message "Running fc-cache please be patient" &&
+/usr/X11R6/bin/fc-cache -f 

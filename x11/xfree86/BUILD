@@ -1,7 +1,7 @@
 install_drm()  {
 
   DRM_DIR="programs/Xserver/hw/xfree86/os-support/linux/drm/kernel"
-  DRM_DEST="/lib/modules/`installed_version  linux`/kernel/drivers/char/drm"
+  DRM_DEST="/lib/modules/`uname -r`/kernel/drivers"
   mkdir   -p                $DRM_DEST
   cp          $DRM_DIR/*.o  $DRM_DEST  2>/dev/null
   depmod  -a
@@ -30,13 +30,6 @@ message  "Building XFree86 takes a very long time."
   then  echo  "#define  HasPam  YES"  >>  config/cf/site.def
   fi
 
-  # Patch for X version of bad version of zlib
-  gzip -d < $SOURCE_CACHE/4.2.0-4.2.1.diff.gz | patch -p1     &&
-  patch -p1 < $SOURCE_CACHE/4.2.1-mit-shm-security.patch      &&
-  
-  # patch for programs/Xserver/hw/xfree86/os-support/linux/drm/kernel/Makefile.linux. The patch removes i810 and i830 from DRM because they are broken.
-  patch -p1 <  $SCRIPT_DIRECTORY/xfree86-drm.patch               &&
-
   export CFLAGS=`echo $CFLAGS | sed s/-funroll-loops//`
   export CFLAGS=`echo $CFLAGS | sed s/-ffast-math//`
   export CXXFLAGS=`echo $CXXFLAGS | sed s/-funroll-loops//`
@@ -46,7 +39,7 @@ message  "Building XFree86 takes a very long time."
 
   make World     &&
   prepare_install                                                &&
-  cd    $SOURCE_DIRECTORY                                        &&
+  cd $SOURCE_DIRECTORY
   make  install                                                  &&
   make  install.man                                              &&
         install_drm                                              &&

@@ -1,4 +1,20 @@
+if  module_installed  Xrender; then  
+  lrm Xrender 
+fi
+
+if  module_installed  Xft; then
+  lrm Xft 
+fi 
+
+if  module_installed  fontconfig; then  
+  lrm fontconfig
+fi
+
 mk_source_dir  $SOURCE_DIRECTORY                         &&
 unpack         $SOURCE                                   &&
 unpack         $SOURCE2                                  &&
-unpack         $SOURCE3 
+unpack         $SOURCE3                                  &&
+unpack         $SOURCE4                                  &&
+unpack         $SOURCE5                                  &&
+unpack         $SOURCE6                                  &&
+unpack         $SOURCE7
