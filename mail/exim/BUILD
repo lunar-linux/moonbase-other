@@ -42,6 +42,7 @@ echo  "EXIM_UID=`id -u mail`"            >>  Local/Makefile
 echo  "EXIM_GID=`id -g mail`"            >>  Local/Makefile
 echo  "AUTH_CRAM_MD5=yes"                >>  Local/Makefile
 echo  "AUTH_PLAINTEXT=yes"               >>  Local/Makefile
+echo  "LOOKUP_NIS=yes"                   >>  Local/Makefile
 
 
 
