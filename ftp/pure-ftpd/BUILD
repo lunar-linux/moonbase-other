@@ -23,8 +23,8 @@ set +x
 ) > $C_FIFO 2>&1  &&  (
 
 
-  if    [  !  -f  /etc/ftplockout  ]
-  then  cp  pam/ftplockout  /etc
+  if    [  !  -f  /etc/ftpusers  ]
+  then  cp  pam/ftpusers  /etc
   fi
 
 )
