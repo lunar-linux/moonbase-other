@@ -155,6 +155,9 @@ start() {
       /sbin/udevstart
       chkresult
 
+      # let the udev initscript know udev is running
+      touch /var/lock/subsys/udev		
+
       echo     -n " * Creating missing dirs on /dev :"     
       mkdir /dev/{pts,shm}
       chkresult
