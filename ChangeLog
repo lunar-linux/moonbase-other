@@ -1,3 +1,95 @@
+2004-04-09 07:01  ratler
+
+	* gnome/libsoup/: BUILD, DETAILS: Added patch so libsoup will build
+	 with the latest gnutls, libsoup was using deprecated function
+
+2004-04-09 04:22  florin
+
+	* video/xine-lib/DETAILS: bump the version from 1-rc3b to 1-rc3c.
+
+2004-04-09 04:03  watryac04
+
+	* libs/mmpython/: BUILD, DEPENDS, DETAILS: New module mmpython. 
+	Provides a framework in python for Media Metadata retrieval.
+
+2004-04-09 03:13  watryac04
+
+	* video/mythtv/BUILD: Can't believe I never noticed this before... 
+	mythfilldatabasecron was being copied into /usr/bin/ with 644 as
+	permissions... ok if you want to just call "/bin/bash
+	/usr/bin/mythfilldatabasecron", but bad if you want to just run the
+	script directly.
+
+2004-04-09 03:04  watryac04
+
+	* utils/xmltv/DETAILS: New version of xmltv.  Will look into
+	getting rid of prompt for input.
+
+2004-04-09 02:55  watryac04
+
+	* perl/XML-Writer/DETAILS: New version, new source url
+
+2004-04-09 02:42  nhudson
+
+	* gnome2-apps/gnumeric2/profile.d/gnumeric.rc: 
+	Fixing typo
+
+2004-04-08 17:04  nhudson
+
+	* gnome2-apps/gnumeric2/DETAILS: 
+	Updating gnumeric2 to new version 1.2.9
+
+2004-04-08 16:42  nhudson
+
+	* gnome2-core/: gail/DETAILS, libgtop2/DETAILS: 
+	Updating gail ggv and libgtop2... I will start updating Gnome in
+	moonbase tonight finally!!
+
+2004-04-08 16:40  nhudson
+
+	* mail/evolution/DETAILS: 
+	Updating evolution to a bug fix version of 1.5.6.2
+
+2004-04-08 16:37  florin
+
+	* games/neverball/DETAILS: bump the version from 1.1.0 to 1.2.0.
+
+2004-04-08 16:25  florin
+
+	* kernel/: linux-beta/POST_INSTALL, linux-beta-mm/POST_INSTALL:
+	remove the NVIDIA26 module relin, put the NVIDIA relin instead.
+
+2004-04-08 16:23  florin
+
+	* x11/xfree86/POST_INSTALL, zbeta/xfree86-beta/POST_INSTALL: remove
+	the NVIDIA26 module relin.
+
+2004-04-08 16:16  florin
+
+	* devel/expect/DETAILS: bump the version from 5.40.0 to 5.40.1.
+
+2004-04-08 15:04  florin
+
+	* kde3-apps/scribus/: BUILD, DEPENDS, DETAILS: move it from
+	graphics dir. fix the BUILD file.
+
+2004-04-08 13:29  prox
+
+	* net/oidentd/DETAILS: added md5sum
+
+2004-04-08 13:27  prox
+
+	* net/oidentd/DETAILS: bump version
+
+2004-04-08 12:51  prox
+
+	* audio/xmms-equ/: BUILD, DEPENDS, DETAILS: new module xmms-equ
+
+2004-04-08 12:33  prox
+
+	* net/libpcap/DETAILS: bump version due to Vulnerabilities in
+	ISAKMP Parsing
+
 2004-04-08 11:16  nestu
 
 	* filesys/sysfsutils/DETAILS: Change the 'what' description, since
@@ -2052,71 +2144,4 @@
 	I had to include in 2.0.4.  2.0.5 builds with gcc-3.3.3,
 	kernel-headers 2.4.x and the autogen.sh step is no longer needed
 	either!
-
-2004-03-09 21:46  tchan
-
-	* libs/ncurses/DETAILS: Version bump to ncurses-5.4.  Compiled and
-	tested with gcc-3.3.3, kernel headers 2.4.x.  Installed on the
-	Lunar-1.4.0 iso as well.
-
-2004-03-09 21:45  tchan
-
-	* compilers/gcc/DETAILS: Version bump to gcc-3.3.3.  It is now the
-	default compiler in Lunar and is installed on the Lunar-1.4.0 iso. 
-	Bumping ncurses-5.4 as well.
-
-2004-03-09 18:20  tchan
-
-	* ftp/: lftp/CONFLICTS, pure-ftpd/BUILD, tnftp/CONFLICTS: There is
-	NO conflict between tnftp and lftp.  tnftp install /usr/bin/ftp and
-	lftp installs /usr/bin/lftp.  Removed some extra set -x and set +x
-	from pure-ftpd/BUILD.
-
-2004-03-09 17:42  cmak
-
-	* audio/ardour/DETAILS: typo fix
-
-2004-03-09 17:32  cmak
-
-	* audio/ardour/DETAILS: version bump
-
-2004-03-09 17:17  cmak
-
-	* audio/: abcde/DETAILS, qjackctl/DETAILS: version bump
-
-2004-03-09 17:15  watryac04
-
-	* kernel/lufs/DETAILS: As usual, forgot the UPDATED field.
-
-2004-03-09 17:14  watryac04
-
-	* kernel/lufs/DETAILS: newer version of lufs.  this one works on
-	kernel 2.6.x too
-
-2004-03-09 09:20  sofar
-
-	* perl/mod_perl/DETAILS: mod_perl is not psafe
-
-2004-03-09 08:03  sofar
-
-	* x11-apps/openoffice-bin/BUILD: Suggestion by nOpROX: make soffice
-	connect to unix sockets instead of tcp sockets.
-
-2004-03-09 05:39  florin
-
-	* mail/courier-imap/DETAILS: bump the version from 2.2.0 to 3.0.0.
-	tested with gcc 3.3.3 and headers 2.6.3.
-
-2004-03-09 04:58  florin
-
-	* x11/xplanet/DETAILS: bump the version from 1.0.2 to 1.0.4.
-
-2004-03-09 04:48  florin
-
-	* audio/alsa-lib/DETAILS: bump the version from 1.0.3 to 1.0.3a.
-
-2004-03-09 00:30  tchan
-
-	* devel/automake/DETAILS: Version bump to 1.8.3.  Compiled and
-	tested with gcc-3.3.3, kernel-headers 2.4.x.
 
