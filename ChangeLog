@@ -1,3 +1,163 @@
+2003-09-15 11:56  nhudson
+
+	* gnome2-core/gdm/Sessions/gnome.desktop: 
+	Making this better
+
+2003-09-15 11:53  nhudson
+
+	* gnome2-core/gdm/: BUILD, DETAILS, Default, Sessions/Gnome2,
+	Sessions/gnome.desktop: 
+	Fixing the gdm build so that it will actually log you into gnome
+	correctly
+
+2003-09-15 03:41  nhudson
+
+	* profiles/gnome2/DETAILS: 
+	fixing this
+
+2003-09-15 03:27  nhudson
+
+	* profiles/gnome2/2.4/: BUILD, DEPENDS, DETAILS, POST_BUILD,
+	PRE_BUILD: 
+	Versioning for gnome 2.4
+
+2003-09-14 23:38  niki
+
+	* gnome2-core/libglade2/: POST_INSTALL, POST_REMOVE: made sure that
+	the build won't fail beacuse of these files.
+
+2003-09-14 23:10  nhudson
+
+	* gnome2-core/libglade2/: DETAILS, POST_INSTALL, POST_REMOVE: 
+	Ok making sure the docbook rebuild file gets ran all the time if it
+	is there and its ran when libglade is removed
+
+2003-09-14 22:59  nhudson
+
+	* gnome2-core/libglade2/DEPENDS: 
+	adding docbook-xsl
+
+2003-09-14 22:58  nhudson
+
+	* gnome2-extras/gnome-speech/: BUILD, DEPENDS, DETAILS: 
+	Adding gnome-speech to moonbase
+
+2003-09-14 22:49  nhudson
+
+	* x11-apps/: libmrproject/DETAILS, mrproject/DETAILS: 
+	Updating libmrproject and mrproject to new version 0.10 and added
+	md5's to the modules
+
+2003-09-14 22:48  nhudson
+
+	* gnome2-core/libglade2/POST_INSTALL: 
+	Fixing typo
+
+2003-09-14 22:32  nhudson
+
+	* gnome2-core/libglade2/POST_INSTALL: 
+	Adding a POST_INSTALL so that it will not break your docbook
+	catalogs
+
+2003-09-14 21:56  nhudson
+
+	* doc-tools/docbook-xsl/rebuild-docbook-catalog: 
+	Fix so it doesnt error out when scrollkeeper isnt installed
+
+2003-09-14 21:52  nhudson
+
+	* doc-tools/docbook-xsl/rebuild-docbook-catalog: 
+	This is alot better when you dont have libglade installed
+
+2003-09-14 21:37  nhudson
+
+	* doc-tools/docbook-xsl/: DETAILS, rebuild-docbook-catalog: 
+	Fixing the rebuild script so that it will look for libglade's dtd
+	file and put it into the correct place
+
+2003-09-14 20:47  niki
+
+	* gnome2-apps/meld/: BUILD, DETAILS: Some more moving to 2.4
+
+2003-09-14 20:40  niki
+
+	* gnome2-core/libole2-2/: BUILD, DETAILS: and some more goes to 2.4
+
+2003-09-14 20:29  sofar
+
+	* x11-wm/3ddesktop/DETAILS: About 5 revisions ago someone forgot to
+	change this!!!
+
+2003-09-14 19:59  sofar
+
+	* x11-wm/evilwm/: BUILD, DETAILS: Version bump
+
+2003-09-14 19:48  sofar
+
+	* gnome2-apps/abiword/: BUILD, DEPENDS, DETAILS: finished moving
+	abiword into gnome2-apps, bumping it to 2.0.0, and making it
+	externally compile against wv-1.0.0. Enjoy!
+
+2003-09-14 19:28  niki
+
+	* games/pysol-sound-server/: BUILD, DETAILS: Fixed it to cleanup
+	correctly after compiling.
+
+2003-09-14 18:59  csm
+
+	* audio/gst-plugins/DETAILS: fixing the download url and the md5sum
+
+2003-09-14 18:53  jasper
+
+	* x11-apps/openoffice-bin/DETAILS: Update to 1.1rc4
+
+2003-09-14 18:05  niki
+
+	* video/mjpegtools/DETAILS: Bumped version to a compilable one.
+
+2003-09-14 17:59  sofar
+
+	* x11-wm/aewm/: DEPENDS, DETAILS, POST_INSTALL: Updating to 1.2.3,
+	which now depends on gtk+-2!
+
+2003-09-14 17:33  sofar
+
+	* doc-tools/wv/DETAILS: Updated to 1.0.0
+
+2003-09-14 17:26  nhudson
+
+	* audio/gst-player/DETAILS: 
+	Updating gst-player to new version 0.6.0
+
+2003-09-14 17:21  nhudson
+
+	* gnome2-applets/gnome-blog/DETAILS: 
+	Updating gnome-blog to new version and adding a md5
+
+2003-09-14 17:18  nhudson
+
+	* gnome2-apps/ggv/DETAILS: 
+	Updating ggv to new version 2.4.0.1 and adding a md5
+
+2003-09-14 15:23  sofar
+
+	* web/webmin/: BUILD, DETAILS: New version, includes patches to
+	facilitate automatic distro recognition and default stuff
+	locations. only ssl options and password are being asked!
+
+2003-09-14 13:03  elaine
+
+	* security/stunnel/DETAILS: Version bump
+
+2003-09-14 12:12  niki
+
+	* utils/figlet/DEPENDS: Added optional depends for figfonts-intl.
+
+2003-09-14 12:10  niki
+
+	* utils/figfonts-intl/: BUILD, DETAILS: Added some additional
+	font's for figlet, contributed by Jon S.  <striker@interhact.net>
+
 2003-09-14 11:08  nestu
 
 	* x11-wm/3ddesktop/DETAILS: New website
@@ -159,8 +319,8 @@
 	libs/glibc/BUILD, libs/libgsf/BUILD, libs/loudmouth/BUILD,
 	mail/balsa2/BUILD, mail/sendmail/BUILD, terminal/tsclient/BUILD,
 	web/epiphany/BUILD, web/galeon2/BUILD, web/peacock/BUILD,
-	web/screem/BUILD, zbeta/abiword2/BUILD, zbeta/galeon_cvs/BUILD,
-	zbeta/gnumeric2/BUILD: reverting
+	web/screem/BUILD, zbeta/galeon_cvs/BUILD, zbeta/gnumeric2/BUILD:
+	reverting
 
 2003-09-13 15:32  sofar
 
@@ -242,8 +402,8 @@
 	libs/glibc/BUILD, libs/libgsf/BUILD, libs/loudmouth/BUILD,
 	mail/balsa2/BUILD, mail/sendmail/BUILD, terminal/tsclient/BUILD,
 	web/epiphany/BUILD, web/galeon2/BUILD, web/peacock/BUILD,
-	web/screem/BUILD, zbeta/abiword2/BUILD, zbeta/galeon_cvs/BUILD,
-	zbeta/gnumeric2/BUILD: s\gnome/2.4\gnome/2\ for gnome
+	web/screem/BUILD, zbeta/galeon_cvs/BUILD, zbeta/gnumeric2/BUILD:
+	s\gnome/2.4\gnome/2\ for gnome
 
 2003-09-13 14:57  sofar
 
@@ -588,8 +748,7 @@
 	web/screem/DETAILS, x11-apps/grubconf/BUILD,
 	x11-apps/grubconf/DETAILS, x11-apps/libmrproject/BUILD,
 	x11-apps/libmrproject/DETAILS, x11-apps/mrproject/BUILD,
-	x11-apps/mrproject/DETAILS, zbeta/abiword2/BUILD,
-	zbeta/abiword2/DETAILS, zbeta/galeon_cvs/BUILD,
+	x11-apps/mrproject/DETAILS, zbeta/galeon_cvs/BUILD,
 	zbeta/gnumeric2/BUILD, zbeta/gnumeric2/DETAILS: 
 	Ok this is Gnome 2.4.0 Desktop Release.  I hope everyone enjoys. We
 	moved it from /opt/lunar/gnome/2 to /opt/lunar/gnome/2.4.  I tried
@@ -2231,27 +2390,4 @@
 
 	* audio/faad/: DEPENDS, DETAILS: added missing depends and added
 	short & long descriptions to DETAILS
-
-2003-08-15 16:26  niki
-
-	* net/net-tools/DETAILS: Added a MD5 sum to the patch.
-
-2003-08-15 15:57  niki
-
-	* net/net-tools/: BUILD, DETAILS: This adds a gcc 3.3(.1) patch so
-	that mii-tools will compile now.
-
-2003-08-15 03:38  nhudson
-
-	* gnome2-core/libgtop2/DETAILS: 
-	Updating libgtop2 to new version 2.0.3
-
-2003-08-15 03:37  nhudson
-
-	* app-themes/gnome-themes-extras/DETAILS: 
-	Updating gnome-themes-extras to new version 0.3
-
-2003-08-15 03:20  csm
-
-	* distributed/distcc/DETAILS: updating distcc to the latest version
 
