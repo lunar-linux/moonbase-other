@@ -1,12 +1,16 @@
           MODULE=mysql
-         VERSION=4.0.21
+         VERSION=4.1.7
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL=http://mirror.services.wisc.edu/mysql/Downloads/MySQL-4.0/
-      SOURCE_VFY=sha1:1f5059c79e0c3718e005d41c428b83f2755fc7aa
+         SOURCE2=$MODULE-$VERSION-nptl.patch.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL=http://mirror.services.wisc.edu/mysql/Downloads/MySQL-4.1/$SOURCE
+  SOURCE2_URL=$PATCH_URL/$SOURCE2
+      SOURCE_VFY=sha1:11c1c3a3004175d8b9ac710f9c7815cf759e6293
+     SOURCE2_VFY=sha1:65ff16998918ebb69a9021d60e721cb24c9db472
         WEB_SITE=http://www.mysql.com
       MAINTAINER=prox@lunar-linux.org
          ENTERED=20011114
-         UPDATED=20040918
+         UPDATED=20041028
         SHORT="MySQL is a widely used and fast SQL database server."
 
 cat << EOF
