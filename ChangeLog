@@ -1,4 +1,77 @@
-2004-01-01 04:36 tchan
+2004-01-02 11:45  nestu
+
+	* kernel/linux-beta/DETAILS: Fix wrong patch url. Thnx, niki.
+
+2004-01-02 02:01  sofar
+
+	* mail/sylpheed-gtk2/: BUILD, DETAILS: It works but I don't like
+	it.
+
+2004-01-02 01:30  sofar
+
+	* zbeta/pan-cvs/DEPENDS: Not needed since theedge and lunar already
+	have optional_depends on 'cvs'
+
+2004-01-02 01:27  sofar
+
+	* profiles/useful-profile/DEPENDS: Last occurence of if ; then ; fi
+	statement... GONE!
+
+2004-01-02 01:18  sofar
+
+	* games/kobodeluxe/: CONFIGURE, DEPENDS: Getting rid of conditional
+	statement in DEPENDS
+
+2004-01-02 00:59  sofar
+
+	* filesys/e2fsprogs/init.d/mount: language
+
+2004-01-01 21:53  nestu
+
+	* chat/centericq/DETAILS: version bump requested by Dave Brown.
+	Tested.
+
+2004-01-01 18:06  sofar
+
+	* doc-tools/scrollkeeper/DEPENDS: Inherited dependency
+
+2004-01-01 17:06  nestu
+
+	* kernel/linux-beta/: DETAILS, PRE_BUILD: Bumping version to
+	2.6.1rc1. 2.6.0's source is being patched, rather than DLing the
+	full lot.
+
+2004-01-01 16:24  florin
+
+	* video/mkvtoolnix/DETAILS: bump version from 0.7.9 to 0.8.0.
+
+2004-01-01 16:23  florin
+
+	* video/libmatroska/DETAILS: bump version from 0.6.1 to 0.6.2.
+
+2004-01-01 16:23  florin
+
+	* video/libebml/DETAILS: bump version from 0.6.2 to 0.6.3.
+
+2004-01-01 16:23  sofar
+
+	* libs/erlang/DETAILS: Ewps, thx bkw.
+
+2004-01-01 15:41  tchan
+
+	* chat/xchat/: BUILD, DEPENDS, DETAILS: Security update version. 
+	Patch is no longer needed.  Compiled and tested with gcc-3.2.3,
+	glibc-2.3.2.  Added a few more required depends like automake and
+	gettext.  The depends tree for xchat is really ugly and large!
+
+2004-01-01 15:19  tchan
+
+	* net/rsync/: DEPENDS, DETAILS: Security fix version 2.6.0.  Bug
+	fixes too.  NOTE: ssh is now the default shell in rsync (NOT rsh). 
+	This means openssh is now a required DEPENDS for rsync.  Compiled
+	and tested with gcc-3.2.3, glibc-2.3.2.
+
+2004-01-01 04:36  tchan
 
 	* devel/: pygtk/DETAILS, pygtk2/DETAILS: Fixed two typos in the
 	DETAILS files, its Python, not Perl bindings.
@@ -1828,68 +1901,4 @@
 2003-12-03 03:10  florin
 
 	* video/mplayerplug-in/DETAILS: bump version from 1.0pre2 to 1.0.
-
-2003-12-02 22:16  tchan
-
-	* devel/binutils/DETAILS: Cleaned up the DETAILS file.
-
-2003-12-02 22:12  tchan
-
-	* libs/glibc/BUILD.sparc64: Taking advantage of elaine's new code
-	in theedge to have architecture specific lunar scripts.  This
-	simplifies the BUILD script considerably for glibc.  Especially
-	since the sparc64 glibc has to mess around with the /usr/src/linux
-	symlinks to get glibc to build correctly.
-
-2003-12-02 22:09  tchan
-
-	* shells/busybox/DETAILS: Modified the busybox patch to remove the
-	insmod capabilites.  insmod in busybox is not supported on
-	architectures other than x86.  So this fix is for sparc and alpha
-	and ppc arch's.  I doubt anyone really uses insmod from busybox so
-	there is no need to make multiple versions of busybox.	This
-	version correctly works on multiple architectures with this simple
-	fix.
-
-2003-12-02 18:24  tchan
-
-	* news/pan2/DETAILS: Version bump to 0.14.2.90. Yes, its a beta
-	version but it fixes some bugs in pan2 for me anyways.	Compiled
-	and tested with gcc-3.2.3, glibc-2.3.2.
-
-2003-12-02 14:10  jasper
-
-	* xfce4/: xfce4-diskperf-plugin/DETAILS,
-	xfce4-systemload-plugin/DETAILS: Version bump for systemload and
-	diskperf plugins
-
-2003-12-02 03:40  tchan
-
-	* utils/discover/DETAILS: Fixed the UPDATED field because of all
-	the changes incorporated into this module today.
-
-2003-12-02 03:40  tchan
-
-	* utils/discover/: BUILD, DEPENDS: Modified this to include the new
-	"check" module from moonbase/devel/check.  Highly suggested by the
-	devs of the discover module and I decided to make it a required
-	depends instead of optional.  It makes the BUILD much easier to
-	code.
-
-2003-12-02 03:38  tchan
-
-	* devel/check/: BUILD, DEPENDS, DETAILS: Added the check module for
-	a unit test framework.	This is recommended by the devs of the
-	discover module and I decided to make it a required depends instead
-	of messing around with optional_depends in the discover module.
-
-2003-12-02 02:49  tchan
-
-	* utils/discover/DEPENDS: Added two required depends, curl and
-	expat.
-
-2003-12-02 02:43  tchan
-
-	* utils/discover/DETAILS: Fixed sofar's typo in the patch url. 
-	Should be SOURCE2_URL, not SOURCE@_URL.
 
