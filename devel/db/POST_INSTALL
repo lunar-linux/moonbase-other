@@ -1,0 +1,12 @@
+# Migration code sucks
+
+if [ $OLD_DB ]; then
+  for mod in apache apache-mod_ssl bsddb3 dctc \
+	     drac exim gnome-libs heimdal latex2html \
+	     perl php php5 rpm wvstreams xemacs \
+	     bdb-ruby cyrus-sasl openldap postfix straw subversion; do
+    if module_installed $mod; then
+      lin -c $mod;
+    fi;
+  done;
+fi

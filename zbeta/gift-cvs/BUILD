@@ -1,6 +1,8 @@
 (
+  ./autogen.sh
+  automake --add-missing --copy --gnu &&
 
-  ./autogen.sh --build=$BUILD            \
+  ./configure --build=$BUILD            \
                --prefix=/usr             \
                --enable-gnutella             \
                --sysconfdir=/etc         \

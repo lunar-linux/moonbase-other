@@ -1,19 +1,18 @@
 (
+  if [ `lvu installed db | cut -d. -f1` == "3" ]; then
+    OLD_DB="y"
+  fi
 
   cd  build_unix &&
   ../dist/configure  --prefix=/usr       \
                      --build=$BUILD      \
                      --enable-dynamic    \
                      --enable-compat185  \
-                     --enable-cxx        &&
+                     --enable-cxx        \
+		     $OPTS		 &&
 
-#                    --enable-java       \
-
-  default_make                           &&
-  mkdir -p $DOCUMENT_DIRECTORY/db        &&
-  cp -a /usr/docs $DOCUMENT_DIRECTORY/db &&
-  rm -rf   /usr/docs                     &&
-  rm -f    /usr/include/db3              &&
-  ln -s  . /usr/include/db3
+  sedit "s:LIBSO_LIBS=:LIBSO_LIBS= -pthread :" Makefile       &&
+  sedit  's/$(prefix)\/docs/\/usr\/share\/doc\/db/' Makefile  &&
+  default_make
 
 ) > $C_FIFO 2>&1
