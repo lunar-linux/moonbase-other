@@ -1,9 +1,6 @@
 (
 
-prepare_install                                                        &&
-cp $MOONBASE/x11-utils/$MODULE/mailwatch-0.7.2.patch $SOURCE_DIRECTORY && 
-cd $SOURCE_DIRECTORY                                                   &&
-patch -p1 < mailwatch-0.7.2.patch                                      &&
+cat $SCRIPT_DIRECTORY/mailwatch-paths.patch | patch -p1                && 
 make                                                                   &&
 prepare_install                                                        &&
 make install
