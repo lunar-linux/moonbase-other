@@ -1,3 +1,50 @@
+2004-02-29 06:41  florin
+
+	* compilers/gcl/: BUILD, DETAILS: bump the version from 2.5.2 to
+	2.5.3. thanks to Joe Rocklin for pointing that.
+
+2004-02-29 05:56  florin
+
+	* security/shorewall/: BUILD, DETAILS: bump the version from 1.4.9
+	to 1.4.10c.
+
+2004-02-29 05:35  nhudson
+
+	* gnome_unstable_gcc3.3.3_compat_list: 
+	Running a list of modules that do and dont work with gcc 3.3.3 and
+	2.6.x kernels
+
+2004-02-29 05:35  nhudson
+
+	* gnome_unstable_gcc3.3.3_compat_list: file
+	gnome_unstable_gcc3.3.3_compat_list was initially added on branch
+	GNOME_UNSTABLE.
+
+2004-02-29 05:25  florin
+
+	* filesys/e2fsprogs/: BUILD, DETAILS: bump the version from 1.34 to
+	1.35. many bugfixes and a few improvements.
+
+2004-02-29 05:13  florin
+
+	* graphics/graphviz/: DEPENDS, DETAILS: bump the version from 1.10
+	to 1.11.
+
+2004-02-29 04:01  tchan
+
+	* archive/: par/DETAILS, par2cmdline/DETAILS: Added par2cmdline to
+	the moonbase and updated the maintainer line in par.
+
+2004-02-28 13:53  florin
+
+	* kde3/kdelibs3/PRE_BUILD: add a comment on the new settings for
+	kde3 install.
+
+2004-02-28 13:53  florin
+
+	* kde3/qt3/: POST_INSTALL, PRE_BUILD: add a comment on the new
+	settings for qt3 install.
+
 2004-02-28 11:37  nestu
 
 	* kernel/linux-beta/: DETAILS, PRE_BUILD: Bump version
@@ -2712,120 +2759,4 @@
 2004-01-30 04:12  florin
 
 	* games/asc/DETAILS: bump version from 1.13.9.0 to 1.13.9.1.
-
-2004-01-29 21:05  tchan
-
-	* devel/ferite/DETAILS: Version bump to 0.99.6 at chipig's request.
-	 Compiled and tested with gcc-3.2.3.
-
-2004-01-29 20:56  tchan
-
-	* gnome2-core/libgtkhtml/DETAILS: Added PSAFE=no.
-
-2004-01-29 20:53  florin
-
-	* zbeta/BitchX-cvs/: BUILD, CONFIGURE, CONFLICTS, DETAILS: commit
-	the Striker's new module.
-
-2004-01-29 20:46  florin
-
-	* chat/BitchX/: BUILD, CONFIGURE, CONFLICTS, DETAILS, bitchx:
-	because of a harddisk failure the commit was not done properly. i
-	remove the stuff and add it back.
-
-2004-01-29 20:42  florin
-
-	* chat/BitchX/: BUILD, CONFIGURE, CONFLICTS, DETAILS, bitchx:
-	because of a harddisk failure the commit was not done properly. i
-	remove the stuff and add it back.
-
-2004-01-29 20:33  florin
-
-	* chat/BitchX/CONFIGURE: commit Striker's updates to BitchX.
-
-2004-01-29 18:39  florin
-
-	* chat/BitchX/: BUILD, CONFLICTS, DETAILS: [no log message]
-
-2004-01-29 18:22  tchan
-
-	* gnome2-apps/abiword/DETAILS: verison bump to 2.0.3.  Compiled and
-	tested with gcc-3.2.3, kernel headers 2.4.x.  NOTE: this now
-	installs in /usr/bin and not /opt/lunar/gnome/2.4 as it did
-	previously.  Probably something nhudson has changed in gnome2.4
-
-2004-01-29 18:10  jmhodges
-
-	* crypto/openssl/DETAILS: openssl is not PSAFE, ask niki and
-	Striker about it
-
-2004-01-29 16:46  florin
-
-	* filesys/udev/DETAILS: bump version from 013 to 015.
-
-2004-01-29 16:39  florin
-
-	* devel/metakit/DETAILS: bump version from 2.4.9.2 to 2.4.9.3.
-
-2004-01-29 16:38  hardkrash
-
-	* mail/pine/: BUILD, DEPENDS: More proper solution for the ldap
-	patch.	Allows for automated builds and sorting.
-
-2004-01-29 15:03  ratler
-
-	* mail/pine/: BUILD, DETAILS: Added openldap support
-
-2004-01-29 12:32  ratler
-
-	* zbeta/fluxbox-devel/DETAILS: Version bump. Compiled and tested
-
-2004-01-29 12:26  moe
-
-	* mail/sylpheed/DETAILS: I'd better get some coffee as well .. gah
-
-2004-01-29 12:24  ratler
-
-	* audio/: alsa-driver/BUILD, alsa-lib/DETAILS: Quick fix for SOUND
-	check in kernel config, first check /usr/src/linux/.config, if not
-	existing, check cache. Also fixed alsa-lib md5
-
-2004-01-29 12:17  moe
-
-	* mail/sylpheed/DETAILS: XMMS and sylpheed at the same day ..
-	where's my red pencil and the calendar!
-
-2004-01-29 10:06  moe
-
-	* audio/xmms/DETAILS: My precious has gone to 1.2.9!
-
-2004-01-29 10:06  tchan
-
-	* security/shadow/: BUILD, DETAILS: Version bump to 4.0.4.1. 
-	Compiled and tested with gcc-3.2.3, gcc-3.3.2, SMP, sparc64.  Part
-	of the update/fixes to yawl, cracklib, shadow, automake and the
-	upcoming gettext-0.14 (by florin).
-
-2004-01-29 10:04  tchan
-
-	* devel/automake/: BUILD, DETAILS: Version bump to 1.8.2.  Compiled
-	and tested with gccc-3.2.3, gcc-3.3.2, SMP, and sparc64. Part of
-	the update/fixes to yawl, cracklib, shadow and the upcoming
-	gettext-0.14 (by florin).
-
-2004-01-29 09:20  tchan
-
-	* security/cracklib/: BUILD, DETAILS, PRE_BUILD,
-	cracklib-2.7.patch: Moved the patch out of moonbase and into the
-	PATCH_URL location.  PRE_BUILD is no longer necessary.	Added
-	patch_it call to BUILD.  Updated DETAILS file.	This is all part of
-	yawl, cracklib, shadow, automake updates.  Compiled and tested with
-	gcc-3.2.3.
-
-2004-01-29 09:04  tchan
-
-	* doc-tools/yawl/: BUILD, DETAILS: Updated yawl to verion 0.3. 
-	Remade and combined the yawl patches.  Part of the update for
-	shadow-4.0.4.1 and automake-1.8.2.  Compiled and tested with
-	gcc-3.2.3, kernel-2.4.x headers.
 
