@@ -1,3 +1,67 @@
+2005-03-24 07:53  tchan
+
+	* web/firefox/DETAILS: Version bump to firefox-1.0.2.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2005-03-24 06:47  perldude
+
+	* perl/File-MimeInfo/DETAILS: version bump
+
+2005-03-23 22:57  sofar
+
+	* crypto/openssl/BUILD: Fix this not to rebuild on minor (letter
+	  level) upgrades.
+
+2005-03-23 21:27  tchan
+
+	* filesys/e2fsprogs/BUILD: Fixed the BUILD script to get rid of an
+	  annoying warning about setting --host, when all we really want is
+	  to set --build.
+
+2005-03-23 21:23  florin
+
+	* x11-apps/xlockmore/: BUILD, DETAILS: bump the version from 5.14.1
+	  to 5.16.
+
+2005-03-23 21:17  florin
+
+	* crypto/openssl/DETAILS: bump the version from 0.9.7e to 0.9.7f.
+
+2005-03-23 21:06  florin
+
+	* security/nessus/DETAILS: bump the version from 2.2.3 to 2.2.4.
+
+2005-03-23 20:55  florin
+
+	* filesys/lvm2/DETAILS: bump the version from 2.01.07 to 2.01.08.
+
+2005-03-23 20:52  florin
+
+	* x11-wm/AfterStep/DETAILS: bump the version from 2.00.03 to
+	  2.00.04. improvements.
+
+2005-03-23 20:43  florin
+
+	* ftp/lftp/DETAILS: bump the version from 3.1.0 to 3.1.1. bogfixes
+	  and a new setting added.
+
+2005-03-23 20:26  florin
+
+	* sql/sqlite/DETAILS: bump the version from 3.1.5 to 3.2.0. major
+	  features added.
+
+2005-03-23 19:54  nestu
+
+	* filesys/e2fsprogs/init.d/mount: * Applying Jasper's patch
+	  (slightly modified placement before udevstart), so that udevsend
+	  takes /sbin/hotplug's place.	* Now /dev/pts is automounted as
+	  well.
+
+2005-03-23 16:06  tchan
+
+	* shells/zsh/DETAILS: Added a PSAFE=no. This closes bug report 766.
+
 2005-03-23 12:28  sofar
 
 	* printer/mpage/DETAILS: Update!
@@ -2390,56 +2454,4 @@
 	  uncommented breaks build in 2.6.10+)...  leaving the code in
 	  because ATI has a habit of requiring patches, and it'll make
 	  future versions easier to update to when they are needed.
-
-2005-02-21 20:47  florin
-
-	* graphics/ImageMagick/DETAILS: bump the version from 6.1.8 to
-	  6.1.9.
-
-2005-02-21 18:44  jol
-
-	* compilers/mono/DETAILS: Bumped version to 1.0.6
-
-2005-02-21 16:10  moe
-
-	* filemanagers/rox/BUILD: Fixing rox to include /usr/X11/bin in
-	  it's PATH while compiling. Retarded building process.
-
-2005-02-21 15:32  florin
-
-	* games/wesnoth/DETAILS: bump the version from 0.8.10 to 0.8.11.
-
-2005-02-21 14:17  moe
-
-	* zbeta/sylpheed-dev/: DEPENDS, DETAILS: New sylpheed-dev 1.9.3.
-	  All i18n problems fixed!
-
-2005-02-21 13:37  moe
-
-	* audio/alsa-utils/alsasettings: GAH
-
-2005-02-21 13:34  moe
-
-	* kernel/linux-2.6/: DETAILS, PRE_BUILD: New AS patchset
-
-2005-02-21 13:34  moe
-
-	* audio/alsa-utils/alsasettings: I'm lame
-
-2005-02-21 11:05  moe
-
-	* audio/alsa-utils/: BUILD, DETAILS, POST_INSTALL, PRE_REMOVE,
-	  alsasettings: It's all new and shiny and better and wipes your
-	  ass and ..  Well, at least it's less hacky and uses lunar's
-	  build-in init.d routines now.
-
-	  * Moved the alsasettings script into the script's directory *
-	  Completely rewrote the alsasettings script to work with   the
-	  init-functions * Better install tracking * We don't leave
-	  anything behind
-
-2005-02-21 08:13  ratler
-
-	* libs/libfwbuilder2/DETAILS, security/fwbuilder2/DETAILS: Version
-	  bumps, compiled and tested OK
 
