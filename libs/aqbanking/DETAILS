@@ -1,0 +1,42 @@
+          MODULE=aqbanking
+         VERSION=0.9.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=sha1:13a4207e57b56021dd292ae37daa1c2c97f8c82a
+        WEB_SITE=http://www.aquamaniac.de/$MODULE
+         ENTERED=20040919
+         UPDATED=20040919
+           SHORT="A home banking application."
+
+cat << EOF
+AqBanking has two major goals which are described in the following paragraphs. 
+
+1. Generic Online Banking Interface:
+
+The intention of AqBanking is to provide a middle layer between the program
+and the various Online Banking libraries (e.g. AqHBCI, OpenHBCI etc). 
+
+The real work is done in banking backends. 
+The first backend which is already supported is AqHBCI, a library which 
+implements a client for the German HBCI (Home Banking Computer Interface) 
+protocol. 
+
+The backend AqHBCI currently supports these security media: 
+ - RDH keyfile (RSA-DES-Hybrid mode)
+ - DDV chipcard (DES-DES-Verfahren)
+ - OpenHBCI keyfile (either OpenHBCI 1 or 2, this medium allows continued use 
+                     with OpenHBCI in parallel) 
+ - PIN/TAN file (PIN/TAN mode using HTTP over SSL)
+
+
+2. Generic Financial Data Importer/Exporter Framework:
+
+AqBanking uses various plugins to simplify import and export of financial
+data. It also provides the administration of profiles on a per import/export
+plugin basis.
+
+Currently there are import plugins for the following formats: 
+ - DTAUS (German financial format)
+ - SWIFT (MT940 and MT942)
+EOF
