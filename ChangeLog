@@ -1,3 +1,34 @@
+2004-01-17 06:17  florin
+
+	* net/ppp/: BUILD, DETAILS: bump version from 2.4.1 to 2.4.2.
+	Comment the FILTER option in the BUILD because if the kernel does
+	not have ppp filtering option enabled, the module won't compile
+	(missingh net/bpf.h).
+
+2004-01-16 19:50  ratler
+
+	* libs/libxml/DETAILS: Confused Ratler fixing little misstake,
+	*sigh*
+
+2004-01-16 19:41  ratler
+
+	* libs/libxml/DETAILS: Ops, forgot to bump date
+
+2004-01-16 19:39  ratler
+
+	* libs/libxml/DETAILS: libxml have problem with paralell makes,
+	fixed
+
+2004-01-16 17:55  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Bump version. This kernel includes
+	a new arch menu, so make *config HAS to be run -you *have* to
+	select your arch again, otherwise you will get an error.
+
+2004-01-16 12:08  niki
+
+	* gnome2-extras/gal2/: DETAILS, PRE_BUILD: Bumped the version
+
 2004-01-16 11:31  niki
 
 	* gnome2-core/gnome-utils2/: BUILD, DETAILS: Bumped version, and
@@ -129,14 +160,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-01-15 18:54  niki
-
 	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
 	the version, added a depends on hicolor-icon-theme, and moved it
 	out of /opt/lunar
+
+2004-01-15 18:54  niki
+
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:22  niki
 
@@ -1808,90 +1839,4 @@
 	* net/net-tools/init.d/network: fixed some bad pratices with the !
 	-z stuff :-P fixed a bug with infinite lease times, now warns
 	instead of fails corrected slight bug with a blank gateway file
-
-2003-12-17 20:36  tchan
-
-	* filemanagers/mc/DEPENDS: Added some depends.	e2fsprogs is
-	actually a required depends since the lunar module is using
-	--with-libext2fs flag.	mc by default uses the included mcslang,
-	but this is just a stripped version of slang, so might as well use
-	the real thing.
-
-2003-12-17 20:14  tchan
-
-	* devel/arch/DETAILS: Fixed the UPDATED field for jmhodges, again.
-
-2003-12-17 19:31  tchan
-
-	* distributed/distcc/init.d/distcc: Returned init.d/distcc to
-	moonbase.  I believe distcc does work from init.d.  I returned it
-	to still give users the choice of running the daemon from init.d or
-	xinetd.
-
-2003-12-17 19:20  hardkrash
-
-	* security/nmap/DEPENDS: fix for bug 377
-
-2003-12-17 18:57  hardkrash
-
-	* utils/openmosix-tools/: BUILD, DETAILS: adding open mosix tools,
-	requires open mosix patched kernel sources in /usr/src/linux though
-
-2003-12-17 15:28  sofar
-
-	* net/ethereal/DETAILS: bumped.
-
-2003-12-17 10:40  sofar
-
-	* graphics/gtk+-2/DEPENDS, devel/tk/DEPENDS, graphics/gtk+/DEPENDS,
-	kde3/qt3/DEPENDS: You did not see this (it's for n00bs only, and
-	yeah that may be lame but having people dump on us every time is
-	lame too)
-
-2003-12-17 10:27  sofar
-
-	* distributed/distcc/init.d/distcc: The init.d script is unneeded.
-	xinetd is the proper way.
-
-2003-12-17 05:25  nhudson
-
-	* gnome2-apps/: ggv/DETAILS, gpdf/DETAILS: 
-	Updating ggv to new version 2.5.0, gpdf to new version 0.120
-
-2003-12-17 05:20  nhudson
-
-	* gnome2-apps/file-roller/DETAILS: 
-	Updating file-roller to new version 2.5.0
-
-2003-12-17 05:14  nhudson
-
-	* gnome2-apps/acme/DETAILS: 
-	Upating acme to new version 2.4.2
-
-2003-12-17 05:13  nhudson
-
-	* gnome2-apps/acme/DETAILS: 
-	Branching to GNOME_UNSTABLE
-
-2003-12-17 05:02  nhudson
-
-	* gnome2-apps/: abiword/BUILD, diacanvas2/BUILD, gnumeric2/BUILD,
-	gpdf/BUILD, meld/BUILD, mozilla-bonobo/BUILD: 
-	Moving non core apps away from /opt/lunar/gnome/2.4 and removing
-	BUILD files as they are not needed anymore.  Also removing
-	metacity-setup from moonbase as its no longer needed sue to all the
-	metacity controls are intergrated with gnome control-center now.
-
-2003-12-17 04:25  florin
-
-	* devel/autoconf/DETAILS: bump version from 2.28 to 2.59.
-
-2003-12-17 04:08  jmhodges
-
-	* devel/arch/DETAILS: new stable version.  niki, tchan, commence
-	wetting of pants
-
-2003-12-17 00:26  sofar
-
-	* audio/icecast/BUILD: Hackfix for errno.h
 
