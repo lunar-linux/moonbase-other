@@ -4,7 +4,14 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     WITH_LEGACY="y"
   fi
 
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  if  query  "Enable WPA support?" y;  then
+    WITH_WPA="y"
+  fi
+
   echo  'WITH_LEGACY='\"$WITH_LEGACY\"    >>  $MODULE_CONFIG
+  echo  'WITH_WPA='\"$WITH_WPA\"    >>  $MODULE_CONFIG
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
 
 fi

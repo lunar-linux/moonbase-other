@@ -4,6 +4,11 @@
     message "Enabling legacy firmware loading ..."
     sedit "s:# CONFIG_IPW2100_LEGACY_FW_LOAD=y:CONFIG_IPW2100_LEGACY_FW_LOAD=y:" Makefile
   fi
+
+  if [ $WITH_WPA ]; then
+    message "Enabling WPA support ..."
+    sedit "s:# CONFIG_IEEE80211_WPA=$(CONFIG_IEEE80211_CRYPT):CONFIG_IEEE80211_WPA=$(CONFIG_IEEE80211_CRYPT):" Makefile
+  fi
 	
   # Debug sucks
   message "Disabling debug messages ..."

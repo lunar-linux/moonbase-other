@@ -1,4 +1,7 @@
 (
+  
+  patch_it $SOURCE2 1	&&
+
   if [ $WITH_IPW2100 ]; then
 	OPTS="$OPTS CONFIG_DRIVER_IPW2100=y"
   fi
@@ -6,6 +9,7 @@
   for option in \
   CONFIG_DRIVER_HOSTAP=y \
   CONFIG_DRIVER_PRISM54=y \
+  $OPTS \
   CONFIG_WIRELESS_EXTENSION=y \
   CONFIG_IEEE8021X_EAPOL=y \
   CONFIG_EAP_MD5=y \
@@ -18,8 +22,7 @@
   CONFIG_EAP_SIM=y \
   CONFIG_EAP_AKA=y \
   CONFIG_EAP_PSK=y \
-  CONFIG_EAP_LEAP=y \
-  $OPTS; do
+  CONFIG_EAP_LEAP=y; do
 	echo $option >> .config;
   done &&
 
