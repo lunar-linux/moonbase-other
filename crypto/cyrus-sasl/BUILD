@@ -1,5 +1,6 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
   cp configure configure.old                                           &&
   sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/"  utils/Makefile.in \
                               sample/Makefile.in saslauthd/Makefile.in &&
