@@ -1,6 +1,7 @@
 (
 
-    ./configure --platform linux-g++         &&
+    ./configure --platform linux-g++         \
+                --install /usr/bin/install   &&
     
     make                                     &&
     make docs                                &&
