@@ -1,9 +1,10 @@
 (
-	# ppp creates /etc/ppp but we need a couple of dirs more
 
-	for dir in /etc/ppp/ip-down.d/ /etc/ppp/ip-up.d/ /etc/ppp/resolv/    
-	do
-		test -e $dir || mkdir $dir 
+  prepare_install
+	
+	# ppp creates /etc/ppp but we need a couple of dirs more
+	for dir in /etc/ppp/ip-down.d/ /etc/ppp/ip-up.d/ /etc/ppp/resolv/ ; do
+		test -e $dir || mkdir $dir
 	done
 
 	# pppconfig searches in /etc/chatscripts instead of /etc/chat, so we just link it

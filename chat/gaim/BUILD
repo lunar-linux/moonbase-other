@@ -4,6 +4,7 @@
   default_config &&
   make &&
   make -C gaim-blogger-$VERSION &&
+	prepare_install &&
   make install &&
   install -m 755 gaim-blogger-$VERSION/libblogger.so /usr/lib/gaim &&
   install -m 644 gaim-blogger-$VERSION/pixmaps/blogger.png \

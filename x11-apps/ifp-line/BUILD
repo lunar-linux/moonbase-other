@@ -1,7 +1,9 @@
 (
+
   export INSTALL=/usr/bin/install 
  
   make PREFIX=/usr &&
+	prepare_install &&
   make PREFIX=/usr install &&
   ./nonroot.sh 
 

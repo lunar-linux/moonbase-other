@@ -1,8 +1,9 @@
 (
 
 	make		&&
+	prepare_install &&
 
-# Put root-tail in place
+  # Put root-tail in place
 
 	cp root-tail /usr/bin/	&&
 	cp root-tail.man /usr/share/man/man1/

@@ -1,6 +1,8 @@
 (
+
 	./configure       &&
 	make              &&
+	prepare_install   &&
 	make install      &&
 	make installdata
 

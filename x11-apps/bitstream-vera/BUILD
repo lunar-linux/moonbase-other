@@ -1,5 +1,7 @@
 (
 
+  prepare_install &&
+
   if [ ! -d /usr/share/fonts/truetype ] ; then
     mkdir -p /usr/share/fonts/truetype
   fi 
