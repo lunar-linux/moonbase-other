@@ -21,9 +21,6 @@
   fi &&
   if [ -e /etc/init.d/cups ] ; then
     rm -f /etc/init.d/cups
-  fi &&
-  if module_installed samba ; then
-    ln -s /usr/bin/smbspool /usr/lib/cups/backend/smb
-  fi
+  fi 
 
 ) > $C_FIFO 2>&1
