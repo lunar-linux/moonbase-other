@@ -1,0 +1,22 @@
+          MODULE=doodle
+         VERSION=0.6.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://gnunet.org/doodle/download/
+      SOURCE_VFY=sha:1a70e644ccc35c60d3d0c0fe1b5b552c38835c41
+        WEB_SITE=http://gnunet.org/doodle/
+         ENTERED=20050227
+         UPDATED=20050227
+           SHORT="A tool to seach documents on a computer"
+
+cat <<EOF
+Doodle is a tool to quickly search the documents on a computer.  Doodle
+builds an index using meta-data contained in the documents and allows 
+fast searches on the resulting database.  Doodle uses libextractor to
+support obtaining meta-data from various file-formats.  The database
+used by doodle is a suffix tree, resulting in fast lookups.  Doodle
+supports approximate searches. 
+
+Indexing large volumes can take several hundred MBs of memory (depending
+on the amount of meta-data found).  Searching should nevertheless 
+require almost no memory.
+EOF
