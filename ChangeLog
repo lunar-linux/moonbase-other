@@ -1,3 +1,118 @@
+2003-09-06 11:29  florin
+
+	* games/vectoroids/: BUILD, DETAILS: modifying the data directories
+	for conforming to the LSB, bins in /usr/games, static data in
+	/usr/share/games and variable data in /var/games.
+
+2003-09-06 11:17  florin
+
+	* games/trackballs/: BUILD, DETAILS: modifying the data directories
+	for conforming to the LSB, bins in /usr/games, static data in
+	/usr/share/games and variable data in /var/games.
+
+2003-09-06 11:10  florin
+
+	* games/tuxpuck/: BUILD, DETAILS: modifying the data directories
+	for conforming to the LSB, bins in /usr/games, static data in
+	/usr/share/games and variable data in /var/games.
+
+2003-09-06 09:41  florin
+
+	* games/pysol/DETAILS: bump version from 4.81 to 4.82
+
+2003-09-06 09:36  florin
+
+	* games/openuniverse/: BUILD, DETAILS: modifying the data
+	directories for conforming to the LSB, bins in /usr/games, static
+	data in /usr/share/games and variable data in /var/games.
+
+2003-09-06 09:12  florin
+
+	* games/luola/: BUILD, DETAILS: modifying the data directories for
+	conforming to the LSB, bins in /usr/games, static data in
+	/usr/share/games and variable data in /var/games.  bumped version
+	from 1.0.3 to 1.2.0
+
+2003-09-06 05:46  csm
+
+	* utils/module-init-tools/BUILD: this module did not work properly
+	and was leaving out some things.  insmod from modutils is actually
+	a symbolic link and it was not being handled properly by this
+	module (insmod.old was not being made properly) and
+	/etc/modprobe.conf and /etc/modprobe.devfs were not being created.
+	Hopefully this will fix it for now.
+
+2003-09-06 03:26  nhudson
+
+	* gnome2-applets/gnome-blog/: BUILD, DEPENDS, DETAILS: 
+	Adding gnome-blog to moonbase which is a nice gnome applet if you
+	use a blogger from movabletype or blogger.com, it will allow you to
+	add intries to your blog from the gnome panel
+
+2003-09-06 02:20  watryac04
+
+	* audio/rhythmbox/DEPENDS: Added optional depends sound-juicer to
+	rhythmbox to add cd-ripping support.
+
+2003-09-05 23:31  jol
+
+	* kde3/: kdeaddons3/BUILD, kdeaddons3/DETAILS, kdeadmin3/BUILD,
+	kdeadmin3/DETAILS, kdeartwork3/BUILD, kdeartwork3/DETAILS,
+	kdebindings3/BUILD, kdebindings3/DETAILS, kdeedu3/BUILD,
+	kdeedu3/DETAILS, kdegames3/BUILD, kdegames3/DETAILS,
+	kdemultimedia3/BUILD, kdemultimedia3/DETAILS, kdenetwork3/BUILD,
+	kdenetwork3/DETAILS, kdepim3/BUILD, kdepim3/DETAILS, kdesdk3/BUILD,
+	kdesdk3/DETAILS, kdetoys3/BUILD, kdetoys3/DETAILS, kdeutils3/BUILD,
+	kdeutils3/DETAILS: Fix problem with ccache
+
+2003-09-05 23:22  jol
+
+	* kde3/kdegraphics3/: BUILD, DETAILS: Fixed prlbem with ccache
+
+2003-09-05 23:20  jol
+
+	* kde3/kdebase3/: BUILD, DETAILS: Fixed problem with ccache
+
+2003-09-05 23:17  jol
+
+	* kde3/: arts/BUILD, arts/DETAILS, kdelibs3/BUILD,
+	kdelibs3/DETAILS: Fixed problem with ccache
+
+2003-09-05 23:14  jol
+
+	* devel/PyQt/DETAILS: Bumped Version  OLD: 3.7	NEW: 3.8
+
+2003-09-05 23:05  nhudson
+
+	* audio/rhythmbox/DETAILS: 
+	Updating rhythmbox to new version 0.5.3
+
+2003-09-05 22:32  jol
+
+	* libs/qscintilla/BUILD: Fixed BUILD: create a libqscintilla.so
+	link to libqscintilla.so.3. it's tocompile PyQt 3.8 with qscintilla
+	support.
+
+2003-09-05 22:21  jol
+
+	* devel/sip/DETAILS: Bumped version OLD: 3.7  NEW: 3.8
+
+2003-09-05 22:19  jol
+
+	* libs/qscintilla/DETAILS: Bumped version OLD: 1.53  NEW: 1.54
+
+2003-09-05 15:57  florin
+
+	* video/MPlayer/DETAILS: bump version from 0.91 to 1.0pre1
+
+2003-09-05 14:58  florin
+
+	* audio/xmms/DETAILS: added the md5 sum
+
+2003-09-05 14:43  florin
+
+	* audio/xmms/DETAILS: bump version from 1.2.7 to 1.2.8
+
 2003-09-05 09:25  jasper
 
 	* graphics/gtk+-2/DETAILS: emergency release to fix GtkTreeView
@@ -1636,61 +1751,4 @@
 2003-08-07 02:39  csm
 
 	* security/xinetd/DETAILS: updating xinetd to the latest version
-
-2003-08-06 21:39  jasper
-
-	* web/mozilla/CONFIGURE, web/mozilla/DEPENDS, web/mozilla/DETAILS,
-	x11-apps/openoffice-bin/DETAILS: Fix j2sdk issue for mozilla and
-	bump updated filed for OO as well
-
-2003-08-06 21:25  jasper
-
-	* x11-apps/openoffice-bin/: CONFIGURE, DEPENDS, DETAILS: Fix for
-	the j2sdk issue. Updated to 1.1rc2. Please test: csm reported font
-	problems, I don't see them.
-
-2003-08-06 19:36  jasper
-
-	* libs/dbh/DEPENDS: This can be dumped now as well
-
-2003-08-06 19:32  jasper
-
-	* libs/dbh/: BUILD, DETAILS: Updating dbh, builds fine now without
-	BUILD
-
-2003-08-06 14:52  sofar
-
-	* distributed/BitTorrent/DEPENDS: Needed, it can't live without
-	Python!
-
-2003-08-06 11:52  niki
-
-	* kernel/: linux/POST_INSTALL, linux-beta/POST_INSTALL,
-	linux-grsec/POST_INSTALL, linux-stable/POST_INSTALL,
-	linux-vanilla/POST_INSTALL: Moe told me that users still can have
-	the old nvidia driver installed.
-
-2003-08-06 09:50  sofar
-
-	* distributed/BitTorrent/DEPENDS: BitTorrent doesn't need WxPython
-	to run... this enables us to run BitTorrent on dbguin serving files
-	without installing gtk/xfree86. =^D
-
-2003-08-06 03:38  niki
-
-	* kernel/linux-grsec/POST_INSTALL: Your welcome Nick ;-)
-	
-	Changing this one to also rebuild NVIDIA instead of NVIDIA_kernel
-
-2003-08-06 03:10  nhudson
-
-	* kernel/: linux/POST_INSTALL, linux-beta/POST_INSTALL,
-	linux-stable/POST_INSTALL, linux-vanilla/POST_INSTALL: 
-	Changing these to rebuild NVIDIA instead of NVIDIA_kernel
-
-2003-08-06 03:04  nhudson
-
-	* x11/xfree86/POST_INSTALL: 
-	Changing the POST_INSTALL to recompile the newer NVIDIA module
-	instead of the NVIDIA_GLX module
 
