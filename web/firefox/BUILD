@@ -2,10 +2,12 @@
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
   OPTS="$OPTS --enable-strip --enable-strip-libs"
+  OPTS="$OPTS --enable--application=browser"
+  OPTS="$OPTS --with-system-zlib --with-system-png --with-system-jpeg"
   OPTS="$OPTS --disable-mathml"
   OPTS="$OPTS --disable-accessibility"
   OPTS="$OPTS --disable-jsd"
-  OPTS="$OPTS --enable-xft"
+  OPTS="$OPTS --enable-xft --disable-freetype2"
   OPTS="$OPTS --enable-xterm-updates"
   OPTS="$OPTS --disable-ldap"
   OPTS="$OPTS --enable-svg --enable-svg-renderer-cairo"
@@ -13,13 +15,9 @@
   OPTS="$OPTS --enable-single-profile --disable-profilesharing" 
 
   export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
-  export MOZ_NSS_AUTOCONF=1
-  export NATIVE_THEME_SUPPORT=1
   export MOZ_PHOENIX=1
   export MOZILLA_OFFICIAL=1
-  export BUILD_OPT=1
-
-  echo "$OPTS" > /tmp/mozz
+  export BUILD_OFFICIAL=1
 
   ./configure \
     --prefix=/usr	\
@@ -45,6 +43,11 @@
     $OPTS               &&
               
     default_make	&&
+
+    # Put some important headers in place
+    install -d /usr/include/firefox-1.0/nss &&
+    cp -Lf dist/private/nss/*.h dist/public/nss/*.h \
+    		/usr/include/firefox-1.0/nss &&
 
     # Install the plugins in the right direction
     mkdir -p /opt/lunar/plugins		&&
