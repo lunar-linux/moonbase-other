@@ -1,10 +1,10 @@
 unset CC CXX
 (
 
-  patch_it  $SOURCE2 1  &&
-  patch_it  $SOURCE3 1  &&
-  patch_it  $SOURCE4 0  &&
-  patch_it  $SOURCE5 1  &&
+  patch_it  $SOURCE_CACHE/$SOURCE2 1  &&
+  patch_it  $SOURCE_CACHE/$SOURCE3 1  &&
+  patch_it  $SOURCE_CACHE/$SOURCE4 0  &&
+  patch_it  $SOURCE_CACHE/$SOURCE5 1  &&
 
   sedit "s/doc//"       Makefile.am   &&
   sedit "s/doc//"       Makefile.in   &&
