@@ -1,0 +1,10 @@
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  if  query  "Enable UTF8 characterset?" y;  then
+    OPTS="$OPTS --enable-utf8"
+  fi
+
+  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+
+fi
