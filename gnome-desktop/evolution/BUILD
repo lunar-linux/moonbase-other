@@ -6,12 +6,12 @@
     message "an active X windows connection. i.e. $DISPLAY is set."
   fi								 &&
 
-  ./configure  --prefix=${GNOME26_PREFIX:-/usr}             \
+  ./configure  --prefix=${GNOME28_PREFIX:-/usr}             \
                --build=$BUILD                    	    \
                --sysconfdir=/etc                 	    \
                --localstatedir=/var              	    \
-               --infodir=${GNOME26_PREFIX:-/usr}/share/info \
-               --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
+               --infodir=${GNOME28_PREFIX:-/usr}/share/info \
+               --mandir=${GNOME28_PREFIX:-/usr}/share/man   \
                --enable-ipv6                                \
                --enable-gtk-doc                             \
                $OPTS                                        &&
