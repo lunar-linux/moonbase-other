@@ -1,9 +1,9 @@
 (
-   export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
 
-   ./configure  --prefix=/opt/lunar/gnome/2                     \
-		--infodir=/opt/lunar/gnome/2/share/info		\
-		--mandir=/opt/lunar/gnome/2/share/man		\
+   ./configure  --prefix=/opt/lunar/gnome/2.4                     \
+		--infodir=/opt/lunar/gnome/2.4/share/info	  \
+		--mandir=/opt/lunar/gnome/2.4/share/man		  \
+                $OPTS                                             &&
 
    default_make
    

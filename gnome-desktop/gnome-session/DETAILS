@@ -1,17 +1,15 @@
            MODULE=gnome-session
-         VERSION=2.2.1
+         VERSION=2.4.0
           SOURCE=$MODULE-$VERSION.tar.bz2
-          SOURCE2=fade-to-grey.patch
-          SOURCE3=gnome-splash2.png
+          SOURCE2=gnome-splash24.png
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/$MODULE/2.2/$SOURCE
-   SOURCE2_URL=$PATCH_URL/$SOURCE2
-   SOURCE3_URL=http://www.lunar-linux.org/lunar/art/$SOURCE3
+      SOURCE_VFY=md5:6a7acf3429b927c69e18019f9ec6fa9f
+   SOURCE_URL[0]=$GNOME_URL/sources/$MODULE/2.4/$SOURCE
+   SOURCE2_URL=http://www.lunar-linux.org/lunar/art/$SOURCE2
         WEB_SITE=http://www.gnome.org
          ENTERED=20020714
-         UPDATED=20030611
-           SHORT="Gnome Session is a session manager for the Gnome 
-Desktop"
+         UPDATED=20030912
+           SHORT="Gnome Session"
 cat << EOF
-Gnome Session is a session manager for the Gnome Desktop
+Gnome Session
 EOF

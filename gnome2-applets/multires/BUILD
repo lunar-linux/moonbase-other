@@ -1,17 +1,15 @@
 (
-   export PATH=/opt/lunar/gnome/2/bin:$PATH &&
-   export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
   
    # Wrong path 
-   sedit '/\/usr\/bin/ s/\/usr\/bin/\/opt\/lunar\/gnome\/2\/bin/g' \
+   sedit '/\/usr\/bin/ s/\/usr\/bin/\/opt\/lunar\/gnome\/2.4\/bin/g' \
      src/GNOME_MultiresApplet.server.in
    
    ./configure  --build=$BUILD					\
                 --sysconfdir=/etc                               \
-                --prefix=/opt/lunar/gnome/2			\
+                --prefix=/opt/lunar/gnome/2.4			\
 		--localstatedir=/var				\
-		--infodir=/opt/lunar/gnome/2/share/info		\
-		--mandir=/opt/lunar/gnome/2/share/man		&&
+		--infodir=/opt/lunar/gnome/2.4/share/info	\
+		--mandir=/opt/lunar/gnome/2.4/share/man		&&
 
    default_make
    

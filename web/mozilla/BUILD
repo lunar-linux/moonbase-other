@@ -69,7 +69,6 @@
     EXTENTIONS="$EXTENTIONS,-help"
   fi
 
-  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig:/opt/lunar/gnome/2/lib/pkgconfig
   export MOZ_NSS_AUTOCONF=1
   export NATIVE_THEME_SUPPORT=1
 

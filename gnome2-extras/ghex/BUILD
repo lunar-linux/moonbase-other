@@ -1,14 +1,12 @@
 (
-   export PATH=/opt/lunar/gnome/2/bin:$PATH &&
-   export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
    
-   patch_it $SOURCE_CACHE/$SOURCE2 1
    
     ./configure --sysconfdir=/etc                               \
-                --prefix=/opt/lunar/gnome/2			\
+                --prefix=/opt/lunar/gnome/2.4			\
 		--localstatedir=/var				\
-		--infodir=/opt/lunar/gnome/2/share/info		\
-		--mandir=/opt/lunar/gnome/2/share/man		\
+		--infodir=/opt/lunar/gnome/2.4/share/info	\
+		--mandir=/opt/lunar/gnome/2.4/share/man		\
+                $OPTS                                           &&
 
    default_make
 

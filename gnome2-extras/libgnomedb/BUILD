@@ -1,20 +1,15 @@
 (
-   export GCONF_CONFIG_SOURCE=/opt/lunar/gnome/2/bin &&
-   export PATH=/opt/lunar/gnome/2/bin:$PATH &&
-   export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
+   export GCONF_CONFIG_SOURCE=/opt/lunar/gnome/2.4/bin &&
 
    ./configure  --build=$BUILD					\
                 --sysconfdir=/etc                               \
-                --prefix=/opt/lunar/gnome/2			\
+                --prefix=/opt/lunar/gnome/2,4			\
 		--localstatedir=/var				\
-		--infodir=/opt/lunar/gnome/2/share/info		\
-		--mandir=/opt/lunar/gnome/2/share/man		\
-		--disable-gtk-doc				&&
+		--infodir=/opt/lunar/gnome/2.4/share/info	\
+		--mandir=/opt/lunar/gnome/2.4/share/man		\
+                $OPTS                                           &&
 
-   make    &&
-   prepare_install &&
-   touch doc/C/html/index.sgml &&
-   make install  
+default_make
 
 ) > $C_FIFO 2>&1
 

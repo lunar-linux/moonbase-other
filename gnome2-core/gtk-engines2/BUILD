@@ -1,13 +1,13 @@
 (
-   export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
    
-   ./configure  --build=$BUILD					\
-                --sysconfdir=/etc                               \
+   ./configure  --build=$BUILD			\
+                --sysconfdir=/etc               \
                 --prefix=/usr			\
-		--localstatedir=/var				\
-                --libdir=/usr/lib                               \
+		--localstatedir=/var		\
+                --libdir=/usr/lib               \
 		--infodir=/usr/info		\
-		--mandir=/usr/man		&&
+		--mandir=/usr/man		\
+                $OPTS                           &&
 
    default_make
   

@@ -1,23 +1,15 @@
 (
-   export PATH=/opt/lunar/gnome/2/bin:$PATH &&
-   export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
-
-if  [ "$FADE" == "y" ] ; then
-   cd gnome-session &&
-   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-   cd $SOURCE_DIRECTORY 
-fi
    
    ./configure  --build=$BUILD					\
                 --sysconfdir=/etc                               \
-                --prefix=/opt/lunar/gnome/2			\
+                --prefix=/opt/lunar/gnome/2.4			\
 		--localstatedir=/var				\
-		--infodir=/opt/lunar/gnome/2/share/info		\
-		--mandir=/opt/lunar/gnome/2/share/man		\
-		--enable-platform-gnome-2			&&
+		--infodir=/opt/lunar/gnome/2.4/share/info	\
+		--mandir=/opt/lunar/gnome/2.4/share/man		\
+		$OPTS                       			&&
 
    default_make                                                 &&
-   cp $SOURCE_CACHE/$SOURCE3 /opt/lunar/gnome/2/share/pixmaps/splash/gnome-splash.png 
+   cp $SOURCE_CACHE/$SOURCE2 /opt/lunar/gnome/2.4/share/pixmaps/splash/gnome-splash.png
 
 ) > $C_FIFO 2>&1
 
