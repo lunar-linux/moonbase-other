@@ -1,3 +1,42 @@
+2004-04-02 08:48  sofar
+
+	* compilers/php/: DEPENDS, DETAILS: Patch supplied by Andrew Knott
+
+2004-04-02 02:04  nhudson
+
+	* web/epiphany/DETAILS: 
+	Updating epiphany to new version 1.2.2
+
+2004-04-02 02:02  nhudson
+
+	* gnome2-core/: control-center2/DETAILS, gnome-desktop/DETAILS,
+	gnome-games2/DETAILS, gnome2-user-docs/DETAILS,
+	nautilus-media/DETAILS: 
+	Last of the Gnome 2.6.0 updates
+
+2004-04-01 19:15  tchan
+
+	* audio/libsndfile/DETAILS: Fixed the indentation. Removed the
+	outdated MAINTAINER line.
+
+2004-04-01 19:12  cmak
+
+	* audio/libsndfile/DETAILS: fixed md5sum
+
+2004-04-01 19:08  florin
+
+	* kde3-apps/lincvs/DETAILS: bump the version from 1.3.0 to 1.3.1.
+
+2004-04-01 13:14  nhudson
+
+	* gnome2-core/: libbonoboui/DETAILS, libwnck/DETAILS: 
+	Updating libwnck and libbonoboui for now I will update the rest of
+	Gnome 2.6.0 desktop later today when I get home from work
+
+2004-04-01 12:48  sofar
+
+	* utils/uptimed/init.d/uptimed: Hopefully this is the last tweak
+
 2004-04-01 10:38  moe
 
 	* video/MPlayer-essentials/DETAILS: Eat my swo .. ok, enough of
@@ -806,6 +845,11 @@
 
 2004-03-18 04:22  nhudson
 
+	* audio/rhythmbox/CONFIGURE: file CONFIGURE was initially added on
+	branch GNOME_UNSTABLE.
+
+2004-03-18 04:22  nhudson
+
 	* audio/rhythmbox/: CONFIGURE, POST_INSTALL: 
 	Adding iPod support to rhythmbox if you have a iPod and want to set
 	things up refer to the README.iPod file in Gnome CVS
@@ -814,11 +858,6 @@
 	&rev=&root=/cvs/gnome
 	
 	Have fun
-
-2004-03-18 04:22  nhudson
-
-	* audio/rhythmbox/CONFIGURE: file CONFIGURE was initially added on
-	branch GNOME_UNSTABLE.
 
 2004-03-18 04:02  nhudson
 
@@ -1973,132 +2012,4 @@
 	prism54 module, so far it compiles but my card doesnt seem to wanna
 	work.  Please for those who have 54G cards test this with your card
 	to see if it works.-
-
-2004-03-02 23:42  watryac04
-
-	* audio/gqmpeg/DETAILS: New version of GQmpeg available, works fine
-	here
-
-2004-03-02 23:27  watryac04
-
-	* audio/glame/DETAILS: forgot to bump UPDATED
-
-2004-03-02 23:26  watryac04
-
-	* audio/glame/DETAILS: New glame.  compiled and tested on kernel
-	2.6.3, gcc 3.2.3
-
-2004-03-02 23:10  nhudson
-
-	* zbeta/openoffice-src/BUILD: 
-	Java = Bad for oo-src compile
-
-2004-03-02 22:21  watryac04
-
-	* archive/par/DETAILS: Running through old modules.  This one had a
-	non-updated UPDATED field.
-
-2004-03-02 21:56  tchan
-
-	* crypto/openssh/Makefile: Added at sofar's request, the -N '' to
-	the server key lines.
-
-2004-03-02 17:37  niki
-
-	* kernel/linux-grsec/POST_INSTALL: Sorry, forgot about this...
-
-2004-03-02 16:47  hardkrash
-
-	* science/pikdev/: BUILD, DEPENDS, DETAILS: added pikdev a kde
-	frontend to pic microcontroler programming
-
-2004-03-02 15:45  tchan
-
-	* graphics/svgalib/: BUILD, DETAILS: Added an sedit for compiling
-	this module under gcc-3.3.x.  Compiled and tested with gcc-3.3.3,
-	kernel-headers 2.4.x.
-
-2004-03-02 14:33  niki
-
-	* kernel/linux-grsec/DETAILS: Bumped kernel version to 2.4.25, and
-	updated the patchset version to r5.0.0
-
-2004-03-02 14:31  niki
-
-	* kernel/linux/DETAILS: Bumped kernel version to 2.4.25, and
-	changed patchset version to r5.0.0.
-
-2004-03-02 14:31  moe
-
-	* zbeta/openoffice-src/DETAILS: Tiny fix
-
-2004-03-02 13:32  nhudson
-
-	* zbeta/openoffice-src/BUILD: 
-	God I hate typos
-
-2004-03-02 13:30  nhudson
-
-	* zbeta/openoffice-src/DEPENDS: 
-	Adding in a depends ...
-
-2004-03-02 13:26  nhudson
-
-	* zbeta/openoffice-src/: BUILD, DETAILS: 
-	Adding java to BUILD dont know why it didnt get copied over
-
-2004-03-02 13:00  nhudson
-
-	* zbeta/openoffice-src/: BUILD, DEPENDS, DETAILS, PRE_BUILD,
-	build-ooo: 
-	Updating the openoffice-src module, seems to build again now
-
-2004-03-02 04:42  tchan
-
-	* kde3/qt3/: BUILD, DETAILS: Fixed indentation for DETAILS file. 
-	Fixed a more serious bash logic problem for florin, in that
-	QT_PREFIX is not set and QTDIR is set to $SOURCE_DIRECTORY in early
-	part of BUILD script so that forces QT_PREFIX to install into
-	$SOURCE_DIRECTORY.  Not the intended effect.  Set QT_PREFIX to a
-	sane default.  Tested fix and compiled with gcc-3.3.3 and
-	kernel-headers 2.4.x.
-
-2004-03-02 04:10  nhudson
-
-	* audio/esound/DETAILS: 
-	Updating esound to new version 0.2.33
-
-2004-03-02 04:08  nhudson
-
-	* gnome2-apps/gok/DETAILS: 
-	Updating gok to 0.9.9
-
-2004-03-02 04:07  nhudson
-
-	* gnome2-core/at-spi/DETAILS: 
-	Updating at-spi to new version 1.3.14
-
-2004-03-02 04:05  nhudson
-
-	* libs/: glib-2/DETAILS, pango/DETAILS: 
-	Updating glib-2 to new version 2.3.5 and pango to 1.3.5
-
-2004-03-02 01:10  watryac04
-
-	* zbeta/ntop/: BUILD, DETAILS: old version was broken, so it's been
-	updated (last update was 2 years ago).	Doesn't build with kernel
-	2.6 headers, but this is already better than it was.  At least it
-	builds on 2.4 now.  I'll check into the ntop 3.0 stuff. Maybe that
-	handles 2.6.x as well.	Either way, this is a bit better than it
-	was before.
-
-2004-03-02 00:11  nhudson
-
-	* devel/: rexml/DETAILS, ruby-gnome2/DETAILS: 
-	Adding a md5 to rexml and updating ruby-gnome2 module
-
-2004-03-02 00:09  nhudson
-
-	* devel/rexml/DETAILS: 
-	Updating rexml to new version 2.7.4
 
