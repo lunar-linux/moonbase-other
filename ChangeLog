@@ -1,3 +1,107 @@
+2003-09-02 03:37  elaine
+
+	* docs/Linux-HOWTOs/DETAILS: cleared md5 / source changes too often
+
+2003-09-02 03:36  nhudson
+
+	* web/epiphany/DETAILS: 
+	Updating epiphany to new version 0.9.3
+
+2003-09-02 03:24  nhudson
+
+	* zbeta/gnumeric2/DETAILS: 
+	Updating gnumeric2 to new version 1.1.20
+
+2003-09-02 03:22  nhudson
+
+	* gnome2-apps/conglomerate/DETAILS: 
+	Updating conglomerate to new version 0.7.1
+
+2003-09-01 23:54  elaine
+
+	* docs/Linux-HOWTOs/DETAILS: added md5sum
+
+2003-09-01 21:50  hardkrash
+
+	* kde3/qt3/BUILD: Corrected && so that a failed build will fail.
+	:-P
+
+2003-09-01 21:06  nhudson
+
+	* sql/: sqlite/DETAILS, sybase-ase/BUILD, sybase-ase/DETAILS: 
+	Updating sqlite to new version 2.8.6
+
+2003-09-01 21:03  nhudson
+
+	* devel/: gtk-sharp/DETAILS, ruby-gnome2/DETAILS: 
+	Updating gtk-sharp and ruby-gnome2 to new version
+
+2003-09-01 20:50  nhudson
+
+	* gnome2-extras/libgnomedb/DETAILS: 
+	Updating libgnomedb to new version 0.90.0
+
+2003-09-01 20:49  nhudson
+
+	* gnome2-core/libgda2/: DEPENDS, DETAILS: 
+	Updating libgda2 to new version and adding in some optional depends
+
+2003-09-01 20:24  nhudson
+
+	* compilers/: mcs/BUILD, mcs/DETAILS, mono/DETAILS: 
+	Updating mono and mcs to new verson 0.26
+
+2003-09-01 18:45  tchan
+
+	* news/pan2/DETAILS: Version bump to 0.14.2.  Compiled and tested
+	with gcc-3.2.3, glibc-2.3.2.  Works great for me.
+
+2003-09-01 17:43  sofar
+
+	* audio/swh-plugins/: BUILD, CONFLICTS: Removing unnecessary
+	conflicts with automake/conf and fixing BUILD
+
+2003-09-01 17:38  elaine
+
+	* audio/libvorbis/: BUILD, CONFLICTS: removed auto-tools conflicts
+	and removed sedit of ./configure* files
+
+2003-09-01 16:56  elaine
+
+	* chat/xchat/DEPENDS: reverting per tchan, improper CONFLICTS with
+	automake
+
+2003-09-01 16:55  sofar
+
+	* crypto/cryptoapi/: BUILD, CONFLICTS: fixed autoconf|make
+	conflicts... removed!
+
+2003-09-01 15:45  elaine
+
+	* chat/xchat/DEPENDS: Adding automake depend at drew's suggestion
+
+2003-09-01 15:42  elaine
+
+	* kernel/linux-stable/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD:
+	Bumped version; corrected backup of modules, kernel; fixed
+	lilo.conf edits
+
+2003-09-01 15:37  nhudson
+
+	* graphics/gthumb/DETAILS: 
+	Updating gthumb to new version 2.1.6
+
+2003-09-01 15:35  nhudson
+
+	* gnome2-apps/: conglomerate/DETAILS, gnome-network/DETAILS: 
+	Updating gnome-network to new version 1.99.1 and congolmerate to
+	new version 0.7.0
+
+2003-09-01 15:33  nhudson
+
+	* video/totem/DETAILS: 
+	Updating totem to new version 0.99.3
+
 2003-08-31 22:33  sofar
 
 	* video/: xine-lib/BUILD, xine-lib/DETAILS, xine-ui/DETAILS:
@@ -1676,53 +1780,4 @@
 	Added the correct FIFO stuff for the BUILD script.  Please follow
 	the standard moonbase indentation, especially for the DETAILS
 	scripts.
-
-2003-08-02 22:35  nhudson
-
-	* gnome2-core/libgnomeprintui/DEPENDS: 
-	I took out libgnomeui as a dependancy and added libgnomecanvas
-
-2003-08-02 18:55  elaine
-
-	* crypto/krb5/DETAILS: Version bump kerberos from 1.3.x now builds
-	ok with gcc 3.2x
-
-2003-08-02 18:07  nhudson
-
-	* mail/evolution/DETAILS: 
-	Updating evolution to new version 1.4.4
-
-2003-08-02 14:33  nhudson
-
-	* gnome2-extras/: gal2/DETAILS, gnome-spell/DETAILS: 
-	Updating gal2 to new version 1.99.9 and gnome-spell to new version
-	1.0.5
-
-2003-08-02 14:32  nhudson
-
-	* gnome/gtkhtml3/DETAILS: 
-	Updating gtkhtml3 to new version 3.0.8 for the new evolution
-	version
-
-2003-08-02 14:29  nhudson
-
-	* audio/esound/DETAILS: 
-	Updating esound to new version 0.2.30
-
-2003-08-02 06:49  jmhodges
-
-	* graphics/pil/BUILD: missed this during the python 2.3 debacle
-
-2003-08-02 06:11  jmhodges
-
-	* devel/metakit/: BUILD, DEPENDS: metakit sucks, if a version bump
-	happens ill be estactic because this is an ugly ass BUILD. 
-	metakit's python support had hardcoded paths to python 2.2 and a
-	variable rename in python borked things (LONG_LONG is now
-	PY_LONG_LONG).
-
-2003-08-02 01:46  tchan
-
-	* compilers/Python/POST_INSTALL: Added a default true line so as to
-	not confuse installwatch.
 
