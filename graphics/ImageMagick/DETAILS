@@ -1,25 +1,28 @@
           MODULE=ImageMagick
-     BASEVERSION=6.0.0
-         VERSION=6.0.0-7
+     BASEVERSION=6.0.1
+         VERSION=6.0.1
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$BASEVERSION
-   SOURCE_URL[0]=ftp://ftp.imagemagick.org/pub/ImageMagick/$SOURCE
-   SOURCE_URL[1]=http://imagemagick.sourceforge.net/http/$SOURCE
-      SOURCE_VFY=md5:2248f8f0ecc71bd04f12b95283dfb934
+   SOURCE_URL[0]=$SFORGE_URL/imagemagick/$SOURCE
+   SOURCE_URL[1]=ftp://ftp.imagemagick.org/pub/ImageMagick/$SOURCE
+   SOURCE_URL[2]=http://imagemagick.sourceforge.net/http/$SOURCE
+      SOURCE_VFY=md5:a539d5967b9bac05f4cf39b2d6ffbbb0
         WEB_SITE=http://www.imagemagick.org
       MAINTAINER=sofar@lunar-linux.org
          ENTERED=20010922
-         UPDATED=20040429
+         UPDATED=20040507
          PSAFE=no
-       SHORT="Automated and interactive manipulation of images."
+         SHORT="Automated and interactive manipulation of images."
 cat << EOF
-ImageMagick (TM) is a package for the automated and interative manipulation of 
-images. It supports the display and interactive manipulation of images when 
-used with the X Window System. Although the software is copyrighted, it is 
-available for free and can be redistributed without fee. ImageMagick may be 
-used as a component of both open source and proprietary applications. 
-ImageMagick compiles and runs under Unix, Linux, Windows '95 and later, Apple 
-MacOS, and Compaq VMS. Binary packages are available for most operating systems.
-Application programming interfaces (APIs) are provided to support development 
-of image processing applications in the C, C++, and Perl languages.
+ImageMagick (TM) is a package for the automated and interative
+manipulation of images. It supports the display and interactive
+manipulation of images when used with the X Window System. Although
+the software is copyrighted, it is available for free and can be
+redistributed without fee. ImageMagick may be used as a component of
+both open source and proprietary applications.  ImageMagick compiles
+and runs under Unix, Linux, Windows '95 and later, Apple MacOS, and
+Compaq VMS. Binary packages are available for most operating systems.
+Application programming interfaces (APIs) are provided to support
+development of image processing applications in the C, C++, and Perl
+languages.
 EOF
