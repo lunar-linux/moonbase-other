@@ -1,4 +1,7 @@
 depends jpeg   &&
 depends libpng &&
 depends glut   &&
-depends qt3
+optional_depends "qt3"                                     \
+		 "--with-kde --without-gtk"                \
+		 "--without-kde --without-gtk"             \
+                 "Build with qt3 GUI say no for GLUT gui"
