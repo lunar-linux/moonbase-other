@@ -1,19 +1,27 @@
           MODULE=airsnort
-         VERSION=0.2.3c
+         VERSION=0.2.4a
           SOURCE=airsnort-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/airsnort-$VERSION
-   SOURCE_URL[0]=$SFORGE_URL/airsnort/$SOURCE
-      SOURCE_VFY=md5:1b3634ebf10276ef722dd9525dd91337
+      SOURCE_URL=$SFORGE_URL/airsnort/$SOURCE
+      SOURCE_VFY=md5:e07e3bd7f2a95b54140e8109a5bd512d
         WEB_SITE=http://airsnort.shmoo.com/
          ENTERED=20030107
-         UPDATED=20040205
+         UPDATED=20040729
       MAINTAINER=michalsc@email.uc.edu
            SHORT="AirSnort is a wireless LAN (WLAN) tool which recovers encryption keys"
+
 cat << EOF
-AirSnort is a wireless LAN (WLAN) tool which recovers encryption keys. AirSnort operates by passively monitoring transmissions, computing the encryption key when enough packets have been gathered. 
-
-802.11b, using the Wired Equivalent Protocol (WEP), is crippled with numerous security flaws. Most damning of these is the weakness described in " Weaknesses in the Key Scheduling Algorithm of RC4 " by Scott Fluhrer, Itsik Mantin and Adi Shamir. Adam Stubblefield was the first to implement this attack, but he has not made his software public. AirSnort, along with WEPCrack, which was released about the same time as AirSnort, are the first publicly available implementaions of this attack. 
-
-
-AirSnort requires approximately 5-10 million encrypted packets to be gathered. Once enough packets have been gathered, AirSnort can guess the encryption password in under a second. 
+AirSnort is a wireless LAN (WLAN) tool which recovers encryption keys. 
+AirSnort operates by passively monitoring transmissions, computing the 
+encryption key when enough packets have been gathered. 
+802.11b, using the Wired Equivalent Protocol (WEP), is crippled with 
+numerous security flaws. Most damning of these is the weakness described 
+in "Weaknesses in the Key Scheduling Algorithm of RC4" by Scott Fluhrer, 
+Itsik Mantin and Adi Shamir. Adam Stubblefield was the first to implement 
+this attack, but he has not made his software public. AirSnort, along with 
+WEPCrack, which was released about the same time as AirSnort, are the 
+first publicly available implementaions of this attack. 
+AirSnort requires approximately 5-10 million encrypted packets to be 
+gathered. Once enough packets have been gathered, AirSnort can guess the 
+encryption password in under a second. 
 EOF
