@@ -5,6 +5,10 @@
   devoke_installwatch                                     &&
 
   set -x
+  if [ "`arch`" == "alpha" ]; then
+  	export CFLAGS="$CFLAGS -fPIC"
+	export CXXFLAGS="$CXXFLAGS -fPIC"
+  fi
   ./configure  --prefix=/usr                              \
                --disable-dependency-tracking              \
                --without-bench                            \
