@@ -1,10 +1,16 @@
           MODULE=vixie-cron
-         VERSION=3.0.1
-          SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=$LRESORT_URL/
+         VERSION=4.1
+        PVERSION=1.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-patches-$PVERSION.tar.bz2
+      SOURCE_URL=http://lunar-linux.org/lunar/mirrors/
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:e353e13ef889fd27a8e52616a552fad64049aa6e
+     SOURCE2_VFY=sha1:72d25df48306ac0afdf720c43e736249cc5a1894
         WEB_SITE=unknown
+      MAINTAINER=ratler@lunar-linux.org
          ENTERED=20030301
-         UPDATED=20030301
+         UPDATED=20050222
            SHORT="vixie-cron is a periodic scheduler"
 cat << EOF
 This is a version of 'cron' that is known to run on linux systems.
