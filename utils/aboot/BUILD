@@ -1,8 +1,6 @@
 (  
-   if [ "x`arch`" == "xalpha" ]; then
-     cd $SOURCE_DIRECTORY &&
-     make                 &&
-     prepare_install      &&
-     make install
-   fi
+   cd $SOURCE_DIRECTORY &&
+   make                 &&
+   prepare_install      &&
+   make install
 ) > $C_FIFO
