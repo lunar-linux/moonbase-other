@@ -1,11 +1,7 @@
 (
 
-#cleanup is necessary
-
-  if [ -d /tmp/netpbm ]; then
-     rm -Rf /tmp/netpbm
-  fi                                &&
-
+  sedit "s:/tmp/netpbm:$(pwd -P)/BUILD:g" Makefile.config.in buildtools/installnetpbm.pl doc/README.DJGPP
+  sedit "s/CC = cc/CC = gcc/" Makefile.config.in &&
   echo  -e  "
 gnu
 regular
@@ -26,12 +22,11 @@ default
 
 
 " | ./configure    &&
-  sedit "s/CC = cc/CC = gcc/" Makefile.config &&
   make             &&
   make package     &&
   prepare_install  &&
-  
-    echo -e "/tmp/netpbm
+
+    echo -e "$(pwd -P)/BUILD
 /usr
 /usr/bin
 /usr/lib
@@ -43,6 +38,3 @@ N
 " | ./installnetpbm
 
 ) > $C_FIFO 2>&1
-
-
-
