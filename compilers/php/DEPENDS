@@ -53,10 +53,10 @@ optional_depends  "mysql"                       \
                   ""                            \
                   "for native MySQL support"    &&
 
-optional_depends "freetds"                         \
-                 "--with-sybase=/usr" \
-                 ""                                \
-                 "for SyBase support"              &&
+optional_depends "freetds"                      \
+                 "--with-sybase=/usr"           \
+                 ""                             \
+                 "for SyBase support"           &&
 
 optional_depends "freetype2"                    \
                  "--with-freetype-dir=/usr"     \
@@ -69,10 +69,15 @@ optional_depends "pdflib"                       \
                  "for pdflib support"           &&
 
 optional_depends "gd"                           \
-                 "--with-gd \
-                  --enable-gd-native-ttf \
-                  --with-jpeg-dir=/usr   \
-                  --with-png-dir=/usr    \
-                  --with-zlib"           \
+                 "--with-gd                     \
+                  --enable-gd-native-ttf        \
+                  --with-jpeg-dir=/usr          \
+                  --with-png-dir=/usr           \
+                  --with-zlib"                  \
                  ""                             \
-                  "for on the fly graphics"
+                  "for on the fly graphics"     &&
+
+optional_depends "curl"                         \
+                 "--with-curl                   \
+		 ""                             \
+		 "for curl support"
