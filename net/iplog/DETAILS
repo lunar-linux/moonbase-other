@@ -1,12 +1,15 @@
           MODULE=iplog
          VERSION=2.2.3
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=iplog-2.2.3-gcc3.3.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=$SFORGE_URL/ojnk/$SOURCE
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
       SOURCE_VFY=md5:de98dd64018ab10ebe36e481cf00b7db
+     SOURCE2_VFY=md5:a6db9e9298576567a35b13e65be5d9e7
         WEB_SITE=http://ojnk.sourceforge.net/
          ENTERED=20040306
-         UPDATED=20040306
+         UPDATED=20040419
            SHORT="iplog is a TCP/IP traffic logger similar to tcpdump"
 cat << EOF
 iplog is a TCP/IP traffic logger.  Currently, it is capable of logging TCP,
@@ -23,4 +26,4 @@ a network.
 
 iplog uses libpcap to read data from the network and can be ported to any
 system that supports pthreads and on which libpcap will function.
-
+EOF
