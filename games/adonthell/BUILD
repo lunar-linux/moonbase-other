@@ -1,7 +1,8 @@
 (
 
-  ./configure --prefix=/usr --bindir=/usr/share/games/adonthell &&
-  default_make                                                  &&
-  ln -s /usr/share/games/adonthell/adonthell /usr/games/adonthell
-
+  ./configure --prefix=/usr               \
+              --bindir=/usr/games         \
+	      --datadir=/usr/share/games && 
+  default_make                           
+  
 ) > $C_FIFO 2>&1

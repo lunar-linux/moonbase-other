@@ -1,7 +1,8 @@
 (
-    PATH=${PATH}:/usr/games &&
-    ./configure --prefix=/usr --bindir=/usr/share/games/wastesedge &&
-    default_make						   &&
-    ln -s /usr/share/games/wastesedge/adonthell-wastesedge /usr/games/adonthell-wastesedge
 
+  ./configure --prefix=/usr               \
+              --bindir=/usr/games         \
+	      --datadir=/usr/share/games && 
+  default_make                           
+  
 ) > $C_FIFO 2>&1
