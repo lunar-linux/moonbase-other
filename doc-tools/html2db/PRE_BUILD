@@ -1,0 +1,7 @@
+mk_source_dir $SOURCE_DIRECTORY &&
+unpack $SOURCE                 &&
+cd $MODULE
+unpack $SOURCE2
+cd tidy
+patch_it $SOURCE_CACHE/$SOURCE3 0
+cd /usr/src/$MODULE

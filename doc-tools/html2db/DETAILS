@@ -1,0 +1,24 @@
+          MODULE=html2db
+         VERSION=0.1
+	  SOURCE=html2db.tar.gz
+         SOURCE2=tidy_src_030307.tgz
+         SOURCE3=newpatch
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL[0]=http://www.cise.ufl.edu/~ppadala/tidy/$SOURCE
+  SOURCE2_URL[0]=http://tidy.sourceforge.net/src/old/$SOURCE2
+  SOURCE3_URL[0]=http://www.cise.ufl.edu/~ppadala/tidy/$SOURCE3
+        WEB_SITE="http://www.cise.ufl.edu/~ppadala/tidy/"
+         ENTERED=20030724
+         UPDATED=20030724
+      MAINTAINER=elaine@lunar-linux.org
+           SHORT="html2db is a small utility to convert HTML to Docbook SGML/XML."
+cat << EOF
+html2db is a small utility to convert HTML to Docbook SGML/XML. It uses 
+TidyLib for parsing the HTML. For information on Docbook, visit 
+http://www.docbook.org
+
+This tool is rudimentary / alpha, no manpage, relies on a specific version
+of htmltidy which is built just for this module:
+
+usage: html2db [-dbsgml | -dbxml]  htmlfile
+EOF
