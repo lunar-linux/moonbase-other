@@ -1,0 +1,38 @@
+          MODULE=grub
+         VERSION=0.92
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.gnu.org/software/grub/$SOURCE
+  #SOURCE_URL[0]=ftp://alpha.gnu.org/gnu/grub/$SOURCE
+  #SOURCE_URL[0]=http://www.funet.fi/pub/gnu/alpha/gnu/grub/$SOURCE
+        WEB_SITE=http://www.gnu.org/software/grub
+         ENTERED=20020310
+         UPDATED=20020906
+           SHORT="GNU GRUB boot loader"
+      MAINTAINER=tpchan@attbi.com 
+cat << EOF
+GNU GRUB is a Multiboot boot loader. It was derived from GRUB, GRand
+Unified Bootloader, which was originally designed and implemented by
+Erich Stefan Boleyn. Briefly, bootloader is the first software program
+that runs when a computer starts. It is responsible for loading and
+transferring control to the operating system kernel software (such as
+the Hurd or the Linux). The kernel, in turn, initializes the rest of
+the operating system (e.g. GNU).  Now with JFS and XFS support!
+
+Sample commands to install grub on an ide hard drive with a boot
+partition at /dev/hda1, swap at /dev/hda2, and root at /dev/hda3 are:
+
+~# grub
+grub> root (hd0,0)
+grub> setup (hd0)
+grub> quit
+
+Sample /boot/grub/menu.lst file is:
+
+default 0
+timeout 30
+title=Lunar kernel 2.4.19
+root (hd0,0)
+kernel /vmlinubz-2.4.19 root=/dev/discs/disc0/part3 devfs=nomount
+
+EOF
