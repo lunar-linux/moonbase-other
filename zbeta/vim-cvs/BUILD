@@ -12,10 +12,7 @@
                --with-features=big       \
                $OPTS                    &&
   
-  make                                   &&
-  prepare_install                        &&
-  make install                           &&
-  ln  -sf  /usr/bin/vim  /usr/bin/vi     &&
-  cp -f $SCRIPT_DIRECTORY/vimrc /usr/share/vim/vim61/sample.vimrc
+  default_make                           &&
+  ln  -sf  /usr/bin/vim  /usr/bin/vi     
 
 ) > $C_FIFO 2>&1
