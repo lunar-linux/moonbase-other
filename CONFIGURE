@@ -10,18 +10,5 @@ if  !  grep  -q  "CRON="  $MODULE_CONFIG;  then
 
 fi
 
+mquery IDENT_QUERIES "enable ident queries? [not recommended]" n
 
-if  !  grep  -q  "IDENT_QUERIES="  $MODULE_CONFIG;  then
-
-  message  "Exim, by default, queries the ident server of"
-  message  "the connecting host. Timeout value is 30 seconds."
-  message  "If there is no identd running at the connecting"
-  message  "host, that 30 seconds becomes a connection delay"
-  message  "for every new connection."
-
-  if    query  "Do you want to enable ident queries?"  y
-     then  echo   "IDENT_QUERIES=y"  >>  $MODULE_CONFIG
-     else  echo   "IDENT_QUERIES=n"  >>  $MODULE_CONFIG
-  fi
-
-fi
