@@ -1,5 +1,6 @@
 (
-  cp $SCRIPT_DIRECTORY/term.sh . &&
+  cp $SCRIPT_DIRECTORY/term.sh .    &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
   ./configure  --with-sys-screenrc=/etc/screenrc  \
                --prefix=/usr                      \
