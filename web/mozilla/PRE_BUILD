@@ -1,4 +1,5 @@
 (
+  patchdir=$SOURCE_DIRECTORY/$MODULE-$VERSION-lunar &&
   mk_source_dir $SOURCE_DIRECTORY &&
 
   cd $BUILD_DIRECTORY &&
@@ -6,8 +7,17 @@
 
   cd $SOURCE_DIRECTORY &&
   unpack $SOURCE2 &&
+#  patch_it $patchdir/xpfe-bootstrap.diff 0
+
+if [ "$ENIG" == "y" ] ; then
+  cd $SOURCE_DIRECTORY/extensions &&
+  unpack $SOURCE3 &&
+  unpack $SOURCE4 &&
+  patch_it $patchdir/enigmail-src.diff 1 
+fi
 
   # Lunar branding
-  patch -p1 < mozilla-$VERSION-lunar/mozilla-lunar-home-page.patch				&&
-  patch -p1 < mozilla-$VERSION-lunar/mozilla-lunar-mail-home-page.patch
+  cd $SOURCE_DIRECTORY &&
+  patch_it $patchdir/mozilla-lunar-home-page.patch 1 &&
+  patch_it $patchdir/mozilla-lunar-mail-homepage.patch 0
 )

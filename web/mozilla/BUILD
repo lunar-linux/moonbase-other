@@ -1,4 +1,4 @@
-(
+( export patchdir=$SOURCE_DIRECTORY/$MODULE-$VERSION-lunar &&
   EXTENTIONS="--enable-extensions=default,finger"
 
   STRIP_TEST=$(echo "$LDF" | grep "Strip")
@@ -9,7 +9,7 @@
 
   # I'm considerign Gtk+1 obsolete here
   if [ "$GTK" == "y" ] ; then
-    OPTS="$OPTS --disable-toolkit-gtk2 --enable-default-toolkit=gtk2 --enable-toolkit=gtk2 --with-gtk2"
+    OPTS="$OPTS --disable-toolkit-gtk --enable-default-toolkit=gtk2 --enable-toolkit=gtk2 --with-gtk2"
   else
     OPTS="$OPTS --enable-toolkit-gtk"
   fi 
@@ -95,13 +95,26 @@
               --disable-pedantic						\
               --disable-debug							\
               --disable-dtd-debug						\
+              --enable-cpp-rtti                                                 \
               $OPTS								\
               $EXTENTIONS							&&
+make &&
 
-  default_make &&
-  cp mozilla-1.3.1-lunar/mozilla.desktop /usr/share/applications &&
-  cp mozilla-1.3.1-lunar/mozilla-mail.desktop /usr/share/applications &&
-  cp mozilla-1.3.1-lunar/mozilla.png /usr/share/pixmaps &&
-  cp mozilla-1.3.1-lunar/mozilla-mail.png /usr/share/pixmaps 
+if [ "$ENIG" == "y" ] ; then
+  cd extensions/ipc &&
+  make         &&
+  cd ../enigmail &&
+  make &&
+  make install 
+fi &&
+
+cd $SOURCE_DIRECTORY &&
+
+make install &&
+
+  cp $patchdir/mozilla.desktop /usr/share/applications &&
+  cp $patchdir/mozilla-mail.desktop /usr/share/applications &&
+  cp $patchdir/mozilla.png /usr/share/pixmaps &&
+  cp $patchdir/mozilla-mail.png /usr/share/pixmaps 
 
 ) > $C_FIFO 2>&1

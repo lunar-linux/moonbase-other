@@ -1,5 +1,6 @@
-cp $SOURCE_DIRECTORY/mozilla-$VERSION-lunar/mozilla-lunar-bookmarks.html /usr/lib/mozilla-$VERSION/defaults/profile/bookmarks.html
-cp $SOURCE_DIRECTORY/mozilla-$VERSION-lunar/mozilla-lunar-bookmarks.html /usr/lib/mozilla-$VERSION/defaults/profile/US/bookmarks.html
+export patchdir=$SOURCE_DIRECTORY/$MODULE-$VERSION-lunar
+cp $patchdir/mozilla-lunar-bookmarks.html /usr/lib/mozilla-$VERSION/defaults/profile/bookmarks.html
+cp $patchdir/mozilla-lunar-bookmarks.html /usr/lib/mozilla-$VERSION/defaults/profile/US/bookmarks.html
 
 # Ugly, eeek, explains need for chrooted installs
 if [ "-d /usr/lib/mozilla-$VERSION/plugins" ] ; then
@@ -10,6 +11,10 @@ fi
 # Symlink
 cd /usr/lib
 rm -Rf /usr/lib/mozilla
+ln -sf "mozilla-$VERSION" mozilla
+
+cd /usr/include
+rm -Rf /usr/include/mozilla
 ln -sf "mozilla-$VERSION" mozilla
 
 cd /usr/lib/mozilla-$VERSION
@@ -27,3 +32,8 @@ echo "locale,install,select,en-US" >> chrome/installed-chrome.txt
 ./regchrome
 
 ln -sf /usr/lib/j2sdk1.4.1/jre/plugin/i386/mozilla/javaplugin_oji.so /usr/lib/mozilla/plugins/javaplugin_oji.so 
+
+rm -fr $BOOST_LOCK
+
+if module_installed epiphany; then lin -c -r epiphany; fi
+if module_installed galeon2; then lin -c -r galeon2; fi

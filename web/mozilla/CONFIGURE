@@ -6,6 +6,14 @@ if  ! grep -q "MAIL"  $MODULE_CONFIG; then
   fi
 fi
 
+if ! grep -q "ENIG"  $MODULE_CONFIG; then
+  if query "Build Enigmail for GPG Support" y;  then
+    echo  "ENIG=y" >> $MODULE_CONFIG
+  else
+    echo  "ENIG=n" >> $MODULE_CONFIG
+  fi
+fi
+
 # In this version we can finaly, not build composer
 if  ! grep -q "COM"  $MODULE_CONFIG; then
   if  query  "Include mozilla Composer (gui html editing)?" y; then
@@ -120,3 +128,4 @@ if  ! grep -q "STRIP_TEST"  $MODULE_CONFIG; then
      echo  "STRIP_TEST=n"  >>  $MODULE_CONFIG
   fi
 fi
+
