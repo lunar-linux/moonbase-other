@@ -2,9 +2,13 @@
   
   patch_it $SOURCE2 1	&&
 
+  if module_installed ndiswrapper;  then
+	OPTS="$OPTS CONFIG_DRIVER_NDISWRAPPER=y"
+  fi &&
+
   if [ $WITH_IPW2100 ]; then
 	OPTS="$OPTS CONFIG_DRIVER_IPW2100=y"
-  fi
+  fi &&
 
   for option in \
   CONFIG_DRIVER_HOSTAP=y \
