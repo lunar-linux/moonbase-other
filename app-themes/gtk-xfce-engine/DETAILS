@@ -1,13 +1,16 @@
-          MODULE=gtk-xfce-engine
-         VERSION=2.0.10
-          SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$SFORGE_URL/xfce/$SOURCE
-        WEB_SITE=http://www.xfce.org
-         ENTERED=20020612
-         UPDATED=20021009
-           SHORT="gtk2 theme engine from xfce project"
-cat << EOF
-xfce is a lightweight desktop for various UNIX systems. this is the theme engine for the next generation of xfce.
-EOF
+MODULE=gtk-xfce-engine
+VERSION=2.1.2
+RELEASE=rc1
+SOURCE=${MODULE}-${VERSION}.tar.gz
+SOURCE_URL[0]="http://www.xfce.org/archive/xfce4-${RELEASE}/src/${SOURCE}"
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${MODULE}-${VERSION}
+WEBSITE=http://www.xfce.org
+ENTERED=20030715
+UPDATED=20030715
+SHORT="A GTK2 theme engine."
 
+cat << EOF
+gtk-xfce-engine is a theme engine for GTK2 written by the lead developer of
+the XFce project, Olivier Fourdan.
+
+EOF
