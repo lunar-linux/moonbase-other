@@ -1,6 +1,8 @@
 #Running rebuild-docbook-catalog due to the linglade installer
 #putting the right entry into the wrong docbook-catalog file
-if [ -d /usr/sbin/rebuild-docbook-catalog ]; then
+if [ -x /usr/sbin/rebuild-docbook-catalog ]; then
       echo Rebuilding your docbook catalogs &&
       /usr/sbin/rebuild-docbook-catalog
+else
+      true
 fi
