@@ -4,8 +4,6 @@
     WITH_PAM="--with-pam"
   fi
 
-set -x
-
   ./configure  --sysconfdir=/etc        \
                --prefix=/usr            \
                --mandir=/usr/share/man  \
@@ -13,8 +11,6 @@ set -x
                --with-everything        \
                $WITH_PAM                \
                $OPTS                    &&
-
-set +x
 
   make                              &&
   prepare_install                   &&
