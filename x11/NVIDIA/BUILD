@@ -6,6 +6,7 @@
   make    install                              &&
   cp    -d  /usr/lib/libGL*   /usr/X11R6/lib   &&
   cp    -a  usr/include/GL/*  /usr/include/GL  &&
+  rm -f /usr/X11R6/lib/libMesaGL.so            &&
   rm -fR $SOURCE_DIRECTORY/*                   &&
   rm $SOURCE_DIRECTORY/.manifest               &&
   cd $BUILD_DIRECTORY                          &&
