@@ -32,4 +32,10 @@ restart () {
 }
 
 
+status () {
+  echo -n "Checking for Postfix master process: "
+  pidof master &> /dev/null && echo -e $RESULT_OK || echo -e $RESULT_FAIL
+}
+
+
 . /lib/lsb/init-functions
