@@ -1,3 +1,45 @@
+2003-12-04 09:36  niki
+
+	* net/rsync/DETAILS: Bumped rsync to 2.5.7, this fixes a possible
+	heap overflow which is suspeced to have been used to compromise the
+	debian systems, and together with the do_brk bug in the kernel it
+	can give root access.
+
+2003-12-04 07:33  niki
+
+	* utils/gradm/DETAILS: Forgot all about updating this module to the
+	new version when i release the new linux-grsec.
+
+2003-12-03 20:24  florin
+
+	* x11-utils/fontconfig/DEPENDS: remove the xfree86 module from
+	DEPENDS file. it is necessary for xfree86-dev compiling too.
+
+2003-12-03 20:21  florin
+
+	* zbeta/xfree86-dev/: BUILD, CONFIGURE, CONFLICTS, DEPENDS,
+	DETAILS, POST_INSTALL, xsession, pam.d/xdm: a developement snapshot
+	of xfree86. it is intended to be compiled undex 2.6 kernels
+	(although it will work under the others too).
+
+2003-12-03 19:48  sofar
+
+	* graphics/ImageMagick/DETAILS: New version
+
+2003-12-03 15:42  tchan
+
+	* kernel/linux-vanilla/DETAILS: Just noticed that KEEP_SOURCE was
+	not being set in DETAILS file.	Added that one line.
+
+2003-12-03 15:25  florin
+
+	* video/mkvtoolnix/DETAILS: bump version from 3.7.7 to 3.7.8.
+
+2003-12-03 12:29  ratler
+
+	* chat/irssi/: DEPENDS, DETAILS: Bumped version and added required
+	dependency
+
 2003-12-03 10:54  niki
 
 	* kernel/linux-grsec/POST_INSTALL: Just added some of the stuff
@@ -1540,13 +1582,4 @@
 
 	* gnome2-core/libbonobo/DETAILS: 
 	Updating libbonobo to new version 2.4.2
-
-2003-11-03 05:21  tchan
-
-	* libs/fltk/DETAILS: Version bump to 1.1.4.  Compiled and tested
-	with gcc-3.2.3 and glibc-2.3.2.
-
-2003-11-03 01:15  florin
-
-	* kde3-apps/kcmpureftpd/DETAILS: bump version from 0.8 to 0.9.
 
