@@ -1,7 +1,7 @@
 # only lin -r will trigger the driver chooser
 
 if [ -n "$RECONFIGURE" ] || query "Select specific video drivers to build?" n ; then        
-    ALL_XORG_DRIVERS="vga vesa v4l mga glint nv tga s3virge sis rendition neomagic i740 tdfx savage cirrus vmware tseng trident chips apm GlideDriver fbdev i128 ati i810 ark cyrix siliconmotion AgpGartDrivers DevelDrivers XF86OSCardDrivers"
+    ALL_XORG_DRIVERS=$(cat $SCRIPT_DIRECTORY/drivers | cut -d: -f1)
     XORG_DRIVERS=$(get_module_config XORG_DRIVERS)
     if [ -z "$XORG_DRIVERS" ]; then
         XORG_DRIVERS="$ALL_XORG_DRIVERS"
@@ -10,18 +10,21 @@ if [ -n "$RECONFIGURE" ] || query "Select specific video drivers to build?" n ; 
     # if it's empty we just enable all
     list_xorg_drivers()
     {
+      (
+        unset IFS
         for DRIVER in $ALL_XORG_DRIVERS; do
             echo $DRIVER
-            echo "driver"	
+            echo $(grep ^$DRIVER: $SCRIPT_DIRECTORY/drivers | cut -d: -f2-)
             if echo $XORG_DRIVERS | grep -qw $DRIVER; then
                 echo on
             else
                 echo off
             fi
         done
+      )
     }
 
-    XORG_DRIVERS=`dialog --backtitle "XOrg video driver selection" --stdout --separate-output --checklist "Key:  [X] = on, [ ] = off" 0 0 0 $(list_xorg_drivers)`
+    IFS="$TAB_ENTER_IFS" XORG_DRIVERS=`dialog --backtitle "XOrg video driver selection" --stdout --separate-output --checklist "Key:  [X] = on, [ ] = off" 0 0 0 $(list_xorg_drivers)`
     # hack to strip newlines
     set_module_config XORG_DRIVERS "$(echo $XORG_DRIVERS)"
 fi
