@@ -1,13 +1,14 @@
            MODULE=stunnel
-         VERSION=4.04
+         VERSION=4.05
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://www.stunnel.org/download/stunnel/src/$SOURCE
+      SOURCE_VFY=md5:e28a03cf694a43a7f144ec3d5c064456
         WEB_SITE=http://stunnel.mirt.net/
-      SOURCE_VFY=md5:2fcdf0311a0ab8a3223293c706a84e97
          ENTERED=20011108
-         UPDATED=20030903
-           SHORT="stunnel: multiplatform SSL tunneling proxy"
+         UPDATED=20040216
+        SHORT="stunnel: multiplatform SSL tunneling proxy"
+
 cat << EOF
 The stunnel program is designed to work as an SSL encryption wrapper between
 remote client and local (inetd-startable) or remote server. It can be used to
@@ -15,7 +16,4 @@ add SSL functionality to commonly used inetd daemons like POP2, POP3, and IMAP
 servers without any changes in the programs' code. 
 Stunnel uses OpenSSL or SSLeay libraries for cryptography, so it supports
 whatever cryptographic algorithms you compiled into your library. 
-See stunnel(8) manual for details.
-
-For UDP forwarding, also look at zebedee
 EOF
