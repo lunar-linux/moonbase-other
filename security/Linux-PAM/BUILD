@@ -5,8 +5,6 @@
     export  HAVE_SGML2LATEX=no
   fi
 
-  sedit "s:/sbin/ldconfig:/usr/sbin/ldconfig:" configure &&
-
   cat >> modules/pam_limits/limits.skel << EOF
 
 #lunar hack to disable core dumps  
