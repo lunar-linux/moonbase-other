@@ -1,3 +1,73 @@
+2004-03-22 09:37  sofar
+
+	* kernel/linux-openmosix/: DETAILS, PRE_BUILD: Bumping after this
+	kernel has testrun for 72 hours non-stop. it is *VITAL* that you
+	recompile your openmosix-tools AFTER installing the kernel, or
+	otherwise you will see strange things.
+
+2004-03-22 05:48  tchan
+
+	* devel/qemu/BUILD: Small mod to make qemu/BUILD more portable.
+
+2004-03-22 05:44  florin
+
+	* games/tuxkart/DETAILS: bump the version from 0.2.0 to 0.4.0.
+
+2004-03-22 05:41  florin
+
+	* kde3-apps/k3b/DETAILS: bump the version from 0.11.6 to 0.11.7.
+
+2004-03-22 05:36  florin
+
+	* kde3/kdemultimedia3/DEPENDS: vorbis-tools already depends on
+	libvorbis.
+
+2004-03-22 05:24  florin
+
+	* graphics/plib/DETAILS: bump the version from 1.6.0 to 1.8.0.
+
+2004-03-21 23:31  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump. Be warned, this
+	dropped dead before login on my box!
+
+2004-03-21 22:06  sofar
+
+	* utils/theedge/DETAILS: Bumping UPDATED for good reasons
+
+2004-03-21 20:53  sofar
+
+	* utils/theedge/POST_INSTALL: Kernel OOPS
+
+2004-03-21 20:49  sofar
+
+	* utils/theedge/POST_INSTALL: New updating method required with
+	lunar core tools.
+
+2004-03-21 19:53  jol
+
+	* kde3/kdemultimedia3/DEPENDS: - remove optional depends of xanim,
+	not required by kde 3.2 - add ogg vorbis as optional depends
+
+2004-03-21 18:11  tchan
+
+	* zbeta/kvirc/DETAILS: Fixed some typos.  We don't use the
+	MAINTAINER line unless its for lunar devs.
+
+2004-03-21 17:26  florin
+
+	* zbeta/kvirc/: BUILD, DEPENDS, DETAILS: a "friendly" irc client
+	proposed by ep98.
+
+2004-03-21 15:03  florin
+
+	* chat/xchat/DETAILS: fix the commit day.
+
+2004-03-21 15:02  florin
+
+	* chat/xchat/: BUILD, DETAILS: bump the version from 2.0.7 to
+	2.0.8.
+
 2004-03-21 07:09  florin
 
 	* x11-wm/fvwm/DETAILS: bump the version from 2.4.17 to 2.4.18.
@@ -2371,98 +2441,4 @@
 2004-02-21 06:10  florin
 
 	* news/leafnode/DETAILS: bump version from 1.9.46 to 1.9.50.
-
-2004-02-20 23:16  tchan
-
-	* utils/sparc-utils/DETAILS: Fixed my typo in the download URLs.
-
-2004-02-20 22:26  nestu
-
-	* filesys/udev/DETAILS: Bump version. Tested by peltco.
-
-2004-02-20 21:36  tchan
-
-	* kernel/: linux-stable/DETAILS, linux-vanilla/DETAILS: Version
-	bump to 2.4.25 for another security fix.
-
-2004-02-20 18:33  tchan
-
-	* filesys/reiserfsprogs/DETAILS: minor style fixes to the DETAILS
-	file.
-
-2004-02-20 17:03  florin
-
-	* filesys/reiserfsprogs/DETAILS: add the md5 sum.
-
-2004-02-20 16:09  tchan
-
-	* filesys/reiserfsprogs/DETAILS: Version bump 3.6.13.  Compiled and
-	tested with gcc-3.3.3 and kernel headers 2.4.x
-
-2004-02-20 14:08  ratler
-
-	* cd/cdrtools/BUILD: Fixing build problem with smake
-
-2004-02-20 14:06  ratler
-
-	* graphics/freetype1/DETAILS: Oops typo
-
-2004-02-20 12:42  ratler
-
-	* graphics/freetype1/: BUILD, DETAILS: Fixed so freetype1 now
-	compiles with gcc-3.3.x and lower of course
-
-2004-02-20 12:38  nestu
-
-	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: Version bump
-
-2004-02-20 11:50  sofar
-
-	* utils/coreutils/BUILD: BUGFIX, set PATH=/bin:/usr/bin to make
-	sure no bash searchpath corruption occurs. Needs testing on
-	machines going from 5.0 to 5.2.0 !!!
-
-2004-02-20 10:53  sofar
-
-	* net/dante/: DETAILS, init.d/sockd: Submitted by
-	simon.brenner@home.se
-
-2004-02-20 10:08  sofar
-
-	* x11/ati/: BUILD, DEPENDS, DETAILS, PRE_BUILD: ATI 8500 ant 9x00
-	series graphics drivers, just as the NVIDIA this is a binary
-	module. Please revert all flames to ati.com.
-
-2004-02-20 09:56  sofar
-
-	* utils/coreutils/BUILD: Coreutils breaks because /usr/bin/mv is
-	being mv'ed... workaround by using cp and rm
-
-2004-02-20 07:51  tchan
-
-	* utils/coreutils/: DETAILS, POST_REMOVE: Its that time again -- a
-	new coreutils.	This is relatively painless. Just make sure your
-	/var/lib/lunar/protected file is current.  I've bumped that file in
-	theedge and lunar, with fixes for coreutils installation.  Lots of
-	new features and bug fixes since 5.0.  Compiled and tested with
-	gcc-3.3.3, on 4 very different lunar boxes.  Even works great on
-	sparc64.
-
-2004-02-20 04:39  florin
-
-	* kde3-apps/konserve/DETAILS: bump version from 0.10.1 to 0.10.2.
-
-2004-02-20 03:30  tchan
-
-	* audio/faad/DEPENDS: Striker says id3lib depends is needed.
-
-2004-02-20 02:29  tchan
-
-	* audio/faad/: BUILD, DEPENDS, DETAILS, PRE_BUILD: Version bump to
-	faad2-2.0.  Made xmms an optional_depends.  This module compiles
-	just fine withOUT id3lib and vorbis-tools.  id3lib and vorbis-tools
-	are NOT depends that the configure script recognizes nor are they
-	mentioned in any docs.	So I removed them from the DEPENDS file. 
-	Someone that uses xmms and faad plugin will need to test this some
-	more.  Compiles with gcc-3.3.3.
 
