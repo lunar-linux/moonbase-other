@@ -15,16 +15,6 @@ if [ "$CONSOLEPLUGIN" = "y" ] ; then
   make                                            
 fi                                                &&
 
-if [ "$GTKPLUGIN" = "y" ] ; then
-  cd  $SOURCE_DIRECTORY/plugins/jons-gtk-gui      &&
-  CPPFLAGS=$CPPFLAGS" -Wno-deprecated"            \
-  ./configure  --prefix=/usr                      \
-               --sysconfdir=/etc                  \
-	       --localstatedir=/var               \
- 	       $OPTS                              &&
-  make
-fi                                                &&
-
 if [ "$QTPLUGIN" = "y" ] ; then
  if  module_installed  qt3;  then
 
@@ -50,11 +40,6 @@ fi                                                &&
   cd  $SOURCE_DIRECTORY/plugins/console           &&
   make    install                                  
  fi                                               &&
- 
- if [ "$GTKPLUGIN" = "y" ] ; then
-  cd $SOURCE_DIRECTORY/plugins/jons-gtk-gui       &&
-  make    install
-fi
  
  if [ "$QTPLUGIN" = "y" ] ; then
   if  module_installed  qt3;  then
