@@ -1,7 +1,6 @@
 (
 
   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
 
   if  module_installed  Linux-PAM;  then
     WITH_LIBPAM="--with-libpam"
@@ -18,11 +17,9 @@
                --localstatedir=/var  \
                --with-libcrack       \
                $WITH_LIBPAM          \
-               $OPTS                 &&
+               $OPTS                &&
  
-  make                               &&
-  prepare_install                    &&
-  make    install
+  default_make
 
 ) > $C_FIFO 2>&1  && (
 
