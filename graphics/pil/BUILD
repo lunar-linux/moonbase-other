@@ -1,7 +1,7 @@
 (
 
   export CC="cc $CFLAGS"
-  cat $SCRIPT_DIRECTORY/pil.patch | patch -p0
+  patch_it $SOURCE3 0
   cd libImaging                     &&
   ./configure     --prefix=/usr      \
                   $OPTS             &&
