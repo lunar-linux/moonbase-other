@@ -6,13 +6,14 @@
      rm -Rf /tmp/netpbm
   fi                                &&
 
-  echo  -e  "gnu
+  echo  -e  "
+gnu
 regular
 shared
-y
-libtiff.so
-default
+n
 libjpeg.so
+default
+libtiff.so
 default
 libpng.so
 default
@@ -42,3 +43,6 @@ N
 " | ./installnetpbm
 
 ) > $C_FIFO 2>&1
+
+
+
