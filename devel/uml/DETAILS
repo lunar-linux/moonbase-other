@@ -1,0 +1,28 @@
+          MODULE=uml
+             PKG=linux
+          KERNEL=2.4.19    
+         VERSION=$KERNEL-5
+          SOURCE=$PKG-$KERNEL.tar.bz2
+         SOURCE2=$MODULE-patch-$VERSION.bz2 
+         SOURCE3=${MODULE}_utilities_20020906.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.4/$SOURCE
+   SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.4/$SOURCE
+  SOURCE2_URL[0]=$SFORGE_URL/user-mode-linux/$SOURCE2
+  SOURCE3_URL[0]=$SFORGE_URL/user-mode-linux/$SOURCE3
+        WEB_SITE=http://user-mode-linux.sourceforge.net/index.html
+         ENTERED=20020913
+         UPDATED=20020916
+           SHORT="User-Mode Linux is a safe, secure way of running Linux versions and processes."
+      MAINTAINER=tpchan@attbi.com
+cat << EOF
+User-Mode Linux gives you a virtual machine that may have more hardware and
+software virtual resources than your actual, physical computer. Disk storage
+for the virtual machine is entirely contained inside a single file on your
+physical machine. You can assign your virtual machine only the hardware access
+you want it to have. With properly limited access, nothing you do on the
+virtual machine can change or damage your real computer, or its software.
+
+Please visit this URL for sample root_fs file systems:
+http://user-mode-linux.sourceforge.net/dl-fs-sf.html
+EOF
