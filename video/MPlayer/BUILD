@@ -26,7 +26,7 @@
 
   cp -r  fonts  /usr/share/mplayer  &&
   
-  if [ -d /usr/share/mplayer/font ]; then
+  if [ -e /usr/share/mplayer/font ]; then
     rm -rf /usr/share/mplayer/font
   fi &&
 
