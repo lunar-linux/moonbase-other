@@ -2,12 +2,12 @@
 
   message ""
   message "To run the OO installer you must have access to your X server."
-  message "Please open a new xterm and type xhost +localhost to give root access"
+  message "Please open a new xterm and type xhost +local: to give root access"
   message ""
 
   query "Press enter to continue..." ok
 
-  export DISPLAY=localhost:0.0
+  export DISPLAY=:0.0
 
   prepare_install                                               &&
   devoke_installwatch                                           &&
