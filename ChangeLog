@@ -1,3 +1,47 @@
+2005-02-23 10:16  sofar
+
+	* libs/readline/BUILD: mod: properly install inputrc, change order
+	  a bit, beautified, and ldconfig isn't needed.
+
+2005-02-23 10:05  sofar
+
+	* net/net-tools/init.d/netmount: I hate these... they screw up the
+	  order badly
+
+2005-02-22 19:49  florin
+
+	* app-themes/hicolor-icon-theme/DETAILS: move it from graphics.
+
+2005-02-22 19:42  florin
+
+	* graphics/ImageMagick/DETAILS: bump the version from 6.1.9 to
+	  6.2.0.
+
+2005-02-22 19:06  florin
+
+	* archive/afio/DETAILS: use sha1 sum instead of md5.
+
+2005-02-22 19:01  florin
+
+	* archive/flexbackup/: BUILD, DEPENDS, DETAILS: bump the version
+	  from 1.2.1a to 1.2.1.
+
+2005-02-22 17:15  florin
+
+	* audio/flac/DETAILS: revert the version to 1.1.1. in the 1.1.2
+	  version the metadata interface was changed and this breaks the
+	  compile of k3b and xmms modules.
+
+2005-02-22 16:22  florin
+
+	* chat/ircservices/DETAILS: bump the version from 5.0.45 to 5.0.46.
+
+2005-02-22 14:25  ratler
+
+	* utils/vixie-cron/: BUILD, DEPENDS, DETAILS, crontab, pam.d/crond:
+	  Reworked vixie-cron. Now supports pam and get a proper
+	  /etc/crontab installed. Version bumped to 4.1
+
 2005-02-22 13:30  moe
 
 	* profiles/docbook-profile/: DETAILS, POST_INSTALL: meh, broken. We
@@ -1762,90 +1806,4 @@
 	* zbeta/rpm/DEPENDS: Removed db as a depends in rpm.  rpm ONLY
 	  compiles correctly when it uses its own internal copies of the db
 	  libs, which are db-4.1.x based.
-
-2005-01-23 23:54  tchan
-
-	* x11-apps/: xemacs/DETAILS, xemacs-base/DETAILS,
-	  xemacs-efs/DETAILS: Version bump to xemacs-21.4.16,
-	  xemacs-base-1.94, xemacs-efs-1.33. Compiled and tested with
-	  gcc-3.3.3, glibc-2.3.3, openMotif-2.1.30-5, kernel headers 2.4.x.
-	  Not tested with the gtk+ or gnome-libs gui interfaces (as those
-	  are known to be buggy and are listed as EXPERIMENTAL).
-
-2005-01-23 22:03  tchan
-
-	* chat/gaim-encryption/DETAILS: Version bump to
-	  gaim-encryption-2.33. Compiled/tested with gcc-3.3.3,
-	  glibc-2.3.3, gaim-1.1.2, kernel headers 2.4.x.
-
-2005-01-23 21:57  tchan
-
-	* web/links2/DETAILS: Version bump to links2 2.1pre16.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-01-23 20:11  perldude
-
-	* perl/: ExtUtils-Depends/DETAILS, ExtUtils-PkgConfig/DETAILS:
-	  version bump
-
-2005-01-23 16:40  florin
-
-	* audio/qjackctl/DETAILS: bump the version from 0.2.13 to 0.2.14.
-
-2005-01-23 16:33  v3rt1g0
-
-	* games/tintin/: BUILD, DETAILS: Version bump and cleaned up BUILD
-	  a bit.
-
-2005-01-23 16:29  nestu
-
-	* kernel/linux-2.6-prepatch/DETAILS: 2.6.11-rc1 -> 2.6.11-rc2. gcc
-	  3.3.3, glibc 2.3.2, glibc 2.6.10.0
-
-2005-01-23 13:23  florin
-
-	* libs/aqbanking/DEPENDS: add libofx as an optional depend.
-
-2005-01-23 12:48  florin
-
-	* ftp/dctc/DEPENDS: revert the change.
-
-2005-01-23 12:19  florin
-
-	* libs/aqbanking/DETAILS: bump the version from 1.0.1beta to
-	  1.02beta.
-
-2005-01-23 12:09  florin
-
-	* graphics/gimp/DETAILS: bump the version from 2.2.2 to 2.2.3.
-
-2005-01-23 12:06  florin
-
-	* ftp/dctc/DEPENDS: dctc works just fine with db4.
-
-2005-01-23 11:03  jol
-
-	* kde3-utils/kio-locate/DETAILS: - Bumped version to 0.3.4
-
-2005-01-23 10:57  jol
-
-	* kde3-apps/karchiver/: BUILD, DETAILS: - Add a patch to compile
-	  karchiver with gcc 3.4
-
-2005-01-23 10:48  jol
-
-	* kde3-apps/filelight/: BUILD, DETAILS: - Bumped version to
-	  1.0-beta6 because the 0.6.4.1 version doesn't compile with gcc
-	  3.4
-
-2005-01-23 10:46  jol
-
-	* video/mjpegtools/BUILD: forgot to add BUILD file ... :)
-
-2005-01-23 10:35  jol
-
-	* video/mjpegtools/DETAILS: - Add patch allowing to compile
-	  mjpegtools with gcc 3.4 - Add patch to fix correct creation of
-	  shared library
 
