@@ -31,10 +31,10 @@
   echo  "#define InstallXserverSetUID YES"      >> config/cf/host.def &&
   echo  "#define BuildServersOnly NO"           >> config/cf/host.def &&
 
-  if module_installed Linux-PAM ; then
-    echo "#define HasPam YES"                   >> config/cf/host.def &&
-    echo "#define HasPamMisc YES"               >> config/cf/host.def 
-  fi 
+ # if module_installed Linux-PAM ; then
+ #   echo "#define HasPam YES"                   >> config/cf/host.def &&
+ #   echo "#define HasPamMisc YES"               >> config/cf/host.def 
+ # fi 
 
   echo  "#define DefaultCCOptions      $CFLAGS" >> config/cf/host.def &&
   echo  "#define LibraryCDebugFlags    $CFLAGS" >> config/cf/host.def &&
