@@ -1,6 +1,6 @@
 (
 
-   patch < $SCRIPT_DIRECTORY/sash-readline-plus.patch &&
+   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
    make              &&
    prepare_install   &&
    make install
