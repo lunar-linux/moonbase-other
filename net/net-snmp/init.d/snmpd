@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# snmpd   SNMP Daemon
+#
+# chkconfig: 35 20 80
+# description: SNMP daemon
+# processname: snmpd
+# pidfile: /var/run/snmpd.pid
+
+ARGS="-P /var/run/snmpd.pid"
+
+if [ -e /etc/config.d/snmpd ]; then
+    . /etc/config.d/snmpd
+    if [ ! -z $USER ]; then
+        $ARGS="$ARGS -u $USER"
+    fi;
+    if [ ! -z $GROUP ]; then
+        $ARGS="$ARGS -g $GROUP"
+    fi;
+fi;
+
+. /lib/lsb/init-functions
+

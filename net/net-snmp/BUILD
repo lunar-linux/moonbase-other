@@ -13,6 +13,9 @@
                $OPTS                 &&
   make                               &&
   prepare_install                    &&
-  make    install
+  make    install                    &&
+  if [ ! -e /etc/config.d/snmpd ]; then
+      cp $SCRIPT_DIRECTORY/snmpd /etc/config.d/snmpd
+  fi
 
 ) > $C_FIFO 2>&1
