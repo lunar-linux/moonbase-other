@@ -1,13 +1,16 @@
           MODULE=qstat
-         VERSION=25c
-          SOURCE=$MODULE$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE$VERSION
-   SOURCE_URL[0]=http://www.qstat.org/$SOURCE
-   SOURCE_VFY[0]=md5:a936dc3e15ece567378a026737fe45e2
-        WEB_SITE=http://www.qstat.org/
+         VERSION=2.6
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+   SOURCE_VFY[0]=md5:68e96ea9dd444ddd7759db02444d398a
+      WEB_SITE=http://www.qstat.org/
          ENTERED=20030913
-         UPDATED=20030913
+         UPDATED=20040816
            SHORT="A game server stat checking tool."
+
 cat << EOF
-QStat is a command-line program that gathers real-time statistics from Internet game servers. Most supported games are of the first person shooter variety (Quake, Half-Life, etc)
+QStat is a command-line program that gathers real-time statistics from 
+Internet game servers. Most supported games are of the first person 
+shooter variety (Quake, Half-Life, etc).
 EOF
