@@ -31,14 +31,15 @@
  chmod  750          /var/gdm                                        &&
 
  # This has to be a DIRECTORY, not a FILE
- if [ ! -e /etc/X11/gdm/Sessions ] then;
-   rm -fr /etc/X11/gdm/Sessions
+ if [ -e "/etc/X11/gdm/Sessions" ]; then
+   rm -fr /etc/X11/gdm/Sessions || true
  fi
- mkdir -p /etc/X11/gdm/Sessions/
- install --mode=644 $SCRIPT_DIRECTORY/gnomerc /etc/X11/gdm/gnomerc
- install --mode=644 $SCRIPT_DIRECTORY/gdm.conf /etc/X11/gdm/gdm.conf
- install --mode=755 $SCRIPT_DIRECTORY/Sessions/gnome.desktop /etc/X11/dm/Sessions
- install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/PreSession/
- install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/Sessions/
+
+ mkdir -p /etc/X11/gdm/Sessions/                                   &&
+ install --mode=644 $SCRIPT_DIRECTORY/gnomerc /etc/X11/gdm/gnomerc &&
+ install --mode=644 $SCRIPT_DIRECTORY/gdm.conf /etc/X11/gdm/gdm.conf &&
+ install --mode=755 $SCRIPT_DIRECTORY/Sessions/gnome.desktop /etc/X11/dm/Sessions &&
+ install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/PreSession/ &&
+ install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/Sessions/ 
 
 ) > $C_FIFO 2>&1
