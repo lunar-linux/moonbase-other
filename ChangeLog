@@ -1,3 +1,105 @@
+2004-01-30 11:46  nestu
+
+	* kernel/linux-beta-mm/: BUILD, DETAILS, PRE_BUILD: * Bump version
+	* copy System.map to boot * don't unpack and patch if sources are
+	already there
+
+2004-01-30 10:20  ratler
+
+	* libs/gettext/PRE_BUILD: If install log didnt exist for gettext it
+	will fail to build, this should fix that.
+
+2004-01-30 05:46  florin
+
+	* printer/gimp-print/DETAILS: bump version from 4.2.6-pre2 to
+	4.2.6.
+
+2004-01-30 04:12  florin
+
+	* games/asc/DETAILS: bump version from 1.13.9.0 to 1.13.9.1.
+
+2004-01-29 21:05  tchan
+
+	* devel/ferite/DETAILS: Version bump to 0.99.6 at chipig's request.
+	 Compiled and tested with gcc-3.2.3.
+
+2004-01-29 20:56  tchan
+
+	* gnome2-core/libgtkhtml/DETAILS: Added PSAFE=no.
+
+2004-01-29 20:53  florin
+
+	* zbeta/BitchX-cvs/: BUILD, CONFIGURE, CONFLICTS, DETAILS: commit
+	the Striker's new module.
+
+2004-01-29 20:46  florin
+
+	* chat/BitchX/: BUILD, CONFIGURE, CONFLICTS, DETAILS, bitchx:
+	because of a harddisk failure the commit was not done properly. i
+	remove the stuff and add it back.
+
+2004-01-29 20:42  florin
+
+	* chat/BitchX/: BUILD, CONFIGURE, CONFLICTS, DETAILS, bitchx:
+	because of a harddisk failure the commit was not done properly. i
+	remove the stuff and add it back.
+
+2004-01-29 20:33  florin
+
+	* chat/BitchX/CONFIGURE: commit Striker's updates to BitchX.
+
+2004-01-29 18:39  florin
+
+	* chat/BitchX/: BUILD, CONFLICTS, DETAILS: [no log message]
+
+2004-01-29 18:22  tchan
+
+	* gnome2-apps/abiword/DETAILS: verison bump to 2.0.3.  Compiled and
+	tested with gcc-3.2.3, kernel headers 2.4.x.  NOTE: this now
+	installs in /usr/bin and not /opt/lunar/gnome/2.4 as it did
+	previously.  Probably something nhudson has changed in gnome2.4
+
+2004-01-29 18:10  jmhodges
+
+	* crypto/openssl/DETAILS: openssl is not PSAFE, ask niki and
+	Striker about it
+
+2004-01-29 16:46  florin
+
+	* filesys/udev/DETAILS: bump version from 013 to 015.
+
+2004-01-29 16:39  florin
+
+	* devel/metakit/DETAILS: bump version from 2.4.9.2 to 2.4.9.3.
+
+2004-01-29 16:38  hardkrash
+
+	* mail/pine/: BUILD, DEPENDS: More proper solution for the ldap
+	patch.	Allows for automated builds and sorting.
+
+2004-01-29 15:03  ratler
+
+	* mail/pine/: BUILD, DETAILS: Added openldap support
+
+2004-01-29 12:32  ratler
+
+	* zbeta/fluxbox-devel/DETAILS: Version bump. Compiled and tested
+
+2004-01-29 12:26  moe
+
+	* mail/sylpheed/DETAILS: I'd better get some coffee as well .. gah
+
+2004-01-29 12:24  ratler
+
+	* audio/: alsa-driver/BUILD, alsa-lib/DETAILS: Quick fix for SOUND
+	check in kernel config, first check /usr/src/linux/.config, if not
+	existing, check cache. Also fixed alsa-lib md5
+
+2004-01-29 12:17  moe
+
+	* mail/sylpheed/DETAILS: XMMS and sylpheed at the same day ..
+	where's my red pencil and the calendar!
+
 2004-01-29 10:06  moe
 
 	* audio/xmms/DETAILS: My precious has gone to 1.2.9!
@@ -953,14 +1055,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
-	the version, added a depends on hicolor-icon-theme, and moved it
-	out of /opt/lunar
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
+	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
+	the version, added a depends on hicolor-icon-theme, and moved it
+	out of /opt/lunar
 
 2004-01-15 18:22  niki
 
@@ -1846,24 +1948,4 @@
 2003-12-31 06:00  florin
 
 	* kde3-apps/kbudget/DETAILS: bump version from 0.5 to 0.6.
-
-2003-12-30 17:12  florin
-
-	* utils/fcron/DETAILS: bump version from 2.9.3 to 2.9.4. bugfix
-	release.
-
-2003-12-30 12:29  moe
-
-	* x11-utils/root-tail/: DETAILS, PRE_BUILD: I see you Jasper. Yes,
-	I MEAN YOU! (Changing root-tail to work with a) nautilus and b)
-	xfdesktop .. from CVS :^P)
-
-2003-12-30 00:25  sofar
-
-	* profiles/netutils-profile/DEPENDS: meep meep
-
-2003-12-30 00:20  cmak
-
-	* shells/bash/profile.d/bash-aliases-base.rc: why having an ls.rc
-	when we dont use it? -> use it :)
 
