@@ -4,7 +4,7 @@
               --enable-shared \
               --enable-readline-dir=/usr \
               --enable-openssl=/usr \
-              --includedir=/usr/include/heimdal 
+              --includedir=/usr/include/heimdal \
 	      $OPTS &&
   make	&&
   prepare_install &&
