@@ -1,6 +1,5 @@
 (
-   rm -fr /usr/lib/mono/1.0/ICSharpCode.SharpZipLib.dll &&
-   cp $SOURCE_CACHE/$SOURCE2 /usr/lib/mono/1.0    &&
+
    ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
