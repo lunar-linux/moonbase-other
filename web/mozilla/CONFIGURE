@@ -21,13 +21,14 @@ fi
 # fi
 
 echo "CALENDAR=n" >> $MODULE_CONFIG
+echo "XFT=n" >> $MODULE_CONFIG
 
-if ! grep -q "XFT" $MODULE_CONFIG; then
- if query "Enable Xft extensions?" n
-   then echo "XFT=y" >> $MODULE_CONFIG
-   else echo "XFT=n" >> $MODULE_CONFIG
- fi
-fi
+#if ! grep -q "XFT" $MODULE_CONFIG; then
+# if query "Enable Xft extensions?" n
+#   then echo "XFT=y" >> $MODULE_CONFIG
+#   else echo "XFT=n" >> $MODULE_CONFIG
+# fi
+#fi
 
 # Gtk2 is broken in 1.1, eg dosn't compile
 # if query "Enable gtk2 support?" n
