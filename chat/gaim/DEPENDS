@@ -1,5 +1,5 @@
 depends   gdk-pixbuf  &&
-depends   gtk+-2      &&
+depends   gtk+      &&
 
 optional_depends  "audiofile"            \
                   "--enable-audiofile"   \
@@ -10,3 +10,8 @@ optional_depends  "esound"             \
                   "--enable-esd"       \
                   "--disable-esdtest"  \
                   "to enable enlightenment sound daemon for output"
+
+optional_depends  "perl"		\
+		  "--enable-perl"	\
+		  "--disable-perl"	\
+		  "to enable perl plugin support"
