@@ -1,17 +1,6 @@
 (
-  cat $SCRIPT_DIRECTORY/divdi3.patch                |     patch -p1  &&
-  cat $SCRIPT_DIRECTORY/glibc-2.2.5.patch           |     patch -p1  &&
-  cat $SCRIPT_DIRECTORY/glibc-2.2.5-xdr.patch       |     patch -p1  &&
-  #the ulrich.patch patch came from here: http://sources.redhat.com/ml/libc-hacker/2002-05/msg00031.html 
-  cat $SCRIPT_DIRECTORY/ulrich.patch                |     patch -p0  &&
-  cat $SCRIPT_DIRECTORY/glibc-2.2.5-getdents.patch  |     patch -p1  &&
-  if [ "`arch`" == "alpha" ]; then
-      cat $SCRIPT_DIRECTORY/glibc-2.2.5-alpha-pcdyn.patch | patch -p1
-  fi;
-  
-  unset  LDFLAGS
-  unset  CFLAGS
-  unset  CXXFLAGS
+  CFLAGS=`echo $CFLAGS | sed s/-ffast-math//`
+  CXXFLAGS=`echo $CXXFLAGS | sed s/-ffast-math//`
 
   INSTALL_ROOT=$SOURCE_DIRECTORY/glibcroot
 
@@ -24,9 +13,9 @@
       install_root = $INSTALL_ROOT
 EOF
 
-#--enable-oldest-abi
   ./configure  --host=$BUILD                          \
                --build=$BUILD                         \
+               --enable-kernel=current \
                --enable-add-ons=linuxthreads          \
                --with-elf                             \
                --with-headers=/usr/src/linux/include  \
@@ -35,6 +24,7 @@ EOF
                --enable-shared                        \
                --infodir=/usr/share/info              \
                --mandir=/usr/share/man                \
+               --prefix=/usr                \
                $OPTS                                  &&
   make                                        &&
   make    install                             &&
