@@ -4,6 +4,7 @@
   sedit "s!EMACS_SITE_LISP=!EMACS_SITE_LISP=/usr/share/gcl!" makedefs &&
   sedit "s!EMACS_SITE_LISP=!EMACS_SITE_LISP=/usr/share/gcl!" makedefc &&
   make                     &&
+  prepare_install          &&
   make install
 
 ) > $C_FIFO 2>&1

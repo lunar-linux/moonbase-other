@@ -1,15 +1,15 @@
 (
 
-SKINS=/usr/share/xmms/Skins           &&
+  prepare_install                       &&
 
-if ! [ -e "$SKINS" ]; then
+  SKINS=/usr/share/xmms/Skins           &&
+
+  if ! [ -e "$SKINS" ]; then
      mkdir -p $SKINS
-fi                                    &&
+  fi                                    &&
 
-cd $SOURCE_DIRECTORY                  &&
-
-mv -u $SOURCE_DIRECTORY/* $SKINS      &&
-
-chown -R root.root $SKINS
+  cd $SOURCE_DIRECTORY                  &&
+  mv -u $SOURCE_DIRECTORY/* $SKINS      &&
+  chown -R root.root $SKINS
 
 ) > $C_FIFO 2>&1

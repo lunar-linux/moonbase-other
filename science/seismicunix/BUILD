@@ -68,6 +68,7 @@
 +LGLUT = /usr/X11R6/lib
 EOF
 
+  prepare_install &&
   make install &&
   ( module_installed xfree86 && make xtinstall ) &&
   # make mglinstall &&

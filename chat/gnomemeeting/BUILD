@@ -24,6 +24,7 @@
                --with-ptlib-includes=$PWLIBDIR/include/ptlib   \
                --with-ptlib-libs=$PWLIBDIR/lib                 &&
   make                                         &&
+  prepare_install                              &&
   make install
 
 ) > $C_FIFO 2>&1

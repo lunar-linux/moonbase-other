@@ -1,5 +1,6 @@
 (
 
+prepare_install &&
 EXPAND=/usr/src/GKrellM-skins/GKrellM-skins/ &&
 THEMES=/usr/share/gkrellm/themes &&
 LIST=`ls $EXPAND`

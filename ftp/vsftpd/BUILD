@@ -4,6 +4,7 @@ if module_installed tcp_wrappers; then
 fi
 
 make CFLAGS="$CFLAGS" &&
+prepare_install
 
 cp vsftpd /usr/sbin/vsftpd
 cp vsftpd.conf.5 /usr/share/man/man5

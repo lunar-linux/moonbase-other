@@ -2,6 +2,7 @@
   export ESDL_PATH=/usr/lib/esdl
  
   make &&
+  prepare_install &&
   
   mkdir -p /usr/share/wings3d &&
   cp -R * /usr/share/wings3d &&

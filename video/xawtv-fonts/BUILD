@@ -3,8 +3,8 @@
   OLD_DISPLAY=$DISPLAY
   unset DISPLAY
 
-  make
-
+  make &&
+  prepare_install &&
   install *.pcf.gz -m 444 /usr/X11R6/lib/X11/fonts/misc/
 
   DISPLAY=$OLD_DISPLAY

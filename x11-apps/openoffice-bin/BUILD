@@ -19,6 +19,7 @@
 +oo_default_prefix=/opt/lunar
 EOF
 
+  prepare_install
   devoke_installwatch
   $SOURCE_DIRECTORY/install
   invoke_installwatch

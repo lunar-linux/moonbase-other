@@ -11,6 +11,8 @@ cd $SOURCE_DIRECTORY &&
 rm -fr $INSTDIR &&
 mkdir -p $INSTDIR &&
 
+prepare_install &&
+
 cp -R * /opt/lunar/gnome/2/share/meld
 
 cp $SCRIPT_DIRECTORY/meld /opt/lunar/gnome/2/bin

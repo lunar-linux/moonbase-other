@@ -12,6 +12,7 @@
 		--disable-gtk-doc				&&
 
    make    &&
+   prepare_install &&
    touch doc/C/html/index.sgml &&
    make install  
 
