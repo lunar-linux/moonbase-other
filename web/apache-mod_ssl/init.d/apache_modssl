@@ -21,6 +21,7 @@ case $1 in
      restart       )  echo      "$ing Apache web server."
                       mkdir  -p  /var/run/httpsd
                       apachectl  stop
+                      sleep 2
                       apachectl  startssl
                       ;;
                   *)  echo      "Usage: $0 {start|stop|restart}"
