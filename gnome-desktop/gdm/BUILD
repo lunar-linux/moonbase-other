@@ -1,7 +1,6 @@
 (
- groupadd  gdm           2>/dev/null
- useradd   gdm  -g  gdm  2>/dev/null
 
+ add_priv_user gdm:gdm
 
  if    module_installed  Linux-PAM;  then  SCHEME="pam"
  elif  module_installed  shadow;     then  SCHEME="shadow"
