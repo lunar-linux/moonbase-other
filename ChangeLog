@@ -1,3 +1,83 @@
+2003-08-26 05:23  tchan
+
+	* audio/lunaric-sound/CONFLICTS: Removed as there no longer is a
+	lunar-sound module in moonbase.
+
+2003-08-26 04:32  tchan
+
+	* zbeta/mkinitrd/: BUILD, DEPENDS, DETAILS, POST_INSTALL: Adding
+	mkinitrd module to zbeta as this module is HIGHLY experimental!  It
+	compiles for the most part, but the loadinitrd dir does not compile
+	for me and it requires even MORE dependencies (i.e. newt).  Not
+	sure if that dir is necessary or not. See notes in mkinitrd.spec.
+
+2003-08-26 04:29  tchan
+
+	* libs/dietlibc/: BUILD, DETAILS: Fixed a problem with
+	/usr/bin/diet.	Binary was being copied from the wrong location and
+	at the wrong time in the BUILD script.	Touched UPDATED field to
+	force a rebuild.  This is in preparation for adding the mkinitrd
+	module to moonbase.
+
+2003-08-26 03:30  niki
+
+	* kernel/: linux/BUILD, linux-beta/BUILD, linux-grsec/BUILD,
+	linux-stable/BUILD, linux-vanilla/BUILD: This is a fix for Bug
+	#359, and the issue was that gcc was using include files from an
+	older kernel which don't have the changes required by ifenslave.
+
+2003-08-26 01:13  csm
+
+	* x11/NVIDIA/DETAILS: dammit!
+
+2003-08-26 00:53  csm
+
+	* x11/NVIDIA/PRE_BUILD: fixed a bug in the PRE_BUILD. (silly florin
+	:-)
+
+2003-08-25 22:54  tchan
+
+	* utils/modutils/: BUILD, DETAILS: Changed the configure flags to
+	enable-insmod-static.  This is in preparation for mkinitrd
+	eventually being added to moonbase, which requires
+	/sbin/insmod-static.  Touched the UPDATED field to force this to be
+	rebuilt.
+
+2003-08-25 20:12  sofar
+
+	* compilers/php/DETAILS: New version! =^D
+
+2003-08-25 19:53  sofar
+
+	* x11-wm/icewm/DETAILS: New version!
+
+2003-08-25 19:39  sofar
+
+	* zbeta/blender-cvs/DETAILS: This was bumped...
+
+2003-08-25 19:31  sofar
+
+	* utils/lilo/DETAILS: Updated. Tested with niki's bitmap.
+
+2003-08-25 19:12  sofar
+
+	* x11-utils/: gkrellm2/DETAILS, gkrellmd2/DETAILS: Bumped version
+	of both the normal client and the standalone daemon.
+
+2003-08-25 16:37  nestu
+
+	* kernel/linux-beta/DETAILS: md5 added. Confirmed value by me and
+	Veerappan.
+
+2003-08-25 15:58  tchan
+
+	* kernel/linux-vanilla/DETAILS: Version bump to 2.4.22 and
+	recomputed md5sum.
+
+2003-08-25 13:50  florin
+
+	* games/foobillard/DETAILS: fix the patch path
+
 2003-08-25 04:48  florin
 
 	* x11/NVIDIA/DETAILS: bump version from 1.0-4496-pkg0 to
@@ -1703,50 +1783,4 @@
 
 	* profiles/xfce4-profile/DETAILS: a minor change making note of the
 	fact that all is rc2
-
-2003-07-26 21:26  sofar
-
-	* utils/theedge/DEPENDS: Needed!
-
-2003-07-26 21:05  jol
-
-	* graphics/graphviz/DETAILS: Bumped Version  OLD: 1.9  NEW: 1.10
-
-2003-07-26 20:01  moe
-
-	* zbeta/xfce4-session-cvs/CONFLICTS: Forgot a little "conflicts" ..
-	eh jazman? ;-)
-
-2003-07-26 17:05  tchan
-
-	* docs/man-pages/DETAILS: Version bump to 1.58, as noted from the
-	distrowatch emails.
-
-2003-07-26 17:02  tchan
-
-	* utils/reiserfsprogs/DETAILS: Version bump to 3.6.10.	Compiled
-	with gcc-3.2.3 and glibc-2.3.2.
-
-2003-07-26 12:41  jol
-
-	* kde3-apps/karchiver/DETAILS: Bumped Version OLD : 3.0.3  NEW:
-	3.0.4
-
-2003-07-26 12:40  jol
-
-	* kde3/qt3/DETAILS: Forgot the update field ...
-
-2003-07-26 12:34  jol
-
-	* kde3/qt3/DETAILS: Bumped version OLD: 3.1.2  NEW: 3.2.0 I've
-	tested it on two box with KDE and PyQt for each.
-
-2003-07-26 01:35  tchan
-
-	* ham/wwl/BUILD: Added a missing "/" in the chmod command, per
-	Veerappan's request.
-
-2003-07-26 00:11  niki
-
-	* ham/xtalfind/BUILD: Fixed a chmod error...
 
