@@ -1,5 +1,5 @@
 BINDIR = /usr/bin
-DESTDIR = /usr/share/sgml/docbook/dsssl-stylesheets-1.77
+DESTDIR = /usr/share/sgml/docbook/dsssl-stylesheets-1.78
 
 all: install
 
