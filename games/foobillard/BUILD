@@ -1,6 +1,6 @@
 (
-
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  sedit "s:exec_prefix}/bin:exec_prefix}/games:" configure  &&
+  sedit "s:prefix}/share:prefix}/share/games:"   configure  &&
 
   ./configure --prefix=/usr              \
               --bindir=/usr/games        \
