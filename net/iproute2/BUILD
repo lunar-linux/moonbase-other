@@ -1,13 +1,11 @@
 (
 
-  ./configure &&
-  KERNEL_INCLUDE=/usr/include/ make &&
-  prepare_install &&
+  patch_it $SOURCE2 1 &&
 
-  cp -r etc/iproute2 /etc/iproute2 &&
-  cp tc/tc /sbin &&
-  cd ip &&
-  cp ifcfg ip routef routel rtmon rtpr /sbin 
+  ./configure &&
+  KERNEL_INCLUDE=/usr/include/ make SBINDIR=/sbin &&
+  prepare_install &&
+  make SBINDIR=/sbin install	
 
 ) > $C_FIFO 2>&1
 
