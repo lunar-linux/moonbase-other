@@ -15,8 +15,9 @@ done
 # /etc/skel so we do not set superfluous prompts etc in here!
 
 # Now we're done with pre-finish settings we can close off:
+[ -f /etc/LOCALE ] && . /etc/LOCALE
 
 # bare necessities:
-export  PATH LANG=en_US
+export  PATH
 umask   022
 
