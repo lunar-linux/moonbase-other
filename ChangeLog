@@ -1,3 +1,94 @@
+2003-02-08 02:38  csm
+
+	* profiles/xfce4_cvs_profile/DEPENDS: weird that we never realized you could not build these if cvs was not installed!
+	he-he!
+	
+2003-02-08 02:33  csm
+
+	* printer/ImageMagick/DETAILS: version update
+	
+2003-02-08 01:56  csm
+
+	* x11/NVIDIA_GLX/DETAILS: deleting an old, extraneous version line
+	
+2003-02-08 01:55  csm
+
+	* x11/NVIDIA_kernel/: BUILD, DETAILS: removing an extraneous patch
+	
+2003-02-07 23:55  tchan
+
+	* devel/db4/: BUILD, DETAILS: Version bump and added the latest patch to db4.
+	
+2003-02-07 22:32  nhudson
+
+	* mail/evolution/DETAILS: Fixing date
+	
+2003-02-07 22:31  nhudson
+
+	* gnome/: gal/DETAILS, gtkhtml2/DETAILS, soup/DETAILS: Updating soup to 0.7.11, gal to 0.23 and gtkhtml2 to 1.1.8 for new version of Evo 1.2.2
+	
+2003-02-07 22:29  nhudson
+
+	* mail/evolution/DETAILS: Updating evolution to new version 1.2.2
+	
+2003-02-07 20:18  nhudson
+
+	* web/mozilla/CONFLICTS: 
+	Adding CONFLICTS file to mozilla for mozilla-nightly and mozilla-gtk2
+	
+2003-02-07 16:51  nhudson
+
+	* sql/mysql/DETAILS: Updating mysql to new version 3.23.55, tested and works!
+	
+2003-02-07 15:11  nhudson
+
+	* profiles/gnome2-office/DEPENDS: 
+	Fixing spelling error
+	
+2003-02-07 15:06  nhudson
+
+	* app-themes/noia-icon-theme/: BUILD, DEPENDS, DETAILS: 
+	Adding Noia Icon Theme to moonbase.  This is a Gnome 2.2 port of the KDE
+	theme.
+	
+2003-02-07 14:44  nhudson
+
+	* gnome2-apps/acme/DETAILS: 
+	Fixing the date on acme so it doesnt update everytime I update
+	
+2003-02-07 14:38  nhudson
+
+	* app-themes/spheres-and-crystals/DETAILS: Updating the spheres-and-crystals theme to new version 0.4
+	
+2003-02-07 06:32  nhudson
+
+	* zbeta/galeon_cvs/: BUILD, DEPENDS: Making --enable-nautilus-view optional and added nautilus as a
+	optional_depend
+	
+2003-02-07 05:44  nhudson
+
+	* gnome2-core/bonobo-activation/DETAILS: Updating bonobo-activation to new version 2.2.1
+	
+2003-02-07 05:42  nhudson
+
+	* gnome2-extras/gnome-vfs-extras/DETAILS: Updating gnome-vfs-extras to new version 0.99.9
+	
+2003-02-07 04:06  nhudson
+
+	* zbeta/mozilla-gtk2/: BUILD, CONFIGURE: Taking out the Calander build
+	
+2003-02-07 03:37  nhudson
+
+	* zbeta/mozilla-gtk2/CONFLICTS: Adding a CONFLICTS file to mozilla-gtk2
+	
+2003-02-07 03:16  csm
+
+	* zbeta/mozilla-gtk2/BUILD: added a missing pkgconfig path for libIDL
+	
+2003-02-07 02:08  nhudson
+
+	* zbeta/mozilla-gtk2/DETAILS: Once again a fix
+	
 2003-02-07 01:48  nhudson
 
 	* zbeta/mozilla-gtk2/DETAILS: Fixing things!! grr
@@ -738,81 +829,4 @@
 	interfaces if no device is specified.  Previously, devices that had
 	AUTO=n were not shutdown.  This makes PCMCIA network cards shutdown
 	gracefully and gets rid of errors with dhcpcd.
-	
-2003-01-29 04:36  kc8apf
-
-	* zbeta/gaim-cvs/DEPENDS: gdk-pixbuf is now part of gtk+-2
-	
-2003-01-29 04:06  nhudson
-
-	* gnome2-core/gdm/DETAILS: Updating gdm again
-	
-2003-01-29 03:52  nhudson
-
-	* gnome2-core/gdm/: DETAILS, init.d/gdm, init.d/gdm2: Ok fixing this before the top of the hour
-	
-2003-01-29 03:48  nhudson
-
-	* gnome2-core/gdm/: BUILD, DEPENDS, DETAILS, gdm.conf, gnomerc,
-	Sessions/Gnome2, init.d/gdm2, pam.d/gdm: Ok im moving gdm2 to gdm there will be alot of moving in the gnome2 sections over the next few weeks as I get ready for Gnome 2.2
-	
-2003-01-29 03:36  nhudson
-
-	* gnome2-core/eog/DETAILS: Fixing a typo
-	
-2003-01-29 03:35  nhudson
-
-	* gnome2-core/eog/: BUILD, DEPENDS, DETAILS: Removing eog2 and changing it to eog
-	
-2003-01-29 02:57  wizfactor
-
-	* chat/xchat/DETAILS: Version bump to 2.0.0pre1
-	
-2003-01-29 02:23  nhudson
-
-	* graphics/sodipodi/: DEPENDS, DETAILS: Updating sodipodi to new version 0.29 now it has gtk+-2 support and
-	now no longer requires gnome-libs or anything Gnome 1.4 related
-	
-2003-01-29 01:26  nhudson
-
-	* gnome2-extras/: libgnomedb/DETAILS, mergeant/DETAILS: Updating libgnomedb and mergeant to new version 0.10.0
-	
-2003-01-29 01:24  nhudson
-
-	* gnome2-core/libgda2/DETAILS: Updating libgda2 to new version 0.10.0
-	
-2003-01-28 20:52  hardkrash
-
-	* utils/linux-wlan-ng/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	POST_INSTALL, PRE_BUILD: inital import of the linux-wlan-ng drivers for prism 2 and higher cards, such as linksys wpc-11,  the init system have not been worked in to the network configuration scripts this will come in time, and posabibly from a user of one of the cards :-P  --hardkrash
-	
-2003-01-28 20:30  jmhodges
-
-	* profiles/gnome2/DEPENDS: removed some extraneous code ;)
-	
-2003-01-28 18:27  tchan
-
-	* devel/linux/DETAILS: Added KEEP_SOURCE=on to prevent this module from removing the kernel source
-	from /usr/src.
-	
-2003-01-28 17:40  tchan
-
-	* net/rsync/DETAILS: Fixed the UPDATED for niki, again.
-	
-2003-01-28 16:04  niki
-
-	* net/bw-whois/DETAILS: Bumped v. to 3.4, and updated md5sum
-	
-2003-01-28 08:45  niki
-
-	* ftp/lftp/DETAILS: lftp bumped to v. 2.6.4 as pointed out by Todd A. Jacobs
-	<nospam@codegnome.org>
-	
-2003-01-28 08:26  niki
-
-	* net/rsync/DETAILS: Updated to v. 2.5.6 as requested by what-is-new bot.
-	
-2003-01-28 06:02  kc8apf
-
-	* video/brcalc/DEPENDS: Fix to use proper gtk-engines2
 	
