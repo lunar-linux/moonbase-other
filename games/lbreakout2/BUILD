@@ -3,9 +3,7 @@
                   --localstatedir=/usr/share/games/lbreakout2  \
                   --with-doc-path=/usr/share/doc/lbreakout2    \
                   $OPTS                 &&
-  make                                  &&
-  prepare_install                       &&
-  make    install                       &&
+  default_make                          &&
   mv  /usr/bin/lbreakout2  /usr/games   &&
   mv  $SOURCE_CACHE/$SOURCE2   /usr/share/games/lbreakout2/levels  &&
   mv  $SOURCE_CACHE/$SOURCE3   /usr/share/games/lbreakout2/levels  &&
