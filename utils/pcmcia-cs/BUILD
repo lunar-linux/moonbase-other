@@ -7,7 +7,7 @@
   patch -p0 < $SCRIPT_DIRECTORY/Configure.patch &&
   
   make clean       &&
-  ./Configure -n --sysv --srctree $OPTS &&
+  ./Configure -n --sysv --rcdir=/etc --srctree $OPTS &&
   make  all        &&
   prepare_install  &&
   make    install  &&
