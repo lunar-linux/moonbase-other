@@ -9,7 +9,7 @@
   OPTS="$OPTS --enable-xft"
   OPTS="$OPTS --disable-oji"
   OPTS="$OPTS --disable-necko-disk-cache"
-  OPTS="$OPTS --disable-profilesharing"
+  OPTS="$OPTS --disable-profilesharing --enable-single-profile"
   OPTS="$OPTS --enable-extensions=wallet,spellcheck,-irc"
   OPTS="$OPTS --enable-necko-protocols=http,file,jar,viewsource,res,data"
   OPTS="$OPTS --enable-image-decoders=png,gif,jpeg"
