@@ -20,7 +20,7 @@
     OPTS="$OPTS --with-apxs2=/usr/sbin/apxs"
   fi
 
-  if echo $OPTS | grep -q --enable-xslt ; then
+  if echo $OPTS | grep -q -- --enable-xslt ; then
     LDFLAGS="$LDFLAGS -lstdc++"
   fi
 
