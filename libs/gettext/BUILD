@@ -1,24 +1,10 @@
-module_present()  {
-  module_installed  $1  ||
-  module_held       $1
-}
-
-
 (
 
-  if [ "$(installed_version gettext)" == "0.11.2" ] ; then
-    verbose_msg "forcing recompile of glibc"
-    export REBUILD_GLIBC=on
-  fi
-
-
-  if  !  module_present  teTeX  ||
-      !  module_present  linuxdoc-tools;  then
-
-    sedit 's/cd doc && $(MAKE) ps//'   Makefile.am
-    sedit 's/cd doc && $(MAKE) pdf//'  Makefile.am
-    sedit 's/cd doc && $(MAKE) html//' Makefile.am
-
+  if ! module_installed teTeX || ! module_installed linuxdoc-tools ; then
+    sedit "s:SUBDIRS = doc:SUBDIRS =:" Makefile.am Makefile.in
+    sedit 's/cd doc && $(MAKE) ps//'   Makefile.am Makefile.in
+    sedit 's/cd doc && $(MAKE) pdf//'  Makefile.am Makefile.in
+    sedit 's/cd doc && $(MAKE) html//' Makefile.am Makefile.in
   fi
 
   sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" \
@@ -34,7 +20,8 @@ module_present()  {
                --sysconfdir=/etc         \
                --mandir=/usr/share/man   \
 	       --infodir=/usr/share/info \
-               --with-included-gettext   \
+	       --disable-shared          \
+	       --without-libintl-prefix  \
                $OPTS                     &&
   default_make
 
