@@ -10,7 +10,7 @@ fi
 no_colour="\[\033[0m\]"
 # only set titlebar in a capable terminal:
 case $TERM in
-    xterm*|gnome*|konsole*)
+    rxvt*|xterm*|gnome*|konsole*)
         long_title='\u@\h \w'
         short_title='\W'
         titlebar="\[\033]0;$short_title\007\033]2;$long_title\007\]"
