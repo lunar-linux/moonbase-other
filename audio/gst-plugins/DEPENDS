@@ -5,7 +5,7 @@ depends cdparanoia &&
 depends ffmpeg &&
 depends gstreamer &&
 
-optional_depends "aalib" "--enable-aalib" "--disable-aalib" "for aalib support" &&
+#optional_depends "aalib" "--enable-aalib" "--disable-aalib" "for aalib support" &&
 optional_depends "libdvdnav" "--enable-dvdnav" "--disable-dvdnav" "for dvdnav support" &&
 optional_depends "libdvdread" "--enable-dvdread" "--disable-dvdread" "for dvdread support" &&
 optional_depends "a52dec"  "--enable-a52dec"  "--disable-a52dec"  "for A/52 input stream support" &&
@@ -25,4 +25,8 @@ optional_depends "SDL"  "--enable-sdl --enable-sdltest"  "--disable-sdl --disabl
 optional_depends  "libghttp"  "--enable-http"  "--disable-http"  "for playback over http"
 optional_depends "libvorbis" "--enable-vorbis --enable-vorbistest" "--disable-vorbis --disable-vorbistest" "for vorbis support" && 
 optional_depends "libmikmod" "--enable-mikmod --enable-libmikmodtest" "--disable-mikmod --disable-libmikmodtest" "for libmikmod support" &&
-optional_depends "jack" "--enable-jack" "--disable-jack" "for jack audio support (requires alsa)"
+optional_depends "jack" "--enable-jack" "--disable-jack" "for jack audio support (requires alsa)" &&
+optional_depends "speex" "--enable-speex" "--disable-speex" "for speex speach plugin" && 
+optional_depends "pango" "--enable-pango" "--diable-pango" "for pango support" &&
+#optional_depends "swfdec" "--enable-swfdec" "--disable-swfdec" "for shockwave player support" &&
+optional_depends "divx4linux" "--enable-divx" "--disable-divx" "for divx compression support" 
