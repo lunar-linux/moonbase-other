@@ -1,10 +1,13 @@
 (
 
   cd     Amaya                 &&
-  mkdir  obj                   &&
-  cd     obj                   &&
-  ../configure  --prefix=/usr  &&
-  make                         &&
+  mkdir  LINUX-ELF             &&
+  cd     LINUX-ELF             &&
+  ../configure  --prefix=/usr  \
+                --enable-motif \
+                --without-graphic-libs \
+                $OPTS          &&
+  make all                     &&
   prepare_install              &&
   make    install
 
