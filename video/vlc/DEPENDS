@@ -6,10 +6,11 @@ optional_depends  "gnome-libs"          \
                   ""                    \
                   "for gnome support"   &&
 
-optional_depends  "qt-x11"              \
+optional_depends  "qt3"              \
                   "--enable-qt"         \
-                  ""                    \
+                  "--disable-qt"        \
                   "for qt support"      &&
+
 
 optional_depends  "alsa-utils"          \
                    "--enable-alsa"       \
@@ -29,9 +30,47 @@ optional_depends  "ncurses"             \
 optional_depends  "esound"              \
                   "--enable-esound"     \
                   ""                    \
-                  "for esound support"  
+                  "for esound support"  &&
 
-#optional_depends  "a52dec"              \
-#                  "--enable-a52"        \
-#                  "--disable-a52"       \
-#                  "for a52dec support"
+optional_depends  "a52dec"              \
+                  "--enable-a52"        \
+                  "--disable-a52"       \
+                  "for a52dec support"  &&
+
+optional_depends  "libdvdread"		\
+		  "--enable-dvdread"	\
+		  "--disable-dvdread"	\
+		  "for dvd read support" &&
+
+
+optional_depends  "mad"		  \
+		  "--enable-mad"  \
+		  "--disable-mad" \
+		  "for MP3 decoder support" &&
+
+optional_depends  "libogg" 	   \
+		  "--enable-ogg"   \
+      		  "--disable-ogg"  \
+		  "for ogg support" &&
+
+optional_depends  "libvorbis" 	   \
+		  "--enable-vorbis"   \
+      		  "--disable-vorbis"  \
+		  "for vorbis support" &&
+
+optional_depends  "libdv" 	   \
+		  "--enable-dv"   \
+      		  "--disable-dv"  \
+		  "for dv decoder support" 
+
+#optional_depends  "mpeg2dec"		\
+#		  "--enable-libmpeg2"	\
+#		  "--disable-libmpeg2"  \
+#		  "for mpeg2 decoder support" &&
+#
+
+#optional_depends  "wxGTK"              \
+#                  "--enable-wxwindows"      \
+#                  "--disable-wxwindows"      \
+#                  "for wxWindows support"    &&
+#

@@ -6,7 +6,7 @@ unset  CXXFLAGS
   ./configure  --prefix=/usr               \
                --sysconfdir=/etc           \
                --localstatedir=/var        \
-               --disable-a52               \
+	       --disable-wxwindows	   \
                $OPTS                       &&
   make                                     &&
   prepare_install                          &&
