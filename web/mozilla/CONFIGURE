@@ -12,12 +12,15 @@ if ! grep -q "IRC" $MODULE_CONFIG; then
  fi
 fi
 
-if ! grep -q "CALENDAR" $MODULE_CONFIG; then
- if query "Enable Mozilla Calendar?" n
-   then echo "CALENDAR=y" >> $MODULE_CONFIG
-   else echo "CALENDAR=n" >> $MODULE_CONFIG
- fi
-fi
+# No libical in lunar yet
+# if ! grep -q "CALENDAR" $MODULE_CONFIG; then
+#  if query "Enable Mozilla Calendar?" n
+#    then echo "CALENDAR=y" >> $MODULE_CONFIG
+#    else echo "CALENDAR=n" >> $MODULE_CONFIG
+#  fi
+# fi
+
+echo "CALENDAR=n" >> $MODULE_CONFIG
 
 if ! grep -q "XFT" $MODULE_CONFIG; then
  if query "Enable Xft exetntions?" n
