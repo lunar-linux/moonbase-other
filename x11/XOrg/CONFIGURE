@@ -124,22 +124,21 @@ initialize()  {
 
   YES_FONT_OPTIONS="BuildFonts MakeLocalFontDir Build75DpiFonts Build100DpiFonts
                     BuildType1Fonts BuildTrueTypeFonts BuildSpeedoFonts
-                    GzipFontCompression CompressAllFonts"
+                    BuildISO8859_15Fonts GzipFontCompression CompressAllFonts" 
    NO_FONT_OPTIONS="BuildCIDFonts BuildCyrillicFonts UseKoi8RForCyrillic
                     BuildLatin2Fonts BuildArabicFonts BuildThaiFonts 
                     BuildGreekFonts BuildHebrewFonts BuildJapaneseFonts
                     BuildKoreanFonts BuildBethMarduthoFonts BuildEthiopicFonts
                     BuildChineseFonts BuildISO8859_2Fonts BuildISO8850_3Fonts
                     BuildISO8859_4Fonts BuildISO8859_9Fonts BuildISO8859_10Fonts
-                    BuildISO8859_13Fonts BuildISO8859_14Fonts
-                    BuildISO8859_15Fonts BuildISO8859_16Fonts
+                    BuildISO8859_13Fonts BuildISO8859_14Fonts BuildISO8859_16Fonts
                     BuildFontServer InstallFSConfig"
       FONT_OPTIONS="$YES_FONT_OPTIONS  $NO_FONT_OPTIONS"
 
   YES_MISC_OPTIONS="HasShm BuildXF86DRI BuildXF86DRM BuildGLULibrary 
                     BuildGlxExt BuildOSMesaLib ThreadedX
-                    InstallXinitConfig InstallXdmConfig"
-   NO_MISC_OPTIONS="BuildServersOnly  XnestServer BuildXinerama
+                    InstallXinitConfig InstallXdmConfig BuildXinerama"
+   NO_MISC_OPTIONS="BuildServersOnly  XnestServer
                     LinuxFBDevSupport XVirtualFramebufferServer"
       MISC_OPTIONS="$YES_MISC_OPTIONS  $NO_MISC_OPTIONS"
 
