@@ -1,5 +1,8 @@
 (
 
+
+ patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+
  sedit "s:/usr/local:/usr:"                    Makefile  &&
  sedit "s:/share:/share/games:"                Makefile  &&
  sedit "s:/bin:/games:"                        Makefile  &&
