@@ -1,33 +1,8 @@
-if  ! grep -q "MAIL"  $MODULE_CONFIG; then
-  if  query  "Include mozilla mail and news?" y; then
-    echo  "MAIL=y"  >>  $MODULE_CONFIG
-  else
-    echo  "MAIL=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if ! grep -q "ENIG"  $MODULE_CONFIG; then
-  if query "Build Enigmail for GPG Support" y;  then
-    echo  "ENIG=y" >> $MODULE_CONFIG
-  else
-    echo  "ENIG=n" >> $MODULE_CONFIG
-  fi
-fi
-
-# In this version we can finaly, not build composer
 if  ! grep -q "COM"  $MODULE_CONFIG; then
   if  query  "Include mozilla Composer (gui html editing)?" y; then
     echo  "COM=y"  >>  $MODULE_CONFIG
   else
     echo  "COM=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  ! grep -q "CAL"  $MODULE_CONFIG; then
-  if  query  "Include mozilla calendar?" n; then
-    echo  "CAL=y"  >>  $MODULE_CONFIG
-  else
-    echo  "CAL=n"  >>  $MODULE_CONFIG
   fi
 fi
 
@@ -44,14 +19,6 @@ if  ! grep -q "MATHML"  $MODULE_CONFIG; then
     echo  "MATHML=y"  >>  $MODULE_CONFIG
   else
     echo  "MATHML=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  ! grep -q "SVG"  $MODULE_CONFIG; then
-  if  query  "Include SVG (Scalabe vector graphics, image format) support?" n; then
-    echo  "SVG=y"  >>  $MODULE_CONFIG
-  else
-    echo  "SVG=n"  >>  $MODULE_CONFIG
   fi
 fi
 
@@ -79,59 +46,11 @@ if  ! grep -q "INS"  $MODULE_CONFIG; then
   fi
 fi
 
-# Crypto not stock, but we do it default cause people bitch when they don't have htts
-#   and the have to recompile.
-if  ! grep -q "CRYPTO"  $MODULE_CONFIG; then
-  if  query  "Include crypto (https) support?" y; then
-    echo  "CRYPTO=y"  >>  $MODULE_CONFIG
-  else
-    echo  "CRYPTO=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
- if  ! grep -q "XFT"  $MODULE_CONFIG; then
-   if  query  "Include Xft (X client side fonts) support?" y; then
-     echo  "XFT=y"  >>  $MODULE_CONFIG
-   else
-     echo  "XFT=n"  >>  $MODULE_CONFIG
-   fi
- fi
-
-if  ! grep -q "LDAP"  $MODULE_CONFIG; then
-  if  query  "Include LDAP support?" n; then
-    echo  "LDAP=y"  >>  $MODULE_CONFIG
-  else
-    echo  "LDAP=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  ! grep -q "GTK"  $MODULE_CONFIG; then
-  if  query  "Use Gtk2 instead of Gtk1? (needs Gtk1 for galeon 1)" y; then
-    echo  "GTK=y"  >>  $MODULE_CONFIG
-  else
-    echo  "GTK=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
 if  ! grep -q "HELP"  $MODULE_CONFIG; then
   if  query  "Include mozilla Help support?" y; then
     echo  "HELP=y"  >>  $MODULE_CONFIG
   else
     echo  "HELP=n"  >>  $MODULE_CONFIG
   fi
-fi
-
-if  ! grep -q "STRIP_TEST"  $MODULE_CONFIG; then
-  if  query  "Add Stripping of libraries" y;  then
-     echo  "STRIP_TEST=y"  >>  $MODULE_CONFIG
-  else
-     echo  "STRIP_TEST=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if ! module_installed j2sdk; then
-   if query "Install j2sdk for Java support? " y; then 
-       lin j2sdk
-   fi
 fi
 

@@ -6,18 +6,14 @@
   unpack $SOURCE &&
 
   cd $SOURCE_DIRECTORY &&
-  unpack $SOURCE2 &&
-#  patch_it $patchdir/xpfe-bootstrap.diff 0
+  unpack $SOURCE2   &&
+  patch_it $patchdir/xpfe-bootstrap.diff 0    &&
+  patch_it $patchdir/libreg-standalone.diff 0 &&
 
-if [ "$ENIG" == "y" ] ; then
-  cd $SOURCE_DIRECTORY/extensions &&
-  unpack $SOURCE3 &&
-  unpack $SOURCE4 &&
-  patch_it $patchdir/enigmail-src.diff 1 
-fi
+  cd other-licenses &&
+  unpack $SOURCE3   &&
 
   # Lunar branding
   cd $SOURCE_DIRECTORY &&
-  patch_it $patchdir/mozilla-lunar-home-page.patch 1 &&
-  patch_it $patchdir/mozilla-lunar-mail-homepage.patch 0
+  cp $patchdir/region-browser.properties xpfe/browser/resources/locale/en-US/region.properties 
 )

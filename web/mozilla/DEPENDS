@@ -1,31 +1,16 @@
-depends zlib &&
-depends jpeg &&
-depends libpng &&
-depends libmng &&
-depends ORBit2 &&
-depends	zip &&
-depends	unzip &&
-depends libIDL &&
+depends zlib      &&
+depends jpeg      &&
+depends libpng    &&
+depends libmng    &&
+depends ORBit2    &&
+depends	zip       &&
+depends	unzip     &&
+depends libIDL    &&
 depends freetype2 &&
+depends gtk+-2    &&
+depends librsvg   &&
 
-optional_depends "flash-plugin" "" "" "to enable shockwave flash" &&
+optional_depends "libical" "--enable-calendar" "" "Enable Calendar Support" &&
+optional_depends "gnupg" "" "--disable-mailnews" "Enable Email Support" &&
+optional_depends "openldap" "" "--disable-ldap" "Enable LDAP Support?" 
 
-# optional_depends "j2sdk"        "" "" "to enable java in mozilla" &&
-
-if [ "$GTK1" == "y" ] ; then
-  depends gtk+
-else
-  depends gtk+-2
-fi
-
-if [ "$SVG" == "y" ] ; then
-  depends librsvg
-fi
-
-if [ "$CAL" == "y" ] ; then
-  depends libical
-fi
-
-if [ "$ENIG" == "y" ] ; then
-  depends gnupg
-fi
