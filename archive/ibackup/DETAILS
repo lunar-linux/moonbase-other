@@ -1,0 +1,18 @@
+          MODULE=ibackup
+         VERSION=2.27
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.linuks.mine.nu/ibackup/$SOURCE
+      SOURCE_VFY=md5:14d38c6e16b2aefa88899bed4009df21
+        WEB_SITE=http://www.linuks.mine.nu/ibackup/
+         ENTERED=20040102
+         UPDATED=20040102
+           SHORT="iBackup simplifies backing up the system configuration files."
+cat << EOF
+iBackup simplifies backing up the system configuration files (/etc) for 
+UNIX systems (Solaris, *BSD, Linux). You can run the program from any 
+directory, it will by default save the (maybe compressed) tarball to /root. 
+It is possible to encrypt the tarball, to upload the tarball to some 
+other host and run this backup automated in a cronjob. 
+You could also send the backup by mail, using nail.
+EOF
