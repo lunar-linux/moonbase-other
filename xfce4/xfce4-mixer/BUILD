@@ -5,7 +5,7 @@
   sedit 's?xfce4/lib?lib?' panel-plugin/*.c			&&
   
    ./configure  --build=$BUILD					\
-                --prefix=/opt/lunar/xfce/4.0			\
+                --prefix=${XFCE4_PREFIX:-/opt/lunar/xfce/4.0}	\
                 --disable-static				\
                 $OPTS                                           &&
 
