@@ -6,12 +6,16 @@
                 --with-system-gcc \
                 --enable-devel    \
                 --enable-bonobo   \
+                --with-jdk-home=/usr/lib/j2sdk1.4.1/bin \
                 --disable-dependency-tracking \
  		$OPTS &&
 
   default_make   &&
 
-  cp /usr/share/gnome/ximian/applications/* /usr/share/applications/ &&
-  rm -fr /usr/share/gnome/ximian/ 
+  cp etc/autoresponse.conf /etc/openoffice &&
+  cd desktop                               &&
+  cp drawing.desktop presentation.desktop spreadsheet.desktop textdoc.desktop /usr/share/applications/ &&
+  cp *png /usr/share/pixmaps               &&
+  cd $SOURCE_DIRECTORY     
   
 ) > $C_FIFO 2>&1
