@@ -4,7 +4,7 @@
   TEMPLINKS=""									&&
   # Check for mozilla first, do nothing if it's installed, since the
   # pkg-config files should be there already...
-  if ! module_installed mozilla && ! module_installed mozilla-nightly; then
+  if ! module_installed mozilla; then
     # Check for firefox, symlink the files if they dont already exist
     if module_installed firefox; then
       for PC in /usr/lib/pkgconfig/firefox-*.pc; do
