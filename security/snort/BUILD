@@ -8,12 +8,12 @@
   mkdir  -p  /etc/snort
   mkdir  -p  /var/log/snort
 
-  if  [  !  -f  /etc/classification.config  ];  then
-    cp  etc/classification.config  /etc
+  if  [  !  -f  /etc/snort/classification.config  ];  then
+    cp  etc/classification.config  /etc/snort
   fi
 
-  if  [  !  -f  /etc/reference.config  ];  then
-    cp etc/reference.config  /etc
+  if  [  !  -f  /etc/snort/reference.config  ];  then
+    cp etc/reference.config  /etc/snort
   fi
 
   cd rules &&
