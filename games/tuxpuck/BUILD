@@ -1,5 +1,7 @@
 (
 
+  unset CC
+
   make             &&
   prepare_install  &&
   cp  tuxpuck  /usr/games
