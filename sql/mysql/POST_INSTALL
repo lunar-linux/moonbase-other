@@ -1,5 +1,5 @@
-TMPFS=`mount | grep "/tmp"`
-echo $TMPFS | grep -q ^tmpfs && {
+TMPFS=`mount | grep "/tmp" | grep "tmpfs"`
+if [ -n "$TMPFS" ]; then
 cat << END
 
 if /tmp is tmpfs and if mysql is being used against big 
@@ -9,5 +9,4 @@ corruption, especially on myisamchk.
 Consider mounting /tmp on a regular file system
 
 END
-}
-true
+fi
