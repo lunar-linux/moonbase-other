@@ -6,7 +6,7 @@
   chown mailman.mailman /var/mailman 2>/dev/null
   chmod 02775 /var/mailman           2>/dev/null
 
-  MAIL_GID=$(id -g mail)
+  MAIL_GID=$(id -g nobody)
 
   ./configure --prefix=/var/mailman            \
               --with-var-prefix=/var/mailman   \
@@ -14,7 +14,7 @@
 	      --with-groupname=mailman         \
 	      --with-python=/usr/bin/python    \
 	      --with-mail-gid=$MAIL_GID        \
-	      --with-cgi-gid=65534             &&
+	      --with-cgi-gid=nogroup           &&
 	      
   make  "CC=gcc"                               \
         "OPT=$CFLAGS"                          \
