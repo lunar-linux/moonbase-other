@@ -1,3 +1,51 @@
+2003-10-09 05:03  elaine
+
+	* libs/gettext/BUILD: corrected sed paths -- see bug 382
+
+2003-10-09 04:37  hardkrash
+
+	* x11-utils/gkacpi2/: BUILD, DEPENDS, DETAILS: Inital import of the
+	acpi plugins to gkrellm
+
+2003-10-09 04:21  florin
+
+	* kde3-apps/kexchange3/DETAILS: fix the update date. add the md5
+	sum.
+
+2003-10-08 23:33  watryac04
+
+	* ftp/dcgui-qt/: BUILD, DEPENDS, DETAILS: Added dcgui-qt.  This is
+	a program that allows people to connect to Direct Connect hubs,
+	chat with people, and transfer files to each other.  As the name
+	implies, it uses qt3
+
+2003-10-08 23:31  watryac04
+
+	* libs/dclib/: BUILD, DEPENDS, DETAILS: Added the dclib module to
+	the moonbase.  It is a library used for the dcgui-qt program to
+	assist in the connection to Direct Connect hubs.
+
+2003-10-08 18:44  florin
+
+	* video/xine-lib/DETAILS: bumped version from 1-rc0a to 1-rc1.
+
+2003-10-08 18:14  moe
+
+	* zbeta/sylpheed-gtk2-cvs/: BUILD, CONFLICTS, DEPENDS, DETAILS:
+	Removing the old sylpheed-gtk2-beta module since its obsolete. 
+	Added a new -cvs module since the gtk2 version has its own project
+	at SF.net now. Note that SSL support is currently broken and
+	therefore disabled until the developers got it fixed. Have fun.
+
+2003-10-08 17:56  florin
+
+	* kde3-apps/karchiver/DETAILS: bumped version from 3.0.5 to 3.0.6.
+
+2003-10-08 17:44  florin
+
+	* video/MPlayer/: DETAILS, PRE_BUILD: bumped version from 1.0pre1
+	to 1.0pre2. security bug fix version.
+
 2003-10-08 11:52  nhudson
 
 	* graphics/gimp2/DETAILS: 
@@ -2438,46 +2486,4 @@
 	docbook-dsssl/PRE_REMOVE, openjade/DETAILS, openjade/POST_INSTALL,
 	psgml/DEPENDS: 
 	Fixing these so it will build documentation correctly
-
-2003-09-08 17:45  florin
-
-	* games/si3d/: BUILD, DETAILS: modifying the data directories for
-	conforming to the LSB, bins in /usr/games, static data in
-	/usr/share/games and variable data in /var/games.
-
-2003-09-08 15:37  florin
-
-	* kde3/kdelibs3/profile.d/kde3.rc: moved the profile.d directory
-	and the kde3.rc file from the kdebase3 to the kdelibs3 directory.
-	many thanks to nick hudson for the sugestion.
-
-2003-09-08 15:31  florin
-
-	* graphics/scribus/: BUILD, DETAILS: delete the
-	/usr/X11R6/include/zlib.h file after install. it's an old version
-	header file of zlib. thanks to couannette. bumped version from 0.8
-	to 1.0.1.
-
-2003-09-08 15:30  florin
-
-	* x11/xfree86/POST_INSTALL: delete teh /usr/X11R6/include/zlib.h
-	file after install. it's an old version header file of zlib. thanks
-	to couannette.
-
-2003-09-08 15:06  niki
-
-	* audio/easytag/DETAILS: Fixed the name of the binary to dl.
-
-2003-09-08 04:50  florin
-
-	* devel/kdbg/DETAILS: bump version from 1.2.8 to 1.2.9
-
-2003-09-08 04:40  florin
-
-	* x11-apps/xscreensaver/DETAILS: bump version from 4.12 to 4.13
-
-2003-09-08 01:40  nhudson
-
-	* devel/ruby-gnome2/DETAILS: 
-	Updating ruby-gnome2 to new version 0.7.0
 
