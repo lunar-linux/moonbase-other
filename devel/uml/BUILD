@@ -19,6 +19,7 @@ done
 # yes  n  |  make  oldconfig ARCH=um
 # cp  .config  $CONFIG_CACHE
   make dep ARCH=um           &&
+  make clean ARCH=um         &&
   make linux ARCH=um         &&
   make modules ARCH=um       &&
   prepare_install            &&
