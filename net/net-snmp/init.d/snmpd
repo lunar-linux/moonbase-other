@@ -7,7 +7,7 @@
 # processname: snmpd
 # pidfile: /var/run/snmpd.pid
 
-ARGS="-P /var/run/snmpd.pid"
+ARGS="-p /var/run/snmpd.pid"
 
 if [ -e /etc/config.d/snmpd ]; then
     . /etc/config.d/snmpd
@@ -18,9 +18,9 @@ if [ -e /etc/config.d/snmpd ]; then
         ARGS="$ARGS -g $GROUP"
     fi;
     if [ ! -z $LOGFILE ]; then
-        ARGS="$ARGS -l $LOGFILE"
+        ARGS="$ARGS -Lf $LOGFILE"
     else
-        ARGS="$ARGS -s"
+        ARGS="$ARGS -Lsd"
     fi
 fi;
 
