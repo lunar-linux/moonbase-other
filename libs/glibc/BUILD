@@ -3,15 +3,6 @@
 
   INSTALL_ROOT=$SOURCE_DIRECTORY/glibcroot
 
-
-if [[ $PLATFORM == "Alpha" ]]; then
-  sedit "s/ \-g/ \-g0 /g" Makeconfig
-  cat > configparms <<- EOF
-  CFLAGS=-O
-  CXXFLAGS=-O
-EOF
-fi
-
   ./configure  --host=$BUILD                          \
                --build=$BUILD                         \
                --enable-kernel=current \
