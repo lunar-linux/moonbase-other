@@ -1,3 +1,44 @@
+2003-10-23 04:50  florin
+
+	* ftp/wget/DETAILS: bump version from 1.8.2 to 1.9.
+
+2003-10-22 23:37  nhudson
+
+	* web/epiphany/DETAILS: 
+	Updating epiphany to new version 1.0.4 and changing from a tar.gz
+	to a tar.bz2
+
+2003-10-22 19:16  jol
+
+	* compilers/gcc/3.3.2/: BUILD, CONFIGURE, DETAILS, POST_INSTALL,
+	POST_REMOVE, PRE_BUILD: Add gcc 3.3.2
+
+2003-10-22 18:33  jol
+
+	* web/mozilla/BUILD: On fresh install /usr/share/applications
+	doesn't exist so there was an error when copy mozilla.desktop file
+	inside it.
+
+2003-10-22 17:15  florin
+
+	* libs/expat/DETAILS: bump version from 1.95.6 to 1.95.7. that
+	solve the paragui compile problem too.
+
+2003-10-22 15:35  florin
+
+	* utils/procps/DETAILS: bump version from 3.1.13 to 3.1.14.
+
+2003-10-22 15:12  florin
+
+	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS,
+	alsa-utils/DETAILS: bump version from 0.9.7 to 0.9.8.
+
+2003-10-22 12:07  nhudson
+
+	* libs/atk/DETAILS: 
+	Seems like someone has been playing with source code and repackaged
+	it without changing the version number.... tisk tisk tisk
+
 2003-10-22 02:58  nhudson
 
 	* doc-tools/openjade/DETAILS: 
@@ -1641,75 +1682,4 @@
 	* gnome2-core/: gnome-themes/DEPENDS, gnome-themes/2.4.0/DEPENDS,
 	libglade2/POST_INSTALL, libglade2/POST_REMOVE: 
 	Fixing a problem evildrew pointed out
-
-2003-09-22 23:20  sofar
-
-	* sql/mysql/DETAILS: Version bump!
-
-2003-09-22 22:14  sofar
-
-	* gnome2-apps/gnumeric2/: DEPENDS, DETAILS: nhudson forgot I had
-	already bumped it to 1.2.0
-
-2003-09-22 21:32  sofar
-
-	* compilers/php/: BUILD, DEPENDS, POST_INSTALL: Cleanup, not
-	touching UPDATED. Adding db/dbx features since they are builtin and
-	not dependent on other code, movind stuff around to proper places,
-	cleaning up patches.
-
-2003-09-22 16:09  florin
-
-	* utils/procps/DETAILS: bump the version from 3.1.12 to 3.1.13.
-
-2003-09-22 15:35  xoritor
-
-	* zbeta/shfs/: BUILD, DETAILS: Adding module shfs.
-
-2003-09-22 14:49  nhudson
-
-	* printer/gimp-print/DETAILS: 
-	Ok I have no idea why this didnt get updated when I did it before
-	but anyway this should fix the gimp2 problem that csm was having
-
-2003-09-22 12:40  florin
-
-	* kde3-apps/apollon/: DEPENDS, DETAILS: bump the version from 0.8
-	to 0.8.7. added gift-cvs dependency.
-
-2003-09-22 10:16  florin
-
-	* security/snort/DETAILS: bump the version from 2.0.1 to 2.0.2.
-
-2003-09-22 10:06  florin
-
-	* video/mplayerplug-in/: BUILD, DETAILS: added the md5sum. create
-	the install directory if it does not exist.
-
-2003-09-22 09:16  florin
-
-	* kde3-apps/kopete/DETAILS: added the md5sum.
-
-2003-09-22 08:20  florin
-
-	* web/quanta3/DETAILS: bump the version from 3.1.3 to 3.1.4.
-
-2003-09-22 03:36  tchan
-
-	* web/MozillaFirebird/: BUILD, DETAILS: Modified this BUILD per
-	Moe's suggestion to add the "export MOZ_PHOENIX=1" line.  Now this
-	MozillaFirebird module is closer to what Firebird really should
-	look like when it is correctly compiled.  Note: Now the module
-	creates /usr/bin/MozillaFirebird.  /usr/bin/mozilla may be left
-	over on your Lunar box from a previous mozilla module.	The proper
-	method to invoke the Firebird binary is "/usr/bin/MozillaFirebird"
-
-2003-09-22 02:23  tchan
-
-	* crypto/mcrypt/DETAILS: Okay this module is now fixed correctly. 
-	Do NOT change this module back to downloading the source code from
-	SourceForge until the mcrypt devs fix their source code to
-	correctly download a REAL tar.gz file and not some mislabelled tar
-	file.  Their source code has NOT been updated since 20030221, so
-	this doesn't appear to be under active development anyways.
 
