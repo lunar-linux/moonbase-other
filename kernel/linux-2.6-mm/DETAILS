@@ -1,6 +1,6 @@
           MODULE=linux-2.6-mm
   KERNEL_VERSION=2.6.11
-      MM_VERSION=mm2
+      MM_VERSION=mm3
          VERSION=${KERNEL_VERSION}-${MM_VERSION}
           SOURCE=linux-${KERNEL_VERSION}.tar.bz2
          SOURCE2=${VERSION}.bz2
@@ -8,10 +8,10 @@
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
      SOURCE2_URL=ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/${KERNEL_VERSION}/${VERSION}/
       SOURCE_VFY=sha1:d72ab76360d004dac4b976633dd0490e8d4b15cd
-     SOURCE2_VFY=sha1:86749e6892bc68a8aff1b8568d7f89c7f742a45f
+     SOURCE2_VFY=sha1:c57be6b50a46e0fbf30984699aa362f4a3fd4d42
         WEB_SITE=http://www.kernel.org
          ENTERED=20041013
-         UPDATED=20050311
+         UPDATED=20050314
            SHORT="2.6 kernel with Andrew Morton's latest test patches."
 cat << EOF
 The -mm patches are a set of patches, released by Andrew Morton, against the 
