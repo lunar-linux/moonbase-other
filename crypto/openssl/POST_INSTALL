@@ -2,11 +2,12 @@
 # bn.h include files.  This will allow gcc to correctly recompile
 # an openssl app.
 
+
 rm -rf /usr/lib/gcc-lib/*/$(installed_version gcc)/include/openssl &> /dev/null
 
-OUR_NEW_SSL_VVV=$(lvu version openssl | perl -pe 's/([0-9]\.[0-9]\.[0-9]).+/$1/')
+OUR_VER="$(get_module_config OLD_VER)"
 
-if [ ! $OUR_NEW_SSL_VVV==$OUR_OLD_SSL_VVV ]; then
+if [ ! -z $OLD_VER ]; then
   lin -c openssh wget
 
   for MOD in $(lvu depends openssl | grep -v -e openssh -e theedge -e lunar -e wget) pine ; do
@@ -16,3 +17,4 @@ if [ ! $OUR_NEW_SSL_VVV==$OUR_OLD_SSL_VVV ]; then
   done
 fi
 
+unset_module_config OLD_VER

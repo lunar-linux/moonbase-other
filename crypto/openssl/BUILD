@@ -1,7 +1,10 @@
 (
 
   # make sure the customer has the source for this one!
-  export OUR_OLD_SSL_VVV=$(lvu installed openssl | perl -pe 's/([0-9]\.[0-9]\.[0-9]).+/$1/') &&
+  if module_is_expired $MODULE ; then
+	set_module_config OLD_VER="$(installed_version openssl)"
+  fi &&
+
   download_module wget &
 
   ./config  --prefix=/usr                       \
