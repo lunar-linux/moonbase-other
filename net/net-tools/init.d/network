@@ -10,9 +10,19 @@
 shopt -s extglob
 CONFIGS=/etc/config.d/network
 
+chkresult() {
+  if [ $? -eq "-1" ] ; then
+      echo -e $RESULT_FAIL
+  elif [ $? -eq "-3" ]; then
+      echo -e $RESULT_WARN
+  else
+      echo -e $RESULT_OK
+  fi
+}
+
 function device_start() {
 	if [ ! -e $CONFIGS/$1 ]; then
-	   echo "Missing config file for $1";
+	   echo  -n "missing config file";
 	   exit 1;
 	fi;
 
@@ -53,15 +63,14 @@ function device_start() {
 
 	if [ -z $ADDRESS ]; then
 	    /sbin/ifconfig $1 up
-	    echo "Device $1: missing address";
-	    echo "Device $1: interface brought up but not configured";
+	    echo -n "missing address";
 	    return -1;
 	fi;
 
 	case $ADDRESS in
 	    [dD][hH][cC][pP])
 	    	if [ -z $DHCP_CLIENT ]; then
-		    echo "Device $1: missing DHCP client";
+		    echo -n "DHCP client not specified";
 		    return -1;
 		fi;
 		case $DHCP_CLIENT in
@@ -81,13 +90,13 @@ function device_start() {
 		    ;;
 		esac
 		if [ ! -x $RUNFILE ]; then
-		    echo "$DHCP_CLIENT not installed";
+		    echo -n "$DHCP_CLIENT not installed";
 		    return -1;
 		fi;
 		if [ -e $PIDFILE ]; then
 		    if [ $(ps ax | grep `cat $PIDFILE` | grep -v grep | wc -l) -ge 1 ]; then
-		        echo "Device $1: already started";
-		        return -1;
+		        echo -n "already started";
+		        return -3;
 		    else
 		        rm -f $PIDFILE;
 		    fi;
@@ -95,18 +104,18 @@ function device_start() {
 		$RUNFILE $DHCP_OPTIONS $1 >/dev/null 2>&1;
 		sleep 1;
 		if [ ! -e $PIDFILE ]; then
-		    echo "Device $1: DHCP failed";
+		    echo -n "DHCP failed";
 		    return -1;
 		fi;
 	    ;;
 	    ?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9])
 		if [ ! -x /sbin/ifconfig ]; then
-		    echo "ifconfig not installed";
+		    echo -n "ifconfig not installed";
 		    return -1;
 		fi;
 		if [ ! $1 == "lo" ] && [ $(/sbin/ifconfig | grep $1 | wc -l) -ge 1 ]; then
-		    echo "Device $1: Already started";
-		    return -1;
+		    echo -n "already started";
+		    return -3;
 		fi;
 		IFCONFIG="$1 $ADDRESS";
 		if [ ! -z $NETMASK ]; then
@@ -117,33 +126,22 @@ function device_start() {
 		fi;
 		/sbin/ifconfig $IFCONFIG >/dev/null 2>&1
 		if [ `/sbin/ifconfig | grep $ADDRESS | wc -l` -ne 1 ]; then
-		    echo "Device $1: failed to set address";
+		    echo -n "failed to set address";
 		    return -1;
-		fi;
-		if [ ! -z $GATEWAY ]; then
-	    	    if [ ! -x /sbin/route ]; then
-		        echo "route not installed";
-	    	    fi;
-		    /sbin/route add -host $GATEWAY $1;
-	    	    /sbin/route add default gateway $GATEWAY;
-	    	    if [ `route -n | grep $GATEWAY | wc -l` -lt 1 ]; then
-			echo "Device $1: failed to set gateway";
-			return -1;
-	   	    fi;
 		fi;
 	    ;;
 	    *)
-		echo "Device $1: address not currently supported";
+		echo -n "address type not currently supported";
+		return -3;
 	    ;;
 	esac
-	echo "Device $1: UP";
 	return 0;
 };
 
 function device_stop() {
 	if [ ! -e $CONFIGS/$1 ]; then
-	    echo "Missing config for $1";
-	    exit 1;
+	    echo -n "missing config for $1";
+	    return -1;
 	fi;
 
 	. $CONFIGS/$1;
@@ -169,7 +167,7 @@ function device_stop() {
 		        rm -f $PIDFILE;
 		    fi;
 		    if [ ! -x /sbin/ifconfig ]; then
-	    	        echo "ifconfig not installed";
+	    	        echo -n "ifconfig not installed";
 	    	        return -1;
 		    fi;
 		    sleep 2;
@@ -177,7 +175,7 @@ function device_stop() {
 		else
 		    case $AUTO in
 		        [!yY])
-		             echo "Device $1: not started";
+		             echo -n "not started";
 		             return -1;
 		        ;;
 		    esac
@@ -186,14 +184,14 @@ function device_stop() {
 	    ?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9].?([0-9])?([0-9])[0-9])
 		if [ `ifconfig | grep $1 | wc -l` -eq 1 ]; then
 		    if [ ! -x /sbin/ifconfig ]; then
-	    	   	echo "ifconfig not installed";
+	    	   	echo -n "ifconfig not installed";
 	    		return -1;
 		    fi;
 		    /sbin/ifconfig $1 down;
 		else
 		    case $AUTO in
 			[!yY])
-			    echo "Device $1: not started";
+			    echo -n "not started";
 		    	    return -1;
 			;;
 		    esac
@@ -207,53 +205,89 @@ function device_stop() {
 	if [ ! -z $MODULE ]; then
 	    modprobe -r $MODULE;
 	fi;
-	echo "Device $1: DOWN";
 	return 0;
 };
 
 export -f device_start device_stop;
 
-case $1 in
-    start)
+start() {
+	echo "Starting network:"
     	# Add routing entry for loopback interface
 	if [ ! $(route -n | grep 127.0.0.0 | wc -l) -ge 1 ]; then
+	        echo -n " * Starting lo: "
 		/sbin/ifconfig lo 127.0.0.1 netmask 255.0.0.0;
 		/sbin/route add -net 127.0.0.0 netmask 255.0.0.0 dev lo;
+	        echo $RESULT_OK
 	fi;
 
 	# Do startup for all interfaces if none is specified
 	if [ -z $2 ]; then
 	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
+	        echo -n " * Starting $device: "
 		device_start $device auto
+		chkresult
 	    done;
+	    if [ -e $CONFIG_DIR/gateway ]; then
+	       GATEWAY=`cat $CONFIG_DIR/gateway`
+	       if [ ! -z $GATEWAY -a ! $(route -n | grep $GATEWAY | wc -l) -ge 1 ]; then
+	           echo -n " * setting default route: "
+	           if [ ! -x /sbin/route ]; then
+	            echo -n "route not installed";
+		    echo $RESULT_FAIL;
+	           else
+	            /sbin/route add default gateway $GATEWAY;
+	            if [ `route -n | grep $GATEWAY | wc -l` -lt 1 ]; then
+		      echo -n "failed to set gateway";
+		      echo $RESULT_FAIL;
+	            fi;
+	            echo $RESULT_OK
+	           fi;
+	       fi;
+	   fi;
 	else
+	    echo -n " * Starting $2: "
 	    device_start $2;
+	    chkresult
 	fi;
-    ;;
+}
 
-    stop)
+stop() {
+	echo "Stopping network:"
 	if [ -z $2 ]; then
 	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
+	        echo -n " * Stopping $device: "
 		device_stop $device;
+		chkresult
 	    done;
 	else
+	    echo -n " * Stopping $2: "
 	    device_stop $2;
+	    chkresult
 	fi;
-    ;;
+}
 
-    restart)
+restart() {
+	echo "Restarting network:"
 	if [ -z $2 ]; then
 	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
+	    	echo -n " * Stopping $device: "
 		device_stop $device auto;
+		chkresult
+		echo -n " * Starting $device: "
 		device_start $device auto;
+		chkresult
 	    done;
 	else
+	    echo -n " * Stopping $2: "
 	    device_stop $2;
+	    chkresult
+	    echo -n " * Starting $2: "
 	    device_start $2;
+	    chkresult
 	fi;
-    ;;
+}
 
-    switch-profile)
+switch-profile() {
 	# Quick instructions
 	# 1. make config files in the form of interface-profile for each interface and profile
 	#        (e.g. /etc/config.d/network/eth0-home)
@@ -282,20 +316,23 @@ case $1 in
 	else
 	    echo "Usage: $0 switch-profile profile";
 	fi;
-    ;;
+}
 
-    suspend)
-    ;;
+usage () {
+    echo "Usage: $0 {start|stop|restart|suspend|resume} [device]";
+    echo "       $0 switch-profile profile";
+}
 
-    resume)
-    ;;
+suspend() {
+    return
+}
 
-    check)
-    ;;
+resume() {
+    return
+}
 
-    *)
-	echo "Usage: $0 {start|stop|restart|suspend|resume} [device]";
-	echo "       $0 switch-profile profile";
-    ;;
-esac
-exit 0;
+check() {
+    return
+}
+
+. /lib/lsb/init-functions
