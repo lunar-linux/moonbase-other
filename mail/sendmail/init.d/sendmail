@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# sendmail	sendmail SMTP server
+#
+# chkconfig: 2345 80 20
+# description: sendmail is the standard SMTP server for sending and \
+#              receiving mail across the internet.
+# processname: sendmail
+# pidfile:     /var/run/sendmail.pid
+# config:      /etc/mail/sendmail.cf
+
+ARGS="-bd"
+
+reload () {
+	# not reload safe!
+	default_restart
+}
+
+start () {
+	newaliases
+	default_start
+}
+
+. /lib/lsb/init-functions
+

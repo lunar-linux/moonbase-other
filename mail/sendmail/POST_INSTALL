@@ -1,0 +1,16 @@
+# initialize the database, should not croak
+touch /etc/mail/local-host-names
+touch /etc/mail/aliases
+    
+if [ -f /etc/mail/aliases ] ; then
+  newaliases
+fi
+if [ -f /etc/mail/virtusers ] ; then
+  makemap hash /etc/mail/virtusers.db < /etc/mail/virtusers
+fi
+if [ -f /etc/mail/genericstable ] ; then
+  makemap hash /etc/mail/genericstable.db < /etc/mail/genericstable
+fi
+if [ -f /etc/mail/access ] ; then
+  makemap hash /etc/mail/access.db < /etc/mail/access
+fi
