@@ -1,5 +1,6 @@
 (
 
+  sedit 's/PREFIX=\/usr\/local/PREFIX=\/usr/' Makefile &&
   default_make                              &&
   mkdir -p     /usr/include/pci/            &&
   cp lib/pci.h /usr/include/pci/pci.h       &&
