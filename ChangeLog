@@ -1,3 +1,70 @@
+2003-09-18 01:18  r0dzilla
+
+	* doc-tools/docbook-xsl/rebuild-docbook-catalog: removed debugging
+	messages
+
+2003-09-18 00:54  r0dzilla
+
+	* doc-tools/: docbook-xsl/POST_INSTALL,
+	docbook-xsl/rebuild-docbook-catalog, scrollkeeper/POST_INSTALL:
+	finishing up docbook-xsl/scrollkeeper fix
+
+2003-09-18 00:51  tchan
+
+	* compilers/fasm/DETAILS: Version bump to 1.49.  Added md5sum.
+
+2003-09-18 00:19  niki
+
+	* security/portsentry/: BUILD, DETAILS: Gcc 3.3.1 fix added.
+
+2003-09-17 23:33  niki
+
+	* gnome2-apps/abiword/DETAILS: Updated the md5sum, as the abiword
+	devs seem to have made a new secret release
+
+2003-09-17 22:58  niki
+
+	* gnome2-apps/abiword/DETAILS: Fixing the dl url for abiword
+
+2003-09-17 22:48  sofar
+
+	* zbeta/gnumeric2/DETAILS: well it works like a charm, what can I
+	say?
+
+2003-09-17 22:39  nhudson
+
+	* graphics/gimp2/: BUILD, DEPENDS: 
+	re enabling printing due to the downgrade in the versioon of
+	gimp-print
+
+2003-09-17 22:03  sofar
+
+	* web/galeon2/DETAILS: Version bump, should be an easy upgrade.
+
+2003-09-17 20:21  elaine
+
+	* net/bind/POST_INSTALL: added usage examples for delegation-only
+	type zones
+
+2003-09-17 20:11  sofar
+
+	* web/squid/DETAILS: bumped version
+
+2003-09-17 18:34  niki
+
+	* net/bind/: BUILD, DETAILS: Added a patch which prevents
+	VeriSign's use of wildcards, to harvest ppl.  for there site when
+	the miss type a .com and .net domains.
+
+2003-09-17 17:19  florin
+
+	* net/nfs-utils/DETAILS: bump version from 1.0.5 to 1.0.6
+
+2003-09-17 16:50  elaine
+
+	* mail/sendmail/: BUILD, DETAILS: Added prescan patch to sendmail
+	build
+
 2003-09-17 11:35  nestu
 
 	* web/MozillaFirebird/BUILD: pkgconfig path fix
@@ -2492,117 +2559,4 @@
 
 	* devel/tcl-tk/BUILD: eliminated spurious cp of tcl files over
 	glibc
-
-2003-08-18 22:11  sofar
-
-	* archive/unrar/BUILD: Adding gcc-3.3 fix for unrar.
-
-2003-08-18 21:45  sofar
-
-	* net/bind/init.d/named: Changing the init.d script from default to
-	custom, this one is a bit more tolerant and lets named make its own
-	pid files. Works better.
-
-2003-08-18 19:53  niki
-
-	* devel/cvs/services: Added services file, requested by Striker
-
-2003-08-18 18:10  r0dzilla
-
-	* sql/mysql/DETAILS: correcting md5sum for mysql version bump
-
-2003-08-18 17:53  jmhodges
-
-	* x11-apps/gnucash/BUILD: this is so much cleaner, and it
-	compiles.. but that might have been for other reasons
-
-2003-08-18 17:39  r0dzilla
-
-	* sql/mysql/DETAILS: version bump for mysql
-
-2003-08-18 17:04  sofar
-
-	* video/totem/DETAILS: Changing md5sum to the correct value.
-
-2003-08-18 13:11  niki
-
-	* kernel/linux-stable/DETAILS: Added md5sum's for the two new
-	patches.
-
-2003-08-18 12:30  niki
-
-	* kernel/linux/DETAILS: Bumping updated field, to make sure all
-	gets the new patchset.
-
-2003-08-18 12:24  niki
-
-	* kernel/linux/DETAILS: Removed the patch number 29 in main section
-	which should have fixed KDE compilations. Will have to see it's
-	fixed in KDE.
-
-2003-08-18 04:34  florin
-
-	* libs/gmp/: BUILD, DETAILS, gmp-4.1_4.1-4.patch: bumped version to
-	4.1.1. the BUILD and patch files are no longer necessary.
-
-2003-08-18 03:04  jmhodges
-
-	* audio/faad/DEPENDS: added xmms depends.. weird
-
-2003-08-18 03:01  nhudson
-
-	* graphics/gimp2/DETAILS: 
-	Updating gimp2 to new version 1.3.18
-
-2003-08-18 02:40  nhudson
-
-	* web/epiphany/DETAILS: 
-	Updating epiphany to new version 0.8.4
-
-2003-08-18 01:12  niki
-
-	* devel/expect/DETAILS: Fixed the SOURCE2_VFY to use the right
-	format.
-
-2003-08-18 00:51  nhudson
-
-	* profiles/docbook-profile/: DETAILS, POST_INSTALL: 
-	Ok the reaons the openjade test was failing is that you needed a
-	complete docbook install for it to work.  So I removed the test
-	from the openjade module and stuck it into the docbook-profile
-	module and now everything is hunky dory :P
-
-2003-08-18 00:46  elaine
-
-	* devel/expect/: POST_INSTALL, PRE_BUILD: completing the ugly hack
-
-2003-08-18 00:42  nhudson
-
-	* doc-tools/: docbook-sgml/POST_INSTALL, openjade/POST_INSTALL,
-	sgml-common/DETAILS, sgml-common/POST_INSTALL,
-	sgml-common/PRE_REMOVE, slides/DETAILS, slides/POST_INSTALL: 
-	This will fix things for now seems 2 modules sgml-common and slides
-	are installing /etc/sgml/catalog into the main catalog at
-	/etc/sgml/catalog which causes a loop, this shoudl take those out
-	and install it correctly.  Now for the bug with openjade, the test
-	is going to be taken out for right now tiollI can get it fixed.
-
-2003-08-18 00:26  elaine
-
-	* devel/expect/: BUILD, DETAILS: Provided ugly hack to get clean
-	expect build
-
-2003-08-18 00:11  kc8apf
-
-	* perl/DateManip/DETAILS: Forgot to bump UPDATED
-
-2003-08-18 00:10  kc8apf
-
-	* perl/DateManip/DETAILS, mail/courier-imap/DETAILS: Version bump
-
-2003-08-18 00:04  nhudson
-
-	* doc-tools/: docbook-sgml/DETAILS, docbook-xml/DETAILS: 
-	Fixing the download url to point to the lunar servers due to the
-	shittyness of the oasis-open.org servers all the time
 
