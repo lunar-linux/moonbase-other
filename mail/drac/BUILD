@@ -1,6 +1,6 @@
 (
 
-  patch  <  $SCRIPT_DIRECTORY/drac.patch  &&
+  patch_it $SCRIPT_DIRECTORY/drac.patch 0 &&
   make                                    &&
   prepare_install                         &&
   make    install                         &&
@@ -14,8 +14,8 @@
 
 (
 
-  if  [  -f  /etc/mail/dracd.allow  ];  then
-    cp  $SCRIPT_DIRECTORY/dracd.allow  /etc/mail
+  if  [ ! -f  /etc/mail/dracd.allow  ];  then
+    cp  $SCRIPT_DIRECTORY/dracd.allow  /etc/mail/
   fi
 
 )
