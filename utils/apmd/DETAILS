@@ -1,14 +1,24 @@
-           MODULE=apmd
-         VERSION=3.0.2
-          SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
-   SOURCE_URL[0]=http://www.worldvisions.ca/~apenwarr/apmd/$SOURCE
+          MODULE=apmd
+         VERSION=3.2.1
+        #VERSION=3.0.2
+          SOURCE=${MODULE}_${VERSION}.orig.tar.gz
+         SOURCE2=${MODULE}_${VERSION}-4.diff.gz
+         SOURCE3=$MODULE-$VERSION-Makefile.patch
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION.orig
+   SOURCE_URL[0]=ftp://ftp.debian.org/debian/pool/main/a/apmd/$SOURCE
+      SOURCE_VFY=md5:99523e709f5033d3d64ad38d3954f7fc
+#  SOURCE_URL[0]=http://www.worldvisions.ca/~apenwarr/apmd/$SOURCE
+  SOURCE2_URL[0]=ftp://ftp.debian.org/debian/pool/main/a/apmd/$SOURCE2
+     SOURCE2_VFY=md5:3bec6042cc90c730209046fdc0b99ec1
+     SOURCE3_URL=$PATCH_URL/$SOURCE3
+     SOURCE3_VFY=md5:5c6a3d9d8db1c9d01da4c438b7bfdbb0
         WEB_SITE=http://www.worldvisions.ca/~apenwarr/apmd/
          ENTERED=20020203
-         UPDATED=20020203
+         UPDATED=20040317
 	   SHORT="Linux apmd for laptop battery and power status"
 
-
 cat << EOF
-The apmd package is a set of user-level programs to control the Advanced Power Management system found in all modern laptop computers and most modern desktops.
+The apmd package is a set of user-level programs to control the Advanced
+Power Management system found in all modern laptop computers and most modern
+desktops.
 EOF
