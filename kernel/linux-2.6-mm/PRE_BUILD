@@ -5,27 +5,31 @@ if [ ! -d /usr/src/linux-${VERSION} ]; then
     rm  -rf  linux-${KERNEL_VERSION} # we remove this one just in case
     rm  -rf  linux-${VERSION}
     rm  -rf  linux
-
+    
     unpack  $SOURCE
-
+    
     # the main kernel tarball unpacks with 2.6.X name, not with the -mm added
     # so, f.e.: linux-2.6.X will be renamed as linux-2.6.X-mmY
-
+    
     mv linux-${KERNEL_VERSION} linux-${VERSION}
-
-    ln  -sf     linux-${VERSION}  linux
+    
+    ln -sf linux-${VERSION}  linux
        
     chown root.root linux
     
     cd linux
-
+    
     patch_it $SOURCE2 1
+    patch_it $SOURCE3 1
 
-	for config in .config-2.6-mm .config.2.6.stable .config.beta
-	do
-		test  -f  $CONFIG_CACHE/${config} || continue
-		cp  $CONFIG_CACHE/${config}  /usr/src/linux/.config
-		message "Importing ${config} as kernel default configuration"
+    for config in .config-2.6-mm .config.2.6.stable .config.beta
+      do
+      if [  -f  $CONFIG_CACHE/${config} ]; then 
+	  cp  $CONFIG_CACHE/${config}  /usr/src/linux/.config
+	  message "Importing ${config} as kernel default configuration"
+      else	
+	  break
+      fi
     done
 
 else
