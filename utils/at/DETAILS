@@ -2,12 +2,17 @@
          VERSION=3.1.8
     EXTRAVERSION=11
           SOURCE=at_$VERSION-$EXTRAVERSION.tar.gz
+         SOURCE2=at_$VERSION-error.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://ftp.debian.org/debian/pool/main/a/at/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+       SOURCE_VFY=md5:81dbae5162aaa8a398a81424d6631c77
+      SOURCE2_VFY=md5:5e96a19179b9ce6968fd8ec52c108fe0
         WEB_SITE=unknown
          ENTERED=20011011
-         UPDATED=20020903
-           SHORT="at/batch is a periodic scheduler."
+         UPDATED=20031213
+        SHORT="at/batch is a periodic scheduler."
+
 cat << EOF
 at contains at and batch which are daemons that allow processes to be
 schedule to run at a later date or when system load permits.
