@@ -1,0 +1,13 @@
+# Done to shorten the boot label for lilo
+LABEL=`echo ${VERSION} | sed 's/-//g'`
+
+case  $BOOT_LOADER  in
+  lilo)  update_lilo   linux-${VERSION}  ${LABEL} ;;
+  grub)  update_grub   linux-${VERSION}  ${LABEL} ;;
+  aboot)  update_aboot   linux-${VERSION}  ${LABEL} ;;
+esac
+
+
+#  Reinstall packages that add their own kernel modules
+
+lin -c kernel-reqs

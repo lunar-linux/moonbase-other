@@ -1,0 +1,32 @@
+cd $BUILD_DIRECTORY
+
+if [ ! -d linux-${VERSION} ]; then
+    
+    rm  -rf  linux-${VERSION}
+    rm  -rf  linux
+
+    unpack  $SOURCE
+
+    ln  -sf  linux-${VERSION}  linux
+
+    chown  root.root  $BUILD_DIRECTORY/linux
+    chown  -R  root.root  $BUILD_DIRECTORY/linux-${VERSION}
+
+    cd  linux/
+
+    if  [ -f $CONFIG_CACHE/.config.2.6.stable ]; then
+	cp $CONFIG_CACHE/.config.2.6.stable $BUILD_DIRECTORY/linux/.config;
+    elif [ -f $CONFIG_CACHE/.config.beta ]; then
+	cp $CONFIG_CACHE/.config.beta $BUILD_DIRECTORY/linux/.config;
+    fi
+
+else
+
+    message "Sources found: $BUILD_DIRECTORY/linux-${VERSION}"
+        
+    if [ "`readlink linux`" != "linux-${VERSION}" ]; then
+	rm -rf linux
+	ln -s linux-${VERSION} linux
+    fi
+			    
+fi
