@@ -1,3 +1,153 @@
+2002-12-11 16:44  tchan
+
+	* devel/valgrind/DETAILS: Version bump to 1.0.4.  Compiled and
+	tested with gcc-3.2.1 and glibc-2.3.1
+
+2002-12-11 16:36  tchan
+
+	* video/: MPlayer/BUILD, MPlayer/DETAILS, w32codec/DETAILS: Fixed
+	to use mirror locations for downloading, especially USA mirror. 
+	Also fixed BUILD script to make the correct symlink for
+	/usr/share/mplayer/font.  The old BUILD script creates a broken
+	symlink.
+
+2002-12-11 09:53  niki
+
+	* mail/postfix/DETAILS: Fixed the URL for the snapshot, test it and
+	works here
+
+2002-12-11 06:32  hardkrash
+
+	* devel/linux/: BUILD, CONFIGURE, POST_INSTALL: added multi arch
+	support, fixed lilo edit bug (had to edit lilo.conf for it to run
+	lilo) and corrected POST_BUILD for new pcmcia-cs module --
+	Hardkrash
+
+2002-12-11 06:30  hardkrash
+
+	* utils/pcmcia-cs/: BUILD, DETAILS: Oops forgot a option and the
+	UPDATED field, also new version reminder -- Hardkrash
+
+2002-12-11 06:24  hardkrash
+
+	* utils/pcmcia-cs/: BUILD, CONFIGURE, Configure.patch, DEPENDS,
+	DETAILS: Reworked pcmcia-cs to have it build properly, patched
+	Configure file rc dirs added configurable options, and most
+	importent told to build off of sources insted of running kernel. --
+	Hardkrash
+
+2002-12-11 04:35  hardkrash
+
+	* devel/tcl-tk/: BUILD, CONFIGURE: Added ability to have a tcl only
+	install for systems without xfree86. -- Hardkrash
+
+2002-12-11 02:22  xoritor
+
+	* mail/razor-agents/DETAILS: Really bumping version, and UPDATED
+	field.
+
+2002-12-11 02:21  xoritor
+
+	* mail/razor-agents/DETAILS: Bumping razor
+
+2002-12-10 22:11  xoritor
+
+	* video/MPlayer/: DETAILS, PRE_BUILD: Fixed moved and renamed fonts
+	issue.
+
+2002-12-10 20:55  xoritor
+
+	* mail/postfix/DETAILS: Fixed UPDATED field.
+
+2002-12-10 20:53  xoritor
+
+	* mail/postfix/DETAILS: Bumping version, this fixes the cyrus-sasl
+	issues.
+
+2002-12-10 18:49  xoritor
+
+	* x11-wm/fluxbox/: BUILD, DETAILS: Bumping version and removing
+	bugfix patch.
+
+2002-12-10 17:46  hardkrash
+
+	* net/netwatch/DETAILS: Fixed download location ftp was changed to
+	http. -- Hardkrash
+
+2002-12-10 16:07  sofar
+
+	* video/: MPlayer/DETAILS, w32codec/DETAILS: New versions, enjoy!
+
+2002-12-10 13:32  sofar
+
+	* mail/elm/: BUILD, DEPENDS, DETAILS, config.sh: Adding my favorite
+	console mail reader: elm :^PPPPP
+
+2002-12-10 13:02  sofar
+
+	* utils/metamail/: DETAILS, PRE_BUILD: Adding a 'golden oldy':
+	metamail: a set of mime tools
+
+2002-12-10 09:34  sofar
+
+	* gnome2-apps/ggv2/DEPENDS: ekki ekki ekki!
+
+2002-12-10 09:18  sofar
+
+	* utils/grep/BUILD: Fixing locale install path!
+
+2002-12-09 23:37  xoritor
+
+	* mail/qpopper/pam.d/pop: Removing pop from pam.d (should be pop3).
+
+2002-12-09 22:39  xoritor
+
+	* mail/qpopper/pam.d/pop3: Moving pop to pop3 so Linux-PAM
+	authentication will work.
+
+2002-12-09 21:50  xoritor
+
+	* compilers/php/DETAILS: Fixed to correct version for stop-gap
+	solution.
+
+2002-12-09 21:25  xoritor
+
+	* crypto/cyrus-sasl/DETAILS: Bumped to current version.
+
+2002-12-09 20:16  xoritor
+
+	* compilers/php/DETAILS: Stop gap fix for php:	 set url to point
+	to current referenced source, it is now in the "old" directory on
+	the ftp.cac.washington.edu site.  This fix is only until someone
+	takes the time to REALLY fix it to use the correct new version.
+
+2002-12-09 18:35  xoritor
+
+	* devel/mod_ruby/DETAILS: Bumping mod_ruby version.
+
+2002-12-09 18:34  xoritor
+
+	* devel/eruby/DETAILS: Bumping eruby version.
+
+2002-12-09 16:51  sofar
+
+	* gnome2-apps/gftp2/DETAILS: Fix copy and paste error.
+
+2002-12-09 16:49  sofar
+
+	* ftp/gftp/DETAILS: Bumped version number
+
+2002-12-09 16:48  sofar
+
+	* gnome2-apps/gftp2/: BUILD, DEPENDS, DETAILS: Adding gftp linked
+	to gnome2, since gftp will not if gtk-1.2 is installed
+	automatically
+
+2002-12-09 14:09  sofar
+
+	* utils/sysklogd/init.d/klogd: Adding description for chkconfig
+	compliance.
+
 2002-12-09 13:28  sofar
 
 	* utils/sysklogd/init.d/: klogd, syslog, syslogd: Adding proper
@@ -1274,103 +1424,4 @@
 	uClibc-0.9.15 will not correctly install under glibc-2.3.1, it will
 	compile.  Note: Makefile is patched because 0.9.16 appears to have
 	a sequencing logic error in "cp -a" and creating some symlinks.
-
-2002-11-10 22:13  nhudson
-
-	* gnome2-apps/pkgview/DETAILS: Updating pkgview to new version
-	0.0.6
-
-2002-11-10 21:45  kongar
-
-	* utils/e2fsprogs/DETAILS: upgraded to 1.31, tested
-
-2002-11-10 18:36  tchan
-
-	* x11-apps/xpdf/: BUILD, DEPENDS, DETAILS: Upgraded to xpdf-2.00. 
-	This now REQUIRES openMotif.  Lunar apps in general should be
-	moving AWAY from lesstif. xpdf now requires a toolkit!
-
-2002-11-10 18:35  jmhodges
-
-	* utils/lm_sensors/DETAILS, libs/i2c/DETAILS: updated from 2.6.3 to
-	2.6.5
-
-2002-11-10 07:15  xoritor
-
-	* ftp/vsftpd/: BUILD, CONFIGURE: Adding support for tcp_wrappers if
-	installed.
-
-2002-11-10 06:21  xoritor
-
-	* web/apache2/BUILD: Fixing default apache module:   Now includes
-	basic auth.    Now builds all modules.	  All modules are DSO
-	modules.    Includes Support for Berkeley DB.	 Uses Worker MPM
-	for better scalibility.
-
-2002-11-10 04:06  xoritor
-
-	* editors/sed/DETAILS: Updating version.
-
-2002-11-10 03:56  xoritor
-
-	* utils/procps/DETAILS: Various updates left over.
-
-2002-11-10 03:55  xoritor
-
-	* utils/procps/: BUILD, DETAILS: Updating version and build... new
-	code SHOULD optimize ok.
-
-2002-11-10 03:15  xoritor
-
-	* security/shorewall/DETAILS: Added a description.
-
-2002-11-10 03:12  xoritor
-
-	* net/iputils/DETAILS: Udating description.
-
-2002-11-10 03:07  xoritor
-
-	* net/iproute2/DETAILS: Updating website to point to lartc.org and
-	adding better description.
-
-2002-11-10 03:03  xoritor
-
-	* ftp/vsftpd/DETAILS: Fixed URL and description fields.
-
-2002-11-10 02:58  xoritor
-
-	* ftp/vsftpd/: BUILD, CONFIGURE, CONFLICTS, DETAILS, services,
-	init.d/ftpd, pam.d/ftp, xinetd.d/vsftpd: Adding the vsftpd server.
-
-2002-11-10 01:12  nhudson
-
-	* graphics/gtk+-2/DETAILS: Updating gtk+-2 again due to the quick
-	release of gtk+ 2.0.8, this fixes a bug in gdkpixbuf
-
-2002-11-09 20:18  niki
-
-	* editors/jed/DETAILS: Updated version number
-
-2002-11-09 20:10  niki
-
-	* libs/slang/DETAILS: Updated to new version
-
-2002-11-09 18:06  tchan
-
-	* utils/less/lesspipe.sh: Fixed a bug where lesspipe.sh would
-	incorrectly parse a file name like glibc-2.2.5 and invoke groff by
-	mistake.
-
-2002-11-09 09:41  lurch
-
-	* audio/alsa-driver/BUILD: More elaborate test on sound support in
-	kernel
-
-2002-11-09 09:41  lurch
-
-	* audio/alsa-driver/sound.cards: changed via8233 to via82xx
-
-2002-11-09 03:56  kongar
-
-	* web/links2/DETAILS: upgraded to 2.2.1pre7
 
