@@ -1,4 +1,4 @@
-           MODULE=console-tools
+          MODULE=console-tools
          VERSION=0.2.3
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=$MODULE-$VERSION-bootstrap.patch.bz2
@@ -6,25 +6,20 @@
          SOURCE4=gcc34_console-tools_lunar.patch
          SOURCE5=console-tools-0.2.3-findfile-segv.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-    SOURCE_URL[0]=ftp://metalab.unc.edu/pub/Linux/system/keyboards/$SOURCE
-#    SOURCE_URL[0]=ftp://lct.sourceforge.net/pub/lct/$SOURCE
-      SOURCE2_URL=$PATCH_URL/
-      SOURCE3_URL=$PATCH_URL/
-      SOURCE4_URL=$PATCH_URL/
-      SOURCE5_URL=$PATCH_URL/
-       SOURCE_VFY=md5:983d4586a791b3fdfa0fbeff76aadf43
-      SOURCE2_VFY=md5:bcbf7c740a9745aa3bb3c4b8da99703b       
-      SOURCE3_VFY=md5:28aa897845651974e31c6194c1eb3e12 
-      SOURCE4_VFY=md5:ee3b6a7fdd76a27d70e78cf254a84ad6 
-      SOURCE5_VFY=md5:04bcc3aadc143e4e51e639a3fa66e396
+      SOURCE_URL=ftp://metalab.unc.edu/pub/Linux/system/keyboards/$SOURCE
+     SOURCE2_URL=$PATCH_URL/
+     SOURCE3_URL=$PATCH_URL/
+     SOURCE4_URL=$PATCH_URL/
+     SOURCE5_URL=$PATCH_URL/
+      SOURCE_VFY=md5:983d4586a791b3fdfa0fbeff76aadf43
+     SOURCE2_VFY=md5:bcbf7c740a9745aa3bb3c4b8da99703b       
+     SOURCE3_VFY=md5:28aa897845651974e31c6194c1eb3e12 
+     SOURCE4_VFY=md5:ee3b6a7fdd76a27d70e78cf254a84ad6 
+     SOURCE5_VFY=md5:04bcc3aadc143e4e51e639a3fa66e396
         WEB_SITE=http://lct.sourceforge.net
          ENTERED=20010922
          UPDATED=20040817
            SHORT="console-tools allows you to configure and manipulate Linux consoles."
-
-# Discovered on 20011117 that ftp://lct.sourceforge.net/pub/lct was not 
-# accepting connections.  console-tools and console-data sources are
-# unavailable.
 
 cat << EOF
 The console-tools package allows you to set-up and manipulate the Linux
