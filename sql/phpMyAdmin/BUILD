@@ -4,9 +4,9 @@
     cp /var/phpMyAdmin/config.inc.php /tmp/config.inc.php
   fi  &&
   
-  prepare_install            &&
-  mkdir -p /var/phpMyAdmin   &&
-  cp -av * /var/phpMyAdmin/  &&
+  prepare_install          &&
+  mkdir -p /var/${MODULE}  &&
+  cp -av * /var/${MODULE}/
 
   if [ -f /tmp/config.inc.php ]; then
     cp /var/phpMyAdmin/config.inc.php /var/phpMyAdmin/config.inc.php.old  &&
