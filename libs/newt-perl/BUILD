@@ -1,8 +1,8 @@
 (
-  patch_it /var/spool/lunar/$SOURCE2 1               &&
-  patch_it /var/spool/lunar/$SOURCE3 1               &&
-  patch_it /var/spool/lunar/$SOURCE4 1               &&
-  patch_it /var/spool/lunar/$SOURCE5 1               &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1                  &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1                  &&
+  patch_it $SOURCE_CACHE/$SOURCE4 1                  &&
+  patch_it $SOURCE_CACHE/$SOURCE5 1                  &&
   rm -rf newtlib                                     &&
 
   perl Makefile.PL PREFIX=/usr                       &&
