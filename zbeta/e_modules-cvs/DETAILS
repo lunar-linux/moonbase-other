@@ -1,0 +1,18 @@
+          MODULE=e_modules-cvs
+         VERSION=beta
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/e_modules
+      SOURCE_URL=cvs://:pserver:anonymous@cvs.sourceforge.net:/cvsroot/enlightenment:e17/apps/e_modules
+        WEB_SITE=http://www.enlightenment.org
+         ENTERED=20050330
+         UPDATED=`date -u +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="a collection of e17 modules"
+
+cat << EOF
+This is a collection of e17 modules that can be loaded via
+enlightenment_remote -module-load ModuleName
+
+Current Modules:
+ snow, notes
+EOF
