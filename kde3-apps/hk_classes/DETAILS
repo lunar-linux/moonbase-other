@@ -1,0 +1,26 @@
+          MODULE=hk_classes
+          VERSION=0.7
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/hk-classes/$SOURCE
+     SOURCE_VFY=md5:35c16e935947b0b41b31b8ce5f10d0f1
+        WEB_SITE=http://hk-classes.sourceforge.net/
+         ENTERED=20040712
+         UPDATED=20040712
+        MAINTAINER=florin@lunar-linux.org
+        SHORT="a database interface lib for KDE."
+
+cat << EOF
+hk_classes is a set of non-visual routines which allow you to develop
+database frontend applications as easy as possible.
+
+You need also a database driver to run applications. Drivers for
+* Mysql,
+* PostgreSQL, 
+* SQLite, and
+* ODBC
+
+are included in this library and will be automatically installed if 
+configure finds a working Mysql/PostgreSQL/SQLite/ODBC installation 
+on your computer.
+EOF
