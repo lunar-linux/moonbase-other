@@ -1,18 +1,16 @@
           MODULE=linux-2.6-prepatch
-  KERNEL_VERSION=2.6.9
-        #  VERSION=${KERNEL_VERSION}
-         VERSION=2.6.10-rc3	  
+  KERNEL_VERSION=2.6.10
+         VERSION=2.6.11-rc1
           SOURCE=linux-${KERNEL_VERSION}.tar.bz2
          SOURCE2=patch-${VERSION}.bz2
-   SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6/
+   SOURCE_URL[0]=${KERNEL_URL}/pub/linux/kernel/v2.6/
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
      SOURCE2_URL=http://www.kernel.org/pub/linux/kernel/v2.6/testing/
-      SOURCE_VFY=sha1:dd8f8b0c43b83339a42246d322cb48c6f2323236
-     SOURCE2_VFY=sha1:e0ef1eae1a9fc5c002e9e4118389e0e0778ff2fe
+      SOURCE_VFY=sha1:3c83791c20f9a397b287825a9a5984010a07e711
+     SOURCE2_VFY=sha1:61fc798fc5ec92d9ef80f61f1139087140a0c8f8
     	WEB_SITE=http://www.kernel.org
          ENTERED=20041025
-         UPDATED=20041204
-     KEEP_SOURCE="on"
+         UPDATED=20050112
            SHORT="The latest prepatch (rc patch) for the 2.6 kernel tree."
 cat << EOF
 The latest prepatch (rc patch) for the 2.6 kernel tree.
