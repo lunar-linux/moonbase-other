@@ -14,7 +14,9 @@ FQDN=`hostname`
 
   perl Makefile.PL CONTACT_ADDRESS="postmaster@$FQDN" RUN_RAZOR2_TESTS="n" &&
   make                    &&
-  make test               && 
+  if [ "$TESTS" == "y" ]; then
+    make test
+  fi &&
   prepare_install         &&
   make install            &&
   echo ""                 &&
