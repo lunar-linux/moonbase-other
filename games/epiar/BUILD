@@ -15,8 +15,7 @@
   make                &&
   invoke_installwatch &&
   
-  mkdir -p /usr/lib/epiar
-  cp -a data audio plugins epiar /usr/lib/epiar/
-  cp $SCRIPT_DIRECTORY/epiar /usr/bin
+  mkdir -p /usr/games/epiar
+  cp -a data audio plugins epiar /usr/games/epiar/
 
 ) > $C_FIFO 2>&1
