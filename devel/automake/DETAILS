@@ -1,17 +1,17 @@
           MODULE=automake
-        #VERSION=1.8
-         VERSION=1.7.9
+         VERSION=1.8.2
+         #VERSION=1.7.9
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=ftp://sources.redhat.com/pub/$MODULE/$SOURCE
    SOURCE_URL[1]=$GNU_URL/$MODULE/$SOURCE
    SOURCE_URL[2]=ftp://ftp.gnu.org/pub/gnu/$MODULE/$SOURCE
-#  SOURCE_VFY=md5:0a83fd4a2a32dc966b83ca3be86f884b
-   SOURCE_VFY=md5:571fd0b0598eb2a27dcf68adcfddfacb
+   SOURCE_VFY=md5:7a8138b29361baec06548e6a0ac63189
         WEB_SITE=http://www.gnu.org/software/automake
          ENTERED=20010922
-         UPDATED=20031221
-           SHORT="automake generates make files that are compliant with the GNU coding standards."
+         UPDATED=20040129
+        SHORT="automake generates make files that are compliant with the GNU coding standards."
+
 cat << EOF
 automake - Generates Makefile.in files
 'Automake' automatically generates make files compliant with the GNU
@@ -24,9 +24,4 @@ certain things to be done in your configure.in.
 This package also includes the "aclocal' program, which generates an
 'aclocal.m4' based on the contents of 'configure.in.' It is useful as an
 extensible, maintainable mechanism for augmenting autoconf.
-
-NOTE: tchan downgraded automake on 20031221 back to version 1.7.9.  automake-1.8
-breaks some old software, most notably the shadow module!  Don't touch this
-unless you can properly fix shadow.  Shadow BUILD script was also reverted by
-tchan on 20031221.
 EOF
