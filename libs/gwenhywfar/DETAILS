@@ -1,0 +1,39 @@
+          MODULE=gwenhywfar
+         VERSION=1.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+      SOURCE_VFY=sha1:b0cb66b4ccc348453383232b32abb64e43078094
+        WEB_SITE=http://gwenhywfar.sourceforge.net/
+         ENTERED=20040919
+         UPDATED=20040919
+           SHORT="A multi-platform helper library for other libraries."
+
+cat << EOF
+Gwenhywfar is a multi-platform helper library for networking and
+security applications and libraries. Gwenhywfar includes the following 
+features:
+
+- Basic Data types for binary buffers, ring buffers, linked lists, 
+  error objects, string lists (src/base/), buffered IO operations (src/io/)
+
+- Macros for typesafe list management
+
+- OS abstraction functions for directory and Internet address handling
+  and library loading (src/os/)
+
+- Networking functions which allow to manage many connections to be used
+  economically even in single threaded applications
+
+- High-level functions for parsing files with a simplified "XML-like"
+  format and accessing them like a hierarchical database (src/parser/)
+
+- High-level cryptographic functions on top of OpenSSL functionality
+  (src/crypt/)
+
+- Support for interprocess communication (HTTP on top of SSL or plain
+  TCP/UDP sockets)
+
+- Console user-interface (including a simple HTML parser) based on
+  ncurses
+EOF
