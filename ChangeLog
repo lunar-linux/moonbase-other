@@ -1,3 +1,16 @@
+2003-04-28 11:33  sofar
+
+	* libs/glib/: BUILD, DETAILS: Lots of gtk+ apps still break due to
+	the upgrade of gettext. Analogous to glib-2 including -lintl (which
+	fixes all gtk+-2 apps that break due to the gettext upgrade),
+	having glib adding -lintl to glib-config fixes pretty much all the
+	gtk+ apps that do not include -lintl somehow. This fix is the
+	nicest one I could come up with, and should not interfere with
+	stuff.
+	
+	Note that non-glib-[1|2] apps breaking on gettext don't see this
+	fix (hence the wget patch before).
+
 2003-04-27 23:20  sofar
 
 	* ftp/wget/BUILD: try this!!!
