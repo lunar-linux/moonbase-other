@@ -1,0 +1,14 @@
+          MODULE=mt-st
+         VERSION=0.7
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.ibiblio.org/pub/Linux/system/backup/$SOURCE
+         ENTERED=20030225
+         UPDATED=20030225
+           SHORT="mt-st replaces the standard mt with a scsi-aware version"
+cat << EOF
+Includes a mt-like program supporting additional
+commands using ioctls specific to the Linux SCSI tape driver (up
+to kernel 2.4.15), and the program stinit to define the SCSI tape
+devices in system startup scripts.
+EOF
