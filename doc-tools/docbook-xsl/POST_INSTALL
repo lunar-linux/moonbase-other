@@ -1,6 +1,8 @@
-(
-message "Rebuilding docbook catalogs" &&
-$SCRIPT_DIRECTORY/rebuild-docbook-catalog
+( 
+if module_installed scrollkeeper; then
+   message "Rebuilding docbook catalogs" &&
+   $SCRIPT_DIRECTORY/rebuild-docbook-catalog
+fi
 )
                                                                                 
 
