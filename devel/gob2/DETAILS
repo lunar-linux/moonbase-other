@@ -1,22 +1,24 @@
           MODULE=gob2
-         VERSION=2.0.8
+         VERSION=2.0.11
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://ftp.5z.com/pub/gob/
+      SOURCE_URL=http://ftp.5z.com/pub/gob/
+      SOURCE_VRY=sha1:79f084dee9865cdbcd40076675debe8a640a7f76
         WEB_SITE=http://www.5z.com/jirka/gob.html
          ENTERED=20020713
-         UPDATED=20030612
-           SHORT="GOB is a preprocessor for making GTK+ objects with inline C code"
+         UPDATED=20041216
+           SHORT="A preprocessor for making GObjects with inline C code"
+
 cat << EOF
-GOB is a preprocessor for making GTK+ objects with inline C code so
-that generated files are not edited. Syntax is inspired by java and
-yacc or lex. The implementation is intentionaly kept simple, and no
-C actual code parsing is done.
+GOB2 is a preprocessor for making GObjects with inline C code so that
+generated files are not edited.  Syntax is inspired by Java and Yacc 
+or Lex.  The implementation is intentionally kept simple, and no C 
+actual code parsing is done.
 
 Reasons:
-
-    * C is a perfect (well mostly) language, no need for another
-    language * Writing a fully featured GTK+ object is a hassle * GTK+
-    has little typesafety, GOB improves on it.  * Need for a generator
-    that doesn't require changes to generated code * I like how Java
-    writes method code directly into the class definition.
+ * C is a perfect (well mostly) language, no need for another language
+ * Writing a fully featured GObject is a hassle
+ * GObject has little type safety, GOB improves on it
+ * Need for a generator that doesn't require changes to generated code
+ * I like how Java writes method code directly into the class 
+   definition
 EOF
