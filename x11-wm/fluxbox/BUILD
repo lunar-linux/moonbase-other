@@ -1,8 +1,5 @@
 (
-
-  if [ "$NLS" == "n" ] ; then
-    OPTS="--disable-nls"
-  fi
+  OPTS=""  
 
   if [ "$KDE" == "y" ] ; then
     OPTS="$OPTS --enable-kde"
@@ -16,7 +13,7 @@
     OPTS="$OPTS --enable-xinerama"
   fi
 
-  if [ "$NLS" == "y" ] ; then
+  if [ "$REM" == "y" ] ; then
     gzip -dc  $SOURCE_CACHE/$SOURCE2 | patch -p1 
   fi && 
 

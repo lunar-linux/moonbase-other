@@ -1,11 +1,11 @@
-if ! grep -q "NLS" $MODULE_CONFIG; then
- if query "Enable NLS (National Languge support, NOTE: no rember patch, sorry) support?" y
-   then echo "NLS=y" >> $MODULE_CONFIG
-   else echo "NLS=n" >> $MODULE_CONFIG
+if ! grep -q "REM" $MODULE_CONFIG; then
+ if query "Enable Rember patch?" y
+   then echo "REM=y" >> $MODULE_CONFIG
+   else echo "REM=n" >> $MODULE_CONFIG
  fi
 fi
 
-if ! grep -q "KDE" $MODULE_CONFIG; then
+if ! grep -q "GNOME" $MODULE_CONFIG; then
  if query "Enable Gnome (wm specs) support?" y
    then echo "GNOME=y" >> $MODULE_CONFIG
    else echo "GNOME=n" >> $MODULE_CONFIG
