@@ -2,6 +2,8 @@
   CFLAGS=`echo $CFLAGS | sed "s/-ffast-math//"`
   CXXFLAGS=`echo $CXXFLAGS | sed "s/-ffast-math//"`
   
+  CFLAGS=`echo $CFLAGS | sed "s/-O3/-O2/"`
+  CXXFLAGS=`echo $CXXFLAGS | sed "s/-O3/-O2/"`
 
   export LD_LIBRARY_PATH=/opt/lunar/qt/3/lib
   export PATH=/opt/lunar/qt/3/bin:/opt/lunar/kde/3/bin:$PATH
