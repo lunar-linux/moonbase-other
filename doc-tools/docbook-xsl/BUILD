@@ -1,14 +1,12 @@
 (
 
-  TARGET=/usr/share/xsl/docbook
+  TARGET=/usr/share/docbook-xsl
   
+  prepare_install                 &&
   if ! [ -d "$TARGET" ]; then
        mkdir -p $TARGET
   fi                              &&
   
-  cp -R VERSION common doc docsrc extensions fo html htmlhelp javahelp lib params profiling template tools xhtml $TARGET                   &&
+  cp -a * $TARGET
   
-  gather_docs 
-  
-
 ) > $C_FIFO 2>&1
