@@ -1,4 +1,5 @@
 (
+  export PATH=${PATH}:/usr/X11R6/bin
   bad_flags linker &&
   patch_it  $SOURCE_CACHE/$SOURCE2 0 &&
   xmkmf -a                  &&
