@@ -1,0 +1,12 @@
+cat << EOF
+TUN/TAP Driver Configuration:
+
+(1)  make device node:         mknod /dev/net/tun c 10 200
+(2a) add to /etc/modules.conf: alias char-major-10-200 tun
+(2b) load driver:              modprobe tun
+(3)  enable routing:           echo 1 > /proc/sys/net/ipv4/ip_forward
+
+Note that either of steps (2a) or (2b) is sufficient.  While (2a)
+only needs to be done once per install, (2b) needs to be done once
+per reboot.
+EOF
