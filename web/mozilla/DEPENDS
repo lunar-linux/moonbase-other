@@ -2,11 +2,12 @@ depends zlib &&
 depends jpeg &&
 depends libpng &&
 depends libmng &&
-depends ORBit &&
+depends ORBit2 &&
 depends	zip	&&
 depends	unzip &&
 depends libIDL &&
 depends freetype2 &&
+optional_depends "j2sdk" "" "" "enable java in mozilla" &&
 if [ "$GTK1" == "y" ] ; then
   depends gtk+
 else

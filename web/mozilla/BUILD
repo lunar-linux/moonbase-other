@@ -8,10 +8,10 @@
   fi 
 
   # I'm considerign Gtk+1 obsolete here
-  if [ "$GTK1" == "y" ] ; then
-    OPTS="$OPTS --enable-toolkit-gtk"
+  if [ "$GTK" == "y" ] ; then
+    OPTS="$OPTS --disable-toolkit-gtk2 --enable-default-toolkit=gtk2 --enable-toolkit=gtk2 --with-gtk2"
   else
-    OPTS="$OPTS --enable-default-toolkit=gtk2 --disable-toolkit-gtk"
+    OPTS="$OPTS --enable-toolkit-gtk"
   fi 
 
   if [ "$MAIL" == "n" ] ; then
@@ -69,8 +69,9 @@
     EXTENTIONS="$EXTENTIONS,-help"
   fi
 
-  # Neeed for Xft
-  # export PKG_CONFIG_PATH="/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig"
+  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig:/opt/lunar/gnome/2/lib/pkgconfig
+  export MOZ_NSS_AUTOCONF=1
+  export NATIVE_THEME_SUPPORT=1
 
   echo "$OPTS $EXTENTIONS" > /tmp/mozz
 
@@ -97,5 +98,10 @@
               $OPTS								\
               $EXTENTIONS							&&
 
-  default_make 
+  default_make &&
+  cp mozilla-1.3-lunar/mozilla.desktop /usr/share/applications &&
+  cp mozilla-1.3-lunar/mozilla-mail.desktop /usr/share/applications &&
+  cp mozilla-1.3-lunar/mozilla.png /usr/share/pixmaps &&
+  cp mozilla-1.3-lunar/mozilla-mail.png /usr/share/pixmaps 
+
 ) > $C_FIFO 2>&1

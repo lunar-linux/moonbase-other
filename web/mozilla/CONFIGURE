@@ -81,16 +81,13 @@ if  ! grep -q "CRYPTO"  $MODULE_CONFIG; then
   fi
 fi
 
-# No Xft2 in lunar
-echo  "XFT=n"  >>  $MODULE_CONFIG
-
-# if  ! grep -q "XFT"  $MODULE_CONFIG; then
-#   if  query  "Include Xft (X client side fonts) support?" n; then
-#     echo  "XFT=y"  >>  $MODULE_CONFIG
-#   else
-#     echo  "XFT=n"  >>  $MODULE_CONFIG
-#   fi
-# fi
+ if  ! grep -q "XFT"  $MODULE_CONFIG; then
+   if  query  "Include Xft (X client side fonts) support?" y; then
+     echo  "XFT=y"  >>  $MODULE_CONFIG
+   else
+     echo  "XFT=n"  >>  $MODULE_CONFIG
+   fi
+ fi
 
 if  ! grep -q "LDAP"  $MODULE_CONFIG; then
   if  query  "Include LDAP support?" n; then
@@ -100,21 +97,26 @@ if  ! grep -q "LDAP"  $MODULE_CONFIG; then
   fi
 fi
 
-# Gtk+2 broken, works but half the stuff won't work, so use at your own risk
-echo  "GTK1=y"  >>  $MODULE_CONFIG
-
-#if  ! grep -q "GTK1"  $MODULE_CONFIG; then
-#  if  query  "Use Gtk+1 insted of gtk+2 (need for galeon 1)?" n; then
-#    echo  "GTK1=y"  >>  $MODULE_CONFIG
-#  else
-#    echo  "GTK1=n"  >>  $MODULE_CONFIG
-#  fi
-#fi
+if  ! grep -q "GTK"  $MODULE_CONFIG; then
+  if  query  "Use Gtk2 instead of Gtk1? (needs Gtk1 for galeon 1)" y; then
+    echo  "GTK=y"  >>  $MODULE_CONFIG
+  else
+    echo  "GTK=n"  >>  $MODULE_CONFIG
+  fi
+fi
 
 if  ! grep -q "HELP"  $MODULE_CONFIG; then
   if  query  "Include mozilla Help support?" y; then
     echo  "HELP=y"  >>  $MODULE_CONFIG
   else
     echo  "HELP=n"  >>  $MODULE_CONFIG
+  fi
+fi
+
+if  ! grep -q "STRIP_TEST"  $MODULE_CONFIG; then
+  if  query  "Add Stripping of libraries" y;  then
+     echo  "STRIP_TEST=y"  >>  $MODULE_CONFIG
+  else
+     echo  "STRIP_TEST=n"  >>  $MODULE_CONFIG
   fi
 fi

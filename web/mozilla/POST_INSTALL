@@ -16,10 +16,6 @@ cd /usr/lib/mozilla-$VERSION
 mkdir -p /opt/lunar/plugins
 ln -sf /opt/lunar/plugins plugins
 
-# Proper use of system freetype2 lib, with proper font dirs
-#  thx to the good folks at lunar linux
-patch -p0 < $SOURCE_DIRECTORY/mozilla-$VERSION-lunar/unix-prefs-lunar.patch
-
 export LD_LIBRARY_PATH="/usr/lib/mozilla-$VERSION:/usr/lib/mozilla-$VERSION/plugins:/usr/lib/mozilla-$VERSION/components"
 export MOZILLA_FIVE_HOME="/usr/lib/mozilla-$VERSION"
 ldconfig
@@ -29,3 +25,5 @@ echo "locale,install,select,en-US" >> chrome/installed-chrome.txt
 
 ./regxpcom
 ./regchrome
+
+ln -sf /usr/lib/j2sdk1.4.1/jre/plugin/i386/mozilla/javaplugin_oji.so /usr/lib/mozilla/plugins/javaplugin_oji.so 
