@@ -1,6 +1,8 @@
 (
 
-  OPTS=$OPTS" --with-docdir=/usr/share/doc --disable-nls"
+  sedit "s:LFLAGS =:LDFLAGS = -lintl:" src/Makefile.in
+  sedit "s:LFLAGS:LDFLAGS:g" src/Makefile.in
+  OPTS=$OPTS" --with-docdir=/usr/share/doc --enable-nls"
   default_build
 
 ) > $C_FIFO 2>&1
