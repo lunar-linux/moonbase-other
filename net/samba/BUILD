@@ -1,8 +1,8 @@
 (
-
+  WITH_PAM=" " &&
   if  module_installed  Linux-PAM;  then
     WITH_PAM="--with-pam  --with-pam_smbpass"
-  fi
+  fi  &&
 
   cd  source
   ./configure  --prefix=/usr           \
@@ -19,12 +19,10 @@
   cp Makefile Makefile.orig            &&
   sedit "s/-msse2//g" Makefile
 
-  make                                 &&
-  prepare_install                      &&
   mkdir  -p  /etc/samba                &&
   mkdir  -p  /usr/share/samba          &&
   mkdir  -p  /var/log/samba            &&
-  make    install                      &&
+  default_make                         &&
 
   if module_installed cups ; then
     ln -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
