@@ -26,6 +26,8 @@ install_dicts ()
   sedit "/^LANGS=\"\$LANGS/d" bin/setup.in      &&
   sedit "/^LANGS=/s/\".*\"/\"$SEL_LANGS\"/" bin/setup.in  &&
 
+  message "+ Running configure with \$OPTS: $OPTS" &&
+
   ./configure	--prefix=/usr 			\
 		--sysconfdir=/etc 		\
                 --with-system-gcc 		\
