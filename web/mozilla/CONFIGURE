@@ -74,7 +74,7 @@ fi
 # Crypto not stock, but we do it default cause people bitch when they don't have htts
 #   and the have to recompile.
 if  ! grep -q "CRYPTO"  $MODULE_CONFIG; then
-  if  query  "Include crypto (htts) support?" y; then
+  if  query  "Include crypto (https) support?" y; then
     echo  "CRYPTO=y"  >>  $MODULE_CONFIG
   else
     echo  "CRYPTO=n"  >>  $MODULE_CONFIG
