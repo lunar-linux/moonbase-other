@@ -1,3 +1,62 @@
+2004-01-22 11:40  nestu
+
+	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: Bump version, double
+	patching again: stable -[ patch ]-> rc -[patch]-> rc-mm
+
+2004-01-22 06:02  tchan
+
+	* devel/smake/DETAILS: Version bump to 1.2a21.	Compiled and tested
+	with gcc-3.2.3.
+
+2004-01-21 22:26  florin
+
+	* games/xmame/DETAILS: bump version from 0.77.1 to 0.78.1.
+
+2004-01-21 22:23  jol
+
+	* video/mplayerplug-in/DETAILS: Bumped Version OLD: 1.1  NEW: 1.2
+
+2004-01-21 21:21  jol
+
+	* kde3-apps/kxmleditor/DETAILS: Bumped version OLD: 0.8.4 NEW:
+	0.9.2
+
+2004-01-21 20:19  niki
+
+	* audio/gstreamer/BUILD: removed the BUILD file as the sedit
+	command it contained isnt needed anymore...
+
+2004-01-21 19:57  nestu
+
+	* kernel/linux-beta/: DETAILS, PRE_BUILD: Version bump ;)
+
+2004-01-21 19:53  jol
+
+	* devel/flex/: BUILD, DETAILS: Add a patch, reason:	GNU flex
+	being incompatible with the stricter C++ requirements of your g++
+	3.2 or up.   You can have more information:
+	http://bugs.kde.org/show_bug.cgi?id=69942
+
+2004-01-21 18:25  tchan
+
+	* utils/calc/DETAILS: Yet another module that is not PSAFE now.
+
+2004-01-21 17:18  tchan
+
+	* utils/pciutils/DETAILS: Now that hardkrash has fixed the MAKES
+	alias problem, more modules are showing up as NOT being PSAFE. 
+	man-pages recently showed this behavior and now pciutils.
+
+2004-01-21 16:19  jmhodges
+
+	* games/pysol-sound-server/DEPENDS: added depends on smpeg, thanks
+	Jalal!
+
+2004-01-21 13:15  jmhodges
+
+	* gnome2-core/: ORBit2/DETAILS, libbonobo/DETAILS,
+	libbonoboui/DETAILS: version bumps all around
+
 2004-01-21 09:17  florin
 
 	* video/mkvtoolnix/DETAILS: bump version from 0.8.1 to 0.8.2.
@@ -404,14 +463,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
-	the version, added a depends on hicolor-icon-theme, and moved it
-	out of /opt/lunar
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
+	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
+	the version, added a depends on hicolor-icon-theme, and moved it
+	out of /opt/lunar
 
 2004-01-15 18:22  niki
 
@@ -1809,94 +1868,4 @@
 
 	* ftp/lftp/DETAILS: bump version from 2.6.10 to 2.6.11. bugfix
 	version.
-
-2003-12-22 23:50  sofar
-
-	* x11-utils/MenuMaker/DETAILS: suckers.... this is GOOD sSTUFFfff!
-
-2003-12-22 15:40  florin
-
-	* audio/audiofile/DETAILS: bump version from 0.2.4 to 0.2.5. bugfix
-	version.
-
-2003-12-22 13:35  sofar
-
-	* kernel/linux-openmosix/DETAILS: Bumping patch version, this one
-	is much more stable. Hope it works for people
-
-2003-12-22 13:31  sofar
-
-	* utils/: wlan-ng-driver/DETAILS, wlan-ng-utils/DETAILS: Bumping
-	versions here tew
-
-2003-12-22 10:28  tchan
-
-	* zbeta/emacs-cvs/DETAILS: Fixed emacs-cvs to use Savannah's latest
-	URL's.	Their cvs server is still not fully functional so the URL's
-	have changed temporarily.  Also the file extension is tar.bz2 NOT
-	tar.gz.  Also removed the dual occurrence of SOURCE_DIRECTORY from
-	the script.
-
-2003-12-22 10:24  jasper
-
-	* xfce4/xfcalendar/: BUILD, DEPENDS: This tarball is rather broken
-	:(
-
-2003-12-22 07:37  jasper
-
-	* profiles/xfce4-extras-profile/DEPENDS: Add xfcalendar to the
-	extras
-
-2003-12-22 07:28  jasper
-
-	* profiles/xfce4-extras-profile/DETAILS,
-	profiles/xfce4-profile/DETAILS, xfce4/libxfce4mcs/DETAILS,
-	xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/DETAILS,
-	xfce4/xfcalendar/BUILD, xfce4/xfcalendar/DEPENDS,
-	xfce4/xfcalendar/DETAILS, xfce4/xfce-mcs-manager/DETAILS,
-	xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/DETAILS,
-	xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-mixer/DETAILS,
-	xfce4/xfce4-panel/DETAILS, xfce4/xfce4-systray/DETAILS,
-	xfce4/xfce4-toys/DETAILS, xfce4/xfce4-trigger-launcher/DETAILS,
-	xfce4/xfdesktop/DETAILS, xfce4/xffm/DETAILS, xfce4/xfprint/DETAILS,
-	xfce4/xfwm4/DETAILS: Update to 4.0.2. Bugfix release.
-
-2003-12-22 02:13  elaine
-
-	* security/airsnort/DETAILS: Bumped v.
-
-2003-12-22 02:10  elaine
-
-	* utils/linux-wlan-ng/DETAILS: Bumped v. catches a couple of
-	bugfixes
-
-2003-12-22 01:46  tchan
-
-	* web/MozillaFirebird/POST_INSTALL: Added tests for the two
-	directories /usr/share/pixmaps and /usr/share/applications. 
-	Created the dirs, if they don't exist already.
-
-2003-12-22 01:38  tchan
-
-	* security/shadow/BUILD: Reverted the BUILD script a little too
-	far!  It does need the suffix removed in the cracklib dict path.
-
-2003-12-22 01:23  tchan
-
-	* devel/automake/: BUILD, DETAILS: I'm reverting automake back to
-	1.7.9 as 1.8.0 breaks some older moonbase modules, the most
-	important of which is the "shadow" module.  Don't mess around with
-	automake and shadow unless you can get both modules to work
-	correctly together.  automake-1.8.0 is a significant change from
-	1.7.x!!!
-
-2003-12-22 01:21  tchan
-
-	* security/shadow/BUILD: Reverted back to previous "touch *"
-	command.  Florin's "fix" is incorrect as "touch -r configure.in *"
-	just hides the changes to aclocal.m4.  I also reverted automake
-	back to 1.79 as the 1.80 version is what really causes the shadow
-	module to break during compile.  So don't touch the shadow and
-	automake modules unless you can correctly fix the older modules in
-	moonbase that break because of all the changes in automake-1.8!!!!!
 
