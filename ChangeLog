@@ -1,3 +1,34 @@
+2003-12-28 11:41  florin
+
+	* graphics/openvrml/: CONFIGURE, DEPENDS: reusing tchan's great
+	work from db4 i think that's the proper fix for j2sdk install
+	problem.
+
+2003-12-28 08:53  tchan
+
+	* devel/db4/: CONFIGURE, DETAILS: I had to revert db4 back down to
+	4.1.25.  4.2.52 will not work correctly with --enable-java and
+	blackdown j2sdk.  It errors out during ./configure with:
+	
+	checking if java works... configure: error: The Java VM java failed
+	(see config.log, check the CLASSPATH?)
+	
+	So if anyone bumps db4 back above 4.1.25, they have to fix the java
+	problem first!
+	
+	I've fixed the Lunar CONFIGURE script to correctly pass the
+	--enable-java flag in the $OPTS var.  $OPTS if set in CONFIGURE,
+	MUST be echoed out to $MODULE_CONFIG, otherwise the lunar core will
+	just unset the OPTS var in satisfy_depends (depends.lunar).
+	
+	db4 4.1.25 correctly compiles with java enabled and tested with
+	gcc-3.2.3, glibc-2.3.2.
+
+2003-12-27 13:05  sofar
+
+	* security/logcheck/DETAILS: Adjust patch so it doesn't overwrite
+	the .conf file (if it exists)
+
 2003-12-27 08:32  florin
 
 	* x11/xplanet/: BUILD, DETAILS: bump version from 1.0.1 to 1.0.2.
