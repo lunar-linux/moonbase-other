@@ -24,6 +24,11 @@
     CCARGS=$CCARGS" -DHAS_MYSQL -I/usr/include/mysql"
   fi  &&
 
+  if module_installed postgresql ; then
+    AUXLIBS=$AUXLIBS" -lpq"
+    CCARGS=$CCARGS" -DHAS_PGSQL -I/usr/include/pgsql"
+  fi  &&
+
   if module_installed cyrus-sasl ; then
     AUXLIBS=$AUXLIBS" -lsasl2 -lssl -lcrypto"
     CCARGS=$CCARGS" -DUSE_SASL_AUTH -I/usr/include/sasl -DHAS_SSL -I/usr/include/openssl"
