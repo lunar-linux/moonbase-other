@@ -14,7 +14,6 @@
   make                                      &&
   prepare_install                           &&
   make    install                           &&
-  mkdir   /usr/games/share/luola/levels     &&
   cd      /usr/games/share/luola/levels     &&
   unpack  $SOURCE2                          
 
