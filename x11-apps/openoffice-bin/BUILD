@@ -25,6 +25,11 @@
   mv /opt/lunar/openoffice /opt/lunar/.OOo		&& # takes 1 sec
   mkdir /opt/lunar/openoffice                           &&
   cp -R /opt/lunar/.OOo/* /opt/lunar/openoffice/	&& # takes a while...
-  rm -rf /opt/lunar/.OOo
+  rm -rf /opt/lunar/.OOo				&&
+
+  cd /usr/share/applications                            &&
+  for i in /opt/lunar/openoffice/share/gnome/net/ooo*.desktop ; do
+   ln -sf $i
+  done
 
 ) > $C_FIFO 2>&1
