@@ -1,7 +1,107 @@
-2004-09-19 13:07  florin
+2004-09-20 13:23  sofar
 
-	* kde3-apps/kbanking/: BUILD, DEPENDS, DETAILS: a KDE frontend for
-	  aqbanking.
+	* graphics/glut/BUILD: Cleaned up and added a bit of optimizations
+	  to it
+
+2004-09-20 11:08  sofar
+
+	* perl/mod_perl/DETAILS: #310: changing dl url to the exact
+	  mod_perl version instead of the everchanging tarball with all
+	  messy effects. Should be more clean.
+
+2004-09-20 10:10  sofar
+
+	* gnome2-core/gnome-vfs2/DEPENDS: Bugfix #442
+
+2004-09-20 04:29  florin
+
+	* libs/libtool/DETAILS: bump the version from 1.5.8 to 1.5.10. some
+	  bugfixes.
+
+2004-09-20 01:39  florin
+
+	* kde3-apps/koffice3/DETAILS: bump the version from 1.3.2 to 1.3.3.
+
+2004-09-19 23:58  florin
+
+	* x11-apps/bitstream-vera/: DETAILS, POST_INSTALL: fix the build.
+	  reported by dveatch.
+
+2004-09-19 22:39  striker
+
+	* zbeta/php5/DETAILS: ahh! how'd that happen!
+
+2004-09-19 22:36  striker
+
+	* zbeta/php5/DETAILS: whoops, forgot the minor details
+
+2004-09-19 22:32  striker
+
+	* zbeta/php5/: BUILD, CONFIGURE, CONFLICTS, DEPENDS, DETAILS,
+	  POST_INSTALL, POST_REMOVE: Adding PHP5 to moonbase
+
+2004-09-19 21:53  sofar
+
+	* utils/acpitool/DETAILS: Nice tool
+
+2004-09-19 20:58  sofar
+
+	* ftp/vsftpd/BUILD: to make it complete: also give hints in the
+	  default config when people do not choose init.d. =^D
+
+2004-09-19 20:55  sofar
+
+	* ftp/vsftpd/: BUILD, init.d/vsftpd: Added proper init.d script,
+	  also added patch to create a default vsftpd.conf that works OOTB
+	  when installing vsftpd with the proper config. =^)
+
+2004-09-19 17:29  florin
+
+	* kde3-utils/kbanking/: BUILD, DEPENDS, DETAILS: move it from
+	  kde3-apps.
+
+2004-09-19 17:11  moe
+
+	* security/nss_ldap/DETAILS: Bumped to 220
+
+2004-09-19 17:06  moe
+
+	* security/pam_ldap/DETAILS: Bumped to 174
+
+2004-09-19 16:46  florin
+
+	* audio/jack/DETAILS: bump the version fronm 0.98.1 to 0.99.0.
+
+2004-09-19 16:11  tchan
+
+	* utils/parted/DETAILS: Version bump to parted-1.6.15.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2004-09-19 15:18  florin
+
+	* devel/elfutils/: BUILD, DETAILS: fix the build. bug reported by
+	  dveatch.
+
+2004-09-19 14:46  florin
+
+	* kde3-apps/knoda/: BUILD, DETAILS: bump the version from 0.7 to
+	  0.7.1. make it compile with gcc 3.4.2.
+
+2004-09-19 14:03  florin
+
+	* kde3-apps/hk_classes/DETAILS: bump the version from 0.7 to 0.7.1.
+
+2004-09-19 13:51  florin
+
+	* sql/sqlite/DETAILS: bump the version from 2.8.15 to 3.0.7.
+
+2004-09-19 13:35  v3rt1g0
+
+	* games/fortune-meanwhile-in-lunar/DETAILS: New weeky new version.
+	  Next week I'm going to change the versioning of this module (and
+	  it's tarball) to a date based.  I just realized how lame the
+	  x.y.z version scheme is for something like this :)
 
 2004-09-19 13:06  florin
 
@@ -1937,171 +2037,4 @@
 	* devel/uml/DETAILS: Version bump to the latest UML patchset
 	  2.4.26-3um.  I tested and applied this patchset to the 2.4.27
 	  kernel, so I bumped this module to uml-2.4.27-3um.  gcc-3.3.3.
-
-2004-08-20 20:41  jmhodges
-
-	* editors/bicyclerepair/: BUILD, DETAILS: bicyclerepairman is
-	  neat..
-
-2004-08-20 20:38  jmhodges
-
-	* editors/vim/DEPENDS: cool interpreter support
-
-2004-08-20 19:43  jmhodges
-
-	* news/liferea/DETAILS: version bump to 0.5.3
-
-2004-08-20 16:17  florin
-
-	* video/xawtv/DETAILS: bump the version from 3.93 to 3.94.
-
-2004-08-20 16:10  florin
-
-	* net/samba/DETAILS: bump the version from 3.0.5 to 3.0.6.
-
-2004-08-20 16:05  florin
-
-	* x11-utils/gkrellm-volume/DETAILS: bump the version from 2.1.11 to
-	  2.1.13.
-
-2004-08-20 14:41  florin
-
-	* kde3-apps/kdevelop3/DETAILS: bump the version from 3.0.4 to
-	  3.1.0.
-
-2004-08-20 14:38  florin
-
-	* kde3/kdeaccessibility3/DETAILS, kde3/kdeaddons3/DETAILS,
-	  kde3/kdeadmin3/DETAILS, kde3/kdeartwork3/DETAILS,
-	  kde3/kdebase3/DETAILS, kde3/kdebase3/PRE_BUILD,
-	  kde3/kdebindings3/DETAILS, kde3/kdeedu3/DETAILS,
-	  kde3/kdegames3/DETAILS, kde3/kdegraphics3/DETAILS,
-	  kde3/kdelibs3/DETAILS, kde3/kdemultimedia3/DETAILS,
-	  kde3/kdenetwork3/BUILD, kde3/kdenetwork3/DETAILS,
-	  kde3/kdepim3/DETAILS, kde3/kdesdk3/DETAILS,
-	  kde3/kdetoys3/DETAILS, kde3/kdeutils3/DETAILS,
-	  kde3/kdewebdev3/BUILD, kde3/kdewebdev3/DEPENDS,
-	  kde3/kdewebdev3/DETAILS, kde3-i18n/kde3-i18n-ar/DETAILS,
-	  kde3-i18n/kde3-i18n-bg/DETAILS, kde3-i18n/kde3-i18n-bn/DETAILS,
-	  kde3-i18n/kde3-i18n-bs/DETAILS, kde3-i18n/kde3-i18n-ca/DETAILS,
-	  kde3-i18n/kde3-i18n-cs/DETAILS, kde3-i18n/kde3-i18n-cy/DETAILS,
-	  kde3-i18n/kde3-i18n-da/DETAILS, kde3-i18n/kde3-i18n-de/DETAILS,
-	  kde3-i18n/kde3-i18n-el/DETAILS,
-	  kde3-i18n/kde3-i18n-en_GB/DETAILS,
-	  kde3-i18n/kde3-i18n-es/DETAILS, kde3-i18n/kde3-i18n-et/DETAILS,
-	  kde3-i18n/kde3-i18n-eu/DETAILS, kde3-i18n/kde3-i18n-fa/DETAILS,
-	  kde3-i18n/kde3-i18n-fi/DETAILS, kde3-i18n/kde3-i18n-fr/DETAILS,
-	  kde3-i18n/kde3-i18n-he/DETAILS, kde3-i18n/kde3-i18n-hi/DETAILS,
-	  kde3-i18n/kde3-i18n-hr/DETAILS, kde3-i18n/kde3-i18n-hsb/DETAILS,
-	  kde3-i18n/kde3-i18n-hu/DETAILS, kde3-i18n/kde3-i18n-is/DETAILS,
-	  kde3-i18n/kde3-i18n-it/DETAILS, kde3-i18n/kde3-i18n-ja/DETAILS,
-	  kde3-i18n/kde3-i18n-mn/DETAILS, kde3-i18n/kde3-i18n-ms/DETAILS,
-	  kde3-i18n/kde3-i18n-nb/DETAILS, kde3-i18n/kde3-i18n-nds/DETAILS,
-	  kde3-i18n/kde3-i18n-nl/DETAILS, kde3-i18n/kde3-i18n-nn/DETAILS,
-	  kde3-i18n/kde3-i18n-pa/BUILD, kde3-i18n/kde3-i18n-pa/DEPENDS,
-	  kde3-i18n/kde3-i18n-pa/DETAILS, kde3-i18n/kde3-i18n-pl/DETAILS,
-	  kde3-i18n/kde3-i18n-pt/DETAILS,
-	  kde3-i18n/kde3-i18n-pt_BR/DETAILS,
-	  kde3-i18n/kde3-i18n-ro/DETAILS, kde3-i18n/kde3-i18n-ru/DETAILS,
-	  kde3-i18n/kde3-i18n-sk/DETAILS, kde3-i18n/kde3-i18n-sl/DETAILS,
-	  kde3-i18n/kde3-i18n-sr/DETAILS,
-	  kde3-i18n/kde3-i18n-sr@Latn/DETAILS,
-	  kde3-i18n/kde3-i18n-sv/DETAILS, kde3-i18n/kde3-i18n-ta/DETAILS,
-	  kde3-i18n/kde3-i18n-tg/DETAILS, kde3-i18n/kde3-i18n-tr/DETAILS,
-	  kde3-i18n/kde3-i18n-uk/DETAILS, kde3-i18n/kde3-i18n-uz/DETAILS,
-	  kde3-i18n/kde3-i18n-zh_CN/DETAILS,
-	  kde3-i18n/kde3-i18n-zh_TW/DETAILS, kde3-i18n/kde3-i18n-eo/BUILD,
-	  kde3-i18n/kde3-i18n-eo/DEPENDS, kde3-i18n/kde3-i18n-eo/DETAILS:
-	  bump the version from 3.2.3 to 3.3.0.
-
-2004-08-20 14:37  florin
-
-	* kde3/arts/DETAILS: bump the version from 1.2.3 to 1.3.0.
-
-2004-08-20 14:27  tchan
-
-	* audio/modplugxmms/: BUILD, DEPENDS, DETAILS: Fixed the DEPENDS
-	  file and removed the empty BUILD file.  Added md5sum to DETAILS.
-	  Compiled and tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2004-08-20 14:21  tchan
-
-	* audio/libmodplug/: BUILD, DEPENDS, DETAILS: Removed the incorrect
-	  DEPENDS and BUILD is just an empty default_build line so its
-	  unnecessary.	Added md5sum back to libmodplug.  Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-08-20 14:07  tchan
-
-	* ftp/prozilla/DETAILS: Fixed indentation. Added md5sum.
-
-2004-08-20 14:01  tchan
-
-	* utils/syslinux/DETAILS: Version bump to syslinux-2.11.  Bug fix
-	  release.  Compiled/tested with gcc-3.3.3, glib-2.3.3, kernel
-	  headers 2.4.x.
-
-2004-08-20 10:27  prox
-
-	* net/ntp/POST_INSTALL: reworked code, added check for ping since
-	  perldude has lost his ping =)
-
-2004-08-20 08:17  sofar
-
-	* gnome/gnome-libs/POST_INSTALL: is now empty
-
-2004-08-20 08:05  sofar
-
-	* compilers/mcs/POST_INSTALL, devel/guile/POST_INSTALL,
-	  doc-tools/intltool/POST_INSTALL, doc-tools/opensp/POST_INSTALL,
-	  ftp/wget/POST_INSTALL, gnome/gal/POST_INSTALL,
-	  gnome/gdk-pixbuf/POST_INSTALL, gnome/gnome-libs/POST_INSTALL,
-	  gnome2-core/gdm/POST_INSTALL,
-	  gnome2-core/gtksourceview/POST_INSTALL,
-	  gnome2-extras/libcroco/POST_INSTALL,
-	  graphics/freetype2/POST_INSTALL, kde3/qt3/POST_INSTALL,
-	  kernel/linux/POST_INSTALL, kernel/linux-beta/POST_INSTALL,
-	  kernel/linux-beta-mm/POST_INSTALL,
-	  kernel/linux-grsec/POST_INSTALL,
-	  kernel/linux-openmosix/POST_INSTALL,
-	  kernel/linux-stable/POST_INSTALL,
-	  kernel/linux-vanilla/POST_INSTALL, libs/gettext/POST_INSTALL,
-	  libs/ncurses/POST_INSTALL, libs/t1lib/POST_INSTALL,
-	  perl/perl/POST_INSTALL, printer/gimp-print/POST_INSTALL,
-	  security/Linux-PAM/POST_INSTALL, video/libdvdcss/POST_INSTALL,
-	  video/libtheora/POST_INSTALL, web/apache2/POST_INSTALL,
-	  web/mozilla/POST_INSTALL, x11/xfree86/POST_INSTALL,
-	  x11/XOrg/POST_INSTALL, x11-utils/fontconfig/POST_INSTALL,
-	  zbeta/linux-devel-svn/POST_INSTALL, zbeta/mkinitrd/POST_INSTALL,
-	  zbeta/xfree86-beta/POST_INSTALL: Removing BOOST_LOCK in
-	  POST_INSTALL is obsoleted by about 8-12 months as the boost()
-	  function in the core cleans up the boostlock before POST_INSTALL
-	  is ran. Removing the obsolete calls from moonbase since they
-	  confuse people.
-
-2004-08-20 05:37  hardkrash
-
-	* devel/gendiff/DETAILS: a touch of clean up
-
-2004-08-20 05:32  hardkrash
-
-	* devel/gendiff/PRE_BUILD: correcting prebuild to fail, added &&'s
-
-2004-08-20 03:09  jmhodges
-
-	* compilers/j2sdk/profile.d/j2sdk.rc: this is better
-
-2004-08-20 01:31  florin
-
-	* crypto/cyrus-sasl/DETAILS: update the date.
-
-2004-08-20 01:26  florin
-
-	* crypto/cyrus-sasl/: DEPENDS, DETAILS: make it use db4 instead db
-	  lib.
-
-2004-08-20 01:25  florin
-
-	* devel/db4/BUILD: tweak the BUILD file.
 
