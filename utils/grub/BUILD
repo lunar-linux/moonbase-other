@@ -8,6 +8,6 @@
   if [ ! -d /boot/grub ] ; then
     mkdir -p /boot/grub
   fi
-  cp /usr/share/grub/i386-pc/*1_5 /usr/share/grub/i386-pc/stage* /boot/grub
+  cp /usr/lib/grub/i386-pc/*1_5 /usr/lib/grub/i386-pc/stage* /boot/grub
 
 ) > $C_FIFO 2>&1
