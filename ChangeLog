@@ -1,3 +1,154 @@
+2004-04-08 11:16  nestu
+
+	* filesys/sysfsutils/DETAILS: Change the 'what' description, since
+	the lsbus utility has been removed from the package.
+
+2004-04-08 10:54  nestu
+
+	* filesys/sysfsutils/DETAILS: Bump version. SOURCE_URL has been
+	fixed so it uses $SOURCE
+
+2004-04-08 07:08  tchan
+
+	* devel/qemu/BUILD: Reworked this module to take advantage of the
+	new static libs in XOrg.
+
+2004-04-08 05:09  tchan
+
+	* devel/tk/DEPENDS, doc-tools/teTeX/DEPENDS, editors/emacs/DEPENDS,
+	graphics/gtk+/DEPENDS, graphics/gtk+-2/DEPENDS,
+	libs/openMotif/DEPENDS, printer/espgs/DEPENDS,
+	profiles/useful-profile/DEPENDS, science/gnuplot/DEPENDS,
+	zbeta/emacs-cvs/DEPENDS: Switched moonbase over to nhudson's newer
+	and better named xservers-profile.  The goal is to re-use the
+	xserver module name for the X11R6 fork of xfree86 named "xserver".
+
+2004-04-08 05:02  tchan
+
+	* x11-utils/root-tail/DEPENDS: This app is located in x11-utils. 
+	It clearly is a GUI app.  I'm removing the redundant DEPENDS on
+	xserver or the new xservers-profile.
+
+2004-04-08 04:54  tchan
+
+	* profiles/xservers-profile/CONFIGURE: Reworded the help message a
+	little.  Fixed some typos.
+
+2004-04-08 04:53  florin
+
+	* kde3/qt3/DEPENDS: in DEPENDS use xservers-profile instead of
+	xserver.
+
+2004-04-08 04:53  florin
+
+	* distributed/BitTorrent/DETAILS: fix the md5sum.
+
+2004-04-08 03:27  nhudson
+
+	* devel/monodoc/BUILD: 
+	Might as well do this now or I will forget about it tomorrow
+
+2004-04-08 03:25  nhudson
+
+	* devel/: gtk-sharp/DEPENDS, monodoc/BUILD, monodoc/DEPENDS,
+	monodoc/DETAILS: 
+	Adding monodoc module and changing the gtk-sharp DEPENDS so that
+	monodoc works correctly
+
+2004-04-08 03:05  florin
+
+	* utils/file/DETAILS: bump the version from 4.08 to 4.09.
+
+2004-04-08 01:41  nhudson
+
+	* profiles/xservers-profile/: BUILD, CONFIGURE: 
+	Adding in a message stating what each choice will be
+
+2004-04-08 01:33  nhudson
+
+	* profiles/xservers-profile/: BUILD, DEPENDS, DETAILS, POST_BUILD,
+	PRE_BUILD: 
+	Adding a better name for this profile so that it might not confuse
+	people
+
+2004-04-08 01:26  nhudson
+
+	* x11/XOrg/POST_INSTALL: 
+	Now adding a message stating the config diffrences from xorg and
+	xfree86.
+
+2004-04-08 01:21  nhudson
+
+	* x11-utils/fontconfig/POST_INSTALL: 
+	Adding pango to rebuild after you compile fontconfig
+
+2004-04-08 01:18  nhudson
+
+	* x11/XOrg/POST_INSTALL: 
+	Removing pango from the rebuild list on XOrg and moving it to
+	fontconfig
+
+2004-04-07 21:45  nhudson
+
+	* gnome2-apps/gnumeric2/: BUILD, profile.d/gnumeric.rc: 
+	Moving gnumeric2 to /opt/lunar/gnumeric so that it doesnt conflict
+	with gnumeric module.
+
+2004-04-07 19:24  florin
+
+	* filesys/udev/DETAILS: fix the SOURCE3 path.
+
+2004-04-07 18:30  cmak
+
+	* x11/XOrg/CONFIGURE: removed some double entries
+
+2004-04-07 18:28  nhudson
+
+	* x11-apps/bitstream-vera/POST_INSTALL: 
+	Adding the exact PATH to the POST_INSTALL file
+
+2004-04-07 18:27  nestu
+
+	* filesys/udev/BUILD: Take out hardcoded /var/spool/lunar/ and
+	change for SOURCE_CACHE
+
+2004-04-07 18:14  jmhodges
+
+	* filesys/udev/: BUILD, DETAILS: yeah they may only last 4 days but
+	they are nice to have
+
+2004-04-07 18:09  nhudson
+
+	* x11/XOrg/DEPENDS: 
+	Fixing circular depends with fontconfig expat and freetype2. 
+	fontconfig depends on expat and freetype2 and XOrg depends on
+	fontconfig
+
+2004-04-07 18:08  nhudson
+
+	* x11-utils/fontconfig/DETAILS: 
+	Updating the version of fontconfig to 2.2.2 for the new XOrg's
+	xserver, also changed the URL to the new location.
+
+2004-04-07 18:04  nhudson
+
+	* x11/XOrg/CONFIGURE: 
+	Adding in to not compile and install the internal Fontconfig Libs
+	because they are built as a dependancy
+
+2004-04-07 17:56  tchan
+
+	* profiles/xserver/DEPENDS: Added XOrg as a choice now that its
+	stable and in moonbase/x11/XOrg.
+
+2004-04-07 17:51  tchan
+
+	* x11/XOrg/: BUILD, CONFIGURE, CONFLICTS, DEPENDS, DETAILS,
+	POST_INSTALL, POST_REMOVE, PRE_BUILD, xsession, pam.d/xdm: Moved
+	from zbeta to x11.  Reworked the module to use the stable X11R6.7.0
+	release from xdesktop.org.  Compiled and tested with gcc-3.3.3, and
+	kernel headers 2.4.x.
+
 2004-04-07 11:30  jol
 
 	* distributed/BitTorrent/DETAILS: Bumped version OLD: 3.4.1a  NEW:
@@ -465,11 +616,6 @@
 	release.  Downloaded off of several mirrors to make sure its really
 	there.	Works fine.
 
-2004-03-28 18:21  nhudson
-
-	* zbeta/XOrg/: CONFIGURE, DEPENDS: 
-	Minor cleanups that niki pointed out to me.
-
 2004-03-28 16:29  florin
 
 	* kde3-i18n/: kde3-i18n-en_GB/DETAILS, koffice3-i18n-en_GB/DETAILS:
@@ -497,15 +643,6 @@
 	* mail/uudeview/: BUILD, DETAILS: Version bump to 0.5.20.  Buffer
 	overflow fix.  Compiled and tested with gcc-3.3.3, kernel headers
 	2.4.x.
-
-2004-03-28 05:22  nhudson
-
-	* zbeta/XOrg/: BUILD, CONFIGURE, CONFLICTS, DEPENDS, DETAILS,
-	POST_INSTALL, POST_REMOVE, PRE_BUILD, xsession, pam.d/xdm: 
-	Adding XOrg xserver module to zbeta for testing.  I finally found a
-	good clean source tree for compiling.  ANyway everything works just
-	the same as Xfree86 and everything seems to compile with it so far
-	anyway.
 
 2004-03-28 04:16  tchan
 
@@ -1982,42 +2119,4 @@
 
 	* devel/automake/DETAILS: Version bump to 1.8.3.  Compiled and
 	tested with gcc-3.3.3, kernel-headers 2.4.x.
-
-2004-03-08 21:50  sofar
-
-	* distributed/BitTorrent/DETAILS: Bumped version, retards now
-	distribute their sources in .zip format. Long live bittorrent.
-
-2004-03-08 21:45  sofar
-
-	* graphics/gqview/DETAILS: GeeeKueeView update
-
-2004-03-08 21:37  sofar
-
-	* web/squid/DETAILS: Tested and bumped.
-
-2004-03-08 17:58  jmhodges
-
-	* chat/gnomemeeting/DETAILS, gnome2-core/libgnomeprint/DETAILS,
-	gnome2-core/libgnomeprintui/DETAILS: now we are fully up to date
-
-2004-03-08 17:52  jmhodges
-
-	* gnome2-extras/: gnopernicus/DETAILS, zenity/DEPENDS,
-	zenity/DETAILS: somebodys got some splain to do
-
-2004-03-08 16:13  nhudson
-
-	* mail/evolution/DETAILS: 
-	Updating evolution to 1.5.5, eds to 0.0.90 gtkhtml31, gal21 and
-	libsoup to new versions
-
-2004-03-08 09:58  moe
-
-	* x11-utils/gkrellm2/DETAILS: Version bump
-
-2004-03-08 03:11  tchan
-
-	* utils/modutils/DETAILS: Version bump to 2.4.27.  Compiled and
-	tested with gcc-3.3.3, kernel headers 2.4.x.
 
