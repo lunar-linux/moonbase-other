@@ -29,7 +29,6 @@
               --infodir=/usr/share/info       \
               --mandir=/usr/share/man         \
               $OPTS                           &&
-  default_make                                &&
-  install -m755 $SCRIPT_DIRECTORY/bitchx /usr/bin/bitchx
+  default_make
 
 ) > $C_FIFO 2>&1
