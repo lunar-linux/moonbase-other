@@ -1,7 +1,7 @@
 (
     cd /usr/include/
     
-    for dir in asm linux
+    for dir in asm linux scsi
     do
 	test -e $dir 2> /dev/null && rm -rf $dir  
     done
@@ -11,7 +11,7 @@
     # asm is a special case, since it is arch specific
     mv asm-i386 asm
     
-    for dir in asm linux  
+    for dir in asm linux scsi  
     do
     
 	cp    -a $dir      /usr/include/
