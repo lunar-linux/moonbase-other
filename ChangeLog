@@ -1,3 +1,76 @@
+2003-12-08 05:03  jmhodges
+
+	* web/SOAPpy/: BUILD, DEPENDS, DETAILS: bump and added some depends
+
+2003-12-08 05:02  jmhodges
+
+	* devel/fpconst/: BUILD, DEPENDS, DETAILS: needed by SOAPpy
+
+2003-12-08 04:57  jmhodges
+
+	* web/Net-SSLeay/: BUILD, Makefile.patch: yeah no longer needed
+
+2003-12-08 04:11  nhudson
+
+	* mail/MozillaThunderbird/: BUILD, DETAILS, POST_INSTALL: 
+	Updating the MozillaThunderbird module to new version 0.4 also
+	updating the patch set for the new version
+
+2003-12-08 02:46  elaine
+
+	* utils/grep/BUILD: modesty edit
+
+2003-12-08 00:19  tchan
+
+	* utils/pcmcia-cs/DETAILS: Version bump to 3.2.6.  Compiled and
+	tested with gcc-3.2.3, glibc-2.3.2.  I updated the Configure and
+	the orinoco patches.
+
+2003-12-07 23:22  elaine
+
+	* compilers/php/BUILD: adding readline capability
+
+2003-12-07 21:23  tchan
+
+	* utils/mmv/: BUILD, DETAILS: Added the handly little mmv tools. 
+	Compiled and tested with gcc-3.2.3, glibc-2.3.2.  This allows
+	wildcard move/copy/link/append with some wildcard indexing that is
+	not easily accomplished with the bash shell.
+
+2003-12-07 19:43  hardkrash
+
+	* libs/glib-2/: CONFIGURE, DEPENDS: The proper way to do this is
+	with an optional depends.
+
+2003-12-07 18:57  florin
+
+	* libs/glib-2/CONFIGURE: added a CONFIGURE file for an optional
+	documentation  generation.
+
+2003-12-07 18:20  florin
+
+	* libs/glib-2/BUILD: forgot about that one. thx tchan.
+
+2003-12-07 18:00  florin
+
+	* libs/glib-2/DEPENDS: removed the gtk-doc depend. it adds a lot of
+	stuff (like docbook-profile, scrollkeeper, etc). i thonk it's
+	better to put depends only where is a need of them. glib-2 is more
+	targeted to gtk+-2 than to gtk+.
+
+2003-12-07 16:42  florin
+
+	* video/avifile/DETAILS: add the md5 sum.
+
+2003-12-07 16:22  florin
+
+	* audio/jack/DEPENDS: remove the depend on fltk. it lin without it.
+
+2003-12-07 13:50  florin
+
+	* kde3-apps/kdevelop3/DEPENDS: remove the kdoc2 depend as the
+	module does not exist anymore.
+
 2003-12-07 11:23  florin
 
 	* audio/gst-plugins/DEPENDS, audio/gst-plugins/0.7.1/DEPENDS,
@@ -1598,60 +1671,4 @@
 	vi clone that gets the /usr/bin/vi symlink.  Elvis is
 	/usr/bin/elvis or /usr/bin/xelvis.  Added the DEPENDS file for
 	ncurses.
-
-2003-11-07 23:13  sofar
-
-	* mail/courier-imap/DETAILS: Bumping version
-
-2003-11-07 19:37  tchan
-
-	* mail/MozillaThunderbird/DEPENDS: Cleaned up the DEPENDS.  Similar
-	to fixes in mozilla, firebird and galeon.
-
-2003-11-07 19:24  tchan
-
-	* web/: MozillaFirebird/DEPENDS, mozilla/DEPENDS: Cleaned up the
-	DEPENDS files for firebird and mozilla.  Made both trees smaller by
-	hand checking the depends.
-
-2003-11-07 19:11  tchan
-
-	* web/galeon/DEPENDS: Removed librsvg and libmng as those depends
-	are already in mozilla's DEPENDS file.
-
-2003-11-07 18:52  tchan
-
-	* web/galeon/DEPENDS: Trimmed the DEPENDS down a bit.  Still not
-	sure if all of the new DEPENDS are actually necessary as now galeon
-	uses some gnome1 and gnome2 modules.
-
-2003-11-07 17:06  florin
-
-	* kde3-utils/kdeaccessibility/: BUILD, DEPENDS, DETAILS: three
-	programs for KDE. many thanks to the original creator and for Niki
-	for sending it to me.
-
-2003-11-07 16:29  elaine
-
-	* web/galeon/: BUILD, DEPENDS, DETAILS: version bumped, removed
-	patch (seems to not be needed for moz 1.[45] Added all the depends
-	I found doing an instal with no gnome components priorly existing.
-	I'm sure the list could be trimmed.
-
-2003-11-07 09:54  florin
-
-	* video/transcode/DETAILS: bump version from 0.6.10 to 0.6.11.
-
-2003-11-07 09:53  florin
-
-	* security/snort/DETAILS: bump version from 2.0.2 to 2.0.4.
-
-2003-11-07 09:48  sofar
-
-	* devel/expect/: BUILD, DEPENDS: Correcting/adjusting a tcl/tk
-	dependency: this way it also builds without tk installed!
-
-2003-11-07 04:02  elaine
-
-	* x11-wm/enlightenment/DETAILS: An official bump to e16? 'mazing
 
