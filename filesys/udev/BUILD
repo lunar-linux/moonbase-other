@@ -1,9 +1,11 @@
 (
 
-    patch_it $SOURCE2 1 					&&
-	patch_it $SOURCE3 0                     &&
+    patch_it $SOURCE2 1  &&
+    patch_it $SOURCE3 0  &&
   
-    default_make						&&
+    make udevdir=/dev          &&
+    prepare_install            &&
+    make udevdir=/dev install  &&
  
     # install the init.d script
     # we cannot use automagic install via coretools
