@@ -1,11 +1,14 @@
 (
   unpack $SOURCE2					  &&
-  patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-crond.patch 1 &&
-  patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-Makefile.patch 1 &&
-  patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-pathnames.patch 1 &&
-  patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-vfork.patch 1 &&
-  patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-saveuid.patch 1 &&
-  patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-man.patch 1 &&
+  patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-crond.patch 1 &&
+  patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-Makefile.patch 1 &&
+  patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-pathnames.patch 1 &&
+  patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-vfork.patch 1 &&
+  patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-saveuid.patch 1 &&
+  patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-man.patch 1 &&
+  patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-uninitialized.patch 1 &&
+  patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-no_mail_validate.patch 1 &&
+  patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-permfix.patch 1 &&
 
   if module_installed Linux-PAM; then
 	patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-pam.patch 1
