@@ -1,6 +1,5 @@
 (
-  patch_it $SOURCE2 0
-  patch_it $SOURCE3 0
+   patch_it $SOURCE2 0
 
   sedit 's@linux/socket.h@sys/socket.h@' include/linux/netlink.h
 

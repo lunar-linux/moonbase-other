@@ -1,20 +1,17 @@
           MODULE=iproute2
            MAJOR=2.6.10
-           MINOR=050124
-         VERSION=${MAJOR}-ss${MINOR}
+           MINOR=050209
+         VERSION=${MAJOR}-${MINOR}
           SOURCE=${MODULE}-${VERSION}.tar.gz
          SOURCE2=iproute2-iptunnel-lunar.patch
-         SOURCE3=iproute2-Makefile.patch
-SOURCE_DIRECTORY=${BUILD_DIRECTORY}/${MODULE}-${MINOR}
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/iproute2-2.6.9-050209/
       SOURCE_URL=http://developer.osdl.org/dev/iproute2/download/
      SOURCE2_URL=${PATCH_URL}/
-     SOURCE3_URL=${PATCH_URL}/
-      SOURCE_VFY=sha1:3b10ea57395de46355300e3af567739a2102f29a
+      SOURCE_VFY=sha1:c5ad65bdda2797b55c4c908bc94609423e8f2fdb
      SOURCE2_VFY=sha1:42ce2faed1782ec47afef27949f793316a4cf833
-     SOURCE3_VFY=sha1:c35fc2b6fe4abbd21dcd9c137a3564bd27897588
         WEB_SITE=http://developer.osdl.org/dev/iproute2
          ENTERED=20021106
-         UPDATED=20050209
+         UPDATED=20050213
            SHORT="Professional tools to control networking in Linux kernels."
 
 cat << EOF
