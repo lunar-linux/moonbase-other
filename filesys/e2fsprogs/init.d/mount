@@ -39,7 +39,7 @@ isUdevInstalled()
 
 isDevfsInstalled()
 {
-    echo         -n " *    Trying to default to devfs:"      
+    echo         -n " * Trying to default to devfs:"      
     if [ -x /sbin/devfsd ]; then
 	chkresult
 	return 0
@@ -51,7 +51,7 @@ isDevfsInstalled()
 
 staticWarning()
 {
-    echo       -n "* Assuming a static /dev"
+    echo       -n "* Assuming a static /dev:"
     echo       -e $RESULT_WARN	      
     return 0
 }
@@ -70,8 +70,6 @@ start() {
   DEVNODES=`cat /proc/cmdline | grep -ow "dev=\(udev\|devfs\)" | sed 's/dev=//g'`
   test -z "$DEVNODES" && DEVNODES=`cat /proc/cmdline | grep -ow "dev=static" | sed 's/dev=//g'`
 
-#  echo "DEVNODES: \"${DEVNODES}\""
-  
   UNAMER=`uname -r`
   
   case $UNAMER in
@@ -123,26 +121,19 @@ start() {
       # I hate this, but it's required to make swapoff work if devfs is runing on /dev
       # it's clean and also simplifies the devfsd module
       # This scews up mtab
-      grep -v '#' /etc/fstab | grep -v ^$ | grep -v noauto | \
-	  while read DEVICE MOUNTPOINT FSTYPE REST ; do 
-	  if [ "$DEVICE" = "devfs" ] ; then
-	      echo         -n " * Mounting: $MOUNTPOINT"     
-	      mount        -n $MOUNTPOINT  &> /dev/null
-	      if [ $? -eq "0" ] ; then
-		  if [ -x /sbin/devfsd ] ; then
-		      echo     -e $RESULT_OK
-		      echo     -n "   * Starting devfsd on $MOUNTPOINT:"
-		      devfsd   $MOUNTPOINT  &> /dev/null
-		      chkresult
-		  fi
-	      else
-		  echo  -e $RESULT_FAIL
-	      fi
-	  fi
-      done
-  fi
+      # It is all started on /dev. If someone wants it somewhere else, they can always mount --bind
+      echo  -n " * Mounting /dev:"     
+
+      if mount -n /dev &> /dev/null ; then     
+          echo  -e $RESULT_OK
+          echo  -n " * Starting devfsd on /dev:"
+          devfsd /dev  &> /dev/null
+          chkresult
+      else
+          echo  -e $RESULT_FAIL
+      fi
   
-  if [ "$DEVNODES" = "udev" ]; then
+  elif [ "$DEVNODES" = "udev" ]; then
       echo    -n " * Mounting sysfs on /sys :"
       mount -t sysfs sysfs /sys
       chkresult  
@@ -158,7 +149,6 @@ start() {
       echo     -n " * Creating missing dirs on /dev :"     
       mkdir /dev/{pts,shm}
       chkresult
-
   fi
   
   if  [ ! -e /fastboot ] ; then 
@@ -174,16 +164,16 @@ start() {
               echo  -e $RESULT_WARN
 	  else
               echo  -e " * fsck failed.$RESULT_FAIL"
-              echo  "  * Please repair your file system"
-              echo  "  * manually by running /sbin/fsck"
-              echo  "  * without the -a option"
+              echo     " * Please repair your file system"
+              echo     " * manually by running /sbin/fsck"
+              echo     " * without the -a option"
               sulogin
               reboot  -f
 	  fi
       fi
   fi
   
-  echo       -n " * Remounting root readwrite"
+  echo       -n " * Remounting root readwrite:"
   mount      -n -o remount,rw /  &> /dev/null
   echo       > /etc/mtab
   rm         -f /etc/mtab~*      &> /dev/null
@@ -192,11 +182,14 @@ start() {
   
   # the other case left apart from devfs and udev is a static dev. This doesn't need any setup.
   
-  echo        -n " * Mounting swap"
+  echo        -n " * Mounting swap:"
   swapon      -a &> /dev/null
   chkresult
   
   echo       " * Mounting remaining filesystems:"
+
+  # We should have mounted all devfs before, now a hack to get it into /etc/mtab
+  test "$DEVNODES" = "devfs" && mount -f -t devfs devfs /dev
   
   # /etc/fast should be in order
   # ex. /usr should comes before /usr/local
@@ -205,31 +198,21 @@ start() {
   grep -v '#' /etc/fstab | grep -v ^$ | grep -v noauto | 
   while  read  DEVICE MOUNTPOINT FSTYPE REST;  do
   
-    # Filter out already mounted fs's: devfs and root
-    # We should have mounted all devfs before, now a hack to get it into /etc/mtab
-      if [ "$DEVICE" == "devfs" ] ; then
-	  if [ "$DEVNODES" = "devfs" ]; then
-	      mount -f -t devfs devfs $MOUNTPOINT
-	  fi
-	  continue
-      fi 
-      if [ "$MOUNTPOINT" == "/" ] ; then
-	  continue
-      fi
-
       # these have been mounted previously, so don't remount them
+      test "$MOUNTPOINT" = "/"     && continue
       test "$MOUNTPOINT" = "/proc" && continue
       test "$MOUNTPOINT" = "/sys"  && continue
+      test "$MOUNTPOINT" = "/dev"  && continue
       
-    # we don't do networked fs's yet!
+     # we don't do networked fs's yet!
       case "$FSTYPE" in
-	  nfs|smbfs) continue ;;
+ 	  nfs|smbfs) continue ;;
       esac
       
-    # End filter
+      # End filter
       
       if [ "$MOUNTPOINT" != "none" ] ; then
-	  echo    -n "  * Mounting: $MOUNTPOINT"
+	  echo    -n " * Mounting $MOUNTPOINT:"
 	  mount   $MOUNTPOINT         &> /dev/null
 	  if [ $? -ne "0" ] ; then
               if [ "$DEVICE" == "usbdevfs" ] || [ "$DEVICE" == "usbfs" ] ; then          # Load the module for usbdevfs if need
