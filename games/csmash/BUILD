@@ -1,7 +1,7 @@
 (
 
-  ./configure  --prefix=/usr                  \
-               --bindir=/usr/games            &&
+  ./configure  --prefix=/usr         \
+               --bindir=/usr/games  &&
 
   default_make
 
