@@ -1,18 +1,10 @@
 (
-  qmake qcad.pro -o Makefile              &&
-  sedit "s/-lqt /-lqt-mt /g" Makefile     &&
-  make                                    &&
-  prepare_install                         &&
-
-  set -x
-  mkdir -p /usr/share/qcad                &&
-  cp -a cur       /usr/share/qcad         &&
-  cp -a examples  /usr/share/qcad         &&
-  cp -a fonts     /usr/share/qcad         &&
-  cp -a hatches   /usr/share/qcad         &&
-  cp -a libraries /usr/share/qcad         &&
-  cp -a messages  /usr/share/qcad         &&
-  install -g0 -o0 -m755 qcad /usr/bin     &&
-  set +x
-
+  cd scripts       &&
+  ./build_qcad.sh  &&
+  
+ prepare_install            &&
+ mkdir -p /opt/lunar/qcad   &&
+ cd $SOURCE_DIRECTORY/qcad  &&
+ cp -rv qcad doc examples fonts patterns qm scripts /opt/lunar/qcad
+  
 ) > $C_FIFO 2>&1
