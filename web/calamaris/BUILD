@@ -1,11 +1,10 @@
 (
 
-  prepare_install                                                        &&
-  mkdir -p /usr/bin                                                      &&
-  mkdir -p /usr/share/man/man1                                           &&
-  mkdir -p /usr/share/doc/calamares                                      &&
-  install -m 0755 calamaris /usr/bin                                     &&
-  install calamaris /usr/share/man/man1                                  &&
-  install COPYRIGHT EXAMPLES /usr/share/doc/calamares
+  prepare_install                                                  &&
+  
+  install -D -m 0755 calamaris $MODULE_PREFIX/bin/calamaris        &&
+  install -D calamaris.1 $MODULE_PREFIX/share/man/man1/calamaris.1 &&
+  
+  gather_docs EXAMPLES
 
 ) > $C_FIFO 2>&1
