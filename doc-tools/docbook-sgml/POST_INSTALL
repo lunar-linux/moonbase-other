@@ -1,6 +1,11 @@
-export centralized=/etc/sgml/catalog 
-export docbook_install_dir=/usr/share/sgml/docbook/$MODULE-$VERSION
+CENTRALIZED=/etc/sgml/catalog 
+DOCBOOK_INSTALL_DIR=/usr/share/sgml/docbook/$MODULE-$VERSION
 
-install-catalog --add $centralized $docbook_install_dir/catalog
-echo ""
-echo "docbook-sgml installed"
+if ! [ -e "$CENTRALIZED" ]; then
+     echo "Creating $CENTRALIZED"
+     mkdir -p /etc/sgml
+     touch $CENTRALIZED
+fi
+
+install-catalog --add $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog
+install-catalog -r $CENTRALIZED /etc/sgml/catalog
