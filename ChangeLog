@@ -1,3 +1,95 @@
+2004-11-24 13:04  sofar
+
+	* x11/XOrg/: CONFIGURE, drivers: Modified the driver list to list
+	  proper card names. The list is short and not complete yet.
+
+2004-11-24 12:12  moe
+
+	* utils/acpid/BUILD: Even betta
+
+2004-11-24 11:46  prox
+
+	* utils/acpid/: BUILD, DETAILS, init.d/acpid: typo in url, made
+	  events dir and added init.d script
+
+2004-11-24 10:36  nestu
+
+	* filesys/e2fsprogs/init.d/mount: Removing the warning line that
+	  udev is already running for the udev initscript, as now the
+	  checks have been moved to /udev.tdb, and not the /var/lock file.
+
+2004-11-24 10:34  nestu
+
+	* filesys/udev/udev: No longer we create /var/lock/subsys/udev. The
+	  checks are done on udev.tdb.	If it is under udev_root then udev
+	  is running. Stopping while using udev as /dev in now disallowed
+
+2004-11-24 10:18  nestu
+
+	* filesys/e2fsprogs/init.d/mount:  /var may not be mounted.
+	  Commented out for know. NEEDS FIXING
+
+2004-11-24 10:16  nestu
+
+	* filesys/e2fsprogs/init.d/mount: the udev initscript needs to know
+	  that udev is running
+
+2004-11-24 10:12  nestu
+
+	* filesys/udev/udev: Change so the script's defaults are overriden
+	  later by the settings in udev.conf
+
+2004-11-24 10:01  sofar
+
+	* shells/bash/skel/.bash_profile: Typo... string tests need to be
+	  "quoted".
+
+2004-11-24 07:28  florin
+
+	* kde3-i18n/: koffice3-i18n-af/DETAILS, koffice3-i18n-bg/DETAILS,
+	  koffice3-i18n-ca/DETAILS, koffice3-i18n-cs/DETAILS,
+	  koffice3-i18n-cy/DETAILS, koffice3-i18n-da/DETAILS,
+	  koffice3-i18n-de/DETAILS, koffice3-i18n-el/DETAILS,
+	  koffice3-i18n-en_GB/DETAILS, koffice3-i18n-eo/DETAILS,
+	  koffice3-i18n-es/DETAILS, koffice3-i18n-et/DETAILS,
+	  koffice3-i18n-fa/DETAILS, koffice3-i18n-fi/DETAILS,
+	  koffice3-i18n-fr/DETAILS, koffice3-i18n-he/DETAILS,
+	  koffice3-i18n-hsb/DETAILS, koffice3-i18n-hu/DETAILS,
+	  koffice3-i18n-it/DETAILS, koffice3-i18n-ja/DETAILS,
+	  koffice3-i18n-lo/DETAILS, koffice3-i18n-mt/DETAILS,
+	  koffice3-i18n-nb/DETAILS, koffice3-i18n-nl/DETAILS,
+	  koffice3-i18n-nn/DETAILS, koffice3-i18n-pl/DETAILS,
+	  koffice3-i18n-pt/DETAILS, koffice3-i18n-pt_BR/DETAILS,
+	  koffice3-i18n-ru/DETAILS, koffice3-i18n-se/DETAILS,
+	  koffice3-i18n-sk/DETAILS, koffice3-i18n-sl/DETAILS,
+	  koffice3-i18n-sr/DETAILS, koffice3-i18n-sv/DETAILS,
+	  koffice3-i18n-tg/DETAILS, koffice3-i18n-th/DETAILS,
+	  koffice3-i18n-tr/DETAILS, koffice3-i18n-ven/DETAILS,
+	  koffice3-i18n-xh/DETAILS, koffice3-i18n-zh_CN/DETAILS,
+	  koffice3-i18n-zh_TW/DETAILS, koffice3-i18n-zu/DETAILS: bump the
+	  version from 1.3.4 to 1.3.5.
+
+2004-11-24 00:03  moe
+
+	* x11/XOrg/POST_INSTALL: Tweaks
+
+2004-11-23 23:55  moe
+
+	* zbeta/xcompmgr/DEPENDS: HA!
+
+2004-11-23 23:28  moe
+
+	* printer/cups/DETAILS: Get a clue cups developers Your server
+	  SUCKS BALLS
+
+2004-11-23 16:34  sofar
+
+	* x11/XOrg/CONFIGURE: Don't downscale the widget, just let it fill
+
+2004-11-23 16:32  moe
+
+	* x11/XOrg/CONFLICTS: hilarious
+
 2004-11-23 12:48  florin
 
 	* kde3-apps/koffice3/DETAILS: bump the version from 1.3.4 to 1.3.5.
@@ -2093,96 +2185,4 @@
 2004-10-25 04:06  florin
 
 	* games/xmame/DETAILS: bump the version from 0.84.1 to 0.86.
-
-2004-10-24 23:56  florin
-
-	* games/Maelstrom/: BUILD, DETAILS: add two patches. one for gcc
-	  3.4.x compile fix and a security patch.
-
-2004-10-24 23:09  florin
-
-	* audio/taglib/DEPENDS: add an optional depend on zlib.
-
-2004-10-24 22:58  tchan
-
-	* gnome2-apps/abiword/: BUILD, DETAILS: Version bump to
-	  abiword-2.0.14. abiword devs moved abiword.8 to abiword.1 for the
-	  man page.  Fixed the BUILD script to reflect this change.
-	  Compiled and tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2004-10-24 22:53  florin
-
-	* graphics/ImageMagick/DETAILS: bump the version from 6.1.1-4 to
-	  6.1.1-5.
-
-2004-10-24 22:34  florin
-
-	* sql/phpMyAdmin/: BUILD, DETAILS: bump the version from 2.5.7-pl1
-	  to 2.6.0-pl2.
-
-2004-10-24 20:50  perldude
-
-	* gnome2-apps/drivel/DETAILS: version bump 1.2.1 -> 1.2.2
-
-2004-10-24 20:11  v3rt1g0
-
-	* audio/beepmp/DEPENDS: Added OggVorbis and ESD support.
-
-2004-10-24 18:26  jasper
-
-	* zbeta/: imlib2-cvs/BUILD, imlib2-cvs/CONFLICTS,
-	  imlib2-cvs/DEPENDS, imlib2-cvs/DETAILS, imlib2_loaders-cvs/BUILD,
-	  imlib2_loaders-cvs/CONFLICTS, imlib2_loaders-cvs/DEPENDS,
-	  imlib2_loaders-cvs/DETAILS: Add these back for v3rt1g0
-
-2004-10-24 17:41  florin
-
-	* audio/moc/: DEPENDS, DETAILS: MOC is an console music player.
-
-2004-10-24 16:09  moe
-
-	* mail/sylpheed-gtk2/: BUILD, CONFLICTS, DETAILS: Updating this
-	  module
-
-2004-10-24 15:44  florin
-
-	* zbeta/: imlib2-cvs/BUILD, imlib2-cvs/CONFLICTS,
-	  imlib2-cvs/DEPENDS, imlib2-cvs/DETAILS, imlib2_loaders-cvs/BUILD,
-	  imlib2_loaders-cvs/CONFLICTS, imlib2_loaders-cvs/DEPENDS,
-	  imlib2_loaders-cvs/DETAILS: not needed anymore.
-
-2004-10-24 14:19  moe
-
-	* kernel/kernel-reqs/: BUILD, DETAILS: Add ipw2100 and a newline.
-
-2004-10-24 13:08  florin
-
-	* kernel/kernel-reqs/: BUILD, DETAILS: add submount and remove the
-	  NVIDIA_kernel option.
-
-2004-10-24 13:04  florin
-
-	* web/Zope/: BUILD, DETAILS: bump the version from 2.7.2 to 2.7.3.
-
-2004-10-24 12:51  florin
-
-	* net/whois/DETAILS: bump the version from 4.6.19 to 4.6.23.
-
-2004-10-24 12:39  florin
-
-	* mail/spamassassin/DETAILS: bump the version from 3.0.0 to 3.0.1.
-
-2004-10-24 11:33  cmak
-
-	* x11-wm/WindowMaker/DETAILS: WindowMaker is not psafe, fixed
-
-2004-10-24 11:16  florin
-
-	* graphics/SDL/DETAILS: a better version of the gcc34 patch. tested
-	  wint gcc 3.4.2 on athlon xp and pentrium III.
-
-2004-10-24 10:22  florin
-
-	* sql/postgresql/DETAILS: bump the version from 7.4.5 to 7.4.6.
 
