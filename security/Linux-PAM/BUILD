@@ -5,8 +5,6 @@
     export  HAVE_SGML2LATEX=no
   fi
 
-  patch -p0 < $SCRIPT_DIRECTORY/Linux-PAM-0.76.patch
-
   ./configure  --enable-read-both-confs                 \
                --enable-docdir=/usr/share/doc/Linux-PAM \
                --mandir=/usr/share/man                  &&
