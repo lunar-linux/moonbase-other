@@ -1,14 +1,11 @@
 if  !  grep  -q  "CUSTOM="  $MODULE_CONFIG;  then
-
-  if    query  "Custom Configuration Perl? [y/N]"  n
+  if    query  "Custom Configuration Perl? "  n
   then  echo   "CUSTOM=y"  >>  $MODULE_CONFIG
   else  echo   "CUSTOM=n"  >>  $MODULE_CONFIG
   fi
-
 fi
-
 if ! grep -q "SUIDPERL=" $MODULE_CONFIG; then
-  if    query  "Compile and install suidperl? [Y/n]"  y
+  if    query  "Compile and install suidperl? "  y
   then  echo   "SUIDPERL=y"  >>  $MODULE_CONFIG
   else  echo   "SUIDPERL=n"  >>  $MODULE_CONFIG
   fi
