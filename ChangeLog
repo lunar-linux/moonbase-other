@@ -1,3 +1,81 @@
+2004-09-23 11:41  cmak
+
+	* video/MPlayer-all/: BUILD, DETAILS: this module should replace
+	  w32codecs (and the other codec stuff) /me thinks. its all in
+	  here! but people like flexible and complicated modules...
+
+2004-09-23 11:34  cmak
+
+	* video/MPlayer-essentials/DETAILS: now softer than skin!
+
+2004-09-23 04:39  florin
+
+	* utils/util-linux/DETAILS: bump the version from 2.12e to 1.12g.
+
+2004-09-23 04:37  v3rt1g0
+
+	* utils/uptimed/DETAILS: version bump
+
+2004-09-23 04:25  v3rt1g0
+
+	* mail/tkrat/: DEPENDS, DETAILS: Version bump and added sha1 sum.
+
+2004-09-23 01:12  v3rt1g0
+
+	* x11-apps/xscreensaver/: BUILD, CONFIGURE, DEPENDS, DETAILS: A
+	  rather extensive (and needed) cleanup of the depends for this
+	  module.  I don't know if the technique I used to "group depends"
+	  is standard but seems to work.  Also did some cosmetic cleanups
+	  to the details file.
+
+2004-09-22 18:30  florin
+
+	* news/leafnode/DETAILS: bump the version from 1.10.5 to 1.10.6.
+
+2004-09-22 18:23  florin
+
+	* games/freedroidrpg/: BUILD, DEPENDS, DETAILS: A Diablo-like
+	  extension of freedroid into an RPG. Created by smoon (Sebastian
+	  Sareyko).
+
+2004-09-22 16:32  perldude
+
+	* zbeta/openoffice-src/DEPENDS: added evolution-data-server. I
+	  needed it to build on my box.
+
+2004-09-22 15:06  sofar
+
+	* security/logwatch/: BUILD, DETAILS, POST_INSTALL: Adding a few
+	  patches to make stuff work better: * df requires -P otherwise
+	  output is truncated * mail log locations, auth/authlog *
+	  installation perms
+
+2004-09-22 14:59  tchan
+
+	* ftp/lftp/DETAILS: Fixed the download URL.  USA mirror is out of
+	  date and does not have the lastest versions of lftp.	The Berlin
+	  mirror seems to be much faster and up to date.
+
+2004-09-22 14:47  tchan
+
+	* utils/util-linux/: DETAILS, PRE_BUILD: Removed the now un-needed
+	  PRE_BUILD.  Removed the losetup patch since it no longer applies
+	  cleanly to 2.12e (due to massive mount/umount code rewrite).
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
+2004-09-22 14:38  tchan
+
+	* filemanagers/mc/DETAILS: Fixing my typos, oops.
+
+2004-09-22 14:37  tchan
+
+	* filemanagers/mc/DETAILS: Restoring the identation, again.
+
+2004-09-22 14:17  sofar
+
+	* security/logwatch/DEPENDS: Adding proper dependencies
+
 2004-09-22 08:24  sofar
 
 	* doc-tools/epydoc/DETAILS: New version of epydoc (don't worry I
@@ -2002,79 +2080,4 @@
 	* editors/gawk/DETAILS: Version bump to gawk-3.1.4.  Bug fix
 	  release.  Compiled and tested with gcc-3.3.3, glibc-2.3.3, kernel
 	  headers 2.4.x.
-
-2004-08-23 17:12  tchan
-
-	* kernel/linux-grsec/DETAILS: Version bump to 2.4.27.  Using niki's
-	  r6 patchset that I updated to r7.
-
-2004-08-23 17:11  tchan
-
-	* kernel/linux/DETAILS: Version bump to 2.4.27.  Using niki r6
-	  patchset, that I updated to r7.  Tested on all my lunar boxes and
-	  running for a couple of weeks.  Little to no feedback from the
-	  rest of the lunar devs.
-
-2004-08-23 15:10  florin
-
-	* libs/libxslt/DETAILS: bump the version from 1.1.8 to 1.1.9.
-
-2004-08-23 15:06  florin
-
-	* libs/libxml2/DETAILS: bump the version from 2.6.11 to 2.6.12.
-
-2004-08-23 14:29  prox
-
-	* compilers/j2sdk/PRE_BUILD, zbeta/j2sdk-beta/PRE_BUILD: set posix2
-	  version back to get tail working
-
-2004-08-23 13:11  florin
-
-	* doc-tools/man/DETAILS: bump the version from 1.5n to 1.5o.
-
-2004-08-23 13:02  florin
-
-	* printer/pdf417_enc/DETAILS: bump the version from 3.6 to 3.8.
-
-2004-08-23 13:02  florin
-
-	* video/mkvtoolnix/DETAILS: bump the version from 0.9.4 to 0.9.5.
-
-2004-08-23 09:47  nestu
-
-	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.8.1mm3 ->
-	  2.6.8.1mm4. gcc 3.3.3, glibc 2.3.2, headers 2.6.8.0
-
-2004-08-23 05:01  florin
-
-	* video/libmatroska/DETAILS: bump the version from 0.7.1 to 0.7.3.
-
-2004-08-23 04:49  florin
-
-	* utils/cpufreqd/DETAILS: bump the version from 1.1.2 to 1.2.0.
-
-2004-08-23 04:42  florin
-
-	* security/sudo/DETAILS: bump the version from 1.6.7p5 to 1.6.8.
-
-2004-08-23 04:40  florin
-
-	* graphics/netpbm/DETAILS: bump the version from 10.18.14 to
-	  10.18.15.
-
-2004-08-23 00:34  tchan
-
-	* web/mozilla/DEPENDS: Removed the unneeded depends on libIDL as
-	  ORBit2 already depends on libIDL.
-
-2004-08-23 00:33  tchan
-
-	* web/firefox/DEPENDS: Removed the unneeded depends on libIDL as
-	  ORBit2 already provides that depends.
-
-2004-08-23 00:32  tchan
-
-	* mail/thunderbird/DEPENDS: Removed the extra depends on libIDL,
-	  because it was correctly pointed out that ORBit2 already depends
-	  on libIDL.
 
