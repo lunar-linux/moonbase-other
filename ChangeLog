@@ -1,3 +1,114 @@
+2004-02-15 11:55  nestu
+
+	* kernel/linux-beta/DETAILS: bump dee bump dee bump !
+
+2004-02-15 06:54  hardkrash
+
+	* science/: libticables/DETAILS, libticalcs/DEPENDS,
+	libticalcs/DETAILS, libtifiles/DETAILS, tilp/DEPENDS, tilp/DETAILS:
+	added the ti caculator program tilp and its libraries
+
+2004-02-15 06:27  nhudson
+
+	* web/mozilla/POST_INSTALL: 
+	Took out to much stuff
+
+2004-02-15 05:21  nhudson
+
+	* web/mozilla/BUILD: 
+	Updating BUILD file to take out bad CFLAGS like -O3 and --fast-math
+
+2004-02-15 05:17  nhudson
+
+	* web/mozilla/BUILD: 
+	Fixing typo
+
+2004-02-15 05:16  nhudson
+
+	* chat/gaim/DEPENDS: 
+	Updating gaim for new location of Moz NSS header files
+
+2004-02-15 05:14  nhudson
+
+	* mail/evolution/DEPENDS: 
+	Updating evo for the new location of the moz NSS header files
+
+2004-02-15 05:12  nhudson
+
+	* web/mozilla/: BUILD, POST_INSTALL: 
+	OMG!! I cant believe I didnt see this 3 days ago.  FInally I think
+	we have a good NSS install.  I am testing it now to see.  Also I
+	cleaned up the POST_INSTALL file a bit.  Some of the stuff in there
+	is no longer needed.
+
+2004-02-15 04:10  tchan
+
+	* net/ntp/: BUILD, DETAILS: Added a patch to get ntp-4.2.0 to
+	compile with gcc-3.3.2.  This patch fixes the CONFIG_PHONE problem
+	from autoconf.h by re-ordering the ntp header file includes to be
+	after the system includes.
+
+2004-02-15 03:58  tchan
+
+	* x11-apps/eclipse-bin/DETAILS: Changed the URL to a more
+	accessible http download vs ftp.
+
+2004-02-15 03:45  tchan
+
+	* x11-apps/eclipse-bin/DETAILS: Added a USA mirror for the download
+	of this really large file.  No need to only fetch it transatlantic.
+
+2004-02-15 00:54  nhudson
+
+	* rebuild-gnome-unstable: 
+	Removing it from the root directory and moved it to profile/gnome
+
+2004-02-15 00:46  nhudson
+
+	* chat/gaim/: BUILD, DEPENDS, DETAILS: 
+	Adding gaim to GNOME_UNSTABLE.	This enables gnome dy default and
+	it includes both the gnutls and mozilla as optional_depends in the
+	DEPENDS file.
+
+2004-02-15 00:40  nhudson
+
+	* mail/evolution/: BUILD, DEPENDS: 
+	Updating evolution to compile evo with nss ssl support
+
+2004-02-15 00:36  nhudson
+
+	* web/mozilla/: DETAILS, PRE_BUILD: 
+	Ok here we go, I have taken away the SOURCE3 being that its old and
+	not needed anymore due to the svg moz stuff will actually compile
+	now.  Also not patching the Makefile anymore as that is old also. 
+	So far looks like this way works best to get Moz NSS to compile. 
+	Ccache is a very bad boy.
+
+2004-02-15 00:33  nhudson
+
+	* web/mozilla/: BUILD, CONFIGURE, CONFLICTS, DEPENDS, DETAILS,
+	POST_INSTALL, POST_REMOVE, PRE_BUILD: 
+	Adding mozilla to GNOME_UNSTABLE for now.  This is my work on
+	getting Moz NSS to compile and install.  Looks like Moz doesnt like
+	ccache at all so I have set it to disable ccache for the time being
+
+2004-02-14 22:27  nhudson
+
+	* rebuild-gnome-unstable: 
+	Updating the script to add zenity to the build of Gnome
+
+2004-02-14 22:22  nhudson
+
+	* gnome2-apps/gpdf/: BUILD, DETAILS: 
+	Updating gpdf to new version 0.112.1, this module will now compile
+	correctly
+
+2004-02-14 22:21  nhudson
+
+	* gnome2-core/: control-center2/BUILD, control-center2/DETAILS,
+	gail/DETAILS, gconf-editor/DETAILS, libgtkhtml/DETAILS: 
+	Updating to Gnome Desktop 2.5.4 in GNOME_UNSTABLE
+
 2004-02-14 05:54  tchan
 
 	* i18n/aspell-is/BUILD: A BUILD script is required for this module.
@@ -2277,185 +2388,4 @@
 
 	* gnome2-core/yelp/: BUILD, DETAILS: Version bumped, moved out of
 	/opt/lunar
-
-2004-01-15 23:30  niki
-
-	* gnome2-core/libgtkhtml/: BUILD, DETAILS: Bumped version, and
-	moved it out of /opt/lunar
-
-2004-01-15 23:19  niki
-
-	* gnome2-core/control-center2/: BUILD, DEPENDS, DETAILS: Bumped
-	version, and added libxklavier to the DEPENDS file, and moved the
-	module out of /opt/lunar
-
-2004-01-15 23:02  niki
-
-	* x11/libxklavier/DETAILS: Bumped version to 0.96
-
-2004-01-15 22:43  niki
-
-	* gnome2-core/nautilus/: BUILD, DETAILS: Bumped version, and moved
-	module out of /opt/lunar
-
-2004-01-15 22:24  niki
-
-	* gnome2-core/eel/: BUILD, DETAILS: Version bumped, and moved out
-	of /opt/lunar
-
-2004-01-15 22:10  niki
-
-	* gnome2-extras/libcroco/: DETAILS, POST_INSTALL: Bumped version to
-	0.4.0, and reordered the rebuild of nautilus and librsvg in
-	POST_INSTALL to be in the same order as per the install order
-
-2004-01-15 21:56  niki
-
-	* gnome2-core/metacity/BUILD: Moved module out of /opt/lunar
-
-2004-01-15 21:48  niki
-
-	* gnome2-core/gnome-applets2/BUILD: Moved module out of /opt/lunar
-
-2004-01-15 21:36  niki
-
-	* gnome2-core/gail/: BUILD, DETAILS: Bumped version to 2.5.3 and
-	moved the module out of /opt/lunar
-
-2004-01-15 21:26  niki
-
-	* gnome2-core/libgtop2/BUILD: Move the module out of /opt/lunar
-
-2004-01-15 21:06  niki
-
-	* gnome2-apps/vte/BUILD: moved module out of /opt/lunar
-
-2004-01-15 20:54  niki
-
-	* gnome2-core/gnome-session/: BUILD, DETAILS: Bumped version to
-	2.5.3, and moved it out of /opt/lunar
-
-2004-01-15 20:45  niki
-
-	* gnome2-core/gnome-panel/: BUILD, DETAILS: Moved the module out of
-	/opt/lunar, and made it compile again.
-
-2004-01-15 19:51  niki
-
-	* gnome2-core/libwnck/BUILD: Moved the module out of /opt/lunar
-
-2004-01-15 19:48  niki
-
-	* gnome2-core/gnome-desktop/: BUILD, DETAILS: Bumped version, and
-	moved it out of /opt/lunar
-
-2004-01-15 19:39  niki
-
-	* gnome2-core/gnome-themes/: BUILD, DETAILS: Bumped version, and
-	moved it out of /opt/lunar
-
-2004-01-15 19:26  niki
-
-	* gnome2-core/gtk-engines2/BUILD: Moved module out of /opt/lunar
-
-2004-01-15 19:21  niki
-
-	* gnome2-core/startup-notification/BUILD: Moved out of /opt/lunar
-
-2004-01-15 19:18  niki
-
-	* gnome2-core/libgnomeui/: BUILD, DEPENDS, DETAILS: Bumped to
-	2.5.3, and added a dependency on gnome-keyring
-
-2004-01-15 18:54  niki
-
-	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
-	the version, added a depends on hicolor-icon-theme, and moved it
-	out of /opt/lunar
-
-2004-01-15 18:54  niki
-
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-01-15 18:22  niki
-
-	* gnome2-core/libbonoboui/BUILD: Moved module out of /opt/lunar
-
-2004-01-15 17:59  niki
-
-	* gnome2-core/libgnomecanvas/: BUILD, DETAILS: Bumped the version,
-	and moved it out of /opt/lunar
-
-2004-01-15 17:50  niki
-
-	* gnome2-core/libglade2/: BUILD, DETAILS: Bumped version to 2.3.2,
-	and moved it out of /opt/lunar
-
-2004-01-15 16:52  niki
-
-	* gnome2-core/libgnome/: BUILD, DETAILS: Bumped version, and moved
-	it out of /opt/lunar
-
-2004-01-15 16:36  jmhodges
-
-	* audio/audioscrobbler/: DEPENDS, DETAILS: cool little app, check
-	out the website
-
-2004-01-15 16:20  niki
-
-	* gnome2-core/gnome-vfs2/: BUILD, DETAILS: Bumped version, and
-	moved it out of /opt/lunar
-
-2004-01-15 15:55  niki
-
-	* gnome2-core/gnome-mime-data2/BUILD: Moved module oult of
-	/opt/lunar in GNOME_UNSTABLE
-
-2004-01-15 15:38  niki
-
-	* graphics/gtk+-2/: BUILD, CONFIGURE, DETAILS: Updated gtk+2 to
-	2.3.1 in GNOME_UNSTABLE
-
-2004-01-15 15:12  niki
-
-	* libs/atk/: DEPENDS, DETAILS: Added a new atk version to
-	GNOME_UNSTABLE
-
-2004-01-15 15:02  niki
-
-	* libs/pango/: DEPENDS, DETAILS: Added an updated pango to
-	GNOME_UNSTABLE.
-
-2004-01-15 14:48  niki
-
-	* gnome2-core/libbonobo/BUILD: removed the BUILD to move it out of
-	/opt/lunar
-
-2004-01-15 14:32  niki
-
-	* gnome2-core/ORBit2/BUILD: The module now makes gtk-docs too...
-
-2004-01-15 14:22  niki
-
-	* gnome2-core/libIDL/: BUILD, POST_INSTALL: Moved the lib out of
-	/opt/lunar
-
-2004-01-15 13:56  niki
-
-	* gnome2-core/ORBit2/DETAILS: Bumped version to 2.9.4
-
-2004-01-15 13:48  niki
-
-	* libs/glib-2/: BUILD, DEPENDS, DETAILS: Bumped glib-2 to 2.3.1
-
-2004-01-15 13:10  nhudson
-
-	* gnome2-apps/pigeon/DETAILS: 
-	Updating pigeon to new version 0.4.1
-
-2004-01-15 07:36  jmhodges
-
-	* science/octave/BUILD: bad_flags reenabled.. hk told me of an
-	issue with it.. awesome
 
