@@ -1,0 +1,18 @@
+          MODULE=subversion
+         VERSION=0.17.1
+	 RELEASE=r4503
+          SOURCE=$MODULE-$RELEASE.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$RELEASE
+   SOURCE_URL[0]=http://subversion.tigris.org/files/documents/15/2699/$SOURCE
+        WEB_SITE=http://subversion.tigris.org/
+         ENTERED=20030126
+         UPDATED=20030126
+           SHORT="An alternative to cvs!"
+cat << EOF
+Subversion is meant to be a better CVS, so it will have most of CVS's
+features, with as many as possible in the 1.0 release. The main exception
+is "svn blame" (i.e., "cvs annotate"), which has been put off until
+after 1.0 for scheduling reasons. Generally, Subversion's interface to
+a particular feature is similar to CVS's, except where there's a
+compelling reason to do otherwise.
+EOF
