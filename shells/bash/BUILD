@@ -3,7 +3,6 @@
   bad_flags -malign-double
 
   OPTS=$OPTS" --bindir=/bin --with-installed-readline --with-curses"
-  LDFLAGS="$LDFLAGS -lintl"
   
   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
