@@ -1,17 +1,14 @@
           MODULE=minicom
-         VERSION=2.00.0
-          SOURCE=$MODULE-2.00.0.src.tar.gz
+         VERSION=2.1
+          SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=md5:961aca526087d3d8d46f87a321b9c45a
-           FUZZY=off
-   SOURCE_URL[0]=http://www.netsonic.fi/~walker/$SOURCE
-   SOURCE_URL[1]=http://sunsite.unc.edu/pub/Linux/apps/serialcomm/dialout/$SOURCE
-        WEB_SITE=http://www.netsonic.fi/~walker/minicom.html
+      SOURCE_URL=http://alioth.debian.org/download.php/123/$SOURCE
+      SOURCE_VFY=md5:1c8f3b247c38fb16c3c2170df9fc102a
+        WEB_SITE=http://alioth.debian.org/projects/minicom
          ENTERED=20010922
-         UPDATED=20020919
+         UPDATED=20040824
            SHORT="minicom is a serial communications program."
 cat << EOF
-Minicom is a serial communication program. It is a Unix clone of the
-well-known MS-DOS Telix program. It has ANSI color, a dialing directory,
-dial-a-list, and a scripting language.
+Minicom is a menu driven communications program. It emulates ANSI and VT102
+terminals. It has a dialing directory and auto zmodem download.
 EOF
