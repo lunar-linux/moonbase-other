@@ -1,13 +1,18 @@
          MODULE=easytag
          VERSION=0.30
-          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE=$MODULE-$VERSION.tar.bz2
+	 SOURCE2=patch_easytag_030_030a.diff
+	 SOURCE3=patch_easytag_030a_030b.diff
+         SOURCE4=patch_easytag_030b_030c.diff 
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$SFORGE_URL/easytag/$SOURCE
    SOURCE_VFY[0]=md5:9f0dfde219c0422676f21afc49cc44bf
-
+   SOURCE2_URL[0]=$SFORGE_URL/$MODULE/$SOURCE2
+   SOURCE3_URL[0]=$SFORGE_URL/$MODULE/$SOURCE3
+   SOURCE4_URL[0]=$SFORGE_URL/$MODULE/$SOURCE4	
      WEB_SITE=http://easytag.sourceforge.net/
          ENTERED=20020115
-         UPDATED=20031028
+         UPDATED=20031030
            SHORT="Maintaining id3 tags"
 cat << EOF
 EasyTAG is an utility for viewing, editing and writing easily and
