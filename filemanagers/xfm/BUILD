@@ -14,6 +14,8 @@ patch -p0 << EOF
  XAWLIBDIR = -L/usr/X11R6/lib
 EOF
 
+export PATH=${PATH}:/usr/X11R6/bin
+
 xmkmf  -a
 make             &&
 prepare_install  &&
