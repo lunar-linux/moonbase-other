@@ -1,0 +1,11 @@
+# Do we want MPPE or not?
+
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+  if  query  "Enable MPPE/MPPC compression support?" y;  then
+	WITH_MPPE="y"
+  fi
+  
+  echo  'WITH_MPPE='\"$WITH_MPPE\"    >>  $MODULE_CONFIG
+  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+
+fi

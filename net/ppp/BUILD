@@ -1,36 +1,43 @@
-sedit "s/FILTER=y/#FILTER=y/"       pppd/Makefile.linux  &&
-sedit "s/usr\/man/usr\/share\/man/" linux/Makefile.top   &&
-default_build  &&
-( 
+(
 
-  mkdir  -p  /etc/ppp/peers
-  mkdir  -p  /etc/ppp/chat
+	if [ $WITH_MPPE ]; then
+	  cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY/
+          gunzip $SOURCE2
+	  patch_it $PATCHNAME 1
+	fi
 
-  if ! [ -f /etc/resolv.conf ]; then
-    ln  -f  /etc/ppp/resolv.conf /etc/resolv.conf
-  fi
+	sedit "s/FILTER=y/#FILTER=y/"       pppd/Makefile.linux  &&
+	sedit "s/usr\/man/usr\/share\/man/" linux/Makefile.top   &&
 
-  cp  $SCRIPT_DIRECTORY/pon   /usr/bin
-  cp  $SCRIPT_DIRECTORY/poff  /usr/bin
+	default_build  &&
+	
+	mkdir  -p  /etc/ppp/peers  &&
+	mkdir  -p  /etc/ppp/chat  &&
 
-  if  !  [  -f                     /etc/ppp/options  ];  then
-    cp  $SCRIPT_DIRECTORY/options  /etc/ppp/options
-  fi
+	if ! [ -f /etc/resolv.conf ]; then
+		ln  -f  /etc/ppp/resolv.conf /etc/resolv.conf
+  	fi
 
-  if  [  !  -e                       /etc/ppp/peers/isp  ];  then
-    cp  $SCRIPT_DIRECTORY/peers.isp  /etc/ppp/peers/isp
-  fi
+	cp  $SCRIPT_DIRECTORY/pon   /usr/bin  &&
+	cp  $SCRIPT_DIRECTORY/poff  /usr/bin  &&
 
-  if  [  !  -e                 /etc/ppp/chat/isp  ];  then
-    cp  $SCRIPT_DIRECTORY/isp  /etc/ppp/chat/isp
-  fi
+	if  !  [  -f                     /etc/ppp/options  ];  then
+		cp  $SCRIPT_DIRECTORY/options  /etc/ppp/options
+  	fi
 
+	if  [  !  -e                       /etc/ppp/peers/isp  ];  then
+		cp  $SCRIPT_DIRECTORY/peers.isp  /etc/ppp/peers/isp
+  	fi
 
-  cat  $SCRIPT_DIRECTORY/message
+	if  [  !  -e                 /etc/ppp/chat/isp  ];  then
+		cp  $SCRIPT_DIRECTORY/isp  /etc/ppp/chat/isp
+	fi
 
-  chown  root:ppp     /usr/sbin/pppd
-  chmod  4750         /usr/sbin/pppd
-  chown  -R root:ppp  /etc/ppp
-  chmod  600          /etc/ppp/*-secrets
+	cat  $SCRIPT_DIRECTORY/message  &&
 
-)
+	chown  root:ppp     /usr/sbin/pppd  &&
+	chmod  4750         /usr/sbin/pppd  &&
+	chown  -R root:ppp  /etc/ppp  &&
+	chmod  600          /etc/ppp/*-secrets
+
+) > $C_FIFO 2>&1
