@@ -9,6 +9,6 @@
                --with-x                            \
                $OPTS                               &&
 
-   default_build
+   default_make
 
 ) > $C_FIFO 2>&1
