@@ -1,3 +1,25 @@
+2002-10-14 06:44  kongar
+
+	* net/whois/DETAILS: upgraded to 4.5.31
+	
+2002-10-14 05:33  kc8apf
+
+	* audio/xmms-nebulus/DETAILS: Version Bump
+	
+2002-10-13 23:04  nhudson
+
+	* libs/pango/DETAILS: 
+	Updated pango to new version, ran and tested
+	
+2002-10-13 21:10  tchan
+
+	* graphics/glut/BUILD: Added some paths to the X11R6 binaries that are being called.
+	
+2002-10-13 21:08  kongar
+
+	* ftp/guiftp/: DEPENDS, DETAILS: 
+	new module: a simple gtk gui ftp client
+	
 2002-10-13 16:56  csm
 
 	* libs/libast/DETAILS: updated version!
@@ -516,72 +538,4 @@
 	this is mysql-4.0x BETA, conflicts with mysql, reported stable enough,
 	with transactions support + high performance + SSL support, use at your
 	own risk
-	
-2002-10-03 19:07  elaine
-
-	* crypto/krb5/: BUILD, DETAILS: Updated Kerberos to v 1.2.6 / corrected Doc & Man to /usr/share tested
-	compile on cache server and (with gcc3) on slackware
-	
-2002-10-03 13:33  kongar
-
-	* utils/procps/BUILD: 
-	sysctl.conf file's perms and ownership is more strict now
-	
-2002-10-03 13:23  kongar
-
-	* mail/sylpheed/DETAILS: upgraded to 0.8.5
-	
-2002-10-03 13:04  kongar
-
-	* security/Linux-PAM/: BUILD, DETAILS: 
-	now disabled soft and hard core dumps via /etc/security/limits.conf
-	
-	touched the DETAILS for a rebuild
-	
-2002-10-03 12:37  kongar
-
-	* utils/sysklogd/: BUILD, syslog.conf: 
-	added a custom syslog.conf
-	
-2002-10-03 09:18  kongar
-
-	* utils/procps/sysctl.conf: 
-	limitations on ICMP redirects are added
-	
-2002-10-03 09:12  kongar
-
-	* utils/procps/: BUILD, DETAILS, sysctl.conf: 
-	added a default sysctl file, procps installs it if none founds
-	
-	# rp_filter to prevent spoofing attacks
-	net.ipv4.conf.default.rp_filter = 1
-	net.ipv4.conf.all.rp_filter = 1
-	net.ipv4.conf.lo.rp_filter = 1
-	net.ipv4.conf.eth0.rp_filter = 1
-	# syn-cooking dealing pool size
-	net.ipv4.tcp_max_syn_backlog = 8192
-	# log the martians :=)
-	net.ipv4.conf.all.log_martians = 1
-	
-2002-10-03 07:23  kongar
-
-	* net/netkit-base/: BUILD, DETAILS: 
-	now, we are not installing the hosts.equiv file (yeah, it was empty,
-	but no need)
-	
-2002-10-03 07:19  kongar
-
-	* security/Linux-PAM/: BUILD, DETAILS, pam.d/rexec, pam.d/rlogin,
-	pam.d/rsh: 
-	ldconfig is being called from the right location
-	
-	r* pam control files are amended to disable rhosts based authentication
-	
-	touched to the DETAILS file for a compulsory rebuild
-	
-2002-10-03 06:22  tchan
-
-	* gnome2-apps/: metacity-setup/BUILD, metacity-setup/DEPENDS,
-	metacity-setup/DETAILS, metacity-setup/metacity-setup-lunar.patch,
-	metatheme/BUILD, metatheme/DEPENDS, metatheme/DETAILS: Moved these two modules from crater into moonbase for Dem.
 	
