@@ -1,7 +1,4 @@
 (
-
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-
   set -x                                 &&
   ./configure  --host=$BUILD             \
                --prefix=/usr             \
