@@ -2,7 +2,7 @@
 
 cp configure configure.old                                           &&
 
-bzcat $SCRIPT_DIRECTORY/$MODULE-$VERSION.patch.bz2 | patch -p 0      &&
+#bzcat $SCRIPT_DIRECTORY/$MODULE-$VERSION.patch.bz2 | patch -p 0      &&
 sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/"  utils/Makefile.in            &&
 sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/" sample/Makefile.in            &&
 sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/" saslauthd/Makefile.in         &&
