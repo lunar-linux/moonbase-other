@@ -7,9 +7,9 @@
                 --prefix=/opt/lunar/gnome/2                     \
                 --localstatedir=/var                            \
                 --infodir=/opt/lunar/gnome/2/share/info         \
-                --mandir=/opt/lunar/gnome/2/share/man           &&
+                --mandir=/opt/lunar/gnome/2/share/man           \
+                $OPTS                                           &&
 
-   patch  -p 0  <  $SCRIPT_DIRECTORY/glade2-glademm.patch  &&
    default_make
 
 ) > $C_FIFO 2>&1
