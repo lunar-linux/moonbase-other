@@ -126,9 +126,14 @@ case "$1" in
 
 	success /bin/true
 	echo
-	touch /var/lock/subsys/udev
 	;;
   stop)
+	# if used as regular /dev nodes, do not allow to remove.
+	if [ -f /dev/.udev.tdb ]; then
+	    echo "Udev nodes in use under /dev. Cannot remove."
+	    echo 4;
+	fi
+
   	# be careful
 	echo -n $"Removing udev device nodes: "
 	export ACTION=remove
@@ -136,10 +141,10 @@ case "$1" in
 	remove_extra_nodes
 	success /bin/true
 	echo
-	rm -f /var/lock/subsys/udev
+	rm -f $udev_root/.udev.tdb       
 	;;
   status)
-	if [ -f /var/lock/subsys/udev ]; then
+	if [ -f $udev_root/.udev.tdb ]; then
 		echo $"$prog has run"
 		exit 0
 	fi
