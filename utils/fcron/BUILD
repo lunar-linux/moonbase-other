@@ -19,7 +19,8 @@
                --with-editor=$EDITOR  &&
   make                                &&
   prepare_install                     &&
-  make    install
+  make    install                     ||
+  exit 1
 
 
   if [ -e /etc/init.d/fcron.sh ]; then
