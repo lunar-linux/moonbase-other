@@ -1,0 +1,28 @@
+          MODULE=acpitool
+         VERSION=0.2.5
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://freeunix.dyndns.org:8088/ftp_site/pub/unix/$MODULE/
+      SOURCE_VFY=sha1:d0dec1a428f1582242aef1a44751f2009db191ba
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+        WEB_SITE=http://freeunix.dyndns.org:8088/site2/acpitool.shtml
+         ENTERED=20040919
+         UPDATED=20040919
+           SHORT="A ACPI tool that does nifty ACPI stuff"
+cat << EOF
+AcpiTool is (yet another) Linux ACPI client. It's a small command-line
+application, intended to be a replacement for the apm tool. The
+primary target audience are laptop users, since these people are most
+interested in stuff like battery status, thermal status and the ability
+to put their precious laptop to sleep. Most of this does not apply to
+desktop systems.
+
+The program simply accesses the /proc/acpi or /sysfs entries to get/set
+acpi values. Hence, you need a computer running a Linux kernel from
+the 2.4.x or 2.6.x series with acpi enabled, to use this program.
+
+AcpiTool is currently developped on a Toshiba Satellite Pro 6000,
+running Slackware 10.0 with kernel 2.6.8.1, patched with latest ACPI
+patches (version 20040715). This application started as an attempt to
+"refurbish" my C++ programming skills, which were dormant for several
+years.
+EOF
