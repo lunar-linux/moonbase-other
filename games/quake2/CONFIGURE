@@ -1,0 +1,9 @@
+FOO="WERR"
+if ! grep -q "$FOO" $MODULE_CONFIG; then
+  if query "Disable warnings (Not recommended unless build fails)?" n; then
+     echo "$FOO=n" >> $MODULE_CONFIG
+  else
+     echo "$FOO=y" >> $MODULE_CONFIG
+  fi
+fi
+
