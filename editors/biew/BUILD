@@ -6,12 +6,10 @@
            *) UM="n"  ;;
   esac
 
-
   sedit  "s/TARGET_OS=unix/TARGET_OS=linux/"             makefile  &&
   sedit  "s/TARGET_PLATFORM=i386/TARGET_PLATFORM=i586/"  makefile  &&
   sedit  "s/USE_MOUSE=n/USE_MOUSE=$UM/"                  makefile  &&
   sedit  "s/\/usr\/local/\/usr/"  biewlib/sysdep/generic/unix/os_dep.c  &&
-
 
   make                                          &&
   prepare_install                               &&

@@ -1,8 +1,11 @@
-if  !  grep  -q  "USE_MOUSE="  $MODULE_CONFIG;  then
-
-  if    query  "Do you want to enable mouse support?"  y
-  then  echo  "USE_MOUSE=y"  >>  $MODULE_CONFIG
-  else  echo  "USE_MOUSE=n"  >>  $MODULE_CONFIG
+if ! grep -q "USE_MOUSE=" $MODULE_CONFIG ; then
+  if module_installed gpm ; then
+	  if query "Do you want to enable mouse support?" y ; then
+      echo "USE_MOUSE=y" >> $MODULE_CONFIG
+		else
+		  echo "USE_MOUSE=n" >> $MODULE_CONFIG
+		fi
+	else
+		echo "USE_MOUSE=n" >> $MODULE_CONFIG
   fi
-
 fi
