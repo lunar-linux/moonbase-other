@@ -1,11 +1,75 @@
+2004-07-28 23:30  perldude
+
+	* doc-tools/SGMLSpm/DETAILS: renamed the patch to fit the current
+	perl version. suggested by cmak.
+
+2004-07-28 22:59  perldude
+
+	* filemanagers/filer/DETAILS, perl/File-BaseDir/DETAILS,
+	perl/File-MimeInfo/DETAILS, perl/Stat-lsMode/DETAILS: blah.
+	adjusted the dates. somehow my system time was messed up.
+
+2004-07-28 22:21  perldude
+
+	* perl/: File-BaseDir/BUILD, File-BaseDir/DETAILS,
+	File-MimeInfo/DEPENDS: added missing module. File::MimeInfo depends
+	on it.
+
+2004-07-28 21:13  striker
+
+	* chat/BitchX/: BUILD, bitchx: this script causes more problems
+	than it's worth
+
+2004-07-28 19:59  florin
+
+	* games/freesci/: BUILD, DETAILS: add a BUILD file in order to
+	install it to the /usr/games directory.
+
+2004-07-28 19:11  jol
+
+	* eclipse/: cdt/BUILD, cdt/DEPENDS, cdt/DETAILS, eclipse-bin/BUILD,
+	eclipse-bin/DEPENDS, eclipse-bin/DETAILS,
+	eclipse-bin/profile.d/eclipse-bin.rc, emf-sdo-xsd/BUILD,
+	emf-sdo-xsd/DEPENDS, emf-sdo-xsd/DETAILS, gef/BUILD, gef/DEPENDS,
+	gef/DETAILS, metrics/BUILD, metrics/DEPENDS, metrics/DETAILS,
+	ve/BUILD, ve/DEPENDS, ve/DETAILS: Create an eclipse directory to
+	contain all eclipse stuff.  The first import contains this module: 
+	    - eclipse-bin (from x11-apps)   - cdt   - emf-sdo-xsd   - gef  
+	- metrics	- ve
+
+2004-07-28 16:12  tchan
+
+	* perl/perl/: DETAILS, POST_INSTALL: Too much talking, not enough
+	action.  Version bump to perl-5.8.5.  Power perl users will have to
+	re-install their own cpan modules by hand.  Some installed
+	moonbase/perl/* modules will also have to be re-linned as well. 
+	Added these warning messages to the POST_INSTALL.  Compiled/tested
+	with gcc-3.3.3, glibc-2.3.2, kernel headers 2.4.x.
+
+2004-07-28 16:00  tchan
+
+	* security/aide/POST_INSTALL: Fixed a message spread over several
+	lines.
+
+2004-07-28 14:32  florin
+
+	* devel/tk/DETAILS: fix the md5 sum for the rereleased tarball.
+
+2004-07-28 14:11  perldude
+
+	* filemanagers/filer/: BUILD, DEPENDS, DETAILS: renamed the module.
+	suggested by Ratler and elaine.
+
+2004-07-28 13:53  nestu
+
+	* kernel/linux-beta-mm/DETAILS: version bump: 2.6.8-rc1-mm1 ->
+	2.6.8-rc2-mm1. gcc 3.3.3, glibc 2.3.2, headers 2.6.7.0
+
 2004-07-28 11:42  perldude
 
-	* filemanagers/Filer/BUILD, filemanagers/Filer/DEPENDS,
-	filemanagers/Filer/DETAILS, perl/File-MimeInfo/BUILD,
-	perl/File-MimeInfo/DEPENDS, perl/File-MimeInfo/DETAILS,
-	perl/Stat-lsMode/BUILD, perl/Stat-lsMode/DEPENDS,
-	perl/Stat-lsMode/DETAILS: modules for Filer 0.0.6 and its
-	dependencies.
+	* perl/: File-MimeInfo/BUILD, File-MimeInfo/DEPENDS,
+	File-MimeInfo/DETAILS, Stat-lsMode/BUILD, Stat-lsMode/DEPENDS,
+	Stat-lsMode/DETAILS: modules for Filer 0.0.6 and its dependencies.
 
 2004-07-28 09:34  ratler
 
@@ -1345,10 +1409,6 @@
 	extraction of the NVIDIA sources...  if we don't, and it exists,
 	the extract fails...
 
-2004-07-06 15:59  florin
-
-	* x11-apps/eclipse-bin/DETAILS: bump the version from 2.1.3 to 3.0.
-
 2004-07-06 15:47  sofar
 
 	* mail/thunderbird/: DETAILS, POST_INSTALL: New version!!!
@@ -1717,30 +1777,4 @@
 2004-06-29 04:18  florin
 
 	* mail/bogofilter/DETAILS: bump the version from 0.91.4 to 0.92.0.
-
-2004-06-28 20:30  florin
-
-	* libs/openhbci/DETAILS: bump the version from 0.9.13 to 0.9.16.
-
-2004-06-28 19:57  cmak
-
-	* audio/mixxx/DETAILS: new version 1.3.2
-
-2004-06-28 19:49  florin
-
-	* editors/nano/DETAILS: bump the version from 1.2.3 to 1.2.4.
-
-2004-06-28 14:32  florin
-
-	* games/neverball/DETAILS: bump the version from 1.2.6 to 1.3.0.
-
-2004-06-28 14:13  sofar
-
-	* net/nbd/: BUILD, DEPENDS, DETAILS: Userspace nbd tools (server
-	and client) for use with CONFIG_BLK_DEV_NBD=y
-
-2004-06-28 11:45  sofar
-
-	* web/apache-mod_ssl/DETAILS: Adjusted download url since this
-	seems to be missing on httpd.apache.org..
 
