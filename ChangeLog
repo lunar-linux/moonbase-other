@@ -1,3 +1,11 @@
+2003-02-22 06:16  tchan
+
+	* compilers/j2sdk/: BUILD, DETAILS, PRE_BUILD: Rewrote the j2sdk
+	module to make it LEGAL.  You have to read and agree to the license
+	or the module will NOT install.  Tested the URL's for downloading
+	the 40Meg+ binary.  j2sdk-1.4.1 is currently only available for
+	i586 or higher cpu's and this is the gcc-3.2 compiled binary!!!
+
 2003-02-21 23:30  nhudson
 
 	* x11-apps/bitstream-vera/POST_INSTALL: 
@@ -7,6 +15,11 @@
 
 	* utils/: lunar/DETAILS, theedge/DETAILS: Added alternative
 	download url's to the dk mirror
+
+2003-02-21 20:55  dem
+
+	* compilers/j2sdk/: BUILD, DETAILS, PRE_BUILD: Don't ask, don't
+	tell
 
 2003-02-21 03:30  tchan
 
@@ -565,93 +578,4 @@
 
 	* x11-utils/ttmkfdir/CONFLICTS: installing this does bad things to
 	apps that require freetype2
-
-2003-02-11 18:27  tchan
-
-	* news/pan2/: DEPENDS, DETAILS: Version bump at the request of
-	Florin Braescu.  Added the depends for gnet.  Compiled and tested
-	with gcc-3.2.2.
-
-2003-02-11 18:25  tchan
-
-	* libs/gnet/DETAILS: Version bump to 1.1.8. Compiled and tested
-	with gcc-3.2.2.
-
-2003-02-11 16:18  hardkrash
-
-	* chat/xchat/DETAILS: version bump -- hardkrash
-
-2003-02-11 16:03  tchan
-
-	* graphics/gtk+-2/BUILD: nhudson had the wrong permission set on
-	his BUILD script.  I had to edit the BUILD script (added a blank
-	line) and set the permissions to 755 to get it to commit to cvs
-	correctly.
-
-2003-02-11 15:42  tchan
-
-	* utils/grep/DETAILS: Version bump to 2.5.1.  Compiled and tested
-	with gcc-3.2.2.  Switched over to tar.bz2 instead of tar.gz for a
-	slightly smaller/faster source download.
-
-2003-02-11 14:47  nhudson
-
-	* gnome2-core/: eel2/DETAILS, nautilus/BUILD, nautilus/DETAILS: 
-	Updating eel2 to new version 2.2.1 and nautilus to new version
-	2.2.1 also took out a patch that is now part of nautilus
-
-2003-02-11 14:40  kc8apf
-
-	* printer/espgs/DETAILS: Version bump
-
-2003-02-11 14:16  nhudson
-
-	* libs/: libxml2/DETAILS, libxslt/DETAILS: 
-	Updating libxml2 to new version 2.5.3 and libxslt to new version
-	1.0.26
-
-2003-02-11 14:09  nhudson
-
-	* libs/libxml2/: BUILD, DEPENDS, DETAILS, Makefiles.patch,
-	POST_INSTALL: Putting libxml2 where it belongs in the libs
-	directory of moonbase
-
-2003-02-11 13:03  csm
-
-	* doc-tools/opensp/BUILD: fixeing the symlink problem
-
-2003-02-11 06:53  wizfactor
-
-	* devel/pccts/BUILD: Fixed so mkdir wouldn't error out if the
-	directory already exists
-
-2003-02-11 05:34  hardkrash
-
-	* video/MPlayer/BUILD: added a comment about the new sedit for the
-	library path stuff -- hardkrash
-
-2003-02-11 05:25  csm
-
-	* video/MPlayer/BUILD: updating to fix the build bug caused by a
-	pointer to the wrong freetype libs.
-
-2003-02-11 01:52  kc8apf
-
-	* graphics/: sane-backends/DETAILS, sane-frontends/DETAILS: Small
-	download fix
-
-2003-02-11 01:50  csm
-
-	* mail/mailman/DETAILS: version update
-
-2003-02-11 00:28  nhudson
-
-	* graphics/freetype2/: BUILD, DETAILS: Ok fixing the freetype2
-	module to actually add the bytecode interpreter though I do have to
-	warn if you turn it on most fonts look bad
-
-2003-02-11 00:25  sofar
-
-	* utils/modutils/profile.d/modutils-completion.rc: Goody goody:
-	tab-completion for modprobe, insmod and rmmod !!!
 
