@@ -1,8 +1,8 @@
 if ! grep -q '(lin)' /proc/$PPID/stat ; then
-message  "${MESSAGE_COLOR}If Linux-PAM is being permenantly removed"  \
-         "then all pam aware spells must be re-lin for"              \
+message  "${MESSAGE_COLOR}If Linux-PAM is being permanently removed"  \
+         "then all pam aware modules must be re-linned for"              \
          "authentication to continue working.${DEFAULT_COLOR}"
-  if    query  "Re-lin all Linux-PAM aware spells?" n
+  if    query  "Re-lin all Linux-PAM aware modules?" n
   then  lin  --pam
   fi
 fi
