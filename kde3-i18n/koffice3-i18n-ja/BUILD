@@ -1,10 +1,7 @@
 (
-  
-  ./configure  --prefix=/opt/lunar/kde/3   \
-               $OPTS                      &&
+  ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}  \
+               $OPTS                           &&
 
-  make               &&
-  prepare_install    &&
-  make    install
+  default_make
 
 ) > $C_FIFO 2>&1
