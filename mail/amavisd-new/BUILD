@@ -2,10 +2,6 @@
    cp amavisd /usr/sbin/amavisd &&
    chown 755 /usr/sbin/amavisd &&
 
-   if [ ! -e /etc/amavisd.conf ]; then
-       cp amavisd.conf /etc
-   fi &&
-
    if [ `grep amavis /etc/passwd | wc -l` -eq 0 ]; then
        groupadd amavis &&
        useradd -d /var/amavis -s /bin/true -g amavis amavis
