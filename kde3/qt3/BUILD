@@ -24,13 +24,13 @@
   sedit 's:strip "$(INSTALL_ROOT)/opt/lunar/qt/3/doc/html/"::'  src/Makefile &&
 
   case  $SAMPCOMP  in
-    y|Y|j|J) 
-      make                 
+    y|Y|j|J)
+      make
       ;;
     *)
-      make  symlinks sub-src sub-tools       
+      make  symlinks sub-src sub-tools
       ;;
-  esac
+  esac                     &&
 
   prepare_install          &&
   make  install            &&
@@ -38,12 +38,12 @@
   case  $SAMPIN  in
     y|Y|j|J)
       mv examples  /opt/lunar/qt/3  &&
-      mv tutorial  /opt/lunar/qt/3  
+      mv tutorial  /opt/lunar/qt/3
       ;;
-  esac
+  esac                     &&
 
   if ! grep -q "/opt/lunar/qt/3/lib" /etc/ld.so.conf; then
-    echo "/opt/lunar/qt/3/lib" >> /etc/ld.so.conf  
+    echo "/opt/lunar/qt/3/lib" >> /etc/ld.so.conf
   fi
 
 ) > $C_FIFO 2>&1
