@@ -1,8 +1,6 @@
 (
-  bad_flags -funroll-loops
-  ./configure $BUILD --prefix=/usr --with-pic         && 
-  make  PREFIX=/usr                                   &&
-  prepare_install                                     &&
-  make  PREFIX=/usr install
+
+  OPTS="$OPTS --enable-threads --with-pic"
+  default_build
 
 ) > $C_FIFO 2>&1
