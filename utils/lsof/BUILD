@@ -1,6 +1,6 @@
 (
 
-  tar xvf ${MODULE}_${VERSION}_src.tar &&
+  tar xf ${MODULE}_${VERSION}_src.tar  &&
   cd ${MODULE}_${VERSION}_src          &&
 
   yes |  ./Configure  linux  &&
