@@ -1,0 +1,17 @@
+          MODULE=egcs64
+         VERSION=19980921.1
+          SOURCE=${MODULE}_${VERSION}.orig.tar.gz
+         SOURCE2=${MODULE}_${VERSION}-1.diff.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-${VERSION}
+   SOURCE_URL[0]=http://ftp.debian.org/debian/pool/main/e/$MODULE/$SOURCE
+  SOURCE2_URL[0]=http://ftp.debian.org/debian/pool/main/e/$MODULE/$SOURCE2
+        WEB_SITE=http://www.debian.org
+         ENTERED=20031023
+         UPDATED=20031023
+           SHORT="egcs64 is the Sparc64 compiler for compiling 64bit kernels."
+           PSAFE=no
+cat << EOF
+egcs - experimental gnu compiler set
+Needed to compile a 64bit kernel on sparc64's.  gcc-3.3.x still has problems
+generating a working 64bit cross compiler.
+EOF
