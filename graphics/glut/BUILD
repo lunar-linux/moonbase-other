@@ -1,9 +1,9 @@
 (
-
+  export PATH=${PATH}:/usr/X11R6/bin
   cp linux/Glut.cf Glut.cf                                      &&
   sedit "s:\$(TOP)/../lib/libMesa:/usr/X11R6/lib/lib:" Glut.cf  &&
-  /usr/X11R6/bin/imake -DUseInstalled -I/usr/X11R6/lib/X11/config -DTOPDIR=. &&
-  /usr/X11R6/bin/xmkmf -a                                       &&
+  imake -DUseInstalled -I/usr/X11R6/lib/X11/config -DTOPDIR=. &&
+  xmkmf -a                                       &&
   cp linux/Makefile lib/glut/Makefile                           &&
   sedit "s:,libglut.so.3:,libglut.so.3,-L/usr/X11R6/lib,-lX11,-lGL,-lGLU,-lXi,-lXmu:" lib/glut/Makefile                                         &&
   sedit "s:-O2 -m486: $CFLAGS:g" lib/glut/Makefile              &&
