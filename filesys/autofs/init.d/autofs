@@ -1,4 +1,5 @@
-#!/bin/bash                                                                     #
+#!/bin/bash
+#
 # rc file for automount using a Sun-style "master map".
 # We first look for a local /etc/auto.master, then a YP
 # map with that name
@@ -27,10 +28,8 @@ FLAGS="defaults 21"
 # Location of the automount daemon and the init directory
 #
 DAEMON=/usr/sbin/automount
-prog=`basename $DAEMON`
-initdir=/etc/init.d
+PROG=$(basename $DAEMON)
 
-test -e $DAEMON || exit 0
 
 #
 # We can add local options here
@@ -57,7 +56,7 @@ function catnismap()
     else
         map="$1"
     fi
-    /usr/bin/ypcat -k "$map" 2> /dev/null | sed -e '/^#/d' -e '/^$/d'
+    ypcat -k "$map" 2> /dev/null | sed -e '/^#/d' -e '/^$/d'
 }
 function getfilemounts()
 {
@@ -186,23 +185,16 @@ function getmounts()
 #
 function status()
 {
-        echo $"Configured Mount Points:"
-        echo  "------------------------"
+        echo "Configured Mount Points:"
+        echo "------------------------"
         getmounts
         echo ""
-        echo $"Active Mount Points:"
-        echo  "--------------------"
+        echo "Active Mount Points:"
+        echo "--------------------"
         ps axwww|grep "[0-9]:[0-9][0-9] $DAEMON " | (
                 while read pid tt stat time command; do echo $command; done
         )
 }
-
-
-        ESC=`echo -en "\033"`
-  RESULT_OK="${ESC}[\061;32m${ESC}[70G[\040\040\040OK\040\040\040]${ESC}[m"
-RESULT_FAIL="${ESC}[\061;31m${ESC}[70G[\040FAILED\040]${ESC}[m"
-RESULT_WARN="${ESC}[\061;33m${ESC}[70G[\040\040WARN\040\040]${ESC}[m"
-JUNK="]]]]]]"
 
 success() {
   echo -e "$@$RESULT_OK"
@@ -212,30 +204,27 @@ failure() {
   echo -e "$@$RESULT_FAIL"
 }
 
-#
-# See how we were called.
-#
-case "$1" in
-  start)
+start() {
         # Make sure the autofs filesystem type is available.
         (grep -q autofs /proc/filesystems || /sbin/modprobe -k autofs || /sbin/modprobe -k autofs4) 2> /dev/null
-        echo -n $"Starting $prog: "
+        echo -n $"Starting $PROG: "
         TMP=`mktemp /tmp/autofs.XXXXXX` || { echo $"could not make temp file" >& 2; exit 1; }
         getmounts | tee $TMP | sh
         RETVAL=$?
         if [ -s $TMP ] ; then
-            success "$prog startup" || failure "$prog startup"
+            success "$PROG startup" || failure "$PROG startup"
             [ $RETVAL = 0 ] && touch /var/lock/autofs
         else
             echo -n "" $"No Mountpoints Defined"
-            success "$prog startup"
+            success "$PROG startup"
         fi
         rm -f $TMP
-        ;;
-  stop)
-        echo -n $"Stopping $prog: "
-        if [ -z "`pidof $prog`" -a -z "`getmounts`" ]; then
-                success $"$prog shutdown"
+}
+
+stop() {
+        echo -n $"Stopping $PROG: "
+        if [ -z "`pidof $PROG`" -a -z "`getmounts`" ]; then
+                success $"$PROG shutdown"
                 RETVAL=0
         else
                 kill -USR2 `pidof $DAEMON`
@@ -250,14 +239,11 @@ case "$1" in
         done
         umount -a -f -t autofs
         rm -f /var/lock/autofs
-        ;;
-  restart)
-        $0 stop
-        $0 start
-        ;;
-  reload)
+}
+
+reload() {
         if [ ! -f /var/lock/autofs ]; then
-                echo $"$prog not running"
+                echo $"$PROG not running"
                 RETVAL=1
                 return
         fi
@@ -283,18 +269,7 @@ case "$1" in
                 fi
         done )
         rm -f $TMP1 $TMP2
-        ;;
-  status)
-        status
-        ;;
-  condrestart)
-        [ -f /var/lock/autofs ] && $0 restart
-        RETVAL=0
-        ;;
-  *)
-        echo $"Usage: $0 {start|stop|restart|reload|condrestart|status}"
-        RETVAL=0
-esac
+}
 
-RETVAL=0
-exit $RETVAL
+. /lib/lsb/init-functions
+
