@@ -1,0 +1,18 @@
+           MODULE=symlinks
+         VERSION=1.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=$MODULE-$VERSION-pathfix.patch.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=http://www.ibiblio.org/pub/Linux/utils/file/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+        WEB_SITE=Unknown
+         ENTERED=20030828
+         UPDATED=20020828
+           SHORT="symlinks is a utils that scans for broken symlinks"
+cat << EOF
+Scans directories for symbolic links, and identifies danglind,
+relative, absolute, messy, and other_fs links. Can optionally
+change absolute links to relative within a given filesystem.
+Recommended for use by anyone developing and/or maintaining
+a Linux FTP site or distribtion or CD-ROM.
+EOF
