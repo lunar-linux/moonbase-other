@@ -1,15 +1,15 @@
           MODULE=vnc
-         VERSION=3.3.7
-#        VERSION=3.3.4
+         VERSION=4_1
           SOURCE=$MODULE-$VERSION-unixsrc.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-unixsrc
-   SOURCE_URL[0]=http://www.realvnc.com/dist/
-   SOURCE_URL[2]=http://www.uk.research.att.com/vnc/dist/
-   SOURCE_URL[1]=ftp://ftp.uk.research.att.com/pub/vnc/dist/
-        WEB_SITE=http://www.uk.research.att.com/vnc/
+   SOURCE_URL=http://lunar-linux.org/lunar/mirrors/
+     SOURCE_VFY=sha1:95bd082c04fc1229359f2c2da848ca2c34c0c3c8
+       WEB_SITE=http://www.realvnc.com/
          ENTERED=20020112
-         UPDATED=20030327
+         UPDATED=20050306
+           PSAFE=no
            SHORT="vnc provides virtual network computing."
+
 cat << EOF
 VNC stands for Virtual Network Computing. It is, in essence, a remote
 display system which allows you to view a computing 'desktop'
@@ -17,5 +17,3 @@ environment not only on the machine where it is running, but from
 anywhere on the Internet and from a wide variety of machine
 architectures. 
 EOF
-
-PSAFE=no
