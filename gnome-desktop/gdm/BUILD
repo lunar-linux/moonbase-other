@@ -29,7 +29,7 @@
  chown  -R  gdm:gdm  /var/gdm                                        &&
  chmod  750          /var/gdm                                        &&
 
- if ! module_installed gdm2; then
+ if ! module_installed gdm; then
    install --mode=644 $SCRIPT_DIRECTORY/gnomerc /etc/X11/gdm/gnomerc
    install --mode=644 $SCRIPT_DIRECTORY/gdm.conf /etc/X11/gdm/gdm.conf
    install --mode=755 $SCRIPT_DIRECTORY/Sessions/Gnome2 /etc/X11/gdm/Sessions
