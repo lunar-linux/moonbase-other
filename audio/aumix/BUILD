@@ -11,7 +11,6 @@
                --infodir=/usr/share/info     \
                --mandir=/usr/share/man       \
                --without-gtk                 \
-               --without-ncurses             \
                $OPTS                         &&
 
   default_make
