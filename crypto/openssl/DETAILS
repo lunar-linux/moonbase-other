@@ -1,23 +1,20 @@
           MODULE=openssl
-         VERSION=0.9.7c
-        #VERSION=0.9.6i
+         VERSION=0.9.7d
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_VFY=md5:c54fb36218adaaaba01ef733cd88c8ec
+      SOURCE_VFY=md5:1b49e90fc8a75c3a507c0a624529aca5
    SOURCE_URL[0]=ftp://opensores.thebunker.net/pub/mirrors/openssl/source/$SOURCE
    SOURCE_URL[1]=http://www.dentarthurdent.com/transfer/openssl/$SOURCE
    SOURCE_URL[2]=http://www.openssl.org/source/$SOURCE
    SOURCE_URL[3]=ftp://ftp.infoscience.co.jp/pub/Crypto/SSL/openssl/source/$SOURCE
    SOURCE_URL[4]=ftp://ftp.duth.gr/pub/OpenSSL/source/$SOURCE
-
 	 SOURCE2=Makefile.openssl-certs
      SOURCE2_URL=$LRESORT_URL/$SOURCE2
      SOURCE2_VFY=md5:5ce126820eded42138d2236f54932f56
-	PSAFE="no"
         WEB_SITE=http://www.openssl.org
          ENTERED=20010922
-         UPDATED=20030930
+         UPDATED=20040317
+           PSAFE="no"
            SHORT="openssl is a library for providing encrypted transport layers."
 cat << EOF
 OpenSSL
