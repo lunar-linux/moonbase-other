@@ -2,9 +2,7 @@
 
   ./configure  --prefix=/usr      \
                --sysconfdir=/etc  \
-               --enable-fsstd     &&
-  make                            &&
-  prepare_install                 &&
-  make    install
+               --enable-fsstd    &&
+  default_make
 
 ) > $C_FIFO 2>&1
