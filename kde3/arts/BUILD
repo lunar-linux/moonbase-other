@@ -1,6 +1,5 @@
 (
-
-  export  LDFLAGS=''
+  unset CC CCC CXX
 
   export  PATH=/opt/lunar/qt/3/bin:$PATH
   export  LD_LIBRARY_PATH=/opt/lunar/qt/3/lib
