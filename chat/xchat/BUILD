@@ -1,4 +1,8 @@
 (
+  # Security patch for 2.0.6. Outta be removed for 2.0.7
+  
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  
   gettextize --copy --force --intl &&
   libtoolize --force &&
   aclocal  -I m4 &&
