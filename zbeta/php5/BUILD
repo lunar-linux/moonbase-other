@@ -20,7 +20,7 @@
     OPTS="$OPTS --with-apxs2=/usr/sbin/apxs"
   fi
 
-#  sedit "s:^:#include <errno.h>\n:" ext/mysql/libmysql/mysys_err.h	&&
+#  sedit "s:^:#include <errno.h>\n:" ext/mysql/libmysql/mysys_err.h &&
 
   verbose_msg "OPTS=$OPTS" &&
   ./configure  --prefix=/usr                 \
@@ -32,7 +32,7 @@
 	       --with-readline               \
                --with-zlib=/usr              \
                --with-ncurses                \
-               $OPTS                         &&
+               $OPTS                        &&
   default_make
 
 ) > $C_FIFO 2>&1
