@@ -8,10 +8,13 @@
     fi
   done
 
+  # Prune old.libraries
+  rm -rf /usr/lib/$MODULE$VERSION/old.libraries &&
+
   # Do I smell mozilla or firefox?
 
   mkdir -p /opt/lunar/plugins &&
-  ln -sf /usr/lib/$MODULE$VERSION/jre/plugin/i386/mozilla/javaplugin_oji.so \
-	/opt/lunar/plugins/javaplugin_oji.so
+  ln -sf /usr/lib/$MODULE$VERSION/jre/plugin/i386/mozilla/libjavaplugin_oji.so \
+	/opt/lunar/plugins/libjavaplugin_oji.so
 
 ) > $C_FIFO 2>&1
