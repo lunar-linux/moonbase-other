@@ -1,14 +1,44 @@
+2002-09-11 14:30  csm
+
+	* games/bzedit/DEPENDS: fixing this... I had forgotten to commit
+	this
+
+2002-09-11 14:09  kongar
+
+	* web/: galeon/BUILD, mozilla/DETAILS: 
+	mozilla is upgraded to stable 1.0.1
+	
+	galeon is hacked to be built with it.
+
+2002-09-11 12:33  kongar
+
+	* x11-wm/ratpoison/DETAILS: 
+	new module: a minimalistic window manager with emacs (default)
+	key-bindings
+
+2002-09-11 11:26  kongar
+
+	* filemanagers/FileRunner/: BUILD, DETAILS: 
+	now possible to build with any version of tcl-tk
+	
+	cosmetic changes
+
+2002-09-11 11:25  kongar
+
+	* devel/tcl-tk/BUILD: 
+	now adding the necessary symlinks to wish and tclsh
+
 2002-09-11 10:39  kongar
 
 	* ftp/lftp/DETAILS: 
 	upgraded to 2.6.2
 	
 	add MD5 checksum
-	
+
 2002-09-11 10:24  sofar
 
 	* kde3/koffice3/DETAILS: New koffice3 version: 1.2
-	
+
 2002-09-11 10:23  sofar
 
 	* kde3-i18n/: koffice3-i18n/DETAILS, koffice3-i18n-az/DETAILS,
@@ -25,218 +55,240 @@
 	koffice3-i18n-ro/DETAILS, koffice3-i18n-ru/DETAILS,
 	koffice3-i18n-sk/DETAILS, koffice3-i18n-sl/DETAILS,
 	koffice3-i18n-sv/DETAILS, koffice3-i18n-ta/DETAILS,
-	koffice3-i18n-tr/DETAILS, koffice3-i18n-uk/DETAILS: New versions for these: 1.2
-	
+	koffice3-i18n-tr/DETAILS, koffice3-i18n-uk/DETAILS: New versions
+	for these: 1.2
+
 2002-09-11 09:41  sofar
 
 	* devel/tcl-tk/DETAILS: New version: 8.4.0
-	
+
 2002-09-11 07:36  jmhodges
 
 	* games/: FlightGear/DETAILS, SimGear/DETAILS, fgfs-base/DETAILS,
-	tuxkart/DETAILS: games, games galore, sometimes a sysadmin needs a well deserved break
-	version updates!
-	
+	tuxkart/DETAILS: games, games galore, sometimes a sysadmin needs a
+	well deserved break version updates!
+
 2002-09-11 07:34  jmhodges
 
 	* graphics/plib/DETAILS: 
 	lots of cool updates this being the first
-	
+
 2002-09-11 04:59  tchan
 
-	* devel/cvsfs/: DETAILS, PRE_BUILD: Reverted to vers. 1.0.9.  Cleanly compiles and installs for me under gcc-3.2.
-	Removed the PRE_BUILD that was marking vers 1.1.5 as not compiling.  This
+	* devel/cvsfs/: DETAILS, PRE_BUILD: Reverted to vers. 1.0.9. 
+	Cleanly compiles and installs for me under gcc-3.2.  Removed the
+	PRE_BUILD that was marking vers 1.1.5 as not compiling.  This
 	version of cvsfs lacks a lot of the authors newer features though!
-	
+
 2002-09-11 04:49  csm
 
-	* games/bzedit/: BUILD, DEPENDS: this fixes someones idea of a joke I guess!
-	
+	* games/bzedit/: BUILD, DEPENDS: this fixes someones idea of a joke
+	I guess!
+
 2002-09-11 04:36  kongar
 
 	* compilers/bin86/DETAILS: downgraded to 0.16.0 for stability
-	
+
 2002-09-11 04:29  kongar
 
 	* printer/ImageMagick/DETAILS: upgraded to 5.4.9
-	
+
 2002-09-11 04:25  csm
 
-	* libs/glibc/: BUILD, divdi3.patch: this is supposed to fix our opengl issues
-	
+	* libs/glibc/: BUILD, divdi3.patch: this is supposed to fix our
+	opengl issues
+
 2002-09-11 02:22  tchan
 
-	* devel/linux-vanilla/CONFIGURE: Fixed a bug in the CONFIG_GRUB, CONFIG_LILO logic.
-	
+	* devel/linux-vanilla/CONFIGURE: Fixed a bug in the CONFIG_GRUB,
+	CONFIG_LILO logic.
+
 2002-09-11 02:21  tchan
 
-	* devel/linux/CONFIGURE: Fixed a bug in the CONFIG_GRUB, CONFIG_LILO, CONFIG_ABOOT logic.
-	
+	* devel/linux/CONFIGURE: Fixed a bug in the CONFIG_GRUB,
+	CONFIG_LILO, CONFIG_ABOOT logic.
+
 2002-09-10 22:10  sofar
 
 	* devel/swig/DETAILS: New version: 1.3.15
-	
+
 2002-09-10 21:37  tchan
 
-	* devel/linux-vanilla/POST_INSTALL: Fixed the timeout in GRUB install.  It now sets timeout to -1.
-	
+	* devel/linux-vanilla/POST_INSTALL: Fixed the timeout in GRUB
+	install.  It now sets timeout to -1.
+
 2002-09-10 21:36  tchan
 
-	* devel/linux/POST_INSTALL: Fixed the timeout in the GRUB install.  Timeout is now set to -1.
-	
+	* devel/linux/POST_INSTALL: Fixed the timeout in the GRUB install. 
+	Timeout is now set to -1.
+
 2002-09-10 20:39  sofar
 
-	* compilers/gcc/BUILD: Proper default LANGUAGES for the future when we might include a language selection menu.
-	
+	* compilers/gcc/BUILD: Proper default LANGUAGES for the future when
+	we might include a language selection menu.
+
 2002-09-10 20:27  sofar
 
-	* news/: pan/CONFLICTS, pan2/CONFLICTS: Adding conflicts to eachother since they install in the same slot.
-	
+	* news/: pan/CONFLICTS, pan2/CONFLICTS: Adding conflicts to
+	eachother since they install in the same slot.
+
 2002-09-10 20:20  sofar
 
-	* news/pan/DETAILS: Reverting pan for gnome-1.4 back to the old version, since pan-0.13.0 is strictly for gtk2. The pan2 module will help pan lovers to a gnome2-version.
-	
+	* news/pan/DETAILS: Reverting pan for gnome-1.4 back to the old
+	version, since pan-0.13.0 is strictly for gtk2. The pan2 module
+	will help pan lovers to a gnome2-version.
+
 2002-09-10 15:25  csm
 
 	* news/pan/DETAILS: updating the date
-	
+
 2002-09-10 15:24  csm
 
 	* news/pan/DETAILS: updating version
-	
+
 2002-09-10 12:22  kongar
 
 	* utils/shlock/BUILD: 
 	patched the source code to display the usage properly
-	
+
 2002-09-10 10:51  kongar
 
 	* chat/: gaim/DETAILS, gaim-applet/DETAILS: 
 	upgraded to 0.59.2, tested
-	
+
 2002-09-10 06:29  kongar
 
-	* devel/cvsfs/: DETAILS, PRE_BUILD: upgraded to 1.1.5 and marked as broken
-	
+	* devel/cvsfs/: DETAILS, PRE_BUILD: upgraded to 1.1.5 and marked as
+	broken
+
 2002-09-10 04:49  tchan
 
-	* utils/dialog/DETAILS: Bumped version number upto 20020814, up from 20020622.  Compiled under gcc-3.2
-	and lunar menus still seem to be working.
-	
+	* utils/dialog/DETAILS: Bumped version number upto 20020814, up
+	from 20020622.	Compiled under gcc-3.2 and lunar menus still seem
+	to be working.
+
 2002-09-10 00:20  csm
 
 	* games/bzflag/: BUILD, config-sys.patch: first part of bzflag fix
-	
+
 2002-09-09 20:57  nhudson
 
 	* devel/pygtk/DETAILS: Fixed broken download link
-	
+
 2002-09-09 20:45  kongar
 
 	* utils/shlock/: BUILD, DETAILS: 
-	new module: shlock produce reliable locks for shell scripts, by Peter Honeyman as told
-	to Rich
-	
+	new module: shlock produce reliable locks for shell scripts, by
+	Peter Honeyman as told to Rich
+
 2002-09-09 20:04  sofar
 
-	* utils/BasiliskII/: BUILD, DETAILS: New module: BasiliskII - a macintosh 68k emulator
-	
+	* utils/BasiliskII/: BUILD, DETAILS: New module: BasiliskII - a
+	macintosh 68k emulator
+
 2002-09-09 19:37  sofar
 
 	* utils/ccache/profile.d/ccache.rc: Added export to settings!
-	
+
 2002-09-09 19:33  sofar
 
 	* utils/ccache/profile.d/ccache.rc: default root settings
-	
+
 2002-09-09 17:51  sofar
 
 	* news/pan2/DETAILS: New version (tested OK)
-	
+
 2002-09-09 14:04  nhudson
 
-	* gnome2/gkrellm2/DETAILS: Updated gkrellm2 to version 2.0.2, tested downloaded and compile fine.
-	
+	* gnome2/gkrellm2/DETAILS: Updated gkrellm2 to version 2.0.2,
+	tested downloaded and compile fine.
+
 2002-09-09 06:44  kongar
 
 	* utils/theedge/DEPENDS: 
 	added diffutils to depends, seems that sofar's new fix code is
 	using "diff"
-	
+
 2002-09-09 03:12  tchan
 
-	* video/xmovie/CONFIGURE: This CONFIGURE was testing for module_installed gcc3.  That is no longer
-	necessary as gcc-3.2 is now the default compiler.  Thanks to jbrocklin for
-	pointing this out.
-	
+	* video/xmovie/CONFIGURE: This CONFIGURE was testing for
+	module_installed gcc3.	That is no longer necessary as gcc-3.2 is
+	now the default compiler.  Thanks to jbrocklin for pointing this
+	out.
+
 2002-09-09 01:48  csm
 
-	* x11-utils/gkrellm_volume/: BUILD, DEPENDS: adding a missing depends and fixing build script
-	
+	* x11-utils/gkrellm_volume/: BUILD, DEPENDS: adding a missing
+	depends and fixing build script
+
 2002-09-08 23:32  sofar
 
-	* chat/irssi/: BUILD, DETAILS: Re-Added this with out the breaking perl plugin that segfaults it (0.8.5)
-	
+	* chat/irssi/: BUILD, DETAILS: Re-Added this with out the breaking
+	perl plugin that segfaults it (0.8.5)
+
 2002-09-08 20:21  tchan
 
-	* cd/zisofs-tools/BUILD: This file is not necessary.  The cdrtools patch doesn't need to be saved as
-	it is already incorporated into cdrtools.  So I removed the BUILD script.
-	
+	* cd/zisofs-tools/BUILD: This file is not necessary.  The cdrtools
+	patch doesn't need to be saved as it is already incorporated into
+	cdrtools.  So I removed the BUILD script.
+
 2002-09-08 19:28  tchan
 
-	* cd/zisofs-tools/BUILD: Added BUILD script as this is necessary to preserve the cdrtools patch that
-	is located in this source code.  Copied the patch to
-	/usr/share/doc/zisofs-tools/, so that a user would have access to the patch
-	without bunzipping the source code.
-	
+	* cd/zisofs-tools/BUILD: Added BUILD script as this is necessary to
+	preserve the cdrtools patch that is located in this source code. 
+	Copied the patch to /usr/share/doc/zisofs-tools/, so that a user
+	would have access to the patch without bunzipping the source code.
+
 2002-09-08 19:08  tchan
 
-	* cd/zisofs-tools/POST_INSTALL: Fixed the POST_INSTALL to correctly append zisofs.magic to /usr/share/misc/magic.
-	
+	* cd/zisofs-tools/POST_INSTALL: Fixed the POST_INSTALL to correctly
+	append zisofs.magic to /usr/share/misc/magic.
+
 2002-09-08 18:33  tchan
 
-	* utils/less/lesspipe.sh: Upgraded the lesspipe.sh to include a few more common file types.  NOTE:
-	if you are using a tar that has -j instead of -y you will need to edit
-	this file to suit your version of tar.  The tar supported in this lesspipe.sh
-	is for the version of tar included in Lunar.
-	
+	* utils/less/lesspipe.sh: Upgraded the lesspipe.sh to include a few
+	more common file types.  NOTE: if you are using a tar that has -j
+	instead of -y you will need to edit this file to suit your version
+	of tar.  The tar supported in this lesspipe.sh is for the version
+	of tar included in Lunar.
+
 2002-09-08 15:38  csm
 
 	* net/bw-whois/DETAILS: version update
-	
+
 2002-09-08 13:29  sofar
 
 	* utils/Wine/DETAILS: Bumped version
-	
+
 2002-09-08 12:57  sofar
 
 	* compilers/php/DETAILS: New version: 4.2.3
-	
+
 2002-09-08 12:22  sofar
 
 	* x11-wm/icewm/DETAILS: New version: 1.2.2
-	
+
 2002-09-07 20:44  kongar
 
 	* terminal/screen/DETAILS: upgraded to 3.9.13
-	
+
 2002-09-07 19:42  niki
 
 	* utils/gpm/init.d/gpm: gpm now does less output when started.
-	
+
 2002-09-07 18:51  niki
 
-	* utils/gpm/: BUILD, DETAILS, init.d/gpm: Updated to 1.20.1rc1 from 1.93, and fix the init scrip to remove stale
-	pidfiles.
-	
+	* utils/gpm/: BUILD, DETAILS, init.d/gpm: Updated to 1.20.1rc1 from
+	1.93, and fix the init scrip to remove stale pidfiles.
+
 2002-09-07 15:03  kongar
 
 	* printer/ImageMagick/DETAILS: upgraded to 5.4.8-3
-	
+
 2002-09-07 14:32  kongar
 
 	* filemanagers/gentoo/DETAILS: upgraded to 0.11.34
-	
+
 2002-09-07 14:27  kongar
 
 	* security/xinetd/DETAILS: 
@@ -244,131 +296,144 @@
 	upgraded to 2.3.8
 	
 	added md5sum to file
-	
+
 2002-09-07 07:16  csm
 
 	* games/bzedit/: BUILD, DEPENDS, DETAILS, base.patch.bz2,
 	box.patch.bz2, element.patch.bz2, ground.patch.bz2, link.patch.bz2,
 	model-tga.patch.bz2, object.patch.bz2, pyramid.patch.bz2,
 	teleporter.patch.bz2, texture.patch.bz2, walls.patch.bz2,
-	world.patch.bz2: this is an editor for bzflag worlds... version 2.1 will be coming out soon!
-	
+	world.patch.bz2: this is an editor for bzflag worlds... version 2.1
+	will be coming out soon!
+
 2002-09-07 06:34  tchan
 
-	* devel/linux-vanilla/: CONFIGURE, POST_INSTALL: Finally added GRUB choices back into kernel installation.  You can now use
-	GRUB as your boot loader instead of LILO.  grub module is located in
+	* devel/linux-vanilla/: CONFIGURE, POST_INSTALL: Finally added GRUB
+	choices back into kernel installation.	You can now use GRUB as
+	your boot loader instead of LILO.  grub module is located in
 	utils/grub now.
-	
+
 2002-09-07 06:32  tchan
 
-	* devel/linux/: CONFIGURE, POST_INSTALL: Finally added the GRUB choices back into the kernel installation!  You can
-	now use GRUB as your boot loader instead of LILO.  grub module is located
-	in utils/grub.
-	
+	* devel/linux/: CONFIGURE, POST_INSTALL: Finally added the GRUB
+	choices back into the kernel installation!  You can now use GRUB as
+	your boot loader instead of LILO.  grub module is located in
+	utils/grub.
+
 2002-09-07 05:48  csm
 
 	* utils/lunar/DEPENDS: fixed
-	
+
 2002-09-07 04:21  tchan
 
-	* utils/grub/: BUILD, DEPENDS, DETAILS, menu.lst: Removed grub-beta and made it just plain "grub".  Corrected the download
-	location of the source code and fixed the menu.lst to use the new Lunar /dev
-	structure instead of /devices.  This is still alpha gnu software!
-	
+	* utils/grub/: BUILD, DEPENDS, DETAILS, menu.lst: Removed grub-beta
+	and made it just plain "grub".	Corrected the download location of
+	the source code and fixed the menu.lst to use the new Lunar /dev
+	structure instead of /devices.	This is still alpha gnu software!
+
 2002-09-07 02:03  tchan
 
-	* sql/postgresql/DETAILS: Bumped the version number up to 7.2.2, since 7.2.1 is no longer available from
-	the PostgreSQL web page.  Compiled 7.2.2 with gcc-3.2 and the latest gcc wrappers.
-	It cleanly compiles, but I have not tested it with any SQL code, as I don't use
-	PostgreSQL.
-	
+	* sql/postgresql/DETAILS: Bumped the version number up to 7.2.2,
+	since 7.2.1 is no longer available from the PostgreSQL web page. 
+	Compiled 7.2.2 with gcc-3.2 and the latest gcc wrappers.  It
+	cleanly compiles, but I have not tested it with any SQL code, as I
+	don't use PostgreSQL.
+
 2002-09-06 21:46  sofar
 
 	* net/tightvnc/DETAILS: Updated version: 1.2.6
-	
+
 2002-09-06 20:51  dem
 
 	* gnome2/xchat2/DETAILS: New version
-	
+
 2002-09-06 20:15  sofar
 
 	* mail/fetchmail/DETAILS: New version: 5.9.14
-	
+
 2002-09-06 14:17  tiomo
 
-	* x11/NVIDIA_GLX/BUILD: /usr/lib/libgcc_s.so is added to /etc/ld.so.preload if it's not already in it to make the NVidia glx module for X11 load.
-	
+	* x11/NVIDIA_GLX/BUILD: /usr/lib/libgcc_s.so is added to
+	/etc/ld.so.preload if it's not already in it to make the NVidia glx
+	module for X11 load.
+
 2002-09-06 14:14  sofar
 
 	* zbeta/mozilla-nightly/DETAILS: Typo fix
-	
+
 2002-09-06 13:43  nhudson
 
-	* gnome2/gnome-media2/DETAILS: Updated gnome-media2 to version 2.0.2.5, changed download location also
-	
+	* gnome2/gnome-media2/DETAILS: Updated gnome-media2 to version
+	2.0.2.5, changed download location also
+
 2002-09-06 13:24  kongar
 
-	* web/mozilla/BUILD: now removing sse2 and changing pentium4 to pentium3 in compiler options
-	
+	* web/mozilla/BUILD: now removing sse2 and changing pentium4 to
+	pentium3 in compiler options
+
 2002-09-06 13:20  csm
 
 	* filemanagers/mc/DETAILS: update
-	
+
 2002-09-06 10:31  kongar
 
 	* crypto/gnupg/DETAILS: added source MD5 and fuzzy=off
-	
+
 2002-09-06 06:33  tchan
 
-	* devel/cvs/POST_REMOVE: Fixed the path to correctly remove the info files.  /usr/share/info is
-	the correct location.
-	
+	* devel/cvs/POST_REMOVE: Fixed the path to correctly remove the
+	info files.  /usr/share/info is the correct location.
+
 2002-09-06 04:33  csm
 
 	* x11-wm/3ddesktop/: DEPENDS, DETAILS: version update to 2.2
-	
+
 2002-09-06 02:43  dem
 
 	* video/MPlayer/DETAILS: New mplayer
-	
+
 2002-09-06 00:27  csm
 
-	* gnome2/gkrellm2/: BUILD, DETAILS: the software would not download and then it would not build... Nick you have to start testing things!
-	
+	* gnome2/gkrellm2/: BUILD, DETAILS: the software would not download
+	and then it would not build... Nick you have to start testing
+	things!
+
 2002-09-05 23:19  tiomo
 
-	* cd/k3b/BUILD: fixed error with cdparanoia libs with a sedit workaround in the Makefiles
-	
+	* cd/k3b/BUILD: fixed error with cdparanoia libs with a sedit
+	workaround in the Makefiles
+
 2002-09-05 23:10  sofar
 
 	* ftp/proftpd/DETAILS: New version: 1.2.6
-	
+
 2002-09-05 23:03  sofar
 
 	* utils/modutils/DETAILS: New version: 2.4.20!
-	
+
 2002-09-05 22:23  sofar
 
 	* gnome/ORBit/BUILD: No longer needed!
-	
+
 2002-09-05 21:50  sofar
 
-	* compilers/gcc/: POST_INSTALL, lunar-g++, lunar-gcc: Off with the old wrappers.
-	
+	* compilers/gcc/: POST_INSTALL, lunar-g++, lunar-gcc: Off with the
+	old wrappers.
+
 2002-09-05 19:17  nhudson
 
-	* gnome2/metacity-setup/DETAILS: Updated Metacity-Setup to the latest version 0.7.1 also changed the webpage
-	and download location
-	
+	* gnome2/metacity-setup/DETAILS: Updated Metacity-Setup to the
+	latest version 0.7.1 also changed the webpage and download location
+
 2002-09-05 19:09  nhudson
 
-	* devel/anjuta/DEPENDS: Added Gnome-Print to the list of Depends, I tried to compile it today and
-	had to add that to make it compile.
-	
+	* devel/anjuta/DEPENDS: Added Gnome-Print to the list of Depends, I
+	tried to compile it today and had to add that to make it compile.
+
 2002-09-05 19:03  nhudson
 
 	* zbeta/gimp2/DETAILS: Updated to version 1.3.8
-	
+
 2002-09-05 18:57  nhudson
 
 	* gnome2/: ORBit2/DETAILS, gdm2/DETAILS, gedit2/DETAILS,
@@ -377,9 +442,9 @@
 	gnome-session/DETAILS, gnome-utils2/DETAILS, gnome-vfs2/DETAILS,
 	libbonoboui/DETAILS, libglade2/DETAILS, libgnome/DETAILS,
 	libgnomecanvas/DETAILS, libgnomeui/DETAILS, nautilus2/DETAILS,
-	yelp/DETAILS: Fully updated to gnome 2.0.1 all compiles and works fine, Gnome 2.0.2 should be out
-	in a few weeks now
-	
+	yelp/DETAILS: Fully updated to gnome 2.0.1 all compiles and works
+	fine, Gnome 2.0.2 should be out in a few weeks now
+
 2002-09-05 14:33  kongar
 
 	* libs/gpgme/DETAILS: 
@@ -388,7 +453,7 @@
 	new mirror added (sunsite)
 	
 	md5sum and fuzzy=off are added
-	
+
 2002-09-05 14:02  kongar
 
 	* graphics/gimp/BUILD: 
@@ -397,18 +462,19 @@
 	removed references to /usr/local/include
 	
 	now it is gcc3 ok; was failing to compile
-	
+
 2002-09-05 13:37  kongar
 
-	* printer/gimp-print/BUILD: removed the BUILD, now usinf default_build
-	
+	* printer/gimp-print/BUILD: removed the BUILD, now usinf
+	default_build
+
 2002-09-05 12:04  kongar
 
 	* net/samba/BUILD: 
 	
-	samba is NOT sse2 safe, so if that optimization is being used, it is
-	disabled.
-	
+	samba is NOT sse2 safe, so if that optimization is being used, it
+	is disabled.
+
 2002-09-05 11:15  kongar
 
 	* x11-apps/gnucash/: BUILD, DETAILS: 
@@ -416,214 +482,230 @@
 	upgraded to 1.6.8
 	
 	hacked to configure script to accept our version of g-wrap-config
-	
+
 2002-09-05 10:45  kongar
 
 	* net/netkit-telnet/: BUILD, DETAILS, netkit-telnet.patch.bz2: 
 	now working as 0.18-pre1a with patches.
-	
+
 2002-09-05 09:22  kongar
 
 	* net/ethereal/BUILD: 
-	removed references to /usr/local/include from configure, now the module
-	is OK; it was broken against gcc3
-	
+	removed references to /usr/local/include from configure, now the
+	module is OK; it was broken against gcc3
+
 2002-09-05 08:49  kongar
 
 	* chat/licq/: BUILD, DETAILS: 
 	
 	now working with gcc3, it was not possible to compile.
-	
+
 2002-09-05 08:13  kongar
 
 	* editors/biew/: BUILD, DETAILS, PRE_BUILD: 
 	upgraded to 532
 	
 	marked the module as broken, it is /dev over devfs incompatible
-	
+
 2002-09-05 08:02  kongar
 
 	* compilers/php/DETAILS: imap is upgraded to RC5
-	
+
 2002-09-05 07:53  kongar
 
 	* utils/at/DETAILS: 
 	hacked the DETAILS file to fix the SOURCE_DIRECTORY,
 	
 	the module was not working, now it seems ok
-	
+
 2002-09-05 04:35  csm
 
 	* utils/gpm/: BUILD, DETAILS, gpm-1.19.1-secenhance.patch,
 	gpm-1.19.2-limits.patch, gpm-1.19.3-devfs.patch,
 	gpm-1.19.3-docfix.patch, gpm-1.19.3-noworldwrite.patch,
 	gpm-1.19.3-root.patch, gpm-1.19.3-serialconsole.patch,
-	gpm-nops.patch, gpm-root.patch: working on getting gpm straightened out... this works okay but there is still a bug at startup from the initscript
-	
+	gpm-nops.patch, gpm-root.patch: working on getting gpm straightened
+	out... this works okay but there is still a bug at startup from the
+	initscript
+
 2002-09-05 04:30  csm
 
-	* mail/spamassassin/: BUILD, DEPENDS, DETAILS: updating to the newer version
-	
+	* mail/spamassassin/: BUILD, DEPENDS, DETAILS: updating to the
+	newer version
+
 2002-09-04 23:36  sofar
 
 	* zbeta/: lyx/BUILD, lyx/DEPENDS, lyx/DETAILS, xforms/BUILD,
 	xforms/DEPENDS, xforms/DETAILS, xforms/flags.patch,
 	xforms/libs.patch: New module: lyx !!!!
-	
+
 2002-09-04 22:44  tiomo
 
-	* x11/NVIDIA_kernel/BUILD: changed method how to get the kernel version to compile the driver for.
-	now checking include/version.h under the kernel sources.
-	
+	* x11/NVIDIA_kernel/BUILD: changed method how to get the kernel
+	version to compile the driver for.  now checking include/version.h
+	under the kernel sources.
+
 2002-09-04 21:41  tiomo
 
-	* kde3/kdeartwork3/: BUILD, glx.h: this update is a workaround to make kdeartwork3 compile if NVIDIA_GLX is installed
-	
+	* kde3/kdeartwork3/: BUILD, glx.h: this update is a workaround to
+	make kdeartwork3 compile if NVIDIA_GLX is installed
+
 2002-09-04 09:10  sofar
 
-	* doc-tools/man/: BUILD, DETAILS: This makes sure everyone gets the new pager command.
-	
+	* doc-tools/man/: BUILD, DETAILS: This makes sure everyone gets the
+	new pager command.
+
 2002-09-04 08:15  kongar
 
 	* terminal/screen/DETAILS: 
 	upgraded to 3.9.12
 	
 	added md5sum and fuzzy=off
-	
+
 2002-09-04 07:37  kongar
 
 	* x11-wm/fluxbox/DETAILS: upgraded to 0.1.11
-	
+
 2002-09-04 07:15  kongar
 
 	* x11/xfree86/DETAILS: 
 	added a notice to keep version at 4.2.0
-	
+
 2002-09-04 05:34  csm
 
-	* libs/gettext/BUILD, net/net-tools/BUILD: still reverting changes related to gettext
-	
+	* libs/gettext/BUILD, net/net-tools/BUILD: still reverting changes
+	related to gettext
+
 2002-09-04 05:16  csm
 
 	* utils/gpm/init.d/gpm: updating the init script
-	
+
 2002-09-04 05:14  csm
 
 	* libs/gettext/: BUILD, DETAILS: reverting the change
-	
+
 2002-09-04 04:48  csm
 
 	* utils/sh-utils/DEPENDS: adding gettext as a depends
-	
+
 2002-09-04 04:28  csm
 
-	* utils/sh-utils/: BUILD, DETAILS: adding some more stuff we missed when we fixed this before!
-	
+	* utils/sh-utils/: BUILD, DETAILS: adding some more stuff we missed
+	when we fixed this before!
+
 2002-09-04 00:14  tiomo
 
-	* audio/alsa-driver/BUILD: only run "./snddevices" when devfsd module is not installed
-	
+	* audio/alsa-driver/BUILD: only run "./snddevices" when devfsd
+	module is not installed
+
 2002-09-03 23:52  csm
 
-	* audio/alsa-driver/BUILD: this is not completely fixed! committing so tiomo can take over!
-	
+	* audio/alsa-driver/BUILD: this is not completely fixed! committing
+	so tiomo can take over!
+
 2002-09-03 23:15  sofar
 
 	* utils/at/DETAILS: New version and dl location fix
-	
+
 2002-09-03 22:57  sofar
 
 	* security/iptables/DETAILS: New version: 1.2.7a (tested)
-	
+
 2002-09-03 22:55  sofar
 
 	* web/linuxconf/DETAILS: New version
-	
+
 2002-09-03 22:30  sofar
 
 	* x11-wm/icewm/BUILD: properly enabled -lintl again
-	
+
 2002-09-03 22:14  sofar
 
 	* net/net-tools/BUILD: Fix: add -lintl to link flags
-	
+
 2002-09-03 22:11  tiomo
 
-	* audio/mp3blaster/DETAILS: Updated to version 3.1.2, few bugfixes (support for gcc-3.x compilers now)
-	
+	* audio/mp3blaster/DETAILS: Updated to version 3.1.2, few bugfixes
+	(support for gcc-3.x compilers now)
+
 2002-09-03 21:18  sofar
 
 	* net/ethereal/DETAILS: New version: 0.9.6
-	
+
 2002-09-03 20:18  sofar
 
 	* x11-wm/icewm/DETAILS: New version: 1.2.1
-	
+
 2002-09-03 20:18  sofar
 
 	* x11-wm/icewm/BUILD: Horribly disable broken nls feature of icewm
-	
+
 2002-09-03 18:43  sofar
 
-	* libs/gettext/DETAILS: New version: extensively tested & compiled against
-	
+	* libs/gettext/DETAILS: New version: extensively tested & compiled
+	against
+
 2002-09-03 16:45  sofar
 
-	* gnome/gnome-core/DETAILS: New version: 1.4.1 (extensively tested compiles)
-	
+	* gnome/gnome-core/DETAILS: New version: 1.4.1 (extensively tested
+	compiles)
+
 2002-09-03 15:29  csm
 
 	* x11/truetype/DETAILS: updating this so it will build again!
-	
+
 2002-09-03 14:26  sofar
 
 	* doc-tools/groff/: BUILD, no-doc.patch: Build fixes
-	
+
 2002-09-03 14:04  sofar
 
 	* doc-tools/groff/DETAILS: New version: 1.18
-	
+
 2002-09-03 13:31  dem
 
-	* gnome/libgda/: BUILD, libgda-0.2.96-gentoo.patch: Lunar format, compiles with gcc 3.x
-	
+	* gnome/libgda/: BUILD, libgda-0.2.96-gentoo.patch: Lunar format,
+	compiles with gcc 3.x
+
 2002-09-03 12:42  sofar
 
 	* games/openuniverse/: BUILD, DEPENDS, DETAILS: relocating
-	
+
 2002-09-03 10:30  kongar
 
-	* shells/busybox-amica/busybox.patch.bz2: removed wget functionality, not working for ftp urls
-	
+	* shells/busybox-amica/busybox.patch.bz2: removed wget
+	functionality, not working for ftp urls
+
 2002-09-03 09:27  sofar
 
 	* kde/kdevelop/DETAILS: Fixed dl location and upped version
-	
+
 2002-09-03 09:20  sofar
 
 	* kde/koffice/DETAILS: Fixing dl location of this ancient stuff
-	
+
 2002-09-03 09:07  sofar
 
-	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS: New versions: 0.9.0rc3
-	
+	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS: New versions:
+	0.9.0rc3
+
 2002-09-03 08:00  kongar
 
 	* distributed/distcc/DETAILS: upgraded to 0.9
-	
+
 2002-09-03 06:55  kongar
 
 	* shells/busybox-amica/BUILD: 
 	malign-* optimizations converted to falign-* in Makefile
-	
+
 2002-09-03 01:27  csm
 
 	* audio/alsa-driver/POST_INSTALL: a fix for alsa
-	
+
 2002-09-03 00:57  sofar
 
 	* x11/truetype/DETAILS: mtcom32.exe is no longer available
-	
+
 2002-09-03 00:45  sofar
 
 	* devel/SDLmm/DETAILS, devel/anjuta/DETAILS,
@@ -631,139 +713,151 @@
 	games/crossfire-client/DETAILS, utils/e2fsprogs/DETAILS,
 	utils/lircrc_config/DETAILS, web/screem/DETAILS,
 	x11/xplanet/DETAILS, x11-apps/kaptain/DETAILS,
-	x11-wm/ROX-Session/DETAILS, x11-wm/xfce4/DETAILS: Putting proper SFORGE_URL's in these
-	
+	x11-wm/ROX-Session/DETAILS, x11-wm/xfce4/DETAILS: Putting proper
+	SFORGE_URL's in these
+
 2002-09-03 00:36  sofar
 
 	* zbeta/neomail/DETAILS: Fixed dl location
-	
+
 2002-09-02 23:53  sofar
 
 	* sql/sqlite/DETAILS: New version: 2.7.1
-	
+
 2002-09-02 23:52  sofar
 
 	* mail/razor-agents/DETAILS: Fixed dl and upped version to 2.14
-	
+
 2002-09-02 23:33  tiomo
 
 	* chat/: licq3/BUILD, licq3/CONFIGURE,
 	licq3/licq-1.2.0-vectorcheck.patch, licq/BUILD, licq/CONFIGURE,
-	licq/licq-1.2.0-vectorcheck.patch: Added patch to workaround wrong configure error, added possibility to select the plugins to be compiled
-	
+	licq/licq-1.2.0-vectorcheck.patch: Added patch to workaround wrong
+	configure error, added possibility to select the plugins to be
+	compiled
+
 2002-09-02 23:33  sofar
 
 	* ham/qsstv/DETAILS: Fixed dl and upped version
-	
+
 2002-09-02 23:30  sofar
 
-	* games/xpilot/DETAILS: Fixed dl locations and upped version to 4.5.4
-	
+	* games/xpilot/DETAILS: Fixed dl locations and upped version to
+	4.5.4
+
 2002-09-02 23:27  sofar
 
 	* cd/k3b/DETAILS: Fixed dl location
-	
+
 2002-09-02 22:55  sofar
 
 	* games/vectoroids/DETAILS: New version: 1.1.0
-	
+
 2002-09-02 22:43  sofar
 
 	* games/asc/DETAILS: Fixed dl location
-	
+
 2002-09-02 22:31  sofar
 
 	* ftp/prozilla/DETAILS: Fixed dl location
-	
+
 2002-09-02 22:28  sofar
 
 	* devel/ruby-gtk/DETAILS: New version: 0.30
-	
+
 2002-09-02 22:27  sofar
 
 	* devel/glademm/DETAILS: New version: 1.1.1b
-	
+
 2002-09-02 22:25  sofar
 
 	* chat/naim/DETAILS: Fixed dl location and upped version to 0.11.3
-	
+
 2002-09-02 21:59  sofar
 
 	* games/glaxium/DETAILS: New version: 0.4b
-	
+
 2002-09-02 21:57  sofar
 
 	* audio/simplecdrx/DETAILS: New version: 1.1.1 (was 1.0)
-	
+
 2002-09-02 21:54  sofar
 
 	* audio/Blursk/DETAILS: New version: 1.3 (was 1.2)
-	
+
 2002-09-02 21:53  sofar
 
 	* audio/burnmp3/DETAILS: touched dates
-	
+
 2002-09-02 21:52  sofar
 
 	* audio/burnmp3/DETAILS: Fixed dl location
-	
+
 2002-09-02 21:36  sofar
 
 	* net/samba/DETAILS: Fixed mirrors
-	
+
 2002-09-02 21:06  kongar
 
 	* shells/busybox-amica/BUILD: 
 	install location is changed
-	
+
 2002-09-02 19:52  csm
 
 	* x11-utils/gkrellmms/DEPENDS: fixing a b0rked depends
-	
+
 2002-09-02 19:44  rodzilla
 
-	* profiles/gnome/: CONFIGURE, DEPENDS, DETAILS: Modified gnome profile module to announce that the gnome 1.4 environment is no longer available and gives the option to install the gnome 2.x environment via gnome2-profile
-	
+	* profiles/gnome/: CONFIGURE, DEPENDS, DETAILS: Modified gnome
+	profile module to announce that the gnome 1.4 environment is no
+	longer available and gives the option to install the gnome 2.x
+	environment via gnome2-profile
+
 2002-09-02 19:29  csm
 
-	* games/bzflag/: BUILD, bzflag-fix-for-gcc3.1.patch.bz2: fixing bzflag for gcc 3.2
-	
+	* games/bzflag/: BUILD, bzflag-fix-for-gcc3.1.patch.bz2: fixing
+	bzflag for gcc 3.2
+
 2002-09-02 15:04  rodzilla
 
-	* gnome2/libgtkhtml/DETAILS: upgraded libgtkhtml from 2.0.1 to 2.0.2; also changed download path
-	
+	* gnome2/libgtkhtml/DETAILS: upgraded libgtkhtml from 2.0.1 to
+	2.0.2; also changed download path
+
 2002-09-02 14:19  sofar
 
-	* kde/kdebase/profile.d/kde2.rc: Adding kde2.rc. Don't be alarmed by the KDEDIR=xxx, it will be overwritten by kde3.rc!
-	
+	* kde/kdebase/profile.d/kde2.rc: Adding kde2.rc. Don't be alarmed
+	by the KDEDIR=xxx, it will be overwritten by kde3.rc!
+
 2002-09-02 14:17  sofar
 
 	* kde/kdelibs/BUILD: kde2.rc handles this
-	
+
 2002-09-02 14:15  sofar
 
 	* kde3/arts/BUILD: kde3.rc handles this.
-	
+
 2002-09-02 14:13  sofar
 
 	* kde3/qt3/BUILD: qt3.rc handles this.
-	
+
 2002-09-02 13:26  kongar
 
 	* cd/cdrtools/DETAILS: upgraded to 1.11a32
-	
+
 2002-09-02 05:19  csm
 
 	* x11-wm/xfce4/DEPENDS: I have discovered a msised dependency
-	
+
 2002-09-01 23:39  tiomo
 
-	* cd/k3b/: BUILD, DETAILS: Enabled Xinerama support by adding "--with-xinerama" to the configure command in BUILD
-	
+	* cd/k3b/: BUILD, DETAILS: Enabled Xinerama support by adding
+	"--with-xinerama" to the configure command in BUILD
+
 2002-09-01 23:38  tiomo
 
-	* cd/arson3/: BUILD, DETAILS: Enabled Xinerama support in BUILD by adding "--with-xinerama" to the configure command
-	
+	* cd/arson3/: BUILD, DETAILS: Enabled Xinerama support in BUILD by
+	adding "--with-xinerama" to the configure command
+
 2002-09-01 22:36  tiomo
 
 	* kde3/: arts/BUILD, arts/DETAILS, kdeaddons3/BUILD,
@@ -777,55 +871,59 @@
 	kdepim3/DETAILS, kdesdk3/BUILD, kdesdk3/DETAILS, kdetoys3/BUILD,
 	kdetoys3/DETAILS, kdeutils3/BUILD, kdeutils3/DETAILS,
 	kdevelop3/BUILD, kdevelop3/DETAILS, koffice3/BUILD,
-	koffice3/DETAILS, mosfet-liquid/BUILD, mosfet-liquid/DETAILS: Added "--with-xinerama" configure switch to BUILD i.o. to enable support for Xinerama at compile time.
-	
+	koffice3/DETAILS, mosfet-liquid/BUILD, mosfet-liquid/DETAILS: Added
+	"--with-xinerama" configure switch to BUILD i.o. to enable support
+	for Xinerama at compile time.
+
 2002-09-01 22:14  kongar
 
 	* crypto/cyrus-sasl/DETAILS: updated the download location
-	
+
 2002-09-01 22:10  tiomo
 
 	* kde3-utils/: kdevmon3/BUILD, kdevmon3/DETAILS, kdirstat3/BUILD,
 	kdirstat3/DETAILS, kio_fish/BUILD, kio_fish/DETAILS, kkeyled/BUILD,
 	kkeyled/DETAILS, kopete/BUILD, kopete/DETAILS, ksim/BUILD,
-	ksim/DETAILS, ksplashml/BUILD, ksplashml/DETAILS: Enabled Xinerama support in BUILD for:
-	kdevmon3, kdirstat3, kio_fish, kkeyled, kopete, ksim and ksplashml
-	
+	ksim/DETAILS, ksplashml/BUILD, ksplashml/DETAILS: Enabled Xinerama
+	support in BUILD for: kdevmon3, kdirstat3, kio_fish, kkeyled,
+	kopete, ksim and ksplashml
+
 2002-09-01 21:34  rodzilla
 
-	* doc-tools/sp/: BUILD, DEPENDS, DETAILS, POST_BUILD, PRE_BUILD: Fixed sp module so that it would not install, but rather defer to openjade, which includes opensp.  sp module does not compile correctly under gcc 3.2.
-	
+	* doc-tools/sp/: BUILD, DEPENDS, DETAILS, POST_BUILD, PRE_BUILD:
+	Fixed sp module so that it would not install, but rather defer to
+	openjade, which includes opensp.  sp module does not compile
+	correctly under gcc 3.2.
+
 2002-09-01 20:11  kongar
 
 	* filemanagers/gentoo/DETAILS: upgraded to 0.11.33, tested
-	
+
 2002-08-31 23:49  kongar
 
 	* shells/busybox-amica/: BUILD, DEPENDS, DETAILS,
 	busybox.patch.bz2: 
 	this is busybox which will be used by amica core module
-	
+
 2002-08-31 23:10  kongar
 
 	* docs/man-pages/DETAILS: upgraded to 1.53
-	
+
 2002-08-31 23:05  kongar
 
 	* compilers/bin86/DETAILS: upgraded to 0.16.9, tested
-	
+
 2002-08-31 23:03  kongar
 
 	* utils/e2fsprogs/DETAILS: upgraded to 1.28
-	
+
 2002-08-31 22:13  kongar
 
-	* libs/uClibc/: Config.bz2, DETAILS: version is now set to 0.9.15, no more snapshots
-	
+	* libs/uClibc/: Config.bz2, DETAILS: version is now set to 0.9.15,
+	no more snapshots
+
 2002-08-31 22:09  kongar
 
-	* shells/: busybox/BUILD, busybox_static/BUILD: enabled large file support
-	
-2002-08-31 21:06  kongar
+	* shells/: busybox/BUILD, busybox_static/BUILD: enabled large file
+	support
 
-	* graphics/iv/DETAILS: updated to 0.1.10
-	
