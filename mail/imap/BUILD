@@ -1,9 +1,9 @@
 ( 
   if module_installed Linux-PAM ; then
-    make lnp SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib" SSLTYPE=unix
+    echo "y" | make lnp SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib" SSLTYPE=unix
 
   else
-    make slx SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib" SSLTYPE=unix
+    echo "y" | make slx SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib" SSLTYPE=unix
   fi &&
   
   prepare_install                                         &&
