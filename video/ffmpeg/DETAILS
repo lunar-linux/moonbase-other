@@ -1,22 +1,22 @@
           MODULE=ffmpeg
          VERSION=0.4.8
-        #VERSION=0.4.7
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=$SFORGE_URL/ffmpeg/
-      SOURCE_VFY=md5:e00d47614ba1afd99ad2ea387e782dd9
+         SOURCE2=$MODULE-$VERSION-gcc34.patch.bz2
+   SOURCE_URL=$SFORGE_URL/$MODULE/
+  SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:629a0f8f4daa3da1dedd8ba58bfdec4c47581bb4
+     SOURCE2_VFY=sha1:10db8844bb9f4fa6a3a0f32699c7473f6a3cf0a2
         WEB_SITE=http://ffmpeg.sourceforge.net/
          ENTERED=20020327
          UPDATED=20031112
            SHORT="ffmpeg is an avi decoder"
-cat << EOF
-FFmpeg (ffmpeg) is the first complete and free Internet Live 
-Audio and Video Broadcasting solution. FFMpeg aims at being 
-the command line tool to handle audio and video. It is a 
-"three-in-one" solution. FFmpeg includes a soft VCR capable 
-of encoding in many different formats simultaneously, a 
-streaming server for Netcasting multimedia and is available 
-under the GNU General Public License.
 
+cat << EOF
+FFmpeg is the first complete and free Internet Live Audio and Video 
+Broadcasting solution. FFMpeg aims at being the command line tool to 
+handle audio and video. It is a "three-in-one" solution. FFmpeg 
+includes a soft VCR capable of encoding in many different formats 
+simultaneously, a streaming server for Netcasting multimedia.
 FFmpeg generates streaming files, in many popular formats 
 simultaneously, faster than any other solution.
 EOF
