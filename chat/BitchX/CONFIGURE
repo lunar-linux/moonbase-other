@@ -1,0 +1,46 @@
+#FOO=""
+#if ! grep -q "$FOO" $MODULE_CONFIG; then
+#  if query "" y; then
+#     echo "$FOO=y" >> $MODULE_CONFIG
+#  else
+#     echo "$FOO=n" >> $MODULE_CONFIG
+#  fi
+#fi
+
+FOO="IPV6"
+if ! grep -q "$FOO" $MODULE_CONFIG; then
+  if query "Enable IPv6 support?" y; then
+     echo "$FOO=y" >> $MODULE_CONFIG
+  else
+     echo "$FOO=n" >> $MODULE_CONFIG
+  fi
+fi
+
+FOO="CDROM"
+if ! grep -q "$FOO" $MODULE_CONFIG; then
+  if query "Enable cdrom support?" n; then
+     echo "$FOO=y" >> $MODULE_CONFIG
+  else
+     echo "$FOO=n" >> $MODULE_CONFIG
+  fi
+fi
+
+FOO="PLUGINS"
+if ! grep -q "$FOO" $MODULE_CONFIG; then
+  if query "Enable plugins?" n; then
+     echo "$FOO=y" >> $MODULE_CONFIG
+  else
+     echo "$FOO=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if module_installed openssl ; then   # Ya just never know...
+  FOO="SSL"
+  if ! grep -q "$FOO" $MODULE_CONFIG; then
+    if query "Enable SSL Support?" y; then
+       echo "$FOO=y" >> $MODULE_CONFIG
+    else
+       echo "$FOO=n" >> $MODULE_CONFIG
+    fi
+  fi
+fi
