@@ -1,125 +1,326 @@
+2002-10-03 07:19  kongar
+
+	* security/Linux-PAM/: BUILD, DETAILS, pam.d/rexec, pam.d/rlogin,
+	pam.d/rsh: 
+	ldconfig is being called from the right location
+	
+	r* pam control files are amended to disable rhosts based authentication
+	
+	touched to the DETAILS file for a compulsory rebuild
+	
+2002-10-03 06:22  tchan
+
+	* gnome2-apps/: metacity-setup/BUILD, metacity-setup/DEPENDS,
+	metacity-setup/DETAILS, metacity-setup/metacity-setup-lunar.patch,
+	metatheme/BUILD, metatheme/DEPENDS, metatheme/DETAILS: Moved these two modules from crater into moonbase for Dem.
+	
+2002-10-03 01:00  dem
+
+	* gnome2-extras/gal2/: DEPENDS, DETAILS: Moved from gnome2
+	
+2002-10-02 18:08  kongar
+
+	* net/netkit-base/: BUILD, DETAILS: 
+	/etc/ftpusers is being installed with this package. This file
+	is now re-checked and added more users into it.
+	
+	Slight security feature.
+	
+2002-10-02 14:30  kongar
+
+	* libs/libfwbuilder/DETAILS, security/fwbuilder/DETAILS: 
+	fwbuilder is upgraded to 1.0.6
+	
+	libfwbuilder is upgraded to 0.10.10
+	
+	TESTED!
+	
+2002-10-01 19:43  tiomo
+
+	* utils/procps/DETAILS: updated to version 2.0.9
+	
+2002-10-01 17:13  dem
+
+	* gnome2-core/libgda2/DETAILS: Fixed url
+	
+2002-10-01 16:41  dem
+
+	* x11-utils/gkrellm2/: BUILD, CONFLICTS, DEPENDS, DETAILS: Moved from old gnome2
+	
+2002-10-01 16:35  dem
+
+	* chat/xchat2/: BUILD, CONFLICTS, DEPENDS, DETAILS: Xchat2 moved from old gnome2
+	
+2002-10-01 16:21  sofar
+
+	* utils/less/DETAILS: New version: 378
+	
+2002-10-01 16:17  tiomo
+
+	* x11-utils/xosd/: BUILD, DEPENDS, DETAILS: updated to version 1.0.4, minor changes
+	
+2002-10-01 16:15  tiomo
+
+	* audio/xmms-arts/: BUILD, DEPENDS: changed to use kdelibs3
+	
+2002-10-01 11:18  kongar
+
+	* mail/sylpheed/DETAILS: upgraded to 0.8.4
+	
+2002-10-01 10:30  sofar
+
+	* utils/findutils/profile.d/findutils.rc: Bugfix: LOCATE_PATH was not exported
+	
+2002-10-01 07:51  tchan
+
+	* gnome2/glade2/: BUILD, DEPENDS, DETAILS, glade2-glademm.patch: More cleanup.
+	
+2002-10-01 06:53  tchan
+
+	* gnome2-core/: GConf2/BUILD, GConf2/DEPENDS, GConf2/DETAILS,
+	ORBit2/BUILD, ORBit2/DEPENDS, ORBit2/DETAILS, at-spi/BUILD,
+	at-spi/DEPENDS, at-spi/DETAILS, bonobo-activation/BUILD,
+	bonobo-activation/DEPENDS, bonobo-activation/DETAILS,
+	bug-buddy2/BUILD, bug-buddy2/DEPENDS, bug-buddy2/DETAILS,
+	control-center2/BUILD, control-center2/DEPENDS,
+	control-center2/DETAILS, eel2/BUILD, eel2/DEPENDS, eel2/DETAILS,
+	eog2/BUILD, eog2/DEPENDS, eog2/DETAILS, gail/BUILD, gail/DEPENDS,
+	gail/DETAILS, gconf-editor/BUILD, gconf-editor/DEPENDS,
+	gconf-editor/DETAILS, gdm2/BUILD, gdm2/CONFLICTS, gdm2/DEPENDS,
+	gdm2/DETAILS, gdm2/gdm.conf, gdm2/gnomerc, gdm2/Sessions/Gnome2,
+	gdm2/init.d/gdm2, gdm2/pam.d/gdm, gedit2/BUILD, gedit2/DEPENDS,
+	gedit2/DETAILS, gnome-applets2/BUILD, gnome-applets2/CONFLICTS,
+	gnome-applets2/DEPENDS, gnome-applets2/DETAILS, gnome-audio2/BUILD,
+	gnome-audio2/CONFLICTS, gnome-audio2/DEPENDS, gnome-audio2/DETAILS,
+	gnome-common2/BUILD, gnome-common2/DEPENDS, gnome-common2/DETAILS,
+	gnome-desktop/BUILD, gnome-desktop/DEPENDS, gnome-desktop/DETAILS,
+	gnome-games2/BUILD, gnome-games2/CONFLICTS, gnome-games2/DEPENDS,
+	gnome-games2/DETAILS, gnome-media2/BUILD, gnome-media2/CONFLICTS,
+	gnome-media2/DEPENDS, gnome-media2/DETAILS, gnome-mime-data2/BUILD,
+	gnome-mime-data2/DEPENDS, gnome-mime-data2/DETAILS,
+	gnome-panel/BUILD, gnome-panel/DEPENDS, gnome-panel/DETAILS,
+	gnome-session/BUILD, gnome-session/DEPENDS, gnome-session/DETAILS,
+	gnome-system-monitor/BUILD, gnome-system-monitor/DEPENDS,
+	gnome-system-monitor/DETAILS, gnome-terminal/BUILD,
+	gnome-terminal/DEPENDS, gnome-terminal/DETAILS, gnome-utils2/BUILD,
+	gnome-utils2/DEPENDS, gnome-utils2/DETAILS, gnome-vfs2/BUILD,
+	gnome-vfs2/DEPENDS, gnome-vfs2/DETAILS, gnome2-user-docs/BUILD,
+	gnome2-user-docs/DEPENDS, gnome2-user-docs/DETAILS, gtk-doc/BUILD,
+	gtk-doc/DEPENDS, gtk-doc/DETAILS, gtk-engines2/BUILD,
+	gtk-engines2/DEPENDS, gtk-engines2/DETAILS, libIDL/BUILD,
+	libIDL/DEPENDS, libIDL/DETAILS, libIDL/POST_INSTALL,
+	libbonobo/BUILD, libbonobo/DEPENDS, libbonobo/DETAILS,
+	libbonoboui/BUILD, libbonoboui/DEPENDS, libbonoboui/DETAILS,
+	libgail-gnome/BUILD, libgail-gnome/DEPENDS, libgail-gnome/DETAILS,
+	libgda2/BUILD, libgda2/DEPENDS, libgda2/DETAILS, libglade2/BUILD,
+	libglade2/DEPENDS, libglade2/DETAILS, libglade2/PRE_BUILD,
+	libgnome/BUILD, libgnome/DEPENDS, libgnome/DETAILS,
+	libgnomecanvas/BUILD, libgnomecanvas/DEPENDS,
+	libgnomecanvas/DETAILS, libgnomeprint/BUILD, libgnomeprint/DEPENDS,
+	libgnomeprint/DETAILS, libgnomeprintui/BUILD,
+	libgnomeprintui/DEPENDS, libgnomeprintui/DETAILS, libgnomeui/BUILD,
+	libgnomeui/DEPENDS, libgnomeui/DETAILS, libgtkhtml/BUILD,
+	libgtkhtml/DEPENDS, libgtkhtml/DETAILS, libgtop2/BUILD,
+	libgtop2/DEPENDS, libgtop2/DETAILS, libole2-2/BUILD,
+	libole2-2/DEPENDS, libole2-2/DETAILS, librep2/BUILD,
+	librep2/CONFLICTS, librep2/DEPENDS, librep2/DETAILS,
+	librsvg2/BUILD, librsvg2/DEPENDS, librsvg2/DETAILS, libwnck/BUILD,
+	libwnck/DEPENDS, libwnck/DETAILS, libzvt/BUILD, libzvt/DEPENDS,
+	libzvt/DETAILS, linc/BUILD, linc/DEPENDS, linc/DETAILS,
+	nautilus2/BUILD, nautilus2/CONFLICTS, nautilus2/DEPENDS,
+	nautilus2/DETAILS, rep-gtk2/BUILD, rep-gtk2/CONFLICTS,
+	rep-gtk2/DEPENDS, rep-gtk2/DETAILS, yelp/BUILD, yelp/DEPENDS,
+	yelp/DETAILS: Adding crater/gnome2-core to moonbase.
+	
+2002-10-01 06:30  tchan
+
+	* gnome2-extras/xscreensaver2/: BUILD, CONFLICTS, DEPENDS, DETAILS: Added crater/gnome2-extras/xscreensaver2 to moonbase
+	
+2002-10-01 06:28  tchan
+
+	* gnome2-extras/: glade2/BUILD, glade2/DEPENDS, glade2/DETAILS,
+	glade2/glade2-glademm.patch, libgnomedb/BUILD, libgnomedb/DEPENDS,
+	libgnomedb/DETAILS, libole2-2/BUILD, libole2-2/DEPENDS,
+	libole2-2/DETAILS, mergeant/BUILD, mergeant/DEPENDS,
+	mergeant/DETAILS, metacity/BUILD, metacity/DEPENDS,
+	metacity/DETAILS, nautilus-gtkhtml/BUILD, nautilus-gtkhtml/DEPENDS,
+	nautilus-gtkhtml/DETAILS, xscreensaver2/pam.d/xscreensaver: Adding crater/gnome2-extras to moonbase.
+	
+2002-10-01 06:09  tchan
+
+	* gnome2-applets/: led_applet/BUILD, led_applet/DEPENDS,
+	led_applet/DETAILS, multires/BUILD, multires/DEPENDS,
+	multires/DETAILS, netmon_applet/BUILD, netmon_applet/DEPENDS,
+	netmon_applet/DETAILS, netspeed_applet/BUILD,
+	netspeed_applet/DEPENDS, netspeed_applet/DETAILS,
+	shermans_aquarium/BUILD, shermans_aquarium/DEPENDS,
+	shermans_aquarium/DETAILS, teatime/BUILD, teatime/DEPENDS,
+	teatime/DETAILS: Added crater/gnome2-applets to moonbase.
+	
+2002-10-01 06:01  tchan
+
+	* profiles/gnome2/: BUILD, DEPENDS, DETAILS, POST_BUILD, PRE_BUILD: This is the new gnome2 profile
+	
+2002-10-01 05:58  tchan
+
+	* x11-wm/: AfterStep/AfterStep, AfterStep/POST_INSTALL,
+	ROX-Session/POST_INSTALL, ROX-Session/ROX-Session,
+	WindowMaker/POST_INSTALL, WindowMaker/WindowMaker,
+	aewm/POST_INSTALL, aewm/aewm, blackbox/Blackbox,
+	blackbox/POST_INSTALL, enlightenment/Enlightenment,
+	enlightenment/POST_INSTALL, evilwm/Evilwm, evilwm/POST_INSTALL,
+	fluxbox/Fluxbox, fluxbox/POST_INSTALL, fvwm/FVWM,
+	fvwm/POST_INSTALL, golem/Golem, golem/POST_INSTALL,
+	hackedbox/Hackedbox, hackedbox/POST_INSTALL, icewm/IceWM,
+	icewm/POST_INSTALL, ion/Ion, ion/POST_INSTALL,
+	ratpoison/POST_INSTALL, ratpoison/Ratpoison, waimea/POST_INSTALL,
+	waimea/Waimea, xfce/POST_INSTALL, xfce/XFce,
+	xfce-stable/POST_INSTALL, xfce-stable/XFce, xfce4/POST_INSTALL,
+	xfce4/XFce4, xfwm4/POST_INSTALL, xfwm4/XFwm4: Getting ready for gdm2
+	
+2002-10-01 05:32  tchan
+
+	* app-themes/gtk-xfce-engine/DETAILS: Synced with version in x11-wm, and then removed from x11-wm
+	
+2002-10-01 05:27  tchan
+
+	* app-themes/: gtk-thincream-engine/DEPENDS,
+	gtk-thincream-engine/DETAILS, gtk-thinice-theme2/DEPENDS,
+	gtk-thinice-theme2/DETAILS, gtk-xfce-engine/DEPENDS,
+	gtk-xfce-engine/DETAILS: Moving crater gnome2 into moonbase.
+	
+2002-10-01 05:13  tchan
+
+	* x11-wm/sawfish/: BUILD, DEPENDS, DETAILS, POST_INSTALL, Sawfish: Bumped upto version 2.0.  This is to get ready for gnome2.
+	
+2002-09-30 23:31  csm
+
+	* utils/pilot-link/DETAILS: bumping the date
+	
+2002-09-30 23:31  csm
+
+	* utils/pilot-link/DETAILS: updating the version
+	
+2002-09-30 23:30  sofar
+
+	* net/vnc/: BUILD, DETAILS: Updated version to 3.3.4!
+	
 2002-09-30 14:53  kongar
 
 	* crypto/john-dev/DETAILS: upgraded to 1.6.32
-
+	
 2002-09-30 11:55  kongar
 
 	* x11-wm/hackedbox/DETAILS: upgraded to 0.7.3
-
+	
 2002-09-30 11:48  kongar
 
 	* x11-wm/icewm/DETAILS: downgraded to 1.2.0, latest stable
-
+	
 2002-09-30 11:46  kongar
 
 	* net/ethereal/DETAILS: upgraded to 0.9.7
-
+	
 2002-09-30 11:46  kongar
 
 	* crypto/gnupg/DETAILS: upgraded to 1.2.0
-
+	
 2002-09-30 11:45  kongar
 
 	* libs/gpgme/DETAILS: upgraded to 0.3.10
-
+	
 2002-09-30 11:22  kongar
 
 	* cd/cdrtools/DETAILS: upgraded to 1.11a35
-
+	
 2002-09-30 04:30  dem
 
 	* web/mozilla/POST_INSTALL: thx to jmhodges for alerting me
-
+	
 2002-09-29 23:28  tchan
 
 	* graphics/gtk+/DEPENDS, terminal/rxvt/DEPENDS,
-	video/transcode/BUILD, video/transcode/DEPENDS: Removed extraneous
-	depends to xfree86.  xfree86 is an implicit dependency.
-
+	video/transcode/BUILD, video/transcode/DEPENDS: Removed extraneous depends to xfree86.  xfree86 is an implicit dependency.
+	
 2002-09-29 22:49  tchan
 
-	* utils/procps/: BUILD, DETAILS: Bumped version number upto 2.0.8. 
-	Added an sedit to BUILD to remove an extraneous desktop symlink
-	that Lunar does not support.  Compiles and installs under gcc-3.2.
-
+	* utils/procps/: BUILD, DETAILS: Bumped version number upto 2.0.8.  Added an sedit to BUILD to remove an
+	extraneous desktop symlink that Lunar does not support.  Compiles and installs
+	under gcc-3.2.
+	
 2002-09-29 19:18  jasper
 
 	* x11-wm/xfce4/DETAILS: update to latest pre-release (020929)
-
+	
 2002-09-29 19:05  sofar
 
 	* x11/xfree86/init.d/xfs: Adding X Font Server init.d script
-
+	
 2002-09-29 17:52  csm
 
 	* doc-tools/scrollkeeper/DETAILS: fixing broken download URL
-
+	
 2002-09-29 17:11  csm
 
 	* libs/libxml/DETAILS: fixing broken download URL
-
+	
 2002-09-29 03:46  csm
 
 	* gnome/imlib/DEPENDS: missed depends
-
+	
 2002-09-29 01:41  dem
 
 	* web/mozilla/POST_INSTALL: Bone head error corrected
-
+	
 2002-09-29 01:37  dem
 
 	* web/mozilla/: BUILD, CONFIGURE, POST_INSTALL, POST_REMOVE,
 	autoconf.mk.patch, gtk2mozilla_head.patch,
-	mozilla-ft-bytecode.patch, mozilla-lunar-home-page.patch: More
-	polished mozilla module
-
+	mozilla-ft-bytecode.patch, mozilla-lunar-home-page.patch: More polished mozilla module
+	
 2002-09-28 21:31  csm
 
-	* x11/xfree86/CONFIGURE: changing the DRI/DRM message to be
-	accurate for use with 2.4.19
-
+	* x11/xfree86/CONFIGURE: changing the DRI/DRM message to be accurate for use with 2.4.19
+	
 2002-09-28 19:39  tchan
 
-	* mail/yydecode/DETAILS: Bumped version upto 0.2.9.  Compiled and
-	tested with gcc-3.2
-
+	* mail/yydecode/DETAILS: Bumped version upto 0.2.9.  Compiled and tested with gcc-3.2
+	
 2002-09-28 18:58  tchan
 
-	* kde3-utils/ksetisaver/DETAILS: Bumped version upto 0.3.1.  Unable
-	to test compile as I don't have/want/use kde.  The url works for
-	downloading the code.
-
+	* kde3-utils/ksetisaver/DETAILS: Bumped version upto 0.3.1.  Unable to test compile as I don't have/want/use
+	kde.  The url works for downloading the code.
+	
 2002-09-28 05:27  csm
 
 	* utils/pilot-link/DETAILS: update version
-
+	
 2002-09-28 04:01  tchan
 
-	* x11-apps/gnucash/BUILD: Removed -funroll-loops as it causes
-	gcc-3.2 to generate internal compiler errors with gnucash.
-
+	* x11-apps/gnucash/BUILD: Removed -funroll-loops as it causes gcc-3.2 to generate internal compiler
+	errors with gnucash.
+	
 2002-09-27 22:54  sofar
 
 	* x11-utils/hot-babe/BUILD: Install man page too
-
+	
 2002-09-27 22:35  sofar
 
 	* x11-utils/hot-babe/DETAILS: New version
-
+	
 2002-09-27 21:14  sofar
 
 	* audio/burnmp3/DETAILS: Proper dl filename
-
+	
 2002-09-27 18:31  tchan
 
-	* video/transcode/DETAILS: Bumped version number upto 0.6.1 at the
-	request of kc8apf.  Compiles and installs okay.
-
+	* video/transcode/DETAILS: Bumped version number upto 0.6.1 at the request of kc8apf.  Compiles and
+	installs okay.
+	
 2002-09-27 17:45  tchan
 
-	* editors/sed/POST_REMOVE: Corrected the location of the info dir
-	to /usr/share/info
-
+	* editors/sed/POST_REMOVE: Corrected the location of the info dir to /usr/share/info
+	
 2002-09-27 13:41  kongar
 
 	* x11-wm/fluxbox/: BUILD, DETAILS: 
@@ -128,171 +329,124 @@
 	changed the source from tar.gz to tar.bz2
 	
 	amended the MD5 accordingly.
-
-2002-09-27 13:23  nhudson
-
-	* gnome2/xchat2/DETAILS: Updated Xchat2 to version 1.9.3, tested
-	and works
-
+	
 2002-09-27 10:46  sofar
 
-	* audio/monkey-media/DEPENDS: Cleaning DEPENDS: mad dep is
-	inherited.
-
+	* audio/monkey-media/DEPENDS: Cleaning DEPENDS: mad dep is inherited.
+	
 2002-09-27 08:03  kongar
 
 	* compilers/php/: DEPENDS, DETAILS: 
 	added SOURCE_MD5
 	
 	added db3 support
-
+	
 2002-09-26 22:52  sofar
 
-	* audio/libvorbis/CONFLICTS: confirmed bad conflicts with autoconf
-	& automake
-
+	* audio/libvorbis/CONFLICTS: confirmed bad conflicts with autoconf & automake
+	
 2002-09-26 22:44  sofar
 
-	* gnome/libgtop/CONFLICTS: removing conflicts with autoconf and
-	automake
-
+	* gnome/libgtop/CONFLICTS: removing conflicts with autoconf and automake
+	
 2002-09-26 16:08  xoritor
 
 	* crypto/cyrus-sasl/DETAILS: Fixed url.
-
+	
 2002-09-26 15:28  sofar
 
 	* web/apache2/POST_BUILD: Adding default_post_build
-
+	
 2002-09-26 15:28  sofar
 
-	* web/apache2/POST_BUILD: Adding POST_BUILD to recompile php
-	automatically
-
+	* web/apache2/POST_BUILD: Adding POST_BUILD to recompile php automatically
+	
 2002-09-26 15:25  sofar
 
-	* web/apache2/DETAILS: Bumping version to 2.0.42 (was 2.0.40) after
-	succefull tests.
-
+	* web/apache2/DETAILS: Bumping version to 2.0.42 (was 2.0.40) after succefull tests.
+	
 2002-09-26 15:13  sofar
 
 	* news/pan/DETAILS: Fixed download location
-
+	
 2002-09-26 13:09  xoritor
 
-	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Rolling back version and
-	depends, this should fix the postfix issue.
-
-2002-09-26 11:14  kongar
-
-	* gnome2/: at-spi/DETAILS, bug-buddy2/DETAILS, gedit2/DETAILS,
-	libgtkhtml/DETAILS, libgtop2/DETAILS, libole2-2/DETAILS,
-	librep2/DETAILS, libzvt/DETAILS, metacity/DETAILS,
-	metacity-setup/DETAILS, metatheme/DETAILS,
-	nautilus-gtkhtml/DETAILS, rep-gtk2/DETAILS, sawfish2/DETAILS,
-	xchat2/DETAILS, xscreensaver2/DETAILS, yelp/DETAILS: fixed the urls
-
+	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Rolling back version and depends, this should fix the postfix issue.
+	
 2002-09-26 10:58  kongar
 
-	* security/Linux-PAM/: BUILD, Linux-PAM-0.76.patch: removed the
-	patch, already in.
-
-2002-09-26 10:55  kongar
-
-	* gnome2/: gnome-terminal/DETAILS, gnome-utils2/DETAILS,
-	gnome2-user-docs/DETAILS, gtk-doc/DETAILS, gtk-engines2/DETAILS,
-	gtk-thinice-theme2/DETAILS, libgail-gnome/DETAILS, libgda2/DETAILS,
-	libgnomedb/DETAILS: fixed the urls
-
-2002-09-26 10:47  kongar
-
-	* gnome2/: control-center2/DETAILS, gnome-applets2/DETAILS,
-	gnome-audio2/DETAILS, gnome-games2/DETAILS, gnome-media2/DETAILS,
-	gnome-panel/DETAILS, gnome-session/DETAILS,
-	gnome-system-monitor/DETAILS: fixed the urls
-
+	* security/Linux-PAM/: BUILD, Linux-PAM-0.76.patch: removed the patch, already in.
+	
 2002-09-26 10:36  sofar
 
 	* utils/e2fsprogs/init.d/mount: Skip Networked filesystems on boot!
-
+	
 2002-09-26 06:22  tchan
 
-	* devel/smake/: BUILD, DETAILS: Added Joerg Schilling's smake
-	program to moonbase.  Compiled and tested.  Also used smake in
-	Joerg's cdrtools and star to give much cleaner compiles.
-
+	* devel/smake/: BUILD, DETAILS: Added Joerg Schilling's smake program to moonbase.  Compiled and tested.
+	Also used smake in Joerg's cdrtools and star to give much cleaner compiles.
+	
 2002-09-26 06:17  tchan
 
-	* cd/cdrtools/: BUILD, DEPENDS: Added the optional_depends smake. 
-	When using smake instead of make, Joerg Schilling's programs
-	compile much cleaner.
-
+	* cd/cdrtools/: BUILD, DEPENDS: Added the optional_depends smake.  When using smake instead of make, Joerg
+	Schilling's programs compile much cleaner.
+	
 2002-09-26 06:16  tchan
 
-	* archive/star/: BUILD, DEPENDS: Added the optional_depends for
-	smake.	When using smake instead of make, Joerg Schilling's
-	programs compile much cleaner.
-
+	* archive/star/: BUILD, DEPENDS: Added the optional_depends for smake.  When using smake instead of make,
+	Joerg Schilling's programs compile much cleaner.
+	
 2002-09-26 04:41  tchan
 
-	* mail/fetchmail/BUILD: Fixed the "changing default system
-	directory search order" bug in the Makefile.
-
+	* mail/fetchmail/BUILD: Fixed the "changing default system directory search order" bug in the
+	Makefile.
+	
 2002-09-26 01:25  dem
 
 	* web/mozilla/: BUILD, CONFIGURE: Mozilla changes
-
+	
 2002-09-26 01:21  dem
 
-	* ftp/gftp/: BUILD, CONFIGURE:	Gtk+2 support
-
+	* ftp/gftp/: BUILD, CONFIGURE:  Gtk+2 support
+	
 2002-09-26 00:11  sofar
 
-	* libs/gmp/: BUILD, DETAILS, gmp-4.1_4.1-4.patch: Adding fix for
-	the famous sawfish crash (needs recompile of sawfish!)
-
+	* libs/gmp/: BUILD, DETAILS, gmp-4.1_4.1-4.patch: Adding fix for the famous sawfish crash (needs recompile of sawfish!)
+	
 2002-09-25 21:58  nhudson
 
-	* compilers/: mcs/DETAILS, mono/DETAILS: Updated mono and mcs to
-	version 0.15, tested and is working
-
+	* compilers/: mcs/DETAILS, mono/DETAILS: Updated mono and mcs to version 0.15, tested and is working
+	
 2002-09-25 20:58  nhudson
 
 	* audio/: gst-plugins/BUILD, gst-plugins/DEPENDS,
-	gst-plugins/POST_INSTALL, gstreamer/BUILD: Ok I fixed some files
-	for gstreamer and gst-plugins.	Added C_FIFO to the BUILD scripts
-	of gst-plugins and gstreamer.  Added a message at the end of the
-	build of gst-plugins to tell everyone how to register the plugins
-	as user.  In gst-plugins I added a line to the build script to
-	register the plugins as root user. Also I added mad to the list of
-	Depends for gst-plugins as it is needed
-
+	gst-plugins/POST_INSTALL, gstreamer/BUILD: Ok I fixed some files for gstreamer and gst-plugins.  Added C_FIFO to the BUILD
+	scripts of gst-plugins and gstreamer.  Added a message at the end of the build
+	of gst-plugins to tell everyone how to register the plugins as user.  In
+	gst-plugins I added a line to the build script to register the plugins as root
+	user. Also I added mad to the list of Depends for gst-plugins as it is needed
+	
 2002-09-25 20:14  nhudson
 
-	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: Updated gstreamer
-	and gst-plugins to version 0.4.1, tested and is workiing
-
+	* audio/: gst-plugins/DETAILS, gstreamer/DETAILS: Updated gstreamer and gst-plugins to version 0.4.1, tested and is workiing
+	
 2002-09-25 18:18  xoritor
 
-	* security/Linux-PAM/DETAILS: Updated version to 0.77 and added
-	PSAFE=no to DETAILS, disabling parallel builds.
-
+	* security/Linux-PAM/DETAILS: Updated version to 0.77 and added PSAFE=no to DETAILS, disabling parallel builds.
+	
 2002-09-25 18:15  xoritor
 
-	* editors/gawk/DETAILS, printer/ghostscript/DETAILS: Added PSAFE=no
-	to DETAILS, disabling parallel builds.
-
+	* editors/gawk/DETAILS, printer/ghostscript/DETAILS: Added PSAFE=no to DETAILS, disabling parallel builds.
+	
 2002-09-25 18:09  xoritor
 
 	* utils/textutils/DETAILS, doc-tools/texinfo/DETAILS,
-	libs/glibc/DETAILS, compilers/gcc/DETAILS: Added PSAFE=no to
-	DETAILS, disabling parallel builds.
-
+	libs/glibc/DETAILS, compilers/gcc/DETAILS: Added PSAFE=no to DETAILS, disabling parallel builds.
+	
 2002-09-25 17:30  sofar
 
-	* devel/db4/: POST_BUILD, profile.d/db4.rc: Adding profile.d/rc
-	file for PATH modification to add /usr/bin/db4
-
+	* devel/db4/: POST_BUILD, profile.d/db4.rc: Adding profile.d/rc file for PATH modification to add /usr/bin/db4
+	
 2002-09-25 11:37  kongar
 
 	* web/squid/: BUILD, DEPENDS, DETAILS: 
@@ -307,209 +461,85 @@
 	added a mirror URL
 	
 	converted the source file extension from tar.gz to tar.bz2
-
+	
 2002-09-25 06:47  kongar
 
 	* security/xinetd/DETAILS: upgraded to 2.3.9
-
-2002-09-25 06:39  kongar
-
-	* gnome2/gkrellm2/DETAILS: upgraded to 2.0.4
-
+	
 2002-09-25 06:34  kongar
 
 	* utils/e2fsprogs/DETAILS: 
 	upgraded to 1.29
 	
 	added MD5 signature
-
+	
 2002-09-25 06:28  kongar
 
 	* distributed/distcc/DETAILS: upgraded to 0.11
-
+	
 2002-09-25 00:04  xoritor
 
-	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Updating module for new
-	version.    Increased version to 2.1.7	  Fixed depends to use db4.
-
+	* crypto/cyrus-sasl/: DEPENDS, DETAILS: Updating module for new version.
+	  Increased version to 2.1.7
+	  Fixed depends to use db4.
+	
 2002-09-24 23:43  xoritor
 
-	* utils/openldap/: BUILD, DEPENDS, DETAILS: Updating to version
-	2.1.5.	  Fixes broken build with db 4.1.24.
-
+	* utils/openldap/: BUILD, DEPENDS, DETAILS: Updating to version 2.1.5.
+	  Fixes broken build with db 4.1.24.
+	
 2002-09-24 16:01  xoritor
 
-	* utils/openldap/: BUILD, DEPENDS, DETAILS: Adding depends:   DB4 -
-	required   cyrus-sasl - optional   openssl - optional
+	* utils/openldap/: BUILD, DEPENDS, DETAILS: Adding depends:
+	  DB4 - required
+	  cyrus-sasl - optional
+	  openssl - optional
 	
 	Added BUILD file.
-
+	
 2002-09-24 15:29  wizfactor
 
-	* libs/id3lib/: BUILD, DETAILS, id3lib_strings.h: Updated to
-	version 3.8.0 and patched to build with gcc 3.2
-
+	* libs/id3lib/: BUILD, DETAILS, id3lib_strings.h: Updated to version 3.8.0 and patched to build with gcc 3.2
+	
 2002-09-24 10:47  kongar
 
 	* editors/vim/: POST_INSTALL, PRE_BUILD, vim-6.0-fixkeys.patch: 
 	now working, added a couple of gcc3 patches.
-
-2002-09-24 08:38  sofar
-
-	* gnome2/xchat2/BUILD: Disabling perl, bugfix #152
-
+	
 2002-09-24 07:21  wizfactor
 
-	* web/webmin/PRE_BUILD: 	web/webmin/PRE_BUILD: Webmin now
-	keeps its source directory
-
+	* web/webmin/PRE_BUILD: 	web/webmin/PRE_BUILD: Webmin now keeps its source directory
+	
 2002-09-24 04:52  tchan
 
-	* shells/sash/: DETAILS, sash-readline-plus.patch: Bumped version
-	number upto 3.6 and modifiex patch to work with ver. 3.6.
-
+	* shells/sash/: DETAILS, sash-readline-plus.patch: Bumped version number upto 3.6 and modifiex patch to work with ver. 3.6.
+	
 2002-09-24 04:00  kongar
 
 	* cd/cdrtools/DETAILS: upgraded to 1.11a34
-
+	
 2002-09-24 03:53  kongar
 
 	* mail/fetchmail/DETAILS: upgraded to 6.1.0
-
+	
 2002-09-24 02:48  tchan
 
-	* archive/unrar/: BUILD, DETAILS: Fixed to compile under gcc-3.2 or
-	greater.  Will not compile with gcc-2.95 anymore.
-
+	* archive/unrar/: BUILD, DETAILS: Fixed to compile under gcc-3.2 or greater.  Will not compile with gcc-2.95
+	anymore.
+	
 2002-09-23 23:09  sofar
 
 	* printer/ghostscript/DEPENDS: making libpng optional
-
+	
 2002-09-23 22:58  sofar
 
-	* printer/ghostscript/: BUILD, no-png.patch, no-x.patch:
-	Miscellaneous cleanups and support for building without libpng
-
+	* printer/ghostscript/: BUILD, no-png.patch, no-x.patch: Miscellaneous cleanups and support for building without libpng
+	
 2002-09-23 20:52  sofar
 
 	* x11-apps/qcad/: BUILD, DEPENDS, DETAILS: New module: qcad 1.5.3
-
+	
 2002-09-23 05:18  tchan
 
 	* devel/uml/DETAILS: Bumped version of UML upto 2.4.19-6
-
-2002-09-22 13:39  kongar
-
-	* mail/sylpheed-claws/DETAILS: upgraded tp 0.8.3
-
-2002-09-22 08:03  kc8apf
-
-	* printer/cups/DETAILS: Rollback cups as 1.1.15-1 requires a patch
-	to ghostscript.
 	
-	Will discuss problem with other devs to find better option.
-
-2002-09-22 04:49  tchan
-
-	* audio/esound/DETAILS, chat/gabber/DETAILS,
-	docs/gnome-user-docs/DETAILS, graphics/gtk+/DETAILS,
-	libs/glib/DETAILS, mail/evolution/DETAILS, x11/xalf/DETAILS,
-	x11-apps/dia/DETAILS, x11-apps/glade/DETAILS,
-	x11-apps/gtop/DETAILS: Fixed all remaining occurences of the GNOME
-	ftp directory changeover.
-
-2002-09-22 04:33  tchan
-
-	* gnome/: GConf/DETAILS, Guppi/DETAILS, ORBit/DETAILS,
-	bonobo/DETAILS, bonobo-conf/DETAILS, bug-buddy/DETAILS,
-	control-center/DETAILS, ee/DETAILS, eog/DETAILS, gal/DETAILS,
-	gdk-pixbuf/DETAILS, gdm/DETAILS, gedit/DETAILS, ggv/DETAILS,
-	ghex/DETAILS, gnome-admin/DETAILS, gnome-applets/DETAILS,
-	gnome-audio/DETAILS, gnome-chess/DETAILS, gnome-common/DETAILS,
-	gnome-core/DETAILS, gnome-crash/DETAILS, gnome-db/DETAILS,
-	gnome-games/DETAILS, gnome-libs/DETAILS, gnome-lokkit/DETAILS,
-	gnome-media/DETAILS, gnome-network/DETAILS, gnome-objc/DETAILS,
-	gnome-pilot/DETAILS, gnome-pilot-conduits/DETAILS,
-	gnome-pim/DETAILS, gnome-print/DETAILS, gnome-python/DETAILS,
-	gnome-utils/DETAILS, gnome-vfs/DETAILS, gnomeicu/DETAILS,
-	gnomemm/DETAILS, gnumeric/DETAILS, gtk-engines/DETAILS,
-	gtkhtml/DETAILS, gtkmm/DETAILS, imlib/DETAILS, intltool/DETAILS,
-	libgda/DETAILS, libghttp/DETAILS, libglade/DETAILS,
-	libgtop/DETAILS, libole2/DETAILS, librsvg/DETAILS,
-	libunicode/DETAILS, panelmm/DETAILS, xml-i18n-tools/DETAILS: Fixed
-	all these gnome modules for the new ftp directory structure at
-	ftp.gnome.org
-
-2002-09-22 03:05  niki
-
-	* web/galeon/DEPENDS: Removed a none valid depends to
-	gnome-applet...
-
-2002-09-21 22:54  tchan
-
-	* gnome/ORBit/DETAILS: Fixed the URL source code download.  Gnome
-	ftp site re-org again.
-
-2002-09-21 21:19  kongar
-
-	* web/flash-plugin/DETAILS: upgraded to 5.0r51
-
-2002-09-21 20:35  kongar
-
-	* gnome2/gkrellm2/DETAILS: upgraded to 2.0.3
-
-2002-09-21 20:23  kongar
-
-	* gnome/eel/DETAILS, gnome2/eel2/DETAILS, gnome2/gail/DETAILS,
-	gnome2/gnome-desktop/DETAILS, gnome2/librsvg2/DETAILS: 
-	
-	fixed the url
-
-2002-09-21 20:21  kongar
-
-	* gnome2/nautilus2/DETAILS: upgraded to 2.0.7
-
-2002-09-21 03:27  tchan
-
-	* devel/linux-vanilla/POST_INSTALL: Fixing GRUB install again, as
-	bash read does not like -1 for a timeout value.
-
-2002-09-21 03:26  tchan
-
-	* devel/linux/POST_INSTALL: Fixing GRUB install again, as bash read
-	does not like -1 for timeout.
-
-2002-09-20 22:50  sofar
-
-	* x11-utils/hot-babe/DEPENDS: cleaning DEPENDS
-
-2002-09-20 22:48  sofar
-
-	* gnome2/: bug-buddy2/DEPENDS, gal2/DEPENDS, gdm2/DEPENDS,
-	gkrellm2/DEPENDS, glade2/DEPENDS, gnome-utils2/DEPENDS,
-	metacity/DEPENDS, xscreensaver2/DEPENDS: cleaning DEPENDS VS:
-	-------------------------------------------------------------------
-	---
-
-2002-09-20 22:46  sofar
-
-	* cd/gtoaster/DEPENDS, net/SDL_net/DEPENDS: cleaning DEPENDS
-
-2002-09-20 22:18  kongar
-
-	* filemanagers/nautilus/DETAILS, gnome/gnome-mime-data/DETAILS,
-	gnome2/libwnck/DETAILS: fixed url
-
-2002-09-20 22:12  kongar
-
-	* gnome2/: libbonoboui/DETAILS, libglade2/DETAILS,
-	libgnomeprintui/DETAILS, libgnomeui/DETAILS: fixed url
-
-2002-09-20 22:11  kongar
-
-	* gnome2/glade2/: BUILD, DETAILS: upgraded to 1.1.2
-
-2002-09-20 22:03  kongar
-
-	* x11-utils/hot-babe/BUILD: added system CFLAGS
-
