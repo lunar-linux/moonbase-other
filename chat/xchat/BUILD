@@ -2,8 +2,7 @@
 
   export PKG_CONFIG_PATH=/opt/lunar/gnome/2/lib/pkgconfig:$PKG_CONFIG_PATH &&
 
-  ./configure  --disable-perl            \
-               --build=$BUILD            \
+  ./configure  --build=$BUILD            \
                --prefix=/usr             \
                --sysconfdir=/etc         \
                --localstatedir=/var      \
