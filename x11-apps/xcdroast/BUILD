@@ -6,7 +6,6 @@
                	--infodir=/usr/share/info \
                	--mandir=/usr/share/man   \
                $OPTS                     &&
-  prepare_install			&&
-  default_make				
+    default_make				
 
 ) > $C_FIFO 2>&1
