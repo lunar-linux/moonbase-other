@@ -1,10 +1,37 @@
 (
-  gzip -dc  $SOURCE_CACHE/$SOURCE2 | patch -p1 && 
+
+  if [ "$NLS" == "n" ] ; then
+    OPTS="--disable-nls"
+  fi
+
+  if [ "$KDE" == "y" ] ; then
+    OPTS="$OPTS --enable-kde"
+  fi
+
+  if [ "$GNOME" == "n" ] ; then
+    OPTS="$OPTS --disable-gnome"
+  fi
+
+  if [ "$XIN" == "y" ] ; then
+    OPTS="$OPTS --enable-xinerama"
+  fi
+
+  if [ "$NLS" == "y" ] ; then
+    gzip -dc  $SOURCE_CACHE/$SOURCE2 | patch -p1 
+  fi && 
 
   libtoolize --force \
   && aclocal \
   && automake \
   && autoconf && 
 
-  default_build
+  ./configure  --build=$BUILD            \
+               --sysconfdir=/etc         \
+               --prefix=/usr             \
+               --localstatedir=/var      \
+               --infodir=/usr/share/info \
+               --mandir=/usr/share/man   \
+               $OPTS                     &&
+
+  default_make
 ) > $C_FIFO 2>&1
