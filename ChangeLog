@@ -1,3 +1,49 @@
+2004-01-06 08:28  niki
+
+	* gnome2-core/gtksourceview/POST_INSTALL: Well should we realy "rm
+	-rf lin" ?? Added a ";" to seperate the rm and lin command.
+
+2004-01-06 07:16  niki
+
+	* gnome2-extras/gnome-speech/BUILD: Fixed a syntax error...
+
+2004-01-06 06:11  jmhodges
+
+	* web/PyDS/DETAILS: version bump
+
+2004-01-05 22:33  nestu
+
+	* kernel/linux-beta-mm/DETAILS: Version bump.
+
+2004-01-05 21:49  nhudson
+
+	* gnome2-core/gtksourceview/DETAILS: 
+	Reverting back to version 0.7.0 as it doesnt compile with gtk+
+	thats in moonbase, this is totally my fault.
+
+2004-01-05 17:04  florin
+
+	* science/gnuplot/DETAILS: add the md5sum.
+
+2004-01-05 16:32  moe
+
+	* x11/NVIDIA/DETAILS: Almost ..
+
+2004-01-05 16:31  moe
+
+	* x11/NVIDIA/: DETAILS, PRE_BUILD: Gentlemen, please welcome 53.28.
+	Reported to be alot faster and stable and bla bla bla .. you know
+	the rest.
+
+2004-01-05 16:00  moe
+
+	* kernel/linux-vanilla/DETAILS: Woo! 2.4.24 everywhere!
+
+2004-01-05 15:59  moe
+
+	* kernel/linux-stable/DETAILS: Here we go for 2.4.24. This one
+	fixes some security holes.
+
 2004-01-05 02:13  watryac04
 
 	* kernel/linux-beta/BUILD.alpha: Making it possible to build 2.6.x
@@ -1778,86 +1824,4 @@
 2003-12-07 07:09  florin
 
 	* utils/units/DETAILS: add the md5 sum.
-
-2003-12-06 23:27  nestu
-
-	* audio/ladspa_sdk/: BUILD, DETAILS: Bumping version, and adapting
-	build to the new one
-
-2003-12-06 23:22  tchan
-
-	* utils/calc/DETAILS: Added md5sum from the authors webpage.
-
-2003-12-06 23:18  sofar
-
-	* graphics/blender/DETAILS: sick!
-
-2003-12-06 22:53  tchan
-
-	* terminal/screen/DETAILS: Version bump to screen-4.0.2.  Compiled
-	and tested with gcc-3.2.3, glibc-2.3.2.  Used the patch from 4.0.1,
-	as it still applies cleanly.
-
-2003-12-06 21:16  ratler
-
-	* ftp/pure-ftpd/DETAILS: Bumped version
-
-2003-12-06 20:29  tchan
-
-	* utils/units/: BUILD, DETAILS: Version bump (long overdue). 
-	Compiled and tested with gcc-3.2.3, glibc2-3.2.  The author rewrote
-	the parser and added a bunch of new features.
-
-2003-12-06 19:39  tchan
-
-	* libs/gettext/DETAILS: Version bump to 0.13.  Painless update. 
-	Tested by florin, tchan, and niki.
-
-2003-12-06 15:56  sofar
-
-	* web/mozilla/: BUILD, DETAILS, PRE_BUILD: Updating to 1.5.1, the
-	patch stays, so I leave it.
-
-2003-12-06 12:50  sofar
-
-	* net/wvstreams/DEPENDS: Openssl and zlib are required, not
-	optional.
-
-2003-12-06 06:42  florin
-
-	* kde3/kdemultimedia3/BUILD: let the module use gtk+ if it's
-	already installed (good for using apps like xmms).
-
-2003-12-06 04:54  tchan
-
-	* video/avifile/DETAILS: Version bump to 0.7.38.  Naming convention
-	of the different versions has changed on sourceforge for this
-	project.  This latest version compiles for me with NO problems
-	using gcc-3.2.3, glibc-2.3.2.  Tested it with MAD and libvorbis,
-	again compiled with no problems.
-
-2003-12-06 03:43  tchan
-
-	* ftp/wu-ftpd/: BUILD, DETAILS: Fixed wu-ftpd to compile again. 
-	The wu-ftpd devs have a corrupted file named src/ftpcmd.y (a bison
-	input file).  I also added the two security patches named on the
-	front of the wu-ftpd website.  Compiled and tested with gcc-3.2.3,
-	glibc-2.3.2.
-
-2003-12-06 02:38  tchan
-
-	* net/: wvdial/BUILD, wvdial/DETAILS, wvdial/POST_INSTALL,
-	wvstreams/BUILD, wvstreams/DEPENDS, wvstreams/DETAILS,
-	wvstreams/libwvstreams-3.70-gcc3.patch: Version bumped wvdial. 
-	Fixed wvstreams to use the latest available release 3.74.0.  Added
-	a DEPENDS file just full of optional_depends (hey it's a LIBRARY
-	and there is no getting around all choices!)
-	
-	Made db a required DEPENDS (the devs have it listed as optional) as
-	wvstreams-3.74.0 will NOT compile at all unless Berkely DB is
-	present and I even had to hack their vars.mk file as their
-	configure script is borked and does not correctly detect that
-	Berkely DB3 is present and working on a Lunar box.
-	
-	Compiled and tested with gcc-3.2.3, glibc-2.3.2.
 
