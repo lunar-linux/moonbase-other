@@ -1,8 +1,7 @@
-FOO="OLD_FILE_SELECT"
-if ! grep -q "$FOO" $MODULE_CONFIG; then
+if [ -n "$(get_module_config OLD_FILE_SELECT)" ] ; then
   if query "Disable GTK+ 2.4 file select dialog box?" n; then
-     echo "$FOO=y" >> $MODULE_CONFIG
+     set_module_config OLD_FILE_SELECT y
   else
-     echo "$FOO=n" >> $MODULE_CONFIG
+     set_module_config OLD_FILE_SELECT n
   fi
 fi
