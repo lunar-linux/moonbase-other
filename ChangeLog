@@ -1,3 +1,93 @@
+2004-11-18 12:42  nestu
+
+	* kernel/linux-2.6-mm/DETAILS: 2.6.10rc1mm1 -> 2.6.10rc1mm2. gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.9.1
+
+2004-11-18 09:09  prox
+
+	* security/sudo/DETAILS: bump version
+
+2004-11-18 08:23  sofar
+
+	* filesys/autofs/BUILD: bad hack needed on upgrades
+
+2004-11-18 08:22  prox
+
+	* filesys/openafs/: BUILD, POST_INSTALL: moved message to after
+	  post-install of driver, otherwise you miss it
+
+2004-11-18 06:01  nhudson
+
+	* devel/gtk-sharp/DETAILS:
+	  I could have swore I updated this a while ago... anyway its done
+	  now gtk-sharp updated to 1.0.4
+
+2004-11-18 04:24  v3rt1g0
+
+	* audio/ices/DETAILS: set the WEB_SITE to a more exact location and
+	  added a bit more info the the module's long description
+
+2004-11-17 20:55  jol
+
+	* ftp/mldonkey/: BUILD, DETAILS: - Bumped version to the 2.5.28 -
+	  add a patch 2.5.28h
+
+2004-11-17 18:21  florin
+
+	* libs/numarray/DETAILS: bump the version from 1.1. to 1.1.1.
+
+2004-11-17 18:10  florin
+
+	* ftp/gift/DETAILS: bump the version from 0.11.7 to 0.11.8.
+
+2004-11-17 18:03  ratler
+
+	* kernel/openafs-driver/CONFLICTS,
+	  zbeta/openafs-driver-devel/CONFLICTS: Added driver conflicts
+
+2004-11-17 17:59  ratler
+
+	* filesys/openafs/BUILD: oops forgot one thing...
+
+2004-11-17 17:57  ratler
+
+	* filesys/openafs/: BUILD, CONFLICTS, DETAILS: Cleaned up DETAILS,
+	  moved etc files into a tarball
+
+2004-11-17 17:51  ratler
+
+	* zbeta/openafs-devel/: BUILD, CONFLICTS, DETAILS: Moved openafs
+	  etc files into a tarball
+
+2004-11-17 17:45  florin
+
+	* video/mkvtoolnix/DETAILS: bump the version from 0.9.7 to 1.0.
+
+2004-11-17 15:48  sofar
+
+	* zbeta/XOrg-test/BUILD: Even better
+
+2004-11-17 15:40  prox
+
+	* zbeta/: openafs-devel/BUILD, openafs-devel/DEPENDS,
+	  openafs-devel/DETAILS, openafs-devel/POST_INSTALL,
+	  openafs-driver-devel/BUILD, openafs-driver-devel/DEPENDS,
+	  openafs-driver-devel/DETAILS, openafs-driver-devel/POST_INSTALL:
+	  added developer version of openafs, this works on both 2.4 and
+	  2.6
+
+2004-11-17 14:39  v3rt1g0
+
+	* libs/loudmouth/: DEPENDS, DETAILS: Version bump.  Changed the
+	  source url as the old one was giving me strange wget results (as
+	  in it grabbed the source twice, but in the end lunar said it
+	  never grabbed it.. *shrug*).	Also added some missing
+	  dependancies.
+
+2004-11-17 14:35  sofar
+
+	* zbeta/XOrg-test/BUILD: Random untested changes.
+
 2004-11-17 13:00  prox
 
 	* editors/emacs/BUILD: removed linker optimization since it doesnt
@@ -2064,120 +2154,4 @@
 2004-10-19 00:27  florin
 
 	* security/nmap/DETAILS: bump the version from 3.70 to 3.75.
-
-2004-10-18 22:34  v3rt1g0
-
-	* games/fortune-meanwhile-in-lunar/DETAILS: served hot and fresh
-	  weekly.
-
-2004-10-18 19:49  sofar
-
-	* libs/libipc/: BUILD, DETAILS: little bugfix to ignore the
-	  spurious non-errors due to libusb api change.
-
-2004-10-18 19:04  florin
-
-	* ftp/curl/DETAILS: bump the version from 7.12.1 to 7.12.2.
-
-2004-10-18 18:20  florin
-
-	* utils/acpid/DETAILS: bump the version from 1.0.3 to 1.0.4.
-
-2004-10-18 18:03  florin
-
-	* audio/mikmod/DETAILS: bump the version from 3.1.6-a to 3.2.1.
-
-2004-10-18 18:01  florin
-
-	* audio/libmikmod/DETAILS: bump the version from 3.1.10 to 3.1.11.
-
-2004-10-18 17:57  jol
-
-	* kde3-apps/kile/DETAILS: Bumped version to 1.7.1, changes: -
-	  autocompletion of (La)TeX commands - completely configurable
-	  build system - advanced LaTeX editing functions - autocompletion
-	  of references and labels (only within projects).
-	  ----------------------------------------------------------------------
-
-2004-10-18 17:14  nestu
-
-	* filesys/udev/DETAILS: 036 -> 039. gcc 3.3.3, glibc 2.3.2, headers
-	  2.6.8.1
-
-2004-10-18 14:19  moe
-
-	* graphics/gphoto2/: BUILD, DETAILS: Better
-
-2004-10-18 12:18  moe
-
-	* graphics/: gphoto2/BUILD, gphoto2/DETAILS, gtkam/DETAILS: Making
-	  this work again. Rather huge patch .. I know.  But since there is
-	  no official release of the gphoto2 package we'll have to live
-	  with it.
-
-2004-10-18 10:34  sofar
-
-	* utils/: lunar/DETAILS, theedge/DETAILS: Adding explicit
-	  AUTORESURRECT=off
-
-2004-10-18 08:27  sofar
-
-	* utils/: lunar/POST_INSTALL, theedge/POST_INSTALL: bugfix #501:
-	  make sure lunar wipes theedge, force calling of remove_module
-	  without checking for it
-
-2004-10-18 05:52  jasper
-
-	* xfce4/xfce4-taskbar-plugin/DETAILS: Small fix
-
-2004-10-18 04:56  v3rt1g0
-
-	* x11-apps/xscreensaver/: BUILD, DEPENDS: Sorry about the back to
-	  back commits.  I was having a few uunexpected issues on this
-	  side.  Took the opertunity to simplify things in the BUILD file.
-
-2004-10-18 04:26  florin
-
-	* graphics/sane-frontends/DETAILS: bump the version from 1.0.12 to
-	  1.0.13.
-
-2004-10-18 04:25  v3rt1g0
-
-	* x11-apps/xscreensaver/DEPENDS: gle got gotten, so get with the
-	  gettin of gle. got it? (added gle as a optional depends)
-
-2004-10-18 04:21  v3rt1g0
-
-	* libs/gle/: BUILD, DEPENDS, DETAILS: Inital import of a OpenGL
-	  graphics library for drawing pretty tubes and stuff.
-
-2004-10-18 03:38  hardkrash
-
-	* zbeta/openoffice-src/CONFIGURE: bad quotes bad bad bad!
-
-2004-10-18 03:09  hardkrash
-
-	* zbeta/openoffice-src/DETAILS: sorry for all the spamming, fixed
-	  formatting of the source urls
-
-2004-10-18 03:07  hardkrash
-
-	* zbeta/openoffice-src/DETAILS: wrong sha1 sum
-
-2004-10-18 03:02  hardkrash
-
-	* zbeta/openoffice-src/DETAILS: oops forgot the new patch :-P
-
-2004-10-18 02:55  hardkrash
-
-	* zbeta/openoffice-src/: BUILD, CONFIGURE: minor bug fixes
-
-2004-10-18 02:46  hardkrash
-
-	* zbeta/openoffice-src/DEPENDS: DON'T set --disable-kde, as it will
-	  enable kde, DUMBA$$E$ can't they code right!
-
-2004-10-18 00:13  v3rt1g0
-
-	* net/bmon/DETAILS: Just a cosmetic touchup.
 
