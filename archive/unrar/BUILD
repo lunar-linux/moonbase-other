@@ -1,7 +1,6 @@
 (
   cd unrar &&
-  cp makefile.gcc Makefile &&
-  sedit  "s/typedef __wchar_t/typedef wchar_t/" rartypes.hpp
+  cp makefile.unix Makefile &&
   sedit  "s/-O2/$CFLAGS/"  Makefile  &&
   make             &&
   prepare_install  &&
