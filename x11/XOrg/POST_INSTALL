@@ -9,7 +9,12 @@ fi
 
 if ! [ -d  /usr/lib/pkgconfig ]; then
   mkdir -p /usr/lib/pkgconfig
-fi 
+fi
+
+if ! grep -q /usr/X11R6/lib /etc/ld.so.conf ; then
+  echo "/usr/X11R6/lib" >> /etc/ld.so.conf
+  ldconfig
+fi
 
 message "Running fc-cache..." &&
 /usr/bin/fc-cache -f 
