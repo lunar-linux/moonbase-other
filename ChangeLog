@@ -1,3 +1,42 @@
+2002-12-17 09:56  sofar
+
+	* devel/autoconf/DETAILS, devel/automake/DETAILS,
+	libs/libtool/DETAILS: Bumping these modules after full rebuild
+	testing showing no significant problems.
+
+2002-12-17 09:21  kc8apf
+
+	* terminal/tsclient/: BUILD, DEPENDS: Fix depends and build.  I
+	should really not try to make a module at 3am.
+
+2002-12-17 08:47  kc8apf
+
+	* terminal/tsclient/DEPENDS: Add missing depends
+
+2002-12-17 08:07  kc8apf
+
+	* terminal/tsclient/: DEPENDS, DETAILS: Added tsclient
+
+2002-12-16 19:49  dem
+
+	* web/mozilla/DEPENDS: missing depends
+
+2002-12-16 16:06  tchan
+
+	* gnome2-core/libbonoboui/DETAILS: Corrected the UPDATED field for
+	jmhodges.
+
+2002-12-16 15:15  sofar
+
+	* doc-tools/wv/DETAILS: Bumped version
+
+2002-12-16 14:52  sofar
+
+	* gnome/gal/DETAILS, gnome/gnumeric/DETAILS,
+	gnome/gtkhtml2/DETAILS, mail/evolution/DETAILS: New versions! evo
+	requires gal and gtkhtml2 to be updated first, hence gnumeric also
+	tested. enjoy!
+
 2002-12-16 11:19  sofar
 
 	* web/bluefish/DETAILS: Need more coffee.
@@ -1431,49 +1470,4 @@
 2002-11-17 16:36  sofar
 
 	* utils/e2fsprogs/BUILD: Removing /devices from being made...
-
-2002-11-16 20:08  tchan
-
-	* devel/automake/DETAILS: Bumped version number to 1.7.1 from
-	1.6.3.	Compiled under glibc-2.3.1 and test compiled imlib which
-	uses automake.	Dem also tested automake with several of his
-	projects and it seems to work correctly.
-
-2002-11-16 19:40  tchan
-
-	* doc-tools/texinfo/DETAILS: Bumped version number to 4.3. 
-	Compiled and tested under glibc-2.3.1.
-
-2002-11-16 19:15  tchan
-
-	* utils/less/lesspipe.sh: Removed the lesspipe.sh hacks I put in
-	for groff-1.18.*, since groff is now rolled back to 1.17.2.
-
-2002-11-16 19:03  tchan
-
-	* utils/lunar/DEPENDS: Added a missing depends "diffutils".  lvu
-	requires diff.	This was already correct in "theedge".
-
-2002-11-16 18:45  tchan
-
-	* doc-tools/man/BUILD: Removed the sedit hack on man.conf, since
-	I've rolled groff back to 1.17.2.  Hack is only necessary for groff
-	> 1.17.2.
-
-2002-11-16 18:37  tchan
-
-	* doc-tools/groff/: BUILD, DETAILS: Rolled groff back to 1.17.2. 
-	Keep it at this version until all the MAN page problems are
-	resolved, i.e. hacking man.conf with "less -R", emacs M-x man
-	broken, lesspipe.sh hacks, etc.
-
-2002-11-16 07:16  kc8apf
-
-	* video/vcdimager/DETAILS: Version bump.  NOTE: this is an alpha
-	build but currently only version that works on gcc3.  It has worked
-	successfuly for me.
-
-2002-11-16 02:47  kc8apf
-
-	* gnome/gnome-python/DEPENDS: Fix dependency
 
