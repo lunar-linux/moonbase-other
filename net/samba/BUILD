@@ -23,6 +23,8 @@
   mkdir  -p  /usr/share/samba          &&
   mkdir  -p  /var/log/samba            &&
   default_make                         &&
+  # samba used to create this symlink and its still needed
+  ln -sf /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so.0 &&
 
   if module_installed cups ; then
     ln -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
