@@ -10,6 +10,6 @@
                 $OPTS                             &&
     default_make
 
-cp $SCRIPT_DIRECTORY/galeon /opt/lunar/gnome/2.4/bin
+cp $SCRIPT_DIRECTORY/galeon ${GNOME26_PREFIX:-/usr}/bin
   
 ) > $C_FIFO 2>&1
