@@ -32,6 +32,7 @@
 	       --with-readline               \
                --with-zlib=/usr              \
                --with-ncurses                \
+	       --with-apsx2                  \
                $OPTS                        &&
   default_make
 
