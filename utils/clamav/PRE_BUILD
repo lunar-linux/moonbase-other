@@ -1,0 +1,5 @@
+if [ `grep clamav /etc/passwd | wc -l` -lt 1 ]; then
+   groupadd clamav
+   useradd -g clamav -s /bin/false -c "Clam AntiVirus" clamav
+fi &&
+default_pre_build
