@@ -1,6 +1,6 @@
 (
   if [ `lvu installed db | cut -d. -f1` == "3" ]; then
-    OLD_DB="y"
+    set_module_config OLD_DB y
   fi
 
   cd  build_unix &&
