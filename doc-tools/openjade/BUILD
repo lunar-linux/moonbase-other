@@ -1,6 +1,5 @@
 (
-  CATALOGDIR="/usr/share/sgml/openjade-1.3"
-  DOCDIR="/usr/share/doc/openjade"
+  CATALOGDIR="/usr/share/sgml/$MODULE-$VERSION"
   PTEXTD="$CATALOGDIR/pubtext"
 
   ./configure --build=$BUILD                                 \
@@ -21,21 +20,17 @@
 
   make all LDFLAGS=-all-static                               &&
   prepare_install                                            &&
+  make install                                               &&
   if ! [ -d "$CATALOGDIR" ]; then 
        mkdir -p $CATALOGDIR
   fi                                                         &&
-  if ! [ -d "$DOCDIR" ]; then
-       mkdir -p $DOCDIR
-  fi                                                         &&
   cp -r pubtext   $CATALOGDIR                                &&
   ln -sf $PTEXTD/html.soc $PTEXTD/catalog                    &&
-  cp -r dsssl     $CATALOGDIR                                &&
+  cp -r dsssl/*   $CATALOGDIR                                &&
   cp -r testsuite $CATALOGDIR                                &&
   cp -r contrib   $CATALOGDIR                                &&
   cp -r unicode   $CATALOGDIR                                &&
-  cp -r develdoc  $DOCDIR                                    &&
-  cp -r jadedoc   $DOCDIR                                    &&
-  make    install                                            &&
-  ln -sf `which openjade` /usr/bin/jade
-
+  cp -r develdoc  $CATALOGDIR                                &&
+  ln -sf `which openjade` /usr/bin/jade                      &&
+  ln -sf `which onsgmls` /usr/bin/nsgmls 
 ) > $C_FIFO 2>&1

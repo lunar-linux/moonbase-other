@@ -17,6 +17,7 @@
                
                
    default_make                                          &&
-   ln -sf /usr/bin/osx  /usr/bin/sgml2xml
+   ln -sf /usr/bin/osx  /usr/bin/sgml2xml                &&
+   ln -sf `which onsgmls` /usr/bin/nsgmls    
 
 ) > $C_FIFO 2>&1

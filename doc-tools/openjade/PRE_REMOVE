@@ -1,7 +1,8 @@
-CATALOGDIR="/usr/share/sgml/openjade-1.3"
+CATALOGDIR="/usr/share/sgml/$MODULE-$VERSION"
 centralized="/etc/sgml/catalog"
 
-/usr/bin/install-catalog --remove $centralized $CATALOGDIR/dsssl/catalog
+/usr/bin/install-catalog --remove $centralized $CATALOGDIR/catalog
 /usr/bin/install-catalog --remove $centralized $CATALOGDIR/pubtext/catalog
 /usr/bin/install-catalog --remove $centralized $CATALOGDIR/contrib/catalog
 /usr/bin/install-catalog --remove $centralized $CATALOGDIR/unicode/catalog
+/usr/bin/install-catalog --remove $centralized $CATALOGDIR/dsssl/catalog
