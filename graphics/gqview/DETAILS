@@ -1,12 +1,13 @@
           MODULE=gqview
-         VERSION=1.4.1
+         VERSION=1.4.2
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=$SFORGE_URL/$MODULE/$SOURCE
-      SOURCE_VFY=md5:d963fbb878d78e8ebf78ea8c18caa72f
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+   SOURCE_URL[1]=http://osdn.dl.sourceforge.net/$MODULE/$SOURCE
+      SOURCE_VFY=md5:4099e459a3b1cfa637a40774c9e51b47
         WEB_SITE=http://gqview.sourceforge.net/
          ENTERED=20010924
-         UPDATED=20040308
+         UPDATED=20040405
            SHORT="gqview: an image browser for X."
 cat << EOF
 Gqview implements a single-click interface to view images and traverse
