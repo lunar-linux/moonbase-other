@@ -4,6 +4,7 @@
   sedit  "s:XCOMM  XA_MULTIBUF = -DXMBUF:XA_MULTIBUF = -DXMBUF:"  Imakefile &&
   xmkmf  &&
   sedit  's:INCDIR = $(INCROOT):INCDIR = $(INCROOT)/X11:'  Makefile  &&
+  sedit  "s:O3:O2:g" Makefile &&
   make xanim           &&
   prepare_install      &&
   mkdir -p /usr/lib/xanim  &&
