@@ -1,3 +1,71 @@
+2004-02-03 11:06  florin
+
+	* mail/elmo/DETAILS: bump version from 0.8.3 to 1.0.4.
+
+2004-02-02 22:56  jmhodges
+
+	* doc-tools/docbook-xsl/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
+	POST_REMOVE, rebuild-docbook-catalog: there again
+
+2004-02-02 22:53  jmhodges
+
+	* doc-tools/docbook-xsl/rebuild-docbook-catalog: cvs sucks
+
+2004-02-02 22:48  jmhodges
+
+	* doc-tools/docbook-xsl/rebuild-docbook-catalog: there
+
+2004-02-02 22:35  jmhodges
+
+	* doc-tools/intltool/: DEPENDS, DETAILS, POST_INSTALL: needed
+
+2004-02-02 22:29  jmhodges
+
+	* audio/gst-plugins/DEPENDS, gnome2-apps/gpdf/DETAILS,
+	gnome2-apps/meld/meld, gnome2-apps/mozilla-bonobo/POST_INSTALL,
+	gnome2-core/ORBit2/DETAILS, gnome2-core/eel/DETAILS,
+	gnome2-core/gdm/Default, gnome2-core/gdm/POST_INSTALL,
+	gnome2-core/gdm/gdm.conf, gnome2-core/gdm/gnomerc,
+	gnome2-core/gdm/Sessions/gnome.desktop, gnome2-core/gdm/init.d/gdm,
+	gnome2-core/gnome-audio/BUILD, gnome2-core/gnome-common2/BUILD,
+	gnome2-core/gnome-games2/BUILD,
+	gnome2-core/gnome-icon-theme/DETAILS,
+	gnome2-core/gnome-media2/BUILD, gnome2-core/libIDL/DETAILS,
+	gnome2-core/libbonobo/DETAILS, gnome2-core/libbonoboui/DETAILS,
+	gnome2-core/libgail-gnome/BUILD, gnome2-core/libzvt/BUILD,
+	gnome2-core/linc/BUILD, gnome2-core/linc/DETAILS,
+	gnome2-core/linc/POST_INSTALL,
+	gnome2-core/linc/profile.d/gnome2.rc, gnome2-core/nautilus/DETAILS,
+	gnome2-core/nautilus-cd-burner/BUILD,
+	gnome2-core/nautilus-media/BUILD, gnome2-extras/gal2/DETAILS,
+	gnome2-extras/gnome-vfs-extras/BUILD,
+	gnome2-extras/gnome-vfs-sftp/BUILD, gnome2-extras/libgnomedb/BUILD,
+	gnome2-extras/nautilus-gtkhtml/BUILD, gnome2-extras/pyorbit/BUILD,
+	gnome2-extras/zenity/DETAILS, libs/glib-2/DETAILS,
+	libs/pango/DETAILS, mail/evolution/BUILD, mail/evolution/DEPENDS,
+	mail/evolution/DETAILS: Can you say GNOME 2.5?
+
+2004-02-02 20:13  sofar
+
+	* utils/coreutils/BUILD: Cosmetix.
+
+2004-02-02 17:58  florin
+
+	* archive/unrar/DETAILS: bum the version from 3.3.5 to 3.3.6.
+
+2004-02-02 17:17  florin
+
+	* kde3-apps/lincvs/DETAILS: bumped version from 1.3.0-rc2 to 1.3.0
+
+2004-02-02 17:16  florin
+
+	* devel/expect/DETAILS: bumped version from 5.39 to 5.40.
+
+2004-02-02 15:33  florin
+
+	* security/xinetd/DETAILS: bump version from 2.3.12 to 2.3.13.
+	bugfix release.
+
 2004-02-02 09:20  sofar
 
 	* mail/gotmail/: BUILD, DEPENDS, DETAILS: quite okay... useful!
@@ -1126,14 +1194,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-01-15 18:54  niki
-
 	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
 	the version, added a depends on hicolor-icon-theme, and moved it
 	out of /opt/lunar
+
+2004-01-15 18:54  niki
+
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:22  niki
 
@@ -1762,80 +1830,4 @@
 
 	* filesys/udev/: BUILD, DEPENDS, DETAILS: Bringing the devfs
 	substitute to moonbase. 2.6+ kernels only.
-
-2004-01-03 23:45  tchan
-
-	* utils/ibackup/BUILD: Added an sedit to fix the screwy naming
-	convention of the backup tarball, from DDMMYYYY to the Lunar norm
-	of YYYYMMDD.
-
-2004-01-03 23:21  nestu
-
-	* utils/hotplug/: BUILD, DETAILS: Version bump, and BUILD update
-	aswell.
-
-2004-01-03 23:03  tchan
-
-	* utils/ibackup/DETAILS: Updated the long description at bkw's
-	request.
-
-2004-01-03 22:47  nestu
-
-	* filesys/sysfsutils/DETAILS: Adding these utilities for sysfs.
-	Therefore, only 2.6.X kernels.
-
-2004-01-03 21:50  sofar
-
-	* filesys/devfsd/: BUILD, DETAILS, POST_INSTALL, devfsd.conf,
-	init.d/devfsd: Moving into filesys
-
-2004-01-03 21:45  sofar
-
-	* filesys/: dosfstools/BUILD, dosfstools/DETAILS, hfsutils/DETAILS,
-	mtools/BUILD, mtools/DETAILS: Moving into filesys
-
-2004-01-03 19:10  tchan
-
-	* utils/ibackup/: BUILD, DEPENDS, DETAILS: Moved ibackup from
-	archive section into the utils section at elaine's suggestion.	My
-	problem with sysconf was operator error as usual.
-
-2004-01-03 18:51  florin
-
-	* kde3/qt3/DETAILS: we don't have qt2 in moonbase.
-
-2004-01-03 18:04  tchan
-
-	* libs/uClibc/: .config.bz2, DETAILS: Version bump to
-	uClibc-0.9.25.	A bugfix release.  NOTE: uClibc is heading down the
-	same path a glibc in that it USES the /usr/src/linux link to parse
-	kernel header info.  It will NOT compile correctly using the
-	headers installed into /usr/include/linux.  Tested with
-	kernel-2.4.23 and gcc-3.2.3.
-
-2004-01-03 17:22  cmak
-
-	* audio/: ardour/BUILD, jack/DEPENDS: added doxygen to jack's
-	DEPENDS (for Documentation) ardour needs no BUILD (default build is
-	fine)
-
-2004-01-03 16:42  cmak
-
-	* audio/audacity/: BUILD, DEPENDS: i used optional_depends wrong in
-	the first place. fixed
-
-2004-01-03 15:12  nestu
-
-	* kernel/linux-beta/: DETAILS, PRE_BUILD: Sources are removed and
-	then unpacked and patched now.
-
-2004-01-03 14:59  nestu
-
-	* kernel/linux-beta-mm/PRE_BUILD: Changing the source's permissions
-	to root.root
-
-2004-01-03 13:49  nestu
-
-	* kernel/linux-beta-mm/: DETAILS, PRE_BUILD: Bumping to
-	2.6.1-rc1-mm1. 2.6.0 patched to rc1, and rc1 patched again to mm1.
 
