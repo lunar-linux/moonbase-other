@@ -1,3 +1,86 @@
+2003-08-06 11:52  niki
+
+	* kernel/: linux/POST_INSTALL, linux-beta/POST_INSTALL,
+	linux-grsec/POST_INSTALL, linux-stable/POST_INSTALL,
+	linux-vanilla/POST_INSTALL: Moe told me that users still can have
+	the old nvidia driver installed.
+
+2003-08-06 09:50  sofar
+
+	* distributed/BitTorrent/DEPENDS: BitTorrent doesn't need WxPython
+	to run... this enables us to run BitTorrent on dbguin serving files
+	without installing gtk/xfree86. =^D
+
+2003-08-06 03:38  niki
+
+	* kernel/linux-grsec/POST_INSTALL: Your welcome Nick ;-)
+	
+	Changing this one to also rebuild NVIDIA instead of NVIDIA_kernel
+
+2003-08-06 03:10  nhudson
+
+	* kernel/: linux/POST_INSTALL, linux-beta/POST_INSTALL,
+	linux-stable/POST_INSTALL, linux-vanilla/POST_INSTALL: 
+	Changing these to rebuild NVIDIA instead of NVIDIA_kernel
+
+2003-08-06 03:04  nhudson
+
+	* x11/xfree86/POST_INSTALL: 
+	Changing the POST_INSTALL to recompile the newer NVIDIA module
+	instead of the NVIDIA_GLX module
+
+2003-08-05 23:16  csm
+
+	* x11-utils/xpad/DETAILS: updating the version on thie cool little
+	application!
+
+2003-08-05 22:56  csm
+
+	* doc-tools/iso8879-entities/DETAILS: adding a throw away version
+	number to get this to build and store a proper install log. The
+	following error was ocurring at evey install:
+	
+	+ module size is Install log for iso8879-entities is not found
+
+2003-08-05 21:02  sofar
+
+	* crypto/openssh/: BUILD, POST_INSTALL: Adding proper calls fir
+	this. tested, niiiiice. Only need to add this to the iso install
+	somewhere so this is called somehow.
+
+2003-08-05 20:42  sofar
+
+	* crypto/openssh/Makefile: Adding a Makefile for generation of
+	"server-keys" and private keys. Works like the ssl example, but
+	will not overwrite current existing host keys.
+
+2003-08-05 20:25  jasper
+
+	* science/R/DETAILS: Update to 1.7.1
+
+2003-08-05 20:06  nestu
+
+	* zbeta/emacs-cvs/CONFLICTS: Added the conflict with emacs. Jasper
+	allowed me to do this one :")
+
+2003-08-05 18:53  jmhodges
+
+	* science/octave/PRE_BUILD: fixed
+
+2003-08-05 18:19  jasper
+
+	* zbeta/emacs-cvs/: BUILD, DEPENDS, DETAILS: Add emacs cvs build
+	with optional gtk2 interface
+
+2003-08-05 16:16  jasper
+
+	* audio/faad/DEPENDS: Apparently faad depends on id3lib as well
+
+2003-08-05 12:01  elaine
+
+	* utils/: lunar/BUILD, theedge/BUILD: quieted rm with -f, added the
+	 r switch to lunar/BUILD
+
 2003-08-05 03:58  tchan
 
 	* utils/reiserfsprogs/DETAILS: Version bump to 3.6.11.	Compiled
@@ -1712,27 +1795,4 @@
 
 	* libs/uClibc/: .config.bz2, DETAILS: Version bump to 0.9.20. 
 	Compiled and tested with gcc-3.2.3.
-
-2003-07-06 23:59  jol
-
-	* kde3-apps/apollon/: BUILD, DEPENDS, DETAILS: A very good (IMO)
-	GUI for giFT
-
-2003-07-06 22:07  sofar
-
-	* chat/gaim/DETAILS: Bumping update, this is a big one that will
-	help people using MSN
-
-2003-07-06 22:07  sofar
-
-	* chat/gaim/: BUILD, DETAILS, POST_INSTALL: update featuring
-	chipx86 MSN fixes.
-
-2003-07-06 12:44  sofar
-
-	* net/net-snmp/DETAILS: b0rk b0rk b0rk
-
-2003-07-06 11:40  sofar
-
-	* web/webmin/DETAILS: New version
 
