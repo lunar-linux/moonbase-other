@@ -1,0 +1,24 @@
+          MODULE=p0f
+         VERSION=2.0.3
+          SOURCE=$MODULE.tgz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+   SOURCE_URL=http://lcamtuf.coredump.cx/$SOURCE
+   SOURCE_VFY=md5:583688a4c5718eec0bb34102b3ac457b
+        WEB_SITE=http://lcamtuf.coredump.cx/p0f.shtml
+         ENTERED=20040216
+         UPDATED=20040216
+           SHORT="p0f v2 is a versatile passive OS fingerprinting tool."
+cat << EOF
+P0f v2 is a versatile passive OS fingerprinting tool. P0f can identify the system on:
+
+   - machines that connect to your box (SYN mode),
+   - machines you connect to (SYN+ACK mode),
+   - machine you cannot connect to (RST+ mode),
+   - machines that talk thru or near your box.
+
+But checking the system is not all we can do, p0f will also check the following:
+
+   - masquerading and firewall presence (useful for policy enforcement),
+   - the distance to the remote system and its uptime,
+   - other guy's network hookup (DSL, OC3, avian carriers) and his ISP. 
+EOF
