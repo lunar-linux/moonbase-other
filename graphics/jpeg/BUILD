@@ -7,8 +7,10 @@
   default_config &&
   sedit "s/\$(prefix)\/man\/man\$(manext)/\/usr\/share\/man\/man\$(manext)/" Makefile &&
   make  &&
+  ld --whole-archive -share -o .libs/libjpeg.so .libs/libjpeg.a
   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD make test &&
   prepare_install &&
-  make install
+  make install &&
+  install -m755 -oroot -groot .libs/libjpeg.so /usr/lib/
 
 ) > $C_FIFO 2>&1
