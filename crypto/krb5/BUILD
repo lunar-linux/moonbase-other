@@ -1,8 +1,10 @@
 (
 
   cd  src
-  ./configure  --enable-dns-for-kdc   \
-               --enable-dns-for-realm \
+  ./configure  --enable-dns-for-kdc     \
+               --enable-dns-for-realm   \
+               --infodir=/usr/share     \
+               --mandir=/usr/share/man  \
                --prefix=/usr    &&
   make                          &&
   prepare_install               &&
