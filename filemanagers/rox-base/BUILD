@@ -1,6 +1,6 @@
 (
   
   prepare_install    &&
-  echo $'3\nyes' | ./install.sh
+  echo -e "/usr/share/rox/Choices\n" | ./install.sh
 
 ) > $C_FIFO 2>&1
