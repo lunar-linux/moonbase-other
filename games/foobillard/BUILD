@@ -6,6 +6,6 @@
               --bindir=/usr/games        \
 	      --datadir=/usr/share/games &&
 
-  default_build
+  default_make
 
 ) > $C_FIFO 2>&1
