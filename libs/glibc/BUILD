@@ -1,4 +1,5 @@
 (
+  cat $SCRIPT_DIRECTORY/divdi3.patch                |     patch -p1  &&
   cat $SCRIPT_DIRECTORY/glibc-2.2.5.patch           |     patch -p1  &&
   cat $SCRIPT_DIRECTORY/glibc-2.2.5-xdr.patch       |     patch -p1  &&
   #the ulrich.patch patch came from here: http://sources.redhat.com/ml/libc-hacker/2002-05/msg00031.html 
