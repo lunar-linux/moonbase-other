@@ -3,6 +3,8 @@ depends  libesmtp    &&
 depends  pspell      &&
 
 optional_depends "gtkhtml"      \
-                 "with-gtkhtml" \
-	         ""             \
+                 "--enable-gtkhtml" \
+                 ""             \
                  "to enable display of html messages"
+
+optional_depends "openssl" "--with-ssl" "" "for SSL support"
