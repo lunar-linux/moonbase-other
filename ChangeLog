@@ -1,3 +1,121 @@
+2004-11-12 07:40  v3rt1g0
+
+	* video/gxine/: BUILD, DEPENDS: Okay, I suck... last commit, I
+	  promiss.  Added an optional depends on lirc and removed the
+	  unneeded symlinks for the plugin
+
+2004-11-12 07:30  v3rt1g0
+
+	* video/gxine/BUILD: Sorry for the back-to-back commit.  Adding the
+	  plugin was an after thought.
+
+2004-11-12 07:23  v3rt1g0
+
+	* video/gxine/BUILD: Makeing this build!  This is a known defect
+	  that has not yet been fixed upstream.
+
+2004-11-12 05:12  v3rt1g0
+
+	* x11-utils/imwheel/: BUILD, DETAILS: Inital import.  A rather
+	  popular mouse wheel/button function setter for X.
+
+2004-11-12 04:22  v3rt1g0
+
+	* audio/audiotag/: BUILD, DEPENDS, DETAILS: Inital import of a perl
+	  script that is used for meta-tagging your audio files en mass.
+
+2004-11-12 03:54  v3rt1g0
+
+	* games/gnugo/: BUILD, DETAILS: Minor tweaks
+
+2004-11-12 03:30  v3rt1g0
+
+	* games/wtf/: BUILD, DETAILS: Simplified this module a bit and
+	  added the missing long description.
+
+2004-11-12 00:47  v3rt1g0
+
+	* libs/ecore/CONFLICTS: Not needed anymore now that the e17 modules
+	  are being set to /opt
+
+2004-11-12 00:43  v3rt1g0
+
+	* graphics/: imlib2/CONFLICTS, imlib2_loaders/CONFLICTS,
+	  evas/CONFLICTS: Not needed anymore now that the e17 modules are
+	  being set to /opt
+
+2004-11-12 00:41  v3rt1g0
+
+	* zbeta/etox-cvs/: BUILD, DETAILS: Making using of the /opt
+	  directory as suggested by sofar.
+
+2004-11-12 00:38  v3rt1g0
+
+	* zbeta/: epsilon-cvs/BUILD, epsilon-cvs/DETAILS, embryo-cvs/BUILD,
+	  embryo-cvs/DETAILS, edje-cvs/BUILD, edje-cvs/DEPENDS,
+	  edje-cvs/DETAILS, esmart-cvs/BUILD, esmart-cvs/DETAILS: Making
+	  using of the /opt directory as suggested by sofar.
+
+2004-11-12 00:37  v3rt1g0
+
+	* zbeta/ecore-cvs/: BUILD, CONFLICTS, DETAILS: Making using of the
+	  /opt directory as suggested by sofar.  This also negates the need
+	  for the conflicts file.
+
+2004-11-12 00:35  v3rt1g0
+
+	* zbeta/: eet-cvs/BUILD, eet-cvs/DEPENDS, eet-cvs/DETAILS,
+	  epeg-cvs/BUILD, epeg-cvs/DETAILS: Making using of the /opt
+	  directory as suggested by sofar.
+
+2004-11-12 00:33  v3rt1g0
+
+	* zbeta/: imlib2-cvs/BUILD, imlib2-cvs/CONFLICTS,
+	  imlib2-cvs/DETAILS, edb-cvs/BUILD, edb-cvs/CONFLICTS,
+	  edb-cvs/DETAILS, imlib2_loaders-cvs/BUILD,
+	  imlib2_loaders-cvs/CONFLICTS, imlib2_loaders-cvs/DETAILS,
+	  evas-cvs/BUILD, evas-cvs/CONFLICTS, evas-cvs/DEPENDS,
+	  evas-cvs/DETAILS: Making using of the /opt directory as suggested
+	  by sofar.  This also negates the need for the conflicts file.
+
+2004-11-11 21:10  florin
+
+	* libs/libxslt/DETAILS: bump the version from 1.1.11 to 1.1.12.
+
+2004-11-11 21:09  florin
+
+	* audio/moc/DETAILS: bump the version from 2.0.0 to 2.1.0.
+
+2004-11-11 21:08  cmak
+
+	* security/shadow/pam.d/groupadd: needed
+
+2004-11-11 21:02  florin
+
+	* libs/libxml2/DETAILS: bump the version from 2.6.15 to 2.6.16.
+
+2004-11-11 19:23  florin
+
+	* mail/bogofilter/DETAILS: bump the version from 0.92.8 to 0.93.1.
+
+2004-11-11 15:50  sofar
+
+	* security/shadow/DETAILS: security fix:
+	  http://www.securitytracker.com/alerts/2004/Oct/1011972.html
+
+2004-11-11 14:37  tchan
+
+	* doc-tools/intltool/DETAILS: Reverting to intltool-0.31.2.  0.32.1
+	  does NOT install cleanly and then it proceeds to break
+	  scrollkeeper.  Don't bump to 0.32.1 unless you can fix the
+	  install procedure (which aborts with no error messages) and the
+	  subsequent broken scrollkeeper compile problems.  Tested with
+	  gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
+
+2004-11-11 14:31  tchan
+
+	* utils/memtest86+/POST_INSTALL: Fixed the GRUB section.
+
 2004-11-11 09:04  sofar
 
 	* ftp/gftp/DETAILS: New version
@@ -2150,46 +2268,4 @@
 
 	* devel/sshole/: DEPENDS, DETAILS: Inital import of a little
 	  program to help debug SSL-encrypted protocols.
-
-2004-10-12 20:44  florin
-
-	* archive/zlib/DETAILS: bump the version from 1.2.1 to 1.2.2.
-
-2004-10-12 20:06  florin
-
-	* web/squid/DETAILS: bump the version from 2.5.STABLE6 to
-	  2.5.STABLE7.
-
-2004-10-12 18:12  florin
-
-	* profiles/xservers-profile/DEPENDS: add the XOrg-test module.
-
-2004-10-12 15:19  nestu
-
-	* kernel/linux-2.6-grsec/PRE_BUILD: Oops, forgot to take away a set
-	  -x for debugging
-
-2004-10-12 15:16  nestu
-
-	* kernel/linux-2.6-grsec/: BUILD, CONFIGURE, DEPENDS, DETAILS,
-	  POST_INSTALL, PRE_BUILD: First grsec for 2.6.X in moonbase. Yay!
-	  ;) gcc 3.3.3, glibc 2.3.2, headers 2.6.8.1
-
-2004-10-12 15:11  nestu
-
-	* utils/gradm/DETAILS: 1.9.13 -> 2.0.1. Tested by sofar and myself
-	  ( me: gcc 3.3.3, glibc 2.3.2, headers 2.6.8.1 )
-
-2004-10-12 12:11  moe
-
-	* net/rp-pppoe/DETAILS: Fixing bug reported by beko
-
-2004-10-12 11:01  sofar
-
-	* utils/: lunar/DETAILS, theedge/DETAILS: Bumping versions so
-	  everyone gets it again!
-
-2004-10-12 09:53  perldude
-
-	* zbeta/xforms/DETAILS: fix download url
 
