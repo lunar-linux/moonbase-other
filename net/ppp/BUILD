@@ -1,6 +1,6 @@
 (
 
-	if [ $WITH_MPPE ]; then
+	if [ $WITH_MPPE == "y" ]; then
 	  cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY/
           gunzip $SOURCE2
 	  patch_it $PATCHNAME 1
