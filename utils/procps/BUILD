@@ -1,24 +1,19 @@
 (
-  sedit "s/top.desktop//" Makefile    &&
-  sedit "s/\/usr\/bin/\/bin/g" Makefile &&
-  make CFLAGS="$CFLAGS"                             &&
 
-  prepare_install                     &&
-  make  -e XSCPT='' DESTDIR=/ install
+  sedit "s/top.desktop//" Makefile                &&
+  sedit "s/\/usr\/bin/\/bin/g" Makefile           &&
+  make CFLAGS="$CFLAGS"                           &&
 
-  [ -s "/etc/sysctl.conf" ] || install -g 0 -o 0 -m 0600 $SCRIPT_DIRECTORY/sysctl.conf /etc
+  prepare_install                                 &&
+  make  -e XSCPT='' DESTDIR=/ install             &&
 
-) > $C_FIFO 2>&1  &&  (
+  if [ -e /etc/init.d/sysctl.sh ]; then
+    rm -f /etc/init.d/sysctl.sh                   &&
+    rm -f /etc/rcS.d/S99sysctl
+  fi                                              &&
+  
+  cp $SCRIPT_DIRECTORY/init.d/sysctl /etc/init.d  &&
+  ln -sf ../init.d/sysctl /etc/rcS.d/S99sysctl
 
-if [ -e /etc/init.d/sysctl.sh ]; then
-   rm -f /etc/init.d/sysctl.sh
-   rm -f /etc/rcS.d/S99sysctl
-   cp  $SCRIPT_DIRECTORY/init.d/sysctl  /etc/init.d
-   ln  -sf     ../init.d/sysctl  /etc/rcS.d/S99sysctl
-else
-  cp  $SCRIPT_DIRECTORY/init.d/sysctl  /etc/init.d
-  ln  -sf     ../init.d/sysctl  /etc/rcS.d/S99sysctl
-fi
-
-)
+) > $C_FIFO 2>&1
 
