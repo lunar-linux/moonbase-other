@@ -3,7 +3,7 @@ if ! module_installed j2sdk; then
        lin j2sdk
    fi
 fi
-if grep -qv "BYTECODE=y" /etc/lunar/local/depends/freetype2; then
+if ! grep -q "BYTECODE=y" /etc/lunar/local/depends/freetype2 ; then
   message "${PROBLEM_COLOR}Warning: please lin -r -c freetype2 and answer yes to bytecode interpreter.${DEFAULT_COLOR}"
   false  #fail out because users dont see this if we install properly.
 fi
