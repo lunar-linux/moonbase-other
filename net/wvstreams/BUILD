@@ -1,10 +1,7 @@
 (
-  cat $SCRIPT_DIRECTORY/libwvstreams-3.70-gcc3.patch | patch -p1 &&
-  sedit 's/\/usr\/local/\/usr/g' Makefile             &&
-  sedit 's/\/usr\/local/\/usr/g' Doxyfile             &&
-  make                                                &&
-  prepare_install                                     &&
-  make    install
+  # This is a hack to get wvstreams-3.74.0 to compile at all!
+  sedit 's/libwvutils.so: /libwvutils.so: -ldb /' vars.mk &&
+  default_build
 
 ) > $C_FIFO 2>&1
 
