@@ -38,7 +38,7 @@
   fi
 
   if [ "$ENABLE_SSL" == "y" ] ; then
-    OPTS="$OPTS --enable-ssl --with-ssl"
+    OPTS="$OPTS --enable-ssl"
   fi
 
   if [ "$ENABLE_PROXY" == "y" ] ; then
