@@ -12,11 +12,12 @@
 	       --includedir=/usr/include/apache2		\
 	       --infodir=/usr/share/info			\
 	       --mandir=/usr/share/man				\
-               --enable-modules=most,max,auth_db,so,php,ssl	\
+               --enable-shared-modules=all              	\
 	       --enable-so					\
                --enable-info					\
                --enable-cgi					\
-               --disable-auth					\
+               --with-mpm=worker				\
+               --with-berkeley-db				\
                --enable-layout=GNU				&&
 
   make                                           &&
