@@ -1,5 +1,6 @@
 (
 
+patch < $SCRIPT_DIRECTORY/mupo-recurringtodo.patch
 sedit "s/-.\/\$@.x86/strip mupo.x86/" Makefile &&
 sedit "s/-O2/$CFLAGS/" Makefile &&
 make MACH=x86   &&
