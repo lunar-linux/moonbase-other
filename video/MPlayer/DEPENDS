@@ -1,5 +1,5 @@
-depends  unzip       &&
-depends  w32codec    &&
+depends  unzip      &&
+depends  w32codec   &&
 
 optional_depends  "libdvdread"     \
 		  ""               \
@@ -16,6 +16,11 @@ optional_depends  "alsa-utils"     \
                   ""               \
                   "for ALSA sound support"             &&
 
+optional_depends  "libvorbis"      \
+		  ""               \
+		  ""               \
+		  "to use ogg audio format"            &&
+
 optional_depends  "MPlayer-qt"     \
                   ""               \
 		  ""               \
@@ -25,6 +30,11 @@ optional_depends  "MPlayer-rm"     \
                   ""               \
 		  ""               \
 		  "For RealMedia support"              &&
+
+optional_depends "libmatroska"	\
+		 ""             \
+		 ""		\
+		 "For matroska audio/video container format support" &&
 
 optional_depends "faad"		   \
 		 "--enable-faad"   \
