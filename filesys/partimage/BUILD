@@ -1,5 +1,6 @@
 (
 
+  sedit '/partimag\.root/d' Makefile.{in,am} &&
   ./autogen.sh &&
   ln -s /usr/share/automake/mkinstalldirs . &&
   default_build
