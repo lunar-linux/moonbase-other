@@ -1,3 +1,134 @@
+2004-12-28 12:48  moe
+
+	* kernel/linux-2.6/PRE_BUILD: More checks .. more secure .. (?)
+
+2004-12-28 10:36  jol
+
+	* kde3-utils/kompose/DETAILS: Bumped version to 0.5.1
+
+2004-12-28 10:33  moe
+
+	* kernel/: linux-2.4/PRE_BUILD, linux-2.4-agr/PRE_BUILD,
+	  linux-2.4-grsec/PRE_BUILD, linux-2.4-om/PRE_BUILD,
+	  linux-2.4-stable/PRE_BUILD, linux-2.4-vanilla/PRE_BUILD: Fixing
+	  the PRE_BUILD files of all the kernel modules so that they are
+	  going to work with the latest available tar. Tested with the
+	  latest tar and gcc 3.3.3, glibc 2.3.3.
+
+	  PS: The PRE_BUILD's are looking really strange :-/
+
+2004-12-28 06:02  florin
+
+	* games/neverball/BUILD: small tweak.
+
+2004-12-28 05:01  v3rt1g0
+
+	* games/neverball/: BUILD, DETAILS: Cleaned up the DETAILS file a
+	  bit, simplified the BUILD, and most importantly we are now
+	  installing neverputt! mmmmm minigolf.
+
+2004-12-28 02:59  v3rt1g0
+
+	* games/geekcode/: BUILD, DETAILS: Inital Import.  Yay for long
+	  annoying .sigs
+
+2004-12-28 01:53  v3rt1g0
+
+	* x11-apps/xscreensaver-gtk1/DETAILS: Yeah, that message not almost
+	  not made no sense.
+
+2004-12-28 01:49  v3rt1g0
+
+	* x11-apps/: xscreensaver-kde/DEPENDS,
+	  xscreensaver-openMotif/DEPENDS: xsnow as optional_depends
+
+2004-12-28 01:48  v3rt1g0
+
+	* x11-apps/xscreensaver-gtk1/DEPENDS: Added new optional_depends of
+	  xsnow
+
+2004-12-28 01:47  v3rt1g0
+
+	* x11-apps/xscreensaver/DEPENDS: Added missing && and added a new
+	  optional_depends of xsnow
+
+2004-12-28 01:16  v3rt1g0
+
+	* x11-apps/xscreensaver-gtk1/DETAILS: xscreensaver developers has
+	  dropped support for the gtk+1 version, making note of this in the
+	  DETAILS file and hence no version bump.  If a dev feels strongly
+	  about this they can just remove this module completely.  I won't
+	  shed a tear. :)
+
+2004-12-28 01:13  v3rt1g0
+
+	* x11-apps/xscreensaver-openMotif/DETAILS: Version bump of the
+	  openMotif one
+
+2004-12-28 01:12  v3rt1g0
+
+	* x11-apps/xscreensaver-kde/DETAILS: Version bump. -- kde version
+
+2004-12-28 01:11  v3rt1g0
+
+	* x11-apps/xscreensaver/DETAILS: Version bump.	4 new hacks added
+	  and some others got an update.
+
+2004-12-27 20:22  florin
+
+	* crypto/cyrus-sasl/: BUILD, DETAILS: add a patch to encrypt the
+	  password.
+
+2004-12-27 19:16  perldude
+
+	* kernel/linux-2.6/PRE_BUILD: ooops. sorry. reverting.
+
+2004-12-27 19:09  perldude
+
+	* kernel/: linux-2.6/PRE_BUILD, linux-2.6-ck/BUILD,
+	  linux-2.6-ck/CONFIGURE, linux-2.6-ck/DEPENDS,
+	  linux-2.6-ck/POST_INSTALL, linux-2.6-ck/PRE_BUILD,
+	  linux-2.6-cko/BUILD, linux-2.6-cko/CONFIGURE,
+	  linux-2.6-cko/DEPENDS, linux-2.6-cko/POST_INSTALL,
+	  linux-2.6-cko/PRE_BUILD: update linux-2.6-ck and linux-2.6-cko
+	  modules (based on the new linux-2.6 module rewritten by Moe)
+
+2004-12-27 18:29  florin
+
+	* devel/db4/BUILD: fix the build in order for db4 to be detected at
+	  configure by some apps (php).
+
+2004-12-27 18:27  florin
+
+	* devel/db/BUILD: minor tweak.
+
+2004-12-27 17:10  moe
+
+	* mail/dovecot/: BUILD, DEPENDS, DETAILS, init.d/dovecot: I like
+	  the good stuff. Therefore, I like dovecot.
+
+	  * Bumped to 0.9.12.1 * Removed gnutls as an optional dependency
+	  since it doesn't work out right * Modified the init script to
+	  actually work   with chkconfig
+
+2004-12-27 16:41  moe
+
+	* kernel/linux-2.6/: BUILD, BUILD.alpha, CONFIGURE, DETAILS,
+	  POST_INSTALL: Major rewrite of the linux-2.6 module
+
+	  * Shamelessly stole most of the stuff from   sofar's new
+	  linux-2.4 module ;^) * Updated to 2.6.10. Tested with gcc 3.3.3,
+	  gcc 2.3.3,   kernel-headers-2.6
+
+2004-12-27 16:40  moe
+
+	* net/: hostap-driver/BUILD, hostap-driver/DETAILS,
+	  hostap-utils/DETAILS, hostapd/DETAILS, wpa_supplicant/BUILD,
+	  wpa_supplicant/DETAILS: Major hostap stuff update. This version
+	  is needed in order to update to the most recent kernels.
+
+	  * wpa_supplicant is working with ipw2100 now
+
 2004-12-27 04:58  florin
 
 	* science/R/DETAILS: bump the version to 2.0.1.
@@ -2085,19 +2216,4 @@
 2004-11-28 04:55  v3rt1g0
 
 	* libs/libfame/DETAILS: Cosmetic/Typo tuchups.
-
-2004-11-27 21:32  v3rt1g0
-
-	* web/lynx/: BUILD, DEPENDS, DETAILS: Added some more build-time
-	  options in and some missing depends.
-
-2004-11-27 12:45  florin
-
-	* graphics/openvrml/: DEPENDS, DETAILS: bump the version from
-	  0.14.3 to 0.15.1. depends on SDL instead of glut now.
-
-2004-11-27 01:36  v3rt1g0
-
-	* graphics/gimp/DEPENDS: Made aalib optional and added libmng as an
-	  optional depends.
 
