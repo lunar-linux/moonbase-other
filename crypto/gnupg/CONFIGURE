@@ -1,0 +1,10 @@
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  if query "Enable experimental external HKP keyserver interface? " n; then
+    OPTS="$OPTS --enable-external-hkp"
+  fi
+
+  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+
+fi
