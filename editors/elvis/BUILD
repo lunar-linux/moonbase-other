@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE1 1      &&
+
   sedit "s/if test -n \"\$mandir\"/mandir=\/usr\/share\/man\/man1 ; \0/" instman.sh
   sedit "s/for dir in \$mandir/mandir=\/usr\/share\/man\/man1 ; \0/" instman.sh
   sedit  "s/-O2/$CFLAGS $LDFLAGS/"  configure     &&
