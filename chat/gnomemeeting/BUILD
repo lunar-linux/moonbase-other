@@ -1,6 +1,6 @@
 (
   export PWLIBDIR=$SOURCE_DIRECTORY/pwlib-1.5.0             &&
-  export OPENH323DIR=$SOURCE_DIRECTORY/openh323-1.12.0      &&
+  export OPENH323DIR=$SOURCE_DIRECTORY/openh323             &&
 
   #Build pwlib 
   cd $PWLIBDIR                                              &&
