@@ -5,7 +5,7 @@
   fi		   &&
 
   patch_it $SOURCE_CACHE/$SOURCE3 0 &&
-  
+  sedit "s/pid=\`\/sbin\/pidof/pid=\`\/bin\/pidof/" etc/rc.pcmcia &&
   make clean       &&
   ./Configure -n --sysv --rcdir=/etc --srctree $OPTS &&
   make  all        &&
