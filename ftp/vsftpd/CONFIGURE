@@ -1,12 +1,12 @@
-if ! [[ -d /usr/share/empty ]]; then
+if [ ! -d /usr/share/empty ] ; then
   mkdir /usr/share/empty
 fi
 
-if ! [[ -d /home/ftp ]]; then
-  mkdir /home/ftp
-  chown root.root /home/ftp
-  chmod og-w /home/ftp
+if [ ! -d ~ftp ] ; then
+  mkdir ~ftp
+  chown root.root ~ftp
+  chmod og-w ~ftp
 else
-  chown root.root /home/ftp
-  chmod og-w /home/ftp
+  chown root.root ~ftp
+  chmod og-w ~ftp
 fi    
