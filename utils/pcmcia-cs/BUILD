@@ -1,10 +1,10 @@
 (
 
   if [ "$AIRSNORT" == "y" ]; then
-    patch -p0 < $SOURCE_CACHE/$SOURCE2
+    patch_it $SOURCE_CACHE/$SOURCE2 0
   fi		   &&
 
-  patch -p0 < $SCRIPT_DIRECTORY/Configure.patch &&
+  patch_it $SOURCE_CACHE/$SOURCE3 0 &&
   
   make clean       &&
   ./Configure -n --sysv --rcdir=/etc --srctree $OPTS &&
