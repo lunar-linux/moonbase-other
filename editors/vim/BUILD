@@ -1,22 +1,10 @@
 (
 
-  # patch_it $SOURCE_CACHE/$SOURCE2 1 &&
- 
   cd src                                 &&
-  
-  ./configure  --prefix=/usr             \
-               --bindir=/usr/bin         \
-               --sbindir=/usr/sbin       \
-               --sysconfdir=/etc         \
-               --infodir=/usr/share/info \
-               --mandir=/usr/share/man   \
-               --datadir=/usr/share      \
-               --localstatedir=/var      \
-               $OPTS                     &&
-  
-  rm -f /usr/bin/vim /usr/bin/vi         &&
+	default_config                         &&
   make                                   &&
   prepare_install                        &&
+  rm -f /usr/bin/vim /usr/bin/vi         &&
   ( find /usr/share/vim -type d -exec rmdir {} \; &> /dev/null || true) &&
   make install                           &&
   ln  -sf  /usr/bin/vim  /usr/bin/vi     &&
