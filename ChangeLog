@@ -1,3 +1,144 @@
+2004-09-15 13:12  v3rt1g0
+
+	* ham/wwl/: BUILD, DETAILS: A few minor cleanups.
+
+2004-09-15 12:56  v3rt1g0
+
+	* gnome2-core/libglade2/DEPENDS: Removed expat as a depends because
+	  Python already covers that depends with it's own required depends
+	  of expat.
+
+2004-09-15 11:38  cmak
+
+	* x11-apps/xcdroast/POST_INSTALL: added a note for the luser
+
+2004-09-15 11:37  cmak
+
+	* x11-apps/xcdroast/POST_INSTALL: [no log message]
+
+2004-09-15 10:46  moe
+
+	* net/ipw2100/: BUILD, DETAILS: Right on .. ipw2100 .54
+
+2004-09-15 10:12  sofar
+
+	* perl/MailTools/DETAILS: long outstanding update that I never
+	  committed.
+
+2004-09-15 09:49  sofar
+
+	* games/gltris/DETAILS: okay last one promise really really !
+
+2004-09-15 09:23  sofar
+
+	* games/gltris/DETAILS: okay last one promise REALLY
+
+2004-09-15 09:23  sofar
+
+	* games/gltris/DETAILS: okay last one promise
+
+2004-09-15 09:16  sofar
+
+	* games/gltris/: DETAILS: [no log message]
+
+2004-09-15 09:11  sofar
+
+	* games/gltris/: DETAILS: [no log message]
+
+2004-09-15 09:07  sofar
+
+	* games/gltris/: DETAILS: pfff
+
+2004-09-15 09:05  sofar
+
+	* games/gltris/DETAILS: sorry, another test
+
+2004-09-15 08:59  sofar
+
+	* games/gltris/DETAILS: I suck and flood your mailbox
+
+2004-09-15 08:09  sofar
+
+	* games/gltris/DETAILS: changing date (just testing commits stuff
+	  sorry)
+
+2004-09-15 08:06  sofar
+
+	* games/gltris/DETAILS: Adding cute little GL tetris twoplayer game
+
+2004-09-15 04:36  florin
+
+	* libs/libxml++/DETAILS: bump the version from 2.6.0 to 2.8.0.
+
+2004-09-15 04:13  florin
+
+	* net/tftp-hpa/DETAILS: bump the version from 0.38 to 0.39.
+
+2004-09-15 03:08  v3rt1g0
+
+	* utils/clamav/DEPENDS: Added optional depends for gmp.  This
+	  apparently provides digital signature support within clamav.
+	  This closes out the issue submitted on 24Aug04 by dveatch named
+	  "clamav and gmp".
+
+2004-09-15 03:04  v3rt1g0
+
+	* libs/gmp/DEPENDS: Added some missing depends.  Chances are these
+	  basic modules were/are installed on everyones boxes anyhow, but
+	  added for completeness sake.
+
+2004-09-15 01:58  v3rt1g0
+
+	* kde3-apps/kxmleditor/: BUILD, DEPENDS, DETAILS: dveatch pointed
+	  out in a lunar issue (kxmleditor (1.1.3) fails build) that this
+	  module was failing with the errors like...
+
+	  /home/lvanek/Projects/Own/kxmleditor/part/dcopiface_part_ro.h: No
+	  such file or directory
+
+	  confirmed this issue and added an appropriate sedit to fix.  Also
+	  cleaned up some formatting while I was here.
+
+2004-09-14 20:58  cmak
+
+	* x11-apps/xcdroast/POST_INSTALL: added hint for key
+
+2004-09-14 20:50  striker
+
+	* ftp/proftpd/BUILD: removed logic that causes overwrite prompt by
+	  gzip if upgrading
+
+2004-09-14 20:38  sofar
+
+	* utils/hc-cron/BUILD: simplified
+
+2004-09-14 16:24  florin
+
+	* ftp/lftp/DETAILS: bump the version from 3.0.7 to 3.0.8.
+
+2004-09-14 15:08  tchan
+
+	* mail/thunderbird/DETAILS: Version bump to thunderbird-0.8.  Added
+	  sha1 and an alternate download location.
+
+2004-09-14 14:34  nestu
+
+	* filesys/sysfsutils/DETAILS: Version bump: 1.1.0 -> 1.2.0. gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.8.1
+
+2004-09-14 14:33  nestu
+
+	* filesys/udev/DETAILS: Version bump: 031 -> 032. gcc 3.3.3, glibc
+	  2.3.2, headers 2.6.8.1
+
+2004-09-14 13:37  v3rt1g0
+
+	* gnustep/Addresses/DETAILS: Added proper descriptions for this
+	  module (thanks to babelfish for the translation).  It seems this
+	  module needs a version bump (0.4.5 -> 0.4.6).  I do not have a
+	  meens to test the bump so I did not bump it.	currently I get a
+	  404 from the download uri but lresort gets it.
+
 2004-09-14 13:23  moe
 
 	* perl/perl/POST_INSTALL: XML-Parser needs to recompiled too
@@ -1967,175 +2108,4 @@
 
 	* x11-wm/ROX-Session/BUILD: Fixed a problem with DISPLAY var, as
 	  noted by smoon.
-
-2004-08-15 21:46  tchan
-
-	* archive/unrar/DETAILS: Fixed the indentation.
-
-2004-08-15 19:25  florin
-
-	* news/leafnode/DETAILS: bump the version from 1.10.3 to 1.10.4.
-
-2004-08-15 18:46  florin
-
-	* games/stella/DETAILS: bump the version from 1.4 to 1.4.1.
-
-2004-08-15 17:15  nhudson
-
-	* zbeta/evolution-beta/DETAILS:
-	  Updating evolution-beta to new version 1.5.93
-
-2004-08-15 17:14  nhudson
-
-	* mail/evolution-data-server/DETAILS:
-	  Updating eds to new version 0.0.98
-
-2004-08-15 17:12  nhudson
-
-	* libs/libsoup22/DETAILS:
-	  Updating gal21 gtkhtml31 and libsoup22 all to new versions
-
-2004-08-15 16:14  tchan
-
-	* graphics/libungif/DETAILS: Fixed the UPDATED field.
-
-2004-08-15 16:12  tchan
-
-	* kde3-apps/kdetv/DETAILS: Fixed the indentation.
-
-2004-08-15 12:54  florin
-
-	* chat/ircservices/: BUILD, DETAILS: bump the version from 5.0.37
-	  to 5.0.38.
-
-2004-08-15 09:42  nestu
-
-	* kernel/linux-beta/DETAILS: Version bump: 2.6.8 -> 2,6,8.1. gcc
-	  3.3.3, glibc 2.3.2, headers 2.6.7.0 Quick 1 fix release, from
-	  Changelog: Fix NFS client screw-up in fcntl f_op removal.
-
-2004-08-15 08:10  florin
-
-	* games/wesnoth/DETAILS: bump the version from 0.8 to 0.8.2.
-
-2004-08-15 08:05  ratler
-
-	* wifi/kismet/BUILD: Did a small fix for kismet so it builds with
-	  new ImageMagick, apparently they changed the bool code in
-	  ImageMagick which borked kismet (only in C++ api)
-
-2004-08-15 07:34  florin
-
-	* x11-apps/xscreensaver/DETAILS: bump the version from 4.16 to
-	  4.18.
-
-2004-08-15 06:41  florin
-
-	* graphics/libungif/DETAILS: bump the version from 4.1.0 to 4.1.3.
-	  bugfix release.
-
-2004-08-15 06:13  florin
-
-	* devel/rexml/DETAILS: bump the version from 2.7.4 to 3.1.2.
-
-2004-08-15 06:07  florin
-
-	* archive/unrar/DETAILS: bump the version from 3.3.6 to 3.4.2.
-
-2004-08-15 05:30  florin
-
-	* kde3-apps/kdetv/DETAILS: fix the md5sum.
-
-2004-08-15 03:32  tchan
-
-	* devel/arch/DETAILS: Fixed some indentation.
-
-2004-08-15 03:29  tchan
-
-	* x11-wm/openbox/: DETAILS, POST_INSTALL, POST_REMOVE,
-	  openbox.desktop: Added yet another window manager.  Compiles okay
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.  Not very
-	  useful in its default configuration.	Users of this WM, should
-	  feel free to suggest corrections/updates to this module.
-
-2004-08-15 03:17  tchan
-
-	* devel/arch/DETAILS: Version bump to tla-1.2.1 (A.K.A. arch).
-	  Compiled and tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.  Fixed the homepage URL.  Currently the source tarball is
-	  only available at jblack's mirror, but Tom Lord says he'll
-	  eventually get it uploaded to the ftp.gnu.org mirrors of
-	  gnu-arch.
-
-2004-08-15 01:40  tchan
-
-	* kde3-apps/kdetv/DETAILS: Fixed the md5sum.  Authors have modified
-	  their tarball without a version bump.
-
-2004-08-15 01:32  tchan
-
-	* graphics/ImageMagick/DETAILS: Stupid ImageMagick devs have
-	  updated tarball again and removed the old version.  Version bump
-	  to 6.0.4-4.
-
-2004-08-15 01:28  jmhodges
-
-	* gnome2-extras/magicdev/DETAILS: md5 fix
-
-2004-08-15 00:40  jmhodges
-
-	* graphics/gtk+-2/DETAILS: that must have been annoying
-
-2004-08-15 00:29  jmhodges
-
-	* gnome2-extras/ghex/BUILD, gnome2-extras/ghex/DEPENDS,
-	  gnome2-extras/ghex/DETAILS,
-	  gnome2-extras/gnome-cups-manager/DETAILS,
-	  gnome2-extras/gnome-python2/BUILD,
-	  gnome2-extras/gnome-python2/DEPENDS,
-	  gnome2-extras/gnome-python2/DETAILS,
-	  gnome2-extras/gnome-speech/BUILD,
-	  gnome2-extras/gnome-speech/DEPENDS,
-	  gnome2-extras/gnome-speech/DETAILS,
-	  gnome2-extras/gnome2-icons/BUILD,
-	  gnome2-extras/gnome2-icons/DETAILS,
-	  gnome2-extras/gnopernicus/BUILD,
-	  gnome2-extras/gnopernicus/DEPENDS,
-	  gnome2-extras/gnopernicus/DETAILS, gnome2-extras/libcroco/BUILD,
-	  gnome2-extras/libcroco/DEPENDS, gnome2-extras/libcroco/DETAILS,
-	  gnome2-extras/libcroco/POST_INSTALL,
-	  gnome2-extras/libgnomecups/DETAILS,
-	  gnome2-extras/magicdev/DETAILS, gnome2-extras/mergeant/DEPENDS,
-	  gnome2-extras/mergeant/DETAILS, gnome2-extras/pyorbit/BUILD,
-	  gnome2-extras/pyorbit/DEPENDS, gnome2-extras/pyorbit/DETAILS,
-	  mail/evolution/BUILD, mail/evolution/DEPENDS,
-	  mail/evolution/DETAILS, web/epiphany/BUILD, web/epiphany/DEPENDS,
-	  web/epiphany/DETAILS, web/epiphany/epiphany,
-	  web/epiphany-extensions/DEPENDS, web/epiphany-extensions/DETAILS:
-	  one last spam.. next time we need this lets make it GNOME_2.9 or
-	  some such tag
-
-2004-08-15 00:10  jmhodges
-
-	* gnome2-core/: dasher/BUILD, dasher/DEPENDS, dasher/DETAILS,
-	  gDesklets/BUILD, gDesklets/DEPENDS, gDesklets/DETAILS,
-	  gDesklets/POST_INSTALL, gDesklets/gdesklets-display.desktop,
-	  gail/BUILD, gail/DEPENDS, gail/DETAILS, gnome-audio/BUILD,
-	  gnome-audio/DETAILS, gnome-common2/BUILD, gnome-common2/DEPENDS,
-	  gnome-common2/DETAILS, gnome-mime-data2/BUILD,
-	  gnome-mime-data2/DEPENDS, gnome-mime-data2/DETAILS,
-	  gnome2-user-docs/BUILD, gnome2-user-docs/DEPENDS,
-	  gnome2-user-docs/DETAILS, gtk-engines2/BUILD,
-	  gtk-engines2/DEPENDS, gtk-engines2/DETAILS, gtkmm2/BUILD,
-	  gtkmm2/DEPENDS, gtkmm2/DETAILS, libIDL/BUILD, libIDL/DEPENDS,
-	  libIDL/DETAILS, libbonobo/BUILD, libbonobo/CONFLICTS,
-	  libbonobo/DEPENDS, libbonobo/DETAILS, libbonoboui/BUILD,
-	  libbonoboui/DEPENDS, libbonoboui/DETAILS, libglade2/BUILD,
-	  libglade2/DEPENDS, libglade2/DETAILS, libglade2/POST_INSTALL,
-	  libglade2/POST_REMOVE, libgtkhtml/BUILD, libgtkhtml/DEPENDS,
-	  libgtkhtml/DETAILS, libole2-2/BUILD, libole2-2/DEPENDS,
-	  libole2-2/DETAILS, libzvt/BUILD, libzvt/DEPENDS, libzvt/DETAILS,
-	  linc/BUILD, linc/DEPENDS, linc/DETAILS, nautilus-media/BUILD,
-	  nautilus-media/DEPENDS, nautilus-media/DETAILS, yelp/BUILD,
-	  yelp/DEPENDS, yelp/DETAILS: cleanup, aisle 4.
 
