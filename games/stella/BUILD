@@ -12,12 +12,10 @@
   fi
 
   ( cd build && make linux-sdl ) &&
-  ( cd ui/sound && make linux  ) &&
 
   prepare_install &&
  
   install -m0755 build/stella.sdl /usr/bin/stella                 &&
-  install -m0755 ui/sound/stella-sound /usr/bin/stella-sound      &&
   install -m0644 emucore/stella.pro /etc/                         &&
   install -m0644 stellarc /etc/
   
