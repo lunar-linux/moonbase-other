@@ -6,8 +6,8 @@
   # The order of these two patches is important. 
   # DO NOT CHANGE THEM AROUND!
   
-  patch -p0<columns.patch                                   &&
-  patch -p0<centering.patch                                 &&
+#  patch -p0<columns.patch                                   &&
+#  patch -p0<centering.patch                                 &&
 
   ./configure  --prefix=/usr                                \
                --bindir=/usr/bin                            \
