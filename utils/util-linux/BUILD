@@ -13,6 +13,9 @@ sedit  "s/\$(OPT)//"                   MCONFIG
   then  lrm      --nosustain  util-linux-crypto
   fi                                          &&
   prepare_install                             &&
-  make    install
+  make    install                             &&
+  
+  install -g0 -o0 -m755 $SCRIPT_DIRECTORY/make-issue \
+    /sbin/make-issue
 
 ) > $C_FIFO 2>&1
