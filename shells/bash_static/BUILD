@@ -7,6 +7,7 @@ OPTS=$OPTS" --bindir=/bin \
 
 patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 default_config                &&
+make version.h                &&
 make                          &&
 prepare_install            
 cp bash /bin/bash_static
