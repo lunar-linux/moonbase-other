@@ -1,21 +1,19 @@
-           MODULE=madplay
+          MODULE=madplay
          VERSION=0.15.0b
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-     SOURCE_URL=ftp://ftp.mars.org/pub/mpeg/$SOURCE
-       SOURCE_VFY=md5:35762ddeb46fba8bbf0a260b6c425e82
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=ftp://ftp.mars.org/pub/mpeg/$SOURCE
+      SOURCE_VFY=md5:35762ddeb46fba8bbf0a260b6c425e82
         WEB_SITE=http://www.mars.org/home/rob/proj/mpeg/
          ENTERED=20031207
          UPDATED=20031207
-        SHORT=" madplay - MPEG audio decoder and player"
-
+           SHORT="madplay - MPEG audio decoder and player"
 cat << EOF
-
-  `madplay' is a command-line MPEG audio decoder and player based on the MAD
+  "madplay" is a command-line MPEG audio decoder and player based on the MAD
   library (libmad). For details about MAD, see the libmad package
   distributed separately.
 
-  After decoding, `madplay' sends the output to an audio output module. The
+  After decoding, "madplay" sends the output to an audio output module. The
   following audio output modules are provided:
 
     - an Open Sound System interface module (for Linux, et al.)
@@ -33,8 +31,7 @@ cat << EOF
     - a hex output module (for debugging and compliance testing)
     - a null module (for timing the decoder)
 
-  `madplay' will also read and display ID3 tag information, and further
+  "madplay" will also read and display ID3 tag information, and further
   supports the relative volume adjustment information (RVA2) in such tags,
-  as written by tools like `normalize'.
-
+  as written by tools like "normalize".
 EOF
