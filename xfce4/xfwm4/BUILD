@@ -4,7 +4,7 @@
    
    if [ WITH_COMPOSITE == "y" ]; then
      OPTS="$OPTS --enable-compositor"
-   fi
+   fi &&
    
    ./configure  --build=$BUILD					\
                 --prefix=${XFCE4_PREFIX:-/opt/lunar/xfce4}	\
