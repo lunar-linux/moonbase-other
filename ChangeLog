@@ -1,3 +1,49 @@
+2003-06-28 03:06  nhudson
+
+	* x11/truetype/: BUILD, DEPENDS, DETAILS, POST_INSTALL: 
+	Now that X 4.3.0 is out we no longer need ttmkfdir for installing
+	fonts.	I took out the dependancy for it and changed it so that it
+	will register with fontconfig and xft
+
+2003-06-28 02:30  nhudson
+
+	* chat/gnomeicu/: BUILD, DEPENDS, DETAILS: 
+	Moving gnomeicu2 to gnomeicu
+
+2003-06-28 02:25  nhudson
+
+	* gnome2-extras/ghex/: BUILD, DEPENDS, DETAILS: 
+	Moving ghex2 to ghex
+
+2003-06-28 02:22  nhudson
+
+	* gnome2-apps/ggv/: BUILD, DEPENDS, DETAILS: 
+	Moving ggv2 to ggv in gnome2-apps, this replaces the older gtk1 app
+	I removed a few minutes ago
+
+2003-06-28 02:17  nhudson
+
+	* gnome2-core/: bug-buddy/BUILD, bug-buddy/DEPENDS,
+	bug-buddy/DETAILS, eel/BUILD, eel/DEPENDS, eel/DETAILS,
+	eog/DEPENDS, gdm/DEPENDS, gedit/DEPENDS, gnome-terminal/DEPENDS,
+	librsvg/BUILD, librsvg/DEPENDS, librsvg/DETAILS, nautilus/DEPENDS: 
+	Removing some "2" modules and moving them to non "2" modules,
+	trying to rid of some older modules that are cluddering moonbase. 
+	Also I changed some DEPENDS files to show the changes of the names
+	of the modules, makes since right??
+
+2003-06-27 15:17  sofar
+
+	* security/ulogd/: BUILD, DETAILS: freeze! gah it's just a ulogd
+	update.... once I hope to write a complete portsentry replacement
+	that uses libipulog and libiptc, so we can get rid of that POS
+	portsentry and write a DECENT adaptive filter that doesn't require
+	3 or 4 system() calls. Sad, so sad...
+
+2003-06-27 11:59  elaine
+
+	* kernel/linux-stable/DETAILS: reverted .20, kept per-version label
+
 2003-06-27 11:30  nhudson
 
 	* compilers/: mcs/DETAILS, mono/DETAILS: 
@@ -663,8 +709,7 @@
 
 2003-06-11 02:40  nhudson
 
-	* gnome2-core/: gnome-session/BUILD, gnome-session/DETAILS,
-	librsvg2/BUILD, librsvg2/DETAILS: 
+	* gnome2-core/gnome-session/: BUILD, DETAILS: 
 	Adding a new and better splash screen to the Gnome startup, this
 	was made by andrew2 (sorry I dont know your email address) looks
 	alot better, maybe now we can get a Gnome2 Desktop theme up and
@@ -1011,11 +1056,6 @@
 	* audio/gst-plugins/DEPENDS: 
 	Adding ffmpeg as a dependancy instead of a optional dependancy
 
-2003-06-03 02:05  nhudson
-
-	* gnome2-apps/ggv2/DETAILS: 
-	Updating ggv2 to new version 2.0.1
-
 2003-06-03 02:02  nhudson
 
 	* gnome2-core/: GConf2/DETAILS, gnome-mime-data2/DETAILS,
@@ -1231,28 +1271,4 @@
 
 	* libs/Hermes/DETAILS: 
 	Fixing download location for the correct source file
-
-2003-05-28 22:06  tchan
-
-	* audio/zinf/DEPENDS: Added a missing depends "id3lib" to zinf.
-
-2003-05-28 21:09  tchan
-
-	* audio/zinf/: CONFLICTS, DETAILS: Version bump to 2.2.3.  Removed
-	the CONFLICTS file as freeamp has not been in the moonbase for many
-	months now.
-
-2003-05-28 16:10  florin
-
-	* video/transcode/DETAILS: bumped version. some improvements for
-	AVI files.
-
-2003-05-28 15:50  florin
-
-	* games/xmame/DETAILS: bumped version. finally a playable release
-	after a long time.
-
-2003-05-28 14:16  florin
-
-	* cd/cdrtools/DETAILS: bumped version. security release.
 
