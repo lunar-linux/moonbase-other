@@ -1,5 +1,4 @@
 (
-
   groupadd  mysql             2>/dev/null
   useradd   mysql  -g  mysql  2>/dev/null
 
@@ -24,7 +23,7 @@
   if ! grep  -q  "\--without-server" $MODULE_CONFIG;  then
     mysql_install_db
     chown  -R  mysql.mysql  /var/lib/mysql
-  fi
+  fi                                                      &&
 
   if  [ -x /etc/init.d/mysql.server  ]; then
     rm -f /etc/init.d/mysql.server
