@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# bootmisc - system startup script
+#
+
+case $1 in
+  start)
+    dmesg > /var/log/dmesg
+    touch /var/run/utmp
+    [ ! -f /etc/LOCALE ] || . /etc/LOCALE
+    [ ! -f /etc/keymap ] || loadkeys $(cat /etc/keymap)
+    [ ! -f /etc/consolefont ] || consolechars -f $(cat /etc/consolefont)
+    ;;
+esac
+
