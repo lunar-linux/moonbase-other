@@ -5,10 +5,7 @@ cp ${SOURCE_DIRECTORY}/doc/en/examples/example_recursive_mararc.txt ${MARARC}
 echo "# Hide annoying disclaimer from mararc file" >> ${MARARC}
 echo  "hide_disclaimer=\"YES\" " >>  ${MARARC}
 
-if ! id -u maradns ; then
-    useradd maradns && 
-    echo "maradns user created"          
-fi
+add_priv_user maradns:maradns
 
 MUID=`id -u maradns`	                                 &&
 sed -i "s/^maradns_uid.*/maradns_uid = $MUID/g" ${MARARC} &&
