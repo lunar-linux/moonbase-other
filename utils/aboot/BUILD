@@ -1,5 +1,5 @@
 (  
-   if [ "x`arch`" == "xalpha"]; then
+   if [ "x`arch`" == "xalpha" ]; then
      cd $SOURCE_DIRECTORY &&
      make                 &&
      prepare_install      &&
