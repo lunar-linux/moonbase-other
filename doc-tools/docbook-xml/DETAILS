@@ -1,21 +1,21 @@
           MODULE=docbook-xml
-         VERSION=4.2
+         VERSION=4.3
           SOURCE=$MODULE-$VERSION.zip
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/tmp
-   SOURCE_URL[0]=$LRESORT_URL/$SOURCE
-        WEB_SITE=http://docbook.sourceforge.net/projects/xsl/
+   SOURCE_URL[0]=http://www.docbook.org/xml/4.3/$SOURCE
+   SOURCE_URL[1]=$LRESORT_URL/$SOURCE
+      SOURCE_VFY=sha1:e79a59e9164c1013b8cc9f64f96f909a184ca016
+        WEB_SITE=http://www.docbook.org/xml/
          ENTERED=20030103
-         UPDATED=20030601
+         UPDATED=20040919
            SHORT="The DocBook XML DTD"
-cat << EOF
 
+cat << EOF
 DocBook is an XML/SGML vocabulary particularly well suited to books 
 and papers about computer hardware and software (though it is by no
 means limited to these applications).
-
 The DocBook Technical Committee maintains the DocBook schema. 
 DocBook is officially available as a Document Type Definition (DTD) 
 for both XML and SGML. It is unofficially available in other forms 
 as well.
-
 EOF
