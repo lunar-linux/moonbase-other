@@ -26,8 +26,9 @@ else
     fi
 fi
     
-
 cd  linux/
+
+patch_it $SOURCE2 1
 
 if  [ -f $CONFIG_CACHE/.config.2.6.stable ]; then
     cp $CONFIG_CACHE/.config.2.6.stable $BUILD_DIRECTORY/linux/.config;
