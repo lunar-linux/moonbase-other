@@ -7,6 +7,7 @@
      	       --infodir=${GNOME26_PREFIX:-/usr}/share/info      \
                --enable-ipv6=yes                                 \
                --enable-nntp=yes				 \
+               --enable-imap4					 \
 	       $OPTS                                             &&
   default_make                                                   &&
 
