@@ -1,3 +1,91 @@
+2003-12-17 10:40  sofar
+
+	* graphics/gtk+-2/DEPENDS, devel/tk/DEPENDS, graphics/gtk+/DEPENDS,
+	kde3/qt3/DEPENDS: You did not see this (it's for n00bs only, and
+	yeah that may be lame but having people dump on us every time is
+	lame too)
+
+2003-12-17 05:25  nhudson
+
+	* gnome2-apps/: ggv/DETAILS, gpdf/DETAILS: 
+	Updating ggv to new version 2.5.0, gpdf to new version 0.120
+
+2003-12-17 05:20  nhudson
+
+	* gnome2-apps/file-roller/DETAILS: 
+	Updating file-roller to new version 2.5.0
+
+2003-12-17 05:14  nhudson
+
+	* gnome2-apps/acme/DETAILS: 
+	Upating acme to new version 2.4.2
+
+2003-12-17 05:13  nhudson
+
+	* gnome2-apps/acme/DETAILS: 
+	Branching to GNOME_UNSTABLE
+
+2003-12-17 05:02  nhudson
+
+	* gnome2-apps/: abiword/BUILD, acme/BUILD, battfink/BUILD,
+	diacanvas2/BUILD, file-roller/BUILD, gcalctool/BUILD, ggv/BUILD,
+	glabels/BUILD, gnome-network/BUILD, gnomesu/BUILD, gnumeric2/BUILD,
+	gok/BUILD, gpdf/BUILD, gucharmap/BUILD, meld/BUILD,
+	mozilla-bonobo/BUILD, phonemgr/BUILD, pkgview/BUILD,
+	regexxer/BUILD, ticker/BUILD: 
+	Moving non core apps away from /opt/lunar/gnome/2.4 and removing
+	BUILD files as they are not needed anymore.  Also removing
+	metacity-setup from moonbase as its no longer needed sue to all the
+	metacity controls are intergrated with gnome control-center now.
+
+2003-12-17 04:25  florin
+
+	* devel/autoconf/DETAILS: bump version from 2.28 to 2.59.
+
+2003-12-17 04:08  jmhodges
+
+	* devel/arch/DETAILS: new stable version.  niki, tchan, commence
+	wetting of pants
+
+2003-12-17 00:26  sofar
+
+	* audio/icecast/BUILD: Hackfix for errno.h
+
+2003-12-16 20:19  jasper
+
+	* xfce4/xfce4-clipman-plugin/DETAILS: Update version to 0.4.0
+
+2003-12-16 18:46  ratler
+
+	* utils/e2fsprogs/init.d/mount: Fixed minor bug that could try to
+	mount /proc twice
+
+2003-12-16 16:27  florin
+
+	* archive/unrar/DETAILS: bump version from 3.2.0 to 3.3.2.
+
+2003-12-16 14:08  ratler
+
+	* net/openafs/: BUILD, DETAILS, etc/m4.patch: Moved patch to
+	$PATCH_URL
+
+2003-12-16 13:08  sofar
+
+	* utils/: hc-cron/crontab, vixie-cron/crontab: Simplyfying
+	crontabs... it should either be $(ls xxx/*) or just xxx/*
+
+2003-12-16 12:07  ratler
+
+	* net/openafs-driver/: BUILD, DEPENDS, DETAILS: OpenAFS kernel
+	driver
+
+2003-12-16 12:02  ratler
+
+	* net/openafs/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
+	etc/m4.patch, etc/openafs-CellServDB, etc/openafs-SuidCells,
+	etc/openafs-afsmodname, etc/openafs-cacheinfo: It compiles and run
+	fine. Would be nice if a few more that use openafs can test it out
+
 2003-12-16 03:17  florin
 
 	* graphics/ImageMagick/DETAILS: bump version from 5.5.7-14 to
@@ -1534,73 +1622,4 @@
 	* graphics/inkscape/: BUILD, DEPENDS, DETAILS: 
 	Adding inkscape to moonbase, this is a fork of sodipodi with more
 	attention to GNOME intagration and development
-
-2003-11-16 22:13  hardkrash
-
-	* crypto/libgcrypt/DETAILS: bugfix bump
-
-2003-11-16 22:13  hardkrash
-
-	* crypto/cryptplug/DETAILS: version bump, allows new libgcrypt, 
-	kmail users enjoy you gnupg plugin :-)
-
-2003-11-16 21:56  hardkrash
-
-	* libs/gpgme/DEPENDS: <Bellyeye> gpgme is missing dependency on
-	libgpg-error
-
-2003-11-16 21:38  hardkrash
-
-	* compilers/gcc/BUILD: THis is for when gcc desides to compile
-	something in the make install phase Gerrrrr  hardkrash
-
-2003-11-16 21:35  hardkrash
-
-	* science/maxima/: DEPENDS, DETAILS: a symbolic math program
-
-2003-11-16 21:34  jol
-
-	* kde3-apps/kxmleditor/: BUILD, DEPENDS, DETAILS: First import of
-	kxmleditor
-
-2003-11-16 18:57  florin
-
-	* kde3-apps/kaffeine/DETAILS: fix a misspell.
-
-2003-11-16 18:53  florin
-
-	* kde3-apps/kaffeine/: BUILD, DEPENDS, DETAILS: a kde media player
-	based on xine.
-
-2003-11-16 18:37  tchan
-
-	* mail/exim4/POST_INSTALL: Added a test to see if the exim3 conf
-	file has already been backed up.  If it has then we don't need to
-	convert it to exim4 again.
-
-2003-11-16 17:59  sofar
-
-	* perl/mod_perl/: BUILD, DETAILS: It really only needed a bump.
-
-2003-11-16 16:44  jol
-
-	* cd/k3b/: DEPENDS, DETAILS: Add depends on dvd+rw-tools
-
-2003-11-16 16:39  jol
-
-	* cd/dvd+rw-tools/: BUILD, DETAILS: First import of dvd burning
-	tools
-
-2003-11-16 16:05  florin
-
-	* filemanagers/krusader/DETAILS: bump version from 1.20 to 1.30.
-
-2003-11-16 05:34  florin
-
-	* kde3/qt3/DETAILS: bump version from 3.2.2 to 3.2.3. bugfix
-	version.
-
-2003-11-16 00:21  hardkrash
-
-	* chat/naim/DETAILS: bumped version, compiles and runs
 
