@@ -1,5 +1,4 @@
 (
- sedit 's/StringInput|StringOutput/StringIO/'
  prepare_install        &&
  python setup.py install
  

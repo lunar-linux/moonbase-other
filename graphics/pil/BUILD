@@ -1,7 +1,7 @@
 (
 
   export CC="cc $CFLAGS"
-  patch_it /var/spool/lunar/$SOURCE3 0
+#  patch_it /var/spool/lunar/$SOURCE3 0
   cd libImaging                     &&
   ./configure     --prefix=/usr      \
                   $OPTS             &&
