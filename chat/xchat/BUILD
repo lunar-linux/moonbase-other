@@ -1,5 +1,4 @@
 (
-  patch_it  $SOURCE_CACHE/$SOURCE2 0 &&
   gettextize --copy --force --intl &&
   libtoolize --force &&
   aclocal  -I m4 &&
