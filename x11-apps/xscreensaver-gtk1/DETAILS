@@ -1,4 +1,5 @@
           MODULE=xscreensaver-gtk1
+	 #no versions beyond 4.18 will not be supporting gtk+1 anymore
          VERSION=4.18
           SOURCE=xscreensaver-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/xscreensaver-$VERSION
@@ -8,7 +9,7 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/xscreensaver-$VERSION
         WEB_SITE=http://www.jwz.org/xscreensaver
          ENTERED=20010922
          UPDATED=20040815
-           SHORT="A modular screen saver and locker for X."
+           SHORT="A modular screen saver and locker for X"
 
 cat << EOF
 XScreenSaver is a modular screen saver and locker for the X Window
@@ -16,5 +17,6 @@ System. It is highly customizable and allows the use of any program
 that can draw on the root window as a display mode.  More than 160
 display modes are included in this package.
 
-Note: This module builds the gtk+ screensaver-demo application!
+Note: This module builds the gtk+ screensaver-demo application and is
+no longer supported by the developer!
 EOF
