@@ -14,8 +14,20 @@ if [ -e /etc/X11/xinit/xinitrc ]; then
    echo "Your master xinitrc file has been backed up as /etc/X11/xinit/xinitrc.orig"
 fi
 
-if    [  -f  $CONFIG_CACHE/host.def  ]
-then  cp     $CONFIG_CACHE/host.def  config/cf/host.def
+if    [  -f  $CONFIG_CACHE/host.def  ]; then  
+  #BECAUSE CONFIGURE dosent always catch this!
+  if module_installed freetype2; then
+    if ! grep -q "#define BuildFreetype2Library[:space:]*NO" $CONFIG_CACHE/host.def
+    then
+      sedit "/ HasFreetype2/d"                $CONFIG_CACHE/host.def
+      sedit "/ BuildFreetype2Library/d"       $CONFIG_CACHE/host.def
+      sedit "/ Freetype2Dir/"                 $CONFIG_CACHE/host.def
+      echo "#define HasFreetype2              YES"  >> $CONFIG_CACHE/host.def
+      echo "#define BuildFreetype2Library     NO"   >> $CONFIG_CACHE/host.def
+      echo "#define Freetype2Dir              /usr" >> $CONFIG_CACHE/host.def
+    fi
+  fi
+  cp     $CONFIG_CACHE/host.def  config/cf/host.def
 fi
 
 message  "Building XFree86 takes a very long time."
