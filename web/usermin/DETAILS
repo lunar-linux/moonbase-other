@@ -1,0 +1,24 @@
+          MODULE=usermin
+         VERSION=1.080
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-lunar.patch.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$SFORGE_URL/webadmin/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+   SOURCE_VFY[0]=md5:4145e04517f3aa5277f116d0958754c6
+  SOURCE2_VFY[0]=md5:db5722bdd84e51eeca49cb4dccda76aa
+        WEB_SITE=http://www.webmin.com/
+         ENTERED=20020723
+         UPDATED=20040723
+           SHORT="A webbased user administration tool"
+
+cat << EOF
+Usermin is a web interface that can be used by any user on a Unix system 
+to easily perform tasks like reading mail, setting up SSH or configuring 
+mail forwarding. It can be thought of as a simplified version of Webmin 
+designed for use by normal users rather than system administrators. 
+Like Webmin, Usermin consists of a simple web server, and a number of 
+CGI programs which directly update user config files like ~/.cshrc and 
+~/.forward. The web server and all CGI programs are written in Perl 
+version 5, and use only the non-standard Authen::PAM perl module. 
+EOF
