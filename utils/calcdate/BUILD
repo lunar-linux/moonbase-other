@@ -12,7 +12,6 @@
   chmod 0755 $BINDIR/$MODULE                       &&
   chown root.root $BINDIR/$MODULE                  &&
 
-
   # setup the docs                       
   mkdir -p $SHARELOC                               &&
   cp $MODPATH/calcdate.c $MODPATH/README $SHARELOC 
