@@ -4,7 +4,7 @@
 #
 auth       requisite  pam_securetty.so
 auth       requisite  pam_nologin.so
-auth       required   pam_rhosts_auth.so
+#auth       required   pam_rhosts_auth.so
 account    required   pam_unix.so
 password   required   pam_cracklib.so retry=3 type=Lunar
 password   required   pam_unix.so shadow md5 use_authtok

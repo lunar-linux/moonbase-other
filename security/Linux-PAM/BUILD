@@ -5,6 +5,7 @@
     export  HAVE_SGML2LATEX=no
   fi
 
+  sedit "s:/sbin/ldconfig:/usr/sbin/ldconfig:" configure &&
   ./configure  --enable-read-both-confs                 \
                --enable-docdir=/usr/share/doc/Linux-PAM \
                --mandir=/usr/share/man                  &&
@@ -12,6 +13,7 @@
   sedit  "s/examples//"  Makefile              &&
   sedit  "s/read yes//"     conf/install_conf  &&
   sedit  "s/read yes//"  modules/install_conf  &&
+  sedit  "s/HAVE_LIBCRYPT=no/HAVE_LIBCRYPT=yes/" Make.Rules 
   make                                         &&
   prepare_install                              &&
   make    install
