@@ -1,3 +1,112 @@
+2003-11-26 04:44  tchan
+
+	* devel/arch/DETAILS: Version bump to tla-1.1pre9.  Compiled and
+	tested with gcc-3.2.3, glibc-2.3.2.  Yes, it passes all "make test"
+	section of the BUILD script (still).
+
+2003-11-25 23:57  nhudson
+
+	* graphics/gimp2/DETAILS: 
+	Updating gimp2 to new version 1.3.23
+
+2003-11-25 23:35  sofar
+
+	* chat/gaim/DETAILS: I always have trouble saying goodbye to my old
+	gaim versions.
+
+2003-11-25 23:03  sofar
+
+	* net/radvd/: DETAILS, init.d/radvd: Apparently needed for ipv6
+	routing.....
+
+2003-11-25 22:46  sofar
+
+	* web/webmin/DETAILS: New version, patch stays the same.
+
+2003-11-25 21:19  sofar
+
+	* zbeta/gqview-devel/DETAILS: Bump bump.
+
+2003-11-25 19:53  tchan
+
+	* utils/dialog/DETAILS: Version bump to 20031002.  I tested this
+	with all the normal "lunar" menus that I use and nothing seems
+	broken.  florin requested the version bump and he said he has been
+	using this version with no problems for a while now.
+
+2003-11-25 19:28  jol
+
+	* profiles/kde3/3.2_test/: BUILD, DEPENDS, DETAILS, POST_BUILD,
+	PRE_BUILD: Add profile for kde 3.2_test
+
+2003-11-25 19:25  jol
+
+	* kde3/: arts/1.2_test/BUILD, arts/1.2_test/DEPENDS,
+	arts/1.2_test/DETAILS, kdeaddons3/3.2_test/BUILD,
+	kdeaddons3/3.2_test/DEPENDS, kdeaddons3/3.2_test/DETAILS,
+	kdeadmin3/3.2_test/BUILD, kdeadmin3/3.2_test/DEPENDS,
+	kdeadmin3/3.2_test/DETAILS, kdeartwork3/3.2_test/BUILD,
+	kdeartwork3/3.2_test/DEPENDS, kdeartwork3/3.2_test/DETAILS,
+	kdeartwork3/3.2_test/glx.h, kdebase3/3.2_test/BUILD,
+	kdebase3/3.2_test/DEPENDS, kdebase3/3.2_test/DETAILS,
+	kdebindings3/3.2_test/BUILD, kdebindings3/3.2_test/CONFIGURE,
+	kdebindings3/3.2_test/DEPENDS, kdebindings3/3.2_test/DETAILS,
+	kdeedu3/3.2_test/BUILD, kdeedu3/3.2_test/DEPENDS,
+	kdeedu3/3.2_test/DETAILS, kdegames3/3.2_test/BUILD,
+	kdegames3/3.2_test/DEPENDS, kdegames3/3.2_test/DETAILS,
+	kdegraphics3/3.2_test/BUILD, kdegraphics3/3.2_test/DEPENDS,
+	kdegraphics3/3.2_test/DETAILS, kdelibs3/3.2_test/BUILD,
+	kdelibs3/3.2_test/DEPENDS, kdelibs3/3.2_test/DETAILS,
+	kdemultimedia3/3.2_test/BUILD, kdemultimedia3/3.2_test/DEPENDS,
+	kdemultimedia3/3.2_test/DETAILS, kdenetwork3/3.2_test/BUILD,
+	kdenetwork3/3.2_test/DEPENDS, kdenetwork3/3.2_test/DETAILS,
+	kdepim3/3.2_test/BUILD, kdepim3/3.2_test/DEPENDS,
+	kdepim3/3.2_test/DETAILS, kdesdk3/3.2_test/#DET#,
+	kdesdk3/3.2_test/BUILD, kdesdk3/3.2_test/DEPENDS,
+	kdesdk3/3.2_test/DETAILS, kdetoys3/3.2_test/BUILD,
+	kdetoys3/3.2_test/DEPENDS, kdetoys3/3.2_test/DETAILS,
+	kdeutils3/3.2_test/BUILD, kdeutils3/3.2_test/DEPENDS,
+	kdeutils3/3.2_test/DETAILS: First import of kde 3.2_test. For now
+	only kdebinding and kdesdk don't compile.  Compile with gcc-3.3.2,
+	kernel 2.4.22
+
+2003-11-25 18:33  tchan
+
+	* libs/openMotif/: BUILD, DETAILS, include-order.diff: Downgraded
+	this module back to 2.1.30.  2.2.2 is known to be a broken toolkit.
+	 See the URLs in the DETAILS file for more info. Compiled and
+	tested this module with gcc-3.2.3, glibc-2.3.2.  nedit and xpdf
+	both work again with this version of openMotif.  Also the source
+	code tarball uses "openmotif" and not "openMotif" but I left this
+	module name alone, otherwise moonbase would have naming problems
+	again (openmotif, openMotif, lesstif).	This version of openMotif
+	should also work much better on sparcs and alphas than 2.2.2.
+
+2003-11-25 18:29  tchan
+
+	* editors/nedit/DEPENDS: Reverting this module back to openMotif. 
+	Avoid lesstif in all modules if possible.  I've fixed openMotif to
+	use version 2.1.30, which is the recommended downgrade back from
+	2.2.2.
+
+2003-11-25 17:43  florin
+
+	* kernel/linux-beta/PRE_BUILD: fix the file. it doesn't compile
+	because of two unnecessary typos.
+
+2003-11-25 16:27  florin
+
+	* games/xqf/: BUILD, DEPENDS, DETAILS: bump version from 0.9.12 to
+	0.9.13. it compiles now with gtk+-2 module.
+
+2003-11-25 13:59  nestu
+
+	* kernel/linux-beta/: BUILD, DETAILS, POST_INSTALL, PRE_BUILD:
+	Bumped version from 2.6.0test9 to 2.6.0test10.	Now lilo and grub
+	are handled by core functions, and not by the module itself (new
+	naming for the boot images aswell).  Grub always-asking bug has
+	been fixed.
+
 2003-11-25 09:19  florin
 
 	* printer/cups/DETAILS: bump version from 1.1.19 to 1.1.20. tested
@@ -1683,112 +1792,4 @@
 2003-10-27 00:08  csm
 
 	* libs/newt/DETAILS: updating the version
-
-2003-10-26 23:27  csm
-
-	* zbeta/pump/DETAILS: adding the netconfig explanation to the
-	description
-
-2003-10-26 23:19  csm
-
-	* zbeta/pump/DETAILS: fixing the description
-
-2003-10-26 23:16  csm
-
-	* zbeta/pump/: BUILD, DEPENDS, DETAILS, POST_INSTALL: adding pump
-	which contains the netconfig utility to configure network
-	interfaces with the new initscripts module!
-
-2003-10-26 21:53  sofar
-
-	* printer/espgs/: DEPENDS, DETAILS: Reverting this since it would
-	create a CIRCULAR DEPENDENCY!!!
-
-2003-10-26 20:38  jol
-
-	* printer/espgs/: DEPENDS, DETAILS: Add optional depends with cups
-	and gimp-print
-
-2003-10-26 18:34  csm
-
-	* zbeta/initscripts/DETAILS: updating new version so that the
-	symlink for /etc/init.d is created by the Makefile!
-
-2003-10-26 17:53  csm
-
-	* zbeta/initscripts/POST_INSTALL: adding a POST_INSTALL to deliver
-	some basic instructions for testing
-
-2003-10-26 17:33  csm
-
-	* zbeta/initscripts/DETAILS: after modding the Makefile again a 2nd
-	install is now possible without errors
-
-2003-10-26 17:11  sofar
-
-	* chat/gaim/: BUILD, DEPENDS, DETAILS: Adding proper support for
-	gaim with gnutls, so MSN works again (without the need for
-	mozilla!). Works without passing any options to gaim, so should not
-	break anything too. Also adding patch to allow napster plugin to
-	work again, since they broke it (again).
-
-2003-10-26 16:40  sofar
-
-	* crypto/: gnutls/DEPENDS, gnutls/DETAILS, libtasn1/DETAILS: Adding
-	the proper gnuTLS libs in order to build gaim with SSL support for
-	MSN
-
-2003-10-26 16:35  nestu
-
-	* kernel/linux-beta/DETAILS: bump version
-
-2003-10-26 16:13  csm
-
-	* net/ethtool/DETAILS: adding ethtool as it helps with the new
-	initscripts
-
-2003-10-26 15:59  csm
-
-	* zbeta/initscripts/DEPENDS: adding a missing depends (iproute2
-	which contains "ip").
-
-2003-10-26 13:33  florin
-
-	* video/xine-lib/DETAILS: bump version from 1-rc1 to 1-rc2.
-
-2003-10-26 13:31  florin
-
-	* games/SimGear/DETAILS: bump version from 0.3.3 to 0.3.4.
-
-2003-10-26 13:30  florin
-
-	* games/: FlightGear/DETAILS, fgfs-base/DETAILS: bump version from
-	0.9.2 to 0.9.3.
-
-2003-10-26 08:07  jmhodges
-
-	* x11-apps/xscreensaver/: BUILD, DEPENDS: I will not live in a
-	world without xscreensaver-demo!
-
-2003-10-26 04:52  csm
-
-	* utils/makedev/PRE_BUILD: removing this unnecessary file
-
-2003-10-26 04:51  csm
-
-	* utils/makedev/: BUILD, DETAILS, POST_INSTALL, makedev-1.4.2:
-	updating this so we can support other architectures soon!
-
-2003-10-26 04:06  florin
-
-	* games/tuxracer/: BUILD, DEPENDS, DETAILS: install the data in the
-	/usr/share/games directory. add  NVIDIA to depends file. the game
-	can be compiled only if the libgl version is newer (NVIDIA provides
-	this).
-
-2003-10-26 03:46  tchan
-
-	* utils/: silo/BUILD, silo/DEPENDS, silo/DETAILS,
-	sparc-utils/BUILD, sparc-utils/DETAILS: Two more SPARC only
-	modules.  Can't boot without these two utilities.
 
