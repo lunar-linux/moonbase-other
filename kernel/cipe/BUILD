@@ -4,7 +4,7 @@
  sedit "s/usr\/local\/info/usr\/share\/info/" conf/Makefile-top.in
 
   ./configure  --prefix=/usr                          \
-               --with-linux=/usr/src/linux-2.4.17     \
+               --with-linux=/usr/src/linux            \
                --disable-pkcipe                       \
                --enable-protocol=3                    \
                --infodir=/usr/share/info              \
