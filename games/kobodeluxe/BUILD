@@ -1,6 +1,6 @@
 (
 
-  sedit 's:$(prefix)/games/kobo-deluxe:/var/state/kobo-deluxe:'  \
+  sedit 's:$(prefix)/games/kobo-deluxe:/var/games/kobo-deluxe:'  \
        configure
 
   ./configure  --prefix=/usr        \
