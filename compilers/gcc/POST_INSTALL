@@ -1,0 +1,14 @@
+cp -f $SCRIPT_DIRECTORY/lunar-gcc /usr/bin/lunar-gcc     &&
+cp -f $SCRIPT_DIRECTORY/lunar-g++ /usr/bin/lunar-g++     &&
+
+cd /usr/bin                                              &&
+
+ln    -sf lunar-gcc cc                                   &&
+ln    -sf cpp  /usr/lib/gcc-lib/$BUILD/$VERSION/cpp      &&
+ln    -sf cpp  /lib/cpp && 
+
+umount /usr/src/gcc-$VERSION-BUILD                       &&
+rm -rf /usr/src/gcc-$VERSION-BUILD /usr/src/gcc-$VERSION &&
+
+
+ldconfig
