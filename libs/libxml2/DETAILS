@@ -1,12 +1,13 @@
           MODULE=libxml2
-         VERSION=2.6.9
-          SOURCE=$MODULE-$VERSION.tar.bz2
+         VERSION=2.6.10
+          SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/libxml2/2.6/$SOURCE
-      SOURCE_VFY=md5:fe4c008133789d237dfc11b761bcf6a4
+   SOURCE_URL[0]=ftp://xmlsoft.org/$SOURCE
+   SOURCE_URL[1]=$GNOME_URL/sources/$MODULE/2.6/$SOURCE
+      SOURCE_VFY=md5:299da4545913212ec4d82429d74314b9
         WEB_SITE=http://xmlsoft.org
          ENTERED=20010922
-         UPDATED=20040419
+         UPDATED=20040520
            SHORT="libxml2 is the XML version 2 parser for Gnome."
 
 cat << EOF
