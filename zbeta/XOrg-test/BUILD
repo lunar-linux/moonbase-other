@@ -44,6 +44,7 @@
   echo  "#define FontDir /usr/share/fonts"      >> config/cf/host.def &&
   echo  "#define HasZlib YES"                   >> config/cf/host.def &&
   echo  "#define HasFreetype2 YES"              >> config/cf/host.def &&
+  echo  "#define HasFontconfig YES"		>> config/cf/host.def &&
   echo  "#define ForceNormalLib  YES"           >> config/cf/host.def &&	
   echo  "#define HasExpat  YES"			>> config/cf/host.def &&
   echo  "#define UseExpat  YES"                 >> config/cf/host.def &&
