@@ -1,3 +1,16 @@
+2003-06-08 20:20  sofar
+
+	* crypto/openssl/BUILD: build adjustment: download wget to make
+	sure update isn't broken
+
+2003-06-08 19:41  sofar
+
+	* mail/imap/CONFLICTS: requested by ML
+
+2003-06-08 19:40  sofar
+
+	* mail/courier-imap/CONFLICTS: requested in ML
+
 2003-06-08 11:39  sofar
 
 	* printer/ImageMagick/DETAILS: dude!
@@ -1172,42 +1185,4 @@
 
 	* graphics/sodipodi/DETAILS: 
 	Updating sodipodi to new version 0.31.1
-
-2003-05-09 19:51  niki
-
-	* net/bind/init.d/named: Modified the bind init script so that bind
-	starts as user bind instead of user nobody (?).
-
-2003-05-09 16:26  nhudson
-
-	* security/snort/: BUILD, DETAILS, POST_INSTALL, snort.sysconfig,
-	config.d/snort.sysconfig, init.d/snort: 
-	Ok updating snort to new version 2.0.0, now I fixed the module so
-	that it will install the rule sets to /etc/snort and the config
-	files to /etc, also being that all that was done in the
-	POST_INSTALL file nothing got installed.  Now its all done in the
-	BUILD file.  I removed the POST_INSTALL file and moved the
-	snort.sysconfig file to the config.d directory.  Oh also it wasnt
-	installing the snort.sysconfig file for some reason but now it is. 
-	It works fine for me now and works out of the box with no
-	configuring.  Though I would suggest writing your own snort.conf
-	file.
-
-2003-05-09 13:10  sofar
-
-	* games/fgfs-base/: BUILD, DETAILS: This makes passing the ROOT
-	data parameter unneeded!
-
-2003-05-09 10:05  sofar
-
-	* utils/Wine/DETAILS: fresh Wine!
-
-2003-05-09 09:46  niki
-
-	* net/arpwatch/: DEPENDS, DETAILS, POST_BUILD, init.d/arpwatch:
-	Added new module to moonbase.
-	
-	Arpwatch monitors the network and when it discovers a new unknown
-	MAC addr it sends a mail to root on the machine it runs on with
-	information about the machine.
 
