@@ -1,3 +1,63 @@
+2003-11-07 09:54  florin
+
+	* video/transcode/DETAILS: bump version from 0.6.10 to 0.6.11.
+
+2003-11-07 09:53  florin
+
+	* security/snort/DETAILS: bump version from 2.0.2 to 2.0.4.
+
+2003-11-07 09:48  sofar
+
+	* devel/expect/: BUILD, DEPENDS: Correcting/adjusting a tcl/tk
+	dependency: this way it also builds without tk installed!
+
+2003-11-07 04:02  elaine
+
+	* x11-wm/enlightenment/DETAILS: An official bump to e16? 'mazing
+
+2003-11-06 21:31  sofar
+
+	* compilers/php/: BUILD, CONFIGURE: CONFIGURE scripts are *bad*
+	ideas anyway...
+
+2003-11-06 21:29  florin
+
+	* kde3-apps/kplayer/DETAILS: bump version from 0.3.1 to 0.4.0.
+
+2003-11-06 17:53  sofar
+
+	* chat/gaim/: BUILD, DEPENDS, DETAILS, POST_REMOVE: Bumping
+	version, making gnutls optional, removing obsoleted POST_REMOVE.
+	I'm not sure how to compile it against nss from Mozilla, perhaps
+	someone can try to figure out what options to pass for that... it
+	works... don't break it. (BTW I never tested the compile without
+	gnutls, other than before it was even in the gaim module...)
+
+2003-11-06 16:48  tchan
+
+	* devel/binutils-sparc64/: BUILD, DETAILS,
+	profile.d/binutils-sparc64.rc: A binutils for sparc64 that gets
+	installed into /opt/lunar/binutils-sparc64, as SPARCS need regular
+	binutils for building 32bit apps and these special 64bit binutils
+	to correctly compile a 64bit kernel.
+
+2003-11-06 16:45  tchan
+
+	* compilers/egcs64/: BUILD, DETAILS, profile.d/egcs64.rc: Added the
+	64bit egcs compiler for SPARCS that is needed to build 64bit
+	Kernels on all Sparc64 cpus.  This is needed because although
+	gcc-3.3.x claims to be configurable as a 64bit sparc compiler, I
+	have not found anyone who has successfully done so.
+
+2003-11-06 16:43  florin
+
+	* cd/k3b/DETAILS: bump version from 0.10.1 to 0.10.2.
+
+2003-11-06 16:40  tchan
+
+	* devel/autoconf/DETAILS: Version bump to 2.58.  Compiled and
+	tested with gcc-3.2.3, glibc-2.3.2.
+
 2003-11-06 05:47  florin
 
 	* video/: ogle/DETAILS, ogle_gui/DETAILS: bump version from 1.9.1
@@ -1859,70 +1919,4 @@
 2003-10-08 02:21  hardkrash
 
 	* security/fwbuilder/DEPENDS: missing depends :-P
-
-2003-10-07 22:25  sofar
-
-	* printer/a2ps/DEPENDS: This clears 160M of my already full HD
-
-2003-10-07 21:32  watryac04
-
-	* graphics/tiff/DETAILS: Corrected the MD5 sum of the tiff source.
-
-2003-10-07 21:15  sofar
-
-	* devel/cvs/DETAILS: New version. Lotsa fixers!!!
-
-2003-10-07 20:53  moe
-
-	* x11-utils/gkrellm2/DETAILS: This is the new sh .. ehm .. bugfix
-	release especially for 2.6.x users
-
-2003-10-07 20:51  moe
-
-	* xfce4/xfce4-notes-plugin/DETAILS: Note to myself: Update notes ..
-	err .. here we go
-
-2003-10-07 17:37  watryac04
-
-	* gnome2-core/gdm/DETAILS: Fixed MD5 sum for updated version of gdm
-
-2003-10-07 16:45  florin
-
-	* devel/gdb/DETAILS: bump version from 5.3 to 6.0.
-
-2003-10-07 11:47  florin
-
-	* games/crimson/DETAILS: bumped version from 0.3.6 to 0.3.7.
-
-2003-10-07 04:27  jmhodges
-
-	* perl/mod_perl/DETAILS: stupid version changes without tarball
-	number change.. fun! added md5sum
-
-2003-10-07 04:02  nhudson
-
-	* gnome2-core/gdm/: BUILD, DETAILS, Default, POST_INSTALL, gnomerc,
-	init.d/gdm, pam.d/gdm-autologin: 
-	Commiting changes to gdm, adding a POST_INSTALL to notify the user
-	of adding /opt/lunar/gnome/2.4/bin to their /etc/profile for now
-	till we can find a better way of doing this.  Also updating to new
-	version 2.4.4.3 and changing the md5sum and adding a patch that
-	fixes some problems with pam
-
-2003-10-07 03:31  nhudson
-
-	* libs/glib-2/DEPENDS: 
-	Adding in depend on gtk-doc now that we are building documetation
-
-2003-10-07 03:28  nhudson
-
-	* libs/glib-2/BUILD: 
-	Adding a BUILD file so that it will build both a static lib and
-	dynamic libs for glib-2
-
-2003-10-07 02:49  tchan
-
-	* devel/automake/DETAILS: Version bump to 1.7.8.  Small bug fix
-	release from 1.7.7.  Compiled and tested with gcc-3.2.3,
-	glibc-2.3.2.
 
