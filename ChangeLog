@@ -1,3 +1,88 @@
+2002-10-13 07:00  tchan
+
+	* x11-apps/xpdf/BUILD: Fixed for the new location of freetype2.  Compiled and tested under gcc-3.2.
+	
+2002-10-12 21:45  kongar
+
+	* x11-utils/gkrellm2/DETAILS: upgraded to 2.1.0
+	
+2002-10-12 21:02  kongar
+
+	* utils/procps/DETAILS: upgraded to 2.0.10
+	
+2002-10-12 19:51  kongar
+
+	* editors/e3/DETAILS: upgraded to 2.4
+	
+2002-10-12 06:14  tchan
+
+	* gnome2-applets/netspeed_applet/DETAILS: Fixed a typo in the download URL
+	
+2002-10-12 01:11  kc8apf
+
+	* x11-apps/jpilot/BUILD: Fix bug in jpilot that prevents build
+	
+2002-10-11 20:18  kongar
+
+	* net/netdude/: BUILD, DETAILS: upgraded to 0.3.1
+	
+2002-10-11 19:59  kongar
+
+	* doc-tools/teTeX/: BUILD, DEPENDS: 
+	committed Richard Pyne's corrected BUILD and DEPENDS
+	
+2002-10-11 14:55  wizfactor
+
+	* devel/gob2/DETAILS: updated version to 2.0.2
+	
+2002-10-11 14:40  wizfactor
+
+	* compilers/ocaml/DETAILS: updated version to 3.0.6 and fixed source url
+	
+2002-10-11 14:25  wizfactor
+
+	* chat/naim/DETAILS: updated version to 0.11.4 and fixed source url
+	
+2002-10-11 14:13  wizfactor
+
+	* chat/ircii/DETAILS: updated version to 20020912
+	
+2002-10-11 13:57  kongar
+
+	* utils/jfsutils/: BUILD, DEPENDS, DETAILS: 
+	IBM's Journaled File System (JFS) for Linux
+	JFS Utilities Version 1.0.23
+	
+2002-10-11 11:52  kongar
+
+	* net/connmon/: BUILD, DETAILS: 
+	upgraded to 0.13.0
+	
+	now installing gconnmon, graphical client
+	
+2002-10-11 11:51  kongar
+
+	* doc-tools/groff/DETAILS: upgraded to 1.18.1
+	
+2002-10-11 09:01  sofar
+
+	* zbeta/sendmail/DETAILS: Adding source_md5, bumping date to force check (sorry!)
+	
+2002-10-11 08:37  kongar
+
+	* utils/util-linux/: DETAILS, make-issue: 
+	upgraded to 2.11w
+	
+	added MD5 sum
+	
+	updated the version of make.issue to 1.0
+	
+2002-10-11 08:27  kongar
+
+	* security/integrit/: BUILD, DETAILS, POST_BUILD, POST_INSTALL,
+	root.conf.bz2: 
+	new module, integrit, file integrity checker, like aide, but simpler.
+	
 2002-10-11 08:19  kongar
 
 	* utils/lsof/DETAILS: 
@@ -460,195 +545,4 @@
 	* gnome2-apps/: metacity-setup/BUILD, metacity-setup/DEPENDS,
 	metacity-setup/DETAILS, metacity-setup/metacity-setup-lunar.patch,
 	metatheme/BUILD, metatheme/DEPENDS, metatheme/DETAILS: Moved these two modules from crater into moonbase for Dem.
-	
-2002-10-03 01:00  dem
-
-	* gnome2-extras/gal2/: DEPENDS, DETAILS: Moved from gnome2
-	
-2002-10-02 18:08  kongar
-
-	* net/netkit-base/: BUILD, DETAILS: 
-	/etc/ftpusers is being installed with this package. This file
-	is now re-checked and added more users into it.
-	
-	Slight security feature.
-	
-2002-10-02 14:30  kongar
-
-	* libs/libfwbuilder/DETAILS, security/fwbuilder/DETAILS: 
-	fwbuilder is upgraded to 1.0.6
-	
-	libfwbuilder is upgraded to 0.10.10
-	
-	TESTED!
-	
-2002-10-01 19:43  tiomo
-
-	* utils/procps/DETAILS: updated to version 2.0.9
-	
-2002-10-01 17:13  dem
-
-	* gnome2-core/libgda2/DETAILS: Fixed url
-	
-2002-10-01 16:41  dem
-
-	* x11-utils/gkrellm2/: BUILD, CONFLICTS, DEPENDS, DETAILS: Moved from old gnome2
-	
-2002-10-01 16:35  dem
-
-	* chat/xchat2/: BUILD, CONFLICTS, DEPENDS, DETAILS: Xchat2 moved from old gnome2
-	
-2002-10-01 16:21  sofar
-
-	* utils/less/DETAILS: New version: 378
-	
-2002-10-01 16:17  tiomo
-
-	* x11-utils/xosd/: BUILD, DEPENDS, DETAILS: updated to version 1.0.4, minor changes
-	
-2002-10-01 16:15  tiomo
-
-	* audio/xmms-arts/: BUILD, DEPENDS: changed to use kdelibs3
-	
-2002-10-01 11:18  kongar
-
-	* mail/sylpheed/DETAILS: upgraded to 0.8.4
-	
-2002-10-01 10:30  sofar
-
-	* utils/findutils/profile.d/findutils.rc: Bugfix: LOCATE_PATH was not exported
-	
-2002-10-01 07:51  tchan
-
-	* gnome2/glade2/: BUILD, DEPENDS, DETAILS, glade2-glademm.patch: More cleanup.
-	
-2002-10-01 06:53  tchan
-
-	* gnome2-core/: GConf2/BUILD, GConf2/DEPENDS, GConf2/DETAILS,
-	ORBit2/BUILD, ORBit2/DEPENDS, ORBit2/DETAILS, at-spi/BUILD,
-	at-spi/DEPENDS, at-spi/DETAILS, bonobo-activation/BUILD,
-	bonobo-activation/DEPENDS, bonobo-activation/DETAILS,
-	bug-buddy2/BUILD, bug-buddy2/DEPENDS, bug-buddy2/DETAILS,
-	control-center2/BUILD, control-center2/DEPENDS,
-	control-center2/DETAILS, eel2/BUILD, eel2/DEPENDS, eel2/DETAILS,
-	eog2/BUILD, eog2/DEPENDS, eog2/DETAILS, gail/BUILD, gail/DEPENDS,
-	gail/DETAILS, gconf-editor/BUILD, gconf-editor/DEPENDS,
-	gconf-editor/DETAILS, gdm2/BUILD, gdm2/CONFLICTS, gdm2/DEPENDS,
-	gdm2/DETAILS, gdm2/gdm.conf, gdm2/gnomerc, gdm2/Sessions/Gnome2,
-	gdm2/init.d/gdm2, gdm2/pam.d/gdm, gedit2/BUILD, gedit2/DEPENDS,
-	gedit2/DETAILS, gnome-applets2/BUILD, gnome-applets2/CONFLICTS,
-	gnome-applets2/DEPENDS, gnome-applets2/DETAILS, gnome-audio2/BUILD,
-	gnome-audio2/CONFLICTS, gnome-audio2/DEPENDS, gnome-audio2/DETAILS,
-	gnome-common2/BUILD, gnome-common2/DEPENDS, gnome-common2/DETAILS,
-	gnome-desktop/BUILD, gnome-desktop/DEPENDS, gnome-desktop/DETAILS,
-	gnome-games2/BUILD, gnome-games2/CONFLICTS, gnome-games2/DEPENDS,
-	gnome-games2/DETAILS, gnome-media2/BUILD, gnome-media2/CONFLICTS,
-	gnome-media2/DEPENDS, gnome-media2/DETAILS, gnome-mime-data2/BUILD,
-	gnome-mime-data2/DEPENDS, gnome-mime-data2/DETAILS,
-	gnome-panel/BUILD, gnome-panel/DEPENDS, gnome-panel/DETAILS,
-	gnome-session/BUILD, gnome-session/DEPENDS, gnome-session/DETAILS,
-	gnome-system-monitor/BUILD, gnome-system-monitor/DEPENDS,
-	gnome-system-monitor/DETAILS, gnome-terminal/BUILD,
-	gnome-terminal/DEPENDS, gnome-terminal/DETAILS, gnome-utils2/BUILD,
-	gnome-utils2/DEPENDS, gnome-utils2/DETAILS, gnome-vfs2/BUILD,
-	gnome-vfs2/DEPENDS, gnome-vfs2/DETAILS, gnome2-user-docs/BUILD,
-	gnome2-user-docs/DEPENDS, gnome2-user-docs/DETAILS, gtk-doc/BUILD,
-	gtk-doc/DEPENDS, gtk-doc/DETAILS, gtk-engines2/BUILD,
-	gtk-engines2/DEPENDS, gtk-engines2/DETAILS, libIDL/BUILD,
-	libIDL/DEPENDS, libIDL/DETAILS, libIDL/POST_INSTALL,
-	libbonobo/BUILD, libbonobo/DEPENDS, libbonobo/DETAILS,
-	libbonoboui/BUILD, libbonoboui/DEPENDS, libbonoboui/DETAILS,
-	libgail-gnome/BUILD, libgail-gnome/DEPENDS, libgail-gnome/DETAILS,
-	libgda2/BUILD, libgda2/DEPENDS, libgda2/DETAILS, libglade2/BUILD,
-	libglade2/DEPENDS, libglade2/DETAILS, libglade2/PRE_BUILD,
-	libgnome/BUILD, libgnome/DEPENDS, libgnome/DETAILS,
-	libgnomecanvas/BUILD, libgnomecanvas/DEPENDS,
-	libgnomecanvas/DETAILS, libgnomeprint/BUILD, libgnomeprint/DEPENDS,
-	libgnomeprint/DETAILS, libgnomeprintui/BUILD,
-	libgnomeprintui/DEPENDS, libgnomeprintui/DETAILS, libgnomeui/BUILD,
-	libgnomeui/DEPENDS, libgnomeui/DETAILS, libgtkhtml/BUILD,
-	libgtkhtml/DEPENDS, libgtkhtml/DETAILS, libgtop2/BUILD,
-	libgtop2/DEPENDS, libgtop2/DETAILS, libole2-2/BUILD,
-	libole2-2/DEPENDS, libole2-2/DETAILS, librep2/BUILD,
-	librep2/CONFLICTS, librep2/DEPENDS, librep2/DETAILS,
-	librsvg2/BUILD, librsvg2/DEPENDS, librsvg2/DETAILS, libwnck/BUILD,
-	libwnck/DEPENDS, libwnck/DETAILS, libzvt/BUILD, libzvt/DEPENDS,
-	libzvt/DETAILS, linc/BUILD, linc/DEPENDS, linc/DETAILS,
-	nautilus2/BUILD, nautilus2/CONFLICTS, nautilus2/DEPENDS,
-	nautilus2/DETAILS, rep-gtk2/BUILD, rep-gtk2/CONFLICTS,
-	rep-gtk2/DEPENDS, rep-gtk2/DETAILS, yelp/BUILD, yelp/DEPENDS,
-	yelp/DETAILS: Adding crater/gnome2-core to moonbase.
-	
-2002-10-01 06:30  tchan
-
-	* gnome2-extras/xscreensaver2/: BUILD, CONFLICTS, DEPENDS, DETAILS: Added crater/gnome2-extras/xscreensaver2 to moonbase
-	
-2002-10-01 06:28  tchan
-
-	* gnome2-extras/: glade2/BUILD, glade2/DEPENDS, glade2/DETAILS,
-	glade2/glade2-glademm.patch, libgnomedb/BUILD, libgnomedb/DEPENDS,
-	libgnomedb/DETAILS, libole2-2/BUILD, libole2-2/DEPENDS,
-	libole2-2/DETAILS, mergeant/BUILD, mergeant/DEPENDS,
-	mergeant/DETAILS, metacity/BUILD, metacity/DEPENDS,
-	metacity/DETAILS, nautilus-gtkhtml/BUILD, nautilus-gtkhtml/DEPENDS,
-	nautilus-gtkhtml/DETAILS, xscreensaver2/pam.d/xscreensaver: Adding crater/gnome2-extras to moonbase.
-	
-2002-10-01 06:09  tchan
-
-	* gnome2-applets/: led_applet/BUILD, led_applet/DEPENDS,
-	led_applet/DETAILS, multires/BUILD, multires/DEPENDS,
-	multires/DETAILS, netmon_applet/BUILD, netmon_applet/DEPENDS,
-	netmon_applet/DETAILS, netspeed_applet/BUILD,
-	netspeed_applet/DEPENDS, netspeed_applet/DETAILS,
-	shermans_aquarium/BUILD, shermans_aquarium/DEPENDS,
-	shermans_aquarium/DETAILS, teatime/BUILD, teatime/DEPENDS,
-	teatime/DETAILS: Added crater/gnome2-applets to moonbase.
-	
-2002-10-01 06:01  tchan
-
-	* profiles/gnome2/: BUILD, DEPENDS, DETAILS, POST_BUILD, PRE_BUILD: This is the new gnome2 profile
-	
-2002-10-01 05:58  tchan
-
-	* x11-wm/: AfterStep/AfterStep, AfterStep/POST_INSTALL,
-	ROX-Session/POST_INSTALL, ROX-Session/ROX-Session,
-	WindowMaker/POST_INSTALL, WindowMaker/WindowMaker,
-	aewm/POST_INSTALL, aewm/aewm, blackbox/Blackbox,
-	blackbox/POST_INSTALL, enlightenment/Enlightenment,
-	enlightenment/POST_INSTALL, evilwm/Evilwm, evilwm/POST_INSTALL,
-	fluxbox/Fluxbox, fluxbox/POST_INSTALL, fvwm/FVWM,
-	fvwm/POST_INSTALL, golem/Golem, golem/POST_INSTALL,
-	hackedbox/Hackedbox, hackedbox/POST_INSTALL, icewm/IceWM,
-	icewm/POST_INSTALL, ion/Ion, ion/POST_INSTALL,
-	ratpoison/POST_INSTALL, ratpoison/Ratpoison, waimea/POST_INSTALL,
-	waimea/Waimea, xfce/POST_INSTALL, xfce/XFce,
-	xfce-stable/POST_INSTALL, xfce-stable/XFce, xfce4/POST_INSTALL,
-	xfce4/XFce4, xfwm4/POST_INSTALL, xfwm4/XFwm4: Getting ready for gdm2
-	
-2002-10-01 05:32  tchan
-
-	* app-themes/gtk-xfce-engine/DETAILS: Synced with version in x11-wm, and then removed from x11-wm
-	
-2002-10-01 05:27  tchan
-
-	* app-themes/: gtk-thincream-engine/DEPENDS,
-	gtk-thincream-engine/DETAILS, gtk-thinice-theme2/DEPENDS,
-	gtk-thinice-theme2/DETAILS, gtk-xfce-engine/DEPENDS,
-	gtk-xfce-engine/DETAILS: Moving crater gnome2 into moonbase.
-	
-2002-10-01 05:13  tchan
-
-	* x11-wm/sawfish/: BUILD, DEPENDS, DETAILS, POST_INSTALL, Sawfish: Bumped upto version 2.0.  This is to get ready for gnome2.
-	
-2002-09-30 23:31  csm
-
-	* utils/pilot-link/DETAILS: bumping the date
-	
-2002-09-30 23:31  csm
-
-	* utils/pilot-link/DETAILS: updating the version
-	
-2002-09-30 23:30  sofar
-
-	* net/vnc/: BUILD, DETAILS: Updated version to 3.3.4!
 	
