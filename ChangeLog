@@ -1,3 +1,143 @@
+2003-09-13 11:40  florin
+
+	* graphics/freetype2/DETAILS: bump version from 2.1.4 to 2.1.5
+
+2003-09-13 11:37  florin
+
+	* devel/automake/DETAILS: bump version from 1.7.6 to 1.7.7
+
+2003-09-13 09:38  sofar
+
+	* gnome2-extras/mergeant/BUILD: typo.
+
+2003-09-13 07:48  nhudson
+
+	* gnome2-core/libgda2/: BUILD, DETAILS: 
+	I swear I checked this in last night, I have no idea how this got
+	left out
+
+2003-09-13 07:43  nhudson
+
+	* gnome2-core/: GConf2/DEPENDS, ORBit2/DEPENDS, at-spi/DEPENDS,
+	bug-buddy/DEPENDS, control-center2/DEPENDS, eel/DEPENDS,
+	eog/DEPENDS, gedit/DEPENDS, gnome-applets2/DEPENDS,
+	gnome-desktop/DEPENDS, gnome-games2/DEPENDS, gnome-media2/DEPENDS,
+	gnome-mime-data2/DEPENDS, gnome-session/CONFIGURE,
+	gnome-session/DEPENDS, gnome-system-monitor/DEPENDS,
+	gnome-terminal/DEPENDS, gnome-themes/DEPENDS, gnome-utils2/DEPENDS,
+	gnome-vfs2/DEPENDS, gnome2-user-docs/DEPENDS, libIDL/DEPENDS,
+	libbonoboui/DEPENDS, libgail-gnome/DEPENDS, libglade2/DEPENDS,
+	libgnomecanvas/DEPENDS, libgnomeprint/DEPENDS,
+	libgnomeprintui/DEPENDS, libgtkhtml/DEPENDS, librsvg/DEPENDS,
+	libwnck/DEPENDS, linc/DEPENDS, metacity/DEPENDS, nautilus/DEPENDS,
+	startup-notification/DEPENDS, yelp/DEPENDS: 
+	Fixing the DEPENDS files on modules so they are not recursive. 
+	This seems to work alot better in installing gnome 2.4 than the
+	previous way
+
+2003-09-13 07:41  nhudson
+
+	* gnome2-apps/vte/DEPENDS: 
+	Fixing some depend files so they work better with the install of
+	gnome 2.4.  These seem to be less recursive than before and look to
+	work better
+
+2003-09-13 06:48  nhudson
+
+	* gnome2-core/gnome-media2/DEPENDS: Fixing the DEPDNS file -
+
+2003-09-13 06:33  csm
+
+	* devel/orbitcpp/DETAILS: updating this as a dep for gnomemm-all
+
+2003-09-13 06:11  csm
+
+	* gnome2-core/gtkmm2/DETAILS: update to 2.2.5 is required at
+	minimum.
+
+2003-09-13 05:11  jmhodges
+
+	* gnome2-core/gdm/gnomerc: path fix
+
+2003-09-13 02:38  jmhodges
+
+	* gnome2-core/gdm/init.d/gdm: changed path to 2.4
+
+2003-09-13 02:32  jmhodges
+
+	* gnome2-core/gdm/Sessions/Gnome2: now to figure out where that
+	gdm.conf is! commenting it out in my personal BUILD
+
+2003-09-13 02:32  jmhodges
+
+	* gnome2-core/gdm/Sessions/Gnome: moving to Gnome2 so that gdm
+	install works
+
+2003-09-13 02:04  tchan
+
+	* x11-apps/gnucash/DETAILS: Version bump to 1.8.6.  Compiled and
+	tested with gcc-3.2.3, glibc-2.3.2, and gnome-2.2.
+
+2003-09-13 00:14  csm
+
+	* gnome2-apps/vte/BUILD: I had to sedit *ALL* the Makefiles to set
+	the proper freetype2 path
+	
+	Also gtk+ is not compatible with this module
+
+2003-09-12 23:08  sofar
+
+	* utils/Wine/DETAILS: Le nouveau vin cet annee est tres to^t, mais
+	desormais excellent! :
+	-------------------------------------------------------------------
+	---
+
+2003-09-12 21:37  nestu
+
+	* security/shorewall/DETAILS: Bumped version from 1.4b to 1.4c
+
+2003-09-12 21:06  csm
+
+	* gnome/gdk-pixbuf/DETAILS: adding the md5sum
+
+2003-09-12 21:00  csm
+
+	* gnome2-apps/vte/DETAILS: adding a rational explanation for what
+	vte is
+
+2003-09-12 20:56  csm
+
+	* gnome/gdk-pixbuf/DETAILS: updating this so that librsvg for gnome
+	2.4 will build
+
+2003-09-12 19:32  florin
+
+	* utils/which/DETAILS: bump version from 2.14 to 2.15
+
+2003-09-12 17:12  florin
+
+	* libs/libxslt/DETAILS: bump version from 1.0.32 to 1.0.33
+
+2003-09-12 17:07  florin
+
+	* net/whois/DETAILS: bump version from 4.6.6 to 4.6.7
+
+2003-09-12 13:46  nhudson
+
+	* profiles/: gnome2/DEPENDS, gnome2-fifth-toe/DEPENDS,
+	gnome2-fifth-toe/DETAILS: 
+	Updating the profiles
+
+2003-09-12 13:44  nhudson
+
+	* gnome2-applets/gnome-blog/DETAILS: 
+	Updating gnome-blog to new version 0.6
+
+2003-09-12 12:25  nhudson
+
+	* gnome2-extras/gal2/PRE_BUILD: 
+	Fixing this removing the old pkgconfigpath
+
 2003-09-12 10:44  niki
 
 	* devel/pkgconfig/: DETAILS, profile.d/pkgconfig.rc: Ok, this time
@@ -1890,67 +2030,4 @@
 	the new version of Python2.3.  Also this module only builds with
 	-Wno-deprecated enabled in lunar optimize. I'm not sure how to
 	force that option in the BUILD or DETAILS script.
-
-2003-08-13 19:32  tchan
-
-	* video/MPlayer/BUILD: Fixed an old incorrect symlink in
-	/usr/share/mplayer.  The mplayer devs have changed their tarball of
-	fonts and they have a new directory structure.
-
-2003-08-13 18:17  tchan
-
-	* news/bbdb/DEPENDS: Added the teTeX depends to bbdb.  There is NO
-	configure flag to stop the building of the TeX docs for bbdb, so it
-	must have TeX installed to correctly compile and install.
-
-2003-08-13 16:12  niki
-
-	* video/MPlayer/DETAILS: Bumped to versio 0.91, compiled fine with
-	gcc 3.3.1, tested and runs ok.
-
-2003-08-13 06:57  florin
-
-	* kde3/arts/DETAILS, kde3/kdeaddons3/DETAILS,
-	kde3/kdeadmin3/DETAILS, kde3/kdeartwork3/DETAILS,
-	kde3/kdebase3/DETAILS, kde3/kdebindings3/DETAILS,
-	kde3/kdeedu3/DETAILS, kde3/kdegames3/DETAILS,
-	kde3/kdegraphics3/DETAILS, kde3/kdelibs3/DETAILS,
-	kde3/kdemultimedia3/DETAILS, kde3/kdenetwork3/DETAILS,
-	kde3/kdepim3/DETAILS, kde3/kdesdk3/DETAILS, kde3/kdetoys3/DETAILS,
-	kde3/kdeutils3/DETAILS, kde3-i18n/kde3-i18n-af/DETAILS,
-	kde3-i18n/kde3-i18n-ar/DETAILS, kde3-i18n/kde3-i18n-bg/DETAILS,
-	kde3-i18n/kde3-i18n-bs/DETAILS, kde3-i18n/kde3-i18n-ca/DETAILS,
-	kde3-i18n/kde3-i18n-cs/DETAILS, kde3-i18n/kde3-i18n-da/DETAILS,
-	kde3-i18n/kde3-i18n-de/DETAILS, kde3-i18n/kde3-i18n-el/DETAILS,
-	kde3-i18n/kde3-i18n-en_GB/DETAILS, kde3-i18n/kde3-i18n-eo/DETAILS,
-	kde3-i18n/kde3-i18n-es/DETAILS, kde3-i18n/kde3-i18n-et/DETAILS,
-	kde3-i18n/kde3-i18n-eu/DETAILS, kde3-i18n/kde3-i18n-fa/DETAILS,
-	kde3-i18n/kde3-i18n-fi/DETAILS, kde3-i18n/kde3-i18n-fr/DETAILS,
-	kde3-i18n/kde3-i18n-he/DETAILS, kde3-i18n/kde3-i18n-hr/DETAILS,
-	kde3-i18n/kde3-i18n-hu/DETAILS, kde3-i18n/kde3-i18n-is/DETAILS,
-	kde3-i18n/kde3-i18n-it/DETAILS, kde3-i18n/kde3-i18n-ja/DETAILS,
-	kde3-i18n/kde3-i18n-lt/DETAILS, kde3-i18n/kde3-i18n-mk/BUILD,
-	kde3-i18n/kde3-i18n-mk/DEPENDS, kde3-i18n/kde3-i18n-mk/DETAILS,
-	kde3-i18n/kde3-i18n-mt/DETAILS, kde3-i18n/kde3-i18n-nb/DETAILS,
-	kde3-i18n/kde3-i18n-nl/DETAILS, kde3-i18n/kde3-i18n-nn/DETAILS,
-	kde3-i18n/kde3-i18n-nso/DETAILS, kde3-i18n/kde3-i18n-pl/DETAILS,
-	kde3-i18n/kde3-i18n-pt/DETAILS, kde3-i18n/kde3-i18n-pt_BR/DETAILS,
-	kde3-i18n/kde3-i18n-ro/DETAILS, kde3-i18n/kde3-i18n-ru/DETAILS,
-	kde3-i18n/kde3-i18n-se/DETAILS, kde3-i18n/kde3-i18n-sk/DETAILS,
-	kde3-i18n/kde3-i18n-sl/DETAILS, kde3-i18n/kde3-i18n-sr/DETAILS,
-	kde3-i18n/kde3-i18n-ss/DETAILS, kde3-i18n/kde3-i18n-sv/DETAILS,
-	kde3-i18n/kde3-i18n-ta/DETAILS, kde3-i18n/kde3-i18n-th/DETAILS,
-	kde3-i18n/kde3-i18n-tr/DETAILS, kde3-i18n/kde3-i18n-uk/DETAILS,
-	kde3-i18n/kde3-i18n-ven/DETAILS, kde3-i18n/kde3-i18n-vi/DETAILS,
-	kde3-i18n/kde3-i18n-xh/DETAILS, kde3-i18n/kde3-i18n-zh_CN/DETAILS,
-	kde3-i18n/kde3-i18n-zh_TW/DETAILS, kde3-i18n/kde3-i18n-zu/DETAILS,
-	web/quanta3/DETAILS: bumped version to 3.1.3
-
-2003-08-13 06:56  florin
-
-	* games/crimson/DETAILS: bumped version to 0.3.5
-
-2003-08-13 02:41  csm
-
-	* mail/postfix/DETAILS: updating the postfix module
 
