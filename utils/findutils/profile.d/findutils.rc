@@ -1,9 +1,9 @@
 
 # locate customized databases:
 if [ -f /var/cache/locate/locatedb ]; then
-    LOCATE_PATH=/var/cache/locate/locatedb
+    export LOCATE_PATH=/var/cache/locate/locatedb
 else
-    LOCATE_PATH=/var/cache/locatedb
+    export LOCATE_PATH=/var/cache/locatedb
 fi
 if [ -f ${HOME}/.locatedb ]; then
     export  LOCATE_PATH=$LOCATE_PATH:${HOME}/.locatedb
