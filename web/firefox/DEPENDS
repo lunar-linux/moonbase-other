@@ -1,8 +1,14 @@
-depends libmng &&
-depends ORBit2 &&
-depends	zip &&
-depends	unzip &&
-depends gtk+-2 &&
-depends cairo &&
+# The zlib and jpeg depends are covered by libmng
+# The pkgconfig depends is covered by gtk+-2
 
-optional_depends "flash-plugin" "" "" "to enable shockwave flash"
+depends libpng &&
+depends libmng &&
+depends libIDL &&
+depends zip    &&
+depends unzip  &&
+depends expat  &&
+depends gtk+-2 &&
+depends cairo  &&
+
+optional_depends "flash-plugin" "" "" "to enable shockwave flash" &&
+optional_depends "gnome-vfs2" "" "--disable-gnomevfs" "for Gnome VFS support"
