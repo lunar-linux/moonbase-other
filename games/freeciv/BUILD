@@ -1,17 +1,12 @@
 (
 
-  if ! module_installed xserver ; then
-    OPTS=$OPTS" --enable-client=no"
-  else
-    if module_installed gtk+-2 ; then
-      OPTS=$OPTS" --enable-client=gtk2"
-    fi
-  fi
-
-
-  ./configure  --prefix=/usr        \
-               --bindir=/usr/games  \
-	       $OPTS                &&
+  ./configure  --prefix=/usr              \
+               --bindir=/usr/games        \
+	       --datadir=/usr/share/games \
+	       --with-zlib                \
+	       --with-readline            \
+	       --with-gnu-ld              \
+	       $OPTS                     &&
 	       
   default_make
 
