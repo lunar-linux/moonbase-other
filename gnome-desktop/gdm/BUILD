@@ -13,7 +13,7 @@
  LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
 
  ./configure   --build=$BUILD                                        \
-               --prefix=/opt/lunar/gnome/2                         \
+               --prefix=/opt/lunar/gnome/2.4                         \
                --with-xinerama=yes				     \
                --sysconfdir=/etc/X11                                 \
                --localstatedir=/var                                  \

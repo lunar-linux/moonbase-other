@@ -1,11 +1,11 @@
 (
   ./configure   --build=$BUILD					\
                 --sysconfdir=/etc                               \
-                --prefix=/opt/lunar/gnome/2			\
+                --prefix=/opt/lunar/gnome/2.4			\
 		--localstatedir=/var				\
-		--infodir=/opt/lunar/gnome/2/share/info	\
-		--mandir=/opt/lunar/gnome/2/share/man		\
-                --with-plugin-install-dir=/opt/lunar/gnome/2/lib    \
+		--infodir=/opt/lunar/gnome/2.4/share/info	\
+		--mandir=/opt/lunar/gnome/2.4/share/man		\
+                --with-plugin-install-dir=/opt/lunar/gnome/2.4/lib    \
                 $OPTS                                          &&
 
   default_make
