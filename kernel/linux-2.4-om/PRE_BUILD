@@ -31,7 +31,7 @@ fi
 
 mkdir patches
 ( cd patches && unpack $SOURCE2 )
-for pat in patches/fix/* patches/om/*; do
+for pat in patches/fix/* patches/main/* patches/om/*; do
   patch_it $pat 1
 done
 rm -rf patches
