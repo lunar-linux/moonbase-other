@@ -10,9 +10,9 @@
   fi
 
   sedit "s/docdir = \$(prefix)\/doc/docdir = \$(prefix)\/share\/doc/" \
-     doc/Makefile.am doc/Makefile.in \
-     intl-java/Makefile.am intl-java/Makefile.in \
-     man/Makefile.am man/Makefile.in
+     gettext-tools/doc/Makefile.am gettext-tools/doc/Makefile.in \
+     gettext-runtime/intl-java/Makefile.am gettext-runtime/intl-java/Makefile.in \
+     gettext-tools/man/Makefile.am gettext-tools/man/Makefile.in
 
   touch *
 
