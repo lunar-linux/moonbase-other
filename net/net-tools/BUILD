@@ -15,8 +15,7 @@ fi
   
   make                                              &&
   prepare_install                                   &&
-  make  BASEDIR=/  install                          &&
-  cp $SCRIPT_DIRECTORY/lnet.8 /usr/share/man/man8/.
+  make  BASEDIR=/  install
 
 ) > $C_FIFO 2>&1  &&  (
 
@@ -34,8 +33,6 @@ fi
 
   #add the new
   cp  $SCRIPT_DIRECTORY/init.d/hostname    /etc/init.d
-
-  cp $SCRIPT_DIRECTORY/lnet	   /usr/sbin
 
   if [ -e /etc/rcS.d/S20hostname ]; then
      rm -f /etc/rcS.d/S20hostname
