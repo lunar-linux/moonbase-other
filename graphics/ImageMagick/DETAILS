@@ -1,15 +1,20 @@
           MODULE=ImageMagick
      BASEVERSION=6.0.0
-         VERSION=6.0.0-2
-          SOURCE=$MODULE-$VERSION.tar.bz2
+     REALVERSION=6.0.0-2
+      PATCHLEVEL=1
+         VERSION=$REALVERSION-$PATCHLEVEL
+          SOURCE=$MODULE-$REALVERSION.tar.bz2
+         SOURCE2=ImageMagick-6.0.0-2-Xt-include-fix.patch.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$BASEVERSION
    SOURCE_URL[0]=ftp://ftp.imagemagick.org/pub/ImageMagick/$SOURCE
    SOURCE_URL[1]=http://imagemagick.sourceforge.net/http/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
       SOURCE_VFY=md5:1314f8e62c8acdc224c55241ae828a6e
+     SOURCE2_VFY=md5:3c22d7fc6a5a02780cad40ab27877841
         WEB_SITE=http://www.imagemagick.org
       MAINTAINER=sofar@lunar-linux.org
          ENTERED=20010922
-         UPDATED=20040228
+         UPDATED=20040416
          PSAFE=no
        SHORT="Automated and interactive manipulation of images."
 cat << EOF
