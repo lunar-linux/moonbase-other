@@ -8,8 +8,6 @@
 		--mandir=/usr/share/man		                \
                 --with-croco                                    \
                 --with-svgz                                     \
-#Seems Gimp plugin support is broken now with latest version of gimp2
-                --without-gimp                                  \
                 $OPTS                                           &&
 
    default_make
