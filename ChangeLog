@@ -1,3 +1,55 @@
+2003-05-29 04:52  nhudson
+
+	* video/totem/: BUILD, DEPENDS, DETAILS: 
+	Updating totem to new version 0.99.0, also adding support for
+	gstreamer
+
+2003-05-29 04:38  nhudson
+
+	* audio/: gst-plugins/BUILD, gst-plugins/DEPENDS,
+	gst-plugins/DETAILS, gst-plugins/POST_INSTALL, jack/DEPENDS: 
+	Ok I have spent the last few hours rewriting the gst-plugins module
+	for better support for more plugins.  I have added new plugins to
+	moonbase like openquicktime and flame.
+
+2003-05-29 04:29  florin
+
+	* mail/postfix/DETAILS: bumped version.
+
+2003-05-29 04:13  jmhodges
+
+	* printer/ImageMagick/DETAILS: version bump, up to -4
+
+2003-05-29 04:06  nhudson
+
+	* libs/libfame/: BUILD, DETAILS: 
+	Adding libfame which is a MPEG-1 and MPEG-4 encoder from a v4l
+	port, also it is used with gst-plugins
+
+2003-05-29 03:58  nhudson
+
+	* libs/libdv/: BUILD, CONFIGURE, DEPENDS, DETAILS: 
+	Adding libdv to moonbase this is also used in gst-plugins
+
+2003-05-29 03:56  nhudson
+
+	* video/: libdvdnav/DETAILS, mpeg2dec/DETAILS, openquicktime/BUILD,
+	openquicktime/DEPENDS, openquicktime/DETAILS: 
+	Updating libdvdnav to new version 0.1.9 which is needed by
+	gst-plugins, also I have added openquicktime and mpeg2dec to
+	moonbase which is also used by gst-plugins
+
+2003-05-29 03:30  nhudson
+
+	* libs/gettext/DETAILS: 
+	Ok once again updating gettext to new version 0.12.1, should update
+	just a good as 0.12.
+
+2003-05-29 00:39  nhudson
+
+	* libs/Hermes/DETAILS: 
+	Fixing download location for the correct source file
+
 2003-05-28 22:06  tchan
 
 	* audio/zinf/DEPENDS: Added a missing depends "id3lib" to zinf.
@@ -1251,47 +1303,4 @@
 	* gnome2-apps/: gcalctool/DETAILS, vte/DETAILS: 
 	Updating vte to new version 0.10.27 and gcalctool to new version
 	4.2.83
-
-2003-04-28 18:14  sofar
-
-	* shells/bash/BUILD: okay why I do not know, but this fixes it.
-
-2003-04-28 17:39  florin
-
-	* kde3-apps/kmplayer/DETAILS: bumped version. some improvements.
-
-2003-04-28 17:09  florin
-
-	* printer/enscript/BUILD: fix the gettext problem using sofar's
-	method.
-
-2003-04-28 16:54  florin
-
-	* printer/enscript/: DEPENDS, DEPENDS: assign the proper rights
-
-2003-04-28 13:55  sofar
-
-	* web/mozilla/DEPENDS: Adding flash-plugin for your convenience
-
-2003-04-28 12:34  sofar
-
-	* graphics/gqview/CONFLICTS: m00
-
-2003-04-28 12:33  sofar
-
-	* zbeta/gqview-devel/: CONFLICTS, DEPENDS, DETAILS: Yay, another
-	gtk+-1 app less...
-
-2003-04-28 11:33  sofar
-
-	* libs/glib/: BUILD, DETAILS: Lots of gtk+ apps still break due to
-	the upgrade of gettext. Analogous to glib-2 including -lintl (which
-	fixes all gtk+-2 apps that break due to the gettext upgrade),
-	having glib adding -lintl to glib-config fixes pretty much all the
-	gtk+ apps that do not include -lintl somehow. This fix is the
-	nicest one I could come up with, and should not interfere with
-	stuff.
-	
-	Note that non-glib-[1|2] apps breaking on gettext don't see this
-	fix (hence the wget patch before).
 
