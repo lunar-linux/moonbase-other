@@ -63,7 +63,7 @@ start() {
     if [ "$?" -eq "0" ] ; then
       echo    -e $RESULT_OK
     else
-      if [ "$?" -eq "1" ] ; then    # Don't force the poor guy into rescue mode, if fscked cleaned it
+      if [ "$?" -eq "1" ] ; then    # Don't force the poor guy into rescue mode, if fsck cleaned it
         echo  -e $RESULT_WARN
       else
         echo  -e " * fsck failed.$RESULT_FAIL"
