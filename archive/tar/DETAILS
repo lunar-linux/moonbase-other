@@ -1,12 +1,16 @@
           MODULE=tar
-         VERSION=1.13.25
-#        VERSION=1.13
-          SOURCE=$MODULE-$VERSION.tar.gz
+         VERSION=1.14
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE.1-$VERSION.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=ftp://alpha.gnu.org/gnu/$MODULE/$SOURCE
+   SOURCE_URL[0]=ftp://ftp.gnu.org/gnu/$MODULE/$SOURCE
+      SOURCE_VFY=md5:f1932e0fbd4641885bfdcc75495c91b7
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
+     SOURCE2_VFY=md5:1ecf625828364f49cd0745fa749132fa
         WEB_SITE=http://www.gnu.org/software/tar/tar.html
          ENTERED=20010922
-         UPDATED=20021023
+         UPDATED=20040512
+      MAINTAINER=prox@lunar-linux.org
            SHORT="tar creates GNU tar archives."
 cat << EOF
 GNU tar - Creates tar archives
