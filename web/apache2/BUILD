@@ -12,8 +12,8 @@
                --includedir=/usr/include/httpd                  \
                --infodir=/usr/share/info                        \
                --mandir=/usr/share/man                          \
+	       --enable-modules=most                            \
                --enable-so                                      \
-               --enable-mods-shared=all		                \
                --enable-info                                    \
                --enable-cgi                                     \
                --enable-rewrite                                 \
