@@ -1,3 +1,122 @@
+2005-02-16 11:54  moe
+
+	* libs/gettext/DEPENDS: Fixing loops. If those are there .. you
+	  win. If not, shame.  You can always recompile the module to get
+	  them.
+
+2005-02-16 11:41  ratler
+
+	* security/Linux-PAM/: BUILD, DEPENDS: Removed all tetex fsck crap
+
+2005-02-16 11:40  moe
+
+	* libs/glib-2/DEPENDS: Those of you who want gtk-doc .. get it on
+	  your own
+
+2005-02-16 07:30  jasper
+
+	* devel/subversion/DETAILS: Not PSAFE
+
+2005-02-16 02:24  moe
+
+	* doc-tools/docbook-utils/DEPENDS: And this one too
+
+2005-02-16 02:20  moe
+
+	* profiles/docbook-profile/DEPENDS: This one's sneakin' in late
+	  because I'm lame.
+
+2005-02-16 02:19  moe
+
+	* doc-tools/: docbook-3.1/POST_INSTALL, docbook-dsssl/BUILD,
+	  docbook-dsssl/Makefile, docbook-dsssl/POST_INSTALL,
+	  docbook-dsssl/PRE_REMOVE, docbook-sgml/BUILD,
+	  docbook-sgml/DETAILS, docbook-sgml/POST_INSTALL,
+	  docbook-xml/BUILD, docbook-xml/DEPENDS, docbook-xml/DETAILS,
+	  docbook-xml/POST_INSTALL, docbook-xml/POST_REMOVE,
+	  docbook-xml/PRE_BUILD, docbook-xml/PRE_REMOVE, docbook-xsl/BUILD,
+	  docbook-xsl/DETAILS, docbook-xsl/POST_INSTALL,
+	  docbook-xsl/POST_REMOVE, docbook-xsl/rebuild-docbook-catalog,
+	  openjade/BUILD, openjade/POST_INSTALL, openjade/PRE_REMOVE,
+	  openjade/catalog, scrollkeeper/BUILD, scrollkeeper/DEPENDS,
+	  scrollkeeper/POST_INSTALL: Well, what can I say. I've been
+	  working on this for 10 hours straight (Yes, ten hours). I just
+	  couldn't stand how broken docbook* was.
+
+	  Everything is now updatable independently, there is nothing left
+	  behind in any global configuration file. I also updated a couple
+	  of those modules as they really deserved it.
+
+	  Scheme change:
+
+	  docbook-3.1 replaces any docbook-3.x module docbook-sgml replaces
+	  any docbook-4.x module
+
+	  iso832943-whatever was deprecated.  The /etc/xml/catalog rebuild
+	  is now done by a dynamic file fetched from docbook.org (yeah, I
+	  know Nick, you modified it to fit in with Lunar ..  unfortunately
+	  you didn't catch up).
+
+	  sgml-common has been sanitized.
+
+	  Tested with gcc 3.3.3, 2.6.x and scrollkeeper, docbook-utils,
+	  glade2, gtk-doc and a hell lot of others I probably forgot.
+	  Enjoy.
+
+	  Oh and .. bow before your god.  (j/k)
+
+	  PS: Thanks to the folks at BLFS .. without them I would have been
+	  clueless (occasionally)
+
+2005-02-16 00:29  moe
+
+	* doc-tools/sgml-common/: DETAILS, POST_INSTALL, PRE_REMOVE: This
+	  is absolutely nothing compared to the shiat I'm working on at the
+	  moment. Prepare for the best.
+
+2005-02-15 21:59  sofar
+
+	* net/whois/DETAILS: bump
+
+2005-02-15 19:38  moe
+
+	* doc-tools/opensp/: DEPENDS, DETAILS: I'm dancing the sanitize
+	  blues.
+
+2005-02-15 19:33  moe
+
+	* doc-tools/sgml-common/: BUILD, DETAILS, POST_INSTALL, PRE_REMOVE:
+	  Well, this will tell you sgml-common! BEHAVE!
+
+2005-02-15 19:16  florin
+
+	* shells/bash_static/DETAILS: use sha1 sum instead of md5 one.
+
+2005-02-15 19:13  florin
+
+	* shells/bash/DETAILS: use sha1 sum instead of the md5 one.
+
+2005-02-15 19:08  florin
+
+	* graphics/netpbm/DETAILS: bump the version from 10.26.2 to
+	  10.26.3.
+
+2005-02-15 18:11  moe
+
+	* doc-tools/docbook-3.1/POST_REMOVE: GOTCHA!
+
+2005-02-15 18:11  moe
+
+	* doc-tools/docbook-3.1/: BUILD, POST_INSTALL, PRE_BUILD,
+	  PRE_REMOVE: Small 3.0 fix and moving on to 3.1. You're next 4.0!
+
+2005-02-15 18:03  ratler
+
+	* shells/bash/: BUILD, DETAILS: Added the GNU official patches for
+	  bash 3.0, they solve numerous bugs. Some of which I have
+	  encountered myself. Compiled and tested with gcc-3.3.3,
+	  glibc-2.3.3, kernel-2.4 headers. Moe gave thumbs up too
+
 2005-02-15 11:50  moe
 
 	* doc-tools/docbook-sgml/: BUILD, DETAILS, POST_INSTALL,
@@ -1632,128 +1751,4 @@
 2005-01-17 00:21  nestu
 
 	* net/iproute2/DETAILS: Adding sha sums, and some cosmetics.
-
-2005-01-16 23:33  nestu
-
-	* net/iproute2/: BUILD, DETAILS: 2.6.9-ss040831 -> 2.6.9-041019.
-	  gcc 3.3.3, glibc 2.3.2, headers 2.6.10.0 Done some cleaning in
-	  the BUILD, too :)
-
-2005-01-16 22:35  jasper
-
-	* xfce4/: xfce-extra-icons/BUILD, xfce-extra-icons/DETAILS,
-	  xfce-extra-icons/PRE_BUILD, xfce4-icon-theme/DEPENDS,
-	  xfce4-netload-plugin/DETAILS, xfce4-notes-plugin/DETAILS,
-	  xfce4-systemload-plugin/DETAILS, xfce4-weather-plugin/DETAILS:
-	  Add extra icons package and update some plugins
-
-2005-01-16 21:44  jasper
-
-	* profiles/xfce4-extras-profile/DEPENDS: Bah
-
-2005-01-16 21:01  jasper
-
-	* app-themes/gtk-xfce-engine/DETAILS, xfce4/libxfce4mcs/DETAILS,
-	  xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/DETAILS,
-	  xfce4/xfcalendar/DETAILS, xfce4/xfce-mcs-manager/DETAILS,
-	  xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/DETAILS,
-	  xfce4/xfce4-appfinder/DETAILS, xfce4/xfce4-icon-theme/DETAILS,
-	  xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-mixer/DETAILS,
-	  xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/DETAILS,
-	  xfce4/xfce4-systray/DETAILS, xfce4/xfce4-toys/DETAILS,
-	  xfce4/xfce4-trigger-launcher/DETAILS, xfce4/xfdesktop/DETAILS,
-	  xfce4/xffm/DETAILS, xfce4/xfprint/DETAILS, xfce4/xfwm4/DETAILS,
-	  xfce4/xfwm4-themes/DETAILS: Use bz2 so Moe's mirror (and
-	  sha1sum's) are correct
-
-2005-01-16 19:46  nestu
-
-	* kernel/modutils-wrappers/POST_INSTALL: Adding the recompile of
-	  modutils and module-init-tools, if they are installed.  That way
-	  we make sure they are in the correct location
-
-2005-01-16 19:44  nestu
-
-	* kernel/: module-init-tools/POST_INSTALL, modutils/POST_INSTALL:
-	  This module will be relinned from modutils-wrappers' POST_INSTALL
-	  Removed the relin of modutils-wrappers here so there's no
-	  circular depends.
-
-2005-01-16 19:20  jasper
-
-	* app-themes/gtk-xfce-engine/DETAILS,
-	  profiles/xfce4-extras-profile/DEPENDS,
-	  profiles/xfce4-extras-profile/DETAILS,
-	  profiles/xfce4-profile/DETAILS, xfce4/libxfce4mcs/DETAILS,
-	  xfce4/libxfce4util/DETAILS, xfce4/libxfcegui4/DETAILS,
-	  xfce4/xfcalendar/DETAILS, xfce4/xfce-mcs-manager/DETAILS,
-	  xfce4/xfce-mcs-plugins/DETAILS, xfce4/xfce-utils/DETAILS,
-	  xfce4/xfce4-appfinder/DETAILS, xfce4/xfce4-icon-theme/DETAILS,
-	  xfce4/xfce4-iconbox/DETAILS, xfce4/xfce4-mixer/DETAILS,
-	  xfce4/xfce4-panel/DETAILS, xfce4/xfce4-session/DETAILS,
-	  xfce4/xfce4-systray/DETAILS, xfce4/xfce4-toys/DETAILS,
-	  xfce4/xfce4-trigger-launcher/DETAILS, xfce4/xfdesktop/DETAILS,
-	  xfce4/xffm/DETAILS, xfce4/xfprint/DETAILS, xfce4/xfwm4/DETAILS,
-	  xfce4/xfwm4-themes/DETAILS: Xfce 4.2.0. Enjoy.
-
-2005-01-16 15:28  tchan
-
-	* compilers/fasm/DETAILS: Fixed the stupid fasm dev's source
-	  tarball for fasm-1.56.  They have updated their source tarball
-	  WITHOUT modifying the version number AND their tarball is
-	  incorrectly packed (it gunzips with errors/garbage).	So I've
-	  temporarily moved a corrected tarball to /lunar/mirrors/.  Once
-	  the fasm devs learn how to create proper tar.gz files we can
-	  point the download back to their main site.  If some other than
-	  tchan fixes this module, make SURE that the tarball from the main
-	  dev's site correctly unpacks!!!
-
-2005-01-16 10:08  florin
-
-	* compilers/nasm/DETAILS: bump the version from 0.98.38 to 0.98.39.
-
-2005-01-16 08:36  florin
-
-	* video/piave/DEPENDS: add the SDL_image depend. thx to dveatch for
-	  reporting it.
-
-2005-01-16 08:32  florin
-
-	* utils/parted/DETAILS: bump the version from 1.6.20 to 1.6.21.
-
-2005-01-16 04:00  v3rt1g0
-
-	* x11-utils/wininfo/: BUILD, DEPENDS, DETAILS: Inital import.  Tool
-	  to gain imformation about the windows in X.
-
-2005-01-16 03:45  v3rt1g0
-
-	* x11-utils/xrestop/: BUILD, DETAILS: Version bump.  Minor bugfix
-	  and enhanced man page.
-
-2005-01-16 03:03  v3rt1g0
-
-	* devel/desktop-file-utils/: DEPENDS, DETAILS: Inital import.
-	  useful for developers who are creating .desktop files and wanna
-	  verify they are up to freedesktop.org's standards.
-
-2005-01-16 02:37  v3rt1g0
-
-	* devel/dbus/: BUILD, POST_REMOVE: Make the created user have no
-	  shell or home directory.  Also clean up the user and group on
-	  removal of the module.
-
-2005-01-16 01:40  v3rt1g0
-
-	* devel/dbus/DEPENDS: Moe pointed out that pkgconfig was already
-	  taken care of by glib-2.
-
-2005-01-16 00:00  v3rt1g0
-
-	* devel/dbus/: BUILD, DEPENDS, DETAILS, POST_INSTALL: Version bump.
-	  Moved the POST_INSTALL stuff out of that file because on a
-	  firstime install the user gets an error and the service doesn't
-	  start because a directory has yet to be created.  Putting it in
-	  the BUILD file fixes that.  Also removed the required depends on
-	  Python as it is really optional.
 
