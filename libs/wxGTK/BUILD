@@ -1,12 +1,6 @@
-(
-  
-  if [[ $GTK2 == "y" ]]; then
-    OPTS="$OPTS --enable-gtk2 "
-  fi
-  if [[ $OPENGL == "y" ]]; then
-    OPTS="$OPTS --with-opengl"
-  fi
-  patch_it $SOURCE2 0 &&
+( 
+  patch_it $SOURCE2 0	&&
+
   ./configure   --with-gtk \
                 --prefix=/usr \
                 --enable-geometry \
