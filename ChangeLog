@@ -1,3 +1,55 @@
+2003-12-02 03:40  tchan
+
+	* utils/discover/DETAILS: Fixed the UPDATED field because of all
+	the changes incorporated into this module today.
+
+2003-12-02 03:40  tchan
+
+	* utils/discover/: BUILD, DEPENDS: Modified this to include the new
+	"check" module from moonbase/devel/check.  Highly suggested by the
+	devs of the discover module and I decided to make it a required
+	depends instead of optional.  It makes the BUILD much easier to
+	code.
+
+2003-12-02 03:38  tchan
+
+	* devel/check/: BUILD, DEPENDS, DETAILS: Added the check module for
+	a unit test framework.	This is recommended by the devs of the
+	discover module and I decided to make it a required depends instead
+	of messing around with optional_depends in the discover module.
+
+2003-12-02 02:49  tchan
+
+	* utils/discover/DEPENDS: Added two required depends, curl and
+	expat.
+
+2003-12-02 02:43  tchan
+
+	* utils/discover/DETAILS: Fixed sofar's typo in the patch url. 
+	Should be SOURCE2_URL, not SOURCE@_URL.
+
+2003-12-01 22:09  elaine
+
+	* kernel/linux-stable/POST_INSTALL: Corrected label-version
+
+2003-12-01 21:31  florin
+
+	* audio/mp3blaster/DETAILS: bump version from 3.1.2 to3.2.0.
+
+2003-12-01 21:30  elaine
+
+	* kernel/linux-stable/DETAILS: Bumped kernel to 2.4.23
+
+2003-12-01 18:04  nestu
+
+	* chat/ircii/DETAILS: Fixed SOURCE_DIRECTORY path
+
+2003-12-01 11:57  florin
+
+	* x11/xfree86/: BUILD, POST_INSTALL: moved the rm on old zlib stuff
+	from POST_INSTALL file to the BUILD file. Thanks to Elaine for the
+	suggestion.
+
 2003-12-01 07:49  nhudson
 
 	* x11/: libxklavier/BUILD, libxklavier/DEPENDS,
@@ -1499,97 +1551,4 @@
 
 	* zbeta/initscripts/DETAILS: reverted the version number back to 8
 	and changed the date to 20031101.
-
-2003-11-01 22:46  florin
-
-	* kde3-apps/kile/DETAILS: bump version from 1.5.2 to 1.6.
-
-2003-11-01 22:32  florin
-
-	* compilers/ruby/DETAILS: add md5 sum in the DETAILS file.
-
-2003-11-01 22:31  florin
-
-	* ftp/curl/DETAILS: bump version from 7.10.7 to 7.10.8. bugfix
-	version.
-
-2003-11-01 21:54  elaine
-
-	* zbeta/initscripts/: BUILD, DETAILS: Adjusted old config backup
-	method
-
-2003-11-01 17:51  sofar
-
-	* audio/beep-media-player/: BUILD, DEPENDS, DETAILS: FINALLY, when
-	you thought XMMS would die and forgotten, someone has the guts to
-	just rip the code and port it to gtk2. Enjoy!
-
-2003-11-01 17:22  florin
-
-	* graphics/libmng/: BUILD, DETAILS: fix the install paths.
-
-2003-11-01 07:19  csm
-
-	* utils/module-init-tools/BUILD: very, very silly!
-
-2003-11-01 07:18  csm
-
-	* utils/modutils/BUILD: dammit... silly me!
-
-2003-11-01 07:15  florin
-
-	* utils/modutils/DETAILS: fix the update date in DETAILS.
-
-2003-11-01 07:08  csm
-
-	* utils/console-tools/BUILD: fixing
-
-2003-11-01 06:24  florin
-
-	* utils/modutils/DETAILS: bump version from 2.4.25 to 2.4.26.
-
-2003-11-01 06:02  csm
-
-	* utils/console-tools/: BUILD, DETAILS: moving these packages
-	around for the new init system
-
-2003-11-01 05:33  nhudson
-
-	* audio/: gst-plugins/DETAILS, gst-plugins/0.7.1/DETAILS,
-	gstreamer/DETAILS, gstreamer/0.7.1/DETAILS: 
-	Reverting gstreamer and gst-plugins due to the fact that
-	gnome-media2 is incompatible for now.  Also fixing some lin
-	problems with the 0.7.1 versioning module
-
-2003-11-01 03:24  r0dzilla
-
-	* graphics/libmng/: DEPENDS, DETAILS: added libtool and automake to
-	DEPENDS as it is required by this module
-
-2003-11-01 03:20  r0dzilla
-
-	* utils/module-init-tools/DETAILS: changed UPDATED field to reflect
-	new date
-
-2003-11-01 03:18  r0dzilla
-
-	* utils/module-init-tools/BUILD: fixed an if stanza that was
-	missing a then statement
-
-2003-11-01 01:37  elaine
-
-	* utils/e2fsprogs/init.d/mount: Moved swapoff to before unmounting
-	of filesystems, fixing bug found by sofar	    bright
-	blessings, happy haloween
-
-2003-11-01 01:26  csm
-
-	* utils/module-init-tools/BUILD: wrapping this to keep it from
-	installing the S20modutils symlink if the luser is using the new
-	init system
-
-2003-11-01 01:24  csm
-
-	* utils/modutils/BUILD: wrapping the S20modutils symlink to keep it
-	from being installed if the luser is using the new init system
 
