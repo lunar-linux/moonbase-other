@@ -1,4 +1,4 @@
-( 
+(
 
     if [ -f src/Makefile ]; then
       message "${MESSAGE_COLOR}Makefile's detected, doing make distclean before compiling${DEFAULT_COLOR}" &&
@@ -9,10 +9,12 @@
     ./configure --platform linux-g++        \
                 --prefix /usr               \
                 --install /usr/bin/install  \
-		$OPTS                      &&
+                $OPTS                      &&
 
     make             &&
-    make docs        &&
+    if which python 2> /dev/null 1>&2; then
+       make docs     
+    fi               &&
     prepare_install  &&
     make install
 
