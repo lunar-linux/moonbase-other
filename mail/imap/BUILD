@@ -1,9 +1,9 @@
 ( 
   cd $SOURCE_DIRECTORY &&
     if  module_installed  Linux-PAM
-      then  make lnp
+      then  make lnp SSLTYPE=unix SSLDIR=/usr
 
-      else  make slx
+      else  make slx SSLTYPE=unix SSLDIR=/usr
 
     fi &&
     cp imapd/imapd /usr/sbin/imapd                         &&
