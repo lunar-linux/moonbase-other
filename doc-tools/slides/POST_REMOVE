@@ -1,5 +1,7 @@
-DBTARGET="/usr/share/xml/slides-3.0.0"
-centralized="/etc/xml/catalog"
-/usr/bin/install-catalog -r $centralized /usr/share/xml/slides-3.0.0/xcatalog &&
+DBTARGET=/usr/share/xml/slides-$VERSION
+centralized=/etc/xml/catalog
+central=/etc/sgml/catalog
+/usr/bin/install-catalog -r $centralized /usr/share/xml/slides-$VERSION/xcatalog &&
+/usr/bin/install-catalog -r $central /usr/share/xml/slides-$VERSION/xcatalog &&
 rm -Rf     $DBTARGET
 

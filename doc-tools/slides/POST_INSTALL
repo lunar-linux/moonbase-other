@@ -1,5 +1,8 @@
+centralized=/etc/xml/catalog
+central=/etc/sgml/catalog
 if [ ! -d /etc/xml ]; then
   mkdir /etc/xml
 fi
 
-/usr/bin/install-catalog --add $centralized /usr/share/xml/slides-3.0.0/xcatalog
+/usr/bin/install-catalog --add $centralized /usr/share/xml/slides-$VERSION/xcatalog
+/usr/bin/install-catalog --add $central /usr/share/xml/slides-$VERSION/xcatalog

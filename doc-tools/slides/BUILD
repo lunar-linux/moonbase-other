@@ -1,6 +1,6 @@
 (
 
-  DBTARGET="/usr/share/xml/slides-3.0.0"           &&
+  DBTARGET=/usr/share/xml/slides-$VERSION           &&
   cd $SOURCE_DIRECTORY                             &&
   
   prepare_install                                  &&
