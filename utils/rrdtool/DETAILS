@@ -1,0 +1,23 @@
+          MODULE=rrdtool
+         VERSION=1.0.46
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://people.ee.ethz.ch/~oetiker/webtools/$MODULE/pub/$SOURCE
+      SOURCE_VFY=md5:718676770c06b25d1471cec1e4f0bbdc
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+        WEB_SITE=http://www.$MODULE.com/
+         ENTERED=20040217
+         UPDATED=20040217
+           SHORT="A graphing library"
+cat << EOF
+If you know MRTG, you can think of RRDtool as a reimplementation of MRTGs
+graphing and logging features. Magnitudes faster and more flexible than
+you ever thought possible
+
+RRD is the Acronym for Round Robin Database. RRD is a system to store
+and display time-series data (i.e. network bandwidth, machine-room
+temperature, server load average). It stores the data in a very compact
+way that will not expand over time, and it presents useful graphs by
+processing the data to enforce a certain data density. It can be used either
+via simple wrapper scripts (from shell or Perl) or via frontends that
+poll network devices and put a friendly user interface on it.
+EOF
