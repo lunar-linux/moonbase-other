@@ -1,7 +1,12 @@
 (
 
   OPTS=$OPTS" --bindir=/bin --with-installed-readline --with-curses"
-
+  
+  patch -p0 < $SCRIPT_DIRECTORY/patches/bash205b-001
+  patch -p0 < $SCRIPT_DIRECTORY/patches/bash205b-002
+  patch -p0 < $SCRIPT_DIRECTORY/patches/bash205b-003
+  patch -p0 < $SCRIPT_DIRECTORY/patches/bash205b-004
+  
   default_build                 &&
   ln  -sf  bash      /bin/sh    &&
   ln  -f   /bin/bash /bin/rbash &&
