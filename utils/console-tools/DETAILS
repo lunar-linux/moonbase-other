@@ -1,12 +1,16 @@
            MODULE=console-tools
          VERSION=0.2.3
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-bootstrap.patch.bz2
+         SOURCE3=$MODULE-$VERSION-missing-quotes.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=ftp://metalab.unc.edu/pub/Linux/system/keyboards/$SOURCE
-#  SOURCE_URL[0]=ftp://lct.sourceforge.net/pub/lct/$SOURCE
+    SOURCE_URL[0]=ftp://metalab.unc.edu/pub/Linux/system/keyboards/$SOURCE
+#    SOURCE_URL[0]=ftp://lct.sourceforge.net/pub/lct/$SOURCE
+   SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+   SOURCE3_URL[0]=$PATCH_URL/$SOURCE3
         WEB_SITE=http://lct.sourceforge.net
          ENTERED=20010922
-         UPDATED=20010922
+         UPDATED=20030518
            SHORT="console-tools allows you to configure and manipulate Linux consoles."
 
 # Discovered on 20011117 that ftp://lct.sourceforge.net/pub/lct was not 

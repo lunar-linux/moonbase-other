@@ -1,12 +1,16 @@
           MODULE=yawl
          VERSION=0.2
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-makefile.patch.bz2
+         SOURCE3=$MODULE-$VERSION-missing-quotes.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://metalab.unc.edu/pub/Linux/libs/$SOURCE
    SOURCE_URL[1]=http://personal.riverusers.com/~thegrendel/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+  SOURCE3_URL[0]=$PATCH_URL/$SOURCE3
         WEB_SITE=http://personal.riverusers.com/~thegrendel/software.html
          ENTERED=20020313
-         UPDATED=20021121
+         UPDATED=20030518
       MAINTAINER=kongar@tsrsb.org.tr
            SHORT="yawl is a wordlist"
 cat << EOF
