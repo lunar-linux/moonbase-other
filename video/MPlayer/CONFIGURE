@@ -24,9 +24,5 @@ if ! grep -q "^OPTS=" $MODULE_CONFIG ; then
     OPTS=$OPTS" --enable-largefiles"
   fi
 
-  if query "Enable Live support ?" n ; then
-    OPTS=$OPTS" --enable-live"
-  fi      
-
   echo 'OPTS='\"$OPTS\" >> $MODULE_CONFIG
 fi

@@ -1,12 +1,5 @@
 (
 
-  if $(echo $OPTS | grep -q "enable-live") ; then
-    sedit "s: -O : $CFLAGS :" live/config.linux
-    sedit "s: -DBSD=1 : $CFLAGS :" live/config.linux
-    ( cd live && ./genMakefiles linux && make )
-    OPTS=$OPTS" --with-livelibdir=$SOURCE_DIRECTORY/live"
-  fi
-
   unset CFLAGS
  
   ./configure --prefix=/usr                   \
