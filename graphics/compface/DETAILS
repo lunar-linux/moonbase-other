@@ -1,11 +1,13 @@
            MODULE=compface
          VERSION=1.4
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-errno-fix-1.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=http://www.ibiblio.org/pub/Linux/apps/graphics/convert/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
         WEB_SITE=unknown
          ENTERED=20011031
-         UPDATED=20011031
+         UPDATED=20020416
            SHORT="compface converts X-Face format graphics to 48x48 bitmap."
 cat << EOF
 Compface provides utilities and a library to convert from/to X-Face
