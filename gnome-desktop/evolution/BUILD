@@ -20,7 +20,9 @@
                --localstatedir=/var                              \
                --with-db3=$SOURCE_DIRECTORY/evolution-db3        \
                --mandir=/usr/share/man		                 \
-     	       -infodir=/usr/share/info	                         \
+     	       --infodir=/usr/share/info	                 \
+               --enable-ipv6                                     \
+               --enable-gtk-doc                                  \
                $OPTS                                             &&
   default_make                                                   &&
 
