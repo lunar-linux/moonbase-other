@@ -8,7 +8,7 @@
     CUNI="--enable-unicode"
   fi
   if [[ $OPENGL == "n" ]]; then
-    PGL="BUILD_GLCANVS=0";  else 
+    PGL="BUILD_GLCANVAS=0";  else 
     CGL="--with-opengl"
   fi
 POPTS="$PGTK $PUNI $PGL" 
