@@ -142,15 +142,23 @@ start() {
       mount -t ramfs none /dev
       chkresult
 
+      echo     -n " * Setting /sbin/udevsend to manage hotplug events :"
+      echo "/sbin/udevsend" > /proc/sys/kernel/hotplug
+      chkresult
+
       echo     -n " * Creating udev device nodes on /dev :"
       /sbin/udevstart
       chkresult
 
-      echo     -n " * Creating missing dirs on /dev :"     
+      echo     -n " * Creating extra /dev/pts /dev/shm dirs:"     
       mkdir /dev/{pts,shm}
       chkresult
+
+      echo     -n " * Mounting devpts on /dev/pts :"
+      mount -t devpts devpts /dev/pts
+      chkresult      
   fi
-  
+
   if  [ ! -e /fastboot ] ; then 
       if [ -e /forcefsck ] ; then
 	  FORCE="-f"
@@ -199,11 +207,12 @@ start() {
   while  read  DEVICE MOUNTPOINT FSTYPE REST;  do
   
       # these have been mounted previously, so don't remount them
-      test "$MOUNTPOINT" = "/"     && continue
-      test "$MOUNTPOINT" = "/proc" && continue
-      test "$MOUNTPOINT" = "/sys"  && continue
-      test "$MOUNTPOINT" = "/dev"  && continue
-      
+      test "$MOUNTPOINT" = "/"         && continue
+      test "$MOUNTPOINT" = "/proc"     && continue
+      test "$MOUNTPOINT" = "/sys"      && continue
+      test "$MOUNTPOINT" = "/dev"      && continue
+      test "$MOUNTPOINT" = "/dev/pts"  && continue      
+
      # we don't do networked fs's yet!
       case "$FSTYPE" in
  	  nfs|smbfs) continue ;;
