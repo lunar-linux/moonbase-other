@@ -2,29 +2,28 @@
 
   add_priv_user mail:mail
 
-  mkdir  -p         /var/spool/mail
-  chmod  1777       /var/spool/mail
-  chown  mail:mail  /var/spool/mail
+  mkdir -p        /var/spool/mail
+  chmod 1777      /var/spool/mail
+  chown mail:mail /var/spool/mail
 
-  mkdir  Local
-
-  if  module_installed  xfree86;  then
-    cp  src/EDITME           Local/Makefile
-    cp  exim_monitor/EDITME  Local/eximon.conf
+  if module_installed xfree86 ; then
+    cp src/EDITME           Local/Makefile
+    cp exim_monitor/EDITME  Local/eximon.conf
   else
-    grep  -v  "EXIM_MONITOR="  src/EDITME  >  Local/Makefile
+    grep -v "EXIM_MONITOR=" src/EDITME > Local/Makefile
   fi
 
-  if  module_installed  tcp_wrappers;  then
-    echo  "USE_TCP_WRAPPERS=yes"  >> Local/Makefile
-    echo  "EXTRALIBS=-lwrap"      >> Local/Makefile
+  if module_installed tcp_wrappers ; then
+    echo "USE_TCP_WRAPPERS=yes" >> Local/Makefile
+    echo "EXTRALIBS=-lwrap"     >> Local/Makefile
   fi
 
-  if  module_installed  Linux-PAM;  then
-    echo  "SUPPORT_PAM=yes"  >>  Local/Makefile
-    if  module_installed  tcp_wrappers
-    then  echo  "EXTRALIBS=-lpam -ldl -lwrap"  >>  Local/Makefile  
-    else  echo  "EXTRALIBS=-lpam -ldl"         >>  Local/Makefile  
+  if module_installed Linux-PAM ; then
+    echo "SUPPORT_PAM=yes" >> Local/Makefile
+    if module_installed tcp_wrappers ; then
+      echo "EXTRALIBS=-lpam -ldl -lwrap" >> Local/Makefile  
+    else
+      echo "EXTRALIBS=-lpam -ldl" >> Local/Makefile  
     fi
   fi
 
@@ -34,12 +33,11 @@
     echo  "LOOKUP_LIBS=-lmysqlclient"            >>  Local/Makefile
   fi
 
+  echo  "EXIM_USER=mail"                   >>  Local/Makefile
   echo  "BIN_DIRECTORY=/usr/sbin"          >>  Local/Makefile
   echo  "CONFIGURE_FILE=/etc/exim.conf"    >>  Local/Makefile
   echo  "SPOOL_DIRECTORY=/var/spool/mail"  >>  Local/Makefile
   echo  "CFLAGS=$CFLAGS"                   >>  Local/Makefile
-  echo  "EXIM_UID=`id -u mail`"            >>  Local/Makefile
-  echo  "EXIM_GID=`id -g mail`"            >>  Local/Makefile
   echo  "AUTH_CRAM_MD5=yes"                >>  Local/Makefile
   echo  "AUTH_PLAINTEXT=yes"               >>  Local/Makefile
   echo  "LOOKUP_NIS=yes"                   >>  Local/Makefile
