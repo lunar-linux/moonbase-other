@@ -6,7 +6,9 @@
   chmod 1777      /var/spool/mail
   chown mail:mail /var/spool/mail
 
-  if module_installed xfree86 ; then
+ mkdir Local
+ 
+ if module_installed xfree86 ; then
     cp src/EDITME           Local/Makefile
     cp exim_monitor/EDITME  Local/eximon.conf
   else
