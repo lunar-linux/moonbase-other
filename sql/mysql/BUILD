@@ -1,8 +1,8 @@
 (
 
-  add_priv_user mysql:mysql &&
+  add_priv_user mysql:mysql  &&
 
-  devoke_installwatch                                     &&
+  devoke_installwatch        &&
 
 #  set -x &&
   if [ "`arch`" == "alpha" ]; then
@@ -12,28 +12,28 @@
 
   export CXX='gcc' &&
 
-  ./configure  --prefix=/usr                              \
-               --disable-dependency-tracking              \
-               --without-bench                            \
-               --without-debug                            \
-	       --enable-thread-safe-client                \
-               --enable-assembler                         \
-               --localstatedir=/var/lib/mysql             \
-               --infodir=/usr/share/info                  \
-               --mandir=/usr/share/man                    \
-               --with-extra-charset=all                   \
-	       --with-pthread                             \
-               $OPTS                                      &&
+  ./configure  --prefix=/usr                   \
+               --disable-dependency-tracking   \
+               --without-bench                 \
+               --without-debug                 \
+	       --enable-thread-safe-client     \
+               --enable-assembler              \
+               --localstatedir=/var/lib/mysql  \
+               --infodir=/usr/share/info       \
+               --mandir=/usr/share/man         \
+               --with-extra-charset=all        \
+	       --with-pthread                  \
+               $OPTS                          &&
   set +x &&             
-  invoke_installwatch                                     &&
-  make  pkglibdir=/usr/lib                                &&
-  prepare_install                                         &&
-  make  pkglibdir=/usr/lib  install                       &&
-  rm    -rf  /usr/mysql-test                              &&
+  invoke_installwatch                         &&
+  make  pkglibdir=/usr/lib                    &&
+  prepare_install                             &&
+  make  pkglibdir=/usr/lib  install           &&
+  rm    -rf  /usr/mysql-test                  &&
   if ! grep  -q  "\--without-server" $MODULE_CONFIG;  then
     mysql_install_db
     chown  -R  mysql.mysql  /var/lib/mysql
-  fi                                                      &&
+  fi                                          &&
 
   if  [ -x /etc/init.d/mysql.server  ]; then
     rm -f /etc/init.d/mysql.server
