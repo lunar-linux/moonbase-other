@@ -1,12 +1,13 @@
           MODULE=libnids
-         VERSION=1.18
+         VERSION=1.19
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-$VERSION
-   SOURCE_URL[0]=http://www.packetfactory.net/Projects/libnids/dist/$SOURCE
-       SOURCE_VFY=md5:9ee6dcdfac97bae6fe611aa27d2594a5
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/$SOURCE
+   SOURCE_URL[1]=http://www.packetfactory.net/Projects/libnids/dist/$SOURCE
+       SOURCE_VFY=md5:863125dbcc43d1ac8c044622e5b08787
         WEB_SITE=http://www.packetfactory.net/Projects/libnids/
          ENTERED=20020409
-         UPDATED=20040110
+         UPDATED=20040811
         SHORT="Libnids is a library that emulates the tcp stack."
 
 cat << EOF
