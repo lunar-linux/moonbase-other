@@ -79,9 +79,9 @@ if [ -z "`get_module_config CONFIGURED_DATE`" ] || [ `get_module_config CONFIGUR
     SEL_THES_DICTS=`echo $SEL_THES_DICTS |sed -e "s/'[[:space:]]*'/;/g" -e "s/['[:space:]]*$//" -e "s/^['[:space:]]*//"`
         
     set_module_config CONFIGURED_DATE `date +%Y%m%d%H`
-    set_module_config SEL_DICTS      "'$SEL_DICTS'"
-    set_module_config SEL_HYPH_DICTS "'$SEL_HYPH_DICTS'"
-    set_module_config SEL_THES_DICTS "'$SEL_THES_DICTS'"
-    set_module_config SEL_LANGS      "'$SEL_LANGS'"
+    set_module_config SEL_DICTS      "$SEL_DICTS"
+    set_module_config SEL_HYPH_DICTS "$SEL_HYPH_DICTS"
+    set_module_config SEL_THES_DICTS "$SEL_THES_DICTS"
+    set_module_config SEL_LANGS      "$SEL_LANGS"
 
 fi
