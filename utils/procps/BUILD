@@ -8,7 +8,7 @@
   prepare_install                     &&
   make  -e XSCPT='' PROCDIR=/bin USRBINDIR=/bin DESTDIR=/ MANDIR=/usr/share/man install
 
-  [ -s "/etc/sysctl.conf" ] || cp $SCRIPT_DIRECTORY/sysctl.conf /etc
+  [ -s "/etc/sysctl.conf" ] || install -g 0 -o 0 -m 0600 $SCRIPT_DIRECTORY/sysctl.conf /etc
 
 ) > $C_FIFO 2>&1  &&  (
 
