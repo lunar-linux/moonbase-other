@@ -1,3 +1,6 @@
 # If /sys mount point is not there, create it
 
-  test -d /sys || mkdir /sys/
+  test -d /sys || mkdir -p /sys/
+
+# Because maybe /sysfs is used instead of /sys
+  ln -sf /sys /sysfs
