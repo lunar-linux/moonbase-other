@@ -1,14 +1,14 @@
            MODULE=blackbox
          VERSION=0.65.0
-         #VERSION=0.62.1
           SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=assert.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
    SOURCE_URL[0]=$SFORGE_URL/blackboxwm/$SOURCE
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
         WEB_SITE=http://blackbox.alug.org
          ENTERED=20010922
          UPDATED=20020920
-	   PSAFE="no"
-           SHORT="blackbox is an X11 windows manager."
+	   SHORT="blackbox is an X11 windows manager."
 cat << EOF
 Blackbox is yet another addition to the list of window managers for X.
 It is written in C++, sharing no common code with any other window
