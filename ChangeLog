@@ -1,3 +1,72 @@
+2004-11-17 13:00  prox
+
+	* editors/emacs/BUILD: removed linker optimization since it doesnt
+	  work, emacs passes LDFLAGS directly to ld and you cant rewrite it
+	  to -O1 since the makefiles adds LDFLAGS to all gcc's also
+
+2004-11-17 12:33  prox
+
+	* gnome2-core/yelp/DEPENDS: more depends needed
+
+2004-11-17 12:32  sofar
+
+	* utils/acct/DETAILS: Merci a couanetter, closes #558
+
+2004-11-17 12:25  prox
+
+	* gnome2-core/gnome-panel/DEPENDS: more more MORE depends needed =)
+
+2004-11-17 12:22  prox
+
+	* gnome2-core/gnome-desktop/DEPENDS: more depends needed
+
+2004-11-17 12:14  prox
+
+	* web/firefox/DEPENDS: added optional gssapi support to firefox via
+	  heimdal
+
+2004-11-17 12:12  prox
+
+	* gnome2-core/libglade2/DEPENDS: remove libgnome depend, it depend
+	  loops with it and compiles fine without
+
+2004-11-17 12:03  sofar
+
+	* net/netkit-base/CONFLICTS: Missing conflicts!
+
+2004-11-17 10:40  moe
+
+	* utils/speedfreq/: BUILD, DEPENDS, DETAILS, Makefile,
+	  init.d/speedfreqd: Adding this shiny new speedstep utility
+
+2004-11-17 09:31  prox
+
+	* gnome2-core/libbonobo/DEPENDS: added more req, wont compile
+	  without these on a fresh install
+
+2004-11-16 20:50  jol
+
+	* kde3-utils/superkaramba/DETAILS: bumped version to 0.35
+
+2004-11-16 19:25  nestu
+
+	* kernel/linux-2.6-mm/DETAILS: 2.6.10rc1mm4 -> 2.6.10rc2mm1. gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.9.1
+
+2004-11-16 15:35  hardkrash
+
+	* printer/foomatic-filters/: DEPENDS, DETAILS: Adding a module for
+	  the foomatic filters so that we have easy use of the foomatic
+	  PPDs
+
+2004-11-16 13:59  moe
+
+	* wifi/kismet/: BUILD, CONFIGURE, DETAILS: Doodeedeleedoo
+
+2004-11-16 13:50  florin
+
+	* games/gl-117/DETAILS: bump the version from 1.3 to 1.3.1.
+
 2004-11-16 12:37  florin
 
 	* kde3-apps/kdetv/DETAILS: bump the version from 0.8.3 to 0.8.4.
@@ -2111,79 +2180,4 @@
 2004-10-18 00:13  v3rt1g0
 
 	* net/bmon/DETAILS: Just a cosmetic touchup.
-
-2004-10-17 19:55  v3rt1g0
-
-	* gnome2-core/linc/DETAILS: Fixed a few small typos in the long
-	  description.
-
-2004-10-17 19:25  tchan
-
-	* utils/clamav/DETAILS: Version bump to clamav-0.80.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2004-10-17 18:48  perldude
-
-	* x11/libxklavier/BUILD: set --with-xkb-base= to
-	  /usr/X11R6/lib/X11/xkb
-
-2004-10-17 16:48  moe
-
-	* libs/libexif/DETAILS: Reverting
-
-2004-10-17 16:36  moe
-
-	* libs/libexif/DETAILS: Updating libexif to 0.6.11 in order to make
-	  libexif-gtk work again
-
-2004-10-17 15:45  tchan
-
-	* utils/findutils/: BUILD, DETAILS: Version bump to
-	  findutils-4.1.20. Compiled and tested with gcc-3.3.3,
-	  glibc-2.3.3, kernel headers 2.4.x.  Removed the afs patch as it
-	  no longer applies.  If anyone is actually using afs they can
-	  supply Lunar with a corrected patch.
-
-2004-10-17 13:59  moe
-
-	* libs/: wxGTK/BUILD, wxGTK/DEPENDS, wxGTK/DETAILS, wxPython/BUILD,
-	  wxPython/DEPENDS, wxPython/DETAILS: Yes, you may call me a fool.
-	  Thats basicly because I am a fool.  Should've been judging more
-	  carefully.
-
-2004-10-17 13:45  florin
-
-	* games/stellarium/DETAILS: bump the version from 0.5.2 to 0.6.1.
-
-2004-10-17 12:25  moe
-
-	* libs/: wxGTK/BUILD, wxGTK/CONFIGURE, wxGTK/DEPENDS,
-	  wxGTK/DETAILS, wxPython/BUILD, wxPython/CONFIGURE,
-	  wxPython/DEPENDS, wxPython/DETAILS: Whoever has been maintaining
-	  these modules .. he didn't catch up very well: - Both can't be
-	  compiled with OpenGL support since there is no Mesa module (yet)
-	  - CONFIGURE questioning is not the right way for enabling stuff
-	  (use DEPENDS) - wxPython does not depend on wxGTK - wxPython has
-	  autotools stuff .. use it - wxPython depends on GTK2 - Bumped
-	  wxPython to 2.5.2.8, added sha1 checksums for both modules -
-	  minor tweaks
-
-2004-10-17 11:23  florin
-
-	* games/fgfs-base/: BUILD, DETAILS: bump the version from 0.9.5 to
-	  0.9.6.
-
-2004-10-17 07:57  jasper
-
-	* xfce4/xfce4-taskbar-plugin/DETAILS: Updated taskbar plugin.
-
-2004-10-17 05:27  florin
-
-	* x11/libxklavier/: BUILD, DETAILS: bump the version from 1.04 to
-	  1.10.
-
-2004-10-17 05:20  florin
-
-	* x11/xfree86_xkb_xml/: BUILD, DETAILS: add the sha1 sum.
 
