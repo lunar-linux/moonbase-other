@@ -74,7 +74,7 @@
   
   # explicitly exit here now and not later on
   make World                            ||
-  exit 1
+  exit 1				&&
   
   prepare_install                       &&
   cd $SOURCE_DIRECTORY                  &&
@@ -121,7 +121,7 @@
   
   if [ ! -e /usr/lib/pkgconfig/xft.pc ]; then
     ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig/xft.pc
-  fi
+  fi &&
 
   if [ ! -d /tmp/.ICE-unix ]; then
     mkdir -p /tmp/.ICE-unix
