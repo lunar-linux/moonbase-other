@@ -5,8 +5,8 @@
  
   default_build                            &&
   mkdir -p /var/cache/locate               &&
-  if [ -f /var/cache/locate ] ; then
-    mv /var/cache/locate /var/cache/locatedb
+  if [ -f /var/cache/locatedb ] ; then
+    mv /var/cache/locatedb /var/cache/locate
   fi
 
 ) > $C_FIFO 2>&1
