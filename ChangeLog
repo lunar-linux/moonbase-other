@@ -1,3 +1,63 @@
+2004-01-07 04:29  niki
+
+	* crypto/gnutls/DETAILS: Debumping gnutls from 1.0.4 to 0.9.98, as
+	this version breaks the build of at least gaim, and last time i
+	bumped it to 1.0.0 it also affected evolution compiles...
+
+2004-01-06 23:42  jol
+
+	* devel/ddd/DETAILS: bumped version OLD: 3.3.7 NEW: 3.3.8
+
+2004-01-06 22:55  jol
+
+	* devel/swig/DETAILS: Bumped version OLD: 1.3.19 NEW: 1.3.20
+
+2004-01-06 22:16  florin
+
+	* crypto/gnutls/DETAILS: bump version from 0.9.98 to 1.0.4.
+
+2004-01-06 20:01  florin
+
+	* x11/xfree86/POST_INSTALL, zbeta/xfree86-dev/POST_INSTALL: add the
+	NVIDIA26 rebuild if needed.
+
+2004-01-06 19:22  niki
+
+	* kernel/: linux/DETAILS, linux-grsec/DETAILS: Bumped kernel
+	version to 2.4.24, and updated the patchsets acordingly, -grsec
+	module has an updated grsecurity patch...
+
+2004-01-06 16:46  florin
+
+	* video/mkvtoolnix/BUILD: i forgot to add the BUILD file.
+
+2004-01-06 16:22  florin
+
+	* video/mkvtoolnix/DETAILS: bump version from 0.8.0 to 0.8.1. major
+	bugfixes.
+
+2004-01-06 16:01  florin
+
+	* sql/sqlite/DETAILS: bump version from 2.8.8 to 2.8.9.
+
+2004-01-06 15:58  florin
+
+	* audio/gramofile/DETAILS, libs/fftw/DETAILS: add the md5sum.
+
+2004-01-06 12:39  niki
+
+	* kernel/: linux-beta/POST_INSTALL, linux-beta-mm/POST_INSTALL:
+	Removed the rebuild of NVIDIA_kernel as that module isnt in
+	moonbase any more, and also removed the rebuild of alsa-driver as
+	the 2.6.x kernels has those drivers included... Changed the rebuild
+	of NVIDIA module to rebuild NVIDIA26 instead
+
+2004-01-06 12:35  niki
+
+	* x11/NVIDIA26/: BUILD, DETAILS, PRE_BUILD: Added a 2.6.x kernel
+	related NVIDIA module which patches, and installs a 2.6.x version
+	of the driver...
+
 2004-01-06 08:28  niki
 
 	* gnome2-core/gtksourceview/POST_INSTALL: Well should we realy "rm
@@ -1745,83 +1805,4 @@
 	* utils/pcmcia-cs/DETAILS: Version bump to 3.2.6.  Compiled and
 	tested with gcc-3.2.3, glibc-2.3.2.  I updated the Configure and
 	the orinoco patches.
-
-2003-12-07 23:22  elaine
-
-	* compilers/php/BUILD: adding readline capability
-
-2003-12-07 21:23  tchan
-
-	* utils/mmv/: BUILD, DETAILS: Added the handly little mmv tools. 
-	Compiled and tested with gcc-3.2.3, glibc-2.3.2.  This allows
-	wildcard move/copy/link/append with some wildcard indexing that is
-	not easily accomplished with the bash shell.
-
-2003-12-07 19:43  hardkrash
-
-	* libs/glib-2/DEPENDS: The proper way to do this is with an
-	optional depends.
-
-2003-12-07 18:20  florin
-
-	* libs/glib-2/BUILD: forgot about that one. thx tchan.
-
-2003-12-07 18:00  florin
-
-	* libs/glib-2/DEPENDS: removed the gtk-doc depend. it adds a lot of
-	stuff (like docbook-profile, scrollkeeper, etc). i thonk it's
-	better to put depends only where is a need of them. glib-2 is more
-	targeted to gtk+-2 than to gtk+.
-
-2003-12-07 16:42  florin
-
-	* video/avifile/DETAILS: add the md5 sum.
-
-2003-12-07 16:22  florin
-
-	* audio/jack/DEPENDS: remove the depend on fltk. it lin without it.
-
-2003-12-07 13:50  florin
-
-	* kde3-apps/kdevelop3/DEPENDS: remove the kdoc2 depend as the
-	module does not exist anymore.
-
-2003-12-07 11:23  florin
-
-	* audio/gst-plugins/DEPENDS, video/ogle/DEPENDS: the mad module is
-	deprecated. it is now stripped in three modules madplay, libmad and
-	libid3tag.
-
-2003-12-07 11:19  florin
-
-	* video/avifile/DEPENDS: the mad module is deprecated. however
-	using gcc 3.3.2 the module does not compile (no matter mad or
-	libmad is used). it only compiles on gcc 3.2.3.
-
-2003-12-07 11:09  florin
-
-	* audio/madplay/: DEPENDS, DETAILS: madplay is a MAD audio command
-	line player.
-
-2003-12-07 10:30  florin
-
-	* audio/libmad/DETAILS: fix a typo.
-
-2003-12-07 10:18  florin
-
-	* audio/libid3tag/DETAILS: move the module to the audio section.
-	it's a part of the mad.
-
-2003-12-07 07:52  florin
-
-	* kde3/kdebindings3/DEPENDS: remove the gtk+ and glib depends. old
-	stuff must go away i think.
-
-2003-12-07 07:38  florin
-
-	* crypto/libgcrypt/DETAILS: bump version from 1.1.44 to 1.1.90.
-
-2003-12-07 07:09  florin
-
-	* utils/units/DETAILS: add the md5 sum.
 
