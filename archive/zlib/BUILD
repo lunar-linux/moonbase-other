@@ -1,4 +1,7 @@
 (
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+
   ./configure  --prefix=/usr  &&
   make                        &&
 
@@ -9,12 +12,10 @@
   # CFLAGS properly when CFLAGS is passed to it and --shared is set
   if [ "`arch`" = "alpha" ]; then
       sedit 's/^CFLAGS *=/CFLAGS=-fPIC /' Makefile
-  fi                          &&
+  fi                  &&
 
-  make                        &&
-  prepare_install             &&
-  make    install             &&
-  cp libz.a /usr/lib          &&
+  default_make        &&  
+  cp libz.a /usr/lib  &&
   chmod 755 /usr/lib/libz.a
 
 ) > $C_FIFO 2>&1

@@ -1,16 +1,18 @@
           MODULE=zlib
          VERSION=1.2.1
-        #VERSION=1.1.4
           SOURCE=$MODULE-$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=http://www.gzip.org/$MODULE/$SOURCE
-      SOURCE_VFY=md5:8106069990476a3c5187301465bd7a60
+         SOURCE2=$MODULE-$VERSION-alt-inflate.patch.bz2
+	 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL=http://www.gzip.org/$MODULE/$SOURCE
+  SOURCE2_URL=$PATCH_URL/$SOURCE2
+      SOURCE_VFY=sha1:13bd164df955911c25342adfad805c1cad5e398e
+     SOURCE2_VFY=sha1:00f53af5c8602f5040bf76e54fd24dcd94f63ed6
         WEB_SITE=http://www.gzip.org/$MODULE
          ENTERED=20010922
-         UPDATED=20031205
-           SHORT="zlib is a legally unencumbered lossless data compression library."
+         UPDATED=20040910
+           SHORT="zlib is a lossless data compression library."
+
 cat << EOF
-zlib
 zlib is designed to be a free, general-purpose, legally unencumbered --
 that is, not covered by any patents -- lossless data-compression library
 for use on virtually any computer hardware and operating system. The
