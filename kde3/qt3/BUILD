@@ -51,4 +51,9 @@
     echo "${QT_PREFIX:-$QTDIR}/lib" >> /etc/ld.so.conf
   fi
 
+  if [ ! -f /etc/profile.d/qt3.rc ]; then
+    echo "export QTDIR=$QT_PREFIX" > /etc/profile.d/qt3.rc
+    echo "export PATH=\$QTDIR/bin:$PATH" >> /etc/profile.d/qt3.rc
+  fi
+
 ) > $C_FIFO 2>&1
