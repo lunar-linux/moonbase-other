@@ -6,9 +6,9 @@
       else  make slx SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib" SSLTYPE=unix
 
     fi &&
+    prepare_install                                        &&
     cp imapd/imapd /usr/sbin/imapd                         &&
     cp ipopd/ipop3d /usr/sbin/ipop3d                       &&
-    prepare_install                                        &&
     
     # install the man pages
     mv src/ipopd/ipopd.8c src/ipopd/ipopd.8                &&
