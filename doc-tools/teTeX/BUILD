@@ -1,8 +1,5 @@
 (
 
-  if  !  module_installed  xfree86;  then
-    OMIT_X11="--without-x11"
-  fi
   rm  -r  dialog
 
   patch  -p1  <  $SCRIPT_DIRECTORY/teTeX.patch
