@@ -6,9 +6,10 @@
 # description: aim proxy
 # processname: reaim
 
-. /etc/config.d/reaim
-
-ARGS=$IP
+if [ -e /etc/config.d/reaim ]; then
+    . /etc/config.d/reaim
+    ARGS=$IP
+fi;
 
 . /lib/lsb/init-functions
 
