@@ -5,7 +5,7 @@
   export LD_LIBRARY_PATH=$QTDIR/lib
   export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
   export LD_RUN_PATH=$KDEDIR/lib:$KDEDIR/lib/kde3
-
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   ./configure    --prefix=$KDEDIR       \
                  --enable-final         \
                  --disable-debug        \
