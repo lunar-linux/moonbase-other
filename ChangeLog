@@ -1,3 +1,70 @@
+2005-01-16 10:08  florin
+
+	* compilers/nasm/DETAILS: bump the version from 0.98.38 to 0.98.39.
+
+2005-01-16 08:36  florin
+
+	* video/piave/DEPENDS: add the SDL_image depend. thx to dveatch for
+	  reporting it.
+
+2005-01-16 08:32  florin
+
+	* utils/parted/DETAILS: bump the version from 1.6.20 to 1.6.21.
+
+2005-01-16 04:00  v3rt1g0
+
+	* x11-utils/wininfo/: BUILD, DEPENDS, DETAILS: Inital import.  Tool
+	  to gain imformation about the windows in X.
+
+2005-01-16 03:45  v3rt1g0
+
+	* x11-utils/xrestop/: BUILD, DETAILS: Version bump.  Minor bugfix
+	  and enhanced man page.
+
+2005-01-16 03:03  v3rt1g0
+
+	* devel/desktop-file-utils/: DEPENDS, DETAILS: Inital import.
+	  useful for developers who are creating .desktop files and wanna
+	  verify they are up to freedesktop.org's standards.
+
+2005-01-16 02:37  v3rt1g0
+
+	* devel/dbus/: BUILD, POST_REMOVE: Make the created user have no
+	  shell or home directory.  Also clean up the user and group on
+	  removal of the module.
+
+2005-01-16 01:40  v3rt1g0
+
+	* devel/dbus/DEPENDS: Moe pointed out that pkgconfig was already
+	  taken care of by glib-2.
+
+2005-01-16 00:00  v3rt1g0
+
+	* devel/dbus/: BUILD, DEPENDS, DETAILS, POST_INSTALL: Version bump.
+	  Moved the POST_INSTALL stuff out of that file because on a
+	  firstime install the user gets an error and the service doesn't
+	  start because a directory has yet to be created.  Putting it in
+	  the BUILD file fixes that.  Also removed the required depends on
+	  Python as it is really optional.
+
+2005-01-15 18:17  florin
+
+	* utils/syslinux/DETAILS: bump the version from 3.06 to 3.07. a few
+	  bugfixes.
+
+2005-01-15 15:23  florin
+
+	* x11-utils/gkrellmms/DETAILS: bump the version from 2.1.20 to
+	  2.1.21.
+
+2005-01-15 15:12  florin
+
+	* devel/subversion/DETAILS: bump the version from 1.1.2 to 1.1.3.
+
+2005-01-15 13:46  florin
+
+	* games/lbreakout2/DETAILS: bump the version from 2.5.1 to 2.5.2.
+
 2005-01-15 11:01  nestu
 
 	* kernel/: linux-2.6/CONFIGURE, linux-2.6-ck/CONFIGURE,
@@ -1842,121 +1909,4 @@
 	  they previously installed for perl-5.8.5.  Yes, CPAN is still a
 	  brain dead system when it comes to sharing its dependency
 	  information with other tools.  Take it up with the CPAN devs.
-
-2004-12-16 22:33  moe
-
-	* xfce4/xfwm4/BUILD: garrr matey
-
-2004-12-16 22:30  moe
-
-	* xfce4/xfwm4/: BUILD, CONFIGURE: The compositor should not be
-	  enabled by default.
-
-2004-12-16 21:54  cmak
-
-	* xfce4/xfwm4/BUILD: should be the default now
-
-2004-12-16 21:08  tchan
-
-	* devel/metakit/BUILD: Editted the hack that is the unix/configure
-	  script in the module. They have Python hardcoded at 2.3, while
-	  moonbase is at Python 2.4.  Compiled/tested with gcc-3.3.3,
-	  glibc-2.3.3, kernel headers 2.4.x, Python-2.4.
-
-2004-12-16 20:25  tchan
-
-	* graphics/SDL/DETAILS: Removed the unneeded SOURCE2_URL for an
-	  older patch???
-
-2004-12-16 18:49  florin
-
-	* graphics/SDL/: DETAILS, PRE_BUILD: bump the version from 1.2.7 to
-	  1.2.8.
-
-2004-12-16 18:45  florin
-
-	* games/briquolo/DETAILS: fix the sha1 sum.
-
-2004-12-16 17:54  florin
-
-	* zbeta/php5/: BUILD, DETAILS: bump the version from 5.0.2 to
-	  5.0.3. bugfix release.
-
-2004-12-16 17:40  florin
-
-	* compilers/php/: BUILD, DETAILS: bump the version from 4.3.9 to
-	  4.3.10. bugfix release. compiles with gcc 3.4.3.
-
-2004-12-16 16:56  florin
-
-	* net/samba/DETAILS: bump the version from 3.0.9 to 3.0.10.
-	  security fixes.
-
-2004-12-16 12:28  moe
-
-	* mail/sylpheed/DETAILS: sofar decided to go with the beta releases
-	  so .. here we go ;-)
-
-	  * Bumped to 1.0.0rc. Tested on/with 2.6.x, gcc 3.3.3
-
-2004-12-16 09:30  nestu
-
-	* utils/util-linux/DETAILS: 2.12k -> 2.12l. gcc 3.3.3, glibc 2.3.2,
-	  headers 2.6.9.1.  Seems the issue with 2.6 has not been fixed
-	  upstream, so the patch is still needed.
-
-2004-12-16 05:31  tchan
-
-	* utils/syslinux/DETAILS: Version bump to syslinux-2.13.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x. Florin tested this with kernel headers 2.6.x.
-
-2004-12-16 05:15  v3rt1g0
-
-	* web/cadaver/DEPENDS: Misread my depends tree. expat doesn't
-	  necessarly come along with libxml2 so I broke it out into it's
-	  own optional depends.
-
-2004-12-16 05:06  v3rt1g0
-
-	* devel/diffutils/DETAILS: Added the missing website and prettified
-	  the module's long description.
-
-2004-12-16 04:50  v3rt1g0
-
-	* web/cadaver/DEPENDS: Added missing optional depends on openssl
-	  and libxml2
-
-2004-12-16 04:24  florin
-
-	* net/ethereal/DETAILS: bump the version from 0.10.7 to 0.10.8.
-
-2004-12-16 04:20  v3rt1g0
-
-	* x11-apps/usbview/: DEPENDS, DETAILS: This module actually
-	  requires gtk+ not gtk+-2.  Also added a sha1 sum and tidyed up
-	  the DETAILS file a bit.
-
-2004-12-16 04:20  florin
-
-	* mail/sendmail/DETAILS: bump the version from 8.13.1 to 8.13.2.
-	  bugfix release.
-
-2004-12-16 04:12  v3rt1g0
-
-	* x11-apps/planner/: BUILD, CONFLICTS, DETAILS: Removed the BUILD
-	  file as it was just calling default_build.  Removed the CONFLICTS
-	  file as the conflicts it listed were not event modules in the
-	  moonbase.  Cleaned up the DETAILS a bit.  The EOF had spaces
-	  after it which caused 'EOF' to be printed in the 'lvu what'
-	  output.
-
-2004-12-16 03:49  v3rt1g0
-
-	* x11-apps/xdiskusage/DETAILS: Version bump and added sha1 sum
-
-2004-12-16 02:53  florin
-
-	* graphics/: gphoto2/BUILD, libgphoto2/DETAILS, gphoto2/DETAILS:
-	  bump the version from 2.1.4 to 2.1.5.
 
