@@ -255,7 +255,7 @@ start() {
 	    done;
 	    if [ -e /etc/config.d/gateway ]; then
 	       GATEWAY=`cat /etc/config.d/gateway`
-	       if [ -n "$GATEWAY" -a ! $(route -n | grep $GATEWAY | wc -l) -ge 1 ]; then
+	       if [ -n "$GATEWAY" ] && ! $(route -n | grep -qw UG) ; then
 	           echo -n " * setting default route: "
 	           if [ ! -x /sbin/route ]; then
 	            echo -n "route not installed";
