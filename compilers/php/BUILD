@@ -32,6 +32,12 @@
 EOF
   fi
 
+( cd ext/mysql/libmysql &&
+  cp mysys_err.h mysys_err.tmp &&
+  echo "#include <errno.h>" > mysys_err.h &&
+  cat mysys_err.tmp >> mysys_err.h &&
+  rm mysys_err.tmp ) &&
+
 set -x  
 
   ./configure  --prefix=/usr                 \
