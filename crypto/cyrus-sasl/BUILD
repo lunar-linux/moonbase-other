@@ -12,7 +12,7 @@
               --disable-plain   \
               --with-pwcheck=/var/lib/sasl        \
               --with-dbpath=/var/lib/sasl/sasl.db \
-              --with-plugindir=/usr/lib/sasl      \
+              --with-plugindir=/usr/lib/sasl2      \
               --enable-sample  \
               --with-gnu-ld     \
               --with-saslauthd=/var/lib/sasl "
@@ -22,8 +22,9 @@
   prepare_install          &&
   mkdir -p /var/lib/sasl/  &&
   make install             &&
-  if [ ! -e /usr/lib/sasl/smtpd.conf ] ; then
-    install $SCRIPT_DIRECTORY/smtpd.conf /usr/lib/sasl
+  if [ ! -e /usr/lib/sasl2/smtpd.conf ] ; then
+    install $SOURCE_CACHE/$SOURCE2 /usr/lib/sasl2/smtpd.conf.gz &&
+    gunzip /usr/lib/sasl2/smtpd.conf.gz
   fi
 
 ) > $C_FIFO 2>&1 
