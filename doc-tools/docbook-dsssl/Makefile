@@ -1,5 +1,5 @@
 BINDIR = /usr/bin
-DESTDIR = /usr/share/sgml/dsssl/dsssl-stylesheets-1.78
+DESTDIR = /usr/share/sgml/dsssl/dsssl-stylesheets-1.79
 
 all: install
 
