@@ -10,8 +10,7 @@
 		--mandir=/opt/lunar/gnome/2/share/man		\
 		--enable-platform-gnome-2			&&
 
-   default_make                                                 &&
-  cp $SCRIPT_DIRECTORY/gnome-splash.png /opt/lunar/gnome/2/share/pixmaps/splash/
+   default_make                                                 
 
 ) > $C_FIFO 2>&1
 
