@@ -14,6 +14,12 @@ ln -sf /usr/include/mozilla-$VERSION /usr/include/mozilla
 mkdir -p /opt/lunar/plugins
 ln -sf /opt/lunar/plugins /usr/lib/mozilla/plugins
 
+MOZLIBDIR=/usr/lib/mozilla
+if ! grep -q "$MOZLIBDIR" /etc/ld.so.conf ; then
+    echo "$MOZLIBDIR" >> /etc/ld.so.conf
+    ldconfig
+fi
+
 for mod in epiphany galeon galeon2 ; do
   if module_installed $mod ; then
     lin -c $mod
