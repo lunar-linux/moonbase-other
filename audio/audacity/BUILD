@@ -6,7 +6,8 @@ mkdir  -p  /usr/share/doc/audacity
                  --sysconfdir=/etc     		\
                  --localstatedir=/var  		\
 		 --with-libsndfile=system 	\
-		 --with-libresample=yes 	\
+		 --with-libresample=no	 	\
+		 --with-libsamplerate=system	\
                  $OPTS                 		&&
     make                               		&&
     prepare_install                    		&&

@@ -1,5 +1,6 @@
 depends    wxGTK &&
 depends	   libsndfile &&
+depends	   libsamplerate &&
 
 optional_depends	"libid3tag" \
 			"--with-id3tag=system" \
@@ -17,13 +18,13 @@ optional_depends	"libvorbis" \
 			"enable ogg support" &&
 
 optional_depends	"libmad" \
-			"" \
 			"--with-libmad=system" \
+			"" \
 			"for fast mp3 decoding" &&
 
 optional_depends	"flac" \
-			"" \
 			"--with-flac=system" \
+			"" \
 			"for flac encoding" &&
 
 optional_depends	"ladspa_sdk" \
