@@ -1,0 +1,34 @@
+          MODULE=thunderbird
+         VERSION=0.6
+          SOURCE=thunderbird-source-$VERSION.tar.bz2
+	 SOURCE2=thunderbird.desktop
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
+   SOURCE_URL[0]=http://ftp.mozilla.org/pub/thunderbird/releases/$VERSION/$SOURCE
+      SOURCE_VFY=md5:1096cea8373f94636a4b2fdeb7c13a4f
+  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+	WEB_SITE=http://www.mozilla.org/projects/thunderbird
+         ENTERED=20031021
+         UPDATED=20040503
+      MAINTAINER="nhudson@lunar-linux.org"
+           FUZZY="off"
+           PSAFE=no
+           SHORT="Mozilla Thunderbird is a full-featured mail client"
+cat << EOF
+Thunderbird includes:
+
+* The ability to customize your toolbars the way you want them.
+  Choose View / Toolbars / Customize inside any window.
+* UI extensions can be added to Mozilla Thunderbird to customize your
+  experience with specific features and enhancements that you need. Support
+  for extensions. Extensions allow you to add features particular to your
+  needs such as offline mail support. A full list of available extensions can
+  be found here.
+* A new look and feel. Thunderbird also supports a large number of
+  downloadable themes which alter the appearance of the client.
+* An addressing sidebar for mail compose which makes it easy and convenient
+  to add address book contacts to emails.
+* Online help includes a FAQ, tips and tricks and other useful information.
+* Simplified preferences UI and menus.
+* Footprint and performance improvements.
+* Better Junk Mail Filtering Support
+EOF
