@@ -1,19 +1,10 @@
 (
 
-  # Generate documentation of they user has doxygen installed
-  if module_installed doxygen; then
-    ./gendoc
-  fi
- 
-  # Some extra flags based off of what is in OPTS
-  local EXTRA_OPTS=""
-  if [ `echo "$OPTS" | grep "sse"` ] ; then
-    EXTRA_OPTS=" --enable-cpu-sse"
-  fi
-  if [ `echo "$OPTS" | grep "mmx"` ] ; then
-    EXTRA_OPTS="$EXTRA_OPTS --enable-cpu-mmx"
-  fi
- 
+  export PATH=$MODULE_PREFIX/bin:$PATH
+  export CPPFLAGS="$CPPFLAGS -I$MODULE_PREFIX/include"
+  export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
+  export USER=nobody
+	
   ./autogen.sh --build=$BUILD                      \
                --prefix=$MODULE_PREFIX             \
                --sysconfdir=/etc                   \
@@ -53,7 +44,6 @@
                --enable-convert-32-rgb-rot-0       \
                --enable-convert-32-rgb-rot-270     \
                --enable-convert-32-rgb-rot-90      \
-               $EXTRA_OPTS                         \
                $OPTS                               &&
 
    default_make
