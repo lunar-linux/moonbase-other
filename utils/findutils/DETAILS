@@ -1,12 +1,16 @@
           MODULE=findutils
          VERSION=4.1.7-4
           SOURCE=findutils-$VERSION-src.tar.bz2
+         SOURCE2=findutils-afs-fix.patch.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/findutils-$VERSION
    SOURCE_URL[0]=http://mirror.mcs.anl.gov/cygwin/release/$MODULE/$SOURCE
    SOURCE_URL[1]=ftp://sunsite.dk/mirrors/cygwin/release/$MODULE/$SOURCE
+      SOURCE_VFY=md5:d8c0538777c78a1ebf8828bf7ff6cd71
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
+     SOURCE2_VFY=md5:b5dae94b808f4a7266a13e08a2a2c4ba
         WEB_SITE=http://www.gnu.org/software/findutils
          ENTERED=20010922
-         UPDATED=20030122
+         UPDATED=20040430
            SHORT="findutils contains utilities for locating files."
 cat << EOF
 findutils - Finds and then operates on files
