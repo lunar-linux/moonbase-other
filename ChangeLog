@@ -1,3 +1,47 @@
+2003-10-20 05:36  jmhodges
+
+	* web/PyDS/: BUILD, DETAILS: bah, compiles now
+
+2003-10-20 04:57  jmhodges
+
+	* devel/PyXML/DETAILS, graphics/pil/BUILD, graphics/pil/DETAILS,
+	libs/medusa/DETAILS, web/PyDS/BUILD, web/PyDS/DETAILS,
+	web/SOAPpy/BUILD, web/SOAPpy/DETAILS: updates and additions, all
+	for PyDS.. heh. dont even use it too much
+
+2003-10-20 03:13  nhudson
+
+	* doc-tools/: openjade/POST_INSTALL, opensp/BUILD, opensp/DETAILS,
+	opensp/POST_INSTALL: 
+	Updating opensp to new version 1.5.1 also rebuilding openjade after
+	the install just to make sure everything meshes.. also I fixed the
+	openjade POST_INSTALL as openjade was installing "CATALOG
+	/etc/sgml/catalog" to the file /etc/sgml/catalog which causes a
+	major loop so I removed the /etc/sgml/catalog from the file
+	/etc/sgml/catalog :)
+
+2003-10-19 16:39  nestu
+
+	* kernel/linux-beta/DETAILS: bump date
+
+2003-10-19 15:54  csm
+
+	* kernel/kernel-headers/2.4.22/DETAILS: still putzing around with
+	these!
+
+2003-10-19 15:27  csm
+
+	* kernel/kernel-headers/2.4.22/DETAILS: geezuz! it works okay
+	now... goodness me but versioning is a pita! :-)
+
+2003-10-19 12:50  nestu
+
+	* kernel/linux-beta/DETAILS: Version bump
+
+2003-10-19 12:06  niki
+
+	* gnome2-core/gdm/POST_INSTALL: Fixed two Syntax errors.
+
 2003-10-19 11:55  niki
 
 	* devel/cvs/BUILD: Added default_make to make cvs actualy build.
@@ -1707,77 +1751,4 @@
 	module-init-tools.  It gets through compile now, but there's still
 	some work to be done...  It's not moving the symlinked files from
 	modutils in /sbin properly.
-
-2003-09-19 23:01  watryac04
-
-	* games/KBtin/DETAILS: Added KBtin module to the games section. 
-	KBtin is a MUD client, based on the classic tintin, but heavily
-	extended.  Supports regexp on the MUD command line, as well as the
-	ability to run programs from within the MUD client.  There is also
-	reported to be ICQ integration, this is left up to others to
-	discover.
-
-2003-09-19 23:00  r0dzilla
-
-	* x11-wm/fluxbox/CONFIGURE: correcting list of locales/languages
-
-2003-09-19 22:54  r0dzilla
-
-	* x11-wm/fluxbox/CONFIGURE: enabling NLS option again, solved NLS
-	compile errors
-
-2003-09-19 21:44  sofar
-
-	* utils/: lunar/DETAILS, theedge/DETAILS: Contain fixes
-
-2003-09-19 19:27  tchan
-
-	* perl/CPAN/DETAILS: Version bump to 1.76.  For those lunar users
-	that are using "lin CPAN" instead of CPAN to update itself.
-
-2003-09-19 19:04  tchan
-
-	* utils/rcs/: BUILD, DETAILS: Added md5sum check.  Changed BUILD
-	script to use uid operator instead of bin to get this module to
-	compile/install correctly, per Hendrik Visage's request.
-
-2003-09-19 18:21  nestu
-
-	* utils/module-init-tools/DETAILS:  * lunar cache mirror added
-	 * md5 added
-	 * UPDATED changed
-
-2003-09-19 18:19  nestu
-
-	* utils/module-init-tools/BUILD: cleaned the modutil's files
-	management
-
-2003-09-19 17:09  nhudson
-
-	* utils/file/DETAILS: 
-	Apparently I am mistaken
-
-2003-09-19 17:03  nhudson
-
-	* utils/file/DETAILS: 
-	Fixing the md5sum which was wrong tested on 2 boxes and downloaded
-	4 times to test the md5's and its diffrent
-
-2003-09-19 14:53  nestu
-
-	* utils/module-init-tools/DETAILS: Bump version as requested by
-	Dennis Veatch
-
-2003-09-19 14:18  moe
-
-	* x11-utils/nvtv/DEPENDS: boooh! Where is the NVIDIA module?!
-
-2003-09-19 13:58  tchan
-
-	* utils/fbset/DETAILS: Added md5sum check.  Added PSAFE=no.
-
-2003-09-19 13:53  elaine
-
-	* gnome2-core/linc/1.1.1/: BUILD, DEPENDS, DETAILS, POST_INSTALL:
-	Fixing gnome2.4/v.v -- files I forgot to cvs add
 
