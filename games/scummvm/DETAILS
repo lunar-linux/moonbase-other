@@ -1,12 +1,19 @@
           MODULE=scummvm
          VERSION=0.5.1
           SOURCE=$MODULE-$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_URL[0]=$SFORGE_URL/scummvm/$SOURCE
+  SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+     SOURCE_URL[0]=$SFORGE_URL/scummvm/$SOURCE
+       SOURCE_VFY=md5:67bdbe2e145b8072d0bac61f7ed150c0
         WEB_SITE=http://www.scummvm.org/
          ENTERED=20031219
          UPDATED=20031219
-           SHORT=""
-cat << EOF
+        SHORT="ScummVM is an emulator for SCUMM games engine."
 
+cat << EOF
+  ScummVM is a collection of interpreters, capable of emulating several
+  adventure game engines. ScummVM mainly supports engines created using 
+  SCUMM (Script Creation Utility for Maniac Mansion), used in various
+  LucasArts games such as Monkey Island, Day of the Tentacle, and others.
+  ScummVM also contains interpreters for several non-SCUMM games, currently
+  these are Simon the Sorcerer (1 & 2), and Beneath a Steel Sky.
 EOF
