@@ -1,8 +1,7 @@
 (
 
   ./configure $OPTS --build=$BUILD --prefix=/usr         \
-		 --sysconfdir=/etc --localstatedir=/var  \
-		 --with-perl=no                          &&
+		 --sysconfdir=/etc --localstatedir=/var  &&
   make                                                   &&
   prepare_install                                        &&
   make install
