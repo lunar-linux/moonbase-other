@@ -1,3 +1,22 @@
+2004-02-01 04:04  tchan
+
+	* libs/gettext/POST_INSTALL: Fixing hardkrash's "fix" so that it
+	actually works.
+
+2004-01-31 18:18  hardkrash
+
+	* libs/gettext/: BUILD, POST_INSTALL: put in the check for older
+	versions of gettext for recompiles og glibc and glib-2
+
+2004-01-31 17:25  niki
+
+	* libs/gettext/POST_INSTALL: Pointless having this file around...
+
+2004-01-31 12:54  moe
+
+	* app-themes/gtk2-bluecurve-engine/: DEPENDS, DETAILS: Adding this
+	rather nice engine. I use it since Mist became too boring ;)
+
 2004-01-31 09:24  nestu
 
 	* kernel/linux-beta/: BUILD, DETAILS, PRE_BUILD: * Version bump *
@@ -1094,14 +1113,14 @@
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
-	the version, added a depends on hicolor-icon-theme, and moved it
-	out of /opt/lunar
+	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-01-15 18:54  niki
 
-	* gnome2-core/gnome-icon-theme/DEPENDS: file DEPENDS was initially
-	added on branch GNOME_UNSTABLE.
+	* gnome2-core/gnome-icon-theme/: BUILD, DEPENDS, DETAILS: Bumped
+	the version, added a depends on hicolor-icon-theme, and moved it
+	out of /opt/lunar
 
 2004-01-15 18:22  niki
 
@@ -1887,54 +1906,4 @@
 2004-01-02 00:59  sofar
 
 	* filesys/e2fsprogs/init.d/mount: language
-
-2004-01-01 21:53  nestu
-
-	* chat/centericq/DETAILS: version bump requested by Dave Brown.
-	Tested.
-
-2004-01-01 18:06  sofar
-
-	* doc-tools/scrollkeeper/DEPENDS: Inherited dependency
-
-2004-01-01 17:06  nestu
-
-	* kernel/linux-beta/: DETAILS, PRE_BUILD: Bumping version to
-	2.6.1rc1. 2.6.0's source is being patched, rather than DLing the
-	full lot.
-
-2004-01-01 16:24  florin
-
-	* video/mkvtoolnix/DETAILS: bump version from 0.7.9 to 0.8.0.
-
-2004-01-01 16:23  florin
-
-	* video/libmatroska/DETAILS: bump version from 0.6.1 to 0.6.2.
-
-2004-01-01 16:23  florin
-
-	* video/libebml/DETAILS: bump version from 0.6.2 to 0.6.3.
-
-2004-01-01 16:23  sofar
-
-	* libs/erlang/DETAILS: Ewps, thx bkw.
-
-2004-01-01 15:41  tchan
-
-	* chat/xchat/: BUILD, DEPENDS, DETAILS: Security update version. 
-	Patch is no longer needed.  Compiled and tested with gcc-3.2.3,
-	glibc-2.3.2.  Added a few more required depends like automake and
-	gettext.  The depends tree for xchat is really ugly and large!
-
-2004-01-01 15:19  tchan
-
-	* net/rsync/: DEPENDS, DETAILS: Security fix version 2.6.0.  Bug
-	fixes too.  NOTE: ssh is now the default shell in rsync (NOT rsh). 
-	This means openssh is now a required DEPENDS for rsync.  Compiled
-	and tested with gcc-3.2.3, glibc-2.3.2.
-
-2004-01-01 04:36  tchan
-
-	* devel/: pygtk/DETAILS, pygtk2/DETAILS: Fixed two typos in the
-	DETAILS files, its Python, not Perl bindings.
 
