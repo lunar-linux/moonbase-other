@@ -10,6 +10,8 @@
 	export CXXFLAGS="$CXXFLAGS -fPIC"
   fi &&
 
+  export CXX='gcc' &&
+
   ./configure  --prefix=/usr                              \
                --disable-dependency-tracking              \
                --without-bench                            \
