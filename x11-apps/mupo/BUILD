@@ -1,6 +1,6 @@
 (
 
-patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 sedit "s/-.\/\$@.x86/strip mupo.x86/" Makefile &&
 sedit "s/-O2/$CFLAGS/" Makefile &&
 make MACH=x86   &&
