@@ -7,11 +7,11 @@ lesspipe() {
 
   case "$1" in
 
-  *.tar.bz2) tar tyvvf $1 2>/dev/null ;;
+  *.tar.bz2) tar tjvvf $1 2>/dev/null ;;
   *.bz2) bzip2 -dc $1 2>/dev/null ;;
   *.tar) tar tvvf $1 2>/dev/null ;;
-  *.tbz2) tar tyvvf $1 2>/dev/null ;;
-  *.tbz) tar tyvvf $1 2>/dev/null ;;
+  *.tbz2) tar tjvvf $1 2>/dev/null ;;
+  *.tbz) tar tjvvf $1 2>/dev/null ;;
   *.tar.gz) tar tzvvf $1 2>/dev/null ;;
   *.tgz) tar tzvvf $1 2>/dev/null ;;
   *.tar.z) tar tzvvf $1 2>/dev/null ;;
