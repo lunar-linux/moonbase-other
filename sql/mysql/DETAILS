@@ -1,13 +1,17 @@
           MODULE=mysql
          VERSION=4.1.9
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL=http://mirror.services.wisc.edu/mysql/Downloads/MySQL-4.1/
+   SOURCE_URL[0]=http://mirror.services.wisc.edu/mysql/Downloads/MySQL-4.1/
+   SOURCE_URL[1]=http://mirrors.sunsite.dk/mysql/Downloads/MySQL-4.1/
+   SOURCE_URL[2]=http://mysql.mirror.nedlinux.nl/Downloads/MySQL-4.1/
+   SOURCE_URL[3]=ftp://mirror.mcs.anl.gov/pub/mysql/Downloads/MySQL-4.1/
+   SOURCE_URL[4]=http://sunsite.informatik.rwth-aachen.de/mysql/Downloads/MySQL-4.1/
       SOURCE_VFY=sha1:e526f301704f8fca7c7e9f42d368ffa1fef2a152
         WEB_SITE=http://www.mysql.com
       MAINTAINER=prox@lunar-linux.org
          ENTERED=20011114
          UPDATED=20050114
-        SHORT="MySQL is a widely used and fast SQL database server."
+           SHORT="MySQL is a widely used and fast SQL database server."
 
 cat << EOF
 MySQL is a widely used and fast SQL database server. It is a client/server 
