@@ -1,4 +1,5 @@
 (
+
  cd $SOURCE_DIRECTORY/                                  &&
  ./configure $OPTS                                      \
              --prefix=/usr                              \
@@ -7,7 +8,6 @@
              --infodir=/usr/share/info                  \
              --mandir=/usr/share/man                    \
              --with-tcl=/tmp/libtke/tcl/unix            \
-             --with-tk=/tmp/libtke/tk/unix              \
              --with-tclinclude=/tmp/libtke/tcl/generic  \
              --enable-gcc                   &&
  make                                       &&
