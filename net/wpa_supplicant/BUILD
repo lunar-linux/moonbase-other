@@ -4,8 +4,8 @@
 	OPTS="$OPTS CONFIG_DRIVER_NDISWRAPPER=y"
   fi &&
 
-  if [ $WITH_IPW2100 ]; then
-	OPTS="$OPTS CONFIG_DRIVER_IPW2100=y"
+  if module_installed ipw2100; then
+	OPTS="$OPTS CONFIG_DRIVER_IPW=y"
   fi &&
 
   for option in \
@@ -27,7 +27,7 @@
   CONFIG_EAP_LEAP=y; do
 	echo $option >> .config;
   done &&
-
+  
   make  &&
   prepare_install  &&
   install -m755 wpa_supplicant	/usr/bin	&&
