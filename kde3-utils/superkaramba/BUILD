@@ -1,10 +1,11 @@
 (
-
-  export PATH=/opt/lunar/qt/3/bin:/opt/lunar/kde/3/bin:$PATH
   export KDEDIR=/opt/lunar/kde/3
+  export QTDIR=/opt/lunar/qt/3
 
-  ./configure    --prefix=/opt/lunar/kde/3             \
-                 --with-qt-dir=/opt/lunar/qt/3         \
+  export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
+
+  ./configure    --prefix=$KDEDIR                      \
+                 --with-qt-dir=$QTDIR                  \
                  --disable-debug                       \
                  --enable-fast-malloc=full             \
                  --with-xinerama                       \
@@ -14,5 +15,4 @@
   prepare_install      &&
   make install         
 
- 
 ) > $C_FIFO 2>&1
