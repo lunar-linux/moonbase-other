@@ -1,3 +1,131 @@
+2005-03-01 13:25  florin
+
+	* sql/sqlite/DETAILS: small tweak.
+
+2005-03-01 13:17  prox
+
+	* sql/sqlite/DETAILS: bump
+
+2005-03-01 12:57  moe
+
+	* net/ipw2100/: BUILD, CONFIGURE, DEPENDS, DETAILS: Update to the
+	  latest ipw2100 driver. Has to use hotplug now.
+
+2005-03-01 12:13  florin
+
+	* web/elinks/DETAILS: bump the version from 0.10.1 to 0.10.2.
+
+2005-03-01 12:03  nestu
+
+	* kernel/linux-2.6-prepatch/DETAILS: 2.6.11rc4 -> 2.6.11rc5. gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.10.0
+
+2005-03-01 11:55  ratler
+
+	* wifi/kismet/: BUILD, DETAILS: Version bump, mainly bugfixes.
+	  Compiled and tested for each optional_depend. ImageMagick fix
+	  removed, no longer needed.
+
+2005-03-01 10:52  moe
+
+	* archive/bzip2/DETAILS: Ah comawn .. we all know that bzip2 is
+	  free and all ..  No need to mention it twice.
+
+2005-03-01 10:46  florin
+
+	* archive/bzip2/: BUILD, DETAILS: bump the version from 1.0.2 to
+	  1.0.3. bugfix release.
+
+2005-03-01 10:26  florin
+
+	* archive/unzip/DETAILS: bump the version from 5.51 to 5.52. many
+	  improvements and bugfixes.
+
+2005-03-01 05:47  tchan
+
+	* gnome2-apps/abiword/DETAILS: Version bump to abiword-2.2.4.
+	  Source seems to be available only from abisource.com.  Perhaps
+	  sourceforge will eventually catch up again?!
+
+2005-03-01 05:43  tchan
+
+	* chat/gaim-encryption/DETAILS: Version bump to
+	  gaim-encryption-2.35. Compiled/tested with gaim-1.1.4, gcc-3.3.3,
+	  glibc-2.3.3, kernel headers 2.4.x.
+
+2005-03-01 03:12  tchan
+
+	* mail/ximian-connector/DETAILS: Version bump to
+	  ximian-connector-2.0.4. Part of the upgrade to evolution-2.0.4.
+
+2005-03-01 03:11  tchan
+
+	* mail/evolution/DETAILS: Version bump to evolution-2.0.4.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x., gtk+-2 2.6.2, glib-2 2.6.2.
+
+2005-03-01 02:46  tchan
+
+	* mail/evolution-data-server/DETAILS: Version bump
+	  evolution-data-server-1.0.4. Getting ready for evolution-2.0.4.
+
+2005-03-01 02:44  tchan
+
+	* libs/gtkhtml32/: CONFLICTS, DETAILS: Version bumped to gtkhtml32
+	  3.2.5. Removed the CONFLICTS file as there is no gtkhtml31 in
+	  moonbase any longer.	Getting ready for evolution-2.0.4 in
+	  moonbase.
+
+2005-03-01 02:42  tchan
+
+	* libs/gal22/: CONFLICTS, DETAILS: Version bump to gal22 2.2.5.
+	  Getting ready for evolution-2.0.4. Removed the CONFLICTS file as
+	  there is no gal21 in moonbase any longer.
+
+2005-02-28 23:56  tchan
+
+	* libs/libsoup22/: BUILD, DETAILS: Version bump to libsoup22 2.2.2.
+	  Added an sedit to fix the gnutls-1.2.0 problem.  Getting
+	  moonbase ready for evolution-2.0.4
+
+2005-02-28 21:29  moe
+
+	* editors/aspell/BUILD: Just caught my attention. This just looks
+	  better.
+
+2005-02-28 20:27  moe
+
+	* mail/sylpheed/DETAILS: New sylpheed. Rock solid on gcc 3.3.3,
+	  2.6.x and glibc 2.3.3
+
+2005-02-28 18:37  moe
+
+	* net/: hostap-driver/DETAILS, hostap-utils/DETAILS,
+	  hostapd/DETAILS, wpa_supplicant/BUILD, wpa_supplicant/CONFIGURE,
+	  wpa_supplicant/DETAILS: Updating hostap* stuff to the latest
+	  available stable version.  Tested on gcc 3.3.3, 2.6.x, glibc
+	  2.3.3.  Hopefully this is going to fix my WPA problems.
+
+2005-02-28 18:04  moe
+
+	* graphics/gqview/DEPENDS: libpng is already covered by the X's you
+	  should've installed to get gtk+ to compile.
+
+	  Sidenote: profiles suck. We need the aliases code.
+
+2005-02-28 17:52  moe
+
+	* devel/dbus/DEPENDS: We need this to prevent dbus from failing to
+	  compile if python is not installed
+
+2005-02-28 14:40  v3rt1g0
+
+	* zbeta/engage-cvs/DEPENDS: Engage is now a E17 module.  It is in
+	  the process of conversion, so things are a little messy right
+	  now, but the module loads and works for me.  To get icons you now
+	  need to pupulate the ~/.e/e/applications/engage directory like
+	  you would with other menus.
+
 2005-02-28 12:18  florin
 
 	* games/crossfire-client/DETAILS: bump the version from 1.7.0 to
@@ -1634,46 +1762,4 @@
 	  fallback, savedefault.  So now grub can be used to test boot
 	  kernels remotely with various fallbacks. Read the info pages!
 	  Especially Section 4.3.2. Booting fallback systems.
-
-2005-01-29 21:19  moe
-
-	* utils/speedfreq/Makefile: meh
-
-2005-01-29 19:53  jol
-
-	* libs/fox/DETAILS: - bumped version to 1.2.13
-
-2005-01-29 16:41  florin
-
-	* x11-apps/xscreensaver-kde/: BUILD, DEPENDS: fix the compile.
-
-2005-01-29 12:58  florin
-
-	* net/ndiswrapper/DETAILS: bump the version from 0.12 to 1.0.
-
-2005-01-29 09:16  florin
-
-	* devel/glibmm/DETAILS: bump the version from 2.4.3 to 2.4.6.
-
-2005-01-29 08:44  florin
-
-	* security/shorewall/DETAILS: bump the version to 2.2.0.
-
-2005-01-29 08:40  florin
-
-	* libs/libidn/DETAILS: bump the version from 0.5.12 to 0.5.13.
-
-2005-01-29 08:25  florin
-
-	* graphics/kipi-plugins/DETAILS: small tweak.
-
-2005-01-29 05:57  v3rt1g0
-
-	* x11-apps/rss-glx/: BUILD, DEPENDS, DETAILS, POST_INSTALL: About
-	  20 new hacks for xscreensaver... all requiring opengl.
-
-2005-01-29 00:50  v3rt1g0
-
-	* zbeta/xcompmgr/DETAILS: Version bump.  I guess it fixes just one
-	  bug, but meh, it's a new version.
 
