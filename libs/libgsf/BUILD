@@ -8,7 +8,8 @@
 		--localstatedir=/var				\
 		--infodir=/opt/lunar/gnome/2/share/info		\
 		--mandir=/opt/lunar/gnome/2/share/man	        \
-                --disable-gtk-doc                               &&
+                --disable-gtk-doc                               \
+                --enable-svgz                                  &&
 
   default_make
   
