@@ -1,10 +1,14 @@
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
 
-  if    module_installed  apache  ||
-        module_installed  apache-mod_ssl
-  then 
-    OPTS="$OPTS --with-apxs=/usr/sbin/apxs"
-  fi
+# The following ALWAYS needs to be set, so we put it outside of the CONFIGURED
+# statement, otherwise php fails to install against apache2 on the first
+# update. -- 20031105 - sofar
+if module_installed apache || module_installed apache-mod_ssl ; then 
+  OPTS="$OPTS --with-apxs=/usr/sbin/apxs"
+elif module_installed apache2 ; then
+  OPTS="$OPTS --with-apxs2=/usr/sbin/apxs"
+fi
+
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
 
   if  query  "Install ftp support?" y;  then
     OPTS="$OPTS --enable-ftp"
