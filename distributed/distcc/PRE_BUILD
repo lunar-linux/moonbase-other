@@ -1,8 +1,7 @@
 SERVICES="/etc/services"
-DISTCC_LINE=$(grep "4200" $SERVICES)
 
-if [ $(echo $DISTCC_LINE | cut -d " " -f 1) == "distccd" ]
-then
-  mv $SERVICES $SERVICES.old &&
-  grep -v "$DISTCC_LINE" $SERVICES.old > $SERVICES
+default_pre_build &&
+if grep "^distccd" $SERVICES | grep "4200\/tcp"; then
+  sedit ":^distccd:d" $SERVICES
 fi
+
