@@ -15,7 +15,8 @@
   
   sedit 's/LIBPT_FILE=\"libpt.so\"/LIBPT_FILE=\"\"/' configure                    &&
   sedit 's/LIBOPENH323_FILE=\"libopenh323.so\"/LIBOPENH323_FILE=\"\"/' configure  &&
-  
+  sedit 's/\(H323_CFLAGS=\"-DSPEEX_CODEC\)/\1 -DSTATIC_LIBS_USED/' configure &&
+
   ./configure  --prefix=/opt/lunar/gnome/2                     \
                --datadir=/opt/lunar/gnome/2/share/gnomemeeting  \
                --sysconfdir=/etc/gnomemeeting                  \
@@ -23,8 +24,6 @@
                --with-openh323-libs=$OPENH323DIR/lib           \
                --with-ptlib-includes=$PWLIBDIR/include/ptlib   \
                --with-ptlib-libs=$PWLIBDIR/lib                 &&
-  make                                         &&
-  prepare_install                              &&
-  make install
+  default_make 
 
 ) > $C_FIFO 2>&1
