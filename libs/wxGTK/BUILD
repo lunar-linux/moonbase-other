@@ -1,15 +1,27 @@
 (
 
-  OPTS="$OPTS --enable-no-rtti"
-  OPTS="$OPTS --enable-no_exceptions"
-
   if [[ $GTK2 == "y" ]]; then
     OPTS="$OPTS --enable-gtk2 "
   fi
-  if [[ $UNICODE == "y" ]]; then
-    OPTS="$OPTS --enable-unicode"
+  if [[ $OPENGL == "y" ]]; then
+    OPTS="$OPTS --with-opengl"
   fi
-
-  default_build
+  ./configure   --with-gtk \
+                --prefix=/usr \
+                --enable-geometry \
+                --enable-optimise \
+                --disable-debug \
+                --enable-gui \
+                --enable-timedate \
+                --enable-protocol \
+                --enable-http \
+                --enable-ftp \
+                --enable-resources \
+                --enable-prologio \
+                --enable-final \
+                --enable-timer \
+                --disable-profile \
+                $OPTS  &&
+  default_make
 
 ) > $C_FIFO 2>&1
