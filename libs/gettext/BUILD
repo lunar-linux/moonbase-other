@@ -27,16 +27,16 @@ module_present()  {
 
   touch *
 
-  ./configure  --build=$BUILD           \
-               --host=$BUILD            \
-               --prefix=/               \
-               --sysconfdir=/etc        \
-               --mandir=/usr/share/man  \
+  ./configure  --build=$BUILD            \
+               --host=$BUILD             \
+               --prefix=/usr             \
+               --sysconfdir=/etc         \
+               --mandir=/usr/share/man   \
 	       --infodir=/usr/share/info \
-               --with-included-gettext  \
-               $OPTS                    &&
-  make                                  &&
-  prepare_install                       &&
+               --with-included-gettext   \
+               $OPTS                     &&
+  make                                   &&
+  prepare_install                        &&
   make    install
 
 ) > $C_FIFO 2>&1

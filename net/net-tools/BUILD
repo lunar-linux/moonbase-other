@@ -7,8 +7,8 @@ fi
 
 (
 
-  sedit  "s:-g #:$CFLAGS $LDFLAGS #:"  Makefile
-  sedit  "s:LOPTS =:LOPTS = -lintl:" Makefile
+  #sedit  "s:-g #:$CFLAGS $LDFLAGS #:"  Makefile
+  #sedit  "s:LOPTS =:LOPTS = -lintl:" Makefile
 
   make             &&
   prepare_install  &&
