@@ -1,7 +1,7 @@
 (
 
-LANGUAGES=c++
-  
+  LANGUAGES=${LANGUAGES:=c++}
+ 
   ../gcc-$VERSION/configure  --host=$BUILD   \
                --enable-languages=$LANGUAGES \
                --prefix=/usr                 \
