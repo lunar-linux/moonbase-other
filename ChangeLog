@@ -1,3 +1,118 @@
+2004-05-13 09:32  ratler
+
+	* utils/discover/BUILD: &&
+
+2004-05-13 09:12  ratler
+
+	* utils/discover/: BUILD, DEPENDS: Only make docbook crap if
+	docbook-utils is installed
+
+2004-05-13 08:24  prox
+
+	* sql/mysql/: BUILD, DETAILS: bump new version
+
+2004-05-13 08:05  prox
+
+	* doc-tools/doxygen/: BUILD, DETAILS: change so it detects
+	src/Makefile and does make distclean before it compiles
+
+2004-05-13 07:50  sofar
+
+	* x11-apps/xscreensaver/DETAILS: F1x0r3d.
+
+2004-05-13 04:43  florin
+
+	* x11-apps/xscreensaver/DETAILS: bump the version from 4.15 to
+	4.16.
+
+2004-05-13 02:33  nhudson
+
+	* gnome2-applets/gnome-cpufreq-applet/: BUILD, DEPENDS, DETAILS: 
+	Adding gnome-cpufreq-applet to moonbase, this should let you use
+	the cpufreq function in the 2.6.x kernels to adjuct your cpu speed
+	on the fly
+
+2004-05-12 21:40  jol
+
+	* kde3-apps/kile/DETAILS: Bumped version OLD: 1.6.2  NEW: 1.6.3
+	
+	ChangeLog  - fix a crash when opening/closing projects with common
+	files  - warn if user tries to overwrite an existing file in the
+	"New Project" dialog  - make usertags/tools shortcuts configurable 
+	- place cursor after a bracket when inserting a usertag  - polished
+	up the "New File" wizard, the size and selected template are now   
+	remembered, an option to start the Quick Start wizard after
+	selecting an	empty template is also added  - double clicking on
+	a non-existent file results in a dialog requesting the	  creating
+	of this file, instead of just an error
+
+2004-05-12 17:18  florin
+
+	* mail/postfix/DETAILS: bump the version from 2.0.20 to 2.1.1.
+
+2004-05-12 15:03  sofar
+
+	* archive/tar/DETAILS: for GNU downloads: 1) first URL should use
+	$GNU_URL 2) second should be fallback to main site 3) in case
+	better mirrors exist they should come between 1) and 2)
+
+2004-05-12 14:39  sofar
+
+	* net/ypbind-mt/: BUILD, DETAILS: I had already moved it in the
+	init.d script (eek)... now it installs into /sbin. nice.
+
+2004-05-12 14:16  florin
+
+	* graphics/jpeg/BUILD: force the symlink creation.
+
+2004-05-12 13:54  sofar
+
+	* filesys/dmapi/DETAILS: They repackaged
+
+2004-05-12 13:42  sofar
+
+	* filesys/xfsprogs/: BUILD, DETAILS: Relocating this to /sbin!
+
+2004-05-12 13:21  prox
+
+	* archive/tar/: BUILD, DETAILS, tar-dots.patch.bz2,
+	tar-manpage.patch.bz2, tar-socket.patch.bz2: bump version, changed
+	way to make man page (use mktarman.pl in brutus/tools), removed the
+	old patches.
+
+2004-05-12 13:20  sofar
+
+	* filesys/reiserfsprogs/: BUILD, DETAILS: Relocating this to /sbin!
+
+2004-05-12 13:08  prox
+
+	* archive/tar-static/: BUILD, DETAILS: staticly linked tar,
+	installs in /bin/tar_static and /bin/rmt_static. Use for iso
+	creation mostly.
+
+2004-05-12 12:46  ratler
+
+	* graphics/ImageMagick/DETAILS: Bah md5sum missmatch, again.
+	ImageMagick ppl will never learn it seems
+
+2004-05-12 12:32  prox
+
+	* archive/tar/mktarman.pl: moved
+
+2004-05-12 12:22  prox
+
+	* archive/tar/mktarman.pl: mktarman.pl is a perl script for
+	generating a man page from the info page in. It will grab options
+	and operations from the file and make a nice uptodate man page.
+	'cat doc/tar.info | mktarman.pl > tar.1'. NOTE: no automaking of
+	the manual file is made when lining, this should only be done when
+	bumping.
+
+2004-05-12 12:16  nhudson
+
+	* mail/ximian-connector/DEPENDS: 
+	Adding openldap to the DEPENDS file
+
 2004-05-12 11:05  sofar
 
 	* net/finger/: BUILD, DETAILS, bsd-finger-0.16-allocbroken.patch,
@@ -2307,36 +2422,4 @@
 	* gnome2-core/gnome-applets2/DEPENDS: 
 	Fixing DEPENDS for gnome-applets2, adding libxklavier per
 	suggestion of someone on mailing list
-
-2004-04-12 23:46  nhudson
-
-	* web/bluefish/DETAILS: 
-	Updating bluefish to new version 0.13
-
-2004-04-12 23:33  tchan
-
-	* mail/balsa/: BUILD, DEPENDS, DETAILS: Copied over the balsa2
-	module into the balsa directory.  Getting ready to remove the
-	balsa2 module in moonbase.  nhudson and jmhodges will be happy as
-	there will be one less gtk+ app in the moonbase now.
-
-2004-04-12 23:25  tchan
-
-	* gnome2-apps/gnumeric2/DETAILS: Version bump to 1.2.10.  Compiled
-	and tested with gcc-3.3.3 and kernel headers 2.4.x and gnome-2.6
-	libs.
-
-2004-04-12 18:53  florin
-
-	* editors/e3/DETAILS: bump the version from 2.43 to 2.5.
-
-2004-04-12 16:46  tchan
-
-	* graphics/skencil/DETAILS: Fixed some typos in the description.
-
-2004-04-12 16:42  tchan
-
-	* graphics/skencil/: BUILD, DEPENDS, DETAILS: Moved the sketch app
-	to its new, rename directory skencil.  Bumped the version number to
-	0.6.16.  This should work now with tcl/tk 8.4.
 
