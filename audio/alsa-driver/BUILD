@@ -1,13 +1,22 @@
 (
 
+# Look for sound support in kernel
+CONFIG_SOUND=$(grep "CONFIG_SOUND=" "${CONFIG_CACHE}/.config") &&
+
 #There a case or two that this could be "problematic"
 #So let's just "force it our way" :)
 #hvisage
   sedit "s/etc\/rc.d/etc/" Makefile
   # the following change is required to build rc3
   rm -f include/linux/isapnp.h               &&
-#Still this is a VERY debatable test....
-  modprobe  soundcore                        &&
+
+# Load soundcore if needed, fail if no sound support found
+  case "${CONFIG_SOUND#*=}" in
+      m)  modprobe soundcore ;;
+      y)  true ;;
+      *)  echo "*** No sound support found in kernel ***"; false ;;
+  esac                                       &&
+
   ./configure  --prefix=/usr                 \
                --with-isapnp=auto            \
                --with-sequencer=yes          \
