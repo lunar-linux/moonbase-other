@@ -1,6 +1,6 @@
 (
 
-  sedit "s/malign/falign/g" configure &&
+  unset CFLAGS CXXFLAGS CPPFLAGS &&
   default_build &&            
   gzip -9 ChangeLog &&
   mkdir -p $DOCUMENT_DIRECTORY/grub &&
