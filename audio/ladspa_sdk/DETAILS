@@ -1,13 +1,11 @@
            MODULE=ladspa_sdk
-         VERSION=0.02.03.31
-#version added by maintainer
-          SOURCE=$MODULE-$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
-   SOURCE_URL[0]=http://www.lunar-linux.org/lunar/mirrors/$SOURCE
+         VERSION=1.12
+          SOURCE=${MODULE}_${VERSION}.tgz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE/src/
+      SOURCE_URL=http://www.ladspa.org/download/$SOURCE
         WEB_SITE=http://www.ladspa.org/
-      MAINTAINER=scarecrow.143@attbi.com
          ENTERED=20020331
-         UPDATED=20020331
+         UPDATED=20031206
            SHORT="ladspa Linux Audio Developers Simple API."
 cat << EOF
 LADSPA: Linux Audio Developers Simple API. Many audio synthesis and
