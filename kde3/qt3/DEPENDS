@@ -1,12 +1,9 @@
-depends  byacc      &&
-depends  libungif   &&
-depends  libmng     &&
-depends  xserver    &&
+depends  byacc     &&
+depends  libungif  &&
+depends  libmng    &&
+depends  xserver   &&
 
 optional_depends  "mysql"                                                    \
                   "-plugin-sql-mysql -I/usr/include/mysql -L/usr/lib/mysql"  \
                   "-no-sql-mysql"                                            \
                   "for mysql database support"
-
-## TODO:
-# examine postgresql support and add ODBC module and support
