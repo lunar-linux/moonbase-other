@@ -1,3 +1,151 @@
+2004-02-18 11:53  florin
+
+	* kernel/: linux/POST_INSTALL, linux-grsec/POST_INSTALL,
+	linux-openmosix/POST_INSTALL, linux-vanilla/POST_INSTALL: the
+	module NVIDIA_kernel does not exist for a long time. remove it from
+	POST_INSTALL files.
+
+2004-02-18 11:49  florin
+
+	* editors/nano/: BUILD, CONFIGURE, DETAILS: bump version from 1.2.2
+	to 1.2.3.
+
+2004-02-18 10:46  sofar
+
+	* shells/ksh/: BUILD, DETAILS, PRE_BUILD, skel/.kshrc: Adding ksh,
+	many thanks to Striker!
+
+2004-02-18 07:07  florin
+
+	* filesys/mtools/DEPENDS: add a depend on texinfo. mtools  does not
+	install without it.
+
+2004-02-18 05:57  nhudson
+
+	* gnome2-core/gnome-terminal/DETAILS: 
+	Updating gnome-terminal to new version 2.5.5
+
+2004-02-18 05:04  tchan
+
+	* x11-apps/xpdf/DETAILS: Version bump to 3.00.	Compiled with
+	2.4.24 kernel headers and gcc-3.2.3 and gcc-3.3.3.
+
+2004-02-18 03:39  niki
+
+	* web/epiphany/DETAILS: Let me guess that the 0 shoule have been a
+	9 ?? At least the md5sum fits now...
+
+2004-02-18 03:19  jmhodges
+
+	* gnome2-apps/meld/DETAILS: fixed typo
+
+2004-02-18 03:03  nhudson
+
+	* chat/gnomemeeting/: BUILD, DEPENDS, DETAILS, POST_INSTALL,
+	PRE_BUILD: 
+	I am putting this here because I need this module tested by others.
+	 This will fix the security hole in pwlib but i cant get anything
+	to compile due to a segmentation fault when building openh323.	So
+	niki jmhodges or anyone gets a chance please test this.
+
+2004-02-17 22:55  nhudson
+
+	* libs/libxslt/DETAILS: 
+	Updating libxslt to new version 1.1.3
+
+2004-02-17 22:53  nhudson
+
+	* graphics/gthumb/DETAILS: 
+	Updating gthumb to new version 2.3.1
+
+2004-02-17 22:45  nhudson
+
+	* web/epiphany/DETAILS: 
+	More updates
+
+2004-02-17 22:40  nhudson
+
+	* gnome2-apps/gpdf/DETAILS: 
+	Updating gpdf to new version 0.123
+
+2004-02-17 21:52  tchan
+
+	* cd/cdrdao/DETAILS: Fixing a typo in the description.
+
+2004-02-17 21:50  tchan
+
+	* cd/cdrdao/DETAILS: Fixed the UDPATED field for florin.
+
+2004-02-17 20:04  jol
+
+	* kde3-apps/kdevelop3/DETAILS: Bumped version OLD: 3.0.0  NEW:
+	3.0.1 IMPROVED - User Manual.  IMPROVED - Fixed many typos. 
+	IMPROVED - Restructured and updated the todo file.  IMPROVED -
+	KCModule Template to use KDE 3.0 API and KGenericFactory.  IMPROVED
+	- Updated to the latest Doxygen version.  IMPROVED - Make source
+	files generated with appwizard honor the selected file templates. 
+	IMPROVED - Clanlib documentation IMPROVED - Ask if user tries to
+	reload the already opened project.  IMPROVED - Project templates by
+	ignoring irrelevant documentation and other small fixes.  ADDED -
+	Add ConfigWidgetProxy class for config widget demand load support
+	(reduces memory).  ADDED - SearchText in QEditor ADDED -
+	Possibility to change fontsize in documentation browser.  FIXED -
+	Make Haskell language support work again FIXED - Clear all
+	breakpoints FIXED - A case where unsaved files aren't queried for
+	saving when KDevelop is closed.  FIXED - Bug 58999 : Debugger will
+	not start (libtool issue) FIXED - Bug 62888 : Back and forward
+	buttons available in context menu.  FIXED - Bug 69035 : Run Options
+	not honored (custom makefiles) FIXED - Bug 70175 : Problems on
+	minimum wxWindows version test.  FIXED - Bug 70176 : wxWindows
+	apptemplate broke compilation with Unicode compiled wxWindows FIXED
+	- Bug 71003 : Cannot translate project due to srcdir != builddir. 
+	FIXED - Bug 72502 : Kdevelop crashes when closing multiple files
+	via Keyboard.  FIXED - Bug 72523 : Grep dialog doesn't prepopulate
+	with selected text.  FIXED - Bug 72552 : Unsaved changes icon
+	disappears even if save could not be performed.  FIXED - Bug 72582
+	: Crashes while loading plugins after unloading plugins.  FIXED -
+	Bug 73025 : expand text (ctrl+J) crashes kdevelop.  FIXED - Bug
+	73039 : cvs tools may crash kdevelop.  FIXED - Bug 73116 : Kdevelop
+	crashes when typing a dot at the end of a comment.  FIXED - Bug
+	73467 : Incomplete make clean for parts/appwizard/common.  FIXED -
+	Bug 73567 : Use -u instead of -u3 since it is obsoleted.  FIXED -
+	Bug 74955 : Crash when working with Java ant projects.
+
+2004-02-17 19:13  jol
+
+	* cd/k3b/DETAILS: Bumped version OLD 0.11.3 NEW: 0.11.4 Want some
+	more bugfixes? Here you go...	Fixed adding of hidden files.	Use
+	a default imagefile name for cloning if none was specified.   Use
+	the Joliet names if no Rockridge is available in session import.
+
+2004-02-17 17:19  nestu
+
+	* kernel/linux-beta/DETAILS: version bump
+
+2004-02-17 17:05  florin
+
+	* utils/kbd/BUILD: fix the install dir for loadkeys.
+
+2004-02-17 17:01  nhudson
+
+	* gnome2-core/: ORBit2/DETAILS, gnome-session/BUILD,
+	gnome-session/DETAILS, gnome-panel/DETAILS: 
+	Updating gnome-panel and gnome-session to new version 2.5.5 and
+	ORBit2 to 2.9.8
+
+2004-02-17 16:40  sofar
+
+	* distributed/dsh/: BUILD, DETAILS: dsh is the distributed shell
+
+2004-02-17 16:38  sofar
+
+	* distributed/ganglia/: BUILD, DEPENDS, DETAILS: Adding ganglia
+	(gmond/gmetad). Note this is not the web-frontend.
+
+2004-02-17 16:37  sofar
+
+	* utils/rrdtool/: BUILD, DETAILS: Adding rrdtool
+
 2004-02-17 07:59  florin
 
 	* utils/console-data/CONFLICTS: add the CONFLICTS file regarding
@@ -708,15 +856,15 @@
 
 2004-02-11 04:08  nhudson
 
-	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
-	added on branch GNOME_UNSTABLE.
-
-2004-02-11 04:08  nhudson
-
 	* rebuild-gnome-unstable: 
 	From a suggesting of niki's I made a script that will rebuild your
 	Gnome installation and build it for the GNOME_UNSTABLE branch. 
 	Please test if you are running GNOME_UNSTABLE
+
+2004-02-11 04:08  nhudson
+
+	* rebuild-gnome-unstable: file rebuild-gnome-unstable was initially
+	added on branch GNOME_UNSTABLE.
 
 2004-02-11 04:04  nhudson
 
@@ -2501,66 +2649,4 @@
 2004-01-19 08:52  jmhodges
 
 	* editors/scite/DETAILS: version bump
-
-2004-01-18 16:15  nhudson
-
-	* web/: epiphany/BUILD, epiphany/DETAILS, mozilla/BUILD,
-	mozilla/DETAILS, mozilla/PRE_BUILD: 
-	Updating mozilla to new version 1.6 also updating the patchset. 
-	Updating epiphany to new version 1.0.7 to go with the new version
-	of mozilla. Also moved epiphany to /usr from /opt
-
-2004-01-18 13:26  florin
-
-	* web/quanta3/: BUILD, DETAILS: bump version from 3.1.4 to 3.1.5.
-
-2004-01-18 13:25  florin
-
-	* kde3-apps/kaffeine/DETAILS: i wished to be true :)
-
-2004-01-18 13:23  florin
-
-	* kde3/arts/BUILD, kde3/arts/DEPENDS, kde3/arts/DETAILS,
-	kde3/kdeaddons3/BUILD, kde3/kdeaddons3/DEPENDS,
-	kde3/kdeaddons3/DETAILS, kde3/kdeadmin3/BUILD,
-	kde3/kdeadmin3/DETAILS, kde3/kdeartwork3/BUILD,
-	kde3/kdeartwork3/DETAILS, kde3/kdebase3/BUILD,
-	kde3/kdebase3/DEPENDS, kde3/kdebase3/DETAILS,
-	kde3/kdebindings3/BUILD, kde3/kdebindings3/CONFIGURE,
-	kde3/kdebindings3/DETAILS, kde3/kdeedu3/BUILD,
-	kde3/kdeedu3/DETAILS, kde3/kdegames3/BUILD, kde3/kdegames3/DETAILS,
-	kde3/kdegraphics3/BUILD, kde3/kdegraphics3/DETAILS,
-	kde3/kdelibs3/BUILD, kde3/kdelibs3/DEPENDS, kde3/kdelibs3/DETAILS,
-	kde3/kdemultimedia3/BUILD, kde3/kdemultimedia3/DEPENDS,
-	kde3/kdemultimedia3/DETAILS, kde3/kdenetwork3/BUILD,
-	kde3/kdenetwork3/DEPENDS, kde3/kdenetwork3/DETAILS,
-	kde3/kdepim3/BUILD, kde3/kdepim3/DEPENDS, kde3/kdepim3/DETAILS,
-	kde3/kdesdk3/BUILD, kde3/kdesdk3/DEPENDS, kde3/kdesdk3/DETAILS,
-	kde3/kdetoys3/BUILD, kde3/kdetoys3/DEPENDS, kde3/kdetoys3/DETAILS,
-	kde3/kdeutils3/BUILD, kde3/kdeutils3/DETAILS,
-	kde3-i18n/kde3-i18n-bg/DETAILS, kde3-i18n/kde3-i18n-bs/DETAILS,
-	kde3-i18n/kde3-i18n-ca/DETAILS, kde3-i18n/kde3-i18n-cs/DETAILS,
-	kde3-i18n/kde3-i18n-da/DETAILS, kde3-i18n/kde3-i18n-de/DETAILS,
-	kde3-i18n/kde3-i18n-el/DETAILS, kde3-i18n/kde3-i18n-en_GB/DETAILS,
-	kde3-i18n/kde3-i18n-es/DETAILS, kde3-i18n/kde3-i18n-et/DETAILS,
-	kde3-i18n/kde3-i18n-eu/DETAILS, kde3-i18n/kde3-i18n-fa/DETAILS,
-	kde3-i18n/kde3-i18n-fi/DETAILS, kde3-i18n/kde3-i18n-fr/DETAILS,
-	kde3-i18n/kde3-i18n-he/DETAILS, kde3-i18n/kde3-i18n-hu/DETAILS,
-	kde3-i18n/kde3-i18n-it/DETAILS, kde3-i18n/kde3-i18n-nb/DETAILS,
-	kde3-i18n/kde3-i18n-nl/DETAILS, kde3-i18n/kde3-i18n-nn/DETAILS,
-	kde3-i18n/kde3-i18n-pl/DETAILS, kde3-i18n/kde3-i18n-pt/DETAILS,
-	kde3-i18n/kde3-i18n-pt_BR/DETAILS, kde3-i18n/kde3-i18n-ro/DETAILS,
-	kde3-i18n/kde3-i18n-ru/DETAILS, kde3-i18n/kde3-i18n-se/DETAILS,
-	kde3-i18n/kde3-i18n-sk/DETAILS, kde3-i18n/kde3-i18n-sl/DETAILS,
-	kde3-i18n/kde3-i18n-sr/DETAILS, kde3-i18n/kde3-i18n-ss/DETAILS,
-	kde3-i18n/kde3-i18n-sv/DETAILS, kde3-i18n/kde3-i18n-ta/DETAILS,
-	kde3-i18n/kde3-i18n-th/DETAILS, kde3-i18n/kde3-i18n-tr/DETAILS,
-	kde3-i18n/kde3-i18n-uk/DETAILS, kde3-i18n/kde3-i18n-zh_CN/DETAILS,
-	kde3-i18n/kde3-i18n-zh_TW/DETAILS, kde3-i18n/kde3-i18n-zu/DETAILS:
-	bump version from 3.1.4 to 3.1.5.
-
-2004-01-18 03:53  tchan
-
-	* devel/uml/DETAILS: Version bump on uml_utilities to 20040114. 
-	Compiled and tested with gcc-3.2.3, glibc-2.3.2, kernel 2.4.x.
 
