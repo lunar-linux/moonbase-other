@@ -6,7 +6,7 @@ if ! grep -q "QTPLUGIN" $MODULE_CONFIG; then
 fi
 
 if ! grep -q "CONSOLEPLUGIN" $MODULE_CONFIG; then
- if query "Compile console plugin ? (Does not work at the moment, do not select)" n
+ if query "Compile console plugin ?" y
    then echo "CONSOLEPLUGIN=y" >> $MODULE_CONFIG
    else echo "CONSOLEPLUGIN=n" >> $MODULE_CONFIG
  fi
