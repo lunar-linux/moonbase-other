@@ -36,8 +36,9 @@ EOF
   LD_LIBRARY_PATH="$INSTALL_ROOT/lib:$INSTALL_ROOT/usr/lib:"$LD_LIBRARY_PATH
   export LD_LIBRARY_PATH
 
-  rm -f /lib/ld-linux.so.2 &&
-  sln  $INSTALL_ROOT/lib/ld-$VERSION.so  /lib/ld-linux.so.2 &&
+  # removed the rm line as it was causing trouble
+  # this should overwrite the existing file
+  sln  $INSTALL_ROOT/lib/ld-$VERSION.so  /lib/ld-linux.so.2 
 
   prepare_install                             &&
 
