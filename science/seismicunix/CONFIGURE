@@ -1,0 +1,13 @@
+
+if  !  grep  -q  "BUILD_GL"  $MODULE_CONFIG;  then
+  if  query  "Build MESA/GL tools ? "  y
+  then  
+    BUILD_GL="on"
+  else
+    BUILD_GL="off"
+  fi
+    
+  echo  "BUILD_GL=$BUILD_GL"  >>  $MODULE_CONFIG
+
+fi
+
