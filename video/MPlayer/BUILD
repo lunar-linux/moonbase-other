@@ -11,11 +11,13 @@
   	          --confdir=/etc                  \
 	          --mandir=/usr/share/man         \
 	          --disable-fbdev                 \
+		  --with-codecsdir=/usr/lib/win32 \
 	          $OPTS                           ;
     else
       ./configure --prefix=/usr                   \
   	          --confdir=/etc                  \
 	          --mandir=/usr/share/man         \
+		  --with-codecsdir=/usr/lib/win32 \
 	          $OPTS                           ;
   fi  &&
 
