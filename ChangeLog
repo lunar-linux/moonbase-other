@@ -1,3 +1,102 @@
+2004-09-16 09:04  perldude
+
+	* perl/Gtk2-Perl/DETAILS: fix typo
+
+2004-09-16 09:02  perldude
+
+	* perl/: Glib-Perl/DETAILS, Gtk2-Perl/DETAILS: version bump
+
+2004-09-16 09:01  prox
+
+	* web/apache2/DETAILS: bump
+
+2004-09-16 07:26  sofar
+
+	* utils/usleep/: BUILD, DETAILS, PRE_BUILD: I really need it!!!
+
+2004-09-16 04:22  florin
+
+	* filesys/LVM2/DETAILS: bump the version from 2.00.22 to 2.00.23.
+
+2004-09-16 04:17  florin
+
+	* graphics/ImageMagick/DETAILS: bump the version from 6.0.7 to
+	  6.0.8.
+
+2004-09-16 02:33  v3rt1g0
+
+	* terminal/splitvt/: BUILD, DETAILS: Enabled the use of the user's
+	  CFLAGS in place of the developer defined optimization of -02.
+	  Also added a sha1 sum.  Decided to bump the updated date on this
+	  as I assume probably no one actually has this module installed,
+	  but if someone does, it's a really quick build and it would be
+	  nice to have those optimizations.
+
+2004-09-16 01:51  v3rt1g0
+
+	* docs/docbook-book/: BUILD, DETAILS: Version bump.  Also gave this
+	  module a different discription.  I chose to describe the module
+	  rather than the details of the book's subject matter.  Added an
+	  sha1 sum and changed the post install message to the user so it
+	  stands out a bit more.
+
+2004-09-16 01:23  v3rt1g0
+
+	* docs/bash-doc/: BUILD, DETAILS, PRE_BUILD: Version bump.  This is
+	  the current documentation for bash 3.0.  Added GARBAGE=off to the
+	  DETAILS file becuase if it is "on" the fails get coppied to two
+	  directories instead of just the one specified in the BUILD file.
+	  Also added a sha1 hash.
+
+2004-09-16 00:35  v3rt1g0
+
+	* utils/indent/DETAILS: cleaned up the formatting a bit, changed
+	  the source url to point to the user's GNU mirror as the ibiblio
+	  was returning a 404, and added a sha1 sum
+
+2004-09-16 00:20  v3rt1g0
+
+	* profiles/docbook-profile/: DEPENDS, DETAILS: Cleaned up the
+	  depends and did some formatting changes.  There were a lot of
+	  depends in here that were already being filled by other already
+	  required depends.
+
+	  The Long Description of this module I think is a bit out of date
+	  and blahh,  I don't have enough experience with what this porfile
+	  is really attempting to provide to make a description that is
+	  really worthwhile.
+
+	  I can't beleive gnome2 actually depends on all this crud :o)
+	  *hails kde*
+
+2004-09-15 20:27  ratler
+
+	* games/showeq/DETAILS: Bah added another patch so that new
+	  automake will work
+
+2004-09-15 18:43  ratler
+
+	* games/showeq/: BUILD, DETAILS: Downgraded to a stable version
+	  that work with Omens of War which was released 040914
+
+2004-09-15 18:32  florin
+
+	* kde3-apps/k3b/DETAILS: bump the version from 0.11.14 to 0.11.15.
+
+2004-09-15 15:47  florin
+
+	* utils/Wine/DETAILS: bump the version from 20040813 to 20040914.
+
+2004-09-15 14:24  moe
+
+	* video/mplayerplug-in/PRE_BUILD: if Auke kicks my nads; then edit
+	  PRE_BUILD; fi
+
+2004-09-15 14:17  moe
+
+	* video/mplayerplug-in/: BUILD, DETAILS, PRE_BUILD: Rework of this
+	  really amazing module (simplified)
+
 2004-09-15 13:12  v3rt1g0
 
 	* ham/wwl/: BUILD, DETAILS: A few minor cleanups.
@@ -2009,103 +2108,4 @@
 	  Dropped the 2nd patchset.  The makefile patchset is still needed
 	  to allow CFLAGS and to correct the install directories.  Compiled
 	  and tested with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-08-16 21:29  florin
-
-	* x11-wm/icewm/DETAILS: bump the version from 1.2.15 to 1.2.16.
-
-2004-08-16 21:10  florin
-
-	* games/qstat/DETAILS: bump the version from 2.5c to 2.6.
-
-2004-08-16 21:02  florin
-
-	* games/xqf/DETAILS: bump the version from 0.9.14 to 1.0.
-
-2004-08-16 20:52  florin
-
-	* kde3/qt3/BUILD: fix the build in order to install the binary of
-	  qmake
-
-2004-08-16 20:09  tchan
-
-	* graphics/xzgv/DETAILS: Fixed the homepage URL and the download
-	  locations.
-
-2004-08-16 18:27  florin
-
-	* audio/alsa-utils/DETAILS: bump the version from 1.0.5 to 1.0.6.
-
-2004-08-16 16:18  tchan
-
-	* mail/balsa/DETAILS: Version bump to balsa-2.2.3. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-08-16 15:59  tchan
-
-	* graphics/ImageMagick/DETAILS: Version bump to
-	  ImageMagick-6.0.5-1.
-
-2004-08-16 15:50  tchan
-
-	* audio/: alsa-driver/DETAILS, alsa-lib/DETAILS: Version bump to
-	  alsa-driver-1.0.6a and alsa-lib-1.0.6.  Compiled and tested with
-	  gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-08-16 15:31  tchan
-
-	* utils/parted/DETAILS: Version bump to parted-1.6.12.
-	  Compiled/tested with gcc-3.3.3, glib-2.3.3, kernel headers 2.4.x.
-
-2004-08-16 09:51  prox
-
-	* archive/: unzip/DETAILS, zip/DETAILS: changed url to more stable
-	  once and added md5sum
-
-2004-08-16 09:41  prox
-
-	* utils/logrotate/DETAILS: changed url since http doesnt seem to
-	  work
-
-2004-08-16 04:53  florin
-
-	* chat/xchat/DETAILS: bump the version from 2.0.10 to 2.4.0.
-
-2004-08-16 03:32  tchan
-
-	* x11-utils/gmrun/: CONFIGURE, DEPENDS, DETAILS: Added another
-	  module submitted by Sebastian Sareyko.  Compiled and tested with
-	  gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.  Fixed his module
-	  errors and added md5sum.
-
-2004-08-16 03:26  tchan
-
-	* x11-utils/obconf/: CONFIGURE, DEPENDS, DETAILS: Moved this module
-	  from moonbase/x11-wm/ to moonbase/x11-utils/	Seems like a better
-	  location.
-
-2004-08-16 03:18  tchan
-
-	* app-themes/openbox-themes/: BUILD, DEPENDS, DETAILS, PRE_BUILD:
-	  Added the openbox-themes module submitted by Sebastian Sareyko.
-	  Fixed several mistakes in his module submissions.
-
-2004-08-16 02:57  tchan
-
-	* gnome2-core/startup-notification/DETAILS: Fixed a typo "starup".
-
-2004-08-16 02:45  tchan
-
-	* x11-wm/ROX-Session/POST_INSTALL: Fixed an outdated reference to
-	  gdm2, should now be gdm.
-
-2004-08-16 02:04  tchan
-
-	* filemanagers/rox/DETAILS: Version bump to rox-2.1.3.	Compiled
-	  and tested with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2004-08-16 01:49  tchan
-
-	* x11-wm/ROX-Session/BUILD: Fixed a problem with DISPLAY var, as
-	  noted by smoon.
 
