@@ -1,3 +1,54 @@
+2004-06-28 11:45  sofar
+
+	* web/apache-mod_ssl/DETAILS: Adjusted download url since this
+	seems to be missing on httpd.apache.org..
+
+2004-06-27 22:24  nhudson
+
+	* video/libtheora/POST_INSTALL: 
+	Forgot this, if you have gnome-vfs2 installed and you either
+	install libtheora or upgrade it you need to recompile gnome-vfs2 so
+	that it will take advantage of the codec in Gnome
+
+2004-06-27 22:13  nhudson
+
+	* video/: MPlayer/DEPENDS, libtheora/DEPENDS, libtheora/DETAILS: 
+	Adding libtheora to moonbase, Theora is the OGG Video Streaming
+	library.  Mplayer uses it only for now so I am adding support for
+	it.  Totem supports it also but it will only work if you enable
+	totem with gstreamer support and thats not really stable yet.
+
+2004-06-27 15:14  nhudson
+
+	* gnome2-core/gnome-applets2/DETAILS: 
+	Same typo
+
+2004-06-27 15:14  nhudson
+
+	* gnome2-core/gnome-applets2/DETAILS: 
+	Gah typo on the patch name
+
+2004-06-27 15:12  nhudson
+
+	* gnome2-core/gnome-applets2/: BUILD, DETAILS: 
+	Adding the ppp fix patch to GNOME_UNSTABLE also updating the
+	version to 2.6.1.  I really should take the time and update
+	GNOME_UNSTABLE now that 2.7.1 is out.
+
+2004-06-27 15:08  nhudson
+
+	* gnome2-core/gnome-applets2/: BUILD, DETAILS: 
+	Adding a patch that fixes some build problems with the ppp section
+	of the code.  So if you couldnt build this before now it will.
+
+2004-06-27 14:41  jmhodges
+
+	* gnome2-core/gedit/DETAILS: version bump to 2.6.2
+
+2004-06-27 12:55  jasper
+
+	* doc-tools/auctex/DETAILS: Location changed
+
 2004-06-27 10:59  nestu
 
 	* kernel/linux-beta-mm/DETAILS: Version bump: 2.6.7mm2 -> 2.6.7mm3
@@ -1531,8 +1582,4 @@
 
 	* devel/qemu/DETAILS: Version bump to 0.5.5.  Compiled and tested
 	with gcc-3.3.3, glibc-2.3.2.
-
-2004-05-28 21:10  cmak
-
-	* doc-tools/docbook-utils/DETAILS: version bump
 
