@@ -89,7 +89,7 @@ fi
                 $OPTS                             &&         
     default_make                                  && 
 
-    cd $PLUGINDIR/synml_plugin                    &&
+    cd $PLUGINDIR/syncml_plugin                    &&
     ./configure  --prefix=${GNOME26_PREFIX:-/usr} \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
