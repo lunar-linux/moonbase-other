@@ -1,16 +1,12 @@
 (
-  export KDEDIR=/opt/lunar/kde/3
-  export PATH=/opt/lunar/qt/3/bin:$KDEDIR/bin:$PATH
-  ./configure    --prefix=$KDEDIR                      \
-                 --with-qt-dir=/opt/lunar/qt/3         \
-                 --disable-debug                       \
-                 --enable-fast-malloc=full             \
-                 --with-xinerama                       \
-                 $OPTS                                &&
+  ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}      \
+               --with-qt-dir=${QT_PREFIX:-$QTDIR}   \
+               --disable-debug                      \
+	       --enable-final                       \
+               --enable-fast-malloc=full            \
+               --with-xinerama                      \
+               $OPTS                                &&
 
-  make                 &&
-  prepare_install      &&
-  make install         
-
+  default_make
  
 ) > $C_FIFO 2>&1

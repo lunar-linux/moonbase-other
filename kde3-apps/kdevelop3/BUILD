@@ -1,22 +1,13 @@
 (
-  QTDIR=/opt/lunar/qt/3
-  KDEDIR=/opt/lunar/kde/3 
+  ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}      \
+               --with-qt-dir=${QT_PREFIX:-$QTDIR}   \
+               --with-qtdoc-dir=${QTDIR}/doc/html   \
+               --disable-debug                      \
+	       --enable-final                       \
+               --enable-fast-malloc=full            \
+               --with-xinerama                      \
+               $OPTS                                &&
 
-  export LD_LIBRARY_PATH=$QTDIR/lib
-  export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
-  export LD_RUN_PATH=$KDEDIR/lib:$KDEDIR/lib/kde3
+  default_make
  
-  ./configure    --prefix=$KDEDIR                    \
-                 --enable-final                      \
-                 --disable-debug                     \
-                 --with-qt-dir=$QTDIR                \
-                 --with-qtdoc-dir=${QTDIR}/doc/html  \
-                 --with-xinerama                     \
-                 $OPTS                              &&
-
-  make              &&
-  prepare_install   &&
-  make install         
-
 ) > $C_FIFO 2>&1
-
