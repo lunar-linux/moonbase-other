@@ -8,7 +8,7 @@
   chmod 02775 /var/mailman           2>/dev/null
 
   if  module_installed postfix 
-  then  MAIL_GID="65534"
+  then  MAIL_GID="1006"
   fi
 
   if  module_installed exim
