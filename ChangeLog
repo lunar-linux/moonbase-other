@@ -1,3 +1,23 @@
+2003-05-09 16:26  nhudson
+
+	* security/snort/: BUILD, DETAILS, POST_INSTALL, snort.sysconfig,
+	config.d/snort.sysconfig, init.d/snort: 
+	Ok updating snort to new version 2.0.0, now I fixed the module so
+	that it will install the rule sets to /etc/snort and the config
+	files to /etc, also being that all that was done in the
+	POST_INSTALL file nothing got installed.  Now its all done in the
+	BUILD file.  I removed the POST_INSTALL file and moved the
+	snort.sysconfig file to the config.d directory.  Oh also it wasnt
+	installing the snort.sysconfig file for some reason but now it is. 
+	It works fine for me now and works out of the box with no
+	configuring.  Though I would suggest writing your own snort.conf
+	file.
+
+2003-05-09 13:10  sofar
+
+	* games/fgfs-base/: BUILD, DETAILS: This makes passing the ROOT
+	data parameter unneeded!
+
 2003-05-09 10:05  sofar
 
 	* utils/Wine/DETAILS: fresh Wine!
