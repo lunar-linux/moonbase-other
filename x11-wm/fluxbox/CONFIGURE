@@ -1,18 +1,24 @@
-# NLS is not compiling at the moment
-# so it is being disabled
-echo "NLS=n" >> $MODULE_CONFIG
-#if ! grep -q "NLS" $MODULE_CONFIG; then
-# if query "Enable NLS? (if not disables Remember patch)" y ; then
-#   echo "NLS=y" >> $MODULE_CONFIG
-#   if ! grep -q "REM" $MODULE_CONFIG; then
-#     if query "Enable Remember patch?" y
-#       then echo "REM=y" >> $MODULE_CONFIG
-#       else echo "REM=n" >> $MODULE_CONFIG
-#     fi
-#   fi
-#  else echo "NLS=n" >> $MODULE_CONFIG
-# fi
-#fi
+echo
+echo "Note: If you wish to use NLS support in fluxbox, you need to make sure"
+echo "      that the languages that fluxbox supports is compiled into glibc."
+echo
+echo "      The following languages are supported by fluxbox:"
+echo
+echo "      bg_BG     C         da_DK     es_ES"
+echo "      fr_FR     it_IT     ja_JP     lv_LV"
+echo
+if ! grep -q "NLS" $MODULE_CONFIG; then
+ if query "Enable NLS? (if not disables Remember patch)" y ; then
+   echo "NLS=y" >> $MODULE_CONFIG
+   if ! grep -q "REM" $MODULE_CONFIG; then
+     if query "Enable Remember patch?" y
+       then echo "REM=y" >> $MODULE_CONFIG
+       else echo "REM=n" >> $MODULE_CONFIG
+     fi
+   fi
+  else echo "NLS=n" >> $MODULE_CONFIG
+ fi
+fi
 
 if ! grep -q "GNOME" $MODULE_CONFIG; then
  if query "Enable Gnome (wm specs) support?" y
