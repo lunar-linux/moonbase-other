@@ -1,0 +1,14 @@
+          MODULE=sparc-utils
+         VERSION=1.9
+          SOURCE=${MODULE}_${VERSION}.orig.tar.gz
+         SOURCE2=${MODULE}_${VERSION}-2.diff.gz 
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION.orig
+   SOURCE_URL[0]=http:/http.us.debian.org/debian/pool/main/s/$MODULE/$SOURCE
+  SOURCE2_URL[0]=http:/http.us.debian.org/debian/pool/main/s/$MODULE/$SOURCE2 
+        WEB_SITE=http://www.debian.org
+         ENTERED=20031019
+         UPDATED=20031019
+           SHORT="various sparc utilites from Debian GNU/Linux"
+cat << EOF
+elftoaout, piggyback, piggyback64, audioctl, prtconf, eeprom
+EOF
