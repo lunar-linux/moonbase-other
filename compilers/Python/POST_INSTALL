@@ -1,17 +1,13 @@
-# Don't break any Python depended application.
-# Note: This is a workaround and needs some more attention ..
-#       a working soluation might also help solving the same issue
-#       with perl
+OLD_VER="`get_module_config OLD_VER`"
+NEWPYTHONDIR=/usr/lib/python$VERSION
+OLDPYTHONDIR=/usr/lib/python$OLD_VER
 
-NEWPYTHONDIR=/usr/lib/python2.4
-OLDPYTHONDIR=/usr/lib/python2.3
-
-if [ -d $OLDPYTHONDIR ]; then
-  if [ -d $OLDPYTHONDIR/site-packages ]; then
-    for ext in $OLDPYTHONDIR/site-packages; do
-      cp -a $ext $NEWPYTHONDIR;
-    done;
-  fi
+if [ ! -z "$OLD_VER" ]; then
+  for ext in $OLDPYTHONDIR/site-packages/*; do
+    cp -a $ext $NEWPYTHONDIR/site-packages/;
+  done;
   # Remove the old location
   rm -rf $OLDPYTHONDIR
 fi
+
+unset_module_config OLD_VER
