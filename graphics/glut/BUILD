@@ -6,8 +6,8 @@
 
   cp     Glut.cf  Glut.cf.bak                                   &&
   sed    $MESA_FIX < linux/Glut.cf > Glut.cf                    &&
-  imake  -DUseInstalled -I/usr/X11R6/lib/X11/config -DTOPDIR=.  &&
-  xmkmf  -a                                                     &&
+  /usr/X11R6/bin/imake -DUseInstalled -I/usr/X11R6/lib/X11/config -DTOPDIR=. &&
+  /usr/X11R6/bin/xmkmf -a                                       &&
   cp     lib/glut/Makefile lib/glut/Makefile.bak                &&
   sed    $MESA_FIX    <     linux/Makefile                      |
   sed    $SYMBOL_FIX  >  lib/glut/Makefile                      &&
