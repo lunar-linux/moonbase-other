@@ -1,0 +1,31 @@
+# Copy the pkgconfig files that mozilla dosn't copy
+find $BUILD_DIRECTORY/$MODULE -name "*.pc" | xargs cp --target-directory=/usr/lib/pkgconfig
+find /usr/lib/pkgconfig -name "mozilla*.pc" | xargs chmod 644
+
+# Icon goes missing somtimes (on some build options, gtk+2 comes to mind)
+
+if [ ! -d /usr/lib/mozilla/icons ] ; then
+  rm -Rf /usr/lib/mozilla/icons
+  mkdir /usr/lib/mozilla/icons
+fi
+
+install -m 644 $BUILD_DIRECTORY/$MODULE/build/package/rpm/SOURCES/*.xpm /usr/lib/mozilla/icons
+install -m 644 $BUILD_DIRECTORY/$MODULE/build/package/rpm/SOURCES/*.png /usr/share/pixmaps
+install -m 644 $BUILD_DIRECTORY/$MODULE/build/package/rpm/SOURCES/*.gif /usr/share/pixmaps
+
+# Gnome pannel entries
+install -m 644 $BUILD_DIRECTORY/$MODULE/build/package/rpm/SOURCES/mozilla.desktop /usr/share/gnome/apps/Internet
+install -m 644 $BUILD_DIRECTORY/$MODULE/build/package/rpm/SOURCES/mozilla-compose.desktop /usr/share/gnome/apps/Internet
+install -m 644 $BUILD_DIRECTORY/$MODULE/build/package/rpm/SOURCES/mozilla-profile.desktop /usr/share/gnome/apps/Internet
+
+# Gif and their stupid patents
+cat /usr/share/gnome/apps/Internet/mozilla-compose.desktop | sed -e 's/mozilla-compose-icon.gif/mozilla-icon.png/' > /usr/share/gnome/apps/Internet/mozilla-compose.desktop
+cat /usr/share/gnome/apps/Internet/mozilla-profile.desktop | sed -e 's/migrate-icon.gif/mozilla-icon.png/' > /usr/share/gnome/apps/Internet/mozilla-profile.desktop
+
+
+if [ "$MAILNEWS" == "n" ] ; then
+  install -m 644 $BUILD_DIRECTORY/$MODULE/build/package/rpm/SOURCES/mozilla-mail.desktop /usr/share/gnome/apps/Internet
+  cat /usr/share/gnome/apps/Internet/mozilla-mail.desktop | sed -e 's/mozilla-mail-icon.gif/mozilla-icon.png/' > /usr/share/gnome/apps/Internet/mozilla-mail.desktop
+fi
+
+

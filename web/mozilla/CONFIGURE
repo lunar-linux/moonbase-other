@@ -1,6 +1,79 @@
-if ! grep -q "GTK2" $MODULE_CONFIG; then
- if query "Enable Gtk+2 support?" y
-   then echo "GTK2=y" >> $MODULE_CONFIG
-   else echo "GTK2=n" >> $MODULE_CONFIG
+if ! grep -q "MAILNEWS" $MODULE_CONFIG; then
+ if query "Enable Mail and News Clients?" y
+   then echo "MAILNEWS=y" >> $MODULE_CONFIG
+   else echo "MAILNEWS=n" >> $MODULE_CONFIG
  fi
+fi
+
+if ! grep -q "IRC" $MODULE_CONFIG; then
+ if query "Enable IRC client?" n
+   then echo "IRC=y" >> $MODULE_CONFIG
+   else echo "IRC=n" >> $MODULE_CONFIG
+ fi
+fi
+
+# No libical in lunar yet
+# if ! grep -q "CALENDAR" $MODULE_CONFIG; then
+#  if query "Enable Mozilla Calendar?" n
+#    then echo "CALENDAR=y" >> $MODULE_CONFIG
+#    else echo "CALENDAR=n" >> $MODULE_CONFIG
+#  fi
+# fi
+
+echo "CALENDAR=n" >> $MODULE_CONFIG
+
+if ! grep -q "GTK2" $MODULE_CONFIG; then
+  if query "Enable Gtk+2 support?" n
+    then echo "GTK2=y" >> $MODULE_CONFIG
+    else echo "GTK2=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if ! grep -q "XFT" $MODULE_CONFIG; then
+  if query "Enable Xft support?" n
+    then echo "XFT=y" >> $MODULE_CONFIG
+    else echo "XFT=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if ! grep -q "MATHML" $MODULE_CONFIG; then
+  if query "Enable MathML support?" y 
+    then echo "MATHML=y" >> $MODULE_CONFIG
+    else echo "MATHML=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if ! grep -q "IP6" $MODULE_CONFIG; then
+  if query "Enable IPv6 support?" n
+    then echo "IP6=y" >> $MODULE_CONFIG
+    else echo "IP6=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if ! grep -q "JSD" $MODULE_CONFIG; then
+  if query "Enable Java script debugger support?" y 
+    then echo "JSD=y" >> $MODULE_CONFIG
+    else echo "JSD=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if ! grep -q "XCIN" $MODULE_CONFIG; then
+  if query "Enable Xinerama support?" n
+    then echo "XCIN=y" >> $MODULE_CONFIG
+    else echo "XCIN=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if ! grep -q "CRYPT" $MODULE_CONFIG; then
+  if query "Enable Crypto (https) support?" y 
+    then echo "CRYPT=y" >> $MODULE_CONFIG
+    else echo "CRYPT=n" >> $MODULE_CONFIG
+  fi
+fi
+
+if ! grep -q "LDAP" $MODULE_CONFIG; then
+  if query "Enable LDAP support?" y 
+    then echo "LDAP=y" >> $MODULE_CONFIG
+    else echo "LDAP=n" >> $MODULE_CONFIG
+  fi
 fi
