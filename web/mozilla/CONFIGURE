@@ -1,56 +1,20 @@
-if  ! grep -q "COM"  $MODULE_CONFIG; then
-  if  query  "Include mozilla Composer (gui html editing)?" y; then
-    echo  "COM=y"  >>  $MODULE_CONFIG
-  else
-    echo  "COM=n"  >>  $MODULE_CONFIG
+for OPTION in \
+"COM:y:Include mozilla Composer (gui html editing)?" \
+"IRC:y:Include Chatzilla (mozilla irc client)?" \
+"MATHML:y:Include MathML support?" \
+"ACC:y:Include Accesiblity support?" \
+"JSD:y:Include JavaScript debugging support?" \
+"INS:y:Include mozilla Inspector (html code inspector) support?" \
+"HELP:y:Include mozilla Help support?" \
+    ; do
+  NAME="$(echo "$OPTION" | cut -d: -f1)"
+  DEF="$(echo "$OPTION" | cut -d: -f2)"
+  DESC="$(echo "$OPTION" | cut -d: -f3-)"
+  if [ -z "$(get_module_config "$NAME")" ] ; then
+    if query "$DESC" $DEF ; then
+      set_module_config "$NAME" "y"
+    else
+      set_module_config "$NAME" "n"
+    fi
   fi
-fi
-
-if  ! grep -q "IRC"  $MODULE_CONFIG; then
-  if  query  "Include Chatzilla (mozilla irc client)?" y; then
-    echo  "IRC=y"  >>  $MODULE_CONFIG
-  else
-    echo  "IRC=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  ! grep -q "MATHML"  $MODULE_CONFIG; then
-  if  query  "Include MathML support?" y; then
-    echo  "MATHML=y"  >>  $MODULE_CONFIG
-  else
-    echo  "MATHML=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  ! grep -q "ACC"  $MODULE_CONFIG; then
-  if  query  "Include Accesiblity support?" y; then
-    echo  "ACC=y"  >>  $MODULE_CONFIG
-  else
-    echo  "ACC=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  ! grep -q "JSD"  $MODULE_CONFIG; then
-  if  query  "Include JavaScript debugging support?" y; then
-    echo  "JSD=y"  >>  $MODULE_CONFIG
-  else
-    echo  "JSD=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  ! grep -q "INS"  $MODULE_CONFIG; then
-  if  query  "Include mozilla Inspector (html code inspector) support?" y; then
-    echo  "INS=y"  >>  $MODULE_CONFIG
-  else
-    echo  "INS=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
-if  ! grep -q "HELP"  $MODULE_CONFIG; then
-  if  query  "Include mozilla Help support?" y; then
-    echo  "HELP=y"  >>  $MODULE_CONFIG
-  else
-    echo  "HELP=n"  >>  $MODULE_CONFIG
-  fi
-fi
-
+done

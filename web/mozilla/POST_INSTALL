@@ -1,10 +1,10 @@
 export patchdir=$SOURCE_DIRECTORY/$MODULE-$VERSION-lunar
-cp $patchdir/mozilla-lunar-bookmarks.html /usr/lib/mozilla-$VERSION/defaults/profile/bookmarks.html
-cp $patchdir/mozilla-lunar-bookmarks.html /usr/lib/mozilla-$VERSION/defaults/profile/US/bookmarks.html
+install $patchdir/mozilla-lunar-bookmarks.html /usr/lib/mozilla-$VERSION/defaults/profile/
+install $patchdir/mozilla-lunar-bookmarks.html /usr/lib/mozilla-$VERSION/defaults/profile/US/bookmarks.html
 
 # Ugly, eeek, explains need for chrooted installs
-if [ "-d /usr/lib/mozilla-$VERSION/plugins" ] ; then
-  mv /usr/lib/mozilla-$VERSION/plugins/libnullplugin.so /usr/lib/mozilla-$VERSION
+if [ -d /usr/lib/mozilla-$VERSION/plugins ] ; then
+  mv /usr/lib/mozilla-$VERSION/plugins/libnullplugin.so /usr/lib/mozilla-$VERSION/
   rm -Rf /usr/lib/mozilla-$VERSION/plugins
 fi
 
@@ -15,10 +15,12 @@ mkdir -p /opt/lunar/plugins
 ln -sf /opt/lunar/plugins /usr/lib/mozilla/plugins
 
 if module_installed j2sdk; then
-   ln -sf /usr/lib/j2sdk1.4.1/jre/plugin/i386/mozilla/javaplugin_oji.so \
-   /usr/lib/mozilla/plugins/javaplugin_oji.so;
+  ln -sf /usr/lib/j2sdk1.4.1/jre/plugin/i386/mozilla/javaplugin_oji.so \
+  /usr/lib/mozilla/plugins/javaplugin_oji.so;
 fi 
 
-if module_installed epiphany; then lin -c -r epiphany; fi
-if module_installed galeon; then lin -c -r galeon; fi
-if module_installed galeon2; then lin -c -r galeon2; fi
+for mod in epiphany galeon galeon2 ; do
+  if module_installed $mod ; then
+    lin -c $mod
+  fi
+done

@@ -1,24 +1,26 @@
           MODULE=mozilla
-         VERSION=1.7.2
+         VERSION=1.7.3
           SOURCE=$MODULE-source-$VERSION.tar.bz2
          SOURCE2=$MODULE-$VERSION-lunar.tar.bz2
+         SOURCE3=$MODULE-1.7.2-libart_lgpl.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
    SOURCE_URL[0]=http://ftp.mozilla.org/pub/mozilla.org/mozilla/releases/mozilla$VERSION/src/$SOURCE
    SOURCE_URL[1]=ftp://ftp.mirror.ac.uk/sites/ftp.mozilla.org/pub/mozilla.org/mozilla/releases/mozilla$VERSION/src/$SOURCE
    SOURCE_URL[2]=http://archive.progeny.com/mozilla.org/mozilla/releases/mozilla$VERSION/src/$SOURCE
-  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2
+     SOURCE2_URL=$PATCH_URL/$SOURCE2
+     SOURCE3_URL=http://www.die.unipd.it/pub/Linux/distributions/gentoo-sources/distfiles/
         WEB_SITE=http://www.mozilla.org
          ENTERED=20010922
-         UPDATED=20040808
-      SOURCE_VFY=md5:262987cfcb793bab9fb1aebb21c527ce
-     SOURCE2_VFY=md5:d4b1b20e137ea90f65ff1571216b9af1
-           FUZZY="off"
+         UPDATED=20040928
+      SOURCE_VFY=sha1:ca588b12d944d478ebe193a76d4b487f8db1e38c
+     SOURCE2_VFY=md5:1a356c1c000df4fb4cf8d41253009db4
+     SOURCE3_VFY=sha1:f5cb4b4bce6d5b64c62e845479378598eb8596d8
            SHORT="Mozilla is a Web browser."
 cat << EOF
 Mozilla is a Web browser that is being developed by the Free Software
-Community with the cooperation and support of Netscape. Initially,
-its development was based on an early version of Netscape Communicator 5.0.
-But most of it was disposed of halfway, and the current Mozilla is
-a completely new software based on the "NGLayout" layout engine 
-developed for Netscape Communicator 6.
+Community with the cooperation and support of Netscape. Initially, its
+development was based on an early version of Netscape Communicator 5.0.
+But most of it was disposed of halfway, and the current Mozilla is a
+completely new software based on the "NGLayout" layout engine developed
+for Netscape Communicator 6.
 EOF
