@@ -1,5 +1,5 @@
 (
- sedit 's/StringInput|StringOutput/StringIO/'
+ patch_it $SOURCE_CACHE/$SOURCE2 1  &&
  prepare_install        &&
  python setup.py install
  
