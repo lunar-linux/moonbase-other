@@ -1,3 +1,33 @@
+2003-08-14 03:13  tchan
+
+	* mail/fetchmail/DETAILS: Version bump to 6.2.4.  Compiled and
+	tested with gcc-3.2.3, glibc-2.3.2.  Fetchs mail from dbguin via
+	ssl, so it all seems to work.
+
+2003-08-14 03:00  tchan
+
+	* devel/ddd/: BUILD, DETAILS: Fixed the Python2.2 harcoded path for
+	the new version of Python2.3.  Also this module only builds with
+	-Wno-deprecated enabled in lunar optimize. I'm not sure how to
+	force that option in the BUILD or DETAILS script.
+
+2003-08-13 19:32  tchan
+
+	* video/MPlayer/BUILD: Fixed an old incorrect symlink in
+	/usr/share/mplayer.  The mplayer devs have changed their tarball of
+	fonts and they have a new directory structure.
+
+2003-08-13 18:17  tchan
+
+	* news/bbdb/DEPENDS: Added the teTeX depends to bbdb.  There is NO
+	configure flag to stop the building of the TeX docs for bbdb, so it
+	must have TeX installed to correctly compile and install.
+
+2003-08-13 16:12  niki
+
+	* video/MPlayer/DETAILS: Bumped to versio 0.91, compiled fine with
+	gcc 3.3.1, tested and runs ok.
+
 2003-08-13 06:57  florin
 
 	* kde3/arts/DETAILS, kde3/kdeaddons3/DETAILS,
@@ -1707,83 +1737,4 @@
 
 	* zbeta/xfce4-session-cvs/BUILD: Last time I thouch this
 	one...okay?
-
-2003-07-14 23:11  csm
-
-	* net/nfs-utils/: BUILD, DETAILS: this is a security fix... all
-	users should update!
-
-2003-07-14 22:44  sofar
-
-	* zbeta/xfce4-session-cvs/: BUILD, POST_INSTALL: Properly adding
-	Moe's themes, note the mkdir -p. people who had installed
-	xfce4-session-cvs before might have to manually remove the 2
-	offending themes since they were not tracked properly. Once you
-	remove them this module works fine.
-
-2003-07-14 19:37  elaine
-
-	* chat/dancer-ircd/: BUILD, CONFLICTS, DETAILS, POST_INSTALL,
-	services, init.d/dancer-ircd: Initial import of dancer module into
-	lunar, goes with dancer-services
-
-2003-07-14 15:50  csm
-
-	* graphics/gtk+-2/DETAILS: fixing the URL for the shadow patch
-
-2003-07-14 11:43  nhudson
-
-	* app-themes/gnome-themes-extras/DETAILS: 
-	Removing scalable-gorilla and Nuvola icon themes from moonbase
-	because they are both in gnome-themes-extras and are not needed
-	anymore.
-
-2003-07-14 11:40  nhudson
-
-	* libs/libart_lgpl/DETAILS: 
-	updating libart_lgpl to new version 2.3.13
-
-2003-07-14 11:38  nhudson
-
-	* gnome2-core/bonobo-activation/DETAILS: 
-	Updating bonobo-activation to new version 2.2.3.  If you are
-	running evolution you will have to either restart or run
-	"bonobo-slay" to get things working again.
-
-2003-07-14 03:34  kc8apf
-
-	* gnustep/gnustep-make/BUILD: Fix build for gnustep-make to located
-	gnustep correctly in /
-
-2003-07-14 01:26  csm
-
-	* mail/smtpclient/DEPENDS: I had commented this out for testing...
-	I forgot to uncomment it
-
-2003-07-14 01:14  csm
-
-	* mail/smtpclient/: DEPENDS, DETAILS, POST_INSTALL: okay so
-	smtpclient installs and configs postfix properly if spamassasin and
-	postfix are installed
-
-2003-07-14 00:45  csm
-
-	* mail/postfix/DEPENDS: adding some useful optional_depends
-
-2003-07-14 00:29  csm
-
-	* mail/spamassassin/DEPENDS: adding an optional depends for
-	smtpclient which is very useful with spamassassin and postfix if
-	you are using Maildir ala courier-imap
-
-2003-07-14 00:26  csm
-
-	* mail/smtpclient/DETAILS: adding smtpclient. this is very useful
-	with postfix and spamassassin if you want to run spamassassin as a
-	daemon and still be able to avoid the use of procmail for local
-	delivery. i am using it with Maildir and courier-imap so that
-	spamassasin will work as a daemon.
-	
-	See http://jessen.ch/articles/enidans-spamassassin.shtml for more
-	info!
 
