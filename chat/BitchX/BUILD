@@ -1,5 +1,7 @@
 (
+
   patch_it $SOURCE_CACHE/$SOURCE2 0           &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1           &&
   export CC="gcc"                             &&
   export CCC="g++"                            &&
   export CXX="g++"                            &&
