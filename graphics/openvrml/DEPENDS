@@ -1,3 +1,13 @@
 depends libpng  &&
 depends jpeg    &&
-depends glut
+depends glut    &&
+depends mozilla &&
+
+optional_depends  "j2sdk"                              	            \
+                  "--with-jdk --enable-script-node-java"            \
+                  "--without-jdk --disable-script-node-javascript"  \
+                  "to use the java sdk"          
+
+              
+
+

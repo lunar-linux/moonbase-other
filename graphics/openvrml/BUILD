@@ -1,7 +1,6 @@
 (
 
-  ./configure  --prefix=/usr    \
-               --without-mozjs  &&
+  ./configure  --prefix=/usr    &&
   make                          &&
   prepare_install               &&
   make    install
