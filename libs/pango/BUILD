@@ -1,6 +1,6 @@
 ( 
-
-  export PKG_CONFIG_PATH=/opt/lunar/Xft/lib/pkgconfig:$PKG_CONFIG_PATH
+  export PATH=$PATH:/opt/lunar/Xft/bin &&
+  export PKG_CONFIG_PATH=/usr/lib/pkgconfig &&
   ./configure --prefix=/usr      \
               $OPTS              &&
   make                           &&
