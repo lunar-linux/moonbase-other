@@ -1,5 +1,8 @@
 # Install the kernel headers which we created in BUILD
 
-mv /var/lock/installing.glibc /var/lock/installing.$$
-lin -c kernel-headers
-mv /var/lock/installing.$$ /var/lock/installing.glibc
+if [ -e /tmp/lunar-kernel-header-install ] ; then
+  mv /var/lock/installing.glibc /var/lock/installing.$$
+  lin -c kernel-headers
+  mv /var/lock/installing.$$ /var/lock/installing.glibc
+  rm -f /tmp/lunar-kernel-header-install
+fi

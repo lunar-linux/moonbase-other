@@ -107,9 +107,16 @@ esac
   # Make kernel header files for kernel-headers module
 
   cd /usr/src/linux/include && 
-  HDRS_VER="$(uname -s)-$(uname -r | sed 's/[-a-z].*//')-$(uname -m | sed 's/[456]/3/')" &&
-  tar -cjf /var/spool/lunar/kernel-headers-"$HDRS_VER".tar.bz2 linux &&
-  tar -cjf /var/spool/lunar/asm-headers-"$HDRS_VER".tar.bz2 asm/* &&
+  HDRS_VER="$(uname -s)-$(uname -r | sed 's/[-a-z].*//')-$(uname -m | sed 's/i[3456]/i3/')" &&
+
+  if [ ! -e /var/spool/lunar/kernel-headers-"$HDRS_VER".tar.bz2 ] ; then
+    touch /tmp/lunar-kernel-header-install &&
+    tar -cjf /var/spool/lunar/kernel-headers-"$HDRS_VER".tar.bz2 linux 
+  fi &&
+  if [ ! -e /var/spool/lunar/asm-headers-"$HDRS_VER".tar.bz2 ] ; then
+    touch /tmp/lunar-kernel-header-install &&
+    tar -cjf /var/spool/lunar/asm-headers-"$HDRS_VER".tar.bz2 asm/* 
+  fi &&
 
   cd $INSTALL_ROOT
 
