@@ -1,0 +1,13 @@
+#%PAM-1.0
+auth        required      pam_env.so
+auth        sufficient    pam_unix.so likeauth nullok
+auth        required      pam_deny.so
+
+account     required      pam_unix.so
+
+password    required      pam_cracklib.so retry=3 type=
+password    sufficient    pam_unix.so nullok use_authok md5 shadow
+password    required      pam_deny.so
+
+session     required      pam_limits.so
+session     required      pam_unix.so

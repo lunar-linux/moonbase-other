@@ -12,18 +12,41 @@
 *                hard     core            0
 EOF
 
+  autoconf &&
   ./configure  --enable-read-both-confs                 \
                --enable-docdir=/usr/share/doc/Linux-PAM \
-               --mandir=/usr/share/man                  &&
+               --mandir=/usr/share/man                  \
+               --enable-static-libpam			&&
+
+  # Is Berk DB installed?
+  if ! module_installed db; then
+      sedit "s:^HAVE_NDBM_H=yes:HAVE_NDBM_H=no:; \
+             s:^HAVE_LIBNDBM=yes:HAVE_LIBNDBM=no:; \
+             s:^HAVE_LIBDB=yes:HAVE_LIBDB=no:" Make.Rules &&
+      sedit "s:^#define HAVE_NDBM_H.*$:/* #undef HAVE_NDBM_H */:; \
+             s:^#define HAVE_DB_H.*$:/* #undef HAVE_DB_H */:" _pam_aconf.h
+  else
+      sedit "s:^HAVE_NDBM_H=yes:HAVE_NDBM_H=no:; \
+             s:^HAVE_LIBNDBM=yes:HAVE_LIBNDBM=no:" Make.Rules &&
+      sedit "s:^#define HAVE_NDBM_H.*$:/* #undef HAVE_NDBM_H */:" _pam_aconf.h
+  fi &&
 
   sedit  "s/examples//"  Makefile              &&
   sedit  "s/read yes//"     conf/install_conf  &&
   sedit  "s/read yes//"  modules/install_conf  &&
-  sedit  "s/HAVE_LIBCRYPT=no/HAVE_LIBCRYPT=yes/" Make.Rules &&
-  sedit  "s/DYNAMIC=/DYNAMIC=-fPIC /" Make.Rules &&
   make                                         &&
   prepare_install                              &&
-  make    install
+  make    install                              &&
+ 
+  # Module documents are nice
+  if [ ! -d /usr/share/doc/Linux-PAM/text ]; then
+      mkdir -p /usr/share/doc/Linux-PAM/text
+  fi &&
+  for i in $SOURCE_DIRECTORY/modules/pam_*/README; do
+      cp -f ${i} /usr/share/doc/Linux-PAM/text/README.$(echo ${i} | awk -F/ '{ print $(NF-1) }')
+  done &&
+  
+	
 set -x
   OLD_MD5=`md5sum /etc/security/limits.conf | cut -d " " -f 1-1`
   [ "$OLD_MD5" = "a9f7a9bc1db8b300cff38294f577abbd" ] && 
