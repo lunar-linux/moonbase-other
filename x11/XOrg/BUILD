@@ -25,7 +25,7 @@
   echo  "#define InstallXdmConfig YES"          >> config/cf/host.def &&
   echo  "#define InstallXinitConfig YES"        >> config/cf/host.def &&
   if module_installed Linux-PAM ; then
-    echo "#define HasPam YES"                   >> config/cf/host.def &&
+    echo "#define HasPam YES"                   >> config/cf/host.def
   fi &&
 
   echo  "#define DefaultCCOptions      $CFLAGS" >> config/cf/host.def &&
