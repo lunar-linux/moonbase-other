@@ -8,7 +8,7 @@ if  [  !  -f  /etc/asound.state  ];  then
 
 fi
 
-if module_installed linux-2.6 || linux-beta || module_installed linux-beta-mm ; then	
+if module_installed linux-2.6 || module_installed linux-beta || module_installed linux-beta-mm ; then	
 	if ! [ -e /etc/init.d/alsasettings  ];  then
 	  cp  $SOURCE_CACHE/alsasettings  /etc/init.d
 	  chmod +x /etc/init.d/alsasettings
