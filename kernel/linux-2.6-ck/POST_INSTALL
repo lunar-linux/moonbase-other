@@ -1,22 +1,11 @@
-# Done to shorten the boot label for lilo
-LABEL=`echo ${VERSION} | sed 's/-//g'`
-
-case  $BOOT_LOADER  in
-  lilo)  update_lilo   ${VERSION}  ${LABEL} ;;
-  grub)  update_grub   ${VERSION}  ${LABEL} ;;
-esac
-
+if [ "$USE_LILO" == "y" ]; then
+    update_lilo $VERSION $VERSION
+else
+  if [ "$USE_GRUB" == "y" ]; then
+    update_grub $VERSION $VERSION
+  fi
+fi
 
 #  Reinstall packages that add their own kernel modules
 
-rm  -f  $BOOST_LOCK
-if  module_installed  ftpfs;          then  lin  ftpfs;          fi
-if  module_installed  cvsfs;          then  lin  cvsfs;          fi
-if  module_installed  NVIDIA;       then  lin  NVIDIA;       fi
-if  module_installed  cryptoapi;      then  lin  cryptoapi;      fi
-if  module_installed  pcmcia-cs;      then  lin -r -c pcmcia-cs; fi
-if  module_installed  mwavem;         then  lin  mwavem;         fi
-if  module_installed  cipe;           then  lin  cipe;           fi
-if  module_installed  snare-core;     then  lin  snare-core;     fi
-if  module_installed  bluez-kernel;   then  lin  bluez-kernel;   fi
-if  module_installed  submount;       then  lin  submount;       fi
+lin -c kernel-reqs
