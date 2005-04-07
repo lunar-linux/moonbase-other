@@ -1,3 +1,57 @@
+2005-04-07 10:18  moe
+
+	* devel/cvs/DETAILS: Updating cvs to 1.11.19. well tested.
+
+2005-04-07 09:34  sofar
+
+	* devel/: cvs/plugin.d/download-cvs.plugin,
+	  subversion/plugin.d/download-svn.plugin: Adjusted needrefresh
+	  calls too
+
+2005-04-07 09:27  sofar
+
+	* devel/: cvs/plugin.d/download-cvs.plugin,
+	  subversion/plugin.d/download-svn.plugin: Adjusting plugins to
+	  accomodate for the change
+
+2005-04-07 04:31  nhudson
+
+	* ftp/gtk-gnutella/: BUILD, DETAILS:
+	  Adding a patch to gtk-gnutella so that it will build with
+	  gtk+-2.6.0 and fixing the BUILD file so that it will install a
+	  .desktop file with the png's to the correct location.
+
+2005-04-07 02:58  florin
+
+	* shells/zsh/DETAILS: bump the version from 4.2.4 to 4.2.5. bugfix
+	  release.
+
+2005-04-07 02:44  nhudson
+
+	* kernel/linux-2.6-inotify/: DETAILS, PRE_BUILD:
+	  Updating the inotify patch to the latest version 0.22 and forcing
+	  a clean kernel tree to patch it
+
+2005-04-06 22:34  moe
+
+	* libs/gettext/: BUILD, DETAILS, POST_INSTALL: Much cleaner,
+	  better, cures aids, yadda.
+
+	  (I ment to write down all the changes but my commit  messages got
+	  fuzzed due to some improper left mouse  button handling)
+
+2005-04-06 19:59  nestu
+
+	* kernel/linux-2.6-prepatch/DETAILS: 2.6.12-rc1 -> 2.6.12-rc2. gcc
+	  3.3.3, glibc 2.3.2, headers 2.6.11.1-i386
+
+2005-04-06 14:48  sofar
+
+	* devel/gcvs/BUILD: Make the private gcvs cvs install under
+	  /usr/lib/gcvs so it doesn't conflict with the cvs binary from
+	  module cvs itself. no idea how to set the location of the gcvs
+	  cvs by default. this program really blows.
+
 2005-04-06 08:14  moe
 
 	* devel/subversion/plugin.d/download-svn.plugin: I'm teh awesome
@@ -2741,90 +2795,4 @@
 	* doc-tools/sgml-common/DETAILS: Added SHA sums for both sources
 	  for sgml-common. Was having issues with local install, so added
 	  them in.
-
-2005-03-07 19:50  florin
-
-	* security/iptables/DETAILS: bump the version from 1.3.0 to 1.3.1.
-	  minor bugfixes.
-
-2005-03-07 19:09  florin
-
-	* mail/bogofilter/: BUILD, DETAILS: bump the version from 0.93.5 to
-	  0.94.0. improvements and bugfixes.
-
-2005-03-07 18:48  nestu
-
-	* kernel/linux-2.6-grsec/DETAILS: 2.6.11-2.1.2 -> 2.6.11-2.1.3. gcc
-	  3.3.3, glibc 2.3.2, headers 2.6.10.0.  Important security fix.
-
-2005-03-07 18:44  florin
-
-	* utils/dialog/DETAILS: bump the version from 1.0-20050206 to
-	  1.0-20050306. bugfixes release.
-
-2005-03-07 17:51  perldude
-
-	* kernel/: linux-2.6-ck/PRE_BUILD, linux-2.6-cko/PRE_BUILD: Oops...
-	  the line to patch the sources was missing.
-
-	  I guess the line got lost during a sync between linux-2.6 and
-	  linux-2.6-ck[o].
-
-2005-03-07 17:10  perldude
-
-	* kernel/: linux-2.6-ck/DETAILS, linux-2.6-cko/DETAILS: version
-	  bump
-
-2005-03-07 15:09  sofar
-
-	* utils/hc-cron/: BUILD, CONFIGURE: Adding options to make hc-cron
-	  log to SYSLOG only
-
-2005-03-07 14:38  florin
-
-	* kernel/: linux-2.6/PRE_BUILD, linux-2.4/PRE_BUILD,
-	  linux-2.4-agr/PRE_BUILD, linux-2.4-grsec/PRE_BUILD,
-	  linux-2.4-om/PRE_BUILD, linux-2.4-stable/PRE_BUILD: fix a typo.
-
-2005-03-07 13:49  prox
-
-	* shells/bash/profile.d/bash-prompt.rc: added rxvt support for
-	  titlebar stuff since it works also
-
-2005-03-07 13:24  moe
-
-	* kernel/: linux-2.4/DETAILS, linux-2.6/DETAILS,
-	  linux-2.6/PRE_BUILD: Linux 2.6.x update and Linux 2.4.x
-	  identation fixes. Almost didn't see the KEEP_SOURCES=on ;-)
-
-2005-03-07 08:45  florin
-
-	* net/whois/: BUILD, DETAILS: bump the version from 4.7.0 to 4.7.1.
-
-2005-03-07 08:43  moe
-
-	* x11/synaptics/: BUILD, DETAILS: Adding this really usefull
-	  touchpad driver to the moonbase.  Almost any laptop ships with a
-	  synaptics touchpad today.
-
-2005-03-07 08:22  florin
-
-	* libs/numpy/: BUILD, DETAILS: bump the version from 23.5 to 23.8.
-	  bugfixes release.
-
-2005-03-07 08:11  florin
-
-	* terminal/rdesktop/: BUILD, DETAILS: bump the version from 1.3.1
-	  to 1.4.0. new features, improvements and bugfixes.
-
-2005-03-07 08:00  florin
-
-	* graphics/netpbm/DETAILS: bump the version from 10.26.4 to
-	  10.26.5.
-
-2005-03-07 01:51  v3rt1g0
-
-	* graphics/compface/: BUILD, DETAILS: Version bump.  Patch no
-	  longer required.  Added sha1 sum.  Installed the xbm-to-XFace
-	  perl script.
 
