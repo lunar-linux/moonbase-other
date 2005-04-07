@@ -31,12 +31,8 @@ plugin_source_download_svn() {
   SVN_URL=$(echo $1 | cut -d: -f1-2)
   SVN_DIR=$(echo $1 | cut -d: -f3)
   # translate svn+http(s) urls:
-  if [ "${SVN_URL:0:11}" == "svn+http://" ]; then
-    SVN_URL="http://${SVN_URL:11}"
-  fi
-
-  if [ "${SVN_URL:0:12}" == "svn+https://" ]; then
-    SVN_URL="https://${SVN_URL:12}"
+  if [ "${SVN_URL:0:8}" == "svn+http" ]; then
+    SVN_URL="${SVN_URL:4}"
   fi
 
   message  "${MESSAGE_COLOR}Downloading SVN module for" \
@@ -45,11 +41,11 @@ plugin_source_download_svn() {
   mk_source_dir $TMPDIR/$MODULE-$VERSION
   cd $TMPDIR/$MODULE-$VERSION
 
-  if [ -f "$2" ] ; then
+  if [ -f "$3/$2" ] ; then
     verbose_msg "Extracting local SVN copy"
     # unpacking in last component dir of $SVN_DIR
     CD=$(pwd -P)
-    if ! tar xjf $2 ; then
+    if ! tar xjf $3/$2 ; then
       message "${PROBLEM_COLOR}Warning: bad local SVN copy, checking out fresh SVN copy${DEFAULT_COLOR}"
       
       rm_source_dir $TMPDIR/$MODULE-$VERSION
@@ -84,9 +80,9 @@ plugin_source_download_svn() {
   if [ "$GOT_SVN" == "yes" ] ; then
     message "${MESSAGE_COLOR}Creating ${FILE_COLOR}$2${DEFAULT_COLOR}"
     # pack in last component dir of $SVN_DIR
-    tar cjf $2 $SVN_DIR
+    tar cjf $3/$2 $SVN_DIR
   else
-    activity_log "lget"  "$MODULE"  "$VERSION"  "failed" "Could not fetch $1"
+    activity_log "lget" "$MODULE" "$VERSION" "failed" "Could not fetch \"$1\""
   fi
 
   cd $TMPDIR

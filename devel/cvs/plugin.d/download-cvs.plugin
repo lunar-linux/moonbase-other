@@ -19,7 +19,6 @@ plugin_source_download_cvs() {
 
   if ! module_installed cvs ; then
     # full stop: we need to make sure the user sees this error:
-		
     message "${PROBLEM_COLOR}! Cannot fetch CVS sources without \"cvs\" installed!${DEFAULT_COLOR}"
     exit 1
   fi
@@ -46,7 +45,7 @@ plugin_source_download_cvs() {
   mk_source_dir $TMPDIR/$MODULE-$VERSION
   cd $TMPDIR/$MODULE-$VERSION
   
-  if [ -f "$2" ] ; then
+  if [ -f "$3/$2" ] ; then
     verbose_msg "Extracting local CVS copy"
     # unpacking in last component dir of $CVSMODULE
     CD=$(pwd -P)
@@ -54,7 +53,7 @@ plugin_source_download_cvs() {
     mkdir -p $(dirname $CVSMODULE)
     cd $(dirname $CVSMODULE)
     debug_msg "get_cvs: PWD=$PWD tar xjf $2"
-    if ! tar xjf $2 ; then
+    if ! tar xjf $3/$2 ; then
       message "${PROBLEM_COLOR}Warning: bad local CVS copy, checking out fresh CVS copy${DEFAULT_COLOR}"
       
       rm_source_dir $TMPDIR/$MODULE-$VERSION
@@ -89,10 +88,10 @@ plugin_source_download_cvs() {
   done
   
   if [ "$GOT_CVS" == "yes" ] ; then
-    message "${MESSAGE_COLOR}Creating ${FILE_COLOR}${2}${DEFAULT_COLOR}"
+    message "${MESSAGE_COLOR}Creating ${FILE_COLOR}$2${DEFAULT_COLOR}"
     # pack in last component dir of $CVSMODULE
     cd $TMPDIR/$MODULE-$VERSION/$(dirname $CVSMODULE)
-    tar cjf $2 $(basename $CVSMODULE)
+    tar cjf $3/$2 $(basename $CVSMODULE)
     cd $CD
   else
     activity_log "lget"  "$MODULE"  "$VERSION"  "failed" "Could not get $CVSMODULE"
