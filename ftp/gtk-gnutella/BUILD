@@ -1,12 +1,15 @@
 (
 
-  OPTS="$OPTS --enable-gtk2 --disable-gtk"
+  patch_it $SOURCE2 1 &&
   # shoot metaconfig in the head please:
-  ./Configure -de \
+  ./Configure -ders\
               -D gtkversion=2 \
               -D prefix=/usr \
               -D installbin=/usr/bin \
-	      -D installprivlib=/usr/lib/gtk-gnutella &&
-  default_make
+	      -D remotectrl=y &&
+  default_make                &&
+
+  /usr/bin/install -c $MODULE.desktop /usr/share/applications &&
+  for i in `find . -name png`; do /usr/bin/install -c $i /usr/share/pixmaps/; done 
 
 ) > $C_FIFO 2>&1
