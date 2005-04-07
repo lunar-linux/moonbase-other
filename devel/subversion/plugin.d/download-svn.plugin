@@ -98,13 +98,13 @@ plugin_source_needrefresh_svn() {
   fi
   debug_msg "plugin_source_needrefresh_svn($@)"
 
-  if [ ! -f $2 ]; then
+  if [ ! -f $3/$2 ]; then
     return 0
   fi
 
   SVN_THRESHOLD=${SVN_THRESHOLD:-10}
   if (( "SVN_THRESHOLD" > 0 )) ; then
-	if [ "$(find $2 -amin +$SVN_THRESHOLD)" == "$2" ] ; then
+	if [ "$(find $3/$2 -amin +$SVN_THRESHOLD)" == "$3/$2" ] ; then
       # it is older:
 	  return 0
 	else
