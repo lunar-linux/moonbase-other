@@ -1,17 +1,17 @@
           MODULE=linux-2.6-inotify
   KERNEL_VERSION=2.6.11
- INOTIFY_VERSION=0.21
+ INOTIFY_VERSION=0.22
          VERSION=${KERNEL_VERSION}-inotify
           SOURCE=linux-${KERNEL_VERSION}.tar.bz2
-         SOURCE2=inotify-${INOTIFY_VERSION}-rml-${KERNEL_VERSION}-2.patch
+         SOURCE2=inotify-${INOTIFY_VERSION}-rml-${KERNEL_VERSION}-1.patch
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6/
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
      SOURCE2_URL=http://www.kernel.org/pub/linux/kernel/people/rml/inotify/v2.6/${INOTIFY_VERSION}/
       SOURCE_VFY=sha1:d72ab76360d004dac4b976633dd0490e8d4b15cd
-     SOURCE2_VFY=sha1:2b6c4dcf311299684fa0eecb448bad4817df3d7f
+     SOURCE2_VFY=sha1:008881fc9997ba0adc9f6898363b340024d12177
 	WEB_SITE=http://www.kernel.org
          ENTERED=20041026
-         UPDATED=20050329
+         UPDATED=20050407
            SHORT="2.6 Kernel with Robert Love's Inotify Patch"
 cat << EOF
 ${SHORT}

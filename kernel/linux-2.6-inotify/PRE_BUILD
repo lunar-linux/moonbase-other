@@ -1,6 +1,8 @@
 cd /usr/src
 
-if [ ! -d /usr/src/linux-${VERSION} ]; then
+# For now commenting this out because the new patch has to be applied
+# in the kernel so we need a clean kernel tree
+# if [ ! -d /usr/src/linux-${VERSION} ]; then
     
     rm  -rf  linux-${KERNEL_VERSION} # we remove this one just in case
     rm  -rf  linux-${VERSION}
@@ -32,13 +34,13 @@ if [ ! -d /usr/src/linux-${VERSION} ]; then
       fi
      done
 
-else
+# else
 
-    message "Sources found: /usr/src/linux-${VERSION}"
+#    message "Sources found: /usr/src/linux-${VERSION}"
     
-    if [ "`readlink linux`" != "linux-${VERSION}" ]; then
-		rm -rf linux	
-		ln -s linux-${VERSION} linux
-    fi
+#    if [ "`readlink linux`" != "linux-${VERSION}" ]; then
+#		rm -rf linux	
+#		ln -s linux-${VERSION} linux
+#    fi
 
-fi
+# fi
