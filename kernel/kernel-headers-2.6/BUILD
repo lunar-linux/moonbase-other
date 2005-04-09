@@ -6,7 +6,7 @@
     
 	prepare_install &&
 
-    for dir in asm linux scsi sound
+    for dir in asm linux scsi sound mtd
     do
 		cp    -a $dir      /usr/include/
 		chown -R root.root /usr/include/$dir
