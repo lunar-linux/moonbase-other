@@ -2,9 +2,9 @@
 
   sedit "s:../data:/usr/share/games/luola:" src/fs.c
 
-  rm  -f  config.status
-  rm  -f  config.cache
-  rm  -f  config.log
+  rm -f config.status
+  rm -f config.cache
+  rm -f config.log
 
   patch_it $SOURCE_CACHE/$SOURCE3 1 &&
 
@@ -14,11 +14,11 @@
                --enable-sound               \
                --with-sdl-prefix=/usr       \
                --with-sdl-exec-prefix=/usr  \
-               $OPTS                        &&
+               $OPTS                       &&
 
-  default_make                              &&
+  default_make                             &&
   
-  cd      /usr/share/games/luola/levels     &&
-  unpack  $SOURCE2                          
+  cd /usr/share/games/luola/levels         &&
+  unpack $SOURCE2                          
 
 ) > $C_FIFO 2>&1
