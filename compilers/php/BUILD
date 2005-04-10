@@ -35,7 +35,6 @@
 	       --enable-dio		     \
 	       --with-readline               \
 	       --with-ncurses                \
-	       --with-apxs2                  \
                $OPTS                        &&
 	default_make
 
