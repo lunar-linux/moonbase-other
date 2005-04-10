@@ -9,5 +9,4 @@
   rm -f /cyclone.desktop /fieldlines.desktop /flocks.desktop /flux.desktop \
         /helios.desktop /plasma.desktop /skyrocket.desktop /solarwinds.desktop
   
-
 ) > $C_FIFO 2>&1
