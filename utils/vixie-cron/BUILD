@@ -1,4 +1,5 @@
 (
+
   unpack $SOURCE2					  &&
   patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-crond.patch 1 &&
   patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-Makefile.patch 1 &&
@@ -23,6 +24,9 @@
   mkdir -p /etc/cron.daily /etc/cron.hourly  /etc/cron.d\
            /etc/cron.monthly /etc/cron.weekly             &&
 
-  install -c -m 600 $SCRIPT_DIRECTORY/crontab /etc/crontab
+  if [ ! -f /etc/crontab ]; then
+    install -c -m 600 $SCRIPT_DIRECTORY/crontab /etc/crontab
+  fi
+  gather_docs $SCRIPT_DIRECTORY/crontab
 
 ) > $C_FIFO 2>&1
