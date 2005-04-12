@@ -1,6 +1,6 @@
 (
    # get python version
-   PYTHON_VERSION=`/usr/bin/python -V 2>&1 | sed 's/Python \([0-9][0-9]*\.[0-9][0-9]*\)\..*/\1/'`
+   PYTHON_VERSION="`installed_version Python`"
 
    bjam         $OPTS                             \
      		-sBOOST_ROOT=$SOURCE_DIRECTORY    \
