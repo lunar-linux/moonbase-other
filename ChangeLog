@@ -1,3 +1,80 @@
+2005-04-13 13:07  watryac04
+
+	* x11/fglrx/DETAILS: New version of fglrx.  Still uses patches from
+	  previous version.  Seems a bit peppier over here, and on many
+	  other reported machines.
+
+2005-04-13 00:53  v3rt1g0
+
+	* utils/gamin/DEPENDS: automake covers autoconf so nuke er.
+
+2005-04-13 00:51  v3rt1g0
+
+	* utils/gamin/: DEPENDS, DETAILS: Tidy up the DETAILS file a bit,
+	  added a more correct website url.  Also removed the portmap
+	  depends.  Gamin is a per-user process, which is one of it's major
+	  differences between plain ol PAM.
+
+2005-04-12 23:03  v3rt1g0
+
+	* zbeta/sylpheed-dev/DETAILS: Version bump.  Some bug fixes and
+	  some features.
+
+2005-04-12 22:30  florin
+
+	* net/ypserv/DETAILS: bump the version from 2.13 to 2.15. bugfix
+	  release.
+
+2005-04-12 22:22  florin
+
+	* web/webmin/DETAILS: bump the version from 1.190 to 1.200.
+
+2005-04-12 22:17  florin
+
+	* web/usermin/DETAILS: bump the version from 1.120 to 1.130.
+
+2005-04-12 22:16  florin
+
+	* crypto/openssl/: BUILD, DETAILS, POST_INSTALL: bump the version
+	  from 0.9.7f to 0.9.7g. Major changes are:	  o More
+	  compilation issues fixed.	   o Adaptation to more modern
+	  Kerberos API.        o Enhanced or corrected configuration for
+	  Solaris64, Mingw and Cygwin.	      o Enhanced x86_64 assembler
+	  BIGNUM module.	o More constification.	      o Added
+	  processing of proxy certificates (RFC 3820).
+
+2005-04-12 20:26  florin
+
+	* games/wesnoth/DETAILS: bump the version from 0.8.11 to 0.9.0.
+	  Multiplayer code rewritten, graphical improvements, unit
+	  balancing, support for asian languages, and many bug fixes.
+
+2005-04-12 19:41  florin
+
+	* devel/sip/DETAILS: bump the version from 4.2 to 4.2.1. bugfixes
+	  release.
+
+2005-04-12 18:49  nestu
+
+	* kernel/linux-2.6-mm/DETAILS: 2.6.12-rc2-mm2 -> 2.6.12-rc2-mm3.
+	  gcc 3.3.3, glibc 2.3.2, headers 2.6.11.1-i386.  Meh, I forgot to
+	  commit this before.
+
+2005-04-12 18:35  nhudson
+
+	* devel/mod_ruby/DETAILS:
+	  Fixing download location so that it will actually download
+
+2005-04-12 18:34  nhudson
+
+	* devel/ruby-gnome2/: DEPENDS, DETAILS:
+	  Updating ruby-gnome2 to new version 0.12.0
+
+2005-04-12 18:28  nhudson
+
+	* devel/rubygems/: BUILD, DEPENDS, DETAILS:
+	  Adding rubygems to moonbase, now we can have RAILS!
+
 2005-04-12 10:18  sofar
 
 	* utils/vixie-cron/BUILD: right
@@ -2394,126 +2471,4 @@
 	  installing of the GTK+-2 version of the compile monitor.  It is
 	  still called distccmon-gnome but doesn't use any of the gnome
 	  libs.
-
-2005-03-13 23:25  v3rt1g0
-
-	* archive/par2cmdline/DETAILS: Version bump 0.3 -> 0.4.  Added SHA1
-	  sum too.
-
-2005-03-13 22:38  sofar
-
-	* zbeta/openoffice-src/BUILD: moo
-
-2005-03-13 22:33  sofar
-
-	* net/net-tools/init.d/network: MEH
-
-2005-03-13 22:32  sofar
-
-	* filemanagers/filer/: BUILD, DETAILS: this is much cleaner...
-
-2005-03-13 22:29  sofar
-
-	* net/net-tools/init.d/network: Fix for 2 bugs:
-
-	  1) the missing ')' due to bash somehow handling regex patterns
-	  differently since 3.0 2) default route NOW REALLY ONLY APPLIES
-	  FOR THE DEFAULT ROUTE, and not for gatewayed host entries (always
-	  check that the 'destination == 0.0.0.0').
-
-2005-03-13 22:23  sofar
-
-	* filesys/partimage/BUILD: Fix for the bad used id.
-
-2005-03-13 22:15  florin
-
-	* sql/sqlite/DETAILS: bump the version from 3.1.4 to 3.1.5.
-
-2005-03-13 20:48  sofar
-
-	* utils/lard/: DEPENDS, DETAILS: This fixes the gap in depends:
-	  Time::Date includes Date::Parse already! =^D
-
-2005-03-13 18:22  perldude
-
-	* filemanagers/filer/: BUILD, DETAILS: Filer 0.0.8!
-
-2005-03-13 17:33  florin
-
-	* graphics/netpbm/BUILD: fix the install paths.
-
-2005-03-13 17:19  tchan
-
-	* net/unison/: BUILD, DETAILS: Version bump to unison-2.10.2.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-03-13 17:18  tchan
-
-	* libs/lablgtk/: BUILD, DEPENDS, DETAILS: Version bumping this back
-	  up to 2.4.0 as unison-2.10.2 now works correctly in gtk+-2.
-
-2005-03-13 16:57  florin
-
-	* games/powermanga/BUILD: fix the manpage install path.
-
-2005-03-13 16:50  florin
-
-	* libs/libexif/DETAILS: bump the version from 0.6.10 to 0.6.12.
-	  small bugfixes.
-
-2005-03-13 16:45  florin
-
-	* net/bind/DETAILS: bump the version from 9.3.0 to 9.3.1. bugfixes,
-	  cleanups and ports.
-
-2005-03-13 16:33  tchan
-
-	* utils/hotplug/DETAILS: Switched from http to ftp for kernel.org.
-	  It does seem to fetch faster, especially when http kernel.org is
-	  having problems.
-
-2005-03-13 15:25  tchan
-
-	* gnome2-apps/gnumeric2/DETAILS: Version bump gnumeric2 1.4.3.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-03-13 13:53  moe
-
-	* utils/lard/: BUILD, DETAILS: New lard
-
-2005-03-13 11:03  florin
-
-	* utils/sysstat/: BUILD, DETAILS: bump the version from 5.1.4 to
-	  5.1.5. bugfixes and improvements.
-
-2005-03-13 04:29  cmak
-
-	* zbeta/ntop/DETAILS: version bump
-
-2005-03-13 02:29  cmak
-
-	* web/firefox/BUILD: its not just me who had the problem that
-	  theres a symlink and the lin failed...so...
-
-2005-03-13 00:17  tchan
-
-	* kernel/linux-2.4/DETAILS: Version bump to 2.4.29. I fixed
-	  ll-r9.0.0 for 2.4.29 and fix/main/agr subdirs.  sofar needs to
-	  fix the tarball for om and grsec.
-
-2005-03-13 00:15  tchan
-
-	* kernel/linux-2.4-stable/DETAILS: Version bumping this to 2.4.29.
-	  I fixed ll-r9.0.0 tarball for fix,main,agr subdirs.  sofar needs
-	  to fix the tarball for om and grsec.	see the reject files for om
-	  and grsec in the tarball.
-
-2005-03-13 00:13  tchan
-
-	* kernel/linux-2.4-agr/DETAILS: Version bumping this to 2.4.29.  I
-	  updated the ll-r9.0.0 patchset for agr.  sofar will need to fix
-	  this patchset for om and grsec.  I included the rej files for om
-	  an grsec.
 
