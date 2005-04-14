@@ -49,13 +49,7 @@
   echo  "#define UseExpat  YES"                 >> config/cf/host.def &&
   echo  "#define HasLibpng YES"			>> config/cf/host.def &&
   echo  "#define BuildDocs NO"			>> config/cf/host.def &&
-  
-  if module_installed libxml2; then
-    echo "#define HasLibxml2 YES"		>> config/cf/host.def;
-  else
-    echo "#define HasLibxml2 YES"		>> config/cf/host.def;
-  fi &&
-  
+  echo  "#define HasLibxml2 YES"		>> config/cf/host.def;
   echo  "#define InstallFontconfigLibrary NO"   >> config/cf/host.def &&
   echo  "#define SharedLibXft YES"		>> config/cf/host.def &&
   echo  "#define PreferXdmcpIPv6 YES"		>> config/cf/host.def &&
@@ -73,8 +67,7 @@
   fi
   
   # explicitly exit here now and not later on
-  make World                            ||
-  exit 1
+  make World || exit 1
   
   prepare_install                       &&
   cd $SOURCE_DIRECTORY                  &&
@@ -121,12 +114,17 @@
   
   if [ ! -e /usr/lib/pkgconfig/xft.pc ]; then
     ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig/xft.pc
-  fi
+  fi &&
 
   if [ ! -d /tmp/.ICE-unix ]; then
     mkdir -p /tmp/.ICE-unix
     chown root /tmp/.ICE-unix
     chmod 777 /tmp/.ICE-unix
+  fi &&
+
+  if [ -e /etc/X11/xinit/xinitrc.orig ]; then
+    cp /etc/X11/xinit/xinitrc.orig /etc/X11/xinit/xinitrc
+    message "${MESSAGE_COLOR}Your master xinitrc file has been restored from /etc/X11/xinit/xinitrc.orig${DEFAULT_COLOR}"
   fi
   
 ) > $C_FIFO 2>&1
