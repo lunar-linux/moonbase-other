@@ -1,10 +1,6 @@
 (
 
-  make                            &&
-  prepare_install                 &&
-  make  I2C_HEADERS=/usr/include  \
-        PREFIX=/usr               \
-	MANDIR=/usr/share/man     \
-        install
+  sedit 's:/usr/local:/usr:g' Makefile &&
+  default_make
 
 ) > $C_FIFO 2>&1
