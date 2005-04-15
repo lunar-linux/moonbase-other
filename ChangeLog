@@ -1,3 +1,23 @@
+2005-04-15 09:48  sofar
+
+	* utils/lm_sensors/BUILD: People, try the *simple* solution first.
+	  Note that without this fix lm_sensors doesn't even compile if you
+	  recompile your own kernel or i2c after that. I leave it up to
+	  florin to adjust the 2.6 version of this module
+
+2005-04-15 08:00  sofar
+
+	* libs/i2c/DETAILS: This one was also updated, but florin uses 2.6
+	  I think.
+
+2005-04-14 18:30  florin
+
+	* docs/man-pages/DETAILS: bump the version from 2.01 to 2.02.
+
+2005-04-14 15:08  sofar
+
+	* crypto/openssl/DETAILS: It's not may yet, but still April!
+
 2005-04-14 08:36  moe
 
 	* x11/XOrg/: BUILD, DEPENDS, POST_INSTALL: Tweaks. Basicly merged a
@@ -2305,144 +2325,4 @@
 2005-03-16 00:10  v3rt1g0
 
 	* utils/theedge/profile.d/theedge.rc: Added info to tab completion
-
-2005-03-15 21:37  florin
-
-	* kde3-apps/knoda/DETAILS: bump the version from 0.7.2 to 0.7.3.
-
-2005-03-15 18:02  florin
-
-	* kde3-apps/hk_classes/: BUILD, DETAILS: bump the version from
-	  0.7.2 to 0.7.3. many improvements and bugfixes. some API changes
-	  too.
-
-2005-03-15 17:22  florin
-
-	* security/shorewall/: BUILD, DEPENDS, DETAILS: bump the version
-	  from 2.1.1 to 2.2.2.
-
-2005-03-15 17:01  florin
-
-	* libs/dbh/DETAILS: bump the version from 1.0.20 to 1.0.24.
-
-2005-03-15 17:00  florin
-
-	* libs/gettext/DETAILS: bump the version from 0.14.2 to 0.14.3.
-	  small improvements.
-
-2005-03-15 16:28  florin
-
-	* gnome-platform/libxslt/DETAILS: bump the version from 1.1.12 to
-	  1.1.13.
-
-2005-03-15 16:25  florin
-
-	* libs/libxml2/: BUILD, DETAILS: bump the version from 2.6.17 to
-	  2.6.18.
-
-2005-03-15 16:00  florin
-
-	* sql/mysql/DETAILS: bump the version from 4.1.10 to 4.1.10a.
-	  bugfix release.
-
-2005-03-15 15:28  cmak
-
-	* zbeta/ntop/: ntop.conf, init.d/ntop: ntop tweaks
-
-2005-03-15 15:15  sofar
-
-	* utils/: discover/BUILD, discover/DEPENDS, discover/DETAILS,
-	  discover-data/DETAILS: fresh discover updates: new data, and no
-	  mor curl needed
-
-2005-03-15 14:40  v3rt1g0
-
-	* zbeta/sylpheed-dev/DETAILS: Version bump 1.9.5 -> 1.9.6.  new
-	  features and squished bugs
-
-2005-03-15 14:29  v3rt1g0
-
-	* doc-tools/hd2u/CONFLICTS: This module and recode both provide
-	  dos2unix
-
-2005-03-15 14:27  v3rt1g0
-
-	* editors/recode/CONFLICTS: hd2u and this module now both provide
-	  'dos2unix'
-
-2005-03-15 13:45  cmak
-
-	* kde3-apps/k3b/DETAILS: bumped, tested
-
-2005-03-15 13:38  sofar
-
-	* editors/recode/: BUILD, dos2unix, unix2dos: Adding these std
-	  tools
-
-2005-03-15 11:41  cmak
-
-	* gnome-desktop/file-roller/DETAILS,
-	  gnome-desktop/gcalctool/DETAILS,
-	  gnome-desktop/gconf-editor/DETAILS, gnome-desktop/gedit/DETAILS,
-	  gnome-desktop/ggv/DETAILS, gnome-desktop/gnome-applets2/BUILD,
-	  gnome-desktop/gnome-applets2/DETAILS,
-	  gnome-desktop/gnome-icon-theme/DETAILS,
-	  gnome2-core/gnome-common2/DETAILS,
-	  gnome-desktop/gnome-netstatus/DETAILS,
-	  gnome-desktop/gnome-panel/DETAILS,
-	  gnome-desktop/gnome-session/DETAILS,
-	  gnome-desktop/gnome-terminal/DETAILS,
-	  gnome-desktop/gnome-themes/DETAILS,
-	  gnome-desktop/gnome2-user-docs/DETAILS,
-	  gnome-desktop/gtksourceview/DETAILS,
-	  gnome-desktop/libgail-gnome/DETAILS,
-	  gnome-desktop/libwnck/DETAILS, gnome-desktop/metacity/DETAILS,
-	  gnome-desktop/nautilus-cd-burner/DETAILS,
-	  gnome2-core/gtk-engines2/DETAILS, gnome-desktop/yelp/DEPENDS,
-	  gnome-desktop/yelp/DETAILS, gnome-desktop/zenity/DETAILS,
-	  gnome-desktop/gnome-doc-utils/DETAILS: more 2.8 modules...
-
-2005-03-15 06:37  cmak
-
-	* gnome-desktop/: eog/DETAILS, gnome-system-monitor/DETAILS,
-	  libgtop2/DETAILS: even more tested, working updates
-
-2005-03-15 06:27  cmak
-
-	* gnome-desktop/startup-notification/DETAILS: version bump
-
-2005-03-15 06:21  v3rt1g0
-
-	* x11-wm/WindowMaker/POST_INSTALL: There is no gdm2, I assume this
-	  is now just our gdm.
-
-2005-03-15 06:05  cmak
-
-	* gnome-desktop/: control-center2/DETAILS, gnome-desktop/DETAILS:
-	  some more tested, working updates
-
-2005-03-15 05:44  cmak
-
-	* gnome-desktop/: eel/DETAILS, nautilus/DETAILS: update to make
-	  nautilus work with vfs version in moonbase again...tested, much
-	  better
-
-2005-03-15 05:32  cmak
-
-	* devel/desktop-file-utils/POST_INSTALL,
-	  utils/shared-mime-info/POST_INSTALL: smart as we are...
-
-2005-03-15 04:24  v3rt1g0
-
-	* devel/strace/DETAILS: Version bump 4.5.9 -> 4.5.10.  Also fixed a
-	  few typos
-
-2005-03-15 03:09  cmak
-
-	* gnome-desktop/nautilus/DEPENDS: adding librsvg to nautilus'
-	  depends
-
-2005-03-15 02:18  cmak
-
-	* gnome-platform/GConf2/DETAILS: no brain
 
