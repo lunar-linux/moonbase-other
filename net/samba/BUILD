@@ -12,7 +12,7 @@
                --with-smbmount         \
                --with-fhs              \
                --mandir=/usr/share/man \
-	       --with-swatdir=/usr/share/samba/swat \
+            --with-swatdir=/usr/share/samba/swat \
                $WITH_PAM               \
                $OPTS                   || exit 1
                
@@ -25,6 +25,7 @@
   default_make                         &&
   # samba used to create this symlink and its still needed
   ln -sf /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so.0 &&
+  ln -s /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so &&
 
   if module_installed cups ; then
     ln -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
