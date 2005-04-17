@@ -1,5 +1,9 @@
 (
-  
+ 
+  if module_installed kdelibs3; then
+     export PATH=$KDEDIR/bin:$PATH
+  fi
+ 
   OPTS="$OPTS --enable-glib --enable-x --enable-checks --enable-verbose-mode \
         --with-xml=libxml --with-system-pid-file=/var/run/messagebus.pid    \
         --with-system-socket=/var/lib/dbus/system_bus_socket                 \
