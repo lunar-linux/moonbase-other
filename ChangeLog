@@ -1,3 +1,23 @@
+2005-04-17 03:04  nhudson
+
+	* devel/dbus/: BUILD, DEPENDS:
+	  Fixing depends for qt bindings seems its a bit misleading because
+	  you need kdelibs3 installed to actually build the qt bindings.
+	  Thanks goes to Dennis Veatch for pointing this out.
+
+2005-04-16 21:50  nhudson
+
+	* audio/gst-plugins/POST_INSTALL:
+	  Adding gst-compprep building after the plugins are installed.
+	  The global registry now comes from /var/cache/gstreamer/
+	  directory
+
+2005-04-16 15:08  tchan
+
+	* web/mozilla/DETAILS: Version bump to mozilla-1.7.7.
+	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
+	  2.4.x.
+
 2005-04-16 13:27  florin
 
 	* net/samba/BUILD: add a symlink creation sugested by Dennis
@@ -2166,98 +2186,4 @@
 
 	* chat/gaim-themes/: BUILD, DETAILS, PRE_BUILD: Stripped out some
 	  dead links and made the BUILD saner
-
-2005-03-17 23:03  jol
-
-	* crypto/cyrus-sasl/BUILD: I've fix a dirty problem from the
-	  libsasl. In fact some people has a link error on the libsasl. If
-	  you want to know if you should recompile libsasl make this
-	  command: ldd -r /usr/lib/libsasl.so Thus if you have a undefined
-	  crypt symbol you need to recompile it.  Jol
-
-2005-03-17 20:52  moe
-
-	* wifi/ipsec-tools/: BUILD, DETAILS: Fix0red! It actually compiles
-	  now.
-
-2005-03-17 19:21  jasper
-
-	* xfce4/xfce4-panel/DETAILS: Ok, I suck. Anyone using 4.2.1 should
-	  update.
-
-2005-03-17 18:34  sofar
-
-	* games/falconseye/DETAILS, gnome2-extras/gnome-spell/DETAILS: -fix
-	  url
-
-2005-03-17 18:27  sofar
-
-	* archive/bzip2/DETAILS: tsk ;^)
-
-2005-03-17 18:23  sofar
-
-	* kernel/: linux-2.4-agr/DETAILS, linux-2.4/DETAILS,
-	  linux-2.4-grsec/DETAILS, linux-2.4-om/DETAILS: Adj. text info of
-	  these
-
-2005-03-17 17:45  hardkrash
-
-	* science/pcb/DETAILS: Boy have i been slacking, there have been 4
-	  updates since i have updated this package.  great news is though
-	  a gtk based front end is under way :-) not that i have anything
-	  aginst the xaw interface :-P
-
-2005-03-17 17:36  hardkrash
-
-	* audio/gtkpod/DETAILS: Inital import of gtkpod, an interface to
-	  your favorite mp3 and aac player the iPod
-
-2005-03-17 16:53  tchan
-
-	* utils/findutils/DETAILS: Version bump to findutils-4.2.20.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-03-17 15:44  sofar
-
-	* gnome/gdk-pixbuf/BUILD: The new query needs this
-
-2005-03-17 15:09  sofar
-
-	* video/divx4linux/DETAILS: Classical breakage for ldd_check here
-
-2005-03-17 15:08  sofar
-
-	* compilers/j2sdk/DETAILS: Don't check this one either
-
-2005-03-17 15:07  sofar
-
-	* x11-apps/openoffice-bin/DETAILS: do no LDD_CHECK this module
-	  (this is new: only works with theedge ATM)
-
-2005-03-17 10:43  sofar
-
-	* utils/psmisc/DETAILS: foo
-
-2005-03-17 10:22  sofar
-
-	* xfce4/xfmedia/DETAILS: w00t!!!
-
-2005-03-17 03:01  cmak
-
-	* libs/pwlib/DETAILS: updated
-
-2005-03-17 02:12  v3rt1g0
-
-	* crypto/outguess/DETAILS: Provide more stable source URL.  Add a
-	  sha1 sum too.
-
-2005-03-17 01:07  v3rt1g0
-
-	* x11-wm/evilwm/DETAILS: Small typo.  meh
-
-2005-03-17 01:06  v3rt1g0
-
-	* libs/roadrunner/DETAILS: Misc formatting tweaks that I forgot to
-	  commit like a month ago.
 
