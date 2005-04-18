@@ -1,3 +1,95 @@
+2005-04-18 12:40  nhudson
+
+	* devel/dbus/BUILD:
+	  Fixed problem with qt compile by adding the qtdir path
+
+2005-04-18 12:14  cmak
+
+	* web/epiphany-extensions/: BUILD, DETAILS: version bumps, bugfix
+	  releases
+
+2005-04-18 11:53  cmak
+
+	* gnome-desktop/: eel/DETAILS, epiphany/DETAILS,
+	  gnome-media2/DETAILS, gnome-menus/DETAILS, nautilus/DETAILS,
+	  nautilus-cd-burner/DETAILS: version bumps, bugfix releases
+
+2005-04-17 20:58  tchan
+
+	* sql/sqlite/DETAILS: Fixed some indentation in the DETAILS file.
+
+2005-04-17 20:52  tchan
+
+	* video/transcode/DETAILS: Added a needed GCCWRAPPERS=off to the
+	  DETAILS.  More libtool madness was preventing this module from
+	  compiling.
+
+2005-04-17 17:24  florin
+
+	* cd/libcdio/: DEPENDS, DETAILS: move it from libs directory. bump
+	  the version from 0.70 to 0.73. improvements, features added,
+	  bugfixes.
+
+2005-04-17 16:58  florin
+
+	* cd/libcddb/: DEPENDS, DETAILS: move it from libs directory. bump
+	  the version from 0.9.6 to 1.0.0. proxy authentif added and a few
+	  memory licks solved.
+
+2005-04-17 16:47  florin
+
+	* kde3-apps/kdetv/: BUILD, DETAILS: bump the version from0.8.5 to
+	  0.8.6. added new features, sound related improvements, bugfixes.
+
+2005-04-17 15:57  v3rt1g0
+
+	* zbeta/e_modules-cvs/DETAILS: just a little tidy
+
+2005-04-17 15:56  v3rt1g0
+
+	* zbeta/eclair-cvs/: BUILD, DEPENDS, DETAILS: Inital import of a
+	  EFL based media player.  It's a young project, but should have a
+	  promissing future within the e17 world.
+
+2005-04-17 15:42  florin
+
+	* utils/hdparm/DETAILS: bump the version from 5.9 to 6.0. added ATA
+	  security switches.
+
+2005-04-17 15:35  florin
+
+	* utils/lirc/: BUILD, DETAILS, POST_INSTALL, PRE_REMOVE: bump the
+	  version from 0.7.0 to 0.7.1. bugfixes and added support for more
+	  IR hardware cards.
+
+2005-04-17 15:27  florin
+
+	* video/MPlayer/DETAILS: bump the version from 1.0-pre6a to
+	  1.0-pre7. many bugfixes and improvements.
+
+2005-04-17 15:19  florin
+
+	* sql/phpMyAdmin/DETAILS: bump the version from 2.6.1-pl3 to 2.6.2.
+	  bugfixes release.
+
+2005-04-17 14:47  florin
+
+	* video/mkvtoolnix/DETAILS: bump the version from 1.4.1 to 1.4.2.
+	  bugfixes release.
+
+2005-04-17 14:36  florin
+
+	* video/libmatroska/DETAILS: bump the version from 0.7.5 to 0.7.6.
+
+2005-04-17 14:32  florin
+
+	* video/libebml/DETAILS: bump the version from 0.7.3 to 0.7.4.
+
+2005-04-17 14:24  florin
+
+	* web/apache2/DETAILS: bump the version from 2.0.53 to 2.0.54.
+	  bugfixes release.
+
 2005-04-17 03:04  nhudson
 
 	* devel/dbus/: BUILD, DEPENDS:
@@ -2057,133 +2149,4 @@
 
 	* games/fortune-meanwhile-in-lunar/DETAILS: YaY for new quotes and
 	  YaY for superhero underware!
-
-2005-03-18 19:01  tchan
-
-	* chat/xchat/DETAILS: Version bump to xchat-2.4.2. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2005-03-18 18:51  florin
-
-	* kde3-i18n/: kde3-i18n-ar/DETAILS, kde3-i18n-bg/DETAILS,
-	  kde3-i18n-bn/DETAILS, kde3-i18n-br/BUILD, kde3-i18n-br/DEPENDS,
-	  kde3-i18n-br/DETAILS, kde3-i18n-bs/DETAILS, kde3-i18n-ca/DETAILS,
-	  kde3-i18n-cs/DETAILS, kde3-i18n-cy/DETAILS, kde3-i18n-da/DETAILS,
-	  kde3-i18n-de/DETAILS, kde3-i18n-en_GB/DETAILS,
-	  kde3-i18n-eo/DETAILS, kde3-i18n-es/DETAILS, kde3-i18n-et/DETAILS,
-	  kde3-i18n-eu/DETAILS, kde3-i18n-fi/DETAILS, kde3-i18n-fr/DETAILS,
-	  kde3-i18n-fy/BUILD, kde3-i18n-fy/DEPENDS, kde3-i18n-fy/DETAILS,
-	  kde3-i18n-ga/BUILD, kde3-i18n-ga/DEPENDS, kde3-i18n-ga/DETAILS,
-	  kde3-i18n-he/DETAILS, kde3-i18n-hi/DETAILS,
-	  kde3-i18n-hsb/DETAILS, kde3-i18n-hu/DETAILS,
-	  kde3-i18n-is/DETAILS, kde3-i18n-it/DETAILS, kde3-i18n-ja/DETAILS,
-	  kde3-i18n-lt/BUILD, kde3-i18n-lt/DEPENDS, kde3-i18n-lt/DETAILS,
-	  kde3-i18n-mk/BUILD, kde3-i18n-mk/DEPENDS, kde3-i18n-mk/DETAILS,
-	  kde3-i18n-nb/DETAILS, kde3-i18n-nds/DETAILS,
-	  kde3-i18n-nl/DETAILS, kde3-i18n-nn/DETAILS, kde3-i18n-pa/DETAILS,
-	  kde3-i18n-pl/DETAILS, kde3-i18n-pt/DETAILS,
-	  kde3-i18n-pt_BR/DETAILS, kde3-i18n-ro/DETAILS,
-	  kde3-i18n-ru/DETAILS, kde3-i18n-se/BUILD, kde3-i18n-se/DEPENDS,
-	  kde3-i18n-se/DETAILS, kde3-i18n-sk/DETAILS, kde3-i18n-sl/BUILD,
-	  kde3-i18n-sl/DEPENDS, kde3-i18n-sl/DETAILS, kde3-i18n-sr/DETAILS,
-	  kde3-i18n-sr@Latn/DETAILS, kde3-i18n-sv/DETAILS,
-	  kde3-i18n-ta/DETAILS, kde3-i18n-tg/DETAILS, kde3-i18n-tr/DETAILS,
-	  kde3-i18n-uk/DETAILS, kde3-i18n-zh_CN/DETAILS,
-	  kde3-i18n-zh_TW/DETAILS: bump the version to 3.4.0. thank you
-	  Joel and beko for testing the stuff.
-
-2005-03-18 18:31  florin
-
-	* kde3/arts/DETAILS, kde3/kdeaccessibility3/DETAILS,
-	  kde3/kdeaddons3/DETAILS, kde3/kdeadmin3/DETAILS,
-	  kde3/kdeartwork3/DETAILS, kde3/kdebase3/DETAILS,
-	  kde3/kdebindings3/DETAILS, kde3/kdeedu3/DETAILS,
-	  kde3/kdegames3/DETAILS, kde3/kdegraphics3/DETAILS,
-	  kde3/kdelibs3/DETAILS, kde3/kdemultimedia3/DETAILS,
-	  kde3/kdenetwork3/DETAILS, kde3/kdepim3/DETAILS,
-	  kde3/kdesdk3/DETAILS, kde3/kdetoys3/DETAILS,
-	  kde3/kdeutils3/DETAILS, kde3/kdewebdev3/DETAILS,
-	  kde3-apps/kdevelop3/DETAILS, profiles/kde3/DETAILS: bump the
-	  version to 3.4.0. thank you Joel and beko for testing the stuff.
-
-2005-03-18 18:17  nestu
-
-	* kernel/linux-2.6-prepatch/DETAILS: 2.6.11-rc5 -> 2.6.12-rc1. gcc
-	  3.3.3, glibc 2.3.2, headers 2.6.11.0
-
-2005-03-18 17:44  tchan
-
-	* gnome-desktop/evolution/DETAILS: Version bump to
-	  evolution-2.2.1.1. Bug fix release.
-
-2005-03-18 12:46  cmak
-
-	* ftp/mldonkey/DETAILS: bump
-
-2005-03-18 12:39  cmak
-
-	* compilers/ocaml/: BUILD, DETAILS: bump
-
-2005-03-18 12:06  cmak
-
-	* devel/pygtk2/DETAILS: be carful and bump the updated field too
-
-2005-03-18 12:05  cmak
-
-	* devel/pygtk2/DETAILS: bumpi
-
-2005-03-18 11:27  ratler
-
-	* utils/vixie-cron/: BUILD, DETAILS: Fixed no mail validation, MTA
-	  does that. Made permission checks lighter for /etc/cron.d/. Minor
-	  PAM fix added. Fixed unitialized values
-
-2005-03-18 08:27  sofar
-
-	* editors/recode/: dos2unix, unix2dos: More flexible and simple: no
-	  tmpfiles needed and passthru STDIO usage.
-
-2005-03-18 07:28  tchan
-
-	* web/elinks/DETAILS: Version bump to elinks-0.10.3.
-
-2005-03-18 07:19  tchan
-
-	* zbeta/weechat-cvs/: BUILD, DEPENDS, DETAILS: Wrote a proper cvs
-	  module for "weechat".  Solved the anonymous cvs problem -- the
-	  weechat devs webpage is outdated for the correct instructions on
-	  fetching from savannah.  This module has the advantage over the
-	  other zbeta/weechat module in that it doesn't mess around with
-	  "rm" of files in /var/spool/lunar.
-
-2005-03-18 06:40  tchan
-
-	* gnome-desktop/evolution/: BUILD, DETAILS: Verson bump to stable
-	  2.2.1. Removing zbeta/evolution-beta as its no longer relevant.
-
-2005-03-18 06:25  tchan
-
-	* gnome-desktop/gtkhtml3/DETAILS: Version bump to gtkhtml3 to
-	  3.6.1. This is also required by evo-2.2.1.
-
-2005-03-18 06:19  tchan
-
-	* gnome-desktop/evolution-data-server/DETAILS: Version bump to
-	  evolution-data-server-1.2.1. This is needed by evo-2.2.1.
-
-2005-03-18 06:06  tchan
-
-	* gnome-desktop/gal2/DETAILS: Version bump to gal2 2.4.1.
-	  Compiled/tested with gcc-3.3.3, glibc-2.3.3, kernel headers
-	  2.4.x.
-
-2005-03-18 05:48  tchan
-
-	* chat/gaim/DETAILS: Version bump to gaim-1.2.0. Compiled/tested
-	  with gcc-3.3.3, glibc-2.3.3, kernel headers 2.4.x.
-
-2005-03-18 03:42  v3rt1g0
-
-	* chat/gaim-themes/: BUILD, DETAILS, PRE_BUILD: Stripped out some
-	  dead links and made the BUILD saner
 
