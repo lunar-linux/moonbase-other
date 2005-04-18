@@ -1,7 +1,7 @@
 (
  
   if module_installed kdelibs3; then
-     export PATH=$KDEDIR/bin:$PATH
+     export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
   fi
  
   OPTS="$OPTS --enable-glib --enable-x --enable-checks --enable-verbose-mode \
