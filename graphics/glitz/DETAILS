@@ -1,0 +1,23 @@
+          MODULE=glitz
+         VERSION=0.4.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+   SOURCE_URL=http://cairographics.org/snapshots/
+      SOURCE_VFY=sha1:f88d3470bd5abfda66f8e6a205d7a1a346604164
+        WEB_SITE=http://cairographics.org/
+         ENTERED=20040519
+         UPDATED=20050419
+           SHORT="Glitz is an OpenGL image compositing library. "
+
+cat << EOF
+Glitz provides Porter/Duff compositing of images and implicit mask 
+generation for geometric primitives including trapezoids, triangles, 
+and rectangles. 
+The semantics of glitz are designed to precisely match the specifica-
+tion of the X Render extension. Glitz does not only implement X Render 
+features like component alpha and image transformations, but also 
+support for additional features like convolution filters and color 
+gradients, which are not currently part of the X Render specification. 
+Glitz can be used as a stand-alone layer above OpenGL but it is also 
+designed to act as a backend for cairo, providing it with OpenGL 
+accelerated output.
+EOF
