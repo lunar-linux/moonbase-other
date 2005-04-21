@@ -1,5 +1,6 @@
 (
   
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   OPTS="$OPTS --disable-xcb"
   default_build
   
