@@ -5,18 +5,18 @@
  
 ## java support ?
   if module_installed j2sdk; then
-    OPTS="$OPTS --with-java=/usr/lib/j2sdk1.4.1"
+    OPTS="$OPTS --with-java=/usr/lib/j2sdk1.4.2"
   else
     OPTS="$OPTS --without-java"
   fi  &&
 
-  ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}      \
-               --with-qt-dir=${QT_PREFIX:-$QTDIR}   \
-               --disable-debug                      \
-	       --enable-final                       \
-               --enable-fast-malloc=full            \
-               --with-xinerama                      \
-               $OPTS                                &&
+  ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}     \
+               --with-qt-dir=${QT_PREFIX:-$QTDIR}  \
+               --disable-debug                     \
+	       --enable-final                      \
+               --enable-fast-malloc=full           \
+               --with-xinerama                     \
+               $OPTS                              &&
 
   default_make
  
