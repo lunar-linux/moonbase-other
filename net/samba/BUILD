@@ -1,31 +1,31 @@
 (
   WITH_PAM=" " &&
-  if  module_installed  Linux-PAM;  then
-    WITH_PAM="--with-pam  --with-pam_smbpass"
+  if module_installed Linux-PAM; then
+    WITH_PAM="--with-pam --with-pam_smbpass"
   fi  &&
 
   cd  source
-  ./configure  --prefix=/usr           \
-               --sysconfdir=/etc       \
-               --localstatedir=/var    \
-               --with-piddir=/var/run  \
-               --with-smbmount         \
-               --with-fhs              \
-               --mandir=/usr/share/man \
-            --with-swatdir=/usr/share/samba/swat \
-               $WITH_PAM               \
+  ./configure  --prefix=/usr            \
+               --sysconfdir=/etc        \
+               --localstatedir=/var     \
+               --with-piddir=/var/run   \
+               --with-smbmount          \
+               --with-fhs               \
+               --mandir=/usr/share/man  \
+               $WITH_PAM                \
+               --with-swatdir=/usr/share/samba/swat  \
                $OPTS                   || exit 1
                
-  cp Makefile Makefile.orig            &&
+  cp Makefile Makefile.orig    &&
   sedit "s/-msse2//g" Makefile
 
-  mkdir  -p  /etc/samba                &&
-  mkdir  -p  /usr/share/samba          &&
-  mkdir  -p  /var/log/samba            &&
-  default_make                         &&
+  mkdir -p /etc/samba        &&
+  mkdir -p /usr/share/samba  &&
+  mkdir -p /var/log/samba    &&
+  default_make               &&
   # samba used to create this symlink and its still needed
-  ln -sf /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so.0 &&
-  ln -s /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so &&
+  ln -sf /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so.0  &&
+  ln -sf /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so    &&
 
   if module_installed cups ; then
     ln -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
@@ -33,8 +33,8 @@
 
 ) > $C_FIFO 2>&1  &&  (
 
-  if  [  -d  /usr/private  ];  then
-    rmdir    /usr/private
+  if [ -d /usr/private ]; then
+    rmdir /usr/private
     true
   fi
 
