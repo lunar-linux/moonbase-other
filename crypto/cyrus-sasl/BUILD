@@ -1,17 +1,14 @@
 (
 
   patch_it $SOURCE_CACHE/$SOURCE3 1                               &&
-  cp configure configure.old                                      &&
-  sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/"  utils/Makefile.in        \
-                         sample/Makefile.in saslauthd/Makefile.in  \
-                         lib/Makefile.in          &&
+  # the patch REQUIRES -lcrypt but we might want to disable PAM:
+  if echo $OPTS | grep -q with-pam ; then
+    sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/" */Makefile.in
+  else
+    sedit "s/@LIBS@/@LIBS@ -lcrypt/" */Makefile.in
+  fi
 
-  OPTS=$OPTS" --with-pam                           \
-              --enable-login                       \
-              --disable-krb4                       \
-              --disable-gssapi                     \
-              --disable-anon                       \
-              --disable-plain                      \
+  OPTS=$OPTS" --enable-login                       \
               --with-pwcheck=/var/lib/sasl         \
               --with-dbpath=/var/lib/sasl/sasl.db  \
               --with-plugindir=/usr/lib/sasl2      \
@@ -27,4 +24,4 @@
     gunzip /usr/lib/sasl2/smtpd.conf.gz
   fi
 
-) > $C_FIFO 2>&1 
+) > $C_FIFO 2>&1

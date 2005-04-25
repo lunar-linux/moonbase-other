@@ -1,4 +1,4 @@
 depends openssl    &&
-depends Linux-PAM  &&
 depends db         &&
+optional_depends "Linux-PAM" "--with-pam" "--without-pam" "for PAM authentication" &&
 optional_depends "mysql" "--with-mysql" "--without-mysql" "for mysql support"
