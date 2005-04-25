@@ -1,3 +1,88 @@
+2005-04-25 13:08  sofar
+
+	* utils/similarity_tester/: BUILD, DEPENDS, DETAILS, PRE_BUILD:
+	  Adding submitted module that once was used to check if my project
+	  submissions were not plagerised... (I hated Dick back then)
+
+2005-04-25 12:36  prox
+
+	* video/MPlayer-skins/: DETAILS, PRE_BUILD: bjump
+
+2005-04-25 11:57  sofar
+
+	* devel/anjuta/DEPENDS: Deleting unneeded dependency: it's already
+	  provided inherited from another module.
+
+2005-04-25 11:51  sofar
+
+	* gnome-bindings/gconfmm/DETAILS: Newer version availble
+
+2005-04-25 11:14  sofar
+
+	* kde3/kdepim3/DEPENDS: Adding some optional depends. Cannot say if
+	  cyrus-sasl works like this but I'm sure someone will test it for
+	  me.
+
+2005-04-25 08:50  sofar
+
+	* utils/gnokii/: BUILD, DEPENDS, DETAILS: Adding gnokii, modified
+	  form a module submitted by dveatch, see issue #812.
+
+2005-04-25 08:05  sofar
+
+	* crypto/cyrus-sasl/: BUILD, DEPENDS: Hopefully fix two bugs: 1)
+	  allow disabling of PAM and 2) allow kmail to work.
+
+2005-04-25 04:29  florin
+
+	* mail/bogofilter/DETAILS: bump the version from 0.94.4 to 0.94.5.
+	  database related bugfixes.
+
+2005-04-24 17:14  v3rt1g0
+
+	* chat/bangexec/: DEPENDS, DETAILS: A shell output plugin for gaim
+	  that I ment to commit a while ago.
+
+2005-04-24 16:19  moe
+
+	* kde3/kdebindings3/BUILD: No hardcoded version numbers!
+
+2005-04-24 16:16  moe
+
+	* net/samba/: BUILD, POST_BUILD: Cosmetic fixes
+
+2005-04-24 16:08  v3rt1g0
+
+	* x11-utils/e17genmenu/: BUILD, DEPENDS, DETAILS: Inital import.
+	  This tool will generate menus for e17-cvs based off of any menus
+	  you had in gnome or kde.
+
+2005-04-24 15:34  florin
+
+	* net/samba/: BUILD, POST_BUILD: force the creation of the symlinks
+	  in order to avoid the error mentioned by Dennis Veatch.
+
+2005-04-24 15:29  florin
+
+	* compilers/ruby/BUILD: add the compile option requested by Dennis
+	  Veatch.
+
+2005-04-24 15:27  florin
+
+	* kde3/kdebindings3/BUILD: fix the version of java module. thanks
+	  to Dennis Veatch for pointing that.
+
+2005-04-24 15:17  v3rt1g0
+
+	* libs/libvisual/DETAILS: Inital import of a module crafted by
+	  dveatch.  Minor modifications made from his submittal to
+	  l-l.org's Issue tracker.  Thank you.
+
+2005-04-24 15:16  florin
+
+	* security/snort/DETAILS: bump the version from 2.3.2 to 2.3.3. a
+	  bugfix and an addition.
+
 2005-04-24 07:36  florin
 
 	* utils/apcupsd/DETAILS: bump the version from 3.10.17 to 3.10.17a.
@@ -1742,291 +1827,4 @@
 
 	* mail/embrace/DETAILS: Version bump to keep up with the EFL API
 	  and other misc bugfixes.
-
-2005-03-25 23:04  cmak
-
-	* gnome-bindings/gnome-vfsmm/DETAILS: fixed sha1sum
-
-2005-03-25 21:51  florin
-
-	* mail/dbmail/: DETAILS, PRE_BUILD: bump the version from 2.0.2 to
-	  2.0.4. bug fixes and on speed improvements
-
-2005-03-25 20:05  cmak
-
-	* gnome-platform/hal/BUILD: hal to /usr
-
-2005-03-25 19:57  cmak
-
-	* gnome-platform/ORBit2/BUILD: gnome-media doesnt build with
-	  GNOME210_PREFIX set
-
-2005-03-25 19:04  cmak
-
-	* gnome-desktop/gnome-keyring/BUILD: ..or gnome-session doesnt
-	  build
-
-2005-03-25 19:02  cmak
-
-	* gnome-desktop/vte/BUILD: not particular gnome...
-
-2005-03-25 18:59  cmak
-
-	* gnome-desktop/gnome-themes/BUILD: themes should be usable
-	  systemwide
-
-2005-03-25 18:43  cmak
-
-	* gnome-desktop/: gtkhtml3/BUILD, libgtkhtml/BUILD: system libs
-	  should go to /usr
-
-2005-03-25 18:26  cmak
-
-	* gnome-desktop/gnome-icon-theme/BUILD: icons should go to /usr
-
-2005-03-25 18:06  cmak
-
-	* gnome-platform/GConf2/BUILD: gnome-vfs2 doesnt build with this in
-	  another PREFIX
-
-2005-03-25 17:53  cmak
-
-	* gnome-platform/libxslt/BUILD: gtk-doc for example doesnt build
-	  when this is in GNOME210_PREFIX
-
-2005-03-25 16:32  tchan
-
-	* audio/faac/DEPENDS: Fixed the DEPENDS file to be a unix file.  No
-	  more files in moonbase without either a line feed or at least an
-	  EOF marker!
-
-2005-03-25 15:44  moe
-
-	* zbeta/giftui-cvs/DETAILS: Updates .. going to improve this
-	  lateron
-
-2005-03-25 15:27  sofar
-
-	* gnome-desktop/: gnome-backgrounds/BUILD,
-	  gnome-backgrounds/DEPENDS, gnome-backgrounds/DETAILS,
-	  gnome-menus/BUILD, gnome-menus/DETAILS, gnome-nettool/BUILD,
-	  gnome-nettool/DEPENDS, gnome-nettool/DETAILS,
-	  gnome-system-tools/BUILD, gnome-system-tools/DEPENDS,
-	  gnome-system-tools/DETAILS, gnome-volume-manager/BUILD,
-	  gnome-volume-manager/DEPENDS, gnome-volume-manager/DETAILS,
-	  system-tools-backends/BUILD, system-tools-backends/DETAILS,
-	  vino/BUILD, vino/DETAILS: adding NEW modules in gnome-2.10
-
-2005-03-25 15:26  sofar
-
-	* gnome-desktop/: gnome-doc-utils/BUILD, ximian-connector/BUILD:
-	  new files here too
-
-2005-03-25 15:25  sofar
-
-	* gnome-bindings/: gconfmm/BUILD, gnome-vfsmm/BUILD,
-	  libglademm/BUILD, libgnomecanvasmm/BUILD, libgnomemm/BUILD,
-	  libgnomeuimm/BUILD: Adding new files here
-
-2005-03-25 15:24  sofar
-
-	* gnome-platform/: hal/BUILD, hal/DEPENDS, hal/DETAILS,
-	  libxslt/BUILD: new gnome-2.10 modules
-
-2005-03-25 14:59  sofar
-
-	* gnome-platform/GConf2/BUILD, gnome-platform/GConf2/DETAILS,
-	  gnome-platform/ORBit2/BUILD, gnome-platform/ORBit2/DEPENDS,
-	  gnome-platform/ORBit2/DETAILS, gnome-platform/at-spi/BUILD,
-	  gnome-platform/at-spi/DETAILS, gnome-platform/gail/BUILD,
-	  gnome-platform/gail/DEPENDS, gnome-platform/gail/DETAILS,
-	  gnome-platform/gnome-mime-data2/BUILD,
-	  gnome-platform/gnome-mime-data2/DEPENDS,
-	  gnome-platform/gnome-mime-data2/DETAILS,
-	  gnome-platform/gnome-vfs2/BUILD,
-	  gnome-platform/gnome-vfs2/DEPENDS,
-	  gnome-platform/gnome-vfs2/DETAILS, gnome-platform/libIDL/BUILD,
-	  gnome-platform/libIDL/DEPENDS, gnome-platform/libIDL/DETAILS,
-	  gnome-platform/libbonobo/BUILD, gnome-platform/libbonobo/DEPENDS,
-	  gnome-platform/libbonobo/DETAILS,
-	  gnome-platform/libbonoboui/BUILD,
-	  gnome-platform/libbonoboui/DEPENDS,
-	  gnome-platform/libbonoboui/DETAILS,
-	  gnome-platform/libglade2/BUILD, gnome-platform/libglade2/DEPENDS,
-	  gnome-platform/libglade2/DETAILS, gnome-platform/libgnome/BUILD,
-	  gnome-platform/libgnome/DEPENDS, gnome-platform/libgnome/DETAILS,
-	  gnome-platform/libgnomecanvas/BUILD,
-	  gnome-platform/libgnomecanvas/DETAILS,
-	  gnome-platform/libgnomeprint/BUILD,
-	  gnome-platform/libgnomeprint/DEPENDS,
-	  gnome-platform/libgnomeprint/DETAILS,
-	  gnome-platform/libgnomeprintui/BUILD,
-	  gnome-platform/libgnomeprintui/DEPENDS,
-	  gnome-platform/libgnomeprintui/DETAILS,
-	  gnome-bindings/gconfmm/DETAILS, gnome-platform/libgnomeui/BUILD,
-	  gnome-platform/libgnomeui/DETAILS,
-	  gnome-platform/libxslt/DETAILS, gnome-bindings/glibmm/BUILD,
-	  gnome-bindings/glibmm/DETAILS,
-	  gnome-bindings/gnome-python2/BUILD,
-	  gnome-bindings/gnome-python2/CONFLICTS,
-	  gnome-bindings/gnome-python2/DEPENDS,
-	  gnome-bindings/gnome-python2/DETAILS,
-	  gnome-bindings/gnome-vfsmm/DEPENDS,
-	  gnome-bindings/gnome-vfsmm/DETAILS, gnome-bindings/gtkmm2/BUILD,
-	  gnome-bindings/gtkmm2/DETAILS, gnome-bindings/libglademm/DEPENDS,
-	  gnome-bindings/libglademm/DETAILS,
-	  gnome-bindings/libgnomecanvasmm/DEPENDS,
-	  gnome-bindings/libgnomecanvasmm/DETAILS,
-	  gnome-bindings/libgnomemm/DEPENDS,
-	  gnome-bindings/libgnomemm/DETAILS,
-	  gnome-bindings/libgnomeuimm/DEPENDS,
-	  gnome-bindings/libgnomeuimm/DETAILS,
-	  gnome-desktop/bug-buddy/BUILD, gnome-desktop/bug-buddy/DEPENDS,
-	  gnome-desktop/bug-buddy/DETAILS,
-	  gnome-desktop/control-center2/BUILD,
-	  gnome-desktop/control-center2/DETAILS,
-	  gnome-desktop/dasher/BUILD, gnome-desktop/dasher/DETAILS,
-	  gnome-desktop/eel/BUILD, gnome-desktop/eel/DEPENDS,
-	  gnome-desktop/eel/DETAILS, gnome-desktop/eog/BUILD,
-	  gnome-desktop/eog/DETAILS, gnome-desktop/epiphany/BUILD,
-	  gnome-desktop/epiphany/DEPENDS, gnome-desktop/epiphany/DETAILS,
-	  gnome-desktop/epiphany/epiphany, gnome-desktop/evolution/BUILD,
-	  gnome-desktop/evolution/DEPENDS,
-	  gnome-desktop/evolution-data-server/BUILD,
-	  gnome-desktop/evolution-data-server/DEPENDS,
-	  gnome-desktop/evolution-data-server/DETAILS,
-	  gnome-desktop/evolution-webcal/BUILD,
-	  gnome-desktop/evolution-webcal/DEPENDS,
-	  gnome-desktop/evolution-webcal/DETAILS,
-	  gnome-desktop/file-roller/BUILD,
-	  gnome-desktop/file-roller/DEPENDS,
-	  gnome-desktop/file-roller/DETAILS, gnome-desktop/gal2/BUILD,
-	  gnome-desktop/gal2/DETAILS, gnome-desktop/gcalctool/BUILD,
-	  gnome-desktop/gcalctool/DETAILS,
-	  gnome-desktop/gconf-editor/BUILD,
-	  gnome-desktop/gconf-editor/DEPENDS,
-	  gnome-desktop/gconf-editor/DETAILS, gnome-desktop/gdm/BUILD,
-	  gnome-desktop/gdm/DETAILS, gnome-desktop/gedit/BUILD,
-	  gnome-desktop/gedit/DETAILS, gnome-desktop/ggv/BUILD,
-	  gnome-desktop/ggv/DETAILS, gnome-desktop/gnome-applets2/BUILD,
-	  gnome-desktop/gnome-applets2/DETAILS,
-	  gnome-desktop/gnome-desktop/BUILD,
-	  gnome-desktop/gnome-desktop/DETAILS,
-	  gnome-desktop/gnome-doc-utils/DETAILS,
-	  gnome-desktop/gnome-games2/BUILD,
-	  gnome-desktop/gnome-games2/DETAILS,
-	  gnome-desktop/gnome-icon-theme/BUILD,
-	  gnome-desktop/gnome-icon-theme/DETAILS,
-	  gnome-desktop/gnome-keyring/BUILD,
-	  gnome-desktop/gnome-keyring/DETAILS,
-	  gnome-desktop/gnome-mag/BUILD, gnome-desktop/gnome-mag/DETAILS,
-	  gnome-desktop/gnome-media2/BUILD,
-	  gnome-desktop/gnome-media2/DEPENDS,
-	  gnome-desktop/gnome-media2/DETAILS,
-	  gnome-desktop/gnome-netstatus/BUILD,
-	  gnome-desktop/gnome-netstatus/DETAILS,
-	  gnome-desktop/gnome-panel/BUILD,
-	  gnome-desktop/gnome-panel/DEPENDS,
-	  gnome-desktop/gnome-panel/DETAILS,
-	  gnome-desktop/gnome-session/BUILD,
-	  gnome-desktop/gnome-session/DETAILS,
-	  gnome-desktop/gnome-speech/BUILD,
-	  gnome-desktop/gnome-speech/DETAILS,
-	  gnome-desktop/gnome-system-monitor/BUILD,
-	  gnome-desktop/gnome-system-monitor/DETAILS,
-	  gnome-desktop/gnome-terminal/BUILD,
-	  gnome-desktop/gnome-terminal/DETAILS,
-	  gnome-desktop/gnome-themes/BUILD,
-	  gnome-desktop/gnome-themes/DETAILS,
-	  gnome-desktop/gnome-utils2/BUILD,
-	  gnome-desktop/gnome-utils2/DETAILS,
-	  gnome-desktop/gnome2-user-docs/BUILD,
-	  gnome-desktop/gnome2-user-docs/DETAILS,
-	  gnome-desktop/gnopernicus/BUILD,
-	  gnome-desktop/gnopernicus/DETAILS, gnome-desktop/gok/BUILD,
-	  gnome-desktop/gok/DETAILS, gnome-desktop/gpdf/BUILD,
-	  gnome-desktop/gpdf/DETAILS, gnome-desktop/gtkhtml3/BUILD,
-	  gnome-desktop/gtkhtml3/DEPENDS, gnome-desktop/gtkhtml3/DETAILS,
-	  gnome-desktop/gtksourceview/BUILD,
-	  gnome-desktop/gtksourceview/DETAILS,
-	  gnome-desktop/gucharmap/BUILD, gnome-desktop/gucharmap/DETAILS,
-	  gnome-desktop/libgail-gnome/BUILD,
-	  gnome-desktop/libgail-gnome/DETAILS,
-	  gnome-desktop/libgtkhtml/BUILD, gnome-desktop/libgtkhtml/DETAILS,
-	  gnome-desktop/libgtop2/BUILD, gnome-desktop/libgtop2/DETAILS,
-	  gnome-desktop/librsvg/BUILD, gnome-desktop/librsvg/DETAILS,
-	  gnome-desktop/libsoup/DETAILS, gnome-desktop/libwnck/BUILD,
-	  gnome-desktop/libwnck/DETAILS, gnome-desktop/libxklavier/DETAILS,
-	  gnome-desktop/metacity/BUILD, gnome-desktop/metacity/DETAILS,
-	  gnome-desktop/nautilus/BUILD, gnome-desktop/nautilus/DEPENDS,
-	  gnome-desktop/nautilus/DETAILS,
-	  gnome-desktop/nautilus-cd-burner/BUILD,
-	  gnome-desktop/nautilus-cd-burner/DETAILS,
-	  gnome-desktop/sound-juicer/BUILD,
-	  gnome-desktop/sound-juicer/DEPENDS,
-	  gnome-desktop/sound-juicer/DETAILS,
-	  gnome-desktop/startup-notification/BUILD,
-	  gnome-desktop/startup-notification/DETAILS,
-	  gnome-desktop/totem/BUILD, gnome-desktop/totem/DEPENDS,
-	  gnome-desktop/totem/DETAILS, gnome-desktop/vte/BUILD,
-	  gnome-desktop/vte/DETAILS,
-	  gnome-desktop/ximian-connector/DETAILS, gnome-desktop/yelp/BUILD,
-	  gnome-desktop/yelp/DETAILS, gnome-desktop/zenity/BUILD,
-	  gnome-desktop/zenity/DETAILS: merging gnome-2.10 by cmak into
-	  moonbase
-
-2005-03-25 13:41  cmak
-
-	* compilers/ocaml/DETAILS: changed sha1sum
-
-2005-03-25 12:40  nestu
-
-	* kernel/linux-2.6-mm/DETAILS: 2.6.12-rc1-mm2 -> 2.6.12-rc1-mm3.
-	  gcc 3.3.3, glibc 2.3.2, headers 2.6.11.0
-
-2005-03-25 05:57  florin
-
-	* games/bzflag/DETAILS: bump the version from 1.10.8 to 2.0.2.
-	  major improvements and bugfixes.
-
-2005-03-25 04:43  florin
-
-	* utils/apcupsd/DETAILS: bump the version from 3.0.16 to 3.0.17.
-	  bugfixes and improvements.
-
-2005-03-25 04:34  florin
-
-	* devel/strace/DETAILS: bump the version from 4.5.10 to 4.5.11.
-	  bugfixes release.
-
-2005-03-25 04:20  florin
-
-	* wifi/ipsec-tools/DETAILS: bump the version from 0.5 to 0.5.1.
-	  bugfixes release.
-
-2005-03-25 04:13  florin
-
-	* zbeta/oprofile/DETAILS: bump the version from 0.8.1 to 0.8.2.
-
-2005-03-25 03:57  florin
-
-	* devel/ctypes/DETAILS: bump the version from 0.9.5 to 0.9.6.
-
-2005-03-25 03:53  florin
-
-	* libs/glew/DETAILS: bump the version from 1.3.1 to 1.3.2. cleanups
-	  and fixes.
-
-2005-03-25 03:12  florin
-
-	* web/usermin/DETAILS: bump the version from 1.110 to 1.120.
-
-2005-03-25 03:07  florin
-
-	* web/webmin/DETAILS: bump the version from 1.180 to 1.190.
-
-2005-03-25 02:18  florin
-
-	* kde3-apps/konversation/: BUILD, DETAILS: bump the version from
-	  0.14 to 0.16. many improvements.
 
