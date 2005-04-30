@@ -1,9 +1,4 @@
-if [ "$USE_LILO" == "y" ]; then
-    update_lilo $VERSION-$PVERSION-grs $VERSION-grs
-fi
-if [ "$USE_GRUB" == "y" ]; then
-    update_grub $VERSION-$PVERSION-grs $VERSION-grs
-fi
+update_bootloader $VERSION-$PVERSION-grs $VERSION-grs
 
 #  Reinstall packages that add their own kernel modules
 if  module_installed  ftpfs;          then  lin  ftpfs;          fi

@@ -1,8 +1,4 @@
-if [ "$USE_LILO" == "y" ]; then
-    update_lilo ${KERNEL_VERSION}-grsec-${GRSEC_VERSION}  ${KERNEL_VERSION}-grsec-${GRSEC_VERSION}
-elif [ "$USE_GRUB" == "y" ]; then
-    update_grub ${KERNEL_VERSION}-grsec-${GRSEC_VERSION}  ${KERNEL_VERSION}-grsec-${GRSEC_VERSION}
-fi
+update_bootloader ${KERNEL_VERSION}-grsec-${GRSEC_VERSION}  ${KERNEL_VERSION}-grsec-${GRSEC_VERSION}
 
 #  Reinstall packages that add their own kernel modules
 lin -c kernel-reqs

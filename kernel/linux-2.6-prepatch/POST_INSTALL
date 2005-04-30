@@ -1,10 +1,4 @@
-if [ "$USE_LILO" == "y" ]; then
-    update_lilo $VERSION $VERSION
-else
-  if [ "$USE_GRUB" == "y" ]; then
-    update_grub $VERSION $VERSION
-  fi
-fi
+update_bootloader $VERSION $VERSION
 
 #  Reinstall packages that add their own kernel modules
 
