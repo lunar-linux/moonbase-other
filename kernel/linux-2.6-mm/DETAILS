@@ -1,7 +1,7 @@
           MODULE=linux-2.6-mm
   KERNEL_VERSION=2.6.11
       RC_VERSION=2.6.12-rc3
-      MM_VERSION=mm1
+      MM_VERSION=mm2
          VERSION=${RC_VERSION}-${MM_VERSION}
           SOURCE=linux-${KERNEL_VERSION}.tar.bz2
          SOURCE2=patch-${RC_VERSION}.bz2
@@ -12,13 +12,13 @@
      SOURCE3_URL=ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/${RC_VERSION}/${VERSION}/
       SOURCE_VFY=sha1:d72ab76360d004dac4b976633dd0490e8d4b15cd
      SOURCE2_VFY=sha1:0e423bf29c2dff3262bcbe992889a2c732c7276d
-     SOURCE3_VFY=sha1:a4e72102e68589c0593ba92644bae6e9d47e2da7
+     SOURCE3_VFY=sha1:5d6e032d3295d24d9fc76fc224a1ea2b8f09c6bd
         WEB_SITE=http://www.kernel.org
          ENTERED=20041013
-         UPDATED=20050430
+         UPDATED=20050501
            SHORT="2.6 kernel with Andrew Morton's latest test patches."
-KEEP_SOURCE=on
-TMPFS=off
+     KEEP_SOURCE=on
+           TMPFS=off
 cat << EOF
 The -mm patches are a set of patches, released by Andrew Morton, against the 
 official 2.6 kernel series. They are frequently more experimental in nature 
