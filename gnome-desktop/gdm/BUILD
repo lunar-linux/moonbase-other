@@ -1,5 +1,7 @@
 (
 
+ sedit 's:GDM_KEY_HALT "daemon/DefaultPath:GDM_KEY_HALT "daemon/HaltCommand:' daemon/gdm.h
+
  add_priv_user gdm:gdm
 
  if    module_installed  Linux-PAM;  then  SCHEME="pam"
