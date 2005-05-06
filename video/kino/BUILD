@@ -1,15 +1,7 @@
 (
 
-  ./configure  --sysconfdir=/etc        \
-               --prefix=/usr            \
-               --mandir=/usr/share/man  \
-	       --localstatedir=/var     \
-	       $OPTS                    &&
-
-  sedit "s/CFLAGS = -O2/CFLAGS = $CFLAGS/" Makefile       &&
-  sedit "s/CXXFLAGS = -O2/CXXFLAGS = $CXXFLAGS/" Makefile &&
-
-  default_make
+  sedit "s/-O2\"/$CFLAGS\"/g" configure &&
+  OPTS="$OPTS --with-hotplug-script-dir=/etc/hotplug/usb --with-hotplug-usermap-dir=/etc/hotplug/usb" &&
+  default_build
 
 ) > $C_FIFO 2>&1
-
