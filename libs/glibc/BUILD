@@ -97,7 +97,7 @@ esac
   sln /lib/libcrypt-lunar.so $CRYPT &&
 
   # clean hack to make sure gnu/stubs.h gets refreshed
-  rm -f /usr/include/gnu/stubs/h              &&
+  rm -f /usr/include/gnu/stubs.h              &&
   # This removes the old glibc
   prepare_install                             &&
 
