@@ -1,12 +1,16 @@
           MODULE=nbd
-         VERSION=2.7.1
+         VERSION=2.7.4
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-include.patch.bz2
       SOURCE_URL=$SFORGE_URL/$MODULE/
-      SOURCE_VFY=md5:54bc2b6069e752f89974ec46f96ff547
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:a7a3eddaed8a687e82330e418bc27a987980ee03
+     SOURCE2_VFY=sha1:fb1324cfbf272bed9b892e8041f90eba0c2c38fe
         WEB_SITE=http://nbd.sourceforge.net/
          ENTERED=20040628
-         UPDATED=20040628
+         UPDATED=20050508
            SHORT="Network Block Device server and client"
+
 cat << EOF
 With this thing compiled into your kernel, Linux can use a remote
 server as one of its block devices. Every time the client computer
