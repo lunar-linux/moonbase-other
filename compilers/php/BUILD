@@ -33,7 +33,6 @@
 	       --enable-dbase		     \
 	       --enable-dbx		     \
 	       --enable-dio		     \
-	       --with-readline               \
 	       --with-ncurses                \
                $OPTS                        &&
 	default_make
