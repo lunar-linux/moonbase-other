@@ -1,0 +1,21 @@
+          MODULE=slmodem
+         VERSION=2.9.10
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://www.smlink.com/main/down/
+      SOURCE_VFY=sha1:b69af51637219d1008f50630b4edc2089f972e9a
+        WEB_SITE=http://www.smlink.com
+         ENTERED=20050512
+         UPDATED=20050512
+           SHORT="SmartLink Modem that can use ALSA modem drivers."
+cat <<EOF
+This is Smart Link Soft Modem for Linux. It provides full-featured
+56K Voice Fax Modem.  This is implemented as generic application
+(slmodemd) and set of hardware specific kernel-space drivers (slamr,
+slusb).  ALSA modem drivers may be used instead of proprietary ones
+(see ALSA mode).
+
+This module will install to use ALSA per default.  After installation,
+run for example as root: slmodemd --country=SWEDEN -a. And if using
+wvdial, after wvdialconf - edit /etc/wvdial.conf with "Carrier Check
+= no".
+EOF
