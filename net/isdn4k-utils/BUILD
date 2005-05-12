@@ -1,21 +1,17 @@
 config_isdn()  {
 
-  if  [  -e  $CONFIG_CACHE/.config-$MODULE  ];  then
-
+while [ ! -f .config ]; do
+  if  [ -f  $CONFIG_CACHE/.config-$MODULE ];  then
     cp $CONFIG_CACHE/.config-$MODULE .config
-
     read  -t 10  -n 1  -p "Configure $MODULE? "  CONFIRM
     case  $CONFIRM  in
       y|Y)  make  config  ;;
 	*)  make  subconfig ;;
     esac
-
   else
-
     make  config
-
-  fi
-
+  fi;
+done
 }
 
 
