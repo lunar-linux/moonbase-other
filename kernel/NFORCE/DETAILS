@@ -1,0 +1,23 @@
+          MODULE=NFORCE
+         VERSION=1.0-0301
+          SOURCE=$MODULE-Linux-x86-$VERSION-pkg1.run
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-Linux-x86-$VERSION-pkg1
+      SOURCE_URL=ftp://download.nvidia.com/XFree86/nforce/$VERSION/
+      SOURCE_VFY=sha1:8dbd090be89063e3eed0b25311ef4866826a9789
+        WEB_SITE=http://www.nvidia.com/object/linux_nforce_1.0-0301.html
+         ENTERED=20050514
+         UPDATED=20050514
+      MAINTAINER=zbiggy@o2.pl
+           SHORT="Drivers for nVidia nForce chipset based mainboards and linux 
+x86"
+cat << EOF
+This driver pack is for mainboard chipset only. If you are looking for 
+graphics
+chipset driver known as Riva TNT or Geforce do: lin NVIDIA.
+This driver pack will install drivers for:
+* Integrated sound (hardware accelerated if chipset have APU)
+* Integrated network
+The included nvmixer application will allow you setup speakers and volume
+The rest components like IDE, USB, SATA are directly supported by kernel.
+There is no winmodem support.
+EOF
