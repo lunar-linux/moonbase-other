@@ -14,9 +14,7 @@
   
   echo "Configuring with $OPTS"
 
-  ./configure $OPTS --prefix=/usr --mandir=/usr/share/man &&
-  make &&
-  prepare_install &&
-  make install
+  ./configure $OPTS --prefix=/usr --mandir=/usr/share/man  &&
+  default_make
 
 ) > $C_FIFO 2>&1
