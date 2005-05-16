@@ -1,10 +1,10 @@
 (
 
-  make -C nvnet                                      &&
-  make -C nvsound/main                               &&
+  ( cd nvnet && make )                               &&
+  ( cd nvsound/main && make )                        &&
   prepare_install                                    &&
-  make -C nvnet install                              &&
-  make -C nvsound/main install                       &&
+  ( cd nvnet && make install )                       &&
+  ( cd nvsound/main && make install )                &&
   install -m755 nvsound/nvmixer /usr/bin/            &&
   install -m755 nvsound/nvmix-reg /usr/bin/          &&
   install -m755 nforce-installer /usr/bin/           &&
