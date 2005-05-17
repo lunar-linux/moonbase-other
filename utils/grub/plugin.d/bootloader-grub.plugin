@@ -28,9 +28,13 @@ map_device_to_grub() {
         TARGET=$(echo $LINE | cut -d: -f2)
         REALTARGET=$(echo $LINE | cut -d: -f3)
         if echo $DEVICE | grep -q "disc" ; then
-             (( DISC++ ))
+        	(( DISC++ ))
+			PART=0
+			echo "hd$((DISC-1)):$TARGET:$REALTARGET:"
+		else
+			(( PART++ ))
+        	echo "hd$((DISC-1)),$((PART-1)):$TARGET:$REALTARGET:"
         fi
-        echo "hd$((DISC-1)),$(echo $DEVICE | sed -e 's/.*\///' -e 's/disc/0/' -e 's/part//'):$TARGET:$REALTARGET:"
     done | grep ":$(readlink -f $1):" | cut -d: -f1
 }
 
@@ -50,12 +54,11 @@ plugin_kernel_updatebootloader_grub()
         # determine is BOOT is a separate partition:
         BOOTPART=$(grep "^/dev/" /etc/mtab | awk '($2 == "/boot"){print $1}')
         ROOTPART=$(grep "^/dev/" /etc/mtab | awk '($2 == "/"){print $1}')
+        GRUB_ROOT="($(map_device_to_grub $ROOTPART))"
         if [ -n "$BOOTPART" ]; then
             GRUB_BOOT=""
-            GRUB_ROOT="($(map_device_to_grub $BOOTPART))"
         else
             GRUB_BOOT="/boot"
-            GRUB_ROOT="($(map_device_to_grub $ROOTPART))"
         fi
         debug_msg "grub: Using GRUB_BOOT=\"$GRUB_BOOT\""
         debug_msg "grub: Using GRUB_ROOT=\"$GRUB_ROOT\""
