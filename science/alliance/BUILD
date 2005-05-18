@@ -1,7 +1,8 @@
 (
-   cd $SOURCE_DIRECTORY &&
-   export ALLIANCE_TOP=/opt/lunar/alliance &&
+
+   ALLIANCE_TOP=/opt/lunar/alliance
+
    ./configure --prefix=$ALLIANCE_TOP &&
-   prepare_install &&
-   make install
+   default_make
+
 ) > $C_FIFO
