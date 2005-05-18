@@ -1,17 +1,28 @@
           MODULE=xpdf
          VERSION=3.00
-        #VERSION=2.03
           SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=${MODULE}-${VERSION}pl1.patch
+	 SOURCE3=${MODULE}-${VERSION}pl2.patch
+	 SOURCE4=${MODULE}-${VERSION}pl3.patch
+	 SOURCE5=$MODULE-$VERSION-lunar-freetype2.patch
    SOURCE_URL[0]=ftp://ftp.foolabs.com/pub/xpdf/
    SOURCE_URL[1]=ftp://ftp.ibiblio.org/pub/Linux/apps/graphics/viewers/X/
    SOURCE_URL[2]=ftp://ftp.xopen.org/pub/PDF/$MODULE/
    SOURCE_URL[3]=ftp://planetmirror.com/pub/$MODULE/
+  SOURCE2_URL[0]=ftp://ftp.foolabs.com/pub/xpdf/
+  SOURCE3_URL[0]=ftp://ftp.foolabs.com/pub/xpdf/
+  SOURCE4_URL[0]=ftp://ftp.foolabs.com/pub/xpdf/
+  SOURCE5_URL[0]=$PATCH_URL/
         WEB_SITE=http://www.foolabs.com/xpdf
-      SOURCE_VFY=md5:95294cef3031dd68e65f331e8750b2c2
+      SOURCE_VFY=sha1:080317afce0851274fec2865131f59590b54eb99
+     SOURCE2_VFY=sha1:b984f64c25310e3b0bdebd9b75088ea46e067735
+     SOURCE3_VFY=sha1:9b406ea1514b508893460c3ec9cb6131287b1c9c
+     SOURCE4_VFY=sha1:c29b9ea13d1f8567a4521e12d50e497bf1681608
+     SOURCE5_VFY=sha1:9fa9df8eb6aa82a62131d59b59e230f8fcd19d43
          ENTERED=20020218
-         UPDATED=20040217
+         UPDATED=20050518
            SHORT="xpdf: a PDF viewer for X11R6."
-      MAINTAINER=csm@lunar-linux.org
+
 cat << EOF
 Xpdf is an open source viewer for Portable Document Format (PDF)
 files.  (These are also sometimes also called 'Acrobat' files, from
