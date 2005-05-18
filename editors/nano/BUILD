@@ -10,7 +10,7 @@
     OPTS="$OPTS --enable-multibuffer"
   fi
   
-  default_build						&&
+  default_build  &&
 
   if [ ! -f "/etc/nanorc" ]; then
     bzcat $SOURCE_CACHE/$SOURCE2 > nanorc
