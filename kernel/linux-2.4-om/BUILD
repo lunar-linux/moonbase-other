@@ -25,14 +25,11 @@
   LD_PRELOAD= cp .config $CONFIG_CACHE/.config.om
   rm -f arch/i386/boot/bzImage
 
-  # Because parallel make seems not to work, a hack
 
-  optimize_make                                &&
-  KMAKES=${MAKES:=1}                           &&
-  make -j${KMAKES} dep                         &&
-  make -j${KMAKES} clean                       &&
-  make -j${KMAKES} bzImage                     &&
-  make -j${KMAKES} modules                     &&
+  make ${MAKES:+-j$MAKES} dep                         &&
+  make ${MAKES:+-j$MAKES} clean                       &&
+  make ${MAKES:+-j$MAKES} bzImage                     &&
+  make ${MAKES:+-j$MAKES} modules                     &&
   backup_mods_krnl $VERSION-$PVERSION-om       &&
   prepare_install                              &&
   make modules_install                         &&

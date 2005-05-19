@@ -25,12 +25,9 @@
     LD_PRELOAD= cp .config $CONFIG_CACHE/.config-2.6-grsec
     rm -f arch/i386/boot/bzImage
     
-  # Because parallel make seems not to work, a hack
     
-    optimize_make									&&
-    KMAKES=${MAKES:=1}								&&
-    make -j${KMAKES} bzImage							&&
-    make -j${KMAKES} modules							&&
+    make ${MAKES:+-j$MAKES} bzImage							&&
+    make ${MAKES:+-j$MAKES} modules							&&
     backup_mods_krnl ${KERNEL_VERSION}-grsec-${GRSEC_VERSION}			&&
     prepare_install								&&
     make modules_install								&&
