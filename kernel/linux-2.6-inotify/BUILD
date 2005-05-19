@@ -25,12 +25,9 @@ cd  $BUILD_DIRECTORY/linux
     cp  .config  $CONFIG_CACHE/.config.2.6.inotify
     rm -f arch/i386/boot/bzImage
 
-   # Because parallel make seems not to work, a hack   
 
-    optimize_make                      &&
-    KMAKES=${MAKES:=1}                 &&
-    make  -j${KMAKES} bzImage          &&
-    make  -j${KMAKES} modules          &&
+    make  ${MAKES:+-j$MAKES} bzImage          &&
+    make  ${MAKES:+-j$MAKES} modules          &&
     backup_mods_krnl linux-${VERSION}  &&
     prepare_install                    &&
     make  modules_install
