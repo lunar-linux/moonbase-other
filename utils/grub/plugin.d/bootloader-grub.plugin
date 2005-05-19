@@ -12,7 +12,22 @@
 #############################################################
 
 
-map_device_to_grub() {
+unmap_device()
+{
+    local DEVICE
+    for DEVICE in $(ls -1d /dev/[hs]d* 2> /dev/null); do
+        if [ "$(readlink -f $DEVICE)" == "$(readlink -f $1)" ]; then
+            echo $DEVICE
+            return 0
+        fi
+    done
+    echo $1
+    return 0
+}
+
+
+map_devices_to_grub()
+{
     local LINE DISC DEVICE TARGET REALTARGET
     debug_msg "map_device_to_grub ($@)"
     # TODO - make sure partitions count continuously
@@ -35,7 +50,21 @@ map_device_to_grub() {
 			(( PART++ ))
         	echo "hd$((DISC-1)),$((PART-1)):$TARGET:$REALTARGET:"
         fi
-    done | grep ":$(readlink -f $1):" | cut -d: -f1
+    done
+}
+
+
+map_device_to_grub()
+{
+    map_devices_to_grub | grep ":$(readlink -f $1):" | cut -d: -f1
+}
+
+
+map_grub_to_device()
+{
+	local DEV
+	DEV=$(echo "$1" | sed 's/[()]//g')
+	unmap_device $((map_devices_to_grub | grep "^$DEV:" | cut -d: -f2) || echo "$1")
 }
 
 
@@ -80,10 +109,10 @@ plugin_kernel_updatebootloader_grub()
 
 				if (( IMAGE_COUNT == 0 )) ; then
 					if ! grep -q "$1" /boot/grub/menu.lst ; then
-						printf "title   %s\nkernel  %s\nroot    %s\n\n" $2 $GRUB_BOOT/$1 $GRUB_ROOT "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
+						printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2" "$GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs-nomount" "$GRUB_ROOT" "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
 					fi
 				 if [ -f /boot/"$1.old" ] && ! grep -q "$1.old" /boot/grub/menu.lst ; then
-						printf "title   %s\nkernel  %s\nroot    %s\n\n" $2.old $GRUB_BOOT/$1.old $GRUB_ROOT "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
+						printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2.old" "$GRUB_BOOT/$1.old root=$(map_grub_to_device $GRUB_ROOT) ro devfs-nomount" "$GRUB_ROOT" "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
 					fi
 				fi
 				(( IMAGE_COUNT++ ))
@@ -96,10 +125,10 @@ plugin_kernel_updatebootloader_grub()
 
 		if (( IMAGE_COUNT == 0 )) ; then
 			if ! grep -q "$1" /boot/grub/menu.lst ; then
-				printf "title   %s\nkernel  %s\nroot    %s\n\n" $2 $GRUB_BOOT/$1 $GRUB_ROOT "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
+				printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2" "$GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs-nomount" "$GRUB_ROOT" "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
 			fi
 			if [ -f /boot/"$1.old" ] && ! grep -q "$1.old" /boot/grub/menu.lst ; then
-				printf "title   %s\nkernel  %s\nroot    %s\n\n" $2.old $GRUB_BOOT/$1.old $GRUB_ROOT "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
+				printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2.old" "$GRUB_BOOT/$1.old root=$(map_grub_to_device $GRUB_ROOT) ro devfs-nomount" "$GRUB_ROOT" "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
 			fi
 		fi
 
