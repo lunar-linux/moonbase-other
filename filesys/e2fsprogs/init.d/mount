@@ -2,367 +2,390 @@
 
 # description: mount and umount the filesystem
 
-# Lunar devfsd save location
-DEVFSDD=/var/state/devfsd
+# Leave debugging off by default
+DEBUG=""
 
-chkresult() {
-  if [ $? -eq "0" ] ; then
-    echo -e $RESULT_OK
-  else
-    echo -e $RESULT_FAIL
-  fi
-}
-
-# flips a file upside down
-flip() {
-  local STRING
-  while read -r STRING ; do
-    flip
-    echo "$STRING"        # New line needed
-    break
-  done
-
-}
-
-
-isUdevInstalled()
+wait_for_finish()
 {
-    echo         -n " * Trying to default to udev:"      
-    if [ -x /sbin/udevstart ]; then
-	chkresult
-	return 0
-    else
-	chkresult
-	return 1
-    fi
+   test -n "${1}" && sleep ${1}
 }
 
-isDevfsInstalled()
+
+run_without_msg()
 {
-    echo         -n " * Trying to default to devfs:"      
-    if [ -x /sbin/devfsd ]; then
-	chkresult
-	return 0
-    else
-	chkresult
-	return 1
-    fi
+   if [ -z "${1}" ]; then
+      echo -n "run_without_msg: missing command."
+      echo -e ${RESULT_FAIL}
+      return
+   fi
+
+   if [ -n "${DEBUG}" ]; then
+      echo -e "< ${1} >\n" 
+      eval ${1}
+   else
+      eval ${1} &> /dev/null      
+   fi
+
+   local exit_status=$?
+
+   wait_for_finish "${2}"
+
+   return ${exit_status}   
 }
 
-staticWarning()
+
+run_with_msg_and_exit_codes()
 {
-    echo       -n "* Assuming a static /dev:"
-    echo       -e $RESULT_WARN	      
-    return 0
+   # $1 : message
+   # $2 : command
+   # $3 : white space separated list of OK exit values
+   # $4 : white space separated list of WARNING exit values
+   # $5 : white separated list of FAILURE exit values
+
+   if [ ! ${#} -eq 5 ]; then
+      echo "run_with_special_exit_codes: wrong parameter count. 5 params expected"
+      return 1
+   fi    
+
+   echo -n "${1}"
+
+   if [ -n "${DEBUG}" ]; then
+      echo -e "\n< run_with_special_exit_codes >"
+      echo -e "\n< command : ${2} >"
+      echo -e "\n< valid   : ${3} >"
+      echo -e "\n< warn    : ${4} >"
+      echo -e "\n< fail    : ${5} >"
+      eval ${2}
+   else
+      eval ${2} &> /dev/null
+   fi
+
+   local exit_status=$?
+
+   for i in "${3}"
+   do
+      if [ "${exit_status}" = "${i}" ]; then
+         echo -e ${RESULT_OK}
+         return ${exit_status}
+      fi
+   done 
+
+   for i in "${4}"
+   do
+      if [ "${exit_status}" = "${i}" ]; then
+         echo -e ${RESULT_WARN}
+         return ${exit_status}
+      fi
+   done 
+
+   for i in "${5}"
+   do
+      if [ "${exit_status}" = "${i}" ]; then
+         echo -e ${RESULT_FAIL}
+         return ${exit_status}
+      fi
+   done 
+
+   warn_msg "result ${exit_status} did not match any supplied exit code value"
+   return 0
 }
 
-start() {
 
-  echo "Mounting filesystems:"
-  mount       -n -o  remount,ro / >& /dev/null
+run_with_msg()
+{
+   # message == $1
+   # cmd == $2
 
-  # this was reordered since it has to be proc -> sys -> ramfs -> udev
-  echo     -n " * Mounting proc on /proc:"
-  mount -t proc proc /proc
-  chkresult
-  
-#  I can use /proc/cmdline since it is mounted now *before*
-  DEVNODES=`cat /proc/cmdline | grep -ow "dev=\(udev\|devfs\)" | sed 's/dev=//g'`
-  test -z "$DEVNODES" && DEVNODES=`cat /proc/cmdline | grep -ow "dev=static" | sed 's/dev=//g'`
+   if [ -z "${1}" ]; then 
+      echo -n "run_cmd_with_msg: missing message."      
+      echo -e ${RESULT_WARN}
+      return
+   fi
 
-  UNAMER=`uname -r`
+   if [ -z "${2}" ]; then
+      echo -n "run_cmd_with_msg: missing command."      
+      echo -e ${RESULT_WARN}
+      return
+   fi
   
-  case $UNAMER in
-      2.4*)
-	  if [ "$DEVNODES" = "udev" ]; then # *sigh*
-	      echo       -n "* No udev for 2.4 kernels. Please unset udev commandline option"
-	      echo       -e $RESULT_WARN	      
-	      DEVNODES=""
-	  fi
-	  ;;
-  esac
-  
-  
-  if [ -z "$DEVNODES" ]; then
-      
-      # fallbacks if no cmdline has been supplied, or if the luser wanted udev for 2.4 *sigh*
-      case $UNAMER in
-	  2.4*)
-	      # if no kernel cmdline param, and devfsd is there, default to devfs on 2.4 installs
-	      # I.O.C., static /dev
-	      
-	      if isDevfsInstalled ; then
-		  DEVNODES="devfs" 
-	      else
-		  staticWarning
-		  DEVNODES="static"
-	      fi
-	      
-	      ;;
-	  
-	  2.6*)
-	  # if no kernel cmdline param, and udevstart is there, default to udev on 2.6 installs
-	  # if no udev, then try if devfs is there.
-	  # I.O.C., static /dev
-	      if isUdevInstalled ; then
-		  DEVNODES="udev"
-	      elif isDevfsInstalled ; then
-		  DEVNODES="devfs" 
-	      else
-		  staticWarning
-		  DEVNODES="static"
-	      fi
-	      
-	      ;;
-      esac
-  fi
-  
-  if [ "$DEVNODES" = "devfs" ]; then
-      # I hate this, but it's required to make swapoff work if devfs is runing on /dev
-      # it's clean and also simplifies the devfsd module
-      # This scews up mtab
-      # It is all started on /dev. If someone wants it somewhere else, they can always mount --bind
-      echo  -n " * Mounting /dev:"     
+   echo -n "${1}"  
 
-      if mount -n /dev &> /dev/null ; then     
-          echo  -e $RESULT_OK
-          echo  -n " * Starting devfsd on /dev:"
-          devfsd /dev  &> /dev/null
-          chkresult
+   if [ -n "${DEBUG}" ]; then
+       echo -n "< ${2} >"
+       eval ${2}
+   else
+       eval ${2} &> /dev/null
+   fi
+
+   if [ $? -eq 0 ]; then
+      wait_for_finish ${3}
+      echo -e ${RESULT_OK}
+      return 0 
+   else
+      wait_for_finish ${3}
+      echo -e ${RESULT_FAIL}
+      return 1
+   fi
+}
+
+
+warn_msg()
+{
+   echo -ne "${1}"
+   echo -e ${RESULT_WARN}
+}
+
+kernel_is_26()
+{
+  # don't forget /proc has to be mounted before we do this!
+  uname -r | grep -q "^2\.6" && return 0
+
+  return 1  
+}
+
+
+kernel_is_24()
+{
+  # don't forget /proc has to be mounted before we do this!
+  uname -r | grep -q "^2\.4" && return 0
+
+  return 1
+}
+
+
+# DONT FORGET TO SEE TO LVM FIXES!
+start() 
+{
+   echo -e "Mounting filesystems:"
+
+   run_with_msg " * Mounting proc : " "mount -t proc proc /proc"
+
+   run_with_msg " * Remounting root read-only : " "mount -n -o remount,ro /"
+
+   DEVNODES=`grep -o "dev=.*" /proc/cmdline | cut -d" " -f1 | sed -e "s/dev=//g"`
+  
+   case ${DEVNODES} in
+      static|devfs)
+         ;;
+      udev)
+         if kernel_is_24 ; then # *sigh*
+            warn_message "No udev for 2.4 kernels. Kernel commandline parameter ignored."
+            DEVNODES=""
+         fi
+         ;;
+      ?*)
+         warn_msg "Wrong device nodes parameter \"${DEVNODES}\" on kernel line. Valid are: devfs, udev, static\nFalling back to default behaviour"  
+         DEVNODES=""
+         ;;   
+   esac
+
+   # default bahaviour if there is no previous device nodes handling user choice
+   if [ -z "$DEVNODES" ]; then
+      if kernel_is_26 && [ -x "/sbin/udevstart" ] ; then
+         DEVNODES="udev"
+	 if [ ! -z "${DEBUG}" ] ; then
+	   echo -e "\n< Found udev >"
+	 fi
+      elif [ -x "/sbin/devfsd" ] ; then
+         DEVNODES="devfs"
+	 if [ ! -z "${DEBUG}" ] ; then
+	   echo -e "\n< Found devfs >"
+	 fi 
       else
-          echo  -e $RESULT_FAIL
+         warn_msg "* Assuming a static /dev :"
+         DEVNODES="static"
       fi
+   fi
+   
+   kernel_is_26 && run_with_msg " * Mounting sysfs : " "mount -t sysfs sysfs /sys"
   
-  elif [ "$DEVNODES" = "udev" ]; then
-      echo    -n " * Mounting sysfs on /sys :"
-      mount -t sysfs sysfs /sys
-      chkresult  
+   if [ "$DEVNODES" = "devfs" ]; then
 
-      echo     -n " * Creating ramfs on /dev :"
-      mount -t ramfs none /dev
-      chkresult
+      run_with_msg " * Mounting /dev : " "mount -n /dev"
+      run_with_msg " * Starting devfsd : " "devfsd /dev"
+   
+      kernel_is_26 && run_with_msg " * Mounting devpts on /dev/pts :" "mount -t devpts devpts /dev/pts"
 
-      echo     -n " * Setting /sbin/udevsend to manage hotplug events :"
-      echo "/sbin/udevsend" > /proc/sys/kernel/hotplug
-      chkresult
+   elif [ "$DEVNODES" = "udev" ]; then
 
-      echo     -n " * Creating udev device nodes on /dev :"
-      /sbin/udevstart
-      chkresult
+      run_with_msg  " * Creating ramfs on /dev : "                           "mount -t ramfs none /dev"
+      run_with_msg  " * Setting /sbin/udevsend to manage hotplug events : "  "echo /sbin/udevsend > /proc/sys/kernel/hotplug"
+      run_with_msg  " * Creating udev device nodes on /dev : "               "/sbin/udevstart"
+      run_with_msg  " * Creating extra /dev/pts /dev/shm dirs : "            "mkdir /dev/{pts,shm}"
+      run_with_msg  " * Mounting devpts on /dev/pts : "                      "mount -t devpts devpts /dev/pts"
 
-      echo     -n " * Creating extra /dev/pts /dev/shm dirs:"     
-      mkdir /dev/{pts,shm}
-      chkresult
+   fi
 
-      echo     -n " * Mounting devpts on /dev/pts :"
-      mount -t devpts devpts /dev/pts
-      chkresult      
-  fi
+   if [ -f /forcefsck ] ; then 
 
-  if  [ ! -e /fastboot ] ; then 
-      if [ -e /forcefsck ] ; then
-	  FORCE="-f"
-      fi
-      echo      -n " * Checking all file systems"
-      fsck      -A -y
-      if [ "$?" -eq "0" ] ; then
-	  echo    -e $RESULT_OK
-      else
-	  if [ "$?" -eq "1" ] ; then    # Don't force the poor guy into resuce mode, if fscked cleaned it
-              echo  -e $RESULT_WARN
-	  else
-              echo  -e " * fsck failed.$RESULT_FAIL"
-              echo     " * Please repair your file system"
-              echo     " * manually by running /sbin/fsck"
-              echo     " * without the -a option"
-              sulogin
-              reboot  -f
-	  fi
-      fi
-  fi
+      exit_status=`run_with_msg_and_exit_codes " * Checking all file systems : " "fsck -A -y" "0" "1" ""`
+
+      case ${exit_status} in 
+         0,1) # exited fine ( 0 ), or errors were fixed (1) 
+            rm -f /forcefsck
+            ;;
+         *)  
+            echo  -e " * fsck failed."
+            echo     " * Please repair your file system"
+            echo     " * manually by running /sbin/fsck"
+            echo     " * without the -a option"
+            sulogin
+            reboot  -f
+            ;;
+       esac
+ 
+   fi
   
-  echo       -n " * Remounting root readwrite:"
-  mount      -n -o remount,rw /  &> /dev/null
-  echo       > /etc/mtab
-  rm         -f /etc/mtab~*      &> /dev/null
-  mount      -f -o remount,rw /  &> /dev/null
-  chkresult  
-  
-  # the other case left apart from devfs and udev is a static dev. This doesn't need any setup.
-  
-  echo        -n " * Mounting swap:"
-  swapon      -a &> /dev/null
-  chkresult
-  
-  echo       " * Mounting remaining filesystems:"
+   run_with_msg " * Remounting root readwrite : " "mount -n -o remount,rw /"
 
-  # We should have mounted all devfs before, now a hack to get it into /etc/mtab
-  test "$DEVNODES" = "devfs" && mount -f -t devfs devfs /dev
-  
-  # /etc/fast should be in order
-  # ex. /usr should comes before /usr/local
-  # and /proc before /proc/bus/usb
-  # better to fail if a mounting dosn't exist than, do it silently
-  grep -v '#' /etc/fstab | grep -v ^$ | grep -v noauto | 
-  while  read  DEVICE MOUNTPOINT FSTYPE REST;  do
-  
-      # these have been mounted previously, so don't remount them
-      test "$MOUNTPOINT" = "/"         && continue
-      test "$MOUNTPOINT" = "/proc"     && continue
-      test "$MOUNTPOINT" = "/sys"      && continue
-      test "$MOUNTPOINT" = "/dev"      && continue
-      test "$MOUNTPOINT" = "/dev/pts"  && continue      
+   run_without_msg "echo -n \"\" > /etc/mtab"
+   run_without_msg "rm -f /etc/mtab~*"
 
-     # we don't do networked fs's yet!
-      case "$FSTYPE" in
- 	  nfs|smbfs) continue ;;
+   run_without_msg "mount -f -o remount,rw /"   
+  
+   run_with_msg  " * Mounting swap : " "swapon -a"
+  
+   echo "Mounting remaining filesystems : "
+
+   # We mounted devfs before, now a hack to get it into /etc/mtab
+   test "${DEVNODES}" = "devfs" && run_without_msg "mount -f -t devfs devfs /dev"
+  
+   grep -v '#' /etc/fstab | grep -v ^$ | grep -v noauto | while read DEVICE MOUNTPOINT FSTYPE OPTS REST
+   do  
+      case ${MOUNTPOINT} in
+         /|/proc|/sys|/dev|/dev/pts) # been mounted previously
+            continue      
+            ;;
+         none)
+            continue
+            ;;
+      esac
+
+      case ${FSTYPE} in
+         nfs|smbfs)    # we don't do networked fs's yet!
+            continue 
+            ;;
       esac
       
-      # End filter
-      
-      if [ "$MOUNTPOINT" != "none" ] ; then
-	  echo    -n " * Mounting $MOUNTPOINT:"
-	  mount   $MOUNTPOINT         &> /dev/null
-	  if [ $? -ne "0" ] ; then
-              if [ "$DEVICE" == "usbdevfs" ] || [ "$DEVICE" == "usbfs" ] ; then          # Load the module for usbdevfs if need
-		  modprobe usbcore        &> /dev/null
-		  mount    $MOUNTPOINT    &> /dev/null
-		  chkresult
-              else
-		  echo -e $RESULT_FAIL
-              fi
-	  else
-              echo  -e $RESULT_OK
-	  fi
-      fi
-      
-  done
-  
-  rm         -f /fastboot /forcefsck
+      case ${DEVICE} in
+         usbdevfs,usbfs)
+            run_with_msg " * Trying to modprobe usbcore for ${DEVICE} : " "modprobe usbcore"
+            ;;
+      esac
+
+      test -n "${OPTS}" && OPTS="-o ${OPTS}"
+
+      run_with_msg  " * Mounting $MOUNTPOINT : "  "mount ${OPTS} ${MOUNTPOINT}" 
+
+   done
 }
 
 
-stop() {
+stop() 
+{
+   # Establish where to get mount table from, save these since the files change if we unmount something
+   if [ -r /proc/mounts ] ; then
+      MOUNTS=/proc/mounts
+   else
+      MOUNTS=/etc/mtab
+   fi
     
-  # Establish where to get mount table from, save these since the files change if we unmount something
-    if [ -r /proc/mounts ] ; then
-	MOUNTS=/proc/mounts
-    else
-	MOUNTS=/etc/mtab
-    fi
+   # write wtmp in /var before umounting /var
+   run_without_msg "reboot -w"
     
-  # Umount all tmpfs mounts fist
-  # cat it with a pipe cause it  will change if we umount anything 
+   echo "Unmounting all filesystems :"
     
-  # write wtmp in /var before umounting /var
-    reboot -w
-    
-    echo "Umounting all filesystems:"
-    
-    cat $MOUNTS | flip | \
-	while read TYPE PNT FS REST ; do
+   cat ${MOUNTS} | tac | while read TYPE PNT FS REST
+   do
 	    
-	    SIG="-3"
+      case ${FS} in
+         nfs,smbfs) # we don't do net filesystems
+            continue
+            ;;
+      esac
+
+      case ${PNT} in
+         /|/proc|/dev|/sys) # no need to unmount these
+            continue
+            ;;
+      esac
+
+      echo  -n " * Umounting ${PNT}:"
+      run_without_msg "sync ; sync" # Flush buffers
 	    
-	    if [ "$FS" == "nfs" ] || [ "$FS" == "smbfs" ] ; then              # Don't umount smbfs and nfs because they should of been handled by another script
-		continue                                                        # and if they are here that means they are frozen, don't want anymore freezing
-	    fi
-	    if [ "$PNT" == "/" ] || [ "$PNT" == "/proc" ] ; then              # Leave these two for last
-		continue
-	    fi
-	    if [ "$PNT" == "/dev" ] ; then                                    # No need to umount /dev, and it has some unwanted sideffects anyways
-		continue
-	    fi
+      if [ "${TYPE}" == "/dev/loop*" ] && [ -f ${PNT} ] ; then      
+         run_with_msg " * Detaching loopback device ${PNT} : " "losetup -d ${PNT}"
+         continue                                   
+      fi
 	    
-	    echo  -n " * Umounting: $PNT"
-	    sync ; sync                                                       # Flush buffers
-	    
-	    if [[ "$TYPE" == "/dev/loop*" ]] ; then
-		if [ -e $PNT ] ; then                                           # Devfs and some loopback devices (iso images)
-		    echo:      -n "  * Deataching loopback device $PNT:"          # can take care of them selfs
-		    losetup    -d $PNT &> /dev/null
-		    chkresult
-		    continue                                                      # Not much we can do with loop devices
-		fi
-	    fi
-	    
-	    for TRY in "1" "2" "3" "4" ; do
-		if [ "$TRY" -eq "1" ] ; then
-		    umount    $PNT  &> /dev/null
-		else
-		    sleep      1                                                 # Do a little break before trying again, this helps a lot in some cases
-		    if [ "$TRY" -eq "3" ] ; then
-			SIG="-9"
-		    fi
-		    fuser      -s -km $SIG $PNT &> /dev/null
-		    sleep      1                                                 # Small delay, to make sure it gets killed
-		    if [ "$TRY" -eq "4" ] ; then                                 # A real last resort
-			umount   -lf $PNT &> /dev/null
-			sleep    4                                                 # Hudge delay here, since it's lazy umount
-			sync; sync   
-		    else
-			umount   $PNT &> /dev/null 
-		    fi
-		fi
-		
-		TEST=$(cat $MOUNTS | grep "$PNT" | awk '{ print $1}')
-		if [ -z "$TEST" ] ; then
-		    echo       -e $RESULT_OK
-		    continue   2
-		fi
-		
-                # Debug!!!!!
-                # fuser -m -v $PNT
-		
-		if [ "$TEST" == "$TYPE" ] && [ $TRY -eq "3" ] ; then            # Last resort
-		    echo       -e $RESULT_WARN
-		    echo       -n "  * Attempting to remount read only: $PNT"
-		    sleep      1                                                  # This can help sometimes, so why not wait?
-		    mount      -o remount,ro $PNT &> /dev/null
-		    chkresult
-		fi
-	    done
-    done
+      ITERATION=1
+      UNMOUNT_ERROR=0
+
+      until [ -z `cat ${MOUNTS} | grep "${PNT}" | awk '{ print $1 }'` ] || [ ${UNMOUNT_ERROR} -eq 1 ];
+      do          
+         case ${ITERATION} in
+           1)
+             run_without_msg "umount ${PNT}"
+             ;;
+           2)
+             sleep 1
+             run_without_msg "fuser -s -km -3 ${PNT}" "1"
+             run_without_msg "umount ${PNT}"
+             ;; 
+           3)
+             sleep 1 
+             run_without_msg "fuser -s -km -9 ${PNT}"  "1"
+             run_without_msg "umount ${PNT}" "1"
+             ;;
+           4) 
+             sleep 1  
+             run_without_msg "fuser -s -km -9 ${PNT}" "1"
+             run_without_msg "umount -lf ${PNT}"    "4"
+             run_without_msg "sync; sync"
+             ;;
+           5)
+             UNMOUNT_ERROR=1 # warn that it hasn't been able to unmount the easy way
+             ;;
+          esac    
+
+          (( ITERATION++ ))
+      done
+
+      if [ ${UNMOUNT_ERROR} -eq 1 ]; then # haven't been able to unmount the point, so be drastic
+         echo -e ${RESULT_WARN}
+         run_with_msg "  * Attempting to remount ${PNT} read-only : " "mount -o remount,ro ${PNT}"
+      else
+         echo -e ${RESULT_OK}       
+      fi
+
+   done
     
-    echo -n " * Deactivating swap space:"
-    swapoff  -a
-    chkresult
+   run_with_msg " * Deactivating swap space : " "swapoff  -a"
     
-    sync; sync
+   run_without_msg "sync; sync;" "2"  # might take some time so we wait here for a couple of seconds
     
-  # Don't umpunt /proc because it can and will crash when umounting any remaining filesystems
-  # on some systems
-    
-    echo     -n " * Remounting root readonly"
-    mount    -no remount,ro / &> /dev/null
-    if [ "$?" -ne  "0" ] ; then                                         # Lazy remount, last resort
-	umount -L -O remount,ro / &> /dev/null
-	sleep  4                                                          # Again lazy needs a long timeout
-    fi
-    
-    if [ $? -ne "0" ] ; then
-	echo   -e $RESULT_FAIL
-	read   -n 1  -t 30  -p  "Do you want to login? (y/n) "  CONFIRM
-	echo   ""
-	case $CONFIRM in
-	    y|Y)  sulogin ;;
-	esac
-    else
-	echo   -e $RESULT_OK
-    fi
-    
-  # Last chance to flush before reboot
-    sync; sync
-    
-  # Should probly use hdparm at this point to put the hds to sleep
-  # Give the hd a chance to slow down
-    sleep 2
+   if ! run_with_msg  " * Remounting root readonly : "  "mount -n -o remount,ro /" ; then
+      if ! run_with_msg  " * Trying again to remount root readonly : "  "umount -l -O remount,ro /" "4" ; then
+         read   -n 1  -t 30  -p  "Do you want to login? (y/n) "  CONFIRM
+         echo   ""
+         case ${CONFIRM} in
+            y|Y)  sulogin ;;
+         esac
+      fi
+   fi
+
+   run_without_msg "sync; sync" "2"
 }
 
 # to avoid confusion we force only these options as being valid:
-case "$1" in
-  start|stop) ;;
-  *)     echo "Warning: $0 should never be called directly"; exit 1  ;;
+case "${1}" in
+   start|stop) 
+      ;;
+
+   *) 
+      echo "Warning: ${0} should never be called directly";
+      exit 1  
+      ;;
 esac
 
 . /lib/lsb/init-functions
