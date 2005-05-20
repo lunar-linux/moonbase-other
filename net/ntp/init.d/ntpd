@@ -8,7 +8,7 @@
 # config: /etc/ntp.conf
 
 ARGS="-g"
-[ -f "/etc/ntp.conf" ] && ARGS="$ARGS -c /etc/ntp.conf"
+[ -e "/etc/ntp.conf" ] && ARGS="$ARGS -c /etc/ntp.conf"
 
 reload () {
 	# ntp is not reload-safe
