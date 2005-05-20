@@ -21,11 +21,12 @@
 	
   ln -sf ../init.d/signals  /etc/rc0.d/S80signals
   ln -sf ../init.d/halt     /etc/rc0.d/S90halt
-  ln -sf ../init.d/bootmisc /etc/rc0.d/S99bootmisc
+  ln -sf ../init.d/bootmisc /etc/rcS.d/S99bootmisc
   ln -sf ../init.d/signals  /etc/rc6.d/S80signals
   ln -sf ../init.d/reboot   /etc/rc6.d/S90reboot
 
   touch     /var/run/utmp /var/log/{w,b}tmp /var/log/lastlog
-  chmod 644 /var/run/utmp /var/log/{w,b}tmp /var/log/lastlog
+  chmod 644 /var/run/utmp /var/log/wtmp /var/log/lastlog
+  chmod 600 /var/log/btmp
 
 ) > $C_FIFO 2>&1
