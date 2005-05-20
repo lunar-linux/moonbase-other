@@ -1,8 +1,8 @@
 #
 # The PAM configuration file for the `chsh' service
 #
-auth      required pam_unix.so nullok
-account   required pam_unix.so
-session   required pam_unix.so
-password  required pam_cracklib.so retry=3 type=Lunar
-password  required pam_unix.so shadow md5 use_authtok
+auth		sufficient	pam_rootok.so
+auth		required	pam_stack.so service=system-auth
+account		required	pam_stack.so service=system-auth
+password	required	pam_stack.so service=system-auth
+session		required	pam_stack.so service=system-auth
