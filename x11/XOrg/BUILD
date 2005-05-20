@@ -125,6 +125,11 @@
   if [ -e /etc/X11/xinit/xinitrc.orig ]; then
     cp /etc/X11/xinit/xinitrc.orig /etc/X11/xinit/xinitrc
     message "${MESSAGE_COLOR}Your master xinitrc file has been restored from /etc/X11/xinit/xinitrc.orig${DEFAULT_COLOR}"
-  fi
+  fi &&
+
+  # cosmetic but needed adjustments:
+  echo 'XTerm*loginShell: true' >> /etc/X11/app-defaults/XTerm &&
+  echo 'XTerm*loginShell: true' >> /etc/X11/app-defaults/XTerm-color
+  
   
 ) > $C_FIFO 2>&1
