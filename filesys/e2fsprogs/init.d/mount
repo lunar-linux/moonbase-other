@@ -250,7 +250,8 @@ start()
    # We mounted devfs before, now a hack to get it into /etc/mtab
    test "${DEVNODES}" = "devfs" && run_without_msg "mount -f -t devfs devfs /dev"
   
-   grep -v '#' /etc/fstab | grep -v ^$ | grep -v noauto | while read DEVICE MOUNTPOINT FSTYPE OPTS REST
+   # sort the filesystems, swapfiles at bottom, squeeze separators into spaces
+   grep -v -e '#\|^$\|noauto' /etc/fstab | tr -s '[:space:]' | tr '\t' ' ' | LC_ALL=C sort -k2 | while read DEVICE MOUNTPOINT FSTYPE OPTS REST
    do  
       case ${MOUNTPOINT} in
          /|/proc|/sys|/dev|/dev/pts) # been mounted previously
