@@ -1,6 +1,6 @@
 (
 
-  export patchdir=$SOURCE_DIRECTORY/$MODULE-$VERSION-lunar
+  export patchdir=$SOURCE_DIRECTORY/$MODULE-$PVERSION-lunar
   EXTENTIONS="default,finger,spellcheck"
 
   if [ "$COM" == "n" ] ; then
