@@ -8,11 +8,11 @@
   default_make                           &&
   rm  -f         /bin/awk                &&
   ln  -sf  gawk  /bin/awk                &&
-  if [ -e /bin/gawk-  ]; then
-    rm /bin/gawk-;
+  if [ -e /bin/gawk-*  ]; then
+    rm /bin/gawk-*;
   fi                                     &&
-  if [ -e /bin/pgawk- ]; then
-    rm /bin/pgawk-;
+  if [ -e /bin/pgawk-* ]; then
+    rm /bin/pgawk-*;
   fi
 
 ) > $C_FIFO 2>&1
