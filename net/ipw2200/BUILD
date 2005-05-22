@@ -14,8 +14,6 @@
   message "Disabling debug messages ..."
   sedit "s:CONFIG_IPW_DEBUG=y:#CONFIG_IPW_DEBUG=y:" Makefile
 
-  make &&
-  prepare_install &&
-  make install
+  default_make
 
 ) > $C_FIFO 2>&1
