@@ -1,7 +1,6 @@
 (
-
-  default_build                          &&
-  make    clean                          &&
-  ./installFiles.sh
+  
+  sedit "s:/usr/local/bin/:/usr/bin/:g" makefile  &&
+  default_make
 
 ) > $C_FIFO 2>&1
