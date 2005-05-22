@@ -1,5 +1,9 @@
 (
+
   sedit 's@linux/socket.h@sys/socket.h@' include/linux/netlink.h
+  if ! in_depends $MODULE db; then
+    sedit 's/arpd//' misc/Makefile
+  fi
 
   ./configure &&
   KERNEL_INCLUDE=/usr/include/ make SBINDIR=/sbin &&
