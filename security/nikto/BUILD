@@ -15,6 +15,8 @@
   if module_installed nmap; then
     sedit 's:^#NMAP:NMAP:' $CONF_FILE
   fi
+
+  prepare_install &&
  
   # install the conf file
   install -m 0600 $CONF_FILE /etc &&
