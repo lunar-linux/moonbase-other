@@ -101,7 +101,7 @@
   done &&
 
   # jol change. On clean install /usr/share/applications
-  mkdir -p /usr/share/applications /usr/share/pixmaps
+  mkdir -p /usr/share/applications /usr/share/pixmaps &&
 
   install $patchdir/mozilla.desktop /usr/share/applications/ &&
   install $patchdir/mozilla.png /usr/share/pixmaps/ &&
