@@ -93,6 +93,13 @@ plugin_kernel_updatebootloader_grub()
         debug_msg "grub: Using GRUB_ROOT=\"$GRUB_ROOT\""
 	fi
 
+	print_grub_image()
+	{
+		printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2" \
+			   "$GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount" \
+			   "$GRUB_ROOT"
+	}
+
 	if ! ( grep -q "$1" /boot/grub/menu.lst && grep -q "$1.old" /boot/grub/menu.lst ) ; then
 		IFS_OLD=$IFS
 		export IFS="
@@ -109,10 +116,10 @@ plugin_kernel_updatebootloader_grub()
 
 				if (( IMAGE_COUNT == 0 )) ; then
 					if ! grep -q "$1" /boot/grub/menu.lst ; then
-						printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2" "$GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount" "$GRUB_ROOT" "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
+						print_grub_image "$1" "$2" >> /boot/grub/menu.lst.new
 					fi
 				 if [ -f /boot/"$1.old" ] && ! grep -q "$1.old" /boot/grub/menu.lst ; then
-						printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2.old" "$GRUB_BOOT/$1.old root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount" "$GRUB_ROOT" "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
+						print_grub_image "$1.old" "$2.old" >> /boot/grub/menu.lst.new
 					fi
 				fi
 				(( IMAGE_COUNT++ ))
@@ -125,10 +132,10 @@ plugin_kernel_updatebootloader_grub()
 
 		if (( IMAGE_COUNT == 0 )) ; then
 			if ! grep -q "$1" /boot/grub/menu.lst ; then
-				printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2" "$GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount" "$GRUB_ROOT" "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
+				print_grub_image "$1" "$2" >> /boot/grub/menu.lst.new
 			fi
 			if [ -f /boot/"$1.old" ] && ! grep -q "$1.old" /boot/grub/menu.lst ; then
-				printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2.old" "$GRUB_BOOT/$1.old root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount" "$GRUB_ROOT" "$GRUB_IMAGE_ENTRY" >> /boot/grub/menu.lst.new
+				print_grub_image "$1.old" "$2.old" >> /boot/grub/menu.lst.new
 			fi
 		fi
 
