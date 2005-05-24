@@ -99,9 +99,18 @@ plugin_kernel_updatebootloader_grub()
 			   "$GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount" \
 			   "$GRUB_ROOT"
 	}
+	
+	add_grub_image()
+	{
+		if ! grep -q "$1" /boot/grub/menu.lst ; then
+			print_grub_image "$1" "$2" >> /boot/grub/menu.lst.new
+		fi
+	 	if [ -f /boot/"$1.old" ] && ! grep -q "$1.old" /boot/grub/menu.lst ; then
+			print_grub_image "$1.old" "$2.old" >> /boot/grub/menu.lst.new
+		fi
+	}
 
 	if ! ( grep -q "$1" /boot/grub/menu.lst && grep -q "$1.old" /boot/grub/menu.lst ) ; then
-		IFS_OLD=$IFS
 		export IFS="
 "
 
@@ -115,12 +124,7 @@ plugin_kernel_updatebootloader_grub()
 				echo "" >> /boot/grub/menu.lst.new
 
 				if (( IMAGE_COUNT == 0 )) ; then
-					if ! grep -q "$1" /boot/grub/menu.lst ; then
-						print_grub_image "$1" "$2" >> /boot/grub/menu.lst.new
-					fi
-				 if [ -f /boot/"$1.old" ] && ! grep -q "$1.old" /boot/grub/menu.lst ; then
-						print_grub_image "$1.old" "$2.old" >> /boot/grub/menu.lst.new
-					fi
+					add_grub_image "$1" "$2"
 				fi
 				(( IMAGE_COUNT++ ))
 			fi
@@ -131,16 +135,10 @@ plugin_kernel_updatebootloader_grub()
 		done
 
 		if (( IMAGE_COUNT == 0 )) ; then
-			if ! grep -q "$1" /boot/grub/menu.lst ; then
-				print_grub_image "$1" "$2" >> /boot/grub/menu.lst.new
-			fi
-			if [ -f /boot/"$1.old" ] && ! grep -q "$1.old" /boot/grub/menu.lst ; then
-				print_grub_image "$1.old" "$2.old" >> /boot/grub/menu.lst.new
-			fi
+			add_grub_image "$1" "$2"
 		fi
 
 		cp /boot/grub/menu.lst.new /boot/grub/menu.lst
-		export IFS=$IFS_OLD
 	fi
 
 	if query "Edit grub configuration manually ?" n ; then
