@@ -7,6 +7,8 @@
 
   sedit "s:-O3:-O2:g" configure &&
 
+  OPTS="$OPTS --enable-shared" &&
+
   default_build &&
   
   install -d /usr/lib/python$MAJOR_VERSION &&
