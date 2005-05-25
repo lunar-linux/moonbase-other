@@ -17,8 +17,8 @@ while read FILE ; do
     eval SOURCE${N}_URL[1]=http://www.jumpbump.mine.nu/levels.bz2/$FILE
   else
     eval SOURCE=$FILE
-    eval SOURCE_URL[0]=http://jumpnbump.spaceteddy.net/$FILE
-    eval SOURCE_URL[1]=http://www.jumpbump.mine.nu/levels.bz2/$FILE
+    eval SOURCE_URL[0]=http://jumpnbump.spaceteddy.net/
+    eval SOURCE_URL[1]=http://www.jumpbump.mine.nu/levels.bz2/
   fi
   (( N = $N + 1 ))
 done < $SCRIPT_DIRECTORY/level-list
