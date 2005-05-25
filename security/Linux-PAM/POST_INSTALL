@@ -1,4 +1,6 @@
 case  $RElin_PAM_AWARE  in
-  y|Y|j|J)  lin -c $(find_pam_aware)
+  y|Y)  find_pam_aware | while read mod; do
+	lin -c $mod
+	done
             ;;
 esac
