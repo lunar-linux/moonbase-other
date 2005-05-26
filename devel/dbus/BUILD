@@ -1,7 +1,13 @@
 (
  
-  if module_installed kdelibs3; then
+  if module_installed kdelibs3 ; then
      export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
+  fi
+
+  if module_installed gtk-sharp ; then
+    OPTS="$OPTS --enable-mono"
+  else
+    OPTS="$OPTS --disable-mono"
   fi
  
   OPTS="$OPTS --enable-glib --enable-x --enable-checks --enable-verbose-mode \
