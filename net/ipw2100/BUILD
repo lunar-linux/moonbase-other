@@ -1,13 +1,14 @@
 (
 
-  if [ $WITH_WPA == "y" ]; then
-    message "Enabling WPA support ..."
-    sedit "s:# CONFIG_IEEE80211_WPA:CONFIG_IEEE80211_WPA:" Makefile
-  fi
+  if [ $WITH_WPA == "y" ] ; then
+    message "${MESSAGE_COLOR}Enabling WPA support ...${DEFAULT_COLOR}"
+    sedit 's/#\ CONFIG_IEEE80211_WPA/CONFIG_IEEE80211_WPA/' Makefile
+  fi &&
 	
-  # Debug sucks
-  message "Disabling debug messages ..."
-  sedit "s:CONFIG_IPW_DEBUG=y:#CONFIG_IPW_DEBUG=y:" Makefile
+  if [ $WITH_DEBUG == "y" ] ; then
+  message "${MESSAGE_COLOR}Disabling debug messages ...${DEFAULT_COLOR}"
+  sedit 's/CONFIG_IPW_DEBUG=y/#CONFIG_IPW_DEBUG=y/' Makefile
+  fi &&
 
   default_make
 
