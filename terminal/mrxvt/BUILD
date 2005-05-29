@@ -4,12 +4,8 @@
                --sysconfdir=/etc                    \
 	       --mandir=$MODULE_PREFIX/share/man    \
 	       --infodir=$MODULE_PREFIX/share/info  \
-               --enable-fading                      \
-               --enable-transparency                \
-               --enable-next-scroll                 \
-               --enable-half-shadow                 \
-	       --enable-swapscreen                  \
-	       --enable-mousewheel                  \
+               --enable-everything                  \
+               --disable-debug                      \
 	       --with-x                             \
                $OPTS                               &&
 
