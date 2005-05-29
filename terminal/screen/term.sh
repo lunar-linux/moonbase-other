@@ -163,4 +163,3 @@ END {
 
 chmod a-w kmapdef.c
 chmod a-w term.h
-
