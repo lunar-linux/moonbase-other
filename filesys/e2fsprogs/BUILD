@@ -1,5 +1,5 @@
 (
-  set -x                                 &&
+
   ./configure  --build=$BUILD            \
                --prefix=/usr             \
                --with-root-prefix=       \
@@ -7,40 +7,16 @@
                --mandir=/usr/share/man   \
                --enable-elf-shlibs       \
                $OPTS                     &&
-  set +x                                 &&             
-  make                                   &&
-  prepare_install                        &&
-  make    install                        &&
-  make    install-libs                   && 
+  default_make                           &&
+  make install-libs                      ||
+  exit 1
 
-if [ -L "/etc/mtab" ]; then
-   cp /etc/mtab /etc/mtab.nolinkplease
-   rm -f /etc/mtab
-   mv /etc/mtab.nolinkplease /etc/mtab
-fi					 &&
+  if [ ! -x /etc/init.d/mount ] ; then
+    cp $SCRIPT_DIRECTORY/init.d/mount /etc/init.d
+  fi  &&
 
-[ -x /etc/init.d/mount ] || cp $SCRIPT_DIRECTORY/init.d/mount /etc/init.d &&
-
-if [ -e "/etc/init.d/mount.sh" ]; then
-   rm -f /etc/init.d/mount.sh
-fi                                           &&
-
-for DIR in /etc/rc*.d; do
-   # Sanity checks first...
-   if [ -d "$DIR" ]; then
-      rm -f $DIR/???mount 
-      rm -f $DIR/???mount.sh
-   fi
-done                                         &&
-
-ln -sf /etc/init.d/mount /etc/rcS.d/S10mount &&
-
-if ! [ -e "/etc/rc6.d/K99mount" ]; then
-        ln -s /etc/init.d/mount /etc/rc6.d/K99mount
-fi                                           &&
-
-if ! [ -e "/etc/rc0.d/K99mount" ]; then
-        ln -s /etc/init.d/mount /etc/rc0.d/K99mount
-fi                                           
+  ln -sf /etc/init.d/mount /etc/rcS.d/S10mount  &&
+  ln -sf /etc/init.d/mount /etc/rc6.d/K99mount  &&
+  ln -sf /etc/init.d/mount /etc/rc0.d/K99mount
 
 ) > $C_FIFO 2>&1
