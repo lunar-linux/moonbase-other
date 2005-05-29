@@ -116,11 +116,12 @@
     ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig/xft.pc
   fi &&
 
-  if [ ! -d /tmp/.ICE-unix ]; then
-    mkdir -p /tmp/.ICE-unix
-    chown root /tmp/.ICE-unix
-    chmod 777 /tmp/.ICE-unix
-  fi &&
+  install -g0 -m0 -m0700 $SCRIPT_DIRECTORY/init.d/ICE,X11-unix /etc/init.d/ &&
+  ln -sf /etc/init.d/ICE,X11-unix /etc/rc2.d/S20ICE,X11-unix &&
+  ln -sf /etc/init.d/ICE,X11-unix /etc/rc3.d/S20ICE,X11-unix &&
+  ln -sf /etc/init.d/ICE,X11-unix /etc/rc4.d/S20ICE,X11-unix &&
+  ln -sf /etc/init.d/ICE,X11-unix /etc/rc5.d/S20ICE,X11-unix &&
+  /etc/init.d/ICE,X11-unix start &&
 
   if [ -e /etc/X11/xinit/xinitrc.orig ]; then
     cp /etc/X11/xinit/xinitrc.orig /etc/X11/xinit/xinitrc
@@ -130,6 +131,5 @@
   # cosmetic but needed adjustments:
   echo 'XTerm*loginShell: true' >> /etc/X11/app-defaults/XTerm &&
   echo 'XTerm*loginShell: true' >> /etc/X11/app-defaults/XTerm-color
-  
-  
+ 
 ) > $C_FIFO 2>&1
