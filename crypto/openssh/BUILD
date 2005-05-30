@@ -8,6 +8,10 @@
 
   add_priv_user sshd:sshd                                                &&
 
+  if echo $OPTS | grep -q -- "--with-kerberos5="; then
+    patch_it $SOURCE2 1
+  fi &&
+
   OPTS=$OPTS" --sysconfdir=/etc/ssh --with-md5-passwords"                &&
   default_build                                                          &&
   if [ ! -f /etc/ssh/Makefile ] ; then
