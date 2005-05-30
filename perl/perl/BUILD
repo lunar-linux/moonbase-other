@@ -2,18 +2,14 @@
 
   # DO NOT TOUCH THESE SEDITS UNLESS YOU KNOW WHAT YOU'RE DOING!
 
-  # Really enable threads
-  sedit 's/libswanted=\"\$\*\"/libswanted=\"pthread\ \$\*\"/' hints/linux.sh
-  
-  # Work around the segfaults. Doesn't do any harm
-  sedit 's/\$(COMPILE)//' Makefile.SH &&
-
-  # Does harm if you run make test .. which we do not do
-  sedit 's/COMPILE/SOMETHING/' installperl &&
+  # Rename COMPILE to something else in these files since
+  # COMPILE gets set by lunar. Perl uses COMPILE when
+  # compling win32 test programs.
+  sedit 's/COMPILE/PERL_DID_AN_OOPS/' Makefile.SH installperl &&
 
   if [ "$USE_SUIDPERL" == "y" ] ; then
 	OPTS="$OPTS -Dd_dosuid"
-  fi
+  fi &&
 	
   if [ "$CUSTOM" == "y" ] ; then
 	./Configure  -Dprefix=/usr   \
@@ -46,7 +42,7 @@
   strip --strip-unneeded $(which perl) &&
   
   if [ "$SUIDPERL" == "y" ] ; then
-    strip --strip-unneeded $(which perl)
+    strip --strip-unneeded $(which suidperl)
   fi
 
 ) > $C_FIFO 2>&1
