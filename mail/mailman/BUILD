@@ -12,14 +12,14 @@
 	      --with-groupname=mailman         \
 	      --with-python=/usr/bin/python    \
 	      --with-mail-gid=$MAIL_GID        \
-	      --with-cgi-gid=$MAILMAN_GID      &&
+	      --with-cgi-gid=$MAILMAN_GID     &&
 	      
   make  "CC=gcc"                               \
         "OPT=$CFLAGS"                          \
         "AUXLIBS=$AUXLIBS"                     \
-        "CCARGS=CCARGS"                        &&
+        "CCARGS=CCARGS"                       &&
 
-  prepare_install                              &&
+  prepare_install                             &&
   make install
 
 ) > $C_FIFO 2>&1
