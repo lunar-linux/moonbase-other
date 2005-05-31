@@ -5,11 +5,7 @@
   
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
-  MOZ_EXTENSIONS="cookie,xml-rpc,xmlextras,pref,transformiix,universalchardet,webservices,inspector"
-
-  if in_depends gnome-vfs2 ; then
-	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},gnomevfs"
-  fi &&
+  MOZ_EXTENSIONS="cookie,xml-rpc,xmlextras,pref,transformiix,universalchardet,webservices"
 
   if in_depends heimdal ; then
 	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},negotiateauth"
