@@ -80,37 +80,40 @@ plugin_kernel_updatebootloader_grub()
 	# not being called from the ISO, in which case we use the provided values
 	# this test only checks GRUB_ROOT, because GRUB_BOOT might be empty
 	if [ -z "$GRUB_ROOT" ]; then
-        # determine is BOOT is a separate partition:
+        # determine if BOOT is a separate partition:
         BOOTPART=$(grep "^/dev/" /etc/mtab | awk '($2 == "/boot"){print $1}')
+		# determine what to tell our kernel is the rootfs partition
         ROOTPART=$(grep "^/dev/" /etc/mtab | awk '($2 == "/"){print $1}')
-        GRUB_ROOT="($(map_device_to_grub $ROOTPART))"
         if [ -n "$BOOTPART" ]; then
             GRUB_BOOT=""
         else
             GRUB_BOOT="/boot"
         fi
+        GRUB_ROOT="($(map_device_to_grub $ROOTPART))"
         debug_msg "grub: Using GRUB_BOOT=\"$GRUB_BOOT\""
         debug_msg "grub: Using GRUB_ROOT=\"$GRUB_ROOT\""
 	fi
 
 	print_grub_image()
 	{
-		printf "title   %s\nkernel  %s\nroot    %s\n\n" "$2" \
-			   "$GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount" \
-			   "$GRUB_ROOT"
+		debug_msg "title   $2"
+		debug_msg "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount"
+		echo   "title   $2"
+		echo   "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount"
+		echo   ""
 	}
 	
 	add_grub_image()
 	{
-		if ! grep -q "$1" /boot/grub/menu.lst ; then
+		if ! grep -qw "$2" /boot/grub/menu.lst ; then
 			print_grub_image "$1" "$2" >> /boot/grub/menu.lst.new
 		fi
-	 	if [ -f /boot/"$1.old" ] && ! grep -q "$1.old" /boot/grub/menu.lst ; then
+	 	if [ -f /boot/"$1.old" ] && ! grep -qw "$2.old" /boot/grub/menu.lst ; then
 			print_grub_image "$1.old" "$2.old" >> /boot/grub/menu.lst.new
 		fi
 	}
 
-	if ! ( grep -q "$1" /boot/grub/menu.lst && grep -q "$1.old" /boot/grub/menu.lst ) ; then
+	if ! ( grep -qw "$2" /boot/grub/menu.lst && grep -qw "$2.old" /boot/grub/menu.lst ) ; then
 		export IFS="
 "
 
