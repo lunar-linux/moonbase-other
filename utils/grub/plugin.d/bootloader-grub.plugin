@@ -102,18 +102,24 @@ plugin_kernel_updatebootloader_grub()
 		echo   "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount"
 		echo   ""
 	}
+
+	has_grub_title()
+	{
+		# really hard way of looking for a kernel label $1
+		grep title "$2" | tr '\t' ' ' | tr -s ' ' | cut -d ' ' -f2- | grep -q "^$1$"
+	}
 	
 	add_grub_image()
 	{
-		if ! grep -qw "$2" /boot/grub/menu.lst ; then
+		if ! has_grub_title "$2" /boot/grub/menu.lst ; then
 			print_grub_image "$1" "$2" >> /boot/grub/menu.lst.new
 		fi
-	 	if [ -f /boot/"$1.old" ] && ! grep -qw "$2.old" /boot/grub/menu.lst ; then
+	 	if [ -f /boot/"$1.old" ] && ! has_grub_title "$2.old" /boot/grub/menu.lst ; then
 			print_grub_image "$1.old" "$2.old" >> /boot/grub/menu.lst.new
 		fi
 	}
 
-	if ! ( grep -qw "$2" /boot/grub/menu.lst && grep -qw "$2.old" /boot/grub/menu.lst ) ; then
+	if ! ( has_grub_title "$2" /boot/grub/menu.lst && has_grub_title "$2.old" /boot/grub/menu.lst ) ; then
 		export IFS="
 "
 
