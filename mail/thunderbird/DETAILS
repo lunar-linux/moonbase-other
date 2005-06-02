@@ -1,18 +1,25 @@
           MODULE=thunderbird
          VERSION=1.0.2
           SOURCE=thunderbird-$VERSION-source.tar.bz2
-	 SOURCE2=thunderbird.desktop
+	 SOURCE2=enigmail-0.90.1.tar.gz
+	 SOURCE3=ipc-1.1.2.tar.gz
+	 SOURCE4=thunderbird.desktop
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
    SOURCE_URL[0]=http://ftp.mozilla.org/pub/mozilla.org/$MODULE/releases/$VERSION/source/
    SOURCE_URL[1]=http://archive.progeny.com/mozilla.org/$MODULE/releases/$VERSION/source/
+     SOURCE2_URL=http://downloads.mozdev.org/enigmail/src/
+     SOURCE3_URL=http://downloads.mozdev.org/enigmail/src/
+     SOURCE4_URL=$PATCH_URL/
       SOURCE_VFY=sha1:25dbc24b632f7e8b4c730e94d0472020b34d88ea
-     SOURCE2_URL=$PATCH_URL/
-     SOURCE2_VFY=sha1:a76c4e25bf4e491014c5bafbb07de096248a9931
+     SOURCE2_VFY=sha1:b904677dc7d621989a6f2f831bde832bab3b86ba
+     SOURCE3_VFY=sha1:e937e12cd7167172aefc51898c7d89cab5707a4b
+     SOURCE4_VFY=sha1:a76c4e25bf4e491014c5bafbb07de096248a9931
 	WEB_SITE=http://www.mozilla.org/projects/thunderbird
          ENTERED=20031021
          UPDATED=20050322
-           SHORT="Mozilla Thunderbird is a full-featured mail client"
-PSAFE=no
+           SHORT="A full-featured mail client"
+	   PSAFE=no
+
 cat << EOF
 Thunderbird includes:
 
