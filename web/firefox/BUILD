@@ -7,7 +7,7 @@
   
   MOZ_EXTENSIONS="cookie,xml-rpc,xmlextras,pref,transformiix,universalchardet,webservices"
 
-  if in_depends heimdal ; then
+  if in_depends $MODULE heimdal ; then
 	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},negotiateauth"
   else
 	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-negotiateauth"
