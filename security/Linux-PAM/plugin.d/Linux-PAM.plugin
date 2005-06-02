@@ -10,20 +10,6 @@
 #############################################################
 
 
-find_pam_aware()  {
-  local MODULE SECTION
-  debug_msg "find_pam_aware ($@)"
-
-  for MODULE in $(list_installed); do 
-    SECTION=$(find_section $MODULE)
-    if [ -d "$MOONBASE/$SECTION/$MODULE/pam.d" ] && 
-           [ "$MODULE" != "Linux-PAM" ]; then
-      echo $MODULE
-    fi
-  done < $MODULE_STATUS
-}
-
-
 plugin_pam_post_build()
 {
   local FILE
