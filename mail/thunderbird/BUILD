@@ -1,41 +1,94 @@
 ( 
+  if module_is_expired $MODULE ; then
+        set_module_config OLD_VER "`installed_version $MODULE`"
+  fi &&
+  
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
-  
-  OPTS="$OPTS --enable-application=mail"
-  OPTS="$OPTS --disable-mathml"
-  OPTS="$OPTS --disable-installer"
-  OPTS="$OPTS --disable-activex"
-  OPTS="$OPTS --disable-activex-scripting"
-  OPTS="$OPTS --enable-xft"
-  OPTS="$OPTS --disable-oji"
-  OPTS="$OPTS --disable-necko-disk-cache"
-  OPTS="$OPTS --disable-profilesharing --enable-single-profile"
-  OPTS="$OPTS --enable-extensions=wallet,spellcheck,xmlextras,webservices,-irc,-venkman"
-  OPTS="$OPTS --enable-necko-protocols=http,file,jar,viewsource,res,data"
-  OPTS="$OPTS --enable-image-decoders=default,-xbm"
-  
-  export MOZ_THUNDERBIRD=1
-  export BUILD_OFFICIAL=1
-  export MOZ_CO_PROJECT=mail
+  MOZ_EXTENSIONS="wallet,spellcheck,xmlextras,webservices"
+  NECKO_PROT="http,file,jar,viewsource,res,data"
 
-    ./configure \
-    --prefix=/usr	 \
-    --with-x             \
-    --with-pthreads      \
-    --enable-reorder     \
-    --enable-cpp-rtti    \
-    --enable-optimize="$CFLAGS"   \
+  if in_depends heimdal ; then
+	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},negotiateauth"
+  else
+	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-negotiateauth"
+  fi &&
+
+  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
+  export MOZ_THUNDERBIRD=1
+  export MOZILLA_OFFICIAL=1
+  export BUILD_OFFICIAL=1
+
+  ./configure 		\
+    --prefix=/usr	\
+    --with-x            \
+    --with-pthreads     \
     --with-default-mozilla-five-home=$MOZILLA_HOME \
-    --disable-debug      \
-    --disable-tests      \
-    --disable-pedantic   \
-    --disable-toolkit-gtk  \
-    --enable-default-toolkit=gtk2  \
-    --with-gtk2          \
-    --enable-crypto      \
-    --enable-optimize	 \
+    --with-user-appdir=".thunderbird"       \
+    --with-system-zlib	\
+    --with-system-png   \
+    --with-system-jpeg  \
+    --enable-necko-protocols=${NECKO_PROT}	\
+    --enable-extensions=${MOZ_EXTENSIONS}	\
+    --enable-xft	\
+    --enable-single-profile	\
+    --enable-application=mail	\
+    --enable-default-toolkit=gtk2       \
+    --enable-reorder    \
+    --enable-cpp-rtti   \
+    --enable-optimize="$CFLAGS"   \
+    --enable-crypto     \
+    --enable-strip	\
+    --enable-strip-libs \
+    --enable-xterm-updates	\
+    --enable-svg	\
+    --enable-svg-renderer-cairo	\
+    --enable-plaintext-editor-only	\
+    --enable-image-decoders=default,-xbm	\
+    --disable-debug     \
+    --disable-tests     \
+    --disable-oji	\
+    --disable-plugins	\
+    --disable-necko-disk-cache	\
+    --disable-installer \
+    --disable-pedantic  \
+    --disable-logging	\
+    --disable-accessibility	\
+    --disable-freetype2	\
+    --disable-ldap	\
+    --disable-profilesharing	\
+    --disable-mathml	\
     $OPTS               &&
               
-    default_make
+    make	&&
+    prepare_install &&
+    make install &&
+
+    if module_installed gnupg ; then
+      build/autoconf/make-makefile extensions/ipc \
+                extensions/enigmail
+      make -C extensions/ipc
+      make -C extensions/enigmail
+      make -C extensions/ipc install 
+      make -C extensions/enigmail install
+    fi
+
+    # Needed for rss support
+    install -d $MOZILLA_HOME/defaults/isp/US &&
+    install -m644 $SOURCE_DIRECTORY/mail/extensions/newsblog/rss.rdf \
+		  $MOZILLA_HOME/defaults/isp &&
+    install -m644 $SOURCE_DIRECTORY/mail/extensions/newsblog/rss.rdf \
+                  $MOZILLA_HOME/defaults/isp/US &&
+
+    # Put some important headers in place
+    install -d /usr/include/$MODULE-$VERSION/nss &&
+    cp -Lf dist/private/nss/*.h dist/public/nss/*.h \
+    		/usr/include/$MODULE-$VERSION/nss &&
+
+    # Now the .desktop file and the icon
+    install -d /usr/share/applications /usr/share/pixmaps &&
+    install -m644 $SOURCE_CACHE/$SOURCE4 /usr/share/applications
+    rm -f /usr/share/pixmaps/thunderbird.xpm &&
+    install -m644 $MOZILLA_HOME/icons/default.xpm \
+		  /usr/share/pixmaps/thunderbird.xpm
 
 ) > $C_FIFO 2>&1

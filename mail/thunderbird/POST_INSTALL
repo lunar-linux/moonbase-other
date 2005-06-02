@@ -1,5 +1,10 @@
+OLD_VER="$(get_module_config OLD_VER)"
 TBIRD_HOME=/usr
 TBIRD_LIBDIR=thunderbird-$VERSION
+
+if [ ! -z $OLD_VER ]; then
+  rm -rf /usr/lib/firefox-$OLD_VER
+fi
 
 # No more linking workarounds
 export LD_LIBRARY_PATH="$TBIRD_HOME/lib/$TBIRD_LIBDIR:$TBIRD_HOME/lib/$TBIRD_LIBDIR/plugins:$TBIRD_HOME/lib/$TBIRD_LIBDIR/components"
@@ -12,8 +17,3 @@ echo "locale,install,select,en-US" >> $TBIRD_HOME/lib/$TBIRD_LIBDIR/chrome/insta
 cd $TBIRD_HOME/lib/$TBIRD_LIBDIR
 ./regxpcom
 ./regchrome
-
-# Put the .desktop file in place
-
-cp -f $SOURCE_CACHE/$SOURCE2 /usr/share/applications
-cp -f $TBIRD_HOME/lib/$MODULE-$VERSION/icons/mozicon50.xpm /usr/share/pixmaps 
