@@ -52,7 +52,8 @@
     --disable-accessibility	\
     --disable-freetype2	\
     --disable-ldap	\
-    --disable-profilesharing	\ 
+    --disable-profilesharing	\
+    --disable-mathml	\ 
     $OPTS               &&
               
     default_make	&&
