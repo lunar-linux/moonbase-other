@@ -26,6 +26,10 @@ install_dicts ()
   sedit "/^LANGS=\"\$LANGS/d" bin/setup.in      &&
   sedit "/^LANGS=/s/\".*\"/\"$SEL_LANGS\"/" bin/setup.in  &&
 
+  # Fixing pkg depends
+  sedit "s%evolution-data-server-1.0%evolution-data-server-1.2%" configure &&
+  sedit "s%libebook-1.0%libebook-1.2%" patches/evo2/connectivity-source-drivers-evoab1-5-makefile-mk.diff &&
+    
   message "+ Running configure with \$OPTS: $OPTS" &&
 
   ./configure	--prefix=/usr 			\
