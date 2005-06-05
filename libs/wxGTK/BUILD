@@ -1,9 +1,7 @@
 ( 
-  patch_it $SOURCE2 0  &&
-
   ./configure   --build=$BUILD	\
                 --prefix=/usr  \
-		--enable-gtk2  \
+		--with-gtk  \
 		--enable-unicode  \
 		--enable-optimise  \
 		$OPTS  &&
