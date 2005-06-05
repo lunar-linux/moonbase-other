@@ -1,20 +1,21 @@
 (
 
-  if  module_installed  Linux-PAM;  then
+  if module_installed Linux-PAM; then
     OPTS="$OPTS --with-pam"
+  else
+    OPTS="$OPTS --without-pam"
   fi
 
-  if grep -q "qpopper" $MODULE_CONFIG; then
-    OPTS="$OPTS --enable-standalone"
-  fi
-
-  if  module_installed openssl && grep -q "OPENSSL=y" $MODULE_CONFIG ; then
+  if in_depends $MODULE openssl ; then
     CFLAGS="$CFLAGS -I/usr/include/openssl"
   fi
   
-  echo "Configuring with $OPTS"
+  message "${MESSAGE_COLOR}Configuring with $OPTS${DEFAULT_COLOR}"
 
-  ./configure $OPTS --prefix=/usr --mandir=/usr/share/man  &&
+  ./configure --prefix=/usr \
+	      --mandir=/usr/share/man \
+	      --enable-standalone \
+	      $OPTS &&
   default_make
 
 ) > $C_FIFO 2>&1

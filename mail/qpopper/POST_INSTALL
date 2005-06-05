@@ -1,4 +1,4 @@
-if  module_installed openssl && grep -q "OPENSSL=y" $MODULE_CONFIG ; then
+if in_depends $MODULE openssl ; then
   if query "Create a new SSL key? " y ; then
     mkdir -p -m665 /etc/mail/certs
     chown root:mail /etc/mail/certs
