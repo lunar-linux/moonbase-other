@@ -1,7 +1,7 @@
 (
 
-  add_priv_user ntp:ntp -d /var/empty &&
-  OPTS="$OPTS --with-privsep-user=ntp" &&
+  add_priv_user ntp:ntp -d /var/empty   &&
+  OPTS="$OPTS --with-privsep-user=ntp"  &&
   default_build
 
 ) > $C_FIFO 2>&1
