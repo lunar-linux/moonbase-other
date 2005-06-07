@@ -8,7 +8,8 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=root
 HOME=/
 
-0 * * * * root run-parts /etc/cron.hourly
-0 0 * * * root run-parts /etc/cron.daily
-0 0 * * 0 root run-parts /etc/cron.weekly
-0 0 1 * * root run-parts /etc/cron.monthly
+@hourly  root run-parts /etc/cron.hourly
+@daily   root run-parts /etc/cron.daily
+@weekly  root run-parts /etc/cron.weekly
+@monthly root run-parts /etc/cron.monthly
+
