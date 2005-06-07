@@ -15,4 +15,8 @@ optional_depends "xine-lib" "--with-xine"  \
 optional_depends "arts" "--with-arts" "--without-arts" \
 		 "for ARTS support"  &&
 
-optional_depends "libvisual"  ""  ""  "for libvisual support"
+optional_depends "libvisual"  ""  ""  "for libvisual support"  &&
+
+optional_depends "mysql" "--enable-mysql"  \
+                 "--disable-mysql"         \
+                 "for database support"
