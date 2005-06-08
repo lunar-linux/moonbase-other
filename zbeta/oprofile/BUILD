@@ -1,14 +1,15 @@
 (
 
-if module_installed linux-beta || module_installed linux-2.6 ; then
-  KO="--with-kernel-support"
-else
-  KO="--with-linux=/usr/src/linux"
-fi
+  if module_installed linux-beta || module_installed linux-2.6 ; then
+    KO="--with-kernel-support"
+  else
+    KO="--with-linux=/usr/src/linux"
+  fi
 
-./configure --prefix=/usr \
-            $KO           &&
+  ./configure --prefix=/usr \
+              $OPTS         \
+              $KO          &&
 
-default_make
+  default_make
 
 ) > $C_FIFO 2>&1
