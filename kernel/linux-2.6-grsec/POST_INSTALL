@@ -2,3 +2,7 @@ update_bootloader ${KERNEL_RELEASE}-grsec-${GRSEC_VERSION}  ${KERNEL_RELEASE}-gr
 
 #  Reinstall packages that add their own kernel modules
 lin -c kernel-reqs
+
+# create /sys
+mkdir -p /sys
+
