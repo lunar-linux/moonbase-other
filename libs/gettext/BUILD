@@ -1,6 +1,6 @@
 (
   if module_is_expired gettext ; then
-    set_module_config OLD_VER=$(installed_version gettext)
+    set_module_config OLD_VER "`installed_version gettext`"
   fi
 
   ./configure  --build=$BUILD            \
