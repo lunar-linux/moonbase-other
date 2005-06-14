@@ -1,3 +1,8 @@
 depends  imlib2  &&
-depends  edb     &&
-depends  eet 
+
+optional_depends  "edb"  "--enable-edb"             \
+                         "--disable-edb"            \
+                         "to build the edb loader"  &&
+optional_depends  "eet"  "--enable-eet"             \
+                         "--disable-eet"            \
+                         "to build the eet loader"
