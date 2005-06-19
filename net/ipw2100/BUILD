@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 0 &&
+
   if [ $WITH_WPA == "y" ] ; then
     message "${MESSAGE_COLOR}Enabling WPA support ...${DEFAULT_COLOR}"
     sedit 's/#\ CONFIG_IEEE80211_WPA/CONFIG_IEEE80211_WPA/' Makefile
