@@ -1,11 +1,5 @@
 (
   
-  gettextize --copy --force --intl &&
-  libtoolize --force &&
-  aclocal  -I m4 &&
-  autoconf &&
-  automake -a -c -f --foreign &&
-
   ./configure  --build=$BUILD             \
                --prefix=/usr              \
                --enable-ipv6              \
