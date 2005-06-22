@@ -35,14 +35,14 @@
   fi  &&
 
   AUXLIBS=$AUXLIBS" -lpthread"
-  echo CCARGS=$CCARGS       &&
-  echo AUXLIBS=$AUXLIBS     &&
+  echo CCARGS=$CCARGS      &&
+  echo AUXLIBS=$AUXLIBS    &&
   
-  make  "OPT=$CFLAGS"        \
-        "AUXLIBS=$AUXLIBS"   \
-        "CCARGS=$CCARGS"    &&
+  make  "OPT=$CFLAGS"       \
+        "AUXLIBS=$AUXLIBS"  \
+        "CCARGS=$CCARGS"   &&
 
-  prepare_install           &&
+  prepare_install          &&
 
   sh postfix-install -non-interactive                   \
        config_directory=/etc/postfix                    \
@@ -61,7 +61,7 @@
   ln  -sf   ../sbin/sendmail   \
            /usr/lib/sendmail  &&
 
-  ln  -sf  postfix/aliases     \
+  ln  -sf  postfix/aliases  \
               /etc/aliases
 
   if [ -e "/etc/init.d/postfix.sh" ]; then
