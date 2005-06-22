@@ -53,7 +53,7 @@
     --disable-freetype2	\
     --disable-ldap	\
     --disable-profilesharing	\
-    --disable-mathml	\ 
+    --disable-mathml	\
     $OPTS               &&
               
     default_make	&&
