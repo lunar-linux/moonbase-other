@@ -132,6 +132,7 @@ KERNEL="usb/scanner*",  GROUP="usb",  MODE="0600"
 KERNEL="camera*",                    MODE="0600"
 KERNEL="usb/dc2xx*",   GROUP="usb",  MODE="0600"
 KERNEL="usb/mdc800*",  GROUP="usb",  MODE="0600"
+KERNEL="raw1394",      GROUP="usb",  MODE="0600"
 
 
 # raw devices
@@ -285,4 +286,3 @@ KERNEL="mouse*",  NAME="input/%k",                 MODE="0644"
 
 # dvb devices
 KERNEL="dvb*",  PROGRAM="/etc/udev/scripts/dvb.sh %k",  NAME="%c",  GROUP="video"
-
