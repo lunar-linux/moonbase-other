@@ -1,20 +1,23 @@
 depends gtk+-2  &&
 
-optional_depends  "compface"    ""  ""  "for X-Face support"               &&
+optional_depends  "compface"             \
+                  ""                     \
+                  "--disable-compface"   \
+                  "for X-Face support"   &&
 
 optional_depends  "openssl"              \
-                  "--enable-ssl"         \
                   ""                     \
+                  "--disable-ssl"        \
                   "for pop3s and imaps"  &&
 
 optional_depends  "openldap"             \
                   "--enable-ldap"        \
-		  ""                     \
-		  "for ldap support"     &&
+                  ""                     \
+                  "for ldap support"     &&
 
-optional_depends  "gpgme" \
-                  "--enable-gpgme" \
-                  "--disable-gpgme"  \
+optional_depends  "gpgme"                \
+                  "--enable-gpgme"       \
+                  "--disable-gpgme"      \
                   "for encrypted email"  &&
 
 optional_depends  "jpilot"               \
