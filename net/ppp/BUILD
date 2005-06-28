@@ -38,6 +38,7 @@
 	chown  root:ppp     /usr/sbin/pppd  &&
 	chmod  4750         /usr/sbin/pppd  &&
 	chown  -R root:ppp  /etc/ppp  &&
+	touch               /etc/ppp/{chap,pap}-secrets &&
 	chmod  600          /etc/ppp/*-secrets
 
 ) > $C_FIFO 2>&1
