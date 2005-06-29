@@ -1,0 +1,9 @@
+depends  byacc     &&
+depends  libungif  &&
+depends  libmng    &&
+depends  %X  &&
+
+optional_depends  "mysql"                                                    \
+                  "-plugin-sql-mysql -I/usr/include/mysql -L/usr/lib/mysql"  \
+                  "-no-sql-mysql"                                            \
+                  "for mysql database support"
