@@ -1,12 +1,15 @@
-           MODULE=rdate
+          MODULE=rdate
          VERSION=1.5
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://www.corpit.ru/ftp/rdate/$MODULE-$VERSION.tar.gz
+         SOURCE2=rdate-1.5.patch
+      SOURCE_URL=http://www.corpit.ru/ftp/rdate/
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:28a57f580b52e503cbd03646e91b1b1e4fb01e18
+     SOURCE2_VFY=sha1:d19f1b68e6f75149805a0833e3e10e360fd3a80f
         WEB_SITE=http://www.corpit.ru/
          ENTERED=20020212
-         UPDATED=20020212
+         UPDATED=20050630
            SHORT="The rdate utility retrieves the date and time from another machine on your network"
-     MAINTAINER=csm@moongroup.com
 cat << EOF
 The rdate utility retrieves the date and time from another machine on
 your network, using the protocol described in RFC 868.  If you run
