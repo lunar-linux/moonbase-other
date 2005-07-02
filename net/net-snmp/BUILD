@@ -1,8 +1,8 @@
 (
 
   SYS_CONTACT="--with-sys-contact=root@`hostname -f`"
-   PERSISTENT="--with-persistent-directory=/var/state/ucd-snmp"
-     DEFAULTS="--with-defaults"
+  PERSISTENT="--with-persistent-directory=/var/state/ucd-snmp"
+  DEFAULTS="--with-defaults"
 
   ./configure  --prefix=/usr         \
                --sysconfdir=/etc     \
@@ -10,13 +10,11 @@
                $SYS_CONTACT          \
                $PERSISTENT           \
                $DEFAULTS             \
-               $OPTS                 &&
-  make                               &&
-  prepare_install                    &&
-  make    install                    &&
+               $OPTS                &&
+  default_make                      &&
   if [ ! -e /etc/config.d/snmpd ]; then
       cp $SCRIPT_DIRECTORY/snmpd /etc/config.d/snmpd
-  fi &&
+  fi  &&
   mkdir -p /var/state/ucd-snmp
 
 ) > $C_FIFO 2>&1
