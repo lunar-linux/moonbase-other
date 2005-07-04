@@ -1,4 +1,5 @@
 (
+
   cd scripts       &&
   ./build_qcad.sh  &&
   
