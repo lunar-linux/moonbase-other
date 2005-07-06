@@ -14,7 +14,6 @@
 
     install ${SCRIPT_DIRECTORY}/49-udev.rules /etc/udev/rules.d/  &&
 
-    # compability patch included by Zbigniew 'zbiggy' Luszpinski  <zbiggy@o2.pl>
     if ! grep -q 'ENV{UDEVD_EVENT}=="1", RUN+="/sbin/udev_run_hotplugd"' /etc/udev/rules.d/50-udev.rules; then
     echo 'ENV{UDEVD_EVENT}=="1", RUN+="/sbin/udev_run_hotplugd"' >> /etc/udev/rules.d/50-udev.rules
     fi
