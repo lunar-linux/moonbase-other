@@ -1,19 +1,19 @@
           MODULE=tcpdump
-         VERSION=3.8.3
-#        VERSION=3.8.1
+         VERSION=3.9.1
+#        VERSION=3.8.3
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=$MODULE-3.8.1-debug_flag.patch.bz2
-   SOURCE_URL[0]=http://www.tcpdump.org/release/
-  SOURCE2_URL[0]=$PATCH_URL/
-      SOURCE_VFY=md5:30645001f4b97019677cad88d3811904
-     SOURCE2_VFY=md5:a8af16a43a97ffbf7fc54130f487f03d
+      SOURCE_URL=http://www.tcpdump.org/release/
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:a7f5ccb7aa1645bd88f12c0b8ed45f2c77cac126
+     SOURCE2_VFY=sha1:89be20bc9baa6daaddb0c6341bc503c466aeb5fc
         WEB_SITE=http://www.tcpdump.org
          ENTERED=20011004
-         UPDATED=20040331
+         UPDATED=20050706
         SHORT="tcpdump is CLI packet sniffer network debugging tool"
 
 cat << EOF
 tcpdump is a CLI based packet sniffer/network debugging tool.
-tcpdump is extensively used by networking guys to find out what's wrong
-or rather what's not right :)
+tcpdump is extensively used by networking guys to find out what's 
+wrong or rather what's not right :)
 EOF
