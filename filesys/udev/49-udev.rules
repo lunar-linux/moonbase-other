@@ -286,3 +286,6 @@ KERNEL="mouse*",  NAME="input/%k",                 MODE="0644"
 
 # dvb devices
 KERNEL="dvb*",  PROGRAM="/etc/udev/scripts/dvb.sh %k",  NAME="%c",  GROUP="video"
+
+RUN="/sbin/udev_run_devd"
+ENV{UDEVD_EVENT}=="1", RUN+="/sbin/udev_run_hotplugd"

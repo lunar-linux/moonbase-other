@@ -2,9 +2,9 @@
 
     patch_it $SOURCE2 0        &&
 
-    make udevdir=/dev          &&
+    make udevdir=/dev EXTRAS=extras/run_directory &&
     prepare_install            &&
-    make udevdir=/dev install  &&
+    make udevdir=/dev EXTRAS=extras/run_directory install  &&
  
     # install the init.d script
     # we cannot use automagic install via coretools
