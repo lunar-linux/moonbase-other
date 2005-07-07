@@ -2,158 +2,28 @@
 #
 # udev init script to setup /dev
 
-prog=udev
-sysfs_dir=/sys
-bin=/sbin/udev
-udevd=/sbin/udevd
-
-. /etc/udev/udev.conf
-
-# **** Added by florin && nestu, 2004/03/05 ****
-
-# if this subdir doesn't exist, create it
-test -d /var/lock/subsys/ || mkdir -p /var/lock/subsys/
-
-# originally in /etc/rc.d/init.d/functions, it has been changed
-# and brought here
-success() {
-    
-    RES_COL=60
-    MOVE_TO_COL="echo -en \\033[${RES_COL}G"
-    SETCOLOR_SUCCESS="echo -en \\033[1;32m"
-    SETCOLOR_NORMAL="echo -en \\033[0;39m"
-
-  [ "$BOOTUP" = "color" ] && $MOVE_TO_COL
-  echo -n "[  "
-  [ "$BOOTUP" = "color" ] && $SETCOLOR_SUCCESS
-  echo -n $"OK"
-  [ "$BOOTUP" = "color" ] && $SETCOLOR_NORMAL
-  echo -n "  ]"
-  echo -ne "\r"
-  return 0
-}
-
-# **** end added by nestu && florin, 2004/03/05 ****
-
-
-run_udev () {
-	# handle block devices and their partitions
-	for i in ${sysfs_dir}/block/*; do
-		# add each drive
-		export DEVPATH=${i#${sysfs_dir}}
-		$bin block &
-
-		# add each partition, on each device
-		for j in $i/*; do
-			if [ -f $j/dev ]; then
-				export DEVPATH=${j#${sysfs_dir}}
-				$bin block &
-			fi
-		done
-	done
-	# all other device classes
-	for i in ${sysfs_dir}/class/*; do
-		for j in $i/*; do
-			if [ -f $j/dev ]; then
-				export DEVPATH=${j#${sysfs_dir}}
-				CLASS=`echo ${i#${sysfs_dir}} | \
-					cut --delimiter='/' --fields=3-`
-				$bin $CLASS &
-			fi
-		done
-	done
-	return 0
-}
-
-make_extra_nodes () {
-	# there are a few things that sysfs does not export for us.
-	# these things go here (and remember to remove them in 
-  	# remove_extra_nodes()
-	#
-	# Thanks to Gentoo for the initial list of these.
-	ln -snf /proc/self/fd $udev_root/fd
-	ln -snf /proc/self/fd/0 $udev_root/stdin
-	ln -snf /proc/self/fd/1 $udev_root/stdout
-	ln -snf /proc/self/fd/2 $udev_root/stderr
-	ln -snf /proc/kcore $udev_root/core
-	#ln -snf /proc/asound/oss/sndstat $udev_root/sndstat
-}
-
-remove_extra_nodes () {
-	# get rid of the extra nodes created in make_extra_nodes()
-	# **** changed by niki (added the if's), 20040305 ****
-	if [ -e $udev_root/fd     ] ; then rm $udev_root/fd;     fi
-	if [ -e $udev_root/stdin  ] ; then rm $udev_root/stdin;  fi
-	if [ -e $udev_root/stdout ] ; then rm $udev_root/stdout; fi
-	if [ -e $udev_root/stderr ] ; then rm $udev_root/stderr; fi
-	if [ -e $udev_root/core   ] ; then rm $udev_root/core;   fi
-	#rm $udev_root/sndstat
-}
+. /etc/udev/udev.conf 
 
 case "$1" in
+
   start)
-	# don't use udev if sysfs is not mounted.
-	if [ ! -d $sysfs_dir/block ]; then
-		exit 1
-	fi
-	if [ ! -d $udev_root ]; then
-		mkdir $udev_root
-	fi
+    rm -rf ${udev_root}/.udevdb
+    /sbin/udevd --daemon || exit 1;
+    ;;
 
-	# remove the database if it is there as we always want to start fresh
-	if [ -f $udev_root/.udev.tdb ]; then
-		rm -f $udev_root/.udev.tdb
-	fi
-
-	# propogate /dev from /sys - we only need this while we do not
-	# have initramfs and an early user-space with which to do early
-	# device bring up
-	export ACTION=add
-	echo -n $"Creating initial udev device nodes:"
-	run_udev
-	make_extra_nodes
-
-	# We want to start udevd ourselves if it isn't already running.  This
-	# lets udevd run at a sane nice level...
-	$udevd &
-
-	success /bin/true
-	echo
-	;;
   stop)
-	# if used as regular /dev nodes, do not allow to remove.
-	if [ -f /dev/.udev.tdb ]; then
-	    echo "Udev nodes in use under /dev. Cannot remove."
-	    echo 4;
-	fi
+    killall udevd
+    ;;
 
-  	# be careful
-	echo -n $"Removing udev device nodes: "
-	export ACTION=remove
-	run_udev 
-	remove_extra_nodes
-	success /bin/true
-	echo
-	rm -f $udev_root/.udev.tdb       
-	;;
-  status)
-	if [ -f $udev_root/.udev.tdb ]; then
-		echo $"$prog has run"
-		exit 0
-	fi
-	echo $"$prog is stopped"
-	exit 3
-	;;
   restart)
-	$0 stop
-	$0 start
-	;;
-  reload)
-  	# nothing to do here
-	;;
+    $0 stop
+    $0 start
+    ;;
+
   *)
-  	echo "Usage: $0 {start|stop|status|restart}"
-	exit 1
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+
 esac
 
 exit 0
