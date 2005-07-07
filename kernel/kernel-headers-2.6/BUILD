@@ -1,25 +1,25 @@
 (
-    cd ${SOURCE_DIRECTORY}/include/ &&
+  cd ${SOURCE_DIRECTORY}/include/ &&
     
-    # asm is a special case, since it is arch specific
-    mv asm-i386 asm &&
+  # asm is a special case, since it is arch specific
+  mv asm-i386 asm &&
     
-	prepare_install &&
+  prepare_install &&
 
-    for dir in asm linux scsi sound mtd
-    do
-		cp    -a $dir      /usr/include/
-		chown -R root.root /usr/include/$dir
+  for dir in asm linux scsi sound mtd
+  do
+     cp    -a $dir      /usr/include/
+     chown -R root.root /usr/include/$dir
 	
-		for subdir in `find /usr/include/$dir -type d`
-		do
-	    	chmod 755 $subdir
-		done
+     for subdir in `find /usr/include/$dir -type d`
+     do
+        chmod 755 $subdir
+     done
 
-		for file in `find /usr/include/$dir -type f`
-		do
-	    	chmod 644 $file
-		done
-    done
+     for file in `find /usr/include/$dir -type f`
+     do
+        chmod 644 $file
+     done
+  done
 
 ) > $C_FIFO 2>&1
