@@ -22,7 +22,6 @@
                                -system-zlib                  \
                                -no-g++-exceptions            \
                                -thread                       \
-                               -no-stl                       \
                                -dlopen-opengl                \
                                -prefix ${QT_PREFIX:-$QTDIR}  \
                                -xft                          \
