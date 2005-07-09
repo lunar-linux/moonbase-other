@@ -6,8 +6,8 @@ if [ ! -d linux-${VERSION} ]; then
     rm  -rf  linux
 
     unpack  $SOURCE
-
-    mv	linux-${KERNEL_VERSION} linux-${VERSION}
+    
+    mv  linux-${K_VERSION} linux-${VERSION}
     ln  -sf  linux-${VERSION}  linux
 
     chown  root.root  $BUILD_DIRECTORY/linux
