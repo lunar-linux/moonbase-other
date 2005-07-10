@@ -1,3 +1,5 @@
+sedit "s:MAKE) stunnel.pem:MAKE) install-data:"  Makefile.in  &&
+
 case  $CERTIFICATE  in
 
   y|Y)
