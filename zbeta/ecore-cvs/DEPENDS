@@ -4,6 +4,7 @@ depends perl     &&
 optional_depends "openssl"                              \
                  "--enable-openssl" "--disable-openssl" \
                  "for ssl support in Ecore_Con"         &&
-optional_depends "dbus" "" ""  \
-                 "for support of the message bus subsystem (Ecore_DBUS)" &&
+optional_depends "dbus"                                        \
+                 "--enable-ecore-dbus" "--disable-ecore-dbus"  \
+                 "for support of the message bus subsystem (Ecore_DBus)" &&
 optional_depends "curl" "" "" "for file download support in Ecore_File"
