@@ -6,3 +6,9 @@ chmod 0700 /dev/install-devices.sh
 echo ""
 echo "Please run /dev/install-devices.sh"
 echo ""
+
+#%ifarch ppc ppc64
+#makedev iseries
+#makedev nvram
+#makedev hvc0
+#%endif
