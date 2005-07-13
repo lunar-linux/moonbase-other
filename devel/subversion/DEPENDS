@@ -3,3 +3,6 @@ depends  zlib     &&
 depends  db       &&
 
 optional_depends "swig" "" "" "for swig support"
+if in_depends subversion swig ; then
+    depends Python
+fi
