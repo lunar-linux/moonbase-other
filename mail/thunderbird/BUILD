@@ -42,7 +42,6 @@
     --enable-xterm-updates	\
     --enable-svg	\
     --enable-svg-renderer-cairo	\
-    --enable-plaintext-editor-only	\
     --enable-image-decoders=default,-xbm	\
     --disable-debug     \
     --disable-tests     \
