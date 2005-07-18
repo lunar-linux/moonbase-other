@@ -1,8 +1,6 @@
 (
 
-  cd sources &&
-  unzip nexuizenginesource20050530.zip &&
-  cd darkplaces &&
+  cd sources/darkplaces &&
   sedit "s:^OPTIM_RELEASE=.*$:OPTIM_RELEASE=$CFLAGS:" makefile.inc &&
   make -f makefile cl-release sv-release &&
   prepare_install &&
