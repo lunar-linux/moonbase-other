@@ -3,19 +3,15 @@
   unset CFLAGS
 
   if module_installed kernel-headers-2.6; then
-      ./configure --prefix=/usr                   \
+    OPTS="$OPTS --disable-fbdev"
+  fi
+
+  export LD_LIBRARY_PATH=/usr/X11R6/lib
+  ./configure --prefix=/usr                   \
   	          --confdir=/etc                  \
 	          --mandir=/usr/share/man         \
-	          --disable-fbdev                 \
-		  --with-codecsdir=/usr/lib/win32 \
-	          $OPTS                           ;
-    else
-      ./configure --prefix=/usr                   \
-  	          --confdir=/etc                  \
-	          --mandir=/usr/share/man         \
-		  --with-codecsdir=/usr/lib/win32 \
-	          $OPTS                           ;
-  fi  &&
+              --with-codecsdir=/usr/lib/win32 \
+	          $OPTS
 
   sedit "s/MANDIR = \${prefix}\/man/MANDIR =\/usr\/share\/man/" Makefile  &&
   # the following sedit fixes some library issues with freetype2 and xfree86

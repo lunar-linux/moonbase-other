@@ -46,6 +46,8 @@ optional_depends "libtheora"         \
                  "--disable-theora"  \
                  "For OGG/Theora Video Playback" &&
 
+optional_depends "libXvMCW" "" "--enable-xvmc --with-xvmclib=XvMCW" "For hardware Xv acceleration" &&
+
 case  $GUI  in
   y|Y|j|J)  depends  libpng          &&
             depends  gtk+            &&
