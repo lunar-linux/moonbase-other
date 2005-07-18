@@ -12,15 +12,15 @@ if ! grep -q "^OPTS=" $MODULE_CONFIG ; then
     OPTS=$OPTS" --enable-tdfxfb"
   fi
 
-  if query "Enable Linux devfs support? " n ; then
+  if query "Enable Linux devfs support? " y ; then
     OPTS=$OPTS" --enable-linux-devfs"
   fi
 
-  if query "Enable OSD support? " n ; then
+  if query "Enable OSD support? " y ; then
     OPTS=$OPTS" --enable-menu"
   fi
 
-  if query "Enable Large File support? " n ; then
+  if query "Enable Large File support? " y ; then
     OPTS=$OPTS" --enable-largefiles"
   fi
 
