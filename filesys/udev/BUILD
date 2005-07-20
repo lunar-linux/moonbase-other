@@ -15,7 +15,8 @@
     install ${SCRIPT_DIRECTORY}/49-udev.rules /etc/udev/rules.d/  &&
 
     mkdir -p /etc/udev/scripts.d/                          
-    for script in ide-devfs.sh scsi-devfs.sh dvb.sh raid-devfs.sh
+    for script in cdsymlinks.sh dvb.sh ide-devfs.sh inputdev.sh \
+                  raid-devfs.sh scsi-devfs.sh
     do
         install extras/${script} /etc/udev/scripts.d/
     done
