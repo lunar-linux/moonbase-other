@@ -3,7 +3,7 @@
 # firestarter        Starts the firewall.
 #
 #
-# chkconfig: 345 5 95
+# chkconfig: 345 11 90
 # description:  Firestarter is a complete firewall tool for 
 # Linux machines. Whether you simply want to protect your 
 # personal workstation or you have a network of computers to 
@@ -12,14 +12,18 @@
 # first line of defence against network based attacks.
 
 case $1 in
-  start|restart)  echo     "$1ing firewall."
-                  pkill -f  "firestarter \["
-                  firestarter
+    start)        echo     "$1ing firewall."
+                  firestarter -s
                   ;;
 
-   stop)          echo     "$1ping firewall."
-                  pkill -f  "firestarter \["
-                  ;;                 
+    stop)         echo     "$1ping firewall."
+		  firestarter -p
+                  ;;
+		  
+    restart)	  echo	   "$1ing firewall."
+		  firestarter -p
+	          firestarter -s
+		  ;;
 
       *)          echo     "Usage: $0 {start|stop|restart}"
                   ;;                                        
