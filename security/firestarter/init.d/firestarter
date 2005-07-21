@@ -12,16 +12,13 @@
 # first line of defence against network based attacks.
 
 case $1 in
-    start)        echo     "$1ing firewall."
-                  firestarter -s
+    start)        firestarter -s
                   ;;
 
-    stop)         echo     "$1ping firewall."
-		  firestarter -p
+    stop)         firestarter -p
                   ;;
 		  
-    restart)	  echo	   "$1ing firewall."
-		  firestarter -p
+    restart)	  firestarter -p
 	          firestarter -s
 		  ;;
 
