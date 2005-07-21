@@ -1,7 +1,7 @@
 (
 
   export patchdir=$SOURCE_DIRECTORY/$MODULE-$PVERSION-lunar
-  EXTENTIONS="default,finger,spellcheck"
+  EXTENSIONS="default,finger,spellcheck"
 
   if [ "$COM" == "n" ] ; then
     OPTS="$OPTS --disable-composer"
@@ -10,7 +10,7 @@
   fi
 
   if [ "$IRC" == "n" ] ; then
-    EXTENTIONS="$EXTENTIONS,-irc"
+    EXTENSIONS="$EXTENSIONS,-irc"
   fi
 
   if [ "$MATHML" == "n" ] ; then
@@ -27,27 +27,34 @@
 
   if [ "$JSD" == "n" ] ; then
     OPTS="$OPTS --disable-jsd"
-    EXTENTIONS="$EXTENTIONS,-venkman"
+    EXTENSIONS="$EXTENSIONS,-venkman"
   else
     OPTS="$OPTS --enable-jsd"
   fi
 
   if [ "$INS" == "n" ] ; then
-    EXTENTIONS="$EXTENTIONS,-inspector"
+    EXTENSIONS="$EXTENSIONS,-inspector"
   fi
 
   if [ "$HELP" == "n" ] ; then
-    EXTENTIONS="$EXTENTIONS,-help"
+    EXTENSIONS="$EXTENSIONS,-help"
   fi
+  
+  if in_depends $MODULE heimdal ; then
+	EXTENSIONS="${EXTENSIONS},negotiateauth"
+  else
+	EXTENSIONS="${EXTENSIONS},-negotiateauth"
+  fi &&
 
   unset CC CXX
+  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
   export MOZ_NSS_AUTOCONF=1
   export NATIVE_THEME_SUPPORT=1
   export MOZILLA_USE_XFT=1
   export MOZ_INTERNAL_LIBART_LGPL=1
   export BUILD_OPT=1
 
-  echo "$OPTS $EXTENTIONS" > /tmp/mozz
+  echo "$OPTS $EXTENSIONS" > /tmp/mozz
 
   ./configure --prefix=/usr                     \
               --with-default-mozilla-five-home=/usr/lib/mozilla-$VERSION \
@@ -60,6 +67,7 @@
               --with-system-zlib                \
               --with-system-png                 \
               --with-system-mng                 \
+              --with-x                          \
               --with-pthreads                   \
               --enable-reorder                  \
               --disable-tests                   \
