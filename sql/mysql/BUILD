@@ -1,5 +1,5 @@
 (
-  patch_it $SOURCE2 1 &&
+# patch_it $SOURCE2 1 &&
   add_priv_user mysql:mysql  &&
 
   devoke_installwatch        &&
