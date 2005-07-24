@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 0 &&
-
   if [ $WITH_WPA == "y" ] ; then
     message "${MESSAGE_COLOR}Enabling WPA support ...${DEFAULT_COLOR}"
     sedit 's/#\ CONFIG_IEEE80211_WPA/CONFIG_IEEE80211_WPA/' Makefile
@@ -11,6 +9,8 @@
   message "${MESSAGE_COLOR}Disabling debug messages ...${DEFAULT_COLOR}"
   sedit 's/CONFIG_IPW_DEBUG=y/#CONFIG_IPW_DEBUG=y/' Makefile
   fi &&
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
   default_make
 
