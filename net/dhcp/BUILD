@@ -12,7 +12,7 @@
   
   if [ ! -d $CFGHOME ]; then
      mkdir -p $CFGHOME
-  fi                                                   &&
+  fi  &&
 
   #copy the lunar config file into place
 
@@ -20,7 +20,7 @@
      cp $MODHOME/dhcpd.config $CFGHOME/dhcpd                           
   else
      cp $MODHOME/dhcpd.config $CFGHOME/dhcpd.new
-  fi                                                   &&
+  fi  &&
 
 
   #make sure the leases file exists or we won't run
@@ -28,7 +28,7 @@
   if [ ! -e /var/state/dhcp/dhcpd.leases ]; then
      mkdir -p /var/state/dhcp/
      touch /var/state/dhcp/dhcpd.leases
-  fi                                                   &&
+  fi  &&
 
   #we need a config file also
 
