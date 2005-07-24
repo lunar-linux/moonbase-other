@@ -9,15 +9,16 @@
 unset CC CXX 
 
 set -x
-  ./configure  --build=$BUILD                           \
-               --prefix=/usr                            \
-               --libdir=/lib                            \
-               --with-normal                            \
-               --with-shared                            \
-               --mandir=/usr/share/man                  \
-               --with-manpage-format=gzip               \
-               --disable-termcap                        \
-               --with-terminfo-dirs=/usr/share/terminfo \
+  ./configure  --build=$BUILD                            \
+               --prefix=/usr                             \
+               --libdir=/lib                             \
+               --with-normal                             \
+               --with-shared                             \
+               --mandir=/usr/share/man                   \
+               --with-manpage-format=gzip                \
+               --disable-termcap                         \
+	       --enable-colorfgbg                        \
+               --with-terminfo-dirs=/usr/share/terminfo  \
                $OPTS                                    &&
 set +x &&               
   default_make
