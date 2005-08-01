@@ -10,14 +10,14 @@
 
   prepare_install &&
   make install &&
-  if module_installed xserver ; then
+  if [ "$USE_X11" == "y" ]; then
     make xtinstall
   fi &&
   if [ "$BUILD_GL" == "on" ] ; then
     make mglinstall
   fi &&
   make utils &&
-  if module_installed xserver ; then
+  if [ "$USE_X11" == "y" ]; then
     make xminstall
   fi &&
   make sfinstall &&
