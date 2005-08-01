@@ -6,8 +6,8 @@
                  --prefix=/usr              &&
     make                                    &&
     make  getmail		            &&
-    if    module_installed xserver
-    then  make xjed
+    if [ "$USE_X11" == "y" ]; then
+      make xjed
     fi                                      &&
     prepare_install                         &&
     make    install
