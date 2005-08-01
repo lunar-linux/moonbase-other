@@ -8,7 +8,7 @@
 
   mkdir Local
  
-  if module_installed xserver ; then
+  if [ "$USE_X11" == "y" ]; then
     cp src/EDITME           Local/Makefile
     cp exim_monitor/EDITME  Local/eximon.conf
   else
