@@ -4,7 +4,7 @@
   sedit "s/for dir in \$mandir/mandir=\/usr\/share\/man\/man1 ; \0/" instman.sh
   sedit  "s/-O2/$CFLAGS $LDFLAGS/"  configure     &&
   
-  if module_installed xserver; then
+  if [ "$USE_X11" == "y" ]; then
     ./configure  --with-x linux            \
                  --bindir=/usr/bin         \
                  --datadir=/var/lib/elvis  &&
@@ -16,11 +16,9 @@
   ./configure  --with-x=no linux         \
                --bindir=/usr/bin         \
                --datadir=/var/lib/elvis  &&
-  make &&
-  prepare_install &&
-  make install &&
+  default_make &&
   
-  if module_installed xserver; then
+  if [ "$USE_X11" == "y" ]; then
     cp xelvis /usr/bin/xelvis
   fi
 
