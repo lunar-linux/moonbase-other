@@ -1,13 +1,16 @@
           MODULE=links2
-         VERSION=2.1pre17
+         VERSION=2.1pre18
           SOURCE=links-$VERSION.tar.bz2
+         SOURCE2=links-$VERSION-view.c.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/links-$VERSION
    SOURCE_URL[0]=http://atrey.karlin.mff.cuni.cz/~clock/twibright/links/download/
    SOURCE_URL[1]=ftp://atrey.karlin.mff.cuni.cz/pub/local/clock/links/
-      SOURCE_VFY=sha1:2f89de8b8ea797834444f933222ecf7bd2cea84b
+      SOURCE_VFY=sha1:118a1b59e084b027318adc895aa69fa778c45f86
+     SOURCE2_URL=$PATCH_URL/
+     SOURCE2_VFY=sha1:6702957cf83484b0f18fcc3065b1fd19d891adcd
         WEB_SITE=http://atrey.karlin.mff.cuni.cz/~clock/twibright/links/
          ENTERED=20020523
-         UPDATED=20050225
+         UPDATED=20050804
            SHORT="links2 is the graphics capable links."
 cat << EOF
 links2 is the graphics capable links. It can be used via svgalib,
