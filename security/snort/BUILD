@@ -16,14 +16,6 @@
     cp etc/reference.config  /etc/snort
   fi
 
-  cd rules &&
-  for  FILE  in  `ls  *.rules`;  do
-    if  [  !  -f  /etc/snort/$FILE  ];  then
-      cp  $FILE   /etc/snort
-    fi
-  done
-  cd $SOURCE_DIRECTORY &&
-
   if [ -e "/etc/init.d/snort.sh" ]; then
      rm -f /etc/init.d/snort.sh
      rm /etc/rc?.d/???snort.sh
