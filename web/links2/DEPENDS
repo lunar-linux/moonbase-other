@@ -1,5 +1,10 @@
 depends  ncurses &&
-depends  libpng  &&
+
+optional_depends  libpng                  \
+                  ""                      \
+                  ""                      \
+				  "for PNG support"              &&
+
 optional_depends  gpm                     \
                   "--with-gpm"            \
                   "--without-gpm"         \
