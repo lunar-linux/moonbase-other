@@ -1,7 +1,7 @@
 (
-  sedit "s:datadir)/games:datadir):" data/Makefile.in        && 
-  sedit "s:datadir)/games:datadir):" data/dialog/Makefile.in && 
-  sedit "s:datadir)/games:datadir):" data/music/Makefile.in  && 
+  sedit "s:datadir)/games:datadir):" data/Makefile.in         && 
+  sedit "s:datadir)/games:datadir):" data/dialog/Makefile.in  && 
+  sedit "s:datadir)/games:datadir):" data/music/Makefile.in   && 
 
   ./configure  --prefix=/usr               \
                --bindir=/usr/games         \
