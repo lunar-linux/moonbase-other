@@ -1,4 +1,5 @@
 ( 
+
   default_build &&
 
   if  [  !  -f  /etc/snort.conf  ];  then
@@ -8,12 +9,20 @@
   mkdir  -p  /etc/snort
   mkdir  -p  /var/log/snort
 
+  cd  rules  &&
+  for  FILE  in  `ls  *.rules`;  do
+    if  [  !  -f  /etc/snort/$FILE  ];  then
+      install  -m 644  $FILE  /etc/snort
+    fi
+  done
+  cd  ..  &&
+   
   if  [  !  -f  /etc/snort/classification.config  ];  then
-    cp  etc/classification.config  /etc/snort
+    install  -m 644  etc/classification.config  /etc/snort
   fi
 
   if  [  !  -f  /etc/snort/reference.config  ];  then
-    cp etc/reference.config  /etc/snort
+    install -m 644  etc/reference.config  /etc/snort
   fi
 
   if [ -e "/etc/init.d/snort.sh" ]; then
@@ -38,5 +47,6 @@
   fi
 
   cp $SCRIPT_DIRECTORY/config.d/snort.sysconfig /etc/config.d/snort 
-   
+  chmod 644 /etc/config.d/snort/*
+     
 ) > $C_FIFO 2>&1
