@@ -1,6 +1,6 @@
 (
 
   default_build &&
-  make    install-dev
+  make install-dev
 
 ) > $C_FIFO 2>&1
