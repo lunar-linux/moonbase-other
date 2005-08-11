@@ -2,15 +2,15 @@
 
   export DEBUG=-DNDEBUG
 
-  ./configure --build=$BUILD --prefix=/ --sysconfdir=/etc \
-              --localstatedir=/var --infodir=/usr/share/info \
-	      --mandir=/usr/share/man --includedir=/usr/include \
-	      --libexecdir=/lib --libdir=/lib \
-	      --datadir=/usr/share $OPTS
-  make &&
-  prepare_install &&
-  make install &&
-  make install-dev &&
+  ./configure --build=$BUILD --prefix=/ --sysconfdir=/etc        \
+              --localstatedir=/var --infodir=/usr/share/info     \
+	      --mandir=/usr/share/man --includedir=/usr/include  \
+	      --libexecdir=/lib --libdir=/lib                    \
+	      --datadir=/usr/share $OPTS                        &&
+	      
+  default_make      &&
+  make install-dev  &&
+  
   # tchan says: copying a bunch of libs that do NOT get installed
   # by default (needed for xfsdump) but should be installed
   # and I can't figure out how to fix their Makefiles!

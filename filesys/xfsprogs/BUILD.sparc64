@@ -6,10 +6,8 @@
   rm -f configure include/platform_defs.h &&
   export ac_cv_sizeof_char_p=4 &&
   export ac_cv_sizeof_long=4 &&
-  make &&
-  prepare_install &&
-  make install &&
-  make install-dev &&
+  default_make      &&
+  make install-dev  &&
   # tchan says: copying a bunch of libs that do NOT get installed
   # by default (needed for xfsdump) but should be installed
   # and I can't figure out how to fix their Makefiles!
