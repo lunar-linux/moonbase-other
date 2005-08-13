@@ -1,5 +1,8 @@
 (
 
+  # don't allow root login by default
+  sedit 's/#PermitRootLogin yes/PermitRootLogin no/' sshd_config         &&
+  
   if ! [ -d /var/empty ]; then
     mkdir -p /var/empty
     chown root:sys /var/empty
