@@ -1,22 +1,37 @@
 depends kdemultimedia3  &&
 depends taglib          &&
 
-optional_depends "k3b"       "" ""          \
+optional_depends "k3b"  \
+                 ""     \
+		 ""     \
                  "cd/dvd burning support"  &&
 
-optional_depends "gstreamer" "--with-gstreamer" \
-		 "--without-gstreamer"          \
+optional_depends "gstreamer"            \
+                 "--with-gstreamer"     \
+		 "--without-gstreamer"  \
 		 "for GStreamer support (HIGHLY RECOMMENDED)"  && 
 
-optional_depends "xine-lib" "--with-xine"  \
-		 "--without-xine"          \
-		 "for Xine support"       &&
+optional_depends "xine-lib"           \
+                 "--with-xine"        \
+		 "--without-xine"     \
+		 "for Xine support"  &&
 
-optional_depends "arts" "--with-arts" "--without-arts" \
+optional_depends "arts"               \
+                 "--with-arts"        \
+                 "--without-arts"     \
 		 "for ARTS support"  &&
 
-optional_depends "libvisual"  ""  ""  "for libvisual support"  &&
+optional_depends "libvisual"  \
+                 ""           \
+		 ""           \
+		 "for libvisual support"  &&
 
-optional_depends "mysql" "--enable-mysql"  \
-                 "--disable-mysql"         \
+optional_depends "mysql"                  \
+                 "--enable-mysql"         \
+                 "--disable-mysql"        \
+                 "for database support"  &&
+
+optional_depends "postgresql"            \
+                 "--enable-postgresql"   \
+                 "--disable-postgresql"  \
                  "for database support"
