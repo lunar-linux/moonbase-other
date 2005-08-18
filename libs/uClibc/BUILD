@@ -1,7 +1,7 @@
 (
-   bzcat $SCRIPT_DIRECTORY/.config.bz2 > .config    &&
+   cp $SOURCE_CACHE/$SOURCE3 .config                &&
    sedit "s/\#-DUSE_CACHE/ -DUSE_CACHE/" Rules.mak  &&
-   patch_it $SOURCE_CACHE/$SOURCE2 0                &&
+   patch_it $SOURCE_CACHE/$SOURCE2 1                &&
 
    default_make
 
