@@ -11,7 +11,7 @@
               --includedir=/usr/include  \
               --infodir=/usr/share/info  \
               --mandir=/usr/share/man    \
-              $OPTS
+              $OPTS                     &&
 
    default_make       
               
