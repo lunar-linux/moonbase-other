@@ -1,11 +1,5 @@
 (
 
-for PATCH in $SOURCE2 $SOURCE3 $SOURCE4; do
-  patch -d xpdf -Np0 -i $SOURCE_CACHE/$PATCH;
-done &&
-
-patch_it $SOURCE5 1 &&
-
 OPTS="$OPTS --with-freetype2-includes=/usr/include/freetype2 \
             --with-gzip" &&
 
