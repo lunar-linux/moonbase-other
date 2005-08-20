@@ -1,11 +1,9 @@
 (
 
-  ./configure  --prefix=/usr                         \
-               --mandir=/usr/share/man               && 
-  make                                               &&
-  prepare_install                                    &&
-  make    install                                    &&
-  mkdir -p $DOCUMENT_DIRECTORY/newt                  &&
+  ./configure  --prefix=/usr             \
+               --mandir=/usr/share/man  && 
+  default_make                          &&
+  mkdir -p $DOCUMENT_DIRECTORY/newt     &&
   cp newt.spec $DOCUMENT_DIRECTORY/newt
   
 ) > $C_FIFO 2>&1
