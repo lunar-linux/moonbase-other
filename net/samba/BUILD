@@ -31,7 +31,7 @@
     ln -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
   fi &&
   mkdir -p $DOCUMENT_DIRECTORY/samba &&
-  cp -p WHATSNEW.txt *.pdf $DOCUMENT_DIRECTORY/samba
+  cp -p $SOURCE_DIRECTORY/WHATSNEW.txt $SOURCE_DIRECTORY/docs/*.pdf $DOCUMENT_DIRECTORY/samba
 
 ) > $C_FIFO 2>&1  &&  (
 
