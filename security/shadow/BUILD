@@ -8,17 +8,20 @@
   fi
   OPTS="$OPTS --with-libcrack"
 
-  default_build || return 1
+  ./configure --prefix=/ --libdir=/usr/lib --datadir=/usr/share --infodir=/usr/share/info --mandir=/usr/share/man $OPTS &&
 
-  sedit 's|#CRACKLIB_DICTPATH.*$|CRACKLIB_DICTPATH /usr/share/dict/pw_dict|g' etc/login.defs*
-  sedit 's/#MD5_CRYPT_ENAB.*$/MD5_CRYPT_ENAB yes/' etc/login.defs*
+  sedit 's|^ENV_TZ|#ENV_TZ|' etc/login.defs*
+  sedit 's|#CRACKLIB_DICTPATH.*$|CRACKLIB_DICTPATH /lib/cracklib/|g' etc/login.defs*
+  sedit 's|#MD5_CRYPT_ENAB.*$|MD5_CRYPT_ENAB yes|' etc/login.defs*
+
+  default_make &&
 
   for FILE in limits login.access login.defs defaults ; do
     [ -e /etc/$FILE ] || install etc/$FILE /etc/
   done
   [ -e /etc/securetty  ] || install $SCRIPT_DIRECTORY/securetty /etc/
-  ln -sf /usr/sbin/vipw /usr/sbin/vigr &&
-  install $SCRIPT_DIRECTORY/adduser /usr/sbin/ &&
-  install $SCRIPT_DIRECTORY/deluser /usr/sbin/
+  ln -sf /sbin/vipw /sbin/vigr &&
+  install $SCRIPT_DIRECTORY/adduser /sbin/ &&
+  install $SCRIPT_DIRECTORY/deluser /sbin/
 
 ) > $C_FIFO 2>&1

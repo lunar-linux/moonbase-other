@@ -1,12 +1,12 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-  make all                                     &&
-  prepare_install                              &&
-  mkdir -p /usr/share/dict                     &&
-  make install                                 &&
-  cp cracklib/libcrack.so /lib                 &&
-  ln -sf /lib/libcrack.so /usr/lib/libcrack.so &&
-  cp $SCRIPT_DIRECTORY/crack.h /usr/include
+  ./configure --prefix=/ \
+			  --datadir=/lib \
+			  --includedir=/usr/include \
+			  --infodir=/usr/share/doc \
+			  --mandir=/usr/share/man \
+              $OPTS         &&
+  default_make              &&
+  make dict 
 
 ) > $C_FIFO 2>&1
