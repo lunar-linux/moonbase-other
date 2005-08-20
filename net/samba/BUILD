@@ -29,7 +29,9 @@
 
   if module_installed cups ; then
     ln -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
-  fi
+  fi &&
+  mkdir -p $DOCUMENT_DIRECTORY/samba &&
+  cp -p WHATSNEW.txt *.pdf $DOCUMENT_DIRECTORY/samba
 
 ) > $C_FIFO 2>&1  &&  (
 
