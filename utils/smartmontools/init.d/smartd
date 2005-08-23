@@ -1,7 +1,33 @@
 #! /bin/sh
 #
-# chkconfig: 2345 40 40
+# chkconfig: 2345 40 60
 # description: Self Monitoring and Reporting Technology (SMART) Daemon
 # processname: /usr/sbin/smartd 
 #
-. /lib/lsb/init-functions 
+
+start ()
+{
+	echo -n "Starting smartd: "
+	/usr/sbin/smartd &&
+	echo -e $RESULT_OK || echo -e $RESULT_FAIL
+}
+
+stop ()
+{
+	echo -n "Stopping smartd: "
+	/bin/pkill -P 1 smartd &&
+	echo -e $RESULT_OK || echo -e $RESULT_FAIL
+}
+
+status ()
+{
+	echo -n "Service smartd: "
+	if [ -n "$(/bin/pgrep -P 1 smartd)" ] ; then
+		echo -e $RESULT_OK
+	else
+		echo -e $RESULT_FAIL
+	fi
+}
+
+. /lib/lsb/init-functions
+
