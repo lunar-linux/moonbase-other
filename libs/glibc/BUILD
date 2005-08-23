@@ -140,6 +140,10 @@ esac
   rm /lib/libnsl-lunar.so                     &&
   rm /lib/libcrypt-lunar.so                   &&
 
+  if [ ! -e /etc/nscd.conf ] ; then
+    install -m0644 $SCRIPT_DIRECTORY/nscd.conf /etc/
+  fi                                          &&
+
   # Generate locale info
   unset   LD_PRELOAD                          &&
   if  [  -z  "$GLIBC_LOCALES"  ];  then
