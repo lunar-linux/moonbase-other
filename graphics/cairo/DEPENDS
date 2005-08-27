@@ -1,1 +1,8 @@
-depends  freetype2
+depends  pkgconfig   &&
+depends  fontconfig  &&
+
+optional_depends  "glitz"  "--enable-glitz"  "--disable-glitz"          \
+                  "to enable an (experimental) OpenGL backend to cairo" &&
+
+optional_depends  "libpng"  "--enable-png"  "--disable-png"  \
+                  "to enable PNG image support"
