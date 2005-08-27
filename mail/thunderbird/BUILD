@@ -40,8 +40,7 @@
     --enable-strip	\
     --enable-strip-libs \
     --enable-xterm-updates	\
-    --enable-svg	\
-    --enable-svg-renderer-cairo	\
+    --disable-svg	\
     --enable-image-decoders=default,-xbm	\
     --disable-debug     \
     --disable-tests     \
@@ -85,7 +84,7 @@
 
     # Now the .desktop file and the icon
     install -d /usr/share/applications /usr/share/pixmaps &&
-    install -m644 $SOURCE_CACHE/$SOURCE4 /usr/share/applications
+    install -m644 $SOURCE_CACHE/$SOURCE4 /usr/share/applications &&
     rm -f /usr/share/pixmaps/thunderbird.xpm &&
     install -m644 $MOZILLA_HOME/icons/default.xpm \
 		  /usr/share/pixmaps/thunderbird.xpm
