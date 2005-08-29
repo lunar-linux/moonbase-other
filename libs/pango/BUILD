@@ -1,6 +1,5 @@
 ( 
 
-  export PKG_CONFIG_PATH=/usr/lib/pkgconfig &&
   ./configure --prefix=/usr      \
               --sysconfdir=/etc  \
               $OPTS              &&
