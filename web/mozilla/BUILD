@@ -1,7 +1,7 @@
 (
 
   export patchdir=$SOURCE_DIRECTORY/$MODULE-$PVERSION-lunar
-  EXTENSIONS="default,finger,spellcheck"
+  EXTENSIONS="default,finger,-gnomevfs"
 
   if [ "$COM" == "n" ] ; then
     OPTS="$OPTS --disable-composer"
@@ -51,7 +51,6 @@
   export MOZ_NSS_AUTOCONF=1
   export NATIVE_THEME_SUPPORT=1
   export MOZILLA_USE_XFT=1
-  export MOZ_INTERNAL_LIBART_LGPL=1
   export BUILD_OPT=1
 
   echo "$OPTS $EXTENSIONS" > /tmp/mozz
@@ -78,6 +77,7 @@
               --disable-toolkit-gtk             \
               --disable-short-wchar             \
               --disable-xprint                  \
+              --disable-gnomevfs                \
               --enable-default-toolkit=gtk2     \
               --enable-toolkit=gtk2             \
               --with-gtk2                       \
@@ -85,8 +85,7 @@
               --enable-strip-libs               \
               --enable-xft                      \
               --disable-freetype2               \
-              --enable-svg                      \
-              --enable-svg-renderer-libart      \
+              --disable-svg                     \
               --enable-crypto                   \
               --enable-optimize="$CFLAGS"       \
               --enable-cpp-rtti                 \
@@ -94,7 +93,7 @@
               --enable-xsl                      \
               --enable-ipv6                     \
               --enable-xterm-updates            \
-              --enable-extensions=all,${EXTENSIONS} \
+              --enable-extensions=${EXTENSIONS} \
               $OPTS                            &&
 
   default_make &&
