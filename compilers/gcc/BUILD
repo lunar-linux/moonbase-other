@@ -19,7 +19,7 @@
                --with-system-zlib            \
                --enable-shared               &&
 
-  sedit 's/= install-headers-tar/= install-headers-cpio/' gcc/Makefile  &&
+# sedit 's/= install-headers-tar/= install-headers-cpio/' gcc/Makefile  &&
 
   make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean  &&
   prepare_install                            && 
