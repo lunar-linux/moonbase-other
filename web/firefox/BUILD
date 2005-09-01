@@ -3,6 +3,9 @@
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi &&
   
+  # don't know why this symlink is causing problems now
+  rm -f /usr/lib/firefox-$VERSION/plugins &&
+  
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
   MOZ_EXTENSIONS="cookie,xml-rpc,xmlextras,pref,transformiix,universalchardet,webservices"
