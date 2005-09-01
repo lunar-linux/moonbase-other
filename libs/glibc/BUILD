@@ -24,6 +24,7 @@
                --with-elf                             \
                --with-headers=/usr/src/linux/include  \
                --with-gd=no                           \
+               --without-__thread                     \
                --without-cvs                          \
                --enable-shared                        \
                --infodir=/usr/share/info              \
@@ -106,12 +107,12 @@ esac
 
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
-    for FN in ld-2.3.3.so libanl-2.3.3.so libBrokenLocale-2.3.3.so libc-2.3.3.so   \
-              libcrypt-2.3.3.so libdl-2.3.3.so libm-2.3.3.so libmemusage.so        \
-              libnsl-2.3.3.so libnss_compat-2.3.3.so libnss_files-2.3.3.so         \
-              libnss_hesiod-2.3.3.so libnss_nis-2.3.3.so libnss_nisplus-2.3.3.so   \
-              libpcprofile.so libpthread-0.10.so libresolv-2.3.3.so libSegFault.so \
-              libthread_db-1.0.so libutil-2.3.3.so
+    for FN in ld-2.3.5.so libanl-2.3.5.so libBrokenLocale-2.3.5.so libc-2.3.5.so   \
+              libcrypt-2.3.5.so libdl-2.3.5.so libm-2.3.5.so libmemusage.so        \
+              libnsl-2.3.5.so libnss_compat-2.3.5.so libnss_files-2.3.5.so         \
+              libnss_hesiod-2.3.5.so libnss_nis-2.3.5.so libnss_nisplus-2.3.5.so   \
+              libpcprofile.so libpthread-0.10.so libresolv-2.3.5.so libSegFault.so \
+              libthread_db-1.0.so libutil-2.3.5.so
     do
       strip -S /lib/$FN
     done
