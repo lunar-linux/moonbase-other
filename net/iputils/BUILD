@@ -8,9 +8,9 @@
 
   install -c clockdiff             /sbin                  &&
   install -c arping                /sbin                  &&
-  install -c ping                  /bin                   &&
+  install -c ping         -m 4711  /bin                   &&
   install -c ifenslave             /sbin                  &&
-  install -c ping6                 /bin                   &&
+  install -c ping6        -m 4711  /bin                   &&
   install -c rdisc                 /sbin                  &&
   install -c tracepath             /bin                   &&
   install -c tracepath6            /bin                   &&
