@@ -1,6 +1,17 @@
 depends openssl  &&
 depends db       &&
 
-optional_depends "Linux-PAM"  "--with-pam"   "--without-pam"   "for PAM authentication"  &&
-optional_depends "mysql"      "--with-mysql" "--without-mysql" "for mysql support"       &&
-optional_depends "postgresql" "--with-pgsql" "--without-pgsql" "for postgreSQL support"
+optional_depends "Linux-PAM"                  \
+                 "--with-pam"                 \
+		 "--without-pam"              \
+		 "for PAM authentication"    &&
+
+optional_depends "mysql"                      \
+                 "--enable-sql --with-mysql"  \
+                 "--without-mysql"            \
+		 "for mysql support"         &&
+		 
+optional_depends "postgresql"                 \
+                 "--enable-sql --with-pgsql"  \
+		 "--without-pgsql"            \
+		 "for postgreSQL support"

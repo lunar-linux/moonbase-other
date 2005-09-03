@@ -8,7 +8,11 @@
     sedit "s/@LIBS@/@LIBS@ -lcrypt/" */Makefile.in
   fi
 
+  # default enabled modules in configure : checkapop, cram, digest, otp, gssapi, plain, anon
   OPTS=$OPTS" --enable-login                       \
+              --disable-otp                        \
+              --disable-gssapi                     \
+              --disable-anon                       \
               --with-pwcheck=/var/lib/sasl         \
               --with-dbpath=/var/lib/sasl/sasl.db  \
               --with-plugindir=/usr/lib/sasl2      \
@@ -20,7 +24,7 @@
   mkdir -p /var/lib/sasl/  &&
   default_make             &&
   if [ ! -e /usr/lib/sasl2/smtpd.conf ] ; then
-    install $SOURCE_CACHE/$SOURCE2 /usr/lib/sasl2/smtpd.conf.gz &&
+    install $SOURCE_CACHE/$SOURCE2 /usr/lib/sasl2/smtpd.conf.gz  &&
     gunzip /usr/lib/sasl2/smtpd.conf.gz
   fi
 
