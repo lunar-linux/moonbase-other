@@ -1,5 +1,7 @@
 (
 
+  add_priv_user nscd:nscd
+
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
   fi
