@@ -5,6 +5,7 @@
     sedit 's/arpd//' misc/Makefile
   fi
 
+  chmod +x configure &&
   ./configure &&
   KERNEL_INCLUDE=/usr/include/ make SBINDIR=/sbin &&
   prepare_install &&
