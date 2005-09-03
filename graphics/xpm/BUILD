@@ -1,7 +1,5 @@
 (
 
-  cd /usr/src/xpm-3.4g
-
   xmkmf -a           &&
   make               &&
   prepare_install    &&
