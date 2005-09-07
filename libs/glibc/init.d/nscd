@@ -8,6 +8,7 @@
 start ()
 {
 	echo -n "Starting nscd: "
+	mkdir -p /var/db/nscd /var/run/nscd &&
 	/usr/sbin/nscd &&
 	echo -e $RESULT_OK || echo -e $RESULT_FAIL
 }
