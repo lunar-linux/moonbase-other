@@ -5,8 +5,6 @@
   export CPPFLAGS="$CPPFLAGS -I$E17_DIR/include"
   export LDFLAGS="$LDFLAGS -L$E17_DIR/lib"
   
-  OPTS="$OPTS --with-x"
-
   default_build
 
 ) > $C_FIFO 2>&1
