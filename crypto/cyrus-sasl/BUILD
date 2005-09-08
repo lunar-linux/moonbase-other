@@ -11,7 +11,6 @@
   # default enabled modules in configure : checkapop, cram, digest, otp, gssapi, plain, anon
   OPTS=$OPTS" --enable-login                       \
               --disable-otp                        \
-              --disable-gssapi                     \
               --disable-anon                       \
               --with-pwcheck=/var/lib/sasl         \
               --with-dbpath=/var/lib/sasl/sasl.db  \
