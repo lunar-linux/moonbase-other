@@ -1,10 +1,14 @@
 (
+    UDEV_EXTRAS="extras/ata_id  extras/cdrom_id extras/chassis_id \
+                 extras/dasd_id extras/firmware extras/floppy \
+                 extras/run_directory extras/scsi_id extras/usb_id \
+                 extras/volume_id" 
 
     patch_it $SOURCE2 0  &&
 
-    make udevdir=/dev EXTRAS=extras/run_directory  &&
+    make udevdir=/dev EXTRAS="${UDEV_EXTRAS}"  &&
     prepare_install  &&
-    make udevdir=/dev EXTRAS=extras/run_directory install  &&
+    make udevdir=/dev EXTRAS="${UDEV_EXTRAS}" install  &&
  
     # install the init.d script
     # we cannot use automagic install via coretools
