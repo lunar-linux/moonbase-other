@@ -12,15 +12,12 @@
 
   sedit  "s/-O2/$CFLAGS/"  configure
 
-  ./configure  --prefix=/usr          \
-               --with-answer-all=no   \
-	       --without-sendmail     \
-               $WITH_PAM              \
+  ./configure  --prefix=/usr           \
+               --with-answer-all=no    \
+	       --without-sendmail      \
+               $WITH_PAM               \
                --with-editor=$EDITOR  &&
-  make                                &&
-  prepare_install                     &&
-  make    install                     ||
-  exit 1
+  default_make                        &&
 
 
   if [ -e /etc/init.d/fcron.sh ]; then
