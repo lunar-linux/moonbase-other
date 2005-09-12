@@ -10,7 +10,6 @@
   sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
 
   echo  "yes"  |  ./configure  -release                      \
                                -shared                       \
