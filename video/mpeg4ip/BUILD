@@ -1,8 +1,8 @@
 (
   /bin/sh bootstrap &&
 
-  # We don't need them
-  OPTS="$OPTS --disable-server --disable-player"
+  # We don't need it
+  OPTS="$OPTS --disable-server"
   
   default_build
 
