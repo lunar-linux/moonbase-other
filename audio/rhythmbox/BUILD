@@ -1,9 +1,6 @@
 
 (
    ./configure  --build=$BUILD                                  \
-		--enable-ipod \
-		--with-cd-burner \
-		--with-dbus \
                 --sysconfdir=/etc                               \
                 --prefix=/usr  		                        \
                 --localstatedir=/var                            \
