@@ -1,6 +1,6 @@
 (
 
-    sedit "s:SG_FLAG_LUN_:SG_FLAG_UNUSED_LUN_:"  hald/linux/linux_dvd_rw_utils.c  &&
+    #sedit "s:SG_FLAG_LUN_:SG_FLAG_UNUSED_LUN_:"  hald/linux/linux_dvd_rw_utils.c  &&
 
     add_priv_user haldaemon:haldaemon -d /dev/null -s /bin/false  &&
    
