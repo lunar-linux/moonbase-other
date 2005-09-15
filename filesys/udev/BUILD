@@ -1,6 +1,6 @@
 (
-    UDEV_EXTRAS="extras/ata_id  extras/cdrom_id extras/chassis_id \
-                 extras/dasd_id extras/firmware extras/floppy \
+    UDEV_EXTRAS="extras/ata_id  extras/cdrom_id extras/dasd_id \
+                 extras/edd_id extras/firmware extras/floppy \
                  extras/run_directory extras/scsi_id extras/usb_id \
                  extras/volume_id" 
 
@@ -21,7 +21,7 @@
     install ${SCRIPT_DIRECTORY}/49-udev.rules /etc/udev/rules.d/  &&
 
     mkdir -p /etc/udev/scripts.d/                          
-    for script in cdsymlinks.sh dvb.sh ide-devfs.sh inputdev.sh \
+    for script in dvb.sh ide-devfs.sh inputdev.sh \
                   raid-devfs.sh scsi-devfs.sh
     do
         install extras/${script} /etc/udev/scripts.d/
