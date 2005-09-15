@@ -4,7 +4,7 @@
   autoconf   &&
   cd ..      &&
   
-  OPTS="--disable-gui $OPTS"  &&
+  OPTS="--disable-gui  --disable-multinet $OPTS"  &&
 
   default_build
 
