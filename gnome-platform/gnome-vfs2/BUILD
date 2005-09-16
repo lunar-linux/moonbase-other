@@ -6,8 +6,8 @@
                 --localstatedir=/var              \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
+		--enable-cdda			  \
                 $OPTS                             &&
-    default_make                                  &&
-    echo "trash:    libvfolder-desktop.so">>${D}/etc/gnome-vfs-2.0/modules/default-modules.conf
+    default_make
 
 ) > $C_FIFO 2>&1
