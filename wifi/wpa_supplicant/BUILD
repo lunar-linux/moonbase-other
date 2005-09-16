@@ -1,17 +1,11 @@
 (
-  
-  if module_installed ndiswrapper;  then
-	OPTS="$OPTS CONFIG_DRIVER_NDISWRAPPER=y"
-  fi &&
-
-  if module_installed ipw2100 || module_installed ipw2200 ; then
-	OPTS="$OPTS CONFIG_DRIVER_IPW=y"
-  fi &&
-
   for option in \
   CONFIG_DRIVER_HOSTAP=y \
   CONFIG_DRIVER_PRISM54=y \
-  $OPTS \
+  CONFIG_DRIVER_NDISWRAPPER=y \
+  CONFIG_DRIVER_ATMEL=y \
+  CONFIG_DRIVER_WEXT=y \
+  CONFIG_DRIVER_IPW=y \
   CONFIG_WIRELESS_EXTENSION=y \
   CONFIG_IEEE8021X_EAPOL=y \
   CONFIG_EAP_MD5=y \
@@ -30,9 +24,7 @@
   
   make  &&
   prepare_install  &&
-  install -m755 wpa_supplicant	/usr/bin	&&
-  install -m755 wpa_cli 	/usr/bin	&&
-  install -m755 wpa_passphrase	/usr/bin	&&
+  install -m755 wpa_supplicant wpa_cli wpa_passphrase /usr/bin	&&
 
   gather_docs developer.txt wpa_supplicant.conf 
 
