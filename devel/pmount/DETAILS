@@ -6,7 +6,13 @@
         WEB_SITE=http://www.piware.de/projects
          ENTERED=20050913
          UPDATED=20050913
-           SHORT="allows users to mount stuff that is not in /etc/fstab"
+           SHORT="mount arbitrary hotpluggable devices as normal user"
 cat << EOF
-allows normal users to mount stuff that is not in /etc/fstab
+pmount  ("policy mount") is a wrapper around the standard mount program
+which permits normal users to mount removable devices without a  match-
+ing /etc/fstab entry.
+pmount also supports encrypted devices which use dm-crypt and have LUKS
+metadata. If a LUKS-capable cryptsetup is installed, pmount will use it
+to  decrypt  the  device  first and mount the mapped unencrypted device
+instead.
 EOF
