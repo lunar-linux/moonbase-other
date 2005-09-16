@@ -5,7 +5,9 @@
                 --prefix=/usr  		                        \
                 --localstatedir=/var                            \
                 --infodir=/usr/share/info		        \
-                --mandir=/usr/share/man 		        &&
+                --mandir=/usr/share/man 		        \
+		--enable-ipod					\
+		$OPTS						&&
    
    ( for i in `find -name "Makefile"`; do
 	    sedit 's/-Werror//g' $i
