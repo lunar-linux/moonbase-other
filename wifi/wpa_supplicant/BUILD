@@ -4,7 +4,7 @@
 	OPTS="$OPTS CONFIG_DRIVER_NDISWRAPPER=y"
   fi &&
 
-  if module_installed ipw2100; then
+  if module_installed ipw2100 || module_installed ipw2200 ; then
 	OPTS="$OPTS CONFIG_DRIVER_IPW=y"
   fi &&
 
