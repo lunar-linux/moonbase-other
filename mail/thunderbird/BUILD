@@ -61,14 +61,16 @@
     prepare_install &&
     make install &&
 
-    if module_installed gnupg ; then
-      build/autoconf/make-makefile extensions/ipc \
-                extensions/enigmail
-      make -C extensions/ipc
-      make -C extensions/enigmail
-      make -C extensions/ipc install 
-      make -C extensions/enigmail install
-    fi
+    # Enigmail support disabled since it doesn't work anylonger
+    # Blame the thunderbird developers
+    #if module_installed gnupg ; then
+    #  build/autoconf/make-makefile extensions/ipc \
+    #            extensions/enigmail
+    #  make -C extensions/ipc
+    #  make -C extensions/enigmail
+    #  make -C extensions/ipc install 
+    #  make -C extensions/enigmail install
+    #fi
 
     # Needed for rss support
     install -d $MOZILLA_HOME/defaults/isp/US &&
@@ -84,7 +86,7 @@
 
     # Now the .desktop file and the icon
     install -d /usr/share/applications /usr/share/pixmaps &&
-    install -m644 $SOURCE_CACHE/$SOURCE4 /usr/share/applications &&
+    install -m644 $SOURCE_CACHE/$SOURCE2 /usr/share/applications &&
     rm -f /usr/share/pixmaps/thunderbird.xpm &&
     install -m644 $MOZILLA_HOME/icons/default.xpm \
 		  /usr/share/pixmaps/thunderbird.xpm
