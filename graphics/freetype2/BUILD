@@ -1,11 +1,11 @@
 (
-# patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-  case  $BYTECODE  in
-    y|Y|j|J)  echo "#define TT_CONFIG_OPTION_BYTECODE_INTERPRETER" >> include/freetype/config/ftoption.h  ;;
-          *)  true  ;;
-  esac
+  if [ $BYTECODE == "y" ] ; then
+    message "${RED}ENABLED!!!!${DEFAULT_COLOR}"
+    sed -i -r 's:.*(#.*BYTE.*) .*:\1:' \
+       include/freetype/config/ftoption.h
+  fi &&
 
-  make  setup  CFG="--prefix=/usr"  &&
+  ./configure --prefix=/usr &&
   default_make
 
 ) > $C_FIFO 2>&1
