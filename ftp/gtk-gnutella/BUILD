@@ -1,6 +1,5 @@
 (
 
-  patch_it $SOURCE2 1 &&
   # shoot metaconfig in the head please:
   ./Configure -ders\
               -D gtkversion=2 \
