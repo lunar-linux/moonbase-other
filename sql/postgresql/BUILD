@@ -1,24 +1,16 @@
 (
 
-  if module_installed tcl ; then
-     OPTS=$OPTS" --with-tcl"
-  fi 
+  ./configure  --prefix=/usr  \
+               $OPTS          &&
 
-  if module_installed perl ; then
-     OPTS=$OPTS" --with-perl"
-  fi 
+  default_make                &&
 
-  if module_installed Python ; then
-     OPTS=$OPTS" --with-python"
-  fi 
+# This gives postgresql some additional things like text search,
+# some dbase related utils to name a few.
+# See /usr/share/doc/postgresql/contrib for more info.
 
-  if module_installed Linux-PAM ; then
-     OPTS=$OPTS" --with-pam"
-  fi 
-
-  add_priv_user postgres:postgres  &&
-  ./configure  --prefix=/usr        \
-	       $OPTS               &&
-  default_make                                  
+  cd contrib                  &&
+  make all                    &&
+  make install
 
 ) > $C_FIFO 2>&1
