@@ -1,31 +1,28 @@
           MODULE=pciutils
-         VERSION=2.1.11
-          SOURCE=${MODULE}-${VERSION}.tar.gz
+         VERSION=2.2.0
+          SOURCE=$MODULE-$VERSION.tar.gz
 	 SOURCE2=pci.ids.bz2
-   SOURCE_URL[0]=$KERNEL_URL/pub/software/utils/pciutils/
+   SOURCE_URL[0]=$KERNEL_URL/pub/software/utils/$MODULE/
    SOURCE_URL[1]=http://www.ibiblio.org/pub/Linux/hardware/
    SOURCE_URL[2]=ftp://atrey.karlin.mff.cuni.cz/pub/linux/pci/
      SOURCE2_URL=http://pciids.sourceforge.net/
-        WEB_SITE=unknown
+      SOURCE_VFY=sha1:db71fd2adc52795718ba32b8bf5448635eb38306
+        WEB_SITE=http://atrey.karlin.mff.cuni.cz/~mj/pciutils.shtml
          ENTERED=20020125
-         UPDATED=20030804
+         UPDATED=20030921
            PSAFE=no
            SHORT="setpci and lspci utils."
-cat << EOF
 
+cat << EOF
 The PCI Utilities package contains a library for portable access to PCI
 bus configuration space and several utilities based on this library.
 Current version works only on Linux, but it can be easily extended to
 work on other systems as well.
-
 The utilities include: (See manual pages for more details)
-
 lspci:		displays detailed information about all PCI busses and
 		devices in the system, replacing the original /proc/pci
 		interface. 
-
 setpci:		allows to read from and write to PCI device
 		configuration registers.  For example, you can adjust
 		the latency timers with it.
-
 EOF
