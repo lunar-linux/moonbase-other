@@ -1,4 +1,9 @@
 depends edje-cvs &&
-optional_depends "libsharedmime" "--with-libsharedmime=/usr/lib" "" "for freedesktop.org MIME-determination"
-optional_depends "doodle" "" "" "gather meta-data from files and do lightning-fast searches"
+
+optional_depends "libsharedmime"  "--with-libsharedmime=/usr/lib"  ""  \
+                 "for freedesktop.org MIME-determination"              &&
+
+optional_depends "doodle"  ""  ""  \
+                 "gather meta-data from files and do lightning-fast searches"
+
 #optional_depends "gnome-vfs2" "--enable-backend-gnomevfs2" "" "enable the GNOME-VFS2 file backend"
