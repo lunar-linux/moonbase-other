@@ -8,11 +8,11 @@ if [ -d /usr/lib/mozilla-$VERSION/plugins ] ; then
   rm -Rf /usr/lib/mozilla-$VERSION/plugins
 fi
 
-ln -sf /usr/lib/mozilla-$VERSION /usr/lib/mozilla
-ln -sf /usr/include/mozilla-$VERSION /usr/include/mozilla
+ln -snf /usr/lib/mozilla-$VERSION /usr/lib/mozilla
+ln -snf /usr/include/mozilla-$VERSION /usr/include/mozilla
 
 mkdir -p /opt/lunar/plugins
-ln -sf /opt/lunar/plugins /usr/lib/mozilla/plugins
+ln -snf /opt/lunar/plugins /usr/lib/mozilla/plugins
 
 MOZLIBDIR=/usr/lib/mozilla
 if ! grep -q "$MOZLIBDIR" /etc/ld.so.conf ; then
