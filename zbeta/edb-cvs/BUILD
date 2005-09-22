@@ -10,7 +10,7 @@
                --sysconfdir=/etc                   \
                --localstatedir=/var                \
                --infodir=$MODULE_PREFIX/share/info \
-               --mandir=$MOUDLE_PREFIX/share/man   \
+               --mandir=$MODULE_PREFIX/share/man   \
                --enable-compat185                  \
                --enable-dump185                    \
                $OPTS                               &&

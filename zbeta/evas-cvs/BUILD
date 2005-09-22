@@ -10,7 +10,7 @@
                --sysconfdir=/etc                   \
                --localstatedir=/var                \
                --infodir=$MODULE_PREFIX/share/info \
-               --mandir=$MOUDLE_PREFIX/share/man   \
+               --mandir=$MODULE_PREFIX/share/man   \
                --disable-cairo-x11                 \
                --enable-image-loader-eet           \
                --enable-image-loader-edb           \
