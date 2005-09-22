@@ -12,7 +12,6 @@
                --infodir=$MODULE_PREFIX/share/info \
                --mandir=$MODULE_PREFIX/share/man   \
                --enable-extra-iconsets             \
-	       --with-libsharedmime=/usr/lib	   \
                $OPTS                               &&
 
    default_make
