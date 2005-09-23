@@ -13,6 +13,11 @@
                --mandir=$MODULE_PREFIX/share/man   \
                --enable-extra-iconsets             \
                --disable-debug                     \
+               --enable-edje                       \
+               --enable-tree-view                  \
+               --enable-icon-view                  \
+               --enable-browser-view               \
+               --enable-plugin-extractor           \
                $OPTS                               &&
 
    default_make
