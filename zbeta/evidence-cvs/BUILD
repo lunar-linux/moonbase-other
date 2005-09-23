@@ -12,6 +12,7 @@
                --infodir=$MODULE_PREFIX/share/info \
                --mandir=$MODULE_PREFIX/share/man   \
                --enable-extra-iconsets             \
+               --disable-debug                     \
                $OPTS                               &&
 
    default_make
