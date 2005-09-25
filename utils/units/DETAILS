@@ -1,17 +1,18 @@
           MODULE=units
-         VERSION=1.83c
-        #VERSION=1.74
+         VERSION=1.85
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-$VERSION-units-c.patch
-   SOURCE_URL[0]=http://www.cam.cornell.edu/~adrian/
-   SOURCE_URL[1]=$GNU_URL/$MODULE/
+   SOURCE_URL[0]=$GNU_URL/$MODULE/
+   SOURCE_URL[1]=http://www.cam.cornell.edu/~adrian/
    SOURCE_URL[2]=ftp://ftp.gnu.org/pub/gnu/$MODULE/
-  SOURCE2_URL[0]=$PATCH_URL/
-       SOURCE_VFY=md5:3730a60f64c0345e2c0989694147fe4c
-        WEB_SITE=http://www.cam.cornell.edu/~adrian/units.html
+      SOURCE_VFY=sha1:012a3b23611eb85ad9f47cf2612794d5a3d66fef
+        WEB_SITE=http://freshmeat.net/projects/units/
          ENTERED=20020410
-         UPDATED=20031206
-           SHORT="GNU units converts between different systems of units."
+         UPDATED=20050925
+           SHORT="converts values between different systems of units"
+
 cat << EOF
-GNU units converts between different systems of units.
+GNU units converts between different systems of units.  It can handle 
+multiplicative scale changes as well as nonlinear conversions, such as
+Fahrenheit to Celsius.  Over 2000 units definitions are included in a 
+well-annotated data file.
 EOF
