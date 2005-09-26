@@ -1,8 +1,6 @@
 ( 
 
   OPTS="$OPTS --enable-release"
-  
-  sedit "s:#undef GTK_DISABLE_DEPRECATED::" config.h.in &&
   default_build &&
 
   # No, docs don't go here...
