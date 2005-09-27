@@ -24,5 +24,9 @@ if ! grep -q "^OPTS=" $MODULE_CONFIG ; then
     OPTS=$OPTS" --enable-largefiles"
   fi
 
+  if query "Enable Video 4 Linux ver2? " y ; then
+    OPTS=$OPTS" --enable-tv-v4l2"
+  fi
+
   echo 'OPTS='\"$OPTS\" >> $MODULE_CONFIG
 fi
