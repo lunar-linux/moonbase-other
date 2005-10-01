@@ -1,22 +1,16 @@
 (
 
-  ./configure  --prefix=/usr              \
-               --sysconfdir=/etc          \
-               --enable-fading            \
-               --enable-next-scroll       \
-               --enable-half-shadow       \
-	       --enable-menubar           \
-	       --enable-background-image  \
+  OPTS="$OPTS  --enable-fading            \
                --enable-transparency      \
-	       --mandir=/usr/share/man    \
-	       --with-xpm                 \
-	       --with-jpeg                \
-	       --with-png                 \
-	       --with-x                   \
-               --with-term=rxvt           \
+               --enable-background-image  \
+               --enable-menubar           \
+               --enable-graphics          \
                --enable-utmp              \
                --enable-wtmp              \
-               $OPTS                     &&
-  default_make
+               --with-x                   \
+               --enable-next-scroll       \
+               --enable-half-shadow"
+
+  default_build
 
 ) > $C_FIFO 2>&1
