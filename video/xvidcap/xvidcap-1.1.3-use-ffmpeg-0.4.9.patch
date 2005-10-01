@@ -1,0 +1,16 @@
+--- src/xtoffmpeg.c	2004/08/27 20:04:38	1.1
++++ src/xtoffmpeg.c	2004/08/28 00:23:53
+@@ -1117,7 +1117,12 @@ XImageToFFMPEG (FILE *fp, XImage *image,
+     }
+ #endif // HAVE_FFMPEG_AUDIO
+     /* write frame to file */
+-    av_write_frame (output_file, out_st->index, outbuf, out_size);
++    AVPacket _pkt, *pkt = &_pkt;
++    av_init_packet (pkt);
++    pkt->stream_index = out_st->index;
++    pkt->data = outbuf;
++    pkt->size = out_size;
++    av_write_frame (output_file, pkt);
+ #ifdef HAVE_FFMPEG_AUDIO
+     /* release the mutex */
+     if (job->flags & FLG_AUDIO_WANTED) {
