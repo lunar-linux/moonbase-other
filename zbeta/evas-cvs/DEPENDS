@@ -4,13 +4,13 @@ depends eet-cvs    &&
 depends edb-cvs    &&
 depends grep       &&
 
-optional_depends "libpng" "--enable-image-loader-png" "" \
-                          "enable PNG image loader"      &&
-optional_depends "jpeg" "--enable-image-loader-jpeg" ""  \
-                        "enable JPEG image loader"       &&
-optional_depends "DirectFB" "--enable-directfb" ""       \
-                 "enable the DirectFB rendering backend" &&
-optional_depends "valgrind" "--enable-valgrind" ""       \
-        "enable valgrid fixes to stop false reports (not recommended)" &&
-optional_depends "glut" "--enable-gl-x11" ""             \
-                 "enable OpenGL rendering backend"
+optional_depends  "libpng"    "--enable-image-loader-png"   ""         \
+                              "enable PNG image loader"                &&
+optional_depends  "jpeg"      "--enable-image-loader-jpeg"  ""         \
+                              "enable JPEG image loader"               &&
+optional_depends  "DirectFB"  "--enable-directfb"           ""         \
+                              "enable the DirectFB rendering backend"  &&
+optional_depends  "valgrind"  "--enable-valgrind"           ""         \
+                  "enable valgrid fixes to stop false reports (not recommended)"  &&
+optional_depends  "glut"      "--enable-gl-x11"             ""         \
+                              "enable OpenGL rendering backend"

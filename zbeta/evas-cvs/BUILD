@@ -15,6 +15,7 @@
                --enable-image-loader-eet           \
                --enable-image-loader-edb           \
                --enable-software-x11               \
+               --enable-xrender-x11                \
                --enable-fb                         \
                --enable-font-loader-eet            \
                --enable-cpu-c                      \
