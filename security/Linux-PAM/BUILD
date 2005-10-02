@@ -11,7 +11,6 @@
 EOF
 
   autoconf &&
-  sedit 's|DICT_DIR_CANDIDATES="|DICT_DIR_CANDIDATES="/lib/cracklib |' configure &&
   ./configure  --enable-read-both-confs                 \
                --enable-docdir=/usr/share/doc/Linux-PAM \
                --mandir=/usr/share/man                  \
