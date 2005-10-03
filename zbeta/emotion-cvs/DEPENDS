@@ -1,4 +1,6 @@
 depends edje-cvs &&
-depends xine-lib &&
 
-optional_depends  "gst-ffmpeg"  ""  ""  "for extra video and audio decoding support"
+optional_depends  "xine-lib"    ""  "--disable-xine"           \
+                  "for xine video and audio decoding support"  &&
+optional_depends  "gst-ffmpeg"  ""  "--disable-gstreamer"      \
+                  "for gstreamer video and audio decoding support"
