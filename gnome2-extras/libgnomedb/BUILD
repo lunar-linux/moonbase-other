@@ -1,5 +1,7 @@
 (
 
+   sedit "s/default :$/default :;/" libgnomedb/utils.c &&
+   sedit "s/case GNOME_DB_FORM_TYPE_LIST :$/case GNOME_DB_FORM_TYPE_LIST :;/" libgnomedb/gnome-db-form.c &&
    ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
