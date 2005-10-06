@@ -1,0 +1,22 @@
+          MODULE=libiec61883
+         VERSION=1.0.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+   SOURCE_URL=http://www.linux1394.org/dl/
+   SOURCE_VFY=sha1:2791953765d4759dab27a5cc3617fe2ea2a85ca7
+        WEB_SITE=http://www.linux1394.org/
+         ENTERED=20051006
+         UPDATED=20051006
+           SHORT="media reception and transmission for DV, MPEG2-TS, and AMDTP"
+
+cat << EOF
+After many months of hard work, the first release of libiec61883 is now
+available. This library provides third generation media reception and
+transmission for DV, MPEG2-TS, and AMDTP (audio and music) using only raw1394
+and not the complicated setup and maintenance of other kernel modules and their
+/dev nodes. This is not just an early development release. It is already quite
+capable and robust. Already, MythTV 0.17 supports MPEG2-TS, FreeBob is using
+AMDTP, and a soon-to-be-released dvgrab 2.0 is being used in a heavy, 24/7
+production environment. We encourage all developers and applications to migrate
+to this library as support for dv1394, amdtp, and cmp modules are being phased
+out as well as DV and MPEG2-TS applications of video1394.
+EOF
