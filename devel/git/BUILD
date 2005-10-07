@@ -1,7 +1,8 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   sedit "s/-g -O2/${CFLAGS}/" Makefile &&
-  default_make
+  make prefix=/usr &&
+  prepare_install  &&
+  make prefix=/usr install 
 
 ) > $C_FIFO 2>&1
