@@ -1,8 +1,6 @@
 (
 
   make clean &&
-  make &&
-  prepare_install &&
-  make install-root
+  default_make
 
 ) > $C_FIFO 2>&1
