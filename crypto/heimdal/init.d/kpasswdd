@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# chkconfig: 2345 30 70
+# description: kpasswd daemon
+# processname: kpasswdd
+# pidfile: /var/run/kpasswdd.pid
+
+start ()
+{
+        echo -n "Starting kpasswdd: "
+	kpasswdd &
+        echo -e $RESULT_OK || echo -e $RESULT_FAIL
+}
+
+stop ()
+{
+        echo -n "Stopping kpasswdd: "
+	/bin/pkill -P 1 kpasswdd &&
+        echo -e $RESULT_OK || echo -e $RESULT_FAIL
+}
+
+. /lib/lsb/init-functions
