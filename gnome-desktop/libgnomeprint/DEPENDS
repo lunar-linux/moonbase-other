@@ -1,3 +1,5 @@
 depends libbonobo   &&
 depends libart_lgpl &&
-depends libgnomecups
+
+optional_depends  "libgnomecups"  "--with-cups"  "--without-cups"  \
+                  "for CUPS printing support"
