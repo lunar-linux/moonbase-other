@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# chkconfig: 2345 30 70
+# description: kadmin daemon
+# processname: kadmind
+# pidfile: /var/run/kadmind.pid
+
+start ()
+{
+        echo -n "Starting kadmind: "
+	kadmind &
+        echo -e $RESULT_OK || echo -e $RESULT_FAIL
+}
+
+stop ()
+{
+        echo -n "Stopping kadmind: "
+	/bin/pkill -P 1 kpasswdd &&
+        echo -e $RESULT_OK || echo -e $RESULT_FAIL
+}
+
+. /lib/lsb/init-functions
