@@ -4,7 +4,7 @@
   KSUFFIX=o
   if echo $KVER | grep -q "^2.6." ; then
     KSUFFIX=ko
-    TWOSIX="-2.6"
+    TWOSIX="-core"
   fi
 
   ./autogen.sh &&
@@ -12,6 +12,7 @@
   make DRM_MODULES="$DRM_MODULES" &&
   prepare_install &&
   mkdir -p /lib/modules/$KVER/kernel/drivers/drm &&
+  install drm.$KSUFFIX /lib/modules/$KVER/kernel/drivers/drm/ &&
   for MOD in $DRM_MODULES; do
     install $MOD.$KSUFFIX /lib/modules/$KVER/kernel/drivers/drm/
   done && 
