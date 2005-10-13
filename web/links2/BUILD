@@ -7,7 +7,7 @@
     OPTS="$OPTS --enable-javascript"
   fi
 
-  # temp patch for a bug in links-2.1pre18
+  # temp patch for a bug in links2
   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   default_build
   
