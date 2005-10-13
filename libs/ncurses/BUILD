@@ -1,4 +1,16 @@
 (
+  if [ $WITH_DEBUG == "y" ]; then
+    OPTS="$OPTS --with-debug"
+  else
+    OPTS="$OPTS --without-debug"
+  fi;
+
+  if [ $WITH_PROFILING == "y" ]; then
+    OPTS="$OPTS --with-profile"
+  else
+    OPTS="$OPTS --without-profile"
+  fi;
+
 
 # ************************ WARNING *************************
 # DO NOT MESS WITH THE CONFIGURE STUFF here unless you

@@ -1,19 +1,2 @@
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
-
-  if    query  "Do you want to install debug libraries ?" n
-  then
-      OPTS=$OPTS" --with-debug"
-  else
-      OPTS=$OPTS" --without-debug"
-  fi
-
-  if    query  "Do you want to install profiling libraries ?" n
-  then
-      OPTS=$OPTS" --with-profile"
-  else
-      OPTS=$OPTS" --without-profile"
-  fi
-
-  echo  OPTS=\"$OPTS\"    >>  $MODULE_CONFIG
-  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-fi
+mquery WITH_DEBUG "Do you want to install debug libraries ?" n
+mquery WITH_PROFILING "Do you want to install profiling libraries ?" n
