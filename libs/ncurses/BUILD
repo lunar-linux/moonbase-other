@@ -11,6 +11,9 @@
     OPTS="$OPTS --without-profile"
   fi;
 
+# Seems that ncurses-5.5 has problems with garbage in /usr/share/terminfo
+# Note: ncurses-5.5 also has all the "screen" files for terminfo, so no recompile is needed
+  rm -rf /usr/share/terminfo &&
 
 # ************************ WARNING *************************
 # DO NOT MESS WITH THE CONFIGURE STUFF here unless you
