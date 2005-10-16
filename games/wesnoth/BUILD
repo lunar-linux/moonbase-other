@@ -1,9 +1,8 @@
 (
 
-  ./configure  --prefix=/usr        \
-               --bindir=/usr/games  \
-	       --datadir=/usr/share/games &&
+  OPTS="$OPTS  --enable-server  --enable-campaign-server  \
+               --enable-editor  --enable-tools"
 
-  default_make
+  default_game_build
 
 ) > $C_FIFO 2>&1
