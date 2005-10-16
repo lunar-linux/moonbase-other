@@ -1,7 +1,8 @@
 (
-
+  
+  patch_it $SOURCE_CACHE/$SOURCE2 0      &&
   cd src                                 &&
-	default_config                         &&
+  default_config                         &&
   make                                   &&
   prepare_install                        &&
   rm -f /usr/bin/vim /usr/bin/vi         &&
