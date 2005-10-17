@@ -150,15 +150,7 @@ esac
   # Generate locale info
   unset   LD_PRELOAD                          &&
   if  [  -z  "$GLIBC_LOCALES"  ];  then
-    cat  $SCRIPT_DIRECTORY/locales  |
-    while  read  LOCALE  DESCRIPTION;  do
-      INPUTFILE=`echo  $LOCALE  |  cut  -d /  -f1`
-        CHARMAP=`echo  $LOCALE  |  cut  -d /  -f2`
-      mkdir  -p  /usr/lib/locale/$INPUTFILE
-      echo "localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE"
-            localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE
-    done
-    true
+    make localedata/install-locales || exit 1
   else
     for  LOCALE  in  $GLIBC_LOCALES;  do
       INPUTFILE=`echo  $LOCALE  |  cut  -d /  -f1`
