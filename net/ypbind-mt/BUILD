@@ -3,10 +3,8 @@
   ./configure  --prefix=/usr            \
                --sbindir=/sbin          \
                --mandir=/usr/share/man  \
-               $OPTS                    &&
-  make                       &&
-  prepare_install            &&
-  make    install
+               $OPTS                   &&
+  default_make
 
   if [ -e "/etc/init.d/ypbind.sh" ]; then
     rm -f /etc/init.d/ypbind.sh
