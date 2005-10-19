@@ -6,8 +6,9 @@
     fi
     
     cd $AVER
-    /usr/sbin/apxs -c mod_scgi.c &&
+    /usr/sbin/apxs -c mod_scgi.c
     prepare_install &&
-    /usr/sbin/apxs -i mod_scgi.so
+    # The -c option is quite redundat, but apxs work in a strange way
+    /usr/sbin/apxs -i -c mod_scgi.c
 
 ) > $C_FIFO 2>&1
