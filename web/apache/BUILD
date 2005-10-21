@@ -11,10 +11,8 @@
                --enable-module=auth_db           \
                --enable-module=mmap_static       \
                --disable-module=auth_dbm         \
-               --with-layout=GNU                 &&
-  make                                           &&
-  prepare_install                                &&
-  make    install
+               --with-layout=GNU                &&
+  default_make
 
 ) > $C_FIFO 2>&1  &&
 
