@@ -5,7 +5,7 @@
                --sysconfdir=/etc     \
                --localstatedir=/var  \
 	       --enable-gtk2         \
-               $OPTS                 &&
+               $OPTS                &&
 
  default_make
 
