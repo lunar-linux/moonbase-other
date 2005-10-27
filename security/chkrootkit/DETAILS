@@ -1,12 +1,14 @@
           MODULE=chkrootkit
          VERSION=0.46
-          SOURCE=chkrootkit.tar.gz
-      SOURCE_URL=http://us.chkrootkit.org/download/
-      SOURCE_VFY=sha1:2344585d0184d73a817fb8d4849dd8db36e7a6fa
+          SOURCE=$MODULE.tar.gz
+      SOURCE_URL[0]=ftp://ftp.pangeia.com.br/pub/seg/pac/
+      SOURCE_URL[1]=http://us.chkrootkit.org/download/
+      SOURCE_VFY=sha1:20f9ac664e1795ce128ef94b89a9f14e67ef5c5c
         WEB_SITE=http://www.chkrootkit.org/
          ENTERED=20040124
          UPDATED=20051027
            SHORT="a tool to locally check for signs of a rootkit"
+
 cat << EOF
 chkrootkit is a shell script that checks system binaries for rootkit 
 modification.
