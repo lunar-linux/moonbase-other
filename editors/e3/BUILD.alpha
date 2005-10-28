@@ -2,12 +2,12 @@
   cd e3c &&
   sed -i 's/^GCC=.*/GCC=gcc/' Makefile  &&
   sed -i 's/^STRIP=.*/STRIP=strip/' Makefile  &&
-  make  OS=LINUX2\ -DLINUX          &&
-  prepare_install                   &&
+  make                             &&
+  prepare_install                  &&
   make  BINDIR=/usr/bin             \
         MANDIR=/usr/share/man/man1  \
         PREFIX=/                    \
-        install                     &&
+        install                    &&
   ln -sf /usr/bin/e3c /usr/bin/e3
 
 ) > $C_FIFO 2>&1
