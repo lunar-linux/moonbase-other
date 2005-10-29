@@ -1,9 +1,7 @@
 (
 
-  ./configure.rb --prefix=/usr    \
-                 --enable-shared &&
-  make            &&
-  prepare_install &&
-  make install
+  ./configure.rb --prefix=/usr     \
+                 --enable-shared  &&
+  default_make
 
 ) > $C_FIFO 2>&1
