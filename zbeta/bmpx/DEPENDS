@@ -1,8 +1,9 @@
 depends libglade2  &&
 depends taglib     &&
 depends xine-lib   &&
+depends curl       &&
+depends %FAM       &&
 
-optional_depends "dbus" "--enable-dbus" "--disable-dbus"    \
-    "for a DBus remote interface"                           &&
-optional_depends "xchat" "--enable-xchat" ""                 \
-    "XChat plugin"
+optional_depends  "dbus"   "--enable-dbus"   "--disable-dbus"  \
+    "for a DBus remote interface"                              &&
+optional_depends  "xchat"  "--enable-xchat"  ""  "build the XChat plugin"
