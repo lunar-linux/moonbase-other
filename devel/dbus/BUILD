@@ -9,6 +9,8 @@
   else
     OPTS="$OPTS --disable-mono"
   fi
+
+  export LDFLAGS="$LDFLAGS -lexpat"
  
   OPTS="$OPTS --enable-glib --enable-x --enable-checks --enable-verbose-mode \
         --with-xml=libxml --with-system-pid-file=/var/run/messagebus.pid     \
