@@ -28,6 +28,7 @@
   install -m644 usr/X11R6/include/X11/extensions/fglrx_gamma.h \
   	/usr/X11R6/include/X11/extensions/fglrx_gamma.h &&
   cp -a usr/X11R6/lib/* /usr/X11R6/lib/ &&
-  install usr/include/GL/glxATI.h /usr/include/GL/
+  install usr/include/GL/glxATI.h /usr/include/GL/ &&
+  install usr/include/GL/glATI.h /usr/include/GL/
 
 ) > $C_FIFO 2>&1
