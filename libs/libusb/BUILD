@@ -1,6 +1,7 @@
 (
 
-  sedit "s:SUBDIRS = . tests doc:SUBDIRS = . tests:g" Makefile.in &&
+  OPTS="$OPTS  --disable-build-docs  --disable-debug"
+
   default_build
 
 ) > $C_FIFO 2>&1
