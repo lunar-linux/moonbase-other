@@ -1,8 +1,5 @@
 (
 
-  export LD_LIBRARY_PATH=${QT_PREFIX:-$QTDIR}/lib
-  export PATH=${QT_PREFIX:-$QTDIR}/bin:${KDE_PREFIX:-$KDEDIR}/bin:/usr/X11/bin:$PATH
-  export LD_RUN_PATH=${KDE_PREFIX:-$KDEDIR}/lib:${KDE_PREFIX:-$KDEDIR}/lib/kde3
 
 
   CPPFLAGS=$CPPFLAGS" -Wno-deprecated"     \
@@ -23,6 +20,9 @@
 
   if [ "$QTPLUGIN" = "y" ]  ; then
     if module_installed qt3 ; then
+  export LD_LIBRARY_PATH=${QT_PREFIX:-$QTDIR}/lib  &&
+  export PATH=${QT_PREFIX:-$QTDIR}/bin:${KDE_PREFIX:-$KDEDIR}/bin:/usr/X11/bin:$PATH  &&
+  export LD_RUN_PATH=${KDE_PREFIX:-$KDEDIR}/lib:${KDE_PREFIX:-$KDEDIR}/lib/kde3  &&
       cd $SOURCE_DIRECTORY/plugins/qt-gui               &&
       CPPFLAGS=$CPPFLAGS" -Wno-deprecated"              \
       ./configure  --prefix=/usr                        \
