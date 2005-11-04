@@ -1,35 +1,26 @@
 (
+  OO_INSTALL_DIR="${SOURCE_DIRECTORY}/RPMS"
+  cd $OO_INSTALL_DIR			&&
 
-  message ""
-  message "To run the OO installer you must have access to your X server."
-  message "Please open a new xterm and type xhost +local: to give root access"
-  message ""
+  # I don't know what do with those. Hints anybody?
+  rm -rf desktop-integration		&&
 
-  query "Press enter to continue..." y
+  # Let the "magic" happen. Ugh, I hate rpm
+  message "${MESSAGE_COLOR}Unpacking RPMs...${DEFAULT_COLOR}" &&
+  for pack in ${OO_INSTALL_DIR}/*; do
+    rpmunpack $pack;
+  done &&
 
-  export DISPLAY=:0.0
-
-  prepare_install                                               &&
-  devoke_installwatch                                           &&
-  $SOURCE_DIRECTORY/setup -v -r:$SCRIPT_DIRECTORY/response      &&
-  invoke_installwatch                                           &&
-
-  #
-  # Shhhh! don't tell anyone I wrote this:
-  #
-  # OO registers so we cannot install and move it to somewhere else,
-  # so we fool ourselves here. Let's just move the entire tree to
-  # a fake install location and now that installwatch is enabled,
-  # do a cp -R so installwatch 'sees' the files being installed!
-
-  mv /opt/lunar/openoffice /opt/lunar/.OOo		&& # takes 1 sec
-  mkdir /opt/lunar/openoffice                           &&
-  cp -R /opt/lunar/.OOo/* /opt/lunar/openoffice/	&& # takes a while...
-  rm -rf /opt/lunar/.OOo				&&
-
-  cd /usr/share/applications                            &&
-  for i in /opt/lunar/openoffice/share/gnome/net/ooo*.desktop ; do
-   ln -sf $i
-  done
+  # Now, lets get rid of the rpms
+  rm -rf ${OO_INSTALL_DIR}/*.rpm	&&
+  gunzip $OO_INSTALL_DIR/*		&&
+  
+  for pack in ${OO_INSTALL_DIR}/*; do
+    cpio -idm < $pack &> /dev/null;
+  done &&
+  
+  prepare_install &&
+  message "${MESSAGE_COLOR}Installing OpenOffice ${VERSION}...${DEFAULT_COLOR}" &&
+  cp -a "${OO_INSTALL_DIR}/opt/openoffice.org2.0" /opt/lunar/openoffice
 
 ) > $C_FIFO 2>&1

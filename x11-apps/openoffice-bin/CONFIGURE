@@ -1,9 +1,0 @@
-if ! module_installed j2sdk; then
-   if query "Install j2sdk for Java support? " y; then 
-       lin j2sdk
-   fi
-fi
-if [ "$(get_other_module_config "freetype2" "BYTECODE")" != "y" ]; then
-  message "${PROBLEM_COLOR}Warning: please lin -r -c freetype2 and answer yes to bytecode interpreter.${DEFAULT_COLOR}"
-  false  #fail out because users dont see this if we install properly.
-fi
