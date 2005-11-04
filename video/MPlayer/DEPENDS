@@ -1,5 +1,6 @@
-depends  unzip      &&
-depends  MPlayer-essentials &&
+depends freetype2 	   &&
+depends unzip      	   &&
+depends MPlayer-essentials &&
 
 optional_depends  "libdvdread"     \
 		  ""               \
@@ -24,29 +25,29 @@ optional_depends  "libvorbis"      \
 optional_depends "libmatroska"	\
 		 ""             \
 		 ""		\
-		 "For matroska audio/video container format support" &&
+		 "for matroska audio/video container format support" &&
 
 optional_depends "faad"		   \
-		 ""   \
+		 ""   		   \
 		 ""		   \
-		 "For external FAAD2 (MPA/AAC) support" &&
+		 "for external FAAD2 (MPA/AAC) support" &&
 
 optional_depends "libtheora"         \
                  "--enable-theora"   \
                  "--disable-theora"  \
-                 "For OGG/Theora Video Playback" &&
+                 "for OGG/Theora Video Playback" &&
 
-optional_depends "libXvMCW" "--enable-xvmc --with-xvmclib=XvMCW" "" "For hardware Xv acceleration" &&
+optional_depends "libXvMCW" 			      \
+		 "--enable-xvmc --with-xvmclib=XvMCW" \
+		 ""				      \
+		 "for hardware Xv acceleration" &&
 
-case  $GUI  in
-  y|Y|j|J)  depends  libpng          &&
-            depends  gtk+            &&
-	    depends  MPlayer-skins
-            ;;
-        *)
-            optional_depends  "libpng"         \
-                              "--enable-png"   \
-                              "--disable-png"  \
-                              "to display portable network graphics files"
-            ;;
-esac
+optional_depends "gtk+" \
+		 "--enable-gui"	 \
+		 "--disable-gui" \
+		 "for MPlayer GTK gui support" &&
+
+optional_depends "MPlayer-all" \
+                 ""  \
+                 "" \
+                 "to install more foreign codecs"

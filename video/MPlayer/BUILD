@@ -1,46 +1,43 @@
 (
 
-  unset CFLAGS
+  if [ $MENCODER == "n" ] ; then
+    OPTS=$OPTS" --disable-mencoder"
+  fi
+
+  if [ $OSD == "y" ] ; then
+    OPTS=$OPTS" --enable-menu"
+  fi
 
   if module_installed kernel-headers-2.6; then
     OPTS="$OPTS --disable-fbdev"
   fi
 
-  export LD_LIBRARY_PATH=/usr/X11R6/lib
+  cd $SOURCE_DIRECTORY &&
+
   ./configure --prefix=/usr                   \
-  	          --confdir=/etc                  \
-	          --mandir=/usr/share/man         \
+  	      --confdir=/etc                  \
+	      --mandir=/usr/share/man         \
               --with-codecsdir=/usr/lib/win32 \
-	          $OPTS
+              --enable-linux-devfs	      \
+              --enable-largefiles	      \
+              --confdir=/etc/mplayer	      \
+              --datadir=/usr/share/mplayer    \
+	      $OPTS &&
 
-  sedit "s/MANDIR = \${prefix}\/man/MANDIR =\/usr\/share\/man/" Makefile  &&
-  # the following sedit fixes some library issues with freetype2 and xfree86
-  # if MPlayer seems to be acting up and having other issues try commenting
-  # this sedit
-  sedit "s:FREETYPE_LIB = -lfreetype:FREETYPE_LIB = -L/usr/lib -lfreetype:" config.mak &&
+  default_make &&
 
-  make                                        &&
-  prepare_install                             &&
+  gather_docs etc/* 		      &&
+  install -d /usr/share/mplayer/Skin  &&
+  install -d /etc/mplayer	      &&
+  install -m644 etc/codecs.conf /usr/share/mplayer/  	   &&
+  install -m644 etc/example.conf /etc/mplayer/mplayer.conf &&
+  install -m644 etc/input.conf /etc/mplayer/ 		   &&
 
-  make   prefix=/usr install                  &&
+  cp -a Skin/Blue /usr/share/mplayer/Skin/ &&
+  ln -sf /usr/share/mplayer/Skin/Blue /usr/share/mplayer/Skin/default &&
 
-  mkdir -p       $DOCUMENT_DIRECTORY/mplayer  &&
-  cp    -r etc/* $DOCUMENT_DIRECTORY/mplayer  &&
-  mkdir -p                /usr/share/mplayer  &&
-  cp    etc/codecs.conf   /usr/share/mplayer  &&
-
-  if  [  !  -f  /etc/mplayer.conf  ];  then
-    sedit  "s/include =/# include =/"  etc/example.conf
-    cp                                 etc/example.conf  /etc/mplayer.conf
-  fi                                          &&
-
-  cp -r fonts /usr/share/mplayer              &&
-  
-  if [ -e /usr/share/mplayer/font ]; then
-    rm -rf /usr/share/mplayer/font
-  fi                                          &&
-
-  rm -f /usr/share/mplayer/font &&
+  cp -a fonts /usr/share/mplayer/  &&
+  rm -rf /usr/share/mplayer/font   &&
   ln -sf fonts/font-arial-iso-8859-1/font-arial-18-iso-8859-1 /usr/share/mplayer/font
 
 ) > $C_FIFO 2>&1
