@@ -1,7 +1,7 @@
 (
 
-  patch -p1 < $SCRIPT_DIRECTORY/nc.patch
-  sedit "s/CFLAGS = -O/CFLAGS = $CFLAGS/" Makefile
+  patch_it $SOURCE2  &&
+  sedit "s/CFLAGS = -O/CFLAGS = $CFLAGS/" Makefile &&
   make linux         &&
   prepare_install    &&
   cp nc /usr/bin/nc  &&
