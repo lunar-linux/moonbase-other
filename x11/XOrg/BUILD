@@ -65,6 +65,8 @@
     cp -rL /usr/src/linux/include/linux/{autoconf.h,config.h} /usr/include/linux &&
     invoke_installwatch
   fi
+
+  patch_it $SOURCE_CACHE/$SOURCE4 1  &&
   
   # explicitly exit here now and not later on
   make World || exit 1
