@@ -20,18 +20,18 @@
   mkdir -p $INSTALL_ROOT &&
   cd $INSTALL_ROOT
 
-  ../configure --host=$BUILD                          \
-               --build=$BUILD                         \
-               --enable-add-ons=linuxthreads          \
-               --with-elf                             \
-               --with-headers=/usr/src/linux/include  \
-               --with-gd=no                           \
-               --without-__thread                     \
-               --without-cvs                          \
-               --enable-shared                        \
-               --infodir=/usr/share/info              \
-               --mandir=/usr/share/man                \
-               --prefix=/usr                          \
+  ../configure --host=$BUILD                           \
+               --build=$BUILD                          \
+               --enable-add-ons=linuxthreads           \
+               --with-elf                              \
+               --with-headers=/usr/src/linux/include   \
+               --with-gd=no                            \
+               --without-__thread                      \
+               --without-cvs                           \
+               --enable-shared                         \
+               --infodir=/usr/share/info               \
+               --mandir=/usr/share/man                 \
+               --prefix=/usr                           \
                $OPTS                                  &&
   # explicitly exit here since the following code unsets $?
   make || exit 1
@@ -76,45 +76,47 @@ case  "`arch`" in
 	  ;;
 esac
 
-  cp $LD /lib/ld-lunar.so      &&
-  cp $GLIBC /lib/libc-lunar.so        &&
-  cp $DL /lib/libdl-lunar.so      &&
-  cp $M /lib/libm-lunar.so        &&
-  cp $RT /lib/librt-lunar.so      &&
-  cp $PTHREAD /lib/libpthread-lunar.so &&
-  cp $NSS /lib/libnss_files-lunar.so &&
-  cp $UTIL /lib/libutil-lunar.so  &&
-  cp $NSL /lib/libnsl-lunar.so    &&
-  cp $CRYPT /lib/libcrypt-lunar.so &&
+  cp $LD /lib/ld-lunar.so               &&
+  cp $GLIBC /lib/libc-lunar.so          &&
+  cp $DL /lib/libdl-lunar.so            &&
+  cp $M /lib/libm-lunar.so              &&
+  cp $RT /lib/librt-lunar.so            &&
+  cp $PTHREAD /lib/libpthread-lunar.so  &&
+  cp $NSS /lib/libnss_files-lunar.so    &&
+  cp $UTIL /lib/libutil-lunar.so        &&
+  cp $NSL /lib/libnsl-lunar.so          &&
+  cp $CRYPT /lib/libcrypt-lunar.so      &&
 
   # Setup links for libraries
-  sln /lib/ld-lunar.so $LD     &&
-  sln /lib/libc-lunar.so $GLIBC       &&
-  sln /lib/libdl-lunar.so $DL     &&
-  sln /lib/libm-lunar.so $M       &&
-  sln /lib/librt-lunar.so $RT     &&
-  sln /lib/libpthread-lunar.so $PTHREAD &&
-  sln /lib/libnss_files-lunar.so $NSS &&
-  sln /lib/libutil-lunar.so $UTIL &&
-  sln /lib/libnsl-lunar.so $NSL   &&
-  sln /lib/libcrypt-lunar.so $CRYPT &&
+  sln /lib/ld-lunar.so $LD               &&
+  sln /lib/libc-lunar.so $GLIBC          &&
+  sln /lib/libdl-lunar.so $DL            &&
+  sln /lib/libm-lunar.so $M              &&
+  sln /lib/librt-lunar.so $RT            &&
+  sln /lib/libpthread-lunar.so $PTHREAD  &&
+  sln /lib/libnss_files-lunar.so $NSS    &&
+  sln /lib/libutil-lunar.so $UTIL        &&
+  sln /lib/libnsl-lunar.so $NSL          &&
+  sln /lib/libcrypt-lunar.so $CRYPT      &&
 
   # clean hack to make sure gnu/stubs.h gets refreshed
-  rm -f /usr/include/gnu/stubs.h              &&
+  rm -f /usr/include/gnu/stubs.h  &&
   # This removes the old glibc
-  prepare_install                             &&
+  prepare_install                 &&
 
   # And now we install the new
-  make install                                &&
+  make install                    &&
 
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
-    for FN in ld-2.3.6.so libanl-2.3.6.so libBrokenLocale-2.3.6.so libc-2.3.6.so   \
-              libcrypt-2.3.6.so libdl-2.3.6.so libm-2.3.6.so libmemusage.so        \
-              libnsl-2.3.6.so libnss_compat-2.3.6.so libnss_files-2.3.6.so         \
-              libnss_hesiod-2.3.6.so libnss_nis-2.3.6.so libnss_nisplus-2.3.6.so   \
-              libpcprofile.so libpthread-0.10.so libresolv-2.3.6.so libSegFault.so \
-              libthread_db-1.0.so libutil-2.3.6.so
+    for FN in ld-$VERSION.so libanl-$VERSION.so libBrokenLocale-$VERSION.so \
+        libc-$VERSION.so libcrypt-$VERSION.so libdl-$VERSION.so \
+	libm-$VERSION.so libnsl-$VERSION.so libresolv-$VERSION.so \
+	libnss_compat-$VERSION.so libnss_files-$VERSION.so \
+	libnss_hesiod-$VERSION.so libutil-$VERSION.so \
+	libnss_nis-$VERSION.so libnss_nisplus-$VERSION.so \
+	libpthread-$VERSION.so libmemusage.so \
+	libpcprofile.so libSegFault.so libthread_db-1.0.so 
     do
       strip -S /lib/$FN
     done
@@ -122,33 +124,33 @@ esac
     do
       strip -S $FN
     done
-  fi                                          &&
+  fi  &&
   
   # Added a symlink for ash and others
-  ln -sf /usr/lib/libbsd-compat.a /usr/lib/libbsd.a &&
+  ln -sf /usr/lib/libbsd-compat.a /usr/lib/libbsd.a  &&
 
   # Rebuild the ld cache
-  rm -f /etc/ld.so.cache 2>/dev/null          &&
-  ldconfig                                    &&
+  rm -f /etc/ld.so.cache 2>/dev/null  &&
+  ldconfig                            &&
 
   # Remove the temporary libc
-  rm /lib/ld-lunar.so                         &&
-  rm /lib/libc-lunar.so                       &&
-  rm /lib/libdl-lunar.so                      &&
-  rm /lib/libm-lunar.so                       &&
-  rm /lib/librt-lunar.so                      &&
-  rm /lib/libpthread-lunar.so                 &&
-  rm /lib/libnss_files-lunar.so               &&
-  rm /lib/libutil-lunar.so                    &&
-  rm /lib/libnsl-lunar.so                     &&
-  rm /lib/libcrypt-lunar.so                   &&
+  rm /lib/ld-lunar.so            &&
+  rm /lib/libc-lunar.so          &&
+  rm /lib/libdl-lunar.so         &&
+  rm /lib/libm-lunar.so          &&
+  rm /lib/librt-lunar.so         &&
+  rm /lib/libpthread-lunar.so    &&
+  rm /lib/libnss_files-lunar.so  &&
+  rm /lib/libutil-lunar.so       &&
+  rm /lib/libnsl-lunar.so        &&
+  rm /lib/libcrypt-lunar.so      &&
 
   if [ ! -e /etc/nscd.conf ] ; then
     install -m0644 $SCRIPT_DIRECTORY/nscd.conf /etc/
-  fi                                          &&
+  fi                             &&
 
   # Generate locale info
-  unset   LD_PRELOAD                          &&
+  unset   LD_PRELOAD             &&
   if  [  -z  "$GLIBC_LOCALES"  ];  then
     make localedata/install-locales || exit 1
   else
