@@ -1,14 +1,16 @@
           MODULE=nc
          VERSION=1.10
-          SOURCE=nc110.tgz
-         SOURCE2=nc-110.patch
+          SOURCE=${MODULE}110.tgz
+         SOURCE2=${MODULE}-110.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
-      SOURCE_URL=http://coast.cs.purdue.edu:/pub/tools/unix/netutils/netcat/
+      SOURCE_URL=http://coast.cs.purdue.edu/pub/tools/unix/netutils/netcat/
      SOURCE2_URL=$PATCH_URL/
-        WEB_SITE=http://www.atstake.com/research/tools/index.html#network_utilities
+      SOURCE_VFY=sha1:f8ec3a39796b141b6654d39b7957b863c7f79a95
+     SOURCE2_VFY=sha1:a4535fbafaacecbd3e17f9268f210f0b4e8d2d39
+        WEB_SITE=http://coast.cs.purdue.edu/pub/tools/unix/netutils/netcat/
          ENTERED=20020209
          UPDATED=20020209
-           SHORT="Netcat has been dubbed the network swiss army knife."
+           SHORT="the network swiss army knife."
 cat << EOF
 Netcat has been dubbed the network swiss army knife. 
 It is a simple Unix utility which reads and writes data across network 
