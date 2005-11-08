@@ -3,7 +3,7 @@
     then
  if [ `cat /var/lib/pgsql/data/PG_VERSION` != '8.1' ]
     then
-    printf "${PROBLEM_COLOR}A pre 8.1 version of the database was found.\nYou will need to run pg_dumpall with perhap$
+    printf "${PROBLEM_COLOR}A pre 8.1 version of the database was found.\nYou need to upgrade the data format to 8.1.\nRefer to the INSTALL file located in the tarball\nfor the upgrade procedure.\nThe install will not continue.""${DEFAULT_COLOR}"
    exit 1
    fi
  fi
