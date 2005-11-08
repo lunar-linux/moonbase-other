@@ -1,9 +1,17 @@
-depends cdrtools &&
-depends ncurses &&
-depends zlib &&
+depends cdrtools  &&
+depends ncurses   &&
+depends zlib      &&
 
-optional_depends "gtk+-2" "--enable-gui" "--disable-gui" "for GTK+-2 GUI"
-optional_depends "gettext" "" "--disable-nls" "for NLS support" &&
-optional_depends "libvorbis" "--with-oggenc=/usr/bin/oggenc" \
-                             "--without-oggenc" "for OGG encoding support" &&
-optional_depends "lame" "--with-lame=/usr/bin/lame" "--without-lame" "for lame encoding support"
+optional_depends "gtk+-2"  "--enable-gui"     \
+                           "--disable-gui"    \
+			   "for GTK+-2 GUI"  &&
+
+optional_depends "gettext" ""                  \
+                           "--disable-nls"     \
+			   "for NLS support"  &&
+
+optional_depends "libvorbis" "--with-oggenc=/usr/bin/oggenc"                 \
+                             "--without-oggenc" "for OGG encoding support"  &&
+
+optional_depends "lame"      "--with-lame=/usr/bin/lame" \
+                             "--without-lame" "for lame encoding support"
