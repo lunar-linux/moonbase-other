@@ -221,7 +221,7 @@ start()
       exit_status=`run_with_msg_and_exit_codes " * Checking all file systems : " "fsck -A -y" "0" "1" ""`
 
       case ${exit_status} in 
-         0,1) # exited fine ( 0 ), or errors were fixed (1) 
+         0|1) # exited fine ( 0 ), or errors were fixed (1) 
             rm -f /forcefsck
             ;;
          *)  
@@ -269,7 +269,7 @@ start()
       esac
       
       case ${DEVICE} in
-         usbdevfs,usbfs)
+         usbdevfs|usbfs)
             run_with_msg " * Trying to modprobe usbcore for ${DEVICE} : " "modprobe usbcore"
             ;;
       esac
@@ -300,7 +300,7 @@ stop()
    do
 	    
       case ${FS} in
-         nfs,smbfs) # we don't do net filesystems
+         nfs|smbfs) # we don't do net filesystems
             continue
             ;;
       esac
