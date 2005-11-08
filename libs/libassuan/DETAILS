@@ -1,0 +1,20 @@
+             MODULE=libassuan
+            VERSION=0.6.10
+             SOURCE=$MODULE-$VERSION.tar.gz
+   SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL[0]=http://www.slacky.it/download/libraries/libassuan/0.6.10/src/
+      SOURCE_URL[1]=ftp://ftp.gnupg.org/gcrypt/alpha/$MODULE/
+         SOURCE_VFY=sha1:18d43335494b0d38dde6d9748cbde4141f04114b
+           WEB_SITE=http://www.gnupg.org/
+            ENTERED=20051108
+            UPDATED=20051108
+         MAINTAINER=zbiggy@o2.pl
+              SHORT="IPC library used by GnuPG 1.9, GPGME and a few other packages"
+cat << EOF
+This is the IPC library used by GnuPG 1.9, GPGME and a few other
+packages.  It used to be included with the latter packages but we
+decided to make your life not too easy and separated it out to a
+stand alone library.
+
+It is currently not intended to be used as a shared library.
+EOF
