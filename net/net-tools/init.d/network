@@ -75,7 +75,7 @@ function device_start() {
 		fi;
 		case $DHCP_CLIENT in
 		    [dD][hH][cC][pP][cC][dD])
-		    	PIDFILE=/etc/dhcpc/dhcpcd-$1.pid
+		    	PIDFILE=/var/run/dhcpcd-$1.pid
 			RUNFILE=/usr/sbin/dhcpcd
 		    ;;
 		    [dD][hH][cC][lL][iI][eE][nN][tT])
@@ -170,7 +170,7 @@ function device_stop() {
 	        case $DHCP_CLIENT in
 		    [dD][hH][cC][pP][cC][dD])
 			KILLCMD="dhcpcd -k"
-		    	PIDFILE=/etc/dhcpc/dhcpcd-$1.pid
+		    	PIDFILE=/var/run/dhcpcd-$1.pid
 		    ;;
 		    [dD][hH][cC][lL][iI][eE][nN][tT])
 		    	PIDFILE=/var/run/dhclient-$1.pid
