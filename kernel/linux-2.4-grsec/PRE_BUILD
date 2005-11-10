@@ -21,7 +21,7 @@ if [ `lvu installed tar | cut -d. -f2` -ge 15 ]; then
   tar xf $SOURCE_CACHE/$SOURCE --no-same-owner \
   --no-same-permissions --strip-components=1
 else
-  echo "${PROBLEM_COLOR}Error:${DEFAULT_COLOR} Please update your tar module"
+  message "${PROBLEM_COLOR}Error:${DEFAULT_COLOR} Please update your tar module"
   exit 1
 fi
 
