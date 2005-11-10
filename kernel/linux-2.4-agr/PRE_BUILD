@@ -17,7 +17,7 @@ ln -s $SOURCE_DIRECTORY /usr/src/linux
 cd $SOURCE_DIRECTORY
 
 # Check wether we're running an up-to-date tar
-if [ `lvu installed tar | cut -d. -f2` -ge 15 ]; then
+if [ `installed_version tar | cut -d. -f2` -ge 15 ]; then
   tar xf $SOURCE_CACHE/$SOURCE --no-same-owner \
   --no-same-permissions --strip-components=1
 else
