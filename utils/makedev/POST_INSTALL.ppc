@@ -1,11 +1,9 @@
-[ -d /dev ] || /bin/mkdir /dev
-/usr/sbin/groupadd -g 25 -r -f floppy > /dev/null 2>/dev/null
-/usr/sbin/useradd -c "virtual console memory owner" -u 69 -s /sbin/nologin -d /dev vcsa
-cp $SCRIPT_DIRECTORY/install-devices.sh /dev
-chmod 0700 /dev/install-devices.sh
-echo ""
-echo "Please run /dev/install-devices.sh"
-echo ""
+[ -d /dev ] || mkdir /dev
+add_priv_user vcsa:vcsa -s /sbin/false -d /dev -c "virtual console memory owner"
+install -c -m 0700 $SCRIPT_DIRECTORY/install-devices.sh /dev
+message ""
+message "Please run /dev/install-devices.sh"
+message ""
 
 makedev iseries
 makedev nvram
