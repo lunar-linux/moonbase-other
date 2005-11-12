@@ -1,36 +1,45 @@
-depends   gtk+-2      &&
+depends  gtk+-2  &&
 
-optional_depends  "mozilla"                                        \
-                  "--enable-gnutls=no                              \
-                   --with-nspr-libs=/usr/lib/mozilla/              \
-                   --with-nspr-includes=/usr/include/mozilla/nspr/ \
-                   --with-nss-libs=/usr/lib/mozilla/               \
-                   --with-nss-includes=/usr/include/mozilla/nss/   \
-                   --enable-nss=yes"                               \
-                  ""                                               \
+optional_depends  "gettext"    ""               "--disable-nls"         \
+                  "for NLS support within gaim"                         &&
+
+optional_depends  "howl"       ""               ""                      \
+                  "for Howl support in the Bonjour plugin"              &&
+
+optional_depends  "dbus"       "--enable-dbus"  ""                      \
+                  "for remote contol of gaim via gaim-remote"           &&
+
+optional_depends  "mono"       ""               "--disable-mono"        \
+                  "for Mono runtime support"                            &&
+
+optional_depends  "gtkspell"   ""               "--disable-gtkspell"    \
+                  "for inline message spellcheck support"               &&
+
+optional_depends  "audiofile"  ""               ""                      \
+                  "for sound support using audiofile"                   &&
+
+optional_depends  "libao"      ""               ""                      \
+                  "for sound support using libao"                       &&
+
+optional_depends  "speex"      ""               ""                      \
+                  "for voice chat support"                              &&
+
+optional_depends  "evolution"  ""               "--disable-gevolution"  \
+                  "for the Gaim-Evolution plugin"                       &&
+
+optional_depends  "startup-notification"                                \
+                  ""  "--disable-startup-notification"                  \
+                  "for window manager startup notification support"     &&
+
+# MSN suuport needs either nns/nspr or gnutls
+optional_depends  "mozilla"                                             \
+                  "--enable-gnutls=no                                   \
+                   --with-nspr-libs=/usr/lib/mozilla/                   \
+                   --with-nspr-includes=/usr/include/mozilla/nspr/      \
+                   --with-nss-libs=/usr/lib/mozilla/                    \
+                   --with-nss-includes=/usr/include/mozilla/nss/        \
+                   --enable-nss=yes"            ""                      \
                   "-*required* for msn support (say 'n' to gnutls if you say 'y' here)" &&
 
-optional_depends  "gnutls"               		\
-                  "--enable-nss=no --enable-gnutls=yes" \
-                  ""                                    \
-		  "- *required* for msn support (say 'y' here if you said 'n' to mozilla)" && 
-
-optional_depends  "audiofile"            \
-                  "--enable-audiofile"   \
-                  "--disable-audiofile"  \
-                  "to play aiff, snd, wave, and au files"  &&
-
-optional_depends  "esound"             \
-                  "--enable-esd"       \
-                  "--disable-esdtest"  \
-                  "to enable enlightenment sound daemon for output" &&
-
-optional_depends  "gtkspell"            \
-                  "--enable-gtkspell"   \
-                  "--disable-gtkspell"  \
-                  "to enable spell checking" &&
-
-optional_depends  "perl"                \
-                  "--enable-perl"       \
-                  "--disable-perl"      \
-                  "to enable perl plugin support" 
+optional_depends  "gnutls"  "--enable-nss=no --enable-gnutls=yes"  ""   \
+                  "- *required* for msn support (say 'y' here if you said 'n' to mozilla)"

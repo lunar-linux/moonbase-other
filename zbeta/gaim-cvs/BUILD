@@ -1,16 +1,8 @@
 (
 
-  verbose_msg "CFLAGS=$CFLAGS"                &&
-  verbose_msg "OPTS=$OPTS"                    &&	
-  ./autogen.sh  --build=$BUILD            \
-                --prefix=/usr             \
-                --sysconfdir=/etc         \
-                --localstatedir=/var      \
-                --infodir=/usr/share/info \
-                --mandir=/usr/share/man   \
-                --enable-gtk2             \
-                --disable-artsc           \
-                $OPTS                     &&
-  default_make
-  
+  # vv and truespeech are breaking as of 11Nov05
+  OPTS="$OPTS --disable-vv --disable-truespeech"
+
+  default_cvs_build
+
 ) > $C_FIFO 2>&1
