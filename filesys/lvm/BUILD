@@ -1,6 +1,7 @@
 (
 
   cd  $VERSION                         &&
+  patch_it $SOURCE2 2                  &&
   ./configure  --build=$BUILD           \
                --prefix=/usr            \
                --sbindir=/sbin          \
