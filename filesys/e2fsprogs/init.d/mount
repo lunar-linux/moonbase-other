@@ -268,12 +268,6 @@ start()
             ;;
       esac
       
-      case ${DEVICE} in
-         usbdevfs|usbfs)
-            run_with_msg " * Trying to modprobe usbcore for ${DEVICE} : " "modprobe usbcore"
-            ;;
-      esac
-
       test -n "${OPTS}" && OPTS="-o ${OPTS}"
 
       run_with_msg  " * Mounting $MOUNTPOINT : "  "mount ${OPTS} ${MOUNTPOINT}" 
