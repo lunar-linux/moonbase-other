@@ -4,6 +4,20 @@ depends xine-lib   &&
 depends curl       &&
 depends %FAM       &&
 
-optional_depends  "dbus"   "--enable-dbus"   "--disable-dbus"  \
-    "for a DBus remote interface"                              &&
-optional_depends  "xchat"  "--enable-xchat"  ""  "build the XChat plugin"
+optional_depends  "dbus"    "--enable-dbus"    "--disable-dbus"    \
+                  "for a DBus remote interface"                    &&
+
+optional_depends  "perl"    "--enable-perl"    "--disable-perl"    \
+                  "for perl based client support"                  &&
+
+optional_depends  "python"  "--enable-python"  "--disable-python"  \
+                  "for python based client support"                &&
+
+optional_depends  "xchat"   "--enable-xchat"   "--disable-xchat"   \
+                  "build the XChat IRC plugin (perl or python required)"  &&
+
+optional_depends  "irssi"   "--enable-irssi"   "--disable-irssi"   \
+                  "build the irssi IRC plugin (perl or python required)"  &&
+
+optional_depends  "startup-notification"  "--enable-sn"  "--disable-sn"   \
+                  "for window manager startup notification support"
