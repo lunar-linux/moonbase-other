@@ -1,12 +1,16 @@
           MODULE=bzip2
          VERSION=1.0.3
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-bzgrep_security.patch.bz2
       SOURCE_URL=http://www.bzip.org/$VERSION/
+     SOURCE2_URL=$PATCH_URL/
       SOURCE_VFY=sha1:7e749510f65c86fbfff37b97144a02f1b8b8617f
+     SOURCE2_VFY=sha1:9ee93acfd230e18a60dbf1eaf09c5a09ba8a0f2a
         WEB_SITE=http://sources.redhat.com/bzip2/
          ENTERED=20020218
-         UPDATED=20050301
+         UPDATED=20051113
            SHORT="bzip2 is a high-quality data compressor."
+
 cat << EOF
 bzip2 is a freely available, patent free (see below), high-quality data
 compressor. It typically compresses files to within 10% to 15% of the
