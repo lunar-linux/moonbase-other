@@ -1,0 +1,20 @@
+depends  libglade2  &&
+depends  intltool   &&
+depends  cdrtools   &&
+depends  cdrdao     &&
+depends  libmng     &&
+
+optional_depends  "flac"       "--enable-flac"  "--disable-flac"  \
+                  "for FLAC audio support"                        &&
+
+optional_depends  "libmad"     "--enable-mp3"   "--disable-mp3"   \
+                  "form MP3 audio support (must say 'y' to sox)"  &&
+
+optional_depends  "libid3tag"  ""               ""                \
+                  "for MP3 tag support"                           &&
+
+optional_depends  "libvorbis"  "--enable-ogg"   "--disable-ogg"   \
+                  "for OGG audio support (must say 'y' to sox)"   &&
+
+optional_depends  "sox"  ""  ""  "required for MP3 or OGG support"  &&
+optional_depends  "dvd+rw-tools"  ""  ""  "for DVD burning support"
