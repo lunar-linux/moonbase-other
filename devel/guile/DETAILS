@@ -2,10 +2,13 @@
          VERSION=1.6.7
         #VERSION=1.6.6
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-gcc4.patch.bz2
    SOURCE_URL[0]=$GNU_URL/$MODULE/
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/
-     SOURCE_VFY=sha1:00a82dc4c7c19f9b791e116a2baf83e7d0c0856d
-       WEB_SITE=http://www.gnu.org/software/guile
+  SOURCE2_URL[0]=$PATCH_URL/
+      SOURCE_VFY=sha1:00a82dc4c7c19f9b791e116a2baf83e7d0c0856d
+     SOURCE2_VFY=sha1:67a500c7da1ce4285fea36fc2f9506460247fab3
+        WEB_SITE=http://www.gnu.org/software/guile
          ENTERED=20010922
          UPDATED=20041223
            SHORT="Guile is a portable, embeddable Scheme implementation."
