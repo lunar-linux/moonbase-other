@@ -26,7 +26,7 @@ if [ -n "${SOURCE2}" ]; then
 fi
 
 if  [ -f $CONFIG_CACHE/.config.2.6.stable ]; then
-    cp $CONFIG_CACHE/.config.2.6.stable $BUILD_DIRECTORY/linux/.config;
+    cp $CONFIG_CACHE/.config.2.6.stable $SOURCE_DIRECTORY/.config;
 elif [ -f $CONFIG_CACHE/.config.beta ]; then
-    cp $CONFIG_CACHE/.config.beta $BUILD_DIRECTORY/linux/.config;
+    cp $CONFIG_CACHE/.config.beta $SOURCE_DIRECTORY/.config;
 fi
