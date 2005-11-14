@@ -217,24 +217,25 @@ start()
    fi
 
    if [ -f /forcefsck ] ; then 
-
-      exit_status=`run_with_msg_and_exit_codes " * Checking all file systems : " "fsck -A -y" "0" "1" ""`
-
-      case ${exit_status} in 
-         0|1) # exited fine ( 0 ), or errors were fixed (1) 
-            rm -f /forcefsck
-            ;;
-         *)  
-            echo  -e " * fsck failed."
-            echo     " * Please repair your file system"
-            echo     " * manually by running /sbin/fsck"
-            echo     " * without the -a option"
-            sulogin
-            reboot  -f
-            ;;
-       esac
- 
+      FORCE="-f"
    fi
+
+   exit_status=`run_with_msg_and_exit_codes " * Checking all file systems : " "fsck -A -y $FORCE" "0" "1" ""`
+
+   case ${exit_status} in 
+      0|1) # exited fine ( 0 ), or errors were fixed (1) 
+         rm -f /forcefsck
+         ;;
+      *)  
+         echo  -e " * fsck failed."
+         echo     " * Please repair your file system"
+         echo     " * manually by running /sbin/fsck"
+         echo     " * without the -p option"
+         sulogin
+         reboot  -f
+         ;;
+   esac
+ 
   
    run_with_msg " * Remounting root readwrite : " "mount -n -o remount,rw /"
 
