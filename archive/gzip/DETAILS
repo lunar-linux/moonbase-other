@@ -1,13 +1,17 @@
           MODULE=gzip
          VERSION=1.3.5
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-security.patch.bz2
    SOURCE_URL[0]=ftp://alpha.gnu.org/pub/gnu/$MODULE/
    SOURCE_URL[1]=http://www.funet.fi/pub/gnu/alpha/gnu/$MODULE/
+  SOURCE2_URL[0]=$PATCH_URL/
       SOURCE_VFY=sha1:843272609b9bff1bdf2770a28d498d6519901e73
+     SOURCE2_VFY=sha1:95da986b1bef9ef1abfb3fd06f4f99a212862a2f
         WEB_SITE=http://www.gzip.org
          ENTERED=20010922
-         UPDATED=20050830
+         UPDATED=20051114
            SHORT="gzip is a compression utility designed to replace compress."
+
 cat << EOF
 gzip - Compresses and decompresses files
 A compression utility designed to replace compress. Much better
