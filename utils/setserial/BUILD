@@ -11,4 +11,4 @@
     install -m 644 serial.conf /etc/
   fi
 
-) > $S_FIFO 2>&1
+) > $C_FIFO 2>&1
