@@ -1,8 +1,6 @@
 (
 
   ruby ./extconf.rb
-  make
-  prepare_install
-  make prefix=/usr install
+  default_make
 
 ) > $C_FIFO 2>&1
