@@ -7,7 +7,7 @@
 	       --datadir=/usr/share/games   \
                --with-sdl-prefix=/usr       \
                --with-sdl-exec-prefix=/usr  \
-               $OPTS                        &&
+               $OPTS                       &&
 
   default_make
 
