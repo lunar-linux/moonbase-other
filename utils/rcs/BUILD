@@ -6,7 +6,7 @@
 
 (
 
-  chown   -R  operator:operator  .              &&
+  chown   -R  operator  .              &&
   su operator  -c  "./configure --prefix=/usr"  && 
   su operator  -c  make                         &&
   prepare_install                          &&
