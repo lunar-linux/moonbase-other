@@ -2,13 +2,11 @@
 
   sedit "s:-lGLU::" Makefile  && 
 
-  cp texture.c texture.c.original  &&
   sedit "s:contrib/nebula:nebula:" texture.c  &&
   sedit "s:\(torp_tex0.ppm\):/usr\/share\/games\/asteroids3D/\1:" texture.c     &&
   sedit "s:\(ast_tex[0-9].ppm\):/usr/share/games/asteroids3D/\1:" texture.c     &&
   sedit "s:\(nebula_tex[0-9].ppm\):/usr/share/games/asteroids3D/\1:" texture.c  &&
 
-  cp sound.c sound.c.original  &&
   sedit "s:\(ta_snd.ub\):/usr/share/games/asteroids3D/\1:" sound.c        &&
   sedit "s:\(tf_snd.ub\):/usr/share/games/asteroids3D/\1:" sound.c        &&
   sedit "s:\(coll_snd.ub\):/usr/share/games/asteroids3D/\1:" sound.c      &&
