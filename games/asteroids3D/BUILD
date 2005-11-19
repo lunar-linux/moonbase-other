@@ -7,8 +7,7 @@
   sedit "s:\(ast_tex[0-9].ppm\):/usr/share/games/asteroids3D/\1:" texture.c     &&
   sedit "s:\(nebula_tex[0-9].ppm\):/usr/share/games/asteroids3D/\1:" texture.c  &&
 
-  sedit "s:\(ta_snd.ub\):/usr/share/games/asteroids3D/\1:" sound.c        &&
-  sedit "s:\(tf_snd.ub\):/usr/share/games/asteroids3D/\1:" sound.c        &&
+  sedit "s:\(t[af]_snd.ub\):/usr/share/games/asteroids3D/\1:" sound.c     &&
   sedit "s:\(coll_snd.ub\):/usr/share/games/asteroids3D/\1:" sound.c      &&
   sedit "s:\(ast_snd[0-9].ub\):/usr/share/games/asteroids3D/\1:" sound.c  &&
 
