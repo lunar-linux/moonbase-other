@@ -220,7 +220,8 @@ start()
       FORCE="-f"
    fi
 
-   exit_status=`run_with_msg_and_exit_codes " * Checking all file systems : " "fsck -A -y $FORCE" "0" "1" ""`
+   run_with_msg_and_exit_codes " * Checking all file systems : " "fsck -A -y $FORCE" "0" "1" ""
+   exit_status=$?
 
    case ${exit_status} in 
       0|1) # exited fine ( 0 ), or errors were fixed (1) 
