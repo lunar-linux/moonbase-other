@@ -1,6 +1,7 @@
 (
 
-  patch_it  $SCRIPT_DIRECTORY/0.4.8-gcc3.4-magicF2W.patch  0  &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
 
   OPTS="$OPTS  --enable-gpl  --enable-shared"
 
