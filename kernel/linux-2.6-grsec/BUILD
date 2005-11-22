@@ -31,7 +31,7 @@
     backup_mods_krnl ${KERNEL_VERSION}-grsec-${GRSEC_VERSION}			&&
     prepare_install								&&
     make modules_install								&&
-    cp arch/i386/boot/bzImage /boot/${KERNEL_VERSION}-grsec-${GRSEC_VERSION}     	&&
-    cp System.map /boot/System.map-${KERNEL_VERSION}-grsec-${GRSEC_VERSION}
+    cp arch/i386/boot/bzImage /boot/${KERNEL_RELEASE}-grsec-${GRSEC_VERSION}     	&&
+    cp System.map /boot/System.map-${KERNEL_RELEASE}-grsec-${GRSEC_VERSION}
     
 ) > $C_FIFO 2>&1
