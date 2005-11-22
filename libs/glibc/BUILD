@@ -20,11 +20,17 @@
   mkdir -p $INSTALL_ROOT &&
   cd $INSTALL_ROOT
 
+  if module_installed kernel-headers-2.6 ; then
+     KERNEL_HEADERS="/usr/include"
+  else
+     KERNEL_HEADERS="/usr/src/linux/include"
+  fi
+
   ../configure --host=$BUILD                           \
                --build=$BUILD                          \
                --enable-add-ons=linuxthreads           \
                --with-elf                              \
-               --with-headers=/usr/src/linux/include   \
+               --with-headers=${KERNEL_HEADERS}        \
                --with-gd=no                            \
                --without-__thread                      \
                --without-cvs                           \
