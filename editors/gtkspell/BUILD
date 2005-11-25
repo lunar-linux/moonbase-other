@@ -1,6 +1,8 @@
 (
-  patch_it $SOURCE2 1 &&
-  autoconf &&
-  OPTS="$OPTS --disable-gtk-doc" &&
+
+  OPTS="$OPTS --disable-gtk-doc"
+
+  autoconf  &&
   default_build
+
 ) > $C_FIFO 2>&1
