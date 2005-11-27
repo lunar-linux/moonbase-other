@@ -164,9 +164,9 @@ KERNEL="pg*",            GROUP="disk"
 KERNEL="microdrive*",    GROUP="disk"
 
 # raid devices
-KERNEL="cciss!*", PROGRAM="/etc/udev/scripts/raid-devfs.sh %k", NAME="%c{1}", SYMLINK="%k", GROUP="disk"
-KERNEL="ida!*",   PROGRAM="/etc/udev/scripts/raid-devfs.sh %k", NAME="%c{1}", SYMLINK="%k", GROUP="disk"
-KERNEL="rd!*",    PROGRAM="/etc/udev/scripts/raid-devfs.sh %k", NAME="%c{1}", SYMLINK="%k", GROUP="disk"
+KERNEL="cciss!*", PROGRAM="/etc/udev/scripts.d/raid-devfs.sh %k", NAME="%c{1}", SYMLINK="%k", GROUP="disk"
+KERNEL="ida!*",   PROGRAM="/etc/udev/scripts.d/raid-devfs.sh %k", NAME="%c{1}", SYMLINK="%k", GROUP="disk"
+KERNEL="rd!*",    PROGRAM="/etc/udev/scripts.d/raid-devfs.sh %k", NAME="%c{1}", SYMLINK="%k", GROUP="disk"
 
 # loop devices
 KERNEL="loop",        NAME="loop/0",   SYMLINK="%k",  GROUP="disk"
@@ -285,6 +285,6 @@ KERNEL="mouse*",  NAME="input/%k",                 MODE="0644"
 
 
 # dvb devices
-KERNEL="dvb*",  PROGRAM="/etc/udev/scripts/dvb.sh %k",  NAME="%c",  GROUP="video"
+KERNEL="dvb*",  PROGRAM="/etc/udev/scripts.d/dvb.sh %k",  NAME="%c",  GROUP="video"
 
 ENV{UDEVD_EVENT}=="1", RUN+="/sbin/udev_run_hotplugd"
