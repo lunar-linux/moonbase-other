@@ -7,7 +7,13 @@ unset  CXXFLAGS
                --sysconfdir=/etc           \
                --localstatedir=/var        \
  	       --disable-ffmpeg	   	   \
-               --disable-libmpeg2          \
+               --enable-libmpeg2           \
+               --disable-smb               \
+               --disable-gtk               \
+               --disable-qt                \
+               --disable-kde               \
+               --enable-x11                \
+               --enable-skins              \
 	       $OPTS                       &&
   make                                     &&
   prepare_install                          &&

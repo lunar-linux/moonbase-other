@@ -1,24 +1,13 @@
-depends gtk+                            &&
 depends libdvdcss                       &&
-
-optional_depends  "gnome-libs"          \
-                  "--enable-gnome"      \
-                  ""                    \
-                  "for gnome support"   &&
-
-optional_depends  "qt3"              \
-                  "--enable-qt"         \
-                  "--disable-qt"        \
-                  "for qt support"      &&
-
+depends ffmpeg                          &&
 
 optional_depends  "alsa-utils"          \
-                   "--enable-alsa"       \
-                   ""                    \
-                   "for alsa support"    &&
+                   "--enable-alsa"      \
+                   ""                   \
+                   "for alsa support"   &&
 
 optional_depends  "SDL"                 \
-                  ""                    \
+                  "--enable-sdl"        \
                   "--disable-sdl"       \
                   "for SDL support"     &&
 
@@ -42,10 +31,9 @@ optional_depends  "libdvdread"		\
 		  "--disable-dvdread"	\
 		  "for dvd read support" &&
 
-
-optional_depends  "libmad"		  \
-		  "--enable-mad"  \
-		  "--disable-mad" \
+optional_depends  "libmad"		\
+		  "--enable-mad"        \
+		  "--disable-mad"       \
 		  "for MP3 decoder support" &&
 
 optional_depends  "libogg" 	   \
