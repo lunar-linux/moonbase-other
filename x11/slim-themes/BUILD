@@ -4,7 +4,7 @@ THEMES="capernoited flower2 isolated lotus-sage lotus-midnight mindlock parallel
 prepare_install &&
 
 for theme in $THEMES; do
-	cp -Rvv $theme /usr/share/slim/themes/
+	cp -a $theme /usr/share/slim/themes/
 done;
 
 ) > $C_FIFO 2>&1
