@@ -20,7 +20,7 @@
     install ${SCRIPT_DIRECTORY}/udev /etc/init.d/  &&
     install ${SCRIPT_DIRECTORY}/49-udev.rules /etc/udev/rules.d/  &&
 
-    mkdir -p /etc/udev/scripts.d/
+    mkdir -p /etc/udev/scripts.d/ &&
     for script in cdsymlinks.sh dvb.sh ide-devfs.sh inputdev.sh \
                   raid-devfs.sh scsi-devfs.sh
     do
