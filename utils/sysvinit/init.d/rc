@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # /etc/init.d/rc script, supports switching back and forth runlevels
 # -sofar
@@ -10,23 +10,26 @@ trap ":" INT QUIT TSTP
 echo "Init: leaving runlevel $PREVLEVEL"
 
 if [ "$PREVLEVEL" != "N" ] ; then
-  for SCRIPT in /etc/rc$RUNLEVEL.d/K* ; do
-    BASENAME=${SCRIPT:14}
-    [ ! -e /etc/rc$PREVLEVEL.d/K??$BASENAME ]  &&
-      [ -h /etc/rc$RUNLEVEL.d/K??$BASENAME  ]  &&
-      [ -e /etc/init.d/$BASENAME            ]  &&
-      /etc/init.d/$BASENAME stop
-  done
+	for SCRIPT in /etc/rc${RUNLEVEL}.d/K* ; do
+ 		if [ -e "$SCRIPT" ]; then
+			SCRIPTBASE=${SCRIPT:14}
+			if [ ! -e /etc/rc${PREFLEVEL}.d/K??${SCRIPTBASE} ] ; then
+			
+				$SCRIPT stop
+			fi
+		fi
+	done
 fi
 
 echo "Init: leaving runlevel $PREVLEVEL complete, entering runlevel $RUNLEVEL"
 
-for SCRIPT in /etc/rc$RUNLEVEL.d/S* ; do
-  BASENAME=${SCRIPT:14}
-  [ ! -e /etc/rc$PREVLEVEL.d/S??$BASENAME ]  &&
-    [ -h /etc/rc$RUNLEVEL.d/S??$BASENAME  ]  &&
-    [ -e /etc/init.d/$BASENAME            ]  &&
-    /etc/init.d/$BASENAME start
+for SCRIPT in ls -1d /etc/rc${RUNLEVEL}.d/S* ; do
+ 	if [ -e "$SCRIPT" ]; then
+		SCRIPTBASE=${SCRIPT:14}
+		if [ ! -e /etc/rc${PREVLEVEL}.d/S??${SCRIPTBASE} ] ; then
+			$SCRIPT start
+		fi
+	fi
 done
 
 echo "Init: entering runlevel $RUNLEVEL complete"
