@@ -10,12 +10,12 @@
   prepare_install &&
   make install    &&
 
-  mkdir -p /usr/share/man/man1
-  cp Docs/antiword.1 /usr/share/man/man1/ &&
-  chmod 644 /usr/share/man/man1/antiword.1 
+  mkdir -p /usr/share/man/man1 &&
+  install -m644 Docs/antiword.1 /usr/share/man/man1/ &&
 
-  mkdir -p /usr/share/antiword
-  cp Resources/* /usr/share/antiword &&
-  chmod 644 /usr/share/antiword/*
+  mkdir -p /usr/share/antiword &&
+  for file in Resources/*; do
+	install -m644 ${file} /usr/share/antiword
+  done
 
 ) > $C_FIFO 2>&1
