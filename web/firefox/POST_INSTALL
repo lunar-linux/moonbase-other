@@ -12,16 +12,13 @@ export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/$FFOX_LIBDIR:$FIREFOX_HOME/lib/$FFOX_L
 export MOZILLA_FIVE_HOME="$FIREFOX_HOME/lib/$FFOX_LIBDIR"
 ldconfig
 
-echo "skin,install,select,classic/1.0" >> $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/installed-chrome.txt
-echo "locale,install,select,en-US" >> $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/installed-chrome.txt
-
 cd $FIREFOX_HOME/lib/$FFOX_LIBDIR
 ./regxpcom
-./regchrome
 
 rm -rf $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
 ln -snf /opt/lunar/plugins $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
 
-rm -f $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default.xpm
+rm -rf $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons
+mkdir -p $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default
 ln -snf $FIREFOX_HOME/lib/$FFOX_LIBDIR/icons/default.xpm \
 	$FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default/default.xpm
