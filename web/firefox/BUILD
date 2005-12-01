@@ -11,9 +11,9 @@
   MOZ_EXTENSIONS="cookie,xml-rpc,xmlextras,pref,transformiix,universalchardet,webservices"
 
   if in_depends $MODULE heimdal ; then
-	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},negotiateauth"
+	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},auth"
   else
-	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-negotiateauth"
+	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-auth"
   fi &&
 
   export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
