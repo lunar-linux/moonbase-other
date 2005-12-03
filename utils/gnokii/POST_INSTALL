@@ -1,0 +1,10 @@
+if [ 'grep gnokii /etc/group' != 'gnokii' ]
+     then
+     groupadd gnokii
+  fi
+
+  if [ ! -e /etc/gnokiirc ]; then
+    cp Docs/sample/gnokiirc  /etc/gnokiirc
+  fi
+
+  sedit "s:use_locking = yes:use_locking = no:" /etc/gnokiirc
