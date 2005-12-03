@@ -4,6 +4,15 @@
   if echo $OPTS | grep -q 'with-x' ; then
     sedit "s:LDLIBS += :LDLIBS += -lXpm :" xgnokii/Makefile
   fi
-  default_build
+
+  ./configure   --prefix=/usr   \
+                $OPTS           &&
+
+  make               &&
+  make install-docs  &&
+  cp Docs/sample/gnokiirc /etc/gnokiirc &&
+  make install-suid  &&
+  prepare_install    &&
+  make install
 
 ) > $C_FIFO 2>&1
