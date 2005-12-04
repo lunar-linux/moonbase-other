@@ -3,16 +3,16 @@
   OPTS="$OPTS --enable-security --disable-debug --disable-xdebug"
   if echo $OPTS | grep -q 'with-x' ; then
     sedit "s:LDLIBS += :LDLIBS += -lXpm :" xgnokii/Makefile
-  fi
+  fi  &&
 
-  ./configure   --prefix=/usr   \
-                $OPTS           &&
+  ./configure  --prefix=/usr  \
+               $OPTS         &&
 
   make               &&
   make install-docs  &&
-  cp Docs/sample/gnokiirc /etc/gnokiirc &&
   make install-suid  &&
   prepare_install    &&
-  make install
-
+  make install       &&
+  cp Docs/sample/gnokiirc /etc/gnokiirc
+  
 ) > $C_FIFO 2>&1
