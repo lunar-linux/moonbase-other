@@ -14,16 +14,15 @@
     # we cannot use automagic install via coretools
     # since the udev script would be linked from rcX.d
     # and would interfere with boot/{reboot,halt}
-    mkdir -p /etc/udev/rules.d    &&
-    mkdir -p /etc/udev/scripts.d  &&
+    mkdir -p /etc/udev/rules.d /etc/udev/scripts.d  &&
 
-    install ${SCRIPT_DIRECTORY}/udev /etc/init.d/  &&
-    install ${SOURCE_DIRECTORY}/etc/udev/gentoo/udev.rules /etc/udev/rules.d/50-udev.rules  &&
+    install -m755 ${SCRIPT_DIRECTORY}/udev /etc/init.d/  &&
+    install -m755 ${SOURCE_DIRECTORY}/etc/udev/gentoo/udev.rules \
+		  /etc/udev/rules.d/50-udev.rules  &&
 
-    mkdir -p /etc/udev/scripts.d/  &&
     for script in ide-devfs.sh raid-devfs.sh scsi-devfs.sh
     do
-        install extras/${script} /etc/udev/scripts.d/
+        install -m755 extras/${script} /etc/udev/scripts.d/
     done
      
 ) > $C_FIFO 2>&1
