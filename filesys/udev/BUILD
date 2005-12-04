@@ -18,11 +18,10 @@
     mkdir -p /etc/udev/scripts.d  &&
 
     install ${SCRIPT_DIRECTORY}/udev /etc/init.d/  &&
-    install ${SOURCE_DIRECTORY}/etc/udev/gentoo/udev.rules /etc/udev/rules.d/  &&
+    install ${SOURCE_DIRECTORY}/etc/udev/gentoo/udev.rules /etc/udev/rules.d/50-udev.rules  &&
 
     mkdir -p /etc/udev/scripts.d/  &&
-    for script in dvb.sh ide-devfs.sh inputdev.sh \
-                  raid-devfs.sh scsi-devfs.sh
+    for script in ide-devfs.sh raid-devfs.sh scsi-devfs.sh
     do
         install extras/${script} /etc/udev/scripts.d/
     done
