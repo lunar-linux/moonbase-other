@@ -20,7 +20,8 @@
     install -m755 ${SOURCE_DIRECTORY}/etc/udev/gentoo/udev.rules \
 		  /etc/udev/rules.d/50-udev.rules  &&
 
-    for script in ide-devfs.sh raid-devfs.sh scsi-devfs.sh
+    for script in ide-devfs.sh raid-devfs.sh scsi-devfs.sh \
+		  inputdev.sh dvb.sh
     do
         install -m755 extras/${script} /etc/udev/scripts.d/
     done
