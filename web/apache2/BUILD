@@ -1,5 +1,7 @@
 (
 
+  prepare_install  &&
+  
   OPTS="$OPTS  --prefix=/etc/httpd                      \
 	       --sysconfdir=/etc/httpd/conf             \
                --exec-prefix=/usr                       \
