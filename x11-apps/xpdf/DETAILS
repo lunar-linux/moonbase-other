@@ -1,15 +1,20 @@
           MODULE=xpdf
-         VERSION=3.01
-          SOURCE=$MODULE-$VERSION.tar.gz
+         VERSION=3.01pl1
+          SOURCE=$MODULE-3.01.tar.gz
+         SOURCE2=$MODULE-$VERSION.patch
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-3.01
    SOURCE_URL[0]=ftp://ftp.foolabs.com/pub/xpdf/
    SOURCE_URL[1]=ftp://ftp.ibiblio.org/pub/Linux/apps/graphics/viewers/X/
    SOURCE_URL[2]=ftp://ftp.xopen.org/pub/PDF/$MODULE/
    SOURCE_URL[3]=ftp://planetmirror.com/pub/$MODULE/
+  SOURCE2_URL[0]=ftp://ftp.foolabs.com/pub/xpdf/
+  SOURCE2_URL[1]=$PATCH_URL/
         WEB_SITE=http://www.foolabs.com/xpdf
       SOURCE_VFY=sha1:472cbf0f3df4e20a3ab7ada2e704b4e10d1d385b
+     SOURCE2_VFY=sha1:b8906e23b8de6c49f9e50aedaa160f17ea040f08
          ENTERED=20020218
-         UPDATED=20050818
-           SHORT="xpdf: a PDF viewer for X11R6."
+         UPDATED=20051207
+           SHORT="a PDF viewer for X11R6."
 
 cat << EOF
 Xpdf is an open source viewer for Portable Document Format (PDF)
