@@ -1,5 +1,7 @@
-depends  neon  &&
-depends  zlib  &&
-depends  db    &&
+depends  neon      "--with-neon=`neon-config --prefix`" &&
+depends  zlib      &&
+depends  db        &&
+depends  apr       "--with-apr=/usr/bin/apr-1-config" &&
+depends  apr-util  "--with-apr-util=/usr/bin/apu-1-config" &&
 
-optional_depends "swig" "" "" "for swig support (Requires Python)"
+optional_depends "swig" "" "--without-swig" "for Perl/Python and Ruby Swig Bindings"
