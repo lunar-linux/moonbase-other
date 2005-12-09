@@ -25,7 +25,9 @@
                --enable-mime-magic                      \
                --enable-exception-hook                  \
                --enable-layout=GNU                      \
-	       --with-mpm=prefork"
+	       --with-mpm=prefork                       \
+	       --with-apr=/usr                          \
+	       --with-apr-util=/usr"
   #            --with-mpm=worker
 
   if [ "$ENABLE_SUEXEC" == "y" ] ; then
