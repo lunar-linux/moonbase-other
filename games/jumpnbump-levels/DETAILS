@@ -13,12 +13,10 @@
 while read FILE ; do
   if (( $N >= 1 )) ; then
     eval SOURCE${N}=$FILE
-    eval SOURCE${N}_URL[0]=http://jumpnbump.spaceteddy.net/$FILE
-    eval SOURCE${N}_URL[1]=http://www.jumpbump.mine.nu/levels.bz2/$FILE
+    eval SOURCE${N}_URL=http://www.jumpbump.mine.nu/levels.bz2/
   else
     eval SOURCE=$FILE
-    eval SOURCE_URL[0]=http://jumpnbump.spaceteddy.net/
-    eval SOURCE_URL[1]=http://www.jumpbump.mine.nu/levels.bz2/
+    eval SOURCE_URL=http://www.jumpbump.mine.nu/levels.bz2/
   fi
   (( N = $N + 1 ))
 done < $SCRIPT_DIRECTORY/level-list
