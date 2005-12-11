@@ -1,10 +1,6 @@
 (
 
-  export INSTALL=/usr/bin/install 
- 
-  make PREFIX=/usr &&
-	prepare_install &&
-  make PREFIX=/usr install &&
+  default_build  &&
   ./nonroot.sh 
 
 ) > $C_FIFO 2>&1
