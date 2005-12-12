@@ -31,7 +31,7 @@
 
   if module_installed cyrus-sasl ; then
     AUXLIBS=$AUXLIBS" -lsasl2 -lssl -lcrypto"
-    CCARGS=$CCARGS" -DUSE_SASL_AUTH -I/usr/include/sasl -DHAS_SSL -I/usr/include/openssl"
+    CCARGS=$CCARGS" -DUSE_SASL_AUTH -I/usr/include/sasl -DUSE_TLS -I/usr/include/openssl"
   fi  &&
 
   AUXLIBS=$AUXLIBS" -lpthread"
