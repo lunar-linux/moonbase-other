@@ -1,5 +1,6 @@
 (
   ./configure --prefix=/usr                                \
+              --datadir=/usr/share/games                   \
               --localstatedir=/usr/share/games/lbreakout2  \
               --with-doc-path=/usr/share/doc/lbreakout2    \
               $OPTS                  &&
