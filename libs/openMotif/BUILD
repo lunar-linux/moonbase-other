@@ -1,5 +1,6 @@
 (
 
+ unset LANG
  ./configure  --build=$BUILD            \
               --prefix=/usr/X11R6       \
               --sysconfdir=/etc         \
