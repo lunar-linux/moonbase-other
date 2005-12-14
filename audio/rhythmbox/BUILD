@@ -6,12 +6,11 @@
                 --localstatedir=/var                            \
                 --infodir=/usr/share/info		        \
                 --mandir=/usr/share/man 		        \
-		--enable-ipod					\
 		$OPTS						&&
    
-   ( for i in `find -name "Makefile"`; do
-	    sedit 's/-Werror//g' $i
-    done) &&
+#   ( for i in `find -name "Makefile"`; do
+#	    sedit 's/-Werror//g' $i
+#    done) &&
 
    default_make
 
