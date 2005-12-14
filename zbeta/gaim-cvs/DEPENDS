@@ -6,10 +6,10 @@ optional_depends  "gettext"    ""               "--disable-nls"         \
 optional_depends  "howl"       ""               ""                      \
                   "for Howl support in the Bonjour plugin"              &&
 
-optional_depends  "dbus"       "--enable-dbus"  ""                      \
+optional_depends  "dbus"       "--enable-dbus"  "--disable-dbus"        \
                   "for remote contol of gaim via gaim-remote"           &&
 
-optional_depends  "mono"       ""               "--disable-mono"        \
+optional_depends  "mono"       "--enable-mono"  "--disable-mono"        \
                   "for Mono (C#) plugin support"                        &&
 
 optional_depends  "gtkspell"   ""               "--disable-gtkspell"    \
