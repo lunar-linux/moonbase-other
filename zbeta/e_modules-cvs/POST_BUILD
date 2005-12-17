@@ -1,0 +1,18 @@
+# Due to a change of location of this module on the sf.net e17 CVS
+# server, anyone who had a copy of e_modules-cvs-beta.tar.bz2 in the
+# lunar source spool prior to the location change will have a 
+# "incorrect" source tree in their source cache.  Lunar will attempt to
+# "cvs up" from the old location (which actually still exists on the 
+# sf.net servers) and the user will never be getting new updates to this
+# module.  The only way updates would come though is if the .tar.bz2
+# file was from the new tree or the file didn't exsit (fresh co).  As a
+# work-around to this change (and after chatting about it with tchan),
+# we figured a semi-resonable soultion would be (temporarly) adding code
+# in this POST_BUILD file that removed the .tar.bz2 file from lunar's
+# source spool.  This means that people who have a "bad" .tar.bz2 file
+# will have a "bad" .tar.bz2 file for one more update and then after
+# that it will be all fresh checkouts.  The source tree is small enough
+# that an "cvs up" vs "cvs co" might not even take that much longer.
+# Again, this is a temporary situation only, when I feel it's "safe," 
+# I'll remove this file.
+rm -f $SOURCE_CACHE/$SOURCE
