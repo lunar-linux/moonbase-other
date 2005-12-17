@@ -1,7 +1,7 @@
 (
 
-  # vv and truespeech are breaking as of 11Nov05
-  OPTS="$OPTS --disable-vv --disable-truespeech"
+  # TrueSpeech is breaking (or I'm missing a depends) as of 16Dec05
+  OPTS="$OPTS --disable-truespeech"
 
   default_cvs_build
 
