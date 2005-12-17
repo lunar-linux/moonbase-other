@@ -21,11 +21,14 @@ optional_depends  "audiofile"  ""               ""                      \
 optional_depends  "libao"      ""               ""                      \
                   "for sound support using libao"                       &&
 
-optional_depends  "speex"      ""               ""                      \
+optional_depends  "speex"      "--enable-vv"    ""                      \
                   "for voice chat support"                              &&
 
 optional_depends  "evolution"  ""               "--disable-gevolution"  \
                   "for the Gaim-Evolution plugin"                       &&
+
+optional_depends  "meanwhile"  ""               ""                      \
+                  "for meanwhile (Lotus Sametime) protocol support"     && 
 
 optional_depends  "startup-notification"                                \
                   ""  "--disable-startup-notification"                  \
