@@ -16,6 +16,7 @@
                 $OPTS                             &&
     default_make				  
 
-    cp $SOURCE_CACHE/$SOURCE2 /usr/share/applications 
+    mkdir /usr/share/applications &&
+    cp $SOURCE_CACHE/$SOURCE2 /usr/share/applications/ 
 
 ) > $C_FIFO 2>&1
