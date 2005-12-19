@@ -1,8 +1,6 @@
 (
 
-  # flame is broken as of 18Dec05
-  #AVAILABLE_MODULES="flame monitor rain screenshot slideshow snow weather"
-  AVAILABLE_MODULES="monitor rain screenshot slideshow snow weather"
+  AVAILABLE_MODULES="flame monitor rain screenshot slideshow snow weather"
 
   export PATH="$MODULE_PREFIX/bin:$PATH"
   export CPPFLAGS="$CPPFLAGS -I$MODULE_PREFIX/include"
