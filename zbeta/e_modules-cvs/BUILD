@@ -1,6 +1,6 @@
 (
 
-  AVAILABLE_MODULES="flame monitor rain screenshot slideshow snow weather"
+  AVAILABLE_MODULES="calendar flame monitor mount rain screenshot slideshow snow tclock weather"
 
   export PATH="$MODULE_PREFIX/bin:$PATH"
   export CPPFLAGS="$CPPFLAGS -I$MODULE_PREFIX/include"
