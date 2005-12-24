@@ -12,7 +12,7 @@
                --includedir=/usr/include                      \
                --infodir=/usr/share/info                      \
                --mandir=/usr/share/man                        \
-	       --disable-doc-build                            \
+               --disable-doc-build                            \
                --enable-default-catalog=/etc/sgml/catalog     \
                --enable-default-search-path=/usr/share/sgml  &&
                
