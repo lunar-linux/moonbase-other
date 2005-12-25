@@ -1,12 +1,14 @@
           MODULE=xinetd
          VERSION=2.3.13
-        #VERSION=2.3.12
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://www.xinetd.org/
-      SOURCE_VFY=md5:4295b5fe12350f09b5892b363348ac8b
+         SOURCE2=$MODULE-$VERSION-gcc4.patch.bz2
+      SOURCE_URL=http://www.xinetd.org/
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:fef268d88e0fa2e02e709cf491d752a2b17c30aa
+     SOURCE2_VFY=sha1:b336a68620643e47b4739090bf0293e14033cab0
         WEB_SITE=http://www.xinetd.org
          ENTERED=20010922
-         UPDATED=20040202
+         UPDATED=20051225
         SHORT="xinetd is a replacement for inetd, the internet services daemon."
 
 cat << EOF
