@@ -1,19 +1,34 @@
           MODULE=OpenEXR
          VERSION=1.2.2
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-gcc4.patch.bz2
       SOURCE_URL=http://savannah.nongnu.org/download/openexr/
+     SOURCE2_URL=$PATCH_URL/
       SOURCE_VFY=sha1:8ee37cd2a95b8561a4c850cc35781dec87b77bbf
+     SOURCE2_VFY=sha1:5155ef44d886d14ae274a621cabb9e694353898c
         WEB_SITE=http://www.openexr.com/index.html
+      MAINTAINER=dveatch@lunar-linux.org
          ENTERED=20050601
-         UPDATED=20050601
+         UPDATED=20051225
            SHORT="A high dynamic-range (HDR) image file format"
 
 cat << EOF
-OpenEXR is a high dynamic-range (HDR) image file format developed by Industrial Light & Magic for use in computer imaging applications.
+OpenEXR is a high dynamic-range (HDR) image file format developed by 
+Industrial Light & Magic for use in computer imaging applications.
 OpenEXR's features include: 
-Higher dynamic range and color precision than existing 8- and 10-bit image file formats. 
-Support for 16-bit floating-point, 32-bit floating-point, and 32-bit integer pixels. The 16-bit floating-point format, called "half", is compatible with the half data type in NVIDIA's Cg graphics language and is supported natively on their new GeForce FX and Quadro FX 3D graphics solutions. 
-Multiple lossless image compression algorithms. Some of the included codecs can achieve 2:1 lossless compression ratios on images with film grain. 
-Extensibility. New compression codecs and image types can easily be added by extending the C++ classes included in the OpenEXR software distribution. New image attributes (strings, vectors, integers, etc.) can be added to OpenEXR image headers without affecting backward compatibility with existing OpenEXR applications.
-Thanks to Dennis Veatch, creator of this module.
+  - Higher dynamic range and color precision than existing 8 and 10-bit 
+  image file formats. 
+  - Support for 16-bit floating-point, 32-bit floating-point, and 32-bit 
+  integer pixels. The 16-bit floating-point format, called "half", is 
+  compatible with the half data type in NVIDIA's Cg graphics language 
+  and is supported natively on their new GeForce FX and Quadro FX 3D 
+  graphics solutions. 
+  - Multiple lossless image compression algorithms. Some of the included 
+  codecs can achieve 2:1 lossless compression ratios on images with film 
+  grain. 
+  - Extensibility. New compression codecs and image types can easily be 
+  added by extending the C++ classes included in the OpenEXR software 
+  distribution. New image attributes (strings, vectors, integers, etc.) 
+  can be added to OpenEXR image headers without affecting backward 
+  compatibility with existing OpenEXR applications.
 EOF
