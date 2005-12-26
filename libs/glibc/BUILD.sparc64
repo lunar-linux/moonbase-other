@@ -1,6 +1,7 @@
 (
-  #Patch stuff
-  patch_it $SOURCE_CACHE/$SOURCE3 1             # old static-bin segfault
+
+  # add_priv_user nscd:nscd
+
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
   fi
@@ -22,6 +23,12 @@
   INSTALL_ROOT=$SOURCE_DIRECTORY/glibcroot &&
   mkdir -p $INSTALL_ROOT &&
   cd $INSTALL_ROOT
+
+  if module_installed kernel-headers-2.6 ; then
+     KERNEL_HEADERS="/usr/include"
+  else
+     KERNEL_HEADERS="/usr/src/linux/include"
+  fi
 
   ../configure --host=$BUILD                          \
                --build=$BUILD                         \
@@ -73,6 +80,8 @@
   sln /lib/libnsl-lunar.so $NSL   &&
   sln /lib/libcrypt-lunar.so $CRYPT &&
 
+  # clean hack to make sure gnu/stubs.h gets refreshed
+  rm -f /usr/include/gnu/stubs.h  &&
   # This removes the old glibc
   prepare_install                             &&
 
@@ -81,12 +90,14 @@
 
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
-    for FN in ld-2.3.5.so libanl-2.3.5.so libBrokenLocale-2.3.5.so libc-2.3.5.so   \
-              libcrypt-2.3.5.so libdl-2.3.5.so libm-2.3.5.so libmemusage.so        \
-              libnsl-2.3.5.so libnss_compat-2.3.5.so libnss_files-2.3.5.so         \
-              libnss_hesiod-2.3.5.so libnss_nis-2.3.5.so libnss_nisplus-2.3.5.so   \
-              libpcprofile.so libpthread-0.10.so libresolv-2.3.5.so libSegFault.so \
-              libthread_db-1.0.so libutil-2.3.5.so
+    for FN in ld-$VERSION.so libanl-$VERSION.so libBrokenLocale-$VERSION.so \
+        libc-$VERSION.so libcrypt-$VERSION.so libdl-$VERSION.so \
+	libm-$VERSION.so libnsl-$VERSION.so libresolv-$VERSION.so \
+	libnss_compat-$VERSION.so libnss_files-$VERSION.so \
+	libnss_hesiod-$VERSION.so libutil-$VERSION.so \
+	libnss_nis-$VERSION.so libnss_nisplus-$VERSION.so \
+	libpthread-$VERSION.so libmemusage.so \
+	libpcprofile.so libSegFault.so libthread_db-1.0.so 
     do
       strip -S /lib/$FN
     done
@@ -115,18 +126,14 @@
   rm /lib/libnsl-lunar.so                     &&
   rm /lib/libcrypt-lunar.so                   &&
 
+  if [ ! -e /etc/nscd.conf ] ; then
+    install -m0644 $SCRIPT_DIRECTORY/nscd.conf /etc/
+  fi                             &&
+
   # Generate locale info
   unset   LD_PRELOAD                          &&
   if  [  -z  "$GLIBC_LOCALES"  ];  then
-    cat  $SCRIPT_DIRECTORY/locales  |
-    while  read  LOCALE  DESCRIPTION;  do
-      INPUTFILE=`echo  $LOCALE  |  cut  -d /  -f1`
-        CHARMAP=`echo  $LOCALE  |  cut  -d /  -f2`
-      mkdir  -p  /usr/lib/locale/$INPUTFILE
-      echo "localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE"
-            localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE
-    done
-    true
+    make localedata/install-locales || exit 1
   else
     for  LOCALE  in  $GLIBC_LOCALES;  do
       INPUTFILE=`echo  $LOCALE  |  cut  -d /  -f1`
