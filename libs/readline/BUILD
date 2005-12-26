@@ -20,8 +20,8 @@
   # temp hack to help in change over to readline-5.0 from readline-4.x
   # can be removed when everyone is over to readline 5.0
   devoke_installwatch                                  &&
-  ln -sf /lib/libreadline.so.5.0 /lib/libreadline.so.4 &&
-  ln -sf /lib/libhistory.so.5.0  /lib/libhistory.so.4  &&
+  ln -sf /lib/libreadline.so.5 /lib/libreadline.so.4 &&
+  ln -sf /lib/libhistory.so.5  /lib/libhistory.so.4  &&
   invoke_installwatch                                  
 
 ) > $C_FIFO 2>&1
