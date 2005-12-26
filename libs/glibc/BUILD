@@ -1,7 +1,5 @@
 (
 
-  add_priv_user nscd:nscd
-
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
   fi
@@ -150,10 +148,6 @@ esac
   rm /lib/libutil-lunar.so       &&
   rm /lib/libnsl-lunar.so        &&
   rm /lib/libcrypt-lunar.so      &&
-
-  if [ ! -e /etc/nscd.conf ] ; then
-    install -m0644 $SCRIPT_DIRECTORY/nscd.conf /etc/
-  fi                             &&
 
   # Generate locale info
   unset   LD_PRELOAD             &&
