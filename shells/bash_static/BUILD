@@ -16,7 +16,7 @@
     default_config                &&
     make version.h                &&
     make                          &&
-    prepare_install            
+    prepare_install               &&
     cp bash /bin/bash_static
 
 ) > $C_FIFO 2>&1
