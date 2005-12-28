@@ -9,6 +9,7 @@
   make  PREFIX=/usr             &&
   prepare_install               &&
   make  PREFIX=/usr install     &&
+  strip /usr/bin/bzip2 /usr/bin/bzip2recover /usr/bin/bzcat /usr/bin/bunzip2 &&
   make  -f  Makefile-libbz2_so  &&
   ( cp    -a  libbz2.so* /usr/lib || true )
 
