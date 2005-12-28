@@ -1,21 +1,22 @@
           MODULE=gnupg-1.9.x
-         VERSION=1.9.19
+         VERSION=1.9.20
           SOURCE=gnupg-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/gnupg-$VERSION
       SOURCE_URL=ftp://ftp.gnupg.org/gcrypt/alpha/gnupg/
-      SOURCE_VRY=sha1:aa37fbf9f25df52fcd1a957404e78efdf9c576cc
+      SOURCE_VRY=sha1:557be26c21c114a3b345ce6b177fcb088883f827
         WEB_SITE=http://www.gnupg.org/
          ENTERED=20050516
-         UPDATED=20051107
+         UPDATED=20051228
       MAINTAINER=zbiggy@o2.pl
            SHORT="Few new extensions from incoming gnupg2 to standard gnupg"           
+
 cat << EOF
 GnuPG 1.9 is the future version of GnuPG.
 You should use this GnuPG version if you want to use the gpg-agent or
-gpgsm (the S/MIME variant of gpg).  Note that the gpg-agent is also
+gpgsm (the S/MIME variant of gpg). Note that the gpg-agent is also
 helpful when using the standard gpg versions.
 After installation you have a working GnuPG with support for
-S/MIME and smartcards.  Note that there is no binary gpg but a gpg2 so
+S/MIME and smartcards. Note that there is no binary gpg but a gpg2 so
 that this package won't confict with a standard GnuPG installation.
 The gpg2 behaves just like gpg; it is however suggested to
 keep using standard gpg. The gpg2 is not even build by default in Lunar,
