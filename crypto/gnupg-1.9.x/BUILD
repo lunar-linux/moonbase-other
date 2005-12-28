@@ -1,8 +1,8 @@
 (
 
-  ./configure  --prefix=/usr        \
-               --disable-scdaemon   \
-               $OPTS                &&
+  ./configure  --prefix=/usr       \
+               --disable-scdaemon  \
+               $OPTS              &&
 
   default_make
  
