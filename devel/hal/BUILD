@@ -16,7 +16,7 @@
                 --enable-fstab-sync                \
                 --with-pid-file=/var/run/hald.pid  \
                 $OPTS                             &&
-    default_make				  
+    default_make				  &&
 
     mkdir -p /usr/share/applications &&
     cp $SOURCE_CACHE/$SOURCE2 /usr/share/applications/ 
