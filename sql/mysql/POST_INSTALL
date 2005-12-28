@@ -1,3 +1,8 @@
+if ! grep  -q  "\--without-server" $MODULE_CONFIG; then
+  mysql_install_db &&
+  chown  -R  mysql.mysql  /var/lib/mysql/
+fi
+
 if mount | grep "/tmp" | grep -q tmpfs ; then
   message ""
   message "if /tmp is tmpfs and if mysql is being used against big"

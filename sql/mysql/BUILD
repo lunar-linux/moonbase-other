@@ -25,17 +25,25 @@
                $OPTS                          &&
   invoke_installwatch                         &&
 
-  make  pkglibdir=/usr/lib                    &&
+  make  pkglibdir=/usr/lib                    ||
+  {
+    MYSQL_EXIT=$?
+    message ""
+    message "Compilation of mysql failed."
+    message ""
+    message "If you are getting error about 'read_cr4/write_cr4' and/or 'set_in_cr4'"
+    message "note that this is not a mysql bug."
+    message ""
+    message "To fix this please edit the include file that reports the errors and"
+    message "encapsulate the 'set_in_cr4' function with '#ifdef __KERNEL__'/'#endif'."
+    message ""
+    exit $MYSQL_EXIT;
+  }
   prepare_install                             &&
   mkdir -p /var/lib/mysql                     &&
   make  pkglibdir=/usr/lib  install           &&
   rm    -rf  /usr/mysql-test                  &&
   
-  if ! grep  -q  "\--without-server" $MODULE_CONFIG; then
-    mysql_install_db
-    chown  -R  mysql.mysql  /var/lib/mysql
-  fi                                          &&
-
   if  [ -x /etc/init.d/mysql.server ]; then
     rm -f /etc/init.d/mysql.server
     rm -f /etc/rc?.d/???mysql.server
