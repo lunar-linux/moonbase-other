@@ -18,11 +18,6 @@
   prepare_install                    &&
   make    install                    &&
 
-  install -m755 $SOURCE_CACHE/$SOURCE2 /usr/bin &&
-  install -m755 $SOURCE_CACHE/$SOURCE3 /usr/bin &&
-  if [ ! -e /usr/lib/cups/filter/$SOURCE2 ] ; then
-    ln -s ../../../bin/$SOURCE2 /usr/lib/cups/filter/$SOURCE2
-  fi &&
   if [ -e /etc/init.d/cups ] ; then
     rm -f /etc/init.d/cups
   fi 
