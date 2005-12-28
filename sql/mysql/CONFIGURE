@@ -27,6 +27,17 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
       OPTS="$OPTS --without-vio"
     fi
 
+    if query "Include the NDB Cluster table handler? " n; then
+      OPTS="$OPTS --with-ndbcluster"
+    else
+      OPTS="$OPTS --without-ndbcluster"
+    fi
+
+    if query "Support tables with more than 4 G rows even on 32 bit platforms? " n; then
+      OPTS="$OPTS --with-big-tables"
+    else
+      OPTS="$OPTS --without-big-tables"
+    fi
   fi
 
   if    query  "Include the OpenSSL support? " n; then
