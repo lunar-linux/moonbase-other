@@ -1,10 +1,5 @@
 (
 
-    # Apply WCONTINUED patch for glibc > 2.3.3  compliance
-    unpack $SOURCE2 &&
-    patch_it bash-patches/bash30-avoid_WCONTINUED 0 &&
-
-
     bad_flags -malign-double
 
     OPTS=$OPTS" --bindir=/bin \
