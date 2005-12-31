@@ -1,13 +1,5 @@
 (
 
-    if  query  "Enable doxywizard GUI? " y; then
-      OPTS="$OPTS --with-doxywizard"
-    else
-      OPTS="$OPTS --without-doxywizard"
-    fi
-
-
-
     if [ -f src/Makefile ]; then
       message "${MESSAGE_COLOR}Makefile's detected, doing make distclean before compiling${DEFAULT_COLOR}" &&
       ./configure &&
