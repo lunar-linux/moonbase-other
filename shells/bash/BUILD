@@ -1,10 +1,5 @@
 (
 
-  unpack $SOURCE2 &&
-  for i in bash-patches/* ; do
-    patch_it $i 0
-  done &&
-	
   bad_flags -malign-double
 
   OPTS=$OPTS" --bindir=/bin --with-installed-readline --with-curses"
