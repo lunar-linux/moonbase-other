@@ -35,7 +35,7 @@
 
 	cat  $SCRIPT_DIRECTORY/message  &&
 
-        groupadd ppp        2>/dev/null     &&
+        groupadd ppp        2>/dev/null
 	chown  root:ppp     /usr/sbin/pppd  &&
 	chmod  4750         /usr/sbin/pppd  &&
 	chown  -R root:ppp  /etc/ppp  &&
