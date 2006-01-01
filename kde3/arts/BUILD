@@ -24,6 +24,6 @@
 
   echo "export KDEDIR=$KDE_PREFIX" > /etc/profile.d/kde3.rc
   echo "export PATH=\$KDEDIR/bin:\$PATH" >> /etc/profile.d/kde3.rc
-  echo "export PKG_CONFIG_PATH=$KDEDIR/lib:\$PKG_CONFIG_PATH" >> /etc/profile.d/kde3.rc
+  echo "export PKG_CONFIG_PATH=$KDEDIR/lib/pkgconfig:\$PKG_CONFIG_PATH" >> /etc/profile.d/kde3.rc
 
 ) > $C_FIFO 2>&1
