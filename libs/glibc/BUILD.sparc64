@@ -23,16 +23,15 @@
   cd $INSTALL_ROOT
 
   if module_installed kernel-headers-2.6 ; then
-     KERNEL_HEADERS="/usr/include"
+     OPTS="$OPTS --with-headers=/usr/include"
   else
-     KERNEL_HEADERS="/usr/src/linux/include"
+     OPTS="$OPTS --with-headers=/usr/src/linux/include"
   fi
 
   ../configure --host=$BUILD                           \
                --build=$BUILD                          \
                --enable-add-ons=linuxthreads           \
                --with-elf                              \
-               --with-headers=${KERNEL_HEADERS}        \
                --with-gd=no                            \
                --without-tls                           \
                --without-__thread                      \
@@ -90,19 +89,13 @@
 
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
-    for FN in ld-$VERSION.so libanl-$VERSION.so libBrokenLocale-$VERSION.so \
-        libc-$VERSION.so libcrypt-$VERSION.so libdl-$VERSION.so \
-	libm-$VERSION.so libnsl-$VERSION.so libresolv-$VERSION.so \
-	libnss_compat-$VERSION.so libnss_files-$VERSION.so \
-	libnss_hesiod-$VERSION.so libutil-$VERSION.so \
-	libnss_nis-$VERSION.so libnss_nisplus-$VERSION.so \
-	libpthread-$VERSION.so libmemusage.so \
-	libpcprofile.so libSegFault.so libthread_db-1.0.so 
-    do
+    for FN in ld-$VERSION.so \
+        lib{anl,BrokenLocale,c,crypt,dl,m,nsl,util,pthread,resolv}-$VERSION.so \
+	libnss_{compat,files,hesiod,nis,nisplus}-$VERSION.so \
+	lib{memusage,pcprofile,SegFault,thread_db-1.0}.so ; do
       strip -S /lib/$FN
     done
-    for FN in "/usr/lib/gconv/*.so"
-    do
+    for FN in "/usr/lib/gconv/*.so" ; do
       strip -S $FN
     done
   fi  &&
@@ -115,16 +108,7 @@
   ldconfig                            &&
 
   # Remove the temporary libc
-  rm /lib/ld-lunar.so            &&
-  rm /lib/libc-lunar.so          &&
-  rm /lib/libdl-lunar.so         &&
-  rm /lib/libm-lunar.so          &&
-  rm /lib/librt-lunar.so         &&
-  rm /lib/libpthread-lunar.so    &&
-  rm /lib/libnss_files-lunar.so  &&
-  rm /lib/libutil-lunar.so       &&
-  rm /lib/libnsl-lunar.so        &&
-  rm /lib/libcrypt-lunar.so      &&
+  rm /lib/{ld,lib{c,dl,m,rt,pthread,nss_files,util,nsl,crypt}}-lunar.so  &&
 
   # Generate locale info
   unset   LD_PRELOAD             &&
