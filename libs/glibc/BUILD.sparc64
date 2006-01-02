@@ -1,5 +1,6 @@
 (
-
+  #Patch stuff
+  patch_it $SOURCE_CACHE/$SOURCE3 1             # old static-bin segfault
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
   fi
@@ -22,25 +23,17 @@
   mkdir -p $INSTALL_ROOT &&
   cd $INSTALL_ROOT
 
-  if module_installed kernel-headers-2.6 ; then
-     KERNEL_HEADERS="/usr/include"
-  else
-     KERNEL_HEADERS="/usr/src/linux/include"
-  fi
-
-  ../configure --host=$BUILD                           \
-               --build=$BUILD                          \
-               --enable-add-ons=linuxthreads           \
-               --with-elf                              \
-               --with-headers=${KERNEL_HEADERS}        \
-               --with-gd=no                            \
-               --without-tls                           \
-               --without-__thread                      \
-               --without-cvs                           \
-               --enable-shared                         \
-               --infodir=/usr/share/info               \
-               --mandir=/usr/share/man                 \
-               --prefix=/usr                           \
+  ../configure --host=$BUILD                          \
+               --build=$BUILD                         \
+               --enable-add-ons=linuxthreads          \
+               --with-elf                             \
+               --with-headers=/usr/src/linux/include  \
+               --with-gd=no                           \
+               --without-cvs                          \
+               --enable-shared                        \
+               --infodir=/usr/share/info              \
+               --mandir=/usr/share/man                \
+               --prefix=/usr                          \
                $OPTS                                  &&
   # explicitly exit here since the following code unsets $?
   make || exit 1
@@ -69,35 +62,31 @@
   cp $CRYPT /lib/libcrypt-lunar.so &&
 
   # Setup links for libraries
-  sln /lib/ld-lunar.so $LD               &&
-  sln /lib/libc-lunar.so $GLIBC          &&
-  sln /lib/libdl-lunar.so $DL            &&
-  sln /lib/libm-lunar.so $M              &&
-  sln /lib/librt-lunar.so $RT            &&
-  sln /lib/libpthread-lunar.so $PTHREAD  &&
-  sln /lib/libnss_files-lunar.so $NSS    &&
-  sln /lib/libutil-lunar.so $UTIL        &&
-  sln /lib/libnsl-lunar.so $NSL          &&
-  sln /lib/libcrypt-lunar.so $CRYPT      &&
+  sln /lib/ld-lunar.so $LD     &&
+  sln /lib/libc-lunar.so $GLIBC       &&
+  sln /lib/libdl-lunar.so $DL     &&
+  sln /lib/libm-lunar.so $M       &&
+  sln /lib/librt-lunar.so $RT     &&
+  sln /lib/libpthread-lunar.so $PTHREAD &&
+  sln /lib/libnss_files-lunar.so $NSS &&
+  sln /lib/libutil-lunar.so $UTIL &&
+  sln /lib/libnsl-lunar.so $NSL   &&
+  sln /lib/libcrypt-lunar.so $CRYPT &&
 
-  # clean hack to make sure gnu/stubs.h gets refreshed
-  rm -f /usr/include/gnu/stubs.h  &&
   # This removes the old glibc
-  prepare_install                 &&
+  prepare_install                             &&
 
   # And now we install the new
-  make install                    &&
+  make install                                &&
 
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
-    for FN in ld-$VERSION.so libanl-$VERSION.so libBrokenLocale-$VERSION.so \
-        libc-$VERSION.so libcrypt-$VERSION.so libdl-$VERSION.so \
-	libm-$VERSION.so libnsl-$VERSION.so libresolv-$VERSION.so \
-	libnss_compat-$VERSION.so libnss_files-$VERSION.so \
-	libnss_hesiod-$VERSION.so libutil-$VERSION.so \
-	libnss_nis-$VERSION.so libnss_nisplus-$VERSION.so \
-	libpthread-$VERSION.so libmemusage.so \
-	libpcprofile.so libSegFault.so libthread_db-1.0.so 
+    for FN in ld-2.3.5.so libanl-2.3.5.so libBrokenLocale-2.3.5.so libc-2.3.5.so   \
+              libcrypt-2.3.5.so libdl-2.3.5.so libm-2.3.5.so libmemusage.so        \
+              libnsl-2.3.5.so libnss_compat-2.3.5.so libnss_files-2.3.5.so         \
+              libnss_hesiod-2.3.5.so libnss_nis-2.3.5.so libnss_nisplus-2.3.5.so   \
+              libpcprofile.so libpthread-0.10.so libresolv-2.3.5.so libSegFault.so \
+              libthread_db-1.0.so libutil-2.3.5.so
     do
       strip -S /lib/$FN
     done
@@ -105,31 +94,39 @@
     do
       strip -S $FN
     done
-  fi  &&
+  fi                                          &&
   
   # Added a symlink for ash and others
-  ln -sf /usr/lib/libbsd-compat.a /usr/lib/libbsd.a  &&
+  ln -sf /usr/lib/libbsd-compat.a /usr/lib/libbsd.a &&
 
   # Rebuild the ld cache
-  rm -f /etc/ld.so.cache 2>/dev/null  &&
-  ldconfig                            &&
+  rm -f /etc/ld.so.cache 2>/dev/null          &&
+  ldconfig                                    &&
 
   # Remove the temporary libc
-  rm /lib/ld-lunar.so            &&
-  rm /lib/libc-lunar.so          &&
-  rm /lib/libdl-lunar.so         &&
-  rm /lib/libm-lunar.so          &&
-  rm /lib/librt-lunar.so         &&
-  rm /lib/libpthread-lunar.so    &&
-  rm /lib/libnss_files-lunar.so  &&
-  rm /lib/libutil-lunar.so       &&
-  rm /lib/libnsl-lunar.so        &&
-  rm /lib/libcrypt-lunar.so      &&
+  rm /lib/ld-lunar.so                         &&
+  rm /lib/libc-lunar.so                       &&
+  rm /lib/libdl-lunar.so                      &&
+  rm /lib/libm-lunar.so                       &&
+  rm /lib/librt-lunar.so                      &&
+  rm /lib/libpthread-lunar.so                 &&
+  rm /lib/libnss_files-lunar.so               &&
+  rm /lib/libutil-lunar.so                    &&
+  rm /lib/libnsl-lunar.so                     &&
+  rm /lib/libcrypt-lunar.so                   &&
 
   # Generate locale info
-  unset   LD_PRELOAD             &&
+  unset   LD_PRELOAD                          &&
   if  [  -z  "$GLIBC_LOCALES"  ];  then
-    make localedata/install-locales || exit 1
+    cat  $SCRIPT_DIRECTORY/locales  |
+    while  read  LOCALE  DESCRIPTION;  do
+      INPUTFILE=`echo  $LOCALE  |  cut  -d /  -f1`
+        CHARMAP=`echo  $LOCALE  |  cut  -d /  -f2`
+      mkdir  -p  /usr/lib/locale/$INPUTFILE
+      echo "localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE"
+            localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE
+    done
+    true
   else
     for  LOCALE  in  $GLIBC_LOCALES;  do
       INPUTFILE=`echo  $LOCALE  |  cut  -d /  -f1`
