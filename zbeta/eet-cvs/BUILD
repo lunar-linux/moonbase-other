@@ -5,14 +5,6 @@
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
   export USER=nobody
 
-  ./autogen.sh --build=$BUILD                      \
-               --prefix=$MODULE_PREFIX             \
-               --sysconfdir=/etc                   \
-               --localstatedir=/var                \
-               --infodir=$MODULE_PREFIX/share/info \
-               --mandir=$MODULE_PREFIX/share/man   \
-               $OPTS                               &&
-
-   default_make
+  default_cvs_build
 
 ) > $C_FIFO 2>&1
