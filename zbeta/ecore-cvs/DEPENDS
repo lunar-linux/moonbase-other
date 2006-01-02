@@ -1,11 +1,11 @@
 depends evas-cvs &&
-depends perl     &&
 
 optional_depends "openssl"  "--enable-openssl"  "--disable-openssl"      \
                  "for ssl support in Ecore_Con"                          &&
-optional_depends "dbus"  "--enable-ecore-dbus"   "--disable-ecore-dbus"  \
+optional_depends "dbus"     ""                  "--disable-ecore-dbus"   \
                  "for support of the message bus subsystem (Ecore_DBus)" &&
 optional_depends "DirectFB"                                              \
                  "" "--disable-ecore-dfb  --disable-ecore-evas-dfb"      \
                  "for support of DirectFB (Ecore_DirectFB)"              &&
-optional_depends "curl"  ""  ""  "for file download support in Ecore_File"
+optional_depends "curl"     "--enable-curl"     ""                       \
+                 "for file download support in Ecore_File"
