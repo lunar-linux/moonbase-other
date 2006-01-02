@@ -1,8 +1,6 @@
 depends pkgconfig  &&
-depends imlib2-cvs &&
 depends eet-cvs    &&
 depends edb-cvs    &&
-depends grep       &&
 
 optional_depends  "libpng"    "--enable-image-loader-png"   ""         \
                               "enable PNG image loader"                &&
@@ -10,8 +8,5 @@ optional_depends  "jpeg"      "--enable-image-loader-jpeg"  ""         \
                               "enable JPEG image loader"               &&
 optional_depends  "DirectFB"  "--enable-directfb"           ""         \
                               "enable the DirectFB rendering backend"  &&
-# v3rt1g0 - 05Dec05 - feature temporarly removed in cvs
-#optional_depends  "valgrind"  "--enable-valgrind"           ""         \
-#                              "enable valgrind support (not recommended)"  &&
 optional_depends  "glut"      "--enable-gl-x11"             ""         \
                               "enable OpenGL rendering backend"
