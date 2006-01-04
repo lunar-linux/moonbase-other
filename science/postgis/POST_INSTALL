@@ -1,0 +1,8 @@
+
+if ! module_installed postgis ; then
+
+su - postgres -c "createlang plpgsql template1" &&
+su - postgres -c "psql -d template1 -f /usr/src/$SOURCE/lwpostgis.sql" &&
+su - postgres -c "psql -d template1 -f /usr/src/$SOURCE/spatial_ref_sys.sql"
+
+fi
