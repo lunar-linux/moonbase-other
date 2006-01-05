@@ -4,7 +4,7 @@
   autoconf   &&
   cd ..      &&
   
-  OPTS="--disable-gui $OPTS"  &&
+  #OPTS="--disable-gui $OPTS"  &&
 
   default_build
 
