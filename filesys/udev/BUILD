@@ -5,6 +5,7 @@
                  extras/volume_id" 
 
     patch_it $SOURCE2 0  &&
+    patch_it $SOURCE3 0  &&
 
     make udevdir=/dev EXTRAS="${UDEV_EXTRAS}"  &&
     prepare_install  &&
