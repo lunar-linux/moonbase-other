@@ -14,26 +14,25 @@
 
 map_devices_to_grub()
 {
-    local LINE DISC DEVICE TARGET REALTARGET
+    local LINE DISC DEVICE TARGET REALTARGET MINOR
     debug_msg "map_device_to_grub ($@)"
     # TODO - make sure partitions count continuously
     # TODO - check if ide, scsi, md is the correct order
-    # TODO - this code doesn't see dev/md devices !!!
     for LINE in $(
-        for N in $(ls -d1 /dev/discs/disc*/{disc,part*} 2> /dev/null) ; do
+        for N in $(ls -d1 /dev/{hd,sd}{a,c,d,e,f,g,h}{,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15} 2> /dev/null) ; do
             echo "$(readlink -f $N | sed -e 's/\/dev\/ide/0/g' \
-            -e 's/\/dev\/scsi/1/g' -e 's/\/dev\/md/2/g' | \
-            sort):$N:$(readlink -f $N)"
+            -e 's/\/dev\/scsi/1/g' | sort):$N:$(readlink -f $N)"
         done); do
         DEVICE=$(echo $LINE | cut -d: -f1)
         TARGET=$(echo $LINE | cut -d: -f2)
         REALTARGET=$(echo $LINE | cut -d: -f3)
-        if echo $DEVICE | grep -q "disc" ; then
+	MINOR=$(grep -w $(basename $DEVICE) /proc/partitions | awk '{print $2}')
+        if (( MINOR % 16 == 0 )) ; then
         	(( DISC++ ))
-			PART=0
-			echo "hd$((DISC-1)):$TARGET:$REALTARGET:"
-		else
-			(( PART++ ))
+		PART=0
+		echo "hd$((DISC-1)):$TARGET:$REALTARGET:"
+	else
+		(( PART++ ))
         	echo "hd$((DISC-1)),$((PART-1)):$TARGET:$REALTARGET:"
         fi
     done
