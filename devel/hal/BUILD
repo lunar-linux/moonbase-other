@@ -2,7 +2,7 @@
 
     if module_installed kernel-headers-2.6; then
         sedit "s:SG_FLAG_LUN_:SG_FLAG_UNUSED_LUN_:" hald/linux2/probing/linux_dvd_rw_utils.c
-     fi  &&
+    fi  &&
 
     add_priv_user haldaemon:haldaemon -d /dev/null -s /bin/false  &&
    
