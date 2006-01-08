@@ -1,14 +1,13 @@
 (
 
-  sedit 's:$(prefix)/games/kobo-deluxe:/var/games/kobo-deluxe:'  \
-       configure
+  sedit 's:$(prefix)/games/kobo-deluxe:/var/games/kobo-deluxe:' configure  &&
 
-  ./configure  --prefix=/usr        \
-               --bindir=/usr/games  \
-               --disable-sdltest    \
-               $KOBO_OGL            \
-               $KOBO_OSS            &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
+  ./configure  --prefix=/usr         \
+               --bindir=/usr/games   \
+	       --localstatedir=/var  \
+               --disable-sdltest    &&
   default_make
 
 ) > $C_FIFO 2>&1

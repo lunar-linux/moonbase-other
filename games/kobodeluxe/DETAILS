@@ -1,12 +1,17 @@
-            MODULE=kobodeluxe
-          VERSION=0.4pre8
+           MODULE=kobodeluxe
+          VERSION=0.4pre10
            SOURCE=KoboDeluxe-$VERSION.tar.gz
+	  SOURCE2=$MODULE-compile.patch.bz2
  SOURCE_DIRECTORY=$BUILD_DIRECTORY/KoboDeluxe-$VERSION
-    SOURCE_URL[0]=http://www.olofson.net/kobodl/download/
-         WEB_SITE=http://www.olofson.net/skobo
-         ENTERED=20011219
-         UPDATED=20030824
-           SHORT="An enhanced port of the scrolling video game XKobo."
+       SOURCE_URL=http://www.olofson.net/kobodl/download/
+      SOURCE2_URL=$PATCH_URL/
+       SOURCE_VFY=sha1:7b1f37482d40e9f68291527d8b1b9dd7d88dd25c
+      SOURCE2_VFY=sha1:4bf0cb9e5fabd8ca7e729f5010d00b5a1b2192d5
+         WEB_SITE=http://www.olofson.net/kobodl/
+          ENTERED=20011219
+          UPDATED=20060108
+            SHORT="An enhanced port of the scrolling video game XKobo."
+
 cat << EOF
 Kobo Deluxe is a 3'rd person  scrolling 2d shooter with a simple
 and responsive control system  - which you'll need to tackle the
@@ -16,12 +21,4 @@ trying to  destroy the  labyrinth  shaped  bases.  There  are 50
 action packed  levels with  smoothly increasing  difficulty, and
 different combinations of enemies that require different tactics
 to be dealt with successfully.
-
-  Kobo Deluxe has an improved graphics engine that can take full
-advantage  of any video  frame rate,  without affecting the game
-logic and timing. It also adds sound effects, flashy "dashboard"
-graphics,  full-screen mode and various  other features expected
-from a modern game.  Kobo Deluxe is based on SDL,  and therefore
-builds and runs on all major operating systems,  as well as some
-more unusual platforms.
 EOF
