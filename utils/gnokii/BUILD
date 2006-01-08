@@ -1,5 +1,10 @@
 (
 
+  if [ 'grep gnokii /etc/group' != 'gnokii' ]
+     then
+     groupadd gnokii
+  fi
+
   OPTS="$OPTS --enable-security --disable-debug --disable-xdebug"
   if echo $OPTS | grep -q 'with-x' ; then
     sedit "s:LDLIBS += :LDLIBS += -lXpm :" xgnokii/Makefile
