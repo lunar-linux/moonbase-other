@@ -1,9 +1,0 @@
-if  !  grep  -q  "KOBO_OSS="  $MODULE_CONFIG;  then
-
-  if  query  "Support OSS audio API (in addition to SDL audio) ?" n
-  then  KOBO_OSS="--enable-oss"
-  else  KOBO_OSS=""
-  fi
-  echo  "KOBO_OSS=\"$KOBO_OSS\""  >>  $MODULE_CONFIG
-
-fi
