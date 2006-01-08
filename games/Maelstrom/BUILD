@@ -3,13 +3,13 @@
   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   patch_it $SOURCE_CACHE/$SOURCE3 1 &&
 
-  prepare_install                   &&  
-
-  ./configure  --prefix=/usr         \
-               --bindir=/usr/games  &&
-	       
-  mkdir -p /usr/games/Maelstrom     &&
-
-  default_make
+  ./configure --prefix=/usr/share  \
+              $OPTS               &&
+	      
+  default_make  &&
+  
+  mv /usr/share/bin/Maelstrom /usr/games/Maelstrom
+  mv /usr/share/bin/Maelstrom-netd /usr/games/Maelstrom-netd
+  rm /usr/share/bin
 
 ) > $C_FIFO 2>&1
