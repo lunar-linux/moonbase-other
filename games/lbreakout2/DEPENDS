@@ -1,11 +1,12 @@
 depends  libpng  &&
+depends  SDL     &&
 
 optional_depends  SDL_mixer            \
-                  '--enable-audio'     \
-                  '--disable-audio'    \
-                  'Enable sound'      &&
+                  "--enable-audio"     \
+                  "--disable-audio"    \
+                  "Enable sound"      &&
 
 optional_depends  SDL_net              \
-                  '--enable-network'   \
-                  '--disable-network'  \
-                  'Enable network'
+                  "--enable-network"   \
+                  "--disable-network"  \
+                  "Enable network"
