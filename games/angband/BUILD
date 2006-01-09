@@ -1,13 +1,7 @@
 (
   
-  sedit "s:/games/:/:" configure &&
-
-  ./configure  --prefix=/usr              \
-               --bindir=/usr/games        \
-               --datadir=/usr/share/games \
-               --with-setgid=games        \
-               $OPTS                      &&
-
-  default_make
+  sedit "s:/games/:/:" configure    &&
+  OPTS=$OPTS" --with-setgid=games"  &&
+  default_game_build
 
 ) > $C_FIFO 2>&1				  
