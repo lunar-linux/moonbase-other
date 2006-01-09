@@ -2,17 +2,8 @@
 
   sedit "s:local/lib:share/games/crossfire:" sound-src/sounds.dist &&
 
-  ./configure  --prefix=/usr              \
-               --bindir=/usr/games        \
-	       --datadir=/usr/share/games \
-               --sysconfdir=/etc          \
-               --localstatedir=/var       \
-               --disable-alsa             \
-               --with-sound-dir=/usr/share/games/crossfire-client/sounds \
-               $OPTS  &&
-
-  default_make  &&
-  
+  default_game_build  &&
+    
   mkdir -p /usr/share/games/crossfire-client  &&
   cd /usr/share/games/crossfire-client  &&
   unpack  $SOURCE1  &&
