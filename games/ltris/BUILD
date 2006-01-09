@@ -1,9 +1,5 @@
 (
-  ./configure  --prefix=/usr               \
-               --bindir=/usr/games         \
-	       --localstatedir=/var/games  \
-	       --datadir=/usr/share/games  \
-               $OPTS                      &&
-  default_make
+
+  default_game_build
 
 ) > $C_FIFO 2>&1
