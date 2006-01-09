@@ -1,9 +1,6 @@
 (
 
   sh autogen.sh  &&
-  ./configure  --prefix=/usr        \
-               --bindir=/usr/games  \
-	       --datadir=/usr/share/games &&
-  default_make
+  default_game_build
 
 ) > $C_FIFO 2>&1
