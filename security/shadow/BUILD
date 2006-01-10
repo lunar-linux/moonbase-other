@@ -13,10 +13,11 @@
   sedit 's|^ENV_TZ|#ENV_TZ|' etc/login.defs*
   sedit 's|#CRACKLIB_DICTPATH.*$|CRACKLIB_DICTPATH /lib/cracklib/|g' etc/login.defs*
   sedit 's|#MD5_CRYPT_ENAB.*$|MD5_CRYPT_ENAB yes|' etc/login.defs*
+  sedit 's|^ULIMIT|#ULIMIT|' etc/login.defs*
 
   default_make &&
 
-  for FILE in limits login.access login.defs defaults ; do
+  for FILE in limits login.access login.defs ; do
     [ -e /etc/$FILE ] || install etc/$FILE /etc/
   done
   [ -e /etc/securetty  ] || install $SCRIPT_DIRECTORY/securetty /etc/
