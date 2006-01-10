@@ -1,16 +1,9 @@
 # Remove xserver
-
-  if module_installed xserver; then lrm xserver; fi
-
-# Tidy up
-
-  rm -Rf /usr/X11*
+if module_installed xserver; then lrm xserver; fi
 
 # Remove broken symlinks
-
-  rm -Rf /usr/lib/pkgconfig/fontconfig.pc
-  rm -Rf /usr/lib/pkgconfig/xft.pc
+rm -Rf /usr/lib/pkgconfig/fontconfig.pc
+rm -Rf /usr/lib/pkgconfig/xft.pc
 
 # Reinstall fontconfig since its broken now
-
-  if module_installed fontconfig; then lin -c fontconfig; fi
+if module_installed fontconfig; then lin -c fontconfig; fi
