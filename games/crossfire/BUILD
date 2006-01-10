@@ -1,13 +1,6 @@
 (
-  ./configure  --prefix=/usr               \
-               --sysconfdir=/etc           \
-               --localstatedir=/var/games  \
-               --bindir=/usr/games         \
-	       --datadir=/usr/share/games  \
-               $OPTS                      &&
-
-  default_make  &&
-  
+  default_game_build  &&
+    
   cd /usr/share/games/crossfire  &&
   unpack $SOURCE2                &&
   unpack $SOURCE3                &&
