@@ -1,4 +1,26 @@
-depends SDL    &&
-optional_depends libmad "--enable-mad" "--disable-mad" "To use mp3 support" &&
-optional_depends alsa-lib "--enable-alsa" "--disable-alsa" "To use alsa support" &&
-optional_depends libvorbis "--enable-vorbis" "--disable-vorbis" "To use ogg support"
+depends SDL  &&
+
+optional_depends libmad                 \
+                 "--enable-mad"         \
+		 "--disable-mad"        \
+		 "To use mp3 support"  &&
+		 
+optional_depends alsa-lib                \
+                 "--enable-alsa"         \
+		 "--disable-alsa"        \
+		 "To use alsa support"  &&
+		 
+optional_depends libvorbis               \
+                 "--enable-vorbis"       \
+		 "--disable-vorbis"      \
+		 "To use ogg support"   &&
+
+optional_depends flac                    \
+                 "--enable-flac"         \
+		 "--disable-flac"        \
+		 "To use flac support"  &&
+
+optional_depends mpeg2dec                \
+                 ""                      \
+		 "--disable-mpeg2"       \
+		 "To use mpeg2 decoding"
