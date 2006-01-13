@@ -1,6 +1,6 @@
 (
 
-  xmkmf -a                             &&
+  xmkmf -a  &&
   find . -type f -name 'Makefile' -print | while read i
       do
         sedit "s:INSTMANDIR = \$(PREFIX)/man/man\$(MANSUFFIX):INSTMANDIR = /usr/share/man6:" $i 
