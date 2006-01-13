@@ -1,1 +1,13 @@
-depends  SDL
+depends  SDL      &&
+depends  libtool  &&
+
+optional_depends  zlib              \
+                  "--enable-zlib"   \
+                  "--disable-zlib"  \
+                  "compressed pak-file support"  &&
+
+optional_depends  libvorbis          \
+                  "--enable-vorbis"  \
+                  "--disable-vorbis" \
+                  "ogg-vorbis sound file support"
+
