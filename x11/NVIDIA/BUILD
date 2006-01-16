@@ -3,6 +3,7 @@
   prepare_install                              &&
   mkdir -p /usr/X11R6/lib/modules/extensions   &&
   mkdir -p /usr/X11R6/lib/modules/drivers      &&
+  sedit 's/package-install: module-install rmmod-sanity-check/package-install: module-install/' usr/src/nv/Makefile.kbuild  &&
   make install                                 &&
   cp -d /usr/lib/libGL*  /usr/X11R6/lib        &&
   cp -a usr/include/GL/* /usr/include/GL       &&
