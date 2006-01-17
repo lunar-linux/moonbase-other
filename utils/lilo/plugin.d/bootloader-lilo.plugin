@@ -18,6 +18,7 @@ plugin_kernel_updatebootloader_lilo() {
 	fi
 	debug_msg "plugin_kernel_updatebootloader_lilo ($@)"
 
+    # only add the new image lines if needed
 	if ! ( grep -q "$1" /etc/lilo.conf && grep -q "$1.old" /etc/lilo.conf ) ; then
 		IFS_OLD=$IFS
 		export IFS="
@@ -28,12 +29,14 @@ plugin_kernel_updatebootloader_lilo() {
 		(( IMAGE_COUNT=0 ))
 		for LINE in $(cat /etc/lilo.conf) ; do
 			if echo $LINE | grep -q "image" || echo $LINE | grep -q "other" ; then
+				# insert space between image/other lines
 				echo >> /etc/lilo.conf.new
 				if (( IMAGE_COUNT == 0 )) ; then
-					if ! grep -q "$1" /etc/lilo.conf ; then
+					# insert new image first
+					if ! grep -qw "$1" /etc/lilo.conf ; then
 						printf "\nimage = %s\n    label = %s\n    read-only\n\n" "/boot/$1" "$2" >> /etc/lilo.conf.new
-				fi
-					if [ -f "/boot/$1.old" ] && ! grep -q "$1.old" /etc/lilo.conf ; then
+					fi
+					if [ -f "/boot/$1.old" ] && ! grep -qw "$1.old" /etc/lilo.conf ; then
 						printf "\nimage = %s\n    label = %s\n    read-only\n\n"  "/boot/$1.old" "$2.old" >> /etc/lilo.conf.new
 					fi
 				fi
