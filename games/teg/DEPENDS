@@ -1,1 +1,8 @@
-depends gnome-libs
+depends  gtk+-2           &&
+depends  gnome-libs       &&
+depends  ggz-client-libs  &&
+
+optional_depends  "ggz-server"     \
+                  "--enable-ggz"   \
+                  "--disable-ggz"  \
+                  "for Gaming Zone GGZ support" 
