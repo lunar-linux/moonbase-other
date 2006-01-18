@@ -1,15 +1,16 @@
           MODULE=burgner
          VERSION=0.1.3
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=http://burgner.tuxfamily.org/
-        WEB_SITE=http://burgner.tuxfamily.org
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/
+      SOURCE_VFY=sha1:f596129198d2e5e850042e6bc95e76deb0ac8d21
+        WEB_SITE=http://burgner.sourceforge.net/
          ENTERED=20030907
          UPDATED=20040314
       MAINTAINER=nhudson@lunar-linux.org
            SHORT="Aims to be a completely free burning suite"
 cat << EOF
-The Burgner project aims to be a complete free burning suite, totally 
-rewritten from scratch. 
+The Burgner project aims to be a complete free burning suite, totally
+rewritten from scratch.
 * can generate ISO9660 images, with the RockRidge and ElTorito extensions
   (these extensions are obviously optional), directories relocating
   (infinite directory level support with RockRidge), with various optimizations
@@ -20,3 +21,4 @@ rewritten from scratch.
 * fully asynchronous and event-oriented API, designed to be easily used within
   a GTK+/GNOME application.
 EOF
+
