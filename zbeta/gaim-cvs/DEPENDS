@@ -21,8 +21,14 @@ optional_depends  "audiofile"  ""               ""                      \
 optional_depends  "libao"      ""               ""                      \
                   "for sound support using libao"                       &&
 
-optional_depends  "speex"      "--enable-vv"    ""                      \
-                  "for voice chat support"                              &&
+optional_depends  "linphone"   ""               ""                      \
+                  "for limited voice chat support"                      &&
+
+optional_depends  "jack"       ""               ""                      \
+                  "for additional voice chat features"                  &&
+
+optional_depends  "libsamplerate"  ""           ""                      \
+                  "for additional voice chat features"                  &&
 
 optional_depends  "evolution"  ""               "--disable-gevolution"  \
                   "for the Gaim-Evolution plugin"                       &&
