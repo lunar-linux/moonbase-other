@@ -4,17 +4,17 @@
   # not the last linned kernel headers
   sedit "s?/usr/src/linux/include?/usr/include?g" DEFAULTS/Defaults.linux 
     
-  if  `module_installed smake`; then
+  if `module_installed smake` ; then
     THISMAKE=smake
   else
     THISMAKE=./Gmake.linux
   fi                                                   &&
-  $THISMAKE                                            &&
+  $THISMAKE INS_BASE=/usr DEFINSUSR=root \
+	    DEFINSGRP=root			       &&
   prepare_install                                      &&
-  $THISMAKE     INS_BASE=/usr MANDIR=share/man install &&
+  $THISMAKE INS_BASE=/usr DEFINSUSR=root \
+	    DEFINSGRP=root MANDIR=share/man install     &&
   mkdir -p /etc/default                                &&
-  cp rscsi/rscsi.dfl /etc/default/ #Otherwise it's lost ;^) &&
-  cd /usr/bin &&
-  chown root:root mkisofs isoinfo isodump devdump cdrecord cdda2wav skel scgcheck readcd isovfy isodebug
+  install -m644 rscsi/rscsi.dfl /etc/default
   
 ) > $C_FIFO 2>&1
