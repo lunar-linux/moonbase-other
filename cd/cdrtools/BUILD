@@ -13,6 +13,8 @@
   prepare_install                                      &&
   $THISMAKE     INS_BASE=/usr MANDIR=share/man install &&
   mkdir -p /etc/default                                &&
-  cp rscsi/rscsi.dfl /etc/default/ #Otherwise it's lost ;^)
+  cp rscsi/rscsi.dfl /etc/default/ #Otherwise it's lost ;^) &&
+  cd /usr/bin &&
+  chown root:root mkisofs isoinfo isodump devdump cdrecord cdda2wav skel scgcheck readcd isovfy isodebug
   
 ) > $C_FIFO 2>&1
