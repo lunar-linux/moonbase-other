@@ -1,4 +1,15 @@
 i'll prolly need a PREBUILD to remove "/usr/include/x11" and "UNKNOWN" when installing MODULE X & Y
 
-somewhere there must be a depends on freetype... xorg is certainly checking for it 
+http://lists.freedesktop.org/archives/xorg/2005-December/011626.html
 
+
+/usr/include/sys/kd.h
+
+-#ifndef _LINUX_TYPES_H
+-#define _LINUX_TYPES_H 1
+-#endif
+
++#ifndef _LINUX_TYPES_H
++#define _LINUX_TYPES_H 1
++#define __undef_LINUX_TYPES_H 1
++#endif
