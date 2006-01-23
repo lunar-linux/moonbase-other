@@ -1,8 +1,9 @@
 i'll prolly need a PREBUILD to remove "/usr/include/x11" and "UNKNOWN" when installing MODULE X & Y
 
+***
+this one doesn't work... still first reference that there is something wrong with the headers... 
 http://lists.freedesktop.org/archives/xorg/2005-December/011626.html
-
-
+@@@
 /usr/include/sys/kd.h
 
 -#ifndef _LINUX_TYPES_H
@@ -13,3 +14,17 @@ http://lists.freedesktop.org/archives/xorg/2005-December/011626.html
 +#define _LINUX_TYPES_H 1
 +#define __undef_LINUX_TYPES_H 1
 +#endif
+@@@
+***
+this one sounds interesting and actually pretty logic... 
+http://www.linuxquestions.org/questions/showthread.php?t=378616
+
+with a cool sollution from linuxfromscratch. and these guys are using the same kernel-headers package from pld linux so gonna try this thingy...
+http://linuxfromscratch.org/pipermail/hlfs-dev/2006-January/002659.html
+@@@
+sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' -i \
+hw/xfree86/os-support/linux/lnx_agp.c
+cp -v /usr/include/linux/agpgart.h /usr/include/linux/agpgart.h.orig
+sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' \
+-i /usr/include/linux/agpgart.h
+@@@
