@@ -11,6 +11,8 @@
   sedit  "s/USE_MOUSE=n/USE_MOUSE=$UM/"                  makefile  &&
   sedit  "s/\/usr\/local/\/usr/"  biewlib/sysdep/generic/unix/os_dep.c  &&
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   make                                          &&
   prepare_install                               &&
   gzip       doc/biew.1                         &&
