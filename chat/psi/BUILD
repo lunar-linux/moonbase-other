@@ -1,6 +1,9 @@
 (
+    # Stupid which which function
+    sedit "s/^WHICH=.*/WHICH=which/" configure &&
+
     ./configure --prefix=/usr  \
-	        --libdir=/usr/share/psi \
+	        --datadir=/usr/share \
 	        $OPTS  &&
     default_make
 
