@@ -1,19 +1,5 @@
 i'll prolly need a PREBUILD to remove "/usr/include/x11" and "UNKNOWN" when installing MODULE X & Y
 
-***
-this one doesn't work... still first reference that there is something wrong with the headers... 
-http://lists.freedesktop.org/archives/xorg/2005-December/011626.html
-@@@
-/usr/include/sys/kd.h
-
--#ifndef _LINUX_TYPES_H
--#define _LINUX_TYPES_H 1
--#endif
-
-+#ifndef _LINUX_TYPES_H
-+#define _LINUX_TYPES_H 1
-+#define __undef_LINUX_TYPES_H 1
-+#endif
 @@@
 ***
 this one sounds interesting and actually pretty logic... 
@@ -28,3 +14,12 @@ cp -v /usr/include/linux/agpgart.h /usr/include/linux/agpgart.h.orig
 sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' \
 -i /usr/include/linux/agpgart.h
 @@@
+
+confirmed as working... though i didn't have to change it in the source of xorg-server (so the lnx_agp.c file)
+so 2 possible sollutions :
+1. change the kernel-headers package permantely
+2. change it only when you install XOrg7 ... though we have to test it when we want to lin xfree and others....
+***
+
+
+next error.... sigh
