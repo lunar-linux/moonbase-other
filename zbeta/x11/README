@@ -1,4 +1,30 @@
-please do not try to install this... 
-no checksumming, no description... it's even just uninstallable...
+X11R7 for Lunar Linux
 
-20/01/05 basically what i'm trying to do is to install xorg-server (which is included already) and adjust that DEPENDS file of it and making the modules while i'm going along... (just in case someone wants to help as i'll be off for the weekend)
+-------------------------------------------------------------------
+| ATTENTION: THIS DOES NOT WORK! YOU _WILL_ BREAK YOUR X11 INCASE |
+| YOU TRY TO INSTALL IT!					  |
+-------------------------------------------------------------------
+
+You have been warned.
+
+We are missing checksums, describtions and some other vital information
+to install this new release.
+
+---
+
+We will definitely need this line of sed code:
+
+cp -v /usr/include/linux/agpgart.h /usr/include/linux/agpgart.h.orig
+
+sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' \
+-i /usr/include/linux/agpgart.h
+
+---
+
+23/01/06: we managed to compile the first xorg-server off samuel's modules. way
+to go .. but still, a leap forward.
+
+20/01/06: basically what i'm trying to do is to install xorg-server (which
+is included already) and adjust that DEPENDS file of it and making the
+modules while i'm going along... (just in case someone wants to help as
+i'll be off for the weekend).
