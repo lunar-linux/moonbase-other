@@ -53,7 +53,7 @@
     invoke_installwatch
   fi
 
-# patch_it $SOURCE_CACHE/$SOURCE4 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE4 1  &&
   
   # explicitly exit here now and not later on
   make World || exit 1
