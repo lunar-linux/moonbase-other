@@ -1,390 +1,382 @@
 #!/bin/bash
+#
+# mount - mount and umount filesystems
+#
 
-# description: mount and umount the filesystem
-
-# Leave debugging off by default
-DEBUG=""
-
-wait_for_finish()
+wait_some()
 {
-   test -n "${1}" && sleep ${1}
+	if [ -n "$1" ]; then
+		sleep $1
+	fi
 }
 
 
 run_without_msg()
 {
-   if [ -z "${1}" ]; then
-      echo -n "run_without_msg: missing command."
-      echo -e ${RESULT_FAIL}
-      return
-   fi
+	if [ -z "$1" ]; then
+		echo -n "run_without_msg: missing command."
+		echo -e $RESULT_FAIL
+		return
+	fi
 
-   if [ -n "${DEBUG}" ]; then
-      echo -e "< ${1} >\n" 
-      eval ${1}
-   else
-      eval ${1} &> /dev/null      
-   fi
+	if [ -n "$DEBUG" ]; then
+		echo -e "< $1 >\n"
+		eval $1
+	else
+		eval $1 &> /dev/null
+	fi
 
-   local exit_status=$?
+	local exit_status=$?
 
-   wait_for_finish "${2}"
+	wait_some "$2"
 
-   return ${exit_status}   
+	return $exit_status
 }
 
 
 run_with_msg_and_exit_codes()
 {
-   # $1 : message
-   # $2 : command
-   # $3 : white space separated list of OK exit values
-   # $4 : white space separated list of WARNING exit values
-   # $5 : white separated list of FAILURE exit values
+	# $1 : message
+	# $2 : command
+	# $3 : white space separated list of OK exit values
+	# $4 : white space separated list of WARNING exit values
+	# $5 : white separated list of FAILURE exit values
 
-   if [ ! ${#} -eq 5 ]; then
-      echo "run_with_special_exit_codes: wrong parameter count. 5 params expected"
-      return 1
-   fi    
+	if [ ! ${#} -eq 5 ]; then
+		echo "run_with_special_exit_codes: wrong parameter count. 5 params expected"
+		return 1
+	fi
 
-   echo -n "${1}"
+	echo -n "$1"
 
-   if [ -n "${DEBUG}" ]; then
-      echo -e "\n< run_with_special_exit_codes >"
-      echo -e "\n< command : ${2} >"
-      echo -e "\n< valid   : ${3} >"
-      echo -e "\n< warn    : ${4} >"
-      echo -e "\n< fail    : ${5} >"
-      eval ${2}
-   else
-      eval ${2} &> /dev/null
-   fi
+	if [ -n "${DEBUG}" ]; then
+		echo -e "\n< run_with_special_exit_codes >"
+		echo -e "\n< command : $2 >"
+		echo -e "\n< valid   : $3 >"
+		echo -e "\n< warn    : $4 >"
+		echo -e "\n< fail    : $5 >"
+		eval $2
+	else
+		eval $2 &> /dev/null
+	fi
 
-   local exit_status=$?
+	local exit_status=$?
 
-   for i in "${3}"
-   do
-      if [ "${exit_status}" = "${i}" ]; then
-         echo -e ${RESULT_OK}
-         return ${exit_status}
-      fi
-   done 
+	for i in "$3"
+	do
+		if [ "$exit_status" = "$i" ]; then
+			echo -e $RESULT_OK
+			return $exit_status
+		fi
+	done
 
-   for i in "${4}"
-   do
-      if [ "${exit_status}" = "${i}" ]; then
-         echo -e ${RESULT_WARN}
-         return ${exit_status}
-      fi
-   done 
+	for i in "$4"
+	do
+		if [ "$exit_status" = "$i" ]; then
+			echo -e $RESULT_WARN
+			return $exit_status
+		fi
+	done
 
-   for i in "${5}"
-   do
-      if [ "${exit_status}" = "${i}" ]; then
-         echo -e ${RESULT_FAIL}
-         return ${exit_status}
-      fi
-   done 
+	for i in "$5"
+	do
+		if [ "$exit_status" = "$i" ]; then
+			echo -e $RESULT_FAIL
+			return $exit_status
+		fi
+	done
 
-   warn_msg "result ${exit_status} did not match any supplied exit code value"
-   return ${exit_status}
+	warn_msg "result $exit_status did not match any supplied exit code value"
+	return $exit_status
 }
 
 
 run_with_msg()
 {
-   # message == $1
-   # cmd == $2
+	# message == $1
+	# cmd == $2
 
-   if [ -z "${1}" ]; then 
-      echo -n "run_cmd_with_msg: missing message."      
-      echo -e ${RESULT_WARN}
-      return
-   fi
+	if [ -z "$1" ]; then
+		echo -n "run_cmd_with_msg: missing message."
+		echo -e $RESULT_WARN
+		return
+	fi
 
-   if [ -z "${2}" ]; then
-      echo -n "run_cmd_with_msg: missing command."      
-      echo -e ${RESULT_WARN}
-      return
-   fi
-  
-   echo -n "${1}"  
+	if [ -z "$2" ]; then
+		echo -n "run_cmd_with_msg: missing command."
+		echo -e $RESULT_WARN
+		return
+	fi
 
-   if [ -n "${DEBUG}" ]; then
-       echo -n "< ${2} >"
-       eval ${2}
-   else
-       eval ${2} &> /dev/null
-   fi
+	echo -n "$1"
 
-   if [ $? -eq 0 ]; then
-      wait_for_finish ${3}
-      echo -e ${RESULT_OK}
-      return 0 
-   else
-      wait_for_finish ${3}
-      echo -e ${RESULT_FAIL}
-      return 1
-   fi
+	if [ -n "$DEBUG" ]; then
+		 echo -n "< $2 >"
+		 eval $2
+	else
+		 eval $2 &> /dev/null
+	fi
+
+	if [ $? -eq 0 ]; then
+		echo -e $RESULT_OK
+		wait_some $3
+		return 0
+	else
+		echo -e $RESULT_FAIL
+		wait_some $3
+		return 1
+	fi
 }
 
 
 warn_msg()
 {
-   echo -ne "${1}"
-   echo -e ${RESULT_WARN}
+	echo -ne "$1$RESULT_WARN"
 }
+
 
 kernel_is_26()
 {
-  # don't forget /proc has to be mounted before we do this!
-  uname -r | grep -q "^2\.6" && return 0
-
-  return 1  
+	uname -r | grep -q "^2\.6"
 }
 
 
 kernel_is_24()
 {
-  # don't forget /proc has to be mounted before we do this!
-  uname -r | grep -q "^2\.4" && return 0
-
-  return 1
+	uname -r | grep -q "^2\.4"
 }
 
 
-# DONT FORGET TO SEE TO LVM FIXES!
-start() 
+start()
 {
-   echo -e "Mounting filesystems:"
+	echo -e "Mounting filesystems:"
 
-   run_with_msg " * Mounting proc : " "mount -t proc proc /proc"
+	run_with_msg " * Mounting /proc : " "mount -n -t proc proc /proc"
+	if ! grep -qw "ro" /proc/cmdline; then
+		run_with_msg " * Remounting root read-only : " "mount -n -o remount,ro /"
+	fi
 
-   run_with_msg " * Remounting root read-only : " "mount -n -o remount,ro /"
+	DEVNODES=`grep -o "dev=.*" /proc/cmdline | cut -d" " -f1 | sed -e "s/dev=//g"`
 
-   DEVNODES=`grep -o "dev=.*" /proc/cmdline | cut -d" " -f1 | sed -e "s/dev=//g"`
-  
-   case ${DEVNODES} in
-      static|devfs)
-         ;;
-      udev)
-         if kernel_is_24 ; then # *sigh*
-            warn_message "No udev for 2.4 kernels. Kernel commandline parameter ignored."
-            DEVNODES=""
-         fi
-         ;;
-      ?*)
-         warn_msg "Wrong device nodes parameter \"${DEVNODES}\" on kernel line. Valid are: devfs, udev, static\nFalling back to default behaviour"  
-         DEVNODES=""
-         ;;   
-   esac
+	case $DEVNODES in
+		static|devfs)
+			;;
+		udev)
+			if kernel_is_24 ; then
+				warn_message "No udev for 2.4 kernels. Kernel commandline parameter ignored."
+				DEVNODES=""
+			fi
+			;;
+		?*)
+			warn_msg "Wrong device nodes parameter \"$DEVNODES\" on kernel line. Valid are: devfs, udev, static\nFalling back to default behaviour"
+			DEVNODES=""
+			;;
+	esac
 
-   # default bahaviour if there is no previous device nodes handling user choice
-   if [ -z "$DEVNODES" ]; then
-      if kernel_is_26 && [ -x "/sbin/udevstart" ] ; then
-         DEVNODES="udev"
-	 if [ ! -z "${DEBUG}" ] ; then
-	   echo -e "\n< Found udev >"
-	 fi
-      elif [ -x "/sbin/devfsd" ] ; then
-         DEVNODES="devfs"
-	 if [ ! -z "${DEBUG}" ] ; then
-	   echo -e "\n< Found devfs >"
-	 fi 
-      else
-         warn_msg "* Assuming a static /dev :"
-         DEVNODES="static"
-      fi
-   fi
-   
-   kernel_is_26 && run_with_msg " * Mounting sysfs : " "mount -t sysfs sysfs /sys"
-  
-   if [ "$DEVNODES" = "devfs" ]; then
+	# default bahaviour if the user did not choose himself
+	if [ -z "$DEVNODES" ]; then
+		if kernel_is_26 && [ -x "/sbin/udevstart" ] ; then
+			DEVNODES="udev"
+			if [ -n "$DEBUG" ] ; then
+				echo -e "\n< Found udev >"
+			fi
+		elif [ -x "/sbin/devfsd" ] ; then
+			DEVNODES="devfs"
+	 		if [ -n "$DEBUG" ] ; then
+				echo -e "\n< Found devfs >"
+	 		fi
+		else
+			warn_msg "* Assuming a static /dev :"
+			DEVNODES="static"
+		fi
+	fi
 
-      run_with_msg " * Mounting /dev : " "mount -n /dev"
-      run_with_msg " * Starting devfsd : " "devfsd /dev"
-   
-      kernel_is_26 && run_with_msg " * Mounting devpts on /dev/pts :" "mount -t devpts devpts /dev/pts"
+	kernel_is_26 && run_with_msg " * Mounting /sys : " "mount -n -t sysfs sysfs /sys"
 
-   elif [ "$DEVNODES" = "udev" ]; then
+	if [ "$DEVNODES" = "devfs" ]; then
+		run_with_msg " * Mounting /dev : " "mount -n -t devfs devfs /dev"
+		run_with_msg "Starting devfsd : " "devfsd /dev"
+	elif [ "$DEVNODES" = "udev" ]; then
+		run_with_msg " * Mounting /dev : " "mount -n -t tmpfs tmpfs /dev -o size=4m"
+		run_with_msg "Setting /sbin/udevsend to manage hotplug events : " "echo /sbin/udevsend > /proc/sys/kernel/hotplug"
+		run_with_msg "Creating udev device nodes on /dev : " "/sbin/udevstart"
+		run_without_msg "mkdir -p /dev/{pts,shm}"
+		run_without_msg "ln -sf /proc/self/fd /dev/fd"
+	fi
 
-      run_with_msg  " * Creating ramfs on /dev : "                           "mount -t ramfs none /dev"
-      run_with_msg  " * Setting /sbin/udevsend to manage hotplug events : "  "echo /sbin/udevsend > /proc/sys/kernel/hotplug"
-      run_with_msg  " * Creating udev device nodes on /dev : "               "/sbin/udevstart"
-      run_with_msg  " * Creating extra /dev/pts /dev/shm dirs : "            "mkdir /dev/{pts,shm}"
-      run_with_msg  " * Mounting devpts on /dev/pts : "                      "mount -t devpts devpts /dev/pts"
+	if [ -f /forcefsck ] ; then
+		FORCE="-f"
+	fi
 
-   fi
+	run_with_msg_and_exit_codes "Checking all file systems : " "fsck -A -y -V $FORCE" "0" "1" ""
+	exit_status=$?
 
-   if [ -f /forcefsck ] ; then 
-      FORCE="-f"
-   fi
+	case $exit_status in
+		0|1) # exited fine ( 0 ), or errors were fixed (1)
+			rm -f /forcefsck
+			;;
+		*)
+			echo " * fsck failed!"
+			echo ""
+			echo "   Please repair your file system manually by"
+			echo "   running /sbin/fsck without the -p option."
+			echo ""
+			sulogin
+			reboot  -f
+			;;
+	esac
 
-   run_with_msg_and_exit_codes " * Checking all file systems : " "fsck -A -y -V $FORCE" "0" "1" ""
-   exit_status=$?
 
-   case ${exit_status} in 
-      0|1) # exited fine ( 0 ), or errors were fixed (1) 
-         rm -f /forcefsck
-         ;;
-      *)  
-         echo  -e " * fsck failed."
-         echo     " * Please repair your file system"
-         echo     " * manually by running /sbin/fsck"
-         echo     " * without the -p option"
-         sulogin
-         reboot  -f
-         ;;
-   esac
- 
-  
-   run_with_msg " * Remounting root readwrite : " "mount -n -o remount,rw /"
+	run_with_msg " * Remounting root readwrite : " "mount -n -o remount,rw /"
 
-   run_without_msg "echo -n \"\" > /etc/mtab"
-   run_without_msg "rm -f /etc/mtab~*"
+	run_without_msg "echo -n \"\" > /etc/mtab"
+	run_without_msg "rm -f /etc/mtab~*"
+	# hack to get it into /etc/mtab
+	run_without_msg "mount -f -o remount,rw /"
 
-   run_without_msg "mount -f -o remount,rw /"   
-  
-   run_with_msg  " * Mounting swap : " "swapon -a"
-  
-   echo "Mounting remaining filesystems : "
+	run_with_msg  "Turning on swap : " "swapon -a"
 
-   # We mounted devfs before, now a hack to get it into /etc/mtab
-   test "${DEVNODES}" = "devfs" && run_without_msg "mount -f -t devfs devfs /dev"
-  
-   # sort the filesystems, swapfiles at bottom, squeeze separators into spaces
-   grep -v -e '#\|^$\|noauto' /etc/fstab | tr -s '[:space:]' | tr '\t' ' ' | LC_ALL=C sort -k2 | while read DEVICE MOUNTPOINT FSTYPE OPTS REST
-   do  
-      case ${MOUNTPOINT} in
-         /|/proc|/sys|/dev|/dev/pts) # been mounted previously
-            continue      
-            ;;
-         none)
-            continue
-            ;;
-      esac
+	echo "Mounting remaining filesystems : "
 
-      case ${FSTYPE} in
-         nfs|smbfs)    # we don't do networked fs's yet!
-            continue 
-            ;;
-      esac
-      
-      test -n "${OPTS}" && OPTS="-o ${OPTS}"
+	# hack to get it into /etc/mtab
+	if [ "$DEVNODES" == "devfs" ]; then
+		run_without_msg "mount -f -t devfs devfs /dev"
+	fi
 
-      run_with_msg  " * Mounting $MOUNTPOINT : "  "mount ${OPTS} ${MOUNTPOINT}" 
+	# sort the filesystems, swapfiles at bottom, squeeze separators into spaces
+	sed 's/#.*$//g' /etc/fstab | tr '\t' ' ' | tr -s '[:space:]' | grep -v -e '^$\|noauto' | LC_ALL=C sort -k2 | while read DEVICE MOUNTPOINT FSTYPE OPTS REST
+	do
+		case $MOUNTPOINT in
+			/|/proc|/sys|/dev) # been mounted previously
+				continue
+				;;
+			none)
+				continue
+				;;
+		esac
 
-   done
+		case $FSTYPE in
+			nfs|nfs4|smbfs)    # we don't do networked fs's yet!
+				continue
+				;;
+		esac
+
+		if [ -n "$OPTS" ]; then
+			OPTS="-o $OPTS"
+		fi
+
+		run_with_msg  " * Mounting $MOUNTPOINT : "  "mount $MOUNTPOINT $OPTS"
+
+	done
 }
 
 
-stop() 
+stop()
 {
-   # Establish where to get mount table from, save these since the files change if we unmount something
-   if [ -r /proc/mounts ] ; then
-      MOUNTS=/proc/mounts
-   else
-      MOUNTS=/etc/mtab
-   fi
-    
-   # write wtmp in /var before umounting /var
-   run_without_msg "reboot -w"
-    
-   echo "Unmounting all filesystems :"
-    
-   cat ${MOUNTS} | tac | while read TYPE PNT FS REST
-   do
-	    
-      case ${FS} in
-         nfs|smbfs) # we don't do net filesystems
-            continue
-            ;;
-      esac
+	# Establish where to get mount table from, save these since the files change if we unmount something
+	if [ -r /proc/mounts ] ; then
+		MOUNTS=/proc/mounts
+	else
+		MOUNTS=/etc/mtab
+	fi
 
-      case ${PNT} in
-         /|/proc|/dev|/sys) # no need to unmount these
-            continue
-            ;;
-      esac
+	# write wtmp in /var before umounting /var
+	run_without_msg "reboot -w"
 
-      echo  -n " * Umounting ${PNT}:"
-      run_without_msg "sync ; sync" # Flush buffers
-	    
-      if [ "${TYPE}" == "/dev/loop*" ] && [ -f ${PNT} ] ; then      
-         run_with_msg " * Detaching loopback device ${PNT} : " "losetup -d ${PNT}"
-         continue                                   
-      fi
-	    
-      ITERATION=1
-      UNMOUNT_ERROR=0
+	echo "Unmounting all filesystems :"
 
-      until [ -z `cat ${MOUNTS} | grep "${PNT}" | awk '{ print $1 }'` ] || [ ${UNMOUNT_ERROR} -eq 1 ];
-      do          
-         case ${ITERATION} in
-           1)
-             run_without_msg "umount ${PNT}"
-             ;;
-           2)
-             sleep 1
-             run_without_msg "fuser -s -km -3 ${PNT}" "1"
-             run_without_msg "umount ${PNT}"
-             ;; 
-           3)
-             sleep 1 
-             run_without_msg "fuser -s -km -9 ${PNT}"  "1"
-             run_without_msg "umount ${PNT}" "1"
-             ;;
-           4) 
-             sleep 1  
-             run_without_msg "fuser -s -km -9 ${PNT}" "1"
-             run_without_msg "umount -lf ${PNT}"    "4"
-             run_without_msg "sync; sync"
-             ;;
-           5)
-             UNMOUNT_ERROR=1 # warn that it hasn't been able to unmount the easy way
-             ;;
-          esac    
+	cat $MOUNTS | tac | while read TYPE PNT FS REST ; do
+	
+		case $FS in
+			nfs|nfs4|smbfs) # we don't do net filesystems
+				continue
+				;;
+		esac
 
-          (( ITERATION++ ))
-      done
+		case $PNT in
+			/|/proc|/dev|/sys) # no need to unmount these
+				continue
+				;;
+		esac
 
-      if [ ${UNMOUNT_ERROR} -eq 1 ]; then # haven't been able to unmount the point, so be drastic
-         echo -e ${RESULT_WARN}
-         run_with_msg "  * Attempting to remount ${PNT} read-only : " "mount -o remount,ro ${PNT}"
-      else
-         echo -e ${RESULT_OK}       
-      fi
+		echo  -n " * Umounting $PNT:"
+		run_without_msg "sync ; sync" # Flush buffers
+	
+		ITERATION=1
+		UNMOUNT_ERROR=0
 
-   done
-    
-   run_with_msg " * Deactivating swap space : " "swapoff  -a"
-    
-   run_without_msg "sync; sync;" "2"  # might take some time so we wait here for a couple of seconds
-    
-   if ! run_with_msg  " * Remounting root readonly : "  "mount -n -o remount,ro /" ; then
-      if ! run_with_msg  " * Trying again to remount root readonly : "  "umount -l -O remount,ro /" "4" ; then
-         read   -n 1  -t 30  -p  "Do you want to login? (y/n) "  CONFIRM
-         echo   ""
-         case ${CONFIRM} in
-            y|Y)  sulogin ;;
-         esac
-      fi
-   fi
+		until [ -z `grep -w $PNT $MOUNTS | awk '{ print $1 }'` ] || [ $UNMOUNT_ERROR -eq 1 ];
+		do
+			case $ITERATION in
+			  1)
+				 run_without_msg "umount $PNT"
+				 ;;
+			  2)
+				 sleep 1
+				 run_without_msg "fuser -s -km -3 $PNT" "1"
+				 run_without_msg "umount $PNT"
+				 ;;
+			  3)
+				 sleep 1
+				 run_without_msg "fuser -s -km -9 $PNT" "1"
+				 run_without_msg "umount $PNT" "1"
+				 ;;
+			  4)
+				 sleep 1
+				 run_without_msg "fuser -s -km -9 $PNT" "1"
+				 run_without_msg "umount -lf $PNT" "4"
+				 run_without_msg "sync; sync"
+				 ;;
+			  5)
+				 UNMOUNT_ERROR=1 # warn that it hasn't been able to unmount the easy way
+				 ;;
+			 esac
 
-   run_without_msg "sync; sync" "2"
+			 (( ITERATION++ ))
+		done
+
+		if [ $UNMOUNT_ERROR -eq 1 ]; then # haven't been able to unmount the point, so be drastic
+			echo -e $RESULT_WARN
+			run_with_msg "  * Attempting to remount $PNT read-only : " "mount $PNT -o remount,ro"
+		else
+			echo -e $RESULT_OK
+		fi
+
+		if [ "$TYPE" == "/dev/loop*" -a -f $PNT ] ; then
+			# unhook loopback device too
+			run_with_msg "Detaching loopback device $TYPE : " "losetup -d $TYPE"
+		fi
+	
+	done
+
+	run_with_msg "Turning off swap : " "swapoff -a"
+
+	run_without_msg "sync; sync;" "2"  # might take some time so we wait here for a couple of seconds
+
+	if ! run_with_msg  " * Remounting root readonly : "  "mount -n -o remount,ro /" ; then
+		if ! run_with_msg  " * Trying again to remount root readonly : "  "umount -l -O remount,ro /" "4" ; then
+			read -n 1 -t 30 -p "Do you want to login? (y/n) "  CONFIRM
+			echo   ""
+			case $CONFIRM in
+				y|Y)  sulogin ;;
+			esac
+		fi
+	fi
+
+	run_without_msg "sync; sync" "2"
 }
+
 
 # to avoid confusion we force only these options as being valid:
-case "${1}" in
-   start|stop) 
-      ;;
+case "$1" in
+	start|stop)
+		;;
 
-   *) 
-      echo "Warning: ${0} should never be called directly";
-      exit 1  
-      ;;
+	*)
+		echo "Warning: $0 should never be called directly";
+		exit 1
+		;;
 esac
 
 . /lib/lsb/init-functions
 
-exit
