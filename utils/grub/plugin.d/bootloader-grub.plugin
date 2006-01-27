@@ -19,14 +19,16 @@ map_devices_to_grub()
     # TODO - make sure partitions count continuously
     # TODO - check if ide, scsi, md is the correct order
     for LINE in $(
-        for N in $(ls -d1 /dev/{hd,sd}{a,c,d,e,f,g,h}{,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15} 2> /dev/null) ; do
-            echo "$(readlink -f $N | sed -e 's/\/dev\/ide/0/g' \
-            -e 's/\/dev\/scsi/1/g' | sort):$N:$(readlink -f $N)"
+        for N in /dev/{h,s}d{a,b,c,d,e,f,g,h}{,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15} ; do
+            if [ -e "$N" ] && grep -qw "${N/\/dev\//}" /proc/partitions ; then
+                echo "$(readlink -f $N | sed -e 's/\/dev\/ide/0/g' \
+                -e 's/\/dev\/scsi/1/g' | sort):$N:$(readlink -f $N)"
+            fi
         done); do
         DEVICE=$(echo $LINE | cut -d: -f1)
         TARGET=$(echo $LINE | cut -d: -f2)
         REALTARGET=$(echo $LINE | cut -d: -f3)
-	MINOR=$(grep -w $(basename $DEVICE) /proc/partitions | awk '{print $2}')
+        MINOR=$(grep -w $(basename $DEVICE) /proc/partitions | awk '{print $2}')
         if (( MINOR % 16 == 0 )) ; then
         	(( DISC++ ))
 		PART=0
