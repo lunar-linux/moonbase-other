@@ -7,13 +7,13 @@
 
 
 start() {
-  mount -t nfs,smbfs -a                              && 
+  mount -t nfs,nfs4,smbfs -a                              && 
     echo -e "Mounting network shares:$RESULT_OK"     ||
     echo -e "Mounting network shares:$RESULT_FAIL"
 }
 
 stop() {
-  umount -t nfs,smbfs -a -f -l                       &&
+  umount -t nfs,nfs4,smbfs -a -f -l                       &&
     echo -e "Unmounting network shares:$RESULT_OK"   ||
     echo -e "Unmounting network shares:$RESULT_FAIL"
 }
