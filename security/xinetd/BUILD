@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   if [ -e "/etc/init.d/xinetd.sh" ]; then
     rm -f /etc/init.d/xinetd.sh /etc/rc?.d/???xinetd.sh
   fi
