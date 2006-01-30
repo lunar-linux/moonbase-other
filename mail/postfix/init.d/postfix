@@ -12,15 +12,17 @@
 
 
 start () {
+  echo -n "Starting postfix: "
   newaliases
-  postfix start &&
+  postfix start 2> /dev/null &&
   echo -e $RESULT_OK ||
   echo -e $RESULT_FAIL
 }
 
 
 stop () {
-  postfix stop &&
+  echo -n "Stopping postfix: "
+  postfix stop 2> /dev/null &&
   echo -e $RESULT_OK ||
   echo -e $RESULT_FAIL
 }
@@ -39,3 +41,4 @@ status () {
 
 
 . /lib/lsb/init-functions
+
