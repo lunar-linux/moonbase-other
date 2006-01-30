@@ -1,14 +1,7 @@
 (
 
-  patch_it $SOURCE2 1 &&
+  sedit 's:mailer = /bin/mail:mailer = /usr/bin/mail:' conf/logwatch.conf &&
   prepare_install &&
-  mkdir -p /etc/log.d /usr/share/man/man8 &&
-  cp -av conf lib scripts /etc/log.d/ &&
-  chmod 755 lib/* scripts/logwatch.pl scripts/*/* &&
-  install logwatch.8 /usr/share/man/man8/ &&
-  if [ ! -e /etc/log.d/logwatch.conf ] ; then
-    install conf/logwatch.conf -m644 /etc/log.d/
-  fi &&
-  mv conf conf-nodocinstall
+  yes '' | bash install_logwatch.sh
 
 ) > $C_FIFO 2>&1
