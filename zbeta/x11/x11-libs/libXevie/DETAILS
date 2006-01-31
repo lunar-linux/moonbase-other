@@ -2,11 +2,16 @@
          VERSION=X11R7.0-1.0.0
           SOURCE=$MODULE-$VERSION.tar.bz2
       SOURCE_URL=ftp://ftp.x.org/pub/X11R7.0/src/everything/
+      SOURCE_VFY=sha1:859bdc763aee401a03a0fbdf93f5df8b841b73f3
    MODULE_PREFIX=${X11R7_PREFIX:-/usr/X11R7}
         WEB_SITE=http://www.x.org/
          ENTERED=20060120
          UPDATED=20060120
-           SHORT=""
-cat << EOF
-EOF
+           SHORT="the X.Org EvIE extension library"
 
+cat << EOF
+libXevie provides access to the EvIE (Event Interception Extension)
+extension to the X protocol.  The EvIE allows for clients to be able to
+intercept all events coming though the server and then decide what to
+do with them, including being able to modify or discard events.
+EOF
