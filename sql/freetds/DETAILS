@@ -1,12 +1,14 @@
           MODULE=freetds
-	 VERSION=0.62.4
-          SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=ftp://ftp.ibiblio.org/pub/Linux/ALPHA/$MODULE/stable/
-      SOURCE_VFY=md5:09695686e7aa2eaf963c2ebe30c7ae74
+	 VERSION=0.63
+          SOURCE=$MODULE-stable.tgz
+   SOURCE_URL[0]=tp://ftp.ibiblio.org/pub/Linux/ALPHA/$MODULE/stable/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:b95e630524800155af8fa04e78b5b834120cf48f
         WEB_SITE=http://www.freetds.org/
          ENTERED=20030101
-         UPDATED=20040716
+         UPDATED=20060131
            SHORT="OpenSource libraries for Sybase connections"
+
 cat << EOF
 Technically speaking, FreeTDS is an open source implementation of the
 TDS (Tabular DataStream) protocol used by these databases for their own
