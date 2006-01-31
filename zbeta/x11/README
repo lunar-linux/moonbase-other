@@ -20,6 +20,8 @@ sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' \
 -i /usr/include/linux/agpgart.h
 
 ---
+30/01/06 we definately need a symlink from /usr/include/X11 to /usr/X11R7/include/X11 ... gtk+-2 depends on it... seems like they have a bug in the configure script...
+
 25/01/06: started with the fonts... few remarks: install bdftopcf,mkfontdir,mkfontscale manually (not added in DEPENDS yet), symlink /usr/X11R7 to /usr/X11 manually (not added in a BUILD file yet) and add /usr/X11R7/lib in the /etc/ld.so.conf file
 
 24/01/06: started our first ever x11r7 server on lunar linux!!! Without any-
