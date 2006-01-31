@@ -1,4 +1,4 @@
-if  module_installed  NVIDIA;      then  lin  NVIDIA;        fi
+if  module_installed  NVIDIA;      then  lin -c NVIDIA;      fi
 if  module_installed  fontconfig;  then  lin -c fontconfig;  fi
 if  module_installed  glut;        then  lin -c glut;        fi
 if  module_installed  openMotif;   then  lin -c openMotif;   fi
@@ -19,5 +19,5 @@ fi
 message "Running fc-cache..." &&
 /usr/bin/fc-cache -f 
 
-message "Some things are diffrent from XFree86 f.e. xf86config=xorgconfig" 
-message "xf86cfg=xorgcfg and /etc/X11/XF86Config=/etc/X11/xorg.conf"
+message "${MESSAGE_COLOR}Some things are different from XFree86 f.e. xf86config=xorgconfig${DEFAULT_COLOR}" 
+message "${MESSAGE_COLOR}xf86cfg=xorgcfg and /etc/X11/XF86Config=/etc/X11/xorg.conf${DEFAULT_COLOR}"
