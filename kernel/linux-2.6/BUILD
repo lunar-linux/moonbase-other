@@ -22,7 +22,7 @@
 ) && (
 
   # Needed for x86_64
-  MYARCH="`arch | egrep -q "i?86" && echo i386 || arch`"
+  MYARCH="`arch | grep -qw i.86 && echo i386 || arch`"
 
   yes n | make oldconfig
   LD_PRELOAD= cp .config $CONFIG_CACHE/.config.2.6.stable
