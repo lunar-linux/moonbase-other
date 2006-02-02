@@ -1,6 +1,11 @@
 depends  audiofile  &&
 depends  SDL        &&
 
-optional_depends  "alsa-utils"  ""  ""  "for use with alsa drivers"         &&
-optional_depends  "smpeg"       ""  ""  "to play mpeg movies and mp3 audio" &&
-optional_depends  "mikmod"      "--enable-music-libmikmod"  ""  "for some games audio support"
+optional_depends  "alsa-utils"  ""                          ""  \
+                  "for use with alsa drivers"                   &&
+optional_depends  "smpeg"       ""                          ""  \
+                  "to play mpeg movies and mp3 audio"           &&
+optional_depends  "mikmod"      "--enable-music-libmikmod"  ""  \
+                  "for some games audio support"                &&
+optional_depends  "libvorbis"   ""                          ""  \
+                  "for Ogg/Vorbis audio format support"
