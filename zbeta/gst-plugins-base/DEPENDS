@@ -1,0 +1,21 @@
+depends liboil     &&
+depends gstreamer  &&
+
+optional_depends  "cdparanoia"  ""  "--disable-cdparanoia"  \
+                  "for cdparanoia ripper" &&
+                  
+optional_depends  "libvorbis"   ""  "--disable-vorbis --disable-ogg"  \
+                  "for vorbisenc, vorbisdec, oggdemux, oggmux"  &&
+
+optional_depends  "pango"  ""  "--disable-pango"  \
+                  "for the textoverlay plugins"   &&
+
+optional_depends  "gnome-vfs2"  ""  "--disable-gnome_vfs"  \
+                  "for gnome-vfs2 support" &&
+
+optional_depends  "libvisual"  ""  "--disable-libvisual"  \
+                  "for audio visualisations"  &&
+
+optional_depends  "libtheora"  ""  "--disable-theora"  \
+                  "for Ogg Theora video support"
+
