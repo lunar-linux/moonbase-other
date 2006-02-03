@@ -1,0 +1,15 @@
+depends liboil     &&
+depends gstreamer  &&
+
+optional_depends  "a52dec"  ""  "--disable-a52dec"  \
+                  "for a52dec support" &&
+                  
+optional_depends  "lame"  ""  "--disable-lame"  \
+                  "for lame mp3 encoder library: lame"  &&
+
+optional_depends  "libmad"  ""  "--disable-mad"  \
+                  "for mad mp3 decoder: mad"   &&
+
+optional_depends  "mpeg2dec"  ""  "--disable-mpeg2dec"  \
+                  "for mpeg2dec support"
+

@@ -1,0 +1,42 @@
+depends liboil     &&
+depends gstreamer  &&
+
+optional_depends  "aalib"  ""  "--disable-aalib"  \
+                  "for aasink plug-in" &&
+                  
+optional_depends  "cairo"  ""  "--disable-cairo"  \
+                  "for cairo plug-in"  &&
+
+optional_depends  "esd"  ""  "--disable-esd"  \
+                  "for esound plug-ins"   &&
+
+optional_depends  "flac"  ""  "--disable-flac"  \
+                  "for FLAC lossless audio" &&
+
+optional_depends  "jpeg"  ""  "--disable-jpeg"  \
+                  "for jpeg: jpegenc jpegdec"  &&
+
+optional_depends  "ladspa_sdk"  ""  "--disable-ladspa"  \
+                  "for ladspa plug-in" &&
+
+optional_depends  "libcaca"  ""  "--disable-libcaca"  \
+                  "for libcaca plug-in" &&
+
+optional_depends  "libdv"  ""  "--disable-libdv"  \
+                  "for libdv DV/video decoder: dvdec" &&
+
+optional_depends  "libpng"  ""  "--disable-libpng"  \
+                  "for libpng PNG encoder: pngenc" &&
+
+optional_depends  "libraw1394"  ""  "--disable-dv1394"  \
+                  "for raw1394 and avc1394 suppport" &&
+
+optional_depends  "libshout"  ""  "--disable-shout2"  \
+                  "for shout2 plug-in: shout2send" &&
+
+optional_depends  "speex"  ""  "--disable-xpeex"  \
+                  "for speex plug-in" &&
+
+optional_depends  "zlib"  ""  "--disable-zlib"  \
+                  "for zlib support of id3demux"
+
