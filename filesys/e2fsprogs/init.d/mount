@@ -151,9 +151,9 @@ start()
 {
 	echo -e "Mounting filesystems:"
 
-	run_with_msg " * Mounting /proc : " "mount -n -t proc proc /proc"
+	run_with_msg " * Mounting /proc" "mount -n -t proc proc /proc"
 	if ! grep -qw "ro" /proc/cmdline; then
-		run_with_msg " * Remounting root read-only : " "mount -n -o remount,ro /"
+		run_with_msg " * Remounting root read-only" "mount -n -o remount,ro /"
 	fi
 
 	DEVNODES=`grep -o "dev=.*" /proc/cmdline | cut -d" " -f1 | sed -e "s/dev=//g"`
@@ -186,20 +186,20 @@ start()
 				echo -e "\n< Found devfs >"
 	 		fi
 		else
-			warn_msg "* Assuming a static /dev :"
+			warn_msg "Assuming a static /dev"
 			DEVNODES="static"
 		fi
 	fi
 
-	kernel_is_26 && run_with_msg " * Mounting /sys : " "mount -n -t sysfs sysfs /sys"
+	kernel_is_26 && run_with_msg " * Mounting /sys" "mount -n -t sysfs sysfs /sys"
 
 	if [ "$DEVNODES" = "devfs" ]; then
-		run_with_msg " * Mounting /dev : " "mount -n -t devfs devfs /dev"
-		run_with_msg "Starting devfsd : " "devfsd /dev"
+		run_with_msg " * Mounting /dev" "mount -n -t devfs devfs /dev"
+		run_with_msg "Starting devfsd" "devfsd /dev"
 	elif [ "$DEVNODES" = "udev" ]; then
-		run_with_msg " * Mounting /dev : " "mount -n -t tmpfs tmpfs /dev -o size=4m"
-		run_with_msg "Setting /sbin/udevsend to manage hotplug events : " "echo /sbin/udevsend > /proc/sys/kernel/hotplug"
-		run_with_msg "Creating udev device nodes on /dev : " "/sbin/udevstart"
+		run_with_msg " * Mounting /dev" "mount -n -t tmpfs tmpfs /dev -o size=4m"
+		run_with_msg "Setting /sbin/udevsend to manage hotplug events" "echo /sbin/udevsend > /proc/sys/kernel/hotplug"
+		run_with_msg "Creating udev device nodes on /dev" "/sbin/udevstart"
 		run_without_msg "mkdir -p /dev/{pts,shm}"
 		run_without_msg "ln -sf /proc/self/fd /dev/fd"
 	fi
@@ -208,7 +208,7 @@ start()
 		FORCE="-f"
 	fi
 
-	run_with_msg_and_exit_codes "Checking all file systems : " "fsck -A -y -V $FORCE" "0" "1" ""
+	run_with_msg_and_exit_codes "Checking all file systems" "fsck -A -y -V $FORCE" "0" "1" ""
 	exit_status=$?
 
 	case $exit_status in
@@ -227,16 +227,16 @@ start()
 	esac
 
 
-	run_with_msg " * Remounting root readwrite : " "mount -n -o remount,rw /"
+	run_with_msg " * Remounting root read-write" "mount -n -o remount,rw /"
 
 	run_without_msg "echo -n \"\" > /etc/mtab"
 	run_without_msg "rm -f /etc/mtab~*"
 	# hack to get it into /etc/mtab
 	run_without_msg "mount -f -o remount,rw /"
 
-	run_with_msg  "Turning on swap : " "swapon -a"
+	run_with_msg  "Turning on swap" "swapon -a"
 
-	echo "Mounting remaining filesystems : "
+	echo "Mounting remaining filesystems: "
 
 	# hack to get it into /etc/mtab
 	if [ "$DEVNODES" == "devfs" ]; then
@@ -265,7 +265,7 @@ start()
 			OPTS="-o $OPTS"
 		fi
 
-		run_with_msg  " * Mounting $MOUNTPOINT : "  "mount $MOUNTPOINT $OPTS"
+		run_with_msg  " * Mounting $MOUNTPOINT"  "mount $MOUNTPOINT $OPTS"
 
 	done
 }
@@ -283,7 +283,7 @@ stop()
 	# write wtmp in /var before umounting /var
 	run_without_msg "reboot -w"
 
-	echo "Unmounting all filesystems :"
+	echo "Unmounting all filesystems:"
 
 	cat $MOUNTS | tac | while read TYPE PNT FS REST ; do
 	
@@ -299,7 +299,7 @@ stop()
 				;;
 		esac
 
-		echo  -n " * Umounting $PNT:"
+		echo  -n " * Umounting $PNT"
 		run_without_msg "sync ; sync" # Flush buffers
 	
 		ITERATION=1
@@ -337,24 +337,24 @@ stop()
 
 		if [ $UNMOUNT_ERROR -eq 1 ]; then # haven't been able to unmount the point, so be drastic
 			echo -e $RESULT_WARN
-			run_with_msg "  * Attempting to remount $PNT read-only : " "mount $PNT -o remount,ro"
+			run_with_msg "  * Attempting to remount $PNT read-only" "mount $PNT -o remount,ro"
 		else
 			echo -e $RESULT_OK
 		fi
 
 		if [ "$TYPE" == "/dev/loop*" -a -f $PNT ] ; then
 			# unhook loopback device too
-			run_with_msg "Detaching loopback device $TYPE : " "losetup -d $TYPE"
+			run_with_msg "Detaching loopback device $TYPE" "losetup -d $TYPE"
 		fi
 	
 	done
 
-	run_with_msg "Turning off swap : " "swapoff -a"
+	run_with_msg "Turning off swap" "swapoff -a"
 
 	run_without_msg "sync; sync;" "2"  # might take some time so we wait here for a couple of seconds
 
-	if ! run_with_msg  " * Remounting root readonly : "  "mount -n -o remount,ro /" ; then
-		if ! run_with_msg  " * Trying again to remount root readonly : "  "umount -l -O remount,ro /" "4" ; then
+	if ! run_with_msg  " * Remounting root read-only"  "mount -n -o remount,ro /" ; then
+		if ! run_with_msg  " * Trying again to remount root read-only"  "umount -l -O remount,ro /" "4" ; then
 			read -n 1 -t 30 -p "Do you want to login? (y/n) "  CONFIRM
 			echo   ""
 			case $CONFIRM in
