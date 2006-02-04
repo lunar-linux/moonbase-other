@@ -2,11 +2,11 @@
 
   add_priv_user privoxy:privoxy  &&
 
-  autoheader      && 
-  autoconf        &&
-  default_config  &&
-  make            &&
-  prepare_install &&
+  autoheader       && 
+  autoconf         &&
+  default_config   &&
+  make             &&
+  prepare_install  &&
 
   strip privoxy   && (
    install -c -m 0750 -g privoxy -o privoxy -d /etc/privoxy
