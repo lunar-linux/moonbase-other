@@ -1,6 +1,6 @@
 (
 
-#  cd linux &&
+
   default_cvs_config &&
   default_build
   
