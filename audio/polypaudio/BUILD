@@ -6,10 +6,8 @@
                --enable-static          \
                --localstatedir=/var     &&
                 
-                
-
   make           &&
-  
+
   if [ -f /usr/bin/parec ]
   then
   rm /usr/bin/parec
