@@ -204,30 +204,40 @@ start()
 		run_without_msg "ln -sf /proc/self/fd /dev/fd"
 	fi
 
-	if [ -f /forcefsck ] ; then
-		FORCE="-f"
+	# or do we want to explicitly _not_ fsck at all
+	if ! grep -qw nofsck /proc/cmdline ; then
+		# force fsck run?
+		if [ -f /forcefsck ] || grep -qw forcefsck /proc/cmdline ; then
+			FORCE="-f"
+		fi
+
+		# check filesystems
+		FSCKLEVELS=$(sed 's/#.*$//g' /etc/fstab | tr -s '[:blank:]' | awk '{print $6}' | sort -n | grep -v -w 0)
+		if [ -n "$FSCKLEVELS" ]; then
+			echo "Checking file systems:"
+			for FSCKLEVEL in $FSCKLEVELS; do
+				for FS in $(sed 's/#.*$//g' /etc/fstab | tr -s '[:blank:]' | awk "(\$6==$FSCKLEVEL){print\$1}"); do
+				
+					run_with_msg_and_exit_codes " * Checking $FS" "fsck -T -C -y -V $FORCE $FS" "0" "1" ""
+					if [ $? -ge 2 ]; then
+						echo ""
+						echo " *** fsck failed! ***"
+						echo ""
+						echo "   Please repair your file system manually by"
+						echo "   running /sbin/fsck without the -p option."
+						echo ""
+						sulogin
+						reboot  -f
+					fi
+				done
+			done
+		fi
 	fi
-
-	run_with_msg_and_exit_codes "Checking all file systems" "fsck -A -y -V $FORCE" "0" "1" ""
-	exit_status=$?
-
-	case $exit_status in
-		0|1) # exited fine ( 0 ), or errors were fixed (1)
-			rm -f /forcefsck
-			;;
-		*)
-			echo " * fsck failed!"
-			echo ""
-			echo "   Please repair your file system manually by"
-			echo "   running /sbin/fsck without the -p option."
-			echo ""
-			sulogin
-			reboot  -f
-			;;
-	esac
-
-
+	
 	run_with_msg " * Remounting root read-write" "mount -n -o remount,rw /"
+	if [ "$FORCE" == "-f" ]; then
+		rm -f /forcefsck
+	fi
 
 	run_without_msg "echo -n \"\" > /etc/mtab"
 	run_without_msg "rm -f /etc/mtab~*"
