@@ -15,7 +15,11 @@
   cd ../src     &&
   make install  &&
 
-  ln -sf /usr/sbin/pppoe-{start,stop,status,connect,setup} /usr/sbin/ &&
+  ln -sf /usr/sbin/pppoe-start    /usr/sbin/adsl-start   &&
+  ln -sf /usr/sbin/pppoe-stop     /usr/sbin/adsl-stop    &&
+  ln -sf /usr/sbin/pppoe-status   /usr/sbin/adsl-status  &&
+  ln -sf /usr/sbin/pppoe-connect  /usr/sbin/adsl-connect &&
+  ln -sf /usr/sbin/pppoe-setup    /usr/sbin/adsl-setup   &&
   mkdir -p /usr/share/applnk/Internet  &&
   mkdir -p /usr/share/gnome/apps/Internet  &&
   install $SCRIPT_DIRECTORY/tkpppoe.kdelnk /usr/share/applnk/Internet/ &&
