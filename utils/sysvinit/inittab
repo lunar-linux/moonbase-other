@@ -29,6 +29,11 @@ ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
 #pn::powerfailnow:/etc/init.d/powerfail now
 #po::powerokwait:/etc/init.d/powerfail stop 
 
+# uncomment the following to enable serial consoles, make sure
+# you add ttyS0/1 to /etc/securetty too
+#s0:12345:respawn:/sbin/agetty 38400 ttyS0
+#s1:12345:respawn:/sbin/agetty 38400 ttyS1
+
 # which terminals should have consoles
 c1:12345:respawn:/sbin/agetty 38400 tty1
 c2:2345:respawn:/sbin/agetty 38400 tty2
