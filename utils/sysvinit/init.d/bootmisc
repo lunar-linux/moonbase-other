@@ -6,6 +6,7 @@
 case $1 in
   start)
     dmesg > /var/log/dmesg
+	dmesg -n4
     touch /var/run/utmp /var/run/wtmp
     [ ! -f /etc/LOCALE ] || . /etc/LOCALE
     [ ! -f /etc/keymap ] || loadkeys $(cat /etc/keymap)
