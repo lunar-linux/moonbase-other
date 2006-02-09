@@ -1,19 +1,20 @@
            MODULE=lcdproc
-         VERSION=0.4.1
-          SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://lcdproc.omnipotent.net/
-   SOURCE_URL[1]=$SFORGE_URL/lcdproc/
+         VERSION=0.4.5
+          SOURCE=$MODULE-$VERSION.tar.bz2
+   SOURCE_URL[0]=$SFORGE_URL/lcdproc/
+   SOURCE_URL[1]=http://lcdproc.omnipotent.net/
+      SOURCE_VFY=sha1:9680b83d18da8569e8f58d6d0b7b0158f543c94d
         WEB_SITE=http://lcdproc.omnipotent.net
          ENTERED=20020116
-         UPDATED=20020116
+         UPDATED=20060209
            SHORT="lcdproc provides a support for small lcd displays"
+#    GCC_WRAPPERS=off
+#PSAFE=no
 cat << EOF
-
 lcdproc provides a server/client interface for small text based
 charicter display, eg 4x20 display. The lcdproc server runs a
 deamon, and clients connect to the server and tell it what to
 display. Anything can be displayed cpu info, mp3 song, firewall,
 etc, etc. See the web page for more details about clients and
 screens.
-
 EOF

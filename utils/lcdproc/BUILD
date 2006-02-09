@@ -1,7 +1,6 @@
 (
 
-    ./configure  --host=$HOST       \
-                 --target=$TARGET   \
+    ./configure  --target=$TARGET   \
                  --prefix=/usr      \
                  --sysconfdir=/etc  \
                  $OPTS              &&
