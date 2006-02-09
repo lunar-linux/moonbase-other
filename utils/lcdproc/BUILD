@@ -1,7 +1,6 @@
 (
 
-    ./configure  --target=$TARGET   \
-                 --prefix=/usr      \
+    ./configure  --prefix=/usr      \
                  --sysconfdir=/etc  \
                  $OPTS              &&
     make                            &&
