@@ -1,11 +1,12 @@
           MODULE=mico
-         VERSION=2.3.9
+         VERSION=2.3.12
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
       SOURCE_URL=http://www.mico.org/
+      SOURCE_VFY=sha1:e1885362d559ea97c62a2437a1d3a94114ef5b05
         WEB_SITE=http://www.mico.org
          ENTERED=20020917
-         UPDATED=20020917
+         UPDATED=20060209
            SHORT="Freely available and fully compliant implementation of the CORBA standard"
 cat << EOF
 DESCRIPTION:
@@ -13,11 +14,12 @@ GNU-copyright notice. The following design principles guided the
 implementation of MICO:
 
     * start from scratch: only use what standard APIs (Posix/Win32) have to
-offer; don't rely on propietary or specialized libraries.
+      offer; don't rely on propietary or specialized libraries.
     * use standard C++ for the implementation.
-        * only make use of widely available, free, non-proprietary tools.
-	    * omit bells and whistles: only implement what is required for a
-CORBA compliant implementation.
+      * only make use of widely available, free, non-proprietary tools.
+      * omit bells and whistles: only implement what is required for a
+        CORBA compliant implementation.
     * clear design even for implementation internals to ensure extensibility.
-    
+
 EOF
+
