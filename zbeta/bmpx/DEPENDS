@@ -1,8 +1,9 @@
-depends libglade2  &&
-depends taglib     &&
-depends xine-lib   &&
-depends curl       &&
-depends %FAM       &&
+depends  libglade2  &&
+depends  taglib     &&
+depends  xine-lib   &&
+depends  curl       &&
+depends  %FAM       &&
+depends  neon       &&
 
 optional_depends  "dbus"    "--enable-dbus"    "--disable-dbus"    \
                   "for a DBus remote interface"                    &&
@@ -20,4 +21,7 @@ optional_depends  "irssi"   "--enable-irssi"   "--disable-irssi"   \
                   "build the irssi IRC plugin (perl or python required)"  &&
 
 optional_depends  "startup-notification"  "--enable-sn"  "--disable-sn"   \
-                  "for window manager startup notification support"
+                  "for window manager startup notification support"       &&
+
+optional_depends  "GConf2"  "--enable-gconf"   ""                         \
+                  "for GConf-based app configuration setting storage"

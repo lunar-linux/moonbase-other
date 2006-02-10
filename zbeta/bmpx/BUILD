@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-gui --disable-debug"
+  OPTS="$OPTS --enable-amazon --with-x"
 
   default_build
 
