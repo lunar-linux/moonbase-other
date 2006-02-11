@@ -4,8 +4,9 @@
                --disable-debug                     \
 	       --enable-final                      \
                --enable-fast-malloc=full           \
+               --enable-kde-event-filter           \
                --with-xinerama                     \
-               $OPTS                               &&
+               $OPTS                              &&
 
   default_make
  
