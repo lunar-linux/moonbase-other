@@ -1,5 +1,9 @@
 #  Reinstall packages that add their own perl modules
 if [ -n "$OLD_PERL_VERSION" ] ; then
+	# preserve CPAN config?
+	if [ ! -f /usr/lib/perl5/$VERSION/CPAN/Config.pm -a -f /usr/lib/perl5/$OLD_PERL_VERSION/CPAN/Config.pm ] ; then
+		cp /usr/lib/perl5/$OLD_PERL_VERSION/CPAN/Config.pm /usr/lib/perl5/$VERSION/CPAN/Config.pm
+	fi
 	PERLMODS="$( (lvu from /usr/lib/perl?/$OLD_PERL_VERSION/; lvu from /usr/lib/perl?/site_perl/$OLD_PERL_VERSION/) | cut -d: -f1 | uniq | grep -v perl)"
 	for PERLMOD in $(sort_by_dependency $PERLMODS); do
 		lin -c $PERLMOD || true
@@ -9,5 +13,5 @@ fi
 
 message ""
 message "${MESSAGE_COLOR}Remember to re-install ANY CPAN modules by hand!${DEFAULT_COLOR}"
-message "${MESSAGE_COLOR}You will also need to re-lin lunar installed perl modules too!${DEFAULT_COLOR}"
+message "${MESSAGE_COLOR}You will also need to re-lin lunar-installed perl modules too!${DEFAULT_COLOR}"
 message ""
