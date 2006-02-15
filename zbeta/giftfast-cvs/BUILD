@@ -1,9 +1,8 @@
 (
   sedit "s:AC_CONFIG_AUX_DIR::" configure.ac
-  
+
   ./autogen.sh
-  automake --add-missing --copy --gnu &&
-  
+ 
   ./configure  --build=$BUILD            \
                --prefix=/usr             \
                --sysconfdir=/etc         \
