@@ -8,4 +8,6 @@ account		required	pam_stack.so service=system-auth
 password	required	pam_stack.so service=system-auth
 session		required	pam_stack.so service=system-auth
 session		optional	pam_motd.so
+# session		optional	pam_lastlog.so
+# session		optional	pam_mail.so standard noenv
 session		optional	pam_console.so
