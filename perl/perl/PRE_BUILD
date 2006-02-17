@@ -1,7 +1,3 @@
-unset_module_config OLD_PERL_VERSION
-if [ "$(installed_version perl)" != "$VERSION" ]; then
-  set_module_config OLD_PERL_VERSION $(installed_version perl)
-fi &&
 if module_installed perl ; then
   lrm --upgrade perl
 fi &&
