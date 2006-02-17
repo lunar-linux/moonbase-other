@@ -20,14 +20,12 @@ map_devices_to_grub()
     # TODO - check if ide, scsi, md is the correct order
     for LINE in $(
         for N in /dev/{h,s}d{a,b,c,d,e,f,g,h}{,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15} ; do
-            if [ -e "$N" ] && grep -qw "${N/\/dev\//}" /proc/partitions ; then
+            if [[ -e "$N" ]] && grep -qw "${N/\/dev\//}" /proc/partitions ; then
                 echo "$(readlink -f $N | sed -e 's/\/dev\/ide/0/g' \
                 -e 's/\/dev\/scsi/1/g' | sort):$N:$(readlink -f $N)"
             fi
         done); do
-        DEVICE=$(echo $LINE | cut -d: -f1)
-        TARGET=$(echo $LINE | cut -d: -f2)
-        REALTARGET=$(echo $LINE | cut -d: -f3)
+		read DEVICE TARGET REALTARGET < <(echo ${LINE/:/ })
         MINOR=$(grep -w $(basename $DEVICE) /proc/partitions | awk '{print $2}')
         if (( MINOR % 16 == 0 )) ; then
         	(( DISC++ ))
@@ -84,9 +82,13 @@ plugin_kernel_updatebootloader_grub()
 	print_grub_image()
 	{
 		debug_msg "title   $2"
-		debug_msg "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount"
+		debug_msg "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro"
 		echo   "title   $2"
-		echo   "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount"
+		if echo $1 | grep -q '2.4' ; then
+			echo   "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro devfs=nomount"
+		else
+			echo   "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device $GRUB_ROOT) ro"
+		fi
 		echo   ""
 	}
 
