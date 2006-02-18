@@ -6,6 +6,7 @@
 
     patch_it $SOURCE2 0  &&
     patch_it $SOURCE3 0  &&
+    patch_it $SOURCE4 0  &&
 
     make udevdir=/dev EXTRAS="${UDEV_EXTRAS}"  &&
     prepare_install  &&
@@ -21,8 +22,7 @@
     install -m755 ${SOURCE_DIRECTORY}/etc/udev/gentoo/udev.rules \
 		  /etc/udev/rules.d/50-udev.rules  &&
 
-    for script in ide-devfs.sh raid-devfs.sh scsi-devfs.sh \
-		  inputdev.sh dvb.sh
+    for script in ide-devfs.sh raid-devfs.sh scsi-devfs.sh 
     do
         install -m755 extras/${script} /etc/udev/scripts.d/
     done
