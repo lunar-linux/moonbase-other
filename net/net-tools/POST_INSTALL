@@ -1,21 +1,9 @@
-if [ ! -d /etc/config.d ]; then
-    mkdir /etc/config.d
-fi
-if [ ! -d /etc/config.d/network ]; then
-    mkdir /etc/config.d/network
-fi
-if [ ! -d /etc/config.d/bonding ]; then
-    mkdir /etc/config.d/bonding
-fi
-if [ ! -d /var/run ]; then
-    mkdir /var/run
-fi;
 
-. $MODULE_CONFIG
+mkdir -p /etc/config.d/{network,bonding}
+mkdir -p /var/run
 
-if [ "$RUN_LNET" == "y" ]; then
-   sedit "s/RUN_LNET=\"y\"/RUN_LNET=\"n\"/" $MODULE_CONFIG
-  	/usr/sbin/lnet
+if [ "$(get_module_config RUN_LNET)" == "y" ]; then
+	unset_module_config RUN_LNET
+	/usr/sbin/lnet || true
 fi
 
-true

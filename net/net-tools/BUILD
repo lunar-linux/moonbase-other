@@ -1,42 +1,22 @@
+(
+
   patch_it  $SOURCE_CACHE/$SOURCE2 1                &&
   patch_it  $SOURCE_CACHE/$SOURCE3 0                &&
 
-if  [  -f  $CONFIG_CACHE/net-tools.config.h  ];  then
-  cp       $CONFIG_CACHE/net-tools.config.h  config.h
-else
-  ./configure.sh  config.in
-  cp  config.h  $CONFIG_CACHE/net-tools.config.h
-fi
+  if [ -f $CONFIG_CACHE/net-tools.config.h ]; then
+    cp $CONFIG_CACHE/net-tools.config.h config.h
+  else
+    ./configure.sh config.in
+    cp config.h $CONFIG_CACHE/net-tools.config.h
+  fi                                                &&
 
-(
-
-  #sedit  "s:-g #:$CFLAGS $LDFLAGS #:"  Makefile
-  #sedit  "s:LOPTS =:LOPTS = -lintl:" Makefile
-  
   make                                              &&
   prepare_install                                   &&
-  make  BASEDIR=/  install
-
-) > $C_FIFO 2>&1  &&  (
-
-  #cleanup the old garbage
-  if [ -e /etc/init.d/hostname.sh ]; then
-     rm -f /etc/init.d/hostname.sh
+  make BASEDIR=/ install                            &&
+  
+  if [ ! -e /etc/init.d/hostname ]; then
+    install -m0755 $SCRIPT_DIRECTORY/init.d/hostname /etc/init.d/hostname &&
+	ln -sf /etc/init.d/hostname /etc/rcS.d/S20hostname
   fi
 
-  if  [  -e  /etc/init.d/networking.sh  ]; then
-      mv /etc/init.d/networking.sh /etc/init.d/networking.old
-      chmod 0644 networking.old
-  fi
-
-  rm -f /etc/rc?.d/???networking.sh
-
-  #add the new
-  cp  $SCRIPT_DIRECTORY/init.d/hostname    /etc/init.d
-
-  if [ -e /etc/rcS.d/S20hostname ]; then
-     rm -f /etc/rcS.d/S20hostname
-  fi   
-  ln     -sf    ../init.d/hostname  /etc/rcS.d/S20hostname
-
-)
+) > $C_FIFO 2>&1
