@@ -1,7 +1,7 @@
 (
 
   default_make &&
-  mkdir -p /etc/acpi/events &&
+  install -D -m644 ${SCRIPT_DIRECTORY}/power /etc/acpi/events/power &&
 
   gather_docs samples/acpi_handler.sh samples/sample.conf
 
