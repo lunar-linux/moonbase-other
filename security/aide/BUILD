@@ -6,7 +6,7 @@
                --localstatedir=/var  \
                $OPTS                 &&
  
-  default_make
+  default_make &&
   
   if ! [ -e /etc/aide.conf.sample ]; then
       cp doc/aide.conf /etc/aide.conf.sample
