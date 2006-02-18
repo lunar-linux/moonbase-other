@@ -4,30 +4,22 @@
 #            init process and to setup the loopback interface
 #
 
-HNAME=$(which hostname)
-DNAME=$(which domainname) 
-HCFG="/etc/hostname"
-DCFG="/etc/domainname"
-CUTIT_HOST="cat $HCFG"
-CUTIT_DOMAIN="cat $DCFG"
-LOCAL="localhost"
-IFC=$(which ifconfig)
+case $1 in
+	start)
+		if ! [ -e "/etc/hostname" ]; then
+			HOSTNAME=localhost
+		else
+			HOSTNAME=$(cat /etc/hostname)
+		fi
+		hostname -F /etc/hostname
+		echo "Hostname set to \"$HOSTNAME\""
+		
+		if ! [ -e "/etc/domainname" ]; then
+   			echo "Domainname not set"
+		else
+			domainname -F /etc/domainname
+			echo "System Domainname set to \"$(cat /etc/domainname)\""
+		fi
+		;;
+esac
 
-if ! [ -e "$HCFG" ]; then
-	$HNAME $LOCAL
-	echo " System hostname set to $LOCAL"
-else
-	$HNAME -F $HCFG
-	echo " System hostname set to `$CUTIT_HOST`"
-fi
-
-if ! [ -e "$DCFG" ]; then
-   echo " Domainname not set"
-else
-   $DNAME -F $DCFG
-	echo " System Domainname set to `$CUTIT_DOMAIN`"
-fi
-
-$IFC  lo  127.0.0.1
-
-exit 0
