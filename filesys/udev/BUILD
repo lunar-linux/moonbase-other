@@ -3,6 +3,12 @@
                  extras/edd_id extras/firmware extras/floppy \
                  extras/run_directory extras/scsi_id extras/usb_id \
                  extras/volume_id" 
+  
+    # Make sure we have the latest version of udev.conf 
+    # available
+    if [ -f /etc/udev/udev.conf ] ; then
+	mv /etc/udev/udev.conf /etc/udev/udev.conf.save
+    fi &&
 
     patch_it $SOURCE2 0  &&
     patch_it $SOURCE3 0  &&
