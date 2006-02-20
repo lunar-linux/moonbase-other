@@ -197,11 +197,12 @@ start()
 		run_with_msg " * Mounting /dev" "mount -n -t devfs devfs /dev"
 		run_with_msg "Starting devfsd" "devfsd /dev"
 	elif [ "$DEVNODES" = "udev" ]; then
-		run_with_msg " * Mounting /dev" "mount -n -t tmpfs tmpfs /dev -o size=4m,mode=0755"
 		run_with_msg "Setting /sbin/udevsend to manage hotplug events" "echo /sbin/udevsend > /proc/sys/kernel/hotplug"
 		run_with_msg "Creating udev device nodes on /dev" "/sbin/udevstart"
 		run_without_msg "mkdir -p /dev/{pts,shm}"
-		run_without_msg "ln -sf /proc/self/fd /dev/fd"
+		if [ ! -h /dev/fd ]; then
+			ln -sf /proc/self/fd /dev/fd
+		fi
 	fi
 
 	# or do we want to explicitly _not_ fsck at all
@@ -234,7 +235,7 @@ start()
 		fi
 	fi
 	
-	run_with_msg " * Remounting root read-write" "mount -n -o remount,rw /"
+	run_with_msg " * Remounting root read-write" "mount -o remount,rw /"
 	if [ "$FORCE" == "-f" ]; then
 		rm -f /forcefsck
 	fi
@@ -242,9 +243,8 @@ start()
 	run_without_msg "echo -n \"\" > /etc/mtab"
 	run_without_msg "rm -f /etc/mtab~*"
 	# hack to get it into /etc/mtab
-	run_without_msg "mount -f -o remount,rw /"
-
-	run_with_msg  "Turning on swap" "swapon -a"
+ 	run_without_msg "mount -f -o remount,rw /"
+	run_with_msg  "* Turning on swap" "swapon -a &> /dev/null"
 
 	echo "Mounting remaining filesystems: "
 
@@ -359,7 +359,7 @@ stop()
 	
 	done
 
-	run_with_msg "Turning off swap" "swapoff -a"
+	run_with_msg "* Turning off swap" "swapoff -a"
 
 	run_without_msg "sync; sync;" "2"  # might take some time so we wait here for a couple of seconds
 
@@ -372,8 +372,6 @@ stop()
 			esac
 		fi
 	fi
-
-	run_without_msg "sync; sync" "2"
 }
 
 
@@ -389,4 +387,3 @@ case "$1" in
 esac
 
 . /lib/lsb/init-functions
-
