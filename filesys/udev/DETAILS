@@ -2,29 +2,36 @@
          VERSION=085
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=scsi-devfs.sh.patch
-         SOURCE3=udev-makefile.patch.bz2
-         SOURCE4=udev.rules-1.patch.bz2
+         SOURCE3=udev.rules-1.patch.bz2
+	 SOURCE4=05-firmware-${VERSION}.rules
       SOURCE_URL=http://www.kernel.org/pub/linux/utils/kernel/hotplug/
      SOURCE2_URL=$PATCH_URL/
      SOURCE3_URL=$PATCH_URL/
      SOURCE4_URL=$PATCH_URL/
       SOURCE_VFY=sha1:a6949fb7259f3b81fe7fb477bfc1b137a984467b
      SOURCE2_VFY=sha1:9fc20cdd3ae95476dc066b2ff20c167f5c41c736
-     SOURCE3_VFY=sha1:403208b7898cab30573dcc9d0ace273a3d8e5c05
-     SOURCE4_VFY=sha1:34cca0d34aed61cb25618fca87a194199d992d34
+     SOURCE3_VFY=sha1:34cca0d34aed61cb25618fca87a194199d992d34
+     SOURCE4_VFY=sha1:30d59242037bb8f9ebec4a367a7ba3cf2422f065
         WEB_SITE=http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html
          ENTERED=20040104
-         UPDATED=20060221
+         UPDATED=20060222
            PSAFE=no
-           SHORT="Device naming from userspace for 2.6+ kernels"
+           SHORT="hotplug and device handling daemon"
 
 cat << EOF
-Future substitute of devfs in 2.6+ kernels. udev's goals:
-* run in userspace
-* create a dynamic /dev
-* allow everyone to not care about major/minor numbers
-* provide LSB standard names
-* provide consistent device naming if wanted
-* handles /sbin/hotplug call
-* provides protection for "out of order" invocations
+udev is supposed to provide a framework for hotpluggable devices
+under linux 2.6.x carrying an event listening daemon that also
+creates the necesserary nodes for the hotplugged devices inside
+the /dev directory.
+
+Its behaviour can be altered by a set of rules defined in udev(7).
+udev superseeds devfs and renders it obsolete. Some of the
+differences are:
+
+* udev runs completely in userspace. No kernel interaction especially
+  in device naming.
+* udev creates a dynamic /dev directory with ever changing device nodes
+  that fit your needs and rules
+* udev provides LSB standard device names
+* udev is also the hotplug handler of the future
 EOF   

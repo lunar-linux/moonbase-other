@@ -197,7 +197,7 @@ start()
 		run_with_msg "Starting devfsd" "devfsd /dev"
 	elif [ "$DEVNODES" = "udev" ]; then
 		run_with_msg " * Mounting tmpfs on /dev" "mount -t tmpfs tmpfs /dev -o size=6m,mode=0755"
-		run_with_msg "Setting /sbin/udevsend to manage hotplug events" "echo /sbin/udevsend > /proc/sys/kernel/hotplug"
+		run_without_msg "echo > /proc/sys/kernel/hotplug" # Hotplug agents are deprecated!
 		run_with_msg "Creating udev device nodes on /dev" "/sbin/udevstart"
                 run_with_msg "Starting udev device handling daemon" "/sbin/udevd --daemon"
 		run_without_msg "mkdir -p /dev/{pts,shm}"

@@ -6,11 +6,16 @@
   
     patch_it $SOURCE2 0  &&
     patch_it $SOURCE3 0  &&
-    patch_it $SOURCE4 0  &&
 
-    make udevdir=/dev EXTRAS="${UDEV_EXTRAS}"  &&
+    make EXTRAS="${UDEV_EXTRAS}"  &&
     prepare_install  &&
-    make udevdir=/dev EXTRAS="${UDEV_EXTRAS}" install  &&
+    make EXTRAS="${UDEV_EXTRAS}" install   &&
+
+
+    # Deprecated .. but udevd still doesn't do what udevstart does
+    # udevsend only provided for legacy purposes
+    install -m755 udevsend udevstart /sbin &&
+    install -m644 udevsend.8 udevstart.8 /usr/share/man/man8 &&
  
     # install the init.d script
     # we cannot use automagic install via coretools
@@ -18,9 +23,10 @@
     # and would interfere with boot/{reboot,halt}
     mkdir -p /etc/udev/rules.d /etc/udev/scripts.d  &&
 
-    install -m755 ${SCRIPT_DIRECTORY}/udev /etc/init.d/  &&
-    install -m755 ${SOURCE_DIRECTORY}/etc/udev/gentoo/udev.rules \
-		  /etc/udev/rules.d/50-udev.rules  &&
+    install -m755 ${SCRIPT_DIRECTORY}/udev /etc/init.d/  		&&
+    install -m644 ${SOURCE_CACHE}/${SOURCE4} /etc/udev/rules.d/		 		&&
+    install -m644 ${SOURCE_DIRECTORY}/etc/udev/gentoo/udev.rules \
+		  /etc/udev/rules.d/50-udev.rules  			&&
 
     for script in ide-devfs.sh raid-devfs.sh scsi-devfs.sh 
     do
