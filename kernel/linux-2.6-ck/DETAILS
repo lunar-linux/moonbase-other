@@ -1,6 +1,6 @@
           MODULE=linux-2.6-ck
-       K_VERSION=2.6.12
-      CK_VERSION=ck3
+       K_VERSION=2.6.15
+      CK_VERSION=ck4
          VERSION=${K_VERSION}-${CK_VERSION}
 SOURCE_DIRECTORY=/usr/src/linux-$VERSION
           SOURCE=linux-${K_VERSION}.tar.bz2
@@ -8,12 +8,12 @@ SOURCE_DIRECTORY=/usr/src/linux-$VERSION
    SOURCE_URL[0]=${KERNEL_URL}/pub/linux/kernel/v2.6/
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
   SOURCE2_URL[0]=http://ck.kolivas.org/patches/2.6/${K_VERSION}/${VERSION}
-	SOURCE_VFY=sha1:3cb44c9202034a825959e710f94d4e536011901b
-       SOURCE2_VFY=sha1:6c8f30bae63a4e9ca0efdd8bf133f08192a5ab6b
+      SOURCE_VFY=sha1:6cfa28ef48c385948c6859cfb9f60840720a1d30
+     SOURCE2_VFY=sha1:98e4b5ecb725f0c4f69e7a0c3d74e22f42489579
 	WEB_SITE=http://www.kernel.org
          ENTERED=20041106
-         UPDATED=20050709
-           SHORT="2.6 kernel with Con Kolivas patches with emphasis on the desktop.."
+         UPDATED=20060222
+           SHORT="Con Kolivas kernel patches with emphasis on the desktop"
 KEEP_SOURCE=on
 TMPFS=off
 cat << EOF
