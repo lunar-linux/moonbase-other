@@ -3,9 +3,8 @@ depends libbonobo		&&
 depends GConf2			&&
 depends libxml2			&&
 depends gnome-mime-data2	&&
+depends %SSL			&&
 optional_depends "hal" "--enable-hal" "--disable-hal" "for hal support" &&
-optional_depends "openssl" "--enable-openssl --with-openssl-includes=/usr/include/openssl --with-openssl-libs=/usr/lib" "--disable-openssl" "for ssl support" &&
 optional_depends "samba" "--enable-samba --with-samba-includes=/usr/include --with-samba-libs=/usr/lib" "--disable-samba" "for samba support" &&
-optional_depends "gnutls" "--enable-gnutls" "--disable-gnutls" "for tls support (use only when saying 'n' to openssl" &&
 optional_depends "howl" "--enable-howl" "--disable-howl" "for howl zeroconf networking support"
 
