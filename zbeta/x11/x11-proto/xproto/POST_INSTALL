@@ -7,9 +7,6 @@ if ! grep -q /usr/X11R7/lib /etc/ld.so.conf ; then
   ldconfig
 fi
 
-message "Running fc-cache..." &&
-/usr/bin/fc-cache -f 
-
 if [ -h /usr/X11 -a $(readlink -f /usr/X11) == ${X11R7_PREFIX:-/usr/X11R7} ]; then
   ln -s /usr/X11 /usr/X11R7
 fi
