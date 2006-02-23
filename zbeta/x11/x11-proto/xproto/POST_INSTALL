@@ -1,13 +1,13 @@
-if ! grep -q /usr/X11R7/lib /etc/ld.so.conf ; then
-  echo "/usr/X11R7/lib" >> /etc/ld.so.conf
+if ! grep -q "${X11R7_PREFIX:-/usr/X11R7}/lib" /etc/ld.so.conf ; then
+  echo "${X11R7_PREFIX:-/usr/X11R7}/lib" >> /etc/ld.so.conf;
   ldconfig
-fi
+fi &&
 
 if [ -h /usr/X11 -a $(readlink -f /usr/X11) != "${X11R7_PREFIX:-/usr/X11R7}" ]; then
-  ln -sf ${X11R7_PREFIX:-/usr/X11R7} /usr/X11;
-fi
+  ln -sf "${X11R7_PREFIX:-/usr/X11R7}" /usr/X11;
+fi &&
 
 if [ -h /usr/include/X11 -a $(readlink -f /usr/include/X11) != "${X11R7_PREFIX:-/usr/X11R7}/include/X11" ]; then
-  ln -sf ${X11R7_PREFIX:-/usr/X11R7}/include/X11 /usr/include/X11
+  ln -sf "${X11R7_PREFIX:-/usr/X11R7}/include/X11" /usr/include/X11;
 fi
 
