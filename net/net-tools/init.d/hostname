@@ -1,20 +1,19 @@
 #!/bin/sh
 # 
-# hostname: to set the system's hostname and domainname as a part of the
-#            init process and to setup the loopback interface
+# hostname: set the system's host and domain name
 #
 
 case $1 in
 	start)
-		if ! [ -e "/etc/hostname" ]; then
+		if [ ! -e "/etc/hostname" ]; then
 			HOSTNAME=localhost
 		else
 			HOSTNAME=$(cat /etc/hostname)
 		fi
-		hostname -F /etc/hostname
+		hostname "$HOSTNAME"
 		echo "Hostname set to \"$HOSTNAME\""
 		
-		if ! [ -e "/etc/domainname" ]; then
+		if [ ! -e "/etc/domainname" ]; then
    			echo "Domainname not set"
 		else
 			domainname -F /etc/domainname
