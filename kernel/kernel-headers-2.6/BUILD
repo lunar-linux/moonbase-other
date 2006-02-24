@@ -20,6 +20,11 @@
      do
         chmod 644 $file
      done
-  done
+  done &&
+
+  # XOrg X11R7 will not build without this
+  # Incase of an update: Remove this!
+  sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' \
+	-i /usr/include/linux/agpgart.h
 
 ) > $C_FIFO 2>&1

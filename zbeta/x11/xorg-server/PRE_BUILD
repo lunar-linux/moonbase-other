@@ -1,8 +1,3 @@
 default_pre_build 	&&
 cd $SOURCE_DIRECTORY 	&&
-unpack $SOURCE2           &&
-
-cp -v /usr/include/linux/agpgart.h /usr/include/linux/agpgart.h.orig &&
-
-sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' \
--i /usr/include/linux/agpgart.h
+unpack $SOURCE2         &&
