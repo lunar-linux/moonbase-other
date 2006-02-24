@@ -10,16 +10,8 @@ You have been warned.
 We are missing checksums, descriptions and some other vital information
 to install this new release.
 
----
+24/02/06 quick update: Samuel is punching everything into shape, Auke and I did some bash magic .. well, mostly Auke. But right now, the modules are pretty much usable .. still missing descriptions and probably some checksums.
 
-We will definitely need this line of sed code:
-
-cp -v /usr/include/linux/agpgart.h /usr/include/linux/agpgart.h.orig
-
-sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' \
--i /usr/include/linux/agpgart.h
-
----
 30/01/06 we definately need a symlink from /usr/include/X11 to /usr/X11R7/include/X11 ... gtk+-2 depends on it... seems like they have a bug in the configure script...
 
 25/01/06: started with the fonts... few remarks: install bdftopcf,mkfontdir,mkfontscale manually (not added in DEPENDS yet), symlink /usr/X11R7 to /usr/X11 manually (not added in a BUILD file yet) and add /usr/X11R7/lib in the /etc/ld.so.conf file
