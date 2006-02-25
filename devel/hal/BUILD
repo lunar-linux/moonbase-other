@@ -12,6 +12,7 @@
                 --mandir=/usr/share/man            \
 		--disable-docbook-docs	           \
                 --enable-fstab-sync                \
+                --without-hotplug                  \
                 --with-pid-file=/var/run/hald.pid  \
                 $OPTS                             &&
     default_make				  &&
