@@ -16,7 +16,7 @@
         -exec install -m755 {} /usr/lib \;
 
    # make proper link
-   vp="1_32"
+   vp="1_33_1"
    for x in `find /usr/lib -type f -name "libboost*.so.$VERSION"`; do
      # get basename
      bn=${x%%so*}
