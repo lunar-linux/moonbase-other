@@ -1,0 +1,16 @@
+          MODULE=xdriinfo
+         VERSION=X11R7.0-1.0.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=ftp://ftp.x.org/pub/X11R7.0/src/everything/
+      SOURCE_VFY=sha1:0f46424e9e74c72473c5ff1786741b8c04634178
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr/X11R7}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060226
+         UPDATED=20060226
+           SHORT="query configuration information of DRI drivers"
+
+cat << EOF
+xdriinfo can be used to query configuration information of direct
+rendering drivers. If no command argument is specified it lists
+the names of the direct rendering drivers for all screens.
+EOF
