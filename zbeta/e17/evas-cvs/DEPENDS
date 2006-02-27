@@ -1,12 +1,10 @@
-depends pkgconfig  &&
-depends eet-cvs    &&
-depends edb-cvs    &&
+depends  pkgconfig  &&
+depends  eet-cvs    &&
+depends  edb-cvs    &&
 
 optional_depends  "libpng"    "--enable-image-loader-png"   ""         \
                               "enable PNG image loader"                &&
 optional_depends  "jpeg"      "--enable-image-loader-jpeg"  ""         \
                               "enable JPEG image loader"               &&
 optional_depends  "DirectFB"  "--enable-directfb"           ""         \
-                              "enable the DirectFB rendering backend"  &&
-optional_depends  "glut"      "--enable-gl-x11"             ""         \
-                              "enable OpenGL rendering backend"
+                              "enable the DirectFB rendering backend"
