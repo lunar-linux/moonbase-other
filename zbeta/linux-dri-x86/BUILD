@@ -13,10 +13,6 @@
   
   mkdir -p /usr/X11R7/lib/xorg/modules/dri &&
   cp lib/*_dri.so /usr/X11R7/lib/xorg/modules/dri/ &&
-  cp -P lib/lib* /usr/lib/ &&
-  mkdir -p /usr/include/GL &&
-  for header in include/GL/*.h
-    do install -m644 ${header} /usr/include/GL/
-  done
+  DESTDIR=/usr make install
 
 ) > $C_FIFO 2>&1
