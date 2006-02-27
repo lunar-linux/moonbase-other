@@ -1,5 +1,6 @@
 (
-  OPTS="$OPTS --with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION}" &&
+  OPTS="$OPTS --enable-composite \
+	      --with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION}" &&
 
   default_build
 
