@@ -13,6 +13,10 @@
   
   mkdir -p /usr/X11R7/lib/xorg/modules/dri &&
   cp lib/*_dri.so /usr/X11R7/lib/xorg/modules/dri/ &&
-  cp -P lib/lib* /usr/lib/
+  cp -P lib/lib* /usr/lib/ &&
+  for header in glext.h gl.h gl_mangle.h glu.h glu_mangle.h glxext.h glx.h \
+  glx_mangle.h ; do
+    install -m644 include/GL/${header} /usr/X11R7/include/GL/
+  done
 
 ) > $C_FIFO 2>&1
