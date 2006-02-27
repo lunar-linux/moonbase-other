@@ -16,7 +16,6 @@
 	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-auth"
   fi &&
 
-  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
   export MOZ_FREETYPE2="no"
   export MOZ_PANGO="yes"
   export MOZ_CO_PROJECT=browser
