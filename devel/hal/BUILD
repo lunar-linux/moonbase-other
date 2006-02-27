@@ -1,6 +1,6 @@
 (
 
-    sedit "s:SG_FLAG_LUN_:SG_FLAG_UNUSED_LUN_:" hald/linux2/probing/linux_dvd_rw_utils.c
+    patch_it $SOURCE3 0 &&
 
     add_priv_user haldaemon:haldaemon -d /dev/null -s /bin/false  &&
    
