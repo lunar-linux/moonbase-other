@@ -10,6 +10,7 @@
                --with-x                         \
                --enable-software-x11            \
                --enable-xrender-x11             \
+               --enable-gl-x11                  \
                --enable-fb                      \
                --enable-buffer                  \
                --enable-font-loader-eet         \
