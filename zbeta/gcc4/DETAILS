@@ -1,0 +1,21 @@
+          MODULE=gcc4
+	     PKG=gcc
+         VERSION=4.0.2
+   MODULE_PREFIX=/opt/lunar/gcc/4.0
+          SOURCE=$PKG-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$PKG-$VERSION/
+   SOURCE_URL[0]=$GNU_URL/gcc/$PKG-$VERSION/
+   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/gcc/$PKG-$VERSION/
+   SOURCE_URL[2]=http://www.online-mirror.org/gcc/$PKG-$VERSION/
+      SOURCE_VFY=sha1:f1b714c6398393d8f7f4ad5be933b462a95b075d
+        WEB_SITE=http://gcc.gnu.org
+         ENTERED=20060228
+         UPDATED=20060228
+           PSAFE=no
+           SHORT="gcc is the GNU compiler collection."
+cat << EOF
+gcc - GNU Compiler Collection.
+The GNU Compiler Collection is a suite of compilers that compile C, C++,
+Objective C, Fortran, Java, and CHILL for a wide variety of
+architectures. Front-ends for Ada95 and Pascal also exist. 
+EOF
