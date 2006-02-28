@@ -5,7 +5,9 @@
 plugin_gnu_ld_optimize()
 {
 
-	. /etc/lunar/local/optimizations.GNU_LD
+	if [ -f /etc/lunar/local/optimizations.GNU_LD ]; then
+		. /etc/lunar/local/optimizations.GNU_LD
+	fi
 
 	for LD in ${LDF[@]}; do
 		case $LD in

@@ -5,7 +5,9 @@
 plugin_distcc_optimize()
 {
 
-	. /etc/lunar/local/optimizations.DISTCC
+	if [ -f /etc/lunar/local/optimizations.DISTCC ]; then
+		. /etc/lunar/local/optimizations.DISTCC
+	fi
 	
 	if [ "$USE_DISTCC" == "yes" ]; then
 		# we append distcc in case ccache is also used to
