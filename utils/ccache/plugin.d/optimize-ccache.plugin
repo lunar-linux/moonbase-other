@@ -1,0 +1,66 @@
+#
+# ccache linker optimizations plugin
+#
+
+plugin_ccache_optimize()
+{
+
+	. /etc/lunar/local/optimizations.CCACHE
+	
+	if [ "$USE_CCACHE" == "yes" ]; then
+		# we PRE-pend ccache in case distcc is also used to
+		# make sure that ccache goes first!
+		CC_EXT="ccache $CC_EXT"
+		export CC_EXT
+		verbose_msg "CC_EXT=\"$CC_EXT\""
+	fi
+	return 2
+}
+
+
+plugin_ccache_optimize_menu()
+{
+	# The main code calls this function WITHOUT $1 to find out which
+	# compiler optimization plugins exist. It then returns the version
+	# number which will be saved in $LUNAR_COMPILER as the user's
+	# choice for COMPILERS
+	if [ -z "$1" ]; then
+		echo "CCACHE"
+		echo "Compiler Cache"
+		return 2
+	elif [ "$1" != "CCACHE" ]; then
+		# we don't display anything when the user selected a
+		# different menu
+		return 2
+	fi
+
+	# load previous optimizations
+	if [ -e /etc/lunar/local/optimizations.CCACHE ]; then
+		. /etc/lunar/local/optimizations.CCACHE
+	fi
+
+	save_optimizations()
+	{
+		debug_msg "save_optimizations($@)"
+		cat > /etc/lunar/local/optimizations.CCACHE  <<EOF
+USE_CCACHE=$USE_CCACHE
+EOF
+	}
+
+	export IFS=$'\t\n'
+	TITLE="Lunar CCache Optimizations"
+	
+	RESULT=`$DIALOG --menu "Use the C Compiler Cache program ccache? This will speed up subsequent compiliation of any module, at a small price." 0 0 0 "USE_CCACHE" "Enable/disable the Compiler Cache ?       [$(if [ $USE_CCACHE == 'yes' ]; then echo ENABLED ; else echo DISABLED; fi)]"`
+	if [ $? == 0 ]; then
+		if [ $USE_CCACHE == 'yes' ]; then
+			USE_CCACHE=no
+		else
+			USE_CCACHE=yes
+		fi
+		save_optimizations
+	fi
+}
+
+
+plugin_register BUILD_BUILD plugin_ccache_optimize
+plugin_register OPTIMIZE_MENU plugin_ccache_optimize_menu
