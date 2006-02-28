@@ -123,7 +123,7 @@ plugin_compiler_gcc_3_4_optimize()
 		esac
 	done
 
-	case $FPU in
+	case $FPM in
 		x387)	c_cxx_flags_add "-mfpmath=387" ;;
 		SSE)	c_cxx_flags_add "-mfpmath=sse" ;;
 		Both)	c_cxx_flags_add "-mfpmath=sse,387" ;;
@@ -144,11 +144,19 @@ plugin_compiler_gcc_3_4_optimize()
 		esac
 	done
 
+	CC=gcc
+	CXX=g++
+	CPP=cpp
+
 	export BUILD
 	export COPT CCOPT
 	export CFLAGS CXXFLAGS CPPFLAGS
+	export CC CXX CPP
 
 	verbose_msg "BUILD=\"$BUILD\""
+	verbose_msg "CC=\"$CC\""
+	verbose_msg "CXX=\"$CXX\""
+	verbose_msg "CPP=\"$CPP\""
 	verbose_msg "CFLAGS=\"$CFLAGS\""
 	verbose_msg "CXXFLAGS=\"$CXXFLAGS\""
 	verbose_msg "CPPFLAGS=\"$CPPFLAGS\""
@@ -220,8 +228,13 @@ EOF
 
 	while true; do
 		unset OPTIONS
+		IS_DEFAULT=$([ `get_local_config LUNAR_COMPILER` == "GCC_3_4" ] && echo DEFAULT || get_local_config LUNAR_COMPILER)
 		DEFAULT=${CHOICE:-safe}
-		CHOICE=`$DIALOG --title "$TITLE" --ok-label "Select" --cancel-label "Close" --default-item "$DEFAULT" --item-help --menu "" 0 0 0 "default" "Set this compiler as the default compiler" "Attempt to compile all lunar modules with this compiler from now on" $(if [ "$SAFE_OPTIMIZATIONS" == "off" ] ; then
+		CHOICE=`$DIALOG --title "$TITLE" --ok-label "Select" --cancel-label "Close" --default-item "$DEFAULT" --item-help --menu "" 0 0 0 $(
+			echo "default"
+			echo "Set this compiler as default  [$IS_DEFAULT]"
+			echo "Enables you to substitute the default C compiler"
+			if [ "$SAFE_OPTIMIZATIONS" == "off" ] ; then
 			  echo "safe"
 			  echo "Turn on optimization safety   [$SAFE_OPTIMIZATIONS]"
 			  echo "Only allow safe optimizations (removes dangerous settings!)"
@@ -266,8 +279,10 @@ EOF
 
 		case $CHOICE in 
 			default)
-				set_local_config LUNAR_COMPILER GCC_3_4
-				$DIALOG --msgbox "Gcc 3.4 is now the default compiler!" 6 60
+				if [ "$IS_DEFAULT" != "DEFAULT" ]; then
+					set_local_config LUNAR_COMPILER GCC_3_4
+					$DIALOG --msgbox "Gcc 3.4 is now the default compiler!" 6 60
+				fi
 				;;
 			safe)
 				if [ "$SAFE_OPTIMIZATIONS" == "off" ]; then

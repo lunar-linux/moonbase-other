@@ -5,9 +5,7 @@
 plugin_ccache_optimize()
 {
 
-	if [ -f /etc/lunar/local/optimizations.CCACHE ]; then
-		. /etc/lunar/local/optimizations.CCACHE
-	fi
+	. /etc/lunar/local/optimizations.CCACHE
 	
 	if [ "$USE_CCACHE" == "yes" ]; then
 		# we PRE-pend ccache in case distcc is also used to
@@ -52,15 +50,19 @@ EOF
 	export IFS=$'\t\n'
 	TITLE="Lunar CCache Optimizations"
 	
-	RESULT=`$DIALOG --menu "Use the C Compiler Cache program ccache? This will speed up subsequent compiliation of any module, at a small price." 0 0 0 "USE_CCACHE" "Enable/disable the Compiler Cache ?       [$(if [ $USE_CCACHE == 'yes' ]; then echo ENABLED ; else echo DISABLED; fi)]"`
-	if [ $? == 0 ]; then
-		if [ $USE_CCACHE == 'yes' ]; then
-			USE_CCACHE=no
+	while true; do
+		RESULT=`$DIALOG --cancel-label "Close" --menu "Use the C Compiler Cache program ccache? This will speed up subsequent compiliation of any module, at a small price." 0 0 0 "USE_CCACHE" "Use the Compiler Cache         [$USE_CCACHE]"`
+		if [ $? != 0 ]; then
+			break
 		else
-			USE_CCACHE=yes
+			if [ $USE_CCACHE == 'yes' ]; then
+				USE_CCACHE=no
+			else
+				USE_CCACHE=yes
+			fi
+			save_optimizations
 		fi
-		save_optimizations
-	fi
+	done
 }
 
 
