@@ -5,12 +5,14 @@
 plugin_gnu_make_optimize()
 {
 
-	. /etc/lunar/local/optimizations.GNU_MAKE
+	if [ -f /etc/lunar/local/optimizations.GNU_MAKE ]; then
+		. /etc/lunar/local/optimizations.GNU_MAKE
+	fi
 
 	if [ "$PSAFE" == "no" ] ; then
 		unset MAKES
 	elif (( MAKES > 1 )) ; then
-        	unset MAKES
+		unset MAKES
 	else
 		if module_installed linux-openmosix; then
 			MAKE_EXT="$MAKE_EXT mosrun -h"
