@@ -1,0 +1,78 @@
+#
+# distcc linker optimizations plugin
+#
+
+plugin_distcc_optimize()
+{
+
+	. /etc/lunar/local/optimizations.DISTCC
+	
+	if [ "$USE_DISTCC" == "yes" ]; then
+		# we append distcc in case ccache is also used to
+		# make sure that distcc goes first!
+		CC_EXT="$CC_EXT distcc"
+		export CC_EXT
+		export DISTCC_HOSTS
+		verbose_msg "CC_EXT=\"$CC_EXT\""
+		verbose_msg "DISTCC_HOSTS=\"$DISTCC_HOSTS\""
+	fi
+	return 2
+}
+
+
+plugin_distcc_optimize_menu()
+{
+	# The main code calls this function WITHOUT $1 to find out which
+	# compiler optimization plugins exist. It then returns the version
+	# number which will be saved in $LUNAR_COMPILER as the user's
+	# choice for COMPILERS
+	if [ -z "$1" ]; then
+		echo "DISTCC"
+		echo "Distributed Compiling"
+		return 2
+	elif [ "$1" != "DISTCC" ]; then
+		# we don't display anything when the user selected a
+		# different menu
+		return 2
+	fi
+
+	# load previous optimizations
+	if [ -e /etc/lunar/local/optimizations.DISTCC ]; then
+		. /etc/lunar/local/optimizations.DISTCC
+	fi
+
+	save_optimizations()
+	{
+		debug_msg "save_optimizations($@)"
+		cat > /etc/lunar/local/optimizations.DISTCC  <<EOF
+USE_DISTCC=$USE_DISTCC
+DISTCC_HOSTS="$DISTCC_HOSTS"
+EOF
+	}
+
+	export IFS=$'\t\n'
+	TITLE="Lunar Distcc Optimizations"
+	
+	RESULT=`$DIALOG --menu "Use the Distributed C Compiler program distcc?" 0 0 0 "USE_DISTCC" "Enable/disable the Compiler Cache ?       [$(if [ $USE_DISTCC == 'yes' ]; then echo ENABLED ; else echo DISABLED; fi)]" "DISTCC_HOSTS" "Select remote target hosts..."`
+	if [ $? != 0 ]; then
+		return
+	elif [ "$RESULT" == "USE_DISTCC" ]; then
+		if [ $USE_DISTCC == 'yes' ]; then
+			USE_DISTCC=no
+		else
+			USE_DISTCC=yes
+		fi
+		save_optimizations
+	elif [ "$RESULT" == "DISTCC_HOSTS" ]; then
+		DISTCC_HOSTS=`$DIALOG --inputbox "Enter a list of hosts as hostnames or IP addresses (see man distcc)" 9 60 $DISTCC_HOSTS`
+		if [ $? != 0 ]; then
+			return
+		else
+			save_optimizations
+		fi
+	fi
+}
+
+
+plugin_register BUILD_BUILD plugin_distcc_optimize
+plugin_register OPTIMIZE_MENU plugin_distcc_optimize_menu
