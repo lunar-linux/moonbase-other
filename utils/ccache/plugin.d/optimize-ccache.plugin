@@ -5,7 +5,9 @@
 plugin_ccache_optimize()
 {
 
-	. /etc/lunar/local/optimizations.CCACHE
+	if [ -f /etc/lunar/local/optimizations.CCACHE ]; then
+		. /etc/lunar/local/optimizations.CCACHE
+	fi
 	
 	if [ "$USE_CCACHE" == "yes" ]; then
 		# we PRE-pend ccache in case distcc is also used to
