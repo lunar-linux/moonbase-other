@@ -1,0 +1,27 @@
+          MODULE=sshfs
+         VERSION=1.5
+          SOURCE=$MODULE-fuse-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-fuse-$VERSION
+      SOURCE_URL=$SFORGE_URL/fuse/
+      SOURCE_VFY=sha1:c418305a46d631629176881ab2d3a512f63615ff
+        WEB_SITE=http://fuse.sourceforge.net/sshfs.html
+         ENTERED=20060301
+         UPDATED=20060301
+           SHORT="Filesystem client based on the SSH File Transfer Protocol"
+
+cat << EOF
+sshfs is a filesystem client based on the SSH File Transfer Protocol.
+Since most SSH servers already support this protocol it is very easy
+to set up: i.e. on the server side there's nothing to do.  On the
+client side mounting the filesystem is as easy as logging into the
+server with ssh.
+
+The idea of sshfs was taken from the SSHFS filesystem distributed with
+LUFS, which was very useful. However, there were some limitations of
+that codebase, so it was rewritten.  Features of this implementation are:
+
+  * Based on FUSE
+  * Multithreading: more than one request can be on it's way to the server
+  * Allowing large reads (max 64k)
+  * Caching directory contents
+EOF
