@@ -44,39 +44,6 @@ plugin_compiler_gcc_4_0_optimize()
 		Fastest)	c_cxx_flags_add "-O3" ;;
 	esac
 
-	# BUILD subarchitecture target
-	case $PLATFORM in
-		x86)
-			case $CPU in
-				I386) BUILD="i386-pc-linux-gnu" ;;
-				I486) BUILD="i486-pc-linux-gnu" ;;
-				I586|Pentium|Pentiummmx|k6|k62|k63)
-					BUILD="i586-pc-linux-gnu"
-				;;
-				# note wildcard - assume above items is a complete list
-				*) BUILD="i686-pc-linux-gnu" ;;
-			esac
-		;;
-		PowerPC)
-			case $CPU in
-				common|rios|rios1|rios2|rsc|power|power2)
-					BUILD="power-linux"
-				;;
-      			rs64a|620) BUILD="powerpc64-linux" ;;
-				*)	BUILD="powerpc-linux" ;;
-			esac
-		;;
-		Alpha)
-			BUILD="alpha-linux"
-		;;
-		SPARC)
-			BUILD="sparc-linux"
-		;;
-		x86_64)
-			BUILD="x86_64-pc-linux-gnu"
-		;;
-	esac
-
 	# CFLAGS -march cpu-specific optimization
 	if [ -n "$CPU" ]; then
 		c_cxx_flags_add "-march=$CPU"
@@ -150,13 +117,11 @@ plugin_compiler_gcc_4_0_optimize()
 	CXX=g++
 	CPP=$COMPILER_PATH/cpp
 
-	export BUILD
 	export COMPILER_PATH
 	export COPT CCOPT
 	export CFLAGS CXXFLAGS CPPFLAGS
 	export CC CXX CPP
 
-	verbose_msg "BUILD=\"$BUILD\""
 	verbose_msg "COMPILER_PATH=\"$COMPILER_PATH\""
 	verbose_msg "CC=\"$CC\""
 	verbose_msg "CXX=\"$CXX\""
@@ -209,7 +174,6 @@ plugin_compiler_gcc_4_0_menu()
 	{
 		debug_msg "save_optimizations($@)"
 		cat >/etc/lunar/local/optimizations.GCC_4_0  <<EOF
-BUILD=$BUILD
 CPU=$CPU
 BOPT=$BOPT
 SPD=( $(echo ${SPD[@]} ) )

@@ -44,39 +44,6 @@ plugin_compiler_gcc_3_4_optimize()
 		Fastest)	c_cxx_flags_add "-O3" ;;
 	esac
 
-	# BUILD subarchitecture target
-	case $PLATFORM in
-		x86)
-			case $CPU in
-				I386) BUILD="i386-pc-linux-gnu" ;;
-				I486) BUILD="i486-pc-linux-gnu" ;;
-				I586|Pentium|Pentiummmx|k6|k62|k63)
-					BUILD="i586-pc-linux-gnu"
-				;;
-				# note wildcard - assume above items is a complete list
-				*) BUILD="i686-pc-linux-gnu" ;;
-			esac
-		;;
-		PowerPC)
-			case $CPU in
-				common|rios|rios1|rios2|rsc|power|power2)
-					BUILD="power-linux"
-				;;
-      			rs64a|620) BUILD="powerpc64-linux" ;;
-				*)	BUILD="powerpc-linux" ;;
-			esac
-		;;
-		Alpha)
-			BUILD="alpha-linux"
-		;;
-		SPARC)
-			BUILD="sparc-linux"
-		;;
-		x86_64)
-			BUILD="x86_64-pc-linux-gnu"
-		;;
-	esac
-
 	# CFLAGS -march cpu-specific optimization
 	if [ -n "$CPU" ]; then
 		c_cxx_flags_add "-march=$CPU"
@@ -148,12 +115,10 @@ plugin_compiler_gcc_3_4_optimize()
 	CXX=g++
 	CPP=cpp
 
-	export BUILD
 	export COPT CCOPT
 	export CFLAGS CXXFLAGS CPPFLAGS
 	export CC CXX CPP
 
-	verbose_msg "BUILD=\"$BUILD\""
 	verbose_msg "CC=\"$CC\""
 	verbose_msg "CXX=\"$CXX\""
 	verbose_msg "CPP=\"$CPP\""
@@ -205,7 +170,7 @@ plugin_compiler_gcc_3_4_menu()
 	{
 		debug_msg "save_optimizations($@)"
 		cat >/etc/lunar/local/optimizations.GCC_3_4  <<EOF
-BUILD=$BUILD
+PLATFORM=$PLATFORM
 CPU=$CPU
 BOPT=$BOPT
 SPD=( $(echo ${SPD[@]} ) )
@@ -242,6 +207,9 @@ EOF
 			  echo "Turn off optimization safety  [$SAFE_OPTIMIZATIONS]"
 			  echo "Allow potentially unsafe optimizations (DANGEROUS!)"
 			fi
+			echo "platform"
+			echo "Platform choice               [$PLATFORM]"
+			echo "Select the specific architecture like x87, ppc"
 			echo "bopt"
 			echo "Base speed optimization       [$BOPT]"
 			echo "Select the base optimization from -Os, -O0, -O1 etc"
@@ -291,6 +259,17 @@ EOF
 						SAFE_OPTIMIZATIONS=off
 					fi
 				fi
+			;;
+			platform)
+				OPTIONS=(
+					"x86" "Intel, AMD, and clones" $( [ "$PLATFORM" == "x86" ] && echo "on" || echo "off" ) "Intel and AMD hardware"
+					"x86_64" "AMD64/EM64T" $( [ "$PLATFORM" == "x86_64" ] && echo "on" || echo "off" ) "Both AMD64 and Intel EM64T machines"
+					"Alpha" "Compaq Alpha" $( [ "$PLATFORM" == "Alpha" ] && echo "on" || echo "off" ) "Compaq Alpha hardware"
+					"PowerPC" "PowerPC" $( [ "$PLATFORM" == "PowerPC" ] && echo "on" || echo "off" ) "IBM and Apple hardware (Power and PowerPC)"
+					"SPARC" "Sun SPARC" $( [ "$PLATFORM" == "SPARC" ] && echo "on" || echo "off" ) "SUN Hardware"
+					)
+				menu radiolist "The so-called platform is the name of the hardware architecture. Most people will use x86" &&
+				PLATFORM=$RESULT
 			;;
 			bopt)
 				OPTIONS=(
