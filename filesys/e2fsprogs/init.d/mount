@@ -214,11 +214,11 @@ start()
 		fi
 
 		# check filesystems
-		FSCKLEVELS=$(sed 's/#.*$//g' /etc/fstab | tr -s '[:blank:]' | awk '{print $6}' | sort -n | grep -v -w 0)
+		FSCKLEVELS=$(sed 's/#.*$//g' /etc/fstab | awk '($6>0){print$6}' | sort -n)
 		if [ -n "$FSCKLEVELS" ]; then
 			echo "Checking file systems:"
 			for FSCKLEVEL in $FSCKLEVELS; do
-				for FS in $(sed 's/#.*$//g' /etc/fstab | tr -s '[:blank:]' | awk "(\$6==$FSCKLEVEL){print\$1}"); do
+				for FS in $(sed 's/#.*$//g' /etc/fstab | awk "(\$6==$FSCKLEVEL){print\$1}"); do
 				
 					run_with_msg_and_exit_codes " * Checking $FS" "fsck -T -C -y -V $FORCE $FS" "0" "1" ""
 					if [ $? -ge 2 ]; then
