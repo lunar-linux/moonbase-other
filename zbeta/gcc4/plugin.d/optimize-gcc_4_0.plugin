@@ -111,18 +111,16 @@ plugin_compiler_gcc_4_0_optimize()
 		esac
 	done
 
-	COMPILER_PATH=/opt/lunar/gcc/4.0/bin
-
+	export COMPILER_PATH=/opt/lunar/gcc/4.0/bin
+	
 	CC=gcc
 	CXX=g++
-	CPP=$COMPILER_PATH/cpp
+	CPP=cpp
 
-	export COMPILER_PATH
 	export COPT CCOPT
 	export CFLAGS CXXFLAGS CPPFLAGS
 	export CC CXX CPP
 
-	verbose_msg "COMPILER_PATH=\"$COMPILER_PATH\""
 	verbose_msg "CC=\"$CC\""
 	verbose_msg "CXX=\"$CXX\""
 	verbose_msg "CPP=\"$CPP\""
