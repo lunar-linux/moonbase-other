@@ -1,0 +1,24 @@
+          MODULE=xvidtune
+         VERSION=X11R7.0-1.0.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=ftp://ftp.x.org/pub/X11R7.0/src/everything/
+      SOURCE_VFY=sha1:f05cadb47ec468e3b71df8ec45634bea727c49c6
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr/X11R7}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060302
+         UPDATED=20060302
+           SHORT="video mode tuner for the X server"
+
+cat << EOF
+Xvidtune is a client interface to the X server video mode
+extension (XFree86-VidModeExtension). 
+
+ When given one of the non-toolkit options, xvidtune provides a command line
+ interface to either switch the video mode. 
+
+ Without any options (or with only toolkit options) it presents the user with
+ various buttons and sliders that can be used to interactively adjust existing
+ video modes. It will also print the settings in a format suitable for
+ inclusion in an __xconfigfile__ file. 
+
+EOF
