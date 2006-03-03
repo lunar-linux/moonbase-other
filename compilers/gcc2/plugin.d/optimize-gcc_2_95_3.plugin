@@ -117,7 +117,7 @@ plugin_compiler_gcc_2_95_3_menu()
 	# choice for COMPILERS
 	if [ -z "$1" ]; then
 		echo "GCC_2_95_3"
-		echo "GNU C Compiler suite version 3.4.x"
+		echo "GNU C Compiler suite version 2.95.x"
 		return 2
 	elif [ "$1" != "GCC_2_95_3" ]; then
 		# we don't display anything when the user selected a
@@ -194,7 +194,7 @@ EOF
 			default)
 				if [ "$IS_DEFAULT" != "DEFAULT" ]; then
 					set_local_config LUNAR_COMPILER GCC_2_95_3
-					$DIALOG --msgbox "Gcc 3.4 is now the default compiler!" 6 60
+					$DIALOG --msgbox "Gcc 2.95 is now the default compiler!" 6 60
 				fi
 			;;
 			bopt)
