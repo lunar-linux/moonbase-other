@@ -1,0 +1,21 @@
+          MODULE=xf86-input-ur98
+         VERSION=X11R7.0-1.0.0.5
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=ftp://ftp.x.org/pub/X11R7.0/src/everything/
+      SOURCE_VFY=sha1:26eb9b47de69945590e62ab318517e2af870a8a8
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr/X11R7}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060303
+         UPDATED=20060303
+           SHORT="UR98 (TR88L803) head tracker driver"
+
+cat << EOF
+The UR-98 driver functions as a pointer input device, and can be used either 
+as an additional input device or as the X server's core pointer. The driver 
+provides support for the three axes, throttle and four buttons of the 
+controller. If mapped as the core pointer the headtracker provides headtracking
+to try and place the mouse cursor where you look. As a secondary input device 
+the unit can be used for gaming, for example to provide the look up/down and 
+the turn in quake, and with the Z axis bound to ack/forward to provide 
+movement control. 
+EOF
