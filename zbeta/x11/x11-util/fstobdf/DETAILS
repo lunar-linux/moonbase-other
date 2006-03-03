@@ -1,0 +1,16 @@
+          MODULE=fstobdf
+         VERSION=X11R7.0-1.0.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=ftp://ftp.x.org/pub/X11R7.0/src/everything/
+      SOURCE_VFY=sha1:de9696277461b5a9ba5ed5dafbf4393af9f43ba1
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr/X11R7}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060303
+         UPDATED=20060303
+           SHORT="generate BDF font from X font server"
+
+cat << EOF
+The fstobdf program reads a font from a font server and prints a BDF file on
+the standard output that may be used to recreate the font. This is useful in
+testing servers, debugging font metrics, and reproducing lost BDF files.
+EOF
