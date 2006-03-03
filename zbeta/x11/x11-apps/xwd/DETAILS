@@ -1,0 +1,20 @@
+          MODULE=xwd
+         VERSION=X11R7.0-1.0.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=ftp://ftp.x.org/pub/X11R7.0/src/everything/
+      SOURCE_VFY=sha1:1c28dc97b6b17f3310f548fff218c635ec4380e9
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr/X11R7}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060302
+         UPDATED=20060302
+           SHORT="dump an image of an X window"
+
+cat << EOF
+Xwd is an X Window System window dumping utility. Xwd allows X users to store
+window images in a specially formatted dump file. This file can then be read
+by various other X utilities for redisplay, printing, editing, formatting, 
+archiving, image processing, etc. The target window is selected by clicking
+the pointer in the desired window. The keyboard bell is rung once at the
+beginning of the dump and twice when the dump is completed.
+EOF
+
