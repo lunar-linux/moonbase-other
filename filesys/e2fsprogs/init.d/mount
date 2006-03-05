@@ -174,7 +174,7 @@ start()
 
 	# default bahaviour if the user did not choose himself
 	if [ -z "$DEVNODES" ]; then
-		if kernel_is_26 && [ -x "/sbin/udevstart" ] ; then
+		if kernel_is_26 && [ -x "/sbin/udevd" ] ; then
 			DEVNODES="udev"
 			if [ -n "$DEBUG" ] ; then
 				echo -e "\n< Found udev >"
