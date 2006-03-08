@@ -1,7 +1,10 @@
 (
-  OPTS="$OPTS EXCLUDE=gnomevfs PREFIX=/usr MANDIR=/usr/share/man"
-  scons $OPTS &&
+  scons EXCLUDE="gnomevfs et samba" \
+        PREFIX=/usr \
+        MANDIR=/usr/share/man &&
   prepare_install &&
-  scons $OPTS install
+  scons EXLCUDE="gnomevfs et samba" \
+        PREFIX=/usr \
+        MANDIR=/usr/share/man install
   
  ) > $C_FIFO 2>&1
