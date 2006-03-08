@@ -1,0 +1,9 @@
+depends scons &&
+depends sqlite &&
+depends glib-2 &&
+optional_depends "curl" "" "" "for streaming support" &&
+optional_depends "libmad" "" "" "for MPEG1/2 (mp3) support" &&
+optional_depends "libvorbis" "" "" "for Ogg Vorbis support" &&
+optional_depends "faad" "" "" "for AAC support" &&
+optional_depends "alsa-lib" "" "" "for ALSA output plugin support" &&
+optional_depends "ruby" "" "" "for Ruby bindings (required by some clients)"
