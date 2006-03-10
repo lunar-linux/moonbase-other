@@ -1,16 +1,18 @@
           MODULE=mtr
 	 VERSION=0.69
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=ftp://ftp.bitwizard.nl/mtr/
+      SOURCE_URL=ftp://ftp.bitwizard.nl/$MODULE/
       SOURCE_VFY=sha1:3fd0fa148b349d1966e0d79af0ffb84ecc7bed4b
-        WEB_SITE=http://www.bitwizard.nl/mtr
+        WEB_SITE=http://www.bitwizard.nl/mtr/
          ENTERED=20010922
          UPDATED=20051018
-           SHORT="mtr (matt's traceroute) is a combination of traceroute and ping."
+           SHORT="a network diagnostic tool that combines traceroute and ping"
 
 cat << EOF
-mtr (matt's traceroute) is a system administrators utility to trace the
+mtr (My TraceRoute) is a system administrators utility to trace the
 route ip packets from the current system take in getting to some
-destination system. Superior to traceroute it also shows the times
+destination system.  Superior to traceroute it also shows the times
 packages take from that points like ping.
+
+Note: the resulting mtr binary is installed as setuid-root by default.
 EOF
