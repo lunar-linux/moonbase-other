@@ -170,7 +170,6 @@ plugin_compiler_gcc_3_4_menu()
 	{
 		debug_msg "save_optimizations($@)"
 		cat >/etc/lunar/local/optimizations.GCC_3_4  <<EOF
-PLATFORM=$PLATFORM
 CPU=$CPU
 BOPT=$BOPT
 SPD=( $(echo ${SPD[@]} ) )
@@ -207,9 +206,6 @@ EOF
 			  echo "Turn off optimization safety  [$SAFE_OPTIMIZATIONS]"
 			  echo "Allow potentially unsafe optimizations (DANGEROUS!)"
 			fi
-			echo "platform"
-			echo "Platform choice               [$PLATFORM]"
-			echo "Select the specific architecture like x87, ppc"
 			echo "bopt"
 			echo "Base speed optimization       [$BOPT]"
 			echo "Select the base optimization from -Os, -O0, -O1 etc"
@@ -259,17 +255,6 @@ EOF
 						SAFE_OPTIMIZATIONS=off
 					fi
 				fi
-			;;
-			platform)
-				OPTIONS=(
-					"x86" "Intel, AMD, and clones" $( [ "$PLATFORM" == "x86" ] && echo "on" || echo "off" ) "Intel and AMD hardware"
-					"x86_64" "AMD64/EM64T" $( [ "$PLATFORM" == "x86_64" ] && echo "on" || echo "off" ) "Both AMD64 and Intel EM64T machines"
-					"Alpha" "Compaq Alpha" $( [ "$PLATFORM" == "Alpha" ] && echo "on" || echo "off" ) "Compaq Alpha hardware"
-					"PowerPC" "PowerPC" $( [ "$PLATFORM" == "PowerPC" ] && echo "on" || echo "off" ) "IBM and Apple hardware (Power and PowerPC)"
-					"SPARC" "Sun SPARC" $( [ "$PLATFORM" == "SPARC" ] && echo "on" || echo "off" ) "SUN Hardware"
-					)
-				menu radiolist "The so-called platform is the name of the hardware architecture. Most people will use x86" &&
-				PLATFORM=$RESULT
 			;;
 			bopt)
 				OPTIONS=(
