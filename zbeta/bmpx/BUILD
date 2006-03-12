@@ -1,6 +1,7 @@
 (
 
-  OPTS="$OPTS --enable-amazon --with-x"
+  # gconf is broken on this release
+  OPTS="$OPTS --enable-amazon --with-x  --enable-debug  --disable-gconf"
 
   default_build
 
