@@ -4,6 +4,7 @@
   export LD_RUN_PATH=${KDE_PREFIX:-$KDEDIR}/lib:${KDE_PREFIX:-$KDEDIR}/lib/kde3
  
   ./configure  --with-frontends="cbanking qbanking kbanking"  \
+               --with-backends="aqhbci aqdtaus"               \
                $OPTS  &&
 
   default_make
