@@ -76,12 +76,12 @@ EOF
 	
 	
 	OPTIONS=(
-		"Strip" "-s (RECOMMENDED)" $( echo ${LDF[@]} | grep -q "Strip" && echo "on" || echo "off" ) "Strip all symbols"
-		"StripDebug" "-S" $( echo ${LDF[@]} | grep -q "StripDebug" && echo "on" || echo "off" ) "Strip debug symbols only"
-		"Optimize" "-Wl,-O1" $( echo ${LDF[@]} | grep -q "Optimize" && echo "on" || echo "off" ) "Optimize hash tables during linking"
-		"Reduce" "-Wl,--as-needed" $( echo ${LDF[@]} | grep -q "Reduce" && echo "on" || echo "off" ) "Reduce the amount of linked libraries if possible"
-		"Debug" "-g" $( echo ${LDF[@]} | grep -q "Debug" && echo "on" || echo "off" ) "Add debug symbols"
-		"Combreloc" "-z combreloc" $( echo ${LDF[@]} | grep -q "Combreloc" && echo "on" || echo "off" ) "Combreloc"
+		"Strip" "-s (RECOMMENDED)" $( echo ${LDF[@]} | grep -qw "Strip" && echo "on" || echo "off" ) "Strip all symbols"
+		"StripDebug" "-S" $( echo ${LDF[@]} | grep -qw "StripDebug" && echo "on" || echo "off" ) "Strip debug symbols only"
+		"Optimize" "-Wl,-O1" $( echo ${LDF[@]} | grep -qw "Optimize" && echo "on" || echo "off" ) "Optimize hash tables during linking"
+		"Reduce" "-Wl,--as-needed" $( echo ${LDF[@]} | grep -qw "Reduce" && echo "on" || echo "off" ) "Reduce the amount of linked libraries if possible"
+		"Debug" "-g" $( echo ${LDF[@]} | grep -qw "Debug" && echo "on" || echo "off" ) "Add debug symbols"
+		"Combreloc" "-z combreloc" $( echo ${LDF[@]} | grep -qw "Combreloc" && echo "on" || echo "off" ) "Combreloc"
 	)
 	RESULT=`$DIALOG --item-help --separate-output --checklist "Select linker optimizations. These options only apply to the link stage of binaries." 0 0 0 "${OPTIONS[@]}"`
 	if [ $? == 0 ]; then
