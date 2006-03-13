@@ -23,7 +23,8 @@
               --enable-default-catalog=/etc/sgml/catalog     \
               --enable-default-search-path=/usr/share/sgml   &&
 
-  make all LDFLAGS=-all-static                               &&
+  LDFLAGS="$LDFLAGS -all-static"                             &&
+  make all LDFLAGS="$LDFLAGS"                                &&
   prepare_install                                            &&
   make install                                               &&
   if ! [ -d "$CATALOGDIR" ]; then 
