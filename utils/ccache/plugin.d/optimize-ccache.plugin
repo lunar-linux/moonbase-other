@@ -53,7 +53,7 @@ EOF
 	TITLE="Lunar CCache Optimizations"
 	
 	while true; do
-		RESULT=`$DIALOG --cancel-label "Close" --menu "Use the C Compiler Cache program ccache? This will speed up subsequent compiliation of any module, at a small price." 0 0 0 "USE_CCACHE" "Use the Compiler Cache         [$USE_CCACHE]"`
+		RESULT=`$DIALOG --ok-label "Select" --cancel-label "Close" --menu "Use the C Compiler Cache program ccache? This will speed up subsequent compiliation of any module, at a small price." 0 0 0 "USE_CCACHE" "Use the Compiler Cache         [$USE_CCACHE]"`
 		if [ $? != 0 ]; then
 			break
 		else
