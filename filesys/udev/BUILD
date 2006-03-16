@@ -1,16 +1,11 @@
 (
-    UDEV_EXTRAS="extras/ata_id  extras/cdrom_id extras/dasd_id \
-                 extras/edd_id extras/firmware extras/floppy \
-                 extras/run_directory extras/scsi_id extras/usb_id \
-                 extras/volume_id" 
-  
+
+    sedit 's:^EXTRAS =:EXTRAS = extras/ata_id extras/cdrom_id extras/dasd_id extras/edd_id extras/firmware extras/floppy extras/run_directory extras/scsi_id extras/usb_id extras/volume_id:' Makefile &&
+
     patch_it $SOURCE2 0  &&
     patch_it $SOURCE3 0  &&
 
-    make EXTRAS="${UDEV_EXTRAS}"  &&
-    prepare_install  &&
-    make EXTRAS="${UDEV_EXTRAS}" install   &&
-
+    default_make &&
 
     # Deprecated .. but udevd still doesn't do what udevstart does
     # udevsend only provided for legacy purposes
