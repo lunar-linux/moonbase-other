@@ -1,18 +1,23 @@
           MODULE=shadow
-		  ####### warning: 4.0.8 is a dud. please sign off this module
-		  ####### first before upgrading.
-         VERSION=4.0.7
+         VERSION=4.0.14
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-4.0.4.1.newgrp_getlogin.patch
-   SOURCE_URL[0]=http://www.wiretapped.be/security/host-security/$MODULE/old/
-   SOURCE_URL[1]=ftp://ftp.pld.org.pl/software/$MODULE/old/
-   SOURCE_URL[2]=ftp://ftp.pld.net.pl/software/$MODULE/
+         SOURCE2=login-1.0.defs.pam
+         SOURCE3=shadow-4.0.14-su-cvs.patch
+         SOURCE4=shadow-4.0.14-su-fix-environment.patch
+         SOURCE5=shadow-4.0.14-suid-perm.patch
+      SOURCE_URL=ftp://ftp.pld.org.pl/software/$MODULE/
      SOURCE2_URL=$PATCH_URL/
-      SOURCE_VFY=sha1:5af35730c7fdff8d23021e05f0b7823abb658949
-     SOURCE2_VFY=sha1:6c8776f0df157b0f18d4f6c5effd854e5ec208ce
+     SOURCE3_URL=$PATCH_URL/
+     SOURCE4_URL=$PATCH_URL/
+     SOURCE5_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:7d8c504ae03421f9a75cfef3b97b9713782a6e91
+     SOURCE2_VFY=sha1:4a0a30ee8101550b8e09e09d3b7538f41b562e3c
+     SOURCE3_VFY=sha1:10c597bbc6a397e386178c186cc79be5bbf2cd8d
+     SOURCE4_VFY=sha1:c80a080fad18ec2312dfeaf312f31edfb3c18d6d
+     SOURCE5_VFY=sha1:1880a7f4846103e9c194395f3a111035de49bdf0
         WEB_SITE=ftp://ftp.pld.org.pl/software/shadow
          ENTERED=20010922
-         UPDATED=20050820
+         UPDATED=20060317
            SHORT="Contains the shadow password file utilities"
 
 cat << EOF
