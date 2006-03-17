@@ -4,11 +4,16 @@
           SOURCE=$MODULE-$VERSION.tar.bz2
       SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR/
       SOURCE_VFY=sha1:6d9b6269d44d6525cc4b0d1c909f8cb40dd45728
-        WEB_SITE=http://www.gnome.org
+        WEB_SITE=http://developer.gnome.org/projects/gap/
          ENTERED=20020714
          UPDATED=20051129
-           SHORT="gail has something to do with the GNOME A11y Project"
+           SHORT="accessibility support for Gtk+-2/GNOME applications"
+
 cat << EOF
-gail has something to do with the GNOME Accessability Project. The
-website goes to great lenghts to avoid revealing exactly what.
+gail (GNOME Accessibility Implementation Library) implements ATK
+interfaces for GTK+-2 widgets which are dynamically loadable at 
+runtime by a GTK+-2 application.  Once loaded, those parts of an
+application that use standard GTK+-2 widgets will have a basic level
+of accessibility features, without the need to modify the application
+at all.
 EOF
