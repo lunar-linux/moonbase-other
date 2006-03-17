@@ -34,4 +34,8 @@ optional_depends  "mozilla"                                           \
                    --with-nss-includes=/usr/include/mozilla/nss       \
                    --enable-nss=yes"                                  \
                    ""                                                 \
-                   "for nss ssl support"                     
+                   "for nss ssl support"                              &&
+		   
+optional_depends   "evolution-exchange" \
+                   "--enable-exchange=yes" --enable-exchange=no" \
+		   "To be able to connect to a MS exchange server"
