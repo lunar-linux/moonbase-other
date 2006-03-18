@@ -214,7 +214,7 @@ start()
 		fi
 
 		# check filesystems
-		FSCKLEVELS=$(sed 's/#.*$//g' /etc/fstab | awk '($6>0){print$6}' | sort -n)
+		FSCKLEVELS=$(sed 's/#.*$//g' /etc/fstab | awk '($6>0){print$6}' | sort -n | uniq)
 		if [ -n "$FSCKLEVELS" ]; then
 			echo "Checking file systems:"
 			for FSCKLEVEL in $FSCKLEVELS; do
