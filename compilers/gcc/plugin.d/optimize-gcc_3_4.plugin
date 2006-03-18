@@ -99,7 +99,6 @@ plugin_compiler_gcc_3_4_optimize()
 	for OPT in ${CC_OPTS[@]}; do
 		case $OPT in
 			Deprecated)
-				cflags_add "-Wno-deprecated"
 				cppflags_add "-Wno-deprecated"
 				;;
 			ccpipe)
