@@ -1,41 +1,41 @@
-depends  gtkhtml3       &&
-depends  gal2           &&
-depends  libgnomeprint  &&
-depends  evolution-data-server &&
-depends  hicolor-icon-theme &&
-depends  scrollkeeper   &&
+depends  gtkhtml3               &&
+depends  gal2                   &&
+depends  libgnomeprint          &&
+depends  evolution-data-server  &&
+depends  hicolor-icon-theme     &&
+depends  scrollkeeper           &&
 optional_depends  "gnupg"       ""  ""  "for encrypted mail support"  &&
 optional_depends  "gnome-spell" ""  ""  "For spellcheck support"      &&
 
 		  
-optional_depends  "pilot-link" "--enable-pilotlinktest"               \
-                  ""                                                  \
+optional_depends  "pilot-link" "--enable-pilotlinktest"                \
+                  ""                                                   \
                   "for Palm support"                                  &&
 
-optional_depends  "gnome-pilot"					      \
-                  "--enable-pilot-conduits=yes"        		      \
-                  ""                                                  \
+optional_depends  "gnome-pilot"					       \
+                  "--enable-pilot-conduits=yes"        		       \
+                  ""                                                   \
                   "for Palm Pilot support"                            &&
                   
-optional_depends  "openldap"                                          \
-                  "--with-openldap=yes"                               \
-                  "--with-openldap=no"                                \
+optional_depends  "openldap"                                           \
+                  "--with-openldap=yes"                                \
+                  "--with-openldap=no"                                 \
                   "for LDAP support"                                  &&
 
-optional_depends  "gtk-doc"                                           \
-                  "--enable-gtk-doc"                                  \
-                  "--disable-gtk-doc"                                 \
-                  "for gtk-doc support"                              &&        
+optional_depends  "gtk-doc"                                            \
+                  "--enable-gtk-doc"                                   \
+                  "--disable-gtk-doc"                                  \
+                  "for gtk-doc support"                               &&        
 
-optional_depends  "mozilla"                                           \
-                  "--with-nspr-libs=/usr/lib/mozilla                  \
-                   --with-nspr-includes=/usr/include/mozilla/nspr     \
-                   --with-nss-libs=/usr/lib/mozilla                   \
-                   --with-nss-includes=/usr/include/mozilla/nss       \
-                   --enable-nss=yes"                                  \
-                   ""                                                 \
+optional_depends  "mozilla"                                            \
+                  "--with-nspr-libs=/usr/lib/mozilla                   \
+                   --with-nspr-includes=/usr/include/mozilla/nspr      \
+                   --with-nss-libs=/usr/lib/mozilla                    \
+                   --with-nss-includes=/usr/include/mozilla/nss        \
+                   --enable-nss=yes"                                   \
+                   ""                                                  \
                    "for nss ssl support"                              &&
 		   
-optional_depends   "evolution-exchange" \
-                   "--enable-exchange=yes" --enable-exchange=no" \
+optional_depends   "evolution-exchange"                                \
+                   "--enable-exchange=yes" "--enable-exchange=no"      \
 		   "To be able to connect to a MS exchange server"
