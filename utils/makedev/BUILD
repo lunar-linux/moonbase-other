@@ -1,4 +1,6 @@
 (
+
+  add_priv_user vcsa:vcsa
   cat /proc/mounts | grep devfs | grep -qw /dev && {
       echo
       echo "/dev seems to be devfs, do not install this module!!"
