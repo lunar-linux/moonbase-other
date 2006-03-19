@@ -1,4 +1,5 @@
 (
+   bad_flags ALL &&
    ./configure  --build=$BUILD             \
                 --bindir=/bin              \
                 --sbindir=/sbin            \
