@@ -4,7 +4,7 @@
 
 plugin_compiler_gcc_3_4_optimize()
 {
-	if [ "$LUNAR_COMPILER" != "GCC_3_4" ]; then
+	if [ "${LUNAR_COMPILER:-GCC_3_4}" != "GCC_3_4" ]; then
 		return 2
 	fi
 	
