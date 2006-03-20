@@ -1,6 +1,10 @@
 (
 
-  OPTS="$OPTS --enable-amazon"
+  case $AMAZON in
+      y|Y|j|J)
+        OPTS="$OPTS --enable-amazon"
+      ;;
+  esac  &&
 
   default_build
 
