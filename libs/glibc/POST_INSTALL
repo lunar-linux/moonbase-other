@@ -1,6 +1,6 @@
 # Install the kernel headers which we created in BUILD
 
-if ! module_installed kernel-headers-2.6 ; then
+if module_installed kernel-headers-2.4 ; then
   mv /var/lock/installing.glibc /var/lock/installing.$$
   lin -c kernel-headers-2.4
   mv /var/lock/installing.$$ /var/lock/installing.glibc
