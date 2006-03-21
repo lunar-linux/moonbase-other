@@ -1,17 +1,17 @@
 (
 
-  unset CFLAGS CXXFLAGS CPPFLAGS CCACHE_NOLINK CCACHE_DIR && 
+  bad_flags ALL &&
 
   cd    abi       &&                         
 
-  ./configure   --enable-xft                                    \
-                --with-libxml2                                  \
-                --build=$BUILD                                  \
-                --sysconfdir=/etc                               \
-                --prefix=/usr 					\
-		--localstatedir=/var				\
-		--infodir=/usr/share/info			\
-		--mandir=/usr/share/man				\
+  ./configure   --enable-xft                    \
+                --with-libxml2                  \
+                --build=$BUILD                  \
+                --sysconfdir=/etc               \
+                --prefix=/usr 			\
+		--localstatedir=/var		\
+		--infodir=/usr/share/info	\
+		--mandir=/usr/share/man		\
 		--with-sys-wv                   \
 		$OPTS				&&
              
@@ -23,15 +23,17 @@
 
   # Build the plugins
   cd ../abiword-plugins &&
-  ./configure   --enable-xft                                    \
-                --with-libxml2                                  \
-                --build=$BUILD                                  \
-                --sysconfdir=/etc                               \
-                --prefix=/usr                                   \
-                --localstatedir=/var                            \
-                --infodir=/usr/share/info                       \
-                --mandir=/usr/share/man                         \
+  ./configure   --enable-xft                    \
+                --with-libxml2                  \
+                --build=$BUILD                  \
+                --sysconfdir=/etc               \
+                --prefix=/usr                   \
+                --localstatedir=/var            \
+                --infodir=/usr/share/info       \
+                --mandir=/usr/share/man         \
                 --with-sys-wv                   \
+                --disable-pdf			\
+		$OPTS				&&
   
   make &&
   make install-strip
