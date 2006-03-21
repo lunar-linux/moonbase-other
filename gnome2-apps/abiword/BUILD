@@ -33,6 +33,7 @@
                 --mandir=/usr/share/man         \
                 --with-sys-wv                   \
                 --disable-pdf			\
+                --disable-gda                   \
 		$OPTS				&&
   
   make &&
