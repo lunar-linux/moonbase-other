@@ -1,7 +1,5 @@
 (
 
-  bad_flags ALL &&
-
   cd    abi       &&                         
 
   ./configure   --enable-xft                    \
