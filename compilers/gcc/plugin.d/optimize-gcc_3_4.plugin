@@ -102,10 +102,10 @@ plugin_compiler_gcc_3_4_optimize()
 				cppflags_add "-Wno-deprecated"
 				;;
 			ccpipe)
-				COPT="$COPT -pipe"
+				cflags_add "-pipe"
 				;;
 			cxxpipe)
-				CCOPT="$CCOPT -pipe"
+				cxxflags_add "-pipe"
 				;;
 		esac
 	done
@@ -114,7 +114,6 @@ plugin_compiler_gcc_3_4_optimize()
 	CXX=g++
 	CPP=cpp
 
-	export COPT CCOPT
 	export CFLAGS CXXFLAGS CPPFLAGS
 	export CC CXX CPP
 
