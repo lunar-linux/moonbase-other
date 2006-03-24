@@ -2,7 +2,6 @@
 
   patch_it $SOURCE_CACHE/$SOURCE3 1 &&
   patch_it $SOURCE_CACHE/$SOURCE4 1 &&
-  patch_it $SOURCE_CACHE/$SOURCE5 1 &&
 
   if  module_installed  Linux-PAM;  then
     OPTS="$OPTS --with-libpam"
