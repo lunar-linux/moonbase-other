@@ -8,7 +8,7 @@
   	mkdir -p /usr/share/man/man8/ &&
 	install -m0755 pop-before-smtp /usr/sbin/ &&
 	install -m0755 pop-before-smtp.init /etc/init.d/pop-before-smtp &&
-	install -mo644 pop-before-smtp.8 /usr/share/man/man8/ &&
+	install -m0644 pop-before-smtp.8 /usr/share/man/man8/ &&
   
 	if [ ! -e /etc/pop-before-smtp-conf.pl ]; then
   		install -m0644 pop-before-smtp-conf.pl /etc/                                                        &&
