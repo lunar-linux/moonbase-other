@@ -7,9 +7,9 @@
    
   unpack $SOURCE2 &&
 
-  make linux-dri && #CFLAGS="${CFLAGS}" \
-		 #CXXFLAGS="${CXXFLAGS}" \
-		 #DRM_SOURCE_PATH="${SOURCE_DIRECTORY}/drm" &&
+  make linux-dri CFLAGS="${CFLAGS}" \
+		 CXXFLAGS="${CXXFLAGS}" \
+		 DRM_SOURCE_PATH="${SOURCE_DIRECTORY}/drm" &&
 
   prepare_install &&
 
