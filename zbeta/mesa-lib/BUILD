@@ -4,12 +4,12 @@
 
   find . -type f -exec sed -i 's@/usr/X11R6@/usr/X11@g' {} \; &&
   sed -i 's@lib/modules@lib/X11/modules@' src/glx/x11/dri_glx.c	&&
-  
+   
   unpack $SOURCE2 &&
 
-  make linux-dri CFLAGS="${CFLAGS}" \
-		 CXXFLAGS="${CXXFLAGS}" \
-		 DRM_SOURCE_PATH="${SOURCE_DIRECTORY}/drm" &&
+  make linux-dri && #CFLAGS="${CFLAGS}" \
+		 #CXXFLAGS="${CXXFLAGS}" \
+		 #DRM_SOURCE_PATH="${SOURCE_DIRECTORY}/drm" &&
 
   prepare_install &&
 
