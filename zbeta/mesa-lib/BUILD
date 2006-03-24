@@ -2,27 +2,26 @@
 
   MESA_PREFIX="/usr"
 
-  sedit 's/\/usr\/X11R6\/include/\/usr\/X11\/include/' configs/linux &&
-  sedit 's/\/usr\/X11R6\/lib/\/usr\/X11\/lib/' configs/linux &&
-  sedit 's/\/usr\/local/\/usr/' configs/default &&
-  sedit 's/PROGRAM_DIRS/#PROGRAM_DIRS/' configs/default &&
+  find . -type f -exec sed -i 's@/usr/X11R6@/usr/X11@g' {} \; &&
+  sed -i 's@lib/modules@lib/X11/modules@' src/glx/x11/dri_glx.c	&&
+  
+  unpack $SOURCE2 &&
 
-  make linux && # This needs better detection (x86_64 in particular)
+  make linux-dri CFLAGS="${CFLAGS}" \
+		 CXXFLAGS="${CXXFLAGS}" \
+		 DRM_SOURCE_PATH="${SOURCE_DIRECTORY}/drm" &&
 
-  prepare_install				&&
+  prepare_install &&
+
+  bin/installmesa ${MESA_PREFIX}			&&
+  mkdir -v -p /usr/lib/X11/modules/dri			&&
+  install -v -m755 lib/*dri* /usr/lib/X11/modules/dri	&&
 
   install -m644 include/GLView.h \
-	  $MESA_PREFIX/include 			&&
+  	  $MESA_PREFIX/include &&
 
-  # We need to clean up before we install stuff as the old X11R6
-  # might still be lying around
+  cd progs/xdemos &&
+  make PROGS='glxinfo glxgears' &&
+  install -v -m755 glxinfo glxgears /usr/bin
 
-  rm -rf $MESA_PREFIX/include/GL 		&&
-  cp -r include/GL $MESA_PREFIX/include/ 	&&
-
-  for i in lib/*; do
-    rm -rf $MESA_PREFIX/$i
-    cp -a $i $MESA_PREFIX/lib/
-  done
- 
 ) > $C_FIFO 2>&1
