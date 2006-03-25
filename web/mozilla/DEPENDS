@@ -1,15 +1,16 @@
-depends libmng &&
-depends libIDL &&
-depends ORBit2 &&
-depends zip    &&
-depends unzip  &&
-depends expat  &&
-depends gtk+-2 &&
+depends  libmng  &&
+depends  ORBit2  &&
+depends  zip     &&
+depends  unzip   &&
+depends  expat   &&
+depends  gtk+-2  &&
 
-optional_depends "libical" "--enable-calendar" "" "Enable Calendar Support" &&
-optional_depends "gnupg" "" "--disable-mailnews" "Enable Email Support" &&
-optional_depends "openldap" "" "--disable-ldap" "Enable LDAP Support"  &&
-optional_depends heimdal \
-                 "--with-gssapi=/usr/include/heimdal" \
-                 "--without-gssapi" \
-                 "Heimdal GSSAPI Support"
+optional_depends  "libical"   "--enable-calendar"  ""   \
+                  "Enable Calendar Support"             &&
+optional_depends  "gnupg"     ""  "--disable-mailnews"  \
+                  "Enable Email Support"                &&
+optional_depends  "openldap"  ""  "--disable-ldap"      \
+                  "Enable LDAP Support"                 &&
+optional_depends  "heimdal"   "--with-gssapi=/usr/include/heimdal"  \
+                              "--without-gssapi"                    \
+                  "Heimdal GSSAPI Support"
