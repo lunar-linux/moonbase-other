@@ -13,6 +13,6 @@
 	if [ ! -e /etc/pop-before-smtp-conf.pl ]; then
   		install -m0644 pop-before-smtp-conf.pl /etc/                                                        &&
 	fi &&
-	gather_cods contrib/README* contrib/getfromcpan contrib/perlmod2rpm
+	gather_docs contrib/README* contrib/getfromcpan contrib/perlmod2rpm
 
 ) > $C_FIFO 2>&1
