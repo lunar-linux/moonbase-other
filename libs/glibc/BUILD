@@ -150,18 +150,19 @@
   rm /lib/{ld,lib{c,dl,m,rt,pthread,nss_files,util,nsl,crypt}}-lunar.so  &&
 
   # Generate locale info
-  unset   LD_PRELOAD             &&
-  if  [  -z  "$GLIBC_LOCALES"  ];  then
+  if [ -z "$GLIBC_LOCALES" ]; then
     make localedata/install-locales || exit 1
   else
-    for  LOCALE  in  $GLIBC_LOCALES;  do
-      INPUTFILE=`echo  $LOCALE  |  cut  -d /  -f1`
-        CHARMAP=`echo  $LOCALE  |  cut  -d /  -f2`
-      mkdir  -p  /usr/lib/locale/$INPUTFILE
-      echo "localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE"
-            localedef  -i  $INPUTFILE  -f  $CHARMAP  $INPUTFILE
+    devoke_installwatch &&
+    for LOCALE in $GLIBC_LOCALES; do
+      INPUTFILE=$(echo $LOCALE | cut -d/ -f1)
+      CHARMAP=$(echo  $LOCALE | cut -d/ -f2)
+      mkdir -p /usr/lib/locale/$INPUTFILE
+      echo "localedef -i $INPUTFILE -f $CHARMAP $INPUTFILE"
+      localedef -i $INPUTFILE -f $CHARMAP $INPUTFILE
     done
-    true
+    invoke_installwatch &&
+    touch /usr/lib/locale/locale-archive
   fi
   
-) > $C_FIFO 2>&1  &&  ldconfig
+) > $C_FIFO 2>&1 && ldconfig
