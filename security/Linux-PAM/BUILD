@@ -10,6 +10,10 @@
   sedit  "s/examples//"  Makefile              &&
   sedit  "s/read yes//"     conf/install_conf  &&
   default_make                                 &&
+
+  # Makefile no longer setsuid on unix_chkpwd and pam_timestamp_check
+  chmod 4711 /sbin/unix_chkpwd &&
+  chmod 4711 /sbin/pam_timestamp_check &&
  
   # Module documents are nice
   if [ ! -d /usr/share/doc/Linux-PAM/text ]; then
