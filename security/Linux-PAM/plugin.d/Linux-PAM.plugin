@@ -26,7 +26,7 @@ plugin_pam_post_build()
 
     for FILE in $(ls -1) ; do
       if [ ! -f /etc/pam.d/$FILE ] ; then
-        /usr/bin/install -g 0 -o 0 -m 0600 $FILE /etc/pam.d
+        /usr/bin/install -g 0 -o 0 -m 0644 $FILE /etc/pam.d
       fi
     done
     devoke_installwatch
