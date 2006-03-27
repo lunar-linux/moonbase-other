@@ -1,10 +1,1 @@
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
-
-  if    query  "Do you want to enable large file support? " n
-      then OPTS=$OPTS" --enable-largefile"
-      else OPTS=$OPTS" --disable-largefile"
-  fi
-
-   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
-fi
+mquery USE_LARGEFILE "Do you want to enable large file support?" y
