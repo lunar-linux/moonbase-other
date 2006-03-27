@@ -1,9 +1,8 @@
-#
-#  The PAM configuration file for ssh
-#
-auth		required	pam_unix.so shadow nodelay
-auth		required	pam_nologin.so
-account		required	pam_unix.so
-password	required	pam_unix.so shadow md5 nullok use_authtok
-session		required	pam_unix.so
-session		required	pam_limits.so
+#%PAM-1.0
+auth		include		system-auth
+account		required	pam_nologin.so
+account		include		system-auth
+password	include		system-auth
+session		include		system-auth
+# Uncomment the following line only if you run kernel 2.6.11 or above
+#session		required	pam_loginuid.so
