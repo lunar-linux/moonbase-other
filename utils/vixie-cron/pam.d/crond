@@ -1,12 +1,9 @@
-#
-# The PAM configuration file for the cron daemon
-#
-#
-auth      sufficient pam_rootok.so
-auth       required  pam_stack.so service=system-auth
-auth       required  pam_env.so
-account    required  pam_stack.so service=system-auth
-session    required  pam_stack.so service=system-auth
+#%PAM-1.0
+auth		sufficient 	pam_rootok.so
+auth 		include		system-auth
+auth		required	pam_env.so
+account		include		system-auth
+session		include		system-auth
 # Sets up user limits, please uncomment and read /etc/security/limits.conf
 # to enable this functionality.
 # session    required   pam_limits.so
