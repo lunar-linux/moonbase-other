@@ -7,16 +7,16 @@ cd $SOURCE_DIRECTORY			&&
 unpack $SOURCE2		                &&
 
 # Unpack redhat specific modules
-tar -zxf ${MODULE}-patches-${PVERSION}/pam-redhat-${RHVERSION}.tar.gz &&
+tar -jxf ${MODULE}-patches-${PVERSION}/pam-redhat-${RHVERSION}.tar.bz2 &&
 
 # Apply our patches
-for i in redhat gentoo lunar
+for i in redhat lunar
 do
   cat ${MODULE}-patches-${PVERSION}/list.${i}-patches | while read fname
     do
       patch_it ${MODULE}-patches-${PVERSION}/${i}-patches/${fname} 1
     done
-done  &&
+done
 
 # Copy fresh install-sh from automake
-cp /usr/share/automake/install-sh $SOURCE_DIRECTORY
+#cp /usr/share/automake/install-sh $SOURCE_DIRECTORY
