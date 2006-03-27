@@ -1,20 +1,3 @@
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
-
-  if    query  "Do you want to allow Perl RegExps in your grep? " n
-      then OPTS=$OPTS" --enable-perl-regexp"
-      else OPTS=$OPTS" --disable-perl-regexp"
-  fi
-
-  if    query  "Do you want to enable large file support? " n
-      then OPTS=$OPTS" --enable-largefile"
-      else OPTS=$OPTS" --disable-largefile"
-  fi
-
-  if    query  "Do you want to use NLS? " y
-      then OPTS=$OPTS" --enable-nls"
-      else OPTS=$OPTS" --disable-nls"
-  fi
-
-   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
-fi
+mquery USE_PERL "Do you want to allow Perl RegExps in your grep?" y
+mquery USE_LARGEFILE "Do you want to enable large file support?" y
+mquery USE_NLS "Do you want to use NLS?" y
