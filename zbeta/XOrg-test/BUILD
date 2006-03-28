@@ -17,6 +17,9 @@
    if module_installed Linux-PAM ; then
      echo "#define HasPam YES"
      echo "#define HasPamMisc YES"
+   else
+     echo "#define HasPam NO"
+     echo "#define HasPamMisc NO"
    fi 
 
    if [ -n "$XORG_DRIVERS" ]; then
