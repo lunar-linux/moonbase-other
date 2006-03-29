@@ -1,5 +1,5 @@
 (
-  ./configure  --prefix=/opt  --without-magick      &&
+  ./configure  --prefix=/opt        &&
   make                              &&
   prepare_install                   &&
   make    install                   
