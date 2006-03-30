@@ -72,7 +72,7 @@ plugin_compiler_gcc_3_4_optimize()
 			Blocks)	c_cxx_flags_add "-freorder-blocks" ;;
 		esac
 	done
-   
+
 	# STACK - kind of dangerous - shouldn't we just remove this?
 	if (( STACK > 0 )) ; then
 		c_cxx_flags_add "-mpreferred-stack-boundary=$STACK"
@@ -99,13 +99,13 @@ plugin_compiler_gcc_3_4_optimize()
 	for OPT in ${CC_OPTS[@]}; do
 		case $OPT in
 			Deprecated)
-				cppflags_add "-Wno-deprecated"
+				cxxflags_add "-Wno-deprecated"
 				;;
-			ccpipe)
-				cflags_add "-pipe"
+			Debug)
+				c_cxx_flags_add "-g"
 				;;
-			cxxpipe)
-				cxxflags_add "-pipe"
+			Pipe)
+				c_cxx_flags_add "-pipe"
 				;;
 		esac
 	done
@@ -247,6 +247,7 @@ EOF
 					SAFE_OPTIMIZATIONS=on
 					unset SPD XTRA STACK
 					FPM=("None")
+					BOPT=${BOPT//Fastest/Faster}
 				else
 					$DIALOG --defaultno --yes-label "No" --no-label "Yes" --colors --yesno " \Z1*** WARNING ***\n\n\ZnPlease read this carefully. You are about to turn off the optimization safety. This means that you can possibly turn on compiler or linker optimizations that can and will break your box. Not only will the problem most likely occur only days, weeks or months after you turn this switch, but also it can corrupt all your personal data, make your machine unbootable, and cause serious personal distress, headache, loss of vision, heart failure, loss of income, or otherwise very bad things. Before you turn off this option, please think for yourself for a minute and ask yourself: Is it worth it?\n\nOnly use safe optimizations?" 20 70
 					if [ $? == 0 ]; then
@@ -367,7 +368,7 @@ EOF
 							)
 					;;
 				esac
-				menu radiolist "CPU, according to the kernel you have a$(cat /proc/cpuinfo | grep 'model name' | cut -d: -f2 | head -n 1)" &&
+				menu radiolist "CPU, according to the kernel you have a$(cat /proc/cpuinfo | grep 'model name' | cut -d: -f2 | head -n 1). If you are unsure, use $(arch) - anything higher is not safe." &&
 				CPU=$RESULT
 			;;
 			spd)
@@ -388,7 +389,7 @@ EOF
 					"Tracer" "-ftracer" $( echo ${SPD[@]} | grep -q "Tracer" && echo "on" || echo "off" ) "Perform tail duplication to enlarge superblock size."
 					"Blocks" "-freorder-blocks" $( echo ${SPD[@]} | grep -q "Blocks" && echo "on" || echo "off" ) "Reorder basic blocks in order to reduce number of taken branches."
 					)
-				menu checklist "Select additional flags to optimize specific areas of the created code. Note that some of these flags are turned on automatically with -O2 or -O3. See 'man gcc' for more information" &&
+				menu checklist "Select additional flags to optimize specific areas of the created code. Note that some of these flags are turned on automatically with -O2 or -O3. See 'man gcc' for more information. None of these options are safe!" &&
 				SPD=($RESULT)
 			;;
 			fpm)
@@ -425,16 +426,15 @@ EOF
 						fi
 					;;
 				esac
-				CPUINFO=$(echo "`grep flags /proc/cpuinfo` ")
+				unset FLAGS
 				for EXT in fpu sse altivec ; do
-					if echo $CPUINFO | grep -q " $EXT "; then
+					if grep -qw "$EXT" /proc/cpuinfo ; then
 						FLAGS="$FLAGS $EXT"
 					fi
 				done
 				FLAGS=${FLAGS/fpu/387}
 				FLAGS=${FLAGS/387 sse/387 and sse (both)}
-				unset CPUINFO EXT FLAGS
-				menu radiolist "Select available Floating Point Math compile extensions. The kernel reports that this system has: $FLAGS" &&
+				menu radiolist "Select available Floating Point Math compile extensions. The kernel reports that this system has: $FLAGS. None of these are safe." &&
 				FPM=$RESULT
 			;;
 			xtra)
@@ -480,28 +480,28 @@ EOF
 						fi
 					;;
 				esac
-				CPUINFO=$(echo "`grep flags /proc/cpuinfo` ")
-				for EXT in mmx sse sse2 pni 3dnow altivec
-				do
-					if echo $CPUINFO | grep -q " $EXT "; then
+				unset FLAGS
+				for EXT in mmx sse sse2 pni 3dnow altivec ; do
+					if grep -qw "$EXT" /proc/cpuinfo ; then
+					echo $EXT
 						FLAGS="$FLAGS $EXT"
 					fi
 				done
-				unset CPUINFO EXT FLAGS
-				menu checklist "Select compiler use of extra instruction sets. The kernel reports that this system has: $FLAGS" &&
+				FLAGS=${FLAGS/pni/sse3}
+				menu checklist "Select compiler use of extra instruction sets. The kernel reports that this system has: $FLAGS. None of these are safe." &&
 				XTRA=($RESULT)
 			;;
 			cc_opt)
 				OPTIONS=(
-					"Deprecated" "-Wno-deprecated for C++" $( echo ${CC_OPTS[@]} | grep -q "Deprecated" && echo "on" || echo "off" ) "Disable warnings of deprecated symbols in C++"
-					"ccpipe" "-pipe for C (RECOMMENDED)" $( echo ${CC_OPTS[@]} | grep -q "ccpipe" && echo "on" || echo "off" ) "Enable cc to use named pipes."
-					"cxxpipe" "-pipe for C++ (RECOMMENDED)" $( echo ${CC_OPTS[@]} | grep -q "cxxpipe" && echo "on" || echo "off" ) "Enable c++ to use named pipes."
+					"Deprecated" "-Wno-deprecated for C++" $( echo ${CC_OPTS[@]} | grep -qw "Deprecated" && echo "on" || echo "off" ) "Disable warnings of deprecated symbols in C++"
+					"Debug" "-g" $( echo ${CC_OPTS[@]} | grep -qw "Debug" && echo "on" || echo "off" ) "Add debug symbols"
+					"Pipe" "-pipe (RECOMMENDED)" $( echo ${CC_OPTS[@]} | grep -qw "Pipe" && echo "on" || echo "off" ) "Enable cc to use named pipes."
 					)
 				menu checklist "General C/C++ compiler settings" &&
 				CC_OPTS=($RESULT)
 			;;
 			stack)
-				STACK=`$DIALOG --nocancel --inputbox "Enter the number to set the stack to, leave empty for default. Only used on x86 platform." 0 55 $STACK`
+				STACK=`$DIALOG --nocancel --inputbox "Enter the number to set the stack to, leave empty for default. Only used on x86 platform. Not safe" 0 55 $STACK`
 			;;
 		esac
 	done
