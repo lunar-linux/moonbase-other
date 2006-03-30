@@ -1,10 +1,8 @@
 (
 
 	if [ $WITH_MPPE == "y" ]; then
-	  cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY/
-          gunzip $SOURCE2
-	  patch_it $PATCHNAME 1
-	fi
+	  patch_it $SOURCE2 1
+	fi &&
 
 	sedit "s/FILTER=y/#FILTER=y/"       pppd/Makefile.linux  &&
 	sedit "s/usr\/man/usr\/share\/man/" linux/Makefile.top   &&

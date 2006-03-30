@@ -1,11 +1,11 @@
           MODULE=ppp
          VERSION=2.4.3
           SOURCE=$MODULE-$VERSION.tar.gz
-       PATCHNAME=ppp-2.4.3-mppe-mppc-1.1.patch
-	 SOURCE2=$PATCHNAME.gz
+         SOURCE2=$MODULE-$VERSION-mppe-mppc-1.1.patch.gz
    SOURCE_URL[0]=ftp://ftp.samba.org/pub/ppp/
    SOURCE_URL[1]=ftp://cs.anu.edu.au/pub/software/$MODULE/
-  SOURCE2_URL[0]=http://www.polbox.com/h/hs001/
+  SOURCE2_URL[0]=$PATCH_URL/
+  SOURCE2_URL[1]=http://www.polbox.com/h/hs001/
       SOURCE_VFY=sha1:5e2789f4dedc81943fa9f94c840cccc2407056f7
      SOURCE2_VFY=sha1:a230ee8cdb7e87b0134a4aa37fa21a4f2c373e79
         WEB_SITE=http://www.samba.org/ppp
