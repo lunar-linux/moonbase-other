@@ -3,16 +3,22 @@
           SOURCE=$MODULE-$VERSION.tar.bz2
 	 SOURCE2=$MODULE-$VERSION-gcc-3.3-fix1.patch.bz2
 	 SOURCE3=gcc34_net-tools_lunar.patch
+     SOURCE4=$MODULE-autoconf.patch.gz
+     SOURCE5=$MODULE-$VERSION-fixes.patch.gz
    SOURCE_URL[0]=http://www.tazenda.demon.co.uk/phil/net-tools/
   SOURCE2_URL[0]=$PATCH_URL/
      SOURCE3_URL=$PATCH_URL/
-      SOURCE_VFY=md5:888774accab40217dde927e21979c165
-     SOURCE2_VFY=md5:652206929f12b77d34d8f1225113f952
-     SOURCE3_VFY=md5:e75b18aecef34b82371d80b8b094ee1d
+     SOURCE4_URL=$PATCH_URL/
+     SOURCE5_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:944fb70641505d5d1139dba3aeb81ba124574b83
+     SOURCE2_VFY=sha1:44ee3a0c517a4e67d8d746cd05683bd9f10836b7
+     SOURCE3_VFY=sha1:b23cc7946f2b4e8cfac1adfa6a1ea29e11ba18fa
+     SOURCE4_VFY=sha1:cdd26d5729491a5a12a45b657e6ca4f85cbda7a5
+     SOURCE5_VFY=sha1:61336ad568a415385f24788b30039f746977d28c
         WEB_SITE=http://www.tazenda.demon.co.uk/phil/net-tools
       MAINTAINER=kc8apf@kc8apf.net
          ENTERED=20010922
-         UPDATED=20050603
+         UPDATED=20060330
            SHORT="net-tools contains essential tools for networking."
 cat << EOF
 The Net-tools package contains the arp, hostname, ifconfig, netstat,
