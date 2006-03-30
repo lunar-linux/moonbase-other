@@ -1,8 +1,15 @@
 if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
 
   if  [  -f  $CONFIG_CACHE/net-tools.config.h  ];  then  
-    if    query  "Reconfigure net-tools?" n
-       then  rm  -f  $CONFIG_CACHE/net-tools.config.h
+    if    query  "Reconfigure net-tools?" n; then
+      rm  -f  $CONFIG_CACHE/net-tools.config.h
+      if query "Auto configure net-tools?" n; then
+        echo 'AUTOCONF="y"' >> $MODULE_CONFIG
+      fi
+    fi
+  else
+    if query "Auto configure net-tools?" n; then
+      echo 'AUTOCONF="y"' >> $MODULE_CONFIG
     fi
   fi
 
