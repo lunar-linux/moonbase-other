@@ -1,7 +1,7 @@
 (
 
-  patch  -p 1  <  $SCRIPT_DIRECTORY/tcp_wrappers.patch &&
-  patch_it ${SOURCE_CACHE}/$SOURCE2 1                  &&
+  patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
   
   make  REAL_DAEMON_DIR=/usr/sbin linux  &&
   prepare_install                        &&
