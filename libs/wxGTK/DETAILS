@@ -1,8 +1,9 @@
           MODULE=wxGTK
-         VERSION=2.6.3
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/wxwindows/
-      SOURCE_VFY=sha1:7c2dfe27a56aa99b4ea557a436bf84a13a579a9d
+         VERSION=2.6.3.0
+          SOURCE=wxPython-src-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/wxPython-src-$VERSION
+      SOURCE_URL=$SFORGE_URL/wxpython/
+      SOURCE_VFY=sha1:aa01e6a4a2d97ccfbd0f257f5ff52fd85cbea0c0
         WEB_SITE=http://www.wxwidgets.org/
          ENTERED=20011217
          UPDATED=20060330
@@ -14,4 +15,8 @@ wxWindows provides online help, network programming, streams, clipboard
 and drag and drop, multithreading, image loading and saving in a variety
 of formats, database support, HTML viewing and printing.  Quite good for
 a GUI API.
+NOTE: Leave this module alone if you don't know what you are doing! The
+reason this module uses wxPython source code is that it saves downloading
+as wxPython INCLUDES all of wxGTK. This also saves time building wxPython
+as it needs the wxGTK that is included in the wxPython source code.
 EOF
