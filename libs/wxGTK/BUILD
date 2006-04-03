@@ -6,16 +6,21 @@
   ./configure   --build=$BUILD	   \
                 --prefix=/usr      \
 		--with-gtk         \
+		--enable-shared	   \
 		--enable-optimise  \
 		$OPTS             &&
   default_make                    &&
 
-  cd contrib/src/stc  &&
-  make                &&
-  make install        &&
-  
-  cd ../ogl  &&
-  make all   &&
-  make install
+  for DIR in contrib/src/stc \
+	     contrib/src/gizmos \
+	     contrib/src/ogl;
+  do
+
+  cd $DIR;
+  make;
+  make install;
+  cd $SOURCE_DIRECTORY;
+
+  done
 
 ) > $C_FIFO 2>&1
