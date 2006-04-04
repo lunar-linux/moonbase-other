@@ -1,17 +1,18 @@
           MODULE=qt4
-         VERSION=x11-opensource-src-4.1.2
-          SOURCE=qt-$VERSION.tar.gz
+         VERSION=4.1.2
+          SOURCE=qt-x11-opensource-src-${VERSION}.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/qt-x11-opensource-src-${VERSION}
    SOURCE_URL[0]=ftp://ftp.trolltech.com/qt/source/
    SOURCE_URL[1]=http://gd.tuwien.ac.at/hci/qt/source/
       SOURCE_VFY=sha1:a30ff8594b816528ab08ebcf349a31e244c4278d
-   MODULE_PREFIX=${QT_PREFIX:-/opt/lunar/qt4}
+   MODULE_PREFIX=${QT_PREFIX:-/opt/lunar/qt/4}
         WEB_SITE=http://www.trolltech.com/qt
-         ENTERED=20050629
+         ENTERED=20020420
          UPDATED=20060404
-	 GARBAGE=off
+         GARBAGE=off
      FTP_PASSIVE=on
       MAINTAINER=florin@lunar-linux.org
-           SHORT="Qt is a C++ toolkit for application development."
+           SHORT="a C++ toolkit for application development"
 
 cat << EOF
 Qt is a C++ toolkit for application development. It lets application 
@@ -24,9 +25,4 @@ Qt library encapsulates the different APIs of different operating systems,
 providing the application programmer with a single, common API for all 
 operating systems. The native C APIs are encapsulated in a set of 
 well-designed, fully object-oriented C++ classes. 
-
-Certain environment variables must be defined before compiling and using 
-applications that depend on qt.
-QTDIR=/opt/lunar/qt4/
-PATH=/opt/lunar/qt4/bin:$PATH
 EOF
