@@ -1,0 +1,19 @@
+depends  libungif  &&
+depends  libmng    &&
+depends  %X        &&
+
+optional_depends  "mysql"                                                    \
+                  "-plugin-sql-mysql -I/usr/include/mysql -L/usr/lib/mysql"  \
+                  "-no-sql-mysql"                                            \
+                  "for mysql database support"                              &&
+
+optional_depends  "sqlite"                                                   \
+                  "-plugin-sql-sqlite -I/usr/include -L/usr/lib"             \
+                  "-no-sql-sqlite"                                           \
+                  "for sqlite database support"                             &&
+
+optional_depends  "postgresql"                                               \
+                  "-plugin-sql-psql -I/usr/include/postgresql/server         \
+                  -L/usr/lib/postgresql"                                     \
+                  "-no-sql-psql"                                             \
+                  "for postgresql database support"
