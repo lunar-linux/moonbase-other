@@ -3,8 +3,6 @@
   export  PATH=$QTDIR/bin:$PATH
   export  LD_LIBRARY_PATH=$QTDIR/lib
 
-  prepare_install  &&
-
   sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
 
   echo "yes" | ./configure          \
@@ -21,10 +19,8 @@
                $OPTS                &&
 
   make &&
-
-  rm -f bin/qmake              &&     
-  cp qmake/qmake bin/qmake     &&
-  make install                 &&
+  prepare_install &&
+  make install &&
 
   if ! grep -q "${MODULE_PREFIX}/lib" /etc/ld.so.conf; then
     echo "${MODULE_PREFIX}/lib" >> /etc/ld.so.conf
