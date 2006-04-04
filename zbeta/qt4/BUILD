@@ -7,50 +7,31 @@
 
   sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
 
-  echo "yes" | ./configure              \
+  echo "yes" | ./configure          \
 	       -prefix ${MODULE_PREFIX} \
 	       -release             \
 	       -fast		    \
                -shared              \
-               -thread              \
                -qt-gif              \
-               -plugin-imgfmt-png   \
-               -plugin-imgfmt-jpeg  \
-               -plugin-imgfmt-mng   \
                -system-libpng       \
                -system-libjpeg      \
                -system-libmng       \
                -system-zlib         \
                -no-exceptions       \
-               -thread              \
-               -dlopen-opengl       \
-	       -xft		    \
-	       -xkb		    \
-               -sm		    \
-               -tablet              \
-               $OPTS               &&
+               $OPTS                &&
 
-  if [ "$SAMPIN" == "y" ] ; then
-    make
-  else
-    make sub-tools
-  fi &&
+  make &&
 
-  rm -f bin/qmake           &&     
-  cp qmake/qmake bin/qmake  &&
-  make install              &&
-
-  if [ "$SAMPIN" == "y" ] ; then
-    cp -a examples  ${MODULE_PREFIX}/
-    cp -a tutorial  ${MODULE_PREFIX}/
-  fi &&
+  rm -f bin/qmake              &&     
+  cp qmake/qmake bin/qmake     &&
+  make install                 &&
 
   if ! grep -q "${MODULE_PREFIX}/lib" /etc/ld.so.conf; then
     echo "${MODULE_PREFIX}/lib" >> /etc/ld.so.conf
   fi &&
 
-  echo "export QTDIR=\"${MODULE_PREFIX}\"" >> $SOURCE_DIRECTORY/qt4.rc       &&
-  echo export PATH=\"'${QTDIR}'/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/qt4.rc  &&
+  echo "export QTDIR=\"${MODULE_PREFIX}\"" >> $SOURCE_DIRECTORY/qt4.rc    &&
+  echo export PATH=\"'${QTDIR}'/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/qt4.rc &&
   echo export PKG_CONFIG_PATH=\"'${QTDIR}'/lib/pkgconfig:'${PKG_CONFIG_PATH}'\" \
 	>> $SOURCE_DIRECTORY/qt4.rc &&
 
