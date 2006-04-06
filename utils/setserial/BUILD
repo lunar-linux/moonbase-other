@@ -1,5 +1,5 @@
 (
-
+  patch_it $SOURCE2 1 &&
   sedit "s:usr/man:usr/share/man:g" Makefile.in &&
   default_build  &&
 
