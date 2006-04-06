@@ -1,4 +1,12 @@
-depends gtk+-2 &&
-depends libgnomedb &&
-depends gtkhtml3 &&
-depends mono
+depends gtk+-2	&&
+depends mono	&&
+
+optional_depends  "libgnomedb"	\
+                  ""	\
+                  ""	\
+                  "for gnome-sharp support" &&
+
+optional_depends  "gtkhtml3"  \
+                  ""    \
+                  ""    \
+                  "for gtkhtml-sharp support"
