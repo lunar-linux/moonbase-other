@@ -1,12 +1,10 @@
 (
 
-  export PATH=$MODULE_PREFIX/bin:$PATH
+  export PATH="$MODULE_PREFIX/bin:$PATH"
   export CPPFLAGS="$CPPFLAGS -I$MODULE_PREFIX/include"
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
-  export USER=nobody
 
   OPTS="$OPTS  --enable-image-loader-eet        \
-               --enable-image-loader-edb        \
                --with-x                         \
                --enable-software-x11            \
                --enable-xrender-x11             \
