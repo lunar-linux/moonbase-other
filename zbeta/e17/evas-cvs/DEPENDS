@@ -1,7 +1,8 @@
 depends  pkgconfig  &&
 depends  eet-cvs    &&
-depends  edb-cvs    &&
 
+optional_depends  "edb-cvs"   "--enable-image-loader-edb"   ""         \
+                              "enable the EFL-based edb image loader"  &&
 optional_depends  "libpng"    "--enable-image-loader-png"   ""         \
                               "enable PNG image loader"                &&
 optional_depends  "jpeg"      "--enable-image-loader-jpeg"  ""         \
