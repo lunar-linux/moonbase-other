@@ -3,11 +3,8 @@ EDITOR=`which  nano`                  &&
 
 (
 
-  ./configure  --prefix=/usr              \
-               --with-editor=$EDITOR      \
-               --infodir=/usr/share/info  \
-               --mandir=/usr/share/man    \
-               $OPTS			 &&
-  default_make
+  OPTS="$OPTS --with-editor=$EDITOR"
+
+  default_build
 
 ) > $C_FIFO 2>&1
