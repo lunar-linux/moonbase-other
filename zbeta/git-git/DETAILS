@@ -1,0 +1,20 @@
+          MODULE=git-git
+         VERSION=beta
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=git://git.kernel.org/pub/scm/git/git.git:master
+        WEB_SITE=http://kernel.org/pub/software/scm/git/
+         ENTERED=20060410
+         UPDATED=`date -u +%Y%m%d`
+           SHORT="The stupid content tracker"
+PSAFE=no
+
+cat << EOF
+Linus Torvalds new toolset for a "userland filesystem upon which other SCM
+implementations are being built or adapted."
+
+This is a stupid (but extremely fast) directory content manager. It doesn't
+do a whole lot, but what it _does_ do is track directory contents efficiently.
+
+There are two object abstractions: the "object database", and the "current
+directory cache" aka "index".
+EOF
