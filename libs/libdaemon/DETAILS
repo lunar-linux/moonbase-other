@@ -1,0 +1,26 @@
+          MODULE=libdaemon
+         VERSION=0.10
+	     PKG=${MODULE}-${VERSION}
+          SOURCE=${PKG}.tar.gz
+        WEB_SITE=http://0pointer.de/lennart/projects/libdaemon/
+      SOURCE_URL=${WEB_SITE}
+      SOURCE_VFY=sha1:2606710f5b130078c313cbdb86765cf2da20c334
+         ENTERED=20060317
+         UPDATED=20060317
+           SHORT="A lightweight C library that eases the writing of UNIX daemons."
+cat << EOF
+libdaemon is a lightweight C library that eases the writing of UNIX
+daemons. It consists of the following parts:
+
+* A wrapper around fork() which does the correct daemonization procedure
+  of a process
+* A wrapper around syslog() for simpler and compatible log output to
+  Syslog or STDERR * An API for writing PID files
+* An API for serializing UNIX signals into a pipe for usage with
+  select() or poll()
+* An API for running subprocesses with STDOUT and STDERR redirected to
+  syslog.
+
+APIs like these are used in most daemon software available. It is not
+that simple to get it done right and code duplication is not a goal.
+EOF
