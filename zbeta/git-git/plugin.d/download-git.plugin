@@ -30,7 +30,6 @@ plugin_source_download_git() {
   fi
 
   GIT_URL=$(echo $1 | cut -d: -f1-2)
-  GIT_BRANCH=$(echo $1 | cut -d: -f3)
   # translate git+http(s) urls:
   if [ "${GIT_URL:0:8}" == "git+http" ]; then
     GIT_URL="${GIT_URL:4}"
@@ -45,12 +44,11 @@ plugin_source_download_git() {
   cd $TMPDIR/$MODULE-$VERSION
   if [ -f "$3/$2" ] ; then
     verbose_msg "Extracting local GIT copy"
-    # unpacking in last component dir of $GIT_BRANCH
+    # unpacking
     CD=$(pwd -P)
     cd $CD
     if ! tar xjf $3/$2 ; then
       message "${PROBLEM_COLOR}Warning: bad local GIT copy, checking out fresh GIT copy${DEFAULT_COLOR}"
-
       rm_source_dir $TMPDIR/$MODULE-$VERSION
       mk_source_dir $TMPDIR/$MODULE-$VERSION
     fi
@@ -62,13 +60,13 @@ plugin_source_download_git() {
   fi
 
   for (( TRY=1 ; $TRY<$NUM_RETRY+1 ; TRY++ )) ; do
-    if [ "$MODULE-$VERSION/.git" ] ; then
+    if [ -d "$MODULE-$VERSION/.git" ] ; then
       cd $MODULE-$VERSION
       verbose_msg "[${TRY}] git pull"
       git pull && GOT_GIT="yes" 
       cd ${CD}
     else
-      verbose_msg "[${TRY}] git clone $GIT_URL $GIT_BRANCH"
+      verbose_msg "[${TRY}] git clone $GIT_URL"
       git clone $GIT_URL $MODULE-$VERSION && GOT_GIT="yes"
     fi
 
@@ -81,7 +79,7 @@ plugin_source_download_git() {
 
   if [ "$GOT_GIT" == "yes" ] ; then
     message "${MESSAGE_COLOR}Creating ${FILE_COLOR}$2${DEFAULT_COLOR}"
-    # pack in last component dir of $GIT_BRANCH
+    # pack
     tar cjf $3/$2 $MODULE-$VERSION
   else
     activity_log "lget" "$MODULE" "$VERSION" "failed" "Could not fetch \"$1\""
