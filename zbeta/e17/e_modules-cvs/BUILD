@@ -8,21 +8,21 @@
   export USER=nobody
 
   for module in $AVAILABLE_MODULES; do
-    cd $module           &&
+    pushd $module        &&
     message "\n\nBuilding Module: ${module}\n"  &&
 
     # seperate them out so that prepare_install isn't called each time
     default_cvs_config   &&
     make                 &&
-    cd ..
+    popd
   done
  
   prepare_install  &&
   for module in $AVAILABLE_MODULES; do
-    cd $module           &&
+    pushd $module        &&
     message "\n\nInstalling Module: ${module}\n"  &&
     make install         &&
-    cd ..
+    popd
   done
 
 ) > $C_FIFO 2>&1
