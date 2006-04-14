@@ -22,14 +22,14 @@ _lvu ()
 {
 	# List any lvu sub-commands that do not take a module name 
 	# after it
-        LVU_CMDS_WITH_NO_MODULE="leafs orphans alien held exiled export moonbase html updatelog activity pam"
+        LVU_CMDS_WITH_NO_MODULE="leafs orphans alien held exiled export moonbase html updatelog activity pam expired"
 	local cur prev
 	COMPREPLY=()
 	cur=${COMP_WORDS[COMP_CWORD]}
 	prev=${COMP_WORDS[COMP_CWORD-1]}
 
 	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
-		COMPREPLY=( $( compgen -W 'DETAILS DEPENDS CONFLICTS BUILD PRE_BUILD POST_BUILD CONFIGURE POST_INSTALL PRE_REMOVE POST_REMOVE what where cd alien from leafs orphans search service website install size installed compile compiler links sources maintainer version sum md5sum export import section moonbase html updatelog activity newer older voyeur pam depends tree eert stree leert held exiled urls versions short info' $cur ))
+		COMPREPLY=( $( compgen -W 'DETAILS DEPENDS CONFLICTS BUILD PRE_BUILD POST_BUILD CONFIGURE POST_INSTALL PRE_REMOVE POST_REMOVE what where cd alien from leafs orphans search service website install size installed compile compiler links sources maintainer version sum md5sum export import section moonbase html updatelog activity newer older voyeur pam expired depends tree eert stree leert held exiled urls versions short info' $cur ))
 	elif [ $COMP_CWORD -eq 2 -a $prev = "from" ]; then
 	        COMPREPLY=( $(compgen -f "$cur") )
 	elif [ $COMP_CWORD -eq 2 ]; then
