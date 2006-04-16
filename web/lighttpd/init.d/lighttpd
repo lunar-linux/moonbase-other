@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Startup script for the Apache Web Server
+#
+# chkconfig: - 85 15
+# description: LightTPD is a World Wide Web server.  It is used to serve \
+#              HTML files and CGI.
+# processname: lighttpd
+# pidfile: /var/run/httpd.pid
+# config: /etc/lighttpd.conf
+
+ARGS="-f /etc/lighttpd/lighttpd.conf"
+
+. /lib/lsb/init-functions $1
