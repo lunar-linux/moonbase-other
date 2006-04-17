@@ -1,2 +1,8 @@
 depends apr &&
-depends db
+
+optional_depends "db" "--with-dbm=db44 --with-berkeley-db=/usr" "" "berkeley db support" &&
+optional_depends "openldap" "--with-ldap=ldap" "" "ldap support" &&
+optional_depends "mysql" "--with-mysql=/usr" "" "mysql support" &&
+optional_depends "postgresql" "--with-pgsql=/usr" "" "postgresql support" &&
+optional_depends "sqlite" "--with-sqlite3=/usr" "" "sqlite support" &&
+optional_depends "expat" "--with-expat=/usr" "" "expat support"
