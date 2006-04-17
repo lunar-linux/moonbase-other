@@ -1,11 +1,16 @@
           MODULE=apr-util
-         VERSION=1.2.2
+         VERSION=1.2.7
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://apache.archive.sunet.se/dist/apr/
-      SOURCE_VFY=sha1:1928fde55a81cef07c6e60bfa3d796d26f534f48
+   SOURCE_URL[0]=ftp://ftp.sunet.se/pub/www/servers/apache/dist/apr/
+   SOURCE_URL[1]=ftp://mirror2.dataphone.se/pub/apache/apr/
+   SOURCE_URL[2]=http://www.apache.org/dist/apr/
+      SOURCE_VFY=sha1:1b25cf401f21e404f1a9ecded77bc6e0c484d441
+         SOURCE2=$MODULE-$VERSION-dbd_mysql.patch.gz
+     SOURCE2_URL=$PATCH_URL/
+     SOURCE2_VFY=2c1761eb51652ff768888e7294d93e55ceb1399c
         WEB_SITE=http://apr.apache.org/
          ENTERED=20051208
-         UPDATED=20051208
+         UPDATED=20060417
       MAINTAINER="prox@lunar-linux.org"
            SHORT="Apache Portable Runtime Project"
 
