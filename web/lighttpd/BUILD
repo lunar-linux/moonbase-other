@@ -5,14 +5,6 @@
   ./configure  --prefix=/usr               \
    	       --libdir=/usr/lib/lighttpd  \
                $OPTS                      &&
-  default_make  &&
-
-  if [ ! -d /etc/lighttpd ]; then
-    mkdir /etc/lighttpd
-  fi
-
-  if [ ! -f /etc/lighttpd/lighttpd.conf ];  then
-    install -m 644 doc/lighttpd.conf /etc/lighttpd
-  fi
+  default_make
 
 ) > $C_FIFO 2>&1
