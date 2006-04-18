@@ -2,16 +2,20 @@
          VERSION=1.15.1
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=$MODULE.1-$VERSION.gz
+         SOURCE3=$MODULE-xheader-1.patch.bz2
    SOURCE_URL[0]=$GNU_URL/$MODULE/
    SOURCE_URL[1]=ftp://ftp.gnu.org/gnu/$MODULE/
       SOURCE_VFY=sha1:f861b7524a0867833056dc382e68085234cae6ff
      SOURCE2_URL=$PATCH_URL/
      SOURCE2_VFY=sha1:071d855338896936347a8270ed3133b38534c09a
+     SOURCE3_URL=$PATCH_URL/
+     SOURCE3_VFY=sha1:e3e99b55390717a0438859e806f9201b2382e8c3
         WEB_SITE=http://www.gnu.org/software/tar/tar.html
          ENTERED=20010922
-         UPDATED=20041223
+         UPDATED=20060418
       MAINTAINER=prox@lunar-linux.org
            SHORT="tar creates GNU tar archives."
+
 cat << EOF
 GNU tar - Creates tar archives
 Can create tar archives, as well as other forms of manipulation. For
