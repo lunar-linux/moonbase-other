@@ -52,7 +52,6 @@
     --disable-logging	\
     --disable-accessibility	\
     --disable-freetype2	\
-    --disable-ldap	\
     --disable-profilesharing	\
     --disable-mathml	\
     $OPTS               &&

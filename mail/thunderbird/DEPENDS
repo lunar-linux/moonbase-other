@@ -15,4 +15,8 @@ optional_depends "gnome-vfs2" "" \
 optional_depends heimdal \
                  "--with-gssapi=/usr/include/heimdal" \
                  "" \
-                 "Heimdal GSSAPI Support"
+                 "Heimdal GSSAPI Support" &&
+
+optional_depends openldap \
+                 "--enable-ldap" "--disable-ldap" \
+                 "for LDAP address book support"
