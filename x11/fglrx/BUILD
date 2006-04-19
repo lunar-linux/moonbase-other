@@ -21,6 +21,7 @@
   install -m 644 fglrx_agp.${KERNEL_VERSION}.${MOD_EXT} /lib/modules/${KERNEL_VERSION}/drivers/char/agp/fglrx_agp.${MOD_EXT} &&
   cd $SOURCE_DIRECTORY &&
   install -m755 usr/X11R6/bin/fgl* /usr/X11R6/bin/ &&
+  install -m755 usr/X11R6/bin/aticonfig /usr/X11R6/bin/ &&
   install -m644 usr/X11R6/include/X11/extensions/fglrx_gamma.h \
   	/usr/X11R6/include/X11/extensions/ &&
   cp -a usr/X11R6/lib/* /usr/X11R6/lib/ &&
