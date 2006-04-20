@@ -1,7 +1,7 @@
 (
 
-  ./configure --enable-thread  \
-              --prefix=/usr   &&
-  default_make 
+  OPTS="$OPTS  --enable-thread"
+
+  default_build
 
 ) > $C_FIFO 2>&1
