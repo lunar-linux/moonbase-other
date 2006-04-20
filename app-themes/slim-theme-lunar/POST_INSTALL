@@ -1,0 +1,7 @@
+if query "Do you want slim to use $MODULE by default?" "y"; then
+  if [ -w /etc/slim.conf ]; then
+    sed -i 's/^\(current_theme\).*$/\1\tlunar/g' /etc/slim.conf
+  else
+    message "${CYAN}Failed to locate the slim configuration.${DEFAULT_COLOR}"
+  fi
+fi
