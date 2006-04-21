@@ -10,6 +10,17 @@
   install -m 755 -t $DEFAULT_PREFIX/bin ding &&
   
   # Install de-en translation dictionary
-  install -m 644 -t $DEFAULT_PREFIX/share/dict de-en.txt
+  install -m 644 -t $DEFAULT_PREFIX/share/dict de-en.txt &&
+
+  # Install icon
+  install -m 644 -t $DEFAULT_PREFIX/share/pixmaps ding.png &&
+
+  # Install desktop file
+  install -m 644 -t $DEFAULT_PREFIX/share/applications ding.desktop &&
+
+  # Update desktop files database
+  if module_installed desktop-file-utils; then
+    update-desktop-database
+  fi
 
 ) > $C_FIFO 2>&1
