@@ -5,7 +5,10 @@
   cd $SOURCE_DIRECTORY  &&
   ./configure --prefix=/usr                      \
 	      --enable-notify=no                 \
-	      --enable-tkconfig=/usr/share/gcl   \
+              --enable-tkconfig=/usr/share/gcl   \
+              --enable-locbfd=yes                \
+              --enable-dynsysbfd=no              \
+              --enable-statsysbfd=no             \
               $OPTS                             &&
   if ! module_installed emacs; then
   	sedit "s!EMACS_SITE_LISP=!EMACS_SITE_LISP=/usr/share/gcl!" makedefs &&
