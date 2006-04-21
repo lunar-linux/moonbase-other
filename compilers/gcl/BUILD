@@ -1,4 +1,7 @@
 (
+  # Apply configure patch
+  patch_it $SOURCE2 0 &&
+
   cd $SOURCE_DIRECTORY  &&
   ./configure --prefix=/usr                      \
 	      --enable-notify=no                 \
