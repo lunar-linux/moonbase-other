@@ -18,11 +18,6 @@
   install -m 644 -t $DEFAULT_PREFIX/share/pixmaps ding.png &&
 
   # Install desktop file
-  install -m 644 -t $DEFAULT_PREFIX/share/applications ding.desktop &&
-
-  # Update desktop files database
-  if module_installed desktop-file-utils; then
-    update-desktop-database
-  fi
+  install -m 644 -t $DEFAULT_PREFIX/share/applications ding.desktop
 
 ) > $C_FIFO 2>&1
