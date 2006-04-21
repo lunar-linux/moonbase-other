@@ -41,10 +41,11 @@
     --enable-cpp-rtti   \
     --enable-optimize="$CFLAGS"   \
     --enable-crypto     \
-    --enable-strip	\
+    --enable-strip      \
     --enable-strip-libs \
     --enable-xterm-updates	\
-    --disable-svg	\
+    --enable-official-branding  \
+    --disable-svg       \
     --enable-plaintext-editor-only	\
     --disable-debug     \
     --disable-tests     \
