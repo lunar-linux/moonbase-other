@@ -1,11 +1,17 @@
-       MODULE=confuse
-      VERSION=2.5
-       SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_URL[0]=http://savannah.nongnu.org/download/confuse/
-     WEB_SITE=http://www.nongnu.org/confuse/
-      ENTERED=20040822
-      UPDATED=20040822
-        SHORT="Library for configuration files"
+          MODULE=confuse
+         VERSION=2.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION.makefile.patch
+      SOURCE_URL=http://savannah.nongnu.org/download/confuse/
+      SOURCE_VFY=0ba87baeb0f6540414b24c4b2d47ae375d0b870d
+     SOURCE2_URL=http://mirror.gezeiten.org/lunar/patches/
+     SOURCE2_VFY=sha1:5ab95aaed59fbf2700826959a7ae98bea21fb1e4
+        WEB_SITE=http://www.nongnu.org/confuse/
+         ENTERED=20040822
+         UPDATED=20060421
+           SHORT="Library for configuration files"
+      MAINTAINER=jannis@xfce.org
+
 cat << EOF
 libConfuse is a configuration file parser library, and written in C.
 It supports sections and (lists of) values 
