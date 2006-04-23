@@ -1,10 +1,20 @@
-depends libzvt &&
-depends glade2 &&
-depends devhelp &&
-depends libgnomeui &&
-depends libgnomeprintui &&
-depends vte &&
-optional_depends "gtkmm2" "" "" "For developing GTK+-2 C++ applications" &&
-optional_depends "libgnomeuimm" "" "" "For developing C++ Gnome applications" &&optional_depends "SDL" "" "" "For developing SDL applications" &&
-optional_depends "libglade2" "" "" "For developing libglade-based projects" &&
-optional_depends "libglademm" "" "" "For developing libglade c++ apps"
+depends  libzvt           &&
+depends  glade2           &&
+depends  libgnomeui       &&
+depends  libgnomeprintui  &&
+depends  vte              &&
+
+optional_depends  "gtkmm2"        ""  ""                    \
+                  "for developing GTK+-2 C++ applications"  &&
+optional_depends  "libgnomeuimm"  ""  ""                    \
+                  "for developing C++ Gnome applications"   &&
+optional_depends  "SDL"           ""  ""                    \
+                  "for developing SDL applications"         &&
+optional_depends  "libglade2"     ""  ""                    \
+                  "for developing libglade-based projects"  &&
+optional_depends  "libglademm"    ""  ""                    \
+                  "for developing libglade c++ apps"        &&
+optional_depends  "devhelp"       ""  ""                    \
+                  "for an integrated documentation viewer"  &&
+optional_depends  "indent"        ""  ""                    \
+                  "to be able to auto-format code with the IDE"
