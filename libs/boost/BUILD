@@ -1,34 +1,37 @@
 (
-   # get python version
-   PYTHON_VERSION="`installed_version Python`"
 
-   bjam         $OPTS                             \
-     		-sBOOST_ROOT=$SOURCE_DIRECTORY    \
-		-sPYTHON_ROOT=/usr                \
-		-sPYTHON_VERSION=$PYTHON_VERSION &&
+  # build bjam (which is used instead of make)
+  cd  "$SOURCE_DIRECTORY/tools/build/jam_src"  &&
+  ./build.sh gcc  &&
+  cd  "$SOURCE_DIRECTORY"
 
-   prepare_install  &&
-   
-   # install libs
-   find bin/boost/libs -type f -name "*.a" \
-	-exec install -m644 {} /usr/lib \; &&
-   find bin/boost/libs -type f -name "*.so*" \
-        -exec install -m755 {} /usr/lib \;
+  BJAMBIN="$SOURCE_DIRECTORY/tools/build/jam_src/bin.*/bjam"
 
-   # make proper link
-   vp="1_33_1"
-   for x in `find /usr/lib -type f -name "libboost*.so.$VERSION"`; do
-     # get basename
-     bn=${x%%so*}
-     # make link
-     ln -sf $x ${bn}so
-     ln -sf ${bn}so ${bn/-gcc-$vp/}so
-     ln -sf ${bn}a ${bn/-gcc-$vp/}a
-   done
+  $BJAMBIN  -sBOOST_ROOT="$SOURCE_DIRECTORY"  \
+            -sTOOLS=gcc                       \
+            --prefix=/usr                     \
+            --layout=system                   \
+            $OPTS
 
-   # install source/header files
-   find boost -type f \
-	-exec install -D -m0644 {} /usr/include/{} \;
+  $BJAMBIN  -sBOOST_ROOT="$SOURCE_DIRECTORY"  \
+            -sTOOLS=gcc                       \
+            --prefix=/usr                     \
+            --layout=system                   \
+            $OPTS
 
-   # need to add doc from doxygen ?
+  prepare_install  &&
+
+  cd  "$SOURCE_DIRECTORY/tools/build"                &&
+  mkdir -p /usr/share/boost-build                    &&
+  cp -pPR index.html v1/ v2/ /usr/share/boost-build  &&
+
+  cd  "$SOURCE_DIRECTORY"
+
+  $BJAMBIN  -sBOOST_ROOT="$SOURCE_DIRECTORY"  \
+            -sTOOLS=gcc                       \
+            --prefix=/usr                     \
+            --layout=system                   \
+            $OPTS                             \
+            install
+
 ) > $C_FIFO 2>&1
