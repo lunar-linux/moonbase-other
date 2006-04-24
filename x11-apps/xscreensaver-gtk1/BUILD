@@ -1,16 +1,18 @@
 (
 
+  # Now lets do the PAM stuff the proper way
+  if module_installed Linux-PAM; then
+    OPTS="$OPTS --with-pam --without-shadow"
+  fi
+
   # Enable gtk support
   OPTS="$OPTS --without-motif --with-gtk --with-xml"
 
   # Enable locking abilities of xscreensaver
   OPTS="$OPTS --enable-locking"
   
-  default_build &&
+  default_build  &&
 
-  # KDE seems to enjoy having this symlink
-  if module_installed "kde3" ; then
-    ln -s /usr/share/control-center/screensavers /usr/lib/xscreensaver/config
-  fi 
+  rm -fR /xscreensaver
 
 ) > $C_FIFO 2>&1
