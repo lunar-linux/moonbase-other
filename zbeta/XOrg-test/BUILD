@@ -59,44 +59,45 @@
   # explicitly exit here now and not later on
   make World || exit 1
   
-  prepare_install                       &&
-  cd $SOURCE_DIRECTORY                  &&
-  make install                          &&
-  make install.man                      &&
-  mkdir -p /usr/X11R6/include/GL        &&
-  rm -f /usr/X11R6/lib/libz.a           &&
-  rm -f /usr/X11R6/include/zlib.h       &&
-  rm -f /usr/X11R6/include/zconf.h      &&
-  rm -f /usr/X11R6/lib/libz.a           &&
+  prepare_install                   &&
+  cd $SOURCE_DIRECTORY              &&
+  make install                      &&
+  make install.man                  &&
+  mkdir -p /usr/X11R6/include/GL    &&
+  rm -f /usr/X11R6/lib/libz.a       &&
+  rm -f /usr/X11R6/include/zlib.h   &&
+  rm -f /usr/X11R6/include/zconf.h  &&
+  rm -f /usr/X11R6/lib/X11/fonts    && 
+  rm -f /usr/X11R6/lib/libz.a       &&
 
   if [ ! -e /etc/skel/.xsession ]; then
     cp $SCRIPT_DIRECTORY/xsession /etc/skel/.xsession
   fi &&
 
-  ln -sf /usr/X11R6/bin /usr/bin/X11 &&
-  ln -sf /usr/X11R6 /usr/X11 &&
-  ln -sf /usr/X11R6/include/X11 /usr/include/X11 &&
-  ln -sf /usr/X11R6/lib/X11 /usr/lib/X11 &&
-  ln -sf /usr/share/fonts /usr/X11R6/lib/X11/fonts &&
-  ln -sf /usr/X11R6/lib/libGLU.so.1.3 /usr/lib/libMesaGLU.so &&
-  ln -sf /usr/X11R6/lib/libGL.so.1.2 /usr/X11R6/lib/libMesaGL.so &&
-  ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig/xft.pc &&
+  ln -sf /usr/X11R6/bin /usr/bin/X11  &&
+  ln -sf /usr/X11R6 /usr/X11  &&
+  ln -sf /usr/X11R6/include/X11 /usr/include/X11  &&
+  ln -sf /usr/X11R6/lib/X11 /usr/lib/X11  &&
+  ln -sf /usr/share/fonts /usr/X11R6/lib/X11/fonts  &&
+  ln -sf /usr/X11R6/lib/libGLU.so.1.3 /usr/lib/libMesaGLU.so  &&
+  ln -sf /usr/X11R6/lib/libGL.so.1.2 /usr/X11R6/lib/libMesaGL.so  &&
+  ln -sf /usr/X11R6/lib/pkgconfig/xft.pc /usr/lib/pkgconfig/xft.pc  &&
 
-  install -g0 -m0 -m0700 $SCRIPT_DIRECTORY/init.d/ICE,X11-unix /etc/init.d/ &&
-  ln -sf /etc/init.d/ICE,X11-unix /etc/rc2.d/S20ICE,X11-unix &&
-  ln -sf /etc/init.d/ICE,X11-unix /etc/rc3.d/S20ICE,X11-unix &&
-  ln -sf /etc/init.d/ICE,X11-unix /etc/rc4.d/S20ICE,X11-unix &&
-  ln -sf /etc/init.d/ICE,X11-unix /etc/rc5.d/S20ICE,X11-unix &&
-  /etc/init.d/ICE,X11-unix start &&
+  install -g0 -m0 -m0700 $SCRIPT_DIRECTORY/init.d/ICE,X11-unix /etc/init.d/  &&
+  ln -sf /etc/init.d/ICE,X11-unix /etc/rc2.d/S20ICE,X11-unix  &&
+  ln -sf /etc/init.d/ICE,X11-unix /etc/rc3.d/S20ICE,X11-unix  &&
+  ln -sf /etc/init.d/ICE,X11-unix /etc/rc4.d/S20ICE,X11-unix  &&
+  ln -sf /etc/init.d/ICE,X11-unix /etc/rc5.d/S20ICE,X11-unix  &&
+  /etc/init.d/ICE,X11-unix start  &&
 
   if [ -e /etc/X11/xinit/xinitrc.orig ]; then
     cp /etc/X11/xinit/xinitrc.orig /etc/X11/xinit/xinitrc
     message "${MESSAGE_COLOR}Your master xinitrc file has been restored from /etc/X11/xinit/xinitrc.orig${DEFAULT_COLOR}"
-  fi &&
+  fi  &&
 
   # cosmetic but needed adjustments:
   if ! grep -q 'XTerm*loginShell:' /etc/X11/app-defaults/XTerm ; then
-    echo 'XTerm*loginShell: true' >> /etc/X11/app-defaults/XTerm &&
+    echo 'XTerm*loginShell: true' >> /etc/X11/app-defaults/XTerm  &&
     echo 'XTerm*loginShell: true' >> /etc/X11/app-defaults/XTerm-color
   fi
  
