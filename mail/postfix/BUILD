@@ -1,5 +1,7 @@
 (
 
+  sedit "s:#mail_spool_directory = .*:mail_spool_directory = /var/spool/mail:" conf/main.cf
+
   add_priv_user postdrop:postdrop    &&
   add_priv_user postfix:postfix      &&
   add_priv_user mail:mail            &&
@@ -9,27 +11,27 @@
   chmod  1777       /var/spool/mail  &&
   chown  mail:mail  /var/spool/mail  &&
 
-  if module_installed openldap ; then
+  if in_depends $MODULE openldap ; then
     AUXLIBS="-lldap -llber"
     CCARGS="-DHAS_LDAP"
   fi  &&
 
-  if module_installed Linux-PAM ; then
+  if in_depends $MODULE Linux-PAM ; then
     AUXLIBS=$AUXLIBS" -lpam -lpam_misc"
     CCARGS=$CCARGS" -DHAS_PAM"
   fi  &&
 
-  if module_installed mysql ; then
+  if in_depends $MODULE mysql ; then
     AUXLIBS=$AUXLIBS" -lmysqlclient -lz -lm"
     CCARGS=$CCARGS" -DHAS_MYSQL -I/usr/include/mysql"
   fi  &&
 
-  if module_installed postgresql ; then
+  if in_depends $MODULE postgresql ; then
     AUXLIBS=$AUXLIBS" -lpq"
     CCARGS=$CCARGS" -DHAS_PGSQL -I/usr/include/pgsql"
   fi  &&
 
-  if module_installed cyrus-sasl ; then
+  if in_depends $MODULE cyrus-sasl ; then
     AUXLIBS=$AUXLIBS" -lsasl2 -lssl -lcrypto"
     CCARGS=$CCARGS" -DUSE_SASL_AUTH -I/usr/include/sasl -DUSE_TLS -I/usr/include/openssl"
   fi  &&
@@ -37,11 +39,8 @@
   AUXLIBS=$AUXLIBS" -lpthread"
   echo CCARGS=$CCARGS      &&
   echo AUXLIBS=$AUXLIBS    &&
-  
-  make  "OPT=$CFLAGS"       \
-        "AUXLIBS=$AUXLIBS"  \
-        "CCARGS=$CCARGS"   &&
 
+  make "OPT=$CFLAGS" "AUXLIBS=$AUXLIBS" "CCARGS=$CCARGS"   &&
   prepare_install          &&
 
   sh postfix-install -non-interactive                   \
@@ -58,15 +57,7 @@
        sample_directory=/usr/share/doc/postfix/samples  \
        readme_directory=/usr/share/doc/postfix         &&
 
-  ln  -sf   ../sbin/sendmail   \
-           /usr/lib/sendmail  &&
-
-  ln  -sf  postfix/aliases  \
-              /etc/aliases
-
-  if [ -e "/etc/init.d/postfix.sh" ]; then
-     rm -f /etc/init.d/postfix.sh
-     rm -f /etc/rc?.d/???postfix.sh
-  fi
+  ln -sf ../sbin/sendmail /usr/lib/sendmail  &&
+  ln -sf postfix/aliases /etc/aliases
 
 ) > $C_FIFO 2>&1
