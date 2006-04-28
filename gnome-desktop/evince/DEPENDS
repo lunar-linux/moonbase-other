@@ -1,4 +1,10 @@
 depends  libgnomeui       &&
 depends  gnome-doc-utils  &&
 depends  poppler          &&
-depends  espgs
+depends  espgs            &&
+
+optional_depends  "libgnomeprintui"  ""    "--disable-gnome-print"  \
+                  "for document printing support"                   &&
+optional_depends  "dbus"  ""               ""  "for DBus support"   &&
+optional_depends  "tiff"  "--enable-tiff"  "--disable-tiff"         \
+                  "enable support for multipage TIFF files"
