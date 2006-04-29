@@ -68,28 +68,3 @@ else
    echo -e "\t* re-lin'ing e2fsprogs...\n"
    lin -c e2fsprogs
 fi
-
-cat << EOF
-
-
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*                                                                       *
-*   UDEV WARNING                                                        *
-*                                                                       *
-*   Next time you reboot with a 2.6.X kernel your box will try to       *
-*   boot with udev. Make sure your kernel has support for hotplug.      *
-*                                                                       *
-*   If you wish to disable this behaviour, you can edit                 *
-*   /etc/udev/udev.conf, setting udev_root=/udev instead of             *
-*   udev_root=/dev.                                                     *
-*                                                                       *
-*   You can also disable udev passing on kernel command line            *
-*   dev=static, if you have static nodes or                             *
-*   dev=devfs, if you wish to carry on using devfs with 2.6 kernels.    *
-*                                                                       * 
-*   Please refer to http://www.lunar-linux.org for more information.    *
-*                                                                       * 
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-
-EOF
