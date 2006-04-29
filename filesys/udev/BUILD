@@ -24,9 +24,11 @@
 
     install -m755 ${SCRIPT_DIRECTORY}/udev /etc/init.d/  		&&
     install -m644 ${SOURCE_CACHE}/${SOURCE3} \
-		  /etc/udev/rules.d					&&
+		  /etc/udev/rules.d/05-firmware.rules			&&
     install -m644 ${SOURCE_DIRECTORY}/etc/udev/gentoo/udev.rules \
 		  /etc/udev/rules.d/50-udev.rules			&&
+    install -m644 ${SOURCE_DIRECTORY}/etc/udev/60-persistent-storage.rules \
+                  /etc/udev/rules.d/60-persistent-storage.rules		&&
     install -m755 ${SOURCE_CACHE}/${SOURCE4} \
 		  /etc/udev/scripts.d/raid-devfs.sh
 
