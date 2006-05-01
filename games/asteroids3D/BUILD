@@ -1,5 +1,6 @@
 (
 
+  cp GNUmakefile Makefile  &&
   sedit "s:-lGLU::" Makefile  && 
 
   sedit "s:contrib/nebula:nebula:" texture.c  &&
