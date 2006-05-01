@@ -4,16 +4,15 @@
                --sysconfdir=/etc        \
                --mandir=/usr/share/man  \
                --enable-static          \
-               --localstatedir=/var     &&
+               --localstatedir=/var    &&
                 
-  make           &&
+  make  &&
 
-  if [ -f /usr/bin/parec ]
-  then
-  rm /usr/bin/parec
+  if [ -f /usr/bin/parec ];  then
+    rm /usr/bin/parec
   fi
 
-  prepare_install &&
+  prepare_install  &&
   make install
 
 

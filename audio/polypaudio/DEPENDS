@@ -1,5 +1,7 @@
-depends  lynx          &&
+depends  liboil        &&
 depends  libsndfile    &&
-depends  tcp_wrappers  &&
-depends  alsa-lib      &&
 depends  libsamplerate
+
+optional_depends  "alsa-lib"  ""  ""  "for ALSA support"  &&
+optional_depends  "jack"      ""  ""  "for jack support"  &&
+optional_depends  "glib-2"    ""  ""  "for glib support"
