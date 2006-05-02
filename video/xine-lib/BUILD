@@ -1,6 +1,8 @@
 (
 
-  export ARTS_CONFIG=/opt/lunar/kde/3/bin/artsc-config &&
+  ARTS_CONFIG="${KDE_PREFIX:-/opt/lunar/kde/3}/bin/artsc-config"
+  OPTS="$OPTS --enable-static"
+
   default_build
 
 ) > $C_FIFO 2>&1
