@@ -1,19 +1,21 @@
         MODULE=openafs
-       VERSION=1.2.13
+       VERSION=1.4.1
         SOURCE=openafs-$VERSION-src.tar.bz2
-       SOURCE2=openafs-1.2.10a-m4.patch.bz2
-       SOURCE3=openafs-etc-1.0.tar.bz2
+       SOURCE2=CellServDB
+       SOURCE3=openafs-1.4.1-paths.patch
+       SOURCE4=openafs-1.4.1-rename_pagsh.patch
     SOURCE_URL=http://www.openafs.org/dl/openafs/$VERSION/
-   SOURCE2_URL=$PATCH_URL/
+   SOURCE2_URL=http://grand.central.org/dl/cellservdb/
    SOURCE3_URL=$PATCH_URL/
+   SOURCE4_URL=$PATCH_URL/
       WEB_SITE=http://www.openafs.org/
-    SOURCE_VFY=sha1:75f213cfaa3c3dad6d5f30cd4c6e59b0996e4358
-   SOURCE2_VFY=sha1:e4de5fe0201dc4e0fa5668f616f7433905c67c2a
-   SOURCE3_VFY=sha1:1094fa88c3ab4499557be52d162eedc68a47e36a
+    SOURCE_VFY=sha1:8f2ba479dfdc32e7471555f4a19493839bdd736f
+   SOURCE3_VFY=sha1:3f0b5191eff5ea9cf17940eae8f27a2ece603899
+   SOURCE4_VFY=sha1:401b3ada4f9a2a60cd0f6ac60f7107f1fdca0638
        ENTERED=20031216
-       UPDATED=20050321
+       UPDATED=20060503
     MAINTAINER="ratler@lunar-linux.org"
-         SHORT="OpenAFS distributed filesystem"
+         SHORT="A distributed filesystem"
          PSAFE="no"
 cat << EOF
 OpenAFS distributed filesystem. AFS is a distributed filesystem
