@@ -15,11 +15,8 @@ optional_depends  "mono"       "--enable-mono"  "--disable-mono"        \
 optional_depends  "gtkspell"   ""               "--disable-gtkspell"    \
                   "for inline message spellcheck support"               &&
 
-optional_depends  "audiofile"  ""               ""                      \
-                  "for sound support using audiofile"                   &&
-
-optional_depends  "libao"      ""               ""                      \
-                  "for sound support using libao"                       &&
+optional_depends  "gstreamer-10"  ""            "--disable-gstreamer"   \
+                  "for sound support within the application"            &&
 
 optional_depends  "linphone"   ""               ""                      \
                   "for limited voice chat support"                      &&
