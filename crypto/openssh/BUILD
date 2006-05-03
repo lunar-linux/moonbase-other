@@ -14,7 +14,7 @@
   if echo $OPTS | grep -q -- "--with-kerberos5="; then
     patch_it $SOURCE2 1
     if [[ "$KEX" == "y" ]]; then 
-    	patch_it $SOURCE3 0
+    	patch_it $SOURCE3 1
     fi
   fi &&
 
