@@ -1,18 +1,24 @@
           MODULE=openafs-driver
-         VERSION=1.2.13
+         VERSION=1.4.1
           SOURCE=openafs-$VERSION-src.tar.bz2
-   SOURCE_URL[0]=http://www.openafs.org/dl/openafs/$VERSION/
-   SOURCE_VFY[0]=sha1:75f213cfaa3c3dad6d5f30cd4c6e59b0996e4358
+         SOURCE2=openafs-1.4.1-paths.patch
+         SOURCE3=openafs-1.4.1-rename_pagsh.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/openafs-$VERSION
+      SOURCE_URL=http://www.openafs.org/dl/openafs/$VERSION/
+     SOURCE2_URL=$PATCH_URL/
+     SOURCE3_URL=$PATCH_URL/
         WEB_SITE=http://www.openafs.org/
+      SOURCE_VFY=sha1:8f2ba479dfdc32e7471555f4a19493839bdd736f
+     SOURCE2_VFY=sha1:3f0b5191eff5ea9cf17940eae8f27a2ece603899
+     SOURCE3_VFY=sha1:401b3ada4f9a2a60cd0f6ac60f7107f1fdca0638
          ENTERED=20031216
-         UPDATED=20050321
+         UPDATED=20060503
       MAINTAINER="ratler@lunar-linux.org"
            SHORT="OpenAFS kernel module"
            PSAFE="no"
 cat << EOF
-OpenAFS kernel module. AFS is a distributed filesystem allowing
-cross-platform sharing of files among multiple computers. Facilities
-are provided for access control, authentication, backup and
+OpenAFS distributed filesystem. AFS is a distributed filesystem
+allowing cross-platform sharing of files among multiple computers.
+Facilities are provided for access control, authentication, backup and
 adminsitrative management.
 EOF
