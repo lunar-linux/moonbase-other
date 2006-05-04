@@ -1,12 +1,30 @@
 depends  gst-plugins-base  &&
 
-optional_depends  "cairo"     ""  ""  "for cairo graphics support"        &&
-optional_depends  "flac"      ""  ""  "for FLAC audio codec support"      &&
-optional_depends  "jpeg"      ""  ""  "for JPEG image support"            &&
-optional_depends  "libpng"    ""  ""  "for PNG image support"             &&
-optional_depends  "aalib"     ""  ""  "for ASCII art image support"       &&
-optional_depends  "libdv"     ""  ""  "for DV (camcorder) codec support"  &&
-optional_depends  "esound"    ""  ""  "for eSound daemon support"         &&
-optional_depends  "speex"     ""  ""  "for Speex sound support"           &&
-optional_depends  "libshout"  ""  ""  "for icecast support"               &&
-optional_depends  "libcdio"   ""  ""  "for additional CDROM/CDDB support"
+optional_depends  "aalib"     ""  "--disable-aalib --disable-aalibtest"    \
+                  "for the ASCII art image plugin"                         &&
+optional_depends  "esound"    ""  "--disable-esd --disable-esdtest"        \
+                  "for the eSound audio sink"                              &&
+optional_depends  "libshout"  ""  "--disable-sound2 --disable-shout2test"  \
+                  "for icecast support"                                    &&
+optional_depends  "cairo"       ""  "--disable-cairo"    \
+                  "for the cairo graphics plugin"        &&
+optional_depends  "libcdio"     ""  "--disable-cdio"     \
+                  "for additional CDROM/CDDB support"    &&
+optional_depends  "flac"        ""  "--disable-flac"     \
+                  "for the FLAC audio codec plugin"      &&
+optional_depends  "hal"         ""  "--disable-hal"      \
+                  "for HAL support"                      &&
+optional_depends  "jpeg"        ""  "--disable-jpeg"     \
+                  "for the JPEG image plugin"            &&
+optional_depends  "ladspa_sdk"  ""  "--disable-ladspa"   \
+                  "for the ladspa plugin"                &&
+optional_depends  "libcaca"     ""  "--disable-libcaca"  \
+                  "for the libcaca plugin"               &&
+optional_depends  "libdv"       ""  "--disable-libdv"    \
+                  "for the DV/Video decoder plugin"      &&
+optional_depends  "libpng"      ""  "--disable-libpng"   \
+                  "for the PNG image plugin"             &&
+optional_depends  "speex"       ""  "--disable-speex"    \
+                  "for the Speex sound plugin"           &&
+optional_depends  "taglib"      ""  "--disable-taglib"   \
+                  "for the taglib ID3v2 tag writer plugin"
