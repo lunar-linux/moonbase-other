@@ -13,8 +13,8 @@
                 --mandir=/usr/share/man            \
 		--disable-docbook-docs	           \
                 --enable-fstab-sync                \
-                --without-hotplug                  \
                 --with-pid-file=/var/run/hald.pid  \
+		--enable-pcmcia-support		   \
                 $OPTS                             &&
     default_make				  &&
 
