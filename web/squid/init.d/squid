@@ -29,6 +29,13 @@ stop () {
     echo -e "$RESULT_FAIL"
 }
 
+restart () {
+    # Apparently we have to cut squid some slack
+    stop;
+    sleep 3;
+    start;
+}
+
 usage () {
     echo  "Usage: $0 {start|stop|restart}"
 }
