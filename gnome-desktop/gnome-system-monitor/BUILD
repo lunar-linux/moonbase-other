@@ -7,6 +7,6 @@
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
                 $OPTS                             &&
-    default_make                   
+    default_make 
 
 ) > $C_FIFO 2>&1
