@@ -1,21 +1,18 @@
 (
 
-  ./configure  --prefix=${GNOME28_PREFIX:-/usr}	                 \
-               --sysconfdir=/etc                                 \
-               --localstatedir=/var                              \
-               --mandir=${GNOME28_PREFIX:-/usr}/share/man        \
-     	       --infodir=${GNOME28_PREFIX:-/usr}/share/info      \
-               --enable-ipv6=yes                                 \
-               --enable-nntp=yes				 \
-               --enable-imap4					 \
-	       --disable-openssl				 \
-	       --without-openssl-includes			 \
-	       --without-openssl-libs				 \
-	       $OPTS                                             &&
-  default_make                                                   &&
+  ./configure  --prefix=${GNOME28_PREFIX:-/usr}	        	\
+	       --sysconfdir=/etc				\
+	       --localstatedir=/var				\
+	       --mandir=${GNOME28_PREFIX:-/usr}/share/man	\
+	       --infodir=${GNOME28_PREFIX:-/usr}/share/info     \
+	       --enable-ipv6=yes				\
+	       --enable-nntp=yes				\
+	       --enable-imap4					\
+	       $OPTS						&&
+  default_make							&&
 
   if ! grep -q '/usr/lib/bonobo/servers' /etc/bonobo-activation/bonobo-activation-config.xml ; then
     sedit "s:<searchpath>:<searchpath>\n\t<item>/usr/lib/bonobo/servers</item>:" /etc/bonobo-activation/bonobo-activation-config.xml
-  fi								
+  fi
 
 ) > $C_FIFO 2>&1

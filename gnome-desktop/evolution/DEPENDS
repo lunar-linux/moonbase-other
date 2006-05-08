@@ -7,7 +7,7 @@ depends  scrollkeeper           &&
 optional_depends  "gnupg"       ""  ""  "for encrypted mail support"  &&
 optional_depends  "gnome-spell" ""  ""  "For spellcheck support"      &&
 
-		  
+
 optional_depends  "pilot-link" "--enable-pilotlinktest"                \
                   ""                                                   \
                   "for Palm support"                                  &&
@@ -16,7 +16,7 @@ optional_depends  "gnome-pilot"					       \
                   "--enable-pilot-conduits=yes"        		       \
                   ""                                                   \
                   "for Palm Pilot support"                            &&
-                  
+
 optional_depends  "openldap"                                           \
                   "--with-openldap=yes"                                \
                   "--with-openldap=no"                                 \
@@ -25,13 +25,13 @@ optional_depends  "openldap"                                           \
 optional_depends  "gtk-doc"                                            \
                   "--enable-gtk-doc"                                   \
                   "--disable-gtk-doc"                                  \
-                  "for gtk-doc support"                               &&        
+                  "for gtk-doc support"                               &&
 
-optional_depends  "mozilla"                                            \
-                  "--with-nspr-libs=/usr/lib/mozilla                   \
-                   --with-nspr-includes=/usr/include/mozilla/nspr      \
-                   --with-nss-libs=/usr/lib/mozilla                    \
-                   --with-nss-includes=/usr/include/mozilla/nss        \
+optional_depends  "nss"                                                \
+                  "--with-nspr-libs=/usr/lib/                          \
+                   --with-nspr-includes=/usr/include/nspr              \
+                   --with-nss-libs=/usr/lib/                           \
+                   --with-nss-includes=/usr/include/nss                \
                    --enable-nss=yes"                                   \
                    ""                                                  \
                    "for nss ssl support"
