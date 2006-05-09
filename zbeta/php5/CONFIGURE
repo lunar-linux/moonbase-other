@@ -23,6 +23,13 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     mquery FASTCGI "Build FastCGI version (required by lighttpd)?" y
   fi
 
+  if  query  "Enable multibyte string support?" n;  then
+    OPTS="$OPTS --enable-mbstring"
+    if  query  "Disable multibyte regular expression functions?" n;  then
+      OPTS="$OPTS --disable-mbregex"
+    fi
+  fi
+
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
 
