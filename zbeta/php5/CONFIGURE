@@ -19,6 +19,10 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     OPTS="$OPTS --with-ncurses"
   fi
 
+  if  module_installed  lighttpd;  then
+    mquery FASTCGI "Build FastCGI version (required by lighttpd)?" y
+  fi
+
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
 
