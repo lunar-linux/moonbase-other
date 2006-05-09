@@ -20,6 +20,10 @@
     OPTS="$OPTS --with-apxs2=/usr/sbin/apxs"
   fi
 
+  if [ "x${FASTCGI}" != "x" ]; then
+    OPTS="$OPTS --enable-fastcgi"
+  fi
+
   if echo $OPTS | grep -q -- --enable-xslt ; then
     LDFLAGS="$LDFLAGS -lstdc++"
   fi

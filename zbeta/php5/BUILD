@@ -20,6 +20,10 @@
     OPTS="$OPTS --with-apxs2=/usr/sbin/apxs"
   fi
 
+  if [ "x${FASTCGI}" != "x" ] ; then
+    OPTS="$OPTS --enable-fastcgi"
+  fi
+
 #  sedit "s:^:#include <errno.h>\n:" ext/mysql/libmysql/mysys_err.h &&
 
   verbose_msg "OPTS=$OPTS" &&
@@ -31,7 +35,6 @@
 	       --enable-dio		     \
 	       --with-readline               \
                --with-zlib=/usr              \
-               --with-ncurses                \
                $OPTS                        &&
   default_make
 
