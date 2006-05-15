@@ -1,6 +1,6 @@
 (
 
-   aclocal && automake && autoconf &&
+#aclocal && automake && autoconf &&
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
