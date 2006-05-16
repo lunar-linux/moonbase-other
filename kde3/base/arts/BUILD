@@ -1,29 +1,22 @@
 (
-  export  PATH=${QT_PREFIX:-$QTDIR}/bin:$PATH
-  export  LD_LIBRARY_PATH=${QT_PREFIX:-$QTDIR}/lib
-  export  KDE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
+
+  # Needed for KDE apps to see QT
+  . /etc/profile.d/qt3.rc
  
-  ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}     \
-               --with-qt-dir=${QT_PREFIX:-$QTDIR}  \
-               --enable-final                      \
-               --disable-debug                     \
-               --with-xinerama                     \
-               $OPTS                              &&
+  OPTS="--with-qt-dir=${QTDIR} --enable-final --disable-debug --with-xinerama $OPTS" &&
 
-  default_make
+  default_build &&
 
-  if ! grep -q "${KDE_PREFIX}/lib" /etc/ld.so.conf; then
-    echo "${KDE_PREFIX}/lib" >> /etc/ld.so.conf  
-  fi 
+  if ! grep -q "${MODULE_PREFIX}/lib" /etc/ld.so.conf; then
+    echo "${MODULE_PREFIX}/lib" >> /etc/ld.so.conf  
+  fi &&
 
-  if ! grep -q "${KDE_PREFIX}/lib/kde3" /etc/ld.so.conf; then
-    echo "${KDE_PREFIX}/lib/kde3" >> /etc/ld.so.conf
-  fi
+  mkdir -p ${MODULE_PREFIX}/lib/pkgconfig &&
 
-  mkdir -p ${KDE_PREFIX:-$KDEDIR}/lib/pkgconfig
+  echo "export KDEDIR=\"${MODULE_PREFIX}\"" >> $SOURCE_DIRECTORY/kde3.rc &&
+  echo export PATH=\"'${KDEDIR}'/bin:'$PATH'\" >> $SOURCE_DIRECTORY/kde3.rc &&
+  echo export PKG_CONFIG_PATH=\"'${KDEDIR}'/lib/pkgconfig:'$PKG_CONFIG_PATH'\" >> $SOURCE_DIRECTORY/kde3.rc &&
 
-  echo "export KDEDIR=$KDE_PREFIX" > /etc/profile.d/kde3.rc
-  echo "export PATH=\$KDEDIR/bin:\$PATH" >> /etc/profile.d/kde3.rc
-  echo "export PKG_CONFIG_PATH=$KDEDIR/lib/pkgconfig:\$PKG_CONFIG_PATH" >> /etc/profile.d/kde3.rc
+  install -m644 $SOURCE_DIRECTORY/kde3.rc /etc/profile.d/
 
 ) > $C_FIFO 2>&1
