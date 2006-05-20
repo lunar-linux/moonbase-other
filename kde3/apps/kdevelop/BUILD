@@ -4,8 +4,6 @@
                --with-qtdoc-dir=${QTDIR}/doc/html  \
                --disable-debug                     \
 	       --enable-final                      \
-               --enable-fast-malloc=full           \
-               --with-xinerama                     \
                $OPTS                              &&
 
   default_make
