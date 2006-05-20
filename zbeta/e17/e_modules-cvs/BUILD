@@ -1,11 +1,10 @@
 (
 
-  AVAILABLE_MODULES="calendar devian emu evolume flame language wlan mbar uptime net mem cpu mount rain screenshot slideshow snow tclock weather"
+  AVAILABLE_MODULES="calendar cpu devian emu evolume flame language mbar mem moon mount net rain screenshot slideshow snow tclock uptime weather wlan"
 
   export PATH="$MODULE_PREFIX/bin:$PATH"
   export CPPFLAGS="$CPPFLAGS -I$MODULE_PREFIX/include"
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
-  export USER=nobody
 
   for module in $AVAILABLE_MODULES; do
     pushd $module        &&
