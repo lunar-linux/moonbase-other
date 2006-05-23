@@ -1,3 +1,9 @@
-depends mono &&
-depends cairo &&
-depends icu
+depends  %X      &&
+depends  glib-2  &&
+
+optional_depends  "tiff"    ""  "--without-libtiff"  \
+                  "for TIFF image IO support"        &&
+optional_depends  "jpeg"    ""  "--without-libjpg"   \
+                  "for JPEG image IO support"        &&
+optional_depends  "libpng"  ""  "--without-libpng"   \
+                  "for PNG image IO support"
