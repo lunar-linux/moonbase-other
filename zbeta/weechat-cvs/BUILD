@@ -1,7 +1,5 @@
 (
-  ./autogen.sh &&
-
-  ./configure   --build=$BUILD            \
+  ./autogen.sh  --build=$BUILD            \
                 --prefix=/usr             \
                 --sysconfdir=/etc         \
                 --localstatedir=/var      \
