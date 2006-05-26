@@ -1,0 +1,30 @@
+             MODULE=fbida
+            VERSION=2.03
+             SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE_URL=http://dl.bytesex.org/releases/fbida/
+         SOURCE_VFY=sha1:1c42169f22c666d1de522c028deb8559c932732a
+            ENTERED=20060526
+            UPDATED=20060526
+              SHORT="Image/PS/PDF viewer for the framebuffer console"
+         MAINTAINER=jannis@lunar-linux.org
+
+cat << EOF
+The fbida project contains a few applications for viewing and editing 
+images, with the main focus being photos. The applications are:
+
+fbi
+    This is a image viewer for the linux framebuffer console. 
+fbgs
+    A wrapper script for viewing ps/pdf files on the framebuffer 
+    console using fbi. 
+ida
+    This is a X11 application (Motif based) for viewing images. Some 
+    basic editing functions are available too. 
+exiftran
+    command line tool to do lossless transformations of JPEG images. 
+    Works much like jpegtran, but unlike jpegtran it does not ignore 
+    the EXIF data ;) 
+thumbnail.cgi
+    Small and fast CGI script (written in C) to extract EXIF thumbnails 
+    from jpeg images and send them to the web browser. 
+EOF
