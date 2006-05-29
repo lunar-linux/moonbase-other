@@ -1,6 +1,6 @@
 (
 
-  AVAILABLE_MODULES="calendar cpu devian emu evolume flame language mbar mem moon mount net rain screenshot slideshow snow tclock uptime weather wlan"
+  AVAILABLE_MODULES="calendar cpu devian emu eveil evolume flame language mbar mem moon mount net rain screenshot slideshow snow tclock uptime weather wlan"
 
   export PATH="$MODULE_PREFIX/bin:$PATH"
   export CPPFLAGS="$CPPFLAGS -I$MODULE_PREFIX/include"
