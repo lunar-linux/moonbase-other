@@ -1,6 +1,7 @@
 (
    bad_flags ALL &&
    ./configure  --build=$BUILD             \
+                --prefix=/usr              \
                 --bindir=/bin              \
                 --sbindir=/sbin            \
                 --datadir=/usr/share       \
@@ -10,6 +11,7 @@
                 --infodir=/usr/share/info  \
                 --mandir=/usr/share/man    \
     	        --enable-utf8             &&
-   default_make
+   default_make &&
+   cp -a /lib/pkgconfig/libpcre.pc /usr/lib/pkgconfig
 
 ) > $C_FIFO 2>&1
