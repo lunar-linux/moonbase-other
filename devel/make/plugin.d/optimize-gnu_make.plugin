@@ -11,15 +11,16 @@ plugin_gnu_make_optimize()
 
 	if [ "$PSAFE" == "no" ] ; then
 		unset MAKES
-	elif (( MAKES > 1 )) ; then
+	elif (( MAKES < 2 )) ; then
 		unset MAKES
 	else
 		if module_installed linux-openmosix; then
 			MAKE_EXT="$MAKE_EXT mosrun -h"
 			verbose_msg "MAKE_EXT=\"$MAKE_EXT\""
 		fi
-		    
+	
 		verbose_msg "MAKES=\"$MAKES\""
+		export MAKES
 	fi
 	return 2
 }
