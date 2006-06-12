@@ -8,7 +8,7 @@
   
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
-  MOZ_EXTENSIONS="cookie,xml-rpc,xmlextras,pref,transformiix,universalchardet,webservices"
+  MOZ_EXTENSIONS="cookie,xml-rpc,xmlextras,pref,transformiix,universalchardet,webservices,permissions"
 
   if in_depends $MODULE heimdal ; then
 	MOZ_EXTENSIONS="${MOZ_EXTENSIONS},auth"
