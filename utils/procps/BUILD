@@ -2,7 +2,7 @@
 
   sedit "s/top.desktop//" Makefile                &&
   sedit "s/\/usr\/bin/\/bin/g" Makefile           &&
-  make CFLAGS="$CFLAGS"                           &&
+  make CFLAGS="$CFLAGS" PKG_CFLAGS="-W"           &&
 
   prepare_install                                 &&
   make  -e XSCPT='' DESTDIR=/ install             &&
