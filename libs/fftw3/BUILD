@@ -1,6 +1,6 @@
 (
 
-  if [ "$ENABLE_FLOAT" == "y" ]; then
+  if [[ "$ENABLE_FLOAT" == "y" ]]; then
     OPTS="$OPTS --enable-float"
   fi
 
