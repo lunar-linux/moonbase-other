@@ -6,6 +6,7 @@
                 --localstatedir=/var              \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
+								--enable-gstreamer=0.10                   \
                 $OPTS                             &&
     default_make                   
 
