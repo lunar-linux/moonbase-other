@@ -1,14 +1,14 @@
 (
 
-   if [ "$DESKTOP_PLUGIN" == "y" ]; then
+   if [[ "$DESKTOP_PLUGIN" == "y" ]]; then
      OPTS="$OPTS --enable-deskop-file-plugin"
    fi
 
-   if [ "$ZEROCONF_BOOKMARKS" == "y" ]; then
+   if [[ "$ZEROCONF_BOOKMARKS" == "y" ]]; then
      OPTS="$OPTS --enable-zeroconf"
    fi
 
-   if [ "$CERTIFICATE_MANAGER" == "y" ]; then
+   if [[ "$CERTIFICATE_MANAGER" == "y" ]]; then
      OPTS="$OPTS --enable-certificate-manager"
    fi
  
