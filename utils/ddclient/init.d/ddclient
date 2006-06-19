@@ -1,60 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 #
 # ddclient      This shell script takes care of starting and stopping
-#               ddclient.
+#          	ddclient.
 #
 # chkconfig: 2345 65 35
 # description: ddclient provides support for updating dynamic DNS services.
+# processname: ddclient
+# pidfile: /var/run/ddclient.pid
 
-[ -f /etc/ddclient/ddclient.conf ] || exit 0
-
-PATH=/usr/sbin:${PATH}
-COLUMNS=9999
-export PATH COLUMNS
-
-program=ddclient
-
-# See how we were called.
-case "$1" in
-  start)
-	# Start daemons.
-        PID=`pgrep -o ddclient`
-        PIDN=`pgrep -n ddclient`
-        if [ $PID == $PIDN ]; then
-         ddclient -daemon 300
-         echo "ddclient started [`pgrep -n ddclient`]"
-	else
-	 echo "ddclient already running [$PID]"
-        fi
-	;;
-  stop)
-	# Stop daemons.
-	PID=`pgrep -o ddclient`
-	PIDN=`pgrep -n ddclient`
-	if [ ! $PID == $PIDN ]; then
-	 kill $PID
-	 echo "ddclient terminated [$PID]"
-	else
-	 echo "ddclient not running"
-	fi
-	;;
-  restart)
-	$0 stop
-	$0 start
-	;;
-  status)
-        PID=`pgrep -o ddclient`
-        PIDN=`pgrep -n ddclient`
-        if [ ! $PID == $PIDN ]; then
-         echo "ddclient running [$PID]"
-	else
-	 echo "ddclient not running"
-        fi
-	;;
-  *)
-	echo "Usage: ddclient {start|stop|restart|status}"
-	exit 1
-esac
-
-exit 0
-
+. /lib/lsb/init-functions
