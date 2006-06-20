@@ -2,12 +2,11 @@
 
   ./configure --prefix=/usr      \
               --enable-gpl       \
-	      --enable-shared    \
+              --enable-shared    \
               --enable-pp        \
-              --enable-shared-pp \
+              --enable-pthreads  \
               $OPTS              &&
 
-  default_make                
-#  make installlib
+  default_make
 
 ) > $C_FIFO 2>&1
