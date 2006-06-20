@@ -1,9 +1,4 @@
 (
-  # Remove operamotifwrappers that will fail ldd check on lunar fix
-  # Operas installer is smart enough to notice they are gone
-  rm -f $SOURCE_DIRECTORY/plugins/operamotifwrapper-1 &&
-  rm -f $SOURCE_DIRECTORY/plugins/operamotifwrapper-2 &&
-
   prepare_install &&
   echo "n" | ./install.sh -s &&
 
