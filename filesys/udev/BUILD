@@ -8,13 +8,12 @@
 
     make EXTRAS="${UDEV_EXTRAS}"  &&
     prepare_install  &&
-    make EXTRAS="${UDEV_EXTRAS}" install   &&
+    make EXTRAS="${UDEV_EXTRAS}" install  &&
 
 
     # Deprecated .. but udevd still doesn't do what udevstart does
-    # udevsend only provided for legacy purposes
-    install -m755 udevsend udevstart /sbin &&
-    install -m644 udevsend.8 udevstart.8 /usr/share/man/man8 &&
+    install -m755 udevstart /sbin &&
+    install -m644 udevstart.8 /usr/share/man/man8 &&
  
     # install the init.d script
     # we cannot use automagic install via coretools
