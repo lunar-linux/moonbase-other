@@ -4,6 +4,9 @@
     OPTS="$OPTS --enable-float"
   fi
 
-  default_build
+  ./configure   --prefix=/usr       \
+                --enable-shared     &&
+
+  default_make
 
 ) > $C_FIFO 2>&1
