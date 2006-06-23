@@ -8,17 +8,20 @@ depends  sqlite      &&
 depends  gst-plugins-base  &&
 depends  libmusicbrainz    &&
 
-optional_depends  "gst-plugins-good"  ""  ""                       \
-                  "for additional media support (recommended)"     &&
+optional_depends  "gst-plugins-good"  ""  ""                    \
+                  "for additional media support (recommended)"  &&
 
-optional_depends  "gst-plugins-ugly"  ""  ""                       \
-                  "for additional media support"                   &&
+optional_depends  "gst-plugins-ugly"  ""  ""                    \
+                  "for additional media support"                &&
 
-optional_depends  "gst-plugins-bad"   ""  ""                       \
-                  "for additional media support"                   &&
+optional_depends  "gst-plugins-bad"   ""  ""                    \
+                  "for additional media support"                &&
 
-optional_depends  "startup-notification"  "--enable-sn"  "--disable-sn"   \
-                  "for window manager startup notification support"       &&
+optional_depends  "startup-notification"  "--enable-sn"  "--disable-sn"  \
+                  "for window manager startup notification support"      &&
 
-optional_depends  "hal"  "--enable-hal"        "--disable-hal"            \
+optional_depends  "libnotify"  "--enable-notify"  "--disable-notify"     \
+                  "for notification-daemon support"                      &&
+
+optional_depends  "hal"        "--enable-hal"     "--disable-hal"        \
                   "for enabling the use of HAL in managing storage"
