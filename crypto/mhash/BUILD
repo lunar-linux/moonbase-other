@@ -1,7 +1,6 @@
 (
 
   OPTS=$OPTS" --enable-static" &&
-  default_build                &&
-  ldconfig
+  default_build
 
 ) > $C_FIFO 2>&1
