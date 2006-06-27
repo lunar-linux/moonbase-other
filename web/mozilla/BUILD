@@ -1,6 +1,8 @@
 (
 
   export patchdir=$SOURCE_DIRECTORY/$MODULE-$PVERSION-lunar
+  # fixes a broken upstream Makefile.in
+  sedit 's/\\$/ \\/' extensions/p3p/Makefile.in &&
   EXTENSIONS="default,finger,-gnomevfs"
 
   if [ "$COM" == "n" ] ; then
