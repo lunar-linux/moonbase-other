@@ -1,6 +1,6 @@
-default_build &&
 (
 
+  default_build &&
   if  [  !  -f  /etc/metalog.conf  ];  then
     cp  metalog.conf  /etc
   fi &&
@@ -11,6 +11,8 @@ default_build &&
   fi &&
   if [ -e "/etc/rc?.d/???metalog.sh" ]; then
      rm -f /etc/rc?.d/???metalog.sh
-  fi
+  fi &&
+  mkdir -p $DOCUMENT_DIRECTORY/metalog &&
+  cp metalog.conf $DOCUMENT_DIRECTORY/metalog
 
-)
+) > $C_FIFO 2>&1
