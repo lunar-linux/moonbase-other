@@ -1,11 +1,7 @@
 (
 
+  OPTS="$OPTS --enable-threads --enable-shared --with-ssl-dir=/usr"
 
-  ./configure  --prefix=/usr         \
-               --enable-threads      \
-               --enable-shared       \
-               --with-ssl-dir=/usr  &&
-
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1
