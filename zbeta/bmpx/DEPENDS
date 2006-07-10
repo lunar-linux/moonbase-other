@@ -20,8 +20,9 @@ optional_depends  "gst-plugins-bad"   ""  ""                    \
 optional_depends  "startup-notification"  "--enable-sn"  "--disable-sn"  \
                   "for window manager startup notification support"      &&
 
-optional_depends  "libnotify"  "--enable-notify"  "--disable-notify"     \
-                  "for notification-daemon support"                      &&
+optional_depends  "libnotify"  "--enable-libnotify"                \
+                               "--disable-libnotify"               \
+                               "for notification-daemon support"   &&
 
-optional_depends  "hal"        "--enable-hal"     "--disable-hal"        \
+optional_depends  "hal"        "--enable-hal"     "--disable-hal"  \
                   "for enabling the use of HAL in managing storage"
