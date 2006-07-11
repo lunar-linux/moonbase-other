@@ -12,7 +12,6 @@
   if [ -e "/etc/rc?.d/???metalog.sh" ]; then
      rm -f /etc/rc?.d/???metalog.sh
   fi &&
-  mkdir -p $DOCUMENT_DIRECTORY/metalog &&
-  cp metalog.conf $DOCUMENT_DIRECTORY/metalog
+  gather_docs metalog.conf TODO
 
 ) > $C_FIFO 2>&1
