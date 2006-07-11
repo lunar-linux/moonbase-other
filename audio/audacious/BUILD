@@ -3,7 +3,7 @@
   CFLAGS="$CFLAGS -std=gnu99"
 
   # Disable GnomeVFS support (broken ever since it was invented, at least 
-  # if we can trust the Audacious developers
+  # if we can trust the Audacious developers)
   OPTS="$OPTS --disable-gnome-vfs"
 
   default_build
