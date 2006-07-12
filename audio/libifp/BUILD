@@ -2,7 +2,7 @@
 
 # Yeah, I know it looks redundant to specify the libusb path BUT
 # it's configure script cannot find it otherwise.
-# In fact ifp.h does not get built unless ALL these are specified.
+# In fact ifp.h does ot get built unless ALL these are specified.
 
   ./configure    --prefix=/usr      \
                  --enable-examples  \
