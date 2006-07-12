@@ -1,9 +1,9 @@
 depends kdemultimedia3  &&
 depends taglib          &&
 
-optional_depends "k3b"  \
-                 ""     \
-		 ""     \
+optional_depends "k3b"                     \
+                 "--with-k3b"              \
+		 "--without-k3b"           \
                  "cd/dvd burning support"  &&
 
 optional_depends "gstreamer"            \
@@ -21,10 +21,10 @@ optional_depends "arts"               \
                  "--without-arts"     \
 		 "for ARTS support"  &&
 
-optional_depends "libvisual"  \
-                 ""           \
-		 ""           \
-		 "for libvisual support"  &&
+optional_depends "libvisual"              \
+                 "--with-libvisual"       \
+		 "--without-libvisual"    \
+		 "provides libvisual framework support"  &&
 
 optional_depends "mysql"                  \
                  "--enable-mysql"         \
@@ -34,4 +34,39 @@ optional_depends "mysql"                  \
 optional_depends "postgresql"            \
                  "--enable-postgresql"   \
                  "--disable-postgresql"  \
-                 "for database support"
+                 "for database support"  &&
+
+optional_depends "ruby"                  \
+                 "--enable-ruby"         \
+                 "--disable-ruby"        \
+                 "for lyrics download"   &&
+
+optional_depends "libifp"                \
+                 "--with-ifp"            \
+                 "--without-ifp"         \
+                 "for iRiver support"    &&
+
+optional_depends "mpeg4ip"                 \
+                 "--with-mp4v2"            \
+                 "--witout-mp4v2"          \
+                 "for M4A/AAC tag support" &&
+
+optional_depends "libgpod"                 \
+                 "--with-libgpod"          \
+                 "--without-libgpod"       \
+                 "for iPod support"        &&
+
+optional_depends "xmms"                    \
+                 "--with-xmms"             \
+                 "--without-xmms"          \
+                 "for visualization plugins" &&
+
+optional_depends "exscalibar"              \
+                 "--with-exscalibar"       \
+                 "--without-exscalibar"    \
+                 "for mood bar support"    &&
+
+optional_depends "libprojectM"             \
+                 "" ""                     \
+                 "visualization plugins for Libvisual or XMMS"
+              
