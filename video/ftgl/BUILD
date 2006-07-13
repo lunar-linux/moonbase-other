@@ -1,7 +1,7 @@
 (
 
-  default_build  &&
+  cd unix/       &&
 
-  rm -rf /usr/src/FTGL
+  default_build
 
 ) > $C_FIFO 2>&1
