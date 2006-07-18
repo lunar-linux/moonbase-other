@@ -1,5 +1,6 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE5 1 &&
   patch_it $SOURCE_CACHE/$SOURCE3 1 &&
   patch_it $SOURCE_CACHE/$SOURCE4 1 &&
 
@@ -29,7 +30,6 @@
   if ! module_installed Linux-PAM; then
     sedit 's|^CRACKLIB_DICTPATH.*$|CRACKLIB_DICTPATH /lib/cracklib/|g' etc/login.defs
     sedit 's|#MD5_CRYPT_ENAB.*$|MD5_CRYPT_ENAB yes|' etc/login.defs
-    sedit 's|^#GETPASS_ASTERISKS.*|GETPASS_ASTERISKS 0|' etc/login.defs
     sedit 's|^USERGROUPS_ENAB.*|USERGROUPS_ENAB no|' etc/login.defs
     [ -e /etc/limits ] || install -m 0644 etc/limits /etc/
     [ -e /etc/login.access ] || install -m 0644 etc/login.access /etc/
