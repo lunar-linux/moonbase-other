@@ -9,7 +9,7 @@
 
   HAS_SCRIPTING_SUPPORT=false
   if  module_installed  boost;  then
-    if  in_depends  bost  Python;  then
+    if  in_depends  boost  Python;  then
       HAS_SCRIPTING_SUPPORT=true
     fi
   fi
