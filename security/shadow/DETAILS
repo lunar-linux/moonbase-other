@@ -1,22 +1,25 @@
           MODULE=shadow
-         VERSION=4.0.15
+         VERSION=4.0.17
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=login-1.1.defs.pam
-         SOURCE3=shadow-4.0.15-su-fix-environment.patch
-         SOURCE4=shadow-4.0.15-suid-perm.patch
+         SOURCE2=login-1.2.defs.pam
+         SOURCE3=shadow-4.0.17-su-fix-environment.patch
+         SOURCE4=shadow-4.0.17-suid-perm.patch
+         SOURCE5=shadow-4.0.17-Makefile-etc.patch
    SOURCE_URL[0]=ftp://ftp.pld.org.pl/software/$MODULE/
    SOURCE_URL[1]=ftp://ftp.pld.org.pl/software/$MODULE/old/
      SOURCE2_URL=$PATCH_URL/
      SOURCE3_URL=$PATCH_URL/
      SOURCE4_URL=$PATCH_URL/
-      SOURCE_VFY=sha1:0f7cd3366a032091fdffd2f8edf65056bd576cae
-     SOURCE2_VFY=sha1:775c56294133c81f13a848344ce9254d43b94c47
-     SOURCE3_VFY=sha1:ed13669db599eb2f14ef465d8856324df4e47225
-     SOURCE4_VFY=sha1:68ed56bb8f09ea97b0458867435ee37129a8d1f8
+     SOURCE5_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:326b3de0a81c1e1f9bfc75e67d45678c14fe282d
+     SOURCE2_VFY=sha1:546d46907f02af0b32de91ed2ebd09224887a849
+     SOURCE3_VFY=sha1:0ca7ffc93930349f92805b5ab9d9897a8f377f85
+     SOURCE4_VFY=sha1:d22d430cea16cc9c6e3bff9a772cdde037f50594
+     SOURCE5_VFY=sha1:995ecf90865cf675b9459430049d834c1e27754e
         WEB_SITE=ftp://ftp.pld.org.pl/software/shadow
       MAINTAINER=ratler@lunar-linux.org
          ENTERED=20010922
-         UPDATED=20060327
+         UPDATED=20060718
            SHORT="Contains the shadow password file utilities"
 
 cat << EOF
