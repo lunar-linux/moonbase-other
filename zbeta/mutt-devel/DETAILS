@@ -1,16 +1,17 @@
           MODULE=mutt-devel
-         VERSION=1.5.10
-          SOURCE=mutt-${VERSION}i.tar.gz
-         SOURCE2=patch-${VERSION}i.sidebar.20050816.txt
+         VERSION=1.5.12
+          SOURCE=mutt-$VERSION.tar.gz
+         SOURCE2=patch-$VERSION.sidebar.20060720.txt
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/mutt-$VERSION
    SOURCE_URL[0]=ftp://ftp.mutt.org/mutt/devel/
    SOURCE_URL[1]=$SFORGE_URL/mutt/
-      SOURCE_VFY=sha1:3f9cbd330b1458a5c317fd29331f425aa36e0877
-     SOURCE2_URL=http://thomer.com/mutt/
-     SOURCE2_VFY=sha1:2d9c32ab1fa2e439b7ad7621cfbc92c61f1e87e6
+      SOURCE_VFY=sha1:bb888a35f42a77de7e326c03b60854ad1cc266ea
+#    SOURCE2_URL=http://thomer.com/mutt/
+     SOURCE2_URL=$PATCH_URL/
+     SOURCE2_VFY=sha1:7b900f8dd9ff039527112b5f4ebc63b4aecdbc27
         WEB_SITE=http://www.mutt.org
          ENTERED=20010922
-         UPDATED=20051003
+         UPDATED=20060720
            SHORT="mutt is a text-based MIME Email client."
 cat << EOF
 This is the developmental version of mutt with the sidebar patch.
