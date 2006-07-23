@@ -1,6 +1,6 @@
 (
 
-  scons PREFIX=/usr VST=no ARCH="$CFLAGS -O3" &&
+  scons PREFIX=/usr ARCH="$CFLAGS" &&
   prepare_install &&
   scons install
 
