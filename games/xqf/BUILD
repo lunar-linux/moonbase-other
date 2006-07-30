@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1
+
   ./configure  --prefix=/usr         \
                --bindir=/usr/games   \
                --sysconfdir=/etc     \
