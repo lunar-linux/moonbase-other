@@ -2,18 +2,8 @@ depends libpng      &&
 depends jpeg        &&
 depends Python      &&
 depends scons       &&
-depends openal      &&
-
-optional_depends  libogg                   \
-                  ""                       \
-                  ""                       \
-                  "for OGG file support"  &&
-
-optional_depends  libvorbis                   \
-                  ""                          \
-                  ""                          \
-                  "for Vorbis file support"  &&
-
+depends SDL         &&
+depends freealut    &&
 optional_depends  ode                            \
                   "--enable-gameblender"         \
                   "--disable-gameblender"        \
@@ -23,3 +13,5 @@ optional_depends  yafray                 \
                   ""                     \
                   ""                     \
                   "for Yafray modeling"
+
+
