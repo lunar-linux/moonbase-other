@@ -30,6 +30,10 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     fi
   fi
 
+  if  query  "Enable BC math support?" y;  then
+    OPTS="$OPTS --enable-bcmath"
+  fi
+
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
 
