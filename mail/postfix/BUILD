@@ -33,7 +33,7 @@
 
   if in_depends $MODULE cyrus-sasl ; then
     AUXLIBS=$AUXLIBS" -lsasl2 -lssl -lcrypto"
-    CCARGS=$CCARGS" -DUSE_SASL_AUTH -I/usr/include/sasl -DUSE_TLS -I/usr/include/openssl"
+    CCARGS=$CCARGS" -DUSE_CYRUS_SASL -DUSE_SASL_AUTH -I/usr/include/sasl -DUSE_TLS -I/usr/include/openssl"
   fi  &&
 
   AUXLIBS=$AUXLIBS" -lpthread"
