@@ -1,14 +1,14 @@
-if [ ! -e /dev/inotify ]; then
-   echo "Please install a inotify enabled kernel"
-   echo "Either linux-2.6-inotify or linux-2.6-mm"
-   echo "For better functionality use linux-2.6-inotify"
-   false
+if [ ! -e /proc/sys/fs/inotify ]; then
+  echo "Please enable inotify support in your kernel,"
+  echo "FileSystems > INOTIFY"
+	false
 
 else
-  
-    echo "inotify found at /dev/inotify"
+
+  echo "Inotify is enabled in your kernel, continuing"
 
 fi
+
 
 if [ ! -d /usr/lib/mono/gmime-sharp ]; then
    echo "Please re-install gmime and say "y" to mcs"
