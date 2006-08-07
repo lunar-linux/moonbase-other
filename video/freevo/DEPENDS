@@ -1,0 +1,29 @@
+depends Python             &&
+depends pygame             &&
+depends pil                &&
+depends Twisted            &&
+depends mmpython           &&
+depends MPlayer            &&
+depends MPlayer-all        &&
+depends MPlayer-essentials &&
+depends numpy              &&
+depends libdvdread         &&
+depends libdvdcss          &&
+depends SDL                &&
+depends SDL_mixer          &&
+depends SDL_ttf            &&
+depends SDL_image          &&
+optional_depends "lsdvd" \
+                 ""      \
+                 ""      \
+                 "for extended dvd support" &&
+
+optional_depends "pylirc" \
+                 ""       \
+                 ""       \
+                 "to interact with a remote control" &&
+
+optional_depends "xmltv" \
+                 ""      \
+                 ""      \
+                 "for tv-programming support"
