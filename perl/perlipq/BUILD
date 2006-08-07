@@ -5,8 +5,6 @@
   sedit "s:^\\\$IPTABLES_DIR = lc prompt(.*::" Makefile.PL	&&
 
   perl Makefile.PL	&&
-  make			&&
-  prepare_install	&&
-  make install
+  default_make
 
 ) > $C_FIFO 2>&1
