@@ -1,6 +1,9 @@
 (
 
-  default_build     &&
+  export DEBUG=-DNDEBUG
+
+  make configure    &&
+  default_make      &&
   make install-dev  &&        
   make install-lib
 
