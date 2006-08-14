@@ -1,4 +1,5 @@
 depends  readline  &&
+depends  libxml2   &&
 
 optional_depends  "aspell"                      \
                   "--with-pspell"               \
@@ -87,11 +88,6 @@ optional_depends "expat"                        \
                  "--with-expat-dir=/usr"        \
                  ""                             \
                  "for expat xml support"        &&
-
-optional_depends "libxml2"			\
-		"--with-libxml-dir=/usr"        \
-		"--disable-libxml"	        \
-		"for DOMXML support"		&&
 
 optional_depends "libxslt"			\
 		"--with-xsl=/usr" \
