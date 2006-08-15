@@ -1,4 +1,4 @@
-(   
+(
 
    ./configure --build=$BUILD                                 \
                --prefix=/usr                                  \
@@ -15,10 +15,9 @@
                --disable-doc-build                            \
                --enable-default-catalog=/etc/sgml/catalog     \
                --enable-default-search-path=/usr/share/sgml  &&
-               
-               
+
    default_make                            &&
    ln -sf /usr/bin/osx  /usr/bin/sgml2xml  &&
-   ln -sf `which onsgmls` /usr/bin/nsgmls    
+   ln -sf `which onsgmls` /usr/bin/nsgmls
 
 ) > $C_FIFO 2>&1
