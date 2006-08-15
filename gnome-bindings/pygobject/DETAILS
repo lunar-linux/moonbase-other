@@ -2,13 +2,17 @@
          VERSION=2.10.1
            MAJOR=2.10
           SOURCE=$MODULE-$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR/
       SOURCE_VFY=sha1:aa7e29e64b2a8114573503d93a90ae1508da361e
         WEB_SITE=http://www.pygtk.org/
          ENTERED=20050319
          UPDATED=20060803
-           SHORT=""
+           SHORT="Python bindings for GObject"
 
 cat << EOF
+PyGObject provides a convenient wrapper for the GObject+ library for
+use in Python programs, and takes care of many of the boring details
+such as managing memory and type casting.  When combined with PyGTK,
+PyORBit and gnome-python, it can be used to write full featured GNOME
+applications.
 EOF
