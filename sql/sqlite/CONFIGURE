@@ -1,7 +1,11 @@
 if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
 
-  if  query  "Enable UTF8 characterset?" y;  then
-    OPTS="$OPTS --enable-utf8"
+  if  query  "Use an in-ram database for temporary tables?" y;  then
+    OPTS="$OPTS --enable-tempstore"
+  fi
+
+  if query "Support threadsafe operation?" y; then
+    OPTS="$OPTS --enable-threadsafe"
   fi
 
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
