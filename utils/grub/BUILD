@@ -1,5 +1,14 @@
 (
 
+  # Handle the optional splash patch
+  if [ $WITH_SPLASH = "y" ]; then
+    message "Adding support for grub bootmenu splash images..."
+    patch_it  $SOURCE_CACHE/$SOURCE2  1  &&
+    autoconf  &&
+    aclocal   &&
+    automake
+  fi
+
   unset CFLAGS CXXFLAGS CPPFLAGS &&
   default_build &&            
   gzip -9 ChangeLog &&
