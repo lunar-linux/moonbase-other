@@ -1,6 +1,6 @@
 if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
 
-  if  query  "Use an in-ram database for temporary tables?" y;  then
+  if  query  "Use an in-ram database for temporary tables?" n;  then
     OPTS="$OPTS --enable-tempstore"
   fi
 
