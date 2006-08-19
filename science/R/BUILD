@@ -3,6 +3,8 @@
   CFLAGS=`echo $CFLAGS | sed s/-ffast-math//` &&
   CXXFLAGS=`echo $CXXFLAGS | sed s/-ffast-math//` &&
   
+  OPTS="--enable-R-shlib $OPTS"
+
   default_config &&
   make &&
   make check &&
