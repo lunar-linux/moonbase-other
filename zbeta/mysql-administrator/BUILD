@@ -1,5 +1,5 @@
 (
-
+  patch_it $SOURCE2 1 &&
   cd $SOURCE_DIRECTORY/mysql-gui-common &&
   ./configure --prefix=/usr \
 	      --with-commondirname=common/admin \
