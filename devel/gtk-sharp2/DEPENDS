@@ -1,12 +1,28 @@
-depends gtk+-2	&&
-depends mono	&&
+depends mono &&
+depends pango   &&
 
-optional_depends  "libgnomedb"	\
-                  ""	\
-                  ""	\
-                  "for gnome-sharp support" &&
-
+optional_depends  "libart-lgpl"  \
+                  "" \
+                  "" \
+									"enable libart_lgpl support?" &&
+   
+optional_depends  "gnome-panel"  \
+                  "" \
+									"" \
+									"enable gnome2 support (say YES for gtkhtml3 and gnome-vfs2 support" &&
+   
 optional_depends  "gtkhtml3"  \
-                  ""    \
-                  ""    \
-                  "for gtkhtml-sharp support"
+                  "" \
+      					  "" \
+							    "for gtkhtml-sharp support" &&
+   
+optional_depends  "gnome-vfs2" \
+								  ""  \
+								  ""  \
+								  "for gnomevfs-sharp support" &&
+   
+optional_depends  "libglade2"  \
+   								""  \
+								  ""  \
+						      "for libglade2 support"
+
