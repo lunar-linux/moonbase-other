@@ -1,3 +1,4 @@
+(
   . /etc/profile.d/qt3.rc
   . /etc/profile.d/kde3.rc
 
