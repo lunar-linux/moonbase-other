@@ -1,5 +1,0 @@
-KERNEL_VERSION=$(grep UTS_RELEASE /usr/src/linux/include/linux/version.h  | cut -d'"' -f2)
-if echo $KERNEL_VERSION | grep -q '^2.6' ; then
-  message "${PROBLEM_COLOUR}Requirements: linux kernel 2.4.x or >= 2.5.8${DEFAULT_COLOUR}"
-  exit 1
-fi
