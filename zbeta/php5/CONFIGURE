@@ -11,6 +11,10 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     OPTS="$OPTS --enable-trans-sid"
   fi
   
+  if  query  "Enable UTF-8 support for SQLite?" y;  then
+    OPTS="$OPTS --enable-sqlite-utf8"
+  fi
+
   if  query  "Enable sockets support (experimental)?" y;  then
     OPTS="$OPTS --enable-sockets"
   fi
@@ -31,6 +35,6 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
   fi
 
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+  echo  'OPTS='\"$OPTS\"  >>  $MODULE_CONFIG
 
 fi
