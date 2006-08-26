@@ -14,21 +14,15 @@
                --includedir=/usr/include/httpd          \
                --infodir=/usr/share/info                \
                --mandir=/usr/share/man                  \
-	       --enable-modules=most                    \
                --enable-so                              \
-               --enable-info                            \
-               --enable-cgi                             \
                --enable-rewrite                         \
-               --enable-speling                         \
-               --enable-usertrack                       \
-               --enable-deflate                         \
                --enable-mime-magic                      \
                --enable-exception-hook                  \
                --enable-layout=GNU                      \
+               --enable-usertrack                       \
 	       --with-mpm=prefork                       \
 	       --with-apr=/usr                          \
 	       --with-apr-util=/usr"
-  #            --with-mpm=worker
 
   if [ "$ENABLE_SUEXEC" == "y" ] ; then
     OPTS="$OPTS --enable-suexec --with-suexec               \
@@ -47,6 +41,32 @@
   if [ "$ENABLE_PROXY" == "y" ] ; then
     OPTS="$OPTS --enable-proxy --enable-proxy-connect  \
 	       --enable-proxy-http --enable-proxy-ftp"
+  fi
+
+  if [ "$ENABLE_DAV" == "y" ] ; then
+    OPTS="$OPTS --enable-dav --enable-dav-fs --enable-dav-lock"
+  fi
+
+  if [ "$ENABLE_INFO" == "y" ] ; then
+    OPTS="$OPTS --enable-info"
+  fi
+
+  if [ "$ENABLE_DEFLATE" == "y" ] ; then
+    OPTS="$OPTS --enable-deflate"
+  fi
+
+  if [ "$ENABLE_CGID" == "y" ] ; then
+    OPTS="$OPTS --enable-cgid"
+  else
+    OPTS="$OPTS --enable-cgi"
+  fi
+
+  if [ "$ENABLE_VHOST" == "y" ] ; then
+    OPTS="$OPTS --enable-vhost-alias"
+  fi
+
+  if [ "$ENABLE_SPELL" == "y" ] ; then
+    OPTS="$OPTS --enable-spelling"
   fi
 
   echo "CFLAGS=$CFLAGS"     &&
