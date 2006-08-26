@@ -41,6 +41,11 @@ optional_depends  "gdbm"                        \
 		  ""                            \
 		  "for GNU dbm support"         &&
 
+optional_depends  "sqlite"                      \
+                  "--with-pdo-sqlite=/usr"      \
+                  ""                            \
+                  "for PDO SQLite support"      &&
+
 optional_depends  "postgresql"                  \
                   "--with-pgsql=/usr"           \
                   ""                            \
@@ -51,50 +56,50 @@ optional_depends  "mysql"                       \
                   ""                            \
                   "for native MySQL support"    &&
 
-optional_depends "freetds"                      \
-                 "--with-sybase=/usr"           \
-                 ""                             \
-                 "for SyBase support"           &&
+optional_depends  "freetds"                     \
+                  "--with-sybase=/usr"          \
+                  ""                            \
+                  "for SyBase support"          &&
 
-optional_depends "freetype2"                    \
-                 "--with-freetype-dir=/usr"     \
-                 ""                             \
-                 "for freetype2 support"        &&
+optional_depends  "freetype2"                   \
+                  "--with-freetype-dir=/usr"    \
+                  ""                            \
+                  "for freetype2 support"       &&
 
-optional_depends "pdflib"                       \
-                 "--with-pdflib"                \
-                 ""                             \
-                 "for pdflib support"           &&
+optional_depends  "pdflib"                      \
+                  "--with-pdflib"               \
+                  ""                            \
+                  "for pdflib support"          &&
 
-optional_depends "gd"                           \
-                 "--with-gd                     \
-                  --enable-gd-native-ttf        \
-                  --with-jpeg-dir=/usr          \
-                  --with-png-dir=/usr"          \
-                 ""                             \
-                  "for on the fly graphics"     &&
+optional_depends  "gd"                          \
+                  "--with-gd                    \
+                   --enable-gd-native-ttf       \
+                   --with-jpeg-dir=/usr         \
+                   --with-png-dir=/usr"         \
+                  ""                            \
+                   "for on the fly graphics"    &&
 
-optional_depends "curl"                         \
-                 "--with-curl"                  \
-		 ""                             \
-		 "for curl support"             &&
+optional_depends  "curl"                        \
+                  "--with-curl"                 \
+		  ""                            \
+		  "for curl support"            &&
 
-optional_depends "ming"                         \
-                 "--with-ming"                  \
-		 "--without-ming"               \
-		 "for dynamic FLASH generation" &&
+optional_depends  "ming"                        \
+                  "--with-ming"                 \
+		  "--without-ming"              \
+		  "dynamic FLASH generation"    &&
 
-optional_depends "expat"                        \
-                 "--with-expat-dir=/usr"        \
-                 ""                             \
-                 "for expat xml support"        &&
+optional_depends  "expat"                       \
+                  "--with-expat-dir=/usr"       \
+                  ""                            \
+                  "for expat xml support"       &&
 
-optional_depends "libxslt"			\
-		"--with-xsl=/usr" \
-		""				\
-		"for DOM Xslt support"		&&
+optional_depends  "libxslt"                     \
+		  "--with-xsl=/usr"             \
+		  ""                            \
+		  "for DOM Xslt support"        &&
 
-optional_depends "openldap"                     \
-                 "--with-ldap"                  \
-		 ""                             \
-		 "For ldap support"
+optional_depends  "openldap"                    \
+                  "--with-ldap"                 \
+		  ""                            \
+		  "For ldap support"
