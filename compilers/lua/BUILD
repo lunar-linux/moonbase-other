@@ -1,7 +1,9 @@
 (
 
-  sedit "s:/usr/local:/usr:" config  &&
+  sedit "s:/usr/local:/usr:" Makefile  &&
 
-  default_make
+  make linux      &&
+  prepare_install &&
+  make install
 
 ) > $C_FIFO 2>&1
