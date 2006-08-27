@@ -24,5 +24,8 @@ optional_depends  "libnotify"  "--enable-libnotify"                \
                                "--disable-libnotify"               \
                                "for notification-daemon support"   &&
 
+optional_depends  "libSM"      "--enable-sm"      "--disable-sm"   \
+                  "for Session Mangement support (XOrg 7.x only)"  &&
+
 optional_depends  "hal"        "--enable-hal"     "--disable-hal"  \
                   "for enabling the use of HAL in managing storage"
