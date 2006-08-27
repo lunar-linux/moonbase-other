@@ -1,8 +1,8 @@
 (
 
-  sedit 's/while(1)/while(maxlen>pos)/' httpget.c &&
-  make  PREFIX=/usr  linux    &&
-  prepare_install             &&
-  make  PREFIX=/usr  install
+  patch_it $SOURCE_CACHE/$SOURCE2 0 && 
+  make  linux     &&
+  prepare_install &&
+  make  install
   
 ) > $C_FIFO 2>&1
