@@ -2,7 +2,7 @@
 #if you're gonna change something in here make doggone sure you
 #eyeball the init script too!
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0               &&
+  patch_it $SOURCE2 0               &&
   ./configure   --build=$BUILD                    \
                 --prefix=/usr                     \
 		--bindir=/usr/sbin                \
