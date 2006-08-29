@@ -1,9 +1,9 @@
 (
 
   prepare_install  &&
-  
+
   OPTS="$OPTS  --prefix=/etc/httpd                      \
-	       --sysconfdir=/etc/httpd/conf             \
+               --sysconfdir=/etc/httpd/conf             \
                --exec-prefix=/usr                       \
                --sbindir=/usr/sbin                      \
                --libexecdir=/usr/libexec/httpd/modules  \
@@ -20,18 +20,17 @@
                --enable-exception-hook                  \
                --enable-layout=GNU                      \
                --enable-usertrack                       \
-	       --with-mpm=prefork                       \
-	       --with-apr=/usr                          \
-	       --with-apr-util=/usr"
+               --with-apr=/usr                          \
+               --with-apr-util=/usr"
 
   if [ "$ENABLE_SUEXEC" == "y" ] ; then
     OPTS="$OPTS --enable-suexec --with-suexec               \
-	       --with-suexec-caller=nobody                  \
-	       --with-suexec-docroot=/var/www               \
-	       --with-suexec-logfile=/var/log/httpd/suexec  \
-	       --with-suexec-bin=/usr/sbin/suexec           \
-	       --with-suexec-uidmin=500                     \
-	       --with-suexec-gidmin=500"
+               --with-suexec-caller=nobody                  \
+               --with-suexec-docroot=/var/www               \
+               --with-suexec-logfile=/var/log/httpd/suexec  \
+               --with-suexec-bin=/usr/sbin/suexec           \
+               --with-suexec-uidmin=500                     \
+               --with-suexec-gidmin=500"
   fi
 
   if [ "$ENABLE_SSL" == "y" ] ; then
@@ -40,7 +39,7 @@
 
   if [ "$ENABLE_PROXY" == "y" ] ; then
     OPTS="$OPTS --enable-proxy --enable-proxy-connect  \
-	       --enable-proxy-http --enable-proxy-ftp"
+                --enable-proxy-http --enable-proxy-ftp"
   fi
 
   if [ "$ENABLE_DAV" == "y" ] ; then
@@ -67,6 +66,12 @@
 
   if [ "$ENABLE_SPELL" == "y" ] ; then
     OPTS="$OPTS --enable-spelling"
+  fi
+
+  if [ "$USE_WORKER" == "n" ]; then
+    OPTS="$OPTS --with-mpm=prefork"
+  else
+    OPTS="$OPTS --with-mpm=worker"
   fi
 
   echo "CFLAGS=$CFLAGS"     &&
