@@ -1,6 +1,6 @@
 (
  
-  if module_installed kdelibs3 ; then
+  if module_installed qt3 ; then
      export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
   fi
 
