@@ -1,20 +1,14 @@
 (
+
+  . /etc/profile.d/qt3.rc
+  . /etc/profile.d/kde3.rc
+
   CFLAGS=`echo $CFLAGS | sed "s/-ffast-math//"`
   CXXFLAGS=`echo $CXXFLAGS | sed "s/-ffast-math//"`
   
   CFLAGS=`echo $CFLAGS | sed "s/-O3/-O2/"`
   CXXFLAGS=`echo $CXXFLAGS | sed "s/-O3/-O2/"`
   
-  export LD_LIBRARY_PATH=${QT_PREFIX:-$QTDIR}/lib
-  export PATH=${QT_PREFIX:-$QTDIR}/bin:${KDE_PREFIX:-$KDEDIR}/bin:$PATH
-  export LD_RUN_PATH=${KDE_PREFIX:-$KDEDIR}/lib:${KDE_PREFIX:-$KDEDIR}/lib/kde3
- 
-  ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}     \
-               --with-qt-dir=${QT_PREFIX:-$QTDIR}  \
-               --disable-debug                     \
-	       --enable-final                      \
-               $OPTS                              &&
-
-  default_make
+  default_build
  
 ) > $C_FIFO 2>&1
