@@ -7,7 +7,8 @@
 	sedit "s/FILTER=y/#FILTER=y/"       pppd/Makefile.linux  &&
 	sedit "s/usr\/man/usr\/share\/man/" linux/Makefile.top   &&
 
-	default_build  &&
+        prepare_install  &&
+	default_build    &&
 	
 	mkdir  -p  /etc/ppp/peers  &&
 	mkdir  -p  /etc/ppp/chat  &&
