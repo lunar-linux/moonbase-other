@@ -20,15 +20,15 @@
 	cp  $SCRIPT_DIRECTORY/pon   /usr/bin  &&
 	cp  $SCRIPT_DIRECTORY/poff  /usr/bin  &&
 
-	if  !  [  -f                     /etc/ppp/options  ];  then
+	if  !  [  -f  /etc/ppp/options  ];  then
 		cp  $SCRIPT_DIRECTORY/options  /etc/ppp/options
   	fi
 
-	if  [  !  -e                       /etc/ppp/peers/isp  ];  then
+	if  [  !  -e  /etc/ppp/peers/isp  ];  then
 		cp  $SCRIPT_DIRECTORY/peers /etc/ppp/peers/isp
   	fi
 
-	if  [  !  -e                 /etc/ppp/chat/isp  ];  then
+	if  [  !  -e  /etc/ppp/chat/isp  ];  then
 		cp  $SCRIPT_DIRECTORY/isp  /etc/ppp/chat/isp
 	fi
 
