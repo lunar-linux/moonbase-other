@@ -49,6 +49,12 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
   else
     OPTS="$OPTS --without-embedded-server"
   fi
+  
+  if  query "Enable all charachter sets? " n; then
+    OPTS="$OPTS --with-extra-charsets=all"
+  else
+    OPTS="$OPTS --with-extra-charsets=complex"
+  fi
 
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
