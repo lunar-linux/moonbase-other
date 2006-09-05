@@ -1,24 +1,29 @@
 optional_depends  "openssl"                                   \
                   ""                                          \
-		  ""                                          \
-		  "for secure communication between clients"  &&
-
-optional_depends  "qt3"                                       \
                   ""                                          \
-		  ""                                          \
-		  "for an X11 GUI"                            &&
+                  "for secure communication and MSN support"  &&
 
 optional_depends  "kdelibs3"                                  \
                   "--with-kde"                                \
-		  ""                                          \
+                  ""                                          \
                   "for KDE integration"                       &&
 
 optional_depends "gpgme"                                      \
                  ""                                           \
                  ""                                           \
-                 "for GnuPG encryption support"	              &&
+                 "for GnuPG encryption support"               &&
+
+optional_depends "qt3"                                        \
+                 ""                                           \
+                 ""                                           \
+                 "for Qt frontend"                            &&
 
 optional_depends "cdk"                                        \
                  ""                                           \
                  ""                                           \
-                 "for building the console plugin"
+                 "for cursed-based console frontend"          &&
+
+optional_depends "xosd"                                       \
+                 ""                                           \
+                 ""                                           \
+                 "for on screen display messages"             

@@ -1,52 +1,89 @@
-(
+( 
+  CONSOLE_PLUGIN="no"
+  QT_PLUGIN="no"
+  MSN_PLUGIN="no"
+  OSD_PLUGIN="no"
 
-
-
-  CPPFLAGS=$CPPFLAGS" -Wno-deprecated"     \
-  ./configure  --prefix=/usr               \
-               --sysconfdir=/etc            \
-               --localstatedir=/var         &&
-  make                                      &&
-
-  if [ "$CONSOLEPLUGIN" = "y" ] ; then
-    cd $SOURCE_DIRECTORY/plugins/console    &&
-    CPPFLAGS=$CPPFLAGS" -Wno-deprecated"    \
-    ./configure  --prefix=/usr              \
-                 --sysconfdir=/etc          \
-                 --localstatedir=/var       \
-                 $OPTS                      &&
-    make                                            
-  fi                                        &&
-
-  if [ "$QTPLUGIN" = "y" ]  ; then
-    if module_installed qt3 ; then
-  export LD_LIBRARY_PATH=${QT_PREFIX:-$QTDIR}/lib  &&
-  export PATH=${QT_PREFIX:-$QTDIR}/bin:${KDE_PREFIX:-$KDEDIR}/bin:/usr/X11/bin:$PATH  &&
-  export LD_RUN_PATH=${KDE_PREFIX:-$KDEDIR}/lib:${KDE_PREFIX:-$KDEDIR}/lib/kde3  &&
-      cd $SOURCE_DIRECTORY/plugins/qt-gui               &&
-      CPPFLAGS=$CPPFLAGS" -Wno-deprecated"              \
-      ./configure  --prefix=/usr                        \
-                   --sysconfdir=/etc                    \
-                   --localstatedir=/var                 \
-                   --with-qt-dir=${QT_PREFIX:-$QTDIR}   \
-                   $OPTS                                &&
-      make                                           
-    fi                                               
-  fi                                                    &&
- 
- prepare_install                           &&
- cd $SOURCE_DIRECTORY                      &&
- make install                              &&
- 
- if [ "$CONSOLEPLUGIN" = "y" ] ; then
-   cd  $SOURCE_DIRECTORY/plugins/console   &&
-   make install                                  
- fi                                        &&
- 
- if [ "$QTPLUGIN" = "y" ] ; then
-  if module_installed qt3 ; then
-    cd $SOURCE_DIRECTORY/plugins/qt-gui    &&
-    make install                                
+  # Determine which plugins to build
+  if in_depends licq cdk; then
+    CONSOLE_PLUGIN="yes"
+  if in_depends licq qt3; then
+    QT_PLUGIN="yes"
+  if in_depends licq openssl; then
+    MSN_PLUGIN="yes"
+  if in_depends licq xosd; then
+    OSD_PLUGIN="yes"
   fi
- fi                                                
+
+  # Print plugin information
+  echo
+  echo "The following plugins will be compiled:"
+  echo
+  echo "  * Console frontend: ${CONSOLE_PLUGIN}"
+  echo "  * Qt3 frontend: ${QT_PLUGIN}"
+  echo "  * MSN support: ${MSN_PLUGIN}"
+  echo "  * OSD support: ${OSD_PLUGIN}"
+  echo
+
+  default_config &&
+  make &&
+
+  # Compile console plugin
+  if [[ "$CONSOLE_PLUGIN" = "yes" ]]; then
+    cd $SOURCE_DIRECTORY/plugins/console &&
+    default_config &&
+    make
+  fi &&
+
+  # Compile Qt frontend
+  if [[ "$QT_PLUGIN" = "yes" ]]; then
+    . /etc/profile.d/qt3.rc &&
+    cd $SOURCE_DIRECTORY/plugins/qt-gui &&
+    default_config &&
+    make
+  fi &&
+
+  # Compile MSN support
+  if [[ "$MSN_PLUGIN" = "yes" ]]; then
+    cd $SOURCE_DIRECTORY/plugins/msn &&
+    default_config &&
+    make
+  fi &&
+
+  # Compile OSD plugin
+  if [[ "$OSD_PLUGIN" = "yes" ]]; then
+    cd $SOURCE_DIRECTORY/plugins/osd &&
+    default_config &&
+    make
+  fi &&
+
+  # Install licq 
+  prepare_install &&
+  cd $SOURCE_DIRECTORY &&
+  make install &&
+
+  # Install console plugin
+  if [[ "$CONSOLE_PLUGIN" = "yes" ]]; then
+    cd $SOURCE_DIRECTORY/plugins/console &&
+    make install
+  fi &&
+
+  # Install Qt frontend
+  if [[ "$QT_PLUGIN" = "yes" ]]; then
+    cd $SOURCE_DIRECTORY/plugins/qt-gui &&
+    make install
+  fi &&
+
+  # Install MSN support
+  if [[ "$MSN_PLUGIN" = "yes" ]]; then
+    cd $SOURCE_DIRECTORY/plugins/msn &&
+    make install
+  fi &&
+
+  # Install OSD plugin
+  if [[ "$OSD_PLUGIN" = "yes" ]]; then
+    cd $SOURCE_DIRECTORY/plugins/osd &&
+    make install
+  fi
+
 ) > $C_FIFO 2>&1
