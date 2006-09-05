@@ -1,4 +1,4 @@
-PROFTPD_MODULES="mod_ifsession mod_ldap mod_radius mod_ratio mod_readme mod_rewrite mod_sql mod_sql_mysql mod_sql_postgres mod_tls mod_wrap"
+PROFTPD_MODULES="mod_ifsession mod_ldap mod_radius mod_ratio mod_readme mod_rewrite mod_tls mod_wrap"
 
 for mod in $PROFTPD_MODULES; do
   mquery MOD_$mod "Enable $mod? " n
