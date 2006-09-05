@@ -16,27 +16,33 @@ optional_depends  "mono"       "--enable-mono"  "--disable-mono"        \
 optional_depends  "gtkspell"   ""               "--disable-gtkspell"    \
                   "for inline message spellcheck support"               &&
 
-optional_depends  "gstreamer-10"  ""            "--disable-gstreamer"   \
+optional_depends  "gstreamer-10"    ""          "--disable-gstreamer"   \
                   "for sound support within the application"            &&
 
-optional_depends  "linphone"   ""               ""                      \
-                  "for limited voice chat support"                      &&
-
-optional_depends  "jack"       ""               ""                      \
-                  "for additional voice chat features"                  &&
-
-optional_depends  "libsamplerate"  ""           ""                      \
-                  "for additional voice chat features"                  &&
-
-optional_depends  "evolution"  ""               "--disable-gevolution"  \
+optional_depends  "evolution"       ""          "--disable-gevolution"  \
                   "for the Gaim-Evolution plugin"                       &&
 
-optional_depends  "meanwhile"  ""               ""                      \
+optional_depends  "meanwhile"       ""          ""                      \
                   "for meanwhile (Lotus Sametime) protocol support"     && 
+
+optional_depends  "libdbi-drivers"  ""          "--disable-cap"         \
+                  "for the Contact Availability Prediction plugin"      &&
+
+optional_depends  "libSM"           ""          "--disable-sm"          \
+                  "for X session management support"                    &&
 
 optional_depends  "startup-notification"                                \
                   ""  "--disable-startup-notification"                  \
                   "for window manager startup notification support"     &&
+
+optional_depends  "perl"       "--enable-perl"  "--disable-perl"        \
+                  "for Perl based plugin support"                       &&
+
+optional_depends  "tcl"       ""                ""                      \
+                  "for TCL based plugin support"                        &&
+
+optional_depends  "tk"        ""                ""                      \
+                  "for TK based plugin support"                         &&
 
 # MSN suuport needs either nns/nspr or gnutls
 optional_depends  "mozilla"                                             \
