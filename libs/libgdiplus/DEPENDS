@@ -1,9 +1,15 @@
 depends  %X      &&
 depends  glib-2  &&
 
-optional_depends  "tiff"    ""  "--without-libtiff"  \
-                  "for TIFF image IO support"        &&
-optional_depends  "jpeg"    ""  "--without-libjpg"   \
-                  "for JPEG image IO support"        &&
-optional_depends  "libpng"  ""  "--without-libpng"   \
-                  "for PNG image IO support"
+optional_depends  "tiff"     ""  "--without-libtiff"  \
+                  "for TIFF image IO support"         &&
+optional_depends  "jpeg"     ""  "--without-libjpg"   \
+                  "for JPEG image support"            &&
+optional_depends  "libexif"  ""  "--without-libexif"  \
+                  "for EXIF image tag support"        &&
+optional_depends  "libpng"   ""  "--without-libpng"   \
+                  "for PNG image support"             &&
+optional_depends  "glitz"     "--enable-glitz"     ""     \
+                  "to support the glitz surface backend"  &&
+optional_depends  "DirectFB"  "--enable-directfb"  ""     \
+                  "to support the DirectFB surface backed"
