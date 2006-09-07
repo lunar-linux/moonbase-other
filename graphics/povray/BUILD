@@ -1,10 +1,9 @@
 (
 
-  unset OPT
 
   ./configure  COMPILED_BY="Lunar Linux lunar@lunar-linux.org" \
                --prefix=/usr                                   \
-	       $OPT                                           &&
+	       $OPTS                                          &&
 
   default_make
 
