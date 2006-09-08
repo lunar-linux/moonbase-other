@@ -7,10 +7,13 @@
   # Determine which plugins to build
   if in_depends licq cdk; then
     CONSOLE_PLUGIN="yes"
+  fi
   if in_depends licq qt3; then
     QT_PLUGIN="yes"
+  fi
   if in_depends licq openssl; then
     MSN_PLUGIN="yes"
+  fi
   if in_depends licq xosd; then
     OSD_PLUGIN="yes"
   fi
