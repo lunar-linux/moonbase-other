@@ -28,6 +28,11 @@
   echo "  * OSD support: ${OSD_PLUGIN}"
   echo
 
+  # Load KDE profile
+  if in_depends licq kdelibs3; then
+    . /etc/profile.d/kde3.rc
+  fi
+
   default_config &&
   make &&
 
