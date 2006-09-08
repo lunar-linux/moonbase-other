@@ -7,7 +7,7 @@ case `uname -s -r` in
     ;;
   [lL]inux\ 2.6.*) for mod in $SOURCE_DIRECTORY/i386_linux26/dest/root.client/usr/vice/etc/modload/*.ko; do
       install -m 644 $mod /usr/vice/etc/modload || exit -1
-      ln -s `basename $mod` /usr/vice/etc/modload/`basename $mod .ko`.o
+      ln -sf `basename $mod` /usr/vice/etc/modload/`basename $mod .ko`.o
     done
     ;;
 esac

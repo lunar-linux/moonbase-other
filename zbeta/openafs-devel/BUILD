@@ -1,6 +1,6 @@
 (
-  unpack $SOURCE3	&&
-  patch_it $SOURCE2 1	&&
+  patch_it $SOURCE3 1	&&
+  patch_it $SOURCE4 1	&&
   ./regen.sh		&& 
 
   case `uname -s -r` in
@@ -46,10 +46,13 @@
   fi &&	
 
   # Installing some db files
-  install -p -m 644 $SOURCE_DIRECTORY/etc/openafs-CellServDB /usr/vice/etc/CellServDB &&
-  install -p -m 644 $SOURCE_DIRECTORY/etc/openafs-SuidCells /usr/vice/etc/SuidCells &&
-  install -p -m 644 $SOURCE_DIRECTORY/etc/openafs-cacheinfo /usr/vice/etc/cacheinfo &&
-  install -p -m 755 $SOURCE_DIRECTORY/etc/openafs-afsmodname /usr/vice/etc/afsmodname &&
+  install -p -m 644 $SOURCE_CACHE/CellServDB /usr/vice/etc/CellServDB &&
+
+  # Ugly but we need a new cellservdb everytime we run lin
+  rm $SOURCE_CACHE/CellServDB &&
+
+  install -p -m 644 $SOURCE_DIRECTORY/src/packaging/HP-UX/files/usr/vice/etc/cacheinfo /usr/vice/etc/cacheinfo &&
+  touch /usr/vice/etc/SuidCells &&
 
   # Copy conf and rc files
   sedit "s;^OPTIONS=.*;OPTIONS=\"\$MEDIUM -nosettime\";" $SOURCE_DIRECTORY/src/afsd/afs.conf.linux &&
