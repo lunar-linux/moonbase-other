@@ -1,8 +1,6 @@
 (
-
-  patch_it $SOURCE_CACHE/$SOURCE5 1 &&
-  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
-  patch_it $SOURCE_CACHE/$SOURCE4 1 &&
+  sedit '/^SUBDIRS/ n; s/etc//' Makefile.in Makefile.am &&
+  sedit 's/4755/4711/g' src/Makefile.in src/Makefile.am &&
 
   if  module_installed  Linux-PAM;  then
     OPTS="$OPTS --with-libpam"
