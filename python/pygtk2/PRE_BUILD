@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# declare pygobject.h rogue so it doesn't get removed!
+if [ -f $INSTALL_LOGS/pygtk2* ]; then
+  sedit "/\/usr\/include\/pygtk-2.0\/pygobject.h/d" $INSTALL_LOGS/pygtk2*
+fi
