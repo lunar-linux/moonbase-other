@@ -1,4 +1,5 @@
 (
+  patch_it $SOURCE3 1 &&
   sedit '/^SUBDIRS/ n; s/etc//' Makefile.in Makefile.am &&
   sedit 's/4755/4711/g' src/Makefile.in src/Makefile.am &&
 
