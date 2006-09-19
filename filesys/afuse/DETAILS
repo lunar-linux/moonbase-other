@@ -1,0 +1,19 @@
+        MODULE=afuse
+       VERSION=0.1.1
+        SOURCE=$MODULE-$VERSION.tar.gz
+    SOURCE_URL=$SFORGE_URL/$MODULE
+    SOURCE_VFY=sha1:b4132e40f3c885d02b692f502702b23dabb8b4e9
+      WEB_SITE=http://afuse.sourceforge.net
+       ENTERED=20060919
+       UPDATED=20060919
+         SHORT="automounter for fuse filesystems"
+
+cat << EOF
+Afuse is an automounting file system implemented in user-space using 
+FUSE. Afuse currently implements the most basic functionality that can 
+be expected by an automounter; that is it manages a directory of 
+virtual directories. If one of these virtual directories is accessed 
+and is not already automounted, afuse will attempt to mount a filesystem 
+onto that directory. If the mount succeeds the requested access proceeds 
+as normal, otherwise it will fail with an error.
+EOF
