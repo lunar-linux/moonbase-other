@@ -4,14 +4,7 @@ depends Python      &&
 depends scons       &&
 depends SDL         &&
 depends freealut    &&
-optional_depends  ode                            \
-                  "--enable-gameblender"         \
-                  "--disable-gameblender"        \
-                  "for the GameBlender engine"  &&
 
-optional_depends  yafray                 \
-                  ""                     \
-                  ""                     \
-                  "for Yafray modeling"
-
-
+optional_depends ode     "" "" "for Open Dynamics Engine Support"  &&
+optional_depends OpenEXR "" "" "for OpenEXR support"               &&
+optional_depends yafray  "" "" "for Yafray modeling"

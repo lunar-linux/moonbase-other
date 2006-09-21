@@ -1,6 +1,17 @@
 (
 
-prepare_install &&
-scons WITH_BF_OPENEXR=0 LCGDIR=lib BF_BUILDDIR=build BF_INSTALLDIR=/opt/lunar/blender
+  sedit "s:2.4:2.5:" config/linux2-config.py
+
+  if module_installed ode ; then
+    sedit "s:WITH_BF_ODE = 'false':WITH_BF_ODE = 'true':" config/linux2-config.py
+    sedit "s:BF_ODE = LCGDIR + '/ode':BF_ODE = '/usr':" config/linux2-config.py
+  fi
+
+  if ! module_installed OpenEXR ; then
+    sedit "s:WITH_BF_OPENEXR = 'true':WITH_BF_OPENEXR = 'false':" config/linux2-config.py
+  fi
+
+  prepare_install &&
+  scons LCGDIR=lib BF_BUILDDIR=build BF_INSTALLDIR=/opt/lunar/blender
 
 ) > $C_FIFO 2>&1
