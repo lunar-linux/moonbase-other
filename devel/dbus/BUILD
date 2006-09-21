@@ -1,7 +1,7 @@
 (
  
   if module_installed qt3 ; then
-     export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
+    . /etc/profile.d/qt3.rc
   fi
 
   if module_installed gtk-sharp ; then
