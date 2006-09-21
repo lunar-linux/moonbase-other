@@ -1,21 +1,24 @@
-           MODULE=numpy
-         VERSION=24.2
-          SOURCE=Numeric-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/Numeric-$VERSION
+          MODULE=numpy
+         VERSION=1.0rc1
+          SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=$SFORGE_URL/numpy/
-      SOURCE_VFY=sha1:72869ef80c12630a9a125ba10c96093b6ae16aff
-        WEB_SITE=http://numpy.sourceforge.net/
+      SOURCE_VFY=sha1:3a046507eaee5c75c2808c8b726e089196efea35
+        WEB_SITE=http://numpy.scipy.org/
          ENTERED=20020708
-         UPDATED=20060106
-           SHORT="Numerical Python adds a fast multidimensional array facility to Python."
+         UPDATED=20060920
+           SHORT="Fundamental package needed for scientific computing with Python"
 
 cat << EOF
-Why Numerical Python?
-If x and y are Numerical Python arrays, then the speed of the operation
-x + y is close to the speed of doing it in C if the arrays are big
-enough. Thus, Python can be extended with a full scientific array
-language with sophisticated indexing and shaping operations and yet be
-closer to the speed of a compiled language than to the speed of Python
-itself.
+numpy contains:
+    *  a powerful N-dimensional array object
+    * sophisticated (broadcasting) functions
+    * basic linear algebra functions
+    * basic Fourier transforms
+    * sophisticated random number capabilities
+    * tools for integrating Fortran code.
+
+NumPy derives from the old Numeric code base and can be used as a replacement
+for Numeric.  It also adds the features introduced by Numarray and can also be
+used to replace Numarray.
 EOF
 
