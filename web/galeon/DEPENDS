@@ -1,11 +1,9 @@
-depends  mozilla     &&
-
-# adding depends found when installing galeon with no prior gnome installed
-# no attempt to figure out the minimal tree
-# tchan edited these new depends to a smaller tree
-
-depends  gnome-libs  &&
-depends  oaf         &&
-depends  gnome-mime-data      &&
-depends  libgnomeui  &&
+depends  %GECKO_RENDERER  &&
+depends  libgnome         &&
+depends  libgnomeui       &&
+depends  libglade         &&
+depends  libxml2          &&
+depends  libgnomeprintui  &&
+depends  iso-codes        &&
 optional_depends "nautilus" "--enable-nautilus-view" "" "to enable nautilus view" 
+

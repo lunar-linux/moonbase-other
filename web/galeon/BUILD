@@ -8,7 +8,5 @@
                 --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
                 $OPTS                             &&
     default_make
-
-  cp $SCRIPT_DIRECTORY/galeon ${GNOME26_PREFIX:-/usr}/bin
   
 ) > $C_FIFO 2>&1
