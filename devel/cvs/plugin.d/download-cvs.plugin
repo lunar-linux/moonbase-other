@@ -48,12 +48,6 @@ plugin_source_download_cvs() {
 
   if [ -f "$3/$2" ] ; then
     verbose_msg "Extracting local CVS copy"
-    # unpacking in last component dir of $CVSMODULE
-    CD=$(pwd -P)
-    debug_msg "get_cvs: PWD=$PWD mkdir -p $(dirname $CVSMODULE)"
-    mkdir -p $(dirname $CVSMODULE)
-    cd $(dirname $CVSMODULE)
-    debug_msg "get_cvs: PWD=$PWD tar xjf $2"
     if ! unpack $2 ; then
       message "${PROBLEM_COLOR}Warning: bad local CVS copy, checking out fresh CVS copy${DEFAULT_COLOR}"
 
