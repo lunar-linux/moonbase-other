@@ -50,12 +50,8 @@ plugin_source_download_cvs() {
     verbose_msg "Extracting local CVS copy"
     if ! unpack $2 ; then
       message "${PROBLEM_COLOR}Warning: bad local CVS copy, checking out fresh CVS copy${DEFAULT_COLOR}"
-
       rm_source_dir $TMPDIR/$MODULE-$VERSION
       mk_source_dir $TMPDIR/$MODULE-$VERSION
-      cd $TMPDIR/$MODULE-$VERSION
-    else
-      cd $TMPDIR/$MODULE-$VERSION/$SBASE
     fi
   fi
 
@@ -69,7 +65,9 @@ plugin_source_download_cvs() {
   for (( TRY=1 ; $TRY<$NUM_RETRY+1 ; TRY++ )) ; do
     if [ -d CVS ] ; then
       verbose_msg "[${TRY}] cvs -qz3 up -PAd $CVSOPTIONS $CVSRELEASE"
-      cvs -qz3 up -PAd $CVSOPTIONS $CVSRELEASE && GOT_CVS="yes" 
+      cd $TMPDIR/$MODULE-$VERSION/$SBASE
+      cvs -qz3 up -PAd $CVSOPTIONS $CVSRELEASE && GOT_CVS="yes"
+      cd $TMPDIR/$MODULE-$VERSION
     else
       verbose_msg "[${TRY}] cvs -d $CVSROOT -qz3 co $CVSOPTIONS $CVSRELEASE $CVSMODULE"
       cvs -d $CVSROOT -qz3 co -d $SBASE $CVSOPTIONS $CVSRELEASE $CVSMODULE && GOT_CVS="yes"
@@ -85,9 +83,7 @@ plugin_source_download_cvs() {
   if [ "$GOT_CVS" == "yes" ] ; then
     message "${MESSAGE_COLOR}Creating ${FILE_COLOR}$2${DEFAULT_COLOR}"
     # pack in last component dir of $CVSMODULE
-    cd $TMPDIR/$MODULE-$VERSION
     tar cjf $3/$2 $SBASE/
-    cd $CD
   else
     activity_log "lget"  "$MODULE"  "$VERSION"  "failed" "Could not get $CVSMODULE"
   fi
