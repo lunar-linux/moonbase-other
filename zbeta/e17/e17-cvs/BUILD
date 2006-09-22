@@ -5,6 +5,8 @@
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
   export USER=nobody
 
+  OPTS="$OPTS --with-profile=FAST_PC"
+
   default_cvs_build &&
 
   # Install the enlightenment_remote bash completion script
