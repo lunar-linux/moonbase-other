@@ -1,7 +1,7 @@
 (
 
-  OPTS="$OPTS --disable-profile --disable-debug \
-              --disable-testing-code  --enable-gui"
+  # python is disabled for now because of a build-time issue
+  OPTS="$OPTS --disable-profile --disable-debug  --disable-python"
 
   default_build
 

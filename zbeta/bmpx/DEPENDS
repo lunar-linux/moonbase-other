@@ -27,5 +27,12 @@ optional_depends  "libnotify"  "--enable-libnotify"                \
 optional_depends  "libSM"      "--enable-sm"      "--disable-sm"   \
                   "for Session Mangement support (XOrg 7.x only)"  &&
 
+# a build-time issue is preventing us from providing this option
+#optional_depends  "Python"     "--enable-python"  "--disable-python"  \
+#                  "to install the BMPx Python bindings"               &&
+
+optional_depends  "gaim-svn"  "--enable-gaim"     "--disable-gaim" \
+                  "to enable interaction between Gaim and BMPx"    &&
+
 optional_depends  "hal"        "--enable-hal"     "--disable-hal"  \
                   "for enabling the use of HAL in managing storage"
