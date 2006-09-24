@@ -1,4 +1,7 @@
 depends  cairo  &&
 
-optional_depends  "zlib"  "--enable-zlib"  "--disable-zlib"  \
-                  "for zlib compression support"
+optional_depends  "zlib"          "--enable-zlib"  "--disable-zlib"  \
+                  "for zlib compression support"                     &&
+
+optional_depends  "poppler-data"  ""               ""                \
+                  "for support of additional file encodings"
