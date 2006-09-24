@@ -12,12 +12,13 @@
 
   export LDFLAGS="$LDFLAGS -lexpat"
  
-  OPTS="$OPTS --enable-glib --enable-x --enable-checks --enable-verbose-mode \
+  OPTS="$OPTS --enable-glib --with-x --enable-checks --enable-verbose-mode   \
         --with-xml=libxml --with-system-pid-file=/var/run/messagebus.pid     \
         --with-system-socket=/var/lib/dbus/system_bus_socket                 \
-        --with-session-socket-dir=/tmp"
-  
-  default_build &&
+        --with-session-socket-dir=/tmp  --with-dbus-user=messagebus          \
+        --disable-xml-docs"
+
+  default_build  &&
 
   # The following used to be in POST_INSTALL but the service wasn't starting
   # on FIRST install due to the lack of existing /var/lib/dbus
