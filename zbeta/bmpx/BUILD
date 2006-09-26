@@ -1,7 +1,6 @@
 (
 
-  # python is disabled for now because of a build-time issue
-  OPTS="$OPTS --disable-profile --disable-debug  --disable-python"
+  OPTS="$OPTS --disable-profile --disable-debug"
 
   default_build  &&
 
