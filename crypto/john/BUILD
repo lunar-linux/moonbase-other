@@ -8,12 +8,10 @@
   make generic &&
   prepare_install
 
-) > $C_FIFO 2>&1  &&  (
-
-  cd  run
+  cd  ../run
   cp  -d  john  mailer  unshadow  unique  unafs  /usr/sbin
 
   mkdir  -p                 /usr/share/john
   cp  *.chr  *.lst  *.conf  /usr/share/john
 
-)
+) > $C_FIFO 2>&1
