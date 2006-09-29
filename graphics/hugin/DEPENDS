@@ -1,3 +1,11 @@
 depends wxGTK &&
 depends libpano12 &&
-depends boost
+depends boost &&
+
+#run-time depedencies
+depends enblend &&
+#do not force autopano-tools as it requires mono
+optional_depends autopano-sift \
+                 "" \
+                 "" \
+                 "in order to use [Create ctrl points], requires mono" 
