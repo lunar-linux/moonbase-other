@@ -1,5 +1,4 @@
 (
-  OPTS="$OPTS -U d_enablenls" &&
   if [ "$CONFIG_NLS" == "n" ]; then
     OPTS="$OPTS -U d_enablenls"
   fi
