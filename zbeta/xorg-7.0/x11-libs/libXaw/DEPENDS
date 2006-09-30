@@ -1,7 +1,5 @@
-depends  xproto  &&
-depends  libX11  &&
-depends  libXext &&
-depends  xextproto &&
-depends  libXt     &&
 depends  libXpm  && 
-depends  libXmu    
+depends  libXmu  &&
+
+optional_depends  libXp  ""  "--disable-xaw8"  \
+                  "for basic printing support in within Xaw"
