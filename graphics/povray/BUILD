@@ -3,7 +3,8 @@
 
   ./configure  COMPILED_BY="Lunar Linux lunar@lunar-linux.org" \
                --prefix=/usr                                   \
-	       $OPTS                                          &&
+               --sysconfdir=/etc                               \
+               $OPTS                                          &&
 
   default_make
 
