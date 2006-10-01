@@ -1,7 +1,8 @@
 (
 
   ./autogen.sh --build=$BUILD  \
-  $OPTS                        &&
+               --prefix=/usr   \
+  $OPTS                       &&
 
   default_build
 
