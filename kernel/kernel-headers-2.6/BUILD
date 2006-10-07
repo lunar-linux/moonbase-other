@@ -1,10 +1,22 @@
 (
-  cd ${SOURCE_DIRECTORY}/include/ &&
-    
-  # asm is a special case, since it is arch specific
-  mv asm-i386 asm &&
-    
-  prepare_install &&
+  
+  if grep headers_install /usr/src/linux/Makefile &> /dev/null; then
+    cd /usr/src/linux;
+    make headers_check;
+    prepare_install;
+
+    cd include;
+    for dir in asm linux scsi sound mtd net media ; do
+      cp -RL $dir /usr/include/;
+    done;
+
+  else
+
+  # Legacy code here until everyone is savely past 2.6.18
+
+  cd ${SOURCE_DIRECTORY}/include/;
+  mv asm-i386 asm;
+  prepare_install;
 
   for dir in asm linux scsi sound mtd
   do
@@ -20,11 +32,12 @@
      do
         chmod 644 $file
      done
-  done &&
+  done;
 
   # XOrg X11R7 will not build without this
   # Incase of an update: Remove this!
   sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' \
-	-i /usr/include/linux/agpgart.h
+	-i /usr/include/linux/agpgart.h;
+  fi
 
 ) > $C_FIFO 2>&1
