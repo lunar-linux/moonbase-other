@@ -4,7 +4,7 @@
   . /etc/profile.d/kde3.rc
 
   if module_installed gst-plugins; then
-    OPTS="--enable-kttsd-gstreamer "$OPTS
+    OPTS="$OPTS --enable-kttsd-gstreamer"
   fi
 
   default_build
