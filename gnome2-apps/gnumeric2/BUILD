@@ -2,13 +2,9 @@
    
     ./configure --sysconfdir=/etc                               \
                 --prefix=/opt/lunar/$MOD		 	\
-		--localstatedir=/var				\
-		--infodir=/opt/lunar/$MOD/share/info		\
-		--mandir=/opt/lunar/$MOD/share/man		\
-                --with-python                                   \
-                --with-guile                                    \
-                --with-gda                                      \
-                --with-bonobo                                   \
+                --localstatedir=/var				\
+                --infodir=/opt/lunar/$MOD/share/info		\
+                --mandir=/opt/lunar/$MOD/share/man		\
                 --with-graphs                                   \
                 $OPTS                                           && 
 
