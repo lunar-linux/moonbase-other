@@ -1,8 +1,0 @@
-# tchan Added this hack because 5.0.24 wouldn't compile unless mysql-5.0.22
-# was removed first!  This should be tested on future releases and removed at
-# some time.
-if module_installed mysql ; then
-  lrm --upgrade mysql
-fi &&
-
-default_pre_build
