@@ -5,7 +5,7 @@
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
 
   # the following are known not to properly compile at this time
-  MODULES_NOT_TO_BUILD="calendar devian engage"
+  MODULES_NOT_TO_BUILD="calendar engage"
 
   for mod in $MODULES_NOT_TO_BUILD ; do
     rm -f "${mod}/autogen.sh"
