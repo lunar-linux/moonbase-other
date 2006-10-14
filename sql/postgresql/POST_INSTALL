@@ -4,9 +4,9 @@ INITDB=/usr/bin/initdb
 
 if [ 'grep postgres /etc/passwd' != 'postgres' ]
      then
-     add_priv_user postgres           \
-                    -d /var/lib/pgsql \
-                    -s /bin/bash      \
+     add_priv_user postgres            \
+                    -d /var/lib/pgsql  \
+                    -s /bin/bash       \
                     -g postgres
      fi
 
