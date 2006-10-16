@@ -33,29 +33,28 @@
     --with-system-png   \
     --with-system-jpeg  \
     --enable-extensions=${MOZ_EXTENSIONS}	\
+    --enable-single-profile        \
+    --enable-application=browser   \
+    --enable-default-toolkit=gtk2  \
+    --enable-optimize="$CFLAGS"    \
     --enable-xft	\
-    --enable-single-profile	\
-    --enable-application=browser	\
-    --enable-default-toolkit=gtk2       \
     --enable-reorder    \
     --enable-cpp-rtti   \
-    --enable-optimize="$CFLAGS"   \
     --enable-crypto     \
     --enable-strip      \
     --enable-strip-libs \
-    --enable-xterm-updates	\
-    --enable-official-branding  \
-    --disable-svg       \
-    --enable-plaintext-editor-only	\
+    --enable-canvas     \
+    --enable-svg        \
+    --enable-svg-renderer=cairo  \
+    --enable-xterm-updates       \
+    --enable-official-branding   \
     --disable-debug     \
     --disable-tests     \
     --disable-installer \
     --disable-pedantic  \
     --disable-mailnews  \
-    --disable-composer  \
     --disable-logging	\
     --disable-accessibility	\
-    --disable-freetype2	\
     --disable-ldap	\
     --disable-profilesharing	\
     --disable-mathml	\
