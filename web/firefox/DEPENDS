@@ -1,16 +1,15 @@
-depends libIDL &&
-depends ORBit2 &&
-depends zip    &&
-depends unzip  &&
-depends expat  &&
-depends gtk+-2 &&
+depends  libIDL  &&
+depends  ORBit2  &&
+depends  zip     &&
+depends  unzip   &&
+depends  expat   &&
+depends  gtk+-2  &&
 
-optional_depends "flash-plugin" "" "" "to enable shockwave flash" &&
-optional_depends "gnome-vfs2" "" \
-		 "--disable-gnomevfs" \
-		 "for Gnome VFS support" &&
-
-optional_depends heimdal \
-                 "--with-gssapi=/usr/include/heimdal" \
-                 "--without-gssapi" \
-                 "Heimdal GSSAPI Support"
+optional_depends  "flash-plugin"  ""  ""                    \
+                  "to enable shockwave flash"               &&
+optional_depends  "gnome-vfs2"    ""  "--disable-gnomevfs"  \
+                  "for Gnome VFS support"                   &&
+optional_depends  "heimdal"                                 \
+                  "--with-gssapi=/usr/include/heimdal"      \
+                  "--without-gssapi"                        \
+                  "Heimdal GSSAPI Support"
