@@ -9,6 +9,9 @@
   fi &&
   default_make &&
   mkdir -p $DOCUMENT_DIRECTORY/$MODULE &&
-  cp qemu-doc.html TODO $DOCUMENT_DIRECTORY/$MODULE/
+  cp TODO $DOCUMENT_DIRECTORY/$MODULE/ &&
+  if module_installed teTeX ; then
+    cp qemu-doc.html $DOCUMENT_DIRECTORY/$MODULE/
+  fi
   
 ) > $C_FIFO 2>&1
