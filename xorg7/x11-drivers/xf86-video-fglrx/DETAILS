@@ -1,0 +1,19 @@
+          MODULE=xf86-video-fglrx
+         VERSION=8.24.8
+         LICENSE=proprietary
+          SOURCE=fglrx_6_8_0-$VERSION-1.i386.rpm
+      SOURCE_URL=$MIRROR_URL
+      SOURCE_VFY=sha1:fe3c561da7aabd167d74091bdac99f5ef0753520
+        WEB_SITE=http://www.ati.com/
+         ENTERED=20060522
+         UPDATED=20060522
+           SHORT="proprietary ati driver for xorg7"
+cat << EOF
+Proprietary X.Org driver for the ATI 8500 and 9x00 series. Contains
+binary kernel module (fglrx.o) and ATI's X11 tools, includes and GLX
+header files. This driver will provide 3D acceleration for most
+7xxx and 9xxx cards, including the 'radeon' cards.
+
+An alternative GPL driver is in the XOrg-drm module, but that one
+does not support all FireGL cards.
+EOF
