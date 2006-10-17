@@ -1,0 +1,2 @@
+echo > $C_FIFO
+

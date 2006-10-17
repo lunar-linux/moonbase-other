@@ -1,0 +1,17 @@
+          MODULE=libdmx
+         VERSION=X11R7.1-1.0.2
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$XORG_URL/X11R7.1/src/lib/
+      SOURCE_VFY=sha1:619d6c61823121952da4d2b4b1f819fc25d57d59
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060120
+         UPDATED=20060523
+           SHORT="the X.Org DMX extenstion library"
+
+cat << EOF
+libdmx provides access to the Distributed Multihead extenstion (DMX) of
+the X protocol.  DMX allows a single X server to be set up as a proxy
+spanning multple servers.  This is not unlike Xinerama, only across 
+physical machines.
+EOF

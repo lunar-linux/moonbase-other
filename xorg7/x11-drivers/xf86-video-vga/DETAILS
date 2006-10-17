@@ -1,0 +1,21 @@
+          MODULE=xf86-video-vga
+         VERSION=X11R7.1-4.1.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$XORG_URL/X11R7.1/src/driver/
+      SOURCE_VFY=sha1:6ef9f7f9b5ef2364430b29f6ac6e2e628d4ec1be
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060302
+         UPDATED=20060523
+           SHORT="the X.Org VGA video driver for all video cards"
+
+cat << EOF
+xf86-video-vga provides the X.Org generic VGA video driver.  This
+driver uses the standard VGA interface provided on all video cards, 
+but runs completely unaccelerated.
+
+The driver supports depths 1, 4, and 8.  All relevant visual types 
+are supported at each depth.  Multi-head configurations are supported
+in combination with some other drivers, but only when the vga driver 
+is driving the primary head.
+EOF

@@ -1,0 +1,20 @@
+          MODULE=xorg-server
+         VERSION=X11R7.1-1.1.0
+    MESA_VERSION=6.5
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=MesaLib-${MESA_VERSION}.tar.bz2
+      SOURCE_URL=$XORG_URL/X11R7.1/src/xserver/
+     SOURCE2_URL=$SFORGE_URL/mesa3d/
+      SOURCE_VFY=sha1:959c66376f4468b60aa288d5153b823499596eb3 
+     SOURCE2_VFY=sha1:a77368901b0731b662d0858aef2c405a7ddf6014  
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060120
+         UPDATED=20060523
+           SHORT="The X.Org X11R7 server for the X Window System"
+
+cat << EOF
+The XOrg foundation's open sourced public implemetation of X11 (the XOrg
+Server) is the offical reference implementation of the X Window System.
+EOF
+

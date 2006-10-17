@@ -1,0 +1,18 @@
+          MODULE=libdrm
+         VERSION=2.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://people.freedesktop.org/~ajax/libdrm
+      SOURCE_VFY=sha1:679d4b74b93a429bfd28ab4a01b0c80ffdc9ab1c 
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.freedesktop.org/
+         ENTERED=20060120
+         UPDATED=20060120
+           SHORT="the userspace interface to kernel DRM services"
+
+cat << EOF
+libdrm is a library that implements the userspace interface to the
+kernel DRM services.  DRM stands for "Direct Rendering Manager", which
+is the kernelspace portion of the "Direct Rendering Infrastructure"
+(DRI).  The DRI is currently used on Linux to provide hardware-
+accelerated OpenGL drivers.
+EOF
