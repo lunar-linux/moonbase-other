@@ -14,6 +14,7 @@
               --disable-anon                       \
               --with-pwcheck=/var/lib/sasl         \
               --with-dbpath=/var/lib/sasl/sasl.db  \
+	      --with-config=/etc/sasl2             \
               --with-plugindir=/usr/lib/sasl2      \
               --enable-sample                      \
               --with-gnu-ld                        \
@@ -22,9 +23,12 @@
   default_config           &&
   mkdir -p /var/lib/sasl/  &&
   default_make             &&
-  if [ ! -e /usr/lib/sasl2/smtpd.conf ] ; then
-    install $SOURCE_CACHE/$SOURCE2 /usr/lib/sasl2/smtpd.conf.gz  &&
-    gunzip /usr/lib/sasl2/smtpd.conf.gz
+  if [ ! -d /etc/sasl2 ]; then
+  	mkdir -p /etc/sasl2
+  fi &&
+  if [ ! -e /etc/sasl2/smtpd.conf ] ; then
+    install $SOURCE_CACHE/$SOURCE2 /etc/sasl2/smtpd.conf.gz  &&
+    gunzip /etc/sasl2/smtpd.conf.gz
   fi
 
 ) > $C_FIFO 2>&1
