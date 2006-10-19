@@ -1,13 +1,8 @@
-#####
-#From: ian@linuxcare.com (Ian Macdonald)
-#Newsgroups: comp.unix.shell
-#Subject: More bash 2.04 completions
-#Date: 12 Aug 2000 09:53:40 GMT
-#Organization: Linuxcare, Inc.
-#Lines: 274
-#Message-ID: <slrn8pa7l2.jgm.ian@lovelorn.linuxcare.com>
-#Reply-To: ian@linuxcare.com
-#####
+#
+# More bash 2.04 completions
+#
+# From: ian@linuxcare.com (Ian Macdonald)
+#
 
 # Turn on extended globbing
 shopt -s extglob
@@ -23,9 +18,10 @@ _cvs ()
         prev=${COMP_WORDS[COMP_CWORD-1]}
 
 	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
-		COMPREPLY=( $( compgen -W 'add admin checkout commit diff \
-		export history import log rdiff release remove rtag status \
-		tag update' $cur ))
+		COMPREPLY=( $( compgen -W 'add admin annotate checkout commit \
+		diff edit editors export history import init log login logout \
+		ls pserver rannotate rdiff release remove rlog rls rtag \
+		server status tag unedit update version watch watchers' $cur ))
 	else
 		COMPREPLY=( $( compgen -f $cur ))
 	fi
