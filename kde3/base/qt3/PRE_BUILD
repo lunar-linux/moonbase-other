@@ -12,4 +12,8 @@ put/alter the actual.rc file, in order to be processed, and after that to
 begin the qt3 install process.
 EOF
 
+if module_installed qt3 ; then
+  lrm --upgrade qt3
+fi &&
+
 default_pre_build
