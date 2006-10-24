@@ -8,8 +8,10 @@
      mkdir -p $DEJ
   fi  &&
   
-  rmdir old.libraries  &&
-  
+  if [ -d old.libraries ] ; then
+    rmdir old.libraries
+  fi &&
+
   cp -f $SOURCE_DIRECTORY/* $DEJ
 
 ) > $C_FIFO 2>&1
