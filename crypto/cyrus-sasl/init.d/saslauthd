@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# processname: saslauthd
+# chkconfig: 345 94 11
+# description: saslauthd - SASL Auth Daemon
+
+if [ ! -d /var/state/saslauthd ]; then
+    mkdir -p /var/state/saslauthd || exit 0
+fi
+
+[ -f /etc/sasl2/config ] && . /etc/sasl2/config
+
+start()
+{
+    echo -n "Starting SASL Auth Daemon: "
+    saslauthd $SASL_OPTIONS &&
+    echo -e $RESULT_OK ||
+    (echo -e $RESULT_FAIL; return -1)
+}
+
+stop()
+{
+    echo -n "Stopping SASL Auth Daemon: "
+    pidof saslauthd >/dev/null 2>&1 &&
+    (
+        killall saslauthd
+        sleep 2
+        pidof saslauthd >/dev/null 2>&1 &&
+        (echo -e $RESULT_FAIL; return -1) ||
+        echo -e $RESULT_OK
+    ) ||
+    echo -e $RESULT_FAIL
+}
+
+. /lib/lsb/init-functions
