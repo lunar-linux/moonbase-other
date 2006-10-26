@@ -5,7 +5,7 @@
   # We really want this
   OPTS="$OPTS --enable-largefile"
   
-  if [ ! -z $WITH_NLS ]; then
+  if [ "$WITH_NLS" == "y" ]; then
     OPTS="$OPTS --enable-nls"
   else
     OPTS="$OPTS --disable-nls"
