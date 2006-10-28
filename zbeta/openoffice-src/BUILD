@@ -15,12 +15,8 @@ install_dicts ()
   cd $SOURCE_DIRECTORY 				&&
 
   if module_installed j2sdk; then
-    export OPTS="$OPTS --enable-java --with-jdk-home=/usr/lib/j2sdk1.4.1/"
+    export OPTS="$OPTS --enable-java --with-jdk-home=/usr/lib/j2sdk1.4.2/"
   fi &&  						
-
-  if module_installed j2sdk-beta; then
-     export OPTS="$OPTS --enable-java --with-jdk-home=/usr/lib/j2sdk1.4.2/"
-  fi &&                      
 
   # set language options in setup.in
   sedit "/^LANGS=\"\$LANGS/d" bin/setup.in      &&
