@@ -1,4 +1,8 @@
 (
+  # Enable multibyte support if this is the user's wish
+  if [[ "$MULTIBYTE" == "y" ]]; then
+    OPTS="$OPTS --enable-multibyte"
+  fi
   
   cd src                                 &&
   default_config                         &&
