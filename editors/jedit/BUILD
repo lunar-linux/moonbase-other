@@ -1,6 +1,6 @@
 (
   
-  sedit "s:local/share/xml:share/sgml:" build.properties &&
+  sedit "s:local/share/xml/docbook/4.2:share/sgml/docbook/docbook-xml-4.3:" build.properties &&
   sedit "s:local/share/xsl/docbook:share/sgml/docbook/xsl-stylesheets-1.69.1:" build.properties &&
   sedit "s:local/j2sdk:lib/j2sdk:" build.properties &&
 
