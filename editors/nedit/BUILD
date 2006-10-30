@@ -6,10 +6,7 @@
   make  linux                                         &&
   prepare_install
 
-  strip      source/nedit                           &&
-  strip      source/nc                              &&
-  install    source/nc         /usr/bin/            &&
-  install    source/nedit      /usr/bin/            &&
+  install -s source/nc source/nedit /usr/bin/       &&
   install    doc/nc.man        nc.1                 &&
   install    doc/nedit.man     nedit.1              &&
   gzip  -9   nc.1                                   &&
