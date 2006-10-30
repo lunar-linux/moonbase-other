@@ -1,6 +1,6 @@
 (
 
-  sedit "s/CFLAGS\=/CFLAGS:=-DBUILD_UNTESTED_NEDIT/"  makefiles/Makefile.linux &&
+  sedit "s/CFLAGS=/CFLAGS:=-DBUILD_UNTESTED_NEDIT /"  makefiles/Makefile.linux &&
   sedit "s/-DUSE_LPR_PRINT_CMD/& \$\(CFLAGS\)/" makefiles/Makefile.linux &&
   sedit "s/-lm/-lm -lXmu/" makefiles/Makefile.linux   &&
   make  linux                                         &&
@@ -15,6 +15,7 @@
   gzip  -9   nc.1                                   &&
   gzip  -9   nedit.1                                &&
   install    nc.1.gz           /usr/share/man/man1/ &&
-  install    nedit.1.gz        /usr/share/man/man1/
+  install    nedit.1.gz        /usr/share/man/man1/ &&
+  gather_docs ReleaseNotes doc/nedit.doc doc/nedit.html doc/README.FAQ doc/html/*
 
 ) > $C_FIFO 2>&1
