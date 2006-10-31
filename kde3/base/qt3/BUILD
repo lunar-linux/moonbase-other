@@ -4,8 +4,6 @@
   export  LD_LIBRARY_PATH=$QTDIR/lib
   bad_flags "-z combreloc"
 
-  prepare_install  &&
-
   sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
 
   echo "yes" | ./configure          \
@@ -38,6 +36,8 @@
   fi &&
 
   rm -f bin/qmake              &&     
+  prepare_install              &&
+
   cp qmake/qmake bin/qmake     &&
   make install                 &&
 
