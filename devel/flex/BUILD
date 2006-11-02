@@ -1,12 +1,11 @@
 (
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-  sedit "s/mandir = \$(prefix)\/man/mandir = \$(prefix)\/share\/man/" Makefile.in &&
+
   ./configure  --build=$BUILD  \
                --prefix=/usr   \
                $OPTS           &&
-  make                         &&
-  prepare_install              &&
-  make    install              &&
+
+  default_make  &&
+
   ln  -sf  flex  /usr/bin/lex
 
 ) > $C_FIFO 2>&1
