@@ -2,4 +2,11 @@ depends automake   &&
 depends autoconf   &&
 depends freetype2  &&
 
-optional_depends "tk" "" "" "For building extra tcl/tk tools"
+optional_depends "tk" "" "" "For building extra tcl/tk tools"  &&
+
+
+# Adding these for now as current moonbase versions cause it to tank,
+# so for now just say no.
+
+optional_depends "ocaml" "" "--disable-ocaml" "ocaml support"  &&
+optional_depends "swig"  "" "--disable-swig"  "swig support"
