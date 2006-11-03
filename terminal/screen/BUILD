@@ -5,7 +5,10 @@
                --prefix=/usr                      \
 	       --infodir=/usr/share/info          \
                --mandir=/usr/share/man           &&
-  default_make
-  cp etc/etcscreenrc /etc/screenrc
+  default_make &&
+  gather_docs doc/FAQ TODO NEWS.* etc/screenrc &&
+  if [ ! -e /etc/screenrc ] ; then
+    cp -p etc/etcscreenrc /etc/screenrc
+  fi
 
 ) > $C_FIFO 2>&1
