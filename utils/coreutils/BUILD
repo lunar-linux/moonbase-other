@@ -11,6 +11,13 @@
     OPTS="$OPTS --disable-nls"
   fi
 
+  # tchan added this hack for coreutils > 6.x
+  export CHGRPPROG=/usr/src/coreutils-$VERSION/src/chgrp
+  export CHMODPROG=/usr/src/coreutils-$VERSION/src/chmod
+  export    CPPROG=/usr/src/coreutils-$VERSION/src/cp
+  export MKDIRPROG=/usr/src/coreutils-$VERSION/src/mkdir
+  export    MVPROG=/usr/src/coreutils-$VERSION/src/mv
+  export    RMPROG=/usr/src/coreutils-$VERSION/src/rm
   DEFAULT_POSIX2_VERSION=199209 default_build &&
   
   (
