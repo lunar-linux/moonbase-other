@@ -1,12 +1,13 @@
 (
-export PATH=${PATH}:/usr/X11R6/bin
 
-# changed p0 patch to p1 patch /elaine/  
-  patch -p1 < $SCRIPT_DIRECTORY/xfig.3.2.3d.Imakefile.patch &&
+  export PATH=${PATH}:/usr/X11R6/bin
+
   xmkmf                            &&
-  make                             &&
-  prepare_install                  &&
-  make install                     &&
+
+  sedit "s:/usr/include/X11/Xaw3d:/usr/include/X11/Xaw:" Imakefile
+  sedit "s:X11/Xaw3d:X11/Xaw:g" SimpleMenu.c
+
+  default_make                     &&
   make install.man
 
 ) > $C_FIFO 2>&1
