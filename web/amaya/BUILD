@@ -3,11 +3,11 @@
   cd     Amaya                 &&
   mkdir  LINUX-ELF             &&
   cd     LINUX-ELF             &&
-  ../configure  --prefix=/usr  \
-                --enable-motif \
+  ../configure  --prefix=/usr   \
+                --enable-motif  \
                 --without-graphic-libs \
                 $OPTS          &&
-  make all                     &&
+  make                         &&
   prepare_install              &&
   make    install
 
