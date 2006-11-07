@@ -24,7 +24,7 @@
     echo "${MODULE_PREFIX}/lib" >> /etc/ld.so.conf
   fi &&
 
-  echo "export QTDIR=\"${MODULE_PREFIX}4\"" >> $SOURCE_DIRECTORY/qt4.rc  &&
+  echo "export QTDIR=\"${MODULE_PREFIX}\"" >> $SOURCE_DIRECTORY/qt4.rc  &&
   echo export PATH=\"'${QTDIR}'/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/qt4.rc  &&
   echo export PKG_CONFIG_PATH=\"'${QTDIR}'/lib/pkgconfig:'${PKG_CONFIG_PATH}'\"  \
 	>> $SOURCE_DIRECTORY/qt4.rc &&
