@@ -23,7 +23,7 @@
   # Makefile no longer setsuid on unix_chkpwd and pam_timestamp_check
   chmod 4711 /sbin/unix_chkpwd &&
   chmod 4711 /sbin/pam_timestamp_check &&
- 
+
   # Module documents are nice
   if [ ! -d /usr/share/doc/Linux-PAM/text ]; then
       mkdir -p /usr/share/doc/Linux-PAM/text
@@ -31,10 +31,10 @@
   for i in $SOURCE_DIRECTORY/modules/pam_*/README; do
       cp -f ${i} /usr/share/doc/Linux-PAM/text/README.$(echo ${i} | awk -F/ '{ print $(NF-1) }')
   done &&
-	
+
   # More doc
-  gather_docs AUTHORS Copyright
-  
+  gather_docs AUTHORS Copyright &&
+
   # We have to clean up a bit after Linux-PAM
   rm -f /lib/security/*.la &&
 
