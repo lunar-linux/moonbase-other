@@ -1,10 +1,10 @@
 (
 
   bad_flags -malign-double
- 
+
   # We really want this
   OPTS="$OPTS --enable-largefile"
-  
+
   if [ "$WITH_NLS" == "y" ]; then
     OPTS="$OPTS --enable-nls"
   else
@@ -12,14 +12,14 @@
   fi
 
   # tchan added this hack for coreutils > 6.x
-  export CHGRPPROG=/usr/src/coreutils-$VERSION/src/chgrp
-  export CHMODPROG=/usr/src/coreutils-$VERSION/src/chmod
-  export    CPPROG=/usr/src/coreutils-$VERSION/src/cp
-  export MKDIRPROG=/usr/src/coreutils-$VERSION/src/mkdir
-  export    MVPROG=/usr/src/coreutils-$VERSION/src/mv
-  export    RMPROG=/usr/src/coreutils-$VERSION/src/rm
+  export CHGRPPROG=/bin/chgrp
+  export CHMODPROG=/bin/chmod
+  export    CPPROG=/bin/cp
+  export MKDIRPROG=/bin/mkdir
+  export    MVPROG=/bin/mv
+  export    RMPROG=/bin/rm
   DEFAULT_POSIX2_VERSION=199209 default_build &&
-  
+
   (
     for FILE in basename cat cp chgrp chmod chown cut date dd df echo false   \
                 groups head id ln ls mkdir mknod nice pwd rm rmdir sleep sort \
