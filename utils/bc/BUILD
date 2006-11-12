@@ -4,6 +4,8 @@
 w
 q
 BCEOF
-    ./configure
-    default_build
+
+  sedit "s:-I8:-I -8:" configure
+
+  default_build
 ) > $C_FIFO 2>&1
