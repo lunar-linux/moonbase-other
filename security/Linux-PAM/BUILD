@@ -6,7 +6,12 @@
   export SGML2PS=no
   export PS2PDF=no
 
-  autoreconf &&
+  # Fix for automake 1.10
+  aclocal -I m4 &&
+  automake --add-missing --gnu &&
+  autoconf &&
+  # End fix
+
   ./configure  --libdir=/lib                            \
                --enable-docdir=/usr/share/doc/Linux-PAM \
                --disable-prelude                        \
