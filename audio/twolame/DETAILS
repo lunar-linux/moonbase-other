@@ -1,0 +1,24 @@
+          MODULE=twolame
+         VERSION=0.3.8
+          SOURCE=$MODULE-$VERSION.tar.gz
+   SOURCE_URL[0]=$SFORGE_URL/$MODULE/
+   SOURCE_URL[1]=http://www.ecs.soton.ac.uk/~njh/$MODULE/
+      SOURCE_VFY=sha1:0108195df6a2dbf8a2c569813eff97689e6ea7a7
+        WEB_SITE=http://www.twolame.org/
+         ENTERED=20061112
+         UPDATED=20061112
+           SHORT="optimised MPEG Audio Layer 2 (MP2) encoder"
+
+cat << EOF
+TwoLAME is an optimised MPEG Audio Layer 2 (MP2) encoder based on
+tooLAME by Mike Cheng, which in turn is based upon the ISO dist10
+code and portions of LAME.
+
+Features added to TwoLAME:
+Fully thread-safe
+Static and shared library (libtwolame)
+API very similar to LAME's (for easy porting)
+Frontend supports wider range of input files (using libsndfile)
+automake/libtool/pkgconfig based build system
+C99 compliant
+EOF
