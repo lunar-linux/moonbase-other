@@ -4,7 +4,7 @@
   export  LD_LIBRARY_PATH=$QTDIR/lib
   bad_flags "-z combreloc"
 
-  sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
+  sedit "s/-O2/$CXXFLAGS/g" mkspecs/linux-g++/qmake.conf  &&
 
   echo "yes" | ./configure          \
 	       -prefix ${MODULE_PREFIX} \
