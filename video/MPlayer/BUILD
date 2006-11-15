@@ -1,5 +1,8 @@
 (
 
+  # using CFLAGS other than MPlayers autodetected will break
+  bad_flags compiler
+
   if [ $MENCODER == "n" ] ; then
     OPTS=$OPTS" --disable-mencoder"
   fi
