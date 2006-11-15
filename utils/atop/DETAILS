@@ -1,0 +1,37 @@
+          MODULE=atop
+         VERSION=1.16
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://www.atconsultancy.nl/atop/packages/
+      SOURCE_VFY=sha1:a5a10422d3bdd101671b1467d165d2c3dd4aa8fc
+        WEB_SITE=http://www.atconsultancy.nl/atop/
+         ENTERED=20061114
+         UPDATED=20061114
+           SHORT="alternative top - performance watch program"
+cat << EOF
+The command atop is an ASCII full-screen performance-monitor on
+system-level and process-level. It looks similar to the other
+full-screen monitors, however there are some major differences.
+
+Advantages of atop:
+
+It shows the resource-consumption of all processes which were active
+during the interval, so including those processes which finished during
+the interval
+
+It shows system-level counters concerning cpu-, memory- and
+swap-utilization, but also disk I/O and network utilization counters
+are shown on system-level
+
+By default, it only shows system-resources and processes which were
+really active during the last interval
+
+For the active system resources and processes, only the load of the
+last interval is shown (not the accumulated utilization since boot)
+
+It is able to store raw counter-data in a file (compressed) for
+long-term analysis on system- and process-level. By default the logfiles
+are preserved for 28 days.  In combination with optional
+kernel patches: It shows process-level counters concerning disk I/O
+and network activity.
+
+EOF
