@@ -1,11 +1,6 @@
 (
-  ./autogen.sh  --build=$BUILD            \
-                --sysconfdir=/etc         \
-                --localstatedir=/var      \
-                --infodir=/usr/share/info \
-                --mandir=/usr/share/man   \
-                --disable-nls             \
-                $OPTS
+
+  default_cvs_config 
   touch INSTALL
   automake --add-missing --gnu
   default_build
