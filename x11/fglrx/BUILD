@@ -1,32 +1,68 @@
 (
 
-  KERNEL_VERSION=$(grep UTS_RELEASE /usr/src/linux/include/linux/version.h  | cut -d'"' -f2)
-  if echo $KERNEL_VERSION | grep -q '^2.6' ; then
-    MOD_EXT=ko
-  else
-    MOD_EXT=o
+	prepare_install &&
+	sh $SOURCE --extract &&
+	cd fglrx-install &&
+
+	cp -a common/usr/share/doc/fglrx /usr/share/doc/ &&
+	install common/usr/share/icons/ati.xpm /usr/share/icons/ &&
+	install common/usr/share/man/man8/atieventsd.8.gz /usr/share/man/man8/ &&
+	install common/usr/X11R6/include/X11/extensions/fglrx_gamma.h /usr/X11R6/include/X11/extensions/ &&
+	install common/usr/share/gnome/apps/fireglcontrol.desktop /usr/share/applications/ &&
+	cp -a common/usr/include/GL/* /usr/include/GL/ &&
+	install common/usr/X11R6/include/X11/extensions/fglrx_gamma.h /usr/include/X11/extensions/ &&
+	cp -a common/etc/ati /etc/ &&
+
+	install arch/x86/usr/sbin/atieventsd /usr/sbin/ &&
+	install arch/x86/usr/X11R6/bin/* /usr/bin/ &&
+	install x690/usr/X11R6/bin/fireglcontrolpanel /usr/bin/ &&
+
+	install arch/x86/usr/X11R6/lib/modules/dri/fglrx_dri.so /usr/lib/dri/ &&
+	install arch/x86/usr/X11R6/lib/modules/dri/atiogl_a_dri.so /usr/lib/dri/ &&
+	cp -a arch/x86/usr/X11R6/lib/lib* /usr/lib/fglrx/ &&
+	install x710/usr/X11R6/lib/modules/drivers/fglrx_drv.so /usr/lib/xorg/modules/drivers/ &&
+	install x710/usr/X11R6/lib/modules/linux/libfglrxdrm.so /usr/lib/xorg/modules/linux/ &&
+
+cat > /etc/profile.d/fglrx.rc <<EOF
+if [ $LD_LIBRARY_PATH ] ; then
+  if ! set | grep LD_LIBRARY_PATH | grep -q /usr/lib/fglrx ; then
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/fglrx
+    export LD_LIBRARY_PATH
   fi
+else
+  LD_LIBRARY_PATH=/usr/lib/fglrx
+  export LD_LIBRARY_PATH
+fi
 
-  chown -R root:root . &&
-  find . -type d -exec chmod 755 {} \; &&
+if [ $LIBGL_DRIVERS_PATH ] ; then
+  if ! set | grep LIBGL_DRIVERS_PATH | grep -q /usr/lib/dri ; then
+    LIBGL_DRIVERS_PATH=$LIBGL_DRIVERS_PATH:/usr/lib/dri
+    export LIBGL_DRIVERS_PATH
+  fi
+else
+  LIBGL_DRIVERS_PATH=/usr/lib/dri
+  export LIBGL_DRIVERS_PATH
+fi
+EOF
 
-  # hacked together:
-  cd $SOURCE_DIRECTORY/lib/modules/fglrx/build_mod &&
-  sh make.sh &&
-  prepare_install &&
-  cd $SOURCE_DIRECTORY/lib/modules/fglrx &&
-  mkdir -p /lib/modules/${KERNEL_VERSION}/drivers/char/drm &&
-  mkdir -p /lib/modules/${KERNEL_VERSION}/drivers/char/agp &&
-  install -m 644 fglrx.${KERNEL_VERSION}.${MOD_EXT} /lib/modules/${KERNEL_VERSION}/drivers/char/drm/fglrx.${MOD_EXT} &&
-  install -m 644 fglrx_agp.${KERNEL_VERSION}.${MOD_EXT} /lib/modules/${KERNEL_VERSION}/drivers/char/agp/fglrx_agp.${MOD_EXT} &&
-  cd $SOURCE_DIRECTORY &&
-  install -m755 usr/X11R6/bin/fgl* /usr/X11R6/bin/ &&
-  install -m755 usr/X11R6/bin/aticonfig /usr/X11R6/bin/ &&
-  install -m644 usr/X11R6/include/X11/extensions/fglrx_gamma.h \
-  	/usr/X11R6/include/X11/extensions/ &&
-  cp -a usr/X11R6/lib/* /usr/X11R6/lib/ &&
-  install usr/include/GL/glxATI.h /usr/include/GL/ &&
-  install usr/include/GL/glATI.h /usr/include/GL/ &&
-  gather_docs usr/share/doc/fglrx
+	export KPATH="/usr/src/linux"
+
+	KVER=$(if [ -f $KPATH/include/linux/utsrelease.h ]; then
+		grep UTS_RELEASE $KPATH/include/linux/utsrelease.h | cut -d'"' -f2
+	else
+		grep UTS_RELEASE $KPATH/include/linux/version.h | cut -d'"' -f2
+	fi)
+
+	if echo $KVER | grep -q '^2.6' ; then
+		MOD_EXT=ko
+	else
+		MOD_EXT=o
+	fi
+
+	cp -a arch/x86/lib/modules/fglrx/build_mod/* common/lib/modules/fglrx/build_mod/ &&
+	cd common/lib/modules/fglrx/build_mod/2.6.x &&
+	make KVER="$KVER" &&
+	mkdir -p /lib/modules/${KVER}/drivers/char/drm &&
+	install -m 644 fglrx.${MOD_EXT} /lib/modules/${KVER}/drivers/char/drm/fglrx.${MOD_EXT}
 
 ) > $C_FIFO 2>&1
