@@ -14,7 +14,7 @@ SBIN ?= $(PREFIX)/sbin
 MAN ?= $(PREFIX)/share/man
 LIB ?= $(PREFIX)/lib
 INC ?= $(PREFIX)/include
-PY_VER ?= 2.4
+PY_VER ?= 2.5
 PY_INC ?= /usr/include/python$(PY_VER)
 
 INST_OPTS := -o root -g root
