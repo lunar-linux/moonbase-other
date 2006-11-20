@@ -1,5 +1,3 @@
 mk_source_dir $SOURCE_DIRECTORY &&
 cd $SOURCE_DIRECTORY &&
-rpmunpack $SOURCE_CACHE/$SOURCE &&
-gunzip $(echo $SOURCE | sed 's:i386.rpm$:cpio.gz:') &&
-cpio -i --no-absolute-filenames --make-directories < $(echo $SOURCE | sed 's:i386.rpm$:cpio:')
+cp $SOURCE_CACHE/$SOURCE .
