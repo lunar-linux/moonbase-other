@@ -23,28 +23,6 @@
 	install x710/usr/X11R6/lib/modules/drivers/fglrx_drv.so /usr/lib/xorg/modules/drivers/ &&
 	install x710/usr/X11R6/lib/modules/linux/libfglrxdrm.so /usr/lib/xorg/modules/linux/ &&
 
-cat > /etc/profile.d/fglrx.rc <<EOF
-if [ $LD_LIBRARY_PATH ] ; then
-  if ! set | grep LD_LIBRARY_PATH | grep -q /usr/lib/fglrx ; then
-    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/fglrx
-    export LD_LIBRARY_PATH
-  fi
-else
-  LD_LIBRARY_PATH=/usr/lib/fglrx
-  export LD_LIBRARY_PATH
-fi
-
-if [ $LIBGL_DRIVERS_PATH ] ; then
-  if ! set | grep LIBGL_DRIVERS_PATH | grep -q /usr/lib/dri ; then
-    LIBGL_DRIVERS_PATH=$LIBGL_DRIVERS_PATH:/usr/lib/dri
-    export LIBGL_DRIVERS_PATH
-  fi
-else
-  LIBGL_DRIVERS_PATH=/usr/lib/dri
-  export LIBGL_DRIVERS_PATH
-fi
-EOF
-
 	export KPATH="/usr/src/linux"
 
 	KVER=$(if [ -f $KPATH/include/linux/utsrelease.h ]; then
