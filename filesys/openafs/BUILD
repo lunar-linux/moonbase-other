@@ -53,7 +53,9 @@
 
   # Copy conf and rc files
   sedit "s;^OPTIONS=.*;OPTIONS=\"\$MEDIUM -nosettime\";" $SOURCE_DIRECTORY/src/afsd/afs.conf.linux &&
-  install -p -m 644 $SOURCE_DIRECTORY/src/afsd/afs.conf.linux /etc/config.d/afs &&
+  if [ ! -f /etc/config.d/afs ]; then
+      install -p -m 644 $SOURCE_DIRECTORY/src/afsd/afs.conf.linux /etc/config.d/afs
+  fi &&
   sedit "s;^SYSCNF=.*;SYSCNF=/etc/config.d/afs;" $SOURCE_DIRECTORY/src/afsd/afs.rc.linux &&
   install -p -m 755 $SOURCE_DIRECTORY/src/afsd/afs.rc.linux /etc/init.d/afs
 
