@@ -14,12 +14,15 @@
       ;;
   esac
 
-  if [ ! -e /lib/modules/`uname -r`/build/include/linux/version.h ]; then
-    message "Can't find '/lib/modules/`uname -r`/build/include/linux/version.h'!"
-    message "You need to have the source for your running kernel online and configured!"
-    exit -1
-  fi
-  OPTS="$OPTS --with-linux-kernel-headers=/lib/modules/`uname -r`/build"
+   
+  # Bad idea, this causes a POST_INSTALL problem from kernel.
+  # In other words this cause openafs-driver to be built against old kernel
+  #if [ ! -e /lib/modules/`uname -r`/build/include/linux/version.h ]; then
+  #  message "Can't find '/lib/modules/`uname -r`/build/include/linux/version.h'!"
+  #  message "You need to have the source for your running kernel online and configured!"
+  #  exit -1
+  #fi
+  OPTS="$OPTS --with-linux-kernel-headers=/usr/src/linux"
 
   ./configure 	--prefix=/usr			\
 		--sysconfdir=/usr/vice/etc	\

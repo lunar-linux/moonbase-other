@@ -1,6 +1,6 @@
 (
-  patch_it $SOURCE3 1	&&
   patch_it $SOURCE4 1	&&
+  patch_it $SOURCE5 1	&&
   ./regen.sh		&& 
 
   case `uname -s -r` in
@@ -47,8 +47,8 @@
 
   # Installing some db files
   install -p -m 644 $SOURCE_CACHE/CellServDB /usr/vice/etc/CellServDB &&
-  install -p -m 644 $SOURCE_DIRECTORY/src/packaging/HP-UX/files/usr/vice/etc/cacheinfo /usr/vice/etc/cacheinfo &&
-  install -p -m 755 $SOURCE_DIRECTORY/src/packaging/RedHat/afsmodname /usr/vice/etc/afsmodname &&
+  install -p -m 755 $SOURCE_CACHE/$SOURCE3 /usr/vice/etc/killafs &&
+  install -p -m 644 $SOURCE_DIRECTORY/src/packaging/RedHat/openafs-cacheinfo /usr/vice/etc/cacheinfo &&
   touch /usr/vice/etc/SuidCells &&
 
   # Copy conf and rc files
@@ -61,4 +61,3 @@
   rm -f $SOURCE_CACHE/$SOURCE2
 
 ) > $C_FIFO 2>&1
-  
