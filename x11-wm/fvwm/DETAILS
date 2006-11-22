@@ -1,14 +1,13 @@
           MODULE=fvwm
-         VERSION=2.4.19
+         VERSION=2.5.18
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-2.4.17-Makefile-utils.patch.bz2
-   SOURCE_URL[0]=ftp://ftp.yz.yamagata-u.ac.jp/pub/X11/wm/fvwm/
-   SOURCE_URL[1]=ftp://ftp.fvwm.org/pub/fvwm/version-2/
-  SOURCE2_URL[0]=$PATCH_URL/$SOURCE2 
-       SOURCE_VFY=sha1:aecd8e226e4a86589af8515c243865050efef8d9
+         SOURCE2=VariousPatches5.patch
+   SOURCE_URL[0]=ftp://ftp.fvwm.org/pub/fvwm/version-2/
+  SOURCE2_URL[0]=http://abdn.ac.uk/~u15dm4/fvwm/
+       SOURCE_VFY=sha1:b7ef45dfe3975deab38dd9ae306c5fd280f307c6
         WEB_SITE=http://www.fvwm.org
          ENTERED=20010922
-         UPDATED=20041003
+         UPDATED=20061122
            SHORT="multiple large virtual desktop X11 windows manager."
 
 cat << EOF
@@ -17,4 +16,6 @@ derived from twm. FVWM is intended to have a small memory footprint and
 a rich feature set, be extremely customizable and extendable and have a
 high degree of Motif mwm compatibility. FVWM is highly extensible
 through its module interface.
+
+This is the standard FVWM 2.5.x with patches from http://abdn.ac.uk/~u15dm4/fvwm/ applied.
 EOF
