@@ -12,7 +12,7 @@
     # just --disable-policy-kit until 0.5.9 comes out or PolicyKit is released.
     # I'm following the --disable option for now (as are other distros I found)
     OPTS="$OPTS  --disable-docbook-docs   --with-pid-file=var/run/hald.pid  \
-                 --disable-policy-kit     --with-backend=linux"
+                 --disable-policy-kit  --with-backend=linux  --without-macbookpro"
 
     default_build  &&
 
