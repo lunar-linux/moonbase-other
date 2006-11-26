@@ -1,5 +1,5 @@
 (
- 
+
   if module_installed qt3 ; then
     . /etc/profile.d/qt3.rc
   fi
@@ -11,11 +11,11 @@
   fi
 
   export LDFLAGS="$LDFLAGS -lexpat"
- 
-  OPTS="$OPTS --enable-glib --with-x --enable-checks --enable-verbose-mode   \
-        --with-xml=libxml --with-system-pid-file=/var/run/messagebus.pid     \
-        --with-system-socket=/var/lib/dbus/system_bus_socket                 \
-        --with-session-socket-dir=/tmp  --with-dbus-user=messagebus          \
+
+  OPTS="$OPTS --with-x --enable-checks --enable-verbose-mode              \
+        --with-xml=libxml --with-system-pid-file=/var/run/messagebus.pid  \
+        --with-system-socket=/var/lib/dbus/system_bus_socket              \
+        --with-session-socket-dir=/tmp  --with-dbus-user=messagebus       \
         --disable-xml-docs"
 
   default_build  &&
