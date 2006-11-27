@@ -1,5 +1,6 @@
 (
 
+  echo export PATH=\"/usr/lib/jre"${VERSION}"/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
   chmod +x $SOURCE &&
   ./$SOURCE        &&
 
@@ -7,12 +8,10 @@
 
   cp -r $SOURCE_DIRECTORY/jre${VERSION} /usr/lib/ &&
 
-  mkdir -p /opt/lunar/plugins
-  rm -f /opt/lunar/plugins/libjavaplugin_oji.so
+  mkdir -p /opt/lunar/plugins &&
+  rm -f /opt/lunar/plugins/libjavaplugin_oji.so &&
   ln -sf /usr/lib/jre${VERSION}/plugin/i386/ns7/libjavaplugin_oji.so \
-         /opt/lunar/plugins/
-
-  echo export PATH=\"/usr/lib/jre"${VERSION}"/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
+         /opt/lunar/plugins/ &&
 
   install -m644 $SOURCE_DIRECTORY/sun-jre.rc /etc/profile.d/
 
