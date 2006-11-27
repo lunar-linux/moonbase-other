@@ -5,20 +5,12 @@
 
   prepare_install  &&
 
-  cp -a $SOURCE_DIRECTORY/jre${VERSION} /usr/lib/ &&
+  cp -r $SOURCE_DIRECTORY/jre${VERSION} /usr/lib/ &&
 
-  if [ ! -d /opt/lunar/plugins ] ; then
-    mkdir -p /opt/lunar/plugins;
-    ln -sf /usr/lib/jre${VERSION}/plugin/i386/ns7/libjavaplugin_oji.so \
-           /opt/lunar/plugins/;
-  elif [ ! -x /opt/lunar/plugins/libjavaplugin_oji.so ] ; then
-    ln -sf /usr/lib/jre${VERSION}/plugin/i386/ns7/libjavaplugin_oji.so \
-           /opt/lunar/plugins/;
-  else
-    rm -f /opt/lunar/plugins/libjavaplugin_oji.so;
-    ln -sf /usr/lib/jre${VERSION}/plugin/i386/ns7/libjavaplugin_oji.so \
-           /opt/lunar/plugins/;
-  fi &&
+  mkdir -p /opt/lunar/plugins
+  rm -f /opt/lunar/plugins/libjavaplugin_oji.so
+  ln -sf /usr/lib/jre${VERSION}/plugin/i386/ns7/libjavaplugin_oji.so \
+         /opt/lunar/plugins/
 
   echo export PATH=\"/usr/lib/jre"${VERSION}"/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
 
