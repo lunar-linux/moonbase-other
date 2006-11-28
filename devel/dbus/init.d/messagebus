@@ -11,4 +11,19 @@
 
 ARGS="--fork --system"
 
+start () {
+  get_data
+  echo -n "Starting $SHORT: "
+  if [ -x /usr/bin/dbus-uuidgen ] ; then
+    /usr/bin/dbus-uuidgen --ensure
+  fi
+  dbus-daemon $ARGS &> /dev/null
+  if [ $? == 0 ] ; then
+    mkpid
+    echo -e $RESULT_OK
+  else
+    echo -e $RESULT_FAIL
+  fi
+}  
+
 . /lib/lsb/init-functions $1
