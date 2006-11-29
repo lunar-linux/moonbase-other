@@ -9,5 +9,18 @@
 
 ARGS="-s"
 
+stop()
+{
+	if [ -e /var/run/ntpd.pid ] && [ -e /proc/`cat /var/run/ntpd.pid` ]; then
+		echo -n "Stopping ntpd: "
+		kill `cat /var/run/ntpd.pid` &&
+		rm -f /var/run/ntpd.pid &&
+		hwclock --systohc &&
+		echo -e $RESULT_OK ||
+		echo -e $RESULT_FAIL
+	fi
+
+}
+
 . /lib/lsb/init-functions
 
