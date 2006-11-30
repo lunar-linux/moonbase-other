@@ -1,10 +1,8 @@
 (
-  cd ${SOURCE_DIRECTORY}/
-  
-  make                                                       &&
-  gcc -Wall -Wstrict-prototypes -O3 ifenslave.c -o ifenslave &&
-  make -C doc man                                            &&
-  prepare_install                                            &&
+
+  make clockdiff arping ping ifenslave ping6 rdisc tracepath tracepath6 traceroute6 &&
+  make -C doc man                                         &&
+  prepare_install                                         &&
 
   install -c clockdiff             /sbin                  &&
   install -c arping                /sbin                  &&
