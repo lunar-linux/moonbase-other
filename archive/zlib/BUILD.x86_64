@@ -1,0 +1,17 @@
+(
+
+  unset CFLAGS &&
+
+  prepare_install &&
+
+  ./configure --prefix=/usr &&
+  sedit 's/^CFLAGS *=/CFLAGS=-fPIC /' Makefile &&
+  make &&
+  make install &&
+
+  ./configure --prefix=/usr --shared &&
+  sedit 's/^CFLAGS *=/CFLAGS=-fPIC /' Makefile &&
+  make &&
+  make install
+
+) > $C_FIFO 2>&1
