@@ -1,4 +1,5 @@
 (
+  patch_it $SOURCE2 1 &&
 
   export CFLAGS="$CFLAGS -static"    &&
   export LDFLAGS="$LDFLAGS -static"  &&
