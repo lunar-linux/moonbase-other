@@ -2,12 +2,14 @@
 
   MESA_PREFIX="/usr"
 
+  # Disabled these for now as they do not compile
+  sedit 's/mach64\ //g' configs/linux-dri &&
+  sedit 's/r300\ //g' configs/linux-dri &&
+
   find . -type f -exec sed -i 's@/usr/X11R6@/usr/X11@g' {} \; &&
   sed -i 's@lib/modules@lib/X11/modules@' src/glx/x11/dri_glx.c	&&
-   
-  unpack $SOURCE2 &&
 
-  make linux-dri DRM_SOURCE_PATH="${SOURCE_DIRECTORY}/drm" &&
+  make linux-dri-x86 && 
 
   prepare_install &&
 

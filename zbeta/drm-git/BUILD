@@ -1,7 +1,8 @@
 (
 
   ./autogen.sh  &&
-  default_build	&&
+
+  prepare_install &&
 
   if $(uname -r | grep -q "^2\.6") ; then
 	cd linux-core;
