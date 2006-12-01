@@ -1,5 +1,9 @@
 (
 
+    # fixes an issue with incorrect usage of dbus in error conditions
+    # mainly affects hald-addon-storage when polling cd drives
+    sedit 's:(dbus_error_is_set (error):(error != NULL \&\& dbus_error_is_set (error):g' libhal/libhal.c  &&
+
     # these sedits fix some build time errors
     sedit 's:use_macbookpro:with_macbookpro:g' configure  &&
 
