@@ -1,11 +1,6 @@
 (
 
-  ./configure --prefix=/usr              \
-              --sysconfdir=/etc          \
-              --infodir=/usr/share/info  \
-              --mandir=/usr/share/man    \
-	      --with-xinput=xfree       &&
-			  
-  default_make
+  OPTS+=" --with-xinput=xfree" &&
+  default_build
 
 ) > $C_FIFO 2>&1
