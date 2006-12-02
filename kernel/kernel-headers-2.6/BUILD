@@ -1,5 +1,6 @@
 (
-  cd ${SOURCE_DIRECTORY}/include/ &&
+
+  cd include/ &&
 
   # asm is a special case, since it is arch specific
   MYARCH="`arch | grep -qw i.86 && echo i386 || arch`" &&
@@ -7,8 +8,7 @@
 
   prepare_install &&
 
-  for dir in asm linux scsi sound mtd
-  do
+  for dir in asm linux scsi sound mtd ; do
      cp    -a $dir      /usr/include/
      chown -R root.root /usr/include/$dir
 
