@@ -439,8 +439,8 @@ EOF
 			;;
 			xtra)
 				unset OPTIONS
-				case $PLATFORM in 
-					x86)
+				case $PLATFORM in
+					x86|x86_64)
 						if grep -qw mmx /proc/cpuinfo; then
 							OPTIONS=(
 								${OPTIONS[@]}
