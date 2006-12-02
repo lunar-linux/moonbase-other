@@ -1,17 +1,14 @@
 (
-
+  
   bad_flags -malign-double
-  export CC="gcc"
-  OPTS="$OPTS --enable-shared --enable-static"
+  OPTS="$OPTS --enable-shared --enable-static --enable-maxmem=64"
 
-  default_config &&
-  sedit "s/\$(prefix)\/man\/man\$(manext)/\/usr\/share\/man\/man\$(manext)/" Makefile &&
-  make  &&
-  ld --whole-archive -share -o .libs/libjpeg.so .libs/libjpeg.a
-  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD make test &&
-  prepare_install &&
-  make install &&
-  install -m755 -oroot -groot .libs/libjpeg.so /usr/lib/
-  ln -fs libjpeg.so /usr/lib/libjpeg.so.62
+  # Apply patchset
+  unpack $SOURCE2 &&
+  for i in jpeg-patches/*; do
+  	patch_it $i 1
+  done &&
+ 
+  default_build
 
 ) > $C_FIFO 2>&1
