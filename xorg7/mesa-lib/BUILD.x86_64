@@ -1,0 +1,28 @@
+(
+
+  MESA_PREFIX="/usr"
+
+  # Disabled these for now as they do not compile
+  sedit 's/mach64\ //g' configs/linux-dri-x86-64 &&
+  sedit 's/r300\ //g' configs/linux-dri-x86-64 &&
+  sedit 's/lib64/lib/g' configs/linux-dri-x86-64 &&
+
+  find . -type f -exec sed -i 's@/usr/X11R6@/usr/X11@g' {} \; &&
+  sed -i 's@lib/modules@lib/X11/modules@' src/glx/x11/dri_glx.c	&&
+
+  make linux-dri-x86-64 && 
+
+  prepare_install &&
+
+  bin/installmesa ${MESA_PREFIX}			&&
+  mkdir -v -p /usr/lib/X11/modules/dri			&&
+  install -v -m755 lib/*dri* /usr/lib/X11/modules/dri	&&
+
+  install -m644 include/GLView.h \
+  	  $MESA_PREFIX/include &&
+
+  cd progs/xdemos &&
+  make PROGS='glxinfo glxgears' &&
+  install -v -m755 glxinfo glxgears /usr/bin
+
+) > $C_FIFO 2>&1
