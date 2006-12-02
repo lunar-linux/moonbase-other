@@ -53,6 +53,7 @@ plugin_compiler_gcc_3_4_optimize()
 	for SP in ${SPD[@]}; do
 		case $SP in
 			Speedy)	c_cxx_flags_add "-funroll-loops" ;;
+			Regparm)	c_cxx_flags_add "-mregparm=3" ;;
 			Risky)	c_cxx_flags_add "-ffast-math" ;;
 			Pointers)	c_cxx_flags_add "-fomit-frame-pointer" ;;
 			Siblings)	c_cxx_flags_add "-foptimize-sibling-calls" ;;
@@ -267,9 +268,10 @@ EOF
 				BOPT=$RESULT
 			;;
 			cpu)
-				case $PLATFORM in 
-			  		x86)
+				case $PLATFORM in
+					x86)
 						OPTIONS=(
+							"None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
 							"i386" "i386" $( [ "$CPU" == "i386" ] && echo "on" || echo "off" ) "i386 processors"
 							"i486" "i486" $( [ "$CPU" == "i486" ] && echo "on" || echo "off" ) "i486 processors"
 							"i586" "i586 (Pentium)" $( [ "$CPU" == "i586" ] && echo "on" || echo "off" ) "i586 processors, identical to 'pentium'"
@@ -303,6 +305,7 @@ EOF
 					;;
 					Alpha)
 						OPTIONS=(
+							"None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
 							"ev4" "ev4" $( [ "$CPU" == "ev4" ] && echo "on" || echo "off" ) "Alpha EV4 (21064)"
 							"ev45" "ev45" $( [ "$CPU" == "ev45" ] && echo "on" || echo "off" ) "Alpha EV45 (21064a)"
 							"ev5" "ev5" $( [ "$CPU" == "ev5" ] && echo "on" || echo "off" ) "Alpha EV5 (21164)"
@@ -315,6 +318,7 @@ EOF
 					;;
 					PowerPC)
 						OPTIONS=(
+							"None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
 							"common" "common" $( [ "$CPU" == "common" ] && echo "on" || echo "off" ) "Common PowerPC"
 							"rios" "rios" $( [ "$CPU" == "rios" ] && echo "on" || echo "off" ) "Rios PowerPC"
 							"rios1" "rios1" $( [ "$CPU" == "rios1" ] && echo "on" || echo "off" ) "Rios1 PowerPC"
@@ -345,6 +349,7 @@ EOF
 					;;
 					SPARC)
 						OPTIONS=(
+							"None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
 							"v7" "v7" $( [ "$CPU" == "v7" ] && echo "on" || echo "off" ) "V7 SPARC"
 							"cypress" "cypress" $( [ "$CPU" == "cypress" ] && echo "on" || echo "off" ) "Cypress SPARC"
 							"v8" "v8" $( [ "$CPU" == "v8" ] && echo "on" || echo "off" ) "V8 SPARC"
@@ -362,8 +367,9 @@ EOF
 					;;
 					x86_64)
 						OPTIONS=(
-							"x86-64" "x86-64" $( [ "$CPU" == "x86_64" ] && echo "on" || echo "off" ) "Both AMD64 and Intel EM64T machines"
-							"amd64" "amd64" $( [ "$CPU" == "amd64" ] && echo "on" || echo "off" ) "AMD64-specific optimizations" 
+							"None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
+							"x86-64" "x86-64" $( [ "$CPU" == "x86-64" ] && echo "on" || echo "off" ) "Both AMD64 and Intel EM64T machines"
+							"amd64" "amd64" $( [ "$CPU" == "amd64" ] && echo "on" || echo "off" ) "AMD64-specific optimizations"
 							"em64t" "em64t" $( [ "$CPU" == "em64t" ] && echo "on" || echo "off" ) "Intel EM64t -specific optimizations"
 							)
 					;;
@@ -374,6 +380,7 @@ EOF
 			spd)
 				OPTIONS=(
 					"Speedy" "-funroll-loops" $( echo ${SPD[@]} | grep -q "Speedy" && echo "on" || echo "off" ) "Optimize to increase performance of generated code"
+					"Regparm" "-mregparm=3" $( echo ${SPD[@]} | grep -q "Regparm" && echo "on" || echo "off" ) "Pass up to 3 function arguments in registers instead of stack"
 					"Risky" "-ffast-math" $( echo ${SPD[@]} | grep -q "Risky" && echo "on" || echo "off" ) "Optimize to increase performance ... by violating ANSI and IEEE FP rules"
 					"Pointers" "-fomit-frame-pointer" $( echo ${SPD[@]} | grep -q "Pointers" && echo "on" || echo "off" ) "Optimize by omitting frame pointers"
 					"Siblings" "-foptimize-sibling-calls" $( echo ${SPD[@]} | grep -q "Siblings" && echo "on" || echo "off" ) "Optimize sibling calls"
@@ -410,8 +417,8 @@ EOF
 								"SSE" "Streaming SIMD Extensions" $([ "$FPM" == "SSE" ] && echo "on" || echo "off" ) "Streaming SIMD (Single Instruction, Multiple Data)"
 								)
 						fi
-					   	if grep '^fpu' /proc/cpuinfo | grep -qw yes; then
-						   	OPTIONS=(
+						if grep '^fpu' /proc/cpuinfo | grep -qw yes; then
+							OPTIONS=(
 								${OPTIONS[@]}
 								"Both" "x387 and SSE" $([ "$FPM" == "Both" ] && echo "on" || echo "off" ) "Both SSE and 387"
 								)
@@ -439,7 +446,7 @@ EOF
 			;;
 			xtra)
 				unset OPTIONS
-				case $PLATFORM in
+				case $PLATFORM in 
 					x86|x86_64)
 						if grep -qw mmx /proc/cpuinfo; then
 							OPTIONS=(
