@@ -1,16 +1,31 @@
 (
   patch_it $SOURCE2 1 &&
   patch_it $SOURCE3 1 &&
+  patch_it $SOURCE4 1 &&
 
   ./regen.sh &&
-
-  case `uname -s -r` in
-    [lL]inux\ 2.4.*) OPTS="$OPTS --with-afs-sysname=i386_linux24"
+  case `uname -r` in
+    2.6.*) 
+      kv="26"
       ;;
-    [lL]inux\ 2.6.*) OPTS="$OPTS --with-afs-sysname=i386_linux26"
+    2.4.*) 
+      kv="24"
       ;;
-    *) message "Unsupported OS!"
+    *) 
+      message "Unsupported kernel version!"
       exit -1
+      ;;
+  esac
+
+  case `arch` in
+    x86_64)
+      OPTS="$OPTS --with-afs-sysname=amd64_linux${kv}"
+      ;;
+    i386|i486|i586|i686|athlon)
+      OPTS="$OPTS --with-afs-sysname=i386_linux${kv}"
+      ;;
+    *)
+      OPTS="$OPTS --with-afs-sysname=`arch`_linux${kv}"
       ;;
   esac
 
