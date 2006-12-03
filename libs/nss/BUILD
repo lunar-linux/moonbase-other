@@ -2,6 +2,10 @@
   export WORKINGDIR=$PWD  &&
   export BUILD_OPT=1      &&
 
+  if [ "`arch`" == "x86_64" ]; then
+    export USE_64=1
+  fi &&
+
   patch_it $SOURCE2 1     &&
 
   cd mozilla/security/nss &&
