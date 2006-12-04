@@ -20,10 +20,11 @@ fi
 done
 
 (
+
+    MYARCH="`arch | grep -qw i.86 && echo i386 || arch`"
     
     cp  /usr/src/linux/.config  $CONFIG_CACHE/.config-2.6-mm
-    rm -f arch/i386/boot/bzImage
-    
+    rm -f arch/$MYARCH/boot/bzImage
     
     make  ${MAKES:+-j$MAKES} bzImage      &&
     make  ${MAKES:+-j$MAKES} modules      &&
@@ -31,8 +32,7 @@ done
     prepare_install                &&
     make  modules_install          &&
 
-    cp arch/i386/boot/bzImage /boot/${VERSION}		   && 
+    cp arch/$MYARCH/boot/bzImage /boot/${VERSION}		   && 
     cp System.map             /boot/System.map-${VERSION}  	
 
 ) > $C_FIFO 2>&1
-
