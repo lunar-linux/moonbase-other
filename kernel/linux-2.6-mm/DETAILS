@@ -1,22 +1,19 @@
           MODULE=linux-2.6-mm
-  KERNEL_VERSION=2.6.15
-      RC_VERSION=2.6.15
-      MM_VERSION=mm4
-         VERSION=$RC_VERSION-$MM_VERSION
+         VERSION=2.6.19-rc6-mm2
+  KERNEL_VERSION=2.6.19
+   PATCH_VERSION=2.6.19-rc6
 SOURCE_DIRECTORY=/usr/src/linux-$VERSION
           SOURCE=linux-$KERNEL_VERSION.tar.bz2
-         SOURCE2=$VERSION.bz2
-   SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6/
-   SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
-     SOURCE2_URL=ftp://ftp.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/$RC_VERSION/$VERSION/
-      SOURCE_VFY=sha1:6cfa28ef48c385948c6859cfb9f60840720a1d30
-     SOURCE2_VFY=sha1:13b8828fef06700b8eca2477791e7fa40a3cf5b4
-        WEB_SITE=http://www.kernel.org
+         SOURCE2=patch-$PATCH_VERSION.bz2
+         SOURCE3=2.6.19-rc6-mm2.bz2
+      SOURCE_URL=$KERNEL_URL/pub/linux/kernel/v2.6/
+     SOURCE2_URL=$KERNEL_URL/pub/linux/kernel/v2.6/testing/
+     SOURCE3_URL=$KERNEL_URL/pub/linux/kernel/people/akpm/patches/2.6/$KERNEL_VERSION/$VERSION/
          ENTERED=20041013
-         UPDATED=20060222
+         UPDATED=20061204
            SHORT="2.6 kernel with Andrew Morton's latest test patches."
-     KEEP_SOURCE=on
-           TMPFS=off
+KEEP_SOURCE=on
+TMPFS=off
 cat << EOF
 The -mm patches are a set of patches, released by Andrew Morton, against the 
 official 2.6 kernel series. They are frequently more experimental in nature 
