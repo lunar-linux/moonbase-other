@@ -1,8 +1,10 @@
 (
 
+  export CFLAGS="$CFLAGS -fPIC"
+
   sedit "s/CCFLAGS = -O2 -W/CCFLAGS = $CFLAGS/" Makefile
   sedit "s/CFLAGS = -O -Wall -ansi -pedantic/CCFLAGS = $CFLAGS/" libjbig/Makefile
-  sedit "s/CFLAGS = -g -Wall -ansi -pedantic -I..\/libjbig/CCFLAGS = $CFLAGS -I..\/libjbig/" pbmtools/Makefile
+  sedit "s/CFLAGS = -g -Wall -ansi -pedantic -I..\/libjbig/CCFLAGS = $CFLAGS -I..\/libjbig/" pbmt$
 
   make  &&
   make test &&
