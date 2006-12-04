@@ -7,9 +7,7 @@
 
   default_config &&
 
-  sedit "s:CFLAGS =  -O2:CFLAGS = -fPIC  -O2:" src/libical/Makefile
-  sedit "s:CFLAGS =  -O2:CFLAGS = -fPIC  -O2:" src/python/Makefile
-  sedit "s:CFLAGS =  -O2:CFLAGS = -fPIC  -O2:" src/libicalss/Makefile
+  sedit "s:CFLAGS =  -O2:CFLAGS = -fPIC $CFLAGS:" src/{python,libical,libicalss}/Makefile
 
   default_make
 
