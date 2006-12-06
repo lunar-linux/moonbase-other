@@ -1,5 +1,10 @@
 (
 
+  if gcc --version | grep -q 'gcc (GCC) 4' ; then
+    patch_it $SOURCE2 1
+    OPTS+=" --disable-gcc-check"
+  fi
+
   if [ -e /usr/X11R6/lib/libX11.a ]; then
     ./configure --prefix=/usr $OPTS
   else
