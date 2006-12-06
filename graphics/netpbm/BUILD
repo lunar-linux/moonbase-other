@@ -23,6 +23,7 @@ default
 
 
 " | ./configure    &&
+  sedit "s/^CFLAGS =/CFLAGS = -fPIC /" Makefile.config &&
   make             &&
   make package     &&
   prepare_install  &&
