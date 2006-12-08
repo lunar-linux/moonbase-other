@@ -9,8 +9,4 @@ if module_installed lighttpd; then
   mquery USE_FASTCGI "Build FastCGI version (required by lighttpd)?" y
 fi
 mquery USE_MBYTESTR "Enable multibyte string support?" n
-if [ "$USE_MBYTESTR" == "y" ]; then
-  mquery USE_MBYTEREGEX "Enable multibyte regular expression functions?" n
-else
-  set_module_config USE_MBYTEREGEX n
-fi
+mquery USE_MBYTEREGEX "Enable multibyte regular expression functions?" n
