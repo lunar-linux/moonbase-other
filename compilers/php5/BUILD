@@ -67,8 +67,8 @@
                --enable-dio                  \
                --with-readline               \
                --with-zlib=/usr              \
+               --enable-force-cgi-redirect   \
                --enable-discard-path         \
-               --enable-force-redirect       \
                $OPTS                        &&
   default_make
 
