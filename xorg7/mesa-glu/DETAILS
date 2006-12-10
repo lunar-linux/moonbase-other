@@ -1,20 +1,18 @@
           MODULE=mesa-glu
          VERSION=6.5
           SOURCE=MesaLib-$VERSION.tar.bz2
-         SOURCE2=libdrm-cvs-beta.tar.bz2
-         SOURCE3=MesaDemos-$VERSION.tar.bz2
-         SOURCE4=MesaGLUT-$VERSION.tar.bz2
+         SOURCE2=MesaDemos-$VERSION.tar.bz2
+         SOURCE3=MesaGLUT-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/Mesa-$VERSION
       SOURCE_URL=$SFORGE_URL/mesa3d/
-     SOURCE2_URL=cvs://:pserver:anonymous@anoncvs.freedesktop.org:/cvs/dri:drm
+     SOURCE2_URL=$SFORGE_URL/mesa3d/
      SOURCE3_URL=$SFORGE_URL/mesa3d/
-     SOURCE4_URL=$SFORGE_URL/mesa3d/
       SOURCE_VFY=sha1:a77368901b0731b662d0858aef2c405a7ddf6014
-     SOURCE3_VFY=sha1:9673c09df947a892955a850e9d86abc58dbf00c4 
-     SOURCE4_VFY=sha1:0c28b6634f0109116d57001c55dc66091ae272ed 
+     SOURCE2_VFY=sha1:9673c09df947a892955a850e9d86abc58dbf00c4 
+     SOURCE3_VFY=sha1:0c28b6634f0109116d57001c55dc66091ae272ed 
          WEBSITE=http://www.mesa3d.org
          ENTERED=20060215
-         UPDATED=20060901
+         UPDATED=20061210
            SHORT="Mesa 3D library"
 cat << EOF
 Mesa is a 3-D graphics library with an API which is 
