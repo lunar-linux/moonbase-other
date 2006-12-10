@@ -1,11 +1,10 @@
 (
-  patch_it $SOURCE2 1 &&
 
   export CFLAGS="$CFLAGS -static"    &&
   export LDFLAGS="$LDFLAGS -static"  &&
 
   # this sedit restores the tar --list to its older 1.15.1 format
-  sedit "s/tartime (st->mtime, false)/tartime (st->mtime, true)/" src/list.c &&
+  sedit "s/tartime (st->mtime, false)/tartime (st->mtime, true)/" src/list.c  &&
   ./configure  --build=$BUILD             \
                --prefix=/usr              \
                --libexecdir=/bin          \
