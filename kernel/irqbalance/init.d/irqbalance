@@ -6,5 +6,20 @@
 # description: irq load balancing daemon for SMP systems
 # processname: irqbalance
 
+start()
+{
+	echo -n "Starting irqbalance: "
+	/usr/sbin/irqbalance &&
+	echo -e "$RESULT_OK" ||
+	echo -e "$RESULT_FAIL"
+}
+
+stop()
+{
+	if pgrep -P 1 irqbalance ; then
+		default_stop
+	fi
+}
+
 . /lib/lsb/init-functions
 
