@@ -2,7 +2,6 @@
 
   make &&
   prepare_install &&
-  install irqbalance /sbin/ &&
-  install irqbalance.1 /usr/share/man/man3/
+  install irqbalance /usr/sbin/
 
 ) > $C_FIFO 2>&1
