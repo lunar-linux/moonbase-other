@@ -1,23 +1,28 @@
 (
 
-  MESA_PREFIX="/usr"
+  sedit 's,/usr/X11R6/lib/modules,/usr/lib/X11/modules,' configs/default &&
+  sedit 's,/usr/X11R6,/usr/X11,g' configs/linux* configs/default &&
+  sedit 's,lib64,lib,g' configs/linux* configs/default &&
+  sedit 's,usr/local,usr,g' configs/linux* configs/default &&
+  sedit 's,lib/modules,lib/X11/modules,g' src/glx/x11/dri_glx.c &&
 
-  find . -type f -exec sed -i 's@/usr/X11R6@/usr/X11@g' {} \;    &&
-  sed -i 's@lib/modules@lib/X11/modules@' src/glx/x11/dri_glx.c	 &&
-  sedit  "s:   blit.idx:// blit.idx:"     src/mesa/drivers/dri/mach64/mach64_ioctl.c  &&
-   
-  make linux-dri DRM_SOURCE_PATH="${SOURCE_DIRECTORY}/drm" &&
+  case `arch` in
+    x86_64) CONF=linux-dri-x86-64 ;;
+    i?86)   CONF=linux-dri-x86 ;;
+    *)      exit 1 ;;
+  esac &&
+
+  make $CONF && 
+  make -C progs/xdemos PROGS='glxinfo glxgears' &&
 
   prepare_install &&
 
-  cp -a lib/libGLU.so* ${MESA_PREFIX}/lib/ &&
-  cp -a include/GL/glu*.h ${MESA_PREFIX}/include/GL/ &&
+  cp -a lib/libGLU.so* /usr/lib/ &&
+  cp -a include/GL/glu*.h /usr/include/GL/ &&
 
   install -m644 include/GLView.h \
   	  $MESA_PREFIX/include &&
 
-  cd progs/xdemos &&
-  make PROGS='glxinfo glxgears' &&
-  install -v -m755 glxinfo glxgears /usr/bin
+  install -m755 progs/xdemos/glxinfo progs/xdemos/glxgears /usr/bin
 
 ) > $C_FIFO 2>&1
