@@ -20,8 +20,7 @@
   cp -a lib/libGLU.so* /usr/lib/ &&
   cp -a include/GL/glu*.h /usr/include/GL/ &&
 
-  install -m644 include/GLView.h \
-  	  $MESA_PREFIX/include &&
+  install -m644 include/GLView.h /usr/include &&
 
   install -m755 progs/xdemos/glxinfo progs/xdemos/glxgears /usr/bin
 
