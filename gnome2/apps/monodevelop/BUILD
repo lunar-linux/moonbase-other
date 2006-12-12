@@ -1,5 +1,7 @@
 (
 
+   OPTS="$OPTS  --enable-versioncontrol"
+
    ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
