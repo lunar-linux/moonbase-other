@@ -1,3 +1,6 @@
-depends monodoc &&
-depends gtksourceview-sharp &&
-depends gecko-sharp
+depends  gecko-sharp2  &&
+depends  gtksourceview-sharp2
+
+# currently not an option due to some API changes
+#optional_depends  "mono-debugger"  "--enable-debugger"  "--disable-debugger"  \
+#                  "to enable support for debugging within the IDE"
