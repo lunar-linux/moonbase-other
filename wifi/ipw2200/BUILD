@@ -1,17 +1,14 @@
 (
 
-  if [ $WITH_MONITOR == "y" ]; then
-    message "Enabling monitor mode ..."
-    sedit "s:# CONFIG_IPW_PROMISC=y:CONFIG_IPW_PROMISC=y:" Makefile
-  fi
+  if [ $WITH_RADIOTAP == "y" ]; then
+    sedit "s:#CONFIG_IPW2200_RADIOTAP=y:CONFIG_IPW2200_RADIOTAP=y:" Makefile
+  fi &&
 
-  if [ $WITH_WPA == "y" ]; then
-    message "Enabling WPA support ..."
-    sedit "s:# CONFIG_IEEE80211_WPA:CONFIG_IEEE80211_WPA:" Makefile
-  fi
+  if [ $WITH_PROMISCUOUS == "y" ]; then
+    sedit "s:#CONFIG_IPW2200_PROMISCUOUS=y:CONFIG_IPW2200_PROMISCUOUS=y:" Makefile
+  fi &&
 
   # Debug sucks
-  message "Disabling debug messages ..."
   sedit "s:CONFIG_IPW_DEBUG=y:#CONFIG_IPW_DEBUG=y:" Makefile
 
   KVER=$(if [ -f /usr/src/linux/include/linux/utsrelease.h ] ; then
