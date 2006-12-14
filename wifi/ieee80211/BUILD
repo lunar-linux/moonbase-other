@@ -1,5 +1,9 @@
 (
 
+  if [ $DISABLE_DEBUG == "y" ]; then
+    sedit "s:CONFIG_IEEE80211_DEBUG=y:#CONFIG_IEEE80211_DEBUG=y:" Makefile;
+  fi &&
+
   KVER=$(if [ -f /usr/src/linux/include/linux/utsrelease.h ] ; then
          	grep UTS_RELEASE /usr/src/linux/include/linux/utsrelease.h | cut -d'"' -f2
 	 else
