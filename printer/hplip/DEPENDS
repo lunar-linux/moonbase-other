@@ -1,0 +1,12 @@
+depends  jpeg  &&
+depends  espgs &&
+
+optional_depends "PyQt" \
+                 "" \
+                 "" \
+                 "for HP gui support" &&
+
+optional_depends "net-snmp" \
+                 "--enable-network-build" \
+                 "--disable-network-build" \
+                 "for network printing support"
