@@ -1,4 +1,6 @@
 (
+  
+  . /etc/profile.d/qt3.rc
 
   default_make                      &&
   mkdir -p         /usr/share/PyQt  &&
