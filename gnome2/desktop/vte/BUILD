@@ -2,7 +2,7 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
-  OPTS+="--with-xft2 --with-pangoX --with-glX" &&
+  OPTS+="--with-xft2 --with-pangoX" &&
  
   default_build
 
