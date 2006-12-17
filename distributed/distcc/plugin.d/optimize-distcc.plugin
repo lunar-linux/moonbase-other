@@ -13,10 +13,13 @@ plugin_distcc_optimize()
 		# we append distcc in case ccache is also used to
 		# make sure that distcc goes first!
 		CC_EXT="$CC_EXT distcc"
+		CXX_EXT="$CXX_EXT distcc"
 		export CC_EXT
+		export CXX_EXT
 		export DISTCC_HOSTS
 		export DISTCC_ALLOW
 		verbose_msg "CC_EXT=\"$CC_EXT\""
+		verbose_mgs "CXX_EXT=\"$CXX_EXT\""
 		verbose_msg "DISTCC_HOSTS=\"$DISTCC_HOSTS\""
 		verbose_msg "DISTCC_ALLOW=\"$DISTCC_ALLOW\""
 	fi
