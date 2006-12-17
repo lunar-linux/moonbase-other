@@ -13,8 +13,11 @@ plugin_ccache_optimize()
 		# we PRE-pend ccache in case distcc is also used to
 		# make sure that ccache goes first!
 		CC_EXT="ccache $CC_EXT"
+		CXX_EXT="ccache $CXX_EXT"
 		export CC_EXT
+		export CXX_EXT
 		verbose_msg "CC_EXT=\"$CC_EXT\""
+		verbose_msg "CXX_EXT=\"$CXX_EXT\""
 	fi
 	return 2
 }
