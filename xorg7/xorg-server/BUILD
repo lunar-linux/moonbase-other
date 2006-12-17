@@ -1,11 +1,14 @@
 (
   . /etc/profile.d/x11r7.rc &&
   
-  if [[ "$USE_NVIDIA" = "y" ]]; then OPTS="$OPTS --disable-glx --disable-glx-tlx"; fi &&
+  patch_it $SOURCE3 1 &&
 
-  OPTS="$OPTS --enable-composite --enable-aiglx \
-	      --with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION} \
-	      $OPTS                  "  &&
+  if [[ "$USE_NVIDIA" = "y" ]]; then
+    OPTS="$OPTS --disable-glx --disable-glx-tlx";
+  fi &&
+
+  OPTS+="--enable-composite --enable-aiglx \
+	 --with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION}" &&
 
   default_build
 
