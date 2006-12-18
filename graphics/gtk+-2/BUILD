@@ -1,0 +1,8 @@
+(
+
+  # XInput support is needed for Wacom tablets to work in GIMP
+  OPTS="$OPTS --with-xinput=yes"
+
+  default_build
+
+) > $C_FIFO 2>&1
