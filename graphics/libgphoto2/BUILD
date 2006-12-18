@@ -3,7 +3,7 @@
    ./configure  --prefix=/usr    \
                 $OPTS           &&
 
-   make all-local   &&
-   default_make
+	 default_build()
+
 
 ) > $C_FIFO 2>&1
