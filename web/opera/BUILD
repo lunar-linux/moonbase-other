@@ -1,4 +1,11 @@
 (
+
+  cat >> ini/pluginpath.ini << EOF
+
+; Lunar plugin directory
+/opt/lunar/plugins=1
+EOF
+
   prepare_install &&
   echo "n" | ./install.sh -s &&
 
