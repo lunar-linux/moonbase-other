@@ -2,7 +2,7 @@
 
     EMACSDIR=/usr/share/emacs/site-lisp       &&
 
-    default_build                             $$
+    default_build                             &&
     make $OPTS                                &&
     prepare_install                           &&
     make lispdir=$EMACSDIR install
