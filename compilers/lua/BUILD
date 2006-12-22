@@ -1,9 +1,12 @@
 (
 
-  sedit "s:/usr/local:/usr:" Makefile  &&
+  sedit "s:/usr/local:/usr:" Makefile    &&
+  sedit "s:/usr/local:/usr:" etc/lua.pc  &&
 
   make linux      &&
   prepare_install &&
-  make install
+  make install    &&
+
+  install -D $SOURCE_DIRECTORY/etc/lua.pc /usr/lib/pkgconfig/lua.pc
 
 ) > $C_FIFO 2>&1
