@@ -29,7 +29,7 @@ _lvu ()
 	prev=${COMP_WORDS[COMP_CWORD-1]}
 
 	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
-		COMPREPLY=( $( compgen -W 'DETAILS DEPENDS CONFLICTS BUILD PRE_BUILD POST_BUILD CONFIGURE POST_INSTALL PRE_REMOVE POST_REMOVE what where cd alien from leafs orphans search service website install size installed compile compiler links sources maintainer version sum md5sum export import section moonbase html updatelog activity newer older voyeur pam expired depends tree eert stree leert held exiled urls versions short info' $cur ))
+		COMPREPLY=( $( compgen -W 'DETAILS DEPENDS CONFLICTS BUILD PRE_BUILD POST_BUILD CONFIGURE POST_INSTALL PRE_REMOVE POST_REMOVE what where cd alien from leafs orphans search service website install size installed compile compiler links sources maintainer version sum md5sum export import section moonbase html updatelog activity newer older voyeur pam expired depends tree eert stree leert held exiled urls versions short info edit' $cur ))
 	elif [ $COMP_CWORD -eq 2 -a $prev = "from" ]; then
 	        COMPREPLY=( $(compgen -f "$cur") )
 	elif [ $COMP_CWORD -eq 2 ]; then
