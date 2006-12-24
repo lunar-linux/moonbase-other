@@ -2,20 +2,27 @@ depends libmusicbrainz &&
 depends id3lib         &&
 depends gdbm           &&
 
-optional_depends  "gtk+"        ""  ""  "to enable graphical interface"        &&
-optional_depends  "gdk-pixbuf"  ""  ""  "to enable use of gdk-pixbuf objects"  &&
-optional_depends  "libvorbis"   ""  ""  "to play oggvorbis files"              &&
-optional_depends  "freetype1"   ""  ""  "to enable use of truetype fonts"      &&
-optional_depends  "ORBit"       ""  ""  "to enable a remote Corba interface"   &&
-optional_depends  "perl"        ""  ""  "to enable assembly optimizations"     &&
-optional_depends  "nasm"        ""  ""  "to enable assembly optimizatons"      &&
+optional_depends  "gtk+-2" \
+                  "" \
+                  "" \
+                  "to enable a graphical interface" &&
 
-optional_depends  "esound"         \
-                  ""               \
-                  "--disable-esd"  \
-                  "to enable enlightenment sound daemon (EsounD) for output"   &&
+optional_depends  "libvorbis" \
+                  "" \
+                  "" \
+                  "to play oggvorbis files" &&
 
-optional_depends  "alsa-utils"      \
-                  ""                \
-                  "--disable-alsa"  \
+optional_depends  "esound" \
+                  "" \
+                  "--disable-esd --disable-esdtest" \
+                  "to enable ESD output support" &&
+
+optional_depends  "arts" \
+                  "" \
+                  "--disable-arts" \
+                  "to enable aRTS output support" &&
+
+optional_depends  "alsa-lib" \
+                  "" \
+                  "--disable-alsa" \
                   "to enable Advanced Linux Sound Architecture (ALSA) output"

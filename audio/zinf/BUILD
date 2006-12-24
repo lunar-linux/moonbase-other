@@ -1,10 +1,7 @@
 (
 
-  ./configure  --prefix=/usr     \
-               --enable-cmdline  \
-               $OPTS             &&
-  make                           &&
-  prepare_install                &&
-  make    install
+  OPTS+=" --enable-cmdline"
+
+  default_build
  
 ) > $C_FIFO 2>&1
