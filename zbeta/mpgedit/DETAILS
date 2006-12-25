@@ -4,7 +4,7 @@
       SOURCE_URL=cvs://:pserver:anonymous@mpgedit.org:/usr/local/cvsroot:mpgedit
         WEB_SITE=http://www.mpgedit.org
          ENTERED=20061225
-         UPDATED=20061225
+         UPDATED=`date -u +%Y%m%d`
            SHORT="MPEG 1 layer 1/2/3, MPEG 2, and MPEG 2.5 audio file editor"
 cat << EOF
 mpgedit is an MPEG 1 layer 1/2/3 (mp3), MPEG 2, and MPEG 2.5 audio file editor
@@ -21,4 +21,8 @@ interactive shell. All editing functionality is available in both modes. The
 chief advantage of the interactive mode comes when using the playback feature
 for selection and verification of edit begin and end times, which is more
 rapidly performed interactively.
+
+xmpgedit provides most of the same editing capabilities as the curses-mode
+mpgedit, but adds a graphical representation of the volume levels of mp3 file
+being being edited.
 EOF
