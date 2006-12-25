@@ -36,6 +36,7 @@ set -x
                --with-terminfo-dirs=/usr/share/terminfo  \
                $OPTS                                    &&
 set +x &&               
-  default_make
+  default_make &&
+  gather_docs ANNOUNCE TODO
 
 ) > $C_FIFO 2>&1
