@@ -14,14 +14,14 @@ optional_depends  "libchipcard2"                  \
                   "for chipcard-client support"  &&
 
 optional_depends  "qt3"                                  \
-                  "--enable-qt3 --enable-qt3-threads"    \
-		  "--disable-qt3 --disable-qt3-threads"  \
-		  "for Qt3 support"                     &&
-		  
+                  "--enable-qt3 --enable-qt3-threads --with-qt3-libs=/opt/lunar/qt/3/lib"  \
+                  "--disable-qt3 --disable-qt3-threads"  \
+                  "for Qt3 support"                     &&
+
 optional_depends  "kdebase3"          \
-                  "--enable-kde3"     \
-		  "--disable-kde3"    \
-		  "for KDE support"  &&
+                  "--enable-kde3 --with-kde3-libs=/opt/lunar/kde/3/lib"     \
+                  "--disable-kde3"    \
+                  "for KDE support"  &&
 		  
 optional_depends  "Python"           \
                   "--enable-python"  \
