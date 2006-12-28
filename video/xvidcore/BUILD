@@ -1,5 +1,7 @@
 (
 
+  export CFLAGS="$CFLAGS -fPIC"
+
   cd build/generic
 
   ./configure  --prefix=/usr              \
