@@ -5,6 +5,8 @@
 
   if  module_installed  Linux-PAM;  then
     OPTS="$OPTS --with-libpam"
+  else
+    OPTS="$OPTS --without-libpam"
   fi 
 
   ./configure --prefix=/ \
