@@ -4,6 +4,7 @@
 
   patch_it $SOURCE3 0 &&
   patch_it $SOURCE4 1 &&
+  patch_it $SOURCE5 1 &&
 
   if [[ "$USE_NVIDIA" = "y" ]]; then
     OPTS="$OPTS --disable-glx --disable-glx-tlx";
