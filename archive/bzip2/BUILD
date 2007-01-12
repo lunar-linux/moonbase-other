@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   sedit "s/^CFLAGS=.*$/CFLAGS=$CFLAGS -fPIC/" Makefile  &&
   sedit "s/ln/ln -f/" Makefile     &&
   sedit "s/\$(PREFIX)\/man/\$(PREFIX)\/share\/man/g" Makefile  &&
