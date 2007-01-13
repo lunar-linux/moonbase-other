@@ -2,27 +2,26 @@
 #if you're gonna change something in here make doggone sure you
 #eyeball the init script too!
 
-  patch_it $SOURCE2 0               &&
-  ./configure   --build=$BUILD                    \
-                --prefix=/usr                     \
-		--bindir=/usr/sbin                \
-		--sbindir=/usr/sbin               \
-		--datadir=/usr/share              \
-		--infodir=/usr/share/info         \
-		--mandir=/usr/share/man           \
-		--sysconfdir=/etc                 \
-		--localstatedir=/var/cache        &&
-  make                                            &&
-  prepare_install                                 &&
-  make install                                    &&
+  ./configure   --build=$BUILD               \
+                --prefix=/usr                \
+		--bindir=/usr/sbin           \
+		--sbindir=/usr/sbin          \
+		--datadir=/usr/share         \
+		--infodir=/usr/share/info    \
+		--mandir=/usr/share/man      \
+		--sysconfdir=/etc            \
+		--localstatedir=/var/cache  &&
+  make                                      &&
+  prepare_install                           &&
+  make install                              &&
   
   if [ -e "/etc/init.d/ntp.sh" ]; then
      rm -f /etc/init.d/ntp.sh
-  fi                                              &&
+  fi                                        &&
 
   if [ -e "/etc/rc?.d/*ntp.sh" ]; then
      rm -f /etc/rc?.d/*ntp.sh
-  fi                                              &&
+  fi                                        &&
   
   gather_docs html &&
 
