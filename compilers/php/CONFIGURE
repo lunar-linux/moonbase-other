@@ -7,10 +7,14 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     OPTS="$OPTS --enable-ftp"
   fi
 
+  if  query  "Install EXIF support?" y;  then
+    OPTS="$OPTS --enable-exif"
+  fi
+
   if  query  "Enable transparent session id?" y;  then
     OPTS="$OPTS --enable-trans-sid"
   fi
-  
+
   if  query  "Enable sockets support (experimental)?" y;  then
     OPTS="$OPTS --enable-sockets"
   fi
