@@ -10,7 +10,7 @@
     OPTS="$OPTS --disable-glx --disable-glx-tlx";
   fi &&
 
-  OPTS+="--enable-composite --enable-aiglx \
+  OPTS+=" --enable-composite --enable-aiglx \
          --with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION}" &&
 
   default_build
