@@ -1,12 +1,17 @@
           MODULE=libquicktime
          VERSION=0.9.10
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-0.9.10-faad2.patch
+         SOURCE3=$MODULE-0.9.10-x264.patch
       SOURCE_URL=$SFORGE_URL/$MODULE/
-     SOURCE2_URL=http://www.linuxfromscratch.org/patches/downloads/$MODULE/
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
       SOURCE_VFY=sha1:2df5162df440faeae477d915343ddc9013464a56
+     SOURCE2_VFY=sha1:e9bff3fd8916a77bb7a949c71576ccac60c867fc
+     SOURCE3_VFY=sha1:e0037c6950595ebd4a5f7c2be5a91b282c58e216
         WEB_SITE=http://libquicktime.sourceforge.net/
          ENTERED=20060420
-         UPDATED=20060827
+         UPDATED=20070118
            SHORT="handles Apple's QuickTime media format"
 
 cat << EOF
