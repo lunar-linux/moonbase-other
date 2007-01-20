@@ -1,12 +1,15 @@
           MODULE=faad
-         VERSION=2-15092004
+         VERSION=2-2.5
           SOURCE=${MODULE}${VERSION}.tar.gz
+         SOURCE2=${MODULE}${VERSION}-configure.in.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/faad2
-      SOURCE_URL=http://www.audiocoding.com/snapshot/
-      SOURCE_VFY=sha1:a62496fc784bb289897f686a12f9cabde1123e88
+      SOURCE_URL=$SFORGE_URL/faac/
+      SOURCE_VFY=sha1:3805d32c9d0033572eced93482f81c1dd198cd2c
+     SOURCE2_URL=$PATCH_URL
+     SOURCE2_VFY=sha1:1679239d516c9f6398674ab958702c79f2a04024
         WEB_SITE=http://www.audiocoding.com/
          ENTERED=20030804
-         UPDATED=20040219
+         UPDATED=20070119
            SHORT="ISO AAC audio decoder"
 
 cat << EOF

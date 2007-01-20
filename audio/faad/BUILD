@@ -1,10 +1,10 @@
 (
 
   export CFLAGS="$CFLAGS -fPIC"
-  # Disabled faad's mp4 support since its utterly broken!
-  OPTS="$OPTS --with-drm --without-mp4v2"
- 
-  /bin/sh bootstrap &&
+  OPTS="$OPTS --with-drm"
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+  mkdir plugins/bmp &&
+  autoreconf -vif &&
   default_build
   
 ) > $C_FIFO 2>&1
