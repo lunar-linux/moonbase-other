@@ -1,5 +1,6 @@
 (
-  sedit "s/X11R6/X11/g" Makefile
+
+  sedit 's/X11R6/X11/g' Makefile  &&
 
   default_make
 
