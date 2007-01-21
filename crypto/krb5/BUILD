@@ -1,9 +1,9 @@
 (
 
   cd  src                       &&
-  ( cd lib/krb5/os && patch_it $SOURCE_CACHE/$SOURCE2 0 )   && 
   ./configure  --enable-dns-for-kdc     \
                --enable-dns-for-realm   \
+	       --enable-kdc-replay-cache \
                --infodir=/usr/share     \
                --mandir=/usr/share/man  \
                --prefix=/usr    &&
