@@ -1,5 +1,6 @@
 (
 
+  make defconfig &&
   make &&
   make doc &&
   prepare_install &&
