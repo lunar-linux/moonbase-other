@@ -1,0 +1,7 @@
+# tchan added this hack as of uClibc-0.9.28.1. uClibc compiles/installs much
+# better when the old version of uClibc is totally removed beforehand.
+if module_installed uClibc ; then
+  lrm --upgrade uClibc
+fi &&
+
+default_pre_build
