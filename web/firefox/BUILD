@@ -72,7 +72,7 @@
     for plugin in `ls /usr/lib/firefox-$VERSION/plugins`; do
 	 `install -m755 /usr/lib/firefox-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
     
-    rm -rf $FIREFOX_HOME/lib/firefox-$VERSION/plugins &&
+    rm -rf /usr/lib/firefox-$VERSION/plugins &&
     ln -snf /opt/lunar/plugins /usr/lib/firefox-$VERSION/plugins &&
 
     # Now the .desktop file and the icon
@@ -84,9 +84,9 @@
 
     # Make firefox use its own icon
 
-    rm -rf $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons &&
-    mkdir -p $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default &&
-    ln -snf $FIREFOX_HOME/lib/$FFOX_LIBDIR/icons/default.xpm \
-        $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default/default.xpm
+    rm -rf /usr/lib/firefox-$VERSION/chrome/icons &&
+    mkdir -p /usr/lib/firefox-$VERSION/chrome/icons/default &&
+    ln -snf /usr/lib/firefox-$VERSION/icons/default.xpm \
+        /usr/lib/firefox-$VERSION/chrome/icons/default/default.xpm
 
 ) > $C_FIFO 2>&1
