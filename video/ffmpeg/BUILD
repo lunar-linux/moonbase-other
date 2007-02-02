@@ -2,12 +2,14 @@
 
   export CFLAGS="$CFLAGS -fPIC"
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
 
-  OPTS="$OPTS  --enable-gpl  --enable-shared"
+  sedit "s/static uint64/const uint64/" libavcodec/liba52/resample_mmx.c &&
 
-  default_build  &&
-  make installlib
+  OPTS="$OPTS --enable-gpl --enable-shared --enable-pthreads \
+       --disable-ffplay --disable-opts --disable-mmx"
+
+  default_build
 
 ) > $C_FIFO 2>&1
