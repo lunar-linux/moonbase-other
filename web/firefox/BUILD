@@ -3,8 +3,8 @@
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi &&
   
-  # don't know why this symlink is causing problems now
-  [[ -d /usr/lib/firefox-$VERSION/plugins ]] && rm -rf /usr/lib/firefox-$VERSION/plugins || rm -f /usr/lib/firefox-$VERSION/plugins
+  # This should always be just a link
+  rm -rf /usr/lib/firefox-$VERSION/plugins
 
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
   
@@ -63,7 +63,7 @@
     default_make	&&
 
     # Put some important headers in place
-    install -d /usr/include/firefox-$VERSION/nss &&
+    mkdir -p /usr/include/firefox-$VERSION/nss &&
     cp -Lf dist/private/nss/*.h dist/public/nss/*.h \
     		/usr/include/firefox-$VERSION/nss &&
 
@@ -72,11 +72,21 @@
     for plugin in `ls /usr/lib/firefox-$VERSION/plugins`; do
 	 `install -m755 /usr/lib/firefox-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
     
+    rm -rf $FIREFOX_HOME/lib/firefox-$VERSION/plugins &&
+    ln -snf /opt/lunar/plugins /usr/lib/firefox-$VERSION/plugins &&
+
     # Now the .desktop file and the icon
-    install -d /usr/share/applications /usr/share/pixmaps &&
+    mkdir -p /usr/share/applications /usr/share/pixmaps &&
     install -m644 $SCRIPT_DIRECTORY/firefox.desktop /usr/share/applications &&
     # please, dont just let the lin fail because /usr/share/pixmaps/firefox.xpm is an existing symlink...
     rm -f /usr/share/pixmaps/firefox.xpm &&
-    install -m644 $MOZILLA_HOME/icons/default.xpm /usr/share/pixmaps/firefox.xpm
+    install -m644 $MOZILLA_HOME/icons/default.xpm /usr/share/pixmaps/firefox.xpm &&
+
+    # Make firefox use its own icon
+
+    rm -rf $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons &&
+    mkdir -p $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default &&
+    ln -snf $FIREFOX_HOME/lib/$FFOX_LIBDIR/icons/default.xpm \
+        $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default/default.xpm
 
 ) > $C_FIFO 2>&1

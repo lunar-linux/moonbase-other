@@ -14,11 +14,3 @@ ldconfig
 
 cd $FIREFOX_HOME/lib/$FFOX_LIBDIR
 ./regxpcom
-
-rm -rf $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
-ln -snf /opt/lunar/plugins $FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins
-
-rm -rf $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons
-mkdir -p $FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default
-ln -snf $FIREFOX_HOME/lib/$FFOX_LIBDIR/icons/default.xpm \
-	$FIREFOX_HOME/lib/$FFOX_LIBDIR/chrome/icons/default/default.xpm
