@@ -3,17 +3,19 @@
           SOURCE=${MODULE}_$VERSION.orig.tar.gz
          SOURCE2=${MODULE}_${VERSION}-53.diff.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION.orig
-   SOURCE_URL[0]=ftp://ftp.debian.org/debian/pool/main/m/$MODULE/
-  SOURCE2_URL[0]=ftp://ftp.debian.org/debian/pool/main/m/$MODULE/
+   SOURCE_URL[0]=http://archive.debian.org/debian-archive/pool/main/m/$MODULE
+      SOURCE_VFY=sha1:37cdbbbe2a9bdf5b1100dd9e21e2761f81f7896b
+  SOURCE2_URL[0]=http://archive.debian.org/debian-archive/pool/main/m/$MODULE
+     SOURCE2_VFY=bc03dd253660a51cc37ca7482bc7cb7c9578a87b
         WEB_SITE=http://www.pell.portland.or.us/~orc/Code/magicfilter
          ENTERED=20010922
          UPDATED=20020720
            SHORT="extensible and customizable automatic printer filter."
 cat << EOF
-magicfilter is an extensible and customizable automatic printer filter. 
+magicfilter is an extensible and customizable automatic printer filter.
 It selects an appropriate conversion technique for the input data by
 seeking for magic numbers, and then utilizing the appropriate conversion
 utility. It is primarily intended for use as the "input filter" by the
-lpd print spooler. The options accepted by magicfilter are exactly the 
+lpd print spooler. The options accepted by magicfilter are exactly the
 ones passed to the input filter by lpd.
 EOF
