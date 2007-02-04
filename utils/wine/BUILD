@@ -15,8 +15,6 @@
     sedit "s:^CFLAGS    = -g -O2 -Wall -mpreferred-stack-boundary=2 \$(EXTRACFLAGS):CFLAGS    = -g -Wall $CF \$(EXTRACFLAGS):" $i
   done  &&
 
-  sedit "s:-pthread: :" dlls/winmm/winearts/Makefile  && 
-
   make depend  &&
   default_make
 
