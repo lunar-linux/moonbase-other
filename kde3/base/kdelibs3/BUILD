@@ -7,8 +7,8 @@
   default_config &&
 
   if [[ "$APIDOX" == "y" ]]; then
-    make apidox &&
-  fi
+    make apidox
+  fi &&
 
   default_make
 
