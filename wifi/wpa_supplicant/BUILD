@@ -1,6 +1,9 @@
 (
+  sedit "s/\/usr\/local/\/usr/g" Makefile &&
+  sedit "s/dynamic_eap_methods//" Makefile &&
+  
   for option in \
-      DNET_PCAP \
+      DNET_PCAP CTRL_IFACE CTRL_IFACE_DBUS \
       DRIVER_{HOSTAP,PRISM54,NDISWRAPPER,ATMEL,WEXT,IPW,WIRED} \
       WIRELESS_EXTENSION IEEE8021X_EAPOL MSCHAPV2 \
       EAP_{MD5,TLS,PEAP,TTLS,GTC,OTP,SIM,AKA,PSK,LEAP}
@@ -8,9 +11,7 @@
     echo "CONFIG_${option}=y" >> .config
   done &&
 
-  make &&
-  prepare_install &&
-  install -m755 wpa_supplicant wpa_cli wpa_passphrase /usr/bin/ &&
+  default_make && 
 
   gather_docs developer.txt wpa_supplicant.conf
 
