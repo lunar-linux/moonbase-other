@@ -7,5 +7,10 @@
 # processname: acpid
 # description: ACPI event daemon
 
+# Enable IBM specific hotkeys by default
+if [ -e /proc/acpi/ibm/hotkey ]; then
+  echo enable,0xffff > /proc/acpi/ibm/hotkey
+fi
+
 . /lib/lsb/init-functions
 
