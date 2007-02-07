@@ -70,7 +70,7 @@ plugin_kernel_updatebootloader_lilo() {
 		(( IMAGE_COUNT=0 ))
 		unset IMAGE OTHER LABEL OPTIONS
 		# list old images
-		while read LINE ; do
+		sed -n '/other\|image/,$p' /etc/lilo.conf | while read LINE ; do
 			if echo $LINE | grep -qw "image\|other" ; then
 				(( IMAGE_COUNT++ ))
 				
@@ -99,8 +99,7 @@ plugin_kernel_updatebootloader_lilo() {
 					OPTIONS=( "${OPTIONS[@]}" "$LINE" )
 					;;
 			esac
-		done < <(sed -n '/other\|image/,$p' /etc/lilo.conf)
-
+		done;
 		# write the last one too
 		if [ -n "$LABEL" ] ;then
 			output_image $1 $2
