@@ -17,7 +17,8 @@
                --enable-target-optspace      \
                --with-gnu-ld                 \
                --with-system-zlib            \
-               --enable-shared               &&
+               --enable-shared               \
+               --disable-multilib            &&
 
   make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean  &&
   prepare_install                            && 
