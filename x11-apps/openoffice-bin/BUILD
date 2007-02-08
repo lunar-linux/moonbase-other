@@ -16,7 +16,7 @@
     for i in $desktop_files; do
       ln -s /opt/lunar/openoffice/openoffice.org2.1/share/xdg/$i.desktop /usr/share/applications/$i.desktop
     done ;
-    cp -a "${OO_INSTALL_DIR}/desktop-integration/usr/share/icons" /usr/share ;
+#    cp -a "${OO_INSTALL_DIR}/desktop-integration/usr/share/icons" /usr/share ;
     install -m644 "${OO_INSTALL_DIR}/desktop-integration/usr/share/mime/packages/openoffice.org.xml" /usr/share/mime/packages/ ;
     update-mime-database /usr/share/mime/ ;
   fi &&
