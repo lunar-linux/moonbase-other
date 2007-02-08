@@ -3,4 +3,4 @@
   sedit '/FILE/d' src/indent.h &&
   default_build
 
-) > $CFIFO 2>&1
+) > $C_FIFO 2>&1
