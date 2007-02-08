@@ -369,7 +369,11 @@ EOF
 							"None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
 							"x86-64" "x86-64" $( [ "$CPU" == "x86-64" ] && echo "on" || echo "off" ) "Both AMD64 and Intel EM64T machines"
 							"amd64" "amd64" $( [ "$CPU" == "amd64" ] && echo "on" || echo "off" ) "AMD64-specific optimizations"
-							"em64t" "em64t" $( [ "$CPU" == "em64t" ] && echo "on" || echo "off" ) "Intel EM64t -specific optimizations"
+							"nocona" "nocona" $( [ "$CPU" == "nocona" ] && echo "on" || echo "off" ) "Newer Xeons with sse3 and em64t"
+							"k8" "k8" $( [ "$CPU" == "k8" ] && echo "on" || echo "off" ) "AMD K8 processors"
+							"opteron" "opteron" $( [ "$CPU" == "opteron" ] && echo "on" || echo "off" ) "AMD opteron processors"
+							"athlon64" "athlon64" $( [ "$CPU" == "athlon64" ] && echo "on" || echo "off" ) "AMD Athlon 64 processors"
+							"athlonfx" "athlonfx" $( [ "$CPU" == "athlonfx" ] && echo "on" || echo "off" ) "AMD Athlon fx processors"
 							)
 					;;
 				esac
