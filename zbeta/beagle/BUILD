@@ -1,26 +1,13 @@
 (
 
-   ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
-                --build=$BUILD                    \
-                --sysconfdir=/etc                 \
-                --localstatedir=/var              \
-                --infodir=${GNOME210_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
-                --enable-webservices              \
-                --enable-network                  \
-                --with-mozilla=firefox            \
-                $OPTS                             &&
-    default_make				  &&
+  # fixes a typo which causes a build error
+  sedit 's:\+  reader\.Value:reader\.Value:' Filters/FilterOpenOffice.cs  &&
 
-    if [ ! -d /usr/share/beagle ]; then
+  default_build  &&
 
-       mkdir /usr/share/beagle                     
-       cp mozilla-extension/beagle.xpi /usr/share/beagle/
-
-    else
-   
-       cp mozilla-extension/beagle.xpi /usr/share/beagle/
-
-    fi  
+  if module_installed firefox ; then
+    mkdir -p /usr/share/beagle
+    cp mozilla-extension/beagle.xpi /usr/share/beagle/
+  fi
 
 ) > $C_FIFO 2>&1

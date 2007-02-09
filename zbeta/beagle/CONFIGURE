@@ -1,21 +1,4 @@
-if [ ! -e /proc/sys/fs/inotify ]; then
-  echo "Please enable inotify support in your kernel,"
-  echo "FileSystems > INOTIFY"
-	false
-
-else
-
-  echo "Inotify is enabled in your kernel, continuing"
-
-fi
-
-
 if [ ! -d /usr/lib/mono/gmime-sharp ]; then
-   echo "Please re-install gmime and say "y" to mcs"
+   echo "Please re-install gmime and say Y to gtk-sharp2"
    false
-
-else
-
-   echo "Gmime mono bindings found"
-
 fi
