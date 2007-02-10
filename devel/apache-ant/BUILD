@@ -1,7 +1,14 @@
 (
+  if module_installed sun-jdk; then
+    JAVA_VERSION=`installed_version sun-jdk`;
+    export JAVA_HOME="/usr/lib/jdk${JAVA_VERSION}";
+  else
+    JAVA_VERSION=`installed_version j2sdk`;
+    export JAVA_HOME="/usr/lib/j2sdk${JAVA_VERSION}";
+  fi
 
-  export JAVA_HOME=${JAVA_HOME:-/usr/lib/j2sdk1.4.2}
   prepare_install &&
+  
   ./build.sh -Ddist.dir=/usr/share/ant &&
   gather_docs TODO WHATSNEW welcome.html &&
   for each in ant antRun runant.pl runant.py complete-ant-cmd.pl ; do
