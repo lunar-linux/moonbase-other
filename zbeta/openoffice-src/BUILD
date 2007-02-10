@@ -1,53 +1,81 @@
-install_dicts ()
-{
-	# unpack the dictionaries
-	for file in $SOURCE_DIRECTORY/ooo-dicts-lunar/*
-	do
-		install -m 644 $file /usr/lib/ooo-1.1/share/dict/ooo/
-	done &&
-	# install the system dictionaries
-	install -m 444 $TMP_DICT_LIST \
-	    /usr/lib/ooo-1.1/share/dict/ooo/dictionary.lst 
-	# strip the cruft? READMES and such?
-} 
-
 (
-  cd $SOURCE_DIRECTORY 				&&
+  sedit "/^ARCH_FLAGS\*=/d" solenv/inc/unxlngi{4,5,6}.mk &&
 
-  if module_installed j2sdk; then
-    export OPTS="$OPTS --enable-java --with-jdk-home=/usr/lib/j2sdk1.4.2/"
-  fi &&  						
+  # All of the options have been carefully chosen. Don't edit them unless you
+  # really know what you're doing  
 
-  # set language options in setup.in
-  sedit "/^LANGS=\"\$LANGS/d" bin/setup.in      &&
-  sedit "/^LANGS=/s/\".*\"/\"$SEL_LANGS\"/" bin/setup.in  &&
+  OPTS="$OPTS --disable-epm --disable-qadevooo --disable-fontooo \
+              --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
+              --enable-mozilla --disable-binfilter --enable-xrender-link \
+              --without-fonts --without-ppds --without-afms \
+              --with-system-stdlibs --without-nas --with-system-zlib \
+              --with-system-jpeg --with-system-expat --with-system-freetype \
+              --with-system-libxml --without-system-db \
+              --with-system-xrender-headers --disable-odk \
+              --with-use-shell=bash --with-x --with-package-format=native" &&
 
-  # Fixing pkg depends
-  sedit "s%evolution-data-server-1.0%evolution-data-server-1.2%" configure &&
-  sedit "s%libebook-1.0%libebook-1.2%" patches/evo2/connectivity-source-drivers-evoab1-5-makefile-mk.diff &&
-    
-  message "+ Running configure with \$OPTS: $OPTS" &&
+  if module_installed sane-backends ; then
+    OPTS="$OPTS --with-system-sane-header";
+  fi &&
 
-  ./configure	--prefix=/usr 			\
-		--sysconfdir=/etc 		\
-                --with-system-gcc 		\
-                --enable-devel    		\
-                --disable-dependency-tracking   \
-		--with-distro=LUNAR             \
-                --with-icons=gnome              \
-                --with-ccache-allowed           \
-		--with-docdir=/usr/share/OpenOffice.org \
-		--with-tag=OOO_1_1_3_fix2       \
-                --enable-gtk                    \
-		$OPTS 				&&
-  default_make   				&&
-  install_dicts                                 &&
+  if module_installed sun-jdk; then
+    JAVA_VERSION="`installed_version sun-jdk`"
+    OPTS="$OPTS --with-jdk-home=/usr/lib/jdk${JAVA_VERSION}";
+  else
+    JAVA_VERSION="`installed_version j2sdk`";
+    OPTS="$OPTS --with-jdk-home=/usr/lib/j2sdk${JAVA_VERSION}";
+  fi &&
 
-  cp etc/autoresponse.conf /etc/openoffice 	&&
-  cd desktop                               	&&
-  mkdir -p /usr/share/applications /usr/share/pixmaps         &&
-  cp drawing.desktop presentation.desktop spreadsheet.desktop textdoc.desktop /usr/share/applications/ &&
-  cp *png /usr/share/pixmaps               	&&
-  cd $SOURCE_DIRECTORY     
+  # Apply mandatory and optional patches
+
+  patch_it $SOURCE2 0 &&
+
+  if ! module_installed Linux-PAM ; then
+    patch_it $SOURCE3 0;
+  fi &&
+
+  # As long as OOo-src does not compile against nss it needs its own mozilla
+  # tarball (and it also compiles its own mozilla)
+  mkdir -p $SOURCE_DIRECTORY/moz/download &&
+  cp $SOURCE_CACHE/$SOURCE4 $SOURCE_DIRECTORY/moz/download/ &&
+
+  cd $SOURCE_DIRECTORY/config_office &&
+
+  autoreconf &&
+  default_config &&
   
+  # OOo might fail if those are set to some strange values
+  umask 0022 &&
+  unset LANG LC_ALL &&
+
+  cd $SOURCE_DIRECTORY &&
+
+  ./bootstrap &&
+  source LinuxIntelEnv.Set.sh &&
+  dmake &&
+
+  prepare_install &&
+
+  # make install is not reliable
+  # FIXME: How do we detect this directory in an elegant way?
+  cd instsetoo_native/unxlngi6.pro/OpenOffice/\
+               native/install/en-US/linux-2.6-intel/buildroot/opt &&
+
+  rm -rf /opt/lunar/openoffice-src &&
+  cp -rv openoffice.org2.0 /opt/lunar/openoffice-src &&
+
+  # Install icons for the .desktop files
+  mkdir -p -m0755 /usr/share/icons/{HighContrast,hicolor} &&
+  cd $SOURCE_DIRECTORY/sysui/desktop/icons &&
+  cp -rv HighContrast/*x* /usr/share/icons/HighContrast &&
+  cp -rv hicolor/*x* /usr/share/icons/hicolor &&
+  gtk-update-icon-cache &&
+
+  # Desktop integration
+  mkdir -p -m0755 /usr/share/applications &&
+  for file in /opt/lunar/openoffice-src-${VERSION}/share/xdg/*.desktop ; do
+    install -m644 $file /usr/share/applications;
+  done &&
+  update-desktop-database
+ 
 ) > $C_FIFO 2>&1
