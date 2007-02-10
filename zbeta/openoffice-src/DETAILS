@@ -1,51 +1,29 @@
           MODULE=openoffice-src
-         VERSION=1.1.3
-          SOURCE=ooo-build-1.3.5.5.tar.gz
-         SOURCE2=OOO_1_1_3_fix2.tar.bz2
-         SOURCE3=ooo-icons-OOO_1_1-10.tar.gz
-         SOURCE4=libwpd-snap-20040823.tar.gz
-         SOURCE5=available.lst
-	 SOURCE6=hyphavail.lst
-	 SOURCE7=thesavail.lst
-	 SOURCE8=ooo-lunar-patches.tar.bz2
-	 SOURCE9=ooo-lunar-misc.patch.bz2
-        DICT_URL="http://ftp.services.openoffice.org/pub/OpenOffice.org/contrib/dictionaries"
-      SOURCE_URL=http://ooo.ximian.com/packages/OOO_1_1_2/
-      SOURCE_VFY=sha1:fe62a6a80db2b09fbee7f65d5a6b836b4ae0deec
-     SOURCE2_URL=http://ooo.ximian.com/packages/OOO_1_1_3/
-     SOURCE2_VFY=sha1:a1d9d582c3a6321b66970cd4e8f2bd4e78410e44
-     SOURCE3_URL=http://ooo.ximian.com/packages/
-     SOURCE3_VFY=sha1:1e7b35e9adf8e51c90b43728f23af49685bf47c2
-     SOURCE4_URL=http://ooo.ximian.com/packages/
-     SOURCE4_VFY=sha1:a39cb2fcc9e76985a5563bda865b1d5b2faef7ab
-     SOURCE5_URL=$DICT_URL/
-     SOURCE5_VFY=sha1:9edd62f9ab326cc6d08c9e5cba4ae764cbf9441f
-     SOURCE6_URL=$DICT_URL/
-     SOURCE6_VFY=sha1:2a53ac9a452f3b529cb88f68c1cfdacfc2cfc0da
-     SOURCE7_URL=$DICT_URL/
-     SOURCE7_VFY=sha1:a824ee6532fda961c95725a4421d01f958dc225b
-     SOURCE8_URL=$PATCH_URL
-     SOURCE8_VFY=sha1:3a2d77d24e7bc957546ff6fa11882522b65abfef
-     SOURCE9_URL=$PATCH_URL
-     SOURCE9_VFY=sha1:50bd5317010898469abae2454398287981ba7417
-     if [ -e $DEPENDS_CONFIG/$MODULE ] \
-       && `grep -q echo_dict_files $DEPENDS_CONFIG/$MODULE` ; then
-         . $DEPENDS_CONFIG/$MODULE
-         SRC_CNT=10
-         for src in `echo_dict_files` 
-         do
-             eval SOURCE${SRC_CNT}=$src
-             eval SOURCE${SRC_CNT}_URL=$DICT_URL
-	     (( SRC_CNT = $SRC_CNT + 1 ))
-         done
-     fi
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/ooo-build-1.3.5.5
-      MAINTAINER=nhudson@lunar-linux.org
-        WEB_SITE=http://ooo.ximian.com
+         VERSION=2.1.0
+          SOURCE=OOo_${VERSION}_src.tar.bz2
+         SOURCE2=$MODULE-$VERSION-xauth.patch
+         SOURCE3=$MODULE-$VERSION-withoutpam.patch
+         SOURCE4=mozilla-source-1.7.5.tar.gz
+         SOURCE5=OOo_${VERSION}_src_l10n.tar.bz2
+         SOURCE6=OOo_${VERSION}_src_system.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/OOE680_m6
+      SOURCE_URL=http://ftp.rz.tu-bs.de/pub/mirror/OpenOffice.org/stable/${VERSION}/
+     SOURCE2_URL=$PATCH_URL/
+     SOURCE3_URL=$PATCH_URL/
+     SOURCE4_URL=ftp://ftp.mozilla.org/pub/mozilla.org/mozilla/releases/mozilla1.7.5/source/
+     SOURCE5_URL=http://ftp.rz.tu-bs.de/pub/mirror/OpenOffice.org/stable/${VERSION}/
+     SOURCE6_URL=http://ftp.rz.tu-bs.de/pub/mirror/OpenOffice.org/stable/${VERSION}/
+      SOURCE_VFY=sha1:9513216ae71267addf3625f5a41c3a43564da3bc
+     SOURCE2_VFY=sha1:cf93a6119e9c991facc208ba34896ed88571946c
+     SOURCE3_VFY=sha1:78f0970aeb0c2c87ff1ccbf9cf6aec4967840558
+     SOURCE4_VFY=sha1:bb2a89b95d7626a63a3787208e0abb99ea595d24
+     SOURCE5_VFY=sha1:dd50756610e277f2886f6d423d57c084f0bee18a
+     SOURCE6_VFY=sha1:77e97d1ed8eb3276e36ac54e4e021f703e40a587
+        WEB_SITE=http://www.openoffice.org
          ENTERED=20030805
-         UPDATED=20040828
-           SHORT="OO.o Office Suite with some patches from Novell"
-	   PSAFE="no"
+         UPDATED=20070210
+           PSAFE=no
+           SHORT="OpenOffice.org Office Suite"
 cat << EOF
-OO.o Office Suite with some patches from Novell
+OpenOffice.org Office Suite
 EOF
