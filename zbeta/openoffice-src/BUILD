@@ -4,15 +4,16 @@
   # All of the options have been carefully chosen. Don't edit them unless you
   # really know what you're doing  
 
-  OPTS="$OPTS --disable-epm --disable-qadevooo --disable-fontooo \
+  OPTS="$OPTS --disable-qadevooo --disable-fontooo --disable-odk \
               --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
               --enable-mozilla --disable-binfilter --enable-xrender-link \
               --without-fonts --without-ppds --without-afms \
               --with-system-stdlibs --without-nas --with-system-zlib \
               --with-system-jpeg --with-system-expat --with-system-freetype \
               --with-system-libxml --without-system-db \
-              --with-system-xrender-headers --disable-odk \
-              --with-use-shell=bash --with-x --with-package-format=native" &&
+              --with-system-xrender-headers --with-epm=internal \
+              --with-use-shell=bash --with-x --with-package-format=native \
+              --with-build-version=LunarLinux" &&
 
   if module_installed sane-backends ; then
     OPTS="$OPTS --with-system-sane-header";
@@ -51,6 +52,7 @@
   cd $SOURCE_DIRECTORY &&
 
   ./bootstrap &&
+  sedit "s/-lxml2/-lxml2\ -lexpat/g" LinuxIntelEnv.Set.sh &&
   source LinuxIntelEnv.Set.sh &&
   dmake &&
 
