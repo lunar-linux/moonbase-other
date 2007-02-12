@@ -65,7 +65,7 @@
   # FIXME: How do we detect this directory in an elegant way?
   cd instsetoo_native/unxlngi6.pro/OpenOffice/native/install/en-US/linux-2.6-intel/buildroot/opt &&
 
-  rm -rf /opt/lunar/openoffice-src &&
+  rm -rf $OO_DIR &&
   cp -rv openoffice.org2.1 $OO_DIR &&
 
   # Install icons for the .desktop files
