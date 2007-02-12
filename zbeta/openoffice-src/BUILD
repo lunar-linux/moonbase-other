@@ -6,7 +6,7 @@
   # All of the options have been carefully chosen. Don't edit them unless you
   # really know what you're doing  
 
-  OPTS="$OPTS --prefix=$OO_DIR --disable-qadevooo
+  OPTS="$OPTS --prefix=$OO_DIR --disable-qadevooo \
               --disable-fontooo --disable-odk --enable-libart \
               --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
               --enable-mozilla --disable-binfilter --enable-xrender-link \
