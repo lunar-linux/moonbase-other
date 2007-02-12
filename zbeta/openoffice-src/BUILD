@@ -73,7 +73,7 @@
   cd $SOURCE_DIRECTORY/sysui/desktop/icons &&
   cp -rv HighContrast/*x* /usr/share/icons/HighContrast &&
   cp -rv hicolor/*x* /usr/share/icons/hicolor &&
-  gtk-update-icon-cache &&
+  gtk-update-icon-cache --force /usr/share/icons/hicolor &&
 
   # Desktop integration
   mkdir -p -m0755 /usr/share/applications &&
