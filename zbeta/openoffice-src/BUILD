@@ -1,10 +1,13 @@
 (
+  $OO_DIR="/opt/lunar/openoffice-src"
+  
   sedit "/^ARCH_FLAGS\*=/d" solenv/inc/unxlngi{4,5,6}.mk &&
 
   # All of the options have been carefully chosen. Don't edit them unless you
   # really know what you're doing  
 
-  OPTS="$OPTS --disable-qadevooo --disable-fontooo --disable-odk \
+  OPTS="$OPTS --prefix=$OO_DIR --disable-qadevooo
+              --disable-fontooo --disable-odk --enable-libart \
               --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
               --enable-mozilla --disable-binfilter --enable-xrender-link \
               --without-fonts --without-ppds --without-afms \
@@ -63,7 +66,7 @@
   cd instsetoo_native/unxlngi6.pro/OpenOffice/native/install/en-US/linux-2.6-intel/buildroot/opt &&
 
   rm -rf /opt/lunar/openoffice-src &&
-  cp -rv openoffice.org2.0 /opt/lunar/openoffice-src &&
+  cp -rv openoffice.org2.1 $OO_DIR &&
 
   # Install icons for the .desktop files
   mkdir -p -m0755 /usr/share/icons/{HighContrast,hicolor} &&
@@ -74,7 +77,14 @@
 
   # Desktop integration
   mkdir -p -m0755 /usr/share/applications &&
-  for file in /opt/lunar/openoffice-src-${VERSION}/share/xdg/*.desktop ; do
+  cd $OO_DIR/share/xdg &&
+  sedit 's/bin\/sprinteradmin/bin\/spadmin/' printeradmin.desktop &&
+
+  for file in *.desktop ; do
+    sedit '/Exec/d' $file;
+    echo "Exec=$OO_DIR/program/s`echo $file | sed 's/.desktop//'`" >> $file;
+    sedit '/Icon/d' $file;
+    echo "Icon=`echo $file | sed 's/.desktop//'`" >> $file
     install -m644 $file /usr/share/applications;
   done &&
   update-desktop-database
