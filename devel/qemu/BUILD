@@ -1,9 +1,6 @@
 (
 
-  if gcc --version | grep -q 'gcc (GCC) 4' ; then
-    patch_it $SOURCE2 1
-    OPTS+=" --disable-gcc-check"
-  fi
+  unset CFLAGS
 
   if [ ! -e /usr/X11R6/lib/libX11.a ]; then
     OPTS+=" --target-list=i386-user,i386-softmmu,arm-user,sparc-user,ppc-user"
