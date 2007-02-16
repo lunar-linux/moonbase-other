@@ -1,0 +1,19 @@
+          MODULE=xinit
+         VERSION=X11R7.2-1.0.3
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-1.0.2-setuid.diff
+      SOURCE_URL=$XORG_URL/X11R7.2/src/everything/
+#     SOURCE2_URL=$XORG_URL/X11R7.1/patches/
+      SOURCE_VFY=sha1:f706fcd53d1cc9549536b324d0d4b9fabbef45c5
+#     SOURCE2_VFY=sha1:816fa2fea8dbc1479ed594dace6281538de5e0ad
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060120
+         UPDATED=20070216
+           SHORT="the X.Org server initialization tool"
+
+cat << EOF
+xinit and startx are applications which facilitate starting the X
+server and loading the base X session.  It is responsible for parsing
+the .xinitrc and the .xserverrc files.
+EOF

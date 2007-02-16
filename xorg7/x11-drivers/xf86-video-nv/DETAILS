@@ -1,0 +1,18 @@
+          MODULE=xf86-video-nv
+         VERSION=X11R7.2-1.2.2.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$XORG_URL/X11R7.2/src/driver/
+      SOURCE_VFY=sha1:f5f9199e25f72dce627a300c097116e4f51aad9a
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060227
+         UPDATED=20070216
+           SHORT="the X.Org video driver for NVIDIA based cards"
+
+cat << EOF
+xf86-video-nv provides the X.Org video driver for NVIDIA Riva, TNT,
+GeForce, and Quadro video cards.  The driver is named 'nv'.
+
+Note: this driver is not the same as the NVIDIA-provided, binary-only,
+'nvidia' driver.
+EOF

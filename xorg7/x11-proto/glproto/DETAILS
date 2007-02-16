@@ -1,0 +1,17 @@
+          MODULE=glproto
+         VERSION=X11R7.2-1.4.8
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$XORG_URL/X11R7.2/src/proto/
+      SOURCE_VFY=sha1:59cc858fe8ad4bf1e8499a8a09514fe6439f0701
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060120
+         UPDATED=20070216
+           SHORT="the X.Org OpenGL related protocol headers"
+
+cat << EOF
+glproto provides the wire protocols for various OpenGL related
+extensions in X.Org.  These are used to enable the rendering of
+applications using OpenGL.
+EOF
+

@@ -1,0 +1,19 @@
+          MODULE=libX11
+	 VERSION=X11R7.2-1.1.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+#         SOURCE2=$MODULE-1.0.1-setuid.diff
+      SOURCE_URL=$XORG_URL/X11R7.2/src/lib
+#     SOURCE2_URL=$XORG_URL/X11R7.2/patches
+      SOURCE_VFY=sha1:5eb0771b67746e81b320195f36ef3c9777c6fc17
+#     SOURCE2_VFY=sha1:6e2b6a43d394a474b8b731abb8d811625845421c
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060120
+         UPDATED=20070216
+           SHORT="the X.Org client-side library"
+
+cat << EOF
+libX11 is the main client library to the X window system (otherwise
+known as 'Xlib').  It provides the complete API for the basic functions
+of the window system.
+EOF

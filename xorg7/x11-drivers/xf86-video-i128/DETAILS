@@ -1,0 +1,17 @@
+          MODULE=xf86-video-i128
+         VERSION=X11R7.2-1.2.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$XORG_URL/X11R7.2/src/driver/
+      SOURCE_VFY=sha1:4abd286b93d167465052c040593711679a19b8fa
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060303
+         UPDATED=20070216
+           SHORT="the X.Org video driver for Number 9 I128 based cards"
+
+cat << EOF
+xf86-video-i128 provides the driver for the Number 9 Imagine (I128)
+video cards.  The driver is accelerated and provides support for all
+versions of the I128 chip family, including the SGI flatpanel
+configuration.  Multi-head configurations are supported.
+EOF
