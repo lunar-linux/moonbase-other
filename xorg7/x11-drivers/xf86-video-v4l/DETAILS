@@ -1,0 +1,19 @@
+          MODULE=xf86-video-v4l
+         VERSION=X11R7.1-0.1.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$XORG_URL/X11R7.1/src/driver/
+      SOURCE_VFY=sha1:5e513baa26dc91f170ad83df8179ddd87f076e9e
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060302
+         UPDATED=20060523
+           SHORT="video4linux driver"
+cat << EOF
+v4l  is an __xservername__ driver for video4linux cards. It provides a Xvideo
+extension port for video overlay. Just add the driver to the module list
+within the module section of your __xconfigfile__ file if you want to use it.
+There are no config options. 
+
+ Note that the the extmod module is also required for the Xvideo support
+ (and lots of other extensions too).
+EOF
