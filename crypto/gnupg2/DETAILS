@@ -1,0 +1,30 @@
+          MODULE=gnupg2
+         VERSION=2.0.2
+          SOURCE=gnupg-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/gnupg-$VERSION
+      SOURCE_URL=ftp://ftp.gnupg.org/gcrypt/gnupg/
+      SOURCE_VFY=sha1:1a3165c5b601f3244b8885143d02bea4210495e3
+        WEB_SITE=http://www.gnupg.org/
+      MAINTAINER=zbiggy@o2.pl
+         ENTERED=20050516
+         UPDATED=20070218
+           SHORT="GnuPG 2.0 provides additional features not present in former gnupg"
+
+cat << EOF
+GnuPG is GNU's tool for secure communication and data storage. It can
+be used to encrypt data and to create digital signatures. It includes
+an advanced key management facility and is compliant with the proposed
+OpenPGP Internet standard as described in RFC2440 and the S/MIME
+standard as described by several RFCs.
+GnuPG 2.0.x is the stable version of GnuPG integrating support for
+OpenPGP and S/MIME. It has a different design philosophy that splits
+functionality up into several modules.  Both versions may be installed
+simultaneously without any conflict (gpg is called gpg2 in GnuPG 2).
+In fact, the gpg version from GnuPG 1.4.x is able to make use of the
+gpg-agent as included in GnuPG 2 and allows for seamless passphrase
+caching. The advantage of GnupG 1.4.x is its smaller size and no
+dependency on other modules at run and build time.
+The gpg2 behaves just like gpg; it is however suggested to
+keep using standard gpg because most applications still need classic 
+gnupg.
+EOF
