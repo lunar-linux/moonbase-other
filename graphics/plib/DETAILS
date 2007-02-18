@@ -1,12 +1,18 @@
            MODULE=plib
          VERSION=1.8.4
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL=http://plib.sourceforge.net/dist/
+         SOURCE2=$MODULE-$VERSION-gcc41.patch.bz2
+         SOURCE3=$MODULE-$VERSION-too-many-axes.patch.bz2
+      SOURCE_URL=http://plib.sourceforge.net/dist/
+     SOURCE2_URL=$PATCH_URL/
+     SOURCE3_URL=$PATCH_URL/
       SOURCE_VFY=sha1:16d3faab36fdde85c5bf620046b56c65dfad6769
+     SOURCE2_VFY=sha1:ddc1f94ef0d6bb5432b61e90bc129fb64e8fdf58
+     SOURCE3_VFY=sha1:6f03d55f9c48fc5df7be9eb8142ada213a5b8e7b
         WEB_SITE=http://plib.sourceforge.net
          ENTERED=20010922
-         UPDATED=20050117
-           SHORT="portable game library."
+         UPDATED=20070218
+           SHORT="A portable game library"
 
 cat << EOF
 PLIB is a set of libraries to write games and other realtime interactive
