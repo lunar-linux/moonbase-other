@@ -3,12 +3,12 @@
 # Startup script for sane
 #
 # chkconfig: 345 50 50
-# description: Prepares the system for scanner use.
+# description: This script creates the lockdir for sane-backends
 
 SANE_LOCKDIR="/var/lock/sane"
 
 start () {
-  echo -n "Starting $SHORT: "
+  echo -n "Creating SANE lock directory: "
   mkdir -m 775 -p $SANE_LOCKDIR && chgrp usb $SANE_LOCKDIR
   if [ $? == 0 ]; then
     echo -e $RESULT_OK
@@ -18,8 +18,9 @@ start () {
 }  
 
 stop () {
-  echo -n "Stopping $SHORT: "
-  echo -e $RESULT_OK
+   echo -n "Removing SANE lock directory: "
+   rm -rf $SANE_LOCKDIR
+   echo -e $RESULT_OK
 }
 
 restart () {
@@ -27,4 +28,4 @@ restart () {
   start
 }
 
-. /lib/lsb/init-functions $1
+. /lib/lsb/init-functions
