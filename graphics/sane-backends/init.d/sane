@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# Startup script for sane
+#
+# chkconfig: 345 50 50
+# description: This is a daemon which broadcasts notifications of system events \
+#               and other messages. See http://www.freedesktop.org/software/dbus/
+# processname: dbus-daemon
+# pidfile: /var/run/messagebus.pid
+# sigreload: HUP
+
+SANE_LOCKDIR="/var/lock/sane"
+
+start () {
+  echo -n "Starting $SHORT: "
+  mkdir -m 775 -p $SANE_LOCKDIR && chgrp usb $SANE_LOCKDIR
+  if [ $? == 0 ]; then
+    echo -e $RESULT_OK
+  else
+    echo -e $RESULT_FAIL
+  fi
+}  
+
+. /lib/lsb/init-functions $1
