@@ -1,6 +1,6 @@
 (
   OO_INSTALL_DIR="${SOURCE_DIRECTORY}/RPMS"
-  cd $OO_INSTALL_DIR			&&
+  cd $OO_INSTALL_DIR  &&
 
   if [[ "$USE_DESKTOPINTEGRATION" = "y" ]]; then
     cd $OO_INSTALL_DIR/desktop-integration ; 
@@ -19,28 +19,29 @@
 #    cp -a "${OO_INSTALL_DIR}/desktop-integration/usr/share/icons" /usr/share ;
     install -m644 "${OO_INSTALL_DIR}/desktop-integration/usr/share/mime/packages/openoffice.org.xml" /usr/share/mime/packages/ ;
     update-mime-database /usr/share/mime/ ;
-  fi &&
+  fi  &&
 
 
-  cd $OO_INSTALL_DIR                                      &&
+  cd $OO_INSTALL_DIR          &&
 
-  rm -fr desktop-integration &&
+  rm -fr desktop-integration  &&
 
   # Let the "magic" happen. Ugh, I hate rpm
-  message "${MESSAGE_COLOR}Unpacking RPMs...${DEFAULT_COLOR}" &&
+  message "${MESSAGE_COLOR}Unpacking RPMs...${DEFAULT_COLOR}"  &&
   for pack in ${OO_INSTALL_DIR}/*; do
     rpm2cpio $pack > `basename $pack .rpm`.cpio ;
-  done &&
+  done  &&
 
   # Now, lets get rid of the rpms
-  rm -rf ${OO_INSTALL_DIR}/*.rpm	&&
+  rm -rf ${OO_INSTALL_DIR}/*.rpm  &&
   
   for pack in ${OO_INSTALL_DIR}/*; do
     cpio -idm < $pack &> /dev/null;
   done &&
   
-  prepare_install &&
-  message "${MESSAGE_COLOR}Installing OpenOffice ${VERSION}...${DEFAULT_COLOR}" &&
+  prepare_install  &&
+  message "${MESSAGE_COLOR}Installing OpenOffice ${VERSION}...${DEFAULT_COLOR}"  &&
+  mkdir -p /opt/lunar/openoffice  &&
   cp -a "${OO_INSTALL_DIR}/opt/openoffice.org2.1" /opt/lunar/openoffice
 
 ) > $C_FIFO 2>&1
