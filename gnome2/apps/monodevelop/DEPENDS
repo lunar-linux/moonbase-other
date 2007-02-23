@@ -1,6 +1,9 @@
 depends  gecko-sharp2  &&
-depends  gtksourceview-sharp2
+depends  gtksourceview-sharp2  &&
+
+optional_depends  "subversion"  "--enable-subversion"  ""  \
+                  "for the subversion source-control add-in"
 
 # currently not an option due to some API changes
-#optional_depends  "mono-debugger"  "--enable-debugger"  "--disable-debugger"  \
+#optional_depends  "mono-debugger"  "--enable-debugger"  ""  \
 #                  "to enable support for debugging within the IDE"
