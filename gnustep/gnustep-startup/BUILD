@@ -3,11 +3,11 @@
   # before load GNUSTEP variables
   . $GNUSTEP_SYSTEM_ROOT/Library/Makefiles/GNUstep.sh &&
 
-#  devoke_installwatch &&
-#  default_config &&
-#  make &&
-#  invoke_installwatch &&
-#  prepare_install &&
-#  make install
+  #devoke_installwatch &&
+  #default_config &&
+  #make &&
+  #invoke_installwatch &&
+  #prepare_install &&
+  #make install
   default_build
 ) > $C_FIFO 2>&1
