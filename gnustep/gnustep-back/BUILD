@@ -1,6 +1,7 @@
 (
   # before load GNUSTEP variables
-  . $GNUSTEP_ROOT/System/Library/Makefiles/GNUstep.sh
+  . /etc/profile.d/gnustep.rc   &&
+  . $GNUSTEP_SYSTEM_ROOT/Library/Makefiles/GNUstep.sh &&
 
   ./configure $OPTS  &&
   default_make
