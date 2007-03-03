@@ -169,7 +169,7 @@ function device_stop() {
 	    [dD][hH][cC][pP])
 	        case $DHCP_CLIENT in
 		    [dD][hH][cC][pP][cC][dD])
-			KILLCMD="dhcpcd -k"
+			KILLCMD="dhcpcd -k $1"
 		    	PIDFILE=/var/run/dhcpcd-$1.pid
 		    ;;
 		    [dD][hH][cC][lL][iI][eE][nN][tT])
