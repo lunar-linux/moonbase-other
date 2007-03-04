@@ -3,14 +3,19 @@
 # bootmisc - system startup script
 #
 
+if [ -x /usr/bin/setfont ]; then
+  CONSOLETOOL="/usr/bin/setfont";
+else
+  CONSOLETOOL="/usr/bin/consolechars -f";
+fi
+
 case $1 in
   start)
     dmesg > /var/log/dmesg
 	dmesg -n4
     touch /var/run/utmp /var/run/wtmp
     [ ! -f /etc/LOCALE ] || . /etc/LOCALE
-    [ ! -f /etc/keymap ] || loadkeys $(cat /etc/keymap)
-    [ ! -f /etc/consolefont ] || consolechars -f $(cat /etc/consolefont)
+    [ ! -f /etc/keymap ] || loadkeys -q $(cat /etc/keymap)
+    [ ! -f /etc/consolefont ] || $CONSOLETOOL $(cat /etc/consolefont)
     ;;
 esac
-
