@@ -1,44 +1,29 @@
 (
 
-	if [ $WITH_MPPE == "y" ]; then
-	  patch_it $SOURCE2 1
-	fi &&
+        add_priv_group ppp &&
 
-	sedit "s/FILTER=y/#FILTER=y/"       pppd/Makefile.linux  &&
-	sedit "s/usr\/man/usr\/share\/man/" linux/Makefile.top   &&
-
-        prepare_install  &&
-	default_build    &&
+        default_build &&
+        make install-etcppp &&
 	
-	mkdir  -p  /etc/ppp/peers  &&
-	mkdir  -p  /etc/ppp/chat  &&
+	mkdir  -p  /etc/ppp/{peers,chat}  &&
 
 	if ! [ -f /etc/resolv.conf ]; then
 		ln  -f  /etc/ppp/resolv.conf /etc/resolv.conf
-  	fi
+  	fi &&
 
-	cp  $SCRIPT_DIRECTORY/pon   /usr/bin  &&
-	cp  $SCRIPT_DIRECTORY/poff  /usr/bin  &&
-
-	if  !  [  -f  /etc/ppp/options  ];  then
-		cp  $SCRIPT_DIRECTORY/options  /etc/ppp/options
-  	fi
+	install -m755  $SCRIPT_DIRECTORY/pon \
+                       $SCRIPT_DIRECTORY/poff  /usr/bin  &&
 
 	if  [  !  -e  /etc/ppp/peers/isp  ];  then
-		cp  $SCRIPT_DIRECTORY/peers /etc/ppp/peers/isp
-  	fi
+		install -m644  $SCRIPT_DIRECTORY/peers /etc/ppp/peers/isp
+  	fi &&
 
 	if  [  !  -e  /etc/ppp/chat/isp  ];  then
-		cp  $SCRIPT_DIRECTORY/isp  /etc/ppp/chat/isp
-	fi
+		install -m644  $SCRIPT_DIRECTORY/isp  /etc/ppp/chat/isp
+	fi &&
 
-	cat  $SCRIPT_DIRECTORY/message  &&
-
-        groupadd ppp        2>/dev/null
-	chown  root:ppp     /usr/sbin/pppd  &&
-	chmod  4750         /usr/sbin/pppd  &&
-	chown  -R root:ppp  /etc/ppp  &&
-	touch               /etc/ppp/{chap,pap}-secrets &&
-	chmod  600          /etc/ppp/*-secrets
+	chown -R root:ppp /usr/sbin/pppd /etc/ppp &&
+	chmod 4750 /usr/sbin/pppd  &&
+	chmod 600 /etc/ppp/*-secrets
 
 ) > $C_FIFO 2>&1
