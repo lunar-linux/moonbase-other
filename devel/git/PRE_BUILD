@@ -1,0 +1,9 @@
+# tchan added the following hack because something in lunar core is failing to
+# clean up symlinks and this is causing git to fail to install. To test this,
+# just remove the PRE_BUILD and try to "lin -c git" twice in a row.
+# NOTE: lrm --upgrade git doesn't work here! Remove this hack at a later date!
+if [ -h "/usr/bin/git-fsck" ] ; then
+  rm -f /usr/bin/git*
+fi &&
+
+default_pre_build
