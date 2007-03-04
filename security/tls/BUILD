@@ -1,6 +1,8 @@
 (
 
-  OPTS="$OPTS --enable-threads --enable-shared --with-ssl-dir=/usr"
+  OPTS="$OPTS --enable-threads     \
+              --enable-shared      \
+              --with-ssl-dir=/usr"
 
   default_build
 
