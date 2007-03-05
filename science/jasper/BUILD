@@ -5,7 +5,8 @@
   ./configure  --prefix=/usr            \
                --sysconfdir=/etc        \
                --mandir=/usr/share/man  \
-               --localstatedir=/var    &&
+               --localstatedir=/var     \
+               --enable-shared         &&
 
   default_make
 
