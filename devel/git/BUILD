@@ -1,6 +1,7 @@
 (
 
   patch_it $SOURCE2 0 &&
+  sedit "s/-g -O2/${CFLAGS}/" Makefile &&
   make prefix=/usr strip &&
   prepare_install  &&
   make prefix=/usr install &&
