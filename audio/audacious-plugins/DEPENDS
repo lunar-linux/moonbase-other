@@ -1,66 +1,76 @@
-depends audacious &&
+depends  audacious  &&
 
-optional_depends  "alsa-lib" \
-                  "" \
-                  "--disable-alsa" \
-                  "for ALSA input plugin"  &&
+optional_depends  "alsa-lib"                      \
+                  ""                              \
+                  "--disable-alsa"                \
+                  "for ALSA input plugin"         &&
 
-optional_depends  "flac" \
-                  "" \
-                  "--disable-flac" \
-                  "for FLAC input plugin"  &&
+optional_depends  "libmad"                        \
+                  ""                              \
+                  ""                              \
+                  "for MP3 plugin"                &&
 
-optional_depends  "libvorbis" \
-                  "" \
-                  "--disable-vorbis" \
-                  "for Ogg Vorbis input plugin"  &&
+optional_depends  "flac"                          \
+                  ""                              \
+                  ""                              \
+                  "for FLAC input plugin"         &&
 
-optional_depends  "libmpcdec" \
-                  "" \
-                  "--disable-musepack" \
-                  "for Musepack input plugin"  &&
+optional_depends  "libvorbis"                     \
+                  ""                              \
+                  ""                              \
+                  "for Ogg Vorbis input plugin"   &&
 
-optional_depends  "arts" \
-                  "" \
-                  "--disable-arts" \
+optional_depends  "libmpcdec"                     \
+                  ""                              \
+                  ""                              \
+                  "for Musepack input plugin"     &&
+
+optional_depends  "arts"                          \
+                  ""                              \
+                  "--disable-arts"                \
                   "for arts (KDE) output plugin"  &&
 
-optional_depends  "jack" \
-                  "" \
-                  "--disable-jack" \
-                  "for JACK output plugin"  &&
+optional_depends  "jack"                          \
+                  ""                              \
+                  "--disable-jack"                \
+                  "for JACK output plugin"        &&
 
-optional_depends  "esound" \
-                  "" \
-                  "--disable-esd" \
-                  "for esound output plugin"  &&
+optional_depends  "esound"                        \
+                  ""                              \
+                  "--disable-esd"                 \
+                  "for esound output plugin"      &&
 
-optional_depends  "pulseaudio" \
-                  "" \
-                  "--disable-pulse" \
+optional_depends  "pulseaudio"                    \
+                  ""                              \
+                  "--disable-pulse"               \
                   "for PulseAudio output plugin"  &&
 
-optional_depends  "libmodplug" \
-                  "" \
-                  "--disable-modplug" \
-                  "for ModPlug plugin"  &&
+optional_depends  "libmodplug"                    \
+                  ""                              \
+                  ""                              \
+                  "for ModPlug plugin"            &&
 
-optional_depends  "lirc" \
-                  "" \
-                  "--disable-lirc" \
-                  "for LIRC plugin"  &&
+optional_depends  "lirc"                          \
+                  ""                              \
+                  "--disable-lirc"                \
+                  "for LIRC plugin"               &&
 
-optional_depends  "timidity++" \
-                  "" \
-                  "--disable-timidity" \
-                  "for timidity plugin"  &&
+optional_depends  "timidity++"                    \
+                  ""                              \
+                  ""                              \
+                  "for timidity plugin"           &&
 
-optional_depends  "libsndfile" \
-                  "" \
-                  "--disable-sndfile" \
-                  "for sndfile extensions"  &&
+optional_depends  "libsndfile"                    \
+                  ""                              \
+                  ""                              \
+                  "for sndfile extensions"        &&
 
-optional_depends  "GConf2" \
-                  "--enable-gconf" \
-                  "" \
-                  "for GConf support"
+optional_depends  "curl"                          \
+                  ""                              \
+                  ""                              \
+                  "for audio scrobbler support"   &&
+
+optional_depends  "lame"                          \
+                  ""                              \
+                  ""                              \
+                  "for lame encoder support"      
