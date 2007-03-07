@@ -1,3 +1,7 @@
 depends  libglade2  &&
-depends  taglib     &&
-optional_depends  GConf2 "--enable-gconf" "" "for GConf support"
+depends  mcs        &&
+
+optional_depends  "libsamplerate"               \
+                  "--enable-samplerate"         \
+                  ""                            \
+                  "for sample rate conversion"

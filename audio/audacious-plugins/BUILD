@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --disable-gnome-vfs --enable-ipv6"
+  OPTS="$OPTS --enable-ipv6"
 
   default_build
 
