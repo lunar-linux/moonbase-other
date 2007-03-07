@@ -1,6 +1,10 @@
 (
 
-  OPTS="$OPTS --enable-wacom"
+  OPTS="$OPTS --enable-wacom --enable-wacomdrv"
+
+  if in_depends linuxwacom XOrg7; then
+    OPTS="$OPTS --with-dlloader=yes"
+  fi
 
   default_build
 
