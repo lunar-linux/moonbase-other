@@ -11,10 +11,6 @@
     OPTS=$OPTS" --enable-menu"
   fi
 
-  if module_installed kernel-headers-2.6; then
-    OPTS="$OPTS --disable-fbdev"
-  fi
-
   cd $SOURCE_DIRECTORY &&
 
   ./configure --prefix=/usr                   \
