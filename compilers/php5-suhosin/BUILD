@@ -1,16 +1,10 @@
 (
 
   if [ "$USE_PATCH" == "y" ]; then
-    patch_it $SOURCE4 1
+    patch_it $SOURCE3 1
   fi &&
 
   ./buildconf --force &&
-
-  if [ "$USE_IMAP" == "y" ]; then
-    unpack $SOURCE2
-    make -C imap-${IMAP_VERSION} slx SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib"
-    OPTS="$OPTS --with-imap=imap-${IMAP_VERSION}"
-  fi &&
 
   if [ "$USE_REGGLOBALS" == "y" ]; then
     OPTS="$OPTS "
