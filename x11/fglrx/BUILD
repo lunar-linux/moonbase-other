@@ -4,6 +4,8 @@
 	sh $SOURCE --extract &&
 	cd fglrx-install &&
 
+	patch common/lib/modules/fglrx/build_mod/firegl_public.c < $SOURCE_CACHE/$SOURCE2 &&
+
 	cp -a common/usr/share/doc/fglrx /usr/share/doc/ &&
 	install common/usr/share/icons/ati.xpm /usr/share/icons/ &&
 	install common/usr/share/man/man8/atieventsd.8.gz /usr/share/man/man8/ &&
@@ -18,7 +20,6 @@
 	install x690/usr/X11R6/bin/fireglcontrolpanel /usr/bin/ &&
 
 	install arch/x86/usr/X11R6/lib/modules/dri/fglrx_dri.so /usr/lib/dri/ &&
-	install arch/x86/usr/X11R6/lib/modules/dri/atiogl_a_dri.so /usr/lib/dri/ &&
 	cp -a arch/x86/usr/X11R6/lib/lib* /usr/lib/fglrx/ &&
 	install x710/usr/X11R6/lib/modules/drivers/fglrx_drv.so /usr/lib/xorg/modules/drivers/ &&
 	install x710/usr/X11R6/lib/modules/linux/libfglrxdrm.so /usr/lib/xorg/modules/linux/ &&
