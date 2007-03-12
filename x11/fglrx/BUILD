@@ -6,6 +6,7 @@
 
 	patch common/lib/modules/fglrx/build_mod/firegl_public.c < $SOURCE_CACHE/$SOURCE2 &&
 
+	mkdir -p /usr/lib/fglrx &&
 	cp -a common/usr/share/doc/fglrx /usr/share/doc/ &&
 	install common/usr/share/icons/ati.xpm /usr/share/icons/ &&
 	install common/usr/share/man/man8/atieventsd.8.gz /usr/share/man/man8/ &&
