@@ -1,0 +1,33 @@
+
+# only lin -r gcc will trigger the language selector!
+if [ -n "$RECONFIGURE" ] ; then
+
+  LANGUAGES=$(get_module_config LANGUAGES)
+  [ -z "$LANGUAGES" ]  && LANGUAGES=${LANGUAGES:=c++}
+
+  if query "Do you want to select additional compiler languages ? " n ; then
+    OPTIONS=(
+      "f77"  "Fortran"      "off"
+      "java" "Java"         "off"
+      "objc" "Objective C"  "off"
+    )
+    RESULT=`dialog --title "Select additional compiler languages"   \
+                   --stdout                                         \
+                   --separate-output                                \
+                   --checklist  "Available additional languages:"   \
+                    0 0 0                                           \
+                   "${OPTIONS[@]}"`
+
+    LANGUAGES="c++,$(echo $RESULT | sed 's/ /,/g')"
+    set_module_config LANGUAGES "$LANGUAGES"
+
+  else
+
+    LANGUAGES=$(get_module_config LANGUAGES)
+    [ -z "$LANGUAGES" ]  && LANGUAGES=${LANGUAGES:=c++}
+    set_module_config LANGUAGES "$LANGUAGES"
+
+  fi
+
+fi
+
