@@ -1,6 +1,6 @@
           MODULE=linux-2.6-stable
          VERSION=2.6.16.43
-            BASE=2.6.16
+            BASE=$(echo $VERSION | cut -d. -f1,2,3)
           SOURCE=linux-${BASE}.tar.bz2
          SOURCE2=patch-${VERSION}.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/linux-$VERSION
