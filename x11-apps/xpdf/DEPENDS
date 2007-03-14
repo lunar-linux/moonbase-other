@@ -1,4 +1,9 @@
 depends  freetype2  &&
 depends  gzip       &&
 depends  t1lib      &&
-depends  openMotif
+depends  openMotif  &&
+
+optional_depends libpaper \
+                 "--enable-a4-paper" \
+                 "--disable-a4-paper" \
+                 "to use A4 instead of Letter as the default page size"
