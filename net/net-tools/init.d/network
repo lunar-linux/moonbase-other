@@ -42,106 +42,121 @@ function device_start() {
 	    modprobe $MODULE $MODULE_OPTIONS
 	fi;
 
-	if ( [ -n "$WIRELESS_MODE" ] || [ -n "$WIRELESS_KEY" ] || [ -n "$WIRELESS_RATE" ] || [ -n "$WIRELESS_ESSID" ] ); then
-		if [ ! -x /usr/sbin/iwconfig ]; then
-		    echo "Wireless tools not installed";
+	ifconfig $1 up $IFCONF_OPTS
+
+	case $MANAGER in
+	ifplugd)
+		ifplugd -I -i $1 -f &
+		sleep 1
+		return
+		;;
+	wpa_supplicant)
+		wpa_supplicant -B -Dwext -i$1 -c/etc/wpa_supplicant.conf &
+		ifplugd -I -i $1 -f &
+		sleep 1
+		;;
+	*)
+		if ( [ -n "$WIRELESS_MODE" ] || [ -n "$WIRELESS_KEY" ] || [ -n "$WIRELESS_RATE" ] || [ -n "$WIRELESS_ESSID" ] ); then
+			if [ ! -x /usr/sbin/iwconfig ]; then
+			    echo "Wireless tools not installed";
+			    return -1;
+			fi;
+			if [ -n "$WIRELESS_MODE" ]; then
+			    /usr/sbin/iwconfig $1 mode $WIRELESS_MODE;
+			fi;
+			if [ -n "$WIRELESS_KEY" ]; then
+			    /usr/sbin/iwconfig $1 key $WIRELESS_KEY;
+			fi;
+			if [ -n "$WIRELESS_RATE" ]; then
+			    /usr/sbin/iwconfig $1 rate $WIRELESS_RATE;
+			fi;
+			if [ -n "$WIRELESS_ESSID" ]; then
+			    /usr/sbin/iwconfig $1 essid $WIRELESS_ESSID;
+			fi;
+		fi;
+	
+		if [ -z "$ADDRESS" ]; then
+		    echo -n "missing address";
 		    return -1;
 		fi;
-		if [ -n "$WIRELESS_MODE" ]; then
-		    /usr/sbin/iwconfig $1 mode $WIRELESS_MODE;
-		fi;
-		if [ -n "$WIRELESS_KEY" ]; then
-		    /usr/sbin/iwconfig $1 key $WIRELESS_KEY;
-		fi;
-		if [ -n "$WIRELESS_RATE" ]; then
-		    /usr/sbin/iwconfig $1 rate $WIRELESS_RATE;
-		fi;
-		if [ -n "$WIRELESS_ESSID" ]; then
-		    /usr/sbin/iwconfig $1 essid $WIRELESS_ESSID;
-		fi;
-	fi;
-
-	if [ -z "$ADDRESS" ]; then
-	    /sbin/ifconfig $1 up
-	    echo -n "missing address";
-	    return -1;
-	fi;
-
-	case $ADDRESS in
-	    [dD][hH][cC][pP])
-	    	if [ -z $DHCP_CLIENT ]; then
-		    echo -n "DHCP client not specified";
-		    return -1;
-		fi;
-		case $DHCP_CLIENT in
-		    [dD][hH][cC][pP][cC][dD])
-		    	PIDFILE=/var/run/dhcpcd-$1.pid
-			RUNFILE=/sbin/dhcpcd
+	
+		case $ADDRESS in
+		    [dD][hH][cC][pP])
+		    	if [ -z $DHCP_CLIENT ]; then
+			    echo -n "DHCP client not specified";
+			    return -1;
+			fi;
+			case $DHCP_CLIENT in
+			    [dD][hH][cC][pP][cC][dD])
+				PIDFILE=/var/run/dhcpcd-$1.pid
+				RUNFILE=/usr/sbin/dhcpcd
+			    ;;
+			    [dD][hH][cC][lL][iI][eE][nN][tT])
+			        PIDFILE=/var/run/dhclient-$1.pid
+				RUNFILE=/sbin/dhclient
+				DHCP_OPTIONS="$DHCP_OPTIONS -pf $PIDFILE -lf /var/state/dhcp/dhclient-$1.leases"
+			    ;;
+			    [uU][dD][hH][cC][pP][cC])
+			        PIDFILE=/var/run/udhcpc-$1.pid
+				RUNFILE=/sbin/udhcpc
+				DHCP_OPTIONS="$DHCP_OPTIONS -p $PIDFILE -i"
+			    ;;
+			esac
+			if [ ! -x $RUNFILE ]; then
+			    echo -n "$DHCP_CLIENT not installed";
+			    return -1;
+			fi;
+			if [ -e $PIDFILE ]; then
+			    if [ $(ps ax | grep `cat $PIDFILE` | grep $DHCP_CLIENT | grep -v grep | wc -l) -ge 1 ]; then
+			        echo -n "already started";
+			        return -3;
+			    else
+			        rm -f $PIDFILE;
+			    fi;
+			fi;
+			$RUNFILE $DHCP_OPTIONS $1 >/dev/null 2>&1;
+			DHCP_EXIT=$?
+			sleep 1;
+			if [ ! -e $PIDFILE ]; then
+			    if [ $DHCP_EXIT -eq 0 ]; then
+			        echo -n "DHCP exited cleanly"
+				return -3
+			    else
+			        echo -n "DHCP failed";
+			        return -1;
+			    fi;
+			fi;
 		    ;;
-		    [dD][hH][cC][lL][iI][eE][nN][tT])
-		        PIDFILE=/var/run/dhclient-$1.pid
-			RUNFILE=/sbin/dhclient
-			DHCP_OPTIONS="$DHCP_OPTIONS -pf $PIDFILE -lf /var/state/dhcp/dhclient-$1.leases"
-		    ;;
-		    [uU][dD][hH][cC][pP][cC])
-		        PIDFILE=/var/run/udhcpc-$1.pid
-			RUNFILE=/sbin/udhcpc
-			DHCP_OPTIONS="$DHCP_OPTIONS -p $PIDFILE -i"
+		    *)
+			if [ ! -x /sbin/ifconfig ]; then
+			    echo -n "ifconfig not installed";
+			    return -1;
+			fi;
+			if [ ! $1 == "lo" ] && [ $(/sbin/ifconfig | grep $1 | wc -l) -ge 1 ]; then
+			    echo -n "already started";
+			    return -3;
+			fi;
+			IFCONFIG="$1 $ADDRESS";
+			if [ -n "$NETMASK" ]; then
+			    IFCONFIG="$IFCONFIG netmask $NETMASK";
+			fi;
+			if [ -n "$BROADCAST" ]; then
+			    IFCONFIG="$IFCONFIG broadcast $BROADCAST";
+			fi;
+			/sbin/ifconfig $IFCONFIG >/dev/null 2>&1
+			if [ `/sbin/ifconfig | grep $ADDRESS | wc -l` -ne 1 ]; then
+			    echo -n "failed to set address";
+			    return -1;
+			fi;
+			for ROUTECMD in "$ROUTE_1" "$ROUTE_2" "$ROUTE_3" "$ROUTE_4" ; do
+			  if [ -n "$ROUTECMD" ] ; then
+		            echo -e "\n    adding route: $ROUTECMD"
+			    /sbin/route $ROUTECMD
+			  fi
+			done
 		    ;;
 		esac
-		if [ ! -x $RUNFILE ]; then
-		    echo -n "$DHCP_CLIENT not installed";
-		    return -1;
-		fi;
-		if [ -e $PIDFILE ]; then
-		    if [ $(ps ax | grep `cat $PIDFILE` | grep $DHCP_CLIENT | grep -v grep | wc -l) -ge 1 ]; then
-		        echo -n "already started";
-		        return -3;
-		    else
-		        rm -f $PIDFILE;
-		    fi;
-		fi;
-		$RUNFILE $DHCP_OPTIONS $1 >/dev/null 2>&1;
-		DHCP_EXIT=$?
-		sleep 1;
-		if [ ! -e $PIDFILE ]; then
-		    if [ $DHCP_EXIT -eq 0 ]; then
-		        echo -n "DHCP exited cleanly"
-			return -3
-		    else
-		        echo -n "DHCP failed";
-		        return -1;
-		    fi;
-		fi;
-	    ;;
-	    *)
-		if [ ! -x /sbin/ifconfig ]; then
-		    echo -n "ifconfig not installed";
-		    return -1;
-		fi;
-		if [ ! $1 == "lo" ] && [ $(/sbin/ifconfig | grep $1 | wc -l) -ge 1 ]; then
-		    echo -n "already started";
-		    return -3;
-		fi;
-		IFCONFIG="$1 $ADDRESS";
-		if [ -n "$NETMASK" ]; then
-		    IFCONFIG="$IFCONFIG netmask $NETMASK";
-		fi;
-		if [ -n "$BROADCAST" ]; then
-		    IFCONFIG="$IFCONFIG broadcast $BROADCAST";
-		fi;
-		/sbin/ifconfig $IFCONFIG >/dev/null 2>&1
-		if [ `/sbin/ifconfig | grep $ADDRESS | wc -l` -ne 1 ]; then
-		    echo -n "failed to set address";
-		    return -1;
-		fi;
-		for ROUTECMD in "$ROUTE_1" "$ROUTE_2" "$ROUTE_3" "$ROUTE_4" ; do
-		  if [ -n "$ROUTECMD" ] ; then
-	            echo -e "\n    adding route: $ROUTECMD"
-		    /sbin/route $ROUTECMD
-		  fi
-		done
-	    ;;
+		;;
 	esac
 	return 0;
 };
@@ -153,81 +168,69 @@ function device_stop() {
 	fi;
 
 	. $CONFIGS/$1;
-	
-	for ROUTECMD in "$ROUTE_4" "$ROUTE_3" "$ROUTE_2" "$ROUTE_1" ; do
-	  if [ -n "$ROUTECMD" ] ; then
-	    if $(echo $ROUTECMD | grep -q "^add ") ; then
-	      ROUTECMD=$(echo $ROUTECMD | sed 's/^add /del /')
-	    elif $(echo $ROUTECMD | grep -q "^del ") ; then
-	      ROUTECMD=$(echo $ROUTECMD | sed 's/^del /add /')
-	    fi
-	    echo -e "\n    deleting route: $ROUTECMD"
-	    /sbin/route $ROUTECMD
-	  fi
-	done
-	case $ADDRESS in
-	    [dD][hH][cC][pP])
-	        case $DHCP_CLIENT in
-		    [dD][hH][cC][pP][cC][dD])
-			KILLCMD="dhcpcd -k $1"
-		    	PIDFILE=/var/run/dhcpcd-$1.pid
-		    ;;
-		    [dD][hH][cC][lL][iI][eE][nN][tT])
-		    	PIDFILE=/var/run/dhclient-$1.pid
-		    ;;
-		    [uU][dD][hH][cC][pP][cC])
-		        PIDFILE=/var/run/udhcpc-$1.pid
+
+	case $MANAGER in
+	ifplugd)
+		ifplugd -i $1 -k
+		sleep 1
+		;;
+	wpa_supplicant)
+		ifplugd -i $1 -k
+		kill `ps ax | grep wpa_supplicant | grep "-i$1" | awk '{print $1}'`
+		sleep 1
+		;;
+	*)
+		for ROUTECMD in "$ROUTE_4" "$ROUTE_3" "$ROUTE_2" "$ROUTE_1" ; do
+		  if [ -n "$ROUTECMD" ] ; then
+		    if $(echo $ROUTECMD | grep -q "^add ") ; then
+		      ROUTECMD=$(echo $ROUTECMD | sed 's/^add /del /')
+		    elif $(echo $ROUTECMD | grep -q "^del ") ; then
+		      ROUTECMD=$(echo $ROUTECMD | sed 's/^del /add /')
+		    fi
+		    echo -e "\n    deleting route: $ROUTECMD"
+		    /sbin/route $ROUTECMD
+		  fi
+		done
+		case $ADDRESS in
+		    [dD][hH][cC][pP])
+			case $DHCP_CLIENT in
+			    [dD][hH][cC][pP][cC][dD])
+				KILLCMD="dhcpcd -k"
+			    	PIDFILE=/var/run/dhcpcd-$1.pid
+			    ;;
+			    [dD][hH][cC][lL][iI][eE][nN][tT])
+			    	PIDFILE=/var/run/dhclient-$1.pid
+			    ;;
+			    [uU][dD][hH][cC][pP][cC])
+			        PIDFILE=/var/run/udhcpc-$1.pid
+			    ;;
+			esac
+			if [ -e $PIDFILE ]; then
+			    if [ -z "$KILLCMD" ]; then
+				kill `cat $PIDFILE`
+			    else
+				$KILLCMD
+			    fi
+			    if [ -e $PIDFILE ]; then
+			        rm -f $PIDFILE
+			    fi;
+			    sleep 1
+			fi;
 		    ;;
 		esac
-		if [ -e $PIDFILE ]; then
-		    if [ -z "$KILLCMD" ]; then
-	                kill `cat $PIDFILE`;
-		    else
-			$KILLCMD
-		    fi
-		    if [ -e $PIDFILE ]; then
-		        rm -f $PIDFILE;
-		    fi;
-		    if [ ! -x /sbin/ifconfig ]; then
-	    	        echo -n "ifconfig not installed";
-	    	        return -1;
-		    fi;
-		    sleep 2;
-		    /sbin/ifconfig $1 down;
-		else
-		    case $AUTO in
-		        [!yY])
-		             echo -n "not started";
-		             return -1;
-		        ;;
-		    esac
-	        fi;
-	    ;;
-	    *)
-		if [ `ifconfig | grep $1 | wc -l` -eq 1 ]; then
-		    if [ ! -x /sbin/ifconfig ]; then
-	    	   	echo -n "ifconfig not installed";
-	    		return -1;
-		    fi;
-		    /sbin/ifconfig $1 down;
-		else
-		    case $AUTO in
-			[!yY])
-			    echo -n "not started";
-		    	    return -1;
-			;;
-		    esac
-		fi;
-	    ;;
+		;;
 	esac
-	
+
+	/sbin/ifconfig $1 down
+	sleep 1
+
 	if [ -n "$MODULE" ]; then
 	    modprobe -r $MODULE;
 	fi;
 	return 0;
-};
+}
 
-export -f device_start device_stop;
+export -f device_start device_stop
 
 start() {
 	echo "Starting network:"
@@ -306,7 +309,7 @@ restart() {
 	fi;
 }
 
-switch-profile() {
+switch_profile() {
 	# Quick instructions
 	# 1. make config files in the form of interface-profile for each interface and profile
 	#        (e.g. /etc/config.d/network/eth0-home)
