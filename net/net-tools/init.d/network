@@ -10,306 +10,346 @@
 shopt -s extglob
 CONFIGS=/etc/config.d/network
 
-chkresult() {
-  if [ $? -eq "-1" ] ; then
-      echo -e $RESULT_FAIL
-  elif [ $? -eq "-3" ]; then
-      echo -e $RESULT_WARN
-  else
-      echo -e $RESULT_OK
-  fi
+chkresult()
+{
+	if [ $? -eq "-1" ] ; then
+		echo -e $RESULT_FAIL
+	elif [ $? -eq "-3" ]; then
+		echo -e $RESULT_WARN
+	else
+		echo -e $RESULT_OK
+	fi
 }
 
-function device_start() {
-	if [ ! -e $CONFIGS/$1 ]; then
-	   echo  -n "missing config file";
-	   exit 1;
-	fi;
+function device_start()
+{
+	if [ ! -e "$CONFIGS/$1" ]; then
+		echo  -n "missing config file"
+		exit 1
+	fi
 
 	# include config file for interface
-	. $CONFIGS/$1;
+	. $CONFIGS/$1
 
-	if ( [ -n "$2" ] && [ $2 == auto ] ); then
-	    case $AUTO in
-		[!yY])
-		    return -2; 
-		;;
-	    esac;
-	fi;
+	if [ "$2" == "auto" ] ; then
+		case "$AUTO" in
+		    [!yY])
+			return -2
+		    ;;
+		esac
+	fi
 
 	# load module if specified
 	if [ -n "$MODULE" ]; then
-	    modprobe $MODULE $MODULE_OPTIONS
-	fi;
+		modprobe $MODULE $MODULE_OPTIONS
+	fi
 
 	ifconfig $1 up $IFCONF_OPTS
 
-	case $MANAGER in
-	ifplugd)
-		ifplugd -I -i $1 -f &
-		sleep 1
-		return
-		;;
-	wpa_supplicant)
-		wpa_supplicant -B -Dwext -i$1 -c/etc/wpa_supplicant.conf &
-		ifplugd -I -i $1 -f &
-		sleep 1
-		;;
-	*)
+	if [ "$2" == "auto" ]; then
+		case $MANAGER in
+		    ifplugd)
+			ifplugd -I -i $1 -f &
+			sleep 1
+			return
+		    ;;
+		    wpa_supplicant)
+			wpa_supplicant -B -Dwext -i$1 -c/etc/wpa_supplicant.conf &
+			ifplugd -I -i $1 -f &
+			sleep 1
+			return
+		    ;;
+		esac
+	else
 		if ( [ -n "$WIRELESS_MODE" ] || [ -n "$WIRELESS_KEY" ] || [ -n "$WIRELESS_RATE" ] || [ -n "$WIRELESS_ESSID" ] ); then
 			if [ ! -x /usr/sbin/iwconfig ]; then
-			    echo "Wireless tools not installed";
-			    return -1;
-			fi;
+				echo "Wireless tools not installed"
+				return -1
+			fi
 			if [ -n "$WIRELESS_MODE" ]; then
-			    /usr/sbin/iwconfig $1 mode $WIRELESS_MODE;
-			fi;
+				/usr/sbin/iwconfig $1 mode $WIRELESS_MODE
+			fi
 			if [ -n "$WIRELESS_KEY" ]; then
-			    /usr/sbin/iwconfig $1 key $WIRELESS_KEY;
-			fi;
+				/usr/sbin/iwconfig $1 key $WIRELESS_KEY
+			fi
 			if [ -n "$WIRELESS_RATE" ]; then
-			    /usr/sbin/iwconfig $1 rate $WIRELESS_RATE;
-			fi;
+				/usr/sbin/iwconfig $1 rate $WIRELESS_RATE
+			fi
 			if [ -n "$WIRELESS_ESSID" ]; then
-			    /usr/sbin/iwconfig $1 essid $WIRELESS_ESSID;
-			fi;
-		fi;
-	
+				/usr/sbin/iwconfig $1 essid $WIRELESS_ESSID
+			fi
+		fi
+	fi
+
+	if [ "$ADDRESS" != "dhcp" ]; then
+		# even with above managers we could possibly still set a static
+		# address, so always run this section
 		if [ -z "$ADDRESS" ]; then
-		    echo -n "missing address";
-		    return -1;
-		fi;
-	
+			echo -n "missing address"
+			return -1
+		fi
+		if [ ! $1 == "lo" ] && [ $(/sbin/ifconfig | grep $1 | wc -l) -ge 1 ]; then
+			echo -n "already started"
+			return -3
+		fi
+		IFCONFIG="$1 $ADDRESS"
+		if [ -n "$NETMASK" ]; then
+			IFCONFIG="$IFCONFIG netmask $NETMASK"
+		fi
+		if [ -n "$BROADCAST" ]; then
+			IFCONFIG="$IFCONFIG broadcast $BROADCAST"
+		fi
+		/sbin/ifconfig $IFCONFIG >/dev/null 2>&1
+		if [ `/sbin/ifconfig | grep $ADDRESS | wc -l` -ne 1 ]; then
+			echo -n "failed to set address"
+			return -1
+		fi
+		for ROUTECMD in "$ROUTE_1" "$ROUTE_2" "$ROUTE_3" "$ROUTE_4" ; do
+			if [ -n "$ROUTECMD" ] ; then
+				echo -e "\n    adding route: $ROUTECMD"
+				/sbin/route $ROUTECMD
+			fi
+		done
+	else
+		# when "$2" == auto, we do NOT want to start dhcp when a manager is present
+		if [ "$MANAGER" == "ifplugd" ] || [ "$MANAGER" == "wpa_supplicant" ]; then
+			if [ "$2" == "auto" ] ; then
+				return 0
+			fi
+		fi
+
 		case $ADDRESS in
 		    [dD][hH][cC][pP])
-		    	if [ -z $DHCP_CLIENT ]; then
-			    echo -n "DHCP client not specified";
-			    return -1;
-			fi;
+			if [ -z $DHCP_CLIENT ]; then
+				echo -n "DHCP client not specified"
+				return -1
+			fi
 			case $DHCP_CLIENT in
 			    [dD][hH][cC][pP][cC][dD])
 				PIDFILE=/var/run/dhcpcd-$1.pid
 				RUNFILE=/usr/sbin/dhcpcd
 			    ;;
 			    [dD][hH][cC][lL][iI][eE][nN][tT])
-			        PIDFILE=/var/run/dhclient-$1.pid
+				PIDFILE=/var/run/dhclient-$1.pid
 				RUNFILE=/sbin/dhclient
 				DHCP_OPTIONS="$DHCP_OPTIONS -pf $PIDFILE -lf /var/state/dhcp/dhclient-$1.leases"
 			    ;;
 			    [uU][dD][hH][cC][pP][cC])
-			        PIDFILE=/var/run/udhcpc-$1.pid
+				PIDFILE=/var/run/udhcpc-$1.pid
 				RUNFILE=/sbin/udhcpc
 				DHCP_OPTIONS="$DHCP_OPTIONS -p $PIDFILE -i"
 			    ;;
 			esac
 			if [ ! -x $RUNFILE ]; then
-			    echo -n "$DHCP_CLIENT not installed";
-			    return -1;
-			fi;
+				echo -n "$DHCP_CLIENT not installed"
+				return -1
+			fi
 			if [ -e $PIDFILE ]; then
-			    if [ $(ps ax | grep `cat $PIDFILE` | grep $DHCP_CLIENT | grep -v grep | wc -l) -ge 1 ]; then
-			        echo -n "already started";
-			        return -3;
-			    else
-			        rm -f $PIDFILE;
-			    fi;
-			fi;
-			$RUNFILE $DHCP_OPTIONS $1 >/dev/null 2>&1;
+				if [ $(ps ax | grep `cat $PIDFILE` | grep $DHCP_CLIENT | grep -v grep | wc -l) -ge 1 ]; then
+					echo -n "already started"
+					return -3
+				else
+					rm -f $PIDFILE
+				fi
+			fi
+			$RUNFILE $DHCP_OPTIONS $1 >/dev/null 2>&1
 			DHCP_EXIT=$?
-			sleep 1;
+			sleep 1
 			if [ ! -e $PIDFILE ]; then
-			    if [ $DHCP_EXIT -eq 0 ]; then
-			        echo -n "DHCP exited cleanly"
+				if [ $DHCP_EXIT -eq 0 ]; then
+					echo -n "DHCP exited cleanly"
 				return -3
-			    else
-			        echo -n "DHCP failed";
-			        return -1;
-			    fi;
-			fi;
-		    ;;
-		    *)
-			if [ ! -x /sbin/ifconfig ]; then
-			    echo -n "ifconfig not installed";
-			    return -1;
-			fi;
-			if [ ! $1 == "lo" ] && [ $(/sbin/ifconfig | grep $1 | wc -l) -ge 1 ]; then
-			    echo -n "already started";
-			    return -3;
-			fi;
-			IFCONFIG="$1 $ADDRESS";
-			if [ -n "$NETMASK" ]; then
-			    IFCONFIG="$IFCONFIG netmask $NETMASK";
-			fi;
-			if [ -n "$BROADCAST" ]; then
-			    IFCONFIG="$IFCONFIG broadcast $BROADCAST";
-			fi;
-			/sbin/ifconfig $IFCONFIG >/dev/null 2>&1
-			if [ `/sbin/ifconfig | grep $ADDRESS | wc -l` -ne 1 ]; then
-			    echo -n "failed to set address";
-			    return -1;
-			fi;
-			for ROUTECMD in "$ROUTE_1" "$ROUTE_2" "$ROUTE_3" "$ROUTE_4" ; do
-			  if [ -n "$ROUTECMD" ] ; then
-		            echo -e "\n    adding route: $ROUTECMD"
-			    /sbin/route $ROUTECMD
-			  fi
-			done
-		    ;;
+				else
+					echo -n "DHCP failed"
+					return -1
+				fi
+			fi
+			;;
 		esac
-		;;
-	esac
-	return 0;
-};
+	fi
+	return 0
+}
 
-function device_stop() {
-	if [ ! -e $CONFIGS/$1 ]; then
-	    echo -n "missing config for $1";
-	    return -1;
-	fi;
+function device_stop()
+{
+	if [ ! -e "$CONFIGS/$1" ]; then
+		echo -n "missing config for $1"
+		return -1
+	fi
 
-	. $CONFIGS/$1;
+	. $CONFIGS/$1
 
-	case $MANAGER in
-	ifplugd)
-		ifplugd -i $1 -k
-		sleep 1
-		;;
-	wpa_supplicant)
-		ifplugd -i $1 -k
-		kill `ps ax | grep wpa_supplicant | grep "-i$1" | awk '{print $1}'`
-		sleep 1
-		;;
-	*)
+	if [ "$ADDRESS" != "dhcp" ]; then
 		for ROUTECMD in "$ROUTE_4" "$ROUTE_3" "$ROUTE_2" "$ROUTE_1" ; do
-		  if [ -n "$ROUTECMD" ] ; then
-		    if $(echo $ROUTECMD | grep -q "^add ") ; then
-		      ROUTECMD=$(echo $ROUTECMD | sed 's/^add /del /')
-		    elif $(echo $ROUTECMD | grep -q "^del ") ; then
-		      ROUTECMD=$(echo $ROUTECMD | sed 's/^del /add /')
-		    fi
-		    echo -e "\n    deleting route: $ROUTECMD"
-		    /sbin/route $ROUTECMD
-		  fi
+			if [ -n "$ROUTECMD" ] ; then
+				if $(echo $ROUTECMD | grep -q "^add ") ; then
+					ROUTECMD=$(echo $ROUTECMD | sed 's/^add /del /')
+				elif $(echo $ROUTECMD | grep -q "^del ") ; then
+					ROUTECMD=$(echo $ROUTECMD | sed 's/^del /add /')
+				fi
+				echo -e "\n    deleting route: $ROUTECMD"
+			/sbin/route $ROUTECMD
+			fi
 		done
-		case $ADDRESS in
-		    [dD][hH][cC][pP])
-			case $DHCP_CLIENT in
-			    [dD][hH][cC][pP][cC][dD])
-				KILLCMD="dhcpcd -k"
-			    	PIDFILE=/var/run/dhcpcd-$1.pid
-			    ;;
-			    [dD][hH][cC][lL][iI][eE][nN][tT])
-			    	PIDFILE=/var/run/dhclient-$1.pid
-			    ;;
-			    [uU][dD][hH][cC][pP][cC])
-			        PIDFILE=/var/run/udhcpc-$1.pid
+
+		if [ `ifconfig | grep $1 | wc -l` -eq 1 ]; then
+			if [ ! -x /sbin/ifconfig ]; then
+				echo -n "ifconfig not installed"
+				return -1
+			fi
+			/sbin/ifconfig $1 down
+		else
+			case $AUTO in
+			    [!yY])
+				echo -n "not started"
+				return -1
 			    ;;
 			esac
-			if [ -e $PIDFILE ]; then
-			    if [ -z "$KILLCMD" ]; then
-				kill `cat $PIDFILE`
-			    else
-				$KILLCMD
-			    fi
-			    if [ -e $PIDFILE ]; then
-			        rm -f $PIDFILE
-			    fi;
-			    sleep 1
-			fi;
+		fi
+
+	else
+		# when "$2" == auto, we want to stop the manager instead of dhcpcd
+		if [ "$MANAGER" == "ifplugd" ] || [ "$MANAGER" == "wpa_supplicant" ]; then
+			if [ "$2" == "auto" ] ; then
+				case $MANAGER in
+				    ifplugd)
+					ifplugd -i $1 -k
+					sleep 1
+				    ;;
+				    wpa_supplicant)
+					ifplugd -i $1 -k
+					kill `ps ax | grep wpa_supplicant | grep "-i$1" | awk '{print $1}'`
+					sleep 1
+				    ;;
+				esac
+				return 0
+			fi
+		fi
+
+		case $DHCP_CLIENT in
+		    [dD][hH][cC][pP][cC][dD])
+			KILLCMD="dhcpcd -k"
+			PIDFILE=/var/run/dhcpcd-$1.pid
+		    ;;
+		    [dD][hH][cC][lL][iI][eE][nN][tT])
+			PIDFILE=/var/run/dhclient-$1.pid
+		    ;;
+		    [uU][dD][hH][cC][pP][cC])
+			PIDFILE=/var/run/udhcpc-$1.pid
 		    ;;
 		esac
-		;;
-	esac
-
-	/sbin/ifconfig $1 down
-	sleep 1
-
-	if [ -n "$MODULE" ]; then
-	    modprobe -r $MODULE;
-	fi;
-	return 0;
+		if [ -e $PIDFILE ]; then
+			if [ -z "$KILLCMD" ]; then
+				kill `cat $PIDFILE`
+			else
+			$KILLCMD
+			fi
+			if [ -e $PIDFILE ]; then
+				rm -f $PIDFILE
+			fi
+			sleep 1
+		else
+			case $AUTO in
+			    [!yY])
+				 echo -n "not started"
+				 return -1
+			    ;;
+			esac
+		fi
+	
+		/sbin/ifconfig $1 down
+		if [ -n "$MODULE" ]; then
+			modprobe -r $MODULE
+		fi
+	fi
+	return 0
 }
 
 export -f device_start device_stop
 
-start() {
-	echo "Starting network:"
-    	# Add routing entry for loopback interface
-	if [ ! $(route -n | grep 127.0.0.0 | wc -l) -ge 1 ]; then
-	        echo -n " * Starting lo: "
-		/sbin/ifconfig lo 127.0.0.1 netmask 255.0.0.0;
-		/sbin/route add -net 127.0.0.0 netmask 255.0.0.0 dev lo;
-	        echo -e $RESULT_OK
-	fi;
-
+start()
+{
 	# Do startup for all interfaces if none is specified
 	if [ -z "$2" ]; then
-	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
-	        echo -n " * Starting $device: "
-		device_start $device auto
-		chkresult
-	    done;
-	    if [ -e /etc/config.d/gateway ]; then
-	       GATEWAY=`cat /etc/config.d/gateway`
-	       if [ -n "$GATEWAY" ] && ! (route -n | grep -q "^0\.0\.0\.0.*UG.*$") ; then
-	           echo -n " * setting default route: "
-	           if [ ! -x /sbin/route ]; then
-	            echo -n "route not installed";
-		    echo -e $RESULT_FAIL;
-	           else
-	            /sbin/route add default gateway $GATEWAY;
-	            if [ `route -n | grep $GATEWAY | wc -l` -lt 1 ]; then
-		      echo -n "failed to set gateway";
-		      echo -e $RESULT_FAIL;
-	            fi;
-	            echo -e $RESULT_OK
-	           fi;
-	       fi;
-	   fi;
+		echo "Starting network:"
+		# Add routing entry for loopback interface
+		if [ ! $(route -n | grep 127.0.0.0 | wc -l) -ge 1 ]; then
+			echo -n " * Starting lo: "
+			/sbin/ifconfig lo 127.0.0.1 netmask 255.0.0.0
+			/sbin/route add -net 127.0.0.0 netmask 255.0.0.0 dev lo
+			echo -e $RESULT_OK
+		fi
+
+		for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
+			echo -n " * Starting $device: "
+			device_start $device auto
+			chkresult
+		done
+
+		if [ -e /etc/config.d/gateway ]; then
+			GATEWAY=`cat /etc/config.d/gateway`
+			if [ -n "$GATEWAY" ] && ! (route -n | grep -q "^0\.0\.0\.0.*UG.*$") ; then
+				echo -n " * setting default route: "
+				if [ ! -x /sbin/route ]; then
+					echo -n "route not installed"
+					echo -e $RESULT_FAIL
+				else
+					/sbin/route add default gateway $GATEWAY
+					if [ `route -n | grep $GATEWAY | wc -l` -lt 1 ]; then
+						echo -n "failed to set gateway"
+						echo -e $RESULT_FAIL
+					fi
+					echo -e $RESULT_OK
+				 fi
+			fi
+		fi
 	else
-	    echo -n " * Starting $2: "
-	    device_start $2;
-	    chkresult
-	fi;
+		echo -n " * Starting $2: "
+		device_start $2
+		chkresult
+	fi
 }
 
-stop() {
-	echo "Stopping network:"
+stop()
+{
 	if [ -z "$2" ]; then
-	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo | sort -r`; do
-	        echo -n " * Stopping $device: "
-		device_stop $device;
-		chkresult
-	    done;
+		echo "Stopping network:"
+		for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo | sort -r`; do
+			echo -n " * Stopping $device: "
+			device_stop $device auto
+			chkresult
+		done
 	else
-	    echo -n " * Stopping $2: "
-	    device_stop $2;
-	    chkresult
-	fi;
+		echo -n " * Stopping $2: "
+		device_stop $2
+		chkresult
+	fi
 }
 
-restart() {
-	echo "Restarting network:"
+restart()
+{
 	if [ -z "$2" ]; then
-	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
-	    	echo -n " * Stopping $device: "
-		device_stop $device auto;
-		chkresult
-		echo -n " * Starting $device: "
-		device_start $device auto;
-		chkresult
-	    done;
+		echo "Restarting network:"
+		for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
+			echo -n " * Stopping $device: "
+			device_stop $device auto
+			chkresult
+			echo -n " * Starting $device: "
+			device_start $device auto
+			chkresult
+		done
 	else
-	    echo -n " * Stopping $2: "
-	    device_stop $2;
-	    chkresult
-	    echo -n " * Starting $2: "
-	    device_start $2;
-	    chkresult
-	fi;
+		echo -n " * Stopping $2: "
+		device_stop $2
+		chkresult
+		echo -n " * Starting $2: "
+		device_start $2
+		chkresult
+	fi
 }
 
-switch_profile() {
+switch_profile()
+{
 	# Quick instructions
 	# 1. make config files in the form of interface-profile for each interface and profile
 	#        (e.g. /etc/config.d/network/eth0-home)
@@ -317,44 +357,48 @@ switch_profile() {
 	# 3. run /etc/init.d/network switch-profile (profile)
 	# 4. enjoy!
 	if [ -n "$2" ]; then
-	    for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
-		device_stop $device;
-	    done;
-	    for dev in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
-		if [ -e $CONFIGS/$dev-$2 ] ; then
-		    if [ -h $CONFIGS/$dev ]; then
-			rm -f $CONFIGS/$dev;
-			ln -s $CONFIGS/$dev-$2 $CONFIGS/$dev;
-		    else
-			echo "Device $dev: static config, skipped";
-		    fi;
-		else
-		    echo "Device $dev: missing config for profile $2";
-		fi;
-	    done;
-	    for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq` ; do
-		device_start $device auto;
-	    done;
+		for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo`; do
+			device_stop $device
+		done
+		for dev in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq`; do
+			if [ -e $CONFIGS/$dev-$2 ] ; then
+				if [ -h $CONFIGS/$dev ]; then
+					rm -f $CONFIGS/$dev
+					ln -s $CONFIGS/$dev-$2 $CONFIGS/$dev
+				else
+					echo "Device $dev: static config, skipped"
+				fi
+			else
+				echo "Device $dev: missing config for profile $2"
+			fi
+		done
+		for device in `ls -1 $CONFIGS | cut -d"-" -f1 | uniq` ; do
+			device_start $device auto
+		done
 	else
-	    echo "Usage: $0 switch-profile profile";
-	fi;
+		echo "Usage: $0 switch-profile profile"
+	fi
 }
 
-usage () {
-    echo "Usage: $0 {start|stop|restart|suspend|resume} [device]";
-    echo "       $0 switch-profile profile";
+usage ()
+{
+	echo "Usage: $0 {start|stop|restart|suspend|resume} [device]"
+	echo "       $0 switch-profile profile"
 }
 
-suspend() {
-    return
+suspend()
+{
+	return
 }
 
-resume() {
-    return
+resume()
+{
+	return
 }
 
-check() {
-    return
+check()
+{
+	return
 }
 
 . /lib/lsb/init-functions
