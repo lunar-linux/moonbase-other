@@ -2,7 +2,7 @@
 
 prepare_install &&
 EXPAND=/usr/src/GKrellM-skins/GKrellM-skins/ &&
-THEMES=/usr/share/gkrellm/themes &&
+THEMES=/usr/share/gkrellm2/themes &&
 LIST=`ls $EXPAND`
 
 if ! [ -e "$THEMES" ]; then
