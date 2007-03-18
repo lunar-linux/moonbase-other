@@ -1,12 +1,7 @@
 ( 
 
-   ./autogen.sh
+  OPTS="$OPTS --with-system-mesa=yes"
 
-	 cp config.h.in "[config.h].in"
-
-	 ./autogen.sh --prefix=/usr --with-system-mesa=yes
-
-   default_make
-
+  default_cvs_build
 
 ) > $C_FIFO 2>&1
