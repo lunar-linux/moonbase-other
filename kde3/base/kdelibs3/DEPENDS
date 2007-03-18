@@ -3,7 +3,8 @@ depends  docbook-sgml  &&
 depends  pcre          &&
 depends  libxslt       &&
 depends  tiff          &&
-depends  libart_lgpl   &&
+#Temporary workaround for libart_lgpl 2.3.18+ compilation break
+#depends  libart_lgpl   &&
 
 optional_depends "alsa-lib" "--with-alsa"    "--without-alsa"    "ALSA support"      &&
 optional_depends "cups"     "--enable-cups"  "--disable-cups"    "CUPS support"      &&
