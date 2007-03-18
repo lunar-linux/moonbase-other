@@ -19,9 +19,9 @@ plugin_kernel_updatebootloader_lilo() {
 	debug_msg "plugin_kernel_updatebootloader_lilo ($@)"
 
 	IFS_OLD=$IFS
-	export IFS="
-"
-	rm -rf /etc/lilo.conf.new
+	export IFS=$'\n'
+
+	rm -f /etc/lilo.conf.new
 	cp /etc/lilo.conf /etc/lilo.conf.old
 
 	output_image()
@@ -70,15 +70,15 @@ plugin_kernel_updatebootloader_lilo() {
 		(( IMAGE_COUNT=0 ))
 		unset IMAGE OTHER LABEL OPTIONS
 		# list old images
-		sed -n '/other\|image/,$p' /etc/lilo.conf | while read LINE ; do
+		while read LINE ; do
 			if echo $LINE | grep -qw "image\|other" ; then
 				(( IMAGE_COUNT++ ))
 				
 				# never loop beyond 14 images
-				if (( IMAGE_COUNT == 14 )) ; then
+				if (( IMAGE_COUNT == 15 )) ; then
 					break
 				fi
-			
+
 				# output and reset
 				output_image $1 $2
 				unset IMAGE OTHER LABEL OPTIONS
@@ -99,7 +99,8 @@ plugin_kernel_updatebootloader_lilo() {
 					OPTIONS=( "${OPTIONS[@]}" "$LINE" )
 					;;
 			esac
-		done;
+		done < <(sed -n '/other\|image/,$p' /etc/lilo.conf)
+
 		# write the last one too
 		if [ -n "$LABEL" ] ;then
 			output_image $1 $2
