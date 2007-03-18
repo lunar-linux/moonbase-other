@@ -1,7 +1,7 @@
 (
   sedit "s/\/usr\/local/\/usr/g" Makefile &&
   sedit "s/dynamic_eap_methods//" Makefile &&
-  
+
   for option in \
       DNET_PCAP CTRL_IFACE CTRL_IFACE_DBUS \
       DRIVER_{HOSTAP,PRISM54,NDISWRAPPER,ATMEL,WEXT,IPW,WIRED} \
@@ -11,7 +11,8 @@
     echo "CONFIG_${option}=y" >> .config
   done &&
 
-  default_make && 
+  default_make &&
+  install dbus-wpa_supplicant.conf /etc/dbus-1/system.d/ &&
 
   gather_docs developer.txt wpa_supplicant.conf
 
