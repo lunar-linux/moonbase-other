@@ -1,10 +1,12 @@
 depends  kdelibs3  &&
+depends  cmake     &&
+depends  fftw3     &&
 depends  alsa-lib  &&
 depends  jack      &&
 depends  libpng    &&
 depends  libmad    &&
-depends  scons     &&
 
-optional_depends "liblo"   "" "" "Open Sound Control (OSC) protocol"  &&
-optional_depends "liblrdf" "" "" "special support for LADSPA plugins" &&
-optional_depends "dssi"    "" "" "API for audio processing plugins"
+optional_depends "liblo"    "" "" "Open Sound Control (OSC) protocol"  &&
+optional_depends "liblrdf"  "" "" "special support for LADSPA plugins" &&
+optional_depends "dssi"     "" "" "API for audio processing plugins"   &&
+optional_depends "XML-Twig" "" "" "for import export support"
