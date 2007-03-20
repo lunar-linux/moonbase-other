@@ -1,25 +1,13 @@
 (
 
-#  mkdir  /tmp/unixcw_qt
-#  ln  -s /usr/include/qt  /tmp/unixcw_qt/include
-#  ln  -s /usr/bin         /tmp/unixcw_qt/bin
-#  ln  -s /usr/lib/qt      /tmp/unixcw_qt/lib
+  if module_installed qt3 ; then
+    . /etc/profile.d/qt3.rc
+    . /etc/profile.d/kde3.rc
+  fi
 
-  export QTDIR=${QT_PREFIX:-$QTDIR}/
-# need to hack Makefile.in
-  sedit "s/lqt/lqt-mt/" xcwcp/Makefile.in
+# need to hack Makefile
+  sedit "s/lqt/lqt-mt/" src/xcwcp/Makefile
 
-  ./configure  --prefix=/usr          \
-               --sysconfdir=/etc      \
-               --localstatedir=/var   \
-               $OPTS                  &&
-  make  all                           &&
-  prepare_install                     &&
-  make    install                     &&
-#  rm  -r   /tmp/unixcw_qt/            &&
-  ln  -sf  /usr/man/man1/xcwcp.1.gz   \
-           /usr/man/man1/unixcw.1.gz  &&
-
-  cp  $SCRIPT_DIRECTORY/unixcw  /usr/bin
+  default_build
 
 ) > $C_FIFO 2>&1
