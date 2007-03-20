@@ -1,12 +1,11 @@
 (
 
+  OPTS="$OPTS --enable-shared"
+
   if [[ "$ENABLE_FLOAT" == "y" ]]; then
     OPTS="$OPTS --enable-float"
-  fi
+  fi &&
 
-  ./configure   --prefix=/usr       \
-                --enable-shared     &&
-
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1
