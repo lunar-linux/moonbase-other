@@ -1,11 +1,21 @@
 (
 
-  OPTS="$OPTS --enable-shared"
+# In order to have fftw3 float libs *AND* non-float libs.
+# We have to do this twice.
 
-  if [[ "$ENABLE_FLOAT" == "y" ]]; then
-    OPTS="$OPTS --enable-float"
-  fi &&
+  ./configure   --prefix=/usr       \
+                --enable-shared     \
+                --enable-float      \
+                $OPTS              &&
 
-  default_build
+  default_make    &&
+
+  make distclean  &&
+
+  ./configure   --prefix=/usr       \
+                --enable-shared     \
+                $OPTS              &&
+
+  default_make
 
 ) > $C_FIFO 2>&1
