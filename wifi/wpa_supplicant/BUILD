@@ -12,7 +12,7 @@
   done &&
 
   default_make &&
-  install dbus-wpa_supplicant.conf /etc/dbus-1/system.d/ &&
+  install -m644 dbus-wpa_supplicant.conf /etc/dbus-1/system.d/ &&
 
   gather_docs developer.txt wpa_supplicant.conf
 
