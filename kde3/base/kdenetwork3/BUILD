@@ -3,6 +3,13 @@
   . /etc/profile.d/qt3.rc
   . /etc/profile.d/kde3.rc
 
+# kdenetwork cannot find this, so if kernel-hearders are installed
+# create a symlink so it can be found.
+
+  if [ -f /usr/include/linux/wireless.h ]; then
+     ln -s /usr/include/linux/wireless.h /usr/include/wireless.h
+  fi &&
+
   # A simple sedit to fix an ICQ issue with kopete and their servers,
   # This should be rechecked on next version update.
   sedit "s:0x0A0F:0x0BB8:" kopete/protocols/oscar/liboscar/oscartypes.h
