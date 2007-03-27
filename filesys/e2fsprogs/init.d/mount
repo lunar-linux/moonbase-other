@@ -204,6 +204,10 @@ start()
 		if [ ! -h /dev/fd ]; then
 			ln -sf /proc/self/fd /dev/fd
 		fi
+
+		ln -snf /proc/self/fd/0 /dev/stdin
+		ln -snf /proc/self/fd/1 /dev/stdout
+		ln -snf /proc/self/fd/2 /dev/stderr
 	fi
 
 	# or do we want to explicitly _not_ fsck at all
