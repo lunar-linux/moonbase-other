@@ -8,7 +8,7 @@
   sedit $TMP $SCRIPT_DIRECTORY/init.d/kdm                   &&
 
 # So it can find the headers.
-  sedit "s:/usr/include/dbus-1.0:/usr/include/dbus-1.0/qt3/dbus:g" configure $$
+  sedit "s:/usr/include/dbus-1.0:/usr/include/dbus-1.0/qt3/dbus:g" configure &&
 
   default_build
 
