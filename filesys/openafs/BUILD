@@ -1,7 +1,5 @@
 (
   patch_it $SOURCE4 1	&&
-  patch_it $SOURCE5 1	&&
-  patch_it $SOURCE6 1	&&
   ./regen.sh		&& 
 
   case `uname -r` in
@@ -19,26 +17,24 @@
 
   case `arch` in
     x86_64)
-      OPTS="$OPTS --with-afs-sysname=amd64_linux${kv}"
+      OPTS+=" --with-afs-sysname=amd64_linux${kv}"
       ;;
     i386|i486|i586|i686|athlon)
-      OPTS="$OPTS --with-afs-sysname=i386_linux${kv}"
+      OPTS+=" --with-afs-sysname=i386_linux${kv}"
       ;;
     *)
-      OPTS="$OPTS --with-afs-sysname=`arch`_linux${kv}"
+      OPTS+=" --with-afs-sysname=`arch`_linux${kv}"
       ;;
   esac
 
-  if [ ! -e /lib/modules/`uname -r`/build/include/linux/version.h ]; then
-    message "Can't find '/lib/modules/`uname -r`/build/include/linux/version.h'!"
-    message "You need to have the source for your running kernel online and configured!"
-    exit -1
+  if module_installed Linux-PAM; then
+      OPTS+=" --enable-pam"
+  else
+      OPTS+=" --disable-pam"
   fi
-  OPTS="$OPTS --with-linux-kernel-headers=/lib/modules/`uname -r`/build"
-
+	
   ./configure 	--prefix=/usr			\
-		--sysconfdir=/usr/vice/etc	\
-		--localstatedir=/var		\
+		--sysconfdir=/etc	        \
 		--infodir=/usr/share/info	\
 		--mandir=/usr/share/man		\
 		--enable-largefile-fileserver   \
@@ -46,16 +42,17 @@
 		$OPTS				&&
   make all_nolibafs				&&
   prepare_install				&&
+  
+  if [ ! -d /etc/openafs ]; then
+      mkdir -p /etc/openafs/server
+  fi &&
+  
   make install_nolibafs				&&
 
   # Creating needed dirs if not existing
-  if [ ! -d /usr/vice ]; then
-	mkdir -p /usr/vice/etc
-  fi &&
-
-  if [ ! -d /usr/vice/cache ]; then
-	mkdir -p /usr/vice/cache &&
- 	chmod 0700 /usr/vice/cache
+   if [ ! -d /var/cache/openafs ]; then
+	mkdir -p /var/cache/openafs &&
+ 	chmod 0700 /var/cache/openafs
   fi &&	
 
   if [ ! -d /afs ]; then
@@ -64,18 +61,25 @@
   fi &&	
 
   # Installing some db files
-  install -p -m 644 $SOURCE_CACHE/CellServDB /usr/vice/etc/CellServDB &&
-  install -p -m 755 $SOURCE_CACHE/$SOURCE3 /usr/vice/etc/killafs &&
-  install -p -m 644 $SOURCE_DIRECTORY/src/packaging/RedHat/openafs-cacheinfo /usr/vice/etc/cacheinfo &&
-  touch /usr/vice/etc/SuidCells &&
+  install -p -m 644 $SOURCE_CACHE/CellServDB /etc/openafs/CellServDB &&
+  install -p -m 755 $SOURCE_CACHE/$SOURCE3 /usr/sbin/killafs &&
+  touch /etc/openafs/SuidCells &&
 
+  # Default to openafs.org cell
+  if [ ! -f /etc/openafs/ThisCell ]; then
+      echo "openafs.org" > /etc/openafs/ThisCell
+  fi &&
+
+  # Create cacheinfo file, 200Mb size
+  if [ ! -f /etc/openafs/cacheinfo ]; then
+      echo "/afs:/var/cache/openafs:200000" > /etc/openafs/cacheinfo
+  fi
+  
   # Copy conf and rc files
-  sedit "s;^OPTIONS=.*;OPTIONS=\"\$MEDIUM -nosettime\";" $SOURCE_DIRECTORY/src/afsd/afs.conf.linux &&
+  sedit "s;^OPTIONS=.*;OPTIONS=\"-nosettime -fakestat\";" $SOURCE_DIRECTORY/src/afsd/afs.conf.linux &&
   if [ ! -f /etc/config.d/afs ]; then
       install -p -m 644 $SOURCE_DIRECTORY/src/afsd/afs.conf.linux /etc/config.d/afs
   fi &&
-  sedit "s;^SYSCNF=.*;SYSCNF=/etc/config.d/afs;" $SOURCE_DIRECTORY/src/afsd/afs.rc.linux &&
-  install -p -m 755 $SOURCE_DIRECTORY/src/afsd/afs.rc.linux /etc/init.d/afs
 
   # Ugly but we need a new cellservdb everytime we run lin
   rm -f $SOURCE_CACHE/$SOURCE2
