@@ -1,0 +1,151 @@
+#!/bin/sh
+#
+# afs client start script
+# chkconfig: 345 60 20
+# Description: AFS is a distributed file system which provides location
+#              transparency, caching and secure authentication.
+#              Additional configuration can be done in the /etc/config.d/afs
+#              file. Read the documentation in that file for more information.
+
+
+ESC=`echo -en "\033"`
+RESULT_OK="${ESC}[\061;32m${ESC}[70G[\040\040\040OK\040\040\040]${ESC}[m"
+RESULT_FAIL="${ESC}[\061;31m${ESC}[70G[\040FAILED\040]${ESC}[m"
+RESULT_WARN="${ESC}[\061;33m${ESC}[70G[\040\040WARN\040\040]${ESC}[m"
+
+
+runcmd () {
+    echo -n "$1 "
+    shift
+    $* && echo -e $RESULT_OK || echo -e $RESULT_FAIL
+}
+
+
+SYSCNF=/etc/config.d/afs
+
+# Gather up options and post startup script name, if present
+if [ -f $SYSCNF ] ; then
+    . $SYSCNF
+fi
+
+CACHEINFO=${CACHEINFO:-/etc/openafs/cacheinfo}
+CACHE=${CACHEDIR:-/var/cache/openafs}
+AFS=${AFSDIR:-/afs}
+
+# is_on returns 1 if value of arg is "on"
+is_on () {
+    if  test "$1" = "on" ; then return 0
+    else return 1
+    fi
+}
+
+on_network() {
+    ADDRS=`LANG=C ifconfig -a | grep 'inet addr' | grep -v 127.0.0.1 | wc -l`
+    if [ "$ADDRS" = "" ]; then
+	echo afs: No interfaces with IP address 1>&2
+	return 1
+    elif [ $ADDRS = 0 ]; then
+	echo afs: No interfaces with IP address 1>&2
+	return 1
+    fi
+    return 0
+}
+
+choose_afsdoptions () {
+    if [ -z "$OPTIONS" -o "$OPTIONS" = "AUTOMATIC" ]; then
+	if [ $CACHESIZE -lt 131072 ]; then
+	    OPTIONS=$SMALL
+	elif [ $CACHESIZE -lt 524288 ]; then
+	    OPTIONS=$MEDIUM
+	elif [ $CACHESIZE -lt 1048576 ]; then
+	    OPTIONS=$LARGE
+	elif [ $CACHESIZE -lt 2097152 ]; then
+	    OPTIONS=$XLARGE
+	else
+	    OPTIONS=$XXLARGE
+	fi
+    fi
+    AFSD_OPTIONS="$OPTIONS $VERBOSE"
+    if is_on $ENABLE_AFSDB; then
+	AFSD_OPTIONS="$AFSD_OPTIONS -afsdb"
+    fi
+    if is_on $ENABLE_DYNROOT; then
+	AFSD_OPTIONS="$AFSD_OPTIONS -dynroot"
+    fi
+}
+
+start ()
+{
+    # Check network or die
+    on_network || exit 1
+    
+    # Load kernel extensions
+    if ! modprobe libafs ; then 
+	echo Failed to load AFS kernel module, not starting AFS services.
+	exit 1
+    fi
+    
+    # Start bosserver, it if exists
+    if is_on $AFS_SERVER && test -x /usr/sbin/bosserver  ; then
+	echo -n "Starting AFS server: "
+	/usr/sbin/bosserver -nofork ${BOSSERVER_OPTIONS} &&
+	echo -e $RESULT_OK || echo -e $RESULT_FAIL
+	if is_on $WAIT_FOR_SALVAGE; then
+            # wait for fileserver to finish salvaging
+	    sleep 10
+	    while /usr/bin/bos status localhost fs 2>&1 | grep 'Auxiliary.*salvaging'; do
+		echo "Waiting for salvager to finish..... "
+		sleep 10
+	    done
+	fi
+    fi
+    
+    # Start AFS client
+    if is_on $AFS_CLIENT && test -x /usr/sbin/afsd  ; then
+	echo -n "Starting  AFS client: "
+	choose_afsdoptions
+	/usr/sbin/afsd ${AFSD_OPTIONS} &&
+	echo -e $RESULT_OK || echo -e $RESULT_FAIL
+	$AFS_POST_INIT
+    fi
+}
+
+stop ()
+{
+    if is_on $AFS_CLIENT  ; then
+	if [ -x /usr/sbin/killafs ] ; then
+	    runcmd "Sending all processes using /afs the TERM signal ..." /usr/sbin/killafs TERM
+	    runcmd "Sending all processes using /afs the KILL signal ..." /usr/sbin/killafs KILL
+	fi
+	echo -n "Stopping AFS client: "
+	umount /afs
+	echo -e $RESULT_OK || echo -e $RESULT_FAIL
+    fi
+    
+    if is_on $AFS_SERVER && test -x /usr/bin/bos ; then
+	echo -n "Stopping AFS server: "
+	/usr/bin/bos shutdown localhost -localauth -wait &&
+	echo -e $RESULT_OK || echo -e $RESULT_FAIL
+	killall -HUP bosserver
+	
+    fi
+    echo -n "Unloading AFS kernel module: "
+    modprobe -r libafs &&
+    echo -e $RESULT_OK || echo -e $RESULT_FAIL
+    
+    rm -f /var/lock/subsys/afs
+}
+
+restart ()
+{
+        # Restart AFS
+	$0 stop
+	$0 start
+}
+
+case "$1" in
+	start|stop|restart)
+	$1
+	;;
+	*)	echo "Usage: $0 {start|stop|restart}"; exit 1 ;;
+esac
