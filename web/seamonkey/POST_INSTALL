@@ -1,0 +1,20 @@
+OLD_VER="`get_module_config OLD_VER`"
+SMNKEY_LIBDIR=seamonkey-$VERSION
+
+if [ ! -z $OLD_VER ]; then
+  rm -rf /usr/lib/seamonkey-$OLD_VER
+  rm -rf /usr/include/seamonkey-$OLD_VER
+  rm -rf /usr/share/idl/seamonkey-$OLD_VER
+fi
+
+unset_module_config OLD_VER
+cp /usr/lib/$SMNKEY_LIBDIR/plugins/* /opt/lunar/plugins/
+rm -rf /usr/lib/$SMNKEY_LIBDIR/plugins
+ln -snf /opt/lunar/plugins /usr/lib/$SMNKEY_LIBDIR/plugins
+
+export LD_LIBRARY_PATH="/usr/lib/$SMNKEY_LIBDIR:/opt/lunar/plugins:/usr/lib/$SMNKEY_LIBDIR/components"
+export MOZILLA_FIVE_HOME="/usr/lib/$SMNKEY_LIBDIR"
+ldconfig
+
+cd /usr/lib/$SMNKEY_LIBDIR
+./regxpcom
