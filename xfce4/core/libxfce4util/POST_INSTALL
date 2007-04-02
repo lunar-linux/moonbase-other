@@ -1,8 +1,8 @@
 if [ -n "$XFCE4_PREFIX" ]; then
-  sedit "s?/opt/lunar/xfce4?$XFCE4_PREFIX?" /etc/profile.d/xfce4.rc
+  sedit "s?/usr?$XFCE4_PREFIX?" /etc/profile.d/xfce4.rc
 fi
 
-XFCE4LIBDIR=${XFCE4_PREFIX:-/opt/lunar/xfce4}/lib
+XFCE4LIBDIR=${XFCE4_PREFIX:-/usr}/lib
 if ! grep -q "$XFCE4LIBDIR" /etc/ld.so.conf ; then
     echo "$XFCE4LIBDIR" >> /etc/ld.so.conf
     ldconfig

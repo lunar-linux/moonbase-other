@@ -1,9 +1,11 @@
 (
+   [ -f /etc/profile.d/xfce4.rc ] && . /etc/profile.d/xfce4.rc
+
    # Temporary fix until sofar cleans up his mess
    . /etc/profile.d/xfce4.rc &&
 
    ./autogen.sh --build=$BUILD					\
-                --prefix=${XFCE4_PREFIX:-/opt/lunar/xfce4}	\
+                --prefix=${MODULE_PREFIX}	\
                 $OPTS                                           &&
 
    default_make

@@ -1,9 +1,11 @@
-( 
-   export PKG_CONFIG_PATH="${XFCE4_PREFIX:-/opt/lunar/xfce4}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
-   export PATH="${XFCE4_PREFIX:-/opt/lunar/xfce4}/bin:$PATH" && 
+(
+   [ -f /etc/profile.d/xfce4.rc ] && . /etc/profile.d/xfce4.rc
+ 
+   export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
+   export PATH="${MODULE_PREFIX}/bin:$PATH" && 
 
    ./configure --build=$BUILD					\
-                --prefix=${XFCE4_PREFIX:-/opt/lunar/xfce4}	\
+                --prefix=${MODULE_PREFIX}	\
                 $OPTS                                           &&
 
    default_make
