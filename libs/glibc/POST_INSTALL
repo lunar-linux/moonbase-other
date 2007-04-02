@@ -1,3 +1,7 @@
+# We need to make sure that glibc is not blocking our effort
+
+mv /var/lock/installing.glibc /var/lock/installing.$$
+
 # Install the latest timezone data to cope with US DST changes
 
 lin -cr timezone-data
@@ -5,7 +9,7 @@ lin -cr timezone-data
 # Install the kernel headers which we created in BUILD
 
 if module_installed kernel-headers-2.4 ; then
-  mv /var/lock/installing.glibc /var/lock/installing.$$
   lin -c kernel-headers-2.4
-  mv /var/lock/installing.$$ /var/lock/installing.glibc
 fi
+
+mv /var/lock/installing.$$ /var/lock/installing.glibc
