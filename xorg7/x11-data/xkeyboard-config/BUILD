@@ -8,7 +8,7 @@
   rm -rf $MODULE_PREFIX/share/X11/xkb/compiled &&
 
   # This directory has to be there.
-  mkdir -p /var/lib/xkb
+  mkdir -p /var/lib/xkb &&
 
   default_build
 
