@@ -7,6 +7,9 @@
   # Otherwise the Makefile fails
   rm -rf $MODULE_PREFIX/share/X11/xkb/compiled &&
 
+  # This directory has to be there.
+  mkdir -p /var/lib/xkb
+
   default_build
 
 ) > $C_FIFO 2>&1
