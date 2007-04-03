@@ -1,7 +1,7 @@
 (
 
-  sedit 's:/sbin/ifup:/etc/init.d/network start:' conf/ifplugd.action &&
-  sedit 's:/sbin/ifdown:/etc/init.d/network stop:' conf/ifplugd.action &&
-  default_build
+  default_build &&
+
+  install -m0750 $SCRIPT_DIRECTORY/ifplugd-lunar.action /etc/ifplugd/
 
 ) > $C_FIFO 2>&1
