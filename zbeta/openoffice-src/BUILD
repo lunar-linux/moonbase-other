@@ -33,15 +33,12 @@
   # Apply mandatory and optional patches
 
   patch_it $SOURCE2 0 &&
-
-  if ! module_installed Linux-PAM ; then
-    patch_it $SOURCE3 0;
-  fi &&
+  patch_it $SOURCE6 0 &&
 
   # As long as OOo-src does not compile against nss it needs its own mozilla
   # tarball (and it also compiles its own mozilla)
   mkdir -p $SOURCE_DIRECTORY/moz/download &&
-  cp $SOURCE_CACHE/$SOURCE4 $SOURCE_DIRECTORY/moz/download/ &&
+  cp $SOURCE_CACHE/$SOURCE3 $SOURCE_DIRECTORY/moz/download/ &&
 
   cd $SOURCE_DIRECTORY/config_office &&
 
@@ -55,8 +52,8 @@
   cd $SOURCE_DIRECTORY &&
 
   ./bootstrap &&
-  sedit "s/-lxml2/-lxml2\ -lexpat/g" LinuxIntelEnv.Set.sh &&
-  source LinuxIntelEnv.Set.sh &&
+  sedit "s/-lxml2/-lxml2\ -lexpat/g" LinuxX86Env.Set.sh &&
+  source LinuxX86Env.Set.sh &&
   dmake &&
 
   prepare_install &&
@@ -66,7 +63,7 @@
   cd instsetoo_native/unxlngi6.pro/OpenOffice/native/install/en-US/linux-2.6-intel/buildroot/opt &&
 
   rm -rf $OO_DIR &&
-  cp -rv openoffice.org2.1 $OO_DIR &&
+  cp -rv openoffice.org2.2 $OO_DIR &&
 
   # Install icons for the .desktop files
   mkdir -p -m0755 /usr/share/icons/{HighContrast,hicolor} &&
