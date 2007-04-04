@@ -38,7 +38,6 @@
 
  mkdir -p /etc/X11/gdm/Sessions/                                   &&
  install --mode=644 $SCRIPT_DIRECTORY/gnomerc /etc/X11/gdm/gnomerc &&
- install --mode=644 $SCRIPT_DIRECTORY/gdm.conf /etc/X11/gdm/gdm.conf &&
  install --mode=755 $SCRIPT_DIRECTORY/Sessions/gnome.desktop /etc/X11/dm/Sessions &&
  install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/PreSession/ &&
  install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/Sessions/ 
