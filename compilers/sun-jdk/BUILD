@@ -9,7 +9,13 @@
   cp -r $SOURCE_DIRECTORY/jdk${VERSION} /usr/lib/ &&
 
   # Some applications don't accept anything but /usr/bin
-  for file in /usr/lib/jdk${VERSION}/bin/*; do ln -sf $file /usr/bin/; done
+  for file in /usr/lib/jdk${VERSION}/bin/*; do 
+      bfile=`basename $file`
+      # Conflicting files with heimdal
+      if [[ "$bfile" != "klist" ]] && [[ "$bfile" != "kinit" ]]; then
+	  ln -sf $file /usr/bin/
+      fi
+  done
 
   mkdir -p /opt/lunar/plugins &&
   rm -f /opt/lunar/plugins/libjavaplugin_oji.so &&
