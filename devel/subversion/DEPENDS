@@ -2,4 +2,5 @@ depends  neon      &&
 depends  zlib      &&
 depends  apr-util  &&
 
-optional_depends "swig" "" "--without-swig" "for Perl/Python and Ruby Swig Bindings"
+optional_depends "swig" "" "--without-swig" "for Perl/Python and Ruby Swig Bindings" &&
+optional_depends "%JAVA_SDK" "--enable-javahl --without-jikes" "--disable-javahl" "for java bindings"
