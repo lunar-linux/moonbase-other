@@ -1,47 +1,68 @@
 (
   OO_INSTALL_DIR="${SOURCE_DIRECTORY}/RPMS"
+  OO_DESK_DIR="${SOURCE_DIRECTORY}/desktop-integration/usr"
+  OO_DIR="/opt/lunar/openoffice/openoffice2.2"
+  
   cd $OO_INSTALL_DIR  &&
 
-  if [[ "$USE_DESKTOPINTEGRATION" = "y" ]]; then
-    cd $OO_INSTALL_DIR/desktop-integration ; 
-    INT_FILE=openoffice.org-freedesktop-menus-2.1-5.noarch ;
-    rpm2cpio $INT_FILE.rpm > $INT_FILE.cpio ;
-    cpio -idm < $INT_FILE.cpio &> /dev/null ;
-    rm $OO_INSTALL_DIR/desktop-integration/usr/bin/soffice ;
-    sedit "s/\/etc\/openoffice.org-2.1/\/opt\/lunar\/openoffice\/openoffice.org2.1/g" $OO_INSTALL_DIR/desktop-integration/usr/bin/openoffice.org-2.1 ;
-    sedit "s/\/etc\/openoffice.org-2.1/\/opt\/lunar\/openoffice\/openoffice.org2.1/g" $OO_INSTALL_DIR/desktop-integration/usr/bin/openoffice.org-2.1-printeradmin ;
-    install -m755 $OO_INSTALL_DIR/desktop-integration/usr/bin/openoffice.org-2.1 /usr/bin/ ;
-    install -m755 $OO_INSTALL_DIR/desktop-integration/usr/bin/openoffice.org-2.1-printeradmin /usr/bin/ ;
-    desktop_files="base calc draw impress math printeradmin writer" ;
-    for i in $desktop_files; do
-      ln -s /opt/lunar/openoffice/openoffice.org2.1/share/xdg/$i.desktop /usr/share/applications/$i.desktop
-    done ;
-#    cp -a "${OO_INSTALL_DIR}/desktop-integration/usr/share/icons" /usr/share ;
-    install -m644 "${OO_INSTALL_DIR}/desktop-integration/usr/share/mime/packages/openoffice.org.xml" /usr/share/mime/packages/ ;
-    update-mime-database /usr/share/mime/ ;
+  if [ "$USE_DESKTOPINTEGRATION" = "y" ] ; then
+
+    mv ${OO_INSTALL_DIR}/desktop-integration ${SOURCE_DIRECTORY}/
+
+    cd ${SOURCE_DIRECTORY}/desktop-integration 
+
+    INT_FILE=openoffice.org-freedesktop-menus-2.2-9119.noarch
+
+    rpm2cpio $INT_FILE.rpm > $INT_FILE.cpio
+    cpio -idm < $INT_FILE.cpio
+    
+    sedit "s/\/etc\/openoffice.org-2.2/\/opt\/lunar\/openoffice\/openoffice.org2.2/g" ${OO_DESK_DIR}/bin/openoffice.org2.2
+    sedit "s/\/etc\/openoffice.org-2.2/\/opt\/lunar\/openoffice\/openoffice.org2.2/g" ${OO_DESK_DIR}/bin/openoffice.org2.2-printeradmin
   fi  &&
 
 
-  cd $OO_INSTALL_DIR          &&
+  cd $OO_INSTALL_DIR &&
 
-  rm -fr desktop-integration  &&
+  rm -rf desktop-integration &&
 
-  # Let the "magic" happen. Ugh, I hate rpm
-  message "${MESSAGE_COLOR}Unpacking RPMs...${DEFAULT_COLOR}"  &&
+  # Let the magic happen. Ugh, I hate rpm
+  message "${MESSAGE_COLOR}Unpacking RPMs...${DEFAULT_COLOR}" &&
   for pack in ${OO_INSTALL_DIR}/*; do
-    rpm2cpio $pack > `basename $pack .rpm`.cpio ;
-  done  &&
+    rpm2cpio $pack > `basename $pack .rpm`.cpio
+  done  &> /dev/null
 
   # Now, lets get rid of the rpms
-  rm -rf ${OO_INSTALL_DIR}/*.rpm  &&
+  rm -rf ${OO_INSTALL_DIR}/*.rpm &&
   
   for pack in ${OO_INSTALL_DIR}/*; do
-    cpio -idm < $pack &> /dev/null;
+    cpio -idm < $pack &> /dev/null
   done &&
   
   prepare_install  &&
   message "${MESSAGE_COLOR}Installing OpenOffice ${VERSION}...${DEFAULT_COLOR}"  &&
   mkdir -p /opt/lunar/openoffice  &&
-  cp -a "${OO_INSTALL_DIR}/opt/openoffice.org2.1" /opt/lunar/openoffice
+  cp -a "${OO_INSTALL_DIR}/opt/openoffice.org2.2" /opt/lunar/openoffice/ &&
+
+  if [ "$USE_DESKTOPINTEGRATION" = "y" ] ; then
+    install -m755 ${OO_DESK_DIR}/bin/openoffice.org2.2 \
+                  ${OO_DESK_DIR}/bin/openoffice.org2.2-printeradmin /usr/bin/
+
+    # Install icons for the .desktop files
+    mkdir -p -m0755 /usr/share/icons/{gnome,hicolor} &&
+    cd ${OO_DESK_DIR}/share/icons &&
+    cp -r gnome/*x* /usr/share/icons/gnome &&
+    cp -r hicolor/*x* /usr/share/icons/hicolor &&
+    gtk-update-icon-cache --force /usr/share/icons/hicolor &&
+
+    install -m644 "${OO_DESK_DIR}/share/mime/packages/openoffice.org.xml" /usr/share/mime/packages/
+    update-mime-database /usr/share/mime/ &> /dev/null
+
+    DESKTOP_FILES="base calc draw impress math printeradmin writer"
+
+    for FILE in ${DESKTOP_FILES} ; do
+      ln -s ${OO_DIR}/share/xdg/${FILE}.desktop \
+        /usr/share/applications/${FILE}.desktop
+    done
+  fi
 
 ) > $C_FIFO 2>&1
