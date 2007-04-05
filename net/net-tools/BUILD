@@ -14,15 +14,12 @@
       ./configure.sh config.in
     fi &&
     cp config.h $CONFIG_CACHE/net-tools.config.h
-  fi                                                &&
+  fi &&
 
-  make                                              &&
-  prepare_install                                   &&
-  make BASEDIR=/ install                            &&
+  make            &&
+
+  prepare_install &&
+
+  make BASEDIR=/ install
   
-  if [ ! -e /etc/init.d/hostname ]; then
-    install -m0755 $SCRIPT_DIRECTORY/init.d/hostname /etc/init.d/hostname &&
-	ln -sf /etc/init.d/hostname /etc/rcS.d/S20hostname
-  fi
-
 ) > $C_FIFO 2>&1
