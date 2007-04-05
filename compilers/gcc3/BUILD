@@ -8,9 +8,9 @@
   LANGUAGES=${LANGUAGES:=c++}                &&
   ../configure --host=$BUILD                 \
                --enable-languages=$LANGUAGES \
-               --prefix=${GCC3_PREFIX:-/usr}                 \
-               --infodir=${GCC3_PREFIX:-/usr}/share/info     \
-               --mandir=${GCC3_PREFIX:-/usr}/share/man       \
+               --prefix=${MODULE_PREFIX}                 \
+               --infodir=${MODULE_PREFIX}/share/info     \
+               --mandir=${MODULE_PREFIX}/share/man       \
                --enable-__cxa_atexit         \
                --enable-threads              \
                --disable-nls                 \
