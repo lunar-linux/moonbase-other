@@ -2,6 +2,8 @@
 
   . /etc/profile.d/x11r7.rc &&
 
+  patch_it $SOURCE3 1 &&
+
   if [[ "$USE_NVIDIA" = "y" ]]; then
     OPTS="$OPTS --disable-glx --disable-glx-tlx";
   fi &&
