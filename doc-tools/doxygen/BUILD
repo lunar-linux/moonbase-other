@@ -11,8 +11,6 @@
                 --install /usr/bin/install  \
                 $OPTS                      &&
 
-    rm src/unistd.h  &&
-
     make             &&
     if which python 2> /dev/null 1>&2; then
        make docs
