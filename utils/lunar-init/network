@@ -259,7 +259,7 @@ function device_stop()
 		    ;;
 		    wpa_supplicant)
 			$IFPLUGD -r /etc/ifplugd/ifplugd-lunar.action -i $1 -k
-			kill `ps ax | grep wpa_supplicant | grep "-i$1" | awk '{print $1}'`
+			kill `ps ax | grep wpa_supplicant | grep "$1" | awk '{print $1}'`
 			sleep 1
 		    ;;
 		esac
