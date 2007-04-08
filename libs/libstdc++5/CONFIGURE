@@ -1,6 +1,0 @@
-if [ "$(installed_version gcc | cut -d. -f1-2)" != "3.4" ] && 
-   [ "$(installed_version gcc | cut -d. -f1)" != 4 ]; then
-    error_message "${PROBLEM_COLOR}This module can only be installed when you have gcc-3.4.x or higher!${DEFAULT_COLOR}"
-    error_message "${PROBLEM_COLOR}You do not need it when you have gcc-3.3.x${DEFAULT_COLOR}"
-    exit 1
-fi
