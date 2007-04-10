@@ -22,7 +22,7 @@
     else      
 
       message "${PROBLEM_COLOR}Another copy of the script ${QUERY_COLOR}${SCRIPT}${PROBLEM_COLOR} in /etc/init.d/ detected!"
-      message "${DEFAULT_COLOR}${CYAN}Please it and reinstall this module.${DEFAULT_COLOR}"
+      message "${DEFAULT_COLOR}${CYAN}Please remove it and reinstall this module.${DEFAULT_COLOR}"
 
     fi
   done
