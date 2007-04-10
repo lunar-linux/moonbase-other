@@ -2,7 +2,7 @@
   # We make the kernel modules on our own
   cd $SOURCE_DIRECTORY/usr/src/nv &&
 
-  sedit "s:KBUILD_VERBOSE=1:KBUILD_VERBOSE=0:g" Makefile Makefile.kbuild &&
+  sedit "s:KBUILD_VERBOSE=1:KBUILD_VERBOSE=0:g" Makefile.kbuild &&
 
   make SYSSRC=/usr/src/linux module &&
 
