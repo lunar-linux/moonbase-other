@@ -1,16 +1,21 @@
           MODULE=gnome-common2
              MOD=gnome-common
-         VERSION=2.12.0
-           MAJOR=2.12
+         VERSION=2.18.0
+           MAJOR=2.18
           SOURCE=$MOD-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
       SOURCE_URL=$GNOME_URL/sources/$MOD/$MAJOR/
-      SOURCE_VFY=sha1:5483bad8bcded040946f776c655507caf05946af 
-        WEB_SITE=http://www.gnome.org
+      SOURCE_VFY=sha1:263b7c3ca2fdd07052d1820f3469750628a18726
+        WEB_SITE=http://www.gnome.org/
          ENTERED=20020701
-         UPDATED=20060515
-           SHORT="set of aclocal files for gnome 2.4"
+         UPDATED=20070409
+           SHORT="set of aclocal files for GNOME"
+
 cat << EOF
-Gnome-Common is a set of commonly used aclocal developement files used 
-in the Gnome 2.4 Desktop
+Gnome-Common is a set of various files needed to bootstrap Gnome 2
+modules built from CVS.  It contains the following components:
+  1. A common "autogen.sh" script that can be used to configure a
+     source directory checked out from CVS.
+  2. Some commonly used macros
+  3. Some files used to build user documentation.
 EOF
