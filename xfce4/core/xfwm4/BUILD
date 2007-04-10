@@ -4,10 +4,6 @@
    # make sure proper PKG_CONFIG_PATH is set
    export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
 
-   if [ "$AUTOMOVE" == "y" ]; then
-     patch_it $SOURCE2 1 
-   fi &&
-
    if [ "$WITH_COMPOSITE" == "y" ]; then
      OPTS="$OPTS --enable-compositor"
    fi &&
