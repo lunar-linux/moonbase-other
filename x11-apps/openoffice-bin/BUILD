@@ -1,7 +1,7 @@
 (
   OO_INSTALL_DIR="${SOURCE_DIRECTORY}/RPMS"
   OO_DESK_DIR="${SOURCE_DIRECTORY}/desktop-integration/usr"
-  OO_DIR="/opt/lunar/openoffice/openoffice2.2"
+  OO_DIR="/opt/lunar/openoffice/openoffice.org2.2"
   
   cd $OO_INSTALL_DIR  &&
 
@@ -16,8 +16,8 @@
     rpm2cpio $INT_FILE.rpm > $INT_FILE.cpio
     cpio -idm < $INT_FILE.cpio
     
-    sedit "s/\/etc\/openoffice.org-2.2/\/opt\/lunar\/openoffice\/openoffice.org2.2/g" ${OO_DESK_DIR}/bin/openoffice.org2.2
-    sedit "s/\/etc\/openoffice.org-2.2/\/opt\/lunar\/openoffice\/openoffice.org2.2/g" ${OO_DESK_DIR}/bin/openoffice.org2.2-printeradmin
+    sedit "s/\/etc\/openoffice.org2.2/\/opt\/lunar\/openoffice\/openoffice.org2.2/g" ${OO_DESK_DIR}/bin/openoffice.org2.2
+    sedit "s/\/etc\/openoffice.org2.2/\/opt\/lunar\/openoffice\/openoffice.org2.2/g" ${OO_DESK_DIR}/bin/openoffice.org2.2-printeradmin
   fi  &&
 
 
