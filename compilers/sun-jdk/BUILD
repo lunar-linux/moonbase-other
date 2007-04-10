@@ -1,6 +1,6 @@
 (
 
-  echo export PATH=\"/usr/lib/jdk"${VERSION}"/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
+  echo export PATH=\"'${PATH}':/usr/lib/jdk"${VERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
   chmod +x $SOURCE &&
   ./$SOURCE        &&
 

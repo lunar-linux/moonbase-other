@@ -1,6 +1,6 @@
 (
 
-  echo export PATH=\"/usr/lib/jre"${VERSION}"/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
+  echo export PATH=\"'${PATH}':/usr/lib/jre"${VERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
   chmod +x $SOURCE &&
   ./$SOURCE        &&
 
