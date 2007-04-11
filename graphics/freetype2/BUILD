@@ -1,10 +1,22 @@
 (
-  sedit "s:\/\* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING \*\/:#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING:g" include/freetype/config/ftoption.h &&
-
   if [ $BYTECODE == "y" ] ; then
     sed -i -r 's:.*(#.*BYTE.*) .*:\1:' \
        include/freetype/config/ftoption.h
   fi &&
+
+sed -i -r 's:.*(#.*SYSTEM_ZLIB.*) .*:\1:' \
+  include/freetype/config/ftoption.h &&
+
+sed -i -r 's:.*(#.*SUBPIXEL_RENDERING.*) .*:\1:' \
+  include/freetype/config/ftoption.h &&
+  
+sed -i -r 's:.*(#.*INCREMENTAL.*) .*:\1:' \
+  include/freetype/config/ftoption.h &&
+
+sed -i 's@^#define\ TT_CONFIG_OPTION_UNPATENTED_HINTING@#undef\ TT_CONFIG_OPTION_UNPATENTED_HINTING@' \
+  include/freetype/config/ftoption.h &&
+sed -i 's@^#\ AUX@AUX@' \
+  modules.cfg &&
 
   default_build
 
