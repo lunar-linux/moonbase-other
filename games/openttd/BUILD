@@ -2,6 +2,9 @@
   if is_depends libpng; then
     OPTS="$OPTS WITH_PNG=1"
   fi
+  if [ "$USE_UNICODE" == "y" ]; then
+      OPTS+=" WITH_ICONV=1"
+  fi
 
   make PREFIX=/usr \
        WITH_ZLIB=1 \
@@ -14,6 +17,7 @@
        PERSONAL_DIR=.openttd \
        DATA_DIR=share/games/openttd \
        BINARY_DIR=games \
+       MIDI=/usr/bin/timidity \
        $OPTS  &&
    
   prepare_install  &&
