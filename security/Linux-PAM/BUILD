@@ -15,7 +15,8 @@
   ./configure  --libdir=/lib                            \
                --enable-docdir=/usr/share/doc/Linux-PAM \
                --disable-prelude                        \
-               --mandir=/usr/share/man                  &&
+               --mandir=/usr/share/man                  \
+               $OPTS &&
 
   sedit  "s/examples//"  Makefile              &&
   sedit  "s/read yes//"     conf/install_conf  &&
@@ -30,11 +31,11 @@
   chmod 4711 /sbin/pam_timestamp_check &&
 
   # Module documents are nice
-  if [ ! -d /usr/share/doc/Linux-PAM/text ]; then
-      mkdir -p /usr/share/doc/Linux-PAM/text
+  if [ ! -d /usr/share/doc/Linux-PAM/txt ]; then
+      mkdir -p /usr/share/doc/Linux-PAM/txt
   fi &&
   for i in $SOURCE_DIRECTORY/modules/pam_*/README; do
-      cp -f ${i} /usr/share/doc/Linux-PAM/text/README.$(echo ${i} | awk -F/ '{ print $(NF-1) }')
+      cp -f ${i} /usr/share/doc/Linux-PAM/txt/README.$(echo ${i} | awk -F/ '{ print $(NF-1) }')
   done &&
 
   # More doc
