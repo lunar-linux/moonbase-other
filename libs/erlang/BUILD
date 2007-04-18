@@ -1,13 +1,16 @@
 (
 
-  bad_flags ALL
-  
-  OPTS="$OPTS --enable-threads"
+# threads are automatic with enabled smp support
+  if [ "$USE_SMP" == "n" ]; then
+    OPTS="$OPTS --disable-smp-support --enable-threads"
+   else
+    OPTS="$OPTS --enable-smp-support"
+  fi &&
 
-  ./configure   --prefix=/usr  &&
+  ./configure   --prefix=/usr  \
+                $OPTS         &&
 
   default_make
 
 
 ) > $C_FIFO 2>&1
-  
