@@ -2,5 +2,6 @@ if ! module_installed j2sdk; then
   if query "Install j2sdk for Java support? " y; then
       lin j2sdk
   fi
-fi
+fi &&
 
+mquery USE_SMP "Enable SMP support?" n
