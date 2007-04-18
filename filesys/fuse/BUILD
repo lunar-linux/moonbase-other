@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --with-kernel=/usr/src/linux --enable-kernel-module"
+  OPTS="$OPTS --with-kernel=/usr/src/linux"
 
   default_build
 
