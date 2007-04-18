@@ -1,7 +1,16 @@
-depends  gtk+-2  &&
+depends gtkmm2 &&
 
-optional_depends  "gtksourceview"  "--enable-highlight"  ""  \
-                  "for syntax highlighting support"          &&
+optional_depends "gtksourceview" \
+                 "--enable-highlight" \
+                 "" \
+                 "for syntax highlighting support" &&
 
-optional_depends  "gtkspell"       "--enable-spell"      ""  \
-                  "for spell ckecking support"
+optional_depends "gtkspell" \
+                 "--enable-spell" \
+                 ""  \
+                 "for spell ckecking support" &&
+
+optional_depends "dbus" \
+                 "--enable-dbus" \
+                 "" \
+                 "to enable the DBUS interface"
