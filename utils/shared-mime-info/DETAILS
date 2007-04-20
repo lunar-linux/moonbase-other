@@ -1,28 +1,28 @@
           MODULE=shared-mime-info
-         VERSION=0.20
+         VERSION=0.21
           SOURCE=$MODULE-$VERSION.tar.bz2
       SOURCE_URL=http://freedesktop.org/~hadess/
-      SOURCE_VFY=sha1:5918a9bb72da72fea63a480d07eb1c1150b14c3a
+      SOURCE_VFY=sha1:5b1b834be6595a27446766af0a412038cee4f87e
         WEB_SITE=http://freedesktop.org/wiki/Software_2fshared_2dmime_2dinfo
          ENTERED=20020716
-         UPDATED=20070226
+         UPDATED=20070420
            SHORT="Shared MIME-Info Specification"
 
 cat << EOF
 Many programs and desktops use the MIME system to represent the
-types of files. Frequently, it is necessary to work out the correct 
-MIME type for a file. This is generally done by examining the file's 
+types of files. Frequently, it is necessary to work out the correct
+MIME type for a file. This is generally done by examining the file's
 name or contents, and looking up the correct MIME type in a database.
-For interoperability, it is useful for different programs to use the 
-same database so that different programs agree on the type of a file, 
+For interoperability, it is useful for different programs to use the
+same database so that different programs agree on the type of a file,
 and new rules for determining the type apply to all programs. This
-specification attempts to unify the type-guessing systems currently 
-in use by GNOME, KDE and ROX. Only the name-to-type and contents-to-type 
-mappings are covered by this spec; other MIME type information, such as 
-the default handler for a particular type, or the icon to use to display 
+specification attempts to unify the type-guessing systems currently
+in use by GNOME, KDE and ROX. Only the name-to-type and contents-to-type
+mappings are covered by this spec; other MIME type information, such as
+the default handler for a particular type, or the icon to use to display
 it in a file manager, are not covered since these are a matter of style.
-In addition, freedesktop.org provides a shared database in this format to 
-avoid inconsistencies between desktops. This database has been created by 
-converting the existing KDE and GNOME databases to the new format and 
-merging them together. 
+In addition, freedesktop.org provides a shared database in this format to
+avoid inconsistencies between desktops. This database has been created by
+converting the existing KDE and GNOME databases to the new format and
+merging them together.
 EOF
