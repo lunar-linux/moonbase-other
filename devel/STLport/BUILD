@@ -1,8 +1,8 @@
 (
 
-  cd $SOURCE_DIRECTORY/src          &&
-  make -f gcc-linux.mak clean all   &&
+  cd $SOURCE_DIRECTORY/build/lib    &&
+  make -f gcc.mak clean all         &&
   prepare_install                   &&
-  make -f gcc-linux.mak install INSTALLDIR=/usr
+  make -f gcc.mak install INSTALLDIR=/usr
 
 ) > $C_FIFO 2>&1
