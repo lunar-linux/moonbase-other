@@ -11,7 +11,7 @@
 	install -m0644 pop-before-smtp.8 /usr/share/man/man8/ &&
   
 	if [ ! -e /etc/pop-before-smtp-conf.pl ]; then
-  		install -m0644 pop-before-smtp-conf.pl /etc/                                                        &&
+  		install -m0644 pop-before-smtp-conf.pl /etc/
 	fi &&
 	gather_docs contrib/README* contrib/getfromcpan contrib/perlmod2rpm
 
