@@ -1,19 +1,22 @@
           MODULE=kdeaddons3
          VERSION=3.5.6
           SOURCE=kdeaddons-$VERSION.tar.bz2
+         SOURCE2=kdeaddons-3.5.6-bugfix.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdeaddons-$VERSION
       SOURCE_URL=$KDE_URL/stable/$VERSION/src/
+     SOURCE2_URL=$PATCH_URL/
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
       SOURCE_VFY=sha1:e5788066ac1e19f020d649282ba3a4ae7ffd46f1
+     SOURCE2_VFY=sha1:8f4cb7190bcc870d2ec8e10c8dccac481a03b010
         WEB_SITE=http://www.kde.org/
          ENTERED=20020523
-         UPDATED=20070126
+         UPDATED=20070421
       MAINTAINER=florin@lunar-linux.org
       MAINTAINER=jol@lunar-linux.org
            SHORT="Contains plugins for several kde applications"
 
 cat << EOF
-kdeaddons contains 
+kdeaddons contains
 * Plugins for Kate
 * Plugins for Kicker
 * Plugins for Konqueror

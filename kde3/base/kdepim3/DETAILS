@@ -1,17 +1,23 @@
           MODULE=kdepim3
          VERSION=3.5.6
           SOURCE=kdepim-$VERSION.tar.bz2
+         SOURCE2=kdepim-3.5.6-bugfix.patch
+         SOURCE3=kdepim3.kpilot.1.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdepim-$VERSION
+     SOURCE2_URL=$PATCH_URL/
+     SOURCE3_URL=$PATCH_URL/
       SOURCE_URL=$KDE_URL/stable/$VERSION/src/
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
       SOURCE_VFY=sha1:a84ad8dd9f84eb3f33070e07ed56f6d694db2cb4
+     SOURCE2_VFY=sha1:9383b2f4af1cc8001833a06e81ee9d4bd2ac769e
+     SOURCE3_VFY=sha1:1528273b1f3ea3e5d8ceeccccd6e46a9fdd965d5
         WEB_SITE=http://www.kde.org/
          ENTERED=20020523
-         UPDATED=20070126
+         UPDATED=20070421
       MAINTAINER=florin@lunar-linux.org
       MAINTAINER=jol@lunar-linux.org
            SHORT="Contains an information manager"
-       
+
 cat << EOF
 kdepim contains an information manager.
 EOF
