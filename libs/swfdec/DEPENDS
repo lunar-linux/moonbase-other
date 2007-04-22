@@ -1,7 +1,9 @@
-depends  libart_lgpl  &&
-depends  gtk+         &&
 depends  zlib         &&
+depends  libart_lgpl  &&
+depends  gtk+-2       &&
+depends  pango        &&
 depends  liboil       &&
-
       
-optional_depends "mozilla" "" "" "swfdec plugin for Mozilla"
+optional_depends "ffmpeg"   "" "--disable-ffmpeg" "use ffmpeg support"  &&
+optional_depends "madplay"  "" "--disable-mad"    "use mad audio"       &&
+optional_depends "mozilla"  "" ""                 "swfdec plugin for Mozilla"
