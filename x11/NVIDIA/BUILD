@@ -17,5 +17,4 @@
 
   ./nvidia-installer --silent --no-precompiled-interface --no-rpms --no-network --no-recursion --no-kernel-module --no-x-check
 
- 
 ) > $C_FIFO 2>&1
