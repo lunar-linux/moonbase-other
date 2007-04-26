@@ -1,0 +1,25 @@
+          MODULE=NVIDIA-old
+         VERSION=1.0-7185
+          SOURCE=NVIDIA-Linux-x86_64-$VERSION-pkg0.run
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-pkg0
+   SOURCE_URL=ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+      SOURCE_VFY=sha1:ffe1eb012707d5bffbe39756be54cb687b4ef498
+        WEB_SITE=http://www.nvidia.com
+         ENTERED=20030804
+         UPDATED=20070426
+        SHORT="X11 binary driver provided by NVIDIA for old GPUs."
+
+cat << EOF
+This is the nvidia provided binary X11 driver for their old graphics
+cards. It also has the Linux kernel module needed for all old NVIDIA
+cards. Supported old GPUs (RIVA, Vanta, TNT, Geforce1, Quadro1-2
+Geforce2 non-MX family):
+RIVA TNT,TNT2/Pro/Ultra/Model 64/Model 64 Pro
+Vanta/Vanta LT
+Aladdin TNT2
+GeForce 256/DDR
+Quadro
+GeForce2 GTS/Pro/Ti/Ultra
+Quadro2 Pro
+For later GPUs check NVIDIA-legacy module
+EOF
