@@ -1,0 +1,32 @@
+          MODULE=NVIDIA-legacy
+         VERSION=1.0-9631
+          SOURCE=NVIDIA-Linux-x86-$VERSION-pkg0.run
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
+      SOURCE_URL=ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION/
+      SOURCE_VFY=sha1:52b85567907b2f32a3d3e0eef9a5a509013c05ab
+        WEB_SITE=http://www.nvidia.com/
+         LICENSE="proprietary"
+         ENTERED=20030804
+         UPDATED=20070426
+           SHORT="X11 binary drivers provided by NVIDIA for legacy GPUs"
+
+cat << EOF
+These are the nvidia provided binary X11 drivers for their legacy graphics
+cards. It also has the Linux kernel module needed for all NVIDIA 
+legacy cards. Supported GPUs: (Geforce2 (MX and integrated only), Geforce 3-4)
+Geforce2 Integrated GPU (nForce mainboard)
+Geforce2 MX/100/200/400/Go
+Quadro DCC
+Quadro2 MXR/EX/Go
+Geforce3 Ti 200/500
+Geforce4 Ti 4200, with AGP8X,Go/4400/4600/4800,SE
+Geforce4 MX 420,Go,Go 32M/440/440,SE,Go/460,Go/4000
+Geforce4 MX 420/440/440SE with AGP8X
+Geforce4 MX Integrated GPU (nForce2 mainboard)
+Quadro4 380/550/580/700/750/780/900/980 XGL
+Geforce4 410 Go 16M/440 Go 64M
+Quadro NVS/280 SD/50 PCI
+Quadro4 500/700 GoGL
+For Geforce/Quadro FX and later use NVIDIA module
+or NVIDIA-beta if you wish to use the hottest release.
+EOF
