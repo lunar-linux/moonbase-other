@@ -1,0 +1,26 @@
+	  MODULE=NVIDIA-beta
+         VERSION=100.14.03
+          SOURCE=NVIDIA-Linux-x86_64-$VERSION-pkg2.run
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-pkg2
+      SOURCE_URL=ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+      SOURCE_VFY=sha1:b6f02170f5e2cf06347b61ad68cf0928766bc7c8
+        WEB_SITE=http://www.nvidia.com/
+         LICENSE="proprietary"
+         ENTERED=20030804
+         UPDATED=20070426
+           SHORT="X11 binary drivers provided by NVIDIA for NVIDIA GPUs"
+
+cat << EOF
+These are the nvidia provided binary X11 drivers for their graphics
+cards. It also has the Linux kernel module needed for all NVIDIA
+cards. Supported GPUs: (FX/6/7/8 families only)
+all Geforce/Quadro FX
+all Geforce 6xxx
+all Geforce 7xxx
+all Geforce 8xxx
+some models may be not supported yet.
+
+If you have RIVA/Vanta/TNT/Geforce1/Quadro1-2/Geforce2 (not MX)
+check NVIDIA-old module.
+If you have Geforce 2MX/3/4 check NVIDIA-legacy module.
+EOF
