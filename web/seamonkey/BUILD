@@ -58,8 +58,6 @@ default_make &&
 	/usr/include/seamonkey-$VERSION/nss &&
 
      mkdir -p /opt/lunar/plugins		&&
-         for plugin in `ls /usr/lib/seamonkey-$VERSION/plugins`; do
-	     `install -m755 /usr/lib/seamonkey-$VERSION/plugins/$plugin /opt/lunar/plugins/`; done  &&
 
 install -d /usr/share/applications /usr/share/pixmaps &&
 install -m644 $SCRIPT_DIRECTORY/seamonkey.desktop /usr/share/applications &&

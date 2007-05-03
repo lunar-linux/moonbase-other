@@ -8,8 +8,15 @@ if [ ! -z $OLD_VER ]; then
 fi
 
 unset_module_config OLD_VER
-cp /usr/lib/$SMNKEY_LIBDIR/plugins/* /opt/lunar/plugins/
-rm -rf /usr/lib/$SMNKEY_LIBDIR/plugins
+
+if [ -h /usr/lib/$SMNKEY_LIBDIR/plugins ]; then
+rm -f /usr/lib/$SMNKEY_LIBDIR/plugins
+else
+for plugin in `ls /usr/lib/seamonkey-$VERSION/plugins`; do
+`install -m755 /usr/lib/seamonkey-$VERSION/plugins/$plugin /opt/lunar/plugins/`; done
+rm -rf /usr/lib/$SMNKEY_LIBDIR/plugins		      
+fi
+
 ln -snf /opt/lunar/plugins /usr/lib/$SMNKEY_LIBDIR/plugins
 
 export LD_LIBRARY_PATH="/usr/lib/$SMNKEY_LIBDIR:/opt/lunar/plugins:/usr/lib/$SMNKEY_LIBDIR/components"
@@ -19,7 +26,9 @@ ldconfig
 cd /usr/lib/$SMNKEY_LIBDIR
 ./regxpcom
 # Added the symlinks back now that zbiggy has removed mozilla from moonbase
-ln -sf /usr/lib/$SMNKEY_LIBDIR /usr/lib/mozilla
-ln -sf /usr/include/$SMNKEY_LIBDIR /usr/include/mozilla
+rm -f /usr/lib/mozilla
+ln -snf /usr/lib/$SMNKEY_LIBDIR /usr/lib/mozilla
+rm -f /usr/include/mozilla
+ln -snf /usr/include/$SMNKEY_LIBDIR /usr/include/mozilla
 ln -sf /usr/bin/seamonkey /usr/bin/mozilla
 ln -sf /usr/bin/seamonkey-config /usr/bin/mozilla-config
