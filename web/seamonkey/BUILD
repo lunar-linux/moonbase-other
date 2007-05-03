@@ -11,6 +11,7 @@ patch_it $SOURCE_CACHE/$SOURCE2 1 &&
   export NATIVE_THEME_SUPPORT=1
   export MOZILLA_USE_XFT=1
   export BUILD_OPT=1
+  export MAKEOPTS=" -j1 "
 
   export MOZ_CO_PROJECT=suite
   export MOZILLA_OFFICIAL=1
