@@ -1,16 +1,16 @@
           MODULE=svgalib
          VERSION=1.4.3
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-$VERSION-switch-fix.patch
+         SOURCE2=$MODULE-$VERSION-debian_fixes-1.patch
       SOURCE_URL=http://www.svgalib.org/
       SOURCE_VFY=sha1:b89ddf5fd948dd5b9e801e5cc58401e190de4c50
-     SOURCE2_URL=$PATCH_URL
-     SOURCE2_VFY=sha1:f78c63f1da9c22f2a82ea2e9edf614c5d99fef0e
+     SOURCE2_URL=http://www.linuxfromscratch.org/patches/downloads/svgalib/
+     SOURCE2_VFY=sha1:a468280e30cc4cab63201e773e273a1c60e5ddfb
         WEB_SITE=http://www.svgalib.org/
          ENTERED=20011117
          UPDATED=20040302
            SHORT="SVGAlib provides VGA and SVGA modes in a console."
-	   PSAFE=no
+           PSAFE=no
 cat << EOF
 svgalib is a low-level graphics library that provides VGA and SVGA
 modes in a console. It is not intended as an alternative to X for
