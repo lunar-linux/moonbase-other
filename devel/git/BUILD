@@ -5,6 +5,7 @@
   make prefix=/usr strip &&
   prepare_install  &&
   make prefix=/usr install &&
-  gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt
+  cp -p contrib/gitview/gitview /usr/bin &&
+  gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
 
 ) > $C_FIFO 2>&1
