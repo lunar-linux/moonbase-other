@@ -1,3 +1,7 @@
-mkfontdir /usr/share/fonts/local &&
+if [ ! -d /usr/share/fonts/terminus ] ;then
+  mkdir -p /usr/share/fonts/terminus
+fi &&
+
+mkfontdir /usr/share/fonts/terminus           &&
 message "Running fc-cache, please be patient" &&
 fc-cache -f
