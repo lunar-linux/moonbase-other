@@ -1,13 +1,16 @@
           MODULE=sudo
          VERSION=1.6.8p12
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-envvar_fix.patch.bz2
    SOURCE_URL[0]=ftp://ftp.sudo.ws/pub/$MODULE/
    SOURCE_URL[1]=ftp://ftp.courtesan.com/pub/$MODULE/
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:a79631e9e1c0d0d3f2aa88ae685628e5fde61982
+     SOURCE2_VFY=sha1:235f0ff5cf5bd1e2bb877c4babf0092837b522c4
         WEB_SITE=http://www.courtesan.com/sudo
          ENTERED=20010922
-         UPDATED=20060409
-           SHORT="grant limited superuser ability to users/groups"
+         UPDATED=20070514
+           SHORT="Grant limited superuser ability to users/groups"
 
 cat << EOF
 Sudo (superuser do) allows a system administrator to give certain users
