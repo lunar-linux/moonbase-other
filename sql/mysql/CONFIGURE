@@ -50,10 +50,12 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     OPTS="$OPTS --without-embedded-server"
   fi
   
-  if  query "Enable all charachter sets? " n; then
+  if  query "Enable all character sets? " y; then
     OPTS="$OPTS --with-extra-charsets=all"
-  else
+  elif query "Enable just complex character sets? " y; then
     OPTS="$OPTS --with-extra-charsets=complex"
+  else
+    OPTS="$OPTS --disable-nls"
   fi
 
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
