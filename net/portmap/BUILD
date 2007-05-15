@@ -7,9 +7,6 @@
   fi &&
   sedit  "s/const char \*what/__const char \*what/"  portmap.c  &&
   
-  # Fixes the errno compile error, please test next version without.
-  sedit  "s/extern int errno;/#include<errno.h>/" portmap.c     &&
-
   make  WRAP_DIR=/usr/lib  &&
   prepare_install          &&
   cp  portmap    /sbin     &&
