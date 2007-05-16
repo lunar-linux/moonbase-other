@@ -1,7 +1,9 @@
 depends  liboil        &&
 depends  libsndfile    &&
-depends  libsamplerate
+depends  libsamplerate &&
 
-optional_depends  "alsa-lib"  ""  ""  "for ALSA support"  &&
-optional_depends  "jack"      ""  ""  "for jack support"  &&
-optional_depends  "glib-2"    ""  ""  "for glib support"
+optional_depends  "alsa-lib"   ""  ""  "for ALSA support"             &&
+optional_depends  "jack"       ""  ""  "for jack support"             &&
+optional_depends  "glib-2"     ""  ""  "for glib support"             &&
+optional_depends  "libasyncns" ""  ""  "for asynchronous name server" &&
+optional_depends  "libcap"     ""  ""  "for POSIX 1003.1e support"
