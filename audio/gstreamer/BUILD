@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS  --disable-tests  --disable-examples --disable-valgrind"
+  OPTS="$OPTS  --disable-tests  --disable-docs-build --disable-examples --disable-valgrind"
 
   default_build
 
