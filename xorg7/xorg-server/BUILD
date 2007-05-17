@@ -2,9 +2,12 @@
 
   . /etc/profile.d/x11r7.rc &&
 
-  if [ -h /usr/share/X11/xkb/compiled ]; then
-    rm -f /usr/share/X11/xkb/compiled
-  fi &&
+  patch_it $SOURCE3 1 &&
+
+
+#if [ -h /usr/share/X11/xkb/compiled ]; then
+#  rm -f /usr/share/X11/xkb/compiled
+#fi &&
 
   if [[ "$USE_NVIDIA" = "y" ]]; then
     OPTS="$OPTS --disable-glx --disable-glx-tlx"
