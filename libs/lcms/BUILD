@@ -1,6 +1,8 @@
 (
 
-  patch_it $SOURCE2 1 &&
+  if module_installed swig ; then
+  patch_it $SOURCE2 1
+  fi &&
 
   default_build &&
 
