@@ -1,6 +1,6 @@
 (
 
-  OPTS+="--with-user=privoxy --with-group=privoxy"
+  OPTS+="--with-user=privoxy --with-group=privoxy --sysconfdir=/etc/privoxy"
 
   add_priv_user privoxy:privoxy  &&
 
