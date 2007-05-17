@@ -7,6 +7,8 @@
   # compling win32 test programs.
   sedit 's/COMPILE/PERL_DID_AN_OOPS/' Makefile.SH installperl &&
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+
   if [ "$SUIDPERL" == "y" ] ; then
 	OPTS="$OPTS -Dd_dosuid"
   fi &&
