@@ -1,8 +1,5 @@
 (
 
-  # fixes a typo which causes a build error
-  sedit 's:\+  reader\.Value:reader\.Value:' Filters/FilterOpenOffice.cs  &&
-
   default_build  &&
 
   if module_installed firefox ; then
