@@ -1,22 +1,21 @@
           MODULE=zisofs-tools
-         VERSION=1.0.6
-#        VERSION=1.0.4
+         VERSION=1.0.8
+#        VERSION=1.0.6
 # Reminder to self not to forget to modify cdrtools when modifying zisofs-tools.
           SOURCE=$MODULE-$VERSION.tar.bz2
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/utils/fs/zisofs/
    SOURCE_URL[1]=ftp://ftp.kernel.org/pub/linux/utils/fs/zisofs/
-      SOURCE_VFY=md5:b1439812746bd6176401fcdac82eeabf
+      SOURCE_VFY=sha1:9ac33b37dcbe00c6adf51d171156cae87e0b7f22
         WEB_SITE=http://www.kernel.org/pub/linux/utils/fs/zisofs/
          ENTERED=20011123
-         UPDATED=20040723
-           SHORT="tools for creating a compressed ISO9660 filesystem."
+         UPDATED=20070518
+           SHORT="Tools for creating a compressed ISO9660 filesystem"
 
 cat << EOF
 The zisofs filesystem is an extension to the ISO9660 filesystem that
 allows files, on a file-by-file basis, to be stored compressed and
-decompressed in real time. The zisofs filesystem is supported by
-recent versions of Linux (2.4.14 or later). Legacy systems can still
-read uncompressed files. zisofs-tools contains the tools necessary to 
-create such a compressed ISO9660 filesystem and to read compressed
-files on a legacy system.
+decompressed in real time. Legacy systems can still read uncompressed 
+files. zisofs-tools contains the tools necessary to create such a 
+compressed ISO9660 filesystem and to read compressed files on a legacy 
+system.
 EOF
