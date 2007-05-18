@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   make  CC="gcc -I. $CFLAGS"  &&
   prepare_install             &&
   make    install             &&
