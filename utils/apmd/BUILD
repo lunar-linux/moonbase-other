@@ -1,7 +1,6 @@
 (
 
   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
 
   if [ "$USE_X11" == "n" ]; then
     message "An X server is not installed, so xapm will not be built"
