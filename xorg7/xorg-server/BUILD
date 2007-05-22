@@ -13,9 +13,9 @@
     OPTS="$OPTS --disable-glx --disable-glx-tlx"
   fi &&
 
-  OPTS+=" --enable-composite --enable-aiglx \
+  OPTS+=" --enable-composite --enable-aiglx --enable-glx-tls \
          --with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION} \
-	 --with-dri-driver-path=${MODULE_PREFIX}/lib/X11/modules/dri" &&
+	 --with-dri-driver-path=${MODULE_PREFIX}/lib/dri" &&
 
   default_build
 
