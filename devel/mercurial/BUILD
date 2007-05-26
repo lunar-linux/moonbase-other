@@ -2,6 +2,7 @@
 
   prepare_install  &&
   python setup.py install --force &&
+  cp -p contrib/hgk contrib/hgdiff /usr/bin &&
   gather_docs CONTRIBUTORS PKG-INFO hgweb*.cgi doc/*.html doc/*.txt &&
   cd doc &&
   install -m 644 hg.1 hgmerge.1 /usr/share/man/man1 &&
