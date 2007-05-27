@@ -3,11 +3,6 @@
   export CWPROOT
   cd $CWPROOT/src
 
-  cp $SCRIPT_DIRECTORY/Makefile.config .
-
-  sedit "s:^OPTC:OPTC=$CFLAGS #:"             Makefile.config
-  sedit "s:^C++FLAGS:C++FLAGS=$CXXFLAGS #:"   Makefile.config
-
   prepare_install &&
   make install &&
   if [ "$USE_X11" == "y" ]; then
