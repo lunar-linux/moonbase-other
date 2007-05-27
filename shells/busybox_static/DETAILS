@@ -1,16 +1,13 @@
           MODULE=busybox_static
-         VERSION=0.60.5
+         VERSION=1.5.1
           SOURCE=busybox-$VERSION.tar.bz2
-         SOURCE2=busybox-$VERSION-Config.h-1.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/busybox-$VERSION
-   SOURCE_URL[0]=http://www.busybox.net/downloads/
-  SOURCE2_URL[0]=$PATCH_URL$SOURCE2 
+      SOURCE_URL=http://www.busybox.net/downloads/
            SHORT="time statically linked rescue shell."
-        WEB_SITE=http://busybox.lineo.com
+        WEB_SITE=http://www.busybox.net
          ENTERED=20011020
-         UPDATED=20030122
+         UPDATED=20070523
 cat << EOF
-
 BusyBox combines tiny versions of many common UNIX utilities into a
 single small executable. It provides minimalist replacements for most of
 the utilities you usually find in GNU fileutils, shellutils, etc. The
@@ -19,5 +16,4 @@ full-featured GNU cousins; however, the options that are included
 provide the expected functionality and behave very much like their GNU
 counterparts. BusyBox provides a fairly complete POSIX environment for
 any small or embedded system.
-
 EOF
