@@ -1,6 +1,9 @@
 (
+
   unset  CFLAGS
-  sedit "s:freetype/freetype.h>:ft2build.h>\n#include FT_FREETYPE_H:" SDL_ttf.c &&
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   ./configure  --build=$BUILD        \
                --prefix=/usr         \
                --sysconfdir=/etc     \
