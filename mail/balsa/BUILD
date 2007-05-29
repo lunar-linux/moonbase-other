@@ -1,6 +1,5 @@
 (
 
-   sedit "s/-lesmtp /-lesmtp -lstdc++ /" configure &&
    ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
