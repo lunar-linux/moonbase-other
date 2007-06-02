@@ -1,5 +1,5 @@
 (
-  sedit "s:-O3:-O2:g" configure &&
+  sedit "s:-O3:$CFLAGS -Os:g" configure &&
 
   OPTS="$OPTS --enable-shared" &&
 
@@ -12,4 +12,3 @@
   gather_docs Misc/*
 
 ) > $C_FIFO 2>&1
-
