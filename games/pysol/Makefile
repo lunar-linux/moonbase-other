@@ -5,7 +5,7 @@
 SHELL = /bin/sh
 
 PACKAGE = pysol
-VERSION = 4.81
+VERSION = 4.82
 
 srcdir = .
 top_srcdir = $(srcdir)
@@ -17,7 +17,7 @@ libdir = $(exec_prefix)/lib
 datadir = $(prefix)/share/games
 mandir = $(prefix)/man
 
-pkgdatadir = $(datadir)/$(PACKAGE)/$(VERSION)
+pkgdatadir = $(datadir)/$(PACKAGE)
 
 # you may have to change this
 pixmapdir = /usr/X11R6/include/X11/pixmaps
@@ -33,8 +33,8 @@ nothing:
 install: install-bin install-data install-man install-icon
 
 install-bin: pysol
-	mkdir -p $(bindir)
-	sed -e 's|@prefix@|$(prefix)|' -e 's|@pkgdatadir@|$(pkgdatadir)|' < $< > $(bindir)/pysol
+	echo cd $(pkgdatadir)/src > $(bindir)/pysol
+	echo python pysol.py '$*' >> $(bindir)/pysol
 	chmod a+rx,go-w $(bindir)/pysol
 
 install-data:
@@ -42,6 +42,7 @@ install-data:
 	mkdir -p $(pkgdatadir)
 	cp -dR -p data/* $(pkgdatadir)/
 	chmod -R a+r $(pkgdatadir)
+	cp -R -p src $(pkgdatadir)
 
 install-man: pysol.6
 	mkdir -p $(mandir)/man6
