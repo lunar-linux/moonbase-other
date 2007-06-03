@@ -1,5 +1,7 @@
 (
-  prepare_install && 
-  cp -a $SOURCE_DIRECTORY/data/cardset-* /usr/share/games/pysol/4.81/  
+
+  prepare_install  && 
+  cp -a $SOURCE_DIRECTORY/data/cardset-* /usr/share/games/pysol/  
+
 ) > $C_FIFO 2>&1
 

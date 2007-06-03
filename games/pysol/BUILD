@@ -1,11 +1,10 @@
 (
 
-  cp $SCRIPT_DIRECTORY/Makefile $SOURCE_DIRECTORY &&
-  cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY &&
-  bunzip2 $SOURCE2 &&
+  cp $SCRIPT_DIRECTORY/Makefile $SOURCE_DIRECTORY  &&
 
-  prepare_install                    &&
-  make    install                    &&
-  install pysol_24.pyc /usr/share/games/pysol/4.81/
+  (cd $SOURCE_DIRECTORY/src; sh $SCRIPT_DIRECTORY/pysol_kludge.sh)  &&
+
+  prepare_install  &&
+  make install
 
 ) > $C_FIFO 2>&1
