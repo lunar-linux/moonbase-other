@@ -50,4 +50,15 @@ optional_depends "gtk+-2" \
 optional_depends "MPlayer-all" \
                  ""  \
                  "" \
-                 "to install more foreign codecs"
+                 "to install more foreign codecs" &&
+
+optional_depends "libggi"                              \
+                 "--enable-ggi"                        \
+                 "--disable-ggi"                       \
+                 "General Graphics Interface support" &&
+
+optional_depends "libggiwmh"                           \
+                 "--enable-ggiwmh"                     \
+                 "--disable-ggiwmh"                    \
+                 "GGI extension support"
+
