@@ -26,7 +26,7 @@
 
   echo "export QTDIR=\"${MODULE_PREFIX}\"" >> $SOURCE_DIRECTORY/qt4.rc  &&
   echo export PATH=\"'${QTDIR}'/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/qt4.rc  &&
-  echo export PKG_CONFIG_PATH=\"'${QTDIR}'/lib:'${PKG_CONFIG_PATH}'\"  \
+  echo export PKG_CONFIG_PATH=\"'${QTDIR}'/lib/pkgconfig:'${PKG_CONFIG_PATH}'\"  \
 	>> $SOURCE_DIRECTORY/qt4.rc &&
 
   install -m644 $SOURCE_DIRECTORY/qt4.rc /etc/profile.d/
