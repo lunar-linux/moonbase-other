@@ -1,5 +1,4 @@
 (
-  patch_it $SOURCE2 1 &&
   # Fix so installwatcher doesn't trigger on info-files
   sedit 's;\(\-chmod \-R.*\)${infodir};\1;' Makefile.in &&
 
