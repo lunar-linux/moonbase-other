@@ -1,5 +1,6 @@
 (
-  
+
+  patch_it $SOURCE2 1 &&  
   default_build &&
 
   if module_installed gdm; then
