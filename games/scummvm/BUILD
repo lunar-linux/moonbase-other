@@ -1,9 +1,11 @@
 ( 
 
-  ./configure $OPTS            &&
-  make                         &&
-  prepare_install              &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
+  ./configure $OPTS  &&
+  make               &&
+  prepare_install    &&
+
   install scummvm /usr/games/  
-#  install scummvm.6 /usr/share/man/man6  
 
 ) > $C_FIFO 2>&1
