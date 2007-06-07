@@ -1,22 +1,25 @@
 (
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   if [ $BYTECODE == "y" ] ; then
     sed -i -r 's:.*(#.*BYTE.*) .*:\1:' \
        include/freetype/config/ftoption.h
-  fi &&
+  fi  &&
 
-sed -i -r 's:.*(#.*SYSTEM_ZLIB.*) .*:\1:' \
-  include/freetype/config/ftoption.h &&
+  sed -i -r 's:.*(#.*SYSTEM_ZLIB.*) .*:\1:' \
+    include/freetype/config/ftoption.h  &&
 
-sed -i -r 's:.*(#.*SUBPIXEL_RENDERING.*) .*:\1:' \
-  include/freetype/config/ftoption.h &&
+  sed -i -r 's:.*(#.*SUBPIXEL_RENDERING.*) .*:\1:' \
+    include/freetype/config/ftoption.h  &&
   
-sed -i -r 's:.*(#.*INCREMENTAL.*) .*:\1:' \
-  include/freetype/config/ftoption.h &&
+  sed -i -r 's:.*(#.*INCREMENTAL.*) .*:\1:' \
+    include/freetype/config/ftoption.h  &&
 
-sed -i 's@^#define\ TT_CONFIG_OPTION_UNPATENTED_HINTING@#undef\ TT_CONFIG_OPTION_UNPATENTED_HINTING@' \
-  include/freetype/config/ftoption.h &&
-sed -i 's@^#\ AUX@AUX@' \
-  modules.cfg &&
+  sed -i 's@^#define\ TT_CONFIG_OPTION_UNPATENTED_HINTING@#undef\ TT_CONFIG_OPTION_UNPATENTED_HINTING@' \
+    include/freetype/config/ftoption.h  &&
+
+  sed -i 's@^#\ AUX@AUX@' modules.cfg  &&
 
   default_build
 
