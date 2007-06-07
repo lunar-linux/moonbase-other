@@ -1,6 +1,7 @@
 (
 
-  OPTS=$OPTS" --enable-shared" &&
+  OPTS="$OPTS --enable-threads --enable-xft --enable-shared"
+
   default_build
 
 ) > $C_FIFO 2>&1
