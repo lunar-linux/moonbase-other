@@ -1,11 +1,11 @@
           MODULE=netstat-nat
-         VERSION=1.4.7
+         VERSION=1.4.8
           SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=http://tweegy.demon.nl/download/
-      SOURCE_VFY=sha1:8b0316f5a61c729dd5a65eb00c7dfa7efe23f1ae
+      SOURCE_VFY=sha1:d7cc76a5f06cb8d08c6a028eb4e233c696ec957f
         WEB_SITE=http://tweegy.demon.nl/projects/netstat-nat/index.html
          ENTERED=20040930
-         UPDATED=20061106
+         UPDATED=20070607
            SHORT="Shows NAT entries in NetFilter/iptables"
 cat << EOF
 Netstat-nat is a small program written in C. It displays NAT
@@ -13,4 +13,6 @@ connections, managed by netfilter/iptables which comes with the
 2.4.x linux kernels. The program reads its information from
 /proc/net/ip_conntrack, which is the temporary conntrack-storage of
 netfilter. (http://netfilter.samba.org/)
+
+Make sure netfilter is enabled in kernel or by modules.
 EOF
