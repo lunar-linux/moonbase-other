@@ -11,6 +11,9 @@
               --with-cache-dir=/var/cache/fontconfig \
               $OPTS                                 &&
 
-   default_make
+   default_make &&
+
+   install -m644 $SCRIPT_DIRECTORY/10-lunar-fonts.conf \
+                 /etc/fonts/conf.d/
 
 ) > $C_FIFO 2>&1
