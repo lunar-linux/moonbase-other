@@ -1,1 +1,5 @@
-depends jack
+depends jack  &&
+
+optional_depends "ladspa_sdk" "--enable-ladspa" "--disable-ladspa" "audio API support"  &&
+optional_depends "lash"       "--enable-lash"   "--disable-lash"   "for lash support"
+
