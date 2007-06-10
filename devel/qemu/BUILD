@@ -6,7 +6,9 @@
     OPTS+=" --target-list=i386-user,i386-softmmu,arm-user,sparc-user,ppc-user"
   fi
 
-  default_build  &&
+  ./configure --prefix=/usr \
+                --cc=${GCC3_PREFIX:-/opt/lunar/gcc3}/bin/gcc &&
+  default_make  &&
 
   # qemu-doc.html may not exist, but it will be ignored if that is the case
   gather_docs TODO qemu-doc.html
