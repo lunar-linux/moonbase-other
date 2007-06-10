@@ -1,17 +1,16 @@
 cat << EOF
-Please run /usr/share/mythtv/setup to configure MythTV.  The 
-database has been installed for you, but you may want to muck around 
-with the permissions a bit.
 
-After running /usr/share/mythtv/setup, you'll have to run 
-mythfilldatabase to fill the database with program listings for all the 
-video sources you defined in the setup program.
+Please install the mythtv database. You can do this with:
 
-mythfilldatabase should theoretically be run daily, something most 
-easily done from a cronjob.
+  mysql < /usr/share/mythtv/mc.sql
 
-Add the following to your personal crontab to accomplish this
-(crontab -e) to fill the database at 2:00am daily:
+You should set any permissions on it yourself. Afterwards, run:
+
+  mythtv-setup
+  mythfilldatabase
+
+Add the following to your crontab to update the database daily:
+
 00 02 * * * /bin/bash /usr/bin/mythfilldatabasecron
 
 EOF
