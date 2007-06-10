@@ -1,8 +1,7 @@
 (
 
-  OPTSS=
   if module_installed xscreensaver; then
-    OPTSS=--with-xscreensaver
+    OPTS="$OPTS --with-xscreensaver"
   fi                                       &&
 
   ./configure  --prefix=/usr                \
@@ -22,8 +21,8 @@
                --with-animation             \
                --with-gl                    \
                --with-glut                  \
-               $OPTSS                      &&
-                  
+               $OPTS                       &&
+
   default_make
 
 ) > $C_FIFO 2>&1
