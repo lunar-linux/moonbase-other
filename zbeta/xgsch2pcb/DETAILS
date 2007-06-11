@@ -1,0 +1,17 @@
+          MODULE=xgsch2pcb
+         VERSION=cvs
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION/
+   SOURCE_URL[0]=cvs://:pserver:anoncvs:guest@cvs.seul.org:/home/cvspsrv/cvsroot/:geda/xgsch2pcb
+        WEB_SITE=http://geda.seul.org/tools/geda/index.html
+         ENTERED=20070527
+         UPDATED=`date -u +%Y%m%d`
+           SHORT="a geda-tool to export the schema to a pcb"
+
+cat << EOF
+This tool automates the prozess of creating a PCB-board
+from a gEDA-schema. The old tool, sch2pcb, is outdated and
+kicked out of gEDA/gaf. It is recomned to use the latest
+PCB-version from CVS, because this tool uses a D-Bus-connection
+to remote control PCB.
+EOF
