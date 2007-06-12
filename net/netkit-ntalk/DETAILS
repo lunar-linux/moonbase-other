@@ -1,15 +1,18 @@
-           MODULE=netkit-ntalk
+          MODULE=netkit-ntalk
          VERSION=0.17
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=ftp://ftp.uk.linux.org/pub/linux/Networking/netkit/
+         SOURCE2=netkit-ntalk-0.17.patch
+      SOURCE_URL=ftp://ftp.uk.linux.org/pub/linux/Networking/netkit/
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:476daa31c774ff05745dc8cc6b4509013458264c
+     SOURCE2_VFY=sha1:898b7b490087d3f74c366ffdfd71de3235e65e0a
         WEB_SITE=http://www.linux.org.uk
          ENTERED=20010922
          UPDATED=20010922
-           SHORT="netkit-ntalk contains talk and talkd, client and server chat programs."
+           SHORT="talk and talkd client and server chat programs."
 cat << EOF
 This is netkit-ntalk for Linux.
 Contents:
-        talk            Program for chatting with another 
-user elsewhere.
-        talkd           Daemon to help set up talk sessions.
+ talk - Program for chatting with another user elsewhere.
+ talkd - Daemon to help set up talk sessions.
 EOF
