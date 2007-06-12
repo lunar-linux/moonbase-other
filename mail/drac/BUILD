@@ -1,6 +1,6 @@
 (
 
-  patch_it $SCRIPT_DIRECTORY/drac.patch 0 &&
+  patch_it $SOURCE_CACHE/$SOURCE2 0       &&
   make                                    &&
   prepare_install                         &&
   make    install                         &&
