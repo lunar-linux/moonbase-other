@@ -1,15 +1,18 @@
-           MODULE=most
+          MODULE=most
          VERSION=4.10.2
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=most-4.10.2-fix-goto-line.diff
       SOURCE_URL=ftp://space.mit.edu/pub/davis/most/
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:b0bcbbbff43aaab7b75b45d35ab8f2d32a3245c2
+     SOURCE2_VFY=sha1:dc70f6a3c6c367eb31cc745212b971444bd1112d
         WEB_SITE=ftp://space.mit.edu/pub/davis/most
          ENTERED=20010922
          UPDATED=20050820
            SHORT="pager like more or less"
 
 cat << EOF
-most is a paging program that displays, one windowful at a time, the 
+most is a paging program that displays, one windowful at a time, the
 contents of a file on a terminal. It pauses after each windowful and
 prints on the window status line the screen the file name, current line
 number, and the percentage of the file so far displayed. Unlike other
