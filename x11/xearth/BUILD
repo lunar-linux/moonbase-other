@@ -1,6 +1,6 @@
 (
   cp $MOONBASE/x11/$MODULE/marker.patch $SOURCE_DIRECTORY &&
-  patch -p1 <marker.patch                                 &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1                       &&
   cp Makefile.DIST Makefile                               &&
   xmkmf                                                   &&
   make all                                                &&
