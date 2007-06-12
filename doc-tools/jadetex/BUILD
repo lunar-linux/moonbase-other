@@ -12,7 +12,7 @@
       cp $TXCNF .
       cp $TXCNF $TEXHOME/web2c/texmf.cnf.orig
       cp $SCRIPT_DIRECTORY/texmf.patch .
-      patch -p1 < texmf.patch
+      patch_it $SOURCE_CACHE/$SOURCE2 1
       mv texmf.cnf $TXCNF
  fi                                                        &&
 
