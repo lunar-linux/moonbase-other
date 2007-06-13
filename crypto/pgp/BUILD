@@ -1,24 +1,24 @@
 (
 
-patch -p1 $SOURCE_DIRECTORY/libs/pfl/common/file/pgpStdFileIO.c < $SCRIPT_DIRECTORY/pgpStdFileIO.diff &&
+  patch -p1 $SOURCE_DIRECTORY/libs/pfl/common/file/pgpStdFileIO.c < $SOURCE_CACHE/$SOURCE2 &&
 
-CONFIGURE="./configure  --build=$BUILD          \
-               --prefix=/usr           \
-               --sysconfdir=/etc       \
-               --localstatedir=/var    \
-               --mandir=/usr/share/man" 
- 
-cd libs/pfl && $CONFIGURE &&  make &&
+  CONFIGURE="./configure  --build=$BUILD          \
+                          --prefix=/usr           \
+                          --sysconfdir=/etc       \
+                          --localstatedir=/var    \
+                          --mandir=/usr/share/man"
 
-cd ../pgpcdk && $CONFIGURE && make headers && make &&
+  cd libs/pfl && $CONFIGURE &&  make &&
 
-cd ../../clients/pgp/shared && $CONFIGURE && make &&
+  cd ../pgpcdk && $CONFIGURE && make headers && make &&
 
-cd ../cmdline && $CONFIGURE && make &&
+  cd ../../clients/pgp/shared && $CONFIGURE && make &&
 
-cd $SOURCE_DIRECTORY/clients/pgp/cmdline &&
+  cd ../cmdline && $CONFIGURE && make &&
 
-prepare_install &&
-make install
+  cd $SOURCE_DIRECTORY/clients/pgp/cmdline &&
+
+  prepare_install &&
+  make install
 
 ) > $C_FIFO 2>&1
