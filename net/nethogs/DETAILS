@@ -1,9 +1,12 @@
           MODULE=nethogs
          VERSION=0.6.0
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=nethogs-0.6.0-gcc34.diff
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
       SOURCE_URL=$SFORGE_URL/$MODULE/
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:7b2b6bcd342a30a67f5dc57d867f078889cf8e4f
+     SOURCE2_VFY=sha1:5bb3bc2fd2499e82249b77f7a4f6adb691e82f4b
         WEB_SITE=http://nethogs.sourceforge.net
          ENTERED=20050816
          UPDATED=20050816
@@ -12,7 +15,7 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
 cat << EOF
 NetHogs is a small 'net top' tool. Instead of breaking the traffic down per
 protocol or per subnet, like most tools do, it groups bandwidth by process.
-This makes it easy to indentify programs that have gone wild and are 
+This makes it easy to indentify programs that have gone wild and are
 suddenly taking up your bandwidth.
 
  *  Shows TCP download- and upload-speed per process
