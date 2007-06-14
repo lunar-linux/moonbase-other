@@ -5,6 +5,6 @@
 
   default_build  &&
 
-  ln -f /opt/lunar/kde/3/lib/libkexiv2.so /opt/lunar/kde/3/lib/libkexiv2.so.0
+  ln -f ${KDE_PREFIX:-/opt/lunar/kde/3}/lib/libkexiv2.so ${KDE_PREFIX:-/opt/lunar/kde/3}/lib/libkexiv2.so.0
 
 ) > $C_FIFO 2>&1
