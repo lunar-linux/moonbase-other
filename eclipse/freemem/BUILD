@@ -1,8 +1,8 @@
 (
 
-  TARGET=/opt/lunar/eclipse
+  TARGET=/opt/lunar/eclipse/plugins
 
   prepare_install  &&
-  cp -a * $TARGET
+  cp $SOURCE_CACHE/$SOURCE $TARGET
 
 ) > $C_FIFO 2>&1
