@@ -5,12 +5,12 @@
     OPTS="$OPTS --with-pam --without-shadow"
   fi
 
-  # Enable gtk support
-  OPTS="$OPTS --without-motif --with-gtk --with-xml --without-kerberos"
+  # Disable gtk support
+  OPTS="$OPTS --with-xml"
 
   # Enable locking abilities of xscreensaver
   OPTS="$OPTS --enable-locking"
-
+  
   default_build  &&
 
   rm -fR /xscreensaver
