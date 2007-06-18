@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# noip-duc     This shell script takes care of starting and stopping
+#              NO-IP dynamic IP updates.
+#
+# chkconfig: 2345 65 35
+# description: noip-duc provides support for updating dynamic DNS services.
+# processname: noip2
+# pidfile: /var/run/noip2.pid
+# config: /etc/no-ip2.conf
+
+ARGS="-c /etc/no-ip2.conf"
+
+. /lib/lsb/init-functions
