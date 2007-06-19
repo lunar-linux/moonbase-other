@@ -5,6 +5,9 @@
     OPTS="$OPTS --with-pam --without-shadow"
   fi
 
+  # Force disable of kerberos
+  OPTS="$OPTS --without-kerberos"
+
   # Disable gtk support
   OPTS="$OPTS --with-xml"
 
