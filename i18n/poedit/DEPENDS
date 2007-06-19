@@ -1,4 +1,11 @@
-depends  wxGTK  &&
-depends  zip    &&
-optional_depends  "gtkspell"  "--enable-spellchecking"  ""  "to enable spell checking support"      &&
-optional_depends  "db"        "--enable-transmem"       ""  "to enable translation memory support"
+depends wxGTK
+
+optional_depends "gtkspell" \
+		 "" \
+		 "--disable-spellchecking" \
+		 "Enable spell checking"
+
+optional_depends "db" \
+		 "" \
+		 "--disable-transmem" \
+		 "Enable translation memory"
