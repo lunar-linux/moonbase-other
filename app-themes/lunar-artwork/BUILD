@@ -1,6 +1,6 @@
 (
 
   prepare_install &&
-  ./install.sh $DEFAULT_PREFIX
+  ./install.sh $MODULE_PREFIX
 
 ) > $C_FIFO 2>&1
