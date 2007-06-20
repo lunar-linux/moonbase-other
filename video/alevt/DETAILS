@@ -1,13 +1,15 @@
           MODULE=alevt
          VERSION=1.6.1
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION.gcc4.patch
    SOURCE_URL[0]=http://www.goron.de/~froese/$MODULE/
-       SOURCE_VFY=md5:df6e241c6e2c6505c95d50cde0e1bc73
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:0dffba71b911e79fce34a2e6aba9bf69c8a71d28
+     SOURCE2_VFY=sha1:4037d5da02ee1c347133442fe6cfcf9c11ab141f
         WEB_SITE=http://www.goron.de/~froese
          ENTERED=20020627
          UPDATED=20040226
-        SHORT="view close captioned text (PAL Standard, NOT NTSC)"
-
+           SHORT="view close captioned text (PAL Standard, NOT NTSC)"
 cat << EOF
 AleVT is a teletext/videotext decoder and browser for the
 bttv driver (/dev/vbi) and X11.  It features multiple windows,
