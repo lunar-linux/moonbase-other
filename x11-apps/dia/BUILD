@@ -2,14 +2,9 @@
 
   export LIBART_CONFIG=/usr/bin/libart2-config
 
-  ./configure   --prefix=${GNOME26_PREFIX:-/usr}  \
-                --build=$BUILD                    \
-                --sysconfdir=/etc                 \
-                --localstatedir=/var              \
-                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
-                --enable-python                   \
-                $OPTS                             &&
-    default_make
-   
+  OPTS="$OPTS --with-python \
+	      --disable-db2html"  &&
+
+  default_build
+
 ) > $C_FIFO 2>&1
