@@ -1,0 +1,46 @@
+if ! grep -q CONFIGURED $MODULE_CONFIG; then
+
+  if query "Disable Nickname Service?" n; then
+    OPTS="$OPTS --disable-nickserv"
+  fi
+
+  if query "Disable Channel Service?" n; then
+    OPTS="$OPTS --disable-chanserv"
+  fi
+
+  if query "Disable User Service?" n; then
+    OPTS="$OPTS --disable-userserv"
+  fi
+
+  if query "Disable Oper Service?" n; then
+    OPTS="$OPTS --disable-operserv"
+  fi
+
+  if query "Disable List Service?" n; then
+    OPTS="$OPTS --disable-alis"
+  fi
+
+  if query "Disable Jupe Service?" n; then
+    OPTS="$OPTS --disable-jupeserv"
+  fi
+
+  if query "Disable Operbot Service?" n; then
+    OPTS="$OPTS --disable-operbot"
+  fi
+
+  if query "Disable global messaging service?" n; then
+    OPTS="$OPTS --disable-global"
+  fi
+
+  if query "Disable ban service?" n; then
+    OPTS="$OPTS --disable-banserv"
+  fi
+
+  if query "Disable command watching service?" n; then
+    OPTS="$OPTS --disable-watchserv"
+  fi
+
+  echo 'CONFIGURED="y"' >> $MODULE_CONFIG
+  echo 'OPTS='\"$OPTS\" >> $MODULE_CONFIG
+
+fi
