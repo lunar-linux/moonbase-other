@@ -1,0 +1,15 @@
+if [ ! -f "/etc/ferm-1.2-example.conf" ] ; then
+  message ""
+  message "${PROBLEM_COLOR}Warning!${DEFAULT_COLOR}${MESSAGE_COLOR}"
+  message "ferm config file format has changed between versions 1.1 and 1.2"
+  message "To convert your ferm.conf file, you need to load your old ferm.conf"
+  message "and run \`iptables-save | import-ferm > \$your_new_config\`."
+  message ""
+  iptables-save | import-ferm > /etc/ferm-1.2-example.conf
+  message "I have done this command for you. The suggested new ferm.conf file"
+  message "is saved as /etc/ferm-1.2-example.conf. You should inspect this file"
+  message "and copy it to /etc/ferm.conf.${DEFAULT_COLOR}"
+  message ""
+  message "${QUERY_COLOR}Press [ENTER] to acknowledge${DEFAULT_COLOR}"
+  read -t $PROMPT_DELAY foo
+fi
