@@ -1,5 +1,10 @@
-depends  libgnomeui       &&
-depends  libgtkhtml       &&
-depends  libgnomeprintui  &&
+depends  libgnomeui
+depends  libgnomeprintui
 
-optional_depends "libgphoto2" "" "" "for scanning/image downloading from camera support"
+optional_depends  "libgphoto2"  ""  "--disable-gphoto2"  \
+                  "for scanning/image downloading from camera support"
+
+optional_depends  "libexif"  ""  ""  "for EXIF data support"
+
+optional_depends  "tiff"  ""  "--disable-tiff"  \
+                  "for TIFF image support"
