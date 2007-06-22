@@ -1,8 +1,10 @@
-depends SDL    &&
+depends  SDL
 
-optional_depends libpng "--enable-png" "--disable-png" \
-			"Needed for screenshots" &&
-optional_depends SDL_net "--enable-SDL_Net" "--disable-SDL_Net" \
-			"For modem support" &&
-optional_depends alsa-lib "--enable-alsa" "--disable-alsa" \
-			"To use alsa support"
+optional_depends  libpng  "--enable-png" "--disable-png" \
+                          "Needed for screenshots" 
+			
+optional_depends  SDL_net  "--enable-SDL_Net" "--disable-SDL_Net" \
+                           "For modem support" 
+			
+optional_depends  alsa-lib "--enable-alsa" "--disable-alsa" \
+                           "To use alsa support"
