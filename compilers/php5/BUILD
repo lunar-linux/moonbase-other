@@ -10,38 +10,6 @@
     OPTS="$OPTS "
   fi
 
-  if [ "$USE_FTP" == "y" ]; then
-    OPTS="$OPTS --enable-ftp"
-  fi
-
-  if [ "$USE_SESSIONID" == "y" ]; then
-    OPTS="$OPTS --enable-trans-sid"
-  fi
-
-  if [ "$USE_SQLITE" == "y" ]; then
-    OPTS="$OPTS --enable-sqlite-utf8"
-  fi
-
-  if [ "$USE_SOCKETS" == "y" ]; then
-    OPTS="$OPTS --enable-sockets"
-  fi
-
-  if [ "$USE_NCURSES" == "y" ]; then
-    OPTS="$OPTS --with-ncurses"
-  fi
-
-  if [ "$USE_FASTCGI" == "y" ]; then
-    OPTS="$OPTS --enable-fastcgi"
-  fi
-
-  if [ "$USE_MBYTESTR" == "y" ]; then
-    OPTS="$OPTS --enable-mbstring"
-  fi
-
-  if [ "$USE_MBYTEREGEX" == "n" ]; then
-    OPTS="$OPTS --disable-mbregex"
-  fi
-
   if module_installed apache || module_installed apache-mod_ssl ; then
     OPTS="$OPTS --with-apxs=/usr/sbin/apxs"
   elif module_installed apache2 ; then
@@ -59,6 +27,7 @@
   # sedit "s:^:#include <errno.h>\n:" ext/mysql/libmysql/mysys_err.h &&
 
   verbose_msg "OPTS=$OPTS" &&
+
   ./configure  --prefix=/usr                 \
                --sysconfdir=/etc             \
                --with-config-file-path=/etc  \
@@ -70,6 +39,7 @@
                --enable-force-cgi-redirect   \
                --enable-discard-path         \
                $OPTS                        &&
+
   default_make
 
 ) > $C_FIFO 2>&1
