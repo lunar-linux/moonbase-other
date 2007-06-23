@@ -1,7 +1,7 @@
 (
 
-  make -C src &&
+  KSRC=/usr/src/linux make -C src &&
   prepare_install &&
-  make -C src install
+  KSRC=/usr/src/linux make -C src install
 
 ) > $C_FIFO 2>&1
