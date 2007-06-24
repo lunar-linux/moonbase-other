@@ -17,7 +17,7 @@
 
   prepare_install &&
 
-  cp -a lib/libGLU.so* /usr/lib/ &&
+  cp -a lib/libGLU.so* lib/libglut.so* /usr/lib/ &&
   cp -a include/GL/glu*.h /usr/include/GL/ &&
 
   install -m644 include/GLView.h /usr/include &&
