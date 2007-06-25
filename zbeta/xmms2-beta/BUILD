@@ -1,8 +1,7 @@
 (
-  scons EXCLUDE="gnomevfs et samba" \
-        PREFIX=/usr \
-        MANDIR=/usr/share/man &&
+  ./waf configure --prefix=/usr -d optimized &&
+  ./waf build &&
   prepare_install &&
-  scons install
+  ./waf install
   
  ) > $C_FIFO 2>&1
