@@ -1,58 +1,58 @@
-depends  gtk+-2   &&
-depends  libxml2  &&
+depends  gtk+-2
+depends  libxml2
 
-optional_depends  "startup-notification"                                \
-                  ""  "--disable-startup-notification"                  \
-                  "for window manager startup notification support"     &&
+optional_depends  "startup-notification"                \
+                  ""  "--disable-startup-notification"  \
+                  "for window manager startup notification support"
 
 optional_depends  "gtkspell"   ""               "--disable-gtkspell"    \
-                  "for inline message spellcheck support"               &&
+                  "for inline message spellcheck support"
 
 optional_depends  "evolution"       ""          "--disable-gevolution"  \
-                  "for the Evolution plugin"                            &&
+                  "for the Evolution plugin"
 
 optional_depends  "gstreamer-10"    ""          "--disable-gstreamer"   \
-                  "for sound support within the application"            &&
+                  "for sound support within the application"
 
-optional_depends  "dbus-glib"  "--enable-dbus"  "--disable-dbus"        \
-                  "for remote contol of pidgin"                         &&
+optional_depends  "dbus-glib"  "--enable-dbus"  "--disable-dbus"  \
+                  "for remote contol of pidgin"
 
-optional_depends  "mono"       "--enable-mono"  "--disable-mono"        \
-                  "for Mono (C#) plugin support"                        &&
+optional_depends  "mono"       "--enable-mono"  "--disable-mono"  \
+                  "for Mono (C#) plugin support"
 
-optional_depends  "sqlite"          ""          "--disable-cap"         \
-                  "for the Contact Availability Prediction plugin"      &&
+optional_depends  "sqlite"          ""          "--disable-cap"   \
+                  "for the Contact Availability Prediction plugin"
 
-optional_depends  "gettext"    ""               "--disable-nls"         \
-                  "for NLS support within gaim"                         &&
+optional_depends  "gettext"    ""               "--disable-nls"   \
+                  "for NLS support within gaim"
 
-optional_depends  "howl"       ""               ""                      \
-                  "for Howl support in the Bonjour plugin"              &&
+optional_depends  "howl"       ""               ""                \
+                  "for Howl support in the Bonjour plugin"
 
-optional_depends  "nss"                                                 \
-                  "--enable-gnutls=no                                   \
-                   --with-nspr-libs=/usr/lib/                           \
-                   --with-nspr-includes=/usr/include/nspr/              \
-                   --with-nss-libs=/usr/lib/                            \
-                   --with-nss-includes=/usr/include/nss/                \
-                   --enable-nss=yes"                                    \
-                  ""                                                    \
-                  "for MSN & GoogleTalk support (say 'n' to gnutls)"    &&
+optional_depends  "nss"                                           \
+                  "--enable-gnutls=no                             \
+                   --with-nspr-libs=/usr/lib/                     \
+                   --with-nspr-includes=/usr/include/nspr/        \
+                   --with-nss-libs=/usr/lib/                      \
+                   --with-nss-includes=/usr/include/nss/          \
+                   --enable-nss=yes"                              \
+                  ""                                              \
+                  "for MSN & GoogleTalk support (say 'n' to gnutls)"
 
 optional_depends  "gnutls"  "--enable-nss=no --enable-gnutls=yes"  ""   \
-                  "for MSN & GoogleTalk support (say 'y' here if you said 'n' to nss)"  &&
+                  "for MSN & GoogleTalk support (say 'y' here if you said 'n' to nss)"
 
-optional_depends  "tcl"       ""                "--disable-tcl"         \
-                  "for TCL based plugin support"                        &&
+optional_depends  "tcl"       ""                "--disable-tcl"   \
+                  "for TCL based plugin support"
 
-optional_depends  "tk"        ""                "--disable-tk"          \
-                  "for TK based plugin support"                         &&
+optional_depends  "tk"        ""                "--disable-tk"    \
+                  "for TK based plugin support"
 
-optional_depends  "meanwhile"       ""          ""                      \
-                  "for meanwhile (Lotus Sametime) protocol support"     && 
+optional_depends  "meanwhile"       ""          ""                \
+                  "for meanwhile (Lotus Sametime) protocol support"
 
-optional_depends  "perl"            ""          "--disable-perl"        \
-                  "for Perl based plugin support"                       &&
+optional_depends  "perl"            ""          "--disable-perl"  \
+                  "for Perl based plugin support"
 
-optional_depends  "GConf2"    ""                ""                      \
+optional_depends  "GConf2"    ""                ""                \
                   "for GNOME support of Gaim URI handlers"
