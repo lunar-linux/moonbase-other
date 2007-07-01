@@ -3,6 +3,7 @@
   ./configure --prefix=/usr      \
               --enable-gpl       \
               --enable-shared    \
+              --enable-swscaler  \
               --enable-pp        \
               --enable-pthreads  \
               $OPTS              &&
