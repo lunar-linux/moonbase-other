@@ -1,2 +1,2 @@
-depends  chkconfig  &&
-depends  db
+depends chkconfig
+optional_depends db "--enable-module=auth_db --disable-module=auth_dbm" "--disable-module=auth_db"
