@@ -9,8 +9,6 @@
                 --sysconfdir=/etc         \
                 --localstatedir=/var      \
                 --with-distro=none        \
-                --disable-qt4             \
-                --disable-qt3             \
                 --disable-lynx            \
                 --disable-mono            \
                 --disable-gdbm            \

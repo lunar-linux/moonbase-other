@@ -1,6 +1,26 @@
 depends libdaemon
 
+optional_depends "qt3" \
+                 "--enable-qt3" \
+                 "--disable-qt3" \
+                 "building of Qt3 mainloop integration"
+
+optional_depends "qt4" \
+                 "--enable-qt4" \
+                 "--disable-qt4" \
+                 "building of Qt4 mainloop integration"\
+                 
+optional_depends "gtk+-2" \
+                 "--enable-gtk" \
+                 "--disable-gtk" \
+                 "for the use of GTK+"\
+
 optional_depends "dbus-python" \
                  "--enable-python-dbus --enable-python" \
                  "--disable-python-dbus --disable-python" \
                  "Disable use of D-Bus in Python"
+
+optional_depends "xmlto" \
+                 "--enable-xmltoman" \
+                 "--disable-xmltoman" \
+                 "to build the manpages"
