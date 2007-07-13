@@ -19,7 +19,7 @@
 	install arch/x86/usr/X11R6/bin/* /usr/bin/ &&
 	install x690/usr/X11R6/bin/fireglcontrolpanel /usr/bin/ &&
 
-	install arch/x86/usr/X11R6/lib/modules/dri/fglrx_dri.so /usr/lib/dri/ &&
+	install arch/x86/usr/X11R6/lib/modules/dri/fglrx_dri.so /usr/lib/X11/modules/dri/ &&
 	cp -a arch/x86/usr/X11R6/lib/lib* /usr/lib/fglrx/ &&
 	ln -s /usr/lib/fglrx/libGL.so.1.2 /usr/lib/fglrx/libGL.so.1
 	install x710/usr/X11R6/lib/modules/esut.a /usr/lib/xorg/modules/ &&
