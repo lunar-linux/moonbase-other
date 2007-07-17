@@ -1,0 +1,20 @@
+          MODULE=kexec-tools
+         VERSION=1.101
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=http://www.xmission.com/~ebiederm/files/kexec/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:65234ec68ca19c5d444375b923fecbb9ce28b255
+        WEB_SITE="http://www.xmission.com/~ebiederm/files/kexec/README"
+         ENTERED=20070716
+         UPDATED=20070716
+           SHORT="Execute (boot) a new linux kernel from within one"
+cat <<EOF
+kexec is a set of systems call that allows you to load another kernel
+from the currently executing Linux kernel.  The current implementation
+has only been tested, and had the kinks worked out on x86, but the
+generic code should work on any architecture.
+
+Some machines have BIOSes that are either extremely slow to reboot,
+or that cannot reliably perform a reboot.  In which case kexec may
+be the only alternative to reboot in a reliable and timely manner.
+EOF
