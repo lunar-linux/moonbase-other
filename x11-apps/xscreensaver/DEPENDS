@@ -1,37 +1,37 @@
-depends libxml2  &&
-depends netpbm   &&
-depends bc       &&
-depends %GLUT    &&
-depends perl     &&
+depends libxml2
+depends netpbm
+depends bc
+depends %GLUT
+depends perl
 
 optional_depends "gettext"        \
                  "--enable-nls"   \
 		 "--disable-nls"  \
-		 "enable NLS support"  &&
+		 "enable NLS support"
 		 
 optional_depends "gtk+-2"         \
                  "--with-gtk"     \
                  "--without-gtk"  \
-		 "enable the use of this library"  &&
+		 "enable the use of this library"
 		 
 optional_depends "gdk-pixbuf"        \
                  "--with-pixbuf"     \
                  "--without-pixbuf"  \
-		 "enable the use of this library"  &&
+		 "enable the use of this library"
 
 optional_depends "gle"         \
                  "--with-gle"  \
-		 "--without-gle" "enable the use this library"  &&
+		 "--without-gle" "enable the use this library"
 		 
 optional_depends "fortune"                            \
                  "--with-fortune=/usr/games/fortune"  \
 		 ""                                   \
-		 "use fortune"                       &&
+		 "use fortune"                       
 
 optional_depends "fortune"  \
                  "--with-"  \
 		 ""         \
-		 "use fortune"                    &&
+		 "use fortune"
 		 
 optional_depends "xsnow"  \
                  ""       \
