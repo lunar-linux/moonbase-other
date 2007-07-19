@@ -20,8 +20,13 @@
 
 # I have notice with some apps (dirac) comes to mind, make notice during make
 # the /usr/share/doc/apr/docs/doxygen.conf needs to be updated. This takes
-# care of that.
+# care of that and just in case it is not there on a fresh install.
 
-  doxygen -u /usr/share/doc/apr/docs/doxygen.conf
+  if [ -e /usr/share/doc/apr/docs/doxygen.conf ]; then
+    doxygen -u /usr/share/doc/apr/docs/doxygen.conf
+   else
+    mkdir -p /usr/share/doc/apr/docs
+    doxygen -s -g /usr/share/doc/apr/docs/doxygen.conf
+  fi
 
 ) > $C_FIFO 2>&1
