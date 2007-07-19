@@ -27,6 +27,7 @@
    else
     mkdir -p /usr/share/doc/apr/docs
     doxygen -s -g /usr/share/doc/apr/docs/doxygen.conf
+    doxygen -u /usr/share/doc/apr/docs/doxygen.conf
   fi
 
 ) > $C_FIFO 2>&1
