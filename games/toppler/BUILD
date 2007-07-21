@@ -3,7 +3,7 @@
   ./configure  --build=$BUILD                        \
                --prefix=$MODULE_PREFIX               \
 	       --sysconfdir=/etc                     \
-	       --localstatedir=/var                  \
+	       --localstatedir=/var/games            \
 	       --infodir=$MODULE_PREFIX/share/info   \
 	       --mandir=$MODULE_PREFIX/share/man     \
                --bindir=$MODULE_PREFIX/games         \
