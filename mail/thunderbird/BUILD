@@ -87,7 +87,7 @@
     install -d /usr/share/applications /usr/share/pixmaps &&
     install -m644 $SOURCE_CACHE/$SOURCE2 /usr/share/applications &&
     rm -f /usr/share/pixmaps/thunderbird.xpm &&
-    install -m644 $MOZILLA_HOME/icons/default.xpm \
-		  /usr/share/pixmaps/thunderbird.xpm
+    install -m644 $MOZILLA_HOME/icons/mozicon50.xpm \
+		  /usr/share/pixmaps
 
 ) > $C_FIFO 2>&1
