@@ -1,6 +1,6 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-  default_build
-  
+  default_build &&
+  gather_docs UserGuide
+
 ) > $C_FIFO 2>&1
