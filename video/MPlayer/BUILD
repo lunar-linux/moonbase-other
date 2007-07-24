@@ -1,5 +1,11 @@
 (
 
+  cd stream   &&
+  patch < $SOURCE_CACHE/$SOURCE7 &&
+  cd realrtsp &&
+  patch < $SOURCE_CACHE/$SOURCE8 &&
+  cd ../../   &&
+
   # using CFLAGS other than MPlayers autodetected will break
   bad_flags compiler
 
@@ -14,23 +20,23 @@
   cd $SOURCE_DIRECTORY &&
 
   ./configure --prefix=/usr                   \
-  	      --confdir=/etc                  \
-	      --mandir=/usr/share/man         \
+              --confdir=/etc                  \
+              --mandir=/usr/share/man         \
               --with-codecsdir=/usr/lib/win32 \
-              --enable-linux-devfs	      \
-              --enable-largefiles	      \
-              --confdir=/etc/mplayer	      \
+              --enable-linux-devfs            \
+              --enable-largefiles             \
+              --confdir=/etc/mplayer          \
               --datadir=/usr/share/mplayer    \
-	      $OPTS &&
+              $OPTS &&
 
   default_make &&
 
-  gather_docs etc/* 		      &&
+  gather_docs etc/*                   &&
   install -d /usr/share/mplayer/Skin  &&
-  install -d /etc/mplayer	      &&
-  install -m644 etc/codecs.conf /usr/share/mplayer/  	   &&
+  install -d /etc/mplayer             &&
+  install -m644 etc/codecs.conf /usr/share/mplayer/        &&
   install -m644 etc/example.conf /etc/mplayer/mplayer.conf &&
-  install -m644 etc/input.conf /etc/mplayer/ 		   &&
+  install -m644 etc/input.conf /etc/mplayer/               &&
 
   cp -a Skin/Blue /usr/share/mplayer/Skin/ &&
   ln -sf /usr/share/mplayer/Skin/Blue /usr/share/mplayer/Skin/default &&
