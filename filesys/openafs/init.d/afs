@@ -88,7 +88,7 @@ start ()
     # Start bosserver, it if exists
     if is_on $AFS_SERVER && test -x /usr/sbin/bosserver  ; then
 	echo -n "Starting AFS server: "
-	/usr/sbin/bosserver -nofork ${BOSSERVER_OPTIONS} &&
+	/usr/sbin/bosserver -nofork ${BOSSERVER_OPTIONS} &
 	echo -e $RESULT_OK || echo -e $RESULT_FAIL
 	if is_on $WAIT_FOR_SALVAGE; then
             # wait for fileserver to finish salvaging
@@ -102,7 +102,7 @@ start ()
     
     # Start AFS client
     if is_on $AFS_CLIENT && test -x /usr/sbin/afsd  ; then
-	echo -n "Starting  AFS client: "
+	echo -n "Starting AFS client: "
 	choose_afsdoptions
 	/usr/sbin/afsd ${AFSD_OPTIONS} &&
 	echo -e $RESULT_OK || echo -e $RESULT_FAIL
