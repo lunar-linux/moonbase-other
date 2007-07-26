@@ -21,7 +21,6 @@
                -system-libmng       \
                -system-zlib         \
                -no-exceptions       \
-               -thread              \
                -dlopen-opengl       \
 	       -xft		    \
 	       -xkb		    \
