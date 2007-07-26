@@ -1,4 +1,6 @@
 (
+  patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
   ./regen.sh &&
   case `uname -r` in
     2.6.*) 
@@ -11,7 +13,7 @@
       message "Unsupported kernel version!"
       exit -1
       ;;
-  esac
+  esac &&
 
   case `arch` in
     x86_64)
@@ -23,7 +25,7 @@
     *)
       OPTS+=" --with-afs-sysname=`arch`_linux${kv}"
       ;;
-  esac
+  esac &&
    
   OPTS="$OPTS --with-linux-kernel-headers=/usr/src/linux"
 
