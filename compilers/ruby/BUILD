@@ -1,7 +1,7 @@
 (
 
   bad_flags -fomit-frame-pointer
-  OPTS="$OPTS --enable-shared"
+  OPTS="$OPTS --enable-shared --enable-static"
   default_build &&
   make install-doc
 
