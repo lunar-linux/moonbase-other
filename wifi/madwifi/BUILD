@@ -3,6 +3,8 @@
   export MANDIR="/usr/share/man"
   export KERNELPATH="/usr/src/linux"
  
+  patch_it $SOURCE2 1 &&
+
   default_make &&
 
   mkdir -p /usr/include/madwifi/include &&
