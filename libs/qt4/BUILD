@@ -21,6 +21,8 @@
                -system-libmng   \
                -system-zlib     \
                -no-exceptions   \
+	       -nomake examples \
+	       -nomake demos	\
                $OPTS           &&
 
   default_make  &&
