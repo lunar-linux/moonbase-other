@@ -1,20 +1,27 @@
-depends  chkconfig  &&
-depends  db         &&
-depends  perl       &&
+depends  chkconfig
+depends  db
+depends  perl
 
 # the --without-* options are fake but will trigger in_depends to
 # correctly disable *installed* optional dependencies --sofar
+
 optional_depends  "pcre"         "" "--without-pcre" \
-			"for improved regexp support"        &&
+			"for improved regexp support"
+			
 optional_depends  "openldap"     "" "--without-openldap" \
-			"for ldap support"                   &&
+			"for ldap support"
+			
 optional_depends  "mysql"        "" "--without-mysql" \
-			"for mysql support"                  &&
+			"for mysql support"
+			
 optional_depends  "postgresql"   "" "--without-postgresql" \
-			"for postgresqul support"            &&
+			"for postgresqul support"
+			
 optional_depends  "cyrus-sasl"   "" "--without-cyrus-sasl" \
-			"for SMTP authentication and TSL"    &&
+			"for SMTP authentication and TSL"
+			
 optional_depends  "courier-imap" "" "--without-courier-imap" \
-			"if you intend to run with Maildir"  &&
+			"if you intend to run with Maildir"
+			
 optional_depends  "smtpclient"   "" "--without-smtpclient" \
 			"useful with spamassassin & Maildir"
