@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   bad_flags -malign-double
   
   sedit "s:ln -s :ln -sf :" Makefile.in  &&
