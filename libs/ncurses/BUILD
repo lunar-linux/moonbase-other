@@ -1,4 +1,7 @@
 (
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   if [ $WITH_DEBUG == "y" ]; then
     OPTS="$OPTS --with-debug"
   else
@@ -13,7 +16,7 @@
 
 # Seems that ncurses-5.5 has problems with garbage in /usr/share/terminfo
 # Note: ncurses-5.5 also has all the "screen" files for terminfo, so no recompile is needed
-  rm -rf /usr/share/terminfo &&
+  rm -rf /usr/share/terminfo  &&
 
 # ************************ WARNING *************************
 # DO NOT MESS WITH THE CONFIGURE STUFF here unless you
@@ -32,7 +35,7 @@ set -x
                --mandir=/usr/share/man                   \
                --with-manpage-format=gzip                \
                --disable-termcap                         \
-               --enable-colorfgbg                        \
+	       --enable-colorfgbg                        \
                --with-terminfo-dirs=/usr/share/terminfo  \
                $OPTS                                    &&
 set +x &&               
