@@ -1,13 +1,16 @@
           MODULE=module-init-tools
          VERSION=3.2.2
-          SOURCE=${MODULE}-${VERSION}.tar.bz2
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-$VERSION-modprobe-1.patch.bz2
    SOURCE_URL[0]=${KERNEL_URL}/pub/linux/kernel/people/rusty/modules/
    SOURCE_URL[1]=ftp://ftp.kernel.org/pub/linux/kernel/people/rusty/modules/
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:b51e8ac170be23a1f2e301a1dddd47a47ec2186a
+     SOURCE2_VFY=sha1:ed20de200e63a329d47eec8eed39911a56761d18
         WEB_SITE=http://www.kernel.org/
          ENTERED=20030410
-         UPDATED=20051208
-           SHORT="utilities essential for a modular Linux 2.6.x kernel."
+         UPDATED=20070807
+           SHORT="Utilities essential for a modular Linux 2.6.x kernel"
 
 cat << EOF
 This package contains utilities that are intended to make a Linux 
