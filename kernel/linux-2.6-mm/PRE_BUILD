@@ -1,9 +1,9 @@
 cd /usr/src
 
 if [ -d $SOURCE_DIRECTORY ]; then
-	message "Removing old -mm kernel source, conserving -mm .config"
-	cp $SOURCE_DIRECTORY/.config /etc/lunar/local/.config-2.6-mm
-	rm -rf $SOURCE_DIRECTORY
+        message "Removing old -mm kernel source, conserving -mm .config"
+        cp $SOURCE_DIRECTORY/.config /etc/lunar/local/.config-2.6-mm
+        rm -rf $SOURCE_DIRECTORY
 fi
 
 validate_source_dir $SOURCE_DIRECTORY &&
@@ -15,10 +15,10 @@ tar x --transform "s/linux-$KERNEL_VERSION\///" -f $SOURCE_CACHE/$SOURCE &&
 patch_it $SOURCE2 1 &&
 patch_it $SOURCE3 1 || exit 1
 
-for CONF in .config-2.6-mm .config.2.6.stable ; do	
-	if [ -f $CONFIG_CACHE/$CONF ]; then 
-		message "Importing $CONF as kernel default configuration"
-		cp $CONFIG_CACHE/$CONF /usr/src/linux/.config
-		break
-	fi
+for CONF in .config-2.6-mm .config.2.6.stable ; do        
+        if [ -f $CONFIG_CACHE/$CONF ]; then 
+                message "Importing $CONF as kernel default configuration"
+                cp $CONFIG_CACHE/$CONF /usr/src/linux/.config
+                break
+        fi
 done
