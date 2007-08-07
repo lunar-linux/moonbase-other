@@ -2,7 +2,7 @@
 
   if [ "$AIRSNORT" == "y" ]; then
     patch_it $SOURCE_CACHE/$SOURCE2 1
-  fi		   &&
+  fi                   &&
 
   patch_it $SOURCE_CACHE/$SOURCE3 0 &&
   sedit "s/pid=\`\/sbin\/pidof/pid=\`\/bin\/pidof/" etc/rc.pcmcia &&

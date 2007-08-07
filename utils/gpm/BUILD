@@ -33,11 +33,11 @@ patch_it $SOURCE_CACHE/$SOURCE3 1                      &&
 
 if [ -d "/etc/config.d" ]; then
    if [ -e /etc/config.d/mouse ]; then
-   	cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse.new
-	echo $NEWMSG
+           cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse.new
+        echo $NEWMSG
    else
-   	cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse
-	echo $BASEMSG
+           cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse
+        echo $BASEMSG
    fi
 else
    mkdir -p /etc/config.d

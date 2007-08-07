@@ -13,9 +13,9 @@
   message "${MESSAGE_COLOR}Configuring with $OPTS${DEFAULT_COLOR}"
 
   ./configure --prefix=/usr \
-	      --mandir=/usr/share/man \
-	      --enable-standalone \
-	      $OPTS &&
+              --mandir=/usr/share/man \
+              --enable-standalone \
+              $OPTS &&
   default_make
 
 ) > $C_FIFO 2>&1

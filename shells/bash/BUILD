@@ -46,11 +46,11 @@
       message ""
       if query "Do you want root to have the new .bash_* files ? " y ; then
         [ -L /root/.bashrc ] && rm /root/.bashrc
-	install -m 600 -o root -g root $SCRIPT_DIRECTORY/skel/.bash_profile /root/.bash_profile
-	install -m 600 -o root -g root $SCRIPT_DIRECTORY/skel/.bashrc /root/bashrc
-	install -m 600 -o root -g root $SCRIPT_DIRECTORY/skel/.bash_logout /root/.bash_logout
-	[ -L /root/.bash_history ] || rm /root/.bash_history
-	[ -e /root/.bash_history ] || ln -s /dev/null /root/.bash_history
+        install -m 600 -o root -g root $SCRIPT_DIRECTORY/skel/.bash_profile /root/.bash_profile
+        install -m 600 -o root -g root $SCRIPT_DIRECTORY/skel/.bashrc /root/bashrc
+        install -m 600 -o root -g root $SCRIPT_DIRECTORY/skel/.bash_logout /root/.bash_logout
+        [ -L /root/.bash_history ] || rm /root/.bash_history
+        [ -e /root/.bash_history ] || ln -s /dev/null /root/.bash_history
       fi
       message "${MESSAGE_COLOR}Make sure your users also get the new .bash* from /etc/skel! ${DEFAULT_COLOR}"
     fi

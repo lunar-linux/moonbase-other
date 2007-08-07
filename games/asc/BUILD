@@ -5,7 +5,7 @@
 
   ./configure  --prefix=/usr               \
                --bindir=/usr/games         \
-	       --datadir=/usr/share/games  \
+               --datadir=/usr/share/games  \
                --disable-paraguitest      &&
 
   default_make

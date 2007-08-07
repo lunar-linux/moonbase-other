@@ -3,7 +3,7 @@
 
   ./configure  --with-sys-screenrc=/etc/screenrc  \
                --prefix=/usr                      \
-	       --infodir=/usr/share/info          \
+               --infodir=/usr/share/info          \
                --mandir=/usr/share/man           &&
   default_make &&
   gather_docs doc/FAQ TODO NEWS.* etc/screenrc &&

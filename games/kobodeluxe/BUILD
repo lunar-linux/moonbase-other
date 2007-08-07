@@ -6,7 +6,7 @@
 
   ./configure  --prefix=/usr         \
                --bindir=/usr/games   \
-	       --localstatedir=/var  \
+               --localstatedir=/var  \
                --disable-sdltest    &&
   default_make
 

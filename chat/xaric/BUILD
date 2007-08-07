@@ -1,9 +1,9 @@
 (
 
-	./configure       &&
-	make              &&
-	prepare_install   &&
-	make install      &&
-	make installdata
+        ./configure       &&
+        make              &&
+        prepare_install   &&
+        make install      &&
+        make installdata
 
 ) > $C_FIFO 2>&1

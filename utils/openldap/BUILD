@@ -17,15 +17,15 @@
                --enable-dynamic           \
                --with-gnu-ld              \
                --enable-shared            \
-	       --enable-rewrite           \
-	       --enable-ldbm              \
-	       --enable-ldap              \
-	       --enable-meta              \
-	       --enable-monitor           \
-	       --enable-null              \
-	       --enable-passwd            \
-	       --enable-shell             \
-	       --enable-dnssrv            \
+               --enable-rewrite           \
+               --enable-ldbm              \
+               --enable-ldap              \
+               --enable-meta              \
+               --enable-monitor           \
+               --enable-null              \
+               --enable-passwd            \
+               --enable-shell             \
+               --enable-dnssrv            \
                $OPTS                     &&
   make depend                            &&
   default_make  

@@ -12,10 +12,10 @@
     THISMAKE=./Gmake.linux
   fi                                                 &&
   $THISMAKE INS_BASE=/usr DEFINSUSR=root              \
-	    DEFINSGRP=root			     &&
+            DEFINSGRP=root                           &&
   prepare_install                                    &&
   $THISMAKE INS_BASE=/usr DEFINSUSR=root              \
-	    DEFINSGRP=root MANDIR=share/man install  &&
+            DEFINSGRP=root MANDIR=share/man install  &&
   mkdir -p /etc/default                              &&
   install -m644 rscsi/rscsi.dfl /etc/default
   

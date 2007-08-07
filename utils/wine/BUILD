@@ -3,10 +3,10 @@
   bad_flags "-z combreloc"
   ./configure --build=i686-pc-linux-gnu  \
               --prefix=/usr              \
-	      --sysconfdir=/etc          \
-	      --localstatedir=/var       \
-	      --infodir=/usr/share/info  \
-	      --mandir=/usr/share/man   &&
+              --sysconfdir=/etc          \
+              --localstatedir=/var       \
+              --infodir=/usr/share/info  \
+              --mandir=/usr/share/man   &&
 
   make depend  &&
   default_make

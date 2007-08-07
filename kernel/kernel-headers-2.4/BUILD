@@ -4,7 +4,7 @@
   prepare_install &&
   if [ $KVERSION == "4" ]; then
     if [ -d /usr/include/asm ] && [ -d /usr/include/linux ]; then
-	rm -rf /usr/include/asm /usr/include/linux
+        rm -rf /usr/include/asm /usr/include/linux
     fi
 
     mkdir -p /usr/include/asm /usr/include/linux

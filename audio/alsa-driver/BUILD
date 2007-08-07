@@ -2,9 +2,9 @@
 
   # Look for sound support in kernel
   if [ -f /usr/src/linux/.config ]; then
-  	CONFIG_SOUND=$(grep "CONFIG_SOUND=" "/usr/src/linux/.config")
+        CONFIG_SOUND=$(grep "CONFIG_SOUND=" "/usr/src/linux/.config")
   else
-  	CONFIG_SOUND=$(grep "CONFIG_SOUND=" "${CONFIG_CACHE}/.config")
+        CONFIG_SOUND=$(grep "CONFIG_SOUND=" "${CONFIG_CACHE}/.config")
   fi &&
 
   #There a case or two that this could be "problematic"

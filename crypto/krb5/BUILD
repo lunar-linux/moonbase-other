@@ -3,7 +3,7 @@
   cd  src                       &&
   ./configure  --enable-dns-for-kdc     \
                --enable-dns-for-realm   \
-	       --enable-kdc-replay-cache \
+               --enable-kdc-replay-cache \
                --infodir=/usr/share     \
                --mandir=/usr/share/man  \
                --prefix=/usr    &&

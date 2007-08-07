@@ -21,7 +21,7 @@ other="autopano-complete.old.sh autopano-complete.sh ICSharpCode.SharpZipLib.dll
 
 for i in $other ; do
   echo "installing $i"
-	install -m644 bin/$i /opt/lunar/autopano-sift/bin
+        install -m644 bin/$i /opt/lunar/autopano-sift/bin
 done 
 
 echo "finished scripts and libs" &&

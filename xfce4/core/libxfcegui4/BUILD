@@ -4,9 +4,9 @@
    # make sure proper PKG_CONFIG_PATH is set
    export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
 
-   ./configure  --build=$BUILD					\
-                --prefix=${MODULE_PREFIX}	\
-		--enable-xinerama				\
+   ./configure  --build=$BUILD                                        \
+                --prefix=${MODULE_PREFIX}        \
+                --enable-xinerama                                \
                 $OPTS                                           &&
 
    default_make

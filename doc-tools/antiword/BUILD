@@ -15,7 +15,7 @@
 
   mkdir -p /usr/share/antiword &&
   for file in Resources/*; do
-	install -m644 ${file} /usr/share/antiword
+        install -m644 ${file} /usr/share/antiword
   done
 
 ) > $C_FIFO 2>&1

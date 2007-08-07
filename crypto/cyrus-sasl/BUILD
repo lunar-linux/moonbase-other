@@ -14,7 +14,7 @@
               --disable-anon                       \
               --with-pwcheck=/var/lib/sasl         \
               --with-dbpath=/var/lib/sasl/sasl.db  \
-	      --with-config=/etc/sasl2             \
+              --with-config=/etc/sasl2             \
               --with-plugindir=/usr/lib/sasl2      \
               --enable-sample                      \
               --with-gnu-ld                        \
@@ -24,7 +24,7 @@
   mkdir -p /var/lib/sasl/  &&
   default_make             &&
   if [ ! -d /etc/sasl2 ]; then
-  	mkdir -p /etc/sasl2
+          mkdir -p /etc/sasl2
   fi &&
   if [ ! -e /etc/sasl2/smtpd.conf ] ; then
     install $SOURCE_CACHE/$SOURCE2 /etc/sasl2/smtpd.conf.gz  &&

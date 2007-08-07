@@ -2,7 +2,7 @@
 
 
   ./configure  --prefix=/usr   \
-	       $OPTS           &&
+               $OPTS           &&
   
   make                         &&
   prepare_install              &&

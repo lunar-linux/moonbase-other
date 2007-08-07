@@ -5,7 +5,7 @@
 
   ./configure --prefix=/usr/share  \
               $OPTS               &&
-	      
+              
   default_make  &&
   
   mv /usr/share/bin/Maelstrom /usr/games/Maelstrom

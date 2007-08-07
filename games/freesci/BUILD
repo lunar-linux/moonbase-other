@@ -3,8 +3,8 @@
 
   ./configure --prefix=/usr              \
               --bindir=/usr/games        \
-	      --datadir=/usr/share/games \
-	      --mandir=/usr/share/man   &&
+              --datadir=/usr/share/games \
+              --mandir=/usr/share/man   &&
 
   sedit "s:datadir)/app:prefix)/share/app:" desktop/Makefile  &&
   sedit "s:datadir)/ico:prefix)/share/ico:" desktop/Makefile  &&

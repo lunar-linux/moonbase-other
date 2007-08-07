@@ -1,7 +1,7 @@
 (
     ./configure --prefix=/usr  \
-	        --qtdir=$QTDIR \
-	        $OPTS	       &&
+                --qtdir=$QTDIR \
+                $OPTS               &&
 
     default_make
 

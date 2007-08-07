@@ -7,7 +7,7 @@
                --with-qt-includes=${QT_PREFIX:-$QTDIR}/include  \
                --with-qt-libraries=${QT_PREFIX:-$QTDIR}/lib     \
                --disable-debug              \
-	       --enable-final               \
+               --enable-final               \
                --enable-fast-malloc=full    \
                --with-xinerama              \
                $OPTS                       &&

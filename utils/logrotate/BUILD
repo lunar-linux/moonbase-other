@@ -3,7 +3,7 @@
   patch_it $SOURCE2 1 &&
   
   # Logrotate craps out without this
-  unset CPP			     &&
+  unset CPP                             &&
   make                               &&
   prepare_install                    &&
   make install                       &&

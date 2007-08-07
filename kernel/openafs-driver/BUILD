@@ -29,12 +29,12 @@
    
   OPTS="$OPTS --with-linux-kernel-headers=/usr/src/linux"
 
-  ./configure 	--prefix=/usr			\
-		--sysconfdir=/usr/vice/etc	\
-		--localstatedir=/var		\
-		--infodir=/usr/share/info	\
-		--mandir=/usr/share/man		\
-		$OPTS				&&
+  ./configure   --prefix=/usr                   \
+                --sysconfdir=/usr/vice/etc      \
+                --localstatedir=/var            \
+                --infodir=/usr/share/info       \
+                --mandir=/usr/share/man         \
+                $OPTS                           &&
   make only_libafs &&
   prepare_install
 

@@ -10,7 +10,7 @@
   fi 
 
   ./configure --prefix=/ \
-	      --libdir=/usr/lib \
+              --libdir=/usr/lib \
               --datadir=/usr/share \
               --infodir=/usr/share/info \
               --mandir=/usr/share/man \

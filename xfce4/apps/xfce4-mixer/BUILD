@@ -4,13 +4,13 @@
    # make sure proper PKG_CONFIG_PATH is set
    export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
 
-   ./configure  --build=$BUILD					\
-                --prefix=${MODULE_PREFIX}	\
-		--disable-static				\
+   ./configure  --build=$BUILD                                        \
+                --prefix=${MODULE_PREFIX}        \
+                --disable-static                                \
                 $OPTS                                           &&
 
    # bug in 4.1.90
-   cp settings/stringlist.inc lib/				&&
+   cp settings/stringlist.inc lib/                                &&
 
    default_make
 

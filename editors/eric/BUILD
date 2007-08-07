@@ -8,5 +8,5 @@
   prepare_install  &&
   sedit "s/usr\/local\/bin/usr\/bin\//" install.py  &&
   python install.py
-	
+        
 ) > $C_FIFO 2>&1

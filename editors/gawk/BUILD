@@ -4,7 +4,7 @@
   ./configure  --build=$BUILD             \
                --prefix=/usr              \
                --mandir=/usr/share/man    \
-	       --infodir=/usr/share/info  \
+               --infodir=/usr/share/info  \
                --bindir=/bin             &&
   default_make                           &&
   rm  -f         /bin/awk                &&

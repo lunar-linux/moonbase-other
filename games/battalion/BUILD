@@ -1,7 +1,7 @@
 (
 
   rm -f battalion                                        &&
-  make		 		                                       &&
+  make                                                   &&
   make clean                                             &&
   rm -f *.c                                              &&
   rm -f *.h                                              &&

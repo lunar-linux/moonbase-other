@@ -3,7 +3,7 @@
   ./configure  --prefix=/usr             \
                --sysconfdir=/etc/courier \
                --localstatedir=/var      \
-	       --datadir=/etc/courier/cert \
+               --datadir=/etc/courier/cert \
                --disable-root-check      \
                --mandir=/usr/share/man   \
                $OPTS                    &&

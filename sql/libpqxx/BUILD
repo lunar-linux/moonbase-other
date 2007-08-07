@@ -4,10 +4,10 @@
   ./configure  --sysconfdir=/etc        \
                --prefix=/usr            \
                --mandir=/usr/share/man  \
-	       --localstatedir=/var     \
+               --localstatedir=/var     \
                --enable-shared          \
                --disable-static         \
-	       $OPTS                    &&
+               $OPTS                    &&
 
 
   default_make

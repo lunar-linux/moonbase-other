@@ -15,7 +15,7 @@
   ETC="/etc/junkbuster"
 
   for file in blocklist imagelist cookiefile saclfile.ini \
-      	      config forward strust.ini
+                    config forward strust.ini
   do
   [  -f  $ETC/$file  ]  ||  cp  $file  $ETC
   done

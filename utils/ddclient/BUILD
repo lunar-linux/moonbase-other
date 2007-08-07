@@ -1,6 +1,6 @@
 (
 
-  prepare_install	&&
+  prepare_install        &&
   install -m 750 ddclient /usr/sbin/ddclient &&
   mkdir /var/cache/ddclient &&
   if [ ! -x /etc/ddclient ]; then

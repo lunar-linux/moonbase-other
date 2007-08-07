@@ -5,7 +5,7 @@
                --libdir=/lib            \
                --mandir=/usr/share/man  \
                --sysconfdir=/etc        \
-	       --enable-readline       &&
+               --enable-readline       &&
   default_make
 
 ) > $C_FIFO 2>&1

@@ -2,11 +2,11 @@
 
   ./configure  --prefix=/usr                        \
                --sysconfdir=/etc                    \
-	       --enable-xpm-background              \
+               --enable-xpm-background              \
                --enable-transparency                \
-	       --enable-graphics                    \
-	       --enable-xgetdefault                 \
-	       --enable-half-shadow                 \
+               --enable-graphics                    \
+               --enable-xgetdefault                 \
+               --enable-half-shadow                 \
                --enable-rxvt-scroll                 \
                --infodir=/usr/share/info            \
                --mandir=/usr/share/man              \

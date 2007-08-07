@@ -1,7 +1,7 @@
 (
 
   default_make     &&
-  gzip -9 p0f.1	   &&
+  gzip -9 p0f.1           &&
   prepare_install  &&
   mkdir -p /etc/p0f
 

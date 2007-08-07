@@ -2,7 +2,7 @@
 
   ./configure  --prefix=/usr                \
                --bindir=/usr/games          \
-	       --datadir=/usr/share/games   \
+               --datadir=/usr/share/games   \
                --enable-sound               \
                --with-sdl-prefix=/usr       \
                --with-sdl-exec-prefix=/usr  \

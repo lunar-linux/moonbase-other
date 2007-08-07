@@ -1,8 +1,8 @@
 (
 
     ./configure --prefix=/usr \
-	        --with-workdir=/var/lib/cfengine \
-	        --with-berkeleydb=/usr \
+                --with-workdir=/var/lib/cfengine \
+                --with-berkeleydb=/usr \
                 $OPTS &&
 
     # Sigh, documents are installed in a crazy place
@@ -13,7 +13,7 @@
     default_make &&
 
     if [ ! -d /var/lib/cfengine/bin ]; then
-	mkdir -p /var/lib/cfengine/bin 
+        mkdir -p /var/lib/cfengine/bin 
     fi &&
 
     # Install man-pages and docs manually

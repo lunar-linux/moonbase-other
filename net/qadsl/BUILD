@@ -6,6 +6,6 @@
                --sysconfdir=/etc         &&
   make                                   &&
   prepare_install                        &&
-  make install				 &&
+  make install                                 &&
   chmod 700 /etc/qadsl.conf
 ) > $C_FIFO 2>&1

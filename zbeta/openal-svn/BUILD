@@ -1,10 +1,10 @@
 (
 
   ./autogen.sh         &&
-	./configure --prefix=/usr              \
-	            $OPTS                      &&
+        ./configure --prefix=/usr              \
+                    $OPTS                      &&
   make                                   &&
-	prepare_install                        &&
-	make install
+        prepare_install                        &&
+        make install
   
 ) > $C_FIFO 2>&1

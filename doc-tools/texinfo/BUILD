@@ -2,7 +2,7 @@
 
   ./configure  --build=$BUILD          \
                --prefix=/usr           \
-	       --infodir=/usr/share/info \
+               --infodir=/usr/share/info \
                --mandir=/usr/share/man &&
   make                                 &&
   prepare_install                      &&

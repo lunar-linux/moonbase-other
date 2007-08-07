@@ -1,8 +1,8 @@
 (
     if module_installed apache || module_installed apache-mod_ssl ; then
-	AVER="apache1"
+        AVER="apache1"
     elif module_installed apache2 ; then
-	AVER="apache2"
+        AVER="apache2"
     fi
     
     cd $AVER

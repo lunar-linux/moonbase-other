@@ -1,6 +1,6 @@
 (
-  ./configure	--prefix=/usr                      \
-		--with-ssh=/usr/bin/ssh		   \
+  ./configure        --prefix=/usr                      \
+                --with-ssh=/usr/bin/ssh                   \
                $OPTS              &&
   default_make
 

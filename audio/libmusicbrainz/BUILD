@@ -1,10 +1,10 @@
 (
 
-  default_build	&&
+  default_build &&
 
   if module_installed ctypes ; then
-	cd python;
-	python setup.py build;
+        cd python;
+        python setup.py build;
         python setup.py install;
   fi
 
