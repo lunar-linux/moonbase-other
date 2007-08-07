@@ -16,7 +16,7 @@
                --enable-docdir=/usr/share/doc/Linux-PAM \
                --disable-prelude                        \
                --mandir=/usr/share/man                  \
-	       --disable-berkdb                         \
+               --disable-berkdb                         \
                $OPTS &&
 
   sedit  "s/examples//"  Makefile              &&

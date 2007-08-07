@@ -10,38 +10,38 @@
   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
   if [ "$SUIDPERL" == "y" ] ; then
-	OPTS="$OPTS -Dd_dosuid"
+        OPTS="$OPTS -Dd_dosuid"
   fi &&
-	
+        
   if [ "$CUSTOM" == "y" ] ; then
-	./Configure  -Dprefix=/usr   \
+        ./Configure  -Dprefix=/usr   \
                      -Dscriptdir=/usr/bin \
-		     -Duseshrplib=true	\
-		     $OPTS \
+                     -Duseshrplib=true        \
+                     $OPTS \
                      -Dman1dir=/usr/share/man/man1 \
                      -Dman3dir=/usr/share/man/man3 -e
   else
         ./Configure  -Dprefix=/usr   \
                      -Dscriptdir=/usr/bin \
-		     -Duseshrplib=true	\
-		     -Dccdlflags='-rdynamic' \
-		     -Doptimize="${CFLAGS}" \
-		     -Duselargefiles \
-		     -Ud_csh \
-		     -Dcf_by='Lunar' \
+                     -Duseshrplib=true        \
+                     -Dccdlflags='-rdynamic' \
+                     -Doptimize="${CFLAGS}" \
+                     -Duselargefiles \
+                     -Ud_csh \
+                     -Dcf_by='Lunar' \
                      $OPTS \
-		     -Dman1dir=/usr/share/man/man1 \
-		     -Dusethreads	\
+                     -Dman1dir=/usr/share/man/man1 \
+                     -Dusethreads        \
                      -Dman3dir=/usr/share/man/man3 -d -e 
   fi && 
  
-  make	  		&&
+  make                          &&
 
   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SOURCE_DIRECTORY" &&
-  ldconfig		&&
+  ldconfig                &&
 
-  prepare_install	&&
-  make install		&&
+  prepare_install        &&
+  make install                &&
 
   strip --strip-unneeded $(which perl) &&
   

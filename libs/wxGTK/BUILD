@@ -3,17 +3,17 @@
     OPTS="$OPTS --enable-unicode"
   fi  &&
   
-  ./configure   --build=$BUILD	   \
+  ./configure   --build=$BUILD     \
                 --prefix=/usr      \
-		--with-gtk         \
-		--enable-shared	   \
-		--enable-optimise  \
-		$OPTS             &&
+                --with-gtk         \
+                --enable-shared    \
+                --enable-optimise  \
+                $OPTS             &&
   default_make                    &&
 
   for DIR in contrib/src/stc \
-	     contrib/src/gizmos \
-	     contrib/src/ogl;
+             contrib/src/gizmos \
+             contrib/src/ogl;
   do
 
   cd $DIR;

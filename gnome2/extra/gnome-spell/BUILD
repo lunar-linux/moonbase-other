@@ -14,7 +14,7 @@
 
     for f in $(find -name Makefile) ; do
       sedit 's/-DGTK_DISABLE_DEPRECATED=1//g' $f 
-    done					  &&
+    done                                          &&
 #   This sedit is a temp hack until the gnome-spell devs fix it to use aspell-0.60.2    
     sedit 's/CCLD = $(CC)/CCLD= g++/' gnome-spell/Makefile &&
 

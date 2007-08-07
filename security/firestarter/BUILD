@@ -2,8 +2,8 @@
 
   ./configure --prefix=/usr                   \
               --bindir=/usr/bin               \
-	      --sbindir=/usr/sbin             \
-	      --mandir=/usr/share/man         &&
+              --sbindir=/usr/sbin             \
+              --mandir=/usr/share/man         &&
   default_build
 
   if [ -e "/etc/init.d/firestarter.sh" ]; then

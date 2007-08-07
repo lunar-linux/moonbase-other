@@ -3,12 +3,12 @@
   while
     if [ "$CONFIG_KERNEL" == "y" ]; then
         if [ "$PREFER_XCONFIG" == "y" -a -n "$DISPLAY" ]; then
-	    make xconfig || make menuconfig || make config
+            make xconfig || make menuconfig || make config
         elif [ "$PREFER_MENUCONFIG" == "y" ]; then
-	    make menuconfig || make config
-	else
-	    make config
-	fi
+            make menuconfig || make config
+        else
+            make config
+        fi
         if ! query "Repeat configuration?" n; then
             CONFIG_KERNEL=n
         fi
@@ -30,7 +30,7 @@
 
   make ${MAKES:+-j$MAKES} bzImage           &&
   make ${MAKES:+-j$MAKES} modules           &&
-  backup_mods_krnl $VERSION	            &&
+  backup_mods_krnl $VERSION                    &&
   prepare_install                           &&
   make modules_install                      &&
   cp arch/${MYARCH}/boot/bzImage /boot/$VERSION  &&

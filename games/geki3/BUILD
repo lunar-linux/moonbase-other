@@ -14,7 +14,7 @@
   
   ./configure  --prefix=/usr              \
                --bindir=/usr/games        \
-	       --datadir=/usr/share/games &&
+               --datadir=/usr/share/games &&
 
   sedit "s:= $(SHELL) $(top_srcdir)/depcomp:=:" src/Makefile.in  &&
 

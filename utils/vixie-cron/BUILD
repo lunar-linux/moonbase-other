@@ -1,6 +1,6 @@
 (
 
-  unpack $SOURCE2					  &&
+  unpack $SOURCE2                                          &&
   patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-crond.patch 1 &&
   patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-Makefile.patch 1 &&
   patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-pathnames.patch 1 &&
@@ -12,8 +12,8 @@
   patch_it $MODULE-patches-$PVERSION/$MODULE-4.1-permfix.patch 1 &&
 
   if module_installed Linux-PAM; then
-	patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-pam.patch 1 
-	patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-log_facility.patch 1
+        patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-pam.patch 1 
+        patch_it $MODULE-patches-$PVERSION/$MODULE-$VERSION-log_facility.patch 1
   fi &&
 
   make                                                    &&

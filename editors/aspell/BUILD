@@ -9,5 +9,5 @@
 
   default_make                                                   &&
   install -m755 scripts/spell scripts/ispell \
-		scripts/aspell-import /usr/bin
+                scripts/aspell-import /usr/bin
 ) > $C_FIFO 2>&1 

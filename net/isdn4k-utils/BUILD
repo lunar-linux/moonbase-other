@@ -6,7 +6,7 @@ while [ ! -f .config ]; do
     read  -t 10  -n 1  -p "Configure $MODULE? "  CONFIRM
     case  $CONFIRM  in
       y|Y)  make  config  ;;
-	*)  make  subconfig ;;
+        *)  make  subconfig ;;
     esac
   else
     make  config

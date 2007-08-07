@@ -6,8 +6,8 @@
 
    PATH="$PATH:/usr/X11/bin"
 
-   ./configure  --build=$BUILD					\
-                --prefix=${MODULE_PREFIX}	\
+   ./configure  --build=$BUILD                                        \
+                --prefix=${MODULE_PREFIX}        \
                 $OPTS                                           &&
 
    default_make

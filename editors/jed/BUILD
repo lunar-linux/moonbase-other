@@ -5,7 +5,7 @@
     ./configure  --build=$BUILD             \
                  --prefix=/usr              &&
     make                                    &&
-    make  getmail		            &&
+    make  getmail                            &&
     if [ "$USE_X11" == "y" ]; then
       make xjed
     fi                                      &&

@@ -10,9 +10,9 @@
                --with-init-dir=/etc/init.d      \
                --with-rc-dir=/etc               \
                --enable-mandatory-headers       \
-	       --disable-ntsysv                 \
+               --disable-ntsysv                 \
                --with-xinetd-dir=/etc/xinetd.d  \
-	       $OPTS &&
+               $OPTS &&
 
   default_make
 

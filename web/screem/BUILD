@@ -2,7 +2,7 @@
 
   if [ -d /usr/include/gdk-pixbuf-1.0/gdk-pixbuf ]; then
      ln  -sf  /usr/include/gdk-pixbuf-1.0/gdk-pixbuf /usr/include/gdk-pixbuf
-  fi							&&
+  fi                                                        &&
 
   ./configure   --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \

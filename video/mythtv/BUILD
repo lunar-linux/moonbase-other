@@ -6,11 +6,11 @@
   sedit "s:QMAKE_CXXFLAGS_RELEASE = .*:QMAKE_CXXFLAGS_RELEASE = $CXXFLAGS:" settings.pro
   sedit "s:DEFINES += MMX:DEFINES += MMX SSE"
 
-  ./configure --prefix=/usr	&&
+  ./configure --prefix=/usr        &&
 
-  qmake mythtv.pro		&&
+  qmake mythtv.pro                &&
 
-  default_make			&&
+  default_make                        &&
 
   cp $SCRIPT_DIRECTORY/mythfilldatabasecron /usr/bin/ &&
   chmod 755 /usr/bin/mythfilldatabasecron &&

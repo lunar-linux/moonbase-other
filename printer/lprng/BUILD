@@ -2,11 +2,11 @@
 
   ./configure --prefix=/usr \
               --sysconfdir=/etc \
-	      --localstatedir=/var \
+              --localstatedir=/var \
               --mandir=/usr/share/man \
-	      --with-userid=lp \
-	      --with-initpath=no \
-	      --with-groupid=lp &&
+              --with-userid=lp \
+              --with-initpath=no \
+              --with-groupid=lp &&
   default_make  &&
 
   mkdir -p /usr/share/doc/lprng &&

@@ -1,6 +1,6 @@
 (
 
-  python configure.py  &&	
+  python configure.py  &&        
   default_make
 
 ) > $C_FIFO 2>&1

@@ -3,7 +3,7 @@
   ./configure  --prefix=/usr                                          \
                --bindir=/usr/games                                    \
                --disable-sdltest                                      \
-	       --with-tcl-lib-name=tcl8.4                             \
+               --with-tcl-lib-name=tcl8.4                             \
                --with-data-dir=/usr/share/games/$MODULE-data-$VERSION &&
   sedit "s:-malign-:-falign-:g" Makefile src/Makefile                 &&
   default_make                                                        &&

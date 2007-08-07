@@ -5,7 +5,7 @@
                --prefix=/usr            \
                --mandir=/usr/share/man  \
                --localstatedir=/var     \
-               --enable-shared		\
+               --enable-shared                \
                --with-g77               \
                --enable-dl              \
                --enable-rpath           \

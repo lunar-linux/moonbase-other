@@ -13,8 +13,8 @@
               --enable-readline-dir=/usr \
               --enable-openssl=/usr \
               --includedir=/usr/include/heimdal \
-	      $OPTS &&
-  make	&&
+              $OPTS &&
+  make  &&
   prepare_install &&
   make install &&
   

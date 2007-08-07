@@ -7,8 +7,8 @@
 
   ./configure  --prefix=/usr                \
                --bindir=/usr/games          \
-	       --datadir=/usr/share/games   \
-	       --with-datadir-name=/usr/share/games/wormux  \
+               --datadir=/usr/share/games   \
+               --with-datadir-name=/usr/share/games/wormux  \
                $OPTS                                       &&
 
   default_make

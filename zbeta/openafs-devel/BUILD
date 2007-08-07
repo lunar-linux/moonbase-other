@@ -1,7 +1,7 @@
 (
-  patch_it $SOURCE3 1	&&
-  patch_it $SOURCE4 1	&&
-  ./regen.sh		&& 
+  patch_it $SOURCE3 1        &&
+  patch_it $SOURCE4 1        &&
+  ./regen.sh                && 
 
   case `uname -s -r` in
     [lL]inux\ 2.4.*) OPTS="$OPTS --with-afs-sysname=i386_linux24"
@@ -20,30 +20,30 @@
   fi
   OPTS="$OPTS --with-linux-kernel-headers=/lib/modules/`uname -r`/build"
 
-  ./configure 	--prefix=/usr			\
-		--sysconfdir=/usr/vice/etc	\
-		--localstatedir=/var		\
-		--infodir=/usr/share/info	\
-		--mandir=/usr/share/man		\
-		$OPTS				&&
-  make all_nolibafs				&&
-  prepare_install				&&
-  make install_nolibafs				&&
+  ./configure         --prefix=/usr                        \
+                --sysconfdir=/usr/vice/etc        \
+                --localstatedir=/var                \
+                --infodir=/usr/share/info        \
+                --mandir=/usr/share/man                \
+                $OPTS                                &&
+  make all_nolibafs                                &&
+  prepare_install                                &&
+  make install_nolibafs                                &&
 
   # Creating needed dirs if not existing
   if [ ! -d /usr/vice ]; then
-	mkdir -p /usr/vice/etc
+        mkdir -p /usr/vice/etc
   fi &&
 
   if [ ! -d /usr/vice/cache ]; then
-	mkdir -p /usr/vice/cache &&
- 	chmod 0700 /usr/vice/cache
-  fi &&	
+        mkdir -p /usr/vice/cache &&
+         chmod 0700 /usr/vice/cache
+  fi &&        
 
   if [ ! -d /afs ]; then
-  	mkdir /afs &&
-	chmod 755 /afs
-  fi &&	
+          mkdir /afs &&
+        chmod 755 /afs
+  fi &&        
 
   # Installing some db files
   install -p -m 644 $SOURCE_CACHE/CellServDB /usr/vice/etc/CellServDB &&

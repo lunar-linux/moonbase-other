@@ -3,7 +3,7 @@ bad_flags -malign-double
 
   ./configure  --build=$BUILD          \
                --mandir=/usr/share/man \
-	       --infodir=/usr/share/info \
+               --infodir=/usr/share/info \
                --prefix=/usr           &&
   make                                 &&
   prepare_install                      &&

@@ -6,7 +6,7 @@
   # Apply patchset
   unpack $SOURCE2 &&
   for i in jpeg-patches/*; do
-  	patch_it $i 1
+          patch_it $i 1
   done &&
  
   default_build

@@ -43,7 +43,7 @@ EOF
 (
 
   cd  etc.sample
-  for	FILE  in  `ls`;  do
+  for        FILE  in  `ls`;  do
     if    [  !  -e  /etc/$FILE      ]  &&
           [  "$FILE"  !=  "README"  ]
     then  cp  $FILE  /etc

@@ -11,7 +11,7 @@
     
   cd  /usr/src/$MODULE                                                &&
   make                                                                &&
-	prepare_install                                                     &&
+  prepare_install                                                     &&
   install -m755 -groot -oroot html2db /usr/bin
     
 ) > $C_FIFO 2>&1

@@ -5,13 +5,13 @@
   ./configure   --host=$BUILD            \
                 --prefix=/usr            \
                 --libdir=/var/lib/lynx   \
-		--enable-cgi-links       \
-		--enable-nsl-fork        \
-		--enable-read-eta        \
-		--enable-color-style     \
-		--enable-scrollbar       \
-		--with-zlib              \
-		--sysconfdir=/etc        \
+                --enable-cgi-links       \
+                --enable-nsl-fork        \
+                --enable-read-eta        \
+                --enable-color-style     \
+                --enable-scrollbar       \
+                --with-zlib              \
+                --sysconfdir=/etc        \
                 --enable-gzip-help       \
                 --mandir=/usr/share/man  \
                 $OPTS                   &&

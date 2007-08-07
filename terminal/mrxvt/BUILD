@@ -3,11 +3,11 @@
   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
   ./configure  --prefix=$MODULE_PREFIX              \
                --sysconfdir=/etc                    \
-	       --mandir=$MODULE_PREFIX/share/man    \
-	       --infodir=$MODULE_PREFIX/share/info  \
+               --mandir=$MODULE_PREFIX/share/man    \
+               --infodir=$MODULE_PREFIX/share/info  \
                --enable-everything                  \
                --disable-debug                      \
-	       --with-x                             \
+               --with-x                             \
                $OPTS                               &&
 
   default_make

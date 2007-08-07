@@ -21,12 +21,12 @@
   fi
   OPTS="$OPTS --with-linux-kernel-headers=/lib/modules/`uname -r`/build"
 
-  ./configure 	--prefix=/usr			\
-		--sysconfdir=/usr/vice/etc	\
-		--localstatedir=/var		\
-		--infodir=/usr/share/info	\
-		--mandir=/usr/share/man		\
-		$OPTS				&&
+  ./configure         --prefix=/usr                        \
+                --sysconfdir=/usr/vice/etc        \
+                --localstatedir=/var                \
+                --infodir=/usr/share/info        \
+                --mandir=/usr/share/man                \
+                $OPTS                                &&
   make dest_only_libafs &&
   prepare_install
 

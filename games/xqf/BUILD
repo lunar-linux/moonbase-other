@@ -4,7 +4,7 @@
                --bindir=/usr/games   \
                --sysconfdir=/etc     \
                --localstatedir=/var  \
-	       --enable-gtk2         \
+               --enable-gtk2         \
                $OPTS                &&
 
  default_make

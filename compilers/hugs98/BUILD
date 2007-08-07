@@ -1,8 +1,8 @@
 (
   cd $SOURCE_DIRECTORY/src/unix     &&
-  ./configure 	--prefix=/usr   \
-	 	--enable-ffi	\
-		$OPTS	&&
+  ./configure   --prefix=/usr   \
+                --enable-ffi    \
+                $OPTS   &&
 
   cd ..
   make                     &&

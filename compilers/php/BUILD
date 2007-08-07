@@ -34,11 +34,11 @@
   ./configure  --prefix=/usr                 \
                --sysconfdir=/etc             \
                --with-config-file-path=/etc  \
-	       --enable-dbase		     \
-	       --enable-dbx		     \
-	       --enable-dio		     \
-	       --with-ncurses                \
+               --enable-dbase                \
+               --enable-dbx                  \
+               --enable-dio                  \
+               --with-ncurses                \
                $OPTS                        &&
-	default_make
+  default_make
 
 ) > $C_FIFO 2>&1

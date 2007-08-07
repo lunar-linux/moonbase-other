@@ -5,9 +5,9 @@
                --prefix=/usr             \
                --sysconfdir=/etc         \
                --mandir=/usr/share/man   \
-	       --infodir=/usr/share/info \
-	       --disable-csharp          \
-	       --without-libintl-prefix  \
+               --infodir=/usr/share/info \
+               --disable-csharp          \
+               --without-libintl-prefix  \
                $OPTS                     &&
   default_make
 

@@ -19,7 +19,7 @@
 
   ./configure --prefix=/usr         \
               --bindir=/usr/games   \
-	      --datadir=/usr/share  \
+              --datadir=/usr/share  \
               $OPTS                &&
 
   rm     -rf  /usr/games/torcs     &&

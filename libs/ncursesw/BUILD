@@ -33,7 +33,7 @@ set -x
                --mandir=/usr/share/man                   \
                --with-manpage-format=gzip                \
                --disable-termcap                         \
-	           --enable-colorfgbg                        \
+               --enable-colorfgbg                        \
                --with-terminfo-dirs=/usr/share/terminfo  \
                --enable-widec                            \
                $OPTS                                    &&

@@ -1,10 +1,10 @@
 (
-  patch_it $SOURCE4 1	&&
-  patch_it $SOURCE5 1	&&
+  patch_it $SOURCE4 1   &&
+  patch_it $SOURCE5 1   &&
   patch_it $SOURCE6 0   &&
   patch_it $SOURCE7 1   &&
   patch_it $SOURCE8 1   &&
-  ./regen.sh		&& 
+  ./regen.sh            && 
 
   case `uname -r` in
     2.6.*) 
@@ -36,45 +36,45 @@
   else
       OPTS+=" --disable-pam"
   fi
-	
-  ./configure 	--prefix=/usr			\
-		--sysconfdir=/etc	        \
-		--localstatedir=/var/lib        \
-		--infodir=/usr/share/info	\
-		--mandir=/usr/share/man		\
-		--enable-largefile-fileserver   \
-		--enable-supergroups		\
-		$OPTS				&&
-  make all_nolibafs				&&
-  prepare_install				&&
+
+  ./configure   --prefix=/usr                   \
+                --sysconfdir=/etc               \
+                --localstatedir=/var/lib        \
+                --infodir=/usr/share/info       \
+                --mandir=/usr/share/man         \
+                --enable-largefile-fileserver   \
+                --enable-supergroups            \
+                $OPTS                           &&
+  make all_nolibafs                             &&
+  prepare_install                               &&
   
   if [ ! -d /etc/openafs ]; then
       mkdir -p /etc/openafs/server
   fi &&
   
-  make install_nolibafs				&&
+  make install_nolibafs                         &&
 
   # Creating needed dirs if not existing
    if [ ! -d /var/cache/openafs ]; then
-	mkdir -p /var/cache/openafs &&
- 	chmod 0700 /var/cache/openafs
-  fi &&	
+        mkdir -p /var/cache/openafs &&
+        chmod 0700 /var/cache/openafs
+  fi &&
 
   # Server dirs
   if [ ! -d /var/lib/openafs ]; then
-  	mkdir -p /var/lib/openafs/{logs,db}
-	chmod 700 /var/lib/openafs/db
-	chmod 755 /var/lib/openafs/logs
+        mkdir -p /var/lib/openafs/{logs,db}
+        chmod 700 /var/lib/openafs/db
+        chmod 755 /var/lib/openafs/logs
   fi &&
 
   if [ ! -d /afs ]; then
-  	mkdir /afs &&
-	chmod 755 /afs
-  fi &&	
+        mkdir /afs &&
+        chmod 755 /afs
+  fi &&
 
   # Installing some db files
   if [ ! -f /etc/openafs/CellServDB ]; then
-  	install -p -m 644 $SOURCE_CACHE/CellServDB /etc/openafs/CellServDB
+        install -p -m 644 $SOURCE_CACHE/CellServDB /etc/openafs/CellServDB
   fi &&
   install -p -m 755 $SOURCE_CACHE/$SOURCE3 /usr/sbin/killafs &&
   touch /etc/openafs/SuidCells &&

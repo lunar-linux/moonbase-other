@@ -6,12 +6,12 @@
                 --with-libxml2                  \
                 --build=$BUILD                  \
                 --sysconfdir=/etc               \
-                --prefix=/usr 			\
-		--localstatedir=/var		\
-		--infodir=/usr/share/info	\
-		--mandir=/usr/share/man		\
-		--with-sys-wv                   \
-		$OPTS				&&
+                --prefix=/usr                   \
+                --localstatedir=/var            \
+                --infodir=/usr/share/info       \
+                --mandir=/usr/share/man         \
+                --with-sys-wv                   \
+                $OPTS                           &&
              
   default_make &&
   cd ../abiword-docs &&
@@ -30,9 +30,9 @@
                 --infodir=/usr/share/info       \
                 --mandir=/usr/share/man         \
                 --with-sys-wv                   \
-                --disable-pdf			\
+                --disable-pdf                   \
                 --disable-gda                   \
-		$OPTS				&&
+                $OPTS                           &&
   
   make &&
   make install-strip

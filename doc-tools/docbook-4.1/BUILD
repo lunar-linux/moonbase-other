@@ -9,7 +9,7 @@
   rm -rf $SOURCE_DIRECTORY/old.libraries &&
 
   for DFILE in $SOURCE_DIRECTORY/*; do
-	install -m644 $DFILE $TARGET/
+        install -m644 $DFILE $TARGET/
   done &&
 
   ln -sf $TARGET/docbook.cat $TARGET/catalog  

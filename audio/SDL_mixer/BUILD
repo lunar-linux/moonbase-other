@@ -4,8 +4,8 @@
 
   ./configure  --prefix=/usr                \
                --bindir=/usr/bin            \
-	       --sbindir=/usr/sbin          \
-	       --datadir=/usr/share         \
+               --sbindir=/usr/sbin          \
+               --datadir=/usr/share         \
                --infodir=/usr/share/info    \
                --mandir=/usr/share/man      \
                --disable-sdltest           &&

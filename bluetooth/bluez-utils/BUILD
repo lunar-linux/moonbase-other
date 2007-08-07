@@ -1,12 +1,12 @@
 (  
-   ./configure  --prefix=/usr                              \
-                --sysconfdir=/etc                          \
-                --mandir=/usr/man                          \
-                --localstatedir=/var                       \
-                --sbindir=/sbin                            \
-                --datadir=/usr/share                       \
-		--without-dbus				   \
-                $OPTS                                      &&
+   ./configure  --prefix=/usr           \
+                --sysconfdir=/etc       \
+                --mandir=/usr/man       \
+                --localstatedir=/var    \
+                --sbindir=/sbin         \
+                --datadir=/usr/share    \
+                --without-dbus          \
+                $OPTS                   &&
 
     default_make                                           
                 

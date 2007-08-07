@@ -4,13 +4,13 @@
 
   ./configure   --build=$BUILD               \
                 --prefix=/usr                \
-		--bindir=/usr/sbin           \
-		--sbindir=/usr/sbin          \
-		--datadir=/usr/share         \
-		--infodir=/usr/share/info    \
-		--mandir=/usr/share/man      \
-		--sysconfdir=/etc            \
-		--localstatedir=/var/cache  &&
+                --bindir=/usr/sbin           \
+                --sbindir=/usr/sbin          \
+                --datadir=/usr/share         \
+                --infodir=/usr/share/info    \
+                --mandir=/usr/share/man      \
+                --sysconfdir=/etc            \
+                --localstatedir=/var/cache  &&
   make                                      &&
   prepare_install                           &&
   make install                              &&

@@ -31,7 +31,7 @@
     OPTS=$OPTS" --enable-shadow $ENABLE_PAM"
   fi
 
-  sedit  "s/	standalone/	inetd/" sample-configurations/basic.conf  &&
+  sedit  "s/\tstandalone/\tinetd/" sample-configurations/basic.conf  &&
   cp  -r  sample-configurations  doc
 
   default_build

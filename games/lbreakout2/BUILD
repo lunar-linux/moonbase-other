@@ -4,7 +4,7 @@
               --localstatedir=/usr/share/games/lbreakout2  \
               --with-doc-path=/usr/share/doc/lbreakout2    \
               $OPTS                                       &&
-	      
+              
   default_make  &&
   mv /usr/bin/lbreakout2 /usr/games  &&
   mv /usr/bin/lbreakout2server /usr/games  &&

@@ -7,7 +7,7 @@
   sedit "s,\$(GSVIEW_BASE)/man,\$(GSVIEW_BASE)/share/man," Makefile &&
   sedit "s/-O/$CFLAGS/" Makefile &&
 
-  default_make			 &&
+  default_make                         &&
 
   strip /usr/bin/gsview
 

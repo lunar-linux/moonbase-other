@@ -2,7 +2,7 @@
 
   default_config  &&
   prepare_install &&
-  make		  &&
+  make                  &&
 
   install -m755 $SOURCE_DIRECTORY/dtach /usr/bin/
 

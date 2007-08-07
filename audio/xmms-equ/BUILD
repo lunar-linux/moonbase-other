@@ -4,7 +4,7 @@
                --sysconfdir=/etc                  \
                --localstatedir=/var               \
                --enable-autodetect                &&
-  make	&&
+  make  &&
   prepare_install &&
   make install
 

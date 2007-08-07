@@ -11,5 +11,5 @@
   prepare_install &&
   make install    &&
   cp -Rp LinCVS /opt/lunar/
-	
+        
 ) > $C_FIFO 2>&1

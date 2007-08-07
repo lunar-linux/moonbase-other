@@ -6,7 +6,7 @@
                 --localstatedir=/var               \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info  \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man    \
-		--disable-unihan                   \
+                --disable-unihan                   \
                 $OPTS                              &&
     default_make
 

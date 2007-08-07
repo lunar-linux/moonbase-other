@@ -13,7 +13,7 @@
       bfile=`basename $file`
       # Conflicting files with heimdal
       if [[ "$bfile" != "klist" ]] && [[ "$bfile" != "kinit" ]]; then
-	  ln -sf $file /usr/bin/
+          ln -sf $file /usr/bin/
       fi
   done
 

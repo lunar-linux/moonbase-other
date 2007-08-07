@@ -4,8 +4,8 @@
   ./configure  --sysconfdir=/etc        \
                --prefix=/usr            \
                --mandir=/usr/share/man  \
-	       --localstatedir=/var     \
-	       $OPTS                    &&
+               --localstatedir=/var     \
+               $OPTS                    &&
 
 
   default_make

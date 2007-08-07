@@ -4,8 +4,8 @@
   devoke_installwatch        &&
 
   if [ "`arch`" == "alpha" ]; then
-  	export CFLAGS="$CFLAGS -fPIC"
-	export CXXFLAGS="$CXXFLAGS -fPIC"
+          export CFLAGS="$CFLAGS -fPIC"
+        export CXXFLAGS="$CXXFLAGS -fPIC"
   fi &&
 
   export CXX='gcc' &&
@@ -14,14 +14,14 @@
                --disable-dependency-tracking   \
                --without-bench                 \
                --without-debug                 \
-	       --without-readline              \
-	       --without-libedit               \
-	       --enable-thread-safe-client     \
+               --without-readline              \
+               --without-libedit               \
+               --enable-thread-safe-client     \
                --enable-assembler              \
                --localstatedir=/var/lib/mysql  \
                --infodir=/usr/share/info       \
                --mandir=/usr/share/man         \
-	       --with-pthread                  \
+               --with-pthread                  \
                $OPTS                          &&
   invoke_installwatch                         &&
 

@@ -10,7 +10,7 @@
     OPTS+=" --with-jdk=$JAVA_HOME"
     BINDINGS_MAKE+=" javahl"
     BINDINGS_INSTALL+=" install-javahl"
-  fi	
+  fi        
 
   OPTS="$OPTS --disable-neon-version-check --with-neon=`neon-config --prefix` --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` --with-apr-util=`which apu-$(installed_version apr-util | cut -d. -f1)-config`"
 

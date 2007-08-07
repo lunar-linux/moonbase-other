@@ -11,18 +11,18 @@
     fi
 
     if ! module_installed gpsdrive ; then
-	OPTS="$OPTS --disable-gps"
+        OPTS="$OPTS --disable-gps"
     fi &&
 
     ./configure --prefix=/usr             \
-		--build=$BUILD		  \
-	        --sysconfdir=/etc/kismet  \
-	        --mandir=/usr/share/man   \
+                --build=$BUILD                  \
+                --sysconfdir=/etc/kismet  \
+                --mandir=/usr/share/man   \
                 --infodir=/usr/share/info \
-                --datadir=/usr/share	  \
+                --datadir=/usr/share          \
                 --localstatedir=/var      \
- 	        $OPTS                     &&
-    make dep				  && 
+                 $OPTS                     &&
+    make dep                                  && 
     make                                  &&
     prepare_install                       &&
     $MAKE_INSTALL

@@ -10,7 +10,7 @@
                 --includedir=/usr/include  \
                 --infodir=/usr/share/info  \
                 --mandir=/usr/share/man    \
-    	        --enable-utf8             &&
+                --enable-utf8             &&
    default_make &&
    cp -a /lib/pkgconfig/libpcre.pc /usr/lib/pkgconfig
 

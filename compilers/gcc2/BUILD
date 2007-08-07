@@ -12,7 +12,7 @@
   ./configure  --host=$BUILD              \
                --prefix=$MODULE_PREFIX    \
                --enable-shared            &&
-	       
+               
   if [ "`arch`" == "Alpha" ]; then
       sedit 's,-x assembler,-x assembler-with-cpp,' gcc/Makefile
   fi &&

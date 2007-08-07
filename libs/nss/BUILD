@@ -18,12 +18,12 @@
 
   install -v -m755 nsprpub/$NSS_LINUXDIR/config/nspr-config \
                    security/nss/cmd/config/nss-config \
-		   /usr/bin &&
+                   /usr/bin &&
   
   mkdir -p /usr/lib/pkgconfig &&
   install -v -m644 nsprpub/lib/pkgconfig/nspr.pc \
                    security/nss/lib/pkgconfig/nss.pc \
-		   /usr/lib/pkgconfig &&
+                   /usr/lib/pkgconfig &&
 
   cd dist &&
 

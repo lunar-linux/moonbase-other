@@ -8,8 +8,8 @@
      OPTS="$OPTS --enable-compositor"
    fi &&
 
-   ./configure  --build=$BUILD					\
-                --prefix=${MODULE_PREFIX}	\
+   ./configure  --build=$BUILD                                        \
+                --prefix=${MODULE_PREFIX}        \
                 $OPTS                                           &&
 
    default_make

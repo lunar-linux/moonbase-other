@@ -1,5 +1,5 @@
 (
-   ./configure --prefix=/usr 		\
+   ./configure --prefix=/usr                 \
                --localstatedir=/var  \
                --without-silcd       \
                --sysconfdir=/etc     \

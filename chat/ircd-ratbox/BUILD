@@ -5,11 +5,11 @@
   sedit "149,155d" modules/Makefile.in  &&
 
   OPTS="$OPTS --prefix=/opt/lunar/ratbox \
-	      --with-confdir=/etc/ratbox \
-	      --with-logdir=/var/log/ratbox \
-	      --with-nicklen=18 \
-	      --with-topiclen=360 \
-	      --enable-ipv6"  &&
+              --with-confdir=/etc/ratbox \
+              --with-logdir=/var/log/ratbox \
+              --with-nicklen=18 \
+              --with-topiclen=360 \
+              --enable-ipv6"  &&
 
   default_build
 

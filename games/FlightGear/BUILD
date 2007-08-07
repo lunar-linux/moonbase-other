@@ -2,8 +2,8 @@
 
   ./configure  --prefix=/usr        \
                --bindir=/usr/games  \
-	       $OPTS               &&
-	       
+               $OPTS               &&
+               
   default_build
 
 ) > $C_FIFO 2>&1

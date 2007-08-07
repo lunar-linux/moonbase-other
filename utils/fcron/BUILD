@@ -8,11 +8,11 @@
   sedit  "s/-O2/$CFLAGS/"  configure
 
   OPTS="$OPTS --prefix=/usr \
-	      --sysconfdir=/etc \
-	      --with-piddir=/var/run \
+              --sysconfdir=/etc \
+              --with-piddir=/var/run \
               --with-answer-all=no \
-	      --without-sendmail \
-	      --with-editor=$EDITOR"  &&
+              --without-sendmail \
+              --with-editor=$EDITOR"  &&
 
   default_build  &&
 

@@ -7,9 +7,9 @@
   sedit "s/-O2/$CXXFLAGS/g" mkspecs/linux-g++/qmake.conf  &&
 
   echo "yes" | ./configure          \
-	       -prefix ${MODULE_PREFIX} \
-	       -release             \
-	       -fast		    \
+               -prefix ${MODULE_PREFIX} \
+               -release             \
+               -fast                    \
                -shared              \
                -thread              \
                -qt-gif              \
@@ -22,9 +22,9 @@
                -system-zlib         \
                -no-exceptions       \
                -dlopen-opengl       \
-	       -xft		    \
-	       -xkb		    \
-               -sm		    \
+               -xft                    \
+               -xkb                    \
+               -sm                    \
                -tablet              \
                $OPTS                &&
 
@@ -52,7 +52,7 @@
   echo "export QTDIR=\"${MODULE_PREFIX}\"" >> $SOURCE_DIRECTORY/qt3.rc    &&
   echo export PATH=\"'${QTDIR}'/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/qt3.rc &&
   echo export PKG_CONFIG_PATH=\"'${QTDIR}'/lib/pkgconfig:'${PKG_CONFIG_PATH}'\" \
-	>> $SOURCE_DIRECTORY/qt3.rc &&
+        >> $SOURCE_DIRECTORY/qt3.rc &&
 
   install -m644 $SOURCE_DIRECTORY/qt3.rc /etc/profile.d/
 

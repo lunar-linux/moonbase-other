@@ -1,7 +1,7 @@
 (
   # We need to remove the old catalog entries upon an update
   if module_is_expired $MODULE ; then
- 	set_module_config OLD_VER "`installed_version $MODULE`"
+         set_module_config OLD_VER "`installed_version $MODULE`"
   fi &&
 
   CATALOGDIR="/usr/share/sgml/$MODULE-$VERSION"

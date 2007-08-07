@@ -3,8 +3,8 @@
     sedit "s/^WHICH=.*/WHICH=which/" configure &&
 
     ./configure --prefix=/usr  \
-	        --datadir=/usr/share \
-	        $OPTS  &&
+                --datadir=/usr/share \
+                $OPTS  &&
     default_make
 
 ) > $C_FIFO 2>&1
