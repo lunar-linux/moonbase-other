@@ -18,18 +18,18 @@
 
   case ${KERNEL_HEADERS_VERSION} in
 
-	Linux-2.6.*) PATCH_FOR_26=1 ;;
+        Linux-2.6.*) PATCH_FOR_26=1 ;;
 
-	*) PATCH_FOR_26=0 ;;
-  esac	
+        *) PATCH_FOR_26=0 ;;
+  esac        
 
   if [ ${PATCH_FOR_26} -eq 0 ]; then
-	if lvu installed kernel-headers-2.6 > /dev/null ; then
-		PATCH_FOR_26=1
- 	fi
+        if lvu installed kernel-headers-2.6 > /dev/null ; then
+                PATCH_FOR_26=1
+         fi
   fi
 
   if [ ${PATCH_FOR_26} -eq 1 ]; then
          message "Patching for 2.6.X headers..."
-	 patch_it $SOURCE_CACHE/$SOURCE10 1
+         patch_it $SOURCE_CACHE/$SOURCE10 1
   fi
