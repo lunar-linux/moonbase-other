@@ -1,4 +1,7 @@
 (
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   if $(in_depends ncurses gpm); then
     OPTS+=" --with-gpm"
   else
@@ -33,7 +36,7 @@ set -x
                --mandir=/usr/share/man                   \
                --with-manpage-format=gzip                \
                --disable-termcap                         \
-               --enable-colorfgbg                        \
+	       --enable-colorfgbg                        \
                --with-terminfo-dirs=/usr/share/terminfo  \
                --enable-widec                            \
                $OPTS                                    &&
