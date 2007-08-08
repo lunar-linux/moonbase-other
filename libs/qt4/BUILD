@@ -1,4 +1,5 @@
 (
+
   export QTDIR=$SOURCE_DIRECTORY
   export PATH=$QTDIR/bin:$PATH
   export LD_LIBRARY_PATH=$QTDIR/lib
