@@ -1,17 +1,19 @@
           MODULE=kdegraphics3
          VERSION=3.5.7
           SOURCE=kdegraphics-$VERSION.tar.bz2
+         SOURCE2=post-3.5.7-kdegraphics-CVE-2007-3387.diff
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdegraphics-$VERSION
       SOURCE_URL=$KDE_URL/stable/$VERSION/src/
+     SOURCE2_URL=$KDE_URL/security_patches
       SOURCE_VFY=sha1:2b6ca2c27f565b5ca4a40d461db7b4038658b5f3
+     SOURCE2_VFY=sha1:64b9823af4c8f975011862e3fb15ef724a6253df
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
         WEB_SITE=http://www.kde.org/
          ENTERED=20020523
-         UPDATED=20070522
+         UPDATED=20070808
       MAINTAINER=florin@lunar-linux.org
            SHORT="Contains graphics and typesetting applications"
-       
+
 cat << EOF
 kdegraphics contains graphics and typesetting applications.
 EOF
-
