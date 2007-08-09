@@ -1,10 +1,35 @@
-depends  libgnomeui       &&
-depends  gnome-doc-utils  &&
-depends  poppler          &&
-depends  espgs            &&
+depends  poppler
+depends  gnome-icon-theme
+depends  gnome-vfs2
+depends  gnome-keyring
 
-optional_depends  "libgnomeprintui"  ""    "--disable-gnome-print"  \
-                  "for document printing support"                   &&
-optional_depends  "dbus-glib"        ""    ""  "for DBus support"   &&
-optional_depends  "tiff"  "--enable-tiff"  "--disable-tiff"         \
+optional_depends  "espgs" \
+                  " " \
+                  "--disable-ps" \
+                  "Compile with PostScript backend"
+
+optional_depends  "libgnomeui" \
+                  " " \
+                  "--without-libgnome" \
+                  "use libgnome"
+
+optional_depends  "nautilus" \
+                  " " \
+                  "--disable-nautilus" \
+                  "compile the nautilus plugin"
+
+optional_depends  "dbus-glib" \
+                  " " \
+                  " " \
+                  "for DBus support"
+
+optional_depends  "tiff" \
+                  "--enable-tiff" \
+                  "--disable-tiff" \
                   "enable support for multipage TIFF files"
+
+optional_depends  "libgnomeprint" \
+                  " " \
+                  " " \
+                  "compile with gnome print support"
+
