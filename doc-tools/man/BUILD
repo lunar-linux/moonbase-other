@@ -1,7 +1,9 @@
 (
 
-  # temp hack/fix for a buggy makewhatis script in man-1.6c 
-  sedit "s:NAAM/):NAAM/:" src/makewhatis.sh &&
+  # DO NOT REMOVE THESE PATCHES, consult Ratler for info
+  patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
+
   ./configure -d -compatibility_mode_for_colored_groff  &&
   default_make
 
