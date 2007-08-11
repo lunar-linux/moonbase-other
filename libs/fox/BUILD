@@ -1,12 +1,12 @@
 (
 
-  sedit 's:artdir = $(prefix):artdir = $(datadir):' doc/art/Makefile.in &&
-  sedit 's:screenshotsdir = $(prefix):screenshotsdir = $(datadir):' doc/screenshots/Makefile.in &&
+  sedit 's:artdir = $(prefix):artdir = $(datadir):' doc/art/Makefile.in  &&
+  sedit 's:screenshotsdir = $(prefix):screenshotsdir = $(datadir):' doc/screenshots/Makefile.in  &&
 
-  ./configure        --prefix=/usr                 \
+  ./configure   --prefix=/usr            \
                 --mandir=/usr/share/man  \
                 --with-opengl=no         \
-                $OPTS                        &&
+                $OPTS                   &&
 
   default_make
 
