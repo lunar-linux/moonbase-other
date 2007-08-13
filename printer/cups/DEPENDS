@@ -1,29 +1,29 @@
-depends   chkconfig &&
+depends   chkconfig
 
 optional_depends  "%GHOSTSCRIPT" \
 		  "" \
 		  "" \
-		  "for most required printer drivers" &&
+		  "for most required printer drivers"
 
 optional_depends  "Linux-PAM" \
 		  "--enable-pam" \
 		  "--disable-pam" \
-		  "for pluggable authentication" &&
+		  "for pluggable authentication"
 
 optional_depends  "openssl" \
 		  "--enable-ssl --enable-openssl" \
 		  "--disable-openssl" \
-		  "for encrypted communications" &&
+		  "for encrypted communications"
 
 optional_depends  "gnutls" \
 		  "--enable-gnutls" \
 		  "--disable-gnutls" \
-		  "for encrypted communications" &&
+		  "for encrypted communications"
 
 optional_depends  "openldap" \
 		  "--enable-ldap" \
 		  "--disable-ldap" \
-		  "for LDAP printer sharing support" &&
+		  "for LDAP printer sharing support"
 
 optional_depends  "dbus" \
 		  "--enable-dbus" \
