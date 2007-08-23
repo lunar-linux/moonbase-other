@@ -1,7 +1,9 @@
-depends  libgnomeui     &&
-depends  gtksourceview  &&
+depends  libgnomeui
+depends  gtksourceview
 
 optional_depends  "gnome-python-desktop"  "--enable-python"  ""  \
-                  "for Python based plugin support"              &&
+                  "for Python based plugin support"
 optional_depends  "enchant"               ""  "--disable-spell"  \
+                  "for spell checking support"
+optional_depends  "iso-codes"             ""  "--disable-spell"  \
                   "for spell checking support"
