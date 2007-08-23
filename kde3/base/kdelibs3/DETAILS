@@ -1,9 +1,12 @@
           MODULE=kdelibs3
          VERSION=3.5.7
           SOURCE=kdelibs-$VERSION.tar.bz2
+         SOURCE2=post-3.5.7-kdelibs-kdecore.diff
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdelibs-$VERSION
       SOURCE_URL=$KDE_URL/stable/$VERSION/src/
+     SOURCE2_URL=$KDE_URL/security_patches
       SOURCE_VFY=sha1:45f278311f20d2eb317f2175259f861c0bcf17a9
+     SOURCE2_VFY=sha1:2952806f4ad8a31b82cd2795cad95b73822a663b
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
         WEB_SITE=http://www.kde.org/
          ENTERED=20020523
