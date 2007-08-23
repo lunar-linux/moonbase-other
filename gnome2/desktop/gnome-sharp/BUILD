@@ -1,5 +1,7 @@
 (
 
+   sedit 's:libgtkhtml\-3\.8:libgtkhtml\-3\.14:g' configure  &&
+
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                     \
                 --sysconfdir=/etc                  \
