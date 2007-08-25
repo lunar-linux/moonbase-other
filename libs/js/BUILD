@@ -16,9 +16,9 @@
   install -m0755 js jscpucfg /usr/bin  &&
 
   # install the development headers
-  mkdir -p /usr/include/$MODULE     &&
-  install *.h /usr/include/$MODULE  &&
-  cd ..                             &&
-  install *.h /usr/include/$MODULE
+  mkdir -p /usr/include/$MODULE            &&
+  install -m0644 *.h /usr/include/$MODULE  &&
+  cd ..                                    &&
+  install -m0644 *.h /usr/include/$MODULE
 
 ) > $C_FIFO 2>&1
