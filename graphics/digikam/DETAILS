@@ -1,12 +1,15 @@
           MODULE=digikam
          VERSION=0.9.2
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-lcms-1.17.patch
       SOURCE_URL=$SFORGE_URL/$MODULE/
+     SOURCE2_URL=$PATCH_URL
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
       SOURCE_VFY=sha1:8344355c3a9e4b8648d2e1a853cdf54e90918d91
+     SOURCE2_VFY=sha1:f4c84bb8166876f8a12a7543d262eda15acbd63f
         WEB_SITE=http://www.digikam.org/
          ENTERED=20030403
-         UPDATED=20070621
+         UPDATED=20070826
            SHORT="simple digital photo management application"
 
 cat << EOF
@@ -16,3 +19,4 @@ organized in albums which are automatically sorted chronologically.
 An easy to use interface is provided to connect to your camera and
 preview images and download and/or delete them.
 EOF
+
