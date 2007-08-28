@@ -85,14 +85,11 @@ plugin_kernel_updatebootloader_grub()
 
 	print_grub_image()
 	{
+		CMDLINE=$(cat /proc/cmdline)
 		debug_msg "title   $2"
-		debug_msg "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device "$GRUB_ROOT") ro"
+		debug_msg "kernel  $GRUB_BOOT/$1 $CMDLINE"
 		echo   "title   $2"
-		if echo $1 | grep -q '2.4' ; then
-			echo   "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device "$GRUB_ROOT") ro devfs=nomount"
-		else
-			echo   "kernel  $GRUB_BOOT/$1 root=$(map_grub_to_device "$GRUB_ROOT") ro"
-		fi
+		echo   "kernel  $GRUB_BOOT/$1 $CMDLINE"
 		echo   ""
 	}
 
