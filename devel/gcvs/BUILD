@@ -1,8 +1,9 @@
 (
 
-  bad_flags ALL &&
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+  sedit 's@cvsunix@@g' configure &&
+  patch_it $SOURCE2 1 &&
   default_config &&
+
   cd cvsunix &&
   ./configure --prefix=/usr/lib/gcvs &&
   cd .. &&
