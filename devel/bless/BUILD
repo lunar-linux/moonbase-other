@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-unix-specific"
+  OPTS="$OPTS --enable-unix-specific --disable-nls"
 
   default_build
 
