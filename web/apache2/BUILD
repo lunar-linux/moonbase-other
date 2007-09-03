@@ -1,7 +1,5 @@
 (
 
-  prepare_install  &&
-
   OPTS="--prefix=/etc/httpd                      \
         --sysconfdir=/etc/httpd/conf             \
         --exec-prefix=/usr                       \
@@ -24,6 +22,7 @@
         --with-apr-util=/usr                     \
         $OPTS"
 
+
   if [ "$USE_WORKER" == "n" ]; then
     OPTS="$OPTS --with-mpm=prefork"
   else
@@ -31,7 +30,7 @@
   fi
 
   echo "CFLAGS=$CFLAGS"     &&
-  echo "OPTS=`echo $OPTS`"  &&
+  echo "OPTS=$OPTS"         &&
   ./configure $OPTS         &&
   default_make              &&
 
