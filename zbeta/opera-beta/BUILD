@@ -6,7 +6,7 @@ cat >> usr/share/opera/ini/pluginpath.ini << EOF
 EOF
 
   # Make beta co-exist happily with current version
-  sedit '/^export OPERA_BINARYDIR/a export OPERA_PERSONALDIR="$HOME/.opera-beta"' install.sh &&
+  sedit '/^export OPERA_BINARYDIR/a export OPERA_PERSONALDIR="\\$HOME/.opera-beta"' install.sh &&
 
   # Disable internal md5check
   sedit '/md5check Manifest.md5/d' install.sh &&
