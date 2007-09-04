@@ -64,11 +64,11 @@ plugin_source_download_bzr() {
     if [ -d "$SBASE/.bzr" ] ; then
       cd $SBASE
       verbose_msg "[${TRY}] bzr up"
-      svn up && GOT_BZR="yes" 
+      bzr up && GOT_BZR="yes" 
       cd ${CD}
     else
       verbose_msg "[${TRY}] bzr co $BZR_URL $SBASE"
-      svn co $BZR_URL $SBASE && GOT_BZR="yes"
+      bzr co $BZR_URL $SBASE && GOT_BZR="yes"
     fi
 
     if [ "$?" == "0" ] ; then
@@ -102,7 +102,7 @@ plugin_source_needrefresh_bzr() {
     return 0
   fi
 
-  BZR_THRESHOLD=${SVN_THRESHOLD:-10}
+  BZR_THRESHOLD=${BZR_THRESHOLD:-10}
   if (( "BZR_THRESHOLD" > 0 )) ; then
 	if [ "$(find $3/$2 -amin +$BZR_THRESHOLD)" == "$3/$2" ] ; then
       # it is older:
