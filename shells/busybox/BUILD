@@ -1,6 +1,10 @@
 (
 
   make defconfig &&
+
+  # NOTE: tchan added this hack for busybox-1.7.0, and should be removed when busybox devs fix it...
+  sedit "s/CONFIG_RUNSV=y/# CONFIG_RUNSV is not set/" .config &&
+
   make &&
   make doc &&
   prepare_install &&
