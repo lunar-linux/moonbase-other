@@ -1,4 +1,5 @@
 (
+  patch_it $SOURCE2 1
 
   sedit 's/\/usr\/local/\/usr/' Makefile &&
   
