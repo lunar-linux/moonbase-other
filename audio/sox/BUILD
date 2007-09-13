@@ -1,5 +1,7 @@
 (
 
+  sedit "s:ftello:ftell:g" src/vorbis.c
+
   ./configure   --build=$BUILD      \
                 --prefix=/usr       \
                 --sysconfdir=/etc   \
