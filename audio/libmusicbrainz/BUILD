@@ -1,5 +1,7 @@
 (
 
+  OPTS="$OPTS --enable-cpp-headers"
+
   default_build &&
 
   if module_installed ctypes ; then
