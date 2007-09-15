@@ -1,9 +1,8 @@
-optional_depends "gtk+-2" \
-		 "" \
-		 "--disable-gtk" \
-		 "for the GTK+-2 GUI interface"
+optional_depends  "gtk+-2"  ""  "--disable-gtk"  \
+		  "for the GUI interface"
 
-optional_depends "openssl" \
-		 "" \
-		 "--disable-openssl" \
-		 "for OpenSSL support"
+optional_depends  "openssl"  ""  "--disable-openssl"  \
+		  "for encrypted transfer support"
+
+optional_depends  "libevent"  ""  "--disable-daemon"  \
+                  "for daemon mode support"
