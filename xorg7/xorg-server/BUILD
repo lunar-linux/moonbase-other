@@ -12,7 +12,7 @@
 
   OPTS+=" --enable-composite --enable-aiglx \
          --with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION} \
-         --with-dri-driver-path=${MODULE_PREFIX}/lib/xorg/modules/dri" &&
+         --with-dri-driver-path=${MODULE_PREFIX}/lib/dri" &&
 
   default_build
 
