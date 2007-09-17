@@ -1,0 +1,26 @@
+          MODULE=microcode_ctl
+         VERSION=1.17
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=http://www.urbanmyth.org/microcode/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:3c32cf0b3658018a4d0de203aebdb96dce6f68d6
+        WEB_SITE="http://www.urbanmyth.org/microcode/"
+         ENTERED=20070916
+         UPDATED=20070916
+           SHORT="Intel processor microcode update utility"
+cat <<EOF
+The microcode_ctl utility is a companion to the IA32 microcode driver
+written by Tigran Aivazian <tigran@aivazian.fsnet.co.uk>. The utility
+has two uses:
+
+    * it decodes and sends new microcode to the kernel driver to
+    be uploaded to Intel IA32 processors. (Pentium Pro, PII, PIII,
+    Pentium 4, Celeron, Xeon etc - all P6 and above, which does NOT
+    include pentium classics). It also supports processors of the
+    x86_64 architecture.  * it signals the kernel driver to release
+    any buffers it may hold
+
+The microcode update is volatile and needs to be uploaded on each
+system boot i.e. it doesn't reflash your cpu permanently, reboot and
+it reverts back to the old microcode.
+EOF

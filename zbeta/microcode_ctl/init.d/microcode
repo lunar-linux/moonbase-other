@@ -1,0 +1,27 @@
+#!/bin/bash -x
+#
+# Update intel microcode
+#
+# chkconfig: 2345 20 80
+# description: Updates the intel processor microcode
+#
+
+ARGS="-Qu"
+
+start()
+{
+	echo -n "Loading Intel microcode: "
+	[ -e /dev/cpu/microcode ] &&
+	/usr/sbin/microcode_ctl -Qu &&
+	echo -e $RESULT_OK ||
+	echo -e $RESULT_FAIL
+sleep 10
+}
+
+stop()
+{
+	:
+}
+
+. /lib/lsb/init-functions
+
