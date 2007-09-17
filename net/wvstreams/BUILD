@@ -1,5 +1,7 @@
 (
 
+  export CFLAGS="$CFLAGS -fPIC"
+
   if in_depends $MODULE qt3; then
     if module_installed qt3; then
       . /etc/profile.d/qt3.rc
