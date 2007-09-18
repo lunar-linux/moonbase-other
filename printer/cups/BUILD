@@ -1,5 +1,8 @@
 (
 
+# This autoconf entry needs to be revisited on next cups bump.
+  autoconf &&
+
   default_build &&
 
   if [ -e /etc/init.d/cups ] ; then
