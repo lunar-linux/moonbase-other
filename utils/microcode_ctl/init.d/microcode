@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 #
 # Update intel microcode
 #
@@ -15,7 +15,6 @@ start()
 	/usr/sbin/microcode_ctl -Qu &&
 	echo -e $RESULT_OK ||
 	echo -e $RESULT_FAIL
-sleep 10
 }
 
 stop()
