@@ -10,7 +10,7 @@
     OPTS="$OPTS --disable-glx --disable-glx-tlx"
   fi &&
 
-  OPTS+=" --enable-composite --enable-aiglx \
+  OPTS+=" --enable-composite --enable-aiglx --enable-xorgcfg \
          --with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION} \
          --with-dri-driver-path=${MODULE_PREFIX}/lib/dri" &&
 
