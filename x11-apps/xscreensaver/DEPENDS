@@ -4,36 +4,20 @@ depends bc
 depends %GLUT
 depends perl
 
-optional_depends "gettext"        \
-                 "--enable-nls"   \
-		 "--disable-nls"  \
-		 "enable NLS support"
-		 
-optional_depends "gtk+-2"         \
-                 "--with-gtk"     \
-                 "--without-gtk"  \
-		 "enable the use of this library"
-		 
-optional_depends "gdk-pixbuf"        \
-                 "--with-pixbuf"     \
-                 "--without-pixbuf"  \
-		 "enable the use of this library"
+optional_depends "gettext"  "--enable-nls" "--disable-nls"  \
+                 "enable NLS support"
 
-optional_depends "gle"         \
-                 "--with-gle"  \
-		 "--without-gle" "enable the use this library"
-		 
-optional_depends "fortune"                            \
-                 "--with-fortune=/usr/games/fortune"  \
-		 ""                                   \
-		 "use fortune"                       
+optional_depends "gtk+-2"  "--with-gtk"  "--without-gtk" \
+                 "to build the configuration manager"
 
-optional_depends "fortune"  \
-                 "--with-"  \
-		 ""         \
-		 "use fortune"
-		 
-optional_depends "xsnow"  \
-                 ""       \
-		 " "      \
-		 "to allow xsnow to be used as a screensaver"
+optional_depends "gle" "--with-gle" "--without-gle" \
+                 "required for some of the screensavers"
+
+optional_depends "fortune"  "--with-fortune=/usr/games/fortune"  ""  \
+                 "allow fortune to be used as a text source in screensavers"
+
+optional_depends "appres"  ""  ""  \
+                 "required for some of the text-printing screensavers"
+
+optional_depends "xsnow"  ""  ""  \
+                 "to allow xsnow to be used as a screensaver"
