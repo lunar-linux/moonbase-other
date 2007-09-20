@@ -1,8 +1,10 @@
 (
 
-patch_it $SOURCE2 0 &&
   . /etc/profile.d/qt3.rc
   . /etc/profile.d/kde3.rc
+
+  patch_it $SOURCE2 0 &&
+  patch_it $SOURCE3 0 &&
 
   cp -f $SCRIPT_DIRECTORY/kdm $SCRIPT_DIRECTORY/init.d/kdm  &&
   TMP="s:KDEDIR:${KDE_PREFIX:-$KDEDIR}:"                    &&
