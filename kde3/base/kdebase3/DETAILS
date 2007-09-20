@@ -1,16 +1,19 @@
           MODULE=kdebase3
          VERSION=3.5.7
           SOURCE=kdebase-$VERSION.tar.bz2
-         SOURCE2=post-3.5.7-kdebase-konqueror.diff
+         SOURCE2=post-3.5.7-kdebase-konqueror-2.diff
+         SOURCE3=post-3.5.7-kdebase-kdm.diff
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdebase-$VERSION
       SOURCE_URL=$KDE_URL/stable/$VERSION/src/
      SOURCE2_URL=$KDE_URL/security_patches
+     SOURCE3_URL=$KDE_URL/security_patches
       SOURCE_VFY=sha1:833a35e4bbec2852f0f5267e680590be0c986594
      SOURCE2_VFY=sha1:3868392701ebe9fce14567a1f52d458d00f31287
+     SOURCE3_VFY=sha1:b270a1d5b3980f49a274308bec7fc649be1bd315
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
         WEB_SITE=http://www.kde.org/
          ENTERED=20020523
-         UPDATED=20070522
+         UPDATED=20070920
       MAINTAINER=florin@lunar-linux.org
            SHORT="Contains the applications that form the KDE system"
 
