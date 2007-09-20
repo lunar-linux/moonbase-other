@@ -25,7 +25,7 @@ patch_it $SOURCE_CACHE/$SOURCE3 1                      &&
                --mandir=/usr/share/man                 &&
                
 # binary section
-  make                                                 &&
+  LDFLAGS="-lm" make                                   &&
   prepare_install                                      &&
   cp $SCRIPT_DIRECTORY/lmouse.8 /usr/share/man/man8/   &&
   make install                                         &&
