@@ -6,6 +6,9 @@
 
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
     
+  # This hack added to fix a gtk+-2/pango/atk update that broke firefox. This should be removed in the future.
+  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in &&
+
   export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
   export MOZ_NSS_AUTOCONF=1
   export NATIVE_THEME_SUPPORT=1
