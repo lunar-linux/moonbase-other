@@ -16,6 +16,9 @@
         MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-auth"
   fi &&
 
+  # This hack added to fix a gtk+-2/pango/atk update that broke firefox. This should be removed in the future.
+  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in &&
+
   export MOZ_FREETYPE2="no"
   export MOZ_PANGO="yes"
   export MOZ_CO_PROJECT=browser
