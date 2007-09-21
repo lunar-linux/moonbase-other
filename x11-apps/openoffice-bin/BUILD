@@ -1,7 +1,7 @@
 (
   OO_INSTALL_DIR="${SOURCE_DIRECTORY}/RPMS"
   OO_DESK_DIR="${SOURCE_DIRECTORY}/desktop-integration/usr"
-  OO_DIR="/opt/lunar/openoffice/openoffice.org2.2"
+  OO_DIR="/opt/lunar/openoffice/openoffice.org2.3"
 
   cd $OO_INSTALL_DIR  &&
 
@@ -10,13 +10,13 @@
     mv ${OO_INSTALL_DIR}/desktop-integration ${SOURCE_DIRECTORY}/ &&
     cd ${SOURCE_DIRECTORY}/desktop-integration/ &&
 
-    INT_FILE=openoffice.org-freedesktop-menus-2.2-9153.noarch &&
+    INT_FILE=openoffice.org-freedesktop-menus-2.3-9215.noarch &&
 
     rpm2cpio $INT_FILE.rpm > $INT_FILE.cpio &&
     cpio -idm < $INT_FILE.cpio &&
 
-    sedit "s|/etc/openoffice.org2.2|$OO_DIR|g" ${OO_DESK_DIR}/bin/openoffice.org2.2 &&
-    sedit "s|/etc/openoffice.org2.2|$OO_DIR|g" ${OO_DESK_DIR}/bin/openoffice.org2.2-printeradmin || exit 1
+    sedit "s|/etc/openoffice.org2.3|$OO_DIR|g" ${OO_DESK_DIR}/bin/openoffice.org2.3 &&
+    sedit "s|/etc/openoffice.org2.3|$OO_DIR|g" ${OO_DESK_DIR}/bin/openoffice.org2.3-printeradmin || exit 1
   fi  &&
 
 
@@ -39,11 +39,11 @@
   prepare_install  &&
   message "${MESSAGE_COLOR}Installing OpenOffice ${VERSION}...${DEFAULT_COLOR}"  &&
   mkdir -p /opt/lunar/openoffice  &&
-  cp -a "${OO_INSTALL_DIR}/opt/openoffice.org2.2" /opt/lunar/openoffice/ &&
+  cp -a "${OO_INSTALL_DIR}/opt/openoffice.org2.3" /opt/lunar/openoffice/ &&
 
   if [ "$USE_DESKTOPINTEGRATION" = "y" ] ; then
-    install -m755 ${OO_DESK_DIR}/bin/openoffice.org2.2 \
-                  ${OO_DESK_DIR}/bin/openoffice.org2.2-printeradmin /usr/bin/ &&
+    install -m755 ${OO_DESK_DIR}/bin/openoffice.org2.3 \
+                  ${OO_DESK_DIR}/bin/openoffice.org2.3-printeradmin /usr/bin/ &&
 
     # Install icons for the .desktop files
     mkdir -p -m0755 /usr/share/icons/{gnome,hicolor} &&
