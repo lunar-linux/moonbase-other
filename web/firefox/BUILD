@@ -49,6 +49,7 @@
     --enable-canvas     \
     --enable-svg        \
     --enable-svg-renderer=cairo  \
+    --enable-system-cairo        \
     --enable-xterm-updates       \
     --enable-official-branding   \
     --disable-debug     \
