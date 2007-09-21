@@ -19,7 +19,7 @@
   make install &&
   
   # Cleaner symlinks
-  ln -sf $HEIMDALINC /usr/include/gssapi &&
+  ln -sf $HEIMDALINC/gssapi /usr/include/gssapi &&
   ln -sf $HEIMDALINC/krb5-types.h /usr/include/krb5-types.h &&
   ln -sf $HEIMDALINC/krb5.h /usr/include/krb5.h &&
   ln -sf $HEIMDALINC/asn1_err.h /usr/include/asn1_err.h &&
