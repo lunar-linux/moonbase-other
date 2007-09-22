@@ -9,11 +9,11 @@
 
 shopt -s extglob
 CONFIGS="/etc/config.d/network"
-IFPLUGD="/usr/sbin/ifplugd"
-WPA_SUPPLICANT="/usr/sbin/wpa_supplicant"
-IFCONFIG="/sbin/ifconfig"
-IWCONFIG="/usr/sbin/iwconfig"
-ROUTE="/sbin/route"
+IFPLUGD=$(which ifplugd 2> /dev/null)
+WPA_SUPPLICANT=$(which wpa_supplicant 2> /dev/null)
+IFCONFIG=$(which ifconfig 2> /dev/null)
+IWCONFIG=$(which iwconfig 2> /dev/null)
+ROUTE=$(which route 2> /dev/null)
 
 chkresult()
 {
@@ -34,18 +34,18 @@ function start_dhcp()
 	case $DHCP_CLIENT in
 			[dD][hH][cC][pP][cC][dD])
 			PIDFILE=/var/run/dhcpcd-$1.pid
-			RUNFILE=/sbin/dhcpcd
+			RUNFILE=$(which dhcpcd 2> /dev/null)
 		;;
 			
 			[dD][hH][cC][lL][iI][eE][nN][tT])
 			PIDFILE=/var/run/dhclient-$1.pid
-			RUNFILE=/sbin/dhclient
+			RUNFILE=$(which dhclient 2> /dev/null)
 			DHCP_OPTIONS="$DHCP_OPTIONS -pf $PIDFILE -lf /var/state/dhcp/dhclient-$1.leases"
 		;;
 			
 			[uU][dD][hH][cC][pP][cC])
 			PIDFILE=/var/run/udhcpc-$1.pid
-			RUNFILE=/sbin/udhcpc
+			RUNFILE=$(which udhcpc 2> /dev/null)
 			DHCP_OPTIONS="$DHCP_OPTIONS -p $PIDFILE -i"
 		;;
 	esac
@@ -322,7 +322,7 @@ stop()
 {
 	if [ -z "$2" ]; then
 		echo "Stopping network:"
-		for device in `/sbin/ifconfig | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo | sort -r`; do
+		for device in `$IFCONFIG | cut -d" " -f1 | uniq | grep -E [a-z0-9]+ | grep -v lo | sort -r`; do
 			echo -n " * Stopping $device: "
 			device_stop $device auto
 			chkresult
