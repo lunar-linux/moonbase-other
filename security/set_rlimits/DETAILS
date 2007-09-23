@@ -1,0 +1,20 @@
+          MODULE=set_rlimits
+         VERSION=1.2.0
+          SOURCE=$MODULE-$VERSION.tgz
+      SOURCE_URL=http://www.physics.adelaide.edu.au/~jwoithe/
+      SOURCE_VFY=sha1:026cef96ca58d56d78dcb23f83fe5763ffc282cc
+        WEB_SITE=http://www.physics.adelaide.edu.au/~jwoithe/
+         ENTERED=20070923
+         UPDATED=20070923
+           SHORT="Utility to give normal users realtime privileges"
+      MAINTAINER=jannis@lunar-linux.org
+
+cat << EOF
+Small program written to give unpriviledged users access to 
+realtime scheduling via the new rlimits added to kernel 2.6.12. 
+The new name reflects the fact that the program can control 
+resource limits rather than just those related to realtime
+priorities. This new version adds a more flexible configuration 
+file format, easier command line use and the ability to control 
+the memlock resource limit.
+EOF
