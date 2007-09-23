@@ -15,7 +15,7 @@
   sedit "s:#DBDIR=/usr/local/rkhunter/db:DBDIR=$MODULE_PREFIX/lib/$MODULE/db\nINSTALLDIR=$MODULE_PREFIX:" rkhunter.conf &&
   install -m0644 rkhunter.conf /etc &&
 
-  cp development/rkhunter.8 $MODULE_PREFIX/share/man/man8 &&
+  cp rkhunter.8 $MODULE_PREFIX/share/man/man8 &&
 
   gather_docs WISHLIST
 
