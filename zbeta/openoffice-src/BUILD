@@ -9,14 +9,14 @@
   OPTS="$OPTS --prefix=$OO_DIR --disable-qadevooo \
               --disable-fontooo --disable-odk --enable-libart \
               --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
-              --enable-mozilla --disable-binfilter --enable-xrender-link \
+              --enable-mozilla --enable-binfilter --enable-xrender-link \
               --without-fonts --without-ppds --without-afms \
               --with-system-stdlibs --without-nas --with-system-zlib \
               --with-system-jpeg --with-system-expat --with-system-freetype \
               --with-system-libxml --without-system-db \
               --with-system-xrender-headers --with-epm=internal \
               --with-use-shell=bash --with-x --with-package-format=native \
-              --with-build-version=LunarLinux" &&
+              --with-build-version=LunarLinux --without-system-boost --without-system-curl" &&
 
   if module_installed sane-backends ; then
     OPTS="$OPTS --with-system-sane-header";
@@ -33,7 +33,7 @@
   # Apply mandatory and optional patches
 
   patch_it $SOURCE2 0 &&
-  patch_it $SOURCE6 0 &&
+# patch_it $SOURCE6 0 &&
 
   # As long as OOo-src does not compile against nss it needs its own mozilla
   # tarball (and it also compiles its own mozilla)
@@ -63,7 +63,7 @@
   cd instsetoo_native/unxlngi6.pro/OpenOffice/native/install/en-US/linux-2.6-intel/buildroot/opt &&
 
   rm -rf $OO_DIR &&
-  cp -rv openoffice.org2.2 $OO_DIR &&
+  cp -rv openoffice.org2.3 $OO_DIR &&
 
   # Install icons for the .desktop files
   mkdir -p -m0755 /usr/share/icons/{HighContrast,hicolor} &&
@@ -81,7 +81,7 @@
     sedit '/Exec/d' $file;
     echo "Exec=$OO_DIR/program/s`echo $file | sed 's/.desktop//'`" >> $file;
     sedit '/Icon/d' $file;
-    echo "Icon=`echo $file | sed 's/.desktop//'`" >> $file
+    echo "Icon=`echo $file | sed 's/.desktop//'`" >> $file;
     install -m644 $file /usr/share/applications;
   done &&
   update-desktop-database
