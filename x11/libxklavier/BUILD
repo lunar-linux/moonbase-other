@@ -1,6 +1,6 @@
 (
   
-  export OPTS="$OPTS --disable-doxygen --with-xkb-base=/usr/X11R6/lib/X11/xkb"  &&
+  export OPTS="$OPTS --disable-doxygen --with-xkb-base=/usr/share/X11/xkb --with-xkb-bin-base=/usr/bin --prefix=/usr"  &&
   default_build
   
 ) > $C_FIFO 2>&1
