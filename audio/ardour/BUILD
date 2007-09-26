@@ -1,6 +1,6 @@
 (
 
-  scons PREFIX=/usr ARCH="$CFLAGS" &&
+  scons PREFIX=/usr ARCH="$CFLAGS" SYSLIBS=1 &&
   prepare_install &&
   scons install
 
