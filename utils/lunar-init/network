@@ -141,18 +141,22 @@ function device_start()
 
 	if [ "$MANAGER" == "wpa_supplicant" ] ; then
 		if [ -x $WPA_SUPPLICANT ] && [ -x $IFPLUGD ] ; then
-			# we start ifplugd prior to wpa_supplicant because then it brings up the interface
-			# but doesn't call the dhcp client since there's no connection yet
-			# Please don't fail here because ifplugd is already running
-	    		if ! $IFPLUGD -c -i $1 &> /dev/null ; then
-              			$IFPLUGD -I -i $1 -f -r /etc/ifplugd/ifplugd-lunar.action
-	    		fi
+			# bring the interface up
+			$IFCONFIG $1 up
+
+			# remove any and all essid
+			$IWCONFIG $1 essid any
 
 			# FIXME: Make the config file configurable. 
-	    		# Also, rely on the configuration to determine whether or not the interface is enabled
-	    		$WPA_SUPPLICANT -B -w -Dwext -i${1} -c/etc/wpa_supplicant.conf
+			# Also, rely on the configuration to determine whether or not the interface is enabled
+			$WPA_SUPPLICANT -B -w -Dwext -i$1 -c/etc/wpa_supplicant.conf
 
-	  	else
+			# finally start ifplugd
+			if ! $IFPLUGD -c -i $1 &> /dev/null ; then
+				$IFPLUGD -I -i $1 -f -r /etc/ifplugd/ifplugd-lunar.action
+			fi
+
+		else
 			echo -n " ERROR: wpa_supplicant and/or ifplugd are missing!"
 			return -1
 		fi
