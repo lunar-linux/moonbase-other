@@ -1,5 +1,5 @@
 (
-  ./waf configure --prefix=/usr -d optimized &&
+  ./waf configure --prefix=/usr -d optimized --without-optionals=et &&
   ./waf build &&
   prepare_install &&
   ./waf install
