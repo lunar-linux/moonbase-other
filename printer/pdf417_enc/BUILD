@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   sedit "s:+u =:u =:"                         pdf417_enc.c  &&
   sedit "s: libpdf417enc.a: libpdf417enc.so:" Makefile      &&
 
