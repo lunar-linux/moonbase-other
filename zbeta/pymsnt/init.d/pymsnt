@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Startup script for MSN jabber transport
+#
+# chkconfig: 345 90 10
+# description: MSN jabber transport
+# config: /etc/jabber/pymsnt.xml
+
+
+start ()
+{
+    python /usr/lib/python2.5/site-packages/pymsnt/pymsnt.py -c /etc/jabber/pymsnt.xml
+}
+
+stop ()
+{
+    kill `cat /var/run/pymsnt.pid`
+}
+
+. /lib/lsb/init-functions
