@@ -2,7 +2,7 @@
 
 . /etc/profile.d/qt4.rc &&
 
-WebKitTools/Scripts/build-webkit --gdk --qmakearg=WEBKIT_INC_DIR=/usr/include/WebKit --qmakearg=WEBKIT_LIB_DIR=/usr/lib &&
+WebKitTools/Scripts/build-webkit --gtk --qmakearg=WEBKIT_INC_DIR=/usr/include/WebKit --qmakearg=WEBKIT_LIB_DIR=/usr/lib &&
 cd WebKitBuild/Release &&
 prepare_install &&
 make install
