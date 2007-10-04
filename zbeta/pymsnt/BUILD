@@ -19,6 +19,8 @@
     fi &&
 
     cp -r {src,data} ${python_dir} &&
+    find $python_dir -type d | xargs chmod 755 &&
+    find $python_dir -type f | xargs chmod 644 &&
     install -m755 PyMSNt.py ${python_dir}/pymsnt.py &&
     
     # A bit hackish to byte compile everything
