@@ -1,35 +1,35 @@
           MODULE=pulseaudio
-         VERSION=0.9.5
+         VERSION=0.9.6
           SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=http://0pointer.de/lennart/projects/pulseaudio/
-      SOURCE_VFY=sha1:c69c5a1f3e0cdc0c79f2ec3860e6aa02a049405e
+      SOURCE_VFY=sha1:c3ec7aac57bd14eb9c922883f47795995cc2b6dc
         WEB_SITE=http://0pointer.de/lennart/projects/pulseaudio/
          ENTERED=20060205
-         UPDATED=20060905
+         UPDATED=20071005
            SHORT="Networked sound server"
            PSAFE=no
 
 cat << EOF
-PulseAudio is a sound server for Linux and other Unix like operating 
-systems. It is intended to be an improved drop-in replacement for the 
-Enlightened Sound Daemon (ESOUND). 
-It is my ultimate ambition to get PulseAudio into Gnome as a 
-replacement for ESOUND. In addition to the features ESOUND provides 
+PulseAudio is a sound server for Linux and other Unix like operating
+systems. It is intended to be an improved drop-in replacement for the
+Enlightened Sound Daemon (ESOUND).
+It is my ultimate ambition to get PulseAudio into Gnome as a
+replacement for ESOUND. In addition to the features ESOUND provides
 pulseaudio has:
 
-  * Extensible plugin architecture (by loading dynamic loadable 
+  * Extensible plugin architecture (by loading dynamic loadable
     modules with dlopen())
   * Support for more than one sink/source
   * Better low latency behaviour
   * Embedabble into other software (the core is available as C library)
   * Completely asynchronous C API
-  * Simple command line interface for reconfiguring the daemon 
+  * Simple command line interface for reconfiguring the daemon
     while running
   * Flexible, implicit sample type conversion and resampling
   * "Zero-Copy" architecture
   * Module autoloading
   * Very accurate latency measurement for playback and recordin.
-  * May be used to combine multiple sound cards to one (with sample 
+  * May be used to combine multiple sound cards to one (with sample
     rate adjustment)
   * Client side latency interpolation
 EOF
