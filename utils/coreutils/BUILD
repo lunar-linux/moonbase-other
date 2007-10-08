@@ -2,6 +2,9 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
+  # This should go away in version > 6.9
+  sed -i "s@futimens@hassan_&@" $(echo `find . -type f -print | xargs grep -li 'futimens'`)
+
   bad_flags -malign-double
 
   # We really want this
