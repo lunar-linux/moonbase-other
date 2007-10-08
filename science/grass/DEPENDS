@@ -1,7 +1,14 @@
-depends  bison    &&
-depends  flex     &&
-depends  proj-4   &&
-depends  gdal     &&
-depends  fftw     &&
+depends  bison
+depends  flex
+depends  proj-4
+depends  gdal
+depends  fftw
 depends  tk
 
+optional_depends "ffmpeg"    "--with-ffmpeg"   "--without-ffmpeg"   "audio support"
+optional_depends "unixODBC"  "--with-odbc"     "--without-odbc"     "additional database support"
+optional_depends "freetype2" "--with-freetype" "--without-freetype" "additional text support"
+optional_depends "readline"  "--with-readline" "--without-readline" "for readline support"
+optional_depends "Python"    "--with-python"   "--without-python"   "for Python support"
+optional_depends "mysql"     "--with-mysql"    "--without-mysql"    "for database support"
+optional_depends "sqlite2"   "--with-sqlite"   "--without-sqlite"   "for database support"
