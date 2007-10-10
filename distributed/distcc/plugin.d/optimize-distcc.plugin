@@ -12,8 +12,8 @@ plugin_distcc_optimize()
 	if [ "$USE_DISTCC" == "yes" ]; then
 		# we append distcc in case ccache is also used to
 		# make sure that distcc goes first!
-		CC_EXT="$CC_EXT distcc"
-		CXX_EXT="$CXX_EXT distcc"
+	        echo $CC_EXT | grep -q "distcc" || CC_EXT="$CC_EXT distcc"
+		echo $CXX_EXT | grep -q "distcc" || CXX_EXT="$CXX_EXT distcc"
 		export CC_EXT
 		export CXX_EXT
 		export DISTCC_HOSTS
