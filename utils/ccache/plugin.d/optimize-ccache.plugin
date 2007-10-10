@@ -12,8 +12,8 @@ plugin_ccache_optimize()
 	if [ "$USE_CCACHE" == "yes" ]; then
 		# we PRE-pend ccache in case distcc is also used to
 		# make sure that ccache goes first!
-		CC_EXT="ccache $CC_EXT"
-		CXX_EXT="ccache $CXX_EXT"
+	        echo $CC_EXT | grep -q "ccache" || CC_EXT="ccache $CC_EXT"
+		echo $CXX_EXT | grep -q "ccache" || CXX_EXT="ccache $CXX_EXT"
 		export CC_EXT
 		export CXX_EXT
 		verbose_msg "CC_EXT=\"$CC_EXT\""
