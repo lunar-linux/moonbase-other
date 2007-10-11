@@ -1,0 +1,24 @@
+          MODULE=setuptools
+         VERSION=0.6c7
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://cheeseshop.python.org/packages/source/s/setuptools/
+      SOURCE_VFY=sha1:8baa4d11bd7380ccab5c7fbdf6f8dc12a5dacba9
+        WEB_SITE=http://peak.telecommunity.com/DevCenter/setuptools
+         ENTERED=20071008
+         UPDATED=20071008
+           SHORT="simplified packaging system for Python modules"
+
+cat << EOF
+setuptools is a collection of enhancements to the Python distutils
+that allow you to more easily build and distribute Python packages,
+especially ones that have dependencies on other packages.
+
+Packages built and distributed using setuptools look to the user like
+ordinary Python packages based on the distutils. Your users don't
+need to install or even know about setuptools in order to use them,
+and you don't have to include the entire setuptools package in your
+distributions. By including just a single bootstrap module (an 8K .py
+file), your package will automatically download and install setuptools
+if the user is building your package from source and doesn't have a
+suitable version already installed.
+EOF
