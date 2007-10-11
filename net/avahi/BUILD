@@ -1,4 +1,7 @@
 (
+
+   . /etc/profile.d/qt3.rc
+
    add_priv_user avahi:avahi -d /dev/null -s /bin/false
 
 #   export ac_cv_func_realloc_0_nonnull=yes
