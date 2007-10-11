@@ -1,6 +1,7 @@
 (
 
   prepare_install &&
+  sed -i -e "s/-lsmpeg/& -lstdc++ /g" src/Makefile &&
   make            &&
   
   mkdir -p /usr/games/rocksndiamonds            &&
