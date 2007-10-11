@@ -1,11 +1,14 @@
 (
 
-  ./configure --prefix=/usr/bin  &&
-  ./install.tcl  &&
+  ./configure --prefix=/usr/bin &&
+  ./install.tcl &&
 
-  prepare_install  &&
+  sedit "s:cdrecord:wodim:g" tkdvd-install.sh &&
+  sedit "s:mkisofs:genisoimage:g" tkdvd-install.sh &&
 
-  install -m 755 tkdvd-install.sh /usr/bin/tkdvd  &&
+  prepare_install &&
+
+  install -m 755 tkdvd-install.sh /usr/bin/tkdvd &&
   install -m 644 icons/*.png /usr/share/pixmaps
 
 ) > $C_FIFO 2>&1
