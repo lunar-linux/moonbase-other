@@ -3,8 +3,6 @@
   # make sure the luser has the source for this one!
   download_module wget  &&
 
-  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
-
   ./config  --prefix=/usr                       \
             --openssldir=/etc/ssl               \
             shared                              \
