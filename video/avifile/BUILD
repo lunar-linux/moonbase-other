@@ -1,7 +1,9 @@
 (
+
   . /etc/profile.d/qt3.rc
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE3 0  &&
 
   sedit "s:freetype/freetype.h>:ft2build.h>\n#include FT_FREETYPE_H:" lib/video/sub_ft.cpp  &&
 
