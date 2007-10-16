@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 0 &&
+
   add_priv_user www:www -s /bin/false -c "www"  &&
 
   ./configure  --prefix=/usr               \
