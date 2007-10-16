@@ -36,8 +36,9 @@
   # Substitute $INSTALL_DIR with the module prefix
   sed -i -e 's:$INSTALL_DIR:'$MODULE_PREFIX':g' /usr/bin/VirtualBox &&
 
-  # Install an empty config file to let VirtualBox know it is installed
-  mkdir -p /etc/vbox && touch /etc/vbox/vbox.cfg &&
+  # Install the config file to let VirtualBox know it is installed
+  mkdir -p /etc/vbox && 
+  echo "INSTALL_DIR=$MODULE_PREFIX" > /etc/vbox/vbox.cfg &&
 
   # Create the vboxusers group
   groupadd -f vboxusers
