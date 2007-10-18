@@ -3,8 +3,9 @@
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=login-1.2.defs.pam
          SOURCE3=shadow-4.0.18.1-useradd-usermod.patch
-   SOURCE_URL[0]=ftp://ftp.pld.org.pl/software/$MODULE/
-   SOURCE_URL[1]=ftp://ftp.pld.org.pl/software/$MODULE/old/
+      SOURCE_URL=http://ftp.belnet.be/linux/linuxfromscratch/ftp/hlfs-packages/unstable/
+   #SOURCE_URL[0]=ftp://ftp.pld.org.pl/software/$MODULE/
+   #SOURCE_URL[1]=ftp://ftp.pld.org.pl/software/$MODULE/old/
      SOURCE2_URL=$PATCH_URL
      SOURCE3_URL=$PATCH_URL
       SOURCE_VFY=sha1:1a30458e9db05560bfc82529048bd5d60b45cf9b
@@ -13,9 +14,10 @@
         WEB_SITE=ftp://ftp.pld.org.pl/software/shadow
       MAINTAINER=ratler@lunar-linux.org
          ENTERED=20010922
-         UPDATED=20060916
+         UPDATED=20071018
            SHORT="Contains the shadow password file utilities"
-           PSAFE=no
+PSAFE=no
+
 cat << EOF
 The Shadow password file utilities package includes the programs
 necessary to convert traditional V7 UNIX password files to the SVR4

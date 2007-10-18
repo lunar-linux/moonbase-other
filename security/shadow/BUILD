@@ -29,7 +29,7 @@
 
   # We only need these files without PAM
   if ! module_installed Linux-PAM; then
-    sedit 's|^CRACKLIB_DICTPATH.*$|CRACKLIB_DICTPATH /lib/cracklib/|g' etc/login.defs
+    sedit 's|^CRACKLIB_DICTPATH.*$|CRACKLIB_DICTPATH /lib/cracklib/pw_dict|' etc/login.defs
     sedit 's|#MD5_CRYPT_ENAB.*$|MD5_CRYPT_ENAB yes|' etc/login.defs
     sedit 's|^USERGROUPS_ENAB.*|USERGROUPS_ENAB no|' etc/login.defs
     [ -e /etc/limits ] || install -m 0644 etc/limits /etc/

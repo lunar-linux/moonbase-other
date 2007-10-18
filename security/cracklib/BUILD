@@ -5,12 +5,10 @@
               --includedir=/usr/include  \
               --infodir=/usr/share/doc   \
               --mandir=/usr/share/man    \
+              --with-default-dict=/lib/cracklib/pw_dict \
+              --disable-static \
               $OPTS  &&
   default_make       &&
-  make dict          &&
-  cd /lib/cracklib   &&
-  ln -sf pw_dict.hwm .hwm &&
-  ln -sf pw_dict.pwd .pwd &&
-  ln -sf pw_dict.pwi .pwi
+  make dict
 
 ) > $C_FIFO 2>&1
