@@ -1,7 +1,5 @@
 (
 
-  sed -i s/"Text Editor"/"Gedit Text Editor"/g data/gedit.desktop.in
-
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                     \
                 --sysconfdir=/etc                  \
