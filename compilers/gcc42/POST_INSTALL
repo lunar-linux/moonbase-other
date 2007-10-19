@@ -1,5 +1,11 @@
 # allow seamless upgrade/downgrade from/to gcc <=> gcc42
-remove_module gcc42
+if module_installed gcc ; then
+  remove_module gcc
+fi
+
+if module_installed gcc3 ; then
+  remove_module gcc3
+if
 
 cd /usr/lib/gcc/$BUILD/$VERSION  &&
 ln    -sf /usr/bin/cpp cpp       &&
