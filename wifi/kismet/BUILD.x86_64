@@ -1,16 +1,17 @@
 (
-   
+
     if [ $WITH_ACPI == "y" ]; then
       OPTS="$OPTS --enable-acpi"
     fi
-    
+
     if [ $SUIDINSTALL == "y" ]; then
       MAKE_INSTALL="make suidinstall"
     else
       MAKE_INSTALL="make install"
     fi
 
-    if ! module_installed gpsdrive ; then
+# At some point this should be revisited for x86_64.
+    if module_installed gpsdrive ; then
         OPTS="$OPTS --disable-gpsmap"
     fi &&
 
@@ -22,7 +23,7 @@
                 --datadir=/usr/share       \
                 --localstatedir=/var       \
                  $OPTS                    &&
-    make dep                              && 
+    make dep                              &&
     make                                  &&
     prepare_install                       &&
     $MAKE_INSTALL
