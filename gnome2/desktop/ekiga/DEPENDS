@@ -1,6 +1,8 @@
-depends pwlib &&
-depends opal &&
-depends openldap &&
-optional_depends evolution-data-server "" "--disable-gnome" "to enable gnome support"
-optional_depends SDL      "" "" "for fullscreen support"
-optional_depends avahi "" "--disable-avahi" "for avahi support"
+depends pwlib
+depends opal
+depends openldap
+
+optional_depends dbus                  "--enable-dbus" "--disable-dbus"  "for dbus support"
+optional_depends evolution-data-server ""              "--disable-gnome" "to enable gnome support"
+optional_depends SDL                   ""              ""                "for fullscreen support"
+optional_depends avahi                 ""              "--disable-avahi" "for avahi support"
