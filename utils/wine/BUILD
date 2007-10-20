@@ -7,7 +7,7 @@
               --localstatedir=/var       \
               --infodir=/usr/share/info  \
               --mandir=/usr/share/man    \
-	      --datarootdir=/usr/share  &&
+              --datarootdir=/usr/share  &&
 
   make depend  &&
   default_make

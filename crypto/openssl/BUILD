@@ -6,8 +6,8 @@
   ./config  --prefix=/usr                       \
             --openssldir=/etc/ssl               \
             shared                              \
-	    $OPTS                              &&
-	    
+            $OPTS                              &&
+
   sedit "/^CC/d" Makefile                      &&
   sedit "s/-m486//g" Makefile                  &&
   sedit "s/-O3/-Os/" Makefile                  &&
