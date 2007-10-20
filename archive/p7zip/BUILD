@@ -1,10 +1,14 @@
 (
 
-  make &&
-  
-  prepare_install &&
+  sedit 's:\/usr\/local:\/usr:' makefile install.sh &&
 
-  install -m755 bin/7za /usr/bin/ &&
-  install -m644 man1/7za.1 /usr/share/man/man1/
+  if [ "$USE_MODS" == "y" ]; then
+    make all3
+  else
+    make
+  fi
+
+  prepare_install &&
+  ./install.sh
 
 ) > $C_FIFO 2>&1
