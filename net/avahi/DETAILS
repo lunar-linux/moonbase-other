@@ -1,16 +1,19 @@
           MODULE=avahi
-         VERSION=0.6.20
+         VERSION=0.6.21
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE1=avahi-0.6.21-dbus-1.0.2.patch
       SOURCE_URL=http://avahi.org/download/
-      SOURCE_VFY=sha1:451a095440fba9bec2effa0730bb4ec29593d1b1
+     SOURCE1_URL=$PATCH_URL
+      SOURCE_VFY=sha1:3675f83b294b87a5cfa947d2f68518f0da8ed7b9
+     SOURCE1_VFY=sha1:f1766c9cf660e8d9ab6ac0ad70d726b80b272fff
         WEB_SITE=http://avahi.org
          ENTERED=20060808
-         UPDATED=20070702
+         UPDATED=20071021
            SHORT="service discovery on a local network"
 
 cat << EOF
-Avahi is a system which facilitates service discovery on a local network. This means 
-that you can plug your laptop or computer into a network and instantly be able to 
-view other people who you can chat with, find printers to print to or find files 
+Avahi is a system which facilitates service discovery on a local network. This means
+that you can plug your laptop or computer into a network and instantly be able to
+view other people who you can chat with, find printers to print to or find files
 being shared.
 EOF
