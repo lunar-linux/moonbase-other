@@ -1,11 +1,15 @@
 (
 
-  ./configure  --build=$BUILD  \
-               --prefix=/usr  &&
-  sedit "s/)\/doc\/slang/)\/share\/doc\/slang/" src/Makefile  &&
-  make  elf          &&
-  prepare_install    &&
-  make  install-elf  &&
-  make  install-links
+  ./configure  --prefix=/usr               \
+               --sysconfdir=/etc           \
+               --localstatedir=/var $OPTS  &&
+
+  default_make &&
+
+  if [ "$STATIC" == "y" ]; then
+    make clean &&
+    make static &&
+    make install-static
+  fi
 
 ) > $C_FIFO 2>&1
