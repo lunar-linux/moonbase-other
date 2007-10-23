@@ -1,8 +1,0 @@
-(
-
-  # fixes the g (goto) option
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-
-  default_build
-
-) > $C_FIFO
