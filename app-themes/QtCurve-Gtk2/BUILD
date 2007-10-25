@@ -5,6 +5,7 @@
 
   OPTS="$OPTS --enable-kde-event-filter"
 
-  default_build
+  cmake . -DCMAKE_INSTALL_PREFIX:=`kde-config --prefix` &&
+  default_make
 
 ) > $C_FIFO 2>&1
