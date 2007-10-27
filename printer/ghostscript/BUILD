@@ -1,5 +1,7 @@
 (
 
+  export CFLAGS="$CFLAGS -fPIC"
+
   default_build  &&
 
   make install-so
