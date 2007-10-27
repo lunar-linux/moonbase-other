@@ -1,0 +1,19 @@
+          MODULE=Parse-Pidl
+         VERSION=0.02
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://search.cpan.org/CPAN/authors/id/C/CT/CTRLSOFT/
+      SOURCE_VFY=sha1:6e814c2a7a2f83e8c62d3e3bebd757f03c54b38e
+        WEB_SITE=http://search.cpan.org/~ctrlsoft/Parse-Pidl/
+         ENTERED=20071027
+         UPDATED=20071027
+           SHORT="IDL Compiler written in Perl"
+cat << EOF
+Pidl works by building a parse tree from a .pidl file (a simple
+dump of it's internal parse tree) or a .idl file
+(a file format mostly like the IDL file format midl uses).
+The IDL file parser is in idl.yp (a yacc file converted to
+perl code by yapp)
+
+After a parse tree is present, pidl will call one of it's backends
+(which one depends on the options given on the command-line).
+EOF
