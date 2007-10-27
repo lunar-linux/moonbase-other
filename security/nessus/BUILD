@@ -8,34 +8,35 @@
   prepare_install &&
 
   (
-    cd $MODULE-libraries &&
-    OPTS=$LIBOPTS        &&
-    default_config       &&
-    make                 &&
+    cd $MODULE-libraries-$VERSION  &&
+    OPTS=$LIBOPTS   &&
+    default_config  &&
+    make            &&
     make install
-  ) &&
+  )  &&
 
   (
-    cd libnasl           &&
+    cd libnasl-$VERSION  &&
     OPTS=$LIBNASLOPTS    &&
     default_config       &&
     make                 &&
     make install
-  ) &&
+  )  &&
 
   (
-    cd $MODULE-core      &&
-    OPTS=$COREOPTS       &&
-    default_config       &&
-    make                 &&
+    cd $MODULE-core-$VERSION  &&
+    sedit  "s:default\:::" nessus/comm.c  &&
+    OPTS=$COREOPTS  &&
+    default_config  &&
+    make            &&
     make install
-  ) &&
+  )  &&
 
   (
-    cd $MODULE-plugins   &&
-    OPTS=$PLUGOPTS       &&
-    default_config       &&
-    make                 &&
+    cd $MODULE-plugins-GPL-$VERSION  &&
+    OPTS=$PLUGOPTS  &&
+    default_config  &&
+    make            &&
     make install
   )
   
