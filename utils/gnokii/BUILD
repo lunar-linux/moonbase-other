@@ -13,11 +13,11 @@
   ./configure  --prefix=/usr  \
                $OPTS         &&
 
-  make               &&
-  make install-docs  &&
-  make install-suid  &&
-  prepare_install    &&
-  make install       &&
+  make                &&
+  make install-docs   &&
+  prepare_install     &&
+  make install        &&
+  make install-devel  &&
   cp Docs/sample/gnokiirc /etc/gnokiirc
   
 ) > $C_FIFO 2>&1
