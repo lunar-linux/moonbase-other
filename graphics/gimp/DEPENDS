@@ -2,7 +2,6 @@ depends  gtk+-2
 depends  libart_lgpl
 depends  fontconfig
 depends  intltool
-depends  pygtk2
 
 optional_depends  "libmng"                  \
                   ""                        \
@@ -14,14 +13,9 @@ optional_depends  "aalib"                   \
                   "--without-aa"            \
                   "for ASCII art support"
 
-optional_depends  "gimp-print"              \
-                  ""                        \
-                  "--disable-print"         \
-                  "for printing support"
-
 optional_depends  "pygtk2"                  \
                   "--enable-python"         \
-                  ""                        \
+                  "--disable-python"        \
                   "for Python support"
 
 optional_depends  "gtk-doc"                 \
