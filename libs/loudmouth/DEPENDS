@@ -1,6 +1,16 @@
-depends  glib-2  &&
+depends  glib-2
 
-optional_depends  "gnutls"   "--with-ssl=yes"    "--with-ssl=no"      \
-                  "for SSL capabilities"                              &&
-optional_depends  "gtk-doc"  "--enable-gtk-doc"  "--disable-gtk-doc"  \
+optional_depends  "gnutls"               \
+                  "--with-ssl=gnutls"    \
+                  "--with-ssl=no"        \
+                  "for SSL capabilities"
+
+optional_depends  "openssl"              \
+                  "--with-ssl=openssl    \
+                  "--with-ssl=no         \
+                  "for SSL capabilities"
+
+optional_depends  "gtk-doc"            \
+                  "--enable-gtk-doc"   \
+                  "--disable-gtk-doc"  \
                   "for extra developer documentation"
