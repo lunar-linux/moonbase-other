@@ -8,6 +8,11 @@
         export CXXFLAGS="$CXXFLAGS -fPIC"
   fi &&
 
+  if [ "`arch`" == "x86_64" ]; then
+         export CFLAGS="$CFLAGS -fPIC"
+       export CXXFLAGS="$CXXFLAGS -fPIC"
+  fi &&
+
   export CXX='gcc' &&
 
   ./configure  --prefix=/usr                   \
@@ -43,7 +48,7 @@
   mkdir -p /var/lib/mysql                     &&
   make  pkglibdir=/usr/lib  install           &&
   rm    -rf  /usr/mysql-test                  &&
-  
+
   if  [ -x /etc/init.d/mysql.server ]; then
     rm -f /etc/init.d/mysql.server
     rm -f /etc/rc?.d/???mysql.server
