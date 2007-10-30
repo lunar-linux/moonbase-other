@@ -1,5 +1,7 @@
 (
 
+  autoreconf &&
+  ./configure &&
   make prefix=/usr strip &&
   prepare_install  &&
   make prefix=/usr install &&
