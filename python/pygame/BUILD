@@ -1,6 +1,6 @@
 (
 
- python setup.py build  &&
+ echo Y | python setup.py build  &&
  prepare_install        &&
  python setup.py install
 
