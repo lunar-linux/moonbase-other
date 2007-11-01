@@ -1,13 +1,14 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
+# configure needs to be this way. The build will tank if we try
+# to use default_build.
+  ./configure --prefix=/usr      \
+              --enable-gpl       \
+              --enable-shared    \
+              --enable-pp        \
+              --enable-pthreads  \
+              $OPTS             &&
 
-  sedit "s/static uint64/const uint64/" libavcodec/liba52/resample_mmx.c &&
-
-  OPTS="$OPTS --enable-gpl --enable-shared --enable-pthreads \
-       --disable-ffplay --disable-opts --disable-mmx"
-
-  default_build
+  default_make
 
 ) > $C_FIFO 2>&1

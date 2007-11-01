@@ -1,26 +1,24 @@
           MODULE=ffmpeg
-         VERSION=0.4.9-pre1
-          SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-$VERSION-amr_fixes-1.patch
-         SOURCE3=$MODULE-$VERSION-gcc4.patch.bz2
-      SOURCE_URL=$SFORGE_URL/$MODULE/
-     SOURCE2_URL=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
-      SOURCE_VFY=sha1:aad00445137520bec19e56bcb042e75a10c53bb3
-     SOURCE2_VFY=sha1:23c283d25d664a1a8fe6ca70b540996e16f3d1a1
-     SOURCE3_VFY=sha1:d8153f39331af419e6fd51b1ebebd1efb6131d16
+         VERSION=2007-11-01
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$MIRROR_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-beta
+      SOURCE_VFY=sha1:230b9ba5b2d204922d5380c45367b0e832f531ef
         WEB_SITE=http://ffmpeg.sourceforge.net/
-           PSAFE=no
          ENTERED=20020327
-         UPDATED=20050308
-           SHORT="avi decoder"
+         UPDATED=20071101
+      MAINTAINER=stumbles@lunar-linux.org
+           SHORT="ffmpeg is an avi decoder"
 
 cat << EOF
-FFmpeg is the first complete and free Internet Live Audio and Video 
-Broadcasting solution. FFMpeg aims at being the command line tool to 
-handle audio and video. It is a "three-in-one" solution. FFmpeg 
-includes a soft VCR capable of encoding in many different formats 
+FFmpeg is the first complete and free Internet Live Audio and Video
+Broadcasting solution. FFMpeg aims at being the command line tool to
+handle audio and video. It is a "three-in-one" solution. FFmpeg
+includes a soft VCR capable of encoding in many different formats
 simultaneously, a streaming server for Netcasting multimedia.
-FFmpeg generates streaming files, in many popular formats 
+FFmpeg generates streaming files, in many popular formats
 simultaneously, faster than any other solution.
+
+Note: The UPDATED field will always reflect the date/time it was retreived 
+      from their svn.
 EOF
