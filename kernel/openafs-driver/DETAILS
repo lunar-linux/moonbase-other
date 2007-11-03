@@ -1,26 +1,19 @@
           MODULE=openafs-driver
-         VERSION=1.4.4
+         VERSION=1.4.5
           SOURCE=openafs-$VERSION-src.tar.bz2
-         SOURCE2=openafs-1.4.4-2.6.22-updates.patch
-         SOURCE3=openafs-1.4.4-all_posix-lock-file-has-wait-arg-now.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/openafs-$VERSION
       SOURCE_URL=http://www.openafs.org/dl/openafs/$VERSION/
-     SOURCE2_URL=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
         WEB_SITE=http://www.openafs.org/
-      SOURCE_VFY=sha1:07c2854d97fab807ee023c281ec7203f1e9ef723
-     SOURCE2_VFY=sha1:989ad4bf737552244b238fec496f4c2345ee38e3
-     SOURCE3_VFY=sha1:211c6b4ec7b95c6e5761436a462dd0f927cc1243
+      SOURCE_VFY=sha1:b9c8aaab204487e82ac8de261a2088e4eb145297
          ENTERED=20031216
-         UPDATED=20070329
+         UPDATED=20071103
       MAINTAINER="ratler@lunar-linux.org"
            SHORT="OpenAFS kernel module"
 PROFILE="yes"
 PSAFE="no"
 
 cat << EOF
-OpenAFS distributed filesystem. AFS is a distributed filesystem
-allowing cross-platform sharing of files among multiple computers.
-Facilities are provided for access control, authentication, backup and
-adminsitrative management.
+OpenAFS is a distributed filesystem allowing cross-platform sharing of
+files among multiple computers.  Facilities are provided for access
+control, authentication, backup and adminsitrative management.
 EOF
