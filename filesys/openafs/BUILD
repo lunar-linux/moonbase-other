@@ -2,8 +2,7 @@
   patch_it $SOURCE4 1   &&
   patch_it $SOURCE5 1   &&
   patch_it $SOURCE6 0   &&
-  patch_it $SOURCE7 1   &&
-  patch_it $SOURCE8 1   &&
+
   ./regen.sh            && 
 
   case `uname -r` in

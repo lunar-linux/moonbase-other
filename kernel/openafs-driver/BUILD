@@ -1,6 +1,4 @@
 (
-  patch_it $SOURCE2 1 &&
-  patch_it $SOURCE3 1 &&
   ./regen.sh &&
   case `uname -r` in
     2.6.*) 
