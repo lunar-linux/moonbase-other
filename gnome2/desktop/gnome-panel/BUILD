@@ -6,6 +6,7 @@
                 --localstatedir=/var              \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
+                --enable-gtk-doc                              \
                 $OPTS                             &&
     default_make                   
 
