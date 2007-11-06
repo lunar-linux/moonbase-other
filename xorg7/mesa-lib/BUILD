@@ -9,11 +9,11 @@
 
   case `arch` in
     x86_64) CONF=linux-dri-x86-64 ;;
-    i?86)   CONF=linux-dri-x86 ;;
+    i?86)   CONF=linux-dri ;;
     *)      exit 1 ;;
   esac &&
 
-  make $CONF && 
+  make $CONF &&
   make -C progs/xdemos PROGS='glxinfo glxgears' &&
 
   prepare_install &&
