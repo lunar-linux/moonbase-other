@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+
   OPTS="$OPTS --with-freetype2-includes=/usr/include/freetype2 \
               --with-gzip" &&
 
