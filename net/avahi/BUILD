@@ -2,6 +2,10 @@
 
    . /etc/profile.d/qt3.rc
 
+   if module_installed qt4; then
+    . /etc/profile.d/qt4.rc
+   fi &&
+
    patch_it $SOURCE_CACHE/$SOURCE1 0 &&
    add_priv_user avahi:avahi -d /dev/null -s /bin/false
 
