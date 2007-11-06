@@ -1,5 +1,10 @@
 (
 
+if [ `uname -r | cut -d. -f2` -ge 6 ] && [ `uname -r | cut -d. -f3` -ge 23 ]; then
+   message "${PROBLEM_COLOR}Current fglrx driver does not work with kernels greater than ${VERSION_COLOR}2.6.22"
+   message "${MESSAGE_COLOR}Your kernel is at version ${VERSION_COLOR}`uname -r`${DEFAULT_COLOR}"
+   exit 1
+else
         prepare_install &&
         sh $SOURCE --extract fglrx-install &&
         cd fglrx-install &&
@@ -54,5 +59,6 @@ fi &&
 
         #Update module dependencies
         depmod
+fi
 
 ) > $C_FIFO 2>&1
