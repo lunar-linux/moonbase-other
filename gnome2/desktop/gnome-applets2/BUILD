@@ -1,5 +1,5 @@
 (
- 
+
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
@@ -8,6 +8,6 @@
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
                 --enable-ipv6                     \
                 $OPTS                             &&
-    default_make                   
+    default_make
 
 ) > $C_FIFO 2>&1
