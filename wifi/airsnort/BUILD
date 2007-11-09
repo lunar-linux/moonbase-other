@@ -1,4 +1,6 @@
-( 
+(
+
+  patch_it $SOURCE_CACHE/$SOURCE1 0 &&
 
   echo CFLAGS:= $CFLAGS  &&
   echo OPTS:= $OPTS      &&
