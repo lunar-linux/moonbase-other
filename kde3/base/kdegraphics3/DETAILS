@@ -1,17 +1,19 @@
           MODULE=kdegraphics3
          VERSION=3.5.8
           SOURCE=kdegraphics-$VERSION.tar.bz2
+         SOURCE2=post-3.5.8-kdegraphics-kpdf.diff
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdegraphics-$VERSION
       SOURCE_URL=$KDE_URL/stable/$VERSION/src/
+     SOURCE2_URL=$KDE_URL/security_patches/
       SOURCE_VFY=sha1:2f7b0aeefffd1d10128f1f1edd7e4c11e0329f35
+     SOURCE2_VFY=sha1:fea08298b8f9228ed57ddf0ceffcab12755c1e80
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
         WEB_SITE=http://www.kde.org/
          ENTERED=20020523
-         UPDATED=20071017
+         UPDATED=20071110
       MAINTAINER=florin@lunar-linux.org
            SHORT="Contains graphics and typesetting applications"
 
 cat << EOF
 kdegraphics contains graphics and typesetting applications.
 EOF
-
