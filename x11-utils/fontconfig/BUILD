@@ -5,8 +5,11 @@
   # syntax in a comment located in /etc/fonts/fonts.conf.
   sedit "s:\`date\`::" configure                    &&
 
+  patch_it $SOURCE2 0 &&
+
   ./configure --prefix=/usr                          \
               --with-confdir=/etc/fonts              \
+              --disable-docbook                      \
               --disable-docs                         \
               --with-cache-dir=/var/cache/fontconfig \
               $OPTS                                 &&
