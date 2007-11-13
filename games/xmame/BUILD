@@ -8,8 +8,6 @@ rm  -f  $MODULE_CONFIG
 
   make  PREFIX=/usr           \
         BINDIR=/usr/games     \
-        CFLAGS="$CFLAGS"      \
-        CXXFLAGS="$CXXFLAGS"  \
         -f  makefile.unix    &&
   prepare_install            &&
   make  PREFIX=/usr           \
