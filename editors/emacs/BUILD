@@ -1,4 +1,9 @@
 (
+  patch_it $SOURCE2 1 &&
+  
+  # Change location of emacs games
+  sedit "s;^gamedir=.*;gamedir='/var/lib/emacs/games';" configure &&
+  
   # Fix so installwatcher doesn't trigger on info-files
   sedit 's;\(\-chmod \-R.*\)${infodir};\1;' Makefile.in &&
 
