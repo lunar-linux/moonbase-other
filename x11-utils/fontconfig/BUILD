@@ -1,11 +1,12 @@
 (
 
+  patch_it $SOURCE2 0 &&
+  autoconf &&
   # There is a documented issue when the user does not have a
   # timezone set (/etc/localtime).  It creates invalid XML
   # syntax in a comment located in /etc/fonts/fonts.conf.
   sedit "s:\`date\`::" configure                    &&
 
-  patch_it $SOURCE2 0 &&
 
   ./configure --prefix=/usr                          \
               --with-confdir=/etc/fonts              \
