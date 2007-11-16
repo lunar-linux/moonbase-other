@@ -1,6 +1,8 @@
 (
 
+  if ! module_installed NVIDIA || ! module_installed NVIDIA-beta || ! module_installed NVIDIA-legacy; then
   sedit "s:glXGetProcAddressARB:glXGetProcAddress:g" configure
+  fi &&
 
   patch_it $SOURCE3 1 &&
 
