@@ -1,14 +1,18 @@
         MODULE=gnome-power-manager
-       VERSION=2.18.3
-         MAJOR=2.18
+       VERSION=2.20.1
+         MAJOR=2.20
         SOURCE=$MODULE-$VERSION.tar.bz2
     SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR
-    SOURCE_VFY=sha1:6f2fc8b21cf349c994cc3082443787d2d08378bd
-       ENTERED=20070315
-       UPDATED=20070823
+    SOURCE_VFY=sha1:ebee92e53827982993de3aa9dc6bb3283f7ce1fe
       WEB_SITE=http://gnome.org
-         SHORT="A power manager"
+       ENTERED=20070315
+       UPDATED=20071117
+         SHORT="A GNOME power manager"
 
 cat << EOF
-power manager for your gnome-desktop
+GNOME Power Manager is a GNOME session daemon that acts as a policy
+agent on top of the Project Utopia stack (kernel, hotplug, udev, and
+HAL). GNOME Power Manager listens for HAL events and responds with
+user-configurable reactions. Currently it supports UPS's, laptop
+batteries, and AC adapters.
 EOF
