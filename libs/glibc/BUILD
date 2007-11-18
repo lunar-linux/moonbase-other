@@ -1,44 +1,12 @@
 (
 
-  if [ -n "$FORCE_THREADS" ]; then
-    if [ "$FORCE_THREADS" != "nptl" -a "$FORCE_THREADS" != "linuxthreads" ]; then
-      message "${PROBLEM_COLOR}Bad thread architecture: \"$FORCE_THREADS\", must be"
-      message "\"nptl\" or \"linuxthreads\"${DEFAULT_COLOR}"
-      exit 1
-    fi
-    if ! query "Force thread type to $FORCE_THREADS ?" n ; then
-      message "${PROBLEM_COLOR}If you don't know what you're doing, then I don't know either!"
-      message "Don't set FORCE_THREADS and try again!${DEFAULT_COLOR}"
-      exit 1
-    else
-      THREADS=$FORCE_THREADS
-    fi
-  else
-    case $(getconf GNU_LIBPTHREAD_VERSION) in
-      NPTL*)
-        THREADS=nptl
-        ;;
-      linux*)
-        THREADS=linuxthreads
-        ;;
-      *)
-            message "${PROBLEM_COLOR}Cannot detect threading type of your glibc - this is very bad"
-        message "Please fix your glibc library before continuing.${DEFAULT_COLOR}"
-        exit 1
-    esac
-  fi
-
-  case $THREADS in
-    nptl)          OPTS="$OPTS --enable-add-ons=$THREADS --with-__thread --with-tls" ;;
-    linuxthreads)  OPTS="$OPTS --enable-add-ons=$THREADS --without-__thread" ;;
-  esac
+  # There is no other option but nptl
+  OPTS="$OPTS --enable-add-ons=nptl,libidn --with-__thread --with-tls"
 
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
   fi
 
-  # Don't allow too much damage
-  unset CFLAGS CXXFLAGS CPPFLAGS LD_LIBRARY_PATH
   export CC=gcc
 
   # Don't fully strip libc
@@ -51,11 +19,7 @@
   mkdir -p $INSTALL_ROOT &&
   cd $INSTALL_ROOT
 
-  if module_installed kernel-headers-2.6 ; then
-     OPTS="$OPTS --with-headers=/usr/include"
-  else
-     OPTS="$OPTS --with-headers=/usr/src/linux/include"
-  fi
+  OPTS="$OPTS --with-headers=/usr/include"
 
   ../configure --prefix=/usr                           \
                --infodir=/usr/share/info               \
@@ -64,9 +28,11 @@
                --with-gd=no                            \
                --without-cvs                           \
                --enable-shared                         \
+               --with-kernel=2.6.23                    \
                $OPTS                                  &&
+
   # explicitly exit here since the following code unsets $?
-  make || exit 1
+  make || exit 1 &&
 
   # Preserve the old glibc temporarily
   LD=/lib/ld-linux.so.2
@@ -82,17 +48,17 @@
   
   case "`arch`" in
     alpha)
-          GLIBC=/lib/libc.so.6.1
-          DL=/lib/libdl.so.2.1
-          M=/lib/libm.so.6.1
-          ;;
+	  GLIBC=/lib/libc.so.6.1
+	  DL=/lib/libdl.so.2.1
+	  M=/lib/libm.so.6.1
+	  ;;
      ppc)
-          LD=/lib/ld.so.1
-          DL=/lib/libdl.so.2
-          ;;
+	  LD=/lib/ld.so.1
+	  DL=/lib/libdl.so.2
+	  ;;
      *)
-          DL=/lib/libdl.so.2
-          ;;
+	  DL=/lib/libdl.so.2
+	  ;;
   esac
 
   cp $LD /lib/ld-lunar.so               &&
@@ -119,19 +85,20 @@
   sln /lib/libcrypt-lunar.so $CRYPT      &&
 
   # clean hack to make sure gnu/stubs.h gets refreshed
-  rm -f /usr/include/gnu/stubs.h  &&
+  rm -f /usr/include/gnu/stubs.h &&
+
   # This removes the old glibc
-  prepare_install                 &&
+  prepare_install &&
 
   # And now we install the new
-  make install                    &&
+  make install &&
 
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
     for FN in ld-$VERSION.so \
         lib{anl,BrokenLocale,c,crypt,dl,m,nsl,util,pthread,resolv}-$VERSION.so \
-        libnss_{compat,files,hesiod,nis,nisplus}-$VERSION.so \
-        lib{memusage,pcprofile,SegFault,thread_db-1.0}.so ; do
+	libnss_{compat,files,hesiod,nis,nisplus}-$VERSION.so \
+	lib{memusage,pcprofile,SegFault,thread_db-1.0}.so ; do
       strip -S /lib/$FN
     done
     for FN in "/usr/lib/gconv/*.so" ; do
@@ -155,11 +122,12 @@
   else
     devoke_installwatch &&
     for LOCALE in $GLIBC_LOCALES; do
-      INPUTFILE=$(echo $LOCALE | cut -d/ -f1)
+      INPUTFILE=$(echo $LOCALE | cut -d/ -f1 | sed -e 's:\..*$::g')
+      OUTPUTFILE=$(echo $LOCALE | cut -d/ -f1)
       CHARMAP=$(echo  $LOCALE | cut -d/ -f2)
-      mkdir -p /usr/lib/locale/$INPUTFILE
-      echo "localedef -i $INPUTFILE -f $CHARMAP $INPUTFILE"
-      localedef -i $INPUTFILE -f $CHARMAP $INPUTFILE
+      mkdir -p /usr/lib/locale/$OUTPUTFILE
+      echo "localedef -i $INPUTFILE -f $CHARMAP $OUTPUTFILE"
+      localedef -i $INPUTFILE -f $CHARMAP $OUTPUTFILE
     done
     invoke_installwatch &&
     touch /usr/lib/locale/locale-archive

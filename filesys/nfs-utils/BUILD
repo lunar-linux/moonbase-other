@@ -2,7 +2,9 @@ unalias  make
 
 (
 
-  ( source /var/lib/lunar/unset.sh && ./configure  --prefix=/usr  --mandir=/usr/share/man ) &&
+  ( source /var/lib/lunar/unset.sh && ./configure  --prefix=/usr  --mandir=/usr/share/man \
+    --disable-nfsv4 --disable-gss ) &&
+
   ( source /var/lib/lunar/unset.sh && make )   &&
   prepare_install             &&
   ( source /var/lib/lunar/unset.sh && make    install ) &&

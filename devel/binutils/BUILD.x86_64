@@ -6,6 +6,9 @@
   sedit 's/^all: all-redirect/all: all-redirect $(MKDOC)/' \
                     bfd/doc/Makefile.in  &&
 
+  aclocal  &&
+  autoconf &&
+
   OPTS+=" --host=$BUILD"     &&
   default_config             &&
   make tooldir=/usr          &&
