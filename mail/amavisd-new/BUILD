@@ -1,18 +1,17 @@
 (
 
+  add_priv_user amavis:amavis -d /var/amavis -s /bin/true &&
+
   prepare_install &&
 
-  cp amavisd /usr/sbin/amavisd  &&
-  chown 755 /usr/sbin/amavisd   &&
+  install -m0755 amavisd /usr/sbin/ &&
 
-  add_priv_user amavis:amavis -d /var/amavis -s /bin/true
+  if ! [ -d /var/amavis ] ; then
+      mkdir -m750 -p /var/amavis
+      chown amavis:amavis /var/amavis
+  fi &&
 
-  if [ ! -e /var/amavis ]; then
-      mkdir /var/amavis  &&
-      chown amavis:amavis /var/amavis  &&
-      chmod 750 /var/amavis
-  fi
-  if [ ! -e /etc/amavisd.conf ] ; then
+  if ! [ -e /etc/amavisd.conf ] ; then
     install -m0644 amavisd.conf /etc/
   fi
    
