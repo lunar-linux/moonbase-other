@@ -7,8 +7,7 @@
   add_priv_user mail:mail            &&
   QUEUE=/var/spool/postfix           &&
 
-  mkdir  -p         /var/spool/mail  &&
-  chmod  1777       /var/spool/mail  &&
+  mkdir  -m1777 -p  /var/spool/mail  &&
   chown  mail:mail  /var/spool/mail  &&
 
   if in_depends $MODULE openldap ; then
