@@ -1,14 +1,10 @@
 (
 
-  cd include/ &&
-
-  # asm is a special case, since it is arch specific
-  MYARCH="`arch | grep -qw i.86 && echo i386 || arch`" &&
-  mv asm-$MYARCH asm &&
+  cd $SOURCE_DIRECTORY/include/ &&
 
   prepare_install &&
 
-  for dir in asm linux scsi sound mtd ; do
+  for dir in ./* ; do
      cp    -a $dir      /usr/include/
      chown -R root.root /usr/include/$dir
 
@@ -21,11 +17,6 @@
      do
         chmod 644 $file
      done
-  done &&
-
-  # XOrg X11R7 will not build without this
-  # Incase of an update: Remove this!
-  sed -e 's|__u16|unsigned short|g' -e 's|__u32|unsigned|g' \
-    -i /usr/include/linux/agpgart.h
+  done
 
 ) > $C_FIFO 2>&1

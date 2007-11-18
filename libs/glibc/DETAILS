@@ -1,19 +1,16 @@
           MODULE=glibc
-         VERSION=2.3.6
+         VERSION=2.7
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=glibc-linuxthreads-$VERSION.tar.bz2
-         SOURCE3=glibc-2.3.2-ctype-compat.patch
+         SOURCE2=$MODULE-libidn-$VERSION.tar.bz2
    SOURCE_URL[0]=$GNU_URL/$MODULE/
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/
   SOURCE2_URL[0]=$GNU_URL/$MODULE/
   SOURCE2_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/
-     SOURCE3_URL=$PATCH_URL
-      SOURCE_VFY=sha1:82d0487419f1bdbf2dee439c344e89d6af47e558
-     SOURCE2_VFY=sha1:10190168bf948556afdfff46f87f9208402d810f
-     SOURCE3_VFY=sha1:a7827270380e2fc968e7d722c84ef9eef82dc7a3
+      SOURCE_VFY=sha1:ccc70e95db826e4b1fd3b484154402fdc3df88f7
+     SOURCE2_VFY=sha1:2338cc9b5795f5e97a19aac6d7d00ab750e81ac3
         WEB_SITE=http://www.gnu.org/software/libc
          ENTERED=20010922
-         UPDATED=20051104
+         UPDATED=20070126
            PSAFE=no
            SHORT="C library for use with GNU/Hurd and GNU/Linux."
 cat << EOF

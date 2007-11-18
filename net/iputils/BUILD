@@ -1,13 +1,13 @@
 (
+  patch_it $SOURCE2 0 &&
+  patch_it $SOURCE3 1 &&
 
-  make clockdiff arping ping ifenslave ping6 rdisc tracepath tracepath6 traceroute6  &&
-  make -C doc man                                   &&
-  prepare_install                                   &&
-
+  make &&
+  make man &&
+  prepare_install &&
   install -c clockdiff             /sbin            &&
   install -c arping                /sbin            &&
   install -c ping         -m 4711  /bin             &&
-  install -c ifenslave             /sbin            &&
   install -c ping6        -m 4711  /bin             &&
   install -c rdisc                 /sbin            &&
   install -c tracepath             /bin             &&
@@ -23,8 +23,6 @@
   install -c doc/rarpd.8     /usr/share/man/man8    &&
   install -c doc/tftpd.8     /usr/share/man/man8    &&
   install -c doc/tracepath.8 /usr/share/man/man8    &&
-  install -c doc/traceroute6.8 /usr/share/man/man8  &&
-  mkdir -p /usr/share/doc/iputils                   &&
-  install -c README.bonding  /usr/share/doc/iputils       
+  install -c doc/traceroute6.8 /usr/share/man/man8 
 
 ) > $C_FIFO 2>&1

@@ -54,17 +54,4 @@ create_node 0600 ram0    b 1 0 ram  &&
 create_node 0600 ram1    b 1 1      &&
 
 echo -n "Unmounting fake root... "   && umount ${FAKEROOT} && echo "done." && 
-echo -n "Removing fake root dir... " && rm -rf ${FAKEROOT} && echo "done." &&
-
-echo -en "\nMaking sure mount script has udev support... "
-
-if grep -q "udev" /etc/init.d/mount ; then
-   echo "yes."
-else
-   echo "no."
-   echo -e "Reinstalling e2fsprogs to get an updated initscript with udev support:"
-   echo -en "\t* Renaming mount initscript to mount.old... " && 
-   mv /etc/init.d/mount /etc/init.d/mount.old && echo "done."
-   echo -e "\t* re-lin'ing e2fsprogs...\n"
-   lin -c e2fsprogs
-fi
+echo -n "Removing fake root dir... " && rm -rf ${FAKEROOT} && echo "done."

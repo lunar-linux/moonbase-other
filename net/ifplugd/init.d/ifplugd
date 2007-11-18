@@ -72,7 +72,7 @@ case "$VERB" in
         ;;
     stop)
         echo -n "Stopping Network Interface Plugging Daemon:"
-        for IF in $INTERFACES ; do 
+        for IF in $INTERFACES ; do
             $IFPLUGD -k -i $IF
             echo -n " $IF"
         done
@@ -89,7 +89,7 @@ case "$VERB" in
             $IFPLUGD -S -i $IF
             echo -n " $IF"
         done
-        echo "."    
+        echo "."
         ;;
     resume)
         echo -n "Resuming Network Interface Plugging Daemon:"
@@ -97,7 +97,7 @@ case "$VERB" in
             $IFPLUGD -R -i $IF
             echo -n " $IF"
         done
-        echo "."    
+        echo "."
         ;;
     force-reload|restart)
         $0 stop $INTERFACES
