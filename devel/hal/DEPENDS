@@ -1,10 +1,13 @@
-depends Python      &&
-depends dbus-glib   &&
-depends udev        &&
-depends expat       &&
-depends XML-Parser  &&
-depends PolicyKit   &&
-depends usbutils    &&
+depends Python
+depends udev
+depends expat
+depends XML-Parser
+depends ConsoleKit
+depends usbutils
 
-optional_depends  "libusb"     ""  ""  "for USB support"  &&
-optional_depends  "dmidecode"  ""  ""  "for DMI (SMBIOS) support"
+optional_depends "libusb"     ""  ""  "for USB support"
+optional_depends "dmidecode"  ""  ""  "for DMI (SMBIOS) support"
+optional_depends "gtk-doc" \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "to install extra documentation"
