@@ -1,7 +1,9 @@
-depends Thunar  &&
-depends ImageMagick &&
+depends Thunar
+depends ImageMagick
 
-optional_depends dcraw \
-                 "--enable-raw" \
-                 " " \
-                 "Enables thumbnailing of raw images"                 
+optional_depends  "dcraw"  "--enable-raw"    ""  \
+                  "enables thumbnailing of raw images"
+optional_depends  "grace"  "--enable-grace"  ""  \
+                  "enables thumbnailing of grace files"
+optional_depends  "teTeX"  "--enable-tex"    ""  \
+                  "enables thumbnailing of LaTeX files"
