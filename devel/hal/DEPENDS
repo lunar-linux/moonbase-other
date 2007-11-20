@@ -2,7 +2,6 @@ depends Python
 depends udev
 depends expat
 depends XML-Parser
-depends ConsoleKit
 depends usbutils
 
 optional_depends "libusb"     ""  ""  "for USB support"
@@ -11,3 +10,13 @@ optional_depends "gtk-doc" \
                  "--enable-gtk-doc" \
                  "--disable-gtk-doc" \
                  "to install extra documentation"
+
+optional_depends "PolicyKit" \
+                 "--enable-policy-kit" \
+                 "--disable-policy-kit" \
+                 "to enable PolicyKit inside HAL (also pulls in Linux-PAM!)"
+
+optional_depends "ConsoleKit" \
+                 "--enable-console-kit" \
+                 "--disable-console-kit" \
+                 "to enable ConsoleKit support inside HAL"
