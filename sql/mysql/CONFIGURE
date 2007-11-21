@@ -44,7 +44,7 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     OPTS="$OPTS --with-openssl"
   fi
 
-  if    query  "Build embedded server (libmysqld) ? " n; then
+  if    query  "Build embedded server (libmysqld), needed by KDE4 ? " n; then
     OPTS="$OPTS --with-embedded-server"
   else
     OPTS="$OPTS --without-embedded-server"
