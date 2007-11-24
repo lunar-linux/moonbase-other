@@ -6,6 +6,8 @@
                 --localstatedir=/var               \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info  \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man    \
+                --with-dpms-ext  --disable-policykit  \
+                --enable-xevents  --enable-applets    \
                 $OPTS                              &&
     default_make
 
