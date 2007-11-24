@@ -6,8 +6,7 @@
                 --localstatedir=/var              \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
-                --with-gnome-distributor=Lunar-Linux         \
                 $OPTS                             &&
-    default_make                   
+    default_make
 
 ) > $C_FIFO 2>&1
