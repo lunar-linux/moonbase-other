@@ -4,7 +4,8 @@
   patch_it $SOURCE_CACHE/$SOURCE3 1 &&
 
   OPTS="$OPTS --with-freetype2-includes=/usr/include/freetype2 \
-              --with-gzip" &&
+              --sysconfdir=/etc --enable-opi --enable-multithreaded \
+              --enable-wordlist --with-gzip" &&
 
   default_build
 
