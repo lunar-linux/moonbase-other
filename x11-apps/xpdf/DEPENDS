@@ -4,6 +4,8 @@ depends  t1lib
 depends  openMotif
 
 optional_depends libpaper \
-                 "--enable-a4-paper" \
-                 "--disable-a4-paper" \
+                 "--enable-a4-paper \
+                  --with-libpaper-includes=/usr/include/libpaper" \
+                 "--disable-a4-paper \
+                  --without-libpaper-library" \
                  "to use A4 instead of Letter as the default page size"
