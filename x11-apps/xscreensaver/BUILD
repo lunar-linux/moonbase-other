@@ -2,17 +2,18 @@
 
   # Now lets do the PAM stuff the proper way
   if module_installed Linux-PAM; then
-    OPTS="$OPTS --with-pam --without-shadow"
+    OPTS+=" --with-pam --without-shadow"
   fi
 
-  # Force disable of kerberos
-  OPTS="$OPTS --without-kerberos"
+  OPTS+=" --without-kerberos \
+          --without-gle \
+          --with-xml \
+          --with-dpms-ext \
+          --with-xf86vmode-ext \
+          --with-xf86gamma-ext \
+          --with-proc-interrupts \
+          --enable-locking"
 
-  OPTS="$OPTS --with-xml"
-
-  # Enable locking abilities of xscreensaver
-  OPTS="$OPTS --enable-locking"
-  
   default_build  &&
 
   rm -fR /xscreensaver

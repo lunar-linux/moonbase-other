@@ -1,7 +1,6 @@
 depends libxml2
 depends netpbm
 depends bc
-depends %GLUT
 depends perl
 
 optional_depends "gettext"  "--enable-nls" "--disable-nls"  \
@@ -9,9 +8,6 @@ optional_depends "gettext"  "--enable-nls" "--disable-nls"  \
 
 optional_depends "gtk+-2"  "--with-gtk"  "--without-gtk" \
                  "to build the configuration manager"
-
-optional_depends "gle" "--with-gle" "--without-gle" \
-                 "required for some of the screensavers"
 
 optional_depends "fortune"  "--with-fortune=/usr/games/fortune"  ""  \
                  "allow fortune to be used as a text source in screensavers"
@@ -21,3 +17,9 @@ optional_depends "appres"  ""  ""  \
 
 optional_depends "xsnow"  ""  ""  \
                  "to allow xsnow to be used as a screensaver"
+
+optional_depends "%GLX" "--with-gl" "--without-gl" \
+                 "for OpenGL screensaver support"
+
+optional_depends "jpeg" "--with-jpeg" "--without-jpeg" \
+                 "for Jpeg support"
