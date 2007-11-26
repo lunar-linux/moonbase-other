@@ -40,7 +40,7 @@
     fi
     # also, bash will need to rehash, but doesn't:
     /bin/mv -f /usr/bin/chroot /usr/sbin  &&
-    /bin/rm -f /usr/bin/hostname &&
+    /bin/rm -f /usr/bin/hostname
   )
 
 ) > $C_FIFO 2>&1
