@@ -1,5 +1,5 @@
 (
-   
+
    sedit "s:TERM=xterm:TERM=xterm-color:" src/terminal-screen.c &&
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                     \
