@@ -8,5 +8,5 @@
       install -m755 $FILE /usr/lib/win32
     fi
   done
-  
+
 ) > $C_FIFO 2>&1
