@@ -1,5 +1,8 @@
 (
 
+  # fix for inlines not supported by gcc-4.2.x
+  export CFLAGS="$CFLAGS -fgnu89-inline"
+
   sedit '/'-Wl,--as-needed'/d' m4/lib-ignore.m4 configure &&
 
   default_build &&
