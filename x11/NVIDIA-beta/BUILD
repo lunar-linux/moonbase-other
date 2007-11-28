@@ -57,5 +57,12 @@ cp -f usr/share/doc/R* /usr/share/doc/NVIDIA_GLX-1.0 &&
 cp -f usr/share/doc/X* /usr/share/doc/NVIDIA_GLX-1.0 &&
 cp -f usr/share/doc/nv* /usr/share/doc/NVIDIA_GLX-1.0 &&
 cp -rf usr/share/man /usr/share &&
-cp -f usr/share/pixmaps/* /usr/share/doc/NVIDIA_GLX-1.0
+cp -f usr/share/pixmaps/* /usr/share/doc/NVIDIA_GLX-1.0 &&
+
+# Register Nvidia XvMC library for use in any XvMC enabled media player
+rm -f /etc/X11/XvMCConfig &&
+touch /etc/X11/XvMCConfig &&
+echo libXvMCNVIDIA_dynamic.so.1 > /etc/X11/XvMCConfig &&
+chmod 644 /etc/X11/XvMCConfig
+
 ) > $C_FIFO 2>&1
