@@ -14,6 +14,12 @@
   cd $SOURCE_DIRECTORY &&
   rm -rf old.libraries &&
 
-  ./nvidia-installer --silent --no-precompiled-interface --no-rpms --no-network --no-recursion --no-kernel-module --no-x-check
+  ./nvidia-installer --silent --no-precompiled-interface --no-rpms --no-network --no-recursion --no-kernel-module --no-x-check &&
+
+# Register Nvidia XvMC library for use in any XvMC enabled media player
+rm -f /etc/X11/XvMCConfig &&
+touch /etc/X11/XvMCConfig &&
+echo libXvMCNVIDIA_dynamic.so.1 > /etc/X11/XvMCConfig &&
+chmod 644 /etc/X11/XvMCConfig
 
 ) > $C_FIFO 2>&1
