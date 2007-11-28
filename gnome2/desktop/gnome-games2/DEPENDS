@@ -1,8 +1,11 @@
-depends  libgnomeui  &&
-depends  gnome-python-desktop &&
-depends  librsvg     &&
+depends  libgnomeui
+depends  gnome-python-desktop
+depends  librsvg
 
-optional_depends  "guile"                   ""  ""    \
-                  "to build the AisleRiot card game"  &&
+optional_depends  "libggz"                  ""  ""    \
+                  "for mutliplayer support in certain games"
+optional_depends  "guile"                             \
+                  ""  "--enable-omitgames=aisleriot"  \
+                  "to build the AisleRiot card game"
 optional_depends  "gnome-games-extra-data"  ""  ""    \
                   "for additional themes/graphics within the various games"
