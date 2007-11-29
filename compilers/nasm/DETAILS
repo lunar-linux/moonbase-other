@@ -1,20 +1,19 @@
           MODULE=nasm
-         VERSION=0.98.39
+         VERSION=2.00
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=http://www.kernel.org/pub/software/devel/nasm/source/
-   SOURCE_URL[1]=$SFORGE_URL/$MODULE/
-     SOURCE_VFY=sha1:73d64812bb95774355f737c0fb0271382d23db67
+      SOURCE_URL=$SFORGE_URL/$MODULE
+      SOURCE_VFY=sha1:d2704df752ce72c14265f8a3c98df7d155aa528d
         WEB_SITE=http://nasm.sourceforge.net
          ENTERED=20010922
-         UPDATED=20050116
-           SHORT="80x86 assembler designed for portability and modularity."
+         UPDATED=20071128
+           SHORT="The netwide assembler"
 
 cat << EOF
-NASM is an 80x86 assembler designed for portability and modularity. It
-supports a range of object file formats including Linux a.out and ELF,
-COFF, Microsoft 16-bit OBJ and Win32. It will also output plain binary
-files. Its syntax is designed to be simple and easy to understand,
-similar to Intel's but less complex. It supports Pentium, P6, MMX,
-3DNow! and SSE opcodes, and has macro capability. It includes a
-disassembler as well.
+NASM is an 80x86 assembler designed for portability and modularity. It supports
+a range of object file formats including Linux a.out and ELF, COFF, Microsoft
+16-bit OBJ and Win32. It will also output plain binary files. Its syntax is
+designed to be simple and easy to understand, similar to Intel's but less 
+complex. It supports Pentium, P6, MMX, 3DNow! and SSE opcodes, and has macro
+capability. It includes a disassembler as well. Now with full 64-bit
+(x86-64/x64/AMD64/Intel 64) architecture and object file support.
 EOF
