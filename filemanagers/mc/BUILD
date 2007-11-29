@@ -14,10 +14,10 @@
                    --with-terminfo            \
                    --disable-glibtest         \
                    --with-ext2undel          &&
-                   
+
   #Fix bzip2 warning
   sedit "s/--repetitive-best/-9/" lib/mc.menu  &&
-  
+
   default_make
 
 ) > $C_FIFO 2>&1
