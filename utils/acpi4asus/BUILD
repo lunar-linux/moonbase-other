@@ -5,4 +5,6 @@
   prepare_install &&
   PREFIX=/usr make -C asus_acpid install
 
+  gather_docs samples/*
+
 ) > $C_FIFO 2>&1
