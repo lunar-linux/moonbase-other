@@ -1,8 +1,8 @@
 (
 
-  if [[ "$PYGTK" == "y" ]]; then
-    patch_it $SOURCE2 0
-  fi &&
+  #if [[ "$PYGTK" == "y" ]]; then
+  #  patch_it $SOURCE2 0
+  #fi &&
 
   default_build
 
