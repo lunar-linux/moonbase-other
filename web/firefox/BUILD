@@ -1,5 +1,6 @@
 ( 
-  if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ] ; then
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi &&
   
@@ -15,9 +16,6 @@
   else
         MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-auth"
   fi &&
-
-  # This hack added to fix a gtk+-2/pango/atk update that broke firefox. This should be removed in the future.
-  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in &&
 
   export MOZ_FREETYPE2="no"
   export MOZ_PANGO="yes"
