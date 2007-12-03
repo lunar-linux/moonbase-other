@@ -1,7 +1,16 @@
 depends  cairo
 
-optional_depends  "zlib"          "--enable-zlib"  "--disable-zlib"  \
+optional_depends  "zlib"            \
+                  "--enable-zlib"   \
+                  "--disable-zlib"  \
                   "for zlib compression support"
 
-optional_depends  "poppler-data"  ""               ""                \
+optional_depends  "poppler-data" \
+                  ""             \
+                  ""             \
                   "for support of additional file encodings"
+
+optional_depends  "qt4"                    \
+                   ""                      \
+                   "--disable-poppler-qt4" \
+                   "for Qt4 wrapper support"

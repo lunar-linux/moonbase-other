@@ -4,6 +4,8 @@
   cd BUILD     &&
 
   sedit 's/trap 0/trap "" 0/' ../configure  &&
+  # We use libiberty.a from binutils instead
+  sedit 's/install_to_$(INSTALL_DEST) //' ../libiberty/Makefile.in &&
 
   LANGUAGES="${LANGUAGES:=c++}" &&
 
