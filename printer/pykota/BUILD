@@ -9,7 +9,7 @@
     ln -sf /usr/share/pykota/cupspykota $(cups-config --serverbin)/backend/cupspykota &&
 
     if [ ! -d /etc/pykota ]; then
-	mkdir -p /etc/pykota
+        mkdir -p /etc/pykota
     fi &&
     
     gather_docs initscripts
