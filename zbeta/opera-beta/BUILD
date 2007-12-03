@@ -12,6 +12,7 @@ EOF
   sedit '/md5check Manifest.md5/d' install.sh &&
   prepare_install &&
 
-  ./install.sh --prefix=/opt/lunar/opera-beta
+  ./install.sh --prefix=/opt/lunar/opera-beta &&
+  install -m 644 usr/share/pixmaps/opera.xpm /usr/share/pixmaps/
 
 ) > $C_FIFO 2>&1

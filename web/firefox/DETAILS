@@ -1,14 +1,17 @@
           MODULE=firefox
-         VERSION=2.0.0.10
+         VERSION=2.0.0.11
           SOURCE=${MODULE}-${VERSION}-source.tar.bz2
+         SOURCE2=sm-xrender.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
    SOURCE_URL[0]=ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$VERSION/source/
    SOURCE_URL[1]=ftp://ftp.uni-erlangen.de/pub/mozilla.org/firefox/releases/$VERSION/source/
    SOURCE_URL[2]=ftp://mozilla.isc.org/pub/mozilla.org/firefox/releases/$VERSION/source/
-      SOURCE_VFY=sha1:7146f31fe9f4ce6dbea5ecd98f993a8b60154770
+      SOURCE_VFY=sha1:6d070bf04f1a037b621237d02ef9be7802a51bf1
+     SOURCE2_URL=$PATCH_URL
+     SOURCE2_VFY=sha1:cab357aa5854456ffd24713126e64a18b391a4cb
         WEB_SITE=http://www.mozilla.org/projects/firefox
          ENTERED=20030810
-         UPDATED=20071126
+         UPDATED=20071130
       MAINTAINER="tchan@lunar-linux.org"
            SHORT="a speedy, full-featured web browser."
 
