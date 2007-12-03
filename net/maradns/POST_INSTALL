@@ -7,7 +7,7 @@ echo  "hide_disclaimer=\"YES\" " >>  ${MARARC}
 
 add_priv_user maradns:maradns
 
-MUID=`id -u maradns`	                                 &&
+MUID=`id -u maradns`                                      &&
 sed -i "s/^maradns_uid.*/maradns_uid = $MUID/g" ${MARARC} &&
 message "maradns UID set in sample ${MARARC} file. Please do not change this variable."
 message "Do not forget to update firewall settings and resolv.conf if needed."

@@ -48,17 +48,17 @@
   
   case "`arch`" in
     alpha)
-	  GLIBC=/lib/libc.so.6.1
-	  DL=/lib/libdl.so.2.1
-	  M=/lib/libm.so.6.1
-	  ;;
+          GLIBC=/lib/libc.so.6.1
+          DL=/lib/libdl.so.2.1
+          M=/lib/libm.so.6.1
+          ;;
      ppc)
-	  LD=/lib/ld.so.1
-	  DL=/lib/libdl.so.2
-	  ;;
+          LD=/lib/ld.so.1
+          DL=/lib/libdl.so.2
+          ;;
      *)
-	  DL=/lib/libdl.so.2
-	  ;;
+          DL=/lib/libdl.so.2
+          ;;
   esac
 
   cp $LD /lib/ld-lunar.so               &&
@@ -97,8 +97,8 @@
   if [ "$STRIP" == "y" ] ; then
     for FN in ld-$VERSION.so \
         lib{anl,BrokenLocale,c,crypt,dl,m,nsl,util,pthread,resolv}-$VERSION.so \
-	libnss_{compat,files,hesiod,nis,nisplus}-$VERSION.so \
-	lib{memusage,pcprofile,SegFault,thread_db-1.0}.so ; do
+        libnss_{compat,files,hesiod,nis,nisplus}-$VERSION.so \
+        lib{memusage,pcprofile,SegFault,thread_db-1.0}.so ; do
       strip -S /lib/$FN
     done
     for FN in "/usr/lib/gconv/*.so" ; do
