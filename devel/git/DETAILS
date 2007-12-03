@@ -1,16 +1,19 @@
           MODULE=git
-         VERSION=1.5.3.6
+         VERSION=1.5.3.7
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-makefile-install-4.patch
-      SOURCE_URL=http://kernel.org/pub/software/scm/git/
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:35f2df92046996a3b72a708e9408eb4d6d4d0e6f
-     SOURCE2_VFY=sha1:ca8ed02bd24e0dc184204cfa0680fd89a8cbe19b
+         SOURCE2=$MODULE-manpages-$VERSION.tar.bz2
+         SOURCE3=$MODULE-makefile-install-4.patch
+      SOURCE_URL=$KERNEL_URL/pub/software/scm/git/
+     SOURCE2_URL=$KERNEL_URL/pub/software/scm/git/
+     SOURCE3_URL=$PATCH_URL
+      SOURCE_VFY=sha1:95c3b64d34f28db8122e30f28dc5758ebbc8469b
+     SOURCE2_VFY=sha1:7cc45f156298d0fbd4ead4a9b2096ed2143287b8
+     SOURCE3_VFY=sha1:ca8ed02bd24e0dc184204cfa0680fd89a8cbe19b
         WEB_SITE=http://kernel.org/pub/software/scm/git/
          ENTERED=20050707
-         UPDATED=20071119
-           PSAFE=no
+         UPDATED=20071203
            SHORT="The stupid content tracker"
+PSAFE=no
 
 cat << EOF
 Linus Torvalds new toolset for a "userland filesystem upon which
