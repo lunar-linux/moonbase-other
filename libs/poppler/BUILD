@@ -2,9 +2,9 @@
 
   OPTS="$OPTS --disable-gtk-test --enable-xpdf-headers"
 
-  if module_installed qt4; then
-    OPTS="$OPTS --enable-poppler-qt4"
-  fi  &&
+  if in_depends poppler qt4; then
+    . /etc/profile.d/qt4.rc
+  fi
 
   default_build
 
