@@ -1,5 +1,5 @@
 (
-    OPTS="$OPTS --disable-docbook-docs --with-pid-file=var/run/hald.pid \
+    OPTS="$OPTS --disable-docbook-docs --with-pid-file=/var/run/hald.pid \
                 --with-backend=linux --without-macbookpro \
                 --enable-umount-helper --disable-parted"
 
