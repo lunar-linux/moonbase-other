@@ -270,7 +270,7 @@ start()
 		esac
 
 		case $FSTYPE in
-			nfs|nfs4|smbfs)    # we don't do networked fs's yet!
+			nfs|nfs4|smbfs|cifs)   # we don't do networked fs's yet!
 				continue
 				;;
 		esac
@@ -302,7 +302,7 @@ stop()
 	cat $MOUNTS | tac | while read TYPE PNT FS REST ; do
 	
 		case $FS in
-			nfs|nfs4|smbfs) # we don't do net filesystems
+			nfs|nfs4|smbfs|cifs) # we don't do net filesystems
 				continue
 				;;
 		esac
