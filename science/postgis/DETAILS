@@ -1,12 +1,12 @@
           MODULE=postgis
-         VERSION=1.2.1
-       SOURCE[0]=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://postgis.refractions.net/download/
-   SOURCE_VFY[0]=sha1:0a47bde414bf691fb624ead37cc119687aba14df
+         VERSION=1.3.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://postgis.refractions.net/download/
+      SOURCE_VFY=sha1:45e9c22a8e16c12a786108ca059c658d7d78d7cb
         WEB_SITE=http://postgis.refractions.net/
          ENTERED=20050809
-         UPDATED=20070318
-           SHORT="adds geographic objects support to PostgreSQL"
+         UPDATED=20071204
+           SHORT="Adds geographic objects support to PostgreSQL"
 
 cat << EOF
 PostGIS adds support for geographic objects to the PostgreSQL
@@ -14,6 +14,5 @@ object-relational database. In effect, PostGIS "spatially enables"
 the PostgreSQL server, allowing it to be used as a backend spatial
 database for geographic information systems (GIS), much like ESRI's
 SDE or Oracle's Spatial extension. PostGIS follows the OpenGIS
-"Simple Features Specification for SQL" and will be submitted for
-conformance testing at version 1.0.
+"Simple Features Specification for SQL".
 EOF
