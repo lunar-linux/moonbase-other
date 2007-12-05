@@ -10,7 +10,7 @@
     mv ${OO_INSTALL_DIR}/desktop-integration ${SOURCE_DIRECTORY}/ &&
     cd ${SOURCE_DIRECTORY}/desktop-integration/ &&
 
-    INT_FILE=openoffice.org-freedesktop-menus-2.3-9215.noarch &&
+    INT_FILE=openoffice.org-freedesktop-menus-2.3-9238.noarch &&
 
     rpm2cpio $INT_FILE.rpm > $INT_FILE.cpio &&
     cpio -idm < $INT_FILE.cpio &&
