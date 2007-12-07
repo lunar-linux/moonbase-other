@@ -4,7 +4,7 @@
   prepare_install &&
 
   if [ "`arch`" = "x86_64" ]; then
-   BJDIR="bin.linux"
+   BJDIR="bin.linuxx86_64"
   else
    BJDIR="bin.linuxx86"
   fi
