@@ -1,7 +1,7 @@
 (
    [ -f /etc/profile.d/xfce4.rc ] && . /etc/profile.d/xfce4.rc
 
-   ./configure  --build=$BUILD                              \
+   ./autogen.sh --build=$BUILD                              \
                 --prefix=${MODULE_PREFIX}  \
                 $OPTS                                       &&
 
