@@ -13,8 +13,10 @@
   fi
 
   prepare_install  &&
-  make install
+  make install &&
 
+  add_priv_group pulse &&
+  add_priv_user pulse -d /var/run/pulse -g pulse
 
 ) > $C_FIFO 2>&1
 
