@@ -1,0 +1,10 @@
+if [ -n "${MODULE_PREFIX}" ]; then
+  sedit "s?/opt/lunar/xfce4?${MODULE_PREFIX}?" /etc/profile.d/xfce4.rc
+fi
+
+XFCE4LIBDIR=${MODULE_PREFIX}/lib
+if ! grep -q "$XFCE4LIBDIR" /etc/ld.so.conf ; then
+    echo "$XFCE4LIBDIR" >> /etc/ld.so.conf
+    ldconfig
+fi
+

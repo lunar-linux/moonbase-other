@@ -1,0 +1,23 @@
+   MODULE_PREFIX=${XFCE4_SVN_PREFIX:-/opt/lunar/xfce4-svn/}
+          MODULE=xfc-svn
+         VERSION=beta
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/${MODULE//-svn}/trunk/:$MODULE-$VERSION
+      MAINTAINER=jasper@lunar-linux.org
+        WEB_SITE=http://xfc-svn.xfce.org
+         ENTERED=20060407
+         UPDATED=`date +%Y%m%d`
+           SHORT="C++ bindings for GTK+ libraries"
+
+cat << EOF
+The Xfce Foundation Classes is a set of integrated C++ classes for
+developing Xfce applications on UNIX-like operating systems such as
+Linux. The classes combine the power of GTK+ and the power of C++
+into a state-of-the-art application development framework for the Xfce
+Desktop Environment. The classes judiciously use C++ language features
+to avoid layering on too much extra C++ complexity. The API is easy to
+understand and use, and should feel immediately familiar to most GTK+
+programmers. The Xfce Foundation Classes is part of the Xfce project,
+and like Xfce it's lightweight, fast and easy to use.
+
+EOF

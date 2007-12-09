@@ -1,0 +1,48 @@
+depends freetype2 	   &&
+depends unzip      	   &&
+depends MPlayer-essentials &&
+
+optional_depends  "SDL"            \
+                  "--enable-sdl"   \
+                  ""               \
+                  "to use SDL to output video signal"  &&
+
+optional_depends  "alsa-utils"     \
+                  ""               \
+                  ""               \
+                  "for ALSA sound support"             &&
+
+optional_depends  "libvorbis"      \
+		  ""               \
+		  ""               \
+		  "to use ogg audio format"            &&
+
+optional_depends "libmatroska"	\
+		 ""             \
+		 ""		\
+		 "for matroska audio/video container format support" &&
+
+optional_depends "faad"		   \
+		 ""   		   \
+		 ""		   \
+		 "for external FAAD2 (MPA/AAC) support" &&
+
+optional_depends "libtheora"         \
+                 "--enable-theora"   \
+                 "--disable-theora"  \
+                 "for OGG/Theora Video Playback" &&
+
+optional_depends "libXvMCW" 			      \
+		 "--enable-xvmc --with-xvmclib=XvMCW" \
+		 ""				      \
+		 "for hardware Xv acceleration" &&
+
+optional_depends "gtk+-2" \
+		 "--enable-gui"	 \
+		 "--disable-gui" \
+		 "for MPlayer GTK gui support" &&
+
+optional_depends "MPlayer-all" \
+                 ""  \
+                 "" \
+                 "to install more foreign codecs"
