@@ -5,11 +5,12 @@
     ./configure  --build=$BUILD             \
                  --prefix=/usr              &&
     make                                    &&
-    make  getmail                            &&
+    make  getmail                           &&
     if [ "$USE_X11" == "y" ]; then
       make xjed
     fi                                      &&
     prepare_install                         &&
-    make    install
+    make    install                         &&
+    cp -p info/jed.* /usr/share/info/
 
 ) > $C_FIFO 2>&1
