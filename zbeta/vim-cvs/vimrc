@@ -15,14 +15,14 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=utf-8
 endif
 
-set nocompatible	" Use Vim defaults (much better!)
-set bs=2		" allow backspacing over everything in insert mode
-"set ai			" always set autoindenting on
-"set backup		" keep a backup file
-set viminfo='20,\"50	" read/write a .viminfo file, don't store more
-			" than 50 lines of registers
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
+set nocompatible        " Use Vim defaults (much better!)
+set bs=2                " allow backspacing over everything in insert mode
+"set ai                 " always set autoindenting on
+"set backup             " keep a backup file
+set viminfo='20,\"50    " read/write a .viminfo file, don't store more
+                        " than 50 lines of registers
+set history=50          " keep 50 lines of command line history
+set ruler               " show the cursor position all the time
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -63,24 +63,24 @@ if has("autocmd")
   au!
 
   " Enable editing of gzipped files
-  "	  read:	set binary mode before reading the file
-  "		uncompress text in buffer after reading
-  "	 write:	compress file after writing
-  "	append:	uncompress file, append, compress file
-  autocmd BufReadPre,FileReadPre	*.gz set bin
-  autocmd BufReadPost,FileReadPost	*.gz let ch_save = &ch|set ch=2
-  autocmd BufReadPost,FileReadPost	*.gz '[,']!gunzip
-  autocmd BufReadPost,FileReadPost	*.gz set nobin
-  autocmd BufReadPost,FileReadPost	*.gz let &ch = ch_save|unlet ch_save
-  autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " . expand("%:r")
+  "       read: set binary mode before reading the file
+  "             uncompress text in buffer after reading
+  "      write: compress file after writing
+  "     append: uncompress file, append, compress file
+  autocmd BufReadPre,FileReadPre        *.gz set bin
+  autocmd BufReadPost,FileReadPost      *.gz let ch_save = &ch|set ch=2
+  autocmd BufReadPost,FileReadPost      *.gz '[,']!gunzip
+  autocmd BufReadPost,FileReadPost      *.gz set nobin
+  autocmd BufReadPost,FileReadPost      *.gz let &ch = ch_save|unlet ch_save
+  autocmd BufReadPost,FileReadPost      *.gz execute ":doautocmd BufReadPost " . expand("%:r")
 
-  autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
-  autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
+  autocmd BufWritePost,FileWritePost    *.gz !mv <afile> <afile>:r
+  autocmd BufWritePost,FileWritePost    *.gz !gzip <afile>:r
 
-  autocmd FileAppendPre			*.gz !gunzip <afile>
-  autocmd FileAppendPre			*.gz !mv <afile>:r <afile>
-  autocmd FileAppendPost		*.gz !mv <afile> <afile>:r
-  autocmd FileAppendPost		*.gz !gzip <afile>:r
+  autocmd FileAppendPre                 *.gz !gunzip <afile>
+  autocmd FileAppendPre                 *.gz !mv <afile>:r <afile>
+  autocmd FileAppendPost                *.gz !mv <afile> <afile>:r
+  autocmd FileAppendPost                *.gz !gzip <afile>:r
  augroup END
 endif
 if &term=="xterm"
