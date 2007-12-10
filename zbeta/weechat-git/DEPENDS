@@ -1,12 +1,4 @@
-depends ncurses	&&
-depends gnutls  &&
-
-optional_depends "perl" \
-		 "--enable-perl" \
-		 "--disable-perl" \
-		 "to compile the perl plugin"	&&
-
-optional_depends "Python" \
-                 "--enable-python" \
-                 "--disable-python" \
-                 "to compile the Python plugin"
+depends ncurses
+depends gnutls
+optional_depends perl "--enable-perl" "--disable-perl" "to compile the perl plugin"
+optional_depends Python "--enable-python" "--disable-python" "to compile the Python plugin"
