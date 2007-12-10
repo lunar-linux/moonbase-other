@@ -1,0 +1,22 @@
+          MODULE=xfce4-places-plugin
+         VERSION=1.0.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://goodies.xfce.org/releases/$MODULE/
+      SOURCE_VFY=sha1:16cb0b7c3d869010f12656da64277e213bbb8de8
+   MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
+        WEB_SITE=http://www.xfce.org
+         ENTERED=20071210
+         UPDATED=20071210
+           SHORT="menu with quick access to folders"
+
+cat << EOF
+This plugin is a menu with quick access to folders, documents, and
+removable media.
+The plugin puts a simple button on the panel. Clicking on this button
+opens up a menu with the following:
+1) System-defined directories (home folder, trash, desktop, file system)
+2) Removable media (using thunar-vfs)
+3) User-defined bookmarks (reads ~/.gtk-bookmarks)
+4) Search program launcher (optional)
+5) Recent documents submenu (requires GTK+ v2.10 or greater) 
+EOF
