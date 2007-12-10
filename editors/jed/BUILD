@@ -1,7 +1,7 @@
 (
 
     cp  $SCRIPT_DIRECTORY/FILES/jed.rc lib  &&
-    JED_ROOT=/var/lib/jed                   \
+    JED_ROOT=/usr/lib/jed                   \
     ./configure  --build=$BUILD             \
                  --prefix=/usr              &&
     make                                    &&
