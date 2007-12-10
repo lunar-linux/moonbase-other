@@ -34,8 +34,7 @@ plugin_source_download_svn() {
     SVN_URL="${SVN_URL:4}"
   fi
 
-  message  "${MESSAGE_COLOR}Downloading SVN module for" \
- 	   "module ${MODULE_COLOR}${MODULE}${DEFAULT_COLOR}"
+  message  "${MESSAGE_COLOR}Downloading SVN module for module ${MODULE_COLOR}${MODULE}${DEFAULT_COLOR}"
 
   SBASE=$(source_basename $2)
   mk_source_dir $TMPDIR/$MODULE-$VERSION
@@ -102,13 +101,13 @@ plugin_source_needrefresh_svn() {
 
   SVN_THRESHOLD=${SVN_THRESHOLD:-10}
   if (( "SVN_THRESHOLD" > 0 )) ; then
-	if [ "$(find $3/$2 -amin +$SVN_THRESHOLD)" == "$3/$2" ] ; then
+    if [ "$(find $3/$2 -amin +$SVN_THRESHOLD)" == "$3/$2" ] ; then
       # it is older:
-	  return 0
-	else
+      return 0
+    else
       message "${MESSAGE_COLOR}SVN update not required for \"${FILE_COLOR}$(basename $2)${DEFAULT_COLOR}${CYAN}\" (less than $SVN_THRESHOLD minutes old)${DEFAULT_COLOR}"
       # now we can send a FAIL so the next plugins are skipped:
-	  return 1
+      return 1
     fi
   else
     # always return true if threshhold is zero
