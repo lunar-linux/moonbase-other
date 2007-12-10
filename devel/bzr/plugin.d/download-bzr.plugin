@@ -36,8 +36,7 @@ plugin_source_download_bzr() {
     BZR_URL="${BZR_URL:4}"
   fi
 
-  message  "${MESSAGE_COLOR}Downloading BZR module for" \
- 	   "module ${MODULE_COLOR}${MODULE}${DEFAULT_COLOR}"
+  message  "${MESSAGE_COLOR}Downloading BZR module for module ${MODULE_COLOR}${MODULE}${DEFAULT_COLOR}"
 
   SBASE=$(source_basename $2)
   mk_source_dir $TMPDIR/$MODULE-$VERSION
@@ -104,13 +103,13 @@ plugin_source_needrefresh_bzr() {
 
   BZR_THRESHOLD=${BZR_THRESHOLD:-10}
   if (( "BZR_THRESHOLD" > 0 )) ; then
-	if [ "$(find $3/$2 -amin +$BZR_THRESHOLD)" == "$3/$2" ] ; then
+    if [ "$(find $3/$2 -amin +$BZR_THRESHOLD)" == "$3/$2" ] ; then
       # it is older:
-	  return 0
-	else
+      return 0
+    else
       message "${MESSAGE_COLOR}BZR update not required for \"${FILE_COLOR}$(basename $2)${DEFAULT_COLOR}${CYAN}\" (less than $BZR_THRESHOLD minutes old)${DEFAULT_COLOR}"
       # now we can send a FAIL so the next plugins are skipped:
-	  return 1
+      return 1
     fi
   else
     # always return true if threshhold is zero
