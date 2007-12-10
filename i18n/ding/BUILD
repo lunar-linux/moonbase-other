@@ -1,7 +1,4 @@
 (
-  # Apply desktop file patch to fix the Exec value
-  patch_it $SOURCE2 0 &&
-
   prepare_install &&
   
   #
