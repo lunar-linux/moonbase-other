@@ -12,113 +12,112 @@
 
 
 plugin_kernel_updatebootloader_lilo() {
-	# preferred? - master switch for experienced users
-	if [ -n "$BOOTLOADER" -a "$BOOTLOADER" != "lilo" ]; then
-		return 2
-	fi
-	debug_msg "plugin_kernel_updatebootloader_lilo ($@)"
+  # preferred? - master switch for experienced users
+  if [ -n "$BOOTLOADER" -a "$BOOTLOADER" != "lilo" ]; then
+    return 2
+  fi
+  debug_msg "plugin_kernel_updatebootloader_lilo ($@)"
 
-	IFS_OLD=$IFS
-	export IFS=$'\n'
+  IFS_OLD=$IFS
+  export IFS=$'\n'
 
-	rm -f /etc/lilo.conf.new
-	cp /etc/lilo.conf /etc/lilo.conf.old
+  rm -f /etc/lilo.conf.new
+  cp /etc/lilo.conf /etc/lilo.conf.old
 
-	output_image()
-	{
-		# and output the image lines
-		if [ -n "$OTHER" ]; then
-			echo "$OTHER"
-		elif [ -n "$IMAGE" ]; then
-			SLABEL=$(echo $LABEL | tr -d '[:blank:]' | sed 's/label=//')
-			if [ "$SLABEL" == "$2" ]; then
-				# rename this one to .old
-				LABEL="    label = $2.old"
-				SIMAGE=$(echo $IMAGE | tr -d '[:blank:]' | sed 's/image=//')
-				if [ "$SIMAGE" == "/boot/$1" ]; then
-					# rename the image too since the module
-					# moved it to .old
-					IMAGE="image = /boot/$1.old"
-				fi
-			elif [ "$SLABEL" == "$2.old" ]; then
-				# delete this one!
-				return
-			fi
-			echo "$IMAGE"
-		fi
-		echo "$LABEL"
-		for OPTIONS in "${OPTIONS[@]}" ; do
-			echo "$OPTIONS"
-		done
-	}
+  output_image()
+  {
+    # and output the image lines
+    if [ -n "$OTHER" ]; then
+      echo "$OTHER"
+    elif [ -n "$IMAGE" ]; then
+      SLABEL=$(echo $LABEL | tr -d '[:blank:]' | sed 's/label=//')
+      if [ "$SLABEL" == "$2" ]; then
+        # rename this one to .old
+        LABEL="    label = $2.old"
+        SIMAGE=$(echo $IMAGE | tr -d '[:blank:]' | sed 's/image=//')
+        if [ "$SIMAGE" == "/boot/$1" ]; then
+          # rename the image too since the module moved it to .old
+          IMAGE="image = /boot/$1.old"
+        fi
+      elif [ "$SLABEL" == "$2.old" ]; then
+        # delete this one!
+        return
+      fi
+      echo "$IMAGE"
+    fi
+    echo "$LABEL"
+    for OPTIONS in "${OPTIONS[@]}" ; do
+      echo "$OPTIONS"
+    done
+  }
 
-	(
-		# defaulting to read-only?
-		if sed '/other\|image/Q' /etc/lilo.conf | grep -wq "read-only" ; then
-			READONLY=y
-		fi
-		# list all contents above the images first
-		sed '/other\|image/Q' /etc/lilo.conf
+  (
+    # defaulting to read-only?
+    if sed '/other\|image/Q' /etc/lilo.conf | grep -wq "read-only" ; then
+      READONLY=y
+    fi
+    # list all contents above the images first
+    sed '/other\|image/Q' /etc/lilo.conf
 
-		# we didn't have this label yet - insert it rightaway
-		echo "image = /boot/$1"
-		echo "    label = $2"
-		if [ -z "$READONLY" ]; then
-			echo "    read-only"
-		fi
+    # we didn't have this label yet - insert it rightaway
+    echo "image = /boot/$1"
+    echo "    label = $2"
+    if [ -z "$READONLY" ]; then
+      echo "    read-only"
+    fi
 
-		(( IMAGE_COUNT=0 ))
-		unset IMAGE OTHER LABEL OPTIONS
-		# list old images
-		while read LINE ; do
-			if echo $LINE | grep -qw "image\|other" ; then
-				(( IMAGE_COUNT++ ))
-				
-				# never loop beyond 14 images
-				if (( IMAGE_COUNT == 15 )) ; then
-					break
-				fi
+    (( IMAGE_COUNT=0 ))
+    unset IMAGE OTHER LABEL OPTIONS
+    # list old images
+    while read LINE ; do
+      if echo $LINE | grep -qw "image\|other" ; then
+        (( IMAGE_COUNT++ ))
 
-				# output and reset
-				output_image $1 $2
-				unset IMAGE OTHER LABEL OPTIONS
-			fi
+        # never loop beyond 14 images
+        if (( IMAGE_COUNT == 15 )) ; then
+          break
+        fi
 
-			# store the lines
-			case $(echo "$LINE" | tr -d '[:blank:]') in
-				image=*)
-					IMAGE="$LINE"
-					;;
-				other=*)
-					OTHER="$LINE"
-					;;
-				label=*)
-					LABEL="$LINE"
-					;;
-				*)
-					OPTIONS=( "${OPTIONS[@]}" "$LINE" )
-					;;
-			esac
-		done < <(sed -n '/other\|image/,$p' /etc/lilo.conf)
+        # output and reset
+        output_image $1 $2
+        unset IMAGE OTHER LABEL OPTIONS
+      fi
 
-		# write the last one too
-		if [ -n "$LABEL" ] ;then
-			output_image $1 $2
-		fi
+      # store the lines
+      case $(echo "$LINE" | tr -d '[:blank:]') in
+        image=*)
+          IMAGE="$LINE"
+          ;;
+        other=*)
+          OTHER="$LINE"
+          ;;
+        label=*)
+          LABEL="$LINE"
+          ;;
+        *)
+          OPTIONS=( "${OPTIONS[@]}" "$LINE" )
+          ;;
+      esac
+    done < <(sed -n '/other\|image/,$p' /etc/lilo.conf)
 
-	) > /etc/lilo.conf.new
+    # write the last one too
+    if [ -n "$LABEL" ] ;then
+      output_image $1 $2
+    fi
 
-	cp /etc/lilo.conf.new /etc/lilo.conf
-	export IFS=$IFS_OLD
+  ) > /etc/lilo.conf.new
 
-	if query "Edit lilo configuration manually ?" n ; then
-		edit_file /etc/lilo.conf
-	fi
+  cp /etc/lilo.conf.new /etc/lilo.conf
+  export IFS=$IFS_OLD
 
-	/sbin/lilo && sleep 1 || sleep 5
+  if query "Edit lilo configuration manually ?" n ; then
+    edit_file /etc/lilo.conf
+  fi
 
-	# right now we want to have it run all bootloaders?
-	return 2
+  /sbin/lilo && sleep 1 || sleep 5
+
+  # right now we want to have it run all bootloaders?
+  return 2
 }
 
 

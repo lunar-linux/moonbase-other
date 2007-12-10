@@ -37,8 +37,7 @@ plugin_source_download_git() {
     GIT_URL="${GIT_URL:4}"
   fi
 
-  message  "${MESSAGE_COLOR}Downloading GIT module for" \
- 	   "module ${MODULE_COLOR}${MODULE}${DEFAULT_COLOR}"
+  message  "${MESSAGE_COLOR}Downloading GIT module for module ${MODULE_COLOR}${MODULE}${DEFAULT_COLOR}"
 
   SBASE=$(source_basename $2)
   mk_source_dir $TMPDIR/$MODULE-$VERSION
@@ -105,13 +104,13 @@ plugin_source_needrefresh_git() {
 
   GIT_THRESHOLD=${GIT_THRESHOLD:-10}
   if (( "GIT_THRESHOLD" > 0 )) ; then
-	if [ "$(find $3/$2 -amin +$GIT_THRESHOLD)" == "$3/$2" ] ; then
+    if [ "$(find $3/$2 -amin +$GIT_THRESHOLD)" == "$3/$2" ] ; then
       # it is older:
-	  return 0
-	else
+      return 0
+    else
       message "${MESSAGE_COLOR}GIT update not required for \"${FILE_COLOR}$(basename $2)${DEFAULT_COLOR}${CYAN}\" (less than $GIT_THRESHOLD minutes old)${DEFAULT_COLOR}"
       # now we can send a FAIL so the next plugins are skipped:
-	  return 1
+      return 1
     fi
   else
     # always return true if threshhold is zero
