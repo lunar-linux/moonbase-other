@@ -1,0 +1,22 @@
+          MODULE=timezone-data
+         VERSION=2007h
+    DATA_VERSION=$VERSION
+    CODE_VERSION=$VERSION
+          SOURCE=tzdata${DATA_VERSION}.tar.gz
+         SOURCE2=tzcode${CODE_VERSION}.tar.gz
+         SOURCE3=$MODULE-2007c-makefile.patch
+      SOURCE_URL=$MIRROR_URL
+     SOURCE2_URL=$MIRROR_URL
+     SOURCE3_URL=$PATCH_URL
+      SOURCE_VFY=sha1:be408cd5c058a526922ee4bb94ee9595e465ea6d
+     SOURCE2_VFY=sha1:d04c6be80aa846d6927169b240b426d00dc6f8d9
+     SOURCE3_VFY=sha1:9f3234708c0baa44d5aeb132871cb473d37f9dbe
+        WEB_SITE=ftp://elsie.nci.nih.gov/pub/
+         ENTERED=20070203
+         UPDATED=20071019
+           SHORT="timezone data and utilities"
+
+cat << EOF
+timezone-data contains the timezone data (/usr/share/zoneinfo/*) and
+various timezone related utilities (tzselect/zic/zdump).
+EOF
