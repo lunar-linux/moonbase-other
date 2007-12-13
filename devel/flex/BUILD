@@ -2,7 +2,7 @@
 
   ./configure  --build=$BUILD  \
                --prefix=/usr   \
-               $OPTS           &&
+               $OPTS          &&
 
   default_make  &&
 
