@@ -1,6 +1,6 @@
 (
 
-  sedit s@for\ BC\ in\ \"-gcc\"@for\ BC\ in\ \"-gcc41\"@g configure  &&
+  sedit s@for\ BC\ in\ \"-gcc\"@for\ BC\ in\ \"-gcc42\"@g configure  &&
 
   ./configure  --prefix=/usr      \
                --disable-desktop  \
