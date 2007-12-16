@@ -1,9 +1,13 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  patch_it $SOURCE2 1 &&
+  # This patch resolve conflicts with shadow and heimdal
+  patch_it $SOURCE3 1 &&
 
   # This should go away in version > 6.9
-  sed -i "s@futimens@hassan_&@" $(echo `find . -type f -print | xargs grep -li 'futimens'`)
+  for i in lib/utimens.{c,h} src/{copy,touch}.c ; do
+    sedit 's/futimens/gl_&/' $i
+  done &&
 
   bad_flags -malign-double
 
@@ -37,10 +41,9 @@
     if [ -f /usr/bin/mv ] ; then
       cp /usr/bin/mv /bin/mv &&
       rm /usr/bin/mv
-    fi
+    fi &&
     # also, bash will need to rehash, but doesn't:
-    /bin/mv -f /usr/bin/chroot /usr/sbin  &&
-    /bin/rm -f /usr/bin/hostname
+    /bin/mv -f /usr/bin/chroot /usr/sbin
   )
 
 ) > $C_FIFO 2>&1
