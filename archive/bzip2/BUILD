@@ -1,5 +1,9 @@
 (
 
+  if [ "$ENABLE_LARGEFILE" == "y" ]; then
+    CFLAGS+=" \$(BIGFILES)"
+  fi
+
   sedit "s/^CFLAGS=.*$/CFLAGS=$CFLAGS -fPIC/" Makefile  &&
   sedit "s/ln/ln -f/" Makefile     &&
   sedit "s/\$(PREFIX)\/man/\$(PREFIX)\/share\/man/g" Makefile  &&

@@ -13,7 +13,9 @@
   if [[ "$LDFLAGS" == *-s* ]] ; then
     STRIP=y
   fi
-  unset LDFLAGS 
+  unset LDFLAGS
+
+  patch_it $SOURCE3 1 &&
 
   INSTALL_ROOT=$SOURCE_DIRECTORY/glibcroot &&
   mkdir -p $INSTALL_ROOT &&
@@ -45,7 +47,7 @@
   UTIL=/lib/libutil.so.1
   NSL=/lib/libnsl.so.1
   CRYPT=/lib/libcrypt.so.1
-  
+
   case "`arch`" in
     alpha)
           GLIBC=/lib/libc.so.6.1
@@ -105,7 +107,7 @@
       strip -S $FN
     done
   fi  &&
-  
+
   # Added a symlink for ash and others
   ln -sf /usr/lib/libbsd-compat.a /usr/lib/libbsd.a  &&
 
@@ -132,5 +134,5 @@
     invoke_installwatch &&
     touch /usr/lib/locale/locale-archive
   fi
-  
+
 ) > $C_FIFO 2>&1 && ldconfig
