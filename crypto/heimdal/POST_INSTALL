@@ -4,4 +4,7 @@ if [ ! -d /var/heimdal ]; then
    mkdir /var/heimdal
 fi
 
-lunar fix $(lvu depends heimdal)
+DEPS="$(lvu depends heimdal)"
+if [ -n "$DEPS" ]; then
+  lunar fix $DEPS
+fi
