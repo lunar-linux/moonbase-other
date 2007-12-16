@@ -6,9 +6,6 @@
   if [[ "$PP" == "y" ]] ; then
     OPTS="$OPTS --disable-pp-build"
   fi
-  if [[ "$SCAN" == "n" ]] ; then
-    OPTS="$OPTS --disable-scan-build"
-  fi
   if [[ "$FAX" == "n" ]] ; then
     OPTS="$OPTS --disable-fax-build"
   fi &&
