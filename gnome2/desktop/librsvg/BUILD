@@ -10,6 +10,9 @@
                 --with-svgz                \
                 --disable-gtk-doc          \
                 $OPTS                     &&
+
+    sedit 's@$(libdir)/mozilla/plugins@/opt/lunar/plugins@g' moz-plugin/Makefile &&
+
     default_make
 
 ) > $C_FIFO 2>&1
