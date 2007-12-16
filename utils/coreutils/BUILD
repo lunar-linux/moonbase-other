@@ -11,6 +11,8 @@
 
   bad_flags -malign-double
 
+  CFLAGS="$CFLAGS -fgnu89-inline"
+
   # We really want this
   OPTS="$OPTS --enable-largefile"
 
