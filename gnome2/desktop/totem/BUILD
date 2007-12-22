@@ -6,9 +6,7 @@
                 --localstatedir=/var              \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
-                --disable-lirc --disable-mozilla  \
-                --disable-nvtv --disable-vanity   \
                 $OPTS                             &&
-    default_make                   
+    default_make
 
 ) > $C_FIFO 2>&1
