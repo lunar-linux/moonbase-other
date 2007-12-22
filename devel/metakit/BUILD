@@ -11,7 +11,8 @@
                   --mandir=/usr/share/man  \
                   $OPTS                   &&
 
- default_make
+ default_make &&
+ gather_docs Metakit.html NOTES* examples/*
 
 ) > $C_FIFO 2>&1
 
