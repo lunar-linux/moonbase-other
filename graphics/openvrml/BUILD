@@ -1,6 +1,6 @@
 (
 
-  export BOOST_LIB_SUFFIX=-gcc41-mt
+  export BOOST_LIB_SUFFIX=-gcc42-mt
   export CPPFLAGS="$CPPFLAGS -I/usr/include/boost-1_34_1"
 
   default_build
