@@ -3,10 +3,7 @@
   CFGHOME="/etc/config.d"
   
   
-  sedit  "s/\/local//"  Makefile.conf                  &&
-  sedit  "s/usr\/man/usr\/share\/man/g" Makefile.conf  &&
-  ./configure                                          &&
-  default_make                                         &&
+  default_build  &&
 
   #make sure the config directory exists
   
