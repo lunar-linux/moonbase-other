@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE1 0      &&
+
   ./configure  --prefix=/usr             \
                --infodir=/usr/share/info \
                --mandir=/usr/share/man   \
