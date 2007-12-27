@@ -1,2 +1,4 @@
-depends bluez-libs &&
-optional_depends "pcmcia-cs" "--enable-pcmcia" "" "to enable pcmcia support"
+depends bluez-libs
+
+optional_depends "pcmcia-cs" "--enable-pcmcia" "" "to enable pcmcia support, 2.4 kernels"
+optional_depends "pcmciautils" "--enable-pcmcia" "" "to enable pcmcia support, 2.6 kernels"
