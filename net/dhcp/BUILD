@@ -1,12 +1,12 @@
 (
   MODHOME="$MOONBASE/net/$MODULE"
   CFGHOME="/etc/config.d"
-  
-  
-  sedit  "s/\/local//"  Makefile.conf                  &&
-  sedit  "s/usr\/man/usr\/share\/man/g" Makefile.conf  &&
-  ./configure                                          &&
-  default_make                                         &&
+  OPTS+=" --with-srv-lease-file=/var/state/dhcp/dhcpd.leases \
+          --with-cli-lease-file=/var/state/dhcp/dhclient.leases"
+
+  sedit 's;^dist_sysconf_DATA.*dhcpd.conf;dist_sysconf_DATA =;' server/Makefile.in &&
+
+  default_build  &&
 
   #make sure the config directory exists
   

@@ -1,6 +1,18 @@
-depends iso-codes &&
-depends xine-lib &&
-depends eel &&
-depends libmusicbrainz &&
-depends gstreamer-10 &&
-depends nautilus-cd-burner 
+depends  iso-codes
+depends  libmusicbrainz
+depends  gst-plugins-base
+
+optional_depends  "hal"  "--with-hal"  "--without-hal"  \
+                  "for extended mountable media support"
+
+optional_depends  "udev"  "--with-udev"  "--without-udev"  \
+                  "for remote access"
+
+optional_depends  "%GECKO_RENDERER"  ""  "--without-gecko"  \
+                  "for HTML rendering support"
+
+optional_depends  "pygtk2"  "--enable-python"  "--disable-python"  \
+                  "for Python plugin and bindings support"
+
+optional_depends  "nautilus-cd-burner"  "--enable-nautilus"  "--disable-nautilus"  \
+                  "for Nautilus integration support"
