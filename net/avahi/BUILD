@@ -20,7 +20,6 @@
                 --localstatedir=/var      \
                 --with-distro=none        \
                 --disable-lynx            \
-                --disable-mono            \
                 --disable-gdbm            \
                 --disable-stack-protector \
                 $OPTS                    &&

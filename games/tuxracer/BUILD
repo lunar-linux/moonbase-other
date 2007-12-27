@@ -1,5 +1,7 @@
 (
 
+  TCL_VER=`lvu version tcl | cut -d. -f1-2`
+
   if ! module_installed NVIDIA || ! module_installed NVIDIA-beta || ! module_installed NVIDIA-legacy; then
   sedit "s:glXGetProcAddressARB:glXGetProcAddress:g" configure
   fi &&
@@ -9,7 +11,8 @@
   mkdir -p /usr/share/games/$MODULE-data-$VERSION &&
 
   ./configure --prefix=/usr                                           \
-              --with-tcl-lib-name=tcl8.4                              \
+              --with-tcl-lib-name=tcl${TCL_VER}                       \
+              --with-tcl-libs=/usr/lib/tcl${TCL_VER}                  \
               --with-data-dir=/usr/share/games/$MODULE-data-$VERSION &&
 
   sedit "s:-malign-:-falign-:g" Makefile src/Makefile &&

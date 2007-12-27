@@ -1,6 +1,8 @@
 (
 
   OPTS="--with-jsapi-include=/usr/include/js/ $OPTS"
-  default_build
+
+  cmake .   &&
+  default_make
 
 ) > $C_FIFO 2>&1
