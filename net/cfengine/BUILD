@@ -3,7 +3,7 @@
     ./configure --prefix=/usr \
                 --with-workdir=/var/lib/cfengine \
                 --with-berkeleydb=/usr \
-		--enable-shared=yes  \
+                --enable-shared=yes  \
                 $OPTS &&
 
     # Sigh, documents are installed in a crazy place

@@ -1,4 +1,7 @@
 (
+  if in_depends doxygen qt3; then
+    . /etc/profile.d/qt3.rc
+  fi
 
   if [ -f src/Makefile ]; then
     message "${MESSAGE_COLOR}Makefile's detected, doing make distclean before compiling${DEFAULT_COLOR}" &&
