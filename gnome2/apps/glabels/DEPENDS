@@ -1,2 +1,5 @@
-depends  libgnomeui  &&
-depends  libgnomeprintui
+depends  libgnomeui
+
+depends  "evolution-data-server"                  \
+         "--with-libebook"  "--without-libebook"  \
+         "for evolution addressbook support"
