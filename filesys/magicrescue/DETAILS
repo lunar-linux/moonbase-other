@@ -1,0 +1,19 @@
+          MODULE=magicrescue
+         VERSION=1.1.4
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://jbj.rapanden.dk/$MODULE/release/
+      SOURCE_VFY=sha1:b4be78fb6eba668c79aac6bf6a01123911049008
+        WEB_SITE=http://jbj.rapanden.dk/magicrescue/
+         ENTERED=20080106
+         UPDATED=20080106
+           SHORT="Finds deleted files in block devices"
+
+cat << EOF
+Magic Rescue scans a block device for file types it knows how to
+recover and calls an external program to extract them.  It looks at
+"magic bytes" in file contents, so it can be used both as an undelete
+utility and for recovering a corrupted drive or partition.  As long
+as the file data is there, it will find it.  It works on any file
+system, but on very fragmented file systems it can only recover the
+first chunk of each file. 
+EOF   
