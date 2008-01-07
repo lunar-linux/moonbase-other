@@ -1,7 +1,8 @@
 (
 
   if module_installed kdelibs3; then
-    ARTS_CONFIG="${KDE_PREFIX:-/opt/lunar/kde/3}/bin/artsc-config"
+    . /etc/profile.d/kde3.rc
+    OPTS="$OPTS --with-arts"
   fi &&
 
   OPTS="$OPTS --enable-static --with-xv-path=/usr/X11/lib"
