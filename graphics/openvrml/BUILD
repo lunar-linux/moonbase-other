@@ -1,9 +1,10 @@
 (
 
-  export BOOST_LIB_SUFFIX=-gcc42-mt
-  export CPPFLAGS="$CPPFLAGS -I/usr/include/boost-1_34_1"
+  BOOST_VER=`lvu version boost | sed "s:\.:_:g"`
+  GCC_VER=`lvu version gcc | sed "s:\.::g" | cut -c 1-2`
 
-  sedit "s:(GLvoid):():" src/libopenvrml-gl/openvrml/gl/viewer.cpp
+  export BOOST_LIB_SUFFIX=-gcc${GCC_VER}-mt
+  export CPPFLAGS="$CPPFLAGS -I/usr/include/boost-${BOOST_VER}"
 
   default_build
 
