@@ -1,5 +1,7 @@
 (
 
+# This fixes build break on my machine
+CFLAGS="${CFLAGS//-fforce-addr/}"
   ./configure --prefix=/usr      \
               --enable-gpl       \
               --enable-shared    \
