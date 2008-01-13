@@ -28,8 +28,6 @@
 
   default_make  &&
 
-  ln -sf  $QTDIR/bin/qmake  $QTDIR/bin/qmake-qt4  &&
-
   if ! grep -q "${MODULE_PREFIX}/lib" /etc/ld.so.conf; then
     echo "${MODULE_PREFIX}/lib" >> /etc/ld.so.conf
   fi  &&
