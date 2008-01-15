@@ -1,0 +1,11 @@
+(
+
+# Oh well, this is still needed for x86_64 even though we don't for x86.
+# And we need to do the CFLAGS/-fPIC dance.
+  bad_flags -Werror &&
+  export CFLAGS="$CFLAGS -fPIC"
+
+  OPTS="$OPTS --enable-conduits --with-libpng=/usr --enable-threads" &&
+  default_build
+
+) > $C_FIFO 2>&1
