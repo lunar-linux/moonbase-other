@@ -39,10 +39,11 @@
   cd $SOURCE_DIRECTORY &&
   cp -f usr/bin/nvidia* /usr/bin &&
   cp -rf usr/include/GL /usr/X11R6/include &&
+  cp -rf usr/include/cuda /usr/X11R6/include &&
   cp -rf usr/lib/tls /usr/X11R6/lib &&
   cd /usr/X11R6/lib/tls &&
   ln -sf libnvidia-tls.so.$VERSION libnvidia-tls.so.1 &&
- 
+
   cd $SOURCE_DIRECTORY &&
   cp -f usr/lib/lib* /usr/X11R6/lib &&
   cd /usr/X11R6/lib &&
@@ -53,7 +54,7 @@
   ln -sf libnvidia-cfg.so.$VERSION libnvidia-cfg.so.1 &&
   ln -sf libnvidia-cfg.so.1 libnvidia-cfg.so &&
   ln -sf libnvidia-tls.so.$VERSION libnvidia-tls.so.1 &&
- 
+
   cd $SOURCE_DIRECTORY &&
   cp -rf usr/share/doc/html /usr/share/doc/NVIDIA_GLX-1.0 &&
   cp -rf usr/include/GL /usr/share/doc/NVIDIA_GLX-1.0 &&
@@ -62,7 +63,7 @@
   cp -f usr/share/doc/X* /usr/share/doc/NVIDIA_GLX-1.0 &&
   cp -f usr/share/doc/nv* /usr/share/doc/NVIDIA_GLX-1.0 &&
   cp -rf usr/share/man /usr/share &&
-  cp -f usr/share/pixmaps/* /usr/share/doc/NVIDIA_GLX-1.0 &&
+  cp  -f usr/share/pixmaps/* /usr/share/doc/NVIDIA_GLX-1.0 &&
 
   # Register Nvidia XvMC library for use in any XvMC enabled media player
   rm -f /etc/X11/XvMCConfig &&
