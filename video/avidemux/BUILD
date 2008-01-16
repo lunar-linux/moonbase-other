@@ -2,7 +2,7 @@
 
   OPTS="--with-jsapi-include=/usr/include/js/ $OPTS"
 
-  cmake .   &&
+  cmake . -DCMAKE_INSTALL_PREFIX:=/usr &&
   default_make
 
 ) > $C_FIFO 2>&1
