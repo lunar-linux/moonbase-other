@@ -6,6 +6,8 @@
                  grep UTS_RELEASE /usr/src/linux/include/linux/version.h | cut -d'"' -f2
          fi)
 
+  patch_it $SOURCE2 1 &&
+
   if ! $(uname -r | grep -q "^2\.6") ; then
         message ""
         message "${PROBLEM_COLOR}This module must only be installed with 2.6.x based kernels!${DEFAULT_COLOR}";

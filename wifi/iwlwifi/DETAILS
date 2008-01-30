@@ -1,17 +1,21 @@
           MODULE=iwlwifi
-         VERSION=1.2.23
+         VERSION=1.2.24
           SOURCE=$MODULE-$VERSION.tgz
+         SOURCE2=iwlwifi-1.2.23-revert-uncompatible.patch
       SOURCE_URL=http://www.intellinuxwireless.org/iwlwifi/downloads/
-      SOURCE_VFY=sha1:207e1922850cb0e628e30597c5fddb768687ee14
-        WEB_SITE=http://www.intellinuxwireless.org
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:4f4c690bd4dd816819298c5371e49cdee1b1de3c
+     SOURCE2_VFY=sha1:0847914e1ade6f399f85a53676eff3216d7775c2
+        WEB_SITE=http://www.intellinuxwireless.org/
          ENTERED=20071013
-         UPDATED=20080104
-           SHORT="Intel PRO/Wireless 3945 Driver for Linux"
-           PSAFE=no
+         UPDATED=20080130
+           SHORT="Intel PRO/Wireless 3945 and 4965 driver for Linux"
+PSAFE=no
 
 cat << EOF
 This project was created by Intel to enable support for the Intel
-PRO/Wireless 3945ABG (IWL3945) Network Connection adapter. This project
-is intended to be a community effort as much as is possible given some
-working constraints (mainly, no HW documentation is available).
+PRO/Wireless 3945ABG (IWL3945) and 4965AGN (IWL4965) Network Connection
+adapter. This project is intended to be a community effort as much as is
+possible given some working constraints (mainly, no HW documentation is
+available).
 EOF
