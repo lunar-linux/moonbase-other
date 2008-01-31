@@ -1,0 +1,19 @@
+          MODULE=rendercheck
+         VERSION=1.2
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$XORG_URL/individual/app/
+      SOURCE_VFY=sha1:bc01be694a2100df8cb976d4a7fa273387daabea
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20060302
+         UPDATED=20071122
+           SHORT="Suite of tests for the XRender extension"
+cat << EOF
+rendercheck is a program to test a Render extension implementation
+against separate calculations of expected output.
+Tests currently include:
+  *Destination coordinates correctness
+  *Source coordinates correctness
+  *Composite with and without mask (with/without component alpha),
+   with 1x1 repeating Pictures and 10x10 Pictures.
+EOF
