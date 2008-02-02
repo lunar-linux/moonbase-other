@@ -1,0 +1,16 @@
+       MODULE=lzma-sdk
+      VERSION=457
+       SOURCE=lzma$VERSION.tar.bz2
+SOURCE_URL[0]=$SFORGE_URL/sevenzip/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_VFY=sha1:bd1b46ba42fe1ad7351a39c131e8b7657e909001
+     WEB_SITE=http://www.7-zip.org/
+      ENTERED=20080129
+      UPDATED=20080201
+        SHORT="LZMA archiver generated from genuine SDK"
+cat << EOF
+Genuine LZMA utils from SDK kit. These tools have different
+parameter syntax than lzma module tools but are in more new
+version. To avoid conflicts with lzma command from lzma
+module this lzma tool have name: lzma-nongnu
+EOF
