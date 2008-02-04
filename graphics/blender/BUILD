@@ -18,6 +18,7 @@
   prepare_install &&
   scons LCGDIR=lib BF_BUILDDIR=build BF_INSTALLDIR=/opt/lunar/blender &&
 
-  install -m 644 release/freedesktop/icons/32x32/blender.png /usr/share/pixmaps
+  install -m 755 -d /usr/share/pixmaps/ &&
+  install -m 644 release/freedesktop/icons/32x32/blender.png /usr/share/pixmaps/
 
 ) > $C_FIFO 2>&1
