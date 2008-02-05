@@ -1,6 +1,6 @@
 (
 
-  sed -i -e 's:/usr/local:/usr:g' Makefile &&
+  sedit 's:/usr/local:/usr:g' Makefile &&
 
   default_build
 

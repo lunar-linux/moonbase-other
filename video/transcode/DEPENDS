@@ -1,29 +1,34 @@
-depends  nasm      &&
-depends  ffmpeg    &&
-depends  mpeg2dec  &&
+depends  nasm
+depends  ffmpeg
+depends  mpeg2dec
+
+optional_depends freetype2   ""  "--disable-freetype2" "ttf fonts support"  
+optional_depends mjpegtools  "--enable-mjpegtools"  "" "MPEG support"       
+optional_depends avifile     "--enable-avifile"     "" "avifile support"    
+optional_depends a52dec      "--enable-a52"         "" "a52 support"        
+optional_depends libdv       "--enable-libdv"       "" "libdv support"      
+optional_depends libxml2     "--enable-libxml2"     "" "XML support"        
+optional_depends ImageMagick "--enable-imagemagick" "" "ImageMagick support"
+optional_depends SDL         "--enable-sdl"         "" "SDL support"
 
 optional_depends  "libvorbis"                                        \
                   "--enable-ogg --enable-vorbis"                     \
                   "--disable-ogg --disable-vorbis"                   \
-                  "Ogg-Vorbis support"                               &&
+                  "Ogg-Vorbis support"                               
+
 optional_depends  "libtheora"                                        \
                   "--enable-theora"        "--disable-theora"        \
-                  "Theora support"                                   &&
+                  "Theora support"                                   
+
 optional_depends  "lame"                                             \
                   "--enable-lame"          "--disable-lame"          \
-                  "MP3 support"                                      &&
+                  "MP3 support"                                      
+
 optional_depends  "libdvdread"                                       \
                   "--enable-libdvdread"    "--disable-libdvdread"    \
-                  "DVD support"                                      &&
+                  "DVD support"                                      
+
 optional_depends  "libquicktime"                                     \
                   "--enable-libquicktime"  "--disable-libquicktime"  \
-                  "QuickTime support"                                &&
+                  "QuickTime support"                                
 
-optional_depends freetype2   ""  "--disable-freetype2" "ttf fonts support"    &&
-optional_depends mjpegtools  "--enable-mjpegtools"  "" "MPEG support"         &&
-optional_depends avifile     "--enable-avifile"     "" "avifile support"      &&
-optional_depends a52dec      "--enable-a52"         "" "a52 support"          &&
-optional_depends libdv       "--enable-libdv"       "" "libdv support"        &&
-optional_depends libxml2     "--enable-libxml2"     "" "XML support"          &&
-optional_depends ImageMagick "--enable-imagemagick" "" "ImageMagick support"  &&
-optional_depends SDL         "--enable-sdl"         "" "SDL support"

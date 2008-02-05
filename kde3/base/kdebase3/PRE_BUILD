@@ -1,0 +1,11 @@
+rm -f $SCRIPT_DIRECTORY/init.d/kdm  &&
+echo "#!/bin/bash"           >> $SCRIPT_DIRECTORY/init.d/kdm  &&
+echo ""                      >> $SCRIPT_DIRECTORY/init.d/kdm  &&
+echo "# chkconfig: 5 95 05"  >> $SCRIPT_DIRECTORY/init.d/kdm  &&
+echo "# description: kdm is KDE's version of the xdm graphical login manager"  >> $SCRIPT_DIRECTORY/init.d/kdm  &&
+TMP="# processname: $MODULE_PREFIX/bin/kdm"  &&
+echo $TMP                            >> $SCRIPT_DIRECTORY/init.d/kdm  &&
+echo "# sigreload: HUP"              >> $SCRIPT_DIRECTORY/init.d/kdm  &&
+echo ""                              >> $SCRIPT_DIRECTORY/init.d/kdm  &&
+echo '. /lib/lsb/init-functions $1'  >> $SCRIPT_DIRECTORY/init.d/kdm  &&
+default_pre_build
