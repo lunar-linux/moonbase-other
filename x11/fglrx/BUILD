@@ -29,7 +29,7 @@ fi &&
         BIT="" BITA="" BT=""
 
 if [ -d /usr/lib64 ]; then
-        $BIT=_64 $BITA=_64a $BT=64
+        BIT="_64" BITA="_64a" BT="64"
 fi &&
 
         cp -af arch/x86$BIT/lib common &&
