@@ -1,0 +1,33 @@
+          MODULE=xmms-bassmod
+         VERSION=0.2
+          SOURCE=bassmod20-linux.zip
+#broken   SOURCE=bassmod-linux.zip beta
+         SOURCE2=bassmod-xmms.zip
+         SOURCE3=bassmod-gcc4fix.patch.bz2
+   SOURCE_URL[0]=http://uk.un4seen.com/files/
+   SOURCE_URL[1]=http://us.un4seen.com/files/
+  SOURCE2_URL[0]=http://uk.un4seen.com/files/
+  SOURCE2_URL[1]=http://us.un4seen.com/files/
+  SOURCE3_url[0]=$PATCH_URL/
+      SOURCE_VFY=sha1:12185354ea0187ee2b565de28f53e12b5de3de64
+     SOURCE2_VFY=sha1:84f318bce747e15e6d9c96c3c22ef3d233a189ef
+     SOURCE3_VFY=sha1:43ed74dfb77966084deab7c782718209a0ac539a
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/bassmod
+        WEB_SITE=http://www.un4seen.co.uk/
+         ENTERED=20071012
+         UPDATED=20080203
+           SHORT="library for decoding XM, IT, S3M, MOD, MTM, UMX files"
+cat << EOF
+BASSMOD is a MOD (XM, IT, S3M, MOD, MTM, UMX) library with the following
+features:
+* Balls-on reproduction
+* Uses the same engine as XMPlay (very accurate, fast,
+  high quality reproduction), with full support for all effects,
+  filters, stereo samples, etc...
+* Decode without playback
+* MODs can be outputted in any way you want (written to disk,
+  encoded, etc...)
+* High precision synchronization
+* Synchronize events in your software to the MOD music
+* Small - BASSMOD won't bloat distribution
+EOF
