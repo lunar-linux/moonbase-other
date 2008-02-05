@@ -5,7 +5,7 @@
                --mandir=/usr/share/man  \
                --enable-static          \
                --localstatedir=/var    &&
-                
+
   make  &&
 
   if [ -f /usr/bin/parec ];  then
@@ -19,4 +19,3 @@
   add_priv_user pulse -d /var/run/pulse -g pulse
 
 ) > $C_FIFO 2>&1
-

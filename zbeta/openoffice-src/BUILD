@@ -1,4 +1,9 @@
 (
+
+  if module_installed qt3; then
+   . /etc/profile.d/qt3.rc
+  fi &&
+
   OO_DIR="/opt/lunar/openoffice-src"
   
   sedit "/^ARCH_FLAGS\*=/d" solenv/inc/unxlngi{4,5,6}.mk &&

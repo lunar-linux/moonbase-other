@@ -1,0 +1,24 @@
+          MODULE=telepathy-qt
+         VERSION=0.14.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/tapioca-voip
+      SOURCE_VFY=sha1:607ac8fff0cb7fa19fa35665188b42345aececc3
+   MODULE_PREFIX=${QT4_PREFIX:-/opt/lunar/qt/4}
+        WEB_SITE=http://telepathy.freedesktop.org/wiki/
+         ENTERED=20080112
+         UPDATED=20080112
+           SHORT="unified framework for all forms of real time conversations"
+
+cat << EOF
+The Telepathy project aims to provide a unified framework for all forms of real
+time conversations, including instant messaging, IRC, voice calls and video 
+calls. It uses the D-Bus messaging system to provide a simple interface for 
+client applications, allowing them to quickly benefit from Telepathy's 
+functionality.
+
+At the core of Telepathy is the DBus interface specification which describes how
+Telepathy components communicate with each other. We are up to spec version 0.17 
+(see DbusSpec for older versions). For a more approachable introduction to the 
+structure of the framework, try the System Overview document. The Ubuntu spec 
+for SIP/IM integration includes a good rationale for this distributed approach.
+EOF
