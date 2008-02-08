@@ -7,4 +7,9 @@ optional_depends "libusb"      "" "" "for Logitech Mouse support"
 optional_depends "bluez-libs"  "" "" "for bluetooth support within KDE4"
 optional_depends "libraw1394"  "" "" "for firewire support"
 
+optional_depends "Linux-PAM"   "-DKDE4_COMMON_PAM_SERVICE=kde4 \
+                                -DKDE4_KDM_PAM_SERVICE=kde4"   \
+                                ""             "for PAM support"
+optional_depends "shadow"      "" ""  "for shadow password support"
+
 # TODO: Add captury to moonbase for full GL video support!
