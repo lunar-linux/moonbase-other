@@ -1,0 +1,10 @@
+#
+# /etc/pam.d/kde4-np - kde4 no password pam configuration
+#
+
+auth            required        pam_nologin.so
+auth            required        pam_permit.so
+account         include         system-auth
+password        include         system-auth
+session         include         system-auth
+session         optional        pam_console.so
