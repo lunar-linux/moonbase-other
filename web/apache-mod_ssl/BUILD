@@ -22,8 +22,8 @@ case  $CERTIFICATE  in
   y|Y|j|J)
 
     cd  mod_ssl-$VERSION                          &&
-    ./configure  --with-apache=../apache_1.3.39   &&
-    cd  ../apache_1.3.39                          &&
+    ./configure  --with-apache=../apache_1.3.41   &&
+    cd  ../apache_1.3.41                          &&
     $APACHE_CONFIGURE                             &&
     make  certificate  TYPE="custom"              &&
     echo  "CERTIFICATE=done"  >>  $MODULE_CONFIG  &&
@@ -33,8 +33,8 @@ case  $CERTIFICATE  in
   *)
 
     (  cd  mod_ssl-$VERSION                         &&
-       ./configure  --with-apache=../apache_1.3.39  &&
-       cd  ../apache_1.3.39                         &&
+       ./configure  --with-apache=../apache_1.3.41  &&
+       cd  ../apache_1.3.41                         &&
        $APACHE_CONFIGURE                            &&
        make  certificate  TYPE="existing"            \
              CRT=/etc/httpsd/ssl.crt/server.crt     &&
