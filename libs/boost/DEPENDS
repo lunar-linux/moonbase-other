@@ -1,4 +1,9 @@
 depends  boost-jam
 
-optional_depends  "Python"  ""  "--without-python"  \
-                  "to build the Boost Python bindings"
+optional_depends "Python"  ""  "--without-python"  \
+                 "to build the Boost Python bindings"
+
+optional_depends "icu" \
+                 "-sHAVE_ICU=1 -sICU_PATH=/usr" \
+                 "" \
+                 "to enable unicode support"
