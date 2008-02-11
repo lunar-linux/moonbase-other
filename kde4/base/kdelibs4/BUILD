@@ -1,5 +1,8 @@
 (
 
+# This export of LDFLAGS should be revisited on the next version bump.
+  export LDFLAGS="-Wl,-rpath,/opt/lunar/kde/4/lib"
+
   KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build"
 
   source /etc/profile.d/qt4.rc  &&
