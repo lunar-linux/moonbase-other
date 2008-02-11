@@ -3,8 +3,8 @@
   export CFLAGS="$CFLAGS -fPIC"
   OPTS="$OPTS --with-drm"
 
-  ./bootstrap       &&
   touch INSTALL     &&
+  ./bootstrap       &&
   mkdir plugins/bmp &&
   autoreconf -vif   &&
 
