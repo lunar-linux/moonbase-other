@@ -1,45 +1,31 @@
-          MODULE=testdisk
-         VERSION=6.8
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.cgsecurity.org/
-      SOURCE_VFY=sha1:7e461905fcd275edf019a87ac18bcb4401a2b379
-        WEB_SITE=http://www.cgsecurity.org/wiki/TestDisk
-         ENTERED=20060202
-         UPDATED=20070815
-           SHORT="Helps recover lost partitions and fixes non-booting-disks"
+          MODULE=progsreiserfs
+         VERSION=0.3.0.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+   SOURCE_URL[0]=http://reiserfs.osdn.org.ua/
+   SOURCE_URL[1]=http://reiserfs.linux.kiev.ua/
+   SOURCE_URL[2]=$MIRROR_URL
+      SOURCE_VFY=sha1:51f8e5651c59f70b58d64849a423eaa727e623f9
+        WEB_SITE=http://reiserfs.osdn.org.ua
+         ENTERED=20021220
+         UPDATED=20080214
+           SHORT="library for reiserfs filesystem access and manipulation"
 
 cat << EOF
-Actually there are two programs contained herein, testdisk and photorec.
+This is a library for reiserfs filesystem access and manipulation.
+The primary goal is to develop the nice, full functionality library
+wich might be linked against any projects which needed reiserfs filesystem
+access. There are GNU Parted, GNU GRUB, Yaboot, Partimage, EVMS, etc.
 
-Testdisk is a tool to check and undelete partition
- Works with the following partitions:
- - BeFS ( BeOS )
- - BSD disklabel ( FreeBSD/OpenBSD/NetBSD )
- - CramFS (Compressed File System)
- - DOS/Windows FAT12, FAT16 and FAT32
- - HFS, Hierarchical File System
- - JFS, IBM's Journaled File System
- - Linux Ext2 and Ext3
- - Linux Raid
- - Linux Swap (versions 1 and 2)
- - LVM and LVM2, Linux Logical Volume Manager
- - Netware NSS
- - NTFS ( Windows NT/2K/XP/2003 )
- - ReiserFS 3.5 and 3.6
- - UFS (Sun/BSD/...)
- - XFS, SGI's Journaled File System
+The second goal is high maintainability source code.
 
-PhotoRec is file data recovery software designed to recover lost pictures or
-lost files from digital camera memory (CompactFlash, Memory Stick,
-SecureDigital, SmartMedia, Microdrive, MMC, USB Memory Drives...), even Hard
-Disks and CDRom.
+The third goal is to develop an alternative set of the reiserfsprogs as
+small and nice frontends to this library.
 
-It has been successfully tested with
-
-    Canon EOS300D, 10D
-    HP PhotoSmart 620, 850, 935
-    Nikon CoolPix 775, 5700
-    Olympus C350N, C860L, Mju 400 Digital
-    Sony DSC-P9
-    Praktica DCZ-3.4
+For now progsreiserfs consists of:
+1. libreiserfs, which have a number of high level APIs for access reiserfs
+   filesystem. There are: main filesystem code (reiserfs_fs_open, reiserfs_fs_close,
+   resierfs_fs_create, reiserfs_fs_resize, reiserfs_fs_journal_tune, etc), journal
+   code, bitmap code, directories and files access code and device abstraction layer.
+2. four progs which are simple frontends to libreiserfs. There are: mkfs.reiserfs,
+   resizefs.reiserfs, cpfs.reiserfs, tunefs.reiserfs.
 EOF
