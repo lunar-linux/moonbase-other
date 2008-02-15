@@ -2,17 +2,18 @@
   patch_it $SOURCE4 1   &&
   patch_it $SOURCE5 1   &&
   patch_it $SOURCE6 0   &&
+  patch_it $SOURCE7 1   &&
 
-  ./regen.sh            && 
+  ./regen.sh            &&
 
   case `uname -r` in
-    2.6.*) 
+    2.6.*)
       kv="26"
       ;;
-    2.4.*) 
+    2.4.*)
       kv="24"
       ;;
-    *) 
+    *)
       message "Unsupported kernel version!"
       exit -1
       ;;
@@ -46,11 +47,11 @@
                 $OPTS                           &&
   make all_nolibafs                             &&
   prepare_install                               &&
-  
+
   if [ ! -d /etc/openafs ]; then
       mkdir -p /etc/openafs/server
   fi &&
-  
+
   make install_nolibafs                         &&
 
   # Creating needed dirs if not existing
@@ -87,7 +88,7 @@
   if [ ! -f /etc/openafs/cacheinfo ]; then
       echo "/afs:/var/cache/openafs:200000" > /etc/openafs/cacheinfo
   fi
-  
+
   # Copy conf and rc files
   sedit "s;^OPTIONS=.*;OPTIONS=\"-nosettime -fakestat\";" $SOURCE_DIRECTORY/src/afsd/afs.conf.linux &&
   if [ ! -f /etc/config.d/afs ]; then

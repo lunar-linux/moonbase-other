@@ -1,9 +1,9 @@
 
  if [ -f /var/lib/pgsql/data/PG_VERSION ]
     then
- if [ `cat /var/lib/pgsql/data/PG_VERSION` != '8.2' ]
+ if [ `cat /var/lib/pgsql/data/PG_VERSION` != '8.3' ]
     then
-    printf "${PROBLEM_COLOR}A pre 8.2 version of the database was found.\nYou need to upgrade the data format to 8.2.\nRefer to the INSTALL file located in the tarball\nfor the upgrade procedure.\nThe install will not continue.""${DEFAULT_COLOR}"
+    printf "${PROBLEM_COLOR}A pre 8.3 version of the database was found.\nYou need to upgrade the data format to 8.3.\nRefer to the INSTALL file located in the tarball\nfor the upgrade procedure.\nThe install will not continue.""${DEFAULT_COLOR}"
    exit 1
    fi
  fi
