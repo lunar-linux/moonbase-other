@@ -24,7 +24,7 @@
   # Needed for x86_64
   MYARCH="`arch | grep -qw i.86 && echo i386 || arch`"
 
-  yes n | make oldconfig
+  echo | make oldconfig
   LD_PRELOAD= cp .config $CONFIG_CACHE/.config.2.6.stable
   rm -f arch/${MYARCH}/boot/bzImage
 
@@ -35,5 +35,5 @@
   make modules_install                      &&
   cp arch/${MYARCH}/boot/bzImage /boot/$VERSION  &&
   cp System.map /boot/System.map-$VERSION
-  
+
 ) > $C_FIFO 2>&1
