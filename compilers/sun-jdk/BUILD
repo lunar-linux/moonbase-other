@@ -2,7 +2,7 @@
 
   echo export PATH=\"'${PATH}':/usr/lib/jdk"${VERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
   chmod +x $SOURCE &&
-  ./$SOURCE        &&
+  echo "yes" | MORE="20000000" ./$SOURCE        &&
 
   prepare_install  &&
 

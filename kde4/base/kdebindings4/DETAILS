@@ -1,0 +1,27 @@
+          MODULE=kdebindings4
+           MAJOR=4.0
+         VERSION=${MAJOR}.1
+          SOURCE=kdebindings-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdebindings-$VERSION
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src/
+      SOURCE_VFY=sha1:a7c6aee0f72d73dcd766ffd74e2c980683a60d02
+        WEB_SITE=http://www.kde.org
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
+         ENTERED=20071026
+         UPDATED=20080205
+           SHORT="bindings for other lanquages"
+cat << EOF
+This package contains:
+* working:
+  * korundum: KDE bindings for ruby
+  * qtruby: Qt bindings for Ruby
+  * smoke: Language independent library for Qt and KDE bindings. Used by QtRuby 
+    and PerlQt.
+  * kalyptus: a header parser and bindings generator for Qt/KDE. Used for
+    Smoke, Java, C# and KSVG bindings generation at present.
+  * ruby/krossruby and python/krosspython which are plugins for the kdelibs/kross
+    scripting framework to provide scripting with python+ruby to applications.
+  * PyKDE: KDE bindings for python, requires PyQt from riverbankcomputing.co.uk
+  * Qyoto: Qt bindings for C#
+  * Kimono: KDE bindings for C#
+EOF

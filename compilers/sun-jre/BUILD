@@ -2,7 +2,7 @@
 
   echo export PATH=\"'${PATH}':/usr/lib/jre"${VERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
   chmod +x $SOURCE &&
-  ./$SOURCE        &&
+  echo "yes" | MORE="20000000" ./$SOURCE        &&
 
   prepare_install  &&
 
