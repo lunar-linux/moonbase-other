@@ -1,21 +1,24 @@
-( 
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+(
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi &&
-  
-  # This should always be just a link
-  rm -rf /usr/lib/firefox-$VERSION/plugins
 
-  MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
-  
-  MOZ_EXTENSIONS="cookie,xml-rpc,xmlextras,pref,transformiix,universalchardet,webservices,permissions,spellcheck"
+  # This should always be just a link
+  rm -rf /usr/lib/firefox-$VERSION/plugins &&
+
+  MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
+
+  MOZ_EXTENSIONS="default,xmlextras,xforms,webservices,universalchardet,transformiix,tasks,schema-validation,reporter,cookie,cview,datetime,finger,p3p,permissions,spellcheck,-gnomevfs"
+  # wallet extension makes empty duplicate password dialog so do not use it
 
   if in_depends $MODULE heimdal ; then
         MOZ_EXTENSIONS="${MOZ_EXTENSIONS},auth"
   else
         MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-auth"
   fi &&
+
+  # This hack added to fix a gtk+-2/pango/atk update that broke firefox. This should be removed in the future.
+  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in &&
 
   export MOZ_FREETYPE2="no"
   export MOZ_PANGO="yes"
@@ -41,6 +44,7 @@
     --enable-xft        \
     --enable-reorder    \
     --enable-cpp-rtti   \
+    --enable-cpp-exceptions \
     --enable-crypto     \
     --enable-strip      \
     --enable-strip-libs \
@@ -61,7 +65,7 @@
     --disable-profilesharing    \
     --disable-mathml    \
     $OPTS               &&
-              
+
   default_make        &&
 
   # Put some important headers in place
@@ -72,7 +76,7 @@
   mkdir -p /opt/lunar/plugins         &&
   for plugin in `ls /usr/lib/firefox-$VERSION/plugins`; do
        `install -m755 /usr/lib/firefox-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
-    
+
   rm -rf /usr/lib/firefox-$VERSION/plugins &&
   ln -snf /opt/lunar/plugins /usr/lib/firefox-$VERSION/plugins &&
 
@@ -87,6 +91,7 @@
 
   rm -rf /usr/lib/firefox-$VERSION/chrome/icons &&
   mkdir -p /usr/lib/firefox-$VERSION/chrome/icons/default &&
-  ln -snf /usr/lib/firefox-$VERSION/icons/default.xpm /usr/lib/firefox-$VERSION/chrome/icons/default/default.xpm
+for icon in `ls /usr/lib/firefox-$VERSION/icons`; do
+`ln -snf /usr/lib/firefox-$VERSION/icons/$icon /usr/lib/firefox-$VERSION/chrome/icons/default/$icon`; done
 
 ) > $C_FIFO 2>&1
