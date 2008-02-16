@@ -1,0 +1,10 @@
+#
+# /etc/pam.d/kde-np - kde-np pam configuration
+#
+
+auth            required        pam_nologin.so
+auth            required        pam_permit.so
+account         include         system-auth
+password        include         system-auth
+session         include         system-auth
+session         optional        pam_console.so

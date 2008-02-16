@@ -1,13 +1,19 @@
 (
+  # This is needed or a test will fail
+  export EXTRA_FLAGS="$CFLAGS"
+  unset CFLAGS
+
+  patch_it $SOURCE2 1 &&
+
   ./regen.sh &&
   case `uname -r` in
-    2.6.*) 
+    2.6.*)
       kv="26"
       ;;
-    2.4.*) 
+    2.4.*)
       kv="24"
       ;;
-    *) 
+    *)
       message "Unsupported kernel version!"
       exit -1
       ;;
@@ -24,7 +30,7 @@
       OPTS+=" --with-afs-sysname=`arch`_linux${kv}"
       ;;
   esac &&
-   
+
   OPTS="$OPTS --with-linux-kernel-headers=/usr/src/linux"
 
   ./configure   --prefix=/usr                   \
@@ -37,4 +43,4 @@
   prepare_install
 
 ) > $C_FIFO 2>&1
-  
+
