@@ -1,5 +1,7 @@
 (
 
+   sedit 's/^%p 5000$/%pointer 5000/' lexer.l     &&
+
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \
