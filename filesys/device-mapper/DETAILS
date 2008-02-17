@@ -1,13 +1,16 @@
           MODULE=device-mapper
          VERSION=1.02.24
           SOURCE=$MODULE.$VERSION.tgz
+         SOURCE2=$MODULE-1.02.24-export-format.patch.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
    SOURCE_URL[0]=ftp://sources.redhat.com/pub/dm/
    SOURCE_URL[1]=ftp://sources.redhat.com/pub/dm/old/
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:b22e76bd07b41f46a6d4a3d06429d9787fc4987f
+     SOURCE2_VFY=sha1:7ddf817ee728c8b70b6a19839f0a93f5ed35a3af
         WEB_SITE=http://sources.redhat.com/dm/
          ENTERED=20040511
-         UPDATED=20080112
+         UPDATED=20080217
            SHORT="Supports logical volume management by the kernel"
 
 cat << EOF
