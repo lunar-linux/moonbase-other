@@ -1,6 +1,6 @@
 (
   # This is needed or a test will fail
-  export EXTRA_FLAGS="$CFLAGS"
+  export EXTRA_CFLAGS="$CFLAGS"
   unset CFLAGS
 
   patch_it $SOURCE2 1 &&
