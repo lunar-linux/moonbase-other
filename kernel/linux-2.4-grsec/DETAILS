@@ -1,20 +1,20 @@
            MODULE=linux-2.4-grsec
-          VERSION=2.4.34
-         PVERSION=r14.0
+          VERSION=2.4.36.1
+         PVERSION=r16.0
            SOURCE=linux-$VERSION.tar.bz2
           SOURCE2=ll-${PVERSION}-1.tar.bz2
  SOURCE_DIRECTORY=/usr/src/linux-$VERSION-grsec
     SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.4/
     SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.4/
       SOURCE2_URL=$PATCH_URL
-       SOURCE_VFY=sha1:765dba198259ceb9646cb98393e5004d13994da9
-      SOURCE2_VFY=sha1:dc728e8fb2549f9adab443e51bd36624cfaa22f4
+       SOURCE_VFY=sha1:03b96fefe9d1c9fa2a3c8210193ae60f7fd2c03d
+      SOURCE2_VFY=sha1:068b7421d9c24e5fa35283eab302ada7777280de
          WEB_SITE=http://grsecurity.net/
           ENTERED=20030227
-          UPDATED=20070110
+          UPDATED=20080217
             SHORT="Security enhanced linux kernel"
-KEEP_SOURCE=on
-TMPFS=off
+      KEEP_SOURCE=on
+            TMPFS=off
 cat << EOF
 This is the same as the linux-2.4 module but with a fixed patch set with all
 the main patches and with these additional patches:
