@@ -1,4 +1,5 @@
 (
+
   sedit "s:-O3:$CFLAGS -Os:g" configure &&
 
   OPTS="$OPTS --enable-shared" &&
