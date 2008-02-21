@@ -1,14 +1,18 @@
           MODULE=evolution-data-server
-         VERSION=1.12.1
+         VERSION=1.12.3
            MAJOR=1.12
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-1.12.3-gtkdoc-rebase.patch
       SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR/
-      SOURCE_VFY=sha1:3d91c87c257ee080baf0f182dd46079752f427ed
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:12b8b23fb77ff6436def3cc5ea472886c8e0350e
+     SOURCE2_VFY=sha1:8947bce20b0fe967d29aa86d5f282c4b3699fb18
         WEB_SITE=http://gnome.org/projects/evolution/
          ENTERED=20011109
-         UPDATED=20071104
+         UPDATED=20080221
            SHORT="backend data manager for Evolution"
-           PSAFE=no
+PSAFE=no
+
 cat << EOF
 Evolution Data Server is the backend data server for Evolution
 EOF
