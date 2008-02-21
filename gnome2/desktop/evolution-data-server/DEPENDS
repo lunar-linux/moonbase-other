@@ -1,12 +1,16 @@
-depends libsoup &&
-depends gnome-vfs2 &&
+depends libsoup
+depends gnome-vfs2
 optional_depends  "openldap"             \
                   "--with-openldap=yes"  \
                   ""                     \
-                  "for LDAP support"     &&
+                  "for LDAP support"
 
 optional_depends  "nss"                  \
                   "--with-nspr-libs=/usr/lib/ --with-nspr-includes=/usr/include/nspr \
                    --with-nss-libs=/usr/lib/ --with-nss-includes=/usr/include/nss \
                    --enable-nss=yes"     \
                    "" "for nss ssl support"
+
+optional_depends  "heimdal" \
+                  "--with-krb5=/usr" \
+                  "" "for GSSAPI support"
