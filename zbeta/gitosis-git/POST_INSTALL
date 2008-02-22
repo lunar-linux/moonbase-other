@@ -1,0 +1,4 @@
+# user needs a shell otherwise ssh won't work.  we won't enable a password,
+# and ssh logins will only be allowed via ssh pubkey with a restricted
+# COMMAND= line in autorized_keys
+add_priv_user git:git -d /var/spool/gitosis -s /bin/sh -m

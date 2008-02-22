@@ -1,0 +1,17 @@
+          MODULE=gitosis-git
+             MOD=gitosis
+         VERSION="git-`date +%U`"
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD
+          SOURCE=$MOD.tar.bz2
+      SOURCE_URL=git://eagain.net/$MOD.git
+        WEB_SITE=http://eagain.net/gitweb/?p=$MOD.git;a=summary
+         ENTERED=20080222
+         UPDATED=20080222
+           SHORT="Easy git hosting package that doesn't require shell accounts"
+
+cat << EOF
+Gitosis is an easy-to-use solution for hosting public git repositories.  Users
+with commit access don't need shell accounts on the server, and communication
+is done over ssh.  Gitweb and git-daemon (for read-only anon access) support
+is also included.
+EOF
