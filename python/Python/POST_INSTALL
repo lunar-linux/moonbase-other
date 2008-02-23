@@ -1,7 +1,9 @@
 #  Reinstall site-packages 
 message "$MESSAGE_COLOR"
-message "Any Python module previously installed is now broken due to the way"
-message "Python handles modules. They need to be recompiled in order to work."
+message "Any Python module previously installed may now be broken due to the way Python"
+message "handles modules. They may need to be recompiled in order to work, especially"
+message "on a major version change like 2.4, to 2.5 or 2.6. Minor version numbers,"
+message "like 2.5.1, to 2.5.2 are usually safe without recompiling."
 message "$DEFAULT_COLOR"
 if query "Do you want lunar to attempt to upgrade your Python modules?" y; then
         PYTHONMODS="$( lvu from /usr/lib/python*/site-packages | cut -d: -f1 | uniq | grep -v Python)"
