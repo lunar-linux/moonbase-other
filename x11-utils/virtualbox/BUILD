@@ -4,7 +4,7 @@
   . /etc/profile.d/qt3.rc 
 
   # Substitute hard-coded QTDIR with QTDIR from the qt3 profile
-  sed -i -e 's/QTDIR=.*/QTDIR="$QTDIR"/g' configure &&
+  sedit 's/QTDIR=.*/QTDIR="$QTDIR"/g' configure &&
 
   # Build VirtualBox
   ./configure     &&
@@ -34,7 +34,7 @@
   install -m 755 $SCRIPT_DIRECTORY/VirtualBox /usr/bin &&
 
   # Substitute $INSTALL_DIR with the module prefix
-  sed -i -e 's:$INSTALL_DIR:'$MODULE_PREFIX':g' /usr/bin/VirtualBox &&
+  sedit 's:$INSTALL_DIR:'$MODULE_PREFIX':g' /usr/bin/VirtualBox &&
 
   # Install the config file to let VirtualBox know it is installed
   mkdir -p /etc/vbox && 

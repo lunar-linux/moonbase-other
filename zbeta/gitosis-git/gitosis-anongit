@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# chkconfig: 345 85 15
+# description: git-daemon anon access for a gitosis-served git repositoriy
+#
+
+start() {
+    echo -n "Starting git-daemon (for gitosis): "
+    /usr/bin/git-daemon --syslog --base-path=/var/spool/gitosis/repositories \
+        --user-path=git-public --reuseaddr --detach \
+        --pid-file=/var/run/git-daemon-gitosis.pid --user=git --group=git
+}
+
+stop() {
+    echo -n "Stopping git-daemon (for gitosis): "
+    if [ -f /var/run/git-daemon-gitosis.pid ]; then
+        kill -TERM `cat /var/run/git-daemon-gitosis.pid`
+        rm -f /var/run/git-daemon-gitosis.pid
+    fi
+}
+
+restart() {
+   stop
+   start
+}
+
+case $1 in
+   start|stop|restart) ;;
+   *)     echo "Usage: $0 {start|stop|restart}"; exit 1  ;;
+esac
+
+. /lib/lsb/init-functions

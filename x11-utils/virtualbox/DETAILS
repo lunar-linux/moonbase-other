@@ -1,13 +1,14 @@
           MODULE=virtualbox
     MODULE_PREFIX=${VIRTUALBOX_PREFIX:-/usr/lib/virtualbox/}
-          VERSION=1.5.4
+     BASE_VERSION=1.5.6
+          VERSION=$BASE_VERSION-1
            SOURCE=VirtualBox-${VERSION}_OSE.tar.bz2
- SOURCE_DIRECTORY=$BUILD_DIRECTORY/VirtualBox-${VERSION}_OSE
-       SOURCE_VFY=sha1:a918c064804d1dfde77b17747fe1886deff21f82
-       SOURCE_URL=http://www.virtualbox.org/download/$VERSION/
+ SOURCE_DIRECTORY=$BUILD_DIRECTORY/VirtualBox-${BASE_VERSION}_OSE
+       SOURCE_VFY=sha1:1cb11c012b9143e14f2eada645757cae8886d0d1
+       SOURCE_URL=http://195.34.175.98/download/$BASE_VERSION/
          WEB_SITE=http://virtualbox.org/
           ENTERED=20071004
-          UPDATED=20080119
+          UPDATED=20080221
             SHORT="Full virtualizer for x86 hardware"
 
 cat << EOF
