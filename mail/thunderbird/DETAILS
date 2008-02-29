@@ -1,25 +1,22 @@
           MODULE=thunderbird
-         VERSION=2.0.0.9
+         VERSION=2.0.0.12
           SOURCE=thunderbird-$VERSION-source.tar.bz2
          SOURCE2=thunderbird.desktop
-         SOURCE3=sm-xrender.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
-   SOURCE_URL[0]=http://ftp.mozilla.org/pub/mozilla.org/$MODULE/releases/$VERSION/source/
-   SOURCE_URL[1]=http://archive.progeny.com/mozilla.org/$MODULE/releases/$VERSION/source/
-      SOURCE_VFY=sha1:fede9db98f25adb978b84129a6d15a4dbe6bbb3e
+   SOURCE_URL[0]=ftp://mozilla.isc.org/pub/mozilla.org/$MODULE/releases/$VERSION/source/
+   SOURCE_URL[1]=ftp://ftp.mozilla.org/pub/mozilla.org/$MODULE/releases/$VERSION/source/
+   SOURCE_URL[2]=ftp://ftp.uni-erlangen.de/pub/mozilla.org/$MODULE/releases/$VERSION/source/
+   SOURCE_URL[3]=http://archive.progeny.com/mozilla.org/$MODULE/releases/$VERSION/source/
+      SOURCE_VFY=sha1:36ea64353d32a9f138ef658250cfdcf8f9e862f2
      SOURCE2_URL=$PATCH_URL
      SOURCE2_VFY=sha1:a76c4e25bf4e491014c5bafbb07de096248a9931
-     SOURCE3_URL=$PATCH_URL
-     SOURCE3_VFY=sha1:cab357aa5854456ffd24713126e64a18b391a4cb
         WEB_SITE=http://www.mozilla.org/projects/thunderbird
          ENTERED=20031021
-         UPDATED=20071117
+         UPDATED=20080229
            SHORT="A full-featured mail client"
            PSAFE=no
-
 cat << EOF
 Thunderbird includes:
-
 * The ability to customize your toolbars the way you want them.
   Choose View / Toolbars / Customize inside any window.
 * UI extensions can be added to Mozilla Thunderbird to customize your
