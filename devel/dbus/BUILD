@@ -10,10 +10,8 @@
     OPTS="$OPTS --disable-mono"
   fi
 
-  export LDFLAGS="$LDFLAGS -lexpat"
-
   OPTS="$OPTS --with-x --enable-checks --enable-verbose-mode              \
-        --with-xml=libxml --with-system-pid-file=/var/run/messagebus.pid  \
+        --with-xml=$XMLRENDERER --with-system-pid-file=/var/run/messagebus.pid  \
         --with-system-socket=/var/lib/dbus/system_bus_socket              \
         --with-session-socket-dir=/tmp  --with-dbus-user=messagebus       \
         --disable-xml-docs --with-init-scripts=none"
