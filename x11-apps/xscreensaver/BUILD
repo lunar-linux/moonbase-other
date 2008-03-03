@@ -6,7 +6,6 @@
   fi
 
   OPTS+=" --without-kerberos \
-          --without-gle \
           --with-xml \
           --with-dpms-ext \
           --with-xf86vmode-ext \
