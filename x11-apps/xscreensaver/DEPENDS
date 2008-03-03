@@ -2,6 +2,7 @@ depends libxml2
 depends netpbm
 depends bc
 depends perl
+depends %GLUT
 
 optional_depends "gettext"  "--enable-nls" "--disable-nls"  \
                  "enable NLS support"
@@ -23,3 +24,8 @@ optional_depends "%GLX" "--with-gl" "--without-gl" \
 
 optional_depends "jpeg" "--with-jpeg" "--without-jpeg" \
                  "for Jpeg support"
+
+optional_depends "gle" "--with-gle" "--without-gle" \
+                 "required for some of the screensavers"
+
+optional_depends "gdk-pixbuf" "--with-pixbuf" "--without-pixbuf"
