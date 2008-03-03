@@ -21,5 +21,14 @@ optional_depends "xsnow"  ""  ""  \
 optional_depends "%GLX" "--with-gl" "--without-gl" \
                  "for OpenGL screensaver support"
 
+optional_depends "%GLUT"  "" ""  \
+                 "for OpenGL GLUT screensaver support"
+
+optional_depends "gle" "--with-gle" "--without-gle" \
+                 "for OpenGL GLE screensaver support"
+
 optional_depends "jpeg" "--with-jpeg" "--without-jpeg" \
                  "for Jpeg support"
+
+optional_depends "gdk-pixbuf" "--with-pixbuf" "--without-pixbuf" \
+                 "some screensavers will be black without this"
