@@ -1,10 +1,1 @@
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
-
-  if  query  "Enable IPv6?" n;  then
-    OPTS="$OPTS --enable-ipv6"
-  fi
-
-  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-  echo  'OPTS='\"$OPTS\"  >>  $MODULE_CONFIG
-
-fi
+mquery ENABLE_IPV6 "Enable IPv6 support?" n "--enable-ipv6" "--disable-ipv6"
