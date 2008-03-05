@@ -15,4 +15,7 @@
 
   default_make
 
+  mkdir -p $MODULE_PREFIX/bin/ &&
+  install -m0755 $SCRIPT_DIRECTORY/kde4 $MODULE_PREFIX/bin/
+
 ) > $C_FIFO 2>&1
