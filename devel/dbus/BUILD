@@ -10,14 +10,10 @@
     OPTS="$OPTS --disable-mono"
   fi
 
-  # Figure out which XML library to use (expat or libxml2 - without the 2
-  # at the end though).
-  XMLLIB=$(get_local_config LUNAR_ALIAS_XMLRENDERER | sed 's/2//g')
-
-  OPTS="$OPTS --with-x --enable-checks --enable-verbose-mode              \
-        --with-xml=$XMLLIB --with-system-pid-file=/var/run/messagebus.pid \
-        --with-system-socket=/var/lib/dbus/system_bus_socket              \
-        --with-session-socket-dir=/tmp  --with-dbus-user=messagebus       \
+  OPTS="$OPTS --with-x --enable-checks --with-xml=expat 
+        --with-system-pid-file=/var/run/messagebus.pid \
+        --with-system-socket=/var/lib/dbus/system_bus_socket \
+        --with-session-socket-dir=/tmp  --with-dbus-user=messagebus \
         --disable-xml-docs --with-init-scripts=none"
 
   default_build  &&
