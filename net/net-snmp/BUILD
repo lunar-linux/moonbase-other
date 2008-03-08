@@ -12,9 +12,10 @@
                $DEFAULTS             \
                $OPTS                &&
   default_make                      &&
-  if [ ! -e /etc/config.d/snmpd ]; then
-      cp $SCRIPT_DIRECTORY/snmpd /etc/config.d/snmpd
+  if [ ! -e /etc/config.d/snmpd ] ; then
+      install -m644 $SCRIPT_DIRECTORY/snmpd /etc/config.d/snmpd
   fi  &&
+
   mkdir -p /var/state/ucd-snmp
 
 ) > $C_FIFO 2>&1

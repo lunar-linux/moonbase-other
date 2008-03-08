@@ -1,5 +1,7 @@
 (
 
+  sedit "s:dnl AC_PROG:AC_PROG:" configure.in  &&
+
   export CFLAGS="$CFLAGS -fPIC"
   OPTS="$OPTS --with-drm"
 
