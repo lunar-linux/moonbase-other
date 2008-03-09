@@ -1,12 +1,13 @@
           MODULE=SDL_image
          VERSION=1.2.6
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://www.libsdl.org/projects/$MODULE/release/
+   SOURCE_URL[0]=$SFORGE_URL/libsdl
+   SOURCE_URL[1]=http://www.libsdl.org/projects/$MODULE/release
       SOURCE_VFY=sha1:5045df31e4db29d8890110fd18024c9d08efca30
-        WEB_SITE=http://www.libsdl.org/projects/$MODULE/
+        WEB_SITE=http://www.libsdl.org/projects/$MODULE
          ENTERED=20010922
          UPDATED=20070821
-           SHORT="simple library to load images as SDL surfaces."
+           SHORT="A simple library to load images as SDL surfaces"
 
 cat << EOF
 SDL_image is a simple library to load images of various formats as SDL
