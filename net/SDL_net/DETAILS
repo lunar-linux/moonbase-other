@@ -2,14 +2,16 @@
          VERSION=1.2.7
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=SDL_net-1.2.6.configure.in.patch
-      SOURCE_URL=http://www.libsdl.org/projects/SDL_net/release/
+   SOURCE_URL[0]=$SFORGE_URL/libsdl
+   SOURCE_URL[1]=http://www.libsdl.org/projects/SDL_net/release
      SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:b46c7e3221621cc34fec1238f1b5f0ce8972274d
      SOURCE2_VFY=sha1:580aae20a34b1bb69563529db97f3bc2da8a3b8c
-        WEB_SITE=http://www.libsdl.org/projects/$MODULE/
+        WEB_SITE=http://www.libsdl.org/projects/$MODULE
          ENTERED=20021127
          UPDATED=20070821
-           SHORT="a small sample cross-platform networking library"
+           SHORT="A small sample cross-platform networking library"
+	   
 cat << EOF
 A small sample cross-platform networking library, with a sample chat
 client and server application.
