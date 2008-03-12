@@ -2,8 +2,6 @@
   message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}This module compiles and must be installed only on 2.6.x kernels."
   sleep 5
 
-  patch_it $SOURCE2 0 &&
-  
   make user                   &&
   prepare_install             &&
   make  PREFIX=/usr            \
