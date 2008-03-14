@@ -25,6 +25,11 @@ optional_depends  "libmpcdec"                     \
                   ""                              \
                   "for Musepack input plugin"     &&
 
+optional_depends  "taglib"                        \
+                  ""                              \
+                  ""                              \
+                  "required if you use musepack"  &&
+
 optional_depends  "arts"                          \
                   ""                              \
                   "--disable-arts"                \
@@ -73,4 +78,9 @@ optional_depends  "curl"                          \
 optional_depends  "lame"                          \
                   ""                              \
                   ""                              \
-                  "for lame encoder support"      
+                  "for lame encoder support"     && 
+
+optional_depends  "libcdio"                       \
+                  ""                              \
+                  ""                              \
+                  "for CD playback"                              
