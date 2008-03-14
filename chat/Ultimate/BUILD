@@ -34,7 +34,7 @@
                    --mandir=/usr/share/man   \
                    --infodir=/usr/share/info \
                    --localstatedir=/var/lib/ultimateircd \
-                   --with-maxclients=1024    \
+                   --with-maxclients=$[`ulimit -n`-20]   \
                    $OPTS                     &&
   make  &&
   prepare_install &&
