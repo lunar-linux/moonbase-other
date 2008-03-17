@@ -2,6 +2,8 @@ depends  libungif
 depends  libmng
 depends  %X
 
+optional_depends  "cups" "-cups" "-no-cups" "for printing support, needed by kdelibs4"
+
 optional_depends  "mysql"                                                    \
                   "-plugin-sql-mysql -I/usr/include/mysql -L/usr/lib/mysql"  \
                   "-no-sql-mysql"                                            \

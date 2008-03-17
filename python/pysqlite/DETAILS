@@ -1,13 +1,13 @@
           MODULE=pysqlite
          VERSION=2.3.5
+            BASE=$(echo $VERSION | cut -d. -f1,2)
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://initd.org/pub/software/$MODULE/releases/2.3/$VERSION/
+      SOURCE_URL=http://oss.itsystementwicklung.de/download/$MODULE/$BASE/$VERSION/
       SOURCE_VFY=sha1:aede5abea1b0c84e030c175169e062f9d92c6b4e
-        WEB_SITE=http://pysqlite.org/
+        WEB_SITE=http://oss.itsystementwicklung.de/trac/pysqlite/
          ENTERED=20050512
          UPDATED=20071019
            SHORT="Python SQLite bindings"
-
 cat << EOF
 pysqlite is a Python DB-API 2.0 interface for the SQLite embedded
 relational database engine.
