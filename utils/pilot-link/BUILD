@@ -1,5 +1,6 @@
 (
 
+  bad_flags -Werror &&
   OPTS="$OPTS --enable-conduits --with-libpng=/usr --enable-threads" &&
   default_build
 
