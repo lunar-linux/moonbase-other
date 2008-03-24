@@ -15,7 +15,11 @@
     grep -v "EXIM_MONITOR=" src/EDITME > Local/Makefile
   fi
 
-  if module_installed tcp_wrappers ; then
+  if [ "$USE_SCANNING" == "y" ]; then
+     echo "WITH_CONTENT_SCAN=yes" >> Local/Makefile
+  fi
+
+if module_installed tcp_wrappers ; then
     echo "USE_TCP_WRAPPERS=yes" >> Local/Makefile
     echo "EXTRALIBS=-lwrap"     >> Local/Makefile
   fi

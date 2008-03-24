@@ -1,7 +1,4 @@
 (
-
-  OPTS="$OPTS --enable-ipv6"
-
+  OPTS="$OPTS --enable-ipv6" &&
   default_build
-
 ) > $C_FIFO 2>&1
