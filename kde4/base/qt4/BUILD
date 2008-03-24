@@ -6,10 +6,7 @@
 
   sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
 
-  case  $QT3_SUPPORT  in
-    y|Y)  OPTS="$OPTS -qt3support"     ;;
-    n|N)  OPTS="$OPTS -no-qt3support"  ;;
-  esac &&
+  OPTS="$OPTS -qt3support"
 
   echo "yes" | ./configure               \
                -prefix ${MODULE_PREFIX}  \
