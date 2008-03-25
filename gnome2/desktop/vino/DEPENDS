@@ -1,8 +1,6 @@
-depends  GConf2
+depends  GConf2  &&
 
-optional_depends  "libnotify"      "--enable-libnotify"      ""  \
-                  "to display notification area messages"
+optional_depends  "libnotify"  "--enable-libnotify"  ""          \
+                  "to display notification area messages"        &&
 optional_depends  "gnome-keyring"  "--enable-gnome-keyring"  ""  \
                   "for password storing support"
-optional_depends  "avahi"          "--enable-avahi"          ""  \
-                  "for Avahi service broadcasting"
