@@ -41,6 +41,12 @@
   mkdir -p /opt/lunar/openoffice  &&
   cp -a "${OO_INSTALL_DIR}/opt/openoffice.org2.4" /opt/lunar/openoffice/ &&
 
+  #Added this force symlink creation at sofar's request
+  cd /usr/bin &&
+  ln -sf ${OO_DIR}/program/soffice soffice &&
+  ln -sf ${OO_DIR}/program/scalc   scalc   &&
+  ln -sf ${OO_DIR}/program/swriter swriter &&
+
   if [ "$USE_DESKTOPINTEGRATION" = "y" ] ; then
     install -m755 ${OO_DESK_DIR}/bin/openoffice.org2.4 \
                   ${OO_DESK_DIR}/bin/openoffice.org2.4-printeradmin /usr/bin/ &&
