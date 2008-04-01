@@ -102,13 +102,13 @@ plugin_source_needrefresh_git() {
     return 0
   fi
 
-  GIT_THRESHOLD=${GIT_THRESHOLD:-10}
+  REPOSITORY_THRESHOLD=${EPOSITORY_THRESHOLD:-10}
   if (( "GIT_THRESHOLD" > 0 )) ; then
-    if [ "$(find $3/$2 -amin +$GIT_THRESHOLD)" == "$3/$2" ] ; then
+    if [ "$(find $3/$2 -amin +$REPOSITORY_THRESHOLD)" == "$3/$2" ] ; then
       # it is older:
       return 0
     else
-      message "${MESSAGE_COLOR}GIT update not required for \"${FILE_COLOR}$(basename $2)${DEFAULT_COLOR}${CYAN}\" (less than $GIT_THRESHOLD minutes old)${DEFAULT_COLOR}"
+      message "${MESSAGE_COLOR}GIT update not required for \"${FILE_COLOR}$(basename $2)${DEFAULT_COLOR}${CYAN}\" (less than $REPOSITORY_THRESHOLD minutes old)${DEFAULT_COLOR}"
       # now we can send a FAIL so the next plugins are skipped:
       return 1
     fi
