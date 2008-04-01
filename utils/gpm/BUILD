@@ -5,6 +5,7 @@ BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA plea
 
 patch_it $SOURCE_CACHE/$SOURCE2 1                      &&
 patch_it $SOURCE_CACHE/$SOURCE3 1                      &&
+patch_it $SOURCE_CACHE/$SOURCE4 1                      &&
 
 # ************************ WARNING *************************
 # DO NOT MESS WITH THE CONFIGURE STUFF here unless you 
