@@ -99,13 +99,13 @@ plugin_source_needrefresh_svn() {
     return 0
   fi
 
-  SVN_THRESHOLD=${SVN_THRESHOLD:-10}
+  REPOSITORY_THRESHOLD=${REPOSITORY_THRESHOLD:-10}
   if (( "SVN_THRESHOLD" > 0 )) ; then
-    if [ "$(find $3/$2 -amin +$SVN_THRESHOLD)" == "$3/$2" ] ; then
+    if [ "$(find $3/$2 -amin +$REPOSITORY_THRESHOLD)" == "$3/$2" ] ; then
       # it is older:
       return 0
     else
-      message "${MESSAGE_COLOR}SVN update not required for \"${FILE_COLOR}$(basename $2)${DEFAULT_COLOR}${CYAN}\" (less than $SVN_THRESHOLD minutes old)${DEFAULT_COLOR}"
+      message "${MESSAGE_COLOR}SVN update not required for \"${FILE_COLOR}$(basename $2)${DEFAULT_COLOR}${CYAN}\" (less than $REPOSITORY_THRESHOLD minutes old)${DEFAULT_COLOR}"
       # now we can send a FAIL so the next plugins are skipped:
       return 1
     fi

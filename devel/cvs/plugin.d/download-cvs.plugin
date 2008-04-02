@@ -103,13 +103,13 @@ plugin_source_needrefresh_cvs() {
     return 0
   fi
 
-  CVS_THRESHOLD=${CVS_THRESHOLD:-10}
+  REPOSITORY_THRESHOLD=${REPOSITORY_THRESHOLD:-10}
   if (( "CVS_THRESHOLD" > 0 )) ; then
-    if [ "$(find $3/$2 -amin +$CVS_THRESHOLD)" == "$3/$2" ] ; then
+    if [ "$(find $3/$2 -amin +$REPOSITORY_THRESHOLD)" == "$3/$2" ] ; then
       # it is older:
       return 0
     else
-      verbose_msg "CVS update not required for \"$2\" (less than $CVS_THRESHOLD mins old)"
+      verbose_msg "CVS update not required for \"$2\" (less than $REPOSITORY_THRESHOLD mins old)"
       # now we can send a FAIL so the next plugins are skipped:
       return 1
     fi
