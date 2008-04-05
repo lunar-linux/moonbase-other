@@ -1,18 +1,18 @@
           MODULE=xf86-video-fbdev
-         VERSION=0.3.1
+         VERSION=0.4.0
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$XORG_URL/individual/driver/
-      SOURCE_VFY=sha1:6b1cc6fbe0d1b34daff6cb202db6827007ec1cb5
+      SOURCE_URL=$XORG_URL/individual/driver
+      SOURCE_VFY=sha1:b23da9224faac7e1bcc25e82aff4b453e71e406f
    MODULE_PREFIX=${X11R7_PREFIX:-/usr}
-        WEB_SITE=http://www.x.org/
+        WEB_SITE=http://www.x.org
          ENTERED=20060302
-         UPDATED=20070216
-           SHORT="the X.Org video driver for the Linux framebuffer device"
+         UPDATED=20080405
+           SHORT="The X.Org video driver for the Linux framebuffer device"
 
 cat << EOF
 xf86-video-fbdev provides the X.Org video driver for the Linux framebuffer
-device (aka 'fbdev').  This is a non-accelerated driver.  The following
-framebuffer depths are supported: 8, 15, 16, and 24.  All visual types are
+device (aka 'fbdev'). This is a non-accelerated driver. The following
+framebuffer depths are supported: 8, 15, 16, and 24. All visual types are
 supported for depth 8, and TrueColor visual is supported for the other
 depths. Multi-head configurations are supported.
 EOF
