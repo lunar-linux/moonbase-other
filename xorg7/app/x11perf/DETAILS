@@ -1,25 +1,20 @@
           MODULE=x11perf
-         VERSION=1.4.1
+         VERSION=1.5
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$XORG_URL/individual/app/
-      SOURCE_VFY=sha1:675d0f6bf61ccda0010afe24207ed392ae5210cf
+      SOURCE_URL=$XORG_URL/individual/app
+      SOURCE_VFY=sha1:10e1e1a00c1712c8bab4de7425c8cbf04e77f85d
    MODULE_PREFIX=${X11R7_PREFIX:-/usr}
-        WEB_SITE=http://www.x.org/
+        WEB_SITE=http://www.x.org
          ENTERED=20060302
-         UPDATED=20060523
-           SHORT="summarize x11perf results"
+         UPDATED=20080405
+           SHORT="Summarize x11perf results"
 
 cat << EOF
 Xmark is a shell script that reads the indicated datafile and compiles a
 benchmark which it writes to standard output. It writes three numbers:
-
-
- A weighted performance number for the x11perf results.
-
- A weighted performance number for a standard SparcStation 1, with SunOS
- 4.1.2, X11R5 Xsun, and a CG3 dumb Color Frame Buffer.
-
- The Xmark, which is the ratio of the two numbers above.
-
- The datafile must be an ordinary file, produced by x11perf.
+ - A weighted performance number for the x11perf results.
+ - A weighted performance number for a standard SparcStation 1, with SunOS
+   4.1.2, X11R5 Xsun, and a CG3 dumb Color Frame Buffer.
+ - The Xmark, which is the ratio of the two numbers above.
+The datafile must be an ordinary file, produced by x11perf.
 EOF
