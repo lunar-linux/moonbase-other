@@ -1,0 +1,25 @@
+          MODULE=kio_gopher
+           MAJOR=4.0
+         VERSION=${MAJOR}.3
+         SUB_VER=0.1.0
+          SOURCE=$MODULE-$SUB_VER.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$SUB_VER
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src/extragear/
+      SOURCE_VFY=sha1:f732cdaab2afb6541232c057cc65f1a987563004
+        WEB_SITE=http://www.kde.org
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
+         ENTERED=20080402
+         UPDATED=20080402
+           SHORT="support for the gopher protocol"
+cat << EOF
+This adds support for the gopher protocol to konqueror.
+
+It is still in development.
+
+It has been tested to work with KDE 3.1 and up.
+It has not been tested on other KDE versions.
+
+Currently it supports most (if not all) of the gopher protocol. 
+
+Support for gopher+ protocol is planned.
+EOF
