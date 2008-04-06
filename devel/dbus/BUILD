@@ -14,7 +14,7 @@
         --with-system-pid-file=/var/run/messagebus.pid              \
         --with-system-socket=/var/lib/dbus/system_bus_socket        \
         --with-session-socket-dir=/tmp  --with-dbus-user=messagebus \
-        --disable-xml-docs --with-init-scripts=none"
+        --disable-xml-docs --with-init-scripts=none --disable-verbose-mode"
 
   default_build  &&
 
