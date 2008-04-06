@@ -1,14 +1,16 @@
           MODULE=xmms
          VERSION=1.2.11
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=http://www.xmms.org/files/1.2.x/
-   SOURCE_URL[1]=ftp://ftp.xmms.org/xmms/1.2.x/
+         SOURCE2=xmms_doublesize.patch
+   SOURCE_URL[0]=ftp://ftp.xmms.org/xmms/1.2.x/
+   SOURCE_URL[1]=http://www.xmms.org/files/1.2.x/
+     SOURCE2_URL=$PATCH_URL/
         WEB_SITE=http://www.xmms.org
       SOURCE_VFY=sha1:9d1eae4baab25fd35c9ddfb49321ca60222f672d
+     SOURCE2_VFY=sha1:44c99a0372adfa63504d2104b84b1e409b00d044
          ENTERED=20010922
          UPDATED=20071118
            SHORT="A multimedia player based on the look of WinAmp"
-
 cat << EOF
 XMMS is a multimedia player based on the look of WinAmp. XMMS plays
 MPEG layer 1/2/3, Ogg Vorbis, WAV, all formats supported by libmikmod,

@@ -2,7 +2,7 @@
 
   make defconfig &&
   sedit "s/# CONFIG_STATIC is not set/CONFIG_STATIC=y/" .config &&
-  sedit "s/-Wl,--gc-sections//" Makefile &&
+  sedit "s/-Wl,--gc-sections//" scripts/trylink &&
   sedit "/^#error Aborting compilation./d" applets/applets.c &&
   make             &&
   prepare_install  &&
