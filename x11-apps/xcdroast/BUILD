@@ -1,4 +1,5 @@
 (
+    patch_it $SOURCE_CACHE/$SOURCE3 1          &&
     ./configure --enable-gtk2                  \
                 --prefix=/usr             \
                        --sysconfdir=/etc         \
