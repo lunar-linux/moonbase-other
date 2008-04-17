@@ -1,12 +1,13 @@
           MODULE=Terminal
-         VERSION=0.2.8
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.xfce.org/archive/xfce-4.4.2/src/
-      SOURCE_VFY=sha1:9c4ae0422dea8161aa72659d3bd1b035688d70d7
+             MOD=terminal
+         VERSION="svn-`date +%U`"
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MOD/trunk:$MOD
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.os-cillation.com/
          ENTERED=20040930
-         UPDATED=20071204
+         UPDATED=20071207
            SHORT="vte based/gtk+-2 lightweight X-terminal"
 cat << EOF
 Terminal is a modern terminal emulator for the Unix/Linux desktop -

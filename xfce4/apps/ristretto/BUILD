@@ -6,4 +6,10 @@
 
    default_build
 
+   ./autogen.sh --build=$BUILD                                  \
+                --prefix=${MODULE_PREFIX}      \
+                $OPTS                                           &&
+
+   default_make
+
 ) > $C_FIFO 2>&1

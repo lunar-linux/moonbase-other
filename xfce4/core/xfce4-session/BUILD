@@ -6,7 +6,7 @@
 
    PATH="$PATH:/usr/X11/bin"
 
-   ./configure  --build=$BUILD                                        \
+   ./autogen.sh --build=$BUILD                                        \
                 --prefix=${MODULE_PREFIX}        \
                 $OPTS                                           &&
 
