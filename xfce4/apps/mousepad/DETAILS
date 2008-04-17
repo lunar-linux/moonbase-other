@@ -1,13 +1,19 @@
           MODULE=mousepad
-         VERSION=0.2.13
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.xfce.org/archive/xfce-4.4.2/src/
-      SOURCE_VFY=sha1:521d2ffb3b805b568620d40ca43264584d504ccb
+         VERSION="svn-`date +%U`"
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE          
+     #SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MODULE/trunk:$MOD
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MODULE/branches/nick_0_3:$MODULE
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
-        WEB_SITE=http://erikharrison.net/
+        WEB_SITE=http://www.xfce.org
          ENTERED=20050218
-         UPDATED=20071204
+         UPDATED=20071207
            SHORT="Lighweight xfce text editor"
 cat << EOF
 Mousepad is an Xfce port of leafpad, the minimal gtk+-2 text editor.
+
+the svn branch is the one from Nick Schermer, slightly more advanced
+than the trunk branch
+If you want the trunk version, uncomment the other sourceurl, comment
+the nick sourceurl and delete /var/spool/lunar/mousepad-svn*.tar.bz2
 EOF

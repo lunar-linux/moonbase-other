@@ -1,15 +1,13 @@
           MODULE=Thunar
-         VERSION=0.9.0
-          SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-$VERSION-missing-audio-cds-for-volman.patch
-      SOURCE_URL=http://www.xfce.org/archive/xfce-4.4.2/src/
-     SOURCE2_URL=http://thunar.xfce.org/download/sources/Thunar/0.9.0
-      SOURCE_VFY=sha1:fd4625d58e28006087d5a35004483a953184e4fe
-     SOURCE2_VFY=sha1:ac8a61c731184fbf374a4e1482de812de3a5b0c8
+             MOD=thunar
+         VERSION="svn-`date +%U`"
+          SOURCE=$MOD.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD          
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MOD/trunk:$MOD
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://thunar.xfce.org/
          ENTERED=20060407
-         UPDATED=20071204
+         UPDATED=20071207
            SHORT="File manager for xfce"
 cat << EOF
 Thunar is the default file manager for Xfce.

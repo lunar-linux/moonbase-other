@@ -1,12 +1,12 @@
           MODULE=xfce4-dev-tools
-         VERSION=4.4.0
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.xfce.org/archive/xfce-$VERSION/src/
-      SOURCE_VFY=sha1:20b620ab7e732aa95e8072474251de2d899b3419
+         VERSION="svn-`date +%U`"
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MODULE/trunk:$MODULE
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.xfce.org/
          ENTERED=20030715
-         UPDATED=20070121
+         UPDATED=20071207
            SHORT="a utility library for Xfce4"
 cat << EOF
 libxfce4util -- A library that provides non-graphical convenience
