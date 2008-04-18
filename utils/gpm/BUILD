@@ -1,11 +1,7 @@
 (
 
-NEWMSG="A new config file (mouse.new) has been installed in /etc/config.d. SA please check for new options."                 &&
-BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA please configure!"                               &&
-
-patch_it $SOURCE_CACHE/$SOURCE2 1                      &&
-patch_it $SOURCE_CACHE/$SOURCE3 1                      &&
-patch_it $SOURCE_CACHE/$SOURCE4 1                      &&
+NEWMSG="A new config file (mouse.new) has been installed in /etc/config.d. SA please check for new options."  &&
+BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA please configure!"                &&
 
 # ************************ WARNING *************************
 # DO NOT MESS WITH THE CONFIGURE STUFF here unless you 
