@@ -4,24 +4,34 @@
    . /etc/profile.d/qt3.rc
   fi &&
 
+  OO_VER="`lvu version openoffice-src | cut -d. -f1-2`"
   OO_DIR="/opt/lunar/openoffice-src"
-  
+
+  RM_DESK_TOP="math extension printeradmin base calc draw impress writer"
+
+  # There are symlinks left over if openoffice-bin is installed and
+  # they do not get removed and the BUILD will tank near the end of
+  # the compile, this takes care of that.
+  for FILE in ${RM_DESK_TOP} ; do
+      rm -f /usr/share/applications/${FILE}.desktop || exit 1
+    done &&
+
   sedit "/^ARCH_FLAGS\*=/d" solenv/inc/unxlngi{4,5,6}.mk &&
 
   # All of the options have been carefully chosen. Don't edit them unless you
-  # really know what you're doing  
+  # really know what you're doing
 
-  OPTS="$OPTS --prefix=$OO_DIR --disable-qadevooo \
-              --disable-fontooo --disable-odk --enable-libart \
-              --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
-              --enable-mozilla --enable-binfilter --enable-xrender-link \
-              --without-fonts --without-ppds --without-afms \
-              --with-system-stdlibs --without-nas --with-system-zlib \
-              --with-system-jpeg --with-system-expat --with-system-freetype \
-              --with-system-libxml --without-system-db \
-              --with-system-xrender-headers --with-epm=internal \
-              --with-use-shell=bash --with-x --with-package-format=native \
-              --with-build-version=LunarLinux --without-system-boost --without-system-curl" &&
+  OPTS="$OPTS --prefix=$OO_DIR --disable-qadevooo --enable-dbus                \
+              --disable-fontooo --disable-odk --enable-libart --disable-debug  \
+              --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5  \
+              --enable-mozilla --enable-binfilter --enable-xrender-link        \
+              --without-fonts --without-ppds --without-afms                    \
+              --with-system-stdlibs --without-nas --with-system-zlib           \
+              --with-system-jpeg --with-system-expat --with-system-freetype    \
+              --with-system-libxml --with-system-db --disable-symbols          \
+              --with-system-xrender-headers --with-epm=internal                \
+              --with-use-shell=bash --with-x --with-package-format=native      \
+              --with-build-version=LunarLinux"                                &&
 
   if module_installed sane-backends ; then
     OPTS="$OPTS --with-system-sane-header";
@@ -49,7 +59,7 @@
 
   autoreconf &&
   default_config &&
-  
+
   # OOo might fail if those are set to some strange values
   umask 0022 &&
   unset LANG LC_ALL &&
@@ -68,7 +78,7 @@
   cd instsetoo_native/unxlngi6.pro/OpenOffice/native/install/en-US/linux-2.6-intel/buildroot/opt &&
 
   rm -rf $OO_DIR &&
-  cp -rv openoffice.org2.3 $OO_DIR &&
+  cp -rv openoffice.org${OO_VER} $OO_DIR &&
 
   # Install icons for the .desktop files
   mkdir -p -m0755 /usr/share/icons/{HighContrast,hicolor} &&
@@ -82,6 +92,7 @@
   cd $OO_DIR/share/xdg &&
   sedit 's/bin\/sprinteradmin/bin\/spadmin/' printeradmin.desktop &&
 
+
   for file in *.desktop ; do
     sedit '/Exec/d' $file;
     echo "Exec=$OO_DIR/program/s`echo $file | sed 's/.desktop//'`" >> $file;
@@ -89,6 +100,7 @@
     echo "Icon=`echo $file | sed 's/.desktop//'`" >> $file;
     install -m644 $file /usr/share/applications;
   done &&
+
   update-desktop-database
- 
-) > $C_FIFO 2>&1
+
+) > $C_FIFO 2>&
