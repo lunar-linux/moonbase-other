@@ -103,4 +103,4 @@
 
   update-desktop-database
 
-) > $C_FIFO 2>&
+) > $C_FIFO 2>&1
