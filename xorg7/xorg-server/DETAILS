@@ -1,6 +1,6 @@
           MODULE=xorg-server
          VERSION=1.4
-    MESA_VERSION=7.0.1
+    MESA_VERSION=7.0.3
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=MesaLib-${MESA_VERSION}.tar.bz2
          SOURCE3=$MODULE-$VERSION-xkbleds.patch
@@ -10,13 +10,13 @@
      SOURCE3_URL=$PATCH_URL
      SOURCE4_URL=$XORG_URL/X11R7.3/patches/
       SOURCE_VFY=sha1:3aa6327f4def4d33ce2a8d6d7587295db231ab6d
-     SOURCE2_VFY=sha1:deb1002cf377ba8bd9407bd3cf573f8c8be31671
+     SOURCE2_VFY=sha1:49b92094a25f189b411f393174ee666e73dddf36
      SOURCE3_VFY=sha1:3955adfae52793f913063affb844d84d2fea1491
      SOURCE4_VFY=sha1:af92fd389e72a3bb59d25dbf9cbb06e827b75d7d
    MODULE_PREFIX=${X11R7_PREFIX:-/usr}
         WEB_SITE=http://www.x.org/
          ENTERED=20060120
-         UPDATED=20080130
+         UPDATED=20080414
       MAINTAINER=elangelo@lunar-linux.org
            SHORT="The X.Org X11R7 server for the X Window System"
 
@@ -24,4 +24,3 @@ cat << EOF
 The XOrg foundation's open sourced public implemetation of X11 (the XOrg
 Server) is the offical reference implementation of the X Window System.
 EOF
-

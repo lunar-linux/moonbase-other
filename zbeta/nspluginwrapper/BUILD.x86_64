@@ -1,0 +1,13 @@
+(
+
+  OPTS="$OPTS --target-cpu=x86_64 --with-viewer"
+
+
+  if [ ! -d /usr/lib/mozilla/plugins ]; then
+     mkdir -p /usr/lib/mozilla/plugins &&
+     ln -snf /opt/lunar/plugins /usr/lib/mozilla/plugins
+  fi &&
+
+  default_build
+
+) > $C_FIFO 2>&1
