@@ -1,22 +1,15 @@
           MODULE=gpm
-         VERSION=1.20.1
+         VERSION=1.20.3
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=gpm-1.20.1-secenhance.patch
-         SOURCE3=gpm-1.20.1-limits1.patch
-         SOURCE4=gpm-1.20.1-limits2.patch
-      SOURCE_URL=ftp://arcana.linux.it/pub/gpm/
-     SOURCE2_URL=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
-     SOURCE4_URL=$PATCH_URL
-      SOURCE_VFY=sha1:c48d937e62abb438c2f6439b34ef3332c89af8d1
-     SOURCE2_VFY=sha1:09acfa6cdbaa4b8235836a94e518fc4e13c7d7c8
-     SOURCE3_VFY=sha1:f6396b2a31da554ee39a71db845b665901872442
-     SOURCE4_VFY=sha1:4f77cbf5f14852d5be8c2edea92060b1735c838d
-           PSAFE=no
+   SOURCE_URL[0]=http://linux.schottelius.org/gpm/archives
+   SOURCE_URL[1]=ftp://arcana.linux.it/pub/gpm
+      SOURCE_VFY=sha1:352e1b40702ef5e8c088d61d70dd62fb24a6732e
         WEB_SITE=http://linux.schottelius.org/gpm/
          ENTERED=20011003
-         UPDATED=20080330
+         UPDATED=20080416
+           PSAFE=no
            SHORT="A mouse server for the console and xterm"
+
 cat << EOF
 GPM (General Purpose Mouse) is a mouse server for the console and xterm, 
 with sample clients included (emacs, etc).
