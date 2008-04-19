@@ -4,7 +4,7 @@
 
   bad_flags -malign-double
 
-  CFLAGS="$CFLAGS -fgnu89-inline"
+#  CFLAGS="$CFLAGS -fgnu89-inline"  - it does not work on gcc 3.x
 
   # We really want this
   OPTS="$OPTS --enable-largefile"
