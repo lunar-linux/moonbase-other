@@ -1,6 +1,7 @@
 (
 
-  OPTS+=" --enable-gpl --enable-nonfree --enable-shared --enable-pthreads"
+  OPTS+=" --enable-gpl --enable-nonfree --enable-shared --enable-pthreads \
+          --enable-swscale"
 
   ./configure --prefix=/usr $OPTS &&              
 
