@@ -3,11 +3,13 @@ optional_depends libtheora  "--enable-libtheora"  ""  "for theora support"
 optional_depends faad       "--enable-libfaad"    ""  "for faad support"
 optional_depends faac       "--enable-libfaac"    ""  "for faac support"
 optional_depends lame       "--enable-libmp3lame" ""  "for mp3 support"
-optional_depends a52dec     "--enable-liba52"     ""  "for a52 support"
+
+optional_depends a52dec     "--enable-liba52 --enable-liba52bin" \
+                            "" \
+                            "for a52 support"
+
 optional_depends xvidcore   "--enable-libxvid"    ""  "for xvid support"
-optional_depends libogg     "--enable-libogg"     ""  "for ogg support"
 optional_depends libdc1394  "--enable-libdc1394"  ""  "for firewire support"
 optional_depends x264-git   "--enable-libx264"    ""  "for H264 support"
 optional_depends amrwb      "--enable-libamr-wb"  ""  "for AMR Wideband speech"
 optional_depends amrnb      "--enable-libamr-nb"  ""  "for AMR narrowband speech"
-#optional_depends gsmlib    "--enable-libgsm"     ""  "for gsm support"

@@ -1,12 +1,11 @@
           MODULE=ffmpeg
-         VERSION=2007-11-01
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$MIRROR_URL
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-beta
-      SOURCE_VFY=sha1:230b9ba5b2d204922d5380c45367b0e832f531ef
+         VERSION=`date +%F`
+          SOURCE=${MODULE}-export-snapshot.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-export-${VERSION}
+      SOURCE_URL=http://ffmpeg.mplayerhq.hu/
         WEB_SITE=http://ffmpeg.sourceforge.net/
          ENTERED=20020327
-         UPDATED=20071101
+         UPDATED=`date -u +%Y%m01`
       MAINTAINER=stumbles@lunar-linux.org
            SHORT="ffmpeg is an avi decoder"
 
