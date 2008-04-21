@@ -1,14 +1,17 @@
 (
-  
+
   chmod +x $SOURCE &&
   ./$SOURCE --accept-license --unpack &&
 
-  prepare_install  &&
+  prepare_install &&
 
   cp -r $SOURCE_DIRECTORY/jdk${VERSION} /usr/lib/ &&
 
+  # Some apps only search for java in /usr/java
+  ln -sf /usr/lib/jdk${VERSION} /usr/java &&
+
   # Some applications don't accept anything but /usr/bin
-  for file in /usr/lib/jdk${VERSION}/bin/*; do 
+  for file in /usr/lib/jdk${VERSION}/bin/*; do
       bfile=`basename $file`
       # Conflicting files with heimdal
       if [[ "$bfile" != "klist" ]] && [[ "$bfile" != "kinit" ]]; then
