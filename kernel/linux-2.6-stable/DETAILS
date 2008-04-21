@@ -1,5 +1,5 @@
           MODULE=linux-2.6-stable
-         VERSION=2.6.16.43
+         VERSION=2.6.24.5
             BASE=$(echo $VERSION | cut -d. -f1,2,3)
           SOURCE=linux-${BASE}.tar.bz2
          SOURCE2=patch-${VERSION}.bz2
@@ -8,17 +8,18 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/linux-$VERSION
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
   SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6/
   SOURCE2_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6/
-      SOURCE_VFY=sha1:bef21cd5063a648f33a99a26f4742dd05eb4dca2
-     SOURCE2_VFY=sha1:104dda4689dc591a0df21cb39fc533dd93f67985
+      SOURCE_VFY=sha1:351aebc784a5395fe4c92d1e514a89680482f7e2
+     SOURCE2_VFY=sha1:169c4ce99cde7b9038f47569abdc4713253f0edb
         WEB_SITE=http://www.kernel.org
          ENTERED=20070313
-         UPDATED=20070313
+         UPDATED=20080421
+      MAINTAINER=moe@lunar-linux.org
            SHORT="The uber-stable version of the 2.6 kernel"
      KEEP_SOURCE=on
            TMPFS=off
 
 cat << EOF
-This is the uber-stable version of the 2.6.x branch maintained by
-Adrian Bunk. It contains only really-necessary security and functionality
-fixes but no new features.
+This is the "stable" version of the 2.6.x linux kernel. It only recieves
+bugfixes and security patches and lacks behind the actual 2.6.x based releases
+by one major release number.
 EOF
