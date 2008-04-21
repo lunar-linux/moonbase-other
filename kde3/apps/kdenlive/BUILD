@@ -1,12 +1,20 @@
 (
-  
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+
+  patch_it $SOURCE2 0 &&
+
+  . /etc/profile.d/qt3.rc
+  . /etc/profile.d/kde3.rc
+  . /etc/profile.d/unsermake.rc
 
   ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}     \
-               --with-qt-dir=${QT_PREFIX:-$QTDIR}  \
                --disable-debug                     \
+               --enable-pch                        \
                $OPTS                              &&
 
-  default_make
- 
+  unsermake ${MAKES:+-j$MAKES} --no-color &&
+
+  prepare_install &&
+
+  unsermake install
+
 ) > $C_FIFO 2>&1
