@@ -1,6 +1,9 @@
 optional_depends libvorbis  "--enable-libvorbis"  ""  "for ogg-vorbis support"
 optional_depends libtheora  "--enable-libtheora"  ""  "for theora support"
-optional_depends faad       "--enable-libfaad"    ""  "for faad support"
+optional_depends faad       "--enable-libfaad --enable-libfaadbin" \
+                            ""  \
+                            "for faad support"
+
 optional_depends faac       "--enable-libfaac"    ""  "for faac support"
 optional_depends lame       "--enable-libmp3lame" ""  "for mp3 support"
 
