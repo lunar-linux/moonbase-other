@@ -2,8 +2,8 @@
 
   OPTS+=" --enable-gpl --enable-nonfree --enable-shared --enable-pthreads \
           --enable-swscale --enable-postproc"
-
-  ./configure --prefix=/usr $OPTS &&              
+ [ -n $CPU ] && OPTS+="$OPTS --cpu=$CPU"
+  ./configure --prefix=/usr $OPTS &&
 
   default_make
 
