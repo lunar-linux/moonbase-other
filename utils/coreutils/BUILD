@@ -15,6 +15,9 @@
     OPTS="$OPTS --disable-nls"
   fi
 
+  # This option resolves conflicts with shadow/heimdal, net-tools and procps
+  OPTS="$OPTS --enable-no-install-program=arch,hostname,su,groups,kill,uptime"
+
   # tchan added this hack for coreutils > 6.x
   export CHGRPPROG=/bin/chgrp
   export CHMODPROG=/bin/chmod
@@ -39,6 +42,12 @@
     fi &&
     # also, bash will need to rehash, but doesn't:
     /bin/mv -f /usr/bin/chroot /usr/sbin
-  )
+  ) &&
+
+# Some apps use fixed paths to /usr/bin so we add symlinks to make
+# them happy. For example see config.log of any compiled app to see that
+# autoconf looks for these coreutils apps only inside /usr/bin
+ln -sf /bin/uname /usr/bin/uname &&
+ln -sf /bin/arch  /usr/bin/arch
 
 ) > $C_FIFO 2>&1
