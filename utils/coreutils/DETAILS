@@ -1,20 +1,16 @@
           MODULE=coreutils
-         VERSION=6.9
-          SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-$VERSION-uname-1.patch.bz2
-         SOURCE3=$MODULE-6.9-unwanted_files.patch
-   SOURCE_URL[0]=ftp://ftp.gnu.org/gnu/$MODULE/
-   SOURCE_URL[1]=$GNU_URL/$MODULE/
-     SOURCE2_URL=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
-      SOURCE_VFY=sha1:10310a78c4e1d9f742f3815ac28e9bf1086a5885
-     SOURCE2_VFY=sha1:0a7b05f254e2a2978a72d704c2867db0b81b93f6
-     SOURCE3_VFY=sha1:963af169d6d45fcc670e66dce787c7359b5de1fa
+         VERSION=6.11
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-6.10-uname_PIC-1.patch
+   SOURCE_URL[0]=$GNU_URL/$MODULE/
+   SOURCE_URL[1]=ftp://ftp.gnu.org/gnu/$MODULE/
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:238dc7cb815659abe69ba52a1cbb7fb7f481dc0e
+     SOURCE2_VFY=sha1:fdecc911341aa15a54be5aab85194fca16722ced
         WEB_SITE=http://www.gnu.org/software/coreutils/
          ENTERED=20030217
-         UPDATED=20070807
+         UPDATED=20080422
            SHORT="Contains latest sh-utils, textutils and fileutils"
-
 cat << EOF
 Tools included perform the following file operations:
 basename        --      removes the path prefix from a given pathname
@@ -55,6 +51,7 @@ md5sum          --      compute and check MD5 messsage digest
 mkdir           --      creates directories
 mkfifo          --      creates FIFOs (named pipes)
 mknod           --      creates special files
+mktemp          --      make temporary file handling safe and simple
 mv              --      renames
 nice            --      modifies scheduling priority
 nl              --      number lines of files
@@ -94,7 +91,6 @@ uname           --      prints system information
 unexpand        --      convert spaces to tabs
 uniq            --      remove duplicate lines from a sorted file
 unlink          --      call the unlink function to remove the specified FILE
-uptime          --      tells how long the system has been running
 users           --      prints current user names
 vdir            --      long directory listing (like ls -l)
 wc              --      prints the number of bytes, words, and lines in files
