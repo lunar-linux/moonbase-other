@@ -1,6 +1,6 @@
 (
 
-  OPTS="--prefix=/usr --with-x --with-plugindir=/opt/lunar/plugins $OPTS"
+  OPTS+=" --with-plugindir=/opt/lunar/plugins"
 
   default_build
 

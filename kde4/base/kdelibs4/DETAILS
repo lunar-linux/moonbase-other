@@ -2,13 +2,16 @@
            MAJOR=4.0
          VERSION=${MAJOR}.3
           SOURCE=kdelibs-$VERSION.tar.bz2
+         SOURCE2=post-kde-4.0.3-khtml.diff
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdelibs-$VERSION
       SOURCE_URL=$KDE_URL/stable/$VERSION/src/
+     SOURCE2_URL=$KDE_URL/security_patches/
       SOURCE_VFY=sha1:b8e055f7f8fc883e52c3f65e1923020db69e596f
+     SOURCE2_VFY=sha1:c08f374abc2f44cd1ece01881b510ef83241f186
         WEB_SITE=http://www.kde.org
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
          ENTERED=20071026
-         UPDATED=20080402
+         UPDATED=20080428
            PSAFE=no
            SHORT="central libraries for developement and execution of KDE"
 cat << EOF
