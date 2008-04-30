@@ -1,9 +1,9 @@
 depends  ncurses
 
 optional_depends  libpng                  \
-                  ""                      \
-                  ""                      \
-                  "for PNG support"  
+                  "--enable-graphics"     \
+                  "--disable-graphics"    \
+                  "for console graphics support"  
 
 optional_depends  gpm                     \
                   "--with-gpm"            \
@@ -18,7 +18,7 @@ optional_depends  tiff                    \
 optional_depends  jpeg                    \
                   "--with-libjpeg"        \
                   "--without-libjpeg"     \
-                  "for console graphics support"
+                  "for additional console graphics support"
 
 optional_depends  "openssl"               \
                   "--with-ssl"            \
