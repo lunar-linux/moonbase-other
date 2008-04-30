@@ -1,5 +1,4 @@
 (
-patch_it $SOURCE2 0 &&
 sed -i -r 's@#if\ defined\(EOWNERDEAD\)@#if\ defined\(EOWNERDEAD\)\ \&\&\ defined\(PTHREAD_MUTEX_ROBUST_NP\)@' \
 db/mutex/mut_pthread.c &&
 
