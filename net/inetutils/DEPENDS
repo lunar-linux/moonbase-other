@@ -1,0 +1,11 @@
+depends ncurses
+
+optional_depends "tcp_wrappers" \
+                 "--with-wrap" \
+                 "--without-wrap" \
+                 "to enable TCP wrappers support"
+
+optional_depends "Linux-PAM" \
+                 "--with-pam --enable-authentification" \
+                 "--without-pam --disable-authentification" \
+                 "to enable Linux PAM support"

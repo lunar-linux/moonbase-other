@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 0 &&
+
   if module_installed qt3 ; then
     . /etc/profile.d/qt3.rc
   fi
@@ -10,7 +12,7 @@
     OPTS="$OPTS --disable-mono"
   fi
 
-  OPTS="$OPTS --with-x --enable-checks --with-xml=expat             \
+  OPTS="$OPTS --enable-checks --with-xml=expat                      \
         --with-system-pid-file=/var/run/messagebus.pid              \
         --with-system-socket=/var/lib/dbus/system_bus_socket        \
         --with-session-socket-dir=/tmp  --with-dbus-user=messagebus \
