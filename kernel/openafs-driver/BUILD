@@ -3,9 +3,11 @@
   export EXTRA_CFLAGS="$CFLAGS"
   unset CFLAGS
 
-  patch_it $SOURCE2 1 &&
+  # Autoconf fix
+  sedit 's;^AC_\(AIX\|MINIX\)$;;' acinclude.m4 &&
 
   ./regen.sh &&
+
   case `uname -r` in
     2.6.*)
       kv="26"
@@ -34,8 +36,8 @@
   OPTS="$OPTS --with-linux-kernel-headers=/usr/src/linux"
 
   ./configure   --prefix=/usr                   \
-                --sysconfdir=/usr/vice/etc      \
-                --localstatedir=/var            \
+                --sysconfdir=/etc               \
+                --localstatedir=/var/lib        \
                 --infodir=/usr/share/info       \
                 --mandir=/usr/share/man         \
                 $OPTS                           &&
