@@ -1,13 +1,16 @@
           MODULE=kdelibs3
          VERSION=3.5.9
           SOURCE=kdelibs-$VERSION.tar.bz2
+         SOURCE2=post-kde-3.5.5-kinit.diff
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdelibs-$VERSION
       SOURCE_URL=$KDE_URL/stable/$VERSION/src/
       SOURCE_VFY=sha1:b8197d94075a54f90f08a9ef7bed95ccf53e12ad
+     SOURCE2_URL=$KDE_URL/security_patches/
+     SOURCE2_VFY=sha1:35147db4d6791e4c98d7cec5e72509547813dd98
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
         WEB_SITE=http://www.kde.org/
          ENTERED=20020523
-         UPDATED=20080219
+         UPDATED=20080427
       MAINTAINER=florin@lunar-linux.org
            SHORT="Contain the base libraries upon which KDE is written"
 
