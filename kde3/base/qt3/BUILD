@@ -4,12 +4,15 @@
   export  LD_LIBRARY_PATH=$QTDIR/lib
   bad_flags "-z combreloc"
 
+  # This fixes a bug with inputproto <= 1.4.3
+  CXXFLAGS+=" -DQT_CLEAN_NAMESPACE"
+
   sedit "s/-O2/$CXXFLAGS/g" mkspecs/linux-g++/qmake.conf  &&
 
   echo "yes" | ./configure          \
                -prefix ${MODULE_PREFIX} \
                -release             \
-               -fast                    \
+               -fast                \
                -shared              \
                -thread              \
                -qt-gif              \
@@ -22,9 +25,9 @@
                -system-zlib         \
                -no-exceptions       \
                -dlopen-opengl       \
-               -xft                    \
-               -xkb                    \
-               -sm                    \
+               -xft                 \
+               -xkb                 \
+               -sm                  \
                -tablet              \
                $OPTS                &&
 

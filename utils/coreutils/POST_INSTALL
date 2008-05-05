@@ -12,7 +12,19 @@
 
   if module_installed textutils ; then
     remove_module textutils
-    remove_depends textutils 
+    remove_depends textutils
   fi
+
+# Just in case reinstall all modules old coreutils may conflict with
+# When all users will migrate to new coreutils all these lines can be removed:
+OLDVER=`installed_version $MODULE`
+OLDVERA=`echo $OLDVER | cut -d. -f1`
+OLDVERB=`echo $OLDVER | cut -d. -f2`
+if [ "$OLDVERA" -le 6 ] && [ "$OLDVERB" -lt 10 ]; then
+   lin shadow procps mktemp
+   if module_installed net-tools ; then
+      lin net-tools
+   fi
+fi
 
 )
