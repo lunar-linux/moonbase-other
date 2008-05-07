@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 0 &&
-
 # This export of LDFLAGS should be revisited on the next version bump.
   export LDFLAGS="-Wl,-rpath,/opt/lunar/kde/4/lib"
 
