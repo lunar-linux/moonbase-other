@@ -21,6 +21,10 @@
                -no-exceptions    \
                -nomake examples  \
                -nomake demos     \
+               -accessibility    \
+               -stl              \
+               -webkit           \
+               -fontconfig       \
                $OPTS            &&
 
   default_make  &&
