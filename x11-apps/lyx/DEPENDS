@@ -1,19 +1,23 @@
-depends Python      &&
-depends ImageMagick &&
-depends teTeX       &&
+depends Python   
+depends ImageMagick
+depends teTeX      
 
 optional_depends "qt4"             "--with-frontend=qt4"        \
                                    ""                          \
-                                   "For a QT frontend (say n to use XForms instead)" &&
-optional_depends "xforms"          "--with-frontend=xforms"    \
-                                   ""                          \
-                                   "For the XForms frontend"   &&
+                                   "For a QT frontend (say n to use XForms instead)"
+
 optional_depends "perl"            ""                          \
                                    ""                          \
-                                   "to import LaTeX documents into LyX" &&
+                                   "to import LaTeX documents into LyX"
+
 optional_depends "aspell"          ""                          \
                                    ""                          \
-                                   "to do spellchecking"       &&
+                                   "to do spellchecking"
+
 optional_depends "latex-xft-fonts" ""                          \
                                    ""                          \
                                    "to enable math preview"
+
+optional_depends "boost"           "--without-included-boost"  \
+                                   ""                          \
+                                   "use with system or included boost"
