@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 0 &&
-
 # This export of LDFLAGS should be revisited on the next version bump.
   export LDFLAGS="-Wl,-rpath,/opt/lunar/kde/4/lib"
 
@@ -13,11 +11,10 @@
   cd $KDE4_BUILD_DIR &&
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             &&
+                           -DCMAKE_BUILD_TYPE=RELEASE            &&
 
   default_make
 
-  mkdir -p $MODULE_PREFIX/bin/ &&
-  install -m0755 $SCRIPT_DIRECTORY/kde4 $MODULE_PREFIX/bin/
+  install -m0755 $SCRIPT_DIRECTORY/kde4 /usr/bin/
 
 ) > $C_FIFO 2>&1
