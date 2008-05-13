@@ -1,0 +1,36 @@
+if [ -d /usr/share/icons ] ; then
+	ln -s /usr/share/games/smc/pixmaps/game/items/mushroom_red.png \
+        /usr/share/icons/smc.png
+
+fi
+
+if [ -d /opt/lunar/kde/3 ]  ; then
+
+	cat << EOF > /opt/lunar/kde/3/share/applications/smc.desktop
+[Desktop Entry]
+Name=Secret Maryo Chronicles
+Comment=Secret Maryo Chronicles is an Open Source two-dimensional platform game$ 
+Exec=smc 
+Icon=smc.png 
+Terminal=false 
+Type=Application
+Categories=Application;Game;
+EOF
+
+fi
+
+if [ -d /opt/lunar/kde/4 ]  ; then
+
+        cat << EOF > /opt/lunar/kde/4/share/applications/smc.desktop
+[Desktop Entry]
+Name=Secret Maryo Chronicles
+Comment=Secret Maryo Chronicles is an Open Source two-dimensional platform game$
+Exec=smc
+Icon=smc.png
+Terminal=false
+Type=Application
+Categories=Application;Game;
+EOF
+
+fi
+
