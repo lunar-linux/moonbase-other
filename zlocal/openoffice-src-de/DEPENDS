@@ -1,0 +1,72 @@
+depends apache-ant         &&
+depends libIDL             &&
+depends libart_lgpl        &&
+depends XML-Parser         &&
+depends libxml2            &&
+depends gtk+-2             &&
+depends Archive-Zip        &&
+depends Compress-Zlib      &&
+depends unzip              &&
+depends zip                &&
+depends which              &&
+depends desktop-file-utils &&
+
+optional_depends "cups" \
+                 "--enable-cups" \
+                 "--disable-cups" \
+                 "enable the OpenOffice printing backend" &&
+
+optional_depends "curl" \
+                 "--with-system-curl" \
+                 "--without-system-curl" \
+                 "to link against the system cURL library" &&
+
+optional_depends "neon" \
+                 "--enable-neon --with-system-neon" \
+                 "--disable-neon" \
+                 "for webdav support" &&
+
+optional_depends "openldap" \
+                 "--with-openldap" \
+                 "--disable-ldap" \
+                 "for LDAP support" &&
+
+optional_depends "Python" \
+                 "--with-system-python" \
+                 "--without-system-python" \
+                 "for native Python support" &&
+
+optional_depends "evolution-data-server" \
+                 "--enable-evolution2" \
+                 "--disable-evolution2" \
+                 "for Evolution addressbook support" &&
+
+optional_depends "gnome-vfs2" \
+                 "--enable-gnome-vfs --enable-lockdown" \
+                 "--disable-gnome-vfs --disable-lockdown" \
+                 "for GNOME-vfs integration" &&
+
+optional_depends "kdelibs3" \
+                 "--enable-kde" \
+                 "--disable-kde" \
+                 "to enable KDE support" &&
+
+optional_depends "Linux-PAM" \
+                 "--enable-pam-link" \
+                 "--disable-pam" \
+                 "for Linux-PAM support" &&
+
+optional_depends "libsndfile" \
+                 "--with-system-sndfile" \
+                 "--without-system-sndfile" \
+                 "to enable sound output in Impress" &&
+
+optional_depends "startup-notification" \
+                 "--enable-libsn" \
+                 "--disable-libsn" \
+                 "for startup notification support" &&
+
+optional_depends "boost" \
+                 "--with-system-boost" \
+                 "--without-system-boost" \
+                 "to use the already installed boost"
