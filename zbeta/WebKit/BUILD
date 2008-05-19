@@ -12,4 +12,8 @@
 
  # install -m755 $SOURCE_DIRECTORY/WebKitBuild/Debug/WebKitTools/GtkLauncher/GtkLauncher /usr/bin
 
+./autogen.sh &&
+./configure --prefix=/usr --enable-svg --with-target=x11 &&
+default_make
+
 ) > $C_FIFO 2>&1
