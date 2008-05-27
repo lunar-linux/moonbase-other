@@ -3,6 +3,8 @@
   . /etc/profile.d/qt3.rc
   . /etc/profile.d/kde3.rc
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   # kdenetwork cannot find this, so if kernel-hearders are installed
   # create a symlink so it can be found.
 
