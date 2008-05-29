@@ -1,32 +1,32 @@
           MODULE=aqbanking
-         VERSION=2.2.3
+         VERSION=3.4.2
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=$SFORGE_URL/$MODULE/
+      SOURCE_URL="http://www.aquamaniac.de/sites/download/download.php?package=03&release=09&file=01&dummy=SOURCE"
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
-      SOURCE_VFY=sha1:49ca52f363f6238403566a9ef1ab210487018bea
+      SOURCE_VFY=sha1:9a527cd79b2d57688c30863e8adce6370ef8399e
         WEB_SITE=http://www.aquamaniac.de/$MODULE
          ENTERED=20040919
-         UPDATED=20061010
-           SHORT="A home banking application."
+         UPDATED=20080529
+           SHORT="A home banking application"
            PSAFE=no
 
 cat << EOF
-AqBanking has two major goals which are described in the following paragraphs. 
+AqBanking has two major goals which are described in the following paragraphs.
 
 1. Generic Online Banking Interface:
 
 The intention of AqBanking is to provide a middle layer between the program
-and the various Online Banking libraries (e.g. AqHBCI, OpenHBCI etc). 
+and the various Online Banking libraries (e.g. AqHBCI, OpenHBCI etc).
 
-The real work is done in banking backends. 
-One such backend is AqHBCI, a library which implements a client for the 
-German HBCI (Home Banking Computer Interface) protocol. 
+The real work is done in banking backends.
+One such backend is AqHBCI, a library which implements a client for the
+German HBCI (Home Banking Computer Interface) protocol.
 
-The backend AqHBCI currently supports these security media: 
+The backend AqHBCI currently supports these security media:
  - RDH keyfile (RSA-DES-Hybrid mode)
  - DDV chipcard (DES-DES-Verfahren)
- - OpenHBCI keyfile (either OpenHBCI 1 or 2, this medium allows continued use 
-                     with OpenHBCI in parallel) 
+ - OpenHBCI keyfile (either OpenHBCI 1 or 2, this medium allows continued use
+                     with OpenHBCI in parallel)
  - PIN/TAN file (PIN/TAN mode using HTTP over SSL)
 
 2. Generic Financial Data Importer/Exporter Framework:
@@ -35,7 +35,7 @@ AqBanking uses various plugins to simplify import and export of financial
 data. It also provides the administration of profiles on a per import/export
 plugin basis.
 
-There are import plugins for the following formats: 
+There are import plugins for the following formats:
  - DTAUS (German financial format)
  - SWIFT (MT940 and MT942)
 and others.
