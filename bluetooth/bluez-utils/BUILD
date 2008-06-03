@@ -5,9 +5,9 @@
                 --localstatedir=/var    \
                 --sbindir=/sbin         \
                 --datadir=/usr/share    \
-                $OPTS                   &&
+                --enable-all            \
+                $OPTS                  &&
 
     default_make                                           
-                
 
 ) > $C_FIFO 2>&1
