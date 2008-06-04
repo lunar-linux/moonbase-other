@@ -1,21 +1,21 @@
           MODULE=openssh
-         VERSION=4.7p1
+         VERSION=5.0p1
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=openssh-4.1p1-heimdal_no_des.patch.gz
-         SOURCE3=openssh-4.7p1-gsskex-20070927.patch
-   SOURCE_URL[0]=ftp://reflection.ncsa.uiuc.edu/pub/OpenBSD/OpenSSH/portable/
-   SOURCE_URL[1]=ftp://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/
-   SOURCE_URL[2]=ftp://ftp5.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/
-   SOURCE_URL[3]=ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/
-      SOURCE_VFY=sha1:58357db9e64ba6382bef3d73d1d386fcdc0508f4
+         SOURCE2=openssh-heimdal_no_des.patch.gz
+         SOURCE3=openssh-$VERSION-gsskex-20080404.patch
+   SOURCE_URL[0]=ftp://reflection.ncsa.uiuc.edu/pub/OpenBSD/OpenSSH/portable
+   SOURCE_URL[1]=ftp://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable
+   SOURCE_URL[2]=ftp://ftp5.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable
+   SOURCE_URL[3]=ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable
+      SOURCE_VFY=sha1:121cea3a730c0b0353334b6f46f438de30ab4928
      SOURCE2_URL=$PATCH_URL
-     SOURCE2_VFY=sha1:4b6f185167f6d266f119386527f73aecd02a43d8
-  SOURCE3_URL[0]=http://www.sxw.org.uk/computing/patches/
+     SOURCE2_VFY=sha1:0e2228ba4564980fe0f60235559090ea7ba8c8f8
+  SOURCE3_URL[0]=http://www.sxw.org.uk/computing/patches
   SOURCE3_URL[1]=$PATCH_URL
-     SOURCE3_VFY=sha1:d40a827416bf6a45f6ea5ba49e12f511d02b7e2e
-        WEB_SITE=http://www.openssh.com/
+     SOURCE3_VFY=sha1:41dfe293b3a3c08163cd43926fefabd321f0c37f
+        WEB_SITE=http://www.openssh.com
          ENTERED=20010922
-         UPDATED=20070912
+         UPDATED=20080601
            SHORT="Client and server for encrypted remote logins and file transfers"
 
 cat << EOF
