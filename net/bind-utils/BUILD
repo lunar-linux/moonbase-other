@@ -1,9 +1,9 @@
 (
 
-  ./configure --build=$BUILD        \
-              --prefix=/usr         \
-              --sysconfdir=/etc     \
-              $OPTS                 &&
+  ./configure --build=$BUILD     \
+              --prefix=/usr      \
+              --sysconfdir=/etc  \
+              $OPTS             &&
 
   # We are only making the client programs
   make -C lib/dns    &&
