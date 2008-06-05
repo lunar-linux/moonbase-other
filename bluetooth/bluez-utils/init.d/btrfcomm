@@ -4,6 +4,12 @@
 #
 # chkconfig: 345 80 20
 # description: bind rfcomm devices
+# processname: rfcomm
+# config:      /etc/bluetooth/rfcomm.conf
+
+ARGS="-f /etc/bluetooth/rfcomm.conf"
+
+. /lib/lsb/init-functions
 
 case "$1" in
     start)
@@ -17,4 +23,3 @@ case "$1" in
     exit 1
     ;;
 esac
-
