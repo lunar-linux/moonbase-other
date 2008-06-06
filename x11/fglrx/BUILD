@@ -24,7 +24,7 @@
   ln -s $FGLRX_DIRECTORY/arch/x86/lib/modules/fglrx/build_mod/libfglrx_ip.a.GCC4 \
         $FGLRX_DIRECTORY/common/lib/modules/fglrx/build_mod &&
 
-  sh make.sh &&
+  sh make.sh || exit 1
 
   cd $FGLRX_DIRECTORY &&
 
@@ -74,7 +74,7 @@
   unset file
 
   for file in libfglrx_dm libfglrx_gamma libfglrx_pp libfglrx_tvout ; do
-    ln -s /usr/X11/lib/xorg/${file}.so.1.0 \
+    ln -sf /usr/X11/lib/xorg/${file}.so.1.0 \
           /usr/X11/lib/xorg/${file}.so.1
   done &&
 
