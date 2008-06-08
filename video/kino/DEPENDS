@@ -6,17 +6,17 @@ depends  libglade2
 depends  libsamplerate
 depends  libiec61883
 
-optional_depends "ffmpeg" \
-     ""                   \
-     "--with-libdv-only"  \
+optional_depends "ffmpeg"              \
+     ""                                \
+     "--enable-local-ffmpeg"           \
      "for additional encoding formats"
 
-optional_depends "libquicktime" \
-     ""              \
-     ""              \
+optional_depends "libquicktime"                     \
+     ""                                             \
+     ""                                             \
      "for handling Apple's QuickTime media format"
-     
-optional_depends "mjpegtools"    \
-     ""              \
-     ""              \
-     "for coding your video's to the mpg format" 
+
+optional_depends "mjpegtools"                    \
+     ""                                          \
+     ""                                          \
+     "for coding your video's to the mpg format"
