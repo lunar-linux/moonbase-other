@@ -13,7 +13,7 @@
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
                            -DCMAKE_BUILD_TYPE=RELEASE            &&
 
-  default_make
+  default_make &&
 
   install -m0755 $SCRIPT_DIRECTORY/kde4 /usr/bin/
 
