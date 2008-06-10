@@ -2,14 +2,17 @@
          VERSION=6.12
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=$MODULE-6.10-uname_PIC-1.patch
-   SOURCE_URL[0]=$GNU_URL/$MODULE
-   SOURCE_URL[1]=ftp://ftp.gnu.org/gnu/$MODULE
-     SOURCE2_URL=$PATCH_URL
+         SOURCE3=$MODULE-$VERSION-utimens.patch
+   SOURCE_URL[0]=$GNU_URL/$MODULE/
+   SOURCE_URL[1]=ftp://ftp.gnu.org/gnu/$MODULE/
+     SOURCE2_URL=$PATCH_URL/
+     SOURCE3_URL=$PATCH_URL/
       SOURCE_VFY=sha1:1bb297fdf8b38ca19ab5252c6179b1b2aecd020e
      SOURCE2_VFY=sha1:fdecc911341aa15a54be5aab85194fca16722ced
+     SOURCE3_VFY=sha1:b1fd74a7066338269791d788453786e2824c8d4e
         WEB_SITE=http://www.gnu.org/software/coreutils/
          ENTERED=20030217
-         UPDATED=20080601
+         UPDATED=20080609
            SHORT="Contains latest sh-utils, textutils and fileutils"
 
 cat << EOF

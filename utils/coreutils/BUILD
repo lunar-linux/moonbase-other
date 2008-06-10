@@ -1,10 +1,9 @@
 (
 
   patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
 
   bad_flags -malign-double
-
-#  CFLAGS="$CFLAGS -fgnu89-inline"  - it does not work on gcc 3.x
 
   # We really want this
   OPTS="$OPTS --enable-largefile"
@@ -44,10 +43,10 @@
     /bin/mv -f /usr/bin/chroot /usr/sbin
   ) &&
 
-# Some apps use fixed paths to /usr/bin so we add symlinks to make
-# them happy. For example see config.log of any compiled app to see that
-# autoconf looks for these coreutils apps only inside /usr/bin
-ln -sf /bin/uname /usr/bin/uname &&
-ln -sf /bin/arch  /usr/bin/arch
+  # Some apps use fixed paths to /usr/bin so we add symlinks to make
+  # them happy. For example see config.log of any compiled app to see that
+  # autoconf looks for these coreutils apps only inside /usr/bin
+  ln -sf /bin/uname /usr/bin/uname &&
+  ln -sf /bin/arch  /usr/bin/arch
 
 ) > $C_FIFO 2>&1
