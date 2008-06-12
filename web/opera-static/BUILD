@@ -1,11 +1,5 @@
 (
 
-  cat >> ini/pluginpath.ini << EOF
-
-; Lunar plugin directory
-/opt/lunar/plugins=1
-EOF
-
   prepare_install &&
   echo "n" | ./install.sh -s &&
 
@@ -17,4 +11,5 @@ EOF
   if [ ! -f /etc/opera6rc.fixed ]; then
     install -m 644 config/opera6rc.fixed /etc
   fi
+
 ) > $C_FIFO 2>&1
