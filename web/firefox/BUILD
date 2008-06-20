@@ -8,7 +8,7 @@
 
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 
-  MOZ_EXTENSIONS="default,typeaheadfind,xforms,tasks,schema-validation,reporter,cview,datetime,finger"
+  MOZ_EXTENSIONS="default,xforms"
   # wallet extension makes empty duplicate password dialog so do not use it
 
   if in_depends $MODULE heimdal ; then
@@ -86,7 +86,7 @@
   install -m644 $SCRIPT_DIRECTORY/firefox.desktop /usr/share/applications &&
   # please, dont just let the lin fail because /usr/share/pixmaps/firefox.xpm is an existing symlink...
   rm -f /usr/share/pixmaps/firefox.xpm &&
-  install -m644 $MOZILLA_HOME/icons/default.xpm /usr/share/pixmaps/firefox.xpm &&
+  install -m644 $MOZILLA_HOME/icons/mozicon50.xpm /usr/share/pixmaps/firefox.xpm &&
 
   # Make firefox use its own icon
 
