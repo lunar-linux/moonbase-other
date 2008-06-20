@@ -26,6 +26,7 @@
 
 
   echo export PATH=\"'${PATH}':/usr/lib/jdk"${VERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
+  echo export JAVA_HOME=\"'${JAVA_HOME}':/usr/lib/jdk"${VERSION}"/\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
   install -m644 $SOURCE_DIRECTORY/sun-jdk.rc /etc/profile.d/
 
 ) > $C_FIFO 2>&1
