@@ -8,7 +8,7 @@
 
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 
-  MOZ_EXTENSIONS="default,xforms"
+  MOZ_EXTENSIONS="default,xmlextras,xforms,webservices,universalchardet,transformiix,tasks,schema-validation,reporter,cookie,cview,datetime,finger,p3p,permissions,spellcheck,-gnomevfs"
   # wallet extension makes empty duplicate password dialog so do not use it
 
   if in_depends $MODULE heimdal ; then
@@ -23,6 +23,7 @@
   export MOZ_FREETYPE2="no"
   export MOZ_PANGO="yes"
   export MOZ_CO_PROJECT=browser
+  export MOZ_PHOENIX=1
   export MOZILLA_OFFICIAL=1
   export BUILD_OFFICIAL=1
 
@@ -33,14 +34,12 @@
     --with-default-mozilla-five-home=$MOZILLA_HOME \
     --with-user-appdir=".firefox"       \
     --with-system-zlib  \
+    --with-system-png   \
     --with-system-jpeg  \
     --enable-extensions=${MOZ_EXTENSIONS}       \
     --enable-single-profile        \
-    --enable-storage \
-    --enable-places \
-    --enable-places_bookmarks \
     --enable-application=browser   \
-    --enable-default-toolkit=cairo-gtk2  \
+    --enable-default-toolkit=gtk2  \
     --enable-optimize="$CFLAGS"    \
     --enable-xft        \
     --enable-reorder    \
@@ -86,7 +85,7 @@
   install -m644 $SCRIPT_DIRECTORY/firefox.desktop /usr/share/applications &&
   # please, dont just let the lin fail because /usr/share/pixmaps/firefox.xpm is an existing symlink...
   rm -f /usr/share/pixmaps/firefox.xpm &&
-  install -m644 $MOZILLA_HOME/icons/mozicon50.xpm /usr/share/pixmaps/firefox.xpm &&
+  install -m644 $MOZILLA_HOME/icons/default.xpm /usr/share/pixmaps/firefox.xpm &&
 
   # Make firefox use its own icon
 
