@@ -1,0 +1,17 @@
+          MODULE=firefox
+         VERSION=2.0.0.14
+          SOURCE=${MODULE}-${VERSION}-source.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
+   SOURCE_URL[0]=ftp://mozilla.isc.org/pub/mozilla.org/firefox/releases/$VERSION/source/
+   SOURCE_URL[1]=ftp://ftp.uni-erlangen.de/pub/mozilla.org/firefox/releases/$VERSION/source/
+   SOURCE_URL[2]=ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$VERSION/source/
+      SOURCE_VFY=sha1:de263675a137a8e2b25757c4d292e7a3e2434f74
+        WEB_SITE=http://www.mozilla.org/projects/firefox
+         ENTERED=20030810
+         UPDATED=20080417
+      MAINTAINER="tchan@lunar-linux.org"
+           SHORT="a speedy, full-featured web browser. (version 2)"
+cat << EOF
+This module provides the version 2 of the Mozilla Firefox browser.
+For Firefox 3 please install the firefox module.
+EOF

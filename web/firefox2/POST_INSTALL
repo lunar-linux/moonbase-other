@@ -11,3 +11,6 @@ unset_module_config OLD_VER
 export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/$FFOX_LIBDIR:$FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins:$FIREFOX_HOME/lib/$FFOX_LIBDIR/components"
 export MOZILLA_FIVE_HOME="$FIREFOX_HOME/lib/$FFOX_LIBDIR"
 ldconfig
+
+cd $FIREFOX_HOME/lib/$FFOX_LIBDIR
+./regxpcom
