@@ -1,4 +1,5 @@
 (
+
   # No docs until the clanlib developers fix their autotools
   OPTS="$OPTS --disable-docs" 
  
