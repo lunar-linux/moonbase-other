@@ -92,7 +92,9 @@
 
   rm -rf /usr/lib/firefox-$VERSION/chrome/icons &&
   mkdir -p /usr/lib/firefox-$VERSION/chrome/icons/default &&
-  ln -sf /usr/lib/firefox-$VERSION/icons/mozicon128.png \
-         /usr/lib/firefox-$VERSION/chrome/icons/default/main-window.png
+  for icon in main-window.png extensionsManager.png ; do
+    ln -sf /usr/lib/firefox-$VERSION/icons/mozicon128.png \
+           /usr/lib/firefox-$VERSION/chrome/icons/default/$icon
+  done
 
 ) > $C_FIFO 2>&1
