@@ -6,7 +6,7 @@
   # This should always be just a link
   rm -rf /usr/lib/firefox-$VERSION/plugins &&
 
-  MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
+  MOZILLA_HOME=/usr/lib/firefox-$VERSION
 
   MOZ_EXTENSIONS="default,xmlextras,xforms,webservices,universalchardet,transformiix,tasks,schema-validation,reporter,cookie,cview,datetime,finger,p3p,permissions,spellcheck,-gnomevfs"
   # wallet extension makes empty duplicate password dialog so do not use it
