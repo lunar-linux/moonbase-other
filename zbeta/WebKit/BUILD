@@ -1,19 +1,7 @@
 (
 
-#  . /etc/profile.d/qt4.rc &&
+  OPTS+=" --with-font-backend=pango --enable-video"
 
-#  bad_flags linker &&
-
-#  WebKitTools/Scripts/build-webkit --gtk --qmakearg=WEBKIT_INC_DIR=/usr/include/WebKit --qmakearg=WEBKIT_LIB_DIR=/usr/lib --debug &&
-#  cd WebKitBuild/Debug &&
-
-#  prepare_install &&
-#  make install &&
-
- # install -m755 $SOURCE_DIRECTORY/WebKitBuild/Debug/WebKitTools/GtkLauncher/GtkLauncher /usr/bin
-
-./autogen.sh &&
-./configure --prefix=/usr --enable-svg --with-target=x11 &&
-default_make
+  default_cvs_build
 
 ) > $C_FIFO 2>&1
