@@ -7,6 +7,7 @@
    ./autogen.sh --build=$BUILD                                        \
                 --prefix=${MODULE_PREFIX}        \
                 --enable-xinerama                                \
+                --enable-libglade \
                 $OPTS                                           &&
 
    default_make
