@@ -1,4 +1,6 @@
 (
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+  patch_it $SOURCE_CACHE/$SOURCE3 0 &&
 
   sedit "s/CFLAGS=/CFLAGS:=-DBUILD_UNTESTED_NEDIT /"  makefiles/Makefile.linux &&
   sedit "s/-DUSE_LPR_PRINT_CMD/& \$\(CFLAGS\)/" makefiles/Makefile.linux &&

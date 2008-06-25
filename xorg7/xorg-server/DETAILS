@@ -1,22 +1,16 @@
           MODULE=xorg-server
-         VERSION=1.4
+         VERSION=1.4.2
     MESA_VERSION=7.0.3
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=MesaLib-${MESA_VERSION}.tar.bz2
-         SOURCE3=$MODULE-$VERSION-xkbleds.patch
-         SOURCE4=xorg-xserver-$VERSION-multiple-overflows-v2.diff
-      SOURCE_URL=$XORG_URL/individual/xserver/
+      SOURCE_URL=$XORG_URL/individual/xserver
      SOURCE2_URL=$SFORGE_URL/mesa3d
-     SOURCE3_URL=$PATCH_URL
-     SOURCE4_URL=$XORG_URL/X11R7.3/patches/
-      SOURCE_VFY=sha1:3aa6327f4def4d33ce2a8d6d7587295db231ab6d
+      SOURCE_VFY=sha1:385348721ecb6da4bc51a2b7ee5784de6be0a8b6
      SOURCE2_VFY=sha1:49b92094a25f189b411f393174ee666e73dddf36
-     SOURCE3_VFY=sha1:3955adfae52793f913063affb844d84d2fea1491
-     SOURCE4_VFY=sha1:af92fd389e72a3bb59d25dbf9cbb06e827b75d7d
    MODULE_PREFIX=${X11R7_PREFIX:-/usr}
-        WEB_SITE=http://www.x.org/
+        WEB_SITE=http://www.x.org
          ENTERED=20060120
-         UPDATED=20080414
+         UPDATED=20080618
       MAINTAINER=elangelo@lunar-linux.org
            SHORT="The X.Org X11R7 server for the X Window System"
 
