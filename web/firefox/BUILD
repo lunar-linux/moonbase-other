@@ -9,7 +9,6 @@
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 
   MOZ_EXTENSIONS="default,xforms"
-  # wallet extension makes empty duplicate password dialog so do not use it
 
   if in_depends $MODULE heimdal ; then
         MOZ_EXTENSIONS="${MOZ_EXTENSIONS},auth"
@@ -17,16 +16,22 @@
         MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-auth"
   fi &&
 
-  # This hack added to fix a gtk+-2/pango/atk update that broke firefox. This should be removed in the future.
-  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in &&
+  if in_depends $MODULE gnome-vfs2 ; then
+        MOZ_EXTENSIONS="${MOZ_EXTENSIONS},gnomevfs"
+  else
+        MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-gnomevfs"
+  fi &&
 
-  export MOZ_FREETYPE2="no"
-  export MOZ_PANGO="yes"
   export MOZ_CO_PROJECT=browser
   export MOZILLA_OFFICIAL=1
   export BUILD_OFFICIAL=1
 
-  ./configure           \
+  export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"
+  mkdir -p ${MOZ_OBJDIR} &&
+
+  cd ${MOZ_OBJDIR} &&
+
+  ../mozilla/configure  \
     --prefix=/usr       \
     --with-x            \
     --with-pthreads     \
@@ -40,9 +45,7 @@
     --enable-places \
     --enable-places_bookmarks \
     --enable-application=browser   \
-    --enable-default-toolkit=cairo-gtk2  \
     --enable-optimize="$CFLAGS"    \
-    --enable-xft        \
     --enable-reorder    \
     --enable-cpp-rtti   \
     --enable-cpp-exceptions \
@@ -54,9 +57,12 @@
     --enable-svg-renderer=cairo  \
     --enable-system-cairo        \
     --enable-xterm-updates       \
+    --enable-libxul \
     --enable-official-branding   \
     --disable-debug     \
+    --disable-freetype2 \
     --disable-tests     \
+    --disable-mochitest \
     --disable-installer \
     --disable-pedantic  \
     --disable-mailnews  \
@@ -92,7 +98,10 @@
 
   rm -rf /usr/lib/firefox-$VERSION/chrome/icons &&
   mkdir -p /usr/lib/firefox-$VERSION/chrome/icons/default &&
-  ln -sf /usr/lib/firefox-$VERSION/icons/mozicon128.png \
-         /usr/lib/firefox-$VERSION/chrome/icons/default/main-window.png
+
+  for icon in in main-window.png extensionsManager.png ; do
+    ln -sf /usr/lib/firefox-$VERSION/icons/mozicon128.png \
+           /usr/lib/firefox-$VERSION/chrome/icons/default/$icon
+  done
 
 ) > $C_FIFO 2>&1
