@@ -1,13 +1,14 @@
 (  
+
    ./configure  --prefix=/usr           \
                 --sysconfdir=/etc       \
                 --mandir=/usr/man       \
                 --localstatedir=/var    \
                 --sbindir=/sbin         \
                 --datadir=/usr/share    \
-                $OPTS                   &&
+                --enable-all            \
+                $OPTS                  &&
 
-    default_make                                           
-                
+    default_make
 
 ) > $C_FIFO 2>&1

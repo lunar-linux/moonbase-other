@@ -8,8 +8,7 @@
 
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 
-  MOZ_EXTENSIONS="default,xmlextras,xforms,webservices,universalchardet,transformiix,tasks,schema-validation,reporter,cookie,cview,datetime,finger,p3p,permissions,spellcheck,-gnomevfs"
-  # wallet extension makes empty duplicate password dialog so do not use it
+  MOZ_EXTENSIONS="default,xforms"
 
   if in_depends $MODULE heimdal ; then
         MOZ_EXTENSIONS="${MOZ_EXTENSIONS},auth"
@@ -17,31 +16,36 @@
         MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-auth"
   fi &&
 
-  # This hack added to fix a gtk+-2/pango/atk update that broke firefox. This should be removed in the future.
-  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in &&
+  if in_depends $MODULE gnome-vfs2 ; then
+        MOZ_EXTENSIONS="${MOZ_EXTENSIONS},gnomevfs"
+  else
+        MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-gnomevfs"
+  fi &&
 
-  export MOZ_FREETYPE2="no"
-  export MOZ_PANGO="yes"
   export MOZ_CO_PROJECT=browser
-  export MOZ_PHOENIX=1
   export MOZILLA_OFFICIAL=1
   export BUILD_OFFICIAL=1
 
-  ./configure           \
+  export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"
+  mkdir -p ${MOZ_OBJDIR} &&
+
+  cd ${MOZ_OBJDIR} &&
+
+  ../mozilla/configure  \
     --prefix=/usr       \
     --with-x            \
     --with-pthreads     \
     --with-default-mozilla-five-home=$MOZILLA_HOME \
     --with-user-appdir=".firefox"       \
     --with-system-zlib  \
-    --with-system-png   \
     --with-system-jpeg  \
     --enable-extensions=${MOZ_EXTENSIONS}       \
     --enable-single-profile        \
+    --enable-storage \
+    --enable-places \
+    --enable-places_bookmarks \
     --enable-application=browser   \
-    --enable-default-toolkit=gtk2  \
     --enable-optimize="$CFLAGS"    \
-    --enable-xft        \
     --enable-reorder    \
     --enable-cpp-rtti   \
     --enable-cpp-exceptions \
@@ -53,9 +57,12 @@
     --enable-svg-renderer=cairo  \
     --enable-system-cairo        \
     --enable-xterm-updates       \
+    --enable-libxul \
     --enable-official-branding   \
     --disable-debug     \
+    --disable-freetype2 \
     --disable-tests     \
+    --disable-mochitest \
     --disable-installer \
     --disable-pedantic  \
     --disable-mailnews  \
@@ -85,13 +92,16 @@
   install -m644 $SCRIPT_DIRECTORY/firefox.desktop /usr/share/applications &&
   # please, dont just let the lin fail because /usr/share/pixmaps/firefox.xpm is an existing symlink...
   rm -f /usr/share/pixmaps/firefox.xpm &&
-  install -m644 $MOZILLA_HOME/icons/default.xpm /usr/share/pixmaps/firefox.xpm &&
+  install -m644 $MOZILLA_HOME/icons/mozicon50.xpm /usr/share/pixmaps/firefox.xpm &&
 
   # Make firefox use its own icon
 
   rm -rf /usr/lib/firefox-$VERSION/chrome/icons &&
   mkdir -p /usr/lib/firefox-$VERSION/chrome/icons/default &&
-for icon in `ls /usr/lib/firefox-$VERSION/icons`; do
-`ln -snf /usr/lib/firefox-$VERSION/icons/$icon /usr/lib/firefox-$VERSION/chrome/icons/default/$icon`; done
+
+  for icon in in main-window.png extensionsManager.png ; do
+    ln -sf /usr/lib/firefox-$VERSION/icons/mozicon128.png \
+           /usr/lib/firefox-$VERSION/chrome/icons/default/$icon
+  done
 
 ) > $C_FIFO 2>&1
