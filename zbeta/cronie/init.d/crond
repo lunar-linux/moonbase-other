@@ -1,0 +1,23 @@
+#! /bin/bash
+#
+# cronie       Start/Stop the cron clock daemon.
+#
+# chkconfig: 2345 90 10
+# description: cron is a standard UNIX program that runs user-specified \
+#              programs at periodic scheduled times. cronie adds a \
+#              number of features to the basic UNIX cron, including better \
+#              security and more powerful configuration options.
+# config: /etc/crontab
+# pidfile: /var/run/crond.pid
+# processname: crond
+
+# config settings
+[ -f /etc/config.d/crond ] && . /etc/config.d/crond
+
+# validate mail
+t=${CRON_VALIDATE_MAILRCPTS:-UNSET}
+[ "$t" != "UNSET" ] && export CRON_VALIDATE_MAILRCPTS="$t"
+
+ARGS=${CRONDARGS}
+
+. /lib/lsb/init-functions
