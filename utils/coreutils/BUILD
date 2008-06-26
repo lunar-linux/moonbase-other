@@ -1,17 +1,9 @@
 (
 
   patch_it $SOURCE2 1 &&
-  # This patch resolve conflicts with shadow and heimdal
   patch_it $SOURCE3 1 &&
 
-  # This should go away in version > 6.9
-  for i in lib/utimens.{c,h} src/{copy,touch}.c ; do
-    sedit 's/futimens/gl_&/' $i
-  done &&
-
   bad_flags -malign-double
-
-  CFLAGS="$CFLAGS -fgnu89-inline"
 
   # We really want this
   OPTS="$OPTS --enable-largefile"
@@ -21,6 +13,9 @@
   else
     OPTS="$OPTS --disable-nls"
   fi
+
+  # This option resolves conflicts with shadow/heimdal, net-tools and procps
+  OPTS="$OPTS --enable-no-install-program=arch,hostname,su,groups,kill,uptime"
 
   # tchan added this hack for coreutils > 6.x
   export CHGRPPROG=/bin/chgrp
@@ -46,6 +41,12 @@
     fi &&
     # also, bash will need to rehash, but doesn't:
     /bin/mv -f /usr/bin/chroot /usr/sbin
-  )
+  ) &&
+
+  # Some apps use fixed paths to /usr/bin so we add symlinks to make
+  # them happy. For example see config.log of any compiled app to see that
+  # autoconf looks for these coreutils apps only inside /usr/bin
+  ln -sf /bin/uname /usr/bin/uname &&
+  ln -sf /bin/arch  /usr/bin/arch
 
 ) > $C_FIFO 2>&1

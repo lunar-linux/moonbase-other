@@ -12,6 +12,10 @@
   
   message "${MESSAGE_COLOR}Configuring with $OPTS${DEFAULT_COLOR}"
 
+
+  sedit "s:-md:-m:" Makefile.in  &&
+  
+
   ./configure --prefix=/usr \
               --mandir=/usr/share/man \
               --enable-standalone \

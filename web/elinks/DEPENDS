@@ -1,18 +1,18 @@
-depends  bzip2   &&
-depends  gzip    &&
-depends  zlib    &&
+depends  bzip2
+depends  gzip
+depends  zlib
 
-optional_depends  "openssl"                \
-                  "--with-openssl"         \
-                  "--without-openssl"      \
-                  "encryption for HTTPS"  &&
+optional_depends  "openssl"            \
+                  "--with-openssl"     \
+                  "--without-openssl"  \
+                  "encryption for HTTPS"  
 
-optional_depends  "expat"                  \
-                  "--with-xbel"            \
-                  "--without-xbel"         \
-                  "for XBEL bookmarks"    &&
+optional_depends  "expat"              \
+                  "--with-xbel"        \
+                  "--without-xbel"     \
+                  "for XBEL bookmarks"    
 
-optional_depends  "gpm"                    \
-                  "--with-gpm"             \
-                  "--without-gpm"          \
+optional_depends  "gpm"                \
+                  "--with-gpm"         \
+                  "--without-gpm"      \
                   "for gpm mouse support"

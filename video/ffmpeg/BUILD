@@ -1,13 +1,9 @@
 (
 
-# configure needs to be this way. The build will tank if we try
-# to use default_build.
-  ./configure --prefix=/usr      \
-              --enable-gpl       \
-              --enable-shared    \
-              --enable-pp        \
-              --enable-pthreads  \
-              $OPTS             &&
+  OPTS+=" --enable-gpl --enable-nonfree --enable-shared --enable-pthreads \
+          --enable-swscale --enable-postproc"
+ [ -n $CPU ] && OPTS+="$OPTS --cpu=$CPU"
+  ./configure --prefix=/usr $OPTS &&
 
   default_make
 
