@@ -1,6 +1,11 @@
 depends  gnome-panel
 depends  libgtop2
 depends  libxklavier
+depends  system-tools-backends
+depends  gail
+depends  gucharmap
 
-optional_depends  "gstreamer-10"  ""  ""  "enable sound support"
-optional_depends  "apmd"          ""  ""  "for battery status support via apm"
+optional_depends  "gst-plugins-base" "--enable-gstreamer"  ""  \
+                  "enable gstreamer support"
+optional_depends  "apmd"       ""                    ""  \
+                  "for a battery status monitor"
