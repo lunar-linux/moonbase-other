@@ -1,4 +1,5 @@
 (
+  patch_it ${SOURCE2} 1
 
   if in_depends $MODULE sun-jdk; then
     JAVA_HOME=$(expr /usr/lib/jdk*)
