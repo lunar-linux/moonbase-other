@@ -1,6 +1,6 @@
 (
 
-   patch_it $SOURCE2 1 &&  
+#   patch_it $SOURCE2 0 &&  
 
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                    \
