@@ -1,4 +1,6 @@
 ( 
+  patch_it $SOURCE_CACHE/$SOURCE2 0
+
   CONSOLE_PLUGIN="no"
   QT_PLUGIN="no"
   MSN_PLUGIN="no"
