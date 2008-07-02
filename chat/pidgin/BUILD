@@ -1,13 +1,7 @@
 (
 
-  ./configure  --prefix=/usr              \
-               --sysconfdir=/etc/a2ps     \
-               --localstatedir=/var       \
-               --infodir=/usr/share/info  \
-               --mandir=/usr/share/man    \
-	       --disable-nm               \
-               $OPTS                     &&
+  OPTS+=" --disable-nm"
 
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1
