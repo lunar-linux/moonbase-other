@@ -16,7 +16,7 @@
       rm -f /usr/share/applications/${FILE}.desktop || exit 1
     done &&
 
-  sedit "/^ARCH_FLAGS\*=/d" solenv/inc/unxlngi{4,5,6}.mk &&
+  sedit "/^ARCH_FLAGS\*=/d" solenv/inc/unxlngi{4,6}.mk &&
 
   # All of the options have been carefully chosen. Don't edit them unless you
   # really know what you're doing
@@ -38,8 +38,13 @@
   fi &&
 
   if module_installed sun-jdk; then
-    JAVA_VERSION="`installed_version sun-jdk`"
-    OPTS="$OPTS --with-jdk-home=/usr/lib/jdk${JAVA_VERSION}";
+# hsqldb 3rdparty compilation fault will break OO build
+# we can pull out hsqldb 1.9.0 from svn,
+# or downgrade JDK to 1.5 only for OO build:
+    cd $SOURCE_DIRECTORY;
+    chmod +x $SOURCE8;
+    ./$SOURCE8 --accept-license --unpack;
+    OPTS="$OPTS --with-jdk-home=$SOURCE_DIRECTORY/jdk1.5.0_15";
   else
     JAVA_VERSION="`installed_version j2sdk`";
     OPTS="$OPTS --with-jdk-home=/usr/lib/j2sdk${JAVA_VERSION}";
