@@ -1,14 +1,11 @@
 (
 
-   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
-                --build=$BUILD                    \
-                --sysconfdir=/etc                 \
-                --localstatedir=/var              \
-                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
-                $OPTS                             &&
-    default_make                                  &&
-    rm -fr /usr/lib/mono/gtk-sharp/gtksourceview-sharp.dll &&
-    ln -sf /usr/lib/mono/gac/gtksourceview-sharp/1.0.0.1__35e10195dab3c99f/gtksourceview-sharp.dll /usr/lib/mono/gtk-sharp/gtksourceview-sharp.dll
+  if ! in_depends gnome-sharp gnome-panel; then
+    message "${PROBLEM_COLOR}lin --reconfigure gnome-sharp and install the optional gnome-panel dependency${DEFAULT_COLOR}";
+    exit 1;
+  fi
+  default_build 
+
+
 
 ) > $C_FIFO 2>&1
