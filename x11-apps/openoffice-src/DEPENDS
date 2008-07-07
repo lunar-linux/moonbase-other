@@ -10,6 +10,7 @@ depends zip
 depends which
 depends desktop-file-utils
 depends hicolor-icon-theme
+depends IO-Compress-Zlib
 
 optional_depends "boost"                  \
                  "--with-system-boost"    \
@@ -46,7 +47,7 @@ optional_depends "evolution-data-server"            \
                  "--disable-evolution2"             \
                  "for Evolution addressbook support"
 
-optional_depends "gnome-vfs2"                             \
+optional_depends "gnome-vfs"                             \
                  "--enable-gnome-vfs --enable-lockdown"   \
                  "--disable-gnome-vfs --disable-lockdown" \
                  "for GNOME-vfs integration"
