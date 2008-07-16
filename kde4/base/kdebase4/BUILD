@@ -1,5 +1,7 @@
 (
 
+  export CFLAGS="$CFLAGS -fPIC"
+
   KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build"
 
   source /etc/profile.d/qt4.rc &&
