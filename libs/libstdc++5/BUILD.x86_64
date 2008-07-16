@@ -1,6 +1,5 @@
 (
 
-  patch_it $SOURCE2 1 &&
   sedit 's/trap 0/trap "" 0/' configure  &&
   sedit 's/= install-headers-tar/= install-headers-cpio/' gcc/configure  &&
 
