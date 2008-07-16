@@ -1,0 +1,24 @@
+          MODULE=kdeplasmoids4
+           MAJOR=4.0
+         VERSION=${MAJOR}.98
+          SOURCE=kdeplasmoids-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdeplasmoids-$VERSION
+      SOURCE_URL=$KDE_URL/unstable/$VERSION/src/
+      SOURCE_VFY=sha1:f149a5226b96e494b9181248d8e5003713301ebb
+        WEB_SITE=http://www.kde.org
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
+         ENTERED=20071026
+         UPDATED=20080703
+           SHORT="mandatory package for KDE"
+#PSAFE=no
+cat << EOF
+kdebase is the second mandatory package (besides kdelibs) for the K Desktop
+Environment. Here we have various applications and infrastructure files and
+libraries. Here is an overview of the directories:
+
+ doc, drkonqi, kappfinder, kcheckpass, kcontrol, kdebugdialog, kdeprint,
+ kdesktop, kdesu, kdialog, kdm, kfind, khelpcenter, khotkeys, kicker, kioslave,
+ klipper, kmenuedit, konqueror, konsole, kreadconfig, kscreensaver, ksmserver,
+ kdepasswd, ksplashml, kstart, ksysguard, ksystraycmd, ktip, kwin, kxkb, l10n,
+ libkonq, nsplugins, pics
+EOF
