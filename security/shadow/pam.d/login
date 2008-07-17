@@ -1,11 +1,10 @@
 #%PAM-1.0
 auth		required	pam_securetty.so
 auth		include		system-auth
-auth		required	pam_nologin.so
+account		required	pam_nologin.so
 account		include		system-auth
 password	include		system-auth
 session		include		system-auth
+session		required	pam_loginuid.so
 session		optional	pam_motd.so
-# session		optional	pam_lastlog.so
-# session		optional	pam_mail.so standard noenv
 session		optional	pam_console.so
