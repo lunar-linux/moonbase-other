@@ -1,11 +1,14 @@
           MODULE=kvirc
-         VERSION=3.2.0
+         VERSION=3.4.0
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL=ftp://ftp.kvirc.net/pub/$MODULE/$VERSION/source/
-      SOURCE_VFY=sha1:890871ffc76b62d6e538db80b1f4162a7792769d
+   SOURCE_URL[0]=ftp://ftp.kvirc.ru/pub/${MODULE}.net/$VERSION/source
+   SOURCE_URL[1]=ftp://ftp.kvirc.de/pub/$MODULE/$VERSION/source
+   SOURCE_URL[2]=ftp://ftp.kvirc.net/pub/$MODULE/$VERSION/source
+   MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
+      SOURCE_VFY=sha1:a5fc19c0843d94d9f73c2ce0707a76dda192f7a2
         WEB_SITE=http://www.kvirc.net
          ENTERED=20040321
-         UPDATED=20050308
+         UPDATED=20080716
            SHORT="Enhanced visual IRC client for X11/KDE"
 
 cat << EOF
