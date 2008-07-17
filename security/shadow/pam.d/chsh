@@ -1,6 +1,6 @@
 #%PAM-1.0
 auth		sufficient	pam_rootok.so
-auth		include		system-auth
-account		include		system-auth
+auth        required    pam_shells.so
+auth        include     system-auth
+account		required	pam_permit.so
 password	include		system-auth
-session		include		system-auth

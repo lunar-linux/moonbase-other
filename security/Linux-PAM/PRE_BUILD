@@ -7,14 +7,15 @@ cd $SOURCE_DIRECTORY                        &&
 unpack $SOURCE2                                &&
 
 # Unpack redhat specific modules
-tar -jxf ${MODULE}-patches-${PVERSION}/pam-redhat-${RHVERSION}.tar.bz2 &&
+tar -jxf ${MODULE}-patches-${PVERSION}/pam-redhat-${RHVERSION}.tar.bz2 \
+--strip-components=1 -C modules &&
 
 # Apply our patches
 for i in redhat lunar
 do
   cat ${MODULE}-patches-${PVERSION}/list.${i}-patches | while read fname
     do
-      patch_it ${MODULE}-patches-${PVERSION}/${i}-patches/${fname} 1
+      patch_it ${MODULE}-patches-${PVERSION}/${i}-patches/${fname} 1 || exit 1
     done
 done
 
