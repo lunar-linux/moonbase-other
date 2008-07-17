@@ -10,10 +10,56 @@
 ARGS="-g"
 [ -e "/etc/ntp.conf" ] && ARGS="$ARGS -c /etc/ntp.conf"
 
+start () {
+        # Lets take the hardware clock time first
+        if [ -x /sbin/hwclock ] ; then
+          echo -n "Trying to set initial time ... "
+          if /sbin/hwclock --hctosys ; then
+            echo -e $RESULT_OK
+          else
+            echo -e $RESULT_FAIL
+          fi
+        else
+          echo -n "hwclock is missing! Can't set systen clock! "
+          echo -e $RESULT_WARN
+        fi
+        # Try to get an initial system time. Timeout is very low
+        # to avoid hanging on bad network connections
+        if [ -e /etc/ntp.conf ] ; then
+          SERVER="`grep -m 1 ^server /etc/ntp.conf | awk '{ print $2 }'`"
+          echo -n "Trying to get the current time with ntpdate ... "
+          if ntpdate -t 5 $SERVER &> /dev/null ; then
+            echo -e $RESULT_OK
+          else
+            echo -e $RESULT_FAIL
+          fi
+        else
+          echo -n "Missing ntp.conf! Can't set initial system time with ntpdate! "
+          echo -e $RESULT_WARN
+        fi
+        default_start
+}
+
+stop () {
+        if [ -x /sbin/hwclock ] ; then
+          # Save the time to hw clock
+          echo -n "Saving system time to hardware clock ... "
+          if /sbin/hwclock --systohc ; then
+            echo -e $RESULT_OK
+          else
+            echo -e $RESULT_FAIL
+          fi
+        else
+          echo -n "hwclock is missing! Can't set hardware clock! "
+          echo -e $RESULT_WARN
+        fi
+        # Stop the real thing
+        default_stop
+}
+
 reload () {
 	# ntp is not reload-safe
 	$0 restart
 }
 
 . /lib/lsb/init-functions
-
