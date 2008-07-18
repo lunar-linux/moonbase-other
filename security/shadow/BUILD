@@ -1,13 +1,13 @@
 (
-  patch_it $SOURCE3 1 &&
+
+  # Keep shadow from installing it's own pam.d files
   sedit '/^SUBDIRS/ n; s/etc//' Makefile.in Makefile.am &&
-  sedit 's/4755/4711/g' src/Makefile.in src/Makefile.am &&
 
   if  module_installed  Linux-PAM;  then
     OPTS="$OPTS --with-libpam"
   else
     OPTS="$OPTS --without-libpam"
-  fi 
+  fi &&
 
   ./configure --prefix=/ \
               --libdir=/usr/lib \
@@ -20,7 +20,9 @@
               --without-skey \
               $OPTS &&
 
-  default_make &&
+  make &&
+  prepare_install &&
+  make suidperms=4711 install &&
 
   # libshadow.a and libshadow.la should not be installed,
   # they are for internal use only and may break compilation
@@ -37,9 +39,9 @@
     [ -e /etc/login.defs ] || install -m 0644 etc/login.defs /etc/
   else
     [ -e /etc/login.defs ] || install -m 0644 $SOURCE_CACHE/$SOURCE2 /etc/login.defs
-  fi 
+  fi &&
 
-  [ -e /etc/securetty  ] || install -m 0644 $SCRIPT_DIRECTORY/securetty /etc/
+  [ -e /etc/securetty  ] || install -m 0644 $SCRIPT_DIRECTORY/securetty /etc/ &&
   ln -sf /sbin/vipw /sbin/vigr &&
   install $SCRIPT_DIRECTORY/adduser /sbin/ &&
   install $SCRIPT_DIRECTORY/deluser /sbin/

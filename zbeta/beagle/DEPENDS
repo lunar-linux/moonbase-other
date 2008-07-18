@@ -1,11 +1,25 @@
-depends  gnome-sharp
-depends  gmime
-depends  sqlite
-depends  libexif
-depends  zip
-depends  dbus
-optional_depends  thunderbird "--enable-thunderbird" "" "Enables the Thunderbird Mail Backend"        
-optional_depends  evolution-sharp  "" "--disable-evolution" "Enables the Evolution Mail Backend"         
-optional_depends  MPlayer "" "" "Enables beagle to parse metadata from videos" 
-optional_depends  wv "" "" "Enables MS Word support (must say Y to gsf-sharp)" 
-optional_depends  gsf-sharp-svn "" "--disable-gsf-sharp" "Enables Microsoft Powerpoint support"
+depends dbus
+depends gnome-utils
+depends gnome-sharp
+depends gmime
+
+optional_depends "monodoc" "" "--disable-docs" "to build the documentation"
+
+optional_depends "kdelibs3" "" "" "for KDE3 support"
+
+optional_depends "taglib-sharp" "" "" "for audio file searching"
+
+optional_depends "evolution-sharp" \
+                 "" \
+                 "--disable-evolution" \
+                 "Enables the Evolution Mail Backend"
+
+optional_depends "wv" \
+                 "" \
+                 "" \
+                 "Enables MS Word support (must say Y to gsf-sharp)"
+
+optional_depends "gsf-sharp" \
+                 "" \
+                 "--disable-gsf-sharp" \
+                 "Enables Microsoft Powerpoint support"
