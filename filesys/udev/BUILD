@@ -5,21 +5,15 @@
     add_priv_group usb
     add_priv_group cdrw
 
-    UDEV_EXTRAS="extras/ata_id  extras/collect extras/firmware \
-                 extras/path_id extras/scsi_id extras/volume_id \
-                 extras/cdrom_id extras/edd_id extras/floppy \
-                 extras/rule_generator extras/usb_id"
+    # create static nodes dir if missing
+    mkdir -p /lib/udev/devices &&
 
     patch_it $SOURCE2 0 &&
 
-    make EXTRAS="${UDEV_EXTRAS}" &&
-    prepare_install &&
-    make EXTRAS="${UDEV_EXTRAS}" install &&
+    for DIR in `ls extras`; do EXTRAS+="extras/$DIR "; done &&
+    sedit "s@^EXTRAS\ =@EXTRAS =$EXTRAS@" Makefile &&
 
-
-    # Deprecated .. but udevd still doesn't do what udevstart does
-    install -m755 udevstart /sbin/ &&
-    install -m644 udevstart.8 /usr/share/man/man8/ &&
+    default_build &&
 
     # install the init.d script
     # we cannot use automagic install via coretools
@@ -27,17 +21,18 @@
     # and would interfere with boot/{reboot,halt}
     mkdir -p /etc/udev/rules.d /etc/udev/scripts.d &&
 
-    install -m755 ${SCRIPT_DIRECTORY}/udev /etc/init.d/ &&
+    install -m755 ${SCRIPT_DIRECTORY}/udev /etc/init.d &&
 
-    # We provide our own default set of rules
-    rm -f /etc/udev/rules.d/50-udev-default.rules &&
-
-    install -m644 ${SOURCE_DIRECTORY}/etc/udev/gentoo/50-udev.rules \
-                  /etc/udev/rules.d/50-udev.rules &&
+    install -m644 etc/udev/gentoo/* \
+                  etc/udev/rules.d/* \
+                  etc/udev/packages/* \
+                 /etc/udev/rules.d
     install -m755 ${SOURCE_CACHE}/${SOURCE3} \
                   /etc/udev/scripts.d/raid-devfs.sh &&
 
     # We need to remove those in order to get a clean start
-    rm -f /etc/udev/rules.d/70-persistent-{cd,net}.rules
+    rm -f /etc/udev/rules.d/70-persistent-{cd,net}.rules &&
+
+    mv -f /etc/udev/rules.d/40-gentoo.rules /etc/udev/rules.d/40-lunar.rules
 
 ) > $C_FIFO 2>&1
