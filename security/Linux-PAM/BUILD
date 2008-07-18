@@ -6,24 +6,43 @@
   export SGML2PS=no
   export PS2PDF=no
 
-  # Fix for automake 1.10
+  # Stop pam_env from installing /etc/environment
+  sedit "/^sysconf_DATA/d" modules/pam_env/Makefile.am  &&
+
   aclocal -I m4 &&
   automake --add-missing --gnu &&
   autoconf &&
-  # End fix
 
   ./configure  --libdir=/lib                            \
                --enable-docdir=/usr/share/doc/Linux-PAM \
                --disable-prelude                        \
                --mandir=/usr/share/man                  \
-               --disable-berkdb                         \
+               --enable-db=no                           \
+               --disable-selinux                        \
+               --disable-audit                          \
+               --enable-isadir=../../lib/security       \
                $OPTS &&
 
-  sedit  "s/examples//"  Makefile              &&
-  sedit  "s/read yes//"     conf/install_conf  &&
+  sedit  "s/examples//"  Makefile           &&
+  sedit  "s/read yes//"  conf/install_conf  &&
 
   make &&
-  make check &&
+
+  # Test our modules, we don't want a broken system
+  ldconfig -n $SOURCE_DIRECTORY/libpam/.libs
+  find $SOURCE_DIRECTORY/modules -name "pam*.so" | while read module; do
+	if ! env LD_LIBRARY_PATH=$SOURCE_DIRECTORY/libpam/.libs \
+	  $SOURCE_DIRECTORY/$MODULE-patches-$PVERSION/dlopen.sh -ldl -lpam -L$SOURCE_DIRECTORY/libpam/.libs ${module} ; then
+	  echo ERROR module: ${module} cannot be loaded.
+	  exit 1
+	fi
+    if env LD_LIBRARY_PATH=$SOURCE_DIRECTORY/libpam/.libs \
+	  LD_PRELOAD=$SOURCE_DIRECTORY/libpam/.libs/libpam.so ldd -r ${module} | fgrep -q libpthread ; then
+	  echo ERROR module: ${module} pulls threading libraries.
+	  exit 1
+	fi
+  done &&
+
   prepare_install &&
   make install &&
 
@@ -45,7 +64,7 @@
   # We have to clean up a bit after Linux-PAM
   rm -f /lib/security/*.la &&
 
-  [ -f /etc/environment ] || touch /etc/environment && 
+  [ -f /etc/environment ] || touch /etc/environment &&
   [ -f /etc/security/limits.conf ] || install -m 0644 modules/pam_limits/limits.conf /etc/security/
 
-) > $C_FIFO 2>&1  
+) > $C_FIFO 2>&1

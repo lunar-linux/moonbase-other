@@ -3,7 +3,8 @@
 # devfs on top, you will see the underlaying static nodes
 
 FAKEROOT=/tmp/UDEV_NODE_ROOT
-DEVPREFIX=${FAKEROOT}/dev 
+DEVPREFIX=${FAKEROOT}/dev
+STATICDIR=/lib/udev/devices
 
 create_node()
 {
@@ -18,29 +19,37 @@ create_node()
   echo -ne "\tTesting for /dev/${NODE}: "
 
   if [ -e ${DEVPREFIX}/${NODE} ]; then
-     echo "node already present. " 
+     echo "node already present."
   else
      mknod -m $PERMS ${DEVPREFIX}/${NODE} ${TYPE} ${MAJOR} ${MINOR} || { echo "cannot create node."; exit 1; }
-     echo "node created. "
+     echo "node created."
   fi
-  
+
+  echo -ne "\tTesting for ${STATICDIR}/${NODE}: "
+
+  if [ -e ${STATICDIR}/${NODE} ]; then
+     echo "node already present."
+  else
+     mknod -m $PERMS ${STATICDIR}/${NODE} ${TYPE} ${MAJOR} ${MINOR} || { echo "cannot create node in $STATICDIR."; exit 1; }
+     echo "static node created in $STATICDIR"
+  fi
+
   test -z "${SYMLINK}" &&  return 0
 
   echo -ne "\tTesting for /dev/${SYMLINK} -> /dev/${NODE} symlink: "
 
   if [ -e ${DEVPREFIX}/${SYMLINK} ]; then
-     if [ "`readlink ${DEVPREFIX}/${SYMLINK}`" = "${NODE}" ]; then 
+     if [ "`readlink ${DEVPREFIX}/${SYMLINK}`" = "${NODE}" ]; then
         echo "already present."
         return 0
-     fi 
-
+     fi
      rm ${DEVPREFIX}/${SYMLINK}
   fi
 
   ln -sf ${NODE} ${DEVPREFIX}/${SYMLINK} || { echo "cannot create."; exit 1; }
   echo "created."
 
-  return 0  
+  return 0
 }
 
 echo    ""
@@ -48,10 +57,10 @@ echo -n "Creating virtual fake root... "       && mkdir ${FAKEROOT}/          &&
 echo -n "Creating fake root to check /dev... " && mount --bind / ${FAKEROOT}/ && echo "done." &&
 echo    "Checking /dev/ for needed static boot nodes... " &&
 
-create_node 0600 console c 5 1      &&
-create_node 0666 null    c 1 3      && 
-create_node 0600 ram0    b 1 0 ram  &&
-create_node 0600 ram1    b 1 1      &&
+create_node 0600 console c 5 1     &&
+create_node 0666 null    c 1 3     &&
+create_node 0600 ram0    b 1 0 ram &&
+create_node 0600 ram1    b 1 1     &&
 
-echo -n "Unmounting fake root... "   && umount ${FAKEROOT} && echo "done." && 
+echo -n "Unmounting fake root... "   && umount ${FAKEROOT} && echo "done." &&
 echo -n "Removing fake root dir... " && rm -rf ${FAKEROOT} && echo "done."
