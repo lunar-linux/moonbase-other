@@ -1,14 +1,30 @@
           MODULE=NVIDIA-old
-         VERSION=71.86.04
+         VERSION=71.86.06
           SOURCE=NVIDIA-Linux-x86_64-$VERSION-pkg0.run
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-pkg0
-   SOURCE_URL=ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
-      SOURCE_VFY=sha1:20378456e3c64b4e4a3d9a554e520fde401f696b
+   SOURCE_URL[0]=ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[1]=http://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[2]=http://us.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[3]=http://pl.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[4]=http://de.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[5]=http://uk.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[6]=http://es.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[7]=http://fr.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[8]=http://in.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[9]=http://sg.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[10]=http://cn.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[11]=http://tw.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[12]=http://jp.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[13]=http://kr.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[14]=http://ru.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[16]=http://br.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[17]=http://la.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+      SOURCE_VFY=sha1:9ab8fcc9d8b1d1fb0f4bac02f560a0adb1a2a010
         WEB_SITE=http://www.nvidia.com
          ENTERED=20030804
-         UPDATED=20080129
+         UPDATED=20080719
         SHORT="X11 binary driver provided by NVIDIA for old GPUs."
-
 cat << EOF
 This is the nvidia provided binary X11 driver for their old graphics
 cards. It also has the Linux kernel module needed for all old NVIDIA
