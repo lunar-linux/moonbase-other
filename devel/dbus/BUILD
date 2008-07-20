@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 0 &&
-
   if module_installed qt3 ; then
     . /etc/profile.d/qt3.rc
   fi
