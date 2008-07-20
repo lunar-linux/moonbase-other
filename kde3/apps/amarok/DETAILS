@@ -1,12 +1,15 @@
           MODULE=amarok
          VERSION=1.4.9.1
           SOURCE=$MODULE-${VERSION}.tar.bz2
+         SOURCE2=$MODULE-${VERSION}-libmtp-0.3.0.patch.bz2
       SOURCE_URL=$KDE_URL/stable/$MODULE/$VERSION/src
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:5473c7d578a4bf2662f977d9239ff0066ee8f159
+     SOURCE2_VFY=sha1:d834992be46a746eeea2d203b5b327533ddf9b94
    MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/3}
         WEB_SITE=http://amarok.kde.org
          ENTERED=20050111
-         UPDATED=20080501
+         UPDATED=20080720
            SHORT="KDE-based audio player"
 
 cat << EOF
