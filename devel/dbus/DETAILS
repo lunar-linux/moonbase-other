@@ -1,20 +1,16 @@
           MODULE=dbus
-         VERSION=1.1.20
+         VERSION=1.2.1
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-$VERSION-no-x.patch
       SOURCE_URL=http://$MODULE.freedesktop.org/releases/$MODULE/
-     SOURCE2_URL=$PATCH_URL/
-      SOURCE_VFY=sha1:fff5db438483e6b4a3c40d430b20baa49ad2d58a
-     SOURCE2_VFY=sha1:9effff62242391d4da09376d608a81e1f47bb6de
+      SOURCE_VFY=sha1:2c5b38d51b486e0143faf7749d298e07a8c71223
         WEB_SITE=http://dbus.freedesktop.org/
          ENTERED=20031219
-         UPDATED=20080302
+         UPDATED=20080720
            SHORT="A message bus system for applications"
-
 LUNAR_RESTART_SERVICES=off
 cat << EOF
 D-BUS is a message bus system, a simple way for applications to talk
-to one another.  It supplies both a system daemon and a 
+to one another.  It supplies both a system daemon and a
 per-user-login-session daemon.  Also, the message bus is built on top
 of general one-to-one message passing framework, which can be used by
 any two apps to communicate directly.

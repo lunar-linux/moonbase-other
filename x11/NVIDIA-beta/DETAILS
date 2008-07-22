@@ -1,5 +1,5 @@
           MODULE=NVIDIA-beta
-         VERSION=171.06
+         VERSION=177.13
           SOURCE=NVIDIA-Linux-x86-$VERSION-pkg0.run
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
    SOURCE_URL[0]=ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION/
@@ -20,25 +20,27 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
   SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86/$VERSION/
   SOURCE_URL[16]=http://br.download.nvidia.com/XFree86/Linux-x86/$VERSION/
   SOURCE_URL[17]=http://la.download.nvidia.com/XFree86/Linux-x86/$VERSION/
-      SOURCE_VFY=sha1:5d437da4f78122e5992e2fa7d74a7cca5c89d164
+      SOURCE_VFY=sha1:a602e602af612b0190deb31890dda708cc479891
         WEB_SITE=http://www.nvidia.com/
          LICENSE="proprietary"
          ENTERED=20030804
-         UPDATED=20080309
+         UPDATED=20080719
            SHORT="X11 binary drivers provided by NVIDIA for NVIDIA GPUs"
 
 cat << EOF
 These are the nvidia provided binary X11 drivers for their graphics
-cards. It also has the Linux kernel module needed for all NVIDIA
-cards. Supported GPUs: (FX/PCX/6/7/8 families only)
-all Geforce/Quadro FX
-all Geforce PCX
+cards. It also has the Linux kernel module needed for all supported NVIDIA
+cards. Supported GPUs: (6/7/8/9/GTX 2xx families only)
 all Geforce 6xxx
 all Geforce 7xxx
 all Geforce 8xxx
+all Geforce 9xxx
+GeForce GTX 260
+GeForce GTX 280
 some models may be not supported yet.
 
 If you have RIVA/Vanta/TNT/Geforce1/Quadro1-2/Geforce2 (not MX)
 check NVIDIA-old module.
 If you have Geforce 2MX/3/4 check NVIDIA-legacy module.
+If you have Geforce FX/6/7/8/9 check NVIDIA module.
 EOF
