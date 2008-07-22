@@ -7,7 +7,7 @@
   fi
 
   if [[ "$XEMACS_XIM" == "y" ]]; then
-      OPTS="$OPTS --with-xim=yes"
+      OPTS="$OPTS --with-xim=xlib"
   fi
 
   ./configure  --prefix=/usr             \
