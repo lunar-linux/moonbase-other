@@ -1,0 +1,31 @@
+
+depends  gdbm         &&
+depends  db           &&
+depends  xemacs-base  &&
+depends  xemacs-efs   &&
+depends  libXpm       &&
+
+optional_depends  "openMotif"                                               \
+                  ""                                                        \
+                  ""                                                        \
+                  "for OSF/Motif standard GUI"
+optional_depends  "gtk+"                                                    \
+                  "--with-gtk"                                              \
+                  ""                                                        \
+                  "for EXPERIMENTAL gtk support GUI, known to be not okay"
+optional_depends  "gnome-libs"                                              \
+                  "--with-gnome"                                            \
+                  ""                                                        \
+                  "for EXPERIMENTAL Gnome support GUI, known to be not okay"
+optional_depends  "fontconfig"                                              \
+                  "--with-xft"                                              \
+                  ""                                                        \
+                  "for Xft font support"
+optional_depends  "libpng"                                                  \
+                  "--with-png"                                              \
+                  ""                                                        \
+                  "for PNG image support"
+optional_depends  "jpeg"                                                    \
+                  "--with-jpeg"                                             \
+                  ""                                                        \
+                  "for JPEG image support"
