@@ -1,7 +1,7 @@
 (
   . /etc/profile.d/x11r7.rc &&
 
-  patch_it $SOURCE2 1 &&
+#  patch_it $SOURCE2 1 &&
 
   default_build
 
