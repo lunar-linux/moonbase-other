@@ -1,7 +1,7 @@
 (
 
    if in_depends $MODULE dcraw && in_depends $MODULE raw-thumbnailer ; then
-     OPTS+="--enable-raw";
+     OPTS+=" --enable-raw"
    fi &&
 
    # make sure proper PKG_CONFIG_PATH is set
