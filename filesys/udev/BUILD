@@ -30,7 +30,7 @@
     install -m755 ${SOURCE_CACHE}/${SOURCE3} \
                   /etc/udev/scripts.d/raid-devfs.sh &&
 
-    if "$WIPE_NET_DEV" == "y" ; then
+    if [ "$WIPE_NET_DEV" == "y" ] ; then
       rm -f /etc/udev/rules.d/70-persistent-{cd,net}.rules
     fi &&
 
