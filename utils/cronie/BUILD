@@ -1,10 +1,5 @@
 (
 
-  patch_it $SOURCE4 1 &&
-  patch_it $SOURCE5 1 &&
-  patch_it $SOURCE6 1 &&
-  patch_it $SOURCE7 1 &&
-
   if module_installed Linux-PAM; then
     OPTS+=" --with-pam"
   fi &&
