@@ -1,0 +1,26 @@
+          MODULE=rsyslog
+         VERSION=3.18.1
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+         SOURCE2=${MODULE}.conf-0.1
+         SOURCE3=${MODULE}.config.d-0.1
+      SOURCE_URL=http://download.rsyslog.com/rsyslog/
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
+      SOURCE_VFY=sha1:92681f8b4ccd9e0e008e78f0ce7e55e01621bdd6
+     SOURCE2_VFY=sha1:f6313bc51270da062dca6b93b2cb7fa865494dd6
+     SOURCE3_VFY=sha1:398376384113ff22a75dc80d86f1b7b8197aa080
+        WEB_SITE="http://www.rsyslog.com/"
+         ENTERED=20080731
+         UPDATED=20080731
+           SHORT="An enhanced multi-threaded syslogd with a focus on security and reliability"
+cat <<EOF
+Rsyslog is an enhanced multi-threaded syslogd with a focus on security
+and reliability. Among others, it offers support for on-demand disk
+buffering, reliable syslog over TCP, SSL, TLS and RELP, writing
+to databases (MySQL, PostgreSQL, Oracle, and many more), email
+alerting, fully configurable output formats (including high-precision
+timestamps), the ability to filter on any part of the syslog message,
+on-the-wire message compression, and the ability to convert text
+files to syslog. It is a drop-in replacement for stock syslogd and
+able to work with the same configuration file syntax.
+EOF
