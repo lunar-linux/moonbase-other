@@ -1,7 +1,11 @@
 (
 
+#  sedit "s:de <Imf:de <OpenEXR/Imf:g" kimgio/exr.cpp
+#  sedit "s:de <Ie:de <OpenEXR/Ie:g" kimgio/exr.cpp
+#  sedit "s:de <Ima:de <OpenEXR/Ima:" kimgio/exr.cpp
+
 # This export of LDFLAGS should be revisited on the next version bump.
-  export LDFLAGS="-Wl,-rpath,/opt/lunar/kde/4/lib"
+#  export LDFLAGS="-Wl,-rpath,/opt/lunar/kde/4/lib"
 
   KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build"
 
@@ -10,10 +14,11 @@
   mkdir $KDE4_BUILD_DIR &&
   cd $KDE4_BUILD_DIR &&
 
+
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
                            -DCMAKE_BUILD_TYPE=RELEASE            &&
 
-  default_make &&
+  default_make  &&
 
   install -m0755 $SCRIPT_DIRECTORY/kde4 /usr/bin/
 

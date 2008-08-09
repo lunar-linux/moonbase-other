@@ -12,22 +12,25 @@
 
   echo "yes" | ./configure               \
                -prefix ${MODULE_PREFIX}  \
-               -release          \
-               -fast             \
-               -no-separate-debug-info \
+               -release                  \
+               -fast                     \
+               -no-separate-debug-info   \
                -shared           \
                -qt-gif           \
                -system-libpng    \
                -system-libjpeg   \
                -system-libmng    \
                -system-zlib      \
-               -no-exceptions    \
+               -exceptions       \
                -nomake examples  \
                -nomake demos     \
                -accessibility    \
                -stl              \
                -webkit           \
                -fontconfig       \
+               -no-phonon        \
+               -largefile        \
+               -glib             \
                -qt3support       \
                $OPTS            &&
 

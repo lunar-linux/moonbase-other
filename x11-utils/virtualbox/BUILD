@@ -1,10 +1,15 @@
 (
 
+  if module_installed qt4; then
+   . /etc/profile.d/qt4.rc && 
+   sedit 's/QT4DIR=.*/QT4DIR="$QTDIR"/g' configure &&
+   sedit 's/QT4UIC3DIR=.*/QT4UIC3DIR="$QTDIR"/g' configure &&
+  fi &&
+
   # We need the qt3 paths
   . /etc/profile.d/qt3.rc
 
   # Substitute hard-coded QTDIR with QTDIR from the qt3 profile
-#  sedit 's/QTDIR=.*/QTDIR="$QTDIR"/g' configure &&
   sedit 's/QT3DIR=.*/QT3DIR="$QTDIR"/g' configure &&
 
   # Build VirtualBox
