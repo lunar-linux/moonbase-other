@@ -1,14 +1,23 @@
           MODULE=akonadi
-         VERSION=0.82.0
+         VERSION=1.0.0
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=$KDE_URL/unstable/4.0.83/support
-      SOURCE_VFY=sha1:cdd2eb98f51d5d24408a6123caa866dbb557067d
+      SOURCE_URL=http://akonadi.omat.nl
+      SOURCE_VFY=sha1:2bde2ab048691de6daf4fb64969c08b307783665
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
         WEB_SITE=http://techbase.kde.org/Getting_Started/Build/KDE4/Troubleshooting
          ENTERED=20080622
-         UPDATED=20080703
-           SHORT=""
-PSAFE=no
+         UPDATED=20080809
+           SHORT="A PIM layer for KDE 4.x"
+           PSAFE=no
+
 cat << EOF
+Akonadi is a PIM layer, which provides an asynchronous API to access 
+all kind of PIM data (e.g. mails, contacts, events, todos etc.).
+It consists of several processes (generally called the Akonadi server) 
+and a library (called client library) which encapsulates the 
+communication between the client and the server.
+This directory contains the sources of the Akonadi server and all the 
+infrastructure that is needed to build the client libraries and the 
+application which want to make use of Akonadi.
 EOF
