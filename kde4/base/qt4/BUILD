@@ -12,9 +12,9 @@
 
   echo "yes" | ./configure               \
                -prefix ${MODULE_PREFIX}  \
-               -release                  \
-               -fast                     \
-               -no-separate-debug-info   \
+               -release          \
+               -fast             \
+               -no-separate-debug-info \
                -shared           \
                -qt-gif           \
                -system-libpng    \
