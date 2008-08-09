@@ -1,7 +1,7 @@
 (
 sed -i -r 's@#if\ defined\(EOWNERDEAD\)@#if\ defined\(EOWNERDEAD\)\ \&\&\ defined\(PTHREAD_MUTEX_ROBUST_NP\)@' \
 db/mutex/mut_pthread.c &&
-
+  bad_flags "-z combreloc"
   LDFLAGS=$(echo $LDFLAGS | sed  s/"-z combreloc"// )
 
  ./configure --prefix=/usr  \
