@@ -3,7 +3,7 @@
   if [[ "$MULTIBYTE" == "y" ]]; then
     OPTS="$OPTS --enable-multibyte"
   fi
-  
+
   cd src                                 &&
   default_config                         &&
   make                                   &&
