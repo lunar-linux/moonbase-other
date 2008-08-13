@@ -1,6 +1,7 @@
 (
   export WORKINGDIR=$PWD  &&
   export BUILD_OPT=1      &&
+  export NSS_USE_SYSTEM_SQLITE=1 &&
 
   if [ "`arch`" == "x86_64" ]; then
     export USE_64=1
@@ -19,7 +20,7 @@
   install -v -m755 nsprpub/$NSS_LINUXDIR/config/nspr-config \
                    security/nss/cmd/config/nss-config \
                    /usr/bin &&
-  
+
   mkdir -p /usr/lib/pkgconfig &&
   install -v -m644 nsprpub/lib/pkgconfig/nspr.pc \
                    security/nss/lib/pkgconfig/nss.pc \
