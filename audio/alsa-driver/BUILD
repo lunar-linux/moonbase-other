@@ -25,6 +25,7 @@
                --with-isapnp=auto            \
                --with-sequencer=yes          \
                --with-oss=yes                \
+               --with-pcm-oss-plugins=yes    \
                --with-debug=none             \
                --with-kernel=/usr/src/linux  \
                --with-cards=$CARD            &&
