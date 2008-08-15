@@ -1,11 +1,14 @@
-(
+(                                                                                                                                                     
+
+# These two should be revisited on the next version bump.
+  cp $SOURCE_CACHE/$SOURCE1 $SOURCE_DIRECTORY/src/apps/Makefile.kmk &&
+  cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY/src/apps/tunctl/Makefile.kmk &&
 
   # We need the qt3 paths
   . /etc/profile.d/qt3.rc
 
   # Substitute hard-coded QTDIR with QTDIR from the qt3 profile
-#  sedit 's/QTDIR=.*/QTDIR="$QTDIR"/g' configure &&
-  sedit 's/QT3DIR=.*/QT3DIR="$QTDIR"/g' configure &&
+  sedit 's/QT3DIR=.*/QT3DIR="$QTDIR"/g' configure &&           
 
   # Build VirtualBox
   ./configure     &&

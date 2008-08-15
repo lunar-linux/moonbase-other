@@ -4,7 +4,7 @@
 
 # This sedit is an adaptation from some patches sent by V4hn. Simpler than uploading
 # to the mirror.
-  sedit "s:(int\*):(unsigned int\*):" samples/qtvidcap/v4lxif.cpp samples/qtvidcap/kv4lsetup.cpp &&
+  sedit "s:(int\*):(unsigned int\*):" samples/qtvidcap/v4lxif.cpp samples/qtvidcap/kv4lsetup.cpp  &&
 
 
   sedit "s:freetype/freetype.h>:ft2build.h>\n#include FT_FREETYPE_H:" lib/video/sub_ft.cpp  &&
