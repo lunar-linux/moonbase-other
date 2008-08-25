@@ -44,7 +44,7 @@
     cd $SOURCE_DIRECTORY;
     chmod +x $SOURCE8;
     ./$SOURCE8 --accept-license --unpack;
-    OPTS="$OPTS --with-jdk-home=$SOURCE_DIRECTORY/jdk1.5.0_15";
+    OPTS="$OPTS --with-jdk-home=$SOURCE_DIRECTORY/jdk1.5.0_16";
   else
     JAVA_VERSION="`installed_version j2sdk`";
     OPTS="$OPTS --with-jdk-home=/usr/lib/j2sdk${JAVA_VERSION}";
