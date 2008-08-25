@@ -1,11 +1,12 @@
           MODULE=fglrx
-         VERSION=8-7
-          SOURCE=ati-driver-installer-$VERSION-x86.x86_64.run
+         VERSION=8.8
+        FVERSION=`echo $VERSION |tr . -`
+          SOURCE=ati-driver-installer-$FVERSION-x86.x86_64.run
       SOURCE_URL=https://www2.ati.com/drivers/linux/
-      SOURCE_VFY=sha1:e04722f2acd63212dab631827f796f079fe1d667
+      SOURCE_VFY=sha1:32981bb142b8fa061b491ca8b41497981e70bcb1
         WEB_SITE=http://ati.amd.com/
          ENTERED=20040220
-         UPDATED=20080722
+         UPDATED=20080823
          LICENSE="proprietary"
            SHORT="Proprietary X.org driver for the AMD ATI Radeon GPUs"
 cat << EOF
