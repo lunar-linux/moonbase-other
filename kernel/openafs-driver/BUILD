@@ -3,6 +3,8 @@
   export EXTRA_CFLAGS="$CFLAGS"
   unset CFLAGS
 
+  patch_it $SOURCE2 1 &&
+
   # Autoconf fix
   sedit 's;^AC_\(AIX\|MINIX\)$;;' acinclude.m4 &&
 
