@@ -1,4 +1,5 @@
 (
+  patch_it $SOURCE2 1 &&
 
   if module_installed kdelibs3; then
     . /etc/profile.d/kde3.rc
