@@ -7,6 +7,7 @@
   prepare_install  &&
   make prefix=/usr install &&
   cp -p contrib/gitview/gitview /usr/bin &&
+  install -m 644 contrib/completion/git-completion.bash /etc/profile.d/git-completion.rc &&
   for i in man?; do
       [ -d /usr/share/man/$i ] || mkdir -p /usr/share/man/$i
       install -m 644 $i/* /usr/share/man/$i/
