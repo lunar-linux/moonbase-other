@@ -13,6 +13,11 @@
           --enable-safe-browsing \
           --enable-jsd \
           --enable-xpctools \
+          --enable-default-toolkit=cairo-gtk2 \
+          --enable-system-cairo \
+          --disable-tests \
+          --with-pthreads \
+          --enable-gnomeui \
           --disable-libxul \
           --disable-javaxpcom"
 
