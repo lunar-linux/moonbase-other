@@ -1,4 +1,6 @@
 (
+  patch_it $SOURCE2 2 &&
+
   export BINDIR="/usr/bin"
   export MANDIR="/usr/share/man"
   export KERNELPATH="/usr/src/linux"
