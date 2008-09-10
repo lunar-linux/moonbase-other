@@ -60,22 +60,25 @@
 
   mkdir -p /usr/X11/lib/dri &&
 
-  cp -af arch/x86/usr/X11R6/lib/lib* /usr/X11/lib/xorg/ &&
+  # We need a special location for the libaries
+  mkdir -p /usr/lib/opengl/ati &&
+
+  cp -af arch/x86/usr/X11R6/lib/lib* /usr/lib/opengl/ati/ &&
   cp -af arch/x86/usr/X11R6/lib/modules/dri/fglrx_dri.so \
          /usr/X11/lib/dri &&
 
   # Setup symlinks
-  ln -sf /usr/X11/lib/xorg/libGL.so.1.2 \
-         /usr/X11/lib/libGL.so.1 &&
+  ln -sf /usr/lib/opengl/ati/libGL.so.1.2 \
+         /usr/lib/opengl/ati/libGL.so.1 &&
 
-  ln -sf /usr/X11/lib/xorg/libGL.so.1.2 \
-         /usr/X11/lib/libGL.so &&
+  ln -sf /usr/lib/opengl/ati/libGL.so.1.2 \
+         /usr/lib/opengl/ati/libGL.so &&
 
   unset file
 
   for file in libfglrx_dm libfglrx_gamma libfglrx_pp libfglrx_tvout ; do
-    ln -sf /usr/X11/lib/xorg/${file}.so.1.0 \
-          /usr/X11/lib/xorg/${file}.so.1
+    ln -sf /usr/lib/opengl/ati/${file}.so.1.0 \
+          /usr/lib/opengl/ati/${file}.so.1
   done &&
 
   cp -af x710/usr/X11R6/lib/modules /usr/X11/lib/xorg/ &&
@@ -86,6 +89,11 @@
   mkdir -p /lib/modules/${KVER}/drivers/char/drm &&
   install -m644 common/lib/modules/fglrx/build_mod/2.6.x/fglrx.ko \
           /lib/modules/${KVER}/drivers/char/drm/ &&
+
+  # Get a sane default if haven't set it yet
+  if [ "x$LUNAR_GL" == "x" ] ; then
+    set_local_config LUNAR_GL binary
+  fi
 
   #Update module dependencies
   depmod
