@@ -5,15 +5,15 @@
     add_priv_group usb
     add_priv_group cdrw
 
-    # create static nodes dir if missing
-    mkdir -p /lib/udev/devices &&
-
     patch_it $SOURCE2 0 &&
 
     for DIR in `ls extras`; do EXTRAS+="extras/$DIR "; done &&
     sedit "s@^EXTRAS\ =@EXTRAS =$EXTRAS@" Makefile &&
 
     default_build &&
+
+    # create static nodes dir if missing
+    mkdir -p /lib/udev/devices &&
 
     # install the init.d script
     # we cannot use automagic install via coretools
