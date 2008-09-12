@@ -1,0 +1,47 @@
+SUPPORTED_DRIVERS="i810 i915 i965 mach64 mga r128 r200 r300 radeon s3v savage sis swrast tdfx trident unichrome"
+
+make_drivers_checklist() {
+  
+  # Execute the modified supported locales file to get a list of 
+  # supported variables in the $SUPPORTED_LOCALES variable
+#  . $SUPPORTED_DRIVERS &&
+  
+  # For each locale, extract name, title and charmap information
+  for driver in $SUPPORTED_DRIVERS; do
+      title=$driver
+
+    echo "\"$driver\" \"$title\" \"off\" "
+  done
+}
+
+select_drivers() {
+  BACKTITLE="MesaLib Configuration"
+      TITLE="Driver Selection"
+       HELP=""
+  make_drivers_checklist | xargs \
+  dialog --backtitle "$BACKTITLE" \
+         --title     "$TITLE"     \
+         --stdout                 \
+         --separate-output        \
+         --checklist "$HELP"      \
+         0 0 0
+}
+
+if ! grep -q CONFIGURED $MODULE_CONFIG; then
+  if grep -q "MESADRIVER=" $MODULE_CONFIG; then
+    message "Selecting drivers is optional"
+  fi
+
+  if query "Would you like to select drivers? (if not selected, all locales will be installed)" y; then
+    unpack_localedata
+
+    MESADRIVER=`select_drivers`
+    TEMP=`grep -v "MESADRIVER="             $MODULE_CONFIG`
+    echo "$TEMP"                             > $MODULE_CONFIG
+    echo "MESADRIVER=\"$MESADRIVER\"" >> $MODULE_CONFIG
+
+  fi
+
+  echo "OPTS=\"\$OPTS $OPTS\"" >> $MODULE_CONFIG
+  echo "CONFIGURED=y"          >> $MODULE_CONFIG
+fi
