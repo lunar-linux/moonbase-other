@@ -82,6 +82,10 @@ plugin_kernel_updatebootloader_grub()
     debug_msg "grub: Using GRUB_BOOT=\"$GRUB_BOOT\""
     debug_msg "grub: Using GRUB_ROOT=\"$GRUB_ROOT\""
     debug_msg "grub: Using CMDLINE=\"$CMDLINE\""
+  else
+    # when called from the iso we can't use /proc/cmdline so we should 
+    # make our own
+    CMDLINE="root=$(map_grub_to_device $GRUB_ROOT) ro"
   fi
 
   print_grub_image()
