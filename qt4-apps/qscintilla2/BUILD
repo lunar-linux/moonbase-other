@@ -9,7 +9,7 @@
   else
     if module_installed qt3; then
       source /etc/profile.d/qt3.rc
-      cd ../Qt3
+      cd Qt3
     fi
   fi
   qmake -o Makefile qscintilla.pro
