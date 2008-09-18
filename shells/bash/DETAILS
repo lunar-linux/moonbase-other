@@ -1,24 +1,27 @@
           MODULE=bash
-         VERSION=3.1
+         VERSION=3.2
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=ftp://ftp.cwru.edu/pub/$MODULE/
-   SOURCE_URL[1]=$GNU_URL/$MODULE/
-   SOURCE_URL[2]=ftp://ftp.gnu.org/pub/gnu/$MODULE/
-      SOURCE_VFY=sha1:766e3fd9384616d8a103f812f662fd8ec791c129
-        WEB_SITE=http://cnswww.cns.cwru.edu/~chet/bash/bashtop.html
+         SOURCE2=$MODULE-$VERSION-patchset-1.0.patch
+   SOURCE_URL[0]=$GNU_URL/$MODULE/
+   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/
+   SOURCE_URL[2]=ftp://ftp.cwru.edu/pub/$MODULE/
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:fe6466c7ee98061e044dae0347ca5d1a8eab4a0d
+     SOURCE2_VFY=sha1:dd481ef471a1c03ca853229e9df7e28602251e45
+        WEB_SITE=http://tiswww.case.edu/php/chet/bash/bashtop.html
          ENTERED=20010922
-         UPDATED=20051230
-           PSAFE=no
+         UPDATED=20080906
            SHORT="shell of the GNU operating system."
+PSAFE=no
+
 cat << EOF
-bash - Shell of the GNU operating system.
-Bash is an sh-compatible shell that incorporates useful features from
-the Korn shell (ksh) and C shell (csh). It is intended to conform to the
-IEEE POSIX P1003.2/ISO 9945.2 Shell and Tools standard.
-It offers functional improvements over sh for both programming and
-interactive use; these include command line editing, unlimited size
-command history, job control, shell functions and aliases, indexed
-arrays of unlimited size, and integer arithmetic in any base from two to
-sixty-four. In addition, most sh scripts can be run by Bash without
-modification.
+bash - Shell of the GNU operating system.  Bash is an sh-compatible
+shell that incorporates useful features from the Korn shell (ksh) and
+C shell (csh). It is intended to conform to the IEEE POSIX P1003.2/ISO
+9945.2 Shell and Tools standard.  It offers functional improvements
+over sh for both programming and interactive use; these include
+command line editing, unlimited size command history, job control,
+shell functions and aliases, indexed arrays of unlimited size, and
+integer arithmetic in any base from two to sixty-four. In addition,
+most sh scripts can be run by Bash without modification.
 EOF

@@ -1,14 +1,17 @@
           MODULE=bash_static
-         VERSION=3.1
+         VERSION=3.2
           SOURCE=bash-$VERSION.tar.gz
+         SOURCE2=bash-$VERSION-patchset-1.0.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/bash-$VERSION
-   SOURCE_URL[0]=ftp://ftp.cwru.edu/pub/bash/
-   SOURCE_URL[1]=$GNU_URL/bash/
-   SOURCE_URL[2]=ftp://ftp.gnu.org/pub/gnu/bash/
-      SOURCE_VFY=sha1:766e3fd9384616d8a103f812f662fd8ec791c129
-        WEB_SITE=http://cnswww.cns.cwru.edu/~chet/bash/bashtop.html
+   SOURCE_URL[0]=$GNU_URL/bash/
+   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/bash/
+   SOURCE_URL[2]=ftp://ftp.cwru.edu/pub/bash/
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:fe6466c7ee98061e044dae0347ca5d1a8eab4a0d
+     SOURCE2_VFY=sha1:dd481ef471a1c03ca853229e9df7e28602251e45
+        WEB_SITE=http://tiswww.case.edu/php/chet/bash/bashtop.html
          ENTERED=20020615
-         UPDATED=20051230
+         UPDATED=20080906
            SHORT="static build of bash, named as bash_static"
 cat << EOF
 bash - Shell of the GNU operating system.
