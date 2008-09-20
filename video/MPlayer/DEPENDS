@@ -1,17 +1,22 @@
 depends freetype2
 depends unzip
 depends MPlayer-essentials
-optional_depends  libdvdread "" "" "To read DVDs"
-optional_depends  SDL "--enable-sdl" "" "to use SDL to output video signal" 
-optional_depends  alsa-utils "" "" "for ALSA sound support"
-optional_depends  libvorbis "" "" "to use ogg audio format"
-optional_depends libmatroska "" "" "for matroska audio/video container format support" 
-optional_depends faad "" "" "for external FAAD2 (MPA/AAC) support"
-optional_depends libtheora "--enable-theora" "--disable-theora" "for OGG/Theora Video Playback" 
-optional_depends libXvMC "--enable-xvmc --with-xvmclib=XvMCW" "" "for hardware XvMC acceleration"
-optional_depends gtk+-2 "--enable-gui" "--disable-gui" "for MPlayer GTK gui support" 
-optional_depends MPlayer-all "" "" "to install more foreign codecs"
-optional_depends libggi "--enable-ggi" "--disable-ggi" "General Graphics Interface support" 
-optional_depends libggiwmh "--enable-ggiwmh" "--disable-ggiwmh" "GGI extension support"
-optional_depends amrnb "" "--disable-libamr_nb" "AMR narrowband support"
-optional_depends amrwb "" "--disable-libamr_wb" "AMR wideband support"
+
+optional_depends libdvdread  ""                "" "To read DVDs"
+optional_depends SDL         "--enable-sdl"    "" "to use SDL to output video signal"
+optional_depends alsa-utils  ""                "" "for ALSA sound support"
+optional_depends libvorbis   ""                "" "to use ogg audio format"
+optional_depends libmatroska ""                "" "for matroska audio/video container format support"
+optional_depends faad        ""                "" "for external FAAD2 (MPA/AAC) support"
+
+optional_depends libtheora   "--enable-theora" "--disable-theora"    "for OGG/Theora Video Playback"
+optional_depends libXvMC     "--enable-xvmc --with-xvmclib=XvMCW" \
+                             "" "for hardware XvMC acceleration"
+
+optional_depends gtk+-2      "--enable-gui"    "--disable-gui"       "for MPlayer GTK gui support"
+optional_depends MPlayer-all ""                ""                    "to install more foreign codecs"
+optional_depends libggi      "--enable-ggi"    "--disable-ggi"       "General Graphics Interface support"
+optional_depends libggiwmh   "--enable-ggiwmh" "--disable-ggiwmh"    "GGI extension support"
+optional_depends amrnb       ""                "--disable-libamr_nb" "AMR narrowband support"
+optional_depends amrwb       ""                "--disable-libamr_wb" "AMR wideband support"
+optional_depends x264-git    "--ensable-x264"  "--disable-x264"      "for H264/AVC video stream support"
