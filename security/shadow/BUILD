@@ -14,6 +14,7 @@
               --datadir=/usr/share \
               --infodir=/usr/share/info \
               --mandir=/usr/share/man \
+              --localedir=/usr/share/locale \
               --with-libcrypt \
               --with-libcrack \
               --without-selinux \

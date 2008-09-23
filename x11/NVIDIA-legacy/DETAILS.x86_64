@@ -1,15 +1,31 @@
           MODULE=NVIDIA-legacy
-         VERSION=96.43.05
+         VERSION=96.43.07
           SOURCE=NVIDIA-Linux-x86_64-$VERSION-pkg0.run
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-pkg0
-      SOURCE_URL=ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
-      SOURCE_VFY=sha1:e2daa9cd6ee489c11aa2eecabfe08d3d95d181c4
+   SOURCE_URL[0]=ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[1]=http://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[2]=http://us.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[3]=http://pl.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[4]=http://de.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[5]=http://uk.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[6]=http://es.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[7]=http://fr.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[8]=http://in.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+   SOURCE_URL[9]=http://sg.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[10]=http://cn.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[11]=http://tw.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[12]=http://jp.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[13]=http://kr.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[14]=http://ru.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[16]=http://br.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+  SOURCE_URL[17]=http://la.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
+      SOURCE_VFY=sha1:5d5a631991ebda66f423656b00a1b1667510f443
         WEB_SITE=http://www.nvidia.com/
          LICENSE="proprietary"
          ENTERED=20030804
-         UPDATED=20080129
+         UPDATED=20080719
            SHORT="X11 binary drivers provided by NVIDIA for NVIDIA GPUs"
-
 cat << EOF
 These are the nvidia provided binary X11 drivers for their graphics
 cards. It also has the Linux kernel module needed for all NVIDIA 

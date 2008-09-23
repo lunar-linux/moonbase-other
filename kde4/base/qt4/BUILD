@@ -21,13 +21,16 @@
                -system-libjpeg   \
                -system-libmng    \
                -system-zlib      \
-               -no-exceptions    \
+               -exceptions       \
                -nomake examples  \
                -nomake demos     \
                -accessibility    \
                -stl              \
                -webkit           \
                -fontconfig       \
+               -no-phonon        \
+               -largefile        \
+               -glib             \
                -qt3support       \
                $OPTS            &&
 

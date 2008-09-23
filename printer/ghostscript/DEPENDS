@@ -1,5 +1,8 @@
 depends jpeg
 depends libpng
 
-optional_depends "%X" "--with-x" "--without-x" "For an X frontend"
-optional_depends "cups" "" "" "to build the CUPS backends (recommended)"
+optional_depends "%X"   "--with-x"   "--without-x"   "For an X frontend"
+optional_depends "ijs"  "--with-ijs" "--without-ijs" "For ijs driver support"
+optional_depends "cups"    ""        ""              "To build the CUPS backends (recommended)"
+optional_depends "gtk+-2"  ""        ""              "For GTK support"
+optional_depends "cairo"   ""        ""              "For cairo graphics support"

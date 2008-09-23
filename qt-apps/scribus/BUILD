@@ -2,11 +2,8 @@
 
   . /etc/profile.d/qt3.rc
 
-  ./configure  --prefix=${QT_PREFIX:-$QTDIR}  \
-               --disable-debug                \
-               --without-python               \
-               $OPTS                         &&
+  OPTS+=" --disable-debug --without-python"
 
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1

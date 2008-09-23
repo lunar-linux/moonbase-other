@@ -1,11 +1,10 @@
-(
+(                                                                                                                                                     
 
   # We need the qt3 paths
   . /etc/profile.d/qt3.rc
 
   # Substitute hard-coded QTDIR with QTDIR from the qt3 profile
-#  sedit 's/QTDIR=.*/QTDIR="$QTDIR"/g' configure &&
-  sedit 's/QT3DIR=.*/QT3DIR="$QTDIR"/g' configure &&
+  sedit 's/QT3DIR=.*/QT3DIR="$QTDIR"/g' configure &&           
 
   # Build VirtualBox
   ./configure     &&

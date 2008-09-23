@@ -2,8 +2,6 @@
 
   OPTS="$OPTS --enable-v4l"
 
-  patch_it $SOURCE2 1 &&
-
   autoreconf &&
 
   default_build

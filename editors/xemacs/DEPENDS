@@ -1,19 +1,18 @@
-depends  jpeg         &&
-depends  libpng       &&
 depends  gdbm         &&
 depends  db           &&
 depends  xemacs-base  &&
 depends  xemacs-efs   &&
+depends  libXpm       &&
 
 optional_depends  "openMotif"                                               \
                   ""                                                        \
                   ""                                                        \
                   "for OSF/Motif standard GUI"
-optional_depends  "gtk+"                                                    \
-                  "--with-gtk"                                              \
+optional_depends  "libpng"                                                  \
+                  "--with-png"                                              \
                   ""                                                        \
-                  "for EXPERIMENTAL gtk support GUI, known to be not okay"
-optional_depends  "gnome-libs"                                              \
-                  "--with-gnome"                                            \
+                  "for PNG image support"
+optional_depends  "jpeg"                                                    \
+                  "--with-jpeg"                                             \
                   ""                                                        \
-                  "for EXPERIMENTAL Gnome support GUI, known to be not okay"
+                  "for JPEG image support"
