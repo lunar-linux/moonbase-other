@@ -1,12 +1,14 @@
 (
 
-   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
-                --build=$BUILD                    \
-                --sysconfdir=/etc                 \
-                --localstatedir=/var              \
-                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
-                $OPTS                             &&
-    default_make                   
+  if module_installed openssl; then
+    OPTS="$OPTS --with-ssl=openssl"
+   else
+    OPTS="$OPTS --with-ssl=gnutls"
+  fi &&
+
+  OPTS="$OPTS --with-asyncns=yes"
+
+  default_build
 
 ) > $C_FIFO 2>&1
+
