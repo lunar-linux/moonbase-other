@@ -6,13 +6,13 @@
     rm -f /usr/share/X11/xkb/compiled
   fi &&
 
-  if [[ "$USE_NVIDIA" = "y" ]]; then
-    OPTS="$OPTS --disable-glx --disable-glx-tlx"
-  fi &&
+#  if [[ "$USE_NVIDIA" = "y" ]]; then
+#    OPTS="$OPTS --disable-glx --disable-glx-tlx"
+#  fi &&
 
   OPTS+=" --enable-composite --enable-aiglx --enable-xorgcfg \
-         --with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION} \
          --with-dri-driver-path=${MODULE_PREFIX}/lib/dri" &&
+         #--with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION} \
 
   default_build &&
 

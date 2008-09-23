@@ -2,8 +2,11 @@ OLD_VER="`get_module_config OLD_VER`"
 FIREFOX_HOME=/usr
 FFOX_LIBDIR=firefox-$VERSION
 
-if [ ! -z $OLD_VER ]; then
-  rm -rf /usr/lib/firefox-$OLD_VER
+if [ ! -z "$OLD_VER" ]; then
+  for old_version in $OLD_VER
+  do
+    rm -rf /usr/lib/firefox-$old_version
+  done
 fi
 
 unset_module_config OLD_VER

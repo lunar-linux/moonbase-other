@@ -9,7 +9,7 @@
   cd $KDE4_BUILD_DIR &&
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DENABLE_QYOTO=off -DCMAKE_BUILD_TYPE=RELEASE &&
+                           -DENABLE_QYOTO=on -DCMAKE_BUILD_TYPE=RELEASE &&
 
   default_make
 

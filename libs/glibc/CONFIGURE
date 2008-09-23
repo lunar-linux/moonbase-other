@@ -11,6 +11,8 @@ unpack_localedata() {
   # Write the path of the localedata archive path into a file
   echo "${SOURCE/.tar.bz2/}/localedata" > $FILELIST_FILE &&
 
+  message "Extracting locale data .. this might take a second .."
+
   # Extract the localedata directory from the source tarball
   tar -C /tmp                    \
       -T $FILELIST_FILE          \

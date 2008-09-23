@@ -11,9 +11,9 @@ optional_depends  "speex"        "--enable-speex"  ""  "for Speex support"
 optional_depends  "SDL"          "--enable-sdl"  ""  "for SDL support"
 optional_depends  "libcdio"      ""  ""  "for CD-ROM control"
 optional_depends  "libcddb"      ""  ""  "for CDDB support"
-optional_depends  "a52dec"       ""  ""  "for a52dec support"
+optional_depends  "a52dec"       "--enable-a52"  "--disable-a52"  "for a52dec support"
 optional_depends  "freetype2"    "--enable-freetype"  ""  "for TrueType support"
-optional_depends  "fribidi"      ""  ""  "for Fribidi support"
+optional_depends  "fribidi"      ""  "--disable-fribidi"  "for Fribidi support"
 optional_depends  "libmatroska"  "--enable-mkv"  ""  "for Matroska support"
 optional_depends  "libmpcdec"    ""  ""  "for Musepack support"
 optional_depends  "libxml2"      ""  ""  "for XML support"
@@ -90,3 +90,8 @@ optional_depends  "samba"                 \
                   "--enable-smb"          \
                   "--disable-smb"         \
                   "for Samba support"
+
+optional_depends "libdvbpsi"              \
+                 "--with-dvbpsi"          \
+                 "--without-dvbpsi"       \
+                 "for MPEG TS and DVB PSI tables support"
