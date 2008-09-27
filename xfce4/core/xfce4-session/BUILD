@@ -1,6 +1,6 @@
 (
 
-   patch_it $SOURCE2 1 &&
+#   patch_it $SOURCE2 1 &&
    [ -f /etc/profile.d/xfce4.rc ] && . /etc/profile.d/xfce4.rc
 
    # make sure proper PKG_CONFIG_PATH is set
