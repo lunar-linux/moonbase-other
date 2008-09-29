@@ -2,13 +2,14 @@
 
   TTFD=/usr/share/fonts/truetype
       
-  prepare_install                           &&
+  prepare_install  &&
 
   if [ ! -d $TTFD ] ; then
      mkdir -p $TTFD                     
-  fi                                        &&
+  fi  &&
 
-  cp -f $SOURCE_DIRECTORY/*.ttf $TTFD       
-
+  cp -f $SOURCE_DIRECTORY/*.ttf $TTFD  &&
+  cd $TTFD  &&
+  mkfontdir
 
 ) > $C_FIFO 2>&1
