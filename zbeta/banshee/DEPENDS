@@ -1,13 +1,10 @@
-depends mono &&
-depends monodoc &&
-depends gtk+-2 &&
-depends gtk-sharp2 &&
-depends sqlite &&
-depends libmusicbrainz &&
-depends nautilus-cd-burner &&
-depends gstreamer-10 &&
-depends gst-plugins-base &&
-depends gst-plugins-good &&
-depends gnome-vfsmm &&
-depends gconfmm &&
+depends mono-addins
+depends ndesk-dbus-glib
+depends sqlite
+depends gst-plugins-good
+depends gnome-utils
 depends gnome-sharp
+
+optional_depends "monodoc" "" "--disable-docs" "to build the documentation"
+optional_depends "libmtp" "" "--disable-mtp" "for MTP protocol support"
+optional_depends "ipod-sharp" "" "--disable-ipod" "for Apple iPod support"

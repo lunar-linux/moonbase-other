@@ -1,16 +1,9 @@
-depends  pkgconfig   &&
-depends  fontconfig  &&
+depends pkgconfig
+depends fontconfig
+depends libpng
+depends pixman
 
 optional_depends  "glitz"  "--enable-glitz"  "--disable-glitz"           \
                   "to enable an (experimental) OpenGL backend to cairo"  &&
-
-optional_depends  "libpng"  "--enable-png"  "--disable-png"   \
-                  "to enable PNG image support"               &&
-
-# these both causes a circular depends, but are both valid. *grumble*
-#optional_depends  "librsvg"  "--enable-svg"  "--disable-svg"  \
-#                  "to enable SVG image support"               &&
-#optional_depends  "poppler"  "--enable-pdf"  "--disable-pdf"  \
-#                  "to enable PDF backed support"              &&
 
 optional_depends  "%X"  "--with-x"  "" "for X11 support"

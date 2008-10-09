@@ -1,21 +1,17 @@
 (
 
-  CFLAGS=`echo $CFLAGS | sed s/-ffast-math//` &&
-  CXXFLAGS=`echo $CXXFLAGS | sed s/-ffast-math//` &&
-  
   OPTS="--enable-R-shlib $OPTS"
 
   default_config &&
+
   make &&
   make check &&
-  #uncomment these lines to make documentation
-  #make dvi &&
-  #make pfd &&
-  #make info &&
   prepare_install &&
-  make install 
-  #make install-dvi &&
-  #make install-info &&
-  #make install-pdf
-  
+
+# It fumbles at this point because doc was created as file not dir
+  rm -rf /usr/lib/R &&
+  mkdir -p /usr/lib/R/doc /usr/lib/R/doc/html/search /usr/lib/R/doc/manual &&
+
+  make install
+
 ) > $C_FIFO 2>&1

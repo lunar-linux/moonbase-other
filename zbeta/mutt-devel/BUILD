@@ -5,5 +5,6 @@ OPTS=$OPTS" --enable-pop                     \
             --with-docdir=/usr/share/doc/$MODULE"
 (
    patch_it $SOURCE_CACHE/$SOURCE2 1      &&
-   default_build
+   default_build &&
+   gather_docs doc/Muttrc
 ) > $C_FIFO 2>&1

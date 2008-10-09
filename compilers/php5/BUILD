@@ -1,11 +1,5 @@
 (
 
-  if [ "$USE_IMAP" == "y" ]; then
-    unpack $SOURCE2
-    make -C imap-${IMAP_VERSION} slx SPECIALS="SSLDIR=/etc/ssl SSLINCLUDE=/usr/include SSLLIB=/usr/lib"
-    OPTS="$OPTS --with-imap=imap-${IMAP_VERSION}"
-  fi
-
   if [ "$USE_REGGLOBALS" == "y" ]; then
     OPTS="$OPTS "
   fi

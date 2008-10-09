@@ -1,0 +1,27 @@
+          MODULE=cutecom4
+         VERSION=0.20.0
+          SOURCE=cutecom-$VERSION.tar.gz
+      SOURCE_URL=http://cutecom.sourceforge.net/
+      SOURCE_VFY=sha1:36d430ab25e7f53128c27f39f67a0fe9a2dd18af
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/cutecom-$VERSION
+   MODULE_PREFIX=${QT4_PREFIX:-/opt/lunar/qt/4}
+        WEB_SITE=http://cutecom.sourceforge.net/
+         ENTERED=20080419
+         UPDATED=20080420
+           SHORT="graphical serial terminal, like minicom"
+cat << EOF
+CuteCom is a graphical serial terminal, like minicom
+* easy to use GUI
+* no cryptic keyboard shortcuts
+* lineoriented interface instead of character-oriented
+* Ctrl+C, Ctrl+Q and Ctrl+S control sequences work
+* input history
+* a cute GUI ;-)
+* xmodem, ymodem, zmodem support (requires the sz tools)
+* easy to differentiate between typed text and echoed text
+* select between read/write, read-only and write-only open mode
+* open the device without changing its settings
+* hexadecimal input and output
+* configurable line end characters (LF, CR, LFCR)
+* configurable delay between characters 
+EOF

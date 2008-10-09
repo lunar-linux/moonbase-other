@@ -6,28 +6,35 @@
 
   sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
 
-  OPTS="$OPTS -qt3support"
+  if in_depends qt4 sqlite ; then
+    OPTS+=" -system-sqlite"
+  fi
 
   echo "yes" | ./configure               \
                -prefix ${MODULE_PREFIX}  \
                -release          \
                -fast             \
+               -no-separate-debug-info \
                -shared           \
                -qt-gif           \
                -system-libpng    \
                -system-libjpeg   \
                -system-libmng    \
                -system-zlib      \
-               -no-exceptions    \
+               -exceptions       \
                -nomake examples  \
                -nomake demos     \
+               -accessibility    \
+               -stl              \
+               -webkit           \
+               -fontconfig       \
+               -no-phonon        \
+               -largefile        \
+               -glib             \
+               -qt3support       \
                $OPTS            &&
 
   default_make  &&
-
-  if ! grep -q "${MODULE_PREFIX}/lib" /etc/ld.so.conf; then
-    echo "${MODULE_PREFIX}/lib" >> /etc/ld.so.conf
-  fi  &&
 
   echo "export QTDIR=\"${MODULE_PREFIX}\"" >> $SOURCE_DIRECTORY/qt4.rc  &&
   echo export PATH=\"'${QTDIR}'/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/qt4.rc  &&

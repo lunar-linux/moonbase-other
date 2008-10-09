@@ -3,9 +3,3 @@ if [ "$RElin_PAM_AWARE" == "y" ]; then
         lin -c $mod
   done
 fi
-
-# Vixie-cron pick up LIBPAM_EXTENSION version which can change
-# between Linux-PAM releases
-if module_installed vixie-cron; then
-  lin -c vixie-cron
-fi

@@ -1,6 +1,6 @@
 (
 
-  export PATH=$QTDIR/bin:$PATH
+  . /etc/profile.d/qt3.rc
   cd qt                             &&
   qmake -o Makefile qscintilla.pro  &&
   default_make                      &&

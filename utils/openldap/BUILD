@@ -1,9 +1,5 @@
 (
 
-  if [ "$USE_NTLM" == "y" ]; then
-    patch_it $SOURCE2 0
-  fi
-
   bad_flags ALL
 
   ./configure  --build=$BUILD             \

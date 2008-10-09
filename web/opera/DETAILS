@@ -1,17 +1,19 @@
           MODULE=opera
-         VERSION=9.27
-      SUBVERSION=20080331.5-shared-qt.i386-en
-          SOURCE=$MODULE-$VERSION-$SUBVERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-$SUBVERSION-709
-      SOURCE_URL=http://ftp.heanet.ie/pub/opera/linux/927/final/en/i386/shared
-      SOURCE_VFY=sha1:5eb6c83cf6521d8b7e1183e3d1d3499c7d765885
+      SUBVERSION=2444
+         VERSION=9.60
+          SOURCE=$MODULE-$VERSION.gcc4-shared-qt3.i386.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-$SUBVERSION.gcc4-shared-qt3.i386
+   SOURCE_URL[0]=http://ftp.heanet.ie/pub/opera/linux/${VERSION//\./}/final/en/i386/shared
+   SOURCE_URL[1]=ftp://ftp.opera.com/pub/opera/linux/${VERSION//\./}/final/en/i386/shared
+      SOURCE_VFY=sha1:229137e8f5f373d36b39d348e992774bc0ce094d
         WEB_SITE=http://www.opera.com
       MAINTAINER=ratler@lunar-linux.org
          LICENSE="proprietary"
          ENTERED=20051002
-         UPDATED=20080404
+         UPDATED=20081008
            SHORT="The most full-featured Internet browser on the market"
-         ARCHIVE=off
+GARBAGE=off
+ARCHIVE=off
 
 cat << EOF
 Opera includes pop-up blocking, tabbed browsing, integrated searches,

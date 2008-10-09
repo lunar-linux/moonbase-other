@@ -1,17 +1,3 @@
-cat << EOF
-Certain environment variables must be defined before compiling and using qt3 
-and applications that depend on qt3, QT_PREFIX and/or QTDIR. 
-The default values are:
-   QT_PREFIX="${MODULE_PREFIX}" 
-   QTDIR="${MODULE_PREFIX}"
-You can put the file actual.rc in the /etc/profile.d directory containing the 
-new value of QT_PREFIX, and it's value will be used as the location where the 
-qt3 module to be installed. QTDIR value is used as a default value unless a 
-new value is set for QT_PREFIX. Remember to logout and login again after you
-put/alter the actual.rc file, in order to be processed, and after that to 
-begin the qt3 install process.
-EOF
-
 if module_installed qt3 ; then
   lrm --upgrade qt3
 fi &&
