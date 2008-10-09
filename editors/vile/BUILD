@@ -1,6 +1,6 @@
 (
 
-    default_build                           &&
+    default_build                       &&
     if [ "$USE_MOTIF" == "y" ]; then
       OPTS="$OPTS --with-screen=motif"  &&
       default_config                    &&

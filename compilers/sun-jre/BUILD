@@ -13,6 +13,7 @@
 
 
   echo export PATH=\"'${PATH}':/usr/lib/jre"${VERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
+  echo export JAVA_HOME=\"'${JAVA_HOME}':/usr/lib/jre"${VERSION}"/\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
   install -m644 $SOURCE_DIRECTORY/sun-jre.rc /etc/profile.d/
 
 ) > $C_FIFO 2>&1

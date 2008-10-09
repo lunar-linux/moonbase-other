@@ -12,6 +12,8 @@
     rmdir old.libraries
   fi &&
 
-  cp -f $SOURCE_DIRECTORY/* $DEJ
+  cp -f $SOURCE_DIRECTORY/ttf/* $DEJ  &&
+  cd $DEJ  &&
+  mkfontdir
 
 ) > $C_FIFO 2>&1

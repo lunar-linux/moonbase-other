@@ -1,20 +1,21 @@
           MODULE=Linux-PAM
-         VERSION=0.99.7.1
-        PVERSION=1.8
-       RHVERSION=0.99.7-1
+         VERSION=1.0.1
+        PVERSION=1.9
+       RHVERSION=0.99.9-1
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=$MODULE-patches-$PVERSION.tar.bz2
-   SOURCE_URL[0]=$KERNEL_URL/pub/linux/libs/pam/pre/library/
-   SOURCE_URL[1]=ftp://ftp.kernel.org/pub/linux/libs/pam/pre/library/
+   SOURCE_URL[0]=$KERNEL_URL/pub/linux/libs/pam/library/
+   SOURCE_URL[1]=ftp://ftp.kernel.org/pub/linux/libs/pam/library/
      SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:40f8ba7280fbd8260cfe2ec06b86f972c79eb9d2
-     SOURCE2_VFY=sha1:fea43efb7fe728c06424ee573f2029269f91c8f6
-        WEB_SITE=http://www.us.kernel.org/pub/linux/libs/pam
+      SOURCE_VFY=sha1:c1cdcd28141344b3501121d32e0d57d2a3c14422
+     SOURCE2_VFY=sha1:cc287af3e18cc687d842eef782f3c48756a01fd1
+        WEB_SITE=http://www.kernel.org/pub/linux/libs/pam
       MAINTAINER=ratler@lunar-linux.org
          ENTERED=20010922
-         UPDATED=20070415
-           SHORT="Flexibile authentication mechanisms."
+         UPDATED=20080624
+           SHORT="Pluggable Authentication Modules"
 PSAFE=no
+
 cat << EOF
 Linux-PAM provides a flexible mechanism for authenticating users. PAM
 was invented by SUN Microsystems.

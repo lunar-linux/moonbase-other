@@ -24,9 +24,11 @@
   make -C client mount.cifs umount.cifs &&
   default_make  &&
 
-  # these symlinks are still needed
-  ln -sf /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so.0  &&
-  ln -sf /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so    &&
+# These do not seem to be needed anymore. If uncommented vlc, mplayer to name a
+# couple cannot find libsmbclient.so.
+#  # these symlinks are still needed
+#  ln -sf /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so.0  &&
+#  ln -sf /usr/lib/samba/libsmbclient.so /usr/lib/libsmbclient.so    &&
 
   # install cifs mount helpers
   install -m0755 client/{,u}mount.cifs /sbin/ &&

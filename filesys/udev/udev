@@ -1,15 +1,19 @@
 #! /bin/bash
 #
 # udev init script to setup /dev
-# config: /etc/udev/udev.conf 
+# config: /etc/udev/udev.conf
 
 case "$1" in
 
   start)
     rm -rf /dev/.udevdb
     export ACTION=add
-    /sbin/udevstart
-    /sbin/udevd --daemon || exit 1;
+    /sbin/udevd --daemon
+    /sbin/udevadm trigger
+    /sbin/udevadm settle
+    # Wake up again lazy devices
+    #/sbin/udevadm trigger --retry-failed
+    #/sbin/udevadm settle || exit 1;
     ;;
 
   stop)

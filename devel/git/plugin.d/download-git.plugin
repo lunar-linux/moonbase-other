@@ -103,7 +103,7 @@ plugin_source_needrefresh_git() {
   fi
 
   REPOSITORY_THRESHOLD=${REPOSITORY_THRESHOLD:-10}
-  if (( "GIT_THRESHOLD" > 0 )) ; then
+  if (( "REPOSITORY_THRESHOLD" > 0 )) ; then
     if [ "$(find $3/$2 -amin +$REPOSITORY_THRESHOLD)" == "$3/$2" ] ; then
       # it is older:
       return 0

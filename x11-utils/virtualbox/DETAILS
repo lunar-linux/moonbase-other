@@ -1,15 +1,15 @@
           MODULE=virtualbox
-    MODULE_PREFIX=${VIRTUALBOX_PREFIX:-/usr/lib/virtualbox/}
-     BASE_VERSION=1.5.6
-          VERSION=$BASE_VERSION-1
-           SOURCE=VirtualBox-${VERSION}_OSE.tar.bz2
- SOURCE_DIRECTORY=$BUILD_DIRECTORY/VirtualBox-${BASE_VERSION}_OSE
-       SOURCE_VFY=sha1:1cb11c012b9143e14f2eada645757cae8886d0d1
-       SOURCE_URL=http://195.34.175.98/download/$BASE_VERSION/
-         WEB_SITE=http://virtualbox.org/
-          ENTERED=20071004
-          UPDATED=20080221
-            SHORT="Full virtualizer for x86 hardware"
+    BASE_VERSION=1.6.6
+         VERSION=$BASE_VERSION
+          SOURCE=VirtualBox-${VERSION}-OSE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/VirtualBox-$VERSION
+      SOURCE_URL=http://download.virtualbox.org/$MODULE/$VERSION
+      SOURCE_VFY=sha1:7c323b35d77277c650cbce2821ab6778d1e3270e
+   MODULE_PREFIX=${VIRTUALBOX_PREFIX:-/usr/lib/virtualbox/}
+        WEB_SITE=http://virtualbox.org
+         ENTERED=20071004
+         UPDATED=20080905
+           SHORT="Full virtualizer for x86 hardware"
 
 cat << EOF
 InnoTek VirtualBox is a general-purpose full virtualizer for x86

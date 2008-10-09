@@ -2,7 +2,7 @@
 
   default_config &&
 
-  sedit 's:LIBS =:LIBS = -lz:' src/Makefile
+  sedit 's:LIBS =:LIBS = -lz -lstdc++:' src/Makefile
 
   default_make
 

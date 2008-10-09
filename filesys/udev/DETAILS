@@ -1,17 +1,17 @@
           MODULE=udev
-         VERSION=115
+         VERSION=124
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=udev.rules-v9.patch
+         SOURCE2=udev.rules-v10.patch
          SOURCE3=raid-devfs.sh-udev-088
-      SOURCE_URL=http://www.kernel.org/pub/linux/utils/kernel/hotplug/
+      SOURCE_URL=$KERNEL_URL/pub/linux/utils/kernel/hotplug
      SOURCE2_URL=$PATCH_URL
      SOURCE3_URL=$PATCH_URL
-      SOURCE_VFY=sha1:392f5a8d35a231b0edf075827f194ccfd946234f
-     SOURCE2_VFY=sha1:b089dc4c68c506208f3093b5726ce7f63aa2bada
+      SOURCE_VFY=sha1:5b5426d8b9dc2e7a7b7602ba9fb8fca62e96d8ee
+     SOURCE2_VFY=sha1:82545ca2eb9a9d35aa3c7c7385076e45dd98025e
      SOURCE3_VFY=sha1:44a12035774c2b42b784267d38e61a34aa0b645b
         WEB_SITE=http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html
          ENTERED=20040104
-         UPDATED=20071118
+         UPDATED=20080718
       MAINTAINER=moe@lunar-linux.org
            SHORT="hotplug and device handling daemon"
 
@@ -31,4 +31,4 @@ differences are:
   that fit your needs and rules
 * udev provides LSB standard device names
 * udev is also the hotplug handler of the future
-EOF   
+EOF

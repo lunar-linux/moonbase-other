@@ -1,12 +1,14 @@
           MODULE=file
-         VERSION=4.23
+         VERSION=4.26
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=ftp://ftp.astron.com/pub/$MODULE/
-   SOURCE_URL[1]=ftp://ftp.gw.com/pub/unix/$MODULE/
-      SOURCE_VFY=sha1:83a90894a6b89f80207b9fcf0e382a627e4c5f0b
+         SOURCE2=file-Bio-Rad-magic.patch
+   SOURCE_URL[0]=ftp://ftp.astron.com/pub/$MODULE
+   SOURCE_URL[1]=ftp://ftp.gw.com/pub/unix/$MODULE
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:412cdac5cd778d867e2d91a01b09858be1998ec3
         WEB_SITE=ftp://ftp.astron.com/pub/file
          ENTERED=20010922
-         UPDATED=20071229
+         UPDATED=20080901
            SHORT="File attempts to classify files by their content"
 
 cat << EOF

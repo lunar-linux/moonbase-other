@@ -1,0 +1,17 @@
+depends freetype2 &&
+depends pcre &&
+
+optional_depends libxml2 "--with-default-xml-parser=LibxmlParser" \
+			"--disable-libxml" \
+			 "build with LibxmlParser" &&
+optional_depends xerces-c++ "--with-default-xml-parser=XercesParser" \
+			"--disable-xerces-c" \
+			"build with XercesParser" &&
+optional_depends expat	"--with-default-xml-parser=ExpatParser" \
+			"--disable-expat" \
+			"build with ExpatParser" &&
+optional_depends FreeImage "--with-default-image-codec=FreeImageImageCodec" \
+			"" \
+			"build with FreeImageImageCodec" &&
+optional_depends lua	"" "--disable-lua-module" "build with lua"
+
