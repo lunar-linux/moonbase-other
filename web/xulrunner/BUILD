@@ -4,14 +4,13 @@
 
   patch_it patch/mozilla-ps-pdf-simplify-operators.patch 1 &&
   patch_it patch/100-system-hunspell-corrections.patch 0 &&
-  patch_it patch/bzXXX_pc_honour_system_nspr_nss.patch 1 &&
+#  patch_it patch/bzXXX_pc_honour_system_nspr_nss.patch 1 &&
   patch_it patch/mozilla-pkgconfig.patch 1 &&
   patch_it patch/fix-mozilla-launcher.patch 0 &&
 
   OPTS+=" --enable-application=xulrunner \
           --prefix=/usr \
           --libdir=/usr/lib \
-          --with-system-nspr \
           --with-system-jpeg \
           --with-system-zlib \
           --with-system-bz2 \
