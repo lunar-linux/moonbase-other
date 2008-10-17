@@ -1,15 +1,10 @@
 (
 
-# This fixes build break on my machine
-CFLAGS="${CFLAGS//-fforce-addr/}"
-  ./configure --prefix=/usr      \
-              --enable-gpl       \
-              --enable-shared    \
-              --enable-swscaler  \
-              --enable-pp        \
-              --enable-pthreads  \
-              $OPTS              &&
+  OPTS+=" --enable-gpl --enable-shared --enable-pthreads \
+          --enable-postproc --enable-swscale"
 
-  default_make
+  [ -n $CPU ] && OPTS+="$OPTS --cpu=$CPU"
+
+  default_build
 
 ) > $C_FIFO 2>&1
