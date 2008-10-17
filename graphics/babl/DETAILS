@@ -1,13 +1,18 @@
           MODULE=babl
          VERSION=0.0.22
-          SOURCE=${MODULE}-${VERSION}.tar.bz2
-      SOURCE_URL=ftp://ftp.gtk.org/pub/babl/0.0/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+          SOURCE=$MODULE-$VERSION.tar.bz2
+   SOURCE_URL[0]=ftp://ftp.gtk.org/pub/babl/0.0/
+   SOURCE_URL[1]=ftp://ftp.gimp.org/pub/babl/0.0/
       SOURCE_VFY=sha1:9de50fb5833f41691f50f6e735d6422aad52ea94
-        WEB_SITE="http://gegl.org/babl/"
-         ENTERED=20081016
-         UPDATED=20081016
-           SHORT="pixel format translation library"
-cat <<EOF
-babl is a dynamic, any to any, pixel format translation library.
+        WEB_SITE=http://gegl.org/babl/
+         ENTERED=20081017
+         UPDATED=20081017
+           SHORT="dynamic, any to any, pixel format translation library"
+cat << EOF
+It allows converting between different methods of storing pixels
+known as pixel formats that have with different bitdepths
+and other data representations, color models and component permutations.
+A vocabulary to formulate new pixel formats from existing primitives
+is provided as well as the framework to add
+new color models and data types.
 EOF
