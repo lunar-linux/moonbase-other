@@ -49,6 +49,8 @@
   ln -sf ${OO_DIR}/program/swriter swriter &&
 
   if [ "$USE_DESKTOPINTEGRATION" = "y" ] ; then
+    sedit 's:/opt/:/opt/lunar/openoffice/:g' \
+          ${OO_DESK_DIR}/bin/openoffice.org3 &&
     install -m755 ${OO_DESK_DIR}/bin/openoffice.org3 \
                   ${OO_DESK_DIR}/bin/openoffice.org3-printeradmin /usr/bin/ &&
 
