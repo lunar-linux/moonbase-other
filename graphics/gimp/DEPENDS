@@ -2,6 +2,7 @@ depends  gtk+-2
 depends  libart_lgpl
 depends  fontconfig
 depends  intltool
+depends  gegl
 
 optional_depends  "libmng"                  \
                   ""                        \
@@ -32,3 +33,18 @@ optional_depends  "gnome-desktop"           \
                   "--enable-gnome-desktop"  \
                   ""                        \
                   "for Gnome2 support"
+
+optional_depends  "gvfs"                    \
+                  ""                        \
+                  "--without-gvfs"          \
+                  "for remote file support"
+
+optional_depends  "WebKit"                  \
+                  ""                        \
+                  "--without-webkit"        \
+                  "for help browser support"
+
+optional_depends  "poppler"                 \
+                  ""                        \
+                  "--without-poppler"       \
+                  "for pdf support"
