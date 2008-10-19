@@ -5,6 +5,11 @@
   patch_it $SOURCE7 1   &&
   patch_it $SOURCE8 1   &&
 
+  # Apply if kernel >= 2.6.27
+  if grep -q 2.6.27 /usr/src/linux/include/linux/utsrelease.h; then
+    patch_it $SOURCE9 1
+  fi &&
+
   # Autoconf fix
   sedit 's;^AC_\(AIX\|MINIX\)$;;' acinclude.m4 &&
 
