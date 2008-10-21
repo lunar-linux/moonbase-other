@@ -1,4 +1,5 @@
 (
+  export CXXFLAGS+=" -fPIC"
   cd unrar &&
   cp makefile.unix Makefile &&
   sedit 's:#define UINT:#define LPARAM long\n#define UINT:' dll.hpp &&
