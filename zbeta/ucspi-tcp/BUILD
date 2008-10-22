@@ -1,5 +1,6 @@
 (
-    patch -p1 < $SOURCE_CACHE/$SOURCE2  &&
+    patch_it $SOURCE2 1                 &&
+
     echo /usr > conf-home               &&
     make                                &&
 
