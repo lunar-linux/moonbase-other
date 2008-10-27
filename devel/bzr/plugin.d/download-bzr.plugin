@@ -91,7 +91,7 @@ plugin_source_download_bzr() {
 
 plugin_source_needrefresh_bzr() {
   # check if we can handle this URL format
-  if [ "${1:0:6}" != "bzr://" -a "${1:0:11}" != "bzr+http://" -a "${1:0:12}" != "bzr+https://" -a "${1:0:10}" != "bzr+ssh://" ] ; then
+  if [ "${1:0:11}" != "bzr+http://" -a "${1:0:12}" != "bzr+https://" -a "${1:0:10}" != "bzr+ssh://" ] ; then
     return 2
   fi
   debug_msg "plugin_source_needrefresh_bzr($@)"
