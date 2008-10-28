@@ -1,6 +1,7 @@
 (
 
   patch_it $SOURCE3 0 &&
+  patch_it $SOURCE4 1 &&
   unpack $SOURCE2 &&
   sedit "s/-g -O2/${CFLAGS}/" Makefile &&
   make prefix=/usr strip &&
