@@ -1,23 +1,22 @@
-          MODULE=usermin
-         VERSION=1.370
+          MODULE=webmin
+         VERSION=1.441
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-1.080-lunar.patch.bz2
+         SOURCE2=$MODULE-1.150-lunar.patch.bz2
       SOURCE_URL=$SFORGE_URL/webadmin
      SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:b3b4b6ed3d091f8423d4c1ead161c78600d63f23
-     SOURCE2_VFY=sha1:d5b8bb1f15ac777e786928b095d57d4a39d64e50
+      SOURCE_VFY=sha1:ddbd07c8f534c25a16e95a9567eb210a5ef5a906
+     SOURCE2_VFY=sha1:5ae7d0001e0050fcadf73b8cd2e392de84e96664
         WEB_SITE=http://www.webmin.com
-         ENTERED=20020723
-         UPDATED=20081026
-           SHORT="A webbased user administration tool"
+         ENTERED=20020415
+         UPDATED=20081028
+           SHORT="A webbased server administration tool"
 
 cat << EOF
-Usermin is a web interface that can be used by any user on a Unix system 
-to easily perform tasks like reading mail, setting up SSH or configuring 
-mail forwarding. It can be thought of as a simplified version of Webmin 
-designed for use by normal users rather than system administrators. 
-Like Webmin, Usermin consists of a simple web server, and a number of 
-CGI programs which directly update user config files like ~/.cshrc and 
-~/.forward. The web server and all CGI programs are written in Perl 
-version 5, and use only the non-standard Authen::PAM perl module. 
+Webmin is a web-based interface for system administration for Unix. Using 
+any browser that supports tables and forms (and Java for the File Manager 
+module), you can setup user accounts, Apache, DNS, file sharing and so on.
+Webmin consists of a simple web server, and a number of CGI programs which
+directly update system files like /etc/inetd.conf and /etc/passwd. The web
+server and all CGI programs are written in Perl version 5, and use no
+non-standard Perl modules.
 EOF
