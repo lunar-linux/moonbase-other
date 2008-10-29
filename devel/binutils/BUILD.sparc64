@@ -4,9 +4,10 @@
   sedit 's/^all: all-redirect/all: all-redirect $(MKDOC)/' \
                     bfd/doc/Makefile.in  &&
 
-  ./configure  --host=$BUILD             \
-               --target=sparc-linux      \
-               --prefix=/usr             &&
+  ./configure  --host=$BUILD         \
+               --target=sparc-linux  \
+               --prefix=/usr        &&
+
   make tooldir=/usr          &&
   prepare_install            &&
   make tooldir=/usr install  &&
