@@ -1,13 +1,16 @@
           MODULE=binutils
-         VERSION=2.19
+         VERSION=2.18
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=$GNU_URL/$MODULE
-   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE
-      SOURCE_VFY=sha1:a150b97ec47996bf8f01d6bc14d41587faa4bbff
+         SOURCE2=binutils-2.18-makeinfo.patch
+   SOURCE_URL[0]=$GNU_URL/$MODULE/
+   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:fdec92e9dfc6c32155869f3910f47041c78e2277
+     SOURCE2_VFY=sha1:f42e425f7651f8d80838514e4cc34917bde8f6b3
         WEB_SITE=http://sources.redhat.com/binutils
          ENTERED=20010922
-         UPDATED=20081029
-           SHORT="An essential collection of binary utilities"
+         UPDATED=20071121
+           SHORT="essential collection of binary utilities."
 
 cat << EOF
 binutils - Collection of binary utilities
@@ -25,3 +28,4 @@ c++filt   -filter to demangle encoded C++ symbols
 addr2line -converts addresses to file and line
 nlmconv   -converts object code into an NLM
 EOF
+
