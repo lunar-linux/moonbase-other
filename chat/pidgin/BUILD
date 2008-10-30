@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --disable-nm"
+  OPTS+=" --disable-avahi --disable-meanwhile --disable-nm"
 
   default_build
 
