@@ -11,6 +11,34 @@ depends which
 depends desktop-file-utils
 depends hicolor-icon-theme
 depends IO-Compress-Zlib
+depends gperf
+depends jpeg
+depends expat
+
+optional_depends "libxslt"                  \
+                 "--with-system-libxslt"    \
+                 "--without-system-libxslt" \
+                 "For xslt support"
+
+optional_depends "sun-jdk"        \
+                 "--with-java"    \
+                 "--without-java" \
+                 "For java components, applets, XML filters support"
+
+optional_depends "openssl"                  \
+                 "--with-system-openssl"    \
+                 "--without-system-openssl" \
+                 "For openssl support"
+
+optional_depends "libwpd"                  \
+                 "--with-system-libwpd"    \
+                 "--without-system-libwpd" \
+                 "For WordPerfect support"
+
+optional_depends "icu4c"                  \
+                 "--with-system-icu"    \
+                 "--without-system-icu" \
+                 "For icu support"
 
 optional_depends "boost"                  \
                  "--with-system-boost"    \
@@ -48,13 +76,13 @@ optional_depends "evolution-data-server"            \
                  "for Evolution addressbook support"
 
 optional_depends "gnome-vfs"                             \
-                 "--enable-gnome-vfs --enable-lockdown"   \
-                 "--disable-gnome-vfs --disable-lockdown" \
+                 "--enable-gnome-vfs --enable-lockdown --enable-gio"   \
+                 "--disable-gnome-vfs --disable-lockdown --disable-gio" \
                  "for GNOME-vfs integration"
 
 optional_depends "kdelibs3"             \
-                 "--enable-kde"         \
-                 "--disable-kde"        \
+                 "--enable-kde --enable-kdeab"   \
+                 "--disable-kde --disable-kdeab" \
                  "to enable KDE support"
 
 optional_depends "Linux-PAM"            \
@@ -62,25 +90,10 @@ optional_depends "Linux-PAM"            \
                  "--disable-pam"        \
                  "for Linux-PAM support"
 
-optional_depends "libsndfile"                       \
-                 "--with-system-sndfile"            \
-                 "--without-system-sndfile"         \
-                 "to enable sound output in Impress"
-
-optional_depends "startup-notification"            \
-                 "--enable-libsn"                  \
-                 "--disable-libsn"                 \
-                 "for startup notification support"
-
 optional_depends "boost"                             \
                  "--with-system-boost"               \
                  "--without-system-boost"            \
                  "to use the already installed boost"
-
-optional_depends "unixODBC"                               \
-                 "--with-system-odbc-headers"             \
-                 "--without-system-odbc-headers"          \
-                 "For Open Database Connectivity Support"
 
 optional_depends "vigra"                         \
                  "--with-system-vigra"           \
