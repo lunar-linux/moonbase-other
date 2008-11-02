@@ -1,0 +1,13 @@
+depends evas-svn
+
+optional_depends "openssl"  "--enable-openssl"  "--disable-openssl"      \
+                 "for ssl support in Ecore_Con"
+optional_depends "dbus"     ""                  "--disable-ecore-dbus"   \
+                 "for support of the message bus subsystem (Ecore_DBus)"
+optional_depends "DirectFB"                                              \
+                 "" "--disable-ecore-dfb  --disable-ecore-evas-dfb"      \
+                 "for support of DirectFB (Ecore_DirectFB)"
+optional_depends "curl"           ""            "--disable-curl"         \
+                 "for file download support in Ecore_File"
+optional_depends "xscreensaver"   ""            ""                       \
+                 "for screen locking support in Ecore_X"
