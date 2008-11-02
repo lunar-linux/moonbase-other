@@ -1,0 +1,43 @@
+          MODULE=e_modules-svn
+         VERSION=svn-`date +%U`
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=cvs://:pserver:anonymous@anoncvs.enlightenment.org:/var/cvs/e:e_modules
+        WEB_SITE=http://www.enlightenment.org
+         ENTERED=20050330
+         UPDATED=20081102
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="a collection of e17 desktop modules"
+
+cat << EOF
+This is a collection of non-official e17 desktop modules.  It should be
+known that these modules were created by the community and are not
+officially approved/supported by the e17 development team.
+
+Current Modules:
+ alarm:       An event reminder.
+ bling:       An X composite manager.
+ cpu:         Displays CPU usage.
+ deskshow:    Iconifies all windows on the screen so you can see the
+              Desktop.
+ emu:         A module to allow people to run modules written in code
+              other than C.
+ flame:       Displays flames at the bottom of the screen.
+ language:    Changes the active keyboard language/layout variant.
+ mail:        Periodically checks for new e-mail messages.
+ mem:         Displays RAM usage.
+ mixer:       A volume control module.
+ moon:        Displays moon phase information on your desktop.
+ net:         Displays network (not wireless) usage.
+ photo:       Displays pictures on your desktop.
+ rain:        Displays rain effects on your desktop.
+ screenshot:  Allows you to take a screenshot from a module on your
+              desktop.
+ slideshow:   A desktop background rotater.
+ snow:        Displays Christmas trees and falling snow on your desktop.
+ taskbar:     A taskbar to track your running applications.
+ tclock:      Displays an alternate style of clock on your desktop.
+ uptime:      Displays system uptime.
+ weather:     Displays weather information for places around the world.
+ winselector: Menu based access to all of your windows.
+ wlan:        Dispalys wireless network usage.
+EOF
