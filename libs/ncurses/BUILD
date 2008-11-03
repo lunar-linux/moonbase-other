@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   if [ $WITH_DEBUG == "y" ]; then
     OPTS="$OPTS --with-debug"
   else
