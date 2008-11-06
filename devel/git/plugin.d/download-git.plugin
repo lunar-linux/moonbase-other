@@ -63,7 +63,7 @@ plugin_source_download_git() {
     if [ -d "$SBASE/.git" ] ; then
       cd $SBASE
       verbose_msg "[${TRY}] git pull"
-      git pull && GOT_GIT="yes" 
+      git pull && git gc && GOT_GIT="yes" 
       cd ${CD}
     else
       verbose_msg "[${TRY}] git clone $GIT_URL"
