@@ -1,10 +1,6 @@
 (
-
   chmod +x $SOURCE &&
   ./$SOURCE --accept-license --unpack &&
-
-  # Clean up before install (fixes nested symlinks problem)
-  rm -rf /usr/lib/jdk1.6.0_*
 
   prepare_install &&
 
@@ -25,8 +21,15 @@
 
   mkdir -p /opt/lunar/plugins &&
   rm -f /opt/lunar/plugins/libjavaplugin_oji.so &&
+  rm -f /opt/lunar/plugins/libnpjp2.so &&
+
+  if [ $NEWPLUGIN == 'y' ]; then
+  ln -sf /usr/lib/jdk${VERSION}/jre/lib/i386/libnpjp2.so \
+         /opt/lunar/plugins/
+  else
   ln -sf /usr/lib/jdk${VERSION}/jre/plugin/i386/ns7/libjavaplugin_oji.so \
-         /opt/lunar/plugins/ &&
+         /opt/lunar/plugins/
+  fi &&
 
 
   echo export PATH=\"'${PATH}':/usr/lib/jdk"${VERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
