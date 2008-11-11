@@ -1,8 +1,8 @@
 (
 
-   bzcat $SOURCE_CACHE/$SOURCE > microcode.dat &&
    prepare_install &&
-   install -m644 microcode.dat /etc/ &&
-   rm microcode.dat
+   mkdir -p /etc/firmware &&
+   install -m644 $MODULE-$VERSION.dat /etc/firmware &&
+   ln -sf /etc/firmware/$MODULE-$VERSION.dat /etc/microcode.dat
 
 ) > $C_FIFO 2>&1
