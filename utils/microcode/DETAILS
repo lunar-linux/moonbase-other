@@ -1,13 +1,25 @@
           MODULE=microcode
-         VERSION=20070907.dat
-          SOURCE=${MODULE}-${VERSION}.bz2
-      SOURCE_URL=http://www.urbanmyth.org/microcode/ucode/
+         VERSION=20080910
+          SOURCE=$MODULE-$VERSION.tgz
+      SOURCE_URL=http://downloadmirror.intel.com/14303/eng/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:d51a6d76758bdf29145078377a60c4c23656310f
-        WEB_SITE="http://www.urbanmyth.org/microcode/"
+      SOURCE_VFY=sha1:4be35128816268521f93362095c3fa26f1ce9388
+        WEB_SITE=http://downloadcenter.intel.com/
          ENTERED=20070916
-         UPDATED=20070916
+         UPDATED=20081111
            SHORT="Intel microcode - data files"
 cat <<EOF
-Processor microcode files.
+The microcode data file contains the latest
+microcode definitions for all Intel processors.
+Intel releases microcode updates to correct
+processor behavior as documented
+in the respective processor specification updates.
+While the regular approach to getting
+this microcode update is via a BIOS upgrade,
+Intel realizes that this can be an administrative hassle.
+The Linux Operating System and VMware ESX products
+have a mechanism to update the microcode after booting.
+For example, this file will be used by
+the operating system mechanism if the file is placed
+in the /etc/firmware directory of the Linux system.
 EOF
