@@ -1,12 +1,19 @@
           MODULE=fglrx
          VERSION=8.10
         FVERSION=`echo $VERSION |tr . -`
-          SOURCE=ati-driver-installer-$FVERSION-x86.x86_64.run
-      SOURCE_URL=https://www2.ati.com/drivers/linux/
-      SOURCE_VFY=sha1:9d1870c13bc9d7e5dccfcc62376828ff28471f0a
+        UVERSION=8.543
+          SOURCE=$MODULE-installer_$UVERSION.orig.tar.gz
+   SOURCE_URL[0]=http://security.ubuntu.com/ubuntu/pool/restricted/f/fglrx-installer/
+   SOURCE_URL[1]=http://archive.ubuntu.com/ubuntu/pool/restricted/f/fglrx-installer/
+   SOURCE_URL[2]=http://mirror.ne.gov/ubuntu/pool/multiverse/f/fglrx-installer/
+   SOURCE_URL[3]=ftp://ftp.daum.net/ubuntu/pool/restricted/f/fglrx-installer/
+   SOURCE_URL[4]=ftp://ftp.klid.dk/ftp/ubuntu/pool/restricted/f/fglrx/
+   SOURCE_URL[5]=ftp://ftp.science.nus.edu.sg/ubuntu/pool/restricted/f/fglrx/
+      SOURCE_VFY=sha1:52a8f2f9e52c9a147e0b5e87280d5377d92e967d
         WEB_SITE=http://ati.amd.com/
          ENTERED=20040220
-         UPDATED=20081106
+         UPDATED=20081111
+>>>>>>> master:x11/fglrx/DETAILS
          LICENSE="proprietary"
            SHORT="Proprietary X.org driver for the AMD ATI Radeon GPUs"
 cat << EOF
