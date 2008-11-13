@@ -1,8 +1,5 @@
 (
 
-  if [[ $HTTPD_CONF != 'y' ]] then
-    OPTS+=' --disable-mod-activation'
-  fi
   if in_depends $MODULE sun-jdk; then
     JAVA_HOME=$(expr /usr/lib/jdk*)
     OPTS+=" --with-jdk=$JAVA_HOME"
