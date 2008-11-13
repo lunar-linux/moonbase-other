@@ -1,11 +1,11 @@
 (
 
-  sedit "s:/usr/local:/usr:" build/linux/osync_build.py
+  BUILD_DIRECTORY="$SOURCE_DIRECTORY/build"
+  mkdir $BUILD_DIRECTORY &&
+  cd $BUILD_DIRECTORY &&
 
-  scons PREFIX=/usr  &&
-
-  prepare_install    &&
-
-  scons install
+  cmake $SOURCE_DIRECTORY -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
+                          -DCMAKE_BUILD_TYPE=RELEASE &&
+  default_make
 
 ) > $C_FIFO 2>&1
