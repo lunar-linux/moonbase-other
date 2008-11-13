@@ -1,8 +1,4 @@
 (
-  FGLRX_DIRECTORY="$SOURCE_DIRECTORY/fglrx-install"
-
-  sh $SOURCE --extract fglrx-install &&
-  cd fglrx-install &&
 
   # We build the kernel BEFORE actually calling prepare install
   # so it doesn't remove a working driver incase the kernel module
@@ -18,23 +14,23 @@
 
   export KPATH KVER &&
 
-  cd common/lib/modules/fglrx/build_mod/ &&
+  cd lib/modules/fglrx/build_mod &&
 
   # This symlink is needed for the kernel module to compile correctly
-  ln -s $FGLRX_DIRECTORY/arch/x86/lib/modules/fglrx/build_mod/libfglrx_ip.a.GCC4 \
-        $FGLRX_DIRECTORY/common/lib/modules/fglrx/build_mod &&
+  ln -s $SOURCE_DIRECTORY/arch/x86/lib/modules/fglrx/build_mod/libfglrx_ip.a.GCC4 \
+        libfglrx_ip.a.GCC4 &&
 
   sh make.sh || exit 1
 
-  cd $FGLRX_DIRECTORY &&
+  cd $SOURCE_DIRECTORY &&
 
   prepare_install &&
 
   mkdir -p /etc/ati &&
 
   # Install /etc files
-  for file in common/etc/ati/*; do
-    install -m0644 $file /etc/ati/
+  for file in etc/ati/*; do
+    install -m0644 $file /etc/ati
   done &&
 
   if [ ! -f /etc/ati/amdpcsdb ]; then
@@ -42,28 +38,24 @@
   fi &&
   
   # Easy way out
-  cp -af common/usr/sbin /usr &&
-  cp -af common/usr/share/ati /usr/share &&
-  cp -af common/usr/share/doc /usr/share &&
-  cp -af common/usr/share/icons /usr/share &&
-  cp -af common/usr/share/man /usr/share &&
-  cp -af common/usr/include /usr &&
+  cp -af usr/sbin /usr &&
+  cp -af usr/share /usr &&
+  cp -af usr/include /usr &&
 
   # X11R6 is deprecated
   
-  cp -af common/usr/X11R6/include /usr/X11 &&
-  install -m644 packages/Debian/dists/sid/amdcccle.desktop /usr/share/applications &&
+  cp -af usr/X11R6/include /usr/X11 &&
 
   cp -af arch/x86/usr/sbin /usr &&
 
-  install -m755 arch/x86/usr/X11R6/bin/* /usr/X11/bin/ &&
+  install -m755 arch/x86/usr/X11R6/bin/* /usr/X11/bin &&
 
   mkdir -p /usr/X11/lib/dri &&
 
   # We need a special location for the libaries
   mkdir -p /usr/lib/opengl/ati &&
 
-  cp -af arch/x86/usr/X11R6/lib/lib* /usr/lib/opengl/ati/ &&
+  cp -af arch/x86/usr/X11R6/lib/lib* /usr/lib/opengl/ati &&
   cp -af arch/x86/usr/X11R6/lib/modules/dri/fglrx_dri.so \
          /usr/X11/lib/dri &&
 
@@ -81,14 +73,14 @@
           /usr/lib/opengl/ati/${file}.so.1
   done &&
 
-  cp -af x710/usr/X11R6/lib/modules /usr/X11/lib/xorg/ &&
+  cp -af x740/usr/X11R6/lib/modules /usr/X11/lib/xorg &&
 
   mkdir -p /usr/X11/lib/modules/dri &&
-  ln -sf /usr/X11/lib/dri/fglrx_dri.so /usr/X11/lib/modules/dri/ &&
+  ln -sf /usr/X11/lib/dri/fglrx_dri.so /usr/X11/lib/modules/dri/fglrx_dri.so &&
 
   mkdir -p /lib/modules/${KVER}/drivers/char/drm &&
-  install -m644 common/lib/modules/fglrx/build_mod/2.6.x/fglrx.ko \
-          /lib/modules/${KVER}/drivers/char/drm/ &&
+  install -m644 lib/modules/fglrx/build_mod/2.6.x/fglrx.ko \
+          /lib/modules/${KVER}/drivers/char/drm &&
 
   # Get a sane default if haven't set it yet
   if [ "x$LUNAR_GL" == "x" ] ; then
