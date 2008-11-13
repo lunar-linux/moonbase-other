@@ -1,5 +1,4 @@
 (
-
   chmod +x $SOURCE &&
   ./$SOURCE --accept-license --unpack &&
 
@@ -8,6 +7,7 @@
   cp -r $SOURCE_DIRECTORY/jdk${VERSION} /usr/lib/ &&
 
   # Some apps only search for java in /usr/java
+  rm  -f /usr/java &&
   ln -sf /usr/lib/jdk${VERSION} /usr/java &&
 
   # Some applications don't accept anything but /usr/bin
@@ -21,12 +21,19 @@
 
   mkdir -p /opt/lunar/plugins &&
   rm -f /opt/lunar/plugins/libjavaplugin_oji.so &&
+  rm -f /opt/lunar/plugins/libnpjp2.so &&
+
+  if [ $NEWPLUGIN == 'y' ]; then
+  ln -sf /usr/lib/jdk${VERSION}/jre/lib/i386/libnpjp2.so \
+         /opt/lunar/plugins/
+  else
   ln -sf /usr/lib/jdk${VERSION}/jre/plugin/i386/ns7/libjavaplugin_oji.so \
-         /opt/lunar/plugins/ &&
+         /opt/lunar/plugins/
+  fi &&
 
 
   echo export PATH=\"'${PATH}':/usr/lib/jdk"${VERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
-  echo export JAVA_HOME=\"'${JAVA_HOME}':/usr/lib/jdk"${VERSION}"/\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
+  echo export JAVA_HOME=\"/usr/lib/jdk"${VERSION}"/\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
   install -m644 $SOURCE_DIRECTORY/sun-jdk.rc /etc/profile.d/
 
 ) > $C_FIFO 2>&1
