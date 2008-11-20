@@ -1,11 +1,21 @@
 depends ijs
 
+optional_depends "gtk+-2"  \
+                 ""        \
+                 ""        \
+                 "to build GTK support"
+
+optional_depends "gimp"  \
+                 ""      \
+                 ""      \
+                 "for GIMP support"
+
 optional_depends "cups" \
                  "--with-cups" \
                  "--without-cups" \
                  "to build CUPS drivers"
 
-optional_depends "%GHOSTSCRIPT" \
+optional_depends "ghostscript" \
                  "--with-ghostscript" \
                  "--without-ghostscript" \
                  "to build Ghostscript driver"

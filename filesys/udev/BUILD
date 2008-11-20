@@ -5,15 +5,15 @@
     add_priv_group usb
     add_priv_group cdrw
 
-    # create static nodes dir if missing
-    mkdir -p /lib/udev/devices &&
-
     patch_it $SOURCE2 0 &&
 
     for DIR in `ls extras`; do EXTRAS+="extras/$DIR "; done &&
     sedit "s@^EXTRAS\ =@EXTRAS =$EXTRAS@" Makefile &&
 
     default_build &&
+
+    # create static nodes dir if missing
+    mkdir -p /lib/udev/devices &&
 
     # install the init.d script
     # we cannot use automagic install via coretools
@@ -30,8 +30,9 @@
     install -m755 ${SOURCE_CACHE}/${SOURCE3} \
                   /etc/udev/scripts.d/raid-devfs.sh &&
 
-    # We need to remove those in order to get a clean start
-    rm -f /etc/udev/rules.d/70-persistent-{cd,net}.rules &&
+    if [ "$WIPE_NET_DEV" == "y" ] ; then
+      rm -f /etc/udev/rules.d/70-persistent-{cd,net}.rules
+    fi &&
 
     mv -f /etc/udev/rules.d/40-gentoo.rules /etc/udev/rules.d/40-lunar.rules
 

@@ -1,7 +1,7 @@
 (
 
-  OPTS+=" --enable-gpl --enable-nonfree --enable-shared --enable-pthreads \
-          --enable-postproc"
+  OPTS+=" --enable-gpl --enable-shared --enable-pthreads \
+          --enable-postproc --enable-swscale"
 
  [ -n $CPU ] && OPTS+="$OPTS --cpu=$CPU"
   ./configure --prefix=/usr $OPTS &&

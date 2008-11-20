@@ -2,8 +2,10 @@
 
   bad_flags -malign-double
 
-  OPTS=$OPTS" --bindir=/bin --with-installed-readline --with-curses"
-  
+  OPTS+=" --bindir=/bin --with-installed-readline --with-curses"
+
+  patch_it $SOURCE2 0 &&
+
   default_build &&
   ln -sf bash /bin/sh &&
   ln -f /bin/bash /bin/rbash &&
@@ -17,7 +19,7 @@
   done &&
 
   mkdir -p /etc/skel &&
-  
+
   if [ -L /etc/skel/.bashrc ] ; then
     rm /etc/skel/.bashrc
   fi &&

@@ -1,5 +1,8 @@
 depends libdaemon
 
+
+optional_depends "nss-mdns" "" "" "for Name Switching Services Support"
+
 optional_depends "qt3" \
                  "--enable-qt3" \
                  "--disable-qt3" \
@@ -30,5 +33,5 @@ optional_depends "xmlto" \
                  "--disable-xmltoman" \
                  "to build the manpages"
 
-optional_depends "gtk-sharp2"  "--enable-mono"  "--disable-mono"  \
+optional_depends "gtk-sharp"  "--enable-mono"  "--disable-mono"  \
                  "to build the Mono/.NET avahi-sharp library"
