@@ -1,11 +1,12 @@
           MODULE=ffmpeg
-         VERSION=beta
-          SOURCE=${MODULE}-export-snapshot.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-export-$(TZ=GMT-8 date +%F)
-      SOURCE_URL=http://ffmpeg.mplayerhq.hu/
-        WEB_SITE=http://ffmpeg.sourceforge.net/
+         VERSION=r15261
+          SOURCE=$MODULE-snapshot-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-snapshot-$VERSION
+      SOURCE_URL=$MIRROR_URL
+SOURCE_VFY=sha1:1cab8d63d6314c479e1041d76d2280bff9f15200
+        WEB_SITE=http://ffmpeg.mplayerhq.hu/
          ENTERED=20020327
-         UPDATED=`date -u +%Y%m01`
+         UPDATED=20080918
       MAINTAINER=stumbles@lunar-linux.org
            SHORT="ffmpeg is an avi decoder"
 
@@ -18,6 +19,7 @@ simultaneously, a streaming server for Netcasting multimedia.
 FFmpeg generates streaming files, in many popular formats
 simultaneously, faster than any other solution.
 
-Note: The UPDATED field will always reflect the date/time it was retreived 
-      from their svn.
+Note: DO NOT BUMP THIS MODULE. They are going through MAJOR ABI/API
+revisions, and this is the last good revision. So don't EVEN THINK
+ABOUT IT!
 EOF

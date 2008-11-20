@@ -24,6 +24,7 @@
               --mandir=/usr/share/man    \
         --with-tcl=../tcl$VERSION/unix  &&
   default_make                          &&
+  make install-private-headers          &&
 
   ln -sf wish${TK_VER} /usr/bin/wish
 

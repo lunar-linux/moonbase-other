@@ -1,0 +1,18 @@
+          MODULE=xf86-video-mach64
+         VERSION=6.8.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$XORG_URL/individual/driver/
+      SOURCE_VFY=sha1:0f130aca927ede0fd3ed7876c52817a5ef9215bb
+   MODULE_PREFIX=${X11R7_PREFIX:-/usr}
+        WEB_SITE=http://www.x.org/
+         ENTERED=20080918
+         UPDATED=20080918
+           SHORT="the X.Org video driver for older ATI/Mach64 based cards"
+
+cat << EOF
+xf86-video-mach64 provides the X.Org video drivers for older the
+older ATI/Mach64 based video cards.
+
+This driver does not support newer ATI Rage or Radeon cards: see
+the xf86-video-ati and xf86-video-radeonhd modules.
+EOF

@@ -1,4 +1,3 @@
-    cat patch_it $SOURCE_CACHE/$SOURCE2 | patch setup.sh
 
     if [ -e $CONFIG_CACHE/.config-$SPELL-.setup.config ];  then
         cp $CONFIG_CACHE/.config-$SPELL-.setup.config .setup.config

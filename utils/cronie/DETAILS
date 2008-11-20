@@ -1,0 +1,22 @@
+          MODULE=cronie
+         VERSION=1.2
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+         SOURCE2=run-parts-0.2
+         SOURCE3=crontab-0.1
+      SOURCE_URL=http://people.su.se/~swold/cronie/
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
+      SOURCE_VFY=sha1:efe291aec190b211f7a4cc50707a6cbb873c79d1
+     SOURCE2_VFY=sha1:94d6d2d782e088bd379991c2899054d01802baab
+     SOURCE3_VFY=sha1:152be3e3a358d70eabe10957c3c6ba0651e5b7e9
+      MAINTAINER=ratler@lunar-linux.org
+        WEB_SITE="https://fedorahosted.org/cronie"
+         ENTERED=20080626
+         UPDATED=20080730
+           SHORT="Cron daemon for executing programs at set times"
+cat <<EOF
+Cronie contains the standard UNIX daemon crond that runs specified
+programs at scheduled times and related tools. It is based on the
+original cron and has security and configuration enhancements like
+the ability to use pam and SELinux.
+EOF

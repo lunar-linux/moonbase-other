@@ -1,6 +1,6 @@
 (
 
-  sedit "s:2.4:2.5:" config/linux2-config.py &&
+  sedit "s:2.5:2.6:" config/linux2-config.py &&
 
   if ! module_installed freealut; then
     sedit "s;WITH_BF_OPENAL = 'true';WITH_BF_OPENAL = 'false';" config/linux2-config.py

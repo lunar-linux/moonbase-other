@@ -1,16 +1,20 @@
 (
 
+  patch_it $SOURCE2 1 &&
+
+  libtoolize --copy --force --automake &&
+  autoreconf &&
+
   ./configure  --prefix=/usr            \
                --sysconfdir=/etc        \
                --mandir=/usr/share/man  \
-               --enable-static          \
-               --localstatedir=/var    &&
-
+               --localstatedir=/var     \
+               $OPTS                   &&
   make  &&
 
   if [ -f /usr/bin/parec ];  then
     rm /usr/bin/parec
-  fi
+  fi &&
 
   prepare_install  &&
   make install &&
