@@ -1,5 +1,9 @@
 (
 
+OPTS+=" --enable-load-extension"
+
+LDFLAGS+=" -ldl"
+
   default_build &&
   strip lemon &&
   install -m 755 lemon /usr/bin &&

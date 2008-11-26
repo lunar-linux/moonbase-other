@@ -3,17 +3,17 @@ depends  openssl                  &&
 depends  coreutils                &&
 depends  psmisc                   &&
 
-optional_depends  "tcp_wrappers"         \
-                  "--with-tcp-wrappers"  \
-                  ""                     \
-                  "for an optional method of controlling ssh access."  &&
+optional_depends "tcp_wrappers"         \
+                 "--with-tcp-wrappers"  \
+                 ""                     \
+                 "for an optional method of controlling ssh access."  &&
 
 optional_depends "Linux-PAM"             \
                  "--with-pam"            \
                  "--without-pam"         \
                  "for Linux PAM support"  &&
 
-optional_depends heimdal \
+optional_depends "heimdal" \
                  "--with-kerberos5=/usr" \
                  "" \
                  "Heimdal Kerberos5/GSSAPI Support"

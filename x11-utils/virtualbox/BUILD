@@ -1,7 +1,11 @@
 (                                                                                                                                                     
 
+  #lets disable qt4
+  sedit s@WITH_QT4=1@WITH_QT4=0@ configure &&
+
+
   # We need the qt3 paths
-  . /etc/profile.d/qt3.rc
+  . /etc/profile.d/qt3.rc ^^
 
   # Substitute hard-coded QTDIR with QTDIR from the qt3 profile
   sedit 's/QT3DIR=.*/QT3DIR="$QTDIR"/g' configure &&           

@@ -1,12 +1,12 @@
           MODULE=xarchiver
-         VERSION=0.4.6
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/$MODULE/
-      SOURCE_VFY=sha1:db80abdebf3396ded3cf8d2224e88c987a2d9c32
+         VERSION="svn-`date +%U`"
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MODULE/trunk:$MODULE
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://xarchiver.xfce.org/
          ENTERED=20060407
-         UPDATED=20070106
+         UPDATED=20071207
            SHORT="simple archive manager"
 
 cat << EOF
