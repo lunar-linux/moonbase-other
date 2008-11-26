@@ -1,8 +1,8 @@
           MODULE=ristretto
-         VERSION=0.0.16
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://goodies.xfce.org/releases/$MODULE/
-      SOURCE_VFY=sha1:9aa17a466cdbb0f0ea1a1e5f7f162e5d767f9095
+         VERSION="svn-`date +%U`"
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.xfce.org/svn/goodies/$MODULE/trunk:$MODULE
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://goodies.xfce.org/projects/applications/ristretto
          ENTERED=20070826

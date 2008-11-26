@@ -1,12 +1,13 @@
           MODULE=exo
-         VERSION=0.3.4
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.xfce.org/archive/xfce-4.4.2/src/
-      SOURCE_VFY=sha1:4f7a3f46592fd0311be1f011f17431f211cc1fcb
+             MOD=libexo
+         VERSION="svn-`date +%U`"
+          SOURCE=$MOD.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD          
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MOD/trunk:$MOD
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://libexo.os-cillation.com/
          ENTERED=20040930
-         UPDATED=20071204
+         UPDATED=20071207
            SHORT="the Xfce extension library"
 cat << EOF
 libexo is a library for Xfce that contain additional widgets and a

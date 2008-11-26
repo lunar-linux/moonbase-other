@@ -1,16 +1,17 @@
           MODULE=xulrunner
-         VERSION=1.9
-             VER=1.9.0.0
-          SOURCE=${MODULE}-${VERSION}-source.tar.bz2
+         VERSION=1.9.0.3
+          SOURCE=$MODULE-$VERSION-source.tar.bz2
+         SOURCE2=$MODULE-$VERSION-patches.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
-   SOURCE_URL[0]=ftp://ftp.mozilla.org/pub/mozilla.org/xulrunner/releases/$VER/source/
-   SOURCE_URL[1]=ftp://mozilla.isc.org/pub/mozilla.org/xulrunner/releases/$VER/source/
-   SOURCE_URL[2]=ftp://ftp.uni-erlangen.de/pub/mozilla.org/xulrunner/releases/$VER/source/
-      SOURCE_VFY=sha1:2e21652b9cad2a6ac8f048f50e9e053c19760d4b
+      SOURCE_URL=ftp://ftp.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.0.3/source/
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha1:089a41ff079cd37d39d19cf3a51daba07337db2c
+     SOURCE2_VFY=sha1:6167afdbf3de17fa002dc965fdd9a8d46329122d
         WEB_SITE=http://www.mozilla.org
          ENTERED=20080624
-         UPDATED=20080624
+         UPDATED=20081013
            SHORT="a XUL runtime that requires no browser"
+
 cat << EOF
 XULRunner is a Mozilla runtime package that can be used to bootstrap XUL+XPCOM
 applications that are as rich as Firefox and Thunderbird. It will provide
