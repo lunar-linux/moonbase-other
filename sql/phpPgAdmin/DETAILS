@@ -1,13 +1,20 @@
-          MODULE=phpPgAdmin
-         VERSION=4.2
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/phppgadmin
-      SOURCE_VFY=sha1:ba15c44a4dc138e8f524e02d5803cf71beffa645
-        WEB_SITE=http://phppgadmin.sf.net
-         ENTERED=20050223
-         UPDATED=20080407
-           SHORT="web-based administration tool for PostgreSQL"
+          MODULE=phpMyAdmin
+         VERSION=3.1.0
+         RELEASE=$VERSION-all-languages
+          SOURCE=$MODULE-$RELEASE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$RELEASE
+      SOURCE_URL=$SFORGE_URL/phpmyadmin
+      SOURCE_VFY=sha1:9924700fafa97a6fae867a1acbabd21574e7c02a
+        WEB_SITE=http://www.phpmyadmin.net/home_page
+         ENTERED=20040912
+         UPDATED=20081130
+           SHORT="A php web interface to administrate MySQL tables"
 
 cat << EOF
-phpPgAdmin is a web-based administration tool for PostgreSQL.
+phpMyAdmin is a tool written in PHP intended to handle the
+administration of MySQL over the Web. Currently it can create and drop
+databases, create/drop/alter tables, delete/edit/add fields, execute
+any SQL statement, manage keys on fields, manage privileges,export data
+into various formats and is available in 47 languages.  GPL License
+information.
 EOF
