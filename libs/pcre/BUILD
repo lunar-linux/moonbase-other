@@ -11,7 +11,9 @@
                 --infodir=/usr/share/info  \
                 --mandir=/usr/share/man    \
                 --enable-utf8             &&
-   default_make &&
-   cp -a /lib/pkgconfig/libpcre.pc /usr/lib/pkgconfig
+
+   sedit 's:$(libdir)/pkgconfig:/usr/lib/pkgconfig:' Makefile  &&
+
+   default_make
 
 ) > $C_FIFO 2>&1
