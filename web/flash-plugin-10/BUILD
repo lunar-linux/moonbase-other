@@ -7,7 +7,6 @@
   ln -s /usr/lib/libcurl.so /usr/lib/libcurl.so.3
   fi &&
 
-  cd $SOURCE_DIRECTORY             &&
   prepare_install                  &&
   mkdir -p /opt/lunar/plugins      &&
   install -m755 libflashplayer.so /opt/lunar/plugins &&
