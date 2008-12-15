@@ -9,7 +9,7 @@
 start ()
 {
 	echo -n "Starting smartd: "
-	/usr/sbin/smartd &&
+	/usr/sbin/smartd -n &&
 	echo -e $RESULT_OK || echo -e $RESULT_FAIL
 }
 
