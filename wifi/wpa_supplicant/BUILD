@@ -1,6 +1,7 @@
 (
-  sedit "s/\/usr\/local/\/usr/g" Makefile &&
-  sedit "s/dynamic_eap_methods//" Makefile &&
+
+  sedit "s/\/usr\/local/\/usr/g" Makefile   &&
+  sedit "s/dynamic_eap_methods//" Makefile  &&
 
   for option in \
       DNET_PCAP CTRL_IFACE CTRL_IFACE_DBUS \
@@ -9,24 +10,24 @@
       EAP_{MD5,TLS,PEAP,TTLS,GTC,OTP,SIM,AKA,PSK,LEAP}
   do
     echo "CONFIG_${option}=y" >> .config
-  done &&
+  done  &&
 
-  make &&
+  make  &&
 
   if in_depends $MODULE qt3 ; then
     . /etc/profile.d/qt3.rc
     make wpa_gui
-  fi &&
+  fi  &&
 
-  prepare_install &&
-  make install    &&
+  prepare_install  &&
+  make install     &&
 
   if in_depends $MODULE qt3 ; then
     install -m755 wpa_gui/wpa_gui /usr/bin
-  fi &&
+  fi  &&
 
-  install -m644 dbus-wpa_supplicant.conf /etc/dbus-1/system.d/ &&
-  install -m644 wpa_supplicant.conf /etc/wpa_supplicant.conf.example &&  
+  install -m644 dbus-wpa_supplicant.conf /etc/dbus-1/system.d/  &&
+  install -m644 wpa_supplicant.conf /etc/wpa_supplicant.conf.example  &&  
 
   gather_docs developer.txt wpa_supplicant.conf
 
