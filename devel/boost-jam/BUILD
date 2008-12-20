@@ -1,13 +1,13 @@
 (
 
-  ./build.sh &&
-  prepare_install &&
+  ./build.sh  &&
+  prepare_install  &&
 
   if [ "`arch`" = "x86_64" ]; then
    BJDIR="bin.linuxx86_64"
   else
    BJDIR="bin.linuxx86"
-  fi
+  fi  &&
 
   cd $BJDIR  &&
   install -m755 bjam /usr/bin
