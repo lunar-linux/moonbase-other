@@ -43,6 +43,10 @@
   mkdir -p /etc/vbox &&
   echo "INSTALL_DIR=$MODULE_PREFIX" > /etc/vbox/vbox.cfg &&
 
+  #Install .desktop entry and icon
+  install /usr/lib/virtualbox/VirtualBox.desktop /usr/share/applications/
+  install /usr/lib/virtualbox/VBox.png /usr/share/icons/hicolor/32x32/apps/
+
   # Create the vboxusers group
   groupadd -f vboxusers
 
