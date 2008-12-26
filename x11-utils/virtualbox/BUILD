@@ -1,15 +1,18 @@
-(                                                                                                                                                     
+(
 
-  # We need the qt3 paths
-  . /etc/profile.d/qt3.rc
+  #lets disable qt3
+  sedit s@WITH_QT3=1@WITH_QT3=0@ configure &&
 
-  # Substitute hard-coded QTDIR with QTDIR from the qt3 profile
-  sedit 's/QT3DIR=.*/QT3DIR="$QTDIR"/g' configure &&           
+  # We need the qt4 paths
+  . /etc/profile.d/qt4.rc &&
 
   # Build VirtualBox
-  ./configure     &&
-  source ./env.sh &&
-  kmk             &&
+  # Disable hardending so normal users can run it
+  OPTS+=" --disable-hardening"   &&
+  OPTS+=" --with-qt4-dir=$QTDIR" &&
+  ./configure $OPTS             &&
+  source ./env.sh               &&
+  kmk                           &&
 
   # Build kernel module
   pushd out/linux.x86/release/bin/src &&
