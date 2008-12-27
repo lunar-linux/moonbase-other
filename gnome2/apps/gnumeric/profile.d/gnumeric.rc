@@ -1,2 +1,8 @@
 export PATH=$PATH:/opt/lunar/gnumeric/bin
-export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/lunar/gnumeric/share
+
+# We need a little logic otherwise this might break
+if [ -z $XDG_DATA_DIRS ] ; then
+  export XDG_DATA_DIRS="/usr/share:/opt/lunar/gnumeric/share"
+else
+  export XDG_DATA_DIRS="$XDG_DATA_DIRS:/opt/lunar/gnumeric/share"
+fi
