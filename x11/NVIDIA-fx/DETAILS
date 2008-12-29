@@ -1,5 +1,5 @@
-          MODULE=NVIDIA-old
-         VERSION=71.86.07
+          MODULE=NVIDIA-fx
+         VERSION=173.14.15
           SOURCE=NVIDIA-Linux-x86-$VERSION-pkg0.run
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
    SOURCE_URL[0]=ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION/
@@ -20,25 +20,20 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
   SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86/$VERSION/
   SOURCE_URL[16]=http://br.download.nvidia.com/XFree86/Linux-x86/$VERSION/
   SOURCE_URL[17]=http://la.download.nvidia.com/XFree86/Linux-x86/$VERSION/
-      SOURCE_VFY=sha1:1c71f68b7460f0ac0a8abe07f56ea7876b0496e3
-        WEB_SITE=http://www.nvidia.com
+      SOURCE_VFY=sha1:e480c29f5c1ead123c546be10b81d747bd7a675c
+        WEB_SITE=http://www.nvidia.com/
+         LICENSE="proprietary"
          ENTERED=20030804
-         UPDATED=20081103
-        SHORT="X11 NVIDIA binary driver for RIVA TNT/Geforce1/2Ti"
+         UPDATED=20081228
+           SHORT="X11 NVIDIA binary driver for Geforce FX"
 
 cat << EOF
-This is the nvidia provided binary X11 driver for their old graphics
-cards. It also has the Linux kernel module needed for all old NVIDIA
-cards. Supported old GPUs (RIVA, Vanta, TNT, Geforce1, Quadro1-2
-Geforce2 non-MX family):
-RIVA TNT,TNT2/Pro/Ultra/Model 64/Model 64 Pro
-Vanta/Vanta LT
-Aladdin TNT2
-GeForce 256/DDR
-Quadro
-GeForce2 GTS/Pro/Ti/Ultra
-Quadro2 Pro
-For Geforce 2MX/3/4 GPUs check NVIDIA-legacy module.
-For Geforce FX/PCX GPUs check NVIDIA-fx module.
-For Geforce 6/7/8/9/GT2xx and later GPUs check NVIDIA or NVIDIA-beta module.
+These are the nvidia provided binary X11 drivers for their graphics
+cards. It also has the Linux kernel module needed for all supported NVIDIA
+Geforce FX cards. Supported GPUs: Geforce FX family known also as Geforce 5.
+
+If you have RIVA/Vanta/TNT/Geforce1/Quadro1-2/Geforce2 (not MX)
+check NVIDIA-old module.
+If you have Geforce 2MX/3/4 check NVIDIA-legacy module.
+If you have Geforce 6/7/8/9/GT2xx check NVIDIA or NVIDIA-beta module.
 EOF
