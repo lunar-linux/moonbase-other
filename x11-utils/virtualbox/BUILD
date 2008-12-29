@@ -1,19 +1,17 @@
-(                                                                                                                                                     
+(
+  #lets disable qt3
+  sedit s@WITH_QT3=1@WITH_QT3=0@ configure &&
 
-  #lets disable qt4
-  sedit s@WITH_QT4=1@WITH_QT4=0@ configure &&
-
-
-  # We need the qt3 paths
-  . /etc/profile.d/qt3.rc ^^
-
-  # Substitute hard-coded QTDIR with QTDIR from the qt3 profile
-  sedit 's/QT3DIR=.*/QT3DIR="$QTDIR"/g' configure &&           
+  # We need the qt4 paths
+  . /etc/profile.d/qt4.rc &&
 
   # Build VirtualBox
-  ./configure     &&
-  source ./env.sh &&
-  kmk             &&
+  # Disable hardending so normal users can run it
+  OPTS+=" --disable-hardening"   &&
+  OPTS+=" --with-qt4-dir=$QTDIR" &&
+  ./configure $OPTS             &&
+  source ./env.sh               &&
+  kmk                           &&
 
   # Build kernel module
   pushd out/linux.x86/release/bin/src &&
@@ -43,6 +41,10 @@
   # Install the config file to let VirtualBox know it is installed
   mkdir -p /etc/vbox &&
   echo "INSTALL_DIR=$MODULE_PREFIX" > /etc/vbox/vbox.cfg &&
+
+  #Install .desktop entry and icon
+  install /usr/lib/virtualbox/VirtualBox.desktop /usr/share/applications/
+  install /usr/lib/virtualbox/VBox.png /usr/share/icons/hicolor/32x32/apps/
 
   # Create the vboxusers group
   groupadd -f vboxusers

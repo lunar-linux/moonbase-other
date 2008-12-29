@@ -1,0 +1,19 @@
+          MODULE=kdesvn4
+         VERSION=1.2.2
+          SOURCE=kdesvn-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdesvn-$VERSION
+      SOURCE_URL=http://kdesvn.alwins-world.de/trac.fcgi/downloads
+      SOURCE_VFY=sha1:534b18b53e2831fb91be8921ee86fcb99fdbf1b2
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
+        WEB_SITE=http://www.alwins-world.de/programs/$MODULE
+         ENTERED=20081117
+         UPDATED=20081117
+      MAINTAINER=florin@lunar-linux.org
+           SHORT="A KDE frontend for subversion"
+
+cat << EOF
+KDESvn is a frontend to the subversion vcs. In difference to most other
+tools it uses the subversion C-Api direct via a c++ wrapper made by
+Rapid SVN and doesn't parse the output of the subversion client. So it
+is a real client itself instead of a frontend to the command line tool.
+EOF
