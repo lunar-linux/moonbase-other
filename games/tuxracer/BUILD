@@ -1,6 +1,6 @@
 (
 
-  if ! module_installed NVIDIA || ! module_installed NVIDIA-beta || ! module_installed NVIDIA-legacy || ! module_installed NVIDIA-old; then
+  if ! module_installed NVIDIA-fx || ! module_installed NVIDIA || ! module_installed NVIDIA-beta || ! module_installed NVIDIA-legacy || ! module_installed NVIDIA-old; then
   sedit "s:glXGetProcAddressARB:glXGetProcAddress:g" configure
   fi &&
 
