@@ -25,20 +25,21 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
          LICENSE="proprietary"
          ENTERED=20030804
          UPDATED=20081113
-           SHORT="X11 binary drivers provided by NVIDIA for NVIDIA GPUs"
+           SHORT="X11 NVIDIA binary driver for Geforce6/7/8/9/GT2xx"
 
 cat << EOF
 These are the nvidia provided binary X11 drivers for their graphics
-cards. It also has the Linux kernel module needed for all NVIDIA
-cards. Supported GPUs: (FX/PCX/6/7/8 families only)
-all Geforce/Quadro FX
-all Geforce PCX
+cards. It also has the Linux kernel module needed for all Geforce 6/7/8/9/GT2xx
+cards. Supported GPUs: (6/7/8/9/GT2xx families only)
 all Geforce 6xxx
 all Geforce 7xxx
 all Geforce 8xxx
+all Geforce 9xxx
+all Geforce GT2xx
 some models may be not supported yet.
 
 If you have RIVA/Vanta/TNT/Geforce1/Quadro1-2/Geforce2 (not MX)
 check NVIDIA-old module.
 If you have Geforce 2MX/3/4 check NVIDIA-legacy module.
+If you have Geforce FX/PCX check NVIDIA-fx module.
 EOF
