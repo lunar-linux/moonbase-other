@@ -2,9 +2,6 @@
 
   INST_DIR="/usr/games/${MODULE}"
 
-  # Fix a filename
-  mv "data1/scripts/maps/tca-titan2k8 .rscript" data1/scripts/maps/tca-titan2k8.rscript &&
-
   # Remove some pre-compiled libs
   rm {arena,data1}/game.so  &&
 

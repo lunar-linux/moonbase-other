@@ -1,10 +1,9 @@
 (
 
-  patch_it $SOURCE2 1 &&
-  patch_it $SOURCE3 1 &&
-  patch_it $SOURCE4 1 &&
-  patch_it $SOURCE5 1 &&
-
-  default_build
+  cd CMakeConf &&
+  cmake .. -DCMAKE_INSTALL_PREFIX=/usr &&
+  default_build &&
+  mkdir -p /etc/openal &&
+  install -m644 ../alsoftrc.sample /etc/openal/alsoft.conf
 
 ) > $C_FIFO 2>&1

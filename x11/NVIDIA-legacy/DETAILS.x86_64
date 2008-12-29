@@ -1,5 +1,5 @@
           MODULE=NVIDIA-legacy
-         VERSION=96.43.07
+         VERSION=96.43.09
           SOURCE=NVIDIA-Linux-x86_64-$VERSION-pkg0.run
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-pkg0
    SOURCE_URL[0]=ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
@@ -20,12 +20,12 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-pkg0
   SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
   SOURCE_URL[16]=http://br.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
   SOURCE_URL[17]=http://la.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/
-      SOURCE_VFY=sha1:5d5a631991ebda66f423656b00a1b1667510f443
+      SOURCE_VFY=sha1:cd60c187f5e5d8a4502e10964231f0e961a0bfac
         WEB_SITE=http://www.nvidia.com/
          LICENSE="proprietary"
          ENTERED=20030804
-         UPDATED=20080719
-           SHORT="X11 binary drivers provided by NVIDIA for NVIDIA GPUs"
+         UPDATED=20081103
+           SHORT="X11 NVIDIA binary driver for Geforce 2MX/3/4"
 cat << EOF
 These are the nvidia provided binary X11 drivers for their graphics
 cards. It also has the Linux kernel module needed for all NVIDIA 
@@ -43,5 +43,7 @@ Quadro4 380/550/580/700/750/780/900/980 XGL
 Geforce4 410 Go 16M/440 Go 64M
 Quadro NVS/280 SD/50 PCI
 Quadro4 500/700 GoGL
-For Geforce/Quadro FX and later use NVIDIA module
+For Riva TNT/Geforce1/2Ti use NVIDIA-old module.
+For Geforce FX/Quadro FX use NVIDIA-fx module.
+For Geforce 6/7/8/9/GT2xx use NVIDIA or NVIDIA-beta module.
 EOF

@@ -43,10 +43,9 @@
     /bin/mv -f /usr/bin/chroot /usr/sbin
   ) &&
 
-  # Some apps use fixed paths to /usr/bin so we add symlinks to make
+  # Some apps use fixed paths to /usr/bin so we add a symlink to make
   # them happy. For example see config.log of any compiled app to see that
-  # autoconf looks for these coreutils apps only inside /usr/bin
-  ln -sf /bin/uname /usr/bin/uname &&
-  ln -sf /bin/arch  /usr/bin/arch
+  # autoconf looks for this coreutils app only inside /usr/bin
+  ln -sf /bin/uname /usr/bin/uname
 
 ) > $C_FIFO 2>&1

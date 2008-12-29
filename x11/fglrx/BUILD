@@ -19,7 +19,7 @@
   export KPATH KVER &&
 
   cd common/lib/modules/fglrx/build_mod/ &&
-
+  sedit '/sysrq.h/i\ #include <asm/errno.h>' kcl_debug.c &&
   # This symlink is needed for the kernel module to compile correctly
   ln -s $FGLRX_DIRECTORY/arch/x86/lib/modules/fglrx/build_mod/libfglrx_ip.a.GCC4 \
         $FGLRX_DIRECTORY/common/lib/modules/fglrx/build_mod &&
@@ -81,7 +81,7 @@
           /usr/lib/opengl/ati/${file}.so.1
   done &&
 
-  cp -af x710/usr/X11R6/lib/modules /usr/X11/lib/xorg/ &&
+  cp -af x740/usr/X11R6/lib/modules /usr/X11/lib/xorg/ &&
 
   mkdir -p /usr/X11/lib/modules/dri &&
   ln -sf /usr/X11/lib/dri/fglrx_dri.so /usr/X11/lib/modules/dri/ &&
