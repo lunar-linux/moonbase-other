@@ -2,11 +2,7 @@
 
   unpack $SOURCE2 &&
   patch_it beecrypt-cvs-libaltdir.patch 0 &&
-  patch_it beecrypt-4.1.2-threads.patch 1 &&
-  patch_it beecrypt-4.1.2-python-Makefile-am.patch 1 &&
-  patch_it beecrypt-4.1.2-python-debug-py-c.patch 1 &&
-  patch_it beecrypt-4.1.2-gcc4.patch 1 &&
-  patch_it beecrypt-4.1.2-build.patch 1 &&
+  for patch in `ls $MODULE-$VERSION-*.patch`; do patch_it $patch 1; done &&
   libtoolize --force --copy &&
   aclocal &&
   automake --add-missing &&
