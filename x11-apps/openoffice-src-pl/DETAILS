@@ -1,13 +1,15 @@
           MODULE=openoffice-src-pl
-         VERSION=2.4.1
-          SOURCE=OOo_${VERSION}_LinuxIntel_langpack_pl.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/OOH680_m17_native_packed-1_pl.9310/RPMS
-   SOURCE_URL[0]=ftp://sunsite.icm.edu.pl/packages/OpenOffice/official/localized/pl/$VERSION/
-   SOURCE_URL[1]=http://mirror.icis.pcz.pl/OOO/localized/pl/$VERSION/
-      SOURCE_VFY=md5:b61ab05b7be0b3b4d6e838ea62f816d2
+         VERSION=3.0.0
+         RELEASE=9358
+       MILESTONE=m9
+        LANGUAGE=pl
+          SOURCE=OOo_${VERSION}_LinuxIntel_langpack_${LANGUAGE}.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/OOO300_${MILESTONE}_native_packed-1_${LANGUAGE}.${RELEASE}/RPMS
+      SOURCE_URL=http://mirror.icis.pcz.pl/OOO/extended/localized/$LANGUAGE/$VERSION/
+      SOURCE_VFY=sha1:4c2cea5ddc14a5ab67754ed7224b9fc8c0c64b6e
         WEB_SITE=http://www.openoffice.org
          ENTERED=20080706
-         UPDATED=20080706
+         UPDATED=20081230
            SHORT="OpenOffice.org Office - Polish localization"
 cat << EOF
 OpenOffice.org Office Suite - Polish localization pack for:
