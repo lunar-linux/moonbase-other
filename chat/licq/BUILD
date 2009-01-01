@@ -1,8 +1,7 @@
 ( 
-  patch_it $SOURCE_CACHE/$SOURCE2 0
-
   CONSOLE_PLUGIN="no"
   QT_PLUGIN="no"
+  QT4_PLUGIN="no"
   MSN_PLUGIN="no"
   OSD_PLUGIN="no"
 
@@ -12,6 +11,9 @@
   fi
   if in_depends licq qt3; then
     QT_PLUGIN="yes"
+  fi
+  if in_depends licq qt4; then
+    QT4_PLUGIN="yes"
   fi
   if in_depends licq openssl; then
     MSN_PLUGIN="yes"
@@ -26,6 +28,7 @@
   echo
   echo "  * Console frontend: ${CONSOLE_PLUGIN}"
   echo "  * Qt3 frontend: ${QT_PLUGIN}"
+  echo "  * Qt4 frontend: ${QT4_PLUGIN}"
   echo "  * MSN support: ${MSN_PLUGIN}"
   echo "  * OSD support: ${OSD_PLUGIN}"
   echo
@@ -51,6 +54,15 @@
     cd $SOURCE_DIRECTORY/plugins/qt-gui &&
     default_config &&
     make
+  fi &&
+
+  # Compile Qt4 frontend
+  if [[ "$QT4_PLUGIN" = "yes" ]]; then
+    . /etc/profile.d/qt4.rc &&
+    cd $SOURCE_DIRECTORY/plugins/qt4-gui &&
+    cmake $SOURCE_DIRECTORY/plugins/qt4-gui -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
+                                            -DCMAKE_BUILD_TYPE=RELEASE            &&
+    default_make
   fi &&
 
   # Compile MSN support
@@ -81,6 +93,12 @@
   # Install Qt frontend
   if [[ "$QT_PLUGIN" = "yes" ]]; then
     cd $SOURCE_DIRECTORY/plugins/qt-gui &&
+    make install
+  fi &&
+
+  # Install Qt4 frontend
+  if [[ "$QT4_PLUGIN" = "yes" ]]; then
+    cd $SOURCE_DIRECTORY/plugins/qt4-gui &&
     make install
   fi &&
 
