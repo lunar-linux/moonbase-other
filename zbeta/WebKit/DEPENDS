@@ -5,14 +5,10 @@ depends libxslt
 depends sqlite
 depends jpeg
 depends libpng
-depends gnome-vfs
+depends freetype2
 
 optional_depends gst-plugins-good "--enable-video" "" "Enable video support?"
 
 optional_depends libsoup "--with-http-backend=soup" "" "Build with libsoup http backend instead of curl?"
 
 optional_depends curl "--with-http-backend=curl" "" "Build with curl http backend? (Say N if you said Y to libsoup)"
-
-optional_depends pango "--with-font-backend=pango" "" "Build with Pango font backend?"
-
-optional_depends freetype2 "--with-font-backend=freetype" "" "Build with freetype support? (Say N if you said Y to pango)"
