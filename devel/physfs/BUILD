@@ -1,8 +1,6 @@
 (
 
-# Else the make fails on ccplus errors.
-  unset CXXFLAGS &&
-# end
+  sedit "/test_physfs/d" CMakeLists.txt &&
 
   cmake -DCMAKE_INSTALL_PREFIX:=/usr &&
   default_make
