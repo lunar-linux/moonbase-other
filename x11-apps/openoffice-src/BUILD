@@ -114,7 +114,7 @@
     install -m644 $file /usr/share/applications;
   done &&
 
-  sedit 's/printeradmin/spadmin/g' printeradmin.desktop &&
+  sedit 's/sprinteradmin$/spadmin/' printeradmin.desktop &&
   install -m644 printeradmin.desktop /usr/share/applications &&
 
   update-desktop-database
