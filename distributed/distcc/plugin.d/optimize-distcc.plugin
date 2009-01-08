@@ -19,7 +19,7 @@ plugin_distcc_optimize()
     export DISTCC_ALLOW
     verbose_msg "CC_EXT=\"$CC_EXT\""
     verbose_msg "CXX_EXT=\"$CXX_EXT\""
-    verbose_msg "DISTCC_HOSTS=\"$DISTCC_HOSTS\""
+    verbose_msg "DISTCC_POTENTIAL_HOSTS=\"$DISTCC_POTENTIAL_HOSTS\""
     verbose_msg "DISTCC_ALLOW=\"$DISTCC_ALLOW\""
   fi
   return 2
@@ -51,7 +51,7 @@ plugin_distcc_optimize_menu()
     debug_msg "save_optimizations($@)"
     cat > /etc/lunar/local/optimizations.DISTCC  <<EOF
 USE_DISTCC=$USE_DISTCC
-DISTCC_HOSTS="$DISTCC_HOSTS"
+DISTCC_HOSTS="$DISTCC_POTENTIAL_HOSTS"
 DISTCC_ALLOW="$DISTCC_ALLOW"
 EOF
   }
@@ -71,7 +71,7 @@ EOF
       fi
     save_optimizations
     elif [ "$RESULT" == "DISTCC_HOSTS" ]; then
-      DISTCC_HOSTS=`$DIALOG --inputbox "Enter a list of hosts as hostnames or IP addresses (see man distcc)" 9 60 $DISTCC_HOSTS`
+      DISTCC_POTENTIAL_HOSTS=`$DIALOG --inputbox "Enter a list of hosts as hostnames or IP addresses (see man distcc)" 9 60 $DISTCC_POTENTIAL_HOSTS`
       if [ $? != 0 ]; then
         continue
       else
