@@ -5,6 +5,9 @@
 
   [ -n $CPU ] && OPTS+="$OPTS --cpu=$CPU"
 
-  default_build
+  #Can't call default_build because the default_config passes --build
+  #Which ffmpeg dropped support for... =(
+  ./configure --prefix=/usr $OPTS &&
+  default_make
 
 ) > $C_FIFO 2>&1
