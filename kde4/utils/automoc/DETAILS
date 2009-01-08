@@ -1,15 +1,16 @@
           MODULE=automoc
-         VERSION=0.9.84
+         VERSION=0.9.87
              MAJ=4
           SOURCE=$MODULE$MAJ-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE$MAJ-$VERSION
-      SOURCE_URL=$KDE_URL/unstable/$MODULE$MAJ/$VERSION
+   SOURCE_URL[0]=$KDE_URL/unstable/$MODULE$MAJ/$VERSION
+   SOURCE_URL[1]=$MIRROR_URL
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
+      SOURCE_VFY=sha1:a9afd6a12ea9670ac3c9c40a249c18332a67e357
         WEB_SITE=http://techbase.kde.org/Getting_Started/Build/KDE4/Troubleshooting
          ENTERED=20080622
-         UPDATED=20081003
+         UPDATED=20090103
            SHORT=""
 
 cat << EOF
-
 EOF
