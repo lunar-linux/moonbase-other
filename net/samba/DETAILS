@@ -1,5 +1,5 @@
           MODULE=samba
-         VERSION=3.2.5
+         VERSION=3.2.7
           SOURCE=$MODULE-$VERSION.tar.gz
    SOURCE_URL[0]=http://us1.samba.org/$MODULE/ftp
    SOURCE_URL[1]=http://us2.samba.org/$MODULE/ftp
@@ -7,12 +7,13 @@
    SOURCE_URL[3]=http://us6.samba.org/$MODULE/ftp
    SOURCE_URL[4]=ftp://se.samba.org/pub/$MODULE
    SOURCE_URL[5]=ftp://de.samba.org/samba.org
-      SOURCE_VFY=sha1:ed2d5f84fb070dc59b28d36f6b5323fa121da3e1
+   SOURCE_URL[6]=http://us1.samba.org/$MODULE/ftp/old-versions
+      SOURCE_VFY=sha1:7fb3b54dbfb59e141bdff8c3762f6a4ba274f258
         WEB_SITE=http://www.samba.org
          ENTERED=20010922
-         UPDATED=20081128
-           PSAFE=no
+         UPDATED=20090105
            SHORT="Samba provides file and print services to SMB/CIFS clients"
+PSAFE=no
 
 cat << EOF
 SMB server to provide Windows NT and LAN manager-style file and print
