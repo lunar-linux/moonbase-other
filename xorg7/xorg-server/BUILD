@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1 &&
+
   . /etc/profile.d/x11r7.rc &&
 
   if [ -h /usr/share/X11/xkb/compiled ]; then
