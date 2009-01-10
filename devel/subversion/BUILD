@@ -1,7 +1,7 @@
 (
 
   if in_depends $MODULE sun-jdk; then
-    JAVA_HOME=$(expr /usr/lib/jdk*)
+    . /etc/profile.d/sun-jdk.rc
     OPTS+=" --with-jdk=$JAVA_HOME"
     BINDINGS_MAKE+=" javahl"
     BINDINGS_INSTALL+=" install-javahl"
