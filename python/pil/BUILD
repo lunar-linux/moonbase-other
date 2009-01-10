@@ -5,7 +5,7 @@
   python setup.py build_ext -i      &&
   prepare_install                   &&
   cd libImaging                     &&
-  cp ImPlatform.h Imaging.h /usr/include/python`installed_version Python`  &&
+  cp ImPlatform.h Imaging.h /usr/include/python`installed_version Python | cut -d. -f1-2`  &&
   cd ..                             &&
   python setup.py install           &&
   mkdir -p $DOCUMENT_DIRECTORY/pil  &&
