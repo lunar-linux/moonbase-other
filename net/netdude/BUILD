@@ -1,2 +1,0 @@
-unset CC CXX MAKEFLAGS CFLAGS LDFLAGS
-default_build
