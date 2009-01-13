@@ -1,63 +1,102 @@
-depends  gtk+-2
 depends  libxml2
 
-optional_depends  "startup-notification"                \
-                  ""  "--disable-startup-notification"  \
-                  "for window manager startup notification support"
+optional_depends  "dbus-glib"  \
+                  ""           \
+		  "--disable-dbus"  \
+		  "for D-Bus support"
 
-optional_depends  "gtkspell"   ""               "--disable-gtkspell"    \
-                  "for inline message spellcheck support"
+optional_depends  "gtk+-2"  \
+                  ""        \
+		  "--disable-gtkui"  \
+		  "for Gtk user interface"
 
-optional_depends  "evolution"       ""          "--disable-gevolution"  \
-                  "for the Evolution plugin"
-
-optional_depends  "gstreamer-10"    ""          "--disable-gstreamer"   \
-                  "for sound support within the application"
-
-optional_depends  "dbus-glib"  "--enable-dbus"  "--disable-dbus"  \
-                  "for remote contol of pidgin"
-
-# Mono implementation isn't far enough along to make this depends useful
-#optional_depends  "mono"       "--enable-mono"  "--disable-mono"  \
-#                  "for Mono (C#) plugin support"
-
-optional_depends  "sqlite"          ""          "--disable-cap"   \
-                  "for the Contact Availability Prediction plugin"
-
-optional_depends  "gettext"    ""               "--disable-nls"   \
-                  "for NLS support within gaim"
-
-optional_depends  "avahi"       ""               "--disable-avahi" \
-                  "for the Bonjour plugin"
-
-optional_depends  "nss"                                           \
-                  "--enable-gnutls=no                             \
-                   --with-nspr-libs=/usr/lib/                     \
-                   --with-nspr-includes=/usr/include/nspr/        \
-                   --with-nss-libs=/usr/lib/                      \
-                   --with-nss-includes=/usr/include/nss/          \
-                   --enable-nss=yes"                              \
-                  ""                                              \
-                  "for MSN & GoogleTalk support (say 'n' to gnutls)"
-
-optional_depends  "gnutls"  "--enable-nss=no --enable-gnutls=yes"  ""   \
-                  "for MSN & GoogleTalk support (say 'y' here if you said 'n' to nss)"
-
-optional_depends  "tcl"       ""                "--disable-tcl"   \
-                  "for TCL based plugin support"
-
-optional_depends  "tk"        ""                "--disable-tk"    \
-                  "for TK based plugin support"
-
-optional_depends  "meanwhile"       ""          "--disable-meanwhile" \
-                  "for meanwhile (Lotus Sametime) protocol support"
-
-optional_depends  "perl"            ""          "--disable-perl"  \
+optional_depends  "perl"  \
+                  ""      \
+		  "--disable-perl"  \
                   "for Perl based plugin support"
 
-optional_depends  "GConf"    ""                ""                \
-                  "for GNOME support of Gaim URI handlers"
+optional_depends  "startup-notification"  \
+                  ""                      \
+		  "--disable-startup-notification"  \
+                  "for window manager startup notification support"
 
-optional_depends  "libXScrnSaver"   ""          "--disable-screensaver" \
+optional_depends  "libXScrnSaver"  \
+                  ""               \
+		  "--disable-screensaver"  \
                   "for detecting mouse and keyboard idleness"
 
+optional_depends  "gtkspell"  \
+                  ""          \
+		  "--disable-gtkspell"  \
+                  "for inline message spellcheck support"
+
+optional_depends  "evolution"  \
+                  ""           \
+		  "--disable-gevolution"  \
+                  "for the Evolution plugin"
+
+optional_depends  "gstreamer-10"  \
+                  ""              \
+		  "--disable-gstreamer"  \
+                  "for sound support within the application"
+
+optional_depends  "sqlite"  \
+                  ""        \
+		  "--disable-cap"  \
+                  "for the Contact Availability Prediction plugin"
+
+optional_depends  "gettext"  \
+                  ""         \
+		  "--disable-nls"  \
+                  "for NLS support within gaim"
+
+optional_depends  "avahi"  \
+                  ""       \
+		  "--disable-avahi"  \
+                  "for the Bonjour plugin"
+
+optional_depends  "nss"                                     \
+                  "--enable-gnutls=no                       \
+                   --with-nspr-libs=/usr/lib/               \
+                   --with-nspr-includes=/usr/include/nspr/  \
+                   --with-nss-libs=/usr/lib/                \
+                   --with-nss-includes=/usr/include/nss/    \
+                   --enable-nss=yes"                        \
+                  ""                                        \
+                  "for MSN & GoogleTalk support (say 'n' to gnutls)"
+
+optional_depends  "gnutls"  \
+                  "--enable-nss=no --enable-gnutls=yes"  \
+		  ""                                     \
+                  "for MSN & GoogleTalk support (say 'y' here if you said 'n' to nss)"
+
+optional_depends  "GConf"  \
+                  ""       \
+		  ""       \
+                  "for GNOME support of Gaim URI handlers"
+
+optional_depends  "doxygen"  \
+                  ""         \
+		  "--disable-doxygen"  \
+                  "for documentation support"
+
+optional_depends  "meanwhile"  \
+                  ""           \
+		  "--disable-meanwhile"  \
+                  "for meanwhile (Lotus Sametime) protocol support"
+
+optional_depends  "tcl"  \
+                  ""     \
+		  "--disable-tcl"  \
+                  "for TCL based plugin support"
+
+optional_depends  "tk"  \
+                  ""    \
+		  "--disable-tk"   \
+                  "for TK based plugin support"
+
+# Mono implementation isn't far enough along to make this depends useful
+#optional_depends  "mono"            \
+#                  "--enable-mono"   \
+#                  "--disable-mono"  \
+#                  "for Mono (C#) plugin support"
