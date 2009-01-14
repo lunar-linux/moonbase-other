@@ -1,43 +1,21 @@
-depends db       &&
-depends openssl  &&
-depends zlib     &&
+depends zlib     
 
-optional_depends  "gamin"               \
-                  "--with-fam"          \
-                  "--without-fam"       \
-                  "FAM support"        
+optional_depends  "dbus"               \
+                  "--with-dbus"        \
+                  "--without-dbus"     \
+                  "Dbus support"       
 
-optional_depends  "fftw"                \
-                  "--with-fftw"         \
-                  "--without-fftw"      \
-                  "FFTW support"       
-
-optional_depends  "gdbm"                \
-                  "--with-gdbm"         \
-                  "--without-gdbm"      \
-                  "GDBM support"       
-
-optional_depends  "gtk+"                \
-                  "--with-gtk"          \
-                  "--without-gtk"       \
-                  "GTK+ support"       
-
-optional_depends  "libogg"              \
-                  "--with-ogg"          \
-                  "--without-ogg"       \
-                  "lib OGG support"    
-
-optional_depends  "Linux-PAM"           \
-                  "--with-pam"          \
-                  "--without-pam"       \
+optional_depends  "Linux-PAM"          \
+                  "--with-pam"         \
+                  "--without-pam"      \
                   "PAM support"        
 
-optional_depends  "speex"               \
-                  "--with-speex"        \
-                  "--without-speex"     \
+optional_depends  "openssl"            \
+                  "--with-openssl"     \
+                  "--without-openssl"  \
                   "Speex support"      
 
-optional_depends  "qt3"                 \
-                  "--with-qt"           \
-                  "--without-qt"        \
+optional_depends  "qt3"                \
+                  "--with-qt"          \
+                  "--without-qt"       \
                   "Qt support"

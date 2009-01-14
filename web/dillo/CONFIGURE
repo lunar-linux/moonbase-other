@@ -11,8 +11,6 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     OPTS="$OPTS --disable-ipv6"
   fi                                                                                                                                
 
-  # temp hack to disable FLTK2 download gui as FLTK2 is not yet in moonbase
-  OPTS="$OPTS --disable-dlgui"
   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
 

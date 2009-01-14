@@ -8,6 +8,8 @@
               --mandir=$MODULE_PREFIX/share/man    \
               --enable-shared                      \
               --enable-mp3rtp                      \
+	      --disable-gtktest                    \
+	      --disable-mp3x                       \
               $OPTS                               &&
 
   default_make
