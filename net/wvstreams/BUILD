@@ -6,7 +6,7 @@
     if module_installed qt3; then
       . /etc/profile.d/qt3.rc
       . /etc/profile.d/kde3.rc
-      sedit "s:/usr/lib/libqt-mt.so:/opt/lunar/qt/3/lib:g" vars.mk
+#      sedit "s:/usr/lib/libqt-mt.so:/opt/lunar/qt/3/lib:g" vars.mk
     fi
   fi  &&
 

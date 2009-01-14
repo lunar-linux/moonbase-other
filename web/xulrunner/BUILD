@@ -15,7 +15,7 @@
           --with-system-zlib \
           --with-system-bz2 \
           --enable-system-lcms \
-          --disable-system-sqlite \
+          --enable-system-sqlite \
           --enable-system-cairo \
           --with-pthreads \
           --enable-strip \
