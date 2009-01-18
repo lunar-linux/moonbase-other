@@ -1,6 +1,6 @@
 (
 
-  prepare_install &&
+  prepare_install  &&
   sedit "s:/usr/local:/usr:g" Makefile
   sedit "s:(datadir)/tools:(prefix)/bin:g" Makefile
   make install
