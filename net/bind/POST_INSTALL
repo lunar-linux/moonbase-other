@@ -4,14 +4,16 @@ mkdir -p /var/named
 
 # create the named.root
 if (dig . ns > named.root) ; then
-  cp named.root /var/named
+  cp named.root /var/named/
 else
-  cp $SCRIPT_DIRECTORY/named.root /var/named
+  cp $SCRIPT_DIRECTORY/named.root /var/named/
 fi
+
+rm -f /named.root
 
 #if we do not have a named.conf already, copy the default
 if [ ! -e /var/named/named.conf ] ; then
-  cp $SCRIPT_DIRECTORY/named.conf /var/named
+  cp $SCRIPT_DIRECTORY/named.conf /var/named/
 fi
 
 # and make the softlink!
@@ -50,4 +52,3 @@ zone "com" {
   type delegation-only;
 };
 EOF
-
