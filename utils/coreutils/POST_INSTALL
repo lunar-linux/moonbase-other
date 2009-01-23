@@ -21,7 +21,7 @@ OLDVER=`installed_version $MODULE`
 OLDVERA=`echo $OLDVER | cut -d. -f1`
 OLDVERB=`echo $OLDVER | cut -d. -f2`
 if [ "$OLDVERA" -le 6 ] && [ "$OLDVERB" -lt 10 ]; then
-   lin shadow procps mktemp
+   lin shadow procps
    if module_installed net-tools ; then
       lin net-tools
    fi
