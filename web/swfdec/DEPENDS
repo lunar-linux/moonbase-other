@@ -4,10 +4,10 @@ depends  gtk+-2
 depends  liboil
 depends  libsoup
 
-optional_depends "ffmpeg"        "" "--disable-ffmpeg"     "use ffmpeg support"
-optional_depends "madplay"       "" "--disable-mad"        "use mad audio"
-optional_depends "gstreamer-10"  "" "--disable-gstreamer"  "use gstreamer audio"
-optional_depends "seamonkey"     "" ""                     "swfdec plugin for Mozilla"
+optional_depends "ffmpeg"              "" ""     "use ffmpeg support"
+optional_depends "madplay"             "" ""     "use mad audio"
+optional_depends "gstreamer-10"        "" ""     "use gstreamer audio"
+optional_depends "%GECKO_RENDERER"     "" ""     "swfdec plugin for Mozilla"
 
 optional_depends "gnome-vfs" "--enable-gnome-vfs"  \
                               "--disable-gnome-vfs" \

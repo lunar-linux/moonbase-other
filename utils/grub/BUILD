@@ -4,9 +4,8 @@
   if [ $WITH_SPLASH = "y" ]; then
     message "Adding support for grub bootmenu splash images..."
     patch_it  $SOURCE_CACHE/$SOURCE2  1  &&
-    autoconf  &&
-    aclocal   &&
-    automake
+    sedit 's:AM_INIT_AUTOMAKE:&\nAM_PROG_AS:g' configure.ac
+    autoreconf --force --install --verbose
   fi
 
   patch_it  $SOURCE_CACHE/$SOURCE3  1  &&
