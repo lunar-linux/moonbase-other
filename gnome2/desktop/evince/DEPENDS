@@ -1,11 +1,12 @@
 depends  poppler
 depends  gnome-icon-theme
-depends  gnome-vfs
-depends  gnome-keyring
 depends  gnome-doc-utils
 
-optional_depends  "ghostscript"  ""  "--disable-ps" \
-                  "Compile with PostScript support"
+optional_depends "gnome-keyring" "" "--without-keyring" \
+                 "For gnome-keyring plugin"
+
+optional_depends  "libspectre"  "" "--disable-ps" \
+                  "Compile with PostScript support" 
 
 optional_depends  "libgnomeui"  ""  "--without-libgnome" \
                   "GNOME integration"
