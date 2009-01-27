@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 1 &&
-
   libtoolize --copy --force --automake &&
   autoreconf &&
 

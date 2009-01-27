@@ -13,13 +13,16 @@
 
  LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
  
+ patch_it $SOURCE2 1
+ 
  ./configure   --build=$BUILD                                        \
                --prefix=${GNOME210_PREFIX:-/usr}                     \
                --with-xinerama=yes                                   \
-               --sysconfdir=/etc/X11                                 \
+               --sysconfdir=/etc                                     \
                --localstatedir=/var                                  \
                --infodir=${GNOME210_PREFIX:-/usr}/share/info         \
                --mandir=${GNOME210_PREFIX:-/usr}/share/man           \
+               --with-dbus-sys=/etc/dbus-1/system.d/                 \
                $OPTS                                                 &&
 
  sedit 's#$(LINK)#$(LINK) $(LIBS)#' daemon/Makefile                  &&
@@ -30,16 +33,20 @@
  mkdir  -p           /var/gdm                                        &&
  chown  -R  gdm:gdm  /var/gdm                                        &&
  chmod  750          /var/gdm                                        &&
+ mkdir  -p           /home/gdm                                       &&
+ chown  -R  gdm:gdm  /home/gdm                                       &&
+ chmod  750          /home/gdm                                       &&
 
  # This has to be a DIRECTORY, not a FILE
- if [ -e "/etc/X11/gdm/Sessions" ]; then
-   rm -fr /etc/X11/gdm/Sessions || true
+ if [ -e "/etc/gdm/Sessions" ]; then
+   rm -fr /etc/gdm/Sessions || true
  fi
 
- mkdir -p /etc/X11/gdm/Sessions/                                   &&
- install --mode=644 $SCRIPT_DIRECTORY/gnomerc /etc/X11/gdm/gnomerc &&
- install --mode=755 $SCRIPT_DIRECTORY/Sessions/gnome.desktop /etc/X11/dm/Sessions &&
- install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/PreSession/ &&
- install --mode=755 $SCRIPT_DIRECTORY/Default /etc/X11/gdm/Sessions/ 
+ mkdir -p /etc/gdm/Sessions/                                   &&
+ mkdir -p /etc/dm/Sessions/                                    &&
+ install --mode=644 $SCRIPT_DIRECTORY/gnomerc /etc/gdm/gnomerc &&
+ install --mode=755 $SCRIPT_DIRECTORY/Sessions/gnome.desktop /etc/dm/Sessions &&
+ install --mode=755 $SCRIPT_DIRECTORY/Default /etc/gdm/PreSession/ &&
+ install --mode=755 $SCRIPT_DIRECTORY/Default /etc/gdm/Sessions/ 
 
 ) > $C_FIFO 2>&1
