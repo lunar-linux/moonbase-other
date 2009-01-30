@@ -1,5 +1,6 @@
 (
 
+   sedit 's:#include <gdl/gdl-icons.h>::g' gdl/gdl.override
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \

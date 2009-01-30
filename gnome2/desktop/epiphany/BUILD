@@ -11,6 +11,10 @@
    if [[ "$CERTIFICATE_MANAGER" == "y" ]]; then
      OPTS="$OPTS --enable-certificate-manager"
    fi
+
+   #Something's wrong with the configure they ship
+   #This fixes it
+   autoreconf &&
  
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}             \
                 --build=$BUILD                                \
