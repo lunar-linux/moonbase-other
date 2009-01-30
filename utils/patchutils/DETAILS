@@ -1,0 +1,26 @@
+          MODULE=patchutils
+         VERSION=0.3.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://cyberelk.net/tim/data/$MODULE/stable
+      SOURCE_VFY=sha1:548966515c54e8de2cc0e988ff8ba5f0d9b61315
+        WEB_SITE=http://cyberelk.net/tim/software/$MODULE
+         ENTERED=20090124
+         UPDATED=20090124
+           SHORT="A collection of tools for patch files"
+
+cat << EOF
+Patchutils contains a collection of tools for manipulating patch files: 
+  interdiff   : show differences between two diff files
+  combinediff : create a cumulative unified patch from two incremental patches
+  filterdiff  : extract or exclude diffs from a diff file
+  fixcvsdiff  : fix problematic diff files
+  lsdiff      : show which files are modified by a patch
+  splitdiff   : separate out incremental patches
+  rediff      : fix offsets and counts of a hand-edited diff
+  grepdiff    : show files modified by a diff containing a regex
+  recountdiff : recompute patch counts and offsets
+  unwrapdiff  : demangle word-wrapped patches
+  dehtmldiff  : get usable diff from an HTML page
+  flipdiff    : exchange the order of two incremental patches
+  espdiff     : apply the appropriate transformation to a set of patches.
+EOF
