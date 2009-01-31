@@ -1,6 +1,11 @@
 (
 
-  OPTS="$OPTS  --disable-valgrind  --disable-debug  --disable-examples"
+  OPTS="$OPTS \
+        --enable-experimental \
+        --enable-gio          \
+        --disable-valgrind    \
+        --disable-debug       \
+        --disable-examples"
 
   default_build
 

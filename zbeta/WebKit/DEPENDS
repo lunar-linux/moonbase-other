@@ -7,8 +7,11 @@ depends jpeg
 depends libpng
 depends freetype2
 
+optional_depends libproxy "" "" "if you don't want GConf"
+optional_depends GConf "" "--without-gnome" "GConf"
+
 optional_depends gst-plugins-good "--enable-video" "" "Enable video support?"
 
-optional_depends libsoup "--with-http-backend=soup" "" "Build with libsoup http backend instead of curl?"
+depends libsoup
 
-optional_depends curl "--with-http-backend=curl" "" "Build with curl http backend? (Say N if you said Y to libsoup)"
+#optional_depends curl "--with-http-backend=curl" "" "Build with curl http backend? (Say N if you said Y to libsoup)"
