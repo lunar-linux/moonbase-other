@@ -1,5 +1,6 @@
 (
 
+  export MOZILLA_PLUGINDIR="/opt/lunar/plugins"
   ./configure  --build=$BUILD                  \
                --sysconfdir=/etc               \
                --prefix=/usr                   \

@@ -1,0 +1,24 @@
+          MODULE=qzion
+         VERSION=0.3.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://dev.openbossa.org/qedje/downloads/source/$MODULE/
+      SOURCE_VFY=sha1:13ab37280c9b8c92f560e3c447c3fd2caa92ef8a
+   MODULE_PREFIX=${QT4_PREFIX:-/opt/lunar/qt/4}
+        WEB_SITE=http://dev.openbossa.org/trac/qedje/
+         ENTERED=20090125
+         UPDATED=20090125
+           SHORT="canvas abstraction for QEdje"
+
+cat << EOF
+QZion is a canvas abstraction used by and made for QEdje. As it is an
+abstraction, different implementations can exist, making it possible to
+optimize QEdje for different platforms/devices.
+
+Currently an implementation, based on KGameCanvas (from libkdegames)
+exists, but work is being done on providing an implementation using QT's
+QGraphicsView.
+
+The KGameCanvas-based implementation is very lightweight and works relatively
+well on embedded devices, where QGraphicsView is currently slow and not
+yet optimized for.
+EOF
