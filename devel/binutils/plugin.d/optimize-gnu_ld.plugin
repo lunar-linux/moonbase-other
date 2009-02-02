@@ -20,6 +20,13 @@ plugin_gnu_ld_optimize()
       Optimize)
         LDFLAGS="$LDFLAGS -Wl,-O1"
       ;;
+      Reduce)
+        if echo $LDFLAGS | grep -q 'Wl,-O1' ; then
+          LDFLAGS="$LDFLAGS -Wl,-O1,--as-needed"
+        else
+          LDFLAGS="$LDFLAGS -Wl,--as-needed"
+        fi
+      ;;
       Combreloc)
         LDFLAGS="$LDFLAGS -z combreloc"
       ;;
@@ -69,6 +76,7 @@ EOF
     "Strip" "-s (RECOMMENDED)" $( echo ${LDF[@]} | grep -qw "Strip" && echo "on" || echo "off" ) "Strip all symbols"
     "StripDebug" "-S" $( echo ${LDF[@]} | grep -qw "StripDebug" && echo "on" || echo "off" ) "Strip debug symbols only"
     "Optimize" "-Wl,-O1" $( echo ${LDF[@]} | grep -qw "Optimize" && echo "on" || echo "off" ) "Optimize hash tables during linking"
+    "Reduce" "-Wl,--as-needed" $( echo ${LDF[@]} | grep -qw "Reduce" && echo "on" || echo "off" ) "Reduce the amount of linked libraries if possible"
     "Combreloc" "-z combreloc" $( echo ${LDF[@]} | grep -qw "Combreloc" && echo "on" || echo "off" ) "Combreloc"
     )
   RESULT=`$DIALOG --item-help --separate-output --checklist "Select linker optimizations. These options only apply to the link stage of binaries." 0 0 0 "${OPTIONS[@]}"`
