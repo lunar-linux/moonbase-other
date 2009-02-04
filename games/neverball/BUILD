@@ -1,7 +1,7 @@
 (
 
   sedit "s:#X11_PATH:X11_PATH:" Makefile &&
-  sedit '/CONFIG_DATA/s:"\./data":"/usr/games/neverball-data":g' share/config.h &&
+  sedit '/CONFIG_DATA/s:"\./data":"/usr/games/neverball-data":g' share/base_config.h &&
 
   make             &&
   prepare_install  &&
@@ -11,5 +11,5 @@
 
   install -m0755 neverball /usr/games/  &&
   install -m0755 neverputt /usr/games/
-  
+
 ) > $C_FIFO 2>&1
