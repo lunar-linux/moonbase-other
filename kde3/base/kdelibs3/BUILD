@@ -5,10 +5,16 @@
 
   export LD_LIBRARY_PATH=${QT_PREFIX:-$QTDIR}/lib
 
+  if module_installed alsa-lib; then
+  OPTS="$OPTS --with-alsa "
+  fi &&
+
   ./configure  --prefix=${KDE_PREFIX:-$KDEDIR}     \
                --with-qt-dir=${QT_PREFIX:-$QTDIR}  \
                --disable-debug                     \
                --enable-final                      \
+               --enable-sendfile                   \
+               --enable-mitshm                     \
                $OPTS                              &&
 
   if [[ "$APIDOX" == "y" ]]; then

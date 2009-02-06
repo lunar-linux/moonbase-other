@@ -1,5 +1,4 @@
 (
-
   while
     if [ "$CONFIG_KERNEL" == "y" ]; then
         if [ "$PREFER_XCONFIG" == "y" -a -n "$DISPLAY" ]; then
@@ -33,7 +32,7 @@
   backup_mods_krnl $VERSION                    &&
   prepare_install                           &&
   make modules_install                      &&
-  cp arch/${MYARCH}/boot/bzImage /boot/$VERSION  &&
-  cp System.map /boot/System.map-$VERSION
+  cp arch/${MYARCH}/boot/bzImage /boot/$VERSION-`arch`  &&
+  cp System.map /boot/System.map-$VERSION-`arch`
 
 ) > $C_FIFO 2>&1
