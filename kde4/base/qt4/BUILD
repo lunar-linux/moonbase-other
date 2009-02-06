@@ -6,9 +6,15 @@
 
   sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
 
+  if module_installed phonon ; then
+    OPTS+="-phonon -phonon-backend"
+   else
+    OPTS+="-no-phonon -phonon-backend"
+  fi &&
+
   if in_depends qt4 sqlite ; then
     OPTS+=" -system-sqlite"
-  fi
+  fi &&
 
   echo "yes" | ./configure               \
                -prefix ${MODULE_PREFIX}  \
@@ -28,7 +34,6 @@
                -stl              \
                -webkit           \
                -fontconfig       \
-               -no-phonon        \
                -largefile        \
                -glib             \
                -qt3support       \
