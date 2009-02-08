@@ -11,12 +11,12 @@
 
   add_priv_user sshd:sshd                                                &&
 
-  if echo $OPTS | grep -q -- "--with-kerberos5="; then
-    patch_it $SOURCE2 1
+#  if echo $OPTS | grep -q -- "--with-kerberos5="; then
+#    patch_it $SOURCE2 1
 #    if [[ "$KEX" == "y" ]]; then 
 #        patch_it $SOURCE3 0
 #    fi
-  fi &&
+#  fi &&
 
   OPTS=$OPTS" --sysconfdir=/etc/ssh --with-md5-passwords"                &&
   default_build                                                          &&
