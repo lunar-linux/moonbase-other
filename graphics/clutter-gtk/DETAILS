@@ -1,14 +1,18 @@
           MODULE=clutter-gtk
-         VERSION=0.4.0
+             MAJ=0.8
+         VERSION=0.8.2
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.clutter-project.org/sources/$MODULE/0.4/
-      SOURCE_VFY=sha1:6e8ca4aba42bca1323b0d8bcfe4a89d697c949fa
+      SOURCE_URL=http://www.clutter-project.org/sources/$MODULE/$MAJ/
+      SOURCE_VFY=sha1:c2d04d188361d96a2bb03741aeff117ea0a7935a
         WEB_SITE=http://www.clutter-project.org
          ENTERED=20080109
-         UPDATED=20080109
-           SHORT="GTK+-2 bindings to the clutter library"
+         UPDATED=20090206
+           SHORT="integrate Clutter into GTK+ applications"
 
 cat << EOF
-Clutter-GTK is the GTK+-2 bindings to the clutter GUI library, allowing
-clutter's effects in GTK+-2 applications.
+Clutter-GTK - GTK+ Integration library for Clutter
+
+Clutter-GTK is a library providing facilities to integrate Clutter into GTK+
+applications. It provides a GTK+ widget, GtkClutterEmbed, for embedding the
+default ClutterStage into any GtkContainer.
 EOF
