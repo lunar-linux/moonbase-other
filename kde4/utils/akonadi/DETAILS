@@ -1,13 +1,16 @@
           MODULE=akonadi
-         VERSION=1.1.0
+         VERSION=1.1.1
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-pkgconfig_path.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=http://akonadi.omat.nl
-      SOURCE_VFY=sha1:d8ee17760c9179743ffbdb51de97af1d20b9308b
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:797d90b9a5c17cb852408cbbc9cbd86e0ac711ac
+     SOURCE2_VFY=sha1:746a83c4c23e8456c4f611e73f6831a6f459b572
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
         WEB_SITE=http://techbase.kde.org/Getting_Started/Build/KDE4/Troubleshooting
          ENTERED=20080622
-         UPDATED=20090126
+         UPDATED=20090128
            SHORT="A PIM layer for KDE 4.x"
 
 cat << EOF
