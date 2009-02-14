@@ -8,6 +8,7 @@ depends glib-2
 depends pkgconfig
 depends ghostscript
 
+optional_depends "glitz"     "--with-glitz" "--without-glitz" "OpenGL image compositing support"
 optional_depends "cairo"     "" "" "For 2D vector graphics library"
 optional_depends "pango"     "" "" "For text layout/rendering library"
 optional_depends "urw-fonts" "" "" "Extra fonts for XOrg X11"
@@ -18,3 +19,5 @@ optional_depends "swig"      "" "--disable-swig"  "swig support"
 optional_depends "lua"       "" "--disable-lua"   "lua support"
 optional_depends "ruby"  "--enable-ruby" "--disable-ruby" "for ruby support"
 optional_depends "ming"      "" ""                "for flash support"
+optional_depends "devil"     "--with-devil --with-devillibdir=/usr/lib/" "" \
+                             "for additional graph file format support"
