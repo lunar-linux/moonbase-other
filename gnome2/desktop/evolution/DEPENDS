@@ -1,16 +1,37 @@
 depends  gtkhtml3
-depends  gal2
 depends  libgnomeprint
 depends  evolution-data-server
 depends  hicolor-icon-theme
 depends  scrollkeeper
 depends  gnome-doc-utils
-optional_depends  gnupg "" "" "for encrypted mail support"
-optional_depends  gnome-spell "" ""  "For spellcheck support"
-optional_depends  pilot-link "--enable-pilotlinktest" "" "for Palm support"
-optional_depends  gnome-pilot "--enable-pilot-conduits=yes" "" "for Palm Pilot support"
-optional_depends  openldap "--with-openldap=yes" "--with-openldap=no" "for LDAP support" 
-optional_depends  gtk-doc "--enable-gtk-doc" "--disable-gtk-doc" "for gtk-doc support" 
+
+optional_depends  gnupg        ""  ""  \
+                               "for encrypted mail support"
+
+optional_depends  gnome-spell  ""  ""  \
+                               "For spellcheck support"
+
+optional_depends  pilot-link   "--enable-pilotlinktest"       ""  \
+                               "For Palm Pilot support"
+
+optional_depends  gnome-pilot  "--enable-pilot-conduits=yes"  ""  \
+                               "For more Palm Pilot support"
+
+optional_depends  openldap     "--with-openldap=yes"   "--with-openldap=no"  \
+                               "For LDAP support" 
+
+optional_depends  gtk-doc      "--with-help=yes"   "--with-help=no"  \
+                               "For gtk-doc support" 
+
+optional_depends  gstreamer    ""  ""  "For audio playback"
+
+optional_depends  libnotify    ""  ""  "For libnotify popups"
+
+optional_depends  Python       "--enable-python"  ""  \
+                               "For Python plugin support"
+
+optional_depends  mono         "--enable-mono"    ""  \
+                               "For Mono (.Net) plugin support"
 
 optional_depends  nss                                                  \
                   "--with-nspr-libs=/usr/lib/                          \
@@ -19,4 +40,4 @@ optional_depends  nss                                                  \
                    --with-nss-includes=/usr/include/nss                \
                    --enable-nss=yes"                                   \
                    ""                                                  \
-                   "for nss ssl support"
+                   "for nss ssl and smime support"
