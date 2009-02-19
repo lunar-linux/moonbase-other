@@ -5,7 +5,6 @@
                --localstatedir=/var                             \
                --mandir=${GNOME210_PREFIX:-/usr}/share/man      \
                --infodir=${GNOME210_PREFIX:-/usr}/share/info    \
-               --enable-ipv6=yes                                \
                --enable-nntp=yes                                \
                --enable-imap4                                   \
                $OPTS                                            &&
