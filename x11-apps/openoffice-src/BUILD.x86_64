@@ -1,12 +1,22 @@
-(                                                                                                                       
+(
+
+  patch_it $SOURCE_CACHE/$SOURCE8 0  &&
 
   if module_installed qt3; then
-   . /etc/profile.d/qt3.rc     
-  fi &&                        
+   . /etc/profile.d/qt3.rc
+  fi &&
 
   if module_installed kdelibs3; then
-   . /etc/profile.d/kde3.rc         
-  fi &&                             
+   . /etc/profile.d/kde3.rc
+  fi &&
+
+  if module_installed qt4; then
+   . /etc/profile.d/qt4.rc
+  fi &&
+
+  if module_installed kdelibs4; then
+   . /etc/profile.d/kde4.rc
+  fi &&
 
   . /etc/profile.d/pkgconfig.rc &&
 
@@ -16,54 +26,54 @@
 
   # There are symlinks left over if openoffice-bin is installed and
   # they do not get removed and the BUILD will tank near the end of
-  # the compile, this takes care of that.                          
-  for FILE in ${RM_DESK_TOP} ; do                                  
-      rm -f /usr/share/applications/${FILE}.desktop || exit 1      
-    done &&                                                        
+  # the compile, this takes care of that.
+  for FILE in ${RM_DESK_TOP} ; do
+      rm -f /usr/share/applications/${FILE}.desktop || exit 1
+    done &&
 
   sedit "/^ARCH_FLAGS\*=/d" solenv/inc/unxlngi{4,6}.mk &&
-  ARCH_FLAGS=$CXXFLAGS                                   
+  ARCH_FLAGS=$CXXFLAGS
 
   # All of the options have been carefully chosen. Don't edit them unless you
-  # really know what you're doing                                            
+  # really know what you're doing
 
   OPTS="$OPTS --prefix=$OO_DIR --enable-dbus --disable-dbgutil --disable-static-gtk \
-              --disable-fontooo --disable-odk --disable-debug --enable-opengl \      
-              --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \      
-              --enable-mozilla --enable-binfilter --enable-xrender-link       \      
-              --without-fonts --without-ppds --without-afms   \                      
-              --with-system-stdlibs --with-system-zlib --enable-minimizer     \      
-              --with-system-jpeg --with-system-expat --with-system-freetype   \      
-              --with-system-libxml --with-system-db --disable-symbols --enable-Xaw \ 
+              --disable-fontooo --disable-odk --disable-debug --enable-opengl \
+              --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
+              --enable-mozilla --enable-binfilter --enable-xrender-link       \
+              --without-fonts --without-ppds --without-afms   \
+              --with-system-stdlibs --with-system-zlib --enable-minimizer     \
+              --with-system-jpeg --with-system-expat --with-system-freetype   \
+              --with-system-libxml --with-system-db --disable-symbols --enable-Xaw \
               --with-system-xrender-headers --with-epm=internal --enable-pdfimport   \
-              --with-use-shell=bash --with-x --with-package-format=native     \       
-              --with-build-version=LunarLinux --enable-presenter-console \            
-              --enable-wiki-publisher --enable-ogltrans --enable-report-builder \     
-              --with-system-cairo --with-lang=en --with-dict=ENUS" &&                 
+              --with-use-shell=bash --with-x --with-package-format=native     \
+              --with-build-version=LunarLinux --enable-presenter-console \
+              --enable-wiki-publisher --enable-ogltrans --enable-report-builder \
+              --with-system-cairo --with-lang=en --with-dict=ENUS" &&
 
   if module_installed sane-backends ; then
     OPTS="$OPTS --with-system-sane-header";
-  fi &&                                    
+  fi &&
 
   if module_installed sun-jdk ; then
     JAVA_VERSION="`installed_version sun-jdk`";
     OPTS="$OPTS --with-jdk-home=/usr/lib/jdk${JAVA_VERSION}";
-   elif module_installed j2sdk ; then                        
-    JAVA_VERSION="`installed_version j2sdk`";                
+   elif module_installed j2sdk ; then
+    JAVA_VERSION="`installed_version j2sdk`";
     OPTS="$OPTS --with-jdk-home=/usr/lib/j2sdk${JAVA_VERSION}";
-   elif module_installed  sun-jre ; then                       
-    JAVA_VERSION="`installed_version sun-jre`";                
-    OPTS="$OPTS --with-jdk-home=/usr/lib/jre${JAVA_VERSION}";  
-  fi &&                                                        
+   elif module_installed  sun-jre ; then
+    JAVA_VERSION="`installed_version sun-jre`";
+    OPTS="$OPTS --with-jdk-home=/usr/lib/jre${JAVA_VERSION}";
+  fi &&
 
   # Apply mandatory and optional patches
 
   patch_it $SOURCE2 0 &&
 
   # As long as OOo-src does not compile against nss it needs its own mozilla
-  # tarball (and it also compiles its own mozilla)                          
-  mkdir -p $SOURCE_DIRECTORY/moz/download &&                                
-  cp $SOURCE_CACHE/$SOURCE3 $SOURCE_DIRECTORY/moz/download/ &&              
+  # tarball (and it also compiles its own mozilla)
+  mkdir -p $SOURCE_DIRECTORY/moz/download &&
+  cp $SOURCE_CACHE/$SOURCE3 $SOURCE_DIRECTORY/moz/download/ &&
 
   cd $SOURCE_DIRECTORY/config_office &&
 
@@ -71,15 +81,15 @@
   default_config &&
 
   # OOo might fail if those are set to some strange values
-  umask 0022 &&                                           
-  unset LANG LC_ALL &&                                    
+  umask 0022 &&
+  unset LANG LC_ALL &&
 
   cd $SOURCE_DIRECTORY &&
 
   ./bootstrap &&
  # sedit "s/-lxml2/-lxml2\ -lexpat/g" LinuxX86Env.Set.sh &&
-  source LinuxX86-64Env.Set.sh &&                          
-  dmake &&                                                 
+  source LinuxX86-64Env.Set.sh &&
+  dmake &&
 
   prepare_install &&
 
