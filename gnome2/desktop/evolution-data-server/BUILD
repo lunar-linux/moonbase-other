@@ -6,6 +6,7 @@
                 --localstatedir=/var              \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man   \
+		--enable-ipv6=yes                 \
                 $OPTS                             &&
     default_make
 

@@ -190,9 +190,7 @@ setup() {
     . "$CONFIG"
     stop
     begin "Recompiling VirtualBox kernel module "
-    if ! $INSTALL_DIR/src/build_in_tmp install > /var/log/vbox-install.log 2>&1; then
-        fail "Look at /var/log/vbox-install.log to find out what went wrong"
-    fi
+    lin -c virtualbox-module
     succ_msg
     start
 }

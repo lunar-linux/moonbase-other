@@ -35,12 +35,17 @@
     CCARGS=$CCARGS" -DUSE_CYRUS_SASL -DUSE_SASL_AUTH -I/usr/include/sasl -DUSE_TLS -I/usr/include/openssl"
   fi  &&
 
+  if in_depends $MODULE dovecot ; then
+    AUXLIBS=$AUXLIBS" -lssl -lcrypto"
+    CCARGS=$CCARGS' -DUSE_SASL_AUTH -DDEF_SERVER_SASL_TYPE=\"dovecot\" -DUSE_TLS -I/usr/include/openssl'
+  fi  &&
+
   AUXLIBS=$AUXLIBS" -lpthread"
   echo CCARGS=$CCARGS      &&
   echo AUXLIBS=$AUXLIBS    &&
 
-  make "OPT=$CFLAGS" "AUXLIBS=$AUXLIBS" "CCARGS=$CCARGS"   &&
-  prepare_install          &&
+  make "OPT=$CFLAGS" "AUXLIBS=$AUXLIBS" "CCARGS=$CCARGS"  &&
+  prepare_install  &&
 
   sh postfix-install -non-interactive                   \
        config_directory=/etc/postfix                    \
