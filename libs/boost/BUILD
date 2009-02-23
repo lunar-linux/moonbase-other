@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
   bjam -q ${MAKES:+-j$MAKES} \
        threading=single,multi \
        runtime-link=shared \
