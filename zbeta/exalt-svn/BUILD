@@ -5,7 +5,6 @@
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
   export USER=nobody
 
-  touch INSTALL &&
   default_cvs_build
 
 ) > $C_FIFO 2>&1
