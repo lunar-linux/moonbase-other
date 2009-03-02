@@ -9,10 +9,12 @@ depends curl
 optional_depends "sqlite" \
                  "--enable-system-sqlite" \
                  "--disable-system-sqlite" \
-                 "use sqlite for firefox storage"
-optional_depends "%FLASH"    "" ""                 "to enable Shockwave Flash"
-optional_depends "gnome-vfs" "" "--disable-gnomevfs" "for Gnome VFS support"
+                 "Use system sqlite"
+optional_depends "%FLASH"     ""  ""  "To enable Flash plugin"
+optional_depends "gnome-vfs"  ""  "--disable-gnomevfs"  "For Gnome VFS support"
 optional_depends "heimdal" \
                  "--with-gssapi=/usr/include/heimdal" \
                  "--without-gssapi" \
                  "Heimdal GSSAPI Support"
+optional_depends "Python"  ""  "" \
+                 "Needed to do a Profile Guided Optimized build"

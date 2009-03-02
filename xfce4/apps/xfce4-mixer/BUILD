@@ -6,7 +6,6 @@
 
    ./autogen.sh --build=$BUILD                                        \
                 --prefix=${MODULE_PREFIX}        \
-                --disable-static                                \
                 $OPTS                                           &&
 
    default_make
