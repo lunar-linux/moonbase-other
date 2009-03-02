@@ -6,11 +6,7 @@
 
    ./configure  --build=$BUILD                                        \
                 --prefix=${MODULE_PREFIX}        \
-                --disable-static                                \
                 $OPTS                                           &&
-
-   # bug in 4.1.90
-   cp settings/stringlist.inc lib/                                &&
 
    default_make
 
