@@ -8,7 +8,7 @@
 
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 
-  MOZ_EXTENSIONS="default,xforms"
+  MOZ_EXTENSIONS="default,xforms,mozdevelop,venkman"
 
   if in_depends $MODULE heimdal ; then
         MOZ_EXTENSIONS="${MOZ_EXTENSIONS},auth"
@@ -36,14 +36,14 @@
     --with-x            \
     --with-pthreads     \
     --with-default-mozilla-five-home=$MOZILLA_HOME \
-    --with-user-appdir=".firefox"       \
+    --with-user-appdir=".firefox"  \
     --with-system-zlib  \
     --with-system-jpeg  \
-    --enable-extensions=${MOZ_EXTENSIONS}       \
+    --enable-extensions=${MOZ_EXTENSIONS}  \
     --enable-single-profile        \
-    --enable-storage \
-    --enable-places \
-    --enable-places_bookmarks \
+    --enable-storage               \
+    --enable-places                \
+    --enable-places_bookmarks      \
     --enable-application=browser   \
     --enable-optimize="$CFLAGS"    \
     --enable-reorder    \
@@ -57,7 +57,7 @@
     --enable-svg-renderer=cairo  \
     --enable-system-cairo        \
     --enable-xterm-updates       \
-    --enable-libxul \
+    --enable-libxul              \
     --enable-official-branding   \
     --disable-debug     \
     --disable-freetype2 \
@@ -68,12 +68,20 @@
     --disable-mailnews  \
     --disable-logging   \
     --disable-accessibility     \
-    --disable-ldap      \
+    --disable-ldap              \
     --disable-profilesharing    \
-    --disable-mathml    \
+    --disable-mathml            \
     $OPTS               &&
 
-  default_make        &&
+  if [ "$PGO" == "y" ] ; then
+    #CCache breaks the pgo build
+    export CCACHE_DISABLE=1
+    make PROFILE_GEN_SCRIPT="python $MOZ_OBJDIR/_profile/pgo/profileserver.py" profiledbuild  &&
+    prepare_install  &&
+    make install
+  else
+    default_make
+  fi  &&
 
   # Put some important headers in place
   mkdir -p /usr/include/firefox-$VERSION/nss &&
