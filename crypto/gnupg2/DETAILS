@@ -1,42 +1,31 @@
+          MODULE=gnupg2
+         VERSION=2.0.11
+          SOURCE=gnupg-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/gnupg-$VERSION
+      SOURCE_URL=ftp://ftp.gnupg.org/gcrypt/gnupg
+      SOURCE_VFY=sha1:9f71a342c5be686b0dcef082078af693802a558f
+        WEB_SITE=http://www.gnupg.org
+      MAINTAINER=zbiggy@o2.pl
+         ENTERED=20050516
+         UPDATED=20090304
+           SHORT="GnuPG 2.0 provides additional features not present in former gnupg"
+           PSAFE=no
 
-
-    (************************************)
-    (*   Never edit options files when  *)
-    (*       the daemon is running      *)
-    (************************************)
-    (* SECTION : Users *)
-    (* User accounts on the core (new format) *)
-    (************************************)
-
-
-
-	(* The groups that are defined on this core.
-	
-	group_admin           = Are members of this group MLDonkey admins?
-	                        Only members of this group can change settings and see uploads.
-	 *)
- groups = [
-  {     group_name = mldonkey
-     group_admin = true
-};]
-
-	(* The users that are defined on this core. The default user is
-	called 'admin', and uses an empty password. To create new users,
-	login as admin in mldonkey, and use the 'useradd' command.
-	
-	user_groups                   = Files belonging to one of these groups can be seen by the user.
-	user_default_group            = New downloads by this user will belong to this group.
-	user_commit_dir               = Commit files to <incoming>/<user_commit_dir>
-	user_mail                     = Address used to sent confirmation mails after comitting a download
-	user_max_concurrent_downloads = Maximum number of downloads allowed, 0 = unlimited
-	 *)
- users2 = [
-  {     user_name = admin
-     user_pass = "31D6CFE0D16AE931B73C59D7E0C089C0"
-     user_groups = [
-      mldonkey;]
-     user_default_group = mldonkey
-     user_mail = ""
-     user_commit_dir = ""
-     user_max_concurrent_downloads = 0
-};]
+cat << EOF
+GnuPG is GNU's tool for secure communication and data storage. It can
+be used to encrypt data and to create digital signatures. It includes
+an advanced key management facility and is compliant with the proposed
+OpenPGP Internet standard as described in RFC2440 and the S/MIME
+standard as described by several RFCs.
+GnuPG 2.0.x is the stable version of GnuPG integrating support for
+OpenPGP and S/MIME. It has a different design philosophy that splits
+functionality up into several modules.  Both versions may be installed
+simultaneously without any conflict (gpg is called gpg2 in GnuPG 2).
+In fact, the gpg version from GnuPG 1.4.x is able to make use of the
+gpg-agent as included in GnuPG 2 and allows for seamless passphrase
+caching. The advantage of GnupG 1.4.x is its smaller size and no
+dependency on other modules at run and build time.
+The gpg2 behaves just like gpg; it is however suggested to
+keep using standard gpg because most applications still need classic
+gnupg.
+EOF
