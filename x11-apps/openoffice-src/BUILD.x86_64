@@ -10,14 +10,6 @@
    . /etc/profile.d/kde3.rc
   fi &&
 
-  if module_installed qt4; then
-   . /etc/profile.d/qt4.rc
-  fi &&
-
-  if module_installed kdelibs4; then
-   . /etc/profile.d/kde4.rc
-  fi &&
-
   . /etc/profile.d/pkgconfig.rc &&
 
   OO_DIR="/opt/lunar/openoffice-src"
@@ -61,9 +53,6 @@
    elif module_installed j2sdk ; then
     JAVA_VERSION="`installed_version j2sdk`";
     OPTS="$OPTS --with-jdk-home=/usr/lib/j2sdk${JAVA_VERSION}";
-   elif module_installed  sun-jre ; then
-    JAVA_VERSION="`installed_version sun-jre`";
-    OPTS="$OPTS --with-jdk-home=/usr/lib/jre${JAVA_VERSION}";
   fi &&
 
   # Apply mandatory and optional patches
