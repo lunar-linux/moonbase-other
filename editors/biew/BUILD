@@ -5,8 +5,7 @@
            *) UM="n"  ;;
   esac
 
-  sedit '267d' makefile
-  sedit '266d' makefile
+  sedit '281,283d' makefile
 
   default_build
 
