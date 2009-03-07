@@ -1,5 +1,6 @@
-          MODULE=conky
-         VERSION=1.4.8
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/$MODULE/
-      SOURCE_VFY=sha1:770e8c93d3c6d578
+depends  pygobject
+depends  gtk+-2
+depends  pycairo
+
+optional_depends  "libglade"  ""  "" \
+                  "to build the libglade Python bindings (recommended)"
