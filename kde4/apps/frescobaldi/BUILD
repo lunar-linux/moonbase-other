@@ -1,4 +1,4 @@
-
+(
 
   KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build"
 
