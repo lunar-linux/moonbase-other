@@ -1,13 +1,15 @@
 
 (
   
-  mv configure.guess config.guess &&
-  mv configure.sub config.sub &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
-  sedit '/configure.\(guess\|sub\)/d' configure.in &&
+  mv configure.guess config.guess  &&
+  mv configure.sub config.sub      &&
 
-  autoconf &&
-  libtoolize &&
+  sedit '/configure.\(guess\|sub\)/d' configure.in  &&
+
+  autoconf    &&
+  libtoolize  &&
 
   default_build
 
