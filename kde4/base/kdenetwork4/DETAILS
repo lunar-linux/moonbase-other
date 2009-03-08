@@ -1,42 +1,25 @@
           MODULE=kdenetwork4                                        
            MAJOR=4.2                                                
-         VERSION=${MAJOR}.0                                         
+         VERSION=${MAJOR}.1
           SOURCE=kdenetwork-$VERSION.tar.bz2                        
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdenetwork-$VERSION               
-      SOURCE_URL=$KDE_URL/stable/$VERSION/src/                      
-      SOURCE_VFY=sha1:37dec318d024ba8938bf965690cc346312a637fa      
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src                      
+      SOURCE_VFY=sha1:d6d730c167cd72d43904715014b2adc8f7d5bc1e
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}              
         WEB_SITE=http://www.kde.org                                 
          ENTERED=20071026                                           
-         UPDATED=20090127
-           SHORT="network tools for KDE"
+         UPDATED=20090305
+           SHORT="Network tools for KDE"
+
 cat << EOF
 * Filesharing: network file sharing
-  Maintainer: UNMAINTAINED
-
 * kdnssd: Zeroconf
-  Maintainer: Jakub Stachowski <qbast@go2.pl>
-
 * KGet: an advanced download manager
-  Maintainer: Dario Massarin <nekkar@libero.it>
-  Mailing-List: kget@kde.org
-
 * KNewsTicker: RDF newsticker Plasma applet
-  Maintainer: Frerich Raabe <raabe@kde.org>
-
 * Kopete: Instant Messaging client
-  Maintainer: Matt Rogers <mattr@kde.org>
-  Mailing-List: kopete-devel@kde.org
-
 * KPPP: dialer and front end for pppd
-  Maintainer: UNMAINTAINED
-
 * KRDC: a client for Desktop Sharing
-  Maintainer: Urs Wolfer <uwolfer@kde.org>
-
-* Krfb: Desktop Sharing server, allow others to access your desktop via VNC
-  Maintainer: Alessandro Praduroux <pradu@pradu.it>
-
-* Lanbrowsing: lan browsing kio slave
-  Maintainer: UNMAINTAINED
+* Krfb: Desktop Sharing server, allow others to access your desktop 
+  via VNC
+* Lanbrowsing: lan browsing kio slave.
 EOF

@@ -14,7 +14,7 @@
   prepare_install                                               &&
   make install                                                  &&
 
-  echo "Icons and desktop file can be found in $PREFIX/share/textmaker"
+  echo "Icons and desktop file can be found in $PREFIX/share/texmaker"
 
 
 ) > $C_FIFO 2>&1

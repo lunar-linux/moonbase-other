@@ -53,6 +53,6 @@
   default_build 
 
   # Please check whether this has been corrected with each version bump!
-  #sedit "s/idldir=\/usr\/share\/idl\/xulrunner-1.9/idldir=\/usr\/share\/idl\/xulrunner-1.9\/stable/" /usr/lib/pkgconfig/libxul.pc
+  sedit "s:stable:unstable:g" /usr/lib/pkgconfig/mozilla-js.pc
 
 ) > $C_FIFO 2>&1
