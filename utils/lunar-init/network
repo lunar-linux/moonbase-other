@@ -147,9 +147,14 @@ function device_start()
 			# remove any and all essid
 			$IWCONFIG $1 essid any
 
+			# enable D-Bus control interface if D-Bus is running
+			if [ -x "/etc/init.d/messagebus" ] && [ $(/etc/init.d/messagebus/status) -eq 0 ]; then
+			  WPA_SUPPLICANT_FLAGS="$WPA_SUPPLICANT_FLAGS -u"
+			fi
+
 			# FIXME: Make the config file configurable. 
 			# Also, rely on the configuration to determine whether or not the interface is enabled
-			$WPA_SUPPLICANT -B -w -Dwext -i$1 -c/etc/wpa_supplicant.conf
+			$WPA_SUPPLICANT $WPA_SUPPLICANT_FLAGS -B -w -Dwext -i$1 -c/etc/wpa_supplicant.conf
 
 			# finally start ifplugd
 			if ! $IFPLUGD -c -i $1 &> /dev/null ; then
