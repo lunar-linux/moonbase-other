@@ -26,9 +26,7 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
     message "Selecting targets is optional"
   fi
 
-  if query "Would you like to select drivers? (if not selected, all locales will be installed)" y; then
-    unpack_localedata
-
+  if query "Would you like to select arch targets (if not selected, all targets will be instaled") y ; then
     TARGETLIST=`select_targets`
     TEMP=`grep -v "TARGETLIST="             $MODULE_CONFIG`
     echo "$TEMP"                             > $MODULE_CONFIG
