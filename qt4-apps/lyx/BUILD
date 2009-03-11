@@ -2,7 +2,7 @@
 
   . /etc/profile.d/qt4.rc
 
-  OPTS="$OPTS --enable-build-type=release"
+  OPTS="$OPTS --enable-build-type=release --enable-shared --disable-static"
 
   default_build
 

@@ -1,8 +1,11 @@
           MODULE=libpng
          VERSION=1.2.35
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=libpng-1.2.35-png.h.patch
       SOURCE_URL=$SFORGE_URL/$MODULE
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:aad4faf21a1fc5853a55a2ff51351707bde3f6ac
+     SOURCE2_VFY=sha1:3832fb70a4bd9c092292693d4242ca2779b42dab
         WEB_SITE=http://www.libpng.org/pub/png/libpng.html
          ENTERED=20010922
          UPDATED=20090219
@@ -10,7 +13,7 @@
 
 cat << EOF
 The PNG library is a collection of routines used to create and
-manipulate PNG format graphics files. The PNG format was designed 
+manipulate PNG format graphics files. The PNG format was designed
 as a replacement for GIF and, to a lesser extent, TIFF, with many
 improvements and extensions.
 EOF
