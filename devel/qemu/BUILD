@@ -1,12 +1,11 @@
 (
-
   unset CFLAGS
 
   OPTS+=" --extra-ldflags=-L/usr/X11R6/lib"
-  OTPS+=" --target-list=i386-softmmu"
-  if [ ! -e /usr/X11R6/lib/libX11.a ]; then
-    OPTS+=" --target-list=i386-user,i386-softmmu,arm-user,sparc-user,ppc-user"
-  fi
+  for i in $TARGETLIST; do
+    echo $i;
+  done &&
+  OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
 
   ./configure --prefix=/usr \
                $OPTS         &&
