@@ -220,7 +220,7 @@ start()
             ln -sf /dev/ram0 /dev/ram
         fi
 		run_without_msg "echo > /proc/sys/kernel/hotplug" # Hotplug agents are deprecated!
-	    run_with_msg "Starting udev device handling daemon" "/sbin/udevd --daemon"
+	run_with_msg "Starting udev device handling daemon version `udevd --version`" "/sbin/udevd --daemon"
         run_with_msg "Activating coldplug devices" "/sbin/udevadm trigger"
         run_with_msg "Devices activation - please wait" "/sbin/udevadm settle"
         # This is first aid code for devices hard to init (too slow or to buggy for init by 1st time)
