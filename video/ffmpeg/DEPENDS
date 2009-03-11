@@ -12,3 +12,13 @@ optional_depends libdc1394  "--enable-libdc1394"  ""  "for firewire support"
 optional_depends x264-snapshot  "--enable-libx264"    ""  "for H264 support"
 optional_depends amrwb      "--enable-libamr-wb"  ""  "for AMR Wideband speech"
 optional_depends amrnb      "--enable-libamr-nb"  ""  "for AMR narrowband speech"
+
+optional_depends schroedinger "--enable-libschroedinger" "--disable-libschroedinger" \
+                              "for encoding/decoding of Dirac video stream support"
+
+optional_depends openjpeg   "--enable-libopenjpeg " "--disable-libopenjpeg"   \
+                            "for JPEG 2000 decoding support"
+
+optional_depends speex      "--enable-libspeex" "--disable-libspeex" "for Speex decoding support"
+
+optional_depends dirac      "--enable-libdirac" "--disable-libdirac" "for dirac codec support"
