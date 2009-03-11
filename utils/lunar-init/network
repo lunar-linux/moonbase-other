@@ -148,8 +148,10 @@ function device_start()
 			$IWCONFIG $1 essid any
 
 			# enable D-Bus control interface if D-Bus is running
-			if [ -x "/etc/init.d/messagebus" ] && [ $(/etc/init.d/messagebus/status) -eq 0 ]; then
-			  WPA_SUPPLICANT_FLAGS="$WPA_SUPPLICANT_FLAGS -u"
+			if [ -x "/etc/init.d/messagebus" ]; then
+				if (/etc/init.d/messagebus status | grep OK) &>/dev/null; then
+					WPA_SUPPLICANT_FLAGS="$WPA_SUPPLICANT_FLAGS -u"
+				fi
 			fi
 
 			# FIXME: Make the config file configurable. 
