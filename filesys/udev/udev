@@ -8,6 +8,7 @@ case "$1" in
   start)
     rm -rf /dev/.udevdb
     export ACTION=add
+    echo "Udev version `udevd --version` is starting"
     /sbin/udevd --daemon
     /sbin/udevadm trigger
     /sbin/udevadm settle
