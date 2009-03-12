@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
   if in_depends qt4; then
    . /etc/profile.d/qt4.rc
   fi &&
