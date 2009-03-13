@@ -1,16 +1,13 @@
           MODULE=MPlayer
-         VERSION=1.0rc2
-          SOURCE=$MODULE-$VERSION.tar.bz2
+         VERSION=checkout-snapshot
+          SOURCE=mplayer-$VERSION.tar.bz2
          SOURCE2=font-arial-iso-8859-1.tar.bz2
          SOURCE3=font-arial-iso-8859-2.tar.bz2
          SOURCE4=font-arial-cp1250.tar.bz2
          SOURCE5=font-arial-iso-8859-7.tar.bz2
          SOURCE6=Blue-1.7.tar.bz2
-         SOURCE7=stream_cddb_fix_20080120.diff
-         SOURCE8=url_fix_20080120.diff
-         SOURCE9=demux_mov_fix_20080129.diff
-        SOURCE10=demux_audio_fix_20080129.diff
-   SOURCE_URL[0]=ftp://ftp1.mplayerhq.hu/$MODULE/releases/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/mplayer-checkout-2009-03-11
+   SOURCE_URL[0]=$MIRROR_URL
    SOURCE_URL[1]=ftp://ftp2.mplayerhq.hu/$MODULE/releases/
   SOURCE2_URL[0]=ftp://ftp1.mplayerhq.hu/$MODULE/releases/fonts/
   SOURCE2_URL[1]=ftp://ftp2.mplayerhq.hu/$MODULE/releases/fonts/
@@ -21,11 +18,6 @@
   SOURCE5_URL[0]=ftp://ftp1.mplayerhq.hu/$MODULE/releases/fonts/
   SOURCE5_URL[1]=ftp://ftp2.mplayerhq.hu/$MODULE/releases/fonts/
   SOURCE6_URL[0]=ftp://ftp1.mplayerhq.hu/MPlayer/skins/
-     SOURCE7_URL=http://www.mplayerhq.hu/MPlayer/patches/
-     SOURCE8_URL=http://www.mplayerhq.hu/MPlayer/patches/
-     SOURCE9_URL=http://www.mplayerhq.hu/MPlayer/patches/
-    SOURCE10_URL=http://www.mplayerhq.hu/MPlayer/patches/
-      SOURCE_VFY=sha1:e9b496f3527c552004ec6d01d6b43f196b43ce2d
      SOURCE2_VFY=sha1:152c40bf20de34aa8802d7f80d34d673b0b67212
      SOURCE3_VFY=sha1:7b99bbe0e9ba89a57eccbea8f93c453c4f268181
      SOURCE4_VFY=sha1:ccf11dce5d0fb72fd3af97f788b7471cd0cd0b68
@@ -37,8 +29,7 @@
     SOURCE10_VFY=sha1:e25ba7d8d696d9c6365f105134ba723404adb4e1
         WEB_SITE=http://www.mplayerhq.hu
          ENTERED=20010922
-         UPDATED=20080409
-           PSAFE=no
+         UPDATED=20090311
            SHORT="A movie and animation player"
 
 cat << EOF
