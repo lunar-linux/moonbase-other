@@ -1,16 +1,19 @@
           MODULE=cdparanoia
          VERSION=III-10.2
           SOURCE=$MODULE-$VERSION.src.tgz
-      SOURCE_URL=http://downloads.xiph.org/releases/cdparanoia/
+         SOURCE2=$MODULE-$VERSION-gcc43.patch.bz2
+      SOURCE_URL=http://downloads.xiph.org/releases/$MODULE
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:1901e20d3a370ca6afa4c76a9ef30d3f03044320
+     SOURCE2_VFY=sha1:ffc2414434e8eb6c192624b7031263399df54ebb
         WEB_SITE=http://www.xiph.org/paranoia
          ENTERED=20010922
-         UPDATED=20081120
-           SHORT="a digital audio CD ripper"
+         UPDATED=20090304
+           SHORT="A digital audio CD ripper"
 
 cat << EOF
 Cdparanoia is a Compact Disc Digital Audio (CDDA) extraction tool, commonly
-known on the net as a 'ripper'.  Cdparanoia will read correct, rock-solid
+known on the net as a 'ripper'. Cdparanoia will read correct, rock-solid
 audio data from inexpensive drives prone to misalignment, frame jitter and
 loss of streaming during atomic reads. Cdparanoia will also read and repair
 data from CDs that have been damaged in some way.

@@ -1,0 +1,19 @@
+          MODULE=IO-Socket-SSL
+         VERSION=1.22
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=http://search.cpan.org/CPAN/authors/id/S/SU/SULLR
+      SOURCE_VFY=sha1:9a942f903ee9612f9ec192d6cc768d45ed9c0990
+        WEB_SITE="http://search.cpan.org/search?module=IO::Socket::SSL"
+         ENTERED=20090202
+         UPDATED=20090202
+           SHORT="nearly transparent SSL encapsulation for IO::Socket::INET"
+		   
+cat << EOF
+This module is a true drop-in replacement for IO::Socket::INET that uses
+SSL to encrypt data before it is transferred to a remote server or
+client. IO::Socket::SSL supports all the extra features that one needs
+to write a full-featured SSL client or server application: multiple SSL
+contexts, cipher selection, certificate verification, and SSL version
+selection. As an extra bonus, it works perfectly with mod_perl.
+EOF

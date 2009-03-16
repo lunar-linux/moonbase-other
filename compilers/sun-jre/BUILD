@@ -2,6 +2,9 @@
   chmod +x $SOURCE &&
   ./$SOURCE --accept-license --unpack &&
 
+  # Clean up old java 1.6.0 service packs
+  rm -rf /usr/lib/jre1.6.0_* &&
+
   prepare_install  &&
 
   cp -r $SOURCE_DIRECTORY/jre${VERSION} /usr/lib/ &&

@@ -10,9 +10,7 @@
   sedit "s/\/usr\/bin\/awk/\/bin\/awk/" doc/mktxt      &&
 
 # doc section
-  cd doc                                               &&
-  make                                                 &&
-  prepare_install                                      &&
-  make install
-  
+  cd doc  &&
+  default_make
+
 ) > $C_FIFO 2>&1

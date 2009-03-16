@@ -1,0 +1,18 @@
+depends gtk+-2
+depends icu4c
+depends gperf
+depends libxslt
+depends sqlite
+depends jpeg
+depends libpng
+depends freetype2
+depends libsoup
+
+optional_depends  gst-plugins-good  "--enable-video"  ""  \
+                  "For HTML5 video support"
+
+optional_depends  geoclue "--enable-geolocation"  "--disable-geolocation"  \
+                  "For geolocation support"
+
+optional_depends  gnome-keyring  "--enable-gnomekeyring"  ""  \
+                  "For Gnome Keyring support"

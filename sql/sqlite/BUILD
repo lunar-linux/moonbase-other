@@ -1,14 +1,10 @@
 (
+  # For "Version: 3.6.11" in /usr/lib/pkgconfig/sqlite3.pc
+  sedit 's:@RELEASE@:@VERSION@:' sqlite3.pc.in &&
 
-OPTS+=" --enable-load-extension"
+  LDFLAGS+=" -ldl" &&
 
-LDFLAGS+=" -ldl"
-
-  default_build &&
-  strip lemon &&
-  install -m 755 lemon /usr/bin &&
-  install -m 644 sqlite3.1 /usr/share/man/man1 &&
-
-  sedit "s/Version\: 3.5/Version\: $VERSION/" /usr/lib/pkgconfig/sqlite3.pc
+  default_build  &&
+  install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1
 
 ) > $C_FIFO 2>&1

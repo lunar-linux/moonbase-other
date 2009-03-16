@@ -1,3 +1,11 @@
 depends  libsexy
-depends  WebKit
+depends  webkit
 depends  libxml2
+optional_depends unique "--enable-unique" "--disable-unique" \
+                 "for single instance midori"
+optional_depends libsoup "--enable-libsoup" "--disable-libsoup" \
+                 "enable icon and view source support"
+optional_depends sqlite  "--enable-sqlite" "--disable-sqlite" \
+                 "enable history database support"
+optional_depends libidn "--enable-libidn" "--disable-libidn" \
+                 "enable internation domain name support"		 

@@ -1,4 +1,7 @@
 (
+  if [ "$USE_UTF8" == "y" ]; then
+    patch_it $SOURCE2 1
+  fi
 
   ./configure      --build=$BUILD             \
                    --prefix=/usr              \
