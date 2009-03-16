@@ -14,9 +14,11 @@
   source ./env.sh               &&
   kmk                           &&
 
-  # Build kernel module
-  pushd out/linux.x86/release/bin/src &&
-  make &&
+  #Build source package for kernel module
+  pushd out/linux.x86/release/bin/ &&
+  message "Building ${MODULE_COLOR}virtualbox-module-${VERSION_COLOR}${VERSION}${DEFAULT_COLOR}." &&
+  message "This may take a while..." &&
+  tar -cjf $SOURCE_CACHE/virtualbox-module-$VERSION.tar.bz2 src &&
   popd &&
 
   # Prepare for installation
@@ -27,11 +29,6 @@
 
   # Install contents of the build directory
   cp -R out/linux.x86/release/bin/* $MODULE_PREFIX &&
-
-  # Install kernel module
-  pushd out/linux.x86/release/bin/src &&
-  make install &&
-  popd &&
 
   # Install the startup script to /usr/bin
   install -m 755 $SCRIPT_DIRECTORY/VirtualBox /usr/bin &&

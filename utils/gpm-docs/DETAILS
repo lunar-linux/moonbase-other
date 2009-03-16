@@ -1,13 +1,16 @@
            MODULE=gpm-docs
            MODNAME=gpm
-         VERSION=1.20.5
+         VERSION=1.20.6
           SOURCE=$MODNAME-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODNAME-$VERSION
-   SOURCE_URL[0]=ftp://arcana.linux.it/pub/$MODULE
+   SOURCE_URL[0]=http://linux.schottelius.org/gpm/archives
+   SOURCE_URL[1]=ftp://arcana.linux.it/pub/gpm
+      SOURCE_VFY=sha1:f3bb9272878b7934968381c8b25edab359114150
         WEB_SITE=unknown
          ENTERED=20020512
-         UPDATED=20020512
-           SHORT="mouse server for the console and xterm"
+         UPDATED=20090212
+           SHORT="Documentation for the mouse server"
+
 cat << EOF
 This is just the documentation and man pages for gpm. We build them 
 separately because the original author created a separate Makefile and

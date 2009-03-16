@@ -1,14 +1,16 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   export CFLAGS="$CFLAGS -fPIC"
 
-  mv configure.guess config.guess &&
-  mv configure.sub config.sub &&
+  mv configure.guess config.guess  &&
+  mv configure.sub config.sub      &&
 
-  sedit '/configure.\(guess\|sub\)/d' configure.in &&
+  sedit '/configure.\(guess\|sub\)/d' configure.in  &&
 
-  autoconf &&
-  libtoolize &&
+  autoconf    &&
+  libtoolize  &&
 
   default_build
 

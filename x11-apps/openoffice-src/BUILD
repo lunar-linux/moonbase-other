@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE8 0  &&
+
   if module_installed qt3; then
    . /etc/profile.d/qt3.rc
   fi &&
@@ -45,15 +47,10 @@
     OPTS="$OPTS --with-system-sane-header";
   fi &&
 
-  if module_installed sun-jdk; then
-  # hsqldb 3rdparty compilation fault will break OO build
-  # we can pull out hsqldb 1.9.0 from svn,
-  # or downgrade JDK to 1.5 only for OO build:
-    cd $SOURCE_DIRECTORY;
-    chmod +x $SOURCE8;
-    ./$SOURCE8 --accept-license --unpack;
-    OPTS="$OPTS --with-jdk-home=$SOURCE_DIRECTORY/jdk1.5.0_16";
-  else
+  if module_installed sun-jdk ; then
+    JAVA_VERSION="`installed_version sun-jdk`";
+    OPTS="$OPTS --with-jdk-home=/usr/lib/jdk${JAVA_VERSION}";
+   elif module_installed j2sdk ; then
     JAVA_VERSION="`installed_version j2sdk`";
     OPTS="$OPTS --with-jdk-home=/usr/lib/j2sdk${JAVA_VERSION}";
   fi &&

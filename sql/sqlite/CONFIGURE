@@ -1,14 +1,14 @@
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG; then
 
-  if  query  "Use an in-ram database for temporary tables?" n;  then
-    OPTS="$OPTS --enable-tempstore"
-  fi
+#  if  query  "Support loadable extensions?" y; then
+#    OPTS="$OPTS --enable-dynamic-extensions"
+#  fi
 
   if query "Support threadsafe operation?" y; then
     OPTS="$OPTS --enable-threadsafe"
   fi
 
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+  echo  'OPTS='\"$OPTS\"  >>  $MODULE_CONFIG
 
 fi

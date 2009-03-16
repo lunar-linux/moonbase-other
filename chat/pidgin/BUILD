@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --disable-avahi --disable-meanwhile --disable-nm"
+  OPTS+=" --disable-nm"
   default_build
 
 ) > $C_FIFO 2>&1
