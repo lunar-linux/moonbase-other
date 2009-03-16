@@ -1,7 +1,12 @@
 (
 
+patch_it $SOURCE7 0 &&
+patch_it $SOURCE8 0 &&
+patch_it $SOURCE9 0 &&
+patch_it $SOURCE10 0 &&
+
   # using CFLAGS other than MPlayers autodetected will break
-  unset CFLAGS
+  bad_flags compiler
 
   if [ $MENCODER == "n" ] ; then
     OPTS=$OPTS" --disable-mencoder"
