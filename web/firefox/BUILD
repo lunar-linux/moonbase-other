@@ -59,7 +59,7 @@
     echo "mk_add_options PROFILE_GEN_SCRIPT='python $MOZ_OBJDIR/_profile/pgo/profileserver.py'" >> mozconfig  &&
     make -f client.mk profiledbuild
   else
-    make -f client.mk
+    make -f client.mk build
   fi  &&
 
   cd ${MOZ_OBJDIR}  &&
