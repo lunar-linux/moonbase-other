@@ -4,8 +4,6 @@
 
   OPTS+=" --bindir=/bin --with-installed-readline --with-curses"
 
-  patch_it $SOURCE2 0 &&
-
   default_build &&
   ln -sf bash /bin/sh &&
   ln -f /bin/bash /bin/rbash &&
