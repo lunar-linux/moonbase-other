@@ -7,14 +7,14 @@
 
   prepare_install &&
 
-  cp -r $SOURCE_DIRECTORY/jdk${VERSION} /usr/lib/ &&
+  cp -r $SOURCE_DIRECTORY/jdk${FVERSION} /usr/lib/ &&
 
   # Some apps only search for java in /usr/java
   rm  -f /usr/java &&
-  ln -sf /usr/lib/jdk${VERSION} /usr/java &&
+  ln -sf /usr/lib/jdk${FVERSION} /usr/java &&
 
   # Some applications don't accept anything but /usr/bin
-  for file in /usr/lib/jdk${VERSION}/bin/*; do
+  for file in /usr/lib/jdk${FVERSION}/bin/*; do
       bfile=`basename $file`
       # Conflicting files with heimdal
       if [[ "$bfile" != "klist" ]] && [[ "$bfile" != "kinit" ]]; then
@@ -27,16 +27,16 @@
   rm -f /opt/lunar/plugins/libnpjp2.so &&
 
   if [ $NEWPLUGIN == 'y' ]; then
-  ln -sf /usr/lib/jdk${VERSION}/jre/lib/i386/libnpjp2.so \
+  ln -sf /usr/lib/jdk${FVERSION}/jre/lib/i386/libnpjp2.so \
          /opt/lunar/plugins/
   else
-  ln -sf /usr/lib/jdk${VERSION}/jre/plugin/i386/ns7/libjavaplugin_oji.so \
+  ln -sf /usr/lib/jdk${FVERSION}/jre/plugin/i386/ns7/libjavaplugin_oji.so \
          /opt/lunar/plugins/
   fi &&
 
 
-  echo export PATH=\"'${PATH}':/usr/lib/jdk"${VERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
-  echo export JAVA_HOME=\"/usr/lib/jdk"${VERSION}"/\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
+  echo export PATH=\"'${PATH}':/usr/lib/jdk"${FVERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
+  echo export JAVA_HOME=\"/usr/lib/jdk"${FVERSION}"/\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
   install -m644 $SOURCE_DIRECTORY/sun-jdk.rc /etc/profile.d/
 
 ) > $C_FIFO 2>&1
