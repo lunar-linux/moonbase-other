@@ -156,7 +156,7 @@ function device_start()
 
 			# FIXME: Make the config file configurable. 
 			# Also, rely on the configuration to determine whether or not the interface is enabled
-			$WPA_SUPPLICANT $WPA_SUPPLICANT_FLAGS -B -w -Dwext -i$1 -c/etc/wpa_supplicant.conf
+			$WPA_SUPPLICANT $WPA_SUPPLICANT_FLAGS -B -Dwext -i$1 -c/etc/wpa_supplicant.conf
 
 			# finally start ifplugd
 			if ! $IFPLUGD -c -i $1 &> /dev/null ; then
