@@ -1,6 +1,6 @@
 (
 
-  . /etc/profile.d/x11r7.rc  &&
+  sedit 's/-Werror//g' configure &&
   default_build
 
 ) > $C_FIFO 2>&1
