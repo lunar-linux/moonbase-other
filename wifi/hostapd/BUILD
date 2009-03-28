@@ -1,5 +1,6 @@
 (
 
+  cd hostapd  &&
   cp defconfig .config  &&
   make  &&
   prepare_install  &&

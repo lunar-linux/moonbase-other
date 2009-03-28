@@ -8,8 +8,6 @@
                 --with-curses \
                 --enable-static-link"
 
-    patch_it $SOURCE2 0 &&
-
     default_config                &&
     make version.h                &&
     make                          &&

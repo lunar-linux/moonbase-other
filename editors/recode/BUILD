@@ -1,8 +1,8 @@
 (
   patch_it $SOURCE2 1 &&
 
-  # Fix for building x86_64
-  libtoolize -f &&
+  cp /usr/share/automake/config.sub $SOURCE_DIRECTORY &&
+
   export SED="/bin/sed" &&
   export max_cmd_len=32768 &&
 
