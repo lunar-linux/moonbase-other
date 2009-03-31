@@ -1,13 +1,42 @@
           MODULE=Parse-RecDescent
          VERSION=1.94
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/
-      SOURCE_VFY=sha1:0877c983b46e9a08372f67e623c3f97651f45e45
-        WEB_SITE=http://search.cpan.org/search?dist=Parse-RecDescent
-         ENTERED=20061023
-         UPDATED=20061023
-           SHORT="Generate Recursive-Descent Parsers"
-
+   SOURCE_URL[0]=http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/
+      SOURCE_VFY=sha1:015dd613f9bb37d2b820a377423d65fd8237092b
+        WEB_SITE=http://search.cpan.org/~dconway/Parse-RecDescent-$VERSION/
+         ENTERED=20090320
+         UPDATED=20090320
+           SHORT=" generate recursive-descent parsers"
 cat << EOF
-Generate Recursive-Descent Parsers  
+    RecDescent incrementally generates top-down recursive-descent text
+    parsers from simple yacc-like grammar specifications. It provides:
+
+        * Regular expressions or literal strings as terminals (tokens),
+
+        * Multiple (non-contiguous) productions for any rule,
+
+        * Repeated, optional and alternate subrules within productions,
+
+	* Late-bound (run-time dispatched) subrules
+
+        * Full access to Perl within actions specified as part of the grammar,
+
+        * Simple automated error reporting during parser generation and parsing,
+
+        * The ability to commit to, uncommit to, or reject particular
+          productions during a parse,
+
+        * Incremental extension of the parsing grammar (even during a parse),
+
+	* Precompilation of parser objects,
+
+	* User-definable reduce-reduce conflict resolution via
+	  "scoring" of matching productions.
+
+
+LIMITATIONS
+
+    * There's no support for parsing directly from an input stream.
+
+    * The generator doesn't handle left-recursion.
 EOF

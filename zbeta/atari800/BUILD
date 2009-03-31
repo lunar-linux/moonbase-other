@@ -1,6 +1,9 @@
 (
 
-  OPTS+=" --target=sdl" &&
+  # Disabling readline, so don't need to install ancient termcap,
+  # which conflicts with ncurses over ownership of /usr/include/termcap.h
+  OPTS+=" --disable-readline --target=sdl" &&
+
   cd src &&
   default_build &&
 
