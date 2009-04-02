@@ -11,7 +11,7 @@
   cd $KDE4_BUILD_DIR     &&
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE            &&
+                           -DCMAKE_BUILD_TYPE=RELEASE -DEXPERIMENTAL_PYTHON_BINDINGS=TRUE &&
 
   default_make
 
