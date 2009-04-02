@@ -1,7 +1,8 @@
-depends libgnomeui &&
-depends openssl    &&
-depends wbxml2     &&
-optional_depends "evolution" "" "" "for evolution support" &&
-optional_depends "bluez-libs" "" "" "for bluetooth support" &&
-optional_depends "openobex" "" "" "for file transfer support on irda and bluetooth" &&
-optional_depends "expat" "" "" "for opie syncing support" 
+depends libgnomeui
+depends openssl
+depends wbxml2
+
+optional_depends "evolution"  "" "" "for evolution support"
+optional_depends "%BLUETOOTH" "" "" "for bluetooth support" 
+optional_depends "openobex"   "" "" "for file transfer support on irda and bluetooth"
+optional_depends "expat"      "" "" "for opie syncing support" 

@@ -1,4 +1,10 @@
 depends db
 depends openssl
 
-optional_depends pcre "--with-pcre" "--without-pcre" "for perl style regex support"
+optional_depends mysql      "" "" "for MySQL database support"
+optional_depends postgresql "" "" "for Postgresql database support"
+
+optional_depends pcre              \
+                 "--with-pcre"     \
+		 "--without-pcre"  \
+		 "for perl style regex support"
