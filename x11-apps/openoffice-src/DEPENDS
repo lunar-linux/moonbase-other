@@ -21,7 +21,7 @@ optional_depends "libxslt"                  \
                  "--without-system-libxslt" \
                  "For xslt support"          
 
-optional_depends "sun-jdk"        \
+optional_depends "%JAVA_SDK"      \
                  "--with-java"    \
                  "--without-java" \
                  "For java components, applets, XML filters support"
@@ -90,11 +90,6 @@ optional_depends "Linux-PAM"            \
                  "--enable-pam-link"    \
                  "--disable-pam"        \
                  "for Linux-PAM support"
-
-optional_depends "boost"                             \
-                 "--with-system-boost"               \
-                 "--without-system-boost"            \
-                 "to use the already installed boost"
 
 optional_depends "vigra"                         \
                  "--with-system-vigra"           \
