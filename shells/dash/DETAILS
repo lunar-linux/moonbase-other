@@ -1,0 +1,20 @@
+          MODULE=dash
+         VERSION=0.5.5.1
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=http://gondor.apana.org.au/~herbert/dash/files/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:fd73f0a34477eaf8bacc36beee75d94551954a61
+        WEB_SITE="http://gondor.apana.org.au/~herbert/dash/files/"
+         ENTERED=20090329
+         UPDATED=20090114
+           SHORT="a lightweight POSIX-compliant shell derived from ash"
+cat <<EOF
+The Debian Almquist Shell (dash) is a lightweight POSIX-compliant
+shell derived from ash.
+
+It can be usefully installed as /bin/sh (because it executes scripts
+faster than bash), or as the default shell for the superuser. It
+depends on fewer libraries than bash, and is therefore less likely
+to be affected by an upgrade problem or a disk failure. It is also
+useful for checking the POSIX compliance of scripts.
+EOF

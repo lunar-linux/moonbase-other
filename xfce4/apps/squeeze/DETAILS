@@ -1,12 +1,12 @@
           MODULE=squeeze
-         VERSION=0.2.3
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://squeeze.xfce.org/downloads/
-      SOURCE_VFY=sha1:218f0e61e1d105f1f9aa898a56837f78ce65aaac
+         VERSION="svn-`date +%Y%U`"
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MODULE/trunk:$MODULE
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://squeeze.xfce.org
          ENTERED=20070129
-         UPDATED=20090304
+         UPDATED=20071207
            SHORT="Archive manager"
 
 cat << EOF

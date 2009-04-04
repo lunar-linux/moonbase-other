@@ -1,15 +1,12 @@
-        MODULE=libxfce4menu
-       VERSION=4.6.0
-        SOURCE=$MODULE-$VERSION.tar.bz2
-    SOURCE_URL=http://www.xfce.org/archive/xfce-$VERSION/src/
-    SOURCE_VFY=sha1:4143eae2871ee072b9805a1f506c7f10525f2f28
- MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
-      WEB_SITE=http://www.xfce.org
-       ENTERED=20090227
-       UPDATED=20090227
-         SHORT="menu library for Xfce"
-
+          MODULE=libxfce4menu
+         VERSION="svn-`date +%Y%U`"
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MODULE/trunk:$MODULE
+   MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
+        WEB_SITE=http://www.xfce.org/
+         ENTERED=20030715
+         UPDATED=20071207
+           SHORT="the menu library for Xfce4"
 cat << EOF
-menu library for Xfce
 EOF
-
