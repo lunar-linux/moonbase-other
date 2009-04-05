@@ -14,7 +14,7 @@
     OPTS+=" -make tools -make docs -make translations"
   fi &&
 
-  if [ "$MAKE_EXAMPLE_DEMOS" =="y" ]; then
+  if [ "$MAKE_EXAMPLE_DEMOS" == "y" ]; then
     OPTS+=" -make examples -make demos -make tools -make docs -make translations"
   fi &&
 
