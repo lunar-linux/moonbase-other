@@ -1,12 +1,15 @@
           MODULE=cpio
          VERSION=2.9
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=$GNU_URL/$MODULE/
-   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/
+         SOURCE2=$MODULE-$VERSION-gcc-4.3.x.patch.bz2
+   SOURCE_URL[0]=$GNU_URL/$MODULE
+   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:ef381d0f33f1ea74475b6d813c42a74327762c4a
+     SOURCE2_VFY=sha1:d56443ff6340ae438b9255c49b35fbf9d95b954d
         WEB_SITE=http://www.gnu.org/software/cpio/cpio.html
          ENTERED=20011004
-         UPDATED=20070713
+         UPDATED=20090405
            SHORT="cpio creates cpio archives and have rmt"
 
 cat << EOF
