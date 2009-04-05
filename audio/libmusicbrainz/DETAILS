@@ -1,16 +1,19 @@
           MODULE=libmusicbrainz
          VERSION=2.1.4
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://ftp.musicbrainz.org/pub/musicbrainz/
+         SOURCE2=$MODULE-$VERSION-gcc-4.3.x.patch.bz2
+      SOURCE_URL=http://ftp.musicbrainz.org/pub/musicbrainz
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:611c9e9404e5aac110173da0b3a03941d2a04d0c
-        WEB_SITE=http://musicbrainz.org/
+     SOURCE2_VFY=sha1:e27e940a5202938add9c3507d5a3a25a50fef5f7
+        WEB_SITE=http://musicbrainz.org
          ENTERED=20010922
-         UPDATED=20060906
+         UPDATED=20090405
            SHORT="allows access to the data on the MusicBrainz server"
 
 cat << EOF
 MusicBrainz is a community music metadatabase that attempts to
-create a comprehensive music information site.  You can use the
+create a comprehensive music information site. You can use the
 MusicBrainz data either by browsing this web site, or you can
 access the data from a client program  for example, a CD player
 program can use MusicBrainz to identify CDs and provide information
