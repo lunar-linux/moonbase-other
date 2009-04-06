@@ -1,13 +1,16 @@
           MODULE=OpenEXR
          VERSION=1.6.1
           SOURCE=openexr-$VERSION.tar.gz
-      SOURCE_URL=http://download.savannah.nongnu.org/releases/openexr/
+         SOURCE2=openexr-$VERSION-gcc-4.3.x.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/openexr-$VERSION
+      SOURCE_URL=http://download.savannah.nongnu.org/releases/openexr
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:b3650e6542f0e09daadb2d467425530bc8eec333
+     SOURCE2_VFY=sha1:0530a8317c41fe0664e9ad64f1445b36f44d8964
         WEB_SITE=http://www.openexr.com/index.html
       MAINTAINER=stumbles@lunar-linux.org
          ENTERED=20050601
-         UPDATED=20071028
+         UPDATED=20090406
            SHORT="A high dynamic-range (HDR) image file format"
 
 cat << EOF
