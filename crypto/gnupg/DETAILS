@@ -1,13 +1,16 @@
           MODULE=gnupg
          VERSION=1.4.9
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-$VERSION-curl_fix.patch.bz2
    SOURCE_URL[0]=http://mirrors.rootmode.com/ftp.gnupg.org/$MODULE
    SOURCE_URL[1]=ftp://ftp.gnupg.org/gcrypt/$MODULE
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:826f4bef1effce61c3799c8f7d3cc8313b340b55
+     SOURCE2_VFY=sha1:a7d47c034a2e619cbcd34237c862c0e861de7635
         WEB_SITE=http://www.gnupg.org
          ENTERED=20010922
-         UPDATED=20080331
-           SHORT="tool for secure secure communication and data storage"
+         UPDATED=20090405
+           SHORT="A tool for secure secure communication and data storage"
 
 cat << EOF
 GnuPG (the GNU Privacy Guard) is GNU's tool for secure communication and

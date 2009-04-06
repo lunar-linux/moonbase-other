@@ -2,16 +2,17 @@
 
     bad_flags -malign-double
 
-    OPTS=$OPTS" --bindir=/bin \
-                --without-bash-malloc \
+    OPTS=$OPTS" --bindir=/bin             \
+                --without-bash-malloc     \
                 --with-installed-readline \
-                --with-curses \
-                --enable-static-link"
+                --with-curses             \
+                --enable-static-link      \
+		ac_cv_func_working_mktime=yes"  &&
 
-    default_config                &&
-    make version.h                &&
-    make                          &&
-    prepare_install               &&
+    default_config   &&
+    make version.h   &&
+    make             &&
+    prepare_install  &&
     cp bash /bin/bash_static
 
 ) > $C_FIFO 2>&1

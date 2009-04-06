@@ -1,23 +1,23 @@
 (  
 
 
-  OPTS+=" --enable-tools   \
-          --enable-bccmd   \
-          --enable-hid2hci \
-          --enable-dfutool \
-          --enable-hidd    \
-          --enable-pand    \
-          --enable-dund    \
-          --enable-manpages\
-          --enable-configfiles   \
-          --with-telephony=dummy \
-          --enable-gstreamer     \
+  OPTS+=" --enable-tools    \
+          --enable-bccmd    \
+          --enable-hid2hci  \
+          --enable-dfutool  \
+          --enable-hidd     \
+          --enable-pand     \
+          --enable-dund     \
+          --enable-manpages       \
+          --enable-configfiles    \
+          --with-telephony=dummy  \
+          --enable-gstreamer      \
           $OPTS"
 
-  default_build &&
+  default_build  &&
 
-  cp audio/*.conf  /etc/bluetooth/ &&
-  cp network/*.conf /etc/bluetooth/ &&
+  cp audio/*.conf /etc/bluetooth/    &&
+  cp network/*.conf /etc/bluetooth/  &&
   cp input/*.conf /etc/bluetooth
-    
+
 ) > $C_FIFO 2>&1
