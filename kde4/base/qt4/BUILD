@@ -4,40 +4,27 @@
   export PATH=$QTDIR/bin:$PATH
   export LD_LIBRARY_PATH=$QTDIR/lib
 
-  sedit "s/-O2/$CXXFLAGS/" mkspecs/linux-g++/qmake.conf  &&
-
   if module_installed phonon ; then
-    OPTS+="-phonon -phonon-backend"
+    OPTS+=" -phonon -phonon-backend"
    else
-    OPTS+="-no-phonon -phonon-backend"
+    OPTS+=" -no-phonon -phonon-backend"
   fi &&
 
-  if in_depends qt4 sqlite ; then
-    OPTS+=" -system-sqlite"
+  if [ "$MAKE_DOCS" == "y" ]; then
+    OPTS+=" -make tools -make docs -make translations"
   fi &&
+
+  if [ "$MAKE_EXAMPLE_DEMOS" == "y" ]; then
+    OPTS+=" -make examples -make demos -make tools -make docs -make translations"
+  fi &&
+
+  OPTS+=" -release -fast -no-separate-debug-info -shared -qt-gif -system-libpng -system-libjpeg   \
+          -system-libmng -system-zlib -no-exceptions -accessibility -pch -stl -webkit -fontconfig \
+          -largefile -glib -qt3support"
 
   echo "yes" | ./configure               \
                -prefix ${MODULE_PREFIX}  \
-               -release          \
-               -fast             \
-               -no-separate-debug-info \
-               -shared           \
-               -qt-gif           \
-               -system-libpng    \
-               -system-libjpeg   \
-               -system-libmng    \
-               -system-zlib      \
-               -exceptions       \
-               -nomake examples  \
-               -nomake demos     \
-               -accessibility    \
-               -stl              \
-               -webkit           \
-               -fontconfig       \
-               -largefile        \
-               -glib             \
-               -qt3support       \
-               $OPTS            &&
+               $OPTS                    &&
 
   default_make  &&
 

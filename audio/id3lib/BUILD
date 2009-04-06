@@ -1,6 +1,8 @@
 (
 
-  default_config &&
+  patch_it $SOURCE2 0  &&
+
+  default_config  &&
 
   sedit 's:LIBS =:LIBS = -lz -lstdc++:' src/Makefile
 
