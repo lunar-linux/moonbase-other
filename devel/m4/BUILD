@@ -1,6 +1,6 @@
 (
 
-  sedit "s/\infodir = \$(prefix)\/info/infodir = \$(prefix)\/share\/info/" Makefile.in &&
+  sedit "s/\infodir = \$(prefix)\/info/infodir = \$(prefix)\/share\/info/" Makefile.in  &&
   ./configure  --build=$BUILD  \
                --prefix=/usr   \
                $OPTS          &&

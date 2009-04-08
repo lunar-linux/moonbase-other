@@ -1,8 +1,10 @@
 (
 
+  patch_it $SOURCE2 0  &&
+
   OPTS="$OPTS --enable-cpp-headers"
 
-  default_build &&
+  default_build  &&
 
   if module_installed ctypes ; then
         cd python;
