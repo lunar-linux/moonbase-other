@@ -1,6 +1,6 @@
 (
 
-  patch_it $SOURCE2 1 &&
+#  patch_it $SOURCE2 1 &&
 
   . /etc/profile.d/x11r7.rc &&
 
