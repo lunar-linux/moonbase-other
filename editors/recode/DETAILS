@@ -2,15 +2,19 @@
          VERSION=3.6
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=recode-3.6-fixes-1.patch
-   SOURCE_URL[0]=$GNU_URL/$MODULE/
-   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE/
+         SOURCE3=recode-gcc-4.3.x.patch
+   SOURCE_URL[0]=$GNU_URL/$MODULE
+   SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE
      SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
       SOURCE_VFY=sha1:2de90cd2ba553bc07d75a29913ea4424dd9e616b
      SOURCE2_VFY=sha1:852d654c1b138dfbff3ed202d06e94d0a49f79ee
+     SOURCE3_VFY=sha1:41bdca005e34d5235791b2c229502368185ceb73
         WEB_SITE=http://www.gnu.org/software/recode
          ENTERED=20020502
-         UPDATED=20070415
-           SHORT="file converter for many text formats."
+         UPDATED=20090405
+           SHORT="A file converter for many text formats"
+
 cat << EOF
 This recode program has the purpose of converting files between various
 character sets and usages. When exact transliterations are not possible,
