@@ -1,0 +1,5 @@
+LIST=$(for i in $(grep libxcb-xlib.la /usr/lib/*.la | cut -d":" -f1); do j=$(lvu from $i|cut -d":" -f1); echo $j; done | sort -n)
+for i in $(sort_by_dependency $LIST); do
+  lin -c $i;
+done
+  
