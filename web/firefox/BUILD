@@ -51,6 +51,8 @@
     echo "ac_add_options --enable-webservices" >> mozconfig
   fi  &&
 
+  setterm -bfreq -blength &&
+
   #Finally, the build!
   if [ "$PGO" == "y" ] ; then
     #CCache breaks the pgo build

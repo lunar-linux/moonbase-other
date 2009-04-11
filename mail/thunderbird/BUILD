@@ -61,6 +61,8 @@
     --disable-mathml    \
     $OPTS               &&
 
+  setterm -bfreq -blength &&
+
   default_make        &&
 
     # Enigmail support disabled since it doesn't work anylonger
