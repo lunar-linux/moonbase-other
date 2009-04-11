@@ -71,6 +71,7 @@
     --disable-gnomevfs \
     $OPTS               &&
 
+  setterm -bfreq -blength &&
   default_make        &&
 
   # Put some important headers in place
