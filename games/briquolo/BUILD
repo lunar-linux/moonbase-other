@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   ./configure  --prefix=$MODULE_PREFIX               \
                --bindir=$MODULE_PREFIX/games         \
                --datadir=$MODULE_PREFIX/share/games  \
