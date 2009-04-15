@@ -1,5 +1,6 @@
 (
 
+ OPTS+=" --without-weather"
  ./configure  --prefix=${GNOME210_PREFIX:-/usr}                 \
                --sysconfdir=/etc                                \
                --localstatedir=/var                             \
