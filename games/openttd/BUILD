@@ -1,37 +1,21 @@
 (
   if is_depends libpng; then
-    OPTS="$OPTS WITH_PNG=1"
-  fi
-  if [ "$USE_UNICODE" == "y" ]; then
-      OPTS+=" WITH_ICONV=1"
+    OPTS+=" --with-png"
   fi
 
-  make PREFIX=/usr \
-       WITH_ZLIB=1 \
-       WITH_SDL=1 \
-       MANUAL_CONFIG=1 \
-       UNIX=1 \
-       WITH_NETWORK=1 \
-       INSTALL=1 \
-       USE_HOMEDIR=1 \
-       PERSONAL_DIR=.openttd \
-       DATA_DIR=share/games/openttd \
-       BINARY_DIR=games \
-       MIDI=/usr/bin/timidity \
-       $OPTS  &&
-   
-  prepare_install  &&
+  if is_depends timidity++; then
+    OPTS+=" --with-midi=/usr/bin/timidity"
+  fi
 
-  # make install is experimental so we do this manually
-  GAMEDATA=/usr/share/games/openttd
-  mkdir -p ${GAMEDATA}/{data,lang,scenario,scripts}  &&
-  install -m 0644 data/* ${GAMEDATA}/data/           &&
-  install -m 0644 lang/*.lng ${GAMEDATA}/lang/       &&
-  install -m 0644 scripts/* ${GAMEDATA}/scripts/     &&
-  install -m 0755 openttd /usr/games/
+  ./configure \
+    --prefix-dir=/usr \
+    --with-sdl \
+    --with-zlib \
+    --with-freetype \
+    --with-fontconfig \
+    $OPTS &&
 
-#  install -m 0644 scenario/* ${GAMEDATA}/scenario/   &&
-
+  default_make &&
   gather_docs docs changelog.txt readme.txt
-    
+
 ) > $C_FIFO 2>&1
