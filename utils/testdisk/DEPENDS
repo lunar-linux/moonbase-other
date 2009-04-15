@@ -1,4 +1,5 @@
 depends  ncurses
 depends  e2fsprogs
-depends  ntfsprogs
-depends  progsreiserfs
+
+optional_depends  "ntfsprogs"      ""  "--without-ntfs"      "for NTFS support"
+optional_depends  "progsreiserfs"  ""  "--without-reiserfs"  "for Reiserfs support"
