@@ -4,7 +4,7 @@
   fi &&
 
   # This should always be just a link
-  rm -rf /usr/lib/seamonkey-$VERSION/plugins &&
+  rm -rf /usr/lib/seamonkey-$VERSION/plugins  &&
 
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 
@@ -17,7 +17,7 @@
   fi &&
 
   # This hack added to fix a gtk+-2/pango/atk update that broke seamonkey. This should be removed in the future.
-  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in &&
+  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in  &&
 
   export MOZ_FREETYPE2="no"
   export MOZ_PANGO="yes"
@@ -35,11 +35,11 @@
     --with-x            \
     --with-pthreads     \
     --with-default-mozilla-five-home=$MOZILLA_HOME \
-    --with-user-appdir=.seamonkey     \
+    --with-user-appdir=.seamonkey  \
     --with-system-zlib  \
     --with-system-png   \
     --with-system-jpeg  \
-    --enable-extensions=${MOZ_EXTENSIONS}       \
+    --enable-extensions=${MOZ_EXTENSIONS}  \
     --enable-application=suite     \
     --enable-default-toolkit=gtk2  \
     --enable-optimize="$CFLAGS"    \
@@ -60,36 +60,36 @@
     --disable-installer \
     --disable-pedantic  \
     --disable-logging   \
-    --disable-accessibility     \
-    --disable-ldap      \
-    --disable-profilesharing    \
+    --disable-accessibility   \
+    --disable-ldap            \
+    --disable-profilesharing  \
     --enable-mathml     \
-    --disable-xinerama \
-    --disable-gnomeui  \
+    --disable-xinerama  \
+    --disable-gnomeui   \
     --enable-glitz      \
-    --disable-pango \
-    --disable-gnomevfs \
-    $OPTS               &&
+    --disable-pango     \
+    --disable-gnomevfs  \
+    $OPTS              &&
 
-  default_make        &&
+  default_make  &&
 
   # Put some important headers in place
-  mkdir -p /usr/include/seamonkey-$VERSION/nss &&
-  cp -Lf dist/private/nss/*.h dist/public/nss/*.h /usr/include/seamonkey-$VERSION/nss &&
+  mkdir -p /usr/include/seamonkey-$VERSION/nss  &&
+  cp -Lf dist/private/nss/*.h dist/public/nss/*.h /usr/include/seamonkey-$VERSION/nss  &&
 
   # Install the plugins in the right directories
-  mkdir -p /opt/lunar/plugins         &&
+  mkdir -p /opt/lunar/plugins  &&
   for plugin in `ls /usr/lib/seamonkey-$VERSION/plugins`; do
        `install -m755 /usr/lib/seamonkey-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
 
-  rm -rf /usr/lib/seamonkey-$VERSION/plugins &&
-  ln -snf /opt/lunar/plugins /usr/lib/seamonkey-$VERSION/plugins &&
+  rm -rf /usr/lib/seamonkey-$VERSION/plugins  &&
+  ln -snf /opt/lunar/plugins /usr/lib/seamonkey-$VERSION/plugins  &&
 
   # Now the .desktop file and the icon
-  mkdir -p /usr/share/applications /usr/share/pixmaps &&
-  install -m644 $SCRIPT_DIRECTORY/seamonkey.desktop /usr/share/applications &&
+  mkdir -p /usr/share/applications /usr/share/pixmaps  &&
+  install -m644 $SCRIPT_DIRECTORY/seamonkey.desktop /usr/share/applications  &&
   # please, dont just let the lin fail because /usr/share/pixmaps/seamonkey.xpm is an existing symlink...
-  rm -f /usr/share/pixmaps/seamonkey.xpm &&
+  rm -f /usr/share/pixmaps/seamonkey.xpm  &&
   install -m644 $MOZILLA_HOME/chrome/icons/default/main-window.xpm /usr/share/pixmaps/seamonkey.xpm
 
 ) > $C_FIFO 2>&1

@@ -48,11 +48,11 @@
   fi &&
 
   if module_installed sun-jdk ; then
-    JAVA_VERSION="`installed_version sun-jdk`";
-    OPTS="$OPTS --with-jdk-home=/usr/lib/jdk${JAVA_VERSION}";
-   elif module_installed j2sdk ; then
-    JAVA_VERSION="`installed_version j2sdk`";
-    OPTS="$OPTS --with-jdk-home=/usr/lib/j2sdk${JAVA_VERSION}";
+    OPTS="$OPTS --with-jdk-home=$JAVA_HOME";
+   else
+    if  module_installed j2sdk ; then
+    OPTS="$OPTS --with-jdk-home=$JAVA_HOME";
+    fi
   fi &&
 
   # Apply mandatory and optional patches

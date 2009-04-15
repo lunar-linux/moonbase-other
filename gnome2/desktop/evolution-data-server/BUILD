@@ -1,5 +1,6 @@
 (
 
+   OPTS+=" --without-weather"
    ./configure  --prefix=${GNOME210_PREFIX:-/usr} \
                 --build=$BUILD                    \
                 --sysconfdir=/etc                 \

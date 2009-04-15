@@ -1,12 +1,15 @@
            MODULE=kobodeluxe
           VERSION=0.5.1
            SOURCE=KoboDeluxe-$VERSION.tar.gz
+          SOURCE2=$MODULE-$VERSION-glibc29.patch.bz2
  SOURCE_DIRECTORY=$BUILD_DIRECTORY/KoboDeluxe-$VERSION
-       SOURCE_URL=http://www.olofson.net/kobodl/download/
+       SOURCE_URL=http://www.olofson.net/kobodl/download
+      SOURCE2_URL=$PATCH_URL
        SOURCE_VFY=sha1:12abe182ccde52050cd23077092d0424d25c3e75
-         WEB_SITE=http://www.olofson.net/kobodl/
+      SOURCE2_VFY=sha1:ec90e690ccd6ffea0c9a9712d3718e196283bf1e
+         WEB_SITE=http://www.olofson.net/kobodl
           ENTERED=20011219
-          UPDATED=20080209
+          UPDATED=20090415
             SHORT="An enhanced port of the scrolling video game XKobo"
 
 cat << EOF

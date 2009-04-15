@@ -3,13 +3,7 @@
 mkdir -p /var/named
 
 # create the named.root
-if (dig . ns > named.root) ; then
-  cp named.root /var/named/
-else
-  cp $SCRIPT_DIRECTORY/named.root /var/named/
-fi
-
-rm -f /named.root
+cp $SCRIPT_DIRECTORY/named.root /var/named/
 
 #if we do not have a named.conf already, copy the default
 if [ ! -e /var/named/named.conf ] ; then
