@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   bad_flags -malign-double
 
   # We really want this
@@ -24,8 +26,8 @@
   DEFAULT_POSIX2_VERSION=199209 default_build &&
 
   (
-    for FILE in basename cat cp chgrp chmod chown cut date dd df echo false   \
-                head id ln ls mkdir mknod nice pwd rm rmdir sleep sort \
+    for FILE in basename cat cp chgrp chmod chown cut date dd df echo false  \
+                head id ln ls mkdir mknod nice pwd rm rmdir sleep sort       \
                 stty sync tail tr true uname ; do
       if [ -f /usr/bin/$FILE ] ; then
         /bin/mv -f /usr/bin/$FILE /bin
