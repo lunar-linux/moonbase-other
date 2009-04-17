@@ -8,6 +8,7 @@
                --bindir=/usr/games   \
                --localstatedir=/var  \
                --disable-sdltest     \
+	       --mandir=/usr/share/man             \
                --datarootdir=/usr/share/games      \
                --sharedstatedir=/usr/share/games  &&
   default_make
