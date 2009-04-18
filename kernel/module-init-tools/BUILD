@@ -3,11 +3,11 @@
   bad_flags -malign-double
   
   sedit "s:ln -s :ln -sf :" Makefile.in  &&
-  sedit "s/DOCBOOKTOMAN :=/# DOCBOOKTOMAN := /" Makefile.in  &&
 
-  ./configure  --build=$BUILD                       \
-               --mandir=/lib/module-init-tools/man  \
-               --prefix=/lib/module-init-tools/    &&
+  ./configure  --build=$BUILD                     \
+               --mandir=/usr/share/man            \
+               --prefix=/lib/module-init-tools/   \
+	       ac_cv_prog_DOCBOOKTOMAN=yes       &&
 
   default_make  &&
   install -m0644 modprobe.devfs /etc

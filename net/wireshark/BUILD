@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-gtk2 --enable-usr-local=no --enable-randpkt"
+  OPTS="$OPTS --with-ssl --enable-gtk2 --enable-usr-local=no --enable-randpkt"
 
   default_build
 

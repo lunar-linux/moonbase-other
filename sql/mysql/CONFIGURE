@@ -3,7 +3,7 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
  if    query  "Install client only? " n; then
     OPTS="$OPTS --without-server"
   else
-    if  query  "Enable InnoDB Support? " n; then
+    if  query  "Enable InnoDB Support? Needed by KDE4/Akonadi " n; then
       OPTS="$OPTS --with-innodb"
     else
       OPTS="$OPTS --without-innodb"
