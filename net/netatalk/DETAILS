@@ -1,12 +1,16 @@
           MODULE=netatalk
-         VERSION=2.0.1
+         VERSION=2.0.3
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/$MODULE/
-      SOURCE_VFY=sha1:b61fd7595b8d03971fbd6c0dce0ed307e8916628
-        WEB_SITE=http://www.umich.edu/%7Ersug/netatalk/
+         SOURCE2=$MODULE-$VERSION-db.patch.bz2
+      SOURCE_URL=$SFORGE_URL/$MODULE
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:ce2d5dd123467ccae72fc62ca4ee3738019455f2
+     SOURCE2_VFY=sha1:fc3fc494cfe1b99b049e9fae7e8ae24d257e9076
+        WEB_SITE=http://www.umich.edu/%7Ersug/netatalk
          ENTERED=20030302
-         UPDATED=20041119
+         UPDATED=20090418
            SHORT="AppleTalk Protocol Suite for *NIX"
+	   
 cat << EOF
 Netatalk is a freely-available, kernel level implementation of the
 AppleTalk Protocol Suite, originally for BSD-derived systems. A
