@@ -6,9 +6,9 @@
   patch_it $SOURCE3 0 &&
   patch_it $SOURCE4 0 &&
 
-  ./configure  --prefix=/usr        \
-               --mandir=/usr/share  \
-               --bindir=/usr/games  &&
+  ./configure  --prefix=/usr            \
+               --mandir=/usr/share/man  \
+               --bindir=/usr/games     &&
 
   default_make
 
