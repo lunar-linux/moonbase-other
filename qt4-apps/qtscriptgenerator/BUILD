@@ -2,9 +2,16 @@
 
   . /etc/profile.d/qt4.rc
 
-  cd generator  &&
-  qmake         &&
+  cd generator     &&
+  qmake            &&
+  make release     &&
+  ./generator      &&
 
-  default_make
+  cd ../qtbindings &&
+  qmake            &&
+  make             &&
+
+  prepare_install  &&
+  install ../plugins/script/* $QTDIR/plugins/script/
 
 ) > $C_FIFO 2>&1

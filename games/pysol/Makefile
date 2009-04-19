@@ -20,7 +20,7 @@ mandir = $(prefix)/man
 pkgdatadir = $(datadir)/$(PACKAGE)
 
 # you may have to change this
-pixmapdir = /usr/X11R6/include/X11/pixmaps
+pixmapdir = /usr/share/pixmaps/
 
 distdir = $(PACKAGE)-$(VERSION)
 
