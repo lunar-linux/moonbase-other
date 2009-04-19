@@ -1,17 +1,43 @@
 (
 
-  OPTS="--enable-R-shlib $OPTS"
+  if [ -e /usr/lib64/R/doc ] ; then
+    rm -rf /usr/lib64/R/doc
+  fi &&
+
+  CFLAGS=`echo $CFLAGS | sed s/-ffast-math//` &&
+  CXXFLAGS=`echo $CXXFLAGS | sed s/-ffast-math//` &&
+
+  OPTS="--enable-R-shlib"
 
   default_config &&
-
   make &&
   make check &&
-  prepare_install &&
 
-# It fumbles at this point because doc was created as file not dir
-  rm -rf /usr/lib/R &&
-  mkdir -p /usr/lib/R/doc /usr/lib/R/doc/html/search /usr/lib/R/doc/manual &&
+  if [[ "$DVI_DOCS" == "y" ]] ; then
+     make dvi
+  fi &&
 
-  make install
+  if [[ "$PDF_DOCS" == "y" ]] ; then
+     make pdf
+  fi &&
+
+  if [[ "$INFO_DOCS" == "y" ]] ; then
+     make info
+  fi &&
+
+  prepare_install    &&
+  make install-strip &&
+
+  if [[ "$DVI_DOCS" == "y" ]] ; then
+     make install-dvi
+  fi &&
+
+  if [[ "$PDF_DOCS" == "y" ]] ; then
+     make install-pdf
+  fi &&
+
+  if [[ "$INFO_DOCS" == "y" ]] ; then
+     make install-info
+  fi 
 
 ) > $C_FIFO 2>&1

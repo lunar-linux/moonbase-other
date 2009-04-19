@@ -1,6 +1,9 @@
-depends jpeg
-depends libpng
+optional_depends jpeg   "--with-jpeglib" "--without-jpeglib" "for jpeg graphics support"
+optional_depends libpng "--with-libpng"  "--without-libpng"  "for libpng support"
+optional_depends %X     "--with-x"       "--without-x"       "use the X Window System"
+optional_depends tk     "--with-tcltk"   "--without-tcltk"   "for gui, recommended"
+optional_depends icu4c  "--with-ICU"     "--without-ICU"     "for Unicode support"
 
-optional_depends %X  "--with-x" "--without-x" "use the X Window System"
-optional_depends "tk" "--with-tcltk" "" "gui, recommended"
-
+optional_depends pcre   "--with-system-pcre"  "--without-system-pcre"  "for pcre support"
+optional_depends bzip2  "--with-system-bzlib" "--without-system-bzlib" "for file compression support"
+optional_depends zlib   "--with-system-zlib"  "--without-system-zlib"  "for zlib support"
