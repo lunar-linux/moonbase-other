@@ -1,4 +1,5 @@
 (
+
   while
     if [ "$CONFIG_KERNEL" == "y" ]; then
         if [ "$PREFER_XCONFIG" == "y" -a -n "$DISPLAY" ]; then

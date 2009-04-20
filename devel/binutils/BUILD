@@ -1,6 +1,6 @@
 (
 
-#  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
   #Somehow I believe this might/should be logged as a bug to the glibc guys...
   sedit 's/^all: all-redirect/all: all-redirect $(MKDOC)/' \
