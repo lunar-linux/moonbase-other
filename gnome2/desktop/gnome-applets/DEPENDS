@@ -4,5 +4,12 @@ depends  libxklavier
 depends  system-tools-backends
 depends  gucharmap
 
-optional_depends  "gst-plugins-base" "--enable-gstreamer"  ""  \
+optional_depends  "gst-plugins-base"        \
+                  "--enable-mixer-applet"   \
+                  "--disable-mixer-applet"  \
                   "enable gstreamer support"
+
+optional_depends  PolicyKit           \
+                  "--enable-polkit"   \
+		  "--disable-polkit"  \
+                  "Enable PolicyKit support for cpufreq selection"
