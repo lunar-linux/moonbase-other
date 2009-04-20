@@ -1,4 +1,5 @@
 (
+
   #lets disable qt3
   sedit s@WITH_QT3=1@WITH_QT3=0@ configure &&
 
