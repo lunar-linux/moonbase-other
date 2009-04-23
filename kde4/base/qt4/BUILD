@@ -4,6 +4,8 @@
   export PATH=$QTDIR/bin:$PATH
   export LD_LIBRARY_PATH=$QTDIR/lib
 
+  sedit "s:COMMERCIAL_USER=ask:COMMERCIAL_USER=no:" configure
+
   if module_installed phonon ; then
     OPTS+=" -phonon -phonon-backend"
    else
@@ -19,7 +21,7 @@
   fi &&
 
   OPTS+=" -release -fast -no-separate-debug-info -shared -qt-gif -system-libpng -system-libjpeg   \
-          -system-libmng -system-zlib -no-exceptions -accessibility -pch -stl -webkit -fontconfig \
+          -system-libmng -system-zlib -accessibility -pch -stl -webkit -fontconfig \
           -largefile -glib -qt3support"
 
   echo "yes" | ./configure               \
