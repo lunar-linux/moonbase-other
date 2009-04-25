@@ -1,0 +1,24 @@
+          MODULE=eclipse-jee
+         VERSION=ganymede
+           EXTRA=SR2
+          SOURCE=$MODULE-$VERSION-$EXTRA-linux-gtk.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/eclipse
+   SOURCE_URL[0]=http://download.eclipse.org/technology/epp/downloads/release/$VERSION/$EXTRA
+   SOURCE_URL[1]=http://mirror.cc.vt.edu/pub/eclipse/technology/epp/downloads/release/$VERSION/$EXTRA
+   SOURCE_URL[2]=ftp://sunsite.cnlab-switch.ch/mirror/eclipse/technology/epp/downloads/release/$VERSION/$EXTRA
+      SOURCE_VFY=sha1:b0290e1a2bbadc535567140863bcf91e322e9dce
+        WEB_SITE=http://eclipse.org
+         ENTERED=20090425
+         UPDATED=20090425
+         ARCHIVE=off
+           SHORT="A JAVA EE IDE for just about everything"
+
+cat << EOF
+This is the Java EE edition eclipse IDE. It includes several more plugins and
+less sample eclipse source. This is the version of the eclipse IDE you want if
+you're trying to setup an Android development system.
+
+By comparison this module includes: RCP, CVS, EMF, GEF, JDT, Mylyn, UDC, Web
+Tools, JEE Tools, XML Tools, RSE, PDE, Datatools plugins versus the eclipse-bin
+module which only inlcudes RCP, CVS, JDT, PDE.
+EOF
