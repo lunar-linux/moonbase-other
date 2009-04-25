@@ -3,11 +3,11 @@
 
    # tchan added this patch to fix the incorrect pkg-config check for libXi.
    # This should be removed when the xfce4 devs get around to fixing this correctly
-   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
    autoconf &&
-   ./configure  --build=$BUILD                              \
+   ./configure  --build=$BUILD             \
                 --prefix=${MODULE_PREFIX}  \
-                $OPTS                                       &&
+                $OPTS                     &&
 
    default_make
 
