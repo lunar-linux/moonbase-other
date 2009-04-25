@@ -7,7 +7,7 @@
   fi  &&
 
   if module_installed jasper ; then
-     rm -fr jasper  &&
+     rm -fr jasper
   fi  &&
   
   export CFLAGS="$CFLAGS -fPIC"
