@@ -1,16 +1,18 @@
 (
 
-  echo 'KERNEL=="kvm", NAME="%k", GROUP="kvm"' > 90-kvm.rules &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
+  echo 'KERNEL=="kvm", NAME="%k", GROUP="kvm"' > 90-kvm.rules  &&
 
   if module_installed qemu; then
    OPTS="$OPTS --qemu-cc=${GCC3_PREFIX:-/opt/lunar/gcc3}/bin/gcc"
-  fi &&
+  fi  &&
 
-  add_priv_group kvm &&
+  add_priv_group kvm  &&
   ./configure --prefix=/usr  \
               $OPTS         &&
 
-  default_make &&
+  default_make  &&
 
   install -m0644 90-kvm.rules /etc/udev/rules.d/
 
