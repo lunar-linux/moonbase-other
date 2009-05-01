@@ -1,19 +1,22 @@
 (
-  sedit "s:LFLAGS:LDFLAGS:g" src/Makefile           || exit 1
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
+  sedit "s:LFLAGS:LDFLAGS:g" src/Makefile  ||  exit 1
   
   # lets add KDEDIR var to enviro, if it is not defined AND if kdebase3
   # is installed  
 
-  module_installed kdebase3 && 
-  [ -z "$KDEDIR" ]          && 
+  module_installed kdebase3  && 
+  [ -z "$KDEDIR" ]           && 
   export KDEDIR=${KDE_PREFIX:-$KDEDIR}
   
   # lets add kde and gnome menu support to the build, iff
   # there is a gnome-config avail :=)
   # the support maybe set to on/off via preferences
 
-  which gnome-config 2>/dev/null >/dev/null && 
-  OPTS=$OPTS" --with-gnome-menus --with-icesound=oss,esd"
+  which gnome-config 2>/dev/null >/dev/null  && 
+  OPTS=$OPTS" --with-xpm --with-gnome-menus --with-icesound=oss,esd"
 
   # here are some options :=) with anti-aliasing support  
   OPTS=$OPTS" --with-docdir=/usr/share/doc --enable-nls \
