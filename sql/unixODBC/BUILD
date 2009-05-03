@@ -1,6 +1,6 @@
 (
 
-  if module_installed qt4 || module_installed qt3 ; then
+  if module_installed qt3 ; then
     OPTS="$OPTS --enable-gui"
    else
     OPTS="$OPTS --disable-gui"
