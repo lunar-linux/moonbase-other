@@ -1,12 +1,15 @@
           MODULE=freetype2
          VERSION=2.3.9
           SOURCE=freetype-$VERSION.tar.bz2
+         SOURCE2=freetype-$VERSION-CVE-2009-0946.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/freetype-$VERSION
       SOURCE_URL=$SFORGE_URL/freetype
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:db08969cb5053879ff9e973fe6dd2c52c7ea2d4e
+     SOURCE2_VFY=sha1:97242a82606d81b0744a3ce2f2211716ab258386
         WEB_SITE=http://www.freetype.org
          ENTERED=20010922
-         UPDATED=20090312
+         UPDATED=20090508
            SHORT="A free, quality, portable font engine"
 
 cat << EOF
