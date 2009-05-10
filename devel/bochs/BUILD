@@ -1,3 +1,5 @@
+(
+
 bad_flags -malign-double 
 
 OPTS="$OPTS --enable-cpu-level=6"
@@ -60,3 +62,5 @@ if [[ $MSR == "y" ]]; then
 fi
 
 default_build
+
+) > $C_FIFO 2>&1
