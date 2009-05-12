@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+#	/etc/init.d/slpd
+#
+# Starts the at daemon
+#
+# chkconfig: 345 40 60
+# description: OpenSLP daemon for the Service Location Protocol
+# processname: slpd
+
+# Source function library.
+. /lib/lsb/init-functions
+
+test -x /usr/sbin/slpd || exit 0
+
+RETVAL=0
+
+#
+#	See how we were called.
+#
+case "$1" in
+  start)
+	# Check if slpd is already running
+	if [ -f /var/lock/subsys/slpd ]; then
+            rm -f /var/lock/subsys/slpd
+	    echo -n 'Starting slpd: '
+	    /usr/sbin/slpd
+	    RETVAL=$?
+	    [ $RETVAL -eq 0 ] && touch /var/lock/subsys/slpd
+	    echo
+	fi
+	;;
+  stop)
+	echo -n 'Stopping slpd: '
+	pkill -HUP slpd
+	RETVAL=$?
+	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/slpd
+	echo
+	;;
+  reload|restart)
+	$0 stop
+	$0 start
+	RETVAL=$?
+	;;
+  *)
+	echo "Usage: /etc/init.d/slpd {start|stop|restart|reload}"
+	exit 1
+esac
+
+exit $RETVAL
