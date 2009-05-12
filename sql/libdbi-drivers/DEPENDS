@@ -8,3 +8,8 @@ optional_depends  "mysql"    "--with-mysql"    ""  \
 
 optional_depends  "postgresql" "--with-pgsql"  ""  \
                   "to build the postgresql driver"
+
+optional_depends  "freetds" "--with-freetds          \
+                  --with-freetds-incdir=/usr/include \
+                  --with-freetds-libdir=/usr/lib"    \
+                  "--without-freetds" "for Tabular Data Stream support"

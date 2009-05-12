@@ -17,7 +17,9 @@ optional_depends "tk"        "" "" "For building extra tcl/tk tools"
 optional_depends "ocaml"     "" "--disable-ocaml" "ocaml support"
 optional_depends "swig"      "" "--disable-swig"  "swig support"
 optional_depends "lua"       "" "--disable-lua"   "lua support"
-optional_depends "ruby"  "--enable-ruby" "--disable-ruby" "for ruby support"
-optional_depends "ming"      "" ""                "for flash support"
-optional_depends "devil"     "--with-devil --with-devillibdir=/usr/lib/" "" \
+optional_depends "ruby"      "--enable-ruby" "--disable-ruby"   "for ruby support"
+optional_depends "ming"      "--with-ming" "--without-ming"     "for flash support"
+
+optional_depends "devil"     "--with-devil --with-devillibdir=/usr/lib   \
+                              --with-devilincludedir=/usr/include/IL" "" \
                              "for additional graph file format support"
