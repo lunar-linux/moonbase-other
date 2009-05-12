@@ -1,6 +1,6 @@
 (
 
-  OPTS="--with-libgd --with-fontconfig"
+  OPTS="--disable-perl --with-libgd --with-fontconfig"
 
   default_build 
 
