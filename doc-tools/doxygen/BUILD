@@ -1,17 +1,19 @@
 (
-  if in_depends doxygen qt3; then
+  if in_depends qt3; then
     . /etc/profile.d/qt3.rc
-  fi
+  fi &&
+
+  if in_depends qt4; then
+    . /etc/profile.d/qt4.rc
+  fi &&
 
   if [ -f src/Makefile ]; then
     message "${MESSAGE_COLOR}Makefile's detected, doing make distclean before compiling${DEFAULT_COLOR}" &&
-    ./configure &&
+    ./configure 
     make distclean
   fi &&
 
-  ./configure --platform linux-g++        \
-              --prefix /usr               \
-              --install /usr/bin/install  \
+  ./configure --prefix /usr               \
               $OPTS                      &&
 
   make             &&

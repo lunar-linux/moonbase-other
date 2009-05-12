@@ -1,6 +1,7 @@
 (
 
   bad_flags ALL
+  export CPPFLAGS=-D_GNU_SOURCE
 
   ./configure  --build=$BUILD             \
                --prefix=/usr              \
@@ -24,6 +25,6 @@
                --enable-dnssrv            \
                $OPTS                     &&
   make depend                            &&
-  default_make  
+  default_make
 
 ) > $C_FIFO 2>&1
