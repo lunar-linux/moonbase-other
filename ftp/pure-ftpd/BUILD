@@ -9,9 +9,9 @@
                --mandir=/usr/share/man  \
                --localstatedir=/var     \
                --with-everything        \
-               $OPTS                    &&
-  default_make &&
-  gather_docs *.conf &&
+               $OPTS                   &&
+  default_make  &&
+  gather_docs *.conf  &&
   if [ ! -f /etc/ftpusers ]; then
     cp pam/ftpusers /etc
   fi
