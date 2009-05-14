@@ -3,7 +3,7 @@
 
    ./autogen.sh --build=$BUILD                              \
                 --prefix=${MODULE_PREFIX}  \
-                $OPTS                                       &&
+                $OPTS                     &&
 
    default_make
 

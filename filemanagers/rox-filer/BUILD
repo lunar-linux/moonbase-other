@@ -1,7 +1,13 @@
 (
-  PATH="$PATH:/usr/X11/bin" 
- 
-  prepare_install &&
-  echo  -e "4\n/usr/lib/rox\n/usr/bin\n/usr/share/rox\n/usr/share/rox/Choices\n/usr/share/man\nyes\nyes\n" | ./install.sh
+
+  prepare_install             &&
+  ROX-Filer/AppRun --compile  &&
+  rm -fR ROX-Filer/src        &&
+  rm -fR ROX-Filer/build      &&
+  mkdir -p /usr/share/rox     &&
+  cp -fR ROX-Filer/* /usr/share/rox/   &&
+  gzip rox.1                           &&
+  cp -f rox.1.gz /usr/share/man/man1/  &&
+  ln -sf /usr/share/rox/rox /usr/bin/ROX-Filer
 
 ) > $C_FIFO 2>&1
