@@ -28,7 +28,7 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
     message "Selecting drivers is optional"
   fi
 
-  if query "Would you like to select drivers? (if not selected, all drivers will be installed)" y; then
+  if query "Would you like to select specific drivers? (if not selected, all drivers will be installed)" n; then
     unpack_localedata
 
     MESADRIVER=`select_drivers`
