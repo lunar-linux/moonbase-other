@@ -4,6 +4,8 @@
   sh $SOURCE --extract fglrx-install &&
   cd fglrx-install &&
 
+  patch_it $SOURCE2 1 &&
+
   # We build the kernel BEFORE actually calling prepare install
   # so it doesn't remove a working driver incase the kernel module
   # fails to compile  

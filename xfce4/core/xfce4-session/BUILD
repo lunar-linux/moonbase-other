@@ -1,17 +1,8 @@
 (
-
-#   patch_it $SOURCE2 1 &&
    [ -f /etc/profile.d/xfce4.rc ] && . /etc/profile.d/xfce4.rc
-
    # make sure proper PKG_CONFIG_PATH is set
-   export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
+   export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"  &&
 
-   PATH="$PATH:/usr/X11/bin"
-
-   ./autogen.sh --build=$BUILD                                        \
-                --prefix=${MODULE_PREFIX}        \
-                $OPTS                                           &&
-
-   default_make
+   default_cvs_build
 
 ) > $C_FIFO 2>&1

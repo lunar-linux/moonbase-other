@@ -1,10 +1,13 @@
 depends  edje-svn
 depends  efreet-svn
-depends e_dbus-svn
+depends  e_dbus-svn
 
-optional_depends  "gettext"    ""  "--disable-nls"    \
+optional_depends  "gettext"          \
+                  ""                 \
+                  "--disable-nls"    \
                   "for internationalization support"
-optional_depends  "hal"        ""  ""                 \
-                  "for removable device support in the file manager"
-optional_depends  "Linux-PAM"  ""  ""                 \
+
+optional_depends  "Linux-PAM"                     \
+                  "--enable-pam"                  \
+                  "--disable-pam"                 \
                   "for PAM support in desktop locking"

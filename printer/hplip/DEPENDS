@@ -2,17 +2,27 @@ depends  jpeg
 depends  cups
 depends  libusb
 
-optional_depends "sane-backends" \
-                 "" \
-                 "--disable-scan-build" \
+optional_depends "sane-backends"               \
+                 "--enable-scan-build"         \
+                 "--disable-scan-build"        \
                  "for builtin scanner support" 
 
-optional_depends "PyQt" \
-                 "" \
-                 "" \
+optional_depends "PyQt"                 \
+                 "--enable-qt3"         \
+                 "--disable-qt3"        \
                  "for HP gui support" 
 
-optional_depends "net-snmp" \
-                 "--enable-network-build" \
-                 "--disable-network-build" \
+optional_depends "PyQt4"                   \
+                 "--enable-qt4"            \
+                 "--disable-qt4"           \
+                 "for HP Qt4 GUI Support"  
+
+optional_depends "reportlab"                          \
+                 ""                                   \
+                 ""                                   \
+                 "for PDF and Fax cover page support"
+
+optional_depends "net-snmp"                     \
+                 "--enable-network-build"       \
+                 "--disable-network-build"      \
                  "for network printing support"
