@@ -23,7 +23,12 @@ optional_depends  "postgresql"                                               \
                   "-no-sql-psql"                                             \
                   "for postgresql database support"
 
-optional_depends  "unixODBC"                                                 \
-                  "-plugin-sql-odbc"                                         \
-                  "-no-sql-odbc"                                             \
-                  "for unixODBC support"
+#optional_depends  "unixODBC"                                                 \
+#                  "-plugin-sql-odbc"                                         \
+#                  "-no-sql-odbc"                                             \
+#                  "for unixODBC support"
+
+optional_depends  "freetds"                                                  \
+                  "-plugin-sql-tds"                                          \
+                  "-no-sql-tds"                                              \
+                  "for tabular data stream support"                          \
