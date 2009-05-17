@@ -1,13 +1,13 @@
 (
    [ -f /etc/profile.d/xfce4.rc ] && . /etc/profile.d/xfce4.rc
 
-   # tchan added this patch to fix the incorrect pkg-config check for libXi.
-   # This should be removed when the xfce4 devs get around to fixing this correctly
-   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-   autoconf &&
-   ./configure  --build=$BUILD             \
-                --prefix=${MODULE_PREFIX}  \
-                $OPTS                     &&
+   # make sure proper PKG_CONFIG_PATH is set
+   export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
+
+   ./autogen.sh --build=$BUILD                                        \
+                --prefix=${MODULE_PREFIX}        \
+                --enable-xinerama                                \
+                $OPTS                                           &&
 
    default_make
 
