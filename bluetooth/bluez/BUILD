@@ -15,6 +15,10 @@
 
   default_build  &&
 
+  sedit "s:#\[A:\[A:" audio/audio.conf
+  sedit "s:#SBCS:SBCS:" audio/audio.conf
+  sedit "s:#MPEG:MPEG:" audio/audio.conf
+
   cp audio/*.conf /etc/bluetooth/    &&
   cp network/*.conf /etc/bluetooth/  &&
   cp input/*.conf /etc/bluetooth/    &&
