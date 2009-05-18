@@ -7,6 +7,7 @@
 
   if [ "$USE_DESKTOPINTEGRATION" = "y" ] ; then
 
+    mv ${OO_INSTALL_DIR}/desktop-integration ${SOURCE_DIRECTORY} &&
     cd ${SOURCE_DIRECTORY}/desktop-integration/ &&
 
     INT_FILE=openoffice.org3.1-freedesktop-menus-3.1-9393.noarch &&
