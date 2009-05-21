@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-nautilus-extension"
+  echo $OPTS
 
   default_build
 
