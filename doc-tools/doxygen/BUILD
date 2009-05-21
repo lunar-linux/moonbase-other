@@ -1,9 +1,9 @@
 (
-  if in_depends qt3; then
+  if in_depends doxygen qt3; then
     . /etc/profile.d/qt3.rc
   fi &&
 
-  if in_depends qt4; then
+  if in_depends doxygen qt4; then
     . /etc/profile.d/qt4.rc
   fi &&
 
