@@ -8,6 +8,7 @@
   ./configure &&
   make generic &&
   prepare_install &&
-  make install
+  make install &&
+  gather_docs WHATSNEW TODO WHERE
 
 ) > $C_FIFO 2>&1
