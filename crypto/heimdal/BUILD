@@ -40,10 +40,8 @@
     mv -f /var/heimdal /var/lib/heimdal
   fi &&
 
-
   patch_it $SOURCE2 1 &&
   patch_it $SOURCE3 1 &&
-  patch_it $SOURCE4 1 &&
 
   sh autogen.sh &&
 
