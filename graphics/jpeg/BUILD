@@ -1,5 +1,7 @@
 (
   
+  cp /usr/share/automake/config.sub $SOURCE_DIRECTORY &&
+
   bad_flags -malign-double
   OPTS="$OPTS --enable-shared --enable-static --enable-maxmem=64"
 

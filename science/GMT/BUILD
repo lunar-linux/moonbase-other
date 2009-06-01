@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-shared --enable-eps"
+  OPTS="$OPTS --enable-shared --enable-eps --enable-netcdf=/usr"
 
   default_build
 
