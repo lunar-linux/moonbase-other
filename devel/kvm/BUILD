@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   echo 'KERNEL=="kvm", NAME="%k", GROUP="kvm"' > 90-kvm.rules  &&
 
   if module_installed qemu; then
