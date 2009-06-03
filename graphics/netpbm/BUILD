@@ -34,8 +34,8 @@ default
 /usr/lib
 Y
 /usr/lib
-/usr/share/netpbm
 /usr/include
+/usr/share/netpbm
 /usr/share/man
 N
 " | ./installnetpbm
