@@ -49,4 +49,8 @@
  install --mode=755 $SCRIPT_DIRECTORY/Default /etc/gdm/PreSession/ &&
  install --mode=755 $SCRIPT_DIRECTORY/Default /etc/gdm/Sessions/ 
 
+ #Fix the gconf-sanity-check-2 exited with status 256 error
+ mkdir -p /etc/gconf/gconf.xml.system  &&
+ chmod 755 /etc/gconf/gconf.xml.system
+
 ) > $C_FIFO 2>&1

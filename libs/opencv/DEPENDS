@@ -1,5 +1,25 @@
-depends gtk+-2 &&
-depends ffmpeg &&
-depends libpng &&
-depends jpeg   &&
+depends gtk+-2 
+depends libpng 
+depends jpeg   
 depends tiff
+
+optional_depends ffmpeg       "--with-ffmpeg --without-quicktime" "--without-ffmpeg"    \
+                              "for ffmpeg video support.${PROBLEM_COLOR} If y here, say no to gstreamer${DEFAULT_COLOR}"
+
+optional_depends gstreamer-10 "--with-gstreamer --without-ffmpeg" "--without-gstreamer" \
+                              "for gstreamer support. ${PROBLEM_COLOR}If y here, say no to ffmpeg${DEFAULT_COLOR}"
+
+optional_depends xine-lib     "--with-xine --without-quicktime"   "--without-xine"      "for xine video support"
+
+#optional_depends octave       "--with-octave"       \
+#                              "--without-octave"    \
+#                              "for octave language support"
+
+optional_depends libdc1394    "--with-1394libs --without-quicktime" \
+                              "--without-1394libs"                  \
+                              "for firewire support"
+
+
+optional_depends unicap       "--with-unicap"          \
+                              "--without-unicap"       \
+                              "for additional video capture support"

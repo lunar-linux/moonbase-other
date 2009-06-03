@@ -1,5 +1,9 @@
 (
 
+# This sedit takes care of Bug Report 398 submitted by Striker.
+  sedit "s:/tmp:$SOURCE_DIRECTORY/tmp:g" scripts/test-installation.pl &&
+  mkdir -p $SOURCE_DIRECTORY/tmp &&
+
   # There is no other option but nptl
   OPTS="$OPTS --enable-add-ons=nptl,libidn --with-__thread --with-tls"
 
