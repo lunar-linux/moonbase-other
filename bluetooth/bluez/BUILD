@@ -1,5 +1,7 @@
 (  
 
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
   OPTS+=" --enable-tools    \
           --enable-bccmd    \
           --enable-hid2hci  \
@@ -19,11 +21,13 @@
   sedit "s:#SBCS:SBCS:" audio/audio.conf
   sedit "s:#MPEG:MPEG:" audio/audio.conf
 
-  cp audio/*.conf /etc/bluetooth/    &&
-  cp network/*.conf /etc/bluetooth/  &&
-  cp input/*.conf /etc/bluetooth/    &&
-  if [ -f /etc/udev/bluetooth.rules ]; then
-    mv /etc/udev/bluetooth.rules /lib/udev/rules.d/91.bluetooth.rules
+  cp -f audio/*.conf /etc/bluetooth/    &&
+  cp -f network/*.conf /etc/bluetooth/  &&
+  cp -f input/*.conf /etc/bluetooth/    &&
+
+  if [ ! -d /etc/default ] ; then
+    mkdir -p /etc/default &&
+    cp -f scripts/bluetooth.default /etc/default/bluetooth 
   fi
 
 ) > $C_FIFO 2>&1
