@@ -1,5 +1,9 @@
 (
 
+   sedit s/Text\ Editor/GEdit\ Text\ Editor/g data/gedit.desktop.in &&
+   sedit s/Text\ Editor/GEdit\ Text\ Editor/g data/gedit.desktop.in.in &&
+    
+
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                     \
                 --sysconfdir=/etc                  \
