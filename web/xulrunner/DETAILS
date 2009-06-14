@@ -1,11 +1,13 @@
           MODULE=xulrunner
-         VERSION=1.9.0.7
+         VERSION=1.9.0.11
           SOURCE=$MODULE-$VERSION-source.tar.bz2
          SOURCE2=$MODULE-1.9.0.3-patches.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla
-      SOURCE_URL=ftp://ftp.mozilla.org/pub/mozilla.org/xulrunner/releases/$VERSION/source/
+   SOURCE_URL[0]=ftp://ftp.uni-erlangen.de/pub/mozilla.org/$MODULE/releases/$VERSION/source
+   SOURCE_URL[1]=ftp://mozilla.isc.org/pub/mozilla.org/$MODULE/releases/$VERSION/source
+   SOURCE_URL[2]=ftp://ftp.mozilla.org/pub/mozilla.org/$MODULE/releases/$VERSION/source
      SOURCE2_URL=$PATCH_URL/
-      SOURCE_VFY=sha1:03c078d9c2d047d7cdc25f7823c6e647cb8d8f8b
+      SOURCE_VFY=sha1:ca792dcdb67af40c91a4fcece25d6adfb6fef2c3
      SOURCE2_VFY=sha1:6167afdbf3de17fa002dc965fdd9a8d46329122d
         WEB_SITE=http://www.mozilla.org
          ENTERED=20080624
