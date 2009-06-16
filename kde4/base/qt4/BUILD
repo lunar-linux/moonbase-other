@@ -30,6 +30,14 @@
 
   default_make  &&
 
+  if [ "$MAKE_QDOC3" == "y" ]; then
+     cd tools/qdoc3 &&
+     qmake -unix -o Makefile qdoc3.pro &&
+     make    &&
+     install -D -m0755 qdoc3 $MODULE_PREFIX/tools/qdoc3/qdoc3 &&
+     cd $SOURCE_DIRECTORY
+  fi &&
+
   echo "export QTDIR=\"${MODULE_PREFIX}\"" >> $SOURCE_DIRECTORY/qt4.rc  &&
   echo export PATH=\"'${QTDIR}'/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/qt4.rc  &&
   echo export PKG_CONFIG_PATH=\"'${QTDIR}'/lib/pkgconfig:'${PKG_CONFIG_PATH}'\"  \
