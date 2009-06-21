@@ -52,7 +52,4 @@
 
   default_build 
 
-  # Please check whether this has been corrected with each version bump!
-  sedit "s:stable:unstable:g" /usr/lib/pkgconfig/mozilla-js.pc
-
 ) > $C_FIFO 2>&1
