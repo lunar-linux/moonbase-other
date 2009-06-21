@@ -15,7 +15,6 @@
   cd $SOURCE_DIRECTORY
   # opengl seems more stable, but may vary
   install -D -m755 crx ${INST_DIR}/      &&
-  install -D -m755 crx.sdl ${INST_DIR}/  &&
   install -D -m755 crded ${INST_DIR}/    &&
 
   # Data files (can contain spaces)
