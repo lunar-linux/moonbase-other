@@ -1,13 +1,13 @@
           MODULE=xfce4-dev-tools
-         VERSION=4.6.0
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.xfce.org/archive/xfce-$VERSION/src
-      SOURCE_VFY=sha1:a5a5cbc9e5f84f4939e53e3327c51f4b749c38a2
+         VERSION="svn-`date +%Y%U`"
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MODULE/trunk:$MODULE
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.xfce.org
          ENTERED=20030715
-         UPDATED=20090227
-           SHORT="Developer tools for Xfce4"
+         UPDATED=20071207
+           SHORT="a utility library for Xfce4"
 
 cat << EOF
 The Xfce development tools are a collection of tools and macros for
