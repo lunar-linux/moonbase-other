@@ -1,13 +1,13 @@
           MODULE=xfce4-taskmanager
-         VERSION=0.4.1
+         VERSION="svn-`date +%Y%U`"
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://goodies.xfce.org/releases/$MODULE
-      SOURCE_VFY=sha1:e93824f9e9a369f6353f4b22251ff7f18468dbd4
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.xfce.org/svn/goodies/$MODULE/trunk:$MODULE
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.xfce.org
          ENTERED=20061124
-         UPDATED=20090420
-           SHORT="A task manager for the XFCE"
+         UPDATED=20071207
+           SHORT="taskmanager for the Xfce Desktop Environment"
 
 cat << EOF
 Xfce4-taskmanager is a simple taskmanager for the Xfce Desktop 

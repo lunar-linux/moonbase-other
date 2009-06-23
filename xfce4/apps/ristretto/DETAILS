@@ -1,12 +1,13 @@
           MODULE=ristretto
-         VERSION=0.0.22
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://goodies.xfce.org/releases/$MODULE
-      SOURCE_VFY=sha1:bddbc8618ba67699ccf5ee4ea0b538b1be7fdb0a
+         VERSION="git-`date +%Y%U`"
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=git://git.xfce.org/stephan/$MODULE
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://goodies.xfce.org/projects/applications/ristretto
          ENTERED=20070826
-         UPDATED=20090519
+         UPDATED=20090428
+	 PSAFE=no
            SHORT="fast and lightweight picture-viewer"
 
 cat << EOF

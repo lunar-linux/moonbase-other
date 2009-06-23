@@ -1,12 +1,13 @@
           MODULE=exo
-         VERSION=0.3.101
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.xfce.org/archive/xfce-4.6.1/src
-      SOURCE_VFY=sha1:74194f58278a2b9d963264806f142e5d6d05336c
+             MOD=libexo
+         VERSION="svn-`date +%Y%U`"
+          SOURCE=$MOD.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD          
+      SOURCE_URL=svn+http://svn.xfce.org/svn/xfce/$MOD/trunk:$MOD
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://libexo.os-cillation.com
          ENTERED=20040930
-         UPDATED=20090424
+         UPDATED=20071207
            SHORT="the Xfce extension library"
 
 cat << EOF
