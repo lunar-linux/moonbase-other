@@ -30,7 +30,6 @@ default
 /usr
 /usr/bin
 /usr/lib
-Y
 /usr/lib
 /usr/lib
 /usr/include
