@@ -1,7 +1,7 @@
 (
-    OPTS="$OPTS --disable-docbook-docs --with-pid-file=/var/run/hald.pid \
-                --with-backend=linux --without-macbookpro \
-                --enable-umount-helper --disable-parted"
+    OPTS="$OPTS --disable-docbook-docs --with-pid-file=/var/run/hald.pid  \
+                --with-backend=linux --enable-umount-helper  \
+                --disable-parted --with-udev-prefix=/lib"
 
     # This is a temp workaround until hal realizes usb.ids can also be
     # wrapped in an archive
@@ -10,9 +10,6 @@
       gunzip -c /usr/share/usb.ids.gz > /usr/share/usb.ids
     fi &&
 
-    default_build  &&
-
-    mkdir -p /usr/share/applications &&
-    install -m644 $SOURCE_CACHE/$SOURCE2 /usr/share/applications/ 
+    default_build
 
 ) > $C_FIFO 2>&1
