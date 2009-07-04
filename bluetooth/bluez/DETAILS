@@ -1,11 +1,14 @@
           MODULE=bluez
-         VERSION=4.39
+         VERSION=4.42
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-4.41.dbus.access.patch
       SOURCE_URL=http://www.kernel.org/pub/linux/bluetooth/
-      SOURCE_VFY=sha1:5fbc3316c8003df47c9fe3a0f577e4518bb18185
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:c0923acac8995d591fa44b0047600f77d6bcb3e3
+     SOURCE2_VFY=sha1:1bea7d4cc74f55b8861544b42b07244b555c8550
         WEB_SITE=http://www.bluez.org
          ENTERED=20090328
-         UPDATED=20090511
+         UPDATED=20090622
            SHORT="support for core Bluetooth layers and protocols"
 
 cat << EOF

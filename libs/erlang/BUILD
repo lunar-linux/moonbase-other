@@ -4,7 +4,7 @@
   if [ "$USE_SMP" == "n" ]; then
     OPTS="$OPTS --disable-smp-support --enable-threads"
    else
-    OPTS="$OPTS --enable-smp-support"
+    OPTS="$OPTS --enable-smp-support --enable-threads"
   fi &&
 
   ./configure   --prefix=/usr  \

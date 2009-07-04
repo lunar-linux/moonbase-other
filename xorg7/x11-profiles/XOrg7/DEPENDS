@@ -7,7 +7,6 @@ depends xauth
 depends xinit 
 depends xkeyboard-config 
 # DEPENDS: libxkbui
-depends xf86-input-evdev
 depends font-alias 
 depends font-cursor-misc 
 depends font-adobe-100dpi 
@@ -65,3 +64,8 @@ depends xprop
 
 #and optional, a video driver ...
 optional_depends "xf86-video-vesa"  ""  ""  "install VESA driver"
+
+# evdev is optional, some people want a manual setup
+optional_depends "xf86-input-evdev"  \
+                 ""  ""              \
+                 "automatic input device configuration (RECOMMENDED)"

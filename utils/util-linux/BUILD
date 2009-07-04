@@ -4,7 +4,8 @@
   OPTS+="--enable-arch --enable-agetty --disable-init --disable-kill \
          --disable-last --disable-mesg --enable-partx --enable-raw \
          --enable-rdev --enable-rename --disable-reset --disable-login-utils \
-         --enable-shedutils --disable-wall --enable-write"
+         --enable-schedutils --disable-wall --enable-write  \
+         --with-fsprobe=builtin"
 
   default_build  &&
 

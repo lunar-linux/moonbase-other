@@ -1,19 +1,19 @@
-depends autoconf   &&
-depends automake   &&
-depends pkgconfig  &&
-depends libtool    &&
+depends autoconf
+depends automake
+depends pkgconfig
+depends libtool&
 
-optional_depends "libvorbis"                 \
-   "--enable-libvorbis"      \
+optional_depends "libvorbis"  \
+   "--enable-libvorbis"       \
    "--disable-libvorbis"      \
-   "to enable Vorbis support" &&
+   "to enable Vorbis support" 
 
-optional_depends "ImageMagick"                    \
-   "--enable-imagemagick"           \
-   "--disable-imagemagick"          \
-   "to enable ImageMagick support" &&
+optional_depends "ImageMagick"  \
+   "--enable-imagemagick"       \
+   "--disable-imagemagick"      \
+   "to enable ImageMagick support" 
 
-optional_depends "gdbm"             \
-   "--enable-libdb"   \
-   "--disable-libdb"  \
+optional_depends "gdbm"  \
+   "--enable-libdb"      \
+   "--disable-libdb"     \
    "to enable supernode support"

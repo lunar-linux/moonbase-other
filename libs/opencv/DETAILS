@@ -1,12 +1,17 @@
           MODULE=opencv
-         VERSION=1.0.0
+         VERSION=1.1pre1
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=opencv-1.1.0-cvcap_xine.diff
       SOURCE_URL=$SFORGE_URL/opencvlibrary/
-      SOURCE_VFY=sha1:c7dd500703b0060cedfa049fcb33de0846e631fb
-        WEB_SITE=http://www.intel.com/technology/computing/opencv/index.htm
+     SOURCE2_URL=$PATCH_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/opencv-1.1.0
+      SOURCE_VFY=sha1:4bc4bda92a250adcb82b236161d364c059021a43
+     SOURCE2_VFY=sha1:6ad661f4c610b2ad75840395246460293648dd72
+        WEB_SITE=http://opencv.willowgarage.com/wiki/
          ENTERED=20050404
-         UPDATED=20061225
+         UPDATED=20090601
            SHORT="Open Source Computer Vision Library"
+
 cat << EOF
 This library is mainly aimed at real time computer vision.
 Some example areas would be  Human-Computer Interaction (HCI);

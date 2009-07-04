@@ -1,12 +1,12 @@
           MODULE=gitosis-git
              MOD=gitosis
-         VERSION="git-`date +%U`"
+         VERSION=git
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD
           SOURCE=$MOD.tar.bz2
       SOURCE_URL=git://eagain.net/$MOD.git
         WEB_SITE=http://eagain.net/gitweb/?p=$MOD.git;a=summary
          ENTERED=20080222
-         UPDATED=20080222
+         UPDATED=`--date="last monday" +%Y%m%d`
            SHORT="Easy git hosting package that doesn't require shell accounts"
 
 cat << EOF
