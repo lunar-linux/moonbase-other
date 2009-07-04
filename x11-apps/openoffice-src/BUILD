@@ -1,6 +1,17 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE8 0  &&
+  cd $SOURCE_DIRECTORY &&
+  for file in `find . -name \*.patch -type f -exec grep -l '$' {} \;`; do sedit 's/$//' $file; done &&
+  cd apache-commons/download &&
+  tar -xzpf commons-codec-1.3-src.tar.gz &&
+  tar -xzpf commons-logging-1.1.1-src.tar.gz &&
+  cd - &&
+  for file in `find . -name build.xml -type f -exec grep -l '$' {} \;`; do sedit 's/$//' $file; done &&
+  cd apache-commons/download &&
+  tar -czf commons-codec-1.3-src.tar.gz commons-codec-1.3 &&
+  tar -czf commons-logging-1.1.1-src.tar.gz commons-logging-1.1.1-src &&
+  rm -rf commons-codec-1.3 commons-logging-1.1.1-src &&
+  cd - &&
 
   if module_installed qt3; then
    . /etc/profile.d/qt3.rc
@@ -63,8 +74,6 @@
   # tarball (and it also compiles its own mozilla)
   mkdir -p $SOURCE_DIRECTORY/moz/download &&
   cp $SOURCE_CACHE/$SOURCE3 $SOURCE_DIRECTORY/moz/download/ &&
-
-  cd $SOURCE_DIRECTORY/config_office &&
 
   autoreconf &&
   default_config &&

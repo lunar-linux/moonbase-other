@@ -1,6 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
   default_config  &&
   if module_installed mt-st ; then
     sedit 's/install:: installdirs all/install:: installdirs/' Makefile  &&

@@ -1,5 +1,6 @@
 (
 
+  sedit "s/getline/getLine/" converter/ppm/xvminitoppm.c  &&
   sedit "s:/tmp/netpbm:$(pwd -P)/BUILD:g" Makefile.config.in buildtools/installnetpbm.pl doc/README.DJGPP
   sedit "s/CC = cc/CC = gcc/" Makefile.config.in &&
   echo  -e  "
@@ -19,9 +20,6 @@ default
 
 
 
-
-
-
 " | ./configure    &&
   sedit "s/^CFLAGS =/CFLAGS = -fPIC /" Makefile.config &&
   make             &&
@@ -32,9 +30,8 @@ default
 /usr
 /usr/bin
 /usr/lib
-Y
 /usr/lib
-/usr/share/netpbm
+/usr/lib
 /usr/include
 /usr/share/man
 N

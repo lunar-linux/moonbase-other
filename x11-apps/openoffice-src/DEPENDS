@@ -1,25 +1,25 @@
-depends %JAVA_SDK                                                                                                       
-depends apache-ant                                                                                                      
-depends libIDL                                                                                                          
-depends XML-Parser                                                                                                      
-depends libxml2                                                                                                         
-depends gtk+-2                                                                                                          
-depends Archive-Zip                                                                                                     
-depends Compress-Zlib                                                                                                   
-depends unzip                                                                                                           
-depends zip                                                                                                             
-depends which                                                                                                           
-depends desktop-file-utils                                                                                              
-depends hicolor-icon-theme                                                                                              
-depends IO-Compress-Zlib                                                                                                
-depends gperf                                                                                                           
-depends jpeg                                                                                                            
-depends expat                                                                                                           
+depends %JAVA_SDK
+depends apache-ant
+depends libIDL
+depends XML-Parser
+depends libxml2
+depends gtk+-2
+depends Archive-Zip
+depends Compress-Zlib
+depends unzip
+depends zip
+depends which
+depends desktop-file-utils
+depends hicolor-icon-theme
+depends IO-Compress-Zlib
+depends gperf
+depends jpeg
+depends expat
 
 optional_depends "libxslt"                  \
                  "--with-system-libxslt"    \
                  "--without-system-libxslt" \
-                 "For xslt support"          
+                 "For xslt support"
 
 optional_depends "%JAVA_SDK"      \
                  "--with-java"    \
@@ -29,42 +29,42 @@ optional_depends "%JAVA_SDK"      \
 optional_depends "openssl"                  \
                  "--with-system-openssl"    \
                  "--without-system-openssl" \
-                 "For openssl support"       
+                 "For openssl support"
 
 optional_depends "libwpd"                  \
                  "--with-system-libwpd"    \
                  "--without-system-libwpd" \
-                 "For WordPerfect support"  
+                 "For WordPerfect support"
 
 optional_depends "icu4c"                  \
                  "--with-system-icu"    \
                  "--without-system-icu" \
-                 "For icu support"         
+                 "For icu support"
 
 optional_depends "boost"                  \
                  "--with-system-boost"    \
                  "--without-system-boost" \
-                 "For boost support"       
+                 "For boost support"
 
 optional_depends "cups"                                   \
                  "--enable-cups"                          \
                  "--disable-cups"                         \
-                 "enable the OpenOffice printing backend"  
+                 "enable the OpenOffice printing backend"
 
 optional_depends "curl"                                    \
                  "--with-system-curl"                      \
                  "--without-system-curl"                   \
-                 "to link against the system cURL library"  
+                 "to link against the system cURL library"
 
 optional_depends "neon"                             \
                  "--enable-neon --with-system-neon" \
                  "--disable-neon"                   \
-                 "for webdav support"                
+                 "for webdav support"
 
 optional_depends "openldap"        \
                  "--with-openldap" \
                  "--disable-ldap"  \
-                 "for LDAP support" 
+                 "for LDAP support"
 
 optional_depends "Python"                   \
                  "--with-system-python"     \
@@ -77,8 +77,8 @@ optional_depends "evolution-data-server"            \
                  "for Evolution addressbook support"
 
 optional_depends "gnome-vfs"                             \
-                 "--enable-gnome-vfs --enable-lockdown --enable-gio"   \
-                 "--disable-gnome-vfs --disable-lockdown --disable-gio" \
+                 "--enable-gnome-vfs --enable-lockdown --disable-gio"   \
+                 "--disable-gnome-vfs --disable-lockdown --enable-gio" \
                  "for GNOME-vfs integration"
 
 optional_depends "kdelibs3"             \

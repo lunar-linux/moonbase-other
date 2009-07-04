@@ -5,14 +5,10 @@
   sedit "s/# CONFIG_STATIC is not set/CONFIG_STATIC=y/" .config &&
   sedit "s/-Wl,--gc-sections//" scripts/trylink &&
   sedit "/^#error Aborting compilation./d" applets/applets.c &&
-  # NOTE: tchan added this hack for busybox-1.10.2, and should be removed when busybox devs fix it...
-  sedit "s/CONFIG_BRCTL=y/# CONFIG_BRCTL is not set/" .config &&
-  sedit "s/CONFIG_FEATURE_BRCTL_FANCY=y/# CONFIG_FEATURE_BRCTL_FANCY is not set/" .config &&
-  sedit "s/CONFIG_FEATURE_BRCTL_SHOW=y/# CONFIG_FEATURE_BRCTL_SHOW is not set/" .config &&
-  # NOTE: tchan added this hack for busybox-1.11.1, and should be removed when busybox devs fix it...
-  sedit "s/CONFIG_INOTIFYD=y/# CONFIG_INOTIFYD is not set/" .config &&
-  # NOTE: tchan added this hack for busybox-1.13.2, and should be removed when busybox devs fix it...
-  sedit "s/CONFIG_WATCHDOG=y/# CONFIG_WATCHDOG is not set/" .config &&
+  # NOTE: tchan added this hack for busybox-1.14.1, and should be removed when busybox devs fix it...
+  sedit "s/CONFIG_IONICE=y/# CONFIG_IONICE is not set/" .config &&
+  sedit "s/CONFIG_ACPID=y/# CONFIG_ACPID is not set/" .config &&
+  sedit "s/CONFIG_FEATURE_ACPID_COMPAT=y/# CONFIG_FEATURE_ACPID_COMPAT is not set/" .config &&
 
   make             &&
   prepare_install  &&
