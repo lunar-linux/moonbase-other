@@ -1,14 +1,18 @@
           MODULE=bash_static
-         VERSION=3.2.48
-          SOURCE=bash-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/bash-$VERSION
+         VERSION=3.2.49
+            BASE=3.2.48
+          SOURCE=bash-$BASE.tar.gz
+         SOURCE2=bash32-049
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/bash-$BASE
    SOURCE_URL[0]=$GNU_URL/bash
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/bash
    SOURCE_URL[2]=ftp://ftp.cwru.edu/pub/bash
-      SOURCE_VFY=sha1:ed10f49e57bb83e717ebb85bb5662e24ac5ba37c
+  SOURCE2_URL[0]=ftp://ftp.gnu.org/gnu/bash/bash-3.2-patches
+      SOURCE_VFY=sha1:efaff12f5d58d81999830891b030842858a1e7e8
+     SOURCE2_VFY=sha1:da7b29dd5d2e3c3a5d54b845180b587cc1995134
         WEB_SITE=http://tiswww.case.edu/php/chet/bash/bashtop.html
          ENTERED=20020615
-         UPDATED=20090317
+         UPDATED=20090704
            SHORT="A static build of bash, named as bash_static"
 
 cat << EOF
