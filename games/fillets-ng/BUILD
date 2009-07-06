@@ -1,4 +1,7 @@
 (
+
+  # Set default systemdir to correct directory
+  OPTS+=" --datadir=/usr/share/games/fillets-ng"
  
   default_game_build  &&
   mkdir -p /usr/share/games/fillets-ng &&
