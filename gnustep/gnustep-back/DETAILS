@@ -1,11 +1,11 @@
           MODULE=gnustep-back
-         VERSION=0.12.0
+         VERSION=0.16.0
           SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=ftp://ftp.gnustep.org/pub/gnustep/core/
-      SOURCE_VFY=sha1:859aef314eb9ef5cbedad9dc53a818542baa17ec
+      SOURCE_VFY=sha1:e3bb755117b12c7eef65fd781650b7f5dbe02147
         WEB_SITE=http://www.gnustep.org
          ENTERED=20040509
-         UPDATED=20070418
+         UPDATED=20090704
            PSAFE="no"      
            SHORT="back-end component for the GNUstep GUI Library."
 
@@ -19,4 +19,9 @@ specific calls to the X Window System.  This design allows the GNUstep
 applications to have the "look and feel" of the underlying display
 system without any changes to the application, and the library can be
 easily ported to other display systems.
+
+Note: you will need to have built gcc with the Objective-C option
+to be able to build GNUstep modules. These modules have been built
+according to http://gnustep.made-it.com/BuildGuide/ but are untested.
+You will also need to customize the GNUstep environment before use.
 EOF
