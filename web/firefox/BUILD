@@ -11,12 +11,12 @@
   export MOZILLA_OFFICIAL=1
   export BUILD_OFFICIAL=1
 
-  cp $SCRIPT_DIRECTORY/mozconfig mozilla/  &&
+  cp $SCRIPT_DIRECTORY/mozconfig mozilla-1.9.1/  &&
 
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"
   mkdir -p ${MOZ_OBJDIR}  &&
 
-  cd mozilla  &&
+  cd mozilla-1.9.1  &&
 
   #Add DEPENDS options
 
