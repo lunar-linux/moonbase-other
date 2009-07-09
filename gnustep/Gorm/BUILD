@@ -1,9 +1,10 @@
 (
   # before load GNUSTEP variables
-  . $GNUSTEP_SYSTEM_ROOT/Makefiles/GNUstep.sh &&
-  devoke_installwatch &&
-  make &&
-  invoke_installwatch &&
+  . /etc/profile.d/gnustep.rc &&
+  . $GNUSTEP_SYSTEM_ROOT/Library/Makefiles/GNUstep.sh &&
+
+  make GNUSTEP_INSTALLATION_DOMAIN=SYSTEM &&
   prepare_install &&
-  make install
+  make GNUSTEP_INSTALLATION_DOMAIN=SYSTEM install
+
 ) > $C_FIFO 2>&1
