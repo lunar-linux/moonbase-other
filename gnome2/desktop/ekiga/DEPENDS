@@ -4,12 +4,16 @@ depends opal
 depends gnome-doc-utils
 depends cyrus-sasl
 
-optional_depends dbus  "--enable-dbus" "--disable-dbus"  "for dbus support"
-optional_depends SDL   ""              ""                "for fullscreen support"
-optional_depends avahi ""              "--disable-avahi" "for avahi support"
+optional_depends dbus  "" "--disable-dbus"  "for dbus support"
+optional_depends avahi "" "--disable-avahi" "for avahi support"
+optional_depends SDL   "" ""                "for fullscreen support"
 
 optional_depends evolution-data-server \
-                 "" \
+                 ""                    \
+		 "--disable-eds"       \
+		 "to enable evolution-data-server support"
+
+optional_depends libgnomeui \
+                 ""         \
                  "--disable-gnome --disable-doc" \
                  "to enable gnome support"
-
