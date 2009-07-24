@@ -13,6 +13,7 @@
 #  fi &&
 
   OPTS+=" --enable-composite --enable-aiglx \
+         --enable-install-libxf86config \
          --with-dri-driver-path=${MODULE_PREFIX}/lib/dri" &&
          #--with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION} \
 
