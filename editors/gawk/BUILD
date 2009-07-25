@@ -7,8 +7,9 @@
                --bindir=/bin              \
 	       ac_cv_func_working_mktime=yes  &&
 
-  default_make             &&
-  rm  -f         /bin/awk  &&
+  default_make  &&
+  cp  -f /bin/gawk /bin/gawk.old  &&
+  rm  -f /bin/awk  &&
   ln  -sf  gawk  /bin/awk  &&
   if [ -e /bin/gawk-*  ]; then
     rm /bin/gawk-*;
