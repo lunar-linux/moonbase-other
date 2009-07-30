@@ -1,10 +1,12 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 0  &&
+
   # Make the makefiles obay our CFLAGS!
   sedit "s:^CFLAGS[ ]*=\(.*\)-O2\(.*\):CFLAGS= \1 \2 $CFLAGS:" libastro/Makefile
   sedit "s:^CFLAGS[ ]*=\(.*\)-O2\(.*\):CFLAGS= \1 \2 $CFLAGS:" libip/Makefile
   sedit "s:^CFLAGS[ ]*=\(.*\)-O2\(.*\):CFLAGS= \1 \2 $CFLAGS:" libjpegd/Makefile
-  sedit "s:^CFLAGS[ ]*=\(.*\)$(CLDFLAGS)\(.*\):CFLAGS=\1 \2:" GUI/xephem/Makefile.simple
+  sedit "s:^CFLAGS[ ]*=\(.*\)$(CLDFLAGS)\(.*\):CFLAGS=\1 \2:" GUI/xephem/Makefile
 
   # Get with the making
   for sdir in libastro libip liblilxml libjpegd GUI/xephem; do

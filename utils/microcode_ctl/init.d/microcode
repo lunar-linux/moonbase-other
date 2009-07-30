@@ -11,6 +11,10 @@ ARGS="-Qu"
 start()
 {
 	echo -n "Loading Intel microcode: "
+
+	# Load microcode kernel module, if needed
+	grep -qo ' microcode$' /proc/misc || modprobe microcode >& /dev/null
+
 	[ -e /dev/cpu/microcode ] &&
 	/usr/sbin/microcode_ctl -Qu &&
 	echo -e $RESULT_OK ||

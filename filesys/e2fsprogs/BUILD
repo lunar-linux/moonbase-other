@@ -6,6 +6,9 @@
                --infodir=/usr/share/info  \
                --mandir=/usr/share/man    \
                --enable-elf-shlibs        \
+               --disable-libuuid          \
+	       --disable-uuidd            \
+	       --disable-libblkid         \
                $OPTS &&
 
   default_make &&

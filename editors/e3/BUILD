@@ -1,7 +1,7 @@
 (
 
   if [ "`arch`" == "x86_64" ]; then
-    make nasm64
+    make yasm64
   else
     make
   fi                               &&

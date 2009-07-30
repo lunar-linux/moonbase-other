@@ -1,12 +1,12 @@
           MODULE=xf86-video-voodoo
-         VERSION=1.2.0
+         VERSION=1.2.2
           SOURCE=$MODULE-$VERSION.tar.bz2
       SOURCE_URL=$XORG_URL/individual/driver
-      SOURCE_VFY=sha1:d8434fb024265dfe3497182cafa35481f55dda87
+      SOURCE_VFY=sha1:0b8dcaee0070ee29dd6119f2f04962f32495680c
    MODULE_PREFIX=${X11R7_PREFIX:-/usr}
-        WEB_SITE=http://www.x.org/
+        WEB_SITE=http://www.x.org
          ENTERED=20060302
-         UPDATED=20080415
+         UPDATED=20090710
            SHORT="the X.Org video driver for 3dfx Voodoo1 and Voodoo2 based cards"
 
 cat << EOF
@@ -14,13 +14,13 @@ xf86-video-voodoo provides the X.Org video driver for the 3dfx Voodoo1
 Voodoo2 series of video cards.
 
 On the Voodoo1 the driver uses a shadow buffer in system memory as the
-video adapter has only 3D acceleration.   Selected portions of the shadow
-framebuffer are copied out to the Voodoo board at the right time.  Because
-of this, the speed of the driver is very dependent on the CPU.  Processors
+video adapter has only 3D acceleration. Selected portions of the shadow
+framebuffer are copied out to the Voodoo board at the right time. Because
+of this, the speed of the driver is very dependent on the CPU. Processors
 nowdays are actually rather fast at moving data so we get very good speed
 anyway as the shadow framebuffer is in cached RAM.
 
 The Voodoo2 has 16bpp acceleration and the driver provides accelerated
-versions of most operations except angled lines and stipples.  Accelerated
+versions of most operations except angled lines and stipples. Accelerated
 alpha blending with the Render extension is also supported as is DGA.
 EOF
