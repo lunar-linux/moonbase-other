@@ -2,6 +2,21 @@ depends  wxGTK
 depends  libsndfile
 depends  libsamplerate
 
+optional_depends        "soundtouch"           \
+                        "--with-soundtouch"    \
+                        "--without-soundtouch" \
+                        "for pitch and tempo changing"
+
+optional_depends        "portaudio"          \
+                        "--with-portaudio"   \
+                        "--without-portaudio" \
+                        "for portaudio support"
+
+optional_depends        "ffmpeg"             \
+                        "--with-ffmpeg"      \
+                        "--without-ffmpeg"   \
+                        "for ffmpeg support"
+
 optional_depends        "libid3tag" \
                         "--with-id3tag=system" \
                         "" \

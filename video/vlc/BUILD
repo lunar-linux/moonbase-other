@@ -4,7 +4,8 @@
    . /etc/profile.d/qt4.rc
   fi  &&
 
-  OPTS="$OPTS --enable-release --enable-x11 --enable-xvideo --enable-v4l"
+  OPTS="$OPTS --enable-release --enable-x11 --enable-xvideo --enable-v4l \
+       --disable-nls --disable-mozilla"
 
   default_build  &&
 
