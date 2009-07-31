@@ -1,0 +1,24 @@
+diff -up wildmidi-0.2.2/configure.ac.opt wildmidi-0.2.2/configure.ac
+--- wildmidi-0.2.2/configure.ac.opt	2007-07-14 15:21:57.000000000 +0200
++++ wildmidi-0.2.2/configure.ac	2007-07-14 15:22:03.000000000 +0200
+@@ -226,6 +226,8 @@ AC_ARG_WITH(arch,
+ )
+ 
+ case "$arch" in
++	no)
++		;;
+ 	auto)
+ 		case "${host_cpu}" in
+ 			i?86)
+diff -up wildmidi-0.2.2/configure.opt wildmidi-0.2.2/configure
+--- wildmidi-0.2.2/configure.opt	2007-07-14 15:21:54.000000000 +0200
++++ wildmidi-0.2.2/configure	2007-07-14 15:22:52.000000000 +0200
+@@ -19966,6 +19966,8 @@ else
+ fi;
+ 
+ case "$arch" in
++	no)
++		;;
+ 	auto)
+ 		case "${host_cpu}" in
+ 			i?86)
