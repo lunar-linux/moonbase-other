@@ -30,7 +30,7 @@
 
   make ${MAKES:+-j$MAKES} bzImage           &&
   make ${MAKES:+-j$MAKES} modules           &&
-  backup_mods_krnl $VERSION                    &&
+  backup_mods_krnl $VERSION                 &&
   prepare_install                           &&
   make modules_install                      &&
   cp arch/${MYARCH}/boot/bzImage /boot/$VERSION-`arch`  &&
