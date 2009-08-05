@@ -4,7 +4,7 @@
     WITH_PAM="--with-pam --with-pam_smbpass"
   fi  &&
 
-  cd  source
+  cd  source3
   ./configure  --prefix=/usr            \
                --sysconfdir=/etc        \
                --localstatedir=/var     \
@@ -15,7 +15,7 @@
                --with-swatdir=/usr/share/samba/swat  \
                $OPTS                   || exit 1
 
-  mkdir -p /etc/samba /usr/share/samba /var/log/samba    &&
+  mkdir -p /etc/samba /usr/share/samba /var/log/samba  &&
 
   default_make  &&
 
