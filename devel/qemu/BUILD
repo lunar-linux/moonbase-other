@@ -4,8 +4,8 @@
   OPTS+=" --extra-ldflags=-L/usr/X11R6/lib"
   OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
 
-  ./configure --prefix=/usr \
-               $OPTS         &&
+  ./configure --prefix=/usr  \
+               $OPTS        &&
                   
   default_make  &&
 

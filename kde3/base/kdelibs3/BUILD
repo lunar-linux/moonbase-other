@@ -3,6 +3,9 @@
   . /etc/profile.d/qt3.rc
   . /etc/profile.d/kde3.rc
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
+
   export LD_LIBRARY_PATH=${QT_PREFIX:-$QTDIR}/lib
 
   if module_installed alsa-lib; then

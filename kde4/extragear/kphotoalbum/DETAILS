@@ -1,14 +1,15 @@
           MODULE=kphotoalbum
-           MAJOR=2009
-         VERSION=${MAJOR}-02-11
-          SOURCE=$MODULE-$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=http://www.kphotoalbum.org/data/snapshots/kphotoalbum
-      SOURCE_VFY=sha1:186c88699e815a50f32a0b8ea4596366e5f451dc
+           MAJOR=4.3
+         VERSION=${MAJOR}.0
+         SUB_VER=4.0.2
+          SOURCE=$MODULE-$SUB_VER-kde$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$SUB_VER-kde$VERSION
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src/extragear
+      SOURCE_VFY=sha1:b7767343531630954a7ed67665cfda3cc0168877
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
-        WEB_SITE=http://www.kphotoalbum.org/index.html
+        WEB_SITE=http://www.kphotoalbum.org/index.php?page=index
          ENTERED=20080111
-         UPDATED=20090225
+         UPDATED=20090805
            SHORT="a photo album manager based on kde4"
 cat << EOF
 kphotoalbum is a photo album manager based on kde4.
