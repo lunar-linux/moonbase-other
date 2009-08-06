@@ -9,12 +9,13 @@ if [ -n "$RECONFIGURE" ] ; then
     OPTIONS=(
       "java"    "Java"        "off"
       "objc"    "Objective C" "off"
+      "fortran" "Fortran"     "off"
     )
-    RESULT=`dialog --title "Select additional compiler languages"   \
-                   --stdout                                         \
-                   --separate-output                                \
-                   --checklist  "Available additional languages:"   \
-                    0 0 0                                           \
+    RESULT=`dialog --title "Select additional compiler languages"  \
+                   --stdout                                        \
+                   --separate-output                               \
+                   --checklist  "Available additional languages:"  \
+                    0 0 0                                          \
                    "${OPTIONS[@]}"`
 
     LANGUAGES="c++,$(echo $RESULT | sed 's/ /,/g')"
@@ -29,4 +30,3 @@ if [ -n "$RECONFIGURE" ] ; then
   fi
 
 fi
-
