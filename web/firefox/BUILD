@@ -1,4 +1,11 @@
 (
+
+  #Really? You go and call fprintf and don't #include <cstdio>?
+  #How exactly did you plan on doing that?!?!
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' mozilla-1.9.1/toolkit/crashreporter/google-breakpad/src/common/linux/dump_symbols.cc
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' mozilla-1.9.1/toolkit/crashreporter/google-breakpad/src/client/linux/handler/exception_handler.cc
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' mozilla-1.9.1/toolkit/crashreporter/google-breakpad/src/client/linux/handler/minidump_generator.cc
+
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&

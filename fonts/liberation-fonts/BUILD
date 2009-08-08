@@ -2,6 +2,7 @@
 
   LIBTTF=/usr/share/fonts/liberation-fonts-ttf
 
+  make &&
   prepare_install              &&
 
   if [ ! -d $LIBTTF ] ; then
@@ -12,6 +13,6 @@
     rmdir old.libraries
   fi                           &&
 
-  cp -f $SOURCE_DIRECTORY/* $LIBTTF
+  cp -f $SOURCE_DIRECTORY/ttf/* $LIBTTF
 
 ) > $C_FIFO 2>&1
