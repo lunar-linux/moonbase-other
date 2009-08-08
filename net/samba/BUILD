@@ -15,7 +15,7 @@
                --with-swatdir=/usr/share/samba/swat  \
                $OPTS                   || exit 1
 
-  mkdir -p /etc/samba /usr/share/samba /var/log/samba    &&
+  mkdir -p /etc/samba /usr/share/samba /var/log/samba  &&
 
   default_make  &&
 

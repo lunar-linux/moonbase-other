@@ -6,7 +6,7 @@ GECKO_HOME=/usr/lib/seamonkey-$(module_version seamonkey)
 elif module_installed firefox2 ; then
 GECKO_HOME=/usr/lib/firefox-$(module_version firefox2)
 elif module_installed firefox ; then
-GECKO_HOME=/usr/lib/firefox-$(module_version firefox)
+GECKO_HOME=/usr/lib/firefox-$(module_version firefox)/stable
 fi &&
 
     OPTS="$OPTS \
