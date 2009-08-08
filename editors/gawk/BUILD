@@ -1,5 +1,10 @@
 (
 
+  cp  -f /bin/gawk /bin/gawk.old  &&
+  prepare_install                 &&
+  mv /bin/gawk.old /bin/gawk      &&
+  ln  -sf  /bin/gawk  /bin/awk    &&
+
   ./configure  --build=$BUILD             \
                --prefix=/usr              \
                --mandir=/usr/share/man    \
@@ -7,9 +12,10 @@
                --bindir=/bin              \
 	       ac_cv_func_working_mktime=yes  &&
 
-  default_make             &&
-  rm  -f         /bin/awk  &&
-  ln  -sf  gawk  /bin/awk  &&
+  make          &&
+  make install  &&
+
+  ln  -sf  /bin/gawk  /bin/awk  &&
   if [ -e /bin/gawk-*  ]; then
     rm /bin/gawk-*;
   fi  &&
