@@ -1,5 +1,7 @@
 (
 
+  sedit "s:lib64/automoc4:lib64/automoc4 opt/lunar/kde/4/lib/automoc4/:" cmake/modules/FindAutomoc4.cmake
+
   BUILD_DIR="$SOURCE_DIRECTORY/build_dir"
 
   source /etc/profile.d/qt4.rc &&

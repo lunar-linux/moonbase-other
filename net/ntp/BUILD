@@ -2,6 +2,8 @@
 #if you're gonna change something in here make doggone sure you
 #eyeball the init script too!
 
+  sedit "s: | MOD_NANO::"  ntpd/ntp_loopfilter.c  &&
+
   ./configure   --build=$BUILD               \
                 --prefix=/usr                \
                 --bindir=/usr/sbin           \
