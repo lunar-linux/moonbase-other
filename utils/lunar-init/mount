@@ -248,7 +248,10 @@ start()
 
 		# check filesystems
 		run_with_msg_and_exit_codes "Checking filesystems: " "fsck -A -T -C -y -V $FORCE" "0" "1" ""
-		if [ $? -ge 2 ]; then
+		if [ $? -eq 3 ]; then
+			# Filesystem errors corrected, and system should be rebooted
+			reboot  -f
+		elif [ $? -ge 2 ]; then
 		    echo ""
 		    echo " *** fsck failed! ***"
 		    echo ""
