@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build"
 
   source /etc/profile.d/qt4.rc  &&
