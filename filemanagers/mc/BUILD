@@ -3,6 +3,8 @@
     patch_it $SOURCE2 1
   fi
 
+  automake --add-missing
+
   ./configure      --build=$BUILD             \
                    --prefix=/usr              \
                    --bindir=/usr/bin          \
