@@ -3,7 +3,7 @@
   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
   bjam -q ${MAKES:+-j$MAKES} \
-       threading=single,multi \
+       threading=multi \
        runtime-link=shared \
        link=shared \
        release \
@@ -16,7 +16,7 @@
   prepare_install &&
 
   bjam -q ${MAKES:+-j$MAKES} \
-       threading=single,multi \
+       threading=multi \
        runtime-link=shared \
        link=shared \
        release \
