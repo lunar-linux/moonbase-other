@@ -1,6 +1,5 @@
 (
-
-  . /etc/profile.d/x11r7.rc &&
+  patch_it libpci_shared.patch 1
 
   default_build
 
