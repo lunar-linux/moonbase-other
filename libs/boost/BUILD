@@ -17,6 +17,8 @@
        --toolset=gcc \
        --includedir="/usr/include" \
        --libdir="/usr/lib" \
+       cxxflags=-fno-strict-aliasing \
+       optimization=speed \
        $OPTS &&
 
   prepare_install &&
@@ -32,6 +34,8 @@
        --prefix=/usr \
        --includedir="/usr/include" \
        --libdir="/usr/lib" \
+       cxxflags=-fno-strict-aliasing \
+       optimization=speed \
        $OPTS \
        install
 
