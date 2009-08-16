@@ -1,28 +1,33 @@
 (
-  cd $SOURCE_DIRECTORY/mysql-gui-common &&
+
+  cd $SOURCE_DIRECTORY/common  &&
   ./configure --prefix=/usr
-  make &&
+  make  &&
 
-  cd $SOURCE_DIRECTORY/mysql-administrator &&
+  cd $SOURCE_DIRECTORY/query-browser  &&
   ./configure --prefix=/usr
-  make &&
+  make  &&
 
-  if [[ $(in_depends gtkhtml3) -eq 1 ]] ; then
-    cd $SOURCE_DIRECTORY/mysql-query-browser
-    ./configure --prefix=/usr \
-                --with-gtkhtml=libgtkhtml-3.8
-    make
-  fi &&
+  cd $SOURCE_DIRECTORY/migration-tool  &&
+  ./configure --prefix=/usr
+  make  &&
 
-  prepare_install &&
+  cd $SOURCE_DIRECTORY/administrator  &&
+  ./configure --prefix=/usr
+  make  &&
 
-  cd $SOURCE_DIRECTORY/mysql-gui-common &&
-  make install &&
-  cd $SOURCE_DIRECTORY/mysql-administrator &&
-  make install &&
-  if [[ $(in_depends gtkhtml3) -eq 1 ]] ; then
-    cd $SOURCE_DIRECTORY/mysql-query-browser
-    make install
-  fi
+  prepare_install  &&
+
+  cd $SOURCE_DIRECTORY/common  &&
+  make install  &&
+
+  cd $SOURCE_DIRECTORY/query-browser  &&
+  make install  &&
+
+  cd $SOURCE_DIRECTORY/migration-tool  &&
+  make install  &&
+
+  cd $SOURCE_DIRECTORY/administrator  &&
+  make install  &&
 
 ) > $C_FIFO 2>&1
