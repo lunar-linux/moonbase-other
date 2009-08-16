@@ -1,17 +1,9 @@
 (
    
-    if [ $WITH_ACPI == "y" ]; then
-      OPTS="$OPTS --enable-acpi"
-    fi
-    
     if [ $SUIDINSTALL == "y" ]; then
       MAKE_INSTALL="make suidinstall"
     else
       MAKE_INSTALL="make install"
-    fi
-
-    if ! module_installed gpsdrive ; then
-        OPTS="$OPTS --disable-gpsmap"
     fi &&
 
     ./configure --prefix=/usr              \
