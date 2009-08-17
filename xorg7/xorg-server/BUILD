@@ -12,6 +12,11 @@
     OPTS="$OPTS --disable-glx --disable-glx-tlx"
   fi &&
 
+  if [[ "$USE_DBUS" = "y" ]]; then
+    # Creates /etc/dbus-1/system.d/xorg-server.conf
+    OPTS+=" --enable-config-dbus"
+  fi &&
+
   OPTS+=" --enable-composite --enable-aiglx                   \
           --enable-install-libxf86config                      \
           --with-dri-driver-path=${MODULE_PREFIX}/lib/dri "  &&
