@@ -7,6 +7,7 @@
         --enable-svg-fonts --enable-svg-foreign-object \
 	--enable-svg-as-image --enable-3D-transforms"
 
-  default_build
+  default_build &&
+  install 'Programs/GtkLauncher' '/usr/bin/GtkLauncher'
 
 ) > $C_FIFO 2>&1
