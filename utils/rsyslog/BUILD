@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE4 1  &&
+
   OPTS+=" --enable-pthreads    \
           --enable-regexp      \
           --enable-largefile   \
@@ -10,7 +12,7 @@
           --enable-mail        \
           --enable-fsstnd      \
           --enable-rsyslogd    \
-          --disable-rfc3195"
+          --disable-rfc3195"  &&
 
   default_build  &&
 
