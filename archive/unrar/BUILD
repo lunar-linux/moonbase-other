@@ -1,4 +1,5 @@
 (
+
   export CXXFLAGS+=" -fPIC"
   cd unrar &&
   cp makefile.unix Makefile &&
@@ -9,7 +10,7 @@
   prepare_install &&
   make install-unrar &&
   make install-lib &&
-  install default.sfx /usr/bin &&
+  install default.sfx /usr/lib &&
   mkdir -p $DOCUMENT_DIRECTORY/unrar &&
   cp readme.txt license.txt $DOCUMENT_DIRECTORY/unrar
 
