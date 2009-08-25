@@ -1,9 +1,8 @@
 (
 
-  rm  -f  xtalfind
-  make                       &&
-  prepare_install            &&
-  cp     xtalfind  /usr/bin  &&
-  chmod  755      /usr/bin/xtalfind
+  prepare_install    &&
+  install -m755 xtalfind.pl /usr/bin/  &&
+
+  gather_docs
 
 ) > $C_FIFO 2>&1
