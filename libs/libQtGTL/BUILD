@@ -1,13 +1,16 @@
 (
 
-  BUILD_DIR="$SOURCE_DIRECTORY/build_dir"
+  OUT_OF_TREE_DIR="$SOURCE_DIRECTORY/$MODULE-build"
 
-  . /etc/profile.d/qt4.rc
-  . /etc/profile.d/kde4.rc
+  source /etc/profile.d/qt4.rc  &&
+  source /etc/profile.d/kde4.rc &&
 
-  mkdir $BUILD_DIR &&
-  cd $BUILD_DIR    &&
+  mkdir $OUT_OF_TREE_DIR &&
+  cd $OUT_OF_TREE_DIR &&
 
-  default_cmake_build
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
+                           -DCMAKE_BUILD_TYPE=RELEASE            &&
+
+  default_make
 
 ) > $C_FIFO 2>&1
