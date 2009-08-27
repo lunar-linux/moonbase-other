@@ -2,28 +2,28 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
-  bad_flags -malign-double
+  bad_flags -malign-double  &&
 
   # We really want this
-  OPTS="$OPTS --enable-largefile"
+  OPTS+=" --enable-largefile"  &&
 
   if [ "$WITH_NLS" == "y" ]; then
-    OPTS="$OPTS --enable-nls"
+    OPTS+=" --enable-nls"
   else
-    OPTS="$OPTS --disable-nls"
-  fi
+    OPTS+=" --disable-nls"
+  fi  &&
 
   # This option resolves conflicts with shadow/heimdal, net-tools and procps
-  OPTS="$OPTS --enable-no-install-program=arch,hostname,su,groups,kill,uptime"
+  OPTS+=" --enable-no-install-program=arch,hostname,su,groups,kill,uptime"  &&
 
   # tchan added this hack for coreutils > 6.x
-  export CHGRPPROG=/bin/chgrp
-  export CHMODPROG=/bin/chmod
-  export    CPPROG=/bin/cp
-  export MKDIRPROG=/bin/mkdir
-  export    MVPROG=/bin/mv
-  export    RMPROG=/bin/rm
-  DEFAULT_POSIX2_VERSION=199209 default_build &&
+  export CHGRPPROG=/bin/chgrp  &&
+  export CHMODPROG=/bin/chmod  &&
+  export    CPPROG=/bin/cp     &&
+  export MKDIRPROG=/bin/mkdir  &&
+  export    MVPROG=/bin/mv     &&
+  export    RMPROG=/bin/rm     &&
+  DEFAULT_POSIX2_VERSION=199209 default_build  &&
 
   (
     for FILE in basename cat cp chgrp chmod chown cut date dd df echo false  \
@@ -32,15 +32,15 @@
       if [ -f /usr/bin/$FILE ] ; then
         /bin/mv -f /usr/bin/$FILE /bin
       fi
-    done &&
+    done  &&
     # mv cannot be mv'ed:
     if [ -f /usr/bin/mv ] ; then
-      cp /usr/bin/mv /bin/mv &&
+      cp /usr/bin/mv /bin/mv  &&
       rm /usr/bin/mv
-    fi &&
+    fi  &&
     # also, bash will need to rehash, but doesn't:
     /bin/mv -f /usr/bin/chroot /usr/sbin
-  ) &&
+  )  &&
 
   # Some apps use fixed paths to /usr/bin so we add a symlink to make
   # them happy. For example see config.log of any compiled app to see that
