@@ -1,7 +1,10 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-  prepare_install                    &&
+  sedit "s:/usr/local:/usr:"  Makefile  &&
+  sedit "s:/usr/lib/perl5:/usr/lib/perl5/${PERL_VERSION}:"  Makefile  &&
+  sedit "s:/usr/lib/www/docs:/usr/share/doc/${MODULE}:"  Makefile  &&
+
+  prepare_install  &&
   make all
 
 ) > $C_FIFO 2>&1
