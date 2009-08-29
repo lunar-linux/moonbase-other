@@ -3,12 +3,15 @@
           SOURCE=$MODULE-$VERSION.tar.bz2
       SOURCE_URL=$KERNEL_URL/pub/linux/kernel/people/lenb/acpi/utils
       SOURCE_VFY=sha1:8ecad7ae5ee9f78172ee5dcdccebf5e7bd1ceb22
+        WEB_SITE=http://ftp.kernel.org/pub/linux/kernel/people/lenb/acpi/utils/
          ENTERED=20070622
-         UPDATED=20090213
+         UPDATED=20090829
            SHORT="power management test and investigation tools"
 
 cat << EOF
 acpidump - dumps a system's ACPI tables to an ASCII file
-acpixtract - convert ASCII acpidump output to raw binary tables
+acpixtract-pmtools - convert ASCII acpidump output to raw binary tables
 madt - parse the ACPI MADT
+
+/usr/bin/acpixtract has moved to the iasl module.
 EOF
