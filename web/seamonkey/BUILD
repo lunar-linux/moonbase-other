@@ -79,12 +79,12 @@
   cp -Lf dist/private/nss/*.h dist/public/nss/*.h /usr/include/seamonkey-$VERSION/nss &&
 
   # Install the plugins in the right directories
-  mkdir -p /opt/lunar/plugins         &&
+  mkdir -p /opt/lunar/plugins/seamonkey-$VERSION         &&
   for plugin in `ls /usr/lib/seamonkey-$VERSION/plugins`; do
-       `install -m755 /usr/lib/seamonkey-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
+       `install -m755 /usr/lib/seamonkey-$VERSION/plugins/$plugin /opt/lunar/plugins/seamonkey-$VERSION`; done  &&
 
   rm -rf /usr/lib/seamonkey-$VERSION/plugins &&
-  ln -snf /opt/lunar/plugins /usr/lib/seamonkey-$VERSION/plugins &&
+  ln -snf /opt/lunar/plugins/seamonkey-$VERSION /usr/lib/seamonkey-$VERSION/plugins &&
 
   # Now the .desktop file and the icon
   mkdir -p /usr/share/applications /usr/share/pixmaps &&
