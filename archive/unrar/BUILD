@@ -1,6 +1,6 @@
 (
 
-  export CXXFLAGS+=" -fPIC"
+  export CXXFLAGS+=" -fPIC" &&
   cd unrar &&
   cp makefile.unix Makefile &&
   make clean &&
@@ -10,7 +10,9 @@
   prepare_install &&
   make install-unrar &&
   make install-lib &&
-  install default.sfx /usr/lib &&
+  install default.sfx /usr/lib/ &&
+
+  # Needed because gather_docs is confused by PRE_BUILD
   mkdir -p $DOCUMENT_DIRECTORY/unrar &&
   cp readme.txt license.txt $DOCUMENT_DIRECTORY/unrar
 
