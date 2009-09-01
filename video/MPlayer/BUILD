@@ -1,6 +1,6 @@
 (
 
-  # using CFLAGS other than MPlayers autodetected will break
+  # using CFLAGS other than MPlayer's auto-detected will break
   bad_flags compiler  &&
 
   cd $SOURCE_DIRECTORY  &&
@@ -9,8 +9,6 @@
               --confdir=/etc                \
               --mandir=/usr/share/man       \
               --codecsdir=/usr/lib/win32    \
-              --enable-linux-devfs          \
-              --enable-largefiles           \
               --confdir=/etc/mplayer        \
               --datadir=/usr/share/mplayer  \
               $OPTS  &&
