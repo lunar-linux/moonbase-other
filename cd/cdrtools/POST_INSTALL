@@ -1,17 +1,24 @@
 mod_ide_scsi()  {
 
-  if  [  !  -f                      /etc/modules.d/ide-scsi  ];  then
-    mkdir   -p                      /etc/modules.d
-    cp  $SCRIPT_DIRECTORY/ide-scsi  /etc/modules.d
+  if [ ! -e /etc/modprobe.d/ide-scsi.conf ] ; then
+    if [ -e /etc/modules.d/ide-scsi ] ; then
+      message "Moving /etc/modules.d/ide-scsi to /etc/modprobe.d/ide-scsi.conf"
+      mv /etc/modules.d/ide-scsi /etc/modprobe.d/ide-scsi.conf
+    else
+      message "Installing /etc/modprobe.d/ide-scsi.conf"
+      install -D -m644 $SCRIPT_DIRECTORY/ide-scsi.conf /etc/modprobe.d/ide-scsi.conf
+
+      MOD="/etc/modules.conf"
+      TMP="/tmp/modules.conf"
+      INC="include  /etc/modules.d/ide-scsi"
+
+      # Remove old cruft
+      cp           $MOD   $TMP  &&
+      grep    -v  "$INC"  $TMP  >  $MOD
+      rm                  $TMP
+    fi
+    depmod -a
   fi
-
-  MOD="/etc/modules.conf"
-  INC="include  /etc/modules.d/ide-scsi"
-
-  grep    -q  "$INC"      $MOD  ||
-  echo        "$INC"  >>  $MOD
-  depmod  -a
-
 }
 
 case  $IDE_SCSI  in 
