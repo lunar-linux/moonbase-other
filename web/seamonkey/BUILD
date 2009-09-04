@@ -6,6 +6,9 @@
   # This should always be just a link
   rm -rf /usr/lib/seamonkey-$VERSION/plugins &&
 
+  # Do not conflict with the same plugin from firefox
+  sedit 's/nullplugin$/nullpluginSM/' modules/plugin/samples/default/unix/Makefile.in &&
+
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 
   MOZ_EXTENSIONS="default,xmlextras,xforms,webservices,universalchardet,transformiix,tasks,schema-validation,reporter,cookie,cview,datetime,finger,p3p,permissions,spellcheck,irc,wallet,-gnomevfs"
@@ -79,12 +82,12 @@
   cp -Lf dist/private/nss/*.h dist/public/nss/*.h /usr/include/seamonkey-$VERSION/nss &&
 
   # Install the plugins in the right directories
-  mkdir -p /opt/lunar/plugins/seamonkey-$VERSION         &&
+  mkdir -p /opt/lunar/plugins         &&
   for plugin in `ls /usr/lib/seamonkey-$VERSION/plugins`; do
-       `install -m755 /usr/lib/seamonkey-$VERSION/plugins/$plugin /opt/lunar/plugins/seamonkey-$VERSION`; done  &&
+       `install -m755 /usr/lib/seamonkey-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
 
   rm -rf /usr/lib/seamonkey-$VERSION/plugins &&
-  ln -snf /opt/lunar/plugins/seamonkey-$VERSION /usr/lib/seamonkey-$VERSION/plugins &&
+  ln -snf /opt/lunar/plugins /usr/lib/seamonkey-$VERSION/plugins &&
 
   # Now the .desktop file and the icon
   mkdir -p /usr/share/applications /usr/share/pixmaps &&
