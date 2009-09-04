@@ -3,6 +3,7 @@ mod_ide_scsi()  {
   if [ ! -e /etc/modprobe.d/ide-scsi.conf ] ; then
     if [ -e /etc/modules.d/ide-scsi ] ; then
       message "Moving /etc/modules.d/ide-scsi to /etc/modprobe.d/ide-scsi.conf"
+      mkdir -p /etc/modprobe.d/  &&
       mv /etc/modules.d/ide-scsi /etc/modprobe.d/ide-scsi.conf
     else
       message "Installing /etc/modprobe.d/ide-scsi.conf"
