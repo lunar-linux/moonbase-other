@@ -17,7 +17,8 @@
   sedit "/fs_basepath =/ s:\.:${INST_DIR}:" qcommon/files.c  &&
 
   # Fix for:  LoadLibrary (/usr/share/games/warsow/libs/angelwrap_i386.so):(/usr/share/games/warsow/libs/angelwrap_i386.so: undefined symbol: __sync_sub_and_fetch_4)
-  sedit 's:CXXFLAGS = \(.*\):CXXFLAGS = -march=i686 \1:' ../libsrcs/angelscript/angelSVN/sdk/angelscript/projects/gnuc/makefile  &&
+  # $(arch) will be i686 or x86_64
+  sedit "s:CXXFLAGS = \(.*\):CXXFLAGS = -march=$(arch) \1:" ../libsrcs/angelscript/angelSVN/sdk/angelscript/projects/gnuc/makefile  &&
 
   make BINDIR=bin BUILD_CLIENT=YES BUILD_SERVER=YES BUILD_TV_SERVER=YES \
        BUILD_ANGELWRAP=YES BUILD_IRC=YES BUILD_SND_OPENAL=YES \
