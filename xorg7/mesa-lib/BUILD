@@ -1,15 +1,19 @@
 (
 
-  OPTS+="--with-dri-drivers=" &&
+  OPTS+=" --with-dri-drivers=" &&
   OPTS+=$(echo $MESADRIVER | sed s/\ /,/g) &&
-  ./configure --prefix=/usr $OPTS && 
 
-  prepare_install &&
+  # Copy some headers, to avoid compile errors.
+  mkdir -p /usr/include/GL/  &&
+  install -m644 -t /usr/include/GL/ include/GL/gl{,u,ut}.h  &&
+  install -m644 -t /usr/include/GL/ include/GL/gle{w,xt}.h  &&
 
-  make && 
+  ./configure --prefix=/usr $OPTS  &&
+  prepare_install  &&
 
-  make install &&                 
-#  install -v -m644 include/GLView.h /usr/include/        &&
-  install -v -m755 progs/xdemos/glxinfo progs/xdemos/glxgears /usr/bin
+  make all  &&
+  make install  &&                 
+
+  install -v -m755 progs/xdemos/glx{gears,info} /usr/bin/
 
 ) > $C_FIFO 2>&1
