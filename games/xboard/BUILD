@@ -1,11 +1,12 @@
 (
 
-  ./configure  --build=$BUILD          \
-               --prefix=/usr           \
-               --sysconfdir=/etc       \
-               --localstatedir=/var    \
-               --bindir=/usr/games     \
-               --mandir=/usr/share/man && 
+  ./autogen.sh  &&
+  ./configure  --build=$BUILD            \
+               --prefix=/usr             \
+               --sysconfdir=/etc         \
+               --localstatedir=/var      \
+               --bindir=/usr/games       \
+               --mandir=/usr/share/man  && 
 
   default_make
 
