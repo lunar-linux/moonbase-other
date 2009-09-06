@@ -2,9 +2,7 @@
 
   export CFLAGS="$CFLAGS -fPIC" &&
 
-  default_build &&
-  
-  mv ../README ../doc/* . &&
-  gather_docs README *.html
+  cd src &&
+  default_build
 
 ) > $C_FIFO 2>&1
