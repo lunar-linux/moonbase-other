@@ -12,7 +12,6 @@
 
   ./configure --prefix=/usr                          \
               --with-confdir=/etc/fonts              \
-              --disable-docbook                      \
               --disable-docs                         \
               --with-cache-dir=/var/cache/fontconfig \
               $OPTS                                 &&
