@@ -1,9 +1,7 @@
 (
 
-  ./configure   --prefix=/usr       \
-                --with-included-lzo \
+  OPTS+=" --with-lzo"  &&
 
-  default_make
-
+  default_build
 
 ) > $C_FIFO 2>&1

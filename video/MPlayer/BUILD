@@ -1,32 +1,17 @@
 (
 
-patch_it $SOURCE7 0 &&
-patch_it $SOURCE8 0 &&
-patch_it $SOURCE9 0 &&
-patch_it $SOURCE10 0 &&
+  # using CFLAGS other than MPlayer's auto-detected will break
+  bad_flags compiler  &&
 
-  # using CFLAGS other than MPlayers autodetected will break
-  bad_flags compiler
-
-  if [ $MENCODER == "n" ] ; then
-    OPTS=$OPTS" --disable-mencoder"
-  fi
-
-  if [ $OSD == "y" ] ; then
-    OPTS=$OPTS" --enable-menu"
-  fi
-
-  cd $SOURCE_DIRECTORY &&
+  cd $SOURCE_DIRECTORY  &&
 
   ./configure --prefix=/usr                 \
               --confdir=/etc                \
               --mandir=/usr/share/man       \
               --codecsdir=/usr/lib/win32    \
-              --enable-linux-devfs          \
-              --enable-largefiles           \
               --confdir=/etc/mplayer        \
               --datadir=/usr/share/mplayer  \
-              $OPTS &&
+              $OPTS  &&
 
   default_make  &&
 

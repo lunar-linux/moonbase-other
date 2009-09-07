@@ -225,7 +225,7 @@ start()
         run_with_msg "Devices activation - please wait" "/sbin/udevadm settle"
         # This is first aid code for devices hard to init (too slow or to buggy for init by 1st time)
         # I never have to use it as my machine works great - I leave it just in case
-        #run_with_msg "Activating lazy devices" "/sbin/udevadm trigger --retry-failed"
+        #run_with_msg "Activating lazy devices" "/sbin/udevadm trigger --type=failed"
         #run_with_msg "Lazy devices activation - please wait" "/sbin/udevadm settle"
 		if [ ! -h /dev/fd ]; then
 			ln -sf /proc/self/fd /dev/fd

@@ -24,8 +24,8 @@
 
   cd $SOURCE_DIRECTORY &&
   cp -f nvidia-installer /usr/bin &&
-  mkdir -p /usr/share/doc/NVIDIA_GLX-1.0 &&
-  cp -f LICENSE /usr/share/doc/NVIDIA_GLX-1.0 &&
+  mkdir -p /usr/share/doc/NVIDIA_GLX-1.0/include &&
+  cp -f LICENSE /usr/share/doc/NVIDIA_GLX-1.0/include &&
   cp -f usr/X11R6/lib/lib* /usr/lib &&
   cp -rf usr/X11R6/lib/modules /usr/X11/lib/xorg &&
 
@@ -38,7 +38,7 @@
   cp -f usr/bin/nvidia* /usr/bin &&
   cp -rf usr/include/cuda /usr/X11/include &&
   cp -rf usr/include/vdpau /usr/X11/include &&
-  cp -rf usr/include/GL /usr/share/doc/NVIDIA_GLX-1.0 &&
+  cp -rf usr/include/GL /usr/share/doc/NVIDIA_GLX-1.0/include &&
   cp -rf usr/lib/tls /usr/lib &&
   cd /usr/lib/tls &&
   ln -sf libnvidia-tls.so.$VERSION libnvidia-tls.so.1 &&
