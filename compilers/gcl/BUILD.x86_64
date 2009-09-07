@@ -1,0 +1,31 @@
+(
+  # Apply configure patch
+  patch_it $SOURCE2 0 &&
+
+# This is to prevent configure hanging indefinitely on;
+# checking for randomized brk remedy...
+# So I just want to save the randomize value to restore
+# at the end of the BUILD.
+  cat /proc/sys/kernel/randomize_va_space > VAL &&
+  echo 1 > /proc/sys/kernel/randomize_va_space  &&
+  
+  unset LDFLAGS
+
+  ./configure --prefix=/usr                      \
+              --enable-ansi                      \
+              --enable-notify=no                 \
+              --enable-locbfd=yes                \
+              --enable-dynsysbfd=no              \
+              --enable-statsysbfd=no            &&
+
+  if ! module_installed emacs; then
+          sedit "s!EMACS_SITE_LISP=!EMACS_SITE_LISP=/usr/share/gcl!" makedefs &&
+          sedit "s!EMACS_SITE_LISP=!EMACS_SITE_LISP=/usr/share/gcl!" makedefc
+  fi  &&
+
+  default_make &&
+
+# Lets restore this back to its original value.
+  echo `cat VAL` > /proc/sys/kernel/randomize_va_space 
+
+) > $C_FIFO 2>&1

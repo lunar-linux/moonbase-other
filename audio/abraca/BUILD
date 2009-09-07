@@ -1,7 +1,6 @@
 (
-  ./waf configure --prefix=/usr &&
-  ./waf build &&
+  ./scons PREFIX=/usr &&
   prepare_install &&
-  ./waf install
+  ./scons install
   
  ) > $C_FIFO 2>&1

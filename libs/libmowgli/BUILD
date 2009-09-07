@@ -1,6 +1,6 @@
 (
 
-  unset CPP
+  unset CPP &&
 
   default_build
 
