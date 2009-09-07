@@ -1,16 +1,16 @@
-depends  mhash      &&
-depends  bison      &&
-depends  flex       &&
+depends  mhash
+depends  bison
+depends  flex
 
 optional_depends  "libgcrypt"           \
                   "--with-libgcrypt"    \
                   "--disable-libgcrypt" \
-                  "use gcrypt lib"      &&
+                  "use gcrypt lib"    
                   
 optional_depends  "postgresql"          \
                   "--with-psql"         \
                   "--disable-psql"      \
-                  "for PostgreSQL database support" &&
+                  "for PostgreSQL database support"
                   
 optional_depends  "zlib"              \
                   "--with-zlib"       \
