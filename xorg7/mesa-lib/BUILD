@@ -1,17 +1,24 @@
 (
 
-  OPTS+=" --with-dri-drivers=" &&
-  OPTS+=$(echo $MESADRIVER | sed s/\ /,/g) &&
+  OPTS+=" --with-dri-drivers="  &&
+  OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)  &&
 
-  # Copy some headers, to avoid compile errors.
-  mkdir -p /usr/include/GL/  &&
-  install -m644 -t /usr/include/GL/ include/GL/gl{,u,ut}.h  &&
-  install -m644 -t /usr/include/GL/ include/GL/gle{w,xt}.h  &&
+  # Excludes glew headers, and prevents need for /usr/include/GL/gl{,u,ut}.h
+  rm -r progs/{demos,samples}  &&
 
   ./configure --prefix=/usr $OPTS  &&
   prepare_install  &&
 
   make all  &&
+
+  # Build glxgears and glxinfo
+  cd progs/xdemos  &&
+  make glxgears glxinfo  &&
+  cd ../..  &&
+
+  # Prevent glew headers from being installed
+  rm include/GL/{glew,glxew,wglew}.h  &&
+
   make install  &&                 
 
   install -v -m755 progs/xdemos/glx{gears,info} /usr/bin/
