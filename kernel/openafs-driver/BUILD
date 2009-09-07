@@ -6,7 +6,7 @@
   # Autoconf fix
   sedit 's;^AC_\(AIX\|MINIX\)$;;' acinclude.m4 &&
 
-  ./regen.sh &&
+  #./regen.sh &&
 
   case `uname -r` in
     2.6.*)
@@ -33,7 +33,7 @@
       ;;
   esac &&
 
-  OPTS="$OPTS --with-linux-kernel-headers=/usr/src/linux"
+  OPTS+=" --with-linux-kernel-headers=/usr/src/linux"
 
   ./configure   --prefix=/usr                   \
                 --sysconfdir=/etc               \
@@ -45,4 +45,3 @@
   prepare_install
 
 ) > $C_FIFO 2>&1
-

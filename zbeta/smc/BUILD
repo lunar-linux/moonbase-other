@@ -4,8 +4,8 @@
 
   default_game_build &&
   
-  mkdir -p /usr/share/icons/ /usr/share/applications/ &&
-  ln -sf /usr/share/games/smc/pixmaps/game/items/mushroom_red.png /usr/share/icons/smc.png &&
+  mkdir -p /usr/share/pixmaps/ /usr/share/applications/ &&
+  ln -sf /usr/share/games/smc/pixmaps/game/items/mushroom_red.png /usr/share/pixmaps/smc.png &&
   
   cat << EOF > /usr/share/applications/smc.desktop
 [Desktop Entry]
