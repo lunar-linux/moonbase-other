@@ -16,6 +16,9 @@
   make glxgears glxinfo  &&
   cd ../..  &&
 
+  # Prevent glew headers from being installed
+  rm include/GL/{glew,glxew,wglew}.h  &&
+
   make install  &&                 
 
   install -v -m755 progs/xdemos/glx{gears,info} /usr/bin/
