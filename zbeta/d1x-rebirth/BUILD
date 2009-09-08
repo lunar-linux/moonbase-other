@@ -4,8 +4,7 @@
   # Replaces dos2unix, to fix line-endings
   sedit 's/\r//' *.txt &&
 
-  # Added "debug=1" to prevent crash when exiting program
-  OPTS="$OPTS prefix=/usr sdlmixer=1 debug=1" &&
+  OPTS+=" prefix=/usr sdlmixer=1 debug=0" &&
   scons $OPTS &&
   
   prepare_install &&
