@@ -6,7 +6,7 @@
           --host=$BUILD           \
           --enable-configfiles    \
           --with-telephony=dummy  \
-          --enable-gstreamer      "  
+          --enable-gstreamer      "  &&  
 
   default_build  &&
 
