@@ -1,14 +1,16 @@
           MODULE=gegl
-         VERSION=0.1.0
+           MAJOR=0.1
+         VERSION=${MAJOR}.0
           SOURCE=${MODULE}-${VERSION}.tar.bz2
-   SOURCE_URL[0]=ftp://ftp.gtk.org/pub/gegl/0.1/
-   SOURCE_URL[1]=ftp://ftp.gimp.org/pub/gegl/0.1/
+   SOURCE_URL[0]=ftp://ftp.gtk.org/pub/gegl/$MAJOR/
+   SOURCE_URL[1]=ftp://ftp.gimp.org/pub/gegl/$MAJOR/
       SOURCE_VFY=sha1:ede1789ce318b9afe4ec7dcb42c1065b4f278b64
-        WEB_SITE=http://www.gegl.org/
+        WEB_SITE="http://gegl.org/"
          ENTERED=20081016
-         UPDATED=20090908
+         UPDATED=20090909
            SHORT="Generic Graphics Library"
-cat <<EOF
+
+cat << EOF
 GEGL (Generic Graphics Library) is a graph based image processing
 framework.
 
