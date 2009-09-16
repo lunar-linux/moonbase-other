@@ -3,7 +3,7 @@
   # Use a default font which actually exists
   sedit "s:truetype/freefont/FreeSerifBold.ttf:dejavu-ttf/DejaVuSerif-Bold.ttf:" modules/misc/freetype.c  &&
 
-  if in_depends qt4; then
+  if in_depends vlc qt4; then
    . /etc/profile.d/qt4.rc
   fi  &&
 

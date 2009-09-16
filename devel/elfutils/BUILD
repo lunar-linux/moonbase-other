@@ -1,6 +1,9 @@
 (
 
   OPTS+=" --program-prefix='eu-'"
+
+  CFLAGS="-fgnu89-inline"
+
   find . -type f -name 'Makefile.*' -exec sed -i 's/-Werror//g' {} \; &&
   default_build
 
