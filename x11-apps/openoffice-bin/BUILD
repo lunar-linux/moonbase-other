@@ -19,7 +19,6 @@
     sedit "s|/etc/openoffice.org3|$OO_DIR|g" ${OO_DESK_DIR}/bin/openoffice.org3-printeradmin || exit 1
   fi  &&
 
-
   cd $OO_INSTALL_DIR &&
   rm -rf desktop-integration &&
 
@@ -38,7 +37,7 @@
 
   prepare_install  &&
   message "${MESSAGE_COLOR}Installing OpenOffice ${VERSION}...${DEFAULT_COLOR}"  &&
-  mkdir -p /opt/lunar/openoffice  &&
+  mkdir -p $MODULE_PREFIX/openoffice  &&
   cp -a "${OO_INSTALL_DIR}/opt/openoffice.org3" /opt/lunar/openoffice/ &&
   cp -a "${OO_INSTALL_DIR}/opt/openoffice.org" /opt/lunar/openoffice &&
 
