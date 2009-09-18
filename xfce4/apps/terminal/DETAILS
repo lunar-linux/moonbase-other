@@ -1,12 +1,12 @@
-          MODULE=Terminal
-         VERSION=0.4.0
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://goodies.xfce.org/releases/terminal
-      SOURCE_VFY=sha1:8b52e1841e922a1be28228873bde84eea4c6b456
+          MODULE=terminal
+         VERSION=git-`date +%Y%U`
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=git+http://git.xfce.org/apps/$MODULE
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.os-cillation.com
-         ENTERED=20040930
-         UPDATED=20090726
+         ENTERED=20090908
+         UPDATED=20090908
            SHORT="vte based/gtk+-2 lightweight X-terminal"
 
 cat << EOF
