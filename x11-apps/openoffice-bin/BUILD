@@ -10,7 +10,7 @@
     mv ${OO_INSTALL_DIR}/desktop-integration ${SOURCE_DIRECTORY} &&
     cd ${SOURCE_DIRECTORY}/desktop-integration/ &&
 
-    INT_FILE=openoffice.org3.1-freedesktop-menus-3.1-9393.noarch &&
+    INT_FILE=openoffice.org3.1-freedesktop-menus-3.1-9420.noarch &&
 
     rpm2cpio $INT_FILE.rpm > $INT_FILE.cpio &&
     cpio -idm < $INT_FILE.cpio &&
@@ -18,7 +18,6 @@
     sedit "s|/etc/openoffice.org3|$OO_DIR|g" ${OO_DESK_DIR}/bin/openoffice.org3 &&
     sedit "s|/etc/openoffice.org3|$OO_DIR|g" ${OO_DESK_DIR}/bin/openoffice.org3-printeradmin || exit 1
   fi  &&
-
 
   cd $OO_INSTALL_DIR &&
   rm -rf desktop-integration &&
@@ -38,7 +37,7 @@
 
   prepare_install  &&
   message "${MESSAGE_COLOR}Installing OpenOffice ${VERSION}...${DEFAULT_COLOR}"  &&
-  mkdir -p /opt/lunar/openoffice  &&
+  mkdir -p $MODULE_PREFIX/openoffice  &&
   cp -a "${OO_INSTALL_DIR}/opt/openoffice.org3" /opt/lunar/openoffice/ &&
   cp -a "${OO_INSTALL_DIR}/opt/openoffice.org" /opt/lunar/openoffice &&
 

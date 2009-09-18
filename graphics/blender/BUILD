@@ -2,6 +2,12 @@
 
   sedit "s:2.5:2.6:" config/linux2-config.py &&
 
+# Much of the xvidcore includes incorrectly reference the path for nasm.inc
+# So lets just copy it everywhere in the xvidcore tree. Revisit on next bump.
+  cd extern/xvidcore/src/ &&
+  find . -type d -exec cp -v nasm.inc '{}' \; &&
+  cd $SOURCE_DIRECTORY &&
+
   if ! module_installed freealut; then
     sedit "s;WITH_BF_OPENAL = 'true';WITH_BF_OPENAL = 'false';" config/linux2-config.py
   fi &&
