@@ -1,0 +1,53 @@
+          MODULE=libvdpau
+         VERSION=0.2
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://cgit.freedesktop.org/~aplattner/$MODULE/snapshot
+      SOURCE_VFY=sha1:03aed8e3f13c3040d0161ef3e685a65bb364489d
+        WEB_SITE=http://cgit.freedesktop.org/~aplattner/$MODULE
+         ENTERED=20090919
+         UPDATED=20090919
+           SHORT="VDPAU wrapper library"
+
+cat << EOF
+To use this wrapper you need VDPAU driver library provided with your
+GPU driver. This means that now you can use this wrapper with Nvidia
+Geforce8 or later GPU using NVIDIA or NVIDIA-beta Lunar module.
+Other GPU manufacturers will follow as VDPAU is going to mature.
+Intel GPUs have libva to VDPAU wrapper which allow the use of VDPAU on
+Intel GPUs.
+To actually use a VDPAU device, you need
+a vendor-specific implementation library.  Currently, this is always
+libvdpau_nvidia.  You can override the driver name by setting the
+VDPAU_DRIVER environment variable.
+
+VDPAU (Video Decoding and Presentation Api for Unix)
+is new and more powerful replacement for XvMC
+advanced video acceleration library.
+XvMC in it's the most advanced capability allowed for acceleration of:
+*MC (Motion Compensation)
+*iDCT (inverse Discrete Cosinus Transform)
+*CSC (color space conversion) provided by Xv
+*bob deinterlacing
+for single MPEG-1 or MPEG-2 video stream only.
+
+VDPAU wrapper library is glue code between:
+*video player
+*X server
+*video hardware represented by manufacturer's vdpau library
+VDPAU is open source full hardware acceleration interface
+designed to accelerate at bitstream level (which includes:
+MC,iDCT,CSC and much more):
+*VC-1
+*WMV3
+*WMV9
+*H.264 known as MPEG-4 AVC
+*MPEG-4 part2
+*DivX4
+*DivX5
+*MPEG-1
+*MPEG-2
+VDPAU allows:
+*better deinterlacing than bob,
+*multiple video streams decoding at once,
+*higher scaling quality.
+EOF
