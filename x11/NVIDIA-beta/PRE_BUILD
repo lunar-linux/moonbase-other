@@ -2,6 +2,10 @@
 
   cd $BUILD_DIRECTORY       &&
   rm -rf $SOURCE_DIRECTORY  &&
-  sh $SOURCE_CACHE/$SOURCE --extract-only
+  sh $SOURCE_CACHE/$SOURCE --extract-only &&
+  cd $SOURCE_DIRECTORY &&
+  unpack $SOURCE2 &&
+  unpack $SOURCE3 &&
+  unpack $SOURCE4
 
 )
