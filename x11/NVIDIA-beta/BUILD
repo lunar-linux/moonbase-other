@@ -1,5 +1,51 @@
 (
 
+  cd $SOURCE_DIRECTORY &&
+  rm -f nvidia-installer &&
+  rm -f usr/bin/mkprecompiled &&
+  rm -f usr/bin/tls_test &&
+  rm -f usr/bin/tls_test_dso.so &&
+  rm -f usr/share/man/man1/nvidia-installer.1.gz &&
+  rm -f usr/bin/nvidia-settings &&
+  rm -f usr/share/man/man1/nvidia-settings.1.gz &&
+  rm -f usr/bin/nvidia-xconfig &&
+  rm -f usr/share/man/man1/nvidia-xconfig.1.gz &&
+  rm -f usr/bin/nvidia-settings/nvidia-settings &&
+  if module_installed XOrg7 ; then
+  rm -f usr/X11R6/lib/modules/libnvidia-wfb.so*
+  fi &&
+  rm -f usr/lib/libvdpau.so* &&
+  rm -f usr/lib/libvdpau_trace.so* &&
+  rm -rf usr/include/vdpau &&
+  cd $SOURCE_DIRECTORY/nvidia-installer-$VERSION &&
+  rm -f libpci.a &&
+  rm -f *Linux* &&
+  sedit 's/Bstatic/Bdynamic/' Makefile &&
+  sedit 's/Bstatic/Bdynamic/' public.mk &&
+  make clean &&
+  make rebuild_tls_test &&
+  make rebuild_tls_test_dso &&
+  make rebuild_rtld_test &&
+  make &&
+  make install ROOT=$SOURCE_DIRECTORY &&
+  ARK=`uname -m | sed 's/i[3456]86/x86/'` &&
+  cp tls_test_`uname`-$ARK -f $SOURCE_DIRECTORY/usr/bin/tls_test &&
+  cp tls_test_dso_`uname`-$ARK.so -f $SOURCE_DIRECTORY/usr/bin/tls_test_dso.so &&
+  cd .. &&
+  cd $SOURCE_DIRECTORY/nvidia-settings-$VERSION &&
+  sedit 's/-O -DNDEBUG/-DNDEBUG/' Makefile &&
+  sedit '/CFLAGS = -Wall -g/d' src/XF86Config-parser/Makefile &&
+  make clean &&
+  make &&
+  make install ROOT=$SOURCE_DIRECTORY &&
+  cd .. &&
+  cd $SOURCE_DIRECTORY/nvidia-xconfig-$VERSION &&
+  sedit '/CFLAGS += -O/d' Makefile &&
+  sedit '/CFLAGS = -Wall -g/d' XF86Config-parser/Makefile &&
+  make clean &&
+  make &&
+  make install ROOT=$SOURCE_DIRECTORY &&
+
   # We make the kernel modules on our own
   cd $SOURCE_DIRECTORY/usr/src/nv &&
 
@@ -23,21 +69,18 @@
   mkdir -p /usr/lib/opengl/nvidia &&
 
   cd $SOURCE_DIRECTORY &&
-  cp -f nvidia-installer /usr/bin &&
   mkdir -p /usr/share/doc/NVIDIA_GLX-1.0/include &&
   cp -f LICENSE /usr/share/doc/NVIDIA_GLX-1.0/include &&
   cp -f usr/X11R6/lib/lib* /usr/lib &&
   cp -rf usr/X11R6/lib/modules /usr/X11/lib/xorg &&
 
   cd /usr/X11/lib/xorg/modules &&
-  ln -sf libnvidia-wfb.so.$VERSION libnvidia-wfb.so.1 &&
   cd /usr/X11/lib/xorg/modules/extensions &&
   ln -sf libglx.so.$VERSION libglx.so &&
 
   cd $SOURCE_DIRECTORY &&
   cp -f usr/bin/nvidia* /usr/bin &&
   cp -rf usr/include/cuda /usr/X11/include &&
-  cp -rf usr/include/vdpau /usr/X11/include &&
   cp -rf usr/include/GL /usr/share/doc/NVIDIA_GLX-1.0/include &&
   cp -rf usr/lib/tls /usr/lib &&
   cd /usr/lib/tls &&
