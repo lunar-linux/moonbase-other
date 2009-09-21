@@ -22,6 +22,15 @@
   rm -f *Linux* &&
   sedit 's/Bstatic/Bdynamic/' Makefile &&
   sedit 's/Bstatic/Bdynamic/' public.mk &&
+
+  if [[ $(arch) == x86_64 ]] ; then
+    # Don't compile 32-bits on pure 64-bit Lunar
+    sedit 's/COMPAT_32_SRC *= */\0#/' Makefile &&
+    sedit 's/COMPAT_32_SRC *= */\0#/' public.mk &&
+    sedit 's/-DNV_X86_64//' Makefile &&
+    sedit 's/-DNV_X86_64//' public.mk
+  fi &&
+
   make clean &&
   make rebuild_tls_test &&
   make rebuild_tls_test_dso &&
@@ -114,7 +123,7 @@
   # Get a sane default if haven't set it yet
   if [ "x$LUNAR_GL" == "x" ] ; then
     set_local_config LUNAR_GL binary
-  fi
+  fi &&
 
   # This is a temp workaround for braindead dlopen calls inside the NVIDIA
   # libglx.so
