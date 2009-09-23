@@ -1,0 +1,20 @@
+          MODULE=krename4
+         VERSION=4.0.0
+          SOURCE=krename-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/krename-$VERSION
+      SOURCE_URL="$SFORGE_URL/krename/KDE4 krename-stable/$VERSION"
+      SOURCE_VFY=sha1:8fee1aa5e235c78a621680eee007d39f2bafa5c5
+   MODULE_PREFIX=${KDE_PREFIX:-/opt/lunar/kde/4}
+        WEB_SITE=$SFORGE_URL/$MODULE
+         ENTERED=20090923
+         UPDATED=20090923
+      MAINTAINER=florin@lunar-linux.org
+           SHORT="A batch renamer for KDE"
+
+cat << EOF
+Krename offers an easy way to rename hundreds of files in one go,
+giving you as much freedom as you need. You can use parts of the
+old filename, information like the current date or even an mp3
+tag or the colour depth of an image. Krename integrates into the
+Konqueror, Delphin or Krusader filemanager.
+EOF
