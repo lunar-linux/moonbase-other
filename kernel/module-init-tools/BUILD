@@ -9,6 +9,8 @@
                --prefix=/lib/module-init-tools/   \
 	       ac_cv_prog_DOCBOOKTOMAN=yes       &&
 
+  mkdir -p /etc/modprobe.d  &&
+
   default_make
   
 )  > $C_FIFO 2>&1
