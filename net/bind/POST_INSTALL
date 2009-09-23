@@ -3,9 +3,10 @@
 mkdir -p /var/named
 
 # create the named.root
+# created with command:  dig +norecurse NS . @a.root-servers.net > named.root
 cp $SCRIPT_DIRECTORY/named.root /var/named/
 
-#if we do not have a named.conf already, copy the default
+# if we do not have a named.conf already, copy the default
 if [ ! -e /var/named/named.conf ] ; then
   cp $SCRIPT_DIRECTORY/named.conf /var/named/
 fi
@@ -20,7 +21,7 @@ chown -R bind:bind /var/named
 chmod 644 /var/named/named.conf
 chmod 644 /var/named/named.root
   
-#lets create an rndc key if none avail  
+# lets create an rndc key if none avail  
 if [ ! -e /etc/rndc.key ] ; then
   rndc-confgen -a
 fi

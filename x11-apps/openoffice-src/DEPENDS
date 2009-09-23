@@ -76,6 +76,11 @@ optional_depends "evolution-data-server"            \
                  "--disable-evolution2"             \
                  "for Evolution addressbook support"
 
+optional_depends "GConf"                \
+                 "--enable-gconf"       \
+                 "--disable-gconf"      \
+                 "for GConf integration"
+
 optional_depends "gnome-vfs"                             \
                  "--enable-gnome-vfs --enable-lockdown --disable-gio"   \
                  "--disable-gnome-vfs --disable-lockdown --enable-gio" \

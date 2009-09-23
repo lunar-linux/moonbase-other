@@ -2,6 +2,8 @@
 
   . /etc/profile.d/qt4.rc
 
+  LDFLAGS="-ldl"
+
   PODOFO_BUILD_DIR="$SOURCE_DIRECTORY/podofo-build"
 
   mkdir $PODOFO_BUILD_DIR &&

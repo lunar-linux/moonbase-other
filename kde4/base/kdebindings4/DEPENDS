@@ -1,6 +1,13 @@
 depends kdebase4
 
-optional_depends "ruby"        "" "" "for ruby bindings"
+optional_depends "%PHP"        "-DENABLE_PHP-QT=on" "-DENABLE_PHP-QT=off"  "for php scripting support"
+
+optional_depends "ruby"        "-DENABLE_QTRUBY=on -DENABLE_KROSSRUBY=on" "-DENABLE_QTRUBY=off" \
+                                "for ruby bindings"
+
 optional_depends "PyQt4"       "" "" "for KDE4 python bindings"
 optional_depends "qscintilla2" "" "" "for additional binding support"
 optional_depends "gtk-sharp"   "" "" "for mono support"
+
+# The build still barfs on this so keep it commented out for now.
+#optional_depends "Falcon"      "-DENABLE_KROSSFALCON=on" "-DENABLE_KROSSFALCON=off" "for Falcon bindings support"
