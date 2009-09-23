@@ -15,6 +15,8 @@
     OPTS+=" --with-xinput=yes --enable-debug=no"
   fi &&
 
+  OPTS+=" --enable-debug"
+
   default_build
 
 ) > $C_FIFO 2>&1
