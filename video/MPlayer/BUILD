@@ -1,5 +1,8 @@
 (
 
+  # Remove subversion directories
+  find -name "\.svn" -type d -print0 | xargs -0 rm -rf
+
   # using CFLAGS other than MPlayer's auto-detected will break
   bad_flags compiler  &&
 
