@@ -5,11 +5,14 @@
   source /etc/profile.d/qt4.rc &&
   source /etc/profile.d/kde4.rc &&
 
+  sedit "s:4.3.9:4.3.0:" CMakeLists.txt &&
+
   mkdir $KDE4_BUILD_DIR &&
   cd $KDE4_BUILD_DIR &&
 
+
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             &&
+                           -DCMAKE_BUILD_TYPE=RELEASE            &&
 
   default_make
 

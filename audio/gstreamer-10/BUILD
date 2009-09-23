@@ -1,7 +1,7 @@
 (
 
   OPTS="$OPTS  --disable-examples  --disable-tests  --disable-valgrind  \
-               --disable-debug  --disable-gst-debug --disable-binary-registry"
+               --disable-debug  --disable-gst-debug --disable-registry"
 
   default_build
 
