@@ -1,12 +1,13 @@
 (
 
   patch_it $SOURCE_CACHE/$SOURCE3 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE4 1  &&
   # the patch REQUIRES -lcrypt but we might want to disable PAM:
   if echo $OPTS | grep -q with-pam ; then
     sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/" */Makefile.in
   else
     sedit "s/@LIBS@/@LIBS@ -lcrypt/" */Makefile.in
-  fi
+  fi  &&
 
   # default enabled modules in configure : checkapop, cram, digest, otp, gssapi, plain, anon
   OPTS=$OPTS" --enable-login                       \
@@ -18,14 +19,16 @@
               --with-plugindir=/usr/lib/sasl2      \
               --enable-sample                      \
               --with-gnu-ld                        \
-              --with-saslauthd=/var/lib/sasl "
+              --with-saslauthd=/var/lib/sasl "    &&
 
   default_config           &&
   mkdir -p /var/lib/sasl/  &&
   default_make             &&
+  
   if [ ! -d /etc/sasl2 ]; then
           mkdir -p /etc/sasl2
-  fi &&
+  fi  &&
+  
   if [ ! -e /etc/sasl2/smtpd.conf ] ; then
     install $SOURCE_CACHE/$SOURCE2 /etc/sasl2/smtpd.conf.gz  &&
     gunzip /etc/sasl2/smtpd.conf.gz

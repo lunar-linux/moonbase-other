@@ -5,6 +5,7 @@
   . /etc/profile.d/unsermake.rc
   sedit 's@/usr/share/unsermake/@@g' Makefile.in src/Makefile.in &&
   sedit 's@$(prefix)/share/applnk/System@$(KDEDIR)/share/applnk/System@g' data/Makefile.am &&
+  sedit 's/ped_free/free/' src/qp_libparted.cpp &&
   patch_it $SOURCE2 1 &&
   patch_it $SOURCE3 0 &&
   default_build &&

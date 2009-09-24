@@ -10,7 +10,7 @@
           --enable-mail        \
           --enable-fsstnd      \
           --enable-rsyslogd    \
-          --disable-rfc3195"
+          --disable-rfc3195"  &&
 
   default_build  &&
 

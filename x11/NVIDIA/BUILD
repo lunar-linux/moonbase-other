@@ -1,5 +1,8 @@
 (
 
+  # Clean up old install before doing new one
+  ./nvidia-installer --uninstall --silent &&
+
   # We make the kernel modules on our own
   cd $SOURCE_DIRECTORY/usr/src/nv &&
 

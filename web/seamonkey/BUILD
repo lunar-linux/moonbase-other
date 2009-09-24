@@ -6,6 +6,9 @@
   # This should always be just a link
   rm -rf /usr/lib/seamonkey-$VERSION/plugins &&
 
+  # Do not conflict with the same plugin from firefox
+  sedit 's/nullplugin$/nullpluginSM/' modules/plugin/samples/default/unix/Makefile.in &&
+
   MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 
   MOZ_EXTENSIONS="default,xmlextras,xforms,webservices,universalchardet,transformiix,tasks,schema-validation,reporter,cookie,cview,datetime,finger,p3p,permissions,spellcheck,irc,wallet,-gnomevfs"

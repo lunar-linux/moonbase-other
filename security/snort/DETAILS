@@ -1,24 +1,30 @@
           MODULE=snort
-         VERSION=2.8.4.1
+         VERSION=2.8.5
+           MAJOR=2.8
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=snortrules-pr-2.4.tar.gz
-      SOURCE_URL=http://www.snort.org/dl
-     SOURCE2_URL=http://www.snort.org/pub-bin/downloads.cgi/Download/vrf_pr
-      SOURCE_VFY=sha1:3ffabb5366c088952fefab19a8dc19ce84d62645
-     SOURCE2_VFY=sha1:b8b59754ccb59b1dcf324d2faa399326117a60e9
+         SOURCE2=snortrules-snapshot-$MAJOR.tar.gz
+      SOURCE_URL=http://dl.snort.org/snort-current
+  SOURCE2_URL[0]=$MIRROR_URL
+  SOURCE2_URL[1]=http://dl.snort.org/reg-rules
+      SOURCE_VFY=sha1:28b153a6529962da5976b5ccbddfa11b001ab2bd
+     SOURCE2_VFY=sha1:e53fa49b59732d523394ecb7e291d90ac76d8b8a
         WEB_SITE=http://www.snort.org
          ENTERED=20011022
-         UPDATED=20090428
+         UPDATED=20090917
            SHORT="Lightweight network intrustion detection program"
 
 cat << EOF
-Snort is a lightweight network intrusion detection system, capable of 
-performing real-time traffic analysis and packet logging on IP networks. It can 
-perform protocol analysis, content searching/matching and can be used to detect 
-a variety of attacks and probes, such as buffer overflows, stealth port scans, 
-CGI attacks, SMB probes, OS fingerprinting attempts, and much more. Snort uses 
-a flexible rule based language to describe traffic that it should collect or 
-pass, and a modular detection engine. Snort has a real-time alerting capability, 
-with alert mechanisms for syslog, a user specified file, a UNIX socket, or 
-WinPopup messages to Windows clients using Samba's smbclient.
+Snort is a lightweight network intrusion detection system, capable
+of performing real-time traffic analysis and packet logging on IP
+networks. It can perform protocol analysis, content searching/matching
+and can be used to detect a variety of attacks and probes, such as
+buffer overflows, stealth port scans, CGI attacks, SMB probes, OS
+fingerprinting attempts, and much more. Snort uses a flexible rule
+based language to describe traffic that it should collect or pass, and
+a modular detection engine. Snort has a real-time alerting capability,
+with alert mechanisms for syslog, a user specified file, a UNIX socket,
+or WinPopup messages to Windows clients using Samba's smbclient.
+
+WARNING: the rules can only be downloaded by subscribers, or 30 days
+after release by registered users. You may need to download manually.
 EOF

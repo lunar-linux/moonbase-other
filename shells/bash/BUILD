@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 0 &&
+  patch_it $SOURCE3 0 &&
   bad_flags -malign-double
 
   OPTS+=" --bindir=/bin             \

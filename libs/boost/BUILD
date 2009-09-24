@@ -2,21 +2,30 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
+  OPTS+=" --without-mpi"
+  export EXPAT_INCLUDE=/usr/include/
+  export EXPAT_LIBPATH=/usr/lib/
+
   bjam -q ${MAKES:+-j$MAKES} \
-       threading=single,multi \
+       threading=multi \
+       --layout=tagged    \
        runtime-link=shared \
        link=shared \
        release \
        debug-symbols=off \
        --prefix=/usr \
-       --layout=system \
        --toolset=gcc \
+       --includedir="/usr/include" \
+       --libdir="/usr/lib" \
+       cxxflags=-fno-strict-aliasing \
+       optimization=speed \
        $OPTS &&
 
   prepare_install &&
 
   bjam -q ${MAKES:+-j$MAKES} \
-       threading=single,multi \
+       threading=multi \
+       --layout=tagged    \
        runtime-link=shared \
        link=shared \
        release \
@@ -25,7 +34,8 @@
        --prefix=/usr \
        --includedir="/usr/include" \
        --libdir="/usr/lib" \
-       --layout=system \
+       cxxflags=-fno-strict-aliasing \
+       optimization=speed \
        $OPTS \
        install
 

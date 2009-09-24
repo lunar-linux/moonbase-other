@@ -1,10 +1,9 @@
 (
 
-  sedit 's:c99:gnu99:g' mk/cc.mk  &&
-  sedit 's:${PREFIX}/etc:/etc:' Makefile  &&
-
   export PREFIX=/usr  &&
+  export SYSCONFDIR=/etc  &&
+  export CSTD=gnu99  &&
 
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1

@@ -1,7 +1,8 @@
 (
-  python setup.py configure &&
-  python setup.py build     &&
-  prepare_install           &&
+
+  python setup.py configure  &&
+  python setup.py build      &&
+  prepare_install            &&
   python setup.py install
 
 

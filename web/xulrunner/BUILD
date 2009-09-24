@@ -1,13 +1,5 @@
 (
 
-  tar -xjf $SOURCE_CACHE/$SOURCE2 -C $SOURCE_DIRECTORY &&
-
-  patch_it patch/mozilla-ps-pdf-simplify-operators.patch 1 &&
-  patch_it patch/100-system-hunspell-corrections.patch 0 &&
-#  patch_it patch/bzXXX_pc_honour_system_nspr_nss.patch 1 &&
-  patch_it patch/mozilla-pkgconfig.patch 1 &&
-  patch_it patch/fix-mozilla-launcher.patch 0 &&
-
   OPTS+=" --enable-application=xulrunner \
           --prefix=/usr \
           --libdir=/usr/lib \
@@ -31,7 +23,7 @@
           --disable-javaxpcom \
           --disable-crashreporter \
           --enable-safe-browsing \
-          --enable-startup-notification"
+          --enable-startup-notification" &&
 
   
   #OPTS+=" --enable-application=xulrunner \
@@ -46,13 +38,10 @@
   #        --disable-libxul \
   #        --disable-javaxpcom"
 
-  export MOZ_CO_PROJECT=xulrunner
-  export MOZILLA_OFFICIAL=1
-  export BUILD_OFFICIAL=1
+  export MOZ_CO_PROJECT=xulrunner &&
+  export MOZILLA_OFFICIAL=1 &&
+  export BUILD_OFFICIAL=1 &&
 
   default_build 
-
-  # Please check whether this has been corrected with each version bump!
-  sedit "s:stable:unstable:g" /usr/lib/pkgconfig/mozilla-js.pc
 
 ) > $C_FIFO 2>&1

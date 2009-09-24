@@ -1,5 +1,5 @@
 (
-  patch_it $SOURCE_CACHE/$SOURCE2 1
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
   PS_CONF='#define  CONFIG_FILE "/etc/portsentry/portsentry.conf"'
 
@@ -8,23 +8,22 @@
                           >  portsentry_config.h
   echo  $PS_CONF         >>  portsentry_config.h
 
-  sedit "s/CFLAGS = -O -Wall/CFLAGS := -O -Wall \$\(CFLAGS\)/"  \
-        Makefile
+  sedit "s/CFLAGS = -O -Wall/CFLAGS := -O -Wall \$\(CFLAGS\)/"  Makefile
 
-  make linux                       &&
-  prepare_install                  &&
-  cp portsentry /usr/sbin          &&
-  mkdir -p /etc/portsentry         &&
-  chmod 700 /etc/portsentry        &&
+  make linux                 &&
+  prepare_install            &&
+  cp portsentry /usr/sbin    &&
+  mkdir -p /etc/portsentry   &&
+  chmod 700 /etc/portsentry  &&
 
   if ! [ -f /etc/portsentry/portsentry.conf ] ; then
     sedit "s:/usr/local/psionic:/etc:" portsentry.conf
     install -m600 portsentry.conf /etc/portsentry
-  fi &&
+  fi  &&
 
   if ! [ -f /etc/portsentry/portsentry.ignore ] ; then
     install -m600 portsentry.ignore /etc/portsentry/portsentry.ignore
-  fi &&
+  fi  &&
 
   if [ ! -f /etc/portsentry/portsentry.modes ] ; then
     echo -e "# default portsentry modes:\natcp\naudp" > /etc/portsentry/portsentry.modes

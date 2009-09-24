@@ -1,21 +1,21 @@
 (
+
   chmod +x $SOURCE &&
-  ./$SOURCE --accept-license --unpack &&
+  echo "yes" | MORE="20000000" ./$SOURCE &&
 
   # Clean up old java 1.6.0 service packs
-  rm -rf /usr/lib/jre1.6.0_* &&
+  rm -rf /usr/lib/j[rd][ek]1.6.0_* &&
 
   prepare_install  &&
 
-  cp -r $SOURCE_DIRECTORY/jre${FVERSION} /usr/lib/ &&
+  cp -a $SOURCE_DIRECTORY/jre${FVERSION} /usr/lib &&
 
   # Some apps only search for java in /usr/java
-  rm  -f /usr/java &&
+  rm -rf /usr/java &&
   ln -sf /usr/lib/jre${FVERSION} /usr/java &&
 
   mkdir -p /opt/lunar/plugins &&
-  rm -f /opt/lunar/plugins/libjavaplugin_oji.so &&
-  rm -f /opt/lunar/plugins/libnpjp2.so &&
+  rm -f /opt/lunar/plugins/{libjavaplugin_oji.so,libnpjp2.so} &&
 
   if [ $NEWPLUGIN == 'y' ]; then
   ln -sf /usr/lib/jre${FVERSION}/lib/i386/libnpjp2.so \

@@ -3,17 +3,14 @@
   mkdir BUILD  &&
   cd BUILD     &&
 
-  sedit 's/trap 0/trap "" 0/' ../configure  &&
+  #sedit 's/trap 0/trap "" 0/' ../configure  &&
   # We use libiberty.a from binutils instead
-  sedit 's/install_to_$(INSTALL_DEST) //' ../libiberty/Makefile.in &&
+  sedit 's/install_to_$(INSTALL_DEST) //' ../libiberty/Makefile.in  &&
 
-  LANGUAGES="${LANGUAGES:=c++}" &&
+  LANGUAGES="${LANGUAGES:=c++}"  &&
 
-  if in_depends gcc mpfr ; then
-    LANGUAGES="${LANGUAGES},fortran"
-  fi
-
-  ../configure --host=$BUILD                          \
+  ../configure --build=$BUILD                         \
+               --host=$BUILD                          \
                --enable-languages=$LANGUAGES          \
                --prefix=${MODULE_PREFIX}              \
                --infodir=${MODULE_PREFIX}/share/info  \
@@ -25,7 +22,7 @@
                --with-gnu-ld                          \
                --with-system-zlib                     \
                --enable-shared                        \
-               $OPTS &&
+               $OPTS                                 &&
 
   make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean  &&
   prepare_install  && 

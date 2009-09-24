@@ -225,7 +225,7 @@ start()
         run_with_msg "Devices activation - please wait" "/sbin/udevadm settle"
         # This is first aid code for devices hard to init (too slow or to buggy for init by 1st time)
         # I never have to use it as my machine works great - I leave it just in case
-        #run_with_msg "Activating lazy devices" "/sbin/udevadm trigger --retry-failed"
+        #run_with_msg "Activating lazy devices" "/sbin/udevadm trigger --type=failed"
         #run_with_msg "Lazy devices activation - please wait" "/sbin/udevadm settle"
 		if [ ! -h /dev/fd ]; then
 			ln -sf /proc/self/fd /dev/fd
@@ -248,7 +248,10 @@ start()
 
 		# check filesystems
 		run_with_msg_and_exit_codes "Checking filesystems: " "fsck -A -T -C -y -V $FORCE" "0" "1" ""
-		if [ $? -ge 2 ]; then
+		if [ $? -eq 3 ]; then
+			# Filesystem errors corrected, and system should be rebooted
+			reboot  -f
+		elif [ $? -ge 2 ]; then
 		    echo ""
 		    echo " *** fsck failed! ***"
 		    echo ""
