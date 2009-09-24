@@ -10,7 +10,6 @@
   xmkmf               &&
   make clean          &&
   default_make        &&
-  make install.man    &&
-  chmod 644 /usr/man/man1/xfig.1x
+  make install.man    
 
 ) > $C_FIFO 2>&1

@@ -1,5 +1,8 @@
 (
 
+    patch_it $SOURCE2 0 &&
+    patch_it $SOURCE3 0 &&
+
     bad_flags -malign-double
 
     OPTS=$OPTS" --bindir=/bin             \
@@ -7,7 +10,7 @@
                 --with-installed-readline \
                 --with-curses             \
                 --enable-static-link      \
-		ac_cv_func_working_mktime=yes"  &&
+                ac_cv_func_working_mktime=yes"  &&
 
     default_config   &&
     make version.h   &&
@@ -16,4 +19,3 @@
     cp bash /bin/bash_static
 
 ) > $C_FIFO 2>&1
-

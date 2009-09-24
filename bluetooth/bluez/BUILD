@@ -1,33 +1,25 @@
 (  
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+  patch_it $SOURCE_CACHE/$SOURCE2 0  &&
 
-  OPTS+=" --enable-tools    \
-          --enable-bccmd    \
-          --enable-hid2hci  \
-          --enable-dfutool  \
-          --enable-hidd     \
-          --enable-pand     \
-          --enable-dund     \
-          --enable-manpages       \
+  OPTS+=" --build=$BUILD          \
+          --host=$BUILD           \
           --enable-configfiles    \
           --with-telephony=dummy  \
-          --enable-gstreamer      \
-          $OPTS"                 &&
+          --enable-gstreamer      "  &&  
 
   default_build  &&
 
-  sedit "s:#\[A:\[A:" audio/audio.conf
-  sedit "s:#SBCS:SBCS:" audio/audio.conf
-  sedit "s:#MPEG:MPEG:" audio/audio.conf
+  sedit "s:#\[A:\[A:" audio/audio.conf   &&
+  sedit "s:#SBCS:SBCS:" audio/audio.conf &&
+  sedit "s:#MPEG:MPEG:" audio/audio.conf &&
+  sedit "s:#AutoConnect:AutoConnect:" audio/audio.conf &&
 
-  cp -f audio/*.conf /etc/bluetooth/    &&
-  cp -f network/*.conf /etc/bluetooth/  &&
-  cp -f input/*.conf /etc/bluetooth/    &&
-
-  if [ ! -d /etc/default ] ; then
-    mkdir -p /etc/default &&
-    cp -f scripts/bluetooth.default /etc/default/bluetooth 
-  fi
+  mkdir -p /etc/bluetooth                 &&
+  cp -f audio/audio.conf /etc/bluetooth/  &&
+  cp -f network/*.conf /etc/bluetooth/    &&
+  cp -f input/*.conf /etc/bluetooth/      &&
+  cp -f audio/bluetooth.conf /etc/asound.conf  &&
+  cp -f serial/serial.conf /etc/bluetooth/
 
 ) > $C_FIFO 2>&1

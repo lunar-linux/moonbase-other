@@ -1,14 +1,26 @@
 (
-  OPTS+="--with-dri-drivers="
-  OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
-  ./configure --prefix=/usr $OPTS && 
 
-  prepare_install &&
+  OPTS+=" --with-dri-drivers="  &&
+  OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)  &&
 
-  make && 
+  # Excludes glew headers, and prevents need for /usr/include/GL/gl{,u,ut}.h
+  rm -r progs/{demos,samples}  &&
 
-  make install                                                
-#  install -v -m644 include/GLView.h /usr/include/        &&
-  install -v -m755 progs/xdemos/glxinfo progs/xdemos/glxgears /usr/bin
+  ./configure --prefix=/usr $OPTS  &&
+  prepare_install  &&
+
+  make all  &&
+
+  # Build glxgears and glxinfo
+  cd progs/xdemos  &&
+  make glxgears glxinfo  &&
+  cd ../..  &&
+
+  # Prevent glew headers from being installed
+  rm include/GL/{glew,glxew,wglew}.h  &&
+
+  make install  &&                 
+
+  install -v -m755 progs/xdemos/glx{gears,info} /usr/bin/
 
 ) > $C_FIFO 2>&1

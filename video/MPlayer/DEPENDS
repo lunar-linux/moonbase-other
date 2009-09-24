@@ -1,24 +1,23 @@
+# Using minimal --enables, because MPlayer's build system is FLAKY.
 depends freetype2
-depends unzip
-depends MPlayer-essentials
 
+optional_depends MPlayer-essentials ""          "" "installs gcc-3.3.6 for dlls"
+optional_depends DirectFB    ""                 "" "to use DirectFB support"
+optional_depends SDL         ""                 "" "to use SDL to output video signal"
 optional_depends libdvdread  ""                 "" "To read DVDs"
-optional_depends SDL         "--enable-sdl"     "" "to use SDL to output video signal"
 optional_depends alsa-utils  ""                 "" "for ALSA sound support"
 optional_depends libvorbis   ""                 "" "to use ogg audio format"
 optional_depends libmatroska ""                 "" "for matroska audio/video container format support"
 optional_depends faad        ""                 "" "for external FAAD2 (MPA/AAC) support"
-
-optional_depends libtheora   "--enable-theora"  "--disable-theora"    "for OGG/Theora Video Playback"
-optional_depends libXvMC     "--enable-xvmc --with-xvmclib=XvMCW" \
-                             "" "for hardware XvMC acceleration"
-
+optional_depends libtheora   ""                 "--disable-theora"    "for OGG/Theora Video Playback"
+optional_depends libXvMC     "--enable-xvmc"    "" "for hardware XvMC acceleration"
 optional_depends gtk+-2      "--enable-gui"     "--disable-gui"       "for MPlayer GTK gui support"
 optional_depends MPlayer-all ""                 ""                    "to install more foreign codecs"
-optional_depends libggi      "--enable-ggi"     "--disable-ggi"       "General Graphics Interface support"
-optional_depends libggiwmh   "--enable-ggiwmh"  "--disable-ggiwmh"    "GGI extension support"
-optional_depends amrnb       ""                 "--disable-libamr_nb" "AMR narrowband support"
-optional_depends amrwb       ""                 "--disable-libamr_wb" "AMR wideband support"
+optional_depends libggi      ""                 "--disable-ggi"       "General Graphics Interface support"
+optional_depends libggiwmh   ""                 "--disable-ggiwmh"    "GGI extension support"
+optional_depends amrnb       ""                 "--disable-libopencore_amrnb" "AMR narrowband support"
+optional_depends amrwb       ""                 "--disable-libopencore_amrwb" "AMR wideband support"
 optional_depends mpeg2dec    ""                 ""                    "for mpeg-1 and mpeg-2 support"
 optional_depends live555     ""                 "--disable-live"      "for RTP/RTCP, RTSP, SIP support"
-optional_depends x264-snapshot  "--enable-x264" "--disable-x264"      "for H264/AVC video stream support"
+# MPlayer needs to use x264 *via* ffmpeg
+optional_depends ffmpeg      ""                 "--disable-x264"      "use ffmpeg (with e.g. x264-snapshot)"

@@ -10,9 +10,11 @@ if [ -n "$(get_module_config UPGRADE_PERL_MODULES)" ]; then
                 if [ ! -f /usr/lib/perl5/$VERSION/CPAN/Config.pm -a -f /usr/lib/perl5/$OLD_PERL_VERSION/CPAN/Config.pm ] ; then
                         cp /usr/lib/perl5/$OLD_PERL_VERSION/CPAN/Config.pm /usr/lib/perl5/$VERSION/CPAN/Config.pm
                 fi
-                PERLMODS="$( lvu from /usr/lib/perl5/ | cut -d: -f1 | uniq | grep -v perl)"
+                PERLMODS="$( lvu from /usr/lib/perl5/ | cut -d: -f1 | uniq )"
                 for PERLMOD in $(sort_by_dependency $PERLMODS); do
-                        lin -c $PERLMOD || true
+                        if [[ $PERLMOD != "perl" ]]; then
+                                lin -c $PERLMOD || true
+                        fi
                 done
         fi
         unset_module_config OLD_PERL_VERSION

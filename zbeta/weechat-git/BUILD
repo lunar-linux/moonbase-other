@@ -13,6 +13,7 @@
                 $OPTS                     &&
   default_build                           &&
   cd /usr/bin                             &&
-  ln -sf weechat-curses weechat
+  ln -sf weechat-curses weechat           &&
+  gather_docs UPGRADE_0.3
 
 ) > $C_FIFO 2>&1

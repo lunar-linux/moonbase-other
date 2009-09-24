@@ -1,0 +1,42 @@
+(
+  chmod +x $SOURCE &&
+  ./$SOURCE --accept-license --unpack &&
+
+  # Clean up old java 1.6.0 service packs
+  rm -rf /usr/lib/jdk1.6.0_* &&
+
+  prepare_install &&
+
+  cp -r $SOURCE_DIRECTORY/jdk${FVERSION} /usr/lib/ &&
+
+  # Some apps only search for java in /usr/java
+  rm  -f /usr/java &&
+  ln -sf /usr/lib/jdk${FVERSION} /usr/java &&
+
+  # Some applications don't accept anything but /usr/bin
+  for file in /usr/lib/jdk${FVERSION}/bin/*; do
+      bfile=`basename $file`
+      # Conflicting files with heimdal
+      if [[ "$bfile" != "klist" ]] && [[ "$bfile" != "kinit" ]]; then
+          ln -sf $file /usr/bin/
+      fi
+  done
+
+  mkdir -p /opt/lunar/plugins &&
+  rm -f /opt/lunar/plugins/libjavaplugin_oji.so &&
+  rm -f /opt/lunar/plugins/libnpjp2.so &&
+
+  if [ $NEWPLUGIN == 'y' ]; then
+  ln -sf /usr/lib/jdk${FVERSION}/jre/lib/amd64/libnpjp2.so \
+         /opt/lunar/plugins/
+  else
+  ln -sf /usr/lib/jdk${FVERSION}/jre/plugin/amd64/libjavaplugin_jni.so \
+         /opt/lunar/plugins/
+  fi &&
+
+
+  echo export PATH=\"'${PATH}':/usr/lib/jdk"${FVERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
+  echo export JAVA_HOME=\"/usr/lib/jdk"${FVERSION}"/\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
+  install -m644 $SOURCE_DIRECTORY/sun-jdk.rc /etc/profile.d/
+
+) > $C_FIFO 2>&1

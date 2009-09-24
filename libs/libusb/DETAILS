@@ -1,14 +1,16 @@
           MODULE=libusb
-         VERSION=0.1.12
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=$SFORGE_URL/$MODULE/
-      SOURCE_VFY=sha1:599a5168590f66bc6f1f9a299579fd8500614807
-        WEB_SITE=http://libusb.sourceforge.net/
+           MAJOR=1.0
+           MINOR=3
+         VERSION=$MAJOR.$MINOR
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$SFORGE_URL/$MODULE/$MODULE-$MAJOR/$VERSION/
+      SOURCE_VFY=sha1:d492c7f1c3f2cffcfc5d55f282a3899692662485
+        WEB_SITE=http://www.libusb.org/
          ENTERED=20021008
-         UPDATED=20060306
+         UPDATED=20090830
            SHORT="A generic USB layer library"
 
-cat <<EOF
-LibUSB is a library for use by user level applications to access USB
+cat << EOF
+LibUSB is a library for use by user-level applications to access USB
 devices regardless of OS.
 EOF

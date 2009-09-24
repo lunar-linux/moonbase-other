@@ -1,16 +1,16 @@
 (
 
-  # Now lets do the PAM stuff the proper way
+  # Now let's do the PAM stuff the proper way
   if module_installed Linux-PAM; then
     OPTS+=" --with-pam --without-shadow"
-  fi
+  fi  &&
 
   OPTS+=" --without-kerberos      \
           --with-dpms-ext         \
           --with-xf86vmode-ext    \
           --with-xf86gamma-ext    \
           --with-proc-interrupts  \
-	  --without-pixbuf        \
+          --without-pixbuf        \
           --enable-locking"      &&
 
   default_build  &&

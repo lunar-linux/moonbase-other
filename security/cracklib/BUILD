@@ -6,8 +6,8 @@
               --infodir=/usr/share/doc   \
               --mandir=/usr/share/man    \
               --disable-static           \
-              --with-default-dict=/lib/cracklib/pw_dict \
-              $OPTS                                    &&
+              --with-default-dict=/lib/cracklib/pw_dict  \
+              $OPTS                                     &&
 
   sedit 's:${exec_prefix}/lib/python:/usr/lib/python:' python/Makefile  &&
   sedit 's:${prefix}/lib/python:/usr/lib/python:'      python/Makefile  &&

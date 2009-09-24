@@ -14,9 +14,9 @@ unpack_localedata() {
   message "Extracting locale data .. this might take a second .."
 
   # Extract the localedata directory from the source tarball
-  tar -C /tmp                    \
-      -T $FILELIST_FILE          \
-      --strip-components=1       \
+  tar -C /tmp               \
+      -T $FILELIST_FILE     \
+      --strip-components=1  \
       -xjf $SOURCE_CACHE/$SOURCE
 }
 
@@ -58,7 +58,7 @@ select_locales() {
   BACKTITLE="Glibc Configuration"
       TITLE="Locale Selection"
        HELP="Translated messages are automatically installed, but the locale database that controls other behavior is not.  Please select desired locale or locales.  If none are selected then all will be installed."
-  make_locales_checklist | xargs \
+  make_locales_checklist | xargs  \
   dialog --backtitle "$BACKTITLE" \
          --title     "$TITLE"     \
          --stdout                 \
