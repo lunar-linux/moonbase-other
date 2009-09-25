@@ -1,5 +1,8 @@
 (
-  export PYTHON=1 PYTHONMODDIR=/usr/lib/python2.3/site-packages
-  sed -i 's|WARNINGS=-ansi|WARNINGS=|' Make.Rules &&
-  default_make
+
+  # To compile with kernel-headers-2.6 2.6.30.7
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
+  default_build
+
 ) > $C_FIFO 2>&1
