@@ -10,6 +10,9 @@
     patch_it $SOURCE2 0
   fi &&
 
+  # Quieten the "XID collision, trouble ahead" useless, spammy warning
+  patch_it $SOURCE3 1 &&
+
   if [ "$USE_XINPUT" == "y" ]; then
     # XInput support is needed for Wacom tablets to work in GIMP
     OPTS+=" --with-xinput=yes --enable-debug=no"
