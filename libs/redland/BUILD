@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --with-threads --with-raptor=system --with-rasqal=internal"
+  OPTS+=" --with-threads --with-raptor=system --without-sqlite"
 
   if in_depends $MODULE libxml2 ; then
     OPTS+=" --with-xml-parser=libxml"

@@ -1,8 +1,11 @@
 (
 
-  OPTS="$OPTS --with-lua"
+  sed -i "16i #include <stdio.h>" src/celengine/overlay.h src/celengine/spiceinterface.cpp &&
+  sed -i "18i #include <stdio.h>" src/celengine/star.cpp &&
 
-  default_build
+  OPTS="$OPTS --with-lua" &&
+
+  default_build  &&
 
   gather_docs controls.txt manual/*.html manual/*.css
 
