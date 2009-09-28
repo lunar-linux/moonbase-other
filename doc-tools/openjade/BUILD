@@ -1,11 +1,15 @@
 (
+
+  # Fixes segfault when compiling docbook-utils
+  patch_it $SOURCE2 1 &&
+
   # We need to remove the old catalog entries upon an update
   if module_is_expired $MODULE ; then
          set_module_config OLD_VER "`installed_version $MODULE`"
   fi &&
 
-  CATALOGDIR="/usr/share/sgml/$MODULE-$VERSION"
-  PTEXTD="$CATALOGDIR/pubtext"
+  CATALOGDIR="/usr/share/sgml/$MODULE-$VERSION" &&
+  PTEXTD="$CATALOGDIR/pubtext" &&
 
   ./configure --build=$BUILD                                 \
               --prefix=/usr                                  \
@@ -18,13 +22,11 @@
               --libdir=/usr/lib                              \
               --includedir=/usr/include                      \
               --enable-http                                  \
-              --disable-shared                               \
-              --enable-mif                                   \
+              --disable-static                               \
               --enable-default-catalog=/etc/sgml/catalog     \
               --enable-default-search-path=/usr/share/sgml   &&
 
-  LDFLAGS="$LDFLAGS -all-static"                             &&
-  make all LDFLAGS="$LDFLAGS"                                &&
+  make all                                                   &&
   prepare_install                                            &&
   make install                                               &&
   if ! [ -d "$CATALOGDIR" ]; then 
