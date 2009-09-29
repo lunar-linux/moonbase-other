@@ -13,6 +13,19 @@
   make            &&
   prepare_install &&
 
-  make install INSTALL_ROOT=$MODULE_PREFIX/
+  make install INSTALL_ROOT=$MODULE_PREFIX/ &&
+
+  # Desktop menu entry
+  cat > ${MODULE}.desktop << EOF  &&
+[Desktop Entry]
+Type=Application
+Name=Qt Creator
+Comment=Qt based Development Tool
+Exec=$QTDIR/bin/qtcreator
+Icon=/usr/share/doc/qt-creator/doc/images/qt-logo.png
+Categories=Application;Qt;KDE;Development;
+EOF
+
+  install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop
 
 ) > $C_FIFO 2>&1

@@ -3,6 +3,10 @@
   # Remove subversion directories
   find -name "\.svn" -type d -print0 | xargs -0 rm -rf
 
+  # ALSA audio sync & CPU usage patch
+  # From http://forums.gentoo.org/viewtopic-t-793795.html
+  patch_it $SOURCE_CACHE/$SOURCE7 0  &&
+
   # using CFLAGS other than MPlayer's auto-detected will break
   bad_flags compiler  &&
 
