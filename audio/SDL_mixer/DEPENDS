@@ -1,19 +1,22 @@
-depends  audiofile  &&
-depends  SDL        &&
+depends  audiofile
+depends  SDL
 
-optional_depends  "alsa-utils"                                                 \
-                  ""                                                           \
-                  ""                                                           \
-                  "for use with alsa drivers"                                  &&
-optional_depends  "smpeg"                                                      \
-                  ""                                                           \
-                  ""                                                           \
-                  "to play mpeg movies and mp3 audio"                          &&
-optional_depends  "mikmod"                                                     \
-                  "--enable-music-libmikmod"                                   \
-                  ""                                                           \
-                  "for some games audio support (e.g. required for SuperTux)"  &&
-optional_depends  "libvorbis"                                                  \
-                  ""                                                           \
-                  ""                                                           \
+optional_depends  "alsa-utils"  \
+                  ""            \
+                  ""            \
+                  "for use with alsa drivers"
+		  
+optional_depends  "smpeg"  \
+                  ""       \
+                  ""       \
+                  "to play mpeg movies and mp3 audio"
+		  
+optional_depends  "mikmod"                    \
+                  "--enable-music-libmikmod"  \
+                  ""                          \
+                  "for some games audio support (e.g. required for SuperTux)"
+		  
+optional_depends  "libvorbis"  \
+                  ""           \
+                  ""           \
                   "Ogg/Vorbis audio support (e.g. required for frozen-bubble)"
