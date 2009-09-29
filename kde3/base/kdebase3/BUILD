@@ -3,6 +3,8 @@
   . /etc/profile.d/qt3.rc
   . /etc/profile.d/kde3.rc
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   export LD_LIBRARY_PATH=${KDE_PREFIX:-$KDEDIR}/lib:${KDE_PREFIX:-$KDEDIR}/lib/kde3
 
 # So it can find the headers.
