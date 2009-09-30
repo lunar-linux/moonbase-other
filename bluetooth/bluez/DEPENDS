@@ -1,6 +1,7 @@
 depends dbus-glib
 depends hal
 depends gstreamer-10
+depends psmisc
 
 optional_depends "udev"        "--enable-udevrules" "--disable-udevrules" "for udev support"
 
@@ -14,4 +15,4 @@ optional_depends "alsa-lib"    "--enable-alsa"      "--disable-alsa"      "to en
 
 optional_depends "cups"        "--enable-cups"      "--disable-cups"      "to enable cups printing support"
 
-
+optional_depends "setserial"   ""                   ""                    "needed by the serial init.d script"
