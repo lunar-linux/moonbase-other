@@ -8,6 +8,8 @@
           operations/external/ff-load.c ;
   fi &&
 
+  OPTS+=" --disable-docs"
+
   default_build
 
 ) > $C_FIFO 2>&1

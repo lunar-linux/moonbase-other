@@ -2,30 +2,27 @@
 PGDATA=/var/lib/pgsql/data
 INITDB=/usr/bin/initdb
 
-if [ 'grep postgres /etc/passwd' != 'postgres' ]
-     then
+if [ 'grep postgres /etc/passwd' != 'postgres' ]; then
      add_priv_user postgres            \
                     -d /var/lib/pgsql  \
                     -s /bin/bash       \
                     -g postgres
-     fi
+fi
 
-if [ ! -d $PGDATA ]
-     then
+if [ ! -d $PGDATA ]; then
      mkdir -p $PGDATA
      chown postgres.postgres $PGDATA
      chmod go-rwx $PGDATA
      su postgres -c "$INITDB --pgdata=$PGDATA" # > /dev/null 2>&1"
      printf "Or run /etc/init.d/postgresql start\n"
-     fi
+fi
 # Done with database init.
 
-if [ ! -e /etc/init.d/postgresql ]
-     then
+if [ ! -e /etc/init.d/postgresql ]; then
      cp $SCRIPT_DIRECTORY/posgtresql/init.d/postgresql
-     fi
+fi
 
-if  module_installed  DBD-Pg;  then  lin DBD-Pg;   fi
-if  module_installed  php;     then  lin -c php;   fi
-if  module_installed  php5;    then  lin -c php5;  fi
-if  module_installed  php5-suhosin;    then  lin -c php5-suhosin;  fi
+if  module_installed  DBD-Pg;        then  lin DBD-Pg;           fi
+if  module_installed  php;           then  lin -c php;           fi
+if  module_installed  php5;          then  lin -c php5;          fi
+if  module_installed  php5-suhosin;  then  lin -c php5-suhosin;  fi

@@ -13,7 +13,7 @@
 
   # Using ARCH=unknown, to prevent Makefile from setting -march flag
   make \
-    PREFIX=/usr WITH_DATADIR=yes WITH_LIBDIR=yes ARCH=unknown \
+    PREFIX=/usr WITH_DATADIR=yes WITH_LIBDIR=yes ARCH="$CPU" \
     DATADIR="$DATADIR" \
     LIBDIR="$LIBDIR"  &&
 
