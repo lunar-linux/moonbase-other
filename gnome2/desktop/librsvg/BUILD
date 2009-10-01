@@ -2,7 +2,7 @@
 
    ./configure  --prefix=/usr              \
                 --build=$BUILD             \
-                --sysconfdir=/etc          \
+                --sysconfdir=/etc/$MODULE  \
                 --localstatedir=/var       \
                 --infodir=/usr/share/info  \
                 --mandir=/usr/share/man    \
