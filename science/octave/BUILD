@@ -1,7 +1,6 @@
 (
 
-#   bad_flags -ffast-math  &&
-  mkdir -p /usr/share/octave/$VERSION/etc/doc-cache &&
+  bad_flags -ffast-math  &&
 
   ./configure  --sysconfdir=/etc        \
                --prefix=/usr            \
