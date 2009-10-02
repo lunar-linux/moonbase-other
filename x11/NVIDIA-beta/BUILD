@@ -44,6 +44,12 @@
   cd $SOURCE_DIRECTORY/nvidia-settings-$VERSION &&
   sedit 's/-O -DNDEBUG/-DNDEBUG/' Makefile &&
   sedit '/CFLAGS = -Wall -g/d' src/XF86Config-parser/Makefile &&
+
+  # xf86vmode.h has been removed in xf86vidmodeproto 2.3
+  if [[ ! -e /usr/include/X11/extensions/xf86vmode.h ]] ; then
+    sedit "s:#include <X11/extensions/xf86vmode.h>:#include <X11/extensions/xf86vmproto.h>:" src/libXNVCtrlAttributes/NvCtrlAttributes{,VidMode,Glx}.c
+  fi &&
+
   make clean &&
   make &&
   make install ROOT=$SOURCE_DIRECTORY &&
