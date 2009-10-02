@@ -1,0 +1,30 @@
+           MODULE=smb4k4
+         VERSION=0.10.3
+          SOURCE=smb4k-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/smb4k-$VERSION
+      SOURCE_URL=http://download.berlios.de/smb4k
+      SOURCE_VFY=sha1:425401dea0534da6f813f04335cde36a8e499355
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/}
+        WEB_SITE=http://smb4k.berlios.de
+         ENTERED=20091002
+         UPDATED=20091002
+           SHORT="SMB share browser for KDE"
+
+cat << EOF
+Smb4K is an SMB share browser for KDE4. Its aim is to provide a tool for an
+easy access to the SMB shares of your local network neighborhood.
+
+Features so far:
+- Scanning for (active) workgroups, hosts, and shares
+- Mounting/unmounting of SMB shares, including unmounting all shares at once
+- Access to the files of a mounted SMB share using Konqueror
+- Auto-detection of external mounts/unmounts
+- Mounting of recently used shares on start-up
+- Miscellaneous infos about the SMB shares
+- Basic network search
+- WINS server support
+- Preview of SMB shares
+- Selectable look-up method
+- Default login
+- Translations
+EOF
