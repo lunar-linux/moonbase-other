@@ -1,8 +1,8 @@
 (
 
 
-  ./configure --prefix=/usr                  \
-              $OPTS                          &&
+  ./configure --prefix=/usr   \
+              $OPTS          &&
 
   cd src &&
 
