@@ -1,7 +1,5 @@
 (
 
-  OPTS="--disable-odbc"
-
   default_build &&
 
 # Why this does not get install, dunno. Well, other apps look for it during their
