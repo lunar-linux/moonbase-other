@@ -1,5 +1,8 @@
 (
 
+# This sedit is needed for the configure to complete with current db.
+  sedit "s:seq 1 7:seq 1 8:" configure.in &&
+
   cd $SOURCE_DIRECTORY &&
   for file in `find . -name \*.patch -type f -exec grep -l '$' {} \;`; do sedit 's/$//' $file; done &&
   cd apache-commons/download &&
@@ -69,6 +72,10 @@
   # Apply mandatory and optional patches
 
   patch_it $SOURCE2 0 &&
+# A glibc related patch.
+  patch_it $SOURCE_CACHE/$SOURCE8 0 &&
+# Another glibc related patch.
+  patch_it $SOURCE_CACHE/$SOURCE9 0 &&
 
   # As long as OOo-src does not compile against nss it needs its own mozilla
   # tarball (and it also compiles its own mozilla)

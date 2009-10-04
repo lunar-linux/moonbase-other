@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
   OPTS="$OPTS --enable-optimized --enable-assertions --enable-pic --enable-targets=host-only"
 
   default_build   &&
