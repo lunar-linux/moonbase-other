@@ -14,6 +14,7 @@ WPA_SUPPLICANT=$(which wpa_supplicant 2> /dev/null)
 IFCONFIG=$(which ifconfig 2> /dev/null)
 IWCONFIG=$(which iwconfig 2> /dev/null)
 ROUTE=$(which route 2> /dev/null)
+PPPD=$(which pppd 2> /dev/null)
 
 chkresult()
 {
@@ -177,6 +178,16 @@ function device_start()
 			echo -n " ERROR: ifplugd is missing!"
 		fi
 
+	elif [ "$MANAGER" == "pppd" ] ; then
+		if [ -x $PPPD ] ; then
+			ps     -C     pppd     >  /dev/null  &&
+			pkill  -15  "^pppd$"                 &&
+			sleep   5
+			$PPPD call $1 &> /dev/null
+		else
+			echo -n " ERROR: pppd is missing!"
+		fi
+
 	elif [ "$MANAGER" == "manual" ] || [ -z "$MANAGER" ] ; then
 		if [ "$WIRELESS" == "Y" ] && [ -x $IWCONFIG ] ; then
 			if [ ! "x$WIRELESS_MODE" == "x" ] ; then
@@ -262,7 +273,7 @@ function device_stop()
 		esac
 	fi
 
-	if [ "$MANAGER" == "ifplugd" ] || [ "$MANAGER" == "wpa_supplicant" ]; then
+	if [ "$MANAGER" == "ifplugd" ] || [ "$MANAGER" == "wpa_supplicant" ] || [ "$MANAGER" == "pppd" ]; then
 		case $MANAGER in
 		    ifplugd)
 			$IFPLUGD -r /etc/ifplugd/ifplugd-lunar.action -i $1 -k
@@ -273,6 +284,10 @@ function device_stop()
 			kill `ps ax | grep wpa_supplicant | grep "$1" | awk '{print $1}'`
 			sleep 1
 		    ;;
+		    pppd)
+			pkill -15 "^pppd$"
+			sleep 1
+		    ;;
 		esac
 	fi
 
@@ -280,7 +295,9 @@ function device_stop()
 		stop_dhcp $1
 	fi
 	
-	$IFCONFIG $1 down
+        if [ ! "${1:0:3}" == "ppp" ] ; then
+                $IFCONFIG $1 down
+        fi
 
 	if [ -n "$MODULE" ]; then
 		modprobe -r $MODULE
