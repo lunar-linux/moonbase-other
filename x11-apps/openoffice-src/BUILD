@@ -74,6 +74,8 @@
   patch_it $SOURCE2 0 &&
 # A glibc related patch.
   patch_it $SOURCE_CACHE/$SOURCE8 0 &&
+# Another glibc related patch.
+  patch_it $SOURCE_CACHE/$SOURCE9 0 &&
 
   # As long as OOo-src does not compile against nss it needs its own mozilla
   # tarball (and it also compiles its own mozilla)
