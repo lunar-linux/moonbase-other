@@ -74,6 +74,7 @@
   patch_it $SOURCE2 0 &&
 # A glibc related patch.
   patch_it $SOURCE_CACHE/$SOURCE8 0 &&
+  patch -p0 < /home/dveatch/buildfix-sw-printf.diff &&
 
   # As long as OOo-src does not compile against nss it needs its own mozilla
   # tarball (and it also compiles its own mozilla)
