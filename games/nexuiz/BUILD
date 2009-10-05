@@ -1,5 +1,8 @@
 (
 
+  # data/common-spog.pk3 was group-writable
+  chmod 644 data/* havoc/*  &&
+
   mv Docs docs  &&
   cd sources  &&
   unzip enginesource????????.zip  &&
