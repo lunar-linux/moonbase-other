@@ -8,9 +8,9 @@
     rm -f /usr/share/X11/xkb/compiled
   fi  &&
 
-#  if [[ "$USE_NVIDIA" = "y" ]]; then
-#    OPTS="$OPTS --disable-glx --disable-glx-tlx"
-#  fi &&
+  if [[ "$USE_NVIDIA" = "y" ]]; then
+    OPTS="$OPTS --disable-glx --disable-glx-tlx"
+  fi &&
 
   OPTS+=" --enable-composite --enable-aiglx                   \
           --enable-install-libxf86config                      \
