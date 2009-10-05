@@ -13,7 +13,7 @@ case "$1" in
     /sbin/udevadm trigger
     /sbin/udevadm settle
     # Wake up again lazy devices
-    #/sbin/udevadm trigger --retry-failed
+    #/sbin/udevadm trigger --type=failed
     #/sbin/udevadm settle || exit 1;
     ;;
 
