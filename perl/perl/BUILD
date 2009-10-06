@@ -9,12 +9,12 @@
 
   if [ "$SUIDPERL" == "y" ] ; then
         OPTS="$OPTS -Dd_dosuid"
-  fi &&
+  fi  &&
         
   if [ "$CUSTOM" == "y" ] ; then
         ./Configure  -Dprefix=/usr   \
                      -Dscriptdir=/usr/bin \
-                     -Duseshrplib=true        \
+                     -Duseshrplib=true    \
                      $OPTS \
                      -Dman1dir=/usr/share/man/man1 \
                      -Dman3dir=/usr/share/man/man3 -e
@@ -22,26 +22,26 @@
         ./Configure  -Dprefix=/usr   \
                      -Dscriptdir=/usr/bin \
                      -Duseshrplib=true        \
-                     -Dccdlflags='-rdynamic' \
-                     -Doptimize="${CFLAGS}" \
+                     -Dccdlflags='-rdynamic'  \
+                     -Doptimize="${CFLAGS}"   \
                      -Duselargefiles \
-                     -Ud_csh \
+                     -Ud_csh         \
                      -Dcf_by='Lunar' \
                      $OPTS \
                      -Dman1dir=/usr/share/man/man1 \
-                     -Dusethreads        \
+                     -Dusethreads  \
                      -Dman3dir=/usr/share/man/man3 -d -e 
-  fi && 
+  fi  && 
  
-  make                          &&
+  make  &&
 
-  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SOURCE_DIRECTORY" &&
-  ldconfig                &&
+  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SOURCE_DIRECTORY"  &&
+  ldconfig  &&
 
-  prepare_install        &&
-  make install                &&
+  prepare_install  &&
+  make install     &&
 
-  strip --strip-unneeded $(which perl) &&
+  strip --strip-unneeded $(which perl)  &&
   
   if [ "$SUIDPERL" == "y" ] ; then
     strip --strip-unneeded $(which suidperl)
