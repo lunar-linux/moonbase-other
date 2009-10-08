@@ -11,7 +11,6 @@
   # Lunar isn't multilib
   sedit "s:lib64:lib:" Makefile  &&
 
-  # Using ARCH=unknown, to prevent Makefile from setting -march flag
   make \
     PREFIX=/usr WITH_DATADIR=yes WITH_LIBDIR=yes ARCH="$CPU" \
     DATADIR="$DATADIR" \
