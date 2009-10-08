@@ -1,0 +1,6 @@
+# Workaround for missing xz depacker
+validate_source_dir $SOURCE_DIRECTORY &&
+mk_source_dir       $SOURCE_DIRECTORY &&
+cd $BUILD_DIRECTORY                   &&
+tar -xJpvf $SOURCE_CACHE/$SOURCE      &&
+cd $SOURCE_DIRECTORY
