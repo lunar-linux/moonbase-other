@@ -2,7 +2,8 @@
 
   if [[ -n $MESADRIVER ]] ; then
     # Build selected drivers only, rather than the default of all of them
-    OPTS+=" --with-dri-drivers="  &&
+    # Ensure that swrast is included, as a fall-back
+    OPTS+=" --with-dri-drivers=swrast,"  &&
     OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
   fi  &&
 
