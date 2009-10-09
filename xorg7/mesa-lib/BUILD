@@ -4,7 +4,7 @@
     # Build selected drivers only, rather than the default of all of them
     OPTS+=" --with-dri-drivers="  &&
     OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
-  fi
+  fi  &&
 
   # Excludes glew headers, and prevents need for /usr/include/GL/gl{,u,ut}.h
   rm -r progs/{demos,samples}  &&
