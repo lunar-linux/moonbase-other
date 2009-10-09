@@ -1,14 +1,15 @@
 (
 
- OPTS+=" --without-weather"
- ./configure  --prefix=${GNOME210_PREFIX:-/usr}                 \
+  OPTS+=" --without-weather --disable-nm"  &&
+
+  ./configure  --prefix=${GNOME210_PREFIX:-/usr}                \
                --sysconfdir=/etc                                \
                --localstatedir=/var                             \
                --mandir=${GNOME210_PREFIX:-/usr}/share/man      \
                --infodir=${GNOME210_PREFIX:-/usr}/share/info    \
                --enable-nntp=yes                                \
-               --enable-imap4                                   \
                $OPTS                                            &&
+
   default_make                                                  &&
 
   if ! grep -q '/usr/lib/bonobo/servers' /etc/bonobo-activation/bonobo-activation-config.xml ; then
