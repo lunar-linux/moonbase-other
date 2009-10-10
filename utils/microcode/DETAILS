@@ -1,26 +1,19 @@
           MODULE=microcode
-         VERSION=20090330
+         VERSION=20090927
           SOURCE=$MODULE-$VERSION.tgz
-      SOURCE_URL=http://downloadmirror.intel.com/14303/eng/
+      SOURCE_URL=http://downloadmirror.intel.com/18148/eng/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:79b5db88f52866836d382309891c112eb7703853
+      SOURCE_VFY=sha1:2a953487bcf24057626bfdbd24d4a2010e10c7ef
         WEB_SITE=http://downloadcenter.intel.com/
          ENTERED=20070916
          UPDATED=20090702
            SHORT="Intel microcode - data files"
 
 cat <<EOF
-The microcode data file contains the latest
-microcode definitions for all Intel processors.
-Intel releases microcode updates to correct
-processor behavior as documented
-in the respective processor specification updates.
-While the regular approach to getting
-this microcode update is via a BIOS upgrade,
-Intel realizes that this can be an administrative hassle.
-The Linux Operating System and VMware ESX products
-have a mechanism to update the microcode after booting.
-For example, this file will be used by
-the operating system mechanism if the file is placed
-in the /etc/firmware directory of the Linux system.
+The microcode data file contains the latest microcode definitions for
+all Intel processors. Intel releases microcode updates to correct
+processor behavior as documented in the respective processor
+specification updates. While the regular approach to getting this
+microcode update is via a BIOS upgrade, Intel realizes that this can be
+an administrative hassle.
 EOF
