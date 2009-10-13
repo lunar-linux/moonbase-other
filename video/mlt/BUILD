@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --enable-gpl --avformat-swscale --cpu=$CPU"
+  OPTS+=" --enable-gpl --avformat-swscale"
 
   default_build
 

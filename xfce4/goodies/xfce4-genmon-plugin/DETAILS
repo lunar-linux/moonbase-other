@@ -1,15 +1,16 @@
           MODULE=xfce4-genmon-plugin
-         VERSION=3.1
+         VERSION=3.2
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://goodies.xfce.org/releases/$MODULE/
-      SOURCE_VFY=sha1:afec76670999efd8a17db791451aa26bf62ce58d
+   SOURCE_URL[0]=http://goodies.xfce.org/releases/$MODULE
+   SOURCE_URL[1]=http://mocha.xfce.org/archive/psrc/[anel-plugins/xfce4-genmon-plugin/3.2
+      SOURCE_VFY=sha1:ea224cdcd08051f080e07a2175c71008963c6dde
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://goodies.xfce.org/projects/panel-plugins/$MODULE
          ENTERED=20061124
-         UPDATED=20070602
-           SHORT="script monitor"
+         UPDATED=20091011
+           SHORT="A script monitor"
 
 cat << EOF
-this plugin cyclically spawns the indicated script/program, captures 
+This plugin cyclically spawns the indicated script/program, captures 
 its output (stdout) and displays the resulting string into the panel.
 EOF
