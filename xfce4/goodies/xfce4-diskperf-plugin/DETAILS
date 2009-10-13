@@ -1,15 +1,16 @@
           MODULE=xfce4-diskperf-plugin
-         VERSION=2.1.0
+         VERSION=2.2.0
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://goodies.xfce.org/releases/$MODULE/
-      SOURCE_VFY=sha1:66db93af32f4a3ca0ce931fed312b267a3a3dece
+   SOURCE_URL[0]=http://goodies.xfce.org/releases/$MODULE
+   SOURCE_URL[1]=http://mocha.xfce.org/archive/src/panel-plugins/xfce4-diskperf-plugin/2.2
+      SOURCE_VFY=sha1:d2691727807c56d49ab403d8828da25ad342588b
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.xfce.org
          ENTERED=20061124
-         UPDATED=20070123
-           SHORT="disk/partition performance monitor"
+         UPDATED=20091011
+           SHORT="A disk/partition performance monitor"
 
 cat << EOF
-this plugin displays instant disk/partition performance (bytes 
+This plugin displays instant disk/partition performance (bytes 
 transfered per second)
 EOF

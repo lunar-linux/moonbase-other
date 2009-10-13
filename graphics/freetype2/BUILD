@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   if [ $BYTECODE == "y" ] ; then
     sed -i -r 's:.*(#.*BYTE.*) .*:\1:' \
        include/freetype/config/ftoption.h
