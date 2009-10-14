@@ -1,6 +1,7 @@
 (
 
   patch_it $SOURCE2 1                   &&
+  patch_it $SOURCE3 1                   &&
 
   make MANDIR=/usr/share/man            &&
   prepare_install                       &&
