@@ -7,8 +7,7 @@
     OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
   fi  &&
 
-  # Excludes glew headers, and prevents need for /usr/include/GL/gl{,u,ut}.h
-  rm -r progs/{demos,samples}  &&
+  sedit s@glew@@g configure.ac &&
 
   ./configure --prefix=/usr $OPTS  &&
   prepare_install  &&
@@ -19,9 +18,6 @@
   cd progs/xdemos  &&
   make glxgears glxinfo  &&
   cd ../..  &&
-
-  # Prevent glew headers from being installed
-  rm include/GL/{glew,glxew,wglew}.h  &&
 
   make install  &&                 
 
