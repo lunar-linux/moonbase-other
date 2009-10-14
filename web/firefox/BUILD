@@ -25,6 +25,8 @@
 
   cd mozilla-1.9.1  &&
 
+  echo "ac_add_options --disable-necko-wifi" >> mozconfig
+
   #Add DEPENDS options
 
   if in_depends $MODULE dbus ; then
