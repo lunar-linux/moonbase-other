@@ -25,6 +25,19 @@
   scons LCGDIR=lib BF_BUILDDIR=build BF_INSTALLDIR=/opt/lunar/blender &&
 
   install -m 755 -d /usr/share/pixmaps/ &&
-  install -m 644 release/freedesktop/icons/32x32/blender.png /usr/share/pixmaps/
+  install -m 644 release/freedesktop/icons/32x32/blender.png /usr/share/pixmaps/ &&
+
+  # Desktop menu entry
+  cat > ${MODULE}.desktop << EOF  &&
+[Desktop Entry]
+Type=Application
+Name=Blender
+Comment=3D modeling, animation and rendering
+Exec=/opt/lunar/blender/blender
+Icon=/opt/lunar/blender/icons/scalable/blender.svg
+Categories=Qt;KDE;Graphics;
+EOF
+
+  install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop
 
 ) > $C_FIFO 2>&1
