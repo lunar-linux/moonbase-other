@@ -1,6 +1,10 @@
 (
 
   bad_flags -malign-double
+
+  if ! [ module_installed docbook-utils ]; then
+      patch_it $SOURCE_CACHE/$SOURCE2 1
+  fi  &&
   
   sedit "s:ln -s :ln -sf :" Makefile.in  &&
 
