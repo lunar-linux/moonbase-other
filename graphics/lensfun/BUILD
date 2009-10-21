@@ -1,5 +1,8 @@
 (
 
+# Just another gcc/glibc adjustment.
+  sedit "s:eol = strchr (var, 0);:eol = (char *)strchr (var, 0);:" tools/makedep/cppsetup.cpp &&
+
   ./configure --prefix=/usr   \
               $OPTS          &&
 # it has some outdated document tags and this fixes some of them
