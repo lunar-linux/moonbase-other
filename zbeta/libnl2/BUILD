@@ -1,6 +1,6 @@
 (
 
-  autoreconf  &&
+  ./autogen.sh  &&
 
   default_build
 
