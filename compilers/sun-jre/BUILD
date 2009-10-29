@@ -8,7 +8,7 @@
 
   prepare_install  &&
 
-  cp -a $SOURCE_DIRECTORY/jre${FVERSION} /usr/lib &&
+  cp -r $SOURCE_DIRECTORY/jre${FVERSION} /usr/lib &&
 
   # Some apps only search for java in /usr/java
   rm -rf /usr/java &&
