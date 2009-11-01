@@ -1,0 +1,19 @@
+          MODULE=terminal
+         VERSION=git-`date +%Y%U`
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=git+http://git.xfce.org/apps/$MODULE
+   MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
+        WEB_SITE=http://www.os-cillation.com
+         ENTERED=20090908
+         UPDATED=20090908
+           SHORT="vte based/gtk+-2 lightweight X-terminal"
+
+cat << EOF
+Terminal is a modern terminal emulator for the Unix/Linux desktop -
+primarily for the Xfce desktop environment. We developed it because
+we saw the need for a lightweight and easy-to-use terminal emulator
+in the Xfce desktop environment, that doesn't require the user to
+install the GNOME platform, but still provides a worthy alternative
+to the GNOME terminal emulator.
+EOF
