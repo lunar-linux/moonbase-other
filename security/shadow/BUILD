@@ -1,5 +1,16 @@
 (
 
+  set_login_opts() {
+    local option=$1 value=$2
+    if [[ -z $value ]]; then
+      # comment
+      sed -r -i "/^#?${option}/s;.*;#&;" etc/login.defs
+     else
+      # uncomment and set value
+      sed -r -i "/^#?${option}/s;.*;${option} ${value};" etc/login.defs
+     fi
+  }
+
   # Keep shadow from installing it's own pam.d files
   sedit '/^SUBDIRS/ n; s/etc//' Makefile.in Makefile.am &&
 
@@ -15,10 +26,11 @@
               --infodir=/usr/share/info \
               --mandir=/usr/share/man \
               --localedir=/usr/share/locale \
-              --with-libcrypt \
+              --with-sha-crypt \
               --with-libcrack \
               --without-selinux \
               --without-skey \
+              --without-group-name-max-length \
               $OPTS &&
 
   make &&
@@ -32,14 +44,24 @@
 
   # We only need these files without PAM
   if ! module_installed Linux-PAM; then
-    sedit 's|^CRACKLIB_DICTPATH.*$|CRACKLIB_DICTPATH /lib/cracklib/pw_dict|' etc/login.defs
-    sedit 's|#MD5_CRYPT_ENAB.*$|MD5_CRYPT_ENAB yes|' etc/login.defs
-    sedit 's|^USERGROUPS_ENAB.*|USERGROUPS_ENAB no|' etc/login.defs
+    set_login_opts CRACKLIB_DICTPATH /lib/cracklib/pw_dict
+    set_login_opts ENCRYPT_METHOD SHA512
+    set_login_opts LOGON_RETRIES 3
+
     [ -e /etc/limits ] || install -m 0644 etc/limits /etc/
     [ -e /etc/login.access ] || install -m 0644 etc/login.access /etc/
     [ -e /etc/login.defs ] || install -m 0644 etc/login.defs /etc/
   else
-    [ -e /etc/login.defs ] || install -m 0644 $SOURCE_CACHE/$SOURCE2 /etc/login.defs
+    # Disable pam incompatible options
+    for lopt in FAILLOG_ENAB LASTLOG_ENAB MAIL_CHECK_ENAB \
+                OBSCURE_CHECKS_ENAB PORTTIME_CHECKS_ENAB QUOTAS_ENAB \
+                MOTD_FILE FTMP_FILE NOLOGINS_FILE ENV_HZ PASS_MIN_LEN \
+                SU_WHEEL_ONLY CRACKLIB_DICTPATH PASS_CHANGE_TRIES \
+                PASS_ALWAYS_WARN CHFN_AUTH ENVIRON_FILE; do
+      set_login_opts $lopt
+    done
+
+    [ -e /etc/login.defs ] || install -m 0644 etc/login.defs /etc/login.defs
   fi &&
 
   [ -e /etc/securetty  ] || install -m 0644 $SCRIPT_DIRECTORY/securetty /etc/ &&
