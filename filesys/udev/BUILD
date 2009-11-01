@@ -11,6 +11,9 @@
     patch_it $SOURCE2 0 &&
     find $SOURCE_DIRECTORY/rules -type f -name '*.rules' -exec sed -i 's/uucp/dialout/g' {} \;  &&
 
+# Borrowing from the Arch folks to avoid any user related permissions.
+    echo "# Bluetooth rfkill switch" >> rules/gentoo/40-gentoo.rules &&
+    echo 'KERNEL=="rfkill", ENV{ACL_MANAGE}="1", GROUP="uucp"' >> rules/gentoo/40-gentoo.rules &&
     mv -f rules/gentoo/40-gentoo.rules rules/gentoo/40-lunar.rules  &&
 
     if [ "$WIPE_NET_DEV" == "y" ] ; then
