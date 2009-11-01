@@ -15,7 +15,7 @@ start()
     echo -n "Starting SASL Auth Daemon: "
     saslauthd $SASL_OPTIONS &&
     echo -e $RESULT_OK ||
-    (echo -e $RESULT_FAIL; return -1)
+    (echo -e $RESULT_FAIL; return 1)
 }
 
 stop()
@@ -26,7 +26,7 @@ stop()
         killall saslauthd
         sleep 2
         pidof saslauthd >/dev/null 2>&1 &&
-        (echo -e $RESULT_FAIL; return -1) ||
+        (echo -e $RESULT_FAIL; return 1) ||
         echo -e $RESULT_OK
     ) ||
     echo -e $RESULT_FAIL
