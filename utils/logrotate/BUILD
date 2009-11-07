@@ -19,7 +19,7 @@
   fi &&
 
   if [ ! -e /etc/cron.daily/logrotate ]; then
-    install -m 0644 examples/logrotate.cron /etc/cron.daily/logrotate
+    install -m 0755 examples/logrotate.cron /etc/cron.daily/logrotate
   fi &&
 
   gather_docs examples
