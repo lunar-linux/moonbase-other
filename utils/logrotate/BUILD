@@ -7,10 +7,10 @@
   prepare_install                    &&
   make install                       &&
 
-  mkdir -p /etc/logrotate.d \
-           /var/lib/logrotate &&
+  mkdir -p /etc/logrotate.d          &&
+  touch /var/lib/logrotate.status    &&
 
-  if [ ! -e /etc/logrotate.conf ] ; then
+  if [ ! -e /etc/logrotate.conf ]; then
     install -m 0644 examples/logrotate-default /etc/logrotate.conf
   fi &&
 
