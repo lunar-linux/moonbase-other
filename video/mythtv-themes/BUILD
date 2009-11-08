@@ -1,8 +1,11 @@
 (
 
-  . /etc/profile.d/qt3.rc &&
-  sedit 's|.*error.*|PREFIX=/usr\nINSTALL_ROOT=/usr|' myththemes.pro &&
-  qmake myththemes.pro    &&
+  . /etc/profile.d/qt4.rc   &&
+
+  ./configure --prefix=/usr  \
+              $OPTS         &&
+
+  qmake myththemes.pro      &&
 
   default_make
 
