@@ -24,8 +24,8 @@ plugin_cron_post_build()
       [ -d /etc/$DIR ] || mkdir -p /etc/$DIR
 
       for FILE in $SCRIPT_DIRECTORY/$DIR/*; do
-        if [ ! -f /etc/$DIR/$(basename $FILE) ]; then
-          verbose_msg "Installing $(basename $FILE) into /etc/$DIR"
+        if [ ! -f /etc/$DIR/${FILE##*/} ]; then
+          verbose_msg "Installing ${FILE##*/} into /etc/$DIR"
           if [ "$DIR" == "cron.d" ]; then
             /usr/bin/install -g 0 -o 0 -m 0644 $FILE /etc/$DIR/
           else

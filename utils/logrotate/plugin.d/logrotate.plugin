@@ -24,7 +24,7 @@ plugin_logrotate_post_build()
     [ -d $LOGDPATH ] || mkdir -p $LOGDPATH
 
     for FILE in $SPATH/*; do
-      if [ ! -f $LOGDPATH/$(basename $FILE) ]; then
+      if [ ! -f $LOGDPATH/${FILE##*/} ]; then
         /usr/bin/install -g 0 -o 0 -m 0644 $FILE $LOGDPATH/
       fi
     done
