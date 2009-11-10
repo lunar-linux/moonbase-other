@@ -1,6 +1,6 @@
 (
 
-  OPTS="--enable-mpfr" &&
+  OPTS="--enable-mpfr --enable-cxx" &&
   default_config &&
   make &&
   prepare_install &&
