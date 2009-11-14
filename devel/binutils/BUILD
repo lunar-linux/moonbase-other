@@ -1,7 +1,8 @@
 (
 
   ./configure  --host=$BUILD  \
-               --prefix=/usr  &&
+               --prefix=/usr  \
+               $OPTS          &&
 
   make tooldir=/usr           &&
   prepare_install             &&
