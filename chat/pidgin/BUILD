@@ -1,7 +1,6 @@
 (
 
-  # Voice & video need farsight
-  OPTS+=" --disable-nm --disable-vv"  &&
+  OPTS+=" --disable-nm" &&
 
   default_build
 
