@@ -3,6 +3,10 @@
   cd $SOURCE_DIRECTORY &&
   rm -f usr/X11R6/lib/modules/libnvidia-wfb* &&
   sedit '/wfb/d' .manifest &&
+  rm -f usr/lib/libvdpau.so* \
+        usr/lib/libvdpau_trace.so* &&
+  sedit '/libvdpau.so/d' .manifest &&
+  sedit '/libvdpau_trace.so/d' .manifest &&
 
   # Clean up old install before doing new one
   ./nvidia-installer --uninstall --silent &&
