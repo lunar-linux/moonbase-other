@@ -17,6 +17,9 @@
 
   mkdir -p /usr/lib/opengl/nvidia &&
 
+  mkdir -p /usr/include/GL/nvidia &&
+  install -m644 usr/include/GL/*.h /usr/include/GL/nvidia &&
+
   # We need to fool the installer a little as it checks for the
   # libraries after the installation
   export LD_LIBRARY_PATH="/usr/lib/opengl/nvidia" 
@@ -47,7 +50,7 @@
 
   ln -sf /usr/lib/opengl/nvidia/libGLcore.so.1 \
          /usr/lib/libGLcore.so.1 &&
-         
+
   ln -sf /usr/lib/opengl/nvidia/tls/libnvidia-tls.so.1 \
          /usr/lib/libnvidia-tls.so.1
 
