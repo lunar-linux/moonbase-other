@@ -1,13 +1,18 @@
           MODULE=xcmsdb
-         VERSION=1.0.1
+         VERSION=1.0.2
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$XORG_URL/individual/app/
-      SOURCE_VFY=sha1:733e5d54b33cdb131e69e2407d83980869017033
+      SOURCE_URL=$XORG_URL/individual/app
+      SOURCE_VFY=sha1:8341f7219a5720da758b0571eb1f4d9072265485
    MODULE_PREFIX=${X11R7_PREFIX:-/usr}
-        WEB_SITE=http://www.x.org/
+        WEB_SITE=http://www.x.org
          ENTERED=20060120
-         UPDATED=20060120
-           SHORT="Device Color Characterization utility for X Color Management"
+         UPDATED=20091118
+           SHORT="Device Color Characterization utility for X"
+	   
 cat << EOF
+xcmsdb is used to load, query, or remove Device Color Characterization
+data stored in properties on the root window of the screen as
+specified in section 7, Device Color Characterization, of the
+X11 Inter-Client Communication Conventions Manual (ICCCM).
 EOF
 
