@@ -12,7 +12,7 @@
   mkdir $AVO_BUILD_DIR &&
   cd $AVO_BUILD_DIR &&
 
-  OPTS="-DENABLE_GLSL=ON -DENABLE_PYTHON=ON -DPYTHON_LIBRARY=/usr/lib/libpython$LIB_VERSION.so"
+  OPTS="-DENABLE_GLSL=ON -DENABLE_PYTHON=ON -DPYTHON_LIBRARY=/usr/lib/libpython$LIB_VERSION.so" &&
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX   \
                            -DSHARE_INSTALL_PREFIX=/usr/share       \
@@ -21,7 +21,6 @@
 
   default_make &&
 
-#  sedit "s:Qt;:Qt;KDE;:" $MODULE_PREFIX/share/applications/avogadro.desktop &&
   sedit "s:Exec=:Exec=$MODULE_PREFIX/bin/:" /usr/share/applications/avogadro.desktop &&
   sedit "s:Icon=:Icon=/usr/share/pixmaps/:" /usr/share/applications/avogadro.desktop
 
