@@ -14,10 +14,6 @@
 
   chmod 6711 /usr/bin/crontab &&
 
-  mkdir -p /etc/cron.{daily,hourly,weekly,monthly,d} &&
-  install -m 755 $SOURCE_CACHE/$SOURCE2 /usr/bin/run-parts &&
-  [ -e /etc/config.d/crond ] || install -m 644 $SOURCE_DIRECTORY/crond.sysconfig /etc/config.d/crond &&
-  [ -e /etc/crontab ] || install -m 644 $SOURCE_CACHE/$SOURCE3 /etc/crontab &&
-  touch /etc/cron.deny
+  [ -e /etc/config.d/crond ] || install -m 644 $SOURCE_DIRECTORY/crond.sysconfig /etc/config.d/crond
 
 ) > $C_FIFO 2>&1

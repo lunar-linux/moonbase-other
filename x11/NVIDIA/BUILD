@@ -1,5 +1,13 @@
 (
 
+  cd $SOURCE_DIRECTORY &&
+  rm -f usr/X11R6/lib/modules/libnvidia-wfb* &&
+  sedit '/wfb/d' .manifest &&
+  rm -f usr/lib/libvdpau.so* \
+        usr/lib/libvdpau_trace.so* &&
+  sedit '/libvdpau.so/d' .manifest &&
+  sedit '/libvdpau_trace.so/d' .manifest &&
+
   # Clean up old install before doing new one
   ./nvidia-installer --uninstall --silent &&
 
@@ -19,6 +27,8 @@
   rm -rf old.libraries &&
 
   mkdir -p /usr/lib/opengl/nvidia &&
+  mkdir -p /usr/include/GL/nvidia &&
+  install -m644 usr/include/GL/*.h /usr/include/GL/nvidia &&
 
   # We need to fool the installer a little as it checks for the
   # libraries after the installation
@@ -50,8 +60,12 @@
 
   ln -sf /usr/lib/opengl/nvidia/libGLcore.so.1 \
          /usr/lib/libGLcore.so.1 &&
-         
+
   ln -sf /usr/lib/opengl/nvidia/tls/libnvidia-tls.so.1 \
          /usr/lib/libnvidia-tls.so.1
+
+  if !( module_installed gtk+-2 ); then
+    rm -f /usr/bin/nvidia-settings
+  fi
 
 ) > $C_FIFO 2>&1

@@ -174,7 +174,7 @@ start()
 	DEVNODES=`grep -o "dev=.*" /proc/cmdline | cut -d" " -f1 | sed -e "s/dev=//g"`
 
 	case $DEVNODES in
-		static|devfs)
+		static)
 			;;
 		udev)
 			if kernel_is_24 ; then
@@ -183,23 +183,18 @@ start()
 			fi
 			;;
 		?*)
-			warn_msg "Wrong device nodes parameter \"$DEVNODES\" on kernel line. Valid are: devfs, udev, static\nFalling back to default behaviour"
+			warn_msg "Wrong device nodes parameter \"$DEVNODES\" on kernel line. Valid are: udev, static\nFalling back to default behaviour"
 			DEVNODES=""
 			;;
 	esac
 
 	# default bahaviour if the user did not choose himself
 	if [ -z "$DEVNODES" ]; then
-		if kernel_is_26 && [ -x "/sbin/udevd" ] ; then
+		if kernel_is_26 ; then
 			DEVNODES="udev"
 			if [ -n "$DEBUG" ] ; then
 				echo -e "\n< Found udev >"
 			fi
-		elif [ -x "/sbin/devfsd" ] ; then
-			DEVNODES="devfs"
-	 		if [ -n "$DEBUG" ] ; then
-				echo -e "\n< Found devfs >"
-	 		fi
 		else
 			warn_msg "Assuming a static /dev"
 			DEVNODES="static"
@@ -208,10 +203,7 @@ start()
 
 	kernel_is_26 && run_with_msg " * Mounting /sys" "mount -n -t sysfs sysfs /sys"
 
-	if [ "$DEVNODES" = "devfs" ]; then
-		run_with_msg " * Mounting /dev" "mount -n -t devfs devfs /dev"
-		run_with_msg "Starting devfsd" "devfsd /dev"
-	elif [ "$DEVNODES" = "udev" ]; then
+	if [ "$DEVNODES" = "udev" ]; then
         run_with_msg " * Mounting udev  on /dev" "mount -w -n -t tmpfs udevfs /dev -o size=6m,mode=0755"
         # Creating "must have" static device nodes
         run_without_msg "mkdir -p /dev/{pts,shm}"
@@ -273,17 +265,11 @@ start()
  	run_without_msg "mount -f -o remount,rw /"
 	run_with_msg  "Turning on swap" "swapon -a"
 
-	# hack to get it into /etc/mtab
-	if [ "$DEVNODES" == "devfs" ]; then
-		run_without_msg "mount -f -t devfs devfs /dev"
-	fi
-
 	# Mount everything except NET_FS and a few others
 	NET_FS="nosmbfs nocifs nonfs nonfs4 nocoda noafs nogfs noncpfs noshfs"
 	run_with_msg "Mounting local filesystems:" "mount -a -t notmpfs,noproc,no${NET_FS// /,}"
 	# Mount all tmpfs devices after all physical
 	run_without_msg "mount -a -t tmpfs"
-
 
 }
 

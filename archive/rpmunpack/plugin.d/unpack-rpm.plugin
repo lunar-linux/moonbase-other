@@ -6,6 +6,7 @@
 #############################################################
 #                                                           #
 # Copyright 2005 by Auke Kok under GPLv2                    #
+# Copyright 2009 by Stefan Wold under GPLv2                 #
 #                                                           #
 #############################################################
 
@@ -13,12 +14,12 @@
 plugin_unpack_rpm() {
   case $1 in
     *.rpm)
-      if [ ! -x /usr/bin/rpmunpack ]; then
+      if [ ! -x /usr/bin/rpm2cpio ]; then
         message "${PROBLEM_COLOR}! Cannot unpack rpm files without ${MODULE_COLOR}rpmunpack${DEFAULT_COLOR}${PROBLEM_COLOR} installed${DEFAULT_COLOR}";
         exit 1
       fi
       debug_msg "Unpacking rpm file \"$1\""
-      rpmunpack < $1 | gzip -d | cpio -idm || return 1
+      rpm2cpio $1 | cpio -idm || return 1
       ;;
     *)
       # fallback: we don't know what to do!

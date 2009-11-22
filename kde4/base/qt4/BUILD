@@ -40,6 +40,7 @@
 
   echo "export QTDIR=\"${MODULE_PREFIX}\"" >> $SOURCE_DIRECTORY/qt4.rc  &&
   echo export PATH=\"'${QTDIR}'/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/qt4.rc  &&
+  echo export XDG_DATA_DIRS=\"/usr/share:'${QTDIR}'/share\" >> $SOURCE_DIRECTORY/qt4.rc &&
   echo export PKG_CONFIG_PATH=\"'${QTDIR}'/lib/pkgconfig:'${PKG_CONFIG_PATH}'\"  \
         >> $SOURCE_DIRECTORY/qt4.rc  &&
 

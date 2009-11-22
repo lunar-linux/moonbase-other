@@ -2,6 +2,8 @@
 
   KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build"
 
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
   source /etc/profile.d/qt4.rc &&
   source /etc/profile.d/kde4.rc &&
 
