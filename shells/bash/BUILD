@@ -1,14 +1,14 @@
 (
-
-  patch_it $SOURCE2 0 &&
-  patch_it $SOURCE3 0 &&
   bad_flags -malign-double
 
-  OPTS+=" --bindir=/bin             \
-          --with-installed-readline \
-	  --with-curses             \
-	  --without-bash-malloc     \
-	  ac_cv_func_working_mktime=yes"  &&
+  patch_it $SOURCE2 0 &&
+
+  OPTS+=" --bindir=/bin                \
+          --enable-readline            \
+          --without-installed-readline \
+          --with-curses                \
+          --without-bash-malloc        \
+          --disable-profiling"         &&
 
   default_build  &&
   ln -sf bash /bin/sh  &&

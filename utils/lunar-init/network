@@ -18,9 +18,9 @@ PPPD=$(which pppd 2> /dev/null)
 
 chkresult()
 {
-	if [ $? -eq "-1" ] ; then
+	if [ $? -eq "255" ] ; then
 		echo -e $RESULT_FAIL
-	elif [ $? -eq "-3" ]; then
+	elif [ $? -eq "253" ]; then
 		echo -e $RESULT_WARN
 	else
 		echo -e $RESULT_OK
@@ -53,13 +53,13 @@ function start_dhcp()
 
 	if [ ! -x $RUNFILE ]; then
 		echo -n " $DHCP_CLIENT not installed"
-		return -1
+		return 255
 	fi
 
 	if [ -e $PIDFILE ]; then
 		if [ $(ps ax | grep `cat $PIDFILE` | grep $DHCP_CLIENT | grep -v grep | wc -l) -ge 1 ]; then
 			echo -n " $DHCP_CLIENT already started"
-			return -3
+			return 253
 		else
 			rm -f $PIDFILE
 		fi
@@ -73,10 +73,10 @@ function start_dhcp()
 	if [ ! -e $PIDFILE ]; then
 		if [ $DHCP_EXIT -eq 0 ]; then
 			echo -n "DHCP exited cleanly"
-			return -3
+			return 253
 		else
 			echo -n "DHCP failed"
-			return -1
+			return 255
 		fi
 	fi
 }
@@ -130,7 +130,7 @@ function device_start()
 		case "$AUTO" in
 		    [!yY])
 		    echo -n "not started automatically"
-			return -2
+			return 254
 		    ;;
 		esac
 	fi
@@ -166,7 +166,7 @@ function device_start()
 
 		else
 			echo -n " ERROR: wpa_supplicant and/or ifplugd are missing!"
-			return -1
+			return 255
 		fi
 
 	elif [ "$MANAGER" == "ifplugd" ] ; then
@@ -207,7 +207,7 @@ function device_start()
 			fi
 		elif [ "$WIRELESS" == "Y" ] ; then
 			echo -n " ERROR: wireless_tools not installed!"
-			return -1
+			return 255
 		fi
 	  
 		# Assume direct DHCP/static IPs if no manager/manual is set
@@ -228,7 +228,7 @@ function device_start()
 		fi
 	else
 		echo -n " ERROR: No address specified and DHCP not configured!"
-		return -1
+		return 255
 	fi
 
 	# Now for the static routes
@@ -246,7 +246,7 @@ function device_stop()
 {
 	if [ ! -e "$CONFIGS/$1" ]; then
 		echo -n " missing config for $1"
-		return -1
+		return 255
 	fi
 
 	# Source configuration file
@@ -268,7 +268,7 @@ function device_stop()
 		case $AUTO in
 		    [!yY])
 			echo -n " not started"
-			return -1
+			return 255
 		    ;;
 		esac
 	fi

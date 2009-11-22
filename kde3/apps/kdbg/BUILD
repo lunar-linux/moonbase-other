@@ -1,5 +1,6 @@
 (
 
+  patch_it $SOURCE2 0 &&
   . /etc/profile.d/qt3.rc
   . /etc/profile.d/kde3.rc
 

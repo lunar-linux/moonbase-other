@@ -140,4 +140,8 @@
   ln -sf /usr/lib/tls/libnvidia-tls.so.1 \
          /usr/lib/libnvidia-tls.so.1
 
+  if !( module_installed gtk+-2 ); then
+    rm -f /usr/bin/nvidia-settings
+  fi
+
 ) > $C_FIFO 2>&1
