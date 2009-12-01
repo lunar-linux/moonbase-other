@@ -1,5 +1,7 @@
 (
 
+# cmake patch
+  patch_it $SOURCE_CACHE/$SOURCE3 0  &&
   # Compile with glibc 2.10.1
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
