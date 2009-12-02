@@ -10,7 +10,7 @@
   sedit "/^sysconf_DATA/d" modules/pam_env/Makefile.am  &&
 
   AT_M4DIR="m4" autoreconf &&
-  libtoolize &&
+#  libtoolize &&
 
   ./configure  --libdir=/lib                            \
                --docdir=/usr/share/doc/Linux-PAM        \
