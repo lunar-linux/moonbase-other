@@ -7,7 +7,7 @@
   ./configure --prefix=/usr  \
               $OPTS         &&
 	     
-  sedit "s: s : :" fontforge/Makefile  &&
+  #sedit "s: s : :" fontforge/Makefile  &&
 
   default_make
 

@@ -1,0 +1,33 @@
+          MODULE=liborange
+         VERSION=0.4
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/synce/Orange/$VERSION/
+      SOURCE_VFY=sha1:70028d570b9ed9831303a36c6ff60e74a5c7f3c9
+        WEB_SITE=http://www.synce.org/oldwiki/index.php/Orange
+         ENTERED=20091125
+         UPDATED=20091125
+           SHORT="extract Microsoft Cabinet Files from self-extracting installers"
+
+cat << EOF
+Orange is a tool and library for squeezing out juicy installable Microsoft 
+Cabinet Files from self-extracting installers for Microsoft Windows and some 
+other installer file formats. It currently supports the following kinds of 
+installers:
+
+    * Self-extracting installers (EXE):
+          o Early support for installers created by Installer VISE.
+          o Support for some installers created by Inno Setup.
+          o Setup Factory versions 5 and 6 using Dynamite for data decompression.
+          o Some other installer (using a DLL called inflate.dll). This is used 
+            by for example Macromedia Flash Player 6 for Pocket PC 2002.
+          o InstallShield self-extracting installers. 
+    * Other formats:
+          o APK, ARH Early support for the installer used by TomTom products.
+          o CAB InstallShield Cabinet files, using Unshield.
+          o CAB Microsoft Cabinet files (also self-extracting) when you have 
+            Stuart Caie's excellent Cabextract tool installed.
+          o MSI Microsoft Installer files, if libole2 is available.
+          o RAR archives (also self-extracting) when you have Unrar installed.
+          o ZIP archives (also self-extracting) when you have UnZip installed. 
+EOF
+

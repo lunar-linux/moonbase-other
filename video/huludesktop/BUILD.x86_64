@@ -1,8 +1,10 @@
 (
 
-  rpm2cpio $SOURCE_CACHE/$MODULE-x86_64.rpm > $MODULE.cpio &&
-  cd / &&
+  rpm2cpio $SOURCE > $MODULE.cpio &&
+  cpio -id < $SOURCE_DIRECTORY/$MODULE.cpio &&
   prepare_install &&
-  cpio -idm < $SOURCE_DIRECTORY/$MODULE.cpio
-  
+
+  cp -Rf etc/* /etc/ &&
+  cp -Rf usr/* /usr/
+
 ) > $C_FIFO 2>&1
