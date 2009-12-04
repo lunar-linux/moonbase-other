@@ -4,7 +4,7 @@
   export PATH=$QTDIR/bin:$PATH
   export LD_LIBRARY_PATH=$QTDIR/lib
 
-  sedit "s:COMMERCIAL_USER=ask:COMMERCIAL_USER=no:" configure
+  sedit "s:COMMERCIAL_USER=ask:COMMERCIAL_USER=no:" configure &&
 
   if module_installed phonon ; then
     OPTS+=" -phonon -phonon-backend"
@@ -20,9 +20,7 @@
     OPTS+=" -make examples -make demos -make tools -make docs -make translations"
   fi &&
 
-  OPTS+=" -release -fast -no-separate-debug-info -shared -qt-gif -system-libpng -system-libjpeg   \
-          -system-libmng -system-zlib -accessibility -pch -stl -webkit -fontconfig \
-          -largefile -glib -qt3support"
+  OPTS+=" -release -fast -no-separate-debug-info -script -scripttools -accessibility -pch -glib" &&
 
   echo "yes" | ./configure               \
                -prefix ${MODULE_PREFIX}  \
@@ -34,7 +32,7 @@
      cd tools/qdoc3 &&
      qmake -unix -o Makefile qdoc3.pro &&
      make    &&
-     install -D -m0755 qdoc3 $MODULE_PREFIX/tools/qdoc3/qdoc3 &&
+     install -m 755 ../../bin/qdoc3 $MODULE_PREFIX/bin/ &&
      cd $SOURCE_DIRECTORY
   fi &&
 
