@@ -3,12 +3,12 @@
   source /etc/profile.d/qt4.rc &&
   source /etc/profile.d/kde4.rc &&
 
-  QT_CREATOR_BLD="$SOURCE_DIRECTORY/creator-build"
+  QT_CREATOR_BLD="$SOURCE_DIRECTORY/creator-build" &&
 
   mkdir $QT_CREATOR_BLD &&
   cd $QT_CREATOR_BLD    &&
 
-  qmake $SOURCE_DIRECTORY/qtcreator.pro
+  qmake $SOURCE_DIRECTORY/qtcreator.pro &&
 
   make            &&
   prepare_install &&
