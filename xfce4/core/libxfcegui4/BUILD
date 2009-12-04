@@ -4,6 +4,11 @@
    # make sure proper PKG_CONFIG_PATH is set
    export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
 
-   default_cvs_build
+   ./configure  --build=$BUILD             \
+                --prefix=${MODULE_PREFIX}  \
+                --enable-xinerama          \
+                $OPTS                     &&
+
+   default_make
 
 ) > $C_FIFO 2>&1
