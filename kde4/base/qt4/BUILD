@@ -5,6 +5,7 @@
   export LD_LIBRARY_PATH=$QTDIR/lib
 
   sedit "s:COMMERCIAL_USER=ask:COMMERCIAL_USER=no:" configure &&
+  sedit "s/-O2/$CFLAGS/" mkspecs/common/g++.conf &&
 
   if module_installed phonon ; then
     OPTS+=" -phonon -phonon-backend"
