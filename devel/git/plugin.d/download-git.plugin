@@ -30,6 +30,8 @@ plugin_source_download_git() {
   fi
 
   GIT_URL=$(echo $1 | cut -d: -f1-2)
+  GIT_BRANCH=$(echo $1 | cut -s -d: -f3)
+
   # translate git+http(s) urls:
   if [ "${GIT_URL:0:8}" == "git+http" ]; then
     GIT_URL="${GIT_URL:4}"
@@ -64,10 +66,26 @@ plugin_source_download_git() {
       cd $SBASE
       verbose_msg "[${TRY}] git pull"
       git pull && git gc && GOT_GIT="yes" 
+      message "${MESSAGE_COLOR}Init and update the submodules${DEFAULT_COLOR}"
+      git submodule init
+      git submodule update
+      if [ -n "$GIT_BRANCH" ] ; then
+        message "${MESSAGE_COLOR}Checking out branch ${FILE_COLOR}$GIT_BRANCH${DEFAULT_COLOR}"
+        git checkout $GIT_BRANCH || activity_log "lget" "$MODULE" "$VERSION" "failed" "Could not checkout branch $GIT_BRANCH of \"$1\""
+      fi
       cd ${CD}
     else
       verbose_msg "[${TRY}] git clone $GIT_URL"
       git clone $GIT_URL $SBASE && GOT_GIT="yes"
+      cd $SBASE
+      message "${MESSAGE_COLOR}Init and update the submodules${DEFAULT_COLOR}"
+      git submodule init
+      git submodule update
+      if [ -n "$GIT_BRANCH" ] ; then
+        message "${MESSAGE_COLOR}Checking out branch ${FILE_COLOR}$GIT_BRANCH${DEFAULT_COLOR}"
+        git checkout $GIT_BRANCH || activity_log "lget" "$MODULE" "$VERSION" "failed" "Could not checkout branch $GIT_BRANCH of \"$1\""
+      fi
+      cd $TMPDIR/$MODULE-$VERSION
     fi
 
     if [ "$?" == "0" ] ; then
