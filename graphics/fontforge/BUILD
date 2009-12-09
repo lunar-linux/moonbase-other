@@ -1,7 +1,4 @@
 (
-  unset CFLAGS &&
-
-  unset CFLAGS && 
 
   # Options from:
   # http://repos.archlinux.org/viewvc.cgi/fontforge/repos/extra-i686/PKGBUILD?view=log
