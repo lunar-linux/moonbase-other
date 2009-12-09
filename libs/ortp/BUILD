@@ -1,9 +1,7 @@
 (
 
-  default_config &&
+  default_build &&
 
-  sedit "s:yes/:/:g" Makefile src/Makefile src/tests/Makefile
-
-  default_make
+  sedit "s:-Lyes:-L:" /usr/lib/pkgconfig/ortp.pc
 
 ) > $C_FIFO 2>&1
