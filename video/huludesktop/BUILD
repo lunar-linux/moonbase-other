@@ -1,7 +1,5 @@
 (
 
-(
-
   rpm2cpio $SOURCE > $MODULE.cpio &&
   cpio -id < $SOURCE_DIRECTORY/$MODULE.cpio &&
   prepare_install &&
