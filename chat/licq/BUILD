@@ -1,4 +1,5 @@
 ( 
+
   CONSOLE_PLUGIN="no"
   QT_PLUGIN="no"
   QT4_PLUGIN="no"
