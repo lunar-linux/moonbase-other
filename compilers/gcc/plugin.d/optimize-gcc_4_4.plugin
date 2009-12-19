@@ -283,7 +283,7 @@ EOF
             x86)
               OPTIONS=(
                 "None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
-                "autodetect" "autodetect" $( [ "$CPU" == "native" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
+                "native" "autodetect" $( [ "$CPU" == "autodetect" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
                 "i386" "i386" $( [ "$CPU" == "i386" ] && echo "on" || echo "off" ) "i386 processors"
                 "i486" "i486" $( [ "$CPU" == "i486" ] && echo "on" || echo "off" ) "i486 processors"
                 "i586" "i586 (Pentium)" $( [ "$CPU" == "i586" ] && echo "on" || echo "off" ) "i586 processors, identical to 'pentium'"
@@ -388,7 +388,7 @@ EOF
             x86_64)
               OPTIONS=(
                 "None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
-                "autodetect" "autodetect" $( [ "$CPU" == "native" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
+                "native" "autodetect" $( [ "$CPU" == "autodetect" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
                 "x86-64" "x86-64" $( [ "$CPU" == "x86-64" ] && echo "on" || echo "off" ) "Both AMD64 and Intel EM64T machines"
                 "nocona" "nocona" $( [ "$CPU" == "nocona" ] && echo "on" || echo "off" ) "Newer Xeons with sse3 and em64t"
                 "core2" "core2" $( [ "$CPU" == "core2" ] && echo "on" || echo "off" ) "Intel Core2 CPU with em64t SSE3 and SSSE3"
