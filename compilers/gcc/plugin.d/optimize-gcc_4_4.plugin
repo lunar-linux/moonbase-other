@@ -86,15 +86,26 @@ plugin_compiler_gcc_4_4_optimize()
       SSE)     c_cxx_flags_add "-msse" ;;
       SSE2)    c_cxx_flags_add "-msse2" ;;
       SSE3)    c_cxx_flags_add "-msse3" ;;
+      SSSE3)    c_cxx_flags_add "-mssse3" ;;
+      SSE4)    c_cxx_flags_add "-msse4" ;;
+      SSE4.1)    c_cxx_flags_add "-msse4.1" ;;
+      SSE4.2)    c_cxx_flags_add "-msse4.2" ;;
+      SSE4A)    c_cxx_flags_add "-msse4a" ;;
+      SSE5)    c_cxx_flags_add "-msse5" ;;
       dnow)    c_cxx_flags_add "-m3dnow" ;;
       Altivec) c_cxx_flags_add "-maltivec" ;;
+      AVX)    c_cxx_flags_add "-mavx" ;;
+      AES)    c_cxx_flags_add "-maes" ;;
+      PCLMUL)    c_cxx_flags_add "-mpclmul" ;;
+      POPCNT)    c_cxx_flags_add "-mpopcnt" ;;
+      ABM)    c_cxx_flags_add "-mabm" ;;
     esac
   done
 
   case $FPM in
     x387) c_cxx_flags_add "-mfpmath=387" ;;
     SSE)  c_cxx_flags_add "-mfpmath=sse" ;;
-    Both) c_cxx_flags_add "-mfpmath=sse,387" ;;
+    Both) c_cxx_flags_add "-mfpmath=both" ;;
   esac
 
   for OPT in ${CC_OPTS[@]}; do
@@ -272,6 +283,7 @@ EOF
             x86)
               OPTIONS=(
                 "None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
+                "autodetect" "autodetect" $( [ "$CPU" == "native" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
                 "i386" "i386" $( [ "$CPU" == "i386" ] && echo "on" || echo "off" ) "i386 processors"
                 "i486" "i486" $( [ "$CPU" == "i486" ] && echo "on" || echo "off" ) "i486 processors"
                 "i586" "i586 (Pentium)" $( [ "$CPU" == "i586" ] && echo "on" || echo "off" ) "i586 processors, identical to 'pentium'"
@@ -286,6 +298,7 @@ EOF
                 "core2" "Core 2" $( [ "$CPU" == "core2" ] && echo "on" || echo "off" ) "Intel Core 2 processors"
                 "prescott" "Xeon" $( [ "$CPU" == "prescott" ] && echo "on" || echo "off" ) "Newer Xeons with sse3"
                 "nocona" "nocona" $( [ "$CPU" == "nocona" ] && echo "on" || echo "off" ) "Newer Xeons with sse3 and em64t"
+                "core2" "core2" $( [ "$CPU" == "core2" ] && echo "on" || echo "off" ) "Intel Core2 CPU with em64t SSE3 and SSSE3"
                 "k6" "k6" $( [ "$CPU" == "k6" ] && echo "on" || echo "off" ) "AMD K6 processors"
                 "k6-2" "k6-2" $( [ "$CPU" == "k6-2" ] && echo "on" || echo "off" ) "AMD K6-2 processors"
                 "k6-3" "k6-3" $( [ "$CPU" == "k6-3" ] && echo "on" || echo "off" ) "AMD K6-3 processors"
@@ -298,6 +311,11 @@ EOF
                 "opteron" "opteron" $( [ "$CPU" == "opteron" ] && echo "on" || echo "off" ) "AMD opteron processors"
                 "athlon64" "athlon64" $( [ "$CPU" == "athlon64" ] && echo "on" || echo "off" ) "AMD Athlon 64 processors"
                 "athlon-fx" "athlon-fx" $( [ "$CPU" == "athlon-fx" ] && echo "on" || echo "off" ) "AMD Athlon fx processors"
+                "k8-sse3" "k8-sse3" $( [ "$CPU" == "k8-sse3" ] && echo "on" || echo "off" ) "AMD K8 processors with SSE3"
+                "opteron-sse3" "opteron-sse3" $( [ "$CPU" == "opteron-sse3" ] && echo "on" || echo "off" ) "AMD opteron processors with SSE3"
+                "athlon64-sse3" "athlon64-sse3" $( [ "$CPU" == "athlon64-sse3" ] && echo "on" || echo "off" ) "AMD Athlon 64 processors with SSE3"
+                "amdfam10" "amdfam10" $( [ "$CPU" == "amdfam10" ] && echo "on" || echo "off" ) "AMD K10 family: Phenom1,2 Athlon2 processors with SSE4A ABM"
+                "barcelona" "barcelona" $( [ "$CPU" == "barcelona" ] && echo "on" || echo "off" ) "AMD K10 family: barcelona core processors with SSE4A ABM"
                 "geode" "geode" $( [ "$CPU" == "geode" ] && echo "on" || echo "off" ) "AMD Geode processors"
                 "winchip-c6" "winchip-c6" $( [ "$CPU" == "winchip-c6" ] && echo "on" || echo "off" ) "IDT Winchip C6 CPU (a 486)"
                 "winchip2" "winchip2" $( [ "$CPU" == "winchip2" ] && echo "on" || echo "off" ) "IDT Winchip2 CPU (a 486)"
@@ -370,16 +388,23 @@ EOF
             x86_64)
               OPTIONS=(
                 "None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
+                "autodetect" "autodetect" $( [ "$CPU" == "native" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
                 "x86-64" "x86-64" $( [ "$CPU" == "x86-64" ] && echo "on" || echo "off" ) "Both AMD64 and Intel EM64T machines"
                 "nocona" "nocona" $( [ "$CPU" == "nocona" ] && echo "on" || echo "off" ) "Newer Xeons with sse3 and em64t"
+                "core2" "core2" $( [ "$CPU" == "core2" ] && echo "on" || echo "off" ) "Intel Core2 CPU with em64t SSE3 and SSSE3"
                 "k8" "k8" $( [ "$CPU" == "k8" ] && echo "on" || echo "off" ) "AMD K8 processors"
                 "opteron" "opteron" $( [ "$CPU" == "opteron" ] && echo "on" || echo "off" ) "AMD opteron processors"
                 "athlon64" "athlon64" $( [ "$CPU" == "athlon64" ] && echo "on" || echo "off" ) "AMD Athlon 64 processors"
                 "athlon-fx" "athlon-fx" $( [ "$CPU" == "athlon-fx" ] && echo "on" || echo "off" ) "AMD Athlon fx processors"
+                "k8-sse3" "k8-sse3" $( [ "$CPU" == "k8-sse3" ] && echo "on" || echo "off" ) "AMD K8 processors with SSE3"
+                "opteron-sse3" "opteron-sse3" $( [ "$CPU" == "opteron-sse3" ] && echo "on" || echo "off" ) "AMD opteron processors with SSE3"
+                "athlon64-sse3" "athlon64-sse3" $( [ "$CPU" == "athlon64-sse3" ] && echo "on" || echo "off" ) "AMD Athlon 64 processors with SSE3"
+                "amdfam10" "amdfam10" $( [ "$CPU" == "amdfam10" ] && echo "on" || echo "off" ) "AMD K10 family: Phenom1,2 Athlon2 processors with SSE4A ABM"
+                "barcelona" "barcelona" $( [ "$CPU" == "barcelona" ] && echo "on" || echo "off" ) "AMD K10 family: barcelona core processors with SSE4A ABM"
                 )
             ;;
           esac
-          menu radiolist "CPU, according to the kernel you have a$(cat /proc/cpuinfo | grep 'model name' | cut -d: -f2 | head -n 1). If you are unsure, use $(arch) - anything higher is not safe." &&
+          menu radiolist "CPU, according to the kernel you have a$(cat /proc/cpuinfo | grep 'model name' | cut -d: -f2 | head -n 1). If you are unsure, use autodetect - anything other is not safe." &&
           CPU=$RESULT
         ;;
         spd)
@@ -483,6 +508,24 @@ EOF
                   "dnow" "3dnow" $( echo ${XTRA[@]} | grep -q "dnow" && echo "on" || echo "off" ) "3dnow"
                   )
               fi
+              if grep -qw popcnt /proc/cpuinfo; then
+                OPTIONS=(
+                  ${OPTIONS[@]}
+                  "popcnt" "popcnt" $( echo ${XTRA[@]} | grep -q "popcnt" && echo "on" || echo "off" ) "population count mnemonic"
+                  )
+              fi
+              if grep -qw sse4a /proc/cpuinfo; then
+                OPTIONS=(
+                  ${OPTIONS[@]}
+                  "SSE4A" "SSE4A" $( echo ${XTRA[@]} | grep -q "SSE4A" && echo "on" || echo "off" ) "Streaming SIMD (Single Instruction, Multiple Data) AMD Extensions v4"
+                  )
+              fi
+              if grep -qw abm /proc/cpuinfo; then
+                OPTIONS=(
+                  ${OPTIONS[@]}
+                  "ABM" "ABM" $( echo ${XTRA[@]} | grep -q "ABM" && echo "on" || echo "off" ) "AMD Advanced Bit Manipulation"
+                  )
+              fi
             ;;
             PowerPC)
               if grep -qw altivec /proc/cpuinfo; then
@@ -493,7 +536,7 @@ EOF
             ;;
           esac
           unset FLAGS
-          for EXT in mmx sse sse2 pni 3dnow altivec ; do
+          for EXT in mmx sse sse2 pni 3dnow altivec popcnt sse4a abm; do
             if grep -qw "$EXT" /proc/cpuinfo ; then
               echo $EXT
               FLAGS="$FLAGS $EXT"
