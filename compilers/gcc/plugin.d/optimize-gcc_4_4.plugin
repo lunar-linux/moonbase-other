@@ -92,7 +92,7 @@ plugin_compiler_gcc_4_4_optimize()
       SSE4.2)    c_cxx_flags_add "-msse4.2" ;;
       SSE4A)    c_cxx_flags_add "-msse4a" ;;
       SSE5)    c_cxx_flags_add "-msse5" ;;
-      dnow)    c_cxx_flags_add "-m3dnow" ;;
+      3dnow)    c_cxx_flags_add "-m3dnow" ;;
       Altivec) c_cxx_flags_add "-maltivec" ;;
       AVX)    c_cxx_flags_add "-mavx" ;;
       AES)    c_cxx_flags_add "-maes" ;;
@@ -125,6 +125,14 @@ plugin_compiler_gcc_4_4_optimize()
   CC=gcc
   CXX=g++
   CPP=cpp
+
+  if [ -n "$MYCFLAGS" ]; then
+  CFLAGS=$MYCFLAGS
+  CXXFLAGS=$MYCFLAGS
+  fi
+  if [ -n "$MYCXXFLAGS" ]; then
+  CXXFLAGS=$MYCXXFLAGS
+  fi
 
   export CFLAGS CXXFLAGS CPPFLAGS
   export CC CXX CPP
@@ -283,7 +291,7 @@ EOF
             x86)
               OPTIONS=(
                 "None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
-                "native" "autodetect" $( [ "$CPU" == "autodetect" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
+                "native" "autodetect" $( [ "$CPU" == "native" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
                 "i386" "i386" $( [ "$CPU" == "i386" ] && echo "on" || echo "off" ) "i386 processors"
                 "i486" "i486" $( [ "$CPU" == "i486" ] && echo "on" || echo "off" ) "i486 processors"
                 "i586" "i586 (Pentium)" $( [ "$CPU" == "i586" ] && echo "on" || echo "off" ) "i586 processors, identical to 'pentium'"
@@ -298,7 +306,6 @@ EOF
                 "core2" "Core 2" $( [ "$CPU" == "core2" ] && echo "on" || echo "off" ) "Intel Core 2 processors"
                 "prescott" "Xeon" $( [ "$CPU" == "prescott" ] && echo "on" || echo "off" ) "Newer Xeons with sse3"
                 "nocona" "nocona" $( [ "$CPU" == "nocona" ] && echo "on" || echo "off" ) "Newer Xeons with sse3 and em64t"
-                "core2" "core2" $( [ "$CPU" == "core2" ] && echo "on" || echo "off" ) "Intel Core2 CPU with em64t SSE3 and SSSE3"
                 "k6" "k6" $( [ "$CPU" == "k6" ] && echo "on" || echo "off" ) "AMD K6 processors"
                 "k6-2" "k6-2" $( [ "$CPU" == "k6-2" ] && echo "on" || echo "off" ) "AMD K6-2 processors"
                 "k6-3" "k6-3" $( [ "$CPU" == "k6-3" ] && echo "on" || echo "off" ) "AMD K6-3 processors"
@@ -314,7 +321,7 @@ EOF
                 "k8-sse3" "k8-sse3" $( [ "$CPU" == "k8-sse3" ] && echo "on" || echo "off" ) "AMD K8 processors with SSE3"
                 "opteron-sse3" "opteron-sse3" $( [ "$CPU" == "opteron-sse3" ] && echo "on" || echo "off" ) "AMD opteron processors with SSE3"
                 "athlon64-sse3" "athlon64-sse3" $( [ "$CPU" == "athlon64-sse3" ] && echo "on" || echo "off" ) "AMD Athlon 64 processors with SSE3"
-                "amdfam10" "amdfam10" $( [ "$CPU" == "amdfam10" ] && echo "on" || echo "off" ) "AMD K10 family: Phenom1,2 Athlon2 processors with SSE4A ABM"
+                "amdfam10" "AMD K10 Phenom/new K10 based Opteron family" $( [ "$CPU" == "amdfam10" ] && echo "on" || echo "off" ) "AMD K10 family: Phenom1,2 Athlon2, new Opteron K10 based processors with SSE4A ABM"
                 "barcelona" "barcelona" $( [ "$CPU" == "barcelona" ] && echo "on" || echo "off" ) "AMD K10 family: barcelona core processors with SSE4A ABM"
                 "geode" "geode" $( [ "$CPU" == "geode" ] && echo "on" || echo "off" ) "AMD Geode processors"
                 "winchip-c6" "winchip-c6" $( [ "$CPU" == "winchip-c6" ] && echo "on" || echo "off" ) "IDT Winchip C6 CPU (a 486)"
@@ -388,7 +395,7 @@ EOF
             x86_64)
               OPTIONS=(
                 "None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
-                "native" "autodetect" $( [ "$CPU" == "autodetect" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
+                "native" "autodetect" $( [ "$CPU" == "native" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
                 "x86-64" "x86-64" $( [ "$CPU" == "x86-64" ] && echo "on" || echo "off" ) "Both AMD64 and Intel EM64T machines"
                 "nocona" "nocona" $( [ "$CPU" == "nocona" ] && echo "on" || echo "off" ) "Newer Xeons with sse3 and em64t"
                 "core2" "core2" $( [ "$CPU" == "core2" ] && echo "on" || echo "off" ) "Intel Core2 CPU with em64t SSE3 and SSSE3"
@@ -399,7 +406,7 @@ EOF
                 "k8-sse3" "k8-sse3" $( [ "$CPU" == "k8-sse3" ] && echo "on" || echo "off" ) "AMD K8 processors with SSE3"
                 "opteron-sse3" "opteron-sse3" $( [ "$CPU" == "opteron-sse3" ] && echo "on" || echo "off" ) "AMD opteron processors with SSE3"
                 "athlon64-sse3" "athlon64-sse3" $( [ "$CPU" == "athlon64-sse3" ] && echo "on" || echo "off" ) "AMD Athlon 64 processors with SSE3"
-                "amdfam10" "amdfam10" $( [ "$CPU" == "amdfam10" ] && echo "on" || echo "off" ) "AMD K10 family: Phenom1,2 Athlon2 processors with SSE4A ABM"
+                "amdfam10" "AMD K10 family Phenom/new  K10 based Opteron" $( [ "$CPU" == "amdfam10" ] && echo "on" || echo "off" ) "AMD K10 family: Phenom1,2 Athlon2, new Opteron K10 family processors with SSE4A ABM"
                 "barcelona" "barcelona" $( [ "$CPU" == "barcelona" ] && echo "on" || echo "off" ) "AMD K10 family: barcelona core processors with SSE4A ABM"
                 )
             ;;
@@ -502,10 +509,34 @@ EOF
                   "SSE3" "SSE3" $( echo ${XTRA[@]} | grep -q "SSE3" && echo "on" || echo "off" ) "Streaming SIMD (Single Instruction, Multiple Data) Extensions v3"
                   )
               fi
+              if grep -qw ssse3 /proc/cpuinfo; then
+                OPTIONS=(
+                  ${OPTIONS[@]}
+                  "SSSE3" "SSSE3" $( echo ${XTRA[@]} | grep -q "SSSE3" && echo "on" || echo "off" ) "Supplemental Streaming SIMD (Single Instruction, Multiple Data) Extensions v3"
+                  )
+              fi
+              if grep -qw sse4_1 /proc/cpuinfo; then
+                OPTIONS=(
+                  ${OPTIONS[@]}
+                  "SSE4.1" "SSE4.1" $( echo ${XTRA[@]} | grep -q "SSE4.1" && echo "on" || echo "off" ) "Streaming SIMD (Single Instruction, Multiple Data) Extensions v4 part 1"
+                  )
+              fi
+              if grep -qw sse4_2 /proc/cpuinfo; then
+                OPTIONS=(
+                  ${OPTIONS[@]}
+                  "SSE4.2" "SSE4.2" $( echo ${XTRA[@]} | grep -q "SSE4.2" && echo "on" || echo "off" ) "Streaming SIMD (Single Instruction, Multiple Data) Extensions v4 part 2"
+                  )
+              fi
+              if grep -qw sse4_1\ sse4_2 /proc/cpuinfo; then
+                OPTIONS=(
+                  ${OPTIONS[@]}
+                  "SSE4" "SSE4" $( echo ${XTRA[@]} | grep -q "SSE4" && echo "on" || echo "off" ) "Streaming SIMD (Single Instruction, Multiple Data) Extensions v4 full: part 1 + part 2"
+                  )
+              fi
               if grep -qw 3dnow /proc/cpuinfo; then
                 OPTIONS=(
                   ${OPTIONS[@]}
-                  "dnow" "3dnow" $( echo ${XTRA[@]} | grep -q "dnow" && echo "on" || echo "off" ) "3dnow"
+                  "3dnow" "3dnow" $( echo ${XTRA[@]} | grep -q "3dnow" && echo "on" || echo "off" ) "3dnow"
                   )
               fi
               if grep -qw popcnt /proc/cpuinfo; then
@@ -517,7 +548,7 @@ EOF
               if grep -qw sse4a /proc/cpuinfo; then
                 OPTIONS=(
                   ${OPTIONS[@]}
-                  "SSE4A" "SSE4A" $( echo ${XTRA[@]} | grep -q "SSE4A" && echo "on" || echo "off" ) "Streaming SIMD (Single Instruction, Multiple Data) AMD Extensions v4"
+                  "SSE4A" "SSE4A" $( echo ${XTRA[@]} | grep -q "SSE4A" && echo "on" || echo "off" ) "AMD Streaming SIMD (Single Instruction, Multiple Data) Extensions v4"
                   )
               fi
               if grep -qw abm /proc/cpuinfo; then
@@ -536,13 +567,14 @@ EOF
             ;;
           esac
           unset FLAGS
-          for EXT in mmx sse sse2 pni 3dnow altivec popcnt sse4a abm; do
+          for EXT in mmx sse sse2 pni 3dnow altivec popcnt sse4a abm ssse3 sse4_1 sse4_2 sse4_1\ sse4_2; do
             if grep -qw "$EXT" /proc/cpuinfo ; then
               echo $EXT
               FLAGS="$FLAGS $EXT"
             fi
           done
           FLAGS=${FLAGS/pni/sse3}
+	  FLAGS=${FLAGS/sse4_1\ sse4_2/sse4}
           menu checklist "Select compiler use of extra instruction sets. The kernel reports that this system has: $FLAGS. None of these are safe." &&
           XTRA=($RESULT)
         ;;
