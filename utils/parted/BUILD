@@ -1,4 +1,5 @@
 (
+
   # fix for inlines not supported by gcc-4.2.x
   export CFLAGS="$CFLAGS -fgnu89-inline"
 
