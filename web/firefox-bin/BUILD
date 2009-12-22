@@ -35,4 +35,4 @@
 #          /usr/lib/firefox-$VERSION/chrome/icons/default/default$icon.png
 # done
 
-) > $C_FIFO 2>&
+) > $C_FIFO 2>&1
