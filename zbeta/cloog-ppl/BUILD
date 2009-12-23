@@ -1,10 +1,9 @@
 (
 
+  CFLAGS="$CFLAGS -I/usr/include/polylib" &&
+
   OPTS="--with-ppl" &&
-  default_config &&
-  make &&
-  prepare_install &&
-  make check &&
-  make install
+
+  default_build
 
 ) > $C_FIFO 2>&1
