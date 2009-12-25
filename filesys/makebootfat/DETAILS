@@ -7,10 +7,10 @@
   SOURCE2_URL[1]=http://ftp.usf.edu/pub/freedos/files/distributions/1.0/
   SOURCE2_URL[2]=http://freedos.bbnx.net/files/distributions/1.0/
       SOURCE_VFY=sha1:a60173de1a223a75e6fa781eac126c3b431993e5
-     SOURCE2_VFY=sha1:2b371a27941fa05f432dd964e0f6e81fd0308137
+     SOURCE2_VFY=sha1:ce1f7bc6f0c29f47f74eb69a7b61483201e61774
         WEB_SITE=http://advancemame.sourceforge.net/boot-readme.html
          ENTERED=20091004
-         UPDATED=20091004
+         UPDATED=20091225
            SHORT="command-line utility to create bootable FAT filesystems"
 
 cat << EOF
@@ -19,5 +19,8 @@ files and boot tools.
 
 Sample command:
 
-makebootfat -o usb -v -E 255 -1 /usr/share/makebootfat/fat12.bin -2 /usr/share/makebootfat/fat16.bin -3 /usr/share/makebootfat/fat32lba.bin -m /usr/share/syslinux/mbr.bin -c /usr/share/makebootfat/kernel.sys -c /usr/share/makebootfat/command.com image
+makebootfat -o usb -v -E 255 -1 /usr/share/makebootfat/fat12.bin -2 
+/usr/share/makebootfat/fat16.bin -3 /usr/share/makebootfat/fat32lba.bin -m 
+/usr/share/syslinux/mbr.bin -c /usr/share/makebootfat/kernel.sys -c 
+/usr/share/makebootfat/command.com image
 EOF
