@@ -2,7 +2,7 @@
 
   OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build" &&
 
-  . /etc/profile.d/qt4/rc &&
+  . /etc/profile.d/qt4.rc &&
 
   mkdir $OOTB_DIR &&
   cd $OOTB_DIR    &&
