@@ -1,21 +1,22 @@
           MODULE=pycrypto
-         VERSION=2.0.1
+         VERSION=2.1.0
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://www.amk.ca/files/python/crypto
-        WEB_SITE=http://www.amk.ca/python/code/crypto.html
+      SOURCE_URL=http://ftp.dlitz.net/pub/dlitz/crypto/$MODULE
+      SOURCE_VFY=sha1:b4baa1b5f349a7e5c497f4c7b4070c3f630519f8
+        WEB_SITE=http://www.dlitz.net/software/pycrypto
          ENTERED=20030210
-         UPDATED=20050821
+         UPDATED=20091230
            SHORT="Crypto module for python"
+
 cat << EOF
-DESCRIPTION:
 The Toolkit is a collection of cryptographic algorithms and protocols,
 implemented for use from Python. Among the contents of the package:
-
     * Hash functions: MD2, MD4, RIPEMD.
-    * Block encryption algorithms: AES, ARC2, Blowfish, CAST, DES, Triple-DES, IDEA, RC5.
+    * Block encryption algorithms: AES, ARC2, Blowfish, CAST, DES, 
+      Triple-DES, IDEA, RC5.
     * Stream encryption algorithms: ARC4, simple XOR.
     * Public-key algorithms: RSA, DSA, ElGamal, qNEW.
     * Protocols: All-or-nothing transforms, chaffing/winnowing.
-    * Miscellaneous: RFC1751 module for converting 128-key keys into a set of English words, primality testing.
-    * Some demo programs (currently all quite old and outdated).
+    * Miscellaneous: RFC1751 module for converting 128-key keys into a 
+      set of English words, primality testing.
 EOF
