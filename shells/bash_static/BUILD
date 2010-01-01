@@ -4,11 +4,11 @@
 
     patch_it $SOURCE2 0 &&
 
-    OPTS+=" --bindir=/bin                \
-            --without-bash-malloc        \
-            --without-installed-readline \
-            --with-curses                \
-            --enable-static-link         \
+    OPTS+=" --bindir=/bin                 \
+            --without-bash-malloc         \
+            --without-installed-readline  \
+            --with-curses                 \
+            --enable-static-link          \
             --disable-profiling"         &&
 
     default_config   &&
