@@ -3,11 +3,11 @@
 
   patch_it $SOURCE2 0 &&
 
-  OPTS+=" --bindir=/bin                \
-          --enable-readline            \
-          --without-installed-readline \
-          --with-curses                \
-          --without-bash-malloc        \
+  OPTS+=" --bindir=/bin                 \
+          --enable-readline             \
+          --without-installed-readline  \
+          --with-curses                 \
+          --without-bash-malloc         \
           --disable-profiling"         &&
 
   default_build  &&
