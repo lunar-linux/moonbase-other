@@ -1,6 +1,4 @@
 (
-  patch_it $SOURCE2 1 &&
-
   if [ "$USE_XTERM_COL" == "y" ]; then
     patch_it doc/urxvt-8.2-256color.patch 1 &&
     ./autogen.sh
