@@ -86,17 +86,12 @@ optional_depends "gnome-vfs"                             \
                  "--disable-gnome-vfs --disable-lockdown --enable-gio" \
                  "for GNOME-vfs integration"
 
-optional_depends "kdelibs3"             \
-                 "--enable-kde --enable-kdeab"   \
-                 "--disable-kde --disable-kdeab" \
-                 "to enable KDE support"
-
 optional_depends "Linux-PAM"            \
                  "--enable-pam-link"    \
                  "--disable-pam"        \
                  "for Linux-PAM support"
 
-optional_depends "vigra"                         \
-                 "--with-system-vigra"           \
-                 "--without-system-vigra"        \
+optional_depends "vigra"                   \
+                 "--with-system-vigra"     \
+                 "--without-system-vigra"  \
                  "For generic algorithm support"
