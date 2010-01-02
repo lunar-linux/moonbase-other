@@ -1,7 +1,4 @@
 (
-  if [ "$USE_UTF8" == "y" ]; then
-    patch_it $SOURCE2 1
-  fi
 
   automake --add-missing
 
@@ -19,9 +16,6 @@
                    --with-terminfo            \
                    --disable-glibtest         \
                    --with-ext2undel          &&
-
-  #Fix bzip2 warning
-  sedit "s/--repetitive-best/-9/" lib/mc.menu  &&
 
   default_make
 
