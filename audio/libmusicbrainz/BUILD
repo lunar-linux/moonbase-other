@@ -1,15 +1,15 @@
 (
 
-  patch_it $SOURCE2 0  &&
+  sed -i "29i #include <stdio.h>" src/utils_private.cpp src/utils_private.h &&
 
-  OPTS="$OPTS --enable-cpp-headers"
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build" &&
 
-  default_build  &&
+  mkdir $OOTB_DIR &&
+  cd $OOTB_DIR    &&
 
-  if module_installed ctypes ; then
-        cd python;
-        python setup.py build;
-        python setup.py install;
-  fi
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
+                           -DCMAKE_BUILD_TYPE=RELEASE             \
+                           $OPTS                                 &&
+  default_make
 
 ) > $C_FIFO 2>&1
