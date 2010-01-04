@@ -1,0 +1,19 @@
+          MODULE=nspr
+         VERSION=4.8.2
+       MINOR_VER=2
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-4.8-pkgconfig-gentoo.patch
+      SOURCE_URL=http://ftp.mozilla.org/pub/mozilla.org/$MODULE/releases/v${VERSION}/src/
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:14af8f12a0975630a13f5aa3c890e92960a0be93
+     SOURCE2_VFY=sha1:c41c608247aa712f783a1ec8ea2943b79dee44eb
+        WEB_SITE=http://www.mozilla.org/projects/nspr
+         ENTERED=20100104
+         UPDATED=20100104
+           PSAFE="no"
+           SHORT="Netscape Portable Runtime (NSPR)"
+cat << EOF
+This provides a platform-neutral API for system level and libc like functions.
+The API is used in the Mozilla clients and many of Red Hat's, Sun's, and other
+software offerings.
+EOF
