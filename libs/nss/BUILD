@@ -39,16 +39,9 @@
 
   cd dist &&
 
-  mkdir -p /usr/lib/nss &&
-  install -v -m755 ${NSS_LINUXDIR}/lib/*.so /usr/lib/nss &&
-  install -v -m644 ${NSS_LINUXDIR}/lib/{*.chk,*.a} /usr/lib/nss &&
+  install -v -m755 ${NSS_LINUXDIR}/lib/*.so /usr/lib/ &&
+  install -v -m644 ${NSS_LINUXDIR}/lib/{*.chk,*.a} /usr/lib/ &&
   mkdir -p /usr/include/nss &&
-  install -v -m644 {public,private}/nss/* /usr/include/nss/ &&
-
-  cd /usr/lib/nss &&
-  for file in *.so; do
-    mv ${file} ${file}.${MINOR_VER}
-    ln -s ${file}.${MINOR_VER} ${file}
-  done
+  install -v -m644 {public,private}/nss/* /usr/include/nss/
 
 ) > $C_FIFO 2>&1
