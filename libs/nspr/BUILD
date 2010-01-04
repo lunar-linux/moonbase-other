@@ -20,12 +20,6 @@
                                $OPTS &&
   default_make &&
 
-  cd /usr/lib/nspr &&
-  for file in *.so; do
-    mv ${file} ${file}.${MINOR_VER}
-    ln -s ${file}.${MINOR_VER} ${file}
-  done &&
-
   install -m 755 $SOURCE_DIRECTORY/build/config/nspr-config /usr/bin/ &&
   cp -a $SOURCE_DIRECTORY/build/config/nspr.pc /usr/lib/pkgconfig/ &&
   rm /usr/bin/prerr.properties
