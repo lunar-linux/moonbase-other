@@ -4,6 +4,7 @@
   message "${MESSAGE_COLOR}Installing Chrome ${VERSION}...${DEFAULT_COLOR}"  &&
   cd /opt/lunar &&
   unpack $SOURCE &&
+  chmod 755 /opt/lunar/chrome-linux &&
 
   ln -sf /opt/lunar/plugins /opt/lunar/${MODULE}/plugins &&
   if [ ! -h /usr/bin/chrome-linux ]; then
@@ -13,7 +14,7 @@
   # Adjust permission from the zip file
   cd /opt/lunar/${MODULE} &&
   chmod 755 chrome chrome_sandbox chrome-wrapper libffmpegsumo.so xdg-settings &&
-  chmod -R 644 chrome.1 locales resources product_logo_48.png &&
+  chmod -R 644 chrome.1 chrome.pak locales resources product_logo_48.png &&
 
   # Create the required symlinks
   ln -sf /usr/lib/nspr/libnspr4.so /opt/lunar/${MODULE}/libnspr4.so.0d  &&
