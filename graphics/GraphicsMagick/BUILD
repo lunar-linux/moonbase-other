@@ -1,10 +1,5 @@
 (
 
-  if module_installed qt3 ; then
-    . /etc/profile.d/qt3.rc   &&
-    . /etc/profile.d/kde3.rc
-  fi &&
-
 # These sedits are temporary and should be fixed in the next release.
 # Check to be sure.
 
