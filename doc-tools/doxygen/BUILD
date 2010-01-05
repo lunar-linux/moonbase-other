@@ -1,7 +1,4 @@
 (
-  if in_depends doxygen qt3; then
-    . /etc/profile.d/qt3.rc
-  fi &&
 
   if in_depends doxygen qt4; then
     . /etc/profile.d/qt4.rc
@@ -13,8 +10,8 @@
     make distclean
   fi &&
 
-  ./configure --prefix /usr               \
-              $OPTS                      &&
+  ./configure --prefix /usr  \
+              $OPTS         &&
 
   make             &&
   if which python 2> /dev/null 1>&2; then
