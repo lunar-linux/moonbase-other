@@ -1,9 +1,5 @@
 (
 
-  if in_depends $MODULE PyQt; then
-    . /etc/profile.d/qt3.rc
-  fi &&
-
   if in_depends $MODULE PyQt4; then
      . /etc/profile.d/qt4.rc
   fi &&
