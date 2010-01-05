@@ -10,9 +10,9 @@
   # Disable hardening, so normal users can run it
   OPTS+=" --disable-hardening"   &&
   OPTS+=" --with-qt4-dir=$QTDIR" &&
-  ./configure $OPTS             &&
-  source ./env.sh               &&
-  kmk                           &&
+  ./configure $OPTS              &&
+  source ./env.sh                &&
+  kmk                            &&
 
   # Build source package for kernel module
   pushd out/linux.x86/release/bin/ &&
