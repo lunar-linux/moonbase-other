@@ -40,7 +40,10 @@
   cd dist &&
 
   install -v -m755 ${NSS_LINUXDIR}/lib/*.so /usr/lib/ &&
-  install -v -m644 ${NSS_LINUXDIR}/lib/{*.chk,*.a} /usr/lib/ &&
+
+  # hack to fix overwriting libssl.a from openssl
+  install -v -m644 ${NSS_LINUXDIR}/lib/{*.chk,libc*.a,libd*.a,libf*.a,libj*.a,libn*.a,libp*.a,libsectool.a,libsmime.a,libsoftokn.a} /usr/lib/ &&
+
   mkdir -p /usr/include/nss &&
   install -v -m644 {public,private}/nss/* /usr/include/nss/
 
