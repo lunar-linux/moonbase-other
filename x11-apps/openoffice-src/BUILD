@@ -16,14 +16,6 @@
   rm -rf commons-codec-1.3 commons-logging-1.1.1-src &&
   cd - &&
 
-  if module_installed qt3; then
-   . /etc/profile.d/qt3.rc
-  fi &&
-
-  if module_installed kdelibs3; then
-   . /etc/profile.d/kde3.rc
-  fi &&
-
   . /etc/profile.d/pkgconfig.rc &&
 
   OO_DIR="/opt/lunar/openoffice-src"
