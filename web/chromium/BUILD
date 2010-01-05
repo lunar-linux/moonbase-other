@@ -60,6 +60,14 @@ EOF
   # symlink to lunar location for browser plugins, should be /opt/lunar/plugins
   ln -sf /opt/lunar/plugins ${CHROMIUM_HOME}/plugins &&
 
+  # icon installation
+  mkdir -p /usr/share/pixmaps &&
+  install -m644 out/Release/product_logo_48.png /usr/share/pixmaps/chromium-browser.png &&
+
+  # theme installation
+  mkdir -p /usr/share/themes/Chromium &&
+  cp -a $SOURCE_DIRECTORY/chrome/app/theme /usr/share/themes/Chromium/ &&
+
   ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium
 
 ) > $C_FIFO 2>&1
