@@ -4,9 +4,6 @@ depends cdparanoia
 depends ffmpeg
 depends gstreamer
 
-optional_depends "arts"          "--enable-arts --enable-artsc"               \
-                                 "--disable-arts --disable-artsc"             \
-                                 "for arts support"                           
 optional_depends "libfame"       "--enable-libfame --enable-libfametest"      \
                                  "--disable-libfame --disable-libfametest"    \
                                  "for Fame encoding support"                  
@@ -28,8 +25,6 @@ optional_depends "a52dec"        "--enable-a52dec"     "--disable-a52dec"     \
                                  "for A/52 input stream support"              
 optional_depends "alsa-lib"      "--enable-alsa"       "--disable-alsa"       \
                                  "for ALSA output support"                    
-optional_depends "avifile"       "--enable-avifile"    "--disable-avifile"    \
-                                 "for avi video support"                      
 optional_depends "gnome-vfs"    "--enable-gnome_vfs"  "--disable-gnome_vfs"   \
                                  "for gnome-vfs support"                     
 optional_depends "libdv"         "--enable-libdv"      "--disable-libdv"      \
@@ -55,4 +50,4 @@ optional_depends "swfdec"        "--enable-swfdec"     "--disable-swfdec"     \
 optional_depends "libshout"      ""                    ""                     \
                                  "for shoutcast and icecast support"
 
-#optional_depends "aalib"         "--enable-aalib"     "--disable-aalib"      "for aalib support"            &&
+optional_depends "aalib"         "--enable-aalib"     "--disable-aalib"      "for aalib support"            &&
