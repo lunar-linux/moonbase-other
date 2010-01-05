@@ -1,12 +1,6 @@
 (
 
-  if module_installed qt3 ; then
-    OPTS="$OPTS --enable-gui"
-   else
-    OPTS="$OPTS --disable-gui"
-  fi &&
-
-  OPTS="$OPTS --enable-fdb"
+  OPTS="$OPTS --enable-fdb --disable-gui"
 
   default_build
 
