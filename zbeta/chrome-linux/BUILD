@@ -17,9 +17,9 @@
   chmod -R 644 chrome.1 chrome.pak locales resources product_logo_48.png &&
 
   # Create the required symlinks
-  ln -sf /usr/lib/nspr/libnspr4.so /opt/lunar/${MODULE}/libnspr4.so.0d  &&
-  ln -sf /usr/lib/nspr/libplc4.so /opt/lunar/${MODULE}/libplc4.so.0d    &&
-  ln -sf /usr/lib/nspr/libplds4.so /opt/lunar/${MODULE}/libplds4.so.0d  &&
+  ln -sf /usr/lib/libnspr4.so /opt/lunar/${MODULE}/libnspr4.so.0d  &&
+  ln -sf /usr/lib/libplc4.so /opt/lunar/${MODULE}/libplc4.so.0d    &&
+  ln -sf /usr/lib/libplds4.so /opt/lunar/${MODULE}/libplds4.so.0d  &&
   ln -sf /usr/lib/libnss3.so /opt/lunar/${MODULE}/libnss3.so.1d         &&
   ln -sf /usr/lib/libnssutil3.so /opt/lunar/${MODULE}/libnssutil3.so.1d &&
   ln -sf /usr/lib/libsmime3.so /opt/lunar/${MODULE}/libsmime3.so.1d     &&
