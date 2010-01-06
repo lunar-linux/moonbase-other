@@ -5,8 +5,8 @@
   export WORKINGDIR=$PWD  &&
   export BUILD_OPT=1      &&
   export NSS_USE_SYSTEM_SQLITE=1 &&
-  export NSPR_INCLUDE_DIR=`pkg-config --cflags-only-I nspr | sed 's/-I//'` &&
-  export NSPR_LIB_DIR=`pkg-config --libs-only-L nspr | sed 's/-L//'` &&
+  export NSPR_INCLUDE_DIR=/usr/include/nspr &&
+  export NSPR_LIB_DIR=/usr/lib &&
   export USE_SYSTEM_ZLIB=1 &&
   export NSDISTMODE=copy &&
   export NSS_ENABLE_ECC=1 &&
