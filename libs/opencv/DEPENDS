@@ -4,7 +4,7 @@ depends jpeg
 depends tiff
 
 optional_depends Python       "-DCMAKE_BUILD_NEW_PYTHON_SUPPORT=ON"  \
-                              "-DCMAKEBUILD_NEW_PYTHON_SUPPORT=OFF" \
+                              "-DCMAKE_BUILD_NEW_PYTHON_SUPPORT=OFF" \
                               "for Python binding support"
 
 optional_depends ffmpeg       "-DCMAKE_WITH_FFMPEG=ON"  \
@@ -32,5 +32,5 @@ optional_depends swig         "-DCMAKE_BUILD_SWIG_PYTHON_SUPPORT=ON"  \
                               "for swig support"
 
 optional_depends unicap       "-DCMAKE_WITH_UNICAP=ON"    \
-                               "-DCMAKE_WITH_UNICAP=OFF"  \
-                               "for additional video capture support"
+                              "-DCMAKE_WITH_UNICAP=OFF"  \
+                              "for additional video capture support"
