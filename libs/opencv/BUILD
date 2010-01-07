@@ -1,13 +1,18 @@
 (
 
-  OOT_BUILD="$SOURCE_DIRECTORY/$MODULE-build"
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-RELEASE" &&
 
-  mkdir $OOT_BUILD  &&
-  cd $OOT_BUILD     &&
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE            &&
+  mkdir $OOTB_DIR  &&
+  cd $OOTB_DIR   &&
 
-  default_build
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX         \
+                           -DCMAKE_BUILD_TYPE=RELEASE                    \
+                           -DCMAKE_OPENCV_BUILD_3RDPARTY_LIBS=TRUE       \
+                           -DCMAKE_OPENCV_WHOLE_PROGRAM_OPTIMIZATION=ON  \
+                           $OPTS                                        &&
+
+  default_make
 
 ) > $C_FIFO 2>&1
