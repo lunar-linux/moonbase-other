@@ -24,6 +24,7 @@
                 --disable-lynx             \
                 --disable-gdbm             \
                 --disable-stack-protector  \
+                --disable-qt3              \
                 $OPTS                     &&
 
     default_make
