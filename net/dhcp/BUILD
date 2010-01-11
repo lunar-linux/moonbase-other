@@ -1,9 +1,13 @@
 (
-  CFLAGS+="-D_GNU_SOURCE"
+  CFLAGS+=" -D_GNU_SOURCE "
   MODHOME="$MOONBASE/net/$MODULE"
   CFGHOME="/etc/config.d"
   OPTS+=" --with-srv-lease-file=/var/state/dhcp/dhcpd.leases \
           --with-cli-lease-file=/var/state/dhcp/dhclient.leases"
+
+  if [ ! -e /proc/net/if_inet6 ]; then
+  OPTS+=" --disable-dhcpv6 "
+  fi &&
 
   sedit 's;^dist_sysconf_DATA.*dhcpd.conf;dist_sysconf_DATA =;' server/Makefile.in &&
 
