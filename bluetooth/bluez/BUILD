@@ -1,7 +1,5 @@
 (  
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0  &&
-
   OPTS+=" --build=$BUILD          \
           --host=$BUILD           \
           --enable-configfiles    \
