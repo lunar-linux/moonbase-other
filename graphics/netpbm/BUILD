@@ -16,7 +16,7 @@ libz.so
 default
 /usr/X11R6/lib/libX11.so
 default
-libvga.so
+none
 default
 " | ./configure    &&
   sedit "s/^CFLAGS =/CFLAGS = -fPIC /" Makefile.config  &&
