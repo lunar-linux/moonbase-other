@@ -8,6 +8,9 @@
 
   cd source  &&
 
+# A temporary sedit to fix the jpeg-8 name space collision
+  sedit "s:jpeg_mem_src:jpeg_load_raw:g" ref_gl/r_image.c &&
+  
   # Lunar isn't multilib
   sedit "s:lib64:lib:" Makefile  &&
 
