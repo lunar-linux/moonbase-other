@@ -61,6 +61,7 @@
     export CCACHE_DISABLE=1
     echo "ac_add_options --enable-profile-guided-optimization" >> mozconfig  &&
     echo "mk_add_options PROFILE_GEN_SCRIPT='python $MOZ_OBJDIR/_profile/pgo/profileserver.py'" >> mozconfig  &&
+    make -f client.mk build &&
     make -f client.mk profiledbuild
   else
     make -f client.mk build
