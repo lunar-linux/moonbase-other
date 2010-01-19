@@ -12,6 +12,7 @@
   # http://www.warsow.net/forum/viewtopic.php?id=20939
   sedit "s:openal-config:pkg-config openal:" Makefile  &&
   sedit "s:libopenal.so.0:libopenal.so:" snd_openal/snd_main.c  &&
+  sedit "s:jpeg_mem_src:jpeg_src_mem:g" ref_gl/r_image.c  &&
 
   # Use shared dir
   sedit "/fs_basepath =/ s:\.:${INST_DIR}:" qcommon/files.c  &&
