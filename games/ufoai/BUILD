@@ -1,5 +1,7 @@
 (
 
+  sedit "s:jpeg_mem_src:jpeg_src_mem:g" src/renderer/r_image.c src/tools/ufo2map/common/imagelib.c &&
+
   default_game_build  &&
   
 #  for FILE in $SOURCE_DIRECTORY/base/*; do
