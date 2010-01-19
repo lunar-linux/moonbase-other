@@ -1,8 +1,4 @@
 (
-  patch_it $SOURCE2 0 &&
-  patch_it $SOURCE3 0 &&
-  patch_it $SOURCE4 0 &&
-  patch_it $SOURCE5 0 &&
 
   # Real and working fix for readline 5 to 6 upgrade
   # Especially workaround issue when you would like to lin again readline 6 after lining readline 6 already
