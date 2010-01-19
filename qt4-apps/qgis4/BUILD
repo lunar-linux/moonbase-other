@@ -1,12 +1,15 @@
 (
 
-# Fixes up some translation problems, recheck on next bump.
-  /opt/lunar/qt/4/bin/lupdate -no-obsolete -ts i18n/*.ts &&
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build" &&
+
+  mkdir $OOTB_DIR &&
+  cd $OOTB_DIR    &&
 
   source /etc/profile.d/qt4.rc &&
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             &&
+                           -DCMAKE_BUILD_TYPE=RELEASE             \
+                           $OPTS                                 &&
 
   default_make
 
