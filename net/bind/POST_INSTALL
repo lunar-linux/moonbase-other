@@ -20,8 +20,8 @@ fi
 chown -R bind:bind /var/named
 chmod 644 /var/named/named.conf
 chmod 644 /var/named/named.root
-  
-# lets create an rndc key if none avail  
+
+# lets create an rndc key if none avail
 if [ ! -e /etc/rndc.key ] ; then
   rndc-confgen -a
 fi
