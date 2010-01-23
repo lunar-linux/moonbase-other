@@ -1,13 +1,13 @@
 (
 
-  . /etc/profile.d/qt4.rc &&
-
+  . /etc/profile.d/qt4.rc  &&
   $QTDIR/bin/qmake qgit.pro &&
 
   make  &&
   prepare_install  &&
   install -m 755 -s bin/qgit ${MODULE_PREFIX}/bin  &&
-  install -m 644 src/resources/qgit.ico ${MODULE_PREFIX}/share/icons/ &&
+  mkdir -p ${MODULE_PREFIX}/share/icons/  &&
+  install -m 644 src/resources/qgit.ico ${MODULE_PREFIX}/share/icons/  &&
 
     # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
