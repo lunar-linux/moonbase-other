@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --disable-mozjs --with-x --with-xcb --with-spidermonkey=/usr/include/firefox-`lvu installed firefox`/unstable/ --with-gudev"
+  OPTS="$OPTS --with-x --with-xcb --with-spidermonkey=/usr/include/js"
 
   default_build
 
