@@ -7,8 +7,7 @@
   add_priv_user privoxy:privoxy  &&
 
 
-  OPTS="--with-user=privoxy --with-group=privoxy --sysconfdir=/etc/privoxy \
-        --disable-toggle  --disable-editor  --disable-force"
+  OPTS="--with-user=privoxy --with-group=privoxy --sysconfdir=/etc/privoxy "
 
   default_build
 
