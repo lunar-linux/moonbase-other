@@ -1,29 +1,30 @@
 (
 
+ MOZILLA_DIR=mozilla-1.9.2
   #Really? You go and call fprintf and don't #include <cstdio>?
   #How exactly did you plan on doing that?!?!
-  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' mozilla-1.9.1/toolkit/crashreporter/google-breakpad/src/common/linux/dump_symbols.cc
-  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' mozilla-1.9.1/toolkit/crashreporter/google-breakpad/src/client/linux/handler/exception_handler.cc
-  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' mozilla-1.9.1/toolkit/crashreporter/google-breakpad/src/client/linux/handler/minidump_generator.cc
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' $MOZILLA_DIR/toolkit/crashreporter/google-breakpad/src/common/linux/dump_symbols.cc
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' $MOZILLA_DIR/toolkit/crashreporter/google-breakpad/src/client/linux/handler/exception_handler.cc
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' $MOZILLA_DIR/toolkit/crashreporter/google-breakpad/src/client/linux/handler/minidump_generator.cc
 
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
-
-  # This should always be just a link
-  rm -rf /usr/lib/firefox-$VERSION/plugins  &&
 
   export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
   export MOZ_CO_PROJECT=browser
   export MOZILLA_OFFICIAL=1
   export BUILD_OFFICIAL=1
 
-  cp $SCRIPT_DIRECTORY/mozconfig mozilla-1.9.1/  &&
+  # This should always be just a link
+  rm -rf $MOZILLA_HOME/plugins  &&
+
+  cp $SCRIPT_DIRECTORY/mozconfig $MOZILLA_DIR/  &&
 
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"
   mkdir -p ${MOZ_OBJDIR}  &&
 
-  cd mozilla-1.9.1  &&
+  cd $MOZILLA_DIR  &&
 
   echo "ac_add_options --disable-necko-wifi" >> mozconfig
 
@@ -39,25 +40,27 @@
     echo "ac_add_options --enable-system-sqlite" >> mozconfig
   fi  &&
 
-  if in_depends $MODULE heimdal ; then
-    echo "ac_add_options --with-gssapi=/usr/include/heimdal" >> mozconfig
-  else
-    echo "ac_add_options --without-gssapi" >> mozconfig
-  fi  &&
-
   if in_depends $MODULE "xulrunner" ; then
     XUL=`module_version xulrunner`
     echo "ac_add_options --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL" >> mozconfig
   fi  &&
 
-  #Add CONFIGURE options
-  
-  if [ "$SAFE" == "y" ] ; then
-    echo "ac_add_options --enable-safe-browsing" >> mozconfig
+  if in_depends $MODULE gnome-vfs ; then
+    echo "ac_add_options --enable-gnomevfs" >> mozconfig
+  else
+    echo "ac_add_options --disable-gnomevfs" >> mozconfig
   fi  &&
 
-  if [ "$WEBSERVICES" == "y" ] ; then
-    echo "ac_add_options --enable-webservices" >> mozconfig
+  if in_depends $MODULE sun-jdk ; then
+    echo "ac_add_options --with-java-include-path=/usr/java/include" >> mozconfig
+    echo "ac_add_options --with-java-bin-path=/usr/java/bin" >> mozconfig
+    echo "ac_add_options --enable-javaxpcom" >> mozconfig
+  fi  &&
+
+  #Add CONFIGURE options
+
+  if [ "$SAFE" == "y" ] ; then
+    echo "ac_add_options --enable-safe-browsing" >> mozconfig
   fi  &&
 
   setterm -bfreq -blength &&
@@ -84,27 +87,23 @@
 
   # Install the plugins in the right directories
   mkdir -p /opt/lunar/plugins  &&
-  for plugin in `ls /usr/lib/firefox-$VERSION/plugins`; do
-       `install -m755 /usr/lib/firefox-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
+  for plugin in `ls $MOZILLA_HOME/plugins`; do
+       `install -m755 $MOZILLA_HOME/plugins/$plugin /opt/lunar/plugins`; done  &&
 
-  rm -rf /usr/lib/firefox-$VERSION/plugins  &&
-  ln -snf /opt/lunar/plugins /usr/lib/firefox-$VERSION/plugins  &&
+  rm -rf $MOZILLA_HOME/plugins  &&
+  ln -snf /opt/lunar/plugins $MOZILLA_HOME/plugins  &&
 
   # Now the .desktop file and the icon
   mkdir -p /usr/share/applications /usr/share/pixmaps  &&
   install -m644 $SCRIPT_DIRECTORY/firefox.desktop /usr/share/applications  &&
-  # please, dont just let the lin fail because /usr/share/pixmaps/firefox.xpm is an existing symlink...
-  rm -f /usr/share/pixmaps/firefox.xpm  &&
-  install -m644 $MOZILLA_HOME/icons/mozicon50.xpm /usr/share/pixmaps/firefox.xpm  &&
+  # please, dont just let the lin fail because /usr/share/pixmaps/firefox48.png is an existing symlink...
+  rm -f /usr/share/pixmaps/firefox48.png  &&
+  install -m644 $MOZILLA_HOME/chrome/icons/default/default48.png /usr/share/pixmaps/firefox48.png  &&
 
   # Make firefox use its own icon
-
-  rm -rf /usr/lib/firefox-$VERSION/chrome/icons  &&
-  mkdir -p /usr/lib/firefox-$VERSION/chrome/icons/default  &&
-
-  for icon in 16 32 48; do
-    ln -sf /usr/lib/firefox-$VERSION/icons/mozicon128.png \
-           /usr/lib/firefox-$VERSION/chrome/icons/default/default$icon.png
+  for icon in `ls $MOZILLA_HOME/icons`; do
+    ln -sf $MOZILLA_HOME/icons/$icon \
+           $MOZILLA_HOME/chrome/icons/default/$icon
   done
 
 ) > $C_FIFO 2>&1
