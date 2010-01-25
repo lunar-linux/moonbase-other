@@ -1,5 +1,6 @@
 (
 
+  sedit "s:suitesparse:SuiteSparse:g" configure &&
   CXXFLAGS="-lpthread" &&
 
   ./configure  --sysconfdir=/etc        \
