@@ -1,8 +1,6 @@
 (
   bad_flags -malign-double
 
-  patch_it $SOURCE2 0 &&
-
   OPTS+=" --bindir=/bin                 \
           --enable-readline             \
           --without-installed-readline  \
