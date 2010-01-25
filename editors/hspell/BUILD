@@ -1,5 +1,7 @@
 (
 
+  CFLAGS+=" -fPIC" &&
+
   OPTS+=" --enable-fatverb --enable-aspell --enable-linginfo" &&
 
   sedit "s:/usr/bin:/bin:" wzip &&
