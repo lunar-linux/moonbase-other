@@ -1,6 +1,8 @@
 (
 
-  CFLAGS+=" -fno-strict-aliasing"
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
+  CFLAGS+=" -fno-strict-aliasing" &&
 
   default_build
 
