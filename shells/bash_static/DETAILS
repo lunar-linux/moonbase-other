@@ -2,14 +2,17 @@
          VERSION=4.1
             BASE=4.1
           SOURCE=bash-$BASE.tar.gz
+         SOURCE2=bash41-001-002.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/bash-$BASE
    SOURCE_URL[0]=$GNU_URL/bash
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/bash
    SOURCE_URL[2]=ftp://ftp.cwru.edu/pub/bash
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:3bd1ec9c66f3689f6b3495bdaaf9077b2e5dc150
+     SOURCE2_VFY=sha1:df6ebbccc69999584215ef9cc3271425389d85fe
         WEB_SITE=http://tiswww.case.edu/php/chet/bash/bashtop.html
          ENTERED=20020615
-         UPDATED=20100125
+         UPDATED=20100126
            SHORT="A static build of bash, named as bash_static"
 
 cat << EOF
