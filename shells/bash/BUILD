@@ -21,6 +21,7 @@
     gzip -9 $MANPAGE  &&
     install -m0644 $MANPAGE.gz /usr/share/man/man1
   done  &&
+  install -m0644 doc/bashref.info /usr/share/info &&
 
   mkdir -p /etc/skel  &&
 
