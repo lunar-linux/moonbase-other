@@ -1,32 +1,26 @@
           MODULE=kdepim4
            MAJOR=4.3
-         VERSION=${MAJOR}.4
+         VERSION=${MAJOR}.5
           SOURCE=kdepim-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdepim-$VERSION
-      SOURCE_URL=$KDE_URL/stable/$VERSION/src/
-      SOURCE_VFY=sha1:3ddc34c2b0c96c0273431631ccf47a8b9b4289b3
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src
+      SOURCE_VFY=sha1:0c319929af1828f0ee15c47a957f0a3c95556742
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
         WEB_SITE=http://www.kde.org
          ENTERED=20071026
-         UPDATED=20091201
+         UPDATED=20100129
            SHORT="libraries central to KDE PIM application"
 
 cat << EOF
 This module includes libraries that are central to the development and
 execution of a KDE-PIM application.
-
 The KDE-PIM project aims to bring together those who wish to help design,
 implement, test, etc. anything that's to do with personal information
 management.
-
 This rather broad scope encompasses mail clients, addressbooks, usenet news,
 scheduling and even sticky notes.
 
-
-What's Included
----------------
-Here is an alphabetical list:
-
+What's Included, in an alphabetical list:
 * kblog: C++ API for weblogging access
 * kcal: C++ API for the iCalendar and vCalendar formats
 * kcal/libical: a basic iCalendar protocol implementation, see RFCs 2245,2246
