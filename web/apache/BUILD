@@ -1,5 +1,7 @@
 (
 
+  sedit  "s:getline:GetLine:"   src/support/htpasswd.c  src/support/htdigest.c  src/support/logresolve.c  &&
+
   ./configure  --prefix=/usr                     \
                --sysconfdir=/etc/httpd           \
                --localstatedir=/var/lib/httpd    \
@@ -9,8 +11,8 @@
                --enable-module=most              \
                --enable-shared=max               \
                --enable-module=mmap_static       \
-               --with-layout=GNU $OPTS           &&
-  default_make
+               --with-layout=GNU $OPTS          &&
+  default_make  &&
 
   if [ -e "/etc/init.d/apache.sh" ]; then
      rm -f /etc/init.d/apache.sh
