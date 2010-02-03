@@ -1,13 +1,22 @@
           MODULE=xorg-docs
-         VERSION=1.4
+         VERSION=1.5
           SOURCE=$MODULE-$VERSION.tar.bz2
       SOURCE_URL=$XORG_URL/individual/doc/
-      SOURCE_VFY=sha1:1c129bf9a2da57a308c7b57cb994c960ff15880a
+      SOURCE_VFY=sha1:e4a0fdf848e9d5baa2de625ce74f204de37e0fb0
    MODULE_PREFIX=${X11R7_PREFIX:-/usr}
         WEB_SITE=http://www.x.org/
          ENTERED=20070906
-         UPDATED=20070906
-           SHORT=""
+         UPDATED=20091120
+           SHORT="the core X Window System documentation"
+
 cat << EOF
+The X11R7.5 version of the core X Window System documentation - but with
+many of the docs moved out to the modules for the protocols and software
+they document, the core is much smaller than it used to be.
+
+This module also no longer contains the out-of-date pre-created PostScript
+versions of the documents - we are working to generate those all at build
+time when the appropriate tools are installed so they will not drift out
+of sync again in the future.
 EOF
 
