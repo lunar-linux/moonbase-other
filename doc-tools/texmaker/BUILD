@@ -10,9 +10,12 @@
   PREFIX=$QTDIR                                                 &&
   qmake -unix PREFIX=$PREFIX texmaker.pro                       &&
 
+  sedit "s:Icon=texmaker:Icon=/usr/share/pixmaps/texmaker.png:" utilities/texmaker.desktop &&
+
   make                                                          &&
   prepare_install                                               &&
   make install                                                  &&
+
 
   echo "Icons and desktop file can be found in $PREFIX/share/texmaker"
 
