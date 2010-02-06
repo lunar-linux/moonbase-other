@@ -14,6 +14,7 @@
 
   chmod 6711 /usr/bin/crontab &&
 
+  [ -d /var/spool/cron ] || install -d -m 0700 /var/spool/cron &&
   [ -e /etc/config.d/crond ] || install -m 644 $SOURCE_DIRECTORY/crond.sysconfig /etc/config.d/crond
 
 ) > $C_FIFO 2>&1
