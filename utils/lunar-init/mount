@@ -46,7 +46,7 @@ run_with_msg_and_exit_codes()
 		return 1
 	fi
 
-	echo -n "$1"
+	echo "$1"
 
 	if [ -n "${DEBUG}" ]; then
 		echo -e "\n< run_with_special_exit_codes >"
@@ -56,7 +56,7 @@ run_with_msg_and_exit_codes()
 		echo -e "\n< fail    : $5 >"
 		eval $2
 	else
-		eval $2 &> /dev/null
+		eval $2
 	fi
 
 	local exit_status=$?
@@ -148,17 +148,17 @@ kernel_is_24()
 
 check_for_lvm()
 {
-    if [[ -x /sbin/vgscan ]]; then
+  if [[ -x /sbin/vgscan ]]; then
 	if [[ -e /proc/modules ]] && ! grep -qs 'device-mapper' /proc/{devices,misc}; then
- 	    run_without_msg "modprobe dm-mod"
+ 	  run_without_msg "modprobe dm-mod"
 	fi
 	if [[ -d /proc/lvm ]] || grep -qs 'device-mapper' /proc/{devices,misc}; then
-	    run_with_msg " * Scanning for LVM volume groups" "/sbin/vgscan --mknodes --ignorelockingfailure"
-	    if [[ $? -eq 0 ]] && [[ -d /etc/lvm ]] && [[ -x /sbin/vgchange ]]; then
+	  run_with_msg " * Scanning for LVM volume groups" "/sbin/vgscan --mknodes --ignorelockingfailure"
+	  if [[ $? -eq 0 ]] && [[ -d /etc/lvm ]] && [[ -x /sbin/vgchange ]]; then
 		run_with_msg " * Initializing LVM volume groups" "/sbin/vgchange --ignorelockingfailure -a y"
-	    fi
+	  fi
 	fi
-    fi
+  fi
 }
 
 start()
@@ -212,7 +212,7 @@ start()
             ln -sf /dev/ram0 /dev/ram
         fi
 		run_without_msg "echo > /proc/sys/kernel/hotplug" # Hotplug agents are deprecated!
-	run_with_msg "Starting udev device handling daemon version `udevd --version`" "/sbin/udevd --daemon"
+	    run_with_msg "Starting udev device handling daemon version `udevd --version`" "/sbin/udevd --daemon"
         run_with_msg "Activating coldplug devices" "/sbin/udevadm trigger"
         run_with_msg "Devices activation - please wait" "/sbin/udevadm settle"
         # This is first aid code for devices hard to init (too slow or to buggy for init by 1st time)
@@ -228,9 +228,6 @@ start()
 		ln -snf /proc/self/fd/2 /dev/stderr
 	fi
 
-	# Time to init LVM
-	check_for_lvm
-
 	# or do we want to explicitly _not_ fsck at all
 	if ! grep -qw nofsck /proc/cmdline ; then
 		# force fsck run?
@@ -238,8 +235,29 @@ start()
 			FORCE="-f"
 		fi
 
+		# Check root fs first so we can remount rw or LVM will fail
+		run_with_msg_and_exit_codes "Checking root filesystem: " "fsck -C -p -T $FORCE /" "0" "1" ""
+        if [ $? -eq 3 ]; then
+		  # Filesystem errors corrected, and system should be rebooted
+          reboot -f
+		elif [ $? -ge 2 ]; then
+		    echo ""
+		    echo " *** fsck failed! ***"
+		    echo ""
+		    echo "   Please repair your file system manually by"
+		    echo "   running /sbin/fsck without the -p option."
+		    echo ""
+		    sulogin
+		    reboot  -f
+		fi
+
+	    run_with_msg " * Remounting root read-write" "mount -n -o remount,rw /"
+
+		# Time to init LVM
+		check_for_lvm
+
 		# check filesystems
-		run_with_msg_and_exit_codes "Checking filesystems: " "fsck -A -T -C -y -V $FORCE" "0" "1" ""
+		run_with_msg_and_exit_codes "Checking other filesystems: " "fsck -A -T -C -p -s -R $FORCE" "0" "1" ""
 		if [ $? -eq 3 ]; then
 			# Filesystem errors corrected, and system should be rebooted
 			reboot  -f
@@ -253,9 +271,11 @@ start()
 		    sulogin
 		    reboot  -f
 		fi
+    else
+	  run_with_msg " * Remounting root read-write" "mount -n -o remount,rw /"
+      check_for_lvm
 	fi
 
-	run_with_msg " * Remounting root read-write" "mount -n -o remount,rw /"
 	if [ "$FORCE" == "-f" ]; then
 		rm -f /forcefsck
 	fi
