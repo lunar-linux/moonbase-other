@@ -1,13 +1,13 @@
           MODULE=virtuoso
             TYPE=opensource
-         VERSION=5.0.12
+         VERSION=6.1.0
           SOURCE=$MODULE-$TYPE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$TYPE-$VERSION
       SOURCE_URL=$SFORGE_URL/virtuoso/files/virtuoso/5.0.12/
-      SOURCE_VFY=sha1:7e4a27b7a133ded8aa6c7c8834e72012582ff29a
+      SOURCE_VFY=sha1:11d68d3b8d7fef05017eaba6dcc86050db71d211
         WEB_SITE=http://virtuoso.openlinksw.com/dataspace/dav/wiki/Main/
          ENTERED=20100116
-         UPDATED=20100116
+         UPDATED=20100211
            SHORT="high-performance object-relational SQL database"
 
 cat << EOF
@@ -21,4 +21,18 @@ web language (VSP) as well as PHP, ASP .net and others. This same web server pro
 and REST access to Virtuoso stored procedures, supporting a broad set of WS protocols such
 as WS-Security, WS-Reliable Messaging and others. A BPEL4WS run time is also available as 
 part of Virtuoso's SOA suite.
+
+Note:
+
+You might want to run the following if you have problems getting Nepomuk and/or Strigi to
+work. Its a bit brutish since it deletes some vitruosobackend stuff for ~/ and most likey
+its best to logout/in of kde if that's where you are during this bump;
+
+ akonadictl stop
+ qdbus org.kde.NepomukServer /nepomukserver quit
+ kbuildsycoca4 --noincremental
+ rm ~/.kde/share/apps/nepomuk/repository/main/data/virtuosobackend/*
+ nepomukservicestub nepomukstorage
+ akonadictl start
+
 EOF
