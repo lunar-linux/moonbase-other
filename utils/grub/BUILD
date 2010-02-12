@@ -9,9 +9,10 @@
   fi
 
   patch_it  $SOURCE_CACHE/$SOURCE3  1  &&
+  patch_it  $SOURCE_CACHE/$SOURCE4  1  &&
 
   unset CFLAGS CXXFLAGS CPPFLAGS  &&
-  default_build  &&            
+  default_build  &&
   gzip -9 ChangeLog  &&
   mkdir -p $DOCUMENT_DIRECTORY/grub  &&
   cp ChangeLog.gz NEWS TODO $DOCUMENT_DIRECTORY/grub  &&
