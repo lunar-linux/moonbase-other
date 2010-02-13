@@ -10,7 +10,7 @@
     mv ${OO_INSTALL_DIR}/desktop-integration ${SOURCE_DIRECTORY} &&
     cd ${SOURCE_DIRECTORY}/desktop-integration/ &&
 
-    INT_FILE=openoffice.org3.1-freedesktop-menus-3.1-9420.noarch &&
+    INT_FILE=openoffice.org3.2-freedesktop-menus-3.2-9472.noarch &&
 
     rpm2cpio $INT_FILE.rpm > $INT_FILE.cpio &&
     cpio -idm < $INT_FILE.cpio &&
@@ -38,8 +38,8 @@
   prepare_install  &&
   message "${MESSAGE_COLOR}Installing OpenOffice ${VERSION}...${DEFAULT_COLOR}"  &&
   mkdir -p $MODULE_PREFIX/openoffice  &&
-  cp -a "${OO_INSTALL_DIR}/opt/openoffice.org3" /opt/lunar/openoffice/ &&
-  cp -a "${OO_INSTALL_DIR}/opt/openoffice.org" /opt/lunar/openoffice &&
+  cp -a "${OO_INSTALL_DIR}/opt/openoffice.org3" /opt/lunar/openoffice/  &&
+  cp -a "${OO_INSTALL_DIR}/opt/openoffice.org"  /opt/lunar/openoffice   &&
 
   #Added this force symlink creation at sofar's request
   cd /usr/bin &&
