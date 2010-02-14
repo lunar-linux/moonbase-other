@@ -3,12 +3,19 @@
   # Logrotate craps out without this
   unset CPP
 
+  # A few fixes for logrotate.conf
+  sedit 's:^dateext:#&:;s:^#compress:compress:;/^compress/acompresscmd /usr/bin/bzip2' examples/logrotate-default &&
+  sedit '/^compresscmd/acompressext .bz2' examples/logrotate-default &&
+
   make RPM_OPT_FLAGS="${CFLAGS}"     &&
+
+  # We don't want the status file tracked
+  touch /var/lib/logrotate.status    &&
+
   prepare_install                    &&
   make install                       &&
 
   mkdir -p /etc/logrotate.d          &&
-  touch /var/lib/logrotate.status    &&
 
   if [ ! -e /etc/logrotate.conf ]; then
     install -m 0644 examples/logrotate-default /etc/logrotate.conf
