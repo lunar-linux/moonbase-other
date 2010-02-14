@@ -1,7 +1,7 @@
 (
 
   # /snigger
-  OPTS+=" --enable-smut"  &&
+  # OPTS+=" --enable-smut"  &&
 
   default_build
 
