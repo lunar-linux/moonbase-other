@@ -1,0 +1,6 @@
+/var/log/preload.log {
+  rotate 5
+  postrotate
+    /bin/kill -HUP `cat /var/run/preload.pid` 2> /dev/null || true
+  endscript
+}
