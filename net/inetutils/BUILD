@@ -5,5 +5,5 @@
           --enable-threads=posix --disable-rpath" &&
 
   default_build
- 
+
 ) > $C_FIFO 2>&1

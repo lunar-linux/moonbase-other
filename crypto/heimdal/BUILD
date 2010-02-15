@@ -33,10 +33,6 @@
         doc/setup.texi doc/heimdal.info kadmin/kadmind.8 kdc/kdc.8 \
         lib/hdb/hdb.h lib/krb5/krb5.conf.5 lib/krb5/krb5.conf.cat5 &&
 
-  patch_it $SOURCE2 1 &&
-  patch_it $SOURCE3 1 &&
-  patch_it $SOURCE4 1 &&
-
   sh autogen.sh &&
 
   default_build
