@@ -10,6 +10,7 @@
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
                            -DCMAKE_BUILD_TYPE=RELEASE             \
+                           -DKAUTH_BACKEND=PolkitQt-1             \
                            $OPTS                                 &&
 
   default_make  &&
