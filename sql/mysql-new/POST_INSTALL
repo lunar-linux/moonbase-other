@@ -1,0 +1,14 @@
+if ! grep  -q  "\--without-server" $MODULE_CONFIG; then
+  /opt/lunar/mysql/bin/mysql_install_db  &&
+  chown  -R  mysql.mysql  /var/lib/mysql/
+fi
+
+if mount | grep "/tmp" | grep -q tmpfs ; then
+  message ""
+  message "if /tmp is tmpfs and if mysql is being used against big"
+  message "tables (> 2G) there is a big possibility of data/index"
+  message "corruption, especially on myisamchk"
+  message ""
+  message "Consider mounting /tmp on a regular file system"
+  message ""
+fi
