@@ -12,7 +12,7 @@
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX   \
                            -DCMAKE_BUILD_TYPE=RELEASE              \
-                           -DEXPERIMENTAL_PYTHON_BINDINGS=FALSE    \
+                           -DEXPERIMENTAL_PYTHON_BINDINGS=TRUE     \
                            $OPTS                                  &&
 
   default_make
