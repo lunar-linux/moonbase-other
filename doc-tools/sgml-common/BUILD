@@ -1,5 +1,5 @@
 (
-  patch_it $SOURCE2 1 &
+  patch_it $SOURCE2 1 &&
 
   aclocal &&
   automake --add-missing --copy --gnu &&
