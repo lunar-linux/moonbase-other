@@ -1,13 +1,7 @@
 (
 
-# It borks if these are present.
-  if [ -f /usr/share/man/man1/enconv.1 ] ; then
-       rm /usr/share/man/man1/enconv.1 
-  fi &&
-
-  if [ -f /usr/bin/enconv ] ; then
-       rm /usr/bin/enconv
-  fi &&
+# It fails on a non-forced ln. Simpler than the non-sense I had before.
+  sedit "s:ln -s: ln -sf:g" configure &&
 
   default_build
 
