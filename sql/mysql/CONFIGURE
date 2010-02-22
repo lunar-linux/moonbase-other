@@ -17,27 +17,15 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
        OPTS="$OPTS --without-server"
   else
     if  query  "Enable InnoDB Support? Needed by KDE4/Akonadi " n; then
-      OPTS="$OPTS --with-innodb"
+      OPTS="$OPTS --with-plugins=innodb_plugin"
     else
-      OPTS="$OPTS --without-innodb"
-    fi
-
-    if  query  "Enable RAID Support? " n; then
-      OPTS="$OPTS --with-raid"
-    else
-      OPTS="$OPTS --without-raid"
-    fi
-
-    if  query  "Include the Virtual IO support? " n; then
-      OPTS="$OPTS --with-vio"
-    else
-      OPTS="$OPTS --without-vio"
+      OPTS="$OPTS --without-plugin-innodb_plugin"
     fi
 
     if query "Include the NDB Cluster table handler? " n; then
-      OPTS="$OPTS --with-ndbcluster"
+      OPTS="$OPTS --with-plugins=ndbcluster"
     else
-      OPTS="$OPTS --without-ndbcluster"
+      OPTS="$OPTS --without-plugin-ndbcluster"
     fi
 
     if query "Support tables with more than 4 G rows even on 32 bit platforms? " n; then
