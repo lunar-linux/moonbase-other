@@ -1,19 +1,31 @@
 (
 
+  message " "
+  message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}Database backup have to be done to avoid any data loss during migration."
+  message " "
+  query INSTALL "Have you done data backup (y/n)? " n
+
+  if ! [ "$INSTALL" == "y" ] ; then
+     message " "
+     message " ${DEFAULT_COLOR}Please consult first http://dev.mysql.com/doc/refman/5.1/en/upgrade.html before installing."
+     sleep 5
+     exit 1
+  fi
+
   add_priv_user mysql:mysql  &&
   devoke_installwatch        &&
 
   if [ "`arch`" == "alpha" ]; then
-          export CFLAGS="$CFLAGS -fPIC"
-        export CXXFLAGS="$CXXFLAGS -fPIC"
-  fi &&
+      export CFLAGS="$CFLAGS -fPIC"
+      export CXXFLAGS="$CXXFLAGS -fPIC"
+  fi  &&
 
   if [ "`arch`" == "x86_64" ]; then
-         export CFLAGS="$CFLAGS -fPIC"
-       export CXXFLAGS="$CXXFLAGS -fPIC"
-  fi &&
+      export CFLAGS="$CFLAGS -fPIC"
+      export CXXFLAGS="$CXXFLAGS -fPIC"
+  fi  &&
 
-  export CXX='gcc' &&
+  export CXX='gcc'  &&
 
   ./configure  --prefix=/usr                   \
                --disable-dependency-tracking   \
@@ -44,10 +56,10 @@
     message ""
     exit $MYSQL_EXIT;
   }
-  prepare_install                             &&
-  mkdir -p /var/lib/mysql                     &&
-  make  pkglibdir=/usr/lib  install           &&
-  rm    -rf  /usr/mysql-test                  &&
+  prepare_install                    &&
+  mkdir -p /var/lib/mysql            &&
+  make  pkglibdir=/usr/lib  install  &&
+  rm    -rf  /usr/mysql-test         &&
 
   if  [ -x /etc/init.d/mysql.server ]; then
     rm -f /etc/init.d/mysql.server
