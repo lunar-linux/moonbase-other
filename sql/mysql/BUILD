@@ -17,7 +17,6 @@
 
   ./configure  --prefix=/usr                   \
                --disable-dependency-tracking   \
-               --without-bench                 \
                --without-debug                 \
                --without-readline              \
                --without-libedit               \
