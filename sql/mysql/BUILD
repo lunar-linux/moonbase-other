@@ -1,17 +1,5 @@
 (
 
-  message " "
-  message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}Database backup have to be done to avoid any data loss during migration."
-  message " "
-  query INSTALL "Have you done data backup (y/n)? " n
-
-  if ! [ "$INSTALL" == "y" ] ; then
-     message " "
-     message " ${DEFAULT_COLOR}Please consult first http://dev.mysql.com/doc/refman/5.1/en/upgrade.html before installing."
-     sleep 5
-     exit 1
-  fi
-
   add_priv_user mysql:mysql  &&
   devoke_installwatch        &&
 
@@ -29,7 +17,6 @@
 
   ./configure  --prefix=/usr                   \
                --disable-dependency-tracking   \
-               --without-bench                 \
                --without-debug                 \
                --without-readline              \
                --without-libedit               \
