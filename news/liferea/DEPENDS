@@ -3,5 +3,12 @@ depends GConf
 depends libxml2
 depends webkit
 
-optional_depends libgtkhtml "--enable-gtkhtml2" "--disable-gtkhtml2" "Enables the gtkhtml2 backend"
-optional_depends "%GECKO_RENDERER" "" "" "For extra HTML rendering plugin"
+optional_depends libgtkhtml            \
+                 "--enable-gtkhtml2"   \
+                 "--disable-gtkhtml2"  \
+                 "Enables the gtkhtml2 backend"
+
+optional_depends "%GECKO_RENDERER" \
+                 ""                \
+                 ""                \
+                 "For extra HTML rendering plugin"
