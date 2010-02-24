@@ -4,7 +4,7 @@
     WITH_PAM="--with-pam --with-pam_smbpass"
   fi  &&
 
-  cd  source
+  cd  source3
   ./configure  --prefix=/usr            \
                --sysconfdir=/etc        \
                --localstatedir=/var     \
