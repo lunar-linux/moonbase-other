@@ -1,12 +1,18 @@
 if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
 
-  if  query  "Install client only? " n; then
-       OPTS="$OPTS --without-server"
+ if    query  "Install client only? " n; then
+    OPTS="$OPTS --without-server"
   else
     if  query  "Enable InnoDB Support? Needed by KDE4/Akonadi " n; then
       OPTS="$OPTS --with-innodb"
     else
       OPTS="$OPTS --without-innodb"
+    fi
+
+    if  query  "Enable BDB Support? " n; then
+      OPTS="$OPTS --with-berkeley-db"
+    else
+      OPTS="$OPTS --without-berkeley-db"
     fi
 
     if  query  "Enable RAID Support? " n; then
@@ -34,12 +40,16 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
     fi
   fi
 
-  if  query  "Build embedded server (libmysqld), needed by KDE4 ? " n; then
+  if    query  "Include the OpenSSL support? " n; then
+    OPTS="$OPTS --with-openssl"
+  fi
+
+  if    query  "Build embedded server (libmysqld), needed by KDE4 ? " n; then
     OPTS="$OPTS --with-embedded-server"
   else
     OPTS="$OPTS --without-embedded-server"
   fi
-
+  
   if  query "Enable all character sets? " y; then
     OPTS="$OPTS --with-extra-charsets=all"
   elif query "Enable just complex character sets? " y; then
@@ -49,6 +59,5 @@ if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
   fi
 
   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-  echo  'OPTS='\"$OPTS\"  >>  $MODULE_CONFIG
-
+  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
 fi
