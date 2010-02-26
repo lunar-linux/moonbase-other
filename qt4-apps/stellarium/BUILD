@@ -13,4 +13,17 @@
 
   default_make
 
+  # Desktop menu entry
+  cat > ${MODULE}.desktop << EOF  &&
+[Desktop Entry]
+Type=Application
+Name=Stellarium
+Comment=3D photo-realistic skies in real time
+Exec=$QTDIR/bin/stellarium
+Icon=$QTDIR/share/$MODULE/data/$MODULE.ico
+Categories=Qt;KDE;Science;
+EOF
+
+  install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop
+
 ) > $C_FIFO 2>&1
