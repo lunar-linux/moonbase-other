@@ -1,0 +1,20 @@
+
+
+udev_msg() {
+  message "${PROBLEM_COLOR}WARNING!!!${DEFAULT_COLOR} udev detected CONFIG_SYSFS_DEPRECTED=y in the kernel config."
+  message "This version of udev will not work with this option enabled, please"
+  message "recompile your kernel and disable CONFIG_SYSFS_DEPRECTED."
+}
+
+if test -e /proc/config.gz && zgrep -q 'CONFIG_SYSFS_DEPRECATED=y' /proc/config.gz; then
+  udev_msg
+  exit 1
+elif test -e /usr/src/linux/.config && grep -q 'CONFIG_SYSFS_DEPRECATED=y' /usr/src/linux/.config; then
+  udev_msg
+  exit 1
+elif test -e /etc/lunar/local/.config.2.6.stable && grep -q 'CONFIG_SYSFS_DEPRECATED=y' /etc/lunar/local/.config.2.6.stable; then
+  udev_msg
+  exit 1
+fi
+
+default_pre_build
