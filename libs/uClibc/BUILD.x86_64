@@ -1,0 +1,8 @@
+(
+
+   bad_flags ALL &&
+   make defconfig &&
+   sedit "s:-m 755 lib/lib:-m 755 lib/l:" Makefile.in &&
+   default_make
+
+) > $C_FIFO 2>&1
