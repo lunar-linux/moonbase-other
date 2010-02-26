@@ -1,7 +1,6 @@
-if ! grep  -q  "\--without-server" $MODULE_CONFIG; then
-  mysql_install_db &&
-  chown  -R  mysql.mysql  /var/lib/mysql/
-fi
+
+mysql_install_db &&
+chown -R mysql.mysql /var/lib/mysql/
 
 if mount | grep "/tmp" | grep -q tmpfs ; then
   message ""
