@@ -1,5 +1,7 @@
 (
 
+  sedit "s:xf86dga.h:Xxf86dga.h:" source/unix/gl_glx.c &&
+
   DATADIR="/usr/share/games/$MODULE"  &&
   LIBDIR="/usr/lib/$MODULE"  &&
 
