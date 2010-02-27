@@ -1,6 +1,7 @@
 
 mysql_install_db &&
-chown -R mysql.mysql /var/lib/mysql/
+chown -R mysql.mysql /var/lib/mysql/ &&
+chmod 755 /var/lib/mysql
 
 if mount | grep "/tmp" | grep -q tmpfs ; then
   message ""
