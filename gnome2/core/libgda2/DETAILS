@@ -1,16 +1,28 @@
           MODULE=libgda2
-         VERSION=3.1.2
-          SOURCE=libgda-$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/libgda-$VERSION
-      SOURCE_URL=$GNOME_URL/sources/libgda/3.1/
-        SOURCE_VFY=sha1:b4874d24878a139671ea3b7e74a494cdb111ca45
+             MOD=libgda
+         VERSION=4.0.7
+           MAJOR=4.0
+          SOURCE=$MOD-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
+      SOURCE_URL=$GNOME_URL/sources/$MOD/$MAJOR/
+        SOURCE_VFY=sha1:dd8caa2fd5bcbb37e53c422f6d04bdc892334731
         WEB_SITE=http://www.gnome-db.org
          ENTERED=20020714
-         UPDATED=20081019
+         UPDATED=20100228
            PSAFE=no
-           SHORT="libgda/libgnomedb are a framework for developing database-oriented applications"
+           SHORT="database access library for GNOME"
 cat << EOF
-libgda/libgnomedb are a complete framework for developing
-database-oriented applications, and actually allow access to PostgreSQL,
-MySQL, Oracle, Sybase, SQLite and ODBC data sources.
+Libgda is a (relatively small) database access library:
+
+  * a wrapper line ODBC but with more features to access several
+    database engines
+  * a meta data extractor (to know all about database objects in
+    a common way)
+  * comes with an SQL console application (line mysql, psql or
+    sqlite3 consoles)
+  * relies on GLib, coded in C, its API is easy to use
+  * at the moment supports SQLite, MySQL, PostgreSQL, MSAccess
+    and Bdb, work is in progress for other database types (such
+    as Firebird and Oracle) and to wrap JDBC for wider usage
+  * LGPL licensed
 EOF
