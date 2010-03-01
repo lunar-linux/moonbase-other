@@ -1,0 +1,7 @@
+ if [ -f /var/lib/virtuoso/db/virtuoso.db ]
+    then
+       printf "${PROBLEM_COLOR}Point a broswer to http://localhost:8890/index.html and change the default passwords for users: \n
+       dba (passwd dba) and dav (passwd dav)." "${DEFAULT_COLOR}"
+         exit 1
+ fi
+
