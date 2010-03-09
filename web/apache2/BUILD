@@ -29,10 +29,10 @@
     OPTS="$OPTS --with-mpm=worker"
   fi
 
-  echo "CFLAGS=$CFLAGS"     &&
-  echo "OPTS=$OPTS"         &&
-  ./configure $OPTS         &&
-  default_make              &&
+  echo "CFLAGS=$CFLAGS"  &&
+  echo "OPTS=$OPTS"      &&
+  ./configure $OPTS      &&
+  default_make           &&
 
   if [ ! -e /usr/sbin/httpsd ] ; then
     ln -s httpd /usr/sbin/httpsd

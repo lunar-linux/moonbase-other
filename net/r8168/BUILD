@@ -14,8 +14,6 @@
     exit 1
   fi
 
-  patch_it $SOURCE2 0 &&
-
   make clean modules &&
   prepare_install &&
   make install

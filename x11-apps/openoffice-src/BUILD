@@ -36,23 +36,31 @@
   # really know what you're doing
 
   OPTS="$OPTS --prefix=$OO_DIR --enable-dbus --disable-dbgutil --disable-static-gtk \
-              --disable-fontooo --disable-odk --disable-debug --enable-opengl  \
-              --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5  \
-              --enable-mozilla --enable-binfilter --enable-xrender-link        \
-              --without-fonts --without-ppds --without-afms   \
-              --with-system-stdlibs --with-system-zlib --enable-minimizer      \
-              --with-system-jpeg --with-system-expat --with-system-freetype    \
+              --disable-fontooo --disable-odk --disable-debug --enable-opengl \
+              --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
+              --enable-mozilla --enable-binfilter --enable-xrender-link       \
+              --without-ppds --without-afms --with-system-mozilla=mozilla  \
+              --with-system-stdlibs --with-system-zlib --enable-minimizer     \
+              --with-system-jpeg --with-system-expat --with-system-freetype   \
               --with-system-libxml --with-system-db --disable-symbols --enable-Xaw \
-              --with-system-xrender-headers --with-epm=internal --enable-pdfimport \
-              --with-use-shell=bash --with-x --with-package-format=native      \
+              --with-system-xrender-headers --with-epm=internal --enable-pdfimport   \
+              --with-use-shell=bash --with-x --with-package-format=native     \
               --with-build-version=LunarLinux --enable-presenter-console \
               --enable-wiki-publisher --enable-ogltrans --enable-report-builder \
               --with-system-cairo --with-lang=en --with-dict=ENUS" &&
 
-  if module_installed sane-backends ; then
-    OPTS="$OPTS --with-system-sane-header";
+  if in_depends $MODULE kdepim4 ; then
+    . /etc/profile.d/qt4.rc &&
+    . /etc/profile.d/kde4.rc &&
+    QT4DIR=$QTDIR &&
+    QT4INC=$QTDIR/include &&
+    QT4LIB=$QTDIR/lib &&
+    KDE4DIR=$KDE4_INSTALL_DIR &&
+    export QT4DIR  &&
+    export QT4INC  &&
+    export QT4LIB  &&
+    export KDE4DIR
   fi &&
-
   if module_installed sun-jdk ; then
     OPTS="$OPTS --with-jdk-home=$JAVA_HOME";
    else
@@ -61,19 +69,10 @@
     fi
   fi &&
 
-  # Apply mandatory and optional patches
-
-  patch_it $SOURCE2 0 &&
-# A glibc related patch.
-  patch_it $SOURCE_CACHE/$SOURCE8 0 &&
-# Another glibc related patch.
-  patch_it $SOURCE_CACHE/$SOURCE9 0 &&
-
   # As long as OOo-src does not compile against nss it needs its own mozilla
   # tarball (and it also compiles its own mozilla)
   mkdir -p $SOURCE_DIRECTORY/moz/download &&
-  cp $SOURCE_CACHE/$SOURCE3 $SOURCE_DIRECTORY/moz/download/ &&
-
+  cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY/moz/download/ &&
   autoreconf &&
   default_config &&
 
@@ -83,16 +82,27 @@
 
   cd $SOURCE_DIRECTORY &&
 
-  ./bootstrap &&
-  sedit "s/-lxml2/-lxml2\ -lexpat/g" LinuxX86Env.Set.sh &&
-  source LinuxX86Env.Set.sh &&
+  if [ "`arch`" == "x86_64" ] ; then 
+      ./bootstrap &&
+      sedit "s/-lxml2/-lxml2\ -lexpat/g" LinuxX86-64Env.Set.sh &&
+      source LinuxX86-64Env.Set.sh
+    else
+      ./bootstrap &&
+      sedit "s/-lxml2/-lxml2\ -lexpat/g" LinuxX86Env.Set.sh &&
+      source LinuxX86Env.Set.sh
+  fi &&
+
   dmake &&
 
   prepare_install &&
 
   # make install is not reliable
   # FIXME: How do we detect this directory in an elegant way?
-  cd instsetoo_native/unxlngi6.pro/OpenOffice/native/install/en-US/linux-2.6-intel/buildroot/opt &&
+  if [ "`arch`" == "x86_64" ] ; then
+     cd instsetoo_native/unxlngx6.pro/OpenOffice/native/install/en-US/linux-2.6-x86_64/buildroot/opt
+    else 
+     cd instsetoo_native/unxlngi6.pro/OpenOffice/native/install/en-US/linux-2.6-intel/buildroot/opt 
+  fi &&
 
   rm -rf $OO_DIR &&
   mkdir -p $OO_DIR &&

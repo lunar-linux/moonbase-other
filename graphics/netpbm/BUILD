@@ -8,6 +8,12 @@
     X11="none"
   fi &&
 
+  if [ $USE_SVGALIB == "n" ] ; then
+    SVGALIB="none"
+   else
+    SVGALIB="libvga.so"
+  fi &&
+
   echo  -e  "
 gnu
 regular
@@ -22,7 +28,7 @@ libz.so
 default
 $X11
 default
-none
+$SVGALIB
 default
 
 " | ./configure    &&
