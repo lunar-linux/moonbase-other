@@ -1,7 +1,7 @@
 (
 
-  OPTS+=" --enable-gpl --enable-shared --enable-pthreads  --enable-postproc \
-          --enable-avfilter-lavf --enable-swscale --enable-avfilter"
+  OPTS+=" --enable-gpl --enable-shared --enable-pthreads  --enable-postproc  \
+          --enable-avfilter-lavf --enable-swscale --enable-avfilter"        &&
 
  [ -n $CPU ] && OPTS+=" --cpu=$CPU"
   ./configure --prefix=/usr $OPTS &&

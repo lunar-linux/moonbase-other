@@ -1,11 +1,6 @@
 (
-    cat <<BCEOF | ed -s bc/scan.l &&
-/_PROTOTYPE(char\ \*readline,\ (char\ \*));/d
-w
-q
-BCEOF
-
-  sedit "s:-I8:-I -8:" configure &&
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
   default_build
+
 ) > $C_FIFO 2>&1

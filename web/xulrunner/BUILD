@@ -23,9 +23,10 @@
           --disable-javaxpcom \
           --disable-crashreporter \
           --enable-safe-browsing \
+          --disable-necko-wifi \
           --enable-startup-notification" &&
 
-  
+# wifi breaks build due to incompatibile header files
   #OPTS+=" --enable-application=xulrunner \
   #        --disable-test \
   #        --enable-system-sqlite \

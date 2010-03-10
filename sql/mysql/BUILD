@@ -1,4 +1,13 @@
 (
+  MYSQL_PLUGINS="heap federated partition archive blackhole"
+  PLUG="innobase,ndbcluster"
+  for mp in $MYSQL_PLUGINS; do
+    if [ $(eval echo \$USE_$mp) == "y" ]; then
+      PLUG="$PLUG,$mp"
+    fi
+  done &&
+
+  OPTS+=" --with-plugins=${PLUG}" &&
 
   add_priv_user mysql:mysql  &&
   devoke_installwatch        &&
@@ -15,21 +24,28 @@
 
   export CXX='gcc'  &&
 
-  ./configure  --prefix=/usr                   \
-               --disable-dependency-tracking   \
-               --without-debug                 \
-               --without-readline              \
-               --without-libedit               \
-               --enable-thread-safe-client     \
-               --enable-assembler              \
-               --localstatedir=/var/lib/mysql  \
-               --infodir=/usr/share/info       \
-               --mandir=/usr/share/man         \
-               --with-pthread                  \
-               $OPTS                          &&
-  invoke_installwatch                         &&
+  ./configure  --prefix=/usr \
+               --disable-dependency-tracking \
+               --without-debug \
+               --without-readline \
+               --without-libedit \
+               --enable-thread-safe-client \
+               --enable-assembler \
+               --enable-local-infile \
+               --enable-largefile \
+               --localstatedir=/var/lib/mysql \
+               --infodir=/usr/share/info \
+               --mandir=/usr/share/man \
+               --with-mysqld-user="mysql" \
+               --with-unix-socket-path=/var/lib/mysql/mysql.sock \
+               --with-pthread \
+               --with-extra-charsets=all \
+               --with-embedded-server \
+               $OPTS &&
 
-  make  pkglibdir=/usr/lib                    ||
+  invoke_installwatch &&
+
+  make  pkglibdir=/usr/lib ||
   {
     MYSQL_EXIT=$?
     message ""
