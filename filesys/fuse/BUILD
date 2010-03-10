@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --with-kernel=/usr/src/linux"
+  OPTS+="   --enable-lib --enable-util" &&
 
   default_build
 

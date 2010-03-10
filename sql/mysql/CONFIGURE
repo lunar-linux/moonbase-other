@@ -1,55 +1,6 @@
-message " "
-message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}Database backup have to be done to avoid any data loss during migration."
-message " "
+MYSQL_PLUGINS="heap federated partition archive blackhole"
 
-if ! query "Have you done data backup (y/n)? " n; then
-   message " "
-   message " ${DEFAULT_COLOR}Please consult first http://dev.mysql.com/doc/refman/5.1/en/upgrade.html before installing."
-   message " "
-   sleep 5
-   exit 1
-fi
-message " "
-
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
-
-  if  query  "Install client only? " n; then
-       OPTS="$OPTS --without-server"
-  else
-    if  query  "Enable InnoDB Support? Needed by KDE4/Akonadi " n; then
-      OPTS="$OPTS --with-plugins=innodb_plugin"
-    else
-      OPTS="$OPTS --without-plugin-innodb_plugin"
-    fi
-
-    if query "Include the NDB Cluster table handler? " n; then
-      OPTS="$OPTS --with-plugins=ndbcluster"
-    else
-      OPTS="$OPTS --without-plugin-ndbcluster"
-    fi
-
-    if query "Support tables with more than 4 G rows even on 32 bit platforms? " n; then
-      OPTS="$OPTS --with-big-tables"
-    else
-      OPTS="$OPTS --without-big-tables"
-    fi
-  fi
-
-  if  query  "Build embedded server (libmysqld), needed by KDE4 ? " n; then
-    OPTS="$OPTS --with-embedded-server"
-  else
-    OPTS="$OPTS --without-embedded-server"
-  fi
-
-  if  query "Enable all character sets? " y; then
-    OPTS="$OPTS --with-extra-charsets=all"
-  elif query "Enable just complex character sets? " y; then
-    OPTS="$OPTS --with-extra-charsets=complex"
-  else
-    OPTS="$OPTS --disable-nls"
-  fi
-
-  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-  echo  'OPTS='\"$OPTS\"  >>  $MODULE_CONFIG
-
-fi
+for mp in $MYSQL_PLUGINS; do
+  mquery USE_$mp "Enable $mp support?" n
+done
+mquery USE_BIGTABLE "Support tables with more than 4 G rows even on 32 bit platforms?" n --with-big-tables --without-big-tables

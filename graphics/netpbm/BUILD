@@ -2,6 +2,18 @@
 
   sedit "s:/tmp/netpbm:$(pwd -P)/BUILD:g" Makefile.config.in buildtools/installnetpbm.pl doc/README.DJGPP  &&
 
+  if [ $USE_X11 == "y" ] ; then
+    X11="/usr/X11R6/lib/libX11.so"
+   else
+    X11="none"
+  fi &&
+
+  if [ $USE_SVGALIB == "n" ] ; then
+    SVGALIB="none"
+   else
+    SVGALIB="libvga.so"
+  fi &&
+
   echo  -e  "
 gnu
 regular
@@ -14,10 +26,11 @@ libtiff.so
 default
 libz.so
 default
-/usr/X11R6/lib/libX11.so
+$X11
 default
-none
+$SVGALIB
 default
+
 " | ./configure    &&
   sedit "s/^CFLAGS =/CFLAGS = -fPIC /" Makefile.config  &&
   make             &&
