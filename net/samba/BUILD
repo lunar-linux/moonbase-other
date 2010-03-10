@@ -4,7 +4,8 @@
     WITH_PAM="--with-pam --with-pam_smbpass"
   fi  &&
 
-  cd  source3
+  cd  source3 &&
+  LDFLAGS+=" -Wl,--no-as-needed"
   ./configure  --prefix=/usr            \
                --sysconfdir=/etc        \
                --localstatedir=/var     \
