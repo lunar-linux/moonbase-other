@@ -1,4 +1,5 @@
 (
+  patch_it $SOURCE2 1 &&
 
   ./configure  --build=$BUILD             \
                --prefix=/usr              \
@@ -7,8 +8,8 @@
                --mandir=/usr/share/man    \
                --enable-elf-shlibs        \
                --disable-libuuid          \
-	       --disable-uuidd            \
-	       --disable-libblkid         \
+               --disable-uuidd            \
+               --disable-libblkid         \
                $OPTS &&
 
   default_make &&
