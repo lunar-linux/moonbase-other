@@ -1,4 +1,4 @@
-{
+(
 
     default_build &&
     cp -r $SCRIPT_DIRECTORY/init/* /etc/init
@@ -15,4 +15,5 @@
     message "         to the boot line in either your lilo or grub config."
     message ""
     message "******************************************************************"
-}
+
+) > $C_FIFO 2>&1
