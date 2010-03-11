@@ -61,7 +61,7 @@
   done &&
 
   prepare_install &&
-  cp -r $SOURCE_DIRECTORY/__heimdest/usr / &&
+  cp -rf --remove-destination $SOURCE_DIRECTORY/__heimdest/usr / &&
 
   for i in ksu otp; do
     [ ! -f /usr/bin/${i} ] || chmod 4711 /usr/bin/${i}
