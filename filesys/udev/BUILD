@@ -17,9 +17,10 @@
     # create static nodes dir if missing
     mkdir -p /lib/udev/devices  &&
 
-    patch_it $SOURCE2 0 &&
-    sedit "/^pkgconfigdir/s;.*;pkgconfigdir = /usr/lib/pkgconfig;" Makefile.in &&
-    sedit '/$(DESTDIR)$(prefix)\/lib\/ConsoleKit/s;$(DESTDIR)$(prefix);/usr;g' Makefile.in &&
+    patch_it $SOURCE2 0  &&
+    sedit "/^pkgconfigdir/s;.*;pkgconfigdir = /usr/lib/pkgconfig;" Makefile.in  &&
+    sedit '/$(DESTDIR)$(prefix)\/lib\/ConsoleKit/s;$(DESTDIR)$(prefix);/usr;g' Makefile.in  &&
+    sedit "s:enable_introspection=yes:enable_introspection=no:" configure  &&
 
     find $SOURCE_DIRECTORY/rules -type f -name '*.rules' -exec sed -i 's/uucp/dialout/g' {} \;  &&
 
@@ -32,11 +33,11 @@
        rm -f /etc/udev/rules.d/70-persistent-{cd,net}.rules
     fi  &&
 
-    ./configure  --prefix=""               \
-                 --libexecdir=/lib/udev    \
-                 --mandir=/usr/share/man   \
-                 --includedir=/usr/include \
-                 --datarootdir=/usr/share  \
+    ./configure  --prefix=""                \
+                 --libexecdir=/lib/udev     \
+                 --mandir=/usr/share/man    \
+                 --includedir=/usr/include  \
+                 --datarootdir=/usr/share   \
                  --sysconfdir=/etc         &&
     sedit '/^GIRTYPELIBDIR/s;\${exec_prefix};/usr;' Makefile  &&
     default_make  &&
