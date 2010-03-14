@@ -1,7 +1,7 @@
 (
 
-    perl Makefile.PL &&
-    default_make
+    prepare_install &&
+    ./setup.py install  
     
 ) > $C_FIFO 2>&1
 
