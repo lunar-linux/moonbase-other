@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE1 0 &&
-
   sedit "s:PREFIX)/bin:PREFIX)/sbin:" Makefile &&
 
   default_make

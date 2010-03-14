@@ -1,0 +1,20 @@
+          MODULE=nilfs-utils
+         VERSION=2.0.17
+          SOURCE=${MODULE}-${VERSION}.tar.bz2
+   SOURCE_URL[0]=http://www.nilfs.org/download/
+      SOURCE_VFY=sha1:eff76604fd32461e94120bf54fccf59fad52d22a
+        WEB_SITE=http://www.nilfs.org/en/about_nilfs.html
+         ENTERED=20100313
+         UPDATED=20100313
+           SHORT="log-structured file system"
+
+cat << EOF
+NILFS is a new implementation of a log-structured file system (LFS) supporting 
+continuous snapshotting. In addition to versioning capability of the entire 
+file system, users can even restore files mistakenly overwritten or destroyed 
+just a few seconds ago. Since NILFS can keep consistency like conventional LFS,
+it achieves quick recovery after system crashes. 
+
+Refer to Documentation/filesystems/nilfs2.txt found in the kernel source.
+
+EOF

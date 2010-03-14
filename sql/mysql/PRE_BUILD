@@ -1,14 +1,15 @@
-message " "
-message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}Database backup have to be done to avoid any data loss during migration."
-message " "
-
-if ! query "Have you done data backup (y/n)? " n; then
+if module_installed mysql; then
    message " "
-   message " ${DEFAULT_COLOR}Please consult first http://dev.mysql.com/doc/refman/5.1/en/upgrade.html before installing."
+   message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}Database backup have to be done to avoid any data loss during migration."
    message " "
-   sleep 5
-   exit 1
+   if ! query "Have you done data backup (y/n)? " n; then
+      message " "
+      message " ${DEFAULT_COLOR}Please consult first http://dev.mysql.com/doc/refman/5.1/en/upgrade.html before installing."
+      message " "
+      sleep 5
+      exit 1
+   fi
+   message " "
 fi
-message " "
 
 default_pre_build

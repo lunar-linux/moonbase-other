@@ -1,2 +1,9 @@
-depends  teTeX  &&
+depends  teTeX
 depends  guile
+
+optional_depends imlib2 "--with-imlib2" "--without-imlib2" "for imlib graphics support"
+
+optional_depends qt4    "--enable-qt --with-qt"      \
+                        "--disable-qt --without-qt"  \
+                        "for qt looks support, else X11 looks"
+
