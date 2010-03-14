@@ -2,7 +2,11 @@ depends lunar-init
 depends sysfsutils
 depends gperf
 depends libusb-compat
-depends gobject-introspection
+
+optional_depends "gobject-introspection"  \
+                 "" \
+                 "--disable-introspection"  \
+                 "for introspection support"
 
 optional_depends "acl"      "" "" "to build acl helpful extras"
 optional_depends "pciutils" "" "" "to build usb helpful extras"
