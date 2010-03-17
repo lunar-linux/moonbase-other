@@ -40,9 +40,10 @@
   mkdir -p /etc/vbox &&
   echo "INSTALL_DIR=$MODULE_PREFIX" > /etc/vbox/vbox.cfg &&
 
-  # Install .desktop entry and icon
+  # Install .desktop entry and icon, then update the icon cache
   install -D -m644 /usr/lib/virtualbox/virtualbox.desktop /usr/share/applications/virtualbox.desktop &&
   install -D -m644 /usr/lib/virtualbox/VBox.png /usr/share/icons/hicolor/32x32/apps/VBox.png &&
+  gtk-update-icon-cache /usr/share/icons/hicolor &&
 
   # Create the vboxusers group
   groupadd -f vboxusers
