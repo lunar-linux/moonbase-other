@@ -1,5 +1,4 @@
 (
-  patch_it $SOURCE2 1 &&
 
   ./configure  --build=$BUILD             \
                --prefix=/usr              \
@@ -10,9 +9,9 @@
                --disable-libuuid          \
                --disable-uuidd            \
                --disable-libblkid         \
-               $OPTS &&
+               $OPTS                     &&
 
-  default_make &&
+  default_make  &&
   make install-libs || exit 1
 
 ) > $C_FIFO 2>&1
