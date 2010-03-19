@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --enable-shared --disable-samples --enable-omf" &&
+  OPTS+=" --enable-shared --disable-samples --enable-omf --disable-debug" &&
 
   default_build
 
