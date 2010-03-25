@@ -1,19 +1,13 @@
-
-
-udev_msg() {
-  message "${PROBLEM_COLOR}WARNING!!!${DEFAULT_COLOR} udev detected CONFIG_SYSFS_DEPRECTED=y in the kernel config."
-  message "This version of udev will not work with this option enabled, please"
-  message "recompile your kernel and disable CONFIG_SYSFS_DEPRECTED."
-}
-
-if test -e /proc/config.gz && zgrep -q 'CONFIG_SYSFS_DEPRECATED=y' /proc/config.gz; then
-  udev_msg
-  exit 1
-elif test -e /usr/src/linux/.config && grep -q 'CONFIG_SYSFS_DEPRECATED=y' /usr/src/linux/.config; then
-  udev_msg
-  exit 1
-elif test -e /etc/lunar/local/.config.2.6.stable && grep -q 'CONFIG_SYSFS_DEPRECATED=y' /etc/lunar/local/.config.2.6.stable; then
-  udev_msg
+if kernel_option_present CONFIG_SYSFS_DEPRECATED || \
+   ! kernel_option_present CONFIG_INOTIFY || \
+   ! kernel_option_present CONFIG_INOTIFY_USER; then
+  message "${PROBLEM_COLOR}PROBLEM: ${MODULE_COLOR}udev${DEFAULT_COLOR} detected incompatible kernel options."
+  message "Please verify that CONFIG_SYSFS_DEPRECATED is disabled,"
+  message "and that CONFIG_INOTIFY and CONFIG_INOTIFY_USER"
+  message "are enabled."
+  message ""
+  message "Then recompile your kernel and try 'lin udev' again."
+  message ""
   exit 1
 fi
 
