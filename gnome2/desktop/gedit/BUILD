@@ -1,8 +1,8 @@
 (
 
-   sedit s/Text\ Editor/GEdit\ Text\ Editor/g data/gedit.desktop.in &&
-   sedit s/Text\ Editor/GEdit\ Text\ Editor/g data/gedit.desktop.in.in &&
-    
+   sedit s/Text\ Editor/GEdit\ Text\ Editor/g data/gedit.desktop.in     &&
+   sedit s/Text\ Editor/GEdit\ Text\ Editor/g data/gedit.desktop.in.in  &&
+
 
    ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD                     \
@@ -10,7 +10,7 @@
                 --localstatedir=/var               \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info  \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man    \
-                $OPTS                              &&
+                $OPTS                                         &&
     default_make
 
 ) > $C_FIFO 2>&1
