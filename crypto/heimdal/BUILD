@@ -1,7 +1,4 @@
 (
-
-  patch_it $SOURCE_CACHE/$SOURCE5 0 &&
-
   export CFLAGS="$CFLAGS -I/usr/include/et" &&
   export CXXFLAGS="$CXXFLAGS -I/usr/include/et" &&
 
