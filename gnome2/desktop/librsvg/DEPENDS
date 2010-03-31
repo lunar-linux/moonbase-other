@@ -1,5 +1,6 @@
 depends  popt
 depends  cairo
-depends  libgsf
-depends  libcroco  
 depends  gtk+-2
+
+optional_depends libgsf   "--with-svgz"  "--without-svgz"  "for run-time decompression support"
+optional_depends libcroco "--with-croco" "--without-croco" "for CSS parsing support"
