@@ -1,3 +1,8 @@
 depends PolicyKit
 depends DeviceKit
 depends polkit
+depends sg3_utils
+depends parted
+
+optional_depends "gtk-doc"  "--enable-gtk-doc"  ""                "for gtk-doc support"
+optional_depends "lvm2"     ""                  "--disable-lvm2"  "for lvm2 support"
