@@ -1,4 +1,5 @@
 (
+
   chmod +x $SOURCE &&
   ./$SOURCE --accept-license --unpack &&
 
@@ -33,7 +34,6 @@
   ln -sf /usr/lib/jdk${FVERSION}/jre/plugin/i386/ns7/libjavaplugin_oji.so \
          /opt/lunar/plugins/
   fi &&
-
 
   echo export PATH=\"'${PATH}':/usr/lib/jdk"${FVERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
   echo export JAVA_HOME=\"/usr/lib/jdk"${FVERSION}"/\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
