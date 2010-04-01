@@ -1,13 +1,16 @@
           MODULE=xfce4-xkb-plugin
          VERSION=0.5.3.3
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://goodies.xfce.org/releases/$MODULE/
+         SOURCE2=$MODULE-$VERSION-libxklavier.patch.bz2
+      SOURCE_URL=http://goodies.xfce.org/releases/$MODULE
+     SOURCE2_URL=$PATCHES_URL
       SOURCE_VFY=sha1:5e83d55cd6f14a62a87ccadd0f11eee070a6f4a7
+     SOURCE2_VFY=sha1:a1e1c54879d0be5245c9c05680d674ed5ea602d5
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.xfce.org
          ENTERED=20061124
-         UPDATED=20090618
-           SHORT="keyboard layout switcher"
+         UPDATED=20100401
+           SHORT="A keyboard layout switcher"
 
 cat << EOF
 displays the current keyboard layout, and refreshes when layout 
