@@ -1,17 +1,17 @@
           MODULE=gnome-keyring
-         VERSION=2.26.3
-           MAJOR=2.26
+           MAJOR=2.30
+         VERSION=$MAJOR.0
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR/
-      SOURCE_VFY=sha1:c07136f0757937a7fe6989cbdf3bf8103da55364
+      SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:988eae9d00408ce9d57ee8d8ca4df22bba61e19b
         WEB_SITE=http://www.gnome.org
          ENTERED=20031208
-         UPDATED=20090703
-           SHORT="the GNOME keyring services (daemon and tools)"
+         UPDATED=20100402
+           SHORT="The GNOME keyring services (daemon and tools)"
 
 cat << EOF
 gnome-keyring is a daemon that is used to store passwords and other
-sensitive information.  The program can manage several keyrings,
+sensitive information. The program can manage several keyrings,
 each with its own master password, and there is also a session
 keyring which is never stored to disk, hence forgetting when the
 session ends.
