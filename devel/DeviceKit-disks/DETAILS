@@ -1,13 +1,15 @@
-          MODULE=DeviceKit-disks
-         VERSION=009
+          MODULE=udisks
+         VERSION=1.0.0
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://hal.freedesktop.org/releases/
-      SOURCE_VFY=sha1:c48e2f0763832996123b26adc0982353721dd7e5
+      SOURCE_URL=http://hal.freedesktop.org/releases
+      SOURCE_VFY=sha1:4c5a416104e4f88905420e9dc13b18d780c80aa0
          ENTERED=20090327
-         UPDATED=20091226
-           SHORT="a daemon which provides access to disks"
+         UPDATED=20100331
+           SHORT="enumerates power devices and listens to device events"
 
 cat << EOF
-DeviceKit-disks is a daemon that provide interfaces to obtain
-information and perform operations on storage devices.
+Udisks is an abstraction for enumerating power devices,
+listening to device events and querying history and statistics.
+Any application or service on the system can access this
+service via the system message bus.
 EOF
