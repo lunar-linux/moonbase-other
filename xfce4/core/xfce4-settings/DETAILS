@@ -2,18 +2,20 @@
            MAJOR=4.6
          VERSION=4.6.4
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-4.6.1-libxi-patch.diff
+         SOURCE2=$MODULE-4.6.1-libxi.patch.bz2
+         SOURCE3=$MODULE-4.6.4-libxklavier.patch.bz2
       SOURCE_URL=http://www.xfce.org/archive/src/xfce/$MODULE/$MAJOR
      SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
       SOURCE_VFY=sha1:93dc4358de157bdf9885648ca15034016f39384d
-     SOURCE2_VFY=sha1:78672e11b205e388127f977f8b8e43991829abe3
+     SOURCE2_VFY=sha1:ab13d8f642390ec04828a61a7b8e45c21aa5d17f
+     SOURCE3_VFY=sha1:5f3f65df9589c82cf3b4db5dd82802614bbf87a1
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.xfce.org
          ENTERED=20090227
-         UPDATED=20100215
+         UPDATED=20100404
            SHORT="Xfce settings manager"
 
 cat << EOF
 Xfce settings manager.
 EOF
-
