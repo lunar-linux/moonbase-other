@@ -7,6 +7,7 @@
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info  \
                 --mandir=${GNOME210_PREFIX:-/usr}/share/man    \
                 --disable-tests                    \
+                --enable-introspection=no          \
                 $OPTS                              &&
     default_make
 
