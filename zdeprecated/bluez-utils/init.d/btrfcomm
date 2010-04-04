@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# bind bt rfcomm devices
+#
+# chkconfig: 345 80 20
+# description: bind rfcomm devices
+# processname: rfcomm
+# config:      /etc/bluetooth/rfcomm.conf
+
+ARGS="-f /etc/bluetooth/rfcomm.conf"
+
+. /lib/lsb/init-functions
+
+case "$1" in
+    start)
+    /usr/bin/rfcomm -f /etc/bluetooth/rfcomm.conf bind all
+    ;;
+    stop)
+    /usr/bin/rfcomm release all > /dev/null 2>&1
+    ;;
+    *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+    ;;
+esac
