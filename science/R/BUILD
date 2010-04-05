@@ -1,17 +1,16 @@
 (
 
+  CFLAGS=`echo $CFLAGS | sed s/-ffast-math//` &&
+  CXXFLAGS=`echo $CXXFLAGS | sed s/-ffast-math//` &&
+
+  OPTS+=" --enable-R-shlib" &&
+
   if [ -e /usr/lib64/R/doc ] ; then
     rm -rf /usr/lib64/R/doc
   fi &&
 
-  CFLAGS=`echo $CFLAGS | sed s/-ffast-math//` &&
-  CXXFLAGS=`echo $CXXFLAGS | sed s/-ffast-math//` &&
-
-  OPTS="--enable-R-shlib"
-
   default_config &&
   make &&
-  make check &&
 
   if [[ "$DVI_DOCS" == "y" ]] ; then
      make dvi

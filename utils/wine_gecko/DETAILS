@@ -1,0 +1,17 @@
+          MODULE=wine_gecko
+         VERSION=1.0.0-x86
+          SOURCE=$MODULE-$VERSION.cab
+   SOURCE_URL[0]=$SFORGE_URL/wine/
+      SOURCE_VFY=sha1:afa22c52bca4ca77dcb9edb3c9936eb23793de01
+        WEB_SITE=http://wiki.winehq.org/Gecko
+         ENTERED=20091125
+         UPDATED=20091125
+           SHORT="Mozilla's Gecko Layout Engine"
+
+cat << EOF
+Wine implements its own version of Internet Explorer. The implementation is 
+based on a custom version of Mozilla's Gecko Layout Engine. When your 
+application tries to display a web page, it loads Wine's custom Gecko from the
+file wine_gecko-1.0.0-x86.cab (at least in the latest version of Wine; older 
+versions of Wine use older versions of Gecko).
+EOF

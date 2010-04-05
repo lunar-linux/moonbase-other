@@ -1,3 +1,4 @@
+depends gsl
 depends gtkmm
 depends libart_lgpl
 depends libxml2
@@ -5,6 +6,6 @@ depends gc
 depends popt
 depends boost
 
-optional_depends "lcms" "--enable-lcms" "--disable-lcms" "enable LittleCms for color management" 
-optional_depends "libgnomeprintui" "--with-gnome-print" "" "for Gnome printing support"
-optional_depends "libwpg" "" "" "for Wordperfect graphics support"
+optional_depends "lcms"    "--enable-lcms"          "--disable-lcms"          "enable LittleCms for color management" 
+optional_depends "libwpg"  ""                       ""                        "for Wordperfect graphics support"
+optional_depends "poppler" "--enable-poppler-cairo" "--disable-poppler-cairo" "for poppler support"

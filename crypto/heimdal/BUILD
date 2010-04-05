@@ -1,20 +1,23 @@
 (
+  export CFLAGS="$CFLAGS -I/usr/include/et" &&
+  export CXXFLAGS="$CXXFLAGS -I/usr/include/et" &&
 
   OPTS+=" --prefix=/usr \
+          --without-x \
           --libexecdir=/usr/sbin \
           --datadir=/var/lib/heimdal \
           --localstatedir=/var/lib/heimdal \
           --sysconfdir=/etc \
           --enable-shared \
-          --enable-readline-dir=/usr \
-          --enable-openssl=/usr" &&
+          --with-readline=/usr \
+          --with-openssl=/usr" &&
 
   # Migration code, remove symlinks
   REMOVE_KRB="gssapi krb5-types.h krb5.h asn1_err.h krb5_asn1.h \
               krb5_err.h heim_err.h k524_err.h krb5-protos.h" &&
 
   for i in $REMOVE_KRB; do
-    rm -f /usr/include/${i}
+    [ ! -L $i ] || rm -f /usr/include/${i}
   done &&
 
   if [ -d /usr/include/heimdal ]; then
@@ -37,8 +40,31 @@
   patch_it $SOURCE3 1 &&
   patch_it $SOURCE4 1 &&
 
-  sh autogen.sh &&
+  mkdir -p $SOURCE_DIRECTORY/__heimdest/ &&
 
-  default_build
+  sh autogen.sh &&
+  default_config &&
+  make &&
+  INSTALL_CATPAGES="no" make DESTDIR=$SOURCE_DIRECTORY/__heimdest/ install &&
+
+  # Rename files that otherwise would conflict
+  for i in rshd telnetd ftpd; do
+    mv $SOURCE_DIRECTORY/__heimdest/usr/sbin/{,k}${i} || exit 1
+    mv $SOURCE_DIRECTORY/__heimdest/usr/share/man/man8/{,k}${i}.8 || exit 1
+  done &&
+
+  for i in rsh su telnet ftp login rcp; do
+    if [ -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/${i}.1 ]; then
+      mv $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/{,k}${i}.1 || exit 1
+    fi
+    mv $SOURCE_DIRECTORY/__heimdest/usr/bin/{,k}${i} || exit 1
+  done &&
+
+  prepare_install &&
+  cp -rf --remove-destination $SOURCE_DIRECTORY/__heimdest/usr / &&
+
+  for i in ksu otp; do
+    [ ! -f /usr/bin/${i} ] || chmod 4711 /usr/bin/${i}
+  done
 
 ) > $C_FIFO 2>&1

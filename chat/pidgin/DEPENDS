@@ -57,7 +57,7 @@ optional_depends  "avahi"  \
 
 optional_depends  "nss"                                     \
                   "--enable-gnutls=no                       \
-                   --with-nspr-libs=/usr/lib/               \
+                   --with-nspr-libs=/usr/lib                \
                    --with-nspr-includes=/usr/include/nspr/  \
                    --with-nss-libs=/usr/lib/                \
                    --with-nss-includes=/usr/include/nss/    \
@@ -99,6 +99,11 @@ optional_depends  "tk"  \
                   ""    \
                   "--disable-tk"   \
                   "for TK based plugin support"
+
+optional_depends "farsight2" \
+		  ""         \
+                  "--disable-vv" \
+		  "for voice and video support"
 
 # Mono implementation isn't far enough along to make this depends useful
 #optional_depends  "mono"            \

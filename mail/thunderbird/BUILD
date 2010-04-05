@@ -1,94 +1,92 @@
 (
+
+  #Really? You go and call fprintf and don't #include <cstdio>?
+  #How exactly did you plan on doing that?!?!
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src/common/linux/dump_symbols.cc
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src/client/linux/handler/exception_handler.cc
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src/client/linux/handler/minidump_generator.cc
+
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi &&
 
-  MOZILLA_HOME=/usr/lib/$MODULE-$VERSION 
-  MOZ_EXTENSIONS="wallet,spellcheck,xmlextras,webservices"
-  NECKO_PROT="http,file,jar,viewsource,res,data"
-
-  if in_depends heimdal ; then
-        MOZ_EXTENSIONS="${MOZ_EXTENSIONS},negotiateauth"
-  else
-        MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-negotiateauth"
-  fi &&
-
-  # This hack added to fix a gtk+-2/pango/atk update that broke firefox. This should be removed in the future.
-  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in &&
-
-  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
-  export MOZ_THUNDERBIRD=1
+  export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
+  export MOZ_CO_PROJECT=mail
   export MOZILLA_OFFICIAL=1
   export BUILD_OFFICIAL=1
+  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
+  export MOZ_THUNDERBIRD=1
 
-  ./configure           \
-    --prefix=/usr       \
-    --with-x            \
-    --with-pthreads     \
-    --with-default-mozilla-five-home=$MOZILLA_HOME \
-    --with-user-appdir=".thunderbird"       \
-    --with-system-zlib  \
-    --with-system-png   \
-    --with-system-jpeg  \
-    --enable-extensions=${MOZ_EXTENSIONS}       \
-    --enable-single-profile        \
-    --enable-application=mail      \
-    --enable-default-toolkit=gtk2  \
-    --enable-optimize="$CFLAGS"    \
-    --enable-xft        \
-    --enable-reorder    \
-    --enable-cpp-rtti   \
-    --enable-cpp-exceptions \
-    --enable-crypto     \
-    --enable-strip      \
-    --enable-strip-libs \
-    --enable-xterm-updates      \
-    --enable-official-branding  \
-    --enable-image-decoders=default,-xbm        \
-    --enable-necko-protocols=${NECKO_PROT}      \
-    --disable-debug     \
-    --disable-tests     \
-    --disable-oji       \
-    --disable-svg       \
-    --disable-plugins   \
-    --disable-necko-disk-cache  \
-    --disable-installer \
-    --disable-pedantic  \
-    --disable-logging   \
-    --disable-accessibility     \
-    --disable-freetype2 \
-    --disable-profilesharing    \
-    --disable-mathml    \
-    $OPTS               &&
+  cp $SCRIPT_DIRECTORY/mozconfig comm-1.9.1/  &&
+
+  export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"
+  mkdir -p ${MOZ_OBJDIR}  &&
+
+  cd comm-1.9.1 &&
+
+  #Add DEPENDS options
+
+  if in_depends $MODULE dbus ; then
+    echo "ac_add_options --enable-dbus" >> mozconfig
+  else
+    echo "ac_add_options --disable-dbus" >> mozconfig
+  fi  &&
+
+  if in_depends $MODULE sqlite ; then
+    echo "ac_add_options --enable-system-sqlite" >> mozconfig
+  fi  &&
+
+  if in_depends $MODULE "xulrunner" ; then
+    XUL=`module_version xulrunner`
+    echo "ac_add_options --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL" >> mozconfig
+  fi  &&
+
+  if in_depends $MODULE gnome-vfs ; then
+    echo "ac_add_options --enable-gnomevfs" >> mozconfig
+  else
+    echo "ac_add_options --disable-gnomevfs" >> mozconfig
+  fi  &&
+
+  if in_depends $MODULE openldap ; then
+    echo "ac_add_options --enable-ldap" >> mozconfig
+  else
+    echo "ac_add_options --disable-ldap" >> mozconfig
+  fi  &&
 
   setterm -bfreq -blength &&
 
-  default_make        &&
+  #Finally, the build!
+  if [ "$PGO" == "y" ] ; then
+    #CCache breaks the pgo build
+    export CCACHE_DISABLE=1
+    echo "ac_add_options --enable-profile-guided-optimization" >> mozconfig  &&
+    echo "mk_add_options PROFILE_GEN_SCRIPT='python $MOZ_OBJDIR/_profile/pgo/profileserver.py'" >> mozconfig  &&
+    make -f client.mk build &&
+    make -f client.mk profiledbuild
+  else
+    make -f client.mk build
+  fi  &&
 
-    # Enigmail support disabled since it doesn't work anylonger
-    # Blame the thunderbird developers
-    #if module_installed gnupg ; then
-    #  build/autoconf/make-makefile extensions/ipc \
-    #            extensions/enigmail
-    #  make -C extensions/ipc
-    #  make -C extensions/enigmail
-    #  make -C extensions/ipc install 
-    #  make -C extensions/enigmail install
-    #fi
+  cd ${MOZ_OBJDIR}  &&
+  prepare_install   &&
+  make install      &&
 
-    # Needed for rss support
-    install -d $MOZILLA_HOME/defaults/isp/US &&
-    install -m644 $SOURCE_DIRECTORY/mail/extensions/newsblog/rss.rdf $MOZILLA_HOME/defaults/isp &&
-    install -m644 $SOURCE_DIRECTORY/mail/extensions/newsblog/rss.rdf $MOZILLA_HOME/defaults/isp/US &&
+  # Make thunderbird use its own icon
+  mkdir -p $MOZILLA_HOME/chrome/icons/default  &&
 
-    # Put some important headers in place
-    mkdir -p /usr/include/$MODULE-$VERSION/nss &&
-    cp -Lf dist/private/nss/*.h dist/public/nss/*.h /usr/include/$MODULE-$VERSION/nss &&
+  for icon in `ls $MOZILLA_HOME/icons`; do
+   `ln -sf $MOZILLA_HOME/icons/$icon \
+           $MOZILLA_HOME/chrome/icons/default/$icon`
+  done
 
     # Now the .desktop file and the icon
     mkdir -p /usr/share/applications /usr/share/pixmaps &&
-    install -m644 $SOURCE_CACHE/$SOURCE2 /usr/share/applications &&
+    install -m644 $SCRIPT_DIRECTORY/thunderbird.desktop /usr/share/applications &&
+    # please, dont just let the lin fail because /usr/share/pixmaps/thunderbird.xpm is an existing symlink...
     rm -f /usr/share/pixmaps/thunderbird.xpm &&
-    install -m644 $MOZILLA_HOME/icons/mozicon50.xpm /usr/share/pixmaps
+    cp $SOURCE_DIRECTORY/comm-1.9.1/other-licenses/branding/thunderbird/content/icon64.png $SOURCE_DIRECTORY/comm-1.9.1/other-licenses/branding/thunderbird/mailicon64.png &&
+    cp -f $SOURCE_DIRECTORY/comm-1.9.1/other-licenses/branding/thunderbird/content/icon48.png $SOURCE_DIRECTORY/comm-1.9.1/other-licenses/branding/thunderbird/mailicon48.png &&
+    install -m644 $SOURCE_DIRECTORY/comm-1.9.1/other-licenses/branding/thunderbird/mailicon*.png /usr/share/pixmaps
 
 ) > $C_FIFO 2>&1
+

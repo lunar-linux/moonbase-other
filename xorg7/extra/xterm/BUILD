@@ -1,11 +1,11 @@
 (
-  . /etc/profile.d/x11r7.rc &&
+  . /etc/profile.d/x11r7.rc  &&
 
-  default_build &&
+  default_build  &&
 
   # cosmetic but needed adjustments:
   if ! grep -q 'XTerm*loginShell:' /usr/lib/X11/app-defaults/XTerm ; then
-    echo 'XTerm*loginShell: true' >> /usr/lib/X11/app-defaults/XTerm &&
+    echo 'XTerm*loginShell: true' >> /usr/lib/X11/app-defaults/XTerm  &&
     echo 'XTerm*loginShell: true' >> /usr/lib/X11/app-defaults/XTerm-color
   fi
 

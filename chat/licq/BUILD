@@ -1,4 +1,5 @@
 ( 
+
   CONSOLE_PLUGIN="no"
   QT_PLUGIN="no"
   QT4_PLUGIN="no"
@@ -8,9 +9,6 @@
   # Determine which plugins to build
   if in_depends licq cdk; then
     CONSOLE_PLUGIN="yes"
-  fi
-  if in_depends licq qt3; then
-    QT_PLUGIN="yes"
   fi
   if in_depends licq qt4; then
     QT4_PLUGIN="yes"
@@ -27,16 +25,10 @@
   echo "The following plugins will be compiled:"
   echo
   echo "  * Console frontend: ${CONSOLE_PLUGIN}"
-  echo "  * Qt3 frontend: ${QT_PLUGIN}"
   echo "  * Qt4 frontend: ${QT4_PLUGIN}"
   echo "  * MSN support: ${MSN_PLUGIN}"
   echo "  * OSD support: ${OSD_PLUGIN}"
   echo
-
-  # Load KDE profile
-  if in_depends licq kdelibs3; then
-    . /etc/profile.d/kde3.rc
-  fi
 
   default_config &&
   make &&
@@ -44,14 +36,6 @@
   # Compile console plugin
   if [[ "$CONSOLE_PLUGIN" = "yes" ]]; then
     cd $SOURCE_DIRECTORY/plugins/console &&
-    default_config &&
-    make
-  fi &&
-
-  # Compile Qt frontend
-  if [[ "$QT_PLUGIN" = "yes" ]]; then
-    . /etc/profile.d/qt3.rc &&
-    cd $SOURCE_DIRECTORY/plugins/qt-gui &&
     default_config &&
     make
   fi &&
@@ -87,12 +71,6 @@
   # Install console plugin
   if [[ "$CONSOLE_PLUGIN" = "yes" ]]; then
     cd $SOURCE_DIRECTORY/plugins/console &&
-    make install
-  fi &&
-
-  # Install Qt frontend
-  if [[ "$QT_PLUGIN" = "yes" ]]; then
-    cd $SOURCE_DIRECTORY/plugins/qt-gui &&
     make install
   fi &&
 

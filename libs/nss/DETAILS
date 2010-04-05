@@ -1,15 +1,14 @@
           MODULE=nss
-         VERSION=3.12
-         SUB_VER=with-nspr-4.7
-          SOURCE=$MODULE-$VERSION-$SUB_VER.tar.gz
-          SOURCE2=nss-3.11-fedora_fixes-1.patch
-      SOURCE_URL=http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_12_RTM/src/
+         VERSION=3.12.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-gentoo-fixups.diff 
+      SOURCE_URL=http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_12_5_RTM/src/
      SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:b0234852906a2b0a1f3d88600e1089de469a9fe2
-     SOURCE2_VFY=sha1:efa36f9b25571b1ba30cd5900a3d646fc02c86d5
-        WEB_SITE=http://www.mozilla.org
+      SOURCE_VFY=sha1:ec12c6eddba5fb4609a174b079095b374935d37c
+     SOURCE2_VFY=sha1:dc4cacbd818c36fa7ebcf7a5dc876daeea79dd57
+        WEB_SITE=http://www.mozilla.org/projects/security/pki/nss
          ENTERED=20060418
-         UPDATED=20080812
+         UPDATED=20100104
            PSAFE="no"
            SHORT="a set of libraries to support development of security-enabled applications"
 cat << EOF

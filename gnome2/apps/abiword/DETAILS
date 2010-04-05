@@ -1,21 +1,17 @@
           MODULE=abiword
-         VERSION=2.6.8
+         VERSION=2.8.1
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-plugins-$VERSION.tar.gz
+         SOURCE2=abiword-2.6.8-invalid-conversion.patch.bz2
       SOURCE_URL=http://www.abisource.com/downloads/$MODULE/$VERSION/source
-     SOURCE2_URL=http://www.abisource.com/downloads/$MODULE/$VERSION/source
-      SOURCE_VFY=sha1:fc979982edc3445385705afdb1e2ebb1fa53a4f6
-     SOURCE2_VFY=sha1:fa8ad1985de5523f9993cef93af0dad174e8e5a5
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:fac4bb888a6426fc3fa3784c4ca500f417d9b7b5
+     SOURCE2_VFY=sha1:e6eb14dbd4b0d45f2bb0d2ca34a6c8741b165b9b
         WEB_SITE=http://www.abisource.com
          ENTERED=20011224
-         UPDATED=20090516
+         UPDATED=20091122
            SHORT="a full-featured, yet light and fast word processor"
 
 cat << EOF
 Abiword is a free word processing program similar to Microsoft Word.
 It is suitable for typing papers, letter, reports, memos and so forth.
-
-NOTE: If you need the equation editor then stick with abiword-2.4.6. That
-plug-in hasn't caught up yet. The abiword devs have said this will be
-fixed eventually.
 EOF

@@ -6,7 +6,6 @@
                  --localstatedir=/var               \
                  --infodir=${GNOME210_PREFIX:-/usr}/share/info  \
                  --mandir=${GNOME210_PREFIX:-/usr}/share/man    \
-                 --disable-examples                 \
                  --disable-demos                    \
                  $OPTS                              &&
     default_make

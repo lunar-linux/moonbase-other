@@ -1,0 +1,28 @@
+          MODULE=qt4
+         VERSION=4.6.2
+          SOURCE=qt-everywhere-opensource-src-${VERSION}.tar.gz
+   SOURCE_URL[0]=ftp://ftp.trolltech.com/qt/source
+   SOURCE_URL[1]=http://gd.tuwien.ac.at/hci/qt/source
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/qt-everywhere-opensource-src-${VERSION}
+      SOURCE_VFY=sha1:977c10b88a2230e96868edc78a9e3789c0fcbf70
+   MODULE_PREFIX=${QT4_PREFIX:-/opt/lunar/qt/4}
+        WEB_SITE=http://www.trolltech.com/qt
+         ENTERED=20020420
+         UPDATED=20100215
+#         GARBAGE=off
+     FTP_PASSIVE=on
+      MAINTAINER=florin@lunar-linux.org
+           SHORT="A C++ toolkit for application development"
+
+cat << EOF
+Qt is a C++ toolkit for application development. It lets application
+developers target all major operating systems with a single application
+source code.
+
+Qt provides a platform-independent API to all central platform
+functionality: GUI, database access, networking, file handling, etc. The
+Qt library encapsulates the different APIs of different operating systems,
+providing the application programmer with a single, common API for all
+operating systems. The native C APIs are encapsulated in a set of
+well-designed, fully object-oriented C++ classes.
+EOF

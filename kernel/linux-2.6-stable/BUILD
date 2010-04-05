@@ -1,6 +1,5 @@
 (
-
-  while
+   while
     if [ "$CONFIG_KERNEL" == "y" ]; then
         if [ "$PREFER_XCONFIG" == "y" -a -n "$DISPLAY" ]; then
             make xconfig || make menuconfig || make config
@@ -28,11 +27,11 @@
   LD_PRELOAD= cp .config $CONFIG_CACHE/.config.2.6.stable
   rm -f arch/${MYARCH}/boot/bzImage
 
-  make ${MAKES:+-j$MAKES} bzImage           &&
-  make ${MAKES:+-j$MAKES} modules           &&
-  backup_mods_krnl $VERSION                    &&
-  prepare_install                           &&
-  make modules_install                      &&
+  make ${MAKES:+-j$MAKES} bzImage  &&
+  make ${MAKES:+-j$MAKES} modules  &&
+  backup_mods_krnl $VERSION        &&
+  prepare_install                  &&
+  make modules_install             &&
   cp arch/${MYARCH}/boot/bzImage /boot/$VERSION-`arch`  &&
   cp System.map /boot/System.map-$VERSION-`arch`
 

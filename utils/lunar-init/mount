@@ -46,7 +46,7 @@ run_with_msg_and_exit_codes()
 		return 1
 	fi
 
-	echo -n "$1"
+	echo "$1"
 
 	if [ -n "${DEBUG}" ]; then
 		echo -e "\n< run_with_special_exit_codes >"
@@ -56,7 +56,7 @@ run_with_msg_and_exit_codes()
 		echo -e "\n< fail    : $5 >"
 		eval $2
 	else
-		eval $2 &> /dev/null
+		eval $2
 	fi
 
 	local exit_status=$?
@@ -148,17 +148,17 @@ kernel_is_24()
 
 check_for_lvm()
 {
-    if [[ -x /sbin/vgscan ]]; then
+  if [[ -x /sbin/vgscan ]]; then
 	if [[ -e /proc/modules ]] && ! grep -qs 'device-mapper' /proc/{devices,misc}; then
- 	    run_without_msg "modprobe dm-mod"
+ 	  run_without_msg "modprobe dm-mod"
 	fi
 	if [[ -d /proc/lvm ]] || grep -qs 'device-mapper' /proc/{devices,misc}; then
-	    run_with_msg " * Scanning for LVM volume groups" "/sbin/vgscan --mknodes --ignorelockingfailure"
-	    if [[ $? -eq 0 ]] && [[ -d /etc/lvm ]] && [[ -x /sbin/vgchange ]]; then
+	  run_with_msg " * Scanning for LVM volume groups" "/sbin/vgscan --mknodes --ignorelockingfailure"
+	  if [[ $? -eq 0 ]] && [[ -d /etc/lvm ]] && [[ -x /sbin/vgchange ]]; then
 		run_with_msg " * Initializing LVM volume groups" "/sbin/vgchange --ignorelockingfailure -a y"
-	    fi
+	  fi
 	fi
-    fi
+  fi
 }
 
 start()
@@ -174,7 +174,7 @@ start()
 	DEVNODES=`grep -o "dev=.*" /proc/cmdline | cut -d" " -f1 | sed -e "s/dev=//g"`
 
 	case $DEVNODES in
-		static|devfs)
+		static)
 			;;
 		udev)
 			if kernel_is_24 ; then
@@ -183,23 +183,18 @@ start()
 			fi
 			;;
 		?*)
-			warn_msg "Wrong device nodes parameter \"$DEVNODES\" on kernel line. Valid are: devfs, udev, static\nFalling back to default behaviour"
+			warn_msg "Wrong device nodes parameter \"$DEVNODES\" on kernel line. Valid are: udev, static\nFalling back to default behaviour"
 			DEVNODES=""
 			;;
 	esac
 
 	# default bahaviour if the user did not choose himself
 	if [ -z "$DEVNODES" ]; then
-		if kernel_is_26 && [ -x "/sbin/udevd" ] ; then
+		if kernel_is_26 ; then
 			DEVNODES="udev"
 			if [ -n "$DEBUG" ] ; then
 				echo -e "\n< Found udev >"
 			fi
-		elif [ -x "/sbin/devfsd" ] ; then
-			DEVNODES="devfs"
-	 		if [ -n "$DEBUG" ] ; then
-				echo -e "\n< Found devfs >"
-	 		fi
 		else
 			warn_msg "Assuming a static /dev"
 			DEVNODES="static"
@@ -208,10 +203,7 @@ start()
 
 	kernel_is_26 && run_with_msg " * Mounting /sys" "mount -n -t sysfs sysfs /sys"
 
-	if [ "$DEVNODES" = "devfs" ]; then
-		run_with_msg " * Mounting /dev" "mount -n -t devfs devfs /dev"
-		run_with_msg "Starting devfsd" "devfsd /dev"
-	elif [ "$DEVNODES" = "udev" ]; then
+	if [ "$DEVNODES" = "udev" ]; then
         run_with_msg " * Mounting udev  on /dev" "mount -w -n -t tmpfs udevfs /dev -o size=6m,mode=0755"
         # Creating "must have" static device nodes
         run_without_msg "mkdir -p /dev/{pts,shm}"
@@ -220,7 +212,7 @@ start()
             ln -sf /dev/ram0 /dev/ram
         fi
 		run_without_msg "echo > /proc/sys/kernel/hotplug" # Hotplug agents are deprecated!
-	run_with_msg "Starting udev device handling daemon version `udevd --version`" "/sbin/udevd --daemon"
+	    run_with_msg "Starting udev device handling daemon version `udevd --version`" "/sbin/udevd --daemon"
         run_with_msg "Activating coldplug devices" "/sbin/udevadm trigger"
         run_with_msg "Devices activation - please wait" "/sbin/udevadm settle"
         # This is first aid code for devices hard to init (too slow or to buggy for init by 1st time)
@@ -236,9 +228,6 @@ start()
 		ln -snf /proc/self/fd/2 /dev/stderr
 	fi
 
-	# Time to init LVM
-	check_for_lvm
-
 	# or do we want to explicitly _not_ fsck at all
 	if ! grep -qw nofsck /proc/cmdline ; then
 		# force fsck run?
@@ -246,8 +235,29 @@ start()
 			FORCE="-f"
 		fi
 
+		# Check root fs first so we can remount rw or LVM will fail
+		run_with_msg_and_exit_codes "Checking root filesystem: " "fsck -C -p -T $FORCE /" "0" "1" ""
+        if [ $? -eq 3 ]; then
+		  # Filesystem errors corrected, and system should be rebooted
+          reboot -f
+		elif [ $? -ge 2 ]; then
+		    echo ""
+		    echo " *** fsck failed! ***"
+		    echo ""
+		    echo "   Please repair your file system manually by"
+		    echo "   running /sbin/fsck without the -p option."
+		    echo ""
+		    sulogin
+		    reboot  -f
+		fi
+
+	    run_with_msg " * Remounting root read-write" "mount -n -o remount,rw /"
+
+		# Time to init LVM
+		check_for_lvm
+
 		# check filesystems
-		run_with_msg_and_exit_codes "Checking filesystems: " "fsck -A -T -C -y -V $FORCE" "0" "1" ""
+		run_with_msg_and_exit_codes "Checking other filesystems: " "fsck -A -T -C -p -s -R $FORCE" "0" "1" ""
 		if [ $? -eq 3 ]; then
 			# Filesystem errors corrected, and system should be rebooted
 			reboot  -f
@@ -261,9 +271,11 @@ start()
 		    sulogin
 		    reboot  -f
 		fi
+    else
+	  run_with_msg " * Remounting root read-write" "mount -n -o remount,rw /"
+      check_for_lvm
 	fi
 
-	run_with_msg " * Remounting root read-write" "mount -n -o remount,rw /"
 	if [ "$FORCE" == "-f" ]; then
 		rm -f /forcefsck
 	fi
@@ -273,17 +285,11 @@ start()
  	run_without_msg "mount -f -o remount,rw /"
 	run_with_msg  "Turning on swap" "swapon -a"
 
-	# hack to get it into /etc/mtab
-	if [ "$DEVNODES" == "devfs" ]; then
-		run_without_msg "mount -f -t devfs devfs /dev"
-	fi
-
 	# Mount everything except NET_FS and a few others
 	NET_FS="nosmbfs nocifs nonfs nonfs4 nocoda noafs nogfs noncpfs noshfs"
 	run_with_msg "Mounting local filesystems:" "mount -a -t notmpfs,noproc,no${NET_FS// /,}"
 	# Mount all tmpfs devices after all physical
 	run_without_msg "mount -a -t tmpfs"
-
 
 }
 

@@ -3,23 +3,34 @@ depends libpng
 depends jpeg   
 depends tiff
 
-optional_depends ffmpeg       "--with-ffmpeg --without-quicktime" "--without-ffmpeg"    \
-                              "for ffmpeg video support.${PROBLEM_COLOR} If y here, say no to gstreamer${DEFAULT_COLOR}"
+optional_depends Python       "-DCMAKE_BUILD_NEW_PYTHON_SUPPORT=ON"  \
+                              "-DCMAKE_BUILD_NEW_PYTHON_SUPPORT=OFF" \
+                              "for Python binding support"
 
-optional_depends gstreamer-10 "--with-gstreamer --without-ffmpeg" "--without-gstreamer" \
-                              "for gstreamer support. ${PROBLEM_COLOR}If y here, say no to ffmpeg${DEFAULT_COLOR}"
+optional_depends ffmpeg       "-DCMAKE_WITH_FFMPEG=ON"  \
+                              "-DCMAKE_WITH_FFMPEG=OFF" \
+                              "for ffmpeg video support"
 
-optional_depends xine-lib     "--with-xine --without-quicktime"   "--without-xine"      "for xine video support"
+optional_depends gstreamer-10 "-DCMAKE_WITH_GSTREAMER=ON"   \
+                              "-DCMAKE_WITH_GSTREAMER=OFF"  \
+                              "for gstreamer support"
 
-#optional_depends octave       "--with-octave"       \
-#                              "--without-octave"    \
-#                              "for octave language support"
+optional_depends %XINELIB     "-DCMAKE_WITH_XINE=ON"  \
+                              "-DCMAKE_WITH_XINE=OFF" \
+                              "for xine video support"
 
-optional_depends libdc1394    "--with-1394libs --without-quicktime" \
-                              "--without-1394libs"                  \
+optional_depends octave       "-DCMAKE_BUILD_OCTAVE_SUPPORT=ON"  \
+                              "-DCMAKE_BUILD_OCTAVE_SUPPORT=OFF" \
+                              "for octave language support"
+
+optional_depends libdc1394    "-DCMAKE_WITH_1394=ON"   \
+                              "-DCMAKE_WITH_1394=OFF"  \
                               "for firewire support"
 
+optional_depends swig         "-DCMAKE_BUILD_SWIG_PYTHON_SUPPORT=ON"  \
+                              "-DCMAKE_BUILD_SWIG_PYTHON_SUPPORT=OFF" \
+                              "for swig support"
 
-optional_depends unicap       "--with-unicap"          \
-                              "--without-unicap"       \
+optional_depends unicap       "-DCMAKE_WITH_UNICAP=ON"    \
+                              "-DCMAKE_WITH_UNICAP=OFF"  \
                               "for additional video capture support"

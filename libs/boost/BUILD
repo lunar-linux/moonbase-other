@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-
   OPTS+=" --without-mpi"
   export EXPAT_INCLUDE=/usr/include/
   export EXPAT_LIBPATH=/usr/lib/

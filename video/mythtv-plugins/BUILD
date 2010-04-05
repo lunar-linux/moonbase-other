@@ -1,7 +1,9 @@
 (
 
-  . /etc/profile.d/qt3.rc   &&
-  ./configure --prefix=/usr &&
+  . /etc/profile.d/qt4.rc   &&
+
+  ./configure --prefix=/usr \
+              $OPTS         &&
 
   qmake mythplugins.pro     &&
 

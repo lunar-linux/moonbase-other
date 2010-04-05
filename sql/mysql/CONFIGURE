@@ -1,63 +1,6 @@
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+MYSQL_PLUGINS="heap federated partition archive blackhole"
 
- if    query  "Install client only? " n; then
-    OPTS="$OPTS --without-server"
-  else
-    if  query  "Enable InnoDB Support? Needed by KDE4/Akonadi " n; then
-      OPTS="$OPTS --with-innodb"
-    else
-      OPTS="$OPTS --without-innodb"
-    fi
-
-    if  query  "Enable BDB Support? " n; then
-      OPTS="$OPTS --with-berkeley-db"
-    else
-      OPTS="$OPTS --without-berkeley-db"
-    fi
-
-    if  query  "Enable RAID Support? " n; then
-      OPTS="$OPTS --with-raid"
-    else
-      OPTS="$OPTS --without-raid"
-    fi
-
-    if  query  "Include the Virtual IO support? " n; then
-      OPTS="$OPTS --with-vio"
-    else
-      OPTS="$OPTS --without-vio"
-    fi
-
-    if query "Include the NDB Cluster table handler? " n; then
-      OPTS="$OPTS --with-ndbcluster"
-    else
-      OPTS="$OPTS --without-ndbcluster"
-    fi
-
-    if query "Support tables with more than 4 G rows even on 32 bit platforms? " n; then
-      OPTS="$OPTS --with-big-tables"
-    else
-      OPTS="$OPTS --without-big-tables"
-    fi
-  fi
-
-  if    query  "Include the OpenSSL support? " n; then
-    OPTS="$OPTS --with-openssl"
-  fi
-
-  if    query  "Build embedded server (libmysqld), needed by KDE4 ? " n; then
-    OPTS="$OPTS --with-embedded-server"
-  else
-    OPTS="$OPTS --without-embedded-server"
-  fi
-  
-  if  query "Enable all character sets? " y; then
-    OPTS="$OPTS --with-extra-charsets=all"
-  elif query "Enable just complex character sets? " y; then
-    OPTS="$OPTS --with-extra-charsets=complex"
-  else
-    OPTS="$OPTS --disable-nls"
-  fi
-
-  echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-  echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
-fi
+for mp in $MYSQL_PLUGINS; do
+  mquery USE_$mp "Enable $mp support?" n
+done
+mquery USE_BIGTABLE "Support tables with more than 4 G rows even on 32 bit platforms?" n --with-big-tables --without-big-tables

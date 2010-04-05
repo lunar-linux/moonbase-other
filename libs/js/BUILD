@@ -1,15 +1,11 @@
 (
 
-  export JS_THREADSAFE=1
-
   # all our work is in here
   cd src/  &&
 
-  patch_it $SOURCE_CACHE/$SOURCE1 0 &&
-
   # need to be run twice, it's a silly build system
-  make -f Makefile.ref BUILD_OPT=1  &&
-  make -f Makefile.ref BUILD_OPT=1  &&
+  make -f Makefile.ref BUILD_OPT=1 JS_THREADSAFE=1 JS_DIST=/usr &&
+  make -f Makefile.ref BUILD_OPT=1 JS_THREADSAFE=1 JS_DIST=/usr &&
 
   cd Linux_All_OPT.OBJ  &&
   prepare_install       &&
@@ -23,6 +19,6 @@
   mkdir -p /usr/include/$MODULE            &&
   install -m0644 *.h /usr/include/$MODULE  &&
   cd ..                                    &&
-  install -m0644 *.h /usr/include/$MODULE
+  install -m0644 *.{h,tbl} /usr/include/$MODULE
 
 ) > $C_FIFO 2>&1

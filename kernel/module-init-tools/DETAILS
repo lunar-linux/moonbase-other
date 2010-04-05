@@ -1,11 +1,14 @@
           MODULE=module-init-tools
-         VERSION=3.10
+         VERSION=3.11.1
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=${MODULE}_docbook.patch.bz2
       SOURCE_URL=${KERNEL_URL}/pub/linux/utils/kernel/$MODULE
-      SOURCE_VFY=sha1:761c03b9a3171e08215c0e793e1f299681bb1455
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:1be5f6be71fb9ea7790c9736114bbbf14e43c32e
+     SOURCE2_VFY=sha1:673fda8d8c4a9d5a88aa25f5e8c56fc60ff8fcee
         WEB_SITE=http://www.kernel.org
          ENTERED=20030410
-         UPDATED=20090724
+         UPDATED=20091021
            SHORT="Utilities essential for a modular Linux 2.6.x kernel"
 
 cat << EOF

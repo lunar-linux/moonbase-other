@@ -1,5 +1,7 @@
 ( 
   
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
   cd $SOURCE_DIRECTORY/wxPython  &&
   prepare_install  &&
   python setup.py install WXPORT=gtk2 UNICODE=1 \

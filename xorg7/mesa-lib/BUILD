@@ -1,10 +1,13 @@
 (
 
-  OPTS+=" --with-dri-drivers="  &&
-  OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)  &&
+  if [[ -n $MESADRIVER ]] ; then
+    # Build selected drivers only, rather than the default of all of them
+    # Ensure that swrast is included, as a fall-back
+    OPTS+=" --with-dri-drivers=swrast,"  &&
+    OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
+  fi  &&
 
-  # Excludes glew headers, and prevents need for /usr/include/GL/gl{,u,ut}.h
-  rm -r progs/{demos,samples}  &&
+  sedit s@glew@@g configure.ac &&
 
   ./configure --prefix=/usr $OPTS  &&
   prepare_install  &&

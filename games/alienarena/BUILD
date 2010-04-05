@@ -1,5 +1,7 @@
 (
 
+  sedit "s:xf86dga.h:Xxf86dga.h:" source/unix/gl_glx.c &&
+
   DATADIR="/usr/share/games/$MODULE"  &&
   LIBDIR="/usr/lib/$MODULE"  &&
 
@@ -8,10 +10,12 @@
 
   cd source  &&
 
+# A temporary sedit to fix the jpeg-8 name space collision
+  sedit "s:jpeg_mem_src:jpeg_load_raw:g" ref_gl/r_image.c &&
+  
   # Lunar isn't multilib
   sedit "s:lib64:lib:" Makefile  &&
 
-  # Using ARCH=unknown, to prevent Makefile from setting -march flag
   make \
     PREFIX=/usr WITH_DATADIR=yes WITH_LIBDIR=yes ARCH="$CPU" \
     DATADIR="$DATADIR" \

@@ -1,14 +1,14 @@
           MODULE=kdewebdev4
-           MAJOR=4.3
-         VERSION=${MAJOR}.1
+           MAJOR=4.4
+         VERSION=${MAJOR}.2
           SOURCE=kdewebdev-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdewebdev-$VERSION
-      SOURCE_URL=$KDE_URL/stable/$VERSION/src/
-      SOURCE_VFY=sha1:28580c6f283fa7a6405f6a4415ebe9a4167f0992
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src
+      SOURCE_VFY=sha1:cea0488e483738611b2240876da76b809de4420d
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
         WEB_SITE=http://www.kde.org
          ENTERED=20071026
-         UPDATED=20090901
+         UPDATED=20100330
            SHORT="applications for web development"
 
 cat << EOF
@@ -16,8 +16,7 @@ The kdewebdev package contains Quanta Plus and other applications, which are use
 for web development. They are runtime dependencies of Quanta Plus, and it is
 highly recommended that you install them.
 
- The extra applications are:
-
+The extra applications are:
 Kommander: a GUI script builder and executor tool. Needed for some Quanta functionality.
 KFileReplace: powerful search and replace in multiple files
 KXSLDbg: XSL debugger

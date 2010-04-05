@@ -8,6 +8,12 @@
   cp -fR ROX-Filer/* /usr/share/rox/   &&
   gzip rox.1                           &&
   cp -f rox.1.gz /usr/share/man/man1/  &&
-  ln -sf /usr/share/rox/rox /usr/bin/ROX-Filer
+  # Create wrapper for AppRun 
+  echo "#!/bin/sh" > rox
+  echo "exec /usr/share/rox/AppRun \"\$@\"" >> rox
+  echo "" >> rox
+
+  install -D -m755 rox /usr/bin/rox
+
 
 ) > $C_FIFO 2>&1

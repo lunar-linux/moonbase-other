@@ -17,9 +17,12 @@
 
   mkdir -p /usr/lib/opengl/nvidia &&
 
+  mkdir -p /usr/include/GL/nvidia &&
+  install -m644 usr/include/GL/*.h /usr/include/GL/nvidia &&
+
   # We need to fool the installer a little as it checks for the
   # libraries after the installation
-  export LD_LIBRARY_PATH="/usr/lib/opengl/nvidia" 
+  export LD_LIBRARY_PATH="/usr/lib/opengl/nvidia" &&
 
   ./nvidia-installer --silent \
                      --no-precompiled-interface \
@@ -35,7 +38,7 @@
   rm -f /etc/X11/XvMCConfig &&
   touch /etc/X11/XvMCConfig &&
   echo libXvMCNVIDIA_dynamic.so.1 > /etc/X11/XvMCConfig &&
-  chmod 644 /etc/X11/XvMCConfig
+  chmod 644 /etc/X11/XvMCConfig &&
 
   # Get a sane default if haven't set it yet
   if [ "x$LUNAR_GL" == "x" ] ; then
@@ -47,8 +50,12 @@
 
   ln -sf /usr/lib/opengl/nvidia/libGLcore.so.1 \
          /usr/lib/libGLcore.so.1 &&
-         
+
   ln -sf /usr/lib/opengl/nvidia/tls/libnvidia-tls.so.1 \
-         /usr/lib/libnvidia-tls.so.1
+         /usr/lib/libnvidia-tls.so.1 &&
+
+  if !( module_installed gtk+-2 ); then
+    rm -f /usr/bin/nvidia-settings
+  fi
 
 ) > $C_FIFO 2>&1

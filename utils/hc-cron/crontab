@@ -1,9 +1,0 @@
-#
-# /etc/crontab - system crontab file
-#
-# see man crontab(5) for more information about this file.
-#
-@hourly  root for i in /etc/cron.hourly/*  ; do $i ; done > /dev/null 2>&1
-@daily   root for d in /etc/cron.daily/*   ; do $d ; done > /dev/null 2>&1
-@weekly  root for w in /etc/cron.weekly/*  ; do $w ; done > /dev/null 2>&1
-@monthly root for m in /etc/cron.monthly/* ; do $m ; done > /dev/null 2>&1

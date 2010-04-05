@@ -1,37 +1,11 @@
 (
+  sedit "s;-m 4755 -o daemon;-m 4711 -o root;" src/Makefile.in &&
+  sedit "/^#define LOG_FILE/s;.*;/*&*/;" src/include/options.h &&
+  sedit "/#define SYSLOG/s;.*;#define SYSLOG;" src/include/options.h &&
+  sedit "/^SYSLOG/s;.*;SYSLOG = 1;" src/cron.conf &&
+  sedit "/^LOG_FILE/s;.*;LOG_FILE = NONE;" src/cron.conf &&
+  sedit "/^DENY_FILE/s;.*;DENY_FILE = /etc/cron.deny;" src/cron.conf &&
 
-  sedit "s/SYS_TIME_H 1/SYS_TIME_H 0/" compat.h           &&
-  patch_it $SOURCE2 1                                     &&
-
-  if [ "$SYSLOG" == "y" ]; then
-    echo "#define SYSLOG 1" >> config.h
-  fi                                                      &&
-  if [ "$LOG_FILE" == "y" ]; then
-    sedit "/LOG_FILE/d" pathnames.h
-  fi                                                      &&
-
-  make                                                    &&
-  prepare_install                                         &&
-  make    install                                         &&
-
-  mkdir -p /etc/cron.daily /etc/cron.hourly \
-           /etc/cron.monthly /etc/cron.weekly             &&
-  if [ ! -e /etc/crontab ]; then
-    install -m600 $SCRIPT_DIRECTORY/crontab /etc/crontab
-  fi                                                      &&
-
-  mkdir -p /var/cache/locate                              &&
-  if [ -f /var/cache/locatedb ] ; then
-    mv /var/cache/locatedb /var/cache/locate/locatedb
-  fi                                                      &&
-
-  if [ -e "/etc/init.d/crond.sh" ]; then
-    rm -f /etc/init.d/crond.sh
-    rm -f /etc/rc?.d/???crond.sh
-  fi                                                      &&
-
-  if [ -e "/usr/man/man?/cron*" ]; then
-    rm -f /usr/man/man?/cron*
-  fi
+  default_build
 
 ) > $C_FIFO 2>&1

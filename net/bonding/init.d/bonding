@@ -13,7 +13,7 @@ IFCONFIG=/sbin/ifconfig
 function bond {
     if [ ! -e $CONFIGDIR/$1 ]; then
         echo "Device $1: no configuration file found";
-        return -1;
+        return 1;
     fi;
 
     while read line; do
@@ -31,7 +31,7 @@ function bond {
 function unbond {
     if [ ! -e $CONFIGDIR/$1 ]; then
         echo "Device $1: no configuration file found";
-        return -1;
+        return 1;
     fi;
 
     while read line; do

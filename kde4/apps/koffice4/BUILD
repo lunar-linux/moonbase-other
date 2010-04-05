@@ -1,6 +1,8 @@
 (
 
-  KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build"
+  KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build" &&
+
+  sedit "s:01:02:" cmake/modules/FindWV2.cmake &&
 
   source /etc/profile.d/qt4.rc   &&
   source /etc/profile.d/kde4.rc  &&

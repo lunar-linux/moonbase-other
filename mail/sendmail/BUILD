@@ -14,34 +14,31 @@
   # global stuff for submit.mc:
   echo "define(\`confTRUSTED_USER', \`mail')" >> cf/cf/submit.mc  &&
   echo "define(\`confRUN_AS_USER', \`mail:mail')" >> cf/cf/submit.mc  &&
-  # pick a default sendmail.mc
-  cp cf/cf/generic-linux.mc cf/cf/sendmail.mc  &&
-
-  ( cd cf/cf && sh Build submit.cf sendmail.cf )  &&
-
-  sh Build  &&
-
-  cd libmilter  &&
-  sh Build  &&
-  cd ..  &&
-
-  prepare_install  &&
 
   # users to be created:
   add_priv_user mail:mail  &&
-  
-  sh Build install
 
-  cd libmilter  &&
-  sh Build install  &&
+  prepare_install  &&
+
+  # pick a default sendmail.mc
+  cd cf/cf  &&
+  cp generic-linux.cf sendmail.cf  &&
+  cp generic-linux.mc sendmail.mc  &&
+  sh Build  &&
+  make install-cf  &&
+
+  cd ../../libmilter  &&
+  sh Build  &&
   cd ..  &&
+
+  sh Build install
 
   # directories and files:
   mkdir -p /etc/mail  &&
   mkdir -p /var/spool/mail  &&
   mkdir -p /var/spool/mqueue  &&
   mkdir -p /var/spool/clientmqueue  &&
-  
+
   # permissions, permissions, permissions!
   (
     chown -R root:mail /etc/mail  &&
@@ -50,7 +47,7 @@
     chown mail:mail /var/spool/clientmqueue  ||
     message "${PROBLEM_COLOR}Warning${DEFAULT_COLOR}${MESSAGE_COLOR}: setting ownerships failed!${DEFAULT_COLOR}"
   ) &&
- 
+
   (
     chmod 0750 /etc/mail  &&
     chmod 1777 /var/spool/mail  &&
@@ -58,12 +55,12 @@
     chmod 0770 /var/spool/clientmqueue  ||
   message "${PROBLEM_COLOR}Warning${DEFAULT_COLOR}${MESSAGE_COLOR}: setting permissions failed!${DEFAULT_COLOR}"
   ) && 
-  
+
   # copy the m4 stuff over:
   mkdir -p /usr/share/sendmail  &&
-  cp -a cf/* /usr/share/sendmail  &&
+  cp -a cf/* /usr/share/sendmail
 
   # include this nifty configuration help thingamasomething:
-  install -m 644 -o root -g root $SCRIPT_DIRECTORY/Makefile /etc/mail/
-  
+  install -m 644 -o root -g root $SCRIPT_DIRECTORY/Makefile /etc/mail
+
 ) > $C_FIFO 2>&1
