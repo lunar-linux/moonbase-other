@@ -3,7 +3,8 @@
 
   sedit 's:if ((cp = strchr (sp="nbrkStqmHAC", opt))):if ((cp = (char *) strchr (sp="nbrkStqmHACg", opt))):' dcraw.cc &&
 
-  OPTS+=" --enable-extras" &&
+  OPTS+=" --enable-extras --enable-dst-correction --enable-contrast \
+          --enable-mime" &&
 
   default_build
 
