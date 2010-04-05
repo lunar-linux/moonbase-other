@@ -1,0 +1,28 @@
+          MODULE=uncrustify
+         VERSION=0.56
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE/$MODULE-$VERSION/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:9a32802c25724f36d1210e672217bda00f87a9ca
+        WEB_SITE="http://uncrustify.sourceforge.net/"
+         ENTERED=20100404
+         UPDATED=20100404
+           SHORT="C/C++/C#/D/Java/Pawn source code beautifier"
+cat <<EOF
+The goals of this project are simple: Create a highly configurable,
+easily modifiable source code beautifier.
+
+Features
+
+ * Ident code, aligning on parens, assignments, etc
+ * Align on '=' and variable definitions
+ * Align structure initializers
+ * Align #define stuff
+ * Align backslash-newline stuff
+ * Reformat comments (a little bit)
+ * Fix inter-character spacing
+ * Add or remove parens on return statements
+ * Add or remove braces on single-statement if/do/while/for statements
+ * Supports embedded SQL 'EXEC SQL' stuff
+ * Highly configurable - 385 configurable options as of version 0.56
+EOF
