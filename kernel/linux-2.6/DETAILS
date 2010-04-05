@@ -3,16 +3,13 @@
             BASE=$(echo $VERSION | cut -d. -f1,2,3)
           SOURCE=linux-${BASE}.tar.bz2
          SOURCE2=patch-${VERSION}.bz2
-         SOURCE3=k10temp.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/linux-$VERSION
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6
   SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6
   SOURCE2_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6
-  SOURCE3_URL[0]=$PATCH_URL
       SOURCE_VFY=sha1:acc8db00f30c7dfb4f04183a88ba35a32b6f8e8d
      SOURCE2_VFY=sha1:4261a1d5f0230f56f77f5a461a541397db07c2ba
-     SOURCE3_VFY=sha1:aace1a887fab63ea6530533a4e87c6bb1721dc24
         WEB_SITE=http://www.kernel.org
          ENTERED=20041019
          UPDATED=20100402
