@@ -13,11 +13,11 @@
 
   make auto_config  &&
   for DIR in $DIRS ; do
-    make -C $DIR || return -1
+    make -C $DIR || return 1
   done                  &&
   prepare_install       &&
   for DIR in $DIRS ; do
-    make -C $DIR install || return -1
+    make -C $DIR install || return 1
   done
 
 ) > $C_FIFO 2>&1

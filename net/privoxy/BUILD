@@ -1,14 +1,12 @@
 (
 
 #The two autotools jokers NEED to be run first. Closes BR278.
-  autoheader &&
-  autoconf &&
+  autoheader  &&
+  autoconf    &&
 
   add_priv_user privoxy:privoxy  &&
 
-
-  OPTS="--with-user=privoxy --with-group=privoxy --sysconfdir=/etc/privoxy \
-        --disable-toggle  --disable-editor  --disable-force"
+  OPTS="--with-user=privoxy --with-group=privoxy --sysconfdir=/etc/privoxy "$OPTS
 
   default_build
 

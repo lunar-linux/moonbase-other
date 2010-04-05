@@ -1,9 +1,11 @@
 (
+
   chmod +x $SOURCE &&
   ./$SOURCE --accept-license --unpack &&
 
   # Clean up old java 1.6.0 service packs
   rm -rf /usr/lib/jdk1.6.0_* &&
+  rm -f /usr/lib/libjvm.so &&
 
   prepare_install &&
 
@@ -20,7 +22,7 @@
       if [[ "$bfile" != "klist" ]] && [[ "$bfile" != "kinit" ]]; then
           ln -sf $file /usr/bin/
       fi
-  done
+  done &&
 
   mkdir -p /opt/lunar/plugins &&
   rm -f /opt/lunar/plugins/libjavaplugin_oji.so &&
@@ -34,6 +36,8 @@
          /opt/lunar/plugins/
   fi &&
 
+# This didn't get created, dead link. Do it this way.
+  ln -sf /usr/lib/jdk${FVERSION}/jre/lib/i386/server/libjvm.so /usr/lib/libjvm.so &&
 
   echo export PATH=\"'${PATH}':/usr/lib/jdk"${FVERSION}"/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
   echo export JAVA_HOME=\"/usr/lib/jdk"${FVERSION}"/\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&

@@ -1,0 +1,18 @@
+          MODULE=upstart
+         VERSION=0.6.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://upstart.ubuntu.com/download/0.6/
+      SOURCE_VFY=sha1:d481034858bb2cfb28088cd33f7376e0d158db9f
+        WEB_SITE=http://upstart.ubuntu.com/
+         ENTERED=20100310
+         UPDATED=20100310
+      MAINTAINER=dagbrown@lunar-linux.org
+           SHORT="Ubuntu startup daemon"
+
+cat << EOF
+upstart is the Ubuntu replacement for the venerable old sysvinit
+daemon.  One of the biggest improvements it adds is, instead of
+the old runlevel-based system startup and shutdown, it replaces
+the runlevels with milestones.  Thanks to this, it makes it easier
+to parallelize system startup and shutdown tasks.
+EOF

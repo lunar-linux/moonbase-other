@@ -1,16 +1,15 @@
           MODULE=libcanberra
-         VERSION=0.16
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-      SOURCE_URL=http://0pointer.de/lennart/projects/libcanberra/
+         VERSION=0.23
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://0pointer.de/lennart/projects/$MODULE
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:e55b7f0dff4d511757e0572db9903b2f603de4ce
-        WEB_SITE="http://0pointer.de/lennart/projects/libcanberra/"
+      SOURCE_VFY=sha1:20ba6a3c16b0d93baacfa411a49966fdbb578d0a
+        WEB_SITE=http://0pointer.de/lennart/projects/$MODULE
          ENTERED=20080924
-         UPDATED=20090906
+         UPDATED=20100331
            SHORT="implementation of the XDG Sound Theme and Name Specifications"
-           PSAFE=no
 
-cat <<EOF
+cat << EOF
 libcanberra is an implementation of the XDG Sound Theme and Name
 Specifications, for generating event sounds on free desktops, such
 as GNOME. It comes with several backends (ALSA, PulseAudio, OSS,

@@ -1,99 +1,75 @@
 (
+ 
+  #Really? You go and call fprintf and don't #include <cstdio>?
+  #How exactly did you plan on doing that?!?!
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src/common/linux/dump_symbols.cc
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src/client/linux/handler/exception_handler.cc
+  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src/client/linux/handler/minidump_generator.cc
+
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
-  fi &&
+  fi  &&
 
   # This should always be just a link
-  rm -rf /usr/lib/seamonkey-$VERSION/plugins &&
+  rm -rf /usr/lib/$MODULE-$VERSION/plugins  &&
 
-  # Do not conflict with the same plugin from firefox
-  sedit 's/nullplugin$/nullpluginSM/' modules/plugin/samples/default/unix/Makefile.in &&
-
-  MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
-
-  MOZ_EXTENSIONS="default,xmlextras,xforms,webservices,universalchardet,transformiix,tasks,schema-validation,reporter,cookie,cview,datetime,finger,p3p,permissions,spellcheck,irc,wallet,-gnomevfs"
-
-  if in_depends $MODULE heimdal ; then
-        MOZ_EXTENSIONS="${MOZ_EXTENSIONS},auth"
-  else
-        MOZ_EXTENSIONS="${MOZ_EXTENSIONS},-auth"
-  fi &&
-
-  # This hack added to fix a gtk+-2/pango/atk update that broke seamonkey. This should be removed in the future.
-  sedit "s/(MOZ_GTK2_LIBS)/(MOZ_GTK2_LIBS) -lX11 -lXrender/" layout/build/Makefile.in &&
-
-  export MOZ_FREETYPE2="no"
-  export MOZ_PANGO="yes"
-  export MOZ_CO_PROJECT=suite
+  export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
   export MOZILLA_OFFICIAL=1
   export BUILD_OFFICIAL=1
-  export PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig:/usr/lib/pkgconfig
-  export MOZ_NSS_AUTOCONF=1
-  export NATIVE_THEME_SUPPORT=1
-  export MOZILLA_USE_XFT=1
-  export BUILD_OPT=1
 
-  ./configure           \
-    --prefix=/usr       \
-    --with-x            \
-    --with-pthreads     \
-    --with-default-mozilla-five-home=$MOZILLA_HOME \
-    --with-user-appdir=.seamonkey     \
-    --with-system-zlib  \
-    --with-system-png   \
-    --with-system-jpeg  \
-    --enable-extensions=${MOZ_EXTENSIONS}       \
-    --enable-application=suite     \
-    --enable-default-toolkit=gtk2  \
-    --enable-optimize="$CFLAGS"    \
-    --enable-xft        \
-    --enable-reorder    \
-    --enable-cpp-rtti   \
-    --enable-cpp-exceptions \
-    --enable-crypto     \
-    --enable-strip      \
-    --enable-strip-libs \
-    --enable-canvas     \
-    --enable-svg        \
-    --enable-svg-renderer=cairo  \
-    --enable-system-cairo        \
-    --enable-xterm-updates       \
-    --disable-debug     \
-    --disable-tests     \
-    --disable-installer \
-    --disable-pedantic  \
-    --disable-logging   \
-    --disable-accessibility     \
-    --disable-ldap      \
-    --disable-profilesharing    \
-    --enable-mathml     \
-    --disable-xinerama \
-    --disable-gnomeui  \
-    --enable-glitz      \
-    --disable-pango \
-    --disable-gnomevfs \
-    $OPTS               &&
+  cp $SCRIPT_DIRECTORY/mozconfig comm-1.9.1/  &&
+
+  export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"
+  mkdir -p ${MOZ_OBJDIR}  &&
+
+  cd comm-1.9.1/mozilla &&
+  # Do not conflict with the same plugin from firefox
+  sedit 's/nullplugin$/nullpluginSM/' modules/plugin/default/unix/Makefile.in &&
+  cd .. &&
+
+  #Add DEPENDS options
+
+  if in_depends $MODULE dbus ; then
+    echo "ac_add_options --enable-dbus" >> mozconfig
+  else
+    echo "ac_add_options --disable-dbus" >> mozconfig
+  fi  &&
+
+  if in_depends $MODULE sqlite ; then
+    echo "ac_add_options --enable-system-sqlite" >> mozconfig
+  fi  &&
+
+  if in_depends $MODULE "xulrunner" ; then
+    XUL=`module_version xulrunner`
+    echo "ac_add_options --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL" >> mozconfig
+  fi  &&
+
+  if [ "$SAFE" == "y" ] ; then
+    echo "ac_add_options --enable-safe-browsing" >> mozconfig
+  fi  &&
 
   setterm -bfreq -blength &&
-  default_make        &&
 
-  # Put some important headers in place
-  mkdir -p /usr/include/seamonkey-$VERSION/nss &&
-  cp -Lf dist/private/nss/*.h dist/public/nss/*.h /usr/include/seamonkey-$VERSION/nss &&
+  #Finally, the build!
+  if [ "$PGO" == "y" ] ; then
+    #CCache breaks the pgo build
+    export CCACHE_DISABLE=1
+    echo "ac_add_options --enable-profile-guided-optimization" >> mozconfig  &&
+    echo "mk_add_options PROFILE_GEN_SCRIPT='python $MOZ_OBJDIR/_profile/pgo/profileserver.py'" >> mozconfig
+  fi  &&
 
-  # Install the plugins in the right directories
-  mkdir -p /opt/lunar/plugins         &&
-  for plugin in `ls /usr/lib/seamonkey-$VERSION/plugins`; do
-       `install -m755 /usr/lib/seamonkey-$VERSION/plugins/$plugin /opt/lunar/plugins`; done  &&
-
-  rm -rf /usr/lib/seamonkey-$VERSION/plugins &&
-  ln -snf /opt/lunar/plugins /usr/lib/seamonkey-$VERSION/plugins &&
+  default_build  &&
 
   # Now the .desktop file and the icon
-  mkdir -p /usr/share/applications /usr/share/pixmaps &&
-  install -m644 $SCRIPT_DIRECTORY/seamonkey.desktop /usr/share/applications &&
-  # please, dont just let the lin fail because /usr/share/pixmaps/seamonkey.xpm is an existing symlink...
-  rm -f /usr/share/pixmaps/seamonkey.xpm &&
-  install -m644 $MOZILLA_HOME/chrome/icons/default/main-window.xpm /usr/share/pixmaps/seamonkey.xpm
+  mkdir -p /usr/share/applications /usr/share/pixmaps  &&
+  install -m644 $SCRIPT_DIRECTORY/seamonkey.desktop /usr/share/applications  &&
+  # please, dont just let the lin fail because /usr/share/pixmaps/seamonkey.png is an existing symlink...
+  rm -f /usr/share/pixmaps/seamonkey.xpm  &&
+  install -m644 $MOZILLA_HOME/chrome/icons/default/default48.png /usr/share/pixmaps/seamonkey.png  &&
+
+  for icon in `ls /usr/lib/seamonkey-$VERSION/icons`; do
+   `ln -sf /usr/lib/seamonkey-$VERSION/icons/$icon \
+           /usr/lib/seamonkey-$VERSION/chrome/icons/default/$icon`
+  done
 
 ) > $C_FIFO 2>&1

@@ -1,11 +1,7 @@
 (
-  cd src &&
 
-  sedit 's:sfftw:fftw:g' enginespectralback.h enginespectralfwd.h mixxx.pro &&
-  sedit 's:srfftw:rfftw:g' enginespectralback.h enginespectralfwd.h mixxx.pro &&
-
-  ./configure  $OPTS  &&
-
-  default_make
+  scons prefix=$MODULE_PREFIX &&
+  prepare_install   &&
+  scons prefix=$MODULE_PREFIX install
  
 ) > $C_FIFO 2>&1

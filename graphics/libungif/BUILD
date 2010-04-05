@@ -1,6 +1,6 @@
 (
 
-  export CC="gcc"
+  export CC="gcc"  &&
 
   ./configure  --build=$BUILD             \
                --prefix=/usr              \

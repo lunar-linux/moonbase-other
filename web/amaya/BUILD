@@ -10,6 +10,20 @@
   ../configure  --prefix=$MODULE_PREFIX   \
                          $OPTS           &&
 
-  default_make
+  default_make &&
+
+  # Desktop menu entry
+  cat > ${MODULE}.desktop << EOF  &&
+[Desktop Entry]
+Type=Application
+Name=Amaya
+Comment=Amaya is a Web editor
+Exec=$MODULE_PREFIX/bin/amaya
+Icon=$MODULE_PREFIX/Amaya/amaya/amaya.png
+Categories=Development;
+EOF
+
+  install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop
+
 
 ) > $C_FIFO 2>&1

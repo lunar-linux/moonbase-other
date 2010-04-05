@@ -1,25 +1,47 @@
 (
 
-    # add missing groups:
-    add_priv_group dialout
+    # make sure all required groups are present:
     add_priv_group usb
     add_priv_group cdrw
+    add_priv_group disk
+    add_priv_group cdrom
+    add_priv_group floppy
+    add_priv_group tape
+    add_priv_group audio
+    add_priv_group video
+    add_priv_group lp
+    add_priv_group tty
+    add_priv_group dialout
+    add_priv_group kmem
 
     # create static nodes dir if missing
     mkdir -p /lib/udev/devices  &&
 
-    patch_it $SOURCE2 0 &&
+    patch_it $SOURCE2 0  &&
+    patch_it $SOURCE4 1  &&
+
+    sedit "/^pkgconfigdir/s;.*;pkgconfigdir = /usr/lib/pkgconfig;" Makefile.in  &&
+    sedit '/$(DESTDIR)$(prefix)\/lib\/ConsoleKit/s;$(DESTDIR)$(prefix);/usr;g' Makefile.in  &&
+    sedit "s:enable_introspection=yes:enable_introspection=no:" configure  &&
+
     find $SOURCE_DIRECTORY/rules -type f -name '*.rules' -exec sed -i 's/uucp/dialout/g' {} \;  &&
 
+# Borrowing from the Arch folks to avoid any user related permissions.
+    echo "# Bluetooth rfkill switch" >> rules/gentoo/40-gentoo.rules &&
+    echo 'KERNEL=="rfkill", ENV{ACL_MANAGE}="1", GROUP="uucp"' >> rules/gentoo/40-gentoo.rules &&
     mv -f rules/gentoo/40-gentoo.rules rules/gentoo/40-lunar.rules  &&
 
     if [ "$WIPE_NET_DEV" == "y" ] ; then
        rm -f /etc/udev/rules.d/70-persistent-{cd,net}.rules
     fi  &&
 
-    ./configure  --prefix=/usr       \
-                 --exec-prefix=      \
-                 --sysconfdir=/etc  &&
+    ./configure  --prefix=""                \
+                 --libexecdir=/lib/udev     \
+                 --mandir=/usr/share/man    \
+                 --includedir=/usr/include  \
+                 --datarootdir=/usr/share   \
+                 --sysconfdir=/etc         &&
+    sedit '/^GIRTYPELIBDIR/s;\${exec_prefix};/usr;' Makefile  &&
     default_make  &&
 
     # install the init.d script

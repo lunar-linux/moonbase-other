@@ -1,17 +1,18 @@
 (
 
-  sedit "s:lib64/automoc4:lib64/automoc4 opt/lunar/kde/4/lib/automoc4/:" cmake/modules/FindAutomoc4.cmake
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-buid" &&
 
-  BUILD_DIR="$SOURCE_DIRECTORY/build_dir"
+  source /etc/profile.d/qt4.rc   &&
+  source /etc/profile.d/kde4.rc  &&
 
-  source /etc/profile.d/qt4.rc &&
-  source /etc/profile.d/kde4.rc &&
+  sedit "s:lib64/automoc4:lib64/automoc4 $KDE4_INSTALL_DIR/lib/automoc4/:" cmake/modules/FindAutomoc4.cmake &&
 
-  mkdir $BUILD_DIR &&
-  cd $BUILD_DIR &&
+  mkdir $OOTB_DIR  &&
+  cd $OOTB_DIR     &&
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             &&
+                           -DCMAKE_BUILD_TYPE=RELEASE             \
+                           $OPTS                                 &&
 
   default_make
 

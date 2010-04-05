@@ -18,4 +18,7 @@
 
   default_build
 
+  # create the default config-files
+  dot -c
+
 ) > $C_FIFO 2>&1

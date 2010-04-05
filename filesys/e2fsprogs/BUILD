@@ -7,11 +7,11 @@
                --mandir=/usr/share/man    \
                --enable-elf-shlibs        \
                --disable-libuuid          \
-	       --disable-uuidd            \
-	       --disable-libblkid         \
-               $OPTS &&
+               --disable-uuidd            \
+               --disable-libblkid         \
+               $OPTS                     &&
 
-  default_make &&
+  default_make  &&
   make install-libs || exit 1
 
 ) > $C_FIFO 2>&1

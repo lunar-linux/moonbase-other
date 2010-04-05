@@ -1,7 +1,8 @@
-depends kdelibs4-experimental
-depends kdepimlibs4
 depends openslp
-depends xine-lib
+depends %XINELIB
+depends phonon
+depends kdelibs4
 
-optional_depends samba      ""  "" "For file sharing support"
-optional_depends pulseaudio ""  "" "For Pulseaudio soundserver support"
+optional_depends kdepimlibs4  ""  ""  "For KDE PIM support (it needs akonadi and MySQLto work well)"
+optional_depends samba        ""  ""  "For file sharing support"
+optional_depends pulseaudio   ""  ""  "For Pulseaudio soundserver support"

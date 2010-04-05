@@ -1,4 +1,7 @@
 ( 
+
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
   if [[ $UCODE == "y" ]]; then
     OPTS="$OPTS --enable-unicode"
   fi  &&

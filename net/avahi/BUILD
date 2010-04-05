@@ -1,9 +1,5 @@
 (
 
-   if module_installed qt3; then
-   . /etc/profile.d/qt3.rc
-   fi &&
-
    if module_installed qt4; then
     . /etc/profile.d/qt4.rc
    fi &&
@@ -28,6 +24,7 @@
                 --disable-lynx             \
                 --disable-gdbm             \
                 --disable-stack-protector  \
+                --disable-qt3              \
                 $OPTS                     &&
 
     default_make

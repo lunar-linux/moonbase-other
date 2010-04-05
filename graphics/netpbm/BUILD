@@ -1,30 +1,35 @@
 (
 
-  if egrep -q '^#define JPEG_LIB_VERSION.*7[0-9]+' /usr/include/jpeglib.h; then
-    # To compile with jpeg 7, rather than old 6b
-    # From http://repos.archlinux.org/viewvc.cgi/netpbm/repos/extra-i686/
-    sedit "s:* cinfo.min_DCT_scaled_size;:* cinfo.min_DCT_v_scaled_size;:" converter/ppm/ppmtompeg/jpeg.c
+  sedit "s:/tmp/netpbm:$(pwd -P)/BUILD:g" Makefile.config.in buildtools/installnetpbm.pl doc/README.DJGPP  &&
+
+  if [ $USE_X11 == "y" ] ; then
+    X11="/usr/X11R6/lib/libX11.so"
+   else
+    X11="none"
   fi &&
 
-  sedit "s/getline/getLine/" converter/ppm/xvminitoppm.c  &&
-  sedit "s:/tmp/netpbm:$(pwd -P)/BUILD:g" Makefile.config.in buildtools/installnetpbm.pl doc/README.DJGPP  &&
-  sedit "s/CC = cc/CC = gcc/" Makefile.config.in  &&
+  if [ $USE_SVGALIB == "n" ] ; then
+    SVGALIB="none"
+   else
+    SVGALIB="libvga.so"
+  fi &&
+
   echo  -e  "
 gnu
 regular
 shared
-n
+y
 
 libjpeg.so
 default
 libtiff.so
 default
-libpng.so
-default
 libz.so
 default
-
-
+$X11
+default
+$SVGALIB
+default
 
 " | ./configure    &&
   sedit "s/^CFLAGS =/CFLAGS = -fPIC /" Makefile.config  &&

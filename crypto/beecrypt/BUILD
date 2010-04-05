@@ -13,7 +13,11 @@
     export CFLAGS=${CFLAGS/-march=athlon-fx/-march=i686}  &&
     export CFLAGS=${CFLAGS/-march=k8/-march=i686}         &&
     export CFLAGS=${CFLAGS/-march=opteron/-march=i686}    &&
-    export CFLAGS=${CFLAGS/-march=em64t/-march=i686}
+    export CFLAGS=${CFLAGS/-march=em64t/-march=i686}      &&
+
+    # Temporary workaround for gcc picking up CFLAGS from both of
+    # /etc/lunar/local/optimizations.GCC_4_{2,4}, which breaks compilation.
+    sedit "s:ASM_ARCH=\$bc_target_arch:ASM_ARCH=i686:" configure
   fi  &&
 
   # Fixes compilation of rpm - http://rpm5.org/cvs/tktview?tn=51

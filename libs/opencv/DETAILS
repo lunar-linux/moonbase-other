@@ -1,12 +1,15 @@
           MODULE=opencv
-         VERSION=1.2.0
+         VERSION=2.0.0
           SOURCE=OpenCV-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/opencvlibrary/opencv-unix/2.0beta/
+         SOURCE2=OpenCV-2.0.0-cvconfig.h.missing-r2242.diff
+      SOURCE_URL=$SFORGE_URL/opencvlibrary/opencv-unix/2.0/
+     SOURCE2_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/OpenCV-$VERSION
-      SOURCE_VFY=sha15c677ceb38c30bc6465a70d0abd0de22cd870d81:
+      SOURCE_VFY=sha1:2090c2aaff77c3b0cc669c2ee81bea389db0a366
+     SOURCE2_VFY=sha1:f00ca42939af04e3a2d7d881c428eebabc770011
         WEB_SITE=http://opencv.willowgarage.com/wiki/
          ENTERED=20050404
-         UPDATED=20090922
+         UPDATED=20100107
            SHORT="Open Source Computer Vision Library"
 
 cat << EOF

@@ -1,5 +1,6 @@
 depends %JAVA_SDK
 depends apache-ant
+depends xulrunner
 depends libIDL
 depends XML-Parser
 depends libxml2
@@ -15,6 +16,12 @@ depends IO-Compress-Zlib
 depends gperf
 depends jpeg
 depends expat
+
+
+optional_depends "kdepim4"           \
+                 "--enable-kde4"     \
+                 "--disable-kde4"    \
+                 "for Qt4/KDE4 vclplug support"
 
 optional_depends "libxslt"                  \
                  "--with-system-libxslt"    \
@@ -86,17 +93,22 @@ optional_depends "gnome-vfs"                             \
                  "--disable-gnome-vfs --disable-lockdown --enable-gio" \
                  "for GNOME-vfs integration"
 
-optional_depends "kdelibs3"             \
-                 "--enable-kde --enable-kdeab"   \
-                 "--disable-kde --disable-kdeab" \
-                 "to enable KDE support"
-
 optional_depends "Linux-PAM"            \
                  "--enable-pam-link"    \
                  "--disable-pam"        \
                  "for Linux-PAM support"
 
-optional_depends "vigra"                         \
-                 "--with-system-vigra"           \
-                 "--without-system-vigra"        \
+optional_depends "vigra"                   \
+                 "--with-system-vigra"     \
+                 "--without-system-vigra"  \
                  "For generic algorithm support"
+
+optional_depends "hunspell"                  \
+                 "--with-system-hunspell"    \
+                 "--without-system-hunspell" \
+                 "for spell checking support"
+
+optional_depends "sane-backends"                \
+                 "--with-system-sane-header"    \
+                 "--without-system-sane-header" \
+                 "for scanner support"

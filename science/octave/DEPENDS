@@ -1,4 +1,13 @@
-depends fftw    &&
-depends gnuplot &&
+depends gnuplot
 
-optional_depends  "gperf"  ""  ""  "if you need to recreate oct-gperf.h"
+optional_depends "gperf"    ""                  ""                   "if you need to recreate oct-gperf.h"
+optional_depends "qhull"    ""                  ""                   "for qhull support"
+optional_depends "zlib"     "--with-zlib"       "--without-zlib"     "for lossless compression support"
+optional_depends "readline" "--enable-readline" "--disable-readline" "for readline support"
+optional_depends "curl"     "--with-curl"       "--without-curl"     "for curl support"
+optional_depends "fftw"     "--with-fftw"       "--without-fftw"     "for system fftw support"
+optional_depends "zlib"     "--with-zlib"       "--without-zlib"     "for zlib support"
+optional_depends "hdf5"     "--with-hdf5"       "--without-hdf5"     "for hdf5 support"
+optional_depends "glpk"     "--with-glpk"       "--without-glpk"     "for linear programming support"
+
+#optional_depends "lapack"   "--with-lapack=/usr/lib/blas.a" "" "for lapack support"

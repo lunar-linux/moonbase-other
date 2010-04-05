@@ -1,10 +1,10 @@
 (
 
-  ./configure  --prefix=/usr               \
-               --sysconfdir=/etc           \
+  ./configure  --prefix=/usr                \
+               --sysconfdir=/etc            \
                --localstatedir=/var $OPTS  &&
 
-  default_make &&
+  default_make  &&
 
   if [ "$STATIC" == "y" ]; then
     make clean &&
