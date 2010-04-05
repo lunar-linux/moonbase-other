@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   if [ -f /var/lib/virtuoso/db/virtuoso.lck ] ; then
         /etc/init.d/virtuosod stop
   fi  &&
