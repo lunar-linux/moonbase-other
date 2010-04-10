@@ -1,8 +1,5 @@
 (
 
-  OPTS="$OPTS --enable-motif --enable-system-raptor       \
-              --enable-system-libwww --with-graphic-libs"
-
   cd     Amaya                 &&
   mkdir  LINUX-ELF             &&
   cd     LINUX-ELF             &&
