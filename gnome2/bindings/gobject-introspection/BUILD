@@ -6,7 +6,7 @@
                 --localstatedir=/var  \
                 --infodir=${GNOME_2280_PREFIX:-/usr}/share/info  \
                 --mandir=${GNOME_2280_PREFIX:-/usr}/share/man    \
-                $OPTS  &&
+                $OPTS                                           &&
     default_make
 
 ) > $C_FIFO 2>&1
