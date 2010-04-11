@@ -1,16 +1,16 @@
-          MODULE=unique
-         VERSION=1.0.6
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://www.gnome.org/~ebassi/source/
-      SOURCE_VFY=sha1:c68d1a47e9c2326a671f054c5373d41fc296f2d6
-        WEB_SITE=http://www.gnome.org
+          MODULE=libunique
+           MAJOR=1.1
+         VERSION=$MAJOR.6
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:d44ad06503efaaa0c660c5f8a817e90fbe254d1f
+        WEB_SITE=http://live.gnome.org/LibUnique
          ENTERED=20080825
-         UPDATED=20100220
-           SHORT="library for single instance application"
+         UPDATED=20100411
+           SHORT="Library for single-instance applications"
 
 cat << EOF
-Unique is a library for writing single instance application. If you 
-launch a single instance application twice, the second instance will 
+Libunique is a library for writing single-instance applications. If you
+launch a single-instance application twice, the second instance will
 either just quit or will send a message to the running instance.
 EOF
-
