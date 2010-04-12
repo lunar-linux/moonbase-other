@@ -1,9 +1,14 @@
-depends  gnome-python         &&
-depends  gnome-desktop         &&
-depends  gnome-python-desktop  &&
-depends  dbus-python           &&
+depends  dbus-python
+depends  gnome-python
+depends  gnome-desktop
+depends  gnome-python-desktop
 
-optional_depends "evolution-data-server"  ""  ""  \
-                 "for email support"              &&
-optional_depends "beagle"                 ""  ""  \
-                 "python bindings for libbeagle"
+optional_depends "evolution-data-server"  \
+                 ""  \
+                 ""  \
+                 "for email support"
+
+optional_depends "beagle"  \
+                 ""  \
+                 ""  \
+                 "for search support (needs mono)"

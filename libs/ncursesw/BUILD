@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   if $(in_depends ncurses gpm); then
     OPTS+=" --with-gpm"
   else
@@ -40,10 +38,10 @@ set -x
                --with-terminfo-dirs=/usr/share/terminfo  \
                --enable-widec                            \
                $OPTS                                    &&
-set +x &&               
-  make &&
-  prepare_install &&
-  cp -a lib/*w.so* /lib/ &&
+set +x  &&
+  make  &&
+  prepare_install  &&
+  cp -a lib/*w.so* /lib/  &&
   ldconfig
 
 ) > $C_FIFO 2>&1

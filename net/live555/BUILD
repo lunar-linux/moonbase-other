@@ -8,9 +8,9 @@
     mkdir -p $INST_DIR
   fi &&
 
-  ./genMakefiles linux &&
-  make                 &&
-  prepare_install      &&
+  ./genMakefiles linux  &&
+  make                  &&
+  prepare_install       &&
   cp -rf . $INST_DIR
 
 ) > $C_FIFO 2>&1
