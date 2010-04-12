@@ -1,0 +1,29 @@
+          MODULE=pymsn
+         VERSION=0.3.3
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=http://telepathy.freedesktop.org/releases/pymsn/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:b652fe20ee9aa3a5c5e8fef262fb9e4b31b8fa72
+        WEB_SITE="http://telepathy.freedesktop.org/wiki/Pymsn"
+         ENTERED=20090123
+         UPDATED=20090123
+           SHORT="Python implementation of MSN protocol"
+cat <<EOF
++ MSNP15
++ Best MSNP2P implementation : avatars and custom emoticons
++ Yahoo messenger contacts support : chat and presence
++ Live Address Book support : full contact and group management
++ Server side contacts aliasing
++ Offline messages support
++ MSN Spaces
++ Content Roaming support : avatar, display name and
+  personal message storage
++ Full support for HTTP and HTTPS proxies
++ Support HTTP Polling transport
++ No threads, fully asynchronous
+
++ Caching system (only used for storing the SSO tickets for now,
+  but will be used to support deltas in the AddressBook later)
++ Very solid and extensible architecture # + Solid networking through
+  a new sublibrary : gnet
+EOF
