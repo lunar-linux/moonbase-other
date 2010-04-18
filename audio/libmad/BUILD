@@ -1,10 +1,17 @@
 (
-  OPTS="$OPTS  --disable-debugging --enable-accuracy"
+
+  OPTS="$OPTS  --disable-debugging --enable-accuracy" &&
+
+  if [ `arch` == "x86_64" ] ; then
+    OPTS="--enable-fpm=64bit"
+   else
+    OPTS="--enable-fpm=intel"
+  fi &&
 
   patch_it $SOURCE2 1 &&
 
   #GCC 4.3 doesn't have -fforce-mem
-  sedit 's:-fforce-mem::g' configure.ac
+  sedit 's:-fforce-mem::g' configure.ac &&
 
   libtoolize --force --copy &&
   aclocal &&
