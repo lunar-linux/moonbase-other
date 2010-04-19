@@ -3,5 +3,14 @@ depends  zlib
 depends  apr-util
 depends  sqlite
 
-optional_depends "swig" "" "--without-swig" "for Perl/Python and Ruby Swig Bindings"
-optional_depends "%JAVA_SDK" "--enable-javahl --without-jikes" "--disable-javahl" "for java bindings"
+optional_depends "cyrus-sasl"  ""  ""  "for SASL support"
+
+optional_depends "swig"  \
+                 ""      \
+                 "--without-swig"  \
+                 "for Perl/Python and Ruby Swig Bindings"
+
+optional_depends "%JAVA_SDK"  \
+                 "--enable-javahl --without-jikes"  \
+                 "--disable-javahl"   \
+                 "for java bindings"
