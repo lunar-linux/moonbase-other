@@ -18,7 +18,6 @@
     mkdir -p /lib/udev/devices  &&
 
     patch_it $SOURCE2 0  &&
-    patch_it $SOURCE4 1  &&
 
     sedit "/^pkgconfigdir/s;.*;pkgconfigdir = /usr/lib/pkgconfig;" Makefile.in  &&
     sedit '/$(DESTDIR)$(prefix)\/lib\/ConsoleKit/s;$(DESTDIR)$(prefix);/usr;g' Makefile.in  &&
