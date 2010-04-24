@@ -1,10 +1,18 @@
 depends  GConf
 
-optional_depends  libnotify  "--enable-libnotify"  ""          \
+optional_depends  libnotify             \
+                  "--enable-libnotify"  \
+                  ""                    \
                   "to display notification area messages"
-optional_depends  gnome-keyring  "--enable-gnome-keyring"  ""  \
+
+optional_depends  gnome-keyring             \
+                  "--enable-gnome-keyring"  \
+                  ""                        \
                   "for password storing support"
-optional_depends  avahi  "--enable-avahi"  ""  \
+
+optional_depends  avahi             \
+                  "--enable-avahi"  \
+                  ""                \
                   "For mDNS support"
 optional_depends  telepathy-glib  "--enable-telepathy"  ""  \
                   "For Telepathy (IM) support"

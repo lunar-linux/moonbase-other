@@ -1,11 +1,14 @@
 (
 
   patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
 
   OPTS+=" --enable-email \
-            --enable-fancydm \
-            --with-logdir=/var/log/dansguardian \
-            --with-piddir=/var/run" &&
+          --enable-fancydm \
+          --enable-lfs \
+          --enable-orig-ip \
+          --with-logdir=/var/log/dansguardian \
+          --with-piddir=/var/run" &&
 
   if is_depends clamav; then
     DGUSER="clamav:clamav"
@@ -17,7 +20,7 @@
 
   default_build &&
 
-    # Be kind and enable clamav in config
+  # Be kind and enable clamav in config
   if is_depends clamav; then
     sedit "/^#contentscanner.*clamdscan\.conf.*/ s;^#;;" /etc/dansguardian/dansguardian.conf &&
     sedit "s;^#clamdudsfile.*;clamdudsfile = '/tmp/clamd';" /etc/dansguardian/contentscanners/clamdscan.conf

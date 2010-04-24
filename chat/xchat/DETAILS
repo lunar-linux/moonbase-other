@@ -1,11 +1,15 @@
           MODULE=xchat
-         VERSION=2.8.6
+           MAJOR=2.8
+         VERSION=$MAJOR.6
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.xchat.org/files/source/2.8
+         SOURCE2=$MODULE-$VERSION-lunar.patch.bz2
+      SOURCE_URL=http://www.xchat.org/files/source/$MAJOR
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:7a7463e65cb26c680ed70dd96cec98bcc05435a4
+     SOURCE2_VFY=sha1:36b875a7a34917a160d181033baaaac29da62162
         WEB_SITE=http://www.xchat.org
          ENTERED=20020729
-         UPDATED=20080615
+         UPDATED=20100411
            SHORT="A GTK+-2 based IRC client"
 
 cat << EOF

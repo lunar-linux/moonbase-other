@@ -1,7 +1,17 @@
-depends  slang  &&
+depends  slang
+depends  SDL
 
-optional_depends  "svgalib"  "--enable-use-svgalib"  ""     \
-                  "to build with svgalib graphics support"  &&
-
-optional_depends  "gpm"      ""  "--without-gpm"            \
+optional_depends  "gpm"  \
+                  ""     \
+                  "--without-gpm"  \
                   "for mouse support within the CLI"
+
+optional_depends  "alsa-lib"  \
+                  ""  \
+                  "--without-alsa"  \
+                  "for alsa sound support"
+
+optional_depends  "libsndfile"  \
+                  ""  \
+                  "--without-sndfile"  \
+                  "for sound file support"
