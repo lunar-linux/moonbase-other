@@ -5,7 +5,7 @@
                --sysconfdir=/etc         \
                --localstatedir=/var      \
                --bindir=/usr/games       \
-               --mandir=/usr/share/man  && 
+               --mandir=/usr/share/man  &&
 
   default_make
 

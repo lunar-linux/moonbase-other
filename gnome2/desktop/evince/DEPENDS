@@ -2,25 +2,37 @@ depends  poppler
 depends  gnome-icon-theme
 depends  gnome-doc-utils
 
-optional_depends "gnome-keyring" "" "--without-keyring" \
-                 "For gnome-keyring plugin"
-
-optional_depends  "libspectre"  "" "--disable-ps" \
-                  "Compile with PostScript support" 
-
-optional_depends  "libgnomeui"  ""  "--without-libgnome" \
-                  "GNOME integration"
-
-optional_depends  "nautilus"  "--enable-nautilus"  "--disable-nautilus" \
-                  "compile the nautilus plugin"
-
-optional_depends  "dbus-glib"  ""  "--disable-dbus"  \
-                  "for DBus support"
-
-optional_depends  "tiff"  "--enable-tiff"  "--disable-tiff"  \
+optional_depends  "tiff"  \
+                  "--enable-tiff"   \
+                  "--disable-tiff"  \
                   "enable support for multipage TIFF files"
 
-optional_depends  "libgnomeprintui"  \
+optional_depends  "dbus-glib"  \
+                  ""           \
+                  "--disable-dbus"  \
+                  "for DBus support"
+
+optional_depends  "libgnomeui"  \
+                  ""            \
+                  "--without-libgnome" \
+                  "GNOME integration"
+
+optional_depends "gnome-keyring" \
+                 ""              \
+                 "--without-keyring" \
+                 "For gnome-keyring plugin"
+
+optional_depends  "nautilus"  \
+                  "--enable-nautilus"   \
+                  "--disable-nautilus"  \
+                  "compile the nautilus plugin"
+
+optional_depends  "libspectre"    \
+                  ""              \
+                  "--disable-ps"  \
+                  "Compile with PostScript support"
+
+optional_depends  "libgnomeprintui"     \
                   "--with-print=gnome"  \
-                  "--with-print=gtk"  \
+                  "--with-print=gtk"    \
                   "for the GNOME printer UI instead of the GTK UI"
