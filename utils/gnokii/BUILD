@@ -5,7 +5,7 @@
      groupadd gnokii
   fi
 
-  OPTS="$OPTS --enable-security --disable-debug --disable-xdebug"
+  OPTS="$OPTS --enable-security --disable-xdebug"
   if echo $OPTS | grep -q 'with-x' ; then
     sedit "s:LDLIBS += :LDLIBS += -lXpm :" xgnokii/Makefile.am
   fi  &&
