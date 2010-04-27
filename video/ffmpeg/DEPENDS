@@ -1,3 +1,6 @@
+optional_depends imlib2     ""                    ""  "for Imlib fonts support"
+optional_depends freetype2  ""                    ""  "for truetype fonts support"
+optional_depends SDL        ""                    ""  "for SDL support"
 optional_depends libvdpau   "--enable-vdpau"      ""  "for NVIDIA vdpau support"
 optional_depends libvorbis  "--enable-libvorbis"  ""  "for ogg-vorbis support"
 optional_depends libtheora  "--enable-libtheora"  ""  "for theora support"
@@ -6,26 +9,34 @@ optional_depends lame       "--enable-libmp3lame" ""  "for mp3 support"
 optional_depends xvidcore   "--enable-libxvid"    ""  "for xvid support"
 optional_depends libdc1394  "--enable-libdc1394"  ""  "for firewire support"
 
-optional_depends opencore-amr "--enable-libopencore-amrwb --enable-libamr-wb --enable-version3   \
-                               --enable-libopencore-amrnb --enable-libamr-nb --enable-version3"  \
-                               ""  "for AMR Wideband and Narrowband speech support"
+optional_depends opencore-amr \
+                 "--enable-libopencore-amrwb --enable-libamr-wb --enable-version3   \
+                  --enable-libopencore-amrnb --enable-libamr-nb --enable-version3"  \
+                  ""  \
+                  "for AMR Wideband and Narrowband speech support"
 
-optional_depends imlib2     ""                    ""  "for Imlib fonts support"
-optional_depends freetype2  ""                    ""  "for truetype fonts support"
-optional_depends SDL        ""                    ""  "for SDL support"
+optional_depends speex  \
+                 "--enable-libspeex"   \
+                 "--disable-libspeex"  \
+                 "for Speex decoding support"
 
-optional_depends speex      "--enable-libspeex" "--disable-libspeex" "for Speex decoding support"
-optional_depends dirac      "--enable-libdirac" "--disable-libdirac" "for dirac codec support"
+optional_depends schroedinger  \
+                 "--enable-libschroedinger"  \
+                 ""  \
+                 "for encoding/decoding of Dirac video stream support"
 
-optional_depends schroedinger "--enable-libschroedinger"  ""  "for encoding/decoding of Dirac video stream support"
+optional_depends x264-snapshot       \
+                 "--enable-libx264"  \
+                 ""  \
+                 "for H264 support"
 
-optional_depends x264-snapshot "--enable-libx264"    ""  "for H264 support"
+optional_depends faad  \
+                 "--enable-libfaad --enable-libfaadbin" \
+                 ""   \
+                 "for faad support"
 
-optional_depends faad         "--enable-libfaad --enable-libfaadbin" \
-                              ""                                     \
-                              "for faad support"
-
-optional_depends openjpeg     "--enable-libopenjpeg"   \
-                              "--disable-libopenjpeg"  \
-                              "for JPEG 2000 decoding support"
+optional_depends openjpeg  \
+                 "--enable-libopenjpeg"   \
+                 "--disable-libopenjpeg"  \
+                 "for JPEG 2000 decoding support"
 

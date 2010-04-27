@@ -20,7 +20,7 @@
   prepare_install  &&
   make install     &&
 
-# I have notice with some apps (dirac) comes to mind, make notice during make
+# I have notice with some apps notice during make
 # the /usr/share/doc/apr/docs/doxygen.conf needs to be updated. This takes
 # care of that and just in case it is not there on a fresh install.
 
