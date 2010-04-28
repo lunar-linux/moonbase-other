@@ -1,13 +1,16 @@
           MODULE=icu4c
-         VERSION=4_2_1
+         VERSION=4_4
           SOURCE=$MODULE-$VERSION-src.tgz
+         SOURCE2=icu-4.4-ctestfw-makefilein.patch
    SOURCE_URL[1]=http://www10.frugalware.org/pub/linux/frugalware/frugalware-current/source/lib/$MODULE
-   SOURCE_URL[0]=http://download.icu-project.org/files/4.2.1/$VERSION
+   SOURCE_URL[0]=http://download.icu-project.org/files/icu4c/4.4/
+     SOURCE2_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/icu/source
-      SOURCE_VFY=sha1:872a77fca51325ab0b335cbbadc1739576078434
+      SOURCE_VFY=sha1:6f01fe700e4ba035888c10ec7e964e1772c7f626
+     SOURCE2_VFY=sha1:26e223321b6c4292b9fe5bbdc453756769d44cd1
         WEB_SITE=http://icu-project.org
          ENTERED=20081025
-         UPDATED=20090812
+         UPDATED=20100428
            SHORT="provides Unicode and Globalization support for software applications"
 
 cat << EOF
