@@ -1,10 +1,11 @@
 (
 
-  OPTS="--enable-mpfr --enable-cxx" &&
-  default_config &&
-  make &&
-  prepare_install &&
-  make check &&
-  make install
+  OPTS="--enable-mpfr --enable-cxx"  &&
+  default_config   &&
+  make             &&
+  make check       &&
+  prepare_install  &&
+  make install     &&
+  ln -sf /usr/lib/libgmp.so  /usr/lib/libgmp.so.3
 
 ) > $C_FIFO 2>&1
