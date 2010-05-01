@@ -1,20 +1,28 @@
           MODULE=llvm
          VERSION=2.7
           SOURCE=$MODULE-$VERSION.tgz
+         SOURCE2=clang-$VERSION.tgz
       SOURCE_URL=http://www.llvm.org/releases/$VERSION
+     SOURCE2_URL=http://www.llvm.org/releases/$VERSION
       SOURCE_VFY=sha1:059fc21b0ec1b649c4a3dec81756e5f92aa131a2
+     SOURCE2_VFY=sha1:4d8326bfe2308a7355a5e4ca2eb172bffd761e1e
    MODULE_PREFIX=${LLVM_DIR:-/opt/lunar/llvm}
         WEB_SITE=http://www.llvm.org
          ENTERED=20090128
-         UPDATED=20091026
+         UPDATED=20100501
            SHORT="Low Level Virtual Machine"
 
 PSAFE=no
 cat << EOF
-LLVM is a robust system, particularly well suited for developing new mid-level
-language-independent analyses and optimizations of all sorts, including those
-that require extensive interprocedural analysis. LLVM is also a great target
-for front-end development for conventional or research programming languages,
-including those which require compile-time, link-time, or run-time optimization
-for effective implementation, proper tail calls or garbage collection.
+LLVM is a robust system, particularly well suited for developing new 
+mid-level language-independent analyses and optimizations of all sorts, 
+including those that require extensive interprocedural analysis. LLVM is 
+also a great target for front-end development for conventional or research 
+programming languages, including those which require compile-time, 
+link-time, or run-time optimization for effective implementation, proper 
+tail calls or garbage collection.
+
+Clang is a compiler front-end for the C family of languages (C, C++, 
+Objective-C, and Objective-C++) which can be built as a part of the 
+LLVM compiler intrastructure project.
 EOF
