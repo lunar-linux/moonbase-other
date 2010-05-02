@@ -1,7 +1,12 @@
 (
-  bad_flags -malign-double
 
-  patch_it $SOURCE2 0 &&
+  bad_flags -malign-double  &&
+
+  patch_it $SOURCE2 0  &&
+  patch_it $SOURCE3 0  &&
+  patch_it $SOURCE4 0  &&
+  patch_it $SOURCE5 0  &&
+  patch_it $SOURCE6 0  &&
 
   OPTS+=" --bindir=/bin                 \
           --enable-readline             \
@@ -21,7 +26,7 @@
     gzip -9 $MANPAGE  &&
     install -m0644 $MANPAGE.gz /usr/share/man/man1
   done  &&
-  install -m0644 doc/bashref.info /usr/share/info &&
+  install -m0644 doc/bashref.info /usr/share/info  &&
 
   mkdir -p /etc/skel  &&
 
