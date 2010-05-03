@@ -1,6 +1,5 @@
 (
 
-#  sedit "s:/usr/local:/usr:"  Makefile  &&
   ./configure --prefix=/usr  &&
   make  psf          &&
   prepare_install    &&
