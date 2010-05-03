@@ -1,6 +1,7 @@
 (
 
-  ./configure --x11dir=/usr/share/fonts/terminus  &&
+#  sedit "s:/usr/local:/usr:"  Makefile  &&
+  ./configure --prefix=/usr  &&
   make  psf          &&
   prepare_install    &&
   make  install-psf  &&
@@ -10,4 +11,5 @@
     else
       make  install-acm
   fi
+
 ) > $C_FIFO 2>&1
