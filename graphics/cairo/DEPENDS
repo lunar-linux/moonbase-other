@@ -3,10 +3,7 @@ depends fontconfig
 depends libpng
 depends pixman
 
-optional_depends  "libX11"  "--with-x"  ""  "for X11 support"
+optional_depends  "glitz"  "--enable-glitz"  "--disable-glitz"  \
+                  "to enable an (experimental) OpenGL backend to cairo" 
 
-optional_depends  "glitz"  \
-                  "--enable-glitz"   \
-                  "--disable-glitz"  \
-                  "to enable an (experimental) OpenGL backend to cairo"
-
+optional_depends  "%X"  "--with-x"  "" "for X11 support"
