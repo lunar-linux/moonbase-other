@@ -6,7 +6,7 @@
   source /etc/profile.d/kde4.rc &&
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE .          &&
+        -DCMAKE_BUILD_TYPE=RELEASE -DKDE4_ENABLE_FINAL=ON .  &&
 
   default_make
 
