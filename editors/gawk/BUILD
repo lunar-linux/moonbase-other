@@ -10,7 +10,7 @@
                --mandir=/usr/share/man    \
                --infodir=/usr/share/info  \
                --bindir=/bin              \
-	       ac_cv_func_working_mktime=yes  &&
+               ac_cv_func_working_mktime=yes  &&
 
   make          &&
   make install  &&
