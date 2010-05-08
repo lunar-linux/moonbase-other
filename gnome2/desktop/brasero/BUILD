@@ -5,8 +5,7 @@
                 --sysconfdir=/etc     \
                 --localstatedir=/var  \
                 --infodir=${GNOME210_PREFIX:-/usr}/share/info  \
-                --mandir=${GNOME210_PREFIX:-/usr}/share/man    \
-                $OPTS                                         &&
+                --mandir=${GNOME210_PREFIX:-/usr}/share/man   &&
     default_make
 
 ) > $C_FIFO 2>&1
