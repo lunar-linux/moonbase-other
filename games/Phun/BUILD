@@ -1,11 +1,11 @@
 (
 
-  cd $SOURCE_DIRECTORY &&
-  ln -fs /usr/lib/libGLEW.so.1.5 /usr/lib/libGLEW.so.1.3 &&
-
-  prepare_install &&
-  mkdir -p /opt/games/Phun &&
-  cp -af * /opt/games/Phun &&
+rm -rf lib &&
+sedit 's@\.\/lib\:@@' phun &&
+prepare_install &&
+mkdir -p /opt/games/Phun &&
+cp -af * /opt/games/Phun &&
+rm -rf /opt/games/Phun/old.libraries
 
   # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
