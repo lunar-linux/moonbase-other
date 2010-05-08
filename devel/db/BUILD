@@ -3,7 +3,6 @@
   cd build_unix &&
   ../dist/configure --prefix=/usr      \
                     --build=$BUILD     \
-                    --enable-dynamic   \
                     --enable-compat185 \
                     --enable-cxx       \
                     $OPTS             &&
