@@ -1,14 +1,14 @@
 (
 
   export MOZILLA_PLUGINDIR="/opt/lunar/plugins"
-  ./configure  --build=$BUILD                  \
-               --sysconfdir=/etc               \
-               --prefix=/usr                   \
-               --localstatedir=/var            \
-               --infodir=/usr/share/info       \
-               --mandir=/usr/share/man         \
-               $OPTS                          &&
-   
+  ./configure  --build=$BUILD             \
+               --sysconfdir=/etc          \
+               --prefix=/usr              \
+               --localstatedir=/var       \
+               --infodir=/usr/share/info  \
+               --mandir=/usr/share/man    \
+               $OPTS                     &&
+
 #   ( for i in `find -name "Makefile"`; do
 #           sedit 's/-Werror//g' $i
 #    done) &&
