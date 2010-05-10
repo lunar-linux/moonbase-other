@@ -5,9 +5,6 @@
   DATADIR="/usr/share/games/$MODULE"  &&
   LIBDIR="/usr/lib/$MODULE"  &&
 
-  # Remove some pre-compiled libs, to ensure they are recompiled
-  rm crx crded {arena,data1}/game.so  &&
-
   cd source  &&
 
 # A temporary sedit to fix the jpeg-8 name space collision
@@ -53,8 +50,6 @@ EOF
 
   install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop  &&
 
-  mv docs/{license,README}.txt .  &&
-  rm -r docs  &&
-  gather_docs *.txt
+  mv $SOURCE_DIRECTORY/docs/{license,readme}.txt .  
 
 ) > $C_FIFO 2>&1
