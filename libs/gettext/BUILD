@@ -1,13 +1,17 @@
 (
 
-  ./configure  --build=$BUILD            \
-               --host=$BUILD             \
-               --prefix=/usr             \
-               --sysconfdir=/etc         \
-               --mandir=/usr/share/man   \
-               --infodir=/usr/share/info \
-               --disable-csharp          \
-               --without-libintl-prefix  \
+  if !( module_installed emacs ); then
+      OPTS+=" --without-emacs"
+  fi  &&
+
+  ./configure  --build=$BUILD             \
+               --host=$BUILD              \
+               --prefix=/usr              \
+               --sysconfdir=/etc          \
+               --mandir=/usr/share/man    \
+               --infodir=/usr/share/info  \
+               --disable-csharp           \
+               --without-libintl-prefix   \
                $OPTS                     &&
   default_make
 
