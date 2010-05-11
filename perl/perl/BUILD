@@ -7,10 +7,6 @@
   # compling win32 test programs.
   sedit 's/COMPILE/PERL_DID_AN_OOPS/' Makefile.SH installperl &&
 
-  if [ "$SUIDPERL" == "y" ] ; then
-        OPTS="$OPTS -Dd_dosuid"
-  fi  &&
-        
   if [ "$CUSTOM" == "y" ] ; then
         ./Configure  -Dprefix=/usr   \
                      -Dscriptdir=/usr/bin \
@@ -41,10 +37,6 @@
   prepare_install  &&
   make install     &&
 
-  strip --strip-unneeded $(which perl)  &&
+  strip --strip-unneeded $(which perl)
   
-  if [ "$SUIDPERL" == "y" ] ; then
-    strip --strip-unneeded $(which suidperl)
-  fi
-
 ) > $C_FIFO 2>&1
