@@ -1,0 +1,14 @@
+depends  dialog       
+depends  ed           
+depends  zlib         
+depends  w3c-libwww   
+depends  texinfo      
+depends  teTeX-texmf  
+depends  bison        
+
+optional_depends "zlib"           "--with-system-zlib"       "--without-system-zlib"      "for data compression support"
+optional_depends "libpng"         "--with-system-pnglib"     "--without-system-libpng"    "for png support"
+optional_depends "t1lib"          "--with-system-t1lib"      "--without-system-t1lib"     "for t1lib support"
+optional_depends "freetype2"      "--with-system-freetype2 " "--without-system-freetype2" "for freetype font support"
+optional_depends "gd"             "--with-system-gd"         "--without-system-gd"        "for gd graphics support"
+optional_depends "lcdf-typetools" "--enable-lcdf-typetools"  "--disable-lcdf-typetools"   "for postscript support"
