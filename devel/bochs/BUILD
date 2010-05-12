@@ -29,14 +29,6 @@ if [[ $SB16 == "y" ]]; then
   OPTS="$OPTS --enable-sb16=linux"
 fi
 
-if [[ $SSE == "y" ]]; then
-  OPTS="$OPTS --enable-sse"
-fi
-
-if [[ $MMX == "y" ]]; then
-  OPTS="$OPTS --enable-mmx"
-fi
-
 if [[ $PLUGINS == "y" ]]; then
   OPTS="$OPTS --enable-plugins"
 fi
