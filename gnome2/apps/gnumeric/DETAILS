@@ -1,24 +1,20 @@
           MODULE=gnumeric
-         VERSION=1.8.4
+           MAJOR=1.10
+         VERSION=$MAJOR.3
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=gnumeric-1.8.4-is-sheet-control-gui.patch.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=$GNOME_URL/sources/$MODULE/1.8/
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:2d765b0d06509e0695c4d3ec96b94f8acba88735
-     SOURCE2_VFY=sha1:4851b006116f0beb14abbb5f3837020bb36b7133
+      SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:06987beea6dd10e27f04c3fb72929f81b0381e0d
         WEB_SITE=http://www.gnumeric.org
          ENTERED=20021224
-         UPDATED=20090829
-           SHORT="the GNOME spreadsheet application"
+         UPDATED=20100512
+           SHORT="The GNOME spreadsheet application"
 
 cat << EOF
 Gnumeric is a powerful spreadsheet application that interoperates well
-with other spreadsheets.  It comes with plugins that enable it to deal
-with commonly-used spreadsheet file formats.  Gnumeric is intended to
+with other spreadsheets. It comes with plugins that enable it to deal
+with commonly-used spreadsheet file formats. Gnumeric is intended to
 be a drop-in replacement for commercial spreadsheets.
-
 Gnumeric will import your existing Excel, 1-2-3, Applix, Sylk, XBase 
-and Oleo files.  Gnumeric can export to LaTeX 2e (.tex), TROFF (.me)
+and Oleo files. Gnumeric can export to LaTeX 2e (.tex), TROFF (.me)
 and HTML as well.
 EOF
