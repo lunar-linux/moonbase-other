@@ -1,5 +1,6 @@
 (
 
+  patch_it $SOURCE2 0 &&
   FQDN=`hostname`
 
 #  sedit "s/stop_spamd/\#stop_spamd/" t/spamd_maxchildren.t
