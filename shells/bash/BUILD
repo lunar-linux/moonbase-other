@@ -7,6 +7,8 @@
   patch_it $SOURCE4 0  &&
   patch_it $SOURCE5 0  &&
   patch_it $SOURCE6 0  &&
+  patch_it $SOURCE7 0  &&
+  patch_it $SOURCE8 0  &&
 
   OPTS+=" --bindir=/bin                 \
           --enable-readline             \
