@@ -1,33 +1,33 @@
 (
- 
+
 # This sedit takes care of Bug Report 398 submitted by Striker.
   sedit "s:/tmp:$SOURCE_DIRECTORY/tmp:g" scripts/test-installation.pl &&
   mkdir -p $SOURCE_DIRECTORY/tmp &&
- 
+
   # There is no other option but nptl
   OPTS+=" --enable-add-ons=nptl,libidn --with-__thread --with-tls" &&
- 
+
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
   fi &&
- 
+
   export CC=gcc &&
- 
+
   # Don't fully strip libc
   if [[ "$LDFLAGS" == *-s* ]] ; then
     STRIP=y
   fi &&
   unset LDFLAGS &&
- 
+
+  patch_it $SOURCE2 1 &&
   patch_it $SOURCE3 1 &&
-  patch_it $SOURCE4 1 &&
- 
+
   INSTALL_ROOT=$SOURCE_DIRECTORY/glibcroot &&
   mkdir -p $INSTALL_ROOT &&
   cd $INSTALL_ROOT &&
- 
+
   OPTS+=" --with-headers=/usr/include" &&
- 
+
   ../configure --prefix=/usr              \
                --infodir=/usr/share/info  \
                --mandir=/usr/share/man    \
@@ -36,10 +36,10 @@
                --without-cvs              \
                --enable-shared            \
                $OPTS                     &&
- 
+
   # explicitly exit here since the following code unsets $?
   make || exit 1 &&
- 
+
   # Preserve the old glibc temporarily
   LD=/lib/ld-linux.so.2  &&
   GLIBC=/lib/libc.so.6   &&
@@ -51,7 +51,7 @@
   UTIL=/lib/libutil.so.1        &&
   NSL=/lib/libnsl.so.1          &&
   CRYPT=/lib/libcrypt.so.1      &&
- 
+
   case "`arch`" in
     alpha)
           GLIBC=/lib/libc.so.6.1  &&
@@ -66,7 +66,7 @@
           DL=/lib/libdl.so.2
           ;;
   esac &&
- 
+
   cp $LD /lib/ld-lunar.so               &&
   cp $GLIBC /lib/libc-lunar.so          &&
   cp $DL /lib/libdl-lunar.so            &&
@@ -77,7 +77,7 @@
   cp $UTIL /lib/libutil-lunar.so        &&
   cp $NSL /lib/libnsl-lunar.so          &&
   cp $CRYPT /lib/libcrypt-lunar.so      &&
- 
+
   # Setup links for libraries
   sln /lib/ld-lunar.so $LD               &&
   sln /lib/libc-lunar.so $GLIBC          &&
@@ -89,16 +89,16 @@
   sln /lib/libutil-lunar.so $UTIL        &&
   sln /lib/libnsl-lunar.so $NSL          &&
   sln /lib/libcrypt-lunar.so $CRYPT      &&
- 
+
   # clean hack to make sure gnu/stubs.h gets refreshed
   rm -f /usr/include/gnu/stubs.h &&
- 
+
   # This removes the old glibc
   prepare_install &&
- 
+
   # And now we install the new
   make install &&
- 
+
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
     for FN in ld-$VERSION.so \
@@ -111,17 +111,17 @@
       strip -S $FN
     done
   fi  &&
- 
+
   # Added a symlink for ash and others
   ln -sf /usr/lib/libbsd-compat.a /usr/lib/libbsd.a  &&
- 
+
   # Rebuild the ld cache
   rm -f /etc/ld.so.cache 2>/dev/null  &&
   ldconfig                            &&
- 
+
   # Remove the temporary libc
   rm /lib/{ld,lib{c,dl,m,rt,pthread,nss_files,util,nsl,crypt}}-lunar.so  &&
- 
+
   # Generate locale info
   if [ -z "$GLIBC_LOCALES" ]; then
     make localedata/install-locales || exit 1
@@ -138,5 +138,5 @@
     invoke_installwatch &&
     touch /usr/lib/locale/locale-archive
   fi
- 
+
 ) > $C_FIFO 2>&1 && ldconfig

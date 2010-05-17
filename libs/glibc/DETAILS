@@ -1,30 +1,24 @@
           MODULE=glibc
-         VERSION=2.10.1
+         VERSION=2.11.1
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-libidn-$VERSION.tar.bz2
-         SOURCE3=$MODULE-$VERSION-no_timezones.patch
-         SOURCE4=$MODULE-$VERSION-binutils-2.20.x.patch
+         SOURCE2=$MODULE-2.11-no_timezones.patch
+         SOURCE3=$MODULE-$VERSION-__i686.patch.bz2
    SOURCE_URL[0]=$GNU_URL/$MODULE
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE
    SOURCE_URL[2]=http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/glibc
-  SOURCE2_URL[0]=$GNU_URL/$MODULE
-  SOURCE2_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE
-  SOURCE2_URL[2]=http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/glibc
+     SOURCE2_URL=$PATCH_URL
      SOURCE3_URL=$PATCH_URL
-     SOURCE4_URL=$PATCH_URL
-      SOURCE_VFY=sha1:cb478cf9d6e2c905a1a4f4a2cae44a320b8dc50b
-     SOURCE2_VFY=sha1:50c1ac0d9ddff6eb83f75aa1c4cb84ba6fffa0cd
-     SOURCE3_VFY=sha1:9163df279f04efcc37a146115534e9fd0f9a19c5
-     SOURCE4_VFY=sha1:0de1d0fa026f22131832fb74e6fc6866401a27c3
+      SOURCE_VFY=sha1:29f492ae56fd4ef79f32b45c29c0edb6aa8a35a7
+     SOURCE2_VFY=sha1:fc5bf75815daeeef52f7558f27992e02c2cdc87d
+     SOURCE3_VFY=sha1:e3f36e2bb17e51e31035f2cd405d099c624d0e9e
         WEB_SITE=http://www.gnu.org/software/libc
          ENTERED=20010922
-         UPDATED=20090923
+         UPDATED=20100517
            SHORT="C library for use with GNU/Hurd and GNU/Linux"
            PSAFE=no
 
 cat << EOF
 glibc - Library for use with GNU/Hurd and GNU/Linux.
-
 GNU C Library is one of the most important components of the GNU Hurd
 and most modern Linux distributions. It is used by almost all C programs
 and provides the most essential program interface.
