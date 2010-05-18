@@ -1,9 +1,9 @@
           MODULE=pmount
-         VERSION=0.9.13
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://www.piware.de/projects/
-      SOURCE_VFY=sha1:840ff5a8f5499200a6711c2584935004f642bded
-        WEB_SITE=http://www.piware.de/projects
+         VERSION=0.9.22
+          SOURCE=${MODULE}_$VERSION.orig.tar.bz2
+      SOURCE_URL=http://http.us.debian.org/debian/pool/main/p/$MODULE
+      SOURCE_VFY=sha1:84f1f5f4898e494427e5c5fa23f90aa379cd39a8
+        WEB_SITE=http://alioth.debian.org/projects/$MODULE
          ENTERED=20050913
          UPDATED=20061219
            SHORT="mount arbitrary hotpluggable devices as normal user"
@@ -14,6 +14,6 @@ which permits normal users to mount removable devices without a  match-
 ing /etc/fstab entry.
 pmount also supports encrypted devices which use dm-crypt and have LUKS
 metadata. If a LUKS-capable cryptsetup is installed, pmount will use it
-to  decrypt  the  device  first and mount the mapped unencrypted device
+to decrypt the device first and mount the mapped unencrypted device
 instead.
 EOF
