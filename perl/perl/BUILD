@@ -26,9 +26,9 @@
                      $OPTS \
                      -Dman1dir=/usr/share/man/man1 \
                      -Dusethreads  \
-                     -Dman3dir=/usr/share/man/man3 -d -e 
-  fi  && 
- 
+                     -Dman3dir=/usr/share/man/man3 -d -e
+  fi  &&
+
   make  &&
 
   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SOURCE_DIRECTORY"  &&
@@ -38,5 +38,5 @@
   make install     &&
 
   strip --strip-unneeded $(which perl)
-  
+
 ) > $C_FIFO 2>&1
