@@ -1,10 +1,10 @@
 (
 
-  . /etc/profile.d/qt4.rc
+  . /etc/profile.d/qt4.rc &&
 
-  OPTS+=" --enable-build-type=release --enable-shared --disable-static  --with-frontend=qt4"
+  OPTS+=" --enable-build-type=release --enable-shared --disable-static  --with-frontend=qt4" &&
 
-  default_build
+  default_build &&
 
   # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
