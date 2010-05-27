@@ -1,7 +1,4 @@
 (
-  message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}This module compiles and must be installed only on 2.6.x kernels."
-  sleep 5
-
   make user        &&
   prepare_install  &&
 
@@ -14,7 +11,7 @@
   else
     make  PREFIX=/usr            \
           MANDIR=/usr/share/man  \
-	  user_install
-  fi 
+          user_install
+  fi
 
 ) > $C_FIFO 2>&1
