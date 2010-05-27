@@ -1,5 +1,8 @@
 (
 
+  message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}This module must be installed only on 32 bits systems."
+  sleep 5
+
   # Handle the optional splash patch
   if [ $WITH_SPLASH = "y" ]; then
     message "Adding support for grub bootmenu splash images..."
