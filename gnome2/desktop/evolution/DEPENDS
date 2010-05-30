@@ -9,21 +9,10 @@ optional_depends  gnome-spell  ""  ""  "for spellcheck support"
 optional_depends  gstreamer-10 ""  ""  "for audio playback"
 optional_depends  libnotify    ""  ""  "for libnotify popups"
 
-
-optional_depends  pilot-link   \
-                  "--enable-pilotlinktest"  \
-                  ""  \
-                  "for Palm Pilot support"
-
-optional_depends  gnome-pilot  \
-                  "--enable-pilot-conduits=yes"  \
-                  ""  \
-                  "for more Palm Pilot support"
-
 optional_depends  openldap  \
                   "--with-openldap=yes"  \
                   "--with-openldap=no"   \
-                  "for LDAP support"
+                  "for LDAP support (needed for evolution-exchange too)"
 
 optional_depends  gtk-doc  \
                   "--with-help=yes"  \
@@ -35,10 +24,15 @@ optional_depends  Python  \
                   ""  \
                   "for Python plugin support"
 
-optional_depends  mono   \
+optional_depends  mono  \
                   "--enable-mono"  \
                   ""  \
                   "for Mono (.Net) plugin support"
+
+optional_depends  libpst \
+                  ""  \
+                  "--disable-pst-import"  \
+                  "for Outlook pst import plugin support"
 
 optional_depends  nss                                      \
                   "--with-nspr-libs=/usr/lib               \
@@ -48,3 +42,14 @@ optional_depends  nss                                      \
                    --enable-nss=yes"                       \
                    ""                                      \
                    "for nss ssl and smime support"
+
+optional_depends  pilot-link   \
+                  "--enable-pilotlinktest"  \
+                  ""  \
+                  "for Palm Pilot support"
+
+optional_depends  gnome-pilot  \
+                  "--enable-pilot-conduits=yes"  \
+                  ""  \
+                  "for more Palm Pilot support"
+
