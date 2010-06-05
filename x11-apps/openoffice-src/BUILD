@@ -59,8 +59,9 @@
     export QT4DIR  &&
     export QT4INC  &&
     export QT4LIB  &&
-    export KDE4DIR
+    export KDE4DIR 
   fi &&
+
   if module_installed sun-jdk ; then
     OPTS="$OPTS --with-jdk-home=$JAVA_HOME";
    else
