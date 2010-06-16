@@ -2,6 +2,9 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
+# Fixes a gcc 4.4 build failure.
+  echo "VBOX_WITH_TESTCASES =" > LocalConfig.kmk &&
+
   # Disable qt3
   sedit s@WITH_QT3=1@WITH_QT3=0@ configure &&
 
