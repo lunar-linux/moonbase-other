@@ -21,7 +21,7 @@
  
   # Builds nvidia-installer from source
   cd nvidia-installer-$VERSION &&
-  rm -f *Linux* &&
+#  rm -f *Linux* &&
 
   if [[ $(arch) == x86_64 ]] ; then
     # Don't compile 32-bits on pure 64-bit Lunar
@@ -35,7 +35,7 @@
   make clean &&
   make rebuild_tls_test &&
   make rebuild_tls_test_dso &&
-  make rebuild_rtld_test &&
+#  make rebuild_rtld_test &&
   make &&
   if [[ $(arch) == x86_64 ]] ; then
   install -m 755 _out/Linux_x86_64/nvidia-installer ..
