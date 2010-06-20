@@ -1,9 +1,7 @@
 (
-sed -i -r 's@#if\ defined\(EOWNERDEAD\)@#if\ defined\(EOWNERDEAD\)\ \&\&\ defined\(PTHREAD_MUTEX_ROBUST_NP\)@' \
-db/mutex/mut_pthread.c &&
   bad_flags "-z combreloc"
   LDFLAGS=$(echo $LDFLAGS | sed  s/"-z combreloc"// )
-
+  CPPFLAGS="-I/usr/include/nspr -I/usr/include/nss -I/usr/include"
  ./configure --prefix=/usr  \
                 --localstatedir=/var  \
                 --sysconfdir=/etc  \
@@ -11,7 +9,9 @@ db/mutex/mut_pthread.c &&
                 --includedir=/usr/include  \
                 --infodir=/usr/share/info  \
                 --without-selinux           \
-                --with-python=no           \
-                --mandir=/usr/share/man  &&
+                --mandir=/usr/share/man \
+                --with-external-db \
+                --without-lua \
+               $OPTS &&
  default_make
 ) > $C_FIFO 2>&1
