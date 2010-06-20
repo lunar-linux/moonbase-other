@@ -1,6 +1,12 @@
 (
 
-  OPTS="$OPTS --enable-optimized --enable-assertions --enable-pic --enable-targets=host-only"
+  OPTS="$OPTS --enable-optimized --enable-shared --enable-pic --enable-targets=host-only"
+
+  if [ "$USE_ASSERTS" == "y" ] ; then
+     OPTS="--enable-assertions"
+   else
+     OPTS="--disable-assertions"
+  fi &&
 
   default_build   &&
 
