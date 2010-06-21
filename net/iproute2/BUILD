@@ -1,13 +1,16 @@
 (
 
-  sedit "s:/usr/lib/:lib/:" Makefile
-  sedit "s:\$(DESTDIR)\$(CONFDIR):\$(CONFDIR):" Makefile
-  sedit "s:\$(DESTDIR)\$(ARPDDIR):\$(ARPDDIR):" Makefile
+  # Actually install the tc command
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
-  sedit 's@linux/socket.h@sys/socket.h@' include/linux/netlink.h
+  sedit "s:/usr/lib/:lib/:" Makefile &&
+  sedit "s:\$(DESTDIR)\$(CONFDIR):\$(CONFDIR):" Makefile &&
+  sedit "s:\$(DESTDIR)\$(ARPDDIR):\$(ARPDDIR):" Makefile &&
+
+  sedit 's@linux/socket.h@sys/socket.h@' include/linux/netlink.h &&
   if ! in_depends $MODULE db; then
     sedit 's/arpd//' misc/Makefile
-  fi
+  fi &&
 
   chmod +x configure &&
   ./configure &&
