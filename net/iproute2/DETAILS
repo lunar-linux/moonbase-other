@@ -1,11 +1,14 @@
           MODULE=iproute2
          VERSION=2.6.34
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://devresources.linux-foundation.org/dev/iproute2/download
+         SOURCE2=iproute2-2.6.34-tc.patch.bz2
+      SOURCE_URL=http://devresources.linux-foundation.org/dev/$MODULE/download
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:b57f98e284c68a464b9c3e132d29760de6331688
+     SOURCE2_VFY=sha1:0ccb80954c65fdf4e36faf120697b7de8938ae4e
         WEB_SITE=http://www.linuxfoundation.org/en/Net:Iproute2
          ENTERED=20021106
-         UPDATED=20100611
+         UPDATED=20100621
            SHORT="Professional tools to control networking in Linux kernels"
 
 cat << EOF
