@@ -3,7 +3,7 @@
  if ! in_depends wxGTK mesa-lib ; then
   message "${PROBLEM_COLOR}Error: ${DEFAULT_COLOR}Compile wxGTK with OpenGL support"
   exit 1;
- fi
+ fi &&
 
   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
