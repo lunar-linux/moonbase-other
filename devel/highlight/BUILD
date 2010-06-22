@@ -1,13 +1,12 @@
 (
 
-  sedit "s:/usr/local/bin/:/usr/bin/:g" makefile  &&
-  sedit "s:\${PREFIX}/etc/highlight/:/etc/highlight/:" makefile  &&
-
   make help    &&
+
   default_make &&
 
-  if module_installed wxGTK; then
-     make all-gui && make install-gui
+  if in_depends $MODULE qt4; then
+     . /etc/profile.d/qt4.rc
+     make gui && make install-gui
   fi &&
 
   if module_installed doxygen; then
