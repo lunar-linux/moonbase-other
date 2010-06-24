@@ -1,5 +1,6 @@
 (
-  patch_it $SOURCE2 1 &
+
+  patch_it $SOURCE2 1 &&
 
 ## this seems to be needed for a fresh install
   autoreconf  &&
