@@ -1,10 +1,7 @@
           MODULE=NVIDIA
-         VERSION=256.35
-          SOURCE=NVIDIA-Linux-x86_64-$VERSION-no-compat32.run
-         SOURCE2=nvidia-settings-$VERSION.tar.bz2
-         SOURCE3=nvidia-installer-$VERSION.tar.bz2
-         SOURCE4=nvidia-xconfig-$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-no-compat32
+         VERSION=195.36.31
+          SOURCE=NVIDIA-Linux-x86_64-$VERSION-pkg0.run
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-pkg0
    SOURCE_URL[0]=ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION
    SOURCE_URL[1]=http://download.nvidia.com/XFree86/Linux-x86_64/$VERSION
    SOURCE_URL[2]=http://us.download.nvidia.com/XFree86/Linux-x86_64/$VERSION
@@ -23,33 +20,27 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-no-compat32
   SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86_64/$VERSION
   SOURCE_URL[16]=http://br.download.nvidia.com/XFree86/Linux-x86_64/$VERSION
   SOURCE_URL[17]=http://la.download.nvidia.com/XFree86/Linux-x86_64/$VERSION
-     SOURCE2_URL=http://cgit.freedesktop.org/~aplattner/nvidia-settings/snapshot
-     SOURCE3_URL=http://cgit.freedesktop.org/~aplattner/nvidia-installer/snapshot
-     SOURCE4_URL=http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot
-      SOURCE_VFY=sha1:e8652c7a52f06bc4a1358bcb8d62d48b9d61c6f3
-     SOURCE2_VFY=sha1:f7142501ba4a032becf5ef11305699d2419482e9
-     SOURCE3_VFY=sha1:be9e50c3b9a4e851603c26f8dadac957c45316fe
-     SOURCE4_VFY=sha1:93b326ab9da385a1bf009f26f21b10691cacaf50
-        WEB_SITE=http://www.nvidia.com/
+      SOURCE_VFY=sha1:237449311584b23c5ed6deee7602d8e4c913e4ff
+        WEB_SITE=http://www.nvidia.com
          LICENSE="proprietary"
          ENTERED=20030804
-         UPDATED=20100619
+         UPDATED=20100616
            SHORT="X11 NVIDIA binary driver for Geforce 6/7/8/9/GT2xx"
 
+PSAFE=no
 cat << EOF
 These are the nvidia provided binary X11 drivers for their graphics
 cards. It also has the Linux kernel module needed for all Geforce 6/7/8/9/GT2xx
-cards. Supported GPUs: (6/7/8/9/GTX 2xx families only)
+cards. Supported GPUs: (6/7/8/9/GT2xx families only)
 all Geforce 6xxx
 all Geforce 7xxx
 all Geforce 8xxx
 all Geforce 9xxx
-GeForce GTX 260
-GeForce GTX 280
+all Geforce GT2xx
 some models may be not supported yet.
 
 If you have RIVA/Vanta/TNT/Geforce1/Quadro1-2/Geforce2 (not MX)
 check NVIDIA-old module.
 If you have Geforce 2MX/3/4 check NVIDIA-legacy module.
-If you have Geforce FX check NVIDIA-fx module.
+If you have Geforce FX/PCX check NVIDIA-fx module.
 EOF

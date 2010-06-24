@@ -1,169 +1,73 @@
 (
-  # This is installer less build script. If you find bugs let me know by e-mail: zbiggy(0)o2(period)pl
 
-  # Remove files to avoid module conflicts and
-  # make place for source compiled replacements
-  rm -f .manifest libvdpau.so* libvdpau_trace.so* \
-  vdpau*.h pkg-history.txt nvidia-installer{,.*} \
-  mkprecompiled nvidia-xconfig{,.*} nvidia-settings{,.*} \
-  libnvidia-wfb* tls_test* &&
+  cd $SOURCE_DIRECTORY &&
+  rm -f usr/X11R6/lib/modules/libnvidia-wfb* &&
+  sedit '/wfb/d' .manifest &&
+  rm -f usr/lib/libvdpau.so* \
+        usr/lib/vdpau/libvdpau_trace* &&
+  rm -rf usr/include/vdpau &&
+  sedit '/libvdpau.so/d' .manifest &&
+  sedit '/libvdpau_trace/d' .manifest &&
+  sedit '/include\/vdpau/d' .manifest &&
 
-  # Temporary paths and symlinks to make sources compilable
-  LD_LIBRARY_PATH="$SOURCE_DIRECTORY:$LD_LIBRARY_PATH" &&
-  CFLAGS=" -I$SOURCE_DIRECTORY -L$SOURCE_DIRECTORY $CFLAGS " &&
-  ln -s libGL.so.$VERSION libGL.so &&
-  ln -s libnvidia-glcore.so.$VERSION libGLcore.so.1 &&
-  ln -s libnvidia-tls.so.$VERSION libnvidia-tls.so.1 &&
-  mkdir GL &&
-  cp gl*.h GL &&
-
-  echo libXvMCNVIDIA_dynamic.so.1 > XvMCConfig &&
- 
-  # Builds nvidia-installer from source
-  cd nvidia-installer-$VERSION &&
-#  rm -f *Linux* &&
-
-  if [[ $(arch) == x86_64 ]] ; then
-    # Don't compile 32-bits on pure 64-bit Lunar
-    sedit 's/COMPAT_32_SRC *= */\0#/' Makefile &&
-    sedit 's/COMPAT_32_SRC *= */\0#/' public.mk &&
-    sedit 's/-DNV_X86_64//' Makefile &&
-    sedit 's/-DNV_X86_64//' public.mk
-  fi &&
-
-  sedit 's@-lGL@-I.. -L.. -lGL @' Makefile &&
-  make clean &&
-  make rebuild_tls_test &&
-  make rebuild_tls_test_dso &&
-#  make rebuild_rtld_test &&
-  make &&
-  if [[ $(arch) == x86_64 ]] ; then
-  install -m 755 _out/Linux_x86_64/nvidia-installer ..
-  install -m 755 _out/Linux_x86_64/mkprecompiled ..
-  install -m 644 _out/Linux_x86_64/nvidia-installer.1.gz ..
-  cp tls_test_`uname`-x86_64 ../tls_test
-  cp tls_test_dso_`uname`-x86_64.so ../tls_test_dso.so
-  else
-  install -m 755 _out/Linux_x86/nvidia-installer ..
-  install -m 755 _out/Linux_x86/mkprecompiled ..
-  install -m 644 _out/Linux_x86/nvidia-installer.1.gz ..
-  cp tls_test_`uname`-x86 ../tls_test
-  cp tls_test_dso_`uname`-x86.so ../tls_test_dso.so
-  fi &&
-
-  # Builds nvidia-settings from source
-  cd ../nvidia-settings-$VERSION &&
-
-  # xf86vmode.h has been removed in xf86vidmodeproto 2.3
-  if [[ ! -e /usr/include/X11/extensions/xf86vmode.h ]] ; then
-    sedit "s:#include <X11/extensions/xf86vmode.h>:#include <X11/extensions/xf86vmproto.h>:" src/libXNVCtrlAttributes/NvCtrlAttributes{,VidMode,Glx}.c
-  fi &&
-
-  make clean &&
-  make -C src/libXNVCtrl &&
-# X_CFLAGS=$CFLAGS GL_INCLUDE_PATH=$SOURCE_DIRECTORY
-  make
-  if [[ $(arch) == x86_64 ]] ; then
-  install -m 755 _out/Linux_x86_64/nvidia-settings ..
-  install -m 644 _out/Linux_x86_64/nvidia-settings.1.gz ..
-  else
-  install -m 755 _out/Linux_x86/nvidia-settings ..
-  install -m 644 _out/Linux_x86/nvidia-settings.1.gz ..
-  fi && 
-  install -m 644 doc/nvidia-settings.png .. &&
-  install -m 644 doc/nvidia-settings.desktop .. &&
-
-  # Builds nvidia-xconfig from source
-  cd ../nvidia-xconfig-$VERSION &&
-  make clean &&
-  make &&
-  if [[ $(arch) == x86_64 ]] ; then
-  install -m 755 _out/Linux_x86_64/nvidia-xconfig ..
-  install -m 644 _out/Linux_x86_64/nvidia-xconfig.1.gz ..
-  else
-  install -m 755 _out/Linux_x86/nvidia-xconfig ..
-  install -m 644 _out/Linux_x86/nvidia-xconfig.1.gz ..
-  fi &&
-  cd .. &&
-  sedit "s/__GENERATED_BY__/nvidia-installer\:\ $VERSION/" libGL.la &&
-  sedit 's/__LIBGL_PATH__/\/usr\/lib/' libGL.la &&
-  sedit 's/__UTILS_PATH__/\/usr\/bin/' nvidia-settings.desktop &&
-  sedit 's/__PIXMAP_PATH__/\/usr\/share\/doc\/NVIDIA_GLX-1.0/' nvidia-settings.desktop &&
-  sedit 's/__NVIDIA_SETTINGS_DESKTOP_CATEGORIES__/Settings;DesktopSettings;/' nvidia-settings.desktop &&
+  # Clean up old install before doing new one
+  ./nvidia-installer --uninstall --silent &&
 
   # We make the kernel modules on our own
-  cd kernel &&
-  sedit "s@\$\(shell uname -r\)@`readlink /usr/src/linux | cut -d- -f2`@" Makefile.* makefile &&
-# sedit "s/-O/$CFLAGS/" Makefile.nvidia &&
-# NV_VERBOSE=0 EXTRA_CFLAGS=$CFLAGS ARCH=
-  make SYSSRC=`readlink /usr/src/linux` module &&
-  rm -f $SOURCE_DIRECTORY/{libGL.so,libGLcore.so.1,libnvidia-tls.so.1} &&
- 
+  cd $SOURCE_DIRECTORY/usr/src/nv &&
+
+  sedit "s:KBUILD_VERBOSE=1:KBUILD_VERBOSE=0:g" Makefile.kbuild &&
+
+  make SYSSRC=/usr/src/linux module &&
+
   prepare_install &&
 
-  make SYSSRC=`readlink /usr/src/linux` install &&
-# NV_VERBOSE=0 EXTRA_CFLAGS=$CFLAGS ARCH=
-  cd .. &&
+  make SYSSRC=/usr/src/linux install &&
 
-  mkdir -p /etc/OpenCL/vendors &&
-  install -m0444 nvidia.icd /etc/OpenCL/vendors &&
-  install -m0755 nvidia-bug-report.sh /usr/bin &&
-  install -m0755 nvidia-installer /usr/bin &&
-  install -m0755 nvidia-settings /usr/bin &&
-  install -m0755 nvidia-smi /usr/bin &&
-  ln -sf  /usr/bin/nvidia-installer /usr/bin/nvidia-uninstall &&
-  install -m0755 nvidia-xconfig /usr/bin &&
+  # And let nvidia-installer handle the rest
+  cd $SOURCE_DIRECTORY &&
+  rm -rf old.libraries &&
 
-  mkdir -p /usr/include/CL &&
-  install -m0444 cl*.h /usr/include/CL &&
-
-  mkdir -p /usr/include/cuda &&
-  install -m0444 cuda*.h /usr/include/cuda &&
-
+  mkdir -p /usr/lib/opengl/nvidia &&
   mkdir -p /usr/include/GL/nvidia &&
-  install -m0444 gl*.h /usr/include/GL/nvidia &&
+  install -m644 usr/include/GL/*.h /usr/include/GL/nvidia &&
 
-  install -m0755 libnvidia-*.so.$VERSION /usr/lib &&
-  ln -sf /usr/lib/libnvidia-cfg.so.$VERSION /usr/lib/libnvidia-cfg.so.1 &&
-  ln -sf /usr/lib/libnvidia-cfg.so.1 /usr/lib/libnvidia-cfg.so &&
+  # We need to fool the installer a little as it checks for the
+  # libraries after the installation
+  export LD_LIBRARY_PATH="/usr/lib/opengl/nvidia" &&
 
-  install -m0755 libXvMCNVIDIA.so.$VERSION /usr/lib &&
-  install -m0444 libXvMCNVIDIA.a /usr/lib &&
-  ln -sf /usr/lib/libXvMCNVIDIA.so.$VERSION /usr/lib/libXvMCNVIDIA_dynamic.so.1 &&
-  ln -sf /usr/lib/libXvMCNVIDIA_dynamic.so.1 /usr/lib/libXvMCNVIDIA_dynamic.so &&
-
-  install -m0755 libcuda.so.$VERSION /usr/lib &&
-  ln -sf /usr/lib/libcuda.so.$VERSION /usr/lib/libcuda.so.1 &&
-  ln -sf /usr/lib/libcuda.so.1 /usr/lib/libcuda.so &&
-
-  install -m0644 libGL.la /usr/lib &&
-  install -m0755 libGL.so.$VERSION /usr/lib &&
-
-  install -m0755 libOpenCL.so.1.0.0 /usr/lib &&
-  ln -sf /usr/lib/libOpenCL.so.1.0.0 /usr/lib/libOpenCL.so.1.0 &&
-  ln -sf /usr/lib/libOpenCL.so.1.0 /usr/lib/libOpenCL.so.1 &&
-  ln -sf /usr/lib/libOpenCL.so.1 /usr/lib/libOpenCL.so &&
-
-  mkdir -p /usr/lib/tls &&
-  install -m0755 tls/libnvidia-tls.so.$VERSION /usr/lib/tls &&
-
-  install -m0755 libvdpau_nvidia.so.$VERSION /usr/lib/vdpau &&
-  ln -sf /usr/lib/vdpau/libvdpau_nvidia.so.$VERSION /usr/lib/vdpau/libvdpau_nvidia.so.1 &&
-  ln -sf /usr/lib/vdpau/libvdpau_nvidia.so.1 /usr/lib/libvdpau_nvidia.so &&
-
-  install -m0755 nvidia_drv.so /usr/lib/xorg/modules/drivers &&
-  install -m0755 libglx.so.$VERSION /usr/lib/xorg/modules/extensions &&
-
-  install -m0444 nvidia-settings.desktop /usr/share/applications &&
-
-  mkdir -p /usr/share/doc/NVIDIA_GLX-1.0/html &&
-  install -m0444 html/* /usr/share/doc/NVIDIA_GLX-1.0/html &&
-
-  install -m0444 README.txt nvidia-settings.png LICENSE NVIDIA_Changelog /usr/share/doc/NVIDIA_GLX-1.0 &&
-  install -m0444 nvidia-xconfig.1.gz nvidia-smi.1.gz nvidia-settings.1.gz nvidia-installer.1.gz /usr/share/man/man1 &&
+  ./nvidia-installer --silent \
+                     --no-precompiled-interface \
+                     --no-rpms \
+                     --no-network \
+                     --no-recursion \
+                     --no-kernel-module \
+                     --no-x-check \
+                     --no-opengl-headers \
+                     --opengl-libdir=lib/opengl/nvidia &&
 
   # Register Nvidia XvMC library for use in any XvMC enabled media player
-  install -m644 XvMCConfig /etc/X11
+  rm -f /etc/X11/XvMCConfig &&
+  touch /etc/X11/XvMCConfig &&
+  echo libXvMCNVIDIA_dynamic.so.1 > /etc/X11/XvMCConfig &&
+  chmod 644 /etc/X11/XvMCConfig &&
+
+  # Get a sane default if haven't set it yet
+  if [ "x$LUNAR_GL" == "x" ] ; then
+    set_local_config LUNAR_GL binary
+  fi &&
+
+  # This is a temp workaround for braindead dlopen calls inside the NVIDIA
+  # libglx.so
+
+  ln -sf /usr/lib/opengl/nvidia/libGLcore.so.1 \
+         /usr/lib/libGLcore.so.1 &&
+
+  ln -sf /usr/lib/opengl/nvidia/tls/libnvidia-tls.so.1 \
+         /usr/lib/libnvidia-tls.so.1 &&
+
+  if !( module_installed gtk+-2 ); then
+    rm -f /usr/bin/nvidia-settings
+  fi
 
 ) > $C_FIFO 2>&1
-
