@@ -1,9 +1,7 @@
 (
 
-  ./configure  --prefix=/usr  &&
-  make                        &&
-  prepare_install             &&
-  make    install             &&
-  make    install_filters
+  ./configure.sh --prefix=$MODULE_PREFIX  &&
+
+  default_make 
 
 ) > $C_FIFO 2>&1
