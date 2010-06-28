@@ -11,7 +11,7 @@
   ./configure  --build=$BUILD                     \
                --mandir=/usr/share/man            \
                --prefix=/lib/module-init-tools/   \
-               ac_cv_prog_DOCBOOKTOMAN=yes       &&
+               ac_cv_prog_DOCBOOKTOMAN=true       &&
 
   mkdir -p /etc/modprobe.d  &&
 
