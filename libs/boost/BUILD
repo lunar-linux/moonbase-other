@@ -5,7 +5,7 @@
   export EXPAT_LIBPATH=/usr/lib/
 
   bjam -q ${MAKES:+-j$MAKES} \
-       threading=multi \
+       threading=single,multi  \
        --layout=tagged    \
        runtime-link=shared \
        link=shared \
@@ -22,7 +22,7 @@
   prepare_install &&
 
   bjam -q ${MAKES:+-j$MAKES} \
-       threading=multi \
+       threading=single,multi \
        --layout=tagged    \
        runtime-link=shared \
        link=shared \
