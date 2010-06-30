@@ -1,10 +1,11 @@
 depends dnsmasq
 depends bridge-utils
 depends netcf
-depends Python 
+depends Python
 depends virtinst
-optional_depends "avahi"      "--with-avahi" "--without-avahi" "Advertise daemon to network"
+
+optional_depends "avahi"      "--with-avahi"  "--without-avahi"  "Advertise daemon to network"
 optional_depends "PolicyKit"  "--with-polkit" "--without-polkit" "Enable PolicyKit support"
-optional_depends "cyrus-sasl" "--with-sasl" "--without-sasl" "Enable SASL Authentication"
-optional_depends "qemu"       "--with-qemu" "--without-qemu" "Enable qemu/kvm support?"
-optional_depends "virtualbox" "--with-vbox" "--without-vbox" "Enable virtualbox support?"
+optional_depends "cyrus-sasl" "--with-sasl"   "--without-sasl"   "Enable SASL Authentication"
+optional_depends "qemu"       "--with-qemu"   "--without-qemu"   "Enable qemu/kvm support?"
+optional_depends "virtualbox" "--with-vbox"   "--without-vbox"   "Enable virtualbox support?"
