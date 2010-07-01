@@ -1,4 +1,5 @@
 (
+
   TARGET=/usr/share/tomcat6/
 
   # Cleaning up
