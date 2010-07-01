@@ -1,12 +1,13 @@
           MODULE=util-linux
              MOD=util-linux-ng
-         VERSION=2.17.2
+           MAJOR=2.18
+         VERSION=$MAJOR
           SOURCE=$MOD-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
-      SOURCE_URL=$KERNEL_URL/pub/linux/utils/$MOD/v2.17
-      SOURCE_VFY=sha1:69275de84f7dabb7a5d90d0046c3a6b861c16a1d
+      SOURCE_URL=$KERNEL_URL/pub/linux/utils/$MOD/v$MAJOR
+      SOURCE_VFY=sha1:154db0512caae0b6e90eee4b7312d4caf3d6b978
          ENTERED=20010922
-         UPDATED=20100517
+         UPDATED=20100701
            SHORT="Essential utilities for any Linux box"
 
 cat << EOF
