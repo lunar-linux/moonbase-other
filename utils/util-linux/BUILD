@@ -3,7 +3,7 @@
 
   OPTS+="--enable-arch --enable-agetty --disable-init --disable-kill \
          --disable-last --disable-mesg --enable-partx --enable-raw \
-         --enable-rdev --enable-rename --disable-reset --disable-login-utils \
+         --enable-rename --disable-reset --disable-login-utils \
          --enable-schedutils --disable-wall --enable-write  --disable-fsck"
 
   default_build  &&
