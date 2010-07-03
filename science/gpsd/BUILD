@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-itrax --disable-tnt --enable-dbus"
+  OPTS="$OPTS --enable-itrax --disable-tnt --enable-dbus" &&
 
   default_build &&
 
