@@ -1,14 +1,13 @@
 (
 
-  sedit "s|FTTextureGlyph::||" include/FTTextureGlyph.h
-
-  cd unix/       &&
-
-  if module_installed NVIDIA-beta || module_installed NVIDIA; then
+ndrivers="NVIDIA NVIDIA-old NVIDIA-legacy NVIDIA-beta NVIDIA-fx"
+for driver in $ndrivers
+do
+  if module_installed $driver; then
     OPTS="$OPTS --with-gl-lib=/usr/lib/opengl/nvidia/"
-  fi &&
-
-  OPTS="$OPTS --enable-shared --enable-threaded"
+    break
+  fi
+done &&
 
   default_build
 
