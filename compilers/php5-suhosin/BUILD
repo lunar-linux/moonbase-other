@@ -1,5 +1,8 @@
 (
 
+# So it does not bomb on gmp stuff if you say yes to gmp. Revisit on next bump.
+  sedit "s: __GMP_BITS_PER_MP_LIMB:GMP_LIMB_BITS:g" ext/gmp/gmp.c &&
+
   if [ "$USE_PATCH" == "y" ]; then
     patch_it $SOURCE3 1
   fi &&
