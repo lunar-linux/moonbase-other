@@ -1,6 +1,8 @@
 (
 
   patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
+
   add_priv_user imspector:imspector &&
 
   # Enable drop privs
