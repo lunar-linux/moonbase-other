@@ -1,0 +1,7 @@
+mquery USE_BASEMAPS "Do you want to use Basemaps pictures?"  y "-DWITH_BASEMAPS=ON" "-DWITH_BASEMAPS=OFF"
+mquery USE_NAVIGATION "Build with routing support?" y "-DWITH_NAVIGATION=ON" "-DWITH_NAVIGATION=OFF"
+mquery USE_FRIENDSD "Build with friendsd support" y "-DWITH_FRIENDSD=ON" "-DWITH_FRIENDSD=OFF"
+
+if module_installed kismet; then
+  mquery USE_KISMET "Do you want to use kismet?" y "-DWITH_KISMET=ON"  "-DWITH_KISMET=OFF"
+fi

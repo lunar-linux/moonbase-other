@@ -14,7 +14,7 @@
 #   export ac_cv_func_realloc_0_nonnull=yes
 #   export ac_cv_func_malloc_0_nonnull=yes
 
-   OPTS="$OPTS --enable-compat-howl --enable-compat-libdns_sd"
+   OPTS="$OPTS --enable-compat-howl --enable-compat-libdns_sd --disable-gtk3"
 
    ./configure  --prefix=/usr              \
                 --build=$BUILD             \

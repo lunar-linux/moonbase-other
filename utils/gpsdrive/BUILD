@@ -1,12 +1,21 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+  sedit "s:/usr/share/fonts/truetype/ttf-dejavu/:/usr/share/fonts/dejavu-ttf/:" src/gpsdrive_config.c &&
 
-  ./configure --prefix=/usr              \
-              --mandir=/usr/share/man    \
-              --datadir=/usr/share       \
-              $OPTS                     &&
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&                                                                                                                                     
+                                                                                                                                                                                        
+  mkdir $OOTB_DIR  &&
+  cd $OOTB_DIR     &&
 
-  default_make
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX   \
+                           -DCMAKE_BUILD_TYPE=RELEASE              \
+                           -DWITH_SPEECH=OFF                       \
+                           $OPTS                                  &&
+
+  default_make &&
+
+#This copies a minimal set of icons needed by gpsdrive
+  unpack $SOURCE2  &&
+  cp -r usr/ / 
 
 ) > $C_FIFO 2>&1

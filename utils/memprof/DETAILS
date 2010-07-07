@@ -1,16 +1,16 @@
           MODULE=memprof
-         VERSION=0.6
+           MAJOR=0.6
+         VERSION=$MAJOR.2
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$GNOME_URL/sources/$MODULE/0.6/
-      SOURCE_VFY=sha1:9831f6302e4e78886feb999b0a0c456852e3fef5
-        WEB_SITE=http://www.gnome.org/projects/memprof/
+      SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:d949969311002c04e7cb506cfc01fe1680477df8
+        WEB_SITE=http://www.gnome.org/projects/memprof
          ENTERED=20020213
-         UPDATED=20060808
+         UPDATED=20100705
            SHORT="Memory profiling tool"
 
 cat << EOF
 MemProf is a tool for profiling memory usage and finding memory leaks.
-
 Its two major features are:
  * It can generate a profile how much memory was allocated by each 
    function in your program.
