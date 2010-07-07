@@ -1,16 +1,17 @@
           MODULE=gpsdrive
-         VERSION=2.09
+         VERSION=2.11
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE.gcc4.1.patch
+         SOURCE2=openstreetmap-map-icons-minimal.tar.gz
       SOURCE_URL=http://www.gpsdrive.de/packages/
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:cbf3db19b3b3fb496a1255ef67d7de5bdeffd70c
-     SOURCE2_VFY=sha1:2700d2a737d98003ef5c1e08f9e3b29a08646f89
+     SOURCE2_URL="$SFORGE_URL/gpsdrive/additional data/minimal icon set/$SOURCE2/"
+      SOURCE_VFY=sha1:5bdb85fbb538b3c678975c896b16afc368161367
+     SOURCE2_VFY=sha1:d5315e25a9c8f7e5a6c90e21fe5f8d8d8d77d47f
         WEB_SITE=http://www.gpsdrive.de/index.shtml
          ENTERED=20040207
-         UPDATED=20040505
+         UPDATED=20100703
       MAINTAINER="ratler@lunar-linux.org"
            SHORT="car (bike, ship, plane) navigation system."
+
 cat << EOF
 GpsDrive displays your position provided from your NMEA capable GPS
 receiver on a zoomable map, the map file is autoselected depending of the
