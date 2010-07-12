@@ -12,6 +12,12 @@
     OPTS="$OPTS --disable-fax-build"
   fi &&
 
+  # Install /usr/bin/hpijs so don't get this error:
+  # (/usr/lib/cups/filter/foomatic-rip-hplip) stopped with status 3!
+  # Or this error:
+  # sh: hpijs: command not found
+  OPTS+=" --enable-hpijs-install" &&
+
   default_config &&
 
 # To fix the /var/log/meesages warning SYSFS will be removed in future udev versions.
