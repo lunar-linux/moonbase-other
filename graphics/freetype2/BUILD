@@ -2,17 +2,12 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
-  if [ $BYTECODE == "y" ] ; then
-    sed -i -r 's:.*(#.*BYTE.*) .*:\1:' \
-       include/freetype/config/ftoption.h
-  fi  &&
-
   sed -i -r 's:.*(#.*SYSTEM_ZLIB.*) .*:\1:' \
     include/freetype/config/ftoption.h  &&
 
   sed -i -r 's:.*(#.*SUBPIXEL_RENDERING.*) .*:\1:' \
     include/freetype/config/ftoption.h  &&
-  
+
   sed -i -r 's:.*(#.*INCREMENTAL.*) .*:\1:' \
     include/freetype/config/ftoption.h  &&
 
