@@ -1,0 +1,22 @@
+          MODULE=gobject-introspection
+         VERSION=0.6.5
+          SOURCE=${MODULE}-${VERSION}.tar.bz2
+      SOURCE_URL=http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/0.6/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:ffa66729630018637e5b91f88316d3c536672840
+        WEB_SITE="http://live.gnome.org/GObjectIntrospection"
+         ENTERED=20091003
+         UPDATED=20091003
+           SHORT="Generate interface introspection data for GObject libraries"
+cat <<EOF
+GObject Introspection is a project for providing machine readable
+introspection data of the API of C libraries. This introspection data
+can be used in several different use cases, for example automatic code
+generation for bindings, API verification and documentation generation.
+
+GObject Introspection contains tools to generate and handle the
+introspection data.
+
+This package contains tools for extracting introspection data from
+libraries and transforming it to different formats.
+EOF
