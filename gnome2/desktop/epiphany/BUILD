@@ -1,7 +1,7 @@
 (
 
    #Something's wrong with the configure they ship
-   autoreconf &&
+   autoreconf -fi &&
  
    default_build
 
