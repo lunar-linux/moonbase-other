@@ -32,16 +32,16 @@
   # Firefox 3, Seamonkey 2, Google chrome/inium use it
   # KDE3/4 Konqueror and Opera always use Java directly so do not use any plugin
   # if [ $NEWPLUGIN == 'y' ]; then
-  ln -sf /usr/java/latest/lib/i386/libnpjp2.so \
+  ln -sf /usr/java/latest/lib/amd64/libnpjp2.so \
          /opt/lunar/plugins/ &&
   # else
   # We do not have firefox 1/2 or Seamonkey 1 anymore so no browser uses old plugin
-  # ln -sf /usr/java/latest/plugin/i386/ns7/libjavaplugin_oji.so \
+  # ln -sf /usr/java/latest/plugin/amd64/ns7/libjavaplugin_oji.so \
   #       /opt/lunar/plugins/
   # fi &&
 
   # This didn't get created, dead link. Do it this way.
-  ln -sf /usr/java/latest/lib/i386/server/libjvm.so /usr/lib/libjvm.so &&
+  ln -sf /usr/java/latest/lib/amd64/server/libjvm.so /usr/lib/libjvm.so &&
 
   echo export JAVA_HOME=\"/usr/java/latest\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
   echo export PATH=\"'$PATH':'$JAVA_HOME'/bin\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
