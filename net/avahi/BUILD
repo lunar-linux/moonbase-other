@@ -14,19 +14,9 @@
 #   export ac_cv_func_realloc_0_nonnull=yes
 #   export ac_cv_func_malloc_0_nonnull=yes
 
-   OPTS="$OPTS --enable-compat-howl --enable-compat-libdns_sd --disable-gtk3"
+   OPTS="$OPTS --enable-compat-howl --enable-compat-libdns_sd --disable-gtk3 --disable-qt3 \
+        --disable-stack-protector --disable-gdbm --with-distro=none" &&
 
-   ./configure  --prefix=/usr              \
-                --build=$BUILD             \
-                --sysconfdir=/etc          \
-                --localstatedir=/var       \
-                --with-distro=none         \
-                --disable-lynx             \
-                --disable-gdbm             \
-                --disable-stack-protector  \
-                --disable-qt3              \
-                $OPTS                     &&
-
-    default_make
+    default_build
 
 ) > $C_FIFO 2>&1
