@@ -13,6 +13,6 @@
     rmdir old.libraries
   fi                           &&
 
-  cp -f $SOURCE_DIRECTORY/ttf/* $LIBTTF
+  cp -f $SOURCE_DIRECTORY/build/* $LIBTTF
 
 ) > $C_FIFO 2>&1
