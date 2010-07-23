@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --without-weather --disable-nm"  &&
+  OPTS+=" --disable-nm"  &&
 
   default_build
 
