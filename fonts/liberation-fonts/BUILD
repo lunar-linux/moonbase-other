@@ -2,17 +2,19 @@
 
   LIBTTF=/usr/share/fonts/liberation-fonts-ttf
 
-  make &&
-  prepare_install              &&
+  sedit "s:-\$(VER)::" Makefile  &&
+
+  make  &&
+  prepare_install  &&
 
   if [ ! -d $LIBTTF ] ; then
      mkdir -p $LIBTTF
-  fi                           &&
+  fi  &&
 
   if [ -d old.libraries ] ; then
     rmdir old.libraries
-  fi                           &&
+  fi  &&
 
-  cp -f $SOURCE_DIRECTORY/ttf/* $LIBTTF
+  cp -f $MODULE-ttf/* $LIBTTF
 
 ) > $C_FIFO 2>&1
