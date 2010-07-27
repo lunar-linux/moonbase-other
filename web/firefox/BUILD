@@ -3,9 +3,7 @@
  MOZILLA_DIR=mozilla-1.9.2
   #Really? You go and call fprintf and don't #include <cstdio>?
   #How exactly did you plan on doing that?!?!
-  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' $MOZILLA_DIR/toolkit/crashreporter/google-breakpad/src/common/linux/dump_symbols.cc
   sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' $MOZILLA_DIR/toolkit/crashreporter/google-breakpad/src/client/linux/handler/exception_handler.cc
-  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' $MOZILLA_DIR/toolkit/crashreporter/google-breakpad/src/client/linux/handler/minidump_generator.cc
 
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
@@ -27,6 +25,7 @@
   cd $MOZILLA_DIR  &&
 
   echo "ac_add_options --disable-necko-wifi" >> mozconfig
+  echo "ac_add_options --disable-system-sqlite" >> mozconfig
 
   #Add DEPENDS options
 
@@ -34,10 +33,6 @@
     echo "ac_add_options --enable-dbus" >> mozconfig
   else
     echo "ac_add_options --disable-dbus" >> mozconfig
-  fi  &&
-
-  if in_depends $MODULE sqlite ; then
-    echo "ac_add_options --enable-system-sqlite" >> mozconfig
   fi  &&
 
   if in_depends $MODULE "xulrunner" ; then
