@@ -29,12 +29,6 @@
 
   #Add DEPENDS options
 
-  if in_depends $MODULE dbus ; then
-    echo "ac_add_options --enable-dbus" >> mozconfig
-  else
-    echo "ac_add_options --disable-dbus" >> mozconfig
-  fi  &&
-
   if in_depends $MODULE "xulrunner" ; then
     XUL=`module_version xulrunner`
     echo "ac_add_options --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL" >> mozconfig
