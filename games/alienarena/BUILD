@@ -50,6 +50,6 @@ EOF
 
   install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop  &&
 
-  mv $SOURCE_DIRECTORY/docs/{license,readme}.txt .  
+  mv $SOURCE_DIRECTORY/docs/license.txt .  
 
 ) > $C_FIFO 2>&1
