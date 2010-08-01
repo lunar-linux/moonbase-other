@@ -18,7 +18,7 @@
   prepare_install  &&
 
   # Executable
-  install -D -m755 game /usr/bin/frogatto  &&
+  install -D -m755 game /usr/games/frogatto  &&
 
   # Data
   mkdir -p /usr/share/games/frogatto/  &&
