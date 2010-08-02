@@ -1,0 +1,16 @@
+          MODULE=texlive-texmf
+         VERSION=20091107
+          SOURCE=texlive-${VERSION}-texmf.tar.xz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${SOURCE/.tar.xz}
+   # Use faster mirror first, for this huge 900mb file
+   SOURCE_URL[0]=ftp://ftp.usa.openbsd.org/pub/OpenBSD/distfiles
+   SOURCE_URL[1]=ftp://tug.org/texlive/historic/${VERSION:0:4}
+      SOURCE_VFY=sha1:a85d33e2915fd2bfad86e5a1ce498058a380d959
+        WEB_SITE=http://www.tug.org/texlive/
+         ENTERED=20100731
+         UPDATED=20100731
+           SHORT="TeX Live metafont package"
+
+cat << EOF
+Metafont package from the TeX Live distribution.
+EOF
