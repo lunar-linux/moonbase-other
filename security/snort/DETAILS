@@ -1,16 +1,17 @@
           MODULE=snort
            MAJOR=2.8
-         VERSION=$MAJOR.6
+         VERSION=$MAJOR.6.1
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=snortrules-snapshot-$MAJOR.tar.gz
-      SOURCE_URL=http://dl.snort.org/snort-current
+   SOURCE_URL[0]=http://dl.snort.org/snort-current/20100722
+   SOURCE_URL[1]=$MIRROR_URL
   SOURCE2_URL[0]=$MIRROR_URL
   SOURCE2_URL[1]=http://dl.snort.org/reg-rules
-      SOURCE_VFY=sha1:e463c99994e52171439623e1b05b9e1bcf01ac8f
+      SOURCE_VFY=sha1:66e991f151f6aae5dcdee92abc8092cd508a2aaa
      SOURCE2_VFY=sha1:e53fa49b59732d523394ecb7e291d90ac76d8b8a
         WEB_SITE=http://www.snort.org
          ENTERED=20011022
-         UPDATED=20100427
+         UPDATED=20100803
            SHORT="Lightweight network intrustion detection program"
 
 cat << EOF
