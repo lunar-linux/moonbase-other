@@ -1,8 +1,8 @@
 (
 
-  make defconfig &&
+  make defconfig  &&
 
-  sedit "s/# CONFIG_STATIC is not set/CONFIG_STATIC=y/" .config &&
+  sedit "s/# CONFIG_STATIC is not set/CONFIG_STATIC=y/" .config  &&
 
   make             &&
   prepare_install  &&
