@@ -1,6 +1,6 @@
 (
 
-  OPTS="--includedir=/usr/inclue/libxmi --libdir=/usr/lib/libxmi"
+  OPTS="--includedir=/usr/include/libxmi --libdir=/usr/lib/libxmi" &&
 
   default_build
 
