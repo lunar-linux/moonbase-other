@@ -1,8 +1,5 @@
 (
 
-  # Actually install the tc command
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-
   sedit "s:/usr/lib/:lib/:" Makefile &&
   sedit "s:\$(DESTDIR)\$(CONFDIR):\$(CONFDIR):" Makefile &&
   sedit "s:\$(DESTDIR)\$(ARPDDIR):\$(ARPDDIR):" Makefile &&
