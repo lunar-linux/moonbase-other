@@ -1,14 +1,22 @@
-depends  dialog       
-depends  ed           
-depends  zlib         
-depends  w3c-libwww   
-depends  texinfo      
-depends  teTeX-texmf  
-depends  bison        
+depends  dialog
+depends  ed
+depends  zlib
+depends  w3c-libwww
+depends  texinfo
+depends  texlive-texmf
+depends  bison
+depends  gd
+depends  libpng
+depends  freetype2
+depends  fontconfig
+depends  ghostscript
 
-optional_depends "zlib"           "--with-system-zlib"       "--without-system-zlib"      "for data compression support"
-optional_depends "libpng"         "--with-system-pnglib"     "--without-system-libpng"    "for png support"
 optional_depends "t1lib"          "--with-system-t1lib"      "--without-system-t1lib"     "for t1lib support"
-optional_depends "freetype2"      "--with-system-freetype2 " "--without-system-freetype2" "for freetype font support"
-optional_depends "gd"             "--with-system-gd"         "--without-system-gd"        "for gd graphics support"
-optional_depends "lcdf-typetools" "--enable-lcdf-typetools"  "--disable-lcdf-typetools"   "for postscript support"
+
+# This will look like the wrong way around. It means whether to install texlive's own version of lcdf-typetools, or use the lcdf-typetools module from moonbase.
+optional_depends "lcdf-typetools" "--disable-lcdf-typetools"  "--enable-lcdf-typetools"   "for Postscript support (if n, TeX Live's own version will be installed)"
+
+# Other xindy options in http://repos.archlinux.org/wsvn/packages/texlive-bin/trunk/
+# clisp doesn't even compile:
+#   configure: error: cannot find sources (lispbibl.d) in /usr/bin or ..
+#optional_depends "clisp"          "--enable-xindy"           "--disable-xindy"            "for xindy book-like indexes"
