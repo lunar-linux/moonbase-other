@@ -8,10 +8,10 @@
 
   default_build  &&
 
-  install -d /usr/lib/python$MAJOR_VERSION                &&
+  install -d /usr/lib/python$MAJOR                        &&
   install -m755 $SOURCE_DIRECTORY/Tools/i18n/msgfmt.py     \
                 $SOURCE_DIRECTORY/Tools/i18n/pygettext.py  \
-                /usr/lib/python$MAJOR_VERSION/            &&
+                /usr/lib/python$MAJOR/                    &&
 
   gather_docs Misc/*
 
