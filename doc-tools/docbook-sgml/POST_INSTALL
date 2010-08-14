@@ -9,3 +9,5 @@ for DOCBOOK_INSTALL_DIR in `ls -d /usr/share/sgml/docbook/sgml/*`
 do
 install-catalog --add $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog
 done
+# Do not loopback (breaks docbook-utils build)
+install-catalog -r $CENTRALIZED /etc/sgml/catalog
