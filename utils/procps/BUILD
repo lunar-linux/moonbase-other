@@ -1,6 +1,7 @@
 (
-
-  sedit "s/top.desktop//" Makefile                &&
+  
+  # Fix for make 3.82
+  sedit "s;*/module.mk;proc/module.mk ps/module.mk;" Makefile &&
   sedit "s/\/usr\/bin/\/bin/g" Makefile           &&
   make CFLAGS="$CFLAGS" PKG_CFLAGS="-W"           &&
 
