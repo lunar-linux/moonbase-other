@@ -1,12 +1,11 @@
 (
 
-  # Sets ALSA as default, instead of OSS
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  # Use best-sounding voice by default - rms.
+  # kal sounds horrible - kal16 is obviously better, as a robot sound.
+  sedit 's:flite_voice_list = flite_set_voice_list();:flite_voice_list = flite_set_voice_list();\n    desired_voice = flite_voice_select("rms");:' main/flite_main.c  &&
 
-  sed -i "s/@ \$(MAKE) -C lib --no-print-directory install//" Makefile &&
-
-  # Needed for compilation, with ALSA patch
-  OPTS+=" --with-vox=cmu_us_kal16" &&
+  # Output to ALSA rather than OSS
+  OPTS+=" --with-audio=alsa --enable-shared"  &&
 
   default_build
 
