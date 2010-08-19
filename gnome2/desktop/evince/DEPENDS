@@ -5,22 +5,17 @@ depends  gnome-doc-utils
 optional_depends  "tiff"  \
                   "--enable-tiff"   \
                   "--disable-tiff"  \
-                  "enable support for multipage TIFF files"
+                  "support multi-page TIFF files"
 
 optional_depends  "dbus-glib"  \
                   ""           \
                   "--disable-dbus"  \
                   "for DBus support"
 
-optional_depends  "libgnomeui"  \
-                  ""            \
-                  "--without-libgnome" \
-                  "GNOME integration"
-
 optional_depends "gnome-keyring" \
                  ""              \
                  "--without-keyring" \
-                 "For gnome-keyring plugin"
+                 "for gnome-keyring plugin"
 
 optional_depends  "nautilus"  \
                   "--enable-nautilus"   \
@@ -28,16 +23,16 @@ optional_depends  "nautilus"  \
                   "compile the nautilus plugin"
 
 optional_depends  "libspectre"    \
-                  ""              \
+                  "--enable-ps"   \
                   "--disable-ps"  \
-                  "Compile with PostScript support"
+                  "compile with PostScript support"
 
-optional_depends  "libgnomeprintui"     \
-                  "--with-print=gnome"  \
-                  "--with-print=gtk"    \
-                  "for the GNOME printer UI instead of the GTK UI"
-
-optional_depends  "teTeX"           \
+optional_depends  "texlive"         \
                   "--enable-dvi"    \
                   "--disable-dvi"   \
-                  "for DVI Backend support"
+                  "for DVI back-end support"
+
+optional_depends  "t1lib"           \
+                  "--enable-t1lib"  \
+                  ""                \
+                  "for Type 1 fonts in DVI"
