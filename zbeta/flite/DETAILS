@@ -1,23 +1,18 @@
           MODULE=flite
-         VERSION=1.3-release
-          SOURCE=$MODULE-$VERSION.tar.gz
-         # Patch from http://sources.gentoo.org/viewcvs.py/gentoo-x86/app-accessibility/flite/files/
-         SOURCE2=flite-1.3-alsa-support.patch.bz2
-      SOURCE_URL=http://speech.cs.cmu.edu/flite/packed/flite-1.3
-     SOURCE2_URL=$PATCH_URL
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:233144a772de72741ae1aa2292f672c30224afb3
-     SOURCE2_VFY=sha1:ca5cf9e9249bbc93f83063336cfe074e774a703a
-        WEB_SITE="http://cmuflite.org/"
+         VERSION=1.4-release
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://www.speech.cs.cmu.edu/flite/packed/flite-1.4
+      SOURCE_VFY=sha1:5370eebe917ba2b57dfdbaf15013b99bbe748631
+        WEB_SITE=http://cmuflite.org/
          ENTERED=20071111
-         UPDATED=20090809
-           SHORT="small, fast run-time synthesis engine"
+         UPDATED=20100816
+           SHORT="A small, fast speech-synthesis engine (text-to-speech)"
            PSAFE=no
 
 cat << EOF
-Flite (festival-lite) is a small, fast run-time synthesis engine
-developed at CMU and primarily designed for small embedded machines
+Flite (festival-lite) is a small, fast run-time speech-synthesis engine
+developed at CMU and primarily designed for small, embedded machines
 and/or large servers. Flite is designed as an alternative synthesis
 engine to Festival for voices built using the FestVox suite of
-voice building tools.
+voice-building tools.
 EOF
