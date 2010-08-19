@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-comics --enable-dvi --enable-impress --enable-pixbuf"
+  OPTS+=" --enable-comics --enable-impress --enable-pixbuf"  &&
 
   default_build
 
