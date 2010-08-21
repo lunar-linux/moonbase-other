@@ -1,5 +1,6 @@
 (
 
+  sedit "/^@GT_YES@/d;/^$GT_NO@/d" intl/Makefile.in &&
   ./configure  --prefix=/usr                    \
                --bindir=/usr/bin                \
                --sbindir=/sbin                  \
