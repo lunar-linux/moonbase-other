@@ -1,6 +1,13 @@
 (
+
+# Its config.sub is to ancient for current detection. Use the system.
+  cp /usr/share/automake/config.sub $SOURCE_DIRECTORY &&
+
   patch_it $SOURCE2 1 &&
   sedit "s:usr/man:usr/share/man:g" Makefile.in &&
+
+  sed -i "26i #undef TIOCGHAYESESP" setserial.c &&
+
   default_build  &&
 
   install -m 700 rc.serial /etc/init.d/serial.sh     &&
