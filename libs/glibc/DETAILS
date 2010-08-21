@@ -3,19 +3,22 @@
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=$MODULE-2.11-no_timezones.patch.bz2
          SOURCE3=$MODULE-2.11.1-__i686.patch.bz2
+         SOURCE4=$MODULE-2.11.2-makefile_fix-1.patch
    SOURCE_URL[0]=$GNU_URL/$MODULE
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE
    SOURCE_URL[2]=http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/glibc
      SOURCE2_URL=$PATCH_URL
      SOURCE3_URL=$PATCH_URL
+     SOURCE4_URL=$PATCH_URL
       SOURCE_VFY=sha1:23b477f4816a97e007be1e98abc1ffe2af13ba9e
      SOURCE2_VFY=sha1:fc5bf75815daeeef52f7558f27992e02c2cdc87d
      SOURCE3_VFY=sha1:e3f36e2bb17e51e31035f2cd405d099c624d0e9e
+     SOURCE4_VFY=sha1:13c31ed2b2a24940ed181b44d8cbc6338d72316d
         WEB_SITE=http://www.gnu.org/software/libc
          ENTERED=20010922
          UPDATED=20100520
            SHORT="C library for use with GNU/Hurd and GNU/Linux"
-           PSAFE=no
+PSAFE=no
 
 cat << EOF
 glibc - Library for use with GNU/Hurd and GNU/Linux.
