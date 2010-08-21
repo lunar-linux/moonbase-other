@@ -1,0 +1,51 @@
+OLD_VER=`get_module_config OLD_VER`
+CENTRALIZED=/etc/sgml/catalog 
+CATALOGDIR=/usr/share/sgml/docbook/$MODULE-$VERSION
+CATALOGDIR_OLD="/usr/share/sgml/$MODULE-$OLD_VER"
+XML_PREFIX=/etc/xml
+DOCBOOK_XML_VER=`installed_version docbook-xml`
+
+echo "Adding catalog for $MODULE-$VERSION to $CENTRALIZED"
+
+# Now we are handling the update
+if [ ! -z $OLD_VER ]; then
+  install-catalog --remove $CENTRALIZED $CATALOGDIR_OLD/catalog
+fi
+
+install-catalog --remove $CENTRALIZED $CATALOGDIR/catalog
+
+install-catalog --add $CENTRALIZED $CATALOGDIR/catalog
+install-catalog --remove $CENTRALIZED /etc/sgml/catalog
+
+echo "Adding xml catalogs for $MODULE-$VERSION to $XML_PREFIX/catalog"
+/usr/bin/$SOURCE2 --prefix=$XML_PREFIX --version=$DOCBOOK_XML_VER
+
+(
+
+xmlcatalog --noout --add "public" \
+    "-//OASIS//DTD DocBook XML V4.1.2//EN" \
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" \
+    /etc/xml/docbook &&
+xmlcatalog --noout --add "delegateSystem" \
+    "http://www.oasis-open.org/docbook/xml/4.1.2/" \
+    "file:///etc/xml/docbook" /etc/xml/catalog &&
+xmlcatalog --noout --add "delegateURI" \
+    "http://www.oasis-open.org/docbook/xml/4.1.2/" \
+    "file:///etc/xml/docbook" /etc/xml/catalog &&
+xmlcatalog --noout --add "rewriteSystem" \
+    "http://www.oasis-open.org/docbook/xml/4.1.2" \
+    "file://$CATALOGDIR" \
+    /etc/xml/docbook &&
+xmlcatalog --noout --add "rewriteURI" \
+    "http://www.oasis-open.org/docbook/xml/4.1.2" \
+    "file://$CATALOGDIR" \
+    /etc/xml/docbook &&
+xmlcatalog --noout --add "rewriteURI" \
+    "http://www.oasis-open.org/docbook/xml/4.2" \
+    "file://$CATALOGDIR" \
+    /etc/xml/docbook
+)
+
+if module_installed scrollkeeper; then lin -c scrollkeeper; fi
+
+unset_module_config OLD_VER
