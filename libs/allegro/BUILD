@@ -1,12 +1,14 @@
 (
 
-  sedit "s/-O2/$CFLAGS/" configure  &&
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build" &&
 
-  # Fixes compilation error:
-  # ./src/i386/icpus.s:70: Error: suffix or operands invalid for `fnstsw'
-  # Info at http://www.allegro.cc/forums/thread/597882
-  OPTS+=" --disable-asm"  &&
+  mkdir $OOTB_DIR &&
+  cd $OOTB_DIR &&
 
-  default_build
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
+                           -DCMAKE_BUILD_TYPE=RELEASE            \
+                           $OPTS                                 &&
+
+  default_make
 
 ) > $C_FIFO 2>&1
