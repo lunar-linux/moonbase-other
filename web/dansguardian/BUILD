@@ -10,7 +10,7 @@
           --with-logdir=/var/log/dansguardian \
           --with-piddir=/var/run" &&
 
-  if is_depends clamav; then
+  if in_depends $MODULE clamav; then
     DGUSER="clamav:clamav"
     OPTS+=" --with-proxyuser=clamav --with-proxygroup=clamav"
   else
@@ -21,7 +21,7 @@
   default_build &&
 
   # Be kind and enable clamav in config
-  if is_depends clamav; then
+  if in_depends $MODULE clamav; then
     sedit "/^#contentscanner.*clamdscan\.conf.*/ s;^#;;" /etc/dansguardian/dansguardian.conf &&
     sedit "s;^#clamdudsfile.*;clamdudsfile = '/tmp/clamd';" /etc/dansguardian/contentscanners/clamdscan.conf
   fi &&
