@@ -5,13 +5,13 @@
   fi &&
 
   audio="oss"
-  if is_depends flac; then
+  if in_depends $MODULE flac; then
     audio="${audio},flac"
   fi &&
-  if is_depends alsa-lib; then
+  if in_depends $MODULE alsa-lib; then
     audio="${audio},alsa"
   fi &&
-  if is_depends libvorbis; then
+  if in_depends $MODULE libvorbis; then
     audio="${audio},vorbis"
   fi &&
 

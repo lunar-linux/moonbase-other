@@ -11,11 +11,11 @@
 
   # ProFTPD only support one backend at a time
   # We default to MySQL if both are enabled
-  if is_depends mysql ; then
+  if in_depends $MODULE mysql; then
     MODS="$MODS:mod_sql:mod_sql_mysql"
     OPTS="$OPTS --with-includes=/usr/include/mysql"
   else
-    if is_depends postgresql ; then
+    if in_depends $MODULE postgresql; then
       MODS="$MODS:mod_sql:mod_sql_postgres"
       OPTS="$OPTS --with-includes=/usr/include/postgresql"
     fi

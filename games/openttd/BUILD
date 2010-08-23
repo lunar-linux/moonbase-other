@@ -1,9 +1,9 @@
 (
-  if is_depends libpng; then
+  if in_depends $MODULE libpng; then
     OPTS+=" --with-png"
   fi
 
-  if is_depends timidity++; then
+  if in_depends $MODULE timidity++; then
     OPTS+=" --with-midi=/usr/bin/timidity"
   fi
 
