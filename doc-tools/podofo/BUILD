@@ -1,10 +1,10 @@
 (
 
-  . /etc/profile.d/qt4.rc
+  . /etc/profile.d/qt4.rc &&
 
-  LDFLAGS="-ldl"
+  LDFLAGS="-ldl" &&
 
-  PODOFO_BUILD_DIR="$SOURCE_DIRECTORY/podofo-build"
+  PODOFO_BUILD_DIR="$SOURCE_DIRECTORY/podofo-build" &&
 
   mkdir $PODOFO_BUILD_DIR &&
   cd $PODOFO_BUILD_DIR &&

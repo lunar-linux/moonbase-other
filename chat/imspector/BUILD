@@ -9,15 +9,15 @@
   sedit 's/^#user=/user=/' imspector.conf &&
   sedit 's/^#group=/group=/' imspector.conf &&
 
-  if is_depends mysql; then
+  if in_depends $MODULE mysql; then
     ADD_PLUGINS+=" mysqlloggingplugin.so"
   fi &&
 
-  if is_depends sqlite; then
+  if in_depends $MODULE sqlite; then
     ADD_PLUGINS+=" sqliteloggingplugin.so"
   fi &&
 
-  if is_depends postgresql; then
+  if in_depends $MODULE postgresql; then
     ADD_PLUGINS+=" postgresqlloggingplugin.so"
   fi &&
 
