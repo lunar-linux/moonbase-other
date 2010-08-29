@@ -1,6 +1,6 @@
 (
 
-  sedit "s:PREFIX)/bin:PREFIX)/sbin:" Makefile &&
+  sedit "s:PREFIX)/bin:PREFIX)/sbin:" Makefile  &&
 
   default_make
 
