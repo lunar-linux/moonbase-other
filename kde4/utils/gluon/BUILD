@@ -1,6 +1,7 @@
 (
 
   OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build" &&
+
   mkdir $OOTB_DIR &&
   cd $OOTB_DIR &&
 
