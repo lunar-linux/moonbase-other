@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   mkdir BUILD  &&
   cd BUILD     &&
 
@@ -26,7 +28,7 @@
                $OPTS                                 &&
 
   make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean  &&
-  prepare_install  && 
+  prepare_install  &&
   make install
 
 ) > $C_FIFO 2>&1
