@@ -1,8 +1,10 @@
 (
 
-  CFLAGS="$CFLAGS -I/usr/include/polylib" &&
+  CFLAGS="$CFLAGS -I/usr/include/polylib"  &&
 
-  OPTS="--with-ppl" &&
+  OPTS="--with-ppl"  &&
+
+  sedit "s:ppl_minor_version=10:ppl_minor_version=11:"  configure  &&
 
   default_build
 
