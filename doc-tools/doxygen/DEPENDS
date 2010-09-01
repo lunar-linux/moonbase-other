@@ -1,7 +1,11 @@
 depends  sed
 depends  ghostscript
-depends  teTeX
-depends  qt4
+depends  %TEX
+
+optional_depends  "qt4"                \
+                  "--with-doxywizard"  \
+                  ""                   \
+                  "Qt 4.x GUI support"
 
 optional_depends "Python"   ""  "" "Build the doc files"
 optional_depends "graphviz" ""  "" "Dot support"
