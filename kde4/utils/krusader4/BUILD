@@ -2,7 +2,7 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
-  KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build"
+  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"
 
   source /etc/profile.d/qt4.rc  &&
   source /etc/profile.d/kde4.rc &&
