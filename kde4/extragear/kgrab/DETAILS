@@ -1,17 +1,17 @@
           MODULE=kgrab
-           MAJOR=4.3
-         VERSION=${MAJOR}.3
-         SUB_VER=0.1.1
-          SOURCE=$MODULE-$SUB_VER-kde$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$SUB_VER-kde$VERSION
-      SOURCE_URL=$KDE_URL/stable/$VERSION/src/extragear
-      SOURCE_VFY=sha1:d234e5a42d194409e05fab39ed89cb29313eb2ec
-        WEB_SITE=http://www.kde.org
-   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
+           MAJOR=74086
+         VERSION=0.1.1
+          SOURCE=$MAJOR-$MODULE-$VERSION.tar.bz2 
+      SOURCE_URL=http://kde-apps.org/CONTENT/content-files/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_VFY=sha1:8feb340c73cc65fd0defb53a7c360007d66e2dfc
+        WEB_SITE=http://kde-apps.org/content/show.php?content=74086
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/usr}
          ENTERED=20080402
-         UPDATED=20091105
+         UPDATED=20100828
            SHORT="KDE Screen Grabbing Utility"
 
 cat << EOF
-KDE Screen Grabbing Utility.
+KDE Screen Grabbing Utility. This is a fork of ksnapshot and has more functions
+such as Printing and a standard Menu.
 EOF
