@@ -1,15 +1,44 @@
           MODULE=kdeadmin4
-           MAJOR=4.4
-         VERSION=${MAJOR}.5
+           MAJOR=4.5
+         VERSION=${MAJOR}.1
           SOURCE=kdeadmin-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdeadmin-$VERSION
       SOURCE_URL=$KDE_URL/stable/$VERSION/src
-      SOURCE_VFY=sha1:b9d80b5db7dbcd00503688a02facce81f2fc0442
-   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/opt/lunar/kde/4}
+      SOURCE_VFY=sha1:bf4e1239f03d01ddc7c8f7a2dec4ab7fcf00abbf
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/usr}
         WEB_SITE=http://www.kde.org
          ENTERED=20071026
-         UPDATED=20100630
-           SHORT=""
+         UPDATED=20100903
+           SHORT="kde system administrator"
 
 cat << EOF
+The kdeadmin package contains packages that usually only a system
+administrator might need:
+
+* doc
+    XML based documentation for the programs
+
+* kcron
+    Editor for the cron command scheduler.
+
+* kdat
+    Tape backup tool.
+
+* kfile-plugins
+    Make Konquerer display additional info on about *.dep and *.rpm files.
+
+* ksysv
+    An editor for System V startup schemes.
+
+* kuser
+    An user manager.
+
+* lilo-config
+    A plugin for KControl to manage the Linux boot loader LILO.
+
+* secpolicy
+    A program to display PAM security policies.
+
+* ksystemlog
+    A system log viewer tool.
 EOF
