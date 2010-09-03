@@ -1,12 +1,12 @@
 (
 
-  KDE4_BUILD_DIR="$SOURCE_DIRECTORY/kde4-build"
+  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"
 
   source /etc/profile.d/qt4.rc &&
   source /etc/profile.d/kde4.rc &&
 
-  mkdir $KDE4_BUILD_DIR &&
-  cd $KDE4_BUILD_DIR &&
+  mkdir $OOSB_DIR &&
+  cd $OOSB_DIR &&
 
   OPTS="-DR_HOME=/usr/lib/R -DR_LIBDIR=/usr/lib/R/lib"
 

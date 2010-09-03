@@ -1,6 +1,6 @@
 (
 
-  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build" &&
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build" && 
 
   source /etc/profile.d/qt4.rc &&
   source /etc/profile.d/kde4.rc &&
