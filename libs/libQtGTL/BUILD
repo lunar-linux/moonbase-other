@@ -1,9 +1,9 @@
 (
 
-  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build" &&
-
   source /etc/profile.d/qt4.rc  &&
   source /etc/profile.d/kde4.rc &&
+
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build" &&
 
   mkdir $OOTB_DIR &&
   cd $OOTB_DIR &&
