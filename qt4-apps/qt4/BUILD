@@ -21,7 +21,6 @@
                -prefix ${QTDIR}                        \
                -docdir ${QTDIR}/share/$MODULE          \
                -plugindir /opt/lunar/plugins/qt4       \
-               -importdir ${QTDIR}/share/$MODULE       \
                -datadir ${QTDIR}/share/$MODULE         \
                -translationdir ${QTDIR}/share/$MODULE  \
                -sysconfdir /etc/$MODULE/               \
