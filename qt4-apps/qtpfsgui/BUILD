@@ -1,10 +1,10 @@
 (
 
-  . /etc/profile.d/qt4.rc
+  . /etc/profile.d/qt4.rc &&
 
   lrelease project.pro &&
 
-  qmake PREFIX=/usr &&
+  qmake PREFIX=${MODULE_PREFIX} &&
 
   default_make
 

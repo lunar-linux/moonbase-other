@@ -1,6 +1,7 @@
 (
 
   . /etc/profile.d/qt4.rc  &&
+
   $QTDIR/bin/qmake qgit.pro &&
 
   make  &&

@@ -1,6 +1,6 @@
 (
 
-  . /etc/profile.d/qt4.rc
+  . /etc/profile.d/qt4.rc &&
 
 # A qucik gcc-4.4.1 hack. Revisit when this module gets a version bump
   sed -i "33i #include <cstdio>" generator/parser/rpp/pp.h &&

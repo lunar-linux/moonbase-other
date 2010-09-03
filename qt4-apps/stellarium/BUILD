@@ -1,8 +1,8 @@
 (
 
-  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
-
   source /etc/profile.d/qt4.rc   &&
+
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
   mkdir $OOTB_DIR  &&
   cd $OOTB_DIR     &&
@@ -11,7 +11,7 @@
                            -DCMAKE_BUILD_TYPE=RELEASE              \
                            $OPTS                                  &&
 
-  default_make
+  default_make &&
 
   # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
