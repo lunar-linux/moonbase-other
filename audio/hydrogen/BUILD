@@ -2,7 +2,7 @@
 
   . /etc/profile.d/qt4.rc &&
 
-  scons prefix=$MODULE_PREFIX &&
+  scons prefix=$QTDIR &&
   prepare_install &&
   scons install
 

@@ -1,7 +1,7 @@
 (
 
-  . /etc/profile.d/qt4.rc
-  . /etc/profile.d/kde4.rc
+  . /etc/profile.d/qt4.rc  &&
+  . /etc/profile.d/kde4.rc &&
 
 # These two lines gets around a make failure relating to some translation
 # character issues. This is temporary and needs to be looked at on the next
