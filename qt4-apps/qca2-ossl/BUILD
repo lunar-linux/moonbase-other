@@ -6,10 +6,12 @@
   # Remove this patch on next update.
   patch_it $SOURCE2 3 &&
 
-  . /etc/profile.d/qt4.rc
+  . /etc/profile.d/qt4.rc &&
+
   sedit "s/^WHICH=.*/WHICH=which/" configure &&
 
   ./configure &&
+
   default_make
 
 ) > $C_FIFO 2>&1

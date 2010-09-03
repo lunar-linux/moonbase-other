@@ -10,6 +10,8 @@
 
   qmake $SOURCE_DIRECTORY/qtcreator.pro &&
 
+  sedit "s:qdoc3 -creator:qdoc3:" Makefile &&
+
   make            &&
   prepare_install &&
 

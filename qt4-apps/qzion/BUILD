@@ -1,8 +1,15 @@
 (
 
-  . /etc/profile.d/qt4.rc           &&
+  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
-  qmake -unix PREFIX=$MODULE_PREFIX &&
+  mkdir $OOTB_DIR  &&
+  cd $OOTB_DIR     &&
+
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX   \
+                           -DCMAKE_BUILD_TYPE=RELEASE              \
+                           $OPTS                                  &&
+
+  cp src/qzion.pc . &&
 
   default_make
 
