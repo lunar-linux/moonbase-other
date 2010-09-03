@@ -1,17 +1,11 @@
 (
 
-  export QTDIR=$SOURCE_DIRECTORY
+  export QTDIR=${MODULE_PREFIX}
   export PATH=$QTDIR/bin:$PATH
   export LD_LIBRARY_PATH=$QTDIR/lib
 
   sedit "s:COMMERCIAL_USER=ask:COMMERCIAL_USER=no:" configure &&
   sedit "s/-O2/$CFLAGS/" mkspecs/common/g++.conf &&
-
-  if module_installed phonon ; then
-    OPTS+=" -phonon -phonon-backend"
-   else
-    OPTS+=" -no-phonon -phonon-backend"
-  fi &&
 
   if [ "$MAKE_DOCS" == "y" ]; then
     OPTS+=" -make tools -make docs -make translations"
@@ -21,17 +15,30 @@
     OPTS+=" -make examples -make demos -make tools -make docs -make translations"
   fi &&
 
-  OPTS+=" -release -fast -no-separate-debug-info -script -scripttools -accessibility -pch -glib" &&
+  OPTS="-largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -no-phonon -xmlpatterns -fast -shared" &&
 
-  echo "yes" | ./configure               \
-               -prefix ${MODULE_PREFIX}  \
-               $OPTS                    &&
+  echo "yes" | ./configure                             \
+               -prefix ${QTDIR}                        \
+               -docdir ${QTDIR}/share/$MODULE          \
+               -plugindir /opt/lunar/plugins/qt4       \
+               -importdir ${QTDIR}/share/$MODULE       \
+               -datadir ${QTDIR}/share/$MODULE         \
+               -translationdir ${QTDIR}/share/$MODULE  \
+               -sysconfdir /etc/$MODULE/               \
+               -examplesdir ${QTDIR}/share/$MODULE     \
+               -demosdir ${QTDIR}/share/$MODULE        \
+               $OPTS                                  &&
 
   default_make  &&
 
+# It wants to point moc_location and uic_location to ${prefix}/src/qt-everywhere-opensource-src-4.7.0-beta2/bin
+# and after much fiddling cannot get it to point them to /usr/bin. So lets jsut sedit these rascals.
+  for i in `ls /usr/lib/pkgconfig/Q*.pc` ; do sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:" $i ; done &&
+
   if [ "$MAKE_QDOC3" == "y" ]; then
      cd tools/qdoc3 &&
-     qmake -unix -o Makefile qdoc3.pro &&
+     qmake -o Makefile qdoc3.pro &&
+
      make    &&
      install -m 755 ../../bin/qdoc3 $MODULE_PREFIX/bin/ &&
      cd $SOURCE_DIRECTORY
