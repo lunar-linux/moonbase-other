@@ -11,7 +11,10 @@
                            -DCMAKE_BUILD_TYPE=RELEASE             \
                            $OPTS                                 &&
 
-  default_make
+  default_make &&
+
+  sedit "s:Icon=:Icon=/usr/share/qgis/images/icons/:" $SOURCE_DIRECTORY/debian/qgis.desktop &&
+  install $SOURCE_DIRECTORY/debian/qgis.desktop /usr/share/applications/ 
 
 ) > $C_FIFO 2>&1
 
