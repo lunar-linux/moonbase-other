@@ -1,16 +1,17 @@
           MODULE=chromium
-         VERSION=4.0.249.43
-          SOURCE=${MODULE}-${VERSION}.tar.bz2
-         SOURCE2=${MODULE}-drop_sse2.patch
-      SOURCE_URL=http://download.lunar-linux.org/lunar/mirrors
+         VERSION=6.0.472.53
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-gyp-make.patch.bz2
+      SOURCE_URL=http://build.chromium.org/buildbot/official
      SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:d98cb7787433446946601ed4ff4577d0b1e5f46b
-     SOURCE2_VFY=sha1:1aa9701b329d970db00726ba883d7dd5448ba372
+      SOURCE_VFY=sha1:4fcd20f7f5b81bdb300a90bd4cd7bdbfe5e53af0
+     SOURCE2_VFY=sha1:d4b74dd254ecfcde86425d229cd65e1298194be5
         WEB_SITE=http://www.chromium.org/Home
          ENTERED=20100104
-         UPDATED=20100104
+         UPDATED=20100903
            PSAFE=no
            SHORT="Open-source version of Google Chrome web browser"
+
 cat << EOF
 Chromium is an open-source browser project that aims to build a safer, faster,
 and more stable way for all users to experience the web.

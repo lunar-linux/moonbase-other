@@ -1,18 +1,18 @@
 (
 
-  sedit "s/'-Werror'/''/" build/common.gypi &&
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  sedit "s/'-Werror'/''/" build/common.gypi  &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 # sedit '/mozzconf.h/d' third_party/WebKit/WebCore/platform/image-decoders/zlib/zconf.h &&
 
   export CHROMIUM_HOME=/usr/lib/$MODULE
 
-  mkdir -p "${SOURCE_DIRECTORY}"/.gyp &&
+  mkdir -p "${SOURCE_DIRECTORY}"/.gyp  &&
   cat << EOF > "${SOURCE_DIRECTORY}"/.gyp/include.gypi
 {
-	'target_defaults': {
-		'cflags': [ '${CFLAGS// /','}' ],
-		'ldflags': [ '${LDFLAGS// /','}' ],
-	},
+        'target_defaults': {
+                 'cflags': [ '${CFLAGS// /','}' ],
+                'ldflags': [ '${LDFLAGS// /','}' ],
+        },
 }
 EOF
 
@@ -25,7 +25,7 @@ EOF
     OPTS="$OPTS -Dtarget_arch=x64"
   else
     OPTS="$OPTS -Dtarget_arch=ia32"
-  fi  
+  fi
 
   gcc_ver=`installed_version gcc | cut -d. -f1,2`
   if [[ $gcc_ver == "4.4" ]]; then
@@ -47,6 +47,7 @@ EOF
   cp -a out/Release/xdg-settings ${CHROMIUM_HOME} &&
   install -m 755 $SCRIPT_DIRECTORY/chromium-launcher.sh ${CHROMIUM_HOME} &&
   cp -a out/Release/chrome.pak ${CHROMIUM_HOME} &&
+  cp -a out/Release/resources.pak ${CHROMIUM_HOME} &&
   cp -a out/Release/locales ${CHROMIUM_HOME} &&
   cp -a out/Release/resources ${CHROMIUM_HOME} &&
   install -m 644 out/Release/chrome.1 /usr/share/man/man1/ &&
@@ -54,7 +55,7 @@ EOF
   if module_installed ffmpeg; then
     ln -sf /usr/lib/libavcodec.so.52 ${CHROMIUM_HOME}/libavcodec.so.52
     ln -sf /usr/lib/libavformat.so.52 ${CHROMIUM_HOME}/libavformat.so.52
-    ln -sf /usr/lib/libavutil.so.49 ${CHROMIUM_HOME}/libavutil.so.49
+    ln -sf /usr/lib/libavutil.so.50 ${CHROMIUM_HOME}/libavutil.so.50
   fi &&
 
   # symlink to lunar location for browser plugins, should be /opt/lunar/plugins
