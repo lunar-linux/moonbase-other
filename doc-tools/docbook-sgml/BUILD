@@ -11,6 +11,7 @@
 
   prepare_install &&
   rm -rf old.libraries &&
-  cp -a $BUILD_DIRECTORY/sgml /usr/share/sgml/docbook
+  mkdir -p /usr/share/sgml/docbook &&
+  cp -af $BUILD_DIRECTORY/sgml /usr/share/sgml/docbook
 
 ) > $C_FIFO 2>&1
