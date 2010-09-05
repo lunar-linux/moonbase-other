@@ -11,4 +11,6 @@ install-catalog --add $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog
 done
 # Do not loopback (breaks docbook-utils build)
 install-catalog -r $CENTRALIZED /etc/sgml/catalog
-lin -rc docbook-utils
+if module_installed docbook-utils; then
+  lin -rc docbook-utils
+fi
