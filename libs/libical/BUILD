@@ -1,14 +1,7 @@
 (
 
-# This is just easier than monkeying around with their
-# config.sub to add the needed machine types, etc.
+  ./bootstrap &&
 
-  cp /usr/share/automake/config.sub $SOURCE_DIRECTORY
-
-  default_config &&
-
-  sedit "s:CFLAGS =  -O2:CFLAGS = -fPIC $CFLAGS:" src/{python,libical,libicalss}/Makefile
-
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1
