@@ -1,6 +1,6 @@
 (
 
-   bad_flags -malign-double
+   bad_flags -malign-double -s
 
    patch_it $SOURCE2 0  &&
    patch_it $SOURCE3 0  &&
