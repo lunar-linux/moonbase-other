@@ -2,8 +2,9 @@ unalias  make
 
 (
 
+# Adding enable-tirpc since there is no disbale counterpart in the configure.
   ( source /var/lib/lunar/unset.sh && ./configure  --prefix=/usr  --mandir=/usr/share/man \
-    --disable-nfsv4 --disable-gss ) &&
+    --disable-nfsv4 --disable-gss --enable-tirpc) &&
 
   ( source /var/lib/lunar/unset.sh && make )   &&
   prepare_install             &&
