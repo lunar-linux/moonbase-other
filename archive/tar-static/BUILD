@@ -1,5 +1,7 @@
 (
 
+  bad_flags -malign-double -s
+
   export CFLAGS="$CFLAGS -static"    &&
   export LDFLAGS="$LDFLAGS -static"  &&
 
