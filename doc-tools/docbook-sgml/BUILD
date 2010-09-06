@@ -1,8 +1,5 @@
 (
 
-  find $BUILD_DIRECTORY/sgml -type d -exec chmod 755 {} \;
-  find $BUILD_DIRECTORY/sgml -type f -exec chmod 644 {} \;
-
   for DOCBOOK in `ls`; do
       cd $DOCBOOK
       ln -sf docbook.cat catalog
@@ -12,6 +9,6 @@
   prepare_install &&
   rm -rf old.libraries &&
   mkdir -p /usr/share/sgml/docbook &&
-  cp -af $BUILD_DIRECTORY/sgml /usr/share/sgml/docbook
+  cp -rf $BUILD_DIRECTORY/sgml /usr/share/sgml/docbook
 
 ) > $C_FIFO 2>&1

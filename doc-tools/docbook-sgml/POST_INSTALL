@@ -5,12 +5,18 @@ if ! [ -e "$CENTRALIZED" ]; then
      touch $CENTRALIZED
 fi
 
-for DOCBOOK_INSTALL_DIR in `ls -d /usr/share/sgml/docbook/sgml/*`
+DOCBOOK_INSTALL_DIR=/usr/share/sgml/docbook/sgml
+for DOCBOOK in `ls -d $DOCBOOK_INSTALL_DIR/*`
 do
-install-catalog --add $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog
+install-catalog --add $CENTRALIZED $DOCBOOK/catalog
 done
 # Do not loopback (breaks docbook-utils build)
 install-catalog -r $CENTRALIZED /etc/sgml/catalog
+
+find $DOCBOOK_INSTALL_DIR -type d -exec chmod 755 {} \;
+find $DOCBOOK_INSTALL_DIR -type f -exec chmod 644 {} \;
+chown -R root:root $DOCBOOK_INSTALL_DIR
+
 if module_installed docbook-utils; then
   lin -rc docbook-utils
 fi
