@@ -1,10 +1,7 @@
 mk_source_dir $SOURCE_DIRECTORY &&
 cd $SOURCE_DIRECTORY &&
-mkdir 4.1.2 &&
-mkdir 4.2 &&
-mkdir 4.3 &&
-mkdir 4.4 &&
-mkdir 4.5 &&
+for dir in '4.1.2 4.2 4.3 4.4 4.5'
+do mkdir $dir; done &&
 unzip $SOURCE_CACHE/$SOURCE4 -d $SOURCE_DIRECTORY/4.1.2 &&
 unzip $SOURCE_CACHE/$SOURCE5 -d $SOURCE_DIRECTORY/4.2 &&
 unzip $SOURCE_CACHE/$SOURCE1 -d $SOURCE_DIRECTORY/4.3 &&
