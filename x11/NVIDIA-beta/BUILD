@@ -6,14 +6,14 @@
   rm -f .manifest libvdpau.so* libvdpau_trace.so* \
   vdpau*.h pkg-history.txt nvidia-installer{,.*} \
   mkprecompiled nvidia-xconfig{,.*} nvidia-settings{,.*} \
-  libnvidia-wfb* tls_test* &&
+  libnvidia-wfb* tls_test* libGL.la &&
 
   # Temporary paths and symlinks to make sources compilable
   LD_LIBRARY_PATH="$SOURCE_DIRECTORY:$LD_LIBRARY_PATH" &&
   CFLAGS=" -I$SOURCE_DIRECTORY -L$SOURCE_DIRECTORY $CFLAGS " &&
-  ln -s libGL.so.$VERSION libGL.so &&
-  ln -s libnvidia-glcore.so.$VERSION libGLcore.so.1 &&
-  ln -s libnvidia-tls.so.$VERSION libnvidia-tls.so.1 &&
+  ln -s libGL.so.$VERSION nvidia-installer-$VERSION/libGL.so &&
+  ln -s libnvidia-glcore.so.$VERSION nvidia-installer-$VERSION/libGLcore.so.1 &&
+  ln -s libnvidia-tls.so.$VERSION nvidia-installer-$VERSION/libnvidia-tls.so.1 &&
   mkdir GL &&
   cp gl*.h GL &&
 
@@ -21,21 +21,18 @@
  
   # Builds nvidia-installer from source
   cd nvidia-installer-$VERSION &&
-#  rm -f *Linux* &&
+  rm -f *Linux* &&
 
   if [[ $(arch) == x86_64 ]] ; then
     # Don't compile 32-bits on pure 64-bit Lunar
     sedit 's/COMPAT_32_SRC *= */\0#/' Makefile &&
-    sedit 's/COMPAT_32_SRC *= */\0#/' public.mk &&
-    sedit 's/-DNV_X86_64//' Makefile &&
-    sedit 's/-DNV_X86_64//' public.mk
+    sedit 's/-DNV_X86_64//' Makefile
   fi &&
 
-  sedit 's@-lGL@-I.. -L.. -lGL @' Makefile &&
   make clean &&
   make rebuild_tls_test &&
   make rebuild_tls_test_dso &&
-#  make rebuild_rtld_test &&
+  make rebuild_rtld_test &&
   make &&
   if [[ $(arch) == x86_64 ]] ; then
   install -m 755 _out/Linux_x86_64/nvidia-installer ..
@@ -85,8 +82,6 @@
   install -m 644 _out/Linux_x86/nvidia-xconfig.1.gz ..
   fi &&
   cd .. &&
-  sedit "s/__GENERATED_BY__/nvidia-installer\:\ $VERSION/" libGL.la &&
-  sedit 's/__LIBGL_PATH__/\/usr\/lib/' libGL.la &&
   sedit 's/__UTILS_PATH__/\/usr\/bin/' nvidia-settings.desktop &&
   sedit 's/__PIXMAP_PATH__/\/usr\/share\/doc\/NVIDIA_GLX-1.0/' nvidia-settings.desktop &&
   sedit 's/__NVIDIA_SETTINGS_DESKTOP_CATEGORIES__/Settings;DesktopSettings;/' nvidia-settings.desktop &&
@@ -136,7 +131,6 @@
   ln -sf /usr/lib/libcuda.so.$VERSION /usr/lib/libcuda.so.1 &&
   ln -sf /usr/lib/libcuda.so.1 /usr/lib/libcuda.so &&
 
-  install -m0644 libGL.la /usr/lib &&
   install -m0755 libGL.so.$VERSION /usr/lib &&
 
   install -m0755 libOpenCL.so.1.0.0 /usr/lib &&
@@ -166,4 +160,3 @@
   install -m644 XvMCConfig /etc/X11
 
 ) > $C_FIFO 2>&1
-
