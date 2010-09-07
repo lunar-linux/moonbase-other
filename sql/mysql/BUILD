@@ -1,4 +1,5 @@
 (
+
   MYSQL_PLUGINS="heap federated partition archive blackhole"
   PLUG="innobase,ndbcluster"
   for mp in $MYSQL_PLUGINS; do
@@ -27,7 +28,6 @@
   ./configure  --prefix=/usr \
                --disable-dependency-tracking \
                --without-debug \
-               --without-readline \
                --without-libedit \
                --enable-thread-safe-client \
                --enable-assembler \
