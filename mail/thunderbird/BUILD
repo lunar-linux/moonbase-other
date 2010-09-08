@@ -83,14 +83,14 @@
            $MOZILLA_HOME/chrome/icons/default/$icon`
   done
 
-    # Now the .desktop file and the icon
-    mkdir -p /usr/share/applications /usr/share/pixmaps &&
-    install -m644 $SCRIPT_DIRECTORY/thunderbird.desktop /usr/share/applications &&
-    # please, dont just let the lin fail because /usr/share/pixmaps/thunderbird.xpm is an existing symlink...
-    rm -f /usr/share/pixmaps/thunderbird.xpm &&
-    cp $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/content/icon64.png $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/mailicon64.png &&
-    cp -f $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/content/icon48.png $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/mailicon48.png &&
-    install -m644 $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/mailicon*.png /usr/share/pixmaps
+  # Now the .desktop file and the icon
+  mkdir -p /usr/share/applications /usr/share/pixmaps &&
+  install -m644 $SCRIPT_DIRECTORY/thunderbird.desktop /usr/share/applications &&
+  # please, dont just let the lin fail because /usr/share/pixmaps/thunderbird.xpm is an existing symlink...
+  rm -f /usr/share/pixmaps/thunderbird.xpm &&
+  cp $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/content/icon64.png $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/mailicon64.png &&
+  cp -f $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/content/icon48.png $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/mailicon48.png &&
+  install -m644 $SOURCE_DIRECTORY/$COMM_VER/other-licenses/branding/thunderbird/mailicon*.png /usr/share/pixmaps
 
 ) > $C_FIFO 2>&1
 
