@@ -12,7 +12,7 @@ updmap-sys --quiet --nohash
 fmtutil-sys --all > /dev/null 2>&1
 
 # From http://www.linuxforums.org/forum/linux-applications/75163-latex-error-i-cant-find-format-file-latex-fmt.html
-initex latex.ltx > /dev/null && install -m644 latex.fmt /usr/share/texmf/web2c/
+# initex latex.ltx > /dev/null && install -m644 latex.fmt /usr/share/texmf/web2c/
 
-texhash > /dev/null 2>&1
+texhash  > /dev/null 2>&1
 mktexlsr > /dev/null 2>&1
