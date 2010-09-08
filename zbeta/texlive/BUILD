@@ -1,5 +1,9 @@
 (
 
+  # Patches from http://scmweb.sourcemage.org/?p=smgl/grimoire.git;a=tree;f=latex/texlive
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE3 0  &&
+
   # Hide warnings about unable to find its own config files
   export KPATHSEA_WARNING=0  &&
 
@@ -26,6 +30,6 @@
   ln -sfn mf /usr/bin/mf-nowin  &&
 
   # Idea from http://repos.archlinux.org/wsvn/packages/texlive-bin/trunk/
-  install -m644 $SOURCE_CACHE/$SOURCE2 /etc/fonts/conf.d/09-texlive-fonts.conf
+  install -m644 $SOURCE_CACHE/$SOURCE4 /etc/fonts/conf.d/09-texlive-fonts.conf
 
 ) > $C_FIFO 2>&1
