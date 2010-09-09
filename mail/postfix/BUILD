@@ -10,6 +10,9 @@
   mkdir  -m1777 -p  /var/spool/mail  &&
   chown  mail:mail  /var/spool/mail  &&
 
+  AUXLIBS="$LDFLAGS" &&
+  CCARGS="$CFLAGS" &&
+
   if in_depends $MODULE openldap ; then
     AUXLIBS="-lldap -llber"
     CCARGS="-DHAS_LDAP"
