@@ -1,8 +1,8 @@
 (
 
-  export QTDIR=${MODULE_PREFIX}
-  export PATH=$QTDIR/bin:$PATH
-  export LD_LIBRARY_PATH=$QTDIR/lib
+  export QTDIR=$SOURCE_DIRECTORY &&
+  export PATH=$QTDIR/bin:$PATH   &&
+  export LD_LIBRARY_PATH=$QTDIR/lib &&
 
   sedit "s:COMMERCIAL_USER=ask:COMMERCIAL_USER=no:" configure &&
   sedit "s/-O2/$CFLAGS/" mkspecs/common/g++.conf &&
@@ -17,16 +17,16 @@
 
   OPTS="-largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -no-phonon -xmlpatterns -fast -shared" &&
 
-  echo "yes" | ./configure                             \
-               -prefix ${QTDIR}                        \
-               -docdir ${QTDIR}/share/$MODULE          \
-               -plugindir /opt/lunar/plugins/qt4       \
-               -datadir ${QTDIR}/share/$MODULE         \
-               -translationdir ${QTDIR}/share/$MODULE  \
-               -sysconfdir /etc/$MODULE/               \
-               -examplesdir ${QTDIR}/share/$MODULE     \
-               -demosdir ${QTDIR}/share/$MODULE        \
-               $OPTS                                  &&
+  echo "yes" | ./configure                                     \
+               -prefix ${MODULE_PREFIX}                        \
+               -docdir ${MODULE_PREFIX}/share/$MODULE          \
+               -plugindir /opt/lunar/plugins/qt4               \
+               -datadir ${MODULE_PREFIX}/share/$MODULE         \
+               -translationdir ${MODULE_PREFIX}/share/$MODULE  \
+               -sysconfdir /etc/$MODULE/                       \
+               -examplesdir ${MODULE_PREFIX}/share/$MODULE     \
+               -demosdir ${MODULE_PREFIX}/share/$MODULE        \
+               $OPTS                                           &&
 
   default_make  &&
 

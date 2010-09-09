@@ -1,13 +1,21 @@
 depends  file
+depends  libxml2
 depends  cmake
 depends  clucene
 depends  zlib
 depends  bzip2
 depends  openssl
 
-optional_depends "libxml2" ""  ""  "for XML support"
-optional_depends "cppunit" ""  ""  "Support for Strigi unit tests"
+optional_depends "%JAVA_SDK"    ""  ""  "for java support" 
 
-# This will be an optional_depends in a future version of strigi. Noting it
-# here so I don't forget.
-#optional_depends apache-log4cxx "" "" "for advanced logging support"
+optional_depends "exiv2"        "-DENABLE_EXIV2=ON"      \
+                                "-DENABLE_EXIV2=OFF"     \
+                                "for metadata indexing support"
+
+optional_depends "cppunit"      "-DENABLE_CPPUNIT=ON"   \
+                                "-DENABLE_CPPUNIT=OFF"  \
+                                "Support for Strigi unit tests"
+
+optional_depends apache-log4cxx "-DENABLE_LOG4CXX=ON"    \
+                                "-DENABLE_LOG4CXX=OFF"   \
+                                "for advanced logging support"
