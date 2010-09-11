@@ -10,8 +10,8 @@ unzip $SOURCE_CACHE/$SOURCE3 -d $SOURCE_DIRECTORY/4.5 &&
 mkdir old.libraries &&
 touch old.libraries/dontbreak &&
 CENTRALIZED=/etc/sgml/catalog
-for DOCBOOK_INSTALL_DIR in `ls -d /usr/share/sgml/docbook/docbook-xml*`
+for DOCBOOK_INSTALL_DIR in `ls -d /usr/share/sgml/docbook/docbook-xml* 2>/dev/null`
 do install-catalog -r $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog; done
-for DOCBOOK_INSTALL_DIR in `ls -d /usr/share/sgml/docbook/xml`
+for DOCBOOK_INSTALL_DIR in `ls -d /usr/share/sgml/docbook/xml 2>/dev/null`
 do install-catalog -r $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog; done
 rm -rf /usr/share/sgml/docbook/{docbook-xml-*,xml,old.libraries}
