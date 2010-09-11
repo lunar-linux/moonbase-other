@@ -1,5 +1,8 @@
 (
 
+# So it will compile with gcc-4.5
+  sedit "s:__ <= 4:__ <= 5:g" cppu/inc/uno/lbnames.h&&
+
 # This sedit is needed for the configure to complete with current db.
   sedit "s:seq 1 7:seq 1 8:" configure.in &&
 
