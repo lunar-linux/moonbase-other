@@ -1,7 +1,10 @@
           MODULE=NVIDIA
-         VERSION=195.36.31
-          SOURCE=NVIDIA-Linux-x86-$VERSION-pkg0.run
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
+         VERSION=256.53
+          SOURCE=NVIDIA-Linux-x86-$VERSION.run
+         SOURCE2=nvidia-settings-$VERSION.tar.bz2
+         SOURCE3=nvidia-installer-$VERSION.tar.bz2
+         SOURCE4=nvidia-xconfig-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION
    SOURCE_URL[0]=ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION
    SOURCE_URL[1]=http://download.nvidia.com/XFree86/Linux-x86/$VERSION
    SOURCE_URL[2]=http://us.download.nvidia.com/XFree86/Linux-x86/$VERSION
@@ -20,26 +23,33 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
   SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86/$VERSION
   SOURCE_URL[16]=http://br.download.nvidia.com/XFree86/Linux-x86/$VERSION
   SOURCE_URL[17]=http://la.download.nvidia.com/XFree86/Linux-x86/$VERSION
-      SOURCE_VFY=sha1:9c65277ea7cceec900967e15a04629daba06ef45
-        WEB_SITE=http://www.nvidia.com
+     SOURCE2_URL=http://cgit.freedesktop.org/~aplattner/nvidia-settings/snapshot
+     SOURCE3_URL=http://cgit.freedesktop.org/~aplattner/nvidia-installer/snapshot
+     SOURCE4_URL=http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot
+      SOURCE_VFY=sha1:ecebed7c07368f6e0fe09aead042e234db0ac559
+     SOURCE2_VFY=sha1:384c86014403037f6f1caa5be97dae5061abfca0
+     SOURCE3_VFY=sha1:73b8f0c05bae0a7931a72c1bee0384fb94762ec6
+     SOURCE4_VFY=sha1:b7607bf0c5539b77a679befc5c78b23fe215cbb4
+        WEB_SITE=http://www.nvidia.com/
          LICENSE="proprietary"
          ENTERED=20030804
-         UPDATED=20100616
-           SHORT="X11 NVIDIA binary driver for Geforce6/7/8/9/GT2xx"
-
+         UPDATED=20100905
+           SHORT="X11 NVIDIA binary beta driver for Geforce 6/7/8/9/GT2xx"
+KEEP_SOURCE=on
 cat << EOF
 These are the nvidia provided binary X11 drivers for their graphics
-cards. It also has the Linux kernel module needed for all Geforce 6/7/8/9/GT2xx
-cards. Supported GPUs: (6/7/8/9/GT2xx families only)
+cards. It also has the Linux kernel module needed for Geforce 6/7/8/9/GT2xx
+cards. Supported GPUs: (6/7/8/9/GTX 2xx families only)
 all Geforce 6xxx
 all Geforce 7xxx
 all Geforce 8xxx
 all Geforce 9xxx
-all Geforce GT2xx
+GeForce GTX 260
+GeForce GTX 280
 some models may be not supported yet.
 
 If you have RIVA/Vanta/TNT/Geforce1/Quadro1-2/Geforce2 (not MX)
 check NVIDIA-old module.
 If you have Geforce 2MX/3/4 check NVIDIA-legacy module.
-If you have Geforce FX/PCX check NVIDIA-fx module.
+If you have Geforce FX check NVIDIA-fx module.
 EOF
