@@ -7,8 +7,7 @@ unzip $SOURCE_CACHE/$SOURCE5 -d $SOURCE_DIRECTORY/4.2 &&
 unzip $SOURCE_CACHE/$SOURCE1 -d $SOURCE_DIRECTORY/4.3 &&
 unzip $SOURCE_CACHE/$SOURCE6 -d $SOURCE_DIRECTORY/4.4 &&
 unzip $SOURCE_CACHE/$SOURCE3 -d $SOURCE_DIRECTORY/4.5 &&
-mkdir old.libraries &&
-touch old.libraries/dontbreak &&
+#Remove old directory structure
 CENTRALIZED=/etc/sgml/catalog
 for DOCBOOK_INSTALL_DIR in `ls -d /usr/share/sgml/docbook/docbook-xml* 2>/dev/null`
 do install-catalog -r $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog; done
