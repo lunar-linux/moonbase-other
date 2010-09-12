@@ -1,14 +1,16 @@
           MODULE=ghostscript
-         VERSION=8.71
-          SOURCE=$MODULE-$VERSION.tar.gz
+         VERSION=8.71.1
+          SOURCE=gnu-$MODULE-$VERSION.tar.bz2
          SOURCE2=$MODULE-8.64-jasper.patch
-      SOURCE_URL=$SFORGE_URL/$MODULE
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/gnu-$MODULE-$VERSION
+   SOURCE_URL[0]=http://ftp.gnu.org/gnu/$MODULE
+   SOURCE_URL[1]=$SFORGE_URL/$MODULE
      SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:629299140f612fac32f6289be0904107dfd1b555
+      SOURCE_VFY=sha1:4f960b0b509cfb893be677fe04381899ae9dc709
      SOURCE2_VFY=sha1:c2f6599d0d3e6c8a554ebb82e32b519184206ce2
-        WEB_SITE=http://www.ghostscript.com/
+        WEB_SITE=http://www.ghostscript.com
          ENTERED=20041116
-         UPDATED=20100211
+         UPDATED=20100912
            PSAFE=no
            SHORT="GPL ghostscript"
 
