@@ -1,20 +1,4 @@
-CENTRALIZED=/etc/sgml/catalog
-if ! [ -e "$CENTRALIZED" ]; then
-     echo "Creating $CENTRALIZED"
-     mkdir -p /etc/sgml
-     touch $CENTRALIZED
-fi
-
-DOCBOOK_INSTALL_DIR=/usr/share/sgml/docbook/xml
-for DOCBOOK in `ls -d $DOCBOOK_INSTALL_DIR/*`
-do
-install-catalog --add $CENTRALIZED $DOCBOOK/catalog
-done
-rm -rf /usr/share/sgml/docbook/old.libraries
-
-find $DOCBOOK_INSTALL_DIR -type d -exec chmod 755 {} \;
-find $DOCBOOK_INSTALL_DIR -type f -exec chmod 644 {} \;
-chown -R root:root $DOCBOOK_INSTALL_DIR 
+mkdir -p /etc/xml
 
 /usr/bin/$SOURCE2 --prefix=/etc/xml --version=4.1.2
 /usr/bin/$SOURCE2 --prefix=/etc/xml --version=4.2
@@ -24,10 +8,6 @@ chown -R root:root $DOCBOOK_INSTALL_DIR
 
 (
 
-xmlcatalog --noout --add "public" \
-    "-//OASIS//DTD DocBook XML V4.1.2//EN" \
-    "file:///usr/share/sgml/docbook/xml/4.1.2/docbookx.dtd" \
-    /etc/xml/docbook &&
 xmlcatalog --noout --add "delegateSystem" \
     "http://www.oasis-open.org/" \
     "file:///usr/share/sgml" /etc/xml/catalog &&
@@ -36,12 +16,14 @@ xmlcatalog --noout --add "delegateURI" \
     "file:///usr/share/sgml" /etc/xml/catalog &&
 xmlcatalog --noout --add "rewriteSystem" \
     "http://www.oasis-open.org" \
-    "file:///usr/share/sgml" \
-    /etc/xml/docbook &&
+    "file:///usr/share/sgml" /etc/xml/catalog &&
 xmlcatalog --noout --add "rewriteURI" \
     "http://www.oasis-open.org" \
-    "file:///usr/share/sgml" \
-    /etc/xml/docbook
+    "file:///usr/share/sgml" /etc/xml/catalog
+
 )
+
+# Clean up wrongly added sgml to xml (fixes scrollkeeper)
+sedit '/sgml\/docbook\/sgml/d' /etc/xml/docbook
 
 if module_installed scrollkeeper; then lin -c scrollkeeper; fi
