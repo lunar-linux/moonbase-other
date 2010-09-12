@@ -1,18 +1,7 @@
-# Set up the Tex Live environment.
-# Some of this may be unnecessary, but TeX Live is too big (900mb) to check everything. It works.
-
-mktexlsr > /dev/null 2>&1
-
-# From http://repos.archlinux.org/wsvn/packages/texlive-core/trunk/texlive.install
-updmap-sys --quiet --nohash
+# From http://tug.org/pipermail/tlbuild/2010q2/001606.html
+# Comments out comicvn.map and mscorevn.map from /usr/share/texmf-config/web2c/updmap.cfg
+updmap-sys --quiet --syncwithtrees
 
 # Hint from https://bbs.archlinux.org/viewtopic.php?pid=607603
 # Prevent error message:  Fatal format file error; I'm stymied
-# Will fail on luatex, which is not installed.
-fmtutil-sys --all > /dev/null 2>&1
-
-# From http://www.linuxforums.org/forum/linux-applications/75163-latex-error-i-cant-find-format-file-latex-fmt.html
-# initex latex.ltx > /dev/null && install -m644 latex.fmt /usr/share/texmf/web2c/
-
-texhash  > /dev/null 2>&1
-mktexlsr > /dev/null 2>&1
+fmtutil-sys --quiet --all > /dev/null
