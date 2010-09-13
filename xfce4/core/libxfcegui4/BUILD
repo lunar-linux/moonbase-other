@@ -4,11 +4,8 @@
    # make sure proper PKG_CONFIG_PATH is set
    export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
 
-   ./configure  --build=$BUILD             \
-                --prefix=${MODULE_PREFIX}  \
-                --enable-xinerama          \
-                $OPTS                     &&
+   OPTS+=" --enable-xinerama"  &&
 
-   default_make
+   default_build
 
 ) > $C_FIFO 2>&1
