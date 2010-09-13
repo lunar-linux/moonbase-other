@@ -5,6 +5,7 @@
     sedit "s;, @REQUIREMENTS_FOR_LIBEXIF@;;" libgphoto2.pc.in
   fi &&
 
-  default_build
+  default_build  &&
+  rm -fr /usr/include/gphoto2/gphoto2
 
 ) > $C_FIFO 2>61
