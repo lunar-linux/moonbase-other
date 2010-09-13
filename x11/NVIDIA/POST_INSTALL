@@ -19,3 +19,7 @@ ln -sf libglx.so.$VERSION libglx.so
 
 # Clean up
 rm -rf $SOURCE_DIRECTORY
+
+# So this gets fixed when linning xorg-server and NVIDIA;
+# Symbolic link: /usr/lib/xorg/modules/extensions/libglx.so is owned by xorg-server
+lunar fix xorg-server
