@@ -159,6 +159,7 @@
   install -m0755 nvidia_drv.so /usr/lib/xorg/modules/drivers &&
   install -m0755 libglx.so.$VERSION /usr/lib/xorg/modules/extensions &&
 
+  mkdir -p /usr/share/applications &&
   install -m0444 nvidia-settings.desktop /usr/share/applications &&
 
   mkdir -p /usr/share/doc/NVIDIA_GLX-1.0/html &&
