@@ -6,6 +6,11 @@ mkdir -p /etc/xml
 /usr/bin/$SOURCE2 --prefix=/etc/xml --version=4.4
 /usr/bin/$SOURCE2 --prefix=/etc/xml --version=4.5
 
+# Docbook 4.3 and 4.5 for some unknown reason are not registered
+# at first time so we repeat those registrations (fixes gtk-doc)
+/usr/bin/$SOURCE2 --prefix=/etc/xml --version=4.3
+/usr/bin/$SOURCE2 --prefix=/etc/xml --version=4.5
+
 (
 
 xmlcatalog --noout --add "delegateSystem" \
