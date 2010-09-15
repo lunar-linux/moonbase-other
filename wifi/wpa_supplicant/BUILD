@@ -18,8 +18,13 @@
   prepare_install  &&
   make install     &&
 
+<<<<<<< HEAD
   install -m644 dbus/dbus-wpa_supplicant.conf /etc/dbus-1/system.d/  &&
   install -m644 wpa_supplicant.conf /etc/wpa_supplicant.conf.example  &&
+=======
+  install -m644 dbus-wpa_supplicant.conf /etc/dbus-1/system.d/  &&
+  install -m644 dbus\wpa_supplicant.conf /etc/wpa_supplicant.conf.example  &&
+>>>>>>> 2247391b3ff282f50eb264f2bdf359bdce84c19f
 
   gather_docs developer.txt wpa_supplicant.conf
 
