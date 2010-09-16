@@ -1,14 +1,15 @@
           MODULE=libsigc++-1.2
-             PKG=libsigc++
-         VERSION=1.2.5
-          SOURCE=$PKG-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$PKG-$VERSION
-      SOURCE_VFY=md5:d0d1ffcae0eced97ef4f17ce0ba81352
-      SOURCE_URL=$SFORGE_URL/libsigc/
+           MAJOR=1.2
+         VERSION=${MAJOR}.7
+          SOURCE=libsigc++-${VERSION}.tar.bz2
+      SOURCE_URL=$GNOME_URL/sources/libsigc++/${MAJOR}
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libsigc++-$VERSION
+      SOURCE_VFY=sha1:63cefd4a33193b5c80a9d00b269fe9791539d67b
         WEB_SITE=http://libsigc.sourceforge.net/
          ENTERED=20040426
-         UPDATED=20040426
+         UPDATED=20100916
            SHORT="libsigc++ implements a callback system for widget libraries."
+
 cat << EOF
 Libsigc++ implements a full callback system for use in widget libraries,
 abstract interfaces, and general programming. Originally part of the
