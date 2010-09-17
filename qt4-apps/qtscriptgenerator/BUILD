@@ -15,6 +15,6 @@
   make             &&
 
   prepare_install  &&
-  install ../plugins/script/* $QTDIR/plugins/script/
+  install ../plugins/script/* /usr/lib/qt4/plugins/script/
 
 ) > $C_FIFO 2>&1
