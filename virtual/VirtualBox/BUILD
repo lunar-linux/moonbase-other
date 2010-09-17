@@ -17,6 +17,9 @@
   OPTS+=" --with-qt4-dir=$QTDIR" &&
   ./configure $OPTS              &&
   source ./env.sh                &&
+  if !( module_installed Linux-PAM ); then
+     sedit "s/VBOX_WITH_PAM/VBOX_WITHOUT_PAM/" Config.kmk
+  fi &&
   kmk                            &&
 
   # Build source package for kernel module
