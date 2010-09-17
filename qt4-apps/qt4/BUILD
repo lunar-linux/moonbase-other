@@ -6,6 +6,7 @@
 
   sedit "s:COMMERCIAL_USER=ask:COMMERCIAL_USER=no:" configure &&
   sedit "s/-O2/$CFLAGS/" mkspecs/common/g++.conf &&
+  sedit "s/-Wl,-O1/$LDFLAGS/" mkspecs/common/g++.conf &&
 
   if [ "$MAKE_DOCS" == "y" ]; then
     OPTS+=" -make tools -make docs -make translations"
@@ -15,24 +16,25 @@
     OPTS+=" -make examples -make demos -make tools -make docs -make translations"
   fi &&
 
-  OPTS="-largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -no-phonon -xmlpatterns -fast -shared" &&
+  OPTS="-largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -xmlpatterns -fast -shared" &&
 
-  echo "yes" | ./configure                                     \
-               -prefix ${MODULE_PREFIX}                        \
-               -docdir ${MODULE_PREFIX}/share/$MODULE          \
-               -plugindir /opt/lunar/plugins/qt4               \
-               -datadir ${MODULE_PREFIX}/share/$MODULE         \
-               -translationdir ${MODULE_PREFIX}/share/$MODULE  \
-               -sysconfdir /etc/$MODULE/                       \
-               -examplesdir ${MODULE_PREFIX}/share/$MODULE     \
-               -demosdir ${MODULE_PREFIX}/share/$MODULE        \
-               $OPTS                                           &&
+  echo "yes" | ./configure                             \
+               -prefix /usr                            \
+               -docdir /usr/share/$MODULE              \
+               -plugindir /usr/lib/$MODULE/plugins     \
+               -datadir /usr/share/$MODULE             \
+               -translationdir /usr/share/$MODULE      \
+               -sysconfdir /etc/$MODULE                \
+               -examplesdir /usr/share/doc/$MODULE     \
+               -demosdir /usr/share/doc/$MODULE        \
+               $OPTS                                  &&
 
   default_make  &&
 
 # It wants to point moc_location and uic_location to ${prefix}/src/qt-everywhere-opensource-src-4.7.0-beta2/bin
 # and after much fiddling cannot get it to point them to /usr/bin. So lets jsut sedit these rascals.
   for i in `ls /usr/lib/pkgconfig/Q*.pc` ; do sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:" $i ; done &&
+  sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:"  /usr/lib/pkgconfig/phonon.pc &&
 
   if [ "$MAKE_QDOC3" == "y" ]; then
      cd tools/qdoc3 &&
