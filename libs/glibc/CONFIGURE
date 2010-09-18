@@ -72,7 +72,7 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
     message "Selecting locales is optional"
   fi
 
-  if query "Would you like to select locales? (if not selected, all locales will be installed)" n; then
+  if query "Would you like to select locales? (if not selected, all locales will be installed)" y; then
     unpack_localedata
 
     GLIBC_LOCALES=`select_locales`
