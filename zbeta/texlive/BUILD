@@ -31,7 +31,8 @@
 
   # Some options are from http://www.gentoo-portage.com/app-text/texlive-core
   # and http://repos.archlinux.org/wsvn/packages/texlive-bin/trunk/
-  OPTS+=" --datadir=/usr/share --disable-multiplatform --disable-native-texlive-build --with-system-zlib --with-system-freetype2 --with-system-libpng --with-gs=gs --enable-etex --enable-luatex --enable-xetex --enable-ipc --enable-shared --enable-static=no"  &&
+  # xindy should be in its own module, because its compilation needs latex to be *already* installed.
+  OPTS+=" --datadir=/usr/share --disable-multiplatform --disable-native-texlive-build --with-system-zlib --with-system-freetype2 --with-system-libpng --with-gs=gs --disable-xindy --enable-etex --enable-luatex --enable-xetex --enable-ipc --enable-shared --enable-static=no"  &&
 
   default_build  &&
 
