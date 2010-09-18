@@ -1,8 +1,12 @@
 (
+  # The fortify compiler option cause the build to fail
+  bad_flags -D_FORTIFY_SOURCE=2 &&
 
 # This sedit takes care of Bug Report 398 submitted by Striker.
   sedit "s:/tmp:$SOURCE_DIRECTORY/tmp:g" scripts/test-installation.pl &&
   mkdir -p $SOURCE_DIRECTORY/tmp &&
+
+  export CC_OPTS=( Pipe ) &&
 
   # There is no other option but nptl
   OPTS+=" --enable-add-ons=nptl,libidn --with-__thread --with-tls" &&
@@ -22,6 +26,7 @@
   patch_it $SOURCE2 1 &&
   patch_it $SOURCE3 1 &&
   patch_it $SOURCE4 1 &&
+  patch_it $SOURCE5 1 &&
 
   INSTALL_ROOT=$SOURCE_DIRECTORY/glibcroot &&
   mkdir -p $INSTALL_ROOT &&
