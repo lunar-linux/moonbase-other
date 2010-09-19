@@ -1,7 +1,6 @@
 (
 
   source /etc/profile.d/qt4.rc   &&
-  source /etc/profile.d/kde4.rc  &&
 
   OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
@@ -10,7 +9,9 @@
   fi &&
 
   sed -i "22i /usr/share/sgml/docbook/xml/4.2" cmake/modules/FindDocBookXML.cmake &&
-  sedit "s:docbook/xsl-stylesheets:docbook/xsl-stylesheets-1.75.2:" cmake/modules/FindDocBookXSL.cmake &&
+
+  VER=`lvu version docbook-xsl` &&
+  sedit "s:docbook/xsl-stylesheets:docbook/xsl-stylesheets-$VER:" cmake/modules/FindDocBookXSL.cmake &&
 
   mkdir $OOSB_DIR  &&
   cd $OOSB_DIR     &&
