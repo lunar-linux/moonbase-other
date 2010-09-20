@@ -1,5 +1,8 @@
 (
 
+  message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}This module needs a dump/restore for the databases in the old 8.x <= version format."
+  sleep 5
+
   if in_depends $MODULE timezone-data; then
     OPTS="$OPTS --with-system-tzdata=/usr/share/zoneinfo"
   fi &&
