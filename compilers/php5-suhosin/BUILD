@@ -7,7 +7,7 @@
     patch_it $SOURCE3 1
   fi &&
 
-  ./buildconf --force &&
+#  ./buildconf --force &&
 
   if [ "$USE_REGGLOBALS" == "y" ]; then
     OPTS="$OPTS "
@@ -42,6 +42,7 @@
                --enable-force-cgi-redirect   \
                --enable-discard-path         \
                $OPTS                        &&
-  default_make
+ 
+ default_make
 
 ) > $C_FIFO 2>&1
