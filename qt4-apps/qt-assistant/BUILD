@@ -1,5 +1,7 @@
 (
 
+  . /etc/profile.d/qt4.rc &&
+
   # build assistant_adp
   cd tools/assistant/compat &&
   qmake QT_SOURCE_TREE="../../../" &&
