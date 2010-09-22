@@ -2,8 +2,12 @@
 
   OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
+  . /etc/profile.d/qt4.rc &&
+
   mkdir $OOTB_DIR  &&
   cd $OOTB_DIR     &&
+
+  export LDFLAGS="-L/usr/lib/qt4" &&
 
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
                            -DCMAKE_BUILD_TYPE=RELEASE             \
