@@ -40,6 +40,7 @@
                --with-gd=no               \
                --without-cvs              \
                --enable-shared            \
+               --disable-multi-arch       \
                $OPTS                     &&
 
   # explicitly exit here since the following code unsets $?
