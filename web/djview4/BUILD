@@ -1,13 +1,16 @@
 (
 
-  . /etc/profile.d/qt4.rc
+  . /etc/profile.d/qt4.rc &&
 
   # This should always be just a link
   rm -rf /usr/lib/netscape/plugins  &&
 
-  OPTS="--enable-npdjvu --enable-nsdejavu"
+  OPTS="--enable-npdjvu --enable-nsdejavu" &&
 
-  default_build
+# Add a missing header required by gcc-4.5.x
+  sed -i "24i #include <stdint.h>" npdjvu/npdjvu.cpp &&
+
+  default_build &&
 
   # Install the plugins in the right directories
   mkdir -p /opt/lunar/plugins  &&
