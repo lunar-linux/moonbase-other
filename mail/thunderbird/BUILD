@@ -2,9 +2,6 @@
 
   COMM_VER=comm-1.9.2
 
-  # Google again have missing headers
-  sedit 's:#include <sys/mman.h>:#include <sys/mman.h>\n#include <sys/stat.h>:' $COMM_VER/mozilla/toolkit/crashreporter/google-breakpad/src/common/linux/file_id.cc &&
-
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi &&
