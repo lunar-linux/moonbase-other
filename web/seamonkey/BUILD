@@ -1,10 +1,11 @@
 (
- 
-  #Really? You go and call fprintf and don't #include <cstdio>?
-  #How exactly did you plan on doing that?!?!
-  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src/common/linux/dump_symbols.cc
-  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src/client/linux/handler/exception_handler.cc
-  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src/client/linux/handler/minidump_generator.cc
+
+  # Yet again fix for broken Google software
+  FIXHERE=comm-1.9.1/mozilla/toolkit/crashreporter/google-breakpad/src
+  sedit 's:<cassert>:<cassert>\n#include <cstdio>:' $FIXHERE/processor/minidump_processor.cc &&
+  sedit 's:#include <string>:#include <cstring>:'   $FIXHERE/processor/minidump_stackwalk.cc &&
+  sedit 's:<sstream>:<sstream>\n#include <cstdio>:' $FIXHERE/processor/postfix_evaluator-inl.h &&
+  sedit 's:#include <sys/mman.h>:#include <sys/mman.h>\n#include <sys/stat.h>:' $FIXHERE/common/linux/file_id.cc &&
 
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"

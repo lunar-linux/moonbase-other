@@ -27,9 +27,9 @@ export MOZILLA_FIVE_HOME="/usr/lib/$SMNKEY_LIBDIR"
 ldconfig
 
 # Added the symlinks back now that zbiggy has removed mozilla from moonbase
-rm -f /usr/lib/mozilla
+rm -rf /usr/lib/mozilla
 ln -snf /usr/lib/$SMNKEY_LIBDIR /usr/lib/mozilla
-rm -f /usr/include/mozilla
+rm -rf /usr/include/mozilla
 ln -snf /usr/include/$SMNKEY_LIBDIR /usr/include/mozilla
 ln -sf /usr/bin/seamonkey /usr/bin/mozilla
 ln -sf /usr/bin/seamonkey-config /usr/bin/mozilla-config
