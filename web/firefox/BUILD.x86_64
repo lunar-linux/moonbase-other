@@ -1,9 +1,6 @@
 (
 
  MOZILLA_DIR=mozilla-1.9.2
-  #Really? You go and call fprintf and don't #include <cstdio>?
-  #How exactly did you plan on doing that?!?!
-  sedit 's:<cstdlib>:<cstdlib>\n#include <cstdio>:g' $MOZILLA_DIR/toolkit/crashreporter/google-breakpad/src/client/linux/handler/exception_handler.cc
 
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
