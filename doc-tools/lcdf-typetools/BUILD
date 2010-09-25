@@ -1,7 +1,9 @@
 (
 
-  if in_depends $MODULE teTeX ; then
-  OPTS="--with-kpathsea=/usr/include/kpathsea/"
+  if module_installed %TEX ; then
+     OPTS="--with-kpathsea=/usr/include/kpathsea/"
+    else
+     OPTS="--without-kpathsea"
   fi &&
 
   default_build
