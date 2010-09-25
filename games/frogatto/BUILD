@@ -22,7 +22,7 @@
 
   # Data
   mkdir -p /usr/share/games/frogatto/  &&
-  cp -r data images music music_aac sounds sounds_wav *.ttf /usr/share/games/frogatto/  &&
+  cp -r data images music sounds *.ttf /usr/share/games/frogatto/  &&
 
   # Icon
   install -D -m644 images/window-icon.png /usr/share/pixmaps/$MODULE.png  &&
