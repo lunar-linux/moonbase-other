@@ -1,9 +1,5 @@
 (
 
-  # Fixes build of lvm2
-  CFLAGS+=" -fPIE "
-  LDFLAGS+=" -pie "
-
   ./configure  --sbindir=/sbin                \
                --libdir=/lib                  \
                --enable-cmdlib                \
