@@ -1,6 +1,6 @@
 (
 
-  . /etc/profile.d/qt4.rc
+  . /etc/profile.d/qt4.rc &&
 
   echo "yes" | MORE="20000000" python ./configure.py $OPTS  &&
 
