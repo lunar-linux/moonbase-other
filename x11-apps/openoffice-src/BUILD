@@ -56,8 +56,8 @@
     . /etc/profile.d/qt4.rc &&
     . /etc/profile.d/kde4.rc &&
     QT4DIR=$QTDIR &&
-    QT4INC=$QTDIR/include &&
-    QT4LIB=$QTDIR/lib &&
+    QT4INC=$QTDIR/include/qt4 &&
+    QT4LIB=$QTDIR/lib/qt4 &&
     KDE4DIR=$KDE4_INSTALL_DIR &&
     export QT4DIR  &&
     export QT4INC  &&
