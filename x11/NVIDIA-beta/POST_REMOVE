@@ -1,5 +1,5 @@
 # Restore Mesa OpenGL headers:
-if [[ ! -e /usr/include/GL/mesa ]] ; then
+if [ -d /usr/include/GL/mesa ] ; then
 for file in `ls /usr/include/GL/mesa`;
 do ln -sf /usr/include/GL/mesa/$file /usr/include/GL/$file;
 done
