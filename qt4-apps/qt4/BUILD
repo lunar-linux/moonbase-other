@@ -1,5 +1,13 @@
 (
 
+  if [ -d /opt/lunar/qt ] ; then 
+    ld_remove /opt/lunar/qt/lib
+  fi &&
+  
+  if [ -d /usr/lib/qt4 ] ; then
+    ld_remove /usr/lib/qt4
+  fi &&
+
   export QTDIR=$SOURCE_DIRECTORY &&
   export PATH=$MODULE_PREFIX::$PATH   &&
   export LD_LIBRARY_PATH=$QTDIR/lib &&
