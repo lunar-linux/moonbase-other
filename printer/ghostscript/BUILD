@@ -12,7 +12,7 @@
      rm -fr jasper
   fi  &&
 
-  export CFLAGS="$CFLAGS -fPIC"
+  export CFLAGS="$CFLAGS -fPIC"  &&
 
   default_build  &&
 
