@@ -1,8 +1,1 @@
-JACKLIBDIR="/usr/lib/jack"
-
-if ! grep -q "$JACKLIBDIR" /etc/ld.so.conf ; then
-
-        echo "$JACKLIBDIR" >> /etc/ld.so.conf
-        ldconfig
-
-fi
+ld_add /usr/lib/jack
