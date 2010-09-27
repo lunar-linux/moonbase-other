@@ -122,6 +122,9 @@ plugin_compiler_gcc_4_5_optimize()
       Fortify)
         c_cxx_flags_add "-D_FORTIFY_SOURCE=2"
         ;;
+      StackProt)
+        c_cxx_flags_add "-fstack-protector"
+        ;;
     esac
   done
 
@@ -233,17 +236,15 @@ EOF
       echo "cpu"
       echo "CPU selection                 [$CPU]"
       echo "Select the target CPU type"
-      if [ "$SAFE_OPTIMIZATIONS" == "off" ] ; then
-        echo "xtra"
-        echo "CPU extensions                [${XTRA[@]}]"
-        echo "Select CPU extensions"
-        echo "spd"
-        echo "Specialized optimizations     [${SPD[@]}]"
-        echo "Select specific compiler flags for expensive and risky optimizations"
-        echo "fpm"
-        echo "Floating point optimizations  [$FPM]"
-        echo "enable specific floating point optimizations"
-      fi
+      echo "xtra"
+      echo "CPU extensions                [${XTRA[@]}]"
+      echo "Select CPU extensions"
+      echo "spd"
+      echo "Specialized optimizations     [${SPD[@]}]"
+      echo "Select specific compiler flags for expensive and risky optimizations"
+      echo "fpm"
+      echo "Floating point optimizations  [$FPM]"
+      echo "enable specific floating point optimizations"
       echo "cc_opt"
       echo "General C/C++ options         [${CC_OPTS[@]}]"
       echo "Select named pipes, warnings on deprecated symbols"
@@ -283,7 +284,13 @@ EOF
             "None" "-O0" $( [ "$BOPT" == "None" ] && echo "on" || echo "off" ) "Only default optimizations"
             "Fast" "-O1" $( [ "$BOPT" == "Fast" ] && echo "on" || echo "off" ) "-O1"
             "Faster" "-O2" $( [ "$BOPT" == "Faster" ] && echo "on" || echo "off" ) "-O2"
+            )
+          if [ "$SAFE_OPTIMIZATIONS" == "off" ]; then
+          OPTIONS+=(
             "Fastest" "-O3" $( [ "$BOPT" == "Fastest" ] && echo "on" || echo "off" ) "-O3"
+            )
+          fi
+          OPTIONS+=(
             "Small" "-Os" $( [ "$BOPT" == "Small" ] && echo "on" || echo "off" ) "-Os"
             )
           menu radiolist "Choose the base compile-time optimization. Most people will use -O2 or -O3. Note that some modules set their own level." &&
@@ -295,6 +302,9 @@ EOF
               OPTIONS=(
                 "None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
                 "native" "autodetect" $( [ "$CPU" == "native" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
+              )
+              if [ "$SAFE_OPTIMIZATIONS" == "off" ]; then
+              OPTIONS+=(
                 "i386" "i386" $( [ "$CPU" == "i386" ] && echo "on" || echo "off" ) "i386 processors"
                 "i486" "i486" $( [ "$CPU" == "i486" ] && echo "on" || echo "off" ) "i486 processors"
                 "i586" "i586 (Pentium)" $( [ "$CPU" == "i586" ] && echo "on" || echo "off" ) "i586 processors, identical to 'pentium'"
@@ -332,6 +342,7 @@ EOF
                 "c3" "c3" $( [ "$CPU" == "c3" ] && echo "on" || echo "off" ) "Via C3 CPU with MMX and 3dNOW"
                 "c3-2" "c3-2" $( [ "$CPU" == "c3-2" ] && echo "on" || echo "off" ) "Via C3-2 CPU with MMX and SSE"
                 )
+              fi
             ;;
             Alpha)
               OPTIONS=(
@@ -399,6 +410,9 @@ EOF
               OPTIONS=(
                 "None" "" $( [ ! "$CPU" ] && echo "on" || echo "off" ) "All processor types"
                 "native" "autodetect" $( [ "$CPU" == "native" ] && echo "on" || echo "off" ) "autodetect CPU at compile time - recommended"
+              )
+              if [ "$SAFE_OPTIMIZATIONS" == "off" ]; then
+              OPTIONS+=(
                 "x86-64" "x86-64" $( [ "$CPU" == "x86-64" ] && echo "on" || echo "off" ) "Both AMD64 and Intel EM64T machines"
                 "nocona" "nocona" $( [ "$CPU" == "nocona" ] && echo "on" || echo "off" ) "Newer Xeons with sse3 and em64t"
                 "core2" "core2" $( [ "$CPU" == "core2" ] && echo "on" || echo "off" ) "Intel Core2 CPU with em64t SSE3 and SSSE3"
@@ -412,31 +426,37 @@ EOF
                 "amdfam10" "AMD K10 family Phenom/new  K10 based Opteron" $( [ "$CPU" == "amdfam10" ] && echo "on" || echo "off" ) "AMD K10 family: Phenom1,2 Athlon2, new Opteron K10 family processors with SSE4A ABM"
                 "barcelona" "barcelona" $( [ "$CPU" == "barcelona" ] && echo "on" || echo "off" ) "AMD K10 family: barcelona core processors with SSE4A ABM"
                 )
+              fi
             ;;
           esac
           menu radiolist "CPU, according to the kernel you have a$(cat /proc/cpuinfo | grep 'model name' | cut -d: -f2 | head -n 1). If you are unsure, use autodetect - anything other is not safe." &&
           CPU=$RESULT
         ;;
         spd)
+          # safe list derived from `gcc -c -Q -O2 --help=optimizers`
           OPTIONS=(
+            "Pointers" "-fomit-frame-pointer" $( echo ${SPD[@]} | grep -q "Pointers" && echo "on" || echo "off" ) "Optimize by omitting frame pointers"
+            "Siblings" "-foptimize-sibling-calls" $( echo ${SPD[@]} | grep -q "Siblings" && echo "on" || echo "off" ) "Optimize sibling calls"
+            "Aliasing" "-fstrict-aliasing" $( echo ${SPD[@]} | grep -q "Aliasing" && echo "on" || echo "off" ) "Enable strict aliasing (enabled by default -O1 and above)"
+            "Align" "-falign-functions" $( echo ${SPD[@]} | grep -q "Align" && echo "on" || echo "off" ) "Align functions, loops, and jumps"
+            "Expensive" "-fexpensive-optimizations" $( echo ${SPD[@]} | grep -q "Expensive" && echo "on" || echo "off" ) "Perform expensive optimizations"
+            "Blocks" "-freorder-blocks" $( echo ${SPD[@]} | grep -q "Blocks" && echo "on" || echo "off" ) "Reorder basic blocks in order to reduce number of taken branches."
+          )
+          if [ "$SAFE_OPTIMIZATIONS" == "off" ]; then
+          OPTIONS+=(
             "Speedy" "-funroll-loops" $( echo ${SPD[@]} | grep -q "Speedy" && echo "on" || echo "off" ) "Optimize to increase performance of generated code"
             "Regparm" "-mregparm=3" $( echo ${SPD[@]} | grep -q "Regparm" && echo "on" || echo "off" ) "Pass up to 3 function arguments in registers instead of stack"
             "Risky" "-ffast-math" $( echo ${SPD[@]} | grep -q "Risky" && echo "on" || echo "off" ) "Optimize to increase performance ... by violating ANSI and IEEE FP rules"
-            "Pointers" "-fomit-frame-pointer" $( echo ${SPD[@]} | grep -q "Pointers" && echo "on" || echo "off" ) "Optimize by omitting frame pointers"
-            "Siblings" "-foptimize-sibling-calls" $( echo ${SPD[@]} | grep -q "Siblings" && echo "on" || echo "off" ) "Optimize sibling calls"
             "Profiling" "-fprofile-arcs" $( echo ${SPD[@]} | grep -q "Profiling" && echo "on" || echo "off" ) "Generate profiles (For later use with Branching)"
             "Branching" "-fbranching-probabilities" $( echo ${SPD[@]} | grep -q "Branching" && echo "on" || echo "off" ) "Predict branching (For using profiled sources)"
-            "Aliasing" "-fstrict-aliasing" $( echo ${SPD[@]} | grep -q "Aliasing" && echo "on" || echo "off" ) "Enable strict aliasing (enabled by default -O1 and above)"
             "Cprop" "-fno-cprop-registers" $( echo ${SPD[@]} | grep -q "Cprop" && echo "on" || echo "off" ) "Reduce scheduling dependencies and remove copies"
             "Float" "-ffloat-store" $( echo ${SPD[@]} | grep -q "Float" && echo "on" || echo "off" ) "Enable float store"
             "Address" "-fforce-addr" $( echo ${SPD[@]} | grep -q "Address" && echo "on" || echo "off" ) "Force memory address"
-            "Align" "-falign-functions" $( echo ${SPD[@]} | grep -q "Align" && echo "on" || echo "off" ) "Align functions, loops, and jumps"
-            "Expensive" "-fexpensive-optimizations" $( echo ${SPD[@]} | grep -q "Expensive" && echo "on" || echo "off" ) "Perform expensive optimizations"
             "Doubles" "-malign-double" $( echo ${SPD[@]} | grep -q "Doubles" && echo "on" || echo "off" ) "Align double, long double, and long long on two word boundaries"
             "Tracer" "-ftracer" $( echo ${SPD[@]} | grep -q "Tracer" && echo "on" || echo "off" ) "Perform tail duplication to enlarge superblock size."
-            "Blocks" "-freorder-blocks" $( echo ${SPD[@]} | grep -q "Blocks" && echo "on" || echo "off" ) "Reorder basic blocks in order to reduce number of taken branches."
             )
-          menu checklist "Select additional flags to optimize specific areas of the created code. Note that some of these flags are turned on automatically with -O2 or -O3. See 'man gcc' for more information. None of these options are safe!" &&
+          fi
+          menu checklist "Select additional flags to optimize specific areas of the created code. Note that some of these flags are turned on automatically with -O2 or -O3. See 'man gcc' for more information." &&
           SPD=($RESULT)
         ;;
         fpm)
@@ -481,12 +501,12 @@ EOF
           done
           FLAGS=${FLAGS/fpu/387}
           FLAGS=${FLAGS/387 sse/387 and sse (both)}
-          menu radiolist "Select available Floating Point Math compile extensions. The kernel reports that this system has: $FLAGS. None of these are safe." &&
+          menu radiolist "Select available Floating Point Math compile extensions. The kernel reports that this system has: $FLAGS." &&
           FPM=$RESULT
         ;;
         xtra)
           unset OPTIONS
-          case $PLATFORM in 
+          case $PLATFORM in
             x86|x86_64)
               if grep -qw mmx /proc/cpuinfo; then
                 OPTIONS=(
@@ -586,8 +606,13 @@ EOF
             "Deprecated" "-Wno-deprecated for C++" $( echo ${CC_OPTS[@]} | grep -qw "Deprecated" && echo "on" || echo "off" ) "Disable warnings of deprecated symbols in C++"
             "Debug" "-g" $( echo ${CC_OPTS[@]} | grep -qw "Debug" && echo "on" || echo "off" ) "Add debug symbols"
             "Pipe" "-pipe (RECOMMENDED)" $( echo ${CC_OPTS[@]} | grep -qw "Pipe" && echo "on" || echo "off" ) "Enable cc to use named pipes."
-            "Fortify" "-D_FORTIFY_SOURCE=2" $( echo ${CC_OPTS[@]} | grep -qw "Fortify" && echo "on" || echo "off" ) "Gcc Stack protector checking"
             )
+          if [ "$SAFE_OPTIMIZATIONS" == "off" ]; then
+          OPTIONS+=(
+            "Fortify" "-D_FORTIFY_SOURCE=2" $( echo ${CC_OPTS[@]} | grep -qw "Fortify" && echo "on" || echo "off" ) "Gcc Stack protector checking"
+            "StackProt" "-fstack-protector" $( echo ${CC_OPTS[@]} | grep -qw "StackProt" && echo "on" || echo "off" ) "Gcc Stack protector checking (UNSAFE)"
+            )
+          fi
           menu checklist "General C/C++ compiler settings" &&
           CC_OPTS=($RESULT)
         ;;
