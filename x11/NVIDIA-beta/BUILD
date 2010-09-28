@@ -6,7 +6,7 @@
   rm -f .manifest libvdpau.so* libvdpau_trace.so* \
   vdpau*.h pkg-history.txt nvidia-installer{,.*} \
   mkprecompiled nvidia-xconfig{,.*} nvidia-settings{,.*} \
-  libnvidia-wfb* tls_test* libGL.la &&
+  libnvidia-wfb* tls_test* libGL.la gl*.h &&
 
   # Temporary paths and symlinks to make sources compilable
   LD_LIBRARY_PATH="$SOURCE_DIRECTORY:$LD_LIBRARY_PATH" &&
@@ -14,8 +14,6 @@
   ln -s libGL.so.$VERSION nvidia-installer-$VERSION/libGL.so &&
   ln -s libnvidia-glcore.so.$VERSION nvidia-installer-$VERSION/libGLcore.so.1 &&
   ln -s libnvidia-tls.so.$VERSION nvidia-installer-$VERSION/libnvidia-tls.so.1 &&
-  mkdir GL &&
-  cp gl*.h GL &&
 
   echo libXvMCNVIDIA_dynamic.so.1 > XvMCConfig &&
  
@@ -114,9 +112,6 @@
 
   mkdir -p /usr/include/cuda &&
   install -m0444 cuda*.h /usr/include/cuda &&
-
-  mkdir -p /usr/include/GL/nvidia &&
-  install -m0444 gl*.h /usr/include/GL/nvidia &&
 
   install -m0755 libnvidia-*.so.$VERSION /usr/lib &&
   ln -sf /usr/lib/libnvidia-cfg.so.$VERSION /usr/lib/libnvidia-cfg.so.1 &&
