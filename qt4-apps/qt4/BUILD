@@ -23,7 +23,7 @@
     OPTS+=" -make examples -make demos -make tools -make docs -make translations"
   fi &&
 
-  OPTS+=" -largefile -phonon -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -xmlpatterns -fast -shared" &&
+  OPTS+=" -largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -xmlpatterns -fast -shared" &&
 
   echo "yes" | ./configure                             \
                -prefix /usr                            \
@@ -44,7 +44,7 @@
 # It wants to point moc_location and uic_location to ${prefix}/src/qt-everywhere-opensource-src-4.7.0-beta2/bin
 # and after much fiddling cannot get it to point them to /usr/bin. So lets just sedit these rascals.
   for i in `ls /usr/lib/$MODULE/pkgconfig/Q*.pc` ; do sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:" $i ; done &&
-  sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:"  /usr/lib/$MODULE/pkgconfig/phonon.pc &&
+  sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:"  /usr/lib/$MODULE/pkgconfig/phonon.pc || true &&
 
   if [ "$MAKE_QDOC3" == "y" ]; then
      cd tools/qdoc3 &&
