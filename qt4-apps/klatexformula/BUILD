@@ -2,13 +2,14 @@
 
   . /etc/profile.d/qt4.rc &&
 
-  sedit "s:Icon=klatexformula:Icon=$QTDIR/share/icons/hicolor/32x32/apps/klatexformula.png:" src/klatexformula.desktop &&
-  sed -i "15i Categories=Qt;KDE;Office;" src/klatexformula.desktop &&
+  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
-  qmake PREFIX=$MODULE_PREFIX          \
-        INSTALLPREFIX=$MODULE_PREFIX   \
-        BACKEND_SHAREDORSTATIC=shared  \
-        $OPTS                         &&
+  mkdir $OOSB_DIR  &&
+  cd $OOSB_DIR     &&
+
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX   \
+                           -DCMAKE_BUILD_TYPE=RELEASE              \
+                           $OPTS                                  &&
 
   default_make
 
