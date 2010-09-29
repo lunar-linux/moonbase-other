@@ -2,6 +2,7 @@
 
   cd $SOURCE_DIRECTORY &&
   rm -f usr/X11R6/lib/modules/libnvidia-wfb* &&
+  rm -rf usr/include &&
   # We make the kernel modules on our own
   cd usr/src/nv &&
 
@@ -23,7 +24,6 @@
   sedit "s/__PIXMAP_PATH__/\/usr\/share\/doc\/NVIDIA_GLX-1.0/" usr/share/applications/nvidia-settings.desktop &&
 
   mkdir -p /usr/lib/opengl/nvidia &&
-  mkdir -p /usr/include/GL/nvidia &&
   mkdir -p /usr/include/cuda &&
 
   cd $SOURCE_DIRECTORY &&
@@ -41,7 +41,6 @@
 
   cd $SOURCE_DIRECTORY &&
   cp -f usr/bin/nvidia* /usr/bin &&
-  install -m644 usr/include/GL/*.h /usr/include/GL/nvidia &&
   install -m644 usr/include/cuda/*.h /usr/include/cuda &&
   cp -rf usr/lib/tls /usr/lib/opengl/nvidia/ &&
   cd /usr/lib/opengl/nvidia/tls &&
