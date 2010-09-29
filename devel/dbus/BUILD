@@ -1,5 +1,9 @@
 (
 
+  rm -fr /usr/lib/systemd/system/dbus.target.wants/dbus.socket
+  rm -fr /usr/lib/systemd/system/sockets.target.wants/dbus.socket
+  rm -fr /usr/lib/systemd/system/multi-user.target.wants/dbus.service
+
   OPTS="$OPTS --enable-checks --with-xml=expat                       \
         --with-system-pid-file=/var/run/messagebus.pid               \
         --with-system-socket=/var/lib/dbus/system_bus_socket         \
@@ -15,6 +19,6 @@
   chown -R messagebus:messagebus /var/lib/dbus  &&
 
   mkdir -p /etc/X11/xinit/xinitrc.d/  &&
-  install -m755 $SCRIPT_DIRECTORY/30-dbus /etc/X11/xinit/xinitrc.d/ 
+  install -m755 $SCRIPT_DIRECTORY/30-dbus /etc/X11/xinit/xinitrc.d/
 
 ) > $C_FIFO 2>&1
