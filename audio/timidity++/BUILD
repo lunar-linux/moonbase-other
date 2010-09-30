@@ -14,6 +14,9 @@
   if in_depends $MODULE libvorbis; then
     audio="${audio},vorbis"
   fi &&
+  if in_depends $MODULE jack; then
+    audio="${audio},jack"
+  fi &&
 
   ./configure --prefix=/usr \
               --localstatedir=/var/state/timidity++ \
