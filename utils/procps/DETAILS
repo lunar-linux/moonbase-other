@@ -1,13 +1,14 @@
           MODULE=procps
          VERSION=3.2.8
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=procps_fix_unknown_hz-30_sysctl_7numbers.patch
       SOURCE_URL=http://procps.sourceforge.net
+     SOURCE2_URL=$PATCH_URL/
       SOURCE_VFY=sha1:a0c86790569dec26b5d9037e8868ca907acc9829
         WEB_SITE=http://procps.sourceforge.net
          ENTERED=20010922
-         UPDATED=20090511
-        SHORT="procps contains utilities to report the state of the box"
-
+         UPDATED=20101004
+        SHORT="contains utilities to report the state of the box"
 cat << EOF
 procps is a package of utilities which report on the state of the system, 
 including the states of running processes, amount of memory available and 
