@@ -1,15 +1,19 @@
           MODULE=lout
-         VERSION=3.38
+         VERSION=3.39
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=$SFORGE_URL/lout
-      SOURCE_VFY=sha1:2c4aec500dc27a00298f8265b9249d74d97e5466
-        WEB_SITE=http://lout.sourceforge.net/
+   SOURCE_URL[0]=http://download.savannah.gnu.org/releases/lout/
+   # Mirror from http://lists.nongnu.org/archive/html/lout-users/2010-09/msg00005.html
+   SOURCE_URL[1]=ftp://ftp.it.usyd.edu.au/jeff/lout/
+      SOURCE_VFY=sha1:ab2c982d7e235b132aaae05f28af1795df2d1c71
+        WEB_SITE=http://savannah.nongnu.org/projects/lout/
          ENTERED=20090201
-         UPDATED=20090201
-      MAINTAINER=brebs@sent.com
+         UPDATED=20100927
            SHORT="Typesetting system, an alternative to (La)TeX"
 
 cat << EOF
-Lout is a batch document formatter. It reads a high-level description of a document similar in style to LaTeX and produces a PostScript file which can be printed on most laser printers. Plain text and PDF output are also available.
+Lout is a batch document formatter. It reads a high-level description
+of a document similar in style to LaTeX, and produces a PostScript file
+which can be printed on most laser printers. Plain text and PDF output
+are also available.
 EOF
