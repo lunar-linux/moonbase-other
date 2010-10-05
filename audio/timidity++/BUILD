@@ -14,6 +14,9 @@
   if in_depends $MODULE libvorbis; then
     audio="${audio},vorbis"
   fi &&
+  if in_depends $MODULE jack; then
+    audio="${audio},jack"
+  fi &&
 
   ./configure --prefix=/usr \
               --localstatedir=/var/state/timidity++ \
@@ -27,7 +30,7 @@
               $OPTS &&
 
   default_make &&
-  [ -d /usr/share/timidity ] || mkdir /usr/share/timidity &&
+  mkdir -p /usr/share/timidity &&
   install -m0664 $SOURCE_CACHE/$SOURCE2 /usr/share/timidity/timidity.cfg
 
 ) > $C_FIFO 2>&1
