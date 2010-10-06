@@ -1,5 +1,7 @@
 (
-
+  if [ "$ADD_CGROUPS" == "y" ]; then
+    patch_it ${SOURCE3} 1
+  fi  &&
   while
     if [ "$CONFIG_KERNEL" == "y" ]; then
         if [ "$PREFER_XCONFIG" == "y" -a -n "$DISPLAY" ]; then

@@ -3,13 +3,16 @@
             BASE=$(echo $VERSION | cut -d. -f1,2,3)
           SOURCE=linux-${BASE}.tar.bz2
          SOURCE2=patch-${VERSION}.bz2
+         SOURCE3=$MODULE-cgroups.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/linux-$VERSION
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6
   SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6
   SOURCE2_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6
+     SOURCE3_URL=$PATCH_URL
       SOURCE_VFY=sha1:4cb1fbfbeedcd658ca37739679c65dfaa136bf4e
      SOURCE2_VFY=sha1:e898d93008cecdd429a9332b148eda2b446b9fd5
+     SOURCE3_VFY=sha1:925d98a772a8e6ed1e83f22b0cb9e3f66ffdabb6
         WEB_SITE=http://www.kernel.org
          ENTERED=20041019
          UPDATED=20100929
