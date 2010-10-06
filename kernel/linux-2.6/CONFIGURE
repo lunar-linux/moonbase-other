@@ -2,9 +2,10 @@ mquery PREFER_XCONFIG "Do you prefer xconfig over menuconfig?" n
 
 if [ "`get_module_config PREFER_XCONFIG`" = "y" ]; then
     set_module_config "PREFER_MENUCONFIG" "n" ; 
-else 
+else
     mquery PREFER_MENUCONFIG "Do you prefer menuconfig over config?" y
 fi
+mquery ADD_CGROUPS "Patch the kernel to add cgroups file system entry (for systemd) ?" n
 
 unset_module_config CONFIG_KERNEL
 mquery CONFIG_KERNEL "Configure linux kernel?" n
