@@ -1,6 +1,8 @@
 depends kdebase4
 depends kdevplatform
 
+optional_depends "kdegraphics4" "" "" "for okular (PDF) bindings support"
+
 optional_depends "%PHP"        "-DENABLE_PHP-QT=on" "-DENABLE_PHP-QT=off"  "for php scripting support"
 
 optional_depends "ruby"        "-DENABLE_QTRUBY=on -DENABLE_KROSSRUBY=on" "-DENABLE_QTRUBY=off" \
