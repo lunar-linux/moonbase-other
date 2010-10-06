@@ -8,12 +8,11 @@
   mkdir -p /usr/share/doc/lout &&
   make -j1 ${opts} allinstall &&
 
-  # Create docs
-  cd doc/user && lout -r6 all -o /usr/share/doc/lout/user.ps &&
+  # Create docs - they are too complex for PDF output
+  cd doc/user  && lout -r6 all -o /usr/share/doc/lout/user.ps   &&
   cd ../design && lout -r3 all -o /usr/share/doc/lout/design.ps &&
   cd ../expert && lout -r4 all -o /usr/share/doc/lout/expert.ps &&
   cd ../slides && lout -r2 all -o /usr/share/doc/lout/slides.ps &&
   echo "Finished creating lout docs."
-  
-) > $C_FIFO 2>&1 
 
+) > $C_FIFO 2>&1
