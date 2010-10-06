@@ -1,12 +1,11 @@
 (
 
-   ./configure  --prefix=${GNOME_2280_PREFIX:-/usr}  \
-                --build=$BUILD        \
-                --sysconfdir=/etc     \
-                --localstatedir=/var  \
-                --infodir=${GNOME_2280_PREFIX:-/usr}/share/info  \
-                --mandir=${GNOME_2280_PREFIX:-/usr}/share/man    \
-                $OPTS                                           &&
-    default_make
+  if [ "`lvu version Python`" == "2.7" ]; then
+#bug report link http://bugzilla-attachments.gnome.org/attachment.cgi?id=166409
+    sedit "s:with LibtoolImporter:with LibtoolImporter(None,None):" giscanner/xmlwriter.py 
+    sedit "s:with LibtoolImporter:with LibtoolImporter(None,None):" giscanner/sourcescanner.py 
+  fi &&
+
+  default_build
 
 ) > $C_FIFO 2>&1
