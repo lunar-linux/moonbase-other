@@ -1,0 +1,25 @@
+          MODULE=libcgroup
+         VERSION=0.36.2
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$SFORGE_URL/libcg
+      SOURCE_VFY=sha1:93b78c17ef95c0c255ba245b843183fd016e7e58
+        WEB_SITE=http://libcg.sourceforge.net
+         ENTERED=20101006
+         UPDATED=20101006
+           SHORT="A library that abstracts the control group file system in Linux"
+
+cat << EOF
+libcg aims to provide programmers easily usable APIs to use the control 
+group file system. It should satisfy the following requirements: 
+ - Provide a programmable interface for cgroups
+   This should allow applications to create cgroups using something like 
+   create_cgroup() as opposed to having to go the whole filesystem route. 
+ - Provide persistent configuration across reboots
+   Control Groups have a lifetime of only one boot cycle. The configuration 
+   is lost at reboot. Userspace needs to handle this issue. 
+   This is handled by libcg. 
+ - Provide a programmable interface for manipulating configurations
+   This should allow libcg to handle changing application requirements. 
+   For example, while gaming, you might want to reduce the cpu power of other 
+   groups whereas othertimes you would want greater CPU power for those groups.
+EOF
