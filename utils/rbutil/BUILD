@@ -2,8 +2,8 @@
 
   . /etc/profile.d/qt4.rc &&
 
-  cd rbutil/ &&
-  sedit "s:/usr/local:/usr:g" rbutilqt/rbutilqt.pro &&
+  cd rbutil/rbutilqt/ &&
+  sedit "s:/usr/local:/usr:g" rbutilqt.pro &&
 
   qmake &&
 
