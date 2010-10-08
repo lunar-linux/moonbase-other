@@ -20,9 +20,9 @@
 
   default_config &&
 
-# To fix the /var/log/meesages warning SYSFS will be removed in future udev versions.
+  # To fix the /var/log/messages warning that SYSFS will be removed in future udev versions.
   sedit "s:SYSFS:ATTR:g" data/rules/56-hpmud_support.rules data/rules/55-hpmud.rules &&
 
-  default_make 
+  default_make
 
 ) > $C_FIFO 2>&1
