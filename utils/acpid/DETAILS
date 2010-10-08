@@ -1,17 +1,17 @@
           MODULE=acpid
-         VERSION=1.0.10
+         VERSION=2.0.6
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=$SFORGE_URL/$MODULE/
-      SOURCE_VFY=sha1:743a11f34993cbd70f011d45634c4520e2d4d426
-        WEB_SITE=http://acpid.sourceforge.net/
+      SOURCE_URL=http://www.tedfelix.com/linux
+      SOURCE_VFY=sha1:d2f5fdb80c6cee8b49250435d66828a4610b0846
+        WEB_SITE=http://acpid.sourceforge.net
          ENTERED=20031102
-         UPDATED=20091202
+         UPDATED=20101008
            SHORT="An ACPI event monitor daemon"
 
 cat << EOF
-ACPID is a completely flexible, totally extensible daemon for delivering 
-ACPI events. It listens on a file (/proc/acpi/event) and when an event 
-occurs, executes programs to handle the event. The programs it executes 
-are configured through a set of configuration files, which can be dropped 
-into place by packages or by the admin.
+This is Ted Felix's <http://www.tedfelix.com> branch of the acpid project
+which includes support for netlink and the input layer.
+/proc/acpi/event is a deprecated kernel interface for ACPI events. Newer
+kernels rely on netlink and the input layer to send ACPI-related events.
+This branch of acpid uses these new interfaces.
 EOF

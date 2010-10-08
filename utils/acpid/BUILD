@@ -6,7 +6,7 @@
 
   mkdir -p /etc/acpi/events /etc/acpi/actions &&
 
-  # not everybody wants the default poweroff script ;)
+#  not everybody wants the default poweroff script ;)
   if [ ! -e /etc/acpi/events/power ]; then
     install -D -m644 ${SCRIPT_DIRECTORY}/power /etc/acpi/events/power
   fi &&
