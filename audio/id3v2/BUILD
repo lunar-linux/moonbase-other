@@ -1,7 +1,6 @@
 (
 
-  sedit "s/opt\/local/usr/" Makefile      &&
-  sedit "s/man\//share\/man\//" Makefile  &&
+  sedit "s:/opt/local:/usr:" Makefile     &&
   make clean  &&
   default_make
 
