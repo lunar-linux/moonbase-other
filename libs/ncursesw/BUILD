@@ -41,7 +41,7 @@ set -x
 set +x  &&
   make  &&
   prepare_install  &&
-  cp -a lib/*w.so* /lib/  &&
+  cp -dR lib/*w.so* /lib/  &&
   ldconfig
 
 ) > $C_FIFO 2>&1
