@@ -1,5 +1,8 @@
 (
 
+  bad_flags -mssse3 &&
+  bad_flags -mfpmath=sse &&
+
   if [ "$USE_XINPUT" == "y" ]; then
     # XInput support is needed for Wacom tablets to work in GIMP
     OPTS+=" --with-xinput=yes"
