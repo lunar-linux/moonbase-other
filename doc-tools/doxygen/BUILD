@@ -1,24 +1,23 @@
 (
 
-  if in_depends doxygen qt4; then
+  if module_installed qt4; then
     . /etc/profile.d/qt4.rc
   fi &&
 
+  OPTS+=" --prefix /usr "  &&
+
   if [ -f src/Makefile ]; then
-    message "${MESSAGE_COLOR}Makefile's detected, doing make distclean before compiling${DEFAULT_COLOR}" &&
-    ./configure 
+    message "${MESSAGE_COLOR}Makefile's detected, doing make distclean before compiling${DEFAULT_COLOR}"  &&
+    ./configure $OPTS
     make distclean
   fi &&
 
-  ./configure --prefix /usr  \
-              $OPTS         &&
+  ./configure $OPTS  &&
 
-  make             &&
   if which python 2> /dev/null 1>&2; then
      make docs
-  fi               &&
-  prepare_install  &&
-  make install     &&
+  fi  &&
+  default_make  &&
 
 # I have notice with some apps notice during make
 # the /usr/share/doc/apr/docs/doxygen.conf needs to be updated. This takes
