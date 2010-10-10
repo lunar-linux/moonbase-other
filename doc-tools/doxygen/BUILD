@@ -1,7 +1,8 @@
 (
 
   if module_installed qt4; then
-    . /etc/profile.d/qt4.rc
+    . /etc/profile.d/qt4.rc &&
+    OPTS+=" --with-doxywizard"
   fi &&
 
   OPTS+=" --prefix /usr "  &&
@@ -12,12 +13,13 @@
     make distclean
   fi &&
 
-  ./configure $OPTS  &&
+  ./configure $OPTS &&
+
+  default_make &&
 
   if which python 2> /dev/null 1>&2; then
      make docs
   fi  &&
-  default_make  &&
 
 # I have notice with some apps notice during make
 # the /usr/share/doc/apr/docs/doxygen.conf needs to be updated. This takes
