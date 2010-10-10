@@ -1,5 +1,9 @@
 (
 
+  if in_depends $MODULE libvpx ; then
+     patch_it $SOURCE_CACHE/$SOURCE2 0
+  fi &&
+
   OPTS+=" --enable-gpl            \
           --enable-shared         \
           --enable-pthreads       \
