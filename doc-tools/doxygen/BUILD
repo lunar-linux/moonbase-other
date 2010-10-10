@@ -1,9 +1,11 @@
 (
 
   if module_installed qt4; then
-    . /etc/profile.d/qt4.rc &&
-    OPTS+=" --with-doxywizard"
-  fi &&
+    . /etc/profile.d/qt4.rc  &&
+      OPTS+=" --with-doxywizard"
+    else
+      patch_it $SOURCE_CACHE/$SOURCE2 1
+  fi  &&
 
   OPTS+=" --prefix /usr "  &&
 
@@ -11,15 +13,16 @@
     message "${MESSAGE_COLOR}Makefile's detected, doing make distclean before compiling${DEFAULT_COLOR}"  &&
     ./configure $OPTS
     make distclean
-  fi &&
+  fi  &&
 
-  ./configure $OPTS &&
+  ./configure $OPTS  &&
 
-  default_make &&
-
+  make  &&
+  prepare_install  &&
   if which python 2> /dev/null 1>&2; then
      make docs
   fi  &&
+  make install  &&
 
 # I have notice with some apps notice during make
 # the /usr/share/doc/apr/docs/doxygen.conf needs to be updated. This takes
