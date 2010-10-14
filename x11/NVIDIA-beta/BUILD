@@ -140,6 +140,7 @@
   ln -sf /usr/lib/vdpau/libvdpau_nvidia.so.$VERSION /usr/lib/vdpau/libvdpau_nvidia.so.1 &&
   ln -sf /usr/lib/vdpau/libvdpau_nvidia.so.1 /usr/lib/libvdpau_nvidia.so &&
 
+  mkdir -p /usr/lib/xorg/modules/drivers &&
   install -m0755 nvidia_drv.so /usr/lib/xorg/modules/drivers &&
   install -m0755 libglx.so.$VERSION /usr/lib/xorg/modules/extensions &&
 
