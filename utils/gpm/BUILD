@@ -9,6 +9,11 @@ BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA plea
 # specifically so we could link this to ncurses and then
 # link ncurses to bash which is needed at init time! If you 
 # move it you could break your system!
+
+# To fix bug report http://bugs.lunar-linux.org/view.php?id=442
+  if [ `arch` == "x86_64" ] ;then
+    CFLAGS="-fPIC"
+  fi &&
   
   ./configure  --build=$BUILD                          \
                --prefix=/usr                           \
