@@ -4,19 +4,19 @@
   # Remove files to avoid module conflicts and
   # make place for source compiled replacements
   rm -f .manifest libvdpau.so* libvdpau_trace.so* \
-  vdpau*.h pkg-history.txt nvidia-installer{,.*} \
+  pkg-history.txt nvidia-installer{,.*} \
   mkprecompiled nvidia-xconfig{,.*} nvidia-settings{,.*} \
   libnvidia-wfb* tls_test* libGL.la gl*.h &&
 
   # Temporary paths and symlinks to make sources compilable
   LD_LIBRARY_PATH="$SOURCE_DIRECTORY:$LD_LIBRARY_PATH" &&
-  CFLAGS=" -I$SOURCE_DIRECTORY -L$SOURCE_DIRECTORY $CFLAGS " &&
+  CFLAGS=" -L$SOURCE_DIRECTORY $CFLAGS " &&
   ln -s libGL.so.$VERSION nvidia-installer-$VERSION/libGL.so &&
   ln -s libnvidia-glcore.so.$VERSION nvidia-installer-$VERSION/libGLcore.so.1 &&
   ln -s libnvidia-tls.so.$VERSION nvidia-installer-$VERSION/libnvidia-tls.so.1 &&
 
   echo libXvMCNVIDIA_dynamic.so.1 > XvMCConfig &&
- 
+
   # Builds nvidia-installer from source
   cd nvidia-installer-$VERSION &&
   rm -f *Linux* &&
@@ -91,7 +91,7 @@
 # NV_VERBOSE=0 EXTRA_CFLAGS=$CFLAGS ARCH=
   make SYSSRC=`readlink /usr/src/linux` module &&
   rm -f $SOURCE_DIRECTORY/{libGL.so,libGLcore.so.1,libnvidia-tls.so.1} &&
- 
+
   prepare_install &&
 
   make SYSSRC=`readlink /usr/src/linux` install &&
@@ -107,13 +107,7 @@
   ln -sf  /usr/bin/nvidia-installer /usr/bin/nvidia-uninstall &&
   install -m0755 nvidia-xconfig /usr/bin &&
 
-  mkdir -p /usr/include/CL &&
-  install -m0444 cl*.h /usr/include/CL &&
-
-  mkdir -p /usr/include/cuda &&
-  install -m0444 cuda*.h /usr/include/cuda &&
-
-  install -m0755 libnvidia-*.so.$VERSION /usr/lib &&
+  install -m0755 libnv*.so.$VERSION /usr/lib &&
   ln -sf /usr/lib/libnvidia-cfg.so.$VERSION /usr/lib/libnvidia-cfg.so.1 &&
   ln -sf /usr/lib/libnvidia-cfg.so.1 /usr/lib/libnvidia-cfg.so &&
 
@@ -142,8 +136,10 @@
 
   mkdir -p /usr/lib/xorg/modules/drivers &&
   install -m0755 nvidia_drv.so /usr/lib/xorg/modules/drivers &&
+  mkdir -p /usr/lib/xorg/modules/extensions &&
   install -m0755 libglx.so.$VERSION /usr/lib/xorg/modules/extensions &&
 
+  mkdir -p /usr/share/applications &&
   install -m0444 nvidia-settings.desktop /usr/share/applications &&
 
   mkdir -p /usr/share/doc/NVIDIA_GLX-1.0/html &&
