@@ -1,0 +1,33 @@
+          MODULE=CUDA-OpenCL-headers
+         VERSION=3.2.9
+          SOURCE=cudatoolkit_${VERSION}_linux-headers.tar.xz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/cudatoolkit_${VERSION}_linux
+      SOURCE_URL=$PATCH_URL
+      SOURCE_VFY=sha1:5637a7703662acdd1214b33e7d8b9844d65a56ba
+        WEB_SITE=http://developer.nvidia.com/object/gpucomputing.html
+         ENTERED=20101016
+         UPDATED=20101016
+           SHORT="Nvidia CUDA and OpenCL headers extracted from SDK"
+
+cat << EOF
+Nvidia since 260 driver release stopped providing header files.
+Now CUDA and OpenCL headers are only present in CUDA Toolkit
+which wegihts 84.2 MB. From this package we need only some
+header files which weights 50 KB. So to avoid big unnecessary
+downloads of cuda toolkit I extracted them to separate archive.
+
+If you are Lunar developer and want to update this package do it
+the following way:
+1. Go to http://developer.nvidia.com/object/cuda_download.html
+2. Choose Linux
+3. Choose one of "CUDA Toolkit for " - no matter what Linux
+   distribution and if it is 32 or 64 bit.
+   I checked that all of them have the same header files.
+4. Download chosen CUDA Toolkit.
+5. Unpack it:
+./cudatoolkit_3.2.9_linux_32_rhel5.5.run --target rhel55 --noexec --keep
+6. All files are in include subdir.
+6. Replace files in this module's archive with those updated.
+Do not add any new header files. Just replace those that are already present.
+cudatoolkit provides many header files which are not needed outside toolkit.
+EOF
