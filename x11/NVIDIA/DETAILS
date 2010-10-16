@@ -1,5 +1,5 @@
           MODULE=NVIDIA
-         VERSION=256.53
+         VERSION=260.19.12
           SOURCE=NVIDIA-Linux-x86-$VERSION.run
          SOURCE2=nvidia-settings-$VERSION.tar.bz2
          SOURCE3=nvidia-installer-$VERSION.tar.bz2
@@ -21,20 +21,18 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION
   SOURCE_URL[13]=http://kr.download.nvidia.com/XFree86/Linux-x86/$VERSION
   SOURCE_URL[14]=http://ru.download.nvidia.com/XFree86/Linux-x86/$VERSION
   SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86/$VERSION
-  SOURCE_URL[16]=http://br.download.nvidia.com/XFree86/Linux-x86/$VERSION
-  SOURCE_URL[17]=http://la.download.nvidia.com/XFree86/Linux-x86/$VERSION
-     SOURCE2_URL=http://cgit.freedesktop.org/~aplattner/nvidia-settings/snapshot
-     SOURCE3_URL=http://cgit.freedesktop.org/~aplattner/nvidia-installer/snapshot
-     SOURCE4_URL=http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot
-      SOURCE_VFY=sha1:ecebed7c07368f6e0fe09aead042e234db0ac559
-     SOURCE2_VFY=sha1:384c86014403037f6f1caa5be97dae5061abfca0
-     SOURCE3_VFY=sha1:73b8f0c05bae0a7931a72c1bee0384fb94762ec6
-     SOURCE4_VFY=sha1:b7607bf0c5539b77a679befc5c78b23fe215cbb4
+     SOURCE2_URL=ftp://download.nvidia.com/XFree86/nvidia-settings
+     SOURCE3_URL=ftp://download.nvidia.com/XFree86/nvidia-installer
+     SOURCE4_URL=ftp://download.nvidia.com/XFree86/nvidia-xconfig
+      SOURCE_VFY=sha1:9738629d6c707c252ff57138a03edfcb94d978fb
+     SOURCE2_VFY=sha1:ae206e8a406c94a426235d6c96bdf3f88024dde3
+     SOURCE3_VFY=sha1:45c3fe5a01ea48bab27bffa17045cadea08ecd75
+     SOURCE4_VFY=sha1:1fc4ead3a16055bf9fc5abd95cc81418d6e9230b
         WEB_SITE=http://www.nvidia.com/
          LICENSE="proprietary"
          ENTERED=20030804
-         UPDATED=20100905
-           SHORT="X11 NVIDIA binary beta driver for Geforce 6/7/8/9/GT2xx"
+         UPDATED=20101015
+           SHORT="X11 NVIDIA binary driver for Geforce 6/7/8/9/GT2xx"
 KEEP_SOURCE=on
 cat << EOF
 These are the nvidia provided binary X11 drivers for their graphics
