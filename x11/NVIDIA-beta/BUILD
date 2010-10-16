@@ -1,6 +1,17 @@
 (
   # This is installer less build script. If you find bugs let me know by e-mail: zbiggy(0)o2(period)pl
 
+  GCCKNL=`cat /proc/version | cut -d\( -f3 | cut -d\  -f3`
+  GCCNOW=`gcc --version | grep gcc | cut -d\  -f3`
+  if [ $GCCKNL != $GCCNOW ]; then
+  message "${PROBLEM_COLOR}The kernel is compiled using gcc version: $GCCKNL"
+  message "but you try to compile nvidia kernel module with"
+  message "gcc version: $GCCNOW. You can not use different"
+  message "gcc to build kernel and modules. Please lin kernel"
+  message "with current gcc, then reboot and lin nvidia driver.${DEFAULT_COLOR}"
+  exit 1
+  fi &&
+
   # Remove files to avoid module conflicts and
   # make place for source compiled replacements
   rm -f .manifest libvdpau.so* libvdpau_trace.so* \
