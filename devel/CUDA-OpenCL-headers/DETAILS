@@ -1,23 +1,39 @@
           MODULE=CUDA-OpenCL-headers
          VERSION=3.2.9
-          SOURCE=cudatoolkit_${VERSION}_linux-headers.tar.xz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/cudatoolkit_${VERSION}_linux
+          SOURCE=cudatoolkit-$VERSION-linux-headers.tar.xz
+         SOURCE2=opencl.h
+         SOURCE3=cl_platform.h
+         SOURCE4=cl.h
+         SOURCE5=cl_ext.h
+         SOURCE6=cl_gl.h
+         SOURCE7=cl_gl_ext.h
+         SOURCE8=cl.hpp
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/cudatoolkit-$VERSION-linux-headers
       SOURCE_URL=$PATCH_URL
-      SOURCE_VFY=sha1:5637a7703662acdd1214b33e7d8b9844d65a56ba
+     SOURCE2_URL=http://www.khronos.org/registry/cl/api/1.1
+     SOURCE3_URL=$SOURCE2_URL
+     SOURCE4_URL=$SOURCE2_URL
+     SOURCE5_URL=$SOURCE2_URL
+     SOURCE6_URL=$SOURCE2_URL
+     SOURCE7_URL=$SOURCE2_URL
+     SOURCE8_URL=$SOURCE2_URL
+      SOURCE_VFY=sha1:6041a07c3cb137c2ad1485cca38fb0f104b4f226
         WEB_SITE=http://developer.nvidia.com/object/gpucomputing.html
          ENTERED=20101016
-         UPDATED=20101016
+         UPDATED=20101017
            SHORT="Nvidia CUDA and OpenCL headers extracted from SDK"
-
+CLEAR_CACHE=on
 cat << EOF
 Nvidia since 260 driver release stopped providing header files.
-Now CUDA and OpenCL headers are only present in CUDA Toolkit
-which wegihts 84.2 MB. From this package we need only some
-header files which weights 50 KB. So to avoid big unnecessary
-downloads of cuda toolkit I extracted them to separate archive.
+Now CUDA headers are only present in CUDA Toolkit which weights
+84.2 MB. From this package we need only some header files which
+weights 37 KB. So to avoid big unnecessary downloads of cuda toolkit
+I extracted them to separate archive.
 
 If you are Lunar developer and want to update this package do it
 the following way:
+0. OpenCL headers are present here:
+http://www.khronos.org/registry/cl
 1. Go to http://developer.nvidia.com/object/cuda_download.html
 2. Choose Linux
 3. Choose one of "CUDA Toolkit for " - no matter what Linux
