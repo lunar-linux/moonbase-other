@@ -1,14 +1,15 @@
           MODULE=symlinks
-         VERSION=1.2
+         VERSION=1.4
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-$VERSION-pathfix.patch.bz2
-   SOURCE_URL[0]=http://www.ibiblio.org/pub/Linux/utils/file/
-  SOURCE2_URL[0]=$PATCH_URL
-      SOURCE_VFY=sha1:a3dafe4b55206dcf19a8b4c67252628c2ad3fab4
+         SOURCE2=$MODULE-1.2-pathfix.patch.bz2
+      SOURCE_URL=http://www.ibiblio.org/pub/linux/utils/file
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:10038cf12e510fd5b7266811622e05361e2b6e40
         WEB_SITE=Unknown
          ENTERED=20030828
-         UPDATED=20030828
+         UPDATED=20101018
            SHORT="utils that scans for broken symlinks"
+
 cat << EOF
 Scans directories for symbolic links, and identifies danglind,
 relative, absolute, messy, and other_fs links. Can optionally
