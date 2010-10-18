@@ -2,13 +2,15 @@
 
   bad_flags -malign-double  &&
 
-  patch_it $SOURCE2 0  &&
-  patch_it $SOURCE3 0  &&
-  patch_it $SOURCE4 0  &&
-  patch_it $SOURCE5 0  &&
-  patch_it $SOURCE6 0  &&
-  patch_it $SOURCE7 0  &&
-  patch_it $SOURCE8 0  &&
+  patch_it $SOURCE2  0  &&
+  patch_it $SOURCE3  0  &&
+  patch_it $SOURCE4  0  &&
+  patch_it $SOURCE5  0  &&
+  patch_it $SOURCE6  0  &&
+  patch_it $SOURCE7  0  &&
+  patch_it $SOURCE8  0  &&
+  patch_it $SOURCE9  0  &&
+  patch_it $SOURCE10 0  &&
 
   OPTS+=" --bindir=/bin                 \
           --enable-readline             \
