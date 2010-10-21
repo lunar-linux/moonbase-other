@@ -45,20 +45,9 @@
     echo "ac_add_options --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL" >> mozconfig
   fi  &&
 
-  if [ "$SAFE" == "y" ] ; then
-    echo "ac_add_options --enable-safe-browsing" >> mozconfig
-  fi  &&
-
   setterm -bfreq -blength &&
 
   #Finally, the build!
-  if [ "$PGO" == "y" ] ; then
-    #CCache breaks the pgo build
-    export CCACHE_DISABLE=1
-    echo "ac_add_options --enable-profile-guided-optimization" >> mozconfig  &&
-    echo "mk_add_options PROFILE_GEN_SCRIPT='python $MOZ_OBJDIR/_profile/pgo/profileserver.py'" >> mozconfig
-  fi  &&
-
   default_build  &&
 
   # Now the .desktop file and the icon
