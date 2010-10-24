@@ -1,9 +1,10 @@
 (
 
-  sedit "s/MANDIR=\"\$PREFIX\/man/MANDIR=\"\$PREFIX\/share\/man/" configure
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
+  sedit "s/MANDIR=\"\$PREFIX\/man/MANDIR=\"\$PREFIX\/share\/man/" configure &&
+
   ./configure  --prefix=/usr  &&
-  make                        &&
-  prepare_install              &&
-  make    install
+  default_make
 
 ) > $C_FIFO 2>&1
