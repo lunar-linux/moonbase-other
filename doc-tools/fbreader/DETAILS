@@ -1,26 +1,36 @@
           MODULE=fbreader
          VERSION=0.12.10
           SOURCE=$MODULE-sources-$VERSION.tgz
-      SOURCE_URL=http://www.fbreader.org/
+         SOURCE2=fbreader-0.12.10-gcc45.patch
+      SOURCE_URL=http://www.fbreader.org
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:982f526c9325fc4eaea3c01370580846c4cce7cc
-        WEB_SITE=http://www.fbreader.org/
+     SOURCE2_VFY=sha1:4547fc9ce7f4f82e24c20a8781b828f66f9820a4
+        WEB_SITE=http://www.fbreader.org
          ENTERED=20060124
-         UPDATED=20100624
-           SHORT="e-book reader"
+         UPDATED=20101024
+           SHORT="An e-book reader, supporting many formats"
 
-PSAFE=no
 cat << EOF
-This e-book reader currently supports the following formats:
-
-fb2 e-book format
-html format (tables not currently supported)
-plucker format
-Palmdoc
-zTxt (Weasel format)
-plain text format
-
-Direct reading from tar, zip and gzip archives. (Multiple books in one archive
-are supported). Supported encodings: utf-8, us-ascii, windows-1251,
-windows-1252, koi8-r, ibm866, iso-8859-*, Big5, GBK. Automatic encoding
-detection is supported.
+FBReader is an e-book reader, with the following main features:
+* Supports several formats: fb2, HTML, CHM, plucker, Palmdoc, zTxt
+  (Weasel), TCR (psion), RTF, OEB, OpenReader, mobipocket, plain text.
+* Direct reading from tar, zip, gzip and bzip2 archives. (Multiple
+  books in one archive are supported.)
+* Automatic library building.
+* Automatic encoding detection is supported.
+* Automatically generated contents table.
+* Embedded images support.
+* Footnotes/hyperlinks support.
+* Position indicator.
+* Keeps the last open book and the last read positions for all opened
+  books between runs.
+* List of last-opened books.
+* Automatic hyphenations. Liang's algorithm is used. The same
+  algorithm is used in TeX, and TeX hyphenation patterns are used in
+  FBReader. Patterns for Czech, English, Esperanto, French, German and
+  Russian are included in the current version.
+* Text search.
+* Full-screen mode.
+* Screen rotation by 90, 180 and 270 degrees.
 EOF
