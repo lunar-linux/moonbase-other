@@ -2,6 +2,7 @@
 
   bad_flags -malign-double -s
 
+  export FORCE_UNSAFE_CONFIGURE=1    &&
   export CFLAGS="$CFLAGS -static"    &&
   export LDFLAGS="$LDFLAGS -static"  &&
 
@@ -15,7 +16,7 @@
                --bindir=/bin             &&
   make                                   &&
   prepare_install                        &&
-  cp  src/tar        /bin/tar-static     &&
-  cp  rmt/rmt        /bin/rmt-static
+  cp  src/tar  /bin/tar-static           &&
+  cp  rmt/rmt  /bin/rmt-static
 
 ) > $C_FIFO 2>&1
