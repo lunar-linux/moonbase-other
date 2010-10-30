@@ -5,8 +5,6 @@
   exit 1;
  fi &&
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-
   OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
   mkdir $OOTB_DIR  &&
