@@ -8,7 +8,7 @@
   export QTDIR PATH LD_LIBRARY_PATH DYLD_LIBRARY_PATH           &&
 
   PREFIX=$QTDIR                                                 &&
-  qmake -unix PREFIX=$PREFIX texmaker.pro                       &&
+  qmake PREFIX=$PREFIX texmaker.pro                             &&
 
   sedit "s:Icon=texmaker:Icon=/usr/share/pixmaps/texmaker.png:" utilities/texmaker.desktop &&
 

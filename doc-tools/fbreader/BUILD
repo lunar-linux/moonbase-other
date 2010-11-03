@@ -1,11 +1,18 @@
 (
-  sedit "s/#TARGET_ARCH = desktop/TARGET_ARCH = desktop/" makefiles/target.mk &&
-  sedit "s/#UI_TYPE = gtk/UI_TYPE = gtk/" makefiles/target.mk &&
-  sedit "s/TARGET_ARCH = win32/#TARGET_ARCH = win32/" makefiles/target.mk &&
-  sedit "s/UI_TYPE = win32/#UI_TYPE = win32/" makefiles/target.mk &&
-  make INSTALLDIR=/usr &&
-  prepare_install &&
-  make INSTALLDIR=/usr install &&
-  ln -sf /usr/bin/FBReader /usr/bin/fbreader
-  
+
+  # Compile with gcc 4.5.1
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
+  # Sensible browser default, based on http://koji.fedoraproject.org/koji/packageinfo?packageID=5070
+  sedit "s:mozilla:firefox:" fbreader/data/default/external.desktop.xml  &&
+
+  # From http://repos.archlinux.org/wsvn/community/fbreader/trunk/PKGBUILD
+  export TARGET_ARCH=desktop  &&
+  export UI_TYPE=gtk  &&
+  export TARGET_STATUS=release  &&
+
+  default_build  &&
+
+  ln -sfn /usr/bin/FBReader /usr/bin/fbreader
+
 ) > $C_FIFO 2>&1

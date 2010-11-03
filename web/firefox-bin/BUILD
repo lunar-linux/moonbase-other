@@ -1,9 +1,9 @@
 (
 
-  prepare_install   &&
+  prepare_install  &&
   message "${MESSAGE_COLOR}Installing Firefox ${VERSION}...${DEFAULT_COLOR}"  &&
-  cd /opt/lunar &&
-  unpack $SOURCE &&
+  cd /opt/lunar   &&
+  unpack $SOURCE  &&
 
   # Install the plugins in the right directories
   mkdir -p /opt/lunar/plugins  &&
