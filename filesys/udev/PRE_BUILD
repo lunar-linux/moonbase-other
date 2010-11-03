@@ -1,10 +1,8 @@
 if kernel_option_present CONFIG_SYSFS_DEPRECATED || \
-   ! kernel_option_present CONFIG_INOTIFY || \
    ! kernel_option_present CONFIG_INOTIFY_USER; then
   message "${PROBLEM_COLOR}PROBLEM: ${MODULE_COLOR}udev${DEFAULT_COLOR} detected incompatible kernel options."
   message "Please verify that CONFIG_SYSFS_DEPRECATED is disabled,"
-  message "and that CONFIG_INOTIFY and CONFIG_INOTIFY_USER"
-  message "are enabled."
+  message "and that CONFIG_INOTIFY_USER is enabled."
   message ""
   message "Then recompile your kernel and try 'lin udev' again."
   message ""

@@ -12,7 +12,7 @@
    OPTS="--target=x86-linux-gcc"
   fi  &&
 
-  ./configure  $OPTS  &&
+  ./configure  $OPTS       &&
 
   sedit "s:/usr/local:/usr:" config.mk &&
 

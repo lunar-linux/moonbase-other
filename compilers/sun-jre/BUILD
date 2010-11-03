@@ -31,14 +31,7 @@
   # Always use new plugin.
   # Firefox 3, Seamonkey 2, Google chrome/inium use it
   # KDE3/4 Konqueror and Opera always use Java directly so do not use any plugin
-  # if [ $NEWPLUGIN == 'y' ]; then
-  ln -sf /usr/java/latest/lib/i386/libnpjp2.so \
-         /opt/lunar/plugins/ &&
-  # else
-  # We do not have firefox 1/2 or Seamonkey 1 anymore so no browser uses old plugin
-  # ln -sf /usr/java/latest/plugin/i386/ns7/libjavaplugin_oji.so \
-  #       /opt/lunar/plugins/
-  # fi &&
+  ln -sf /usr/java/latest/lib/i386/libnpjp2.so /opt/lunar/plugins/ &&
 
   # This didn't get created, dead link. Do it this way.
   ln -sf /usr/java/latest/lib/i386/server/libjvm.so /usr/lib/libjvm.so &&
