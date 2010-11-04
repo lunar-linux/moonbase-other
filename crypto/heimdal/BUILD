@@ -32,9 +32,10 @@
   fi &&
 
   # Change default datadir (hardcoded)
-  sedit "s;var/heimdal;var/lib/heimdal;g" configure.in configure \
+  sedit "s;var/heimdal;var/lib/heimdal;g" configure doc/vars.texi \
         doc/setup.texi doc/heimdal.info kadmin/kadmind.8 kdc/kdc.8 \
-        lib/hdb/hdb.h lib/krb5/krb5.conf.5 lib/krb5/krb5.conf.cat5 &&
+        kdc/kstash.8 lib/krb5/krb5.conf.5 lib/krb5/krb5.conf.cat5 \
+        lib/kadm5/check-cracklib.pl lib/kadm5/iprop.8 &&
 
   patch_it $SOURCE2 1 &&
   patch_it $SOURCE3 1 &&
