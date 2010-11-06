@@ -2,6 +2,8 @@
 
   . /etc/profile.d/qt4.rc &&
 
+  OPTS="--with-qt-includes=/usr/include/qt4 --with-qt-libraries=/usr/lib/qt4" &&
+
   if module_installed teTeX ; then
    export PDFXMLTEX="pdfetex"
   fi &&
@@ -18,7 +20,7 @@ Exec=$QTDIR/bin/tulip
 Icon=$QTDIR/lib/tlp/bitmaps/logotulip.jpg
 Categories=Qt;KDE;Science;
 EOF
-                                                                                                                                                                                        
+
   install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop
 
 ) > $C_FIFO 2>&1
