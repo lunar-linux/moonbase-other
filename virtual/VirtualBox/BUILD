@@ -10,11 +10,12 @@
 
   # We need the qt4 paths
   . /etc/profile.d/qt4.rc &&
+  sedit "s:qt4/lib/pkgconfig:qt4/pkgconfig:g" configure &&
 
   # Build VirtualBox
   # Disable hardening, so normal users can run it
   OPTS+=" --disable-hardening"   &&
-  OPTS+=" --with-qt4-dir=$QTDIR" &&
+#  OPTS+=" --with-qt4-dir=$QTDIR" &&
   ./configure $OPTS              &&
   source ./env.sh                &&
   if !( module_installed Linux-PAM ); then
