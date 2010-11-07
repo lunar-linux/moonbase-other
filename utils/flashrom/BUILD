@@ -2,7 +2,6 @@
 
   sedit "s:/usr/local:/usr:g" Makefile &&
 
-  prepare_install  &&
-  default_build
+  default_make
 
 ) > $C_FIFO 2>&1
