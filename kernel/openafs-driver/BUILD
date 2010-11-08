@@ -6,7 +6,9 @@
   # Autoconf fix
   sedit 's;^AC_\(AIX\|MINIX\)$;;' acinclude.m4 &&
 
-  #./regen.sh &&
+  patch_it $SOURCE2 1 &&
+
+  ./regen.sh &&
 
   case `uname -r` in
     2.6.*)
