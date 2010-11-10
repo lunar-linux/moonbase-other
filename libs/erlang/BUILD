@@ -15,10 +15,11 @@
     OPTS="$OPTS --enable-smp-support --enable-threads"
   fi &&
 
-  ./configure   --prefix=/usr  \
-                $OPTS         &&
+  default_build
+#  ./configure   --prefix=/usr  \
+#                $OPTS         &&
 
-  default_make
+#  default_make
 
 
 ) > $C_FIFO 2>&1
