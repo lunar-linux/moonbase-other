@@ -2,8 +2,7 @@
 
   . /etc/profile.d/qt4.rc   &&
 
-  ./configure --prefix=/usr  \
-              $OPTS         &&
+  default_config            &&
 
   qmake myththemes.pro      &&
 
