@@ -2,11 +2,6 @@
 
   . /etc/profile.d/qt4.rc   &&
 
-  ./configure --prefix=/usr \
-              $OPTS         &&
-
-  qmake mythplugins.pro     &&
-
-  default_make
+  default_build 
 
 ) > $C_FIFO 2>&1
