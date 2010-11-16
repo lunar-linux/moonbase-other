@@ -3,7 +3,7 @@
   . /etc/profile.d/qt4.rc &&
 
   OPTS="--with-qt-includes=/usr/include/qt4 --with-qt-libraries=/usr/lib/qt4" &&
-
+  CFLAGS="-L /usr/lib/qt4"
   if module_installed teTeX ; then
    export PDFXMLTEX="pdfetex"
   fi &&
