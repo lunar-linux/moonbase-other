@@ -56,7 +56,7 @@
 
   echo export QTDIR=\"/usr\" > $SOURCE_DIRECTORY/qt4.rc  &&
   echo export PATH=\"'${PATH}':'${QTDIR}'/bin\" >> $SOURCE_DIRECTORY/qt4.rc  &&
-  echo export XDG_DATA_DIRS=\"'${XDG_DATA_DIRS}':/usr/share/qt4\" >> $SOURCE_DIRECTORY/qt4.rc &&
+  echo export XDG_DATA_DIRS=\"'${XDG_DATA_DIRS}':/usr/share/\" >> $SOURCE_DIRECTORY/qt4.rc &&
   echo export PKG_CONFIG_PATH=\"'${PKG_CONFIG_PATH}':/usr/lib/qt4/pkgconfig\" >> $SOURCE_DIRECTORY/qt4.rc &&
 
   install -m644 $SOURCE_DIRECTORY/qt4.rc /etc/profile.d/

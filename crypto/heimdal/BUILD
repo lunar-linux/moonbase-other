@@ -10,8 +10,8 @@
           --sysconfdir=/etc \
           --enable-shared \
           --with-readline=/usr \
-          --with-openssl=/usr" &&
-
+          --with-openssl=/usr \
+          --disable-otp" &&
   # Migration code, remove symlinks
   REMOVE_KRB="gssapi krb5-types.h krb5.h asn1_err.h krb5_asn1.h \
               krb5_err.h heim_err.h k524_err.h krb5-protos.h" &&
