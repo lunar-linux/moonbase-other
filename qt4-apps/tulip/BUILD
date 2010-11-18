@@ -1,14 +1,10 @@
 (
 
-  . /etc/profile.d/qt4.rc &&
+  source /etc/profile.d/qt4.rc   &&
 
-  OPTS="--with-qt-includes=/usr/include/qt4 --with-qt-libraries=/usr/lib/qt4" &&
-  CFLAGS="-L /usr/lib/qt4"
-  if module_installed teTeX ; then
-   export PDFXMLTEX="pdfetex"
-  fi &&
+  cmake . -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX -DCMAKE_BUILD_TYPE=RELEASE $OPTS  &&
 
-  default_build &&
+  default_make &&
 
   # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
