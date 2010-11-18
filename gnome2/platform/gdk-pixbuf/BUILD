@@ -1,6 +1,6 @@
 (
 
-  if module_installed openssl ; then
+  if module_installed jasper ; then
         OPTS="$OPTS --with-libjasper --with-included-loaders=png "
   fi &&
 
