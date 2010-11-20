@@ -1,3 +1,5 @@
 if [ -x  /etc/init.d/lirc.sh ]; then
-   /etc/init.d/lirc.sh start
+  if [ -x /var/run/lirc/lircd.pid ]; then
+     /etc/init.d/lirc.sh start
+  fi
 fi
