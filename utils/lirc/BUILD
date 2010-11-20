@@ -20,6 +20,9 @@
                     --localstatedir=/var  \
                     $OPTS                &&
     default_make
+    cp contrib/lircmd.conf /usr/share/doc/lirc/
+    cp contrib/lircd.conf /usr/share/doc/lirc/
+    cp contrib/lircrc /usr/share/doc/lirc/
 
 ) > $C_FIFO 2>&1  && (
 
