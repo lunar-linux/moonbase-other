@@ -12,3 +12,7 @@ if mount | grep "/tmp" | grep -q tmpfs ; then
   message "Consider mounting /tmp on a regular file system"
   message ""
 fi
+
+if module_installed akonadi; then
+lin -c akonadi
+fi
