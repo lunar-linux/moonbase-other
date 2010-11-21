@@ -1,12 +1,10 @@
 (
 
-  . /etc/profile.d/qt4.rc &&
+  source /etc/profile.d/qt4.rc   &&
 
-  if module_installed teTeX ; then
-   export PDFXMLTEX="pdfetex"
-  fi &&
+  cmake . -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX -DCMAKE_BUILD_TYPE=RELEASE $OPTS  &&
 
-  default_build &&
+  default_make &&
 
   # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
@@ -18,7 +16,7 @@ Exec=$QTDIR/bin/tulip
 Icon=$QTDIR/lib/tlp/bitmaps/logotulip.jpg
 Categories=Qt;KDE;Science;
 EOF
-                                                                                                                                                                                        
+
   install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop
 
 ) > $C_FIFO 2>&1

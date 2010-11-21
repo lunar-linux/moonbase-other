@@ -1,7 +1,8 @@
 (
 
-  patch_it  $SOURCE_CACHE/$SOURCE2 0  &&
-  sedit "s:CFLAGS=-O2:CFLAGS=$CFLAGS:" Makefile  &&
+  sedit "s:/usr/local:/usr:" Makefile &&
+  sedit "s:\$(bin):\$(sbin):g" Makefile &&
+
   default_make
 
 ) > $C_FIFO 2>&1
