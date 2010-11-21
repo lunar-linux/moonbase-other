@@ -1,4 +1,4 @@
-if ! kernel_option_present INPUT_UINPUT; then
+if ! kernel_option_present CONFIG_INPUT_UINPUT; then
   message "${PROBLEM_COLOR}PROBLEM: ${DEFAULT_COLOR}To use ${MODULE_COLOR}${MODULE}${DEFAULT_COLOR} you need to compile"
   message "your kernel with INPUT_UINPUT support."
   message "Please enable uinput support, found at:"

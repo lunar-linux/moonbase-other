@@ -1,8 +1,9 @@
 (
 
-  sedit s@/usr/local/include@/usr/include@g Makefile &&
-  sedit s@/usr/local/lib@/usr/lib@g Makefile &&
+  sedit 's:CFLAGS=": CFLAGS="-fPIC :' configure &&
 
-  default_build
+  ./configure -P /usr -I /usr/include -L /usr/lib $OPTS &&
+
+  default_make
 
 ) > $C_FIFO 2>&1

@@ -1,8 +1,6 @@
 (
 
   sedit "s/'-Werror'/''/" build/common.gypi  &&
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-# sedit '/mozzconf.h/d' third_party/WebKit/WebCore/platform/image-decoders/zlib/zconf.h &&
 
   export CHROMIUM_HOME=/usr/lib/$MODULE
 

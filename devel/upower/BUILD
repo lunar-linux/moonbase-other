@@ -1,5 +1,6 @@
 (
 
+  OPTS+=" --disable-man-pages "   &&
   sedit 's/-Werror//g' configure  &&
   default_build
 
