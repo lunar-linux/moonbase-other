@@ -61,6 +61,8 @@
       set_login_opts $lopt
     done
 
+    set_login_opts ENCRYPT_METHOD SHA512
+
     [ -e /etc/login.defs ] || install -m 0644 etc/login.defs /etc/login.defs
   fi &&
 
