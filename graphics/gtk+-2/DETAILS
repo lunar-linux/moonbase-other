@@ -2,13 +2,16 @@
            MAJOR=2.22
          VERSION=22.1
           SOURCE=$MODULE.$VERSION.tar.bz2
+         SOURCE2=old-icon-symlinks.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
    SOURCE_URL[0]=$GNOME_URL/sources/gtk+/$MAJOR
    SOURCE_URL[1]=ftp://ftp.gtk.org/pub/gtk/v$MAJOR
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:c88d8be4aebd6e59d6ca44d57f6acd18e2be1c08
+     SOURCE2_VFY=sha1:495fa37a887a7e99c68adaa9919f7270da7da57f
         WEB_SITE=http://www.gtk.org
          ENTERED=20020313
-         UPDATED=20101118
+         UPDATED=20101127
            SHORT="A multi-platform toolkit for creating GUIs"
 
 cat << EOF
