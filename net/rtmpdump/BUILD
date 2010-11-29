@@ -7,6 +7,8 @@
 
   prepare_install &&
 
-  make install
+  make install    &&
+
+  install rtmpdump rtmpgw rtmpsrv rtmpsuck /usr/bin
 
 ) > $C_FIFO 2>&1
