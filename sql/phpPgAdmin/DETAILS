@@ -1,20 +1,35 @@
-          MODULE=phpMyAdmin
-         VERSION=3.1.0
-         RELEASE=$VERSION-all-languages
-          SOURCE=$MODULE-$RELEASE.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$RELEASE
-      SOURCE_URL=$SFORGE_URL/phpmyadmin
-      SOURCE_VFY=sha1:9924700fafa97a6fae867a1acbabd21574e7c02a
-        WEB_SITE=http://www.phpmyadmin.net/home_page
+          MODULE=phpPgAdmin
+         VERSION=5.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$SFORGE_URL/phppgadmin/
+      SOURCE_VFY=sha1:55292a088671f3e9d6314ad5796abc577fda196b
+        WEB_SITE=http://phppgadmin.sourceforge.net/
          ENTERED=20040912
-         UPDATED=20081130
-           SHORT="A php web interface to administrate MySQL tables"
+         UPDATED=20101129
+           SHORT="web-based administration tool for PostgreSQL"
 
 cat << EOF
-phpMyAdmin is a tool written in PHP intended to handle the
-administration of MySQL over the Web. Currently it can create and drop
-databases, create/drop/alter tables, delete/edit/add fields, execute
-any SQL statement, manage keys on fields, manage privileges,export data
-into various formats and is available in 47 languages.  GPL License
-information.
+Features
+
+    * Administer multiple servers
+    * Support for PostgreSQL 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x, 8.4.x, 9.0.x
+    * Manage all aspects of:
+          o Users & groups
+          o Databases
+          o Schemas
+          o Tables, indexes, constraints, triggers, rules & privileges
+          o Views, sequences & functions
+          o Advanced objects
+          o Reports
+    * Easy data manipulation:
+          o Browse tables, views & reports
+          o Execute arbitrary SQL
+          o Select, insert, update and delete
+    * Dump table data in a variety of formats: SQL, COPY, XML, XHTML, CSV, Tabbed, pg_dump
+    * Import SQL scripts, COPY data, XML, CSV and Tabbed
+    * Supports the Slony master-slave replication engine
+    * Excellent language support:
+          o Available in 27 languages
+          o No encoding conflicts. Edit Russian data using a Japanese interface!
+
 EOF
