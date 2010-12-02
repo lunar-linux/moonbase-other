@@ -1,16 +1,16 @@
 (
 
  #Fix the init hang issue
- tar -xjf $SOURCE_CACHE/$SOURCE1 &&
- patch_it gdm-2.29.92-custom-session.patch 0 &&
- patch_it gdm-2.29.92-fix-daemonize-regression.patch 0 &&
- patch_it gdm-2.30.0-MinimalVT-detection.patch 0 &&
- patch_it gdm-2.30.2-include.patch 1 &&
+# tar -xjf $SOURCE_CACHE/$SOURCE1 &&
+# patch_it gdm-2.29.92-custom-session.patch 0 &&
+# patch_it gdm-2.29.92-fix-daemonize-regression.patch 0 &&
+# patch_it gdm-2.30.0-MinimalVT-detection.patch 0 &&
+# patch_it gdm-2.30.2-include.patch 1 &&
 
 
  autoreconf -fi  &&
 
- sedit 's:GDM_KEY_HALT "daemon/DefaultPath:GDM_KEY_HALT "daemon/HaltCommand:' daemon/gdm.h
+# sedit 's:GDM_KEY_HALT "daemon/DefaultPath:GDM_KEY_HALT "daemon/HaltCommand:' daemon/gdm.h
 
  add_priv_user gdm:gdm
 
