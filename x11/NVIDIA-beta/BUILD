@@ -12,6 +12,9 @@
   exit 1
   fi &&
 
+  # Fix for broken MSI in driver
+  patch_it $SOURCE5 0 &&
+
   # Remove files to avoid module conflicts and
   # make place for source compiled replacements
   rm -f .manifest libvdpau.so* libvdpau_trace.so* \
@@ -58,7 +61,7 @@
   fi &&
 
   # Builds nvidia-settings from source
-  cd ../nvidia-settings-$VERSION &&
+  cd ../nvidia-settings-260.19.21 &&
 
   # xf86vmode.h has been removed in xf86vidmodeproto 2.3
   if [[ ! -e /usr/include/X11/extensions/xf86vmode.h ]] ; then
