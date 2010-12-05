@@ -1,0 +1,30 @@
+          MODULE=mongodb
+         VERSION=r1.6.4
+          SOURCE=$MODULE-src-$VERSION.tar.gz
+         SOURCE2=$MODULE-1.6.0-fix-scons.patch
+      SOURCE_URL=http://downloads.mongodb.org/src/
+     SOURCE2_URL=$PATCH_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-src-$VERSION
+      SOURCE_VFY=sha256:47de312e3f479358c6f529ffed2a0de659c741cd781bf7a3cd0bc1a507ed19fe
+     SOURCE2_VFY=sha256:de26882ff9adcf46eb2227e185f7d880549333f0e87703cdf984cd1c4612ffd9
+        WEB_SITE="http://www.mongodb.org/"
+         ENTERED=20101205
+         UPDATED=20101205
+           SHORT="A scalable, high-performance, key-value store, document-oriented database"
+cat <<EOF
+MongoDB bridges the gap between key-value stores (which are fast and
+highly scalable) and traditional RDBMS systems (which provide rich
+queries and deep functionality).
+
+MongoDB (from "humongous") is a scalable, high-performance, open
+source, document-oriented database. Written in C++, MongoDB features:
+- Document-oriented storage
+- Full Index Support
+- Replication & High Availability
+- Auto-Sharding
+- Querying
+- Fast In-Place Updates
+- Map/Reduce
+- GridFS
+- Commercial Support
+EOF
