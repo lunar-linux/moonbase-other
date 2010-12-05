@@ -1,24 +1,16 @@
 (
 
-  # all our work is in here
-  cd src/  &&
+  export CFLAGS="${CFLAGS} -DJS_C_STRINGS_ARE_UTF8"
 
-  # need to be run twice, it's a silly build system
-  make -f Makefile.ref BUILD_OPT=1 JS_THREADSAFE=1 JS_DIST=/usr &&
-  make -f Makefile.ref BUILD_OPT=1 JS_THREADSAFE=1 JS_DIST=/usr &&
+  patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
+  patch_it $SOURCE4 1 &&
 
-  cd Linux_All_OPT.OBJ  &&
-  prepare_install       &&
+  sedit 's;include;include/js;' src/rules.mk &&
 
-  # install the lib and binaries
-  install libjs.a /usr/lib             &&
-  install libjs.so /usr/lib            &&
-  install -m0755 js jscpucfg /usr/bin  &&
-
-  # install the development headers
-  mkdir -p /usr/include/$MODULE            &&
-  install -m0644 *.h /usr/include/$MODULE  &&
-  cd ..                                    &&
-  install -m0644 *.{h,tbl} /usr/include/$MODULE
+  cd $SOURCE_DIRECTORY/src &&
+  make -f Makefile.ref JS_THREADSAFE=1 &&
+  prepare_install &&
+  make -f Makefile.ref install
 
 ) > $C_FIFO 2>&1
