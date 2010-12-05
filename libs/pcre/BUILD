@@ -10,7 +10,8 @@
                 --includedir=/usr/include  \
                 --infodir=/usr/share/info  \
                 --mandir=/usr/share/man    \
-                --enable-utf8             &&
+                --enable-utf8              \
+                --enable-unicode-properties                    &&
 
    sedit 's:$(libdir)/pkgconfig:/usr/lib/pkgconfig:' Makefile  &&
 
