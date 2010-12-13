@@ -1,7 +1,7 @@
 (
 
 
-  OPTS="--with-group=nut --with-user=nut" &&
+  OPTS="--with-group=nut --with-user=nut --sysconfdir=/etc/$MODULE" &&
 
   add_priv_user nut:nut -d /dev/null -s /bin/false &&
 
