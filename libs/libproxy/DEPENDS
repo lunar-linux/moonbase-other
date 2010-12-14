@@ -1,17 +1,39 @@
+depends cmake
+
 optional_depends  "kdebase4"          \
-                  "--with-kde"        \
-                  "--without-kde"     \
-                  "for KDE support"
+                  "-DWITH_KDE4=ON"    \
+                  "-DWITH_KDE=OFF"    \
+                  "for KDE bindings"
 
 optional_depends  "xulrunner"         \
-                  "--with-mozjs"      \
-                  "--without-mozjs"   \
-                  "for Mozilla/Firefox support"
+                  "-DWITH_MOZJS=ON"   \
+                  "-DWITH_MOZJS=OFF"  \
+                  "for Mozilla javascript bindings"
 
 optional_depends  "Python"            \
-                  "--with-python"     \
-                  "--without-python"  \
+                  "-DWITH_PYTHON=ON"  \
+                  "-DWITH_PYTHON=OFF" \
                   "for the Python bindings"
+
+optional_depends  "perl"              \
+                  "-DWITH_PERL=ON"    \
+                  "-DWITH_PERL=OFF"   \
+                  "for Perl bindings"
+
+optional_depends  "vala"              \
+                  "-DWITH_VALA=ON"    \
+                  "-DWITH_VALA=OFF"   \
+                  "for vala bindings"
+
+optional_depends  "webkit"            \
+                  "-DWITH_WEBKIT=ON"  \
+                  "-DWITH_WEBKIT=OFF" \
+                  "Enable webkit java script engine"
+
+optional_depends  "GConf"             \
+                  "-DWITH_GNOME=ON"   \
+                  "-DWITH_GNOME=OFF"  \
+                  "for Gnome/GConf bindings"
 
 #optional_depends  "mono"              \
 #                  ""                  \
