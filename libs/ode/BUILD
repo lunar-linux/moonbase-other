@@ -1,6 +1,6 @@
 (
 
-  OPTS="--enable-double-precision $OPTS"  &&
+  OPTS="--enable-double-precision $OPTS --enable-shared"  &&
 
   default_build
 
