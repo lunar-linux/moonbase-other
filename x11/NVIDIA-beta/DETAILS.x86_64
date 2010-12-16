@@ -1,7 +1,7 @@
           MODULE=NVIDIA-beta
-         VERSION=260.19.26
+         VERSION=260.19.29
           SOURCE=NVIDIA-Linux-x86_64-$VERSION-no-compat32.run
-         SOURCE2=nvidia-settings-260.19.21.tar.bz2
+         SOURCE2=nvidia-settings-$VERSION.tar.bz2
          SOURCE3=nvidia-installer-$VERSION.tar.bz2
          SOURCE4=nvidia-xconfig-$VERSION.tar.bz2
          SOURCE5=NVIDIA-Linux-MSI-fix.patch
@@ -22,24 +22,27 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86_64-$VERSION-no-compat32
   SOURCE_URL[13]=http://kr.download.nvidia.com/XFree86/Linux-x86_64/$VERSION
   SOURCE_URL[14]=http://ru.download.nvidia.com/XFree86/Linux-x86_64/$VERSION
   SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86_64/$VERSION
-     SOURCE2_URL=ftp://download.nvidia.com/XFree86/nvidia-settings
-     SOURCE3_URL=ftp://download.nvidia.com/XFree86/nvidia-installer
-     SOURCE4_URL=ftp://download.nvidia.com/XFree86/nvidia-xconfig
+  SOURCE2_URL[0]=ftp://download.nvidia.com/XFree86/nvidia-settings
+  SOURCE3_URL[0]=ftp://download.nvidia.com/XFree86/nvidia-installer
+  SOURCE4_URL[0]=ftp://download.nvidia.com/XFree86/nvidia-xconfig
+  SOURCE2_URL[1]=http://cgit.freedesktop.org/~aplattner/nvidia-settings/snapshot
+  SOURCE3_URL[1]=http://cgit.freedesktop.org/~aplattner/nvidia-installer/snapshot
+  SOURCE4_URL[1]=http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot
      SOURCE5_URL=$PATCH_URL
-      SOURCE_VFY=sha1:45aa9a2c295e6d65d9e2fe846b1e0c0f4c9286b0
-     SOURCE2_VFY=sha1:c560365663e471eccb0d76e40c94479d5884f701
-     SOURCE3_VFY=sha1:9f27f296baf34071a48a90c5267116d206b7d4c8
-     SOURCE4_VFY=sha1:b0bfc5f83e94358f7a8331e5517d8cebb623c9d1
+      SOURCE_VFY=sha1:50afce7d0ead62ea6a39137b3d453a5f3037436d
+     SOURCE2_VFY=sha1:47ec7e96e2476d3bf22403a52df1ad3b26890e24
+     SOURCE3_VFY=sha1:651c9eaca7967d517a331cbbff9252af4f2c3c6a
+     SOURCE4_VFY=sha1:31584bc70708c034e09807065d1bd568d466c326
      SOURCE5_VFY=sha1:3130b5804bbb9e3c33c2b06744535aa09968036b
-        WEB_SITE=http://www.nvidia.com/
+        WEB_SITE=http://www.nvidia.com
          LICENSE="proprietary"
          ENTERED=20030804
-         UPDATED=20101204
-           SHORT="X11 NVIDIA binary driver for Geforce 6/7/8/9/GT2xx"
+         UPDATED=20101216
+           SHORT="X11 NVIDIA binary beta driver for Geforce 6/7/8/9/GT2xx"
 
 cat << EOF
 These are the nvidia provided binary X11 drivers for their graphics
-cards. It also has the Linux kernel module needed for all Geforce 6/7/8/9/GT2xx
+cards. It also has the Linux kernel module needed for Geforce 6/7/8/9/GT2xx
 cards. Supported GPUs: (6/7/8/9/GTX 2xx families only)
 all Geforce 6xxx
 all Geforce 7xxx
