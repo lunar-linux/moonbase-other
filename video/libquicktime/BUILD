@@ -1,8 +1,7 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
-
-  OPTS="$OPTS --with-x --enable-gpl --without-doxygen"
+# Disabling gtk usage for now, causes the make to barf.
+  OPTS="$OPTS --enable-gpl --without-gtk"
 
   default_build
 
