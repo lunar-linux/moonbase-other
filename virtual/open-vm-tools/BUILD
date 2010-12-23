@@ -1,9 +1,6 @@
 (
 
-  # --without-x is just ugly workaround which disables GUI but makes module buildable.
-  # When next release appears it probably will have this compilation bug fixed so
-  # remove this parameter and try building without it.
-  ./configure --prefix=/usr --disable-static --disable-unity --without-x &&
+  ./configure --prefix=/usr --disable-static --disable-unity &&
   make &&
   cd modules &&
   make
