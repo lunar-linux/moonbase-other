@@ -1,6 +1,6 @@
-depends  boost-jam
+# For now making icu4c a depends until I or someone can figure out how
+# to get boost to build/install properly without it. 
+depends icu4c
 
 optional_depends "Python"  ""  "--without-python"  \
                  "to build the Boost Python bindings"
-
-optional_depends "icu4c" "-sHAVE_ICU=1" "" "to enable unicode support"
