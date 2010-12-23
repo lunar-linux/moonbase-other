@@ -1,8 +1,14 @@
 (
 
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             \
-                           $OPTS                                 &&
+
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=/usr   \
+                           -DCMAKE_BUILD_TYPE=RELEASE    \
+                           $OPTS                        &&
+
+# Their implementation of cmake tends to ignore the prefix, so that
+# needs some fixing, else things go in /usr/local.
+  FIX_PRE=`find -type f -print | cut -c 3-` &&
+  sedit "s:/usr/local:/usr:g" $FIX_PRE &&
 
   default_make
 
