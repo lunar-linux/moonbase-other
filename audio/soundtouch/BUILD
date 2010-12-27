@@ -6,6 +6,8 @@
 
   ./bootstrap &&
 
+  CXXFLAGS="-fPIC" &&
+
   OPTS="--enable-shared" &&
 
   if [ $USE_INTEGERS == "y" ] ; then
