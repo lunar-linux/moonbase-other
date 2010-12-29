@@ -18,8 +18,13 @@ optional_depends  "qt4"                    \
 
 optional_depends  "gtk+-2" \
                   ""       \
-                  ""       \
+                  "--disable-gdk"  \
                   "for GTK wrapper support"
+
+optional_depends  "gobject-introspection" \
+                  ""  \
+                  "--enable-introspection=no"  \
+                  "for GTK introspection support"
 
 optional_depends  "curl"              \
                   "--enable-libcurl"  \

@@ -1,5 +1,7 @@
 (
 
+   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
    python config_unix.py  &&
    python setup.py build  &&
    prepare_install        &&

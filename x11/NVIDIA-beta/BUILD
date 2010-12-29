@@ -61,7 +61,7 @@
   fi &&
 
   # Builds nvidia-settings from source
-  cd ../nvidia-settings-260.19.21 &&
+  cd ../nvidia-settings-$VERSION &&
 
   # xf86vmode.h has been removed in xf86vidmodeproto 2.3
   if [[ ! -e /usr/include/X11/extensions/xf86vmode.h ]] ; then

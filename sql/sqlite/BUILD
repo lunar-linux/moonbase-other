@@ -4,6 +4,14 @@
 
   LDFLAGS+=" -ldl" &&
 
+  if [ $USE_SEC_DEL == "y" ]; then
+    CFLAGS="-DSQLITE_SECURE_DELETE"
+  fi &&
+
+  if [ $USE_UNLOCK == "y" ] ; then
+    CFLAGS="-DSQLITE_ENABLE_UNLOCK_NOTIFY"
+  fi &&
+
   default_build  &&
   install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1
 
