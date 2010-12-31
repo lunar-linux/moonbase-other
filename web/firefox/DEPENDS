@@ -14,16 +14,12 @@ depends alsa-lib
 #optional_depends "sqlite"  ""  ""  \
 #                 "Use system sqlite"
 
-optional_depends "flash-plugin-10"  ""  ""  \
-                 "To enable Flash plugin"
+optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
+optional_depends "flash-plugin-10"  ""  ""  "To enable Flash plugin"
+optional_depends "gnome-vfs"        ""  ""  "For Gnome VFS support"
+optional_depends "hunspell"         ""  ""  "For spelling support"
 
-optional_depends "gnome-vfs"  ""  ""  \
-                 "For Gnome VFS support"
-
-optional_depends "Python"  ""  "" \
-                 "Needed to do a Profile Guided Optimization build"
-
-optional_depends "dbus-glib" "--enable-dbus" "--disable-dbus" "for dbus support"
-
-
-
+optional_depends "dbus-glib"       \
+                 "--enable-dbus"   \
+                 "--disable-dbus"  \
+                 "for dbus support"
