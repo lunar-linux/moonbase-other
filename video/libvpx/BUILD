@@ -1,18 +1,14 @@
 (
 
+  mkdir build-$MODULE &&
+  cd build-$MODULE &&
 
   CFLAGS="-fPIC" &&
 
-  OPTS="--enable-vp8 --enable-psnr  --enable-postproc --enable-shared \
-        --enable-runtime-cpu-detect --CPU=$CPU --disable-install-docs" &&
+  OPTS="--enable-vp8 --enable-psnr --enable-postproc --enable-shared --as=yasm \
+        --enable-runtime-cpu-detect --disable-install-docs --enable-pic --disable-examples" &&
 
-  if [ "`arch`" = "x86_64" ]; then
-   OPTS="--target=x86_64-linux-gcc"
-  else
-   OPTS="--target=x86-linux-gcc"
-  fi  &&
-
-  ./configure  $OPTS       &&
+  ../configure $OPTS &&
 
   sedit "s:/usr/local:/usr:" config.mk &&
 
