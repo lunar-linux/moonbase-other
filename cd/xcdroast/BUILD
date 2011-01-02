@@ -1,5 +1,11 @@
 (
-    
+
+    patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+
+    cd src/ &&
+    patch_it $SOURCE_CACHE/$SOURCE3 0 &&
+    cd $SOURCE_DIRECTORY &&
+
     ./configure --enable-gtk2                    \
                 --prefix=/usr                    \
                        --sysconfdir=/etc         \
