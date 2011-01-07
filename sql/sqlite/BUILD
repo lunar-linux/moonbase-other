@@ -5,11 +5,11 @@
   LDFLAGS+=" -ldl" &&
 
   if [ $USE_SEC_DEL == "y" ]; then
-    CFLAGS="-DSQLITE_SECURE_DELETE"
+    CFLAGS+=" -DSQLITE_SECURE_DELETE"
   fi &&
 
   if [ $USE_UNLOCK == "y" ] ; then
-    CFLAGS="-DSQLITE_ENABLE_UNLOCK_NOTIFY"
+    CFLAGS+=" -DSQLITE_ENABLE_UNLOCK_NOTIFY"
   fi &&
 
   default_build  &&
