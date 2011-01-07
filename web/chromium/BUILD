@@ -30,10 +30,21 @@ EOF
   OPTS="$OPTS -Duse_libjpeg_turbo=1"
   fi &&
 
+#  if module_installed libvpx; then
+#  patch_it $SOURCE2 0
+#  sedit 's@third_party/libvpx/source/libvpx/@@' remoting/base/*coder_vp8.cc
+#  sedit 's@third_party/libvpx/include/@@' third_party/ffmpeg/ffmpeg_stub_headers.fragment
+#  fi &&
+
+#  if module_installed speex; then
+#  sedit 's@third_party/speex/include/@@' chrome/browser/speech/speech_recognizer.cc
+#  cp $SOURCE_CACHE/$SOURCE3 third_party/speex
+#  fi &&
+
   OPTS="$OPTS -Duse_system_bzip2=1 -Duse_system_libevent=1 -Duse_system_libjpeg=1 -Duse_system_libpng=1 \
-  -Duse_system_libxml=1 -Duse_system_libxslt=1 -Dbuildtype=Official -Dfastbuild=1 -Duse_system_zlib=1 \
-  -Dproprietary_codecs=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1 -Dffmpeg_branding=Chrome \
-  -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome"
+  -Duse_system_libxml=1 -Duse_system_libxslt=1 -Duse_system_zlib=1 -Dproprietary_codecs=1 -Dwerror= -Ddisable_sse2=1 \
+  -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome -Duse_system_zlib=1 \
+  -Dfastbuild=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1"
 
   # set the target arch here
   if [ "`arch`" == "x86_64" ]; then
@@ -48,8 +59,8 @@ EOF
   fi
 
   # This is the configure step
-#  build/gyp_chromium -f make build/all.gyp $OPTS --depth=. &&
-   build/gyp_chromium --depth=. -Ddisable_sse2=1 -Duse_system_bzip2=1 -Duse_system_libevent=1 -Duse_system_libjpeg=1 -Duse_system_libpng=1 -Duse_system_libxml=1 -Duse_system_zlib=1 -Duse_system_sqlite=1 -Duse_cups=1 -Duse_gconf=0 -Duse_gnome_keyring=0 -Dlinux_link_gnome_keyring=0 -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome -Dproprietary_codecs=1 -Dtarget_arch=ia32 -Dwerror= &&
+  build/gyp_chromium -f make build/all.gyp $OPTS --depth=. &&
+
   # This is the make step
   make V=1 chrome chrome_sandbox BUILDTYPE=Release &&
 
