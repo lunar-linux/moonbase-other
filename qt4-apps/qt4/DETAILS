@@ -1,14 +1,17 @@
           MODULE=qt4
          VERSION=4.7.1
           SOURCE=qt-everywhere-opensource-src-${VERSION}.tar.gz
+         SOURCE2=qt-4.7.1-SSE.patch
    SOURCE_URL[0]=ftp://ftp.trolltech.com/qt/source
    SOURCE_URL[1]=http://gd.tuwien.ac.at/hci/qt/source
+     SOURCE2_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/qt-everywhere-opensource-src-${VERSION}
       SOURCE_VFY=sha1:fcf764d39d982c7f84703821582bd10c3192e341
+     SOURCE2_VFY=sha1:aa8e9a469a72816dc7601cf8ef48d876298460ba
    MODULE_PREFIX=${QT4_PREFIX:-/usr}
         WEB_SITE=http://www.trolltech.com/qt
          ENTERED=20020420
-         UPDATED=20101124
+         UPDATED=20110108
       MAINTAINER=florin@lunar-linux.org
            SHORT="A C++ toolkit for application development"
 
