@@ -4,7 +4,9 @@ depends  texlive-texmf
 depends  gd
 depends  fontconfig
 depends  ghostscript
-depends  lua
+
+# Needed to run fmtutil-sys in POST_INSTALL
+depends  luatex
 
 optional_depends "t1lib" "--with-system-t1lib" "--without-system-t1lib" "for t1lib support"
 optional_depends "icu4c" "--with-system-icu"   "--without-system-icu"   "for ICU support"
@@ -16,5 +18,5 @@ optional_depends "libX11" "" "--without-x" "for XOrg support (say n for e.g. fra
 
 # Building xindy requires that texlive is *already* installed!
 # Otherwise:  configure: error: LATEX is required to build xindy rules
-# It is saner to have xindy as a separate module, from http://xindy.sourceforge.net/
+# Should have xindy as a separate module, from http://xindy.sourceforge.net/
 #optional_depends "clisp" "--enable-xindy" "--disable-xindy" "for xindy book-like indexes"
