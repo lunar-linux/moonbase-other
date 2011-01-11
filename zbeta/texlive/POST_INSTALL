@@ -4,5 +4,7 @@ updmap-sys --quiet --syncwithtrees
 
 # Hint from https://bbs.archlinux.org/viewtopic.php?pid=607603
 # Prevent error message:  Fatal format file error; I'm stymied
-# Uses /usr/bin/luatex
-fmtutil-sys --quiet --all > /dev/null
+# Uses /usr/bin/luatex from luatex module (since 10-Jan-2011).
+if [ -x /usr/bin/luatex ] ; then
+  fmtutil-sys --quiet --all > /dev/null
+fi
