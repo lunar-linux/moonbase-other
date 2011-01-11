@@ -1,13 +1,14 @@
           MODULE=xfce4-cpugraph-plugin
-         VERSION=1.0.0
+           MAJOR=1.0
+         VERSION=$MAJOR.1
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=http://archive.xfce.org/src/panel-plugins/$MODULE/1.0
-   SOURCE_URL[1]=http://mocha.xfce.org/archives/src/panel-plugins/xfce4-cpugraph-plugin/1.0
-      SOURCE_VFY=sha1:5a5af0e66e53c7e0635056d78defea71028c7dfa
+   SOURCE_URL[0]=http://archive.xfce.org/src/panel-plugins/$MODULE/$MAJOR
+   SOURCE_URL[1]=http://mocha.xfce.org/archives/src/panel-plugins/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:666ed5f8ce379585622105390e7a58d1cb3cebc6
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.xfce.org
          ENTERED=20061124
-         UPDATED=20101009
+         UPDATED=20110112
            SHORT=""
 
 cat << EOF
