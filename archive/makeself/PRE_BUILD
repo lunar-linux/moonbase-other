@@ -2,7 +2,11 @@
 
   cd $BUILD_DIRECTORY  &&
 
-  sh $SOURCE_CACHE/$SOURCE
+  # Don't wait for user to press a key
+  cp $SOURCE_CACHE/$SOURCE .  &&
+  sedit "s:; read junk::1" $SOURCE  &&
+
+  sh $SOURCE
 
 )
 
