@@ -3,10 +3,14 @@ depends iasl
 depends dev86
 depends libxslt
 depends libXcursor
-depends qt4
 depends libIDL
 depends SDL_ttf
 depends alsa-lib
 depends libcap
+depends makeself
 
-optional_depends pulseaudio "" "--disable-pulse" "For pulseaudio backend"
+optional_depends qt4 "" "--disable-qt" "for UI (recommended)"
+optional_depends sun-jdk "" "--disable-java" "for Java bindings"
+optional_depends Python "" "--disable-python" "for Python bindings"
+optional_depends pulseaudio "" "--disable-pulse" "for pulseaudio backend"
+optional_depends texlive "" "--disable-docs" "to build PDF documentation"

@@ -1,5 +1,17 @@
 depends SDL
 depends zlib
+depends libpng
 depends freetype2
-optional_depends "timidity++" "" "" "for in game music"
-optional_depends "libpng" "" "" "for PNG screenshots"
+depends fontconfig
+
+optional_depends "timidity++" "" "" "for ingame music"
+
+optional_depends "lzo"                                   \
+                 "--with-liblzo2"                        \
+                 "--without-liblzo2"                     \
+                 "to open old (older than 0.3 savegames"
+
+optional_depends "icu4c"                              \
+                 "--with-icu"                         \
+                 "--without-icu"                      \
+                 "to support right-to-left languages"

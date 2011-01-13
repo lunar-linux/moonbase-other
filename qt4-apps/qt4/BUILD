@@ -46,7 +46,7 @@
                -importdir /usr/share/doc/$MODULE       \
                $OPTS                                  &&
 
-  default_make  &&
+  default_make || exit 1
 
 # It wants to point moc_location and uic_location to ${prefix}/src/qt-everywhere-opensource-src-4.7.0-beta2/bin
 # and after much fiddling cannot get it to point them to /usr/bin. So lets just sedit these rascals.

@@ -1,21 +1,8 @@
 (
-  if in_depends $MODULE libpng; then
-    OPTS+=" --with-png"
-  fi
+  ./configure  --prefix-dir=/usr          \
+               --man-dir=/share/man/man6  \
+               $OPTS                     &&
 
-  if in_depends $MODULE timidity++; then
-    OPTS+=" --with-midi=/usr/bin/timidity"
-  fi
-
-  ./configure \
-    --prefix-dir=/usr \
-    --with-sdl \
-    --with-zlib \
-    --with-freetype \
-    --with-fontconfig \
-    $OPTS &&
-
-  default_make &&
-  gather_docs docs changelog.txt readme.txt
+  default_make
 
 ) > $C_FIFO 2>&1
