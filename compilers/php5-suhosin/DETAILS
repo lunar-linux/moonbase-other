@@ -1,6 +1,6 @@
           MODULE=php5-suhosin
-     PHP_VERSION=5.2.14
-     SUHOSIN_VER=0.9.29
+     PHP_VERSION=5.2.17
+     SUHOSIN_VER=0.9.32.1
     SUHOSIN_PVER=0.9.7
          VERSION=$PHP_VERSION-$SUHOSIN_VER
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/php-$PHP_VERSION
@@ -12,17 +12,17 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/php-$PHP_VERSION
    SOURCE_URL[4]=http://nl.php.net/distributions
    SOURCE_URL[5]=http://de.php.net/distributions
    SOURCE_URL[6]=http://fr.php.net/distributions
-         SOURCE2=suhosin-$SUHOSIN_VER.tgz
-         SOURCE3=suhosin-patch-$PHP_VERSION-$SUHOSIN_PVER.patch.gz
+         SOURCE2=suhosin-$SUHOSIN_VER.tar.gz
+         SOURCE3=suhosin-patch-5.2.16-$SUHOSIN_PVER.patch.gz
      SOURCE2_URL=http://download.suhosin.org
      SOURCE3_URL=http://download.suhosin.org
-      SOURCE_VFY=sha1:311b44b2c0f2eea8ab8dab876d2a6b6e7a55632e
-     SOURCE2_VFY=sha1:2fa7c716a32e71fbb577fc3a9feaf46d783a501b
-     SOURCE3_VFY=sha1:0a12d3589f9c26dc7d6b6452ef7987b2e6527a30
+      SOURCE_VFY=sha1:d68f3b09f766990d815a3c4c63c157db8dab8095
+     SOURCE2_VFY=sha1:93fcb1d5f96691c4c50808a14dd3d6d4bbfea451
+     SOURCE3_VFY=sha1:fec10b2b81582d06bb0d0a96ea55c525afc8ab29
         WEB_SITE=http://www.hardened-php.net/suhosin/index.html
       MAINTAINER=striker@lunar-linux.org
          ENTERED=20061219
-         UPDATED=20100921
+         UPDATED=20110113
            SHORT="Suhosin is an advanced protection system for PHP"
 
 cat << EOF
