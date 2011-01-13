@@ -37,9 +37,6 @@
 
   default_build  &&
 
-  # Create symlinks in /usr/bin/, for e.g. pdflatex
-  texlinks -q  &&
-
   # Idea from http://repos.archlinux.org/wsvn/packages/texlive-bin/trunk/
   install -m644 $SOURCE_CACHE/$SOURCE3 /etc/fonts/conf.d/09-texlive-fonts.conf
 
