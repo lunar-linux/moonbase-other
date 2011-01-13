@@ -4,12 +4,12 @@
   GCCKNL=`cat /proc/version | cut -d\( -f3 | cut -d\  -f3`
   GCCNOW=`gcc --version | grep gcc | cut -d\  -f3`
   if [ $GCCKNL != $GCCNOW ]; then
-  message "${PROBLEM_COLOR}The kernel is compiled using gcc version: $GCCKNL"
-  message "but you try to compile nvidia kernel module with"
-  message "gcc version: $GCCNOW. You can not use different"
-  message "gcc to build kernel and modules. Please lin kernel"
-  message "with current gcc, then reboot and lin nvidia driver.${DEFAULT_COLOR}"
-  exit 1
+    message "${PROBLEM_COLOR}The kernel is compiled using gcc version: $GCCKNL"
+    message "but you try to compile nvidia kernel module with"
+    message "gcc version: $GCCNOW. You can not use different"
+    message "gcc to build kernel and modules. Please lin kernel"
+    message "with current gcc, then reboot and lin nvidia driver.${DEFAULT_COLOR}"
+    exit 1
   fi &&
 
   # Fix for broken MSI in driver
@@ -25,6 +25,7 @@
   # Temporary paths and symlinks to make sources compilable
   LD_LIBRARY_PATH="$SOURCE_DIRECTORY:$LD_LIBRARY_PATH" &&
   CFLAGS=" -L$SOURCE_DIRECTORY $CFLAGS " &&
+  export SYSSRC=/usr/src/linux &&
   ln -s libGL.so.$VERSION nvidia-installer-$VERSION/libGL.so &&
   ln -s libnvidia-glcore.so.$VERSION nvidia-installer-$VERSION/libGLcore.so.1 &&
   ln -s libnvidia-tls.so.$VERSION nvidia-installer-$VERSION/libnvidia-tls.so.1 &&
@@ -47,17 +48,17 @@
   make rebuild_rtld_test &&
   make &&
   if [[ $(arch) == x86_64 ]] ; then
-  install -m 755 _out/Linux_x86_64/nvidia-installer ..
-  install -m 755 _out/Linux_x86_64/mkprecompiled ..
-  install -m 644 _out/Linux_x86_64/nvidia-installer.1.gz ..
-  cp tls_test_`uname`-x86_64 ../tls_test
-  cp tls_test_dso_`uname`-x86_64.so ../tls_test_dso.so
+    install -m 755 _out/Linux_x86_64/nvidia-installer .. &&
+    install -m 755 _out/Linux_x86_64/mkprecompiled .. &&
+    install -m 644 _out/Linux_x86_64/nvidia-installer.1.gz .. &&
+    cp tls_test_`uname`-x86_64 ../tls_test &&
+    cp tls_test_dso_`uname`-x86_64.so ../tls_test_dso.so
   else
-  install -m 755 _out/Linux_x86/nvidia-installer ..
-  install -m 755 _out/Linux_x86/mkprecompiled ..
-  install -m 644 _out/Linux_x86/nvidia-installer.1.gz ..
-  cp tls_test_`uname`-x86 ../tls_test
-  cp tls_test_dso_`uname`-x86.so ../tls_test_dso.so
+    install -m 755 _out/Linux_x86/nvidia-installer .. &&
+    install -m 755 _out/Linux_x86/mkprecompiled .. &&
+    install -m 644 _out/Linux_x86/nvidia-installer.1.gz .. &&
+    cp tls_test_`uname`-x86 ../tls_test &&
+    cp tls_test_dso_`uname`-x86.so ../tls_test_dso.so
   fi &&
 
   # Builds nvidia-settings from source
@@ -71,13 +72,13 @@
   make clean &&
   make -C src/libXNVCtrl &&
 # X_CFLAGS=$CFLAGS GL_INCLUDE_PATH=$SOURCE_DIRECTORY
-  make
+  make &&
   if [[ $(arch) == x86_64 ]] ; then
-  install -m 755 _out/Linux_x86_64/nvidia-settings ..
-  install -m 644 _out/Linux_x86_64/nvidia-settings.1.gz ..
+    install -m 755 _out/Linux_x86_64/nvidia-settings .. &&
+    install -m 644 _out/Linux_x86_64/nvidia-settings.1.gz ..
   else
-  install -m 755 _out/Linux_x86/nvidia-settings ..
-  install -m 644 _out/Linux_x86/nvidia-settings.1.gz ..
+    install -m 755 _out/Linux_x86/nvidia-settings .. &&
+    install -m 644 _out/Linux_x86/nvidia-settings.1.gz ..
   fi && 
   install -m 644 doc/nvidia-settings.png .. &&
   install -m 644 doc/nvidia-settings.desktop .. &&
@@ -87,11 +88,11 @@
   make clean &&
   make &&
   if [[ $(arch) == x86_64 ]] ; then
-  install -m 755 _out/Linux_x86_64/nvidia-xconfig ..
-  install -m 644 _out/Linux_x86_64/nvidia-xconfig.1.gz ..
+    install -m 755 _out/Linux_x86_64/nvidia-xconfig ..
+    install -m 644 _out/Linux_x86_64/nvidia-xconfig.1.gz ..
   else
-  install -m 755 _out/Linux_x86/nvidia-xconfig ..
-  install -m 644 _out/Linux_x86/nvidia-xconfig.1.gz ..
+    install -m 755 _out/Linux_x86/nvidia-xconfig ..
+    install -m 644 _out/Linux_x86/nvidia-xconfig.1.gz ..
   fi &&
   cd .. &&
   sedit 's/__UTILS_PATH__/\/usr\/bin/' nvidia-settings.desktop &&
@@ -103,12 +104,12 @@
   sedit "s@\$\(shell uname -r\)@`readlink /usr/src/linux | cut -d- -f2`@" Makefile.* makefile &&
 # sedit "s/-O/$CFLAGS/" Makefile.nvidia &&
 # NV_VERBOSE=0 EXTRA_CFLAGS=$CFLAGS ARCH=
-  make SYSSRC=`readlink /usr/src/linux` module &&
+  make module &&
   rm -f $SOURCE_DIRECTORY/{libGL.so,libGLcore.so.1,libnvidia-tls.so.1} &&
 
   prepare_install &&
 
-  make SYSSRC=`readlink /usr/src/linux` install &&
+  make install &&
 # NV_VERBOSE=0 EXTRA_CFLAGS=$CFLAGS ARCH=
   cd .. &&
 
