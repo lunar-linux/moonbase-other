@@ -7,10 +7,6 @@
   ./build.sh  &&
 
   # Install executable
-  install -m755 build/texk/web2c/luatex /usr/bin/  &&
-  pushd .  &&
-  cd /usr/bin/  &&
-  ln -sfn luatex lualatex  &&
-  popd
+  install -m755 build/texk/web2c/luatex /usr/bin/
 
 ) > $C_FIFO 2>&1
