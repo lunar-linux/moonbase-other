@@ -2,7 +2,6 @@ depends makeobj
 depends cmake
 depends automoc
 depends strigi
-depends soprano
 depends phonon
 depends shared-mime-info
 depends shared-desktop-ontologies
@@ -12,6 +11,7 @@ depends %GIF
 depends libdbusmenu-qt
 depends docbook-xml
 
+optional_depends "soprano"     "" "" "for RDF data support"
 optional_depends "polkit-qt-1" "" "" "for Kauth support"
 optional_depends "PyQt4"       "" "" "for python support in other kde4 modules"
 optional_depends "gamin"       "" "" "for file alteration support"
@@ -26,5 +26,11 @@ optional_depends "xz"          "" "" "for lzma compression/decompression support
 optional_depends "avahi"       "" "" "for zeroconfig support"
 optional_depends "agg"         "" "" "for Anit-Grain Geometry graphics support"
 optional_depends "hspell"      "" "" "for Hebrew spell-checking support"
+optional_depends "grantlee"    "" "" "for plugin based String Template system support"
+optional_depends "subversion"  "" "" "for subversion support; can be used by Dolphin"
+optional_depends "git"         "" "" "for git support; can be used by Dolphin"
+
 optional_depends "qca2-cyrus-sasl" "" "" "for cryptographic and gssapi support"
-optional_depends "xscreensaver" "" "" "for screensaver support"
+optional_depends "xscreensaver"    "" "" "for screensaver support"
+
+#optional_depends "herqq"     "" "" "for UPnP support for Solid"

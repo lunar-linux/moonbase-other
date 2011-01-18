@@ -1,12 +1,9 @@
 (
 
-  make                                                  &&
+  ACLOCAL_VER=`lvu version automake|cut -c 1-4` &&
+  sedit "s:1.10:$ACLOCAL_VER:" configure &&
 
-  prepare_install                                       &&
+  libtoolize &&
 
-  mkdir -p /usr/include/cgilib-$VERSION                 &&
-  install -m0644 cgi.h /usr/include/cgilib-$VERSION     &&
-  install -m0644 libcgi.a /usr/lib/                     &&
-  install -m0644 $SCRIPT_DIRECTORY/cgilib.pc /usr/lib/pkgconfig
-
+  default_build
 ) > $C_FIFO 2>&1

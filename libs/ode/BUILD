@@ -1,6 +1,7 @@
 (
 
-  OPTS="--enable-double-precision $OPTS"  &&
+  OPTS="--disable-asserts --enable-shared --enable-double-precision \
+        --disable-demos"  &&
 
   default_build
 

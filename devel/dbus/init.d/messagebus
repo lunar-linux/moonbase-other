@@ -17,6 +17,11 @@ start () {
   if [ -x /usr/bin/dbus-uuidgen ] ; then
     /usr/bin/dbus-uuidgen --ensure
   fi
+
+  #Create /var/run/dbus since /var/run is tmpfs
+  install -m 755 -d /var/run/dbus
+  chown messagebus:messagebus /var/run/dbus
+
   dbus-daemon $ARGS &> /dev/null
   if [ $? == 0 ] ; then
     mkpid

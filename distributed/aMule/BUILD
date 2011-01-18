@@ -1,6 +1,7 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+# Removing a redundant wxFont.
+  sedit "s|::wxFont||"  src/utils/wxCas/src/wxcasframe.cpp &&
 
   OPTS="$OPTS --disable-debug \
               --enable-wxcas \

@@ -1,6 +1,6 @@
 depends gtk+-2 
 depends libpng 
-depends jpeg   
+depends %JPEG 
 depends tiff
 
 optional_depends Python       "-DCMAKE_BUILD_NEW_PYTHON_SUPPORT=ON"  \
@@ -31,6 +31,7 @@ optional_depends swig         "-DBUILD_SWIG_PYTHON_SUPPORT=ON"  \
                               "-DBUILD_SWIG_PYTHON_SUPPORT=OFF" \
                               "for swig support"
 
+#For now say no.
 optional_depends unicap       "-DWITH_UNICAP=ON"    \
                               "-DWITH_UNICAP=OFF"  \
                               "for additional video capture support"

@@ -1,6 +1,14 @@
 (
   export CFLAGS="$CFLAGS -I/usr/include/et" &&
   export CXXFLAGS="$CXXFLAGS -I/usr/include/et" &&
+  
+
+# When -O1 and --as-needed are set together for the linker you get both
+#  -Wl,-O1,--as-needed and -Wl,--as-needed.  The --as-needed causes heimdal 
+# to fail linking.  Instead of adding 2 bad_flags to we just need a , in front 
+# of --as-needed to fix it.
+
+  bad_flags ",--as-needed" &&
 
   OPTS+=" --prefix=/usr \
           --without-x \

@@ -1,7 +1,7 @@
 (
 
   OPTS+=" --enable-gpl --enable-shared --enable-pthreads  \
-          --enable-postproc --enable-avfilter --enable-avfilter-lavf"
+          --enable-postproc --enable-avfilter"
 
   [ -n $CPU ] && OPTS+="$OPTS --cpu=$CPU"
 

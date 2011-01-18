@@ -1,13 +1,18 @@
           MODULE=webkit
-         VERSION=1.2.5
+         VERSION=1.2.6
           SOURCE=$MODULE-$VERSION.tar.gz
+         # From http://repos.archlinux.org/wsvn/packages/libwebkit/trunk/introspection.patch
+         SOURCE2=webkit-1.2.5-introspection-1.2.patch
       SOURCE_URL=http://www.webkitgtk.org
-      SOURCE_VFY=sha1:2cd50e62a0c94bba8cc8a8466ea16fac1f9fc1ce
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:0dcfbf7cedda400567f2e081b12987b9d82b33eb
+     SOURCE2_VFY=sha1:7a8dc56304a57d4e4a9819e61ab7a97cfee0f3ee
         WEB_SITE=http://www.webkit.org
          ENTERED=20070919
-         UPDATED=20101105
+         UPDATED=20110101
            SHORT="gtk+ web rendering engine"
-#PSAFE=no
+           PSAFE=no
+
 cat << EOF
 WebKitGTK+ is a web content engine, derived from KHTML and KJS from KDE,
 and used primarily in Apple's Safari browser. It is made to be embedded
