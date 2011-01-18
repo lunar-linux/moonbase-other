@@ -1,11 +1,9 @@
 (
 
-  sedit "s:^banner=.*:banner=no:" colordiffrc     &&
+  sedit "s:^banner=.*:banner=no:" colordiffrc &&
+  sedit "s:xmlto:xmlto --skip-validation:" Makefile &&
+  sedit "s:/usr/local:/usr:" Makefile &&
 
-  prepare_install  &&
-
-  install -m0755 colordiff.pl $MODULE_PREFIX/bin  &&
-  install -m0644 colordiffrc  /etc                &&
-  install -m0644 colordiff.1  $MODULE_PREFIX/man/man1
+  default_build
 
 ) > $C_FIFO 2>&1

@@ -1,11 +1,10 @@
 (
 
-  if [ ! -f /usr/share/wine/gecko ] ; then
-    mkdir -p /usr/share/wine/gecko
-  fi &&
+  prepare_install  &&
 
-  prepare_install &&
+  mkdir -p /usr/share/wine/gecko  &&
 
-  cp -R wine_gecko/* /usr/share/wine/gecko/
+  # The cab is not meant to be uncompressed
+  install -m644 $SOURCE_CACHE/$SOURCE /usr/share/wine/gecko/
 
 ) > $C_FIFO 2>&1

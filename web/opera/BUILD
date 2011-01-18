@@ -1,12 +1,11 @@
 (
 
-  # Change default PREFIX
-  sedit 's;PREFIX=/usr/local;PREFIX=/usr;g' install &&
-  # Remove finalize_xdg call or the file tracker will catch all mime/application files
-  sedit '/finalize_xdg$/d' install &&
+  # Remove finalize_desktop call or the file tracker will catch all mime/application files
+  sedit '/finalize_desktop$/s,.*,true,g' install &&
+  sedit '/finalize_desktop.*null.*/s,.*,true,' install &&
 
   prepare_install &&
-  ./install --system --unattended --quiet --force &&
+  ./install --prefix /usr --unattended --quiet --force &&
 
   cat >> /usr/share/opera/defaults/pluginpath.ini << EOF
 

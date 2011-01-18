@@ -2,6 +2,18 @@
 
   sedit "s/'-Werror'/''/" build/common.gypi  &&
 
+  echo Fixing dumb CPU optimizations please wait in patience...
+  find . -type f -exec sed -i \
+  -e 's/-mcpu=/-march=/g' \
+  -e 's/-mtune=/-march=/g' \
+  -e 's/=pentium4/=native/g' \
+  -e 's/=i386/=native/g' \
+  -e 's/=i486/=native/g' \
+  -e 's/=core2/=native/g' \
+  -e 's/=pentiumpro/=native/g' \
+  -e 's/=pentium/=native/g' \
+  -e 's/=k6/=native/g' {} \; &&
+
   export CHROMIUM_HOME=/usr/lib/$MODULE
 
   mkdir -p "${SOURCE_DIRECTORY}"/.gyp  &&
@@ -14,9 +26,25 @@
 }
 EOF
 
-  OPTS="$OPTS -Duse_system_bzip2=1 -Duse_system_libevent=1 -Duse_system_libjpeg=1 -Duse_system_libpng=1 -Duse_system_libxml=1 -Duse_system_libxslt=1"
+  if module_installed libjpeg-turbo; then
+  OPTS="$OPTS -Duse_libjpeg_turbo=1"
+  fi &&
 
-  OPTS="$OPTS -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome"
+#  if module_installed libvpx; then
+#  patch_it $SOURCE2 0
+#  sedit 's@third_party/libvpx/source/libvpx/@@' remoting/base/*coder_vp8.cc
+#  sedit 's@third_party/libvpx/include/@@' third_party/ffmpeg/ffmpeg_stub_headers.fragment
+#  fi &&
+
+#  if module_installed speex; then
+#  sedit 's@third_party/speex/include/@@' chrome/browser/speech/speech_recognizer.cc
+#  cp $SOURCE_CACHE/$SOURCE3 third_party/speex
+#  fi &&
+
+  OPTS="$OPTS -Duse_system_bzip2=1 -Duse_system_libevent=1 -Duse_system_libjpeg=1 -Duse_system_libpng=1 \
+  -Duse_system_libxml=1 -Duse_system_libxslt=1 -Duse_system_zlib=1 -Dproprietary_codecs=1 -Dwerror= -Ddisable_sse2=1 \
+  -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome -Duse_system_zlib=1 \
+  -Dfastbuild=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1"
 
   # set the target arch here
   if [ "`arch`" == "x86_64" ]; then
@@ -36,6 +64,9 @@ EOF
   # This is the make step
   make V=1 chrome chrome_sandbox BUILDTYPE=Release &&
 
+  # Make missing libffmpegsumo.so
+  make -C third_party/ffmpeg -f ffmpeg.Makefile &&
+
   prepare_install &&
 
   mkdir -p ${CHROMIUM_HOME} &&
@@ -50,6 +81,7 @@ EOF
   cp -a out/Release/resources ${CHROMIUM_HOME} &&
   install -m 644 out/Release/chrome.1 /usr/share/man/man1/ &&
   install -m 644 out/Release/chrome.1 /usr/share/man/man1/chromium.1 &&
+  install -m 644 third_party/ffmpeg/out/Debug/libffmpegsumo.so ${CHROMIUM_HOME} &&
   if module_installed ffmpeg; then
     ln -sf /usr/lib/libavcodec.so.52 ${CHROMIUM_HOME}/libavcodec.so.52
     ln -sf /usr/lib/libavformat.so.52 ${CHROMIUM_HOME}/libavformat.so.52

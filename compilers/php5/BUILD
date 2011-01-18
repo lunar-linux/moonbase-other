@@ -19,6 +19,7 @@
   fi
 
   # sedit "s:^:#include <errno.h>\n:" ext/mysql/libmysql/mysys_err.h &&
+  sedit 's/__GMP_BITS_PER_MP_LIMB/GMP_LIMB_BITS/' ext/gmp/gmp.c &&
 
   verbose_msg "OPTS=$OPTS" &&
 

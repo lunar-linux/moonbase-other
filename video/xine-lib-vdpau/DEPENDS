@@ -1,4 +1,8 @@
 depends  %X
+depends  libcdio
+depends  vcdimager
+depends  ffmpeg
+depends  libmpcdec
 depends  %VDPAUDEVICE
 
 optional_depends  "alsa-utils" \
@@ -20,8 +24,3 @@ optional_depends  "libcaca" \
                   "" \
                   "--disable-caca" \
                   "for text support"
-
-optional_depends  "ffmpeg"                    \
-                  "--with-external-ffmpeg"    \
-                  "--without-external-ffmpeg" \
-                  "for ffmpeg support"

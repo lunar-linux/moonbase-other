@@ -1,5 +1,5 @@
           MODULE=CUDA-OpenCL-headers
-         VERSION=3.2.9
+         VERSION=3.2.16
           SOURCE=cudatoolkit-$VERSION-linux-headers.tar.xz
          SOURCE2=opencl.h
          SOURCE3=cl_platform.h
@@ -17,10 +17,10 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/cudatoolkit-$VERSION-linux-headers
      SOURCE6_URL=$SOURCE2_URL
      SOURCE7_URL=$SOURCE2_URL
      SOURCE8_URL=$SOURCE2_URL
-      SOURCE_VFY=sha1:6041a07c3cb137c2ad1485cca38fb0f104b4f226
+      SOURCE_VFY=sha1:bcdde02d8f7ec9edbe8db76d4241990f256bfd36
         WEB_SITE=http://developer.nvidia.com/object/gpucomputing.html
          ENTERED=20101016
-         UPDATED=20101017
+         UPDATED=20101204
            SHORT="Nvidia CUDA and OpenCL headers extracted from SDK"
 CLEAR_CACHE=on
 cat << EOF
@@ -41,7 +41,7 @@ http://www.khronos.org/registry/cl
    I checked that all of them have the same header files.
 4. Download chosen CUDA Toolkit.
 5. Unpack it:
-./cudatoolkit_3.2.9_linux_32_rhel5.5.run --target rhel55 --noexec --keep
+./cudatoolkit_3.2.16_linux_32_rhel5.5.run --target rhel55 --noexec --keep
 6. All files are in include subdir.
 6. Replace files in this module's archive with those updated.
 Do not add any new header files. Just replace those that are already present.

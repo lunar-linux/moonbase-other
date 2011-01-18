@@ -5,8 +5,8 @@ auth        required      pam_deny.so
 
 account     required      pam_unix.so
 
-password    required      pam_cracklib.so try_first_pass retry=3
-password    sufficient    pam_unix.so try_first_pass use_authtok nullok md5 shadow
+password    required      pam_cracklib.so try_first_pass retry=3 type=
+password    sufficient    pam_unix.so try_first_pass use_authtok nullok sha512 shadow
 password    required      pam_deny.so
 
 session     optional      pam_keyinit.so revoke

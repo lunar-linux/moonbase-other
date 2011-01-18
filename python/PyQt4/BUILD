@@ -2,7 +2,9 @@
 
   . /etc/profile.d/qt4.rc &&
 
-  echo "yes" | MORE="20000000" python ./configure.py $OPTS  &&
+  python ./configure.py      \
+         --confirm-license   \
+         $OPTS              &&
 
   default_make                 &&
   mkdir -p /usr/share/$MODULE  &&

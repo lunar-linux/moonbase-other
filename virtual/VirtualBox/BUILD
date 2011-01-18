@@ -2,20 +2,24 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
-# Fixes a gcc 4.4 build failure.
+  # Fixes a gcc 4.4 build failure.
   echo "VBOX_WITH_TESTCASES =" > LocalConfig.kmk &&
 
-  # Disable qt3
-  sedit s@WITH_QT3=1@WITH_QT3=0@ configure &&
+  if in_depends $MODULE sun-jdk ; then
+    # Location of javac
+    . /etc/profile.d/sun-jdk.rc &&
+    export VBOX_JAVA_HOME=$JAVA_HOME
+  fi &&
 
-  # We need the qt4 paths
-  . /etc/profile.d/qt4.rc &&
-  sedit "s:qt4/lib/pkgconfig:qt4/pkgconfig:g" configure &&
+  if in_depends $MODULE qt4 ; then
+    # We need the qt4 paths
+    . /etc/profile.d/qt4.rc &&
+    sedit "s:qt4/lib/pkgconfig:qt4/pkgconfig:g" configure
+  fi &&
 
   # Build VirtualBox
   # Disable hardening, so normal users can run it
   OPTS+=" --disable-hardening"   &&
-#  OPTS+=" --with-qt4-dir=$QTDIR" &&
   ./configure $OPTS              &&
   source ./env.sh                &&
   if !( module_installed Linux-PAM ); then
@@ -49,10 +53,12 @@
   mkdir -p /etc/vbox &&
   echo "INSTALL_DIR=$MODULE_PREFIX" > /etc/vbox/vbox.cfg &&
 
-  # Install .desktop entry and icon, then update the icon cache
-  install -D -m644 /usr/lib/virtualbox/virtualbox.desktop /usr/share/applications/virtualbox.desktop &&
-  install -D -m644 /usr/lib/virtualbox/VBox.png /usr/share/icons/hicolor/32x32/apps/VBox.png &&
-  gtk-update-icon-cache /usr/share/icons/hicolor &&
+  if in_depends $MODULE qt4 ; then
+    # Install .desktop entry and icon, then update the icon cache
+    install -D -m644 /usr/lib/virtualbox/virtualbox.desktop /usr/share/applications/virtualbox.desktop &&
+    install -D -m644 /usr/lib/virtualbox/VBox.png /usr/share/icons/hicolor/32x32/apps/VBox.png &&
+    gtk-update-icon-cache /usr/share/icons/hicolor
+  fi &&
 
   # Create the vboxusers group
   groupadd -f vboxusers

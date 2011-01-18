@@ -3,4 +3,6 @@ depends fontconfig
 depends libpng
 depends pixman
 
-optional_depends  "%X"  "--with-x"  "" "for X11 support"
+optional_depends  "DirectFB" "--enable-directfb" "" "for DirectFB support"
+optional_depends  "%X"       "--with-x"  "" "for X11 support"
+optional_depends  "libxcb"   "--enable-xcb" "--disable-xcb" "for xcb support"
