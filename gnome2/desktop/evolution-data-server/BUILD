@@ -1,14 +1,14 @@
 (
 
-   OPTS+=" --without-weather --enable-largefile"
-   ./configure  --prefix=${GNOME210_PREFIX:-/usr} \
-                --build=$BUILD        \
-                --sysconfdir=/etc     \
-                --localstatedir=/var  \
-                --enable-ipv6=yes     \
-                --infodir=${GNOME210_PREFIX:-/usr}/share/info  \
-                --mandir=${GNOME210_PREFIX:-/usr}/share/man    \
-                $OPTS                                         &&
-    default_make
+  # Fixes bugs, and compilation with >= libgdata-0.7
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
+  OPTS+=" --without-weather --enable-largefile --enable-ipv6"  &&
+
+  # For the patches to configure.ac to take effect
+  intltoolize --force --copy --automake  &&
+  autoreconf -fi  &&
+
+  default_build
 
 ) > $C_FIFO 2>&1

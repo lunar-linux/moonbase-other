@@ -1,11 +1,13 @@
 (
 
+  patch_it $SOURCE2 1  &&
+
   OPTS+=" --disable-nm"  &&
 
-  default_build
+  # For the changes to Makefile.am to take effect
+  intltoolize --force --copy --automake  &&
+  autoreconf -fi  &&
 
-#  if ! grep -q '/usr/lib/bonobo/servers' /etc/bonobo-activation/bonobo-activation-config.xml ; then
-#    sedit "s:<searchpath>:<searchpath>\n\t<item>/usr/lib/bonobo/servers</item>:" /etc/bonobo-activation/bonobo-activation-config.xml
-#  fi
+  default_build
 
 ) > $C_FIFO 2>&1
