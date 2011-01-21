@@ -1,16 +1,17 @@
           MODULE=postfix
          VERSION=2.8.0
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official
+   SOURCE_URL[0]=http://mirror.postfix.jp/postfix-release/official
+   SOURCE_URL[1]=ftp://ftp.porcupine.org/mirrors/postfix-release/official
       SOURCE_VFY=sha1:d7a4fb5ee1f5d12aa1abd6cf8ce8254b4805486d
         WEB_SITE=http://www.postfix.org
          ENTERED=20020125
          UPDATED=20110121
-           SHORT="MTA"
+           SHORT="A fast and secure drop-in replacement for sendmail"
 
 cat << EOF
-Postfix provides an alternative to the widely-used Sendmail program. 
-Postfix attempts to be fast, easy to administer, and hopefully secure, 
-while at the same time being sendmail compatible enough to not upset 
+Postfix provides an alternative to the widely-used Sendmail program.
+Postfix attempts to be fast, easy to administer, and hopefully secure,
+while at the same time being sendmail-compatible enough to not upset
 your users.
 EOF
