@@ -21,7 +21,7 @@
   # presumably should be:
   # xmltools -> ../share/texmf-dist/scripts/context/ruby/xmltools.rb
   # Show them by running:  ls -l /usr/bin | grep stubs
-  
+
   # Prevent the ridiculous behaviour of deleting, then trying to replace, /usr/bin/man
   sedit "s:rm -f man:true:" texk/texlive/linked_scripts/Makefile*  &&
   sedit "s:ln -s /usr/share/texmf/doc/man man:true:" texk/texlive/linked_scripts/Makefile*  &&
@@ -32,8 +32,8 @@
   # Some options are from http://www.gentoo-portage.com/app-text/texlive-core
   # and http://repos.archlinux.org/wsvn/packages/texlive-bin/trunk/
   # xindy should be in its own module, because its compilation needs latex to be *already* installed.
-  # luatex is provided by the luatex module.
-  OPTS+=" --datadir=/usr/share --disable-multiplatform --disable-native-texlive-build --with-system-zlib --with-system-freetype2 --with-system-libpng --with-gs=gs --disable-xindy --enable-etex --disable-luatex --enable-xetex --enable-ipc --enable-shared --enable-static=no"  &&
+  # luatex and psutils are individual modules.
+  OPTS+=" --datadir=/usr/share --disable-multiplatform --disable-native-texlive-build --with-system-zlib --with-system-freetype2 --with-system-libpng --with-gs=gs --disable-xindy --enable-etex --disable-luatex --disable-psutils --enable-xetex --enable-ipc --enable-shared --enable-static=no"  &&
 
   default_build  &&
 
