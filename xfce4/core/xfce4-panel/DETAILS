@@ -1,17 +1,20 @@
           MODULE=xfce4-panel
          VERSION=4.8.0
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=xfce4-panel-4.8.0-zombies.patch.bz2
       SOURCE_URL=http://archive.xfce.org/xfce/4.8/src/
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:ebdaff1d0f37e9424b483ba1e496b87fd82d81cb
+     SOURCE2_VFY=sha1:1fd703fedaf478f2c9c7c14d259f8b025b21c3c0
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
-        WEB_SITE=http://www.xfce.org
+        WEB_SITE=http://www.xfce.org/projects/xfce4-panel
          ENTERED=20030715
-         UPDATED=20110118
+         UPDATED=20110120
            SHORT="Xfce4 panel"
 
 cat << EOF
 xfce4-panel -- The panel for the Xfce4 desktop environment. Provides
-program lauchers, menus, and several plugins like a clock a pager and
+program lauchers, menus, and several plugins like a clock, a pager and
 a mail checker. Allows external plugins to be written and installed
 separately.
 EOF
