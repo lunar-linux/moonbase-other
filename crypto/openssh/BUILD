@@ -22,6 +22,10 @@
   default_build  &&
   if [ ! -f /etc/ssh/Makefile ] ; then
     install -m644 $SCRIPT_DIRECTORY/Makefile /etc/ssh/Makefile
-  fi
+  fi &&
+
+  # install ssh-copy-id script and man page
+  install -m755 $SOURCE_DIRECTORY/contrib/ssh-copy-id /usr/bin/ssh-copy-id &&
+  install -m644 $SOURCE_DIRECTORY/contrib/ssh-copy-id.1 /usr/share/man/man1/ssh-copy-id.1
 
 ) > $C_FIFO 2>&1
