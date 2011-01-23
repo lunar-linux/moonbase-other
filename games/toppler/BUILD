@@ -12,7 +12,7 @@
                --mandir=/usr/share/man     \
                --bindir=/usr/games         \
                --datadir=/usr/share/games  \
-	       --localedir=/usr/share/locale  \
+               --localedir=/usr/share/locale  \
                $OPTS                         &&
 
   default_make
