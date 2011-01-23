@@ -10,8 +10,8 @@
   echo $CFLAGS
 
   gcc $CFLAGS -O3 -o build/dcraw dcraw.c \
-	-Wall -Wno-unused-result -Wno-array-bounds \
-	-lm -ljpeg -llcms -s 
+        -Wall -Wno-unused-result -Wno-array-bounds \
+        -lm -ljpeg -llcms -s 
  
 
   prepare_install              &&
