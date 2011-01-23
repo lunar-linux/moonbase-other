@@ -2,7 +2,7 @@
 
   sedit "s:-O3:$CFLAGS -Os:g" configure  &&
 
-  OPTS="$OPTS --enable-shared"  &&
+  OPTS+=" --enable-shared"  &&
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 

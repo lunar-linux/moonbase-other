@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS  --disable-debugging --enable-shared"
+  OPTS+="  --disable-debugging --enable-shared"
 
   default_build
 

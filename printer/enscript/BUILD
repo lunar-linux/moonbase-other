@@ -2,7 +2,7 @@
 
   unset CC &&
 
-  OPTS="$OPTS --with-media" &&
+  OPTS+=" --with-media" &&
 
   default_build
 

@@ -5,11 +5,11 @@
   fi &&
 
   if [[ "$PP" == "y" ]] ; then
-    OPTS="$OPTS --disable-pp-build"
+    OPTS+=" --disable-pp-build"
   fi &&
 
   if [[ "$FAX" == "n" ]] ; then
-    OPTS="$OPTS --disable-fax-build"
+    OPTS+=" --disable-fax-build"
   fi &&
 
   # Install /usr/bin/hpijs so don't get this error:

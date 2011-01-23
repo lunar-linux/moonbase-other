@@ -1,7 +1,7 @@
 (
 
-  OPTS="$OPTS --bindir=/usr/libexec/xscreensaver"
-  OPTS="$OPTS --with-configdir=/usr/share/xscreensaver/"
+  OPTS+=" --bindir=/usr/libexec/xscreensaver"
+  OPTS+=" --with-configdir=/usr/share/xscreensaver/"
 
   default_build
 

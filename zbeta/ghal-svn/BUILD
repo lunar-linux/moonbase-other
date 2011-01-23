@@ -4,7 +4,7 @@
    # make sure proper PKG_CONFIG_PATH is set
    export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
 
-   OPTS="$OPTS  --disable-gtk-doc"
+   OPTS+="  --disable-gtk-doc"
 
    touch INSTALL  &&
 

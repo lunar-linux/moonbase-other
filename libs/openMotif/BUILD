@@ -4,7 +4,7 @@
     patch_it $SOURCE2 0
   fi &&
 
-  OPTS="$OPTS --x-libraries=/usr/lib/xorg --prefix=/usr --sysconfdir=/etc \
+  OPTS+=" --x-libraries=/usr/lib/xorg --prefix=/usr --sysconfdir=/etc \
               --enable-jpeg --enable-png --enable-themes --with-x --enable-xft \
               --x-includes=/usr/include/X11"
 
