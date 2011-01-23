@@ -10,7 +10,7 @@
 
   OPTS+=" --enable-svg --enable-svg-animation      \
         --enable-svg-fonts --enable-svg-foreign-object \
-	--enable-svg-as-image --enable-3D-transforms   \
+        --enable-svg-as-image --enable-3D-transforms   \
         --enable-optimizations --disable-gtk-doc-html" &&
 
   default_build &&
