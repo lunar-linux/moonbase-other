@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-shared"  &&
+  OPTS+=" --enable-shared"  &&
   default_build
 
 ) > $C_FIFO 2>&1

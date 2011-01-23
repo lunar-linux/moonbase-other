@@ -4,10 +4,10 @@
   sleep 5
 
   if in_depends $MODULE timezone-data; then
-    OPTS="$OPTS --with-system-tzdata=/usr/share/zoneinfo"
+    OPTS+=" --with-system-tzdata=/usr/share/zoneinfo"
   fi &&
 
-  OPTS="$OPTS --enable-thread-safety --enable-nls --enable-integer-datetimes"
+  OPTS+=" --enable-thread-safety --enable-nls --enable-integer-datetimes"
 
   default_build &&
 

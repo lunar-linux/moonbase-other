@@ -3,7 +3,7 @@
   sed -i "16i #include <stdio.h>" src/celengine/overlay.h src/celengine/spiceinterface.cpp &&
   sed -i "18i #include <stdio.h>" src/celengine/star.cpp &&
 
-  OPTS="$OPTS --with-lua" &&
+  OPTS+=" --with-lua" &&
 
   default_build  &&
 

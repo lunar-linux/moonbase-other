@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-largefile --enable-xinerama --enable-threads --enable-shared --enable-xft"
+  OPTS+=" --enable-largefile --enable-xinerama --enable-threads --enable-shared --enable-xft"
 
   default_build
 

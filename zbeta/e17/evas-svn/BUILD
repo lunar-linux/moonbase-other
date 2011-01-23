@@ -4,7 +4,7 @@
   export CPPFLAGS="$CPPFLAGS -I$MODULE_PREFIX/include"
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
 
-  OPTS="$OPTS  --enable-image-loader-eet        \
+  OPTS+="  --enable-image-loader-eet        \
                --with-x                         \
                --enable-software-x11            \
                --enable-xrender-x11             \

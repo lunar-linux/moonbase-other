@@ -2,7 +2,7 @@
 
   export LIBART_CONFIG=/usr/bin/libart2-config
 
-  OPTS="$OPTS --with-python --enable-debug=no --disable-db2html"
+  OPTS+=" --with-python --enable-debug=no --disable-db2html"
 
   default_build
 

@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-shared --enable-pthread \
+  OPTS+=" --enable-shared --enable-pthread \
               --enable-visualize --enable-pic" &&
 
   default_build

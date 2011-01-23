@@ -1,7 +1,7 @@
 (
 
  if in_depends $MODULE tk ; then
-   OPTS="$OPTS --with-tkinclude=/usr/include/"
+   OPTS+=" --with-tkinclude=/usr/include/"
  fi
 
  cd $SOURCE_DIRECTORY/                 &&

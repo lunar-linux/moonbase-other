@@ -9,7 +9,7 @@
   fi  &&
 
 #  if [[ "$USE_NVIDIA" = "y" ]]; then
-#    OPTS="$OPTS --disable-glx --disable-glx-tlx"
+#    OPTS+=" --disable-glx --disable-glx-tlx"
 #  fi &&
 
   OPTS+=" --enable-composite --enable-aiglx --disable-devel-docs \

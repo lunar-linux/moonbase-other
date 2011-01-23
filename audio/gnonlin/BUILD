@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS  --disable-valgrind"
+  OPTS+="  --disable-valgrind"
 
   default_build
 
