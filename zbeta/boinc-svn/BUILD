@@ -17,8 +17,8 @@
               --mandir=/usr/share/man       \
               --enable-libraries            \
               --enable-client               \
-	      --disable-manager             \
-	      --disable-server              \
+              --disable-manager             \
+              --disable-server              \
               $OPTS                        &&
 
   default_make                             &&
