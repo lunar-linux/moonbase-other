@@ -13,11 +13,11 @@
   # We default to MySQL if both are enabled
   if in_depends $MODULE mysql; then
     MODS="$MODS:mod_sql:mod_sql_mysql"
-    OPTS="$OPTS --with-includes=/usr/include/mysql"
+    OPTS+=" --with-includes=/usr/include/mysql"
   else
     if in_depends $MODULE postgresql; then
       MODS="$MODS:mod_sql:mod_sql_postgres"
-      OPTS="$OPTS --with-includes=/usr/include/postgresql"
+      OPTS+=" --with-includes=/usr/include/postgresql"
     fi
   fi
 
@@ -25,7 +25,7 @@
 
 
   if [ -n "$MODS" ]; then
-    OPTS="$OPTS --with-modules=$MODS"
+    OPTS+=" --with-modules=$MODS"
   fi
 
   if  module_installed  Linux-PAM;  then

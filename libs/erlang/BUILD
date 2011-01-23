@@ -10,9 +10,9 @@
 
 # threads are automatic with enabled smp support
   if [ "$USE_SMP" == "n" ]; then
-    OPTS="$OPTS --disable-smp-support --enable-threads"
+    OPTS+=" --disable-smp-support --enable-threads"
    else
-    OPTS="$OPTS --enable-smp-support --enable-threads"
+    OPTS+=" --enable-smp-support --enable-threads"
   fi &&
 
   default_build

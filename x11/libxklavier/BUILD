@@ -1,6 +1,6 @@
 (
 
-  export OPTS="$OPTS --with-xkb-base=/usr/share/X11/xkb --with-xkb-bin-base=/usr/bin --prefix=/usr"  &&
+  export OPTS+=" --with-xkb-base=/usr/share/X11/xkb --with-xkb-bin-base=/usr/bin --prefix=/usr"  &&
 
   default_build
 

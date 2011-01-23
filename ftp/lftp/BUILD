@@ -1,9 +1,9 @@
 (
   
   if [ "$CONFIG_NLS" == "n" ]; then
-    OPTS="$OPTS --disable-nls"
+    OPTS+=" --disable-nls"
   else
-    OPTS="$OPTS --enable-nls"
+    OPTS+=" --enable-nls"
   fi
   default_build
               

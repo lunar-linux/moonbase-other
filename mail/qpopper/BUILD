@@ -1,9 +1,9 @@
 (
 
   if module_installed Linux-PAM; then
-    OPTS="$OPTS --with-pam"
+    OPTS+=" --with-pam"
   else
-    OPTS="$OPTS --without-pam"
+    OPTS+=" --without-pam"
   fi
 
   if in_depends $MODULE openssl ; then

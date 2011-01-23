@@ -8,7 +8,7 @@
 # Fix an icu4c problem.
   sedit "s:class TextBreakIterator;:typedef struct UBreakIterator TextBreakIterator;:" WebCore/platform/text/TextBreakIterator.h &&
 
-  OPTS="$OPTS --enable-svg --enable-svg-animation      \
+  OPTS+=" --enable-svg --enable-svg-animation      \
         --enable-svg-fonts --enable-svg-foreign-object \
 	--enable-svg-as-image --enable-3D-transforms   \
         --enable-optimizations --disable-gtk-doc-html" &&

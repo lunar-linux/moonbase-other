@@ -10,13 +10,13 @@
 #  ./buildconf --force &&
 
   if [ "$USE_REGGLOBALS" == "y" ]; then
-    OPTS="$OPTS "
+    OPTS+=" "
   fi &&
 
   if module_installed apache || module_installed apache-mod_ssl ; then
-    OPTS="$OPTS --with-apxs=/usr/sbin/apxs"
+    OPTS+=" --with-apxs=/usr/sbin/apxs"
   elif module_installed apache2 ; then
-    OPTS="$OPTS --with-apxs2=/usr/sbin/apxs"
+    OPTS+=" --with-apxs2=/usr/sbin/apxs"
   fi &&
 
   if [ -s /etc/httpsd/httpd.conf ] ; then

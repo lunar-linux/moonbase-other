@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS \
+  OPTS+=" \
         --enable-experimental  \
         --enable-gio           \
         --disable-valgrind     \

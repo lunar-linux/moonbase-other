@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --disable-g-switch"
+  OPTS+=" --disable-g-switch"
   default_build
 
 ) > $C_FIFO 2>&1

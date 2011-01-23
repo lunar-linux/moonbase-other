@@ -8,7 +8,7 @@
 
   case `arch` in
     i386|i486|i586|i686|athlon)
-      OPTS="$OPTS --enable-i386-hacks"
+      OPTS+=" --enable-i386-hacks"
       ;;
     *)
   esac

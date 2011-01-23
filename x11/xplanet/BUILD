@@ -3,7 +3,7 @@
   sed -i "1i #include <stdio.h>" src/Separation.cpp src/Satellite.cpp &&
 
   if module_installed xscreensaver; then
-    OPTS="$OPTS --with-xscreensaver"
+    OPTS+=" --with-xscreensaver"
   fi                                       &&
 
   ./configure  --prefix=/usr                \

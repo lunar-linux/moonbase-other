@@ -1,9 +1,9 @@
 (
 
   if [[ "$ANIMATION" == "y" ]]; then
-    OPTS="$OPTS --enable-animation"
+    OPTS+=" --enable-animation"
   else
-    OPTS="$OPTS --disable-animation"
+    OPTS+=" --disable-animation"
   fi
 
   default_build

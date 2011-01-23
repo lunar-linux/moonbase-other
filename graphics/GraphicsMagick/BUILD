@@ -7,7 +7,7 @@
   sedit "s:flags(png_ptr):flags(ping):" coders/png.c  &&
   sedit "s:flags(png_ptr,:flags(ping,:" coders/png.c  &&
 
-  OPTS="$OPTS --enable-shared --enable-symbol-prefix --with-modules" &&
+  OPTS+=" --enable-shared --enable-symbol-prefix --with-modules" &&
 
   default_build
 

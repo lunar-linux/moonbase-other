@@ -2,7 +2,7 @@
 
   chmod +x configure  &&
 
-  OPTS="$OPTS --mozdir=/opt/lunar/plugins --cpu=$CPU"
+  OPTS+=" --mozdir=/opt/lunar/plugins --cpu=$CPU"
 
   default_build       &&
 

@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS  --disable-debugging --enable-accuracy" &&
+  OPTS+="  --disable-debugging --enable-accuracy" &&
 
   if [ `arch` == "x86_64" ] ; then
     OPTS="--enable-fpm=64bit"

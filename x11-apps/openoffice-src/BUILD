@@ -42,7 +42,7 @@
   # All of the options have been carefully chosen. Don't edit them unless you
   # really know what you're doing
 
-  OPTS="$OPTS --prefix=$OO_DIR --enable-dbus --disable-dbgutil --disable-static-gtk \
+  OPTS+=" --prefix=$OO_DIR --enable-dbus --disable-dbgutil --disable-static-gtk \
               --disable-fontooo --disable-odk --disable-debug --enable-opengl \
               --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
               --enable-mozilla --enable-binfilter --enable-xrender-link       \
@@ -70,10 +70,10 @@
   fi &&
 
   if module_installed sun-jdk ; then
-    OPTS="$OPTS --with-jdk-home=$JAVA_HOME";
+    OPTS+=" --with-jdk-home=$JAVA_HOME";
    else
     if  module_installed j2sdk ; then
-    OPTS="$OPTS --with-jdk-home=$JAVA_HOME";
+    OPTS+=" --with-jdk-home=$JAVA_HOME";
     fi
   fi &&
 

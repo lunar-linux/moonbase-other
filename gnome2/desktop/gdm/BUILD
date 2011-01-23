@@ -11,7 +11,7 @@
                                      else  SCHEME="auto"
  fi
 
- OPTS="$OPTS --enable-authentication-scheme=$SCHEME"
+ OPTS+=" --enable-authentication-scheme=$SCHEME"
 
  LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
 

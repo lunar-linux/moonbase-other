@@ -9,7 +9,7 @@
     sedit 's:docbook-to-man:echo:' doctools/docbook.mk
   fi  &&
 
-  OPTS="$OPTS --disable-curl"
+  OPTS+=" --disable-curl"
 
   default_config  &&
   make  &&

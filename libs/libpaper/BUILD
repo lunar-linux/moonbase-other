@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --includedir=/usr/include/libpaper"
+  OPTS+=" --includedir=/usr/include/libpaper"
 
   default_build
 

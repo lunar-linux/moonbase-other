@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --prefix=/usr/games/$MODULE --enable-sqlite \
+  OPTS+=" --prefix=/usr/games/$MODULE --enable-sqlite \
               --enable-binreloc --enable-gnet"
 
   default_build

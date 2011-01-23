@@ -3,9 +3,9 @@
   sedit "s:prefix}/share:prefix}/share/games:"   configure  &&
 
   if module_installed NVIDIA; then
-        OPTS="$OPTS --enable-bumpref=yes"
+        OPTS+=" --enable-bumpref=yes"
   else
-        OPTS="$OPTS --enable-bumpref=no"
+        OPTS+=" --enable-bumpref=no"
   fi
 
   default_game_build
