@@ -1,6 +1,6 @@
-(                                                                                    
+(
 
-  OPTS+=" --enable-ILU --enable-ILUT"
+  OPTS+=" --enable-ILU --enable-ILUT" &&
 
   default_build
 
