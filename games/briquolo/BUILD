@@ -12,7 +12,7 @@
                --infodir=/usr/share/info   \
                --mandir=/usr/share/man     \
                --with-x                    \
-	       --localedir=/usr/share/locale  \
+               --localedir=/usr/share/locale  \
                $OPTS                         &&
   sedit "s:\$(datadir):/usr/share/locale:" po/Makefile  &&
   default_make

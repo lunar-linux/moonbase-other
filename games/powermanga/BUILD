@@ -3,7 +3,7 @@
   ./configure --prefix=/usr                 \
               --bindir=/usr/games           \
               --datadir=/usr/share          \
-	      --mandir=/usr/share/man/man6  \
+              --mandir=/usr/share/man/man6  \
               $OPTS                        &&
               
   default_make
