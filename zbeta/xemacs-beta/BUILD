@@ -3,11 +3,11 @@
   LDFLAGS=`echo $LDFLAGS | sed "s/-z combreloc//"`
   pwd
   if [[ "$XEMACS_MULE" == "y" ]]; then
-      OPTS="$OPTS --with-mule"
+      OPTS+=" --with-mule"
   fi
 
   if [[ "$XEMACS_XIM" == "y" ]]; then
-      OPTS="$OPTS --with-xim=xlib"
+      OPTS+=" --with-xim=xlib"
   fi
 
   ./configure  --prefix=/usr             \

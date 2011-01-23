@@ -2,7 +2,7 @@
 
   ./autogen.sh &&
 
-  OPTS="$OPTS --enable-dbus"
+  OPTS+=" --enable-dbus"
 
   default_build
 

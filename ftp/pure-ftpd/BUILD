@@ -1,7 +1,7 @@
 (
 
   if module_installed Linux-PAM;  then
-    OPTS="$OPTS --with-pam"
+    OPTS+=" --with-pam"
   fi
 
   ./configure  --sysconfdir=/etc        \

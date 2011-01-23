@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-threads     \
+  OPTS+=" --enable-threads     \
               --enable-shared      \
               --with-ssl-dir=/usr"
 

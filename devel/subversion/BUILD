@@ -12,7 +12,7 @@
     BINDINGS_INSTALL+=" install-javahl"
   fi        
 
-  OPTS="$OPTS --disable-neon-version-check --with-neon=`neon-config --prefix` --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` --with-apr-util=`which apu-$(installed_version apr-util | cut -d. -f1)-config`"
+  OPTS+=" --disable-neon-version-check --with-neon=`neon-config --prefix` --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` --with-apr-util=`which apu-$(installed_version apr-util | cut -d. -f1)-config`"
 
   if in_depends $MODULE swig ; then
     if module_installed perl; then

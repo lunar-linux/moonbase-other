@@ -5,9 +5,9 @@
   ./regen.sh &&
 
   case `uname -s -r` in
-    [lL]inux\ 2.4.*) OPTS="$OPTS --with-afs-sysname=i386_linux24"
+    [lL]inux\ 2.4.*) OPTS+=" --with-afs-sysname=i386_linux24"
       ;;
-    [lL]inux\ 2.6.*) OPTS="$OPTS --with-afs-sysname=i386_linux26"
+    [lL]inux\ 2.6.*) OPTS+=" --with-afs-sysname=i386_linux26"
       ;;
     *) message "Unsupported OS!"
       exit -1
@@ -19,7 +19,7 @@
     message "You need to have the source for your running kernel online and configured!"
     exit -1
   fi
-  OPTS="$OPTS --with-linux-kernel-headers=/lib/modules/`uname -r`/build"
+  OPTS+=" --with-linux-kernel-headers=/lib/modules/`uname -r`/build"
 
   ./configure         --prefix=/usr                        \
                 --sysconfdir=/usr/vice/etc        \

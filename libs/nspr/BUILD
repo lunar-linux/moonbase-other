@@ -3,10 +3,10 @@
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
   if [ "`arch`" == "x86_64" ]; then
-    OPTS="$OPTS --enable-64bit"
+    OPTS+=" --enable-64bit"
   fi  &&
 
-  OPTS="$OPTS --libdir=/usr/lib --enable-system-sqlite --with-mozilla --with-pthreads --enable-strip"  &&
+  OPTS+=" --libdir=/usr/lib --enable-system-sqlite --with-mozilla --with-pthreads --enable-strip"  &&
   mkdir build inst  &&
   sedit 's/\$(MKSHLIB) \$(OBJS)/\$(MKSHLIB) \$(LDFLAGS) \$(OBJS)/g' mozilla/nsprpub/config/rules.mk  &&
 
