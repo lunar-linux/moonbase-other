@@ -16,11 +16,6 @@
   make install  &&
 
   ln  -sf  /bin/gawk  /bin/awk  &&
-  if [ -e /bin/gawk-*  ]; then
-    rm /bin/gawk-*;
-  fi  &&
-  if [ -e /bin/pgawk-* ]; then
-    rm /bin/pgawk-*;
-  fi
+  rm -f /bin/{,p}gawk-*
 
 ) > $C_FIFO 2>&1
