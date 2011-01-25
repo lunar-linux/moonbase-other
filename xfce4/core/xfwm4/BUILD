@@ -1,14 +1,14 @@
 (
 
-  [ -f /etc/profile.d/xfce4.rc ] && . /etc/profile.d/xfce4.rc
+  patch_it $SOURCE2 1 &&
 
-  # make sure proper PKG_CONFIG_PATH is set
-  export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"  &&
+  if [ -f /etc/profile.d/xfce4.rc ] ; then
+    . /etc/profile.d/xfce4.rc
+  fi &&
 
-  ./configure  --build=$BUILD             \
-               --prefix=${MODULE_PREFIX}  \
-               $OPTS                     &&
+  # Make sure proper PKG_CONFIG_PATH is set
+  export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
 
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1
