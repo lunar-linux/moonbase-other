@@ -9,7 +9,6 @@
   fi &&
 
   sed -i "22i /usr/share/sgml/docbook/xml/4.2" cmake/modules/FindDocBookXML.cmake &&
-  patch_it $SOURCE2 0 &&
 
   VER=`lvu version docbook-xsl` &&
   sedit "s:docbook/xsl-stylesheets:docbook/xsl-stylesheets-$VER:" cmake/modules/FindDocBookXSL.cmake &&
