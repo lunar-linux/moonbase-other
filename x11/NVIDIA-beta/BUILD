@@ -25,14 +25,14 @@
   LD_LIBRARY_PATH="$SOURCE_DIRECTORY:$LD_LIBRARY_PATH" &&
   CFLAGS=" -L$SOURCE_DIRECTORY $CFLAGS " &&
   export SYSSRC=/usr/src/linux &&
-  ln -s libGL.so.$VERSION nvidia-installer-$TVERSION/libGL.so &&
-  ln -s libnvidia-glcore.so.$VERSION nvidia-installer-$TVERSION/libGLcore.so.1 &&
-  ln -s libnvidia-tls.so.$VERSION nvidia-installer-$TVERSION/libnvidia-tls.so.1 &&
+  ln -s libGL.so.$VERSION nvidia-installer-$VERSION/libGL.so &&
+  ln -s libnvidia-glcore.so.$VERSION nvidia-installer-$VERSION/libGLcore.so.1 &&
+  ln -s libnvidia-tls.so.$VERSION nvidia-installer-$VERSION/libnvidia-tls.so.1 &&
 
   echo libXvMCNVIDIA_dynamic.so.1 > XvMCConfig &&
 
   # Builds nvidia-installer from source
-  cd nvidia-installer-$TVERSION &&
+  cd nvidia-installer-$VERSION &&
   rm -f *Linux* &&
 
   if [[ $(arch) == x86_64 ]] ; then
@@ -61,7 +61,7 @@
   fi &&
 
   # Builds nvidia-settings from source
-  cd ../nvidia-settings-$TVERSION &&
+  cd ../nvidia-settings-$VERSION &&
 
   # xf86vmode.h has been removed in xf86vidmodeproto 2.3
   if [[ ! -e /usr/include/X11/extensions/xf86vmode.h ]] ; then
@@ -83,7 +83,7 @@
   install -m 644 doc/nvidia-settings.desktop .. &&
 
   # Builds nvidia-xconfig from source
-  cd ../nvidia-xconfig-$TVERSION &&
+  cd ../nvidia-xconfig-$VERSION &&
   make clean &&
   make &&
   if [[ $(arch) == x86_64 ]] ; then
