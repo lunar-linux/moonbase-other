@@ -1,15 +1,13 @@
           MODULE=xfce4-panel
-         VERSION=4.8.0
+           MAJOR=4.8
+         VERSION=$MAJOR.1
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=xfce4-panel-4.8.0-git-20110125.patch.bz2
-      SOURCE_URL=http://archive.xfce.org/xfce/4.8/src/
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:ebdaff1d0f37e9424b483ba1e496b87fd82d81cb
-     SOURCE2_VFY=sha1:dd1cd16b3603c6b70b847f7e473ab92aa3bb2166
+      SOURCE_URL=http://archive.xfce.org/src/xfce/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:bb9ab8d47423a75ef920ca51fa40b4a1127b20dc
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.xfce.org/projects/xfce4-panel
          ENTERED=20030715
-         UPDATED=20110123
+         UPDATED=20110130
            SHORT="Xfce4 panel"
 
 cat << EOF
