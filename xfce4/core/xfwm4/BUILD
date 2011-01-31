@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 1 &&
-
   if [ -f /etc/profile.d/xfce4.rc ] ; then
     . /etc/profile.d/xfce4.rc
   fi &&
