@@ -81,12 +81,14 @@
       install -m 755 _out/Linux_x86/nvidia-settings .. &&
       install -m 644 _out/Linux_x86/nvidia-settings.1.gz ..
     fi &&
-    install -m 644 doc/nvidia-settings.png ..
+    sedit 's/__UTILS_PATH__/\/usr\/bin/' doc/nvidia-settings.desktop &&
+    sedit 's/__PIXMAP_PATH__/\/usr\/share\/doc\/NVIDIA_GLX-1.0/' doc/nvidia-settings.desktop &&
+    sedit 's/__NVIDIA_SETTINGS_DESKTOP_CATEGORIES__/Settings;DesktopSettings;/' doc/nvidia-settings.desktop &&
+    cd ..
   fi &&
-  install -m 644 doc/nvidia-settings.desktop .. &&
 
   # Builds nvidia-xconfig from source
-  cd ../nvidia-xconfig-$VERSION &&
+  cd nvidia-xconfig-$VERSION &&
   make clean &&
   make &&
   if [[ $(arch) == x86_64 ]] ; then
@@ -97,9 +99,6 @@
     install -m 644 _out/Linux_x86/nvidia-xconfig.1.gz ..
   fi &&
   cd .. &&
-  sedit 's/__UTILS_PATH__/\/usr\/bin/' nvidia-settings.desktop &&
-  sedit 's/__PIXMAP_PATH__/\/usr\/share\/doc\/NVIDIA_GLX-1.0/' nvidia-settings.desktop &&
-  sedit 's/__NVIDIA_SETTINGS_DESKTOP_CATEGORIES__/Settings;DesktopSettings;/' nvidia-settings.desktop &&
 
   # We make the kernel modules on our own
   cd kernel &&
@@ -166,9 +165,9 @@
 
   if in_depends $MODULE "gtk+-2" ; then
     install -m0755 nvidia-settings /usr/bin &&
-    install -m0444 nvidia-settings.desktop /usr/share/applications &&
-    install -m0444 nvidia-settings.1.gz /usr/share/man/man1 &&
-    install -m0444 nvidia-settings.png /usr/share/doc/NVIDIA_GLX-1.0
+    install -m0444 nvidia-settings-$VERSION/doc/nvidia-settings.desktop /usr/share/applications &&
+    install -m0444 nvidia-settings-$VERSION/doc/nvidia-settings.png /usr/share/doc/NVIDIA_GLX-1.0 &&
+    install -m0444 nvidia-settings.1.gz /usr/share/man/man1
   fi
 
 ) > $C_FIFO 2>&1
