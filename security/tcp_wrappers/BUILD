@@ -2,10 +2,7 @@
 
   VER=`lvu version tcp_wrappers` &&
 
-  cd ../ &&
-  patch_it $SOURCE2 0 &&
-  cd $SOURCE_DIRECTORY &&
-
+  patch_it $SOURCE2 1 &&
   patch_it $SOURCE3 1 &&
   patch_it $SOURCE4 0 &&
 
