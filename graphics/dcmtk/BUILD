@@ -27,12 +27,8 @@
               $OPTS                     &&
 
 # This makes the executables
-  make all        &&
-  prepare_install &&
-# This makes the libraries and includes.
-#  make install-bin     &&
-#  make install-lib     &&
-#  make install-include &&
+  make all         &&
+  prepare_install  &&
   make install-all
 
 ) > $C_FIFO 2>&1
