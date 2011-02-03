@@ -1,0 +1,9 @@
+if in_depends $MODULE gobject-introspection ; then
+  if [ ! -e /usr/share/gir-1.0/GdkPixbuf-2.0.gir ] ; then
+    message "${PROBLEM_COLOR}Compilation would fail with:  Couldn't find include 'GdkPixbuf-2.0.gir'"
+    message "Run:  lin -c gobject-introspection gdk-pixbuf atk pango gtk+-2${DEFAULT_COLOR}"
+    exit 1
+  fi
+fi
+
+default_pre_build
