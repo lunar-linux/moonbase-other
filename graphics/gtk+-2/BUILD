@@ -10,7 +10,7 @@
   # The scary thing is -O2, -O3 and -Os all enable -fcaller-saves
   # but only -Os does it in a way gtk+-2 does not crash on DnD.
   case "$CFLAGS" in
-    *-O[23]*) 
+    *-O[23]*)
       CFLAGS+=' -fno-caller-saves'
       ;;
   esac                    &&
