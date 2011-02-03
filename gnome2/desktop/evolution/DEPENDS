@@ -1,7 +1,6 @@
 depends  gtkhtml
 depends  evolution-data-server
 depends  hicolor-icon-theme
-depends  scrollkeeper
 depends  gnome-doc-utils
 depends  libcanberra
 
@@ -14,6 +13,11 @@ optional_depends  openldap  \
                   "--with-openldap=yes"  \
                   "--with-openldap=no"   \
                   "for LDAP support (needed for evolution-exchange too)"
+
+optional_depends  scrollkeeper  \
+                  "--enable-scrollkeeper"  \
+                  "--disable-scrollkeeper"  \
+                  "for cataloging system"
 
 optional_depends  gtk-doc  \
                   "--with-help=yes"  \
