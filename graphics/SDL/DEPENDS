@@ -1,9 +1,61 @@
-depends  nasm
+depends  pkgconfig
 
-optional_depends  "esound"  ""  ""  "for simultaneous sound playing and mixing"
-optional_depends  "nas"     ""  ""  "for Network Audio System support"
+optional_depends "pth"                                           \
+                 "--enable-pth"                                  \
+                 "--disable-pth"                                 \
+                 "for multi-threading with GNU pth"
 
-optional_depends  "libggi"                     \
-                  "--enable-video-ggi"         \
-                  "--disable-video-ggi"        \
-                  "General Graphics Interface support"
+optional_depends "nasm"                                          \
+                 "--enable-nasm"                                 \
+                 "--disable-nasm"                                \
+                 "for nasm assembly blitters on x86"
+
+optional_depends "alsa-lib"                                      \
+                 "--enable-alsa"                                 \
+                 "--disable-alsa"                                \
+                 "for Advanced Linux Sound Architecture support"
+
+optional_depends "esound"                                        \
+                 "--enable-esd"                                  \
+                 "--disable-esd"                                 \
+                 "for Enlighted Sound Daemon support"
+
+optional_depends "nas"                                           \
+                 "--enable-nas"                                  \
+                 "--disable-nas"                                 \
+                 "for Network Audio System support"
+
+optional_depends "pulseaudio"                                    \
+                 "--enable-pulseaudio"                           \
+                 "--disable-pulseaudio"                          \
+                 "for PulseAudio audio support"
+
+optional_depends "svgalib"                                       \
+                 "--enable-video-svga"                           \
+                 "--disable-video-svga"                          \
+                 "for SVGAlib video driver"
+
+optional_depends "aalib"                                         \
+                 "--enable-video-aalib"                          \
+                 "--disable-video-aalib"                         \
+                 "for AAlib video driver"
+
+optional_depends "DirectFB"                                      \
+                 "--enable-video-directfb"                       \
+                 "--disable-video-directfb"                      \
+                 "for DirectFB video driver"
+
+optional_depends "libX11"                                        \
+                 "--enable-video-x11"                            \
+                 "--disable-video-x11"                           \
+                 "for X11 video driver"
+
+optional_depends "libXxf86dga"                                   \
+                 "--enable-video-dga"                            \
+                 "--disable-video-dga"                           \
+                 "for X Direct Graphics Access video driver"
+
+optional_depends "libggi"                                        \
+                 "--enable-video-ggi"                            \
+                 "--disable-video-ggi"                           \
+                 "for General Graphics Interface video driver"
