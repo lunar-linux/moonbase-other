@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1  &&
+
   # Use a default font which actually exists
   sedit "s:truetype/freefont/FreeSerifBold.ttf:dejavu-ttf/DejaVuSerif-Bold.ttf:" modules/misc/freetype.c  &&
 
