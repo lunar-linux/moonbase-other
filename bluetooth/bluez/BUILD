@@ -1,10 +1,6 @@
 (  
 
-  OPTS+=" --build=$BUILD          \
-          --host=$BUILD           \
-          --enable-configfiles    \
-          --with-telephony=dummy  \
-          --enable-gstreamer "   &&
+  OPTS+=" --build=$BUILD --host=$BUILD --with-telephony=dummy" &&
 
   default_build  &&
 
@@ -13,6 +9,7 @@
   cp -f network/*.conf /etc/bluetooth/      &&
   cp -f input/*.conf /etc/bluetooth/        &&
   cp -f serial/serial.conf /etc/bluetooth/  &&
+  cp -f tools/rfcomm.conf /etc/bluetooth/   &&
 
   mkdir -p /etc/alsa  &&
   cp -f audio/bluetooth.conf /etc/alsa  &&
