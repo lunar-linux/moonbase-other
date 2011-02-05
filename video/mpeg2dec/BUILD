@@ -1,6 +1,6 @@
 (
 
-  export CFLAGS="$CFLAGS -fPIC"
+  CFLAGS+=" -fPIC" &&
 
   default_build
 
