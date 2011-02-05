@@ -1,6 +1,6 @@
 (
 
-  OPTS+="--disable-debug --disable-yydebug" &&
+  OPTS+=" --disable-debug --disable-yydebug" &&
 
   default_build
 
