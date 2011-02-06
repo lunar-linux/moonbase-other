@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --enable-shared"
+  OPTS+=" --enable-shared --enable-xshm --enable-x11multithread" &&
 
   default_build
 
