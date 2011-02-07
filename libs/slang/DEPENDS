@@ -1,3 +1,16 @@
-optional_depends pcre "--with-pcre=/lib" "--without-pcre" "for Perl reqular expression support"
-optional_depends onig "--with-onig"      "--without-onig" "for additional regular expression support"
-optional_depends zlib "--with-zlib"      "--without-zlib" "for compression support"
+depends zlib
+
+optional_depends "libpng"                               \
+                 "--with-png=/usr"                      \
+                 "--without-png"                        \
+                 "for png image support"
+
+optional_depends "pcre"                                 \
+                 "--with-pcrelib=/ --with-pcreinc=/usr" \
+                 "--without-pcre"                       \
+                 "for pcre regex support"
+
+optional_depends "onig"                                 \
+                 "--with-onig=/usr"                     \
+                 "--without-onig"                       \
+                 "for onig regex support"
