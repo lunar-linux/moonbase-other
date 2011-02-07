@@ -1,5 +1,5 @@
 depends ncurses
 depends readline
+depends expat
 
-optional_depends "openssl" "--with-openssl" "--without-openssl" "for SSL https and ftps support"
-optional_depends "gnutls"  "--with-gnutls"  "--without-gnutls"  "for TLS https and ftps support"
+optional_depends "%SSL" "" "" "for ftps support"
