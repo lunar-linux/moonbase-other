@@ -19,9 +19,10 @@ optional_depends "flash-plugin-10"  ""  ""  "To enable Flash plugin"
 optional_depends "gnome-vfs"        ""  ""  "For Gnome VFS support"
 optional_depends "hunspell"         ""  ""  "For spelling support"
 
-optional_depends "libevent"         "--with-system-libevent"      \
-                                    "--without-system-libevent"   \
-                                    "For event detection"
+# Specified in mozconfig, and don't forget that $OPTS is ignored in this BUILD.
+#optional_depends "libevent"         "--with-system-libevent"      \
+#                                    "--without-system-libevent"   \
+#                                    "For event detection"
 
 optional_depends "dbus-glib"       \
                  "--enable-dbus"   \
