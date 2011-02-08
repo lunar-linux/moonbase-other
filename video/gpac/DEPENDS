@@ -6,13 +6,31 @@ optional_depends faad      ""                   ""                     \
                            "for AAC audio decoder support"
 optional_depends freetype2 ""                   ""                     \
                            "for freetype font support"
-optional_depends spidermonkey ""                ""                     \
+
+optional_depends spidermonkey ""                   \
+                              " --use-js=local"     \
                            "for JavaScript support"
+
 optional_depends wxGTK     ""                   "--disable-wx"         \
                            "for wxWindows support"
-optional_depends openjpeg  ""                   ""                     \
+
+optional_depends openjpeg  "--use-openjpeg=system" \
+                           "--use-openjpeg=local"  \
                            "for jpeg2000 formats"
+
 optional_depends %JPEG     ""                   ""                     \
                            "for jpeg support"
 optional_depends libpng    ""                   ""                     \
                            "for png support"
+
+optional_depends libtheora " --use-theora=system"  \
+                           " --use-theora=local"   \
+                           "for theora audio support"
+optional_depends libogg    "--use-ogg=system"   \
+                           "--use-ogg=local"    \
+                           "for ogg audio support"
+
+optional_depends openssl   "--enable-ssl"  \
+                           "--disable-ssl" \
+                           "for openssl support"
+
