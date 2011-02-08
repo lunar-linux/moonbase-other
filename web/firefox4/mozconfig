@@ -30,7 +30,9 @@ ac_add_options --disable-logging
 ac_add_options --disable-accessibility
 ac_add_options --enable-mathml
 ac_add_options --disable-os2-high-mem
-ac_add_options --with-system-libevent
+# firefox4 can use its internal libevent 1.x
+# until the libevent 1 vs 2 issue is safe.
+ac_add_options --without-system-libevent
 ac_add_options --enable-gio
 ac_add_options --enable-raw
 ac_add_options --with-system-libvpx
