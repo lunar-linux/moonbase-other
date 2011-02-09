@@ -7,9 +7,7 @@
                --prefix=/usr            \
                --mandir=/usr/share/man  \
                --localstatedir=/var     \
-               --enable-shared          \
                --enable-dl              \
-               --with-g77               \
                --enable-rpath           \
                $OPTS                   &&
 
