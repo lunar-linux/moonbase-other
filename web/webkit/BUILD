@@ -15,6 +15,8 @@
 
   default_build &&
 
-  install 'Programs/GtkLauncher' '/usr/bin/GtkLauncher'
+  install 'Programs/GtkLauncher' '/usr/bin/GtkLauncher' &&
+
+  cp WebKit/gtk/NEWS .
 
 ) > $C_FIFO 2>&1
