@@ -1,8 +1,6 @@
 (
 
-  ARCH=`arch` &&
-  
-  if [ "$ARCH" == "x86_64" ] ; then
+  if [ `arch` == "x86_64" ] ; then
     OPTS="--enable-m64-build"
    else
     OPTS="--enable-m32-build"
