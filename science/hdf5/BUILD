@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --enable-gpfs --enable-threadsafe --with-pthread" &&
+  OPTS+=" --enable-gpfs --with-pthread" &&
  
   default_build
 
