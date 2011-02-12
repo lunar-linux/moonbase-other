@@ -3,5 +3,11 @@ depends  e2fsprogs
 depends  ncurses
 depends  slang
 
-optional_depends  "gpm"   ""  "--without-gpm-mouse"  \
-                              "support for console mouse"
+optional_depends "antiword" "" "" "to view MS documents"
+optional_depends "catdoc"   "" "" "to view MS documents"
+optional_depends "odt2txt"  "" "" "to view OpenOffice-like documents"
+
+optional_depends "gpm"                   \
+                 "--with-gpm-mouse"      \
+                 "--without-gpm-mouse"   \
+                 "for GPM mouse support"
