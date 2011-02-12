@@ -1,0 +1,9 @@
+#!/bin/bash
+
+LOCKFILE=/var/lock/makeupdatedb.lock
+[ -f $LOCKFILE ] && exit 0
+
+trap "{ rm -f $LOCKFILE; exit 255; }" EXIT
+touch $LOCKFILE
+updatedb
+exit 0
