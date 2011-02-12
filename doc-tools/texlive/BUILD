@@ -13,14 +13,11 @@
   find -name \*.info -print0 | xargs -0 sed -i -e "s:/usr/local:/usr:"  &&
   find -name \*.texi -print0 | xargs -0 sed -i -e "s:/usr/local:/usr:"  &&
   find -name \*.synctex -print0 | xargs -0 sed -i -e "s:/usr/local:/usr:"  &&
+  sed -i -e "s:\$(DESTDIR)\$(texconfigdir):/usr/share/texmf/texconfig:g" -e "s:\$(DESTDIR)\$(texconfdir):/usr/share:g" texk/tetex/Makefile.*  &&
 
   # Direct symlinks from /usr/bin/ into /usr/*share*/texmf... rather than /usr/texmf...
-  sedit "s:\$(REL):/usr/share:" texk/texlive/linked_scripts/Makefile*  &&
-  # Some of the symlinks are still wrong, e.g.:
-  # xmltools -> ../share/texmf-dist/scripts/context/stubs/unix/xmltools
-  # presumably should be:
-  # xmltools -> ../share/texmf-dist/scripts/context/ruby/xmltools.rb
-  # Show them by running:  ls -l /usr/bin | grep stubs
+  find -name Makefile\* -print0 | xargs -0 sed -i -e "s:\$(REL):/usr/share:"  &&
+  sedit "s:\${prefix}/\$(tex:/usr/share/\$(tex:" texk/tex4htk/Makefile*  &&
 
   # Prevent the ridiculous behaviour of deleting, then trying to replace, /usr/bin/man
   sedit "s:rm -f man:true:" texk/texlive/linked_scripts/Makefile*  &&
