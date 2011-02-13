@@ -38,6 +38,10 @@ optional_depends Python "-DVTK_WRAP_PYTHON=ON"  \
                         "-DVTK_WRAP_PYTHON=OFF" \
                         "for python wrappers support"
 
+optional_depends boost "-DVTK_USE_BOOST=ON"   \
+                       "-DVTK_USE_BOOST=OFF"  \
+                       "for boost support"
+
 optional_depends tcl "-DVTK_WRAP_TCL=ON"  \
                      "-DVTK_WRAP_TCL=OFF" \
                      "for tcl wrappers support"
@@ -58,9 +62,9 @@ optional_depends mysql  "-DVTK_USE_MYSQL=ON" \
                         "-DVTK_USE_MYSQL=OFF" \
                         "for musql database support"
 
-#optional_depends unixODBC "-DVTK_USE_ODBC=ON"  \
-#                          "-DVTK_USE_ODBC=OFF" \
-#                          "for ODBC support"
+optional_depends unixODBC "-DVTK_USE_ODBC=ON"  \
+                          "-DVTK_USE_ODBC=OFF" \
+                          "for ODBC support"
 
 optional_depends postgresql "-DVTK_USE_POSTGRES=ON"  \
                             "-DVTK_USE_POSTGRES=OFF" \
@@ -75,15 +79,15 @@ optional_depends OpenSceneGraph "-DVTK_USE_GLSL_SHADERS=ON"  \
                                 "-DVTK_USE_GLSL_SHADERS=OFF" \
                                 "for pixel and vertex shader support"
 
-#optional_depends R    "-DVTK_USE_GNU_R=ON -DVTK_USE_GUISUPPORT=ON       \
-#                       -DR_INCLUDE_DIR=/usr/lib/R/include/              \
-#                       -DR_LIBRARY_BLAS=/usr/lib/R/lib/libRblas.so      \
-#                       -R_LIBRARY_LAPACK=/usr/lib/R/lib/libRlapack.so"  \
-#                      "-DVTK_USE_GNU_R=OFF -DVTK_USE_GUISUPPORT=OFF"    \
-#                      "for R interface support"
+optional_depends R    "-DVTK_USE_GNU_R=ON -DVTK_USE_GUISUPPORT=ON       \
+                       -DR_INCLUDE_DIR=/usr/lib/R/include/              \
+                       -DR_LIBRARY_BLAS=/usr/lib/R/lib/libRblas.so      \
+                       -R_LIBRARY_LAPACK=/usr/lib/R/lib/libRlapack.so"  \
+                      "-DVTK_USE_GNU_R=OFF -DVTK_USE_GUISUPPORT=OFF"    \
+                      "for R interface support"
 
 
-#optional_depends proj-4 "-DVTK_USE_SYSTEM_LIBPROJ4=ON -DLIBPROJ4_INCLUDE_DIR=/usr/include \
-#                         -DLIBPROJ4_LIBRARIES=/usr/lib"  \
-#                        "-DVTK_USE_SYSTEM_LIBPROJ4=OFF" \
-#                        "for Cartographic Projections support"
+optional_depends proj-4 "-DVTK_USE_SYSTEM_LIBPROJ4=ON -DLIBPROJ4_INCLUDE_DIR=/usr/include \
+                         -DLIBPROJ4_LIBRARIES=/usr/lib"  \
+                        "-DVTK_USE_SYSTEM_LIBPROJ4=OFF" \
+                        "for Cartographic Projections support"
