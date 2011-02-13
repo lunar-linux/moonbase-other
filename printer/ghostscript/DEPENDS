@@ -1,11 +1,7 @@
 depends  %JPEG
 depends  libpng
+depends  tiff
 depends  lcms
-
-optional_depends "tiff"                                \
-                 "--with-system-libtiff"               \
-                 "--without-system-libtiff"            \
-                 "force system tiff"
 
 optional_depends "jasper"                              \
                  "--with-jasper"                       \
@@ -13,7 +9,7 @@ optional_depends "jasper"                              \
                  "for JPEG 2000 support"
 
 optional_depends "jbig2dec"                            \
-		 "--with-jbig2dec"                     \
+                 "--with-jbig2dec"                     \
                  "--without-jbig2dec"                  \
                  "for JPEG 2000 support"
 
