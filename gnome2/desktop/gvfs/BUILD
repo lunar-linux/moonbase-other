@@ -3,7 +3,7 @@
   # Only want glib-2 to own /usr/lib/gio/modules/giomodule.cache
   sedit "s:dummy gio-querymodules:dummy echo:" configure &&
 
-  ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
+  ./configure   --prefix=${GNOME210_PREFIX:-/usr}  \
                 --build=$BUILD        \
                 --sysconfdir=/etc     \
                 --localstatedir=/var  \
