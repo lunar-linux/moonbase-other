@@ -1,7 +1,9 @@
           MODULE=sane-backends
          VERSION=1.0.22
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=ftp://ftp.sane-project.org/pub/sane/$MODULE-$VERSION
+   SOURCE_URL[0]=ftp://ftp.sane-project.org/pub/sane/$MODULE-$VERSION
+   SOURCE_URL[1]=ftp://ftp2.sane-project.org/pub/sane/$MODULE-$VERSION
+   SOURCE_URL[2]=ftp://ftp3.sane-project.org/pub/sane/$MODULE-$VERSION
       SOURCE_VFY=sha1:dc04d6e6fd18791d8002c3fdb23e89fef3327135
         WEB_SITE=http://www.sane-project.org
          ENTERED=20020412
@@ -10,9 +12,9 @@
            SHORT="Universal scanner interface"
 
 cat << EOF
-SANE stands for "Scanner Access Now Easy" and is an application 
-programming interface (API) that provides standardized access to any 
-raster image scanner hardware (flatbed scanner, hand-held scanner, 
+SANE stands for "Scanner Access Now Easy" and is an application
+programming interface (API) that provides standardized access to any
+raster image scanner hardware (flatbed scanner, hand-held scanner,
 video and still-cameras, frame-grabbers, etc.).
 sane-backends is the collection of scanner interface libraries.
 EOF
