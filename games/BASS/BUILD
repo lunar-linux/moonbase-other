@@ -20,7 +20,7 @@ Type=Application
 Name=Beneath a Steel Sky
 Comment=$SHORT
 Exec=bass
-Icon=bass
+Icon=scummvm
 Categories=Game;AdventureGame;
 EOF
 
