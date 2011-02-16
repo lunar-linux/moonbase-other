@@ -6,11 +6,10 @@
 
   mkdir -p /opt/dropbox   &&
   cp -Ra * /opt/dropbox/  &&
-  ln -sfn /opt/dropbox/dropboxd /usr/bin/dropboxd
+  ln -sfn /opt/dropbox/dropboxd /usr/bin/dropboxd  &&
 
   if in_depends dropbox Python ; then
-    cp /var/spool/lunar/dropbox.py /usr/bin/dropbox
-    chmod 755 /usr/bin/dropbox
+    install -m 755 $SOURCE_CACHE/$SOURCE2 /usr/bin/dropbox
   fi
 
 ) > $C_FIFO 2>&1
