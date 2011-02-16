@@ -9,7 +9,9 @@
   ln -sfn /opt/dropbox/dropboxd /usr/bin/dropboxd  &&
 
   if in_depends dropbox Python ; then
-    install -m 755 $SOURCE_CACHE/$SOURCE2 /usr/bin/dropbox
+    cp -f $SOURCE_CACHE/$SOURCE2 dropbox  &&
+    sedit "s:~/.dropbox-dist/dropboxd:/usr/bin/dropboxd:" dropbox  &&
+    install -m 755 dropbox /usr/bin/
   fi
 
 ) > $C_FIFO 2>&1
