@@ -20,7 +20,7 @@ Type=Application
 Name=Flight of the Amazon Queen
 Comment=$SHORT
 Exec=fotaq
-Icon=fotaq
+Icon=scummvm
 Categories=Game;AdventureGame;
 EOF
 
