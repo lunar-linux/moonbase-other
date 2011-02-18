@@ -54,10 +54,16 @@
   echo "INSTALL_DIR=$MODULE_PREFIX" > /etc/vbox/vbox.cfg &&
 
   if in_depends $MODULE qt4 ; then
+    # File path for PDF
+    sedit "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" /usr/lib/virtualbox/virtualbox.desktop &&
     # Install .desktop entry and icon, then update the icon cache
-    install -D -m644 /usr/lib/virtualbox/virtualbox.desktop /usr/share/applications/virtualbox.desktop &&
-    install -D -m644 /usr/lib/virtualbox/VBox.png /usr/share/icons/hicolor/32x32/apps/VBox.png &&
+    install -Dm 644 /usr/lib/virtualbox/virtualbox.desktop /usr/share/applications/virtualbox.desktop &&
+    install -Dm 644 /usr/lib/virtualbox/VBox.png /usr/share/icons/hicolor/32x32/apps/VBox.png &&
     gtk-update-icon-cache /usr/share/icons/hicolor
+  fi &&
+
+  if in_depends $MODULE texlive ; then
+    install -Dm 644 /usr/lib/virtualbox/UserManual.pdf /usr/share/doc/VirtualBox/UserManual.pdf
   fi &&
 
   # Create the vboxusers group
