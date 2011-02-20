@@ -14,9 +14,6 @@ optional_depends "icu4c" "--with-system-icu"   "--without-system-icu"   "for ICU
 # This will look like the wrong way around. It means whether to install texlive's own version of lcdf-typetools, or use the lcdf-typetools module from moonbase.
 optional_depends "lcdf-typetools" "--disable-lcdf-typetools" "--enable-lcdf-typetools" "for Postscript support (if n, TeX Live's own version will be installed)"
 
-optional_depends "libX11" "" "--without-x" "for XOrg support (say n for e.g. framebuffer)"
+optional_depends "t1utils" "--disable-t1utils" "--enable-t1utils" "for Postscript font utils (if n, TeX Live's own version will be installed)"
 
-# Building xindy requires that texlive is *already* installed!
-# Otherwise:  configure: error: LATEX is required to build xindy rules
-# Should have xindy as a separate module, from http://xindy.sourceforge.net/
-#optional_depends "clisp" "--enable-xindy" "--disable-xindy" "for xindy book-like indexes"
+optional_depends "libX11" "" "--without-x" "for XOrg support (say n for e.g. framebuffer)"
