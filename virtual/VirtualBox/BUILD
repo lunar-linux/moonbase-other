@@ -54,8 +54,8 @@
   echo "INSTALL_DIR=$MODULE_PREFIX" > /etc/vbox/vbox.cfg &&
 
   if in_depends $MODULE qt4 ; then
-    # File path for PDF
-    sedit "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" /usr/lib/virtualbox/virtualbox.desktop &&
+    # File path for PDF, and make name more recognizable
+    sed -i -e "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" -e "s:Oracle VM VirtualBox:VirtualBox Oracle VM:1" /usr/lib/virtualbox/virtualbox.desktop &&
     # Install .desktop entry and icon, then update the icon cache
     install -Dm 644 /usr/lib/virtualbox/virtualbox.desktop /usr/share/applications/virtualbox.desktop &&
     install -Dm 644 /usr/lib/virtualbox/VBox.png /usr/share/icons/hicolor/32x32/apps/VBox.png &&
