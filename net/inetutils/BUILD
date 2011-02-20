@@ -1,5 +1,8 @@
 (
 
+  # To prevent compilation error:  undefined reference to `tgetent'
+  export LIBS+=" -lncurses" &&
+
   OPTS+=" --disable-servers   \
           --disable-ifconfig  \
           --disable-tftp      \
