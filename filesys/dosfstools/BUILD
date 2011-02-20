@@ -2,7 +2,7 @@
 
   sedit "s/-O2 -fomit-frame-pointer/ /" Makefile &&
 
-  MAKE_OPTS="PREFIX=/usr MANDIR=/usr/man/man8"   &&
+  MAKE_OPTS="PREFIX=/usr MANDIR=/usr/man"   &&
 
   make  $MAKE_OPTS  &&
   prepare_install   &&
