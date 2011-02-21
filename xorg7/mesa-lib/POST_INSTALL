@@ -1,0 +1,5 @@
+if [[ ! -e /usr/include/GL/glut.h ]] || [[ ! -e /usr/include/GL/freeglut.h ]] ; then
+  # freeglut provides %GLUT, previously overlapping with mesa-lib.
+  # mesa-lib previously installed part of %GLUT, so install freeglut so it is complete.
+  lin -c freeglut
+fi
