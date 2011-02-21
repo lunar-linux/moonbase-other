@@ -1,9 +1,7 @@
 (
 
-  default_config
+  OPTS+=" --enable-static=no" &&
 
-  sedit "s:-Werror::" `find . | grep Makefile` 
-
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1
