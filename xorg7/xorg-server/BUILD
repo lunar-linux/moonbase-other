@@ -1,16 +1,10 @@
 (
 
-#  patch_it $SOURCE2 1  &&
-
   . /etc/profile.d/x11r7.rc  &&
 
   if [ -h /usr/share/X11/xkb/compiled ]; then
     rm -f /usr/share/X11/xkb/compiled
   fi  &&
-
-#  if [[ "$USE_NVIDIA" = "y" ]]; then
-#    OPTS+=" --disable-glx --disable-glx-tlx"
-#  fi &&
 
   OPTS+=" --enable-composite --enable-aiglx --disable-devel-docs \
           --enable-install-libxf86config --enable-unix-transport \
