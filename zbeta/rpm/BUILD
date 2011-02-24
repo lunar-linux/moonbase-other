@@ -4,7 +4,7 @@
 
   LDFLAGS=$(echo $LDFLAGS | sed  s/"-z combreloc"// ) &&
 
-  OPTS+=" --without-selinux" &&
+  OPTS+=" --without-selinux --enable-static=no" &&
 
   default_build
 
