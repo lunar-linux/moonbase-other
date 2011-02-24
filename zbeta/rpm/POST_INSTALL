@@ -1,0 +1,7 @@
+cd /usr/src &&
+if [[ -d rpm ]] ; then
+  if [[ $(find rpm -type f | wc -l) == 0 ]] ; then
+    # Remove empty tree created by compilation process
+    rm -rf rpm
+  fi
+fi
