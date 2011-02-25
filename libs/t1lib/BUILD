@@ -7,6 +7,9 @@
   prepare_install           &&
   make    install           &&
 
-  chmod 755 /usr/lib/libt1{,x}.so.$VERSION
+  chmod 755 /usr/lib/libt1.so.$VERSION &&
+  if [[ -f /usr/lib/libt1x.so.$VERSION ]] ; then
+    chmod 755 /usr/lib/libt1x.so.$VERSION
+  fi
 
 ) > $C_FIFO 2>&1
