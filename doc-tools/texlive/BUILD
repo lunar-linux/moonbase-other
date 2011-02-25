@@ -34,7 +34,7 @@
 
   default_build  &&
 
-  # Idea from http://repos.archlinux.org/wsvn/packages/texlive-bin/trunk/
+  # Idea from http://projects.archlinux.org/svntogit/packages.git/tree/texlive-bin/trunk/
   install -m644 $SOURCE_CACHE/$SOURCE3 /etc/fonts/conf.d/09-texlive-fonts.conf
 
 ) > $C_FIFO 2>&1
