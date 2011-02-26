@@ -1,11 +1,12 @@
 (
-  prepare_install &&
 
   # rm *.bat files
-  rm $SOURCE_DIRECTORY/bin/*.bat
+  rm $SOURCE_DIRECTORY/bin/*.bat &&
+
+  prepare_install &&
 
   # copy extracted files
-  mkdir -p /usr/scala &&
+  mkdir -p /usr/scala                &&
   cp -r $SOURCE_DIRECTORY /usr/scala &&
 
   # symlink default and latest (like java)
@@ -17,12 +18,12 @@
   # symlink bin folder
   for file in /usr/scala/latest/bin/*; do
       ln -sf $file /usr/bin/
-  done
+  done &&
 
   # symlink man folder
   for file in /usr/scala/latest/man/man1/*; do
       ln -sf $file /usr/man/man1/
-  done
+  done &&
 
   if [ $EXTEND_JAVA == "y" ]; then
       for file in /usr/scala/latest/lib/*; do
