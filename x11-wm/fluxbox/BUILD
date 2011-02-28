@@ -1,9 +1,5 @@
 (
 
-  if [ "$KDE" == "y" ] ; then
-    OPTS+=" --enable-kde"
-  fi
-
   if [ "$GNOME" == "n" ] ; then
     OPTS+=" --disable-gnome"
   fi
@@ -25,5 +21,5 @@
   if module_installed gdm ; then
         install -m755 $SCRIPT_DIRECTORY/Fluxbox /etc/X11/gdm/Sessions/
   fi
-  
+
 ) > $C_FIFO 2>&1
