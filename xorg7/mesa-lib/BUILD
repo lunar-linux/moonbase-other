@@ -17,16 +17,9 @@
 
   make all  &&
 
-  # Build glxgears and glxinfo
-  cd progs/xdemos  &&
-  make glxgears glxinfo  &&
-  cd ../..  &&
-
   # glew headers are installed from the glew module instead
   rm -f include/GL/{glew,glxew,wglew}.h  &&
 
-  make install  &&
-
-  install -v -m755 progs/xdemos/glx{gears,info} /usr/bin/
+  make install
 
 ) > $C_FIFO 2>&1
