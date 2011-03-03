@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-
   if [ -d /opt/lunar/qt ] ; then
     ld_remove /opt/lunar/qt/lib
   fi &&
