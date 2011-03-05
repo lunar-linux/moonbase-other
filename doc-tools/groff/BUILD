@@ -1,5 +1,8 @@
 (
 
+  # Fix typo
+  sedit "s:tob_builddir:top_builddir:1" Makefile.comm  &&
+
   default_build  &&
   cd /usr/bin    &&
   if [ ! -e geqn ] ; then
