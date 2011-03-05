@@ -1,13 +1,12 @@
 (
 
-   [ -f /etc/profile.d/xfce4.rc ] && . /etc/profile.d/xfce4.rc
+  if [ -f /etc/profile.d/xfce4.rc ] ; then
+    . /etc/profile.d/xfce4.rc
+  fi &&
 
-   # make sure proper PKG_CONFIG_PATH is set
-   export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
+  # make sure proper PKG_CONFIG_PATH is set
+  export PKG_CONFIG_PATH="${MODULE_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}" &&
 
-#   ./autogen.sh --prefix=/usr &&
-default_cvs_build
-
-#   default_build
+  default_build
 
 ) > $C_FIFO 2>&1
