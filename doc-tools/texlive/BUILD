@@ -23,6 +23,9 @@
   sedit "s:rm -f man:true:" texk/texlive/linked_scripts/Makefile*  &&
   sedit "s:ln -s /usr/share/texmf/doc/man man:true:" texk/texlive/linked_scripts/Makefile*  &&
 
+  # Fix 64-bit XeTeX - http://bugs.gentoo.org/show_bug.cgi?id=356701
+  sedit "/^#define __XETEXEXT_H/a#include <w2c\/c-auto.h>" texk/web2c/xetexdir/XeTeX_ext.h  &&
+
   # Hide warnings about being unable to find its own config files
   export KPATHSEA_WARNING=0  &&
 
