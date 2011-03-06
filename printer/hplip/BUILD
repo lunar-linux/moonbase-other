@@ -4,7 +4,7 @@
      . /etc/profile.d/qt4.rc
   fi &&
 
-  if [[ "$PP" == "y" ]] ; then
+  if [[ "$PARPORT" == "n" ]] ; then
     OPTS+=" --disable-pp-build"
   fi &&
 
