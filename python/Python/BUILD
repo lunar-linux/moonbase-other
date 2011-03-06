@@ -13,7 +13,10 @@
                 $SOURCE_DIRECTORY/Tools/i18n/pygettext.py  \
                 /usr/lib/python$MAJOR/                    &&
 
-  gather_docs Misc/*
+  # Docs
+  mv Misc/{cheatsheet,NEWS} .  &&
+  chmod 644 cheatsheet NEWS README  &&
+  gather_docs cheatsheet NEWS README
 
 ) > $C_FIFO 2>&1
 
