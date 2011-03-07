@@ -84,6 +84,12 @@
 /usr/include
 /usr/share/man
 N
-" | ./installnetpbm
+" | ./installnetpbm  &&
+
+  # Fix documentation layout and permissions
+  mv doc/* .  &&
+  rmdir doc  &&
+  chmod 644 INSTALL README* USERDOC  &&
+  gather_docs USERDOC
 
 ) > $C_FIFO 2>&1
