@@ -22,7 +22,7 @@
   OPTS+=" --disable-hardening"   &&
   ./configure $OPTS              &&
   source ./env.sh                &&
-  if !( module_installed Linux-PAM ); then
+  if ! module_installed Linux-PAM ; then
      sedit "s/VBOX_WITH_PAM/VBOX_WITHOUT_PAM/" Config.kmk
   fi &&
   kmk                            &&
@@ -41,29 +41,31 @@
   mkdir -p $MODULE_PREFIX &&
 
   # Install contents of the build directory
-  cp -R out/linux.x86/release/bin/* $MODULE_PREFIX &&
+  cp -R out/linux.x86/release/bin/* $MODULE_PREFIX/ &&
 
-  # Install the startup script to /usr/bin
-  install -m 755 $SCRIPT_DIRECTORY/VirtualBox /usr/bin &&
-
+  cp $SCRIPT_DIRECTORY/VirtualBox . &&
   # Substitute $INSTALL_DIR with the module prefix
-  sedit 's:$INSTALL_DIR:'$MODULE_PREFIX':g' /usr/bin/VirtualBox &&
+  sedit 's:$INSTALL_DIR:'$MODULE_PREFIX':g' VirtualBox &&
+  # Install the startup script to /usr/bin
+  install -m 755 VirtualBox /usr/bin/ &&
 
   # Install the config file to let VirtualBox know it is installed
-  mkdir -p /etc/vbox &&
-  echo "INSTALL_DIR=$MODULE_PREFIX" > /etc/vbox/vbox.cfg &&
+  echo "INSTALL_DIR=$MODULE_PREFIX" >  vbox.cfg &&
+  install -Dm 644 {,/etc/vbox/}vbox.cfg &&
 
   if in_depends $MODULE qt4 ; then
     # File path for PDF, and make name more recognizable
     sed -i -e "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" -e "s:Oracle VM VirtualBox:VirtualBox Oracle VM:1" /usr/lib/virtualbox/virtualbox.desktop &&
     # Install .desktop entry and icon, then update the icon cache
-    install -Dm 644 /usr/lib/virtualbox/virtualbox.desktop /usr/share/applications/virtualbox.desktop &&
-    install -Dm 644 /usr/lib/virtualbox/VBox.png /usr/share/icons/hicolor/32x32/apps/VBox.png &&
-    gtk-update-icon-cache /usr/share/icons/hicolor
+    install -Dm 644 /usr/{lib/virtualbox,share/applications}/virtualbox.desktop &&
+    install -Dm 644 /usr/{lib/virtualbox,share/icons/hicolor/32x32/apps}/VBox.png &&
+    if [ -x /usr/bin/gtk-update-icon-cache ] ; then
+      gtk-update-icon-cache /usr/share/icons/hicolor
+    fi
   fi &&
 
   if in_depends $MODULE texlive ; then
-    install -Dm 644 /usr/lib/virtualbox/UserManual.pdf /usr/share/doc/VirtualBox/UserManual.pdf
+    install -Dm 644 /usr/{lib/virtualbox,share/doc/VirtualBox}/UserManual.pdf
   fi &&
 
   # Create the vboxusers group
