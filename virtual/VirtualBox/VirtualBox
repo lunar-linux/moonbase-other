@@ -74,7 +74,7 @@ WARNING: The compilation of the vboxdrv.ko kernel module failed during the
 EOF
 fi
 
-export LD_LIBRARY_PATH="$INSTALL_DIR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+export LD_LIBRARY_PATH="$INSTALL_DIR/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 
 SERVER_PID=`ps -U \`whoami\` | grep VBoxSVC | awk '{ print $1 }'`
 if [ -z "$SERVER_PID" ]; then
