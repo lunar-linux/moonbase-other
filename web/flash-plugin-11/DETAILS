@@ -1,5 +1,5 @@
           MODULE=flash-plugin-11
-         VERSION=11.0.0.58
+         VERSION=11.0.0.60
           SOURCE=flashplayer_inc_debug_lin_022711.tar.gz
       SOURCE_URL=http://download.macromedia.com/pub/labs/flashplatformruntimes/incubator
       SOURCE_VFY=sha1:0c123b7c7b4b5c44be972e30fa1288f0e6ff6a64
@@ -7,7 +7,13 @@
          ENTERED=20110305
          UPDATED=20110305
            SHORT="Beta Version 11 of the Adobe Flash plugin for web browsers"
-CLEAR_CACHE=off
+     CLEAR_CACHE=off
+
 cat << EOF
 Beta Version 11 of the flash plugin.
+
+Configuration is in /etc/adobe/mms.cfg
+
+To show the version, run:
+  strings /opt/lunar/plugins/libflashplayer.so | grep FlashPlayer_
 EOF
