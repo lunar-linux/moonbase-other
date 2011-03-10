@@ -20,8 +20,6 @@
   mkdir -p ${MOZ_OBJDIR} &&
 
   cd $MOZILLA_DIR &&
-  # Print Preview in firefox instantly crashes - http://bugs.gentoo.org/325469
-  patch_it $SOURCE_CACHE/$SOURCE2 2 &&
 
   echo "ac_add_options --disable-necko-wifi" >> mozconfig &&
   echo "ac_add_options --disable-system-sqlite" >> mozconfig &&

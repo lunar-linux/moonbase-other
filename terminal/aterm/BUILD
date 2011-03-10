@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS  --enable-fading            \
+  OPTS+="  --enable-fading            \
                --enable-transparency      \
                --enable-background-image  \
                --enable-menubar           \

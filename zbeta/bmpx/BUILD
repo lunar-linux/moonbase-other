@@ -1,7 +1,7 @@
 (
 
   # Disable debug and add some boost hints to help the compile along
-  OPTS="$OPTS --disable-profile --disable-debug     \
+  OPTS+=" --disable-profile --disable-debug     \
               --with-boost-filesystem=gcc41-1_34_1  \
               --with-boost-regex=gcc41-1_34_1       \
               --with-boost-iostreams=gcc41-1_34_1"

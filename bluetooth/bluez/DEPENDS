@@ -1,11 +1,10 @@
 depends dbus-glib
-depends gstreamer-10
 depends psmisc
 
-optional_depends "udev"        "--enable-udevrules" "--disable-udevrules" "for udev support"
-optional_depends "libusb"      "--enable-usb"       "--disable-usb"       "for USB support"
-optional_depends "pcmciautils" "--enable-pcmcia"    "--disable-pcmcia"    "to enable pcmcia support, 2.6 kernels"
-optional_depends "libnl"       "--enable-netlink"   "--disable-netlink"   "for NETLINK support "
-optional_depends "alsa-lib"    "--enable-alsa"      "--disable-alsa"      "to enable alsa sound support"
-optional_depends "cups"        "--enable-cups"      "--disable-cups"      "to enable cups printing support"
-optional_depends "setserial"   ""                   ""                    "needed by the serial init.d script"
+optional_depends "udev"         "--enable-udevrules" "--disable-udevrules" "for udev support"
+optional_depends "libusb"       "--enable-usb"       "--disable-usb"       "for USB support"
+optional_depends "pcmciautils"  "--enable-pcmcia"    "--disable-pcmcia"    "to enable pcmcia support, 2.6 kernels"
+optional_depends "libcap-ng"    "--enable-capng"     ""      "To determine capabilities"
+optional_depends "gstreamer-10" "--enable-gstreamer" "--disable-gstreamer" "For gstreamer support"
+optional_depends "alsa-lib"     "--enable-alsa"      "--disable-alsa"      "to enable alsa sound support"
+optional_depends "cups"         "--enable-cups"      "--disable-cups"      "to enable cups printing support"

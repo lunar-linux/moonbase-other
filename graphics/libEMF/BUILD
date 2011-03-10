@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-editing"
+  OPTS+=" --enable-editing"
 
   default_build
 

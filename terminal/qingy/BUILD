@@ -1,6 +1,6 @@
 (
   
-  OPTS="$OPTS --sbindir=/sbin --disable-optimizations"
+  OPTS+=" --sbindir=/sbin --disable-optimizations"
 
   default_build  &&
 

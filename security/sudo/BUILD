@@ -3,7 +3,7 @@ EDITOR=`which  nano`                  &&
 
 (
 
-  OPTS="$OPTS --with-editor=$EDITOR"
+  OPTS+=" --with-editor=$EDITOR"
 
   default_build
 

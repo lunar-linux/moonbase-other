@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS  --enable-all-themes"
+  OPTS+="  --enable-all-themes"
 
   default_build
 

@@ -6,15 +6,30 @@
 # description: MSN jabber transport
 # config: /etc/jabber/pymsnt.xml
 
-
 start ()
 {
-    python /usr/lib/python2.5/site-packages/pymsnt/pymsnt.py -c /etc/jabber/pymsnt.xml
+  echo -n "Starting pymsnt jabber transport: "
+  cd /usr/lib/pymsnt &&
+  exec python ./PyMSNt.py -c /etc/jabber/pymsnt.xml &> /dev/null &
+  if [ $? -eq 0 ]; then
+    echo -e "$RESULT_OK"
+  else
+    echo -e "$RESULT_FAIL"
+    exit 1
+  fi
 }
 
 stop ()
 {
-    kill `cat /var/run/pymsnt.pid`
+  echo -n "Stopping pymsnt jabber transport: "
+  PID=$(cat /var/run/pymsnt.pid)
+  [ ! -z "$PID" ] && kill $PID &> /dev/null
+  if [ $? -eq 0 ]; then
+    echo -e "$RESULT_OK"
+  else
+    echo -e "$RESULT_FAIL"
+    exit 1
+  fi
 }
 
 . /lib/lsb/init-functions

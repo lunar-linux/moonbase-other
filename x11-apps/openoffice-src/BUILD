@@ -1,5 +1,9 @@
 (
 
+# To fix:dtint.hxx:41:8: error: using typedef-name 'Display' after 'struct'
+# Take from http://bugs.gentoo.org/344993
+  sedit "s:\#ifndef _XLIB_H_:\#if \!defined(_XLIB_H_) \&\& \!defined(_X11_XLIB_H_):" vcl/unx/inc/dtint.hxx &&
+
 # So it will compile with gcc-4.5
   sedit "s:__ <= 4:__ <= 5:g" cppu/inc/uno/lbnames.h&&
 
@@ -38,7 +42,7 @@
   # All of the options have been carefully chosen. Don't edit them unless you
   # really know what you're doing
 
-  OPTS="$OPTS --prefix=$OO_DIR --enable-dbus --disable-dbgutil --disable-static-gtk \
+  OPTS+=" --prefix=$OO_DIR --enable-dbus --disable-dbgutil --disable-static-gtk \
               --disable-fontooo --disable-odk --disable-debug --enable-opengl \
               --disable-mathmldtd --enable-cairo --with-mozilla-version=1.7.5 \
               --enable-mozilla --enable-binfilter --enable-xrender-link       \
@@ -66,10 +70,10 @@
   fi &&
 
   if module_installed sun-jdk ; then
-    OPTS="$OPTS --with-jdk-home=$JAVA_HOME";
+    OPTS+=" --with-jdk-home=$JAVA_HOME";
    else
     if  module_installed j2sdk ; then
-    OPTS="$OPTS --with-jdk-home=$JAVA_HOME";
+    OPTS+=" --with-jdk-home=$JAVA_HOME";
     fi
   fi &&
 

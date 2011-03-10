@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-ipv6"
+  OPTS+=" --enable-ipv6"
 
   sedit 's/GtkType/GType/g' src/fe-gtk/xtext.{c,h} &&
 

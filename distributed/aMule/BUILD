@@ -3,7 +3,7 @@
 # Removing a redundant wxFont.
   sedit "s|::wxFont||"  src/utils/wxCas/src/wxcasframe.cpp &&
 
-  OPTS="$OPTS --disable-debug \
+  OPTS+=" --disable-debug \
               --enable-wxcas \
               --enable-cas \
               --enable-ccache"  &&

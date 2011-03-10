@@ -1,8 +1,8 @@
 # swrast is always included, in BUILD
-SUPPORTED_DRIVERS="i810 i915 i965 mach64 mga r128 r200 r300 radeon s3v savage sis tdfx trident unichrome"
+SUPPORTED_DRIVERS="i810 i915 i965 mach64 mga r128 r200 r300 r600 radeon s3v savage sis tdfx trident unichrome"
 
 make_drivers_checklist() {
-  
+
   # For each locale, extract name, title and charmap information
   for driver in $SUPPORTED_DRIVERS; do
       title=$driver
@@ -42,3 +42,6 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
   echo "OPTS=\"\$OPTS $OPTS\"" >> $MODULE_CONFIG
   echo "CONFIGURED=y"          >> $MODULE_CONFIG
 fi
+
+# Default is y, so xorg-server can be compiled with it disabled or enabled
+mquery ENABLE_GLX_TLS "Enable glx-tls? (${PROBLEM_COLOR}lin xorg-server also${DEFAULT_COLOR})" y "--enable-glx-tls" "--disable-glx-tls"

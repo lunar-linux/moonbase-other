@@ -1,11 +1,11 @@
 (
 
-  THEME_DIRECTORY="/usr/share/themes/"
+  THEME_DIRECTORY="/usr/share/themes/" &&
 
   THEMES="MurrinaCandy \
           MurrinaCappuccino \
           MurrinaEalm \
-          MurrinaNeoGraphite"
+          MurrinaNeoGraphite" &&
 
   prepare_install &&
 

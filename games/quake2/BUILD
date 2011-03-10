@@ -1,7 +1,7 @@
 (
 
   if [ "$WERR" == "n" ]; then
-    OPTS="$OPTS --disable-warn"
+    OPTS+=" --disable-warn"
   fi
   
   default_game_build

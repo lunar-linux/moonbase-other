@@ -1,6 +1,7 @@
-mquery MAKE_DOCS "Build the QT4 documentation?" n "" " -nomake docs"
+mquery MAKE_DOCS "Build the QT4 documentation?" n "" "-nomake docs"
 mquery MAKE_EXAMPLE_DEMOS "Build examples and demos?" n "" "-nomake examples -nomake demos"
-mquery XML_PATTERNS "Build xml patterns? Needed by qtscriptgenerator" y "-exceptions" "-no-exceptions"
-mquery MAKE_QDOC3 "BUILD QDOC3 docs? This is needed by qt-creator." n
+mquery XML_PATTERNS "Build xml patterns? ${PROBLEM_COLOR}Needed by qtscriptgenerator${DEFAULT_COLOR}" y "-exceptions" "-no-exceptions"
+mquery MAKE_QDOC3 "BUILD QDOC3 docs? ${PROBLEM_COLOR}Needed by qt-creator${DEFAULT_COLOR}" n
 mquery MAKE_WEBKIT "Build the webkit plugin? ${PROBLEM_COLOR}Needed by kdelibs4${DEFAULT_COLOR}" y "-webkit" "-no-webkit"
-mquery LICENSE_TYPE "Build Qt using open source license? (N=commercial)" y
+mquery LICENSE_TYPE "Build Qt using open-source license? (n=commercial)" y
+mquery MAKE_PHONON "Build qt4's (old) phonon? ${PROBLEM_COLOR}say y if without kdebase4-runtime${DEFAULT_COLOR}" n "-phonon" "-no-phonon"

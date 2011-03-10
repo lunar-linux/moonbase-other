@@ -1,1 +1,9 @@
-optional_depends pygtk  ""  "--without-zenmap"  "for zenmap"
+optional_depends "openssl"            \
+                 "--with-openssl"     \
+                 "--without-openssl"  \
+                 "for SSL support"
+
+optional_depends "pygtk"              \
+                 "--with-zenmap"      \
+                 "--without-zenmap"   \
+                 "for the Zenmap GUI"

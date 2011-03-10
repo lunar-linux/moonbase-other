@@ -1,0 +1,9 @@
+# As in /usr/sbin/sync-babel
+sed -i -e '/thai.ldf/d' /usr/share/texmf-dist/tex/generic/babel/babel.sty
+
+# As in /usr/sbin/sync-thailatex
+# Prevents "can't find foo.{tex,sty}" errors
+mktexlsr --quiet
+
+updmap-sys --quiet --disable thai.map
+updmap-sys --quiet

@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-sockets"
+  OPTS+=" --enable-sockets"
 
   default_build
 

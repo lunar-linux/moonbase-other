@@ -1,7 +1,8 @@
 (
 
-  OPTS+=" --disable-cygnal --enable-gui=gtk \
-          --with-npapi-plugindir=/opt/lunar/plugins"
+  OPTS+=" --with-npapi-plugindir=/opt/lunar/plugins --enable-media=ffmpeg" &&
+
+  ./autogen.sh &&
 
   default_build &&
 

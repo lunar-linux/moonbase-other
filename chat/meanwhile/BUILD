@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-doxygen=no"
+  OPTS+=" --enable-doxygen=no"
 
   default_build
 

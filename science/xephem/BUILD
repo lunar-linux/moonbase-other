@@ -2,7 +2,7 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 0  &&
 
-  # Make the makefiles obay our CFLAGS!
+  # Make the makefiles obey our CFLAGS!
   sedit "s:^CFLAGS[ ]*=\(.*\)-O2\(.*\):CFLAGS= \1 \2 $CFLAGS:" libastro/Makefile
   sedit "s:^CFLAGS[ ]*=\(.*\)-O2\(.*\):CFLAGS= \1 \2 $CFLAGS:" libip/Makefile
   sedit "s:^CFLAGS[ ]*=\(.*\)-O2\(.*\):CFLAGS= \1 \2 $CFLAGS:" libjpegd/Makefile
@@ -22,6 +22,6 @@
   done &&
 
   echo "XEphem.ShareDir: /opt/xephem" > XEphem &&
-  install -m0644 XEphem /usr/lib/X11/app-defaults/
-  
+  install -m0644 XEphem /etc/X11/app-defaults/
+
 ) > $C_FIFO

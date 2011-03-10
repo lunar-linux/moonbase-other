@@ -1,7 +1,7 @@
 (
   # Enable multibyte support if this is the user's wish
   if [[ "$MULTIBYTE" == "y" ]]; then
-    OPTS="$OPTS --enable-multibyte"
+    OPTS+=" --enable-multibyte"
   fi
 
   cd src           &&

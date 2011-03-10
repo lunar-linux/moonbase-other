@@ -1,7 +1,7 @@
 (
 
   sedit "s/\/man\/man8/\/share\0/" Makefile.in
-  OPTS="$OPTS --with-pcap-includes=/usr/include/pcap"
+  OPTS+=" --with-pcap-includes=/usr/include/pcap"
   touch *
   default_build
  

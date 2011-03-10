@@ -1,7 +1,7 @@
 (
 
   if [ "$CONFIG_NLS" == "n" ]; then
-    OPTS="$OPTS -U d_enablenls"
+    OPTS+=" -U d_enablenls"
   fi
 
   # shoot metaconfig in the head please:

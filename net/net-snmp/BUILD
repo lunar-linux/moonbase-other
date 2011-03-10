@@ -13,6 +13,8 @@
 # So lets put all that together.
   LDFLAGS="$LDFLAGS -Wl,-rpath,${PERL_SO_PATH}"
 
+  OPTS+=" --disable-static"  &&
+
   ./configure  --prefix=/usr         \
                --sysconfdir=/etc     \
                --localstatedir=/var  \

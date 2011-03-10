@@ -6,15 +6,15 @@
     OPTS+=" --without-gpm"
   fi
   if [ $WITH_DEBUG == "y" ]; then
-    OPTS="$OPTS --with-debug"
+    OPTS+=" --with-debug"
   else
-    OPTS="$OPTS --without-debug"
+    OPTS+=" --without-debug"
   fi;
 
   if [ $WITH_PROFILING == "y" ]; then
-    OPTS="$OPTS --with-profile"
+    OPTS+=" --with-profile"
   else
-    OPTS="$OPTS --without-profile"
+    OPTS+=" --without-profile"
   fi;
 
 # ************************ WARNING *************************

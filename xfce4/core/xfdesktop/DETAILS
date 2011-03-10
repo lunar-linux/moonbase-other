@@ -1,16 +1,17 @@
           MODULE=xfdesktop
-         VERSION=4.6.2
+           MAJOR=4.8
+         VERSION=$MAJOR.1
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://www.xfce.org/archive/xfce-$VERSION/src
-      SOURCE_VFY=sha1:cefcd1c1386d34386d4e900cbf88b7c24ef3bafb
+      SOURCE_URL=http://archive.xfce.org/src/xfce/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:18fbce10018c29b4942b90583615e7ce42510262
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
         WEB_SITE=http://www.xfce.org
          ENTERED=20030715
-         UPDATED=20100524
+         UPDATED=20110130
            SHORT="Desktop manager for Xfce4"
 
 cat << EOF
 Desktop manager for the Xfce4 desktop environment. Handles the
-background image settings and provides a mouse menu when you click on
+background image settings, and provides a mouse menu when you click on
 the desktop background.
 EOF

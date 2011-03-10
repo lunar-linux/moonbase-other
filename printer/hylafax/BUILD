@@ -2,7 +2,7 @@
 
   sedit "s:/usr/local:/usr:g" configure
 
-  OPTS="$OPTS --nointeractive"
+  OPTS+=" --nointeractive"
 
   ./configure $OPTS &&
 

@@ -1,17 +1,18 @@
           MODULE=xfce4-panel
-         VERSION=4.6.4
+           MAJOR=4.8
+         VERSION=$MAJOR.2
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://mocha.xfce.org/archive/src/xfce/$MODULE/4.6
-      SOURCE_VFY=sha1:d2b310c036be84ed9886c06ae35b7a1a8eabfcb8
+      SOURCE_URL=http://archive.xfce.org/src/xfce/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:0600a8788dd30435a051ac2f86dd67b311e98919
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
-        WEB_SITE=http://www.xfce.org
+        WEB_SITE=http://www.xfce.org/projects/xfce4-panel
          ENTERED=20030715
-         UPDATED=20100524
+         UPDATED=20110225
            SHORT="Xfce4 panel"
 
 cat << EOF
 xfce4-panel -- The panel for the Xfce4 desktop environment. Provides
-program lauchers, menus, and several plugins like a clock a pager and
+program lauchers, menus, and several plugins like a clock, a pager and
 a mail checker. Allows external plugins to be written and installed
 separately.
 EOF

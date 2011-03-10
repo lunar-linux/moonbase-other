@@ -1,5 +1,20 @@
 depends xfconf
+depends libxfce4ui
 depends libxfce4util
-depends libxfcegui4
+depends libwnck
+depends dbus-glib
+depends xfce4-panel
+
+optional_depends gnome-keyring "" "--disable-libgnome-keyring" "Gnome keyring support"
+
+optional_depends upower "" "--disable-upower" "Upower support"
+optional_depends ConsoleKit "" "--disable-consolekit" "ConsoleKit support"
+optional_depends PolicyKit "" "--disable-polkit" "PolicyKit support"
+
+
+
+
+
+
 
 optional_depends fortune "" "" "so xfce4-tips can give you the fortune of the day"

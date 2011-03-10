@@ -2,5 +2,15 @@ depends  libvorbis
 depends  libao
 depends  curl
 
-optional_depends  "alsa-utils" "" "" "for ALSA sound drivers and utils"
-optional_depends  "speex"      "" "--without-speex" "for voice manipulation"
+optional_depends "alsa-utils" "" "" "for ALSA sound drivers and utils"
+
+optional_depends "speex"                  \
+                 "--with-speex"           \
+                 "--without-speex"        \
+                 "for voice manipulation"
+
+# circular dependency:
+#optional_depends "flac"             \
+#                 "--with-flac"      \
+#                 "--without-flac"   \
+#                 "for flac support"

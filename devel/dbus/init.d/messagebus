@@ -18,7 +18,7 @@ start () {
     /usr/bin/dbus-uuidgen --ensure
   fi
 
-  #Create /var/run/dbus since /var/run is tmpfs
+  # Create /var/run/dbus since /var/run is tmpfs
   install -m 755 -d /var/run/dbus
   chown messagebus:messagebus /var/run/dbus
 
@@ -29,6 +29,6 @@ start () {
   else
     echo -e $RESULT_FAIL
   fi
-}  
+}
 
 . /lib/lsb/init-functions $1

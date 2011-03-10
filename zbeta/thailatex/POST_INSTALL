@@ -1,6 +1,0 @@
-# From postinst at http://packages.ubuntu.com/source/lucid/thailatex
-# This is not in BUILD because otherwise there is a file ownership conflict
-# with texlive-texmf, and babel.sty ends up mysteriously deleted.
-sed -i '/thai.ldf/d' /usr/share/texmf-dist/tex/generic/babel/babel.sty  &&
-sed -i '/turkish/i\
-\\DeclareOption{thai}{\\input{thai.ldf}}' /usr/share/texmf-dist/tex/generic/babel/babel.sty

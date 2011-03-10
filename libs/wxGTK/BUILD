@@ -1,7 +1,7 @@
 ( 
 
   if [[ $UCODE == "y" ]]; then
-    OPTS="$OPTS --enable-unicode"
+    OPTS+=" --enable-unicode"
   fi  &&
   
   ./configure   --build=$BUILD     \

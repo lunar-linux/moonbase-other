@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --with-testpattern"
+  OPTS+=" --with-testpattern"
   
   default_build
 

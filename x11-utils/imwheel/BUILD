@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --disable-gpm --disable-gpm-doc"
+  OPTS+=" --disable-gpm --disable-gpm-doc"
   
   default_build &&
   install imwheelrc /etc/X11/imwheelrc &&

@@ -1,0 +1,7 @@
+if [ -x /usr/bin/fmtutil-sys ] ; then
+        # fmtutil-sys and texlinks are installed by texlive
+        fmtutil-sys --quiet --all > /dev/null
+
+        # Create symlink:  /usr/bin/lualatex -> luatex
+        texlinks -q
+fi

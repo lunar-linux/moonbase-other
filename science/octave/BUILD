@@ -1,15 +1,18 @@
 (
 
   sedit "s:suitesparse:SuiteSparse:g" configure &&
+
+  if in_depends $MODULE SuiteSparse ; then
+    export LIBS+=" -lcamd -lmetis"
+  fi &&
+
   CXXFLAGS="-lpthread" &&
 
   ./configure  --sysconfdir=/etc        \
                --prefix=/usr            \
                --mandir=/usr/share/man  \
                --localstatedir=/var     \
-               --enable-shared          \
                --enable-dl              \
-               --with-g77               \
                --enable-rpath           \
                $OPTS                   &&
 

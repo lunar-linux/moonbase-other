@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --etcdir=/etc/bitlbee"
+  OPTS+=" --etcdir=/etc/bitlbee"
   default_build &&
   make install-etc
   

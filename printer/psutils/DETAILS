@@ -1,14 +1,14 @@
-           MODULE=psutils
-         VERSION=p17
-          SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
-   SOURCE_URL[0]=http://www.ctan.org/tex-archive/support/psutils/
-   SOURCE_URL[1]=http://download.lunar-linux.org/lunar/mirrors/
-      SOURCE_VFY=sha1:6f1ecb5846cffb644826a02bd9153fe5d6387a9b
-        WEB_SITE=http://www.tardis.ed.ac.uk/~ajcd/psutils/index.html
+          MODULE=psutils
+         VERSION=20100722
+          SOURCE=texlive-$VERSION-source.tar.xz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/texlive-$VERSION-source
+      SOURCE_URL=ftp://tug.org/historic/systems/texlive/${VERSION:0:4}
+      SOURCE_VFY=sha1:c5573c0617f1a44235212277959f48fb76590542
+        WEB_SITE=http://www.tug.org/texlive/
          ENTERED=20010922
-         UPDATED=20010922
-           SHORT="utilities for manipulating PostScript files."
+         UPDATED=20110119
+           SHORT="Utilities for manipulating PostScript files"
+
 cat << EOF
 A small set of invaluable utilities for manipulating PostScript files by
 selecting certain pages, re-ordering pages to facilitate printing books,

@@ -15,6 +15,7 @@
           --enable-avfilter-lavf  \
           --enable-swscale        \
           --enable-avfilter       \
+          --enable-x11grab        \
           --enable-nonfree"      &&
 
   if [ -n $CPU ] ; then

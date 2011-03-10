@@ -1,7 +1,7 @@
 (
 
   add_priv_user amanda:amanda
-  OPTS="$OPTS --with-user=amanda --with-group=amanda"
+  OPTS+=" --with-user=amanda --with-group=amanda"
 
   default_build
 

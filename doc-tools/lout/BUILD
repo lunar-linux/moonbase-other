@@ -13,6 +13,8 @@
   cd ../design && lout -r3 all -o /usr/share/doc/lout/design.ps &&
   cd ../expert && lout -r4 all -o /usr/share/doc/lout/expert.ps &&
   cd ../slides && lout -r2 all -o /usr/share/doc/lout/slides.ps &&
+  # Don't install docs twice
+  rm -r $SOURCE_DIRECTORY/doc &&
   echo "Finished creating lout docs."
 
 ) > $C_FIFO 2>&1

@@ -4,7 +4,7 @@
 
   sedit "s:example.conf:example.services.conf:" Makefile.in  &&
 
-  OPTS="$OPTS --prefix=/opt/lunar/ratbox \
+  OPTS+=" --prefix=/opt/lunar/ratbox \
               --sysconfdir=/etc/ratbox \
               --with-logdir=/var/log/ratbox \
               --with-rundir=/var/run \

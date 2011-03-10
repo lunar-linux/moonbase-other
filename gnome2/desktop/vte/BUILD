@@ -1,6 +1,6 @@
 (
 
-  OPTS+="--with-xft2 --with-pangox --with-glX" &&
+  OPTS+=" --disable-static --with-xft2 --with-pangox --with-glX" &&
 
   default_build
 

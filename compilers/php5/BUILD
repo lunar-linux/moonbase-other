@@ -1,13 +1,13 @@
 (
 
   if [ "$USE_REGGLOBALS" == "y" ]; then
-    OPTS="$OPTS "
+    OPTS+=" "
   fi
 
   if module_installed apache || module_installed apache-mod_ssl ; then
-    OPTS="$OPTS --with-apxs=/usr/sbin/apxs"
+    OPTS+=" --with-apxs=/usr/sbin/apxs"
   elif module_installed apache2 ; then
-    OPTS="$OPTS --with-apxs2=/usr/sbin/apxs"
+    OPTS+=" --with-apxs2=/usr/sbin/apxs"
   fi
 
   if [ -s /etc/httpsd/httpd.conf ] ; then
@@ -19,6 +19,7 @@
   fi
 
   # sedit "s:^:#include <errno.h>\n:" ext/mysql/libmysql/mysys_err.h &&
+  sedit 's/__GMP_BITS_PER_MP_LIMB/GMP_LIMB_BITS/' ext/gmp/gmp.c &&
 
   verbose_msg "OPTS=$OPTS" &&
 
