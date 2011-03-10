@@ -15,7 +15,7 @@
   #Disable x264, since x264-git doesn't work with it, and
   #I can't seem to find a version of x264-snapshot that does either
 
-  OPTS+="  --disable-valgrind --disable-debug --disable-examples  " &&
+  OPTS+=" --disable-static --disable-valgrind --disable-debug --disable-examples" &&
 
   default_build
 
