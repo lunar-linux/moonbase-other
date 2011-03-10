@@ -1,7 +1,6 @@
 depends  gtkhtml
 depends  evolution-data-server
 depends  hicolor-icon-theme
-depends  scrollkeeper
 depends  gnome-doc-utils
 depends  libcanberra
 
@@ -14,6 +13,11 @@ optional_depends  openldap  \
                   "--with-openldap=yes"  \
                   "--with-openldap=no"   \
                   "for LDAP support (needed for evolution-exchange too)"
+
+optional_depends  scrollkeeper  \
+                  "--enable-scrollkeeper"  \
+                  "--disable-scrollkeeper"  \
+                  "for cataloging system"
 
 optional_depends  gtk-doc  \
                   "--with-help=yes"  \
@@ -44,17 +48,9 @@ optional_depends  nss                                      \
                    ""                                      \
                    "for nss ssl and smime support"
 
-optional_depends  pilot-link   \
-                  "--enable-pilotlinktest"  \
-                  ""  \
-                  "for Palm Pilot support"
-
-optional_depends  gnome-pilot  \
-                  "--enable-pilot-conduits=yes"  \
-                  ""  \
-                  "for more Palm Pilot support"
-
 optional_depends  libgweather  \
                   ""  \
                   "--disable-weather"  \
                   "for calendar-weather plugin"
+
+optional_depends  spamassassin  ""  ""  "for spam filtering"

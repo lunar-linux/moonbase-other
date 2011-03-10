@@ -1,15 +1,11 @@
 (
 
-  if [ "$KDE" == "y" ] ; then
-    OPTS="$OPTS --enable-kde"
-  fi
-
   if [ "$GNOME" == "n" ] ; then
-    OPTS="$OPTS --disable-gnome"
+    OPTS+=" --disable-gnome"
   fi
 
   if [ "$XIN" == "y" ] ; then
-    OPTS="$OPTS --enable-xinerama"
+    OPTS+=" --enable-xinerama"
   fi
 
   ./configure  --build=$BUILD             \
@@ -25,5 +21,5 @@
   if module_installed gdm ; then
         install -m755 $SCRIPT_DIRECTORY/Fluxbox /etc/X11/gdm/Sessions/
   fi
-  
+
 ) > $C_FIFO 2>&1

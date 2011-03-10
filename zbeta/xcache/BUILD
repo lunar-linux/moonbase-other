@@ -2,7 +2,7 @@
 
   /usr/bin/phpize  &&
 
-  OPTS="$OPTS --enable-xcache \
+  OPTS+=" --enable-xcache \
               --enable-xcache-optimizer"  &&
 
   default_build  &&

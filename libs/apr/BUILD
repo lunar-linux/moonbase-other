@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --with-installbuilddir=/usr/libexec/apr"
+  OPTS+=" --with-installbuilddir=/usr/libexec/apr"
 
   default_build
 

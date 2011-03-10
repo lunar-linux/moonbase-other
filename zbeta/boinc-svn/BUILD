@@ -8,6 +8,18 @@
   # run per default as daemon
   sedit 's/#BOINCOPTS="--daemon"/BOINCOPTS="--daemon"/' client/scripts/boinc-client.conf &&
 
+  # get the alias
+  SSL=`unalias %SSL` &&
+
+  # setting the ssl option
+  if [[ $SSL == "openssl" ]] && module_installed "openssl" ; then
+        OPTS+=" --with-ssl --without-libgnutls"
+  elif [[ $SSL == "gnutls" ]] && module_installed "gnutls" ; then
+        OPTS+=" --with-libgnutls --without-ssl"
+  else
+        OPTS+=" --without-ssl --without-libgnutls"
+  fi &&
+
   # applies defaults to configure
   # TODO: conf server and manager
   ./configure --build=$BUILD                \
@@ -17,8 +29,8 @@
               --mandir=/usr/share/man       \
               --enable-libraries            \
               --enable-client               \
-	      --disable-manager             \
-	      --disable-server              \
+              --disable-manager             \
+              --disable-server              \
               $OPTS                        &&
 
   default_make                             &&

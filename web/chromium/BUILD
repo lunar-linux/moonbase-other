@@ -27,7 +27,7 @@
 EOF
 
   if module_installed libjpeg-turbo; then
-  OPTS="$OPTS -Duse_libjpeg_turbo=1"
+  OPTS+=" -Duse_libjpeg_turbo=1"
   fi &&
 
 #  if module_installed libvpx; then
@@ -41,21 +41,21 @@ EOF
 #  cp $SOURCE_CACHE/$SOURCE3 third_party/speex
 #  fi &&
 
-  OPTS="$OPTS -Duse_system_bzip2=1 -Duse_system_libevent=1 -Duse_system_libjpeg=1 -Duse_system_libpng=1 \
+  OPTS+=" -Duse_system_bzip2=1 -Duse_system_libevent=1 -Duse_system_libjpeg=1 -Duse_system_libpng=1 \
   -Duse_system_libxml=1 -Duse_system_libxslt=1 -Duse_system_zlib=1 -Dproprietary_codecs=1 -Dwerror= -Ddisable_sse2=1 \
   -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome -Duse_system_zlib=1 \
   -Dfastbuild=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1"
 
   # set the target arch here
   if [ "`arch`" == "x86_64" ]; then
-    OPTS="$OPTS -Dtarget_arch=x64"
+    OPTS+=" -Dtarget_arch=x64"
   else
-    OPTS="$OPTS -Dtarget_arch=ia32"
+    OPTS+=" -Dtarget_arch=ia32"
   fi
 
   gcc_ver=`installed_version gcc | cut -d. -f1,2`
   if [[ $gcc_ver == "4.4" ]]; then
-    OPTS="$OPTS -Dno_strict_aliasing=1 -Dgcc_version=44"
+    OPTS+=" -Dno_strict_aliasing=1 -Dgcc_version=44"
   fi
 
   # This is the configure step

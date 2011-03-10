@@ -7,23 +7,19 @@
     OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
   fi  &&
 
-  sedit s@glew@@g configure.ac &&
+  # Don't overlap with freeglut
+  OPTS+=" --disable-glut"  &&
+  # Needed with mesa-lib 7.8.2
+  rm -f include/GL/glut{,f90}.h  &&
 
   ./configure --prefix=/usr $OPTS  &&
   prepare_install  &&
 
   make all  &&
 
-  # Build glxgears and glxinfo
-  cd progs/xdemos  &&
-  make glxgears glxinfo  &&
-  cd ../..  &&
+  # glew headers are installed from the glew module instead
+  rm -f include/GL/{glew,glxew,wglew}.h  &&
 
-  # Prevent glew headers from being installed
-  rm include/GL/{glew,glxew,wglew}.h  &&
-
-  make install  &&                 
-
-  install -v -m755 progs/xdemos/glx{gears,info} /usr/bin/
+  make install
 
 ) > $C_FIFO 2>&1

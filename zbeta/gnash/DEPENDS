@@ -1,6 +1,5 @@
 depends gtkglext
 depends libxml2
-depends gstreamer-10
 depends curl
 depends agg
 depends boost
@@ -8,3 +7,9 @@ depends pango
 depends atk
 depends freetype2
 depends ffmpeg
+
+# gstreamer-10 is mostly just a wrapper for ffmpeg - and doesn't recognize ffmpeg's swf decoder!
+#depends gstreamer-10
+
+# libva currently has no effect
+#optional_depends libva "--enable-hwaccel=vaapi" "" "for hardware-accelerated video (recompile ffmpeg with libva first)"

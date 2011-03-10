@@ -1,11 +1,14 @@
 (
 
-  OPTS+=" --disable-nm"  &&
+  patch_it $SOURCE2 1 &&
+
+  if [[ `lvu installed gtk+-2 | cut -c 1-2` -ge 24 ]] ; then
+    # To compile with gtk+-2 24.1
+    sedit "s:-DGTK_DISABLE_DEPRECATED::" configure
+  fi &&
+
+  OPTS+=" --disable-nm" &&
 
   default_build
-
-#  if ! grep -q '/usr/lib/bonobo/servers' /etc/bonobo-activation/bonobo-activation-config.xml ; then
-#    sedit "s:<searchpath>:<searchpath>\n\t<item>/usr/lib/bonobo/servers</item>:" /etc/bonobo-activation/bonobo-activation-config.xml
-#  fi
 
 ) > $C_FIFO 2>&1

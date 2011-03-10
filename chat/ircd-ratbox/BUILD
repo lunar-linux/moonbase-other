@@ -4,7 +4,7 @@
   sedit "66,73d" help/Makefile.in  &&
   sedit "149,155d" modules/Makefile.in  &&
 
-  OPTS="$OPTS --prefix=/opt/lunar/ratbox \
+  OPTS+=" --prefix=/opt/lunar/ratbox \
               --with-confdir=/etc/ratbox \
               --with-logdir=/var/log/ratbox \
               --with-nicklen=18 \

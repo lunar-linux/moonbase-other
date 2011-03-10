@@ -1,17 +1,15 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 $$
-
-  if [ -d /opt/lunar/qt ] ; then 
+  if [ -d /opt/lunar/qt ] ; then
     ld_remove /opt/lunar/qt/lib
   fi &&
-  
+
   if [ -d /usr/lib/qt4 ] ; then
     ld_remove /usr/lib/qt4
   fi &&
 
   export QTDIR=$SOURCE_DIRECTORY &&
-  export PATH=$MODULE_PREFIX::$PATH   &&
+  export PATH=$MODULE_PREFIX::$PATH  &&
   export LD_LIBRARY_PATH=$QTDIR/lib &&
 
   if [ $LICENSE_TYPE == "y" ] ; then
@@ -59,13 +57,13 @@
   if [ "$MAKE_QDOC3" == "y" ]; then
      cd tools/qdoc3 &&
      qmake -o Makefile qdoc3.pro &&
-     make    &&
+     make &&
      install -m 755 ../../bin/qdoc3 $MODULE_PREFIX/bin/ &&
      cd $SOURCE_DIRECTORY
   fi &&
 
-  echo export QTDIR=\"/usr\" > $SOURCE_DIRECTORY/qt4.rc  &&
-  echo export PATH=\"'${PATH}':'${QTDIR}'/bin\" >> $SOURCE_DIRECTORY/qt4.rc  &&
+  echo export QTDIR=\"/usr\" > $SOURCE_DIRECTORY/qt4.rc &&
+  echo export PATH=\"'${PATH}':'${QTDIR}'/bin\" >> $SOURCE_DIRECTORY/qt4.rc &&
   echo export XDG_DATA_DIRS=\"'${XDG_DATA_DIRS:-/usr/share}':/usr/share/qt4\" >> $SOURCE_DIRECTORY/qt4.rc &&
   echo export PKG_CONFIG_PATH=\"'${PKG_CONFIG_PATH}':/usr/lib/qt4/pkgconfig\" >> $SOURCE_DIRECTORY/qt4.rc &&
 

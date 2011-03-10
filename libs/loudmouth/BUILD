@@ -6,7 +6,7 @@
   autoconf &&
 
   #gtk-doc is broken for now
-  OPTS="$OPTS --disable-gtk-doc --with-asyncns=yes" &&
+  OPTS+=" --disable-gtk-doc --with-asyncns=yes" &&
 
   default_build
 

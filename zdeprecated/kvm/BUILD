@@ -3,7 +3,7 @@
   echo 'KERNEL=="kvm", NAME="%k", GROUP="kvm"' > 90-kvm.rules  &&
 
   if module_installed qemu; then
-   OPTS="$OPTS --qemu-cc=${GCC3_PREFIX:-/opt/lunar/gcc3}/bin/gcc"
+   OPTS+=" --qemu-cc=${GCC3_PREFIX:-/opt/lunar/gcc3}/bin/gcc"
   fi  &&
 
   add_priv_group kvm  &&

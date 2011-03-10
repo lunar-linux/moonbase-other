@@ -1,8 +1,16 @@
 depends  gdk-pixbuf
 depends  atk
 depends  pango
-depends  tiff
-depends  %JPEG
-depends  libX11
 
-optional_depends  "cups"  "--enable-cups" "--disable-cups" "for the CUPS based printing backed"
+optional_depends "libX11"   "" "" "for X11 as gdk-target"
+optional_depends "DirectFB" "" "" "for DirectFB as gdk-target"
+
+optional_depends "cups"                                   \
+                 "--enable-cups"                          \
+                 "--disable-cups"                         \
+                 "for Common Unix Printing System backed"
+
+optional_depends "gobject-introspection"                  \
+                 "--enable-introspection"                 \
+                 "--disable-introspection"                \
+                 "for gobject introspection"

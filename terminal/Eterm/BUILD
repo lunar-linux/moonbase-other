@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-multi-charset --enable-trans \
+  OPTS+=" --enable-multi-charset --enable-trans \
               --with-delete=execute --with-theme-update \
               --enable-escreen-fx --enable-etwin"
 

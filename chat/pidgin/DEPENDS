@@ -1,4 +1,6 @@
 depends  libxml2
+depends  gettext
+depends  intltool
 
 optional_depends  "dbus-glib"  \
                   ""           \
@@ -45,11 +47,6 @@ optional_depends  "sqlite"  \
                   "--disable-cap"  \
                   "for the Contact Availability Prediction plugin"
 
-optional_depends  "gettext"  \
-                  ""         \
-                  "--disable-nls"  \
-                  "for NLS support within gaim"
-
 optional_depends  "avahi"  \
                   ""       \
                   "--disable-avahi"  \
@@ -72,8 +69,8 @@ optional_depends  "gnutls"  \
 
 optional_depends  "libidn"  \
                   ""               \
-		  "--disable-idn"  \
-		  "for unicode domain support"
+                  "--disable-idn"  \
+                  "for unicode domain support"
 
 optional_depends  "GConf"  \
                   ""       \
@@ -101,9 +98,9 @@ optional_depends  "tk"  \
                   "for TK based plugin support"
 
 optional_depends "farsight2" \
-		  ""         \
+                  ""         \
                   "--disable-vv" \
-		  "for voice and video support"
+                  "for voice and video support"
 
 # Mono implementation isn't far enough along to make this depends useful
 #optional_depends  "mono"            \

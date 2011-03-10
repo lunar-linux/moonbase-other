@@ -1,9 +1,47 @@
-depends  gstreamer-10 
+depends  gstreamer-10
 depends  liboil
 
-optional_depends  "alsa-lib"    ""  ""  "for ALSA output support"
-optional_depends  "pango"       ""  ""  "for Pango text support"
-optional_depends  "libvorbis"   ""  ""  "for Ogg/Vorbis support"
-optional_depends  "libtheora"   ""  ""  "for Theora support"
-optional_depends  "libvisual"   ""  ""  "for visualization support"
-optional_depends  "cdparanoia"  ""  ""  "for CDDA support"
+optional_depends "udev"                             \
+                 "--with-gudev"                     \
+                 "--without-gudev"                  \
+                 "device detection with udev"
+
+optional_depends "pango"                            \
+                 "--enable-pango"                   \
+                 "--disable-pango"                  \
+                 "for Pango font rendering support"
+
+optional_depends "alsa-lib"                         \
+                 "--enable-alsa"                    \
+                 "--disable-alsa"                   \
+                 "for ALSA output support"
+
+optional_depends "libogg"                           \
+                 "--enable-ogg"                     \
+                 "--disable-ogg"                    \
+                 "for OGG support"
+
+optional_depends "libvorbis"                        \
+                 "--enable-vorbis"                  \
+                 "--disable-vorbis"                 \
+                 "for Vorbis audio codec support"
+
+optional_depends "libtheora"                        \
+                 "--enable-theora"                  \
+                 "--disable-theora"                 \
+                 "for Theora video codec support"
+
+optional_depends "cdparanoia"                       \
+                 "--enable-cdparanoia"              \
+                 "--disable-cdparanoia"             \
+                 "for CDDA support"
+
+optional_depends "libvisual"                        \
+                 "--enable-libvisual"               \
+                 "--disable-libvisual"              \
+                 "for visualization support"
+
+optional_depends "gobject-introspection"            \
+                 "--enable-introspection=yes"       \
+                 "--enable-introspection=no"        \
+                 "for introspection support"

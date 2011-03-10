@@ -1,11 +1,15 @@
           MODULE=memcached
-         VERSION=1.2.8
+         VERSION=1.4.5
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://www.danga.com/memcached/dist/
-      SOURCE_VFY=sha1:6f99414f37cc5b1a6866d9b3ec9254c2ebda237a
-        WEB_SITE=http://www.danga.com/memcached/
+         SOURCE2=memcached-1.4.5-type-punned.patch.bz2
+   SOURCE_URL[0]=http://memcached.googlecode.com/files
+   SOURCE_URL[1]=http://www.danga.com/memcached/dist
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:c7d6517764b82d23ae2de76b56c2494343c53f02
+     SOURCE2_VFY=sha1:57a4134f322a71e2d29a614369e70dc94720b759
+        WEB_SITE=http://memcached.org/
          ENTERED=20060904
-         UPDATED=20090416
+         UPDATED=20110207
            SHORT="Distributed memory object caching system"
 
 cat << EOF

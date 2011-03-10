@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --disable-gtk-doc"
+  OPTS+=" --disable-gtk-doc"
 
   autoconf  &&
   default_build

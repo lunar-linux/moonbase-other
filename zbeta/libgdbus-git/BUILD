@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-dbus-glib"
+  OPTS+=" --enable-dbus-glib"
 
   sh bootstrap &&
   default_build

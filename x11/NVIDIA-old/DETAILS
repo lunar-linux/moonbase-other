@@ -1,6 +1,7 @@
           MODULE=NVIDIA-old
          VERSION=71.86.14
           SOURCE=NVIDIA-Linux-x86-$VERSION-pkg0.run
+         SOURCE2=NVIDIA-Linux-x86-71.86.14_kernel-2.6.37.diff.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
    SOURCE_URL[0]=ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION
    SOURCE_URL[1]=http://download.nvidia.com/XFree86/Linux-x86/$VERSION
@@ -20,10 +21,12 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION-pkg0
   SOURCE_URL[15]=http://it.download.nvidia.com/XFree86/Linux-x86/$VERSION
   SOURCE_URL[16]=http://br.download.nvidia.com/XFree86/Linux-x86/$VERSION
   SOURCE_URL[17]=http://la.download.nvidia.com/XFree86/Linux-x86/$VERSION
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:3b49e8ba29b13d299d9e2766d697e1988cde1138
+     SOURCE2_VFY=sha1:147b8698e2a821c7de89a527554beebcb82505b6
         WEB_SITE=http://www.nvidia.com
          ENTERED=20030804
-         UPDATED=20100804
+         UPDATED=20110203
         SHORT="X11 NVIDIA binary driver for RIVA TNT/Geforce1/2Ti"
 
 cat << EOF

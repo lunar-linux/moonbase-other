@@ -1,6 +1,6 @@
 (
 
- OPTS="$OPTS --disable-trayicon " &&
+ OPTS+=" --disable-trayicon " &&
 
  default_build
 

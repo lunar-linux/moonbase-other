@@ -1,5 +1,39 @@
-depends freetype2
-depends libpng 
+optional_depends "%GIF"                                                 \
+                 "--enable-gif"                                         \
+                 "--disable-gif"                                        \
+                 "for GIF image provider (recommended)"
 
-optional_depends %JPEG "" "" "to enable jpeg support"
-optional_depends SDL "" ""  "to enable SDL support"
+optional_depends "%JPEG"                                                \
+                 "--enable-jpeg"                                        \
+                 "--disable-jpeg"                                       \
+                 "for JPEG image provider (recommended)"
+
+optional_depends "libpng"                                               \
+                 "--enable-png"                                         \
+                 "--disable-png"                                        \
+                 "for PNG image provider (recommended)"
+
+optional_depends "freetype2"                                            \
+                 "--enable-freetype"                                    \
+                 "--disable-freetype"                                   \
+                 "for freetype font provider (recommended)"
+
+optional_depends "zlib"                                                 \
+                 "--enable-zlib"                                        \
+                 "--disable-zlib"                                       \
+                 "for zlib compression support (e.g. for screen shots)" 
+
+optional_depends "libX11"                                               \
+                 "--enable-x11"                                         \
+                 "--disable-x11"                                        \
+                 "for X11 support"
+
+optional_depends "libvncserver"                                         \
+                 "--enable-vnc"                                         \
+                 "--disable-vnc"                                        \
+                 "for VNC support"
+
+optional_depends "sysfsutils"                                           \
+                 "--enable-sysfs"                                       \
+                 "--disable-sysfs"                                      \
+                 "for sysfs support"

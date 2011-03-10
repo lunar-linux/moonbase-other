@@ -1,16 +1,7 @@
 (
 
   sedit  "s:libgsf-gnome:libgsf:" configure  &&
- 
-  ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
-                --build=$BUILD        \
-                --sysconfdir=/etc     \
-                --localstatedir=/var  \
-                --enable-svgz         \
-                --disable-gtk-doc     \
-                --infodir=${GNOME210_PREFIX:-/usr}/share/info  \
-                --mandir=${GNOME210_PREFIX:-/usr}/share/man    \
-                $OPTS                                         &&
-    default_make
+
+  default_build
 
 ) > $C_FIFO 2>&1

@@ -1,20 +1,18 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  # Remove local libs so we'll always use system libs,
+  # and don't waste configure / compile time on them.
+  verbose_msg "Removing unneeded local libs" &&
+  rm -rf expat freetype jasper jbig2dec jpeg{,xr} lcms libpng tiff zlib &&
 
-  ./autogen.sh  &&
+  OPTS+=" --disable-compile-inits --enable-dynamic" &&
 
-  if module_installed libpaper ; then
-     sedit "s:lpaper:llibpaper:g" configure
-  fi  &&
+  # Will run ./configure with Lunar's options, in default_build
+  sedit "s:\$srcdir/configure:echo:" autogen.sh &&
 
-  if module_installed jasper ; then
-     rm -fr jasper
-  fi  &&
+  ./autogen.sh $OPTS &&
 
-  export CFLAGS="$CFLAGS -fPIC"  &&
-
-  default_build  &&
+  default_build &&
 
   make install-so
 

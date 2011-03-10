@@ -1,0 +1,26 @@
+mquery CLIENTS "Build clients?" y
+
+CLIST=""
+
+if [ "`get_module_config CLIENTS`" = "y" ]; then
+  mquery GTK "Build gtk+-2 client?" y
+  if [ "`get_module_config GTK`" = "y" ]; then
+    CLIST="${CLIST}gtk,"
+  fi
+
+  mquery SDL "Build SDL client?" y
+  if [ "`get_module_config SDL`" = "y" ]; then
+    CLIST="${CLIST}sdl,"
+  fi
+fi
+
+if [ $CLIST = "" ]; then
+  OPTS=$OPTS --disable-client
+else
+  OPTS="$OPTS --enable-client=$CLIST"
+fi
+
+mquery  SERV  "Build freeciv server (needed for solo games, too)?" \
+              y                                                    \
+              "--enable-server"                                    \
+              "--disable-server"

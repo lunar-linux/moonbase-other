@@ -1,7 +1,7 @@
 (
 
  if in_depends $MODULE tk ; then
-   OPTS="$OPTS --with-tk=$SOURCE_DIRECTORY/libtke/tk/unix"
+   OPTS+=" --with-tk=$SOURCE_DIRECTORY/libtke/tk/unix"
    cp -f "/usr/lib/tkConfig.sh" libtke/tk/unix
  fi
 

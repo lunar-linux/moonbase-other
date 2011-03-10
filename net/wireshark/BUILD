@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --with-ssl --enable-wireshark --enable-usr-local=no --enable-randpkt"
+  OPTS+=" --with-ssl --enable-wireshark --enable-usr-local=no --enable-randpkt"
 
   default_build
 

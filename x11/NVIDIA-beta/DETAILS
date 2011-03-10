@@ -1,10 +1,9 @@
           MODULE=NVIDIA-beta
-         VERSION=260.19.29
+         VERSION=270.30
           SOURCE=NVIDIA-Linux-x86-$VERSION.run
          SOURCE2=nvidia-settings-$VERSION.tar.bz2
          SOURCE3=nvidia-installer-$VERSION.tar.bz2
          SOURCE4=nvidia-xconfig-$VERSION.tar.bz2
-         SOURCE5=NVIDIA-Linux-MSI-fix.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION
    SOURCE_URL[0]=ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION
    SOURCE_URL[1]=http://download.nvidia.com/XFree86/Linux-x86/$VERSION
@@ -28,16 +27,14 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/NVIDIA-Linux-x86-$VERSION
   SOURCE2_URL[1]=http://cgit.freedesktop.org/~aplattner/nvidia-settings/snapshot
   SOURCE3_URL[1]=http://cgit.freedesktop.org/~aplattner/nvidia-installer/snapshot
   SOURCE4_URL[1]=http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot
-     SOURCE5_URL=$PATCH_URL
-      SOURCE_VFY=sha1:15edf89b614ca4027287acc8623b4522425ce8c5
-     SOURCE2_VFY=sha1:d73c5274e95cd4ede405c4e7e9d5ad02da3bdcfd
-     SOURCE3_VFY=sha1:f66aeaec67765e92f6a8e6e7d912ff36a947153e
-     SOURCE4_VFY=sha1:f5e02e6b2ccde7a7c5a6da7d3252b44f2711374a
-     SOURCE5_VFY=sha1:3130b5804bbb9e3c33c2b06744535aa09968036b
+      SOURCE_VFY=sha1:004aa7f8ac1cb43792c8c60fdf53ce0963fae79c
+     SOURCE2_VFY=sha1:e8d56a873c7b805c0ef3ad6ceef91cd4833060e8
+     SOURCE3_VFY=sha1:d62813f8ce51f6f6def698eb277a65ce26fe0369
+     SOURCE4_VFY=sha1:ebda179c2fd5b6bd7cfb493e214b4c1b610e91fa
         WEB_SITE=http://www.nvidia.com
          LICENSE="proprietary"
          ENTERED=20030804
-         UPDATED=20101216
+         UPDATED=20110304
            SHORT="X11 NVIDIA binary beta driver for Geforce 6/7/8/9/GT2xx"
 
 cat << EOF

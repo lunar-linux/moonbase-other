@@ -1,7 +1,7 @@
 (
 
     if [ "$LARGE_FILES" == "n" ] ; then
-       OPTS="$OPTS --disable-largefile"
+       OPTS+=" --disable-largefile"
     fi  &&
 
    default_build

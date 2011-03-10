@@ -2,55 +2,55 @@
 
 bad_flags -malign-double 
 
-OPTS="$OPTS --enable-cpu-level=6"
-OPTS="$OPTS --with-all-libs"
+OPTS+=" --enable-cpu-level=6"
+OPTS+=" --with-all-libs"
 
 if [[ $ALL == "y" ]]; then
-  OPTS="$OPTS --enable-all-optimizations"
+  OPTS+=" --enable-all-optimizations"
 else
   if [[ $G2H == "y" ]]; then
-    OPTS="$OPTS --enable-guest2host-tlb"
+    OPTS+=" --enable-guest2host-tlb"
   fi
 
   if [[ $REPEAT == "y" ]]; then
-    OPTS="$OPTS --enable-repeat-speedups"
+    OPTS+=" --enable-repeat-speedups"
   fi
 
   if [[ $ICACHE == "y" ]]; then
-    OPTS="$OPTS --enable-icache"
+    OPTS+=" --enable-icache"
   fi
 
   if [[ $ASM == "y" ]]; then
-    OPTS="$OPTS --enable-host-specific-asms"
+    OPTS+=" --enable-host-specific-asms"
   fi
 fi
 
 if [[ $SB16 == "y" ]]; then
-  OPTS="$OPTS --enable-sb16=linux"
+  OPTS+=" --enable-sb16=linux"
 fi
 
 if [[ $PLUGINS == "y" ]]; then
-  OPTS="$OPTS --enable-plugins"
+  OPTS+=" --enable-plugins"
 fi
 
 if [[ $GLOBAL == "y" ]]; then
-  OPTS="$OPTS --enable-global-pages"
+  OPTS+=" --enable-global-pages"
 fi
 
 if [[ $SLOWDOWN == "y" ]]; then
-  OPTS="$OPTS --enable-slowdown"
+  OPTS+=" --enable-slowdown"
 fi
 
 if [[ $IDLE == "y" ]]; then
-  OPTS="$OPTS --enable-idle-hack"
+  OPTS+=" --enable-idle-hack"
 fi
 
 if [[ $NE2000 == "y" ]]; then
-  OPTS="$OPTS --enable-ne2000"
+  OPTS+=" --enable-ne2000"
 fi
 
 if [[ $MSR == "y" ]]; then
-  OPTS="$OPTS --enable-ignore-bad-msr"
+  OPTS+=" --enable-ignore-bad-msr"
 fi
 
 default_build

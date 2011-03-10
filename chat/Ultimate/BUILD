@@ -3,19 +3,19 @@
   add_priv_user ultimate:ultimate "-m -s /bin/sh -d /var/lib/ultimateircd" &&
 
   if [ "$IPV6" == "y" ]; then 
-      OPTS="$OPTS --enable-ipv6"
+      OPTS+=" --enable-ipv6"
   fi
   if [ "$Acebot" == "y" ]; then 
-      OPTS="$OPTS --enable-acebot-rejection"
+      OPTS+=" --enable-acebot-rejection"
   fi
   if [ "$Chinese" == "y" ]; then 
-      OPTS="$OPTS --enable-chinese-nick"
+      OPTS+=" --enable-chinese-nick"
   fi
   if [ "$Crypt" == "y" ]; then 
-      OPTS="$OPTS --disable-crypted-oper-password"
+      OPTS+=" --disable-crypted-oper-password"
   fi
   if [ "$Chanops" == "y" ]; then 
-      OPTS="$OPTS --disable-no-chanops-when-split"
+      OPTS+=" --disable-no-chanops-when-split"
   fi
   
   # We don't need the lame default start/stop/rehash scripts

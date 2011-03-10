@@ -1,20 +1,20 @@
 (
 
   if [ "$IPV6" == "y" ] ; then
-    OPTS="$OPTS --enable-ipv6"
+    OPTS+=" --enable-ipv6"
   fi
 
   if [ "$CDROM" == "y" ] ; then
-    OPTS="$OPTS --enable-cdrom"
+    OPTS+=" --enable-cdrom"
   fi
 
   if [ "$PLUGINS" == "y" ] ; then
-    OPTS="$OPTS --with-plugins"
+    OPTS+=" --with-plugins"
   fi
 
   if module_installed openssl ; then   # Ya just never know...
     if [ "$SSL" == "y" ] ; then
-      OPTS="$OPTS --with-ssl"
+      OPTS+=" --with-ssl"
     fi
   fi
 

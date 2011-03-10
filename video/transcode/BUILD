@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --enable-ffmpeg \
+  OPTS+=" --enable-ffmpeg \
         --enable-libmpeg2 --enable-libmpeg2convert --enable-libpostproc"  &&
 
   default_build

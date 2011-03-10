@@ -1,6 +1,6 @@
 (
 
-  egrep '\<mmx\>' /proc/cpuinfo &> /dev/null && OPTS="$OPTS --enable-mmx"
+  egrep '\<mmx\>' /proc/cpuinfo &> /dev/null && OPTS+=" --enable-mmx"
 
   default_build
 

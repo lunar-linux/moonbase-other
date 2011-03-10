@@ -1,6 +1,6 @@
 (
 
-  OPTS="$OPTS --with-hotplug-script-dir=/etc/hotplug/usb  \
+  OPTS+=" --with-hotplug-script-dir=/etc/hotplug/usb  \
            --with-hotplug-usermap-dir=/etc/hotplug/usb"  &&
 
 # A minor glitch where this is supposed to be

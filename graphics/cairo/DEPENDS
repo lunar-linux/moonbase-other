@@ -1,8 +1,57 @@
-depends pkgconfig
-depends fontconfig
-depends libpng
-depends pixman
+depends  pkgconfig
+depends  pixman
 
-optional_depends  "DirectFB" "--enable-directfb" "" "for DirectFB support"
-optional_depends  "%X"       "--with-x"  "" "for X11 support"
-optional_depends  "libxcb"   "--enable-xcb" "--disable-xcb" "for xcb support"
+optional_depends "libpng"                                               \
+                 "--enable-png --enable-svg"                            \
+                 "--disable-png --disable-svg"                          \
+                 "for PNG functions and SVG backend (recommended)"
+
+optional_depends "zlib"                                                 \
+                 "--enable-ps --enable-pdf"                             \
+                 "--disable-ps --disable-pdf"                           \
+                 "for PostScript and PDF surface backend (recommended)"
+
+optional_depends "libX11"                                               \
+                 "--enable-xlib"                                        \
+                 "--disable-xlib"                                       \
+                 "for Xlib surface backend"
+
+optional_depends "libXrender"                                           \
+                 "--enable-xlib --enable-xlib-xrender"                  \
+                 "--disable-xlib-xrender"                               \
+                 "for Xlib Xrender surface backend (enables Xlib)"
+
+optional_depends "libxcb"                                               \
+                 "--enable-xlib --enable-xcb"                           \
+                 "--disable-xcb"                                        \
+                 "for XCB surface backend (experimental, enables Xlib)"
+
+optional_depends "qt4"                                                  \
+                 "--enable-qt"                                          \
+                 "--disable-qt"                                         \
+                 "for Qt surface backend"
+
+optional_depends "DirectFB"                                             \
+                 "--enable-directfb"                                    \
+                 "--disable-directfb"                                   \
+                 "for DirectFB surface backend (experimental)"
+
+optional_depends "freetype2"                                            \
+                 "--enable-ft"                                          \
+                 "--disable-ft"                                         \
+                 "for FreeType font backend"
+
+optional_depends "fontconfig"                                           \
+                 "--enable-ft --enable-fc"                              \
+                 "--disable-fc"                                         \
+                 "for Fontconfig font backend (enables FreeType)"
+
+optional_depends "gobject-introspection"                                \
+                 "--enable-gobject"                                     \
+                 "--disable-gobject"                                    \
+                 "for gobject functions?"
+
+# circular dependencies
+#optional_depends "ghostscript" "" "" "for ps surface backend"
+#optional_depends "libspectre"  "" "" "for ps testing"
+#optional_depends "poppler"     "" "" "for pdf testing"

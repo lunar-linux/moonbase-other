@@ -1,12 +1,15 @@
           MODULE=qgis4
-         VERSION=1.5.0
-          SOURCE=qgis_$VERSION.tar.gz
-      SOURCE_URL=http://download.osgeo.org/qgis/src/
+         VERSION=1.6.0
+          SOURCE=qgis-$VERSION.tar.bz2
+         SOURCE2=qgis-sip-01.patch
+      SOURCE_URL=http://qgis.org/downloads/
+     SOURCE2_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/qgis-$VERSION
-      SOURCE_VFY=sha1:f17b1a1175bdfad6f8a005470bfbb70eaeaf806a
+      SOURCE_VFY=sha1:815e7d7f465f878c37866b0bc38345bbd76541cc
+     SOURCE2_VFY=sha1:363db6dd0791d0e6511fa7101a098b0430bc569e
         WEB_SITE=http://qgis.org/
          ENTERED=20090212
-         UPDATED=20100904
+         UPDATED=20110209
            SHORT="Qt based Geographic Information System"
 
 PSAFE=no

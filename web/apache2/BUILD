@@ -24,9 +24,9 @@
 
 
   if [ "$USE_WORKER" == "n" ]; then
-    OPTS="$OPTS --with-mpm=prefork"
+    OPTS+=" --with-mpm=prefork"
   else
-    OPTS="$OPTS --with-mpm=worker"
+    OPTS+=" --with-mpm=worker"
   fi
 
   echo "CFLAGS=$CFLAGS"  &&

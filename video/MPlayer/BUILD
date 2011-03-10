@@ -9,10 +9,6 @@
 
   cd $SOURCE_DIRECTORY  &&
 
-  if in_depends $MODULE ffmpeg ; then
-     patch_it $SOURCE_CACHE/$SOURCE7 0
-  fi &&
-
   ./configure --prefix=/usr                 \
               --mandir=/usr/share/man       \
               --codecsdir=/usr/lib/win32    \

@@ -13,7 +13,6 @@
   fi &&
 
   # Fix for broken MSI in driver
-  patch_it $SOURCE5 0 &&
 
   # Remove files to avoid module conflicts and
   # make place for source compiled replacements

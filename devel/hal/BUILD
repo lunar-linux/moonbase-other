@@ -1,6 +1,6 @@
 (
 
-    OPTS="$OPTS --disable-docbook-docs --with-pid-file=/var/run/hald.pid              \
+    OPTS+=" --disable-docbook-docs --with-pid-file=/var/run/hald.pid              \
                 --with-backend=linux --enable-umount-helper --with-udev-prefix=/lib" &&
 
     # This is a temp workaround until hal realizes usb.ids can also be

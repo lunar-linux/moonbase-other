@@ -15,9 +15,9 @@
   sedit '/^SUBDIRS/ n; s/etc//' Makefile.in Makefile.am &&
 
   if  module_installed  Linux-PAM;  then
-    OPTS="$OPTS --with-libpam"
+    OPTS+=" --with-libpam"
   else
-    OPTS="$OPTS --without-libpam"
+    OPTS+=" --without-libpam"
   fi &&
 
   ./configure --prefix=/ \

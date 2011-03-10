@@ -1,33 +1,29 @@
 (
-    python_major=`installed_version Python | cut -d. -f1-2`
-    python_dir="/usr/lib/python${python_major}/site-packages/pymsnt"
 
     # Fix pid
     sedit 's;PyMSNt.pid;/var/run/pymsnt.pid;' config-example.xml &&
-    # Stupid tarballs
-    find $SOURCE_DIRECTORY/ -type d -name .svn | xargs rm -rf &&
+
+    # Change spool directory
+    sedit 's;.*<spooldir>.*;<spooldir>/var/spool/pymsnt</spooldir>;' config-example.xml &&
+
+    # Fix MSN protocol version
+    sedit 's;MSNP11 CVR0;MSNP11;' src/legacy/msn/msn.py &&
+
     prepare_install &&
 
-    if [ ! -d $python_dir ]; then
-        mkdir -p $python_dir
-    fi &&
-    if [ ! -d /etc/jabber ]; then
-        mkdir /etc/jabber
-    fi &&
-    if [ ! -f /etc/jabber/pymsnt.xml ]; then
-        install -m600 config-example.xml /etc/jabber/pymsnt.xml
-    fi &&
+    [ -d /usr/lib/pymsnt ] || install -d -m0755 /usr/lib/pymsnt &&
+    [ -d /var/spool/pymsnt ] || install -d -m0750 /var/spool/pymsnt &&
+    [ -d /etc/jabber ] || mkdir -p /etc/jabber &&
 
-    cp -r {src,data} ${python_dir} &&
-    find $python_dir -type d | xargs chmod 755 &&
-    find $python_dir -type f | xargs chmod 644 &&
-    install -m755 PyMSNt.py ${python_dir}/pymsnt.py &&
+    [ -f /etc/jabber/pymsnt.xml ] || install -m600 -o root -g root config-example.xml /etc/jabber/pymsnt.xml &&
+
+    cp -r {PyMSNt.py,src,data} /usr/lib/pymsnt/ &&
     
     # A bit hackish to byte compile everything
 cat <<EOF>> /tmp/$$-compileall.py
 import compileall
 import re
-compileall.compile_dir('$python_dir', rx=re.compile('/[.]svn'), force=True)
+compileall.compile_dir('/usr/lib/pymsnt', rx=re.compile('/[.]svn'), force=True)
 EOF
     
     python /tmp/$$-compileall.py &&

@@ -5,6 +5,7 @@ optional_depends "perl"        "--with-perl"        "--without-perl"       "for 
 
 optional_depends "tcl"         "--with-tcl=/usr/lib  --with-tclinclude=/usr/include"  \
                                "--without-tcl"      "for tcl scripting support"
+optional_depends "tk"          "" "" "provides /usr/bin/wish, needed with tcl"
 
 optional_depends "bluez"       "--with-bluez"       "--without-bluez"      "for bluetooth support"
 optional_depends "%JAVA_SDK"   "--with-java=$JAVA_HOME" "--without-java"   "for java support"

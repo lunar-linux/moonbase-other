@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-
   OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
   source /etc/profile.d/qt4.rc   &&

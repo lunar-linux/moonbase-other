@@ -1,0 +1,20 @@
+          MODULE=xfce4-notifyd
+           MAJOR=0.2
+         VERSION=$MAJOR.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://archive.xfce.org/src/apps/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:4a0de4a9e7d0870ff14859ddfd414652a605eacc
+   MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
+        WEB_SITE=http://goodies.xfce.org/projects/applications/xfce4-notifyd
+         ENTERED=20110121
+         UPDATED=20110202
+           SHORT="A notification daemon for the XFCE desktop"
+
+cat << EOF
+The Xfce Notify Daemon (xfce4-notifyd for short) is a smallish program
+that implements the server-side portion of the Freedesktop desktop
+notifications specification. Applications that wish to pop up a
+notification bubble in a standard way can implicitly make use of
+xfce4-notifyd to do so by sending standard messages over D-Bus using
+the org.freedesktop.Notifications interface.
+EOF

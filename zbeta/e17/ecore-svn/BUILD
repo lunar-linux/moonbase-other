@@ -4,7 +4,7 @@
   export CPPFLAGS="$CPPFLAGS -I$MODULE_PREFIX/include"
   export LDFLAGS="$LDFLAGS -L$MODULE_PREFIX/lib"
 
-  OPTS="$OPTS  --with-x"
+  OPTS+="  --with-x"
 
   default_cvs_build
 

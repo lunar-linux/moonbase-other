@@ -1,6 +1,6 @@
 ( 
 
-  OPTS="$OPTS --enable-release"
+  OPTS+=" --enable-release"
   default_build &&
 
   # No, docs don't go here...
