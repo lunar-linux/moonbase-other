@@ -1,7 +1,6 @@
 (
 
-  # /snigger
-  # OPTS+=" --enable-smut"  &&
+  OPTS+=" --disable-static" &&
 
   default_build
 
