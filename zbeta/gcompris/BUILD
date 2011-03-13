@@ -1,7 +1,9 @@
 (
 
-  OPTS+=" --prefix=/usr/games/$MODULE --enable-sqlite \
-              --enable-binreloc --enable-gnet"
+  # Fix desktop entry
+  sedit "s:=Game;:=Education;:" gcompris.desktop.in &&
+
+  OPTS+=" --disable-gnet" &&
 
   default_build
 
