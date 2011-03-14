@@ -1,5 +1,7 @@
 (
 
+  OPTS+=" --disable-static" &&
+
   ./configure --build=$BUILD                       \
               --prefix=$MODULE_PREFIX              \
               --sysconfdir=/etc                    \
