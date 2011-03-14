@@ -1,19 +1,10 @@
 (
 
-  OPTS+=" --disable-static" &&
+  OPTS+=" --disable-static --enable-shared --enable-mp3rtp --disable-gtktest" &&
 
-  ./configure --build=$BUILD                       \
-              --prefix=$MODULE_PREFIX              \
-              --sysconfdir=/etc                    \
-              --localstatedir=/etc                 \
-              --infodir=$MODULE_PREFIX/share/info  \
-              --mandir=$MODULE_PREFIX/share/man    \
-              --enable-shared                      \
-              --enable-mp3rtp                      \
-              --disable-gtktest                    \
-              --disable-mp3x                       \
-              $OPTS                               &&
+  default_build &&
 
-  default_make
+  # Docs
+  rm -f INSTALL.configure README.WINGTK
 
 ) > $C_FIFO 2>&1
