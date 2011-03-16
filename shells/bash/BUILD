@@ -1,16 +1,11 @@
 (
 
+  patch_it $SOURCE2 0  &&
+
   bad_flags -malign-double  &&
 
-  patch_it $SOURCE2  0  &&
-  patch_it $SOURCE3  0  &&
-  patch_it $SOURCE4  0  &&
-  patch_it $SOURCE5  0  &&
-  patch_it $SOURCE6  0  &&
-  patch_it $SOURCE7  0  &&
-  patch_it $SOURCE8  0  &&
-  patch_it $SOURCE9  0  &&
-  patch_it $SOURCE10 0  &&
+  # Dangling symlink
+  rm -f /usr/share/doc/bash/ChangeLog  &&
 
   OPTS+=" --bindir=/bin                 \
           --enable-readline             \
@@ -77,6 +72,8 @@
   fi  &&
   if [ ! -e /etc/bashrc ] ; then
     install -m 644 -o root -g root $SCRIPT_DIRECTORY/bashrc /etc/bashrc
-  fi
+  fi  &&
+
+  mv CWRU/changelog ChangeLog
 
 ) > $C_FIFO 2>&1
