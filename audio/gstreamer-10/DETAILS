@@ -2,12 +2,15 @@
          RMODULE=gstreamer
          VERSION=0.10.32
           SOURCE=$RMODULE-$VERSION.tar.bz2
+         SOURCE2=gstreamer-0.10.32-fix-valve-drops.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$RMODULE-$VERSION
       SOURCE_URL=http://gstreamer.freedesktop.org/src/$RMODULE
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:95477044ed23cf94669e56ea43607de05c2a0cb3
+     SOURCE2_VFY=sha1:a8ef5702300476efc308d0d8f8ab41797c6dd5e5
         WEB_SITE=http://gstreamer.freedesktop.org
          ENTERED=20060311
-         UPDATED=20110121
+         UPDATED=20110316
            SHORT="A multimedia (video and audio) framework"
 
 cat << EOF
