@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 #
 # chkconfig: 345 98 02
 # description: This script starts the local BOINC client as a daemon
@@ -10,12 +10,12 @@
 ########################################################################
 
 ## These 4 installation dirs set by autoconf. ##########################
-prefix=`dirname @prefix@/.`
-exec_prefix=`dirname @exec_prefix@/.`
-bindir=`dirname @bindir@/.`
-sysconfdir=`dirname @sysconfdir@/.`
+prefix=`dirname /usr/.`
+exec_prefix=`dirname /usr/.`
+bindir=`dirname /usr/bin/.`
+sysconfdir=`dirname ${prefix}/etc/.`
 ########################################################################
- 
+
 # set the basic PATH
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 export PATH
@@ -57,14 +57,14 @@ function echo_warning () { echo -e -n $RESULT_WARN ; }
 
 function killproc() {
      PID=`local_pidof $1`
-     [ -z $PID ] && kill $PID 
+     [ -z $PID ] && kill $PID
 }
 
 # check if we have pidof.  If not use ps and grep for the same job.
-if [ -x /bin/pidof ] ; then 
-  function local_pidof() { 
-    pidof -s -x -o $$ -o $PPID -o %PPID $1 
-  } 
+if [ -x /bin/pidof ] ; then
+  function local_pidof() {
+    pidof -s -x -o $$ -o $PPID -o %PPID $1
+  }
 else
   function local_pidof() {
     ps xaugww | sed 's/$/ /' | grep "[ /]$1 " | grep -v $$ | grep -v $PPID | grep -v %PPID | grep -v grep | awk '{print $2}'
@@ -72,7 +72,11 @@ else
 fi
 
 # overwrite settings from conf file
-. /etc/default/boinc-client
+if [[ -f /etc/default/boinc-client ]] ; then
+  . /etc/default/boinc-client
+elif [[ -f /etc/sysconfig/boinc-client ]] ; then
+  . /etc/sysconfig/boinc-client
+fi
 
 ## Check what user we are running as:
 USERNOW=`ps u $$ | tail -1 | awk '{print $1}'`
@@ -82,8 +86,8 @@ fi
 
 ## Check that BOINCUSER actually exists
 if [ -z "`grep ^${BOINCUSER}: /etc/passwd`" ] ; then
-  if [ -z "`ypcat passwd 2>/dev/null | grep ^${BOINCUSER}:`" ] ; then 
-    if [ -z "`nidump passwd / 2>/dev/null | grep ^${BOINCUSER}:`" ] ; then 
+  if [ -z "`ypcat passwd 2>/dev/null | grep ^${BOINCUSER}:`" ] ; then
+    if [ -z "`nidump passwd / 2>/dev/null | grep ^${BOINCUSER}:`" ] ; then
        echo -n ERROR: user ${BOINCUSER} does not exist.
        echo_failure
        echo
@@ -118,7 +122,7 @@ elif [ "${USERNOW}" = "root" ] ; then
 fi
 
 
-## Locate the executable, either boinc_client, boinc, 
+## Locate the executable, either boinc_client, boinc,
 ## or boinc_M.mm_.... with highest version number
 ## We only do this if BOINCEXE set above isn't found or is not executable.
 if [ ! -x $BOINCEXE ]; then
@@ -131,7 +135,7 @@ fi
 if [ ! -x "$BOINCEXE" ]; then
   echo -n "Cannot find an executable for the BOINC client."
   echo_failure
-  echo 
+  echo
   exit 2
 fi
 
@@ -163,10 +167,10 @@ case "$1" in
           if [ -z "$PID" ] ; then
             # a lockfile exists, but boinc_client isn't running
             /bin/rm -f lockfile $LOCKFILE $PIDFILE 2>&1 > /dev/null
-          else 
+          else
             echo -n "Another instance of BOINC is running (PID=${PID})."
             echo_failure
-            echo 
+            echo
             exit 1
           fi
         fi
@@ -174,24 +178,24 @@ case "$1" in
         if [ ! -d projects ] ; then
           echo -n "The BOINC client requires initialization."
           echo_warning
-          echo 
+          echo
         fi
 
         touch ${LOGFILE} ${ERRORLOG}
         NOCORE="ulimit -c 0 2>&1 >/dev/null"
         echo -n "Starting BOINC client as a daemon:  "
-        if [ "${BOINCUSER}" = "${USERNOW}" ] ; then 
+        if [ "${BOINCUSER}" = "${USERNOW}" ] ; then
            # I am BOINCUSER.  Just start client as me.
            $NOCORE
            $BOINCEXE $BOINCOPTS >>$LOGFILE 2>>$ERRORLOG &
         else
            chown ${BOINCUSER} ${LOGFILE} ${ERRORLOG}
            if [ -f gui_rpc_auth.cfg ] ; then
-              chmod g+r gui_rpc_auth.cfg 
+              chmod g+r gui_rpc_auth.cfg
            fi
            su - $BOINCUSER -c "$NOCORE ; $BOINCEXE $BOINCOPTS >>$LOGFILE 2>>$ERRORLOG" 2>/dev/null > /dev/null &
         fi
-        sleep 3  
+        sleep 3
         PID=`local_pidof $BOINCEXE_NAME`
         if [ "$PID" != "" ]; then
           echo $PID > $PIDFILE
@@ -205,7 +209,7 @@ case "$1" in
           echo -n "BOINC is not running (no lockfiles found)."
           echo_success
         else
-          echo -n "Stopping BOINC client daemon:  "    
+          echo -n "Stopping BOINC client daemon:  "
           if [ -f $PIDFILE ] ; then
             PID=`cat $PIDFILE`
             if [ -n "`ps $PID | grep $PID`" ] ; then
@@ -219,7 +223,7 @@ case "$1" in
               echo
             fi
           else
-            killproc $BOINCEXE_NAME  && echo_success  || echo_failure 
+            killproc $BOINCEXE_NAME  && echo_success  || echo_failure
           fi
           # clean up in any case
           rm -f lockfile 2>/dev/null >/dev/null
@@ -259,10 +263,10 @@ case "$1" in
         if [ "$PID" != "" ]; then
           echo "BOINC client is running (pid $PID)."
         else
-          if [ -f $BOINCDIR/lockfile -o -f $LOCKFILE ]; then 
+          if [ -f $BOINCDIR/lockfile -o -f $LOCKFILE ]; then
              echo "BOINC is stopped but lockfile(s) exist."
              exit 2
-          else 
+          else
              echo "BOINC client is stopped."
              exit 3
           fi

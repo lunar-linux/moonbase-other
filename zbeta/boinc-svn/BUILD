@@ -1,4 +1,5 @@
 (
+
   # creates configure script
   ./_autosetup                             &&
 
@@ -22,18 +23,21 @@
 
   # applies defaults to configure
   # TODO: conf server and manager
-  ./configure --build=$BUILD                \
-              --prefix=/usr                 \
-              --bindir=/usr/bin             \
-              --infodir=/usr/share/info     \
-              --mandir=/usr/share/man       \
-              --enable-libraries            \
-              --enable-client               \
-              --disable-manager             \
-              --disable-server              \
-              $OPTS                        &&
+  ./configure --build=$BUILD                   \
+              --prefix=/usr                    \
+              --bindir=/usr/bin                \
+              --infodir=/usr/share/info        \
+              --mandir=/usr/share/man          \
+              --enable-shared                  \
+              --disable-static                 \
+              --enable-libraries               \
+              --enable-client                  \
+              --enable-dynamic-client-linkage  \
+              --disable-manager                \
+              --disable-server                 \
+              $OPTS                           &&
 
-  default_make                             &&
+  default_make  &&
 
   # creates 'boinc' user if necessary
   if grep "^boinc:" /etc/passwd > /dev/null; then
