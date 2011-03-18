@@ -23,12 +23,6 @@
   # symlink man folder
   for file in /usr/scala/latest/man/man1/*; do
     ln -sf $file /usr/man/man1/ || exit 1
-  done &&
-
-  if [ $EXTEND_JAVA == "y" ]; then
-    for file in /usr/scala/latest/lib/*; do
-      ln -sf $file /usr/java/latest/jre/lib/ext/ || exit 1
-    done
-  fi
+  done
 
 ) > $C_FIFO 2>&1

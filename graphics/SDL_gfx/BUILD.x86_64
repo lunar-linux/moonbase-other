@@ -1,7 +1,7 @@
 (
 
-  unset CFLAGS
-  OPTS+=" --disable-mmx"
+  unset CFLAGS &&
+  OPTS+=" --disable-mmx --disable-static" &&
   default_build
 
 ) > $C_FIFO 2>&1

@@ -26,10 +26,14 @@ optional_depends  "vala"              \
                   "-DWITH_VALA=OFF"   \
                   "for vala bindings"
 
-optional_depends  "webkit"            \
-                  "-DWITH_WEBKIT=ON"  \
-                  "-DWITH_WEBKIT=OFF" \
-                  "Enable webkit java script engine"
+# Circular dependency:  libproxy -> webkit (optional) -> libsoup -> libproxy
+# To fix:  compile libproxy without webkit, then with webkit
+# Show difference:  strings /usr/lib/libproxy.so.1.0.0 | grep webkit
+# [[ $(strings /usr/lib/libproxy.so.1.0.0 | grep webkit) ]] && echo "yes"
+#optional_depends  "webkit"            \
+#                  "-DWITH_WEBKIT=ON"  \
+#                  "-DWITH_WEBKIT=OFF" \
+#                  "webkit (circular dependency - compile without webkit first)"
 
 optional_depends  "GConf"             \
                   "-DWITH_GNOME=ON"   \

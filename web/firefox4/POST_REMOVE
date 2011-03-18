@@ -1,4 +1,9 @@
+NEW_VER="`get_module_config NEW_VER`"
+if [ -z "$NEW_VER" ] ; then
+  NEW_VER=$VERSION
+fi
+
 rm -f  /usr/share/pixmaps/firefox48.png
-rm -rf /usr/include/firefox-$VERSION
-rm -rf /usr/lib/firefox-$VERSION
-rm -rf /usr/lib/firefox-devel-$VERSION
+rm -rf "/usr/include/firefox-$NEW_VER"
+rm -rf "/usr/lib/firefox-$NEW_VER"
+rm -rf "/usr/lib/firefox-devel-$NEW_VER"

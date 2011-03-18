@@ -1,12 +1,13 @@
 OLD_VER="`get_module_config OLD_VER`"
+NEW_VER="`get_module_config NEW_VER`"
 FIREFOX_HOME=/usr
-FFOX_LIBDIR=firefox-$VERSION
+FFOX_LIBDIR=firefox-$NEW_VER
 
-if [ ! -z "$OLD_VER" ]; then
+if [ ! -z "$OLD_VER" ] && [ "$OLD_VER" != "$NEW_VER" ] ; then
   for old_version in $OLD_VER
   do
-    rm -rf /usr/lib/firefox-$old_version
-    rm -rf /usr/lib/firefox-devel-$old_version
+    rm -rf "/usr/lib/firefox-$old_version"
+    rm -rf "/usr/lib/firefox-devel-$old_version"
   done
 fi
 

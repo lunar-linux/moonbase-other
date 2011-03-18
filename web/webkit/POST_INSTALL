@@ -1,0 +1,6 @@
+if module_installed libproxy ; then
+  if ! `strings /usr/lib/libproxy.so | grep -q webkit` ; then
+    # Recompile libproxy to support webkit, breaking circular dependency
+    lin -c libproxy
+  fi
+fi

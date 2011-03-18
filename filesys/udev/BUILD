@@ -21,6 +21,7 @@
 
     sedit "/^pkgconfigdir/s;.*;pkgconfigdir = /usr/lib/pkgconfig;" Makefile.in  &&
     sedit '/$(DESTDIR)$(prefix)\/lib\/ConsoleKit/s;$(DESTDIR)$(prefix);/usr;g' Makefile.in  &&
+    sedit 's:\$(datadir)/pkgconfig:/usr/lib/pkgconfig:g' Makefile.in &&
     sedit "s:enable_introspection=yes:enable_introspection=no:" configure  &&
 
     find $SOURCE_DIRECTORY/rules -type f -name '*.rules' -exec sed -i 's/uucp/dialout/g' {} \;  &&

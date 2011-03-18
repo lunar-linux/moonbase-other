@@ -4,7 +4,7 @@
   rm -fr /usr/lib/systemd/system/sockets.target.wants/dbus.socket
   rm -fr /usr/lib/systemd/system/multi-user.target.wants/dbus.service
 
-  OPTS+=" --enable-checks --with-xml=expat                       \
+  OPTS+=" --disable-static --enable-checks --with-xml=expat          \
         --with-system-pid-file=/var/run/messagebus.pid               \
         --localstatedir=/var --enable-inotify --disable-dnotify      \
         --with-session-socket-dir=/tmp  --with-dbus-user=messagebus  \
