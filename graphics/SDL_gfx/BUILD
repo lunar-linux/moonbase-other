@@ -1,5 +1,7 @@
 (
 
+  OPTS+=" --disable-static" &&
+
   unset  CFLAGS
   ./configure  --build=$BUILD        \
                --prefix=/usr         \
