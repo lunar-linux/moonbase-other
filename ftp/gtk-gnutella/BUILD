@@ -1,16 +1,15 @@
 (
 
   if [ "$CONFIG_NLS" == "n" ]; then
-    OPTS+=" -U d_enablenls"
-  fi
+    OPTS+=" --disable-nls"
+  fi &&
 
-  # shoot metaconfig in the head please:
-  ./Configure -ders\
-              -D gtkversion=2 \
-              -D prefix=/usr \
-              -D installbin=/usr/bin \
-              -D remotectrl=y \
-              $OPTS &&
-  default_make 
+  ./build.sh --configure-only --prefix=/usr $OPTS &&
+
+  default_build &&
+
+  # Too many docs, and the permissions are wrong
+  rm -rf doc &&
+  rm -f README.{Debian,xmingw}
 
 ) > $C_FIFO 2>&1

@@ -12,6 +12,7 @@
                --infodir=/usr/share/info  \
                --disable-csharp           \
                --without-libintl-prefix   \
+               --disable-static           \
                $OPTS                     &&
   default_make
 

@@ -13,7 +13,7 @@ The File::Tail module is designed for reading files which are continously
 appended to (the name comes from the tail -f directive). Usualy such files are
 logfiles of some description.
 
-The module tries hard not to busy wait on the file, dynamicaly calcultaing 
+The module tries hard not to busy wait on the file, dynamicaly calcultaing
 how long it should wait before it pays to try reading the file again.
 
 The module should handle normal log truncations ("close; move; open"
@@ -23,7 +23,7 @@ Currently this package requires Time::HiRes, because it often needs to sleep
 for less than one second. (I don't beleive one should busy wait on a file
 just because it gets more than one line/second).
 
-The file logwatch is a simple example of use. Try it with 
+The file logwatch is a simple example of use. Try it with
 ./logwatch /var/log/syslog 1 if you want to see how File::Tail works.
 
 This module also comes with ptail.pl, an example and generic File::Tail
