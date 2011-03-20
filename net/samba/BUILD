@@ -1,4 +1,11 @@
 (
+
+  # Samba build will break if talloc is installed
+  if module_installed talloc; then
+    lrm talloc
+    export TALLOC=installed
+  fi &&
+
   unset WITH_PAM &&
   if module_installed Linux-PAM; then
     WITH_PAM="--with-pam --with-pam_smbpass"
