@@ -1,9 +1,6 @@
 (
   add_priv_user mongodb:mongodb -d /var/lib/mongodb  &&
 
-  patch_it $SOURCE2 1 &&
-  patch_it $SOURCE3 1 &&
-
   scons all &&
   prepare_install &&
   scons --full --nostrip install --prefix=/usr &&
