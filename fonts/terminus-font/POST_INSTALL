@@ -1,2 +1,8 @@
-message "${MESSAGE_COLOR}Running fc-cache please be patient${DEFAULT_COLOR}" &&
+cd /usr/share/fonts/terminus
+rm -f fonts.scale fonts.dir fonts.cache*
+mkfontscale
+mkfontdir
+message "${MESSAGE_COLOR}Running fc-cache please be patient${DEFAULT_COLOR}"
 fc-cache -f
+xset fp rehash
+cd -
