@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1 &&
+ 
   sedit "s/'-Werror'/''/" build/common.gypi  &&
 
   echo Fixing dumb CPU optimizations please wait in patience...
