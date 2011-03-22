@@ -23,7 +23,7 @@
         OPTS+=" --without-libxml2 --without-expat"
   fi &&
 
-  OPTS+=" --enable-shared" &&
+  OPTS+=" --enable-shared --disable-static" &&
 
   default_build
 

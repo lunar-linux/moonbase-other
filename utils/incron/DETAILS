@@ -9,23 +9,23 @@
            SHORT="An 'inotify cron' system"
 
 cat << EOF
-This program is an "inotify cron" system. It works like the regular 
-cron but is driven by filesystem events instead of time periods. It 
-contains two programs, a daemon called "incrond" (analogous to crond) 
+This program is an "inotify cron" system. It works like the regular
+cron but is driven by filesystem events instead of time periods. It
+contains two programs, a daemon called "incrond" (analogous to crond)
 and a table manipulator "incrontab" (like "crontab").
-You can use it a similar way as the regular cron. The difference is 
-that the inotify cron handles filesystem events rather than time 
+You can use it a similar way as the regular cron. The difference is
+that the inotify cron handles filesystem events rather than time
 periods.
 
-Here you can see a few examples where incron is a good solution: 
-  -notifying programs (e.g. server daemons) about changes in 
-   configuration 
-  -guarding changes in critical files (with their eventual recovery) 
-  -file usage monitoring, statistics 
-  -automatic on-crash cleanup 
-  -automatic on-change backup or versioning 
-  -new mail notification (for maildir) 
-  -server upload notification 
-  -installation management (outside packaging systems) 
+Here you can see a few examples where incron is a good solution:
+  -notifying programs (e.g. server daemons) about changes in
+   configuration
+  -guarding changes in critical files (with their eventual recovery)
+  -file usage monitoring, statistics
+  -automatic on-crash cleanup
+  -automatic on-change backup or versioning
+  -new mail notification (for maildir)
+  -server upload notification
+  -installation management (outside packaging systems)
   -...and many others
 EOF

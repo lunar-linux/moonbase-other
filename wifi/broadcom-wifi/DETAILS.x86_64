@@ -1,0 +1,20 @@
+       MODULE=broadcom-wifi
+      VERSION=v5_100_82_38
+       SOURCE=hybrid-portsrc_x86_64-$VERSION.tar.gz
+      SOURCE2=hybrid-portsrc-v5_100_82_38.patch.bz2
+   SOURCE_URL=http://www.broadcom.com/docs/linux_sta
+  SOURCE2_URL=$PATCH_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_VFY=sha1:6076de3bd8206b3e7b8bfc2eadbe3a97eec4e735
+  SOURCE2_VFY=sha1:98eaa5081e83040afd78b0b803c7dabe307f46be
+     WEB_SITE=http://www.broadcom.com/support/802.11/linux_sta.php
+    LICENSE="proprietary"
+      ENTERED=20110227
+      UPDATED=20110227
+        SHORT="Broadcom WIFI 802.11a/b/g/n hybrid Linux binary driver"
+cat << EOF
+Broadcom IEEE 802.11a/b/g/n hybrid binary Linux device driver
+for use with Broadcom's BCM4311-, BCM4312-, BCM4313-,
+BCM4321-, BCM4322-, BCM43224-, and BCM43225-,
+BCM43227- and BCM43228-based hardware.
+EOF

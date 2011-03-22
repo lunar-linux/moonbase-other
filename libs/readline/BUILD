@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 0 &&
+
   # Real and working fix for readline 5 to 6 upgrade
   # Especially workaround issue when you would like to lin again readline 6 after lining readline 6 already
   mkdir -p /tmp/old.libraries &&

@@ -6,6 +6,7 @@
                --sysconfdir=/etc        \
                --mandir=/usr/share/man  \
                --localstatedir=/var     \
+               --disable-static         \
                --enable-shared         &&
 
   default_make

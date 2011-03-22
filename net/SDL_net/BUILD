@@ -1,5 +1,7 @@
 (
 
+  OPTS+=" --disable-static" &&
+
    GUI_TEST=$(echo "$OPTS" | grep "\--enable-gui")
    if [ -n "$GUI_TEST" ]; then
      cat $SOURCE_CACHE/$SOURCE2 | patch >/dev/null && echo "sucessful patch!!"

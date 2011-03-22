@@ -1,23 +1,27 @@
 (
 
-  default_build &&
+  default_game_build &&
 
-  # Desktop icon
-  install -D -m644 aa.png /usr/share/pixmaps/${MODULE}.png  &&
+  if in_depends $MODULE mesa-lib ; then
+    # Desktop icon
+    install -Dm 644 {,/usr/share/pixmaps/}$MODULE.png &&
 
-  # Desktop menu entry
-  cat > ${MODULE}.desktop << EOF  &&
+    # Desktop menu entry
+    cat > $MODULE.desktop << EOF &&
 [Desktop Entry]
 Type=Application
 Name=Alien Arena
 Comment=Multiplayer retro sci-fi deathmatch
 Exec=crx
-Icon=/usr/share/pixmaps/${MODULE}.png
+Icon=$MODULE
 Categories=Game;ActionGame;
 EOF
 
-  install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop  &&
+    install -Dm 644 {,/usr/share/applications/}$MODULE.desktop
+  fi &&
 
-  install -D -m664 Tools/LinuxScripts/* /usr/share/doc/alienarena/
+  # Docs
+  mv {docs,Tools}/* . &&
+  gather_docs *.txt LinuxScripts
 
 ) > $C_FIFO 2>&1

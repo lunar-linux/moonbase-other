@@ -23,6 +23,13 @@
   sedit "s:rm -f man:true:" texk/texlive/linked_scripts/Makefile*  &&
   sedit "s:ln -s /usr/share/texmf/doc/man man:true:" texk/texlive/linked_scripts/Makefile*  &&
 
+  # Fix symlinks in /usr/share/man/man1/
+  sed -i -e "s:link\.1:link\.1\.gz:g" -e "s:file\.1:file\.1\.gz:g" {texk/kpathsea/man,texk/tetex,texk/web2c/man}/Makefile.{am,in}  &&
+  sed -i -e "s:dvilj2p.1 dvilj4.1 dvilj4l.1 dvilj6.1:dvilj2p.1.gz dvilj4.1.gz dvilj4l.1.gz dvilj6.1.gz:1" -e "s:LN_S) dvilj\.1:LN_S) dvilj.1.gz:" texk/dviljk/Makefile.{am,in}  &&
+
+  # Fix 64-bit XeTeX - http://bugs.gentoo.org/show_bug.cgi?id=356701
+  sedit "/^#define __XETEXEXT_H/a#include <w2c\/c-auto.h>" texk/web2c/xetexdir/XeTeX_ext.h  &&
+
   # Hide warnings about being unable to find its own config files
   export KPATHSEA_WARNING=0  &&
 
@@ -34,7 +41,7 @@
 
   default_build  &&
 
-  # Idea from http://repos.archlinux.org/wsvn/packages/texlive-bin/trunk/
+  # Idea from http://projects.archlinux.org/svntogit/packages.git/tree/texlive-bin/trunk/
   install -m644 $SOURCE_CACHE/$SOURCE3 /etc/fonts/conf.d/09-texlive-fonts.conf
 
 ) > $C_FIFO 2>&1
