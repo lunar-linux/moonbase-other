@@ -2,3 +2,9 @@
 if [ ! -d /etc/samba/private ]; then
    install -d -m700 /etc/samba/private
 fi
+
+# Reinstall talloc after samba build
+if [ "$TALLOC" = 'installed' ]; then
+   lin talloc
+fi
+unset TALLOC

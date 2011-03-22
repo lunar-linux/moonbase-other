@@ -1,13 +1,14 @@
           MODULE=chromium
-         VERSION=10.0.644.0
+         VERSION=10.0.648.151
           SOURCE=$MODULE-$VERSION.tar.bz2
-#         SOURCE2=chromium-system-vpx.patch
-#         SOURCE3=speex.gyp
+         SOURCE2=$MODULE-webkit-version.patch
       SOURCE_URL=http://build.chromium.org/buildbot/official
-      SOURCE_VFY=sha1:e1ca60fc0537c37abfb5cd768f7591f3face91e0
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:41be67fefb217b56bd934694eb0f31fe820cb1a8
+     SOURCE2_VFY=sha1:27b29a0fbcb09d044d8dfe037503faaae2d4e96b
         WEB_SITE=http://www.chromium.org/Home
          ENTERED=20100104
-         UPDATED=20110122
+         UPDATED=20110322
            SHORT="Open-source version of Google Chrome web browser"
 
 cat << EOF
