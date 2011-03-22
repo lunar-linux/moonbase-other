@@ -1,29 +1,29 @@
           MODULE=pion-net
-         VERSION=3.1.3
+         VERSION=4.0.1
           SOURCE=$MODULE-$VERSION.tar.bz2
    SOURCE_URL[0]=http://www.pion.org/files/
-      SOURCE_VFY=sha1:46d642153921950ed671beb95d3a98500480f9c3
+      SOURCE_VFY=sha1:af1bc26eb78ab5ecb6694cf00c6a81b5117169b6
         WEB_SITE=http://www.pion.org/projects/pion-network-library
          ENTERED=20110203
-         UPDATED=20110203
+         UPDATED=20110321
            SHORT="provide HTTP(S) functionality to new or existing C++ applications"
 
 cat << EOF
-There are a wide variety of open source HTTP servers available, from fast and 
-lightweight servers such as lighttpd, to full-featured platforms like Apache 
-HTTPD. The motivation of pion-net is not to implement yet another web server, 
-but to provide HTTP(S) functionality to new or existing C++ applications. If 
+There are a wide variety of open source HTTP servers available, from fast and
+lightweight servers such as lighttpd, to full-featured platforms like Apache
+HTTPD. The motivation of pion-net is not to implement yet another web server,
+but to provide HTTP(S) functionality to new or existing C++ applications. If
 you're looking for a full-featured server application, we suggest that you use
-one of the projects above. If you're working on a Boost C++ application and 
+one of the projects above. If you're working on a Boost C++ application and
 would just like to use HTTP to provide a simple user interface or interact with
 run-time data, then pion-net is a much cleaner and simpler solution.
 
-Pion Network Library uses the Boost and asio libraries for multi-threading and 
-asynchronous I/O. Multi-threading allows the use of multiple CPUs or processing 
-cores to process HTTP requests simultaneously. Asynchronous I/O allows each 
-thread to handle many connections simultaneously (otherwise, a single thread 
-would be required for every connection to the server). The combination of these 
-technologies takes full advantage of the most modern CPUs, and allows servers 
-implemented using pion-net to handle many thousands of connections 
+Pion Network Library uses the Boost and asio libraries for multi-threading and
+asynchronous I/O. Multi-threading allows the use of multiple CPUs or processing
+cores to process HTTP requests simultaneously. Asynchronous I/O allows each
+thread to handle many connections simultaneously (otherwise, a single thread
+would be required for every connection to the server). The combination of these
+technologies takes full advantage of the most modern CPUs, and allows servers
+implemented using pion-net to handle many thousands of connections
 simultaneously with a single physical server.
 EOF

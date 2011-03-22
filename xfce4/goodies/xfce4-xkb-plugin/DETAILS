@@ -1,23 +1,18 @@
           MODULE=xfce4-xkb-plugin
            MAJOR=0.5
-         VERSION=$MAJOR.3.3
+         VERSION=$MAJOR.3.3_p20110308
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-$VERSION-libxklavier.patch.bz2
-         SOURCE3=$MODULE-$VERSION-segfaults.patch.bz2
-      SOURCE_URL=http://archive.xfce.org/src/panel-plugins/$MODULE/$MAJOR
-     SOURCE2_URL=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
-      SOURCE_VFY=sha1:5e83d55cd6f14a62a87ccadd0f11eee070a6f4a7
-     SOURCE2_VFY=sha1:a1e1c54879d0be5245c9c05680d674ed5ea602d5
-     SOURCE3_VFY=sha1:bc8dc56b230180d106d02a0c82339e816f9795b1
+     #SOURCE_URL=http://archive.xfce.org/src/panel-plugins/$MODULE/$MAJOR
+      SOURCE_URL=http://dev.gentoo.org/~ssuominen
+      SOURCE_VFY=sha1:5fdcb4026b19a4f9a41c4bed908d4852287246ea
    MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
-        WEB_SITE=http://www.xfce.org
+        WEB_SITE=http://goodies.xfce.org/projects/panel-plugins/xfce4-xkb-plugin
          ENTERED=20061124
-         UPDATED=20100401
+         UPDATED=20110308
            SHORT="A keyboard layout switcher"
 
 cat << EOF
-displays the current keyboard layout, and refreshes when layout 
-changes. Also the layout can be switched by simply clicking on the 
+Displays the current keyboard layout, and refreshes when layout
+changes. Also the layout can be switched by simply clicking on the
 plugin.
 EOF

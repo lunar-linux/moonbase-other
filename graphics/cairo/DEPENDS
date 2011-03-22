@@ -50,3 +50,8 @@ optional_depends "gobject-introspection"                                \
                  "--enable-gobject"                                     \
                  "--disable-gobject"                                    \
                  "for gobject functions?"
+
+# circular dependencies
+#optional_depends "ghostscript" "" "" "for ps surface backend"
+#optional_depends "libspectre"  "" "" "for ps testing"
+#optional_depends "poppler"     "" "" "for pdf testing"

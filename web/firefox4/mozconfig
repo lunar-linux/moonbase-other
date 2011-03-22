@@ -15,9 +15,7 @@ ac_add_options --enable-crypto
 ac_add_options --enable-strip
 ac_add_options --enable-canvas
 ac_add_options --enable-svg
-# Firefox4b9 adds non standard extensions to cairo
-# So use the internal one till system one will get these extensions
-#ac_add_options --enable-system-cairo
+ac_add_options --enable-system-cairo
 ac_add_options --enable-xterm-updates
 ac_add_options --enable-libxul
 ac_add_options --enable-official-branding
@@ -30,9 +28,6 @@ ac_add_options --disable-logging
 ac_add_options --disable-accessibility
 ac_add_options --enable-mathml
 ac_add_options --disable-os2-high-mem
-# firefox4 can use its internal libevent 1.x
-# until the libevent 1 vs 2 issue is safe.
-ac_add_options --without-system-libevent
 ac_add_options --enable-gio
 ac_add_options --enable-raw
 ac_add_options --with-system-libvpx

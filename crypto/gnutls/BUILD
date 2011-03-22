@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --with-lzo"  &&
+  OPTS+=" --with-lzo --disable-static"  &&
 
   default_build
 

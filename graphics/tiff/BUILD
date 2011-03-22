@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --with-docdir=/usr/share/doc/$MODULE"  &&
+  OPTS+=" --with-docdir=/usr/share/doc/$MODULE --disable-static" &&
 
   default_build
 
