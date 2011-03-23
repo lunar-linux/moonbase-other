@@ -1,5 +1,7 @@
 (
 
+  OPTS+=" --disable-static" &&
+
   if in_depends $MODULE libvpx ; then
      patch_it $SOURCE_CACHE/$SOURCE2 0
   fi  &&
@@ -24,7 +26,7 @@
 
   # With default_build, get error:  Unknown option "--build=i686-pc-linux-gnu"
   ./configure --prefix=/usr $OPTS  &&
-  
+
   default_make
 
 ) > $C_FIFO 2>&1
