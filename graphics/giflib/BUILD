@@ -13,7 +13,7 @@
                --infodir=/usr/share/info  \
                --mandir=/usr/share/man    \
                --enable-shared            \
-               --enable-static           &&
+               --disable-static          &&
 
   default_make
 
