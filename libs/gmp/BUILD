@@ -1,6 +1,6 @@
 (
 
-  OPTS="--enable-cxx"  &&
+  OPTS="--enable-cxx --disable-static"  &&
   default_config   &&
   make             &&
   make check       &&

@@ -13,6 +13,7 @@
                     --build=$BUILD     \
                     --enable-compat185 \
                     --enable-cxx       \
+                    --disable-static   \
                     $OPTS             &&
 
   sedit "s:LIBSO_LIBS=:LIBSO_LIBS= -pthread :" Makefile      &&

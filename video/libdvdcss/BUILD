@@ -1,5 +1,7 @@
 (
 
+  OPTS+=" --disable-static" &&
+
 # This needs to be revisited on the next version bump.
 
   default_config  &&
