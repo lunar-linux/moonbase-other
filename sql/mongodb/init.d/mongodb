@@ -9,6 +9,9 @@
 
 # config settings
 [ -f /etc/config.d/mongodb ] && . /etc/config.d/mongodb
+
+# MongoDB config
+[ -f /etc/mongodb.conf ] || exit 1
 [ -x /usr/bin/mongod ] || exit 1
 
 ARGS=""
@@ -20,37 +23,13 @@ if [ -z "$MDB_USER" ] ; then
 	exit 1
 fi
 
-if [ -n "$MDB_BINDIP" ]; then
-  ARGS+=" --bind_ip $MDB_BINDIP"
-fi
-
-if [ -n "$MDB_PORT" ]; then
-  ARGS+=" --port $MDB_PORT"
-fi
-
-if [ -n "$MDB_DATADIR" ]; then
-  ARGS+=" --dbpath $MDB_DATADIR"
-fi
-
-if [ -n "$MDB_LOG" ]; then
-  ARGS+=" --logpath $MDB_LOG --logappend"
-fi
-
-if [ -n "$MDB_FORK" ]; then
-  ARGS+=" $MDB_FORK"
-fi
-
-if [ -n "$MDB_OPTIONS" ]; then
-  ARGS+=" $MDB_OPTIONS"
-fi
-
 start()
 {
   echo -n "Starting mongodb: "
   if [ -n "$MDBPID" ]; then
     echo "already running."
   else
-    su - $MDB_USER -c "/usr/bin/mongod $ARGS --pidfilepath /var/run/mongodb.pid &> /dev/null" &&
+    su - $MDB_USER -c "/usr/bin/mongod --config /etc/mongodb.conf --pidfilepath /var/run/mongodb.pid &> /dev/null" &&
     echo -e $RESULT_OK || echo -e $RESULT_FAIL
   fi
 }
