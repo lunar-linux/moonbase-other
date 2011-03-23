@@ -1,6 +1,7 @@
 (
 
-  egrep '\<mmx\>' /proc/cpuinfo &> /dev/null && OPTS+=" --enable-mmx"
+  OPTS+=" --disable-static" &&
+  grep -E '\<mmx\>' /proc/cpuinfo &> /dev/null && OPTS+=" --enable-mmx" &&
 
   default_build
 
