@@ -1,4 +1,6 @@
 (
+  OPTS+=" --disable-static" &&
+
   # For "Version: 3.6.11" in /usr/lib/pkgconfig/sqlite3.pc
   sedit 's:@RELEASE@:@VERSION@:' sqlite3.pc.in &&
 
