@@ -1,5 +1,7 @@
 (
 
+  OPTS+=" --disable-static" &&
+
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
   sed -i -r 's:.*(#.*SYSTEM_ZLIB.*) .*:\1:' \
