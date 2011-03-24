@@ -2,8 +2,8 @@
 
   sedit 's:CFLAGS=": CFLAGS="-fPIC :' configure &&
 
-  ./configure -P /usr -I /usr/include -L /usr/lib $OPTS &&
+  OPTS+=" --disable-static" &&
 
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1
