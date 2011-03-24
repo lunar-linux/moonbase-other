@@ -21,33 +21,24 @@
         OPTS+=" --without-ssl --without-libgnutls"
   fi &&
 
-  # applies defaults to configure
-  # TODO: conf server and manager
-  ./configure --build=$BUILD                   \
-              --prefix=/usr                    \
-              --bindir=/usr/bin                \
-              --infodir=/usr/share/info        \
-              --mandir=/usr/share/man          \
-              --enable-shared                  \
-              --disable-static                 \
-              --enable-libraries               \
-              --enable-client                  \
-              --enable-dynamic-client-linkage  \
-              --disable-manager                \
-              --disable-server                 \
-              $OPTS                           &&
+  # TODO: move enable/disable client/server/manager to CONFIGURE
+  OPTS+=" --enable-shared --disable-static --enable-libraries --enable-client --enable-dynamic-client-linkage --disable-manager --disable-server" &&
 
-  default_make  &&
+  default_build  &&
 
   # creates 'boinc' user if necessary
   if grep "^boinc:" /etc/passwd > /dev/null; then
-    echo "user 'boinc' already exists"
+    message "${MESSAGE_COLOR}user 'boinc' already exists${DEFAULT_COLOR}"
   else
-    useradd --system              \
-            --user-group          \
-            --create-home         \
-            --home /var/lib/boinc \
-            boinc
-  fi
+    useradd --system               \
+            --user-group           \
+            --create-home          \
+            --home /var/lib/boinc  \
+            boinc                 &&
+    message "${MESSAGE_COLOR}user 'boinc' created${DEFAULT_COLOR}"
+  fi  &&
+
+  # install bash completion
+  install -m755 client/scripts/boinc.bash /etc/bash_completion.d/boinc-bash-completion.sh
 
 ) > $C_FIFO 2>&1
