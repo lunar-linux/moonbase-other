@@ -2,6 +2,11 @@
 
   patch_it $SOURCE2 1  &&
 
+# Fixes a make failure if you say yes to libupnp.
+  if in_depends $MODULE libupnp; then
+    sed -i "27i #include <assert.h>" modules/services_discovery/upnp_intel.cpp
+  fi &&
+
   # Use a default font which actually exists
   sedit "s:truetype/freefont/FreeSerifBold.ttf:dejavu-ttf/DejaVuSerif-Bold.ttf:" modules/misc/freetype.c  &&
 
