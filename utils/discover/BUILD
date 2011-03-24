@@ -9,9 +9,14 @@
     sedit 's:docbook-to-man:echo:' doctools/docbook.mk
   fi  &&
 
-  OPTS+=" --disable-curl"
+  OPTS+=" --disable-curl --enable-shared --disable-static"
 
   default_config  &&
+
+  # hack the statics away
+  sedit "s/all: discover discover-static/all: discover/g" discover/Makefile &&
+  sedit "/\${INSTALL_PROGRAM} discover-static/d" discover/Makefile &&
+
   make  &&
   make check  &&
   prepare_install  &&
