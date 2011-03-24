@@ -1,5 +1,7 @@
 (
 
+  OPTS+=" --disable-static" &&
+
   # Fix DoS bug - http://expat.cvs.sourceforge.net/viewvc/expat/expat/lib/xmltok_impl.c?r1=1.15&view=log
   patch_it $SOURCE2 0 &&
 
@@ -8,6 +10,6 @@
   default_build &&
 
   # Let's be naughty and do the coverup
-  ln -sf /usr/lib/libexpat.so /usr/lib/libexpat.so.0 
+  ln -sf /usr/lib/libexpat.so /usr/lib/libexpat.so.0
 
 ) > $C_FIFO 2>&1
