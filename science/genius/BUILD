@@ -1,7 +1,5 @@
 (
 
-   patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-
    # certain linker options are causing this build not to find readline
    bad_flags linker  &&
 
