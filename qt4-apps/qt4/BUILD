@@ -62,6 +62,24 @@
      cd $SOURCE_DIRECTORY
   fi &&
 
+  
+  # Desktop menu entry for Qt Designer
+  if [ "$MAKE_EXAMPLE_DEMOS" == "y" ]; then
+
+  cat > ${MODULE}-designer.desktop << EOF  &&
+[Desktop Entry]
+Type=Application
+Name=Qt4 Designer
+Comment=Qt4 Designer is Qt's tool for designing and building graphical user interfaces
+Exec=/usr/bin/designer
+Icon=/usr/share/doc/qt4/widgets/icons/images/designer.png
+Categories=Application;Qt;KDE;Development;
+EOF
+
+  install -D -m644 ${MODULE}-designer.desktop /usr/share/applications/${MODULE}-designer.desktop 
+  fi &&
+##
+
   echo export QTDIR=\"/usr\" > $SOURCE_DIRECTORY/qt4.rc &&
   echo export PATH=\"'${PATH}':'${QTDIR}'/bin\" >> $SOURCE_DIRECTORY/qt4.rc &&
   echo export XDG_DATA_DIRS=\"'${XDG_DATA_DIRS:-/usr/share}':/usr/share/qt4\" >> $SOURCE_DIRECTORY/qt4.rc &&
