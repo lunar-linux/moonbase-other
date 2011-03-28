@@ -8,6 +8,9 @@
 
   cd source  &&
 
+  # Fix the compile with gcc 4.6.x
+  sedit "s:--as-needed::" Makefile  &&
+
   # Be compatible with libopenal.so.1
   # http://www.warsow.net/forum/viewtopic.php?id=20939
   sedit "s:openal-config:pkg-config openal:" Makefile  &&
