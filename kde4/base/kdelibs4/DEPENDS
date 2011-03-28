@@ -33,4 +33,6 @@ optional_depends "git"         "" "" "for git support; can be used by Dolphin"
 optional_depends "qca2-cyrus-sasl" "" "" "for cryptographic and gssapi support"
 optional_depends "xscreensaver"    "" "" "for screensaver support"
 
-#optional_depends "herqq"     "" "" "for UPnP support for Solid"
+optional_depends "herqq"     "-DHUPNP_INCLUDE_DIR=/usr/include/HUpnpCore \
+                              -DHUPNP_LIBS=/usr/lib"                     \
+                             "" "for UPnP support for Solid"
