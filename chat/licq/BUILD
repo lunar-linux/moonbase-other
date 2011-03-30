@@ -1,95 +1,63 @@
 ( 
 
-  CONSOLE_PLUGIN="no"
-  QT_PLUGIN="no"
-  QT4_PLUGIN="no"
-  MSN_PLUGIN="no"
-  OSD_PLUGIN="no"
+  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
-  # Determine which plugins to build
-  if in_depends licq cdk; then
-    CONSOLE_PLUGIN="yes"
-  fi
-  if in_depends licq qt4; then
-    QT4_PLUGIN="yes"
-  fi
-  if in_depends licq openssl; then
-    MSN_PLUGIN="yes"
-  fi
-  if in_depends licq xosd; then
-    OSD_PLUGIN="yes"
-  fi
+  mkdir $OOSB_DIR  &&
+  cd $OOSB_DIR     &&
 
-  # Print plugin information
-  echo
-  echo "The following plugins will be compiled:"
-  echo
-  echo "  * Console frontend: ${CONSOLE_PLUGIN}"
-  echo "  * Qt4 frontend: ${QT4_PLUGIN}"
-  echo "  * MSN support: ${MSN_PLUGIN}"
-  echo "  * OSD support: ${OSD_PLUGIN}"
-  echo
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=/usr   \
+                           -DCMAKE_BUILD_TYPE=RELEASE    \
+                           $OPTS                        &&
 
-  default_config &&
-  make &&
+  default_make &&
 
-  # Compile console plugin
-  if [[ "$CONSOLE_PLUGIN" = "yes" ]]; then
-    cd $SOURCE_DIRECTORY/plugins/console &&
-    default_config &&
-    make
-  fi &&
-
-  # Compile Qt4 frontend
-  if [[ "$QT4_PLUGIN" = "yes" ]]; then
-    . /etc/profile.d/qt4.rc &&
-    cd $SOURCE_DIRECTORY/plugins/qt4-gui &&
-    cmake $SOURCE_DIRECTORY/plugins/qt4-gui -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
-                                            -DCMAKE_BUILD_TYPE=RELEASE            &&
+# Install some plugins.
+  if in_depends $MODULE qt4 ; then
+    cd ../plugins/qt4-gui &&
+    cmake . &&
     default_make
   fi &&
 
-  # Compile MSN support
-  if [[ "$MSN_PLUGIN" = "yes" ]]; then
-    cd $SOURCE_DIRECTORY/plugins/msn &&
-    default_config &&
-    make
+  if [ $USE_MSN == "y" ] ; then
+    cd ../msn &&
+    cmake . &&
+    default_make 
   fi &&
 
-  # Compile OSD plugin
-  if [[ "$OSD_PLUGIN" = "yes" ]]; then
-    cd $SOURCE_DIRECTORY/plugins/osd &&
-    default_config &&
-    make
+  if [ $USE_RMS =="y" ] ; then
+    cd ../rms &&
+    cmake . &&
+    default_make 
   fi &&
 
-  # Install licq 
-  prepare_install &&
-  cd $SOURCE_DIRECTORY &&
-  make install &&
-
-  # Install console plugin
-  if [[ "$CONSOLE_PLUGIN" = "yes" ]]; then
-    cd $SOURCE_DIRECTORY/plugins/console &&
-    make install
+  if [$USE_JABBER == "y" ] ; then
+    cd ../jabber &&
+    cmake . &&
+    default_make
   fi &&
 
-  # Install Qt4 frontend
-  if [[ "$QT4_PLUGIN" = "yes" ]]; then
-    cd $SOURCE_DIRECTORY/plugins/qt4-gui &&
-    make install
+  if [ $USE_FORWARD == "y" ] ; then
+    cd ../forwarder &&
+    cmake . &&
+    default_make
   fi &&
 
-  # Install MSN support
-  if [[ "$MSN_PLUGIN" = "yes" ]]; then
-    cd $SOURCE_DIRECTORY/plugins/msn &&
-    make install
+  if [ $USE_AUTO_REPLY == "y" ] ; then
+    cd ../auto-reply &&
+    cmake . &&
+    default_make
   fi &&
 
-  # Install OSD plugin
-  if [[ "$OSD_PLUGIN" = "yes" ]]; then
-    cd $SOURCE_DIRECTORY/plugins/osd &&
-    make install
-  fi
+  if in_depends $MODULE libaosd ; then
+    cd ../aosd &&
+    cmake . &&
+    default_make
+  fi &&
+
+  if [ $BUILD_CONSOLE == "y" ] ; then
+    cd ../console &&
+    cmake . &&
+    default_make
+  fi 
 
 ) > $C_FIFO 2>&1
