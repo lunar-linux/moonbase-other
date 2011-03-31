@@ -1,13 +1,8 @@
 (
 
- if in_depends $MODULE tk ; then
-   OPTS+=" --with-tk=$SOURCE_DIRECTORY/libtke/tk/unix"
-   cp -f "/usr/lib/tkConfig.sh" libtke/tk/unix
- fi
-
- if [ -e "/usr/lib/tclConfig.sh" ]; then
-   cp "/usr/lib/tclConfig.sh" libtke/tcl/unix
- fi
+ if [ `arch` == "x86_64" ] ; then
+   OPTS="--enable-64bit"
+ fi &&
 
  # for some reason, the build uses exec_prefix everywhere
  # which isn't effected by our setting prefix
@@ -19,10 +14,7 @@
              --sysconfdir=/etc          \
              --localstatedir=/var       \
              --infodir=/usr/share/info  \
-             --mandir=/usr/share/man    \
-             --with-tcl=$SOURCE_DIRECTORY/libtke/tcl/unix            \
-             --with-tclinclude=$SOURCE_DIRECTORY/libtke/tcl/generic  \
-             --enable-gcc  &&
+             --mandir=/usr/share/man   &&
 
  default_make
 
