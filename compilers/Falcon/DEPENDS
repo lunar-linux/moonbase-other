@@ -1,2 +1,12 @@
 depends bison
 depends cmake
+
+optional_depends dbus       "-DFALCON_BUILD_DBUS=ON"      "-DFALCON_BUILD_DBUS=OFF"      "for dbus support"
+optional_depends curl       "-DFALCON_BUILD_CURL=ON"      "-DFALCON_BUILD_CURL=OFF"      "for curl support"
+optional_depends gtk+-2     "-DFALCON_BUILD_GTK=ON"       "-DFALCON_BUILD_GTK=OFF"       "for gtk support"
+optional_depends sqlite     "-DFALCON_BUILD_DBI=ON"       "-DFALCON_BUILD_DBI=OFF"       "for sqlite support"
+optional_depends postgresql "-DFALCON_DBI_BUILD_PGSQL=ON" "-DFALCON_DBI_BUILD_PGSQL=OFF" "for postgresql support"
+optional_depends mysql      "-DFALCON_DBI_BUILD_MYSQL=ON" "-DFALCON_DBI_BUILD_MYSQL=OFF" "for mysql support"
+optional_depends mongodb    "-DFALCON_BUILD_MONGODB=ON"   "-DFALCON_BUILD_MONGODB=OFF"   "for mongodb support"
+optional_depends SDL        "-DFALCON_BUILD_SDL=ON"       "-DFALCON_BUILD_SDL=OFF"       "for SDL support"
+
