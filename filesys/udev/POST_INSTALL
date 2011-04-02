@@ -36,12 +36,10 @@ create_node 0660 loop0   b 7 0     &&
 create_node 0666 zero    c 1 5     &&
 create_node 0660 kmsg    c 1 11    &&
 
-udevadm info --convert-db
-# Find and auto configure network and block devices
+# Find and auto-configure network and block devices
 for netdev in `ls -d /sys/class/net/eth[0-9]*`
 do echo add > $netdev/uevent
 done
 for devblock in `ls /sys/block | grep -v loop`
 do udevadm test /sys/block/$devblock
 done
-
