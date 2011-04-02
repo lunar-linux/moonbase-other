@@ -1,9 +1,14 @@
 (
 
-  . /etc/profile.d/qt4.rc &&
+  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
-  OPTS="--disable-doxygen-doc --disable-doxygen-dot --disable-doxygen-html" &&
+  mkdir $OOSB_DIR  &&
+  cd $OOSB_DIR     &&
 
-  default_build
+  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
+                           -DCMAKE_BUILD_TYPE=RELEASE             \
+                           $OPTS                                 &&
+
+  default_make
 
 ) > $C_FIFO 2>&1
