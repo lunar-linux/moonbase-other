@@ -2,6 +2,9 @@
 
   OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
+# http://osdir.com/ml/kde-commits/2011-04/msg00435.html
+  sed -i "3i # define PHONON_DEPRECATED" smoke/qt/phonon/phonon_includes.h &&
+
   source /etc/profile.d/qt4.rc   &&
   source /etc/profile.d/kde4.rc  &&
 
