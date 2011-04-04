@@ -1,5 +1,8 @@
 (
 
+# Add a missing include.
+  sed -i "42i #include <cstdio>" src/luceneindexer/cluceneindexreader.cpp &&
+
   OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
   mkdir $OOSB_DIR  &&
