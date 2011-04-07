@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 1  &&
-
   # Unwanted doc
   rm -f README.win32  &&
 
