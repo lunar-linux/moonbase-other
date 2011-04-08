@@ -2,6 +2,7 @@
   patch_it $SOURCE4 1   &&
   patch_it $SOURCE5 1   &&
   patch_it $SOURCE6 1   &&
+  patch_it $SOURCE7 1   &&
 
   # Autoconf fix
   sedit 's;^AC_\(AIX\|MINIX\)$;;' acinclude.m4 &&
