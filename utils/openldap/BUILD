@@ -15,7 +15,6 @@
                --with-gnu-ld              \
                --enable-shared            \
                --enable-rewrite           \
-               --enable-ldbm              \
                --enable-ldap              \
                --enable-meta              \
                --enable-monitor           \
