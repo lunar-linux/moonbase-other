@@ -4,7 +4,7 @@
 
   OPTS+=" --with-distro=other \
           --with-sysvinit-path=/etc/init.d \
-          --with-sysvrcd-path=/etc         &&
+          --with-sysvrcd-path=/etc"         &&
 
   default_build
 
