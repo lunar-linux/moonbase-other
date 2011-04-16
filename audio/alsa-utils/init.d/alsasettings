@@ -14,8 +14,15 @@ function store() {
   amixer set Master mute &> /dev/null
 }
 
+# Added for restoring alsa mixer levels. neocrust@gmail.com
+function restore() {
+ echo "Restoring ALSA mixer settings..."
+ alsactl restore
+}
+
 case "$1" in
   start)
+	restore
 	;;
    stop)
 	store
