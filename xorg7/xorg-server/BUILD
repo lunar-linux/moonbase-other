@@ -8,9 +8,7 @@
 
   OPTS+=" --enable-composite --enable-aiglx --disable-devel-docs \
           --enable-install-libxf86config --enable-unix-transport \
-          --with-fontrootdir=/usr/share/fonts/X11  \
-          --with-dri-driver-path=${MODULE_PREFIX}/lib/dri "  &&
-         #--with-mesa-source=${SOURCE_DIRECTORY}/Mesa-${MESA_VERSION} \
+          --with-fontrootdir=/usr/share/fonts/X11 "  &&
 
   default_build  &&
 

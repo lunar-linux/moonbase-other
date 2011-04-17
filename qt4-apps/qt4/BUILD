@@ -28,7 +28,7 @@
     OPTS+=" -make examples -make demos -make tools -make docs -make translations"
   fi &&
 
-  OPTS+=" -largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -xmlpatterns -fast -shared" &&
+  OPTS+=" -largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -fast -shared" &&
 
   ./configure  -confirm-license $LICENSE_TYPE          \
                -prefix /usr                            \

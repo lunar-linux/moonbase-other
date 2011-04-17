@@ -1,12 +1,11 @@
 depends  bison
 depends  flex
-depends  gdal
 depends  fftw
 depends  tk
 
 optional_depends "proj-4"    "" "" "for external proj-4 support"
 
-#optional_depends "readline"   "--with-readline"  "--without-readline"  "for readline support"
+optional_depends "readline"   "--with-readline"  "--without-readline"  "for readline support"
 optional_depends "ncurses"    "--with-curses"    "--without-ncurses"   "for ncurses support"
 optional_depends "%JPEG"      "--with-jpeg"      "--without-jpeg"      "for jpeg graphics support"
 optional_depends "tiff"       "--with-tiff"      "--without-tiff"      "for tiff graphics support"
@@ -22,3 +21,5 @@ optional_depends "openMotif"  "--with-motif"     "--without-motif"     "for moti
 optional_depends "postgresql" "--with-postgres"  "--without-postgres"  "for postgresql database support"
 optional_depends "wxGTK"      "--with-wxwidgets" "--without-wxwidgets" "for wxWidgets graphics support"
 optional_depends "lapack"     "--with-lapack"    "--without-lapack"    "for lapack functionality"
+optional_depends "gdal"       "--with-gdal"      " --without-gdal"     "for gdal support"
+
