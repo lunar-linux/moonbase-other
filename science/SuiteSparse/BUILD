@@ -4,8 +4,6 @@
   sedit "s:CC = cc:CC = gcc:" metis-4.0/Makefile.in &&
   sedit "s:OPTFLAGS = -O2:OPTFLAGS = -O3 -fPIC:" metis-4.0/Makefile.in &&
 
-  patch_it $SOURCE_CACHE/$SOURCE3 0 &&
-
   cd metis-4.0 &&
   make  &&
   cd $SOURCE_DIRECTORY &&
