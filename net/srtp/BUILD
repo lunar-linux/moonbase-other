@@ -1,7 +1,13 @@
 (
 
-  CFLAGS="$CFLAGS -fPIC"
+  CFLAGS="$CFLAGS -fPIC" &&
 
-  default_build
+  OPTS="--disable-debug" &&
+
+  default_config &&
+
+  make uninstall &&
+
+  default_make
 
 ) > $C_FIFO 2>&1

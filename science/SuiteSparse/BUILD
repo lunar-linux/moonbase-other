@@ -8,9 +8,11 @@
   make  &&
   cd $SOURCE_DIRECTORY &&
 
-  make CFLAGS+=" -fPIC" library &&
-  prepare_install &&
-  install metis-4.0/libmetis.a /usr/lib/ &&
-  make install 
+
+  make CFLAGS+=" -fPIC" CXXFLAGS+=" -fPIC" library &&
+  prepare_install    &&
+  make install       &&
+  
+  install metis-4.0/libmetis.a /usr/lib/ 
 
 ) > $C_FIFO 2>&1
