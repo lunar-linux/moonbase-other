@@ -1,4 +1,3 @@
-depends  pkgconfig
 depends  pixman
 
 optional_depends "libpng"                                               \
@@ -35,6 +34,16 @@ optional_depends "DirectFB"                                             \
                  "--enable-directfb"                                    \
                  "--disable-directfb"                                   \
                  "for DirectFB surface backend (experimental)"
+
+optional_depends "libdrm"                                               \
+                 "--enable-drm"                                         \
+                 "--disable-drm"                                        \
+                 "for DRM surface backend (experimental)"
+
+optional_depends "mesa-lib"                                             \
+                 "--enable-gl"                                          \
+                 "--disable-gl"                                         \
+                 "for OpenGL surface backend"
 
 optional_depends "freetype2"                                            \
                  "--enable-ft"                                          \
