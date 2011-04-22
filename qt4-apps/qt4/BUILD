@@ -1,5 +1,10 @@
 (
 
+# To silence the phonon module from barking about this;
+# "Qt compiled without support for -fvisibility=hidden.  This will break
+# plugins and linking of some applications.  Please fix your Qt installation."
+  CFLAGS+=" -fvisibility=hidden $CFLAGS" &&
+
   if [ -d /opt/lunar/qt ] ; then
     ld_remove /opt/lunar/qt/lib
   fi &&
@@ -53,6 +58,14 @@
 # Like for moc and uic, the same needs doing for the *.prl files.
   find /usr/lib/qt4 -type f -name '*.prl' \
       -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/' {} \; &&
+
+  if [ "MAKE_ASSIST" == "y" ] ; then
+     cd tools/assistant &&
+     qmake -o Makefile assistant.pro &&
+     make && 
+     install -m 755 
+     cd $SOURCE_DIRECTORY
+  fi &&
 
   if [ "$MAKE_QDOC3" == "y" ]; then
      cd tools/qdoc3 &&
