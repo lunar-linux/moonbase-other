@@ -4,15 +4,15 @@
   sedit "s:CC = cc:CC = gcc:" metis-4.0/Makefile.in &&
   sedit "s:OPTFLAGS = -O2:OPTFLAGS = -O3 -fPIC:" metis-4.0/Makefile.in &&
 
-  patch_it $SOURCE_CACHE/$SOURCE3 0 &&
-
   cd metis-4.0 &&
   make  &&
   cd $SOURCE_DIRECTORY &&
 
-  make CFLAGS+=" -fPIC" library &&
-  prepare_install &&
-  install metis-4.0/libmetis.a /usr/lib/ &&
-  make install 
+
+  make CFLAGS+=" -fPIC" CXXFLAGS+=" -fPIC" library &&
+  prepare_install    &&
+  make install       &&
+  
+  install metis-4.0/libmetis.a /usr/lib/ 
 
 ) > $C_FIFO 2>&1

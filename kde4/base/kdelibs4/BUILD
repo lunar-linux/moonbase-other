@@ -4,10 +4,6 @@
 
   OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
-  if in_depends $MODULE polkit-qt-1 ; then
-    OPTS="-DKAUTH_BACKEND=PolkitQt-1"
-  fi &&
-
   sed -i "22i /usr/share/sgml/docbook/xml/4.2" cmake/modules/FindDocBookXML.cmake &&
 
   VER=`lvu version docbook-xsl` &&
