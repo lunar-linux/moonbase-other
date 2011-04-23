@@ -54,9 +54,6 @@
     install -m755 ${SCRIPT_DIRECTORY}/udev /etc/init.d  &&
 
     install -m755 ${SOURCE_CACHE}/${SOURCE3} \
-                  /etc/udev/scripts.d/raid-devfs.sh  &&
-
-    # the /run dir is needed now at runtime
-    mkdir -m755 -p /run
+                  /etc/udev/scripts.d/raid-devfs.sh
 
 ) > $C_FIFO 2>&1
