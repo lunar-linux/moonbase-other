@@ -1,5 +1,8 @@
 (
 
+  # fixes problems with neon
+  LDFLAGS+=" -lgcrypt"
+
   if in_depends $MODULE sun-jdk; then
     . /etc/profile.d/sun-jdk.rc
     OPTS+=" --with-jdk=$JAVA_HOME"
@@ -12,7 +15,7 @@
     BINDINGS_INSTALL+=" install-javahl"
   fi
 
-  OPTS+=" --disable-static --disable-neon-version-check --with-neon=`neon-config --prefix` --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` --with-apr-util=`which apu-$(installed_version apr-util | cut -d. -f1)-config`"
+  OPTS+=" --disable-static --with-neon=`neon-config --prefix` --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` --with-apr-util=`which apu-$(installed_version apr-util | cut -d. -f1)-config`"
 
   if in_depends $MODULE swig ; then
     if module_installed perl; then
