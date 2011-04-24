@@ -2,9 +2,7 @@
 
   sedit "s:/usr/local:/usr:"  configure  &&
 
-  OPTS+=" --with-distro=other \
-          --with-sysvinit-path=/etc/init.d \
-          --with-sysvrcd-path=/etc"         &&
+  OPTS+=" --with-distro=other" &&
 
   default_build
 
