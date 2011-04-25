@@ -11,35 +11,102 @@
 
 [  -e /etc/exports  ]  ||  exit 0
 
-NUMSERVERS=8
-MOUNTDOPTS=
+# defaults, overriden if /etc/config.d/nfs exists and is filled
+# with NUMSERVERS and/or MOUNTDOPTS
+CONFIGFILE="/etc/config.d/nfs";
+
+#NUMSERVERS=8
+((AUTONUMSERVERS=$(cat /proc/cpuinfo  | grep "model name" | wc -l)*3))
+
+if [ -f $CONFIGFILE ]; then
+  . $CONFIGFILE
+fi
+
+NUMSERVERS=${NUMSERVERS:-$AUTONUMSERVERS}
+MOUNTDOPTS=${MOUNTDOPS:-""}
 
 case $1 in
-   start|restart)  echo "$1ing NFS services"
-                   exportfs -r 
+  start)  echo "$1ing NFS services"
 
-                   pkill      "^rpc.rquotad$"  &&  sleep  5
-                   pkill      "^rpc.mountd$"   &&  sleep  5
-                   pkill  -1  "^nfsd$"         &&  sleep  5
-                   pkill      "^rpc.statd$"    &&  sleep  5
+    if ps -C nfsd > /dev/null;  then
+      echo -n "NFS running already. Use stop first or restart..."
+      echo -e $RESULT_FAIL
+      exit 0
+    fi
 
-                   ps  -C  portmap  >  /dev/null  ||
-                   /etc/init.d/portmap start
-                   /usr/sbin/rpc.rquotad
-                   /usr/sbin/rpc.mountd  $MOUNTDOPTS
-                   /usr/sbin/rpc.nfsd    $NUMSERVERS
-                   /usr/sbin/rpc.statd
-                   ;;
+    ps -C portmap > /dev/null || /etc/init.d/portmap start
 
-            stop)  echo "$1ping NFS services"
-                   /usr/sbin/exportfs -au
-    
-                   pkill      "^rpc.rquotad$"
-                   pkill      "^rpc.mountd$"
-                   pkill  -1  "^nfsd$"
-                   pkill      "^rpc.statd$"
-                   ;;
+    # mount /proc/fs/nfsd
+    if ! grep "/proc/fs/nfsd" /proc/mounts > /dev/null; then
+      if ! mount -t nfsd nfsd /proc/fs/nfsd; then
+        echo -n "Mounting /proc/fs/nfsd failed."
+	echo -e $RESULT_FAIL
+	exit 0
+      fi
+    fi
 
-               *)  echo "Usage: $0 {start|stop|restart}"
-                   ;;
+    # mount rpc_pipefs
+    if ! grep "/var/lib/nfs/rpc_pipefs" /proc/mounts > /dev/null; then
+      if [ ! -d /var/lib/nfs/rpc_pipefs ]; then
+        mkdir -p /var/lib/nfs/rpc_pipefs
+      fi
+      if ! mount sunrpc -t rpc_pipefs /var/lib/nfs/rpc_pipefs/; then
+        echo -n "Mounting /var/lib/nfs/rpc_pipefs failed."
+        echo -e $RESULT_FAIL
+        exit 0
+      fi
+    fi
+
+    # It is important that exportfs be run before mountd so that
+    # mountd is working from current information (in
+    # /var/lib/nfs/etab)
+    exportfs -a 
+
+    if ! /usr/sbin/rpc.mountd $MOUNTDOPTS; then
+      echo -n "Starting rpc.mountd failed."
+      echo -e $RESULT_FAIL
+      exit 0
+    fi
+
+    if ! /usr/sbin/rpc.rquotad; then
+      echo -n "Starting rpc.rquotad failed."
+      echo -e $RESULT_FAIL
+      exit 0
+    fi
+
+    if ! /usr/sbin/rpc.nfsd $NUMSERVERS; then
+      echo -n "Starting rpc.nfsd failed."
+      echo -e $RESULT_FAIL
+      exit 0
+    fi
+    if ! /usr/sbin/rpc.statd; then
+      echo -n "Starting rpc.statd failed."
+      echo -e $RESULT_FAIL
+      exit 0
+    fi
+    exportfs -ra
+  ;;
+
+  stop)  echo "$1ping NFS services"
+    /usr/sbin/exportfs -au
+
+    pkill      "^rpc.rquotad$"
+    pkill      "^rpc.mountd$"
+    pkill  -1  "^nfsd$"
+    pkill      "^rpc.statd$"
+
+    # umount rpc_pipefs if mounted
+    if grep "rpc_pipefs" /proc/mounts > /dev/null; then
+      umount /var/lib/nfs/rpc_pipefs/
+    fi
+  ;;
+
+  restart) echo "$1ing NFS services"
+    $0 stop 
+    $0 start
+  ;;
+
+  *)  echo "Usage: $0 {start|stop|restart}"
+  ;;
+
 esac
