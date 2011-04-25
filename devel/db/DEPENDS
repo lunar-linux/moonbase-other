@@ -1,9 +1,9 @@
-optional_depends  "tcl"                                \
-                  "--enable-tcl --with-tcl=/usr/lib"   \
-                  ""                                   \
-                  "to build the tcl api"
+optional_depends "tcl"                              \
+                 "--enable-tcl --with-tcl=/usr/lib" \
+                 "--disable-tcl"                    \
+                 "for the Tcl API"
 
-optional_depends  "%JAVA_SDK"                          \
-                  "--enable-java"                      \
-                  "--disable-java"                     \
-                  "for java support"
+optional_depends "%JAVA_SDK"                        \
+                 "--enable-java"                    \
+                 "--disable-java"                   \
+                 "for the Java API"
