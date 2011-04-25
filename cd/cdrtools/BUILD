@@ -13,7 +13,7 @@
             DEFINSGRP=root               &&
   prepare_install                        &&
   $THISMAKE INS_BASE=/usr DEFINSUSR=root  \
-            DEFINSGRP=root MANDIR=share/man install  &&
+            DEFINSGRP=root MANDIR=man install  &&
 
   # cdrkit compatibility:
   install -m755 cdda2wav/{pitchplay,readmult} /usr/bin  &&
