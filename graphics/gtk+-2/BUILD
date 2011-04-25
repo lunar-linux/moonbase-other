@@ -17,6 +17,10 @@
 
   patch_it $SOURCE2 1     &&
 
+  if [ "`get_module_config DOCS`" = "n" ] ; then
+    sedit "s/docs m4macros build/m4macros build/g" Makefile.in
+  fi  &&
+
   default_build
 
 ) > $C_FIFO 2>&1
