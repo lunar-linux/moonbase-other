@@ -14,6 +14,9 @@
     fi
   fi &&
 
-  cp -a usr /
+# This only applies if you have qt4/kdelibs4 installed.
+  if module_installed kdelibs4 ; then
+    cp -a usr /
+  fi
 
 ) > $C_FIFO 2>&1
