@@ -6,6 +6,7 @@
   sedit '/#include <stdlib.h>/a#include <stdio.h>' ddd/strclass.C &&
   unset GZIP &&
 
-  default_build
+  default_build &&
+  install -m644 icons/ddd.xpm /usr/share/pixmaps
 
 ) > $C_FIFO 2>&1
