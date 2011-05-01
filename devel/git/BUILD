@@ -14,6 +14,9 @@
       [ -d /usr/share/man/$i ] || mkdir -p /usr/share/man/$i
       install -m 644 $i/* /usr/share/man/$i/
   done &&
-  gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
+
+  if [ "`get_module_config DOCS`" = "y" ] ; then
+    gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
+  fi
 
 ) > $C_FIFO 2>&1

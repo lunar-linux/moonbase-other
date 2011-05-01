@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` --with-iconv=/usr --disable-static" &&
+  OPTS+=" --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` --with-iconv=/usr" &&
 
   default_build
 

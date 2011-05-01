@@ -25,7 +25,17 @@ message "$MESSAGE_COLOR"
 message "Remember to re-install all CPAN modules by hand!"
 message "$DEFAULT_COLOR"
 
-# Reinstall vim otherwise it will stop working
-if module_installed vim; then
-lin -c vim
+# re-lin vim if perl support there has been enabled, otherwise it will stop working
+# if module_installed vim ; then
+#   if in_depends vim perl ; then
+#     verbose_msg "Rebuilding vim ..."
+#     lin -c vim
+#   fi
+# fi
+# unfortunately the in_depends branch in the above never fires due to a big
+# see http://bugs.lunar-linux.org/view.php?id=474
+# therefore just rebuild vim whether it uses perl or not
+if module_installed vim ; then
+  verbose_msg "Rebuilding vim ..."
+  lin -c vim
 fi

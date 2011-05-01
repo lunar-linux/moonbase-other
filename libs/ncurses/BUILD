@@ -36,6 +36,31 @@ set -x
                --enable-colorfgbg                        \
                --with-terminfo-dirs=/usr/share/terminfo  \
                $OPTS                                    &&
+
+  default_make &&
+
+set +x &&
+
+# Now to make nucurses wide
+  make clean &&
+
+  unset CC CXX  &&
+
+set -x
+  ./configure  --build=$BUILD                            \
+               --prefix=/usr                             \
+               --libdir=/lib                             \
+               --with-normal                             \
+               --with-shared                             \
+               --includedir=/usr/include/ncursesw        \
+               --mandir=/usr/share/man                   \
+               --with-manpage-format=gzip                \
+               --disable-termcap                         \
+               --enable-colorfgbg                        \
+               --with-terminfo-dirs=/usr/share/terminfo  \
+               --enable-widec                            \
+               $OPTS                                    &&
+
 set +x &&               
   default_make &&
   gather_docs ANNOUNCE TODO
