@@ -1,10 +1,9 @@
 (
 
-  sedit "s:/usr/local:/usr:"  configure  &&
-
-  OPTS+=" --with-distro=other \
-          --with-sysvinit-path=/etc/init.d \
-          --with-sysvrcd-path=/etc"         &&
+  autoreconf &&
+  OPTS+=" --with-rootdir=/ " &&
+  OPTS+=" --with-distro=other" &&
+  OPTS+=" --with-udevrulesdir=/lib/udev/rules.d/" &&
 
   default_build
 

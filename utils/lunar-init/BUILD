@@ -2,6 +2,8 @@
 
   prepare_install &&
 
+  mkdir -p /run &&
+
   cd $SCRIPT_DIRECTORY/ &&
 
   for SCRIPT in network hostname netmount mount ; do
