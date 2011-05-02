@@ -1,8 +1,8 @@
 (
 
-  rm -fr /usr/lib/systemd/system/dbus.target.wants/dbus.socket
-  rm -fr /usr/lib/systemd/system/sockets.target.wants/dbus.socket
-  rm -fr /usr/lib/systemd/system/multi-user.target.wants/dbus.service
+  rm -fr /lib/systemd/system/dbus.target.wants/dbus.socket
+  rm -fr /lib/systemd/system/sockets.target.wants/dbus.socket
+  rm -fr /lib/systemd/system/multi-user.target.wants/dbus.service
 
   OPTS+=" --disable-static --enable-checks --with-xml=expat          \
         --with-system-pid-file=/var/run/messagebus.pid               \
