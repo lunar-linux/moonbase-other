@@ -166,6 +166,7 @@ start()
 	echo -e "Mounting filesystems:"
 
 	run_with_msg " * Mounting /proc" "mount -n -t proc proc /proc"
+        run_with_msg " * Mounting /run on /run" "mount -n -t tmpfs tmpfs /run -o size=4m,mode=0755"
 
 	if ! grep -qw "ro" /proc/cmdline; then
 		run_with_msg " * Remounting root read-only" "mount -n -o remount,ro /"
@@ -204,15 +205,15 @@ start()
 	kernel_is_26 && run_with_msg " * Mounting /sys" "mount -n -t sysfs sysfs /sys"
 
 	if [ "$DEVNODES" = "udev" ]; then
-        run_with_msg " * Mounting udev  on /dev" "mount -w -n -t tmpfs udevfs /dev -o size=6m,mode=0755"
+        run_with_msg " * Mounting udev on /dev" "mount -w -n -t tmpfs udevfs /dev -o size=6m,mode=0755"
         # Creating "must have" static device nodes
         run_without_msg "mkdir -p /dev/{pts,shm}"
         run_without_msg "cp -a /lib/udev/devices/* /dev"
         if [ ! -h /dev/ram ]; then
             ln -sf /dev/ram0 /dev/ram
         fi
-		run_without_msg "echo > /proc/sys/kernel/hotplug" # Hotplug agents are deprecated!
-	    run_with_msg "Starting udev device handling daemon version `udevd --version`" "/sbin/udevd --daemon"
+	run_without_msg "echo > /proc/sys/kernel/hotplug" # Hotplug agents are deprecated!
+	run_with_msg "Starting udev device handling daemon version `udevd --version`" "/sbin/udevd --daemon"
         run_with_msg "Activating coldplug devices" "/sbin/udevadm trigger"
         run_with_msg "Devices activation - please wait" "/sbin/udevadm settle"
         # This is first aid code for devices hard to init (too slow or to buggy for init by 1st time)

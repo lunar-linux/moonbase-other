@@ -17,7 +17,7 @@
     sedit "s:BF_ODE = LCGDIR + '/ode':BF_ODE = '/usr':" config/linux2-config.py
   fi &&
 
-  if ! module_installed OpenEXR ; then
+  if ! module_installed openexr ; then
     sedit "s:WITH_BF_OPENEXR = 'true':WITH_BF_OPENEXR = 'false':" config/linux2-config.py
   fi &&
 

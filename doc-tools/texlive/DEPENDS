@@ -2,21 +2,15 @@ depends  ed
 depends  w3c-libwww
 depends  texlive-texmf
 depends  gd
-depends  fontconfig
 depends  psutils
+depends  zziplib
+depends  t1lib
+depends  TECkit
+depends  icu4c
+depends  t1utils
+depends  lcdf-typetools
 
 # Needed to run fmtutil-sys in POST_INSTALL
 depends  luatex
 
-optional_depends "t1lib" "--with-system-t1lib" "--without-system-t1lib" "use system t1lib (if n, will use bundled lib)"
-optional_depends "icu4c" "--with-system-icu"   "--without-system-icu"   "use system icu4c (if n, will use bundled lib)"
-optional_depends "zziplib" "--with-system-zziplib" "--without-system-zziplib" "use system zziplib (if n, will use bundled lib)"
-
-# This will look like the wrong way around. It means whether to install texlive's own version of lcdf-typetools, or use the lcdf-typetools module from moonbase.
-optional_depends "lcdf-typetools" "--disable-lcdf-typetools" "--enable-lcdf-typetools" "for Postscript support (if n, TeX Live's own version will be installed)"
-
-optional_depends "t1utils" "--disable-t1utils" "--enable-t1utils" "for Postscript font utils (if n, TeX Live's own version will be installed)"
-
-optional_depends "TECkit" "--with-system-teckit" "" "for text encoding conversion (if n, TeX Live's own version will be installed)"
-
-optional_depends "libX11" "" "--without-x" "for XOrg support (say n for e.g. framebuffer)"
+optional_depends "libX11" "--with-x" "--without-x" "for X applications like xpdf"

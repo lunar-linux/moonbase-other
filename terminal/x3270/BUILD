@@ -1,11 +1,33 @@
 (
 
-  cd x3270-3.3     &&
-  default_build    &&
+  VER=`lvu version x3270|cut -c 1-3` &&
+
+  cd x3270-$VER &&
+  default_build $OPTS &&
   make install.man &&
 
-  # Desktop icon
-  install -D -m644 x3270-icon2.xpm /usr/share/pixmaps/x3270-icon2.xpm  &&
+# Build the TCL based terminal
+  if [ $BUILD_TCL3270 == "y" ]; then
+    cd ../tcl3270-$VER &&
+    default_build $OPTS &&
+    make install.man
+  fi &&
+
+# Build the scripting based terminal  
+  if [ $BUILD_S3270 == "y" ]; then
+    cd ../s3270-$VER &&
+    default_build $OPTS &&
+    make install.man
+  fi &&
+
+  if [ $BUILD_C3270 == "y" ]; then
+    cd ../c3270-$VER &&
+    default_build $OPTS &&
+    make install.man
+  fi &&
+
+# Desktop icon
+  install -D -m644 $SOURCE_DIRECTORY/x3270-$VER/x3270-icon2.xpm /usr/share/pixmaps/x3270-icon2.xpm  &&
 
   # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&

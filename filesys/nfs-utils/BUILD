@@ -1,23 +1,19 @@
-unalias  make
-
 (
 
-# Adding enable-tirpc since there is no disbale counterpart in the configure.
-  ( source /var/lib/lunar/unset.sh && ./configure  --prefix=/usr  --mandir=/usr/share/man \
-    --disable-nfsv4 --disable-gss --enable-tirpc) &&
+  add_priv_user nfs:daemon                               &&
 
-  ( source /var/lib/lunar/unset.sh && make )   &&
-  prepare_install             &&
-  ( source /var/lib/lunar/unset.sh && make    install ) &&
+  # please DO NOT remove --disable-tirpc even if ./configure shows
+  # no such option - it works, and without that there's a bug and
+  # thus rpc.mountd is not starting... <wdp@lunar-linux.org>
+  ./configure --prefix=/usr                               \
+              --mandir=/usr/share/man                     \
+	      --disable-tirpc                             \
+	      --disable-gss                               \
+	      --with-tcp-wrappers                         \
+	      $OPTS                                      &&
 
-  if [ -e "/etc/init.d/nfslock.sh" ]; then
-     rm -f /etc/init.d/nfslock.sh
-     rm -f /etc/rc?.d/???nfslock.sh
-  fi &&
-
-  if [ -e "/etc/init.d/nfs.sh" ]; then
-    rm -f /etc/init.d/nfs.sh
-    rm -f /etc/rc?.d/???nfs.sh
-  fi
+  default_make                                           &&
+  devoke_installwatch                                    &&
+  chown -R nfs:daemon /var/lib/nfs
 
 ) > $C_FIFO 2>&1

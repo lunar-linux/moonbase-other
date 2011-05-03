@@ -1,22 +1,21 @@
-          MODULE=OpenEXR
-         VERSION=1.6.1
-          SOURCE=openexr-$VERSION.tar.gz
-         SOURCE2=openexr-$VERSION-gcc-4.3.x.patch.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/openexr-$VERSION
+          MODULE=openexr
+         VERSION=1.7.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-gcc-4.5.x.patch.bz2
       SOURCE_URL=http://download.savannah.nongnu.org/releases/openexr
      SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:b3650e6542f0e09daadb2d467425530bc8eec333
-     SOURCE2_VFY=sha1:0530a8317c41fe0664e9ad64f1445b36f44d8964
+      SOURCE_VFY=sha1:91d0d4e69f06de956ec7e0710fc58ec0d4c4dc2b
+     SOURCE2_VFY=sha1:a37c0cc642ec06b26afaa58315fa52d5d411d40f
         WEB_SITE=http://www.openexr.com/index.html
       MAINTAINER=stumbles@lunar-linux.org
          ENTERED=20050601
-         UPDATED=20090406
+         UPDATED=20110502
            SHORT="A high dynamic-range (HDR) image file format"
 
 cat << EOF
-OpenEXR is a high dynamic-range (HDR) image file format developed by
+openexr is a high dynamic-range (HDR) image file format developed by
 Industrial Light & Magic for use in computer imaging applications.
-OpenEXR's features include:
+openexr's features include:
   - Higher dynamic range and color precision than existing 8 and 10-bit
   image file formats.
   - Support for 16-bit floating-point, 32-bit floating-point, and 32-bit
@@ -28,8 +27,8 @@ OpenEXR's features include:
   codecs can achieve 2:1 lossless compression ratios on images with film
   grain.
   - Extensibility. New compression codecs and image types can easily be
-  added by extending the C++ classes included in the OpenEXR software
+  added by extending the C++ classes included in the openexr software
   distribution. New image attributes (strings, vectors, integers, etc.)
   can be added to OpenEXR image headers without affecting backward
-  compatibility with existing OpenEXR applications.
+  compatibility with existing openexr applications.
 EOF
