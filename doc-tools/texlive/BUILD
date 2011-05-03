@@ -37,7 +37,7 @@
   # and http://repos.archlinux.org/wsvn/packages/texlive-bin/trunk/
   # xindy should be in its own module, because its compilation needs latex to be *already* installed.
   # luatex and psutils are individual modules.
-  OPTS+=" --datadir=/usr/share --disable-multiplatform --disable-native-texlive-build --with-system-zlib --with-system-freetype2 --with-system-libpng --with-gs=gs --disable-xindy --enable-etex --disable-luatex --disable-psutils --enable-xetex --enable-ipc --enable-shared --enable-static=no"  &&
+  OPTS+=" --datadir=/usr/share --disable-multiplatform --disable-native-texlive-build --with-gs=gs --disable-xindy --enable-etex --disable-luatex --disable-psutils --enable-xetex --enable-ipc --enable-shared --disable-static --with-system-zlib --with-system-zziplib --with-system-libpng --with-system-gd --with-system-t1lib --with-system-teckit --with-teckit-includes=/usr/include/teckit --with-system-icu --with-system-freetype2 --disable-t1utils --disable-lcdf-typetools" &&
 
   default_build  &&
 

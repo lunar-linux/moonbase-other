@@ -7,7 +7,7 @@
   cp libiw.so.${VERSION} /lib/                                  &&
   install -m644 iwlib.h /usr/include/                           &&
   install -m644 wireless.h /usr/include/                        &&
-  ln -s /lib/libiw.so.${VERSION} /lib/libiw.so                  &&
+  ln -sf /lib/libiw.so.${VERSION} /lib/libiw.so                 &&
   ldconfig                                                      &&
 
   # Prevent gather_docs from wrongly identifying C files as docs

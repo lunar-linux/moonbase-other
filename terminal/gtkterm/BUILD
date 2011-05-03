@@ -1,6 +1,7 @@
 (
- 
-  patch_it $SOURCE2 0  &&
+
+  OPTS+=" --disable-nls" &&
+
   default_build
 
 ) > $C_FIFO 2>&1

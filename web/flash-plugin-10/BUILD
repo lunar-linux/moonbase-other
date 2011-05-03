@@ -1,5 +1,10 @@
 (
 
+  # This only applies if you do not have kdelibs4/Qt4 installed.
+  if ! module_installed kdelibs4 ; then
+     rm -rf usr/lib/kde4 usr/share/kde4
+  fi &&
+
   prepare_install &&
   install -Dm755 libflashplayer.so /opt/lunar/plugins/libflashplayer.so &&
 
