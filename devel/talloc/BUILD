@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --includedir=/usr/include/$MODULE" &&
+  OPTS+=" --includedir=/usr/include/$MODULE --libdir=/usr/lib/$MODULE" &&
 
   default_build
 
