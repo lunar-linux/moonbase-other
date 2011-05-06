@@ -2,7 +2,7 @@
 
   ./configure   --prefix=/usr       \
                 --sysconfdir=/etc   \
-		--disable-static    \
+                --disable-static    \
                 $OPTS              &&
 
   make                             &&
