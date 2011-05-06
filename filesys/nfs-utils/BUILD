@@ -7,10 +7,10 @@
   # thus rpc.mountd is not starting... <wdp@lunar-linux.org>
   ./configure --prefix=/usr                               \
               --mandir=/usr/share/man                     \
-	      --disable-tirpc                             \
-	      --disable-gss                               \
-	      --with-tcp-wrappers                         \
-	      $OPTS                                      &&
+              --disable-tirpc                             \
+              --disable-gss                               \
+              --with-tcp-wrappers                         \
+              $OPTS                                      &&
 
   default_make                                           &&
   devoke_installwatch                                    &&
