@@ -1,8 +1,6 @@
 (
 
-  unset CFLAGS
-  ./configure  --prefix=/usr  &&
-  default_make                &&
-  ./MAKEDEV.v4l
+  ./autogen.sh  &&
+  default_build
 
 ) > $C_FIFO 2>&1
