@@ -4,14 +4,18 @@ depends automoc
 depends strigi
 depends phonon
 depends shared-mime-info
-depends shared-desktop-ontologies
 depends boost
+depends shared-desktop-ontologies
 depends attica
 depends %GIF
 depends libdbusmenu-qt
 depends docbook-xml
 
-optional_depends "soprano"     "" "" "for RDF data support"
+optional_depends "bzip2"       "-DWITH_BZip2=ON"   "-DWITH_BZip2=OFF"   "for bzip file compression support"
+optional_depends "lzma-sdk"    "-DWITH_LibLZMA=ON" "-DWITH_LibLZMA=OFF" "for lzma file compression support"
+optional_depends "openssl"     "-DWITH_OpenSSL=ON" "-DWITH_OpenSSL=OFF" "for secure sockets level support"
+optional_depends "qca2"        "-DWITH_QCA2=ON"    "-DWITH_QCA2=OFF"    "for cross-platform crypto API support"
+optional_depends "soprano"     "-DWITH_Soprano=ON" "-DWITH_Soprano=OFF" "for RDF data support"
 optional_depends "polkit-qt-1" "" "" "for Kauth support"
 optional_depends "PyQt4"       "" "" "for python support in other kde4 modules"
 optional_depends "gamin"       "" "" "for file alteration support"
@@ -30,7 +34,7 @@ optional_depends "grantlee"    "" "" "for plugin based String Template system su
 optional_depends "subversion"  "" "" "for subversion support; can be used by Dolphin"
 optional_depends "git"         "" "" "for git support; can be used by Dolphin"
 
-optional_depends "qca2-cyrus-sasl" "" "" "Support for remote plasma widgets"
+optional_depends "qca2-cyrus-sasl" "-DWITH_QCA2=ON" "-DWITH_QCA2=OFF" "for cross-platform crypto API support"
 optional_depends "xscreensaver"    "" "" "for screensaver support"
 
 optional_depends "herqq"     "-DHUPNP_INCLUDE_DIR=/usr/include/HUpnpCore \
