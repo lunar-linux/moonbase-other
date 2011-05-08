@@ -12,7 +12,7 @@
                 --mandir=/usr/share/man      \
                 --enable-utf8                \
                 --enable-unicode-properties  \
-		--disable-static            &&
+                --disable-static            &&
 
    sedit 's:$(libdir)/pkgconfig:/usr/lib/pkgconfig:' Makefile  &&
 
