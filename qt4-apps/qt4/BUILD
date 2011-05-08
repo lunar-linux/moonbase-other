@@ -35,6 +35,10 @@
 
   OPTS+=" -largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -fast -shared" &&
 
+  if [ -f /usr/lib/libOpenVG.so ];then
+    OPTS+=" -openvg"
+  fi &&
+
   ./configure  -confirm-license $LICENSE_TYPE          \
                -prefix /usr                            \
                -libdir /usr/lib/$MODULE                \
