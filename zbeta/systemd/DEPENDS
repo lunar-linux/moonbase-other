@@ -1,11 +1,12 @@
-depends Linux-PAM
 depends sysvinit
 depends tcp_wrappers
 depends dbus
 depends libcap
 depends libcgroup
 depends udev
-depends autofs
 
-optional_depends  "vala"  ""  "--disable-gtk"  "for user interface tools"
+optional_depends  "Linux-PAM"  ""  "--disable-pam"  "for PAM support"
+optional_depends  "vala"       ""  "--disable-gtk"  "for user interface tools"
+optional_depends  "autofs"     ""  ""               "for userspace automounter support"
+optional_depends  "libnotify"  ""  ""               "for desktop notification support"
 
