@@ -13,8 +13,6 @@
   cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
                            -DCMAKE_BUILD_TYPE=RELEASE            &&
 
-  default_make  &&
-
-  ln -sf /usr/lib/libphonon.so /usr/lib/qt4/libphonon.so
+  default_make  
 
 ) > $C_FIFO 2>&1
