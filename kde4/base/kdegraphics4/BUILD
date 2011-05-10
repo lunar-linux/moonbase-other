@@ -5,17 +5,12 @@
   sedit "s:0.4:0.4.1:g" okular/generators/poppler/generator_pdf.cpp &&
   sedit "s:QImage srcImage = src->toImage();:QImage srcImage = src->toImage().convertToFormat(format);:g" okular/ui/pagepainter.cpp &&
 
-  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
-
   source /etc/profile.d/qt4.rc   &&
   source /etc/profile.d/kde4.rc  &&
 
-  mkdir $OOSB_DIR  &&
-  cd $OOSB_DIR     &&
-
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             \
-                           $OPTS                                 &&
+  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
+        -DCMAKE_BUILD_TYPE=RELEASE             \
+        $OPTS .                               &&
 
   default_make
 
