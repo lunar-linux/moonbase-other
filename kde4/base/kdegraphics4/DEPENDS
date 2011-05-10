@@ -1,5 +1,7 @@
 depends kdebase4
-
+# kdegraphics 4.6.3 build will fail if libjpeg-turbo is installed instead of jpeg
+# tested with kdegraphics 4.6.3 and libjpeg-turbo 1.1.0
+depends jpeg
 optional_depends djvulibre     "" ""  "for document support"
 optional_depends chmlib        "" ""  "for different help file format support"
 optional_depends ghostscript   "" ""  "for pdf support"
