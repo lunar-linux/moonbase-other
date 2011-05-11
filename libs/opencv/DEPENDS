@@ -1,11 +1,30 @@
-depends gtk+-2
-depends libpng
-depends %JPEG
-depends tiff
+optional_depends libpng       "-DWITH_PNG=ON"    \
+                              "-DWITH_PNG=OFF"   \
+                              "for png graphics support"
 
-optional_depends Python       "-DCMAKE_BUILD_NEW_PYTHON_SUPPORT=ON"  \
-                              "-DCMAKE_BUILD_NEW_PYTHON_SUPPORT=OFF" \
-                              "for Python binding support"
+optional_depends gtk+-2       "-DWITH_GTK=ON"     \
+                              "-DWITH_GTK=OFF"    \
+                              "for gtk+-2 graphics support"
+
+optional_depends eigen        "-DWITH_EIGEN2=ON"    \
+                              "-DWITH_EIGEN2=OFF"   \
+                              "for linear algebra libraries support"
+
+optional_depends jasper       "-DWITH_JASPER=ON"   \
+                              "-DWITH_JASPER=OFF"  \
+                              "for JPEG-2000 Part-1 support"
+
+optional_depends %JPEG        "-DWITH_JPEG=ON"    \
+                              "-DWITH_JPEG=OFF    \
+                              "for jpeg graphics support"
+
+optional_depends qt4          "-DWITH_QT=ON WITH_QT_OPENGL=ON"      \
+                              "-DWITH_QT=OFF WITH_QT_OPENGL=OFF"    \
+                              "Build with Qt Backend support"
+
+optional_depends tiff         "-DWITH_TIFF=ON"     \
+                              "-DWITH_TIFF=OFF     \
+                              "for tiff graphics support"
 
 optional_depends ffmpeg       "-DWITH_FFMPEG=ON"  \
                               "-DWITH_FFMPEG=OFF" \
@@ -19,19 +38,17 @@ optional_depends %XINELIB     "-DWITH_XINE=ON"  \
                               "-DWITH_XINE=OFF" \
                               "for xine video support"
 
-optional_depends octave       "-D_BUILD_OCTAVE_SUPPORT=ON"  \
-                              "-DBUILD_OCTAVE_SUPPORT=OFF" \
-                              "for octave language support"
-
-optional_depends libdc1394    "-DCMAKE_WITH_1394=ON"   \
-                              "-DCMAKE_WITH_1394=OFF"  \
+optional_depends libdc1394    "-DWITH_1394=ON"   \
+                              "-DWITH_1394=OFF"  \
                               "for firewire support"
 
-optional_depends swig         "-DBUILD_SWIG_PYTHON_SUPPORT=ON"  \
-                              "-DBUILD_SWIG_PYTHON_SUPPORT=OFF" \
-                              "for swig support"
-
-#For now say no.
 optional_depends unicap       "-DWITH_UNICAP=ON"    \
                               "-DWITH_UNICAP=OFF"  \
                               "for additional video capture support"
+
+optional_depends              "v4l-utils"          \
+                              "-DWITH_V4L=ON"      \
+                              "-DWITH_V4L=OFF"     \
+                              "for v4l video support"
+
+
