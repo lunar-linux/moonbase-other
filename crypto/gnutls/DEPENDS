@@ -1,7 +1,8 @@
 depends opencdk
 depends libtasn1
+depends pakchois
+depends libcfg+
+depends readline
 
-optional_depends "guile"             \
-                 "--enable-guile"    \
-                 "--disable-guile"   \
-                 "for guile support"
+optional_depends "nettle" "--without-libgcrypt" "--with-libgcrypt" "for nettle as cryptographic library (recommended)"
+optional_depends "guile"  "--enable-guile"      "--disable-guile"  "for Guile bindings"

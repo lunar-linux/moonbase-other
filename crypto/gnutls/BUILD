@@ -1,6 +1,7 @@
 (
 
-  OPTS+=" --with-lzo --disable-static"  &&
+  OPTS+=" --disable-static --without-included-pakchois --without-included-libcfg --without-included-libtasn1"  &&
+  LDFLAGS+=" -lpakchois"  &&
 
   default_build
 
