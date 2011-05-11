@@ -1,0 +1,8 @@
+# set root shell to normal bash again
+echo `getent passwd root | cut -d: -f7`
+FOO=`getent passwd root | cut -d: -f7`
+echo $FOO
+
+if [ `getent passwd root | cut -d: -f7` == "/bin/bash_static" ] ; then
+  chsh -s /bin/bash root
+fi
