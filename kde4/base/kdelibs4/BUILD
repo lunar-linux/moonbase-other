@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+
   source /etc/profile.d/qt4.rc   &&
 
   OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
@@ -12,9 +14,9 @@
   mkdir $OOSB_DIR  &&
   cd $OOSB_DIR     &&
 
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             \
-                           $OPTS                                 &&
+  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
+        -DCMAKE_BUILD_TYPE=RELEASE             \
+        $OPTS $SOURCE_DIRECTORY               &&
 
   default_make
 

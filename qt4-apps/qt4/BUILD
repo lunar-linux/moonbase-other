@@ -35,6 +35,10 @@
 
   OPTS+=" -largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -fast -shared" &&
 
+  if [ -f /usr/lib/libOpenVG.so ];then
+    OPTS+=" -openvg"
+  fi &&
+
   ./configure  -confirm-license $LICENSE_TYPE          \
                -prefix /usr                            \
                -libdir /usr/lib/$MODULE                \
@@ -54,7 +58,9 @@
 # It wants to point moc_location and uic_location to ${prefix}/src/qt-everywhere-opensource-src-4.7.0-beta2/bin
 # and after much fiddling cannot get it to point them to /usr/bin. So lets just sedit these rascals.
   for i in `ls /usr/lib/$MODULE/pkgconfig/Q*.pc` ; do sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:" $i ; done &&
-  sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:"  /usr/lib/$MODULE/pkgconfig/phonon.pc || true &&
+  if [ -f /usr/lib/$MODULE/pkgconfig/phonon.pc ]; then
+  sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:" /usr/lib/$MODULE/pkgconfig/phonon.pc
+  fi &&
 # Like for moc and uic, the same needs doing for the *.prl files.
   find /usr/lib/qt4 -type f -name '*.prl' \
       -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/' {} \; &&
