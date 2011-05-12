@@ -37,10 +37,13 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/bash-$BASE
         WEB_SITE=http://tiswww.case.edu/php/chet/bash_static/bashtop.html
          ENTERED=20020615
          UPDATED=20101018
-           SHORT="A static build of bash, named as bash_static"
+           SHORT="static bash build for rescue purposes"
 
 cat << EOF
-bash - Shell of the GNU operating system.
-This is the static build of bash; call bash_static to use it.
-EOF
+bash_static is the same as bash (Bourne Again SHell) -- just
+a static build of it so one can use it as a rescue shell
+without relying on any shared libraries.
 
+It will be located at /bin/bash_static. You can call it with
+$ bash_static
+EOF

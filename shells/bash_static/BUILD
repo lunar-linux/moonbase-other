@@ -23,6 +23,7 @@
    make version.h   &&
    make             &&
    prepare_install  &&
-   cp bash /bin/bash_static
+
+   cp -f bash /bin/bash_static
 
 ) > $C_FIFO 2>&1

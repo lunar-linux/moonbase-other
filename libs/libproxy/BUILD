@@ -1,5 +1,10 @@
 (
 
+  if in_depends $MODULE perl; then
+    PERL_ARCH=`arch` &&
+    OPTS+=" -DPX_PERL_ARCH=$PERL_ARCH"
+  fi &&
+
   OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
   mkdir $OOSB_DIR  &&

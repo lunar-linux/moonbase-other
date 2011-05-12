@@ -1,12 +1,18 @@
 (
 
-  rm -fr /usr/lib/systemd/system/dbus.target.wants/dbus.socket
-  rm -fr /usr/lib/systemd/system/sockets.target.wants/dbus.socket
-  rm -fr /usr/lib/systemd/system/multi-user.target.wants/dbus.service
+  rm -fr /lib/systemd/system/dbus.target.wants/dbus.socket
+  rm -fr /lib/systemd/system/sockets.target.wants/dbus.socket
+  rm -fr /lib/systemd/system/multi-user.target.wants/dbus.service
+
+  if kernel_option_present CONFIG_INOTIFY_USER ; then
+    OPTS+=" --enable-inotify"
+  else
+    OPTS+=" --disable-inotify"
+  fi  &&
 
   OPTS+=" --disable-static --enable-checks --with-xml=expat          \
         --with-system-pid-file=/var/run/messagebus.pid               \
-        --localstatedir=/var --enable-inotify --disable-dnotify      \
+        --localstatedir=/var --disable-dnotify                       \
         --with-session-socket-dir=/tmp  --with-dbus-user=messagebus  \
         --disable-xml-docs --with-init-scripts=none --disable-verbose-mode"
 
