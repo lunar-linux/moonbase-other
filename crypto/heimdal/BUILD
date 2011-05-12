@@ -15,6 +15,7 @@
           --libexecdir=/usr/sbin \
           --datadir=/var/lib/heimdal \
           --localstatedir=/var/lib/heimdal \
+          --with-hdbdir=/var/lib/heimdal \
           --sysconfdir=/etc \
           --enable-shared \
           --with-readline=/usr \
