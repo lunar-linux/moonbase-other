@@ -1,30 +1,16 @@
 (
 
-  prepare_install              &&
-  mkdir -p /opt/lunar/plugins  &&
-  install -m755 libflashplayer.so /opt/lunar/plugins/ &&
-
-  if [ -d /usr/bin ]; then
-    install -m755 usr/bin/* /usr/bin
+  # This only applies if you do not have kdelibs4/Qt4 installed.
+  if ! module_installed kdelibs4 ; then
+     rm -rf usr/lib/kde4 usr/share/kde4
   fi &&
 
-  if [ -d /usr/lib/kde4 ]; then
-    install -m755 usr/lib/kde4/* /usr/lib/kde4
-  fi &&
+  prepare_install &&
+  install -Dm755 libflashplayer.so /opt/lunar/plugins/libflashplayer.so &&
+  cp -a usr / &&
 
-  if [ -d /usr/share/applications ]; then
-    install -m644 usr/share/applications/* /usr/share/applications
-  fi &&
-
-  if [ -d /usr/share/icons/hicolor ]; then
-    cp -af usr/share/icons/hicolor/* /usr/share/icons/hicolor &&
-    if [ -x /usr/bin/gtk-update-icon-cache ] ; then
-      gtk-update-icon-cache -f /usr/share/icons/hicolor/
-    fi
-  fi &&
-
-  if [ -d /usr/share/kde4/services ]; then
-    install -m644 usr/share/kde4/services/* /usr/share/kde4/services
+  if [ -x /usr/bin/gtk-update-icon-cache ] ; then
+      gtk-update-icon-cache -f /usr/share/icons/hicolor
   fi &&
 
   # Enable 3D acceleration using OpenGL
