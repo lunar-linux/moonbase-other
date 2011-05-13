@@ -7,6 +7,18 @@
 
   prepare_install &&
   install -Dm755 libflashplayer.so /opt/lunar/plugins/libflashplayer.so &&
+  cp -a usr / &&
+
+  if [ -x /usr/bin/gtk-update-icon-cache ] ; then
+      gtk-update-icon-cache -f /usr/share/icons/hicolor
+  fi &&
+
+  # Enable 3D acceleration using OpenGL
+  if ! grep -q OverrideGPUValidation /etc/adobe/mms.cfg 2>/dev/null ; then
+    # From http://www.nvnews.net/vbulletin/showthread.php?t=148409&page=7
+    mkdir -p /etc/adobe/ &&
+    echo "OverrideGPUValidation=true" >> /etc/adobe/mms.cfg
+  fi &&
 
   if in_depends $MODULE libvdpau ; then
     if ! grep -q EnableLinuxHWVideoDecode /etc/adobe/mms.cfg 2>/dev/null ; then
@@ -14,11 +26,6 @@
       mkdir -p /etc/adobe/ &&
       echo "EnableLinuxHWVideoDecode=1" >> /etc/adobe/mms.cfg
     fi
-    if ! grep -q OverrideGPUValidation /etc/adobe/mms.cfg 2>/dev/null ; then
-      echo "OverrideGPUValidation=true" >> /etc/adobe/mms.cfg
-    fi
-  fi &&
-
-  cp -a usr /
+  fi
 
 ) > $C_FIFO 2>&1
