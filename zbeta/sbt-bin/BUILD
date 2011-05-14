@@ -4,7 +4,8 @@
 
   prepare_install  &&
 
-  mkdir  -p  /opt/sbt                               &&
+  install -d  /opt/sbt  &&
+
   install  -m644  $SOURCE  /opt/sbt/sbt-launch.jar  &&
   install  -m755  sbt      /usr/bin/sbt
 
