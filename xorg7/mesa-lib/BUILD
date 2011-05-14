@@ -1,5 +1,9 @@
 (
 
+  # mesa merges cflags and ldflags then complains that ldflags are unknown to gcc
+  # turn off linker till solution will be found
+  bad_flags linker &&
+
   if [[ -n $MESADRIVER ]] ; then
     # Build selected drivers only, rather than the default of all of them
     # Ensure that swrast is included, as a fall-back
@@ -23,11 +27,11 @@
     fi
   fi  &&
 
-#  # Detect VMware VGA virtual 3D card and add driver for it
-#  lspci | grep 'VGA.*VMware.*SVGA.*' &&
-#  if [ $? -eq 0 ];then
-#      OPTS+="--enable-gallium-svga "
-#  fi &&
+  # Detect VMware VGA virtual 3D card and add driver for it
+  VGA=`lspci | grep 'VGA.*VMware.*SVGA.*'` &&
+  if [[ $VGA == *VMware* ]];then
+     OPTS+="--enable-gallium-svga "
+  fi &&
 
   # Don't overlap with freeglut
   OPTS+=" --disable-glut"  &&

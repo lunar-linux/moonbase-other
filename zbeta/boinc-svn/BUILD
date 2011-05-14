@@ -27,7 +27,7 @@
   default_build  &&
 
   # creates 'boinc' user if necessary
-  if grep "^boinc:" /etc/passwd > /dev/null; then
+  if getent passwd | grep "^boinc:" > /dev/null; then
     message "${MESSAGE_COLOR}user 'boinc' already exists${DEFAULT_COLOR}"
   else
     useradd --system               \

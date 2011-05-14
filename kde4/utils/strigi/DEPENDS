@@ -1,21 +1,14 @@
-depends  file
-depends  libxml2
-depends  cmake
-depends  clucene
-depends  zlib
-depends  bzip2
-depends  openssl
+depends libxml2
+depends zlib
+depends bzip2
+depends openssl
+depends cmake
 
-optional_depends "%JAVA_SDK"    ""  ""  "for java support"
-
-optional_depends "exiv2"        "-DENABLE_EXIV2=ON"      \
-                                "-DENABLE_EXIV2=OFF"     \
-                                "for metadata indexing support"
-
-optional_depends "cppunit"      "-DENABLE_CPPUNIT=ON"   \
-                                "-DENABLE_CPPUNIT=OFF"  \
-                                "Support for Strigi unit tests"
-
-optional_depends apache-log4cxx "-DENABLE_LOG4CXX=ON"    \
-                                "-DENABLE_LOG4CXX=OFF"   \
-                                "for advanced logging support"
+optional_depends "dbus"           "-DENABLE_DBUS=ON"    "-DENABLE_DBUS=OFF"    "for dbus support"
+optional_depends "expat"          "-DENABLE_EXPAT=ON"   "-DENABLE_EXPAT=OFF"   "for XML parsing support"
+optional_depends "clucene"        "-DENABLE_CLUCENE=ON" "-DENABLE_CLUCENE=OFF" "for indexing and searching support"
+optional_depends "gamin"          "-DENABLE_FAM=ON"     "-DENABLE_FAM=OFF"     "for file alteration monitoring support"
+optional_depends "exiv2"          "-DENABLE_EXIV2=ON"   "-DENABLE_EXIV2=OFF"   "for metadata indexing support"
+optional_depends "cppunit"        "-DENABLE_CPPUNIT=ON" "-DENABLE_CPPUNIT=OFF" "Support for Strigi unit tests"
+optional_depends "apache-log4cxx" "-DENABLE_LOG4CXX=ON" "-DENABLE_LOG4CXX=OFF" "for advanced logging support"
+optional_depends "%JAVA_SDK"      ""                    ""                     "for java support"

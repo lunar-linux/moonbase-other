@@ -1,19 +1,12 @@
 (
 
-  if [ 'grep gnokii /etc/group' != 'gnokii' ]
-     then
-     groupadd gnokii
-  fi
+  groupadd -f gnokii &&
 
-  OPTS+=" --enable-security --disable-xdebug"
-  if echo $OPTS | grep -q 'with-x' ; then
-    sedit "s:LDLIBS += :LDLIBS += -lXpm :" xgnokii/Makefile.am
-  fi  &&
+  OPTS+=" --enable-security --disable-xdebug --disable-libpcsclite" &&
 
-  ./configure  --prefix=/usr  \
-               $OPTS         &&
+  default_build &&
 
-  default_make  &&
+  install -m 644 Docs/sample/45-nokiadku2.rules /lib/udev/rules.d/
   cp Docs/sample/gnokiirc /etc/gnokiirc
   
 ) > $C_FIFO 2>&1

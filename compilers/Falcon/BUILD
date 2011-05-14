@@ -1,14 +1,11 @@
 (
 
-  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
+  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
+        -DCMAKE_BUILD_TYPE=RELEASE             \
+        $OPTS  .                              &&
 
-  mkdir $OOTB_DIR  &&
-  cd $OOTB_DIR     &&
+  default_make  &&
 
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             \
-                           $OPTS                                 &&
-
-  default_make
+  ln -sf /usr/include/falcon`lvu version Falcon | cut -c 1-5`/falcon /usr/include/falcon
 
 ) > $C_FIFO 2>&1
