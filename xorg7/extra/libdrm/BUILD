@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --enable-udev --enable-libkms --disable-radeon --disable-intel"  &&
+  OPTS+=" --enable-udev "  &&
 
   # Detect VMware VGA virtual 3D card and add driver for it
   # (returns exit code 1, if no VGA, so no && at end of line!)
@@ -10,12 +10,6 @@
   fi &&
   if [[ $VGA == *nVidia* ]] ; then
      OPTS+=" --enable-nouveau-experimental-api"
-  fi &&
-  if [[ $VGA == *Intel* ]] ; then
-     OPTS=${OPTS//disable-intel/enable-intel}
-  fi &&
-  if [[ $VGA == *ATI* ]] ; then
-     OPTS=${OPTS//disable-radeon/enable-radeon}
   fi &&
 
   default_build
