@@ -1,14 +1,14 @@
           MODULE=tmpwatch
-         VERSION=2.10.1
-          SOURCE=${MODULE}-${VERSION}.tar.bz2
+         VERSION=2.10.2
+          SOURCE=$MODULE-$VERSION.tar.bz2
       SOURCE_URL=https://fedorahosted.org/releases/t/m/tmpwatch/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:9529c355ed0036e3c8c21974d86f802f1df58e68
-        WEB_SITE="https://fedorahosted.org/tmpwatch/wiki"
+      SOURCE_VFY=sha1:1f6ae7b98a02e8c339ce4ed54cb9b8d9807451cf
+        WEB_SITE=https://fedorahosted.org/tmpwatch/
          ENTERED=20100907
-         UPDATED=20100907
-           SHORT="delete old files from /tmp"
-cat <<EOF
+         UPDATED=20110516
+           SHORT="deletes old temporary files"
+
+cat << EOF
 The tmpwatch utility recursively searches through specified directories
 and removes files which have not been accessed in a specified period
 of time. tmpwatch is normally used to clean up directories which are
