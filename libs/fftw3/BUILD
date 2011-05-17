@@ -6,6 +6,7 @@
   ./configure   --prefix=/usr    \
                 --enable-shared  \
                 --enable-float   \
+                --enable-threads \
                 $OPTS           &&
 
   default_make    &&
@@ -13,8 +14,9 @@
 
   ./configure   --prefix=/usr    \
                 --enable-shared  \
+                --enable-threads \
                 $OPTS           &&
 
-  default_make
+  default_make    
 
 ) > $C_FIFO 2>&1

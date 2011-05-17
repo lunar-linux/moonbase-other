@@ -1,9 +1,5 @@
 (
 
-  # mesa merges cflags and ldflags then complains that ldflags are unknown to gcc
-  # turn off linker till solution will be found
-  bad_flags linker &&
-
   if [[ -n $MESADRIVER ]] ; then
     # Build selected drivers only, rather than the default of all of them
     # Ensure that swrast is included, as a fall-back
@@ -11,26 +7,27 @@
     OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
     OPTS+=" --enable-gallium-swrast --enable-gallium-llvm "
     if [[ $MESADRIVER == *i915* ]]; then
-      OPTS+="--enable-gallium-i915 "
+      OPTS+=" --enable-gallium-i915 "
     fi
     if [[ $MESADRIVER == *i965* ]]; then
-      OPTS+="--enable-gallium-i965 "
+      OPTS+=" --enable-gallium-i965 "
     fi
-    if [[ $MESADRIVER == *nouveau* ]]; then
-      OPTS+="--enable-gallium-nouveau "
-    fi
+# Nouveau breaks build in mesa 7.10.2
+#    if [[ $MESADRIVER == *nouveau* ]]; then
+#      OPTS+=" --enable-gallium-nouveau "
+#    fi
     if [[ $MESADRIVER == *radeon* ]]; then
-      OPTS+="--enable-gallium-radeon "
+      OPTS+=" --enable-gallium-radeon "
     fi
     if [[ $MESADRIVER == *r600* ]]; then
-      OPTS+="--enable-gallium-r600 "
+      OPTS+=" --enable-gallium-r600 "
     fi
   fi  &&
 
   # Detect VMware VGA virtual 3D card and add driver for it
-  VGA=`lspci | grep 'VGA.*VMware.*SVGA.*'` &&
-  if [[ $VGA == *VMware* ]];then
-     OPTS+="--enable-gallium-svga "
+  VGA=`lspci | grep 'VGA.*VMware.*SVGA.*'`
+  if [[ $VGA == *VMware* ]]; then
+     OPTS+=" --enable-gallium-svga "
   fi &&
 
   # Don't overlap with freeglut
