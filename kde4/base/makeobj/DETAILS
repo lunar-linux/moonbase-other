@@ -1,14 +1,21 @@
           MODULE=makeobj
-         VERSION=4.0.0
-          SOURCE=$MODULE
+         VERSION=4.6.3
+          SOURCE=$MODULE-$VERSION
       SOURCE_URL=$MIRROR_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:7df3cc38389c02d4497480b7322c4226bbd7d680
+      SOURCE_VFY=sha1:c97fef9500f752f822bb326e2c4db1916e531ad1
         WEB_SITE=http://www.kde.org
    MODULE_PREFIX=${KDE4_PREFIX:-/usr}
          ENTERED=20071026
-         UPDATED=20080201
-           SHORT=""
+         UPDATED=20110515
+           SHORT="checks its in the correct directory to call make"
 
 cat << EOF
+Script around make which basicly checks if it's in srcdir
+or in builddir and changes to the right directory for
+calling /usr/bin/make.
+
+Note: This script originates from the kdesdk tarball. To determine if this module
+needs updating; untar kdesdk and diff this module with kdesdk-$VERSION/srcipts/makeobj.
+If diff, then copy to $MIRROR_URL as makeobj-$VERSION.
 EOF
