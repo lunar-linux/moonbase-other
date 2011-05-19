@@ -1,5 +1,7 @@
 (
 
+  OPTS+=" --disable-static" &&
+
   CFLAGS="$CFLAGS -fPIC"
 
   default_build
