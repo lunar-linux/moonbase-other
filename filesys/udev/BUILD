@@ -13,6 +13,7 @@
     add_priv_group tty
     add_priv_group dialout
     add_priv_group kmem
+    add_priv_group plugdev
 
     # create static nodes dir if missing
     mkdir -p /lib/udev/devices  &&
