@@ -1,5 +1,6 @@
 (
 
+  patch_it $SOURCE2 0 &&
   . /etc/profile.d/qt4.rc &&
 
 
