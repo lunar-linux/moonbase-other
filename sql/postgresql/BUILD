@@ -1,13 +1,16 @@
 (
 
-  message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}This module needs a dump/restore for the databases in the old 8.x <= version format."
-  sleep 5
+# Another bit of breakage with the bump to perl-5.14.0
+  sedit "s:GvCV(sv) =:GvCV(sv) ==:" src/pl/plperl/plperl.c &&
+
+  message " ${PROBLEM_COLOR}Warning! ${DEFAULT_COLOR}This module needs a dump/restore for the databases in the old 8.x <= version format." &&
+  sleep 5 &&
 
   if in_depends $MODULE timezone-data; then
     OPTS+=" --with-system-tzdata=/usr/share/zoneinfo"
   fi &&
 
-  OPTS+=" --enable-thread-safety --enable-nls --enable-integer-datetimes"
+  OPTS+=" --enable-thread-safety --enable-nls --enable-integer-datetimes" &&
 
   default_build &&
 
