@@ -1,5 +1,8 @@
 (
 
+# Fix a make failure on the recent perl bump
+  sedit "s:GvCV(gv) =:GvCV(gv) ==:" perl_ext/Exports.c &&
+
 # So it will build when you say yes to Python and alias is set to giflib.
   if in_depends $MODULE giflib ; then
   CFLAGS="$CFLAGS -lgif"     &&
