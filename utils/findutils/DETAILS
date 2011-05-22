@@ -1,11 +1,14 @@
           MODULE=findutils
-         VERSION=4.4.2
+         VERSION=4.5.10
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=$GNU_URL/$MODULE
-      SOURCE_VFY=sha1:e8dd88fa2cc58abffd0bfc1eddab9020231bb024
-        WEB_SITE=http://www.gnu.org/software/findutils
+# Early versions are not held on mirror  and major download sites
+# Uncomment this when findutils will be released officially.
+#   SOURCE_URL[0]=$GNU_URL/$MODULE
+   SOURCE_URL[1]=ftp://alpha.gnu.org/gnu/findutils
+      SOURCE_VFY=sha1:e984c8795cb495623ff50ee319c8c0d8843d9bc2
+        WEB_SITE=http://www.gnu.org/software/findutils/
          ENTERED=20010922
-         UPDATED=20090606
+         UPDATED=20110515
            SHORT="Utilities for locating files"
 
 cat << EOF

@@ -1,28 +1,21 @@
 (
 
   # remove *.bat files
-  rm $SOURCE_DIRECTORY/bin/*.bat &&
+  rm -rf $SOURCE_DIRECTORY/bin/*.bat $SOURCE_DIRECTORY/src/ &&
 
   prepare_install &&
 
   # copy extracted files
-  mkdir -p /usr/scala                &&
+  install -d /usr/scala              &&
   cp -r $SOURCE_DIRECTORY /usr/scala &&
 
   # symlink default and latest (like java)
-  ln -sf /usr/scala/$MOD-${VERSION}.final /usr/scala/latest &&
-  if [ ! -h /usr/scala/default ]; then
-    ln -sf /usr/scala/latest /usr/scala/default
-  fi &&
+  ln -s /usr/scala/$MOD-$VER /usr/scala/latest  &&
+  ln -s /usr/scala/latest    /usr/scala/default &&
 
-  # symlink bin folder
-  for file in /usr/scala/latest/bin/*; do
-    ln -sf $file /usr/bin/ || exit 1
-  done &&
-
-  # symlink man folder
-  for file in /usr/scala/latest/man/man1/*; do
-    ln -sf $file /usr/man/man1/ || exit 1
-  done
+  # bash completion
+  install -d /etc/bash_completion.d &&
+  install -m755 $SOURCE_DIRECTORY/misc/scala-tool-support/bash-completion/scala_completion.sh \
+                /etc/bash_completion.d/scala-bash-completion.sh
 
 ) > $C_FIFO 2>&1
