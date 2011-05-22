@@ -1,7 +1,9 @@
           MODULE=findutils
          VERSION=4.5.10
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=$GNU_URL/$MODULE
+# Early versions are not held on mirror  and major download sites
+# Uncomment this when findutils will be released officially.
+#   SOURCE_URL[0]=$GNU_URL/$MODULE
    SOURCE_URL[1]=ftp://alpha.gnu.org/gnu/findutils
       SOURCE_VFY=sha1:e984c8795cb495623ff50ee319c8c0d8843d9bc2
         WEB_SITE=http://www.gnu.org/software/findutils/
