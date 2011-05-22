@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --enable-introspection=no"
+  OPTS+=" --disable-static --enable-introspection=no " &&
 
   default_build &&
 

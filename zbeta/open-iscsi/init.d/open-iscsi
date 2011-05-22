@@ -1,0 +1,93 @@
+#!/bin/bash
+#
+# Startup script for open iscsi
+#
+# chkconfig: 345 20 85
+# description: Open-iscsi is a high performance, transport independent, multi-platform implementation of RFC3720
+# processname: iscsid
+
+
+# Config settings
+[ -f /etc/config.d/open-iscsi ] && . /etc/config.d/open-iscsi
+
+if [ ! -e $CONFIG_FILE ]; then
+  echo "Config file not found!"
+  exit 1
+fi
+
+if [ ! -e $INITIATORNAME_FILE ]; then
+  echo "Initiatorname file not found!"
+  exit 1
+fi
+
+modules() 
+{
+  
+  for i in $1; do
+    modprobe $2 $i || return 1
+  done
+  return 0
+}
+
+start()
+{
+  echo -n "Loading iSCSI modules: "
+  modules "libiscsi scsi_transport_iscsi iscsi_tcp" &&
+  echo -e $RESULT_OK || echo -e $RESULT_FAIL
+
+  echo -n "Starting iscsid: "
+  /sbin/iscsid $ARGS &&
+  echo -e $RESULT_OK || echo -e $RESULT_FAIL
+
+  [ "$STARTTARGETS" = "yes" ] && starttargets
+}
+
+starttargets()
+{
+  echo "Connecting iSCSI targets"
+  /sbin/iscsiadm -m node -L automatic
+}
+
+stop()
+{
+  stoptargets
+  echo -n "Stopping iscsid: "
+  kill $(cat /var/run/iscsid.pid) &&
+  echo -e $RESULT_OK || echo -e $RESULT_FAIL
+  echo -n "Unloading iSCSI modules: "
+  modules "iscsi_tcp scsi_transport_iscsi libiscsi" -r &&
+  echo -e $RESULT_OK || $RESULT_FAIL
+
+  rm -f /var/run/iscsid.pid
+}
+
+stoptargets()
+{
+  echo "Disconnecting iSCSI targets"
+  /sbin/iscsiadm -m node -U all
+}
+
+restart() 
+{
+  $0 stop
+  sleep 2
+  $0 start
+}
+
+restarttargets()
+{
+  $0 stoptargets
+  sleep 2
+  $0 starttargets
+
+}
+
+status()
+{
+  echo "Active iSCSI sessions"
+  /sbin/iscsiadm -m session
+}
+
+
+. /lib/lsb/init-functions
+

@@ -3,6 +3,10 @@
   # We make the kernel modules on our own
   cd $SOURCE_DIRECTORY/usr/src/nv &&
 
+  # Compatibility fix for kernel 2.6.39
+  # http://www.nvnews.net/vbulletin/showthread.php?t=162729
+  sedit '/smp_lock.h/d' nv-linux.h &&
+
   sedit "s:KBUILD_VERBOSE=1:KBUILD_VERBOSE=0:g" Makefile.kbuild &&
 
   make SYSSRC=/usr/src/linux module &&
