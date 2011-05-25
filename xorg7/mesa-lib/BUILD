@@ -1,6 +1,11 @@
 (
 
+  # Detect VMware VGA virtual 3D card and add driver for it
+  VGA=`lspci | grep 'VGA.*VMware.*SVGA.*'`
+
   if [[ -n $MESADRIVER ]] ; then
+    # Gallium build breaks with LDFLAGS set so turn it off for now
+    bad_flags linker
     # Build selected drivers only, rather than the default of all of them
     # Ensure that swrast is included, as a fall-back
     OPTS+=" --with-dri-drivers=swrast,"
@@ -22,13 +27,11 @@
     if [[ $MESADRIVER == *r600* ]]; then
       OPTS+=" --enable-gallium-r600 "
     fi
+    if [[ $VGA == *VMware* ]]; then
+      OPTS+=" --enable-gallium-svga "
+    fi
   fi  &&
 
-  # Detect VMware VGA virtual 3D card and add driver for it
-  VGA=`lspci | grep 'VGA.*VMware.*SVGA.*'`
-  if [[ $VGA == *VMware* ]]; then
-     OPTS+=" --enable-gallium-svga "
-  fi &&
 
   # Don't overlap with freeglut
   OPTS+=" --disable-glut"  &&
