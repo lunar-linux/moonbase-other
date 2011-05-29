@@ -1,8 +1,6 @@
 (
 
-  cd .. &&
-  patch_it $SOURCE2 0 &&
-  cd $OLDPWD &&
+  patch_it $SOURCE2 1 &&
 
   sedit "s:/usr/lib/:lib/:" Makefile &&
   sedit "s:\$(DESTDIR)\$(CONFDIR):\$(CONFDIR):" Makefile &&
