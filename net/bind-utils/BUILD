@@ -1,5 +1,7 @@
 (
 
+  OPTS+=" --enable-threads --disable-static" &&
+
   ./configure --build=$BUILD     \
               --prefix=/usr      \
               --sysconfdir=/etc  \
