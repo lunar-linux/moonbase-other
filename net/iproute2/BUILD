@@ -1,5 +1,9 @@
 (
 
+  cd .. &&
+  patch_it $SOURCE2 0 &&
+  cd $OLDPWD &&
+
   sedit "s:/usr/lib/:lib/:" Makefile &&
   sedit "s:\$(DESTDIR)\$(CONFDIR):\$(CONFDIR):" Makefile &&
   sedit "s:\$(DESTDIR)\$(ARPDDIR):\$(ARPDDIR):" Makefile &&
