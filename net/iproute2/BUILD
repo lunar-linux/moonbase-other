@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1 &&
+
   sedit "s:/usr/lib/:lib/:" Makefile &&
   sedit "s:\$(DESTDIR)\$(CONFDIR):\$(CONFDIR):" Makefile &&
   sedit "s:\$(DESTDIR)\$(ARPDDIR):\$(ARPDDIR):" Makefile &&
