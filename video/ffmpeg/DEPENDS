@@ -1,47 +1,27 @@
 depends pkgconfig
 
-optional_depends imlib2     ""                    ""  "for Imlib fonts support"
-optional_depends freetype2  ""                    ""  "for truetype fonts support"
-optional_depends SDL        ""                    ""  "for SDL support"
-optional_depends libvdpau   "--enable-vdpau"      ""  "for NVIDIA vdpau support"
-optional_depends libva     "" "--disable-vaapi" "for hardware-accelerated video"
-optional_depends libvorbis  "--enable-libvorbis"  ""  "for ogg-vorbis support"
-optional_depends libtheora  "--enable-libtheora"  ""  "for theora support"
-optional_depends faac       "--enable-libfaac"    ""  "for faac support"
-optional_depends lame       "--enable-libmp3lame" ""  "for mp3 support"
-optional_depends xvidcore   "--enable-libxvid"    ""  "for xvid support"
-optional_depends libdc1394  "--enable-libdc1394"  ""  "for firewire support"
-optional_depends rtmpdump   "--enable-librtmp"    ""  "for rtmp support"
-optional_depends libvpx     "--enable-libvpx"     ""  "for VP8 codec support"
+optional_depends "bzip2"         "--enable-bzlib"           "--disable-bzlib"           "for bzip2 support"
+optional_depends "faac"          "--enable-libfaac"         "--disable-libfaac"         "for FAAC support"
+optional_depends "lame"          "--enable-libmp3lame"      "--disable-libmp3lame"      "for MP3 encoding support"
+optional_depends "libvpx"        "--enable-libvpx"          "--disable-libvpx"          "for VP8 codec support"
+optional_depends "libvdpau"      "--enable-vdpau"           "--disable-vdpau"           "for NVIDIA vdpau support"
+optional_depends "xvidcore"      "--enable-libxvid"         "--disable-libxvid"         "for Xvid encoding support"
+optional_depends "libvorbis"     "--enable-libvorbis"       "--disable-libvorbis"       "for Vorbis encoding support"
+optional_depends "libtheora"     "--enable-libtheora"       "--disable-libtheora"       "for Theora encoding support"
+optional_depends "speex"         "--enable-libspeex"        "--disable-libspeex"        "for Speex decoding support"
+optional_depends "openjpeg"      "--enable-libopenjpeg"     "--disable-libopenjpeg"     "for JPEG 2000 decoding support"
+optional_depends "freetype2"     "--enable-libfreetype"     "--disable-libfreetype"     "for truetype fonts support"
+optional_depends "schroedinger"  "--enable-libschroedinger" "--disable-libschroedinger" "for Dirac support"
+optional_depends "x264-snapshot" "--enable-libx264"         "--disable-libx264"         "for H.264 encoding support"
+optional_depends "libdc1394"     "--enable-libdc1394"       "--disable-libdc1394"       "for IIDC-1394 grabbing (firewire) support"
+optional_depends "rtmpdump"      "--enable-librtmp"         "--disable-librtmp"         "for RTMP[E] support"
+optional_depends "libva"         "--enable-vaapi"           "--disable-vaapi"           "for hardware-accelerated video"
+optional_depends "SDL"           "--enable-ffplay"          "--disable-ffplay"          "for the ffplay media player"
 
-optional_depends opencore-amr \
-                 "--enable-libopencore-amrwb --enable-version3   \
-                  --enable-libopencore-amrnb --enable-version3"  \
-                  ""  \
-                  "for AMR Wideband and Narrowband speech support"
+optional_depends "opencore-amr"                                   \
+                 "--enable-libopencore-amrwb --enable-version3"   \
+		 "--disable-libopencore-amrwb"                    \
+		 "for AMR Wideband and Narrowband speech support"
 
-optional_depends speex  \
-                 "--enable-libspeex"   \
-                 "--disable-libspeex"  \
-                 "for Speex decoding support"
-
-optional_depends schroedinger  \
-                 "--enable-libschroedinger"  \
-                 ""  \
-                 "for encoding/decoding of Dirac video stream support"
-
-optional_depends x264-snapshot       \
-                 "--enable-libx264"  \
-                 ""  \
-                 "for H264 support"
-
-optional_depends faad  \
-                 "--enable-libfaad --enable-libfaadbin" \
-                 ""   \
-                 "for faad support"
-
-optional_depends openjpeg  \
-                 "--enable-libopenjpeg"   \
-                 "--disable-libopenjpeg"  \
-                 "for JPEG 2000 decoding support"
-
+# no flags for alsa
+optional_depends "alsa-lib" "" "" "for alsa support"
