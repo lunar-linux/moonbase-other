@@ -1,7 +1,5 @@
 (
 
-  OPTS+=" --disable-static" &&
-
   if in_depends $MODULE libvpx ; then
      patch_it $SOURCE_CACHE/$SOURCE2 0
   fi  &&
@@ -12,13 +10,13 @@
 
   OPTS+=" --enable-gpl            \
           --enable-shared         \
+          --disable-static        \
           --enable-pthreads       \
+          --enable-zlib           \
           --enable-postproc       \
-          --enable-avfilter-lavf  \
           --enable-swscale        \
           --enable-avfilter       \
-          --enable-x11grab        \
-          --enable-nonfree"      &&
+          --enable-x11grab"      &&
 
   if [ -n $CPU ] ; then
     OPTS+=" --cpu=$CPU"
