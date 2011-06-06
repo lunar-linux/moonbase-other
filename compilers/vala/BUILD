@@ -1,6 +1,4 @@
 (
-  patch_it $SOURCE2 1 &&
-
   OPTS+=" --enable-vapigen" &&
 
   default_build
