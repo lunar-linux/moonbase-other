@@ -9,6 +9,10 @@
     OPTS+=" --enable-tee"
   fi  &&
 
+  if [ "`get_module_config DOCS`" = "n" ] ; then
+    sedit 's/SUBDIRS = src doc util \$(am__append_1)/SUBDIRS = src util \$(am__append_1)/g' Makefile.in
+  fi  &&
+
   default_build
 
 ) > $C_FIFO 2>&1
