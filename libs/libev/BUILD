@@ -1,5 +1,6 @@
 (
 
+  OPTS+=" --disable-static"               &&
   mkdir -p $TMPDIR/$MODULE                &&
   default_config                          &&
   make                                    &&
@@ -7,7 +8,6 @@
   make DESTDIR=$TMPDIR/$MODULE install    &&
   rm $TMPDIR/$MODULE/usr/include/event.h  &&
   cp -r $TMPDIR/$MODULE/usr /             &&
-  rm -r $TMPDIR/$MODULE 
+  rm -r $TMPDIR/$MODULE
 
 ) > $C_FIFO 2>&1
- 
