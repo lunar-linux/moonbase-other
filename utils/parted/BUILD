@@ -1,11 +1,11 @@
 (
 
   # fix for inlines not supported by gcc-4.2.x
-  export CFLAGS="$CFLAGS -fgnu89-inline"
+  export CFLAGS="$CFLAGS -fgnu89-inline" &&
 
   sedit 's/'-Wl,--as-needed'//' m4/lib-ignore.m4 configure &&
 
-  OPTS+=" --disable-rpath --disable-debug --disable-Werror --disable-device-mapper --disable-static"
+  OPTS+=" --disable-rpath --disable-debug --disable-Werror --disable-device-mapper --disable-static" &&
 
   default_build &&
 
