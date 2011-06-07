@@ -1,8 +1,10 @@
 depends  kbproto
 depends  libxcb
 depends  xtrans
-depends  xcmiscproto
 depends  inputproto
 depends  xextproto
-depends  bigreqsproto
-depends  xf86bigfontproto
+
+optional_depends "xf86bigfontproto"          \
+                 "--enable-xf86bigfont"      \
+                 "--disable-xf86bigfont"     \
+                 "for XF86BigFont extension"
