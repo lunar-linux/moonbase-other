@@ -7,11 +7,8 @@
   export XUL_INCLUDE_DIR=/usr/include/xulrunner-$(installed_version xulrunner) &&
   export XUL_LIBRARIES=/usr/lib/xulrunner-$(installed_version xulrunner) 
 
-  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX   \
-        -DCMAKE_BUILD_TYPE=RELEASE              \
-        -Wno-dev                                \
-        $OPTS .                                &&
-
-  default_make
+  OPTS+="  -Wno-dev" &&
+  
+  default_cmake_build
 
 ) > $C_FIFO 2>&1
