@@ -2,8 +2,7 @@
 
   OPTS+=" --disable-static" &&
 
-  ./autogen.sh &&
-
-  default_build
+  default_cvs_config &&
+  default_make
 
 ) > $C_FIFO 2>&1
