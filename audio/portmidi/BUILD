@@ -1,10 +1,7 @@
 (
 
-
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=/usr   \
-                           -DCMAKE_BUILD_TYPE=RELEASE    \
-                           $OPTS                        &&
-
+  default_cmake_config &&
+  
 # Their implementation of cmake tends to ignore the prefix, so that
 # needs some fixing, else things go in /usr/local.
   FIX_PRE=`find -type f -print | cut -c 3-` &&
