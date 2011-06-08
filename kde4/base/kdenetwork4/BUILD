@@ -7,11 +7,8 @@
     mkdir /opt/lunar/plugins
   fi &&
 
-  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX       \
-        -DCMAKE_BUILD_TYPE=RELEASE                  \
-        -DMOZPLUGIN_INSTALL_DIR=/opt/lunar/plugins  \
-        $OPTS .                                    &&
+  OPTS+=" -DMOZPLUGIN_INSTALL_DIR=/opt/lunar/plugins" &&
 
-  default_make
-
+  default_cmake_build
+  
 ) > $C_FIFO 2>&1

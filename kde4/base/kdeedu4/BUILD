@@ -5,12 +5,8 @@
   source /etc/profile.d/qt4.rc   &&
   source /etc/profile.d/kde4.rc  &&
 
-  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX   \
-        -DCMAKE_BUILD_TYPE=RELEASE              \
-        -DEXPERIMENTAL_PYTHON_BINDINGS=TRUE     \
-        $OPTS .                                &&
-
-  default_make
-
+  OPTS+=" -DEXPERIMENTAL_PYTHON_BINDINGS=TRUE" &&
+  
+  default_cmake_build
 
 ) > $C_FIFO 2>&1
