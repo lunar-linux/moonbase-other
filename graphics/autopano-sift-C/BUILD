@@ -1,10 +1,6 @@
 (
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr . &&
-
-make
-prepare_install
-make install
+  default_cmake_build
 
 ) > $C_FIFO 2>&1
 
