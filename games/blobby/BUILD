@@ -1,7 +1,6 @@
 (
 
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX $OPTS  &&
-  default_make  &&
+  default_cmake_build &&
 
   # Desktop menu entry
   cat > $MODULE.desktop << EOF  &&
