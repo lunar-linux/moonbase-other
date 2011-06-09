@@ -9,11 +9,7 @@
   fi  &&
 
   source /etc/profile.d/qt4.rc  &&
-  
-  cmake ./ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX                \
-           -DENABLE_FAM:BOOL=ON -DENABLE_EXPAT:BOOL=ON          \
-           -DENABLE_INOTIFY:BOOL=O -DCMAKE_BUILD_TYPE=RELEASE  &&
 
-  default_make
+  default_cmake_build
 
 ) > $C_FIFO 2>&1
