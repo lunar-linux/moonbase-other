@@ -1,9 +1,8 @@
 (
 
-  . /etc/profile.d/qt4.rc &&
+  . /etc/profile.d/qt4.rc  &&
 
-  sedit "s:LIBDIR/pkgconfig:LIBDIR/../pkgconfig:g" configure &&
-  sedit "s/^WHICH=.*/WHICH=which/" configure &&
+  sedit "s/^WHICH=.*/WHICH=which/" configure  &&
 
   ./configure --prefix=${MODULE_PREFIX}  \
               --no-framework             \
