@@ -1,7 +1,5 @@
 (
 
-  sedit "s:boost\_python-gcc-mt:boost\_python:g" cmake/modules/FindBoostPython.cmake  &&
-
   source /etc/profile.d/qt4.rc   &&
   source /etc/profile.d/kde4.rc  &&
 
