@@ -5,6 +5,8 @@
 # to /usr/bin.
   sedit "s:makeobj::" scripts/CMakeLists.txt &&
 
+  sedit "s:1.3:`lvu version hunspell`:" cmake/modules/FindHUNSPELL.cmake &&
+
   source /etc/profile.d/qt4.rc   &&
   source /etc/profile.d/kde4.rc  &&
 
