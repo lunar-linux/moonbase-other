@@ -64,7 +64,7 @@
   ln -sf /opt/lunar/libreoffice/basis3.3/program/libicuuc.so.40.1 /opt/lunar/libreoffice/basis3.3/program/libicuuc.so.40 &&
   ln -sf /opt/lunar/libreoffice/basis3.3/program/libicui18n.so.40.1 /opt/lunar/libreoffice/basis3.3/program/libicui18n.so.40 &&
   ln -sf /opt/lunar/libreoffice/libreoffice/basis3.3/program/libicuuc.so.40.1 /opt/lunar/libreoffice/libreoffice/basis3.3/program/libicuuc.so.40 &&
-  ln -sf /opt/lunar/libreoffice/libreoffice/basis3.3/program/libicui18n.so.40.1 /opt/lunar/libreoffice/libreoffice/basis3.3/program/libicui18n.so.40 &&
+  ln -sf /opt/lunar/libreoffice/basis3.3/program/libicui18n.so.40.1 /opt/lunar/libreoffice/libreoffice/basis3.3/program/libicui18n.so.40 &&
 
   #Added this force symlink creation at sofar's request
   cd /usr/bin &&
