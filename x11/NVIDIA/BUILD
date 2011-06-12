@@ -99,15 +99,15 @@
 
   # We make the kernel modules on our own
   cd kernel &&
-  sedit "s@\$\(shell uname -r\)@`readlink /usr/src/linux | cut -d- -f2`@" Makefile.* makefile &&
+  sedit "s@\$\(shell uname -r\)@`cat /usr/src/linux/include/config/kernel.release`@" Makefile.* makefile &&
 # sedit "s/-O/$CFLAGS/" Makefile.nvidia &&
 # NV_VERBOSE=0 EXTRA_CFLAGS=$CFLAGS ARCH=
-  make SYSSRC=`readlink /usr/src/linux` module &&
+  make SYSSRC=`cd /usr/src/linux; pwd -P` module &&
   rm -f $SOURCE_DIRECTORY/{libGL.so,libGLcore.so.1,libnvidia-tls.so.1} &&
 
   prepare_install &&
 
-  make SYSSRC=`readlink /usr/src/linux` install &&
+  make SYSSRC=`cd /usr/src/linux; pwd -P` install &&
 # NV_VERBOSE=0 EXTRA_CFLAGS=$CFLAGS ARCH=
   cd .. &&
 
