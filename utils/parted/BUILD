@@ -5,7 +5,7 @@
 
   sedit 's/'-Wl,--as-needed'//' m4/lib-ignore.m4 configure &&
 
-  OPTS+=" --disable-rpath --disable-debug --disable-Werror --disable-device-mapper --disable-static" &&
+  OPTS+=" --disable-rpath --disable-debug --disable-device-mapper --disable-static" &&
 
   default_build &&
 
