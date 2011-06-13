@@ -22,12 +22,19 @@ plugin_systemd_configure()
 
     SYSTEMD_SERVICES=
     for SERVICE in $SERVICES; do
+      # don't ask for '@' services - these should always be installed but
+      # never linked directly.
+      if echo $SERVICE | grep -q @ ; then
+        continue
+      fi
+      message "${MESSAGE_COLOR}$SERVICE: $(grep Description= $SERVICE | cut -d= -f2-)${DEFAULT_COLOR}"
       if query "Invoke $SERVICE via systemd automatically at boot ?"  y
       then
         SYSTEMD_SERVICES+=" $SERVICE"
       else
-        systemctl disable $SERVICE
-	systemctl stop $SERVICE
+        # ignore output here - this is likely to hit "not found" errors
+        systemctl disable $SERVICE > /dev/null 2>&1
+	systemctl stop $SERVICE > /dev/null 2>&1
       fi
     done
     cd $SCRIPT_DIRECTORY
@@ -50,13 +57,13 @@ plugin_systemd_post_build()
     SERVICES=$(ls -1)
 
     for SERVICE in $SERVICES; do
-      /usr/bin/install -g 0 -o 0 -m 0755 $SERVICE /lib/systemd/system/$SERVICE
+      /usr/bin/install -g 0 -o 0 -m 0644 $SERVICE /lib/systemd/system/$SERVICE
     done
     cd $SCRIPT_DIRECTORY
     devoke_installwatch
   fi
 
-  systemctl daemon-reload
+  systemctl daemon-reload > /dev/null 2>&1
 
   for SERVICE in $SYSTEMD_SERVICES; do
     systemctl disable $SERVICE

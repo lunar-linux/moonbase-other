@@ -1,0 +1,11 @@
+[Unit]
+Description=Apply CPU microcode
+
+[Service]
+ExecStart=/usr/sbin/microcode_ctl -qu
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
+
