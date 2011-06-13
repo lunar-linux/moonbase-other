@@ -1,10 +1,12 @@
 [Unit]
 Description=Create sshd host keys (one time service only)
+ConditionPathExists=|!/etc/ssh/ssh_host_rsa_key
+ConditionPathExists=|!/etc/ssh/ssh_host_dsa_key
 
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/make -C /etc/ssh server-keys
-ExecStartPost=/bin/ln -s /dev/null /etc/systemd/system/sshd-keys.service
+RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
