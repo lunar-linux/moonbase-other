@@ -36,7 +36,9 @@
        rm -f /etc/udev/rules.d/70-persistent-{cd,net}.rules
     fi  &&
 
-    ./configure  --prefix=""                \
+    ./configure  --prefix=/                 \
+                 --sbindir=/sbin            \
+                 --libdir=/lib              \
                  --libexecdir=/lib/udev     \
                  --mandir=/usr/share/man    \
                  --includedir=/usr/include  \
