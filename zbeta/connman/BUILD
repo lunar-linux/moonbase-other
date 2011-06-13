@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1 &&
+
   # --enable-iwmx  -- needs intel wimax tools
 
   OPTS+=" --enable-ethernet=builtin
