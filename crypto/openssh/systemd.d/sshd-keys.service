@@ -3,7 +3,7 @@ Description=Create sshd host keys (one time service only)
 
 [Service]
 Type=oneshot
-ExecStart=make -C /etc/ssh server-keys
+ExecStart=/usr/bin/make -C /etc/ssh server-keys
 ExecStartPost=/bin/ln -s /dev/null /etc/systemd/system/sshd-keys.service
 
 [Install]
