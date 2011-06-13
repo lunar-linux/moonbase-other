@@ -10,25 +10,27 @@
     # Ensure that swrast is included, as a fall-back
     OPTS+=" --with-dri-drivers=swrast,"
     OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
-    OPTS+=" --enable-gallium-swrast --enable-gallium-llvm "
-    if [[ $MESADRIVER == *i915* ]]; then
-      OPTS+=" --enable-gallium-i915 "
-    fi
-    if [[ $MESADRIVER == *i965* ]]; then
-      OPTS+=" --enable-gallium-i965 "
-    fi
-# Nouveau breaks build in mesa 7.10.2
-#    if [[ $MESADRIVER == *nouveau* ]]; then
-#      OPTS+=" --enable-gallium-nouveau "
-#    fi
-    if [[ $MESADRIVER == *radeon* ]]; then
-      OPTS+=" --enable-gallium-radeon "
-    fi
-    if [[ $MESADRIVER == *r600* ]]; then
-      OPTS+=" --enable-gallium-r600 "
-    fi
-    if [[ $VGA == *VMware* ]]; then
-      OPTS+=" --enable-gallium-svga "
+    if [[ $GALLIUM == y ]]; then
+      OPTS+=" --enable-gallium-swrast --enable-gallium-llvm "
+      if [[ $MESADRIVER == *i915* ]]; then
+        OPTS+=" --enable-gallium-i915 "
+      fi
+      if [[ $MESADRIVER == *i965* ]]; then
+        OPTS+=" --enable-gallium-i965 "
+      fi
+      # Nouveau breaks build in mesa 7.10.2
+      if [[ $MESADRIVER == *nouveau* ]]; then
+        OPTS+=" --enable-gallium-nouveau "
+      fi
+      if [[ $MESADRIVER == *radeon* ]]; then
+        OPTS+=" --enable-gallium-radeon "
+      fi
+      if [[ $MESADRIVER == *r600* ]]; then
+        OPTS+=" --enable-gallium-r600 "
+      fi
+      if [[ $VGA == *VMware* ]]; then
+        OPTS+=" --enable-gallium-svga "
+      fi
     fi
   fi  &&
 
