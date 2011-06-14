@@ -5,5 +5,5 @@ depends libcap
 depends udev
 depends vala
 
-optional_depends  "gtk+-2"  ""  "--disable-gtk"  "for user interface tools"
-
+optional_depends "gtk+-2"     "--enable-gtk"           "--disable-gtk"           "for user interface tools"
+optional_depends "cryptsetup" "--enable-libcryptsetup" "--disable-libcryptsetup" "for Device-mapper crypto encryption"
