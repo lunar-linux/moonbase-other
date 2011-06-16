@@ -1,15 +1,5 @@
-depends  libdbi
-
-optional_depends  "sqlite"   "--with-sqlite3"  ""  \
-                  "to build the SQLite3 driver"
-
-optional_depends  "mysql"    "--with-mysql"    ""  \
-                  "to build the MySQL driver"
-
-optional_depends  "postgresql" "--with-pgsql"  ""  \
-                  "to build the postgresql driver"
-
-optional_depends  "freetds" "--with-freetds          \
-                  --with-freetds-incdir=/usr/include \
-                  --with-freetds-libdir=/usr/lib"    \
-                  "--without-freetds" "for Tabular Data Stream support"
+optional_depends "libdbi"     "--enable-libdbi"  "--disable-libdbi"  "to link drivers against libdbi"
+optional_depends "sqlite"     "--with-sqlite3"   "--without-sqlite3" "to build the SQLite3 driver"
+optional_depends "mysql"      "--with-mysql"     "--without-mysql"   "to build the MySQL driver"
+optional_depends "postgresql" "--with-pgsql"     "--without-pgsql"   "to build the postgresql driver"
+optional_depends "freetds"    "--with-freetds"   "--without-freetds" "for Tabular Data Stream support"
