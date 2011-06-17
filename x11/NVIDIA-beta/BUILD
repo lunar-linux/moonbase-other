@@ -102,7 +102,7 @@
 
   # We make the kernel modules on our own
   cd kernel &&
-  sedit "s@\$\(shell uname -r\)@`readlink /usr/src/linux | cut -d- -f2`@" Makefile.* makefile &&
+  sedit "s@\$\(shell uname -r\)@`cat /usr/src/linux/include/config/kernel.release`@" Makefile.* makefile &&
 # sedit "s/-O/$CFLAGS/" Makefile.nvidia &&
 # NV_VERBOSE=0 EXTRA_CFLAGS=$CFLAGS ARCH=
   make module &&
