@@ -1,6 +1,6 @@
 (
 
-  autoreconf &&
+#  autoreconf &&
   OPTS+=" --with-rootdir=/ " &&
   OPTS+=" --with-distro=other" &&
   OPTS+=" --with-udevrulesdir=/lib/udev/rules.d/" &&
