@@ -1,10 +1,15 @@
 (
+  
+  AUDIO_LIST="oss"
 
-  OPTS+=" --audio-drv-list=alsa,sdl,oss,esd \
-          --audio-card-list=ac97,sb16,es1370,adlib"
+  in_depends $MODULE alsa-lib && AUDIO_LIST+=" alsa"
+  in_depends $MODULE esound && AUDIO_LIST+=" esd"
+  in_depends $MODULE pulseaudio && AUDIO_LIST+=" pa"
+  in_depends $MODULE SDL && AUDIO_LIST+=" sdl"
 
   ./configure --prefix=/usr \
               --sysconfdir=/etc \
+              --audio-drv-list="$AUDIO_LIST" \
               $OPTS &&
 
   default_make &&
