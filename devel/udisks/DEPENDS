@@ -1,8 +1,9 @@
 depends polkit
 depends sg3_utils
-depends parted
 depends libatasmart
-depends lvm2
 depends udev
+depends parted
+depends device-mapper
 
+optional_depends lvm2 "" "--without-lvmw2" "for LVM support"
 optional_depends "gtk-doc" "--enable-gtk-doc" "--disable-gtk-doc" "for gtk-doc support"
