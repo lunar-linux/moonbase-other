@@ -1,10 +1,15 @@
-if ! kernel_option_present CONFIG_DEVTMPFS &&
-   ! kernel_option_present CONFIG_CGROUPS
-then
-    message "${PROBLEM_COLOR}PROBLEM: ${MODULE_COLOR}system${DEFAULT_COLOR} detected incompatible kernel options."
-    message "Please ensure that CONFIG_DEVTMPFS and CONFIG_CGROUPS are set,"
-    message "then recompile your kernel and try 'lin systemd' again."
-    exit 1
-fi
+for O in \
+  CONFIG_FANOTIFY \
+  CONFIG_DEVTMPFS \
+  CONFIG_CGROUPS
+do
+  if ! kernel_option_present $O ; then
+    message "${MESSAGE_COLOR}incompatible kernel option setting: ${PROBLEM_COLOR}$O${DEFAULT_COLOR}${MESSAGE_COLOR}"
+    message "Please ensure this kernel option is enabled, recompile your kernel and try again.${DEFAULT_COLOR}"
+    if ! query "Ignore this warning?" n ; then
+      exit 1
+    fi
+  fi
+done
 
 default_pre_build

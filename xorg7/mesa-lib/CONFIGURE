@@ -45,4 +45,5 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
 fi
 
 # Default is y, so xorg-server can be compiled with it disabled or enabled
+mquery GALLIUM "Enable Gallium renderer? (can break functionality on some chipsets)" y "" ""
 mquery ENABLE_GLX_TLS "Enable glx-tls? (${PROBLEM_COLOR}lin xorg-server also${DEFAULT_COLOR})" y "--enable-glx-tls" "--disable-glx-tls"
