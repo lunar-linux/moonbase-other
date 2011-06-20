@@ -18,6 +18,7 @@
 
   sed -i 's@^#\ AUX@AUX@' modules.cfg  &&
 
-  default_build
+  default_build  &&
+  ln -sf /usr/include/freetype2/freetype /usr/include/freetype
 
 ) > $C_FIFO 2>&1
