@@ -18,8 +18,8 @@ includedir=/usr/include
 Name: devmapper
 Description: device-mapper library
 Version: $VERSION
-Cflags: -I${includedir} 
-Libs: -L${libdir} -ldevmapper
+Cflags: -I\${includedir}
+Libs: -L\${libdir} -ldevmapper
 EOF
 
 ) > $C_FIFO 2>&1
