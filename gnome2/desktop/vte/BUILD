@@ -1,6 +1,10 @@
 (
 
-  OPTS+=" --disable-static --with-xft2 --with-pangox --with-glX" &&
+  OPTS+=" --disable-static" &&
+
+  if [ "`get_module_config DOCS`" = "n" ] ; then
+    sedit "s/src termcaps po doc perf/src termcaps po perf/g" Makefile.in
+  fi
 
   default_build
 
