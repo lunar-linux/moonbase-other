@@ -13,11 +13,7 @@ depends gst-plugins-base
 # workaround for make_names.pl
 depends Switch
 
-optional_depends  gst-plugins-good  "--enable-video"  ""  \
-                  "For HTML5 video support"
-
-optional_depends  geoclue "--enable-geolocation"  "--disable-geolocation"  \
-                  "For geolocation support"
-
-optional_depends  gobject-introspection  "--enable-introspection"  ""  \
-                  "Say Y for Epiphany, and possibly others"
+optional_depends "gst-plugins-good"      "--enable-video"         "--disable-video"         "for HTML5 video support"
+optional_depends "ruby"                  "--enable-ruby"          "--disable-ruby"          "for HTML5 ruby support"
+optional_depends "geoclue"               "--enable-geolocation"   "--disable-geolocation"   "for geolocation support"
+optional_depends "gobject-introspection" "--enable-introspection" "--disable-introspection" "say Y for Epiphany, and possibly others"

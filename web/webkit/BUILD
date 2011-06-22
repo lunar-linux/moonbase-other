@@ -8,10 +8,19 @@
 # Fix an icu4c problem.
   sedit "s:class TextBreakIterator;:typedef struct UBreakIterator TextBreakIterator;:" WebCore/platform/text/TextBreakIterator.h &&
 
-  OPTS+=" --enable-svg --enable-svg-animation      \
-        --enable-svg-fonts --enable-svg-foreign-object \
-        --enable-svg-as-image --enable-3D-transforms   \
-        --enable-optimizations --disable-gtk-doc-html" &&
+  # defaults using 'with' flags
+  OPTS+=" --with-target=x11             \
+          --with-unicode-backend=icu    \
+          --with-font-backend=freetype  \
+          --enable-xslt                 \
+          --enable-svg                  \
+          --enable-svg-animation        \
+          --enable-svg-fonts            \
+          --enable-svg-foreign-object   \
+          --enable-svg-as-image         \
+          --enable-3D-transforms        \
+          --enable-optimizations        \
+          --disable-gtk-doc-html"      &&
 
   default_build &&
 
