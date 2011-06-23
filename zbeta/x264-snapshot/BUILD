@@ -1,8 +1,9 @@
 (
 
-  OPTS+=" --enable-shared --enable-pthread \
-              --enable-visualize --enable-pic" &&
+  OPTS+=" --enable-shared --enable-strip \
+          --enable-visualize --enable-pic" &&
 
-  default_build
+  ./configure --prefix=/usr $OPTS &&
+  default_make
 
 ) > $C_FIFO 2>&1
