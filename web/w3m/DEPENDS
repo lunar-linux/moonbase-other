@@ -1,5 +1,7 @@
-depends  gc
-depends  ncurses
-depends  zlib
+depends gc
+depends ncurses
+depends zlib
 
-optional_depends  "openssl" "" "" "for SSL support"
+optional_depends "openssl" "--with-ssl=/usr" "--without-ssl" "for SSL support"
+optional_depends "imlib2"  ""                ""              "for image support"
+optional_depends "libXext" ""                ""              "for image support in X"
