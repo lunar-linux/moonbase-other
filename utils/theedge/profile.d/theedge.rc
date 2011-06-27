@@ -10,7 +10,9 @@ _lunar ()
 	prev=${COMP_WORDS[COMP_CWORD-1]}
 
 	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
-		COMPREPLY=( $( compgen -W 'prune renew update rebuild optimize fix nofix fixdepends set resurrect install remove hold unhold exile unexile' $cur ))
+		COMPREPLY=( $( compgen -W 'prune renew update rebuild optimize fix nofix fixdepends set resurrect install remove hold unhold exile unexile set unset' $cur ))
+  elif [ $COMP_CWORD -eq 2 -a $prev = "unset" ]; then
+    COMPREPLY=( $( compgen -W "`cat /etc/lunar/local/config | sed -rn 's;\s+(.*)=.*;\1;p'`" $cur ))
 	else
 		COMPREPLY=( $( compgen -f $cur ))
 	fi
