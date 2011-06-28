@@ -1,5 +1,6 @@
 (
   # Change location of emacs games
+  OPTS+="--program-transform-name='s/ctags*/etags/'"
   sedit "s;^gamedir=.*;gamedir='/var/lib/emacs/games';" configure  &&
   
   # Fix so installwatcher doesn't trigger on info-files
