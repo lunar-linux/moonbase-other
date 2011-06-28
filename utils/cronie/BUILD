@@ -4,6 +4,13 @@
     OPTS+=" --with-pam"
   fi &&
 
+  if kernel_option_present CONFIG_INOTIFY_USER ; then
+    OPTS+=" --with-inotify"
+  else
+    OPTS+=" --without-inotify"
+  fi
+
+
   sedit '/^dist_pam_DATA/d' Makefile.am &&
   aclocal           &&
   autoheader        &&
