@@ -1,5 +1,9 @@
 (
 
+  patch_it $SOURCE2 1 &&
+  sedit 's/^GENERATE_CACHE .*/GENERATE_CACHE = true/' toolkit/mozapps/installer/packager.mk &&
+  sedit 's/@PRE_RELEASE_SUFFIX@//g' browser/base/content/browser.xul &&
+  
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
     set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
@@ -17,7 +21,6 @@
   echo "ac_add_options --disable-system-sqlite" >> mozconfig  &&
 
   #Add DEPENDS options
-
   if in_depends $MODULE "xulrunner" ; then
     XUL=`module_version xulrunner`  &&
     echo "ac_add_options --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL" >> mozconfig
@@ -80,22 +83,8 @@
   fi  &&
   set_module_config NEW_VER "$LIB_VER"  &&
 
-  # Install the plugins in the right directories
-  mkdir -p /opt/lunar/plugins  &&
-# There is no plugins in beta8 version of the Firefox
-#  for plugin in `ls $MOZILLA_HOME/plugins`; do
-#       `install -m755 $MOZILLA_HOME/plugins/$plugin /opt/lunar/plugins`; done  &&
-
-  rm -rf "$MOZILLA_HOME/plugins"  &&
-  ln -snf /opt/lunar/plugins "$MOZILLA_HOME/plugins"  &&
-
   # Now the .desktop file and icons
   install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/firefox.desktop  &&
-
-  # Make firefox use its own icon
-  for icon in `ls $MOZILLA_HOME/icons`; do
-    ln -sf "$MOZILLA_HOME"/{icons/$icon,chrome/icons/default/$icon}
-  done  &&
 
   for s in 16 22 24 32 48 256 ; do
     install -Dm 644 ../other-licenses/branding/firefox/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/firefox.png

@@ -18,12 +18,14 @@ unset_module_config OLD_VER
 
 # Clean up old firefox junk
 rm -rf /usr/include/firefox-3*
-rm -rf /usr/include/firefox-4.0b*
+rm -rf /usr/include/firefox-4*
 rm -rf /usr/share/idl/firefox-3*
-rm -rf /usr/share/idl/firefox-4.0b*
+rm -rf /usr/share/idl/firefox-4*
 rm -rf /usr/lib/gcc/i686-pc-linux-gnu/4.5.2/include-fixed/firefox-3*
-rm -rf /usr/lib/gcc/i686-pc-linux-gnu/4.5.2/include-fixed/firefox-4.0b*
+rm -rf /usr/lib/gcc/i686-pc-linux-gnu/4.5.2/include-fixed/firefox-4*
 
 export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/$FFOX_LIBDIR:$FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins:$FIREFOX_HOME/lib/$FFOX_LIBDIR/components"
 export MOZILLA_FIVE_HOME="$FIREFOX_HOME/lib/$FFOX_LIBDIR"
+# Add plugins
+ln -snf /opt/lunar/plugins "$MOZILLA_FIVE_HOME/plugins"
 ldconfig
