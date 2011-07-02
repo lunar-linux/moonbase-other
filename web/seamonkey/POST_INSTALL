@@ -9,16 +9,7 @@ fi
 unset_module_config OLD_VER
 
 rm -rf /usr/lib/seamonkey-1*
-
-if [ -h /usr/lib/$SMNKEY_LIBDIR/plugins ]; then
-   rm -f /usr/lib/$SMNKEY_LIBDIR/plugins
-fi
-
-if [ -d /usr/lib/$SMNKEY_LIBDIR/plugins ]; then
-   for plugin in `ls /usr/lib/seamonkey-$VERSION/plugins`; do
-       `install -m755 /usr/lib/seamonkey-$VERSION/plugins/$plugin /opt/lunar/plugins/`; done
-rm -rf /usr/lib/$SMNKEY_LIBDIR/plugins
-fi
+rm -rf /usr/lib/seamonkey-2.0*
 
 ln -snf /opt/lunar/plugins /usr/lib/$SMNKEY_LIBDIR/plugins
 
