@@ -89,8 +89,8 @@
   for s in 16 22 24 32 48 256 ; do
     install -Dm 644 ../other-licenses/branding/firefox/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/firefox.png
   done  &&
-  if [ -x /usr/bin/gtk-update-icon-cache ] ; then
-    gtk-update-icon-cache -f /usr/share/icons/hicolor/
+  if [ -x /usr/bin/gtk-update-icon-cache -a -f /usr/share/icons/hicolor/index.theme ]; then
+    gtk-update-icon-cache -f /usr/share/icons/hicolor
   fi
 
 ) > $C_FIFO 2>&1
