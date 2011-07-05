@@ -1,16 +1,14 @@
 (
 
-  patch_it $SOURCE2 1 &&
-  sedit 's/^GENERATE_CACHE .*/GENERATE_CACHE = true/' toolkit/mozapps/installer/packager.mk &&
-  sedit 's/@PRE_RELEASE_SUFFIX@//g' browser/base/content/browser.xul &&
-  
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
-    set_module_config OLD_VER "`installed_version $MODULE`"
+        set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
 
-  export MOZ_CO_PROJECT=browser  &&
+  export MOZ_CO_PROJECT=mail  &&
+  export MOZILLA_HOME=/usr/lib/thunderbird-$VERSION &&
   export MOZILLA_OFFICIAL=1  &&
   export BUILD_OFFICIAL=1  &&
+  export MOZ_THUNDERBIRD=1 &&
 
   cp $SCRIPT_DIRECTORY/mozconfig .  &&
 
@@ -21,10 +19,6 @@
   echo "ac_add_options --disable-system-sqlite" >> mozconfig  &&
 
   #Add DEPENDS options
-  if in_depends $MODULE "xulrunner" ; then
-    XUL=`module_version xulrunner`  &&
-    echo "ac_add_options --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL" >> mozconfig
-  fi  &&
 
   if in_depends $MODULE gnome-vfs ; then
     echo "ac_add_options --enable-gnomevfs" >> mozconfig
@@ -44,16 +38,10 @@
     echo "ac_add_options --disable-dbus" >> mozconfig
   fi  &&
 
-  if in_depends $MODULE sun-jdk ; then
-    echo "ac_add_options --with-java-include-path=/usr/java/default/include" >> mozconfig  &&
-    echo "ac_add_options --with-java-bin-path=/usr/java/default/bin" >> mozconfig  &&
-    echo "ac_add_options --enable-javaxpcom" >> mozconfig
-  fi  &&
-
-  #Add CONFIGURE options
-
-  if [ "$SAFE" == "y" ] ; then
-    echo "ac_add_options --enable-safe-browsing" >> mozconfig
+  if in_depends $MODULE openldap ; then
+    echo "ac_add_options --enable-ldap" >> mozconfig
+  else
+    echo "ac_add_options --disable-ldap" >> mozconfig
   fi  &&
 
   setterm -bfreq -blength &&
@@ -74,20 +62,11 @@
   prepare_install   &&
   make install      || exit 1
 
-  MOZILLA_HOME=$(egrep ^moz_libdir= browser/app/firefox | cut -d= -f2)  &&
-  LIB_VER=$(echo $MOZILLA_HOME | cut -d\- -f2)  &&
-  # Sanity check
-  if [[ $MOZILLA_HOME != "/usr/lib"*"firefox"* ]] || [[ $LIB_VER != [1-9]* ]] ; then
-    message "${PROBLEM_COLOR}Sanity check on variables failed!${DEFAULT_COLOR}"
-    exit 1
-  fi  &&
-  set_module_config NEW_VER "$LIB_VER"  &&
-
   # Now the .desktop file and icons
-  install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/firefox.desktop  &&
+  install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/thunderbird.desktop  &&
 
-  for s in 16 22 24 32 48 256 ; do
-    install -Dm 644 ../other-licenses/branding/firefox/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/firefox.png
+  for s in 16 22 24 256 32 48 ; do
+    install -Dm 644 mozilla/dist/thunderbird/chrome/icons/default/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/thunderbird.png
   done  &&
   if [ -x /usr/bin/gtk-update-icon-cache -a -f /usr/share/icons/hicolor/index.theme ]; then
     gtk-update-icon-cache -f /usr/share/icons/hicolor
