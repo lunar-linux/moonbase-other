@@ -13,7 +13,6 @@
 
   ./configure --prefix=/usr                          \
               --with-confdir=/etc/fonts              \
-              --disable-docs                         \
               --disable-static                       \
               --with-cache-dir=/var/cache/fontconfig \
               $OPTS                                 &&
