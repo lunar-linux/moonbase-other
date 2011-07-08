@@ -1,5 +1,9 @@
 (
 
+  cd mozilla &&
+  patch_it $SOURCE2 1 &&
+  cd - &&
+
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
@@ -10,8 +14,6 @@
   export BUILD_OFFICIAL=1  &&
 
   cp $SCRIPT_DIRECTORY/mozconfig .  &&
-  cp suite/config/version-20.txt mail/config/  &&
-  find . -type f -name 'Makefile*' -exec sed -i 's/elif/else if/' {} \; &&
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
   mkdir -p ${MOZ_OBJDIR}  &&
 
