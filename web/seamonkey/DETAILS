@@ -1,15 +1,18 @@
           MODULE=seamonkey
-         VERSION=2.1
+         VERSION=2.2
           SOURCE=$MODULE-$VERSION.source.tar.bz2
-   SOURCE_URL[0]=ftp://mozilla.isc.org/pub/mozilla.org/$MODULE/releases/$VERSION/source
-   SOURCE_URL[1]=ftp://ftp.uni-erlangen.de/pub/mozilla.org/$MODULE/releases/$VERSION/source
+         SOURCE2=firefox5-bug644692fix.patch
+   SOURCE_URL[1]=ftp://mozilla.isc.org/pub/mozilla.org/$MODULE/releases/$VERSION/source
+   SOURCE_URL[0]=ftp://ftp.uni-erlangen.de/pub/mozilla.org/$MODULE/releases/$VERSION/source
    SOURCE_URL[2]=ftp://ftp.mozilla.org/pub/mozilla.org/$MODULE/releases/$VERSION/source
-      SOURCE_VFY=sha1:8d48aaf5ff3a5e88bf8c93b8414776a085f370d5
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/comm-2.0
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:bb2181fbbb4aa16e51899b483acadb31f7e0cbbc
+     SOURCE2_VFY=sha1:4f57bc9a5ced79c60fab7b166f84441fce83f63c
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/comm-release
         WEB_SITE=http://www.seamonkey-project.org
            PSAFE=no
          ENTERED=20051208
-         UPDATED=20110617
+         UPDATED=20110708
       MAINTAINER=zbiggy@o2.pl
            SHORT="Seamonkey is a next generation mozilla web browser"
 
