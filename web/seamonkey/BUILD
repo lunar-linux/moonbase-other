@@ -1,5 +1,9 @@
 (
 
+  cd mozilla &&
+  patch_it $SOURCE2 1 &&
+  cd - &&
+
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
@@ -10,8 +14,6 @@
   export BUILD_OFFICIAL=1  &&
 
   cp $SCRIPT_DIRECTORY/mozconfig .  &&
-  cp suite/config/version-20.txt mail/config/  &&
-  find . -type f -name 'Makefile*' -exec sed -i 's/elif/else if/' {} \; &&
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
   mkdir -p ${MOZ_OBJDIR}  &&
 
@@ -74,8 +76,8 @@
   for s in 16 48 ; do
     install -Dm 644 mozilla/dist/seamonkey/chrome/icons/default/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/seamonkey.png
   done  &&
-  if [ -x /usr/bin/gtk-update-icon-cache ] ; then
-    gtk-update-icon-cache -f /usr/share/icons/hicolor/
+  if [ -x /usr/bin/gtk-update-icon-cache -a -f /usr/share/icons/hicolor/index.theme ]; then
+    gtk-update-icon-cache -f /usr/share/icons/hicolor
   fi
 
 ) > $C_FIFO 2>&1
