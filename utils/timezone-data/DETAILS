@@ -1,7 +1,7 @@
           MODULE=timezone-data
-         VERSION=2011g
-    DATA_VERSION=$VERSION
-    CODE_VERSION=$VERSION
+         VERSION=2011
+    DATA_VERSION=${VERSION}h
+    CODE_VERSION=${VERSION}g
           SOURCE=tzdata${DATA_VERSION}.tar.gz
          SOURCE2=tzcode${CODE_VERSION}.tar.gz
          SOURCE3=$MODULE-2007c-makefile.patch
@@ -12,12 +12,12 @@
   SOURCE2_URL[1]=ftp://elsie.nci.nih.gov/pub
   SOURCE2_URL[2]=http://mirror.internode.on.net/pub/gentoo/distfiles
   SOURCE3_URL[0]=$PATCH_URL
-      SOURCE_VFY=sha1:6d93b9badbb394563d70efaa46c1f507923b9663
+      SOURCE_VFY=sha1:cd0196ffd145eb7c7a0ed636db7cd652224a2749
      SOURCE2_VFY=sha1:a3d3f5a9f780620aa8137b6f8fe3384b23ce6c56
      SOURCE3_VFY=sha1:9f3234708c0baa44d5aeb132871cb473d37f9dbe
         WEB_SITE=ftp://elsie.nci.nih.gov/pub
          ENTERED=20070203
-         UPDATED=20110428
+         UPDATED=20110710
            SHORT="timezone data and utilities"
 
 cat << EOF
