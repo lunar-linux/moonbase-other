@@ -10,8 +10,10 @@
   source /etc/profile.d/qt4.rc   &&
   source /etc/profile.d/kde4.rc  &&
 
-  # Kate build breaks kdesdk build so turn it off for now
-  OPTS+=" -DBUILD_kate=OFF "
+  # Must be built out of tree otherwise it will break
+  # at kate compilation. But does not have this file:
+  touch cmake/modules/MacroEnsureOutOfSourceBuild.cmake &&
+  # to trigger out of tree build on Lunar. So touch it.
 
   default_cmake_build
 
