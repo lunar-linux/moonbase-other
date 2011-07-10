@@ -1,14 +1,17 @@
           MODULE=kdelibs4
            MAJOR=4.6
-         VERSION=${MAJOR}.4
+         VERSION=${MAJOR}.5
           SOURCE=kdelibs-$VERSION.tar.bz2
+	 SOURCE2=sdo-0.7-kdepim4.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kdelibs-$VERSION
       SOURCE_URL=$KDE_URL/stable/$VERSION/src
-      SOURCE_VFY=sha1:088778bdda8b8c7a7b192abbf0d2a0660a20626d
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:9bb948769a3a5d4d5b6c65e84a8cf570bd7bc120
+     SOURCE2_VFY=sha1:6cad8a46b26210d10fc73b32a3dc84fa455b04be
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/usr}
         WEB_SITE=http://www.kde.org
          ENTERED=20071026
-         UPDATED=20110610
+         UPDATED=20110709
            SHORT="central libraries for developement and execution of KDE"
 
 LUNAR_RESTART_SERVICES=off
