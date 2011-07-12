@@ -40,8 +40,13 @@ plugin_kernel_updatebootloader_syslinux() {
   else
     BOOTDIR="/boot"
   fi
+
   # determine what to tell our kernel is the rootfs partition
   ROOTPART=$(grep "^/dev/" /etc/mtab | awk '($2 == "/"){print $1}')
+  # fallback, mtab might have /dev/root in there sometimes.
+  if [ "$ROOTPART" == "/dev/root" ]; then
+    ROOTPART=$(sed 's/.*\(root=[^ ]*\).*/\1/g' /proc/cmdline)
+  fi
 
   TMP=$(temp_create)
   while read LINE ; do
