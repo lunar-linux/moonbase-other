@@ -1,3 +1,5 @@
-optional_depends zlib   "--enable-localzlib"  "--disable-localzlib" "use local zlib"
-optional_depends %JPEG  "--enable-localjpeg"  "--disable-localjpeg" "use local jpeg"
-optional_depends libpng "--enable-localpng"   "--disable-localpng"  "use local png"
+optional_depends "zlib"   "--disable-localzlib"  "--enable-localzlib" "use system zlib"
+optional_depends "%JPEG"  "--disable-localjpeg"  "--enable-localjpeg" "use system jpeg"
+optional_depends "libpng" "--disable-localpng"   "--enable-localpng"  "use system png"
+optional_depends "cairo"  "--enable-cairo"       "--disable-cairo"    "for cairo support"
+
