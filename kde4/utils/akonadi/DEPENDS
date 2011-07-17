@@ -2,4 +2,6 @@ depends qt4
 depends automoc
 
 optional_depends mysql  "" "" "for MySQL database support"
-optional_depends sqlite "" "" "for SQLite database support"
+optional_depends sqlite "-DINSTALL_QSQLITE_IN_QT_PREFIX=ON"  \
+                        "-DINSTALL_QSQLITE_IN_QT_PREFIX=OFF" \
+                        "for SQLite database support (Yes to install in Qt4 Plugin Dir)"
