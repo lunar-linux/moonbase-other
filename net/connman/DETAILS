@@ -1,16 +1,17 @@
           MODULE=connman
-         VERSION=0.74
+         VERSION=0.76
           SOURCE=${MODULE}-${VERSION}.tar.bz2
 	 SOURCE2=connman-0.74-merge-xtables-v5-extra-param.patch
       SOURCE_URL=http://www.kernel.org/pub/linux/network/connman/
      SOURCE2_URL=http://foo-projects.org/~sofar/
-      SOURCE_VFY=sha1:b49a629e54ffef2791adddc14e59945904c8205a
+      SOURCE_VFY=sha1:bd04ba55c3bf5716b3077e9338f56399bd3fea02
+     SOURCE2_VFY=sha1:a9a02da86da454561e0d3532aad658c5eb126b91
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
         WEB_SITE="http://connman.net/"
          ENTERED=20110202
-         UPDATED=20110621
+         UPDATED=20110723
            SHORT="Fast and moduler network connection manager."
-cat <<EOF
+cat << EOF
 The ConnMan project provides a daemon for managing internet connections
 within embedded devices running the Linux operating system. The
 Connection Manager is designed to be slim and to use as few resources
