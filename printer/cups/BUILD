@@ -7,7 +7,6 @@
     # https://bugzilla.mozilla.org/show_bug.cgi?id=573039
     # configure warns: GNU TLS cannot be made thread-safe
     #OPTS+=" --disable-threads"
-    patch_it $SOURCE2 1
   fi &&
 
   default_config &&
