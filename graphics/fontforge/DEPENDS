@@ -1,2 +1,7 @@
-optional_depends Python "--enable-pyextension" "" "for Python scripting support"
-optional_depends pango  ""                     "" "for Pango support"
+depends libXi
+depends libxkbui
+
+optional_depends "Python"    "--enable-pyextension" "--disable-pyextension --without-python" "for Python scripting support"
+optional_depends "freetype2" "--enable-freetype"    "--disable-freetype"                     "for freetype support"
+optional_depends "pango"     "--with-pango"         "--without-pango"                        "for Pango support"
+optional_depends "cairo"     "--with-cairo"         "--without-cairo"                        "for cairo support"
