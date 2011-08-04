@@ -1,0 +1,12 @@
+[Unit]
+Description=SLiM is a Desktop-independent graphical login manager for X11
+Requires=dev-tty7.device
+After=dev-tty7.device systemd-user-sessions.service
+
+[Service]
+ExecStart=/usr/bin/slim -nodaemon
+StandardOutput=syslog
+
+[Install]
+WantedBy=graphical.target
+
