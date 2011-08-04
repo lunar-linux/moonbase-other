@@ -1,0 +1,24 @@
+#!/bin/bash
+
+###
+# the purpose of this wrapper is, that I have no
+# idea how to do things like bla < foo or foo > bla
+# in systemd. iptables-save needs this behaviour
+# thus this script is just a wrapper. Feel free
+# to provide a proper solution :)
+# <wdp@lunar-linux.org>
+###
+
+IPTSAVEFILE="/etc/config.d/iptables";
+IPTSAVEBIN=$(which iptables-save);
+
+# only run this if iptables-save is executable
+if [ -x "$IPTSAVEBIN" ]; then
+  # remove saved rules if already available
+  if [ -f "$IPTSAVE" ]; then
+    rm -f "$IPTSAVE";
+  fi
+
+  # save the iptables rules
+  $IPTSAVEBIN > $IPTSAVEFILE;
+fi
