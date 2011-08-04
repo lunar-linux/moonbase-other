@@ -4,22 +4,23 @@
 #
 # config: /etc/config.d/iptables
 
-IPTABLESSAVE=`which iptables-save`
-IPTABLESRESTORE=`which iptables-restore`
+IPTSAVE=`which iptables-save`
+IPTRESTORE=`which iptables-restore`
+IPTCONFIG=/etc/config.d/iptables
 
 start() {
     echo -n "Starting iptables: "
     if [ ! -e /var/run/iptables ]; then
-        if [ -z $IPTABLESSAVE -o -z $IPTABLESRESTORE ]; then
+        if [ -z $IPTSAVE -o -z $IPTRESTORE ]; then
 	    echo -n "missing iptables binaries"
 	    echo -e $RESULT_FAIL
 	else
-	    if [ ! -e /etc/config.d/iptables ]; then
+	    if [ ! -e "$IPTCONFIG" ]; then
 	        echo -n "no config to load, forwarding enabled"
 		echo -e $RESULT_WARN
             else
 	        echo 1 > /proc/sys/net/ipv4/ip_forward
-	        iptables-restore /etc/config.d/iptables
+	        $IPTRESTORE < $IPTCONFIG
 	        echo -e $RESULT_OK
 	    fi
 	    touch /var/run/iptables
@@ -36,18 +37,13 @@ stop() {
         echo -n "not running";
 	echo -e $RESULT_FAIL
     else
-        if [ -z $IPTABLESSAVE -o -z $IPTABLESRESTORE ]; then
+        if [ -z $IPTSAVE -o -z $IPTRESTORE ]; then
             echo -n "missing iptables binaries"
             echo -e $RESULT_FAIL
         else
-	    iptables-save > /etc/config.d/iptables
-	    iptables -P INPUT ACCEPT
-	    iptables -F INPUT
-	    iptables -P OUTPUT ACCEPT
-	    iptables -F OUTPUT
-	    iptables -P FORWARD DROP
-	    iptables -F FORWARD
-	    iptables -t nat -F
+	    $IPTSAVE > $IPTCONFIG
+	    # restore EMPTY iptables ruleset
+            $IPTRESTORE < $IPTCONFIG-empty
 	    echo 0 > /proc/sys/net/ipv4/ip_forward
 
 	    rm /var/run/iptables
