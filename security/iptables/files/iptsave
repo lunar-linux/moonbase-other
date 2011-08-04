@@ -15,8 +15,8 @@ IPTSAVEBIN=$(which iptables-save);
 # only run this if iptables-save is executable
 if [ -x "$IPTSAVEBIN" ]; then
   # remove saved rules if already available
-  if [ -f "$IPTSAVE" ]; then
-    rm -f "$IPTSAVE";
+  if [ -f "$IPTSAVEFILE" ]; then
+    rm -f "$IPTSAVEFILE";
   fi
 
   # save the iptables rules
