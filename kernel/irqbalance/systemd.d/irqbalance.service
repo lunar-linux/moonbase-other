@@ -1,0 +1,10 @@
+[Unit]
+Description=IRQ Balancing Daemon
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/irqbalance
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target
