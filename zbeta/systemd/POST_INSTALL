@@ -1,2 +1,6 @@
 lin -c udev
 lin -c dbus
+# generate the machine id
+if [ -x /bin/systemd-machine-id-setup ]; then
+  /bin/systemd-machine-id-setup
+fi
