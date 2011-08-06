@@ -44,6 +44,7 @@
                  --includedir=/usr/include  \
                  --datarootdir=/usr/share   \
                  --sysconfdir=/etc          \
+                 --enable-udev_acl          \
                  --with-pci-ids-path=/usr/share/pci.ids  &&
     sedit '/^GIRTYPELIBDIR/s;\${exec_prefix};/usr;' Makefile  &&
     default_make  &&
