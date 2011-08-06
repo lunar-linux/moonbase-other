@@ -31,6 +31,11 @@
     cp $SCRIPT_DIRECTORY/files/locale.conf /etc/locale.conf
   fi 
 
+  # systemd guys wrongly assume that on every linux
+  # installation is a group called "lock" this isn't
+  # the case in lunar, so we switch it to root.
+  sedit "s:0775 root lock:0775 root root:" tmpfiles.d/legacy.conf
+
   default_build
 
 ) > $C_FIFO 2>&1
