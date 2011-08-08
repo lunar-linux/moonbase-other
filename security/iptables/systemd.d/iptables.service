@@ -1,9 +1,9 @@
 [Unit]
 Description=Packet Filtering Framework
+ConditionPathExists=/etc/config.d/iptables
 
 [Service]
 Type=oneshot
-ConditionFileExists=/etc/config.d/iptables
 ExecStart=/usr/sbin/iptables-restore /etc/config.d/iptables
 ExecStop=/usr/sbin/iptsave
 ExecStopPost=/usr/sbin/iptables-restore /etc/config.d/iptables-empty

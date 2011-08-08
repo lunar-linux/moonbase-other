@@ -17,12 +17,12 @@
   # revive tables
   if [ -f /etc/config.d/iptables.sav ] ; then
     cat /etc/config.d/iptables.sav | iptables-restore -c  &&
-    rm /etc/config.d/iptables.sav &&
+    rm /etc/config.d/iptables.sav
   fi
 
   # add empty iptables file for flushing
   if [ ! -f /etc/config.d/iptables-empty ]; then
-    cp $SCRIPT_DIRECTORY/files/iptables-empty /etc/config.d/iptables-empty &&
+    cp $SCRIPT_DIRECTORY/files/iptables-empty /etc/config.d/iptables-empty
   fi
   # little wrapper for systemd's usage
   # todo: should be detected by our package-management (installwatch?)
