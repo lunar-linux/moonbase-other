@@ -4,6 +4,8 @@
   OPTS+=" --with-rootdir=/ " &&
   OPTS+=" --with-distro=other" &&
   OPTS+=" --with-udevrulesdir=/lib/udev/rules.d/" &&
+  # gtk is broken currently
+  OPTS+=" --disable-gtk" &&
 
   # just adding some files which are useful to
   # systemd
