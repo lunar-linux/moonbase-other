@@ -1,15 +1,6 @@
-mquery GDK_TARGET "Use DirectFB as gdk-target instead of X11?"               \
-                  n                                                          \
-                  "--with-gdktarget=directfb"                                \
-                  "--with-gdktarget=x11"
-
-if [ "`get_module_config GDK_TARGET`" = "n" ]; then
-
-  mquery XINPUT "Install XINPUT support (needed for wacom tablets in gimp)?" \
-                n                                                            \
-                "--with-xinput=yes"                                          \
-                "--with-xinput=no"
-
-fi
+mquery XINPUT "Install XINPUT support (needed for wacom tablets in gimp)?" \
+              n                                                            \
+              "--with-xinput=yes"                                          \
+              "--with-xinput=no"
 
 mquery DOCS "Build docs?" n
