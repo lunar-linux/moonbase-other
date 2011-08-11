@@ -21,6 +21,8 @@
     sedit "s/docs m4macros build/m4macros build/g" Makefile.in
   fi  &&
 
+  OPTS+=" --with-gdktarget=x11"
+
   default_build
 
 ) > $C_FIFO 2>&1
