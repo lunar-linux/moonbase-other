@@ -1,11 +1,4 @@
-optional_depends "ncurses"  "--enable-curses"   \
-                            "--disable-curses"  \
-                            "for curses support"
-
-optional_depends "SDL"      "--enable-sdl"   \
-                            "--disable-sdl"  \
-                            "for SDL support"
-
-optional_depends "glade2"   "--enable-gtk --with-x"  \
-                            "--disable-gtk"          \
-                            "for lite graphical support"
+optional_depends "ncurses" "--enable-curses" "--disable-curses" "for curses frontend"
+optional_depends "SDL"     "--enable-sdl"    "--disable-sdl"    "for SDL frontend"
+optional_depends "libX11"  "--enable-x11"    "--disable-x11"    "for simple X frontend"
+optional_depends "glade2"  "--enable-gtk"    "--disable-gtk"    "for gtk frontend"
