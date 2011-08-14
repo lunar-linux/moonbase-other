@@ -1,12 +1,10 @@
 (
 
-# Sqlite and inotify are unreliabe, so making them a hard off.
-  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-        -DCMAKE_BUILD_TYPE=RELEASE             \
-        -DENABLE_SQLITE=OFF                    \
-        -DENABLE_INOTIFY=OFF                   \
-        $OPTS .                               &&
+  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
 
-  default_make
+# Sqlite and inotify are unreliabe, so making them a hard off.
+  OPTS+=" -DENABLE_SQLITE=OFF -DENABLE_INOTIFY=OFF" &&
+
+  default_cmake_build
 
 ) > $C_FIFO 2>&1
