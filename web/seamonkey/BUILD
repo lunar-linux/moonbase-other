@@ -1,9 +1,5 @@
 (
 
-  cd mozilla &&
-  patch_it $SOURCE2 1 &&
-  cd - &&
-
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
