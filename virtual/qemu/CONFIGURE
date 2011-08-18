@@ -12,7 +12,7 @@ select_targets() {
   BACKTITLE="Qemu Target Configuration"
       TITLE="Target Selection"
        HELP="Select targes you want to build"
-  make_targets_checklist | xargs \
+  make_targets_checklist | xargs  \
   dialog --backtitle "$BACKTITLE" \
          --title     "$TITLE"     \
          --stdout                 \
@@ -28,8 +28,8 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
 
   if query "Would you like to select arch targets? If not selected, all targets will be installed." y ; then
     TARGETLIST=`select_targets`
-    TEMP=`grep -v "TARGETLIST="             $MODULE_CONFIG`
-    echo "$TEMP"                             > $MODULE_CONFIG
+    TEMP=`grep -v "TARGETLIST="          $MODULE_CONFIG`
+    echo "$TEMP"                       > $MODULE_CONFIG
     echo "TARGETLIST=\"$TARGETLIST\"" >> $MODULE_CONFIG
 
   fi
