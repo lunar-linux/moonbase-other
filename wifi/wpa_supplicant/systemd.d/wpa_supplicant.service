@@ -1,0 +1,11 @@
+[Unit]
+Description=Wi-Fi Security Service
+
+[Service]
+Type=dbus
+BusName=fi.w1.wpa_supplicant1
+ExecStart=/usr/sbin/wpa_supplicant -u
+StandardOutput=syslog
+
+[Install]
+WantedBy=network.target

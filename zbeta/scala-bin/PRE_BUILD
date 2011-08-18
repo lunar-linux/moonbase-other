@@ -1,0 +1,7 @@
+default_pre_build    &&
+cd $SOURCE_DIRECTORY &&
+
+if [ "`get_module_config DOCS`" = "y" ] ; then
+  unpack $SOURCE2 &&
+  mv scala-$VERSION-devel-docs $MOD-devel-docs
+fi

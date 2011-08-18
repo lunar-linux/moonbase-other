@@ -1,10 +1,14 @@
-depends  gdk-pixbuf
-depends  atk
-depends  pango
-depends  cairo
+depends gdk-pixbuf
+depends atk
+depends pango
+depends cairo
 
-optional_depends "libXcomposite" "" "" "for X as gdk-target"
-optional_depends "DirectFB"      "" "" "for DirectFB as gdk-target"
+# needed by X gdk target
+depends libXcomposite
+depends libXcursor
+depends libXrandr
+
+optional_depends "libXinerama" "--enable-xinerama" "--disable-xinerama" "for xinerama support"
 
 optional_depends "cups"                                   \
                  "--enable-cups"                          \

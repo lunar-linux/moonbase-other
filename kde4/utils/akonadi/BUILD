@@ -2,8 +2,12 @@
 
   export CFLAGS="$CFLAGS -fPIC" &&
 
-  source /etc/profile.d/qt4.rc   &&
-  source /etc/profile.d/kde4.rc  &&
+  if [ -f /etc/profile.d/qt4.rc ]; then
+    source /etc/profile.d/qt4.rc
+  fi
+  if [ -f /etc/profile.d/kde4.rc ]; then
+    source /etc/profile.d/kde4.rc
+  fi
 
   default_cmake_build
 
