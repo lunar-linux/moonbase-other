@@ -1,14 +1,13 @@
 (
 
-  if in_depends $MODULE gnutls ; then
+#  if in_depends $MODULE gnutls ; then
     # Prevent crash when using print preview in firefox4
     # http://www.cups.org/str.php?L3606
     # https://bugzilla.redhat.com/show_bug.cgi?id=607159
     # https://bugzilla.mozilla.org/show_bug.cgi?id=573039
     # configure warns: GNU TLS cannot be made thread-safe
     #OPTS+=" --disable-threads"
-    patch_it $SOURCE2 1
-  fi &&
+#  fi &&
 
   default_config &&
   sedit "s:-Os -g::" Makedefs &&

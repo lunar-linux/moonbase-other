@@ -1,7 +1,11 @@
 (
 
   # remove *.bat files
-  rm -rf $SOURCE_DIRECTORY/bin/*.bat $SOURCE_DIRECTORY/src/ &&
+  rm -f $SOURCE_DIRECTORY/bin/*.bat &&
+
+  if [ "`get_module_config SRCS`" = "n" ] ; then
+    rm -rf $SOURCE_DIRECTORY/src/
+  fi
 
   prepare_install &&
 
@@ -10,8 +14,8 @@
   cp -r $SOURCE_DIRECTORY /usr/scala &&
 
   # symlink default and latest (like java)
-  ln -s /usr/scala/$MOD-$VER /usr/scala/latest  &&
-  ln -s /usr/scala/latest    /usr/scala/default &&
+  ln -sf /usr/scala/$MOD-$VERSION /usr/scala/latest  &&
+  ln -sf /usr/scala/latest        /usr/scala/default &&
 
   # bash completion
   install -d /etc/bash_completion.d &&

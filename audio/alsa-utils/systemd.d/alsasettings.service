@@ -1,0 +1,11 @@
+[Unit]
+Description=Advanced Linux Sound Architecture
+
+[Service]
+RemainAfterExit=yes
+ExecStart=/usr/sbin/alsactl restore
+ExecStop=/usr/sbin/alsactl store
+ExecStopPost=/usr/bin/amixer set Master mute
+
+[Install]
+WantedBy=multi-user.target

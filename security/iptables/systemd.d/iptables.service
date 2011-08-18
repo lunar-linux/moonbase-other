@@ -1,0 +1,13 @@
+[Unit]
+Description=Packet Filtering Framework
+ConditionPathExists=/etc/config.d/iptables
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/iptables-restore /etc/config.d/iptables
+ExecStop=/usr/sbin/iptsave
+ExecStopPost=/usr/sbin/iptables-restore /etc/config.d/iptables-empty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

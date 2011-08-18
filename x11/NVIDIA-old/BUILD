@@ -1,8 +1,5 @@
 (
 
-  # Patch which makes nvidia kernel module compilable on 2.6.36 and later
-  patch_it $SOURCE2 1 &&
-
   # We make the kernel modules on our own
   cd $SOURCE_DIRECTORY/usr/src/nv &&
 

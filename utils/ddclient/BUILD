@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 1 &&
-
   prepare_install &&
   install -m 750 ddclient /usr/sbin/ddclient &&
   mkdir -p /etc/ddclient /var/cache/ddclient &&
