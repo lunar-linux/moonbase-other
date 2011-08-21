@@ -1,11 +1,13 @@
+depends libkdcraw
+
 optional_depends "libxml2"      "" "-DWITH_LibXml2=OFF" "for XML version 2 support"
 optional_depends "libxslt"      "" "-DWITH_LibXslt=OFF" "for xml slt support"
 optional_depends "%XMLRENDERER" "" "-DWITH_EXPAT=OFF"   "for xml rendering support"
 optional_depends "glib-2"       "" "-DWITH_GLIB2=OFF -DWITH_GObject=OFF" "for glib-2 support gobject support"
 optional_depends "gdk-pixbuf"   "" "-DWITH_Gdk=OFF"     "for gdk-pixbuf support"
 optional_depends "libgpod"      "" "-DWITH_Gpod=OFF"    "for iPod support"
-optional_depends "kdepimlibs4"  "" "-DWITH_KdepimLibs=OFF" "for PIM integration"
-optional_depends "kdegraphics4" "" "-DWITH_KSane=OFF"   "for scanner support"
+optional_depends "kdepimlibs"   "" "-DWITH_KdepimLibs=OFF" "for PIM integration"
+optional_depends "libksane"     "" "-DWITH_KSane=OFF"   "for scanner support"
 optional_depends "qca2"         "" "-DWITH_QCA2=OFF"    "for qca support"
 optional_depends "qjson"        "" "-DWITH_QJSON=OFF"   "for json support"
 optional_depends "opencv"       "" "-DWITH_OpenCV=OFF"  "for redeye removal support"
