@@ -1,12 +1,14 @@
 (
 
-# use bootstrap so we can use their supplied bjam.
+  patch_it $SOURCE2 0 &&
+
+# use bootstrap so we can use their supplied bjam/b2.
   ./bootstrap.sh &&
   
   export EXPAT_INCLUDE=/usr/include/ &&
   export EXPAT_LIBPATH=/usr/lib/ &&
 
-  ./bjam -q ${MAKES:+-j$MAKES} \
+  ./b2 -q ${MAKES:+-j$MAKES} \
        threading=single,multi  \
        --layout=tagged    \
        runtime-link=shared \
@@ -23,7 +25,7 @@
 
   prepare_install &&
 
-  ./bjam -q ${MAKES:+-j$MAKES} \
+  ./b2 -q ${MAKES:+-j$MAKES} \
        threading=single,multi \
        --layout=tagged    \
        runtime-link=shared \
