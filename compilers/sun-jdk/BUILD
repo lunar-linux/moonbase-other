@@ -1,7 +1,7 @@
 (
 
   chmod +x $SOURCE &&
-  ./$SOURCE --accept-license --unpack &&
+  ./$SOURCE -noregister &&
 
   # Clean up old java 1.6.0 service packs
   rm -rf /usr/lib/j[rd][ek]1.6.0_* &&
