@@ -1,0 +1,20 @@
+depends kde-baseapps
+
+# TODO: Missing tons of dependencies here
+optional_depends "taglib"         "-DWITH_Taglib=ON" "-DWITH_Taglib=OFF" "for audio metadata support"
+optional_depends "lame"           "" "" "for MP3 encoding support"
+optional_depends "cdparanoia"     "-DWITH_Cdparanoia=ON" "-DWITH_Cdparanoia=OFF" "for Compact Disc Digital Audio support"
+optional_depends "%XINELIB"       "-DWITH_Xine=ON"       "-DWITH_Xine=ON"        "for xine audio video support"
+
+optional_depends "ffmpeg"         "-DWITH_FFMPEG=ON -DWITH_Swscale=ON"   \
+                                  "-DWITH_FFMPEG=OFF -DWITH_Swscale=OFF" \
+                                  "for audio and video support"
+
+optional_depends "libmusicbrainz" "-DWITH_MusicBrainz3=ON" "-DWITH_MusicBrainz3=OFF" "for music metadatabase support"
+optional_depends "pulseaudio"     "-DWITH_PulseAudio=ON"   "-DWITH_PulseAudio=OFF"   "for pulseaudio support"
+
+# flac will take care of vorbis support
+optional_depends "flac"           "-DWITH_Flac=ON -DWITH_OggVorbis=ON"   \
+                                  "-DWITH_Flac=OFF -DWITH_OggVorbis=OFF" \
+                                  "for loseless audio support"
+

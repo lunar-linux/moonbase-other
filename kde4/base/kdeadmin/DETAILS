@@ -1,0 +1,42 @@
+          MODULE=kdeadmin
+         VERSION=4.7.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src
+      SOURCE_VFY=sha1:792eaf403f1c95be0028145345ddd80a99cf3c15
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/usr}
+        WEB_SITE=http://www.kde.org
+         ENTERED=20071026
+         UPDATED=20110813
+           SHORT="kde system administrator"
+
+cat << EOF
+The kdeadmin package contains packages that usually only a system
+administrator might need:
+
+* doc
+    XML based documentation for the programs
+
+* kcron
+    Editor for the cron command scheduler.
+
+* kdat
+    Tape backup tool.
+
+* kfile-plugins
+    Make Konquerer display additional info on about *.dep and *.rpm files.
+
+* ksysv
+    An editor for System V startup schemes.
+
+* kuser
+    An user manager.
+
+* lilo-config
+    A plugin for KControl to manage the Linux boot loader LILO.
+
+* secpolicy
+    A program to display PAM security policies.
+
+* ksystemlog
+    A system log viewer tool.
+EOF

@@ -1,0 +1,9 @@
+[Unit]
+Description=K Display Manager
+Requires=dev-tty7.device
+After=dev-tty7.device systemd-user-sessions.service
+[Service]
+ExecStart=/usr/bin/kdm -nodaemon tty7
+StandardOutput=syslog
+[Install]
+WantedBy=graphical.target

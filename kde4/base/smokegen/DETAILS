@@ -1,0 +1,18 @@
+          MODULE=smokegen
+         VERSION=4.7.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src
+      SOURCE_VFY=sha1:e6116d95aabe1fa00fb9126b582ad028765e56fc
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/usr}
+        WEB_SITE=http://www.kde.org
+         ENTERED=20110813
+         UPDATED=20110813
+           SHORT="Scripting Meta Object Kompiler Engine"
+
+cat << EOF
+This directory compiles a smokeqt (and later a smokekde) library, which
+contain interfaces to (almost) all Qt and KDE classes.
+The next PerlQt/PerlKDE will be based on SMOKE.
+However SMOKE is language-independent enough for other bindings (e.g. to
+other scripting languages) to be based on it.
+EOF

@@ -1,0 +1,42 @@
+depends perl
+depends zlib
+depends makeobj
+depends cmake
+depends automoc
+depends strigi
+depends phonon
+depends shared-mime-info
+depends boost
+depends attica
+depends %GIF
+depends docbook-xml
+
+optional_depends "udev"        "-DWITH_UDev=ON"    "-DWITH_UDev=OFF"    "for udev support"
+optional_depends "acl"         "-DWITH_ACL=ON"     "-DWITH_ACL=OFF"     "for POSIX access control list support"
+optional_depends "bzip2"       "-DWITH_BZip2=ON"   "-DWITH_BZip2=OFF"   "for bzip file compression support"
+optional_depends "lzma-sdk"    "-DWITH_LibLZMA=ON" "-DWITH_LibLZMA=OFF" "for lzma file compression support"
+optional_depends "openssl"     "-DWITH_OpenSSL=ON" "-DWITH_OpenSSL=OFF" "for secure sockets level support"
+optional_depends "qca2"        "-DWITH_QCA2=ON"    "-DWITH_QCA2=OFF"    "for cross-platform crypto API support"
+optional_depends "soprano"     "-DWITH_Soprano=ON" "-DWITH_Soprano=OFF" "for RDF data support"
+optional_depends "polkit-qt-1" "-DWITH_PolkitQt-1=ON" "-DWITH_PolkitQt-1=OFF" "for Kauth support"
+optional_depends "gamin"       "-DWITH_FAM=ON"     "-DWITH_FAM=OFF"     "for file alteration support"
+optional_depends "aspell"      "-DWITH_ASPELL=ON"  "-DWITH_ASPELL=OFF"  "for spell checking support"
+optional_depends "enchant"     "-DWITH_ENCHANT=ON" "-DWITH_ENCHANT=OFF" "needed for spell checking library access"
+optional_depends "jasper"      "-DWITH_Jasper=ON"  "-DWITH_Jasper=OFF"  "for JPEG-2000 image reading support; Needed by kdenetwork"
+optional_depends "openexr"     "-DWITH_OpenEXR=ON" "-DWITH_OpenEXR=OFF" "for high dynamic-range image support"
+optional_depends "avahi"       "-DWITH_Avahi=ON"   "-DWITH_Avahi=OFF"   "Facilities for service discovery on a local network (DNSSD)"
+optional_depends "heimdal"     "-DWITH_GSSAPI=ON"  "-DWITH_GSSAPI=OFF"  "Allows KIO to make use of certain HTTP authentication services"
+optional_depends "hspell"      "-DWITH_HSPELL=ON"  "-DWITH_HSPELL=OFF"  "for Hebrew spell-checking support"
+optional_depends "qca2-cyrus-sasl" "-DWITH_QCA2=ON" "-DWITH_QCA2=OFF" "for cross-platform crypto API support"
+optional_depends "alsa-lib"    "" "" "for alsa sound support"
+optional_depends "attr"        "" "" "for Access Control List support"
+optional_depends "xz"          "" "" "for lzma compression/decompression support"
+optional_depends "PyQt"        "" "" "for python support in other kde4 modules"
+optional_depends "agg"         "" "" "for Anit-Grain Geometry graphics support"
+optional_depends "grantlee"    "" "" "for plugin based String Template system support"
+optional_depends "subversion"  "" "" "for subversion support; can be used by Dolphin"
+optional_depends "git"         "" "" "for git support; can be used by Dolphin"
+optional_depends "libdbusmenu-qt" "" "" "for support of notification area menus via the DBusMenu protocol"
+optional_depends "xscreensaver"    "" "" "for screensaver support"
+optional_depends "shared-desktop-ontologies" "-DWITH_SharedDesktopOntologies=ON" "-DWITH_SharedDesktopOntologies=OFF" "for ontological support"
+optional_depends "herqq"      "-DWITH_HUpnp=ON" "-DWITH_HUpnp=OFF" "for UPnp support in solid"
