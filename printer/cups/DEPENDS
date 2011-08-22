@@ -1,6 +1,14 @@
-depends   chkconfig
-optional_depends  Linux-PAM "--enable-pam" "--disable-pam" "for pluggable authentication"
-optional_depends  openssl "--enable-ssl --enable-openssl" "--disable-openssl" "for encrypted communications"
-optional_depends  gnutls "--enable-gnutls" "--disable-gnutls" "for encrypted communications"
-optional_depends  openldap "--enable-ldap" "--disable-ldap" "for LDAP printer sharing support"
-optional_depends  dbus "--enable-dbus" "--disable-dbus" "enable DBUS support"
+depends chkconfig
+
+optional_depends "Linux-PAM" "--enable-pam"                  "--disable-pam"      "for pluggable authentication"
+optional_depends "openssl"   "--enable-ssl --enable-openssl" "--disable-openssl"  "for encrypted communications"
+optional_depends "gnutls"    "--enable-gnutls --enable-ssl"  "--disable-gnutls"   "for encrypted communications"
+optional_depends "openldap"  "--enable-ldap"                 "--disable-ldap"     "for LDAP printer sharing support"
+optional_depends "dbus"      "--enable-dbus"                 "--disable-dbus"     "enable DBUS support"
+optional_depends "libpaper"  "--enable-libpaper"             "--disable-libpaper" "for paper size library support"
+optional_depends "acl"       "--enable-acl"                  "--disable-acl"      "for access control list support"
+optional_depends "usbutils"  "--enable-libusb"               "--disable-libusb"   "for usb device support"
+optional_depends "%JPEG"     "--enable-jpeg"                 "--disable-jpeg"     "for jpeg graphics support"
+optional_depends "libpng"    "--enable-png"                  "--disable-png"      "for png graphis support"
+optional_depends "tiff"      "--enable-tiff"                 "--disable-tiff"     "for tiff graphics support"
+optional_depends "openslp"   "--enable-slp"                  "--disable-slp"      "for Service Location Protocol support"
