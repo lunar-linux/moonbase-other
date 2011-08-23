@@ -1,0 +1,40 @@
+depends qimageblitz
+depends kde-runtime
+
+optional_depends "kdepimlibs"     "-DWITH_KdepimLibs=ON" "-DWITH_KdepimLibs=OFF" "for nepomuck support"
+optional_depends "pciutils"       "-DWITH_PCIUTILS=ON"   "-DWITH_PCIUTILS=ON"    "for pciutils support"
+optional_depends "sip"            "-DWITH_SIP=ON"        "-DWITH_SIP=OFF"        "for sip support"
+optional_depends "PyQt"           "-DWITH_PyQt=ON"      "-DWITH_PyQt=OFF"      "for PyQt support"
+optional_depends "soprano"        "-DWITH_Soprano=ON"    "-DWITH_Soprano=OFF"    "for soprano support"
+optional_depends "fontconfig"     "-DWITH_Fontconfig=ON" "-DWITH_Fontconfig=OFF" "for fontconfig support"
+optional_depends "freetype2"      "-DWITH_Freetype=ON"   "-DWITH_Freetype=OFF"   "for freetype font support"
+optional_depends "libxklavier"    "-DWITH_XKB=ON"        "-DWITH_XKB=OFF"        "for advanced keyboard controls"
+optional_depends "glib-2"         "-DWITH_GLIB2=ON"      "-DWITH_GLIB2=OFF"      "required for keyboard switching"
+optional_depends "libusb-compat"  "-DWITH_USB=ON"        "-DWITH_USB=OFF"        "for usb device support"
+
+optional_depends "ConsoleKit"     "-DWITH_CkConnector=ON" "-DWITH_CkConnector=OFF" "for console kit support"
+optional_depends "webkit"         "-DBUILD_webkit=ON" "-DBUILD_webkit=OFF" "for konqueror webkit support"
+optional_depends "bluez"          "" "" "for bluetooth support within KDE4"
+optional_depends "libraw1394"     "-DWITH_RAW1394=ON" "-DWITH_RAW1394=OFF" "for firewire support"
+optional_depends "gpsd"           "-DWITH_libgps=ON"  "-DWITH_libgps=OFF"  "for gps device support"
+
+optional_depends "Linux-PAM"      "-DKDE4_COMMON_PAM_SERVICE=kde4 \
+                                  -DKDE4_KDM_PAM_SERVICE=kde4"    \
+                                  ""             "for PAM support"
+
+optional_depends "shadow"         "" ""  "for shadow password support"
+optional_depends "libcaptury"     "" ""  "for GL video support"
+optional_depends "lm_sensors"     "-DWITH_Sensors=ON" "-DWITH_Sensors=OFF"  "for system sensors support"
+
+optional_depends "libXScrnSaver"  "-DBUILD_kscreensaver=ON" "-DBUILD_kscreensaver=OFF" \
+                                  "for screensaver support and needed by kaffeine"
+optional_depends "qedje"          "" ""  "for plasma scriptengine support"
+optional_depends "polkit-qt"      "" ""  "For policy kit support"
+
+optional_depends "google-gadgets-for-linux" "-DWITH_Googlegadgets=ON"   \
+                                            "-DWITH_Googlegadgets=OFF"  \
+                                            "for google gadget support"
+optional_depends "wicd"           "-DBUILD_wicd=ON" "-DBUILD_wicd=OFF"  "For network connectivity management"
+optional_depends "xmms"           "-DWITH_Xmms=ON"  "-DWITH_Xmms=OFF"   "to support the Now Playing data engine"
+optional_depends "libqalculate"   "-DWITH_Qalculate=ON" "-DWITH_Qalculate=ON" "for advanced features of the calculator runner"
+optional_depends "libdmtx"        "-DWITH_Dmtx=ON"      "-DWITH_Dmtx=OFF"     "for Data Matrix 2D barcode support"

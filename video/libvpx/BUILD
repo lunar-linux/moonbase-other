@@ -5,7 +5,7 @@
 
   CFLAGS="-fPIC" &&
 
-  OPTS="--enable-vp8 --enable-psnr --enable-postproc --enable-shared --as=yasm \
+  OPTS="--enable-vp8 --enable-postproc --enable-shared --as=yasm \
         --enable-runtime-cpu-detect --disable-install-docs --enable-pic --disable-examples" &&
 
   ../configure $OPTS &&

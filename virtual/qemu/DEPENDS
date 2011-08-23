@@ -1,4 +1,14 @@
-depends  autoconf
+depends perl
 
-optional_depends  SDL       ""  "--disable-sdl --disable-gfx-check" "for gui qemu support"
-optional_depends  alsa-lib  ""  ""                                  "for ALSA sound support"
+optional_depends bluez      "--enable-bluez" "--disable-bluez"                    "for bluetooth support"
+optional_depends curl       "--enable-curl"  "--disable-curl"                     "for curl support"
+optional_depends SDL        "--enable-sdl"   "--disable-sdl --disable-gfx-check"  "for GUI support"
+
+optional_depends alsa-lib   "" "" "for ALSA sound support"
+optional_depends esound     "" "" "for esound sound support"
+optional_depends pulseaudio "" "" "for pulseaudio sound support"
+optional_depends gnutls     "" "" "for GNUTLS support"
+optional_depends vde2       "" "" "for virtual distributed ethernet support"
+optional_depends %JPEG      "" "" "for JPEG support"
+optional_depends libpng     "" "" "for PNG support"
+

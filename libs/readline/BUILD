@@ -28,12 +28,6 @@
   make install &&
   if [ ! -e /etc/inputrc ] ; then
     install $SCRIPT_DIRECTORY/inputrc /etc/
-  fi  &&
-  # temp hack to help in change over to readline-6.0 from readline-5.x
-  # can be removed when everyone is over to readline 6.0
-  devoke_installwatch                                 &&
-  ln -sf /lib/libreadline.so.6 /lib/libreadline.so.5  &&
-  ln -sf /lib/libhistory.so.6  /lib/libhistory.so.5   &&
-  invoke_installwatch
+  fi
 
 ) > $C_FIFO 2>&1

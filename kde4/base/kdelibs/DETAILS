@@ -1,0 +1,22 @@
+          MODULE=kdelibs
+         VERSION=4.7.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src
+      SOURCE_VFY=sha1:2a7a59ac78a161c7c2393db89179449b495dd2db
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/usr}
+        WEB_SITE=http://www.kde.org
+         ENTERED=20071026
+         UPDATED=20110813
+           SHORT="central libraries for developement and execution of KDE"
+
+LUNAR_RESTART_SERVICES=off
+cat << EOF
+This package includes libraries that are central to the development and
+execution of a KDE program, as well as internationalization files for these
+libraries, misc HTML documentation, theme modules, and regression tests.
+Here is an alphabetical list:
+ dnssd, interfaces, kabc, kate, kcert, kcmshell, kconf_update, kde3support,
+ kdecore, kded, kdeprint, kdesu, kdeui, kdewidgets, kdoctools, khtml, kimgio,
+ kinit, kio, kioslave, kjs, kjsembed, knewstuff, knotify, kparts, kresources,
+ kstyles, kwallet, libltdl, licenses, mimetypes, phonon, pics, sonnet, win
+EOF
