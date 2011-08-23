@@ -1,1 +1,7 @@
-depends kdegraphics4
+depends libksane
+
+optional_depends "exiv2"        "-DWITH_Exiv2=ON"   "-DWITH_Exiv2=OFF"   "for image metadata access support"
+optional_depends "libkdcraw"    "-DWITH_Kdcraw=ON"  "-DWITH_Kdcraw=OFF"  "for raw image file support"
+optional_depends "kipi-plugins" "-DWITH_Kipi=ON"    "-DWITH_Kipi=OFF"    "for additonal image manuipulation support"
+optional_depends "marble"       "-DWITH_Marble=ON"  "-DWITH_Marble=OFF"  "for geographical tagging support"
+optional_depends "kdelibs"      "-DWITH_Nepomuk=ON" "-DWITH_Nepomuk=OFF" "for nepmuk support"

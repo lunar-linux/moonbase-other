@@ -1,0 +1,5 @@
+depends libXtst
+depends kde-baseapps
+
+optional_depends "speech-dispatcher" "-DBUILD_jovie=ON"  "-DBUILD_jovie=OFF"  "for speech synthesis support"
+optional_depends "speechd"           "-DWITH_Speechd=ON" "-DWITH_Speechd=OFF" "for additional speech synthesis support ${PROBLEM_COLOR} (Say yes if speech-dispatcher=yes)${DEFAULT_COLOR}"
