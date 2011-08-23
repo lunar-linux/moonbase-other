@@ -12,16 +12,16 @@
   AT_M4DIR="m4" autoreconf &&
 #  libtoolize &&
 
-  ./configure  --libdir=/lib                            \
-               --docdir=/usr/share/doc/Linux-PAM        \
-               --disable-prelude                        \
-               --mandir=/usr/share/man                  \
-               --enable-db=no                           \
-               --disable-selinux                        \
-               --disable-audit                          \
-               --enable-isadir=../../lib/security       \
-               --enable-nls                             \
-               $OPTS &&
+  ./configure  --libdir=/lib                       \
+               --docdir=/usr/share/doc/Linux-PAM   \
+               --disable-prelude                   \
+               --mandir=/usr/share/man             \
+               --enable-db=no                      \
+               --disable-selinux                   \
+               --disable-audit                     \
+               --enable-isadir=../../lib/security  \
+               --enable-nls                        \
+               $OPTS                              &&
 
   sedit  "s/examples//"  Makefile           &&
   sedit  "s/read yes//"  conf/install_conf  &&
