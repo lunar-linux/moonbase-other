@@ -1,5 +1,8 @@
 (
 
+# Inserting a missing cups include
+  sed -i "40i #include <cups/ppd.h>" chrome/browser/ui/webui/print_preview_handler.cc &&
+
   sedit "s/'-Werror'/''/" build/common.gypi  &&
 
   echo Fixing dumb CPU optimizations please wait in patience...
