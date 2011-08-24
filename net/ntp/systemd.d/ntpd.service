@@ -1,0 +1,11 @@
+[Unit]
+Description=Network Time Service
+
+[Service]
+Type=forking
+PIDFile=/var/run/ntpd.pid
+EnvironmentFile=/etc/ntp.conf
+ExecStart=/usr/sbin/ntpd $NTPD_ARGS -p /var/run/ntpd.pid
+
+[Install]
+WantedBy=multi-user.target
