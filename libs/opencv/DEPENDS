@@ -46,9 +46,11 @@ optional_depends unicap       "-DWITH_UNICAP=ON"    \
                               "-DWITH_UNICAP=OFF"  \
                               "for additional video capture support"
 
-optional_depends              "v4l-utils"          \
-                              "-DWITH_V4L=ON"      \
+optional_depends "v4l-utils"  "-DWITH_V4L=ON"      \
                               "-DWITH_V4L=OFF"     \
                               "for v4l video support"
 
+optional_depends "openexr"    "-DWITH_OPENEXR=ON"     \
+                              "-DWITH_OPENEXR=OFF"    \
+                              "for IML support"
 
