@@ -3,12 +3,13 @@ depends zlib
 depends bzip2
 depends openssl
 depends cmake
+depends cppunit
 
 optional_depends "dbus"           "-DENABLE_DBUS=ON"    "-DENABLE_DBUS=OFF"    "for dbus support"
-optional_depends "expat"          "-DENABLE_EXPAT=ON"   "-DENABLE_EXPAT=OFF"   "for XML parsing support"
 optional_depends "clucene"        "-DENABLE_CLUCENE=ON" "-DENABLE_CLUCENE=OFF" "for indexing and searching support"
 optional_depends "gamin"          "-DENABLE_FAM=ON"     "-DENABLE_FAM=OFF"     "for file alteration monitoring support"
 optional_depends "exiv2"          "-DENABLE_EXIV2=ON"   "-DENABLE_EXIV2=OFF"   "for metadata indexing support"
-optional_depends "cppunit"        "-DENABLE_CPPUNIT=ON" "-DENABLE_CPPUNIT=OFF" "Support for Strigi unit tests"
 optional_depends "apache-log4cxx" "-DENABLE_LOG4CXX=ON" "-DENABLE_LOG4CXX=OFF" "for advanced logging support"
+optional_depends "ffmpeg"         "-DENABLE_FFMPEG=ON"  "-DENABLE_FFMPEG=OFF"  "enable FFMPEG support. This adds support for a larger number of media formats(testing)"
+optional_depends "qt4"            "-DENABLE_QT4=ON"     "-DENABLE_QT4=OFF"     "enable the Qt4 GUI"
 optional_depends "%JAVA_SDK"      ""                    ""                     "for java support"
