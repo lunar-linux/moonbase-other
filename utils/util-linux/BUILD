@@ -4,7 +4,7 @@
   OPTS+=" --enable-arch --enable-agetty --disable-init --disable-kill \
           --disable-last --disable-mesg --enable-partx --enable-raw \
           --enable-rename --disable-reset --disable-login-utils \
-          --enable-schedutils --disable-wall --enable-write --disable-fsck"  &&
+          --enable-schedutils --disable-wall --enable-write --enable-fsck"  &&
 
   default_build  &&
 
