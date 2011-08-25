@@ -1,15 +1,10 @@
 (
 
-  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build" &&
-
-  mkdir $OOSB_DIR &&
-  cd $OOSB_DIR    &&
-
 # Fix some version numbers so it will find ours.
   BOOST_VER="`lvu version boost`" &&
   PYTHON_VER="`lvu version Python|cut -c 1-3`" &&
-  sedit "s:2.6:$PYTHON_VER:" ../CMake/FindPythonLibs.cmake &&
-  sedit "s:1.36.1:$BOOST_VER:" ../CMake/CMake2.4/FindBoost.cmake &&
+  sedit "s:2.6:$PYTHON_VER:" CMake/FindPythonLibs.cmake &&
+  sedit "s:1.36.1:$BOOST_VER:" CMake/CMake2.4/FindBoost.cmake &&
 
 # This is a similar issue as found in the graphviz BUILD; so lunar fix 
 # does not complain over the inability to find some shared ojbects.
@@ -25,12 +20,8 @@
      OPTS="-DCMAKE_CXX_FLAGS=-D__STDC_CONSTANT_MACROS"
   fi &&
 
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX   \
-                           -DBUILD_TYPE=RELEASE                    \
-                           -DBUILD_SHARED_LIBS=ON                  \
-                           -DBUILD_EXAMPLES=OFF                    \
-                           $OPTS                                  &&
+  OPTS="-DBUILD_SHARED_LIBS=ON -DBUILD_EXAMPLES=OFF" &&
 
-  default_make
+  default_cmake_build
 
 ) > $C_FIFO 2>&1

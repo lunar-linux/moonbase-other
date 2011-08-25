@@ -1,10 +1,9 @@
 depends cmake
 
-# Circular dependency: webkit->libsoup->libproxy->kde-baseapps->kde-baseapps
-#optional_depends  "kde-baseapps"          \
-#                  "-DWITH_KDE4=ON"    \
-#                  "-DWITH_KDE=OFF"    \
-#                  "for KDE bindings"
+optional_depends  "kde-baseapps"      \
+                  "-DWITH_KDE4=ON"    \
+                  "-DWITH_KDE=OFF"    \
+                  "for KDE bindings. Circular dependency, compile without first."
 
 optional_depends  "xulrunner"         \
                   "-DWITH_MOZJS=ON"   \
@@ -26,21 +25,17 @@ optional_depends  "vala"              \
                   "-DWITH_VALA=OFF"   \
                   "for vala bindings"
 
-# Circular dependency:  libproxy -> webkit (optional) -> libsoup -> libproxy
-# To fix:  compile libproxy without webkit, then with webkit
-# Show difference:  strings /usr/lib/libproxy.so.1.0.0 | grep webkit
-# [[ $(strings /usr/lib/libproxy.so.1.0.0 | grep webkit) ]] && echo "yes"
-#optional_depends  "webkit"            \
-#                  "-DWITH_WEBKIT=ON"  \
-#                  "-DWITH_WEBKIT=OFF" \
-#                  "webkit (circular dependency - compile without webkit first)"
+optional_depends  "webkit"            \
+                  "-DWITH_WEBKIT=ON"  \
+                  "-DWITH_WEBKIT=OFF" \
+                  "webkit (circular dependency - compile without webkit first)"
 
 optional_depends  "GConf"             \
                   "-DWITH_GNOME=ON"   \
                   "-DWITH_GNOME=OFF"  \
                   "for Gnome/GConf bindings"
 
-#optional_depends  "mono"              \
-#                  ""                  \
-#                  ""                  \
-
+optional_depends  "mono"              \
+                  "-DWITH_DOTNET=ON"  \
+                  "-DWITH_DOTNET=off" \
+                  "for dot net support"

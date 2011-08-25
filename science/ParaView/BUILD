@@ -1,21 +1,12 @@
 (
 
-  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
+  OPTS+=" -DBUILD_SHARED_LIBS=ON" &&
 
-  mkdir $OOSB_DIR  &&
-  cd $OOSB_DIR     &&
+  default_cmake_build
 
-  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-        -DCMAKE_BUILD_TYPE=RELEASE             \
-        -DBUILD_SHARED_LIBS=ON                 \
-        $OPTS                                  \
-        $SOURCE_DIRECTORY/                    &&
+  install ../Documentation/ParaViewLogo.png /usr/share/icons &&
 
-  default_make &&
-
-  install Documentation/ParaViewLogo.png /usr/share/icons &&
-
-  # Desktop menu entry
+#   Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
 [Desktop Entry]
 Type=Application
