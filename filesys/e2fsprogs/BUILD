@@ -9,6 +9,7 @@
                --disable-libuuid          \
                --disable-uuidd            \
                --disable-libblkid         \
+               --disable-fsck             \
                $OPTS                     &&
 
   default_make  &&
