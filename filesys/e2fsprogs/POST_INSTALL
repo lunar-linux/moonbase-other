@@ -1,3 +1,7 @@
 # This is going to make migrating to lunar-init way easier
 
 lin -c lunar-init
+
+if [ ! -f /sbin/fsck ]; then
+  lin util-linux;
+fi
