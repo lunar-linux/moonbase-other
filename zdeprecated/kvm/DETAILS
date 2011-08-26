@@ -1,0 +1,30 @@
+          MODULE=kvm
+         VERSION=86
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE
+      SOURCE_VFY=sha1:7d5a5115ef7919419642a673fb746c803996e489
+        WEB_SITE=http://kvm.qumranet.com/kvmwiki
+         ENTERED=20070406
+         UPDATED=20090525
+           SHORT="Native x86 Virtualization host using vt extensions"
+
+cat << EOF
+KVM (for Kernel-based Virtual Machine) is a full virtualization
+solution for Linux on x86 hardware containing virtualization
+extensions (Intel VT or AMD-V). It consists of a loadable kernel
+module, kvm.ko, that provides the core virtualization infrastructure
+and a processor specific module, kvm-intel.ko or kvm-amd.ko. KVM
+also requires a modified QEMU although work is underway to get the
+required changes upstream.
+
+Using KVM, one can run multiple virtual machines running unmodified
+Linux or Windows images. Each virtual machine has private virtualized
+hardware: a network card, disk, graphics adapter, etc.
+
+How can I tell if I have Intel VT or AMD-V?  With a recent enough Linux
+kernel, run the command: egrep '^flags.*(vmx|svm)' /proc/cpuinfo
+If it produces output, you can use KVM.
+
+KVM will run at the same (slower) speed as qemu if your processor does not
+support vmx/svm
+EOF
