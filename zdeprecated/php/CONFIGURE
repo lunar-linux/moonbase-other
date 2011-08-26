@@ -1,0 +1,18 @@
+mquery IMAP "Install imap support?" y
+mquery REGGLOBALS "Enable global variable support (potential security risk)?" n
+mquery FTP "Install ftp support?" y "--enable-ftp" ""
+mquery EXIF "Install EXIF support?" y "--enable-exif" ""
+mquery TRANSSID "Enable transparent session id?" y "--enable-trans-sid" ""
+mquery SOCKETS "Enable sockets support (experimental)?" y "--enable-sockets" ""
+mquery NCURSES "Enable ncurses support (experimental)?" y "--with-ncurses" ""
+mquery BCMATH "Enable BC math support?" y "--enable-bcmath" ""
+
+if module_installed lighttpd; then
+  mquery FASTCGI "Build FastCGI version (required by lighttpd)?" y
+fi
+if query "Enable multibyte string support?" n; then
+  OPTS="$OPTS --enable-mbstring"
+  if query "Disable multibyte regular expression functions?" n; then
+    OPTS="$OPTS --disable-mbregex"
+  fi
+fi

@@ -1,0 +1,73 @@
+depends libmad
+depends Hermes
+depends cdparanoia
+depends ffmpeg
+depends gstreamer
+
+optional_depends "libfame"       "--enable-libfame --enable-libfametest"      \
+                                 "--disable-libfame --disable-libfametest"    \
+                                 "for Fame encoding support"
+
+optional_depends "esound"        "--enable-esd --enable-esdtest"              \
+                                 "--disable-esd --disable-esdtest"            \
+                                 "for esd support"
+
+optional_depends "libmikmod"     "--enable-mikmod --enable-libmikmodtest"     \
+                                 "--disable-mikmod --disable-libmikmodtest"   \
+                                 "for mikmod support"
+
+optional_depends "SDL"           "--enable-sdl --enable-sdltest"              \
+                                 "--disable-sdl --disable-sdltest"            \
+                                 "for SDL support"
+
+optional_depends "libvorbis"     "--enable-vorbis --enable-vorbistest"        \
+                                 "--disable-vorbis --disable-vorbistest"      \
+                                 "for vorbis support"
+
+optional_depends "libdvdread"    "--enable-dvdread"    "--disable-dvdread"    \
+                                 "for dvdread support"
+
+optional_depends "a52dec"        "--enable-a52dec"     "--disable-a52dec"     \
+                                 "for A/52 input stream support"
+
+optional_depends "alsa-lib"      "--enable-alsa"       "--disable-alsa"       \
+                                 "for ALSA output support"
+
+optional_depends "gnome-vfs"    "--enable-gnome_vfs"  "--disable-gnome_vfs"   \
+                                 "for gnome-vfs support"
+
+optional_depends "libdv"         "--enable-libdv"      "--disable-libdv"      \
+                                 "for digital video support"
+
+optional_depends "flac"          "--enable-flac"       "--disable-flac"       \
+                                 "for FLAC support"
+
+optional_depends "lame"          "--enable-lame"       "--disable-lame"       \
+                                 "for LAME support"
+
+optional_depends "mjpegtools"    "--enable-mjpegtools" "--disable-mjpegtools" \
+                                 "for mjpegtools support"
+
+optional_depends "mpeg2dec"      "--enable-mpeg2dec"   "--disable-mpeg2dec"   \
+                                 "for MPEG2 support"
+
+optional_depends "jack"          "--enable-jack"       "--disable-jack"       \
+                                 "for jack audio support (requires alsa)"
+
+optional_depends "speex"         "--enable-speex"      "--disable-speex"      \
+                                 "for speex speech plugin"
+
+optional_depends "pango"         "--enable-pango"      "--disable-pango"      \
+                                 "for pango support"
+
+optional_depends "dirac"         "--enable-dirac"      "--disable-dirac"      \
+                                 "for dirac codec video format support"
+
+optional_depends "swfdec"        "--enable-swfdec"     "--disable-swfdec"     \
+                                 "for shockwave player support"
+
+optional_depends "libshout"      ""                    ""                     \
+                                 "for shoutcast and icecast support"
+
+optional_depends "aalib"         "--enable-aalib"     "--disable-aalib"       \
+                                 "for aalib support"

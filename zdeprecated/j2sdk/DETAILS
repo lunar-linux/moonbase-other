@@ -1,0 +1,21 @@
+          MODULE=j2sdk
+         VERSION=1.4.2
+      SUBVERSION=03
+          SOURCE=$MODULE-$VERSION-$SUBVERSION-linux-i586.bin
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE$VERSION
+   SOURCE_URL[0]=ftp://mirrors.dotsrc.org/mirrors/java-linux/JDK-$VERSION/i386/$SUBVERSION/
+   SOURCE_URL[1]=ftp://mirror.switch.ch/mirror/java-linux/JDK-$VERSION/i386/$SUBVERSION/
+      SOURCE_VFY=sha1:1d7dd1b91ece6f9a9895bb03986eb865934716ea
+        WEB_SITE=http://www.blackdown.org/java-linux/java2-status
+         ENTERED=20010922
+         UPDATED=20061028
+           SHORT="Blackdown port of Sun's Java virtual machine."
+LDD_CHECK=off
+cat << EOF
+The Java 2 Standard Edition (J2SE) is a feature-complete development and
+deployment platform. Blackdown provides both a SDK (J2SDK, formerly
+known as JDK) and a runtime environment (J2RE) for Linux on various
+architectures (ix86, Sparc, PPC, S/390, ARM, m68k). Both the J2SDK and
+the J2RE contain the Java Plug-In for Netscape 4.x and Mozilla/Netscape
+7.x.
+EOF
