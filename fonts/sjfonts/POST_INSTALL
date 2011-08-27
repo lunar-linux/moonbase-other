@@ -1,2 +1,9 @@
-message "Running fc-cache please be patient" &&
-fc-cache -f 
+cd /usr/share/fonts/sjfonts
+rm -f fonts.scale fonts.dir fonts.cache*
+mkfontscale
+mkfontdir
+message "${MESSAGE_COLOR}Running fc-cache please be patient${DEFAULT_COLOR}"
+fc-cache -f
+if [ -x xset ]; then
+ xset fp rehash
+fi
