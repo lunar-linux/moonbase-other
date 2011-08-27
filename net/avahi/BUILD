@@ -4,7 +4,6 @@
     . /etc/profile.d/qt4.rc
    fi &&
 
-   patch_it $SOURCE_CACHE/$SOURCE1 0  &&
    add_priv_user avahi:avahi -d /dev/null -s /bin/false &&
    add_priv_user avahi-autoipd:avahi-autoipd -d /dev/null -s /bin/false &&
 
