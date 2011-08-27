@@ -1,0 +1,259 @@
+#
+# gcc-2.95.3 compiler optimizations plugin
+#
+
+plugin_compiler_gcc_2_95_3_optimize()
+{
+  if [ "$LUNAR_COMPILER" != "GCC_2_95_3" ]; then
+    return 2
+  fi
+
+  debug_msg "plugin_compiler_gcc_2_95_3_optimize($@)"
+  if [ -f /etc/lunar/local/optimizations.GCC_2_95_3 ]; then
+    . /etc/lunar/local/optimizations.GCC_2_95_3
+  fi
+
+  # some local macro's
+  cflags_add()
+  {
+    CFLAGS="$CFLAGS $@"
+  }
+
+  cxxflags_add()
+  {
+    CXXFLAGS="$CXXFLAGS $@"
+  }
+
+  cppflags_add()
+  {
+    CPPFLAGS="$CPPFLAGS $@"
+  }
+
+  c_cxx_flags_add()
+  {
+    cflags_add $@
+    cxxflags_add $@
+  }
+
+  # CFLAGS/CXXFLAGS - base optimization
+  case $BOPT in
+    None)    c_cxx_flags_add "-O0" ;;
+    Small)   c_cxx_flags_add "-Os" ;;
+    Fast)    c_cxx_flags_add "-O1" ;;
+    Faster)  c_cxx_flags_add "-O2" ;;
+    Fastest) c_cxx_flags_add "-O3" ;;
+  esac
+
+  # CFLAGS -march cpu-specific optimization
+  if [ -n "$CPU" ]; then
+    c_cxx_flags_add "-m$CPU"
+  fi
+
+  # GCC specific extra optimizations
+  for SP in ${SPD[@]}; do
+    case $SP in
+      Speedy)    c_cxx_flags_add "-funroll-loops" ;;
+      Risky)     c_cxx_flags_add "-ffast-math" ;;
+      Pointers)  c_cxx_flags_add "-fomit-frame-pointer" ;;
+      Siblings)  c_cxx_flags_add "-foptimize-sibling-calls" ;;
+      Profiling)
+        c_cxx_flags_add "-fprofile-arcs"
+        set_local_config "KEEP_SOURCE" "on"
+      ;;
+      Branching) c_cxx_flags_add "-fbranch-probabilities" ;;
+      Aliasing)  c_cxx_flags_add "-fstrict-aliasing" ;;
+      Cprop)     c_cxx_flags_add "-fno-cprop-registers" ;;
+      Float)     c_cxx_flags_add "-ffloat-store" ;;
+      Address)   c_cxx_flags_add "-fforce-addr" ;;
+      Align)     c_cxx_flags_add "-falign-functions -falign-loops -falign-jumps" ;;
+      Expensive) c_cxx_flags_add "-fexpensive-optimizations" ;;
+      Doubles)   c_cxx_flags_add "-malign-double" ;;
+      Tracer)    c_cxx_flags_add "-ftracer" ;;
+      Blocks)    c_cxx_flags_add "-freorder-blocks" ;;
+    esac
+  done
+   
+  for OPT in ${CC_OPTS[@]}; do
+    case $OPT in
+      Deprecated)
+        cflags_add "-Wno-deprecated"
+        cppflags_add "-Wno-deprecated"
+        ;;
+      ccpipe)
+        COPT="$COPT -pipe"
+        ;;
+      cxxpipe)
+        CCOPT="$CCOPT -pipe"
+        ;;
+    esac
+  done
+
+  export COMPILER_PATH=/opt/lunar/gcc/2.95/bin
+
+  CC=gcc
+  CXX=g++
+  CPP=cpp
+
+  export COPT CCOPT
+  export CFLAGS CXXFLAGS CPPFLAGS
+  export CC CXX CPP
+
+  verbose_msg "CC=\"$CC\""
+  verbose_msg "CXX=\"$CXX\""
+  verbose_msg "CPP=\"$CPP\""
+  verbose_msg "CFLAGS=\"$CFLAGS\""
+  verbose_msg "CXXFLAGS=\"$CXXFLAGS\""
+  verbose_msg "CPPFLAGS=\"$CPPFLAGS\""
+
+  return 2
+}
+
+
+plugin_compiler_gcc_2_95_3_menu()
+{
+  # The main code calls this function WITHOUT $1 to find out which
+  # compiler optimization plugins exist. It then returns the plugin
+  # identifier which can be saved in $LUNAR_COMPILER as the user's
+  # choice for COMPILERS
+  if [ -z "$1" ]; then
+    echo "GCC_2_95_3"
+    echo "GNU C Compiler suite version 2.95.x"
+    return 2
+  elif [ "$1" != "GCC_2_95_3" ]; then
+    # we don't display anything when the user selected a
+    # different menu
+    return 2
+  fi
+
+  # now we are done with determining if we are really the menu
+  # that the user wants - so we can display it
+  menu() 
+  { 
+    unset RESULT
+    if [ "$1" == "checklist" ]; then
+      RESULT=`$DIALOG --no-cancel --item-help --separate-output --checklist "$2" 0 0 0 "${OPTIONS[@]}"`
+      if [ $? != 0 ]; then
+        return 1
+      fi
+    elif [ "$1" == "radiolist" ]; then
+      RESULT=`$DIALOG --no-cancel --item-help --radiolist "$2" 0 0 0 "${OPTIONS[@]}"`
+      if [ $? != 0 ]; then
+        return 1
+      fi
+    fi
+    RESULT=$(echo $RESULT | sed -e 's:^"::' -e 's:"$::')
+    return 0
+  }
+
+  save_optimizations()
+  {
+    debug_msg "save_optimizations($@)"
+    cat >/etc/lunar/local/optimizations.GCC_2_95_3  <<EOF
+PLATFORM=$PLATFORM
+CPU=$CPU
+BOPT=$BOPT
+SPD=( $(echo ${SPD[@]} ) )
+CC_OPTS=( $(echo ${CC_OPTS[@]} ) )
+EOF
+  }
+
+  if [ -f /etc/lunar/local/optimizations.GCC_2_95_3 ]; then
+    . /etc/lunar/local/optimizations.GCC_2_95_3
+  fi
+
+  export IFS=$'\t\n'
+  TITLE="Lunar Compiler Optimizations"
+
+  while true; do
+    unset OPTIONS
+    IS_DEFAULT=$([ `get_local_config LUNAR_COMPILER` == "GCC_2_95_3" ] && echo DEFAULT || get_local_config LUNAR_COMPILER)
+    DEFAULT=${CHOICE:-safe}
+    CHOICE=`$DIALOG --title "$TITLE" --ok-label "Select" --cancel-label "Close" --default-item "$DEFAULT" --item-help --menu "" 0 0 0 $(
+      echo "default"
+      echo "Set this compiler as default  [$IS_DEFAULT]"
+      echo "Enables you to substitute the default C compiler"
+      echo "bopt"
+      echo "Base speed optimization       [$BOPT]"
+      echo "Select the base optimization from -Os, -O0, -O1 etc"
+      echo "cpu"
+      echo "CPU selection                 [$CPU]"
+      echo "Select the target CPU type"
+      echo "spd"
+      echo "Specialized optimizations     [${SPD[@]}]"
+      echo "Select specific compiler flags for expensive and risky optimizations"
+      echo "cc_opt"
+      echo "General C/C++ options         [${CC_OPTS[@]}]"
+      echo "Select named pipes, warnings on deprecated symbols"
+      ) `
+    if [ $? != 0 ]; then
+      save_optimizations
+      return
+    fi
+
+    case $CHOICE in 
+      default)
+        if [ "$IS_DEFAULT" != "DEFAULT" ]; then
+          set_local_config LUNAR_COMPILER GCC_2_95_3
+          $DIALOG --msgbox "Gcc 2.95 is now the default compiler!" 6 60
+        fi
+      ;;
+      bopt)
+        OPTIONS=(
+          "None" "-O0" $( [ "$BOPT" == "None" ] && echo "on" || echo "off" ) "Only default optimizations"
+          "Fast" "-O1" $( [ "$BOPT" == "Fast" ] && echo "on" || echo "off" ) "-O1"
+          "Faster" "-O2" $( [ "$BOPT" == "Faster" ] && echo "on" || echo "off" ) "-O2"
+          "Fastest" "-O3" $( [ "$BOPT" == "Fastest" ] && echo "on" || echo "off" ) "-O3"
+          "Small" "-Os" $( [ "$BOPT" == "Small" ] && echo "on" || echo "off" ) "-Os"
+          )
+        menu radiolist "Choose the base compile-time optimization. Most people will use -O2 or -O3. Note that some modules set their own level." &&
+        BOPT=$RESULT
+      ;;
+      cpu)
+        case $PLATFORM in 
+          x86)
+            OPTIONS=(
+              "386" "386" $( [ "$CPU" == "386" ] && echo "on" || echo "off" ) "386 processors"
+              "486" "486" $( [ "$CPU" == "486" ] && echo "on" || echo "off" ) "486 processors"
+              )
+          ;;
+        esac
+        menu radiolist "CPU, according to the kernel you have a$(cat /proc/cpuinfo | grep 'model name' | cut -d: -f2 | head -n 1)" &&
+        CPU=$RESULT
+      ;;
+      spd)
+        OPTIONS=(
+          "Speedy" "-funroll-loops" $( echo ${SPD[@]} | grep -q "Speedy" && echo "on" || echo "off" ) "Optimize to increase performance of generated code"
+          "Risky" "-ffast-math" $( echo ${SPD[@]} | grep -q "Risky" && echo "on" || echo "off" ) "Optimize to increase performance ... by violating ANSI and IEEE FP rules"
+          "Pointers" "-fomit-frame-pointer" $( echo ${SPD[@]} | grep -q "Pointers" && echo "on" || echo "off" ) "Optimize by omitting frame pointers"
+          "Siblings" "-foptimize-sibling-calls" $( echo ${SPD[@]} | grep -q "Siblings" && echo "on" || echo "off" ) "Optimize sibling calls"
+          "Profiling" "-fprofile-arcs" $( echo ${SPD[@]} | grep -q "Profiling" && echo "on" || echo "off" ) "Generate profiles (For later use with Branching)"
+          "Branching" "-fbranching-probabilities" $( echo ${SPD[@]} | grep -q "Branching" && echo "on" || echo "off" ) "Predict branching (For using profiled sources)"
+          "Aliasing" "-fstrict-aliasing" $( echo ${SPD[@]} | grep -q "Aliasing" && echo "on" || echo "off" ) "Enable strict aliasing (enabled by default -O1 and above)"
+          "Cprop" "-fno-cprop-registers" $( echo ${SPD[@]} | grep -q "Cprop" && echo "on" || echo "off" ) "Reduce scheduling dependencies and remove copies"
+          "Float" "-ffloat-store" $( echo ${SPD[@]} | grep -q "Float" && echo "on" || echo "off" ) "Enable float store"
+          "Address" "-fforce-addr" $( echo ${SPD[@]} | grep -q "Address" && echo "on" || echo "off" ) "Force memory address"
+          "Align" "-falign-functions" $( echo ${SPD[@]} | grep -q "Align" && echo "on" || echo "off" ) "Align functions, loops, and jumps"
+          "Expensive" "-fexpensive-optimizations" $( echo ${SPD[@]} | grep -q "Expensive" && echo "on" || echo "off" ) "Perform expensive optimizations"
+          "Doubles" "-malign-double" $( echo ${SPD[@]} | grep -q "Doubles" && echo "on" || echo "off" ) "Align double, long double, and long long on two word boundaries"
+          )
+        menu checklist "Select additional flags to optimize specific areas of the created code. Note that some of these flags are turned on automatically with -O2 or -O3. See 'man gcc' for more information" &&
+        SPD=($RESULT)
+      ;;
+      cc_opt)
+        OPTIONS=(
+          "Deprecated" "-Wno-deprecated for C++" $( echo ${CC_OPTS[@]} | grep -q "Deprecated" && echo "on" || echo "off" ) "Disable warnings of deprecated symbols in C++"
+          "ccpipe" "-pipe for C (RECOMMENDED)" $( echo ${CC_OPTS[@]} | grep -q "ccpipe" && echo "on" || echo "off" ) "Enable cc to use named pipes."
+          "cxxpipe" "-pipe for C++ (RECOMMENDED)" $( echo ${CC_OPTS[@]} | grep -q "cxxpipe" && echo "on" || echo "off" ) "Enable c++ to use named pipes."
+          )
+        menu checklist "General C/C++ compiler settings" &&
+        CC_OPTS=($RESULT)
+      ;;
+    esac
+  done
+
+  save_optimizations
+}
+
+
+plugin_register BUILD_BUILD plugin_compiler_gcc_2_95_3_optimize
+plugin_register OPTIMIZE_MENU plugin_compiler_gcc_2_95_3_menu
