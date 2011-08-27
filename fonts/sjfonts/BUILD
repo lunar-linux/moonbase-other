@@ -1,17 +1,12 @@
 (
 
-  SJFONTS=/usr/share/fonts/$MODULE
+  prepare_install &&
 
-  prepare_install              &&
+  if [ ! -d /usr/share/fonts/sjfonts ] ; then
+    mkdir -p /usr/share/fonts/sjfonts
+  fi &&
 
-  if [ ! -d $SJFONTS ] ; then
-     mkdir -p $SJFONTS
-  fi                           &&
-
-  if [ -d old.libraries ] ; then
-    rmdir old.libraries
-  fi                           &&
-
-  cp -f $SOURCE_DIRECTORY/* $SJFONTS
+  rm -rf old.libraries &&
+  cp -f * /usr/share/fonts/sjfonts
 
 ) > $C_FIFO 2>&1
