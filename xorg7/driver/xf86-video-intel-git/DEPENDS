@@ -1,3 +1,6 @@
-depends mesa-lib
-depends libXvMC
 depends git
+depends xorg-server
+depends libva
+depends xcb-util
+
+optional_depends "libXvMC" "--enable-xvmc" "--disable-xvmc" "for XvMC support"
