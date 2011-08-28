@@ -1,7 +1,8 @@
 (
 
-    ./configure  --prefix=/usr      \
-                 --sysconfdir=/etc  \
+    ./configure  --prefix=/usr        \
+                 --sysconfdir=/etc    \
+                 --enable-drivers=all \
                  $OPTS              &&
     make                            &&
     prepare_install                 &&
