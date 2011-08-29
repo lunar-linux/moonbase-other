@@ -1,4 +1,8 @@
 depends glib-2
 
-optional_depends gtk+-2   "" "" "GTK+-2 support"
-optional_depends SDL      "" "" "SDL support"
+optional_depends libpng       "--with-libpng"       "--without-libpng" "for png graphics support"
+optional_depends libdv        "--with-libdv"        "--without-libdv" "for dv video support"
+optional_depends v4l-utils    "--with-v4l"          "--without-v4l" "for video4linux2 device support"
+optional_depends gtk+-2       "--with-gtk"          "--without-gtk" "GTK+-2 support"
+optional_depends SDL          "--with-libsdl"       "--without-libsdl" "SDL support"
+optional_depends libquicktime "--with-libquicktime" "--without-libquicktime" "for quicktime support"
