@@ -4,9 +4,9 @@
     sedit  "s/compile comp-doc/compile/"     Makefile.in
     sedit  "s/install-prog install-doc/install-prog/"  Makefile.in
   fi &&
-  
-  if  !  module_installed  teTeX;  then
-    sedit "/dvi/d" Makefile.in 
+
+  if  !  module_installed  texlive ;  then
+    sedit "/dvi/d" Makefile.in
   fi &&
 
   default_build
