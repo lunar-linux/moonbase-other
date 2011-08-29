@@ -1,13 +1,7 @@
 if [[ ! -e /usr/include/GL/glut.h ]] ; then
-  # freeglut provides %GLUT, previously overlapping with mesa-lib.
-  # mesa-lib previously installed part of %GLUT, so install freeglut so it is complete.
-  # Still need to support the deprecated glut also.
-  GLUT=`unalias %GLUT`
-  if [[ $GLUT == "glut" ]] ; then
-    lin -c glut
-  else
-    # Preferred default
-    lin -c freeglut
-  fi
+  # mesa-lib previously installed part of glut,
+  # so install freeglut so it is complete
+  lin -c freeglut
 fi
+
 lin -c mesa-demos
