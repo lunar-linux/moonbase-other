@@ -1,6 +1,6 @@
 (
 
-  if module_installed %TEX ; then
+  if module_installed texlive ; then
      OPTS="--with-kpathsea=/usr/include/kpathsea/"
     else
      OPTS="--without-kpathsea"

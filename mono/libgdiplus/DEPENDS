@@ -1,11 +1,7 @@
 depends  %X
 depends  glib-2
 
-optional_depends  "tiff"     ""  "--without-libtiff"  \
-                  "for TIFF image IO support"
-optional_depends  "%JPEG"     ""  "--without-libjpg"   \
-                  "for JPEG image support"
-optional_depends  "libexif"  ""  "--without-libexif"  \
-                  "for EXIF image tag support"
-optional_depends  "%GIF" ""  ""                   \
-                  "for GIF image support"
+optional_depends "tiff"    "" "--without-libtiff" "for TIFF image IO support"
+optional_depends "%JPEG"   "" "--without-libjpg"  "for JPEG image support"
+optional_depends "libexif" "" "--without-libexif" "for EXIF image tag support"
+optional_depends "giflib"  "" ""                  "for GIF image support"
