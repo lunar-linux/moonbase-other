@@ -1,5 +1,11 @@
 (
 
+# Some giggling for the mjpegtools bump.
+  sedit "s:ontheflyratectl.hh:ontheflyratectlpass1.hh:" ext/mpeg2enc/gstmpeg2encoder.cc &&
+  sed -i "31i #include <ontheflyratectlpass2.hh>" ext/mpeg2enc/gstmpeg2encoder.cc &&
+  sed -i "32d" ext/mpeg2enc/gstmpeg2encoder.cc &&
+  sed -i "32d" ext/mpeg2enc/gstmpeg2encoder.cc &&
+
   #xvidcore doesn't use pkgconfig, and gstreamer doesn't use -pthread
   #This leaves us to fix the problem
   if in_depends $MODULE xvidcore ; then
