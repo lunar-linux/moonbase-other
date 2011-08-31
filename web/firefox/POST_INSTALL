@@ -1,8 +1,9 @@
 OLD_VER="`get_module_config OLD_VER`"
+NEW_VER="`get_module_config NEW_VER`"
 FIREFOX_HOME=/usr
-FFOX_LIBDIR=firefox-$VERSION
+FFOX_LIBDIR=firefox-$NEW_VER
 
-if [ ! -z "$OLD_VER" ]; then
+if [ ! -z "$OLD_VER" ] && [ "$OLD_VER" != "$NEW_VER" ] ; then
   for old_version in $OLD_VER
   do
     rm -rf /usr/lib/firefox-$old_version
@@ -15,6 +16,16 @@ fi
 
 unset_module_config OLD_VER
 
+# Clean up old firefox junk
+rm -rf /usr/include/firefox-3*
+rm -rf /usr/include/firefox-4*
+rm -rf /usr/share/idl/firefox-3*
+rm -rf /usr/share/idl/firefox-4*
+rm -rf /usr/lib/gcc/i686-pc-linux-gnu/4.5.2/include-fixed/firefox-3*
+rm -rf /usr/lib/gcc/i686-pc-linux-gnu/4.5.2/include-fixed/firefox-4*
+
 export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/$FFOX_LIBDIR:$FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins:$FIREFOX_HOME/lib/$FFOX_LIBDIR/components"
 export MOZILLA_FIVE_HOME="$FIREFOX_HOME/lib/$FFOX_LIBDIR"
+# Add plugins
+ln -snf /opt/lunar/plugins "$MOZILLA_FIVE_HOME/plugins"
 ldconfig

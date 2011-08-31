@@ -6,6 +6,7 @@ depends nss
 depends curl
 depends libnotify
 depends alsa-lib
+depends libvpx
 
 # Firefox crashes with sqlite 3.6.18 when adding new bookmarks:
 # https://bugzilla.mozilla.org/show_bug.cgi?id=512940
@@ -15,11 +16,11 @@ depends alsa-lib
 #                 "Use system sqlite"
 
 optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
-optional_depends "flash-plugin-10"  ""  ""  "To enable Flash plugin"
+optional_depends "flash-plugin-10"  ""  ""  "To enable Flash plugin (If yes here say no to version 11"
+optional_depends "flash-plugin-11"  ""  ""  "To enable Flash plugin"
 optional_depends "gnome-vfs"        ""  ""  "For Gnome VFS support"
 optional_depends "hunspell"         ""  ""  "For spelling support"
 
-optional_depends "dbus-glib"       \
-                 "--enable-dbus"   \
-                 "--disable-dbus"  \
-                 "for dbus support"
+# $OPTS is ignored in this BUILD
+optional_depends "libevent"         ""  ""  "For event detection"
+optional_depends "dbus-glib"        ""  ""  "For dbus support"

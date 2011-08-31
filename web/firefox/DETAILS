@@ -1,15 +1,14 @@
           MODULE=firefox
-         VERSION=3.6.20
-          SOURCE=${MODULE}-${VERSION}.source.tar.bz2
+         VERSION=6.0.1
+          SOURCE=firefox-$VERSION.source.tar.bz2
    SOURCE_URL[0]=ftp://ftp.uni-erlangen.de/pub/mozilla.org/firefox/releases/$VERSION/source
    SOURCE_URL[1]=ftp://mozilla.isc.org/pub/mozilla.org/firefox/releases/$VERSION/source
    SOURCE_URL[2]=ftp://ftp.mozilla.org/pub/firefox/releases/$VERSION/source
-      SOURCE_VFY=sha1:d25d892b3214f92f0799ecdaf6ea6414a8950eb2
+      SOURCE_VFY=sha1:68d08c13ae24f0c3b9c4b0c3eeb83a02c56e4229
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/mozilla-release
         WEB_SITE=http://www.mozilla.org/projects/firefox
-         ENTERED=20030810
-         UPDATED=20110820
-      MAINTAINER="tchan@lunar-linux.org"
-           PSAFE=no
+         ENTERED=20110814
+         UPDATED=20110831
            SHORT="A speedy, full-featured web browser"
 
 cat << EOF
