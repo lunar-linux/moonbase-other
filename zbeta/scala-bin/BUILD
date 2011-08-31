@@ -14,8 +14,8 @@
   cp -r $SOURCE_DIRECTORY /usr/scala &&
 
   # symlink default and latest (like java)
-  ln -sf /usr/scala/$MOD-$VERSION /usr/scala/latest  &&
-  ln -sf /usr/scala/latest        /usr/scala/default &&
+  ln -sf /usr/scala/$MOD-$VER /usr/scala/latest  &&
+  ln -sf /usr/scala/latest    /usr/scala/default &&
 
   # bash completion
   install -d /etc/bash_completion.d &&

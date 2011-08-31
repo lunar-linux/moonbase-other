@@ -1,8 +1,7 @@
 (
-
-  # Patch from http://scmweb.sourcemage.org/?p=smgl/grimoire.git;a=tree;f=latex/texlive
-  # Use Linux-sensible directories
-  patch_it $SOURCE_CACHE/$SOURCE2 0  &&
+  # Use /usr/share as root
+  sedit 's:^\(TEXMFROOT = \)\$SELFAUTOPARENT:\1 /usr/share:' texk/kpathsea/texmf.cnf &&
+  sedit 's:^\(TEXMFLOCAL = \).*$:\1 \$TEXMFROOT/texmf-local:' texk/kpathsea/texmf.cnf &&
 
   # Fonts dir
   sedit 's:^\(OSFONTDIR =\).*:\1 /usr/share/fonts:' texk/kpathsea/texmf.cnf  &&
@@ -42,6 +41,6 @@
   default_build  &&
 
   # Idea from http://projects.archlinux.org/svntogit/packages.git/tree/texlive-bin/trunk/
-  install -m644 $SOURCE_CACHE/$SOURCE3 /etc/fonts/conf.d/09-texlive-fonts.conf
+  install -m644 $SOURCE_CACHE/$SOURCE2 /etc/fonts/conf.d/09-texlive-fonts.conf
 
 ) > $C_FIFO 2>&1
