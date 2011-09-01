@@ -2,5 +2,6 @@ depends  gtk+-2
 depends  libpcap
 depends  openssl
 
-optional_depends heimdal "--with-krb5" "--without-krb5" "Kerberos 5 support"
-optional_depends portaudio "--with-portaudio" "--without-portaudio" "Enable RPC playback support (needed for VoIP sniffing)"
+optional_depends "gnutls"    "--with-gnutls=yes" "--with-gnutls=no"    "for SSL/TLS support"
+optional_depends "heimdal"   "--with-krb5"       "--without-krb5"      "Kerberos 5 support"
+optional_depends "portaudio" "--with-portaudio"  "--without-portaudio" "Enable RPC playback support (needed for VoIP sniffing)"
