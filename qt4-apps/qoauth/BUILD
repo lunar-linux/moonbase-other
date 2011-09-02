@@ -2,7 +2,7 @@
 
   . /etc/profile.d/qt4.rc &&
 
-  qmake &&
+  qmake qoauth.pro &&
 
   default_make
 
