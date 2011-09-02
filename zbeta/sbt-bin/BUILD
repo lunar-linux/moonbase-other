@@ -13,7 +13,7 @@ exec java                                     \\
        -Xmx1536M                              \\
        -XX:MaxPermSize=256m                   \\
        -XX:+CMSClassUnloadingEnabled          \\
-       -Dsbt.boot.directory=\$HOME/.sbt/boot/  \\
+       -Dsbt.boot.directory=\$HOME/.sbt/boot/ \\
        -jar /opt/sbt/sbt-launch.jar           \\
        "\$@"
 EOF
