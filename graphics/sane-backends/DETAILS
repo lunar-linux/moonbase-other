@@ -1,13 +1,16 @@
           MODULE=sane-backends
          VERSION=1.0.22
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=ftp://ftp.sane-project.org/pub/sane/$MODULE-$VERSION
-   SOURCE_URL[1]=ftp://ftp2.sane-project.org/pub/sane/$MODULE-$VERSION
+         SOURCE2=sane-backends-v4l-header-deconflict.patch
+   SOURCE_URL[0]=ftp://ftp2.sane-project.org/pub/sane/$MODULE-$VERSION
+   SOURCE_URL[1]=ftp://ftp.sane-project.org/pub/sane/$MODULE-$VERSION
    SOURCE_URL[2]=ftp://ftp3.sane-project.org/pub/sane/$MODULE-$VERSION
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:dc04d6e6fd18791d8002c3fdb23e89fef3327135
+     SOURCE2_VFY=sha1:722b9f46fc6dde8708e9dfca1c75cebfa26dcd01
         WEB_SITE=http://www.sane-project.org
          ENTERED=20020412
-         UPDATED=20110214
+         UPDATED=20110902
       MAINTAINER=kc8apf@kc8apf.net
            SHORT="Universal scanner interface"
 
