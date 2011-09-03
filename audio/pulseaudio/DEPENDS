@@ -1,14 +1,25 @@
 depends liboil
 depends libsndfile
-depends libsamplerate
 depends libatomic_ops
 depends gdbm
 depends speex
 
-optional_depends "alsa-lib"   ""  "--disable-alsa"  "for ALSA support"
-optional_depends "jack"       ""  "--disable-jack"  "for jack support"
-optional_depends "glib-2"     ""  "--disable-glib2"  "for glib support"
-optional_depends "libasyncns" ""  ""  "for asynchronous name server"
-optional_depends "libcap"     ""  ""  "for POSIX 1003.1e support"
-optional_depends "avahi"      ""  "--disable-avahi"  "for ZeroConf support"
-optional_depends "hal"        ""  "--disable-hal" "for hal support"
+optional_depends "alsa-lib"      ""  "--disable-alsa"       "for ALSA support"
+optional_depends "jack"          ""  "--disable-jack"       "for jack support"
+optional_depends "glib-2"        ""  "--disable-glib2"      "for glib support"
+optional_depends "libasyncns"    ""  "--disable-asyncns"    "for asynchronous name server"
+optional_depends "libcap"        ""  "--without-caps"       "for POSIX 1003.1e support"
+optional_depends "avahi"         ""  "--disable-avahi"      "for ZeroConf support"
+optional_depends "dbus"          ""  "--disable-dbus"       "optional D-Bus support"
+optional_depends "bluez"         ""  "--disable-bluez"      "optional BlueZ support"
+optional_depends "udev"          ""  "--disable-udev"       "optional UDEV support"
+optional_depends "lirc"          ""  "--disable-lirc"       "optional LIRC support"
+optional_depends "tcp_wrappers"  ""  "--disable-tcpwrap"    "optional TCP wrappers support"
+optional_depends "GConf"         ""  "--disable-gconf"      "optional GConf support"
+optional_depends "gtk+-2"        ""  "--disable-gtk2"       "optional Gtk+ 2 support"
+optional_depends "libsamplerate" ""  "--disable-samplerate" "optional libsamplerate support"
+optional_depends "openssl"       ""  "--disable-openssl"    "for OpenSSL support"
+optional_depends "bluez"         ""  "--disable-bluez"      "optional BlueZ support"
+
+optional_depends "alsa-oss"      ""  "--disable-oss-output --disable-oss-wrapper" "optional OSS output support"
+
