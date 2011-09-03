@@ -7,7 +7,7 @@
 
   prepare_install &&
   install -Dm755 libflashplayer.so /opt/lunar/plugins/libflashplayer.so &&
-  cp -a usr / &&
+  cp -af usr / &&
 
   if [ -x /usr/bin/gtk-update-icon-cache -a -f /usr/share/icons/hicolor/index.theme ]; then
       gtk-update-icon-cache -f /usr/share/icons/hicolor
