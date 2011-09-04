@@ -1,11 +1,11 @@
 OLD_VER="`get_module_config OLD_VER`"
-SMNKEY_LIBDIR=seamonkey-2.3.1
+SMNKEY_LIBDIR=seamonkey-$VERSION
 
-#if [ ! -z $OLD_VER ]; then
-#  rm -rf /usr/lib/seamonkey-$OLD_VER
-#  rm -rf /usr/include/seamonkey-$OLD_VER
-#  rm -rf /usr/share/idl/seamonkey-$OLD_VER
-#fi
+if [ ! -z $OLD_VER ]; then
+  rm -rf /usr/lib/seamonkey-$OLD_VER
+  rm -rf /usr/include/seamonkey-$OLD_VER
+  rm -rf /usr/share/idl/seamonkey-$OLD_VER
+fi
 unset_module_config OLD_VER
 
 rm -rf /usr/lib/seamonkey-1*
