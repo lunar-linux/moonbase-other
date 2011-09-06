@@ -1,7 +1,10 @@
 (
 
-  export CFLAGS="$CFLAGS -fPIC"
+  export CFLAGS="$CFLAGS -fPIC" &&
+
   cp /usr/share/automake/config.sub $SOURCE_DIRECTORY &&
+
+  OPTS+=" --enable-syslog" &&
 
   default_build
 
