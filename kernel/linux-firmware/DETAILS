@@ -1,7 +1,8 @@
           MODULE=linux-firmware
          VERSION=20110818
           SOURCE=${MODULE}-${VERSION}.tar.bz2
-      SOURCE_URL=http://www.kernel.org/pub/linux/kernel/people/dwmw2/firmware/
+# This is a temporary fix until the kernel.org folks get things squared away
+      SOURCE_URL=$MIRROR_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_VFY=sha1:4279c2937f7fc834441a3e78e286e6688c873c99
         WEB_SITE="http://www.kernel.org/pub/linux/kernel/people/dwmw2/firmware/"
