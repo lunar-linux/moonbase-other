@@ -2,7 +2,7 @@
 
   find . -name 'Makefile.*' -exec sed -i 's/-Werror//g' {} \; &&
   find . -name 'Makefile.*' -exec sed -i 's/-pedantic//g' {} \; &&
-
+  sedit 's/libnl-3.0/libnl-3.1/' configure &&
   # If more than one libnl is installed compilation will break because
   # ntrack will try to use them all. So we choose the newest one
   # and hide the older so configure can skip them.
