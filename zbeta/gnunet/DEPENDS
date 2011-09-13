@@ -1,11 +1,8 @@
-depends libextractor
-depends libmicrohttpd
 depends curl
-depends sqlite
+depends libextractor
 
-# following are untested, if you should build gnunet with them
-# enabled, please check lvu links gnunet and use the appropriate
-# [en|dis]able /with[out] flags!
-optional_depends "libesmtp"   "" "" "for gnunet-monkey"
-optional_depends "mysql"      "" "" "with mysql database support"
-optional_depends "postgresql" "" "" "with postgresql database support"
+optional_depends "sqlite"        "" "--without-sqlite"     "for sqlite support"
+optional_depends "libmicrohttpd" "" "--without-microhttpd" "for libmicrohttpd support"
+optional_depends "libesmtp"      "" "--without-esmtp"      "for gnunet-monkey"
+optional_depends "mysql"         "" "--without-mysql"      "with mysql database support"
+optional_depends "postgresql"    "" "--without-postgres"   "with postgresql database support"
