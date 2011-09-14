@@ -2,6 +2,7 @@
 
   # Fixes segfault when compiling docbook-utils
   patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
 
   # We need to remove the old catalog entries upon an update
   if module_is_expired $MODULE ; then
