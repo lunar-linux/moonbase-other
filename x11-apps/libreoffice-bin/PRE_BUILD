@@ -1,5 +1,8 @@
-desktopfiles="base calc draw impress math printeradmin writer"  &&
+desktopfiles="base calc draw impress javafilter math printeradmin qstart startcenter writer"  &&
 for i in $desktopfiles; do
   rm -f /usr/share/applications/$i.desktop
 done   &&
+
+rm -rf /opt/libreoffice${VERSION%.*} &&
+
 default_pre_build
