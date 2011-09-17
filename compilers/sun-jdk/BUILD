@@ -1,8 +1,5 @@
 (
 
-  chmod +x $SOURCE &&
-  ./$SOURCE -noregister &&
-
   # Clean up old java 1.6.0 service packs
   rm -rf /usr/lib/j[rd][ek]1.6.0_* &&
   rm -rf /usr/java &&
@@ -13,7 +10,7 @@
   # Install java to right directory
   mkdir -p /usr/java &&
   # This is default and recommended installation place for Java
-  cp -r $SOURCE_DIRECTORY/jdk${FVERSION} /usr/java &&
+  cp -r $SOURCE_DIRECTORY /usr/java &&
   # Sun's recommended symlinks:
   # This one _always_ points on latest Java release
   ln -sf /usr/java/jdk${FVERSION} /usr/java/latest &&
@@ -42,10 +39,13 @@
   # Always use new plugin.
   # Firefox 3, Seamonkey 2, Google chrome/inium use it
   # KDE3/4 Konqueror and Opera always uses Java directly so do not use any plugin
-  ln -sf /usr/java/latest/jre/lib/i386/libnpjp2.so /opt/lunar/plugins/ &&
-
-  # This didn't get created, dead link. Do it this way.
-  ln -sf /usr/java/latest/jre/lib/i386/server/libjvm.so /usr/lib/libjvm.so &&
+  if [ -d /usr/java/latest/jre/lib/amd64 ]; then
+     ln -sf /usr/java/latest/jre/lib/amd64/server/libjvm.so /usr/lib/
+     ln -sf /usr/java/latest/jre/lib/amd64/libnpjp2.so /opt/lunar/plugins/
+  else
+     ln -sf /usr/java/latest/jre/lib/i386/server/libjvm.so /usr/lib/
+     ln -sf /usr/java/latest/jre/lib/i386/libnpjp2.so /opt/lunar/plugins/
+  fi &&
 
   echo export JAVA_HOME=\"/usr/java/latest\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
   echo export PATH=\"'$PATH':'$JAVA_HOME'/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
