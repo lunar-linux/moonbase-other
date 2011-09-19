@@ -1,15 +1,18 @@
           MODULE=sun-jre
-         VERSION=6u27
-        FVERSION=1.${VERSION/u/.0_}
-          SOURCE=jre-$VERSION-linux-i586.bin
-      SOURCE_URL=http://download.oracle.com/otn-pub/java/jdk/6u27-b07
-      SOURCE_VFY=sha1:5a3d2e304d6cf62ee6a56cce322014cf3ceab2ad
-        WEB_SITE=http://www.java.com/en/download/manual.jsp
+         VERSION=7
+        FVERSION=1.7.0
+#        FVERSION=1.${VERSION/u/.0_}
+          SOURCE=jre-$VERSION-linux-i586.tar.gz
+      SOURCE_URL=http://download.oracle.com/otn-pub/java/jdk/$VERSION
+      SOURCE_VFY=sha1:0da2bbc6982054332f71196fc1938be8926413ac
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/jre$FVERSION
+        WEB_SITE=http://www.oracle.com/technetwork/java/javase/downloads/index.html
          LICENSE="proprietary"
          ENTERED=20061113
-         UPDATED=20110820
+         UPDATED=20110911
            FUZZY=off
        LDD_CHECK=off
+         ARCHIVE=off
            SHORT="SUN java runtime environment"
 cat << EOF
 sun-jre is only the run time environment, should be sufficient for

@@ -1,17 +1,17 @@
-OLD_VER="$(get_module_config OLD_VER)"
-TBIRD_HOME=/usr
+OLD_VER="`get_module_config OLD_VER`"
 TBIRD_LIBDIR=thunderbird-$VERSION
 
 if [ ! -z $OLD_VER ]; then
   rm -rf /usr/lib/thunderbird-$OLD_VER
+  rm -rf /usr/include/thunderbird-$OLD_VER
+  rm -rf /usr/share/idl/thunderbird-$OLD_VER
 fi
-
 unset_module_config OLD_VER
 
-# No more linking workarounds
-export LD_LIBRARY_PATH="$TBIRD_HOME/lib/$TBIRD_LIBDIR:$TBIRD_HOME/lib/$TBIRD_LIBDIR/plugins:$TBIRD_HOME/lib/$TBIRD_LIBDIR/components"
-export MOZILLA_FIVE_HOME="$TBIRD_HOME/lib/$TBIRD_LIBDIR"
-ldconfig
+rm -rf /usr/lib/thunderbird-1*
+rm -rf /usr/lib/thunderbird-2*
+rm -rf /usr/lib/thunderbird-3*
 
-#echo "skin,install,select,classic/1.0" >> $TBIRD_HOME/lib/$TBIRD_LIBDIR/chrome/installed-chrome.txt
-#echo "locale,install,select,en-US" >> $TBIRD_HOME/lib/$TBIRD_LIBDIR/chrome/installed-chrome.txt
+export LD_LIBRARY_PATH="/usr/lib/$TBIRD_LIBDIR:/usr/lib/$TBIRD_LIBDIR/components"
+export MOZILLA_FIVE_HOME="/usr/lib/$TBIRD_LIBDIR"
+ldconfig
