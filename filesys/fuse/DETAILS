@@ -1,11 +1,14 @@
           MODULE=fuse
-         VERSION=2.8.5
+         VERSION=2.8.6
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-CLONE_NEWNS.patch.bz2
       SOURCE_URL=$SFORGE_URL/$MODULE
-      SOURCE_VFY=sha1:862320b56d6bc4ad5e7be2b1e0b5029166aae09b
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:c2c0f9fff8bfee217da200888123e5abb5b498f2
+     SOURCE2_VFY=sha1:01c9b20ee09f5e9bfb9ce40a30d98c4218c3294d
         WEB_SITE=http://fuse.sourceforge.net
          ENTERED=20040422
-         UPDATED=20101007
+         UPDATED=20110918
            SHORT="File system in userspace"
 
 cat << EOF

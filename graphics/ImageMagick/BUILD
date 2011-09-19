@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --enable-shared=yes --enable-hdri --disable-static"
+  OPTS+=" --enable-shared=yes --disable-static"
 
 # They say to run this if you got dirty autotools.
 # autoreconf         &&

@@ -2,6 +2,8 @@
 
   patch_it $SOURCE_CACHE/$SOURCE3 1  &&
   patch_it $SOURCE_CACHE/$SOURCE4 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE5 0  &&
+
   # the patch REQUIRES -lcrypt but we might want to disable PAM:
   if echo $OPTS | grep -q with-pam ; then
     sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/" */Makefile.in

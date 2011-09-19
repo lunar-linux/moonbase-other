@@ -1,6 +1,8 @@
 (
 
-  OPTS+="   --enable-lib --enable-util" &&
+  OPTS+="   --enable-lib --enable-util"  &&
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
   default_build
 

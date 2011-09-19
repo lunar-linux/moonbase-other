@@ -8,7 +8,7 @@ optional_depends "libmpcdec"      "" "-DK3B_BUILD_MUSE_DECODER_PLUGIN=OFF" "for 
 optional_depends "libsamplerate"  "" "-DWITH_Samplerate=OFF" "for audio rate conversion support"
 optional_depends "vcdimager"      "" "" "for creating video cds"
 optional_depends "sox"            "" "-DK3B_BUILD_SOX_ENCODER_PLUGIN=OFF" "for audio file encoding support"
-optional_depends "libmusicbrainz" "" "" "for metadata query support"
+optional_depends "libmusicbrainz2" "" "-DK3B_ENABLE_MUSICBRAINZ=OFF" "for metadata query support"
 optional_depends "ffmpeg"         "" "-DK3B_BUILD_FFMPEG_DECODER_PLUGIN=OFF" \
                                   "for wma decoding"
 optional_depends "lame"           "" "-DK3B_BUILD_LAME_ENCODER_PLUGIN=OFF" "encode audio files in the mp3 format"

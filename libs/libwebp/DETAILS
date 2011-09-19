@@ -1,0 +1,27 @@
+          MODULE=libwebp
+         VERSION=0.1.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://webp.googlecode.com/files/
+      SOURCE_VFY=sha1:8d5550cbfabaa2218791637c15b41d6a5ee8d8ad
+        WEB_SITE=http://code.google.com/p/webp/
+         ENTERED=20110917
+         UPDATED=20110917
+           SHORT="new image format that provides lossy compression for photographic images"
+
+cat << EOF
+WebP is a new image format that provides lossy compression for photographic 
+images. In a large scale study of 900,000 web images, WebP images were 39.8% 
+smaller than jpeg images of similar quality.
+
+A WebP file consists of VP8 image data, and a container based on RIFF. The 
+standalone libwebp library serves as a reference implementation for the WebP 
+specification and is available at this git repository and as a tarball. 
+Webmasters and web developers can use the WebP image format to create smaller
+and better looking images that can help make the web faster. 
+
+The easiest use should look like:
+  cwebp input.png -q 80 -o output.webp
+which will convert the input PNG or JPEG file to a WebP one using a
+quality factor of 80 on a 0->100 scale (0 being the lowest quality,
+100 being the best. Default value is 75).
+EOF

@@ -1,1 +1,5 @@
-depends bluez
+depends dbus
+
+optional_depends "bluez"     "--enable-bluetooth" "--disable-bluetooth" "for bluetooth support"
+optional_depends "udev"      "--enable-udev"      "--disable-udev"      "for udev support"
+optional_depends "libcap-ng" "--enable-capng"     "--disable-capng"     "for POSIX capabilites support"

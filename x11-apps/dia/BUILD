@@ -2,6 +2,10 @@
 
   export LIBART_CONFIG=/usr/bin/libart2-config &&
 
+  if [ "`get_module_config DOCS`" = "n" ] ; then
+    sedit "s?SUBDIRS = lib objects plug-ins shapes app bindings samples po sheets data doc tests installer?SUBDIRS = lib objects plug-ins shapes app bindings samples po sheets data tests installer?g" Makefile.in
+  fi  &&
+
   OPTS+=" --with-python --enable-debug=no --disable-db2html" &&
 
   if in_depends $MODULE swig; then
