@@ -2,7 +2,7 @@
 
   unset LDFLAGS &&
 
-  python setup.py build --fcompiler=gnu95 &&
+  python setup.py build  &&
 
   prepare_install  &&
 
