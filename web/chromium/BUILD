@@ -102,6 +102,16 @@ EOF
   mkdir -p /usr/share/themes/Chromium &&
   cp -a $SOURCE_DIRECTORY/chrome/app/theme /usr/share/themes/Chromium/ &&
 
-  ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium
+  ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium &&
+
+  install -m 0644 -D $SCRIPT_DIRECTORY/chromium.desktop /usr/share/applications/chromium.desktop &&
+
+  if [ -d /usr/share/icons/hicolor/ ] ; then 
+    for size in 16 22 24 32 48 64 128 256; do
+      install -m 0644 -D \
+        chrome/app/theme/chromium/product_logo_${size}.png \
+        /usr/share/icons/hicolor/${size}x${size}/apps/chromium.png
+    done
+  fi
 
 ) > $C_FIFO 2>&1
