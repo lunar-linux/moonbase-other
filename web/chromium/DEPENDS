@@ -17,9 +17,9 @@ depends Switch
 optional_depends "yasm"   "-Duse_system_yasm=1"   "-Duse_system_yasm=0"   "To use system yasm to compile assembler parts"
 optional_depends "cups"   "-Duse_cups=1"          "-Duse_cups=0"          "To use cups printing"
 optional_depends "ffmpeg" "-Duse_system_ffmpeg=1" "-Duse_system_ffmpeg=0" "To enable system ffmpeg"
-optional_depends "icu4c"  "-Duse_system_icu=1"    "-Duse_system_icu=0"    "To use system icu library"
 optional_depends "GConf"  "-Duse_gconf=1"         "-Duse_gconf=0"         "To use cups printing"
 optional_depends "speex"  ""                      ""                      "To use system speex"
+optional_depends "pulseaudio" "-Denable_webrtc=1" "-Denable_webrtc=0"     "To use Realtime Web Communication"
 
 optional_depends "libgnome-keyring"  "-Duse_gnome_keyring=1 -Dlinux_link_gnome_keyring=1" \
                                      "-Duse_gnome_keyring=0 -Dlinux_link_gnome_keyring=0"  \
@@ -34,6 +34,7 @@ optional_depends "libgnome-keyring"  "-Duse_gnome_keyring=1 -Dlinux_link_gnome_k
 #optional_depends "sqlite"  "-Duse_system_sqlite=1"  ""  \
 #                 "To use system sqlite"
 
-
+#not working in chromium 14.0
+#optional_depends "icu4c"  "-Duse_system_icu=1"    "-Duse_system_icu=0"    "To use system icu library"
 
 
