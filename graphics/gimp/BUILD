@@ -1,6 +1,7 @@
 (
 
   patch_it $SOURCE2 0 &&
+  patch_it $SOURCE3 1 &&
 
   touch plug-ins/pygimp/pygimp-logo.png  &&
   export OPTS+=" --without-sendmail"
