@@ -1,6 +1,8 @@
 depends fontconfig
 
 
+optional_depends  "gtk+-2" "" "" "for GTK wrapper support"
+
 optional_depends  "curl"                                            \
                   "--enable-libcurl"                                \
                   "--disable-libcurl"                               \
@@ -45,11 +47,6 @@ optional_depends  "qt4"                                             \
                    "--enable-poppler-qt4"                           \
                    "--disable-poppler-qt4"                          \
                    "for Qt4 wrapper support"
-
-optional_depends  "gtk+-2"                                          \
-                  "--enable-gdk"                                    \
-                  "--disable-gdk"                                   \
-                  "for GTK wrapper support"
 
 optional_depends  "gobject-introspection"                           \
                   "--enable-introspection"                          \
