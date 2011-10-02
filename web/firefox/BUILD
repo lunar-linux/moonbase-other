@@ -73,15 +73,6 @@
   prepare_install   &&
   make install      || exit 1
 
-  MOZILLA_HOME=$(egrep ^moz_libdir= browser/app/firefox | cut -d= -f2)  &&
-  LIB_VER=$(echo $MOZILLA_HOME | cut -d\- -f2)  &&
-  # Sanity check
-  if [[ $MOZILLA_HOME != "/usr/lib"*"firefox"* ]] || [[ $LIB_VER != [1-9]* ]] ; then
-    message "${PROBLEM_COLOR}Sanity check on variables failed!${DEFAULT_COLOR}"
-    exit 1
-  fi  &&
-  set_module_config NEW_VER "$LIB_VER"  &&
-
   # Now the .desktop file and icons
   install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/firefox.desktop  &&
 
