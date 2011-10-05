@@ -3,14 +3,20 @@ TBIRD_LIBDIR=thunderbird-$VERSION
 
 if [ ! -z $OLD_VER ]; then
   rm -rf /usr/lib/thunderbird-$OLD_VER
+  rm -rf /usr/lib/thunderbird-devel-$OLD_VER
   rm -rf /usr/include/thunderbird-$OLD_VER
   rm -rf /usr/share/idl/thunderbird-$OLD_VER
 fi
 unset_module_config OLD_VER
 
-rm -rf /usr/lib/thunderbird-1*
-rm -rf /usr/lib/thunderbird-2*
-rm -rf /usr/lib/thunderbird-3*
+rm -rf /usr/lib/thunderbird-[1-6]*
+rm -rf /usr/lib/thunderbird-7.0
+rm -rf /usr/lib/thunderbird-devel-[1-6]*
+rm -rf /usr/lib/thunderbird-devel-7.0
+rm -rf /usr/include/thunderbird-[1-6]*
+rm -rf /usr/include/thunderbird-7.0
+rm -rf /usr/share/idl/thunderbird-[1-6]*
+rm -rf /usr/share/idl/thunderbird-7.0
 
 export LD_LIBRARY_PATH="/usr/lib/$TBIRD_LIBDIR:/usr/lib/$TBIRD_LIBDIR/components"
 export MOZILLA_FIVE_HOME="/usr/lib/$TBIRD_LIBDIR"
