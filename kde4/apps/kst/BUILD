@@ -1,20 +1,8 @@
 (
 
-  prepare_install &&
+  OPTS+="  -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr -Dkst_release=ON -Dkst_install_libdir=lib -Dkst_install_prefix=/usr" &&
 
-  ./install-kst
-
-  # Desktop menu entry
-  cat > ${MODULE}.desktop << EOF  &&
-[Desktop Entry]
-Type=Application
-Name=KST
-Comment=real-time large-dataset viewing and plotting tool
-Exec=//usr/bin/kst2
-Icon=/usr/share/doc/kst/docbook/kst/Icon-kst-datamanager.png
-Categories=Qt;KDE;Science;
-EOF
-
-  install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop
+  cmake cmake $OPTS &&
+  default_make
 
 ) > $C_FIFO 2>&1
