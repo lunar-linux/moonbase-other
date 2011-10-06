@@ -1,12 +1,15 @@
           MODULE=fribidi
-         VERSION=0.10.9
+         VERSION=0.19.2
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE1=$MODULE-$VERSION-glib.patch.bz2
    SOURCE_URL[0]=http://fribidi.org/download/
    SOURCE_URL[1]=ftp://ftp.osuosl.org/pub/blfs/svn/f/
-      SOURCE_VFY=sha1:f9aae2d2084eaccbc87760401c4521e96a92a436
+     SOURCE1_URL=$PATCH_URL
+      SOURCE_VFY=sha1:3889469d96dbca3d8522231672e14cca77de4d5e
+     SOURCE1_VFY=sha1:47da3928de9dc1b8b99c1a05c72063699ab5f4da
         WEB_SITE=http://fribidi.sourceforge.net/
          ENTERED=20021224
-         UPDATED=20091118
+         UPDATED=20111006
            SHORT="free implementation of the Unicode Bidirectional (BiDi) Algorithm"
 
 cat << EOF
