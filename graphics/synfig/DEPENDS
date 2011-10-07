@@ -4,15 +4,13 @@ depends libpng
 
 optional_depends "libmng"      ""                   ""                     "for MNG graphics support"
 optional_depends "freetype2"   "--with-freetype"    "--without-freetype"   "for freetype font support"
-optional_depends "%JPEG"        "--with-jpeg"        "--without-jpeg"       "for jpeg image support"
+optional_depends "%JPEG"        "--with-jpeg"       "--without-jpeg"       "for jpeg image support"
 
-# Currently fails with our version of ffmpeg.
-#optional_depends "ffmpeg"      "--with-ffmpeg --with-libavcodec --without-libswscale"       \
-#                               "--without-ffmpeg --without-libswscale --without-libavcodec" \
-#                               "for ffmpeg video support"
+# As long as you don't add libavcodedc and libswscale, it will compile with ffmpeg
+optional_depends "ffmpeg"      "--with-ffmpeg"      "--without-ffmpeg"      "for ffmpeg video support"
 
-optional_depends "ImageMagick" "--with-imgemgick"  "--without-imagemagick" "for ImageMacik graphics support"
-optional_depends "fontconfig"  "--with-fontconfig" "--without-fontconfig"  "for fontconfig support"
+optional_depends "ImageMagick" "--with-imagemagick" "--without-imagemagick" "for ImageMacik graphics support"
+optional_depends "fontconfig"  "--with-fontconfig"  "--without-fontconfig"  "for fontconfig support"
 
-optional_depends "openexr"     "--with-openexr "   "--without-openexr"     "for ILM's high dynamic-range support"
-optional_depends "libdv"       "--with-libdv"      "--without-libdv"       "for DV video support"
+optional_depends "openexr"     "--with-openexr "    "--without-openexr"     "for ILM's high dynamic-range support"
+optional_depends "libdv"       "--with-libdv"       "--without-libdv"       "for DV video support"
