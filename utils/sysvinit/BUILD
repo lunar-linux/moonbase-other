@@ -1,5 +1,8 @@
 (
 
+  # mountpoint is provided now by util-linux so do not install it
+  sedit 's# mountpoint\(.1 \)*# #' src/Makefile &&
+
   make -C src          &&
   prepare_install      &&
   make -C src install  &&
