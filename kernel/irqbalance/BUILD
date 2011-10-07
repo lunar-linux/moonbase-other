@@ -1,7 +1,7 @@
 (
 
-  make &&
-  prepare_install &&
-  install irqbalance /usr/sbin/
+  ./autogen.sh &&
+
+  default_build
 
 ) > $C_FIFO 2>&1
