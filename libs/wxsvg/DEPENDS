@@ -1,1 +1,10 @@
+depends expat
 depends wxGTK
+
+# Making these two a hard depends for the --enable-render=render switch as it is 
+# unlikely that anyone would want to use libart or agg.
+depends cairo
+depends pango
+
+optional_depends "ffmpeg" "--enable-ffmpeg" "--disable-ffmpeg" "for ffmpeg audio/video support"
+
