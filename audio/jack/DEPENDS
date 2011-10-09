@@ -1,14 +1,8 @@
-depends     automake
-depends     autoconf
-depends     pkgconfig
-depends     alsa-lib
-depends     libsndfile
-depends     readline
+depends  automake
+depends  autoconf
+depends  pkgconfig
+depends  alsa-lib
+depends  libsndfile
+depends  readline
 
 optional_depends "doxygen" "" "" "for Documentation support"
-
-optional_depends "libcap" \
-                 "--enable-capabilities"  \
-                 "--disable-capabilities" \
-                 "for realtime scheduling ${PROBLEM_COLOR}Only for 2.4 Kernels${DEFAULT_COLOR}"
-
