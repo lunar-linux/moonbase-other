@@ -1,26 +1,21 @@
        MODULE=libsmbios
       VERSION=2.2.26
        SOURCE=$MODULE-$VERSION.tar.bz2
-SOURCE_URL[0]=http://linux.dell.com/$MODULE/download/$MODULE/$MODULE-$VERSION
+   SOURCE_URL=http://linux.dell.com/$MODULE/download/$MODULE/$MODULE-$VERSION
    SOURCE_VFY=sha1:cab94459c6f846bad9330d3b8843d8db53fb714a
-     WEB_SITE=http://linux.dell.com/libsmbios/main/
+     WEB_SITE=http://linux.dell.com/libsmbios/main
       ENTERED=20080301
       UPDATED=20101212
         SHORT="library for easy SMBIOS access"
 
 cat << EOF
-The libsmbios project aims towards providing access
-to as much BIOS information as possible.
-SMBIOS is a standards-based approach for hardware vendors
-to present and structure management data for consumption
-by OS and Management Applications.
-Basically, the system BIOS leaves a small table in memory
-that can be found by the OS after system boot.
-This table has a standardized format that can easily
-be parsed by application software.
-Several Dell-specific hardware features, such as
-BIOS update, CMOS Tokens, SMI, hardware probes
-(temperature, fan, etc) are represented
-in the SMBIOS tables. Because of this, libsmbios
-has code to enable these features on Dell systems.
+The libsmbios project aims towards providing access to as much BIOS information 
+as possible. SMBIOS is a standards-based approach for hardware vendors to 
+present and structure management data for consumption by OS and Management 
+Applications. Basically, the system BIOS leaves a small table in memory that can 
+be found by the OS after system boot. This table has a standardized format that 
+can easily be parsed by application software.
+Several Dell-specific hardware features, such as BIOS update, CMOS Tokens, SMI, 
+hardware probes (temperature, fan, etc) are represented in the SMBIOS tables. 
+Because of this, libsmbios has code to enable these features on Dell systems.
 EOF
