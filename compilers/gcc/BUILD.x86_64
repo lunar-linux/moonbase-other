@@ -33,6 +33,18 @@
 
   make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean  &&
   prepare_install  &&
-  make install
+  make install &&
+
+# This used to be the POST_INSTALL and it really should not have. Doing this sort of thing means
+# these files will not be tracked; that is a no-no-no.
+
+  cd /usr/lib/gcc/$BUILD/$VERSION  &&
+  ln    -sf /usr/bin/cpp cpp       &&
+  cd /lib/                         &&
+  ln    -sf /usr/bin/cpp cpp       &&
+
+  if [ ! -e /usr/bin/cc ] ; then
+  ln -s gcc /usr/bin/cc
+  fi
 
 ) > $C_FIFO 2>&1
