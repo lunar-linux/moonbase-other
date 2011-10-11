@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 0 &&
+
   default_config &&
 
 #To fix usrbin
