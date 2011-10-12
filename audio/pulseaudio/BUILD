@@ -3,7 +3,7 @@
   libtoolize --copy --force --automake &&
   autoreconf &&
 
-  OPTS="--with-module-dir=/usr/lib/$MODULE-$VERSION/$MODULE --disable-hal-compat --disable-hal" &&
+  OPTS="--disable-hal-compat --disable-hal" &&
 
   if [ -f /usr/bin/parec ];  then
     rm /usr/bin/parec
