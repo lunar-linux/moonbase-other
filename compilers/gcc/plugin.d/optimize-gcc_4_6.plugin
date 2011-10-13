@@ -1,16 +1,16 @@
 #
-# gcc-4.5.x compiler optimizations plugin
+# gcc-4.6.x compiler optimizations plugin
 #
 
-plugin_compiler_gcc_4_5_optimize()
+plugin_compiler_gcc_4_6_optimize()
 {
-  if [ "${LUNAR_COMPILER:-GCC_4_5}" != "GCC_4_5" ]; then
+  if [ "${LUNAR_COMPILER:-GCC_4_6}" != "GCC_4_6" ]; then
     return 2
   fi
 
-  debug_msg "plugin_compiler_gcc_4_5_optimize($@)"
-  if [ -f /etc/lunar/local/optimizations.GCC_4_5 ]; then
-    . /etc/lunar/local/optimizations.GCC_4_5
+  debug_msg "plugin_compiler_gcc_4_6_optimize($@)"
+  if [ -f /etc/lunar/local/optimizations.GCC_4_6 ]; then
+    . /etc/lunar/local/optimizations.GCC_4_6
   fi
 
   # some local macro's
@@ -42,6 +42,7 @@ plugin_compiler_gcc_4_5_optimize()
     Fast)    c_cxx_flags_add "-O1" ;;
     Faster)  c_cxx_flags_add "-O2" ;;
     Fastest) c_cxx_flags_add "-O3" ;;
+    Insane)  c_cxx_flags_add "-Ofast" ;;
   esac
 
   # CFLAGS -march cpu-specific optimization
@@ -154,17 +155,17 @@ plugin_compiler_gcc_4_5_optimize()
 }
 
 
-plugin_compiler_gcc_4_5_menu()
+plugin_compiler_gcc_4_6_menu()
 {
   # The main code calls this function WITHOUT $1 to find out which
   # compiler optimization plugins exist. It then returns the plugin
   # identifier which can be saved in $LUNAR_COMPILER as the user's
   # choice for COMPILERS
   if [ -z "$1" ]; then
-    echo "GCC_4_5"
-    echo "GNU C Compiler suite version 4.5.x"
+    echo "GCC_4_6"
+    echo "GNU C Compiler suite version 4.6.x"
     return 2
-  elif [ "$1" != "GCC_4_5" ]; then
+  elif [ "$1" != "GCC_4_6" ]; then
     # we don't display anything when the user selected a
     # different menu
     return 2
@@ -193,7 +194,7 @@ plugin_compiler_gcc_4_5_menu()
   save_optimizations()
   {
     debug_msg "save_optimizations($@)"
-    cat >/etc/lunar/local/optimizations.GCC_4_5  <<EOF
+    cat >/etc/lunar/local/optimizations.GCC_4_6  <<EOF
 CPU=$CPU
 BOPT=$BOPT
 SPD=( $(echo ${SPD[@]} ) )
@@ -204,8 +205,8 @@ STACK=$STACK
 EOF
   }
 
-  if [ -f /etc/lunar/local/optimizations.GCC_4_5 ]; then
-    . /etc/lunar/local/optimizations.GCC_4_5
+  if [ -f /etc/lunar/local/optimizations.GCC_4_6 ]; then
+    . /etc/lunar/local/optimizations.GCC_4_6
   fi
 
   export IFS=$'\t\n'
@@ -215,7 +216,7 @@ EOF
 
   while true; do
     unset OPTIONS
-    IS_DEFAULT=$([ `get_local_config LUNAR_COMPILER` == "GCC_4_5" ] && echo DEFAULT || get_local_config LUNAR_COMPILER)
+    IS_DEFAULT=$([ `get_local_config LUNAR_COMPILER` == "GCC_4_6" ] && echo DEFAULT || get_local_config LUNAR_COMPILER)
     DEFAULT=${CHOICE:-safe}
     CHOICE=`$DIALOG --title "$TITLE" --ok-label "Select" --cancel-label "Close" --default-item "$DEFAULT" --item-help --menu "" 0 0 0 $(
       echo "default"
@@ -262,8 +263,8 @@ EOF
       case $CHOICE in 
         default)
           if [ "$IS_DEFAULT" != "DEFAULT" ]; then
-            set_local_config LUNAR_COMPILER GCC_4_5
-            $DIALOG --msgbox "Gcc 4.5 is now the default compiler!" 6 60
+            set_local_config LUNAR_COMPILER GCC_4_6
+            $DIALOG --msgbox "Gcc 4.6 is now the default compiler!" 6 60
           fi
           ;;
         safe)
@@ -288,6 +289,7 @@ EOF
           if [ "$SAFE_OPTIMIZATIONS" == "off" ]; then
           OPTIONS+=(
             "Fastest" "-O3" $( [ "$BOPT" == "Fastest" ] && echo "on" || echo "off" ) "-O3"
+            "Insane" "-Ofast" $( [ "$BOPT" == "Insane" ] && echo "on" || echo "off" ) "-Ofast"
             )
           fi
           OPTIONS+=(
@@ -597,7 +599,7 @@ EOF
             fi
           done
           FLAGS=${FLAGS/pni/sse3}
-	  FLAGS=${FLAGS/sse4_1\ sse4_2/sse4}
+          FLAGS=${FLAGS/sse4_1\ sse4_2/sse4}
           menu checklist "Select compiler use of extra instruction sets. The kernel reports that this system has: $FLAGS. None of these are safe." &&
           XTRA=($RESULT)
         ;;
@@ -626,5 +628,6 @@ EOF
 }
 
 
-plugin_register BUILD_BUILD plugin_compiler_gcc_4_5_optimize
-plugin_register OPTIMIZE_MENU plugin_compiler_gcc_4_5_menu
+plugin_register BUILD_BUILD plugin_compiler_gcc_4_6_optimize
+plugin_register OPTIMIZE_MENU plugin_compiler_gcc_4_6_menu
+
