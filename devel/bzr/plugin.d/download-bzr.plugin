@@ -15,10 +15,11 @@
 # bzr+http:// (will be transformed to http://)
 # bzr+https:// (will be transformed to https://)
 # bzr+ssh://
+# bzr://
 
 plugin_source_download_bzr() {
   # check if we can handle this URL format
-  if [ "${1:0:11}" != "bzr+http://" -a "${1:0:12}" != "bzr+https://" -a "${1:0:10}" != "bzr+ssh://" ] ; then
+  if [ "${1:0:6}" != "bzr://" -a "${1:0:11}" != "bzr+http://" -a "${1:0:12}" != "bzr+https://" -a "${1:0:10}" != "bzr+ssh://" ] ; then
     return 2
   fi
   debug_msg "plugin_source_needrefresh_bzr($@)"
@@ -66,7 +67,7 @@ plugin_source_download_bzr() {
       cd ${CD}
     else
       verbose_msg "[${TRY}] bzr co $BZR_URL $SBASE"
-      bzr co $BZR_URL $SBASE && GOT_BZR="yes"
+      bzr co --lightweight $BZR_URL $SBASE && GOT_BZR="yes"
     fi
 
     if [ "$?" == "0" ] ; then
