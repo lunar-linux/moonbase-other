@@ -1,0 +1,41 @@
+# core dependencies
+depends alsa-lib
+depends libmicrohttpd
+depends libass
+depends curl
+depends enca
+depends libXt
+depends libXext
+depends libXrandr
+depends mesa-lib
+depends SDL
+depends lzo
+depends fribidi
+depends boost
+# base codecs
+depends flac
+depends faad
+depends libmad
+depends libogg
+depends libvorbis
+depends libtheora
+depends lame
+depends speex
+depends x264-snapshot
+depends wavpack
+depends mpeg2dec
+
+optional_depends "libvdpau"   "--enable-vdpau"  "--disable-vdpau" "Hardware accelerated video playback (nvidia cards)"
+
+optional_depends "ffmpeg"     "--enable-external-ffmpeg --enable-ffmpeg-libvorbis" \
+                              "--disable-external-ffmpeg" "Say yes to use external ffmpeg, else use internal"
+
+optional_depends "libva"      "--enable-vaapi"      "--disable-vaapi"      "Hardware accelerated video playback (hardware neutral API)"
+optional_depends "pulseaudio" "--enable-pulse"      "--disable-pulse"      "Pulseaudio support"
+optional_depends "rtmpdump"   "--enable-rtmp"       "--disable-rtmp"       "RTMP stream support"
+optional_depends "faac"       "--enable-faac"       "--disable-faac"       "FAAC support"
+optional_depends "libdvdcss"  "--enable-dvdcss"     "--disable-dvdcss"     "DVDCSS support"
+optional_depends "timidity++" "--enable-mid"        "--disable-mid"        "MID support"
+optional_depends "avahi"      "--enable-avahi"      "--disable-avai"       "Avahi support"
+optional_depends "libblueray" "--enable-libblueray" "--disable-libblueray" "Blueray DVD playback support"
+optional_depends "libdc1394"  ""   ""  "for firewire support"
