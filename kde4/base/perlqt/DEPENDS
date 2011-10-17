@@ -1,6 +1,7 @@
 depends kde-baseapps
 depends smokeqt
 
-optional_depends qscintilla2 "" ""
-optional_depends phonon "" ""
-optional_depends qwt "" ""
+optional_depends "qscintilla2" "-DWITH_QScintilla=ON"  "-DWITH_QScintilla=OFF"  "for qscintilla support"
+optional_depends "qimageblitz" "-DWITH_QImageBlitz=ON" "-DWITH_QImageBlitz=OFF" "for qimage support"
+optional_depends "phonon"      "-DWITH_Phonon=ON"      "-DWITH_Phonon=OFF"      "for phonon support"
+optional_depends "qwt"         "-DWITH_Qwt5=ON"        "-DWITH_Qwt5=OFF"        "for qwt support"
