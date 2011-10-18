@@ -1,6 +1,6 @@
 (
 
-  qmake texmakerx.pro &&
+  qmake texstudio.pro &&
 
   default_build
 
