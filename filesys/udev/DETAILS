@@ -1,17 +1,18 @@
           MODULE=udev
-         VERSION=173
+         VERSION=174
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-172-rules.patch.bz2
+         SOURCE2=$MODULE-174-rules.patch.bz2
          SOURCE3=raid-devfs.sh-udev-088
-      SOURCE_URL=$KERNEL_URL/pub/linux/utils/kernel/hotplug
+   SOURCE_URL[0]=http://people.freedesktop.org/~kay
+   SOURCE_URL[1]=$KERNEL_URL/pub/linux/utils/kernel/hotplug
      SOURCE2_URL=$PATCH_URL
      SOURCE3_URL=$PATCH_URL
-      SOURCE_VFY=sha1:1f0464302185b2232d17ae80473b59648f9624d8
-     SOURCE2_VFY=sha1:3431e251d13ba85b5d04e677759bf243ffa14d28
+      SOURCE_VFY=sha1:8817b03e72c2d49aa7c88e190a9ef6b8fe11a5be
+     SOURCE2_VFY=sha1:d498b600a5806162b64039067afb0cbc5eaaf2be
      SOURCE3_VFY=sha1:44a12035774c2b42b784267d38e61a34aa0b645b
         WEB_SITE=http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html
          ENTERED=20040104
-         UPDATED=20110801
+         UPDATED=20111020
       MAINTAINER=moe@lunar-linux.org
            SHORT="hotplug and device handling daemon"
 

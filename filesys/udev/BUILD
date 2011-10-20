@@ -58,6 +58,8 @@
     install -m755 ${SCRIPT_DIRECTORY}/udev /etc/init.d  &&
 
     install -m755 ${SOURCE_CACHE}/${SOURCE3} \
-                  /etc/udev/scripts.d/raid-devfs.sh
+                  /etc/udev/scripts.d/raid-devfs.sh  &&
+
+    ln -sf /lib/udev/udevd /sbin/udevd
 
 ) > $C_FIFO 2>&1
