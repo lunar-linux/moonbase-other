@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 0 &&
+
   OPTS+=" --disable-static --without-included-pakchois --without-included-libcfg --without-included-libtasn1"  &&
   LDFLAGS+=" -lpakchois"  &&
 
