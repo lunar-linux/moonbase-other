@@ -3,9 +3,8 @@
            EXTRA=SR1
           SOURCE=$MODULE-$VERSION-$EXTRA-linux-gtk.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/eclipse
-   SOURCE_URL[0]=http://download.eclipse.org/technology/epp/downloads/release/$VERSION/$EXTRA
-   SOURCE_URL[1]=http://mirror.cc.vt.edu/pub/eclipse/technology/epp/downloads/release/$VERSION/$EXTRA
-   SOURCE_URL[2]=ftp://sunsite.cnlab-switch.ch/mirror/eclipse/technology/epp/downloads/release/$VERSION/$EXTRA
+# This url autoselects mirror closest to you
+      SOURCE_URL="http://www.eclipse.org/downloads/download.php?r=1&file=/technology/epp/downloads/release/$VERSION/$EXTRA"
       SOURCE_VFY=sha1:e50a7d83e172f140a6d611d886487da2dd966244
         WEB_SITE=http://eclipse.org
          ENTERED=20090425
