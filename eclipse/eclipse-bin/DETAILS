@@ -3,9 +3,8 @@
            EXTRA=R-$VERSION-201109091335
           SOURCE=eclipse-SDK-$VERSION-linux-gtk.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/eclipse
-   SOURCE_URL[0]=http://download.eclipse.org/eclipse/downloads/drops/$EXTRA
-   SOURCE_URL[1]=http://sunsite.informatik.rwth-aachen.de/eclipse/downloads/drops/$EXTRA
-   SOURCE_URL[2]=ftp://sunsite.cnlab-switch.ch/mirror/eclipse/downloads/drops/$EXTRA
+# This url autoselects mirror closest to you
+      SOURCE_URL="http://www.eclipse.org/downloads/download.php?r=1&file=/eclipse/downloads/drops/$EXTRA"
       SOURCE_VFY=sha1:b91bb15343316e8bb2b4dc674c2c5fea9a69e5fb
         WEB_SITE=http://eclipse.org
          ENTERED=20030926
