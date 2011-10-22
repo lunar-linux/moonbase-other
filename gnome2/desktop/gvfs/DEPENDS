@@ -1,9 +1,9 @@
+depends udev
 depends glib-2
 depends dbus
 depends intltool
 depends XML-Parser
 depends openssh
-depends gnome-disk-utility
 
 optional_depends  "libarchive"    ""  ""  "For archive support"
 optional_depends  "obexftp"       ""  ""  "For ObexFTP support"
@@ -12,8 +12,6 @@ optional_depends  "libcdio"       ""  ""  "For CDDA support"
 optional_depends  "fuse"          ""  ""  "For FUSE support"
 optional_depends  "GConf"         ""  ""  "For GConf support"
 optional_depends  "libgphoto2"    ""  ""  "For Gphoto2 support"
-optional_depends  "hal"           ""  "--disable-hal"  "For disk monitoring (udev is better)"
-optional_depends  "udev"          "--enable-udev --disable-hal"  ""  "For disk monitoring (better than hal)"
 optional_depends  "gnome-keyring" ""  ""  "GNOME Keyring support"
 optional_depends  "samba"         ""  ""  "For Samba support"
 optional_depends  "avahi"         ""  ""  "For avahi support"
