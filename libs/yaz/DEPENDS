@@ -1,2 +1,12 @@
-depends openssl
-depends libxml2
+optional_depends "openssl" "--with-openssl" "--without-openssl" "for ssl support; If yes here say no to gnutls."
+optional_depends "gnutls"  "--with-gnutls"  "--without-gnutls"  "for gnutls support"
+optional_depends "libxml2" "--with-xml2"    "--without-xml2"    "for xml support"
+optional_depends "icu4c"   "--with-icu"     "--without-icu"     "for unicode support"
+optional_depends "libxslt" "--with-xslt"    "--without-xslf"    "for xslt processing support"
+
+optional_depends "docbook-dsssl" "--with-docbook-dsssl"    \
+                                 "--without-docbook-dsssl" \
+                                 "for stylesheet support"
+optional_depends "docbook-xsl"   "--with-docbook-xsl"      \
+                                 "--without-docbook-xsl"   \
+                                 "for xsl style sheet support"
