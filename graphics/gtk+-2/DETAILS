@@ -1,11 +1,10 @@
           MODULE=gtk\+-2
-           MAJOR=2.24
          VERSION=24.7
           SOURCE=$MODULE.$VERSION.tar.bz2
          SOURCE2=$MODULE-xid_collision.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/gtk+/$MAJOR
-   SOURCE_URL[1]=ftp://ftp.gtk.org/pub/gtk/v$MAJOR
+   SOURCE_URL[0]=$GNOME_URL/sources/gtk+/${MODULE#*-}.${VERSION%.*}
+   SOURCE_URL[1]=ftp://ftp.gtk.org/pub/gtk/${MODULE#*-}.${VERSION%.*}
      SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:0b0e39f4c0030c783ff3e454d1761d3a054f1b74
      SOURCE2_VFY=sha1:dc7b63303a1c07c2457a41d5646475856febe0bc
