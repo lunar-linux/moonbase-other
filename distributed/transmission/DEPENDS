@@ -3,7 +3,5 @@ depends intltool
 depends libevent
 depends openssl
 
-optional_depends "gtk+-2"      "--enable-gtk"         "--disable-gtk"         "for the GUI interface"
-optional_depends "libnotify"   "--enable-libnotify"   "--disable-libnotify"   "for notify support"
-optional_depends "libcanberra" "--enable-libcanberra" "--disable-libcanberra" "for sounds"
-optional_depends "GConf"       "--enable-gconf2"      "--disable-gconf2"      "for GConf support"
+optional_depends "gtk+-2"     "--with-gtk"      "--without-gtk"       "for the GUI interface"
+optional_depends "libnotify"  "--with-inotify"  "--without-inotify"   "for inotify support"
