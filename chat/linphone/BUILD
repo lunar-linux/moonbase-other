@@ -3,13 +3,13 @@
   # --enable-rsvp breaks the build, is no longer maintained, so don't 
   # use it.
 
-  OPTS="--enable-truespeech --enable-video --includedir=/usr/include/$module \
+  OPTS+="--enable-truespeech --enable-video --includedir=/usr/include/$module \
        --libdir=/usr/lib/$MODULE"
 
   default_config &&
   # So linphone does not stomp on the ortp module files.
   cd oRTP        &&
-  OPTS="--libdir=/usr/lib/$MODULE --includedir=/usr/include/$MODULE"
+  OPTS+="--libdir=/usr/lib/$MODULE --includedir=/usr/include/$MODULE"
   default_config &&
   cd .. &&
 
