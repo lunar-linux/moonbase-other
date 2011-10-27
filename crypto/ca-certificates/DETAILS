@@ -1,21 +1,20 @@
           MODULE=ca-certificates
-         VERSION=20110502+nmu1
+         VERSION=20111025
           SOURCE=${MODULE}_$VERSION.tar.gz
          SOURCE2=$MODULE-update.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=http://ftp.debian.org/debian/pool/main/c/$MODULE
      SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:63943f2203893cb8f7ae2f8ec3a29ad121d3593c
+      SOURCE_VFY=sha1:3c9817265915a43e1a2cd8d88325df3904fbf5ee
      SOURCE2_VFY=sha1:cef03ad446f6f13aaacd05bae3c7ad8e9cff304b
         WEB_SITE=http://packages.qa.debian.org/c/ca-certificates.html
          ENTERED=20100405
-         UPDATED=20110914
+         UPDATED=20111027
            SHORT="common CA certificates"
 
 cat << EOF
 This module includes PEM files of CA certificates to allow SSL-based
 applications to check for the authenticity of SSL connections.
-
 Please note that certificate authorities whose certificates are included
 in this package are not in any way audited for trustworthiness and RFC 3647
 compliance, and that full responsibility to assess them belongs to the
