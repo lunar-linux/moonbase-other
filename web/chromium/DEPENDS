@@ -19,9 +19,18 @@ optional_depends "cups"   "-Duse_cups=1"          "-Duse_cups=0"          "To us
 optional_depends "ffmpeg" "-Duse_system_ffmpeg=1" "-Duse_system_ffmpeg=0" "To enable system ffmpeg"
 optional_depends "GConf"  "-Duse_gconf=1"         "-Duse_gconf=0"         "To use cups printing"
 optional_depends "speex"  ""                      ""                      "To use system speex"
-optional_depends "pulseaudio" "-Denable_webrtc=1" "-Denable_webrtc=0"     "To use Realtime Web Communication"
 
-optional_depends "libgnome-keyring"  "-Duse_gnome_keyring=1 -Dlinux_link_gnome_keyring=1" \
+optional_depends "pulseaudio"         \
+                 "-Denable_webrtc=1"  \
+                 "-Denable_webrtc=0"  \
+                 "To use Realtime Web Communication"
+
+optional_depends "heimdal"  \
+                 "-Duse_kerberos=1"  \
+                 "-Duse_kerberos=0"  \
+                 "To use heimdal (kerberos) support"
+
+optional_depends "libgnome-keyring"  "-Duse_gnome_keyring=1 -Dlinux_link_gnome_keyring=1"  \
                                      "-Duse_gnome_keyring=0 -Dlinux_link_gnome_keyring=0"  \
                                      "To use gnome keyring"
 
@@ -36,5 +45,4 @@ optional_depends "libgnome-keyring"  "-Duse_gnome_keyring=1 -Dlinux_link_gnome_k
 
 #not working in chromium 14.0
 #optional_depends "icu4c"  "-Duse_system_icu=1"    "-Duse_system_icu=0"    "To use system icu library"
-
 
