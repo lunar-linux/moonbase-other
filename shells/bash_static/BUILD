@@ -11,6 +11,7 @@
    patch_it $SOURCE8  0  &&
    patch_it $SOURCE9  0  &&
    patch_it $SOURCE10 0  &&
+   patch_it $SOURCE11 0  &&
 
    OPTS+=" --bindir=/bin                 \
            --without-bash-malloc         \
