@@ -5,6 +5,8 @@
 
   sedit "s/'-Werror'/''/" build/common.gypi  &&
 
+  cp -f $SCRIPT_DIRECTORY/nacl.gypi chrome/  &&
+
   echo Fixing dumb CPU optimizations please wait in patience...
   find . -type f -exec sed -i \
   -e 's/-mcpu=/-march=/g' \
