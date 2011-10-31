@@ -9,7 +9,7 @@
   export CC_OPTS=( Pipe ) &&
 
   # There is no other option but nptl
-  OPTS+=" --enable-add-ons=nptl,libidn --with-__thread --with-tls" &&
+  OPTS+=" --enable-add-ons=nptl,libidn --with-__thread --with-tls --disable-profile --enable-kernel=`installed_version kernel-headers-2.6`" &&
 
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
@@ -25,6 +25,11 @@
 
   patch_it $SOURCE2 1 &&
   patch_it $SOURCE3 1 &&
+  patch_it $SOURCE4 1 &&
+  patch_it $SOURCE5 1 &&
+
+  sedit 's/test-netdb tst-nss-test1/test-netdb/' nss/Makefile &&
+  sedit '/libnss_test1/d' shlib-versions &&
 
   INSTALL_ROOT=$SOURCE_DIRECTORY/glibcroot &&
   mkdir -p $INSTALL_ROOT &&
@@ -36,7 +41,7 @@
                --infodir=/usr/share/info  \
                --mandir=/usr/share/man    \
                --with-elf                 \
-               --with-gd=no               \
+               --without-gd               \
                --without-cvs              \
                --enable-shared            \
                --disable-multi-arch       \

@@ -1,8 +1,10 @@
           MODULE=glibc
-         VERSION=2.12.2
-          SOURCE=$MODULE-$VERSION.tar.bz2
+         VERSION=2.14.1
+          SOURCE=$MODULE-$VERSION.tar.xz
          SOURCE2=$MODULE-2.11-no_timezones.patch.bz2
          SOURCE3=$MODULE-2.11.1-__i686.patch.bz2
+         SOURCE4=$MODULE-2.13-gcc_fix-1.patch.bz2
+         SOURCE5=$MODULE-2.14.1-nss_test1.patch.bz2
    SOURCE_URL[0]=$GNU_URL/$MODULE
    SOURCE_URL[1]=ftp://ftp.gnu.org/pub/gnu/$MODULE
    SOURCE_URL[2]=http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/glibc
@@ -10,12 +12,14 @@
      SOURCE3_URL=$PATCH_URL
      SOURCE4_URL=$PATCH_URL
      SOURCE5_URL=$PATCH_URL
-      SOURCE_VFY=sha1:3ef6d36eee2dc7c4351f215f689e6a04c161a35e
+      SOURCE_VFY=sha1:41ead3cdc99a40a17d5830672c36b49b1d7b79f7
      SOURCE2_VFY=sha1:fc5bf75815daeeef52f7558f27992e02c2cdc87d
      SOURCE3_VFY=sha1:e3f36e2bb17e51e31035f2cd405d099c624d0e9e
+     SOURCE4_VFY=sha1:2fa2f8b8920c5009a864cc0b0ec5fcccee4c84a5
+     SOURCE5_VFY=sha1:4f22e3bd256652e21d6208666fef815021c1ecab
         WEB_SITE=http://www.gnu.org/software/libc
          ENTERED=20010922
-         UPDATED=20101215
+         UPDATED=20111031
            SHORT="C library for use with GNU/Hurd and GNU/Linux"
            PSAFE=no
 
