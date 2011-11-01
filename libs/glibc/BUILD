@@ -27,7 +27,8 @@
   patch_it $SOURCE3 1 &&
   patch_it $SOURCE4 1 &&
   patch_it $SOURCE5 1 &&
-
+  patch_it $SOURCE6 1 &&
+  sedit 's/^# \(.* := rpcinfo\)/\1/p'  sunrpc/Makefile &&
   sedit 's/test-netdb tst-nss-test1/test-netdb/' nss/Makefile &&
   sedit '/libnss_test1/d' shlib-versions &&
 
@@ -51,11 +52,11 @@
   make || exit 1 &&
 
   # Preserve the old glibc temporarily
-  LD=/lib/ld-linux.so.2  &&
-  GLIBC=/lib/libc.so.6   &&
-  DL=/lib/libdl.so.2     &&
-  M=/lib/libm.so.6       &&
-  RT=/lib/librt.so.1     &&
+  LD=/lib/ld-linux.so.2         &&
+  GLIBC=/lib/libc.so.6          &&
+  DL=/lib/libdl.so.2            &&
+  M=/lib/libm.so.6              &&
+  RT=/lib/librt.so.1            &&
   PTHREAD=/lib/libpthread.so.0  &&
   NSS=/lib/libnss_files.so.2    &&
   UTIL=/lib/libutil.so.1        &&
@@ -101,13 +102,13 @@
   sln /lib/libcrypt-lunar.so $CRYPT      &&
 
   # clean hack to make sure gnu/stubs.h gets refreshed
-  rm -f /usr/include/gnu/stubs.h &&
+  rm -f /usr/include/gnu/stubs.h  &&
 
   # This removes the old glibc
-  prepare_install &&
+  prepare_install  &&
 
   # And now we install the new
-  make install &&
+  make install  &&
 
   # Now optionally perform debug symbol stripping only
   if [ "$STRIP" == "y" ] ; then
