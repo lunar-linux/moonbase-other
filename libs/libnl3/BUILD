@@ -1,7 +1,7 @@
 (
 
-  OPTS+=" --libdir=/usr/lib/$MODULE --with-pkgconfigdir=/usr/lib/pkgconfig   \
-          --includedir=/usr/include/$MODULE --sysconfdir=/etc/$MODULE" &&
+  OPTS+=" --libdir=/usr/lib/$MODULE --with-pkgconfigdir=/usr/lib/pkgconfig \
+          --includedir=/usr/include --sysconfdir=/etc/$MODULE" &&
 
   default_build
 
