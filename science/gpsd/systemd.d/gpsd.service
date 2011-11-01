@@ -1,0 +1,9 @@
+[Unit]
+Description=GPS (Global Positioning System) Daemon
+
+[Service]
+type=simple
+ExecStart=/usr/bin/gpsd -N
+
+[Install]
+Also=gpsd.socket
