@@ -1,16 +1,16 @@
        MODULE=broadcom-wifi
-      VERSION=v5_100_82_38
+      VERSION=v5_100_82_112
        SOURCE=hybrid-portsrc_x86_32-$VERSION.tar.gz
-      SOURCE2=hybrid-portsrc-v5_100_82_38.patch.bz2
+      SOURCE2=broadcom-wifi-$VERSION-kernel2.6.39fix.patch.bz2
    SOURCE_URL=http://www.broadcom.com/docs/linux_sta
   SOURCE2_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-   SOURCE_VFY=sha1:3062830f86c5f1f41d8a4b26d6e0072dc989c7ba
-  SOURCE2_VFY=sha1:98eaa5081e83040afd78b0b803c7dabe307f46be
+   SOURCE_VFY=sha1:01aa32f9e85621253a3f15cf4361bb80d41da3e8
+  SOURCE2_VFY=sha1:3cd3dd4ed8a57a8d6b94b542ab3a0fffb2d14f25
      WEB_SITE=http://www.broadcom.com/support/802.11/linux_sta.php
       LICENSE="proprietary"
       ENTERED=20110227
-      UPDATED=20110227
+      UPDATED=20111031
         SHORT="Broadcom WIFI 802.11a/b/g/n hybrid Linux binary driver"
 cat << EOF
 Broadcom IEEE 802.11a/b/g/n hybrid binary Linux device driver
