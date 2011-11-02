@@ -1,3 +1,8 @@
 # Remove dangling symlinks
-cd /sbin &&
+cd /lib  &&
+rm -f libdevmapper-event-lvm2mirror.so libdevmapper-event-lvm2raid.so libdevmapper-event-lvm2snapshot.so
+cd /sbin  &&
 rm -f lvmchange lvmdiskscan lvmsadc lvmsar lvreduce lvremove lvrename lvresize lvs lvscan pvchange pvck pvcreate pvdisplay pvmove pvremove pvresize pvs pvscan vgcfgbackup vgcfgrestore vgchange vgck vgconvert vgcreate vgdisplay vgexport vgextend vgimport vgmerge vgmknodes vgreduce vgremove vgrename vgs vgscan vgsplit
+cd /usr/lib  &&
+rm -f libdevmapper-event-lvm2.so libdevmapper-event.so libdevmapper.so liblvm2cmd.so
+
