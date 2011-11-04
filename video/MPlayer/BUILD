@@ -15,7 +15,8 @@
               --confdir=/etc/mplayer        \
               --datadir=/usr/share/mplayer  \
               --enable-dynamic-plugins      \
-              $OPTS  &&
+              --disable-mp3lib              \
+              $OPTS                        &&
 
   sedit 's/-mtune=native//' config.mak &&
 
