@@ -6,9 +6,11 @@
 #      patch_it $SOURCE_CACHE/$SOURCE2 1
 #  fi  &&
 
+  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
+
   # It looks docbook patch presented above does nothing
   # Lets fix this temporary and find better solution later
-  sedit 's/docbook2man/docbook2man-fix-it-later/' configure &&
+  sedit 's/docbook2man/docbook2man-fix-it-later/' configure  &&
 
   sedit "s:ln -s :ln -sf :" Makefile.in  &&
 
