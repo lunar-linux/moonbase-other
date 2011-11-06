@@ -1,10 +1,11 @@
 (
 
-  OPTS+=" --enable-itrax --disable-tnt --enable-dbus" &&
+  scons prefix=/usr &&
+  prepare_install   &&
+  scons install     &&
 
-  default_build &&
-
-#Temp fix. It forgets to copy this.
-  cp -f gpsd_config.h /usr/include/
+  if in_depends $MODULE udev; then
+    scons udev-install
+  fi 
 
 ) > $C_FIFO 2>&1
