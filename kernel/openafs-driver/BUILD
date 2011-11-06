@@ -3,19 +3,9 @@
   export EXTRA_CFLAGS="$CFLAGS"
   unset CFLAGS
 
-  patch_it $SOURCE2 1 &&
-
-  # Autoconf fix
-  sedit 's;^AC_\(AIX\|MINIX\)$;;' acinclude.m4 &&
-
-  ./regen.sh &&
-
   case `uname -r` in
-    2.6.*)
+    2.6.*|3.*)
       kv="26"
-      ;;
-    2.4.*)
-      kv="24"
       ;;
     *)
       message "Unsupported kernel version!"

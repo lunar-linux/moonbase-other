@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+# modutils    - load modules at startup
+# description: modutils, boot time module loading
+#
+
+start()
+{
+	# hide non-significant messages
+	dmesg -n5
+	if [ -x /sbin/depmod ]; then
+		echo -n "Updating Module Dependencies"
+		depmod -a &> /dev/null &&
+		echo -e $RESULT_OK           ||
+		echo -e $RESULT_FAIL
+	fi
+	
+	if [ -e /etc/modules ] && [ -x /sbin/modprobe ]; then
+		echo "Loading modules: "
+		sed 's/#.*$//g' /etc/modules | grep -v '^$' | while read MODULE ARGS; do
+			echo -n " * Loading module: $MODULE"
+			modprobe $MODULE $ARGS &> /dev/null &&
+			echo -e $RESULT_OK ||
+			echo -e $RESULT_FAIL
+		done
+	fi
+	# restore message level
+	dmesg -n7
+}
+
+
+stop()
+{
+	exit 0
+
+}
+
+status()
+{
+       lsmod
+}
+
+
+case $1 in
+	start|stop|status) : ;;
+	*)		        echo "Usage: $0 {start|stop|status}"; exit 1  ;;
+esac
+
+
+. /lib/lsb/init-functions
+

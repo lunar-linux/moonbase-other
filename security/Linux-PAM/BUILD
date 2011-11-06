@@ -9,8 +9,8 @@
   # Stop pam_env from installing /etc/environment
   sedit "/^sysconf_DATA/d" modules/pam_env/Makefile.am  &&
 
+  libtoolize -f &&
   AT_M4DIR="m4" autoreconf &&
-#  libtoolize &&
 
   ./configure  --libdir=/lib                            \
                --docdir=/usr/share/doc/Linux-PAM        \
@@ -31,16 +31,11 @@
   # Test our modules, we don't want a broken system
   ldconfig -n $SOURCE_DIRECTORY/libpam/.libs &&
   find $SOURCE_DIRECTORY/modules -name "pam*.so" | while read module; do
-        if ! env LD_LIBRARY_PATH=$SOURCE_DIRECTORY/libpam/.libs \
-          $SOURCE_DIRECTORY/$MODULE-patches-$PVERSION/dlopen.sh $SOURCE_DIRECTORY -ldl -lpam -L$SOURCE_DIRECTORY/libpam/.libs ${module} ; then
-          echo ERROR module: ${module} cannot be loaded.
-          exit 1
-        fi
-  if env LD_LIBRARY_PATH=$SOURCE_DIRECTORY/libpam/.libs \
-          LD_PRELOAD=$SOURCE_DIRECTORY/libpam/.libs/libpam.so ldd -r ${module} | fgrep -q libpthread ; then
-          echo ERROR module: ${module} pulls threading libraries.
-          exit 1
-        fi
+    if ! env LD_LIBRARY_PATH=$SOURCE_DIRECTORY/libpam/.libs \
+      $SOURCE_DIRECTORY/$MODULE-patches-$PVERSION/dlopen.sh $SOURCE_DIRECTORY -ldl -lpam -L$SOURCE_DIRECTORY/libpam/.libs ${module} ; then
+      echo ERROR module: ${module} cannot be loaded.
+      exit 1
+    fi
   done &&
 
   prepare_install &&
