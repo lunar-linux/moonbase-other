@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   # Fixes a gcc 4.4 build failure.
   echo "VBOX_WITH_TESTCASES =" > LocalConfig.kmk &&
 
@@ -19,13 +17,13 @@
 
   # Build VirtualBox
   # Disable hardening, so normal users can run it
-  OPTS+=" --disable-hardening"   &&
-  ./configure $OPTS              &&
-  source ./env.sh                &&
+  OPTS+=" --disable-hardening"  &&
+  ./configure $OPTS             &&
+  source ./env.sh               &&
   if ! module_installed Linux-PAM ; then
      sedit "s/VBOX_WITH_PAM/VBOX_WITHOUT_PAM/" Config.kmk
-  fi &&
-  kmk                            &&
+  fi   &&
+  kmk  &&
 
   # Build source package for kernel module
   pushd out/linux.x86/release/bin/ &&
@@ -57,8 +55,8 @@
     # File path for PDF, and make name more recognizable
     sed -i -e "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" -e "s:Oracle VM VirtualBox:VirtualBox Oracle VM:1" /usr/lib/virtualbox/virtualbox.desktop &&
     # Install .desktop entry and icon, then update the icon cache
-    install -Dm 644 /usr/{lib/virtualbox,share/applications}/virtualbox.desktop &&
-    install -Dm 644 /usr/{lib/virtualbox,share/icons/hicolor/32x32/apps}/VBox.png &&
+    install -Dm 644 /usr/{lib/virtualbox,share/applications}/virtualbox.desktop    &&
+    install -Dm 644 /usr/{lib/virtualbox,share/icons/hicolor/32x32/apps}/VBox.png  &&
     if [ -x /usr/bin/gtk-update-icon-cache ] ; then
       gtk-update-icon-cache /usr/share/icons/hicolor
     fi
