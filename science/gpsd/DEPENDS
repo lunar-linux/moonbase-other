@@ -1,2 +1,11 @@
-depends dbus
-depends dbus-glib
+depends chrpath
+depends scons
+
+optional_depends "ncurses"       "" "" "for ncurses terminal support"
+optional_depends "udev"          "" "" "for udev (hotplug) support"
+optional_depends "dbus"          "" "" "for dbus support"
+optional_depends "libusb-compat" "" "" "for usb device support"
+optional_depends "qt4"           "" "" "for Qt C++ wrapper support"
+optional_depends "docbook-xsl"   "" "" "for man page document support"
+optional_depends "%PHP"          "" "" "for web page display support"
+optional_depends "systemd"       "" "" "for systemd support (gpsd by default is systemd capable)"

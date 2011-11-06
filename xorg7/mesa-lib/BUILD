@@ -1,5 +1,7 @@
 (
 
+  . /etc/profile.d/llvm.rc && 
+
   # Detect VMware VGA virtual 3D card and add driver for it
   VGA=`lspci | grep 'VGA.*VMware.*SVGA.*'`
 
@@ -11,7 +13,7 @@
     OPTS+=" --with-dri-drivers=swrast,"
     OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
     if [[ $GALLIUM == y ]]; then
-      OPTS+=" --enable-gallium-swrast --enable-gallium-llvm "
+      OPTS+=" --enable-gallium-swrast --enable-gallium-llvm --enable-gallium-egl"
       if [[ $MESADRIVER == *i915* ]]; then
         OPTS+=" --enable-gallium-i915 "
       fi
