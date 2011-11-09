@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
   #  autoreconf &&
   OPTS+=" --with-rootdir=/ " &&
   OPTS+=" --with-distro=other" &&
