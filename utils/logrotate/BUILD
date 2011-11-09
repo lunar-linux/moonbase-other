@@ -3,6 +3,8 @@
   # Logrotate craps out without this
   unset CPP
 
+  patch_it $SOURCE2 1 &&
+
   # A few fixes for logrotate.conf
   sedit 's:^dateext:#&:;s:^#compress:compress:;/^compress/acompresscmd /usr/bin/bzip2' examples/logrotate-default &&
   sedit '/^compresscmd/acompressext .bz2' examples/logrotate-default &&
