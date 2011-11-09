@@ -1,15 +1,12 @@
           MODULE=linux-2.6
          VERSION=2.6.39.4
-            BASE=$(echo $VERSION | cut -d. -f1,2,3)
-          SOURCE=linux-${BASE}.tar.bz2
-         SOURCE2=patch-${VERSION}.bz2
+          SOURCE=linux-${VERSION}.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/linux-$VERSION
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6
   SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v2.6
   SOURCE2_URL[1]=http://www.kernel.org/pub/linux/kernel/v2.6
-      SOURCE_VFY=sha1:68518112821e55f4ac1df64f2e0e809cedfcc5ef
-     SOURCE2_VFY=sha1:b89d84d28e0993d32e8b74b18590d2e5992d7942
+      SOURCE_VFY=sha1:b9262c836a02de3d3a6abb5ccb780816d52b5277
         WEB_SITE=http://www.kernel.org
          ENTERED=20041019
          UPDATED=20110806
