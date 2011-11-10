@@ -4,6 +4,9 @@ optional_depends "openssl"       "--with-openssl" "" "for SSL connections"
 optional_depends "perl"          "--with-perl"    "" "for perl programming"
 optional_depends "Python"        "--with-python"  "" "for python programming"
 optional_depends "Linux-PAM"     "--with-pam"     "" "for user authentication"
+optional_depends "heimdal"       "--with-gssapi"  "" "for gssapi support"
+optional_depends "openldap"      "--with-ldap"    "" "for ldap support"
+optional_depends "zlib"          ""               "--without-zlib" "for compression support"
 
 optional_depends "timezone-data" "--with-system-tzdata"  \
                  "--without-system-tzdata" "use system timezone data"
