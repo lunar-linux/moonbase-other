@@ -23,6 +23,18 @@
 
   OPTS+=" --with-gdktarget=x11"
 
-  default_build
+# remove the NVIDIA module to prevent the compiling failing
+  WITH_NV="n"  &&
+  if module_installed NVIDIA; then
+    WITH_NV="y"  &&
+    lrm NVIDIA
+  fi  &&
+
+  default_build  &&
+
+# restore the NVIDIA module, if it was previously installed
+  if [ $WITH_NV = "y" ]; then
+    lin NVIDIA
+  fi
 
 ) > $C_FIFO 2>&1
