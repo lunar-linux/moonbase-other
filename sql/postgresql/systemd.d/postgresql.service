@@ -1,0 +1,17 @@
+[Unit]
+Description=PostgreSQL database server
+After=network.target
+
+[Service]
+User=postgres
+Environment=PGDATA=/var/lib/pgsql/data
+ExecStart=/bin/sh -c 'PGDATA=/var/lib/pgsql/data exec /usr/bin/postgres -c config_file=/var/lib/pgsql/data/postgresql.conf >> /var/lib/pgsql/data/serverlog'
+
+# Use pg_ctl stop to shutdown the server, do not attempt to kill the processes.
+# It does some more checks (online backups) which we don't want to duplicate.
+ExecStop=/bin/sh -c 'PGDATA=/var/lib/pgsql/data exec /usr/bin/pg_ctl -m fast -s -w -t 20'
+KillMode=none
+
+[Install]
+WantedBy=multi-user.target
+

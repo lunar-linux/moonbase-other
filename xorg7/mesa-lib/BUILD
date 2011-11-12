@@ -11,7 +11,7 @@
     OPTS+=" --with-dri-drivers=swrast,"
     OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
     if [[ $GALLIUM == y ]]; then
-      OPTS+=" --enable-gallium-swrast --enable-gallium-llvm "
+      OPTS+=" --enable-gallium-swrast "
       if [[ $MESADRIVER == *i915* ]]; then
         OPTS+=" --enable-gallium-i915 "
       fi

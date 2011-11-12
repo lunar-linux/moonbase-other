@@ -13,8 +13,10 @@
 
   patch_it  $SOURCE_CACHE/$SOURCE3  1  &&
   patch_it  $SOURCE_CACHE/$SOURCE4  1  &&
+  patch_it  $SOURCE_CACHE/$SOURCE5  1  &&
 
   unset CFLAGS CXXFLAGS CPPFLAGS  &&
+  export CFLAGS=" -fno-strict-aliasing"  &&
   default_build  &&
   gzip -9 ChangeLog  &&
   mkdir -p $DOCUMENT_DIRECTORY/grub  &&

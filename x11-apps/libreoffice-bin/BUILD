@@ -21,10 +21,6 @@
   ln -sf ${LO_OPT_DIR}/program/simpress /usr/bin/simpress &&
   ln -sf ${LO_OPT_DIR}/program/sbase /usr/bin/sbase &&
   ln -sf ${LO_OPT_DIR}/program/sdraw /usr/bin/sdraw &&
-  ln -sf ${LO_OPT_DIR}/program/smath /usr/bin/smath &&
-
-  message "${MESSAGE_COLOR}Updating icon-cache and mime database...${DEFAULT_COLOR}" &&
-  gtk-update-icon-cache --force /usr/share/icons/* &&
-  update-mime-database /usr/share/mime
+  ln -sf ${LO_OPT_DIR}/program/smath /usr/bin/smath 
 
 ) > $C_FIFO 2>&1

@@ -1,9 +1,9 @@
 (
   add_priv_user mongodb:mongodb -d /var/lib/mongodb  &&
 
-  scons all --full &&
+  scons -j${MAKES:=1} all --full &&
   prepare_install &&
-  scons install --full --prefix=/usr &&
+  scons -j${MAKES:=1} install --full --prefix=/usr &&
 
   [ -f /etc/mongodb.conf ] || install -m 644 $SOURCE_CACHE/$SOURCE2 /etc/mongodb.conf &&
 
