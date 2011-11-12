@@ -9,14 +9,10 @@ if [ ! -z $OLD_VER ]; then
 fi
 unset_module_config OLD_VER
 
-rm -rf /usr/lib/thunderbird-[1-6]*
-rm -rf /usr/lib/thunderbird-7.0
-rm -rf /usr/lib/thunderbird-devel-[1-6]*
-rm -rf /usr/lib/thunderbird-devel-7.0
-rm -rf /usr/include/thunderbird-[1-6]*
-rm -rf /usr/include/thunderbird-7.0
-rm -rf /usr/share/idl/thunderbird-[1-6]*
-rm -rf /usr/share/idl/thunderbird-7.0
+rm -rf /usr/lib/thunderbird-[0-7]*
+rm -rf /usr/lib/thunderbird-devel-[0-7]*
+rm -rf /usr/include/thunderbird-[0-7]*
+rm -rf /usr/share/idl/thunderbird-[0-7]*
 
 export LD_LIBRARY_PATH="/usr/lib/$TBIRD_LIBDIR:/usr/lib/$TBIRD_LIBDIR/components"
 export MOZILLA_FIVE_HOME="/usr/lib/$TBIRD_LIBDIR"

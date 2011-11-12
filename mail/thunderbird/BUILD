@@ -1,5 +1,8 @@
 (
 
+  # Workaround Segmentation fault at install part on precompile_cache.js
+  sedit '/^GENERATE_CACHE=1$/d' mail/installer/Makefile.in &&
+
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
