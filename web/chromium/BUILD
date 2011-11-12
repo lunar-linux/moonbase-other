@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1  &&
+
 # Inserting a missing cups include
   sed -i "40i #include <cups/ppd.h>" chrome/browser/ui/webui/print_preview_handler.cc &&
 

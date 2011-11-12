@@ -8,15 +8,11 @@
 
   if [ "$VIRT_FOR_KDE" == "y" ] ; then
    OPTS+=" --disable-all-vads --program-transform-name='s/isql*/vt-isql/' --with-iodbc \
-           --without-debug --enable-aio --build=$BUILD --with-pthreads --disable-static"
-
-  else
-   OPTS+=" --without-debug --disable-tutorial-vad --disable-sparqldemo-vad  --disable-demo-vad  \
-           --with-pthreads --enable-aio --program-transform-name='s/isql*/vt-isql/' --disable-static \
-           --build=$BUILD --with-iodbc"
+           --without-debug  --with-pthreads"
+     else
+   OPTS+=" --without-debug --with-pthreads --program-transform-name='s/isql*/vt-isql/' \
+           --with-iodbc"
   fi  &&
-
-  ./autogen.sh &&
 
   default_build
 

@@ -1,20 +1,12 @@
 (
   patch_it $SOURCE4 1   &&
   patch_it $SOURCE5 1   &&
-  patch_it $SOURCE6 1   &&
-  patch_it $SOURCE7 1   &&
-
-  # Autoconf fix
-  sedit 's;^AC_\(AIX\|MINIX\)$;;' acinclude.m4 &&
 
   ./regen.sh            &&
 
   case `uname -r` in
-    2.6.*)
+    2.6.*|3.*)
       kv="26"
-      ;;
-    2.4.*)
-      kv="24"
       ;;
     *)
       message "Unsupported kernel version!"
@@ -45,7 +37,6 @@
                 --localstatedir=/var/lib        \
                 --infodir=/usr/share/info       \
                 --mandir=/usr/share/man         \
-                --enable-largefile-fileserver   \
                 --enable-supergroups            \
                 --disable-kernel-module         \
                 $OPTS                           &&

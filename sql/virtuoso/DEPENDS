@@ -3,6 +3,8 @@ depends libiodbc
 #Leaving perl commented out. Make failes if this is enabled.
 #optional_depends perl        "--enable-perl"        "--disable-perl"        "for perl hosting support"
 
+optional_depends readline    " --with-readline"     " --without-readline"   "for readline support"
+optional_depends libedit     "--with-editline"      "--without-editline"    "for editline support"
 optional_depends Python      "--enable-python"      "--disable-python"      "for python hosting support"
 optional_depends ruby        "--enable-ruby"        "--disable-ruby"        "for ruby hosting support"
 optional_depends ImageMagick "--enable-imagemagick" "--disable-imagemagick" "for ImageMagick plugin"
