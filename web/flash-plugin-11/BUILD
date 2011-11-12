@@ -1,13 +1,24 @@
 (
 
   # This only applies if you do not have kdelibs4/Qt4 installed.
-  if ! module_installed kdelibs4 ; then
-     rm -rf usr/lib/kde4 usr/share/kde4
+  if ! module_installed kdelibs ; then
+     rm -rf usr/lib64/kde4 usr/share/kde4
   fi &&
 
   prepare_install &&
   install -Dm755 libflashplayer.so /opt/lunar/plugins/libflashplayer.so &&
-  cp -af usr / &&
+  install -m755 usr/bin/flash-player-properties /usr/bin &&
+  install -m755 usr/share/pixmaps/flash-player-properties.png /usr/share/pixmaps/ &&
+  install -m755 usr/share/applications/flash-player-properties.desktop /usr/share/applications/ &&
+  cp -af usr/share/icons /usr/share/icons/ &&
+
+  if module_installed kdelibs && [ `arch` == "x86_64" ] ; then
+    cp -af usr/share/kde4/services / &&
+    cp -af usr/lib64/* /usr/lib/kde4/
+   else
+    cp -af usr/share/kde4/services / &&
+    cp -af usr/lib/* /usr/lib/kde4/
+  fi &&
 
   if [ -x /usr/bin/gtk-update-icon-cache -a -f /usr/share/icons/hicolor/index.theme ]; then
       gtk-update-icon-cache -f /usr/share/icons/hicolor
