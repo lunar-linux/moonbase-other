@@ -10,22 +10,16 @@ if [ ! -z "$OLD_VER" ] && [ "$OLD_VER" != "$NEW_VER" ] ; then
     rm -rf /usr/lib/firefox-devel-$old_version
     rm -rf /usr/include/firefox-$old_version
     rm -rf /usr/share/idl/firefox-$old_version
-    rm -rf /usr/lib/gcc/i686-pc-linux-gnu/4.5.2/include-fixed/firefox-$old_version
   done
 fi
 
 unset_module_config OLD_VER
 
 # Clean up old firefox junk
-rm -rf /usr/lib/firefox-[0-6]*
-rm -rf /usr/lib/firefox-7.0
-rm -rf /usr/lib/firefox-devel-[0-6]*
-rm -rf /usr/lib/firefox-devel-7.0
-rm -rf /usr/include/firefox-[0-6]*
-rm -rf /usr/include/firefox-7.0
-rm -rf /usr/share/idl/firefox-[0-6]*
-rm -rf /usr/share/idl/firefox-7.0
-rm -rf /usr/lib/gcc/i686-pc-linux-gnu/4.5.2/include-fixed/firefox-[0-6]*
+rm -rf /usr/lib/firefox-[0-7]*
+rm -rf /usr/lib/firefox-devel-[0-7]*
+rm -rf /usr/include/firefox-[0-7]*
+rm -rf /usr/share/idl/firefox-[0-7]*
 
 export LD_LIBRARY_PATH="$FIREFOX_HOME/lib/$FFOX_LIBDIR:$FIREFOX_HOME/lib/$FFOX_LIBDIR/plugins:$FIREFOX_HOME/lib/$FFOX_LIBDIR/components"
 export MOZILLA_FIVE_HOME="$FIREFOX_HOME/lib/$FFOX_LIBDIR"
