@@ -12,12 +12,13 @@
   install -m755 usr/share/applications/flash-player-properties.desktop /usr/share/applications/ &&
   cp -af usr/share/icons /usr/share/icons/ &&
 
-  if module_installed kdelibs && [ `arch` == "x86_64" ] ; then
+  if module_installed kdelibs ; then
     cp -af usr/share/kde4/services / &&
-    cp -af usr/lib64/* /usr/lib/kde4/
-   else
-    cp -af usr/share/kde4/services / &&
-    cp -af usr/lib/* /usr/lib/kde4/
+    if [ `arch` == "x86_64" ] ; then
+      cp -af usr/lib64/* /usr/lib/kde4/
+    else
+      cp -af usr/lib/* /usr/lib/kde4/
+    fi
   fi &&
 
   if [ -x /usr/bin/gtk-update-icon-cache -a -f /usr/share/icons/hicolor/index.theme ]; then
