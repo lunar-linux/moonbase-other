@@ -20,7 +20,7 @@ optional_depends "libnotify"  "--enable-libnotify"  "--disable-libnotify"  \
 optional_depends "openldap"  "--enable-ldap"  "--disable-ldap"  \
                  "To enable ldap support"
 
-optional_depends "xulrunner"  "--with-system-libxul --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL"  ""  \
+optional_depends "%GECKO_RENDERER"  "--with-system-libxul --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL"  ""  \
                  "To use system xulrunner"
 
 optional_depends "nspr"  "--with-system-nspr"  ""  \
