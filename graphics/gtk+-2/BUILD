@@ -23,23 +23,17 @@
 
   OPTS+=" --with-gdktarget=x11"
 
-# remove the existing NVIDIA or NVIDIA-beta module to prevent the compiling failing
-  WITH_NV=0  &&
+# remove the existing NVIDIA or NVIDIA-beta module to prevent the installation failing
+  WITH_NV=""
   if module_installed NVIDIA; then
-      WITH_NV=1  &&
+      WITH_NV=NVIDIA
       lrm NVIDIA
-    elsif module_installed NVIDIA-beta; then
-      WITH_NV=2  &&
+  elif module_installed NVIDIA-beta; then
+      WITH_NV=NVIDIA-beta
       lrm NVIDIA-beta
   fi  &&
+  echo $WITH_NV >/tmp/WITH_NV &&
 
-  default_build  &&
-
-# restore the NVIDIA or NVIDIA-beta module, if it was previously installed
-  if [ $WITH_NV = 1 ]; then
-      lin NVIDIA
-    elsif [ $WITH_NV = 2 ]; then
-      lin NVIDIA-beta
-  fi
+  default_build
 
 ) > $C_FIFO 2>&1
