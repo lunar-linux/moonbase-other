@@ -2,7 +2,7 @@
 
   # This only applies if you do not have kdelibs4/Qt4 installed.
   if ! module_installed kdelibs ; then
-     rm -rf usr/lib64/kde4 usr/share/kde4
+     rm -rf usr/lib* usr/share/kde4
   fi &&
 
   prepare_install &&
