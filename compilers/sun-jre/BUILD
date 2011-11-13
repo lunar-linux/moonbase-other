@@ -13,7 +13,7 @@
   cp -r $SOURCE_DIRECTORY /usr/java &&
   # Sun's recommended symlinks:
   # This one _always_ points on latest Java release
-  ln -sf /usr/java/jre${FVERSION} /usr/java/latest &&
+  ln -sf /usr/java/jre${DVERSION} /usr/java/latest &&
   # This one _always_ points on default Java.
   # If not set manually by root it defaults to /usr/java/latest:
   if [ ! -h /usr/java/default ]; then
@@ -22,7 +22,7 @@
 
   # Some dumb distros say java is only library so install it in /usr/lib
   # We make symlink to help applications find java if they were developed in such ill environment
-  ln -sf /usr/java/jre${FVERSION} /usr/lib/jre${FVERSION} &&
+  ln -sf /usr/java/jre${DVERSION} /usr/lib/jre${DVERSION} &&
 
   # Some applications don't accept anything but /usr/bin
   for file in /usr/java/latest/bin/*; do
