@@ -1,0 +1,7 @@
+# restore the NVIDIA or NVIDIA-beta module, if it was previously installed
+WITH_NV=`cat /tmp/WITH_NV`
+rm -f /tmp/WITH_NV
+  if [ -n "$WITH_NV" ]; then
+      lin $WITH_NV
+  fi
+unset WITH_NV
