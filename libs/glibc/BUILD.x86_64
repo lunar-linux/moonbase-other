@@ -28,6 +28,10 @@
   patch_it $SOURCE4 1 &&
   patch_it $SOURCE5 1 &&
   patch_it $SOURCE6 1 &&
+
+  # Fixes nvidia-settings and other apps segfault http://www.nvnews.net/vbulletin/showpost.php?p=2501574
+  patch_it $SOURCE7 1 &&
+
   sedit 's/^# \(.* := rpcinfo\)/\1/p'  sunrpc/Makefile &&
   sedit 's/test-netdb tst-nss-test1/test-netdb/' nss/Makefile &&
   sedit '/libnss_test1/d' shlib-versions &&
