@@ -1,8 +1,6 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
-  patch_it $SOURCE_CACHE/$SOURCE4 1  &&
-  patch_it $SOURCE_CACHE/$SOURCE5 0  &&
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
   # the patch REQUIRES -lcrypt but we might want to disable PAM:
   if echo $OPTS | grep -q with-pam ; then
@@ -26,11 +24,11 @@
   default_config           &&
   mkdir -p /var/lib/sasl/  &&
   default_make             &&
-  
+
   if [ ! -d /etc/sasl2 ]; then
           mkdir -p /etc/sasl2
   fi  &&
-  
+
   if [ ! -e /etc/sasl2/smtpd.conf ] ; then
     install $SOURCE_CACHE/$SOURCE2 /etc/sasl2/smtpd.conf.gz  &&
     gunzip /etc/sasl2/smtpd.conf.gz
