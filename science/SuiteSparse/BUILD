@@ -1,7 +1,7 @@
 (
 
-  CFLAGS+=" -fPIC"   &&
-  CXXFLAGS+=" -fPIC" &&
+  CFLAGS+=" -fPIC -O3 -I../Include"   &&
+  CXXFLAGS+=" -fPIC -O3 -I../Include" &&
 
   sedit "s:/usr/local/:/usr/:" UFconfig/UFconfig.mk &&
   sedit "s:CC = cc:CC = gcc:" metis-4.0/Makefile.in &&
