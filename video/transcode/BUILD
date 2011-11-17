@@ -1,9 +1,9 @@
 (
 
-  patch_it $SOURCE2 1  &&
-
-  OPTS+=" --enable-ffmpeg \
-        --enable-libmpeg2 --enable-libmpeg2convert --enable-libpostproc"  &&
+  OPTS+=" --enable-ffmpeg           \
+          --enable-libmpeg2         \
+          --enable-libmpeg2convert  \
+          --enable-libpostproc"    &&
 
   default_build
 
