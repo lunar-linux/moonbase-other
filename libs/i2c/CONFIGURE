@@ -1,11 +1,11 @@
-# Instead of trying to always maintain the linux-2.6* CONFLICTS file
+# Instead of trying to always maintain the linux-2.6* or linux-3.* CONFLICTS file
 # just check the running kernel.
 
-if echo "`uname -r`" | grep -q '^2\.6\.' ; then
+if echo "`uname -r`" | grep -q '^2\.6\.\|3\.' ; then
   message ""
   message "${PROBLEM_COLOUR}********************"
   message " This driver is designed for the 2.4.x series kernel."
-  message " The 2.6.x series kernel you are running natively supports i2c."
+  message " The 2.6.x or 3.x series kernel you are running natively supports i2c."
   message " You will find in menuconfig under 'Character devices' -> 'I2C support'."
   message " Install aborted."
   message "********************${DEFAULT_COLOUR}"
