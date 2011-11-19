@@ -1,0 +1,11 @@
+# Generate a list of drivers from xorg:
+drivers=`ls $MOONBASE/xorg7/driver`
+# This is a manually collected list of X drivers from 3rd party providers.
+# Update it when you add external X driver.
+drivers="$drivers NVIDIA NVIDIA-beta NVIDIA-fx NVIDIA-legacy NVIDIA-old fglrx"
+for driver in $drivers; do
+  if module_installed $driver ; then
+    # ignore failures as much as possible
+    lin -c $driver || true
+  fi
+done
