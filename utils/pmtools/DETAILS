@@ -1,7 +1,13 @@
           MODULE=pmtools
          VERSION=20110323
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$KERNEL_URL/pub/linux/kernel/people/lenb/acpi/utils
+#      SOURCE_URL=$KERNEL_URL/pub/linux/kernel/people/lenb/acpi/utils
+# After an attack on kernel.org personal dirs of developers were removed.
+# Restoring file from kernel mirrors from sites which can be trusted.
+   SOURCE_URL[0]=http://sourceware.mirrors.tds.net/pub/kernel.org/linux/kernel/people/lenb/acpi/utils
+   SOURCE_URL[1]=http://ftp.yellowdoglinux.com/pub/linux/kernel/people/lenb/acpi/utils
+   SOURCE_URL[2]=http://mirror.nexcess.net/kernel.org/linux/kernel/people/lenb/acpi/utils
+   SOURCE_URL[3]=http://ftp.task.gda.pl/pub/linux/kernel/people/lenb/acpi/utils
       SOURCE_VFY=sha1:420401926ffb09dc5b16a183acc9de5b1de6a9e8
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
         WEB_SITE=http://ftp.kernel.org/pub/linux/kernel/people/lenb/acpi/utils
