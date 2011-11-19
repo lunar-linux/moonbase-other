@@ -133,6 +133,10 @@ warn_msg()
 	echo -ne "$1$RESULT_WARN"
 }
 
+kernel_is_3()
+{
+	uname -r | grep -q "^3"
+}
 
 kernel_is_26()
 {
@@ -191,7 +195,7 @@ start()
 
 	# default bahaviour if the user did not choose himself
 	if [ -z "$DEVNODES" ]; then
-		if kernel_is_26 ; then
+		if kernel_is_26 || kernel_is_3 ; then
 			DEVNODES="udev"
 			if [ -n "$DEBUG" ] ; then
 				echo -e "\n< Found udev >"
@@ -202,7 +206,7 @@ start()
 		fi
 	fi
 
-	kernel_is_26 && run_with_msg " * Mounting /sys" "mount -n -t sysfs sysfs /sys"
+	kernel_is_26 || kernel_is_3 && run_with_msg " * Mounting /sys" "mount -n -t sysfs sysfs /sys"
 
 	if [ "$DEVNODES" = "udev" ]; then
         run_with_msg " * Mounting udev on /dev" "mount -w -n -t tmpfs udevfs /dev -o size=6m,mode=0755"
