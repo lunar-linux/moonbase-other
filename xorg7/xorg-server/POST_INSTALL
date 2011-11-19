@@ -1,8 +1,2 @@
-if module_installed xf86-input-evdev     ; then lin -c xf86-input-evdev     ; fi
-if module_installed xf86-input-synaptics ; then lin -c xf86-input-synaptics ; fi
-
-if module_installed NVIDIA-fx            ; then lin -c NVIDIA-fx            ; fi
-if module_installed NVIDIA-legacy        ; then lin -c NVIDIA-legacy        ; fi
-if module_installed NVIDIA-old           ; then lin -c NVIDIA-old           ; fi
-if module_installed NVIDIA-beta          ; then lin -c NVIDIA-beta          ; fi
-if module_installed NVIDIA               ; then lin -c NVIDIA               ; fi
+# Reinstall xorg drivers: those from xorg7 and binary blobs from nVidia and AMD/ATI
+lin -c xorg-reqs
