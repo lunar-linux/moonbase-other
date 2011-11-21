@@ -25,10 +25,10 @@ if [ -n "${SOURCE2}" ]; then
     patch_it ${SOURCE2} 1
 fi
 
-if  [ -f $CONFIG_CACHE/.config.3.2.stable ]; then
-    cp $CONFIG_CACHE/.config.3.2.stable $SOURCE_DIRECTORY/.config;
-elif [ -f $CONFIG_CACHE/.config.beta ]; then
-    cp $CONFIG_CACHE/.config.beta $SOURCE_DIRECTORY/.config;
+if  [ -f $CONFIG_CACHE/.config.unstable ]; then
+    cp $CONFIG_CACHE/.config.unstable $SOURCE_DIRECTORY/.config;
+elif [ -f $CONFIG_CACHE/.config.2.6.stable ]; then
+    cp $CONFIG_CACHE/.config.2.6.stable $SOURCE_DIRECTORY/.config;
 fi
 
 while

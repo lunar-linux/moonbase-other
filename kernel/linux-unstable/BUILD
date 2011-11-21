@@ -2,7 +2,7 @@
 MYARCH="`arch | grep -qw i.86 && echo i386 || arch`"
 
 echo | make oldconfig
-LD_PRELOAD= cp .config $CONFIG_CACHE/.config.3.2.stable
+LD_PRELOAD= cp .config $CONFIG_CACHE/.config.unstable
 rm -f arch/${MYARCH}/boot/bzImage
 
 make ${MAKES:+-j$MAKES} bzImage
