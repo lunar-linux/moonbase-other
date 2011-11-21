@@ -1,5 +1,5 @@
    message " "
-   message " ${PROBLEM_COLOR}Warning! This module does not need to be run on every kernel update. The optimum time would be from one major kernel version to the next, such as 2.6.33 to 2.6.34"
+   message " ${PROBLEM_COLOR}Warning! This module does not need to be run on every kernel update. The optimum time would be from one major kernel version to the next."
    message " "
    if ! query "Do you wish to continue (y/n)? " n; then
       message " "
@@ -7,13 +7,13 @@
       exit 1
    fi
 
-mk_source_dir       &&
-validate_source_dir &&
+mk_source_dir        &&
+validate_source_dir  &&
 
-cd $SOURCE_DIRECTORY &&
+cd $SOURCE_DIRECTORY  &&
 
-message "${MESSAGE_COLOR}Extracting kernel sources ...${DEFAULT_COLOR}" &&
+message "${MESSAGE_COLOR}Extracting kernel sources ...${DEFAULT_COLOR}"  &&
 
-tar xf $SOURCE_CACHE/$SOURCE --no-same-owner \
-                             --no-same-permissions \
+tar xf $SOURCE_CACHE/$SOURCE --no-same-owner        \
+                             --no-same-permissions  \
                              --strip-component=1

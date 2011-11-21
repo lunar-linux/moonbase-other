@@ -12,7 +12,7 @@
 
   prepare_install
 
-  tar cjvf kernel-headers-$VERSION.tar.bz2 kernel-headers-$VERSION &&
+  tar cjvf kernel-headers-$VERSION.tar.bz2 kernel-headers-$VERSION  &&
 
   install -m644 $SOURCE_DIRECTORY/kernel-headers-$VERSION.tar.bz2 $SOURCE_CACHE/
 
