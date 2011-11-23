@@ -12,6 +12,16 @@
   patch_it $SOURCE9  0  &&
   patch_it $SOURCE10 0  &&
   patch_it $SOURCE11 0  &&
+  patch_it $SOURCE12 0  &&
+  patch_it $SOURCE13 0  &&
+  patch_it $SOURCE14 0  &&
+  patch_it $SOURCE15 0  &&
+  patch_it $SOURCE16 0  &&
+  patch_it $SOURCE17 0  &&
+  patch_it $SOURCE18 0  &&
+  patch_it $SOURCE19 0  &&
+  patch_it $SOURCE20 0  &&
+  patch_it $SOURCE21 0  &&
 
   OPTS+=" --bindir=/bin                 \
           --enable-readline             \
