@@ -7,14 +7,6 @@
      . /etc/profile.d/qt4.rc
   fi &&
 
-  if [[ "$PARPORT" == "n" ]] ; then
-    OPTS+=" --disable-pp-build"
-  fi &&
-
-  if [[ "$FAX" == "n" ]] ; then
-    OPTS+=" --disable-fax-build"
-  fi &&
-
   # Install /usr/bin/hpijs so don't get this error:
   # (/usr/lib/cups/filter/foomatic-rip-hplip) stopped with status 3!
   # Or this error:

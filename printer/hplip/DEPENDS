@@ -2,14 +2,24 @@ depends  %JPEG
 depends  cups
 depends  libusb-compat
 
+optional_depends "udev"                     \
+                 "--enable-udev-acl-rules"  \
+                 "--disable-udev-acl-rules" \
+                 "for udev access rules support"
+
+optional_depends "polkit"              \
+                 "--enable-policykit"  \
+                 "--disable-policykit" \
+                 "for policykit support"
+
 optional_depends "sane-backends"         \
                  "--enable-scan-build"   \
                  "--disable-scan-build"  \
                  "for builtin scanner support"
 
 optional_depends "PyQt"          \
-                 "--enable-qt4"   \
-                 "--disable-qt4"  \
+                 "--enable-qt4 --disable-qt3"   \
+                 "--disable-qt4 --disable-qt3"  \
                  "for HP Qt4 GUI Support"
 
 optional_depends "reportlab"  \
