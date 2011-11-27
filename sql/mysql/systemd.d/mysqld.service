@@ -1,0 +1,14 @@
+[Unit]
+Description=MySQL Database Server
+After=network.target
+Before=httpd.service postfix.service
+
+[Service]
+Type=simple
+PIDFile=/var/lib/mysql/mysqld.pid
+ExecStart=/usr/libexec/mysqld --user=mysql --pid-file=/var/lib/mysql/mysqld.pid --socket=/var/lib/mysql/mysql.sock
+ExecStop=/bin/kill -15 $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
