@@ -1,6 +1,6 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
 
   # the patch REQUIRES -lcrypt but we might want to disable PAM:
   if echo $OPTS | grep -q with-pam ; then
