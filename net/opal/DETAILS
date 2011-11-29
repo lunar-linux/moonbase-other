@@ -1,12 +1,14 @@
           MODULE=opal
-           MAJOR=3.8
-         VERSION=$MAJOR.3
+         VERSION=3.10.2
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR
-      SOURCE_VFY=sha1:7d04530162338bf067f99271bb8bf5b37f05171f
+         SOURCE2=opal-3.10.2-MPEG4-ffmpeg.01.patch
+      SOURCE_URL=$GNOME_URL/sources/$MODULE/${VERSION%.*}
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:de679d230f6bc2e9c11da187f5a73edc0752d489
+     SOURCE2_VFY=sha1:39f8304a16c8a18702cc4d726965269b69d6be42
         WEB_SITE=http://www.ekiga.org
          ENTERED=20070316
-         UPDATED=20110210
+         UPDATED=20111129
            SHORT="Open Phone Abstraction Library"
 
 cat << EOF
