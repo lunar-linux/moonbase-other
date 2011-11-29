@@ -4,8 +4,13 @@ depends libsigc++2
 depends boost
 depends cyrus-sasl
 
-optional_depends dbus  "" "--disable-dbus"  "for dbus support"
-optional_depends avahi "" "--disable-avahi" "for avahi support"
+optional_depends libnotify "--enable-notify" "--disable-notify" "for desktop notification support"
+optional_depends dbus      "--enable-dbus"   "--disable-dbus"   "for dbus support"
+optional_depends avahi     "--enable-avahi"  "--disable-avahi"  "for avahi support"
+optional_depends openldap  "--enable-ldap"   "--disable-ldap"   "for OpenLDAP suppurt"
+
+optional_depends loudmouth    "--enable-loudmouth" "--disable-loudmouth" "for loudmouth support"
+optional_depends gstreamer-10 "--enable-gstreamer" "--disable-gstreamer" "for gstreamer support"
 
 optional_depends evolution-data-server \
                  ""                    \
@@ -17,7 +22,3 @@ optional_depends libgnomeui \
                  "--disable-gnome --disable-doc" \
                  "to enable gnome support"
 
-optional_depends openldap  \
-                 ""        \
-                 "--disable-ldap"  \
-                 "for OpenLDAP support"
