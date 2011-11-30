@@ -1,11 +1,14 @@
 depends chrpath
 depends scons
 
-optional_depends "ncurses"       "" "" "for ncurses terminal support"
+optional_depends "ntp"           "ntpshm=yes" "ntpshm=no" "for NTP time hinting support"
+optional_depends "Python"        "python=yes" "pythonno" "Python support and modules"
+optional_depends "ncurses"       "ncurses=yes" "ncurses=no" "for ncurses terminal support"
 optional_depends "udev"          "" "" "for udev (hotplug) support"
-optional_depends "dbus"          "" "" "for dbus support"
-optional_depends "libusb-compat" "" "" "for usb device support"
-optional_depends "qt4"           "" "" "for Qt C++ wrapper support"
-optional_depends "docbook-xsl"   "" "" "for man page document support"
+optional_depends "dbus"          "dbus_export=yes" "dbus_export=no" "for dbus support"
+optional_depends "libusb-compat" "usb=yes" "usb=no" "for usb device support"
+optional_depends "qt4"           "libQgpsmm=yes" "libQgpsmm=no" "for Qt C++ wrapper support"
+optional_depends "libxslt"       "" "" "for man page document support"
 optional_depends "%PHP"          "" "" "for web page display support"
-optional_depends "systemd"       "" "" "for systemd support (gpsd by default is systemd capable)"
+optional_depends "bluez"         "bluez=yes" "bluez=no" "for bluetooth support"
+optional_depends "systemd"       "systemd=yes" "systemd=no" "for systemd support (gpsd by default is systemd capable)"
