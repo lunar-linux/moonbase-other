@@ -1,6 +1,11 @@
 depends kdepimlibs
 
-optional_depends sip    "-DWITH_SIP=ON" "-DWITH_SIP=OFF" "for sip support"
-optional_depends PyQt   "-DWITH_PyQt=ON" "-DWITH_PyQt=OFF" "for PyQt bindings support"
+optional_depends sip    "-DWITH_SIP=ON"    "-DWITH_SIP=OFF"    "for sip support"
+optional_depends PyQt   "-DWITH_PyQt=ON"   "-DWITH_PyQt=OFF"   "for PyQt bindings support"
 optional_depends pykde4 "-DWITH_PyKDE4=ON" "-DWITH_PyKDE4=OFF" "for PyKDE bindings support"
-optional_depends pycups "" "" "for Cups bindings support"
+optional_depends pycups "-DWITH_PyCups=ON" "-DWITH_PyCups=OFF" "for Cups bindings support"
+
+optional_depends system-config-printer               \
+                 "-DWITH_SystemConfigPrinter=ON"     \
+                 "-DWITH_SystemConfigPrinter=OFF"    \
+                 "for Printer configuration support"
