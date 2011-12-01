@@ -2,7 +2,7 @@
 
   . /etc/profile.d/qt4.rc &&
 
-  OPTS+=" --enable-build-type=release --enable-shared --disable-static  --with-frontend=qt4" &&
+  OPTS+=" --enable-build-type=release --with-frontend=qt4" &&
 
   default_build &&
 
