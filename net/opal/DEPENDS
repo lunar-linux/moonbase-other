@@ -1,4 +1,8 @@
 depends ptlib
 
-optional_depends swig "--enable-java" "--disable-java" "enable JAVA JNI support"
-optional_depends ruby "--enable-ruby" "--disable-ruby" "for ruby support"
+optional_depends swig      ""              ""               "For code wrapping support"
+optional_depends srtp      "--enable-srtp" "--disable-srtp" "Enable SRTP protocol support"
+optional_depends ruby      "--enable-ruby" "--disable-ruby" "For ruby support"
+optional_depends %JAVA_SDK "--enable-java" "--disable-java" "For java support"
+
+optional_depends speex "--disable-localspeexdsp" "--enable-localspeexdsp" "for speex echo cancellation support; Y=system"
