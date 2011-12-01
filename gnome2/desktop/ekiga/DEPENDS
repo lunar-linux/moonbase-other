@@ -1,24 +1,18 @@
 depends opal
-depends gnome-doc-utils
 depends libsigc++2
-depends boost
 depends cyrus-sasl
 
+
+optional_depends boost     "--with-boost"    "--without-boost"  "for boost library support"
 optional_depends libnotify "--enable-notify" "--disable-notify" "for desktop notification support"
 optional_depends dbus      "--enable-dbus"   "--disable-dbus"   "for dbus support"
 optional_depends avahi     "--enable-avahi"  "--disable-avahi"  "for avahi support"
 optional_depends openldap  "--enable-ldap"   "--disable-ldap"   "for OpenLDAP suppurt"
+optional_depends GConf     "--enable-gconf"  "--disable-gconf"  "enable GConf support"
 
-optional_depends loudmouth    "--enable-loudmouth" "--disable-loudmouth" "for loudmouth support"
-optional_depends gstreamer-10 "--enable-gstreamer" "--disable-gstreamer" "for gstreamer support"
+optional_depends loudmouth    "--enable-loudmouth"    "--disable-loudmouth"    "for loudmouth support"
+optional_depends gstreamer-10 "--enable-gstreamer"    "--disable-gstreamer"    "for gstreamer support"
+optional_depends scrollkeeper "--enable-scrollkeeper" "--disable-scrollkeeper" "do not make updates to the scrollkeeper database"
 
-optional_depends evolution-data-server \
-                 ""                    \
-                 "--disable-eds"       \
-                 "to enable evolution-data-server support"
-
-optional_depends libgnomeui \
-                 ""         \
-                 "--disable-gnome --disable-doc" \
-                 "to enable gnome support"
-
+optional_depends evolution-data-server "" "--disable-eds" "to enable evolution-data-server support"
+optional_depends gnome-doc-utils       "--enable-gdu" "--disable-gdu" "enable GNOME-Doc-Utils support"
