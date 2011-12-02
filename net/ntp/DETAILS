@@ -1,14 +1,13 @@
           MODULE=ntp
-           MAJOR=4.2
-         VERSION=$MAJOR.6p3
+         VERSION=4.2.6p4
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/$MODULE-$MAJOR
-   SOURCE_URL[1]=ftp://ftp.udel.edu/pub/ntp/ntp4/$MODULE-$MAJOR
-   SOURCE_URL[2]=http://archive.ntp.org/ntp4/$MODULE-$MAJOR
-      SOURCE_VFY=sha1:1d560cf689054a14e0d7446cb7bab50a92ead647
+   SOURCE_URL[0]=http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/$MODULE-${VERSION%.*}/
+   SOURCE_URL[1]=ftp://ftp.udel.edu/pub/ntp/ntp4/$MODULE-${VERSION%.*}
+   SOURCE_URL[2]=http://archive.ntp.org/ntp4/$MODULE-${VERSION%.*}
+      SOURCE_VFY=sha1:b53c4565c5d1c37494584d4fb826f82ffea285cf
         WEB_SITE=http://www.ntp.org
          ENTERED=20011004
-         UPDATED=20110104
+         UPDATED=20111202
            SHORT="ntp syncs your time with an ntp server"
 
 cat << EOF
