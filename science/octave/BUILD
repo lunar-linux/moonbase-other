@@ -8,14 +8,6 @@
 
   CXXFLAGS="-lpthread" &&
 
-#  ./configure  --sysconfdir=/etc        \
-#               --prefix=/usr            \
-#               --mandir=/usr/share/man  \
-#               --localstatedir=/var     \
-#               --enable-dl              \
-#               --enable-rpath           \
-#               $OPTS                   &&
-
- default_build 
+  default_build 
 
 ) > $C_FIFO 2>&1
