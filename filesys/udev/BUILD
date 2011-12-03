@@ -45,7 +45,9 @@
                  --datarootdir=/usr/share   \
                  --sysconfdir=/etc          \
                  --enable-udev_acl          \
-                 --with-pci-ids-path=/usr/share/pci.ids  &&
+                 --enable-rule_generator    \
+                 --enable-floppy            \
+                 --enable-edd              &&
     sedit '/^GIRTYPELIBDIR/s;\${exec_prefix};/usr;' Makefile  &&
     default_make  &&
 
