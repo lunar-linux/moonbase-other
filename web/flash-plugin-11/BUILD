@@ -13,9 +13,9 @@
   cp -af usr/share/icons /usr/share/icons/ &&
 
   if module_installed kdelibs ; then
-    cp -af usr/share/kde4/services / &&
+    cp -af usr/share/kde4/services/* /usr/share/kde4/services/ &&
     if [ `arch` == "x86_64" ] ; then
-      cp -af usr/lib64/* /usr/lib/kde4/
+      cp -af usr/lib64/kde4/* /usr/lib/kde4/
     else
       cp -af usr/lib/* /usr/lib/kde4/
     fi
