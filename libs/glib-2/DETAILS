@@ -1,10 +1,9 @@
           MODULE=glib-2
-           MAJOR=2.30
          VERSION=30.2
           SOURCE=$MODULE.$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/glib/$MAJOR
-   SOURCE_URL[1]=ftp://ftp.gtk.org/pub/glib/$MAJOR
+   SOURCE_URL[0]=$GNOME_URL/sources/glib/${MODULE#*-}.${VERSION%.*}
+   SOURCE_URL[1]=ftp://ftp.gtk.org/pub/glib/${MODULE#*-}.${VERSION%.*}
       SOURCE_VFY=sha1:70208757905037fa1f8b89797db0097c5e82a140
         WEB_SITE=http://library.gnome.org/devel/glib
          ENTERED=20020313
