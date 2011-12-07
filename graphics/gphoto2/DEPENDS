@@ -1,3 +1,9 @@
 depends libgphoto2
 
-optional_depends "aalib" "" "" "For preview support"
+optional_depends "readline" "--with-readline" "--without-readline" "for readline support"
+optional_depends "aalib"    "--with-aalib"    "--without-aalib"    "For preview support"
+optional_depends "%JPEG"    "--with-jpeg"     "--without-jpeg"     "for jpeg graphics support"
+optional_depends "cdk"      "--with-cdk"      "--without-cdk"      "for ncurses type support"
+
+optional_depends "libexif"  "--with-libexif --with-libexif=/usr"  "--without-libexif"  "for EXIF data support"
+
