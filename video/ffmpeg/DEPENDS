@@ -17,9 +17,11 @@ optional_depends "libdc1394"     "--enable-libdc1394"       "--disable-libdc1394
 optional_depends "rtmpdump"      "--enable-librtmp"         "--disable-librtmp"         "for RTMP[E] support"
 optional_depends "libva"         "--enable-vaapi"           "--disable-vaapi"           "for hardware-accelerated video"
 optional_depends "SDL"           "--enable-ffplay"          "--disable-ffplay"          "for the ffplay media player"
+optional_depends "yasm"          "--enable-yasm"            "--disable-yasm"            "for yasm assembly support"
 
 optional_depends "opencore-amr"                                   \
-                 "--enable-libopencore-amrwb --enable-version3"   \
+                 "--enable-libopencore-amrwb --enable-version3    \
+                  --enable-libopencore-amrnb --enable-version3"   \
 		 "--disable-libopencore-amrwb"                    \
 		 "for AMR Wideband and Narrowband speech support"
 
