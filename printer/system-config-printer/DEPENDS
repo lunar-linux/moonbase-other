@@ -1,4 +1,9 @@
+depends libusb
 depends desktop-file-utils
 depends xmlto
 depends pycups
 depends pynotify
+
+
+optional_depends "udev"    "--with-udev-rules"           "--without-udev-rules"           "for udev and automatic USB print queue configuration support"
+optional_depends "systemd" "--with-systemdsystemunitdir" "--without-systemdsystemunitdir" "for systemd support"
