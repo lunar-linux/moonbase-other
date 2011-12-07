@@ -1,1 +1,6 @@
 mquery NONFREE "Compile non-free codecs?" y "--enable-nonfree" "--disable-nonfree"
+
+if module_installed opencv ; then
+   mquery USE_OPENCV "Enable OpenCV library support? " y "--enable-libopencv" "--disable-libopencv"
+fi
+
