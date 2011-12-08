@@ -1,4 +1,3 @@
-depends  gtksourceview
 depends  autogen
 depends  devhelp
 depends  glade3
@@ -6,8 +5,5 @@ depends  vte
 depends  gdl
 depends  Locale-gettext
 
-optional_depends  "graphviz"    ""  "--disable-graphviz"  \
-                  "for the class inheritance diagram plugin"
-
-optional_depends  "subversion"  ""  "--disable-plugin-subversion"  \
-                  "for integrated subversion source control management"
+optional_depends "gtksourceview" "--enable-plugin-sourceview" "--disable-plugin-sourceview" "for gtksourceview based editor support"
+optional_depends "subversion"    "--enable-plugin-subversion" "--disable-plugin-subversion" "for integrated subversion source control management"
