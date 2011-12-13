@@ -1,7 +1,9 @@
 (
-  
-  bzcat $SCRIPT_DIRECTORY/netkit-telnet.patch.bz2 | patch -p1
-  sedit "s/MANDIR=\"\$PREFIX\/man/MANDIR=\"\$PREFIX\/share\/man/" configure
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+
+  sedit "s/MANDIR=\"\$PREFIX\/man/MANDIR=\"\$PREFIX\/share\/man/" configure  &&
+
   ./configure  --prefix=/usr  &&
   default_make
 
