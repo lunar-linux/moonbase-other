@@ -6,17 +6,16 @@
 
   make &&
   prepare_install &&
-  mkdir -p /usr/include/tbb &&
-  install `find include/tbb/ -name "*.h" -print` /usr/include/tbb/ &&
+  mkdir -p /usr/include/tbb/{machine,internal,compat}  &&
+  mkdir -p /usr/include/serial/tbb &&
+  install `find include/tbb/machine -name "*.h" -print` /usr/include/tbb/machine &&
+  install `find include/tbb/internal -name "*.h" -print` /usr/include/tbb/internal &&
+  install `find include/tbb/compat -name "*.h" -print` /usr/include/tbb/compat &&
+  install `find include/serial/tbb -name "*.h" -print` /usr/include/serial/tbb &&
+  install include/tbb/*.h /usr/include/tbb &&
+
   cd build/linux_intel*release &&
   install `find . -name "*.so*" -print` /usr/lib/ &&
-
-  mkdir -p /usr/include/tbb/machine  &&
-  mkdir -p /usr/include/tbb/internal &&
-  ln -sf /usr/include/tbb/linux_intel64.h /usr/include/tbb/machine/linux_intel64.h &&
-  ln -sf /usr/include/tbb/linux_common.h /usr/include/tbb/machine/linux_common.h   &&
-  ln -sf /usr/include/tbb/_concurrent_unordered_impl.h /usr/include/tbb/internal/_concurrent_unordered_impl.h &&
-  ln -sf /usr/include/tbb/_concurrent_queue_impl.h /usr/include/tbb/internal/_concurrent_queue_impl.h &&
 
   echo export TBBROOT=\"/usr\" > $SOURCE_DIRECTORY/tbb.rc &&
   echo export PATH=\"'${PATH}':'${TBBROOT}'/bin\" >> $SOURCE_DIRECTORY/tbb.rc &&
