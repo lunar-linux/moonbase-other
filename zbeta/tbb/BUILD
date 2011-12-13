@@ -4,9 +4,6 @@
   export PATH=$MODULE_PREFIX::$PATH  &&
   export LD_LIBRARY_PATH=$TBBROOT/lib &&
 
-  GCC_VER=`lvu version gcc` &&
-  GLIBC_VER=`lvu version glibc` &&
-
   make &&
   prepare_install &&
   mkdir -p /usr/include/tbb &&
