@@ -1,3 +1,6 @@
+# Temporary fix. Check if you can remove it after next release.
+sedit '188s/0/1/' include/linux/log2.h
+
 # Needed for x86_64
 MYARCH="`arch | grep -qw i.86 && echo i386 || arch`"
 
