@@ -1,7 +1,8 @@
 (
 
-
-  . /etc/profile.d/qt4.rc &&
+  if in_depends $MODULE qt4; then
+    . /etc/profile.d/qt4.rc
+  fi 
 
   default_cmake_build
 
