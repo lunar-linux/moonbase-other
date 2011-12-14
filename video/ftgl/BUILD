@@ -9,6 +9,10 @@ do
   fi
 done &&
 
-  default_build
+  LDFLAGS+=" -lm" &&
+
+  default_build &&
+
+  install `find src -name "*.h" -print` /usr/include/FTGL
 
 ) > $C_FIFO 2>&1
