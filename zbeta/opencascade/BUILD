@@ -1,13 +1,9 @@
 (
 
-  sedit "s@#include <OSD_MAllocHook.hxx>@#include <OSD_MAllocHook.hxx>\n#include <stdlib.h>@g" ros/src/OSD/OSD_MAllocHook.cxx &&
-
   cd ros &&
 
   export CFLAGS+=" -fpermissive" &&
   export CXXFLAGS+=" -fpermissive" &&
-
-  flags+=" $flags $OPTS" &&
 
   if in_depends $MODULE ftgl ; then
     sedit "s:FTFont.h:FTGL/ftgl.h:" inc/OpenGl_FontMgr.hxx src/OpenGl/OpenGl_FontMgr.hxx &&
@@ -26,9 +22,12 @@
 
   sedit "s:FTGL.h:ftgl.h:g" configure &&
   
+  ./build_configure &&
+
   ./configure $flags --prefix=/usr         \
                      --disable-debug       \
-                     --enable-production  &&
+                     --enable-production   \
+                     $OPTS                &&
 
   default_make
 
