@@ -1,0 +1,17 @@
+depends libXmu
+
+optional_depends "tk"        "--with-tk" "--without-tk"        "for TK GUI support"
+
+optional_depends "tcl"       "--with-tcl" "--without-tcl"       "for tcl scripting support"
+
+optional_depends "ftgl"      "--with-ftgl=/usr"                     \
+                             "--without-ftgl"      "for OpenGL font rendering support"
+
+optional_depends "gl2ps"     "--with-gl2ps=/usr"    "--without-gl2ps"     "for OpenGL postscript printing support"
+optional_depends "FreeImage" "--with-freeimage=/usr" "--without-freeimage" "for various image file format support"
+optional_depends "qt4"       "--with-qt"        "--without-qt"        "for Qt widget support"
+
+optional_depends "%JAVA_SDK" "--with-java-include=$JAVA_HOME/include" "" "for java bindings support"
+
+optional_depends "tbb"       "--with-tbb-include=/usr/include/tbb --with-tbb-library=/usr/lib"   \
+                             "--without-tbb-include" "for thread bulding blocks support"
