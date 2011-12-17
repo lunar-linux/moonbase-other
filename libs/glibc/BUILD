@@ -8,8 +8,14 @@
 
   export CC_OPTS=( Pipe ) &&
 
+  if module_installed kernel-headers; then
+  KVER=`installed_version kernel-headers`
+  else
+  KVER=`installed_version kernel-headers-2.6`
+  fi &&
+
   # There is no other option but nptl
-  OPTS+=" --enable-add-ons=nptl,libidn --with-__thread --with-tls --disable-profile --enable-kernel=`installed_version kernel-headers-2.6`" &&
+  OPTS+=" --enable-add-ons=nptl,libidn --with-__thread --with-tls --disable-profile --enable-kernel=$KVER" &&
 
   if [ -n "$MAKES" ] && [ "$MAKES" -gt 1 ] ; then
     sedit "s/# PARALLELMFLAGS = -j 4/PARALLELMFLAGS = -j $MAKES/" Makefile.in
