@@ -2,7 +2,7 @@
 
   sh bootstrap &&
 
-  OPTS+=" --with-cpu --with-arch --disable-debug" &&
+  OPTS+=" --with-cpu --with-arch --disable-debug --disable-hal" &&
 
   default_build
 
