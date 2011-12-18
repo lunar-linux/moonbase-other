@@ -1,15 +1,13 @@
           MODULE=babl
-           MAJOR=0.1
-         VERSION=${MAJOR}.4
+         VERSION=0.1.6
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=ftp://ftp.gimp.org/pub/babl/$MAJOR
-   SOURCE_URL[1]=ftp://ftp.gtk.org/pub/babl/$MAJOR
-      SOURCE_VFY=sha1:9f7186e5d968a4c9d81a63b20836b163f56df616
+   SOURCE_URL[0]=ftp://ftp.gimp.org/pub/babl/${VERSION%.*}
+   SOURCE_URL[1]=ftp://ftp.gtk.org/pub/babl/${VERSION%.*}
+      SOURCE_VFY=sha1:3178ec9f988efe895d00e2d432ad9b6ec10211e9
         WEB_SITE=http://gegl.org/babl/
          ENTERED=20081017
-         UPDATED=20110215
-           PSAFE=no
-           SHORT="dynamic, any to any, pixel format translation library"
+         UPDATED=20111218
+           SHORT="dynamic any to any pixel format translation library"
 
 cat << EOF
 It allows converting between different methods of storing pixels
