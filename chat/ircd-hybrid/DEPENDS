@@ -1,5 +1,7 @@
 depends flex
 depends bison
-optional_depends "openssl" "" "" "For SSL features"
-optional_depends "gettext" "" "" "For intl support"
-optional_depends "w3c-libwww" "" "" "For encrypted server passwords"
+
+
+optional_depends "zlib"    "--enable-zlib"    "--disable-zlib"    "for data compression support"
+optional_depends "pcre"    "--enable-libpcre" "--disable-libpcre" "for regular expressions support"
+optional_depends "openssl" "--enable-openssl" "--disable-openssl" "For SSL features"
