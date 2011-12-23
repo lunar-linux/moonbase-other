@@ -2,34 +2,20 @@ depends libdaemon
 
 optional_depends "nss-mdns" "" "" "for Name Switching Services Support"
 
-optional_depends "gdbm" "--enable-gdbm" "--disable-gdbm" "for extensible hashing support"
 
-optional_depends "qt4" \
-                 "--enable-qt4" \
-                 "--disable-qt4" \
-                 "building of Qt4 mainloop integration"
+optional_depends "gdbm"      "--enable-gdbm"     "--disable-gdbm"     "for extensible hashing support"
+optional_depends "qt4"       "--enable-qt4"      "--disable-qt4"      "building of Qt4 mainloop integration"
+optional_depends "libglade"  "--enable-gtk"      "--disable-gtk"      "for the use of GTK+"
+optional_depends "pygtk"     "--enable-pygtk"    "--disable-pygtk"    "for the use of pyGTK"
+optional_depends "xmltoman"  "--enable-xmltoman" "--disable-xmltoman" "to build the manpages"
+optional_depends "gtk-sharp" "--enable-mono"     "--disable-mono"     "to build the Mono/.NET avahi-sharp library"
 
-optional_depends "libglade" \
-                 "--enable-gtk" \
-                 "--disable-gtk" \
-                 "for the use of GTK+"
+optional_depends "gobject-introspection" "--enable-introspection=yes" "--enable-introspection=no" "for introspection support"
 
-optional_depends "pygtk" \
-                 "--enable-pygtk" \
-                 "--disable-pygtk" \
-                 "for the use of pyGTK"
-
-optional_depends "dbus-python" \
-                 "--enable-python-dbus --enable-python" \
+optional_depends "dbus-python" "--enable-python-dbus --enable-python" \
                  "--disable-python-dbus --disable-python" \
                  "Enable use of D-Bus in Python"
 
-optional_depends "xmlto" \
-                 "--enable-xmltoman" \
-                 "--disable-xmltoman" \
-                 "to build the manpages"
 
-optional_depends "gtk-sharp"  "--enable-mono"  "--disable-mono"  \
-                 "to build the Mono/.NET avahi-sharp library"
 
 

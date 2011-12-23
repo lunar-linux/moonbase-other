@@ -11,7 +11,7 @@
    add_priv_group netdev &&
 
    OPTS+=" --enable-compat-howl --enable-compat-libdns_sd --disable-gtk3 --disable-qt3 \
-        --disable-stack-protector --disable-gdbm --with-distro=none" &&
+           --disable-stack-protector --with-distro=none --disable-monodoc" &&
 
     default_build
 
