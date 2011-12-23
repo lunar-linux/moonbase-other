@@ -20,7 +20,7 @@
   # Fixes warning: "The directory "/usr/share/fonts/X11/OTF/" does not exist." in Xorg log.
   # This path looks to be hardcoded in Xorg server so let's create empty dir to workaround it.
   mkdir -p /usr/share/fonts/X11/OTF &&
-  if [ -x `which mkfontdir` ]; then
+  if [ module_installed mkfontdir ]; then
     mkfontdir /usr/share/fonts/X11/OTF
   fi
 
