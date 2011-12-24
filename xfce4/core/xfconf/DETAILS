@@ -1,12 +1,13 @@
         MODULE=xfconf
-       VERSION=4.8.0
+         MAJOR=4.8
+       VERSION=$MAJOR.1
         SOURCE=$MODULE-$VERSION.tar.bz2
-    SOURCE_URL=http://archive.xfce.org/xfce/4.8/src/
-    SOURCE_VFY=sha1:3f560b11d618171805bfb9e6a8290185c7ee5dcd
+    SOURCE_URL=http://archive.xfce.org/src/xfce/$MODULE/$MAJOR
+    SOURCE_VFY=sha1:aeab124f7c548e387b37a5476e594ef559515533
  MODULE_PREFIX=${XFCE4_PREFIX:-/usr}
       WEB_SITE=http://www.xfce.org
        ENTERED=20090227
-       UPDATED=20110118
+       UPDATED=20111224
          SHORT="Configuration system for Xfce"
 
 cat << EOF
