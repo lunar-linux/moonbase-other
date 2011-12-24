@@ -2,6 +2,9 @@
 
   sedit "s:Icon=:Icon=/usr/share/pixmaps/:" avidemux2-gtk.desktop avidemux2.desktop  &&
 
+# Reference; https://bugs.gentoo.org/show_bug.cgi?id=365153
+  sedit "s:i_open_gop:b_open_gop:g" plugins/ADM_videoEncoder/ADM_vidEnc_x264/encoder.cpp plugins/ADM_videoEncoder/ADM_vidEnc_x264/x264Options.cpp &&
+
   OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
 
   mkdir $OOTB_DIR  &&

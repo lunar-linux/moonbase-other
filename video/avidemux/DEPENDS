@@ -1,11 +1,16 @@
-depends  gtk+-2
 depends  libxml2
 depends  cmake
 
+optional_depends "gettext"   "-DGETTEXT=ON" "-DGETTEXT=OFF" "for gettext support"
 optional_depends "libmad"    "" "" "for Mpeg 1/2/3 audio support"
 optional_depends "nasm"      "" "" "for 5x faster VCD/SVCD/... on x86"
 optional_depends "a52dec"    "" "" "for AC3 support"
 optional_depends "lame"      "" "" "for MP3 support"
 optional_depends "libvorbis" "" "" "for Vorbis support"
 optional_depends "xvidcore"  "" "" "for XviD MPEG-4 support"
-optional_depends "qt4"       "" "" "for Qt4 support, say no if all you want is a gtk menu"
+optional_depends "libvpx"    "-DVPXDEC=ON" "-DVPXDEC=OFF" "for VP8 codec support"
+optional_depends "SDL"       "-DSDL=ON"    "-DSDL=OFF"    "for SDL support"
+optional_depends "gtk+-2"    "-DGTK=ON"    "-DGTK=OFF"    "for gtk gui support"
+optional_depends "qt4"       "-DQT4=ON"    "-DQT4=OFF"    "for Qt4 support, say no if all you want is a gtk menu"
+
+optional_depends "x264-snapshot" "-DX264=ON" "-DX264=OFF" "for x264 support"
