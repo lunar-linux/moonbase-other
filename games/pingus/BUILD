@@ -1,11 +1,12 @@
 (
 
-  sedit "s:/share/pingus/data:/share/games/pingus/data:" src/pingus_main.cpp  &&
-  prepare_install  &&
+  sedit "s:/usr/local:/usr:" Makefile  &&
+  sedit "s:)/bin:)/games:"   Makefile  &&
+  sedit "s:/share/pingus:/share/games/pingus:" Makefile  &&
+  prepare_install     &&
   scons  prefix=/usr  &&
   mkdir -p /usr/share/games/pingus  &&
-  cp -r data /usr/share/games/pingus/  &&
-  cp -f pingus /usr/games/  &&
+  make install                      &&
   cp $SCRIPT_DIRECTORY/pingus.desktop /usr/share/applications/
 
 ) > $C_FIFO 2>&1
