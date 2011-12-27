@@ -7,6 +7,7 @@
   libtoolize -c -f --ltdl &&
   autoreconf -i -f &&
   aclocal  &&
+  autoreconf &&
   autoconf &&
   automake &&
   default_build  &&
