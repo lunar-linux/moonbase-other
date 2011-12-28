@@ -4,9 +4,6 @@
 
 # If expat is yes the make tanks on "line 5975: cd: yes/lib: No such file or directory"
   sedit "s:\$withval/:/usr/:g" configure.ac &&
-  libtoolize -c -f --ltdl &&
-  autoreconf -i -f &&
-  aclocal  &&
   autoconf &&
   automake &&
   default_build  &&
