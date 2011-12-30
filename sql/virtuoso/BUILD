@@ -6,14 +6,9 @@
         /etc/init.d/virtuosod stop
   fi  &&
 
-  if [ "$VIRT_FOR_KDE" == "y" ] ; then
-   OPTS+=" --disable-all-vads --program-transform-name='s/isql*/vt-isql/' --with-iodbc \
-           --without-debug  --with-pthreads"
-     else
    OPTS+=" --without-debug --with-pthreads --program-transform-name='s/isql*/vt-isql/' \
-           --with-iodbc"
-  fi  &&
+           --with-iodbc" &&
 
-  default_build
+  default_build 
 
 ) > $C_FIFO 2>&1

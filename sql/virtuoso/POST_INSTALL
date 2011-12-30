@@ -1,6 +1,9 @@
+ if [ ! -f /var/lib/virtuoso/db/virtuoso.ini ]
+    then cp /var/lib/virtuoso/db/virtuoso.ini.sample /var/lib/virtuoso/db/virtuoso.ini
+ fi
+
  if [ -f /var/lib/virtuoso/db/virtuoso.db ]
     then
        printf "${PROBLEM_COLOR}Point a broswer to http://localhost:8890/index.html and change the default passwords for users: \n
        dba (passwd dba) and dav (passwd dav). \n" "${DEFAULT_COLOR}"
  fi
-
