@@ -1,25 +1,29 @@
 (
 
-  add_priv_user www:www -s /bin/false -c "www"  &&
+  OPTS+=" --libdir=/usr/lib/lighttpd --prefix=/usr" &&
 
-  ./configure  --prefix=/usr               \
-               --libdir=/usr/lib/lighttpd  \
-               $OPTS                      &&
-  default_make                            &&
+  add_priv_user lighttpd:lighttpd -s /bin/false -c "lighttpd"  &&
 
-  if [ ! -f /etc/lighttpd/lighttpd.conf ];  then
-    sedit 's:/www/pages/:/var/www/:g' doc/lighttpd.conf               &&
-    sedit 's:/www/logs/:/var/log/httpd/:g' doc/lighttpd.conf          &&
-    sedit 's:"wwwrun":"www":g' doc/lighttpd.conf                      &&
-    sedit 's:#server.username:server.username:g' doc/lighttpd.conf    &&
-    sedit 's:#server.groupname:server.groupname:g' doc/lighttpd.conf  &&
-    sedit 's:#server.pid-file:server.pid-file:g' doc/lighttpd.conf    &&
-    mkdir -p /etc/lighttpd                                            &&
-    install -m 644 doc/lighttpd.conf /etc/lighttpd
+  chown lighttpd:lighttpd /srv/www /var/log/lighttpd  &&
+
+  default_build &&
+
+  devoke_installwatch &&
+  mkdir -p /var/log/lighttpd    &&
+  mkdir -p /srv/www/htdocs      &&
+  mkdir -p /var/lib/lighttpd    &&
+  mkdir -p /etc/lighttpd/conf.d &&
+
+  if [ ! -f /etc/lighttpd/lighttpd.conf ] ; then
+      install doc/config/lighttpd.conf /etc/lighttpd/
+  fi &&
+
+  if [ ! -f /etc/lighttpd/modules.conf ] ; then
+      install doc/config/modules.conf /etc/lighttpd/             
+  fi &&
+
+  if [[ -z "$(ls -A /etc/lighttpd/conf.d/)" ]] ; then
+      install doc/config/conf.d/*.conf /etc/lighttpd/conf.d
   fi
-
-  mkdir -p /var/www
-  mkdir -p /var/log/httpd
-  chown www:www /var/www /var/log/httpd
 
 ) > $C_FIFO 2>&1
