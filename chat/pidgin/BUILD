@@ -1,6 +1,7 @@
 (
 
   OPTS+=" --disable-nm" &&
+  CFLAGS+=" -lm" &&
 
   default_build
 
