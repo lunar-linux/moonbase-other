@@ -11,6 +11,12 @@
   (
     cd /usr/share/ca-certificates
     find . -name '*.crt' | sort | cut -b3-
-  ) > /etc/ca-certificates.conf
+  ) > /etc/ca-certificates.conf &&
+
+  # Make CA bundle present in the most popular places.
+  mkdir -p /etc/pki/tls /usr/share/ssl &&
+  ln -sf /etc/ssl/certs /etc/pki/tls/certs &&
+  ln -sf /etc/ssl/certs /usr/share/ssl/certs &&
+  ln -sf /etc/ssl/certs/ca-{certificates,bundle}.crt
 
 ) > $C_FIFO 2>&1
