@@ -4,6 +4,10 @@
 
   OPTS+=" --disable-static"  &&
 
+  if ind_depends $MODULE qt4 ; then
+    . /etc/profile.d/qt4.rc
+  fi &&
+
   if in_depends $MODULE libX11 ; then
     # tee is required by firefox 4 when compiled with system cairo, and doesn't otherwise make any difference
     OPTS+=" --enable-tee"
