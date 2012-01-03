@@ -8,7 +8,8 @@
           operations/external/ff-load.c ;
   fi &&
 
-  OPTS+=" --disable-docs"
+# vala support is broken in 0.1.8 version
+  OPTS+=" --disable-docs --without-vala "  &&
 
   default_build
 
