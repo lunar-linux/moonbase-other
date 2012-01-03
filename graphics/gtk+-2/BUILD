@@ -32,8 +32,9 @@
       WITH_NV=NVIDIA-beta
       lrm NVIDIA-beta
   fi  &&
-  echo $WITH_NV >/tmp/WITH_NV &&
+  echo $WITH_NV >/tmp/WITH_NV  &&
 
-  default_build
+  default_build  &&
+  install -m0664 gdk/gdkconfig.h /usr/include/gtk-2.0/gdk/
 
 ) > $C_FIFO 2>&1
