@@ -1,6 +1,8 @@
 (
 
-  . /etc/profile.d/qt4.rc &&
+  patch_it $SOURCE2 1 &&
+
+  source /etc/profile.d/qt4.rc &&
 
   OPTS+=" --include-paths=/usr/include/qt4" &&
 
