@@ -1,109 +1,116 @@
 (
 
-# To silence the phonon module from barking about this;
-# "Qt compiled without support for -fvisibility=hidden.  This will break
-# plugins and linking of some applications.  Please fix your Qt installation."
-  CFLAGS+=" -fvisibility=hidden $CFLAGS" &&
+# By ommitting the --prefix switch from the configure and performing this sedit we can remove
+# the group of sedit to repoint moc, uic and rcc locations to /usr/bin. 
+  sedit "s:/usr/local/Trolltech/:$MODULE_PREFIX/share/$MODULE/Trolltech/:g" configure &&
 
-  if [ -d /opt/lunar/qt ] ; then
+# Needed so it can find some of the source libs during make.
+  export LD_LIBRARY_PATH=$SOURCE_DIRECTORY/lib:${LD_LIBRARY_PATH} &&
+
+  if [[ -d /opt/lunar/qt ]] ; then
     ld_remove /opt/lunar/qt/lib
   fi &&
 
-  if [ -d /usr/lib/qt4 ] ; then
-    ld_remove /usr/lib/qt4
+  if [[ -d /usr/lib/$MODULE ]] ; then
+    ld_remove /usr/lib/$MODULE
   fi &&
 
-  export QTDIR=$SOURCE_DIRECTORY &&
-  export PATH=$MODULE_PREFIX::$PATH  &&
-  export LD_LIBRARY_PATH=$QTDIR/lib &&
-
-  if [ $LICENSE_TYPE == "y" ] ; then
+  if [[ $LICENSE_TYPE == "y" ]] ; then
     LICENSE_TYPE="-opensource"
-   else
+     else
     LICENSE_TYPE="-commercial"
   fi &&
 
-  sedit "s/-O2/$CFLAGS/" mkspecs/common/g++.conf &&
+  sedit "s/-O2/$CFLAGS/" mkspecs/common/gcc-base.conf &&
+  sedit "s:-Wl,-rpath,::" mkspecs/common/gcc-base-unix.conf &&
+  sed -i "/^QMAKE_LFLAGS\s/s|+=|+= ${LDFLAGS}|g" mkspecs/common/gcc-base.conf &&
 
-  if [ "$MAKE_DOCS" == "y" ]; then
-    OPTS+=" -make tools -make docs -make translations"
-  fi &&
+  OPTS+=" -scripttools -no-declarative-debug" &&
 
-  if [ "$MAKE_EXAMPLE_DEMOS" == "y" ]; then
-    OPTS+=" -make examples -make demos -make tools -make docs -make translations"
-  fi &&
+  ./configure  -confirm-license "${LICENSE_TYPE}"                  \
+               -bindir "${MODULE_PREFIX}/bin"                      \
+               -libdir "${MODULE_PREFIX}/lib/$MODULE"              \
+               -docdir "${MODULE_PREFIX}/share/$MODULE"            \
+               -headerdir "${MODULE_PREFIX}/include/$MODULE"       \
+               -plugindir "${MODULE_PREFIX}/lib/$MODULE/plugins"   \
+               -importdir "${MODULE_PREFIX}/share/doc/$MODULE"     \
+               -datadir "${MODULE_PREFIX}/share/$MODULE"           \
+               -translationdir "${MODULE_PREFIX}/share/$MODULE"    \
+               -sysconfdir "/etc/xdg"                              \
+               -examplesdir "${MODULE_PREFIX}/share/doc/$MODULE"   \
+               -demosdir "${MODULE_PREFIX}/share/doc/$MODULE"      \
+               $OPTS                                              &&
 
-  OPTS+=" -largefile -multimedia -audio-backend -no-separate-debug-info -script -release -scripttools -accessibility -glib -optimized-qmake -fast -shared" &&
+  default_make &&
 
-  if [ -f /usr/lib/libOpenVG.so ];then
-    OPTS+=" -openvg"
-  fi &&
-
-  ./configure  -confirm-license $LICENSE_TYPE          \
-               -prefix /usr                            \
-               -libdir /usr/lib/$MODULE                \
-               -docdir /usr/share/$MODULE              \
-               -plugindir /usr/lib/$MODULE/plugins     \
-               -headerdir /usr/include/$MODULE         \
-               -datadir /usr/share/$MODULE             \
-               -translationdir /usr/share/$MODULE      \
-               -sysconfdir /etc/$MODULE                \
-               -examplesdir /usr/share/doc/$MODULE     \
-               -demosdir /usr/share/doc/$MODULE        \
-               -importdir /usr/share/doc/$MODULE       \
-               $OPTS                                  &&
-
-  default_make || exit 1
-
-# It wants to point moc_location and uic_location to ${prefix}/src/qt-everywhere-opensource-src-4.7.0-beta2/bin
-# and after much fiddling cannot get it to point them to /usr/bin. So lets just sedit these rascals.
-  for i in `ls /usr/lib/$MODULE/pkgconfig/Q*.pc` ; do sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:" $i ; done &&
-  if [ -f /usr/lib/$MODULE/pkgconfig/phonon.pc ]; then
-  sed -i "s:\${prefix}/src/qt-everywhere-opensource-src-$VERSION/:\${prefix}/:" /usr/lib/$MODULE/pkgconfig/phonon.pc
-  fi &&
-# Like for moc and uic, the same needs doing for the *.prl files.
-  find /usr/lib/qt4 -type f -name '*.prl' \
-      -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/' {} \; &&
-
-  if [ "MAKE_ASSIST" == "y" ] ; then
-     cd tools/assistant &&
-     qmake -o Makefile assistant.pro &&
-     make && 
-     install -m 755 
-     cd $SOURCE_DIRECTORY
-  fi &&
-
-  if [ "$MAKE_QDOC3" == "y" ]; then
-     cd tools/qdoc3 &&
-     qmake -o Makefile qdoc3.pro &&
-     make &&
-     install -m 755 ../../bin/qdoc3 $MODULE_PREFIX/bin/ &&
-     cd $SOURCE_DIRECTORY
-  fi &&
-
-  
-  # Desktop menu entry for Qt Designer
-  if [ "$MAKE_EXAMPLE_DEMOS" == "y" ]; then
-
+  if [[ "$MAKE_EXAMPLE_DEMOS" == "y" ]] ; then
   cat > ${MODULE}-designer.desktop << EOF  &&
 [Desktop Entry]
 Type=Application
 Name=Qt4 Designer
-Comment=Qt4 Designer is Qt's tool for designing and building graphical user interfaces
-Exec=/usr/bin/designer
-Icon=/usr/share/doc/qt4/widgets/icons/images/designer.png
-Categories=Application;Qt;KDE;Development;
+Comment=Design GUIs for Qt4 applications
+Exec=${MODULE_PREFIX}/bin/designer
+Icon=${MODULE_PREFIX}/share/doc/qt4/widgets/icons/images/designer.png
+Categories=Qt;Development;
+Terminal=false
 EOF
+  install -D -m644 ${MODULE}-designer.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-designer.desktop 
 
-  install -D -m644 ${MODULE}-designer.desktop /usr/share/applications/${MODULE}-designer.desktop 
-  fi &&
-##
+  cat > ${MODULE}-assistant.desktop << EOF  &&
+[Desktop Entry]
+Type=Application
+Name=Qt4 Assistant
+Comment=Shows Qt4 documentation and examples
+Exec=${MODULE_PREFIX}/bin/assistant
+Icon=${MODULE_PREFIX}/share/qt4/src/images/assistant-assistant.png
+Categories=Qt;Development;Documentation;
+Terminal=false
+EOF
+  install -D -m644 ${MODULE}-assistant.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-assistant.desktop
 
-  echo export QTDIR=\"/usr\" > $SOURCE_DIRECTORY/qt4.rc &&
-  echo export PATH=\"'${PATH}':'${QTDIR}'/bin\" >> $SOURCE_DIRECTORY/qt4.rc &&
-  echo export XDG_DATA_DIRS=\"'${XDG_DATA_DIRS:-/usr/share}':/usr/share/qt4\" >> $SOURCE_DIRECTORY/qt4.rc &&
-  echo export PKG_CONFIG_PATH=\"'${PKG_CONFIG_PATH}':/usr/lib/qt4/pkgconfig\" >> $SOURCE_DIRECTORY/qt4.rc &&
+  cat > ${MODULE}-qtdemo.desktop << EOF  &&
+[Desktop Entry]
+Name=Qt4 Demo 
+Comment=Show Qt4 demos and programming examples
+Exec=${MODULE_PREFIX}/bin/qtdemo
+Icon=${MODULE_PREFIX}/share/$MODULE/src/images/qt-logo.png
+Terminal=false
+Type=Application
+Categories=Qt;Development;
+EOF
+  install -D -m644 ${MODULE}-qtdemo.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-qtdemo.desktop
+fi &&
 
-  install -m644 $SOURCE_DIRECTORY/qt4.rc /etc/profile.d/
+  cat > ${MODULE}-qtconfig.desktop << EOF  &&
+[Desktop Entry]
+Name=Qt4 Config 
+Comment=Configure Qt4 behavior, styles, fonts
+Exec=${MODULE_PREFIX}/bin/qtconfig
+Icon=${MODULE_PREFIX}/share/$MODULE/src/images/qt-logo.png
+Terminal=false
+Type=Application
+Categories=Qt;Settings;
+EOF
+  install -D -m644 ${MODULE}-qtconfig.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-qtconfig.desktop &&
+
+  cat > ${MODULE}-linguist.desktop << EOF  &&
+[Desktop Entry]
+Name=Qt4 Linquist
+Comment=Add translations to Qt4 applications
+Exec=${MODULE_PREFIX}/bin/linguist
+Icon=${MODULE_PREFIX}/share/$MODULE/src/images/linguist-linguist.png
+Terminal=false
+Type=Application
+Categories=Qt;Settings;
+EOF
+  install -D -m644 ${MODULE}-linguist.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-linguist.desktop &&
+
+  echo "export QTDIR=\"${MODULE_PREFIX}\"" > $SOURCE_DIRECTORY/$MODULE.rc &&
+  echo export PATH=\"'${QTDIR}'/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
+  echo export QT_PLUGIN_PATH=\"'${QTDIR}'/lib/${MODULE}/plugins\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
+  echo export XDG_DATA_DIRS=\"'${XDG_DATA_DIRS:-/usr/share}':/usr/share/$MODULE\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
+  echo export PKG_CONFIG_PATH=\"'${QTDIR}'/lib/${MODULE}/pkgconfig:'${PKG_CONFIG_PATH}'\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
+
+  install -m644 $SOURCE_DIRECTORY/$MODULE.rc /etc/profile.d/
 
 ) > $C_FIFO 2>&1
