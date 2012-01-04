@@ -1,8 +1,5 @@
-mquery MAKE_DOCS "Build the QT4 documentation?" n "" "-nomake docs"
-mquery MAKE_EXAMPLE_DEMOS "Build examples and demos?" n "" "-nomake examples -nomake demos"
-mquery XML_PATTERNS "Build xml patterns? ${PROBLEM_COLOR}Needed by qtscriptgenerator${DEFAULT_COLOR}" y "-exceptions -xmlpatterns" "-no-exceptions -no-xmlpatterns"
-mquery MAKE_QDOC3 "BUILD QDOC3 docs? ${PROBLEM_COLOR}Needed by qt-creator${DEFAULT_COLOR}" n
-mquery MAKE_WEBKIT "Build the webkit plugin? ${PROBLEM_COLOR}Needed by kdelibs4 / mythtv ${DEFAULT_COLOR}" y "-webkit" "-no-webkit"
+mquery MAKE_EXAMPLE_DEMOS "Build examples. docs and demos?${PROBLEM_COLOR} (Needed by Qt Assistant and Designer${DEFAULT_COLOR}" n "" "-nomake docs -nomake examples -nomake demos"
+mquery XML_PATTERNS "Build xml patterns? ${PROBLEM_COLOR}Needed by qtscriptgenerator${DEFAULT_COLOR}" y "-xmlpatterns" "-no-exceptions -no-xmlpatterns"
+mquery MAKE_WEBKIT "Build the webkit plugin? ${PROBLEM_COLOR}Needed by phonon / kdelibs4 / mythtv ${DEFAULT_COLOR}" y "-webkit" "-no-webkit"
 mquery LICENSE_TYPE "Build Qt using open-source license? (n=commercial)" y
 mquery MAKE_PHONON "Build qt4's (old) phonon? ${PROBLEM_COLOR}say n if you will build and use KDE${DEFAULT_COLOR}" n "-phonon" "-no-phonon"
-mquery MAKE_ASSIST "Build the Qt Assistant? (Needed by tulip)" y 
