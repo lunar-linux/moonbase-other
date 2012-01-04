@@ -1,5 +1,7 @@
 (
 
+  sed -i "4i #include <GL/glu.h>" libs/libmythui/mythrender_opengl.cpp &&
+
   . /etc/profile.d/qt4.rc   &&
 
   ./configure --prefix=/usr \
