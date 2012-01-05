@@ -1,6 +1,6 @@
 (
 
-  OPTS="--with-plugin-dir=/opt/lunar/plugins/  --with-gio" &&
+  OPTS="--with-plugin-dir=/opt/lunar/plugins/" &&
 
   default_build
 
