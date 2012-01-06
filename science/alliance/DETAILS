@@ -1,14 +1,16 @@
           MODULE=alliance
-         VERSION=5.0
-         SUB_VER=20090901
-          SOURCE=$MODULE-$VERSION-$SUB_VER.tar.gz
-      SOURCE_URL=http://www-asim.lip6.fr/pub/alliance/distribution/$VERSION/
-      SOURCE_VFY=sha1:f09a4102290225a1fe7c8d49b3c2eee0c06ae916
+         VERSION=5.0-20110203
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://www-asim.lip6.fr/pub/alliance/distribution/${VERSION%-*}/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION%-*}
+      SOURCE_VFY=sha1:a1a9f84b5120ea262c989fcf42a6131ee54d5ec7
         WEB_SITE=http://www-asim.lip6.fr/recherche/alliance/
+   MODULE_PREFIX=${ALLIANCE_TOP:-/opt/lunar/$MODULE}
          ENTERED=20030117
-         UPDATED=20090902
+         UPDATED=20120106
            SHORT="Alliance set of free CAD tools"
-           PSAFE=no
+
+PSAFE=no
 cat << EOF
 Alliance  is a complete set of free CAD tools and portable libraries for VLSI
 design. It includes a VHDL compiler and simulator, logic synthesis tools, and
