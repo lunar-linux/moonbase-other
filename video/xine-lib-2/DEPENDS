@@ -15,12 +15,26 @@ optional_depends  "aalib" \
                   "--disable-aalib" \
                   "for ascii art library support"
 
-optional_depends  "libXvMC" \
-                  "" \
-                  "" \
-                  "for hw accelerated playback on supported cards"
-
 optional_depends  "libcaca" \
                   "" \
                   "--disable-caca" \
                   "for text support"
+
+optional_depends  "wavpack"  \
+                  "--with-wavpack"  \
+                  ""  \
+                  "for wavpack support"
+
+optional_depends  "libXvMC"      ""  ""  "for hw accelerated playback on supported cards"
+optional_depends  "ImageMagick"  ""  ""  "for imagemagick plugin"
+optional_depends  "jack"         ""  ""  "for jack audio plugin"
+optional_depends  "mesa-lib"     ""  ""  "for opengl plugin"
+optional_depends  "faad2"        ""  ""  "for faad2 plugin"
+optional_depends  "libmng"       ""  ""  "for mng plugin"
+optional_depends  "libmodplug"   ""  ""  "for modplug plugin"
+optional_depends  "libdca"       ""  ""  "for dca audio plugin"
+optional_depends  "a52dec"       ""  ""  "for a52 video plugin"
+optional_depends  "libmad"       ""  ""  "for mad and mp3 plugin"
+optional_depends  "libmpcdec"    ""  ""  "for musepack plugin"
+optional_depends  "libblueray"   ""  ""  "for bluray plugin"
+optional_depends  "gnome-vfs"    ""  ""  "for gnome vfs plugin"

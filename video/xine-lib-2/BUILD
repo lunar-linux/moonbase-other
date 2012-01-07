@@ -1,8 +1,8 @@
 (
 
-  OPTS+=" --enable-static --with-xv-path=/usr/X11/lib --enable-mmap --enable-antialiasing" &&
+  OPTS+=" --enable-static --with-xv-path=/usr/X11/lib --enable-mmap --enable-antialiasing --enable-vdpau"  &&
 
-  ./autogen.sh &&
+  ./autogen.sh  &&
 
   default_build
 
