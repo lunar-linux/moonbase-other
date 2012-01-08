@@ -1,0 +1,23 @@
+          MODULE=libaacplus
+         VERSION=2.0.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=26410-800.zip
+      SOURCE_URL=http://217.20.164.161/~tipok/aacplus/
+     SOURCE2_URL=http://www.3gpp.org/ftp/Specs/archive/26_series/26.410/
+      SOURCE_VFY=sha1:86c492fa38b378373908ec1ff1ef2187b48239c5
+     SOURCE2_VFY=sha1:eb32ef4fffc61cdc637eaa1e90ac88d8e01b45f2
+        WEB_SITE=http://tipok.org.ua/node/17
+         ENTERED=20120108
+         UPDATED=20120108
+           SHORT="AAC+ High Efficiency Advanced Audio Codec"
+
+PSAFE=no
+cat << EOF
+Based on the reference implementation 3GPP released reference implementations 
+3GPP High Efficiency Advanced Audio Codec (HE-AAC) Codec (3GPP TS 26.410 V 8.0.0).
+
+Reference implementations are available as a source code, but the code uses #define 
+to choose code options. There is a common practice to compile reusable code as a 
+shared library. Packages released here make required changes and provide AAC+ 
+libraries as a shareable code.
+EOF
