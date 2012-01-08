@@ -1,13 +1,15 @@
           MODULE=tulip
-         VERSION=3.6.0
-          SOURCE=$MODULE-$VERSION-src.tar.gz
-      SOURCE_URL=$SFORGE_URL/auber/tulip/tulip-3.5.0/
+         VERSION=3.6.1-src
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=tulip-3.6.1-qscintilla.patch
+      SOURCE_URL=$SFORGE_URL/auber/tulip/tulip-3.6.1/
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:5beaf2fe6d873bea54adc245967cefdc6ea2890c
+     SOURCE2_VFY=sha1:78ae38d2bd548a595ca39c2b1e5d95c2fd9f4929
    MODULE_PREFIX=${QT4_PREFIX:-/usr}
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-src
-      SOURCE_VFY=sha1:d6385a735e9a9060c8bdd8cc0a21e633abd29fa3
         WEB_SITE=http://tulip.labri.fr/TulipDrupal/
          ENTERED=20100507
-         UPDATED=20111006
+         UPDATED=20120108
            SHORT="Graph visualization software"
 
 cat << EOF
