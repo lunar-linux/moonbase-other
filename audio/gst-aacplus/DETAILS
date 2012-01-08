@@ -1,0 +1,20 @@
+           MODULE=gst-aacplus
+          VERSION=0.10.0
+           SOURCE=$MODULE-$VERSION.tar.gz
+       SOURCE_URL=http://tipok.org.ua/downloads/media/aac+/libaacplus-simple-sample/gstreamer/
+       SOURCE_VFY=sha1:ad31263b4830e14e29c3bc23949af69900ad8def
+         WEB_SITE=http://tipok.org.ua/node/17
+          ENTERED=20120108
+          UPDATED=20120108
+            SHORT="GStreamer plug-in for AAC+ and eAAC+"
+
+cat << EOF
+gst-aacplus is GStreamer plug-in, that able to encode audio to
+modern mp4 audiocodec: AAC+ and eAAC+. The specific mode
+(SBR or SBR+PS) - is selected automatically, depending on channels
+number, samplerate and bitrate of input stream.
+
+The plug-in based on libaacplus library, that also depends on proprietary
+3GPP's code, so you have to be very careful with this plug-ion usage,
+because the encoding logic part is not free.
+EOF
