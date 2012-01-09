@@ -7,7 +7,7 @@
   FULL_VERSION=$(echo $VERSION | cut -d . -f 1,2).${PATCH_VERSION:-0}
 
   echo | make oldconfig
-  LD_PRELOAD= cp .config $CONFIG_CACHE/.config.current
+  LD_PRELOAD= cp .config $CONFIG_CACHE/.config.unstable
   rm -f arch/${MYARCH}/boot/bzImage
 
   make ${MAKES:+-j$MAKES} bzImage
