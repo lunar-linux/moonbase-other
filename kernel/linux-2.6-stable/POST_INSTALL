@@ -1,7 +1,4 @@
-PATCH_VERSION=$(echo $VERSION | cut -d . -f 3)
-FULL_VERSION=$(echo $VERSION | cut -d . -f 1,2).${PATCH_VERSION:-0}
-
-update_bootloader $FULL_VERSION-`arch` $VERSION-`arch`
+update_bootloader $VERSION-`arch` $VERSION-`arch`
 
 #  Reinstall packages that add their own kernel modules
 
