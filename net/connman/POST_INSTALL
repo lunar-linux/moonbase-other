@@ -1,0 +1,6 @@
+if [ "$(/usr/lib/connman/test/get-state | grep "System is online")" != "System is online" ] ; then
+    message "Connamn is online"
+   else
+    /usr/lib/connman/test/test-connman enable wifi
+    /usr/lib/connman/test/test-connman enable ethernet
+fi
