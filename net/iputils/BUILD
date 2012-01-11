@@ -1,6 +1,5 @@
 (
 
-  patch_it $SOURCE2 0  &&
 
   make  &&
   prepare_install  &&
