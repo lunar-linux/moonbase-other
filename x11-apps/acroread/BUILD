@@ -17,6 +17,12 @@
  sedit '/^OutputWelcome$/d' INSTALL;
  ./INSTALL;
  cd ..;
- done
+ done &&
+
+ if module_installed ca-certificates; then
+ # Replace old CA certificates with current
+ rm -f  /opt/Adobe/Reader9/Reader/Cert/curl-ca-bundle.crt
+ ln -sf /etc/ssl/certs/ca-certificates.crt /opt/Adobe/Reader9/Reader/Cert/curl-ca-bundle.crt
+ fi
 
 ) > $C_FIFO 2>&1
