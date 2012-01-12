@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 0 &&
+
   . /etc/profile.d/qt4.rc  &&
 
 # The eliminates the warning it is using the depreciated repo-config.
