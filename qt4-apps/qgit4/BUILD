@@ -2,8 +2,10 @@
 
   . /etc/profile.d/qt4.rc  &&
 
-  $QTDIR/bin/qmake qgit.pro &&
+# The eliminates the warning it is using the depreciated repo-config.
+  sedit "s:repo-config:config:g" src/git.cpp &&
 
+  qmake qgit.pro &&
   make  &&
   prepare_install  &&
   install -m 755 -s bin/qgit ${MODULE_PREFIX}/bin  &&
