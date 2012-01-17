@@ -3,10 +3,16 @@
   sedit "s:/usr::" autogen.sh  &&
   sedit "s:\$(libdir)/pkgconfig:/usr/lib/pkgconfig:" Makefile.am  &&
 
+  OPTS+=" --with-zlib"  &&
+
   ./autogen.sh   &&
 
-  sedit "s:\${prefix}/include:/usr/include:"  Makefile  &&
 
+  ./configure   --prefix=      \
+                --libdir=/lib  \
+                $OPTS         &&
+
+  sedit "s:\${prefix}/include:/usr/include:"  Makefile  &&
   default_make  &&
 
 # add symlinks to kmod
