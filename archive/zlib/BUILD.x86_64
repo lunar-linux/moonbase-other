@@ -15,6 +15,7 @@
   ./configure --prefix=/usr --libdir=/lib --shared  &&
   sedit 's/^CFLAGS *=/CFLAGS=-fPIC /' Makefile  &&
   make  &&
-  make install
+  make install  &&
+  rm /lib/libz.a
 
 ) > $C_FIFO 2>&1
