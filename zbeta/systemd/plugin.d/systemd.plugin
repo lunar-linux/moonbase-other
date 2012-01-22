@@ -47,8 +47,10 @@ plugin_systemd_configure()
 
 plugin_systemd_post_build()
 {
-  local SERVICES SERVICE
+  local SERVICES SERVICE SYSTEMDUNITDIR
   debug_msg "plugin_systemd_post_build ($@)"
+
+  local SYSTEMDUNITDIR=$(pkg-config systemd --variable=systemdsystemunitdir)
 
   if [ -d $SCRIPT_DIRECTORY/systemd.d ]; then
     invoke_installwatch
@@ -57,7 +59,7 @@ plugin_systemd_post_build()
     SERVICES=$(ls -1)
 
     for SERVICE in $SERVICES; do
-      /usr/bin/install -g 0 -o 0 -m 0644 $SERVICE /lib/systemd/system/$SERVICE
+      /usr/bin/install -g 0 -o 0 -m 0644 $SERVICE $SYSTEMDUNITDIR/$SERVICE
     done
     cd $SCRIPT_DIRECTORY
     devoke_installwatch
