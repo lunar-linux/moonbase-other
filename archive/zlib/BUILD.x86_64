@@ -1,18 +1,20 @@
 (
 
+  sedit "s:\${libdir}/pkgconfig:/usr/lib/pkgconfig:" Makefile.in  &&
+
   patch_it $SOURCE2 1 &&
   unset CFLAGS &&
 
   prepare_install &&
 
-  ./configure --prefix=/usr &&
-  sedit 's/^CFLAGS *=/CFLAGS=-fPIC /' Makefile &&
-  make &&
-  make install &&
+  ./configure --prefix=/usr  &&
+  sedit 's/^CFLAGS *=/CFLAGS=-fPIC /' Makefile  &&
+  make  &&
+  make install  &&
 
-  ./configure --prefix=/usr --shared &&
-  sedit 's/^CFLAGS *=/CFLAGS=-fPIC /' Makefile &&
-  make &&
+  ./configure --prefix=/usr --libdir=/lib --shared  &&
+  sedit 's/^CFLAGS *=/CFLAGS=-fPIC /' Makefile  &&
+  make  &&
   make install
 
 ) > $C_FIFO 2>&1
