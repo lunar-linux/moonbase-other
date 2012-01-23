@@ -2,13 +2,6 @@
 
   cp -f  Mesa/configs/linux Mesa/configs/current &&
 
-  ARCH_FLAGS="-m32 -DGLX_USE_TLS" &&
-
-# Removing a redundant wxfile.
-  sedit "s|wxFile::wxFile|wxFile|g" Amaya/thotlib/base/platform.c Amaya/amaya/HTMLedit.c &&
-
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-
   cd     Amaya                 &&
   mkdir  LINUX-ELF             &&
   cd     LINUX-ELF             &&
