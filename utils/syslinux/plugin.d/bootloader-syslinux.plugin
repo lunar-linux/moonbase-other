@@ -26,8 +26,8 @@ plugin_kernel_updatebootloader_syslinux() {
   entry() {
     echo "label $2"
     echo "        menu label $2"
-    echo "        kernel $3/$1"
-    echo "        append root=$4 ro quiet"
+    echo "        linux $3/$1"
+    echo "        append $4 ro quiet"
     echo ""
   }
 
