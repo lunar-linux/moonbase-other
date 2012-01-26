@@ -1,0 +1,28 @@
+          MODULE=kaccessible
+         VERSION=4.8.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$KDE_URL/stable/$VERSION/src
+      SOURCE_VFY=sha1:16451b090fe1ed345b5c1d3426bf0123eda08859
+   MODULE_PREFIX=${KDE4_INSTALL_DIR:-/usr}
+        WEB_SITE=http://www.kde.org
+         ENTERED=20120125
+         UPDATED=20120126
+           SHORT="provide accessibility services like focus tracking and a screenreader"
+
+cat << EOF
+kaccessible implements a QAccessibleBridgePlugin to provide accessibility services like
+focus tracking and a screenreader.
+
+Components;
+* kaccessibleapp is a dbus activation service that acts as proxy.
+* kaccessiblebridge will be loaded by the QAccessible framework into each Qt-/KDE-application.
+
+Usage;
+You need to call "export QT_ACCESSIBILITY=1" before you start the application that should be made
+accessible. Per default this is disabled cause QAccessible can slow down things.
+
+Used in;
+* KMag's "Follow Focus" Mode. Start KMagnifier and press F2 to switch to that mode.
+* KWin's Zoom Plugin. Enable the "Follow Focus" mode in the effect settings.
+* Screenreader. Enable the screenreader via "qdbus org.kde.kaccessibleapp /Adaptor setSpeechEnabled true"
+EOF
