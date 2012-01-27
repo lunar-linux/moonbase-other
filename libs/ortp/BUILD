@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE2 1 &&
-
   default_config &&
 
   sedit "s:yes/:/:g" Makefile src/Makefile src/tests/Makefile &&
