@@ -1,13 +1,12 @@
           MODULE=spandsp
-         VERSION=0.0.6
-             VER=pre7
-          SOURCE=$MODULE-$VERSION$VER.tgz
+         VERSION=0.0.6pre19
+          SOURCE=$MODULE-$VERSION.tgz
       SOURCE_URL=http://www.soft-switch.org/downloads/spandsp/
-#SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:200cd3052b6d5cdbaed19d5bcc9d3b2875ebad9e
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION%pre*}
+      SOURCE_VFY=sha1:032098b7ff4c1fa4d5a1f5fa577eae64a320ae62
         WEB_SITE=http://www.soft-switch.org/
          ENTERED=20090414
-         UPDATED=20090414
+         UPDATED=20120127
            SHORT="DSP functions for telephony"
 
 cat << EOF
