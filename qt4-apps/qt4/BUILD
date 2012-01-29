@@ -46,8 +46,10 @@
 # Still need the bin dir here for those modules like google-gadgets-for-linux that
 # want to use this path.
   mkdir -p /usr/share/qt4/Trolltech/Qt-~lvu version qt4`/bin &&
-  ln -sf /usr/bin/moc /usr/share/qt4/Trolltech/Qt-~lvu version qt4`/bin/moc &&
-  
+  ln -sf /usr/bin/moc /usr/share/qt4/Trolltech/Qt-`lvu version qt4`/bin/moc &&
+  ln -sf /usr/bin/qmake /usr/share/qt4/Trolltech/Qt-`lvu version qt4`/bin/qmake &&
+  ln -sf /usr/bin/uic /usr/share/qt4/Trolltech/Qt-`lvu version qt4`/bin/uic &&
+ 
   if [[ "$MAKE_EXAMPLE_DEMOS" == "y" ]] ; then
   cat > ${MODULE}-designer.desktop << EOF  &&
 [Desktop Entry]
