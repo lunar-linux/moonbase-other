@@ -10,7 +10,7 @@
   default_cvs_build &&
 
   # Install the enlightenment_remote bash completion script
-  install -D -m0644 data/other/enlightenment_remote  \
+  install -D -m0644 data/tools/enlightenment_remote  \
                     /etc/profile.d/enlightenment_remote-completion.rc
 
 ) > $C_FIFO 2>&1
