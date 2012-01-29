@@ -1,0 +1,17 @@
+          MODULE=eeze-svn
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/eeze
+        WEB_SITE=http://trac.enlightenment.org/e/wiki/Eeze
+         ENTERED=20040928
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="CVS version of EEZE from the EFL."
+
+cat << EOF
+Eeze is a library for manipulating devices through udev with a simple
+and fast api. It interfaces directly with libudev, avoiding such
+middleman daemons as udisks/upower or hal, to immediately gather
+device information the instant it becomes known to the system.
+EOF
