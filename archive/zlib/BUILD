@@ -2,7 +2,6 @@
 
   sedit "s:\${libdir}/pkgconfig:/usr/lib/pkgconfig:" Makefile.in  &&
 
-  patch_it $SOURCE2 1         &&
   ./configure  --prefix=/usr  &&
   make                        &&
 
