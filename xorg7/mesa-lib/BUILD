@@ -2,51 +2,40 @@
 
   # Detect VMware VGA virtual 3D card and add driver for it
   VGA=`lspci | grep 'VGA.*VMware.*SVGA.*'`
+  if [[ -n $VGA  ]]; then
+     bad_flags linker
+     SUPPORTED_GALLIUM+="svga"
+  fi  &&
 
   if [[ -n $MESADRIVER ]] ; then
-    # Gallium build breaks with LDFLAGS set so turn it off for now
-    bad_flags linker
     # Build selected drivers only, rather than the default of all of them
     # Ensure that swrast is included, as a fall-back
     OPTS+=" --with-dri-drivers=swrast,"
     OPTS+=$(echo $MESADRIVER | sed s/\ /,/g)
-    if [[ $GALLIUM == y ]]; then
-      OPTS+=" --enable-gallium-swrast "
-      if [[ $MESADRIVER == *i915* ]]; then
-        OPTS+=" --enable-gallium-i915 "
-      fi
-      if [[ $MESADRIVER == *i965* ]]; then
-        OPTS+=" --enable-gallium-i965 "
-      fi
-      # Nouveau breaks build in mesa 7.10.2
-      if [[ $MESADRIVER == *nouveau* ]]; then
-        OPTS+=" --enable-gallium-nouveau "
-      fi
-      if [[ $MESADRIVER == *radeon* ]]; then
-        OPTS+=" --enable-gallium-radeon "
-      fi
-      if [[ $MESADRIVER == *r600* ]]; then
-        OPTS+=" --enable-gallium-r600 "
-      fi
-      if [[ $VGA == *VMware* ]]; then
-        OPTS+=" --enable-gallium-svga "
-      fi
-    fi
   fi  &&
 
+  if [[ $GALLIUM == y ]]; then
+    OPTS+=" --enable-gallium-llvm --enable-gallium-egl --enable-openvg "
+    if [[ -n $SUPPORTED_GALLIUM ]]; then
+    OPTS+="--with-gallium-drivers=$(echo $SUPPORTED_GALLIUM | sed s/\ /,/g)"
+    fi
+  else OPTS+=" --disable-gallium-llvm "
+  fi  &&
+
+  if [[ $MESADRIVER == *r[36]00* ]]; then lin -c llvm
+  else sedit 's/^GALLIUM_DRIVERS_DEFAULT=.*/GALLIUM_DRIVERS_DEFAULT="swrast"/' configure
+  fi  &&
 
   # Don't overlap with freeglut
   OPTS+=" --disable-glut"  &&
   # Needed with mesa-lib 7.8.2
   rm -f include/GL/glut{,f90}.h  &&
 
-  ./configure --prefix=/usr --with-x --enable-xcb --enable-gles1 --enable-gles2 --enable-gles-overlay --enable-openvg $OPTS  &&
+  ./configure --prefix=/usr  $OPTS --with-x --enable-xcb --enable-xorg &&
+
   prepare_install  &&
 
   make all  &&
-
-  # glew headers are installed from the glew module instead
-  rm -f include/GL/{glew,glxew,wglew}.h  &&
 
   make install
 
