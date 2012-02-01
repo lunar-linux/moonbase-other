@@ -1,10 +1,12 @@
           MODULE=fann
-         VERSION=2.0.0
-          SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=$SFORGE_URL/$MODULE/
+         VERSION=2.2.0-Source
+          SOURCE=FANN-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE/${VERSION%-S*}/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/FANN-$VERSION
+      SOURCE_VFY=sha1:ff8341e4104bdbc0f3ab7ad39aef33285f8512d4
         WEB_SITE=http://leenissen.dk/fann/
          ENTERED=20101105
-         UPDATED=20101105
+         UPDATED=20120201
            SHORT="Fast Artificial Neural Network"
 cat << EOF
 Fast Artificial Neural Network Library is a free open source neural network
