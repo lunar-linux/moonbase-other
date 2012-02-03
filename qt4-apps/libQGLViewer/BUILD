@@ -1,6 +1,10 @@
 (
 
+
   cd QGLViewer &&
+  sed -i "42i #include <GL/glu.h>" qglviewer.cpp &&
+  sed -i "25i #include <GL/glu.h>" camera.h &&
+
   qmake $OPTS  &&
   default_make &&
   
