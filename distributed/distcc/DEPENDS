@@ -1,7 +1,4 @@
-depends popt
-
-optional_depends gtk+-2 "--with-gtk" ""                          \
-                        "build the GTK+-2 based compile monitor"
-optional_depends libgnomeui "--with-gnome" ""                    \
-                            "build the Gnome based compile monitor"
-optional_depends avahi "" "" "build zeroconf support"
+optional_depends popt       "--with-included-popt" "" "Use system provided popt, else no use bundled popt"
+optional_depends gtk+-2     "--with-gtk"   "--without-gtk"   "build the GTK+-2 based compile monitor"
+optional_depends libgnomeui "--with-gnome" "--without-gnome" "build the Gnome based compile monitor"
+optional_depends avahi      "--with-avahi" "--without-avahi" "build zeroconf support"
