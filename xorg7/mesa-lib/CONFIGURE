@@ -1,11 +1,22 @@
 # swrast is always included, in BUILD
 # nouveau is removed from the list because it fails to build in mesa 7.10.2
-SUPPORTED_DRIVERS="i810 i915 i965 mach64 mga r128 r200 r300 r600 radeon savage sis tdfx unichrome"
+SUPPORTED_DRIVERS="i810 i915 i965 mach64 mga nouveau r128 r200 r300 r600 radeon savage sis tdfx unichrome"
+SUPPORTED_GALLIUM="cell i915 i965 nouveau nv50 nvc0 nvfx r300 r600 svga"
 
 make_drivers_checklist() {
 
   # For each locale, extract name, title and charmap information
   for driver in $SUPPORTED_DRIVERS; do
+      title=$driver
+
+    echo "\"$driver\" \"$title\" \"off\" "
+  done
+}
+
+make_gallium_drivers_checklist() {
+
+  # For each locale, extract name, title and charmap information
+  for driver in $SUPPORTED_GALLIUM; do
       title=$driver
 
     echo "\"$driver\" \"$title\" \"off\" "
@@ -25,19 +36,39 @@ select_drivers() {
          0 0 0
 }
 
+select_gallium_drivers() {
+  BACKTITLE="Gallium Configuration"
+      TITLE="Gallium Driver Selection"
+       HELP=""
+  make_gallium_drivers_checklist | xargs \
+  dialog --backtitle "$BACKTITLE" \
+         --title     "$TITLE"     \
+         --stdout                 \
+         --separate-output        \
+         --checklist "$HELP"      \
+         0 0 0
+}
+
 if ! grep -q CONFIGURED $MODULE_CONFIG; then
   if grep -q "MESADRIVER=" $MODULE_CONFIG; then
     message "Selecting drivers is optional"
+  fi
+
+  if grep -q "GALLIUMDRIVER=" $MODULE_CONFIG; then
+    message "Selecting Gallium drivers is optional"
   fi
 
   if query "Would you like to select specific drivers? (if not selected, all drivers will be installed)" n; then
     unpack_localedata
 
     MESADRIVER=`select_drivers`
+    GALLIUMDRIVER=`select_gallium_drivers`
     TEMP=`grep -v "MESADRIVER="             $MODULE_CONFIG`
     echo "$TEMP"                             > $MODULE_CONFIG
     echo "MESADRIVER=\"$MESADRIVER\"" >> $MODULE_CONFIG
-
+    TEMP=`grep -v "GALLIUMDRIVER="             $MODULE_CONFIG`
+    echo "$TEMP"                             >> $MODULE_CONFIG
+    echo "GALLIUMDRIVER=\"$GALLIUMDRIVER\"" >> $MODULE_CONFIG
   fi
 
   echo "OPTS=\"\$OPTS $OPTS\"" >> $MODULE_CONFIG
@@ -46,4 +77,5 @@ fi
 
 # Default is y, so xorg-server can be compiled with it disabled or enabled
 mquery GALLIUM "Enable Gallium renderer? (can break functionality on some chipsets)" y "" ""
+mquery TEXTURE_FLOAT "Enable patented texture-float? (if this patent is valid in your country choose N)" y "--enable-texture-float" "--disable-texture-float"
 mquery ENABLE_GLX_TLS "Enable glx-tls? (${PROBLEM_COLOR}lin xorg-server also${DEFAULT_COLOR})" y "--enable-glx-tls" "--disable-glx-tls"
