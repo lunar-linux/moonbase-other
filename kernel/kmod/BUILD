@@ -1,5 +1,10 @@
 (
 
+  if ! module_installed docbook-xml; then
+     sedit '/man\/Makefile/d' configure.ac
+     sedit 's/man//' Makefile.am
+  fi &&
+
   sedit "s:/usr::" autogen.sh  &&
   sedit "s:\$(libdir)/pkgconfig:/usr/lib/pkgconfig:" Makefile.am  &&
 

@@ -1,16 +1,29 @@
           MODULE=kdiff
-           MAJOR=kde4.4.0
-         VERSION=3-0.9.95
-          SOURCE=$MODULE$VERSION-$MAJOR.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE$VERSION-$MAJOR
-      SOURCE_URL=$KDE_URL/stable/extragear
-      SOURCE_VFY=sha1:d489eb6384a5323cc4a7931cbc787cf072ee685d
-        WEB_SITE=http://www.kde.org
+         VERSION=0.9.96
+          SOURCE=${MODULE}3-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}3-$VERSION
+      SOURCE_URL=$SFORGE_URL/kdiff3/kdiff3/$VERSION/
+      SOURCE_VFY=sha1:d7efdacdfd7ea3c7ec9f7dee32aba5962c1709a5
+        WEB_SITE=http://kdiff3.sourceforge.net/
    MODULE_PREFIX=${KDE4_INSTALL_DIR:-/usr}
          ENTERED=20090902
-         UPDATED=20110211
-           SHORT="KDE4 version of kdiff"
+         UPDATED=20120130
+           SHORT="KDE4 version of diff"
 
 cat << EOF
-KDE4 version of kdiff.
+KDiff3 is a program that
+
+    compares or merges two or three text input files or directories,
+    shows the differences line by line and character by character (!),
+    provides an automatic merge-facility and
+    an integrated editor for comfortable solving of merge-conflicts,
+    supports Unicode, UTF-8 and other codecs, autodetection via byte-order-mark "BOM"
+    supports KIO on KDE (allows accessing ftp, sftp, fish, smb etc.),
+    Printing of differences,
+    Manual alignment of lines,
+    Automatic merging of version control history ($Log$),
+    and has an intuitive graphical user interface.
+    Windows-Explorer integration Diff-Ext-for-KDiff3 - shell extension included in installer (originally by Sergey Zorin: see also Diff Ext)
+    KDE-Konqueror service menu plugin
+    Simplified integration with IBM-Rational-Clearcase for Windows (Details).
 EOF

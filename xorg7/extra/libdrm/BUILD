@@ -1,16 +1,6 @@
 (
 
-  OPTS+=" --enable-udev "  &&
-
-  # Detect VMware VGA virtual 3D card and add driver for it
-  # (returns exit code 1, if no VGA, so no && at end of line!)
-  VGA=`lspci | grep 'VGA'`
-  if [[ $VGA == *VMware* ]] ; then
-     OPTS+=" --enable-vmwgfx-experimental-api"
-  fi &&
-  if [[ $VGA == *nVidia* ]] ; then
-     OPTS+=" --enable-nouveau-experimental-api"
-  fi &&
+  OPTS+=" --enable-udev  --enable-vmwgfx-experimental-api --enable-nouveau-experimental-api" &&
 
   default_build
 

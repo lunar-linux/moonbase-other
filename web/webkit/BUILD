@@ -11,6 +11,7 @@
           --enable-svg-foreign-object   \
           --enable-svg-as-image         \
           --enable-optimizations        \
+          --with-gtk=2.0                \
           --disable-gtk-doc-html"      &&
 
   default_build &&
