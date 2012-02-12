@@ -1,13 +1,20 @@
 (
 
+  sedit 's/@PRE_RELEASE_SUFFIX@//g' mozilla/browser/base/content/browser.xul &&
+
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
+
+  # Adds support for libvpx 1.0. Later firefox will have this fix so remove this then.
+  sedit 's/VPX_CODEC_USE_INPUT_PARTITION/VPX_CODEC_USE_INPUT_FRAGMENTS/' mozilla/configure  &&
+  sedit 's/v0\.9\.7/v1.0.0/' configure  &&
 
   export MOZ_CO_PROJECT=suite  &&
   export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
   export MOZILLA_OFFICIAL=1  &&
   export BUILD_OFFICIAL=1  &&
+  export MOZ_MAKE_FILES=$MAKES  &&
 
   cp $SCRIPT_DIRECTORY/mozconfig .  &&
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
@@ -69,8 +76,8 @@
   # Now the .desktop file and icons
   install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/seamonkey.desktop  &&
 
-  for s in 16 48 ; do
-    install -Dm 644 mozilla/dist/seamonkey/chrome/icons/default/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/seamonkey.png
+  for s in 16 22 24 32 48 256 ; do
+    install -Dm 644 $SOURCE_DIRECTORY/mozilla/browser/branding/official/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/seamonkey.png
   done  &&
   if [ -x /usr/bin/gtk-update-icon-cache -a -f /usr/share/icons/hicolor/index.theme ]; then
     gtk-update-icon-cache -f /usr/share/icons/hicolor

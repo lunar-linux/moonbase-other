@@ -6,15 +6,20 @@
   sedit 's/@PRE_RELEASE_SUFFIX@//g' browser/base/content/browser.xul &&
 
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
-    set_module_config OLD_VER "`installed_version $MODULE`"
+        set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
 
+  # Adds support for libvpx 1.0. Later firefox will have this fix so remove this then.
+  sedit 's/VPX_CODEC_USE_INPUT_PARTITION/VPX_CODEC_USE_INPUT_FRAGMENTS/' configure  &&
+  sedit 's/v0\.9\.7/v1.0.0/' configure  &&
+
   export MOZ_CO_PROJECT=browser  &&
+  export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
   export MOZILLA_OFFICIAL=1  &&
   export BUILD_OFFICIAL=1  &&
+  export MOZ_MAKE_FILES=$MAKES  &&
 
   cp $SCRIPT_DIRECTORY/mozconfig .  &&
-
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
   mkdir -p ${MOZ_OBJDIR}  &&
 
