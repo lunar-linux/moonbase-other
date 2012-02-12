@@ -5,7 +5,7 @@
   verbose_msg "Removing unneeded local libs" &&
   rm -rf expat freetype jasper jbig2dec jpeg{,xr} lcms libpng tiff zlib &&
 
-  OPTS+=" --disable-compile-inits --enable-dynamic" &&
+  OPTS+=" --disable-compile-inits --enable-dynamic --with-system-libtiff LIBS=-lz" &&
 
   # Will run ./configure with Lunar's options, in default_build
   sedit "s:\$srcdir/configure:echo:" autogen.sh &&
