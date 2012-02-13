@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Startup script for the Nginx Web Server
+#
+# chkconfig: 345 85 15
+# description: Nginx is a World Wide Web server. \
+# It is used to serve HTML files and CGI.
+# processname: nginx
+# pidfile: /var/run/nginx.pid
+# config: /etc/nginx/nginx.conf
+
+ARGS="-c /etc/nginx/nginx.conf"
+
+. /lib/lsb/init-functions $1
