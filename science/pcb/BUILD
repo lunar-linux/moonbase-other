@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --enable-dbus --enable-toporouter-output --enable-m4lib-png --with-xdgdatadir=$XDG_DATA_DIRS" &&
+  sedit "s:Electronics;:Electronics;Science:" data/pcb.desktop.in &&
 
   default_build
 
