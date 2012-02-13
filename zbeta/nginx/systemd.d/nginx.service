@@ -1,0 +1,11 @@
+[Unit]
+Description=Nginx httpd Daemon
+After=network.target
+
+[Service]
+ExecStartPre=/usr/sbin/nginx -t -f /etc/nginx/nginx.conf
+ExecStart=/usr/sbin/nginx -D -f /etc/nginx/nginx.conf
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
