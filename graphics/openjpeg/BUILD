@@ -1,6 +1,8 @@
 (
 
-  OPTS+="  --enable-jpwl --enable-jp3d --disable-static" &&
+  LDFLAGS+=" -lm" &&
+
+  OPTS+="  --disable-static" &&
 
   default_build
 
