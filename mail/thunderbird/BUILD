@@ -1,5 +1,7 @@
 (
 
+  sedit 's/@PRE_RELEASE_SUFFIX@//g' mozilla/browser/base/content/browser.xul &&
+
   # Workaround Segmentation fault at install part on precompile_cache.js
   sedit '/^GENERATE_CACHE=1$/d' mail/installer/Makefile.in &&
 
@@ -7,14 +9,18 @@
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi  &&
 
+  # Adds support for libvpx 1.0. Later firefox will have this fix so remove this then.
+  sedit 's/VPX_CODEC_USE_INPUT_PARTITION/VPX_CODEC_USE_INPUT_FRAGMENTS/' mozilla/configure  &&
+  sedit 's/v0\.9\.7/v1.0.0/' mozilla/configure  &&
+
   export MOZ_CO_PROJECT=mail  &&
-  export MOZILLA_HOME=/usr/lib/thunderbird-$VERSION &&
+  export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
   export MOZILLA_OFFICIAL=1  &&
   export BUILD_OFFICIAL=1  &&
+  export MOZ_MAKE_FILES=$MAKES  &&
   export MOZ_THUNDERBIRD=1 &&
 
   cp $SCRIPT_DIRECTORY/mozconfig .  &&
-
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
   mkdir -p ${MOZ_OBJDIR}  &&
 
