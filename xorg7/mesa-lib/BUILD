@@ -31,7 +31,11 @@
   # Needed with mesa-lib 7.8.2
   rm -f include/GL/glut{,f90}.h  &&
 
-  ./configure --prefix=/usr  $OPTS --with-x --enable-xcb --enable-xorg &&
+  if module_installed xorg-server; then
+     OPTS+=" --with-x --enable-xcb --enable-xorg"
+  fi  &&
+
+  ./configure --prefix=/usr $OPTS &&
 
   prepare_install  &&
 
