@@ -1,5 +1,5 @@
 depends  %X
-
+depends %JAVA_SDK
 optional_depends  "dbus"       "-dbus"             "-no-dbus"       "for QtDBus module support"
 optional_depends  "%JPEG"      "-system-libjpeg"   "-qt-libjpeg"    "Use system or qt provided jpeg"
 optional_depends  "openssl"    "-openssl"          "-no-openssl"    "for Secure Sockets support"
@@ -15,7 +15,8 @@ optional_depends  "pulseaudio" ""                  ""               "for pulseau
 
 optional_depends  "gst-plugins-base"  ""  ""  "for gstreamer support / qt4-phonon module"
 
-optional_depends  "%JAVA_SDK"  "-javascript-jit"   "-no-javascript-jit" "for JIT support"
+# Temporary, saying no causes a make failure. Will revisit on next bump.
+#optional_depends  "%JAVA_SDK"  "-javascript-jit"   "-no-javascript-jit" "for JIT support"
 
 optional_depends  "mysql"                                                    \
                   "-plugin-sql-mysql -I/usr/include/mysql -L/usr/lib/mysql"  \
