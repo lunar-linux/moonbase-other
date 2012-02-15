@@ -1,7 +1,6 @@
 (
 
-  patch_it $SOURCE2 1 &&  
-  default_build &&
+  default_build  &&
 
   if module_installed gdm; then
     cp $SCRIPT_DIRECTORY/WindowMaker /etc/X11/gdm/Sessions/
