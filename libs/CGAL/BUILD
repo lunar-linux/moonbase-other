@@ -1,16 +1,11 @@
 (
 
-  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
+  patch_it $SOURCE2 0 &&
 
-  mkdir $OOSB_DIR  &&
-  cd $OOSB_DIR     &&
+# The first one I have found that is case sensitive to "RELEASE"
+  OPTS+=" -DBUILD_SHARED_LIBS=TRUE -DCMAKE_BUILD_TYPE=Release" &&
 
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=Release             \
-                           -DBUILD_SHARED_LIBS=TRUE               \
-                           $OPTS                                 &&
-
-  default_make
+  default_cmake_build
 
 ) > $C_FIFO 2>&1
 
