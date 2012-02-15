@@ -25,7 +25,8 @@
   sedit "s:-Wl,-rpath,::" mkspecs/common/gcc-base-unix.conf &&
   sed -i "/^QMAKE_LFLAGS\s/s|+=|+= ${LDFLAGS}|g" mkspecs/common/gcc-base.conf &&
 
-  OPTS+=" -scripttools -no-declarative-debug" &&
+# Temporary. Make failes if no jit. Will revisit on next bump. Found by keios.
+  OPTS+=" -scripttools -no-declarative-debug -javascript-jit" &&
 
   ./configure  -confirm-license "${LICENSE_TYPE}"                  \
                -bindir "${MODULE_PREFIX}/bin"                      \
