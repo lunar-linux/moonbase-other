@@ -12,11 +12,7 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
-  default_config  &&
-  make            &&
-  make compileall &&
-  prepare_install &&
-  make install    &&
+  default_build &&
 
   install -d /usr/lib/python$MAJOR                        &&
   install -m755 $SOURCE_DIRECTORY/Tools/i18n/msgfmt.py     \
