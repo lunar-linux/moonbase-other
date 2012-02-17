@@ -4,8 +4,8 @@
 
 # If expat is yes the make tanks on "line 5975: cd: yes/lib: No such file or directory"
   sedit "s:\$withval/:/usr/:g" configure.ac &&
+
   autoconf &&
-  automake &&
   default_build  &&
 
 # The following notes are from the ./confiugre summary;
