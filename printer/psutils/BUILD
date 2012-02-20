@@ -1,5 +1,7 @@
 (
 
+  sedit "s: texmf/scripts/: share/texmf/scripts/:" utils/psutils/Makefile.in  &&
+
   # Only build psutils
   OPTS+=" --disable-all-pkgs --enable-psutils --enable-ipc --enable-shared --enable-static=no --disable-multiplatform --disable-native-texlive-build --with-gs=gs"  &&
 
