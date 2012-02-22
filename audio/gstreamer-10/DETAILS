@@ -1,9 +1,8 @@
           MODULE=gstreamer-10
-         RMODULE=gstreamer
          VERSION=0.10.36
-          SOURCE=$RMODULE-$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$RMODULE-$VERSION
-      SOURCE_URL=http://gstreamer.freedesktop.org/src/$RMODULE
+          SOURCE=${MODULE%-*}-$VERSION.tar.bz2
+      SOURCE_URL=http://gstreamer.freedesktop.org/src/${MODULE%-*}
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%-*}-$VERSION
       SOURCE_VFY=sha1:ff95b5316b920e7c2836588bba18fa61395fbd03
         WEB_SITE=http://gstreamer.freedesktop.org
          ENTERED=20060311

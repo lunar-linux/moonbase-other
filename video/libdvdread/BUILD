@@ -1,8 +1,7 @@
 (
 
-  OPTS+=" --disable-static" &&
+  ./autogen.sh --prefix=/usr $OPTS &&
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
-  default_build
+  default_make
 
 ) > $C_FIFO 2>&1
