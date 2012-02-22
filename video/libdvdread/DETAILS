@@ -1,19 +1,18 @@
          MODULE=libdvdread
-        VERSION=0.9.7
-         SOURCE=$MODULE-$VERSION.tar.gz
-        SOURCE2=$MODULE-$VERSION-udfsymbols.patch
-     SOURCE_URL=$MIRROR_URL
-     SOURCE_VFY=sha1:b2c2ede36cff9d56205747d3740c50fd32669e21
-    SOURCE2_URL=$PATCH_URL
-    SOURCE2_VFY=sha1:2be237cdeedc311c5efaa925ef2ac5d9b16782f1
-       WEB_SITE=http://www.dtek.chalmers.se/groups/dvd/downloads.shtml
+        VERSION=4.2.0
+         SOURCE=$MODULE-$VERSION.tar.bz2
+     SOURCE_URL=http://dvdnav.mplayerhq.hu/releases/
+     SOURCE_VFY=sha1:431bc92195f27673bfdd2be67ce0f58338da8d3b
+       WEB_SITE=http://www.mplayerhq.hu/design7/news.html
         ENTERED=20010927
-        UPDATED=20061220
-          SHORT="a library for reading DVD video disks"
+        UPDATED=20120222
+          SHORT="library for reading DVD video disks"
 
 cat << EOF
 libdvdread provides a simple foundation for reading DVD video disks.
 It provides the functionality that is required to access many DVDs.  It
 parses IFO files, reads NAV-blocks, and performs CSS authentication and
 descrambling.
+
+Note; vlc-2.x wants this one instead of the one from chalmers.
 EOF
