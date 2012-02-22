@@ -1,31 +1,23 @@
 (
 
-  if in_depends $MOULDE live555; then
-    OPTS+=" -with-live555-tree=/usr/lib/live"
-  fi
+  if in_depends $MODULE lua; then
+    LUA_LIBS+=" /usr/lib/lua"
+  fi &&
 
-# Fixes a make failure if you say yes to libupnp.
-  if in_depends $MODULE libupnp; then
-    sed -i "27i #include <assert.h>" modules/services_discovery/upnp_intel.cpp
-  fi
-
-  # Use a default font which actually exists
-  sedit "s:truetype/freefont/FreeSerifBold.ttf:dejavu-ttf/DejaVuSerif-Bold.ttf:" modules/misc/freetype.c
+  if module_installed live555; then
+    CPPFLAGS_live555="-I/usr/lib/live/liveMedia -I/usr/lib/live/groupsock -I/usr/lib/live/BasicUsageEnvironment -I/usr/lib/live/UsageEnvironment"
+  fi &&
 
   if in_depends vlc qt4; then
    . /etc/profile.d/qt4.rc
-  fi
+  fi &&
 
-#  OPTS+=" --enable-xvideo --disable-nls --disable-mozilla --enable-real --enable-realrtsp"
-  OPTS+=" --enable-xvideo --enable-real --enable-realrtsp"
+  OPTS+=" --enable-xvideo --enable-real --enable-realrtsp --enable-media-library --disable-sid" &&
 
-  default_build
+  default_build &&
 
-  # It's 2009. Why can't VLC install their own icons yet?
-  for x in 16x16 32x32 48x48 128x128 ; do
-    mkdir -p /usr/share/icons/hicolor/$x/apps/
-    ln -sf /usr/share/vlc/vlc$x.png /usr/share/icons/hicolor/$x/apps/vlc.png ;
-  done
+  sedit "s:Icon=vlc:Icon=/usr/share/icons/hicolor/32x32/apps/vlc.png:" /usr/share/applications/vlc.desktop &&
+  sedit "s:Categories=:Categories=Multimedia;:" /usr/share/applications/vlc.desktop &&
 
   if [[ -e /usr/bin/gtk-update-icon-cache ]] ; then
     gtk-update-icon-cache -f /usr/share/icons/hicolor/
