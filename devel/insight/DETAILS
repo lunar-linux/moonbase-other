@@ -1,12 +1,14 @@
           MODULE=insight
-         VERSION=6.6
+         VERSION=6.8-1a
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=ftp://sourceware.org/pub/insight/releases/
-   SOURCE_VFY[0]=sha1:ab08d2dd753f761c3401e4fc1d4fa63f117623ee
+      SOURCE_URL=ftp://sourceware.org/pub/insight/releases/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION%a}
+      SOURCE_VFY=sha1:a3182dda9fe52fe14ddb834fd2c9363f54bbda3f
         WEB_SITE=http://sources.redhat.com/insight/
          ENTERED=20020825
-         UPDATED=20070603
+         UPDATED=20120223
            SHORT="graphical user interface to GDB written in Tcl/Tk"
+PSAFE=no
 cat << EOF
 Insight is a graphical user interface to GDB, the GNU Debugger written
 in Tcl/Tk by people working at Red Hat, Inc. and Cygnus Solutions. It
