@@ -1,16 +1,12 @@
           MODULE=easytag2
-             MOD=easytag
-         VERSION=2.1.6
-          SOURCE=$MOD-$VERSION.tar.bz2
-         SOURCE2=easytag-2.1.6-mp4v2.patch
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
-      SOURCE_URL=$SFORGE_URL/$MOD/
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:e2d378d63d872d16a33b45515858cdfab7755645
-     SOURCE2_VFY=sha1:6dbe60d0602f059a4c6cf85f670b5f8dc4230c40
+         VERSION=2.1.7
+          SOURCE=${MODULE%2*}-$VERSION.tar.bz2
+      SOURCE_URL=$SFORGE_URL/${MODULE%2*}
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%2*}-$VERSION
+      SOURCE_VFY=sha1:7b56ba18be2f1bec0171e5de4447ba763a264f92
         WEB_SITE=http://easytag.sourceforge.net/
          ENTERED=20050924
-         UPDATED=20100425
+         UPDATED=20120223
            SHORT="Maintaining id3 tags (gtk+-2 version)"
 
 cat << EOF
