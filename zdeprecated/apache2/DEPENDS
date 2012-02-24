@@ -1,0 +1,14 @@
+depends  expat
+depends  apr-util
+
+optional_depends  "db"                     \
+                  "--with-berkeley-db"     \
+                  "--without-berkeley-db"  \
+                  "for berkely db support"
+
+optional_depends  "gdbm"            \
+                  "--with-gdbm"     \
+                  "--without-gdbm"  \
+                  "for gdbm support"
+
+

@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# Startup script for the Apache Web Server
+#
+# chkconfig: 345 85 15
+# description: Apache is a World Wide Web server.  It is used to serve \
+#              HTML files and CGI.
+# processname: httpd
+# pidfile: /var/run/httpd.pid
+# config: /etc/httpd/conf/access.conf
+# config: /etc/httpd/conf/httpd.conf
+# config: /etc/httpd/conf/srm.conf
+# config: /etc/httpd/conf/ssl.conf
+
+# this passes the default startup stuff nicely:
+
+function graceful () {
+	$PROCESS -k graceful
+}
+function startssl () {
+	$PROCESS -f /etc/httpd/conf/ssl.conf -k start -DSSL &&
+		echo -en "Starting apache+SSL:$RESULT_OK" ||
+		echo -en "Starting apache+SSL:$RESULT_FAIL"
+}
+
+function configtest () {
+	$PROCESS -t
+}
+
+function reload () {
+	# apache does NOT accept HUP or INT!
+	$0 restart
+}
+
+function fullstatus () {
+	[ -x `which lynx` ] && lynx http://127.0.0.1:80/server-status || echo "No fullstatus available (need lynx)"
+}
+
+function usage () {
+	echo "Usage: $0 {start|startssl|stop|graceful|restart|reload|probe|status|fullstatus}"
+}
+
+. /lib/lsb/init-functions $1
+
