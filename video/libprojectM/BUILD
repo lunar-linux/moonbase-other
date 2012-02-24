@@ -21,6 +21,10 @@
   mv "Zylot - Azirphaeli's Mirror.milk" "Zylot - Azirphaelis Mirror.milk"
   cd .. &&
 
-  default_cmake_build 
+  default_cmake_config &&
+
+  sedit "s:libdir=:libdir=/usr/lib:" ../libprojectM.pc &&
+
+  default_make 
 
 ) > $C_FIFO 2>&1
