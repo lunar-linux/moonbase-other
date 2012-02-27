@@ -1,4 +1,5 @@
 (
+
    bad_flags ALL &&
    ./configure  --build=$BUILD               \
                 --prefix=/usr                \
@@ -15,7 +16,14 @@
                 --disable-static            &&
 
    sedit 's:$(libdir)/pkgconfig:/usr/lib/pkgconfig:' Makefile  &&
+   sedit 's:ln -s:ln -sf:' Makefile  &&
 
+#  preserve the old version to prevent the crash of grep
+   make          &&
+   make install  &&
+#  rebuild the new grep image
+   lin grep      &&
+#  normal reinstall of pcre
    default_make
 
 ) > $C_FIFO 2>&1
