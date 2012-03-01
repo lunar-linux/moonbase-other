@@ -5,6 +5,7 @@ depends gdbm
 depends speex
 depends json-c
 
+optional_depends "fftw"          ""  "--without-fftw"       "for FFTW-using modules (equalizer) support"
 optional_depends "alsa-lib"      ""  "--disable-alsa"       "for ALSA support"
 optional_depends "jack"          ""  "--disable-jack"       "for jack support"
 optional_depends "glib-2"        ""  "--disable-glib2"      "for glib support"
@@ -21,6 +22,6 @@ optional_depends "gtk+-2"        ""  "--disable-gtk2"       "optional Gtk+ 2 sup
 optional_depends "libsamplerate" ""  "--disable-samplerate" "optional libsamplerate support"
 optional_depends "openssl"       ""  "--disable-openssl"    "for OpenSSL support"
 optional_depends "bluez"         ""  "--disable-bluez"      "optional BlueZ support"
-
+optional_depends "orc"           "--enable-orc"  ""         "for orc support"
 optional_depends "alsa-oss"      ""  "--disable-oss-output --disable-oss-wrapper" "optional OSS output support"
 
