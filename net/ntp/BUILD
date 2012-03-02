@@ -12,23 +12,22 @@
                 --infodir=/usr/share/info    \
                 --mandir=/usr/share/man      \
                 --sysconfdir=/etc            \
+                --enable-linuxcaps           \
                 --localstatedir=/var/cache  &&
-  make                                      &&
-  prepare_install                           &&
-  make install                              &&
-  
+  default_make                              &&
+
   if [ -e "/etc/init.d/ntp.sh" ]; then
      rm -f /etc/init.d/ntp.sh
-  fi                                        &&
+  fi  &&
 
   if [ -e "/etc/rc?.d/*ntp.sh" ]; then
      rm -f /etc/rc?.d/*ntp.sh
-  fi                                        &&
-  
+  fi  &&
+
   gather_docs html &&
 
   if [ ! -e /etc/ntp.conf ]; then
     install -m644 $SCRIPT_DIRECTORY/ntp.conf /etc
   fi
-   
+
 ) > $C_FIFO 2>&1
