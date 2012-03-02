@@ -1,5 +1,7 @@
 (
 
+  sedit "s:&ged.vertaald;::" doc/nl/index.docbook &&
+
   source /etc/profile.d/qt4.rc &&
   source /etc/profile.d/kde4.rc &&
 
