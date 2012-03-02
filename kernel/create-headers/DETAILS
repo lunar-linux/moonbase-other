@@ -1,11 +1,12 @@
             MODULE=create-headers
-             MAJOR=3.1
-           VERSION=$MAJOR.1
+             MAJOR=3.2
+           VERSION=$MAJOR.9
             SOURCE=linux-$VERSION.tar.bz2
-        SOURCE_URL=$KERNEL_URL/pub/linux/kernel/v$MAJOR
+     SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v3.x
+     SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v3.x
           WEB_SITE=http://www.lunar-linux.org
            ENTERED=20100711
-           UPDATED=20111121
+           UPDATED=20120302
             SHORT="creates the latest kernel headers package"
 
 cat << EOF
