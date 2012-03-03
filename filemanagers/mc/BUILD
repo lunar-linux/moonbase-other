@@ -1,5 +1,6 @@
 (
 
+  aclocal  &&
   automake --add-missing  &&
 
   if module_installed libX11; then
