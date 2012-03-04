@@ -1,6 +1,6 @@
 (
 
-  sedit "s:\$(libdir)/pkgconfig:/usr/lib/pkgconfig:" src/liblzma/Makefile.am  &&
+  sedit "s:\$(libdir)/pkgconfig:/usr/lib/pkgconfig:" src/liblzma/Makefile.am  src/liblzma/Makefile.in  &&
 
   OPTS+=" --disable-static  --libdir=/lib "  &&
 
