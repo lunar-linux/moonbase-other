@@ -1,12 +1,15 @@
           MODULE=libpng
          VERSION=1.2.46
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-pngrutil.patch.gz
    SOURCE_URL[0]=$SFORGE_URL/$MODULE
    SOURCE_URL[1]=ftp://ftp.simplesystems.org/pub/libpng/png/src
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:d5f3a2439b0b6d85a26499b2be09918eb54ea13a
+     SOURCE2_VFY=sha1:8d664bf51b73d0e4b9622d80ce91a1aaa8fde752
         WEB_SITE=http://www.libpng.org/pub/png/libpng.html
          ENTERED=20010922
-         UPDATED=20100914
+         UPDATED=20120304
            SHORT="Library that supports the PNG graphics format"
 
 cat << EOF
