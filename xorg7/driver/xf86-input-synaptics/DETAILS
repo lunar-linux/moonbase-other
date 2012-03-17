@@ -1,12 +1,15 @@
           MODULE=xf86-input-synaptics
-         VERSION=1.5.0
+         VERSION=1.5.99.901
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-scrolling.patch.bz2
       SOURCE_URL=$XORG_URL/individual/driver
-     SOURCE_VFY=sha1:7373c1e3f02bf7e18f71b65762a982d907b4a053
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:8836b1c2bf443b2c11f38457e203c5309698d9d0
+     SOURCE2_VFY=sha1:0ebdd157ca7554999d7456b39c26689ee67f9cc5
    MODULE_PREFIX=${X11R7_PREFIX:-/usr}
         WEB_SITE=http://www.x.org
          ENTERED=20080821
-         UPDATED=20110906
+         UPDATED=20120317
            SHORT="A Synaptics touchpad driver"
 
 cat << EOF
