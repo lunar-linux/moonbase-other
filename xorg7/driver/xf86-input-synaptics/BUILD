@@ -1,7 +1,6 @@
 (
   . /etc/profile.d/x11r7.rc  &&
   install -m644 $SCRIPT_DIRECTORY/50-synaptics.conf conf  &&
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
   OPTS+=" --disable-unit-tests"
   default_build  &&
