@@ -163,6 +163,8 @@
   # Register Nvidia XvMC library for use in any XvMC enabled media player
   install -m644 XvMCConfig /etc/X11 &&
 
+  install -Dm644 $SCRIPT_DIRECTORY/50-nvidia.conf /usr/share/X11/xorg.conf.d/50-nvidia.conf &&
+
   if in_depends $MODULE "gtk+-2" ; then
     install -m0755 nvidia-settings /usr/bin &&
     install -m0444 nvidia-settings-$AVERSION/doc/nvidia-settings.desktop /usr/share/applications &&
