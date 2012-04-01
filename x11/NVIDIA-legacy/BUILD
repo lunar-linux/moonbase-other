@@ -44,6 +44,8 @@
   echo libXvMCNVIDIA_dynamic.so.1 > /etc/X11/XvMCConfig &&
   chmod 644 /etc/X11/XvMCConfig &&
 
+  install -Dm644 $SCRIPT_DIRECTORY/50-nvidia.conf /usr/share/X11/xorg.conf.d/50-nvidia.conf &&
+
   # Get a sane default if haven't set it yet
   if [ "x$LUNAR_GL" == "x" ] ; then
     set_local_config LUNAR_GL binary
