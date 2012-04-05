@@ -10,14 +10,14 @@
   install -m755 usr/bin/flash-player-properties /usr/bin &&
   install -m755 usr/share/pixmaps/flash-player-properties.png /usr/share/pixmaps/ &&
   install -m755 usr/share/applications/flash-player-properties.desktop /usr/share/applications/ &&
-  cp -af usr/share/icons /usr/share/icons/ &&
+  cp -af usr/share/icons /usr/share/ &&
 
   if module_installed kdelibs ; then
     cp -af usr/share/kde4/services/* /usr/share/kde4/services/ &&
     if [ `arch` == "x86_64" ] ; then
       cp -af usr/lib64/kde4/* /usr/lib/kde4/
     else
-      cp -af usr/lib/* /usr/lib/kde4/
+      cp -af usr/lib/* /usr/lib/
     fi
   fi &&
 
