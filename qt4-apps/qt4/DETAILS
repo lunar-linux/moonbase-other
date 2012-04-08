@@ -1,15 +1,18 @@
           MODULE=qt4
-         VERSION=4.8.0
-          SOURCE=qt-everywhere-opensource-src-${VERSION}.tar.gz
+         VERSION=4.8.1
+          SOURCE=qt-everywhere-opensource-src-$VERSION.tar.gz
+         SOURCE2=qt-webkit-4.8.1-glib-2.31.patch.bz2
    SOURCE_URL[0]=http://get.qt.nokia.com/qt/source
    SOURCE_URL[1]=ftp://ftp.trolltech.com/qt/source
    SOURCE_URL[2]=http://gd.tuwien.ac.at/hci/qt/source
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/qt-everywhere-opensource-src-${VERSION}
-      SOURCE_VFY=sha1:2ba35adca8fb9c66a58eca61a15b21df6213f22e
+     SOURCE2_URL=$PATCH_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/qt-everywhere-opensource-src-$VERSION
+      SOURCE_VFY=sha1:a074d0f605f009e23c63e0a4cb9b71c978146ffc
+     SOURCE2_VFY=sha1:f96f38fdac79f41ba78cb3b893890aaae9a7ddcf
    MODULE_PREFIX=${QT4_PREFIX:-/usr}
         WEB_SITE=http://www.trolltech.com/qt
          ENTERED=20020420
-         UPDATED=20120104
+         UPDATED=20120407
       MAINTAINER=florin@lunar-linux.org
            SHORT="A C++ toolkit for application development"
 

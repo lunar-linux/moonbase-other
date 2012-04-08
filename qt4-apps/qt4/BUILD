@@ -1,5 +1,10 @@
 (
 
+# Gentoo patch fix for Glibc > 2.31
+  if [ `lvu version glib-2 | cut -d. -f1` -ge 31 ]; then
+   patch_it $SOURCE2 1
+  fi &&
+
 # By ommitting the --prefix switch from the configure and performing this sedit we can remove
 # the group of sedit to repoint moc, uic and rcc locations to /usr/bin. 
   sedit "s:/usr/local/Trolltech/:$MODULE_PREFIX/share/$MODULE/Trolltech/:g" configure &&
