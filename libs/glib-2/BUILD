@@ -8,9 +8,6 @@
     sedit "s/SUBDIRS = . m4macros glib gmodule gthread gobject gio tests po docs/SUBDIRS = . m4macros glib gmodule gthread gobject gio tests po/g" Makefile.in
   fi  &&
 
-  default_build  &&
-
-# fix the inkscape compiling
-  sedit "s:#error://#error:" /usr/include/glib-2.0/glib/gtree.h
+  default_build
 
 ) > $C_FIFO 2>&1
