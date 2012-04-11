@@ -2,15 +2,14 @@ depends kdelibs
 depends cdparanoia
 depends cdrtools
 depends dvd+rw-tools
+depends libsamplerate
 
 optional_depends "polkit-qt"      "" "-DK3B_BUILD_K3BSETUP=OFF" "for K3bSetup to acquire administrator support"
 optional_depends "libmpcdec"      "" "-DK3B_BUILD_MUSE_DECODER_PLUGIN=OFF" "for Musepack decoder support"
-optional_depends "libsamplerate"  "" "-DWITH_Samplerate=OFF" "for audio rate conversion support"
 optional_depends "vcdimager"      "" "" "for creating video cds"
 optional_depends "sox"            "" "-DK3B_BUILD_SOX_ENCODER_PLUGIN=OFF" "for audio file encoding support"
 optional_depends "libmusicbrainz2" "" "-DK3B_ENABLE_MUSICBRAINZ=OFF" "for metadata query support"
-optional_depends "ffmpeg"         "" "-DK3B_BUILD_FFMPEG_DECODER_PLUGIN=OFF" \
-                                  "for wma decoding"
+optional_depends "ffmpeg"         "" "-DK3B_BUILD_FFMPEG_DECODER_PLUGIN=OFF" "for wma decoding"
 optional_depends "lame"           "" "-DK3B_BUILD_LAME_ENCODER_PLUGIN=OFF" "encode audio files in the mp3 format"
 optional_depends "libsndfile"     "" "" "to decode audio file formats such as AIFF or VOC"
 optional_depends "transcode"      "" "" "for DVD ripping and DivX/XviD encoding"
