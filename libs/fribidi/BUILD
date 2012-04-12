@@ -6,7 +6,8 @@
     OPTS+="--with-glib=no"
   fi &&
 
-  patch_it $SOURCE1 1  &&
+  sedit "s:# *include <glib/[^>]*>:#include <glib.h>:" charset/* lib/* &&
+
 
   default_build
 
