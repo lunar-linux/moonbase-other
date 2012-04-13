@@ -4,13 +4,13 @@
     sedit "s/SUBDIRS = docs codegen/SUBDIRS = codegen/g" Makefile.in
   fi  &&
 
-   ./configure  --prefix=${GNOME210_PREFIX:-/usr}  \
+   ./configure  --prefix=/usr         \
                 --build=$BUILD        \
                 --sysconfdir=/etc     \
                 --localstatedir=/var  \
-                --infodir=${GNOME210_PREFIX:-/usr}/share/info  \
-                --mandir=${GNOME210_PREFIX:-/usr}/share/man    \
-                $OPTS                                         &&
+                --infodir=/usr/share/info  \
+                --mandir=-/usr/share/man   \
+                $OPTS                     &&
     default_make
 
 ) > $C_FIFO 2>&1
