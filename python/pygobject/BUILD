@@ -9,7 +9,7 @@
                 --sysconfdir=/etc     \
                 --localstatedir=/var  \
                 --infodir=/usr/share/info  \
-                --mandir=-/usr/share/man   \
+                --mandir=/usr/share/man   \
                 $OPTS                     &&
     default_make
 
