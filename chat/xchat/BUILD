@@ -1,8 +1,10 @@
 (
 
-  OPTS+=" --enable-ipv6"
+  patch_it $SOURCE2 0  &&
 
-  sedit 's/GtkType/GType/g' src/fe-gtk/xtext.{c,h} &&
+  OPTS+=" --enable-ipv6"  &&
+
+  sedit 's/GtkType/GType/g' src/fe-gtk/xtext.{c,h}  &&
 
   default_build
 
