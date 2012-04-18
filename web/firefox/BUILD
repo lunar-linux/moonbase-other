@@ -64,6 +64,10 @@
 
   setterm -bfreq -blength &&
 
+  if [ -n "${MAKES}" ]; then
+    echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
+  fi &&
+
   #Finally, the build!
   if [ "$PGO" == "y" ] ; then
     #CCache breaks the pgo build
