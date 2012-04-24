@@ -1,15 +1,13 @@
 (
 
-  sedit "s/-Werror//g" Makefile &&
+  default_build  &&
 
-  default_make &&
-
-  mkdir -p /etc/acpi/events /etc/acpi/actions &&
+  mkdir -p /etc/acpi/events /etc/acpi/actions  &&
 
 #  not everybody wants the default poweroff script ;)
   if [ ! -e /etc/acpi/events/power ]; then
     install -D -m644 ${SCRIPT_DIRECTORY}/power /etc/acpi/events/power
-  fi &&
+  fi  &&
 
   gather_docs samples/acpi_handler.sh samples/sample.conf
 

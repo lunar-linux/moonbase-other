@@ -18,19 +18,14 @@
   export MOZILLA_OFFICIAL=1  &&
   export BUILD_OFFICIAL=1  &&
   export MOZ_MAKE_FILES=$MAKES  &&
+  export MOZ_OPTIMIZE_FLAGS="$CFLAGS" &&
+  export MOZ_DEBUG_FLAGS="$CFLAGS" &&
 
   cp $SCRIPT_DIRECTORY/mozconfig .  &&
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
   mkdir -p ${MOZ_OBJDIR}  &&
 
-  echo "ac_add_options --disable-necko-wifi" >> mozconfig  &&
-  echo "ac_add_options --disable-system-sqlite" >> mozconfig  &&
-
   #Add DEPENDS options
-  if in_depends $MODULE "xulrunner" ; then
-    XUL=`module_version xulrunner`  &&
-    echo "ac_add_options --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL" >> mozconfig
-  fi  &&
 
   if in_depends $MODULE gnome-vfs ; then
     echo "ac_add_options --enable-gnomevfs" >> mozconfig
@@ -50,10 +45,14 @@
     echo "ac_add_options --disable-dbus" >> mozconfig
   fi  &&
 
+  if in_depends $MODULE libffi ; then
+    echo "ac_add_options --enable-system-ffi" >> mozconfig
+  else
+    echo "ac_add_options --disable-system-ffi" >> mozconfig
+  fi  &&
+
   if in_depends $MODULE sun-jdk ; then
-    echo "ac_add_options --with-java-include-path=/usr/java/default/include" >> mozconfig  &&
-    echo "ac_add_options --with-java-bin-path=/usr/java/default/bin" >> mozconfig  &&
-    echo "ac_add_options --enable-javaxpcom" >> mozconfig
+    echo "ac_add_options --with-java-bin-path=/usr/java/default/bin" >> mozconfig
   fi  &&
 
   #Add CONFIGURE options
