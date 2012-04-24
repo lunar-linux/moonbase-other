@@ -1,0 +1,19 @@
+          MODULE=engrave-svn
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/OLD/engrave
+        WEB_SITE=http://www.enlightenment.org/
+         ENTERED=20041205
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="A library for editing the contents of an edje .eet file"
+
+cat << EOF
+Engrave is a library for editing the contents of an edje (.edj) file.
+ o  parses Edje's .edc format (or the .edc embedded in an .edj file)
+ o  returns a structural representation of the .edc.
+ o  provides an API for modifying this representation (add/remove/edit
+    parts, programs, etc)
+ o  writes the modified data back out to an .edc (or an .edj)
+EOF

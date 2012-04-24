@@ -1,0 +1,15 @@
+          MODULE=eina-svn
+             MOD=$(basename $MODULE -svn)
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/$MOD
+        WEB_SITE=http://www.enlightenment.org/pages/eet.html
+         ENTERED=20081025
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="SVN version of EINA from the EFL"
+
+cat << EOF
+This is the CVS version of the EINA library which is part of the EFL.
+EOF

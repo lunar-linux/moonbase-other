@@ -1,0 +1,12 @@
+# Restore Mesa OpenGL libraries:
+cd /usr/lib
+ln -sf libGL.so.1.2 libGL.so.1
+ln -sf libGL.so.1 libGL.so
+rm -f libGLcore.so*
+
+# Restore generic libglx from X server:
+cd /usr/X11/lib/xorg/modules/extensions
+ln -sf libglx.so.xorg libglx.so
+
+# Unregister Nvidia XvMC
+rm -f /etc/X11/XvMCConfig
