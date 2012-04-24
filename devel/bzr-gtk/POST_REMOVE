@@ -1,8 +1,0 @@
-# determine the current major Python version
-python_major=`installed_version Python | cut -d. -f1-2`
-  
-# determine the Python site-packages path
-bzr_gtk_dir="/usr/lib/python${python_major}/site-packages/bzrlib/plugins/gtk"
-
-# have to clean up the pre-compiled python modules for bzr-gtk
-rm -rf $bzr_gtk_dir
