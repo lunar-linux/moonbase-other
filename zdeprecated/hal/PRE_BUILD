@@ -1,6 +1,0 @@
-  default_pre_build  &&
-
-  # give hald proper access to media devices as hald seems to want
-  # to step down in privilages
-  add_priv_user haldaemon:haldaemon -d /dev/null -s /bin/false  &&
-  usermod -G  disk,cdrom,floppy,haldaemon  haldaemon

@@ -1,9 +1,0 @@
-default_pre_build  &&
-
-KERNEL_MAJOR=$(grep UTS_RELEASE /usr/include/linux/version.h | cut -d'"' -f2 | cut -d. -f1,2)
-if [ "$KERNEL_MAJOR" == "2.6" ] ; then
-  if [ ! -f /usr/include/libdevmapper.h ] ; then
-    message "${PROBLEM_COLOR}Module lvm2 is not installed and is required to build lilo against 2.6 headers!${DEFAULT_COLOR}"
-    exit 1
-  fi
-fi 

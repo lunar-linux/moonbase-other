@@ -1,7 +1,0 @@
-
-cp -f /etc/php.ini /tmp/php.ini
-
-grep -v "^mmcache\..*" /tmp/php.ini | grep -v "^extension.*turck-mmcache\.so.*" >/etc/php.ini
-rm   -f /tmp/php.ini
-
-/usr/sbin/apachectl graceful 2>/dev/null

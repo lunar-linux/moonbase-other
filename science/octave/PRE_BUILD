@@ -1,9 +1,0 @@
-if  [ -e  /usr/bin/g77 ] || [ -e /usr/bin/gfortran ]; then
-        message "${PROBLEM_COLOR}gcc has fortran present.${DEFAULT_COLOR}" &&
-        true ;
-      else
-        message "${PROBLEM_COLOR}g77 is required to install this module.  Rebuild gcc with it enabled.${DEFAULT_COLOR}" &&
-        false
-fi &&
-default_pre_build
-

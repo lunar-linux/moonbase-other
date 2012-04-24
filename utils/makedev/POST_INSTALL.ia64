@@ -1,9 +1,0 @@
-[ -d /dev ] || mkdir /dev
-add_priv_user vcsa:vcsa -s /sbin/false -d /dev -c "virtual console memory owner"
-install -c -m 0700 $SCRIPT_DIRECTORY/install-devices.sh /dev
-message ""
-message "Please run /dev/install-devices.sh"
-message ""
-
-makedev efirtc
-

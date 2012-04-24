@@ -1,9 +1,0 @@
-(
-
-  prepare_install &&
-  cp -p x86/ipw3945d /sbin &&
-  chmod 755 ipw3945d-{start,stop} &&
-  cp -p ipw3945d-{start,stop} /sbin &&
-  gather_docs README.ipw3945d
-
-) > $C_FIFO 2>&1
