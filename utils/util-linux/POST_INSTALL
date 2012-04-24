@@ -1,8 +1,0 @@
-if ! [ -d /etc/init.d ]; then
-     mkdir -p /etc/init.d
-fi
-
-if ! grep -q "^issu::once:/sbin/make-issue" /etc/inittab ; then
-  echo "issu::once:/sbin/make-issue" >> /etc/inittab
-fi
-

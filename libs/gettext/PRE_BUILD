@@ -1,6 +1,0 @@
-default_pre_build &&
-
-# declare libintl.so rogue so it doesn't get removed!
-if [ -f $INSTALL_LOGS/gettext* ]; then
-  sedit "/\/usr\/lib\/libintl.so/d" $INSTALL_LOGS/gettext*
-fi
