@@ -1,9 +1,0 @@
-if [ "$ENABLE_GLX_TLS" == "y" ] ; then
-  # /usr/lib/libGL.so is from mesa-lib when compiled with --enable-glx-tls
-  if [ ! -e /usr/lib/libGL.so ] ; then
-    message "${PROBLEM_COLOR}lin -rc mesa-lib first, with glx-tls enabled!${DEFAULT_COLOR}"
-    exit 1
-  fi
-fi
-
-default_pre_build
