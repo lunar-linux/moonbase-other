@@ -1,0 +1,18 @@
+          MODULE=embryo-svn
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/embryo
+        WEB_SITE=http://www.enlightenment.org/pages/embryo.html
+         ENTERED=20041002
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="The CVS version of a scripting langage based on Small"
+
+cat << EOF
+Embryo implements a C like scripting language used in various parts of
+the E project, namely Edje.  Embryo's scripting language is based on
+CompuPhase's Small language.  Embryo allows scripting capabilities in
+places that otherwise wouldn't support basic programming structures
+such as Edje EDCs.
+EOF

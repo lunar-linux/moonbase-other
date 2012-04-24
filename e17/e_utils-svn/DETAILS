@@ -1,0 +1,20 @@
+          MODULE=e_utils-svn
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/OLD/e_utils
+        WEB_SITE=http://www.enlightenment.org
+         ENTERED=20041230
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="additional e17 utilities"
+
+cat << EOF
+Optional utilities and applications for e17.
+
+Currently contains:
+ * eapp_edit    - an .eap editor/creator
+ * e17setroot   - a commandline background setter
+ * entangle     - a simple e17 menu editor
+ * exige        - a run application dialog
+EOF

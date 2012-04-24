@@ -1,0 +1,17 @@
+          MODULE=eet-svn
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/eet
+        WEB_SITE=http://www.enlightenment.org/pages/eet.html
+         ENTERED=20040928
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="CVS version of EET from the EFL."
+
+cat << EOF
+This is the CVS version of the EET library which is part of the EFL.
+It is designed to write an arbitary set of chunks of data to a file
+and optionally compress each chunk, allowing for fast random-access
+reading of the file later on.
+EOF

@@ -1,0 +1,59 @@
+          MODULE=e_modules-svn
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/E-MODULES-EXTRA
+        WEB_SITE=http://www.enlightenment.org
+         ENTERED=20050330
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="a collection of e17 desktop modules"
+
+cat << EOF
+This is a collection of non-official e17 desktop modules.  It should be
+known that these modules were created by the community and are not
+officially approved/supported by the e17 development team.
+
+Current Modules:
+ alarm:         An event reminder.
+ bling:         An X composite manager.
+ calendar:      A calendar gagdet.
+ cpu:           Displays CPU usage.
+ deskshow:      Iconifies all windows on the screen so you can see the
+                Desktop.
+ diskio:        Displays harddisk usage.
+ drawer:        A container.
+ efm_nav:       Controls for navigating E's file manager.
+ efm_path:      Path control for EFM.
+ emu:           A module to allow people to run modules written in code
+                other than C.
+ exalt-client:  A client for exalt.
+ execwatch:     Execute applications and watch'em.
+ flame:         Displays flames at the bottom of the screen.
+ forecasts:     Displays weather information.
+ iiirk:         A taskbar for selected applications only.
+ language:      Changes the active keyboard language/layout variant.
+ mail:          Periodically checks for new e-mail messages.
+ mem:           Displays RAM usage.
+ moon:          Displays moon phase information on your desktop.
+ mpdule:        A MPD client.
+ net:           Displays network (not wireless) usage.
+ news:          Displays news (RSS,etc).
+ notification:  A notification daemon.
+ penguins:      Lets fancy penguins conquer your desktop.
+ photo:         Displays pictures on your desktop.
+ places:        Displays volumes attached to the system.
+ rain:          Displays rain effects on your desktop.
+ screenshot:    Allows you to take a screenshot from a module on your
+                desktop.
+ skel:          A module skeleton.
+ slideshow:     A desktop background rotater.
+ snow:          Displays Christmas trees and falling snow on your desktop.
+ taskbar:       A taskbar to track your running applications.
+ tclock:        Displays an alternate style of clock on your desktop.
+ tiling:        Tiling support.
+ uptime:        Displays system uptime.
+ weather:       Displays weather information for places around the world.
+ winselector:   Menu based access to all of your windows.
+ wlan:          Displays wireless network usage.
+EOF

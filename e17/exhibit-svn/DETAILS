@@ -1,0 +1,15 @@
+          MODULE=exhibit-svn
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/OLD/exhibit
+        WEB_SITE=http://www.enlightenment.org/
+         ENTERED=20060120
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="an Etk based Image Viewer"
+
+cat << EOF
+Exhibit is an image viewer that uses Etk as its toolkit.  Exhibit
+supports image previews for image types supported by evas.
+EOF

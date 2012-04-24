@@ -1,0 +1,14 @@
+depends  edje-svn
+depends  efreet-svn
+depends  e_dbus-svn
+depends  eeze-svn
+
+optional_depends  "gettext"          \
+                  ""                 \
+                  "--disable-nls"    \
+                  "for internationalization support"
+
+optional_depends  "Linux-PAM"                     \
+                  "--enable-pam"                  \
+                  "--disable-pam"                 \
+                  "for PAM support in desktop locking"

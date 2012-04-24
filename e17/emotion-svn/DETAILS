@@ -1,0 +1,18 @@
+          MODULE=emotion-svn
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/emotion
+        WEB_SITE=http://www.enlightenment.org/Libraries/Emotion/
+         ENTERED=20041002
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="An Evas smart-object library providing video capabilities"
+
+cat << EOF
+Emotion is an Evas smart-object library providing video/audio capabilites.
+Emotion leverages xine-lib and/or GStremer; integrating seemlessly with
+the rest of the EFL.  Because it is based on xine-lib and/or GStreamer,
+any formats that they support (Theora, DiVX, MP3, etc) are automatically
+available using Emotion.
+EOF

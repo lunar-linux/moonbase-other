@@ -1,0 +1,17 @@
+          MODULE=emprint-svn
+         VERSION=svn
+          SOURCE=$MODULE.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=svn+http://svn.enlightenment.org/svn/e/trunk/emprint
+        WEB_SITE=http://enlightenment.org/
+         ENTERED=20080305
+         UPDATED=`date --date="last monday" +%Y%m%d`
+   MODULE_PREFIX=${E17_PREFIX:-/opt/lunar/enlightenment}
+           SHORT="Screenshot taking utility written with the EFL"
+
+cat << EOF
+Emprint is a utility for taking screenshots of the entire screen, a specific
+window, or a specific region. It is written with the Enlightenment Foundation
+Libraries (http://www.enlightnement.org). It depends on a large number of
+libraries that are only available in CVS at the moment.
+EOF
