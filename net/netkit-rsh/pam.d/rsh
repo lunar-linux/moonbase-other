@@ -1,8 +1,0 @@
-#%PAM-1.0
-auth       required	pam_nologin.so
-auth       required	pam_securetty.so
-auth       optional	pam_env.so
-#auth       required	pam_rhosts_auth.so
-auth       include	system-auth
-account    include	system-auth
-session    include	system-auth

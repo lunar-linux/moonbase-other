@@ -1,6 +1,0 @@
-for mod in `lsmod | grep 'b43|ssb|wl'`; do rmmod $mod; done
-touch /etc/modprobe.d/blacklist.conf
-grep 'blacklist ssb' /etc/modprobe.d/blacklist.conf || echo 'blacklist ssb' >> /etc/modprobe.d/blacklist.conf
-grep 'blacklist b43' /etc/modprobe.d/blacklist.conf || echo 'blacklist b43' >> /etc/modprobe.d/blacklist.conf
-modprobe lib80211
-modprobe wl

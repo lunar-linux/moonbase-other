@@ -1,9 +1,0 @@
-
-# We dont want everything tracked by lunar
-
-mkdir -p /var/lib/cfengine/{inputs,modules} &&
-
-if [ ! -f "/var/lib/cfengine/ppkeys/localhost.priv" ]; then
-    /usr/sbin/cfkey
-fi
-

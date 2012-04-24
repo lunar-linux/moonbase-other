@@ -1,9 +1,0 @@
-#  Reinstall anything else it might want.
-if [ -n "$OLD_GRASS_VERSION" ] ; then
-        GRASSMODS="$( (lvu from /usr/grass?/$OLD_GRASS_VERSION/; lvu from /usr/grass?/$OLD_GRASS_VERSION/) | cut -d: -f1 | uniq | grep -v grass)"
-        for GRASSMOD in $(sort_by_dependency $GRASSMODS); do
-                lin -c $GRASSMOD || true
-        done
-        unset_module_config OLD_GRASS_VERSION
-fi
-

@@ -1,9 +1,0 @@
-if module_installed pango; then lin -c pango; fi
-
-# We need to make sure theres no symlinks left to rot
-if [ -h /usr/share/fonts/fonts ] ; then
-  rm -f /usr/share/fonts/fonts
-fi
-
-message "** Running fc-cache please be patient **"
-/usr/bin/fc-cache -f

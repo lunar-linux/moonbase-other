@@ -1,9 +1,0 @@
-if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
-
-    if    query  "Disable multinet (edonkey + Overnet only)? " y
-        then OPTS=$OPTS" --disable-multinet"
-    fi
-
-    echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
-    echo  'OPTS='\"$OPTS\"  >>  $MODULE_CONFIG
-fi
