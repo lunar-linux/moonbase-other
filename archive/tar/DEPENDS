@@ -1,9 +1,0 @@
-# actually optional, but since most sources are archived
-# as *.tar.gz or *.tar.bz2 we're setting both to required
-depends gzip
-depends bzip2
-
-optional_depends "pbzip2" "--with-bzip2=/usr/bin/pbzip2" "" "for parallel bzip2 (de)compression (speedup on multi-core systems)"
-optional_depends "xz"      "--with-xz=/usr/bin/xz"       "" "for xz compression support"
-optional_depends "lzip"    "--with-lzip=/usr/bin/lzip"   "" "for lzip compression support"
-optional_depends "texinfo" ""                            "" "for info docs"

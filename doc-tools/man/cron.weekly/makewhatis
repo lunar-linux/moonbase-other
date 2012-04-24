@@ -1,9 +1,0 @@
-#!/bin/bash
-
-LOCKFILE=/var/lock/makewhatis.lock
-[ -f $LOCKFILE ] && exit 0
-
-trap "{ rm -f $LOCKFILE; exit 255; }" EXIT
-touch $LOCKFILE
-makewhatis -w
-exit 0
