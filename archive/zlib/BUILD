@@ -15,9 +15,6 @@
       sedit 's/^CFLAGS *=/CFLAGS=-fPIC /' Makefile
   fi  &&
 
-  default_make  &&
-  cp libz.a /usr/lib  &&
-  rm /lib/libz.a      &&
-  chmod 755 /usr/lib/libz.a
+  default_make
 
 ) > $C_FIFO 2>&1
