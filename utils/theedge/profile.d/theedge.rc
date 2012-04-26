@@ -2,63 +2,199 @@
 # Turn on extended globbing
 shopt -s extglob
 
-_lunar () 
+##
+# Helper functions
+##
+_lunar_modules_list()
 {
-	local cur prev
-	COMPREPLY=()
-	cur=${COMP_WORDS[COMP_CWORD]}
-	prev=${COMP_WORDS[COMP_CWORD-1]}
+  COMPREPLY=( $( compgen -W "$( cut -d: -f1 /var/state/lunar/module.index )" -- "$cur" ) )
+}
 
-	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
-		COMPREPLY=( $( compgen -W 'prune renew update rebuild optimize fix nofix fixdepends set resurrect install remove hold unhold exile unexile set unset' $cur ))
-  elif [ $COMP_CWORD -eq 2 -a $prev = "unset" ]; then
-    COMPREPLY=( $( compgen -W "`cat /etc/lunar/local/config | sed -rn 's;\s+(.*)=.*;\1;p'`" $cur ))
-	else
-		COMPREPLY=( $( compgen -f $cur ))
-	fi
-	return 0
+_lunar_modules_installed_list()
+{
+  COMPREPLY=( $( compgen -W "$( cut -d: -f1 /var/state/lunar/packages )" -- "$cur" ) )
+}
+
+_lunar_modules_held_list()
+{
+  COMPREPLY=( $( compgen -W "$( awk -F: '/:held:/ { print $1 }' /var/state/lunar/packages )" -- "$cur" ) )
+}
+
+_lunar_internal_variable_list()
+{
+  COMPREPLY=( $( compgen -W "$( sed -rn 's;\s+(.*)=.*;\1;p' /etc/lunar/local/config )" --  "$cur" ) )
+}
+
+_lunar_exilable_module_list()
+{
+  COMPREPLY=( $( compgen -W "$( comm -3 <(sort /var/state/lunar/module.index | cut -d: -f1) <(sort /var/state/lunar/packages | cut -d: -f1) )" -- "$cur" ) )
+}
+
+_lunar_modules_exiled_list()
+{
+  COMPREPLY=( $( compgen -W "$( awk -F: '/:exiled:/ { print $1 }' /var/state/lunar/packages )" -- "$cur" ) )
+}
+
+_lunar_sections_list()
+{
+  COMPREPLY=( $( compgen -W "$(cut -d: -f2 /var/state/lunar/module.index | sort -u) zlocal" -- "$cur" ) )
+}
+
+##
+# Completion functions
+##
+_lunar()
+{
+  local cur prev cmd
+  COMPREPLY=()
+  cur=${COMP_WORDS[COMP_CWORD]}
+  prev=${COMP_WORDS[COMP_CWORD-1]}
+
+  for (( i=0; i < ${#COMP_WORDS[@]}-1; i++ )); do
+    if [[ ${COMP_WORDS[i]} == @(exile|fix|hold|install|nofix|remove|unexile|unhold) ]]; then
+      cmd=${COMP_WORDS[i]}
+    fi
+  done
+
+  if [[ -n "$cmd" ]]; then
+    case $cmd in
+      exile)
+        _lunar_exilable_module_list
+        return 0
+        ;;
+      install)
+        _lunar_modules_list
+        return 0
+        ;;
+      fix|hold|nofix|remove)
+        _lunar_modules_installed_list
+        return 0
+        ;;
+      unexile)
+        _lunar_modules_exiled_list
+        return 0
+        ;;
+      unhold)
+        _lunar_modules_held_list
+        return 0
+        ;;
+    esac
+  fi
+
+  case "$prev" in
+    -d|--debug|-v|--verbose|-h|--help)
+      ;;
+    fixdepends|optimize|prune|rebuild|renew|resurrect|update)
+      # Return since these options does not take any arguments
+      return 0
+      ;;
+    set|unset)
+      _lunar_internal_variable_list
+      return 0
+      ;;
+  esac
+
+  if [[ "$cur" == -* ]]; then
+    COMPREPLY=( $( compgen -W '-d --debug -v --verbose -h --help' -- "$cur") )
+  elif [[ $COMP_CWORD -gt 2 && "${COMP_WORDS[COMP_CWORD-2]}" == @(set|unset) ]]; then
+    return 0
+  else
+    COMPREPLY=( $( compgen -W 'prune renew update rebuild optimize fix nofix fixdepends set resurrect install remove hold unhold exile unexile unset' -- "$cur" ) )
+  fi
+
+  return 0
 }
 complete -F _lunar lunar
 
-_lvu ()
+_lunar_lvu()
 {
-	# List any lvu sub-commands that do not take a module name 
-	# after it
-        LVU_CMDS_WITH_NO_MODULE="leafs orphans conflicts alien held exiled export moonbase html updatelog activity pam expired"
-	local cur prev
-	COMPREPLY=()
-	cur=${COMP_WORDS[COMP_CWORD]}
-	prev=${COMP_WORDS[COMP_CWORD-1]}
+ local cur prev cmd
+  COMPREPLY=()
+  cur=${COMP_WORDS[COMP_CWORD]}
+  prev=${COMP_WORDS[COMP_CWORD-1]}
 
-	if [ $COMP_CWORD -eq 1 ] || [ "${prev:0:1}" = "-" ]; then
-		COMPREPLY=( $( compgen -W 'DETAILS DEPENDS CONFLICTS BUILD PRE_BUILD POST_BUILD CONFIGURE POST_INSTALL PRE_REMOVE POST_REMOVE what where cd alien from leafs orphans conflicts search service website install size installed compile compiler links sources maintainer version sum md5sum export import section moonbase html updatelog activity newer older voyeur pam expired depends tree eert stree leert held exiled urls versions short info edit unedit diff new submit' $cur ))
-	elif [ $COMP_CWORD -eq 2 -a $prev = "from" ]; then
-	        COMPREPLY=( $(compgen -f "$cur") )
-	elif [ $COMP_CWORD -eq 2 ]; then
-		# Bail out if we don't need a third param
-		for CMD in $LVU_CMDS_WITH_NO_MODULE; do
-			if [ "$prev" = "$CMD" ]; then return 0; fi
-		done
-		COMPREPLY=( $( compgen -W "`cat /var/state/lunar/module.index | cut -d: -f1`" $cur ))
-	fi
-	return 0
+  case "$prev" in
+    -d|--debug|-v|--verbose|-h|--help)
+      ;;
+    leafs|orphans|conflicts|alien|held|exiled|export|moonbase|html|updatelog|activity|pam|expired|new|newer|older|search|service)
+      # Do nothing because either the options don't take an argument or we can't do completion
+      return 0
+      ;;
+    from|import)
+      compopt -o filenames
+      COMPREPLY=( $(compgen -f -- "$cur") )
+      return 0
+      ;;
+    DETAILS|DEPENDS|CONFLICTS|BUILD|PRE_BUILD|POST_BUILD|CONFIGURE|POST_INSTALL|PRE_REMOVE|POST_REMOVE|what|where|cd|service|website|install|size|installed|compile|compiler|links|sources|maintainer|version|sum|md5sum|depends|tree|eert|stree|leert|urls|versions|short|info|edit)
+      _lunar_modules_list
+      return 0
+      ;;
+    section)
+      _lunar_sections_list
+      return 0
+      ;;
+    submit|unedit|diff)
+      COMPREPLY=( $(compgen -W "$(lvu section zlocal)" -- "$cur") )
+      return 0
+      ;;
+  esac
+
+  if [[ "$cur" == -* ]]; then
+    COMPREPLY=( $( compgen -W '-d --debug -v --verbose -h --help' -- "$cur") )
+  elif [[ $COMP_CWORD -gt 2 && "${COMP_WORDS[COMP_CWORD-2]}" == @(DETAILS|DEPENDS|CONFLICTS|BUILD|PRE_BUILD|POST_BUILD|CONFIGURE|POST_INSTALL|PRE_REMOVE|POST_REMOVE|what|where|cd|from|search|service|website|install|size|installed|compile|compiler|links|sources|maintainer|version|sum|md5sum|depends|tree|eert|stree|leert|urls|versions|short|info|edit|unedit|diff|new|submit|section) ]]; then
+    return 0
+  else
+    COMPREPLY=( $( compgen -W 'DETAILS DEPENDS CONFLICTS BUILD PRE_BUILD POST_BUILD CONFIGURE POST_INSTALL PRE_REMOVE POST_REMOVE \
+                               what where cd alien from leafs orphans conflicts search service website install size installed compile \
+                               compiler links sources maintainer version sum md5sum export import section moonbase html updatelog \
+                               activity newer older voyeur pam expired depends tree eert stree leert held exiled urls versions short \
+                               info edit unedit diff new submit' -- "$cur" ) )
+  fi
+
+  return 0
 }
-complete -F _lvu lvu
+complete -F _lunar_lvu lvu
 
-_modules ()
+_lunar_lin()
 {
-	local cur
-	cur=${COMP_WORDS[COMP_CWORD]}
-	COMPREPLY=( $( compgen -W "`cat /var/state/lunar/module.index | cut -d: -f1`" $cur ))
-}
-complete -F _modules lin lget
+  local cur
+  cur=${COMP_WORDS[COMP_CWORD]}
+  if [[ "$cur" == -* ]]; then
+    COMPREPLY=( $( compgen -W '-c --compile -d --debug --deps -f --from -h --help --opts -p --probe -r --reconfigure -R --resurrect -s --silent -v --verbose -w --want' -- "$cur") )
+  else
+    _lunar_modules_list
+  fi
 
-_modules_installed ()
+  return 0
+}
+complete -F _lunar_lin lin
+
+_lunar_lget()
 {
-	local cur
-	cur=${COMP_WORDS[COMP_CWORD]}
-	COMPREPLY=( $( compgen -W "`cat /var/state/lunar/packages | cut -d: -f1`" $cur ))
+  local cur
+  cur=${COMP_WORDS[COMP_CWORD]}
+
+  if [[ "$cur" == -* ]]; then
+    COMPREPLY=( $( compgen -W '-a --all -d --debug -f --from -h --help -u --url -v --verbose -w --want' -- "$cur") )
+  else
+    _lunar_modules_list
+  fi
+
+  return 0
+}
+complete -F _lunar_lget lget
+
+_lunar_lrm ()
+{
+  local cur
+  cur=${COMP_WORDS[COMP_CWORD]}
+  if [[ "$cur" == -* ]]; then
+    COMPREPLY=( $( compgen -W '-d --debug -D --downgrade -h --help -k --keepconfig -n --nosustain -u --upgrade -v --verbose -p --purge' -- "$cur" ) )
+  else
+    _lunar_modules_installed_list
+  fi
+
+  return 0
 }
 
-complete -F _modules_installed lrm
-
+complete -F _lunar_lrm lrm
