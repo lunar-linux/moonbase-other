@@ -1,0 +1,26 @@
+depends glib-2
+
+optional_depends "tiff"                              \
+                 "--with-libtiff"                    \
+                 "--without-libtiff"                 \
+                 "for TIFF image loader"
+
+optional_depends "%JPEG"                             \
+                 "--with-libjpeg"                    \
+                 "--without-libjpeg"                 \
+                 "for JPEG image loader"
+
+optional_depends "libpng"                            \
+                 "--with-libpng"                     \
+                 "--without-libpng"                  \
+                 "for PNG image loader"
+
+optional_depends "jasper"                            \
+                 "--with-libjasper"                  \
+                 "--without-libjasper"               \
+                 "for JPEG 2000 image loader"
+
+optional_depends "gobject-introspection"             \
+                 "--enable-introspection"            \
+                 "--disable-introspection"           \
+                 "for gobject introspection support"
