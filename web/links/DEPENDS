@@ -1,0 +1,47 @@
+depends ncurses
+
+optional_depends libpng                 \
+                 "--enable-graphics"    \
+                 "--disable-graphics"   \
+                 "for graphics mode (needed for Framebuffer, SVGA, X and DirectFB)"
+
+optional_depends svgalib                \
+                 "--with-svgalib"       \
+                 "--without-svgalib"    \
+                 "for SVGA graphics mode"
+
+optional_depends DirectFB               \
+                 "--with-directfb"      \
+                 "--without-directfb"   \
+                 "for DirectFB graphics mode"
+
+optional_depends tiff                   \
+                 "--with-libtiff"       \
+                 "--without-libtiff"    \
+                 "to display tiff images in graphics mode"
+
+optional_depends %JPEG                  \
+                 "--with-libjpeg"       \
+                 "--without-libjpeg"    \
+                 "to display jpeg images in graphics mode"
+
+optional_depends gpm                    \
+                 "--with-gpm"           \
+                 "--without-gpm"        \
+                 "for gpm mouse support (needed for Framebuffer graphics mode)"
+
+optional_depends openssl                \
+                 "--with-ssl"           \
+                 "--without-ssl"        \
+                 "for encryption (HTTPS)"
+
+optional_depends bzip2                  \
+                 "--with-bzip2"         \
+                 "--without-bzip2"      \
+                 "to speed up webpages using bzip2 compression"
+
+optional_depends zlib                   \
+                 "--with-zlib"          \
+                 "--without-zlib"       \
+                 "to speed up webpages using zlib compression"
+
