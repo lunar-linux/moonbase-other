@@ -1,0 +1,14 @@
+mquery GRAPHICS    "enable graphics mode? (you have to use libpng later)" \
+                   n                                                      \
+                   "--enable-graphics"                                    \
+                   "--disable-graphics"
+
+if [ "`get_module_config GRAPHICS`" = "y" ]; then
+
+mquery FB_GRAPHICS "with Framebuffer graphics mode?" \
+                   n                                 \
+                   "--with-fb"                       \
+                   "--without-fb"
+
+fi
+
