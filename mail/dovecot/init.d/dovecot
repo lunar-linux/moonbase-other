@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# dovecot - IMAP daemon
+#
+# chkconfig: 345 80 20
+# description: imap and pop3 daemon with ssl support
+# processname: dovecot
+# config: /etc/dovecot.conf
+# pidfile: /var/run/dovecot/master.pid
+
+reload () {
+        # not reload-safe
+        $0 restart
+}
+
+. /lib/lsb/init-functions
+
