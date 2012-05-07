@@ -1,15 +1,15 @@
           MODULE=llvm
-         VERSION=2.9
-          SOURCE=$MODULE-$VERSION.tgz
-         SOURCE2=clang-$VERSION.tgz
+         VERSION=3.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=clang-$VERSION.tar.gz
       SOURCE_URL=http://www.llvm.org/releases/$VERSION
-     SOURCE2_URL=http://www.llvm.org/releases/$VERSION
-      SOURCE_VFY=sha1:500f587f840199ac53c4fc7572839d08fa9d9123
-     SOURCE2_VFY=sha1:5fd3b5cec050ec12858c1602b23cf096282ad4a4
-   MODULE_PREFIX=${LLVM_DIR:-/opt/lunar/llvm}
+     SOURCE2_URL=$SOURCE_URL
+      SOURCE_VFY=sha1:b683e7294fcf69887c0d709025d4640f5dca755b
+     SOURCE2_VFY=sha1:1fa11f07f957bd9c9de003d1b5a7a9ba1e0055e4
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION.src
         WEB_SITE=http://www.llvm.org
          ENTERED=20090128
-         UPDATED=20110410
+         UPDATED=20120505
            SHORT="Low Level Virtual Machine"
 
 cat << EOF

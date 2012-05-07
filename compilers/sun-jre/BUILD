@@ -47,8 +47,21 @@
      ln -sf /usr/java/latest/lib/i386/libnpjp2.so /opt/lunar/plugins/
   fi &&
 
+  cd /usr/java/jre${DVERSION}/lib/security &&
+  if [ $JCEYES == "y" ]; then
+    rm -f US_export_policy.jar local_policy.jar
+    ln -s UnlimitedJCEPolicy/US_export_policy.jar US_export_policy.jar
+    ln -s UnlimitedJCEPolicy/local_policy.jar local_policy.jar
+  else
+    rm -rf UnlimitedJCEPolicy
+  fi   &&
+  cd - &&
+
   echo export JAVA_HOME=\"/usr/java/latest\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
   echo export PATH=\"'$PATH':'$JAVA_HOME'/bin\" >> $SOURCE_DIRECTORY/sun-jre.rc &&
-  install -m644 $SOURCE_DIRECTORY/sun-jre.rc /etc/profile.d/
+  install -m644 $SOURCE_DIRECTORY/sun-jre.rc /etc/profile.d/ &&
+
+  rm -rf /usr/java/jre${DVERSION}/jre${DVERSION} &&
+  rm -rf /usr/java/jre${DVERSION}/old.libraries
 
 ) > $C_FIFO 2>&1

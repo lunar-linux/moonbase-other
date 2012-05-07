@@ -1,0 +1,24 @@
+CURDIR="`pwd`" &&
+cd $SOURCE_CACHE &&
+
+if [ "$(arch)" == "x86_64" ]; then
+   bits=x64
+else
+   bits=i586
+fi &&
+
+JRE_ARCHIVE=jre-${VERSION}-linux-$bits.tar.gz &&
+JCE_POLICY=UnlimitedJCEPolicyJDK7.zip &&
+
+wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jdk/${FVERSION}/${JRE_ARCHIVE} &&
+wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jce/7/${JCE_POLICY} &&
+
+cd $BUILD_DIRECTORY &&
+
+tar -xzpvf $SOURCE_CACHE/${JRE_ARCHIVE} &&
+
+cd $SOURCE_DIRECTORY/lib/security &&
+
+unzip $SOURCE_CACHE/${JCE_POLICY} &&
+
+cd "$CURDIR"
