@@ -4,9 +4,7 @@
 
   make $opts  &&
 
-  # /usr/bin/pdfinfo is provided by poppler
-  sedit 's/pdfinfo/pdfinfo-mupdf/g' Makefile
-  mv build/release/pdfinfo{,-mupdf}  &&
+  sedit 's/-mupdf//g' Makefile
 
   prepare_install  &&
   make $opts install
