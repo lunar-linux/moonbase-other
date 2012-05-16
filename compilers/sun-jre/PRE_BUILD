@@ -1,24 +1,15 @@
+default_pre_build &&
 CURDIR="`pwd`" &&
 cd $SOURCE_CACHE &&
-
-if [ "$(arch)" == "x86_64" ]; then
-   bits=x64
-else
-   bits=i586
+JDK_POLICY=UnlimitedJCEPolicyJDK7.zip &&
+wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jce/7/$JDK_POLICY &&
+JCE_SHA1_VFY='7d3c9ee89536b82cd21c680088b1bced16017253  UnlimitedJCEPolicyJDK7.zip' &&
+JCE_SHA1_TST=`sha1sum UnlimitedJCEPolicyJDK7.zip` &&
+if [ "$JCE_SHA1_VFY" != "$JCE_SHA1_TST" ]; then
+message "Bad checksum of $JDK_POLICY file - deleting"
+rm -f $JDK_POLICY
+exit 1
 fi &&
-
-JRE_ARCHIVE=jre-${VERSION}-linux-$bits.tar.gz &&
-JCE_POLICY=UnlimitedJCEPolicyJDK7.zip &&
-
-wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jdk/${FVERSION}/${JRE_ARCHIVE} &&
-wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jce/7/${JCE_POLICY} &&
-
-cd $BUILD_DIRECTORY &&
-
-tar -xzpvf $SOURCE_CACHE/${JRE_ARCHIVE} &&
-
 cd $SOURCE_DIRECTORY/lib/security &&
-
-unzip $SOURCE_CACHE/${JCE_POLICY} &&
-
+unzip $SOURCE_CACHE/$JDK_POLICY &&
 cd "$CURDIR"
