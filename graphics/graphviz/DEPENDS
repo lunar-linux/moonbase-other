@@ -6,7 +6,8 @@ depends gd
 depends gettext
 depends glib-2
 depends pkgconfig
-depends ghostscript
+
+optional_depends "ghostscript" "--with-ghostscript" "--without-ghostscript" "For Postscript support"
 
 optional_depends "urw-fonts" "" "" "Extra fonts for XOrg X11"
 optional_depends "%JAVA_SDK" "" "" "for java support"
