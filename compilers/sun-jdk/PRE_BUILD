@@ -7,18 +7,33 @@ else
    bits=i586
 fi &&
 
-JDK_ARCHIVE=jdk-${VERSION}-linux-$bits.tar.gz &&
+JDK_ARCHIVE=jdk-$VERSION-linux-$bits.tar.gz &&
 JDK_POLICY=UnlimitedJCEPolicyJDK7.zip &&
 
-wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jdk/${FVERSION}/${JDK_ARCHIVE} &&
-wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jce/7/${JDK_POLICY} &&
+wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jdk/$FVERSION/$JDK_ARCHIVE &&
+wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jce/7/$JDK_POLICY &&
+
+JCE_SHA1_VFY="7d3c9ee89536b82cd21c680088b1bced16017253  $JDK_POLICY" &&
+JCE_SHA1_TST=`sha1sum $JDK_POLICY` &&
+if [ "$JCE_SHA1_VFY" != "$JCE_SHA1_TST" ]; then
+message "Bad checksum of $JDK_POLICY file - deleting"
+rm -f $JDK_POLICY
+exit 1
+fi &&
+if [ "$bits" = i586 ]; then
+JDK_SHA1_VFY="faf6753458e6baeefcad7d365ef07e35ceb6f2a4  $JDK_ARCHIVE"
+else
+JDK_SHA1_VFY="4de692ac6fec1c97424b28f53ee8e2fdadfdb6a3  $JDK_ARCHIVE"
+fi &&
+JDK_SHA1_TST=`sha1sum $JDK_ARCHIVE` &&
+if [ "$JDK_SHA1_VFY" != "$JDK_SHA1_TST" ]; then
+message "Bad checksum of $JDK_ARCHIVE file - deleting"
+rm -f $JDK_ARCHIVE
+exit 1
+fi &&
 
 cd $BUILD_DIRECTORY &&
-
-tar -xzpvf $SOURCE_CACHE/${JDK_ARCHIVE} &&
-
+tar -xzpvf $SOURCE_CACHE/$JDK_ARCHIVE &&
 cd $SOURCE_DIRECTORY/jre/lib/security &&
-
-unzip $SOURCE_CACHE/${JDK_POLICY} &&
-
+unzip $SOURCE_CACHE/$JDK_POLICY &&
 cd "$CURDIR"
