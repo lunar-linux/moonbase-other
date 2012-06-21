@@ -1,4 +1,9 @@
 (
+   #fix build with poppler 0.20.0
+   sedit "s:getOrigName:getName:" src/extension/internal/pdfinput/svg-builder.cpp &&
+   sedit "s:error(:error(errInternal,:" src/extension/internal/pdfinput/pdf-parser.cpp &&
+
+   CXXFLAGS+=" -fpermissive" &&
 
    ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
                 --build=$BUILD                    \

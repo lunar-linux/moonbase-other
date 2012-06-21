@@ -1,3 +1,5 @@
+depends audacious
+
 optional_depends  "alsa-lib"                      \
                   ""                              \
                   "--disable-alsa"                \
@@ -8,30 +10,20 @@ optional_depends  "dbus-glib"                     \
                   "--disable-dbus"                \
                   "for DBUS support, required for some Audacious functionality"
 
-optional_depends  "libmad"                        \
+optional_depends  "mpg123"                        \
                   ""                              \
-                  ""                              \
+                  "--disable-mp3"                 \
                   "for MP3 playback"
 
 optional_depends  "flac"                          \
                   ""                              \
-                  "--disable-flac"                \
+                  "--disable-flacng"              \
                   "for FLAC input plugin"
 
 optional_depends  "libvorbis"                     \
                   ""                              \
-                  ""                              \
+                  "--disable-vorbis"              \
                   "for Ogg Vorbis input plugin"
-
-optional_depends  "libmpcdec"                     \
-                  ""                              \
-                  ""                              \
-                  "for Musepack input plugin"
-
-optional_depends  "taglib"                        \
-                  ""                              \
-                  ""                              \
-                  "required if you use musepack"
 
 optional_depends  "jack"                          \
                   ""                              \
@@ -45,23 +37,13 @@ optional_depends  "pulseaudio"                    \
 
 optional_depends  "libmodplug"                    \
                   ""                              \
-                  ""                              \
+                  "--disable-modplug"             \
                   "for ModPlug plugin"
 
 optional_depends  "lirc"                          \
                   ""                              \
-                  "--disable-lirc"                \
+                  ""                              \
                   "for LIRC plugin"
-
-optional_depends  "timidity++"                    \
-                  ""                              \
-                  ""                              \
-                  "for timidity plugin"
-
-optional_depends  "libsndfile"                    \
-                  ""                              \
-                  ""                              \
-                  "for sndfile extensions"
 
 optional_depends  "curl"                          \
                   ""                              \
@@ -85,7 +67,7 @@ optional_depends  "libcddb"                       \
 
 optional_depends  "SDL"                           \
                   ""                              \
-                  ""                              \
+                  "--disable-sdlout"              \
                   "for Paranormal and projectM visualization plugins"
 
 optional_depends  "ffmpeg"                        \
