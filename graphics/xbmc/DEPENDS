@@ -9,9 +9,14 @@ depends libXext
 depends libXrandr
 depends mesa-lib
 depends SDL
+depends SDL_mixer
+depends SDL_image
 depends lzo
 depends fribidi
 depends boost
+depends mysql
+depends libmodplug
+depends libcdio
 # base codecs
 depends flac
 depends faad
@@ -39,4 +44,5 @@ optional_depends "libdvdcss"  "--enable-dvdcss"     "--disable-dvdcss"     "DVDC
 optional_depends "timidity++" "--enable-mid"        "--disable-mid"        "MID support"
 optional_depends "avahi"      "--enable-avahi"      "--disable-avai"       "Avahi support"
 optional_depends "libblueray" "--enable-libblueray" "--disable-libblueray" "Blueray DVD playback support"
-optional_depends "libdc1394"  ""   ""  "for firewire support"
+optional_depends "libdc1394"  ""                    ""                     "for firewire support"
+optional_depends "samba"      ""                    "--disable-samba"      "SMB browsing support"
