@@ -1,8 +1,3 @@
-# only lin -r gcc will trigger the language selector!
+mquery USE_CLANG "Do you want to build the clang (C compiler) front-end ?" n
 
-USE_CLANG="n"
-if [ -n "$RECONFIGURE" ] ; then
-  mquery USE_CLANG "Do you want to build the clang (C compiler) front-end ? " n
-fi
-
-mquery USE_ASSERTS "Do you want to use assertions? (Not supported by OpenGTL)" n
+mquery USE_ASSERTS "Do you want to use assertions? (Not supported by OpenGTL)" n "--enable-assertions" "--disable-assertions"
