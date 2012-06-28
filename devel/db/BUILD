@@ -17,6 +17,8 @@
                     --build=$BUILD     \
                     --enable-compat185 \
                     --enable-cxx       \
+                    --enable-dbm       \
+                    --enable-shared    \
                     --disable-static   \
                     $OPTS             &&
 
