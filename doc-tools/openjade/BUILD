@@ -1,4 +1,8 @@
 (
+# See http://web.archiveorange.com/archive/v/a7O9XzsYMZ7Ivf8H8oHV
+# Fixes a make failure on an Undefined subroutine &main::Getopts.
+  sed -i "7i use Getopt::Std;" msggen.pl &&
+  sedit "s:\&Getopts:\&getopts:" msggen.pl &&
 
   # Fixes segfault when compiling docbook-utils
   patch_it $SOURCE2 1 &&
@@ -12,24 +16,11 @@
   CATALOGDIR="/usr/share/sgml/$MODULE-$VERSION" &&
   PTEXTD="$CATALOGDIR/pubtext" &&
 
-  ./configure --build=$BUILD                                 \
-              --prefix=/usr                                  \
-              --bindir=/usr/bin                              \
-              --sbindir=/usr/sbin                            \
-              --datadir=/usr/share                           \
-              --infodir=/usr/share/info                      \
-              --mandir=/usr/share/man                        \
-              --localstatedir=/var                           \
-              --libdir=/usr/lib                              \
-              --includedir=/usr/include                      \
-              --enable-http                                  \
-              --disable-static                               \
-              --enable-default-catalog=/etc/sgml/catalog     \
-              --enable-default-search-path=/usr/share/sgml   &&
+  OPTS+=" --enable-http --disable-static --enable-default-catalog=/etc/sgml/catalog     \
+          --enable-default-search-path=/usr/share/sgml"   &&
 
-  make all                                                   &&
-  prepare_install                                            &&
-  make install                                               &&
+  default_build &&
+
   if ! [ -d "$CATALOGDIR" ]; then 
        mkdir -p $CATALOGDIR
   fi                                                         &&
@@ -41,4 +32,5 @@
   cp -r unicode   $CATALOGDIR                                &&
   cp -r develdoc  $CATALOGDIR                                &&
   ln -sf `which openjade` /usr/bin/jade
+
 ) > $C_FIFO 2>&1

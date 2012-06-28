@@ -1,15 +1,9 @@
 (
 
-  OPTS+=" --enable-optimized --enable-shared --enable-pic --enable-targets=host-only"
+  sedit 's;install-meta:: $(ObjDir)/META.llvm;install-meta:: META.llvm;' bindings/ocaml/llvm/Makefile &&
 
-  if [ "$USE_ASSERTS" == "y" ] ; then
-     OPTS="--enable-assertions"
-   else
-     OPTS="--disable-assertions"
-  fi &&
+  OPTS+=" --enable-optimized --enable-shared --enable-pic --enable-targets=host-only" &&
 
-  default_build   &&
-
-  prepare_install
+  default_build
 
 ) > $C_FIFO 2>&1
