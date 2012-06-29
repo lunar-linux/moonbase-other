@@ -1,0 +1,23 @@
+          MODULE=IO-Socket-SSL
+         VERSION=1.44
+          SOURCE=$MODULE-$VERSION.tar.gz
+   SOURCE_URL[0]=http://search.cpan.org/CPAN/authors/id/S/SU/SULLR
+   SOURCE_URL[1]=ftp://gentoo.arcticnetwork.ca/pub/gentoo/distfiles
+   SOURCE_URL[2]=http://www.mirrorservice.org/sites/www.ibiblio.org/gentoo/distfiles
+   SOURCE_URL[3]=http://mirror.internode.on.net/pub/gentoo/distfiles
+      SOURCE_VFY=sha1:d85f450a2d6350a3b06980326ced1c6b7076d66a
+        WEB_SITE=http://search.cpan.org/dist/IO-Socket-SSL
+         ENTERED=20090328
+         UPDATED=20111008
+           SHORT="Nearly transparent SSL encapsulation for IO::Socket::INET"
+
+cat << EOF
+This module is a true drop-in replacement for IO::Socket::INET that
+uses SSL to encrypt data before it is transferred to a remote server
+or client. IO::Socket::SSL supports all the extra features that one
+needs to write a full-featured SSL client or server application:
+multiple SSL contexts, cipher selection, certificate verification,
+and SSL version selection. As an extra bonus, it works perfectly
+with mod_perl.
+EOF
+
