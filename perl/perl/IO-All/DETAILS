@@ -1,0 +1,22 @@
+          MODULE=IO-All
+         VERSION=0.44
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=http://search.cpan.org/CPAN/authors/id/I/IN/INGY/
+      SOURCE_VFY=sha1:f598d65b94caa924478cb851b3b3e0c6c3b29e4a
+        WEB_SITE=http://search.cpan.org/~ingy/IO-All
+         ENTERED=20050731
+         UPDATED=20111006
+           SHORT="combines all of the best Perl IO modules into a single package"
+cat << EOF
+IO::All combines all of the best Perl IO modules into a single Spiffy object
+oriented interface to greatly simplify your everyday Perl IO idioms. It
+exports a single function called "io", which returns a new IO::All object.
+And that object can do it all!
+
+The IO::All object is a proxy for IO::File, IO::Dir, IO::Socket, IO::String,
+Tie::File, File::Spec, File::Path and File::ReadBackwards; as well as all the
+DBM and MLDBM modules. You can use most of the methods found in these classes
+and in IO::Handle (which they inherit from). IO::All adds dozens of other
+helpful idiomatic methods including file stat and manipulation functions.
+EOF

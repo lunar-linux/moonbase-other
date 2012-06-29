@@ -1,0 +1,19 @@
+          MODULE=ExtUtils-PkgConfig
+         VERSION=1.12
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/
+      SOURCE_VFY=sha1:cb61eb3c4dd6d4689ce945e3f7b8d3a1f9db7dc8
+        WEB_SITE=http://search.cpan.org/\~tsch/ExtUtils-PkgConfig/
+         ENTERED=20040712
+         UPDATED=20100221
+           SHORT="simplistic interface to pkg-config"
+cat << EOF
+The pkg-config program retrieves information about installed libraries,
+usually for the purposes of compiling against and linking to them.
+
+ExtUtils::PkgConfig is a very simplistic interface to this utility,
+intended for use in the Makefile.PL of perl extensions which bind
+libraries that pkg-config knows. It is really just boilerplate code that
+you would've written yourself.
+EOF

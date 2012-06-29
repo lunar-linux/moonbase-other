@@ -1,0 +1,4 @@
+# check to see if subversion has actually been built with Perl bindings, and
+# rebuild it if it hasn't.
+perl -MSVN::Core -e 1 > /dev/null 2>&1 || lin subversion &&
+default_pre_build
