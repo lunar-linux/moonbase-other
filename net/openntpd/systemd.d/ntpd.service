@@ -1,0 +1,12 @@
+[Unit]
+Description=ntpd
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/ntpd -d -s
+
+Nice=-2
+IOSchedulingClass=realtime
+
+[Install]
+WantedBy=multi-user.target
