@@ -1,0 +1,23 @@
+# Base
+depends mythtv
+depends mysql
+
+optional_depends dcraw "" "" "for raw image support"
+# MythGallery
+depends tiff
+optional_depends "libexif" "--enable-exif --enable-new-exif" "--disable-exif" "MythGallery: Enable reading of EXIF headers"
+
+# MythMusic
+depends lame
+depends libmad
+depends libvorbis
+depends flac
+depends libcdaudio
+depends cdparanoia
+depends lame
+depends taglib
+optional_depends fftw3 "--enable-fftw" "" "MythMusic: Visualization support"
+optional_depends fftw "--enable-fftw" "" "MythMusic: Visualization support"
+optional_depends libvisual "--enable-libvisual" "--disable-libvisual" "MythMusic: Visualization support"
+optional_depends SDL "--enable-sdl" "--enable-sdl" "MythMusic: Synaesthesia output"
+
