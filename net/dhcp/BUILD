@@ -1,6 +1,5 @@
 (
   CFLAGS+=" -D_GNU_SOURCE "
-  MODHOME="$MOONBASE/net/$MODULE"
   CFGHOME="/etc/config.d"
   OPTS+=" --with-srv-lease-file=/var/state/dhcp/dhcpd.leases \
           --with-cli-lease-file=/var/state/dhcp/dhclient.leases"
@@ -22,9 +21,9 @@
   #copy the lunar config file into place
 
   if [ ! -e /etc/config.d/dhcpd ]; then
-     cp $MODHOME/dhcpd.config $CFGHOME/dhcpd
+     cp $SCRIPT_DIRECTORY/dhcpd.config $CFGHOME/dhcpd
   else
-     cp $MODHOME/dhcpd.config $CFGHOME/dhcpd.new
+     cp $SCRIPT_DIRECTORY/dhcpd.config $CFGHOME/dhcpd.new
   fi  &&
 
 
@@ -38,9 +37,9 @@
   #we need a config file also
 
   if [ ! -e /etc/dhcpd.conf ]; then
-     cp $MODHOME/dhcpd.conf.sample /etc/dhcpd.conf
+     cp $SCRIPT_DIRECTORY/dhcpd.conf.sample /etc/dhcpd.conf
   else
-     cp $MODHOME/dhcpd.conf.sample /etc/dhcpd.conf.new
+     cp $SCRIPT_DIRECTORY/dhcpd.conf.sample /etc/dhcpd.conf.new
   fi
 
 ) > $C_FIFO 2>&1
