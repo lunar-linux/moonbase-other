@@ -1,8 +1,0 @@
-mquery CUSTOM "Custom Configuration Perl?" n
-
-unset_module_config UPGRADE_PERL_MODULES
-unset_module_config OLD_PERL_VERSION
-if module_installed perl && [ "$(installed_version perl)" != "$VERSION" ]; then
-  set_module_config UPGRADE_PERL_MODULES yes
-  set_module_config OLD_PERL_VERSION $(installed_version perl)
-fi
