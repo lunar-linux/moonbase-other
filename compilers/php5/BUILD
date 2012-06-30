@@ -4,12 +4,6 @@
     OPTS+=" "
   fi
 
-  if module_installed apache || module_installed apache-mod_ssl ; then
-    OPTS+=" --with-apxs=/usr/sbin/apxs"
-  elif module_installed apache2 ; then
-    OPTS+=" --with-apxs2=/usr/sbin/apxs"
-  fi
-
   if [ -s /etc/httpsd/httpd.conf ] ; then
     cp /etc/httpsd/httpd.conf /etc/httpsd/httpd.conf.`date +%Y%m%d`
   fi
