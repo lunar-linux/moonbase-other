@@ -8,8 +8,8 @@ optional_depends yasm         "--enable-yasm"       "--disable-yasm"     "For ya
 optional_depends libavc1394   "--enable-firewire"   "--disable-firewire" "For firewire support"
 optional_depends libiec61883  "--enable-firewire"   "--disable-firewire" "You need this as well for firewire support"
 
-optional_depends libvdpau     "" "" "For vdpau support"
-optional_depends jack         "" "" "For jack audio support"
+optional_depends libvdpau     "--enable-vdpau" "--disable-vdpau" "For vdpau support"
+optional_depends jack         "--enable-audio-jack" "--disable-audio-jack" "For jack audio support"
 optional_depends DirectFB     "" "" "For frame buffer support"
 optional_depends fftw3        "" "" "For Fast Fourier Tranform support"
 optional_depends DBI          "" "" "For Perl bindings support"
