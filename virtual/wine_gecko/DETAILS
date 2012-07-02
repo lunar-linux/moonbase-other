@@ -1,0 +1,20 @@
+          MODULE=wine_gecko
+         VERSION=1.4-x86
+          SOURCE=$MODULE-$VERSION.msi
+      SOURCE_URL=$SFORGE_URL/wine
+      SOURCE_VFY=sha1:c30aa99621e98336eb4b7e2074118b8af8ea2ad5
+        WEB_SITE=http://wiki.winehq.org/Gecko
+         ENTERED=20091125
+         UPDATED=20120308
+           SHORT="Mozilla's Gecko Layout Engine"
+
+cat << EOF
+Wine implements its own version of Internet Explorer. The
+implementation is based on a custom version of Mozilla's Gecko Layout
+Engine. When your application tries to display a web page, it loads
+Wine's custom Gecko from the file wine_gecko-1.4-x86.msi (at least in
+the latest version of Wine; older versions of Wine use older versions
+of Gecko).
+
+After installing this, wine will not prompt you to download gecko.
+EOF
