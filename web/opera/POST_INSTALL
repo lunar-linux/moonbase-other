@@ -1,0 +1,13 @@
+
+available()
+{
+  which "$1" >/dev/null 2>&1
+}
+
+
+if available update-desktop-database; then
+  update-desktop-database -q /usr/share/applications
+fi
+if available update-mime-database; then
+  update-mime-database /usr/share/mime &> /dev/null
+fi

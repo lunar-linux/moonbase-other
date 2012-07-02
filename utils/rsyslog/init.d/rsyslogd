@@ -1,0 +1,17 @@
+#! /bin/bash
+#
+# rsyslogd          Start/Stop the rsyslog logging daemon.
+#
+# chkconfig: 2345 12 88
+# description: An enhanced multi-threaded syslogd with a focus \
+#              on security and reliability
+# processname: rsyslogd
+# pidfile: /var/run/rsyslogd.pid
+
+# config settings
+[ -f /etc/config.d/rsyslog ] && . /etc/config.d/rsyslog
+
+ARGS=${RSYSLOGD_ARGS}
+umask 077
+
+. /lib/lsb/init-functions

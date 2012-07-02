@@ -1,0 +1,22 @@
+          MODULE=x11-ssh-askpass
+         VERSION=1.2.4.1
+         SOURCE=$MODULE-$VERSION.tar.gz
+           SOURCE_URL=http://www.jmknoble.net/software/$MODULE/
+           SOURCE_VFY=sha1:78c992951685d4dbffb77536f37b83ae2a6eafc7
+         WEB_SITE=http://www.jmknoble.net/software/x11-ssh-askpass/index.html
+         ENTERED=20020727
+         UPDATED=20031009
+          MAINTAINER=michalsc@email.uc.edu
+           SHORT="lightweight passphrase dialog for OpenSSH"
+
+cat << EOF
+x11-ssh-askpass is a lightweight passphrase dialog for OpenSSH or other
+open variants of SSH. In particular, x11-ssh-askpass is useful with the
+Unix port of OpenSSH by Damien Miller and others, and Damien includes
+it in his RPM packages of OpenSSH.
+x11-ssh-askpass uses only the stock X11 libraries (libX11, libXt) for
+its user interface. This reduces its dependencies on external libraries
+(such as GNOME or Perl/Tk). See the README for further information.
+The OpenBSD folks are maintaining their own port of x11-ssh-askpass.
+It's available in the X11 section of OpenBSD's anonymous CVS tree.
+EOF

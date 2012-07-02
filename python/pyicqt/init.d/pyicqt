@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Startup script for ICQ jabber transport
+#
+# chkconfig: 345 90 10
+# description: ICQ jabber transport
+# config: /etc/jabber/pyicqt.xml
+
+
+start ()
+{
+    python /usr/lib/python2.5/site-packages/pyicq-t/pyicqt.py -c /etc/jabber/pyicqt.xml -b
+}
+
+stop ()
+{
+    kill `cat /var/run/pyicqt.pid`
+}
+
+. /lib/lsb/init-functions
