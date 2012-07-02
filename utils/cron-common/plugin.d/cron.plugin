@@ -1,0 +1,43 @@
+#!/bin/bash
+######################################################
+#                                                    #
+# cron.plugin - handling of cron files               #
+#                                                    #
+######################################################
+#                                                    #
+# Copyright 2009 by Stefan Wold under GPLv2          #
+#                                                    #
+######################################################
+
+
+plugin_cron_post_build()
+{
+  local FILE CRONDIRS DIR
+  CRONDIRS="cron.d cron.daily cron.hourly cron.monthly cron.weekly"
+
+  debug_msg "plugin_cron_post_build ($@)"
+  for DIR in $CRONDIRS; do
+    if [ -d "$SCRIPT_DIRECTORY/$DIR" ]; then
+      verbose_msg "Handling '$DIR' files"
+      invoke_installwatch
+      
+      [ -d /etc/$DIR ] || mkdir -p /etc/$DIR
+
+      for FILE in $SCRIPT_DIRECTORY/$DIR/*; do
+        if [ ! -f /etc/$DIR/${FILE##*/} ]; then
+          verbose_msg "Installing ${FILE##*/} into /etc/$DIR"
+          if [ "$DIR" == "cron.d" ]; then
+            /usr/bin/install -g 0 -o 0 -m 0644 $FILE /etc/$DIR/
+          else
+            /usr/bin/install -g 0 -o 0 -m 0755 $FILE /etc/$DIR/
+          fi
+        fi
+      done
+      devoke_installwatch
+    fi
+  done
+  
+  return 2
+}
+
+plugin_register BUILD_POST_BUILD plugin_cron_post_build

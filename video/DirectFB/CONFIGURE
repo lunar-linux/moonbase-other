@@ -1,0 +1,111 @@
+make_gfx_drivers_checklist() {
+  echo "\"ati128\"    \"ATI Rage 128\"               \"off\" "
+  echo "\"cle266\"    \"VIA CLE266\"                 \"off\" "
+  echo "\"cyber5k\"   \"TVIA CyperPro\"              \"off\" "
+  echo "\"davinci\"   \"TI Davinci\"                 \"off\" "
+  echo "\"ep9x\"      \"Cirrus EP9X\"                \"off\" "
+  echo "\"gl\"        \"OpenGL (requires mesa-lib)\" \"off\" "
+  echo "\"i810\"      \"Intel i810\"                 \"off\" "
+  echo "\"i830\"      \"Intel i830\"                 \"off\" "
+  echo "\"mach64\"    \"ATI Mach64\"                 \"off\" "
+  echo "\"matrox\"    \"Matrox\"                     \"off\" "
+  echo "\"neomagic\"  \"NeoMagic\"                   \"off\" "
+  echo "\"nsc\"       \"NSC Geode\"                  \"off\" "
+  echo "\"nvidia\"    \"nVidia\"                     \"off\" "
+  echo "\"omap\"      \"TI OMAP\"                    \"off\" "
+  echo "\"pxa3xx\"    \"PXA 3xx\"                    \"off\" "
+  echo "\"radeon\"    \"ATI Radeon\"                 \"off\" "
+  echo "\"savage\"    \"S3 Savage\"                  \"off\" "
+  echo "\"sh772x\"    \"Renesas SH7722/SH7723\"      \"off\" "
+  echo "\"sis315\"    \"SiS 315\"                    \"off\" "
+  echo "\"tdfx\"      \"3Dfx Voodoo\"                \"off\" "
+  echo "\"unichrome\" \"VIA UniChrome\"              \"off\" "
+  echo "\"vmware\"    \"VMWare\"                     \"off\" "
+}
+
+make_input_drivers_checklist() {
+  echo "\"dbox2remote\"    \"DBox2 Remote\"         \"off\" "
+  echo "\"dreamboxremote\" \"DreamBox Remote\"      \"off\" "
+  echo "\"dynapro\"        \"Dynapro Touchscreen\"  \"off\" "
+  echo "\"elo-input\"      \"ELO Touchscreen\"      \"off\" "
+  echo "\"gunze\"          \"Gunze Touchscreen\"    \"off\" "
+  echo "\"h3600_ts\"       \"H3600 Touchscreen\"    \"off\" "
+  echo "\"joystick\"       \"Joystick\"             \"on\" "
+  echo "\"keyboard\"       \"Keyboard\"             \"on\" "
+  echo "\"linuxinput\"     \"Linux Input\"          \"on\" "
+  echo "\"lirc\"           \"LiRC\"                 \"on\" "
+  echo "\"mutouch\"        \"MuTouch touchscreen\"  \"on\" "
+  echo "\"penmount\"       \"penmount\"             \"off\" "
+  echo "\"ps2mouse\"       \"PS/2 Mouse\"           \"on\" "
+  echo "\"serialmouse\"    \"Serial Mouse\"         \"on\" "
+  echo "\"sonypijogdial\"  \"SonyPI Jogdial\"       \"on\" "
+  echo "\"tslib\"          \"tslib\"                \"off\" "
+  echo "\"ucb1x00\"        \"ucb1x00 Touchscreen\"  \"off\" "
+  echo "\"wm97xx\"         \"WM97xx Touchscreen\"   \"on\" "
+  echo "\"zytronic\"       \"Zytronic touchscreen\" \"on\" "
+}
+
+BACKTITLE="DirectFB Configuration"
+HELP="Select the drivers you want to build in DirectFB!"
+
+select_gfx_drivers() {
+  TITLE="GLX Driver Selection"
+  HELP="Select the drivers you want to build in DirectFB!"
+
+  make_gfx_drivers_checklist | xargs dialog \
+    --backtitle "$BACKTITLE"                \
+    --title     "$TITLE"                    \
+    --stdout                                \
+    --separate-output                       \
+    --checklist "$HELP"                     \
+    0 0 0
+}
+
+select_input_drivers() {
+  TITLE="Input Driver Selection"
+
+  make_input_drivers_checklist | xargs dialog \
+    --backtitle "$BACKTITLE"                  \
+    --title     "$TITLE"                      \
+    --stdout                                  \
+    --separate-output                         \
+    --checklist "$HELP"                       \
+    0 0 0
+}
+
+
+
+mquery SMOOTH_SCALING "Build with smooth software scaling?" \
+                      y                                     \
+                      "--with-smooth-scaling"               \
+                      "--without-smooth-scaling"
+
+
+# gfx driver selection
+mquery GFX "Build gfx drivers?" y "" "--with-gfxdrivers=none"
+
+if [ "`get_module_config GFX`" = "y" ]; then
+
+  mquery ALL_GFX "Build all gfx drivers? (default)" y "--with-gfxdrivers=all" ""
+
+  if [ "`get_module_config ALL_GFX`" = "n" ]; then
+    GLX_DRIVERS=`select_gfx_drivers "$SUPPORTED_GLX_DRIVERS"`
+    OPTS="$OPTS --with-gfxdrivers=`echo $GLX_DRIVERS | sed 's/[ ]/,/g'`"
+  fi
+
+fi
+
+
+# input driver selection
+mquery INPUT "Build input drivers?" y "" "--with-inputdrivers=none"
+
+if [ "`get_module_config INPUT`" = "y" ]; then
+
+  mquery ALL_INPUT "Build all input drivers? (default)" y "--with-inputdrivers=all" ""
+
+  if [ "`get_module_config ALL_INPUT`" = "n" ]; then
+    INPUT_DRIVERS=`select_input_drivers`
+    OPTS="$OPTS --with-inputdrivers=`echo $INPUT_DRIVERS | sed 's/[ ]/,/g'`"
+  fi
+
+fi

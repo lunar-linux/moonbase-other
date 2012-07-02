@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ps     -C     pppd     >  /dev/null  &&
+pkill  -15  "^pppd$"                 &&
+sleep   5
+
+/usr/sbin/pppd   call  ${@:-isp}
