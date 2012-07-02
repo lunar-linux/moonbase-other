@@ -1,0 +1,118 @@
+#!/bin/bash
+
+PROGRAM=$(basename $0)
+
+usage() {
+cat <<EOF
+Usage: $PROGRAM [options] <directory>
+  directory: Name of the directory to create for the tomcat instance
+
+Options:
+  -h        Display this help message
+  -p        HTTP port for tomcat instance to listen on, default 8080.
+  -c        Server shutdown control port to listen on, default 8005.
+  -a        AJP port to listen on, default 8009.
+EOF
+}
+
+main() {
+  TPORT=${TPORT:-8080}
+  CPORT=${CPORT:-8005}
+  APORT=${APORT:-8009}
+
+
+  if  [ "$TPORT" == "$CPORT" ] || [ "$CPORT" == "$APORT" ] || [ "$TPORT" == "$APORT" ]; then
+    echo "Error: Port numbers must be different for each listener"
+    exit 1
+  fi
+
+  check_port $TPORT "HTTP"
+  check_port $CPORT "Server control"
+  check_port $APORT "AJP connector"
+
+  targetdir=$1
+
+  mkdir -p ${targetdir}
+  FTARGET=$(cd ${targetdir}; pwd)
+  cp -r /usr/share/tomcat7/skel/* ${FTARGET}/
+
+  sed -i -e "s:Connector port=\"8080\":Connector port=\"${TPORT}\":; \
+             s:Server port=\"8005\" shutdown=\"SHUTDOWN\":Server port=\"${CPORT}\" shutdown=\"SHUTDOWN\":; \
+             s:Connector port=\"8009\":Connector port=\"${APORT}\":" ${FTARGET}/conf/server.xml
+
+  cat > ${FTARGET}/bin/startup.sh <<EOF
+#!/bin/bash
+export CATALINA_BASE=${FTARGET}
+/usr/share/tomcat7/bin/startup.sh
+EOF
+
+  cat > ${FTARGET}/bin/shutdown.sh <<EOF
+#!/bin/bash
+export CATALINA_BASE=${FTARGET}
+/usr/share/tomcat7/bin/shutdown.sh
+EOF
+
+chmod 755 ${FTARGET}/bin/{startup,shutdown}.sh
+
+  cat <<EOF
+* New Tomcat7 instance installed in ${FTARGET}
+* Run ${FTARGET}/bin/startup.sh to start your Tomcat7 instance
+EOF
+}
+
+check_port() {
+  port=$1
+  msg=$2
+
+  if nc localhost $port -z; then
+    echo "Error: Port already in use for: $msg $port"
+    exit 1
+  fi
+
+  if echo $port | egrep -q '^[0-9]+$'; then
+    if [ $port -gt 65535 ] || [ $port -lt 1024 ]; then
+      echo "Error: $msg port should be a number between 1024 - 65535"
+      exit 1
+    fi
+  else
+    echo "Error: $msg port should be a number!"
+    exit 1
+  fi
+}
+
+
+GETOPT_ARGS=$(getopt -n $PROGRAM -o "hp:c:a:" -- "$@")
+
+if [ $? -ne 0 ]; then
+  usage
+  exit
+else
+  eval set -- $GETOPT_ARGS
+
+  while true; do
+    case "$1" in
+      -h)
+        usage
+        exit
+        ;;
+      -p) export TPORT=$2; shift 2;;
+      -c) export CPORT=$2; shift 2;;
+      -a) export APORT=$2; shift 2;;
+      --) shift; break;;
+      *) usage; break;;
+    esac
+  done
+
+  if [ -z "$1" ]; then
+    echo "Error: Missing argument <directory>"
+    usage
+    exit 1
+  fi
+
+  if [ -d $1 ]; then
+    echo "Error: Target directory already exists."
+    exit 1
+  fi
+
+  main $@
+fi
