@@ -1,8 +1,11 @@
 (
-  patch_it $SOURCE4 1   &&
-  patch_it $SOURCE5 1   &&
 
-  ./regen.sh            &&
+  patch_it $SOURCE4 1  &&
+  patch_it $SOURCE5 1  &&
+
+  # Heimdal no longer have krb5_524_conv_principal - fugly workaround
+  sedit 's;krb524_convert_creds_kdc;krb5_524_conv_principal;g' configure.ac &&
+  ./regen.sh  &&
 
   case `uname -r` in
     2.6.*|3.*)
@@ -12,7 +15,7 @@
       message "Unsupported kernel version!"
       exit -1
       ;;
-  esac &&
+  esac  &&
 
   case `arch` in
     x86_64)
@@ -24,30 +27,30 @@
     *)
       OPTS+=" --with-afs-sysname=`arch`_linux${kv}"
       ;;
-  esac &&
+  esac  &&
 
   if module_installed Linux-PAM; then
       OPTS+=" --enable-pam"
   else
       OPTS+=" --disable-pam"
-  fi
+  fi  &&
 
-  ./configure   --prefix=/usr                   \
-                --sysconfdir=/etc               \
-                --localstatedir=/var/lib        \
-                --infodir=/usr/share/info       \
-                --mandir=/usr/share/man         \
-                --enable-supergroups            \
-                --disable-kernel-module         \
-                $OPTS                           &&
-  make all_nolibafs                             &&
-  prepare_install                               &&
+  ./configure   --prefix=/usr              \
+                --sysconfdir=/etc          \
+                --localstatedir=/var/lib   \
+                --infodir=/usr/share/info  \
+                --mandir=/usr/share/man    \
+                --enable-supergroups       \
+                --disable-kernel-module    \
+                $OPTS                     &&
+  make all_nolibafs                       &&
+  prepare_install                         &&
 
   if [ ! -d /etc/openafs ]; then
       mkdir -p /etc/openafs/server
-  fi &&
+  fi  &&
 
-  make install_nolibafs                         &&
+  make install_nolibafs  &&
 
   # Creating needed dirs if not existing
    if [ ! -d /var/cache/openafs ]; then
@@ -60,34 +63,41 @@
         mkdir -p /var/lib/openafs/{logs,db}
         chmod 700 /var/lib/openafs/db
         chmod 755 /var/lib/openafs/logs
-  fi &&
+  fi  &&
 
   if [ ! -d /afs ]; then
         mkdir /afs &&
         chmod 755 /afs
-  fi &&
+  fi  &&
 
   # Installing some db files
   if [ ! -f /etc/openafs/CellServDB ]; then
         install -p -m 644 $SOURCE_CACHE/CellServDB /etc/openafs/CellServDB
-  fi &&
-  install -p -m 755 $SOURCE_CACHE/$SOURCE3 /usr/sbin/killafs &&
-  touch /etc/openafs/SuidCells &&
+  fi  &&
+  install -p -m 755 $SOURCE_CACHE/$SOURCE3 /usr/sbin/killafs  &&
+  touch /etc/openafs/SuidCells  &&
 
-  # Default to openafs.org cell
+  # Default to openafs.org unless custom cell has been chosen 
   if [ ! -f /etc/openafs/ThisCell ]; then
-      echo "openafs.org" > /etc/openafs/ThisCell
-  fi &&
+      echo "${AFSCELL:-openafs.org}" > /etc/openafs/ThisCell &&
+      touch /etc/openafs/ThisCell
+  fi  &&
 
   # Create cacheinfo file, 200Mb size
   if [ ! -f /etc/openafs/cacheinfo ]; then
-      echo "/afs:/var/cache/openafs:200000" > /etc/openafs/cacheinfo
-  fi
+      # Convert to bytes from Mb
+      AFSCACHESIZE=${AFSCACHESIZE:-200}
+      AFSCACHESIZE=$((AFSCACHESIZE * 1000))
+      echo "/afs:/var/cache/openafs:$AFSCACHESIZE" > /etc/openafs/cacheinfo &&
+      touch /etc/openafs/cacheinfo
+  fi &&
 
-  # Copy conf and rc files
-  sedit "s;^OPTIONS=.*;OPTIONS=\"-nosettime -fakestat\";" $SOURCE_DIRECTORY/src/afsd/afs.conf.linux &&
-  if [ ! -f /etc/config.d/afs ]; then
+  # Copy conf and rc files (only needed by sysvinit systems)
+  if module_installed sysvinit; then
+    sedit "s;^OPTIONS=.*;OPTIONS=\"-nosettime -fakestat\";" $SOURCE_DIRECTORY/src/afsd/afs.conf.linux  &&
+    if [ ! -f /etc/config.d/afs ]; then
       install -p -m 644 $SOURCE_DIRECTORY/src/afsd/afs.conf.linux /etc/config.d/afs
+    fi
   fi &&
 
   # Ugly but we need a new cellservdb everytime we run lin

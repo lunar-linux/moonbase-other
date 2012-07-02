@@ -1,4 +1,5 @@
 depends autoconf
 depends automake
 depends lsof
-optional_depends "heimdal" "--with-krb5=/usr" "" "for kerberos support"
+depends openafs-driver
+optional_depends "heimdal" "--with-krb5-conf=/usr/bin/krb5-config" "" "for kerberos support"

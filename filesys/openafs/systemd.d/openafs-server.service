@@ -1,0 +1,10 @@
+[Unit]
+Description=OpenAFS Server Service
+After=syslog.target network.target
+
+[Service]
+ExecStart=/usr/sbin/bosserver
+ExecStop=/usr/bin/bos shutdown localhost -wait -localauth
+
+[Install]
+WantedBy=multi-user.target

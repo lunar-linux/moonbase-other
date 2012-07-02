@@ -1,0 +1,18 @@
+# Only trigger questions on lin -r
+if [ -n "$RECONFIGURE" ]; then
+  if query "Do you want to change AFS cell (currently: ${AFSCELL:-openafs.org})?" n; then
+    RESULT=$(dialog --title "Change OpenAFS default cell" \
+                    --stdout                              \
+                    --inputbox "AFS cell name:" 0 0)
+    if [ -n "$RESULT" ]; then
+      set_module_config AFSCELL $RESULT
+    fi
+  fi
+
+  if query "Do you want to change default AFS cache size (currently: ${AFSCACHESIZE:-200} Mb)?" n; then
+    RESULT=$(dialog --title "Change OpenAFS default cache size" \
+                    --stdout                                    \
+                    --inputbox "AFS cache size in Mb:" 0 0)
+    set_module_config AFSCACHESIZE ${RESULT:-200}
+  fi
+fi
