@@ -1,0 +1,23 @@
+          MODULE=opera
+         VERSION=12.00
+      SUBVERSION=1467
+          SOURCE=$MODULE-$VERSION-$SUBVERSION.x86_64.linux.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-$SUBVERSION.x86_64.linux
+   SOURCE_URL[0]=ftp://ftp.heanet.ie/pub/opera/linux/${VERSION//\./}
+   SOURCE_URL[1]=http://get1.opera.com/pub/opera/linux/${VERSION//\./}
+      SOURCE_VFY=sha256:49c8dbef50c94709e9316336da4a537cb14be790ed37d0b57ca4278c01b0791d
+        WEB_SITE=http://www.opera.com
+      MAINTAINER=ratler@lunar-linux.org
+         LICENSE="proprietary"
+         ENTERED=20080612
+         UPDATED=20120615
+           SHORT="The fastest browser on Earth is even faster"
+GARBAGE=off
+ARCHIVE=off
+LDD_CHECK=off
+
+cat << EOF
+Opera include Integrated Web search, Sophisticated tabs, Speed Dial,
+Opera Link, Add-ons, Zoom, Opera Turbo, Mouse gestures and Content
+blocking.
+EOF

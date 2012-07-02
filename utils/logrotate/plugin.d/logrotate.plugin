@@ -1,0 +1,36 @@
+#!/bin/bash
+######################################################
+#                                                    #
+# logrotate.plugin - handling of logrotate files     #
+#                                                    #
+######################################################
+#                                                    #
+# Copyright 2009 by Stefan Wold under GPLv2          #
+#                                                    #
+######################################################
+
+
+plugin_logrotate_post_build()
+{
+  local FILE SPATH LOGDPATH
+  SPATH="$SCRIPT_DIRECTORY/logrotate.d"
+  LOGDPATH="/etc/logrotate.d"
+
+  debug_msg "plugin_logrotate_post_build ($@)"
+  if [ -d "$SPATH" ] ; then
+    verbose_msg "Handling logrotate files"
+    invoke_installwatch
+    
+    [ -d $LOGDPATH ] || mkdir -p $LOGDPATH
+
+    for FILE in $SPATH/*; do
+      if [ ! -f $LOGDPATH/${FILE##*/} ]; then
+        /usr/bin/install -g 0 -o 0 -m 0644 $FILE $LOGDPATH/
+      fi
+    done
+    devoke_installwatch
+  fi
+  return 2
+}
+
+plugin_register BUILD_POST_BUILD plugin_logrotate_post_build
