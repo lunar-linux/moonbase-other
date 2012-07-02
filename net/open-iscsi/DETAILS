@@ -1,0 +1,24 @@
+          MODULE=open-iscsi
+         VERSION=2.0-873
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+         SOURCE2=open-iscsi-2.0.873-ldflags.patch
+         SOURCE3=open-iscsi-2.0.873-slp.patch
+         SOURCE4=open-iscsi-2.0.873-omg-calling-configure.patch
+      SOURCE_URL=http://www.open-iscsi.org/bits
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
+     SOURCE4_URL=$PATCH_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha256:7dd9f2f97da417560349a8da44ea4fcfe98bfd5ef284240a2cc4ff8e88ac7cd9
+     SOURCE2_VFY=sha256:e236854d2a287287f6aea8388d38b26d330866cb0b59615f7ae2929d11f7d73b
+     SOURCE3_VFY=sha256:fa2a1f8d6c373384ea2438947c8de977f3be0ce12e968ce6d39e2c01f9e3cbd3
+     SOURCE4_VFY=sha256:6cbd704bcefc7eef63de94af2b9c5e608d863d13a28b48ef07e1b6e21bbc6ce4
+        WEB_SITE="http://www.open-iscsi.org/"
+      MAINTAINER=ratler@lunar-linux.org
+         ENTERED=20110517
+         UPDATED=20120621
+           SHORT="A high performance, transport independent, multi-platform implementation of RFC3720"
+cat <<EOF
+Open-iSCSI is a high performance, transport independent, multi-platform
+implementation of RFC3720
+EOF
