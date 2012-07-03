@@ -1,0 +1,26 @@
+          MODULE=courier-imap
+         VERSION=4.10.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$SFORGE_URL/courier
+      SOURCE_VFY=sha1:509b2801b34b73abaeb235873471e6cc9d2421a4
+        WEB_SITE=http://www.inter7.com/courierimap
+         ENTERED=20020629
+         UPDATED=20111206
+           SHORT="Secure IMAP and pop3 server that provides Maildir folders"
+
+cat << EOF
+Courier-IMAP is a server that provides IMAP access to Maildirs.
+The overall design goal of Courier-IMAP is to provide IMAP services
+to maildirs with the least amount of resources. For this reason there
+are many parameters that can be tuned during initial configuration and
+at runtime. Unwanted components can be removed completely, and they
+will not take up any resources. Few sites need the ability to search
+messages in twenty different character sets, so there's no need to
+waste memory storing large character set mapping tables. Sites that
+need multilingual searching and sorting abilities can selectively
+choose which character set tables will be supported by the server,
+individually. If SSL support is needed, it is available. If not,
+the SSL wrapper does not have to be installed at all. If the server
+does not have the sufficient resources to sort large folders, the
+server-based IMAP sorting function can be turned off.
+EOF
