@@ -52,13 +52,8 @@
     IACT="${IACT}none\n"
   fi                                                    &&
 
-  # optional dependency svgalib
-  if [[ $var = *pattern1* ]]; then
-    IACT="${IACT}libvga.so\n"
-    IACT="${IACT}default\n"
-  else
-    IACT="${IACT}none\n"
-  fi                                                    &&
+  # no svgalib
+  IACT="${IACT}none\n"                                  &&
 
   # last newline for accepting default doc URL
   IACT="{$IACT}\n"                                      &&
