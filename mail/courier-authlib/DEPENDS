@@ -1,0 +1,9 @@
+depends libtool
+
+optional_depends  shadow     "--with-authshadow" ""                    "for authshadow support"
+optional_depends  db         "--with-db=db"      ""                    "for db support (use either db or gdbm in order to compile the module)"
+optional_depends  gdbm       "--with-db=gdbm"    ""                    "for gdbm support"
+optional_depends  mysql      "--with-authmysql"  "--without-authmysql" "for mysql authentication support"
+optional_depends  openldap   "--with-authldap"   "--without-authldap"  "for ldap authentication support"
+optional_depends  postgresql "--with-auth-pgsql" "--without-authpgsql" "for postgresql authentication support"
+optional_depends  expect     ""                  ""                    "for webmail support to change passwords"
