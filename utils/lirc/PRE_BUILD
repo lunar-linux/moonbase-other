@@ -1,0 +1,16 @@
+default_pre_build &&
+
+cd $SOURCE_DIRECTORY &&
+
+if [ -e $CONFIG_CACHE/.config-$MODULE-.setup.config ];  then
+    cp $CONFIG_CACHE/.config-$MODULE-.setup.config .setup.config &&
+    cp $CONFIG_CACHE/.config-$MODULE-configure.sh configure.sh   &&
+    if query  "Re-Configure"  n; then
+       ./setup.sh
+    fi
+else
+    ./setup.sh
+fi &&
+
+cp .setup.config $CONFIG_CACHE/.config-$MODULE-.setup.config &&
+cp configure.sh $CONFIG_CACHE/.config-$MODULE-configure.sh
