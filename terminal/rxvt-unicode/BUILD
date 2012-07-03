@@ -1,8 +1,14 @@
 (
-#  if [ "$USE_XTERM_COL" == "y" ]; then
-#    patch_it doc/urxvt-8.2-256color.patch 1 &&
-#    ./autogen.sh
-#  fi &&
+
+  # Some sane opts defaults
+  OPTS+=" --enable-mousewheel \
+          --enable-slipwheeling \
+          --enable-keepscrolling \
+          --enable-smart-resize \
+          --enable-combining \
+          --enable-utmp \
+          --enable-wtmp \
+          --enable-lastlog" &&
 
   default_build &&
   chmod 644 README* Changes INSTALL
