@@ -1,0 +1,10 @@
+if  [ -e /usr/bin/g77 ]; then
+  default_pre_build
+elif
+    [ -e /usr/bin/gfortran ]; then
+  default_pre_build
+else
+  sound  FAILURE
+  message  "!!!Problem: Your gcc does not have g77 Fortran enabled,  please recompile your gcc first"
+  false
+fi

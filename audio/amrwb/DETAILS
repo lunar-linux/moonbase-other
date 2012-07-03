@@ -1,0 +1,31 @@
+          MODULE=amrwb
+         VERSION=7.0.0.4
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE1=26204-700.zip
+      SOURCE_URL=http://ftp.penguin.cz/pub/users/utx/amr/
+     SOURCE1_URL=http://www.3gpp.org/ftp/Specs/archive/26_series/26.204
+      SOURCE_VFY=sha1:42bf99b0d44a58f4525ff0fa16491e988b8d987c
+     SOURCE1_VFY=sha1:16634b168b407c3a72963117b0fab997725b92f6
+        WEB_SITE=http://www.penguin.cz/~utx/amr
+         ENTERED=20071025
+         UPDATED=20110417
+           SHORT="AMR Adaptive Multi-Rate Wideband"
+
+cat << EOF
+3GPP AMR Adaptive Multi-Rate - Wideband (AMR-WB) Speech Codec Shared Library
+
+3GPP released reference implementation of 3GPP AMR Adaptive Multi-Rate -
+Wideband (AMR-WB) Speech Codec (3GPP TS 26.204 V7.0.0).
+
+http://www.3gpp.org/ftp/Specs/html-info/26204.htm
+
+Reference implementation is available as a source code, but the code uses
+a define to choose code options. In world of GNU-Linux, there is a common
+practice to compile such code as a shared library.
+
+This package converts 3GPP TS 26.204 V7.0.0 reference implementation of AMR-WB
+to a shared library. It has exactly the same API, but some calls are wrapped by
+macros to call proper variant of the function.
+
+It supports following define: -DIF2EOF
+EOF
