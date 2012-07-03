@@ -1,0 +1,12 @@
+depends cmake
+depends gtk+-2
+depends pcre
+depends dejavu-ttf
+
+optional_depends dbus    "-DWITH_DBUS=ON"    "-DWITH_DBUS=OFF"    "for dbus support"
+optional_depends gdal    "-DWITH_GDAL=ON"    "-DWITH_GDAL=OFF"    "for geospatical data support"
+#optional_depends speex   "-DWITH_SPEECH=ON"  "-DWITH_SPEECH=OFF"  "for speex support"
+optional_depends postgis "-DWITH_POSTGIS=ON" "-DWITH_POSTGIS=OFF" "for Postgis database support"
+optional_depends gpsd    "-DLIBGPS_OLD=OFF"  "-DLIBGPS_OLD=ON"    "connect multiple GPS devices"
+optional_depends perl    "-DWITH_SCRIPTS=ON" "-DWITH_SCRIPTS=OFF" "for perl scripts and modules support"
+optional_depends mapnik  "-DWITH_MAPNIK=ON"  "-DWITH_MAPNIK=OFF"  "for mapping application support"
