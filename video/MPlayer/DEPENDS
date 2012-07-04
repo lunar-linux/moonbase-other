@@ -8,53 +8,53 @@ optional_depends MPlayer-essentials \
                  "installs gcc-3.3.6 for dlls"
 
 optional_depends DirectFB \
-                 "" \
-                 "" \
+                 "--enable-directfb" \
+                 "--disable-directfb" \
                  "to use DirectFB support"
 
 optional_depends SDL \
-                 "" \
-                 "" \
+                 "--enable-sdl" \
+                 "--disable-sdl" \
                  "to use SDL to output video signal"
 
+optional_depends libcaca \
+                 "--enable-caca" \
+                 "--disable-caca" \
+                 "enable CACA video output support"
+
 optional_depends libdvdread \
-                 "" \
-                 "" \
-                 "To read DVDs"
+                 "--enable-dvdread" \
+                 "--disable-dvdread" \
+                 "use system library to read DVDs"
 
 optional_depends alsa-utils \
-                 "" \
-                 "" \
+                 "--enable-alsa" \
+                 "--disable-alsa" \
                  "for ALSA sound support"
 
 optional_depends mpg123 \
-                 "" \
-                 "" \
+                 "--enable-mpg123" \
+                 "--disable-mpg123" \
                  "for mp3 audio format"
 
 optional_depends libvorbis \
-                 "" \
-                 "" \
+                 "--enable-libvorbis" \
+                 "--disable-libvorbis" \
                  "to use ogg audio format"
 
-optional_depends libmatroska \
-                 "" \
-                 "" \
-                 "for matroska audio/video container format support"
-
 optional_depends faad \
-                 "" \
-                 "" \
+                 "--enable-faad" \
+                 "--disable-faad" \
                  "for external FAAD2 (MPA/AAC) support"
 
 optional_depends libtheora \
-                 "" \
+                 "--enable-theora" \
                  "--disable-theora" \
                  "for OGG/Theora Video Playback"
 
 optional_depends libXvMC \
                  "--enable-xvmc" \
-                 "" \
+                 "--disable-xvmc" \
                  "for hardware XvMC acceleration"
 
 optional_depends gtk+-2 \
@@ -68,42 +68,42 @@ optional_depends MPlayer-all \
                  "to install more foreign codecs"
 
 optional_depends libggi \
-                 "" \
+                 "--enable-ggi" \
                  "--disable-ggi" \
                  "General Graphics Interface support"
 
 optional_depends libggiwmh \
-                 "" \
+                 "--enable-ggiwmh" \
                  "--disable-ggiwmh" \
                  "GGI extension support"
 
 optional_depends amrnb \
-                 "" \
+                 "--enable-libopencore_amrnb" \
                  "--disable-libopencore_amrnb" \
                  "AMR narrowband support"
 
 optional_depends amrwb \
-                 "" \
+                 "--enable-libopencore_amrwb" \
                  "--disable-libopencore_amrwb" \
                  "AMR wideband support"
 
 optional_depends mpeg2dec \
-                 "" \
-                 "" \
-                 "for mpeg-1 and mpeg-2 support"
+                 "--enable-libmpeg2" \
+                 "--disable-libmpeg2" \
+                 "use system library for mpeg-1 and mpeg-2 support"
 
 optional_depends live555 \
-                 "" \
+                 "--enable-live" \
                  "--disable-live" \
                  "for RTP/RTCP, RTSP, SIP support"
 
 # MPlayer needs to use x264 *via* ffmpeg
 optional_depends ffmpeg \
-                 "" \
+                 "--enable-x264" \
                  "--disable-x264" \
                  "use ffmpeg (with e.g. x264-snapshot)"
 
 optional_depends libbs2b \
-                 "" \
+                 "--enable-libbs2b" \
                  "--disable-libbs2b" \
                  "for better sound via headphones"

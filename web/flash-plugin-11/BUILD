@@ -21,10 +21,6 @@
     fi
   fi &&
 
-  if [ -x /usr/bin/gtk-update-icon-cache -a -f /usr/share/icons/hicolor/index.theme ]; then
-      gtk-update-icon-cache -f /usr/share/icons/hicolor
-  fi &&
-
   # Enable 3D acceleration using OpenGL
   if ! grep -q OverrideGPUValidation /etc/adobe/mms.cfg 2>/dev/null ; then
     # From http://www.nvnews.net/vbulletin/showthread.php?t=148409&page=7
