@@ -1,0 +1,33 @@
+          MODULE=ftgl
+         VERSION=2.1.3-rc5
+       VER_MAJOR=2.1.3
+       VER_MINOR=rc5
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE
+      SOURCE_VFY=sha1:b9c11d3a594896333f1bbe46e10d8617713b4fc6
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VER_MAJOR~$VER_MINOR
+        WEB_SITE=http://homepages.paradise.net.nz/henryj/code/
+         ENTERED=20060712
+         UPDATED=20100610
+           SHORT="font rendering library for OpenGL"
+
+cat << EOF
+FTGL is a free, open source library to enable developers to use arbitrary fonts
+in their OpenGL (www.opengl.org) applications. Unlike other OpenGL font
+libraries FTGL uses standard font file formats so doesn't need a preprocessing
+step to convert the high quality font data into a lesser quality, proprietary
+format.
+
+FTGL uses the Freetype (www.freetype.org) font library to open and 'decode' the
+fonts. It then takes that output and stores it in a format most efficient for
+OpenGL rendering.
+
+ Rendering modes supported are ;
+
+Bit maps
+Anti aliased pix maps
+Texture maps
+Outlines
+Polygon meshes
+Extruded polygon meshes
+EOF
