@@ -1,0 +1,44 @@
+#!/bin/bash
+# squid         This shell script takes care of starting and stopping 
+#               Squid Internet Object Cache
+#  
+# chkconfig: 345 90 10 
+# description: Squid - Internet Object Cache. Internet object caching is \
+#       a way to store requested Internet objects (i.e., data available \
+#       via the HTTP, FTP, and gopher protocols) on a system closer to the \
+#       requesting site than to the source. Web browsers can then use the \
+#       local Squid cache as a proxy HTTP server, reducing access time as \
+#       well as bandwidth consumption.
+# pidfile: /var/run/squid.pid
+# processname: squid
+# config: /etc/squid/squid.conf
+
+start () {
+    echo -n "Starting squid: "
+    squid  -z -F         >  /dev/null  2>&1
+    squid  $SQUID_OPTS     &&
+    echo -e "$RESULT_OK"   ||
+    echo -e "$RESULT_FAIL"
+            
+}
+
+stop () {
+    echo  -e "Stopping squid: "
+    squid  -k  shutdown    &&
+    echo -e "$RESULT_OK"   ||
+    echo -e "$RESULT_FAIL"
+}
+
+restart () {
+    # Apparently we have to cut squid some slack
+    stop;
+    sleep 3;
+    start;
+}
+
+usage () {
+    echo  "Usage: $0 {start|stop|restart}"
+}
+
+. /lib/lsb/init-functions
+
