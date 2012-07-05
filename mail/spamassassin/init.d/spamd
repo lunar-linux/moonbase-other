@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# spamd
+# chkconfig: 2345 78 32
+# description: spamd is the daemon portion of spamassassin
+# processname: spamd
+# config: /etc/mail/spamassassin/local.cf
+
+ARGS="-x -d -u nobody"
+
+. /lib/lsb/init-functions
+

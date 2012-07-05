@@ -1,0 +1,7 @@
+  if [ -x `which sa-update` ] ; then
+    sa-check_spamd > /dev/null
+    STATUSSD=$?
+    [ $STATUSSD != '0' ] && service spamd start > /dev/null
+    sa-update && service spamd restart
+    [ $STATUSSD != '0' ] && service spamd stop > /dev/null
+  fi
