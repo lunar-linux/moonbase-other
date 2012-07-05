@@ -1,0 +1,27 @@
+#!/bin/bash
+# 
+# chkconfig: 12345 05 10
+# hostname: set the system's host and domain name
+# description: Sets your hostname 
+#
+# probe: true
+
+case $1 in
+	start)
+		if [ ! -e "/etc/hostname" ]; then
+			HOSTNAME=localhost
+		else
+			HOSTNAME=$(cat /etc/hostname)
+		fi
+		hostname "$HOSTNAME"
+		echo "Hostname set to \"$HOSTNAME\""
+		
+		if [ ! -e "/etc/domainname" ]; then
+   			echo "Domainname not set"
+		else
+			domainname -F /etc/domainname
+			echo "System Domainname set to \"$(cat /etc/domainname)\""
+		fi
+		;;
+esac
+
