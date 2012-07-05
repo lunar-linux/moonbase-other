@@ -1,0 +1,11 @@
+[Unit]
+Description=Virtuoso Server
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/virtuoso-t -c /var/lib/virtuoso/db/virtuoso.ini +wait
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

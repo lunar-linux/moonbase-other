@@ -1,0 +1,20 @@
+          MODULE=libsigsegv
+         VERSION=2.6
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$GNU_URL/$MODULE/
+      SOURCE_VFY=sha1:15ca1dd9574012b8c4c4d2bf6ba945546114b0b5
+        WEB_SITE=http://libsigsegv.sourceforge.net/
+         ENTERED=20060919
+         UPDATED=20090810
+           SHORT="portably handles page faults in user mode"
+cat << EOF
+This is a library for handling page faults in user mode. A page fault occurs
+when a program tries to access to a region of memory that is currently not
+available. Catching and handling a page fault is a useful technique for
+implementing:
+* pageable virtual memory,
+* memory-mapped access to persistent databases,
+* generational garbage collectors,
+* stack overflow handlers,
+* distributed shared memory
+EOF
