@@ -1,0 +1,45 @@
+          MODULE=wildmidi
+         VERSION=0.2.3.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE
+      SOURCE_VFY=sha1:9b344fa407432954f562b3cd3a14783d74c95c8d
+        WEB_SITE=http://wildmidi.sourceforge.net/
+         ENTERED=20090721
+         UPDATED=20120130
+           SHORT="a simple software midi player"
+
+PSAFE=no
+cat << EOF
+WildMIDI is a simple software midi player which has a core softsynth
+library that can be use with other applications.
+
+WildMIDI was originally conceived in December 2001 as an experiment to
+see if MIDI files could be played using the same samples as existing
+software but with much less overhead. Coming into existence as a
+command-line player in 2002 the first versions were so successful in
+reducing the overhead that developers from Quakeforge suggested that
+WildMIDI could be turned into a library. 2003 saw the first
+implementations of the WildMIDI library, with Quakeforge being used as
+the test application. The 1st official release of WildMIDI occured in
+2004 with a couple of bug fixes following shortly after.
+
+The WildMIDI library uses Gravis Ultrasound patch files to convert MIDI
+files into audio which is then passed back to the calling application
+for further processing or output. The API of the library is designed so
+that it is easy to include WildMIDI into applications that wish to
+include MIDI file playback. With multiple MIDI file support you can
+develop applications to mix several midi files together at the same
+time, and with the next release you will be able to use a different
+patch set for each MIDI file.
+
+Currently there is a small command-line player that accompanies the
+library which gives just one example of the use of the WildMIDI
+library. The next release will also contain a "self-contained" player
+which will play midi files without the extra overhead that occurs with
+the library. This is achieved by having a core source that is shared
+between the library and "self-contained" player.
+
+The future of the project will not end with the library, but with the
+library the door is open to possibilities including a software MIDI
+device, or a graphical MIDI sequencer.
+EOF
