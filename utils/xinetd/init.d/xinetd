@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# xinetd        This starts and stops xinetd.
+#
+# chkconfig: 345 56 44
+# description: xinetd is a powerful replacement for inetd. \
+#	       xinetd has access control machanisms, extensive \
+#              logging capabilities, the ability to make services \
+#              available based on time, and can place \
+#              limits on the number of servers that can be started, \
+#              among other things.
+#
+# processname: xinetd
+# config: /etc/xinetd.conf
+
+ARGS="-reuse"
+
+. /lib/lsb/init-functions
+
