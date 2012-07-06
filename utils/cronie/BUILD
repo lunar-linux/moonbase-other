@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1 &&
+
   if module_installed Linux-PAM; then
     OPTS+=" --with-pam"
   fi &&
@@ -15,6 +17,9 @@
   chmod 6711 /usr/bin/crontab &&
 
   [ -d /var/spool/cron ] || install -d -m 0700 /var/spool/cron &&
-  [ -e /etc/config.d/crond ] || install -m 644 $SOURCE_DIRECTORY/crond.sysconfig /etc/config.d/crond
+
+  if ! module_installed systemd; then
+    [ -e /etc/config.d/crond ] || install -m 644 $SOURCE_DIRECTORY/crond.sysconfig /etc/config.d/crond
+  fi
 
 ) > $C_FIFO 2>&1
