@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# exim      Exim Mail Transfer Agent
+#
+# chkconfig: 2345 80 20
+# description: Exim is a Mail Transport Agent, which is the program \
+#              that moves mail from one machine to another.
+# processname: exim
+# pidfile: /var/spool/mail/exim-daemon.pid
+# config: /etc/exim.conf
+
+ARGS="-bd -q15m"
+
+. /lib/lsb/init-functions
