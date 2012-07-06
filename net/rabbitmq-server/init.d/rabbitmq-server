@@ -1,0 +1,54 @@
+#!/bin/bash
+#
+# rabbitmq-server RabbitMQ broker
+#
+# chkconfig: - 80 05
+# description: Enable AMQP service provided by RabbitMQ
+# processname: rabbitmq-multi
+
+INIT_LOG_DIR=/var/log/rabbitmq
+
+start() {
+  echo -n "Starting rabbitmq-server: "
+  /usr/sbin/rabbitmq-server -detached >> ${INIT_LOG_DIR}/startup_log 2>> ${INIT_LOG_DIR}/startup_err &&
+  /usr/sbin/rabbitmqctl status | sed -n 's/[^p]*pid,\([0-9]*\)[^0-9]*/\1/p' > /var/run/rabbitmq.pid &&
+  /usr/sbin/rabbitmqctl -q wait /var/run/rabbitmq.pid &&
+  echo -e "$RESULT_OK" || echo -e "$RESULT_FAIL"
+}
+
+stop() {
+  echo -n "Stopping rabbitmq-server: "
+  /usr/sbin/rabbitmqctl stop >> ${INIT_LOG_DIR}/shutdown_log 2>> ${INIT_LOG_DIR}/shutdown_err &&
+  echo -e "$RESULT_OK" || echo -e "$RESULT_FAIL"
+}
+
+status_rabbitmq() {
+    if [ "$1" != "quiet" ] ; then
+        $DAEMON status 2>&1
+    else
+        $DAEMON status > /dev/null 2>&1
+    fi
+}
+
+status() {
+  status_rabbitmq
+}
+
+rotate_logs() {
+  echo -n "Rotating rabbitmq-server logs: "
+  /usr/sbin/rabbitmqctl rotate_logs &> /dev/null &&
+  echo -e "$RESULT_OK" || echo -e "$RESULT_FAIL"
+}
+
+restart() {
+  $0 stop
+  sleep 1
+  $0 start
+}
+
+case "$1" in
+  start|stop|restart|rotate_logs|status) ;;
+  *) echo "Usage: $0 {start|stop|restart|rotate_logs|status}" ; exit 1;;
+esac
+
+. /lib/lsb/init-functions

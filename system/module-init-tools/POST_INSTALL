@@ -1,0 +1,14 @@
+test -d /etc/modules.d/   || mkdir -p /etc/modules.d
+test -f /etc/modules      || touch /etc/modules
+test -f /etc/modules.conf || touch /etc/modules.conf
+
+source /etc/profile.d/module_init_tools-completion.rc
+
+cat << EOF
+
+  Customize /etc/modules.conf
+  Execute depmod.
+  List all modules that should load during boot in /etc/modules.
+
+EOF
+
