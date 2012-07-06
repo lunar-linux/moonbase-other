@@ -1,0 +1,7 @@
+#!/bin/bash
+
+/usr/sbin/exim -q &> /dev/null
+EXITVALUE=$?
+if [ $EXITVALUE != 0 ]; then
+    /usr/bin/logger -t exim "ALERT exited abnormally with [$EXITVALUE]"
+fi
