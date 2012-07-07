@@ -1,0 +1,18 @@
+          MODULE=gringo
+         VERSION=3.0.4
+          SOURCE=$MODULE-$VERSION-source.tar.gz
+	 SOURCE2=patch-clang.diff
+      SOURCE_URL=$SFORGE_URL/potassco/$MODULE/$VERSION
+     SOURCE2_URL=http://potassco.svn.sourceforge.net/viewvc/potassco/tags/${MODULE}-${VERSION}/patches/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-source
+      SOURCE_VFY=sha1:a9057c602126f39fdf691336147987f2cef864e0
+     SOURCE2_VFY=sha1:2c38954e247f925c4e86b27c376341cc9342fcd8
+        WEB_SITE=http://potassco.sf.net
+         ENTERED=20120512
+         UPDATED=20120512
+           SHORT="grounder for logic programs with first order variables"
+
+cat << EOF
+gringo is a grounder for first order answer set programs that
+outputs SMODELS format programs (to use with e.g. clasp).
+EOF
