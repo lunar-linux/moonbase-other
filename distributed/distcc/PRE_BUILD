@@ -1,0 +1,6 @@
+
+if $( grep "^distccd" /etc/services | grep -q "4200\/tcp" ) ; then
+  sedit "/^distccd/d" /etc/services
+fi
+
+default_pre_build
