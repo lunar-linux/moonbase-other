@@ -1,0 +1,34 @@
+#!/bin/bash
+#############################################################
+#                                                           #
+# postbuild-sanity.plugin - postbuild icon cache refreshing #
+#                                                           #
+#############################################################
+#                                                           #
+# Copyright 2012 by v4hn @v4hn.de under GPLv2               #
+#                                                           #
+#############################################################
+
+
+plugin_gtk_iconcache_post_build()
+{
+    if [ -z "`which gtk-update-icon-cache 2>/dev/null`" ]; then
+        #just skip this plugin if gtk-update-icon-cache is not available
+        return 2;
+    fi
+
+    parse_iw | grep -q "^/usr/share/icons/.*/"
+    if [ $? -eq 0 ]; then
+        parse_iw | grep "^/usr/share/icons/.*/" | sort | sed -e 's:^\(/usr/share/icons/[^/]*/\).*$:\1:' | uniq | \
+        while read theme; do
+            if [ -f $theme/index.theme ]; then
+                gtk-update-icon-cache -f $theme
+            fi
+        done
+    fi
+
+    return 2;
+}
+
+
+plugin_register BUILD_POST_BUILD plugin_gtk_iconcache_post_build
