@@ -1,0 +1,36 @@
+          MODULE=SuiteSparse
+         VERSION=4.0.0
+        VERSION2=4.0.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=metis-$VERSION2.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=http://www.cise.ufl.edu/research/sparse/SuiteSparse/
+     SOURCE2_URL=http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/
+      SOURCE_VFY=sha1:4f1f5af64625606d58c129087a66d58d90c4dd58
+     SOURCE2_VFY=sha1:63303786414a857eaeea2b2a006521401bccda5e
+        WEB_SITE=http://www.cise.ufl.edu/research/sparse/SuiteSparse/
+         ENTERED=20110209
+         UPDATED=20120708
+           SHORT="Suite of Sparse matrix packages"
+PSAFE=no
+cat << EOF
+A meta package of Spare matrix applications. It includes the following;
+
+    AMD: symmetric approximate minimum degree
+    BTF: permutation to block triangular form
+    CAMD: symmetric approximate minimum degree
+    CCOLAMD: constrained column approximate minimum degree
+    COLAMD: column approximate minimum degree
+    CHOLMOD: sparse supernodal Cholesky factorization and update/downdate
+    CSparse: a concise sparse matrix package
+    CXSparse: an extended version of CSparse
+    KLU: sparse LU factorization, for circuit simulation
+    LDL: a simple LDL^T factorization
+    UMFPACK: sparse multifrontal LU factorization
+    RBio: MATLAB toolbox for reading/writing sparse matrices
+    UFconfig: common configuration for all but CSparse
+    LINFACTOR: solve Ax=b using LU or CHOL
+    MESHND: 2D and 3D mesh generation and nested dissection
+    SSMULT: sparse matrix times sparse matrix
+    SuiteSparseQR: multifrontal sparse QR
+EOF
