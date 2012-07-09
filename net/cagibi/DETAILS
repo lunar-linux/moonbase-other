@@ -1,0 +1,17 @@
+          MODULE=cagibi
+         VERSION=0.2.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+   SOURCE_URL[0]=$KDE_URL/stable/$MODULE/
+       SOURCE_VFY=sha1:c27df368e377b8613524c1b70586adb424175436
+        WEB_SITE=http://frinring.wordpress.com/2010/07/27/first-release-of-cagibi-prototype-of-cacheproxy-daemon-for-upnp-device-listening-and-publishing/
+         ENTERED=20100731
+         UPDATED=20110617
+           SHORT="cache/proxy for SSDP"
+
+cat << EOF
+Cagibi aims to be to SSDP what Avahi is to DNS-SD/Zeroconf:
+a cache caching all service/device announcements on the network in a local
+process as well as being a broker serving local announcements to the network.
+Both should be done by a single daemon process, accessable via D-Bus on the
+system bus.
+EOF
