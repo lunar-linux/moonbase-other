@@ -10,7 +10,7 @@
   cat >> /usr/share/opera/defaults/pluginpath.ini << EOF
 
 ; Lunar plugin directory
-/opt/lunar/plugins=1
+/usr/lib/lunar/plugins=1
 EOF
 
 ) > $C_FIFO 2>&1
