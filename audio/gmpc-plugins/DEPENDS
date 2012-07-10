@@ -1,0 +1,10 @@
+depends  libmpd
+depends  gmpc
+depends  gdk-pixbuf
+
+optional_depends taglib "--enable-tagedit" "--disable-tagedit" "build tagedit plugin"
+optional_depends lirc "--enable-lirc" "--disable-lirc" "build lirc plugin"
+optional_depends avahi "--enable-avahi --enable-libnotify" "--disable-avahi --disable-libnotify" "build avahi plugin"
+optional_depends libmicrohttpd "--enable-mserver" "--disable-mserver" "build mserver plugin"
+optional_depends webkit "--enable-wikipedia" "--disable-wikipedia" "build wikipedia plugin"
+optional_depends dbus-glib "--enable-awn --enable-mmkeys" "--disable-awn --disable-mmkeys" "build mmkeys and awn plugins"
