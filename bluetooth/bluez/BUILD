@@ -1,6 +1,6 @@
 (  
 
-  OPTS+=" --build=$BUILD --host=$BUILD --with-telephony=dummy" &&
+  OPTS+=" --with-telephony=dummy" &&
 
   default_build  &&
 
