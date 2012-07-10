@@ -33,18 +33,18 @@
       fi
   done &&
 
-  mkdir -p /opt/lunar/plugins &&
-  rm -f /opt/lunar/plugins/{libjavaplugin_oji.so,libnpjp2.so} &&
+  mkdir -p /usr/lib/lunar/plugins &&
+  rm -f /usr/lib/lunar/plugins/{libjavaplugin_oji.so,libnpjp2.so} &&
 
   # Always use new plugin.
   # Firefox 3, Seamonkey 2, Google chrome/inium use it
   # KDE3/4 Konqueror and Opera always uses Java directly so do not use any plugin
   if [ -d /usr/java/latest/lib/amd64 ]; then
      ln -sf /usr/java/latest/lib/amd64/server/libjvm.so /usr/lib/
-     ln -sf /usr/java/latest/lib/amd64/libnpjp2.so /opt/lunar/plugins/
+     ln -sf /usr/java/latest/lib/amd64/libnpjp2.so /usr/lib/lunar/plugins/
   else
      ln -sf /usr/java/latest/lib/i386/server/libjvm.so /usr/lib/
-     ln -sf /usr/java/latest/lib/i386/libnpjp2.so /opt/lunar/plugins/
+     ln -sf /usr/java/latest/lib/i386/libnpjp2.so /usr/lib/lunar/plugins/
   fi &&
 
   cd /usr/java/jre${DVERSION}/lib/security &&
