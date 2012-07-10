@@ -1,8 +1,11 @@
 depends openssl
 
-optional_depends db         ""           ""              "for Brekley DB support"
-optional_depends Linux-PAM  "--with-pam" "--without-pam" "for PAM authentication"
+optional_depends Linux-PAM  "--with-pam" "--without-pam"    "for PAM authentication"
+optional_depends db         ""           ""                 "for Brekley DB support"
+optional_depends gdbm       ""           "--without-gdbm"   "for gdbm support"
 optional_depends mysql      "--enable-sql --with-mysql"  "--without-mysql" "for mysql support"
 optional_depends postgresql "--enable-sql --with-pgsql"  "--without-pgsql" "for postgreSQL support"
-optional_depends gdbm       ""           ""              "for gdbm support"
-optional_depends heimdal    "--enable-gssapi=/usr/include --disable-krb4" "--disable-gssapi" "for GSSAPI support"
+
+# The current version of heimdal has dropped gssapi/gssapi_ext.h which is needed by this version of
+# cyrus-sasl. So for now say no to heimdal.
+optional_depends heimdal    "--enable-gssapi=/usr/include/gssapi --disable-krb4" "--disable-gssapi" "for GSSAPI support"
