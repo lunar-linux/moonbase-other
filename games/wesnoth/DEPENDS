@@ -1,0 +1,15 @@
+depends cmake
+depends boost
+depends fontconfig
+
+depends cairo
+#pango needs to be build with cairo suppport
+depends pango
+
+depends SDL
+depends SDL_image
+depends SDL_mixer
+depends SDL_net
+depends SDL_ttf
+
+optional_depends dbus "-DENABLE_NOTIFICATIONS=ON" "-DENABLE_NOTIFICATIONS=OFF" "for desktop notifications"
