@@ -46,7 +46,8 @@ EOF
   OPTS+=" -Duse_system_bzip2=1 -Duse_system_libevent=1 -Duse_system_libjpeg=1 -Duse_system_libpng=1 \
   -Duse_system_libxml=1 -Duse_system_libxslt=1 -Duse_system_zlib=1 -Dproprietary_codecs=1 -Dwerror= -Ddisable_sse2=1 \
   -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome -Duse_system_zlib=1 \
-  -Dfastbuild=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1"
+  -Dfastbuild=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1 \
+  -Dlinux_use_gold_binary=0 -Dlinux_use_gold_flags=0"
 
   # set the target arch here
   if [ "`arch`" == "x86_64" ]; then
