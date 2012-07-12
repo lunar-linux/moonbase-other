@@ -1,0 +1,8 @@
+optional_depends "%GLX"      "--enable-client" "--disable-client" "build client"
+optional_depends curl   "" "" "needed for client"
+optional_depends openal "" "" "needed for client"
+
+optional_depends libXxf86dga "--with-xf86dga" "--without-xf86dga" "for xf86dga support with client"
+optional_depends libXxf86vm  "--with-xf86vm"  "--without-xf86vm"  "for xf86vm support with client"
+
+optional_depends ode "--with-system-libode" "--without-system-libode" "use system ode (instead of bundled)"

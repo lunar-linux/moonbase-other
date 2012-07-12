@@ -10,7 +10,7 @@
   chmod go+x /usr/lib/chrome-linux/{chrome,chrome_sandbox,chrome-wrapper,libffmpegsumo.so,xdg-settings} &&
   chmod 4711 /usr/lib/chrome-linux/nacl_helper_bootstrap &&
 
-  ln -sf /opt/lunar/plugins /usr/lib/${MODULE}/plugins &&
+  ln -sf /usr/lib/lunar/plugins /usr/lib/${MODULE}/plugins &&
   if [ ! -h /usr/bin/chrome-linux ]; then
     ln -snf /usr/lib/chrome-linux/chrome-wrapper /usr/bin/chrome-linux
   fi

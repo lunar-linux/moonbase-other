@@ -1,0 +1,20 @@
+          MODULE=media-player-info
+         VERSION=17
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://www.freedesktop.org/software/media-player-info/
+      SOURCE_VFY=sha1:e989a1668bd1370d945bca0f282c4dc8e9573393
+        WEB_SITE=http://www.freedesktop.org/wiki/Software/media-player-info
+         ENTERED=20110420
+         UPDATED=20120708
+           SHORT="data files describing media player capabilities"
+
+cat << EOF
+media-player-info is a repository of data files describing media player 
+capabilities, mostly of mass-storage devices. These files contain information
+about the directory layout to use to add music to these devices, the supported
+file formats and so on.
+
+These capabilities used to be provided by HAL in the 10-usb-music-players.fdi 
+file, but HAL is now deprecated, so the information is being provided as a 
+separate package.
+EOF
