@@ -1,0 +1,93 @@
+#
+# distcc linker optimizations plugin
+#
+
+plugin_distcc_optimize()
+{
+
+  if [ -f /etc/lunar/local/optimizations.DISTCC ]; then
+    . /etc/lunar/local/optimizations.DISTCC
+  fi
+
+  if [ "$USE_DISTCC" == "yes" ]; then
+    # we append distcc in case ccache is also used to make sure that distcc goes first!
+    echo $CC_EXT | grep -q "distcc" || CC_EXT="$CC_EXT distcc"
+    echo $CXX_EXT | grep -q "distcc" || CXX_EXT="$CXX_EXT distcc"
+    export CC_EXT
+    export CXX_EXT
+    export DISTCC_HOSTS
+    export DISTCC_ALLOW
+    verbose_msg "CC_EXT=\"$CC_EXT\""
+    verbose_msg "CXX_EXT=\"$CXX_EXT\""
+    verbose_msg "DISTCC_HOSTS=\"$DISTCC_HOSTS\""
+    verbose_msg "DISTCC_ALLOW=\"$DISTCC_ALLOW\""
+  fi
+  return 2
+}
+
+
+plugin_distcc_optimize_menu()
+{
+  # The main code calls this function WITHOUT $1 to find out which
+  # compiler optimization plugins exist. It then returns the version
+  # number which will be saved in $LUNAR_COMPILER as the user's
+  # choice for COMPILERS
+  if [ -z "$1" ]; then
+    echo "DISTCC"
+    echo "Distributed Compiling"
+    return 2
+  elif [ "$1" != "DISTCC" ]; then
+    # we don't display anything when the user selected a different menu
+    return 2
+  fi
+
+  # load previous optimizations
+  if [ -e /etc/lunar/local/optimizations.DISTCC ]; then
+    . /etc/lunar/local/optimizations.DISTCC
+  fi
+
+  save_optimizations()
+  {
+    debug_msg "save_optimizations($@)"
+    cat > /etc/lunar/local/optimizations.DISTCC  <<EOF
+USE_DISTCC=$USE_DISTCC
+DISTCC_HOSTS="$DISTCC_HOSTS"
+DISTCC_ALLOW="$DISTCC_ALLOW"
+EOF
+  }
+
+  export IFS=$'\t\n'
+  TITLE="Lunar Distcc Optimizations"
+
+  while true; do
+    RESULT=`$DIALOG --ok-label "Select" --cancel-label "Close" --menu "Use the Distributed C Compiler program distcc?" 0 0 0 "USE_DISTCC" "Use the distributed compiler            [$USE_DISTCC]" "DISTCC_HOSTS" "Select remote target hosts..." "DISTCC_ALLOW" "Select allowed client hosts/networks..."`
+    if [ $? != 0 ]; then
+      break
+    elif [ "$RESULT" == "USE_DISTCC" ]; then
+      if [ $USE_DISTCC == 'yes' ]; then
+        USE_DISTCC=no
+      else
+        USE_DISTCC=yes
+      fi
+    save_optimizations
+    elif [ "$RESULT" == "DISTCC_HOSTS" ]; then
+      DISTCC_HOSTS=`$DIALOG --inputbox "Enter a list of hosts as hostnames or IP addresses (see man distcc)" 9 60 $DISTCC_HOSTS`
+      if [ $? != 0 ]; then
+        continue
+      else
+        save_optimizations
+      fi
+    elif [ "$RESULT" == "DISTCC_ALLOW" ]; then
+      DISTCC_ALLOW=`$DIALOG --inputbox "Enter a list of hosts or IP ranges (see man distccd).\n127.0.0.1 is already used by default." 9 60 $DISTCC_ALLOW`
+      if [ $? != 0 ]; then
+        continue
+      else
+        save_optimizations
+      fi
+    fi
+  done
+}
+
+
+plugin_register BUILD_BUILD plugin_distcc_optimize
+plugin_register OPTIMIZE_MENU plugin_distcc_optimize_menu

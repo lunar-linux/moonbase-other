@@ -1,0 +1,11 @@
+service distccd
+{
+   socket_type =  stream
+   protocol    =  tcp
+   wait        =  no
+   user        =  nobody
+   server      =  /usr/bin/distccd
+   server_args =  --inetd --nice 19 --allow 127.0.0.1
+   cps         =  100 5
+   per_source  =  16
+}

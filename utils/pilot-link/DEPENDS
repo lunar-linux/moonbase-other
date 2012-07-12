@@ -1,0 +1,13 @@
+optional_depends "popt"        ""                   "--with-included-popt" "defaults to system popt"
+optional_depends "libpng"      "--with-libpng=/usr" "--without-libpng"     "Enables PNG userland support"
+optional_depends "Python"      "--with-python"      "--without-python"     "for Python scripting support"
+optional_depends "perl"        "--with-perl"        "--without-perl"       "for perl scripting support"
+
+optional_depends "tcl"         "--with-tcl=/usr/lib  --with-tclinclude=/usr/include"  \
+                               "--without-tcl"      "for tcl scripting support"
+optional_depends "tk"          "" "" "provides /usr/bin/wish, needed with tcl"
+
+optional_depends "bluez"       "--with-bluez"       "--without-bluez"      "for bluetooth support"
+optional_depends "%JAVA_SDK"   "--with-java=$JAVA_HOME" "--without-java"   "for java support"
+
+optional_depends "libusb-compat"  "--enable-libusb"    "--disable_libusb"     "Enables faster syncing"

@@ -91,8 +91,8 @@ EOF
     ln -sf /usr/lib/libavutil.so.50 ${CHROMIUM_HOME}/libavutil.so.50
   fi &&
 
-  # symlink to lunar location for browser plugins, should be /opt/lunar/plugins
-  ln -sf /opt/lunar/plugins ${CHROMIUM_HOME}/plugins &&
+  # symlink to lunar location for browser plugins, should be /usr/lib/lunar/plugins
+  ln -sf /usr/lib/lunar/plugins ${CHROMIUM_HOME}/plugins &&
 
   # icon installation
   mkdir -p /usr/share/pixmaps &&
