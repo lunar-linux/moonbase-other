@@ -1,5 +1,9 @@
 (
 
+  if module_installed systemd ; then
+    patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+  fi &&
+
   libtoolize --copy --force --automake &&
   autoreconf &&
 
