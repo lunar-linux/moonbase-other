@@ -2,5 +2,5 @@ depends  cmake
 
 optional_depends zlib      "-DWITH_LIBZ=ON" "-DWITH_LIBZ=OFF" "for data compression support"
 optional_depends libgcrypt "-DWITH_GCRYPT=ON" "-DWITH_GCRYPT=OFF" "for cryptographic support"
-optional_depends openssl   "" "" "for cryptographics support"
+optional_depends openssl   "-DWITH_SSH1=ON -DWITH_SFTP=ON" "-DWITH_SFTP=OFF -DWITH_SSH1=OFF" "for cryptographics support"
 optional_depends doxygen   "-DWITH_INTERNAL_DOC=ON" "-DWITH_INTERNAL_DOC=OFF" "for documentation support"
