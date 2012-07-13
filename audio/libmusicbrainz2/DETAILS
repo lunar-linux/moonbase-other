@@ -1,0 +1,27 @@
+          MODULE=libmusicbrainz2
+         VERSION=2.1.5
+          SOURCE=libmusicbrainz-$VERSION.tar.gz
+         SOURCE2=libmusicbrainz-2.1.4-gcc-4.3.x.patch.bz2
+      SOURCE_URL=ftp://ftp.musicbrainz.org/pub/musicbrainz/
+     SOURCE2_URL=$PATCH_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libmusicbrainz-$VERSION
+      SOURCE_VFY=sha1:99e85701541e41bb367e37e3a6ac47415fe8748f
+     SOURCE2_VFY=sha1:e27e940a5202938add9c3507d5a3a25a50fef5f7
+        WEB_SITE=http://musicbrainz.org
+         ENTERED=20110917
+         UPDATED=20110917
+           SHORT="allows access to the data on the MusicBrainz server"
+
+cat << EOF
+MusicBrainz is a community music metadatabase that attempts to
+create a comprehensive music information site. You can use the
+MusicBrainz data either by browsing this web site, or you can
+access the data from a client program  for example, a CD player
+program can use MusicBrainz to identify CDs and provide information
+about the CD, about the artist or about related information.
+You can also use the MusicBrainz Tagger to automatically identify
+and clean up the metadata tags in your MP3 collections.
+
+Note: This is version 2.1.x and can be used by k3b. k3b cannot use
+any 3.x version.
+EOF
