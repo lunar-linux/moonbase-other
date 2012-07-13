@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# craftyx: this command will launch crafty using xboard for display
+#
+
+XBOARD=`which xboard`
+
+if [ -e "$XBOARD" ]; then
+	xboard -fcp crafty
+else
+	echo "Xboard is missing. Please install the xboard module"
+fi
