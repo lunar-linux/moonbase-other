@@ -1,7 +1,11 @@
 (
 
   if in_depends $MODULE readline ; then
-    LDFLAGS="-lncurses" 
+    export LIBS+=" -lncurses"
+  fi &&
+
+  if in_depends $MODULE lua; then
+    export LIBS+=" -ldl"
   fi &&
 
   default_build
