@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# uptimed          Set uptime data record
+#
+# chkconfig: 12345 90 10
+# description: uptimed is used to monitor uptime stats
+# it leaves a record in /var used by uprecords
+# processname: /usr/sbin/uptimed
+
+start () {
+  echo -n "Setting uptime record: "
+  /usr/sbin/uptimed -b && echo -e $RESULT_OK || echo -e $RESULT_FAIL
+  default_start
+}
+
+. /lib/lsb/init-functions
+
