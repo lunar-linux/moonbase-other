@@ -1,0 +1,21 @@
+          MODULE=apache-ant
+         VERSION=1.8.4
+          SOURCE=$MODULE-$VERSION-src.tar.bz2
+      SOURCE_URL=http://archive.apache.org/dist/ant/source
+      SOURCE_VFY=sha1:fe01edd5acb221485d86e74411365cc139e1c87c
+        WEB_SITE=http://ant.apache.org
+         ENTERED=20061028
+         UPDATED=20120526
+           SHORT="Java based build tool"
+
+cat << EOF
+Ant is a Java-based build tool. In theory, it is kind of like Make, without
+Make's wrinkles and with the full portability of pure Java code.
+Used in building many java based apps. Like jedit, tomcat, etc.
+
+Ant is different. Instead of a model where it is extended with shell based
+commands, it is extended using Java classes. Instead of writing shell
+commands, the configuration files are XML based calling out a target tree
+where various tasks get executed. Each task is run by an object which
+implements a particular Task interface.
+EOF

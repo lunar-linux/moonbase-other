@@ -1,0 +1,19 @@
+          MODULE=gmime
+           MAJOR=2.6
+         VERSION=$MAJOR.8
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=$GNOME_URL/sources/$MODULE/$MAJOR
+      SOURCE_VFY=sha1:1c233b81266e8d0c612e8c53f287eaa2fd6a9894
+        WEB_SITE=http://spruce.sourceforge.net/gmime
+         ENTERED=20040721
+         UPDATED=20120424
+           SHORT="MIME creation/parsing library and toolset"
+
+cat << EOF
+The GMime suite provides a core library and set of utilities which may
+be used for the creation and parsing of messages using the Multipurpose
+Internet Mail Extension (MIME)
+
+NOTE: Leave this at 2.4.x, until the rest of moonbase actually uses gmime 2.5.x.
+pan2-git, balsa, dbmail-git all still ONLY use gmime 2.4.x
+EOF
