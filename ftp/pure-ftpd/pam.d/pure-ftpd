@@ -1,0 +1,7 @@
+#%PAM-1.0
+auth		requisite	pam_listfile.so item=user sense=deny file=/etc/ftplockout onerr=succeed
+auth		sufficient	pam_ftp.so
+auth		requisite	pam_shells.so
+auth		include		system-auth
+account		include		system-auth
+session		include		system-auth
