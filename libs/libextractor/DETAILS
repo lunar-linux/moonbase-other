@@ -1,0 +1,23 @@
+          MODULE=libextractor
+         VERSION=0.6.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://ftpmirror.gnu.org/$MODULE/
+      SOURCE_VFY=sha1:58ca71d04fcbac6ea9675bd91ffa18a26c865ebc
+        WEB_SITE=http://www.gnu.org/software/libextractor/
+         ENTERED=20050227
+         UPDATED=20120715
+           SHORT="A library to extract meta-data from arbitrary files"
+
+PSAFE=no
+cat << EOF
+libextractor is a library used to extract meta-data from files of
+arbitrary type.  It is designed to use helper-libraries to perform the
+actual extraction, and to be trivially extendable by linking against
+external extractors for additional file types.
+
+The goal is to provide developers of file-sharing networks or
+WWW-indexing bots with a universal library to obtain simple keywords to
+match against queries.  libextractor contains a shell-command "extract"
+that, similar to the well-known "file" command, can extract meta-data
+from a file an print the results to stdout.
+EOF

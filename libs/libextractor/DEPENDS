@@ -1,0 +1,16 @@
+depends libtool
+depends zlib
+depends bzip2
+
+optional_depends "glib-2" "--enable-glib"   "--disable-glib"   "for glib support"
+optional_depends "ffmpeg" "--enable-ffmpeg" "--disable-ffmpeg" "for ffmpeg support"
+optional_depends "libgsf" "--enable-gsf"    "--disable-gsf"    "for gsf support"
+optional_depends "qt4"    "--with-qt"       "--without-qt"     "for qt4 support"
+
+# configure checks for, but doesn't offer [dis|en]able/with[out] flags
+optional_depends "libvorbis" "" "" "for Ogg/Vorbis meta support"
+optional_depends "flac"      "" "" "for flac support"
+optional_depends "gtk+-2"    "" "" "for gtk+ support"
+optional_depends "mpeg2dec"  "" "" "for mpeg2 support"
+optional_depends "poppler"   "" "" "for poppler pdf support"
+optional_depends "exiv2"     "" "" "for exiv2 support"
