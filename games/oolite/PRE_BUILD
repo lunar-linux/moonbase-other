@@ -1,0 +1,9 @@
+default_pre_build &&
+
+cd $SOURCE_DIRECTORY/deps/Cross-platform-deps/ &&
+
+tar xf $SOURCE_CACHE/$SOURCE2 &&
+mv mozilla-2.0 mozilla &&
+echo 'http://jens.ayton.se/oolite/deps/firefox-4.0.source.js-only.tbz' > mozilla/current.url &&
+
+cd $SOURCE_DIRECTORY
