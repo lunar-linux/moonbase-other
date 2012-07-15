@@ -13,7 +13,7 @@
   prepare_install &&
 
   mkdir -p /usr/lib/GNUstep/Applications/ &&
-  cp -rv oolite.app /usr/lib/GNUstep/Applications/oolite &&
+  cp -rv oolite.app /usr/lib/GNUstep/Applications/oolite.app &&
 
   install -Dm0755 debian/extra/games/oolite /usr/games/oolite &&
   install -Dm0644 installers/FreeDesktop/oolite.desktop /usr/share/applications/oolite.desktop &&
