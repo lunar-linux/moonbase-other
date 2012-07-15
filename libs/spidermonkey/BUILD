@@ -1,16 +1,14 @@
 (
 
-  export CFLAGS="${CFLAGS} -DJS_C_STRINGS_ARE_UTF8"
+  cd $SOURCE_DIRECTORY/js/src &&
 
-  patch_it $SOURCE2 1 &&
-  patch_it $SOURCE3 1 &&
-  patch_it $SOURCE4 1 &&
+  OPTS+=" --with-system-nspr --enable-threadsafe" &&
 
-  sedit 's;include;include/js;' src/rules.mk &&
+  CXXFLAGS+=" -fpermissive" &&
 
-  cd $SOURCE_DIRECTORY/src &&
-  make -f Makefile.ref JS_THREADSAFE=1 &&
-  prepare_install &&
-  make -f Makefile.ref install
+  default_build &&
+
+  #for backwards compatibility
+  ln -sf /usr/lib/libmozjs${VERSION%\.*}.a /usr/lib/libjs_static.a
 
 ) > $C_FIFO 2>&1
