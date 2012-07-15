@@ -1,0 +1,13 @@
+if  !  grep  -q  CONFIGURED  $MODULE_CONFIG;  then
+
+  if    query  "Do you want to disable banner? " y
+      then OPTS=$OPTS" --without-banner"
+  fi
+
+  if    query  "Do you want to enable large file support? " y
+      then OPTS=$OPTS" --with-largefile"
+  fi
+
+   echo  'CONFIGURED="y"'  >>  $MODULE_CONFIG
+   echo  'OPTS='\"$OPTS\"    >>  $MODULE_CONFIG
+fi
