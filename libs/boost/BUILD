@@ -1,10 +1,8 @@
 (
 
-  patch_it $SOURCE2 0 &&
-
 # use bootstrap so we can use their supplied bjam/b2.
   ./bootstrap.sh &&
-  
+
   export EXPAT_INCLUDE=/usr/include/ &&
   export EXPAT_LIBPATH=/usr/lib/ &&
 
