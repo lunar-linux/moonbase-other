@@ -1,16 +1,18 @@
           MODULE=libproxy
          VERSION=0.4.7
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://libproxy.googlecode.com/files/
+         SOURCE2=$MODULE-$VERSION-unistd.patch.gz
+      SOURCE_URL=http://libproxy.googlecode.com/files
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:b01ebbdf837babf63f38ee34e261d76f23dad319
-        WEB_SITE=http://code.google.com/p/libproxy/
+     SOURCE2_VFY=sha1:c99e86370dacac76fe9a767a2ae168a14467bbe9
+        WEB_SITE=http://code.google.com/p/libproxy
          ENTERED=20090221
-         UPDATED=20110716
+         UPDATED=20120716
            SHORT="automatic proxy configuration management"
 
 cat << EOF
 libproxy offers the following features:
-
  * extremely small core footprint (< 35K)
  * no external dependencies within libproxy core
    (libproxy plugins may have dependencies)
@@ -18,5 +20,4 @@ libproxy offers the following features:
  * dynamic adjustment to changing network topology
  * a standard way of dealing with proxy settings across all scenarios
  * a sublime sense of joy and accomplishment
-
 EOF
