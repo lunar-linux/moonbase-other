@@ -4,7 +4,7 @@
 
   cp -f $SCRIPT_DIRECTORY/nacl.gypi chrome/  &&
 
-  echo Fixing dumb CPU optimizations please wait in patience...
+  echo Fixing CPU optimizations...
   find . -type f -exec sed -i \
   -e 's/-mcpu=/-march=/g' \
   -e 's/-mtune=/-march=/g' \
