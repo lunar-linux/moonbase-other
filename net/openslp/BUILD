@@ -1,6 +1,6 @@
 (
 
-  OPTS="--enable-async-api --enable-slpv2-security"
+  OPTS+=" --sysconfdir=/etc/slp" &&
 
   default_build
 
