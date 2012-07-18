@@ -12,7 +12,7 @@
 Type=Application
 Name=Alien Arena
 Comment=Multiplayer retro sci-fi deathmatch
-Exec=crx
+Exec=alienarena
 Icon=$MODULE
 Categories=Game;ActionGame;
 EOF
