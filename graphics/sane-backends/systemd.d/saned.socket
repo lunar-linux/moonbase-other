@@ -1,0 +1,10 @@
+[Unit]
+Description=saned incoming socket
+
+[Socket]
+Accept=yes
+ListenStream=6566
+SocketMode=0775
+
+[Install]
+WantedBy=sockets.target

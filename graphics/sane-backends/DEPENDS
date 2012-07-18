@@ -1,0 +1,9 @@
+depends %JPEG
+depends %UDEV
+
+optional_depends avahi    "--enable-avahi" "--disable-avahi"   "for service discovery support"
+optional_depends gphoto2  "--with-gphoto2" "--without-gphoto2" "for gphoto2 support"
+
+optional_depends libusb-compat  "--enable-libusb_1_0" "--disable-libusb" "for usb scanners"
+optional_depends libieee1284    "" "" "for parallel port support"
+optional_depends net-snmp       "--with-snmp" "--without-snmp" "for snmp support"
