@@ -1,3 +1,5 @@
-optional_depends gobject-introspection "--enable-introspection" "--disable-introspection" "for API collection support"
-optional_depends expat                 "--with-expat"           "--without-expat"         "XML parsing support"
+depends %UDEV
 
+optional_depends Linux-PAM             "--with-authfw=pam"      "--with-authfw=shadow"    "For authentication support.${PROBLEM_COLOR}If you say no it will use shadow.${QUERY_COLOR}"
+optional_depends gobject-introspection "--enable-introspection" "--disable-introspection" "For API collection support"
+optional_depends expat                 "--with-expat"           "--without-expat"         "XML parsing support"
