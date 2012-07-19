@@ -34,7 +34,7 @@ EOF
     OPTS+=" -Duse_libjpeg_turbo=1"
   fi &&
 
-  OPTS+=" -Duse_system_bzip2=1 -Duse_system_libevent=1 -Duse_system_libjpeg=1 -Duse_system_libpng=1 -Duse_system_libxml=1 -Duse_system_libxslt=1 -Duse_system_zlib=1 -Duse_system_zlib=1 -Duse_system_ffmpeg=0 -Dproprietary_codecs=1 -Dwerror= -Ddisable_sse2=1 -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome -Dfastbuild=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1 -Dlinux_use_gold_binary=0 -Dlinux_use_gold_flags=0 -Drelease_extra_cflags=$CFLAGS -Dffmpeg_branding=Chrome"
+  OPTS+=" -Duse_system_bzip2=1 -Duse_system_libevent=1 -Duse_system_libjpeg=1 -Duse_system_libpng=1 -Duse_system_libxml=1 -Duse_system_libxslt=1 -Duse_system_zlib=1 -Duse_system_zlib=1 -Duse_system_ffmpeg=0 -Dproprietary_codecs=1 -Dwerror= -Ddisable_sse2=1 -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome -Dfastbuild=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1 -Dlinux_use_gold_binary=0 -Dlinux_use_gold_flags=0 -Dffmpeg_branding=Chrome"
 
   # set the target arch here
   if [ "`arch`" == "x86_64" ]; then
@@ -49,7 +49,7 @@ EOF
   fi
 
   # This is the configure step
-  build/gyp_chromium -f make build/all.gyp $OPTS --depth=. &&
+  build/gyp_chromium -f make build/all.gyp $OPTS -Drelease_extra_cflags="$CFLAGS" --depth=. &&
 
   # This is the make step
   make V=1 chrome chrome_sandbox BUILDTYPE=Release &&
