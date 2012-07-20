@@ -1,8 +1,12 @@
 (
 
+  # for systems without /bin -> /usr/bin symlink
+  if [ "`cd /usr/bin; pwd -P`" != "`cd /bin; pwd -P`" ]; then
+    ln -sf /usr/bin/echo /bin/echo
+  fi &&
 
 # It looks for echo in the wrong place.
-  ln -sf /usr/bin/echo /bin/echo &&
+#  ln -sf /usr/bin/echo /bin/echo &&
 
   make defconfig  &&
   make  &&
