@@ -1,5 +1,9 @@
 (
 
+
+# It looks for echo in the wrong place.
+  ln -sf /usr/bin/echo /bin/echo &&
+
   make defconfig  &&
   make  &&
   prepare_install   &&
