@@ -1,0 +1,43 @@
+          MODULE=easy-slow-down-manager
+         VERSION=r35
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=$PATCH_URL
+      SOURCE_VFY=sha1:507f96987b792bde2d7d5dbdf93c9d947e71d443
+        WEB_SITE=http://code.google.com/p/easy-slow-down-manager
+         ENTERED=20110503
+         UPDATED=20120208
+           SHORT="kernel modules for managing Samsung laptop/netbook"
+
+cat << EOF
+Easy slow down manager provides Linux users with functionality similar to
+"Samsung Easy Speed Up Manager". It also allows to turn WiFi and backlight
+on and off.
+
+It consist of kernel module named easy_slow_down_manager.
+To use it first issue "modprobe easy_slow_down_manager".
+If everything goes fine you get /proc/easy_slow_down_manager,
+/proc/easy_wifi_kill and /proc/easy_backlight files.
+
+"echo 0 > /proc/easy_slow_down_manager" turns laptop to "normal" mode.
+"echo 1 > /proc/easy_slow_down_manager" turns laptop to "silent" mode.
+"echo 2 > /proc/easy_slow_down_manager" turns laptop to "speed" mode.
+"echo 0 > /proc/easy_wifi_kill" turns WiFi off.
+"echo 1 > /proc/easy_wifi_kill" turns WiFi on.
+"echo 0 > /proc/easy_backlight" turns backlight off.
+"echo 1 > /proc/easy_backlight" turns backlight on.
+
+Samsung backlight module fixes backlight-related bugs in acpi for Samsung laptops.
+Important: To enable it, boot kernel with acpi_backlight=vendor option.
+
+The module can work in two modes: direct PCI programming and brighness control via SABI.
+The mode is chosen by module option use_sabi (could be 0 or 1); by default SABI support is enabled.
+SABI provides support for larger number of laptop models, but allows for less number of brightness levels.
+
+samsung-backlight module options:
+debug=(0|1)          print debug information
+use_sabi=(0|1)       change brightness via PCI or SABI (default)
+force=(0|1)          skip model/vendor checks
+sabi_delay=value     delay between SABI commands,ms
+minbright,maxbright  specify minimum and maximum brightness levels; for PCI interface default is (10,255); for SABI (0,7)
+levels               number of brightness levels; default is 7
+EOF
