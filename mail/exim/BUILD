@@ -49,6 +49,11 @@ if module_installed tcp_wrappers ; then
   echo  "LOOKUP_NIS=yes"                   >>  Local/Makefile
   echo  "SUPPORT_MAILDIR=yes"              >>  Local/Makefile
 
+  # for systems without /bin -> /usr/bin symlink
+  if [ "`cd /usr/bin; pwd -P`" != "`cd /bin; pwd -P`" ]; then
+    ln -sf /usr/bin/rm /bin/rm
+  fi
+  
   default_make
 
 ) > $C_FIFO 2>&1  &&  (
