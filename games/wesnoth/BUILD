@@ -1,4 +1,13 @@
 (
+
+  # this seems to be a bad bug in boost
+  # see https://svn.boost.org/trac/boost/ticket/6131
+  # the following is based on an 12000 lines ArchLinux patch
+  for file in $(grep -l foreach -r . | grep "cpp\$\|hpp$"); do
+    sedit "/#include/ ! s:foreach:BOOST_FOREACH:g" $file &&
+    sedit "s:#include \".*foreach.hpp\":#include <boost/foreach.hpp>:" $file
+  done &&
+
   OPTS+=" -DBINDIR=games \
           -DDATAROOTDIR=${MODULE_PREFIX}/share/games/ \
           -DDESKTOPDIR=${MODULE_PREFIX}/share/applications \
@@ -6,7 +15,7 @@
           -DMANDIR=${MODULE_PREFIX}/share/man \
           -DDOCDIR=${MODULE_PREFIX}/doc"
 
-  #fribidi is obsolete and would require 0.10.*
+  # fribidi is obsolete and would require 0.10.*
   OPTS+=" -DENABLE_FRIBIDI=OFF"
 
   if ! in_depends pango cairo; then
