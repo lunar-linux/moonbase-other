@@ -1,0 +1,11 @@
+depends cmake
+
+optional_depends "hdf5"      "-DWITH_HDF5=ON" "-DWITH_HDF5=OFF" "For data model, library, and file format support"
+optional_depends "fftw3"     ""  ""  "fast C FFT library"
+optional_depends "nose"      ""  ""  "for test discovery unittest"
+optional_depends "zlib"      ""  ""  "compression support"
+optional_depends "libpng"    ""  ""  "for png support"
+optional_depends "%JPEG"     ""  ""  "for jpeg support"
+optional_depends "openMotif" ""  ""  "for tiff support"
+optional_depends "boost"     ""  ""  "for boost support"
+optional_depends "Sphinx"    "-DPYTHON_SPHINX=ON"  "-DPYTHON_SPHINX=OFF"  "for document generation support"
