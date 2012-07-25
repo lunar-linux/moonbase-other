@@ -1,0 +1,21 @@
+          MODULE=cifs-utils
+         VERSION=5.5
+          SOURCE=${MODULE}-${VERSION}.tar.bz2
+      SOURCE_URL=ftp://ftp.samba.org/pub/linux-cifs/cifs-utils/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:355886c4b5bf9c4ac50756d6ec745aee3044d428
+        WEB_SITE="https://wiki.samba.org/index.php/LinuxCIFS_utils"
+         ENTERED=20120723
+         UPDATED=20120723
+           SHORT="Usermode-Helper for mounting SMB/CIFS shares"
+cat <<EOF
+The in-kernel CIFS filesystem is generally the preferred method for
+mounting SMB/CIFS shares on Linux.
+
+The in-kernel CIFS filesystem relies on a set of user-space tools. That
+package of tools is called cifs-utils. Although not really part
+of Samba proper, these tools were originally part of the Samba
+package. For several reasons, shipping these tools as part of Samba
+was problematic and it was deemed better to split them off into their
+own package.
+EOF
