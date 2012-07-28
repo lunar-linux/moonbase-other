@@ -10,6 +10,10 @@ fi &&
 JDK_ARCHIVE=jdk-$VERSION-linux-$bits.tar.gz &&
 JDK_POLICY=UnlimitedJCEPolicyJDK7.zip &&
 
+if ! module_installed ca-certificates; then
+   message "${PROBLEM_COLOR}If the following downloads fail, please make sure you build wget with SSL support and and got ca-certificates installed${DEFAULT_COLOR}"
+fi
+
 wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jdk/$FVERSION/$JDK_ARCHIVE &&
 wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jce/7/$JDK_POLICY &&
 
