@@ -13,6 +13,7 @@
   cd .. &&
   python ./setup.py install --root=/ &&
 
-  install -Dm0644 anki.desktop /usr/share/applications/anki.desktop
+  install -Dm0644 anki.desktop /usr/share/applications/anki.desktop &&
+  install -Dm0644 icons/anki.png /usr/share/pixmaps/anki.png
 
 ) > $C_FIFO 2>&1
