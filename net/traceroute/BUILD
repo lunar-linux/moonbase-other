@@ -1,6 +1,6 @@
 (
-  
-  default_build &&
-  cp -p traceroute.8 /usr/share/man/man8/
+
+  sedit "s:/usr/local:/usr:" Make.rules  &&
+  default_build
 
 ) > $C_FIFO 2>&1
