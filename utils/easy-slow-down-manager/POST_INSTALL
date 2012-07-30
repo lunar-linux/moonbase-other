@@ -1,1 +1,4 @@
-depmod -a $(readlink /usr/src/linux | cut -d'-' -f2)
+# see BUILD for explanation
+KVERSION=$(readlink /usr/src/linux | cut -d'-' -f2 | sed -e '/^[0-9]*\.[0-9]*$/ s:^\(.*\)$:\1.0:')
+
+depmod -a $KVERSION
