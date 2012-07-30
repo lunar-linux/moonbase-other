@@ -1,11 +1,7 @@
 (
-  #Bugfix for CMAKE 2.98
+  #Bugfix for cmake 2.8.8
   sedit s/"FATAL_ERROR \"Program pkg-config not found\""/"STATUS \"Program pkg-config not found\""/ CMakeLists.txt &&
 
-  cmake .\
-        -DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_INSTALL_PREFIX=/usr &&
-
-  default_build
+  default_cmake_build
 
 ) > $C_FIFO 2>&1

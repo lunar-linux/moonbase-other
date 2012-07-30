@@ -1,5 +1,4 @@
 depends qt4
-depends alsa-utils
+depends alsa-lib
 
-#Could provide Jack Support
-#optional_depends "jack"      "-DRTMIDI_DRIVER=JACK -DPROGRAM_NAME=vmpk-jack "" "for jack midi support"
+optional_depends "jack" "-DENABLE_JACK=on" "-DENABLE_JACK=off" "for jack midi support"
