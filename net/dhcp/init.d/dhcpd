@@ -11,16 +11,14 @@
 # Get service config
 [ -f /etc/config.d/dhcpd ] && . /etc/config.d/dhcpd
 
-ARGS="-q $DHCPD_INTERFACES"
-
 start() {
         echo -n "Starting dhcpd: "
-        /usr/sbin/dhcpd $ARGS && echo -e $RESULT_OK || echo -e $RESULT_FAIL
+        /usr/sbin/dhcpd $DHCPD_ARGS && echo -e $RESULT_OK || echo -e $RESULT_FAIL
 }
 
 reload () {
         # dhcpd cannot reload
         $0 restart
 }
- 
+
 . /lib/lsb/init-functions
