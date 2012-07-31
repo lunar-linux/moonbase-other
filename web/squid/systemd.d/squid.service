@@ -1,0 +1,14 @@
+[Unit]
+Description=Squid caching proxy
+After=syslog.target network.target named.service
+
+[Service]
+Type=forking
+LimitNOFILE=16384
+ExecStartPre=/usr/sbin/squid -z -F &> /dev/null
+ExecStart=/usr/sbin/squid -f /etc/squid/squid.conf
+ExecReload=/usr/sbin/squid -k reconfigure -f /etc/squid/squid.conf
+ExecStop=/usr/sbin/squid -k shutdown -f /etc/squid/squid.conf
+
+[Install]
+WantedBy=multi-user.target
