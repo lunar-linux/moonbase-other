@@ -1,0 +1,11 @@
+[Unit]
+Description=DansGuardian Content Filter
+After=network.target squid.service
+
+[Service]
+Type=forking
+PIDFile=/run/dansguardian/dansguardian.pid
+ExecStart=/usr/sbin/dansguardian
+
+[Install]
+WantedBy=multi-user.target
