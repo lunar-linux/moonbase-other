@@ -1,0 +1,10 @@
+[Unit]
+Description=Heimdal Kerberos 5 Server
+After=syslog.target network.target
+
+[Service]
+ExecStart=/usr/sbin/kdc
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
