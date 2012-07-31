@@ -1,13 +1,19 @@
           MODULE=dhcp
          VERSION=4.2.4-P1
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=dhcp-4.2.3-no-conf-and-proper-paths.patch
+         SOURCE3=dhcp-4.1.1-missing-ipv6-not-fatal.patch
       SOURCE_URL=ftp://ftp.isc.org/isc/$MODULE/$VERSION
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
       SOURCE_VFY=sha1:0fe0f20b7be597d60e61951d2ccafe547d3bcec2
+     SOURCE2_VFY=sha1:be19c87e477c0480ae6447e06432575911eb7a95
+     SOURCE3_VFY=sha1:2ea1872a8a2aa513410a278bc2cd61630fdfd03f
         WEB_SITE=http://www.isc.org/products/DHCP
          ENTERED=20010922
-         UPDATED=20120729
-           PSAFE=no
+         UPDATED=20120731
            SHORT="A server and client for automatic IP configuration"
+PSAFE=no
 
 cat << EOF
 The Internet Software Consortium DHCP distribution includes a DHCP

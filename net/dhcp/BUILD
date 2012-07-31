@@ -2,44 +2,32 @@
   CFLAGS+=" -D_GNU_SOURCE "
   CFGHOME="/etc/config.d"
   OPTS+=" --with-srv-lease-file=/var/state/dhcp/dhcpd.leases \
-          --with-cli-lease-file=/var/state/dhcp/dhclient.leases"
+          --with-srv6-lease-file=/var/state/dhcp/dhcpd6.leases \
+          --with-cli-lease-file=/var/state/dhclient/dhclient.leases \
+          --with-cli6-lease-file=/var/state/dhclient/dhclient6.leases"
 
-  if [ ! -e /proc/net/if_inet6 ]; then
-  OPTS+=" --disable-dhcpv6 "
-  fi &&
+  # Correct paths
+  patch_it $SOURCE2 1 &&
 
-  sedit 's;^dist_sysconf_DATA.*dhcpd.conf;dist_sysconf_DATA =;' server/Makefile.in &&
+  # Make missing ipv6 non fatal
+  patch_it $SOURCE3 0 &&
 
   default_build  &&
 
-  #make sure the config directory exists
+  install -D -m0755 client/scripts/linux /usr/sbin/dhclient-script &&
 
-  if [ ! -d $CFGHOME ]; then
-     mkdir -p $CFGHOME
-  fi  &&
+  mkdir -p /var/state/{dhcp,dhclient} &&
+  [ -f /var/state/dhcp/dhcpd.leases ] || touch /var/state/dhcp/dhcpd.leases &&
+  [ -f /var/state/dhcp/dhcpd6.leases ] || touch /var/state/dhcp/dhcpd6.leases &&
 
-  #copy the lunar config file into place
+  # Sample config files (start with empty files)
+  [ -f /etc/dhcpd.conf ] || touch /etc/dhcpd.conf &&
+  [ -f /etc/dhcpd6.conf ] || touch /etc/dhcpd6.conf &&
 
-  if [ ! -e /etc/config.d/dhcpd ]; then
-     cp $SCRIPT_DIRECTORY/dhcpd.config $CFGHOME/dhcpd
-  else
-     cp $SCRIPT_DIRECTORY/dhcpd.config $CFGHOME/dhcpd.new
-  fi  &&
-
-
-  #make sure the leases file exists or we won't run
-
-  if [ ! -e /var/state/dhcp/dhcpd.leases ]; then
-     mkdir -p /var/state/dhcp/
-     touch /var/state/dhcp/dhcpd.leases
-  fi  &&
-
-  #we need a config file also
-
-  if [ ! -e /etc/dhcpd.conf ]; then
-     cp $SCRIPT_DIRECTORY/dhcpd.conf.sample /etc/dhcpd.conf
-  else
-     cp $SCRIPT_DIRECTORY/dhcpd.conf.sample /etc/dhcpd.conf.new
-  fi
+  # Always overwrite sample configs
+  install -D -m 0644 server/dhcpd.conf /etc/dhcpd.conf.sample &&
+  install -D -m 0644 doc/examples/dhcpd-dhcpv6.conf /etc/dhcpd6.conf.sample &&
+  install -D -m 0644 client/dhclient.conf /etc/dhclient.conf.sample &&
+  install -D -m 0644 doc/examples/dhclient-dhcpv6.conf /etc/dhclient6.conf.sample
 
 ) > $C_FIFO 2>&1
