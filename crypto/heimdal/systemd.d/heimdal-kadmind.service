@@ -1,0 +1,10 @@
+[Unit]
+Description=Heimdal Admin Server Daemon
+After=syslog.target network.target
+
+[Service]
+ExecStart=/usr/sbin/kadmind
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
