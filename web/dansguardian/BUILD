@@ -8,14 +8,15 @@
           --enable-lfs \
           --enable-orig-ip \
           --with-logdir=/var/log/dansguardian \
-          --with-piddir=/var/run" &&
+          --with-piddir=/var/run/dansguardian" &&
 
   if in_depends $MODULE clamav; then
     DGUSER="clamav:clamav"
     OPTS+=" --with-proxyuser=clamav --with-proxygroup=clamav"
   else
-    DGUSER="nobody:nogroup"
-    OPTS+=" --with-proxyuser=nobody --with-proxygroup=nogroup"
+    add_priv_user dansguardian:dansguardian
+    DGUSER="dansguardian:dansguardian"
+    OPTS+=" --with-proxyuser=dansguardian --with-proxygroup=dansguardian"
   fi &&
 
   default_build &&
@@ -26,8 +27,10 @@
     sedit "s;^#clamdudsfile.*;clamdudsfile = '/tmp/clamd';" /etc/dansguardian/contentscanners/clamdscan.conf
   fi &&
 
-  if [ ! -d /var/log/dansguardian ]; then
-    mkdir -p /var/log/dansguardian
+  [ -d /var/log/dansguardian ] || mkdir -p /var/log/dansguardian &&
+
+  if module_installed systemd; then
+    mkdir -p /run/dansguardian
   fi &&
 
   devoke_installwatch &&
