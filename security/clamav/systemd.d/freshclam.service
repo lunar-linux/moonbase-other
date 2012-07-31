@@ -1,0 +1,11 @@
+[Unit]
+Description=clamav definition auto-updater
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/freshclam -d -c 1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
