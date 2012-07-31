@@ -1,5 +1,9 @@
 (
 
+  if module_installed systemd; then
+    OPTS+=" --localstatedir=/run/proftpd"
+  fi
+
   PROFTPD_MODULES="mod_ifsession mod_ldap mod_radius mod_ratio mod_readme mod_rewrite mod_tls mod_wrap"
   MODS=""
 
@@ -23,18 +27,21 @@
 
   MODS=`echo $MODS|sed -re 's%^:%%'`
 
-
   if [ -n "$MODS" ]; then
     OPTS+=" --with-modules=$MODS"
   fi
 
   if  module_installed  Linux-PAM;  then
-    OPTS=$OPTS" --enable-shadow $ENABLE_PAM"
+    OPTS+=" --enable-shadow $ENABLE_PAM"
   fi
 
-  sedit  "s/\tstandalone/\tinetd/" sample-configurations/basic.conf  &&
+  sedit  "s/\tstandalone/\tinetd/" sample-configurations/basic.conf
   cp  -r  sample-configurations  doc
 
   default_build
+
+  if module_installed systemd; then
+    mkdir -p /run/proftpd
+  fi
 
 ) > $C_FIFO 2>&1
