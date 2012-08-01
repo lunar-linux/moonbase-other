@@ -3,6 +3,7 @@ Description=OpenAFS Server Service
 After=syslog.target network.target
 
 [Service]
+Type=forking
 ExecStart=/usr/sbin/bosserver
 ExecStop=/usr/bin/bos shutdown localhost -wait -localauth
 
