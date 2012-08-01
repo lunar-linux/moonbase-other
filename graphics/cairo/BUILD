@@ -2,7 +2,7 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
-  OPTS+=" --disable-static"  &&
+  OPTS+=" --disable-static --disable-drm"  &&
 
   if in_depends $MODULE qt4 ; then
     . /etc/profile.d/qt4.rc
