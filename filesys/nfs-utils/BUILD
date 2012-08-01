@@ -9,7 +9,7 @@
               --mandir=/usr/share/man                     \
               --disable-tirpc                             \
               --disable-gss                               \
-              --with-tcp-wrappers                         \
+              --without-tcp-wrappers                      \
               $OPTS                                      &&
 
   default_make                                           &&
