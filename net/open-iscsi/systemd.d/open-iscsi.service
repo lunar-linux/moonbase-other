@@ -1,0 +1,13 @@
+[Unit]
+Description=Open-iscsi Service Daemon
+After=network.target
+
+[Service]
+Type=forking
+ExecStartPre=/sbin/modprobe -a libiscsi scsi_transport_iscsi iscsi_tcp
+ExecStart=/sbin/iscsid -c /etc/iscsi/iscsid.conf -i /etc/iscsi/initiatorname.iscsi
+ExecStartPost=/sbin/iscsiadm -m node -L automatic
+ExecStopPre=/sbin/iscsiadm -m node -U all
+
+[Install]
+WantedBy=multi-user.target remote-fs.target
