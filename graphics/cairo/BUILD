@@ -1,6 +1,8 @@
 (
 
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  # see https://bugs.freedesktop.org/show_bug.cgi?id=29092
+  patch_it $SOURCE_CACHE/$SOURCE3 1  &&
 
   OPTS+=" --disable-static"  &&
 
@@ -17,6 +19,8 @@
     sedit 's/SUBDIRS = src doc util/SUBDIRS = src util/g' Makefile.in
   fi  &&
 
+  # LIBS is needed for cairo-sphinx and others with --as-needed
+  LIBS="-lstdc++" \
   default_build
 
 ) > $C_FIFO 2>&1
