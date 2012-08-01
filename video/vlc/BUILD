@@ -16,11 +16,6 @@
 
   default_build &&
 
-  sedit "s:Icon=vlc:Icon=/usr/share/icons/hicolor/32x32/apps/vlc.png:" /usr/share/applications/vlc.desktop &&
-  sedit "s:Categories=:Categories=Multimedia;:" /usr/share/applications/vlc.desktop &&
-
-  if [[ -e /usr/bin/gtk-update-icon-cache ]] ; then
-    gtk-update-icon-cache -f /usr/share/icons/hicolor/
-  fi
+  sedit "s:Categories=:Categories=Multimedia;:" /usr/share/applications/vlc.desktop
 
 )
