@@ -1,0 +1,15 @@
+[Unit]
+Description=RabbitMQ Messaging Server
+After=network.target
+
+[Service]
+Type=simple
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=rabbitmq
+ExecStart=/usr/sbin/rabbitmq-server
+ExecStop=/usr/sbin/rabbitmqctl stop
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,6 +1,6 @@
 (
   add_priv_user rabbitmq:rabbitmq -d /var/lib/rabbitmq &&
-  make &&
+  make all docs_all &&
   prepare_install &&
   make install TARGET_DIR=/usr/lib/rabbitmq/lib/rabbitmq_server-${VERSION} \
                SBIN_DIR=/usr/lib/rabbitmq/bin \
