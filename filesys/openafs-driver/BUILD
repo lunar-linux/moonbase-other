@@ -27,6 +27,9 @@
 
   OPTS+=" --with-linux-kernel-headers=/usr/src/linux"
 
+  patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
+  ./regen.sh &&
   ./configure   --prefix=/usr                   \
                 --sysconfdir=/etc               \
                 --localstatedir=/var/lib        \
