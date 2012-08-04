@@ -21,14 +21,13 @@
     sed -i '/gtkdoc --rebase/s:^:# :' GNUmakefile.in 
   fi &&
 
-  # stolen from blfs, avoid race condition in build with multiple makes
-  # http://www.linuxfromscratch.org/blfs/view/svn/x/webkitgtk.html
-  if in_depends $MODULE gobject-introspection && [[ $MAKES -gt 1 ]] ; then
+  #stolen from blfs, avoid race condition in build with multiple makes
+  if [[ $MAKES -gt 1 ]] ; then
     default_config && 
     error_count=0 &&
     until default_make
     do
-      if (( $((error_count++)) > 4 )) ; then 
+      if (( $((error_count++)) > 4 )) ; then
         echo Too Many Errors &&
         break
       fi
@@ -38,7 +37,7 @@
   else
     default_build
   fi &&
-  
-  install 'Programs/GtkLauncher' '/usr/bin/GtkLauncher' 
+
+  install 'Programs/GtkLauncher' '/usr/bin/GtkLauncher'
 
 ) > $C_FIFO 2>&1
