@@ -5,23 +5,20 @@
           --with-unicode-backend=icu    \
           --with-font-backend=freetype  \
           --enable-xslt                 \
-          --enable-svg                  \
-          --enable-svg-animation        \
-          --enable-svg-fonts            \
-          --enable-svg-foreign-object   \
-          --enable-svg-as-image         \
           --enable-optimizations        \
-	  --disable-glibtest            \
+          --disable-glibtest            \
           --with-gtk=2.0                \
+          --enable-video                \
+          --disable-web-audio           \
           --disable-gtk-doc-html"      &&
 
   #make build work even if gtk-doc is not installed
   if ! module_installed gtk-doc ; then
-    sed -i '/gtkdoc --rebase/s:^:# :' GNUmakefile.in 
+    sed -i '/gtkdoc --rebase/s:^:# :' GNUmakefile.in
   fi &&
 
   #stolen from blfs, avoid race condition in build with multiple makes
-  default_config && 
+  default_config &&
   error_count=0 &&
   until default_make
   do
