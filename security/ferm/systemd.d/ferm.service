@@ -1,0 +1,12 @@
+[Unit]
+Description=Ferm
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/ferm.conf
+ExecStart=/usr/sbin/ferm ${CONFIG_FILE}
+ExecStop=/usr/sbin/ferm -F ${CONFIG_FILE}
+
+[Install]
+WantedBy=multi-user.target
