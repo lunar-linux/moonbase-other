@@ -11,7 +11,6 @@
           --enable-svg-foreign-object   \
           --enable-svg-as-image         \
           --enable-optimizations        \
-	  --enable-video                \
 	  --disable-glibtest            \
           --with-gtk=2.0                \
           --disable-gtk-doc-html"      &&
@@ -22,22 +21,17 @@
   fi &&
 
   #stolen from blfs, avoid race condition in build with multiple makes
-  if [[ $MAKES -gt 1 ]] ; then
-    default_config && 
-    error_count=0 &&
-    until default_make
-    do
-      if (( $((error_count++)) > 4 )) ; then
-        echo Too Many Errors &&
-        break
-      fi
-    done &&
-    unset error_count &&
-    make install
-  else
-    default_build
-  fi &&
-
+  default_config && 
+  error_count=0 &&
+  until default_make
+  do
+    if (( $((error_count++)) > 4 )) ; then
+      echo Too Many Errors &&
+      break
+    fi
+  done &&
+  unset error_count &&
+  make install &&
   install 'Programs/GtkLauncher' '/usr/bin/GtkLauncher'
 
 ) > $C_FIFO 2>&1
