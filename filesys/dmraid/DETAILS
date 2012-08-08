@@ -1,0 +1,19 @@
+          MODULE=dmraid
+         VERSION=1.0.0.rc16-3
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://people.redhat.com/~heinzm/sw/$MODULE/src/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE/$VERSION/dmraid
+      SOURCE_VFY=sha1:162b6173b91a0121a52402d2ed939b43d74ff605
+        WEB_SITE="http://people.redhat.com/~heinzm/"
+         ENTERED=20081025
+         UPDATED=20091109
+           SHORT="discovers, activates, deactivates and displays software RAID sets"
+cat <<EOF
+This software discovers, activates, deactivates and displays properties
+of software RAID sets (eg, ATARAID) and contained DOS partitions.
+
+It allows for RAID set creation/removal/rebuild of Intel Software RAID.
+
+dmraid uses libdevmapper and the device-mapper kernel runtime to create
+devices with respective mappings for the ATARAID sets discovered.
+EOF
