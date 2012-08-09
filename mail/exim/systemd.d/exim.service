@@ -1,11 +1,12 @@
 [Unit]
-Description=Exim Mail Daemon
+Description=Exim Mail Transport Agent
+After=network.target
+Conflicts=postfix.service
 
 [Service]
-StandardOutput=syslog
-PIDFile=/var/run/exim.pid
-ExecStart=/usr/sbin/exim -bdf -q30m
-ExecReload=/bin/kill -HUP $MAINPID
+PrivateTmp=true
+ExecStart=/usr/sbin/exim -bd -q30m
+
 
 [Install]
 WantedBy=multi-user.target
