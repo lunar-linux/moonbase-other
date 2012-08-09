@@ -5,8 +5,9 @@
   OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
 
   ./configure --prefix=/usr  \
-               $OPTS        &&
-                  
+              --sysconfdir=/etc  \
+              $OPTS  &&
+
   default_make  &&
 
   # qemu-doc.html may not exist, but it will be ignored if that is the case
