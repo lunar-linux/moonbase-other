@@ -1,13 +1,19 @@
           MODULE=ejabberd
          VERSION=2.1.11
           SOURCE=${MODULE}-${VERSION}.tgz
+         SOURCE2=ejabberd-2.1.11-fix-file-perms.patch
+         SOURCE3=ejabberd-2.1.11-run-as-ejabberd.patch
       SOURCE_URL=http://www.process-one.net/downloads/ejabberd/$VERSION
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_VFY=sha256:91d5c10e64f9faa60c345c68304746f493d71f82723302955d40d6619e3d87de
+     SOURCE2_VFY=sha256:486025fc0e8158482e0a24527bac57bac7e9eea722ef6cde9e405ae0e3205455
+     SOURCE3_VFY=sha256:642c7eb9720fe486707104cff8dc44d708cdae85e930ab103ae03b078fc97f8a
         WEB_SITE="http://www.ejabberd.im/"
          ENTERED=20110215
-         UPDATED=20120616
-           SHORT="An erlang jabber server"
+         UPDATED=20120809
+           SHORT="An erlang Jabber/XMPP server"
 cat <<EOF
 An erlang jabber server
 EOF
