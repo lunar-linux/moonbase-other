@@ -1,0 +1,11 @@
+[Unit]
+Description=MSN Jabber Transport
+After=network.target ejabberd.service
+
+[Service]
+Type=forking
+PIDFile=/var/run/pymsnt.pid
+ExecStart=/usr/bin/python /usr/lib/pymsnt/PyMSNt.py -c /etc/jabber/pymsnt.xml
+
+[Install]
+WantedBy=multi-user.target
