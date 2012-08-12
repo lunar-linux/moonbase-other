@@ -1,7 +1,9 @@
 (
 
   sedit "s/\$(OPT) \-D\$(DB)/\\$CFLAGS  -D\$(DB)/" Makefile.Linux &&
+  sedit "s/\$(HOME)\/./\/etc\//" Makefile.Linux &&
   sedit "s/INSTALL_DIR = \$(HOME)\/bin/INSTALL_DIR = \/usr\/bin/" Makefile.Linux &&
+  sedit "s/local\/bin/bin/" Makefile.Linux &&
   sedit "s/750/755/g" Makefile.Linux &&
   sedit "s/\/opt\/antiword\/share/\/usr\/share\/antiword/" antiword.h &&
 
