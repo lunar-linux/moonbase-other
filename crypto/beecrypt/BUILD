@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1 &&
+
   # Was installing /usr/lib@LIBALT@/libbeecrypt_java.so.7.0.0
   sedit "s:lib@LIBALT@:lib:" java/Makefile.in  &&
 
