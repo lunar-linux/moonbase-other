@@ -29,6 +29,9 @@
   done &&
   unset error_count &&
   make install &&
-  install 'Programs/GtkLauncher' '/usr/bin/GtkLauncher'
+  install 'Programs/GtkLauncher' '/usr/bin/GtkLauncher' &&
+
+  # add symlink for plugin detection
+  ln -sf /usr/lib/lunar/plugins /usr/lib/browser-plugins
 
 ) > $C_FIFO 2>&1
