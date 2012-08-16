@@ -1,10 +1,7 @@
 (
 
-  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-        -DCMAKE_BUILD_TYPE=RELEASE             \
-        -DBUILD_STATIC=OFF                     \
-        $OPTS .                               &&
+  sed -i "6i #include <unistd.h>" include/main.h &&
 
-  default_make
+  default_cmake_build
 
 ) > $C_FIFO 2>&1
