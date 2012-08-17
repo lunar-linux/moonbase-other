@@ -1,13 +1,14 @@
 (
 
   if module_installed systemd ; then
+    OPTS+=" --with-udev-rules-dir=/usr/lib/udev/rules.d"
     patch_it $SOURCE_CACHE/$SOURCE2 1
   fi &&
 
   libtoolize --copy --force --automake &&
   autoreconf &&
 
-  OPTS="--disable-hal-compat --disable-hal" &&
+  OPTS+=" --disable-hal-compat --disable-hal" &&
 
   if [ -f /usr/bin/parec ];  then
     rm /usr/bin/parec
