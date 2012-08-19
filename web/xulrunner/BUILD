@@ -1,12 +1,12 @@
 (
 
+  patch_it $SOURCE2 1 &&
 # Inserting a missing header
   sed -i "4i #include <cstddef>" gfx/ots/src/os2.cc &&
 
 # See https://lkml.org/lkml/2011/6/14/293 and https://bugzilla.mozilla.org/show_bug.cgi?id=661609
-  if [ `uname -r | cut -c1-3` == "3.4" ] ; then
-      cp security/coreconf/Linux2.6.mk security/coreconf/Linux3.4.mk
-  fi &&
+  KERN_VER=`uname -r | cut -c1-3` &&
+  cp security/coreconf/Linux2.6.mk security/coreconf/Linux$KERN_VER.mk &&
 
   OPTS+=" --enable-application=xulrunner \
           --prefix=/usr \
