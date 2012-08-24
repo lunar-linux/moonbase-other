@@ -11,7 +11,7 @@
   install -Dm0755 bin/list-records /usr/lib/resolvconf/list-records &&
 
   cp -rv etc/resolvconf /etc/ &&
-  ln -sf /run/resolvconf/ /etc/resolvconf/run &&
+  ln -sf /var/run/resolvconf/ /etc/resolvconf/run &&
 
   # backup original resolv.conf
   if [ ! -e /etc/resolv.conf ] || [ ! -L /etc/resolv.conf ]; then

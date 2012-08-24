@@ -1,5 +1,5 @@
 resolvconf --wipe-runtime-directories &&
-rmdir /run/resolvconf &&
+rmdir "`readlink /etc/resolvconf/run`" &&
 
 if [ -L /etc/resolv.conf ] && [ "`readlink /etc/resolv.conf`" = "/etc/resolvconf/run/resolv.conf" ]; then
    rm /etc/resolv.conf
