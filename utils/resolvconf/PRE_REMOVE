@@ -1,0 +1,10 @@
+resolvconf --wipe-runtime-directories &&
+rmdir /run/resolvconf &&
+
+if [ -L /etc/resolv.conf ] && [ "`readlink /etc/resolv.conf`" = "/etc/resolvconf/run/resolv.conf" ]; then
+   rm /etc/resolv.conf
+fi &&
+
+if [ -e /etc/resolvconf/resolv.conf.d/original ]; then
+   cp /etc/resolvconf/resolv.conf.d/original /etc/resolv.conf
+fi
