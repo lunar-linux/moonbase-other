@@ -1,0 +1,8 @@
+resolvconf --create-runtime-directories &&
+resolvconf -u &&
+resolvconf --enable-updates &&
+
+# provide the old resolvconf entries until the file is regenerated
+if [ -e /etc/resolvconf/resolv.conf.d/original ]; then
+   cat /etc/resolvconf/resolv.conf.d/original >> /etc/resolv.conf
+fi
