@@ -1,6 +1,26 @@
+# build dependencies
 depends flex
+depends fontforge
+depends bison
+depends gettext
+depends texlive
+depends perl
+depends texinfo
+depends t1utils
+
+#depends mftrace
+
+# runtime dependencies
+depends urw-fonts
+depends dejavu-ttf
+depends fontconfig
+depends freetype2
+depends ghostscript
 depends guile
 depends pango
-depends mftrace
-depends t1utils
-depends urw-fonts
+depends Python
+
+# When someone fixed our texlive package this can be reenabled
+#optional_depends texi2html "--enable-documentation" "--disable-documentation" "build documentation(this takes ${PROBLEM_COLOR}a lot${DEFAULT_COLOR}${MESSAGE_COLOR} of time and requires netpbm and ImageMagick as well)"
+#optional_depends netpbm "" "" "needed for documentation"
+#optional_depends ImageMagick "" "" "needed for documentation"
