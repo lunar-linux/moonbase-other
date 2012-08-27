@@ -11,7 +11,6 @@
   sedit "s:Application;::" src/data/semantik.desktop &&
  
   ./waf configure --prefix=$QTDIR   \
-                  --qtincludes=$QTDIR/include/qt4/ \
                   --qtlibs=$QTDIR/lib/qt4          &&
 
   ./waf            &&
