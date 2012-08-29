@@ -12,7 +12,7 @@
   rm usr/bin/libreoffice${VERSION%.*}
   desktopfiles="base calc draw impress javafilter math printeradmin startcenter writer"  &&
   for i in $desktopfiles; do
-    rm usr/share/applications/libreoffice${VERSION%.*}-$i.desktop
+    rm usr/share/applications/libreoffice*-$i.desktop
   done
 
   prepare_install  &&
