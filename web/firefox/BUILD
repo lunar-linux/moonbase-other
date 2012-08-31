@@ -1,5 +1,8 @@
 (
 
+  # Workaround Segmentation fault at install part on precompile_cache.js
+  sedit '/^GENERATE_CACHE = 1$/d' browser/installer/Makefile.in &&
+
   sedit 's/@PRE_RELEASE_SUFFIX@//g' browser/base/content/browser.xul &&
 
   export MOZ_CO_PROJECT=browser  &&
