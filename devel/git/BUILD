@@ -1,7 +1,6 @@
 (
 
   unpack $SOURCE2 &&
-  sedit "s/-g -O2/${CFLAGS}/" Makefile &&
   make prefix=/usr CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS" NO_CROSS_DIRECTORY_HARDLINKS=1 $OPTS all &&
   prepare_install  &&
   make prefix=/usr CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS" NO_CROSS_DIRECTORY_HARDLINKS=1 $OPTS install &&
