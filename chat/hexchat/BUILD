@@ -2,7 +2,7 @@
 
   OPTS+=" --enable-ipv6"  &&
 
-  ./autogen.sh
+  ./autogen.sh &&
 
   default_build
 
