@@ -4,7 +4,6 @@
 # Instead of screwing around with a patch, just do this and recheck on it next bump.
     cmake . -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
             -DCMAKE_BUILD_TYPE=RELEASE             \
-            -DSYSCONF_INSTALL_DIR:PATH=/etc        \
             $OPTS &&
 
   default_make
