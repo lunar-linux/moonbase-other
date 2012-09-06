@@ -1,15 +1,24 @@
-       MODULE=xbase
-      VERSION=2.0.0
-       SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE2=$MODULE-$VERSION-01.patch
-   SOURCE_URL=$SFORGE_URL/xdb
-  SOURCE2_URL=$PATCH_URL
-   SOURCE_VFY=sha1:b3ee9e4c3299a11f31b0b199e958817bb0e24d5b
-  SOURCE2_VFY=sha1:91b8728750e93344663911262f2c77a1e92721e1
-     WEB_SITE=http://linux.techass.com/projects/xdb/
-      ENTERED=20060205
-      UPDATED=20101107
-        SHORT="DBF (dBase and other) database files, NDX (dbase) and NTX, and DBT formats"
+          MODULE=xbase
+         VERSION=2.0.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=xbase-$VERSION-fixconfig.patch
+         SOURCE3=xbase-$VERSION-fixheader.patch
+         SOURCE4=xbase-$VERSION-gcc43.patch
+         SOURCE5=xbase-$VERSION-x86_64.patch
+      SOURCE_URL=$SFORGE_URL/xdb
+     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/dev-db/xbase/files/
+     SOURCE3_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/dev-db/xbase/files/
+     SOURCE4_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/dev-db/xbase/files/
+     SOURCE5_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/dev-db/xbase/files/
+      SOURCE_VFY=sha1:b3ee9e4c3299a11f31b0b199e958817bb0e24d5b
+     SOURCE2_VFY=sha1:9f1bc25aafa442899c9621bcfe9546d580cce136
+     SOURCE3_VFY=sha1:792221596f1d68efde992ba9e261df1ddd28f6ae
+     SOURCE4_VFY=sha1:324f275e4f6fb4710dc204af7c8fae7f099d570f
+     SOURCE5_VFY=sha1:3e3c9527635fa4345f22dff719b417922268327b
+        WEB_SITE=http://linux.techass.com/projects/xdb/
+         ENTERED=20060205
+         UPDATED=20120906
+           SHORT="DBF (dBase and other) database files, NDX (dbase) and NTX, and DBT formats"
 
 PSAFE=no
 cat << EOF
