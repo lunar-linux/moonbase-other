@@ -1,21 +1,18 @@
           MODULE=mongodb
-         VERSION=2.0.6
+         VERSION=2.2.0
           SOURCE=$MODULE-src-r$VERSION.tar.gz
          SOURCE2=mongodb.conf-0.3
-         SOURCE3=mongodb-fix-fork.patch
-         SOURCE4=mongodb-fix-pcre.patch
+         SOURCE3=mongodb-2.x-SConscript.client.patch
       SOURCE_URL=http://downloads.mongodb.org/src
      SOURCE2_URL=$PATCH_URL
      SOURCE3_URL=$PATCH_URL
-     SOURCE4_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-src-r$VERSION
-      SOURCE_VFY=sha256:a972725a7dc3d079f8070d3631956141a7fe2f422d350e6cd3288c9e19fa314e
+      SOURCE_VFY=sha256:084626e476ac747dfae143889c24a10f739cd54480af9bf253f50999f065608b
      SOURCE2_VFY=sha256:29e47681c4a9325a8288e3f5c3591138f08bce36178c21a0a4b41bf4b05922dc
-     SOURCE3_VFY=sha256:dc87ff83a5454c70a6d5879794702e469793e33e9ccd51b659bc188cfaf927e4
-     SOURCE4_VFY=sha256:9259917a6b23638857fa7927067c68c3f612326907ca451c8622494b079729e3
+     SOURCE3_VFY=sha256:ca00fedc9f87bc3e013a2d4345fc125b22d614e111cc11c233f544940574c058
         WEB_SITE=http://www.mongodb.org/
          ENTERED=20101205
-         UPDATED=20120704
+         UPDATED=20120908
            SHORT="A scalable, high-performance, key-value store, document-oriented database"
 cat << EOF
 MongoDB bridges the gap between key-value stores (which are fast and
