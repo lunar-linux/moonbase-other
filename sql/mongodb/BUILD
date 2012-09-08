@@ -1,12 +1,12 @@
 (
+  # Fix for https://jira.mongodb.org/browse/SERVER-5575
   patch_it $SOURCE3 1 &&
-  patch_it $SOURCE4 1 &&
 
   add_priv_user mongodb:mongodb -d /var/lib/mongodb  &&
 
-  scons -j${MAKES:=1} --sharedclient . &&
+  scons -j${MAKES:=1} all --full &&
   prepare_install &&
-  scons -j${MAKES:=1} install --sharedclient --full --prefix=/usr &&
+  scons -j${MAKES:=1} install --full --prefix=/usr &&
 
   rm -f /usr/lib/libmongoclient.a &&
 
