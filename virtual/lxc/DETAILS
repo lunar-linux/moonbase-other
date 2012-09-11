@@ -1,0 +1,26 @@
+          MODULE=lxc
+         VERSION=0.7.5
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:e9f5a05a63735f80fb6e0d0d6d7a82d047cc65d0
+        WEB_SITE="http://lxc.sourceforge.net/"
+         ENTERED=20120827
+         UPDATED=20120827
+           SHORT="container namespace cgroup virtualisation"
+cat <<EOF
+The container technology is actively being pushed into the mainstream
+linux kernel. It provides the resource management through the control
+groups aka process containers and resource isolation through the
+namespaces.
+
+The linux containers, lxc, aims to use these new functionalities to
+provide an userspace container object which provides full resource
+isolation and resource control for an application or a system.
+
+The first objective of this project is to make the life easier for the
+kernel developers involved in the containers project and especially
+to continue working on the Checkpoint/Restart new features. The lxc
+is small enough to easily manage a container with simple command
+lines and complete enough to be used for other purposes.
+EOF
