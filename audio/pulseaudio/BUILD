@@ -1,5 +1,9 @@
 (
 
+  if module_installed systemd ; then
+    OPTS+=" --with-udev-rules-dir=/usr/lib/udev/rules.d"
+  fi &&
+
   libtoolize --copy --force --automake &&
   autoreconf &&
 
