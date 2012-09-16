@@ -1,0 +1,21 @@
+          MODULE=easytag2
+         VERSION=2.1.7
+          SOURCE=${MODULE%2*}-$VERSION.tar.bz2
+         SOURCE2=easytag-2.1.7-new_libmp4v2.patch
+      SOURCE_URL=$SFORGE_URL/${MODULE%2*}
+     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-sound/easytag/files/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%2*}-$VERSION
+      SOURCE_VFY=sha1:7b56ba18be2f1bec0171e5de4447ba763a264f92
+     SOURCE2_VFY=sha1:29543cf39bd44060de14ba3b9d0235c2d7c217ba
+        WEB_SITE=http://easytag.sourceforge.net/
+         ENTERED=20050924
+         UPDATED=20120916
+           SHORT="Maintaining id3 tags (gtk+-2 version)"
+
+cat << EOF
+EasyTAG is an utility for viewing and editing tags for MP3, MP2, FLAC,
+Ogg Vorbis, MusePack and Monkey's Audio files. Its simple and nice GTK+
+interface makes tagging easier under GNU/Linux.
+It manages the ID3v1.x and ID3v2 tags (using id3lib) and offers a lot of
+functions to manipulate them.
+EOF
