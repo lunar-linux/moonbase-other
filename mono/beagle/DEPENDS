@@ -1,0 +1,22 @@
+depends  dbus
+depends  gnome-utils
+depends  gnome-sharp
+depends  gmime
+depends  gnome-desktop-sharp
+
+optional_depends "taglib-sharp" "" "" "for audio file searching"
+
+optional_depends "evolution-sharp" \
+                 "" \
+                 "--disable-evolution" \
+                 "Enables the Evolution Mail Backend"
+
+optional_depends "wv" \
+                 ""   \
+                 ""   \
+                 "Enables MS Word support (must say Y to gsf-sharp)"
+
+optional_depends "gsf-sharp" \
+                 "" \
+                 "--disable-gsf-sharp" \
+                 "Enables Microsoft Powerpoint support"

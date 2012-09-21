@@ -1,0 +1,15 @@
+depends  mono-addins
+depends  gnome-desktop-sharp
+
+optional_depends  "wdfs"     ""  ""  "for synchronization of notes via WebDAV"
+optional_depends  "openssh"  ""  ""  "for synchronization of notes via SSH"
+
+optional_depends  "evolution"            \
+                  "--enable-evolution"   \
+                  "--disable-evolution"  \
+                  "install the Evolution addin"
+
+optional_depends  "ndesk-dbus"      \
+                  "--enable-dbus"   \
+                  "--disable-dbus"  \
+                  "for DBUS remote control of tomboy"
