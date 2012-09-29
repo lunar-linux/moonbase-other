@@ -1,0 +1,9 @@
+[Unit]
+Description=Internet services metadaemon
+After=syslog.target network.target
+
+[Service]
+ExecStart=/usr/sbin/xinetd -dontfork
+
+[Install]
+WantedBy=multi-user.target
