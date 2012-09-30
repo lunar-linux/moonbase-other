@@ -1,0 +1,9 @@
+depends  openssl
+depends  SDL
+depends  alsa-lib
+
+optional_depends "libraw1394" "--enable-dc"  "--disable-dc"  "for raw 1394 access support"
+#currently broken
+#optional_depends "libavc1394" "--enable-avc" "--disable-avc" "for AV/C specification support"
+optional_depends "libdv"      "" "" "for Quasar DV codec support"
+optional_depends "unixODBC"   "--enable-odbc" "--disable-odbc" "for ODBC support"
