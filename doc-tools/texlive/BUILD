@@ -1,4 +1,5 @@
 (
+
   # Use /usr/share as root
   sedit 's:^\(TEXMFROOT = \)\$SELFAUTOPARENT:\1 /usr/share:' texk/kpathsea/texmf.cnf &&
   sedit 's:^\(TEXMFLOCAL = \).*$:\1 \$TEXMFROOT/texmf-local:' texk/kpathsea/texmf.cnf &&
@@ -38,9 +39,17 @@
   # luatex and psutils are individual modules.
   OPTS+=" --datadir=/usr/share --disable-multiplatform --disable-native-texlive-build --with-gs=gs --disable-xindy --enable-etex --disable-luatex --disable-psutils --enable-xetex --enable-ipc --enable-shared --disable-static --with-system-zlib --with-system-zziplib --with-system-libpng --with-system-gd --with-system-t1lib --with-system-teckit --with-teckit-includes=/usr/include/teckit --with-system-freetype2 --disable-t1utils --disable-lcdf-typetools" &&
 
-  default_build  &&
+# They warn an in source build is a very bad idea, so
+  mkdir tex-build &&
+  cd tex-build    &&
+  ../configure --prefix=/usr $OPTS &&
+  default_make  &&
+
+  # This does not get installed and causes the Can't locate TeXLive/TLUtils.pm after the BUILD
+  mkdir -p /usr/share/tlpkg/TeXLive &&
+  install -m644 $SOURCE_DIRECTORY/texk/tests/TeXLive/*.pm /usr/share/tlpkg/TeXLive &&
 
   # Idea from http://projects.archlinux.org/svntogit/packages.git/tree/texlive-bin/trunk/
-  install -m644 $SOURCE_CACHE/$SOURCE2 /etc/fonts/conf.d/09-texlive-fonts.conf
+  install -m644 $SOURCE_CACHE/$SOURCE2 /etc/fonts/conf.d/09-texlive-fonts.conf 
 
 ) > $C_FIFO 2>&1
