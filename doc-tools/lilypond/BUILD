@@ -2,23 +2,15 @@
 
   # For some reason it has a problem finding the .pfb
   # files provided by urw-fonts.
-  OPTS+=" --with-ncsb-dir=/usr/share/fonts/urw-fonts" &&
+  OPTS+=" --with-ncsb-dir=/usr/share/fonts/urw-fonts --disable-documentation" &&
+
+  ./autogen.sh --noconfigure &&
 
   mkdir build &&
   cd build/ &&
 
-  ../configure --prefix=/usr &&
+  ../configure --prefix=/usr $OPTS &&
 
-  make all &&
-  if in_depends $MODULE texi2html; then
-     make doc
-  fi &&
-
-  prepare_install &&
-
-  make install &&
-  if in_depends $MODULE texi2html; then
-     make install-doc
-  fi
+  default_make
 
 ) > $C_FIFO 2>&1
