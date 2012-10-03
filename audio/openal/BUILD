@@ -1,5 +1,7 @@
 (
 
+  LDFLAGS+=" -lavutil" &&
+
   default_cmake_build &&
 
   mkdir -p /etc/openal &&
