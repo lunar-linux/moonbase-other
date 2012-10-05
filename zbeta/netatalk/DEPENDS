@@ -1,0 +1,12 @@
+depends db
+depends libgcrypt
+
+optional_depends "avahi" \
+                 "--enable-zeroconf" \
+                 "--disable-zeroconf" \
+                 "for zeroconf support"
+
+optional_depends "Linux-PAM" \
+                 "--with-pam" \
+                 "--without-pam" \
+                 "for PAM support"
