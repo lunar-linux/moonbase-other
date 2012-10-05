@@ -1,8 +1,5 @@
 (
 
-  #Fixes bug with GTK2 version checking
-  patch_it $SOURCE2 1  &&
-
   ./waf configure --prefix=/usr              \
                   --sysconfdir=/etc          \
                   --localstatedir=/var       \
