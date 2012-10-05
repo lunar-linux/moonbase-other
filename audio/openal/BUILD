@@ -1,6 +1,6 @@
 (
 
-  LDFLAGS+=" -lavutil" &&
+  sedit "s:\(libavformat>=52.111.0\):\1 libavutil>=50.43.0:" CMakeLists.txt &&
 
   default_cmake_build &&
 
