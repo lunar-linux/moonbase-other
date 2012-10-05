@@ -17,6 +17,9 @@
     rm -rf texmf-dist/doc
   fi  &&
 
+  # adjust TeX root path
+  sedit "s:\(TEXMFROOT =\) .*$:\1 \$SELFAUTODIR/share:" texmf/web2c/texmf.cnf &&
+
   # this is the big cp (which would copy the man pages we removed before again)
   mkdir -p /usr/share                 &&
   cp -R texmf texmf-dist /usr/share/  &&
