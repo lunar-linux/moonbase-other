@@ -1,4 +1,5 @@
 depends  pixman
+depends  libxcb
 
 optional_depends "libpng"                                               \
                  "--enable-png --enable-svg"                            \
@@ -16,14 +17,9 @@ optional_depends "libX11"                                               \
                  "for Xlib surface backend"
 
 optional_depends "libXrender"                                           \
-                 "--enable-xlib --enable-xlib-xrender"                  \
+                 "--enable-xlib-xrender"                                \
                  "--disable-xlib-xrender"                               \
                  "for Xlib Xrender surface backend (enables Xlib)"
-
-optional_depends "libxcb"                                               \
-                 "--enable-xlib --enable-xcb"                           \
-                 "--disable-xcb"                                        \
-                 "for XCB surface backend (experimental, enables Xlib)"
 
 optional_depends "qt4"                                                  \
                  "--enable-qt"                                          \
