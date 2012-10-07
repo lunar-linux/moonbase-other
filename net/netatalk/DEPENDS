@@ -1,4 +1,5 @@
 depends db
+depends libevent
 depends libgcrypt
 
 optional_depends "avahi" \
@@ -10,3 +11,8 @@ optional_depends "Linux-PAM" \
                  "--with-pam" \
                  "--without-pam" \
                  "for PAM support"
+
+optional_depends "cracklib" \
+                 "--with-cracklib=/usr/share/cracklib" \
+                 "--without-cracklib" \
+                 "for cracklib support"
