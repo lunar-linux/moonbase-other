@@ -12,7 +12,7 @@
    . /etc/profile.d/qt4.rc
   fi &&
 
-  OPTS+=" --enable-xvideo --enable-real --enable-realrtsp --enable-media-library --disable-sid" &&
+  OPTS+=" --enable-xvideo --enable-real --enable-realrtsp --enable-media-library --disable-sid --with-tuning=$CPUTUNE" &&
 
   default_build &&
 
