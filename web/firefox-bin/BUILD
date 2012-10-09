@@ -2,12 +2,12 @@
 
   prepare_install  &&
   message "${MESSAGE_COLOR}Installing Firefox ${VERSION}...${DEFAULT_COLOR}"  &&
-  cd /opt/lunar   &&
+  cd /usr/lib  &&
   unpack $SOURCE  &&
 
-  ln -snf /opt/lunar/plugins /opt/lunar/firefox/plugins  &&
+  ln -snf /usr/lib/lunar/plugins /usr/lib/firefox/plugins  &&
   if [ ! -h /usr/bin/firefox ]; then
-    ln -snf /opt/lunar/firefox/firefox /usr/bin/firefox
+    ln -snf /usr/lib/firefox/firefox /usr/bin/firefox
   fi &&
 
  # Now the .desktop file and the icon
