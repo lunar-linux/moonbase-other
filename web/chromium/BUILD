@@ -1,5 +1,6 @@
 (
-  patch_it $SOURCE3 1 &&
+
+  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
   sedit "s/'-Werror'/''/" build/common.gypi  &&
 
