@@ -1,14 +1,9 @@
 (
 
-  # Options from:
-  # http://repos.archlinux.org/viewvc.cgi/fontforge/repos/extra-i686/PKGBUILD?view=log
-  OPTS+=" --with-freetype-src=/usr/include/freetype2 --disable-static --enable-double --enable-type3 --enable-devicetables"  &&
+  OPTS+=" --with-freetype-src=/usr/include/freetype2 --disable-static --enable-double      \
+          --with-freetype-bytecode --enable-gb12345 --enable-tilepath --enable-pasteafter  \
+          --enable-devicetables --enable-multilayer --enable-type3 --enable-libff"        &&
 
-  ./configure --prefix=/usr  \
-              $OPTS         &&
-
-  sedit "s: s : :" fontforge/Makefile  &&
-
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1
