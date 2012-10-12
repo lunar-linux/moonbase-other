@@ -4,7 +4,7 @@
   # see https://bugs.freedesktop.org/show_bug.cgi?id=29092
   patch_it $SOURCE_CACHE/$SOURCE3 1  &&
 
-  OPTS+=" --disable-static"  &&
+  OPTS+=" --disable-static --enable-xlib-xcb "  &&
 
   if in_depends $MODULE qt4 ; then
     . /etc/profile.d/qt4.rc

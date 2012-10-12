@@ -16,8 +16,6 @@
 
   CXXFLAGS="-lpthread" &&
 
-  default_build &&
-
-  ln -fs /usr/lib/octave-${VERSION} /usr/lib/octave
+  default_build
 
 ) > $C_FIFO 2>&1
