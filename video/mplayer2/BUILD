@@ -16,6 +16,9 @@
     EXTRA_LIBS_MPLAYER+=" -lX11 -lXext"
   fi
 
+  # Since live555 2012 the API has changed and mplayer2 haven't fixed it yet
+  OPTS+=" --disable-live"
+
   ./configure  --target=$BUILD                              \
                --prefix=/usr                                \
                --confdir=/etc                               \
