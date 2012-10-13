@@ -99,7 +99,7 @@ optional_depends live555 \
 
 # MPlayer needs to use x264 *via* ffmpeg
 optional_depends ffmpeg \
-                 "--enable-x264" \
+                 "--enable-x264 --extra-libs=-lx264" \
                  "--disable-x264" \
                  "use ffmpeg (with e.g. x264-snapshot)"
 
