@@ -9,7 +9,7 @@ do
   fi
 done &&
 
-  LDFLAGS+=" -lm" &&
+  LDFLAGS+=" -lm -lglut -lGL" &&
 
   default_build &&
 
