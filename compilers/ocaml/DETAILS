@@ -1,15 +1,15 @@
           MODULE=ocaml
-           MAJOR=3.12
-         VERSION=$MAJOR.1
+         VERSION=4.00.1
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=http://caml.inria.fr/pub/distrib/$MODULE-$MAJOR
+   SOURCE_URL[0]=http://caml.inria.fr/pub/distrib/$MODULE-${VERSION%.*}
    SOURCE_URL[1]=$MIRROR_URL
-      SOURCE_VFY=sha1:29b44117b116b1a5bc54a8b4514af483793a769f
+      SOURCE_VFY=sha1:10b8a4d0b88d20b003e3dd719f2ac9434e6a1042
         WEB_SITE=http://caml.inria.fr
          ENTERED=20020512
-         UPDATED=20110722
+         UPDATED=20121013
            SHORT="An objective cml compiler"
 PSAFE=no
+
 cat << EOF
 Objective Caml belongs to the ML family of programming languages and has been
 implemented at INRIA Rocquencourt within the ``Cristal project'' group. Since

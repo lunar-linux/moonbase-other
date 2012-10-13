@@ -1,12 +1,16 @@
           MODULE=coq
-         VERSION=8.3pl2
+         VERSION=8.4
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-lablgtk216.patch
       SOURCE_URL=http://coq.inria.fr/distrib/V${VERSION}/files/
-      SOURCE_VFY=sha1:8506761e4755739cc728aff790dd778db8217f3f
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:2987aa418dd96a0df7284afe296293cb28814ef5
+     SOURCE2_VFY=sha1:d292e02ee556e7bd4e271c616619b697495015dc
         WEB_SITE=http://coq.inria.fr/
          ENTERED=20110829
-         UPDATED=20110829
+         UPDATED=20121013
            SHORT="COQ is an interactive proof assistant"
+
 cat << EOF
 COQ is a Proof Assistant for a Logical Framework known as the Calculus of
 Inductive Constructions. It allows the interactive construction of formal
