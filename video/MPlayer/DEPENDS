@@ -33,7 +33,7 @@ optional_depends alsa-utils \
                  "for ALSA sound support"
 
 optional_depends mpg123 \
-                 "--enable-mpg123" \
+                 "--enable-mpg123 --extra-libs=-lmpg123" \
                  "--disable-mpg123" \
                  "for mp3 audio format"
 
@@ -93,7 +93,7 @@ optional_depends mpeg2dec \
                  "use system library for mpeg-1 and mpeg-2 support"
 
 optional_depends live555 \
-                 "--enable-live" \
+                 "--enable-live --extra-cflags=-I/usr/include/liveMedia --extra-cflags=-I/usr/include/UsageEnvironment --extra-cflags=-I/usr/include/BasicUsageEnvironment --extra-cflags=-I/usr/include/groupsock --extra-libs=-lstdc++ --extra-libs=-lliveMedia --extra-libs=-lUsageEnvironment --extra-libs=-lBasicUsageEnvironment --extra-libs=-lgroupsock" \
                  "--disable-live" \
                  "for RTP/RTCP, RTSP, SIP support"
 
@@ -104,6 +104,6 @@ optional_depends ffmpeg \
                  "use ffmpeg (with e.g. x264-snapshot)"
 
 optional_depends libbs2b \
-                 "--enable-libbs2b" \
+                 "--enable-libbs2b --extra-cflags=-I/usr/include/bs2b/ --extra-libs=-lbs2b" \
                  "--disable-libbs2b" \
                  "for better sound via headphones"
