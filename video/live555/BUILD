@@ -3,6 +3,9 @@
   # No need for the use of arch
   sedit 's;^C_FLAGS.*;& -fPIC $(CFLAGS);;s;\(^CPLUSPLUS_FLAGS.*$(COMPILE_OPTS)\).*;\1 -fPIC $(CXXFLAGS);' config.linux &&
 
+  # MPlayer 1.1 needs this interface
+  sedit "1 s/$/ -DRTSPCLIENT_SYNCHRONOUS_INTERFACE=1/" config.linux &&
+
   # Create .so rather then static libraries
   sedit 's;\(^LIBRARY_LINK =\).*;\1 $(CXX) -o;;s;\(^LIBRARY_LINK_OPTS =\).*;\1 $(LINK_OPTS) -shared -Wl,-soname,$@;' config.linux &&
   sedit 's;\(^LIB_SUFFIX =\).*;\1 so;' config.linux &&
