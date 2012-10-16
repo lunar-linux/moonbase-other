@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1 &&
+
   LDFLAGS+=" -lm" &&
 
   OPTS+=" --enable-static=no" &&
