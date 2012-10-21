@@ -25,9 +25,9 @@ rm -f $JDK_POLICY
 exit 1
 fi &&
 if [ "$bits" = i586 ]; then
-JDK_SHA1_VFY="faf6753458e6baeefcad7d365ef07e35ceb6f2a4  $JDK_ARCHIVE"
+JDK_SHA1_VFY="70dc3f4a2b472c2e3171611827f4a81ea9950d55  $JDK_ARCHIVE"
 else
-JDK_SHA1_VFY="4de692ac6fec1c97424b28f53ee8e2fdadfdb6a3  $JDK_ARCHIVE"
+JDK_SHA1_VFY="dfa082cece7054b05e52eca07c565b202f284998  $JDK_ARCHIVE"
 fi &&
 JDK_SHA1_TST=`sha1sum $JDK_ARCHIVE` &&
 if [ "$JDK_SHA1_VFY" != "$JDK_SHA1_TST" ]; then
