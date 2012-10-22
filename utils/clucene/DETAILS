@@ -1,13 +1,20 @@
           MODULE=clucene
          VERSION=2.3.3.4
           SOURCE=$MODULE-core-$VERSION.tar.gz
+         SOURCE2=clucene-2.3.3.4-contrib.patch
+         SOURCE3=clucene-2.3.3.4-pkgconfig.patch
       SOURCE_URL=$SFORGE_URL/clucene/clucene-core-unstable/${VERSION%.*.*}/
+     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/dev-cpp/clucene/files/
+     SOURCE3_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/dev-cpp/clucene/files/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-core-$VERSION
       SOURCE_VFY=sha1:76d6788e747e78abb5abf8eaad78d3342da5f2a4
+     SOURCE2_VFY=sha1:304e5dfaaf6cf0733b8e6f43a192565c9a9a845a
+     SOURCE3_VFY=sha1:7a6c187dc32cab5e13626fe6e5a12dc2bfb6e85f
         WEB_SITE=http://clucene.sourceforge.net/
          ENTERED=20070802
-         UPDATED=20110813
+         UPDATED=20121022
            SHORT="open-source indexing and searching API"
+
 cat << EOF
 CLucene is a high-performance, scalable, cross platform, full-featured,
 open-source indexing and searching API. It is written in C++. CLucene
