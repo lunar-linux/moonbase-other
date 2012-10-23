@@ -70,16 +70,7 @@
   setterm -bfreq -blength &&
 
   #Finally, the build!
-  if [ "$PGO" == "y" ] ; then
-    #CCache breaks the pgo build
-    export CCACHE_DISABLE=1  &&
-    echo "ac_add_options --enable-profile-guided-optimization" >> mozconfig  &&
-    echo "mk_add_options PROFILE_GEN_SCRIPT='python $MOZ_OBJDIR/_profile/pgo/profileserver.py'" >> mozconfig  &&
-    make -f client.mk build ${MAKES:+-j${MAKES}} &&
-    make -f client.mk profiledbuild ${MAKES:+-j${MAKES}}
-  else
-    make -f client.mk build ${MAKES:+-j${MAKES}}
-  fi  &&
+  make -f client.mk build ${MAKES:+-j${MAKES}}  &&
 
   cd ${MOZ_OBJDIR}  &&
   prepare_install   &&
@@ -90,6 +81,9 @@
 
   for s in 16 22 24 32 48 256 ; do
     install -Dm 644 $SOURCE_DIRECTORY/mozilla/browser/branding/official/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/seamonkey.png
-  done
+  done  &&
+  if [ -x /usr/bin/gtk-update-icon-cache -a -f /usr/share/icons/hicolor/index.theme ]; then
+    gtk-update-icon-cache -f /usr/share/icons/hicolor
+  fi
 
 ) > $C_FIFO 2>&1

@@ -1,8 +1,12 @@
 (
 
   sedit '1s@/usr/bin/awk@/bin/awk@' vidix/pci_db2c.awk &&
+
+  # --extra_* are expected only once, but we might need more
+  sedit "s:extra_\([^=]*\)=\(\\\$.*\)$:extra_\1=\"\$extra_\1 \2\":" configure &&
+
   # Remove subversion directories
-  find -name "\.svn" -type d -print0 | xargs -0 rm -rf
+  find -name "\.svn" -type d -print0 | xargs -0 rm -rf &&
 
   # using CFLAGS other than MPlayer's auto-detected will break
   bad_flags compiler  &&
