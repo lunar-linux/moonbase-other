@@ -12,12 +12,28 @@ optional_depends "speex"         "--enable-libspeex"        "--disable-libspeex"
 optional_depends "openjpeg"      "--enable-libopenjpeg"     "--disable-libopenjpeg"     "for JPEG 2000 decoding support"
 optional_depends "freetype2"     "--enable-libfreetype"     "--disable-libfreetype"     "for truetype fonts support"
 optional_depends "schroedinger"  "--enable-libschroedinger" "--disable-libschroedinger" "for Dirac support"
-optional_depends "x264-snapshot" "--enable-libx264"         "--disable-libx264"         "for H.264 encoding support"
 optional_depends "libdc1394"     "--enable-libdc1394"       "--disable-libdc1394"       "for IIDC-1394 grabbing (firewire) support"
 optional_depends "rtmpdump"      "--enable-librtmp"         "--disable-librtmp"         "for RTMP[E] support"
 optional_depends "libva"         "--enable-vaapi"           "--disable-vaapi"           "for hardware-accelerated video"
 optional_depends "SDL"           "--enable-ffplay"          "--disable-ffplay"          "for the ffplay media player"
 optional_depends "yasm"          "--enable-yasm"            "--disable-yasm"            "for yasm assembly support"
+optional_depends "libiec61883"   "--enable-libiec61883"     "--disable-libiec61883"     "for media reception and transmission for DV, MPEG2-TS, and AMDTP support"
+optional_depends "twolame"       "--enable-libtwolame"      "--disable-libtwolame"      "for optimised MPEG Audio Layer 2 encoder support"
+optional_depends "v4l-utils"     "--enable-libv4l2"         "--disable-libv4l2"         "for video4linux2 device support"
+optional_depends "openssl"       "--enable-openssl"         "--disable-openssl"         "for openssl support"
+optional_depends "libaacplus"    "--enable-libaacplus"      "--disable-libaacplus"      "for AAC+ High Efficiency Advanced Audio Code support"
+optional_depends "libmodplug"    "--enable-libmodplug"      "--disable-libmodplug"      "for decoding mod audio file support"
+optional_depends "libass"        "--enable-libass"          "--disable-libass"          "for SAA/ASS subtitles rendering support"
+optional_depends "libblueray"    "--enable-libbluray"       "--disable-libbluray"       "for Blueray reading support"
+optional_depends "libcaca"       "--enable-libcaca"         "--disable-libcaca"         "for output represented with ASCII text support"
+optional_depends "libcdio"       "--enable-libcdio"         "--disable-libcdio"         "for CD Input and Control support"
+optional_depends "vo-aacenc"     "--enable-libvo-aacenc"    "--disable-libvo-aacenc"    "for AAC audio encoding support"
+optional_depends "vo-amrwbenc"   "--enable-libvo-amrwbenc"  "--disable-libvo-amrwbenc"  "for AMR-WB audio encoding support"
+optional_depends "opus"          "--enable-libopus"         "--disable-libopus"         "for interactive speech and audio transmission via Internet"
+
+optional_depends "x264-snapshot" "--enable-libx264 --extra-libs=-lx264" \
+                                 "--disable-libx264"                    \
+                                 "for H.264 encoding support"
 
 optional_depends "opencore-amr"                                   \
                  "--enable-libopencore-amrwb --enable-version3    \

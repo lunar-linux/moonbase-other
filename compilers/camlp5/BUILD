@@ -1,7 +1,9 @@
 (
 
+ patch_it $SOURCE2 0 &&
+
  ./configure -prefix /usr -mandir /usr/share/man/man1 $OPTS &&
- make world.opt      &&
+ make world.opt  &&
  prepare_install &&
  make install
 

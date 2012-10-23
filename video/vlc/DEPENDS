@@ -1,7 +1,7 @@
 depends  mpeg2dec
 depends  ffmpeg
 
-optional_depends  "%UDEV"        ""  "--disable-udev" "for udev support"
+optional_depends  "systemd"      ""  "--disable-udev" "for udev support"
 optional_depends  "dbus"         ""  "--disable-dbus --disable-dbus-control" "for dbus support"
 optional_depends  "neon"         ""  "--disable-neon" "for neon optimizations spport"
 optional_depends  "libproxy"     ""  "--disable-libproxy" "for proxy support"
@@ -33,7 +33,7 @@ optional_depends  "freetype2"    ""  "--disable-freetype"  "for TrueType support
 optional_depends  "pulseaudio"   ""  "--disable-pulse"  "for Pulse Audio support"
 optional_depends  "libmtp"       ""  "--disable-mtp"  "for Media Transfer Protocol support"
 optional_depends  "openssh"      "--enable-sftp"  "--disable-sftp" "for sftp support"
-optional_depends  "libdvbpsi"    ""  "--without-dvbpsi" "for MPEG TS and DVB PSI tables support"
+optional_depends  "libdvbpsi"    "--enable-dvbpsi"  "" "for MPEG TS and DVB PSI tables support"
 optional_depends  "v4l-utils"    "--enable-v4l2" "--disable-v4l2" "for v4l support"
 optional_depends  "libcddb"      ""  "--disable-libcddb" "for cddb support"
 optional_depends  "libshout"     ""  "--disable-shout" "for shoutcast support"
