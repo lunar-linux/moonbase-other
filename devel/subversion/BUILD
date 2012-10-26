@@ -34,10 +34,7 @@
     make $BINDINGS_MAKE &&
     prepare_install &&
     make install &&
-    make ${BINDINGS_MAKE// / install-} &&
-    if module_installed Python; then
-      ln -sf /usr/lib/svn-python/{svn,libsvn} /usr/lib/python$(installed_version Python | cut -d. -f1,2)/site-packages
-    fi
+    make ${BINDINGS_MAKE// / install-}
   else
     default_build
   fi
