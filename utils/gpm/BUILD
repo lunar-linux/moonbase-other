@@ -10,11 +10,13 @@ BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA plea
 # link ncurses to bash which is needed at init time! If you 
 # move it you could break your system!
 
+./autogen.sh  &&
+
 # To fix bug report http://bugs.lunar-linux.org/view.php?id=442
   if [ `arch` == "x86_64" ] ;then
     CFLAGS="-fPIC"
   fi &&
-  
+
   ./configure  --build=$BUILD                          \
                --prefix=/usr                           \
                --bindir=/usr/bin                       \
@@ -25,7 +27,7 @@ BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA plea
                --includedir=/usr/include               \
                --infodir=/usr/share/info               \
                --mandir=/usr/share/man                 &&
-               
+
 # binary section
   LDFLAGS="-lm" make                                   &&
   prepare_install                                      &&
