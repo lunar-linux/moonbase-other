@@ -1,5 +1,7 @@
 (
 
+  sedit "s:\(test \"\${with_editline+set\}\" = set\):\1 -a \"\${with_editline}\" != no": configure &&
+
   sedit "s:iodbcext.h:libiodbc/iodbcext.h:g" libsrc/Wi/odbcinc.h &&
 
   if [ -f /var/lib/virtuoso/db/virtuoso.lck ] ; then
