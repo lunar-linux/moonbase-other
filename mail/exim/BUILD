@@ -39,6 +39,18 @@ if module_installed tcp_wrappers ; then
     echo  "LOOKUP_LIBS=-lmysqlclient"            >>  Local/Makefile
   fi
 
+ if  module_installed  openssl;  then
+    echo  "SUPPORT_TLS=yes"                     >>  Local/Makefile
+    echo  "USE_OPENSSL_PC=openssl"              >>  Local/Makefile
+ fi
+
+ if  module_installed  gnutls;  then
+    echo  "SUPPORT_TLS=yes"                     >>  Local/Makefile
+    echo  "USE_GNUTLS=yes"                      >>  Local/Makefile
+    echo  "USE_GNUTLS_PC=gnutls"                >>  Local/Makefile
+ fi
+
+
   echo  "EXIM_USER=mail"                   >>  Local/Makefile
   echo  "BIN_DIRECTORY=/usr/sbin"          >>  Local/Makefile
   echo  "CONFIGURE_FILE=/etc/exim.conf"    >>  Local/Makefile
