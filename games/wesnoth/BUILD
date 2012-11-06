@@ -13,7 +13,7 @@
           -DDESKTOPDIR=${MODULE_PREFIX}/share/applications \
           -DICONDIR=${MODULE_PREFIX}/share/pixmaps \
           -DMANDIR=${MODULE_PREFIX}/share/man \
-          -DDOCDIR=${MODULE_PREFIX}/doc"
+          -DDOCDIR=${MODULE_PREFIX}/doc/$MODULE"
 
   # fribidi is obsolete and would require 0.10.*
   OPTS+=" -DENABLE_FRIBIDI=OFF"
