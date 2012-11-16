@@ -1,0 +1,10 @@
+depends SDL
+depends zlib
+depends gtk+-2
+depends libglade
+
+optional_depends "%GLX"       "--with-opengl"     "--without-opengl"     "with OpenGL support"
+optional_depends "libpng"     "--with-screenshot" "--without-screenshot" "enable screenshot support"
+
+optional_depends "portaudio"  "--with-portaudio"  "--without-portaudio"  "for PortAudio support"
+optional_depends "pulseaudio" "--with-pulseaudio" "--without-pulseaudio" "for PulseAudio support"
