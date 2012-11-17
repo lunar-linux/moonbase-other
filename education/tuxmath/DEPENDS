@@ -1,0 +1,13 @@
+depends SDL
+depends SDL_image
+depends SDL_mixer
+depends SDL_Pango
+
+# this should be optional, but breaks with 2.0.1
+depends SDL_net
+
+depends t4k_common
+
+# --with-rsvg actually _breaks_ rsvg support...
+optional_depends librsvg   "" "--without-rsvg" "use vector graphics"
+
