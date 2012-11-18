@@ -31,8 +31,10 @@
   install -m 644 plugins/ommysql/createDB.sql /usr/share/doc/rsyslog/scripts/mysql/ &&
   install -m 644 plugins/ompgsql/createDB.sql /usr/share/doc/rsyslog/scripts/pqsql/ &&
 
-  rm -f /usr/lib/systemd/system/syslog.service
-  ln -sf /usr/lib/systemd/system/rsyslog.service /usr/lib/systemd/system/syslog.service  &&
+  if [[ -d /usr/lib/systemd/system ]]; then
+     rm -f /usr/lib/systemd/system/syslog.service &&
+     ln -sf /usr/lib/systemd/system/rsyslog.service /usr/lib/systemd/system/syslog.service
+  fi &&
 
   gather_docs doc/rsyslog-example.conf
 
