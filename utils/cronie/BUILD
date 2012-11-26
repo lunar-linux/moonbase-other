@@ -1,16 +1,14 @@
 (
 
-  patch_it $SOURCE2 1 &&
-
   if module_installed Linux-PAM; then
     OPTS+=" --with-pam"
   fi &&
 
   sedit '/^dist_pam_DATA/d' Makefile.am &&
-  aclocal           &&
-  autoheader        &&
-  automake -a       &&
-  autoconf          &&
+  aclocal      &&
+  autoheader   &&
+  automake -a  &&
+  autoconf     &&
 
   default_build &&
 
