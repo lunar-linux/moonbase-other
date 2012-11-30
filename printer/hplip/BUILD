@@ -2,9 +2,6 @@
 
   patch_it $SOURCE_CACHE/$SOURCE2 1 &&
 
-# Inserting a missing include.
-  sed -i "41i #include <cups/ppd.h>"  prnt/hpps/hppsfilter.c &&
-
   if in_depends $MODULE PyQt4; then
      . /etc/profile.d/qt4.rc
   fi &&
