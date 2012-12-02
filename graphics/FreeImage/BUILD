@@ -1,6 +1,6 @@
 (
 
-  sed -i "54i #include <string.h>" Source/OpenEXR/Imath/ImathMatrix.h &&
+  sed -i "36i #include <string.h>" Source/OpenEXR/IlmImf/ImfAutoArray.h &&
 
   default_make &&
 
