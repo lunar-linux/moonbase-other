@@ -1,25 +1,31 @@
 depends postgresql
-depends libgeotiff
-depends %JPEG
-depends tiff
-depends jasper
-depends geos
 
-optional_depends "perl"  "--with-perl" "--without-perl" \
-                         "for perl scripting support"
+optional_depends "expat"      "--with-expat"    "--without-expat"    "for XML support"
+optional_depends "curl"       "--with-curl"     "--without-curl"     "for curl support"
+optional_depends "libgeotiff" "--with-geotiff"  "--without-geotiff"  "for geotiff graphics support"
+optional_depends "giflib"     "--with-gif"      "--without-gif"      "for gif graphics support"
+optional_depends "%JPEG"      "--with-jpeg"     "--without-jpeg"     "for jpeg graphics support"
+optional_depends "tiff"       "--with-libtiff"  "--without-libtiff"  "for tiff graphics support"
+optional_depends "libwebp"    "--with-webp"     "--without-webp"     "for lossy compression for photographic images support"
+optional_depends "libpng"     "--with-png"      "--without-png"      "for png graphics support"
+optional_depends "geos"       "--with-geos"     "--without-geos"     "for Geometry Engine support"
+optional_depends "jasper"     "--with-jasper"   "--without-jasper"   "for JPEG-2000 Part-1 support"
+optional_depends "perl"       "--with-perl"     "--without-perl"     "for perl scripting support"
+optional_depends "Python"     "--with-python"   "--without-python"   "for python scripting support"
+optional_depends "%PHP"       "--with-php"      "--without-php"      "for php support"
+optional_depends "ruby"       "--with-ruby"     "--without-ruby"     "for ruby scripting support"
+optional_depends "%JAVA_SDK"  "--with-java"     "--without-java"     "for java support"
+optional_depends "mysql"      "--with-mysql"    "--without-mysql"    "for mysql database support"
+optional_depends "sqlite"     "--with-sqlite3"  "--without-sqlite3"  "for sqlite database support"
+optional_depends "hdf5"       "--with-hdf5"     "--without-hdf5"     "for Hierarchical Data Format support"
+optional_depends "freexl"     "--with-freexl"   "--without-freexl"   "for xls import support"
+optional_depends "openjpeg"   "--with-openjpeg" "--without-openjpeg" "for openjpeg graphics support"
+optional_depends "xerces-c++" "--with-xerces"   "--without-xerces"   "for C++ parsing support"
+optional_depends "netcdf"     "--with-netcdf"   "--without-netcdf"   "for CDF support"
+optional_depends "cfitsio"    "--with-cfitsio"  "--without-cfitsio"  "for C and Fortran subroutine support"
+optional_depends "poppler"    "--with-poppler"  "--without-poppler"  "for poppler graphics support"
+optional_depends "podofo"     "--with-podofo"   "--without-podofo"   "for POrtable DOcument FOrmat support"
+optional_depends "spatialindex" "--with-spatialite" "--without=spatialite" "for indexing support"
 
-optional_depends "Python" "--with-python" "--without-python" \
-                           "for python scripting support"
-
-optional_depends "%PHP"   "--with-php" "--without-php"   \
-                          "for php support"
-
-optional_depends "ruby"   "--with-ruby" "--without-ruby" \
-                          "for ruby scripting support"
-
-optional_depends "mysql"      ""  ""  "for mysql database support"
-optional_depends "sqlite"     ""  ""  "for sqlite database support"
 optional_depends "numpy"      ""  ""  "for python numerical support"
 optional_depends "proj-4"     ""  ""  "transform data types"
-optional_depends "xerces-c++" ""  ""  "for C++ parsing support"
-optional_depends "netcdf"     ""  ""  "for CDF support"
