@@ -1,15 +1,10 @@
 (
 
-ndrivers="NVIDIA NVIDIA-old NVIDIA-legacy NVIDIA-beta NVIDIA-fx"
-for driver in $ndrivers
-do
-  if module_installed $driver; then
+  if module_installed NVIDIA; then
     OPTS+=" --with-gl-lib=/usr/lib/opengl/nvidia/"
-    break
-  fi
-done &&
+  fi &&
 
-  LDFLAGS+=" -lm -lglut -lGL" &&
+  LDFLAGS+=" -lGL -lGLU -lglut -lm" &&
 
   default_build &&
 
