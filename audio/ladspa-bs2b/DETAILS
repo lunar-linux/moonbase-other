@@ -1,0 +1,42 @@
+          MODULE=ladspa-bs2b
+         VERSION=0.9.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$SFORGE_URL/bs2b
+      SOURCE_VFY=sha1:d0bda12baa38e394042892da6e92d7ae56925a9f
+        WEB_SITE=http://bs2b.sourceforge.net/
+         ENTERED=20090809
+         UPDATED=20090809
+           SHORT="LADSPA plugin for bs2b"
+
+cat << EOF
+Typical stereo recordings are being made to listen to by speakers. This
+means that a sound engineer makes the stereo mix to the adaptation of
+sound for listening to one channel by both ears. Therefore, you will be
+tired during long-time headphone listening, more because of superstereo
+effect than because of poorly-designed headphones. What's missing in
+headphones is the sound going from each channel to the opposite ear,
+arriving a short time later for the extra distance travelled, and with a
+bit of high-frequency roll-off for the shadowing effect of the head. And
+the time delay to the far ear is somewhat longer at low frequencies than
+at high frequencies. The Bauer stereophonic-to-binaural DSP (bs2b) is
+designed to improve headphone listening of stereo audio records.
+
+Sample ~/.asoundrc:
+
+pcm.headphones {
+  type plug
+  slave.pcm {
+    type ladspa
+    slave.pcm "default"
+    path "/usr/lib/ladspa"
+    plugins {
+      0 {
+        id 4221  # Bauer stereophonic-to-binaural (4221/bs2b)
+        input {
+          controls [ 725 4.5 ]
+        }
+      }
+    }
+  }
+}
+EOF
