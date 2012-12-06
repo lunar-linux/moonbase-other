@@ -2,7 +2,7 @@
 
   # not sure what this rpm is for, but its not there in 32bit OO, so I removed it
   #rm -rf userland &&
-  LO_OPT_DIR="/usr/lib/libreoffice${VERSION%.*}"
+  LO_OPT_DIR="/usr/lib/libreoffice${VERSION::3}"
 
   message "${MESSAGE_COLOR}Unpacking base RPMs and installing...${DEFAULT_COLOR}" &&
   for pack in RPMS/*.rpm ; do rpm2cpio $pack > `basename $pack .rpm`.cpio ; done &&
@@ -10,7 +10,7 @@
   for i in `ls *.cpio`; do cpio -idmuV < $i ;done &&
 
   rm usr/bin/libreoffice${VERSION%.*}
-  desktopfiles="base calc draw impress javafilter math printeradmin startcenter writer"  &&
+  desktopfiles="base binfilter calc draw impress javafilter math printeradmin startcenter writer xsltfilter"  &&
   for i in $desktopfiles; do
     rm usr/share/applications/libreoffice*-$i.desktop
   done
