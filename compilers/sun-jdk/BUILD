@@ -47,6 +47,13 @@
      ln -sf /usr/java/latest/jre/lib/i386/libnpjp2.so /usr/lib/lunar/plugins/
   fi &&
 
+  # Calligra has trouble finding this.
+  if [ "`arch`" == "x86_64" ] ; then 
+     ln -sf /usr/java/latest/jre/lib/amd64/xawt/libmawt.so /usr/lib/
+  else
+     ln -sf /usr/java/latest/jre/lib/i386/xawt/libmawt.so /usr/lib/
+  fi &&
+
   cd /usr/java/jdk${DVERSION}/jre/lib/security &&
   if [ $JCEYES == "y" ]; then
     rm -f US_export_policy.jar local_policy.jar
