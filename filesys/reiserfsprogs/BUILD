@@ -1,10 +1,10 @@
 (
 
+  rm -f /sbin/*.reiserfs  &&
+
   ./configure --build=$BUILD --prefix=/ \
               --mandir=$MODULE_PREFIX/share/man \
               $OPTS  &&
-  default_make &&
-  ln -s reiserfsck /sbin/fsck.reiserfs &&
-  ln -s mkreiserfs /sbin/mkfs.reiserfs
+  default_make
 
 ) > $C_FIFO 2>&1
