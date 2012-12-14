@@ -1,0 +1,25 @@
+depends cmake
+depends libpng
+depends freetype2
+depends %JPEG
+depends Python-3
+depends scons
+depends %GLX
+depends yasm
+depends boost
+
+optional_depends "lzma-sdk"   "-DWITH_LZMA=ON"   "-DWITH_LZMA=OFF"   "For lzma compression support"
+optional_depends "lzo"        "-DWITH_LZO=ON"    "-DWITH_LZO=OFF"    "For real-time data compression support"
+optional_depends "openal"     "-DWITH_OPENAL=ON" "-DWITH_OPENAL=OFF" "For 3D Audio support"
+optional_depends "SDL"        "-DWITH_SDL=ON"    "-DWITH_SDL=OFF"    "For low-level access to hardware support"
+optional_depends "fftw3"      "-DWITH_FFTW3=ON"  "-DWITH_FFTW3=OFF"  "fOR Fast Fourier Tranform support"
+optional_depends "jack"       "-DWITH_JACK=ON"   "-DWITH_JACK=OFF"   "For low-latency audio support"
+
+optional_depends "tiff"       "-DWITH_IMAGE_TIFF=ON"      "-DWITH_IMAGE_TIFF=OFF"      "For tiff graphcis support"
+optional_depends "openexr"    "-DWITH_IMAGE_OPENEXR=ON"   "-DWITH_IMAGE_OPENEXR=OFF"   "For exr support"
+optional_depends "ffmpeg"     "-DWITH_CODEC_FFMPEG=ON"    "-DWITH_CODEC_FFMPEG=OFF"    "For ffmpeg audio/video support"
+optional_depends "libsndfile" "-DWITH_CODEC_SNDFILE=ON"   "-DWITH_CODEC_SNDFILE=OFF"   "For sound file audio support"
+optional_depends "glew"       "-DWITH_SYSTEM_GLEW=ON"     "-DWITH_SYSTEM_GLEW=OFF"     "For OpenGL Extension support, say yes for system provided"
+optional_depends "openjpeg"   "-DWITH_SYSTEM_OPENJPEG=ON" "-DWITH_SYSTEM_OPENJPEG=OFF" "Fpr openjpeg support"
+
+optional_depends "llvm"       "-DWITH_LLVM=ON -DLLVM_DIRECTORY=/usr" "-DWITH_LLVM=OFF" "For Low Level Virtual Machine support"
