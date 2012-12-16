@@ -2,7 +2,7 @@
 
   patch_it $SOURCE2 0 &&
 
-  OPTS="--enable-shared --disable-glibtest --disable-gtktest" &&
+  OPTS+="--enable-shared --disable-glibtest --disable-gtktest" &&
 
   default_build
 
