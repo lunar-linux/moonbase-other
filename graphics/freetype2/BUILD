@@ -1,7 +1,5 @@
 (
 
-  OPTS+=" --disable-static" &&
-
   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
 
   sed -i -r 's:.*(#.*SYSTEM_ZLIB.*) .*:\1:' \
@@ -14,6 +12,9 @@
     include/freetype/config/ftoption.h  &&
 
   sed -i 's@^#define\ TT_CONFIG_OPTION_UNPATENTED_HINTING@#undef\ TT_CONFIG_OPTION_UNPATENTED_HINTING@' \
+    include/freetype/config/ftoption.h  &&
+
+  sed -i -r 's:.*(#.*USE_BZIP2.*) .*:\1:' \
     include/freetype/config/ftoption.h  &&
 
   sed -i 's@^#\ AUX@AUX@' modules.cfg  &&
