@@ -1,0 +1,10 @@
+[Unit]
+Description=iOS USB Muxer
+
+[Service]
+Type=simple
+ExecStart=/usr//sbin/usbmuxd -u -f -U usbmux
+PIDFile=/var/run/usbmuxd.pid
+
+[Install]
+WantedBy=multi-user.target
