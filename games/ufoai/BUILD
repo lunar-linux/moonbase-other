@@ -1,26 +1,24 @@
 (
 
-  OPTS+=" --disable-uforadiant  "  &&
-
-  ./configure  --build=$BUILD                 \
-               --prefix=/usr                  \
-               --sysconfdir=/etc              \
-               --localstatedir=/var/games     \
-               --infodir=/usr/share/info      \
-               --mandir=/usr/share/man        \
+  ./configure  --prefix=/usr                  \
                --bindir=/usr/games            \
-               --datadir=/usr/share/games     \
-               --localedir=/usr/share/locale  \
+               --libdir=/usr/lib              \
+               --datadir=/usr/share/games/ufoai \
+               --localedir=/usr/share/games/ufoai/base/i18n  \
                $OPTS                         &&
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+  default_make &&
 
-  default_make
+  install -m644 debian/ufoai.desktop debian/ufoded.desktop /usr/share/applications &&
+  install -m644 debian/ufoai.xpm debian/ufoded.xpm /usr/share/pixmaps &&
+  install -m644 debian/ufo.6 debian/ufoded.6 /usr/share/man/man6 &&
 
-#  for FILE in $SOURCE_DIRECTORY/base/*; do
-#     install -m644 $FILE /usr/share/games/ufoai/base/
-#  done
-
-#  cp -fR $SOURCE_DIRECTORY/base /usr/share/games/ufoai
+  if [[ "$RADIANT" != "y" ]]; then
+    rm -f /usr/games/uforadiant
+  else
+    install -m644 debian/uforadiant.desktop /usr/share/applications &&
+    install -m644 debian/uforadiant.xpm /usr/share/pixmaps &&
+    install -m644 debian/uforadiant.xpm /usr/share/man/man6
+  fi
 
 ) > $C_FIFO 2>&1

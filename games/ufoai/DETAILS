@@ -1,20 +1,19 @@
           MODULE=ufoai
-         VERSION=2.3.1
+         VERSION=2.4
           SOURCE=$MODULE-$VERSION-source.tar.bz2
          SOURCE1=$MODULE-$VERSION-data.tar
-         SOURCE2=$MODULE-2.3-data.patch.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-source
       SOURCE_URL=$SFORGE_URL/$MODULE
      SOURCE1_URL=$SFORGE_URL/$MODULE
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:f339e9399eae6ef4661ad8b9d4f68205904810d3
-     SOURCE1_VFY=sha1:a322c3bb92b29a0265567e84b1d3287078cfae91
-     SOURCE2_VFY=sha1:4b47badff096fdbf2227a3ce9655d0fa1be98ac2
+      SOURCE_VFY=sha1:153ba796131f00fe98f96e56888376afee039aa5
+     SOURCE1_VFY=sha1:2998c979ee597a1473c3277f8db14821e907999f
         WEB_SITE=http://ufoai.sf.net
          ENTERED=20080115
-         UPDATED=20101205
+         UPDATED=20121220
       MAINTAINER=florin@lunar-linux.org
            SHORT="A squad-based tactical strategy game"
+# this would duplicate 900MB of data and the module compiles quite fast anyway...
+ARCHIVE=off
 
 cat << EOF
 UFO: ALIEN INVASION is a squad-based tactical strategy game in the
