@@ -16,7 +16,7 @@
     fi
   done
   cd  ..  &&
-   
+
   if  [  !  -f  /etc/snort/classification.config  ];  then
     install  -m 644  etc/classification.config  /etc/snort
   fi
@@ -29,11 +29,11 @@
      rm -f /etc/init.d/snort.sh
      rm /etc/rc?.d/???snort.sh
   fi
-  
+
   if [ ! -d /etc/config.d/snort/ ]; then
      mkdir -p /etc/config.d/snort/
   fi
-   
+
   if [ -e /etc/snort.conf ]; then
      cp -f /etc/snort.conf /etc/snort.conf.bak
      echo "You should remove /etc/snort.conf.bak if you do not need it!"
@@ -48,5 +48,5 @@
 
   cp $SCRIPT_DIRECTORY/config.d/snort.sysconfig /etc/config.d/snort 
   chmod 644 /etc/config.d/snort/*
-     
+
 ) > $C_FIFO 2>&1
