@@ -1,8 +1,6 @@
 (
 
-  LDFLAGS+=" -luuid -lm" &&
-
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
+  LDFLAGS+=" -luuid -lm -ldl" &&
 
   default_build
 
