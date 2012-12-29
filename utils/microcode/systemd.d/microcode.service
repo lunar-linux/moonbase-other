@@ -2,7 +2,7 @@
 Description=Apply CPU microcode
 
 [Service]
-ExecStart=/usr/sbin/microcode_ctl -qu
+ExecStart=/usr/sbin/microcode_ctl -qu -f /lib/firmware/microcode.dat
 Type=oneshot
 RemainAfterExit=yes
 
