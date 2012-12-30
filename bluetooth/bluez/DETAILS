@@ -8,8 +8,37 @@
          UPDATED=20120624
            SHORT="support for core Bluetooth layers and protocols"
 
-LUNAR_RESTART_SERVICES=off
 cat << EOF
 BlueZ provides support for core Bluetooth layers and protocols. It is
 flexible, efficient and modular implementation.
+
+The following should go a long way to getting audio via bluetooth headset.
+Tested with Chromium and konqueror using ~/.asoundrc. 
+
+pcm.!default {
+type hw
+card INTEL
+}
+
+ctl.!default {
+type hw
+card INTEL
+}
+
+pcm.pulse { 
+    type pulse 
+} 
+ctl.pulse { 
+    type pulse 
+} 
+pcm.!default { 
+    type pulse 
+} 
+ctl.!default { 
+    type pulse 
+}
+
+The important part is the last 4 sections. AFAICT blueooth audio via a browser
+needs routing through pulseaudio. I could not get it to work routed directly 
+through alsa.
 EOF

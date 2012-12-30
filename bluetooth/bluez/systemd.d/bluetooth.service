@@ -1,10 +1,11 @@
 [Unit]
 Description=Bluetooth Manager
+After=network.target
 
 [Service]
 Type=dbus
 BusName=org.bluez
-ExecStart=/usr/sbin/bluetoothd -n
+ExecStart=/usr/sbin/bluetoothd -nd
 StandardOutput=syslog
 
 [Install]
