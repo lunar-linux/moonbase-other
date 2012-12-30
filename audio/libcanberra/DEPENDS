@@ -1,6 +1,8 @@
 depends libvorbis
 depends GConf
 
+optional_depends "%UDEV"        "--enable-udev"      "--disable-udev"      "for udev support"
+
 optional_depends "alsa-utils"   "--enable-alsa --disable-oss"  \
                                 "--enable-oss --disable-alsa"   \
                                 "Say yes for alsa support, else no for oss"
