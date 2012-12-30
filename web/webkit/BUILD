@@ -1,5 +1,9 @@
 (
+
   patch_it $SOURCE2 1 &&
+
+
+  sedit "s:wtf/Complex.h:complex.h:" Source/WebCore/platform/audio/FFTFrame.cpp Source/WebCore/webaudio/RealtimeAnalyser.cpp Source/WebCore/platform/audio/Biquad.h &&
 
   OPTS+=" --with-target=x11             \
           --with-unicode-backend=icu    \
