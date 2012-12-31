@@ -1,0 +1,25 @@
+          MODULE=lightdm
+         VERSION=1.4.0
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=https://launchpad.net/lightdm/1.4/${VERSION}/+download/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=md5:622d9087ec773dd0626a250a5868f88c
+        WEB_SITE="http://www.freedesktop.org/wiki/Software/LightDM"
+         ENTERED=20121231
+         UPDATED=20121231
+           SHORT="light, fast, extensible and multi-desktop display manager"
+cat <<EOF
+LightDM is a cross-desktop display manager that aims is to be the
+standard display manager for the X.org X server. The motivation for
+this project is there have been many new display managers written since
+XDM (often based on the XDM source). The main difference between these
+projects is in the GUIs (e.g. different toolkits) and performance -
+this could be better accomplished with a common display manager that
+allows these differences.
+
+Key features are:
+
+A well-defined greeter API allowing multiple GUIs Support for all
+display manager use cases, with plugins where appropriate Low code
+complexity Fast performance
+EOF
