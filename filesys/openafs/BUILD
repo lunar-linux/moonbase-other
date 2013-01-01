@@ -6,10 +6,13 @@
   patch_it $SOURCE7 1  &&
   patch_it $SOURCE8 1  &&
   patch_it $SOURCE9 1  &&
+  patch_it $SOURCE10 1 &&
+  patch_it $SOURCE11 1 &&
+  patch_it $SOURCE12 1 &&
 
   # Heimdal no longer have krb5_524_conv_principal - fugly workaround
   sedit 's;krb524_convert_creds_kdc;krb5_524_conv_principal;g' configure.ac &&
-  ./regen.sh  &&
+  ./regen.sh -q &&
 
   case `uname -r` in
     2.6.*|3.*)
