@@ -31,7 +31,10 @@
   patch_it $SOURCE3 1 &&
   patch_it $SOURCE4 1 &&
   patch_it $SOURCE5 1 &&
-  ./regen.sh &&
+  patch_it $SOURCE6 1 &&
+  patch_it $SOURCE7 1 &&
+  patch_it $SOURCE8 1 &&
+  ./regen.sh -q &&
   ./configure   --prefix=/usr                   \
                 --sysconfdir=/etc               \
                 --localstatedir=/var/lib        \
