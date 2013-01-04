@@ -1,0 +1,53 @@
+          MODULE=net-tools
+         VERSION=1.60
+          SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-$VERSION-gcc-3.3-fix1.patch.bz2
+         SOURCE3=gcc34_net-tools_lunar.patch
+     SOURCE4=$MODULE-autoconf.patch.gz
+     SOURCE5=$MODULE-$VERSION-fixes.patch.gz
+   SOURCE_URL[0]=http://www.tazenda.demon.co.uk/phil/net-tools/
+  SOURCE2_URL[0]=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
+     SOURCE4_URL=$PATCH_URL
+     SOURCE5_URL=$PATCH_URL
+      SOURCE_VFY=sha1:944fb70641505d5d1139dba3aeb81ba124574b83
+     SOURCE2_VFY=sha1:44ee3a0c517a4e67d8d746cd05683bd9f10836b7
+     SOURCE3_VFY=sha1:b23cc7946f2b4e8cfac1adfa6a1ea29e11ba18fa
+     SOURCE4_VFY=sha1:cdd26d5729491a5a12a45b657e6ca4f85cbda7a5
+     SOURCE5_VFY=sha1:61336ad568a415385f24788b30039f746977d28c
+        WEB_SITE=http://www.tazenda.demon.co.uk/phil/net-tools
+      MAINTAINER=kc8apf@kc8apf.net
+         ENTERED=20010922
+         UPDATED=20080303
+           SHORT="net-tools contains essential tools for networking."
+PSAFE=no
+LUNAR_RESTART_SERVICES=off
+cat << EOF
+The Net-tools package contains the arp, hostname, ifconfig, netstat,
+plipconfig rarp, route, and slattach programs.
+
+arp is used to manipulate the kernel's ARP cache, usually to add or
+delete an entry, or to dump the ARP cache.
+
+hostname, with its symlinks domainname, dnsdomainname, nisdomainname,
+ypdomainname, and nodename, is used to set or show the system's hostname
+(or other, depending on the symlink used).
+
+The ifconfig command is the general command used to configure network
+interfaces.
+
+netstat is a multi-purpose tool used to print the network connections,
+routing tables, interface statistics, masquerade connections, and
+multicast memberships.
+
+plipconfig is used to fine-tune the PLIP device parameters, hopefully
+making it faster.
+
+rarp, akin to the arp program, manipulates the system's RARP table.
+
+route is the general utility which is used to manipulate the IP routing
+table.
+
+slattach attaches a network interface to a serial line, i.e.. puts a
+normal terminal line into one of several "network" modes.
+EOF
