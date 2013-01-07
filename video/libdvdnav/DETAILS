@@ -1,14 +1,19 @@
           MODULE=libdvdnav
-         VERSION=0.1.10
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=$SFORGE_URL/dvd/
-      SOURCE_VFY=sha1:22289cb8f297664ce36551b818c0083e936632a7
+         VERSION=4.2.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://dvdnav.mplayerhq.hu/releases/
+      SOURCE_VFY=sha1:ded45d985576169ae3630d8be7179a2323bc0f6f
         WEB_SITE=http://dvd.sourceforge.net/
          ENTERED=20060304
-         UPDATED=20060304
+         UPDATED=20130107
            SHORT="provides sophisticated DVD navigation"
 
 cat << EOF
-libdvdnav is a library for developers of multimedia applications. It allows easy use of sophisticated DVD navigation features such as DVD menus, multiangle playback and even interactive DVD games.
+libdvdnav is a library for developers of multimedia applications. It allows easy
+use of sophisticated DVD navigation features such as DVD menus, multiangle 
+playback and even interactive DVD games.
+
+Note: We want to use this one from mplayerhqt and not the one from sourceforge, else
+vlc cannot make use of this library.
 EOF
 
