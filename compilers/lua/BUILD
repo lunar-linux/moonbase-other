@@ -1,6 +1,7 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1      &&
+  patch_it $SOURCE_CACHE/$SOURCE2 0      &&
+  patch_it $SOURCE_CACHE/$SOURCE3 1      &&
 
   sedit "s:/usr/local:/usr:" Makefile    &&
   sedit "s:/usr/local:/usr:" etc/lua.pc  &&
