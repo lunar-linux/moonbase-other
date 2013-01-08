@@ -1,14 +1,17 @@
           MODULE=lua
          VERSION=5.1.5
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=lua-5.1-module_paths.patch
+         SOURCE2=lua-5.1.4-make-shared-lib.patch
+         SOURCE3=lua-5.1-module_paths.patch
       SOURCE_URL=http://www.lua.org/ftp
-     SOURCE2_URL=http://ie.archive.ubuntu.com/gentoo-portage/dev-lang/lua/files
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=http://ie.archive.ubuntu.com/gentoo-portage/dev-lang/lua/files
       SOURCE_VFY=sha1:b3882111ad02ecc6b972f8c1241647905cb2e3fc
-     SOURCE2_VFY=sha1:50cb1438b7c50536ebf712d16d153eac40599562
+     SOURCE2_VFY=sha1:121262e8d14de06157ae438afff41e6657cc648b
+     SOURCE3_VFY=sha1:50cb1438b7c50536ebf712d16d153eac40599562
         WEB_SITE=http://www.lua.org
          ENTERED=20040429
-         UPDATED=20120221
+         UPDATED=20130103
            SHORT="light-weight programming language for extending applications"
 
 cat << EOF

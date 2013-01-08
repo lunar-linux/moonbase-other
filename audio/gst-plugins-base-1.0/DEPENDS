@@ -1,0 +1,20 @@
+depends gstreamer
+depends liboil
+
+optional_depends "iso-codes"             "--enable-iso-codes"     "--disable-iso-codes"     "for iso-code support"
+optional_depends "zlib"                  "--enable-zlib"          "--disable-zlib"          "for compression support"
+optional_depends "%UDEV"                 "--with-gudev"           "--without-gudev"         "for device detection with udev or systemd"
+optional_depends "pango"                 "--enable-pango"         "--disable-pango"         "for Pango font rendering support"
+optional_depends "alsa-plugins"          "--enable-alsa"          "--disable-alsa"          "for ALSA output support"
+optional_depends "libogg"                "--enable-ogg"           "--disable-ogg"           "for OGG support"
+optional_depends "libvorbis"             "--enable-vorbis"        "--disable-vorbis"        "for Vorbis audio codec support"
+optional_depends "libtheora"             "--enable-theora"        "--disable-theora"        "for Theora video codec support"
+optional_depends "cdparanoia"            "--enable-cdparanoia"    "--disable-cdparanoia"    "for CDDA support"
+optional_depends "libvisual"             "--enable-libvisual"     "--disable-libvisual"     "for visualization support"
+optional_depends "libXext"               "--enable-x"             "--disable-x"             "for X plugin support"
+optional_depends "libXv"                 "--enable-xvideo"        "--disable-xvideo"        "for the X11 XVideo extensions"
+optional_depends "libXxf86vm"            "--enable-xvideo"        "--disable-xvideo"        "for the X11 XVideo extensions"
+optional_depends "gobject-introspection" "--enable-introspection" "--disable-introspection" "for introspection support"
+
+optional_depends "gtk-doc"               "--enable-gtk-doc"       "--disable-gtk-doc --disable-gtk-doc-html"       "for documentation support"
+

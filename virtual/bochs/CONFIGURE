@@ -1,12 +1,30 @@
-mquery ALL "Enable all safe optimizations?" y
-mquery G2H "Enable guest to host tlb (speed)?" y
-mquery REPEAT "Enable repeat speedups?" y
-mquery ICACHE "Enable icache (speed)?" y
-mquery ASM "Enable host specific asms?" y
-mquery SB16 "Emulate SB16?" n
-mquery PLUGINS "Enable plugins?" n
-mquery GLOBAL "Enable global pages?" n
-mquery SLOWDOWN "Enable timer slowdown?" n
-mquery IDLE "Enable idle hack?" n
-mquery NE2000 "Emulate NE2000 network card?" n
-mquery MSR "Ignore bad msr (Don't stop on error)?" n
+mquery ENABLE_IDLE_HACK "Enable Roland idle hack?" n "--enable-idle-hack" "--disable-idle-hack"
+mquery ENABLE_PLUGINS "Enable plugins?" n "--enable-plugins" "--disable-plugins"
+mquery ENABLE_A20_PIN "Enable support for the A20 pin?" y "--enable-a20-pin" "--disable-a20-pin"
+mquery ENABLE_X86_64 "Enable support for x86-64 instructions?" y "--enable-x86-64" "--disable-x86-64"
+mquery ENABLE_SMP "Enable support for SMP processors?" y "--enable-smp" "--disable-smp"
+mquery ENABLE_LONG "Enable support for physical addresses larger than 32 bit?" y "--enable-long-phy-address" "--disable-long-phy-address"
+mquery ENABLE_LRG_RAM "Enable support for large ramfile support?" y "--enable-large-ramfile" "--disable-large-ramfile"
+mquery ENABLE_NE2000 "Enable support for the NE2000?" y "--enable-ne2000" "--disable-ne2000"
+mquery ENABLE_PCI "Enable i440FX PCI support?" y "--enable-pci" "--disable-pci"
+mquery ENABLE_PCIDEV "Enable PCI host device mapping support?" y "--enable-pcidev" "--disable-pcidev"
+mquery ENABLE_USB "Enable USB and OHCI support?" y " --enable-usb --enable-usb-ohci" "--disable-usb --disable-usb-ohci"
+mquery ENABLE_PNIC "Enable PCI pseudo NIC support?" y "--enable-pnic" "--disable-pnic"
+mquery ENABLE_E1000 "Enable Intel Gigabit Ethernet support (E1000)?" y "--enable-e1000" "--disable-e1000"
+mquery ENABLE_SPEED "Enable support for repeated IO and mem copy speedups?" y "--enable-repeat-speedups" "--disable-repeat-speedups"
+mquery ENABLE_HANDLERS "Enable handlers-chaining emulation speedups?" y "--enable-handlers-chaining" "--disable-handlers-chaining"
+mquery ENALBE_MSR "Enable support for configurable MSR registers?" y "--enable-configurable-msrs" "--disable-configurable-msrs"
+mquery ENABLE_LOG "Enable logging including IPS in the Bochs log file?" y "--enable-logging --enable-show-ips" "--disable-logging --disable-show-ips"
+mquery ENABLE_RAW_SERIAL "Enable raw serial port access?" y "--enable-raw-serial" "--disable-raw-serial"
+mquery ENABLE_CLGD "Enable CLFD54XX (Cirus Logic) video emulation?" y "--enable-clgd54xx" "--disable-clgd54xx"
+mquery ENABLE_FPU "Enable FPU emulation?" n "--enable-fpu" "--disable-fpu"
+mquery ENABLE_CMX "Enable VMX emulation?" y "--enable-vmx=2" "--enable-vmx=no"
+mquery ENABLE_SVM "Enable SVM (AMD: secure virtual machine) emulation?" n "--enable-svm" "--disable-svm"
+mquery ENABLE_AVX "Enable AVX instructions?" n "--enable-avx" "--disable-avx"
+mquery ENABLE_CDROM "Enable CDROM support?" y "--enable-cdrom" "--disable-cdrom"
+mquery ENABLE_SB16 "Enable Sound Blaster 16 support?" y "--enable-sb16" "--disable-sb16"
+mquery ENABLE_ES1370 "Enable ES1370 soundcard support?" n "--enable-es1370" "--disable-es1370"
+mquery ENABLE_GAME "Enable standard PC gameport support?" y "--enable-gameport" "--disable-gameport"
+
+# This is broken
+#mquery ENABLE_INSTRUMENT "Enable support for instrumentation?" n "--enable-instrumentation" "--disable-instrumentation"
