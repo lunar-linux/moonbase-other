@@ -1,8 +1,8 @@
 (
 
    perl Makefile.PL PREFIX=/usr  &&
-   make                                 &&
-   make test                         &&
+   make                                 || exit 1
+   make test                        || true
    prepare_install &&
    make install
 
