@@ -4,6 +4,9 @@
 
   prepare_install &&
 
-  make install
+  make install &&
+
+  # they f**** up the permissions
+  chmod 0644 /usr/share/anki/thirdparty/httplib2/*
 
 ) > $C_FIFO 2>&1
