@@ -3,6 +3,7 @@ depends "lapack"
 optional_depends "gperf"    ""                  ""                   "if you need to recreate oct-gperf.h"
 
 optional_depends "SuiteSparse" "--with-amd --with-camd --with-colamd --with-ccolamd --with-cholmod --with-cxsparse --with-umfpack" "--without-amd --without-camd --without-colamd --without-ccolamd --without-cholmod --without-cxsparse --without-umfpack" "for matrix support (Recommended)"
+optional_depends "arpack-ng" ""                 "--without-arpack"   "for eigenvalue operations"
 optional_depends "qhull"    "--with-qhull"      "--without-qhull"    "for qhull support"
 optional_depends "qrupdate" "--with-qrupdate"   "--without-qrupdate" "for fast QR & Cholesky updating functions"
 optional_depends "zlib"     "--with-z"          "--without-z"        "for lossless compression support"
