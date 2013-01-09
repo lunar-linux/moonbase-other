@@ -1,5 +1,8 @@
 (
 
+# To skirt around this make failure; ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
+  CFLAGS+=" -lbz2" &&
+
   # Workaround Segmentation fault at install part on precompile_cache.js
   sedit '/^GENERATE_CACHE = 1$/d' browser/installer/Makefile.in &&
 
