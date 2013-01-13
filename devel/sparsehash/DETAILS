@@ -1,0 +1,22 @@
+          MODULE=sparsehash
+         VERSION=2.0.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://sparsehash.googlecode.com/files/
+      SOURCE_VFY=sha1:12c7552400b3e20464b3362286653fc17366643e
+        WEB_SITE=http://code.google.com/p/sparsehash/
+         ENTERED=20130113
+         UPDATED=20130113
+           SHORT="memory-efficient hash_map implementation"
+
+cat << EOF
+An extremely memory-efficient hash_map implementation. 2 bits/entry overhead! 
+The SparseHash library contains several hash-map implementations, including 
+implementations that optimize for space or speed.
+
+These hashtable implementations are similar in API to SGI's hash_map class and 
+the tr1 unordered_map class, but with different performance characteristics. 
+It's easy to replace hash_map or unordered_map by sparse_hash_map or 
+dense_hash_map in C++ code.
+
+They also contain code to serialize and unserialize from disk.
+EOF
