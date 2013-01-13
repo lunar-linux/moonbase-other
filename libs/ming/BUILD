@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE2 1 &&
+
 # Fix a make failure on the recent perl bump
   sedit "s:GvCV(gv) =:GvCV(gv) ==:" perl_ext/Exports.c &&
 
