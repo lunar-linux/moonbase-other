@@ -1,0 +1,22 @@
+depends  gst-plugins-base-1.0
+
+optional_depends  "a52dec"      "--enable-a52dec"    "--disable-a52dec"  \
+                  "for AC-3 support"
+
+optional_depends  "libdvdread"  "--enable-dvdread"   "--disable-dvdread"  \
+                  "for DVD support"
+
+optional_depends   "libdvdnav"   "--enable-experimental" ""  \
+                   "for DVD menu navigation support"
+
+optional_depends  "lame"        "--enable-lame"      "--disable-lame"  \
+                  "for additional MP3 support"
+
+optional_depends  "libmad"      "--enable-mad"       "--disable-mad"  \
+                  "for MP3 support (requires libid3tag support)"
+
+optional_depends  "libid3tag"   ""    ""  \
+                  "for MP3 id3 tag support (required for libmad support)"
+
+optional_depends  "mpeg2dec"    "--enable-mpeg2dec"  "--disable-mpeg2dec"  \
+                  "for mpeg-2 and 1 video support"
