@@ -1,0 +1,18 @@
+          MODULE=gst-plugins-ugly-1.0
+         VERSION=1.0.5
+          SOURCE=${MODULE%-1*}-$VERSION.tar.xz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%-1*}-$VERSION
+      SOURCE_URL=http://gstreamer.freedesktop.org/src/gst-plugins-ugly
+      SOURCE_VFY=sha1:fb227bccfe75fe4c132ebcf992fe7732cee3d050
+        WEB_SITE=http://gstreamer.freedesktop.org
+         ENTERED=20130115
+         UPDATED=20130115
+           SHORT="additional plugins for Gstreamer 1.x"
+
+cat << EOF
+gst-plugins-ugly is a set of plug-ins for GStreamer 1.x that have
+good quality and correct functionality, but distributing them might
+pose problems.  The license on either the plug-ins or the supporting
+libraries might not be how we'd like. The code might be widely known
+to present patent problems, such as MP3.
+EOF
