@@ -1,2 +1,5 @@
-optional_depends openssl "" "-disable-ssl -disable-crypto" "for openssl support (recommended)"
-optional_depends lzo     "" "--disable-lzo"                "for link compression (recommended)"
+optional_depends %UDEV     "--enable-systemd"         "--disable-systemd"              "for systemd support"
+optional_depends openssl   "--enable-ssl"             "--disable-ssl --disable-crypto" "for openssl support (recommended)"
+optional_depends lzo       "--enable-lzo"             "--disable-lzo"                  "for link compression (recommended)"
+optional_depends Linux-PAM "--enable-plugin-auth-pam" "--disable-plugin-auth-pam"      "for PAM support"
+optional_depends iproute2  "--enable-iproute2"        "--disable-iproute2"             "for iproute support"

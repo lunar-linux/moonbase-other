@@ -1,11 +1,7 @@
 (
 
-  default_build &&
+  OPTS+=" --enable-plugins" &&
 
-  cd plugin/auth-pam &&
-  make &&
-
-  mkdir -p /usr/lib/$MODULE &&
-  install -m755 openvpn-auth-pam.so /usr/lib/$MODULE/
+  default_build 
 
 ) > $C_FIFO 2>&1
