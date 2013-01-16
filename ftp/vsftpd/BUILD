@@ -1,5 +1,7 @@
 (
 
+  CFLAGS+=" -fPIC" &&
+
   echo -e "#ifndef VSF_BUILDDEFS_H\n#define VSF_BUILDDEFS_H" > builddefs.h &&
 
   if [ $(get_module_config USE_TCP_WRAPPERS) == "n" ] ; then
