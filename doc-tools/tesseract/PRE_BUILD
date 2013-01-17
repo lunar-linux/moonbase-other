@@ -1,0 +1,7 @@
+default_pre_build &&
+
+cd $SOURCE_DIRECTORY &&
+tar xvf $SOURCE_CACHE/$SOURCE2 --strip-components=1 &&
+
+# install all provided language files!
+sedit "s:test \$\${LANGS+defined}:true:g" Makefile.in
