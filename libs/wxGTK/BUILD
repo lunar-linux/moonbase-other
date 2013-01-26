@@ -11,17 +11,18 @@
                 --enable-optimise  \
                 $OPTS             &&
   default_make                    &&
+  devoke_installwatch &&
 
   for DIR in contrib/src/stc \
              contrib/src/gizmos \
              contrib/src/ogl;
   do
-
-  cd $DIR;
-  make;
-  make install;
-  cd $SOURCE_DIRECTORY;
-
+    cd $DIR &&
+    make &&
+    invoke_installwatch &&
+    make install &&
+    devoke_installwatch &&
+    cd $SOURCE_DIRECTORY
   done
 
 ) > $C_FIFO 2>&1
