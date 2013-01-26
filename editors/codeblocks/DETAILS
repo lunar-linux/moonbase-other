@@ -1,12 +1,12 @@
            MODULE=codeblocks
-          VERSION=10.05
-           SOURCE=$MODULE-$VERSION-src.tar.bz2
- SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-release
-    SOURCE_URL[0]=http://download.berlios.de/codeblocks/
-       SOURCE_VFY=sha1:b7697f512de69ad731f0febac4b91bb6c605fa57
+          VERSION=12.11-1
+           SOURCE=${MODULE}_$VERSION.tar.gz
+ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION%-*}release8629
+       SOURCE_URL=$SFORGE_URL/$MODULE/Sources/${VERSION%-*}
+       SOURCE_VFY=sha1:12f47ef42d9d1a45f4a337d4433db6ede2630669
          WEB_SITE=http://codeblocks.org
           ENTERED=20081123
-          UPDATED=20100615
+          UPDATED=20120126
             SHORT="wxGTK-based C++ IDE"
 
 cat << EOF
