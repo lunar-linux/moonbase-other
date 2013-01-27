@@ -1,4 +1,5 @@
 (
+  sedit "s:priv->quality, true: priv->quality, TRUE:" goo/JpegWriter.cc &&
 
   OPTS+=" --disable-static --disable-gtk-test --enable-xpdf-headers" &&
 
