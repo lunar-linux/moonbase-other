@@ -7,10 +7,6 @@
 
   OPTS+=" --disable-compile-inits --enable-dynamic --with-system-libtiff LIBS=-lz" &&
 
-  if in_depends $MODULE cups ; then
-    OPTS+=" --with-install-cups"
-  fi &&
-
   # Will run ./configure with Lunar's options, in default_build
   sedit "s:\$srcdir/configure:echo:" autogen.sh &&
   ./autogen.sh $OPTS &&
