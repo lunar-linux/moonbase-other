@@ -1,10 +1,7 @@
-(
-  
+patch_it $SOURCE2 1 &&
 
-  bad_flags -malign-double
+bad_flags -malign-double &&
 
-  OPTS+=" --enable-shared --enable-static --enable-maxmem=64"
+OPTS+=" --enable-shared --enable-static --enable-maxmem=64" &&
  
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
