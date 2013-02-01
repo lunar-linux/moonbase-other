@@ -1,11 +1,14 @@
           MODULE=jpeg
-         VERSION=8d
+         VERSION=9
           SOURCE=${MODULE}src.v$VERSION.tar.gz
+         SOURCE2=jpeg-9a-backport-boolean.patch.bz2
       SOURCE_URL=http://www.ijg.org/files
-      SOURCE_VFY=sha1:f080b2fffc7581f7d19b968092ba9ebc234556ff
+     SOURCE2_URL=${PATCH_URL}
+      SOURCE_VFY=sha1:724987e7690ca3d74d6ab7c1f1b6854e88ca204b
+     SOURCE2_VFY=sha1:86a2932a61d27d1b4835cbb2b55575bf434a50d3
         WEB_SITE=http://www.ijg.org
          ENTERED=20010922
-         UPDATED=20120711
+         UPDATED=20130201
            SHORT="A library that supports the JPEG image format"
 
 cat << EOF
