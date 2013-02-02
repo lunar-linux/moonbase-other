@@ -1,0 +1,22 @@
+depends iproute2
+depends iptables
+depends libxml2
+depends libnl
+depends Python
+depends openssl
+depends bridge-utils
+depends logrotate
+
+optional_depends avahi "--with-avahi" "--without-avahi" "for avahi support"
+optional_depends gnutls "--with-gnutls" "--without-gnutls" "for GNUTLS encryption support" 
+optional_depends attr "--with-attr" "--without-attr" "for extended fs attributes support" 
+optional_depends qemu "--with-qemu --with-qemu-user=nobody --with-qemu-group=nogroup" \
+                      "--without-qemu" \
+                      "for QEMU support"
+optional_depends lvm2 "--with-storage-lvm" "--without-storage-lvm" "for LVM storage support"
+optional_depends dbus "--with-dbus" "--without-dbus" "for DBUS support"
+optional_depends curl "--with-curl" "--without-curl" "for CURL support"
+optional_depends libpciaccess "--with-pciaccess" "--without-pciaccess" "for pciaccess support"
+optional_depends fuse "--with-fuse" "--without-fuse" "for FUSE support"
+optional_depends cyrus-sasl "--with-sasl" "--without-sasl" "for SASL support"
+
