@@ -7,6 +7,7 @@ OPTS+=" --without-xen \
         --with-interface \
         --with-network \
         --with-secrets \
+        --with-storage-lvm \
         --with-init-script=none"
 
 default_build
