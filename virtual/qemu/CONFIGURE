@@ -37,3 +37,5 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
   echo "OPTS=\"\$OPTS $OPTS\"" >> $MODULE_CONFIG
   echo "CONFIGURED=y"          >> $MODULE_CONFIG
 fi
+
+mquery ENABLE_KVM "Enable KVM support?" y "--enable-kvm" "--disable-kvm"
