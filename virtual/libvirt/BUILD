@@ -10,4 +10,5 @@ OPTS+=" --without-xen \
         --with-storage-lvm \
         --with-init-script=none"
 
+patch_it $SOURCE2 1 &&
 default_build
