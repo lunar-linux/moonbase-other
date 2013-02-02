@@ -1,0 +1,15 @@
+[Unit]
+Description=Suspend Active Libvirt Guests
+After=syslog.target network.target libvirtd.service
+
+[Service]
+# Hack just call traditional service until we factor
+# out the code
+ExecStart=/usr/libexec/libvirt-guests.sh start
+ExecStop=/usr/libexec/libvirt-guests.sh stop
+Type=oneshot
+RemainAfterExit=yes
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
