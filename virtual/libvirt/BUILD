@@ -8,6 +8,7 @@ OPTS+=" --without-xen \
         --with-network \
         --with-secrets \
         --with-storage-lvm \
+        --with-yajl \
         --with-init-script=none"
 
 patch_it $SOURCE2 1 &&
