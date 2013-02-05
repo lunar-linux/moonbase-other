@@ -1,6 +1,6 @@
 # Create symlinks in /usr/bin/, for e.g. pdflatex and lualatex.
 # Is not inside BUILD, to prevent /usr/bin/lualatex dual-ownership.
-texlinks -q
+texlinks -q --cnffile /usr/share/texmf/web2c/fmtutil.cnf
 
 # Fixes "can't find foo.{tex,sty}" errors
 mktexlsr --quiet
