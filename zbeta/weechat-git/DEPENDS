@@ -1,8 +1,11 @@
 depends ncurses
-depends gnutls
-optional_depends "perl"   "--enable-perl"   "--disable-perl"   "to compile the perl plugin"
-optional_depends "Python" "--enable-python" "--disable-python" "to compile the Python plugin"
-optional_depends "lua"    "--enable-lua"    "--disable-lua"    "to compile the lua plugin"
-optional_depends "ruby"   "--enable-ruby"   "--disable-ruby"   "to compile the ruby plugin"
-optional_depends "tcl"    "--enable-tcl"    "--disable-tcl"    "to compile the tcl plugin"
-optional_depends "guile"  "--enable-guile"  "--disable-guile"  "to compile the guile plugin"
+depends cmake
+
+optional_depends "perl"   "-DENABLE_PERL=ON"   "-DENABLE_PERL=OFF"   "to compile the perl plugin"
+optional_depends "Python" "-DENABLE_PYTHON=ON" "-DENABLE_PYTHON=OFF" "to compile the Python plugin"
+optional_depends "lua"    "-DENABLE_LUA=ON"    "-DENABLE_LUA=OFF"    "to compile the lua plugin"
+optional_depends "ruby"   "-DENABLE_RUBY=ON"   "-DENABLE_RUBY=OFF"   "to compile the ruby plugin"
+optional_depends "tcl"    "-DENABLE_TCL=ON"    "-DENABLE_TCL=OFF"    "to compile the tcl plugin"
+optional_depends "guile"  "-DENABLE_GUILE=ON"  "-DENABLE_GUILE=OFF"  "to compile the guile plugin"
+optional_depends "aspell" "-DENABLE_ASPELL=ON" "-DENABLE_ASPELL=OFF" "for spelling support"
+optional_depends "gnutls" "-DENABLE_GNUTLS=ON" "-DENABLE_GNUTLS=OFF" "for TLS encryption support"
