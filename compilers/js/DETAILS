@@ -1,0 +1,17 @@
+          MODULE=js
+         VERSION=1.8.5
+          SOURCE=js185-1.0.0.tar.gz
+      SOURCE_URL=http://ftp.mozilla.org/pub/mozilla.org/$MODULE
+      SOURCE_VFY=sha1:52a01449c48d7a117b35f213d3e4263578d846d6
+        WEB_SITE=https://developer.mozilla.org/En/SpiderMonkey/$VERSION
+         ENTERED=20130210
+         UPDATED=20130210
+           SHORT="JavaScript interpreter and libraries"
+
+cat <<EOF
+SpiderMonkey 1.8.5 includes a just-in-time compiler (JIT) (several, actually)
+that compiles JavaScript to machine code, for a significant speed increase.
+It is supported only on x86, x86_64 and ARM architectures. On other platforms,
+the JIT is simply disabled; JavaScript code runs in an interpreter, as in
+previous versions. It's the same language, just not as fast.
+EOF
