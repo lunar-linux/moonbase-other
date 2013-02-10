@@ -1,9 +1,8 @@
-(
+mkdir  -p  /var/spool/atjobs                                   &&
+sedit "s/\$(prefix)\/doc/\$(prefix)\/share\/doc/" Makefile.in  &&
 
-  mkdir  -p  /var/spool/atjobs                                   &&
-  sedit "s/\$(prefix)\/doc/\$(prefix)\/share\/doc/" Makefile.in  &&
-  prepare_install                                                &&
-  default_build                                                  &&
-  [  -e  /etc/at.deny  ]  ||  cp  at.deny   /etc
+default_build                                                  &&
 
-) > $C_FIFO 2>&1
+if [[ ! -e  /etc/at.deny ]]; then
+  cp  at.deny   /etc
+fi
