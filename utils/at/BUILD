@@ -1,8 +1,10 @@
-mkdir  -p  /var/spool/atjobs                                   &&
-sedit "s/\$(prefix)\/doc/\$(prefix)\/share\/doc/" Makefile.in  &&
 
-default_build                                                  &&
+OPTS+=" --with-jobdir=/var/spool/atd \
+        --with-atspool=/var/spool/atd"
 
-if [[ ! -e  /etc/at.deny ]]; then
-  cp  at.deny   /etc
-fi
+default_config &&
+make &&
+prepare_install &&
+make docdir=/usr/share/doc install &&
+
+[ -e /etc/at.deny ] || install -m644 at.deny /etc/
