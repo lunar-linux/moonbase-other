@@ -1,8 +1,5 @@
-(
+cd /usr/lib/virtualbox/src &&
 
-  cd /usr/lib/virtualbox/src
+KERN_DIR=/usr/src/linux &&
 
-  KERN_DIR=/usr/src/linux 
-  default_make
-
-) > $C_FIFO 2>&1
+default_make
