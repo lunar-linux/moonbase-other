@@ -1,6 +1,5 @@
-(
+cd /usr/lib/virtualbox/src &&
 
-  # Build and install kernel module
-  KERN_DIR=/usr/src/linux default_make
+KERN_DIR=/usr/src/linux &&
 
-) > $C_FIFO 2>&1
+default_make
