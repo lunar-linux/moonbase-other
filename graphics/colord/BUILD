@@ -1,10 +1,6 @@
-(
+OPTS+=" --sysconfdir=/etc/$MODULE" &&
 
-  OPTS+=" --sysconfdir=/etc/$MODULE" &&
+add_priv_group colord &&
+add_priv_user colord -d /var/run/colord -g colord &&
 
-  add_priv_group colord &&
-  add_priv_user colord -d /var/run/colord -g colord &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
