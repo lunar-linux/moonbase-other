@@ -1,6 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 0 &&
   # fix swig generation with current ocaml
   sedit "3364 s:\(^.*$\):\1; sed -i \"/int caml_array_length/ d\" gv_ocaml.cpp:" tclpkg/gv/Makefile.in &&
 
