@@ -1,5 +1,2 @@
-(
-
-  default_cmake_build
-
-) > $C_FIFO 2>&1
+OPTS+=" -DDOCDIR=/usr/share/doc" &&
+default_cmake_build
