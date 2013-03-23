@@ -1,0 +1,61 @@
+depends  gst-plugins-base-1.0
+
+optional_depends  "SDL" \
+                  ""    \
+                  "--disable-sdl --disable-sdltest"  \
+                  "for the SDL video and audio sink"
+
+optional_depends  "%XINELIB"  \
+                  "--enable-vdpau"   \
+                  "--disable-vdpau"  \
+                  "for video support"
+
+optional_depends  "faac"  \
+                  ""      \
+                  "--disable-faac"  \
+                  "for the AAC encoder plugin"
+
+optional_depends  "faad"  \
+                  ""      \
+                  "--disable-faad"  \
+                  "for the AAC decoder plugin"
+
+optional_depends  "DirectFB"  \
+                  ""  \
+                  "--disable-directfb"  \
+                  "for the DirectFB video sink"
+
+optional_depends  "neon"  \
+                  ""      \
+                  "--disable-neon"  \
+                  "for the neon HTTP client plugin"
+
+optional_depends  "libcdaudio"  \
+                  ""   \
+                  "--disable-cdaudio"  \
+                  "for basic cd audio support"
+
+optional_depends  "twolame"  \
+                  ""  \
+                  "--disable-twolame"  \
+                  "for mpeg2 audo encoding support"
+
+optional_depends  "xvidcore"  \
+                  ""  \
+                  "--disable-xvid"  \
+                  "for the XviD video plugin"
+
+optional_depends  "libmusicbrainz2"  \
+                  ""  \
+                  "--disable-musicbrainz"  \
+                  "for MusicBrainz tag generation support"
+
+optional_depends  "soundtouch" \
+                  ""  \
+                  "--disable-soundtouch"  \
+                  "for the SoundTouch plugin"
+
+optional_depends  "libmms" \
+                  ""  \
+                  "--disable-libmms"  \
+                  "for mms streaming plugin"

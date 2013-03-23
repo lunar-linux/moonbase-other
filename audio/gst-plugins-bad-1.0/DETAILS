@@ -1,0 +1,18 @@
+          MODULE=gst-plugins-bad-1.0
+         VERSION=1.0.6
+          SOURCE=${MODULE%-1*}-$VERSION.tar.xz
+      SOURCE_URL=http://gstreamer.freedesktop.org/src/gst-plugins-bad
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%-1*}-$VERSION
+      SOURCE_VFY=sha1:5ae03da5eb5455c514cf5883686e8b8381f70968
+        WEB_SITE=http://gstreamer.freedesktop.org/modules/gst-plugins-base.html
+         ENTERED=20130214
+         UPDATED=20130323
+           SHORT="additional plugins for Gstreamer"
+
+cat << EOF
+gst-plugins-bad is a set of plug-ins for GStreamer that aren't
+up to par compared to the rest. They might be close to being good
+quality, but they're missing something - be it a good code review, some
+documentation, a set of tests, a real live maintainer, or some actual
+wide use.
+EOF
