@@ -16,6 +16,10 @@
                 --mandir=/usr/share/man  \
                 $OPTS                   &&
 
+  if in_depends $MODULE openssl; then
+    sedit 's/.*USE_OPENSSL_INCL.*/#define USE_OPENSSL_INCL 1/' lynx_cfg.h
+  fi &&
+
   default_make       &&
   make install-help  &&
   make install-doc   &&
