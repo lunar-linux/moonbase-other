@@ -1,13 +1,4 @@
-(
+# make documentation work with texinfo 5.1
+sedit '17653 s/@subsubsection/@subsection/' docs/gnuplot.texi &&
 
-  if in_depends $MODULE readline ; then
-    export LIBS+=" -lncurses"
-  fi &&
-
-  if in_depends $MODULE lua; then
-    export LIBS+=" -ldl"
-  fi &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
