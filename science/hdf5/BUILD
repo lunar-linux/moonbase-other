@@ -1,7 +1,5 @@
-(
+sedit 's:/bin/mv:mv:' configure &&
 
-  OPTS+=" --enable-gpfs --with-pthread --enable-unsupported" &&
+OPTS+=" --enable-gpfs --with-pthread --enable-unsupported" &&
 
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
