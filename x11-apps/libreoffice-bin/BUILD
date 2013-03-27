@@ -8,7 +8,7 @@ for pack in RPMS/desktop-integration/*freedesktop* ; do rpm2cpio $pack > `basena
 for i in `ls *.cpio`; do cpio -idmuV < $i ;done &&
 
 #rm -f usr/bin/libreoffice${VERSION%.*}
-desktopfiles="base binfilter calc draw impress javafilter math printeradmin startcenter writer xsltfilter"  &&
+desktopfiles="base calc draw impress javafilter math printeradmin startcenter writer xsltfilter"  &&
 #for i in $desktopfiles; do
 #  rm -f usr/share/applications/libreoffice*-$i.desktop
 #done
