@@ -12,6 +12,7 @@
   make install-strip &&
 
 #Seems other apps look for this, like transcode
-  ln -sf /usr/lib/libMagick++.so /usr/lib/libMagick.so
+#They felt the need to version this
+  ln -sf /usr/lib/libMagick++-*.so /usr/lib/libMagick.so
 
 ) > $C_FIFO 2>&1
