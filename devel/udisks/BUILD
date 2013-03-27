@@ -4,8 +4,7 @@
 
   if module_installed systemd ; then
       sedit "s:slashlibdir=$prefix/lib:slashlibdir=/usr/lib/:g" configure.ac &&
-      libtoolize &&
-      autoreconf
+      autoconf
   fi &&
   
   default_build
