@@ -1,0 +1,18 @@
+depends glew
+depends %JPEG
+depends tiff
+depends libpng
+depends openexr
+depends boost
+depends libwebp
+
+optional_depends "Python"    "-DUSE_PYTHON=ON"       "-DUSE_PYTHON=OFF"       "for Python bindings support"
+optional_depends "openssl"   "-DUSE_OPENSSL=ON"      "-DUSE_OPENSSL=OFF"      "for ssl support"
+optional_depends "openjpeg"  "-DUSE_OPENJPEG=ON"     "-DUSE_OPENJPEG=OFF"     "for openjpeg graphics support"
+optional_depends "freetype2" "-DUSE_FREETYPE=ON"     "-DUSE_FREETPE=OFF"      "for freetype font support"
+optional_depends "tbb"       "-DUSE_EXTERNAL_TBB=ON" "-DUSE_EXTERNAL_TBB=OFF" "if yes use system threaded building blocks"
+optional_depends "qt4"       "-DUSE_QT=ON"           "-DUSE_QT=OFF"           "for image viewing tools support"
+optional_depends "opencv"    "-DUSE_OPENCV=ON"       "-DUSE_OPENCV=OFF"       "for open computer vision support"
+
+optional_depends "imageworks-OpenColorIO" "-DUSE_OCIO=ON"    "-DUSE_OCIO=OFF"    "for OpenColorIO color management support"
+optional_depends "imageworks-Field3D"     "-DUSE_FIELD3D=ON" "-DUSE_FIELD3D=OFF" "for voxel data storage support"
