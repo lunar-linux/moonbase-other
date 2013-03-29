@@ -1,0 +1,22 @@
+          MODULE=imageworks-Field3D
+         VERSION=v1.3.2-0-gcac7b57
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://github.com/imageworks/Field3D/tarball/v1.3.2/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-94d1bf3/
+      SOURCE_VFY=sha1:6f4de442869587f7fa5ce6f5f8bd0630b6ae7192
+        WEB_SITE=https://sites.google.com/site/field3d/home
+         ENTERED=20130329
+         UPDATED=20130329
+           SHORT="library for storing voxel data"
+
+cat << EOF
+Field3D is an open source library for storing voxel data. It provides C++ classes 
+that handle in-memory storage and a file format based on HDF5 that allows the C++ 
+objects to be written to and read from disk.
+
+Field3D was developed with the needs and scale of visual effects production in mind. 
+Dense and MAC-fields handle the basic tasks in fluid simulation and volume rendering, 
+and where memory becomes a limiting factor optimization of used/unused space is provided 
+by the sparse fields, which include an out-of-core/dynamic loading mechanism. Procedural 
+fields are also supported, which may be used interchangeably with voxel-based fields.
+EOF
