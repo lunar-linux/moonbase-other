@@ -95,6 +95,9 @@ if [ "$SHUTDOWN" = "true" ]; then
     exit 0
 fi
 
+chgrp vboxusers /dev/vboxdrv
+chmod g+rwx /dev/vboxdrv
+
 APP=`which $0`
 APP=${APP##/*/}
 case "$APP" in
