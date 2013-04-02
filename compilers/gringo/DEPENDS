@@ -1,4 +1,5 @@
-depends cmake
-depends boost
+depends scons
+depends re2c
+depends bison
 
-optional_depends lua "" "--dummy" "for system lua library"
+optional_depends llvm "" "CXX=g++" "build with clang compiler(enable in llvm)"
