@@ -10,6 +10,7 @@
 
   OPTS+=" -DEMBEDPLUGINS=OFF -DCMAKE_C_FLAGS=-fPIC" &&
 
+  # these will both be obsolete with the next version bump
   sedit "35i #include <string.h>" src/libtexture/texturesys.cpp src/libtexture/imagecache.cpp src/testtex/testtex.cpp &&
   sedit "163 s/= true/= TRUE/" src/jpeg.imageio/jpegoutput.cpp &&
 
