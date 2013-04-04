@@ -1,8 +1,3 @@
-(
+sedit "s:LIBXML2_LIBRARIES}:\0 -lm:" CMakeLists.txt &&
 
-  LDFLAGS+=" -lm" &&
-
-  default_cmake_build
-
-) > $C_FIFO 2>&1
-
+default_cmake_build
