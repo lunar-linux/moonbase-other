@@ -1,16 +1,8 @@
-(
+if [ "`get_module_config DOCS`" = "n" ] ; then
+  sedit "s/SUBDIRS = docs codegen/SUBDIRS = codegen/g" Makefile.in
+fi  &&
 
-  if [ "`get_module_config DOCS`" = "n" ] ; then
-    sedit "s/SUBDIRS = docs codegen/SUBDIRS = codegen/g" Makefile.in
-  fi  &&
+# ignore unrecognized format function type warning
+sedit 's:CFLAGS="$CFLAGS -Werror=format"::' configure &&
 
-   ./configure  --prefix=/usr              \
-                --build=$BUILD             \
-                --sysconfdir=/etc          \
-                --localstatedir=/var       \
-                --infodir=/usr/share/info  \
-                --mandir=/usr/share/man    \
-                $OPTS                     &&
-    default_make
-
-) > $C_FIFO 2>&1
+default_build
