@@ -1,15 +1,21 @@
           MODULE=easytag2
-         VERSION=2.1.7
-          SOURCE=${MODULE%2*}-$VERSION.tar.bz2
-         SOURCE2=easytag-2.1.7-new_libmp4v2.patch
-      SOURCE_URL=$SFORGE_URL/${MODULE%2*}
-     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-sound/easytag/files/
+         VERSION=2.1.8
+          SOURCE=${MODULE%2*}-$VERSION.tar.xz
+         SOURCE2=easytag-2.1.8-werror.patch
+         SOURCE3=easytag-2.1.8-desktop.patch
+         SOURCE4=easytag-2.1.8-taglib.patch
+      SOURCE_URL=http://download.gnome.org/sources/easytag/${VERSION%.*}/
+     SOURCE2_URL=https://raw.github.com/portage/portage/master/media-sound/easytag/files/
+     SOURCE3_URL=https://raw.github.com/portage/portage/master/media-sound/easytag/files/
+     SOURCE4_URL=https://raw.github.com/portage/portage/master/media-sound/easytag/files/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%2*}-$VERSION
-      SOURCE_VFY=sha1:7b56ba18be2f1bec0171e5de4447ba763a264f92
-     SOURCE2_VFY=sha1:29543cf39bd44060de14ba3b9d0235c2d7c217ba
+      SOURCE_VFY=sha1:7f9246b0eab97ed9739daf5356c89925634241a2
+     SOURCE2_VFY=sah1:7bf9f78c6e60bf4958b2249bdc3b2fc9726daea7
+     SOURCE3_VFY=sha1:fc8ca2d12afd40ce6721711ada81bc9a498910c0
+     SOURCE4_VFY=sha1:baeb0e8701b1dfe4252c66fc8daab5ccd78fb3c0
         WEB_SITE=http://easytag.sourceforge.net/
          ENTERED=20050924
-         UPDATED=20120916
+         UPDATED=20130404
            SHORT="Maintaining id3 tags (gtk+-2 version)"
 
 cat << EOF
