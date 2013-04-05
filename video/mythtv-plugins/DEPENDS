@@ -2,7 +2,7 @@
 depends mythtv
 depends mysql
 
-optional_depends dcraw "" "" "for raw image support"
+optional_depends dcraw "--enable-dcraw" "--disable-dcraw" "for raw image support"
 # MythGallery
 depends tiff
 optional_depends "libexif" "--enable-exif --enable-new-exif" "--disable-exif" "MythGallery: Enable reading of EXIF headers"
@@ -16,6 +16,11 @@ depends libcdaudio
 depends cdparanoia
 depends lame
 depends taglib
-optional_depends fftw3 "--enable-fftw" "" "MythMusic: Visualization support"
-optional_depends fftw "--enable-fftw" "" "MythMusic: Visualization support"
+optional_depends fftw3 "--enable-fftw" "--disable-fftw" "MythMusic: Visualization support"
+optional_depends fftw "--enable-fftw" "--disable-fftw" "MythMusic: Visualization support"
 
+# Mythweather
+depends XML-Simple
+depends XML-XPath
+depends Image-Size
+depends DateTime-Format-ISO8601
