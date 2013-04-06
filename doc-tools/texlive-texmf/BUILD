@@ -20,6 +20,9 @@
   # adjust TeX root path
   sedit "s:\(TEXMFROOT =\) .*$:\1 \$SELFAUTODIR/share:" texmf/web2c/texmf.cnf &&
 
+  # the etex binary is _not_ compatible with pdftex
+  sedit "s:^etex pdftex:etex etex:" texmf/web2c/fmtutil.cnf &&
+
   # this is the big cp (which would copy the man pages we removed before again)
   mkdir -p /usr/share                 &&
   cp -R texmf texmf-dist /usr/share/  &&
