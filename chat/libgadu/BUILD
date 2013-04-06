@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --with-pthread"
+  OPTS+=" --with-pthread --disable-debug --disable-tests" &&
 
   default_build
 
