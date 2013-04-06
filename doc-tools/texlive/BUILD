@@ -39,6 +39,9 @@
   # luatex and psutils are individual modules.
   OPTS+=" --datadir=/usr/share --disable-multiplatform --disable-native-texlive-build --with-gs=gs --disable-xindy --enable-etex --disable-luatex --disable-psutils --enable-xetex --enable-ipc --enable-shared --disable-static --with-system-zlib --with-system-zziplib --with-system-libpng --with-system-gd --with-system-t1lib --with-system-teckit --with-teckit-includes=/usr/include/teckit --with-system-freetype2 --disable-t1utils --disable-lcdf-typetools" &&
 
+  # the etex binary is _not_ compatible with pdftex
+  sedit "s:^etex pdftex:etex etex:" texk/tetex/fmtutil.cnf &&
+
 # They warn an in source build is a very bad idea, so
   mkdir tex-build &&
   cd tex-build    &&
