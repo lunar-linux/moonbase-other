@@ -11,5 +11,4 @@ OPTS+=" --without-xen \
         --with-yajl \
         --with-init-script=none"
 
-patch_it $SOURCE2 1 &&
 default_build
