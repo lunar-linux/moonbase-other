@@ -1,16 +1,14 @@
           MODULE=libvirt
-         VERSION=1.0.2
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-         SOURCE2=libvirt-1.0.2-python-fix.patch
+         VERSION=1.0.4
+          SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=http://libvirt.org/sources
-     SOURCE2_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha256:9b8c2752f78658b65ef1c608b3775be0978d60855a9b5e2778f79c113201c179
-     SOURCE2_VFY=sha256:b09159da259723e6426967f50efcfca4354e88828c22f8f044283f522c1d42cf
-        WEB_SITE="http://libvirt.org/"
+      SOURCE_VFY=sha256:d94c99ce286f5a89eb02c9f3d9d620930df1f9348262a60199b4a565a222c9a0
+        WEB_SITE=http://libvirt.org
          ENTERED=20130202
-         UPDATED=20130202
+         UPDATED=20130413
            SHORT="API for controlling virtualization engines"
+
 cat <<EOF
 API for controlling virtualization engines
 (openvz,kvm,qemu,virtualbox,xen,etc).
