@@ -1,22 +1,13 @@
-(
+OPTS+=" --disable-static" &&
 
-  OPTS+=" --disable-static --enable-xlib-xcb "  &&
+if in_depends $MODULE qt4 ; then
+  . /etc/profile.d/qt4.rc
+fi &&
 
-  if in_depends $MODULE qt4 ; then
-    . /etc/profile.d/qt4.rc
-  fi &&
+if [ "`get_module_config DOCS`" = "n" ] ; then
+  sedit 's/SUBDIRS = src doc util/SUBDIRS = src util/g' Makefile.in
+fi &&
 
-  if in_depends $MODULE libX11 ; then
-    # tee is required by firefox 4 when compiled with system cairo, and doesn't otherwise make any difference
-    OPTS+=" --enable-tee"
-  fi  &&
-
-  if [ "`get_module_config DOCS`" = "n" ] ; then
-    sedit 's/SUBDIRS = src doc util/SUBDIRS = src util/g' Makefile.in
-  fi  &&
-
-  # LIBS is needed for cairo-sphinx and others with --as-needed
-  LIBS="-lstdc++" \
-  default_build
-
-) > $C_FIFO 2>&1
+# LIBS is needed for cairo-sphinx and others with --as-needed
+LIBS="-lstdc++" \
+default_build
