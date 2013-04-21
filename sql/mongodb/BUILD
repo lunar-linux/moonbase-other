@@ -1,17 +1,22 @@
+OPTS+=" --use-system-boost --use-system-pcre"
+
+# Honor CXXFLAGS and remove -ggdb
+patch_it $SOURCE3 1 &&
+
+# Propagate Lunar ENV to scons
+patch_it $SOURCE4 1 &&
+
 # that linking dependency is just too stupid. Simply remove the debug function call for now
 sedit 's:(" << errnoWithDescription(err) << ")":":' src/mongo/util/stacktrace.cpp &&
 
 # gcc 4.8 does find something to warn about ;)
 sedit 's:"-Werror",:\0 "-Wno-unused-local-typedefs", "-Wno-unused-variable",:' SConstruct &&
 
-# respect our PATH variable(for wrapper support) -- this does not seem to work
-sedit "s/env = Environment(/\0 ENV={'PATH' : os.environ['PATH']}, /" SConstruct &&
-
 add_priv_user mongodb:mongodb -d /var/lib/mongodb  &&
 
-scons -j${MAKES:=1} all &&
+scons -j${MAKES:=1} $OPTS all &&
 prepare_install &&
-scons -j${MAKES:=1} install --full --prefix=/usr &&
+scons -j${MAKES:=1} $OPTS install --full --prefix=/usr &&
 
 if [ ! -f /etc/mongodb.conf ]; then
   install -m 644 $SOURCE_CACHE/$SOURCE2 /etc/mongodb.conf
