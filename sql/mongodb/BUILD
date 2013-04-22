@@ -1,4 +1,4 @@
-OPTS+=" --use-system-boost --use-system-pcre"
+OPTS+=" --use-system-boost --use-system-pcre" &&
 
 # Honor CXXFLAGS and remove -ggdb
 patch_it $SOURCE3 1 &&
@@ -10,7 +10,7 @@ patch_it $SOURCE4 1 &&
 sedit 's:(" << errnoWithDescription(err) << ")":":' src/mongo/util/stacktrace.cpp &&
 
 # gcc 4.8 does find something to warn about ;)
-sedit 's:"-Werror",:\0 "-Wno-unused-local-typedefs", "-Wno-unused-variable",:' SConstruct &&
+sedit "s:'-Werror':\0, '-Wno-unused-local-typedefs':" src/third_party/v8/SConscript &&
 
 add_priv_user mongodb:mongodb -d /var/lib/mongodb  &&
 
