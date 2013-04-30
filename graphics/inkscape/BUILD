@@ -1,20 +1,8 @@
-(
-   #fix build with poppler 0.20.0
-   sedit "s:getOrigName:getName:" src/extension/internal/pdfinput/svg-builder.cpp &&
-   sedit "s:error(:error(errInternal,:" src/extension/internal/pdfinput/pdf-parser.cpp &&
+# fix build with gcc 4.8 - this is fixed in 0.48.5
+sedit "s:commands_toolbox,;:commands_toolbox;:" src/widgets/desktop-widget.h &&
 
-   CXXFLAGS+=" -fpermissive" &&
+CXXFLAGS+=" -fpermissive" &&
 
-   ./configure  --prefix=${GNOME26_PREFIX:-/usr}  \
-                --build=$BUILD                    \
-                --sysconfdir=/etc                 \
-                --localstatedir=/var              \
-                --infodir=${GNOME26_PREFIX:-/usr}/share/info \
-                --mandir=${GNOME26_PREFIX:-/usr}/share/man   \
-                $OPTS                             &&
+default_build &&
 
-    default_make  &&
-
-    gather_docs HACKING
-
-) > $C_FIFO 2>&1
+gather_docs HACKING
