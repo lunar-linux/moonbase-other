@@ -2,8 +2,8 @@
 
   export CXXFLAGS+=" -fPIC" &&
   cd unrar &&
-  cp makefile.unix Makefile &&
-  sedit '/^CXXFLAGS/d' Makefile &&
+#  cp makefile.unix Makefile &&
+  sedit '/^CXXFLAGS/d' makefile &&
   make clean &&
 #  make sfx &&
 #  make clean &&
