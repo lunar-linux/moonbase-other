@@ -4,7 +4,7 @@ sedit "s@CFLAGS=@CFLAGS+=@" src/Makefile &&
 CFLAGS+=" -fPIC" &&
 sedit "s:TO_LIB=:\0 liblua.so.5.2:" Makefile &&
 
-sedit "s:/usr/local:/usr:" Makefile  &&
+sedit "s:/usr/local:/usr:" Makefile src/luaconf.h &&
 
 (
 cat > lua.pc <<EOF
