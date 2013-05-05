@@ -16,6 +16,9 @@ OPTS+=" -DBINDIR=games \
 # fribidi is obsolete and would require 0.10.*
 OPTS+=" -DENABLE_FRIBIDI=OFF" &&
 
+# I hate -Werror...
+OPTS+=" -DENABLE_STRICT_COMPILATION=OFF" &&
+
 if ! in_depends pango cairo; then
   message "${PROBLEM_COLOR}Wesnoth requires pango to be build with cairo backend."
   message "${PROBLEM_COLOR}Please rebuild pango and select cairo backend."
