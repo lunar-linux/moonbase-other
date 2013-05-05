@@ -2,7 +2,7 @@
 patch_it $SOURCE2 0 &&
 sedit "s@CFLAGS=@CFLAGS+=@" src/Makefile &&
 CFLAGS+=" -fPIC" &&
-sedit "s:TO_LIB=:\0 liblua.so.5.2:" Makefile &&
+sedit "s:TO_LIB=:\0 liblua.so.${VERSION%.*}:" Makefile &&
 
 sedit "s:/usr/local:/usr:" Makefile src/luaconf.h &&
 
@@ -26,5 +26,7 @@ make linux      &&
 
 prepare_install &&
 make install    &&
+
+ln -s liblua.so.${VERSION%.*} /usr/lib/liblua.so &&
 
 install -Dm0644 lua.pc /usr/lib/pkgconfig/
