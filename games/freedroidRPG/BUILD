@@ -1,8 +1,8 @@
-(
+sedit "s:LUA_LIBS:LUA_LIBS -ldl:" configure.ac &&
 
-  sedit "s:LUA_LIBS:LUA_LIBS -ldl:" configure.ac &&
-  autoreconf . &&
+OPTS+=" --with-embedded-lua" &&
+sedit "5 i freedroidRPG_CFLAGS = -I../lua" src/Makefile.am &&
 
-  default_game_build
+autoreconf . &&
 
-) > $C_FIFO 2>&1
+default_game_build
