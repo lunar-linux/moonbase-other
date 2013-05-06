@@ -1,11 +1,9 @@
-(
+patch_it $SOURCE2 0  &&
 
-  patch_it $SOURCE2 0  &&
+sedit 's/GtkType/GType/g' src/fe-gtk/xtext.{c,h}  &&
 
-  OPTS+=" --enable-ipv6"  &&
+sedit 's/xchat_LDADD = .*/\0 -lgmodule-2.0/' src/fe-gtk/Makefile.in &&
 
-  sedit 's/GtkType/GType/g' src/fe-gtk/xtext.{c,h}  &&
+OPTS+=" --enable-ipv6"  &&
 
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
