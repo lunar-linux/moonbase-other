@@ -1,13 +1,28 @@
           MODULE=alsa-lib
          VERSION=1.0.27
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=alsa-lib-1.0.27-dlclose.patch
+         SOURCE3=alsa-lib-1.0.27-inline-2.patch
+         SOURCE4=alsa-lib-1.0.27-inline.patch
+         SOURCE5=alsa-lib-1.0.27-kernel.patch
+         SOURCE6=alsa-lib-1.0.27-pcm.patch
    SOURCE_URL[0]=ftp://ftp.alsa-project.org/pub/lib
    SOURCE_URL[1]=http://alsa.cybermirror.org/lib
    SOURCE_URL[2]=ftp://ftp.sunet.se/pub/Linux/alsa/lib
+     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-libs/alsa-lib/files/
+     SOURCE3_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-libs/alsa-lib/files/
+     SOURCE4_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-libs/alsa-lib/files/
+     SOURCE5_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-libs/alsa-lib/files/
+     SOURCE6_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-libs/alsa-lib/files/
       SOURCE_VFY=sha1:a110aa9230fc93c4bef776d255df2fac9ffd9e7a
+     SOURCE2_VFY=sha1:7e62d00e858a86c57e6f1b5789ee5f8c1219ca43
+     SOURCE3_VFY=sha1:dbfadedbdd0f81b71b128a8b93f1e5602ad08090
+     SOURCE4_VFY=sha1:00949e042c9cbe2eee52fb912b81a55f302e0028
+     SOURCE5_VFY=sha1:965252d590d8c71a836cb0806d46907db0c77493
+     SOURCE6_VFY=sha1:4839e096a5ec688247ba518ad7025ce3115e0b7f
         WEB_SITE=http://www.alsa-project.org
          ENTERED=20010922
-         UPDATED=20130413
+         UPDATED=20130507
            SHORT="ALSA library provides an API for using the Advanced Linux Sound Architecture"
 
 cat << EOF
