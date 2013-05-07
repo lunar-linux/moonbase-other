@@ -1,6 +1,3 @@
-(
-
-  patch_it $SOURCE2 0 &&
 
   . /etc/profile.d/qt4.rc  &&
   . /etc/profile.d/kde4.rc &&
@@ -17,4 +14,3 @@
   sedit "s:Exec=:Exec=$MODULE_PREFIX/bin/:" /usr/share/applications/avogadro.desktop &&
   sedit "s:Icon=:Icon=/usr/share/pixmaps/:" /usr/share/applications/avogadro.desktop
 
-) > $C_FIFO 2>&1
