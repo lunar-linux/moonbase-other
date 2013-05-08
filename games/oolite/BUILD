@@ -1,3 +1,4 @@
+sedit "/NO_RETURN_FUNC/ d" src/Core/Materials/OOPNGTextureLoader.m &&
 if in_depends $MODULE espeak; then
  sedit "s:ESPEAK *=.*$:ESPEAK = yes:" config.make
 else
