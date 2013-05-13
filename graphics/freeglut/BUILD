@@ -1,11 +1,5 @@
-(
+LDFLAGS+=" -lm" &&
 
-  patch_it $SOURCE2 1 &&
+OPTS+=" --enable-static=no" &&
 
-  LDFLAGS+=" -lm" &&
-
-  OPTS+=" --enable-static=no" &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
