@@ -1,4 +1,5 @@
-(
+
+  sedit "s:oneshop:oneshot:" alsactl/alsa-restore.service.in &&
 
   if module_installed systemd; then
     UDEV_DIR=/usr/lib/udev/rules.d
@@ -12,5 +13,3 @@
   default_build &&
 
   install -m0644 $SCRIPT_DIRECTORY/40-alsa-mixer.rules ${UDEV_DIR}/
-
-) > $C_FIFO 2>&1
