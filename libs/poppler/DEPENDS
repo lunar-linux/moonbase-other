@@ -29,9 +29,9 @@ optional_depends  "libpng"                                          \
                   "for PNG image support"
 
 optional_depends  "lcms2"                                           \
-                  "--enable-cms"                                    \
-                  "--disable-cms"                                   \
-                  "for the color management system"
+                  "--enable-cms=auto"                                    \
+                  "--enable-cms=none"                                   \
+                  "for the color management system (needed by cups_filters)"
 
 optional_depends  "poppler-data"                                    \
                   ""                                                \
