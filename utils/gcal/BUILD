@@ -1,6 +1,4 @@
-(
 
-  OPTS+=" --with-included-regexps"
+  OPTS+=" --with-included-regex" &&
+
   default_build
-
-) > $C_FIFO 2>&1
