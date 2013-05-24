@@ -1,5 +1,7 @@
 (
 
+  patch_it $SOURCE4 0 &&
+
 # So it does not bomb on gmp stuff if you say yes to gmp. Revisit on next bump.
   sedit "s: __GMP_BITS_PER_MP_LIMB:GMP_LIMB_BITS:g" ext/gmp/gmp.c &&
 
