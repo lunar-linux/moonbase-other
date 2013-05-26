@@ -1,4 +1,5 @@
 depends pkgconfig
 depends libcdio
 
-optional_depends  libxml2  ""  ""  "to build xml frontend"
+optional_depends libxml2 "--with-xml-frontend" "--without-xml-frontend" "to build xml frontend"
+optional_depends popt    "--with-libpopt-prefix=/usr/lib" "--without-libpopt-prefix" "for popt support"
