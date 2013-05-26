@@ -1,3 +1,4 @@
+optional_depends "pulseaudio"    "" "--disable-pulse"      "for pulseaudio support"
 optional_depends "DirectFB"      "" "--disable-directfb"   "for DirectFB video output"
 optional_depends "SDL"           "" "--disable-sdl"        "for SDL video output"
 optional_depends "libXext"       "" "--disable-x11"        "for X11 video output (simple)"
@@ -17,6 +18,25 @@ optional_depends "libtheora"     "" "--disable-theora"     "for OggTheora suppor
 optional_depends "freetype2"     "" "--disable-freetype"   "for FreeType 2 font rendering"
 optional_depends "fontconfig"    "" "--disable-fontconfig" "for fontconfig font lookup"
 optional_depends "libdvdread"    "" "--disable-dvdread"    "for dvdread support"
-optional_depends "libdvdnav"     "--enable-dvdnav" "--disable-dvdnav"     "for dvdnav support"
-optional_depends "live555"       "" "--disable-live"       "for LIVE555 Streaming Media support (RTP/RTSP)"
+optional_depends "libdvdnav"     "" "--disable-dvdnav"     "for dvdnav support"
+optional_depends "unrar"         "" "--disable-unrarexec"  "for unrar support"
+optional_depends "lcms2"         "" "--disable-lcms2"      "for color management support"
+optional_depends "libbs2b"       "" "--disable-libbs2b"    "for stereophonic-to-binaural support"
+optional_depends "ladspa_sdk"    "" "--disable-ladspa"     "for ladspa support"
 optional_depends "cdparanoia"    "" "--disable-cdparanoia" "for cdparanoia support"
+optional_depends "libdca"        "" "--disable-libdca"     "for DTS Coherent Acoustics support"
+optional_depends "a52dec"        "" "--disable-liba52"     "for ATSC A/52 stream support"
+optional_depends "mpg123"        "" "--disable-mpg123"     "for MPEG audio support"
+optional_depends "libcaca"       "" "--disable-caca"       "for text support"
+optional_depends "mjpegtools"    "" "--disable-yuv4mpeg"   "for MJPEG/MPEG support"
+optional_depends "jack"          "" "--disable-jack"       "for low-latency audio support"
+optional_depends "vcdimager"     "" "--disable-vcd"        "for VCD support"
+optional_depends "enca"          "" "--disable-enca"       "for character set detection"
+optional_depends "libcdio"       "" "--disable-libcdio"    "for CD input and control support"
+optional_depends "libass"        "" "--disable-libass"     "for SAA/ASS subtitles rendering support"
+
+# These two need the enable switch else configure will not use them.
+optional_depends "libmpcdec"     "--enable-musepack" "--disable-musepack"   "for Musepack decoder support"
+
+# Tanks make
+#optional_depends "openal"        "--enable-openal" "--disable-openal"     "for 3d audio support"
