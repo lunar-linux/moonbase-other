@@ -1,6 +1,5 @@
 depends pkgconfig
 
-optional_depends  "libcddb"    ""  ""  \
-                  "For CDDB lookup support"
-optional_depends  "cdparanoia"  ""  ""  \
-                  "For digital audio extraction"
+optional_depends  "libcddb"    "--enable-cddb"  "--disable-cddb"  "For CDDB lookup support"
+optional_depends  "vcdimager"  "--enable-vcd-info" "--disable-vcd-info" "for vcdinfo support"
+optional_depends  "cdparanoia" ""  "" "For digital audio extraction"
