@@ -16,7 +16,7 @@ OBJ_FILES="tinystr.o tinyxmlerror.o tinyxml.o tinyxmlparser.o" &&
 ar rc libtinyxml.a ${OBJ_FILES} &&
 g++ -shared -Wl,-soname,libtinyxml.so.${VERSION} -o libtinyxml.so.${VERSION} ${LDFLAGS} ${OBJ_FILES} &&
 
-cat > tinyxml.pc && <<EOF
+cat > tinyxml.pc <<EOF &&
 prefix=/usr
 exec_prefix=\${prefix}
 libdir=\${exec_prefix}/lib
