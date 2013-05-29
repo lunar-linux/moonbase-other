@@ -1,0 +1,8 @@
+# While this version supports openssl, in the near(?) future they will depend only nss
+# so lets just skip openssl.
+depends nss
+
+optional_depends "curl"    "--enable-curl --enable-libcurl"   \
+                           "--disable-libcurl --disable-curl" \
+                           "for curl support"
+
