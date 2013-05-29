@@ -1,6 +1,7 @@
-(
+prepare_install       &&
+python setup.py install &&
 
- prepare_install       &&
- python setup.py install
-
-) > $C_FIFO 2>&1
+if [[ "$MATHJAX" == "y" ]]; then
+  tar xf $SOURCE_CACHE/$SOURCE2 &&
+  cp -r MathJax-$MATHJAXVERSION /usr/lib/python2.7/site-packages/IPython/frontend/html/notebook/static/mathjax
+fi
