@@ -10,6 +10,8 @@
                 --enable-read-eta        \
                 --enable-color-style     \
                 --enable-scrollbar       \
+                --with-screen=ncursesw   \
+                --enable-widec           \
                 --with-zlib              \
                 --sysconfdir=/etc        \
                 --enable-gzip-help       \
