@@ -1,7 +1,3 @@
-(
+OPTS+=" --disable-static --disable-valgrind --disable-debug --disable-examples" &&
 
-  OPTS+=" --disable-static --disable-valgrind --disable-debug --disable-examples" &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
