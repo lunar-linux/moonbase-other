@@ -1,6 +1,15 @@
+depends SDL
 depends exiv2
 depends openexr
 depends ilmbase
 depends gtk+-2
 depends lcms2
 depends lensfun
+depends librsvg
+
+optional_depends "colord-gtk"       "-DCOLORD=ON"             "-DCOLORD=OFF"             "For libcolord support"
+optional_depends "json-glib"        "-DUSE_GLIBJSON=ON"       "-DUSE_GLIBJSON=OFF"       "For lib JavaScript Object Notation support"
+optional_depends "flickcurl"        "-DUSE_FLICKR=ON"         "-DUSE_FLICKR=OFF"         "For Flickr API support"
+optional_depends "openjpeg"         "-DUSE_OPENJPEG=ON"       "-DUSE_OPENJPEG=OFF"       "For openjpeg graphics support"
+optional_depends "libgphoto"        "-DUSE_CAMERA_SUPPORT=ON" "-DUSE_CAMERA_SUPPORT=OFF" "For Camera support"
+optional_depends "libgnome-keyring" "-DUSE_GNOME_KEYRING=ON"  "-DUSE_GNOME_KEYRING=OFF"  "For gnome keyring support"
