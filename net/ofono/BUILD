@@ -1,4 +1,5 @@
-(
+
+  sedit "27i #include <unistd.h>" src/storage.h &&
 
   #Fix builds with newer glib
   grep -lre '<glib/gtypes.h>' "./" | while read i; do
@@ -6,5 +7,3 @@
   done
 
   default_build
-
-) > $C_FIFO 2>&1
