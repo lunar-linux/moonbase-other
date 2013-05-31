@@ -1,4 +1,3 @@
-(
 
   if in_depends $MODULE Python ; then
     VER=`lvu version Python | cut -c 1-3` &&
@@ -14,5 +13,3 @@
   if in_depends $MODULE systemd ; then
   install ../contrib/udev/45-nokiadku2.rules /usr/lib/udev/rules.d
   fi
-
-) > $C_FIFO 2>&1
