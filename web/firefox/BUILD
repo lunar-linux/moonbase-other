@@ -54,6 +54,6 @@
   done &&
 
   # symlink plugins folder
-  ln -sfn /usr/lib/lunar/plugins "/usr/lib/firefox-$VERSION/plugins"
+  ln -sfn /usr/lib/lunar/plugins "/usr/lib/firefox-$VERSION/browser/plugins"
 
 ) > $C_FIFO 2>&1
