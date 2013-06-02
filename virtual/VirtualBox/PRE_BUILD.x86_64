@@ -1,0 +1,6 @@
+default_pre_build &&
+cd $SOURCE_DIRECTORY &&
+
+# this removes 32 bit simulation support
+echo "VBOX_WITH_RAW_MODE =" > LocalConfig.kmk &&
+sedit " 1832 d" configure
