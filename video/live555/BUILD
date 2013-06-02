@@ -1,4 +1,3 @@
-(
 
   # No need for the use of arch
   sedit 's;^C_FLAGS.*;& -fPIC $(CFLAGS);;s;\(^CPLUSPLUS_FLAGS.*$(COMPILE_OPTS)\).*;\1 -fPIC $(CXXFLAGS);' config.linux &&
@@ -18,10 +17,8 @@
     install -d -m 0755 /usr/include/${d}
     install -m 0755 ${d}/*.so /usr/lib/
     install -m 0644 ${d}/include/*.h* /usr/include/${d}/
-  done
+  done &&
 
   for t in `find testProgs -type f -perm 755`; do
     install -m 0755 ${t} /usr/bin/
   done
-
-)
