@@ -1,0 +1,29 @@
+#!/bin/bash
+####################################################################
+#                                                                  #
+# postbuild-mimecache.plugin - postbuild mime cache refreshing     #
+#                                                                  #
+####################################################################
+#                                                                  #
+# Copyright 2013 by v4hn @v4hn.de under GPLv2                      #
+#                                                                  #
+####################################################################
+
+
+plugin_mimecache_post_build()
+{
+    if ! type update-mime-database >/dev/null 2>&1; then
+        #just skip this plugin if update-mime-database is not available
+        return 2;
+    fi
+
+    parse_iw | grep -q "^/usr/share/mime/.*"
+    if [ $? -eq 0 ]; then
+        update-mime-database /usr/share/mime
+    fi
+
+    return 2;
+}
+
+
+plugin_register BUILD_POST_BUILD plugin_mimecache_post_build
