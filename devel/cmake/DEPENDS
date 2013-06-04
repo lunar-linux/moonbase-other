@@ -1,7 +1,10 @@
-depends openssl
 depends ncurses
 depends libidn
-depends curl
+depends openssl
 
-optional_depends  "qt4"  "--qt-gui"  ""  "for qt gui support"
-optional_depends  "libarchive" "--system-libarchive" "--no-system-libarchive" "use system libarchive"
+optional_depends "zlib"       "--system-zlib"       "--no-system-zlib"       "Use system provided zlib"
+optional_depends "bzip2"      "--system-bzip2"      "--no-system-bzip2"      "Use system provided bzip2"
+optional_depends "curl"       "--system-curl"       "--no-system-curl"       "Use system provided curl"
+optional_depends "expat"      "--system-expat"      "--no-system-expat"      "Use system provided expat"
+optional_depends "libarchive" "--system-libarchive" "--no-system-libarchive" "use system libarchive"
+optional_depends "qt4"        "--qt-gui"            "--no-qt-gui"            "For qt gui support"
