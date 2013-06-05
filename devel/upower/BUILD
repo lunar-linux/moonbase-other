@@ -1,7 +1,7 @@
-(
 
   OPTS+=" --disable-man-pages "   &&
   sedit 's/-Werror//g' configure  &&
-  default_build
+  sedit "s:slashlibdir=/lib:slashlibdir=/usr/lib:" configure &&
+  export slashlibdir=/usr &&
 
-) > $C_FIFO 2>&1
+  default_build
