@@ -1,5 +1,5 @@
 
-  sedit "s:UDEVDIR     = \$(DESTDIR):UDEVDIR     = \$(DESTDIR):" Makefile &&
+  sedit "s:UDEVDIR     = \$(DESTDIR):UDEVDIR     = \$(PREFIX):" Makefile &&
   export PREFIX=/usr &&
 
   make &&
