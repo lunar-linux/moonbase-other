@@ -1,9 +1,4 @@
-(
 
-  sedit 's|^\t\$(CP) \*.so \$(PREFIX)\/lib| |' GNUmakefile &&
-
-  CXXFLAGS="$CXXFLAGS -fPIC" &&
+  patch_it $SOURCE2 1 &&
 
   default_make
-
-) > $C_FIFO 2>&1
