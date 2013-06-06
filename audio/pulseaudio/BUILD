@@ -1,14 +1,15 @@
-if module_installed systemd ; then
-  OPTS+=" --with-udev-rules-dir=/usr/lib/udev/rules.d"
-fi &&
 
-libtoolize --copy --force --automake &&
-autoreconf &&
+  if module_installed systemd ; then
+     OPTS+=" --with-udev-rules-dir=/usr/lib/udev/rules.d"
+  fi &&
 
-OPTS+=" --disable-hal-compat" &&
+  libtoolize --copy --force --automake &&
+  autoreconf &&
 
-default_build &&
+  OPTS+=" --disable-hal-compat" &&
 
-add_priv_group pulse &&
-add_priv_group pulse-access &&
-add_priv_user pulse -d /var/run/pulse -g pulse
+  default_build &&
+
+  add_priv_group pulse &&
+  add_priv_group pulse-access &&
+  add_priv_user pulse -d /var/run/pulse -g pulse
