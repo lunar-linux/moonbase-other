@@ -2,12 +2,13 @@ depends ETL
 depends libxml++
 depends libpng
 
+optional_depends "boost"       "--with-boost"       "--without-boost"      "for boost support"
 optional_depends "libmng"      ""                   ""                     "for MNG graphics support"
 optional_depends "freetype2"   "--with-freetype"    "--without-freetype"   "for freetype font support"
 optional_depends "%JPEG"        "--with-jpeg"       "--without-jpeg"       "for jpeg image support"
 
-# As long as you don't add libavcodedc and libswscale, it will compile with ffmpeg
-optional_depends "ffmpeg"      "--with-ffmpeg"      "--without-ffmpeg"      "for ffmpeg video support"
+# As long as you don't add libswscale, it will compile with ffmpeg
+optional_depends "ffmpeg"      "--with-ffmpeg --with-libswscale"      "--without-ffmpeg"      "for ffmpeg video support"
 
 optional_depends "ImageMagick" "--with-imagemagick" "--without-imagemagick" "for ImageMacik graphics support"
 optional_depends "fontconfig"  "--with-fontconfig"  "--without-fontconfig"  "for fontconfig support"
