@@ -56,10 +56,17 @@ install -Dm 644 {,/etc/vbox/}vbox.cfg &&
 
 if in_depends $MODULE qt4 ; then
   # File path for PDF, and make name more recognizable
-  sed -i -e "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" -e "s:Oracle VM VirtualBox:VirtualBox Oracle VM:1" /usr/lib/virtualbox/virtualbox.desktop &&
-  # Install .desktop entry and icon, then update the icon cache
+  sed -i -e "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" \
+         -e "s:Oracle VM VirtualBox:VirtualBox Oracle VM:1" \
+         /usr/lib/virtualbox/virtualbox.desktop &&
+  # Install .desktop entry and icon
   install -Dm 644 /usr/{lib/virtualbox,share/applications}/virtualbox.desktop    &&
-  install -Dm 644 /usr/{lib/virtualbox,share/icons/hicolor/32x32/apps}/VBox.png
+  for x in `ls /usr/lib/virtualbox/icons/`; do
+    if [[ -f /usr/lib/virtualbox/icons/$x/virtualbox.png ]]; then
+      install -Dm 644 /usr/lib/virtualbox/icons/$x/virtualbox.png \
+                      /usr/share/icons/hicolor/$x/apps/virtualbox.png
+    fi
+  done
 fi &&
 
 if in_depends $MODULE texlive ; then
