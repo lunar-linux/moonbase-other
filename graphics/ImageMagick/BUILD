@@ -6,11 +6,6 @@
 
   default_config     &&
 
-# libgvpr.pc uses cgraph
-  if in_depends $MODULE graphviz ; then
-    sedit "s:-lgraph:-lcgraph:g" Makefile
-  fi &&
-
   make               &&
   prepare_install    &&
   make install-strip &&
