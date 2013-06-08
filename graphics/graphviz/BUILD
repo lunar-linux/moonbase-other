@@ -1,4 +1,3 @@
-(
 
   # fix swig generation with current ocaml
   sedit "3364 s:\(^.*$\):\1; sed -i \"/int caml_array_length/ d\" gv_ocaml.cpp:" tclpkg/gv/Makefile.in &&
@@ -15,11 +14,9 @@
   LDFLAGS="$LDFLAGS -Wl,-rpath,${PERL_SO_PATH},-rpath,${R_SO_PATH}" &&
 # done
 
-  OPTS+=" --with-libgd --with-fontconfig" &&
+  OPTS+=" --with-libgd --with-fontconfig --without-cgraph" &&
 
   default_build &&
 
   # create the default config-files
   dot -c
-
-) > $C_FIFO 2>&1
