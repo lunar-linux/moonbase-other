@@ -1,4 +1,6 @@
-(
+
+  sedit "s:AM_CONFIG_HEADER:AC_CONFIG_HEADER:" configure.in &&
+  autoreconf &&
 
   sedit "s:\(test \"\${with_editline+set\}\" = set\):\1 -a \"\${with_editline}\" != no": configure &&
 
@@ -12,5 +14,3 @@
            --with-iodbc" &&
 
   default_build 
-
-) > $C_FIFO 2>&1
