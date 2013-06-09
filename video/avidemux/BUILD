@@ -1,39 +1,21 @@
-(
 
-  sedit "s:Icon=:Icon=/usr/share/pixmaps/:" avidemux2.desktop  &&
+  sedit "s:avidemux2_gtk:avidemux3_qt4:" $SOURCE_DIRECTORY/avidemux2.desktop &&
+  sedit "s:Icon=avidemux:Icon=avidemux_icon.png:" $SOURCE_DIRECTORY/avidemux2.desktop &&
 
-# Reference; https://bugs.gentoo.org/show_bug.cgi?id=365153
-#  sedit "s:i_open_gop:b_open_gop:g" plugins/ADM_videoEncoder/ADM_vidEnc_x264/encoder.cpp plugins/ADM_videoEncoder/ADM_vidEnc_x264/x264Options.cpp &&
-
-  OOTB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
-
-  mkdir $OOTB_DIR  &&
-  cd $OOTB_DIR     &&
-
-# Make some plugin dirs for future use.
-  if [ ! -d /usr/lib/ADM_plugins ] ; then
-   mkdir -p /usr/lib/ADM_plugins/{audioDecoder,videoFilter,audioDevices,audioEncoders}
-  fi  &&
-
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             \
-                           $OPTS                                 &&
-
-  default_make  &&
-
-  install -D -m644 ../${MODULE}2-gtk.desktop /usr/share/applications/${MODULE}2-gtk.desktop  &&
-  install -D -m644 ../avidemux_icon.png /usr/share/pixmaps/avidemux.png  &&
-
-  # handle plugins...
-  P_DIR="$SOURCE_DIRECTORY/plugins/plugins-build"  &&
-  mkdir $P_DIR  &&
-  cd $P_DIR     &&
-  cmake .. -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX       \
-           -DCMAKE_BUILD_TYPE=RELEASE                  \
-           -DAVIDEMUX_SOURCE_DIR=$SOURCE_DIRECTORY     \
-           -DAVIDEMUX_INSTALL_PREFIX=$MODULE_PREFIX    \
-           -DAVIDEMUX_CORECONFIG_DIR=$OOTB_DIR/config  \
-           $OPTS                                      &&
-  default_make
-
-) > $C_FIFO 2>&1
+  sh bootStrap.bash &&
+  cd addons/fontGen &&
+  cmake . &&
+  make &&
+  cd ../tsscan &&
+  make &&
+  cd $SOURCE_DIRECTORY &&
+  prepare_install &&
+  cp -R install/usr/bin/* /usr/bin/ &&
+  cp -R install/usr/include/* /usr/include/ &&
+  cp -R install/usr/lib64/* /usr/lib/ &&
+  cp -R install/usr/share/* /usr/share/ &&
+  install addons/ad2_vcdimager/ad2_vcdimager /usr/bin/ &&
+  install addons/aviscan/aviscan /usr/bin/ &&
+  install addons/tsscan/tsscan /usr/bin/ &&
+  install $SOURCE_DIRECTORY/avidemux2.desktop /usr/share/applications/ &&
+  install $SOURCE_DIRECTORY/avidemux_icon.png /usr/share/icons/
