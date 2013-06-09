@@ -26,10 +26,8 @@
 
   if in_depends $MODULE "qt4" ; then
      install -Dm0755 bitcoin-qt /usr/bin/bitcoin-qt &&
-     install -Dm0644 share/pixmaps/bitcoin256.xpm /usr/share/pixmaps/bitcoin256.xpm  &&
-     install -Dm0644 share/pixmaps/bitcoin128.xpm /usr/share/pixmaps/bitcoin128.xpm  &&
-     install -Dm0644 share/pixmaps/bitcoin64.xpm  /usr/share/pixmaps/bitcoin64.xpm   &&
-     install -Dm0644 share/pixmaps/bitcoin32.xpm  /usr/share/pixmaps/bitcoin32.xpm   &&
+     install -Dm0644 share/pixmaps/*.xpm /usr/share/pixmaps/  &&
+     install -Dm0644 share/pixmaps/*.png /usr/share/pixmaps/  &&
      install -Dm0644 contrib/debian/bitcoin-qt.desktop /usr/share/applications/bitcoin-qt.desktop
   fi &&
 
