@@ -2,7 +2,7 @@
 
   OPTS+=" --enable-static --with-xv-path=/usr/X11/lib --enable-mmap --enable-antialiasing --enable-vdpau"  &&
 
-  cp $ARCHIVE_DIRECTORY/$SOURCE2 src/xine-engine/  &&
+  cp $SOURCE_CACHE/$SOURCE2 src/xine-engine/  &&
 
    ./autogen.sh  &&
 
