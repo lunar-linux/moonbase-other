@@ -1,6 +1,5 @@
 sedit "s:stream_decoder.h:FLAC/stream_decoder.h:" modules/codec/flac.c &&
 sedit "s:stream_encoder.h:FLAC/stream_encoder.h:" modules/codec/flac.c &&
-#sedit "37i #include <FLAC/stream_decoder.h>\n#include <FLAC/stream_encoder.h>" modules/codec/faad.c &&
 
 if in_depends $MODULE lua; then
   export LUA_LIBS+=" /usr/lib/lua" &&
