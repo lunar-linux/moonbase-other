@@ -2,33 +2,9 @@ depends  libmatroska
 depends  libvorbis
 depends  ruby
 
+optional_depends  "curl"  "--with-curl"  "--without-curl"  "for curl support"
+optional_depends  "flac"  "--with-flac"  "--without-flac"  "for flac audio codec"
+optional_depends  "boost" "--with-boost" "--without-boost" "for boost support"
 
-optional_depends  "bzip2"             \
-                  "--enable-bz2"      \
-                  "--disable-bz2"     \
-                  "for bzip compression support"
-
-optional_depends  "lzo"                \
-                  "--enable-lzo"       \
-                  "--disable-lzo"      \
-                  "for lzo support"
-
-optional_depends  "flac"                \
-                  "--with-flac"         \
-                  "--without-flac"      \
-                  "for flac audio codec"
-
-optional_depends  "boost"             \
-                  "--with-boost"      \
-                  "--without-boost"   \
-                  "for boost support"
-
-optional_depends  "qt4"                       \
-                  "--enable-qt --enable-gui"  \
-                  "--disable-qt"              \
-                  "for Qt based GUI"
-
-optional_depends  "wxGTK"                           \
-                  "--enable-wxwidgets --enable-gui" \
-                  "--disable-wxwidgets"             \
-                  "for wxwidget gui support"
+optional_depends  "qt4"   "--enable-qt --enable-gui"        "--disable-qt"        "for Qt based GUI"
+optional_depends  "wxGTK" "--enable-wxwidgets --enable-gui" "--disable-wxwidgets" "for wxwidget gui support"
