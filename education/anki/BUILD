@@ -1,9 +1,5 @@
-(
+sedit "s:local/::; /xdg-mime/ d" Makefile &&
 
-  sedit "s:local/::; /xdg-mime/ d" Makefile &&
+prepare_install &&
 
-  prepare_install &&
-
-  make install
-
-) > $C_FIFO 2>&1
+make install
