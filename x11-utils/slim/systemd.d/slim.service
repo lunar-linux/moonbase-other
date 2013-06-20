@@ -4,6 +4,8 @@ After=systemd-user-sessions.service
 
 [Service]
 ExecStart=/usr/bin/slim -nodaemon
+StandardInput=tty-force
+TTYPath=/dev/tty7
 
 [Install]
 Alias=display-manager.service
