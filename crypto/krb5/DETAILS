@@ -1,14 +1,15 @@
           MODULE=krb5
-         VERSION=1.8.3
+         VERSION=1.11.3
           SOURCE=$MODULE-$VERSION-signed.tar
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=http://web.mit.edu/kerberos/dist/krb5/1.8/
-        WEB_SITE=http://web.mit.edu/kerberos/www/
-      SOURCE_VFY=sha1:69696f63b6c2b0e3238156b19eed68cecd661c6b
+      SOURCE_URL=http://web.mit.edu/kerberos/dist/$MODULE/${VERSION%.*}
+        WEB_SITE=http://web.mit.edu/kerberos/www
+      SOURCE_VFY=sha1:df708a530a22ed09c7825742c108180319b10463
          ENTERED=20020218
-         UPDATED=20101104
-           SHORT="network security protocol"
+         UPDATED=20130623
+           SHORT="A network security protocol"
            PSAFE="no"
+
 cat << EOF
 Kerberos was created by MIT as a solution to network security problems.
 The Kerberos protocol uses strong cryptography so that a client can
