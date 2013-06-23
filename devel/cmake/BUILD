@@ -1,4 +1,3 @@
+./bootstrap --prefix=/usr --docdir=/share/doc/cmake $OPTS &&
 
-  ./bootstrap --prefix=/usr $OPTS &&
-
-  default_make
+default_make
