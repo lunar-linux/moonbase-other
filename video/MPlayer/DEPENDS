@@ -97,10 +97,12 @@ optional_depends mpeg2dec \
                  "--disable-libmpeg2" \
                  "use system library for mpeg-1 and mpeg-2 support"
 
-optional_depends live555 \
-                 "--enable-live --extra-cflags=-I/usr/include/liveMedia --extra-cflags=-I/usr/include/UsageEnvironment --extra-cflags=-I/usr/include/BasicUsageEnvironment --extra-cflags=-I/usr/include/groupsock --extra-libs=-lstdc++ --extra-libs=-lliveMedia --extra-libs=-lUsageEnvironment --extra-libs=-lBasicUsageEnvironment --extra-libs=-lgroupsock" \
-                 "--disable-live" \
-                 "for RTP/RTCP, RTSP, SIP support"
+# live removed the obsolete synchronous client interface
+# which MPlayer still requires
+#optional_depends live555 \
+#                 "--enable-live --extra-cflags=-I/usr/include/liveMedia --extra-cflags=-I/usr/include/UsageEnvironment --extra-cflags=-I/usr/include/BasicUsageEnvironment --extra-cflags=-I/usr/include/groupsock --extra-libs=-lstdc++ --extra-libs=-lliveMedia --extra-libs=-lUsageEnvironment --extra-libs=-lBasicUsageEnvironment --extra-libs=-lgroupsock" \
+#                 "--disable-live" \
+#                 "for RTP/RTCP, RTSP, SIP support"
 
 # MPlayer needs to use x264 *via* ffmpeg
 optional_depends ffmpeg \
