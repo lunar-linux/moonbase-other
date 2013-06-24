@@ -20,11 +20,15 @@
     fi  &&
 
   if  [  !  -e  /etc/ppp/chat/isp  ];  then
-          install -m644  $SCRIPT_DIRECTORY/isp  /etc/ppp/chat/isp
+    install -m644  $SCRIPT_DIRECTORY/isp  /etc/ppp/chat/isp
   fi  &&
 
   chown -R root:ppp /usr/sbin/pppd /etc/ppp  &&
   chmod 4750 /usr/sbin/pppd  &&
   chmod 600 /etc/ppp/*-secrets
+
+  if module_installed systemd; then
+    install -D -m644 $SCRIPT_DIRECTORY/system.d/ppp.service /usr/lib/systemd/system/ppp@.service
+  fi
 
 ) > $C_FIFO 2>&1
