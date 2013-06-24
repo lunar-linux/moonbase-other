@@ -1,5 +1,3 @@
-(
-
   sedit '1s@/usr/bin/awk@/bin/awk@' vidix/pci_db2c.awk &&
 
   # --extra_* are expected only once, but we might need more
@@ -20,6 +18,7 @@
               --datadir=/usr/share/mplayer  \
               --enable-dynamic-plugins      \
               --disable-mp3lib              \
+              --disable-live                \
               $OPTS                        &&
 
   sedit 's/-mtune=native//' config.mak &&
@@ -39,5 +38,3 @@
   cp -a fonts /usr/share/mplayer/  &&
   rm -rf /usr/share/mplayer/font   &&
   ln -sf fonts/font-arial-iso-8859-1/font-arial-18-iso-8859-1 /usr/share/mplayer/font
-
-) > $C_FIFO 2>&1
