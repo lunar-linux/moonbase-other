@@ -8,13 +8,6 @@ depends libnotify4
 depends alsa-lib
 depends libvpx
 
-# Firefox crashes with sqlite 3.6.18 when adding new bookmarks:
-# https://bugzilla.mozilla.org/show_bug.cgi?id=512940
-# Comment 9:  "System SQLite isn't supported by Mozilla (in fact we discourage its use)"
-# So, disable the option to use system sqlite - instead, use Mozilla's version
-#optional_depends "sqlite"  ""  ""  \
-#                 "Use system sqlite"
-
 optional_depends "freetype2"        "--enable-tree-freetype" "--disable-tree-freetype" "for freetype font support"
 optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
 optional_depends "flash-plugin-11"  ""  ""  "To enable Flash plugin"
@@ -30,3 +23,7 @@ optional_depends "sun-jdk"          "--with-java-bin-path=/usr/java/default/bin"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends "libjpeg-turbo"    "--with-system-jpeg" "--without-system-jpeg" "system jpeg requires libjpeg-turbo"
+
+# https://bugzilla.mozilla.org/show_bug.cgi?id=512940
+# Comment 9:  "System SQLite isn't supported by Mozilla (in fact we discourage its use)"
+optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"   "Use system sqlite (discouraged)"
