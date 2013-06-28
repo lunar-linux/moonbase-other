@@ -2,7 +2,7 @@
 
   bad_flags -fomit-frame-pointer &&
 
-  OPTS+=" --enable-frame-address --enable-pthread --enable-shared" &&
+  OPTS+=" --enable-pthread --enable-shared" &&
 
   default_build  &&
 
