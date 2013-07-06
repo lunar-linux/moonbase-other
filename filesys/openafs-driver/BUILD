@@ -1,14 +1,5 @@
 OPTS+=" --with-linux-kernel-headers=/usr/src/linux"
 
-# This is needed or a test will fail
-export EXTRA_CFLAGS="$CFLAGS"
-unset CFLAGS
-
-patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 1 &&
-patch_it $SOURCE4 1 &&
-patch_it $SOURCE5 1 &&
-
 case `uname -r` in
   2.6.*|3.*)
     kv="26"
