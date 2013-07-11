@@ -3,6 +3,13 @@ default_pre_build  &&
 if [[ "$USE_CLANG" = "y" ]]; then
   cd $SOURCE_DIRECTORY/tools  &&
   unpack $SOURCE2  &&
-  mv -f clang-${VERSION}.src clang  &&
+  mv -f cfe-${VERSION}.src clang  &&
   cd $SOURCE_DIRECTORY
-fi
+fi &&
+
+#  sedit 's;install-meta:: $(ObjDir)/META.llvm;install-meta:: META.llvm;' bindings/ocaml/llvm/Makefile &&
+
+sedit 's:/docs/llvm:/share/doc/llvm:' Makefile.config.in &&
+
+# this is fixed in the cmake build, but somehow missing in the regular Makefiles
+sedit '13 i ExtraLibs := -lLLVMSupport' unittests/Support/Makefile
