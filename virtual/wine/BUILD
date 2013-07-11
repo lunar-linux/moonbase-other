@@ -1,6 +1,4 @@
-(
-
-  bad_flags "-z combreloc"
+  bad_flags "-z combreloc" &&
   ./configure --build=i686-pc-linux-gnu  \
               --prefix=/usr              \
               --sysconfdir=/etc          \
@@ -11,5 +9,3 @@
 
   make depend  &&
   default_make
-
-) > $C_FIFO 2>&1
