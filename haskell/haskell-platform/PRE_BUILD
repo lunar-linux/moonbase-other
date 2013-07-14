@@ -1,0 +1,5 @@
+default_pre_build &&
+
+# fix GHC_PACKAGE_PATH unsupported by Cabal build error
+# http://www.reddit.com/r/haskell/comments/1f8730/basic_guide_on_how_to_install_ghcplatform_manually/#
+sedit "/ GHC_PACKAGE_PATH=/ d" scripts/build.sh
