@@ -1,0 +1,7 @@
+default_pre_build &&
+
+aclocal  &&
+automake --add-missing  &&
+
+# respect standard ncursesw include path
+sedit "9 s:ncurses/:ncursesw/:g" lib/tty/tty-ncurses.h
