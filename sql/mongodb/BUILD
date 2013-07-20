@@ -1,4 +1,4 @@
-OPTS+=" --use-system-boost --use-system-pcre" &&
+OPTS+=" --release --use-system-boost --use-system-pcre --sharedclient" &&
 
 # Honor CXXFLAGS and remove -ggdb
 patch_it $SOURCE3 1 &&
