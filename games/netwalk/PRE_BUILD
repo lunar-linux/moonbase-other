@@ -1,0 +1,5 @@
+default_pre_build &&
+
+echo '#define NETWALK_SHARE_DIR "/usr/share/games/netwalk"' > sharedir.h &&
+
+sedit 's:/bin$:/games:; s:/share/:/share/games/:' Makefile
