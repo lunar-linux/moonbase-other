@@ -1,10 +1,6 @@
-(
 
-# if ! in_depends wxGTK mesa-lib ; then
-#  message "${PROBLEM_COLOR}Error: ${DEFAULT_COLOR}Compile wxGTK with OpenGL support"
-#  exit 1;
-# fi &&
+# The make barfs on some non-ascii character, don't know what it should be
+# but just delete the offender.
+  sedit "90d" doc/deghosting_mask.pod &&
 
   default_cmake_build
-
-) > $C_FIFO 2>&1
