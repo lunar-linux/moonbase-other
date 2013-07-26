@@ -4,7 +4,6 @@ LO_OPT_DIR="/usr/lib/libreoffice${VERSION::3}"
 
 message "${MESSAGE_COLOR}Unpacking base RPMs and installing...${DEFAULT_COLOR}" &&
 for pack in RPMS/*.rpm ; do rpm2cpio $pack > `basename $pack .rpm`.cpio ; done &&
-for pack in RPMS/desktop-integration/*freedesktop* ; do rpm2cpio $pack > `basename $pack .rpm`.cpio ; done &&
 for i in `ls *.cpio`; do cpio -idmuV < $i ;done &&
 
 #rm -f usr/bin/libreoffice${VERSION%.*}
