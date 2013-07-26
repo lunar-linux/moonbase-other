@@ -1,5 +1,8 @@
-cd /usr/lib/virtualbox/src &&
+cd /usr/lib/virtualbox/src  &&
 
 KERN_DIR=/usr/src/linux &&
 
-default_make
+default_make  &&
+
+make clean
+
