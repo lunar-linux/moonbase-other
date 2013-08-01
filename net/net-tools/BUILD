@@ -5,7 +5,8 @@
   patch_it $SOURCE4 1 &&
   patch_it $SOURCE5 1 &&
   sedit "s/-O2/$CFLAGS/" Makefile &&
-  sedit "s/LOPTS = /LOPTS = $LDFLAGS -s/" Makefile &&
+  sedit "s/LOPTS = /LOPTS = $LDFLAGS -s/" Makefile  &&
+  sedit "s:linux/if_tr.h:netinet/if_tr.h:" lib/tr.c &&
 
   # Do not add debug data to protect against hacking
   # and stop chkrootkit from reporting false positive
