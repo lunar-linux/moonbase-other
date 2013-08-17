@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit "2 d; 4 i find_package ( PythonLibs \${PYTHON_VERSION_STRING} REQUIRED ) " swig/python/CMakeLists.txt &&
+sedit "s:^#define ESOCKTNOSUPPORT.*:#ifndef ESOCKTNOSUPPORT\n\0\n#endif:" obexftp/client.c
