@@ -1,7 +1,7 @@
-depends  openobex
+depends swig
+depends openobex
 
-optional_depends "swig"   "--enable-swig"   "--disable-swig"   "for swig bindings support"
-optional_depends "perl"   "--enable-perl"   "--disable-perl"   "for perl bindings support"
-optional_depends "Python" "--enable-python" "--disable-python" "for python bindings support"
-optional_depends "ruby"   "--enable-ruby"   "--disable-ruby"   "for ruby bindings support"
-optional_depends "tcl"    "--enable-tcl"    "--disable-tcl"    "for tcl bindings support"
+optional_depends "perl"   "-DENABLE_PERL=YES"   "-DENABLE_PERL=NO"   "for perl bindings support"
+optional_depends "Python" "-DENABLE_PYTHON=YES" "-DENABLE_PYTHON=NO" "for python bindings support"
+optional_depends "ruby"   "-DENABLE_RUBY=YES"   "-DENABLE_RUBY=NO"   "for ruby bindings support"
+optional_depends "tcl"    "-DENABLE_TCL=YES"    "-DENABLE_TCL=NO"    "for tcl support"
