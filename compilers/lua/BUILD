@@ -27,6 +27,6 @@ make linux      &&
 prepare_install &&
 make install    &&
 
-ln -s liblua.so.${VERSION%.*} /usr/lib/liblua.so &&
+ln -s /usr/lib/liblua.so.${VERSION%.*} /usr/lib/liblua.so &&
 
 install -Dm0644 lua.pc /usr/lib/pkgconfig/
