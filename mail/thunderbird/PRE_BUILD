@@ -1,7 +1,23 @@
-if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
-  message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo"
-  message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by Thunderbird.${DEFAULT_COLOR}"
-  exit 1
-fi
+  default_pre_build &&
 
-default_pre_build
+  if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
+    message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo"
+    message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by Thunderbird.${DEFAULT_COLOR}"
+     exit 1
+  fi &&
+
+# Adds support for libvpx 1.0. Later firefox will have this fix so remove this then.
+  sedit 's/VPX_CODEC_USE_INPUT_PARTITION/VPX_CODEC_USE_INPUT_FRAGMENTS/' mozilla/configure  &&
+  sedit 's/v0\.9\.7/v1.0.0/' mozilla/configure  &&
+
+  sedit 's/@PRE_RELEASE_SUFFIX@//g' mozilla/browser/base/content/browser.xul &&
+
+# Workaround Segmentation fault at install part on precompile_cache.js
+  sedit '/^GENERATE_CACHE=1$/d' mail/installer/Makefile.in &&
+
+  if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
+        set_module_config OLD_VER "`installed_version $MODULE`"
+  fi &&
+
+ # To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
+  CFLAGS+=" -lbz2"
