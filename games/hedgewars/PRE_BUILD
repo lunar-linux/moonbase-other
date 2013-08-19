@@ -1,0 +1,8 @@
+default_pre_build &&
+
+# make sure it does not detect lua 5.2 as lua 5.1
+sedit "s:lua PATHS:PATHS:" cmake_modules/FindLua.cmake &&
+
+sedit 's:"-k-lreadline":\0 "-k-lm":' CMakeLists.txt &&
+
+sedit 's:"bin":"games":' CMakeLists.txt
