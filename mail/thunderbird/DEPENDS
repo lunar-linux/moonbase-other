@@ -3,29 +3,23 @@ depends zip
 depends unzip
 depends gtk+-2
 
-optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
-optional_depends "gnome-vfs"        ""  ""  "For Gnome VFS support"
-optional_depends "hunspell"         "--enable-system-hunspell"  "--disable-system-hunspell"  "For spelling support"
+optional_depends "Python"     ""  ""  "Needed to do a Profile Guided Optimization build"
+optional_depends "gnome-vfs"  "--enable-gnomevfs"         "--disable-gnomevfs"        "For Gnome VFS support"
+optional_depends "hunspell"   "--enable-system-hunspell"  "--disable-system-hunspell" "For spelling support"
 
 # $OPTS is ignored in this BUILD
-optional_depends "libevent"         ""  ""  "For event detection"
-optional_depends "dbus-glib"        ""  ""  "For dbus support"
-optional_depends "libffi" "" "" "Use system libffi instead of compiling the one in firefox"
+optional_depends "libevent"   "--with-system-libevent"    "--without-system-libevent" "For event detection"
+optional_depends "dbus-glib"  "--enable-dbus"             "--disable-dbus"            "For dbus support"
+optional_depends "libffi"     "--enable-system-ffi"       "--disable-system-ffi"      "Use system libffi instead of compiling the one in firefox"
+optional_depends "libnotify4" "--enable-libnotify"        "--disable-libnotify"       "To enable libnotify support"
+optional_depends "openldap"   "--enable-ldap"             "--disable-ldap"            "To enable ldap support"
+optional_depends "nspr"       "--with-system-nspr"        "--without-system-nspr"     "To use system nspr"
+optional_depends "nss"        "--with-system-nss"         "--without-system-nss"      "To use system nss"
 
-optional_depends "startup-notification"  "--enable-startup-notification"  ""  \
-                 "To enable startup notification"
-
-optional_depends "libnotify4"  "--enable-libnotify"  "--disable-libnotify"  \
-                 "To enable libnotify support"
-
-optional_depends "openldap"  "--enable-ldap"  "--disable-ldap"  \
-                 "To enable ldap support"
-
-optional_depends "%GECKO_RENDERER"  "--with-system-libxul --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL"  ""  \
+optional_depends "%GECKO_RENDERER"  "--with-system-libxul --with-libxul-sdk=/usr/lib/xulrunner-devel-$XUL"  "--without-system-libxul"  \
                  "To use system xulrunner"
 
-optional_depends "nspr"  "--with-system-nspr"  ""  \
-                "To use system nspr"
+optional_depends "startup-notification"  "--enable-startup-notification"  "--disable-startup-notification"  \
+                 "To enable startup notification"
 
-optional_depends "nss"  "--with-system-nss"  ""  \
-                 "To use system nss"
+optional_depends "%JAVA_SDK" "--with-java-bin-path=/usr/java/default/bin" "" "For java support"

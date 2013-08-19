@@ -1,4 +1,5 @@
-# To skirt around this make failure; ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
+# To skirt around this make failure in libxul.so:
+# ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
 CFLAGS+=" -lbz2" &&
 
 # Workaround Segmentation fault at install part on precompile_cache.js
