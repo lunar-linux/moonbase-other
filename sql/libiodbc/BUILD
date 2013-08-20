@@ -5,5 +5,5 @@
 
   OPTS+=" --includedir=/usr/include/$MODULE --libdir=/usr/lib/$MODULE  \
           --with-iodbc-inidir=/etc/unixODBC" &&
-
+  MAKES=1 &&
   default_build
