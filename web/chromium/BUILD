@@ -1,7 +1,5 @@
 (
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   sedit "s/'-Werror'/''/" build/common.gypi  &&
 
   cp -f $SCRIPT_DIRECTORY/nacl.gypi chrome/  &&
