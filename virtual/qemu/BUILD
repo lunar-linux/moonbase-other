@@ -13,8 +13,9 @@
 
   ./configure --prefix=/usr  \
               --sysconfdir=/etc  \
+              --libexecdir=/usr/lib/qemu  \
+              --localstatedir=/var  \
               --audio-drv-list="$AUDIO_LIST"  \
-              --audio-card-list=ac97,sb16,es1370,hda  \
               --enable-mixemu  \
               $OPTS  &&
 
