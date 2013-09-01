@@ -1,12 +1,15 @@
           MODULE=wine
-         VERSION=1.4.1
+         VERSION=1.6
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=wine-1.6-bison-3.0.patch.gz
    SOURCE_URL[0]=$SFORGE_URL/$MODULE
    SOURCE_URL[1]=http://ibiblio.org/pub/linux/system/emulators/$MODULE
-      SOURCE_VFY=sha1:cb79601ca92e8ecb8a5b6b64edc45fd366c3e579
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:f0feb6b5314d0f638fc6d4bdc43cabc028776a9c
+     SOURCE2_VFY=sha1:793067dbcf112ac804abb651f02437e2a06e43a8
         WEB_SITE=http://www.winehq.com
          ENTERED=20010925
-         UPDATED=20120617
+         UPDATED=20130821
            SHORT="Runs microsoft windows programs"
 
 cat << EOF
