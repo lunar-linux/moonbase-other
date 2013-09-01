@@ -1,1 +1,9 @@
-default_cmake_build
+OPTS+=" -DBUILD_OLD_RENDERER=0 -DGAME_LIB=0 -DGAME_QVM=0 " &&
+default_cmake_config       &&
+make ${MAKES:+-j${MAKES}}  &&
+prepare_install            &&
+mkdir -p $MODULE_PREFIX/games $MODULE_PREFIX/lib/games/unvanquished $MODULE_PREFIX/share/games/unvanquished &&
+install -m755 daemon $MODULE_PREFIX/games/unvanquished &&
+install -m755 daemonded $MODULE_PREFIX/games/unvanquishded &&
+install -m755 librendererGL3.so $MODULE_PREFIX/lib/games/unvanquished/ &&
+ln -sf ../../../lib/games/unvanquished/librendererGL3.so $MODULE_PREFIX/share/games/unvanquished/
