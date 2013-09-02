@@ -1,15 +1,14 @@
-(
+  OPTS="--with-lib-preference='system' $OPTS" &&
 
-  unset CPP CXX CC CFLAGS CXXFLAGS CPPFLAGS LDFLAGS  &&
-  OPTS+=" --with-libsndfile=system --with-libresample=no --with-libsamplerate=system --enable-unicode"  &&
+  OPTS+=" --with-libsndfile=system --with-expat=system --enable-unicode" &&
 
-  #see DEPENDS
-  OPTS+=" --without-soundtouch"
+  # use soxr for samplerate conversion
+  OPTS+=" --with-libresample=no --with-libsamplerate=no --with-libsoxr=system"  &&
 
-  if [ -d /proc/asound ];  then
-      OPTS+=" --with-portaudio"
-  fi  &&
+  # use bundled version because system lib misses audacity additions
+  OPTS+=" --with-portaudio=local --with-portmixer" &&
+
+  # ffmpeg is broken due to outdated API
+  OPTS+=" --without-ffmpeg" &&
 
   default_build
-
-) > $C_FIFO 2>&1
