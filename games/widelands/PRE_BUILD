@@ -1,0 +1,7 @@
+default_pre_build &&
+
+sedit /Boost_USE_STATIC_LIBS/d CMakeLists.txt &&
+sedit '/#ifndef WIN32/a\
+    #include <unistd.h>' src/main.cc &&
+
+unpack $SOURCE2

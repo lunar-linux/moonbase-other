@@ -1,5 +1,3 @@
-(
-
   OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
 
   AUDIO_LIST="oss"
@@ -13,15 +11,13 @@
 
   ./configure --prefix=/usr  \
               --sysconfdir=/etc  \
+              --libexecdir=/usr/lib/qemu  \
+              --localstatedir=/var  \
               --audio-drv-list="$AUDIO_LIST"  \
-              --audio-card-list=ac97,sb16,es1370,hda  \
               --enable-mixemu  \
               $OPTS  &&
 
   default_make  &&
-
-# bridge_helper needs suid
-  chmod u+s "/usr/libexec/qemu-bridge-helper"  &&
 
   if module_installed systemd; then
     install -D -m644 $SCRIPT_DIRECTORY/65-kvm.rules /usr/lib/udev/rules.d/65-kvm.rules
@@ -29,7 +25,8 @@
     install -D -m644 $SCRIPT_DIRECTORY/65-kvm.rules /lib/udev/rules.d/65-kvm.rules
   fi &&
 
+  # bridge_helper needs suid
+  chmod u+s "/usr/lib/qemu/qemu-bridge-helper"  &&
+
   # qemu-doc.html may not exist, but it will be ignored if that is the case
   gather_docs TODO qemu-doc.html
-
-) > $C_FIFO 2>&1
