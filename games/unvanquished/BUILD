@@ -1,4 +1,4 @@
-OPTS+=" -DBUILD_OLD_RENDERER=0 -DGAME_LIB=0 -DGAME_QVM=0 " &&
+OPTS+=" -DBUILD_OLD_RENDERER=OFF -DGAME_LIB=OFF -DGAME_QVM=OFF " &&
 default_cmake_config       &&
 make ${MAKES:+-j${MAKES}}  &&
 prepare_install            &&
