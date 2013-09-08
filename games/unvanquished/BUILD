@@ -6,4 +6,8 @@ mkdir -p $MODULE_PREFIX/games $MODULE_PREFIX/lib/games/unvanquished $MODULE_PREF
 install -m755 daemon $MODULE_PREFIX/games/unvanquished &&
 install -m755 daemonded $MODULE_PREFIX/games/unvanquishded &&
 install -m755 librendererGL3.so $MODULE_PREFIX/lib/games/unvanquished/ &&
-ln -sf ../../../lib/games/unvanquished/librendererGL3.so $MODULE_PREFIX/share/games/unvanquished/
+ln -sf ../../../lib/games/unvanquished/librendererGL3.so $MODULE_PREFIX/share/games/unvanquished/ &&
+
+# Application entry
+install -Dm0644 ${SOURCE_DIRECTORY}/src/engine/sys/unvanquished.ico /usr/share/games/unvanquished/unvanquished.ico &&
+install -Dm0644 ${SCRIPT_DIRECTORY}/unvanquished.desktop /usr/share/applications/unvanquished.desktop
