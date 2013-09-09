@@ -1,0 +1,8 @@
+depends gnustep-base
+
+optional_depends freetype2 "--with-freetype" "--without-freetype" "Freetype Font Support"
+optional_depends mesa-lib "--enable-glx" "--disable-glx" "Enable GLX support"
+
+optional_depends cairo "--enable-graphics=cairo"     " " "Cairo Backend (choose one)"
+optional_depends libart_lgpl "--enable-graphics=art" " " "ART Backend (choose one)"
+optional_depends libX11 "--enable-graphics=xlib"     " " "X11 Backend (choose one)"
