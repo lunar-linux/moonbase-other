@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# grep 2.7 no longer accepts [:space:] instead of [[:space:]]
+sedit 's/\[:space:\]/[&]/g' bin/jw.in &&
+
+sedit "s:docdir=.*:docdir='\$(prefix)/share/doc':" configure
