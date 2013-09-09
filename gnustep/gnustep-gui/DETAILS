@@ -1,15 +1,23 @@
           MODULE=gnustep-gui
-         VERSION=0.23.0
+         VERSION=0.23.1
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-library-order.patch
       SOURCE_URL=ftp://ftp.gnustep.org/pub/gnustep/core/
-      SOURCE_VFY=sha1:0356d892b020e5f241585ea1d60bf171b27bafee
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:5ade25949809b89c250292906566bbfe41575e52
+     SOURCE2_VFY=sha1:a93ed401a45ec1f3385ddc31470b4bade3116bfc
         WEB_SITE=http://gnustep.org/
          ENTERED=20120714
-         UPDATED=20130324
-           SHORT="GNUstep Foundation Package"
+         UPDATED=20130901
+           SHORT="GNUstep GUI Package"
 
 cat << EOF
-This provides functionality that aims to implement
-the non-graphical portion of the OpenStep standard
-(the Foundation library).
+The GNUstep gui library is a library of graphical user
+interface classes written completely in the Objective-C
+language; the classes are based upon Apple's Cocoa
+framwork (which came from the OpenStep specification).
+These classes include graphical objects such as buttons,
+text fields, popup lists, browser lists, and windows;
+there are also many associated classes for handling events,
+colors, fonts, pasteboards and images.
 EOF
