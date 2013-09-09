@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# another missing -lz
+sedit "s/pythonlib = env.SharedLibrary.*/env.AppendUnique(LIBS = ['z'])\n\0/" engine/SConscript
