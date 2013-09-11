@@ -1,0 +1,8 @@
+# gather_docs fails without an existing SOURCE_DIRECTORY
+mk_source_dir $SOURCE_DIRECTORY &&
+cd $SOURCE_DIRECTORY    &&
+
+cp $SOURCE_CACHE/{$SOURCE,$SOURCE2} . &&
+
+# add trivial support for column output
+sedit 's@(\[0-9\]+):@([0-9]+:[0-9]+):@' $SOURCE
