@@ -1,49 +1,55 @@
+depends  expat
 depends  wxGTK
 depends  libsndfile
-depends  libsamplerate
+depends  soxr
 
-#soundtouch 1.6.0 is not supported by audacity 2.0.1
-#optional_depends        "soundtouch"           \
-#                        "--with-soundtouch"    \
-#                        "--without-soundtouch" \
-#                        "for pitch and tempo changing"
+optional_depends        "soundtouch"           \
+                        "--with-soundtouch=system" \
+                        "--without-soundtouch" \
+                        "for pitch and tempo changing"
 
-optional_depends        "portaudio"          \
-                        "--with-portmixer"   \
-                        "--without-portmixer" \
-                        "for portaudio support"
+#audacity bundles a patched version of portaudio 19
+#optional_depends        "portaudio"          \
+#                        "--with-portaudio= --with-portmixer"   \
+#                        "--with-portaudio --without-portmixer" \
+#                        "for portaudio support"
 
-optional_depends        "ffmpeg"             \
-                        "--with-ffmpeg"      \
-                        "--without-ffmpeg"   \
-                        "for ffmpeg support"
+#optional_depends        "ffmpeg"             \
+#                        "--with-ffmpeg=system"      \
+#                        "--without-ffmpeg"   \
+#                        "for ffmpeg support"
 
 optional_depends        "libid3tag" \
-                        "--with-id3tag=system" \
-                        "" \
+                        "--with-libid3tag=system" \
+                        "--without-libid3tag" \
                         "enable id3 support"
 
 optional_depends        "lame" \
-                        "" \
-                        "" \
+                        "--with-lame=system" \
+                        "--without-lame" \
                         "enable mp3 support"
 
+optional_depends        "twolame" \
+                        "--with-libtwolame=system" \
+                        "--without-libtwolame" \
+                        "enable mp2 support"
+
 optional_depends        "libvorbis" \
-                        "--with-vorbis=system" \
-                        "" \
+                        "--with-libvorbis=system" \
+                        "--without-libvorbis" \
                         "enable ogg support"
 
 optional_depends        "libmad" \
                         "--with-libmad=system" \
-                        "" \
+                        "--without-libmad" \
                         "for fast mp3 decoding"
 
 optional_depends        "flac" \
-                        "--with-flac=system" \
-                        "" \
+                        "--with-libflac=system" \
+                        "--without-libflac" \
                         "for flac encoding"
 
 optional_depends        "ladspa_sdk" \
-                        "" \
-                        "" \
+                        "--enable-ladspa" \
+                        "--disable-ladspa" \
                         "for ladspa plugin support"
