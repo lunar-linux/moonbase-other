@@ -31,15 +31,15 @@ INSTALL_CATPAGES="no" make DESTDIR=$SOURCE_DIRECTORY/__heimdest/ install &&
 
 # Rename files that otherwise would conflict
 for i in rshd telnetd ftpd; do
-  mv $SOURCE_DIRECTORY/__heimdest/usr/sbin/{,k}${i} || exit 1
-  mv $SOURCE_DIRECTORY/__heimdest/usr/share/man/man8/{,k}${i}.8 || exit 1
+  mv -f $SOURCE_DIRECTORY/__heimdest/usr/sbin/{,k}${i} &&
+  mv -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man8/{,k}${i}.8
 done &&
 
 for i in rsh su telnet ftp login rcp; do
   if [ -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/${i}.1 ]; then
-    mv $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/{,k}${i}.1 || exit 1
-  fi
-  mv $SOURCE_DIRECTORY/__heimdest/usr/bin/{,k}${i} || exit 1
+    mv -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/{,k}${i}.1
+  fi &&
+  mv -f $SOURCE_DIRECTORY/__heimdest/usr/bin/{,k}${i}
 done &&
 
 prepare_install &&
