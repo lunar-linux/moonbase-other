@@ -1,12 +1,12 @@
-OPTS+=" --with-linux-kernel-headers=/usr/src/linux"
+OPTS+=" --with-linux-kernel-headers=/usr/src/linux" &&
 
 case `uname -r` in
   2.6.*|3.*)
     kv="26"
     ;;
   *)
-    message "Unsupported kernel version!"
-    exit -1
+    message "Unsupported kernel version!" &&
+    false
     ;;
 esac &&
 
@@ -35,5 +35,5 @@ prepare_install &&
 
 MODDIR=$(expr $SOURCE_DIRECTORY/src/libafs/MODLOAD-*) &&
 KVER=$(echo ${MODDIR##*/} | awk -F- '{ print $2 }') &&
-[ -f ${MODDIR}/libafs.ko ] &&
+
 install -D -m 644 $MODDIR/libafs.ko /lib/modules/${KVER}/kernel/fs/openafs/libafs.ko
