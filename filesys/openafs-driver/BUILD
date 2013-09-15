@@ -12,13 +12,13 @@ esac &&
 
 case `arch` in
   x86_64)
-    OPTS+=" --with-afs-sysname=amd64_linux${kv}"
+    sysname="amd64_linux${kv}"
     ;;
   i386|i486|i586|i686|athlon)
-    OPTS+=" --with-afs-sysname=i386_linux${kv}"
+    sysname="i386_linux${kv}"
     ;;
   *)
-    OPTS+=" --with-afs-sysname=`arch`_linux${kv}"
+    sysname="`arch`_linux${kv}"
     ;;
 esac &&
 
@@ -28,6 +28,12 @@ esac &&
               --localstatedir=/var/lib        \
               --infodir=/usr/share/info       \
               --mandir=/usr/share/man         \
+              --with-afs-sysname=$sysname     \
               $OPTS                           &&
 make only_libafs &&
-prepare_install
+prepare_install &&
+
+MODDIR=$(expr $SOURCE_DIRECTORY/src/libafs/MODLOAD-*) &&
+KVER=$(echo ${MODDIR##*/} | awk -F- '{ print $2 }') &&
+[ -f ${MODDIR}/libafs.ko ] &&
+install -D -m 644 $MODDIR/libafs.ko /lib/modules/${KVER}/kernel/fs/openafs/libafs.ko
