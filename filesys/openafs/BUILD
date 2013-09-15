@@ -95,7 +95,4 @@ if module_installed sysvinit; then
   if [ ! -f /etc/config.d/afs ]; then
     install -p -m 644 $SOURCE_DIRECTORY/src/afsd/afs.conf.linux /etc/config.d/afs
   fi
-fi &&
-
-# Ugly but we need a new cellservdb everytime we run lin
-rm -f $SOURCE_CACHE/$SOURCE2
+fi
