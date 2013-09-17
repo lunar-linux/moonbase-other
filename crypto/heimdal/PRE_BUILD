@@ -1,5 +1,40 @@
+# This trickery is necessary or heimdal may pickup includes/libs
+# of itself from the system which may cause build issues
 if module_installed heimdal ; then
   lrm --upgrade heimdal
 fi &&
 
-default_pre_build
+default_pre_build &&
+
+patch_it $SOURCE2 1 &&
+patch_it $SOURCE3 1 &&
+patch_it $SOURCE4 1 &&
+patch_it $SOURCE5 1 &&
+patch_it $SOURCE6 1 &&
+patch_it $SOURCE7 1 &&
+patch_it $SOURCE8 1 &&
+patch_it $SOURCE9 1 &&
+
+# Change default datadir (hardcoded)
+sedit "s;var/heimdal;var/lib/heimdal;g" configure doc/vars.texi \
+  doc/setup.texi doc/heimdal.info kadmin/kadmind.8 kdc/kdc.8 \
+  kdc/kstash.8 lib/krb5/krb5.conf.5 lib/krb5/krb5.conf.cat5 \
+  lib/kadm5/check-cracklib.pl lib/kadm5/iprop.8 &&
+
+# -- Migration code, remove possibly untracked symlinks
+REMOVE_KRB="gssapi krb5-types.h krb5.h asn1_err.h krb5_asn1.h \
+            krb5_err.h heim_err.h k524_err.h krb5-protos.h" &&
+
+for i in $REMOVE_KRB; do
+  [ ! -L $i ] || rm -f /usr/include/${i}
+done &&
+
+if [ -e /usr/include/heimdal ]; then
+  rm -rf /usr/include/heimdal
+fi &&
+
+# DB location changed to a sane place
+if [ -d /var/heimdal ] && [ ! -d /var/lib/heimdal ]; then
+  mv -f /var/heimdal /var/lib/heimdal
+fi
+# -- End migration code

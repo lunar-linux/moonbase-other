@@ -1,8 +1,5 @@
-lin openafs-driver &&
 
-message "" &&
-message "Before starting AFS remember to add your AFS cell" &&
-message "to /etc/openafs/ThisCell. You might also want to" &&
-message "change the cache size which is by default 200Mb" &&
-message "in /etc/openafs/cacheinfo." &&
-message ""
+# Ugly but we need a new cellservdb everytime we run lin
+rm -f $SOURCE_CACHE/$SOURCE2 &&
+
+lin openafs-driver

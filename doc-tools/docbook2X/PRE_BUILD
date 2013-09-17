@@ -1,0 +1,11 @@
+default_pre_build &&
+
+# upstream patch
+patch_it $SOURCE2 1 &&
+
+# No idea if these should be remapped in some catalog instead..
+# I couldn't get anything else to work
+sedit "s@http://docbook2x.sf.net/latest@/usr/share/docbook2X@g" perl/db2x_xsltproc.pl &&
+
+# avoid collision with docbook-utils
+sedit "s:docbook2man:db2x_docbook2man:; s:docbook2texi:db2x_docbook2texi:" perl/Makefile.{am,in}
