@@ -4,6 +4,10 @@ depends glib-2
 depends %X
 
 optional_depends "libxklavier" "--enable-liblightdm-gobject" "--disable-liblightdm-gobject" "Enable library for gobject based greeters"
+optional_depends "gobject-introspection" "--enable-introspection" "--disable-introspection" "Enable gobject-introspection (only if y to libxklavier)"
+
 optional_depends "qt4" "--enable-liblightdm-qt" "--disable-liblightdm-qt" "Enable library for qt4 based greeters"
-optional_depends "qt5" "--enable-liblightdm-qt5" "--disable-liblightdm-qt5" "Enable library for qt5 based greeters"
-optional_depends "gobject-interospection" "--enable-introspection" "--disable-introspection" "Enable library for qt5 based greeters"
+
+
+# lunar doesn't ship qt5 yet
+#optional_depends "qt5" "--enable-liblightdm-qt5" "--disable-liblightdm-qt5" "Enable library for qt5 based greeters"
