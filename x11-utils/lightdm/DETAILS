@@ -1,25 +1,17 @@
           MODULE=lightdm
-         VERSION=1.5.2
+         VERSION=1.7.16
           SOURCE=${MODULE}-${VERSION}.tar.xz
          SOURCE2=${MODULE}-1.5.0-pam.patch
-         SOURCE3=${MODULE}-1.5.0-systemd-logind.patch
-         SOURCE4=${MODULE}-1.5.0-makefile.patch
-         SOURCE5=${MODULE}-1.4.0-systemd_login1_power.patch
-      SOURCE_URL=https://launchpad.net/lightdm/1.6/${VERSION}/+download/
+      SOURCE_URL=https://launchpad.net/lightdm/${VERSION%.*}/${VERSION}/+download/
      SOURCE2_URL=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
-     SOURCE4_URL=$PATCH_URL
-     SOURCE5_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=md5:8359d74c7ae1342d7c11ce3fba0862ca
+      SOURCE_VFY=sha1:fc91d53b42d217e5628e25be7e1c66befd6cd569
      SOURCE2_VFY=sha1:5fd2c5a6576eae23f14c695378edde401048f909
-     SOURCE3_VFY=sha1:9eb14c13fa4ce94eb5b5358ef97cb2765f7c3be5
-     SOURCE4_VFY=sha1:c22daab89358d8865bcf2fbaf25cf13cef1802b7
-     SOURCE5_VFY=md5:1aac33da4bb5d6c5bb2b8fa72ae922b9
         WEB_SITE="http://www.freedesktop.org/wiki/Software/LightDM"
          ENTERED=20121231
-         UPDATED=20130325
+         UPDATED=20130920
            SHORT="light, fast, extensible and multi-desktop display manager"
+
 cat <<EOF
 LightDM is a cross-desktop display manager that aims is to be the
 standard display manager for the X.org X server. The motivation for

@@ -1,0 +1,7 @@
+if ! in_depends lightdm libxklavier ; then
+  message "${PROBLEM_COLOR}$MODULE requires lightdm to be build with gobject library.${DEFAULT_COLOR}" &&
+  message "${PROBLEM_COLOR}Please rebuild lightdm and select gobject library!${DEFAULT_COLOR}"         &&
+  false
+fi &&
+
+default_pre_build
