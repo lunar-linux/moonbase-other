@@ -1,0 +1,10 @@
+datadir="/var/lib/mysql"
+if [ ! -e "$datadir" ]; then
+  install -dm700 $datadir
+  mysql_install_db --user=mysql --basedir=/usr --datadir=$datadir
+  chown -R mysql:mysql $datadir &> /dev/null
+else
+  message "\n \
+If you are migrating from MySQL or upgrading to a newer version of \
+MariaDB, don't forget to run 'mysql_upgrade'.\n"
+fi
