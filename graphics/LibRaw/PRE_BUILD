@@ -1,4 +1,5 @@
 default_pre_build     &&
-cd $SOURCE_DIRECTORY  &&
-unpack $SOURCE1       &&
-unpack $SOURCE2       
+unpack $SOURCE2       &&
+unpack $SOURCE3       &&
+
+sedit 's:CFLAGS=": CFLAGS="-fPIC :' configure
