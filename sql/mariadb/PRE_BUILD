@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# INSTALL_LAYOUT=STANDALONE causes cmake to create /usr/data dir (we don't need it)
+sedit 's;^INSTALL(.*data/test.*;# &;' sql/CMakeLists.txt &&
+
+# Don't install solaris scripts
+sedit 's;^ADD_SUB.*solaris.*;# &;' CMakeLists.txt
