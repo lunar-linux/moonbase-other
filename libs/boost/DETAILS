@@ -1,12 +1,15 @@
           MODULE=boost
-         VERSION=1_53_0
+         VERSION=1_54_0
           SOURCE=${MODULE}_$VERSION.tar.bz2
+         SOURCE2=boost-1.54-intptr_t.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}_$VERSION
       SOURCE_URL=$SFORGE_URL/$MODULE/
-      SOURCE_VFY=sha1:e6dd1b62ceed0a51add3dda6f3fc3ce0f636a7f3
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:230782c7219882d0fab5f1effbe86edb85238bf4
+     SOURCE2_VFY=sha1:8e7434da928e9279c6824a67c298c0a5bfc1b08d
         WEB_SITE=http://www.boost.org
          ENTERED=20041115
-         UPDATED=20130420
+         UPDATED=20130921
            SHORT="A cross-platform supplement to the C++ standard library"
 
 cat << EOF
