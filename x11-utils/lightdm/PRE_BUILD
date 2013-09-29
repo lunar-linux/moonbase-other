@@ -1,3 +1,7 @@
 default_pre_build &&
-cd $SOURCE_DIRECTORY &&
+
+if ! in_depends $MODULE libxklavier; then
+  sedit '/-llightdm-gobject-1/ d' liblightdm-qt/Makefile.in
+fi &&
+
 patch_it $SOURCE2 1
