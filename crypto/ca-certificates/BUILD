@@ -1,7 +1,3 @@
-(
-
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
   make             &&
   prepare_install  &&
   install -d -m755 /{etc/ca-certificates/updates.d,usr/{sbin,share/ca-certificates},etc/ssl/certs}  &&
@@ -18,5 +14,3 @@
   ln -sf /etc/ssl/certs /etc/pki/tls/certs &&
   ln -sf /etc/ssl/certs /usr/share/ssl/certs &&
   ln -sf /etc/ssl/certs/ca-{certificates,bundle}.crt
-
-) > $C_FIFO 2>&1
