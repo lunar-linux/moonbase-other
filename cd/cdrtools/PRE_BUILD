@@ -1,0 +1,7 @@
+default_pre_build  &&
+
+sedit "s:/bin/rm:rm:; s:/bin/mv:mv:" RULES/rules.prg  &&
+
+# this will make it use its own headers
+# not the last linned kernel headers
+sedit "s?/usr/src/linux/include?/usr/include?g" DEFAULTS/Defaults.linux
