@@ -1,5 +1,3 @@
-(
-
   default_game_build &&
 
   if in_depends $MODULE mesa-lib ; then
@@ -23,5 +21,3 @@ EOF
   # Docs
   mv {docs,Tools}/* . &&
   gather_docs *.txt LinuxScripts
-
-) > $C_FIFO 2>&1
