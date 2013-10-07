@@ -1,17 +1,18 @@
-sedit "s:/bin/rm:rm:; s:/bin/mv:mv:" RULES/rules.prg
-
-# this will make it use its own headers
-# not the last linned kernel headers
-sedit "s?/usr/src/linux/include?/usr/include?g" DEFAULTS/Defaults.linux  &&
-
-smake INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root &&
+if  `module_installed smake`; then
+  THISMAKE=smake
+else
+  THISMAKE=make
+fi  &&
+$THISMAKE INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root &&
 prepare_install                        &&
-smake INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root MANDIR=man install  &&
+$THISMAKE INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root MANDIR=man install  &&
 
 # cdrkit compatibility:
-install -m755 cdda2wav/{pitchplay,readmult} /usr/bin  &&
-ln -sf /usr/bin/mkisofs  /usr/bin/genisoimage  &&
-ln -sf /usr/bin/cdda2wav /usr/bin/icedax  &&
-ln -sf /usr/bin/readcd   /usr/bin/readom  &&
-ln -sf /usr/bin/cdrecord /usr/bin/wodim   &&
-ln -sf /usr/sbin/rscsi /usr/sbin/netscsid
+if [ "$COMPAT" != n ] ; then
+  install -m755 cdda2wav/{pitchplay,readmult} /usr/bin  &&
+  ln -sf /usr/bin/mkisofs  /usr/bin/genisoimage  &&
+  ln -sf /usr/bin/cdda2wav /usr/bin/icedax  &&
+  ln -sf /usr/bin/readcd   /usr/bin/readom  &&
+  ln -sf /usr/bin/cdrecord /usr/bin/wodim   &&
+  ln -sf /usr/sbin/rscsi /usr/sbin/netscsid
+fi
