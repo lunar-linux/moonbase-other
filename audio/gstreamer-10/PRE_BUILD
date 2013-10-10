@@ -1,0 +1,7 @@
+default_pre_build &&
+
+if [ "`get_module_config DOCS`" = "n" ] ; then
+  sedit "/\tdocs \\\/d" Makefile.in
+fi  &&
+
+sedit "/int priv_gst_parse_yylex (/ c int priv_gst_parse_yylex (void * yylval_param);" gst/parse/grammar.y
