@@ -10,3 +10,6 @@ ExecReload=/bin/kill -HUP $MAINPID
 # cause the machine to be fenced (rebooted), so make
 # sure we discourage OOM killer
 OOMScoreAdjust=-900
+
+[Install]
+WantedBy=multi-user.target
