@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# this is defined in dirent.h via glib.h
+sedit 's/DT_[^ ]*/\0_OBSOLETE/' epan/dissectors/packet-gluster.h
