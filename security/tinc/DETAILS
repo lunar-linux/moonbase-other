@@ -1,0 +1,40 @@
+          MODULE=tinc
+         VERSION=1.0.23
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://www.tinc-vpn.org/packages/
+      SOURCE_VFY=sha1:840dca0cc1d28a3e408f463693ef766c72d8bc90
+        WEB_SITE=http://www.tinc-vpn.org
+         ENTERED=20131020
+         UPDATED=20131020
+           SHORT="VPN (Virtual Private Network) daemon"
+
+cat << EOF
+tinc is a Virtual Private Network (VPN) daemon that uses tunnelling and
+encryption to create a secure private network between hosts on the Internet.
+Because the VPN appears to the IP level network code as a normal network device,
+there is no need to adapt any existing software. This allows VPN sites to share
+information with each other over the Internet without exposing any information
+to others. Features:
+
+Encryption, authentication and compression
+  All traffic is optionally compressed using zlib or LZO, and OpenSSL is used to
+  encrypt the traffic and protect it from alteration with message authentication
+  codes and sequence numbers.
+
+Automatic full mesh routing
+  Regardless of how you set up the tinc daemons to connect to each other, VPN
+  traffic is always (if possible) sent directly to the destination, without going
+  through intermediate hops.
+
+Easily expand your VPN
+  When you want to add nodes to your VPN, all you have to do is add an extra
+  configuration file, there is no need to start new daemons or create and configure
+  new devices or network interfaces.
+
+Ability to bridge ethernet segments
+  You can link multiple ethernet segments together to work like a single segment,
+  allowing you to run applications and games that normally only work on a LAN over
+  the Internet.
+
+Runs on many operating systems and supports IPv6
+EOF
