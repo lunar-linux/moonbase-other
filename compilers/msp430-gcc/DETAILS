@@ -1,0 +1,29 @@
+          MODULE=msp430-gcc
+         VERSION=4.6.3
+	  SOURCE=gcc-$VERSION.tar.bz2
+	 SOURCE2=msp430-gcc-4.6.3-20120406.patch
+	 SOURCE3=msp430-gcc-4.6.3-20120406-sf3540953.patch
+	 SOURCE4=msp430-gcc-4.6.3-20120406-sf3559978.patch
+	 SOURCE5=gcc-msp430-2.6.3-texinfo-5.0.patch
+      SOURCE_URL=$GNU_URL/gcc/gcc-$VERSION
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
+     SOURCE4_URL=$PATCH_URL
+     SOURCE5_URL=$PATCH_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:ce317ca5c8185b58bc9300182b534608c578637f
+     SOURCE2_VFY=sha1:698ac224e7c1a5661652948a347531b27d580eca
+     SOURCE3_VFY=sha1:9de4e74d8ceb2005409e03bf671e619f2e060082
+     SOURCE4_VFY=sha1:3721d13fd9a19df60fe356e082e6cea4ea637dbc
+     SOURCE5_VFY=sha1:0f5e63dc6a689976014c6cc87d5be28eb4ee922b
+        WEB_SITE="http://mspgcc.sf.net/"
+      MAINTAINER=ratler@lunar-linux.org
+         ENTERED=20131021
+         UPDATED=20131021
+           SHORT="GNU toolchain for the TI MSP430 microcontroller"
+PSAFE=no
+USE_WRAPPERS=no
+
+cat <<EOF
+GNU toolchain for the TI MSP430 microcontroller.
+EOF
