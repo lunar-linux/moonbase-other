@@ -1,0 +1,8 @@
+default_pre_build &&
+
+patch_it $SOURCE2 1 &&
+patch_it $SOURCE3 1 &&
+
+# don't install systemd files here
+# we provide them separately
+sedit '/systemd/ d' CMakeLists.txt
