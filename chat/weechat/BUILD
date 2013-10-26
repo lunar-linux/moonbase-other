@@ -1,3 +1,1 @@
-
-default_cmake_build  &&
-ln -sf weechat-curses /usr/bin/weechat
+default_cmake_build
