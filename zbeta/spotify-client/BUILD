@@ -1,6 +1,8 @@
 
 cd $SOURCE_DIRECTORY/opt/spotify/spotify-client &&
+./linklibs-fedora.sh &&
 ./linklibs.sh &&
+find . -maxdepth 1 -type l | xargs -i cp -P {} Data/ &&
 prepare_install &&
 install -d -m 0755 /usr/libexec/spotify-client &&
 install -d -m 0755 /usr/share/doc/spotify-client &&
