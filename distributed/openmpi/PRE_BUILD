@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# avoid collision with lcd-typetools
+sedit 's/otfinfo$(EXEEXT)/otfinfompi$(EXEEXT)/' ompi/contrib/vt/vt/extlib/otf/tools/otfinfo/Makefile.in
