@@ -1,38 +1,76 @@
-(
+export CFLAGS+=" -fPIC"
+  
+OPTS+=" --disable-static \
+        --disable-krb4 \
+        --disable-srp \
+        --disable-srp-setpass \
+        --disable-cmulocal \
+        --enable-login \
+        --enable-ntlm \
+        --enable-otp \
+        --enable-auth-sasldb \
+        --without-sqlite \
+        --with-devrandom=/dev/urandom \
+        --with-dbpath=/var/lib/sasl/sasl.db  \
+        --with-pwcheck=/var/run/saslauthd \
+        --with-saslauthd=/var/run/saslauthd \
+        --with-configdir=/etc/sasl2 \
+        --with-plugindir=/usr/lib/sasl2"
 
-  patch_it $SOURCE_CACHE/$SOURCE3 1 &&
-  patch_it $SOURCE_CACHE/$SOURCE4 1 &&
+if module_installed Linux-PAM; then
+  OPTS+=" --with-pam"
+else
+  OPTS+=" --without-pam"
+fi &&
 
-  # the patch REQUIRES -lcrypt but we might want to disable PAM:
-  if echo $OPTS | grep -q with-pam ; then
-    sedit "s/@LIBS@/@LIBS@ -lpam -lcrypt/" */Makefile.in
-  else
-    sedit "s/@LIBS@/@LIBS@ -lcrypt/" */Makefile.in
-  fi  &&
+# Enable sql if any of the following databases is a dependency
+if in_depends $MODULE sqlite || in_depends $MODULE postgresql || in_depends $MODULE %MYSQL; then
+  OPTS+=" --enable-sql"
+else
+  OPTS+=" --disable-sql"
+fi &&
 
-  # default enabled modules in configure : checkapop, cram, digest, otp, gssapi, plain, anon
-  OPTS=$OPTS" --enable-login                       \
-              --disable-otp                        \
-              --disable-anon                       \
-              --with-pwcheck=/var/lib/sasl         \
-              --with-dbpath=/var/lib/sasl/sasl.db  \
-              --with-config=/etc/sasl2             \
-              --with-plugindir=/usr/lib/sasl2      \
-              --enable-sample                      \
-              --with-gnu-ld                        \
-              --with-saslauthd=/var/lib/sasl "    &&
+# gdbm first if both gdbm and db was enabled
+if in_depends $MODULE gdbm; then
+  OPTS+=" --with-dblib=gdbm"
+elif in_depends $MODULE db; then
+  OPTS+=" --with-dblib=berkeley"
+else
+  OPTS+=" --with-dblib=none"
+fi &&
 
-  default_config           &&
-  mkdir -p /var/lib/sasl/  &&
-  default_make             &&
+# Autoconf stuff
+rm -f config/config.guess config/config.sub &&
+rm -f config/ltconfig config/ltmain.sh config/libtool.m4 &&
+rm -fr autom4te.cache &&
+libtoolize -c &&
+aclocal -I config -I cmulocal &&
+automake -a -c &&
+autoheader &&
+autoconf &&
 
-  if [ ! -d /etc/sasl2 ]; then
-          mkdir -p /etc/sasl2
-  fi  &&
+pushd saslauthd &&
+rm -f config/config.guess config/config.sub &&
+rm -f config/ltconfig config/ltmain.sh config/libtool.m4 &&
+rm -fr autom4te.cache &&
+libtoolize -c &&
+aclocal -I config -I ../cmulocal -I ../config &&
+automake -a -c &&
+autoheader &&
+autoconf &&
+popd &&
 
-  if [ ! -e /etc/sasl2/smtpd.conf ] ; then
-    install $SOURCE_CACHE/$SOURCE2 /etc/sasl2/smtpd.conf.gz  &&
-    gunzip /etc/sasl2/smtpd.conf.gz
-  fi
+default_build &&
 
-) > $C_FIFO 2>&1
+if [ ! -d /var/lib/sasl ]; then
+  mkdir -p /var/lib/sasl
+fi &&
+
+if [ ! -d /etc/sasl2 ]; then
+  mkdir -p /etc/sasl2
+fi &&
+
+if [ ! -e /etc/sasl2/smtpd.conf ] ; then
+  echo "pwcheck_method: sasldb" > /etc/sasl2/smtpd.conf
+fi
+
