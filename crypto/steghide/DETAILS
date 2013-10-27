@@ -1,17 +1,21 @@
           MODULE=steghide
          VERSION=0.5.1
           SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=$SFORGE_URL/$MODULE/
+         SOURCE2=$MODULE-0.5.1-gcc-4.2.patch.bz2
+      SOURCE_URL=$SFORGE_URL/$MODULE/
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:b741dffbb5c3d0b2d13eebec1b083fc50f974b68
+     SOURCE2_VFY=sha1:2b02237758654cff87c2a95ed019f747af100ab0
         WEB_SITE=http://steghide.sourceforge.net
          ENTERED=20040125
          UPDATED=20040125
            SHORT="A steganography app that is able to hide data in image and audio files"
+
 cat << EOF
 Steghide is a steganography program that is able to hide data in various
 kinds of image- and audio-files. The color- respectivly sample-frequencies
 are not changed thus making the embedding resistant against first-order
 statistical tests.
-
 Features include the compression of the embedded data, encryption of the
 embedded data and automatic integrity checking using a checksum. The JPEG,
 BMP, WAV and AU file formats are supported for use as a cover file. There are
