@@ -8,12 +8,12 @@ if [ ! -d /var/state/saslauthd ]; then
     mkdir -p /var/state/saslauthd || exit 0
 fi
 
-[ -f /etc/sasl2/config ] && . /etc/sasl2/config
+[ -f /etc/config.d/saslauthd ] && . /etc/config.d/saslauthd
 
 start()
 {
     echo -n "Starting SASL Auth Daemon: "
-    saslauthd $SASL_OPTIONS &&
+    saslauthd $SASLAUTHD_OPTIONS &&
     echo -e $RESULT_OK ||
     (echo -e $RESULT_FAIL; return 1)
 }
