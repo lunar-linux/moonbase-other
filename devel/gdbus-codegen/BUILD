@@ -1,3 +1,3 @@
-  default_config &&
-  cd gio/gdbus-2.0/codegen &&
-  default_make
+default_config
+cd gio/gdbus-2.0/codegen
+default_make
