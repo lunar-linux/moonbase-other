@@ -1,0 +1,6 @@
+OPTS+=" --disable-multilib"
+
+validate_source_dir $SOURCE_DIRECTORY &&
+mk_source_dir $SOURCE_DIRECTORY &&
+tar xf $SOURCE_CACHE/$SOURCE --strip-components=1 -C $SOURCE_DIRECTORY &&
+cd $SOURCE_DIRECTORY

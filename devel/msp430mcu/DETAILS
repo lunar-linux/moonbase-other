@@ -1,0 +1,22 @@
+          MODULE=msp430mcu
+         VERSION=20120406
+	  SOURCE=$MODULE-$VERSION.tar.bz2
+	 SOURCE2=msp430mcu-20120406-sf3522088.patch
+      SOURCE_URL=$SFORGE_URL/mspgcc/msp430mcu
+     SOURCE2_URL=$PATCH_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:c096eec84f0f287c45db713a550ec50c518fa065
+     SOURCE2_VFY=sha1:83d408fd08a1fd0b1d8ab2a300d6124423952ac4
+        WEB_SITE="http://mspgcc.sf.net/"
+      MAINTAINER=ratler@lunar-linux.org
+         ENTERED=20131021
+         UPDATED=20131021
+           SHORT="Headers and linker scripts for the MSP430 family of microcontrollers"
+
+cat <<EOF
+Headers and linker scripts for the Texas Instruments MSP430 range of
+micro-controllers. These headers provide the location of all the special
+function registers of the micro-controllers. The linker scripts provide the
+mapping of those registers into memory as well as information on where code
+should be loaded.
+EOF

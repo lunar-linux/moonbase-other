@@ -1,0 +1,21 @@
+          MODULE=mspdebug
+         VERSION=0.21
+	  SOURCE=$MODULE-$VERSION.tar.gz
+	 SOURCE2=mspdebug-0.21-missing-includes.patch
+      SOURCE_URL=$SFORGE_URL/mspdebug
+     SOURCE2_URL=$PATCH_URL
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:a439acd166e90bfd19ddf2c3459eee9643e55368
+     SOURCE2_VFY=sha1:2fcb6cf867a5acf1cedf07ef22e81e6a136a6b64
+        WEB_SITE=http://mspdebug.sourceforge.net/
+      MAINTAINER=ratler@lunar-linux.org
+         ENTERED=20131021
+         UPDATED=20131021
+           SHORT="Debugger and gdb proxy for MSP430 microcontrollers"
+
+cat <<EOF
+A free debugger for use with MSP430 MCUs. It supports FET430UIF,
+eZ430, RF2500 and TI Chronos devices. It can be used as a proxy for
+gdb or as an independent debugger with support for programming,
+disassembly and reverse engineering.
+EOF
