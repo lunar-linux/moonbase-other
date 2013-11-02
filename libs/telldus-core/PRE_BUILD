@@ -1,0 +1,14 @@
+default_pre_build &&
+
+# Do not overwrite configs if exist
+patch_it $SOURCE2 1 &&
+
+# Add Missing header
+sedit '/^#else/a\\t#include <unistd.h>' common/Socket.h &&
+
+# Fix user and group
+sedit 's;plugdev;usb;' tdadmin/05-tellstick.rules &&
+sedit 's;plugdev;usb;;s;nobody;tellstick;' service/tellstick.conf &&
+
+# Fix udev rules dir
+sedit '/UDEV_RULES_DIR/s;/etc;/usr/lib;' tdadmin/CMakeLists.txt
