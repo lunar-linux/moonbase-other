@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# Disable installation of udev rules, we don't need them
+sedit '/$(INSTALL_UDEV_RULE_FILE)/d' src/Makefile.in
