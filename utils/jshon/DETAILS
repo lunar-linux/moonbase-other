@@ -1,0 +1,23 @@
+          MODULE=jshon
+         VERSION=20130815
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=http://kmkeen.com/jshon/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:ef9524f7b4632682d821067c445120eba5c744ef
+        WEB_SITE="http://kmkeen.com/jshon/"
+         ENTERED=20131103
+         UPDATED=20131103
+           SHORT="parse, read and create JSON"
+cat <<EOF
+Jshon parses, reads and creates JSON. It is designed to be as usable
+as possible from within the shell and replaces fragile adhoc parsers
+made from grep/sed/awk as well as heavyweight one-line parsers made
+from perl/python.
+
+Jshon loads json text from stdin, performs actions, then displays
+the last action on stdout. Some of the options output json, others
+output plain text meta information. Because Bash has very poor
+nested datastructures, Jshon does not try to return a native bash
+datastructure as a tpical library would. Instead, Jshon provides a
+history stack containing all the manipulations.
+EOF
