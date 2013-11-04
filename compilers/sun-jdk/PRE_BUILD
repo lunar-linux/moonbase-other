@@ -12,28 +12,30 @@ JDK_POLICY=UnlimitedJCEPolicyJDK7.zip &&
 
 if ! module_installed ca-certificates; then
    message "${PROBLEM_COLOR}If the following downloads fail, please make sure you build wget with SSL support and and got ca-certificates installed${DEFAULT_COLOR}"
-fi
+fi &&
 
 wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jdk/$FVERSION/$JDK_ARCHIVE &&
 wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jce/7/$JDK_POLICY &&
 
-JCE_SHA1_VFY="7d3c9ee89536b82cd21c680088b1bced16017253  $JDK_POLICY" &&
-JCE_SHA1_TST=`sha1sum $JDK_POLICY` &&
+JCE_SHA1_VFY="7d3c9ee89536b82cd21c680088b1bced16017253" &&
+JCE_SHA1_TST=`sha1sum $JDK_POLICY | awk '{print $1}'` &&
 if [ "$JCE_SHA1_VFY" != "$JCE_SHA1_TST" ]; then
-message "Bad checksum of $JDK_POLICY file - deleting"
-rm -f $JDK_POLICY
-exit 1
+   message "Bad checksum for file $JDK_POLICY: $JCE_SHA1_TST - deleting file" &&
+   rm -f $JDK_POLICY # &&
+   false
 fi &&
+
 if [ "$bits" = i586 ]; then
-JDK_SHA1_VFY="6b28b72351aa61329b5bacb16fca57c82813edd3  $JDK_ARCHIVE"
+   JDK_SHA1_VFY="c555fcff8c916bef39697c5e1bf059eeacbe3647"
 else
-JDK_SHA1_VFY="1992a3e713c45032740f1dd290cb80d176e2c8c1  $JDK_ARCHIVE"
+   JDK_SHA1_VFY="1c8cb229e2f7f0a3e5e798a3008c5a1f7c604934"
 fi &&
-JDK_SHA1_TST=`sha1sum $JDK_ARCHIVE` &&
+
+JDK_SHA1_TST=`sha1sum $JDK_ARCHIVE | awk '{print $1}'` &&
 if [ "$JDK_SHA1_VFY" != "$JDK_SHA1_TST" ]; then
-message "Bad checksum of $JDK_ARCHIVE file - deleting"
-rm -f $JDK_ARCHIVE
-exit 1
+   message "Bad checksum for file $JDK_ARCHIVE: $JDK_SHA1_TST - deleting file" &&
+   rm -f $JDK_ARCHIVE &&
+   false
 fi &&
 
 cd $BUILD_DIRECTORY &&
