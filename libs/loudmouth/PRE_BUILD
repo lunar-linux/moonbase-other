@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# Fix glib2 header problem.
+sedit "s:glib/gerror.h:glib.h:" loudmouth/lm-error.c &&
+
+#gnutls >= 2.6 support
+patch_it $SOURCE2 1
