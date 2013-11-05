@@ -1,7 +1,5 @@
-(
+patch_it $SOURCE2 1
 
-  default_build
+default_build
 
- # install -m 0664 version.h /usr/share/ptlib/
-
-) > $C_FIFO 2>&1
+# install -m 0664 version.h /usr/share/ptlib/
