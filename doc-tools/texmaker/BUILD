@@ -1,5 +1,3 @@
-(
-
   . /etc/profile.d/qt4.rc                                       &&
 
   PATH=$QTDIR/bin:$PATH                                         &&
@@ -15,5 +13,3 @@
   make install                                                  &&
 
   gather_docs CHANGELOG.txt
-
-) > $C_FIFO 2>&1

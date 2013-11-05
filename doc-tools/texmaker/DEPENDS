@@ -1,11 +1,8 @@
 depends  qt4
+depends  poppler
 
-# strictly speaking, the packages below are not required for building and are
-# only needed by texmaker at run-time, so are they optional_depends or not?
+# run-time dependencies
 
 optional_depends  texlive      ""  ""  "for TeX document processing"
 optional_depends  ghostscript  ""  ""  "for conversion to HTML"
 optional_depends  hunspell     ""  ""  "for spell checking documents"
-
-# lin barfs here if poppler is installed, because it conflicts with xpdf
-# optional_depends  xpdf       ""  ""  "for viewing generated PDF files"
