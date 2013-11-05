@@ -1,14 +1,15 @@
-(
-
   OPTS+=" --without-tcl \
           --with-smime \
           --without-passfile \
           --with-system-pinerc=/etc/alpine.d/pine.conf \
           --with-system-fixed-pinerc=/etc/alpine.d/pine.conf.fixed \
-          --with-ssl-certs-dir=/etc/ssl/certs"
+          --with-ssl-certs-dir=/etc/ssl/certs" &&
 
   patch_it $SOURCE2 1 &&
 
-  default_build
+  if module_installed Linux-PAM; then
+    export LIBS+=" -lpam"
+  fi &&
 
-) > $C_FIFO 2>&1
+  export LIBS+=" -lcrypt -lcrypto" &&
+  default_build

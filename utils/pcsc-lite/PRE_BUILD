@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# We handle installation of systemd unit files on our own
+sedit 's;^\(install-data-am:\).*;\1;' etc/Makefile.in
