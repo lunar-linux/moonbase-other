@@ -1,5 +1,3 @@
-sedit "/^}$/d; /enum CameraDrawMode/ i }\n" src/tools/radiant/radiant/camera/CameraSettings.h &&
-
 # configure is a bit 'special'
 ./configure  --prefix=/usr                  \
              --bindir=/usr/games            \

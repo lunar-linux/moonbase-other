@@ -1,3 +1,4 @@
 default_pre_build     &&
-cd $SOURCE_DIRECTORY  &&
-unpack $SOURCE1
+unpack $SOURCE2       &&
+
+sedit "/^}$/d; /enum CameraDrawMode/ i }\n" src/tools/radiant/radiant/camera/CameraSettings.h

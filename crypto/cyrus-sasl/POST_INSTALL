@@ -1,0 +1,5 @@
+if (in_depends $MODULE gdbm || in_depends $MODULE db) && [ ! -f "/var/lib/sasl/sasl.db" ]; then
+  message "Generating an empty sasl2 db..."
+  echo "p" | saslpasswd2 -f /var/lib/sasl/sasl.db -p login &&
+  chmod 0640 /var/lib/sasl/sasl.db
+fi
