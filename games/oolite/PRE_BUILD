@@ -6,4 +6,6 @@ tar xf $SOURCE_CACHE/$SOURCE2 &&
 mv mozilla-2.0 mozilla &&
 echo 'http://jens.ayton.se/oolite/deps/firefox-4.0.source.js-only.tbz' > mozilla/current.url &&
 
-cd $SOURCE_DIRECTORY
+cd $SOURCE_DIRECTORY &&
+
+sedit "/NO_RETURN_FUNC/ d" src/Core/Materials/OOPNGTextureLoader.m
