@@ -1,0 +1,7 @@
+if [[ ! "$(get_other_module_config gcc LANGUAGES)" = *objc* ]]; then
+  message "${PROBLEM_COLOR}GnuStep largely depends on the ObjC support of gcc.\n" \
+          "Please recompile gcc with Objective C support and retry${DEFAULT_COLOR}." &&
+  false
+fi &&
+
+default_pre_build

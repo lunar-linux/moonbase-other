@@ -1,13 +1,6 @@
-sedit "/NO_RETURN_FUNC/ d" src/Core/Materials/OOPNGTextureLoader.m &&
-if in_depends $MODULE espeak; then
- sedit "s:ESPEAK *=.*$:ESPEAK = yes:" config.make
-else
- sedit "s:ESPEAK *=.*$:ESPEAK = no:" config.make
-fi &&
-
 . /usr/share/GNUstep/Makefiles/GNUstep.sh &&
 
-make -f Makefile release &&
+make -f Makefile release $OPTS &&
 
 prepare_install &&
 
