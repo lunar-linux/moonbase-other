@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# make sure the db dir exists so scrollkeeper-update does not segfault...
+sedit '/rm -rf/ a mkdir $scrollkeeper_db_dir' scripts/scrollkeeper-rebuilddb.in
