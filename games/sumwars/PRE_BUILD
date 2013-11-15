@@ -1,0 +1,8 @@
+default_pre_build &&
+
+sedit '419a\
+  -ldl -lboost_system' CMakeLists.txt &&
+
+sedit 's/table\.getn(\([^)]*\))/#\1/g' share/data/lua/*.lua &&
+
+patch_it $SOURCE2 1
