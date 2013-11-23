@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ "$LOWLEVEL_PACKAGE_MANAGER" = "lunar" ]; then
+  lvu installed | sort | awk -F'[: ]' '{ print $1" "$4 }'
+fi

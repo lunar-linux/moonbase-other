@@ -1,0 +1,10 @@
+if [ -n "$RECONFIGURE" ]; then
+  if query "Do you want to change etckeeper SCM backend (currently: ${ETCSCM:-git})?" n; then
+    RESULT=$(dialog --title "Change default etckeeper SCM" \
+                    --stdout \
+                    --menu "" 0 0 0 git GIT hg Mercurial bzr Bazaar-NG)
+    if [ -n "$RESULT" ]; then
+      set_module_config ETCSCM $RESULT
+    fi
+  fi
+fi
