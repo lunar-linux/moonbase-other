@@ -1,9 +1,12 @@
 [Unit]
-Description=Syslog daemon
+Description=System Logging Service
+Requires=syslog.socket
 
 [Service]
-ExecStart=/usr/sbin/rsyslogd -c4 -n
-Restart=always
+Type=notify
+ExecStart=/usr/sbin/rsyslogd -n
+StandardOutput=null
 
 [Install]
-WantedBy=syslog.target
+WantedBy=multi-user.target
+Alias=syslog.service

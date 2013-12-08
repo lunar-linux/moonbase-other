@@ -1,6 +1,7 @@
-/var/log/messages /var/log/auth /var/log/mail /var/log/spooler /var/log/boot.log /var/log/cron /var/log/kernel /var/log/lpr {
+/var/log/messages /var/log/syslog /var/log/auth.log /var/log/mail.log /var/log/mail.err /var/log/cron.log /var/log/kern.log /var/log/debug /var/log/news {
+    missingok
     sharedscripts
     postrotate
-        /bin/kill -HUP `cat /var/run/rsyslogd.pid 2> /dev/null` 2> /dev/null || true
+        /usr/bin/killall -HUP /usr/sbin/rsyslogd
     endscript
 }
