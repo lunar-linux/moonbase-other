@@ -1,0 +1,35 @@
+#!/bin/bash
+#############################################################
+#                                                           #
+# etckeeper.plugin - SCM handling of /etc                   #
+#                                                           #
+#############################################################
+#                                                           #
+# Copyright 2013 by Stefan Wold under GPLv2                 #
+#                                                           #
+#############################################################
+
+
+plugin_etckeeper_pre_hook()
+{
+  debug_msg "plugin_etckeeper_pre_hook ($@)"
+  # Save uncommited changes before the module has installed
+  # new files in /etc
+  etckeeper pre-install 
+
+  return 2
+}
+
+plugin_etckeeper_commit_changes()
+{
+  debug_msg "plugin_etckeeper_commit_changes ($@)"
+  # Commit changes in /etc
+  etckeeper post-install
+
+  return 2
+}
+
+plugin_register BUILD_PRE_BUILD plugin_etckeeper_pre_hook
+plugin_register BUILD_POST_INSTALL plugin_etckeeper_commit_changes
+plugin_register BUILD_PRE_REMOVE plugin_etckeeper_pre_hook
+plugin_register BUILD_POST_REMOVE plugin_etckeeper_commit_changes
