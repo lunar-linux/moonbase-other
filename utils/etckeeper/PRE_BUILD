@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# Disable the different package managers
+sedit 's;^HIGHLEVEL_PACKAGE.*;HIGHLEVEL_PACKAGE_MANAGER=lin;;s;^LOWLEVEL_PACK.*;LOWLEVEL_PACKAGE_MANAGER="lunar";' etckeeper.conf &&
+
+# Set default user or it error out sometimes
+sedit 's;^USER=;&root;' commit.d/50vcs-commit
