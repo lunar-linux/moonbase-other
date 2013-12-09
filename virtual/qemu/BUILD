@@ -14,7 +14,6 @@
               --libexecdir=/usr/lib/qemu  \
               --localstatedir=/var  \
               --audio-drv-list="$AUDIO_LIST"  \
-              --enable-mixemu  \
               $OPTS  &&
 
   default_make  &&
