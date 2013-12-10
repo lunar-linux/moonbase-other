@@ -1,0 +1,8 @@
+[Unit]
+Description=BitlBee Per-Connection Server
+After=syslog.target
+
+[Service]
+ExecStart=/usr/sbin/bitlbee -I
+StandardInput=socket
+User=bitlbee

@@ -1,7 +1,5 @@
-(
-
-  OPTS+=" --etcdir=/etc/bitlbee"
-  default_build &&
-  make install-etc
-  
-) > $C_FIFO 2>&1
+# systemdsystemunitdir=no is no because we want to install the unit files
+# using the lunar way
+OPTS+=" --etcdir=/etc/bitlbee --systemdsystemunitdir=no"
+default_build &&
+make install-etc
