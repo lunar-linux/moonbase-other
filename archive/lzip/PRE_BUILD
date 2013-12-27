@@ -1,0 +1,4 @@
+default_pre_build &&
+sedit "s/^CPPFLAGS=/\0\${CPPFLAGS}/;
+       s/^CXXFLAGS=\(.*\)$/CXXFLAGS=\${CXXFLAGS:-\1}/;
+       s/^LDFLAGS=/\0\${LDFLAGS}/" configure
