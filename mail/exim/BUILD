@@ -6,8 +6,8 @@
   chmod 1777      /var/spool/mail
   chown mail:mail /var/spool/mail
 
-  mkdir Local
- 
+  mkdir -p Local
+
   if [ "$USE_X11" == "y" ]; then
     cp src/EDITME           Local/Makefile
     cp exim_monitor/EDITME  Local/eximon.conf
@@ -65,7 +65,7 @@ if module_installed tcp_wrappers ; then
   if [ "`cd /usr/bin; pwd -P`" != "`cd /bin; pwd -P`" ]; then
     ln -sf /usr/bin/rm /bin/rm
   fi
-  
+
   default_make
 
 ) > $C_FIFO 2>&1  &&  (
