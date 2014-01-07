@@ -1,15 +1,17 @@
-          MODULE=gringo
+          MODULE=clingo
          VERSION=4.2.1
           SOURCE=$MODULE-$VERSION-source.tar.gz
       SOURCE_URL=$SFORGE_URL/potassco/$MODULE/$VERSION
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-source
-      SOURCE_VFY=sha1:e27790e7d27c54ebb993d97debc01df5c2a4ddd6
+      SOURCE_VFY=sha1:c3a2baa895fac3b1ebacfc039ef5be8dd38a79d4
         WEB_SITE=http://potassco.sf.net
          ENTERED=20120512
          UPDATED=20131116
            SHORT="grounder for logic programs with first order variables"
 
 cat << EOF
+Clingo combines the projects gringo and clasp into one executable.
 gringo is a grounder for first order answer set programs that
-outputs SMODELS format programs (to use with e.g. clasp).
+outputs SMODELS format programs.
+clasp solves such programs and enumerates respective answer sets.
 EOF

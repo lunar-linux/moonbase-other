@@ -1,13 +1,14 @@
           MODULE=eclipse-bin
-         VERSION=4.2.2
-           EXTRA=R-$VERSION-201302041200
-          SOURCE=eclipse-SDK-$VERSION-linux-gtk.tar.gz
+         VERSION=kepler-SR1
+          SOURCE=eclipse-standard-$VERSION-linux-gtk.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/eclipse
-      SOURCE_URL="http://www.eclipse.org/downloads/download.php?r=1&file=/eclipse/downloads/drops4/$EXTRA"
-      SOURCE_VFY=sha1:1cdafc3291ee4be758e8cf4c7335aa5d8353df87
+   SOURCE_URL[0]=http://mirror.selfnet.de/eclipse/technology/epp/downloads/release/${VERSION//-//}/
+   SOURCE_URL[1]=http://ftp.snt.utwente.nl/pub/software/eclipse//technology/epp/downloads/${VERSION//-//}/
+   SOURCE_URL[2]=http://ftp.osuosl.org/pub/eclipse//technology/epp/downloads/release/${VERSION//-//}/
+      SOURCE_VFY=sha1:11bef3ec0837bd7d7648acd18419ea8846814a61
         WEB_SITE=http://eclipse.org
          ENTERED=20030926
-         UPDATED=20130302
+         UPDATED=20131214
          ARCHIVE=off
            SHORT="A Java IDE for just about everything"
 
