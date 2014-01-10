@@ -12,7 +12,6 @@ optional_depends "freetype2"        "--enable-tree-freetype" "--disable-tree-fre
 optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
 optional_depends "flash-plugin-11"  ""  ""  "To enable Flash plugin"
 
-optional_depends "gnome-vfs"        "--enable-gnomevfs"  "--disable-gnomevfs"  "For Gnome VFS support"
 optional_depends "hunspell"         "--enable-system-hunspell"  "--disable-system-hunspell"  "For spelling support"
 
 optional_depends "libevent"         "--with-system-libevent"  "--without-system-libevent"  "For event detection"
@@ -27,3 +26,7 @@ optional_depends "libjpeg-turbo"    "--with-system-jpeg" "--without-system-jpeg"
 # https://bugzilla.mozilla.org/show_bug.cgi?id=512940
 # Comment 9:  "System SQLite isn't supported by Mozilla (in fact we discourage its use)"
 optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"   "Use system sqlite (discouraged)"
+
+
+# This seems to break mozilla, most other distros do not use this.
+#  optional_depends "gnome-vfs"        "--enable-gnomevfs"  "--disable-gnomevfs"  "For Gnome VFS support"
