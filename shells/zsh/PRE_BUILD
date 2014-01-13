@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# patch to avoid glibc bug concerning include order in 2.18
+sedit "\@xattr\.h@ d; \@#include \"attr\.mdh\"@ i #include <sys/xattr.h>" Src/Modules/attr.c
