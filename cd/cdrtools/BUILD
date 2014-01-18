@@ -1,12 +1,7 @@
-if  `module_installed smake`; then
-  THISMAKE=smake
-else
-  THISMAKE=make
-fi  &&
-$THISMAKE INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root LINKMODE="dynamic" \
+make INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root LINKMODE="dynamic" \
   CPPOPTX="$CPPFLAGS" COPTX="$CFLAGS" LDOPTX="$LDFLAGS" GMAKE_NOWARN="true" &&
 prepare_install                        &&
-$THISMAKE INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root MANDIR=man  LINKMODE="dynamic" \
+make INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root MANDIR=man  LINKMODE="dynamic" \
   CPPOPTX="$CPPFLAGS" COPTX="$CFLAGS" LDOPTX="$LDFLAGS" GMAKE_NOWARN="true" install  &&
 
 # cdrkit compatibility:
