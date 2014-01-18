@@ -1,0 +1,11 @@
+depends zlib
+
+optional_depends "libpng"                               \
+                 "--with-png=/usr"                      \
+                 "--without-png"                        \
+                 "for png image support"
+
+optional_depends "pcre"                                 \
+                 "--with-pcrelib=/ --with-pcreinc=/usr" \
+                 "--without-pcre"                       \
+                 "for pcre regex support"
