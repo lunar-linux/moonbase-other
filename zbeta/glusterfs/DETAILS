@@ -1,0 +1,19 @@
+          MODULE=glusterfs
+         VERSION=3.4.2
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=http://download.gluster.org/pub/gluster/glusterfs/LATEST/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_VFY=sha1:23f2ab1102078c524a345ccedddb13fe6ed454e0
+        WEB_SITE="http://www.gluster.org/"
+         ENTERED=20140108
+         UPDATED=20140108
+           SHORT="A distributed, replicated, self-healing filesystem."
+cat <<EOF
+GlusterFS is an open source, distributed file system capable of scaling
+to several petabytes (actually, 72 brontobytes!) and handling thousands
+of clients. GlusterFS clusters together storage building blocks over
+Infiniband RDMA or TCP/IP interconnect, aggregating disk and memory
+resources and managing data in a single global namespace. GlusterFS
+is based on a stackable user space design and can deliver exceptional
+performance for diverse workloads.
+EOF
