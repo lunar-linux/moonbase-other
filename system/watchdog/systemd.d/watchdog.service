@@ -1,0 +1,10 @@
+[Unit]
+Description=Watchdog daemon
+After=syslog.target network.target
+
+[Service]
+EnvironmentFile=/etc/watchdog.conf
+ExecStart=/usr/sbin/watchdog -F
+
+[Install]
+WantedBy=multi-user.target
