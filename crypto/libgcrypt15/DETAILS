@@ -1,0 +1,17 @@
+          MODULE=libgcrypt15
+         VERSION=1.5.3
+          SOURCE=libgcrypt-$VERSION.tar.bz2
+   SOURCE_URL[0]=ftp://ftp.gnupg.org/gcrypt/libgcrypt
+   SOURCE_URL[1]=http://mirrors.rootmode.com/ftp.gnupg.org/libgcrypt
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libgcrypt-$VERSION
+      SOURCE_VFY=sha1:2c6553cc17f2a1616d512d6870fe95edf6b0e26e
+        WEB_SITE=http://www.gnu.org/directory/security/libgcrypt.html
+         ENTERED=20140120
+         UPDATED=20140120
+           SHORT="General purpose crypto library (for backwards compatibility)"
+
+cat << EOF
+Libgcrypt is a general purpose crypto library based on the code used
+in GnuPG. Used only for backwards compatability for bin modules that require
+libgcrypt.so.11.
+EOF
