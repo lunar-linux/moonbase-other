@@ -1,0 +1,3 @@
+default_pre_build &&
+
+sedit "s@.*freetype/freetype.*@#include <ft2build.h>\n#include FT_FREETYPE_H@" src/libnrtype/FontFactory.h
