@@ -52,6 +52,16 @@ optional_depends libtheora \
                  "--disable-theora" \
                  "for OGG/Theora Video Playback"
 
+optional_depends libcdio-paranoia \
+                 "--enable-cdparanoia" \
+                 "--disable-cdparanoia" \
+                 "for cdparanoia support"
+
+optional_depends libcdio \
+                 "--enable-libcdio" \
+                 "--disable-libcdio" \
+                 "for cd support (if no to cdio-paranoia)"
+
 optional_depends libXvMC \
                  "--enable-xvmc" \
                  "--disable-xvmc" \
