@@ -54,13 +54,8 @@ optional_depends libtheora \
 
 optional_depends libcdio-paranoia \
                  "--enable-cdparanoia" \
-                 "--disable-cdparanoia" \
+                 "--disable-cdparanoia --disable-libcdio" \
                  "for cdparanoia support"
-
-optional_depends libcdio \
-                 "--enable-libcdio" \
-                 "--disable-libcdio" \
-                 "for cd support (if no to cdio-paranoia)"
 
 optional_depends libXvMC \
                  "--enable-xvmc" \
