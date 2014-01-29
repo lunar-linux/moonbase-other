@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# make sure these warnings are not written to stdout
+# because they would later pollute mtp-hotplug's output
+# and break the generated udev-rules file
+sedit "s@LIBMTP_INFO@LIBMTP_ERROR@" src/mtpz.c
