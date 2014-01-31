@@ -5,7 +5,9 @@ optional_depends  "pulseaudio" "--enable-pulse"          "--disable-pulse"      
 optional_depends  "jack"       "--enable-jack"           "--disable-jack"       "to enable JACK output"
 optional_depends  "libao"      "--enable-ao"             "--disable-ao"         "to enable AO output"
 
-optional_depends  "libvorbis"  "--enable-vorbis"         "--disable-vorbis"     "to enable vorbis input support"
+optional_depends  "mpg123"     "--enable-mpg123"         "--disable-mpg123"     "to enable mpg123 decoder support"
+optional_depends  "libvorbis"  "--enable-vorbis --enable-vorbis-encoder"  "--disable-vorbis --disable-vorbis-encoder"     "to enable vorbis codec support"
+optional_depends  "opus"       "--enable-opus"           "--disable-opus"       "to enable Opus codec support"
 optional_depends  "flac"       "--enable-flac"           "--disable-flac"       "to enable FLAC input support"
 optional_depends  "faad"       "--enable-aac"            "--disable-aac"        "to enable AAC input support"
 
@@ -16,7 +18,6 @@ optional_depends  "libmad"     "--enable-mad"            "--disable-mad"        
 optional_depends  "ffmpeg"     "--enable-ffmpeg"         "--disable-ffmpeg"     "to enable support for multiple other input codecs"
 optional_depends  "wildmidi"   "--enable-wildmidi"       "--disable-wildmidi"   "to enable midi input support"
 optional_depends  "curl"       "--enable-curl"           "--disable-curl"       "to play HTTP streams"
-optional_depends  "lastfmlib"  "--enable-lastfm"         "--disable-lastfm"     "to enable last.fm radio support"
 optional_depends  "libmms"     "--enable-mms"            "--disable-mms"        "to enable MMS protocol support"
 optional_depends  "libcdio-paranoia" "--enable-cdio-paranoia"  "--disable-cdio-paranoia" "to enable audio CD support"
 
