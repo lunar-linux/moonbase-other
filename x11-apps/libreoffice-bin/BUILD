@@ -7,7 +7,7 @@ for pack in RPMS/*.rpm ; do rpm2cpio $pack > `basename $pack .rpm`.cpio ; done &
 for i in `ls *.cpio`; do cpio -idmuV < $i ;done &&
 
 #rm -f usr/bin/libreoffice${VERSION%.*}
-desktopfiles="base calc draw impress javafilter math printeradmin startcenter writer xsltfilter"  &&
+desktopfiles="base calc draw impress math startcenter writer xsltfilter"  &&
 #for i in $desktopfiles; do
 #  rm -f usr/share/applications/libreoffice*-$i.desktop
 #done
