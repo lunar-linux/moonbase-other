@@ -8,8 +8,4 @@
 
   make               &&
   prepare_install    &&
-  make install-strip &&
-
-#Seems other apps look for this, like transcode
-#They felt the need to version this
-  ln -sf /usr/lib/libMagick++-*.so /usr/lib/libMagick.so
+  make install-strip
