@@ -1,16 +1,8 @@
-(
+./autogen.sh --noconfigure &&
 
-  # For some reason it has a problem finding the .pfb
-  # files provided by urw-fonts.
-  OPTS+=" --with-ncsb-dir=/usr/share/fonts/urw-fonts --disable-documentation" &&
+mkdir build &&
+cd build/ &&
 
-  ./autogen.sh --noconfigure &&
+../configure --prefix=/usr $OPTS &&
 
-  mkdir build &&
-  cd build/ &&
-
-  ../configure --prefix=/usr $OPTS &&
-
-  default_make
-
-) > $C_FIFO 2>&1
+default_make
