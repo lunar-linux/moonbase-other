@@ -14,7 +14,9 @@ optional_depends "flash-plugin-11"  ""  ""  "To enable Flash plugin"
 
 optional_depends "hunspell"         "--enable-system-hunspell"  "--disable-system-hunspell"  "For spelling support"
 
-optional_depends "libevent"         "--with-system-libevent"  "--without-system-libevent"  "For event detection"
+# Yay, why use the stable libevent release for _stable_ firefox -.-
+#optional_depends "libevent"         "--with-system-libevent"  "--without-system-libevent"  "For system library event detection"
+
 optional_depends "dbus-glib"        "--enable-dbus"  "--disable-dbus"  "For dbus support"
 optional_depends "libffi"           "--enable-system-ffi"  "--disable-system-ffi"  "Use system libffi instead of compiling the one in firefox"
 
