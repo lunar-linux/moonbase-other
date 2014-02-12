@@ -2,6 +2,7 @@
 
   cd hostapd  &&
   cp defconfig .config  &&
+  sedit 's/#CONFIG_IEEE80211N=y/CONFIG_IEEE80211N=y/' .config  &&
   make  &&
   prepare_install  &&
   install hostapd -m755 /usr/sbin/
