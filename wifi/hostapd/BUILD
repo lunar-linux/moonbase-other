@@ -1,15 +1,12 @@
-(
-
   cd hostapd  &&
   cp defconfig .config  &&
-  sedit 's/#CONFIG_IEEE80211N=y/CONFIG_IEEE80211N=y/' .config  &&
   make  &&
+
   prepare_install  &&
-  install hostapd -m755 /usr/sbin/
+
+  install hostapd -m755 /usr/sbin/ &&
   for file in hostapd.conf hostapd.accept hostapd.deny ; do
-    if [ ! -f /etc/$file ] ; then
-      install $file /etc/
+    if [[ ! -f /etc/$file ]]; then
+      install -Dm0644 {,/etc/}$file
     fi
   done
-
-) > $C_FIFO 2>&1
