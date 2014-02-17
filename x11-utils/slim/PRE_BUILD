@@ -3,6 +3,10 @@ default_pre_build &&
 patch_it $SOURCE2 1 &&
 patch_it $SOURCE3 1 &&
 
+sedit 's@FREETYPE_INCLUDE_DIR_freetype2@FREETYPE_INCLUDE_DIR_ft2build@' CMakeLists.txt &&
+
+sedit '126 i target_link_libraries(libslim ${PAM_LIBRARY})' CMakeLists.txt &&
+
 # don't install systemd files here
 # we provide them separately
 sedit '/systemd/ d' CMakeLists.txt
