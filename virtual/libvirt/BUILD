@@ -11,4 +11,6 @@ OPTS+=" --without-xen \
         --with-yajl \
         --with-init-script=none"
 
+add_priv_user qemu:qemu -G kvm &&
+
 default_build
