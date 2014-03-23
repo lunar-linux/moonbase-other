@@ -1,6 +1,4 @@
 (
-   patch_it $SOURCE_CACHE/$SOURCE2 1  &&
-
    OPTS+=" --enable-pop   \
             --enable-imap \
             --disable-nls \
