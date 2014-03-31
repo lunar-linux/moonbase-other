@@ -1,8 +1,7 @@
-(
 
-  ./configure  prefix=/usr   \
-               $OPTS        &&
+# CDIO support is broken
+./configure  prefix=/usr   \
+             CONFIG_CDIO=n \
+             $OPTS        &&
 
-  default_make
-
-) > $C_FIFO 2>&1
+default_make

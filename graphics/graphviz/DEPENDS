@@ -7,7 +7,7 @@ depends gettext
 depends glib-2
 depends pkgconfig
 
-optional_depends "ghostscript" "--with-ghostscript" "--without-ghostscript" "For Postscript support"
+optional_depends "ghostscript" "--with-ghostscript" "--without-ghostscript" "for Postscript support"
 
 optional_depends "urw-fonts" "" "" "Extra fonts for XOrg X11"
 optional_depends "%JAVA_SDK" "" "" "for java support"
@@ -17,18 +17,22 @@ optional_depends "R"         "--enable-r"    "--disable-r"     "for R language s
 optional_depends "gts"       "--with-gts"    "--without-gts"   "for 3D surface support"
 optional_depends "glitz"     "--with-glitz"  "--without-glitz" "OpenGL image compositing support"
 optional_depends "libLASi"   "--with-lasi"   "--without-lasi"  "for C++ stream output to create Postscript documents"
-optional_depends "cairo"     "" "" "For 2D vector graphics library"
-optional_depends "pango"     "" "" "For text layout/rendering library"
-optional_depends "zlib"      "" "" "For data compression library"
-optional_depends "tk"        "" "" "For building extra tcl/tk tools"
 
-optional_depends "ocaml"     "" "--disable-ocaml" "ocaml support"
-optional_depends "swig"      "" "--disable-swig"  "swig support"
-optional_depends "lua"       "" "--disable-lua"   "lua support"
-optional_depends "%PHP"      "--enable-php" "--disable-php" "php support"
+optional_depends "cairo"     "" "" "for 2D vector graphics library"
+optional_depends "pango"     "" "" "for text layout/rendering library"
+optional_depends "zlib"      "" "" "for data compression library"
+optional_depends "tk"        "" "" "for building extra tcl/tk tools"
 
-optional_depends "ruby"      "--enable-ruby" "--disable-ruby"   "for ruby support"
-optional_depends "ming"      "--with-ming"   "--without-ming"   "for flash support"
+optional_depends "ocaml"     "" "--disable-ocaml" "for ocaml support"
+optional_depends "swig"      "" "--disable-swig"  "for swig support"
+optional_depends "lua"       "" "--disable-lua"   "for lua support"
+optional_depends "guile"     "" "--disable-guile" "for guile support"
+optional_depends "mono"      "" "--disable-sharp" "for C# support"
+optional_depends "%JAVA_SDK" "" "--disable-java"  "for java support"
+
+optional_depends "%PHP"      "--enable-php"  "--disable-php"  "for php support"
+optional_depends "ruby"      "--enable-ruby" "--disable-ruby" "for ruby support"
+optional_depends "ming"      "--with-ming"   "--without-ming" "for flash support"
 
 optional_depends "devil"     "--with-devil --with-devillibdir=/usr/lib/   \
                               --with-devilincludedir=/usr/include/IL/" "" \

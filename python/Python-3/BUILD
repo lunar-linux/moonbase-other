@@ -1,8 +1,5 @@
 (
 
-  patch_it $SOURCE2 1  &&
-  patch_it $SOURCE3 1  &&
-
   OPTS+=" --enable-shared --with-threads"  &&
 
   default_config &&
@@ -16,5 +13,3 @@
   ln -sf /usr/bin/python3.3 /usr/bin/python3
 
 ) > $C_FIFO 2>&1
-
-  
