@@ -21,6 +21,8 @@ optional_depends "libffi"           "--enable-system-ffi"  "--disable-system-ffi
 
 optional_depends "sun-jdk"          "--with-java-bin-path=/usr/java/default/bin" "" "for java support"
 
+optional_depends "pulseaudio"       "" "--disable-pulseaudio"  "Build PulseAudio sound backend"
+
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends "libjpeg-turbo"    "--with-system-jpeg" "--without-system-jpeg" "system jpeg requires libjpeg-turbo"
 
