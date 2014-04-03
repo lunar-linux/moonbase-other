@@ -1,0 +1,5 @@
+default_pre_build &&
+
+# Fix docdir
+sedit "s:/doc/\$(PACKAGE)-\$(VERSION):/doc/\$(PACKAGE):" doc/Makefile.in  &&
+sedit "s:/doc/\$(PACKAGE)-\$(VERSION):/doc/\$(PACKAGE):" doc/spec/Makefile.in
