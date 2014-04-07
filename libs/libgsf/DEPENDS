@@ -1,0 +1,14 @@
+depends  glib-2
+depends  zlib
+depends  libxml2
+#depends  XML-Parser
+
+optional_depends  "gdk-pixbuf" \
+                  "--with-gdk-pixbuf" \
+		  "--without-gdk-pixbuf" \
+		  "use gdk thumbnails"
+
+optional_depends  "pygtk"  \
+                  ""       \
+                  "--without-python"  \
+                  "for Python gsf support"
