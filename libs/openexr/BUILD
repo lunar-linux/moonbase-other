@@ -1,7 +1,5 @@
-(
+# this fails because libIlmThread is badly linked
+# have fun fixing this .... -- v4hn
+bad_flags ',--as-needed' &&
 
-  sed -i "35i #include <string.h>" IlmImf/ImfChromaticities.cpp &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
