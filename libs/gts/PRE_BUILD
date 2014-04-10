@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit '1 i libgts_la_LIBADD = -lm' src/Makefile.am &&
+sedit 's/libgts_la_LIBADD =/\0 -lm/' src/Makefile.in
