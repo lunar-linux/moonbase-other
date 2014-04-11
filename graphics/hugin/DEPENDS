@@ -1,15 +1,18 @@
 depends zlib
 depends tclap
 depends tiff
+depends %JPEG
+depends libpng
 depends glew
 depends wxGTK
 depends libpano13
 depends boost
 depends openexr
+depends exiv2
 depends enblend-enfuse
+depends lensfun
 
 optional_depends lapack          "-DENABLE_LAPACK=ON" "-DENABLE_LAPACK=OFF" "for lapack support"
-optional_depends lensfun         "" "" "for lensfun support"
 optional_depends flann           "" "" "for fann support"
 optional_depends autopano-sift-C "" "" "in order to use [Create ctrl points]"
 
