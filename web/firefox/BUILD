@@ -7,7 +7,7 @@ CFLAGS+=" -lbz2" &&
 CFLAGS+=" -mno-avx" &&
 
 # Workaround Segmentation fault at install part on precompile_cache.js
-sedit '/^GENERATE_CACHE = 1$/d' browser/installer/Makefile.in &&
+sedit 's/# Fill startup cache/if False:/; T; n; d' toolkit/mozapps/installer/packager.py &&
 
 sedit 's/@PRE_RELEASE_SUFFIX@//g' browser/base/content/browser.xul &&
 
