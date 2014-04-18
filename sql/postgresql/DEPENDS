@@ -8,7 +8,7 @@ optional_depends "heimdal"       "--with-gssapi"  "" "for gssapi support"
 optional_depends "openldap"      "--with-ldap"    "" "for ldap support"
 optional_depends "zlib"          ""               "--without-zlib" "for compression support"
 
-optional_depends "timezone-data" "--with-system-tzdata"  \
+optional_depends "timezone-data" "--with-system-tzdata=/usr/share/zoneinfo"  \
                  "--without-system-tzdata" "use system timezone data"
 
 optional_depends "tcl"   "--with-tcl --with-tclconfig=/usr/lib" \
