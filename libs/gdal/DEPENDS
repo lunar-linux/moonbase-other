@@ -2,10 +2,10 @@ depends postgresql
 
 optional_depends "expat"      "--with-expat"    "--without-expat"    "for XML support"
 optional_depends "curl"       "--with-curl"     "--without-curl"     "for curl support"
-optional_depends "libgeotiff" "--with-geotiff"  "--without-geotiff"  "for geotiff graphics support"
 optional_depends "giflib"     "--with-gif"      "--without-gif"      "for gif graphics support"
-optional_depends "%JPEG"      "--with-jpeg"     "--without-jpeg"     "for jpeg graphics support"
-optional_depends "tiff"       "--with-libtiff"  "--without-libtiff"  "for tiff graphics support"
+optional_depends "%JPEG"      "--with-jpeg"     "--with-jpeg=internal"    "for system jpeg graphics support"
+optional_depends "tiff"       "--with-libtiff"  "--with-libtiff=internal" "for system tiff graphics support"
+optional_depends "libgeotiff" "--with-geotiff"  "--with-geotiff=internal" "for system geotiff graphics support"
 optional_depends "libwebp"    "--with-webp"     "--without-webp"     "for lossy compression for photographic images support"
 optional_depends "libpng"     "--with-png"      "--without-png"      "for png graphics support"
 optional_depends "geos"       "--with-geos"     "--without-geos"     "for Geometry Engine support"
@@ -26,7 +26,7 @@ optional_depends "cfitsio"    "--with-cfitsio"  "--without-cfitsio"  "for C and 
 optional_depends "poppler"    "--with-poppler"  "--without-poppler"  "for poppler graphics support ${PROBLEM_COLOR}If yes here, say no to podofo${QUERY_COLOR}"
 optional_depends "podofo"     "--with-podofo"   "--without-podofo"   "for POrtable DOcument FOrmat support"
 
-optional_depends "spatialindex" "--with-spatialite" "--without=spatialite" "for indexing support"
+optional_depends "spatialindex" "--with-spatialite" "--without-spatialite" "for indexing support"
 
 optional_depends "numpy"      ""  ""  "for python numerical support"
 optional_depends "proj-4"     ""  ""  "transform data types"
