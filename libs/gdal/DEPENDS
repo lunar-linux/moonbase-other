@@ -11,10 +11,18 @@ optional_depends "libpng"     "--with-png"      "--without-png"      "for png gr
 optional_depends "geos"       "--with-geos"     "--without-geos"     "for Geometry Engine support"
 optional_depends "jasper"     "--with-jasper"   "--without-jasper"   "for JPEG-2000 Part-1 support"
 optional_depends "perl"       "--with-perl"     "--without-perl"     "for perl scripting support"
-optional_depends "Python"     "--with-python"   "--without-python"   "for python scripting support"
+
+# broken with sh: no such flag -d
+#optional_depends "Python"     "--with-python"   "--without-python"   "for python scripting support"
+
 optional_depends "%PHP"       "--with-php"      "--without-php"      "for php support"
-optional_depends "ruby"       "--with-ruby"     "--without-ruby"     "for ruby scripting support"
-optional_depends "%JAVA_SDK"  "--with-java"     "--without-java"     "for java support"
+
+# broken with -fPIC issue
+#optional_depends "ruby"       "--with-ruby"     "--without-ruby"     "for ruby scripting support"
+
+# no suitable java in moonbase atm
+#optional_depends "%JAVA_SDK"  "--with-java"     "--without-java"     "for java support"
+
 optional_depends "%MYSQL"     "--with-mysql"    "--without-mysql"    "for mysql database support"
 optional_depends "sqlite"     "--with-sqlite3"  "--without-sqlite3"  "for sqlite database support"
 optional_depends "hdf5"       "--with-hdf5"     "--without-hdf5"     "for Hierarchical Data Format support"
