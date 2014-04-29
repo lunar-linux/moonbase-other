@@ -2,7 +2,6 @@
 
   ./autogen.sh &&
 
-  patch_it $SOURCE2 1 &&
   cp $SCRIPT_DIRECTORY/term.sh .  &&
 
   ./configure  --with-sys-screenrc=/etc/screenrc  \
