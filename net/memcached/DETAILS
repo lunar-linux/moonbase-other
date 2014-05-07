@@ -1,24 +1,20 @@
           MODULE=memcached
-         VERSION=1.4.15
+         VERSION=1.4.19
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://memcached.googlecode.com/files
-   SOURCE_URL[1]=http://www.danga.com/memcached/dist
-      SOURCE_VFY=sha1:12ec84011f408846250a462ab9e8e967a2e8cbbc
+      SOURCE_URL=http://www.memcached.org/files/
+      SOURCE_VFY=sha1:a152a4d08cd37c9e752b0c267db2a0c89757ab3c
         WEB_SITE=http://memcached.org/
          ENTERED=20060904
-         UPDATED=20130117
+         UPDATED=20140507
            SHORT="Distributed memory object caching system"
 
 cat << EOF
-memcached is a high-performance, distributed memory
-object caching system, generic in nature, but intended
-for use in speeding up dynamic web applications by
-alleviating database load.
-It uses libevent to scale to any number of open connections
-(using epoll on Linux, if available at runtime), uses
-non-blocking network I/O, refcounts internal objects
-(so objects can be in multiple states to multiple clients),
-and uses its own slab allocator and hash table so virtual
-memory never gets externally fragmented and allocations are
-guaranteed O(1).
+memcached is a high-performance, distributed memory object caching system,
+generic in nature, but intended for use in speeding up dynamic web applications
+by alleviating database load.
+It uses libevent to scale to any number of open connections (using epoll on
+Linux, if available at runtime), uses non-blocking network I/O, refcounts
+internal objects (so objects can be in multiple states to multiple clients), and
+uses its own slab allocator and hash table so virtual memory never gets 
+externally fragmented and allocations are guaranteed O(1).
 EOF
