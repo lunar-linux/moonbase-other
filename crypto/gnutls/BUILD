@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --disable-static --without-included-libtasn1 --disable-guile "  &&
+  OPTS+=" --disable-static --without-included-libtasn1"  &&
 
   default_build
 
