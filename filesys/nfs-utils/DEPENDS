@@ -4,6 +4,7 @@ depends libcap
 depends libevent
 depends libnfsidmap
 depends lvm2
+depends libtirpc
 
-optional_depends sqlite "--enable-nfsdcltrack" "--disable-nfsdcltrack" "build NFSv4 clientid tracking programs"
-optional_depends krb5   "--enable-gss"         "--disable-gss"         "support rpcsec_gss"
+optional_depends sqlite       "--enable-nfsdcltrack" "--disable-nfsdcltrack" "build NFSv4 clientid tracking programs"
+optional_depends librpcsecgss "--enable-gss"         "--disable-gss"         "support rpcsec_gss (Kerberos)"
