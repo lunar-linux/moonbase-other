@@ -1,11 +1,6 @@
 (
 
-
-  OPTS+=" --disable-gtk-doc-html "  &&
-
-  if module_installed systemd ; then
-    OPTS+=" --enable-libsystemd-login"
-  fi &&
+  OPTS+=" --disable-gtk-doc-html --enable-libsystemd-login" &&
 
 # If expat is yes the make tanks on "line 5975: cd: yes/lib: No such file or directory"
   sedit "s:\$withval/:/usr/:g" configure.ac &&
@@ -42,8 +37,8 @@
        chown polkitd:polkitd /usr/share/polkit-1/rules.d &&
        chmod 700 /usr/share/polkit-1/rules.d &&
 
-  if in_depends $MODULE Linux-PAM ; then
+  if module_installed Linux-PAM ; then
     sedit "4i  account            required        pam_nologin.so" /etc/pam.d/polkit-1
   fi
-       
+
 ) > $C_FIFO 2>&1
