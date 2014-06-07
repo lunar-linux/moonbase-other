@@ -1,0 +1,22 @@
+
+# Pre-flight check
+
+for opt in \
+  CONFIG_NETFILTER_XT_MATCH_ADDRTYPE \
+  CONFIG_NETFILTER_XT_MATCH_CONNTRACK \
+  CONFIG_DEVPTS_MULTIPLE_INSTANCES
+do
+  if ! kernel_option_present $opt; then
+    FAIL=1
+    message "${MESSAGE_COLOR}Required kernel option not present: ${PROBLEM_COLOR}${opt}${DEFAULT_COLOR}${MESSAGE_COLOR}"
+  fi
+done
+
+if [ -n "$FAIL" ]; then
+  message "Please ensure the kernel options above are enabled and try again.${DEFAULT_COLOR}"
+  if ! query "Ignore this warning?" n; then
+    exit 1
+  fi
+fi
+
+default_pre_build
