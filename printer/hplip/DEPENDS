@@ -1,11 +1,7 @@
 depends  %JPEG
 depends  cups
 depends  libusb-compat
-
-optional_depends "systemd"                  \
-                 "--enable-udev-acl-rules"  \
-                 "--disable-udev-acl-rules" \
-                 "for udev access rules support"
+depends  systemd
 
 optional_depends "polkit"              \
                  "--enable-policykit"  \
