@@ -1,8 +1,9 @@
-default_pre_build &&
+default_pre_build  &&
 
-sedit '419a\
-  -ldl -lboost_system' CMakeLists.txt &&
+# detect cegui instead of CEGUI
+sedit 's:NAMES CEGUIBase:NAMES CEGUIBase-0:' CMakeModules/FindCEGUI.cmake &&
+sedit 's:PATH_SUFFIXES include/RendererModules/Ogre:PATH_SUFFIXES include/cegui-0/RendererModules/Ogre:' CMakeModules/FindCEGUIOGRE.cmake &&
+sedit 's:NAMES CEGUIOgreRenderer:NAMES:' CMakeModules/FindCEGUIOGRE.cmake &&
 
-sedit 's/table\.getn(\([^)]*\))/#\1/g; s/math\.mod(/math\.fmod(/g' share/data/{abilities,items,npc,objects,projectiles,quests,renderinfo,world,lua}/* &&
-
-patch_it $SOURCE2 1
+# still not everything fixed for lua 5.2...
+sedit 's/table\.getn(\([^)]*\))/#\1/g; s/math\.mod(/math\.fmod(/g' share/data/{abilities,items,npc,objects,projectiles,quests,renderinfo,world,lua}/*
