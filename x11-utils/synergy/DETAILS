@@ -1,9 +1,13 @@
           MODULE=synergy
-         VERSION=1.3.1
-          SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL=$SFORGE_URL/synergy2/
-      SOURCE_VFY=sha1:03113ec8aadfecaeba8e369b083f4fb5b44f5c62
+         VERSION=1.4.15
+          SOURCE=$MODULE-$VERSION-Source.tar.gz
+	SOURCE2=synergy-1.4.12-pthread.patch
+   SOURCE_URL=http://${MODULE}.googlecode.com/files/
+	SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/x11-misc/synergy/files/
+      SOURCE_VFY=sha1:0766bc3d95d6971746764d30e0853db14926ae73
+	SOURCE2_VFY=sha1:cf03f35c86fa9085bc9b78460688bfa33e5cfe41
         WEB_SITE=http://synergy2.sourceforge.net/
+	SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-${VERSION}-Source
          ENTERED=20040304
          UPDATED=20060504
            SHORT="lets you easily share a single mouse and keyboard between multiple computers"
