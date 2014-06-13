@@ -18,4 +18,8 @@ patch_it $SOURCE15 1 &&
 # Remove solaris gcc switch -R or gcc >=4.6 bails out
 sedit '/LIB_SQLITE.*-R/s; -R[^"]*;;g' configure.in &&
 
-sedit 's;AM_CONFIG_HEADER;AC_CONFIG_HEADERS;g' configure.in
+sedit 's;AM_CONFIG_HEADER;AC_CONFIG_HEADERS;g' configure.in &&
+
+# fix more strict syntax with modern autotools
+sedit 's:\[cmulocal\] \[config\]:[cmulocal], [config]:' configure.in &&
+sedit 's:\[\.\./cmulocal\] \[\.\./config\]:[../cmulocal], [../config]:' saslauthd/configure.in
