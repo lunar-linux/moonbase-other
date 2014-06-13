@@ -1,4 +1,20 @@
 validate_source_dir $SOURCE_DIRECTORY   &&
 mk_source_dir       $SOURCE_DIRECTORY   &&
 unpack              $SOURCE             &&
-unpack              $SOURCE2
+unpack              $SOURCE2            &&
+
+cd $SOURCE_DIRECTORY &&
+
+# first patch for lua 5.2 
+# https://lists.fedoraproject.org/pipermail/scm-commits/Week-of-Mon-20130513/1020417.html
+patch_it $SOURCE3 1 &&
+
+# second patch for lua 5.2 fix execution problems
+patch_it $SOURCE4 1 &&
+
+# now fix the scripts that make application crash.
+# table.getn is deprecated since 5.1 and is removed from 5.2
+grep -rlZ "table.getn" ${BUILD_DIRECTORY}/${MODULE}-${DATA_VERSION}/ | xargs -0 sed -i 's/table.getn/#/g' &&
+
+# math.mod is replaced by math.fmod
+grep -rlZ "math.mod" ${BUILD_DIRECTORY}/${MODULE}-${DATA_VERSION}/ | xargs -0 sed -i 's/math.mod(/math.fmod(/g'
