@@ -26,14 +26,13 @@
   default_make  &&
 
   gather_docs etc/*                   &&
-  install -d /usr/share/mplayer/Skin  &&
   install -d /etc/mplayer             &&
   install -m644 etc/codecs.conf /usr/share/mplayer/         &&
   install -m644 etc/example.conf /etc/mplayer/mplayer.conf  &&
   install -m644 etc/input.conf /etc/mplayer/                &&
 
-  cp -a Skin/Blue /usr/share/mplayer/Skin/  &&
-  ln -sf /usr/share/mplayer/Skin/Blue /usr/share/mplayer/Skin/default  &&
+  cp -a skins/* /usr/share/mplayer/skins/ &&
+  ln -sf Blue /usr/share/mplayer/skins/default  &&
 
   cp -a fonts /usr/share/mplayer/  &&
   rm -rf /usr/share/mplayer/font   &&
