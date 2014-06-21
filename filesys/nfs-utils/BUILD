@@ -1,5 +1,3 @@
-(
-
   add_priv_user nfs:daemon                               &&
 
   # please DO NOT remove --disable-tirpc even if ./configure shows
@@ -13,7 +11,14 @@
               $OPTS                                      &&
 
   default_make                                           &&
+
+  # install all auxiliary service files directly
+  for f in nfs-blkmap.service nfs-config.service nfs-idmapd.service \
+           nfs-mountd.service nfs-utils.service proc-fs-nfsd.mount  \
+	   rpc-gssd.service rpc-statd-notify rpc-statd.service      \
+	   rpc-svcgssd.service var-lib-nfs-rpc_pipefs.mount; do
+    install -Dm0644 "systemd/$f" "/usr/lib/systemd/system/$f"
+  done &&
+
   devoke_installwatch                                    &&
   chown -R nfs:daemon /var/lib/nfs
-
-) > $C_FIFO 2>&1

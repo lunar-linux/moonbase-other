@@ -1,3 +1,9 @@
 cd src &&
 ./autogen.sh &&
-default_build
+
+OPTS+=" --with-sys-screenrc=/etc/screenrc" &&
+default_build &&
+
+if [[ ! -e /etc/screenrc ]]; then
+  cp -p etc/etcscreenrc /etc/screenrc
+fi
