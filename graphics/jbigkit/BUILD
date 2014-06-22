@@ -1,10 +1,11 @@
-(
+  CFLAGS+=" -fPIC" &&
 
-  export CFLAGS="$CFLAGS -fPIC"
+  # make -e is nonstandard and produces headaches when debugging problems...
+  sedit "s/ -e//" Makefile &&
 
-  sedit "s/CCFLAGS = -O2 -W/CCFLAGS = $CFLAGS/" Makefile
-  sedit "s/CFLAGS = -O -Wall -ansi -pedantic/CCFLAGS = $CFLAGS/" libjbig/Makefile
-  sedit "s/CFLAGS = -g -Wall -ansi -pedantic -I..\/libjbig/CCFLAGS = $CFLAGS -I..\/libjbig/" pbmtools/Makefile
+  # use our compile flags
+  sedit "/CFLAGS =/ d" Makefile libjbig/Makefile pbmtools/Makefile &&
+  sedit "s@CPPFLAGS = @CPPFLAGS += @" pbmtools/Makefile &&
 
   make       &&
   make test  &&
@@ -21,5 +22,3 @@
   install -m0644 pbmtools/*.5      /usr/man/man5  &&
 
   gather_docs libjbig/jbig.doc pbmtools/*.txt
-
-) > $C_FIFO 2>&1
