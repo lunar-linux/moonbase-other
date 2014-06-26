@@ -1,5 +1,3 @@
-(
-
   # Clean up old java 1.6.0 service packs
   rm -rf /usr/lib/j[rd][ek]1.6.0_* &&
   rm -rf /usr/java &&
@@ -47,20 +45,13 @@
      ln -sf /usr/java/latest/jre/lib/i386/libnpjp2.so /usr/lib/lunar/plugins/
   fi &&
 
-  # Calligra has trouble finding this.
-  if [ "`arch`" == "x86_64" ] ; then 
-     ln -sf /usr/java/latest/jre/lib/amd64/xawt/libmawt.so /usr/lib/
-  else
-     ln -sf /usr/java/latest/jre/lib/i386/xawt/libmawt.so /usr/lib/
-  fi &&
-
   cd /usr/java/jdk${DVERSION}/jre/lib/security &&
   if [ $JCEYES == "y" ]; then
     rm -f US_export_policy.jar local_policy.jar
-    ln -s UnlimitedJCEPolicy/US_export_policy.jar US_export_policy.jar
-    ln -s UnlimitedJCEPolicy/local_policy.jar local_policy.jar
+    ln -s UnlimitedJCEPolicyJDK8/US_export_policy.jar US_export_policy.jar
+    ln -s UnlimitedJCEPolicyJDK8/local_policy.jar local_policy.jar
   else
-    rm -rf UnlimitedJCEPolicy
+    rm -rf UnlimitedJCEPolicyJDK8
   fi   &&
   cd - &&
 
@@ -70,5 +61,3 @@
 
   rm -rf /usr/java/jdk${DVERSION}/jdk${DVERSION} &&
   rm -rf /usr/java/jdk${DVERSION}/old.libraries
-
-) > $C_FIFO 2>&1
