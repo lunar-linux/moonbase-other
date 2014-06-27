@@ -4,7 +4,7 @@ default_config &&
 make ${MAKES:+-j${MAKES}} &&
 
 cd "$ZFS_PATH" &&
-OPTS+=" --with-linux=/usr/src/linux --with-linux-obj=/usr/src/linux --with-spl=$SPL_PATH" default_config &&
+OPTS+=" --with-linux=/usr/src/linux --with-linux-obj=/usr/src/linux --with-spl=$SPL_PATH --disable-sysvinit" default_config &&
 make ${MAKES:+-j${MAKES}} &&
 
 prepare_install &&
