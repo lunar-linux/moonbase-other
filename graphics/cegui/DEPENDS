@@ -1,0 +1,14 @@
+depends cmake
+depends libX11
+depends mesa-lib
+depends freeglut
+depends libxml2
+
+# in theory optional, in practice required
+depends freetype2
+
+optional_depends pcre "-DCEGUI_HAS_PCRE_REGEX=1" "-DCEGUI_HAS_PCRE_REGEX=0" "for RegEx support"
+optional_depends devil "-DCEGUI_BUILD_IMAGECODEC_DEVIL=1" "-DCEGUI_BUILD_IMAGECODEC_DEVIL=0" "for DevIL based ImageCodecs"
+optional_depends FreeImage "-DCEGUI_BUILD_IMAGECODEC_FREEIMAGE=1" "-DCEGUI_BUILD_IMAGECODEC_FREEIMAGE=0" "for FreeImage based ImageCodecs"
+
+optional_depends ogre "-DCEGUI_BUILD_RENDERER_OGRE=1" "-DCEGUI_BUILD_RENDERER_OGRE=0" "build Ogre renderer module"
