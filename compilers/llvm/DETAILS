@@ -1,14 +1,15 @@
           MODULE=llvm
-         VERSION=3.4
+         VERSION=3.4.2
           SOURCE=$MODULE-$VERSION.src.tar.gz
-         SOURCE2=clang-$VERSION.src.tar.gz
-      SOURCE_URL=http://www.llvm.org/releases/$VERSION
+         SOURCE2=cfe-$VERSION.src.tar.gz
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-${VERSION}.src
+      SOURCE_URL=http://llvm.org/releases/$VERSION/
      SOURCE2_URL=$SOURCE_URL
-      SOURCE_VFY=sha1:10b1fd085b45d8b19adb9a628353ce347bc136b8
-     SOURCE2_VFY=sha1:a6a3c815dd045e9c13c7ae37d2cfefe65607860d
+      SOURCE_VFY=sha1:c5287384d0b95ecb0fd7f024be2cdfb60cd94bc9
+     SOURCE2_VFY=sha1:add5420b10c3c3a38c4dc2322f8b64ba0a5def97
         WEB_SITE=http://www.llvm.org
          ENTERED=20090128
-         UPDATED=20130711
+         UPDATED=20140621
            SHORT="Low Level Virtual Machine"
 
 cat << EOF
