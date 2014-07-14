@@ -1,6 +1,7 @@
 (
 
-  sed -i "1i #include <stdio.h>" src/Separation.cpp src/Satellite.cpp &&
+#  sed -i "1i #include <stdio.h>" src/Separation.cpp src/Satellite.cpp &&
+  patch_it $SOURCE2 0 &&
 
   if module_installed xscreensaver; then
     OPTS+=" --with-xscreensaver"
