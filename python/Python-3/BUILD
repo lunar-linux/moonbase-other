@@ -10,6 +10,6 @@
   make altinstall &&
 
 # Till Python 3 based apps catch up we need a symlink from python3.3 to python3
-  ln -sf /usr/bin/python3.3 /usr/bin/python3
+  ln -sf /usr/bin/python3.`lvu version Python-3 | cut -c 1` /usr/bin/python3
 
 ) > $C_FIFO 2>&1
