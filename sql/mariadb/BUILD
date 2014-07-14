@@ -28,8 +28,8 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
 -DWITH_MYISAM_STORAGE_ENGINE=1 \
 -DWITHOUT_OQGRAPH_STORAGE_ENGINE=1 \
 -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 \
--DWITHOUT_TOKUDB_STORAGE_ENGINE=1"
-
+-DWITHOUT_TOKUDB_STORAGE_ENGINE=1  \
+-DWITH_EMBEDDED_SERVER=1"
 
 # A few of these flags are necessary when building mariadb with gcc >= 4.4
 CFLAGS="-fPIC ${CFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -fomit-frame-pointer"
