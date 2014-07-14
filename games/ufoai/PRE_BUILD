@@ -1,4 +1,14 @@
 default_pre_build     &&
 unpack $SOURCE2       &&
 
-sedit "/^}$/d; /enum CameraDrawMode/ i }\n" src/tools/radiant/radiant/camera/CameraSettings.h
+# avoid warnings because we use pregenerated data
+mkdir base/{maps,models} &&
+
+sedit 's/^LUA_SRCS.*/LUA_SRCS :=/' build/install_mojo.mk &&
+
+sedit 's/xargs du/xargs --no-run-if-empty du/' build/maps.mk &&
+
+if ! in_depends $MODULE gtksourceview2; then
+   # don't install a broken shell script
+   sedit '/uforadiant\.sh/ d' build/install.mk
+fi
