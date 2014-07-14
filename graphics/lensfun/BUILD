@@ -1,4 +1,5 @@
 sedit "9 i #include <string.h>" libs/auxfun/image.cpp &&
+sedit "s:3.81:4.0:" configure &&
 
 ./configure --prefix=/usr   \
               $OPTS          &&
