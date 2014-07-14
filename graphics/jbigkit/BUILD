@@ -1,4 +1,4 @@
-  CFLAGS+=" -fPIC" &&
+  export CFLAGS+=" -fPIC" &&
 
   # make -e is nonstandard and produces headaches when debugging problems...
   sedit "s/ -e//" Makefile &&
