@@ -4,6 +4,9 @@
    sedit "s:<netpbm::g" $file
   done &&
 
+  sedit "s:/ups:/usr/share/astrometry/ups:g" Makefile &&
+  sedit "s:/examples:/usr/share/astrometry/examples:" Makefile &&
+
   make &&
   make py &&
   make extra &&
