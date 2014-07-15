@@ -1,13 +1,25 @@
           MODULE=a2ps
          VERSION=4.14
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=a2ps-4.14-check-mempcpy.patch
+         SOURCE3=a2ps-4.14-cleanup.patch
+         SOURCE4=a2ps-4.14-psset.patch
+         SOURCE5=a2ps-4.14-ptrdiff_t.patch
       SOURCE_URL=$GNU_URL/$MODULE/
+     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-text/a2ps/files/
+     SOURCE3_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-text/a2ps/files/
+     SOURCE4_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-text/a2ps/files/
+     SOURCE5_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-text/a2ps/files/
       SOURCE_VFY=sha1:365abbbe4b7128bf70dad16d06e23c5701874852
+     SOURCE2_VFY=sha1:6aed29c1399e79f3914b408059610f9e7c0fc38e
+     SOURCE3_VFY=sha1:f28c1c30ae0ea86f0f0dc17ffa9a6afa9194cd57
+     SOURCE4_VFY=sha1:3b3a87084f67dd8348ad13fd4e01ebf5bef055ca
+     SOURCE5_VFY=sha1:6c055c615d949971b6272b8f455d8e4c86317dd3
         WEB_SITE=http://www.gnu.org/software/a2ps/
          ENTERED=20010922
-         UPDATED=20101221
+         UPDATED=20140715
            SHORT="any to postscript filter"
-
+PSAFE=no
 cat << EOF
 a2ps is an Any to PostScript filter. Of course it processes plain text
 files, but also pretty prints quite a few popular languages (66).
