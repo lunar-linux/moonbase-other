@@ -1,10 +1,7 @@
 (
 
-  cmake -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-        -DCMAKE_BUILD_TYPE=RELEASE             \
-        -DTARGET_ARCHITECTURE=auto             \
-        $OPTS                                 &&
+  OPTS+=" -DTARGET_ARCHITECTURE=auto" &&
 
-  default_make
+  default_cmake_build
 
 ) > $C_FIFO 2>&1
