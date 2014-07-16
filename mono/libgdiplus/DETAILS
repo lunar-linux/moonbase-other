@@ -1,8 +1,12 @@
           MODULE=libgdiplus
          VERSION=2.10.9
           SOURCE=$MODULE-$VERSION.tar.bz2
+# taken from https://github.com/gentoo/dotnet/tree/master/dev-dotnet/libgdiplus/files
+         SOURCE2=$MODULE-$VERSION-giflib-quantizebuffer.patch.gz
       SOURCE_URL=http://download.mono-project.com/sources/$MODULE
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha1:5e127b818d9af032928c7f7cfba812c1231a8478
+     SOURCE2_VFY=sha1:40b2de84e01dfe6c89272ccfb898fdeb854911d7
         WEB_SITE=http://www.mono-project.com
          ENTERED=20020801
          UPDATED=20130801
