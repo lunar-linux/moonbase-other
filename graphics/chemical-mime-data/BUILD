@@ -1,8 +1,5 @@
+export RSVG=/usr/bin/rsvg-convert &&
 
-  patch_it $SOURCE2 0 &&
+OPTS+=" --enable-convert --enable-update-database" &&
 
-  export RSVG=/usr/bin/rsvg-convert &&
-
-  OPTS+=" --enable-convert --enable-update-database" &&
-
-  default_build
+default_build
