@@ -1,15 +1,28 @@
+optional_depends "cups-filters" "" "" "needed to print documents other than *.ps"
 
-optional_depends "cups-filters" ""                  ""      "needed to print documents other than *.ps"
-optional_depends "Linux-PAM" "--enable-pam"                  "--disable-pam"      "for pluggable authentication"
-optional_depends "openssl"   "--enable-ssl --enable-openssl" "--disable-openssl"  "for encrypted communications"
-optional_depends "gnutls"    "--enable-gnutls --enable-ssl"  "--disable-gnutls"   "for encrypted communications"
-optional_depends "dbus"      "--enable-dbus"                 "--disable-dbus"     "enable DBUS support"
-optional_depends "libpaper"  "--enable-libpaper"             "--disable-libpaper" "for paper size library support"
-optional_depends "acl"       "--enable-acl"                  "--disable-acl"      "for access control list support"
-optional_depends "usbutils"  "--enable-libusb"               "--disable-libusb"   "for usb device support"
-optional_depends "%JAVA_SDK" "--with-java"                   "--without-java"     "for Java interpreter web interfaces"
-optional_depends "perl"      "--with-perl"                   "--without-perl"     "for Perl interpreter web interfaces"
-optional_depends "%PHP"      "--with-php"                    "--without-php"      "for PHP interpreter web interfaces"
-optional_depends "Python"    "--with-python"                 "--without-python"   "for Python interpreter web interfaces"
-optional_depends "heimdal"   "--enable-gssapi"               "--disable-gssapi"   "for Heimdal support"
+optional_depends "Linux-PAM" \
+                 "--enable-pam=yes" \
+                 "--disable-pam" \
+                 "for pluggable authentication"
+
+optional_depends "openssl" \
+                 "--enable-ssl=yes --enable-openssl" \
+                 "--disable-openssl" \
+                 "for encrypted communications"
+
+optional_depends "gnutls" \
+                 "--enable-gnutls --enable-ssl=yes" \
+                 "--disable-gnutls" \
+                 "for encrypted communications"
+
+optional_depends "dbus"      "--enable-dbus"     "--disable-dbus"     "enable DBUS support"
+optional_depends "libpaper"  "--enable-libpaper" "--disable-libpaper" "for paper size library support"
+optional_depends "acl"       "--enable-acl"      "--disable-acl"      "for access control list support"
+optional_depends "usbutils"  "--enable-libusb"   "--disable-libusb"   "for usb device support"
+optional_depends "%JAVA_SDK" "--with-java"       "--without-java"     "for Java interpreter web interfaces"
+optional_depends "perl"      "--with-perl"       "--without-perl"     "for Perl interpreter web interfaces"
+optional_depends "%PHP"      "--with-php"        "--without-php"      "for PHP interpreter web interfaces"
+optional_depends "Python"    "--with-python"     "--without-python"   "for Python interpreter web interfaces"
+optional_depends "heimdal"   "--enable-gssapi"   "--disable-gssapi"   "for Heimdal support"
+optional_depends "avahi"     "--enable-avahi"    "--disable-avahi"    "for avahi support"
 
