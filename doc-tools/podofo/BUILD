@@ -1,7 +1,3 @@
-# lua 5.2 removed deprecated functions
-sedit "s:lua_open:luaL_newstate:; s:luaL_getn:luaL_len:" tools/podofocolor/luaconverter.cpp &&
-sedit "s:lua_open:luaL_newstate:"                        tools/podofoimpose/planreader_lua.cpp &&
-
 . /etc/profile.d/qt4.rc &&
 
 LDFLAGS+=" -ldl" &&
