@@ -7,6 +7,9 @@ sedit 's@FREETYPE_INCLUDE_DIR_freetype2@FREETYPE_INCLUDE_DIR_ft2build@' CMakeLis
 
 sedit '126 i target_link_libraries(libslim ${PAM_LIBRARY})' CMakeLists.txt &&
 
+# fix their broken sample configuration
+sedit 's/^sessions.*/#\0/; T; a sessiondir /usr/share/xsessions' slim.conf &&
+
 # don't install systemd files here
 # we provide them separately
 sedit '/systemd/ d' CMakeLists.txt
