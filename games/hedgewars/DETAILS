@@ -1,11 +1,15 @@
           MODULE=hedgewars
-         VERSION=src-0.9.19.3
+         VERSION=src-0.9.20.5
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-liblua51.tar.xz
       SOURCE_URL=http://download.gna.org/$MODULE
-      SOURCE_VFY=sha1:029fce66d04ed73d69500ca8723bfe63714e05a9
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:4ac64b14212d38159ca3ef1528e38c025e7f8979
+     SOURCE2_VFY=sha1:ec4bc10b76a8768ceca39b6c3cf162fd8c9165ea
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION%.*}
         WEB_SITE=http://www.hedgewars.org
          ENTERED=20130819
-         UPDATED=20130819
+         UPDATED=20140423
            SHORT="turn based strategy game"
 
 cat << EOF
