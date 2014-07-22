@@ -1,5 +1,6 @@
 (
 
+  patch_it $SOURCE2 1 &&
 # Disabling gtk usage for now, causes the make to barf.
   OPTS+=" --enable-gpl --without-gtk"
 
