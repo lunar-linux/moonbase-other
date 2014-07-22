@@ -5,6 +5,8 @@
   find . -name 'Makefile*' -exec sed -i "s:-Werror::" {} \; &&
   find . -name 'Makefile*' -exec sed -i "s:-pedantic::" {} \; &&
 
+  sedit "s:dist_doc_DATA = AUTHORS NEWS README::" Makefile.am &&
+
   if in_depends $MODULE qt4 ; then
     . /etc/profile.d/qt4.rc
   fi &&
