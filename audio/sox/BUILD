@@ -1,6 +1,7 @@
 (
 
   patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 1 &&
 
   sed -i "15i #include <libavutil/mathematics.h>" src/ffmpeg.h &&
 
