@@ -1,5 +1,3 @@
-(
-
   #xvidcore doesn't use pkgconfig, and gstreamer doesn't use -pthread
   #This leaves us to fix the problem
   if in_depends $MODULE xvidcore ; then
@@ -12,11 +10,9 @@
       sedit 's:swfdec-0.3:swfdec-0.8:g' configure
   fi
 
-  #Disable x264, since x264-git doesn't work with it, and
-  #I can't seem to find a version of x264-snapshot that does either
-
   OPTS+=" --disable-static --disable-valgrind --disable-debug --disable-examples" &&
 
-  default_build
+  # the srtp module fails via 'AES_ICM' not declared
+  OPTS+=" --disable-srtp" &&
 
-) > $C_FIFO 2>&1
+  default_build

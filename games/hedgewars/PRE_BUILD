@@ -1,8 +1,9 @@
 default_pre_build &&
 
-# make sure it does not detect lua 5.2 as lua 5.1
-sedit "s:lua PATHS:PATHS:" cmake_modules/FindLua.cmake &&
+# bundled liblua is missing in the tarball...
+unpack $SOURCE2 &&
 
-sedit 's:"-k-lreadline":\0 "-k-lm":' CMakeLists.txt &&
+sedit "s/COMMAND if.*//" tools/CMakeLists.txt &&
 
+sedit "/QT4_ADD_TRANSLATION/ i find_package(Qt4 REQUIRED QUIET)" share/hedgewars/Data/Locale/CMakeLists.txt &&
 sedit 's:"bin":"games":' CMakeLists.txt
