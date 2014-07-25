@@ -6,6 +6,8 @@
 
    ./autogen.sh  &&
 
-  default_build
+  default_build &&
+
+  cp $SOURCE_CACHE/$SOURCE2 /usr/include/xine/
 
 ) > $C_FIFO 2>&1
