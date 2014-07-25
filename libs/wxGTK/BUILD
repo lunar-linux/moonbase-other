@@ -1,15 +1,7 @@
 (
 
-  if [[ $UCODE == "y" ]]; then
-    OPTS+=" --enable-unicode"
-  fi  &&
+  OPTS+=" --with-gtk --enable-shared --enable-optimise" &&
 
-  ./configure   --build=$BUILD     \
-                --prefix=/usr      \
-                --with-gtk         \
-                --enable-shared    \
-                --enable-optimise  \
-                $OPTS             &&
-  default_make
+  default_build
 
 ) > $C_FIFO 2>&1
