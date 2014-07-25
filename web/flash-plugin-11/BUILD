@@ -32,6 +32,7 @@
   fi &&
 
 # This appears to have fixed the constant crashing of flash since the version bump
+# From http://macromedia.mplug.org/
   echo "WindowlessDisable=true" >> /etc/adobe/mms.cfg
 
 ) > $C_FIFO 2>&1
