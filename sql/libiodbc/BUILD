@@ -1,9 +1,10 @@
 
-  patch_it $SOURCE2 1 &&
-  patch_it $SOURCE3 0 &&
-  sedit "79i #include <iodbc.h>" iodbcinst/unicode.h &&
-
+# Else it stomps on unixODBC
   OPTS+=" --includedir=/usr/include/$MODULE --libdir=/usr/lib/$MODULE  \
-          --with-iodbc-inidir=/etc/unixODBC" &&
+          --with-iodbc-inidir=/etc/$MODULE --with-iodbc-filedsnpath=/etc/$MODULE" &&
 
-  default_build
+  mkdir -p /etc/$MODULE &&
+
+  default_build &&
+
+  cp -r etc/*.sample /etc/$MODULE/
