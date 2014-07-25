@@ -29,6 +29,9 @@
       mkdir -p /etc/adobe/ &&
       echo "EnableLinuxHWVideoDecode=1" >> /etc/adobe/mms.cfg
     fi
-  fi
+  fi &&
+
+# This appears to have fixed the constant crashing of flash since the version bump
+  echo "WindowlessDisable=true" >> /etc/adobe/mms.cfg
 
 ) > $C_FIFO 2>&1
