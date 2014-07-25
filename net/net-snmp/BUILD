@@ -13,6 +13,13 @@
 # So lets put all that together.
   LDFLAGS="$LDFLAGS -Wl,-rpath,${PERL_SO_PATH}"
 
+# If this is installed net-snmp make will tank with
+# ./.libs/libnetsnmpmibs.so: undefined reference to `nl_handle_destroy'
+# ./.libs/libnetsnmpmibs.so: undefined reference to `nl_handle_alloc'
+  if module_installed libnl3 ; then
+    OPTS+=" --without-nl"
+  fi &&
+
   OPTS+=" --disable-static"  &&
 
   ./configure  --prefix=/usr         \
