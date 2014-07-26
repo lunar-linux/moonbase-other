@@ -1,3 +1,4 @@
+optional_depends libpcap    "--enable-pcap"       "--disable-pcap"       "for capturing support"
 optional_depends alsa-lib   "--enable-alsa"       "--disable-alsa"       "for alsa audio support"
 optional_depends portaudio  "--enable-portaudio"  "--disable-portaudio"  "for portaudio support"
 optional_depends speex      "--enable-speex"      "--disable-speex"      "for speech support"
@@ -7,6 +8,8 @@ optional_depends alsa-oss   "--enable-oss"        "--disable-oss"        "for Al
 optional_depends ffmpeg     "--enable-ffmpeg"     "--disable-ffmpeg"     "for ffmpeg support"
 optional_depends pulseaudio "--enable-pulseaudio" "--disable-pulseaudio" "for pulseaudio support"
 optional_depends spandsp    "--enable-spandsp"    "--disable-spandsp"    "for spandsp support"
-optional_depends v4l-utils  ""                    ""                     "for v4l support"
+optional_depends libupnp    "--enable-upnp"       "--disable-upnp"       "for upnp support"
+optional_depends libvpx     "--enable-vp8"        "--disable-vp8"        "for vp8 support"
 
-optional_depends ortp       "--enable-ortp" "--disable-ortp" "Use internal or external ortp"
+optional_depends v4l-utils  "" "--disable-libv4l2 --disable-libv4l1"    "for v4l support"
+optional_depends ortp       "--disable-ortp" "--disable-ortp --enable-external-ortp" "Use internal or external ortp"
