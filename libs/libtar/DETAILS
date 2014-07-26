@@ -1,15 +1,21 @@
           MODULE=libtar
-         VERSION=1.2.11
-          SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=ftp://ftp.feep.net/pub/software/libtar/
-   SOURCE_URL[1]=$MIRROR_URL
-      SOURCE_VFY=sha1:9611f23024b0e89aad1cfea301122186b3c160f8
-        WEB_SITE=http://www.feep.net/libtar/
+         VERSION=6d0ab4c78e7a8305c36a0c3d63fd25cd1493de65
+          SOURCE=$VERSION.tar.gz
+      SOURCE_URL=http://repo.or.cz/w/libtar.git/snapshot/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_VFY=sha1:89901d5dbf720b59df7a5f0b34ff90bff9bbb806
+        WEB_SITE=http://repo.or.cz/w/libtar.git
          ENTERED=20091116
-         UPDATED=20091124
-           SHORT="manipulat POSIX tar files"
+         UPDATED=20140725
+           SHORT="manipulate POSIX tar files"
 
 cat << EOF
 libtar is a C library for manipulating POSIX tar files. It handles adding and
 extracting files to/from a tar archive.
+
+NOTE: The original author has temporarily turned over maintanence to
+Chris Frey. The orignal version of this would cause vlc to crap out on
+some unresolved symbols (IIRC). Anyway we should be using this for the
+duration. VLC is the only module using libtar.
+
 EOF
