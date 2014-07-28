@@ -1,14 +1,26 @@
           MODULE=opal
          VERSION=3.10.11
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=opal-3.10.7-ffmpeg-0.11.patch
+         SOURCE2=$MODULE-3.10.9-svn_revision_override.patch
+         SOURCE3=$MODULE-3.10.9-labs_is_in_stdlib.patch
+         SOURCE4=$MODULE-3.10.9-avoid_cflags_mixup.patch
+         SOURCE5=$MODULE-3.10.9-ffmpeg.patch
+         SOURCE6=$MODULE-3.10.11-libav9-gentoo.patch
       SOURCE_URL=$SFORGE_URL/opalvoip/
-     SOURCE2_URL=$PATCH_URL
+     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/net-libs/opal/files/
+     SOURCE3_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/net-libs/opal/files/
+     SOURCE4_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/net-libs/opal/files/
+     SOURCE5_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/net-libs/opal/files/
+     SOURCE6_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/net-libs/opal/files/
       SOURCE_VFY=sha1:7e345c0aa115adefef0b59bad31a9dde1e60f4bf
-     SOURCE2_VFY=sha1:549e903e2ffd9fc6640c8b9f60c51a8d8d832e4e
+     SOURCE2_VFY=sha1:f475854eb119ba4cd1b834fe2792c5326a5a200e
+     SOURCE3_VFY=sha1:dfc4eb16f277de7c555b7ca7c6535d2f4aced76d
+     SOURCE4_VFY=sha1:f5ac13f1fee273f6042325da596729b0cfb3994d
+     SOURCE5_VFY=sha1:798e48c87a4060f143a2133bd3b638107eea6d4b
+     SOURCE6_VFY=sha1:e015d024cbddfdc4e07a50e7257547fff3938c07
         WEB_SITE=http://www.opalvoip.org
          ENTERED=20070316
-         UPDATED=20131022
+         UPDATED=20140728
            SHORT="Open Phone Abstraction Library"
 
 cat << EOF
