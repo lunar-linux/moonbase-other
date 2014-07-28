@@ -1,9 +1,6 @@
 
-  sedit "s:zh_CN::" Makefile.am locales/Makefile.am &&
-  aclocal  &&
-  autoconf &&
-  automake &&
-
+  OPTS+=" --with-wx-config=/usr/bin/wx-config" &&
+  CXXFLAGS+=" -Wall -DNDEBUG" &&
   default_build &&
 
     # Desktop menu entry
