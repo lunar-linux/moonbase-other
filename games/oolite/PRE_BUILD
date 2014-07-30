@@ -1,14 +1,4 @@
 default_pre_build &&
 
-cd $SOURCE_DIRECTORY/deps/Cross-platform-deps/ &&
-
-tar xf $SOURCE_CACHE/$SOURCE2 &&
-mv mozilla-2.0 mozilla &&
-echo 'http://jens.ayton.se/oolite/deps/firefox-4.0.source.js-only.tbz' > mozilla/current.url &&
-
-cd $SOURCE_DIRECTORY &&
-
-sedit "/NO_RETURN_FUNC/ d" src/Core/Materials/OOPNGTextureLoader.m &&
-
-# fix library order to use correct js library
-sedit 's:-L/usr/X11R6/lib/ -L$(LIBJS_LIB_DIR):-L$(LIBJS_LIB_DIR) -L/usr/X11R6/lib/:' GNUmakefile
+# API change with libpng 1.6
+sedit '/void png/ d' src/Core/Materials/OOPNGTextureLoader.m
