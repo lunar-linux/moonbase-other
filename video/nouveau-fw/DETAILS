@@ -1,0 +1,20 @@
+          MODULE=nouveau-fw
+         VERSION=20140801
+          SOURCE=extract_firmware.py
+         SOURCE2=NVIDIA-Linux-x86-325.15.run
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=https://raw.github.com/imirkin/re-vp2/master/
+     SOURCE2_URL=http://us.download.nvidia.com/XFree86/Linux-x86/325.15/
+      SOURCE_VFY=sha1:3f6e4631e9801b1d80d5382c6d35974ec97e30d8
+     SOURCE2_VFY=sha1:78aa8cecd75207e402bbd5c5a9577d9df410b3c8
+        WEB_SITE=http://nouveau.freedesktop.org/wiki/VideoAcceleration/
+         ENTERED=20140801
+         UPDATED=20140801
+           SHORT="extract firmware from NVIDIA blobs"
+
+cat << EOF
+nouveau-fw extracts firmware from NVIDIA blobs needed for hardware acceleration
+when using the open source nouveau driver. 
+
+This module does nothing more than stated.
+EOF

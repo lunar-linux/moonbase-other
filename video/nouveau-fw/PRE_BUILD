@@ -1,0 +1,8 @@
+validate_source_dir $SOURCE_DIRECTORY &&
+mk_source_dir $SOURCE_DIRECTORY &&
+cd $SOURCE_DIRECTORY        &&
+cp $SOURCE_CACHE/$SOURCE .  &&
+cp $SOURCE_CACHE/$SOURCE2 . &&
+sh $SOURCE_CACHE/$SOURCE2 --extract-only &&
+python2 extract_firmware.py 
+
