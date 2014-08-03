@@ -1,12 +1,18 @@
           MODULE=ftgl
          VERSION=2.1.3-rc5
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=ftgl-2.1.3_rc5-gentoo.patch
+         SOURCE3=ftgl-2.1.3_rc5-underlink.patch
       SOURCE_URL=$SFORGE_URL/$MODULE
+     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-libs/ftgl/files/
+     SOURCE3_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-libs/ftgl/files/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION%-*}~${VERSION#*-}
       SOURCE_VFY=sha1:b9c11d3a594896333f1bbe46e10d8617713b4fc6
+     SOURCE2_VFY=sha1:48c85d76ae5d812b70310d0cd365d838b502dad6
+     SOURCE3_VFY=sha1:c23b435506295a1c123974cfd13bf0994a1ab3cc
         WEB_SITE=http://homepages.paradise.net.nz/henryj/code/
          ENTERED=20060712
-         UPDATED=20100610
+         UPDATED=20140803
            SHORT="font rendering library for OpenGL"
 
 cat << EOF
