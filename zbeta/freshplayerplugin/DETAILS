@@ -1,0 +1,34 @@
+          MODULE=freshplayerplugin
+         VERSION=20140802
+          SOURCE=${MODULE}-${VERSION}.tar.xz
+         SOURCE2=google-chrome-stable_current_i386.deb
+SOURCE_DRIECTORY=$BUILD_DIRECTORY/$MODULE
+      SOURCE_URL=$MIRROR_URL
+     SOURCE2_URL=https://dl.google.com/linux/direct/
+      SOURCE_VFY=sha1:0ca142809ef7d5aace3ec26d3a905648257e9429
+     SOURCE2_VFY=sha1:
+        WEB_SITE=https://github.com/i-rinat/freshplayerplugin
+         ENTERED=20140802
+         UPDATED=`date -u +%Y%m%d`
+           SHORT="PPAPI-host NPAPI-plugin adapter"
+
+cat << EOF
+As you know, Adobe have suspended further development of Flash player plugin for GNU/Linux. 
+Latest available as an NPAPI plugin version 11.2 will get security updates for five years 
+(since its release on May 4th, 2012), but further development have been ceased. Fortunately 
+or not, newer versions are still available for Linux as a part of Chrome browser, where Flash 
+comes bundled in a form of PPAPI plugin. PPAPI or Pepper Plugin API is an interface promoted 
+by Chromium/Chrome team for browser plugins. It's NPAPI-inspired yet significantly different 
+API which have every concievable function plugin may want.
+
+For various reasons Firefox developers are not interested now in implementing PPAPI in Firefox. 
+However that does not mean it cannot be done.
+
+The main goal of this project is to get PPAPI (Pepper) Flash player working in Firefox. 
+
+Note: This moudule will also download the current rpm (x86 or x86_64) version of google chrome
+browser and extract ONLY libpepflashplayer.so and manifest.json placing them in Lunars
+standard location. It will also remove flash-player-plugin-11 if installed. For this to work, 
+mesa-lib needs to be compilied with egl glesv2. For the later use; --enable-gles1 --enable-gles2.
+Naturally for the former you will need to choose the appropriate mesa-lib options to enable egl.
+EOF

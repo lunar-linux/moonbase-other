@@ -1,0 +1,7 @@
+mk_source_dir &&
+validate_source_dir &&
+unpack $SOURCE &&
+cd $SOURCE_DIRECTORY &&
+ar x $SOURCE_CACHE/$SOURCE2 &&
+lzma -d data.tar.lzma &&
+tar xf data.tar
