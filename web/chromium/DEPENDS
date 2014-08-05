@@ -1,9 +1,7 @@
 depends libevent
 depends alsa-lib
-depends bzip2
 depends gperf
 depends %JPEG
-depends libpng
 depends libxml2
 depends libxslt
 depends nss
@@ -14,6 +12,9 @@ depends libXScrnSaver
 depends Switch
 depends speech-dispatcher
 
+optional_depends "bzip2"      "-Duse_system_bzip2=1"   "-Duse_system_bzip2=0"  "To use system provided bzip"
+optional_depends "libpng"     "-Duse_system_libpng=1"  "-Duse_system_libpng=0" "To use system provided libpng"
+optional_depends "ffmpeg"     "-Duse_system_ffmpeg=1"  "-Duse_system_ffmpeg=0" "To use system provided ffmpeg"
 optional_depends "yasm"       "-Duse_system_yasm=1"    "-Duse_system_yasm=0"   "To use system yasm to compile assembler parts"
 optional_depends "cups"       "-Duse_cups=1"           "-Duse_cups=0"          "To use cups printing"
 optional_depends "GConf"      "-Duse_gconf=1"          "-Duse_gconf=0"         "To use cups printing"
