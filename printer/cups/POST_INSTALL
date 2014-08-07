@@ -1,1 +1,9 @@
 rm -f /etc/rc?.d/???cups &> /dev/null
+
+  if ! module_installed cups-filters ; then
+    if [ "$CUPS_FILTERS" == "y" ] ; then
+      lin cups-filters
+    fi
+  fi
+
+
