@@ -1,7 +1,3 @@
- 
-  if ! module_installed cups ; then
-    lin cups
-  fi &&
 
   ./autogen.sh &&
 
