@@ -2,14 +2,17 @@
          VERSION=0.2.0
           SOURCE=$MODULE-$VERSION.tar.bz2
          SOURCE2=gegl-0.2.0-ffmpeg.patch
+         SOURCE3=gegl-0.2.0-v4l2.patch
    SOURCE_URL[0]=http://ftp.gimp.org/pub/gegl/${VERSION%.*}
    SOURCE_URL[1]=http://ftp.gtk.org/pub/gegl/${VERSION%.*}
      SOURCE2_URL=https://raw.github.com/PhantomX/slackbuilds/master/gegl/patches/
+     SOURCE3_URL=$PATCH_URL
       SOURCE_VFY=sha1:764cc66cb3c7b261b8fc18a6268a0e264a91d573
      SOURCE2_VFY=sha1:df76be47237e3665c6efcffe8030c09db8681f06
+     SOURCE3_VFY=sha1:0aadf5e71b412565f0d9c2930eed6d0c9b5ad603
         WEB_SITE=http://gegl.org
          ENTERED=20081016
-         UPDATED=20120503
+         UPDATED=20140808
            SHORT="Generic Graphics Library"
 
 cat << EOF
