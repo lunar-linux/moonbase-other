@@ -7,10 +7,7 @@ optional_depends  "neon"         ""  "--disable-neon" "for neon optimizations sp
 optional_depends  "libproxy"     ""  "--disable-libproxy" "for proxy support"
 optional_depends  "libnotify4"   "--enable-notify"  "" "for notify support"
 optional_depends  "taglib"       ""  "--disable-taglib"    "for taglib support"
-
-# Causes the make to fail, no fix as yet.
-#optional_depends  "opencv"       "--enable-opencv"  "" "for OpenCV (computer vision) filter support"
-
+optional_depends  "opencv"       "--enable-opencv"  "" "for OpenCV (computer vision) filter support"
 optional_depends  "fontconfig"   ""  "--disable-fontconfig" "for fontconfig support"
 optional_depends  "dejavu-ttf"   ""  ""  "for DejaVu (default) font"
 optional_depends  "alsa-lib"     ""  "--disable-alsa"  "for ALSA support"
@@ -54,9 +51,8 @@ optional_depends  "fluidsynth"   ""  "--disable-fluidsynth" "for MIDI synthetise
 optional_depends  "zvbi"         ""  "--disable-zvbi"  "for VBI including Teletext decoding support"
 optional_depends  "libass"       ""  "--disable-libass"  "for subtitle support"
 optional_depends  "libdc1394"    "--enable-dc1394" "--disable-dc1394" "for IEEE1394 cameras support needed for dv"
-optional_depends  "libdv"        "--enable-dv"     "--disable-dv"     "for dv support"
 optional_depends  "lirc"         "--enable-lirc"   ""                 "for lirc support"
-optional_depends  "qt4"          "--enable-qt4"    "--disable-qt4  --disable-skins2" "for Qt 4.x support"
+optional_depends  "qt4"          ""    "--disable-qt4  --disable-skins2" "for Qt 4.x support"
 optional_depends  "lua"          "" "--disable-lua" "for some interfaces rc telnet http support"
 optional_depends  "portaudio"    "" "--disable-portaudio" "for portaudio support"
 optional_depends  "aalib"        "" "--disable-aa" "for ascii art support"
@@ -71,3 +67,5 @@ optional_depends  "vcdimager"    "--enable-vcdx"  "--disable-vcdx" "for navigati
 optional_depends  "libblueray"   "--enable-bluray" "--disable-bluray" "for blueray support"
 optional_depends  "libprojectM"  "--enable-projectm" "--disable-projectm" "for visual effects support"
 optional_depends  "libssh2"      "--enable-sftp" "--disable-sftp" "for SFTP file transfer support"
+optional_depends  "samba"        "--enable-smbclient" "--disable-smbclient" "for smb/CIFS support"
+optional_depends  "freerdp"      "--enable-libfreerdp" "--disable-libfreerdp" "for rdp desktop support"

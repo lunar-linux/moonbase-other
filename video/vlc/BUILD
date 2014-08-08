@@ -1,8 +1,13 @@
 sedit "s:FLAC/FLAC:FLAC:g" modules/codec/flac.c &&
 
 if in_depends $MODULE lua; then
-  export LUA_LIBS+=" /usr/lib/lua" &&
+  export LUA_LIBS+=" /usr/lib/liblua.so" &&
   export LUA_CFLAGS+=" -DLUA_COMPAT_ALL=1"
+fi &&
+
+if in_depends $MODULE samba ; then
+  export SMBCLIENT_LIBS+=" /usr/lib/libsmbclient.so" &&
+  export SMBCLIENT_CFLAGS+=" -I/usr/include/libsmbclient.h"
 fi &&
 
 if module_installed live555; then
@@ -13,7 +18,7 @@ if in_depends vlc qt4; then
  . /etc/profile.d/qt4.rc
 fi &&
 
-OPTS+=" --enable-xvideo --enable-real --enable-realrtsp --enable-media-library --disable-sid --with-tuning=$CPU" &&
+OPTS+=" --enable-xvideo --enable-realrtsp --disable-sid" &&
 
 default_build &&
 
