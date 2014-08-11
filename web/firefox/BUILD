@@ -34,6 +34,10 @@ if [ -n "${MAKES}" ]; then
   echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
 fi &&
 
+if module_installed qt4 ; then
+  echo "ac_add_options --with-qtdir=/usr" >> mozconfig
+fi &&
+
 #Finally, the build!
 if [ "$PGO" == "y" ] ; then
   #CCache breaks the pgo build
