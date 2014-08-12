@@ -24,17 +24,21 @@ ac_add_options --disable-os2-high-mem
 ac_add_options --enable-gio
 ac_add_options --enable-raw
 ac_add_options --with-system-libvpx
-ac_add_options --enable-shared-js
 ac_add_options --enable-system-pixman
 ac_add_options --disable-crashreporter
 ac_add_options --disable-necko-wifi
 ac_add_options --disable-gnomevfs
 ac_add_options --without-system-libevent
 
+# Enabling this causes the make to fail on java script. No work around found.
+ac_add_options --disable-shared-js
+
+#Causes make failure
+
 #firefox 14 will not build with system cairo
 #because it uses some mozilla made extensions/private functions
 #so disable it till this will work again
-#ac_add_options --enable-system-cairo
+ac_add_options --enable-system-cairo
 
 #Disabling tests breaks PGO so having CONFIGURE set it 
 #ac_add_options --disable-tests
