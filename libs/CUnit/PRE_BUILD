@@ -1,4 +1,7 @@
 default_pre_build &&
 
 sedit "s:\(docdir =\) .*:\1 @docdir@:" doc/Makefile.in &&
-sedit "s:\(dochdrdir =\) .*:\1 \$(prefix)/include/@PACKAGE@:" doc/headers/Makefile.in
+sedit "/docdir/ d" doc/Makefile.am &&
+
+sedit "s:\(dochdrdir =\) .*:\1 \$(prefix)/include/@PACKAGE@:" doc/headers/Makefile.in &&
+sedit "s:\(dochdrdir =\) .*:\1 @docdir@/headers:" doc/headers/Makefile.am
