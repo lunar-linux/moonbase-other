@@ -1,7 +1,19 @@
+default_pre_build &&
+
 if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
   message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo"
   message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by Seamonkey.${DEFAULT_COLOR}"
   exit 1
-fi
+fi &&
 
-default_pre_build
+sedit 's/@PRE_RELEASE_SUFFIX@//g' mozilla/browser/base/content/browser.xul &&
+
+if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
+     set_module_config OLD_VER "`installed_version $MODULE`"
+fi &&
+
+#Can't find pixman.h
+sedit "s:\$(MOZ_ZLIB_CFLAGS):\$(MOZ_ZLIB_CFLAGS) \$(MOZ_PIXMAN_CFLAGS):" config/config.mk &&
+
+# To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
+ CFLAGS+=" -lbz2"

@@ -9,20 +9,8 @@ if [ ! -z "$OLD_VER" ] && [ "$OLD_VER" != "$NEW_VER" ] ; then
 fi
 unset_module_config OLD_VER
 
-rm -rf /usr/lib/seamonkey-1*
-rm -rf /usr/lib/seamonkey-2.[02-9]*
-rm -rf /usr/lib/seamonkey-devel-2.[02-9]*
+ln -snf /usr/lib/lunar/plugins /usr/lib/$MODULE-$VERSION/plugins
 
-ln -snf /opt/lunar/plugins /usr/lib/$SMNKEY_LIBDIR/plugins
-
-export LD_LIBRARY_PATH="/usr/lib/$SMNKEY_LIBDIR:/opt/lunar/plugins:/usr/lib/$SMNKEY_LIBDIR/components"
-export MOZILLA_FIVE_HOME="/usr/lib/$SMNKEY_LIBDIR"
+export LD_LIBRARY_PATH="/usr/lib/$MODULE-$VERSION:/opt/lunar/plugins:/usr/lib/$MODULE-$VERSION/components"
+export MOZILLA_FIVE_HOME="/usr/lib/$MODULE-$VERSION"
 ldconfig
-
-# Added the symlinks back now that zbiggy has removed mozilla from moonbase
-rm -rf /usr/lib/mozilla
-ln -snf /usr/lib/$SMNKEY_LIBDIR /usr/lib/mozilla
-rm -rf /usr/include/mozilla
-ln -snf /usr/include/$SMNKEY_LIBDIR /usr/include/mozilla
-ln -sf /usr/bin/seamonkey /usr/bin/mozilla
-ln -sf /usr/bin/seamonkey-config /usr/bin/mozilla-config
