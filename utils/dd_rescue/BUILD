@@ -1,5 +1,4 @@
-(
 
-  default_make
+  ./autogen.sh &&
 
-) > $C_FIFO 2>&1
+  default_build
