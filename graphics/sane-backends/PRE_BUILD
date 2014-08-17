@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# systemd version > 208 fix
+sedit 's;-lsystemd-daemon;-lsystemd;g' configure
