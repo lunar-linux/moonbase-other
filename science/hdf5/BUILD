@@ -1,5 +1,5 @@
 sedit 's:/bin/mv:mv:' configure &&
 
-OPTS+=" --enable-gpfs --with-pthread --enable-unsupported" &&
+OPTS+=" --with-pthread --enable-unsupported --enable-threadsafe --enable-filters=all" &&
 
 default_build
