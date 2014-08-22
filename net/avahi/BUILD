@@ -10,8 +10,8 @@
 # Add this missing group. It is used in /etc/dbus-1/system.d/avahi-dbus.conf
    add_priv_group netdev &&
 
-   OPTS+=" --enable-compat-howl --enable-compat-libdns_sd --disable-gtk3 --disable-qt3 \
-           --disable-stack-protector --with-distro=none --disable-monodoc" &&
+   OPTS+=" --enable-compat-howl --enable-compat-libdns_sd --disable-gtk3 --disable-qt3 --disable-manpages \
+           --disable-stack-protector --with-distro=none --disable-monodoc --disable-xmltoman --disable-python" &&
 
     default_build
 
