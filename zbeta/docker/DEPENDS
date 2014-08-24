@@ -4,5 +4,8 @@ depends lvm2
 depends sqlite
 depends systemd
 depends git
-depends btrfs-progs
 depends go
+
+optional_depends "btrfs-progs" "" "" "for btrfs backend support"
+optional_depends "lxc"         "" "" "for lxc backend support"
+
