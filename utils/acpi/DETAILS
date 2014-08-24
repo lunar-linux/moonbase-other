@@ -1,17 +1,15 @@
-          MODULE=acpid
-         VERSION=2.0.23
-          SOURCE=$MODULE-$VERSION.tar.xz
-      SOURCE_URL=$SFORGE_URL/${MODULE}2
-      SOURCE_VFY=sha1:8a6e0c26d579ed4e87822e5a2d2f7cad5c661d88
-        WEB_SITE=http://www.tedfelix.com/linux/acpid-netlink.html
-         ENTERED=20031102
-         UPDATED=20140824
-           SHORT="An ACPI event monitor daemon"
+          MODULE=acpi
+         VERSION=1.7
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/acpiclient
+      SOURCE_VFY=sha1:7c21939da5be4004fbb8f055ce02d928919a9fb7
+        WEB_SITE=http://acpiclient.sourceforge.net
+         ENTERED=20040502
+         UPDATED=20140102
+           SHORT="ACPI client providing battery, AC power, and thermal readings"
 
 cat << EOF
-This is Ted Felix's <http://www.tedfelix.com> branch of the acpid project
-which includes support for netlink and the input layer.
-/proc/acpi/event is a deprecated kernel interface for ACPI events. Newer
-kernels rely on netlink and the input layer to send ACPI-related events.
-This branch of acpid uses these new interfaces.
+Linux ACPI client is a small command-line program that attempts to
+replicate the functionality of the 'old' apm command on ACPI systems. It
+includes battery and thermal information. Great for Laptops.
 EOF
