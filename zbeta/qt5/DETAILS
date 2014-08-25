@@ -1,0 +1,24 @@
+          MODULE=qt5
+         VERSION=5.3.1
+          SOURCE=qt-everywhere-opensource-src-$VERSION.tar.gz
+      SOURCE_URL=http://download.qt-project.org/official_releases/qt/${VERSION%.*}/$VERSION/single
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/qt-everywhere-opensource-src-$VERSION
+      SOURCE_VFY=sha1:3244dd34f5fb695e903eaa49c6bd0838b9bf7a73
+   MODULE_PREFIX=${QT5_PREFIX:-/usr}
+        WEB_SITE=http://www.trolltech.com/qt
+         ENTERED=20140822
+         UPDATED=20140426
+           SHORT="A C++ toolkit for application development"
+
+cat << EOF
+Qt is a C++ toolkit for application development. It lets application
+developers target all major operating systems with a single application
+source code.
+
+Qt provides a platform-independent API to all central platform
+functionality: GUI, database access, networking, file handling, etc. The
+Qt library encapsulates the different APIs of different operating systems,
+providing the application programmer with a single, common API for all
+operating systems. The native C APIs are encapsulated in a set of
+well-designed, fully object-oriented C++ classes.
+EOF

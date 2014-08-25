@@ -1,0 +1,5 @@
+mquery BUILD_EXAMPLES "Build examples? ${PROBLEM_COLOR}Saying yes will only install the examples source, they are not compiled.${QUERY_COLOR}" n "-make examples -no-compile-examples" "-nomake examples"
+mquery LICENSE_TYPE "Build Qt using open-source license? (n=commercial)" y
+mquery SYS_PROXY "Use system network proxies by default?" n "-system-proxies" "-no-system-proxies"
+mquery USE_JOURNALD "Send logging output to journald?" n "-journald" "-no-journald"
+mquery QML_DEBUG "Build the QML debugging support?" n "-qml-debug" "-no-qml-debug"

@@ -1,0 +1,34 @@
+depends %X
+depends xinput
+depends xcb-proto
+depends xcb-util
+depends xcb-util-image
+depends xcb-util-keysyms
+depends xcb-util-wm
+depends xf86-input-evdev
+depends fontconfig
+
+optional_depends  "%BLUEZ"     ""                   ""               "For bluetooth support"
+optional_depends  "giflib"     ""                   "-no-gif"        "For GIF reading support"
+optional_depends  "libmng"     ""                   ""               "For mng graphics support"
+optional_depends  "mtdev"      "-mtdev"             "-no-mtdev"      "For Multitouch Protocol support"
+optional_depends  "freetype2"  "-system-freetype"   "-qt-freetype"   "Use system provided freetype, else use qt provided freetype"
+optional_depends  "harfbuzz"   "-system-harfbuzz"   "-qt-harfbuzz"   "Use system provided harfbuzz for text shaping, else use qt provided harfbuzz"
+optional_depends  "dbus"       "-dbus"              "-no-dbus"       "For QtDBus module support"
+optional_depends  "%JPEG"      "-system-libjpeg"    "-qt-libjpeg"    "Use system provided jpeg, else use qt provided jpeg"
+optional_depends  "openssl"    "-openssl"           "-no-openssl"    "For Secure Sockets support"
+optional_depends  "libpng"     "-system-libpng"     "-qt-libpng"     "Use system provided png, else use qt provided png"
+optional_depends  "zlib"       "-system-zlib"       "-qt-zlib"       "Choose system or Qt version of zlib"
+optional_depends  "pulseaudio" "-pulseaudio"        "-no-pulseaudio" "For pulseaudio support"
+optional_depends  "cups"       "-cups"              "-no-cups"       "For printing support, needed by kdelibs"
+optional_depends  "icu4c"      "-icu"               "-no-icu"        "For International Components for Unicode supoort,${PROBLEM_COLOR} required for QtWebKit ${DEFAULT_COLOR}"
+optional_depends  "ruby"       ""                   ""               "Required for QtWebKit"
+optional_depends  "alsa-lib"   "-alsa"              "-no-alsa"       "For alsa audio support"
+optional_depends  "%MYSQL"     "-plugin-sql-mysql"  "-no-sql-mysql"  "For mysql database support"
+optional_depends  "postgresql" "-plugin-sql-psql"   "-no-sql-psql"   "For postgresql database support"
+optional_depends  "unixODBC"   "-plugin-sql-odbc"   "-no-sql-odbc"   "For unixODBC support"
+optional_depends  "freetds"    "-plugin-sql-tds"    "-no-sql-tds"    "For tabular data stream support"
+optional_depends  "sqlite"     "-plugin-sql-sqlite" "-no-sql-sqlite" "For sqlite database support"
+
+optional_depends  "gst-plugins-base-1.0" "" "" "For QtWebKit HTML5 Video Support"
+optional_depends  "ca-certificates"      "" "" "For security certificate support"
