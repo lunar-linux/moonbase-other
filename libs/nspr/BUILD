@@ -4,7 +4,7 @@
     OPTS+=" --enable-64bit"
   fi  &&
 
-  OPTS+=" --libdir=/usr/lib --enable-system-sqlite --with-mozilla --with-pthreads --enable-strip"  &&
+  OPTS+=" --libdir=/usr/lib --with-mozilla --with-pthreads --enable-strip"  &&
   mkdir build inst  &&
 #  sedit 's/\$(MKSHLIB) \$(OBJS)/\$(MKSHLIB) \$(LDFLAGS) \$(OBJS)/g' mozilla/nsprpub/config/rules.mk  &&
 
