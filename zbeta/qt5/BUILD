@@ -14,14 +14,15 @@
 # Making accessibility a hard option, disabling this will break QStyle and may break other internal parts of Qt and
 # create a source incompatible version which is unsupported. Why bother making it a switch if that is the case.
 # Using no-gtkstyle, enabled currently tanks the make.
-  OPTS+=" -release -c++11 -accessibility -gui -no-gtkstyle" &&
+  OPTS+=" -release -accessibility -gui -no-gtkstyle -reduce-relocations" &&
 
   ./configure  -confirm-license "${LICENSE_TYPE}"                            \
                -prefix "${MODULE_PREFIX}"                                    \
                -sysconfdir "/etc/xdg"                                        \
-               -bindir "${MODULE_PREFIX}/bin"                                \
+               -bindir "${MODULE_PREFIX}/lib/$MODULE/bin"                    \
                -libdir "${MODULE_PREFIX}/lib/$MODULE"                        \
                -archdatadir "${MODULE_PREFIX}/lib/$MODULE"                   \
+               -plugindir "${MODULE_PREFIX}/lib/$MODULE/plugins"             \
                -headerdir "${MODULE_PREFIX}/include/$MODULE"                 \
                -datadir "${MODULE_PREFIX}/share/$MODULE"                     \
                -docdir "${MODULE_PREFIX}/share/doc/$MODULE"                  \
@@ -40,12 +41,12 @@
 # and after much fiddling cannot get it to point them to /usr/bin. So lets just sedit these rascals.
   for i in `ls /usr/lib/$MODULE/pkgconfig/Qt5*.pc` ; do sed -i "s:/usr/src/qt-everywhere-opensource-src-$VERSION:/usr:" $i ; done &&
 # Like for moc and uic, the same needs doing for the *.prl files.
-  find /usr/lib/ -type f -name '*Qt5*.prl' -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/' {} \; &&
+  find /usr/lib/$MODULE -type f -name '*Qt5*.prl' -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/' {} \; &&
   find /usr/lib/$MODULE -type f -name '*.prl' -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/' {} \; &&
 
 # Remove references to the build directory from installed files 
   sed -e "s:$PWD/qtbase:/usr/lib/qt5:g" -i /usr/lib/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri &&
-  find /usr/lib/lib{qgsttools_p,Qt5*}.prl -exec sed -i -r '/^QMAKE_PRL_BUILD_DIR/d;s/(QMAKE_PRL_LIBS =).*/\1/' {} \; &&
+  find /usr/lib/$MODULE/lib{qgsttools_p,Qt5*}.prl -exec sed -i -r '/^QMAKE_PRL_BUILD_DIR/d;s/(QMAKE_PRL_LIBS =).*/\1/' {} \; &&
   find /usr/lib/$MODULE/lib{qgsttools_p,Qt5*}.prl -exec sed -i -r '/^QMAKE_PRL_BUILD_DIR/d;s/(QMAKE_PRL_LIBS =).*/\1/' {} \; &&
 
 
@@ -102,6 +103,6 @@ EOF
   echo "export QT5DIR=\"${MODULE_PREFIX}\"" > $SOURCE_DIRECTORY/$MODULE.rc &&
   echo export QT5_PLUGIN_PATH=\"'${QT5DIR}'/lib/${MODULE}/plugins\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
   echo export XDG_DATA_DIRS=\"'${XDG_DATA_DIRS:-/usr/share}':/usr/share/$MODULE\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
-  echo export PKG_CONFIG_PATH=\"'${QT5DIR}'/lib/pkgconfig:'${PKG_CONFIG_PATH}'\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
+  echo export PKG_CONFIG_PATH=\"'${QT5DIR}'/lib/${MODULE}/pkgconfig:'${PKG_CONFIG_PATH}'\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
 
   install -m644 $SOURCE_DIRECTORY/$MODULE.rc /etc/profile.d/
