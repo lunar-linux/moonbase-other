@@ -1,4 +1,6 @@
 default_pre_build &&
 
 # make cmake report correct C++ library
-sedit 's/ftdi1pp/ftdipp1/' CMakeLists.txt
+sedit 's/ftdi1pp/ftdipp1/' CMakeLists.txt &&
+
+patch_it $SCRIPT_DIRECTORY/libftdi1-1.1-no-double-open.diff 1
