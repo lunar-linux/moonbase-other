@@ -3,4 +3,5 @@ default_pre_build &&
 # make cmake report correct C++ library
 sedit 's/ftdi1pp/ftdipp1/' CMakeLists.txt &&
 
-patch_it $SCRIPT_DIRECTORY/libftdi1-1.1-no-double-open.diff 1
+# backported commit bc3841238bac9cb6955848fd661bbf19a5ed42c6 to 1.1
+sedit '416 s@^.*$@    if (ftdi->usb_dev == NULL \&\& libusb_open(dev, \&ftdi->usb_dev) < 0)@' src/ftdi.c
