@@ -1,3 +1,4 @@
+
 # To skirt around this make failure in libxul.so:
 # ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
 CFLAGS+=" -lbz2" &&
@@ -5,9 +6,6 @@ CFLAGS+=" -lbz2" &&
 # Evidently AVX can break mozilla builds on newer hardware
 # Removing it until it can be fixed somehow
 CFLAGS+=" -mno-avx" &&
-
-# Workaround Segmentation fault at install part on precompile_cache.js
-sedit 's/# Fill startup cache/if False:/; T; n; d' toolkit/mozapps/installer/packager.py &&
 
 sedit 's/@PRE_RELEASE_SUFFIX@//g' browser/base/content/browser.xul &&
 
