@@ -1,4 +1,24 @@
-depends freetype2
 depends glib-2
-depends cairo
-depends icu4c
+depends pbzip2
+
+optional_depends "freetype2" \
+                 "--with-freetype=yes" \
+                 "--with-freetype=no" \
+                 "for freetype support"
+
+optional_depends "cairo" \
+                 "--with-cairo=yes" \
+                 "--with-cairo=no" \
+                 "for cairo support"
+
+optional_depends "icu4c" \
+                 "--with-icu=yes" \
+                 "--with-icu=no" \
+                 "for icu support"
+
+optional_depends "gobject-introspection"  \
+                 "--with-gobject=yes --enable-introspection=yes"  \
+                 "--with-gobject=no  --disable-introspection=no"  \
+                 "for gobject introspection support"
+
+
