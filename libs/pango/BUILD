@@ -1,7 +1,5 @@
 (
 
-  OPTS+="-enable-introspection=no"  &&
-
   # Unwanted doc
   rm -f README.win32  &&
 

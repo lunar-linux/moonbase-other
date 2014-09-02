@@ -4,14 +4,8 @@ depends  freetype2
 depends  harfbuzz
 depends  libxcb
 
-optional_depends "cairo"  \
-                 "--with-cairo=yes" \
-                 "--with-cairo=no"  \
-                 "for the cairo backend"
-
-optional_depends "libXft" \
-                 "--with-xft=yes" \
-                 "--with-xft=no"  \
-                 "for the Xft backend"
+optional_depends "cairo"                 "--with-cairo=yes"       "--with-cairo=no"         "for the cairo backend"
+optional_depends "libXft"                "--with-xft=yes"         "--with-xft=no"           "for the Xft backend"
+optional_depends "gobject-introspection" "--enable-introspection" "--disable-introspection" "for gobject introspection support"
 
 optional_depends "libthai" "" "" "for Thai language support"
