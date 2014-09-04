@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --disable-static --enable-experimental --disable-valgrind --disable-debug --disable-examples" &&
+  OPTS+=" --disable-static --disable-valgrind" &&
 
   default_build
 
