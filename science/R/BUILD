@@ -1,11 +1,7 @@
-(
 
   if [ -e /usr/lib64/R/doc ] ; then
     rm -rf /usr/lib64/R/doc
   fi &&
-
-# A temp fix to the breakage caused by the recent pcre bump.
-  sedit "s:_pcre_valid_utf8:_pcre_valid_utf:g" src/main/util.c &&
 
   OPTS+=" --prefix=/usr --enable-R-shlib" &&
 
@@ -25,5 +21,3 @@
      make info &&
      make install-info
   fi 
-
-) > $C_FIFO 2>&1
