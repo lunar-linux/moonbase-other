@@ -5,7 +5,11 @@
   prepare_install &&
 
   mkdir -p /usr/lib/lunar/plugins &&
-  install libfreshwrapper-pepperflash.so /usr/lib/lunar/plugins &&
-  install ../opt/google/chrome/PepperFlash/* /usr/lib/lunar/plugins
+  install -m555 libfreshwrapper-*.so /usr/lib/lunar/plugins &&
+  
+  if [ ! -f /etc/freshwrapper.conf ] ; then
+   sedit "s:/opt/google/chrome/PepperFlash/:/usr/lib/lunar/plugins/:" ../data/freshwrapper.conf.example &&
+   install -Dm644 ../data/freshwrapper.conf.example /etc/freshwrapper.conf
+  fi
 
-#  ln -sf /usr/lib/lunar/plugins/libfreshwrapper-pepperflash.so /usr/lib/lunar/plugins/libfreshwrapper-pepperflash.so
+
