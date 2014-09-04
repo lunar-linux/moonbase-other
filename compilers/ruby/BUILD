@@ -1,4 +1,3 @@
-(
 
   bad_flags -fomit-frame-pointer &&
 
@@ -6,6 +5,7 @@
 
   default_build  &&
 
-  make install-doc
+  make install-doc &&
 
-) > $C_FIFO 2>&1
+# Some apps look for ruby.pc like graphviz
+  ln -sf /usr/lib/pkgconfig/ruby-`lvu version ruby | cut -c 1-3`.pc /usr/lib/pkgconfig/ruby.pc
