@@ -8,4 +8,4 @@
   make install-doc &&
 
 # Some apps look for ruby.pc like graphviz
-  ln -sf /usr/lib/pkgconfig/ruby-`lvu version ruby | cut -c 1-3`.pc /usr/lib/pkgconfig/ruby.pc
+  ln -sf ruby-${VERSION%.*}.pc /usr/lib/pkgconfig/ruby.pc
