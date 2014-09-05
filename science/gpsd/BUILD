@@ -1,4 +1,5 @@
-(
+
+  unset CPPFLAGS
 
   if in_depends $MODULE qt4 ; then
     . /etc/profile.d/qt4.rc
@@ -17,5 +18,3 @@
   if in_depends $MODULE udev; then
     scons udev-install
   fi 
-
-) > $C_FIFO 2>&1
