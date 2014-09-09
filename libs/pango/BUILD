@@ -1,4 +1,5 @@
-(
+# Needed to fix gcc-4.9 make failure.
+  CFLAGS+=" -fno-lto" &&
 
   # Unwanted doc
   rm -f README.win32  &&
@@ -13,5 +14,3 @@
   fi  &&
 
   default_build
-
-) > $C_FIFO 2>&1
