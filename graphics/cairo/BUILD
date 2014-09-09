@@ -1,3 +1,7 @@
+
+# Needed to fix gcc-4.9 make failure
+CFLAGS+=" -fno-lto" &&
+
 OPTS+=" --disable-static" &&
 
 if in_depends $MODULE qt4 ; then
