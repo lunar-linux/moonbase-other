@@ -1,3 +1,4 @@
+
 if [ -f $CONFIG_CACHE/net-tools.config.h ]; then
   cp $CONFIG_CACHE/net-tools.config.h config.h
 else
@@ -8,6 +9,9 @@ else
     fi &&
   cp config.h $CONFIG_CACHE/net-tools.config.h
 fi &&
+
+# curent kernel and kernel-headers do not contain linux/if_strip.h
+sedit "s:HAVE_HWSTRIP 1:HAVE_HWSTRIP 0:" config.h &&
 
 make            &&
 prepare_install &&
