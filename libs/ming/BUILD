@@ -1,13 +1,3 @@
-  patch_it $SOURCE2 2 &&
-
-  sedit "s:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:" configure.in &&
-  mv configure.in configure.ac &&
-
-  ./autogen.sh &&
-
-  sedit 's/libming.a/libming.so/' 's/lungif/lgif/' perl_ext/Makefile.PL &&
-
-  sedit 's/ungif/gif/' py_ext/setup.py.in &&
 
   if in_depends $MODULE %PHP; then
     cd php_ext &&
