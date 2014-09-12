@@ -1,15 +1,18 @@
-(
+  patch_it $SOURCE2 2 &&
 
-  patch_it $SOURCE2 1 &&
+  sedit "s:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:" configure.in &&
+  mv configure.in configure.ac &&
 
-# Fix a make failure on the recent perl bump
-  sedit "s:GvCV(gv) =:GvCV(gv) ==:" perl_ext/Exports.c &&
+  ./autogen.sh &&
 
-# So it will build when you say yes to Python and alias is set to giflib.
-  if in_depends $MODULE giflib ; then
-  CFLAGS="$CFLAGS -lgif"     &&
-  CXXFLAGS="$CXXFLAGS -lgif" &&
-  sedit "s:ungif:gif:" py_ext/setup.py py_ext/setup.py.in
+  sedit 's/libming.a/libming.so/' 's/lungif/lgif/' perl_ext/Makefile.PL &&
+
+  sedit 's/ungif/gif/' py_ext/setup.py.in &&
+
+  if in_depends $MODULE %PHP; then
+    cd php_ext &&
+    php-ext-source-r2_phpize &&
+    cd ../
   fi &&
 
   if in_depends $MODULE tcl ; then
@@ -18,6 +21,4 @@
     export TCL_LIB_DIR=/usr/lib/tcl$TCL_VER
   fi &&
 
-  default_build 
-
-) > $C_FIFO 2>&1
+  default_build
