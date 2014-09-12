@@ -1,8 +1,5 @@
-  validate_source_dir $SOURCE_DIRECTORY   &&
-  mk_source_dir       $SOURCE_DIRECTORY   &&
-  unpack              $SOURCE             &&
-  patch_it $SOURCE2 1                     &&
-  cd                  $SOURCE_DIRECTORY   &&
+  default_pre_build   &&
+  patch_it $SOURCE2 2 &&
 
   sedit "s:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:" configure.in &&
   mv configure.in configure.ac &&
