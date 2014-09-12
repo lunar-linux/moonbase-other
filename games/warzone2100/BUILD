@@ -1,5 +1,2 @@
-# fix pathes for default_game_build
-sedit "s:\$(DESTDIR)\$(icondir):/usr/share/pixmaps:" icons/Makefile.in  &&
-sedit "s:\$(DESTDIR)\$(applicationdir):/usr/share/applications:" icons/Makefile.in  &&
-
+CXXFLAGS+=" -fpermissive" &&
 default_game_build
