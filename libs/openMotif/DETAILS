@@ -1,15 +1,12 @@
           MODULE=openMotif
-         VERSION=2.3.3
-          SOURCE=openmotif-$VERSION.tar.gz
-         SOURCE2=$MODULE-2.3.0-makefile-no-demos.patch
-      SOURCE_URL=ftp://ftp.ics.com/openmotif/2.3/$VERSION/
-     SOURCE2_URL=$PATCH_URL/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/openmotif-$VERSION
-      SOURCE_VFY=sha1:2a51e2f28078c4db7ff0c8517eb257001716b699
-     SOURCE2_VFY=sha1:32269c255330a0a1e0c52becb339feaa499df4a0
+         VERSION=2.3.4-src
+          SOURCE=motif-$VERSION.tgz
+      SOURCE_URL=$SFORGE_URL/motif/Motif%202.3.4%20Source%20Code/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/motif-${VERSION%-*}
+      SOURCE_VFY=sha1:49ecfe2a0939232ca78ce318d938044e7f751b6d
         WEB_SITE=http://www.motifzone.net/
          ENTERED=20021007
-         UPDATED=20090610
+         UPDATED=20140912
            SHORT="Motif GUI X11 toolkit."
 
 cat << EOF
@@ -17,3 +14,4 @@ Open Motif is the freely available source code distribution for a user
 interface component toolkit.  Open Motif is built on top of the standard
 X Toolkit(Xt) and X11 libraries.
 EOF
+
