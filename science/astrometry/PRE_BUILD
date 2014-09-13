@@ -1,0 +1,9 @@
+  default_pre_build &&
+  rm -rf astrometry &&
+  for file in $(find . -name '*'.c |cut -c 3-50) ; do
+   sedit "s:<netpbm::g" $file
+  done &&
+
+  sedit "s:/ups:/usr/share/astrometry/ups:g" Makefile &&
+  sedit "s:/examples:/usr/share/astrometry/examples:" Makefile &&
+  sedit "s:cairo.h:cairo/cairo.h:" util/cairoutils.c
