@@ -19,7 +19,7 @@
   ./configure  -confirm-license "${LICENSE_TYPE}"                            \
                -prefix "${MODULE_PREFIX}"                                    \
                -sysconfdir "/etc/xdg"                                        \
-               -bindir "${MODULE_PREFIX}/lib/$MODULE/bin"                    \
+               -bindir "${MODULE_PREFIX}/bin/$MODULE"                        \
                -libdir "${MODULE_PREFIX}/lib/$MODULE"                        \
                -archdatadir "${MODULE_PREFIX}/lib/$MODULE"                   \
                -plugindir "${MODULE_PREFIX}/lib/$MODULE/plugins"             \
@@ -55,7 +55,7 @@
 Type=Application
 Name=Qt5 Designer
 Comment=Design GUIs for Qt5 applications
-Exec=${MODULE_PREFIX}/bin/designer
+Exec=${MODULE_PREFIX}/bin/qt5/designer
 Icon=${MODULE_PREFIX}/share/pixmaps/designer-qt5.png
 Categories=Qt;Development;
 Terminal=false
@@ -67,7 +67,7 @@ EOF
 Type=Application
 Name=Qt5 Assistant
 Comment=Shows Qt5 documentation and examples
-Exec=${MODULE_PREFIX}/bin/assistant
+Exec=${MODULE_PREFIX}/bin/qt5/assistant
 Icon=${MODULE_PREFIX}/share/pixmaps/assistant-qt5.png
 Categories=Qt;Development;Documentation;
 Terminal=false
@@ -79,7 +79,7 @@ EOF
 Name=Qt5 QDbusViewer 
 GenericName=D-Bus Debugger
 Comment=Debug D-Bus applications
-Exec=${MODULE_PREFIX}/bin/qdbusviewer
+Exec=${MODULE_PREFIX}/bin/qt5/qdbusviewer
 Icon=${MODULE_PREFIX}/share/pixmaps/qdbusviewer-qt5.png
 Terminal=false
 Encoding=UTF-8
@@ -92,7 +92,7 @@ EOF
 [Desktop Entry]
 Name=Qt5 Linquist
 Comment=Add translations to Qt5 applications
-Exec=${MODULE_PREFIX}/bin/linguist
+Exec=${MODULE_PREFIX}/bin/qt5/linguist
 Icon=${MODULE_PREFIX}/share/pixmaps/linguist-qt5.png
 Terminal=false
 Type=Application
