@@ -1,6 +1,8 @@
-(
 
-  OPTS+=" --disable-static" &&
+  OPTS+=" --disable-static --enable-release" &&
+
+# Fixes a rpathing problem with virtuoso.
+  LDFLAGS+=" -Wl,-rpath,/usr/lib/libiodbc" &&
 
   if in_depends $MODULE libxml2 ; then
     OPTS+=" --with-xml-parser=libxml"
@@ -9,5 +11,3 @@
   fi &&
 
   default_build
-
-) > $C_FIFO 2>&1
