@@ -19,7 +19,7 @@
   ./configure  -confirm-license "${LICENSE_TYPE}"                            \
                -prefix "${MODULE_PREFIX}"                                    \
                -sysconfdir "/etc/xdg"                                        \
-               -bindir "${MODULE_PREFIX}/bin/$MODULE"                        \
+               -bindir "${MODULE_PREFIX}/lib/$MODULE/bin"                    \
                -libdir "${MODULE_PREFIX}/lib/$MODULE"                        \
                -archdatadir "${MODULE_PREFIX}/lib/$MODULE"                   \
                -plugindir "${MODULE_PREFIX}/lib/$MODULE/plugins"             \
@@ -55,7 +55,7 @@
 Type=Application
 Name=Qt5 Designer
 Comment=Design GUIs for Qt5 applications
-Exec=${MODULE_PREFIX}/bin/qt5/designer
+Exec=${MODULE_PREFIX}/lib/$MODULE/bin/designer
 Icon=${MODULE_PREFIX}/share/pixmaps/designer-qt5.png
 Categories=Qt;Development;
 Terminal=false
@@ -67,7 +67,7 @@ EOF
 Type=Application
 Name=Qt5 Assistant
 Comment=Shows Qt5 documentation and examples
-Exec=${MODULE_PREFIX}/bin/qt5/assistant
+Exec=${MODULE_PREFIX}/lib/$MODULE/bin/assistant
 Icon=${MODULE_PREFIX}/share/pixmaps/assistant-qt5.png
 Categories=Qt;Development;Documentation;
 Terminal=false
@@ -79,7 +79,7 @@ EOF
 Name=Qt5 QDbusViewer 
 GenericName=D-Bus Debugger
 Comment=Debug D-Bus applications
-Exec=${MODULE_PREFIX}/bin/qt5/qdbusviewer
+Exec=${MODULE_PREFIX}/lib/$MODULE/bin/qdbusviewer
 Icon=${MODULE_PREFIX}/share/pixmaps/qdbusviewer-qt5.png
 Terminal=false
 Encoding=UTF-8
@@ -92,7 +92,7 @@ EOF
 [Desktop Entry]
 Name=Qt5 Linquist
 Comment=Add translations to Qt5 applications
-Exec=${MODULE_PREFIX}/bin/qt5/linguist
+Exec=${MODULE_PREFIX}/lib/$MODULE/bin/linguist
 Icon=${MODULE_PREFIX}/share/pixmaps/linguist-qt5.png
 Terminal=false
 Type=Application
@@ -100,9 +100,10 @@ Categories=Qt;Settings;
 EOF
   install -D -m644 ${MODULE}-linguist.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-linguist.desktop &&
 
-  echo "export QT5DIR=\"${MODULE_PREFIX}\"" > $SOURCE_DIRECTORY/$MODULE.rc &&
-  echo export QT5_PLUGIN_PATH=\"'${QT5DIR}'/lib/${MODULE}/plugins\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
+  echo "export Qt5_DIR=\"${MODULE_PREFIX}\"" > $SOURCE_DIRECTORY/$MODULE.rc &&
+  echo export QT5_PLUGIN_PATH=\"'${Qt5_DIR}'/lib/${MODULE}/plugins\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
   echo export XDG_DATA_DIRS=\"'${XDG_DATA_DIRS:-/usr/share}':/usr/share/$MODULE\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
-  echo export PKG_CONFIG_PATH=\"'${QT5DIR}'/lib/${MODULE}/pkgconfig:'${PKG_CONFIG_PATH}'\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
-
+  echo export PKG_CONFIG_PATH=\"'${Qt5_DIR}'/lib/${MODULE}/pkgconfig:'${PKG_CONFIG_PATH}'\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
+  echo export PATH=\"'${Qt5_DIR}'/lib/${MODULE}/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
+  echo export CMAKE_PREFIX_PATH=\"'${Qt5_DIR}'/lib/${MODULE}/cmake\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
   install -m644 $SOURCE_DIRECTORY/$MODULE.rc /etc/profile.d/
