@@ -11,25 +11,32 @@ depends zlib
 depends libXScrnSaver
 depends Switch
 depends speech-dispatcher
+depends ffmpeg
+depends usbutils
 
-optional_depends "bzip2"      "-Duse_system_bzip2=1"   "-Duse_system_bzip2=0"  "To use system provided bzip"
-optional_depends "libpng"     "-Duse_system_libpng=1"  "-Duse_system_libpng=0" "To use system provided libpng"
-optional_depends "ffmpeg"     "-Duse_system_ffmpeg=1"  "-Duse_system_ffmpeg=0" "To use system provided ffmpeg"
-optional_depends "yasm"       "-Duse_system_yasm=1"    "-Duse_system_yasm=0"   "To use system yasm to compile assembler parts"
-optional_depends "cups"       "-Duse_cups=1"           "-Duse_cups=0"          "To use cups printing"
-optional_depends "GConf"      "-Duse_gconf=1"          "-Duse_gconf=0"         "To use cups printing"
-optional_depends "speex"      "-Duse_system_speex=1"   "-Duse_system_speex=0"  "To use system speex"
-optional_depends "pulseaudio" "-Denable_webrtc=1"      "-Denable_webrtc=0"     "To use Realtime Web Communication"
-optional_depends "heimdal"    "-Duse_kerberos=1"       "-Duse_kerberos=0"      "To use heimdal (kerberos) support"
+optional_depends "re2c"       "-Duse_system_re2=1"       "-Duse_system_re2=0"       "To use system proviced re2c"
+optional_depends "nspr"       "-Duse_system_nspr=1"      "-Duse_system_nspr=0"      "To use system provided nspr"
+optional_depends "jsoncpp"    "-Duse_system_jsoncpp=1"   "-Duse_system_jsoncpp=0"   "To use system provided jsoncpp"
+optional_depends "libwebp"    "-Duse_system_libwebp=1"   "-Duse_system_libwebp=0"   "To use system provided webp"
+optional_depends "harfbuzz"   "-Duse_system_harfbuzz=1"  "-Duse_system_harfbuzz=0"  "To use system provided harfbuzz"
+optional_depends "flac"       "-Duse_system_flac=1"      "-Duse_system_flac=0"      "To use system provided flac"
+optional_depends "bzip2"      "-Duse_system_bzip2=1"     "-Duse_system_bzip2=0"     "To use system provided bzip"
+optional_depends "libpng"     "-Duse_system_libpng=1"    "-Duse_system_libpng=0"    "To use system provided libpng"
+optional_depends "ffmpeg"     "-Duse_system_ffmpeg=1"    "-Duse_system_ffmpeg=0"    "To use system provided ffmpeg"
+optional_depends "yasm"       "-Duse_system_yasm=1"      "-Duse_system_yasm=0"      "To use system yasm to compile assembler parts"
+optional_depends "cups"       "-Duse_cups=1"             "-Duse_cups=0"             "To use system provided cups"
+optional_depends "GConf"      "-Duse_gconf=1"            "-Duse_gconf=0"            "To use system provided GConf"
+optional_depends "speex"      "-Duse_system_speex=1"     "-Duse_system_speex=0"     "To use system provided speex"
+optional_depends "pulseaudio" "-Denable_webrtc=1"        "-Denable_webrtc=0"        "To use system provided Realtime Web Communication"
+optional_depends "heimdal"    "-Duse_kerberos=1"         "-Duse_kerberos=0"         "To use system provided heimdal (kerberos) support"
+optional_depends "libvpx"     "-Duse_system_vpx=1"       "-Duse_system_vpx=0"       "To use system provided VP8 library"
 
-# Still flaky
-#optional_depends "icu4c"      "-Duse_system_icu=1"     "-Duse_system_icu=0"    "To use system icu library"
-# Still flaky
-optional_depends "libvpx"     "-Duse_system_vpx=1"     "-Duse_system_vpx=0"    "To use system VP8 library"
-# Still breaks the build 20130206
-#optional_depends "sqlite"     "-Duse_system_sqlite=1"  "-Duse_system_sqlite=0" "To use system sqlite"
+optional_depends "icu4c" "-Duse_system_icu=1 -Dicu_use_data_file_flag=0"     \
+                         "-Duse_system_icu=0"    "To use system provided icu library"
 
 optional_depends "libgnome-keyring"  "-Duse_gnome_keyring=1 -Dlinux_link_gnome_keyring=1"  \
                                      "-Duse_gnome_keyring=0 -Dlinux_link_gnome_keyring=0"  \
-                                     "To use gnome keyring"
+                                     "To use system provided gnome keyring"
 
+# Still breaks the build
+#optional_depends "sqlite"     "-Duse_system_sqlite=1"   "-Duse_system_sqlite=0"   "To use system provided sqlite"

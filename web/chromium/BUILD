@@ -1,73 +1,16 @@
-(
-
-  sedit "s/'-Werror'/''/" build/common.gypi  &&
-
-  cp -f $SCRIPT_DIRECTORY/nacl.gypi chrome/  &&
-
-  echo Fixing dumb CPU optimizations please wait in patience...
-  find . -type f -print0 | xargs -0 sed -i \
-  -e 's/-mcpu=/-march=/g' \
-  -e 's/-mtune=/-march=/g' \
-  -e 's/=pentium4/=native/g' \
-  -e 's/=i386/=native/g' \
-  -e 's/=i486/=native/g' \
-  -e 's/=core2/=native/g' \
-  -e 's/=pentiumpro/=native/g' \
-  -e 's/=pentium/=native/g' \
-  -e 's/=k6/=native/g' &&
-
-  export CHROMIUM_HOME=/usr/lib/$MODULE &&
-
-  mkdir -p "${SOURCE_DIRECTORY}"/.gyp  &&
-  cat << EOF > "${SOURCE_DIRECTORY}"/.gyp/include.gypi
-{
-        'target_defaults': {
-                 'cflags': [ '${CFLAGS// /','}' ],
-                'ldflags': [ '${LDFLAGS// /','}' ],
-        },
-        'variables': {
-  q              'remove_webcore_debug_symbols' : 1,
-        },
-}
-EOF
-
-  if ! grep -q sse2 /proc/cpuinfo ; then
-     OPTS+=" -Ddisable_sse2=0"
-   else
-     OPTS+=" -Ddisable_sse2=1"
-  fi &&
-  
-  if module_installed %JPEG; then
-    OPTS+=" -Duse_system_libjpeg=1"
-  fi &&
-
-  OPTS+=" -Duse_system_libevent=1 -Duse_system_libxml=1 -Duse_system_libxslt=1 -Dproprietary_codecs=1 -Dwerror= -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome_sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome -Dfastbuild=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1 -Dlinux_use_gold_binary=0 -Dlinux_use_gold_flags=0 -Dffmpeg_branding=Chrome -DENABLE_MEDIA_CAPTURE=1"
-
-  # set the target arch here
-  if [ "`arch`" == "x86_64" ]; then
-    OPTS+=" -Dtarget_arch=x64"
-  else
-    OPTS+=" -Dtarget_arch=ia32"
-  fi
-
-  gcc_ver=`installed_version gcc | cut -d. -f1,2`
-  if [[ $gcc_ver == "4.4" ]]; then
-    OPTS+=" -Dno_strict_aliasing=1 -Dgcc_version=44"
-  fi
 
   # This is the configure step
   build/gyp_chromium -f make build/all.gyp $OPTS -Drelease_extra_cflags="$CFLAGS" --depth=. &&
 
   # This is the make step
-  make V=1 chrome chrome_sandbox BUILDTYPE=Release &&
-
-  make -C third_party/ffmpeg -f ffmpeg.Makefile &&
+  make V=1 chrome chrome_sandbox BUILDTYPE=Release -j${MAKES} &&
+  make -C third_party/ffmpeg -f ffmpeg.Makefile BUILDTYPE=Release &&
 
   prepare_install &&
 
   # installing
   install -D out/Release/chrome ${CHROMIUM_HOME}/chrome &&
-  install -Dm4755 -o root -g root out/Release/chrome_sandbox ${CHROMIUM_HOME}/chrome_sandbox &&
+  install -Dm4755 -o root -g root out/Release/chrome_sandbox ${CHROMIUM_HOME}/chrome-sandbox &&
 
   cp out/Release/{*.pak,libffmpegsumo.so} ${CHROMIUM_HOME} &&
 
@@ -101,5 +44,3 @@ EOF
   cp -a $SOURCE_DIRECTORY/chrome/app/theme /usr/share/themes/Chromium/ &&
 
   ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium
-
-) > $C_FIFO 2>&1
