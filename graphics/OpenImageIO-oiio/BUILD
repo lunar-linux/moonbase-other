@@ -8,7 +8,7 @@
     OPTS+=" -DHDF5_LIBRARIES=/usr/lib"
   fi &&
 
-  OPTS+=" -DEMBEDPLUGINS=OFF -DCMAKE_C_FLAGS=-fPIC" &&
+  OPTS+=" -DEMBEDPLUGINS=OFF -DCMAKE_C_FLAGS=-fPIC -Wno-dev" &&
 
   # these will both be obsolete with the next version bump
   sedit "35i #include <string.h>" src/libtexture/texturesys.cpp src/libtexture/imagecache.cpp src/testtex/testtex.cpp &&
