@@ -1,37 +1,4 @@
 
-# To skirt around this make failure in libxul.so:
-# ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
-CFLAGS+=" -lbz2" &&
-
-# Evidently AVX can break mozilla builds on newer hardware
-# Removing it until it can be fixed somehow
-CFLAGS+=" -mno-avx" &&
-
-sedit 's/@PRE_RELEASE_SUFFIX@//g' browser/base/content/browser.xul &&
-
-export MOZ_CO_PROJECT=browser  &&
-export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
-export MOZILLA_OFFICIAL=1  &&
-export BUILD_OFFICIAL=1  &&
-export MOZ_MAKE_FILES=$MAKES  &&
-export MOZ_OPTIMIZE_FLAGS="$CFLAGS" &&
-export MOZ_DEBUG_FLAGS="$CFLAGS" &&
-
-cp $SCRIPT_DIRECTORY/mozconfig .  &&
-export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
-mkdir -p ${MOZ_OBJDIR}  &&
-
-for flag in $OPTS; do
-  echo "ac_add_options $flag" >> mozconfig
-done &&
-
-# turn off this #$ bell during build
-setterm -bfreq -blength &&
-
-if [ -n "${MAKES}" ]; then
-  echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
-fi &&
-
 #Finally, the build!
 if [ "$PGO" == "y" ] ; then
   #CCache breaks the pgo build

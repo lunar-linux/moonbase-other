@@ -8,19 +8,15 @@ depends alsa-lib
 depends libvpx
 depends cairo
 
-optional_depends "freetype2"        "--enable-tree-freetype" "--disable-tree-freetype" "For freetype font support"
 optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
 optional_depends "flash-plugin-11"  ""  ""  "To enable Flash plugin"
-
+optional_depends "freetype2"        "--enable-tree-freetype" "--disable-tree-freetype" "For freetype font support"
+optional_depends "icu4c"            "--with-system-icu" "--without-system-icu" "For ICU support"
 optional_depends "hunspell"         "--enable-system-hunspell"  "--disable-system-hunspell"  "For spelling support"
-
 optional_depends "libevent"         "--with-system-libevent"  "--without-system-libevent"  "For system library event detection"
-
 optional_depends "dbus-glib"        "--enable-dbus"  "--disable-dbus"  "For dbus support"
 optional_depends "libffi"           "--enable-system-ffi"  "--disable-system-ffi"  "Use system libffi instead of compiling the one in firefox"
-
 optional_depends "sun-jdk"          "--with-java-bin-path=/usr/java/default/bin" "" "For java support"
-
 optional_depends "pulseaudio"       "" "--disable-pulseaudio"  "Build PulseAudio sound backend"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
