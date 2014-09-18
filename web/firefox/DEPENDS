@@ -11,7 +11,6 @@ depends cairo
 optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
 optional_depends "flash-plugin-11"  ""  ""  "To enable Flash plugin"
 optional_depends "freetype2"        "--enable-tree-freetype" "--disable-tree-freetype" "For freetype font support"
-optional_depends "icu4c"            "--with-system-icu" "--without-system-icu" "For ICU support"
 optional_depends "hunspell"         "--enable-system-hunspell"  "--disable-system-hunspell"  "For spelling support"
 optional_depends "libevent"         "--with-system-libevent"  "--without-system-libevent"  "For system library event detection"
 optional_depends "dbus-glib"        "--enable-dbus"  "--disable-dbus"  "For dbus support"
@@ -31,3 +30,7 @@ optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"  
 #  optional_depends "gnome-vfs"        "--enable-gnomevfs"  "--disable-gnomevfs"  "For Gnome VFS support"
 
 optional_depends "qt4" "--with-qtdir=/usr"  " " "for qt support."
+
+# Firefox requires >=50.1 and we are not ready for that version
+#optional_depends "icu4c"            "--with-system-icu" "--without-system-icu" "For ICU support"
+
