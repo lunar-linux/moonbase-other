@@ -5,7 +5,9 @@ depends xcb-util
 depends xcb-util-image
 depends xcb-util-keysyms
 depends xcb-util-wm
+depends xkbutils
 depends xf86-input-evdev
+depends libxkbcommon
 depends fontconfig
 
 optional_depends  "%BLUEZ"     ""                   ""               "For bluetooth support"
@@ -29,6 +31,5 @@ optional_depends  "postgresql" "-plugin-sql-psql"   "-no-sql-psql"   "For postgr
 optional_depends  "unixODBC"   "-plugin-sql-odbc"   "-no-sql-odbc"   "For unixODBC support"
 optional_depends  "freetds"    "-plugin-sql-tds"    "-no-sql-tds"    "For tabular data stream support"
 optional_depends  "sqlite"     "-plugin-sql-sqlite" "-no-sql-sqlite" "For sqlite database support"
-
 optional_depends  "gst-plugins-base-1.0" "" "" "For QtWebKit HTML5 Video Support"
 optional_depends  "ca-certificates"      "" "" "For security certificate support"
