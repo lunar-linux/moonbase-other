@@ -1,10 +1,10 @@
 if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
-  message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo"
-  message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by firefox.${DEFAULT_COLOR}"
-  exit 1
-fi
+  message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -rc cairo" &&
+  message "${MESSAGE_COLOR}To recompile cairo with tee(libX11) support, which is required by firefox.${DEFAULT_COLOR}" &&
+  false
+fi &&
 
-default_pre_build
+default_pre_build &&
 
 # To skirt around this make failure in libxul.so:
 # ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
@@ -28,7 +28,6 @@ export MOZ_JEMALLOC=1 &&
 cp $SCRIPT_DIRECTORY/mozconfig .  &&
 export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
 mkdir -p ${MOZ_OBJDIR}  &&
-
 
 if module_installed gst-plugins-base-1.0 ; then
   echo "ac_add_options --enable-gstreamer=1.0" >> mozconfig
