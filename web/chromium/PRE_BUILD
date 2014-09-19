@@ -1,9 +1,4 @@
   default_pre_build &&
-
-  # To properly setup sandboxing need to run this script but it uses sudo, we don't,
-  # and getting rid of the echo saying it does.
-  sedit "s:sudo --::g" build/update-linux-sandbox.sh &&
-  sedit "27d" build/update-linux-sandbox.sh &&
   
   export CHROMIUM_HOME=/usr/lib/$MODULE &&
 
@@ -56,7 +51,28 @@ EOF
 # A little jiggle for adboe/flash
   echo > third_party/adobe/flash/flapper_version.h &&
 
-  OPTS+=" -Dproprietary_codecs=1 -Dwerror= -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome-sandbox -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome   \
-          -Dfastbuild=1 -Dlinux_strip_binary=1 -Dlinux_use_seccomp_sandbox=1 -Dlinux_use_gold_binary=0 -Dlinux_use_gold_flags=0 -Dlinux_use_bundled_binutils=0              \
-          -Dffmpeg_branding=Chrome -DENABLE_MEDIA_CAPTURE=1 -Duse_system_speex=1 -Duse_system_libevent=1 -Duse_system_libxml=1 -Duse_system_libxslt=1 -Dproprietary_codecs=1\
-          -Duse_system_ffmpeg=1 -Dpython_ver=${PYTHON_VER} -Duse_system_libjpeg=1 -Dremove_webcore_debug_symbols=1 -Dusb_ids_path=/usr/share/usb.ids"
+# chrome-sandbox is hardcoded so using anything but that won't work
+# Let chromium find the usb id paths on launch instead of compiling
+# in the path.
+  OPTS+=" -Dproprietary_codecs=1                                \
+          -Dwerror=                                             \
+          -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome-sandbox  \
+          -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome   \
+          -Dfastbuild=1                                         \
+          -Dlinux_strip_binary=1                                \
+          -Dlinux_use_seccomp_sandbox=1                         \
+          -Dlinux_use_gold_binary=0                             \
+          -Dlinux_use_gold_flags=0                              \
+          -Dlinux_use_bundled_binutils=0                        \
+          -Dffmpeg_branding=Chrome                              \
+          -DENABLE_MEDIA_CAPTURE=1                              \
+          -Duse_system_speex=1                                  \
+          -Duse_system_libevent=1                               \
+          -Duse_system_libxml=1                                 \
+          -Duse_system_libxslt=1                                \
+          -Dproprietary_codecs=1                                \
+          -Duse_system_ffmpeg=1                                 \
+          -Dpython_ver=${PYTHON_VER}                            \
+          -Duse_system_libjpeg=1                                \
+          -Dremove_webcore_debug_symbols=1                      \
+          -Dusb_ids_path=/usr/share/usb.ids"

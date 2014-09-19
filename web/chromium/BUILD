@@ -41,6 +41,4 @@
 
   # theme installation
   mkdir -p /usr/share/themes/Chromium &&
-  cp -a $SOURCE_DIRECTORY/chrome/app/theme /usr/share/themes/Chromium/ &&
-
-  ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium
+  cp -a $SOURCE_DIRECTORY/chrome/app/theme /usr/share/themes/Chromium/
