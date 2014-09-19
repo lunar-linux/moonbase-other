@@ -1,0 +1,7 @@
+default_pre_build &&
+
+sedit '/CMAKE_BACKWARDS_COMPATIBILITY/ d' tools/unitsync/test/CMakeLists.txt &&
+
+sedit '/_APIENTRY OpenGLDebugMessageCallback/ s/GLvoid\*/const GLvoid\*/' rts/Rendering/GL/myGL.cpp &&
+
+sedit 's@\(const bool f =\).*@\1 bool(p);@' rts/System/ThreadPool.cpp
