@@ -1,5 +1,4 @@
 
-#Finally, the build!
 if [ "$PGO" == "y" ] ; then
   #CCache breaks the pgo build
   export CCACHE_DISABLE=1  &&
