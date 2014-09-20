@@ -1,6 +1,6 @@
 
 OPTS+=" --disable-static \
-        --with-gtk=2.0 \
+        --with-gtk=3.0 \
         --with-python"
 
 default_build
