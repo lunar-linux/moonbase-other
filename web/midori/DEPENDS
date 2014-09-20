@@ -1,10 +1,14 @@
-depends  webkit
+depends  glib-2
+depends  gtk+-3
+depends  webkitgtk3
 depends  vala
+depends  libxml2
+depends  libsoup
+depends  sqlite
+depends  libnotify
 
-optional_depends libunique  "--enable-unique"    "--disable-unique"    "for single instance midori"
-optional_depends gtk-doc    "--enable-apidocs"   "--disable-apidocs"   "enable creation of apidocs"
-optional_depends libnotify  "--enable-libnotify" "--disable-libnotify" "for notification support"
-optional_depends zeitgeist  "--enable-zeitgeist" "--disable-zeitgeist" "for zeitgeist support"
+optional_depends gtk-doc    "-DUSE_APIDOCS=1"   "-DUSE_APIDOCS=0"   "build API documentation"
+optional_depends zeitgeist  "-DUSE_ZEITGEIST=1" "-DUSE_ZEITGEIST=0" "for zeitgeist support"
 
 # this is a runtime dependency *shudder*
 optional_depends glib-networking "" "" "for TLS/SSL (https) encryption support"
