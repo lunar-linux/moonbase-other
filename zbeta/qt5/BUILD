@@ -99,6 +99,6 @@ export QT5_PLUGIN_PATH="\${Qt5_DIR}/lib/${MODULE}/plugins"
 export XDG_DATA_DIRS="\${XDG_DATA_DIRS:-/usr/share}:/usr/share/$MODULE"
 export PKG_CONFIG_PATH="\${Qt5_DIR}/lib/${MODULE}/pkgconfig:\${PKG_CONFIG_PATH}"
 export PATH="\${Qt5_DIR}/lib/${MODULE}/bin:\${PATH}"
-export CMAKE_PREFIX_PATH="\${Qt5_DIR}/lib/${MODULE}/cmake"
+export CMAKE_PREFIX_PATH="\${Qt5_DIR}/lib/${MODULE}/cmake:\${CMAKE_PREFIX_PATH}"
 EOF
   install -m644 $SOURCE_DIRECTORY/$MODULE.rc /etc/profile.d/
