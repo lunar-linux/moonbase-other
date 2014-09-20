@@ -8,6 +8,9 @@
   sedit "s:/bin/echo:/usr/bin/echo:g" build/common.gypi &&
   sedit "s:-Wno-#pragma-messages::g" third_party/opus/opus.gyp &&
 
+# When using pepperflash gets rid of; ERROR:audio_manager_base.cc(422)] Not implemented reached
+  sedit "s:NOTIMPLEMENTED();::" media/audio/audio_manager_base.cc
+
   cp -f $SCRIPT_DIRECTORY/nacl.gypi chrome/  &&
 
   echo Fixing dumb CPU optimizations please wait in patience...
