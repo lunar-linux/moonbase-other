@@ -1,15 +1,8 @@
-
   if [[ $LICENSE_TYPE == "y" ]] ; then
     LICENSE_TYPE="-opensource"
      else
     LICENSE_TYPE="-commercial"
   fi &&
-
-  sedit "s/-O2/$CFLAGS/" qtbase/mkspecs/common/gcc-base.conf &&
-  sed -i "/^QMAKE_LFLAGS\s/s|+=|+= ${LDFLAGS}|g" qtbase/mkspecs/common/gcc-base.conf &&
-
-#  Cannot find our /usr/bin/ls
-  sedit "s:/bin/ls:/usr/bin/ls:g" qtbase/src/corelib/global/global.pri &&
 
 # Making accessibility a hard option, disabling this will break QStyle and may break other internal parts of Qt and
 # create a source incompatible version which is unsupported. Why bother making it a switch if that is the case.
@@ -100,10 +93,12 @@ Categories=Qt;Settings;
 EOF
   install -D -m644 ${MODULE}-linguist.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-linguist.desktop &&
 
-  echo "export Qt5_DIR=\"${MODULE_PREFIX}\"" > $SOURCE_DIRECTORY/$MODULE.rc &&
-  echo export QT5_PLUGIN_PATH=\"'${Qt5_DIR}'/lib/${MODULE}/plugins\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
-  echo export XDG_DATA_DIRS=\"'${XDG_DATA_DIRS:-/usr/share}':/usr/share/$MODULE\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
-  echo export PKG_CONFIG_PATH=\"'${Qt5_DIR}'/lib/${MODULE}/pkgconfig:'${PKG_CONFIG_PATH}'\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
-  echo export PATH=\"'${Qt5_DIR}'/lib/${MODULE}/bin:'${PATH}'\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
-  echo export CMAKE_PREFIX_PATH=\"'${Qt5_DIR}'/lib/${MODULE}/cmake\" >> $SOURCE_DIRECTORY/$MODULE.rc &&
+  cat > $MODULE.rc << EOF &&
+export Qt5_DIR="${MODULE_PREFIX}"
+export QT5_PLUGIN_PATH="\${Qt5_DIR}/lib/${MODULE}/plugins"
+export XDG_DATA_DIRS="\${XDG_DATA_DIRS:-/usr/share}:/usr/share/$MODULE"
+export PKG_CONFIG_PATH="\${Qt5_DIR}/lib/${MODULE}/pkgconfig:\${PKG_CONFIG_PATH}"
+export PATH="\${Qt5_DIR}/lib/${MODULE}/bin:\${PATH}"
+export CMAKE_PREFIX_PATH="\${Qt5_DIR}/lib/${MODULE}/cmake"
+EOF
   install -m644 $SOURCE_DIRECTORY/$MODULE.rc /etc/profile.d/
