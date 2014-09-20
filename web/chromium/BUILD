@@ -30,6 +30,7 @@
   fi &&
 
   install -m 755 $SCRIPT_DIRECTORY/chromium-launcher.sh ${CHROMIUM_HOME} &&
+  ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium-browser &&
   ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium &&
 
   install -Dm644 LICENSE /usr/share/licenses/chromium/LICENSE &&
@@ -41,4 +42,12 @@
 
   # theme installation
   mkdir -p /usr/share/themes/Chromium &&
-  cp -a $SOURCE_DIRECTORY/chrome/app/theme /usr/share/themes/Chromium/
+  cp -a $SOURCE_DIRECTORY/chrome/app/theme /usr/share/themes/Chromium/ &&
+
+  if [ ! -f /etc/$MODULE/chromium.default ] ; then
+      mkdir -p /etc/$MODULE &&
+      echo "# Default settings for chromium. This file is sourced by /bin/bash from" > /etc/$MODULE/chromium.default &&
+      echo "# the chromium launcher." >> /etc/$MODULE/chromium.default &&
+      echo "# Options to pass to chromium." >> /etc/$MODULE/chromium.default &&
+      echo "#CHROMIUM_FLAGS=\"\"" >> /etc/$MODULE/chromium.default
+  fi 

@@ -1,13 +1,21 @@
-#!/bin/sh
-#
-# Copyright (c) 2009 The Chromium Authors. All rights reserved.
-# Use of this source code is governed by a BSD-style license that can be
-# found in the LICENSE file.
+#!/bin/bash
+
+# Allow the user to override command-line flags, bug #357629.
+# This is based on Debian's chromium-browser package, and is intended
+# to be consistent with Debian.
+# This file taken from gentoo and adapted for use in Lunar-Linux
+for f in /etc/chromium/*; do
+    [[ -f ${f} ]] && source "${f}"
+done
+
+# Prefer user defined CHROMIUM_USER_FLAGS (from env) over system
+# default CHROMIUM_FLAGS (from /etc/chromium/default).
+CHROMIUM_FLAGS=${CHROMIUM_USER_FLAGS:-"$CHROMIUM_FLAGS"}
 
 # Let the wrapped binary know that it has been run through the wrapper
-export CHROME_WRAPPER="`readlink -f "$0"`"
+export CHROME_WRAPPER=$(readlink -f "$0")
 
-PROGDIR="`dirname "$CHROME_WRAPPER"`"
+PROGDIR=${CHROME_WRAPPER%/*}
 
 case ":$PATH:" in
   *:$PROGDIR:*)
@@ -19,7 +27,14 @@ case ":$PATH:" in
     ;;
 esac
 
-# Set the .desktop file name
-export CHROME_DESKTOP="chromium-chromium.desktop"
+if [[ ${EUID} == 0 && -O ${XDG_CONFIG_HOME:-${HOME}} ]]; then
+	# Running as root with HOME owned by root.
+	# Pass --user-data-dir to work around upstream failsafe.
+	CHROMIUM_FLAGS="--user-data-dir=${XDG_CONFIG_HOME:-${HOME}/.config}/chromium
+		${CHROMIUM_FLAGS}"
+fi
 
-exec "$PROGDIR/chrome" "$@"
+# Set the .desktop file name
+export CHROME_DESKTOP="chromium-browser-chromium.desktop"
+
+exec -a "chromium-browser" "$PROGDIR/chrome" --extra-plugin-dir=/usr/lib/lunar/plugins ${CHROMIUM_FLAGS} "$@"
