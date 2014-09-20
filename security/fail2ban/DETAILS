@@ -1,0 +1,16 @@
+          MODULE=fail2ban
+         VERSION=0.8.13
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+      SOURCE_URL=https://github.com/fail2ban/fail2ban/releases/download/$VERSION/
+      SOURCE_VFY=sha256:854e641b194fa76e2b9579e4440e9b6dad4055bdd316b109df639658bfc7007f
+        WEB_SITE="http://www.find2ban.org/"
+         ENTERED=20140806
+         UPDATED=20140806
+           SHORT="Log file scanner to detect malicious activity"
+cat << EOF
+Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs
+that show the malicious signs -- too many password failures, seeking for
+exploits, etc. Generally Fail2Ban is then used to update firewall rules
+to reject the IP addresses for a specified amount of time, although any
+arbitrary other action (e.g. sending an email) could also be configured. 
+EOF
