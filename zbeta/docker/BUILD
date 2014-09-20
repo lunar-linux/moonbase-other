@@ -1,4 +1,5 @@
 export AUTO_GOPATH=1
+export DOCKER_GITCOMMIT
 ./hack/make.sh dynbinary &&
 prepare_install &&
 install -Dm0755 bundles/${VERSION}/dynbinary/docker-${VERSION} /usr/bin/docker &&
