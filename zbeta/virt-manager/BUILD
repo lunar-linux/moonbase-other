@@ -1,4 +1,3 @@
-
-OPTS+=" --without-tui"
-
-default_build
+python setup.py build &&
+prepare_install &&
+python setup.py install
