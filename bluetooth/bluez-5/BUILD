@@ -1,6 +1,12 @@
 
   mkdir -p /etc/bluetooth &&
 
+  if in_depends $MODULE systemd ; then
+    OPTS+=" --enable-systemd --disable-udev"
+   else
+    OPTS+=" --enable-udev --disable-systemd"
+  fi &&
+
   default_build &&
 
   install profiles/*/*.conf /etc/bluetooth/ &&

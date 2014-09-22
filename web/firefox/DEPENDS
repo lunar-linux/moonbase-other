@@ -6,7 +6,8 @@ depends nss
 depends curl
 depends alsa-lib
 depends libvpx
-depends cairo
+
+optional_depends cairo "--enable-system-cairo" "--disable-system-cairo" "Build with system cairo ${PROBLEM_COLOR}(unstable)"
 
 optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
 optional_depends "flash-plugin-11"  ""  ""  "To enable Flash plugin"
@@ -16,14 +17,14 @@ optional_depends "libevent"         "--with-system-libevent"  "--without-system-
 optional_depends "dbus-glib"        "--enable-dbus"  "--disable-dbus"  "For dbus support"
 optional_depends "libffi"           "--enable-system-ffi"  "--disable-system-ffi"  "Use system libffi instead of compiling the one in firefox"
 optional_depends "sun-jdk"          "--with-java-bin-path=/usr/java/default/bin" "" "For java support"
-optional_depends "pulseaudio"       "" "--disable-pulseaudio"  "Build PulseAudio sound backend"
+optional_depends "pulseaudio"       "--enable-pulseaudio" "--disable-pulseaudio"  "Build PulseAudio sound backend"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends "libjpeg-turbo"    "--with-system-jpeg" "--without-system-jpeg" "System jpeg requires libjpeg-turbo"
 
 # https://bugzilla.mozilla.org/show_bug.cgi?id=512940
 # Comment 9:  "System SQLite isn't supported by Mozilla (in fact we discourage its use)"
-optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"   "Use system sqlite ${PROBLEM_COLOR}(discouraged)${DEFAULT_COLOR}"
+optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"   "Use system sqlite ${PROBLEM_COLOR}(discouraged)"
 
 
 # This seems to break mozilla, most other distros do not use this.
