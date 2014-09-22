@@ -2,9 +2,12 @@
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
   mkdir -p ${MOZ_OBJDIR}  &&
 
+  CFLAGS+=" -fPIC" &&
+
   OPTS+=" --enable-application=xulrunner \
           --prefix=/usr \
           --libdir=/usr/lib \
+          --enable-shared  \
           --with-system-jpeg \
           --with-system-zlib \
           --with-system-bz2 \
@@ -14,6 +17,7 @@
           --enable-system-pixman \
           --with-pthreads \
           --enable-strip \
+          --enable-install-strip \
           --disable-tests \
           --disable-mochitest \
           --disable-installer \
