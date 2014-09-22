@@ -1,12 +1,15 @@
           MODULE=thunderbird
-         VERSION=31.1.0
+         VERSION=31.1.1
           SOURCE=thunderbird-$VERSION.source.tar.bz2
+         SOURCE2=thunderbird-31.1.1-mediadecodereader.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/comm-esr31
       SOURCE_URL=ftp://ftp.mozilla.org/pub/mozilla.org/thunderbird/releases/$VERSION/source
-      SOURCE_VFY=sha1:08d231541a80a79180826f98dde732c5796191f4
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha1:494c8725c02f36d16839d3e11e928caa8f5267f4
+     SOURCE2_VFY=sha1:274bbfcf6b50b1852dea52b4fd78ad27dd884ae6
         WEB_SITE=http://www.mozilla.org/projects/thunderbird
          ENTERED=20031021
-         UPDATED=20140902
+         UPDATED=20140922
            SHORT="A full-featured mail client"
 
 cat << EOF

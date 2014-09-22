@@ -1,4 +1,6 @@
 
+  patch_it $SOURCE2 1 &&
+
   export MOZ_CO_PROJECT=mail  &&
   export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
   export MOZILLA_OFFICIAL=1  &&
