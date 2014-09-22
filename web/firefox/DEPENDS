@@ -16,7 +16,7 @@ optional_depends "libevent"         "--with-system-libevent"  "--without-system-
 optional_depends "dbus-glib"        "--enable-dbus"  "--disable-dbus"  "For dbus support"
 optional_depends "libffi"           "--enable-system-ffi"  "--disable-system-ffi"  "Use system libffi instead of compiling the one in firefox"
 optional_depends "sun-jdk"          "--with-java-bin-path=/usr/java/default/bin" "" "For java support"
-optional_depends "pulseaudio"       "" "--disable-pulseaudio"  "Build PulseAudio sound backend"
+optional_depends "pulseaudio"       "--enable-pulseaudio" "--disable-pulseaudio"  "Build PulseAudio sound backend"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends "libjpeg-turbo"    "--with-system-jpeg" "--without-system-jpeg" "System jpeg requires libjpeg-turbo"
