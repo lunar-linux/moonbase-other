@@ -1,5 +1,10 @@
 sedit "s:FLAC/FLAC:FLAC:g" modules/codec/flac.c &&
 
+# Some giggling because of the recent ffmpeg bump
+sedit "s:libavcodec >= 53.34.0:libavcodec >= 56.1.100:g" configure &&
+sedit "s:libavutil >= 51.22.0:libavutil >= 54.7.100:g" configure &&
+sedit "s:libavcodec < 56:libavcodec < 57:g" configure &&
+
 if in_depends $MODULE lua; then
   export LUA_LIBS+=" /usr/lib/liblua.so" &&
   export LUA_CFLAGS+=" -DLUA_COMPAT_ALL=1"
