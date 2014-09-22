@@ -25,14 +25,14 @@ optional_depends  "vala"              \
                   "-DWITH_VALA=OFF"   \
                   "for vala bindings"
 
-optional_depends  "webkit"            \
-                  "-DWITH_WEBKIT=ON"  \
-                  "-DWITH_WEBKIT=OFF" \
-                  "webkit (circular dependency - compile without webkit first)"
+optional_depends  "webkitgtk3"           \
+                  "-DWITH_WEBKIT3=ON -DWITH_WEBKIT=ON"     \
+                  "-DWITH_WEBKIT3=OFF -DWITH_WEBKIT=OFF"   \
+                  "webkitgtk3 (circular dependency - compile without webkitgtk3 first)"
 
-optional_depends  "GConf"             \
-                  "-DWITH_GNOME=ON"   \
-                  "-DWITH_GNOME=OFF"  \
+optional_depends  "GConf"              \
+                  "-DWITH_GNOME3=ON"   \
+                  "-DWITH_GNOME3=OFF"  \
                   "for Gnome/GConf bindings"
 
 optional_depends  "mono"              \
