@@ -6,7 +6,8 @@ depends nss
 depends curl
 depends alsa-lib
 depends libvpx
-depends cairo
+
+optional_depends cairo "--enable-system-cairo" "--disable-system-cairo" "Build with system cairo ${PROBLEM_COLOR}(unstable)"
 
 optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
 optional_depends "flash-plugin-11"  ""  ""  "To enable Flash plugin"
@@ -23,7 +24,7 @@ optional_depends "libjpeg-turbo"    "--with-system-jpeg" "--without-system-jpeg"
 
 # https://bugzilla.mozilla.org/show_bug.cgi?id=512940
 # Comment 9:  "System SQLite isn't supported by Mozilla (in fact we discourage its use)"
-optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"   "Use system sqlite ${PROBLEM_COLOR}(discouraged)${DEFAULT_COLOR}"
+optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"   "Use system sqlite ${PROBLEM_COLOR}(discouraged)"
 
 
 # This seems to break mozilla, most other distros do not use this.
