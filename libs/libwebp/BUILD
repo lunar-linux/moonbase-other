@@ -1,7 +1,6 @@
-(
+
+  OPTS+=" --enable-libwebpmux --enable-libwebpdemux --enable-libwebpdecoder" &&
 
   ./autogen.sh &&
 
   default_build
-
-) > $C_FIFO 2>&1
