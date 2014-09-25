@@ -1,6 +1,6 @@
-(
 
-  sedit "s:/tmp/netpbm:$(pwd -P)/BUILD:g" Makefile.config.in buildtools/installnetpbm.pl doc/README.DJGPP  &&
+  rm -rf /tmp/netpbm &&
+  sedit 's|/link|/lib|' lib/Makefile &&
 
   # first ENTER to begin
   IACT="\n"                                             &&
@@ -19,6 +19,13 @@
 
   # just ENTER on inttypes.h
   IACT="${IACT}\n"                                      &&
+
+  # Use sse
+  if ! grep -q sse2 /proc/cpuinfo ; then
+     IACT="${IACT}n\n"
+   else
+     IACT="${IACT}y\n"
+  fi                                                    &&
 
   # optional dependency %JPEG
   if [[ $OPTS = *USE_JPEG* ]]; then
@@ -44,6 +51,9 @@
     IACT="${IACT}none\n"
   fi                                                    &&
 
+  # no svgalib
+  IACT="${IACT}none\n"                                  &&
+
   # optional dependency libX11
   if [[ $OPTS = *USE_X11* ]]; then
     IACT="${IACT}/usr/X11R6/lib/libX11.so\n"
@@ -52,40 +62,36 @@
     IACT="${IACT}none\n"
   fi                                                    &&
 
-  # no svgalib
-  IACT="${IACT}none\n"                                  &&
 
   # last newline for accepting default doc URL
-  IACT="{$IACT}\n"                                      &&
+  IACT="{$IACT}$(pwd -P)/doc\n"                         &&
 
 
   # FINALLY pipe the interactive string to configure
   echo  -e  "${IACT}"  |  ./configure                   &&
 
-#exit 5;
 
-  sedit "s/^CFLAGS =/CFLAGS = -fPIC /" Makefile.config  &&
+  [ `arch` == "x86_64" ] && echo 'CFLAGS_SHLIB = -fPIC' >> config.mk  &&
 
   make                                                  &&
-  make package                                          &&
+  make package PKGDIR=/tmp/netpbm                       &&
   prepare_install                                       &&
 
-  echo -e "$(pwd -P)/BUILD
+  echo -e "
 /usr
 /usr/bin
 /usr/lib
 N
 /usr/lib
-/usr/lib
 /usr/include
 /usr/share/man
 N
-" | ./installnetpbm  &&
+" | ./installnetpbm pkgdir=/tmp/newnetpbm &&
 
   # Fix documentation layout and permissions
   mv doc/* .  &&
   rmdir doc  &&
   chmod 644 INSTALL README* USERDOC  &&
-  gather_docs USERDOC
+  gather_docs USERDOC &&
 
-) > $C_FIFO 2>&1
+  rm -rf /tmp/netpbm
