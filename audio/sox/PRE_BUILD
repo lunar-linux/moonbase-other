@@ -1,7 +1,8 @@
-if [ -h /usr/bin/rec ] ;  then
-  rm /usr/bin/rec
-fi &&
-if [ -h /usr/share/man/man1/rec.1 ] ; then
-  rm /usr/share/man/man1/rec.1
-fi &&
-default_pre_build
+default_pre_build &&
+
+patch_it $SOURCE2 1 &&
+patch_it $SOURCE3 1 &&
+
+sed -i "15i #include <libavutil/mathematics.h>" src/ffmpeg.h &&
+
+sedit "s:ftello:ftell:g" src/vorbis.c
