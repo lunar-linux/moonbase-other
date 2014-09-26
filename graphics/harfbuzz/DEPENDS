@@ -1,6 +1,11 @@
 depends glib-2
 depends pbzip2
 
+optional_depends "graphite2"           \
+                 "--with-graphite2"    \
+                 "--without-graphite2" \
+                 "for additional shapers support"
+
 optional_depends "freetype2" \
                  "--with-freetype=yes" \
                  "--with-freetype=no" \
