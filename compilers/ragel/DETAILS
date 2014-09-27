@@ -1,0 +1,21 @@
+          MODULE=ragel
+         VERSION=6.8
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://www.complang.org/ragel/
+      SOURCE_VFY=sha1:95cabbcd52bd25d76c588ddf11e1fd242d7cbcc7
+        WEB_SITE=http://www.complang.org/ragel/
+         ENTERED=20140927
+         UPDATED=20140927
+           SHORT="compile executable finite state machines from regular languages"
+
+cat << EOF
+Ragel compiles executable finite state machines from regular languages. Ragel targets C, C++, Obj-C, C#, 
+D, Java, Go and Ruby Ragel state machines can not only recognize byte sequences as regular expression 
+machines do, but can also execute code at arbitrary points in the recognition of a regular language. Code 
+embedding is done using inline operators that do not disrupt the regular language syntax.
+
+The core language consists of standard regular expression operators (such as union, concatenation and Kleene 
+star) and action embedding operators. The user's regular expressions are compiled to a deterministic state 
+machine and the embedded actions are associated with the transitions of the machine. Understanding the formal 
+relationship between regular expressions and deterministic finite automata is key to using Ragel effectively.
+EOF
