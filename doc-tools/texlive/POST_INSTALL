@@ -1,9 +1,9 @@
 # Create symlinks in /usr/bin/, for e.g. pdflatex and lualatex.
 # Is not inside BUILD, to prevent /usr/bin/lualatex dual-ownership.
-texlinks -q --cnffile /usr/share/texmf/web2c/fmtutil.cnf
+texlinks -q --cnffile /usr/share/texmf-dist/web2c/fmtutil.cnf
 
 # Fixes "can't find foo.{tex,sty}" errors
-mktexlsr --quiet
+mktexlsr --quiet 
 
 # From http://tug.org/pipermail/tlbuild/2010q2/001606.html
 # Comments out comicvn.map and mscorevn.map from /usr/share/texmf-config/web2c/updmap.cfg
