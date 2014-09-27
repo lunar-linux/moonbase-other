@@ -1,0 +1,14 @@
+depends glib-2
+depends gtk+-3
+
+depends SDL
+
+depends zlib
+depends libXv
+depends libXtst
+
+depends nasm
+
+optional_depends pulseaudio "--enable-sound=pulseaudio" ""                  "use pulseaudio output (instead of SDL)"
+optional_depends libcdio    "--enable-libcdio"          "--disable-libcdio" "for CD-ROM support"
+optional_depends mesa-lib   "--enable-opengl"           "--disable-opengl"  "for OpenGL support"
