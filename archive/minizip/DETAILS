@@ -1,0 +1,20 @@
+          MODULE=minizip
+         VERSION=1.2.8
+          SOURCE=zlib-$VERSION.tar.gz
+      SOURCE_URL=http://www.zlib.net/current
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/zlib-$VERSION
+      SOURCE_VFY=sha1:a4d316c404ff54ca545ea71a27af7dbc29817088
+        WEB_SITE=http://www.zlib.net
+         ENTERED=20141002
+         UPDATED=20141002
+           SHORT="lossless data compression library"
+
+cat << EOF
+This is the minizip from the contrib section of the zlib tarball. It only installs minizip
+and nothing else.
+
+ Note: This is the zlib from core. There are several apps such as Chromium with their
+ own bundled version. I am not aware of any core modules that can make use of this
+ so figured it would be better to separate the two.
+
+EOF
