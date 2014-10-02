@@ -1,10 +1,17 @@
 
+# Lets do some ffmpeg stuff
+  pushd third_party/ffmpeg > /dev/null &&
+    chromium/scripts/build_ffmpeg.py linux ${FFMPEG_OPTS} --branding=Chrome &&
+    chromium/scripts/copy_config.sh &&
+    chromium/scripts/generate_gyp.py &&
+  popd > /dev/null &&
+  build/linux/unbundle/replace_gyp_files.py $OPTS &&
+
   # This is the configure step
-  build/gyp_chromium -f make build/all.gyp $OPTS -Drelease_extra_cflags="$CFLAGS" --depth=. &&
+  build/gyp_chromium build/all.gyp --depth=. $OPTS &&
 
   # This is the make step
-  make V=1 chrome chrome_sandbox BUILDTYPE=Release -j${MAKES} &&
-  make -C third_party/ffmpeg -f ffmpeg.Makefile BUILDTYPE=Release &&
+  ninja -C out/Release chrome chrome_sandbox -j${MAKES} &&
 
   prepare_install &&
 
@@ -12,7 +19,7 @@
   install -D out/Release/chrome ${CHROMIUM_HOME}/chrome &&
   install -Dm4755 -o root -g root out/Release/chrome_sandbox ${CHROMIUM_HOME}/chrome-sandbox &&
 
-  cp out/Release/{*.pak,libffmpegsumo.so} ${CHROMIUM_HOME} &&
+  cp out/Release/{*.pak,libffmpegsumo.so,libpdf.so,*.TOC} ${CHROMIUM_HOME} &&
 
   cp -a out/Release/locales out/Release/resources ${CHROMIUM_HOME}/ &&
 
@@ -34,8 +41,6 @@
   ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium &&
 
   install -Dm644 LICENSE /usr/share/licenses/chromium/LICENSE &&
-
-  install -m 755 out/Release/xdg-settings ${CHROMIUM_HOME} &&
 
   # symlink to lunar location for browser plugins, should be /usr/lib/lunar/plugins
   ln -sf /usr/lib/lunar/plugins ${CHROMIUM_HOME}/plugins &&

@@ -1,8 +1,15 @@
   default_pre_build &&
-  
+
+  patch_it $SOURCE2 0 &&
+
   export CHROMIUM_HOME=/usr/lib/$MODULE &&
 
-  PYTHON_VER=`installed_version Python | cut -c 1-3` &&
+  QA_FLAGS_IGNORED=".*\.nexe" &&
+  QA_PRESTRIPPED=".*\.nexe" &&
+
+  mkdir python2-path &&
+  PYTHON_VER=`module_version Python | cut -c 1-3` &&
+  ln -s /usr/bin/python2 python2-path/python &&
 
   sedit "s/'-Werror'/''/" build/common.gypi  &&
   sedit "s:/bin/echo:/usr/bin/echo:g" build/common.gypi &&
@@ -10,8 +17,6 @@
 
 # When using pepperflash gets rid of; ERROR:audio_manager_base.cc(422)] Not implemented reached
   sedit "s:NOTIMPLEMENTED();::" media/audio/audio_manager_base.cc
-
-  cp -f $SCRIPT_DIRECTORY/nacl.gypi chrome/  &&
 
   echo Fixing dumb CPU optimizations please wait in patience...
   find . -type f -print0 | xargs -0 sed -i \
@@ -25,19 +30,6 @@
   -e 's/=pentium/=native/g' \
   -e 's/=k6/=native/g' &&
 
-  mkdir -p "${SOURCE_DIRECTORY}"/.gyp  &&
-  cat << EOF > "${SOURCE_DIRECTORY}"/.gyp/include.gypi
-{
-        'target_defaults': {
-                 'cflags': [ '${CFLAGS// /','}' ],
-                'ldflags': [ '${LDFLAGS// /','}' ],
-        },
-        'variables': {
-  q              'remove_webcore_debug_symbols' : 1,
-        },
-}
-EOF
-
   if ! grep -q sse2 /proc/cpuinfo ; then
      OPTS+=" -Ddisable_sse2=0"
    else
@@ -47,35 +39,159 @@ EOF
   # set the target arch here
   if [ `arch` == "x86_64" ]; then
     OPTS+=" -Dtarget_arch=x64 -Dffmpeg_target_arch=x64 -Dsystem_libdir=lib64"
+    FFMPEG_OPTS+=" x64"
   else
     OPTS+=" -Dtarget_arch=ia32 -Dffmpeg_target_arch=ia32"
+    FFMPEG_OPTS+=" ia32"
   fi &&
 
-# A little jiggle for adboe/flash
-  echo > third_party/adobe/flash/flapper_version.h &&
+# Removing some bundled stuff.
+  build/linux/unbundle/remove_bundled_libraries.py \
+   'base/third_party/dmg_fp' \
+   'base/third_party/dynamic_annotations' \
+   'base/third_party/icu' \
+   'base/third_party/nspr' \
+   'base/third_party/superfasthash' \
+   'base/third_party/symbolize' \
+   'base/third_party/valgrind' \
+   'base/third_party/xdg_mime' \
+   'base/third_party/xdg_user_dirs' \
+   'breakpad/src/third_party/curl' \
+   'chrome/third_party/mozilla_security_manager' \
+   'courgette/third_party' \
+   'crypto/third_party/nss' \
+   'net/third_party/mozilla_security_manager' \
+   'net/third_party/nss' \
+   'third_party/adobe' \
+   'third_party/WebKit' \
+   'third_party/angle' \
+   'third_party/angle/src/third_party/compiler' \
+   'third_party/brotli' \
+   'third_party/cacheinvalidation' \
+   'third_party/cld_2' \
+   'third_party/cros_system_api' \
+   'third_party/cython/python_flags.py' \
+   'third_party/dom_distiller_js' \
+   'third_party/dom_distiller_js/package/proto_gen/third_party/dom_distiller_js' \
+   'third_party/ffmpeg' \
+   'third_party/fips181' \
+   'third_party/flot' \
+   'third_party/hunspell' \
+   'third_party/iccjpeg' \
+   'third_party/jstemplate' \
+   'third_party/khronos' \
+   'third_party/leveldatabase' \
+   'third_party/libaddressinput' \
+   'third_party/libjingle' \
+   'third_party/libphonenumber' \
+   'third_party/libsrtp' \
+   'third_party/libusb' \
+   'third_party/libvpx' \
+   'third_party/libvpx/source/libvpx/third_party/x86inc' \
+   'third_party/libwebm' \
+   'third_party/libxml/chromium' \
+   'third_party/libXNVCtrl' \
+   'third_party/libyuv' \
+   'third_party/lss' \
+   'third_party/lzma_sdk' \
+   'third_party/mesa' \
+   'third_party/modp_b64' \
+   'third_party/mt19937ar' \
+   'third_party/npapi' \
+   'third_party/opus' \
+   'third_party/ots' \
+   'third_party/pdfium' \
+   'third_party/pdfium/third_party/logging.h' \
+   'third_party/pdfium/third_party/macros.h' \
+   'third_party/pdfium/third_party/numerics' \
+   'third_party/pdfium/third_party/template_util.h' \
+   'third_party/polymer' \
+   'third_party/qcms' \
+   'third_party/readability' \
+   'third_party/sfntly' \
+   'third_party/skia' \
+   'third_party/smhasher' \
+   'third_party/sqlite' \
+   'third_party/tcmalloc' \
+   'third_party/tlslite' \
+   'third_party/trace-viewer' \
+   'third_party/trace-viewer/third_party/jszip' \
+   'third_party/trace-viewer/third_party/tvcm' \
+   'third_party/trace-viewer/third_party/tvcm/third_party/d3' \
+   'third_party/trace-viewer/third_party/tvcm/third_party/gl-matrix' \
+   'third_party/trace-viewer/third_party/tvcm/third_party/polymer' \
+   'third_party/undoview' \
+   'third_party/usrsctp' \
+   'third_party/webdriver' \
+   'third_party/webrtc' \
+   'third_party/widevine' \
+   'third_party/x86inc' \
+   'third_party/zlib/google' \
+   'url/third_party/mozilla' \
+   'v8/src/third_party/kernel' \
+   'v8/src/third_party/valgrind' \
+   'v8/third_party/fdlibm' \
+  --do-remove &&
 
 # chrome-sandbox is hardcoded so using anything but that won't work
 # Let chromium find the usb id paths on launch instead of compiling
 # in the path.
   OPTS+=" -Dproprietary_codecs=1                                \
           -Dwerror=                                             \
+          -Ddisable_fatal_linker_warnings=1                     \
           -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome-sandbox  \
           -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome   \
+          -Drelease_extra_cflags=${CFLAGS}                      \
+          -Dpython_ver=${PYTHON_VER}                            \
           -Dfastbuild=1                                         \
           -Dlinux_strip_binary=1                                \
-          -Dlinux_use_seccomp_sandbox=1                         \
-          -Dlinux_use_gold_binary=0                             \
-          -Dlinux_use_gold_flags=0                              \
-          -Dlinux_use_bundled_binutils=0                        \
           -Dffmpeg_branding=Chrome                              \
           -DENABLE_MEDIA_CAPTURE=1                              \
-          -Duse_system_speex=1                                  \
+          -Duse_system_bzip2=1                                  \
+          -Duse_system_flac=1                                   \
+          -Duse_system_harfbuzz=1                               \
+          -Duse_system_icu=1                                    \
+          -Duse_system_jsoncpp=1                                \
           -Duse_system_libevent=1                               \
+          -Duse_system_libjpeg=1                                \
+          -Duse_system_libpng=1                                 \
+          -Duse_system_libwebp=1                                \
           -Duse_system_libxml=1                                 \
           -Duse_system_libxslt=1                                \
-          -Dproprietary_codecs=1                                \
-          -Duse_system_ffmpeg=1                                 \
-          -Dpython_ver=${PYTHON_VER}                            \
-          -Duse_system_libjpeg=1                                \
+          -Duse_system_minizip=1                                \
+          -Duse_system_nspr=1                                   \
+          -Duse_system_protobuf=1                               \
+          -Duse_system_re2=1                                    \
+          -Duse_system_snappy=1                                 \
+          -Duse_system_speex=1                                  \
+          -Duse_system_xdg_utils=1                              \
+          -Duse_system_zlib=1                                   \
+          -Dlinux_link_libspeechd=1                             \
+          -Dlibspeechd_h_prefix=speech-dispatcher/              \
           -Dremove_webcore_debug_symbols=1                      \
-          -Dusb_ids_path=/usr/share/usb.ids"
+          -Dusb_ids_path=/usr/share/usb.ids                     \
+          -Duse_gnome_keyring=1                                 \
+          -Dlinux_link_gnome_keyring=1                          \
+          -Dlinux_link_gsettings=1                              \
+          -Dlinux_link_libpci=1                                 \
+          -Duse_mojo=0                                          \
+          -Dclang=0                                             \
+          -Dhost_clang=0                                        \
+          -Dicu_use_data_file_flag=0                            \
+          -Dlinux_use_seccomp_sandbox=1                         \
+          -Dlinux_use_bundled_binutils=0                        \
+          -Dlinux_use_bundled_gold=0                            \
+          -Dlinux_use_gold_flags=0                              \
+          -Dlogging_like_official_build=1                       \
+          -Ddisable_nacl=1" &&
+
+# A little jiggle for adboe/flash
+  echo > third_party/adobe/flash/flapper_version.h &&
+  OPTS+=" -Dflapper_version_h_file=flapper_version.h" &&
+
+  third_party/libaddressinput/chromium/tools/update-strings.py &&
+
+# The 100 percent avatar png was causing tools/grit/grit.py to tank on its chunkability 
+# Don't care 200 percent is bigger, just copy one to the other and press on.
+  cp chrome/app/theme/default_200_percent/common/avatar_menu_profile.png chrome/app/theme/default_100_percent/common/avatar_menu_profile.png
+
