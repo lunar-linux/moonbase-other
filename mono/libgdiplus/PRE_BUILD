@@ -1,5 +1,3 @@
 default_pre_build &&
 
-patch_it $SOURCE2 1 &&
-
-sedit 's:\(testgdi_LDADD = \).*:\1 $(LDADDS) -lglib-2.0 -lX11:' tests/Makefile.in
+patch_it $SOURCE2 1
