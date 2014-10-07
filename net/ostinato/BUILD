@@ -19,7 +19,7 @@ Exec=${MODULE_PREFIX}/bin/ostinato
 Icon=${MODULE_PREFIX}/share/$MODULE/name.png
 Terminal=false
 Type=Application
-Categories=Qt;KDE;Internet;
+Categories=Application;Network;
 EOF
 
   install -D -m644 ${MODULE}.desktop ${MODULE_PREFIX}/share/applications/${MODULE}.desktop
