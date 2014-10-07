@@ -1,4 +1,3 @@
-(
 
 # This is a temp thing until I can identify which file in /doc is causing this error;
 # xargs: unmatched single quote; by default quotes are special to xargs unless you use the -0 option
@@ -6,15 +5,20 @@
   rm -rf doc/guide/ &&
 #
 
-  OOSB_DIR="$SOURCE_DIRECTORY/$MODULE-build"  &&
+  default_cmake_build
 
-  mkdir $OOSB_DIR  &&
-  cd $OOSB_DIR     &&
+  if in_depends $MODULE wxGTK ; then
+    install ../src/GUI/babel*.* /usr/share/pixmaps &&
+ # Desktop menu entry
+  cat > $MODULE.desktop << EOF  &&
+[Desktop Entry]
+Type=Application
+Name=Openbabel
+Comment=A chemical toolbox
+Exec=/usr/bin/obgui
+Icon=/usr/share/pixmaps/babel2.ico
+Categories=Science;
+EOF
 
-  cmake $SOURCE_DIRECTORY/ -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX  \
-                           -DCMAKE_BUILD_TYPE=RELEASE             \
-                           $OPTS                                 &&
-
-  default_make
-
-) > $C_FIFO 2>&1
+  install -D -m644 $MODULE.desktop /usr/share/applications/$MODULE.desktop
+  fi
