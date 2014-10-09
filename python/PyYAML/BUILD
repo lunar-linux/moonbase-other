@@ -5,7 +5,7 @@
 
 # Now for the Python-3 part
   if in_depends $MODULE Python-3 ; then
-      python setup.py build    &&
+      python3 setup.py build    &&
       prepare_install          &&
       python3 setup.py install --optimize=1
   fi
