@@ -1,7 +1,9 @@
 
+  PYTHON_VER="$(module_version Python-3 | cut -c1)" &&
+
 # Has trouble finding llvm
   if in_depends $MODULE llvm && [[ `arch` == "x86_64" ]]; then
-    OPTS+=" -DLLVM_LIBRARY=/usr/lib/libLLVM-3.4.so"
+    OPTS+=" -DLLVM_LIBRARY=/usr/lib/libLLVM-$(module_version llvm).so"
   fi &&
 
   OPTS+=" -DWITH_IMAGE_REDCODE=ON \
@@ -12,10 +14,10 @@
           -DWITH_PLAYER=ON   \
           -DWITH_INSTALL_PORTABLE=OFF \
           -DPYTHON_VERSION=3.4 \
-          -DPYTHON_LIBRARY=/usr/lib/libpython3.4m.so \
-          -DPYTHON_REQUESTS_PATH=/usr/lib/python3.4/site-packages/pip/_vendor/requests \
-          -DPYTHON_LIBRARIES=/usr/lib/python3.4 \
-          -DPYTHON_INCLUDE_DIRS=/usr/include/python3.4m" &&
+          -DPYTHON_LIBRARY=/usr/lib/libpython3.${PYTHON_VER}m.so \
+          -DPYTHON_REQUESTS_PATH=/usr/lib/python3.${PYTHON_VER}/site-packages/pip/_vendor/requests \
+          -DPYTHON_LIBRARIES=/usr/lib/python3.${PYTHON_VER} \
+          -DPYTHON_INCLUDE_DIRS=/usr/include/python3.${PYTHON_VER}m" &&
 
   default_cmake_config &&
 
