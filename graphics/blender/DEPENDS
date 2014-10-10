@@ -7,23 +7,25 @@ depends scons
 depends %GLX
 depends yasm
 depends boost
+depends pcre
+depends glew
+depends eigen3
 
-optional_depends "lzma-sdk"   "-DWITH_LZMA=ON"   "-DWITH_LZMA=OFF"   "lzma compression support for pointcache"
-optional_depends "lzo"        "-DWITH_LZO=ON"    "-DWITH_LZO=OFF"    "real-time data compression support for pointcache"
-optional_depends "openal"     "-DWITH_OPENAL=ON" "-DWITH_OPENAL=OFF" "For 3D Audio support"
-optional_depends "SDL"        "-DWITH_SDL=ON"    "-DWITH_SDL=OFF"    "low-level access to hardware support for joystick and sound"
-optional_depends "fftw3"      "-DWITH_FFTW3=ON -DWITH_MOD_OCEANSIM=ON"  "-DWITH_FFTW3=OFF -DWITH_MOD_OCEANSIM=OFF"  "Fast Fourier Tranform support for ocean modifier, smoke and sounds effects"
-optional_depends "jack"       "-DWITH_JACK=ON"   "-DWITH_JACK=OFF"   "For low-latency audio support"
+optional_depends "lzma-sdk"   "-DWITH_LZMA=1"   "-DWITH_LZMA=0"   "lzma compression support for pointcache"
+optional_depends "lzo"        "-DWITH_LZO=1"    "-DWITH_LZO=0"    "real-time data compression support for pointcache"
+optional_depends "openal"     "-DWITH_OPENAL=1" "-DWITH_OPENAL=0" "For 3D Audio support"
+optional_depends "SDL"        "-DWITH_SDL=1"    "-DWITH_SDL=0"    "low-level access to hardware support for joystick and sound"
+optional_depends "fftw3"      "-DWITH_FFTW3=1 -DWITH_MOD_OCEANSIM=1"  "-DWITH_FFTW3=0 -DWITH_MOD_OCEANSIM=0"  "Fast Fourier Tranform support for ocean modifier, smoke and sounds effects"
+optional_depends "jack"       "-DWITH_JACK=1"   "-DWITH_JACK=0"   "For low-latency audio support"
+optional_depends "llvm"       "-DWITH_LLVM=1"   "-DWITH_LLVM=0"   "For Low Level Virtual Machine support"
 
-optional_depends "tiff"       "-DWITH_IMAGE_TIFF=ON"      "-DWITH_IMAGE_TIFF=OFF"      "For tiff graphcis support"
-optional_depends "openexr"    "-DWITH_IMAGE_OPENEXR=ON"   "-DWITH_IMAGE_OPENEXR=OFF"   "For exr support"
-optional_depends "ffmpeg"     "-DWITH_CODEC_FFMPEG=ON"    "-DWITH_CODEC_FFMPEG=OFF"    "For ffmpeg audio/video support"
-optional_depends "libsndfile" "-DWITH_CODEC_SNDFILE=ON"   "-DWITH_CODEC_SNDFILE=OFF"   "For sound file audio support"
-optional_depends "glew"       "-DWITH_SYSTEM_GLEW=ON"     "-DWITH_SYSTEM_GLEW=OFF"     "For OpenGL Extension support, say yes for system provided"
-optional_depends "openjpeg"   "-DWITH_SYSTEM_OPENJPEG=ON" "-DWITH_SYSTEM_OPENJPEG=OFF" "For openjpeg support, say yes for system provided"
+optional_depends "tiff"       "-DWITH_IMAGE_TIFF=1"      "-DWITH_IMAGE_TIFF=0"      "For tiff graphcis support"
+optional_depends "openexr"    "-DWITH_IMAGE_OPENEXR=1"   "-DWITH_IMAGE_OPENEXR=0"   "For exr support"
+optional_depends "ffmpeg"     "-DWITH_CODEC_FFMPEG=1"    "-DWITH_CODEC_FFMPEG=0"    "For ffmpeg audio/video support"
+optional_depends "libsndfile" "-DWITH_CODEC_SNDFILE=1"   "-DWITH_CODEC_SNDFILE=0"   "For sound file audio support"
+optional_depends "openjpeg"   "-DWITH_SYSTEM_OPENJPEG=1" "-DWITH_SYSTEM_OPENJPEG=0" "For openjpeg support, say yes for system provided"
 
-optional_depends "llvm"       "-DWITH_LLVM=ON -DLLVM_DIRECTORY=/usr" "-DWITH_LLVM=OFF" "For Low Level Virtual Machine support"
 
-optional_depends "imageworks-OpenColorIO" "-DWITH_OPENCOLORIO=ON" "-DWITH_OPENCOLORIO=OFF" "For color management support"
-optional_depends "OpenImageIO-oiio" "-DWITH_CYCLES=ON" "-DWITH_CYCLES=OFF" "For cycles support"
+optional_depends "imageworks-OpenColorIO" "-DWITH_OPENCOLORIO=1" "-DWITH_OPENCOLORIO=0" "For color management support"
+optional_depends "OpenImageIO-oiio" "-DWITH_CYCLES=1" "-DWITH_CYCLES=0" "For cycles support"
 
