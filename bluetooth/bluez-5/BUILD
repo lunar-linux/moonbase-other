@@ -2,9 +2,9 @@
   mkdir -p /etc/bluetooth &&
 
   if in_depends $MODULE systemd ; then
-    OPTS+=" --enable-systemd --disable-udev"
+    OPTS+=" --enable-systemd --disable-udev --enable-library"
    else
-    OPTS+=" --enable-udev --disable-systemd"
+    OPTS+=" --enable-udev --disable-systemd --enable-library"
   fi &&
 
   default_build &&
