@@ -1,4 +1,5 @@
 
+  mv configure.in configure.ac &&
   ./autogen.sh &&
 
   CFLAGS+=" -fPIC" &&
@@ -17,4 +18,9 @@
     cd swig/python &&
     python setup.py build &&
     python setup.py install
+  fi &&
+
+  if in_depends $MODULE Python ; then
+    python3 setup.py build &&
+    python3 setup.py install
   fi
