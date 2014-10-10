@@ -17,7 +17,7 @@
   if in_depends $MODULE Python ; then
     cd swig/python &&
     python setup.py build &&
-    python setup.py install
+    python setup.py install --root=/
   fi &&
 
   if in_depends $MODULE Python ; then
