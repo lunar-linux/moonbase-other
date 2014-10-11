@@ -29,3 +29,6 @@ optional_depends "openjpeg"   "-DWITH_SYSTEM_OPENJPEG=1" "-DWITH_SYSTEM_OPENJPEG
 optional_depends "imageworks-OpenColorIO" "-DWITH_OPENCOLORIO=1" "-DWITH_OPENCOLORIO=0" "For color management support"
 optional_depends "OpenImageIO-oiio" "-DWITH_CYCLES=1" "-DWITH_CYCLES=0" "For cycles support"
 
+# This does have -D switch but we do not know if numpy has been compiled with Python-3 support
+# so this will be checked in build
+optional_depends "numpy" "" "" "To support high-performance numerical calculations"

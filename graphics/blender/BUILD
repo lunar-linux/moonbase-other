@@ -6,9 +6,14 @@
     OPTS+=" -DLLVM_LIBRARY=/usr/lib/libLLVM-$(module_version llvm).so"
   fi &&
 
+  if in_depends $MODULE numpy && [ -f /usr/bin/f2py3 ] ; then
+    OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=ON"
+     else
+    OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=OFF"
+  fi &&
+
   OPTS+=" -DWITH_IMAGE_REDCODE=ON \
           -DWITH_PYTHON_INSTALL=OFF \
-          -DWITH_PYTHON_INSTALL_NUMPY=OFF \
           -DWITH_STATIC_LIBS=OFF \
           -DWITH_PYTHON=ON \
           -DWITH_PLAYER=ON   \
