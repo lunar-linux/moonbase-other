@@ -19,6 +19,7 @@
 
   ./configure  --prefix=/usr                 \
                --sysconfdir=/etc             \
+               --mandir=/usr/man             \
                --with-config-file-path=/etc  \
                --enable-dbase                \
                --enable-dbx                  \
