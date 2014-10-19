@@ -1,5 +1,7 @@
 depends libxslt
 depends telepathy-glib
-#depends libtelepathy
+depends libgnome-keyring
 
-optional_depends "gnome-keyring" "--enable-keyring" "--disable-keyring" "for gnome-keyring suppport"
+optional_depends "NetworkManager" "--with-connectivity=nm" "--with-connectivity=no" "for network connectivity support"
+optional_depends "gtk-doc"        "--enable-gtk-doc"       "--disable-gtk-doc"      "for documentation generation"
+
