@@ -1,7 +1,7 @@
 (
   sedit "s:priv->quality, true: priv->quality, TRUE:" goo/JpegWriter.cc &&
 
-  OPTS+=" --disable-static --disable-gtk-test --enable-xpdf-headers" &&
+  OPTS+=" --disable-static --disable-gtk-test --enable-xpdf-headers --enable-poppler-glib" &&
 
   if in_depends poppler qt4; then
     . /etc/profile.d/qt4.rc
