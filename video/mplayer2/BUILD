@@ -5,7 +5,12 @@
 
   ./configure  --target=$BUILD                              \
                --prefix=/usr                                \
-               --confdir=/etc                               \
+               --confdir=/etc/mplayer                       \
                $OPTS                                       &&
 
-  default_make
+  default_make &&
+
+  mkdir -p /etc/mplayer &&
+  sedit 's/gmplayer/mplayer/g' etc/mplayer.desktop &&
+  install -m 644 etc/mplayer.desktop /usr/share/applications/mplayer.desktop &&
+  install -Dm644 etc/{codecs.conf,input.conf,example.conf} /etc/mplayer/
