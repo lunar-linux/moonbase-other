@@ -1,10 +1,4 @@
-(
 
   perl  Makefile.PL  &&
-  make               &&
-  make test          &&
 
-  prepare_install    &&
-  make install
-
-) > $C_FIFO 2>&1
+  default_make
