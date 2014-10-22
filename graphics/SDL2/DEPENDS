@@ -1,0 +1,27 @@
+depends  pkgconfig
+
+optional_depends "alsa-lib"                                      \
+                 "--enable-alsa"                                 \
+                 "--disable-alsa"                                \
+                 "for Advanced Linux Sound Architecture support"
+
+optional_depends "esound"                                        \
+                 "--enable-esd"                                  \
+                 "--disable-esd"                                 \
+                 "for Enlighted Sound Daemon support"
+
+optional_depends "nas"                                           \
+                 "--enable-nas"                                  \
+                 "--disable-nas"                                 \
+                 "for Network Audio System support"
+
+optional_depends "pulseaudio"                                    \
+                 "--enable-pulseaudio"                           \
+                 "--disable-pulseaudio"                          \
+                 "for PulseAudio audio support"
+
+optional_depends "libX11"                                        \
+                 "--enable-video-x11"                            \
+                 "--disable-video-x11"                           \
+                 "for X11 video driver"
+
