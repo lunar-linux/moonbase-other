@@ -1,0 +1,12 @@
+depends  nasm
+depends  bison
+depends  flex
+depends  gtk+-2
+
+optional_depends "zlib"     "--with-zlib"     "--without-zlib"     "for LZW compression via zlib"
+optional_depends "expat"    "--with-expat"    "--without-expat"    "for XML support via expat"
+optional_depends "%JPEG"    "--with-libjpeg"  "--without-libjpeg"  "for JPEG image support"
+optional_depends "tiff"     "--with-libtiff"  "--without-libtiff"  "for TIFF image support"
+optional_depends "libpng"   "--with-libpng"   "--without-libpng"   "for PNG image support"
+optional_depends "SDL"      "--with-sdl"      "--without-sdl"      "for audio support via SDL"
+optional_depends "mesa-lib" "--with-opengl"   "--without-opengl"   "for OpenGL support (needed for hugin)"
