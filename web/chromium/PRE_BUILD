@@ -16,9 +16,9 @@
   sedit "s:-Wno-#pragma-messages::g" third_party/opus/opus.gyp &&
 
 # When using pepperflash gets rid of; ERROR:audio_manager_base.cc(422)] Not implemented reached
-  sedit "s:NOTIMPLEMENTED();::" media/audio/audio_manager_base.cc
+  sedit "s:NOTIMPLEMENTED();::" media/audio/audio_manager_base.cc &&
 
-  echo Fixing dumb CPU optimizations please wait in patience...
+  echo "Fixing CPU optimizations please wait..." &&
   find . -type f -print0 | xargs -0 sed -i \
   -e 's/-mcpu=/-march=/g' \
   -e 's/-mtune=/-march=/g' \
