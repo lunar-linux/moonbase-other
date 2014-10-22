@@ -1,3 +1,4 @@
+cmake -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_INSTALL_PREFIX=/usr
 
-  ./bootstrap &&
-  default_build
+default_make
