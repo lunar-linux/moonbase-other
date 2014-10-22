@@ -1,14 +1,14 @@
-OPTS="--with-lib-preference='system' $OPTS" &&
+OPTS+=" --with-lib-preference=system \
+        --with-libsndfile=system \
+        --with-expat=system \
+        --enable-unicode \
+        --with-libresample=no \
+        --with-libsamplerate=no \
+        --with-libsoxr=system \
+        --with-portaudio=local \
+        --with-widgetextra=local \
+        --with-portmixer"
 
-OPTS+=" --with-libsndfile=system --with-expat=system --enable-unicode" &&
-
-# use soxr for samplerate conversion
-OPTS+=" --with-libresample=no --with-libsamplerate=no --with-libsoxr=system"  &&
-
-# use bundled version because system lib misses audacity additions
-OPTS+=" --with-portaudio=local --with-portmixer" &&
-
-# ffmpeg is broken due to outdated API
-OPTS+=" --without-ffmpeg" &&
+export WX_CONFIG=/usr/bin/wx-config-2.8
 
 default_build

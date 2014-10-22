@@ -1,5 +1,5 @@
 depends  expat
-depends  wxGTK
+depends  wxgtk28
 depends  libsndfile
 depends  soxr
 
@@ -53,3 +53,8 @@ optional_depends        "ladspa_sdk" \
                         "--enable-ladspa" \
                         "--disable-ladspa" \
                         "for ladspa plugin support"
+
+optional_depends        "ffmpeg" \
+                        "--with-ffmpeg" \
+                        "--without-ffmpeg" \
+                        "for ffmpeg support"
