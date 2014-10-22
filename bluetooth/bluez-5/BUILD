@@ -2,9 +2,9 @@
   mkdir -p /etc/bluetooth &&
 
   if in_depends $MODULE systemd ; then
-    OPTS+=" --enable-systemd --disable-udev --enable-threads --enable-library"
+    OPTS+=" --enable-systemd --disable-udev --enable-threads --enable-library --enable-tools"
    else
-    OPTS+=" --enable-udev --disable-systemd --enable-threads --enable-library"
+    OPTS+=" --enable-udev --disable-systemd --enable-threads --enable-library --enable-tools"
   fi &&
 
   default_build &&
