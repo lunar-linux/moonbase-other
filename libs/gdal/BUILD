@@ -3,7 +3,6 @@
   ./autogen.sh &&
 
   CFLAGS+=" -fPIC" &&
-  sedit "s:openjpeg-2.0:openjpeg-1.5:g" configure &&
 
 # Do a little dance, make a little love, get Python tonight.
 # The way their swig/Python scripts works, gdal needs to be
