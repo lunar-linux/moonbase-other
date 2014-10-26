@@ -1,7 +1,8 @@
-(
 
-  bad_flags -fomit-frame-pointer
+  bad_flags -fomit-frame-pointer &&
+
+  LDFLAGS+=" -lz" &&
+
   default_build  &&
-  gather_docs TODO
 
-) > $C_FIFO 2>&1
+  gather_docs TODO

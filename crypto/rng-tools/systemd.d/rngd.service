@@ -1,0 +1,8 @@
+[Unit]
+Description=Hardware RNG Entropy Gatherer Daemon
+
+[Service]
+ExecStart=/usr/sbin/rngd -f --no-tpm=1 --rng-device=/dev/urandom
+
+[Install]
+WantedBy=multi-user.target
