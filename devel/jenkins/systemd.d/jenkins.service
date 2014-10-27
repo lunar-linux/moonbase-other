@@ -1,0 +1,22 @@
+[Unit]
+Description=Jenkins CI server
+After=network.target
+
+[Service]
+User=jenkins
+Type=simple
+EnvironmentFile=/etc/config.d/jenkins
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=jenkins
+ExecStart=/bin/sh -c 'eval $JENKINS_COMMAND_LINE'
+OOMScoreAdjust=-1000
+LimitCPU=infinity
+LimitFSIZE=infinity
+LimitDATA=infinity
+LimitCORE=0
+LimitAS=infinity
+LimitLOCKS=infinity
+
+[Install]
+WantedBy=multi-user.target
