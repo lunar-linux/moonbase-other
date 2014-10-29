@@ -1,13 +1,16 @@
           MODULE=xca
          VERSION=0.9.3
           SOURCE=${MODULE}-${VERSION}.tar.gz
+         SOURCE2=0001-Fix-for-openssl-1.0.1i.patch
       SOURCE_URL=$SFORGE_URL/$MODULE
+     SOURCE2_URL=http://sourceforge.net/p/xca/patches/14/attachment/
       SOURCE_VFY=sha1:3d9bcadb7064316b084532472229da9d4b0631e3
+     SOURCE2_VFY=sha1:64f3c58ca641c1461a845e97895c2930c224d51e
         WEB_SITE=http://xca.sourceforge.net/
          ENTERED=20120513
-         UPDATED=20120513
+         UPDATED=20141029
            SHORT="Certificate and Key management interface"
-cat <<EOF
+cat << EOF
 This application is intended for creating and managing X.509
 certificates, certificate requests, RSA, DSA and EC private
 keys, Smartcards and CRLs. Everything that is needed for a CA is
