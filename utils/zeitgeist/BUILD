@@ -1,7 +1,8 @@
-(
 
-  sedit "156,163d" configure.ac &&
-  autoreconf -i &&
+  sedit "271,278d" configure.ac &&
+
+  autoreconf -fi &&
+
+  OPTS+=" --enable-datahub --enable-fts --enable-explain-queries --disable-telepathy" &&
+
   default_build
-
-) > $C_FIFO 2>&1

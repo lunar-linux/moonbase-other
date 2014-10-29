@@ -1,4 +1,12 @@
+depends sqlite
 depends rdflib
 depends XML-Parser
 depends raptor
 depends xapian-core
+depends vala
+depends libzeitgeist
+
+optional_depends "gobject-introspection" "--enable-introspection" "--disable-introspection" "For introspection support" y
+
+# Borks the make
+#optional_depends "telepathy-glib"        "--enable-telepathy"     "--disable-telepathy"     "For telepathy glib bindings support" y
