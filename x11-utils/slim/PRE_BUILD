@@ -5,7 +5,8 @@ patch_it $SOURCE3 1 &&
 
 sedit 's@FREETYPE_INCLUDE_DIR_freetype2@FREETYPE_INCLUDE_DIR_ft2build@' CMakeLists.txt &&
 
-sedit '126 i target_link_libraries(libslim ${PAM_LIBRARY})' CMakeLists.txt &&
+# link against pam with USE_PAM
+sedit '/target_link_libraries(${PROJECT_NAME} ${PAM_LIBRARY})/ a target_link_libraries(libslim ${PAM_LIBRARY})' CMakeLists.txt &&
 
 # fix their broken sample configuration
 sedit 's/^sessions.*/#\0/; T; a sessiondir /usr/share/xsessions' slim.conf &&
