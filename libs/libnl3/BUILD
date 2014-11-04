@@ -1,4 +1,4 @@
-  OPTS+=" --sysconfdir=/etc/$MODULE  --sbindir=/usr/bin"  &&
+  OPTS+=" --sysconfdir=/etc/$MODULE --sbindir=/usr/bin --disable-static"  &&
 
   default_build  &&
 
