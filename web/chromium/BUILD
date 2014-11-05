@@ -10,8 +10,9 @@
   # This is the configure step
   build/gyp_chromium build/all.gyp --depth=. $OPTS &&
 
-  # This is the make step
-  ninja -C out/Release chrome chrome_sandbox -j${MAKES} &&
+  # This is the make step. According to its --help the default -j is
+  # derived from your number of CPUs.
+  ninja -v -C out/Release chrome chrome_sandbox &&
 
   prepare_install &&
 
