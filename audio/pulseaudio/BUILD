@@ -3,9 +3,6 @@
      OPTS+=" --with-udev-rules-dir=/usr/lib/udev/rules.d"
   fi &&
 
-  libtoolize --copy --force --automake &&
-  autoreconf &&
-
   OPTS+=" --disable-hal-compat" &&
 
   default_build &&
