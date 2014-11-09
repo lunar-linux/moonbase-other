@@ -1,15 +1,15 @@
           MODULE=nouveau-fw
-         VERSION=340.46
+         VERSION=340.58
           SOURCE=extract_firmware.py
-         SOURCE2=NVIDIA-Linux-x86-340.46.run
+         SOURCE2=NVIDIA-Linux-x86-${VERSION}.run
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
       SOURCE_URL=https://raw.github.com/imirkin/re-vp2/master/
-     SOURCE2_URL=http://us.download.nvidia.com/XFree86/Linux-x86/340.46/
+     SOURCE2_URL=http://us.download.nvidia.com/XFree86/Linux-x86/${VERSION}/
       SOURCE_VFY=sha1:33a0fbbb0e9a1898a68ef4441bf39b3e06d1dd73
-     SOURCE2_VFY=sha1:6b3fd297cd031e03b6acdaae5568f92f097b4b7f
+     SOURCE2_VFY=sha1:7560a2d992f2d9a1498e8cfff38dc64025f23a85
         WEB_SITE=http://nouveau.freedesktop.org/wiki/VideoAcceleration/
          ENTERED=20140801
-         UPDATED=20141018
+         UPDATED=20141109
            SHORT="extract firmware from NVIDIA blobs"
 
 cat << EOF
