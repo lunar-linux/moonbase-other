@@ -20,8 +20,6 @@ optional_depends "GConf"         "--enable-gconf"       "--disable-gconf"      "
 optional_depends "gtk+-3"        "--enable-gtk3"        "--disable-gtk3"       "optional Gtk+ 3 support"
 optional_depends "libsamplerate" "--enable-samplerate"  "--disable-samplerate" "optional libsamplerate support"
 optional_depends "openssl"       "--enable-openssl"     "--disable-openssl"    "for OpenSSL support"
-optional_depends "bluez"         "--enable-bluez4"      "--disable-bluez4"     "optional BlueZ 4 support"
-optional_depends "bluez-5"       "--enable-bluez5"      "--disable-bluez5"     "optional BlueZ 5 support"
 optional_depends "orc"           "--enable-orc"         "--disable-orc"        "for orc support"
 optional_depends "esound"        "--enable-esound"      "--disable-esound"     "for esound support"
 
@@ -29,3 +27,8 @@ optional_depends "alsa-oss"      "--enable-oss-output --enable-oss-wrapper"   \
                                  "--disable-oss-output --disable-oss-wrapper" \
                                  "optional OSS output support"
 
+optional_depends "webrtc-audio-processing" "--enable-webrtc-aec" \
+                 "--disable-webrtc-aec" "For WebRTC echo cancellation support"
+
+# We take care of which bluez to enable in the BUILD
+optional_depends "%BLUEZ"        ""      ""     "optional BlueZ support"
