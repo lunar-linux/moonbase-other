@@ -7,6 +7,10 @@
     . /etc/profile.d/qt4.rc
   fi &&
 
+  if in_depends poppler qt5; then
+    . /etc/profile.d/qt5.rc
+  fi &&
+
   if [ "`get_module_config DOCS`" = "n" ] ; then
     sedit "s/SUBDIRS = . reference demo/SUBDIRS = . demo/g" glib/Makefile.in
   fi  &&
