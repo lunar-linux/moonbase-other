@@ -1,4 +1,5 @@
-(
+
+  sedit "21i #include <boost/weak_ptr.hpp>" boost/signals2/trackable.hpp &&
 
 # use bootstrap so we can use their supplied bjam/b2.
   ./bootstrap.sh &&
@@ -38,5 +39,3 @@
        optimization=speed \
        $OPTS \
        install
-
-) > $C_FIFO 2>&1
