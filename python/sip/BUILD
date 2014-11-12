@@ -1,6 +1,10 @@
-(
 
+# Do Python2 build
   python configure.py  &&        
-  default_make
+  default_make &&
 
-) > $C_FIFO 2>&1
+# Do Python3 build
+  if in_depends $MODULE Python-3 ; then
+    python3 configure.py &&
+    default_make
+  fi
