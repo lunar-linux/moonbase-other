@@ -3,10 +3,8 @@
 # compatibility layer for bluez4 we want both enabled if bluez-5 is installed.
   if in_depends $MODULE bluez ; then
     OPTS+=" --enable-bluez4 --disable-bluez5"
-     else
-    if in_depends $MODULE bluez-5 ; then
-      OPTS+=" --enable-bluez5 --enable-bluez4"
-    fi
+  elif in_depends $MODULE bluez-5 ; then
+    OPTS+=" --enable-bluez5 --enable-bluez4"
   fi &&
 
   if module_installed systemd ; then
