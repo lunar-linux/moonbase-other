@@ -1,4 +1,6 @@
 
+  patch_it $SOURCE2 2 &&
+
   mv configure.in configure.ac &&
   ./autogen.sh &&
 
