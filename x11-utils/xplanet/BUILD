@@ -1,7 +1,6 @@
-(
 
 #  sed -i "1i #include <stdio.h>" src/Separation.cpp src/Satellite.cpp &&
-  patch_it $SOURCE2 0 &&
+  patch_it $SOURCE2 1 &&
 
   if module_installed xscreensaver; then
     OPTS+=" --with-xscreensaver"
@@ -27,5 +26,3 @@
                $OPTS                       &&
 
   default_make
-
-) > $C_FIFO 2>&1
