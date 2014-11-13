@@ -1,0 +1,20 @@
+          MODULE=numactl
+         VERSION=2.0.10
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=ftp://oss.sgi.com/www/projects/libnuma/download/
+      SOURCE_VFY=sha256:5d67a65d93a805a1d7b3027dc919cff91f07da451d9eaac4e4178ad81c1f1641
+        WEB_SITE=http://oss.sgi.com/projects/libnuma/
+         ENTERED=20141113
+         UPDATED=20141113
+           SHORT="Simple NUMA policy support"
+
+cat << EOF
+NUMA stands for Non-Uniform Memory Access, in other words a system whose memory
+is not all in one place. The system consists of multiple "nodes" of cpu's
+(processors) and/or memory which are linked together by a special high-speed
+network. All cpu's have access to all of memory, but a cpu's access to memory on
+the local or a nearby node is faster than to distant nodes.
+The numactl program allows you to run your application program on specific cpu's
+and memory nodes. It does this by supplying a NUMA memory policy to the operating
+system before running your program.
+EOF
