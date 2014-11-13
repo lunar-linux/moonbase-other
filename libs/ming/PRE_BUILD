@@ -1,11 +1,12 @@
   default_pre_build   &&
-  patch_it $SOURCE2 2 &&
+  patch_it $SOURCE2 1 &&
 
   sedit "s:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:" configure.in &&
+
   mv configure.in configure.ac &&
+  sedit "s:ungif:gif:g" configure.ac &&
 
   ./autogen.sh &&
 
-  sedit 's/libming.a/libming.so/' 's/lungif/lgif/' perl_ext/Makefile.PL &&
-
-  sedit 's/ungif/gif/' py_ext/setup.py.in
+  sedit "s:libming.a:libming.so:g" perl_ext/Makefile.PL &&
+  sedit "s:ungif:gif:g" perl_ext/Makefile.PL
