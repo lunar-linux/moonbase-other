@@ -6,11 +6,11 @@
   # Use new kde phonon - fixes build break when qt4 is built without old phonon
   sed -i "/generate_code(\"phonon\")/s:phonon\":&,extra_include_dirs=[\"/usr/include/phonon\"]:" configure.py &&
 
-  OPTS+=" --enable=QtCore--enable=QtNetwork --enable=QtXml  --qsci-api" &&
+  if module_installed qscintilla2 ; then
+    OPTS+=" --qsci-api"
+  fi &&
 
-  python ./configure.py      \
-         --confirm-license   \
-         $OPTS              &&
+  python ./configure.py --confirm-license $OPTS &&
 
   default_make                 &&
   mkdir -p /usr/share/$MODULE  &&
