@@ -13,4 +13,7 @@ patch_it $SOURCE5 1 &&
 sedit "s:'-Werror':\0, '-Wno-unused-local-typedefs':" src/third_party/v8/SConscript &&
 
 # NO, we _don't_ want to build the windows installer
-sedit '/installer\/msi\/SConscript/ d' src/mongo/SConscript
+sedit '/installer\/msi\/SConscript/ d' src/mongo/SConscript &&
+
+# boost 1.57 cleaned up this implicit include
+sedit '/#include <string.h>/ i #include <algorithm>' src/mongo/shell/linenoise_utf8.h
