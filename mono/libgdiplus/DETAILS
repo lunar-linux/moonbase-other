@@ -1,15 +1,15 @@
           MODULE=libgdiplus
          VERSION=3.8
           SOURCE=$MODULE-$VERSION.tar.gz
-# taken from https://github.com/gentoo/dotnet/tree/master/dev-dotnet/libgdiplus/files
-         SOURCE2=$MODULE-2.10.9-giflib-quantizebuffer.patch.gz
+# taken from https://github.com/pld-linux/libgdiplus/raw/master/
+         SOURCE2=libgdiplus-giflib.patch
       SOURCE_URL=http://download.mono-project.com/sources/$MODULE
      SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha256:6a3cfb4a1b67dd09197c385bacb8654f8d7ff49499f39c57825e1a8f77e69b28
-     SOURCE2_VFY=sha1:40b2de84e01dfe6c89272ccfb898fdeb854911d7
+     SOURCE2_VFY=sha256:d4bd3b7704d60650f463525e08ce11f3ef0991c32c435fdbe26d34e26a2d849a
         WEB_SITE=http://www.mono-project.com
          ENTERED=20020801
-         UPDATED=20141006
+         UPDATED=20141114
            SHORT="A library that implements System.Drawing for Mono"
 
 cat << EOF
