@@ -1,4 +1,3 @@
-(
 
   python setup.py build &&
 
@@ -8,4 +7,10 @@
   # http://mail.python.org/pipermail/distutils-sig/2008-October/010208.html
   python setup.py install --root=/
 
-) > $C_FIFO 2>&1
+  if in_depends $MODULE Python-3 ; then
+    sed -i -e "s|^#\!.*/usr/bin/python|#!/usr/bin/python3|" setuptools/tests/test_resources.py &&
+    sed -i -e "s|^#\!.*/usr/bin/env python|#!/usr/bin/env python3|" setuptools/command/easy_install.py &&
+    python3 setup.py build &&
+    prepare_install &&
+    python3 setup.py install --root=/
+ fi
