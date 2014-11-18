@@ -1,0 +1,9 @@
+[Unit]
+Description=vsftpd ftp server
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/vsftpd
+
+[Install]
+WantedBy=multi-user.target
