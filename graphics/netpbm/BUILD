@@ -62,7 +62,6 @@
     IACT="${IACT}none\n"
   fi                                                    &&
 
-
   # last newline for accepting default doc URL
   IACT="{$IACT}$(pwd -P)/doc\n"                         &&
 
@@ -71,7 +70,7 @@
   echo  -e  "${IACT}"  |  ./configure                   &&
 
 
-  [ `arch` == "x86_64" ] && echo 'CFLAGS_SHLIB = -fPIC' >> config.mk  &&
+#  [ `arch` == "x86_64" ] && echo 'CFLAGS_SHLIB = -fPIC' >> config.mk  &&
 
   make                                                  &&
   make package PKGDIR=/tmp/netpbm                       &&
