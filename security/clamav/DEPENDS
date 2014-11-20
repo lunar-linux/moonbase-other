@@ -1,3 +1,20 @@
 depends openssl
 
-optional_depends "gmp" "" "" "for digital signature support"
+optional_depends "libxml2" "--with-xml=/usr" "--disable-xml"   "for libxml2 support"
+optional_depends "curl"    "--with-libcurl"  ""                "for curl support"
+optional_depends "check"   "--with-libcurl"  ""                "for curl support"
+
+optional_depends "ncurses" \
+                 "--with-libncurses-prefix=/usr" \
+                 "--without-libncurses-prefix" \
+                 "for ncurses support"
+
+optional_depends "llvm" \
+                 "--enable-llvm --with-system-llvm" \
+                 "--disable-llvm" \
+                 "for lvm signature compile support"
+
+optional_depends "check" \
+                 "--enable-check --with-libcheck-prefix=/usr" \
+                 "--without-libcheck-prefix" \
+                 "for check support"
