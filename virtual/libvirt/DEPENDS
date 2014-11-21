@@ -11,22 +11,31 @@ depends lvm2
 depends yajl
 depends libpciaccess
 
+optional_depends avahi      "--with-avahi"    "--without-avahi"    "for avahi support"
+optional_depends gnutls     "--with-gnutls"   "--without-gnutls"   "for GNUTLS encryption support"
+optional_depends attr       "--with-attr"     "--without-attr"     "for extended fs attributes support"
+optional_depends dbus       "--with-dbus"     "--without-dbus"     "for DBUS support"
+optional_depends curl       "--with-curl"     "--without-curl"     "for CURL support"
+optional_depends lxc        "--with-lxc"      "--without-lxc"      "for lxc container support"
+optional_depends fuse       "--with-fuse"     "--without-fuse"     "for FUSE support"
+optional_depends numactl    "--with-numactl"  "--without-numactl"  "for simple NUMA policy support"
+optional_depends pm-utils   "--with-pm-utils" "--without-pm-utils" "for power management support"
+optional_depends cyrus-sasl "--with-sasl"     "--without-sasl"     "for SASL support"
+optional_depends dmidecode  ""                ""                   "for SMBIOS info access"
+
 optional_depends qemu \
                  "--with-qemu --with-qemu-user=qemu --with-qemu-group=qemu" \
                  "--without-qemu" \
                  "for QEMU support"
 
-optional_depends cyrus-sasl \
-                 "--with-sasl" \
-                 "--without-sasl" \
-                 "for SASL support"
+optional_depends glusterfs \
+                 "--with-storage-gluster" \
+                 "--without-storage-gluster" \
+                 "for gluster storage support"
 
-optional_depends avahi   "--with-avahi"   "--without-avahi"   "for avahi support"
-optional_depends gnutls  "--with-gnutls"  "--without-gnutls"  "for GNUTLS encryption support"
-optional_depends attr    "--with-attr"    "--without-attr"    "for extended fs attributes support"
-optional_depends dbus    "--with-dbus"    "--without-dbus"    "for DBUS support"
-optional_depends curl    "--with-curl"    "--without-curl"    "for CURL support"
-optional_depends fuse    "--with-fuse"    "--without-fuse"    "for FUSE support"
-optional_depends numactl "--with-numactl" "--without-numactl" "for simple NUMA policy support"
-
+# libiscsi ?
+#optional_depends open-iscsi \
+#                 "--with-storage-iscsi" \
+#                 "--without-storage-iscsi" \
+#                 "for iscsi storage support"
 
