@@ -1,0 +1,5 @@
+
+default_pre_build &&
+
+# fix bug concerning jpeg v9+
+sedit " 158 s/1/TRUE/; 340 s/1/TRUE/" src/Fl_JPEG_Image.cxx
