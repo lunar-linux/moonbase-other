@@ -1,7 +1,6 @@
 (
 
-  OPTS+=" --enable-shared --enable-strip \
-          --enable-visualize --enable-pic" &&
+  OPTS+=" --enable-shared --enable-strip --enable-pic" &&
 
   ./configure --prefix=/usr $OPTS &&
   default_make
