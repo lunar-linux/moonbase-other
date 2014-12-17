@@ -6,10 +6,11 @@ optional_depends "zlib"                                                 \
                  "--disable-ps --disable-pdf"                           \
                  "for PostScript and PDF surface backend (recommended)"
 
-optional_depends "libX11"                                               \
+optional_depends "libXext"                                              \
                  "--enable-xlib --enable-xcb --enable-xlib-xcb --enable-tee" \
                  "--disable-xlib --disable-xlib-xcb"                    \
-                 "for Xlib/XCB surface backend (strongly recommended)"
+                 "for Xlib/XCB surface backend (strongly recommended)"  \
+                 y
 
 optional_depends "libXrender"                                           \
                  "--enable-xlib-xrender"                                \
@@ -40,12 +41,14 @@ optional_depends "mesa-lib"                                             \
 optional_depends "freetype2"                                            \
                  "--enable-ft"                                          \
                  "--disable-ft"                                         \
-                 "for FreeType font backend"
+                 "for FreeType font backend"                            \
+                 y
 
 optional_depends "fontconfig"                                           \
                  "--enable-ft --enable-fc"                              \
                  "--disable-fc"                                         \
-                 "for Fontconfig font backend (enables FreeType)"
+                 "for Fontconfig font backend (enables FreeType)"       \
+                 y
 
 optional_depends "gobject-introspection"                                \
                  "--enable-gobject"                                     \
