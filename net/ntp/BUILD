@@ -12,7 +12,7 @@
                 --infodir=/usr/share/info    \
                 --mandir=/usr/share/man      \
                 --sysconfdir=/etc            \
-                --enable-linuxcaps           \
+                --enable-ntp-signd           \
                 --localstatedir=/var/cache  &&
   default_make                              &&
 
