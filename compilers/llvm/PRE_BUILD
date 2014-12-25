@@ -4,6 +4,9 @@ if [[ "$USE_CLANG" = "y" ]]; then
   cd $SOURCE_DIRECTORY/tools  &&
   unpack $SOURCE2  &&
   mv -f cfe-${VERSION}.src clang  &&
+  cd clang/tools  &&
+  unpack $SOURCE3  &&
+  mv -f clang-tools-extra-${VERSION}.src extra  &&
   cd $SOURCE_DIRECTORY
 fi &&
 
