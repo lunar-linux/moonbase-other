@@ -1,9 +1,6 @@
 
   PYTHON_VER="$(module_version Python-3 | cut -c1)" &&
 
-  sedit "s:= bitmap.width:= (int)bitmap.width:" source/blender/blenfont/intern/blf_glyph.c &&
-  sedit "s:height = bitmap.rows:height = (int)bitmap.rows:" source/blender/blenfont/intern/blf_glyph.c &&
-
 # Has trouble finding llvm
   if in_depends $MODULE llvm && [[ `arch` == "x86_64" ]]; then
     OPTS+=" -DLLVM_LIBRARY=/usr/lib/libLLVM-$(module_version llvm).so"

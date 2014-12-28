@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit "s:= bitmap.width:= (int)bitmap.width:" source/blender/blenfont/intern/blf_glyph.c &&
+sedit "s:height = bitmap.rows:height = (int)bitmap.rows:" source/blender/blenfont/intern/blf_glyph.c
