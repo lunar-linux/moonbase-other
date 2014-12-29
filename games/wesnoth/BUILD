@@ -5,8 +5,11 @@ OPTS+=" -DBINDIR=games \
         -DMANDIR=${MODULE_PREFIX}/share/man \
         -DDOCDIR=${MODULE_PREFIX}/share/doc/$MODULE" &&
 
-# fribidi is obsolete and would require 0.10.*
+# fribidi is pretty much obsolete
 OPTS+=" -DENABLE_FRIBIDI=OFF" &&
+
+# boost tanks the build over here
+OPTS+=" -DENABLE_BOOST_FILESYSTEM=OFF" &&
 
 # I hate -Werror...
 OPTS+=" -DENABLE_STRICT_COMPILATION=OFF" &&
