@@ -6,6 +6,7 @@ After=syslog.target network.target
 Type=forking
 ExecStartPre=/sbin/modprobe libafs
 ExecStart=/usr/sbin/afsd -dynroot -fakestat -afsdb
+ExecStartPost=/usr/bin/fs setcrypt on
 ExecStop=/usr/sbin/killafs TERM
 ExecStop=/usr/sbin/killafs KILL
 ExecStop=/bin/umount /afs
