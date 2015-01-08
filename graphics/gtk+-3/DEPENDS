@@ -7,6 +7,7 @@ depends gobject-introspection
 depends gdbus-codegen
 depends at-spi2-atk
 
-optional_depends rest   "" "" "for web services access through REST"
-optional_depends colord "" "" "for color profiles support"
+optional_depends rest   "--enable-cloudprint" "--disable-cloudprint" "for Google Cloud Print Support"
+optional_depends json-glib "" " " "also required by cloudprint"
 
+optional_depends colord "" "" "for color profiles support"
