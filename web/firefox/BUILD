@@ -1,3 +1,5 @@
+# this breaks a symbol check in the build scripts
+bad_flags "-s " &&
 
 if [ "$PGO" == "y" ] ; then
   #CCache breaks the pgo build
