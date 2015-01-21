@@ -1,5 +1,5 @@
 # this breaks a symbol check in the build scripts
-bad_flags "-s " &&
+LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
 
 if [ "$PGO" == "y" ] ; then
   #CCache breaks the pgo build
