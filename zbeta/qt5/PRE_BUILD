@@ -3,5 +3,6 @@ default_pre_build &&
 sedit "s/-O2/$CFLAGS/" qtbase/mkspecs/common/gcc-base.conf &&
 sedit "/^QMAKE_LFLAGS\s/s|+=|+= ${LDFLAGS}|g" qtbase/mkspecs/common/gcc-base.conf &&
 
-#  Cannot find our /usr/bin/ls
-sedit "s:/bin/ls:/usr/bin/ls:g" qtbase/src/corelib/global/global.pri
+#  Cannot find our /usr/bin/ls or /usr/bin/echo
+sedit "s:/bin/ls:/usr/bin/ls:g" qtbase/src/corelib/global/global.pri &&
+sedit "s:/bin/echo:/usr/bin/echo:g" qtwebengine/src/3rdparty/chromium/build/common.gypi
