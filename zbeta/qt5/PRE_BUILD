@@ -5,4 +5,9 @@ sedit "/^QMAKE_LFLAGS\s/s|+=|+= ${LDFLAGS}|g" qtbase/mkspecs/common/gcc-base.con
 
 #  Cannot find our /usr/bin/ls or /usr/bin/echo
 sedit "s:/bin/ls:/usr/bin/ls:g" qtbase/src/corelib/global/global.pri &&
-sedit "s:/bin/echo:/usr/bin/echo:g" qtwebengine/src/3rdparty/chromium/build/common.gypi
+sedit "s:/bin/echo:/usr/bin/echo:g" qtwebengine/src/3rdparty/chromium/build/common.gypi &&
+
+# _disable_ pulseaudio if it's disabled
+if ! in_depends $MODULE pulseaudio; then
+  sedit '/use_pango/ a use_pulseaudio=0 \\' qtwebengine/src/core/config/desktop_linux.pri
+fi
