@@ -53,7 +53,7 @@ Icon=${MODULE_PREFIX}/share/pixmaps/designer-qt5.png
 Categories=Qt;Development;
 Terminal=false
 EOF
-  install -D -m644 ${MODULE}-designer.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-designer.desktop 
+  install -D -m644 ${MODULE}-designer.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-designer.desktop &&
 
   cat > ${MODULE}-assistant.desktop << EOF  &&
 [Desktop Entry]
@@ -65,7 +65,7 @@ Icon=${MODULE_PREFIX}/share/pixmaps/assistant-qt5.png
 Categories=Qt;Development;Documentation;
 Terminal=false
 EOF
-  install -D -m644 ${MODULE}-assistant.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-assistant.desktop
+  install -D -m644 ${MODULE}-assistant.desktop ${MODULE_PREFIX}/share/applications/${MODULE}-assistant.desktop &&
 
   cat > ${MODULE}-qtconfig.desktop << EOF  &&
 [Desktop Entry]
