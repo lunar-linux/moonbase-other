@@ -1,5 +1,6 @@
 depends postgresql
 
+optional_depends "xz"         "--with-liblzma"  "--without-liblzma"  "fir xz support"
 optional_depends "expat"      "--with-expat"    "--without-expat"    "for XML support"
 optional_depends "curl"       "--with-curl"     "--without-curl"     "for curl support"
 optional_depends "giflib"     "--with-gif"      "--without-gif"      "for gif graphics support"
@@ -11,7 +12,6 @@ optional_depends "libpng"     "--with-png"      "--without-png"      "for png gr
 optional_depends "geos"       "--with-geos"     "--without-geos"     "for Geometry Engine support"
 optional_depends "jasper"     "--with-jasper"   "--without-jasper"   "for JPEG-2000 Part-1 support"
 optional_depends "perl"       "--with-perl"     "--without-perl"     "for perl scripting support"
-optional_depends "%PHP"       "--with-php"      "--without-php"      "for php support"
 optional_depends "ruby"       "--with-ruby"     "--without-ruby"     "for ruby scripting support"
 
 #See comments in BUILD about why there are no switches for python and python3.
@@ -34,3 +34,6 @@ optional_depends "proj-4"     ""  ""  "transform data types"
 
 # no suitable java in moonbase atm
 #optional_depends "%JAVA_SDK"  "--with-java"     "--without-java"     "for java support"
+# Broke, not fix atm
+#optional_depends "%PHP"       "--with-php"      "--without-php"      "for php support"
+
