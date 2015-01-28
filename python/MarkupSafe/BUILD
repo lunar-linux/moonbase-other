@@ -7,5 +7,6 @@
 # Now do Python-3 part, they can live together
   if in_depends $MODULE Python-3 ; then
    python3 setup.py build &&
+   prepare_install &&
    python3 setup.py install --optimize=1 --root=/
   fi
