@@ -1,0 +1,8 @@
+default_pre_build  &&
+
+# update npm to the NPM_VERSION
+cd $SOURCE_DIRECTORY/deps &&
+rm -fR npm &&
+unpack $SOURCE2  &&
+mv -f npm-$NPM_VERSION npm &&
+cd $SOURCE_DIRECTORY
