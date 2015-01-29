@@ -1,4 +1,3 @@
-
 # Lets do some ffmpeg stuff
   pushd third_party/ffmpeg > /dev/null &&
     chromium/scripts/build_ffmpeg.py linux ${FFMPEG_OPTS} --branding=Chrome &&
@@ -12,13 +11,14 @@
 
   # This is the make step. According to its --help the default -j is
   # derived from your number of CPUs.
-  ninja -v -C out/Release chrome chrome_sandbox &&
+  ninja -v -C out/Release chrome chrome_sandbox chromedriver &&
 
   prepare_install &&
 
   # installing
   install -D out/Release/chrome ${CHROMIUM_HOME}/chrome &&
   install -Dm4755 -o root -g root out/Release/chrome_sandbox ${CHROMIUM_HOME}/chrome-sandbox &&
+  install -D out/Release/chromedriver ${CHROMIUM_HOME}/chromedriver &&
 
   cp out/Release/{*.pak,libffmpegsumo.so,libpdf.so,*.TOC} ${CHROMIUM_HOME} &&
 
