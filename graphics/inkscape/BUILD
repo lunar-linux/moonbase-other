@@ -1,5 +1,3 @@
-  autoreconf -i &&
+default_build &&
 
-  default_build &&
-
-  gather_docs HACKING
+gather_docs HACKING
