@@ -5,7 +5,7 @@ OPTS+=" -DBUILD_SHARED_LIBS=ON -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=ON -DBUILD_T
 
 default_cmake_build &&
 
-install ../Applications/ParaView/pvIcon.png /usr/share/icons &&
+install ../Applications/ParaView/pvIcon.ico /usr/share/icons &&
 
 # Desktop menu entry
 cat > ${MODULE}.desktop << EOF  &&
@@ -14,7 +14,7 @@ Type=Application
 Name=ParaView
 Comment=data analysis and visualization
 Exec=/usr/bin/paraview
-Icon=/usr/share/icons/pvIcon.png
+Icon=/usr/share/icons/pvIcon.ico
 Categories=Qt;KDE;Science;
 EOF
 
