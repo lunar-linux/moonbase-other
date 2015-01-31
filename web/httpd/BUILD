@@ -22,7 +22,6 @@
         --with-apr-util=/usr                     \
         $OPTS"
 
-
   if [ "$USE_WORKER" == "n" ]; then
     OPTS+=" --with-mpm=prefork"
   else
