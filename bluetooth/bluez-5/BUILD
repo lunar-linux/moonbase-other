@@ -6,6 +6,7 @@
     OPTS+=" --enable-udev --disable-systemd --enable-threads --enable-library --enable-tools"
   fi &&
 
+  sedit "s:_SERVICE:_SERVICE CAP_NET_RAW:" src/bluetooth.service.in &&
   default_build &&
 
   install profiles/*/*.conf /etc/bluetooth/ &&
