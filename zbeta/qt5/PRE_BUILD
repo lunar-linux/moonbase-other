@@ -10,4 +10,16 @@ sedit "s:/bin/echo:/usr/bin/echo:g" qtwebengine/src/3rdparty/chromium/build/comm
 # _disable_ pulseaudio if it's disabled
 if ! in_depends $MODULE pulseaudio; then
   sedit '/use_pango/ a use_pulseaudio=0 \\' qtwebengine/src/core/config/desktop_linux.pri
+fi &&
+
+# fix build with previous version of the module installed
+# see https://bugreports.qt.io/browse/QTBUG-33948 and related
+sedit "s@\(QMAKE_LFLAGS_RPATH *=\) \(.*\)@\1 -Wl,-enable-new-dtags \2@" qtbase/mkspecs/common/gcc-base-unix.conf &&
+
+# qt5's build breaks with an (incompatible) old version of qt5 installed
+# even with the patch in PRE_BUILD due to old headers being pulled in.
+# this is troublesome, but until someone fixes the includes, we'll have to
+# remove to old version before building the new one...
+if module_installed $MODULE; then
+  lrm --upgrade $MODULE
 fi

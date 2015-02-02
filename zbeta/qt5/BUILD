@@ -1,6 +1,3 @@
-# this makes uic link with a missing symbol... (build fails quite early)
-  bad_flags ",--as-needed" &&
-
   if [[ $LICENSE_TYPE == "y" ]] ; then
     LICENSE_TYPE="-opensource"
      else
