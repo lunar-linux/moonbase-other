@@ -2,10 +2,6 @@
   patch_it $SOURCE2 2 &&
   patch_it $SOURCE3 2 &&
 
-  sed -e '1 i#ifndef Q_MOC_RUN' \
-    -e '$ a#endif'            \
-    -i boost/type_traits/detail/has_binary_operator.hpp &&
-
 # use bootstrap so we can use their supplied bjam/b2.
   ./bootstrap.sh &&
 
