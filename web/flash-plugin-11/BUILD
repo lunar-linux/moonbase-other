@@ -4,6 +4,7 @@
   install -Dm755 libflashplayer.so /usr/lib/lunar/plugins/libflashplayer.so &&
   install -m755 usr/bin/flash-player-properties /usr/bin &&
   install -Dm755 usr/share/pixmaps/flash-player-properties.png /usr/share/pixmaps/flash-player-properties.png &&
+  install -Dm755 /usr/share/applications/ &&
   install -m755 usr/share/applications/flash-player-properties.desktop /usr/share/applications/ &&
   cp -af usr/share/icons /usr/share/ &&
 
