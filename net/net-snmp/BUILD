@@ -1,5 +1,3 @@
-(
-
   SYS_CONTACT="--with-sys-contact=root@`hostname -f`"
   PERSISTENT="--with-persistent-directory=/var/state/ucd-snmp"
   DEFAULTS="--with-defaults"
@@ -13,27 +11,21 @@
 # So lets put all that together.
   LDFLAGS="$LDFLAGS -Wl,-rpath,${PERL_SO_PATH}"
 
-# If this is installed net-snmp make will tank with
-# ./.libs/libnetsnmpmibs.so: undefined reference to `nl_handle_destroy'
-# ./.libs/libnetsnmpmibs.so: undefined reference to `nl_handle_alloc'
-  if module_installed libnl3 ; then
-    OPTS+=" --without-nl"
-  fi &&
-
   OPTS+=" --disable-static"  &&
 
   ./configure  --prefix=/usr         \
                --sysconfdir=/etc     \
                --localstatedir=/var  \
+               --with-python-modules \
                $SYS_CONTACT          \
                $PERSISTENT           \
                $DEFAULTS             \
                $OPTS                &&
-  default_make                      &&
+
+  default_make &&
+
   if [ ! -e /etc/config.d/snmpd ] ; then
       install -m644 $SCRIPT_DIRECTORY/snmpd /etc/config.d/snmpd
   fi  &&
 
   mkdir -p /var/state/ucd-snmp
-
-) > $C_FIFO 2>&1
