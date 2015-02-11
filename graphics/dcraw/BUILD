@@ -1,4 +1,3 @@
-(
 
   mkdir -p build  &&
 
@@ -12,5 +11,3 @@
   prepare_install              &&
   cp -a dcraw   /usr/bin       &&
   cp -a dcraw.1 /usr/man/man1/
-
-) > $C_FIFO 2>&1
