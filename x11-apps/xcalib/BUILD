@@ -1,4 +1,3 @@
-(
 
   sedit "s:local/bin/:bin/:g" Makefile
   sedit "s:0644:755:" Makefile
@@ -10,5 +9,3 @@
   fi &&
 
   cp *.icc /usr/share/color/icc/
-
-) > $C_FIFO 2>&1
