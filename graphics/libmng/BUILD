@@ -1,13 +1,8 @@
-(
 
-  cp unmaintained/autogen.sh . &&
-  chmod 755 autogen.sh &&
+  sedit "207i #include <jpeglib.h>" libmng_types.h &&
 
-# autogen tanks with our version of automake.
-  sed -i '/^AM_C_PROTOTYPES$/d' makefiles/configure.in &&
-
-  ./autogen.sh  &&
+  if in_depends $MODULE jpeg ; then
+    sedit "202,206d" libmng_types.h
+  fi &&
 
   default_build
-
-) > $C_FIFO 2>&1
