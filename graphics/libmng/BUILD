@@ -1,6 +1,6 @@
 
   if in_depends $MODULE %JPEG ; then
-  sedit "207i #include <jpeglib.h>" libmng_types.h &&
+  sedit "207i #include <jpeglib.h>" libmng_types.h
   fi &&
 
   if in_depends $MODULE jpeg ; then
