@@ -8,7 +8,7 @@
   python setup.py install --root=/
 
   if in_depends $MODULE Python-3 ; then
-    sed -i -e "s|^#\!.*/usr/bin/python|#!/usr/bin/python3|" setuptools/tests/test_resources.py &&
+#    sed -i -e "s|^#\!.*/usr/bin/python|#!/usr/bin/python3|" setuptools/tests/test_resources.py &&
     sed -i -e "s|^#\!.*/usr/bin/env python|#!/usr/bin/env python3|" setuptools/command/easy_install.py &&
     python3 setup.py build &&
     prepare_install &&
