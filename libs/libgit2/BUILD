@@ -1,2 +1,2 @@
-
-  default_cmake_build
+OPTS+=" -DTHREADSAFE=ON"
+default_cmake_build
