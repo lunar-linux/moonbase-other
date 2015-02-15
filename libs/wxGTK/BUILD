@@ -1,6 +1,6 @@
 (
 
-  OPTS+=" --with-gtk --enable-shared --enable-optimise" &&
+  OPTS+=" --with-gtk --with-libpng --enable-shared --enable-optimise" &&
 
   default_build
 
