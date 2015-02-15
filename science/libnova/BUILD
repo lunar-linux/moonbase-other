@@ -1,7 +1,7 @@
-(
 
-  aclocal &&
-  autoconf &&
+  sedit "s:CFLAGS=-Wall::" configure &&
+
+  mv configure.in configure.ac &&
+  autoreconf -if &&
+
   default_build
-
-) > $C_FIFO 2>&1
