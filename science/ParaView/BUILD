@@ -10,12 +10,15 @@ install ../Applications/ParaView/pvIcon.ico /usr/share/icons &&
 # Desktop menu entry
 cat > ${MODULE}.desktop << EOF  &&
 [Desktop Entry]
+Name=ParaView Viewer
+GenericName=Data Viewer
+Comment=ParaView allows viewing of large data sets
 Type=Application
-Name=ParaView
-Comment=data analysis and visualization
-Exec=/usr/bin/paraview
+Terminal=false
 Icon=/usr/share/icons/pvIcon.ico
-Categories=Qt;KDE;Science;
+MimeType=application/x-paraview;
+Categories=Education;Math;Science;
+Exec=/usr/bin/paraview
 EOF
 
 install -D -m644 ${MODULE}.desktop /usr/share/applications/${MODULE}.desktop
