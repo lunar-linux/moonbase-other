@@ -3,8 +3,7 @@ Description=Service Location Protocol
 After=network.target
 
 [Service]
-Type=forking
-ExecStart=/usr/sbin/slpd -c /etc/slp/slp.conf -r /etc/slp/slp.reg -s /etc/slp/slp.spi
+ExecStart=/usr/sbin/slpd -l /var/log/slpd.log -d
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
