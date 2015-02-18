@@ -1,12 +1,17 @@
-  cd hostapd  &&
-  cp defconfig .config  &&
-  make  &&
+cd hostapd &&
 
-  prepare_install  &&
+cp defconfig .config &&
 
-  install hostapd -m755 /usr/sbin/ &&
-  for file in hostapd.conf hostapd.accept hostapd.deny ; do
-    if [[ ! -f /etc/$file ]]; then
-      install -Dm0644 {,/etc/}$file
-    fi
-  done
+make &&
+prepare_install &&
+
+# install binaries
+install hostapd -m755 /usr/sbin/ &&
+install hostapd_cli -m755 /usr/bin/ &&
+
+# install configuration files
+install -m644 -t /etc hostapd.{accept,conf,deny} &&
+
+# install man pages
+install -Dm644 hostapd.8 /usr/share/man/man8/hostapd.8 &&
+install -Dm644 hostapd_cli.1 /usr/share/man/man1/hostapd_cli.1
