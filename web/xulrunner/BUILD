@@ -11,6 +11,7 @@
           --with-system-jpeg \
           --with-system-zlib \
           --with-system-bz2 \
+          --with-system-png \
           --enable-system-sqlite \
           --enable-system-cairo \
           --enable-pango \
