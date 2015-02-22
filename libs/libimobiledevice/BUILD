@@ -1,4 +1,8 @@
 
   export libusbmuxd_CFLAGS+=" $CFLAGS -I/usr/include/" &&
 
-  default_build
+  ./configure --prefix=/usr &&
+
+  make &&
+  prepare_install &&
+  make install
