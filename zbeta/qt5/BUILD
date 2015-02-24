@@ -6,8 +6,7 @@
 
 # Making accessibility a hard option, disabling this will break QStyle and may break other internal parts of Qt and
 # create a source incompatible version which is unsupported. Why bother making it a switch if that is the case.
-# Using no-gtkstyle, enabled currently tanks the make.
-  OPTS+=" -release -accessibility -gui -no-gtkstyle -reduce-relocations" &&
+  OPTS+=" -release -accessibility -gui -reduce-relocations" &&
 
   ./configure  -confirm-license "${LICENSE_TYPE}"                            \
                -prefix "${MODULE_PREFIX}"                                    \
