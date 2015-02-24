@@ -6,7 +6,8 @@
 
 # Making accessibility a hard option, disabling this will break QStyle and may break other internal parts of Qt and
 # create a source incompatible version which is unsupported. Why bother making it a switch if that is the case.
-  OPTS+=" -release -accessibility -gui -reduce-relocations" &&
+# no-gtkstyle, grabs qt-4 headers via cairo when built with qt4.
+  OPTS+=" -release -accessibility -gui -reduce-relocations -no-gtkstyle" &&
 
   ./configure  -confirm-license "${LICENSE_TYPE}"                            \
                -prefix "${MODULE_PREFIX}"                                    \
