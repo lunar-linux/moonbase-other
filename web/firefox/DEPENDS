@@ -8,7 +8,8 @@ depends alsa-lib
 depends libvpx
 depends freetype2
 
-optional_depends cairo "--enable-system-cairo" "--disable-system-cairo" "Build with system cairo ${PROBLEM_COLOR}(unstable)"
+optional_depends libpng "--enable-system-libpng" "--disable-system-libpng" "Build withy system libpng"
+optional_depends cairo  "--enable-system-cairo"  "--disable-system-cairo"  "Build with system cairo ${PROBLEM_COLOR}(unstable)"
 
 optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
 optional_depends "%FLASH"           ""  ""  "To enable Flash plugin"

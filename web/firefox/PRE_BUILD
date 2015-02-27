@@ -46,4 +46,8 @@ setterm -bfreq -blength &&
 
 if [ -n "${MAKES}" ]; then
   echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
-fi
+fi &&
+
+# See; https://bugzilla.mozilla.org/show_bug.cgi?id=1128161
+  sedit "s:#if defined(PR_LOGGING)::" dom/media/mediasource/MediaSourceUtils.cpp &&
+  sedit "s:#endif::" dom/media/mediasource/MediaSourceUtils.cpp
