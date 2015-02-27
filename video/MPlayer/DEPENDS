@@ -119,3 +119,9 @@ optional_depends libbs2b \
                  "--enable-libbs2b --extra-cflags=-I/usr/include/bs2b/ --extra-libs=-lbs2b" \
                  "--disable-libbs2b" \
                  "for better sound via headphones"
+
+# --enable-fribidi fails to link the library...
+optional_depends fribidi \
+                 "" \
+                 "--disable-fribidi" \
+                 "support right-to-left scripts"
