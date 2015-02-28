@@ -15,10 +15,12 @@
   default_make                 &&
   mkdir -p /usr/share/$MODULE  &&
   cp -Rf examples /usr/share/$MODULE &&
+  sedit "s:/usr/src/qt-everywhere-opensource-src-4.8.6:/usr:" /usr/lib/python2.7/site-packages/PyQt4/pyqtconfig.py &&
 
 # Do the Python-3 part
   if in_depends $MODULE Python-3 ; then
     printf "${PROBLEM_COLOR}   Be patient. It may look like nothing is happening... its just slow.""${DEFAULT_COLOR}\n" &&
     python3 ./configure.py --confirm-license $OPTS &&
     default_make
+    sedit "s:/usr/src/qt-everywhere-opensource-src-4.8.6:/usr:" /usr/lib/python3.4/site-packages/PyQt4/pyqtconfig.py
   fi
