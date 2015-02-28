@@ -30,7 +30,7 @@ fi &&
 
 OPTS+=" --enable-xvideo --enable-realrtsp --disable-sid" &&
 
-autoreconf -if &&
+#autoreconf -if &&
 default_build &&
 
 sedit "s:Categories=:Categories=Multimedia;:" /usr/share/applications/vlc.desktop &&
