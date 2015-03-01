@@ -32,7 +32,9 @@
  
 # It wants to point moc_location and uic_location to ${prefix}/src/qt-everywhere-opensource-src-5.3.1/bin
 # and after much fiddling cannot get it to point them to /usr/bin. So lets just sedit these rascals.
-  for i in `ls /usr/lib/$MODULE/pkgconfig/Qt5*.pc` ; do sed -i "s:/usr/src/qt-everywhere-opensource-src-$VERSION:/usr:" $i ; done &&
+  for i in `ls /usr/lib/$MODULE/pkgconfig/Qt5*.pc` ; do sed -i "s:/usr/src/$SOURCE_DIRECTORY:/usr:" $i ; done &&
+  for i in `ls /usr/lib/$MODULE/pkgconfig/Qt5*.pc` ; do sed -i "s:-L$SOURCE_DIRECTORY:/usr:" $i ; done &&
+  
 # Like for moc and uic, the same needs doing for the *.prl files.
   find /usr/lib/$MODULE -type f -name '*Qt5*.prl' -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/' {} \; &&
   find /usr/lib/$MODULE -type f -name '*.prl' -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/' {} \; &&
