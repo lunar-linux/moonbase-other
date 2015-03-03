@@ -2,8 +2,9 @@
          VERSION=2.5.3
           SOURCE=${MODULE}_${VERSION}.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}_${VERSION}
-      SOURCE_URL=http://scripts.sil.org/svn-view/teckit/TAGS
-      SOURCE_VFY=sha1:b0a48cf05b52a954b3e67b07f03eefced370e996
+# the upstream checksum changes on *each* download so we have to mirror the tarball
+      SOURCE_URL=$MIRROR_URL
+      SOURCE_VFY=sha256:5a2e9b78cb491756b5820feb733c7f6965a699ae671dce0dc0eddf16b07fe0f5
         WEB_SITE=http://scripts.sil.org/cms/scripts/page.php?&cat_id=TECkit
          ENTERED=20110225
          UPDATED=20150225
