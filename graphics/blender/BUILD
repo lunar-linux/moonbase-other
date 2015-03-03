@@ -17,6 +17,7 @@
           -DWITH_STATIC_LIBS=OFF \
           -DWITH_PYTHON=ON \
           -DWITH_PLAYER=ON   \
+          -DWITH_GAMEENGINE=ON \
           -DWITH_INSTALL_PORTABLE=OFF \
           -DPYTHON_VERSION=3.4 \
           -DPYTHON_LIBRARY=/usr/lib/libpython3.${PYTHON_VER}m.so \
