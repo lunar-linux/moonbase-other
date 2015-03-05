@@ -3,6 +3,10 @@ depends cogl
 depends json-glib
 depends libxkbcommon
 
+#optional_depends libinput "--enable-evdev-input" \
+#                           "--disable-evdev-input" \
+#                           "for direct input support"
+
 optional_depends gobject-introspection \
                  "--enable-introspection" \
                  "--disable-introspection" \
