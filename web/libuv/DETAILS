@@ -1,0 +1,28 @@
+          MODULE=libuv
+         VERSION=v1.4.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://libuv.org/dist/$VERSION/
+      SOURCE_VFY=sha256:1006c4055cb3fb34293bb716be127d396550a68ac0bdfc21a6631c8d7a49ce0b
+        WEB_SITE=http://libuv.org/
+         ENTERED=20140419
+         UPDATED=20150302
+           SHORT="Cross-platform asychronous I/O library"
+
+cat << EOF
+Libuv is a multi-platform support library with a focus on asynchronous I/O.
+It was primarily developed for use by Node.js, but it's also used by Luvit,
+Julia, pyuv, and others.
+Features:
+  Full-featured event loop backed by epoll, kqueue, IOCP, event ports.
+  Asynchronous TCP and UDP sockets.
+  Asynchronous DNS resolution.
+  Asynchronous file and file system operations.
+  File system events.
+  ANSI escape code controlled TTY.
+  IPC with socket sharing, using Unix domain sockets or named pipes (Windows).
+  Child processes.
+  Thread pool.
+  Signal handling.
+  High resolution clock.
+  Threading and synchronization primitives.
+EOF
