@@ -1,6 +1,6 @@
-./configure \
-  --prefix=/usr \
-  --shared-openssl &&
+./configure  --prefix=/usr    \
+             --shared-openssl \
+             --shared-zlib   &&
 
 default_make &&
 
