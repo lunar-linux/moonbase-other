@@ -1,5 +1,5 @@
 
-  OPTS+=" --disable-static --disable-gtk-test --enable-xpdf-headers --enable-poppler-glib" &&
+  OPTS+=" --disable-static --disable-gtk-test --enable-xpdf-headers" &&
 
   if in_depends poppler qt5; then
     OPTS+=" --disable-poppler-qt5"
