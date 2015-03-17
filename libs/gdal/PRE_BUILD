@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# fix build with poppler > 0.31
+sedit 's/, allowAntialiasA//' frmts/pdf/pdfdataset.cpp
