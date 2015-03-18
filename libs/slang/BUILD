@@ -1,5 +1,3 @@
-(
-
   ./configure  --prefix=/usr                \
                --sysconfdir=/etc            \
                --localstatedir=/var $OPTS  &&
@@ -11,5 +9,3 @@
     make static &&
     make install-static
   fi
-
-) > $C_FIFO 2>&1
