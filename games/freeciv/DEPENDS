@@ -1,7 +1,25 @@
-optional_depends "gtk+-2"    "" "" "for gtk+-2 client"
-optional_depends "SDL_image" "" "" "for SDL client"
+depends curl
 
-optional_depends "SDL_mixer"                          \
-                 "--enable-sdl-mixer"                 \
-                 ""                                   \
-                 "to use SDL mixer with SDL client"
+if [ "`get_module_config SDL`" = "y" ]; then
+  depends "gtk+-2"    "" "" "for gtk+-2 client"
+fi
+
+if [ "`get_module_config SDL`" = "y" ]; then
+  depends "SDL_image" "" "" "for SDL client"
+  depends "SDL_ttf"   "" "" "for SDL client"
+
+  optional_depends "SDL_mixer"          \
+                   "--enable-sdl-mixer" \
+                   ""                   \
+                   "to use SDL mixer with SDL client"
+fi
+
+optional_depends "sqlite"                \
+                 "--enable-fcdb=sqlite3" \
+                 ""                      \
+                 "to use sqlite"
+
+optional_depends "lua"              \
+                 "--enable-sys-lua" \
+                 ""                 \
+                 "to system installed lua"
