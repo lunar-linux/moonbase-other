@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# mantohtml segfaults over here when used with installwatch
+# also it just makes more sense to build files at _build_ time
+sedit 's@cups test@\0 man@' Makefile &&
+sedit 's@MAN8) html@MAN8)@' man/Makefile
