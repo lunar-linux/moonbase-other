@@ -1,6 +1,6 @@
 (
 
-  sed -i "4i #include <GL/glu.h>" libs/libmythui/mythrender_opengl.cpp &&
+  cd mythtv                 &&
 
   . /etc/profile.d/qt4.rc   &&
 
