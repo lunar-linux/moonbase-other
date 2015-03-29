@@ -1,9 +1,8 @@
 [Unit]
-Description=vsftpd daemon
-After=network.target
+Description=vsftpd daemon (legacy implicit SSL)
 
 [Service]
-ExecStart=/usr/bin/vsftpd
+ExecStart=/usr/bin/vsftpd -oimplicit_ssl=yes
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 
