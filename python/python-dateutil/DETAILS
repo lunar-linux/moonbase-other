@@ -1,13 +1,15 @@
           MODULE=python-dateutil
-         VERSION=1.5
+         VERSION=2.4.1
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://labix.org/download/python-dateutil/
-      SOURCE_VFY=sha1:f489e1a70e415731d401422f711670288571040b
-        WEB_SITE=http://labix.org/python-dateutil
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/dateutil-$VERSION
+ SOURCE_URL_FULL=http://github.com/dateutil/dateutil/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:ca543fdd0cf0cbc52d2b738bf5b734ea6f7f55e8522237a99d7af9c226645e1c
+        WEB_SITE=http://github.com/dateutil/dateutil/
          ENTERED=20090227
-         UPDATED=20130804
-           SHORT="extensions to the standard datetime module, available in Python"
+         UPDATED=20150329
+           SHORT="extensions to the standard datetime module in Python"
+
 cat << EOF
 The dateutil module provides powerful extensions to the standard datetime
-module, available in Python 2.3+.
+module, available in Python.
 EOF
