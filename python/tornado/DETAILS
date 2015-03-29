@@ -1,19 +1,17 @@
             MODULE=tornado
-           VERSION=3.2
+           VERSION=4.1.0
             SOURCE=$MODULE-$VERSION.tar.gz
-        SOURCE_URL=https://pypi.python.org/packages/source/${MODULE:0:1}/$MODULE
-        SOURCE_VFY=sha1:c3bba1d2ec92139450da22377bb1a620a51d2e1a
+   SOURCE_URL_FULL=http://github.com/tornadoweb/tornado/archive/v$VERSION.tar.gz
+        SOURCE_VFY=sha256:bf00fe845576a729f57e86dc3a7e767bf101e018eebbc86bf8c0148094409733
           WEB_SITE=http://www.tornadoweb.org
            ENTERED=20130529
-           UPDATED=20140401
+           UPDATED=20150329
              SHORT="Python web framework and networking library"
 
 cat << EOF
-Tornado is a Python web framework and asynchronous
-networking library, originally developed at FriendFeed.
-By using non-blocking network I/O, Tornado can scale
-to tens of thousands of open connections, making it
-ideal for long polling, WebSockets, and other
-applications that require a long-lived
-connection to each user.
+Tornado is a Python web framework and asynchronous networking library,
+originally developed at FriendFeed. By using non-blocking network I/O,
+Tornado can scale to tens of thousands of open connections, making it
+ideal for long polling, WebSockets, and other applications that require
+a long-lived connection to each user.
 EOF
