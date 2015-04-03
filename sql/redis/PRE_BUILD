@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# Config should have sane defaults
+sedit '/bind 127/s;# ;;;
+       /^tcp-keep/s;0;60;;
+       /^dir/s;\./;/var/lib/redis/;' redis.conf
