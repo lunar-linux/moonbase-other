@@ -1,5 +1,3 @@
-(
-
   if [ "`get_module_config DOCS`" = "n" ] ; then
     sedit "s/install_utilities install_docs/install_utilities/g" dist/Makefile.in
   fi  &&
@@ -18,6 +16,7 @@
                     --enable-compat185 \
                     --enable-cxx       \
                     --enable-dbm       \
+                    --disable-java     \
                     --enable-shared    \
                     --disable-static   \
                     $OPTS             &&
@@ -25,5 +24,3 @@
   sedit "s:LIBSO_LIBS=:LIBSO_LIBS= -pthread :" Makefile      &&
   sedit  's/$(prefix)\/docs/\/usr\/share\/doc\/db/' Makefile &&
   default_make
-
-) > $C_FIFO 2>&1
