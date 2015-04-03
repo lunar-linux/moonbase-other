@@ -15,6 +15,7 @@
                     --build=$BUILD     \
                     --enable-compat185 \
                     --enable-cxx       \
+                    --disable-java     \
                     --enable-dbm       \
                     --disable-java     \
                     --enable-shared    \
