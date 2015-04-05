@@ -1,5 +1,7 @@
 default_pre_build &&
-
+cd qtwebkit &&
+patch_it $SOURCE2 1 &&
+cd .. &&
 sedit "s/-O2/$CFLAGS/" qtbase/mkspecs/common/gcc-base.conf &&
 sedit "/^QMAKE_LFLAGS\s/s|+=|+= ${LDFLAGS}|g" qtbase/mkspecs/common/gcc-base.conf &&
 
