@@ -1,13 +1,11 @@
 
-  sed -i -e "s:-O2::;s: -g::" configure.ac &&
-
-  ./autogen.sh &&
-
+  CFLAGS+=" -Wno-error" &&
+  
   OPTS+=" --disable-gsm --enable-video --disable-static --disable-tests" &&
 
   default_config &&
 
-# Fixes a make failure related to its confusion about some paths.
+# Fixes a make failure related to its confusion about some paths. (still needed).
   find . -name Makefile -print0 | xargs -0 sed -i -e 's:-Iyes/:-I/:g'  \
                                                   -e 's:-Lyes/:-L/:g'  \
                                                   -e 's:-Lno/:-L/:g'   \
