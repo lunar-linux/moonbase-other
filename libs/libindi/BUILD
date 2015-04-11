@@ -1,5 +1,4 @@
-(
+
+  OPTS+=" -DUDEVRULES_INSTALL_DIR=/usr/lib/udev/rules.d" &&
 
   default_cmake_build
-
-) > $C_FIFO 2>&1
