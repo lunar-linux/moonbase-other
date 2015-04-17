@@ -7,7 +7,7 @@
   fi &&
 
   OPTS="-DENABLE_GLSL=ON -DENABLE_PYTHON=ON -DPYTHON_LIBRARY=/usr/lib/libpython$LIB_VERSION.so \
-        -DSHARE_INSTALL_PREFIX=/usr/share" &&
+        -DSHARE_INSTALL_PREFIX=/usr/share -DCMAKE_CXX_FLAGS=-lX11" &&
 
   default_cmake_build &&
 
