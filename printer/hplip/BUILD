@@ -16,9 +16,4 @@
   # Disable the HPLIP upgrade
   sedit "208i log.error\n clean exit(1)" upgrade.py &&
 
-  default_config &&
-
-  # To fix the /var/log/messages warning that SYSFS will be removed in future udev versions.
-  sedit "s:SYSFS:ATTR:g" data/rules/56-hpmud_sysfs.rules &&
-
-  default_make
+  default_build
