@@ -1,8 +1,7 @@
-(
 
 
-  OPTS+=" --disable-nls --enable-largefile --enable-ncursesw --enable-extfs"  &&
+  OPTS+=" --disable-nls --enable-ncursesw --enable-extfs"  &&
+
+  sedit "s:/usr/local:/usr:" configure fail-mbr/Makefile &&
 
   default_build
-
-) > $C_FIFO 2>&1
