@@ -3,7 +3,6 @@ depends atk
 depends pango
 depends cairo
 depends gdk-pixbuf
-depends gobject-introspection
 depends gdbus-codegen
 depends at-spi2-atk
 
@@ -14,3 +13,5 @@ optional_depends rest   "--enable-cloudprint" "--disable-cloudprint" "for Google
 optional_depends json-glib "" " " "also required by cloudprint"
 
 optional_depends colord "" "" "for color profiles support"
+
+optional_depends gobject-introspection "--enable-introspection" "--disable-introspection" "introspection support"
