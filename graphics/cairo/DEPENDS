@@ -26,12 +26,14 @@ optional_depends "libXrender"                                           \
 optional_depends "qt4"                                                  \
                  "--enable-qt"                                          \
                  "--disable-qt"                                         \
-                 "for Qt surface backend (Experimental)"
+                 "for Qt surface backend (Experimental)"                \
+                 n
 
 optional_depends "DirectFB"                                             \
                  "--enable-directfb"                                    \
                  "--disable-directfb"                                   \
-                 "for DirectFB surface backend (experimental)"
+                 "for DirectFB surface backend (experimental)"          \
+                 n
 
 # this is broken quite badly at the moment
 #optional_depends "libdrm"                                               \
@@ -42,7 +44,8 @@ optional_depends "DirectFB"                                             \
 optional_depends "mesa-lib"                                             \
                  "--enable-gl"                                          \
                  "--disable-gl"                                         \
-                 "for OpenGL surface backend (experimental and if using NVIDIA blobs, say N else gtk+-2 segfaults)"
+                 "for OpenGL surface backend (experimental and if using NVIDIA blobs, say N else gtk+-2 segfaults)" \
+                 n
 
 optional_depends "freetype2"                                            \
                  "--enable-ft"                                          \
