@@ -1,5 +1,3 @@
-(
-
   OPTS+=" --disable-static "  &&
 
   if [ "`get_module_config DOCS`" = "n" ] ; then
@@ -7,5 +5,3 @@
   fi  &&
 
   default_build
-
-) > $C_FIFO 2>&1
