@@ -1,6 +1,12 @@
 depends  pixman
 depends  libpng
 
+optional_depends "glib-2"                                \
+                 "--enable-gobject"                      \
+                 "--disable-gobject"                     \
+                 "for gobject functions"                 \
+                 y
+
 optional_depends "zlib"                                                 \
                  "--enable-ps --enable-pdf"                             \
                  "--disable-ps --disable-pdf"                           \
@@ -49,12 +55,6 @@ optional_depends "fontconfig"                                           \
                  "--disable-fc"                                         \
                  "for Fontconfig font backend (enables FreeType)"       \
                  y
-
-optional_depends "gobject-introspection"                                \
-                 "--enable-gobject"                                     \
-                 "--disable-gobject"                                    \
-                 "for gobject functions?"                               \
-		 y
 
 # circular dependencies
 #optional_depends "ghostscript" "" "" "for ps surface backend"
