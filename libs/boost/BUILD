@@ -1,7 +1,3 @@
-
-  patch_it $SOURCE2 2 &&
-  patch_it $SOURCE3 2 &&
-
 # use bootstrap so we can use their supplied bjam/b2.
   ./bootstrap.sh &&
 
