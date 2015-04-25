@@ -20,7 +20,7 @@
   install -Dm4755 -o root -g root out/Release/chrome_sandbox ${CHROMIUM_HOME}/chrome-sandbox &&
   install -D out/Release/chromedriver ${CHROMIUM_HOME}/chromedriver &&
 
-  cp out/Release/{*.pak,libffmpegsumo.so,libpdf.so,*.TOC} ${CHROMIUM_HOME} &&
+  cp out/Release/{*.pak,*.bin,libffmpegsumo.so} ${CHROMIUM_HOME} &&
 
   cp -a out/Release/locales out/Release/resources ${CHROMIUM_HOME}/ &&
 
