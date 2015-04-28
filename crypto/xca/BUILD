@@ -1,6 +1,6 @@
 
-  patch_it $SOURCE2 1 &&
+  sedit "s:Application;::" misc/xca.desktop &&
 
-  qmake -o makefile &&
-  prefix=/usr docdir=/usr/share/doc/xca ./configure &&
-  default_make
+  OPTS+=" --docdir=/usr/share/doc/xca" &&
+
+  default_build
