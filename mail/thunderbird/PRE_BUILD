@@ -6,18 +6,17 @@
      exit 1
   fi &&
 
-# Adds support for libvpx 1.0. Later firefox will have this fix so remove this then.
-  sedit 's/VPX_CODEC_USE_INPUT_PARTITION/VPX_CODEC_USE_INPUT_FRAGMENTS/' mozilla/configure  &&
-  sedit 's/v0\.9\.7/v1.0.0/' mozilla/configure  &&
+  # support libvpx 1.4+
+  sedit 's/IMG_FMT_I420/VPX_&/; s/\[PLANE_/\[VPX_PLANE_/' mozilla/media/webrtc/trunk/webrtc/modules/video_coding/codecs/vp8/vp8_impl.cc &&
 
   sedit 's/@PRE_RELEASE_SUFFIX@//g' mozilla/browser/base/content/browser.xul &&
 
-# Workaround Segmentation fault at install part on precompile_cache.js
+  # Workaround Segmentation fault at install part on precompile_cache.js
   sedit '/^GENERATE_CACHE=1$/d' mail/installer/Makefile.in &&
 
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
         set_module_config OLD_VER "`installed_version $MODULE`"
   fi &&
 
- # To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
+  # To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
   CFLAGS+=" -lbz2"
