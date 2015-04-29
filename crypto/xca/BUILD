@@ -1,6 +1,8 @@
 
-  patch_it $SOURCE2 1 &&
+  . /etc/profile.d/qt4.rc &&
 
-  qmake -o makefile &&
-  prefix=/usr docdir=/usr/share/doc/xca ./configure &&
-  default_make
+  sedit "s:Application;::" misc/xca.desktop &&
+
+  OPTS+=" --docdir=/usr/share/doc/xca" &&
+
+  default_build
