@@ -1,8 +1,7 @@
-./configure --build=$BUILD             \
-            --prefix=/usr              \
+
+./configure --prefix=/usr              \
             --infodir=/usr/share/info  \
             --mandir=/usr/share/man    \
-            --sysconfdir=/etc          \
             $OPTS                     &&
 
 make &&
