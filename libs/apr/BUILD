@@ -1,7 +1,3 @@
-(
+OPTS+=" --with-installbuilddir=/usr/libexec/apr --disable-static" &&
 
-  OPTS+=" --with-installbuilddir=/usr/libexec/apr --disable-static"
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
