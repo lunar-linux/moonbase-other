@@ -20,4 +20,4 @@
   if [[ "$INFO_DOCS" == "y" ]] ; then
      make info &&
      make install-info
-  fi 
+  fi
