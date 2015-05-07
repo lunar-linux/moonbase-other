@@ -1,9 +1,18 @@
+depends Python
+depends git
 depends libXi
 depends libxkbui
-depends libpng
-depends giflib
+depends libxml2
+depends hicolor-icon-theme
+depends desktop-file-utils
 
-optional_depends "Python"    "--enable-pyextension" "--disable-pyextension --without-python" "for Python scripting support"
-optional_depends "freetype2" "--enable-freetype"    "--disable-freetype"                     "for freetype support"
-optional_depends "pango"     "--with-pango"         "--without-pango"                        "for Pango support"
-optional_depends "cairo"     "--with-cairo"         "--without-cairo"                        "for cairo support"
+optional_depends %JPEG    "--with-libjpeg" "--without-libjpeg" "for JPEG support"
+optional_depends "giflib" "--with-giflib"  "--without-giflib"  "for GIF support"
+optional_depends "libpng" "--with-libpng"  "--without-libpng"  "for PNG support"
+optional_depends "tiff"   "--with-libtiff" "--without-libtiff" "for TIFF support"
+optional_depends "zeromq" "--with-libzmq"  "--without-libzmq"  "for ZeroMQ TLS support"
+optional_depends "cairo"  "--with-cairo"   "--without-cairo"   "for cairo support"
+
+optional_depends "gtk+-2"    "--enable-gtk2-use" "" "for GTK2 support"
+optional_depends "freetype2" ""                  "" "for freetype support"
+optional_depends "pango"     ""                  "" "for Pango support"
