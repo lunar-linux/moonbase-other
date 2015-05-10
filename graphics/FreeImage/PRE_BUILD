@@ -1,0 +1,5 @@
+default_pre_build &&
+
+# we need the visibility flags, so don't *overwrite* them
+# otherwise modules which link to libfreeimage might get confused
+sedit "s:CFLAGS ?=:CFLAGS +=:; s:CXXFLAGS ?=:CXXFLAGS +=:" Makefile.gnu
