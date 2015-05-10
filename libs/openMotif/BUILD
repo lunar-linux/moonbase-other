@@ -1,8 +1,8 @@
 
-  ./autogen.sh &&
+  OPTS+=" --x-libraries=/usr/lib/xorg --sysconfdir=/etc --with-x --x-includes=/usr/include/X11" &&
 
-  OPTS+=" --x-libraries=/usr/lib/xorg --prefix=/usr --sysconfdir=/etc \
-              --enable-jpeg --enable-png --enable-themes --with-x --enable-xft \
-              --x-includes=/usr/include/X11" &&
+  if [ "`arch`" == "x86_64" ]; then
+    OPTS+=" --enable-m64 --disable-m32"
+  fi &&
 
   default_build
