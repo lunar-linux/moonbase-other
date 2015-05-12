@@ -19,6 +19,7 @@ optional_depends "dbus-glib"        "--enable-dbus"  "--disable-dbus"  "For dbus
 optional_depends "libffi"           "--enable-system-ffi"  "--disable-system-ffi"  "Use system libffi instead of compiling the one in firefox"
 optional_depends "sun-jdk"          "--with-java-bin-path=/usr/java/default/bin" "" "For java support"
 optional_depends "pulseaudio"       "--enable-pulseaudio" "--disable-pulseaudio"  "Build PulseAudio sound backend"
+optional_depends "icu4c"            "--with-system-icu" "--without-system-icu" "For ICU support"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends "libjpeg-turbo"    "--with-system-jpeg" "--without-system-jpeg" "System jpeg requires libjpeg-turbo"
@@ -32,7 +33,4 @@ optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"  
 #  optional_depends "gnome-vfs"        "--enable-gnomevfs"  "--disable-gnomevfs"  "For Gnome VFS support"
 
 optional_depends "qt4" "--with-qtdir=/usr"  " " "for qt support"
-
-# Firefox requires >=50.1 and we are not ready for that version
-#optional_depends "icu4c"            "--with-system-icu" "--without-system-icu" "For ICU support"
 
