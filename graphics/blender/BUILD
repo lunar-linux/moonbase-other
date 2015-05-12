@@ -1,11 +1,6 @@
 
   PYTHON_VER="$(module_version Python-3 | cut -c1)" &&
 
-# Has trouble finding llvm
-  if in_depends $MODULE llvm && [[ `arch` == "x86_64" ]]; then
-    OPTS+=" -DLLVM_LIBRARY=/usr/lib/libLLVM-$(module_version llvm).so"
-  fi &&
-
   if in_depends $MODULE numpy && [ -f /usr/bin/f2py3 ] ; then
     OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=ON"
      else
