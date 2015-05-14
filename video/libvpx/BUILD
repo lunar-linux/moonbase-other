@@ -1,17 +1,24 @@
-(
-
-  mkdir build-$MODULE &&
-  cd build-$MODULE &&
 
   CFLAGS="-fPIC" &&
 
-  OPTS="--enable-vp8 --enable-postproc --enable-shared --as=yasm \
-        --enable-runtime-cpu-detect --disable-install-docs --enable-pic --disable-examples" &&
+  OPTS+=" --prefix=/usr               \
+          --enable-vp8                \
+          --enable-pic                \
+          --enable-postproc           \
+          --enable-shared             \
+          --as=yasm                   \
+          --enable-vp9                \
+          --enable-vp9-highbitdepth   \
+          --enable-vp9-postproc       \
+          --enable-runtime-cpu-detect \
+          --disable-install-docs      \
+          --disable-examples          \
+          --enable-webm-io            \
+          --enable-postproc"          &&
+
+  mkdir build-$MODULE &&
+  cd build-$MODULE
 
   ../configure $OPTS &&
 
-  sedit "s:/usr/local:/usr:" config.mk &&
-
   default_make
-
-) > $C_FIFO 2>&1
