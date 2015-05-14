@@ -1,0 +1,11 @@
+[Unit]
+Description=The official TFTP Daemon
+After=network.target
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/config.d/tftp-hpa
+ExecStart=/usr/sbin/in.tftpd --listen $TFTPD_ARGS
+
+[Install]
+WantedBy=multi-user.target
