@@ -1,4 +1,3 @@
-(
 
   export WORKINGDIR=$PWD  &&
   export BUILD_OPT=1      &&
@@ -62,5 +61,3 @@
 
   mkdir -p /usr/include/nss  &&
   install -v -m644 {public,private}/nss/* /usr/include/nss/
-
-) > $C_FIFO 2>&1
