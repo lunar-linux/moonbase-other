@@ -3,25 +3,15 @@ patch_it $SOURCE5 1  &&
 
 ./regen.sh -q &&
 
-case `uname -r` in
-  2.6.*|3.*)
-    kv="26"
-    ;;
-  *)
-    message "Unsupported kernel version!"
-    exit -1
-    ;;
-esac  &&
-
 case `arch` in
   x86_64)
-    OPTS+=" --with-afs-sysname=amd64_linux${kv}"
+    OPTS+=" --with-afs-sysname=amd64_linux26"
     ;;
   i386|i486|i586|i686|athlon)
-    OPTS+=" --with-afs-sysname=i386_linux${kv}"
+    OPTS+=" --with-afs-sysname=i386_linux26"
     ;;
   *)
-    OPTS+=" --with-afs-sysname=`arch`_linux${kv}"
+    OPTS+=" --with-afs-sysname=`arch`_linux26"
     ;;
 esac  &&
 
