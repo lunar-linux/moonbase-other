@@ -1,6 +1,5 @@
 
-  python bootstrap.py &&
-  python configure.py &&
+  python configure.py --bootstrap &&
 
   prepare_install &&
-  install ninja /usr/bin/  
+  install ninja /usr/bin/
