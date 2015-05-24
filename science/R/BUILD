@@ -1,10 +1,4 @@
 
-  if [ -e /usr/lib64/R/doc ] ; then
-    rm -rf /usr/lib64/R/doc
-  fi &&
-
-  OPTS+=" --prefix=/usr --enable-R-shlib" &&
-
   default_build &&
 
   if [[ "$DVI_DOCS" == "y" ]] ; then
