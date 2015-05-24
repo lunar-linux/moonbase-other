@@ -1,7 +1,7 @@
 if in_depends $MODULE openjpeg ; then
   CFLAGS+=" -I/usr/include/openjpeg-`lvu installed openjpeg | cut -c1-3`/"
 fi &&
-  
+
 # Fix compilation error:
 # https://trac.macports.org/ticket/25803
 sedit "s:texi2html -monolithic -number:texi2html -monolithic:" Makefile  &&
@@ -15,11 +15,8 @@ OPTS+=" --incdir=/usr/include/ffmpeg-compat \
         --disable-debug     \
         --enable-pthreads   \
         --enable-zlib       \
-        --enable-postproc   \
-        --enable-swscale    \
-        --enable-avfilter   \
-        --enable-x11grab    \
-        --enable-nonfree"  &&
+        --enable-version3   \
+        --enable-x11grab"  &&
 
 if [ -n $CPU ] ; then
   OPTS+=" --cpu=$CPU"
