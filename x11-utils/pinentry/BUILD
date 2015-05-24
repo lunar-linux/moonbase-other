@@ -7,12 +7,12 @@
     local f &&
      for f in qt4/*.moc; do
        /usr/bin/moc ${f/.moc/.h}
-     done
-  fi &&
+     done &&
 
-  for file in qt4/*.moc; do
+    for file in qt4/*.moc; do
       moc ${file/.moc/.h} > ${file}
-  done &&
+    done
+  fi &&
 
   sedit 's/gulong/gsize/g' gtk+-2/gtksecentry.c  &&
 
