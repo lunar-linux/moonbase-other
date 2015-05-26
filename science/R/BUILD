@@ -1,6 +1,13 @@
 
   default_build &&
 
+# This is needed so cantor-15.04.1 will build
+  cd src/nmath/standalone &&
+  make shared &&
+  prepare_install &&
+  make install &&
+  cd $SOURCE_DIRECTORY &&
+
   if [[ "$DVI_DOCS" == "y" ]] ; then
      make dvi &&
      make install-dvi
