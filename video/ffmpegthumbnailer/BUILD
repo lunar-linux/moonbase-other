@@ -1,5 +1,4 @@
 
-# Related to libpng-1.6.x
-  sedit "21i #include <cstring>" libffmpegthumbnailer/pngwriter.cpp &&
+OPTS+=" -DENABLE_THUMBNAILER=1" &&
 
-  default_build
+default_cmake_build
