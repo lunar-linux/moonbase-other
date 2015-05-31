@@ -1,14 +1,20 @@
           MODULE=epdfview
          VERSION=0.1.8
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=epdfview-0.1.8-fixes-1.patch
+         SOURCE2=$MODULE-0.1.8-glib2_headers.patch
+         SOURCE3=$MODULE-0.1.8-modern_cups.patch
+         SOURCE4=$MODULE-0.1.8-swap_blue_and_red_channel.patch
       SOURCE_URL=http://anduin.linuxfromscratch.org/sources/BLFS/conglomeration/$MODULE/
-     SOURCE2_URL=http://www.linuxfromscratch.org/patches/blfs/svn/
-      SOURCE_VFY=sha1:72da8958f58cf7ec55b55541f2e67895b402df3f
-     SOURCE2_VFY=sha1:ab0f75a27fdd6759af37c31a072b5c3959378900
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
+     SOURCE4_URL=$PATCH_URL
+      SOURCE_VFY=sha256:948648ae7c9d7b3b408d738bd4f48d87375b1196cae1129d6b846a8de0f2f8f0
+     SOURCE2_VFY=sha256:fc1d793d9b16e73aec5ec23a8a4766aba891eb923ad5849e126c0805e5c69609
+     SOURCE3_VFY=sha256:bcb13431b088c730678de3b7a4d0d31a0ed69add7ad9bdd5d46bd65206887da4
+     SOURCE4_VFY=sha256:facb20e4cc1a44bcaf634672e08d4e0a2f2af3dbed290a3b98391724ac4a40ab
         WEB_SITE=http://trac.emma-soft.com/epdfview
          ENTERED=20060417
-         UPDATED=20121119
+         UPDATED=20150531
            SHORT="A lightweight PDF document viewer"
 
 cat << EOF
