@@ -1,7 +1,3 @@
-(
-  
-  OPTS+=" -DBUILD_SHARED_LIBS=ON" &&
+OPTS+=" -DBUILD_SHARED_LIBS=ON" &&
 
-  default_cmake_build
-
-) > $C_FIFO 2>&1
+default_cmake_build
