@@ -1,5 +1,3 @@
-( 
-
   default_build &&
 
   if  [  !  -f  /etc/snort.conf  ];  then
@@ -48,5 +46,3 @@
 
   cp $SCRIPT_DIRECTORY/config.d/snort.sysconfig /etc/config.d/snort 
   chmod 644 /etc/config.d/snort/*
-
-) > $C_FIFO 2>&1
