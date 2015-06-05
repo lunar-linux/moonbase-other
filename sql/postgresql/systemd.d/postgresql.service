@@ -6,7 +6,7 @@ After=network.target
 Type=forking
 TimeoutSec=120
 User=postgres
-Groupo=postgres
+Group=postgres
 Environment=PGROOT=/var/lib/pgsql
 
 ExecStart=/usr/bin/pg_ctl -s -D ${PGROOT}/data start -w -t 120
