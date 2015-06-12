@@ -56,4 +56,4 @@
       echo "# the chromium launcher." >> /etc/$MODULE/chromium.default &&
       echo "# Options to pass to chromium." >> /etc/$MODULE/chromium.default &&
       echo "#CHROMIUM_FLAGS=\"\"" >> /etc/$MODULE/chromium.default
-  fi 
+  fi
