@@ -4,6 +4,7 @@
     chromium/scripts/copy_config.sh &&
     chromium/scripts/generate_gyp.py &&
   popd > /dev/null &&
+
   build/linux/unbundle/replace_gyp_files.py $OPTS &&
 
   # This is the configure step
