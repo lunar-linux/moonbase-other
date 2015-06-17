@@ -25,7 +25,7 @@ OPTS+=" --prefix=/usr \
 mkdir -p $SOURCE_DIRECTORY/__heimdest/ &&
 
 sh autogen.sh &&
-default_config &&
+LIBS="-lpthread" default_config &&
 make &&
 INSTALL_CATPAGES="no" make DESTDIR=$SOURCE_DIRECTORY/__heimdest/ install &&
 
