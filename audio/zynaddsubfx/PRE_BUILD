@@ -1,0 +1,5 @@
+default_pre_build &&
+
+# fix underlinking
+sedit '/find_package(FLTK)/ i find_package(X11)' src/CMakeLists.txt &&
+sedit 's:target_link_libraries(zynaddsubfx_gui:\0 ${X11_LIBRARIES}:' src/UI/CMakeLists.txt
