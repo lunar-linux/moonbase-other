@@ -1,5 +1,6 @@
 # build shared object
 patch_it $SOURCE2 0 &&
+
 sedit "s@CFLAGS=@CFLAGS+=@" src/Makefile &&
 CFLAGS+=" -fPIC" &&
 sedit "s:TO_LIB=:\0 liblua.so.${VERSION%.*}:" Makefile &&
