@@ -4,9 +4,6 @@
 
   default_build &&
 
-  install -D -m644 $SCRIPT_DIRECTORY/lighttpd.logrotate.d /etc/logrotate.d/lighttpd &&
-  install -D -m644 $SCRIPT_DIRECTORY/lighttpd.tmpfiles    /usr/lib/tmpfiles.d/lighttpd.conf &&
-
   devoke_installwatch &&
 
   mkdir -p /var/log/lighttpd    &&
