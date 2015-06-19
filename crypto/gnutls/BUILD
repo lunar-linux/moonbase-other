@@ -1,7 +1,3 @@
-(
-
-  OPTS+=" --disable-static --without-included-libtasn1"  &&
+  OPTS+=" --disable-static --without-included-libtasn1 --with-zlib"  &&
 
   default_build
-
-) > $C_FIFO 2>&1
