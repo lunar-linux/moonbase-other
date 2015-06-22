@@ -1,6 +1,7 @@
-OPTS+=" --disable-static" &&
+OPTS+=" PREFIX=/usr" &&
 
-prepare_install
+make all $OPTS &&
 
-make install PREFIX=/usr
+prepare_install &&
 
+make install $OPTS
