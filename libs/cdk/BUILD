@@ -2,4 +2,6 @@
      CFLAGS="-fPIC"
   fi &&
 
+  OPTS+=" --with-libtool --with-shared --disable-static" &&
+
   default_build
