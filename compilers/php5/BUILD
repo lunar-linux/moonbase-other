@@ -1,5 +1,3 @@
-(
-
   if [ "$USE_REGGLOBALS" == "y" ]; then
     OPTS+=" "
   fi
@@ -31,5 +29,3 @@
                $OPTS                        &&
 
   default_make
-
-) > $C_FIFO 2>&1
