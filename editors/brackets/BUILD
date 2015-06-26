@@ -1,3 +1,8 @@
+# brackets needs the /usr/lin/libudev.so.0 file
+if [ ! -f /usr/lib/libudev.so.0 ]; then
+  cp /usr/lib/libudev.so.1 /usr/lib/libudev.so.0
+fi &&
+
 npm update &&
 
 cd brackets-shell &&
