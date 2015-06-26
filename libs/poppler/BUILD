@@ -1,4 +1,3 @@
-
   OPTS+=" --disable-static --disable-gtk-test --enable-xpdf-headers" &&
 
   if in_depends poppler qt5; then
@@ -17,4 +16,8 @@
     . /etc/profile.d/qt5.rc &&
     OPTS+=" --enable-poppler-qt5" &&
     default_build
+  fi &&
+
+  if [ "$SPLASH" == "y" ]; then
+    ln -sf /usr/include/poppler/splash /usr/include/splash
   fi
