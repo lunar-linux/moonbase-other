@@ -12,7 +12,7 @@
 plugin_unpack_lzip() {
   case $1 in
     *.tar.lz)
-      debug_msg "Unpacking tar file ($1) ($(pwd))"
+      debug_msg "Unpacking tar file ($1)"
       tar xf $1 --no-same-owner --no-same-permissions || return 1
       ;;
     *.lz)
