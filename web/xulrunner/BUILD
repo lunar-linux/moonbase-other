@@ -1,3 +1,5 @@
+  # this breaks a symbol check in the build scripts
+  LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
 
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
   mkdir -p ${MOZ_OBJDIR}  &&
