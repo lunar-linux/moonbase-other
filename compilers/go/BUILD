@@ -8,11 +8,11 @@ export GOOS=linux
 cd src &&
 bash make.bash &&
 
-# Cross compilation support
-for i in amd64 386; do
-  export GOARCH=$i
-  bash make.bash --no-clean
-done &&
+# Cross compilation support if needed have to be activated from here
+#for i in amd64 386; do
+#  export GOARCH=$i
+#  bash make.bash --no-clean
+#done &&
 
 case "$(arch)" in
   x86_64)
@@ -22,6 +22,7 @@ case "$(arch)" in
     export GOARCH=386
     ;;
 esac &&
+bash make.bash --no-clean &&
 
 cd $SOURCE_DIRECTORY &&
 $GOROOT/bin/go get -d golang.org/x/tools/cmd/godoc &&
