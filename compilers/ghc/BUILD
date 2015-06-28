@@ -1,29 +1,31 @@
+### install the binary boostrap compiler
 cd ghc-bin &&
 
 # prepare binaries for use
 ./configure --prefix=$SOURCE_DIRECTORY/install &&
 make install &&
 
+### install the source compiler
+cd $SOURCE_DIRECTORY &&
+
 # compile the sources using these binaries
 OPTS+=" --with-ghc=$SOURCE_DIRECTORY/install/bin/ghc" &&
-cd .. &&
+OPTS+=" --enable-unregisterised" &&
 
-cd ghc-$VERSION &&
+# --target="$(arch) &&
+
+perl boot &&
+
+patch_it $SOURCE3 1 &&
 
 default_config &&
 
 cp mk/build.mk{.sample,} &&
 
-if in_depends $MODULE llvm; then
-   sedit "s:#\(BuildFlavour = perf-llvm\)$:\1:" mk/build.mk
-else
+#if in_depends $MODULE llvm; then
+#   sedit "s:#\(BuildFlavour = perf-llvm\)$:\1:" mk/build.mk
+#else
    sedit "s:#\(BuildFlavour = perf\)$:\1:" mk/build.mk
-fi &&
+#fi &&
 
-default_make &&
-
-# these are for some reason not created automatically
-for f in /usr/bin/*-*-*-{ghc,ghc-$VERSION,ghc-pkg,ghc-pkg-$VERSION,haddock-ghc-$VERSION,hsc2hs,runghc-$VERSION}; do
-   file=$(basename "$f")
-   ln -s $file /usr/bin/${file#*-*-*-}
-done
+default_make

@@ -1,3 +1,5 @@
+./configure --globalconfig="/etc/npmrc" --globalignorefile="/etc/npmignore" &&
+
 default_make &&
 
 mkdir -p /usr/lib/node_modules
