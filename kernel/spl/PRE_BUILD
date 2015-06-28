@@ -1,0 +1,11 @@
+mk_source_dir $SOURCE_DIRECTORY &&
+rm -f /usr/src/spl &&
+ln -s $SOURCE_DIRECTORY /usr/src/spl &&
+cd $SOURCE_DIRECTORY &&
+tar xf $SOURCE_CACHE/$SOURCE --no-same-owner --no-same-permissions --strip-components=1 &&
+
+# Fix path to cp
+sedit "s:/bin/cp:/usr/bin/cp:" module/Makefile.in &&
+
+# Another hardcoded path
+sedit "s;/sbin/lsmod;/bin/lsmod;" scripts/check.sh
