@@ -1,7 +1,6 @@
-(
+OPTS+=" -D CMAKE_BUILD_TYPE=Release \
+        -D BUILD_XDBE=ON \
+        -D BUILD_RSS=ON \
+        -D BUILD_AUDACIOUS=OFF" &&
 
-  sedit "s:dbus-glib-1: audclient dbus-glib-1:" configure.ac &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_cmake_build

@@ -1,11 +1,14 @@
           MODULE=conky
-         VERSION=1.9.0
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/$MODULE
-      SOURCE_VFY=sha1:2069cbdb8e7224fcbf3c6b1ddebf64a51634b4cc
+         VERSION=1.10.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-1.10.0-lua53.patch.gz
+ SOURCE_URL_FULL=http://github.com/brndnmtthws/conky/archive/v$VERSION.tar.gz
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha256:f392f3f91fcc37f04ff65d53957512e4d81b7b9b36394acb5ecaefe92623f8eb
+     SOURCE2_VFY=sha256:9ebf2d538d9de6da6c32c0c1bbe85fe690691ca96e2bbcedd822eb8ba7c19dd9
         WEB_SITE=http://conky.sourceforge.net
          ENTERED=20060221
-         UPDATED=20130105
+         UPDATED=20150630
            SHORT="A light-weight system monitor"
 
 cat << EOF
