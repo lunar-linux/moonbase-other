@@ -1,15 +1,3 @@
-### install the binary boostrap compiler
-cd ghc-bin &&
-
-# prepare binaries for use
-./configure --prefix=$SOURCE_DIRECTORY/install &&
-make install &&
-
-### install the source compiler
-cd $SOURCE_DIRECTORY &&
-
-# compile the sources using these binaries
-OPTS+=" --with-ghc=$SOURCE_DIRECTORY/install/bin/ghc" &&
 OPTS+=" --enable-unregisterised" &&
 OPTS+=" --host=$BUILD" &&
 
