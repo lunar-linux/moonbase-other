@@ -1,4 +1,18 @@
 default_pre_build &&
 
-unpack $SOURCE2 &&
-mv ghc-$BINVERSION ghc-bin
+if ! ( ( module_installed ghc ) && [ "$USE_BINARY" = "n" ] ); then
+   ### install the binary boostrap compiler
+   unpack $SOURCE2 &&
+   mv ghc-$BINVERSION ghc-bin
+   cd ghc-bin &&
+
+   # prepare binaries for use
+   ./configure --prefix=$SOURCE_DIRECTORY/install &&
+   make install &&
+
+   # compile the sources using these binaries
+   OPTS+=" --with-ghc=$SOURCE_DIRECTORY/install/bin/ghc" &&
+
+  cd $SOURCE_DIRECTORY
+fi
+
