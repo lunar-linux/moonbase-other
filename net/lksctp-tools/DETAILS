@@ -1,0 +1,29 @@
+          MODULE=lksctp-tools
+         VERSION=1.0.16
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
+      SOURCE_URL=http://github.com/borkmann/lksctp-tools/archive/
+       SOURCE_VFY=sha256:9aa22ac5af301fef4a8ab4e195c6eada375fd0ec057d3b80fb11da11bff7a8d8
+        WEB_SITE=http://github.com/borkmann/lksctp-tools/
+         ENTERED=20150703
+         UPDATED=20150703
+           SHORT="An implementation of the SCTP protocol"
+
+cat << EOF
+Stream Control Transmission Protocol (SCTP) is a message oriented, reliable
+transport protocol with direct support for multihoming that runs on top of
+Internet Protocol (IPv4/IPv6). Like TCP, SCTP provides reliable,
+connection-oriented data delivery with congestion control, path MTU discovery
+and message fragmentation. Unlike TCP, SCTP also provides:
+  1. Message framing
+  2. Multi-streaming (to eliminate the head-of-line blocking problem)
+  3. Multi-homing (allows a single SCTP association to run across multiple
+     links or paths)
+  4. Security and authentication (security cookie mechanism to prevent the
+  SYN-flood attacks)
+  5. Ordered and unordered message delivery
+The lksctp-tools project provides a Linux user space library for SCTP
+(libsctp) including C language header files (netinet/sctp.h) for accessing
+SCTP specific application programming interfaces not provided by the standard
+sockets, and also some helper utilities around SCTP.
+EOF
