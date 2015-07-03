@@ -7,13 +7,13 @@
     OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=OFF"
   fi &&
 
-  OPTS+=" -DWITH_IMAGE_REDCODE=ON \
-          -DWITH_PYTHON_INSTALL=OFF \
-          -DWITH_STATIC_LIBS=OFF \
-          -DWITH_PYTHON=ON \
-          -DWITH_PLAYER=ON   \
-          -DWITH_GAMEENGINE=ON \
-          -DWITH_INSTALL_PORTABLE=OFF \
+  OPTS+=" -DWITH_IMAGE_REDCODE=1 \
+          -DWITH_PYTHON_INSTALL=0 \
+          -DWITH_STATIC_LIBS=0 \
+          -DWITH_PYTHON=1 \
+          -DWITH_PLAYER=1   \
+          -DWITH_GAMEENGINE=1 \
+          -DWITH_INSTALL_PORTABLE=0 \
           -DPYTHON_VERSION=3.4 \
           -DPYTHON_LIBRARY=/usr/lib/libpython3.${PYTHON_VER}m.so \
           -DPYTHON_REQUESTS_PATH=/usr/lib/python3.${PYTHON_VER}/site-packages/pip/_vendor/requests \
