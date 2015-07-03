@@ -1,4 +1,5 @@
-# Fixes jpeg 9 problems
-sedit "/#include [<\"]jpeglib.h[>\"]/ i typedef int boolean;\n#define HAVE_BOOLEAN" src/external/rawspeed/RawSpeed/StdAfx.h &&
+
+#Looks for lua-5.2, we have 5.3
+OPTS+=" -DUSE_LUA=0" &&
 
 default_cmake_build
