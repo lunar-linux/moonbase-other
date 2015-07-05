@@ -1,5 +1,6 @@
-OPTS+=" --enable-unregisterised" &&
-OPTS+=" --host=$BUILD" &&
+# compile the sources using the boostrap compiler
+OPTS+=" --with-ghc=$SOURCE_DIRECTORY/install/bin/ghc" &&
+OPTS+=" --host=$BUILD --enable-unregisterised" &&
 
 perl boot &&
 
@@ -13,4 +14,7 @@ cp mk/build.mk{.sample,} &&
    sedit "s:#\(BuildFlavour = perf\)$:\1:" mk/build.mk &&
 #fi &&
 
-default_make
+make &&
+
+prepare_install &&
+make DESTDIR=/usr install
