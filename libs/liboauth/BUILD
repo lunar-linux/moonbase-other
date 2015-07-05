@@ -1,4 +1,4 @@
 
-  OPTS+=" --enable-nss" &&
+  OPTS+=" --enable-nss --disable-static" &&
 
   default_build
