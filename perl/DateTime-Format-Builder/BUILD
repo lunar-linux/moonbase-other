@@ -1,9 +1,4 @@
-(
 
-  perl  Build.PL  &&
-  ./Build         &&
+  perl Makefile.PL &&
 
-  prepare_install &&
-  ./Build install
-
-) > $C_FIFO 2>&1
+  default_make
