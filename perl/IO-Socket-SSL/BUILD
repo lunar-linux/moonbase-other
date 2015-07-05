@@ -1,6 +1,3 @@
-(
 
-  perl  Makefile.PL  &&
+  echo n | perl  Makefile.PL &&
   default_make
-
-) > $C_FIFO 2>&1
