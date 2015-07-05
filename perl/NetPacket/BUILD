@@ -1,9 +1,6 @@
-(
 
-  perl  Build.PL  &&
-  ./Build &&
-  ./Build test &&
+  perl Makefile.PL &&
+  make &&
+  make test &&
   prepare_install &&
-  ./Build install
-
-) > $C_FIFO 2>&1
+  make install
