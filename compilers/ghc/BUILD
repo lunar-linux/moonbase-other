@@ -1,4 +1,5 @@
 # compile the sources using the boostrap compiler
+OPTS+=" --prefix=/usr" &&
 OPTS+=" --with-ghc=$SOURCE_DIRECTORY/install/bin/ghc" &&
 OPTS+=" --host=$BUILD --enable-unregisterised" &&
 
@@ -17,4 +18,4 @@ cp mk/build.mk{.sample,} &&
 make &&
 
 prepare_install &&
-make DESTDIR=/usr install
+make install
