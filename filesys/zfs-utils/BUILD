@@ -9,4 +9,5 @@ default_config &&
 make &&
 prepare_install &&
 make DESTDIR=$SOURCE_DIRECTORY/__pkg install &&
-cp -av $SOURCE_DIRECTORY/__pkg/* /
+cd $SOURCE_DIRECTORY/__pkg &&
+tar cf - . | (cd / && tar xvf -)
