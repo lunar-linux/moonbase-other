@@ -1,8 +1,8 @@
 OPTS+=" --with-linux=/usr/src/linux \
         --with-linux-obj=/usr/src/linux \
-        --with-config=kernel \
-        --with-spl=$BUILD_DIRECTORY/spl \
-        --with-spl-obj=$BUILD_DIRECTORY/spl \
+        --with-config=user \
+        --with-spl=/usr/src/spl \
+        --with-spl-obj=/usr/src/spl \
         --disable-sysvinit"
 
 default_config &&

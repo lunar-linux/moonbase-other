@@ -1,9 +1,10 @@
 OPTS+=" --with-linux=/usr/src/linux \
         --with-linux-obj=/usr/src/linux \
-        --with-config=kernel \
-        --with-spl=$BUILD_DIRECTORY/spl \
-        --with-spl-obj=$BUILD_DIRECTORY/spl \
-        --disable-sysvinit"
+        --with-config=all"
+
+if [ "$(arch)" == "i686" ]; then
+  OPTS+=" --enable-atomic-spinlocks"
+fi 
 
 default_config &&
 make &&
