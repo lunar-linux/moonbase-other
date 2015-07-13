@@ -12,6 +12,9 @@ if ! in_depends $MODULE pulseaudio; then
   sedit '/use_pango/ a use_pulseaudio=0 \\' qtwebengine/src/core/config/desktop_linux.pri
 fi &&
 
+# this fixes qt5 with system jpeg - jpeg-turbo works fine without it!
+patch_it $SOURCE2 1 &&
+
 # fix build with previous version of the module installed
 # see https://bugreports.qt.io/browse/QTBUG-33948 and related
 sedit "s@\(QMAKE_LFLAGS_RPATH *=\) \(.*\)@\1 -Wl,-enable-new-dtags \2@" qtbase/mkspecs/common/gcc-base-unix.conf &&

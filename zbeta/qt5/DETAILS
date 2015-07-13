@@ -1,9 +1,12 @@
           MODULE=qt5
          VERSION=5.5.0
           SOURCE=qt-everywhere-opensource-src-$VERSION.tar.xz
+         SOURCE2=qt5-chromium-with-libjpeg.patch.bz2
       SOURCE_URL=http://download.qt-project.org/official_releases/qt/${VERSION%.*}/$VERSION/single
+     SOURCE2_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/qt-everywhere-opensource-src-$VERSION
       SOURCE_VFY=sha256:7ea2a16ecb8088e67db86b0835b887d5316121aeef9565d5d19be3d539a2c2af
+     SOURCE2_VFY=sha256:d3c9a6288f086d1de57f82a18b5e95b0ce2ed9331a091799a350d3c7b6fc3c6e
    MODULE_PREFIX=${QT5_PREFIX:-/usr}
         WEB_SITE=http://www.trolltech.com/qt
          ENTERED=20140822
