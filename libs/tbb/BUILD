@@ -1,16 +1,14 @@
-  export TBBROOTDIR=$SOURCE_DIRECTORY &&
-  export PATH=$MODULE_PREFIX::$PATH  &&
-  export LD_LIBRARY_PATH=$TBBROOT/lib &&
+  # copied the pc from debian, they don't provide it upstream
+  cat $SCRIPT_DIRECTORY/tbb.pc.in | sed "s/%VERSION%/${VERSION}/" > tbb.pc &&
 
   make &&
-  prepare_install &&
-  mkdir -p /usr/include/tbb/{machine,internal,compat}  &&
-  mkdir -p /usr/include/serial/tbb &&
-  install `find include/tbb/machine -name "*.h" -print` /usr/include/tbb/machine &&
-  install `find include/tbb/internal -name "*.h" -print` /usr/include/tbb/internal &&
-  install `find include/tbb/compat -name "*.h" -print` /usr/include/tbb/compat &&
-  install `find include/serial/tbb -name "*.h" -print` /usr/include/serial/tbb &&
-  install include/tbb/*.h /usr/include/tbb &&
 
-  cd build/linux_intel*release &&
-  install `find . -name "*.so*" -print` /usr/lib/
+  prepare_install &&
+
+  # we don't want to install html files in /usr/include
+  rm {include,include/tbb}/index.html &&
+  cp -rv include/* /usr/include/ &&
+
+  install -Dm0644 tbb.pc /usr/lib/pkgconfig/ &&
+
+  install build/linux_intel*release/*.so* /usr/lib/
