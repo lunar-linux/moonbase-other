@@ -1,5 +1,3 @@
-(
-
   prepare_install &&
   install -Dm755 libflashplayer.so /usr/lib/lunar/plugins/libflashplayer.so &&
   install -m755 usr/bin/flash-player-properties /usr/bin &&
@@ -37,5 +35,3 @@
   if ! grep -q WindowlessDisable=true /etc/adobe/mms.cfg 2>/dev/null ; then
     echo "WindowlessDisable=true" >> /etc/adobe/mms.cfg
   fi
-
-) > $C_FIFO 2>&1
