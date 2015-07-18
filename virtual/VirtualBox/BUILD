@@ -1,6 +1,5 @@
-# make configure accept gcc 4.8
-sedit "s:cc_min -gt 7:cc_min -gt 8:" configure &&
-sedit "s:VBOX_GCC_WERR ?= -Werror:VBOX_GCC_WERR ?=:" Config.kmk &&
+# Remove gcc version check
+sedit "s:^check_gcc$:#check_gcc:" configure &&
 
 # don't build tests
 echo "VBOX_WITH_TESTCASES =" >> LocalConfig.kmk &&
