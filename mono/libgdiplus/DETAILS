@@ -1,19 +1,17 @@
           MODULE=libgdiplus
-         VERSION=3.8
+         VERSION=3.12
           SOURCE=$MODULE-$VERSION.tar.gz
-# taken from https://github.com/pld-linux/libgdiplus/raw/master/
-         SOURCE2=libgdiplus-giflib.patch
-      SOURCE_URL=http://download.mono-project.com/sources/$MODULE
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha256:6a3cfb4a1b67dd09197c385bacb8654f8d7ff49499f39c57825e1a8f77e69b28
-     SOURCE2_VFY=sha256:d4bd3b7704d60650f463525e08ce11f3ef0991c32c435fdbe26d34e26a2d849a
-        WEB_SITE=http://www.mono-project.com
+         SOURCE2=$MODULE-giflib5.patch.gz
+ SOURCE_URL_FULL=http://github.com/mono/libgdiplus/archive/$VERSION.tar.gz
+     SOURCE_URL2=$PATCH_URL
+      SOURCE_VFY=sha256:7eadc5105c6352d456c5f8699dc89260bf402e82ce6668e7e0c625519f9e5b44
+     SOURCE2_VFY=sha256:bbadb874dc1f972890d7879cbe663503fe9bf8e53159c52475956cbec98cf309
+        WEB_SITE=http://www.mono-project.com/
          ENTERED=20020801
-         UPDATED=20141114
+         UPDATED=20150518
            SHORT="A library that implements System.Drawing for Mono"
 
 cat << EOF
 libgdiplus is a GDI+ implementation for Mono. This will install the
 API of Windows.Forms and System.Drawing.
 EOF
-
