@@ -1,5 +1,24 @@
-depends  db
+depends e2fsprogs
+depends util-linux
 
-optional_depends  openssl      ""                  "" "for encrypted communications"
-optional_depends  cyrus-sasl   "--enable-spasswd"  "" "for secure authentication"
-optional_depends  krb5         "--enable-kpasswd"  "" "for Kerberos V.5 authentication"
+optional_depends openssl "" "" "for encrypted communications"
+
+optional_depends cyrus-sasl \
+                 "--with-cyrus-sasl --enable-spasswd" \
+                 "" \
+                 "for secure authentication"
+
+optional_depends db \
+                 "--enable-bdb=yes" \
+                 "--enable-bdb=no" \
+                 "for Berkeley DB backend"
+
+optional_depends gnutls \
+                 "--with-tls=gnutls" \
+                 "" \
+                 "for encrypted TLS communications"
+
+#optional_depends nss \
+#                 "--with-tls=moznss" \
+#                 "" \
+#                 "for encrypted NSS communications"
