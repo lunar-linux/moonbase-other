@@ -1,0 +1,36 @@
+depends  pcre
+depends  apr-util
+depends  zlib
+
+optional_depends  "openssl"       \
+                  "--with-ssl"    \
+                  "--without-ssl" \
+                  "for mod_ssl module"
+
+optional_depends  "db"                     \
+                  "--with-berkeley-db"     \
+                  "--without-berkeley-db"  \
+                  "for Berkely db support"
+
+optional_depends  "gdbm"            \
+                  "--with-gdbm"     \
+                  "--without-gdbm"  \
+                  "for gdbm support"
+
+optional_depends  "libxml2"        \
+                  "--with-xlm2"    \
+                  "--without-xml2" \
+                  "for mod_proxy_html, mod_xml2enc modules"
+
+optional_depends  "lua"        \
+                  "--enable-lua"    \
+                  "--disable-lua" \
+                  "for mod_lua module"
+
+optional_depends  "luajit"        \
+                  "--enable-luajit"    \
+                  "--disable-luajit" \
+                  "for luajit support"
+
+optional_depends  "lynx"  "" "" "for apachectl status"
+optional_depends  "links" "" "" "for apachectl status"

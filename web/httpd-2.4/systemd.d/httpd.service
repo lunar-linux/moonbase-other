@@ -1,0 +1,13 @@
+[Unit]
+Description=Apache HTTPD
+After=syslog.target network.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/httpd.pid
+ExecStart=/usr/sbin/apachectl start
+ExecReload=/usr/sbin/apachectl restart
+ExecStop=/usr/sbin/apachectl stop
+
+[Install]
+WantedBy=http-daemon.target
