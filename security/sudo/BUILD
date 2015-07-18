@@ -1,10 +1,6 @@
-EDITOR=`which  $EDITOR  2>/dev/null`  ||
-EDITOR=`which  nano`                  &&
+EDITOR=`which  $EDITOR  2>/dev/null` ||
+EDITOR=`which  nano`                 &&
 
-(
+OPTS+=" --with-editor=$EDITOR --enable-tmpfiles.d" &&
 
-  OPTS+=" --with-editor=$EDITOR"
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
