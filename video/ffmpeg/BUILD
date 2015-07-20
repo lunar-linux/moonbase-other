@@ -1,4 +1,3 @@
-
   if in_depends $MODULE openjpeg ; then
     CFLAGS+=" -I/usr/include/openjpeg-`lvu installed openjpeg | cut -c1-3`/"
   fi &&
