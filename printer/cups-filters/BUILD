@@ -1,4 +1,6 @@
 
+  patch_it $SOURCE2 1 &&
+
   ./autogen.sh &&
 
   if module_installed systemd ; then
