@@ -1,5 +1,3 @@
-(
-
   TARGET=/usr/share/tomcat7/
 
   # Cleaning up
@@ -20,5 +18,3 @@
   install -m0755 ${SCRIPT_DIRECTORY}/tomcat7-install-instance /usr/bin/ &&
 
   gather_docs LICENSE RUNNING.txt RELEASE-NOTES NOTICE
-
-) > $C_FIFO 2>&1
