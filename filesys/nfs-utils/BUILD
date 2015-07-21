@@ -1,5 +1,4 @@
-OPTS+=" --sbindir=/usr/bin \
-        --without-tcp-wrappers \
+OPTS+=" --without-tcp-wrappers \
         --with-statedir=/var/lib/nfs \
         --with-start-statd=/usr/bin/start-statd \
         --enable-libmount-mount \
