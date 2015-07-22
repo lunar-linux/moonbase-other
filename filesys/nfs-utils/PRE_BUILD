@@ -1,3 +1,12 @@
 default_pre_build &&
 
-sedit 's@/usr/sbin@\0:/usr/bin@; s/statd\.service/rpc-\0/' utils/statd/start-statd
+# Fix rpc.statd starting
+patch_it $SOURCE2 1 &&
+
+# Do not wait for online target on statd
+patch_it $SOURCE3 1 &&
+
+# Put everything in /usr/sbin
+sedit 's;sbindir = /sbin;sbindir = /usr/sbin;g' utils/*/Makefile.am &&
+
+autoreconf -vfi

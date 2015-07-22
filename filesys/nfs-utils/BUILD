@@ -1,32 +1,30 @@
-  add_priv_user nfs:daemon &&
+OPTS+=" --without-tcp-wrappers \
+        --with-statedir=/var/lib/nfs \
+        --with-start-statd=/usr/bin/start-statd \
+        --enable-libmount-mount \
+        --enable-mountconfig"
+        
+add_priv_user nfs:daemon &&
 
-  # please DO NOT remove --disable-tirpc even if ./configure shows
-  # no such option - it works, and without that there's a bug and
-  # thus rpc.mountd is not starting... <wdp@lunar-linux.org>
-  #
-  # it does not compile with it for ipv6 support <florin@lunar-linux.org>
-  #
-  if [ "$NO_IPV6" == "y" ]; then
-    OPTS+=" --disable-tirpc"
-  else
-    OPTS+=" --enable-ipv6"
-  fi &&
+default_build &&
 
-  ./configure --prefix=/usr           \
-              --mandir=/usr/share/man \
-              --disable-gss           \
-              --without-tcp-wrappers  \
-              $OPTS                  &&
+# Load nfs module
+echo "nfs" > /usr/lib/modules-load.d/nfs-utils.conf &&
 
-  default_make &&
+# Install systemd services
+for service in systemd/{*.service,*.mount,*.target}; do
+  install -D -m644 $service /usr/lib/systemd/system/${service##*/}
+done &&
 
-  # install all auxiliary service files directly
-  for f in nfs-blkmap.service nfs-config.service nfs-idmapd.service    \
-           nfs-mountd.service nfs-utils.service proc-fs-nfsd.mount     \
-           rpc-gssd.service rpc-statd-notify.service rpc-statd.service \
-           rpc-svcgssd.service var-lib-nfs-rpc_pipefs.mount; do
-    install -Dm0644 "systemd/$f" "/usr/lib/systemd/system/$f"
-  done &&
+install -D -m644 utils/mount/nfsmount.conf /etc/nfsmount.conf &&
+install -D -m755 $SCRIPT_DIRECTORY/nfs-utils_env.sh /usr/lib/systemd/scripts/nfs-utils_env.sh &&
+install -D -m644 $SCRIPT_DIRECTORY/id_resolver.conf /etc/request-key.d/id_resolver.conf &&
 
-  devoke_installwatch &&
-  chown -R nfs:daemon /var/lib/nfs
+# Default exports file
+if [ ! -f /etc/exports ]; then
+  install -D -m644 $SCRIPT_DIRECTORY/exports /etc/exports
+fi &&
+
+mkdir -p /etc/exports.d &&
+#mkdir -m 555 /var/lib/nfs/rpc_pipefs &&
+mkdir /var/lib/nfs/v4recovery
