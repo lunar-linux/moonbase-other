@@ -1,0 +1,24 @@
+depends libtool
+depends iptables
+depends libxml2
+
+optional_depends curl        "--with-libcurl"          "--without-libcurl"        "for apache, ascent, curl, nginx and write_http plugins?"
+optional_depends libdbi      "--with-libdbi"           "--without-libdbi"         "for DBI plugin?"
+optional_depends libesmtp    "--with-libesmtp"         "--without-libesmtp"       "for notify_email plugin?"
+optional_depends memcached   "--with-libmemcached"     "--without-libmemcached"   "for memcachec plugin?"
+optional_depends libgcrypt   "--with-libgcrypt"        "--without-libgcrypt"      "for encryption and authentication for network plugin?"
+optional_depends libmnl      "--enable-netlink"        "--disable-netlink"        "for netlink plugin?"
+optional_depends net-snmp    "--with-libnetsnmp"       "--without-libnetsnmp"     "for snmmp plugin?"
+optional_depends libnotify4  "--enable-notify_desktop" "--disable-notify_desktop" "for notify_desktop plugin?"
+optional_depends libpcap     "--with-libpcap"          "--without-libpcap"        "for dns plugin?"
+optional_depends postgresql  "--with-libpq"            "--without-libpq"          "for postgresql plugin?"
+optional_depends %MYSQL      "--with-libmysql"         "--without-libmysql"       "for mysql plugin?"
+optional_depends Python      "--with-python"           "--without-python"         "for python plugin?"
+optional_depends rrdtool     "--with-librrd"           "--without-librrd"         "for rrdtool and rrdcached plugins?"
+optional_depends libvirt     "--enable-virt"           "--disable-virt"           "for libvirt plugin?"
+optional_depends lm_sensors  "--with-libsensors"       "--without-libsensors"     "for lm_sensors and sensors plugins?"
+optional_depends yajl        "--with-libyajl"          "--without-libyajl"        "for curl_json plugin?"
+optional_depends libatasmart "--with-libatasmart"      "--without-libatasmart"    "for smart plugin?"
+optional_depends perl        "--with-libperl" \
+                             "--without-libperl" \
+                             "for perl plugin?"
