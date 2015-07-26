@@ -1,0 +1,8 @@
+validate_source_dir $SOURCE_DIRECTORY &&
+mk_source_dir $SOURCE_DIRECTORY &&
+mkdir -p $SOURCE_DIRECTORY/src/github.com/influxdb/influxdb &&
+cd $SOURCE_DIRECTORY/src/github.com/influxdb/influxdb &&
+tar xf $SOURCE_CACHE/$SOURCE --no-same-owner --strip-components=1 -C . &&
+
+# Tweak paths in example config
+sedit 's;/var/opt;/var/lib;g' etc/config.sample.toml
