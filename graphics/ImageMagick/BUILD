@@ -1,14 +1,13 @@
+OPTS+=" --enable-shared --disable-static" &&
 
-  OPTS+=" --enable-shared --disable-static" &&
-
-  # see CONFIGURE
-  OPTS+=" --disable-hdri" &&
+# see CONFIGURE
+OPTS+=" --disable-hdri" &&
 
 # They say to run this if you got dirty autotools.
 #  autoreconf         &&
 
-  default_config     &&
+default_config     &&
 
-  make               &&
-  prepare_install    &&
-  make install-strip
+make               &&
+prepare_install    &&
+make install-strip
