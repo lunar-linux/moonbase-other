@@ -1,5 +1,7 @@
-python setup.py build_ext -i  &&
-prepare_install               &&
+python setup.py build_ext -i &&
+
+prepare_install &&
+
 python setup.py install --prefix /usr --optimize=1 &&
 install -Dm644 files/fail2ban.service /usr/lib/systemd/system/fail2ban.service &&
 install -Dm644 files/fail2ban-logrotate /etc/logrotate.d/fail2ban &&
