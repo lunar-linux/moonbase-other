@@ -1,14 +1,10 @@
-(
+DESTDIR=/usr/share/java/groovy &&
 
-  prepare_install &&
-  mkdir -p /opt/lunar/groovy/bin &&
+prepare_install &&
 
-  cp -R lib embeddable conf /opt/lunar/groovy/ &&
+mkdir -p $DESTDIR/bin &&
+cp -R lib embeddable conf $DESTDIR/ &&
 
-  for i in $(find $SOURCE_DIRECTORY/bin -type f ! -name "*.bat"); do
-    install -m 755 $i /opt/lunar/groovy/bin/
-  done &&
-
-  gather_docs NOTICE.txt LICENSE.txt ASM-LICENSE.txt
-
-) > $C_FIFO 2>&1
+for i in $(find $SOURCE_DIRECTORY/bin -type f ! -name "*.bat"); do
+  install -m 755 $i $DESTDIR/bin/
+done
