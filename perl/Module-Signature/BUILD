@@ -1,6 +1,5 @@
+export PERL_MM_USE_DEFAULT=1 &&
 
- export PERL_MM_USE_DEFAULT=1 &&
+perl Makefile.PL &&
 
-  perl Makefile.PL &&
-
-  default_make
+default_make

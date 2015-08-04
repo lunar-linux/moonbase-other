@@ -1,2 +1,3 @@
-    echo y | perl Makefile.PL &&
-    default_make
+echo y | perl Makefile.PL &&
+
+default_make

@@ -1,3 +1,2 @@
-
-    perl Makefile.PL &&
-    default_make
+perl Makefile.PL &&
+default_make

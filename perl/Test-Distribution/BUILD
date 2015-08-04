@@ -1,6 +1,7 @@
+perl  Build.PL  &&
 
-  perl  Build.PL  &&
-  ./Build         &&
+./Build         &&
 
-  prepare_install &&
-  ./Build install
+prepare_install &&
+
+./Build install

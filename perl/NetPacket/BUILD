@@ -1,6 +1,8 @@
+perl Makefile.PL &&
 
-  perl Makefile.PL &&
-  make &&
-  make test &&
-  prepare_install &&
-  make install
+make &&
+make test &&
+
+prepare_install &&
+
+make install
