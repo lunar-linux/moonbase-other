@@ -1,4 +1,3 @@
-
 add_priv_user dnsmasq &&
 
 sedit '/^#ifdef DNSMASQ_COMPILE_OPTS/ i#define HAVE_DBUS' src/config.h &&
