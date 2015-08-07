@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# fix ridiculous version detection
+sedit 's/pkg-config --cflags-only-I/PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1 \0/' configure &&
+
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=787866
+sedit '/setlocale/ d' agen5/autogen.c
