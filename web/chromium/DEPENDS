@@ -6,7 +6,6 @@ depends gperf
 depends re2
 depends xdg-utils
 depends icu4c
-depends libevent
 depends %JPEG
 depends alsa-lib
 depends libxml2
@@ -29,6 +28,7 @@ depends libXScrnSaver
 depends libexif
 depends speech-dispatcher
 
+optional_depends "libevent"   "-Duse_system_libevent=1"   "-Duse_system_libevent=0"   "To use system provided libevent library"
 optional_depends "yasm"       "-Duse_system_yasm=1"       "-Duse_system_yasm=0"       "To use system yasm to compile assembler parts"
 optional_depends "cups"       "-Duse_cups=1"              "-Duse_cups=0"              "To use system provided cups"
 optional_depends "GConf"      "-Duse_gconf=1"             "-Duse_gconf=0"             "To use system provided GConf"
