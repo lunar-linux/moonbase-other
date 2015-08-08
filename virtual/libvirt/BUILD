@@ -1,4 +1,3 @@
-
 OPTS+=" --without-xen \
         --with-udev \
         --without-hal \
@@ -9,7 +8,7 @@ OPTS+=" --without-xen \
         --with-secrets \
         --with-storage-lvm \
         --with-yajl \
-        --with-init-script=none"
+        --with-init-script=none" &&
 
 add_priv_user qemu:qemu -G kvm &&
 
