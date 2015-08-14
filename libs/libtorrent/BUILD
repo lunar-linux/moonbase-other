@@ -3,6 +3,8 @@
 
   LDFLAGS+=" -lz" &&
 
+  ./autogen.sh &&
+
   default_build  &&
 
   gather_docs TODO
