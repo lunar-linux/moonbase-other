@@ -1,3 +1,3 @@
-  OPTS+=" --disable-static --without-included-libtasn1 --with-zlib"  &&
+OPTS+=" --disable-static --without-included-libtasn1 --with-zlib"  &&
 
-  default_build
+default_build
