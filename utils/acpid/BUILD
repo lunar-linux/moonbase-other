@@ -1,14 +1,17 @@
-(
+cp $SCRIPT_DIRECTORY/libc_compat.h $SOURCE_DIRECTORY/ &&
 
-  default_build  &&
+default_build &&
 
-  mkdir -p /etc/acpi/events /etc/acpi/actions  &&
+mkdir -p /etc/acpi/events /etc/acpi/actions &&
 
 #  not everybody wants the default poweroff script ;)
-  if [ ! -e /etc/acpi/events/power ]; then
-    install -D -m644 ${SCRIPT_DIRECTORY}/power /etc/acpi/events/power
-  fi  &&
+if [ ! -e /etc/acpi/events/power ]; then
+  install -D -m644 ${SCRIPT_DIRECTORY}/power /etc/acpi/events/power
+fi &&
 
-  gather_docs samples/acpi_handler.sh samples/sample.conf
+gather_docs samples/acpi_handler.sh samples/sample.conf &&
 
-) > $C_FIFO 2>&1
+# systemd
+if module_installed systemd; then
+  install -Dm644 $SCRIPT_DIRECTORY/systemd.d/acpid.service /usr/lib/systemd/system/acpid.service
+fi
