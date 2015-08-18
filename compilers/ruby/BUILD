@@ -1,11 +1,10 @@
+bad_flags -fomit-frame-pointer &&
 
-  bad_flags -fomit-frame-pointer &&
+OPTS+=" --enable-pthread --enable-shared" &&
 
-  OPTS+=" --enable-pthread --enable-shared" &&
+default_build  &&
 
-  default_build  &&
-
-  make install-doc &&
+make install-doc &&
 
 # Some apps look for ruby.pc like graphviz
-  ln -sf ruby-${VERSION%.*}.pc /usr/lib/pkgconfig/ruby.pc
+ln -sf ruby-${VERSION%.*}.pc /usr/lib/pkgconfig/ruby.pc
