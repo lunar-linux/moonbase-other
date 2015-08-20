@@ -23,4 +23,4 @@ default_make &&
 ln -sf nspr.pc /usr/lib/pkgconfig/mozilla-nspr.pc &&
 install -m 755 $SOURCE_DIRECTORY/build/config/nspr-config /usr/bin/ &&
 
-rm -r /usr/bin/{compile-el.pl,prerr.properties} /usr/include/nspr/md
+rm -r /usr/bin/prerr.properties /usr/include/nspr/md
