@@ -1,5 +1,3 @@
-cp $SCRIPT_DIRECTORY/libc_compat.h $SOURCE_DIRECTORY/ &&
-
 default_build &&
 
 mkdir -p /etc/acpi/events /etc/acpi/actions &&
