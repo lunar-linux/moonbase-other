@@ -1,6 +1,7 @@
 OPTS+=" -DSYSCONFDIR=/etc/mysql \
 -DMYSQL_DATADIR=/var/lib/mysql \
 -DMYSQL_UNIX_ADDR=/run/mysqld/mysqld.sock \
+-DBUILD_CONFIG=mysql_release \
 -DINSTALL_BINDIR=bin \
 -DINSTALL_SBINDIR=sbin \
 -DINSTALL_INFODIR=share/info \
@@ -19,21 +20,25 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
 -DENABLED_LOCAL_INFILE=ON \
 -DDEFAULT_CHARSET=utf8 \
 -DDEFAULT_COLLATION=utf8_general_ci \
+-DCMAKE_EXE_LINKER_FLAGS='-ljemalloc' \
 -DWITH_ZLIB=system \
 -DWITH_READLINE=ON \
 -DWITH_EXTRA_CHARSETS=complex \
 -DWITH_LIBWRAP=OFF \
+-DWITH_JEMALLOC=ON \
+-DWITH_PCRE=system \
 -DWITH_INNOBASE_STORAGE_ENGINE=1 \
 -DWITH_MYISAMMRG_STORAGE_ENGINE=1 \
 -DWITH_MYISAM_STORAGE_ENGINE=1 \
--DWITHOUT_OQGRAPH_STORAGE_ENGINE=1 \
+-DWITH_PARTITION_STORAGE_ENGINE=1 \
 -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 \
--DWITHOUT_TOKUDB_STORAGE_ENGINE=1  \
--DWITH_EMBEDDED_SERVER=1"
+-DWITHOUT_TOKUDB_STORAGE_ENGINE=1 \
+-DWITHOUT_PBXT_STORAGE_ENGINE=1 \
+-DWITH_EMBEDDED_SERVER=ON"
 
 # A few of these flags are necessary when building mariadb with gcc >= 4.4
-CFLAGS="-fPIC ${CFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -fomit-frame-pointer"
-CXXFLAGS="-fPIC ${CXXFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -felide-constructors -fno-rtti"
+CFLAGS="-fPIC ${CFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -fomit-frame-pointer -fno-delete-null-pointer-checks"
+CXXFLAGS="-fPIC ${CXXFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -felide-constructors -fno-rtti -fno-delete-null-pointer-checks"
 
 add_priv_user mysql:mysql &&
 
