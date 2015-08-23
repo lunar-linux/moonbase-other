@@ -1,27 +1,26 @@
-(
+if [ "`arch`" == "x86_64" ]; then
+  OPTS+=" --enable-64bit"
+fi &&
 
-  if [ "`arch`" == "x86_64" ]; then
-    OPTS+=" --enable-64bit"
-  fi  &&
+OPTS+=" --libdir=/usr/lib --with-mozilla --with-pthreads --enable-strip" &&
 
-  OPTS+=" --libdir=/usr/lib --with-mozilla --with-pthreads --enable-strip"  &&
-  mkdir build inst  &&
-#  sedit 's/\$(MKSHLIB) \$(OBJS)/\$(MKSHLIB) \$(LDFLAGS) \$(OBJS)/g' mozilla/nsprpub/config/rules.mk  &&
+mkdir build inst &&
+#  sedit 's/\$(MKSHLIB) \$(OBJS)/\$(MKSHLIB) \$(LDFLAGS) \$(OBJS)/g' mozilla/nsprpub/config/rules.mk &&
 
-  cd build  &&
-  ../nspr/configure --build=$BUILD                 \
-                    --prefix=/usr                  \
-                    --sysconfdir=/etc              \
-                    --localstatedir=/var           \
-                    --includedir=/usr/include/nspr \
-                    --libdir=/usr/lib              \
-                    --infodir=/usr/share/info      \
-                    --mandir=/usr/share/man        \
-                    --enable-optimize              \
-                    $OPTS                         &&
-  default_make  &&
+cd build &&
+../nspr/configure --build=$BUILD                 \
+                  --prefix=/usr                  \
+                  --sysconfdir=/etc              \
+                  --localstatedir=/var           \
+                  --includedir=/usr/include/nspr \
+                  --libdir=/usr/lib              \
+                  --infodir=/usr/share/info      \
+                  --mandir=/usr/share/man        \
+                  --enable-optimize              \
+                  $OPTS                         &&
+default_make &&
 
-  install -m 755 $SOURCE_DIRECTORY/build/config/nspr-config /usr/bin/
-  rm /usr/bin/prerr.properties
+ln -sf nspr.pc /usr/lib/pkgconfig/mozilla-nspr.pc &&
+install -m 755 $SOURCE_DIRECTORY/build/config/nspr-config /usr/bin/ &&
 
-) > $C_FIFO 2>&1
+rm -r /usr/bin/prerr.properties /usr/include/nspr/md
