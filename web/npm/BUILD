@@ -1,11 +1,12 @@
-mkdir -p /usr/lib/node_modules &&
-chown -R root /usr/lib/node_modules &&
+./configure --globalconfig="/etc/npmrc" --globalignorefile="/etc/npmignore" &&
 
 default_make &&
 
+mkdir -p /usr/lib/node_modules
+
 # Fix wrong symlinks
+rm -f /usr/share/man/{man1,man3,man5,man7}/* &&
 for _dir in man1 man3 man5 man7; do
-  rm -f /usr/share/man/$_dir/* &&
   cd /usr/lib/node_modules/npm/man/$_dir &&
   for _file in *; do
     ln -s /usr/lib/node_modules/npm/man/$_dir/$_file /usr/share/man/$_dir/
