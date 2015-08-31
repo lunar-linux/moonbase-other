@@ -1,9 +1,9 @@
-( 
+./configure --libexecdir=/usr/libexec \
+            --mandir=/usr/share/man  &&
 
-   ./configure --libexecdir=/usr/libexec  &&
-   xmkmf  &&
-   sedit "s:/usr/local/man:/usr/share/man:" Makefile &&
-   make includes  &&
-   default_make
-   
-) > $C_FIFO 2>&1
+xmkmf &&
+make includes &&
+default_make &&
+make install.man
+
+
