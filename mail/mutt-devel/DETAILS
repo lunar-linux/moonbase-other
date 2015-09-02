@@ -1,27 +1,20 @@
           MODULE=mutt-devel
-         VERSION=1.5.23
+         VERSION=1.5.24
           SOURCE=mutt-$VERSION.tar.gz
-         SOURCE2=patch-$VERSION.sidebar.20140412.txt
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/mutt-$VERSION
-   SOURCE_URL[0]=ftp://ftp.mutt.org/mutt/devel
-   SOURCE_URL[1]=$SFORGE_URL/mutt
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:8ac821d8b1e25504a31bf5fda9c08d93a4acc862
-     SOURCE2_VFY=sha1:8b86f148d8e1a0b37b0b77268349f4c94e797561
+      SOURCE_URL=http://ftp.mutt.org/pub/$MODULE/
+      SOURCE_VFY=sha256:a292ca765ed7b19db4ac495938a3ef808a16193b7d623d65562bb8feb2b42200
         WEB_SITE=http://www.mutt.org
          ENTERED=20010922
-         UPDATED=20140412
+         UPDATED=20150901
       MAINTAINER=tchan@lunar-linux.org
-           PSAFE=no
            SHORT="A text-based MIME Email client"
+           PSAFE=no
 
 cat << EOF
-This is the developmental version of mutt with the sidebar patch.
 Mutt is a small but very powerful text-based MIME mail client. It is
 highly configurable, and is well-suited to the mail power user with
 advanced features like key bindings, keyboard macros, mail threading,
 regular expression searches, and a powerful pattern matching language
 for selecting groups of messages.
-NOTE: the sidebar patch is now maintained by tchan as of 20060720.
-See: http://www.lunar-linux.org/index.php?page=mutt-sidebar
 EOF
