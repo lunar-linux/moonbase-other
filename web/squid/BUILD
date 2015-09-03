@@ -1,32 +1,29 @@
-(
-
-#  if  module_installed  ppp;  then
-#    sedit  "s:/etc/resolv.conf:/etc/ppp/resolv.conf:"  \
-#           src/dns_internal.c
-#  fi
+# if module_installed ppp; then
+#   sedit "s:/etc/resolv.conf:/etc/ppp/resolv.conf:" src/dns_internal.c
+# fi
 
 
- sedit "s:\$(DEFAULT_LOG_PREFIX)/squid\.pid:/var/run/squid\.pid:" src/Makefile.in &&
+sedit "s:\$(DEFAULT_LOG_PREFIX)/squid\.pid:/var/run/squid\.pid:" src/Makefile.in &&
 
-   set -x                                       &&
+set -x &&
 
-  ./configure  --prefix=/usr                     \
-               --sysconfdir=/etc/squid           \
-               --localstatedir=/var/cache/squid  \
-               --enable-async-io                 \
-               --enable-snmp                     \
-               --enable-gnuregex                 \
-               --enable-linux-netfilter          \
-               $OPTS                            &&
-  set +x                                        &&
-  default_make                                  &&
+./configure --prefix=/usr                    \
+            --sysconfdir=/etc/squid          \
+            --localstatedir=/var/cache/squid \
+            --enable-async-io                \
+            --enable-snmp                    \
+            --enable-gnuregex                \
+            --enable-linux-netfilter         \
+            $OPTS                           &&
 
-  if [ -e /etc/init.d/squid.sh ]; then
-    rm -f /etc/init.d/squid.sh
-    rm -f /etc/rc?.d/???squid.sh
-  fi                                            &&
+set +x &&
 
-  devoke_installwatch &&
-  chown  -R  nobody.nogroup  /var/cache/squid
+default_make &&
 
-) > $C_FIFO 2>&1
+if [ -e /etc/init.d/squid.sh ]; then
+  rm -f /etc/init.d/squid.sh
+  rm -f /etc/rc?.d/???squid.sh
+fi &&
+
+devoke_installwatch &&
+chown  -R  nobody.nogroup  /var/cache/squid
