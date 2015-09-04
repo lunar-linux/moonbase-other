@@ -4,10 +4,10 @@ CATALOGDIR_OLD="/usr/share/sgml/$MODULE-$OLD_VER"
 CENTRALIZED="/etc/sgml/catalog"
 
 if ! [ -e "$CENTRALIZED" ]; then
-     echo "Creating $CENTRALIZED" 
-     mkdir -p /etc/sgml
-     touch $CENTRALIZED
-fi  &&
+  echo "Creating $CENTRALIZED"
+  mkdir -p /etc/sgml
+  touch $CENTRALIZED
+fi &&
 
 # Now we are handling the update
 if [ ! -z $OLD_VER ]; then
@@ -28,7 +28,7 @@ fi
 /usr/bin/install-catalog --remove $CENTRALIZED $CENTRALIZED
 
 if ! grep -q "/usr/share/sgml/$MODULE-$VERSION" $CENTRALIZED; then
-   /usr/bin/install-catalog -r $CENTRALIZED $CATALOGDIR
+  /usr/bin/install-catalog -r $CENTRALIZED $CATALOGDIR
 fi
 
 unset_module_config OLD_VER
