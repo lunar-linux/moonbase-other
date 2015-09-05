@@ -1,0 +1,16 @@
+default_pre_build &&
+
+# See http://web.archiveorange.com/archive/v/a7O9XzsYMZ7Ivf8H8oHV
+# Fixes a make failure on an Undefined subroutine &main::Getopts.
+sed -i "7i use Getopt::Std;" msggen.pl &&
+sedit "s:\&Getopts:\&getopts:" msggen.pl &&
+
+# Fixes segfault when compiling docbook-utils
+patch_it $SOURCE2 1 &&
+patch_it $SOURCE3 1 &&
+
+# We need to remove the old catalog entries upon an update
+if module_is_expired $MODULE; then
+  set_module_config OLD_VER "`installed_version $MODULE`"
+fi
+
