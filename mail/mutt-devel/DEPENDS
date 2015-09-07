@@ -1,10 +1,2 @@
-optional_depends ncurses "--with-curses" "--without-curses" "for ncurses support"
-optional_depends openssl "--with-ssl"    "--without-ssl"    "for SSL support"
-optional_depends gnutls  "--with-gnutls" "--without-gnutls" "for TLS support"
-optional_depends gdbm    "--with-gdbm"   "--without-gdbm"   "for gdbm support"
-optional_depends db      "--with-bdb"    "--without-bdb"    "for Berkeley DB4 support"
-optional_depends krb5    "--with-gss"    "--without-gss"    "for Kerberos support"
-optional_depends libidn  "--with-idn"    "--without-idn"    "for IDN support"
-
-optional_depends gpgme      "--enable-gpgme" "" "for gpgme support"
-optional_depends cyrus-sasl "--enable-sasl"  "" "for SASL support"
+depends ncurses
+optional_depends  "openssl"  "--with-ssl"  ""  "to enable ssl support for pop/imap"

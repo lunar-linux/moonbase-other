@@ -1,4 +1,3 @@
+OPTS+=" --enable-bzip2" &&
 
-  OPTS+=" --enable-bzip2" &&
-
-  default_build
+default_build
