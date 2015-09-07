@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# hack the build script to ignore --root=/ for the dblatex script
+sedit 's@not(self._root)@True@' setup.py
