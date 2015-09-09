@@ -1,11 +1,9 @@
 DEST_DIR=/usr/share/java/closure &&
 
-#mvn package &&
-#mvn package -DskipTests &&
 mvn package -Dmaven.test.skip=true -Dmaven.repo.local=m2 &&
 
 echo '#!/bin/sh
-java" -jar $DEST_DIR/closure-compiler.jar $@' > closure
+java -jar /usr/share/java/closure/closure.jar $@' > closure
 
 prepare_install &&
 
