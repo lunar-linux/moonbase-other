@@ -1,0 +1,19 @@
+          MODULE=ecryptfs-utils
+         VERSION=108
+          SOURCE=${MODULE}_${VERSION}.orig.tar.gz
+      SOURCE_URL=http://launchpad.net/ecryptfs/trunk/$VERSION/+download/
+      SOURCE_VFY=sha256:52838b1ad41113ba88a4318b19af10cf307100c6b3f62c608998d40312fbd7dd
+        WEB_SITE=http://launchpad.net/ecryptfs/
+         ENTERED=20150909
+         UPDATED=20150909
+           SHORT="Enterprise-class stacked cryptographic filesystem for Linux"
+
+cat << EOF
+eCryptfs is a cryptographic stacked Linux filesystem. eCryptfs stores
+cryptographic metadata in the header of each file written, so that
+encrypted files can be copied between hosts; the file will be decrypted
+with the proper key in the Linux kernel keyring.
+There is no need to keep track of any additional information aside from
+what is already in the encrypted file itself. You may think of eCryptfs
+as a sort of "gnupgfs", or "gnupg as a filesystem".
+EOF

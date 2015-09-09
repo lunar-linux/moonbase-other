@@ -1,0 +1,15 @@
+depends Python
+depends libgcrypt
+depends gpgme
+depends gettext
+depends intltool
+depends swig
+depends keyutils
+
+optional_depends Linux-PAM "--enable-pam" "--disable-pam" "for PAM support"
+optional_depends nss       "--enable-nss" "--disable-nss" "for NSS support"
+
+optional_depends openssl \
+                 "--enable-openssl"  \
+                 "--disable-openssl" \
+                 "for SSL support"
