@@ -1,7 +1,3 @@
-(
+OPTS+=" --disable-gtk --enable-static=no" &&
 
-  OPTS+=" --disable-gtk"
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
