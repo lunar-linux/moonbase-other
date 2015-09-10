@@ -1,13 +1,9 @@
-(
+OPTS+=" --disable-static" &&
 
-  OPTS+=" --disable-static" &&
+unset CFLAGS &&
 
-  unset  CFLAGS
-  ./configure  --build=$BUILD        \
-               --prefix=/usr         \
-               --sysconfdir=/etc     \
-               --localstatedir=/var  \
-               $OPTS                &&
-  default_make
+OPTS+=" --build=$BUILD    \
+        --sysconfdir=/etc \
+        --localstatedir=/var" &&
 
-) > $C_FIFO 2>&1
+default_build
