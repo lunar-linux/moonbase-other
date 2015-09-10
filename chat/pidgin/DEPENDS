@@ -1,114 +1,136 @@
-depends  libxml2
-depends  gettext
-depends  intltool
+depends libxml2
+depends gettext
+depends libSM
+depends hicolor-icon-theme
+depends intltool
 
-optional_depends  "dbus-glib"  \
-                  ""           \
-                  "--disable-dbus"  \
-                  "for D-Bus support"
+optional_depends dbus-glib \
+                 "--enable-dbus"   \
+                 "--disable-dbus"  \
+                 "for D-Bus support"
 
-optional_depends  "ncurses"                  \
-                  ""                         \
-                  "--disable-consoleui"      \
-                  "for the console UI finch"
+optional_depends ncurses \
+                 "--enable-consoleui"  \
+                 "--disable-consoleui" \
+                 "for the console UI finch"
 
-optional_depends  "gtk+-2"  \
-                  ""        \
-                  "--disable-gtkui"  \
-                  "for Gtk user interface"
+optional_depends gtk+-2 \
+                 "--enable-gtkui"  \
+                 "--disable-gtkui" \
+                 "for Gtk user interface"
 
-optional_depends  "perl"  \
-                  ""      \
-                  "--disable-perl"  \
-                  "for Perl based plugin support"
+optional_depends perl \
+                 "--enable-perl"  \
+                 "--disable-perl" \
+                 "for Perl based plugin support"
 
-optional_depends  "startup-notification"  \
-                  ""                      \
-                  "--disable-startup-notification"  \
-                  "for window manager startup notification support"
+optional_depends startup-notification \
+                 "--enable-startup-notification"  \
+                 "--disable-startup-notification" \
+                 "for window manager startup notification support"
 
-optional_depends  "libXScrnSaver"  \
-                  ""               \
-                  "--disable-screensaver"  \
-                  "for detecting mouse and keyboard idleness"
+optional_depends libXScrnSaver \
+                 "--enable-screensaver"  \
+                 "--disable-screensaver" \
+                 "for detecting mouse and keyboard idleness"
 
-optional_depends  "gtkspell"  \
-                  ""          \
-                  "--disable-gtkspell"  \
-                  "for inline message spellcheck support"
+optional_depends gtkspell \
+                 "--enable-gtkspell"  \
+                 "--disable-gtkspell" \
+                 "for inline message spellcheck support"
 
-optional_depends  "evolution"  \
-                  ""           \
-                  "--disable-gevolution"  \
-                  "for the Evolution plugin"
+optional_depends evolution \
+                 "--enable-gevolution"  \
+                 "--disable-gevolution" \
+                 "for the Evolution plugin"
 
-optional_depends  "gstreamer-10"  \
-                  ""              \
-                  "--disable-gstreamer"  \
-                  "for sound support within the application"
+optional_depends gstreamer-10 \
+                 "--enable-gstreamer"  \
+                 "--disable-gstreamer" \
+                 "for sound support within the application"
 
-optional_depends  "sqlite"  \
-                  ""        \
-                  "--disable-cap"  \
-                  "for the Contact Availability Prediction plugin"
+optional_depends sqlite \
+                 "--enable-cap"  \
+                 "--disable-cap" \
+                 "for the Contact Availability Prediction plugin"
 
-optional_depends  "avahi"  \
-                  ""       \
-                  "--disable-avahi"  \
-                  "for the Bonjour plugin"
+optional_depends avahi \
+                 "--enable-avahi"  \
+                 "--disable-avahi" \
+                 "for the Bonjour plugin"
 
-optional_depends  "nss"                                     \
-                  "--enable-gnutls=no                       \
-                   --with-nspr-libs=/usr/lib                \
-                   --with-nspr-includes=/usr/include/nspr/  \
-                   --with-nss-libs=/usr/lib/                \
-                   --with-nss-includes=/usr/include/nss/    \
-                   --enable-nss=yes"                        \
-                  ""                                        \
-                  "for MSN & GoogleTalk support (say 'n' to gnutls)"
+optional_depends nss \
+                 "--enable-gnutls=no                     \
+                 --with-nspr-libs=/usr/lib               \
+                 --with-nspr-includes=/usr/include/nspr/ \
+                 --with-nss-libs=/usr/lib/               \
+                 --with-nss-includes=/usr/include/nss/   \
+                 --enable-nss"                           \
+                 ""                                      \
+                 "for MSN & GoogleTalk support (say 'n' to gnutls)"
 
-optional_depends  "gnutls"  \
-                  "--enable-nss=no --enable-gnutls=yes"  \
-                  ""                                     \
-                  "for MSN & GoogleTalk support (say 'y' here if you said 'n' to nss)"
+optional_depends gnutls \
+                 "--disable-nss --enable-gnutls=yes" \
+                 "--enable-gnutls=no" \
+                 "for MSN & GoogleTalk support (say 'y' here if you said 'n' to nss)"
 
-optional_depends  "libidn"  \
-                  ""               \
-                  "--disable-idn"  \
-                  "for unicode domain support"
+optional_depends cyrus-sasl \
+                 "--enable-cyrus-sasl"  \
+                 "--disable-cyrus-sasl" \
+                 "for SASL support"
 
-optional_depends  "GConf"  \
-                  ""       \
-                  ""       \
-                  "for GNOME support of Gaim URI handlers"
+optional_depends ca-certificates \
+                 "" \
+                 "" \
+                 "for SSL CA certificates support"
 
-optional_depends  "doxygen"  \
-                  ""         \
-                  "--disable-doxygen"  \
-                  "for documentation support"
+optional_depends libidn \
+                 "--enable-idn"  \
+                 "--disable-idn" \
+                 "for unicode domain support"
 
-optional_depends  "meanwhile"  \
-                  ""           \
-                  "--disable-meanwhile"  \
-                  "for meanwhile (Lotus Sametime) protocol support"
+optional_depends GConf \
+                 "" \
+                 "" \
+                 "for GNOME support of Gaim URI handlers"
 
-optional_depends  "tcl"  \
-                  ""     \
-                  "--disable-tcl"  \
-                  "for TCL based plugin support"
+optional_depends farstream-0.1 \
+                 "--enable-farstream  --enable-vv"  \
+                 "--disable-farstream --disable-vv" \
+                 "for voice and video support"
 
-optional_depends  "tk"  \
-                  ""    \
-                  "--disable-tk"   \
-                  "for TK based plugin support"
+optional_depends NetworkManager \
+                 "--enable-nm"  \
+                 "--disable-nm" \
+                 "for NetworkManager support"
 
-optional_depends "farsight2" \
-                  ""         \
-                  "--disable-vv" \
-                  "for voice and video support"
+optional_depends doxygen \
+                 "--enable-doxygen"  \
+                 "--disable-doxygen" \
+                 "for documentation support"
+
+optional_depends meanwhile \
+                 "--enable-meanwhile"  \
+                 "--disable-meanwhile" \
+                 "for meanwhile (Lotus Sametime) protocol support"
+
+optional_depends libgadu \
+                 "" \
+                 "" \
+                 "for Gadu-Gadu protocol support"
+
+optional_depends tcl \
+                 "--enable-tcl"  \
+                 "--disable-tcl" \
+                 "for TCL based plugin support"
+
+optional_depends tk \
+                 "--enable-tk"  \
+                 "--disable-tk" \
+                 "for TK based plugin support"
 
 # Mono implementation isn't far enough along to make this depends useful
-#optional_depends  "mono"            \
-#                  "--enable-mono"   \
-#                  "--disable-mono"  \
+#optional_depends  mono \
+#                  "--enable-mono"  \
+#                  "--disable-mono" \
 #                  "for Mono (C#) plugin support"

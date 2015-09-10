@@ -1,8 +1,10 @@
-(
+CFLAGS+=" -lm" &&
 
-  OPTS+=" --disable-nm" &&
-  CFLAGS+=" -lm" &&
+autoconf &&
 
-  default_build
+OPTS+=" -disable-schemas-install" &&
 
-) > $C_FIFO 2>&1
+default_build &&
+
+# Remove GConf schema file
+rm /etc/gconf/schemas/purple.schemas
