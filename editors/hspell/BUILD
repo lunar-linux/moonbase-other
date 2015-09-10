@@ -11,4 +11,3 @@ default_make   &&
 
 # rm the static lib
 rm -f /usr/lib/libhspell.a
-
