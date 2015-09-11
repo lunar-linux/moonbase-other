@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# otherwise their only .a is not compiled with pic
+sedit '/vtk_add_library/ a set_target_properties(${vtk-module} PROPERTIES COMPILE_FLAGS -fPIC)' Wrapping/Tools/CMakeLists.txt
