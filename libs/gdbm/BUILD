@@ -1,4 +1,3 @@
+OPTS+=" --disable-static --enable-libgdm-compat" &&
 
-  OPST+=" --disable-static" &&
-
-  default_build
+default_build
