@@ -1,8 +1,7 @@
+OPTS+=" --disable-static" &&
 
-  OPTS+=" --disable-static" &&
+CXXFLAGS+=" -Wno-error" &&
 
-  CXXFLAGS+=" -Wno-error" &&
+LDFLAGS+=" -lm" &&
 
-  LDFLAGS+=" -lm" &&
-
-  default_build
+default_build

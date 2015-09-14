@@ -1,5 +1,4 @@
-default_pre_build  &&
-
+default_pre_build &&
 
 # Remove profiled make files
 find $SOURCE_DIRECTORY -name "*_p.mk" | xargs rm -f &&
@@ -10,7 +9,7 @@ sedit "s;opt/schily;usr;" $(find $SOURCE_DIRECTORY -type f -name \*.[0-9ch] -exe
 # We don't need static libaries
 sedit "s;include\t\t.*rules.lib;;" $(find $SOURCE_DIRECTORY -type f -exec grep -l "^include.\+rules\.lib" "{}" "+") &&
 
-sedit "s:/bin/rm:rm:; s:/bin/mv:mv:" RULES/rules.prg  &&
+sedit "s:/bin/rm:rm:; s:/bin/mv:mv:" RULES/rules.prg &&
 
 # this will make it use its own headers
 # not the last linned kernel headers

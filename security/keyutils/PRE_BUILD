@@ -1,0 +1,10 @@
+default_pre_build &&
+
+# fix man pages symlinks
+sedit "s:\.3:.3.gz:g"  Makefile &&
+sedit "s:\.3.gz):.3):" Makefile &&
+
+# use /usr/bin for /bin and /sbindir
+sedit "s:|/:/:" request-key.conf &&
+sedit "s:/bin/:/usr/bin/:" request-key.conf &&
+sedit "s:/sbin/:/usr/bin/:" request-key.conf

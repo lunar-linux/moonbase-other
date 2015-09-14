@@ -1,9 +1,13 @@
-(
+OPTS+=" --enable-fatverb  \
+        --enable-linginfo \
+        --enable-shared   \
+        --disable-test"  &&
 
-  OPTS+=" --enable-fatverb --enable-linginfo --enable-shared --disable-test" &&
+#sedit "s:/usr/bin:/bin:" wzip &&
 
-  sedit "s:/usr/bin:/bin:" wzip &&
+default_config &&
+make hunspell  &&
+default_make   &&
 
-  default_build
-
-) > $C_FIFO 2>&1 
+# rm the static lib
+rm -f /usr/lib/libhspell.a

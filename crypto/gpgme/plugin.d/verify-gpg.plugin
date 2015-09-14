@@ -30,7 +30,7 @@ plugin_source_verify_gpg() {
 
   GPG_SIG=$(echo $2 | sed 's/^gpg://' | cut -d, -f1)
   GPG_KEY=$(echo $2 | sed 's/^gpg://' | cut -d, -f2-)
-  
+
   # do we need to download a keyset?
   if [ -n "$GPG_KEY" ] ; then
     TMP_GPG_KEYS=$(temp_create "gpg-pubkeys")
@@ -79,7 +79,7 @@ plugin_source_verify_gpg() {
   else
     # always return 'continue' plugin value
     return 2
-  fi  
+  fi
 }
 
 
