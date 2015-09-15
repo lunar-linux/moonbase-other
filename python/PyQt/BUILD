@@ -22,5 +22,5 @@
     printf "${PROBLEM_COLOR}   Be patient. It may look like nothing is happening... its just slow.""${DEFAULT_COLOR}\n" &&
     python3 ./configure.py --confirm-license $OPTS &&
     default_make
-    sedit "s:/usr/src/qt-everywhere-opensource-src-`lvu version qt4`:/usr:" /usr/lib/python3.4/site-packages/PyQt4/pyqtconfig.py
+    sedit "s:/usr/src/qt-everywhere-opensource-src-`lvu version qt4`:/usr:" /usr/lib/python3.$(installed_version Python-3 | cut -d. -f1)/site-packages/PyQt4/pyqtconfig.py
   fi
