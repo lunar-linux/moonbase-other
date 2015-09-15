@@ -11,6 +11,7 @@
           -DWITH_PYTHON_INSTALL=0 \
           -DWITH_STATIC_LIBS=0 \
           -DWITH_PYTHON=1 \
+          -DWITH_OPENMP=0 \
           -DWITH_PLAYER=1   \
           -DWITH_GAMEENGINE=1 \
           -DWITH_INSTALL_PORTABLE=0 \
