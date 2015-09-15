@@ -1,5 +1,5 @@
 
-  PYTHON_VER="$(module_version Python-3 | cut -c1)" &&
+  PYTHON_VER="$(installed_version Python-3 | cut -d. -f1)" &&
 
   if in_depends $MODULE numpy && [ -f /usr/bin/f2py3 ] ; then
     OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=ON"
@@ -14,7 +14,7 @@
           -DWITH_PLAYER=1   \
           -DWITH_GAMEENGINE=1 \
           -DWITH_INSTALL_PORTABLE=0 \
-          -DPYTHON_VERSION=3.4 \
+          -DPYTHON_VERSION=3.${PYTHON_VER} \
           -DPYTHON_LIBRARY=/usr/lib/libpython3.${PYTHON_VER}m.so \
           -DPYTHON_REQUESTS_PATH=/usr/lib/python3.${PYTHON_VER}/site-packages/pip/_vendor/requests \
           -DPYTHON_LIBRARIES=/usr/lib/python3.${PYTHON_VER} \
