@@ -1,4 +1,8 @@
-validate_source_dir $SOURCE_DIRECTORY  &&
-mk_source_dir       $SOURCE_DIRECTORY  &&
-cd                  $SOURCE_DIRECTORY  &&
-unpack              $SOURCE
+default_pre_build &&
+
+# cp makefile.unix Makefile &&
+sedit '/^CXXFLAGS/d' makefile &&
+
+# rename the soname
+sedit "s:-shared -o:-shared -Wl,-soname,libunrar.so -o:" makefile &&
+sedit "s: libunrar.so: libunrar.so.$VERSION:" makefile
