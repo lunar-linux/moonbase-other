@@ -1,4 +1,13 @@
+if [[ $(arch) == x86_64 ]]; then
+  OPTS+=" --with-pic"
+fi &&
 
-  patch_it $SOURCE2 1 &&\
+OPTS+=" --mandir=/usr/share/man" &&
 
-  default_build
+default_config &&
+
+sedit "s:datadir)/html:datadir)/doc/$MODULE:g" \
+      {avcall,callback,trampoline,vacall}/Makefile \
+      callback/{trampoline,vacall}_r/Makefile &&
+
+default_make
