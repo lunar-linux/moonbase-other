@@ -1,7 +1,6 @@
 [Unit]
 Description=Postfix Mail Transport Agent
-After=syslog.target network.target
-Conflicts=exim.service
+After=network.target
 
 [Service]
 Type=forking
@@ -10,6 +9,7 @@ ExecStartPre=/usr/bin/newaliases
 ExecStart=/usr/sbin/postfix start
 ExecReload=/usr/sbin/postfix reload
 ExecStop=/usr/sbin/postfix stop
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
