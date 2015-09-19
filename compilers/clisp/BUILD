@@ -1,16 +1,13 @@
-(
+./configure --prefix=/usr \
+            $OPTS src    &&
 
+cd src &&
 
-  ./configure --prefix=/usr   \
-              $OPTS          &&
-
-  cd src &&
-
-  default_config &&
+default_config &&
 
 # fixes; gcc: error: unrecognized option '-R'
-  sedit "s:-R/:-L/:g" cflags.h Makefile gllib/Makefile &&
+sedit "s:-R/:-L/:g" cflags.h Makefile gllib/Makefile &&
 
-  default_make
+sedit 's,http://www.lisp.org/HyperSpec/,http://www.lispworks.com/reference/HyperSpec/,g' config.lisp &&
 
-) > $C_FIFO 2>&1
+default_make
