@@ -10,4 +10,5 @@ fi &&
 
 # Now the .desktop file and the icon
 mkdir -p /usr/share/applications /usr/share/pixmaps &&
-install -m644 $SCRIPT_DIRECTORY/firefox-bin.desktop /usr/share/applications
+install -m644 $SCRIPT_DIRECTORY/firefox-bin.desktop /usr/share/applications/ &&
+ln -snf /usr/lib/firefox/browser/icons/mozicon128.png /usr/share/pixmaps/firefox.png
