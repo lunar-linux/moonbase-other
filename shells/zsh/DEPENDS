@@ -1,0 +1,20 @@
+optional_depends ncurses \
+                 "--with-term-lib=ncursesw" "" \
+                 "for ncurses support"
+
+optional_depends pcre \
+                 "--enable-pcre"  \
+                 "--disable-pcre" \
+                 "for pcre support"
+
+optional_depends libcap \
+                 "--enable-cap"  \
+                 "--disable-cap" \
+                 "for capabilities support"
+
+optional_depends gdbm \
+                 "--enable-gdbm"  \
+                 "--disable-gdbm" \
+                 "for gdbm database support"
+
+# optional_depends musl "--enable-libc-musl" "" "use musl instead of glibc"
