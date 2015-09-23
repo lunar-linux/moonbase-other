@@ -9,11 +9,11 @@ in_depends $MODULE SDL && AUDIO_LIST+=",sdl"
 
 add_priv_group kvm &&
 
-./configure --prefix=/usr  \
-            --sysconfdir=/etc  \
-            --libexecdir=/usr/lib/qemu  \
-            --localstatedir=/var  \
-            --audio-drv-list="$AUDIO_LIST"  \
+./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --libexecdir=/usr/lib/qemu \
+            --localstatedir=/var \
+            --audio-drv-list="$AUDIO_LIST" \
             $OPTS  &&
 
 default_make  &&
@@ -25,7 +25,7 @@ else
 fi &&
 
 # bridge_helper needs suid
-chmod u+s "/usr/lib/qemu/qemu-bridge-helper"  &&
+chmod u+s "/usr/lib/qemu/qemu-bridge-helper" &&
 
 # qemu-doc.html may not exist, but it will be ignored if that is the case
 gather_docs TODO qemu-doc.html
