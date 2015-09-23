@@ -1,9 +1,11 @@
          MODULE=clisp
         VERSION=2.49
          SOURCE=$MODULE-$VERSION.tar.bz2
-  SOURCE_URL[0]=$GNU_URL/$MODULE/release/$VERSION/
-  SOURCE_URL[1]=$SFORGE_URL/$MODULE/
-     SOURCE_VFY=sha1:7e8d585ef8d0d6349ffe581d1ac08681e6e670d4
+        SOURCE2=$MODULE-gcc5.patch.bz2
+     SOURCE_URL=$GNU_URL/$MODULE/release/$VERSION/
+    SOURCE2_URL=$PATCH_URL/
+     SOURCE_VFY=sha256:8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890
+    SOURCE2_VFY=sha256:656200ce28bbad01cf864550fae48cc1d5409caf902aa98e074a7a1e339e255d
        WEB_SITE=http://clisp.cons.org/
         ENTERED=20060512
         UPDATED=20100827
@@ -11,11 +13,10 @@
           SHORT="An ANSI Common Lisp implementation"
 
 cat << EOF
-Common Lisp is a high-level, all-purpose, object-oriented,
-dynamic, functional programming language.
-
-CLISP is a Common Lisp implementation by Bruno Haible, then
-of Karlsruhe University, and Michael Stoll, then of Munich
-University, both in Germany. It supports the Lisp described
-in the ANSI Common Lisp standard plus many extensions.
+Common Lisp is a high-level, all-purpose, object-oriented, dynamic,
+functional programming language.
+CLISP is a Common Lisp implementation by Bruno Haible, then of Karlsruhe
+University, and Michael Stoll, then of Munich University, both in Germany.
+It supports the Lisp described in the ANSI Common Lisp standard plus many
+extensions.
 EOF

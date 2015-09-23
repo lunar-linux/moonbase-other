@@ -1,20 +1,19 @@
-(
+export CXXFLAGS+=" -fPIC" &&
 
-  export CXXFLAGS+=" -fPIC" &&
-  cd unrar &&
-#  cp makefile.unix Makefile &&
-  sedit '/^CXXFLAGS/d' makefile &&
-  make clean &&
-#  make sfx &&
-#  make clean &&
-  make unrar lib &&
-  prepare_install &&
-  make install-unrar &&
-  make install-lib &&
-#  install default.sfx /usr/lib/ &&
+make clean &&
+# make sfx &&
+# make clean &&
+make unrar lib &&
 
-  # Needed because gather_docs is confused by PRE_BUILD
-  mkdir -p $DOCUMENT_DIRECTORY/unrar &&
-  cp readme.txt license.txt $DOCUMENT_DIRECTORY/unrar
+prepare_install &&
 
-) >$C_FIFO 2>&1
+make install-unrar &&
+make install-lib &&
+# install default.sfx /usr/lib/ &&
+
+# Needed because gather_docs is confused by PRE_BUILD
+mkdir -p $DOCUMENT_DIRECTORY/unrar &&
+cp readme.txt license.txt $DOCUMENT_DIRECTORY/unrar
+
+ln -sf libunrar.so.$VERSION /usr/lib/libunrar.so.5 &&
+ln -sf libunrar.so.$VERSION /usr/lib/libunrar.so

@@ -1,11 +1,13 @@
-(
-  add_priv_user bind:bind
+add_priv_user bind:bind
 
-  default_build  &&
+OPTS+=" --enable-threads --disable-static" &&
 
-  if module_installed systemd; then
-    mkdir -p /run/named
-    chown bind:bind /run/named
-  fi
+# json-c breaks the compile
+OPTS+=" --without-libjson" &&
 
-) > $C_FIFO 2>&1
+default_build &&
+
+if module_installed systemd; then
+  mkdir -p /run/named &&
+  chown bind:bind /run/named
+fi

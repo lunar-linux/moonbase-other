@@ -1,4 +1,19 @@
 default_pre_build &&
 
+# Set correct keymap path
+sedit 's#/usr/share/keymaps#/usr/share/kbd/keymaps#g' Completion/Unix/Command/_loadkeys &&
+
+# Fix usb.ids path
+sedit 's#/usr/share/misc/usb.ids#/usr/share/usb.ids#g' Completion/Linux/Command/_lsusb &&
+
+# Remove unneeded and conflicting completion scripts
+for _fpath in AIX BSD Cygwin Darwin Debian Mandriva openSUSE Redhat Solaris; do
+  rm -rf Completion/$_fpath &&
+  sedit "s#\s*Completion/$_fpath/\*/\*##g" Src/Zle/complete.mdd
+done &&
+
+rm Completion/Linux/Command/_{pkgtool,rpmbuild} &&
+rm Completion/Unix/Command/_systemd &&
+
 # patch to avoid glibc bug concerning include order in 2.18
 sedit "\@xattr\.h@ d; \@#include \"attr\.mdh\"@ i #include <sys/xattr.h>" Src/Modules/attr.c

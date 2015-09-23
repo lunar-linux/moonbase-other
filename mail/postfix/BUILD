@@ -1,5 +1,3 @@
-(
-
   sedit "s:#mail_spool_directory = .*:mail_spool_directory = /var/spool/mail:" conf/main.cf
 
   add_priv_user postdrop:postdrop    &&
@@ -30,7 +28,7 @@
 
   if in_depends $MODULE postgresql ; then
     AUXLIBS=$AUXLIBS" -lpq"
-    CCARGS=$CCARGS" -DHAS_PGSQL -I/usr/include/pgsql"
+    CCARGS=$CCARGS" -DHAS_PGSQL -I/usr/include/postgresql"
   fi  &&
 
   if in_depends $MODULE cyrus-sasl ; then
@@ -47,10 +45,11 @@
   echo CCARGS=$CCARGS      &&
   echo AUXLIBS=$AUXLIBS    &&
 
-  make "OPT=$CFLAGS" "AUXLIBS=$AUXLIBS" "CCARGS=$CCARGS"  &&
+  make makefiles DEBUG='' pie=yes shared=yes CCARGS="$CCARGS" AUXLIBS="$AUXLIBS" OPT="$CFLAGS $LDFLAGS" &&
+  make &&
   prepare_install  &&
 
-  sh postfix-install -non-interactive                   \
+  LD_LIBRARY_PATH=lib:$LD_LIBRARY_PATH sh postfix-install -non-interactive                   \
        config_directory=/etc/postfix                    \
        daemon_directory=/usr/libexec/postfix            \
        command_directory=/usr/sbin                      \
@@ -66,5 +65,3 @@
 
   ln -sf ../sbin/sendmail /usr/lib/sendmail  &&
   ln -sf postfix/aliases /etc/aliases
-
-) > $C_FIFO 2>&1
