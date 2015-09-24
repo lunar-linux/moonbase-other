@@ -73,4 +73,3 @@ fi &&
 if [ ! -e /etc/sasl2/smtpd.conf ] ; then
   echo "pwcheck_method: sasldb" > /etc/sasl2/smtpd.conf
 fi
-
