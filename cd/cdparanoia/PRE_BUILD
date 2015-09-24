@@ -1,0 +1,8 @@
+default_pre_build &&
+
+patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+
+mv configure.guess config.guess &&
+mv configure.sub config.sub &&
+
+sedit '/configure.\(guess\|sub\)/d' configure.in
