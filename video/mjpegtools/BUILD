@@ -1,7 +1,5 @@
-(
+OPTS+=" --enable-largefile" &&
 
-  sedit "s:DeleteRegion (a_pRegion);:this->DeleteRegion (a_pRegion);:" y4mdenoise/MotionSearcher.hh &&
+default_build &&
 
-  default_build
-
-) > $C_FIFO 2>&1
+install -m644 mpeg2enc/mpeg2syntaxcodes.h /usr/include/mjpegtools/mpeg2enc/
