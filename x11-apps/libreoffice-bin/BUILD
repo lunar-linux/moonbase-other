@@ -8,19 +8,19 @@ for i in `ls *.cpio`; do cpio -idmuV < $i ;done &&
 
 desktopfiles="base calc draw impress math startcenter writer xsltfilter"  &&
 
-prepare_install  &&
-cp -dfR opt/* /usr/lib/  &&
-cp -dfR usr /  &&
+prepare_install &&
+cp -dfR opt/* /usr/lib/ &&
+cp -dfR usr / &&
 
 # Create some symlinks to /usr/bin
-ln -sf ${LO_OPT_DIR}/program/soffice  /usr/bin/soffice   &&
-ln -sf ${LO_OPT_DIR}/program/scalc    /usr/bin/scalc     &&
-ln -sf ${LO_OPT_DIR}/program/swriter  /usr/bin/swriter   &&
-ln -sf ${LO_OPT_DIR}/program/simpress /usr/bin/simpress  &&
-ln -sf ${LO_OPT_DIR}/program/sbase    /usr/bin/sbase     &&
-ln -sf ${LO_OPT_DIR}/program/sdraw    /usr/bin/sdraw     &&
-ln -sf ${LO_OPT_DIR}/program/smath    /usr/bin/smath     &&
-ln -sf ${LO_OPT_DIR}/program/soffice  /usr/bin/libreoffice${VERSION%.*}  &&
+ln -sf ${LO_OPT_DIR}/program/soffice  /usr/bin/soffice  &&
+ln -sf ${LO_OPT_DIR}/program/scalc    /usr/bin/scalc    &&
+ln -sf ${LO_OPT_DIR}/program/swriter  /usr/bin/swriter  &&
+ln -sf ${LO_OPT_DIR}/program/simpress /usr/bin/simpress &&
+ln -sf ${LO_OPT_DIR}/program/sbase    /usr/bin/sbase    &&
+ln -sf ${LO_OPT_DIR}/program/sdraw    /usr/bin/sdraw    &&
+ln -sf ${LO_OPT_DIR}/program/smath    /usr/bin/smath    &&
+ln -sf ${LO_OPT_DIR}/program/soffice  /usr/bin/libreoffice${VERSION%.*} &&
 
 for i in $desktopfiles; do
   ln -sf ${LO_OPT_DIR}/share/xdg/$i.desktop /usr/share/applications/libreoffice${VERSION%.*}-$i.desktop

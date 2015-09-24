@@ -30,7 +30,6 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
     TEMP=`grep -v "TARGETLIST="          $MODULE_CONFIG`
     echo "$TEMP"                       > $MODULE_CONFIG
     echo "TARGETLIST=\"$TARGETLIST\"" >> $MODULE_CONFIG
-
   fi
 
   echo "OPTS=\"\$OPTS $OPTS\"" >> $MODULE_CONFIG
