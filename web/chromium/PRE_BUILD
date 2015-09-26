@@ -6,6 +6,9 @@
 
   patch_it $SOURCE2 0 &&
 
+  # Fix BoringSSL build with glibc 2.22
+  sedit 's;#define _POSIX_SOURCE;#define _POSIX_C_SOURCE 20112L;' third_party/boringssl/src/crypto/bio/socket_helper.c &&
+
   export CHROMIUM_HOME=/usr/lib/$MODULE &&
 
   QA_FLAGS_IGNORED=".*\.nexe" &&
