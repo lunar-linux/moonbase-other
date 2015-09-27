@@ -22,4 +22,7 @@ sedit 's;AM_CONFIG_HEADER;AC_CONFIG_HEADERS;g' configure.in &&
 
 # fix more strict syntax with modern autotools
 sedit 's:\[cmulocal\] \[config\]:[cmulocal], [config]:' configure.in &&
-sedit 's:\[\.\./cmulocal\] \[\.\./config\]:[../cmulocal], [../config]:' saslauthd/configure.in
+sedit 's:\[\.\./cmulocal\] \[\.\./config\]:[../cmulocal], [../config]:' saslauthd/configure.in &&
+
+# fix broken pkg-config file
+sedit '1 i prefix = @prefix@\nexec_prefix = @exec_prefix@' libsasl2.pc.in

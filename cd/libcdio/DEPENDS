@@ -2,6 +2,9 @@ depends pkgconfig
 depends ncurses
 
 optional_depends cdparanoia "" "" "for digital audio extraction"
+optional_depends vcdimager  "" "" "for vcdinfo support" n
 
-optional_depends libcddb   "--enable-cddb"     "--disable-cddb"     "for CDDB lookup support"
-optional_depends vcdimager "--enable-vcd-info" "--disable-vcd-info" "for vcdinfo support"
+optional_depends libcddb \
+                 "--enable-cddb"  \
+                 "--disable-cddb" \
+                 "for CDDB lookup support"

@@ -1,5 +1,5 @@
+mkdir -p /usr/lib/firmware/nouveau &&
 
- mkdir -p /lib/firmware/nouveau &&
+prepare_install &&
 
- prepare_install &&
- cp -d nv* vuc-* /lib/firmware/nouveau/
+cp -d nv* vuc-* /usr/lib/firmware/nouveau/

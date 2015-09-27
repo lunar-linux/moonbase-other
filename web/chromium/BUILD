@@ -1,3 +1,5 @@
+export LDFLAGS="$(echo $LDFLAGS | sed 's;-z now;-Wl,-znow;g;s;-z relro;-Wl,-zrelro;g')"
+
 # Lets do some ffmpeg stuff
 pushd third_party/ffmpeg > /dev/null &&
   chromium/scripts/build_ffmpeg.py linux ${FFMPEG_OPTS} --branding=Chrome &&
