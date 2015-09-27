@@ -2,7 +2,10 @@ CFLAGS+=" -lm" &&
 
 autoconf &&
 
-OPTS+=" -disable-schemas-install" &&
+OPTS+=" --disable-schemas-install \
+        --disable-gestures \
+        --disable-mono \
+        --disable-vv" &&
 
 default_build &&
 
