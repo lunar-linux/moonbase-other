@@ -1,12 +1,12 @@
 mkdir -p /etc/bluetooth &&
 
 if in_depends $MODULE systemd ; then
-  OPTS+=" --enable-systemd --disable-udev --enable-threads --enable-library --enable-tools"
+  OPTS+=" --enable-systemd --disable-udev"
 else
-  OPTS+=" --enable-udev --disable-systemd --enable-threads --enable-library --enable-tools"
+  OPTS+=" --enable-udev --disable-systemd"
 fi &&
+OPTS+=" --enable-threads --enable-library --enable-tools" &&
 
-sedit "s:_SERVICE:_SERVICE CAP_NET_RAW:" src/bluetooth.service.in &&
 default_build &&
 
 install profiles/*/*.conf /etc/bluetooth/ &&
