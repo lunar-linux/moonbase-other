@@ -1,4 +1,15 @@
+depends Python
 depends libcap
 depends libseccomp
+depends rsync
 
-optional_depends docbook2X "--enable-doc" "--disable-doc" "build man-pages"
+optional_depends lua \
+                 "--enable-lua"  \
+                 "--disable-lua" \
+                 "for lua support"
+
+optional_depends docbook2X \
+                 "--enable-doc" \
+                 "--disable-doc" \
+                 "build man-pages"
+
