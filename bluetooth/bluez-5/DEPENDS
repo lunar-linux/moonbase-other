@@ -1,7 +1,7 @@
 depends readline
 depends dbus-glib
-depends psmisc
 depends libical
+depends psmisc
 
 optional_depends %UDEV \
                  ""    \
@@ -11,3 +11,5 @@ optional_depends %UDEV \
 optional_depends cups "--enable-cups"   \
                       "--disable-cups"  \
                       "to enable cups printing support"
+
+optional_depends systemd "" "" "to enable systemd support"
