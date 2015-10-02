@@ -1,8 +1,6 @@
-(
-
 # This needs disabling for gcc-4.6.1
-  OPTS+=" --disable-error-on-warning" &&
+OPTS+=" --disable-error-on-warning --disable-static" &&
 
-  default_build
+LDFLAGS+=" -lpthread" &&
 
-) > $C_FIFO 2>&1
+default_build
