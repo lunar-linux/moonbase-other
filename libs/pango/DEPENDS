@@ -1,11 +1,19 @@
-depends  glib-2
-depends  fontconfig
-depends  freetype2
-depends  harfbuzz
-depends  libxcb
-depends  cairo
+depends glib-2
+depends fontconfig
+depends freetype2
+depends harfbuzz
+depends libxcb
+depends cairo
+depends help2man
 
-optional_depends "libXft"                "--with-xft=yes"         "--with-xft=no"           "for the Xft backend"
-optional_depends "gobject-introspection" "--enable-introspection" "--disable-introspection" "for gobject introspection support"
+optional_depends libthai "" "" "for Thai language support"
 
-optional_depends "libthai" "" "" "for Thai language support"
+optional_depends libXft \
+                 "--with-xft=yes" \
+                 "--with-xft=no"  \
+                 "for the Xft backend"
+
+optional_depends gobject-introspection \
+                 "--enable-introspection" \
+                 "--disable-introspection" \
+                 "for gobject introspection support"
