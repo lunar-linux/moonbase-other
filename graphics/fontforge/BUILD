@@ -1,7 +1,7 @@
-  ./bootstrap &&
+./bootstrap &&
 
-  OPTS+=" --disable-static   \
-          --enable-tile-path \
-          --enable-python-extension" &&
+OPTS+=" --disable-static   \
+        --enable-tile-path \
+        --enable-python-extension" &&
 
-  default_build
+default_build
