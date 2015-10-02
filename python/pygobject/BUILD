@@ -1,4 +1,4 @@
-if [ "`get_module_config DOCS`" = "n" ] ; then
+if [ "`get_module_config DOCS`" = "n" ]; then
   sedit "s/SUBDIRS = docs codegen/SUBDIRS = codegen/g" Makefile.in
 fi  &&
 
