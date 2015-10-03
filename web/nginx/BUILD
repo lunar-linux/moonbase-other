@@ -7,6 +7,10 @@ mkdir -p /var/spool/nginx/client_body &&
 mkdir -p /var/log/nginx  &&
 mkdir -p /srv/www/htdocs &&
 
+if module_installed openssl; then
+  OPTS+=" --with-imap_ssl_module"
+fi &&
+
 add_priv_user nginx:nginx -s /bin/false -c "nginx" &&
 
 ./configure  --prefix=/usr \
@@ -22,19 +26,22 @@ add_priv_user nginx:nginx -s /bin/false -c "nginx" &&
              --http-uwsgi-temp-path=/var/spool/nginx/uwsgi \
              --user=nginx  \
              --group=nginx \
+             --with-imap \
+             --with-ipv6 \
              --with-pcre-jit \
              --with-file-aio \
-             --with-ipv6 \
-             --with-imap \
+             --with-http_v2_module \
              --with-http_dav_module \
              --with-http_flv_module \
              --with-http_mp4_module \
              --with-http_sub_module \
              --with-http_realip_module \
+             --with-http_realip_module \
              --with-http_addition_module \
              --with-http_degradation_module \
              --with-http_stub_status_module \
              --with-http_secure_link_module \
+             --with-http_auth_request_module \
              --http-log-path=/var/log/nginx/access.log \
              --error-log-path=/var/log/nginx/error.log \
              $OPTS &&
