@@ -1,26 +1,18 @@
-(
+# Logrotate craps out without this
+unset CPP &&
 
-  # Logrotate craps out without this
-  unset CPP
+make RPM_OPT_FLAGS="${CFLAGS}" &&
 
-  # A few fixes for logrotate.conf
-  sedit 's:^dateext:#&:;s:^#compress:compress:;/^compress/acompresscmd /usr/bin/bzip2' examples/logrotate-default &&
-  sedit '/^compresscmd/acompressext .bz2' examples/logrotate-default &&
+# We don't want the status file tracked
+touch /var/lib/logrotate.status &&
 
-  make RPM_OPT_FLAGS="${CFLAGS}"     &&
+prepare_install &&
+make install &&
 
-  # We don't want the status file tracked
-  touch /var/lib/logrotate.status    &&
+mkdir -p /etc/logrotate.d &&
 
-  prepare_install                    &&
-  make install                       &&
+if [ ! -e /etc/logrotate.conf ]; then
+  install -m 0644 examples/logrotate-default /etc/logrotate.conf
+fi &&
 
-  mkdir -p /etc/logrotate.d          &&
-
-  if [ ! -e /etc/logrotate.conf ]; then
-    install -m 0644 examples/logrotate-default /etc/logrotate.conf
-  fi &&
-
-  gather_docs examples
-
-) > $C_FIFO 2>&1
+gather_docs examples
