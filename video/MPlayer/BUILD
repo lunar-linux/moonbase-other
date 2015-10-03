@@ -1,39 +1,40 @@
-  sedit '1s@/usr/bin/awk@/bin/awk@' vidix/pci_db2c.awk &&
+sedit '1s@/usr/bin/awk@/bin/awk@' vidix/pci_db2c.awk &&
 
-  # --extra_* are expected only once, but we might need more
-  sedit "s:extra_\([^=]*\)=\(\\\$.*\)$:extra_\1=\"\$extra_\1 \2\":" configure &&
+# --extra_* are expected only once, but we might need more
+sedit "s:extra_\([^=]*\)=\(\\\$.*\)$:extra_\1=\"\$extra_\1 \2\":" configure &&
 
-  # Remove subversion directories
-  find -name "\.svn" -type d -print0 | xargs -0 rm -rf &&
+# Remove subversion directories
+find -name "\.svn" -type d -print0 | xargs -0 rm -rf &&
 
-  # using CFLAGS other than MPlayer's auto-detected will break
-  bad_flags compiler  &&
+# using CFLAGS other than MPlayer's auto-detected will break
+bad_flags compiler &&
 
-  cd $SOURCE_DIRECTORY  &&
+cd $SOURCE_DIRECTORY &&
 
-  ./configure --prefix=/usr                 \
-              --mandir=/usr/share/man       \
-              --codecsdir=/usr/lib/win32    \
-              --confdir=/etc/mplayer        \
-              --datadir=/usr/share/mplayer  \
-              --enable-dynamic-plugins      \
-              --disable-mp3lib              \
-              --disable-live                \
-              $OPTS                        &&
+./configure --prefix=/usr                 \
+            --mandir=/usr/share/man       \
+            --codecsdir=/usr/lib/win32    \
+            --confdir=/etc/mplayer        \
+            --datadir=/usr/share/mplayer  \
+            --enable-dynamic-plugins      \
+            --disable-mp3lib              \
+            --disable-live                \
+            $OPTS                        &&
 
-  sedit 's/-mtune=native//' config.mak &&
+sedit 's/-mtune=native//' config.mak &&
 
-  default_make  &&
+default_make &&
 
-  gather_docs etc/*                   &&
-  install -d /etc/mplayer             &&
-  install -m644 etc/codecs.conf /usr/share/mplayer/         &&
-  install -m644 etc/example.conf /etc/mplayer/mplayer.conf  &&
-  install -m644 etc/input.conf /etc/mplayer/                &&
+gather_docs etc/* &&
 
-  cp -a skins/* /usr/share/mplayer/skins/ &&
-  ln -sf Blue /usr/share/mplayer/skins/default  &&
+install -d /etc/mplayer &&
+install -m644 etc/codecs.conf /usr/share/mplayer/ &&
+install -m644 etc/example.conf /etc/mplayer/mplayer.conf &&
+install -m644 etc/input.conf /etc/mplayer/ &&
 
-  cp -a fonts /usr/share/mplayer/  &&
-  rm -rf /usr/share/mplayer/font   &&
-  ln -sf fonts/font-arial-iso-8859-1/font-arial-18-iso-8859-1 /usr/share/mplayer/font
+cp -a skins/* /usr/share/mplayer/skins/ &&
+ln -sf Blue /usr/share/mplayer/skins/default &&
+
+cp -a fonts /usr/share/mplayer/ &&
+rm -rf /usr/share/mplayer/font  &&
+ln -sf fonts/font-arial-iso-8859-1/font-arial-18-iso-8859-1 /usr/share/mplayer/font

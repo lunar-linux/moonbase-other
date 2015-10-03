@@ -1,7 +1,3 @@
-(
+OPTS+=" --enable-shared --disable-static" &&
 
-  OPTS+=" --enable-shared"
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build

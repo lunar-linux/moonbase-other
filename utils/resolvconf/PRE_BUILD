@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# move the package to /usr
+sedit "s@\(PATH=.*\)@\1:/usr/bin@" bin/resolvconf &&
+sedit "s@\(PATH=/sbin:/bin\)@\1:/usr/bin@" etc/resolvconf/update.d/libc &&
+sedit "s@\(/lib/resolvconf/list-records\)@/usr\1@" etc/resolvconf/update.d/*

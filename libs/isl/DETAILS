@@ -1,17 +1,20 @@
           MODULE=isl
-         VERSION=0.12.2
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://isl.gforge.inria.fr
-      SOURCE_VFY=sha1:ca98a91e35fb3ded10d080342065919764d6f928
-        WEB_SITE=http://isl.gforge.inria.fr
-         ENTERED=20130517
-         UPDATED=20140329
-           SHORT="isl is a thread-safe C library for manipulating sets and relations of integer points"
+         VERSION=0.15
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=http://isl.gforge.inria.fr/
+      SOURCE_VFY=sha256:104a608839771d809558f5fd7533ca1a3b8ee5a667c5dcd9dc3499bf0a1522d5
+        WEB_SITE=http://isl.gforge.inria.fr/
+         ENTERED=20150831
+         UPDATED=20150831
+           SHORT="A library for sets and relations of integer points bounded by linear constraints"
 
 cat << EOF
-isl is a thread-safe C library for manipulating sets and relations
-of integer points bounded by affine constraints. The descriptions of
-the sets and relations may involve both parameters and existentially
-quantified variables. All computations are performed in exact integer
-arithmetic using GMP.
+isl is a library for manipulating sets and relations of integer points bounded
+by linear constraints. Supported operations on sets include intersection, union,
+set difference, emptiness check, convex hull, (integer) affine hull, integer
+projection, computing the lexicographic minimum using parametric integer
+programming, coalescing and parametric vertex enumeration. It also includes an
+ILP solver based on generalized basis reduction, transitive closures on maps
+(which may encode infinite graphs), dependence analysis and bounds on piecewise
+step-polynomials.
 EOF

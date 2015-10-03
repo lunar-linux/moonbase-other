@@ -3,6 +3,10 @@ depends zlib
 depends sqlite
 depends libgcrypt
 
-optional_depends cyrus-sasl "--with-sasl"                     "--without-sasl"   "for SASL support"
-optional_depends swig       "--with-swig"                     "--without-swig"   "for Swig bindings"
-optional_depends %JAVA_SDK  "--enable-javahl --without-jikes" "--disable-javahl" "for Java bindings (JavaHL)"
+optional_depends cyrus-sasl "--with-sasl" "--without-sasl" "for SASL support"
+optional_depends swig       "--with-swig" "--without-swig" "for Swig bindings"
+
+optional_depends %JAVA_SDK \
+                 "--enable-javahl --without-jikes" \
+                 "--disable-javahl" \
+                 "for Java bindings (JavaHL)"
