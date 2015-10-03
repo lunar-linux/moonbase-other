@@ -1,6 +1,3 @@
-(
+prepare_install &&
 
-  prepare_install &&
-  make prefix=/usr mandir=/usr/share/man install
-
-) > $C_FIFO 2>&1
+make prefix=/usr mandir=/usr/share/man install
