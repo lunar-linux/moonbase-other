@@ -1,5 +1,8 @@
 OPTS+=" --disable-static \
-        --with-ssl=openssl"
+        --disable-rpath  \
+        --with-ssl=openssl \
+        --with-moduledir=/usr/lib/dovecot/modules \
+        --with-systemdsystemunitdir=/usr/lib/systemd/system" &&
 
 add_priv_user dovecot:dovecot &&
 

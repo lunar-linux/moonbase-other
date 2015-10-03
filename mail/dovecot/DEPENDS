@@ -1,5 +1,10 @@
 depends openssl
 
-optional_depends postgresql "--with-pgsql" "--without-pgsql" "For Postgresql support"
-optional_depends %MYSQL     "--with-mysql" "--without-mysql" "For Mysql support"
-optional_depends openldap   "--with-ldap"  "--without-ldap"  "For openldap support"
+optional_depends Linux-PAM  "--with-pam"    "--without-pam"    "for PAM support"
+optional_depends nss        "--with-nss"    "--without-nss"    "for NSS support"
+optional_depends shadow     "--with-shadow" "--without-shadow" "for shadow auth support"
+optional_depends zlib       "--with-zlib"   "--without-zlib"   "for zlib compression support"
+optional_depends postgresql "--with-pgsql"  "--without-pgsql"  "for Postgresql support"
+optional_depends %MYSQL     "--with-mysql"  "--without-mysql"  "for Mysql support"
+optional_depends krb5       "--with-gssapi" "--without-gssapi" "for Mysql support"
+optional_depends openldap   "--with-ldap"   "--without-ldap"   "for openldap support"
