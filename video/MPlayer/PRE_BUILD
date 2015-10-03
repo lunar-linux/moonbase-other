@@ -1,14 +1,16 @@
-default_pre_build                &&
+default_pre_build &&
 
-mkdir   $SOURCE_DIRECTORY/skins   &&
-cd      $SOURCE_DIRECTORY/skins   &&
-unpack  $SOURCE6                  &&
+mkdir $SOURCE_DIRECTORY/skins &&
+cd $SOURCE_DIRECTORY/skins &&
+unpack $SOURCE6 &&
+
 # for some reason the default skin is broken...
 sedit 's/pimage/;pimage/' Blue/skin &&
 
-mkdir   $SOURCE_DIRECTORY/fonts  &&
-cd      $SOURCE_DIRECTORY/fonts  &&
-unpack  $SOURCE2                 &&
-unpack  $SOURCE3                 &&
-unpack  $SOURCE4                 &&
-unpack  $SOURCE5
+mkdir $SOURCE_DIRECTORY/fonts &&
+cd $SOURCE_DIRECTORY/fonts &&
+
+unpack $SOURCE2 &&
+unpack $SOURCE3 &&
+unpack $SOURCE4 &&
+unpack $SOURCE5
