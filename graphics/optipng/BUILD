@@ -1,6 +1,5 @@
+OPTS+=" -prefix=/usr" &&
 
-  OPTS+=" -prefix=/usr" &&
+./configure $OPTS &&
 
-  ./configure $OPTS &&
-
-  default_make
+default_make
