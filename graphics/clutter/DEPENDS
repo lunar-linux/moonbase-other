@@ -2,11 +2,14 @@ depends gtk+-3
 depends cogl
 depends json-glib
 
-optional_depends gtk-doc "" "" "for documentation support"
-
 #optional_depends libinput "--enable-evdev-input" \
 #                           "--disable-evdev-input" \
 #                           "for direct input support"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "for building documentation"
 
 optional_depends gobject-introspection \
                  "--enable-introspection" \

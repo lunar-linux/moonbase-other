@@ -1,15 +1,15 @@
-depends  libxml2
-depends  gdk-pixbuf
-depends  cairo      # needs cairo with png enabled
-depends  pango      # needs pango with cairo enabled
-depends  libcroco
+depends libxml2
+depends gdk-pixbuf
+depends cairo      # needs cairo with png enabled
+depends pango      # needs pango with cairo enabled
+depends libcroco
 
-optional_depends "vala"              \
+optional_depends vala \
                  "--enable-vala=yes" \
                  "--enable-vala=no"  \
                  "for libgsf run-time decompression"
 
-optional_depends "gobject-introspection"      \
+optional_depends gobject-introspection \
                  "--enable-introspection=yes" \
                  "--enable-introspection=no"  \
                  "for introspection support"

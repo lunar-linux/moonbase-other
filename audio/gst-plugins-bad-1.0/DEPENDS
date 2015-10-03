@@ -1,51 +1,56 @@
 depends  gst-plugins-base-1.0
 
-optional_depends  "SDL" \
-                  ""    \
-                  "--disable-sdl --disable-sdltest"  \
+optional_depends  SDL \
+                  ""  \
+                  "--disable-sdl --disable-sdltest" \
                   "for the SDL video and audio sink"
 
-optional_depends  "xine-lib"  \
-                  "--enable-vdpau"   \
-                  "--disable-vdpau"  \
+optional_depends  xine-lib \
+                  "--enable-vdpau"  \
+                  "--disable-vdpau" \
                   "for video support"
 
-optional_depends  "faac"  \
-                  ""      \
-                  "--disable-faac"  \
+optional_depends  faac \
+                  ""   \
+                  "--disable-faac" \
                   "for the AAC encoder plugin"
 
-optional_depends  "faad"  \
-                  ""      \
-                  "--disable-faad"  \
+optional_depends  faad \
+                  ""   \
+                  "--disable-faad" \
                   "for the AAC decoder plugin"
 
-optional_depends  "DirectFB"  \
-                  ""  \
-                  "--disable-directfb"  \
+optional_depends  DirectFB \
+                  "" \
+                  "--disable-directfb" \
                   "for the DirectFB video sink"
 
-optional_depends  "neon"  \
-                  ""      \
-                  "--disable-neon"  \
+optional_depends  neon \
+                  ""   \
+                  "--disable-neon" \
                   "for the neon HTTP client plugin"
 
-optional_depends  "xvidcore"  \
-                  ""  \
-                  "--disable-xvid"  \
+optional_depends  xvidcore \
+                  "" \
+                  "--disable-xvid" \
                   "for the XviD video plugin"
 
-optional_depends  "soundtouch" \
-                  ""  \
-                  "--disable-soundtouch"  \
+optional_depends  soundtouch \
+                  "" \
+                  "--disable-soundtouch" \
                   "for the SoundTouch plugin"
 
-optional_depends  "libmms" \
-                  ""  \
-                  "--disable-libmms"  \
+optional_depends  libmms \
+                  "" \
+                  "--disable-libmms" \
                   "for mms streaming plugin"
 
-optional_depends  "srtp"           \
+optional_depends  srtp \
                   "--enable-srtp"  \
                   "--disable-srtp" \
                   "for Secure Real-time Transport Protocol support"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc --disable-gtk-doc-html" \
+                 "for documentation support"
