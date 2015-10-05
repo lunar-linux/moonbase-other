@@ -1,3 +1,3 @@
-  export PREFIX="${DEFAULT_PREFIX}" &&
+export PREFIX="${DEFAULT_PREFIX}" &&
 
-  default_make
+default_make
