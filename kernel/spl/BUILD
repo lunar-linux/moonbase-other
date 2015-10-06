@@ -17,7 +17,6 @@ devoke_installwatch &&
 mkdir __pkg &&
 make DESTDIR=$SOURCE_DIRECTORY/__pkg install &&
 cd $SOURCE_DIRECTORY/__pkg &&
-mv lib usr/ &&
 
 invoke_installwatch &&
 
