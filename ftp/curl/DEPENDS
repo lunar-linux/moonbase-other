@@ -1,9 +1,9 @@
 depends zlib
 depends libidn
 
-optional_depends "openssl" "" "" "for https encrypted transport"
+optional_depends openssl "" "" "for https encrypted transport"
 
-optional_depends "openldap" \
+optional_depends openldap \
                  "--enable-ldap --enable-ldaps" \
                  "--disable-ldap --disable-ldaps" \
                  "for LDAP support"
