@@ -1,4 +1,4 @@
-OPTS+=" -prefix=/usr" &&
+OPTS+=" -prefix=/usr --mandir=/usr/share/man" &&
 
 ./configure $OPTS &&
 
