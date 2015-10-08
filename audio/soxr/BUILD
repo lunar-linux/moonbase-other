@@ -1,2 +1,1 @@
-
-  default_cmake_build
+default_cmake_build

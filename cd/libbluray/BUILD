@@ -1,3 +1,3 @@
-  ./bootstrap &&
+./bootstrap &&
 
-  default_build
+default_build
