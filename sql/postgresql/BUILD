@@ -1,5 +1,7 @@
 OPTS+=" --enable-thread-safety --enable-nls --enable-integer-datetimes" &&
 
+add_priv_user postgres:postgres &&
+
 default_build &&
 
 # This gives postgresql some additional things like text search,
