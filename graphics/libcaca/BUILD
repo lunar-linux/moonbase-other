@@ -1,15 +1,16 @@
-(
-  
-  sedit "s:\$(am__py_compile) --destdir \"\$(DESTDIR)\":\$(am__py_compile):" python/Makefile.in &&
+sedit "s:\$(am__py_compile) --destdir \"\$(DESTDIR)\":\$(am__py_compile):" python/Makefile.in &&
 
-  OPTS+=" --disable-debug --disable-doc" &&
+OPTS+=" --disable-doc \
+        --disable-debug \
+        --disable-gl \
+        --disable-csharp \
+        --disable-cxx \
+        --disable-static" &&
 
-  #java bindings are broken
-  OPTS+=" --disable-java" &&
+#java bindings are broken
+OPTS+=" --disable-java" &&
 
-  bad_flags "-Wl,-O1,--as-needed" &&
-  bad_flags "-Wl,--as-needed" &&
+bad_flags "-Wl,-O1,--as-needed" &&
+bad_flags "-Wl,--as-needed" &&
 
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
