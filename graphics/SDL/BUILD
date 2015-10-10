@@ -1,5 +1,6 @@
+sh autogen.sh &&
 
-  patch_it $SOURCE2 1 &&
+# RIP ggi
+OPTS+=" --disable-video-ggi" &&
 
-  sh autogen.sh &&
-  default_build
+default_build
