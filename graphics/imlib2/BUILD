@@ -1,6 +1,5 @@
+sedit "s:\@my_libs\@::g" imlib2-config.in &&
 
-  sedit "s:\@my_libs\@::g" imlib2-config.in &&
+OPTS+=" --disable-static" &&
 
-  OPTS+=" --disable-static" &&
-
-  default_build
+default_build

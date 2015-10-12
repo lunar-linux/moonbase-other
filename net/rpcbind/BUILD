@@ -1,4 +1,6 @@
-OPTS+=" --with-rpcuser=rpc --enable-warmstarts --with-statedir=/var/lib/rpcbind"
+OPTS+=" --with-rpcuser=rpc \
+        --enable-warmstarts \
+        --with-statedir=/var/lib/rpcbind" &&
 
 add_priv_user rpc:rpc &&
 default_build &&

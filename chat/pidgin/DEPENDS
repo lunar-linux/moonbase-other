@@ -5,8 +5,8 @@ depends hicolor-icon-theme
 depends intltool
 
 optional_depends dbus-glib \
-                 "--enable-dbus"   \
-                 "--disable-dbus"  \
+                 "--enable-dbus"  \
+                 "--disable-dbus" \
                  "for D-Bus support"
 
 optional_depends ncurses \
@@ -90,11 +90,10 @@ optional_depends libidn \
                  "for unicode domain support"
 
 optional_depends GConf \
-                 "" \
-                 "" \
+                 "" "" \
                  "for GNOME support of Gaim URI handlers"
 
-optional_depends farstream-0.1 \
+optional_depends farstream \
                  "--enable-farstream  --enable-vv"  \
                  "--disable-farstream --disable-vv" \
                  "for voice and video support"
@@ -115,8 +114,7 @@ optional_depends meanwhile \
                  "for meanwhile (Lotus Sametime) protocol support"
 
 optional_depends libgadu \
-                 "" \
-                 "" \
+                 "" "" \
                  "for Gadu-Gadu protocol support"
 
 optional_depends tcl \

@@ -14,3 +14,6 @@ if [ "`get_module_config DOCS`" = "n" ]; then
 fi &&
 
 default_build
+
+# this symlink fix the build for some modules (libcaca is one of them)
+ln -sf /usr/include/pango-1.0/pango /usr/include/pango

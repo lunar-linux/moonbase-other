@@ -1,5 +1,8 @@
+sh autogen.sh &&
 
-  patch_it $SOURCE2 1 &&
+# RIP ggi
+OPTS+=" --disable-static --disable-video-ggi" &&
 
-  sh autogen.sh &&
-  default_build
+default_build &&
+
+rm /usr/lib/libSDLmain.a
