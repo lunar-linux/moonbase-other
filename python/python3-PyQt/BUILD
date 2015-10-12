@@ -10,9 +10,6 @@
     OPTS+=" --qsci-api"
   fi &&
 
-  python ./configure.py --confirm-license $OPTS &&
-
-  default_make                 &&
-  mkdir -p /usr/share/$MODULE  &&
-  cp -Rf examples /usr/share/$MODULE &&
-  sedit "s:/usr/src/qt-everywhere-opensource-src-`lvu version qt4`:/usr:" /usr/lib/python2.7/site-packages/PyQt4/pyqtconfig.py
+  python3 ./configure.py --confirm-license $OPTS &&
+  default_make &&
+  sedit "s:/usr/src/qt-everywhere-opensource-src-`lvu version qt4`:/usr:" /usr/lib/python3.$(installed_version Python-3 | cut -d. -f1)/site-packages/PyQt4/pyqtconfig.py
