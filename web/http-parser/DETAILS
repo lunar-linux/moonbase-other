@@ -1,0 +1,35 @@
+          MODULE=http-parser
+         VERSION=2.5.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/nodejs/http-parser/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:e3b4ba58f4e6ee5fbec781df020e5cb74c3a799a07f059e1e125127a0b801481
+        WEB_SITE=http://github.com/joyent/http-parser/
+         ENTERED=20151013
+         UPDATED=20151013
+           SHORT="Parser for HTTP Request/Response written in C"
+
+cat << EOF
+This is a parser for HTTP messages written in C.
+It parses both requests and responses. The parser is designed to be used
+in performance HTTP applications. It does not make any syscalls nor
+allocations, it does not buffer data, it can be interrupted at anytime.
+Depending on your architecture, it only requires about 40 bytes of data
+per message stream (in a web server that is per connection).
+
+Features:
+  No dependencies
+  Handles persistent streams (keep-alive).
+  Decodes chunked encoding.
+  Upgrade support
+  Defends against buffer overflow attacks.
+
+The parser extracts the following information from HTTP messages:
+  Header fields and values
+  Content-Length
+  Request method
+  Response status code
+  Transfer-Encoding
+  HTTP version
+  Request URL
+  Message body
+EOF
