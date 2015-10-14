@@ -6,10 +6,10 @@ prepare_install &&
 
 mkdir -p $DEST_DIR/{bin,lib,script} &&
 
-cp -r ./{src,script} $DEST_DIR &&
+cp -r ./{src,script} $DEST_DIR/ &&
 
 # Insta1l libraries
-install -Dm644 ./lib/* $DESTDIR/lib/ &&
+install -m 644 lib/* $DEST_DIR/lib/ &&
 
 # Install executables
-install -Dm755 ./bin/* $DESTDIR/bin/
+install -m 755 bin/* $DEST_DIR/bin/
