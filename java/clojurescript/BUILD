@@ -1,20 +1,15 @@
 DEST_DIR=/usr/share/java/$MODULE &&
 
-#script/bootstrap &&
-sedit "s:CLOJURESCRIPT_VERSION:0.0-SNAPSHOT:" pom.template.xml &&
-cp pom.template.xml pom.xml &&
-mvn package -Dmaven.repo.local=m2 &&
+script/bootstrap &&
 
 prepare_install &&
-mkdir -p $DEST_DIR/{bin,script} &&
 
-# Install libraries
-install -Dm644 target/clojurescript-0.0-SNAPSHOT-aot.jar $DEST_DIR/lib/clojurescript.jar &&
-#install -Dm644 target/clojurescript-0.0-SNAPSHOT.jar $DEST_DIR/lib/clojurescript.jar &&
+mkdir -p $DEST_DIR/{bin,lib,script} &&
+
+cp -r ./{src,script} $DEST_DIR/ &&
+
+# Insta1l libraries
+install -m 644 lib/* $DEST_DIR/lib/ &&
 
 # Install executables
-install -Dm755 bin/cljsc.clj $DEST_DIR/bin/ &&
-install -Dm755 bin/cljsc /usr/bin/cljsc &&
-
-cp -r $SOURCE_DIRECTORY/{src,script} $DEST_DIR/
-
+install -m 755 bin/* $DEST_DIR/bin/
