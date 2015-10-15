@@ -2,7 +2,10 @@ if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc
 fi &&
 
-OPTS+=" --with-ssl --enable-wireshark --enable-usr-local=no --enable-randpkt" &&
+OPTS+=" --with-ssl \
+        --enable-wireshark \
+        --enable-usr-local=no \
+        --enable-randpkt" &&
 
 default_build &&
 
