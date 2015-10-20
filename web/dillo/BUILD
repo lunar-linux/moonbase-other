@@ -1,4 +1,4 @@
-default_build  &&
+default_build &&
 gather_docs doc/* &&
 
 # provide at least english hyphenation support
