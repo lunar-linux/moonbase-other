@@ -35,7 +35,7 @@ ntp1.mmo.netnod.se \
 ntp2.mmo.netnod.se"
 
     if which ping >/dev/null 2>&1; then
-      echo -n "Checking for low ping ntp servers:"  
+      echo -n "Checking for low ping ntp servers:"
       for srv in $SRV_LIST; do
         roundtrip=`ping -c 2 $srv | grep round-trip | sed -re 's%.*= *[0-9\.]+/([0-9\.]+)/.*%\1%'`
         echo "$roundtrip $srv"
