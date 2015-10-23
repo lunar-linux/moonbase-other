@@ -15,7 +15,7 @@ cd .. &&
 prepare_install &&
 
 # Create directories
-install -d {"$DEST",/usr/{bin,"share/doc/$MODULE"}} &&
+install -d $DEST &&
 
 # Package the files
 cp -a * $DEST/ &&
@@ -23,9 +23,4 @@ cp -a * $DEST/ &&
 # Set up symbolic links for the executables
 for f in dart dart2js dartanalyzer docgen pub dartfmt; do
   ln -sf "$DEST/bin/$f" "/usr/bin/$f"
-done &&
-
-# Package samples and documentation
-for f in samples about.html about_files; do
-  echo mv "$DEST/$f" "/usr/share/doc/$MODULE/"
 done
