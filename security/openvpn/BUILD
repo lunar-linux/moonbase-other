@@ -1,3 +1,3 @@
-  OPTS+=" --enable-plugins" &&
+OPTS+=" --enable-plugins" &&
 
-  default_build 
+default_build
