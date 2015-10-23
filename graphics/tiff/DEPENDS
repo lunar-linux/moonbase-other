@@ -1,4 +1,8 @@
-optional_depends "%JPEG"    "--enable-jpeg" "--disable-jpeg" "for IJG JPEG library usage (required for JPEG compression)"
-optional_depends "zlib"     "--enable-zlib" "--disable-zlib" "required for Deflate compression"
-optional_depends "jbigkit"  "--enable-jbig" "--disable-jbig" "required for ISO JBIG compression"
-optional_depends "lzma-sdk" "--enable-lzma" "--disable-lzma" "required for LZMA2 compression"
+depends zlib
+
+optional_depends %JPEG    "--enable-jpeg" "--disable-jpeg" "for IJG JPEG library usage (required for JPEG compression)"
+optional_depends zlib     "--enable-zlib" "--disable-zlib" "for Deflate compression"
+optional_depends jbigkit  "--enable-jbig" "--disable-jbig" "for ISO JBIG compression"
+optional_depends lzma-sdk "--enable-lzma" "--disable-lzma" "for LZMA2 compression"
+
+optional_depends freeglut "" "" "for mesa OpenGL support"
