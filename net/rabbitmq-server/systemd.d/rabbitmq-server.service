@@ -4,12 +4,11 @@ After=network.target
 
 [Service]
 Type=simple
-StandardOutput=syslog
-StandardError=syslog
+User=rabbitmq
 SyslogIdentifier=rabbitmq
+EnvironmentFile=/etc/rabbitmq/rabbitmq-env.conf
 ExecStart=/usr/sbin/rabbitmq-server
 ExecStop=/usr/sbin/rabbitmqctl stop
-Restart=always
 
 [Install]
 WantedBy=multi-user.target
