@@ -1,0 +1,8 @@
+default_pre_build &&
+
+sedit 's:/usr/local:/usr:' src/command-installer.coffee build/Gruntfile.coffee &&
+
+sed -e "s/<%= description %>/Chrome-based text editor from Github/" \
+    -e "s|<%= executable %>|/usr/bin/atom|"\
+    -e "s|<%= iconName %>|atom|"\
+    resources/linux/atom.desktop.in > resources/linux/Atom.desktop
