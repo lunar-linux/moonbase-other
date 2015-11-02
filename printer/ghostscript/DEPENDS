@@ -2,6 +2,7 @@ depends %JPEG
 depends libpng
 depends tiff
 depends lcms2
+depends zlib
 
 optional_depends jbig2dec \
                  "--with-jbig2dec"    \
@@ -51,5 +52,8 @@ optional_depends libpaper \
 optional_depends openjpeg \
                  "--enable-openjpeg"  \
                  "--disable-openjpeg" \
-                 "for openjpeg graphics support"
+                 "for openjpeg support"
 
+optional_depends tiff \
+                 "--with-system-libtiff" "" \
+                 "for TIFF support"
