@@ -1,9 +1,7 @@
-sedit 's:/usr/local:/usr:' src/command-installer.coffee build/Gruntfile.coffee &&
-
 ./script/build --install-dir=/usr &&
 
 prepare_install &&
 
-./script/grunt install &&
+./script/grunt install --install-dir=/usr
 
-install -Dm644 resources/atom.png /usr/share/pixmaps/atom.png
+install -Dm644 resources/app-icons/stable/png/1024.png /usr/share/pixmaps/atom.png
