@@ -1,6 +1,6 @@
-OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
+OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)" &&
 
-AUDIO_LIST="oss"
+AUDIO_LIST="oss" &&
 
 in_depends $MODULE alsa-lib && AUDIO_LIST+=",alsa"
 in_depends $MODULE esound && AUDIO_LIST+=",esd"
@@ -14,9 +14,9 @@ add_priv_group kvm &&
             --libexecdir=/usr/lib/qemu \
             --localstatedir=/var \
             --audio-drv-list="$AUDIO_LIST" \
-            $OPTS  &&
+            $OPTS &&
 
-default_make  &&
+default_make &&
 
 if module_installed systemd; then
   install -D -m644 $SCRIPT_DIRECTORY/65-kvm.rules /usr/lib/udev/rules.d/65-kvm.rules
