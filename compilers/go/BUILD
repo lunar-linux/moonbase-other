@@ -1,4 +1,5 @@
 export GOROOT=$SOURCE_DIRECTORY
+export GOROOT_BOOTSTRAP=/usr/lib/go
 export GOBIN=$GOROOT/bin
 export GOROOT_FINAL=/usr/lib/go
 export GOPATH=$BUILD_DIRECTORY
@@ -46,15 +47,12 @@ cp -a bin/* /usr/bin/  &&
 cp -a pkg /usr/lib/go/ &&
 cp -a src /usr/lib/go/ &&
 cp -a src/cmd /usr/lib/go/src/ &&
-cp -a src/lib9 /usr/lib/go/src/ &&
 cp -a lib /usr/lib/go/ &&
-cp -a include /usr/lib/go/ &&
 install -Dm0644 src/Make.* /usr/lib/go/src/ &&
 ln -sf /usr/bin /usr/lib/go/bin &&
 
 # Headers for C modules
-install -Dm644 src/runtime/runtime.h "/usr/lib/go/src/runtime/runtime.h" &&
-install -Dm644 src/runtime/cgocall.h "/usr/lib/go/src/runtime/cgocall.h" &&
+install -Dm644 src/runtime/cgo/libcgo.h /usr/lib/go/src/runtime/ &&
 
 # For gox
 install -Dm755 src/make.bash "/usr/lib/go/src/make.bash" &&
