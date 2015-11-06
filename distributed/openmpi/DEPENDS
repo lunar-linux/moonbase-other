@@ -1,15 +1,13 @@
 depends inetutils
 
-optional_depends libevent "--with-libevent=external" \
-                          "--with-libevent=internal" \
-                          "for libevent library support"
+optional_depends libevent \
+                 "--with-libevent=/usr" "" \
+                 "for system libevent library support"
 
 optional_depends hwloc \
-                 "--with-hwloc=/usr" \
-                 "--with-hwloc=internal" \
+                 "--with-hwloc=/usr" "" \
                  "for hwloc library support"
 
 optional_depends libtool  "--with-libltdl"  "" "for the system provided libltdl library"
-optional_depends libnl3   "--with-libnl3"   "" "for libnl3 library support"
 optional_depends sqlite   "--with-sqlite3"  "" "for sqlite support"
 optional_depends valgrind "--with-valgrind" "" "for valgrind support"
