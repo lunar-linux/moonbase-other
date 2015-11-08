@@ -1,6 +1,3 @@
-(
+OPTS+=" --with-gnu-ld" &&
 
-   OPTS+=" --with-gnu-ld" &&
-   default_build
-
-) > $C_FIFO 2>&1
+default_build
