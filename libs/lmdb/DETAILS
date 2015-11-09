@@ -1,0 +1,21 @@
+          MODULE=lmdb
+         VERSION=0.9.16
+          SOURCE=LMDB\_$VERSION.tar.gz
+      SOURCE_URL=https://github.com/LMDB/lmdb/archive/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-LMDB_$VERSION/libraries/liblmdb/
+      SOURCE_VFY=sha256:49d7b40949f2ced9bc8b23ea6a89e75471a1c9126537a8b268c318a00b84322b
+        WEB_SITE=http://symas.com/mdb/
+         ENTERED=20151025
+         UPDATED=20151025
+           SHORT="Lightning Memory-Mapped Database"
+
+cat << EOF
+LMDB is an ultra-fast, ultra-compact key-value embedded data store developed by Symas
+for the OpenLDAP Project. It uses memory-mapped files, so it has the read performance
+of a pure in-memory database while still offering the persistence of standard disk-based
+databases, and is only limited to the size of the virtual address space, (it is not
+limited to the size of physical RAM). 
+
+Note: LMDB was originally called MDB, but was renamed to avoid confusion with other 
+software associated with the name MDB
+EOF
