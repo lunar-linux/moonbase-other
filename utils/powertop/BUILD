@@ -1,7 +1,5 @@
-(
+./autogen.sh  &&
 
-   ./autogen.sh  &&
-   default_build &&
-   gather_docs README
+default_build &&
 
-) > $C_FIFO 2>&1
+gather_docs README
