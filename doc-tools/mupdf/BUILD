@@ -1,14 +1,16 @@
-(
+opts="prefix=/usr build=release" &&
 
-  sedit "s:openjpeg.h:openjpeg-`lvu installed openjpeg | cut -c1-3`/openjpeg.h:" fitz/image_jpx.c &&
+make $opts CURL_LIBS='-lcurl -lpthread' &&
 
-  opts="prefix=/usr build=release"  &&
+sedit 's/-mupdf//g' Makefile &&
 
-  make $opts  &&
+prepare_install &&
 
-  sedit 's/-mupdf//g' Makefile
+make $opts install &&
 
-  prepare_install  &&
-  make $opts install
+install -Dm644 $SCRIPT_DIRECTORY/mupdf.desktop /usr/share/applications/mupdf.desktop &&
+install -Dm644 $SCRIPT_DIRECTORY/mupdf.xpm /usr/share/pixmaps/mupdf.xpm
 
-) > $C_FIFO 2>&1
+
+
+
