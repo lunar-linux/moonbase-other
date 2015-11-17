@@ -23,7 +23,7 @@ optional_depends libcaca \
                  "enable CACA video output support"
 
 optional_depends libdvdread \
-                 "--enable-dvdread" \
+                 "" \
                  "--disable-dvdread" \
                  "use system library to read DVDs"
 
@@ -38,7 +38,7 @@ optional_depends mpg123 \
                  "for mp3 audio format"
 
 optional_depends libvorbis \
-                 "--enable-libvorbis" \
+                 "" \
                  "--disable-libvorbis" \
                  "to use ogg audio format"
 
@@ -98,14 +98,14 @@ optional_depends amrwb \
                  "AMR wideband support"
 
 optional_depends mpeg2dec \
-                 "--enable-libmpeg2" \
+                 "" \
                  "--disable-libmpeg2" \
                  "use system library for mpeg-1 and mpeg-2 support"
 
-# live removed the obsolete synchronous client interface
-# which MPlayer still requires
+## live removed the obsolete synchronous client interface
+## which MPlayer still requires
 #optional_depends live555 \
-#                 "--enable-live --extra-cflags=-I/usr/include/liveMedia --extra-cflags=-I/usr/include/UsageEnvironment --extra-cflags=-I/usr/include/BasicUsageEnvironment --extra-cflags=-I/usr/include/groupsock --extra-libs=-lstdc++ --extra-libs=-lliveMedia --extra-libs=-lUsageEnvironment --extra-libs=-lBasicUsageEnvironment --extra-libs=-lgroupsock" \
+#                 "" \
 #                 "--disable-live" \
 #                 "for RTP/RTCP, RTSP, SIP support"
 
@@ -120,7 +120,6 @@ optional_depends libbs2b \
                  "--disable-libbs2b" \
                  "for better sound via headphones"
 
-# --enable-fribidi fails to link the library...
 optional_depends fribidi \
                  "" \
                  "--disable-fribidi" \

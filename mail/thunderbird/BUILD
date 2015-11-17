@@ -1,3 +1,6 @@
+  # this breaks a symbol check in the build scripts
+  LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
+
   export MOZ_CO_PROJECT=mail  &&
   export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
   export MOZILLA_OFFICIAL=1  &&
@@ -26,11 +29,11 @@
 
   cd ${MOZ_OBJDIR}  &&
   prepare_install   &&
-  make install      || exit 1
+  make install      &&
 
   # Now the .desktop file and icons
   install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/thunderbird.desktop  &&
 
   for s in 16 22 24 32 48 256 ; do
-    install -Dm 644 mozilla/dist/thunderbird/chrome/icons/default/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/thunderbird.png
+    install -Dm 644 dist/thunderbird/chrome/icons/default/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/thunderbird.png
   done

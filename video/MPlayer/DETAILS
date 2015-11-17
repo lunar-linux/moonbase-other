@@ -1,11 +1,12 @@
           MODULE=MPlayer
-         VERSION=1.1.1
+         VERSION=1.2
           SOURCE=$MODULE-$VERSION.tar.xz
          SOURCE2=font-arial-iso-8859-1.tar.bz2
          SOURCE3=font-arial-iso-8859-2.tar.bz2
          SOURCE4=font-arial-cp1250.tar.bz2
          SOURCE5=font-arial-iso-8859-7.tar.bz2
          SOURCE6=Blue-1.11.tar.bz2
+         SOURCE7=ffmpeg-libvpx15.patch
    SOURCE_URL[0]=http://www.mplayerhq.hu/$MODULE/releases
    SOURCE_URL[1]=ftp://ftp1.mplayerhq.hu/$MODULE/releases
      SOURCE2_URL=ftp://ftp1.mplayerhq.hu/$MODULE/releases/fonts
@@ -13,15 +14,17 @@
      SOURCE4_URL=ftp://ftp1.mplayerhq.hu/$MODULE/releases/fonts
      SOURCE5_URL=ftp://ftp1.mplayerhq.hu/$MODULE/releases/fonts
      SOURCE6_URL=ftp://ftp1.mplayerhq.hu/$MODULE/skins
-      SOURCE_VFY=sha256:ce8fc7c3179e6a57eb3a58cb7d1604388756b8a61764cc93e095e7aff3798c76
+     SOURCE7_URL=$PATCH_URL
+      SOURCE_VFY=sha256:ffe7f6f10adf2920707e8d6c04f0d3ed34c307efc6cd90ac46593ee8fba2e2b6
      SOURCE2_VFY=sha256:9730f481764f367c9089d0166fb6ccf9148808ffbbfeca635cf0e6db75765d29
      SOURCE3_VFY=sha256:71debfc960007c2f6242dfc91e8b1c005b30a99e129aeb00ab8c03f4371b41c1
      SOURCE4_VFY=sha256:423a07e780bb130cd8e4730715545c5d919c248dda595aab7a0a01de3c83fd12
      SOURCE5_VFY=sha256:e32d4493e509d8003a76eb251c0363996ac26d2f6eadc08e8b9ca7887d42708e
      SOURCE6_VFY=sha256:b43babe52ee8ab6f35f85d4c4405169cb55777db090f6b846db4657e8c227331
+     SOURCE7_VFY=sha256:60de9b05d60547855515f5877503e6ea0063b85664a35f9114aa6c20501a766d
         WEB_SITE=http://www.mplayerhq.hu
          ENTERED=20010922
-         UPDATED=20151003
+         UPDATED=20151113
            SHORT="A movie and animation player"
 
 cat << EOF
