@@ -20,5 +20,5 @@ fi &&
 
 mkdir tex-build &&
 cd tex-build &&
-
-default_build
+../configure --prefix=/usr $OPTS &&
+default_make
