@@ -1,6 +1,6 @@
 
  patch_it $SOURCE2 1 &&
 
- autoreconfig -vi &&
+ autoreconf -vi &&
 
  default_build
