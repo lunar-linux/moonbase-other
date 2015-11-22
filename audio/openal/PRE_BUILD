@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sedit "s:\(libavformat>=52.111.0\):\1 libavutil>=50.43.0:" CMakeLists.txt &&
+
+# there's a typo in the CMakeLists.txt in 1.17.0
+sedit "927 s/PULSEAUDIO_LIBRARIES/JACK_LIBRARIES/" CMakeLists.txt

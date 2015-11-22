@@ -15,15 +15,11 @@
           -DWITH_PLAYER=1   \
           -DWITH_GAMEENGINE=1 \
           -DWITH_INSTALL_PORTABLE=0 \
-          -DPYTHON_VERSION=3.${PYTHON_VER} \
-          -DPYTHON_LIBRARY=/usr/lib/libpython3.${PYTHON_VER}m.so \
-          -DPYTHON_REQUESTS_PATH=/usr/lib/python3.${PYTHON_VER}/site-packages/pip/_vendor/requests \
-          -DPYTHON_LIBRARIES=/usr/lib/python3.${PYTHON_VER} \
-          -DPYTHON_INCLUDE_DIRS=/usr/include/python3.${PYTHON_VER}m" &&
+          -DPYTHON_VERSION=3.${PYTHON_VER} &&
 
   default_cmake_config &&
 
-  make&&
+  make &&
 
 # We need to do it this way else make tanks and still needed with 2.72a
   python3 ../doc/manpage/blender.1.py bin/blender bin/blender.1 &&

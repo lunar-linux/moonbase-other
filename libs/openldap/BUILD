@@ -33,5 +33,6 @@ OPTS+=" --build=$BUILD    \
         --enable-bdb=yes  \
         --disable-static" &&
 
-default_build
+default_build &&
 
+add_priv_user ldap:ldap

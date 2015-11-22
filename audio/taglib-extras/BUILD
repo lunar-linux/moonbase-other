@@ -1,5 +1,4 @@
-(
+# Need to sed this else it can't find taglib
+  sedit "s:1.6:`lvu version taglib`:" CMakeLists.txt &&
 
-  default_cmake_build  
-
-) > $C_FIFO 2>&1
+  default_cmake_build
