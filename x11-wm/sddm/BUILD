@@ -1,7 +1,7 @@
+  mkdir -p /var/lib/sddm &&
 
-  groupadd -g 64 sddm &&
-
-  useradd -c "SDDM Daemon Owner" -d /var/lib/sddm -u 64 -g sddm -s /bin/false sddm &&
+  add_priv_group sddm &&
+  add_priv_user sddm -d /var/lib/sddm -g sddm &&
 
   OPTS+=" -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf" &&
 
