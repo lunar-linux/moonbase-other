@@ -1,5 +1,6 @@
-OPTS+=" --enable-ui --disable-memconf" &&
+ OPTS+=" --enable-ui --disable-memconf" &&
 
-./autogen.sh &&
+ touch INSTALL &&
+ ./autogen.sh &&
 
-default_build
+ default_build
