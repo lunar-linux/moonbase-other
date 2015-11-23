@@ -15,7 +15,7 @@
           -DWITH_PLAYER=1   \
           -DWITH_GAMEENGINE=1 \
           -DWITH_INSTALL_PORTABLE=0 \
-          -DPYTHON_VERSION=3.${PYTHON_VER} &&
+          -DPYTHON_VERSION=3.${PYTHON_VER}" &&
 
   default_cmake_config &&
 
