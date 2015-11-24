@@ -11,5 +11,8 @@ OPTS+=" --disable-compile-inits --enable-dynamic --with-system-libtiff --without
 sedit "s:ZLIBDIR=src:ZLIBDIR=\$includedir:" configure.ac configure &&
 
 # Will run ./configure with Lunar's options, in default_build
-sedit "s:\$srcdir/configure:echo:" autogen.sh
+sedit "s:\$srcdir/configure:echo:" autogen.sh &&
 
+# don't forget to install gserrors.h
+sedit '/ierrors\.h/ a\
+\	$(INSTALL_DATA) $(GLSRC)gserrors.h $(DESTDIR)$(gsincludedir)gserrors.h' base/unix-dll.mak
