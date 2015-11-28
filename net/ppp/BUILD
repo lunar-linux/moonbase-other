@@ -27,5 +27,3 @@ chmod 600 /etc/ppp/*-secrets
 if module_installed systemd; then
   install -D -m644 $SCRIPT_DIRECTORY/system.d/ppp.service /usr/lib/systemd/system/ppp@.service
 fi
-
-) > $C_FIFO 2>&1

@@ -1,29 +1,27 @@
-depends  gtk+-2
-depends  libart_lgpl
-depends  fontconfig
-depends  intltool
-depends  gegl
-depends  XML-Parser
+depends gtk+-2
+depends libart_lgpl
+depends fontconfig
+depends intltool
+depends gegl
+depends XML-Parser
 
-optional_depends  "libmng"                  \
-                  ""                        \
-                  "--without-libmng"        \
-                  "for MNG file support"
+optional_depends libmng \
+                 "" "--without-libmng" \
+                 "for MNG file support"
 
-optional_depends  "aalib"                   \
-                  ""                        \
-                  "--without-aa"            \
-                  "for ASCII art support"
+optional_depends aalib \
+                 "" "--without-aa" \
+                 "for ASCII art support"
 
-optional_depends  "pygtk"                  \
-                  "--enable-python"         \
-                  "--disable-python"        \
-                  "for Python support"
+optional_depends pygtk \
+                 "--enable-python" \
+                 "--disable-python" \
+                 "for Python support"
 
-optional_depends  "gtk-doc"                 \
-                  "--enable-gtk-doc"        \
-                  ""                        \
-                  "for GIMP help files"
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "for GIMP help files"
 
 optional_depends  "librsvg"                 \
                   "--with-librsvg"          \
@@ -49,3 +47,8 @@ optional_depends  "libgudev"               \
                   "--with-gudev"           \
                   "--without-gudev"        \
                   "for UDEV glib support"
+
+optional_depends  "ghostscript"  \
+                  "--with-gs"    \
+                  "--without-gs" \
+                  "for Ghostscript support"

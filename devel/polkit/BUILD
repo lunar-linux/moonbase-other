@@ -1,4 +1,4 @@
-OPTS+=" --disable-gtk-doc-html --enable-libsystemd-login --disable-static" &&
+OPTS+=" --disable-gtk-doc-html --enable-libsystemd-login=yes --disable-static" &&
 
 # If expat is yes the make tanks on "line 5975: cd: yes/lib: No such file or directory"
 sedit "s:\$withval/:/usr/:g" configure.ac &&

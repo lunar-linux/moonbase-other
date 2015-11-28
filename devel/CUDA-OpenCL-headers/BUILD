@@ -1,9 +1,6 @@
-(
 
   rm -rf old.libraries &&
   prepare_install &&
   mkdir -p /usr/include/{CL,cuda} &&
-  cp -f $SOURCE_CACHE/{opencl.h,cl_platform.h,cl.h,cl_ext.h,cl_gl.h,cl_gl_ext.h,cl.hpp} /usr/include/CL &&
+  cp -f $SOURCE_CACHE/$SOURCE{2,3,4,5,6,7,8,9,10,11,12,13} /usr/include/CL &&
   install -m644 * /usr/include/cuda
-
-) > $C_FIFO 2>&1
