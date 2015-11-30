@@ -3,9 +3,10 @@
   patch_it $SOURCE3 1 &&
 
   sedit "s:ELSEIF ( ZLIB:ELSE ( ZLIB:" src/shared/CMakeLists.txt &&
+  sedit "s:refcount--;:refcount--;\nindexTerms[i].__cl_decref();:" src/core/CLucene/index/TermInfosReader.cpp &&
 
-  source /etc/profile.d/qt4.rc   &&
-  source /etc/profile.d/kde4.rc  &&
+  . /etc/profile.d/qt4.rc   &&
+  . /etc/profile.d/kde4.rc  &&
 
   OPTS+=" -DBUILD_CONTRIBS_LIB=1" &&
 
