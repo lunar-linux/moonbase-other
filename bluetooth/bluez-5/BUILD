@@ -13,10 +13,15 @@ install profiles/*/*.conf /etc/bluetooth/ &&
 install src/main.conf /etc/bluetooth/ &&
 install attrib/gatttool /usr/bin &&
 
+# Just to make sure all the tools get installed
 if [[ "$ENABLE_EXPER" == "y" ]]; then
-  install tools/hex2hcd /usr/bin/ &&
-  install tools/btmgmt /usr/bin/ &&
-  install tools/bdaddr /usr/bin/
+  for files in `find tools/ -type f -perm -755` ; do
+   filename=$(basename $files)
+   install -Dm755 tools/$filename /usr/bin/$filename
+  done
+#  install tools/hex2hcd /usr/bin/ &&
+#  install tools/btmgmt /usr/bin/ &&
+#  install tools/bdaddr /usr/bin/
 fi &&
 
 # Needed by libpcap

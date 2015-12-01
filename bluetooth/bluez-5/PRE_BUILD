@@ -1,3 +1,5 @@
 default_pre_build &&
 
+patch_it $SOURCE2 1 &&
+
 sedit "s:_SERVICE:_SERVICE CAP_NET_RAW:" src/bluetooth.service.in
