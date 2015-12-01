@@ -1,7 +1,7 @@
 
   CFLAGS+=" -Wno-error" &&
   
-  OPTS+=" --disable-gsm --enable-video --disable-static --disable-tests" &&
+  OPTS+=" --disable-gsm --enable-video --disable-static --disable-tests --disable-strict" &&
 
   default_config &&
 
