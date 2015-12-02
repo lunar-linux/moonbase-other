@@ -1,20 +1,21 @@
 depends openssl
+depends bzip2
+depends libtool
 
-optional_depends "libxml2" "--with-xml=/usr"      "--disable-xml"  "for libxml2 support"
-optional_depends "curl"    "--with-libcurl=/usr"  "--without-curl" "for curl support"
+optional_depends libxml2 "--with-xml=/usr"     "--disable-xml"  "for libxml2 support"
+optional_depends curl    "--with-libcurl=/usr" "--without-curl" "for curl support"
 
-optional_depends "ncurses" \
+optional_depends ncurses \
                  "--with-libncurses-prefix=/usr" \
                  "--without-libncurses-prefix" \
                  "for ncurses support"
 
-#Not compatible with llvm => 3.6.0
-optional_depends "llvm" \
+optional_depends llvm \
                  "--enable-llvm --with-system-llvm" \
                  "--disable-llvm" \
                  "use system llvm for signature compile support, else use builtin"
 
-optional_depends "check" \
+optional_depends check \
                  "--enable-check --with-libcheck-prefix=/usr" \
                  "--without-libcheck-prefix" \
                  "for check support"
