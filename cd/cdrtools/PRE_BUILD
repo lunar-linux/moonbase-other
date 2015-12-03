@@ -1,7 +1,7 @@
 default_pre_build &&
 
 # Remove profiled make files
-find $SOURCE_DIRECTORY -name "*_p.mk" | xargs rm -f &&
+rm -f $SOURCE_DIRECTORY/lib*/*_p.mk &&
 
 # Fix hardcoded paths
 sedit "s;opt/schily;usr;" $(find $SOURCE_DIRECTORY -type f -name \*.[0-9ch] -exec grep -l "opt/schily" "{}" "+") &&
