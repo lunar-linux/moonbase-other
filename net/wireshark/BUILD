@@ -3,9 +3,9 @@ if in_depends $MODULE qt5; then
 fi &&
 
 OPTS+=" --with-ssl \
-        --enable-wireshark \
-        --enable-usr-local=no \
-        --enable-randpkt" &&
+        --without-lua \
+        --disable-static \
+        --enable-usr-local=no" &&
 
 default_build &&
 
