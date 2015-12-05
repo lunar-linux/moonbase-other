@@ -1,3 +1,6 @@
+  sedit "4d" services/sddm.service.in &&
+  sedit "s: getty@tty1.service plymouth-quit.service::" services/sddm.service.in &&
+
   mkdir -p /var/lib/sddm &&
 
   add_priv_group sddm &&

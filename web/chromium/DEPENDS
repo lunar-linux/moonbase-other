@@ -1,5 +1,6 @@
 depends zlib
 depends minizip
+depends libvpx
 depends ninja
 depends snappy
 depends gperf
@@ -36,9 +37,6 @@ optional_depends "cups"       "-Duse_cups=1"              "-Duse_cups=0"        
 optional_depends "GConf"      "-Duse_gconf=1"             "-Duse_gconf=0"             "To use system provided GConf"
 optional_depends "pulseaudio" "-Dlinux_link_pulseaudio=1" "-Duse_pulseaudio=0"        "For pulse audio support"
 optional_depends "heimdal"    "-Duse_kerberos=1"          "-Duse_kerberos=0"          "To use system provided heimdal (kerberos) support"
-
-# For now no
-#optional_depends "libvpx"     "-Duse_system_vpx=1"        "-Duse_system_vpx=0"       "To use system provided VP8 library"
 
 # Still breaks the build
 #optional_depends "sqlite"     "-Duse_system_sqlite=1"   "-Duse_system_sqlite=0"   "To use system provided sqlite"

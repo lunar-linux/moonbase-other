@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sedit "s:luaL_getn(:lua_rawlen(:g" src/lib/tolua_map.c src/bin/tolua.c &&
+sedit "s:lua_setfenv(:lua_setuservalue(:g" src/lib/tolua_map.c src/lib/tolua_push.c src/lib/tolua_event.c &&
+sedit "s:lua_getfenv(:lua_getuservalue(:g" src/lib/tolua_map.c src/lib/tolua_event.c &&
+sedit "s:lua_pushvalue(L,LUA_GLOBALSINDEX):lua_pushglobaltable(L):" src/lib/tolua_map.c

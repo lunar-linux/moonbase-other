@@ -1,14 +1,15 @@
           MODULE=snort
-         VERSION=2.9.7.6
+         VERSION=2.9.8.0
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=snortrules-snapshot-2976.tar.gz
-      SOURCE_URL=$MIRROR_URL
+   SOURCE_URL[0]=http://www.snort.org/downloads/$MODULE/
+   SOURCE_URL[1]=$MIRROR_URL
      SOURCE2_URL=$MIRROR_URL
-      SOURCE_VFY=sha256:842e8575e26d919a9e74b9ad0c10d1098f7b5ff2189a8422eb51a9a5b6ebbf63
+      SOURCE_VFY=sha256:bddd5d01d10d20c182836fa0199cd3549239b7a9d0fd5bbb10226feb8b42d231
      SOURCE2_VFY=sha256:2540065adf65721b1a16bf68d4dd5861fa8d9614c02180e91bd680548cd2b0e7
         WEB_SITE=http://www.snort.org
          ENTERED=20011022
-         UPDATED=20151003
+         UPDATED=20151201
            SHORT="Lightweight network intrustion detection program"
 
 cat << EOF

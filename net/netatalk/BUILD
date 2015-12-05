@@ -1,7 +1,9 @@
-(
+OPTS+=" --with-libevent-header=/usr/include \
+        --with-libevent-lib=/usr/lib  \
+        --with-init-style=systemd \
+        --with-libevent=no \
+        --with-cnid-cdb-backend \
+        --enable-silent-rules \
+        --enable-pgp-uam"
 
-   OPTS+=" --with-libevent-header=/usr/include --with-libevent-lib=/usr/lib" &&
-
-   default_build
-
-) > $C_FIFO 2>&1
+default_build
