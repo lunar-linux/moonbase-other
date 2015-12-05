@@ -2,6 +2,7 @@
   sedit "271,278d" configure.ac &&
 
   sedit "s:zeitgeist-daemon:zeitgeist-daemon -r:" data/org.gnome.zeitgeist.service.in &&
+  sedit "3i Restart=on-failure" data/org.gnome.zeitgeist.service.in &&
 
   autoreconf -fi &&
 
