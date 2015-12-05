@@ -4,9 +4,6 @@ default_pre_build &&
 # but just delete the offender.
 #sedit "90d" doc/deghosting_mask.pod &&
 
-patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 1 &&
-
 CFLAGS+=" -fno-lto -fno-devirtualize" &&
 CPPFLAGS+=" -fno-lto -fno-devirtualize" &&
 CXXFLAGS+=" -fno-lto -fno-devirtualize" &&
