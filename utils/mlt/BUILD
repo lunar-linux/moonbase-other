@@ -1,10 +1,9 @@
-(
 
-  . /etc/profile.d/qt4.rc  &&
+  . /etc/profile.d/qt5.rc  &&
   . /etc/profile.d/kde4.rc &&
 
-  OPTS+=" --arch='$CPU' --kde-libdir=/usr/lib --kde-includedir=/usr/include \
-          --qimage-includedir=/usr/include/qt4 --qimage-libdir=/usr/lib/qt4" &&
+  OPTS+=" --arch='$CPU' --qt-libdir=/usr/lib/qt5 --qt-includedir=/usr/include/qt5 \
+          --enable-gpl --enable-gpl3 --disable-gtk2" &&
 
   default_build &&
 
@@ -35,5 +34,3 @@
     ./configure --prefix=/usr --swig-languages="ruby" &&
     default_make
   fi
-
-) > $C_FIFO 2>&1
