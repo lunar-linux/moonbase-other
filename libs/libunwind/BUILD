@@ -1,4 +1,4 @@
-OPTS+=" --disable-static" &&
+OPTS+=" --enable-cxx-exceptions" &&
 
 CFLAGS+=" -U_FORTIFY_SOURCE" &&
 
