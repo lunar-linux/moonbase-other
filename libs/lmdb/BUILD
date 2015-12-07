@@ -2,4 +2,6 @@
 
  sedit "s:/usr/local:/usr:" Makefile &&
 
- default_make
+ default_make &&
+
+ rm /usr/lib/liblmdb.a
