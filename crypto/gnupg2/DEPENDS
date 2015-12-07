@@ -1,10 +1,16 @@
-depends  libassuan
-depends  libksba
-depends  npth
+depends libassuan
+depends libksba
+depends npth
 
 optional_depends pinentry      "" "" "for PIN entry dialogs support"
 optional_depends curl          "" "" "for curl support"
 optional_depends libusb-compat "" "" "for USB support"
 
-optional_depends openldap "--with-ldap=/usr"     "--disable-ldap" "for LDAP support"
-optional_depends readline "--with-readline=/usr" ""               "for readline support"
+optional_depends openldap \
+                 "--with-ldap=/usr" \
+                 "--disable-ldap"   \
+                 "for LDAP support"
+
+optional_depends readline \
+                 "--with-readline=/usr" "" \
+                 "for readline support"
