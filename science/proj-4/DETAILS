@@ -1,12 +1,12 @@
           MODULE=proj-4
-         VERSION=8.0
-          SOURCE=$MODULE.$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
-      SOURCE_URL=http://download.osgeo.org/proj/
-      SOURCE_VFY=sha1:5c8d6769a791c390c873fef92134bf20bb20e82a
+         VERSION=9.2
+          SOURCE=${MODULE#*-}.$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/proj.4-4.$VERSION
+      SOURCE_URL=https://github.com/OSGeo/proj.4/archive
+      SOURCE_VFY=sha256:9a40de36183d23a395cf51ba7a465e1e6c982b6e4553b31310c42012d188be6b
         WEB_SITE=http://trac.osgeo.org/proj/
          ENTERED=20031030
-         UPDATED=20121203
+         UPDATED=20151212
            SHORT="Cartographic Projections library"
 cat << EOF
 Proj and invproj perform respective forward and inverse transformation of

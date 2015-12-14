@@ -1,4 +1,3 @@
-(
 
   if module_installed $MODULE %JAVA_SDK ; then 
      CFLAGS+=" -I/usr/java/latest/include/linux" &&
@@ -13,5 +12,3 @@
    else
     default_build
   fi 
-
-) > $C_FIFO 2>&1
