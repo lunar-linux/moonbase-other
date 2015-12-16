@@ -17,11 +17,6 @@ depends bc
 
 depends cups
 
-optional_depends avahi \
-                 "--enable-avahi" \
-                 "--disable-avahi" \
-                 "for DNS Service Discovery support using Avahi"
-
 optional_depends  %JPEG  \
                   "--with-jpeg"  \
                   "--without-jpeg" \
@@ -36,6 +31,16 @@ optional_depends  libpng \
                   "--with-png" \
                   "--without-png" \
                   "Support PNG filter"
+
+optional_depends ImageMagick \
+                 "--enable-imagefilters" \
+                 "--disable-imagefilters" \
+                 "for image filters support"
+
+optional_depends avahi \
+                 "--enable-avahi" \
+                 "--disable-avahi" \
+                 "for DNS Service Discovery support using Avahi"
 
 #optional_depends %PHP  \
 #                 "--with-php"  \
