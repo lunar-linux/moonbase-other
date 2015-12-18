@@ -1,6 +1,5 @@
-(
+# ImageMagick's convert segfaults with installwatch enabled
+# you're welcome to find a proper solution.
+OPTS+=" --disable-icon-framing" &&
 
-  sedit 's:Inherits=gnome:Inherits=hicolor,gnome:g' index.theme.in
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
