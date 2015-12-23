@@ -1,17 +1,6 @@
-export CFLAGS="${CFLAGS/-O2/} -O0" &&
-export CFLAGS+=" -mstackrealign -mincoming-stack-boundary=2" &&
-
-export CXXFLAGS="${CXXFLAGS/-O2/} -O0" &&
-export CXXFLAGS+=" -mstackrealign -mincoming-stack-boundary=2" &&
-
-export CPPFLAGS="${CPPFLAGS/-D_FORTIFY_SOURCE=2/} -D_FORTIFY_SOURCE=0" &&
-
-bad_flags "-z combreloc" &&
-
 OPTS+=" --prefix=/usr \
         --libdir=/usr/lib \
-        --with-x \
-        --without-streamer" &&
+        --with-x" &&
 
 if [ $(arch) == x86_64 ]; then
   OPTS+=" --enable-win64"
