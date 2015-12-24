@@ -1,4 +1,8 @@
 default_pre_build &&
 
-# systemd version > 208 fix
-sedit 's;-lsystemd-daemon;-lsystemd;g' configure
+patch_it $SOURCE2 1
+
+OPTS+=" --with-lockdir=/run/lock/sane \
+        --with-group=usb  \
+        --disable-rpath   \
+        --enable-pthread"
