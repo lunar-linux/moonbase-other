@@ -2,14 +2,9 @@
 Description=CUPS Printing Service
 
 [Service]
-ExecStart=/usr/sbin/cupsd -f
+ExecStart=/usr/sbin/cupsd -l
 StandardOutput=syslog
 
-# This is evil stuff. CUPS should use proper enumeration instead of
-# retriggering these devices. CUPS folks, please fix this, otherwise Kay will
-# come after you!
-ExecStartPost=/usr/bin/udevadm trigger --subsystem-match=usb --attr-match=bInterfaceClass=07 --attr-match=bInterfaceSubClass=01
-ExecStartPost=/usr/bin/udevadm trigger --subsystem-match=usb --property-match=DEVNAME=/dev/usb/lp*
-
 [Install]
+Also=org.cups.cupsd.socket org.cups.cupsd.path
 WantedBy=multi-user.target
