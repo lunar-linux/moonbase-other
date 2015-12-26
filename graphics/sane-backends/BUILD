@@ -1,3 +1,9 @@
+OPTS+=" --with-docdir=/usr/share/doc/$MODULE \
+        --with-lockdir=/run/lock/sane \
+        --with-group=usb  \
+        --disable-rpath   \
+        --enable-pthread" &&
+
 default_build &&
 
 # their build system hoses the udev part
