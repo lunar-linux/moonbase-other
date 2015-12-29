@@ -6,7 +6,6 @@ fi &&
 
 OPTS+=" --disable-static \
         --sysconfdir=/etc \
-        --with-pdftops=pdftops \
         --sbindir=/usr/bin \
         --localstatedir=/var \
         --with-browseremoteprotocols=DNSSD,CUPS \
