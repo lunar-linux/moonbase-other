@@ -1,6 +1,6 @@
  OPTS+=" --enable-ui --disable-memconf" &&
 
  touch INSTALL &&
- ./autogen.sh &&
+ NOCONFIGURE=1 ./autogen.sh &&
 
  default_build

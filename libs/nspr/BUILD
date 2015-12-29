@@ -7,17 +7,19 @@ OPTS+=" --libdir=/usr/lib --with-mozilla --with-pthreads --enable-strip" &&
 mkdir build inst &&
 #  sedit 's/\$(MKSHLIB) \$(OBJS)/\$(MKSHLIB) \$(LDFLAGS) \$(OBJS)/g' mozilla/nsprpub/config/rules.mk &&
 
+OPTS+=" --build=$BUILD                 \
+        --prefix=/usr                  \
+        --sysconfdir=/etc              \
+        --localstatedir=/var           \
+        --includedir=/usr/include/nspr \
+        --libdir=/usr/lib              \
+        --infodir=/usr/share/info      \
+        --mandir=/usr/share/man        \
+        --enable-optimize              \
+        --with-pthreads" &&
+
 cd build &&
-../nspr/configure --build=$BUILD                 \
-                  --prefix=/usr                  \
-                  --sysconfdir=/etc              \
-                  --localstatedir=/var           \
-                  --includedir=/usr/include/nspr \
-                  --libdir=/usr/lib              \
-                  --infodir=/usr/share/info      \
-                  --mandir=/usr/share/man        \
-                  --enable-optimize              \
-                  $OPTS                         &&
+../nspr/configure $OPTS &&
 default_make &&
 
 ln -sf nspr.pc /usr/lib/pkgconfig/mozilla-nspr.pc &&

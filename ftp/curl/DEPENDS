@@ -1,9 +1,12 @@
 depends zlib
 depends libidn
 
-optional_depends openssl "" "" "for https encrypted transport"
+optional_depends openssl  "" "" "for https encrypted transport"
+
+optional_depends libssh2  "--with-libssh2" "--without-libssh2" "for support of C implementation of ssh"
 
 optional_depends openldap \
                  "--enable-ldap --enable-ldaps" \
                  "--disable-ldap --disable-ldaps" \
-                 "for LDAP support"
+                 "for LDAP support ${PROBLEM_COLOR}Saying yes here can cause weird problems with gnutls, defaulting to no${DEFAULT_COLOR}" n
+

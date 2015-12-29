@@ -1,0 +1,26 @@
+default_pre_build &&
+
+# This would be nice, but does not work over here...
+#OPTS+=" -DUSE_EXTERNAL_VTK=1" &&
+
+OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
+        -DVTK_USE_SYSTEM_ZLIB=1                \
+        -DVTK_USE_SYSTEM_TIFF=1                \
+        -DVTK_USE_SYSTEM_PNG=1                 \
+        -DVTK_USE_SYSTEM_JPEG=1                \
+        -DVTK_USE_SYSTEM_GLEW=1                \
+        -DVTK_USE_SYSTEM_FREETYPE=1            \
+        -DVTK_USE_SYSTEM_HDF5=1                \
+        -DVTK_USE_SYSTEM_JSONCPP=1             \
+        -DVTK_USE_SYSTEM_EXPAT=1               \
+        -DBUILD_SHARED_LIBS=1                  \
+        -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=1 \ 
+        -DBUILD_TESTING=0                      \
+        -DVTK_Group_StandAlone=1               \
+        -DPARAVIEW_ENABLE_PYTHON=1"            &&
+
+sedit "84i #  include <cstring>" VTK/ThirdParty/xdmf2/vtkxdmf2/libsrc/XdmfObject.h &&
+
+sedit "s:TryExec=:Exec=/usr/bin/:" Applications/ParaView/paraview.desktop.in &&
+sedit "s:Icon=paraview:Icon=/usr/share/icons/paraview.png:" Applications/ParaView/paraview.desktop.in &&
+sedit "4i Categories=Qt;KDE;Education;Science;" Applications/ParaView/paraview.desktop.in

@@ -1,11 +1,4 @@
-OPTS+=" --enable-raw-printing" &&
-
-default_config &&
-
-sedit "s:-Os -g::" Makedefs &&
-sedit "s:-fstack-protector::" Makedefs &&
-
-default_make &&
+default_build &&
 
 install -D -m644 "$SCRIPT_DIRECTORY/cups.logrotate" /etc/logrotate.d/cups &&
 

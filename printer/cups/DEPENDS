@@ -1,3 +1,5 @@
+depends %UDEV
+
 optional_depends "Linux-PAM" \
                  "--enable-pam=yes" \
                  "--disable-pam" \
@@ -12,6 +14,7 @@ optional_depends "gnutls" \
                  "--enable-gnutls --enable-ssl=yes" \
                  "--disable-gnutls" \
                  "for encrypted communications"
+
 
 optional_depends "dbus"      "--enable-dbus"     "--disable-dbus"     "enable DBUS support"
 optional_depends "libpaper"  "--enable-libpaper" "--disable-libpaper" "for paper size library support"

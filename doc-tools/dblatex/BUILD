@@ -1,8 +1,5 @@
+python setup.py build &&
 
-  patch_it $SOURCE2 1 &&
+prepare_install &&
 
-  python setup.py build &&
-
-  prepare_install &&
-
-  python setup.py install --root=/
+python setup.py install --root=/

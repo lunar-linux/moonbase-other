@@ -6,11 +6,14 @@ optional_depends openssl   "--with-openssl"   "--without-openssl"   "OpenSSL sup
 optional_depends pcre      "--with-pcre"      "--without-pcre"      "regular expression support"
 optional_depends bzip2     "--with-bzip2"     "--without-bzip2"     "bzip2 mod_compress"
 optional_depends gamin     "--with-fam"       "--without-fam"       "FAM/Gamin filesystem monitoring"
-optional_depends lua       "--with-lua"       "--without-lua"       "Lua engine for mod_cml"
 optional_depends zlib      "--with-zlib"      "--without-zlib"      "for compression support"
 optional_depends gdbm      "--with-gdbm"      "--without-gdbm"      "storage for mod_trigger_b4_dl support"
 optional_depends krb5      "--with-kerberos5" "--without-kerberos5" "for for Kerberos support"
 optional_depends memcached "--with-memcache"  "--without-memcache"  "for for mod_trigger_b4_dl support"
+
+# Broken
+#optional_depends lua       "--with-lua"       "--without-lua"       "Lua engine for mod_cml"
+
 optional_depends fcgi      ""                 ""                    "for CGI support"
 optional_depends systemd   ""                 ""                    "for systemd style boot scripts"
 optional_depends %PHP      ""                 ""                    "for PHP support"

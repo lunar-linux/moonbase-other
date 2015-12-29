@@ -1,7 +1,7 @@
 add_priv_user lighttpd:lighttpd -s /bin/false -c "lighttpd" &&
 
 OPTS+=" --libdir=/usr/lib/lighttpd \
-        --with-memcache" &&
+        --sysconfdir=/etc/lighttpd" &&
 
 default_build &&
 

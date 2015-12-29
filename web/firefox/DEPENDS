@@ -6,7 +6,6 @@ depends curl
 depends alsa-lib
 depends libvpx
 depends freetype2
-depends gst-plugins-base
 
 optional_depends libpng "--enable-system-libpng" "--disable-system-libpng" "Build with system libpng"
 optional_depends cairo  "--enable-system-cairo"  "--disable-system-cairo"  "Build with system cairo ${PROBLEM_COLOR}(unstable)"
@@ -22,6 +21,8 @@ optional_depends "icu4c"            "--with-system-icu" "--without-system-icu" "
 optional_depends "sun-jdk"          "--with-java-bin-path=/usr/java/default/bin" "" "For java support"
 optional_depends "pulseaudio"       "--enable-pulseaudio" "--disable-pulseaudio"  "Build PulseAudio sound backend"
 
+optional_depends gst-plugins-base-1.0 "--enable-gstreamer=1.0" "--disable-gstreamer" "Media playback through GStreamer"
+
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends "libjpeg-turbo"    "--with-system-jpeg" "--without-system-jpeg" "Use system jpeg library"
 
@@ -31,5 +32,3 @@ optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"  
 
 # This seems to break mozilla, most other distros do not use this.
 #  optional_depends "gnome-vfs"        "--enable-gnomevfs"  "--disable-gnomevfs"  "For Gnome VFS support"
-
-optional_depends "qt4" "--with-qtdir=/usr"  " " "for qt support"
