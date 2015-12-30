@@ -1,8 +1,6 @@
-sedit "s:LUA_LIBS:LUA_LIBS -ldl:" configure.ac &&
-
 OPTS+=" --with-embedded-lua" &&
-sedit "5 i freedroidRPG_CFLAGS = -I../lua" src/Makefile.am &&
 
-autoreconf -i . &&
+default_game_build &&
 
-default_game_build
+install -D -m644 $SCRIPT_DIRECTORY/freedroidrpg.jpg /usr/share/icons/freedroidrpg.jpg &&
+install -D -m644 $SCRIPT_DIRECTORY/freedroidrpg.desktop /usr/share/applications/freedroidrpg.desktop

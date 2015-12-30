@@ -1,15 +1,10 @@
-(
+sedit "s/local\///" timidity/config.h &&
 
-  sedit  "s/local\///"  timidity/config.h  &&
+OPTS+=" --disable-sdltest" &&
 
-  ./configure  --prefix=/usr                \
-               --bindir=/usr/bin            \
-               --sbindir=/usr/sbin          \
-               --datadir=/usr/share         \
-               --infodir=/usr/share/info    \
-               --mandir=/usr/share/man      \
-               --disable-sdltest           &&
-  default_make                             &&
-  cp -r timidity /usr/lib
+default_build &&
 
-) > $C_FIFO 2>&1
+cp -r timidity /usr/lib &&
+
+rm /usr/lib/libSDL_mixer.a
+
