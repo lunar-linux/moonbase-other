@@ -5,7 +5,6 @@ cd bin &&
 setconf dart2js BIN_DIR "$DEST/bin"
 setconf dart2js PROG_NAME "$DEST/bin/dart2js"
 setconf dartanalyzer SCRIPT_DIR "$DEST/bin"
-setconf docgen BIN_DIR "$DEST/bin"
 setconf pub BIN_DIR "$DEST/bin"
 setconf pub SDK_DIR "$DEST/"
 setconf dartfmt BIN_DIR "$DEST/bin"
@@ -21,6 +20,6 @@ install -d $DEST &&
 cp -a * $DEST/ &&
 
 # Set up symbolic links for the executables
-for f in dart dart2js dartanalyzer docgen pub dartfmt; do
+for f in dart dart2js dartanalyzer pub dartfmt; do
   ln -sf "$DEST/bin/$f" "/usr/bin/$f"
 done
