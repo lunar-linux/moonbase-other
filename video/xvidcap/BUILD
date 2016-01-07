@@ -1,9 +1,5 @@
+CFLAGS+=" -lX11 -lXext -lz" &&
 
-  CFLAGS+=" -lX11 -lXext" &&
-  sedit "s:shmstr.h:shmproto.h:" src/capture.c &&
-  # the following two sedit rules are needed to compile with
-  # current glib-2             -- wdp
-  sedit "s:#include <glib/gtypes.h>:#include <glib.h>:" src/xvidcap-client-bindings.h &&
-  sedit "s:#include <glib/gerror.h>::" src/xvidcap-client-bindings.h &&
+OPTS+=" --with-x --without-forced-embedded-ffmpeg" &&
 
-  default_build
+default_build
