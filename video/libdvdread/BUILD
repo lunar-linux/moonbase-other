@@ -1,3 +1,5 @@
-OPTS+=" --disable-static"
+OPTS+=" --disable-static" &&
+
+autoreconf -fi &&
 
 default_build
