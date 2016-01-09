@@ -2,6 +2,9 @@ depends freetype2
 depends fribidi
 depends fontconfig
 
-optional_depends yasm     "" "" "for yasm support"
-optional_depends harfbuzz "" "" "for harfbuzz support"
-optional_depends enca     "" "" "for enca support"
+optional_depends harfbuzz \
+                 "--enable-harfbuzz" \
+                 "--disable-harfbuzz" \
+                 "for harfbuzz support"
+
+optional_depends yasm "" "" "for yasm support"
