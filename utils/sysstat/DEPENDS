@@ -1,1 +1,8 @@
 depends gettext
+
+optional_depends lm_sensors \
+                 "--enable-sensors" \
+                 "--disavle-sensors" \
+                 "for sensors support"
+
+optional_depends systemd "" "" "for systemd support"

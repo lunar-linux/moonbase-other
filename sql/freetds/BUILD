@@ -1,7 +1,5 @@
-(
+OPTS="--disable-debug \
+      --disable-static \
+      --enable-sybase-compat" &&
 
-  OPTS="--disable-debug --enable-sybase-compat"
-  default_build
-
-) > $C_FIFO 2>&1
-
+default_build
