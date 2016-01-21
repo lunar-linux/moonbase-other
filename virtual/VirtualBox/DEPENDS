@@ -1,19 +1,29 @@
+depends curl
 depends xalan-c++
 depends iasl
 depends dev86
 depends libxslt
 depends libXcursor
-depends libIDL
-depends SDL_ttf
 depends alsa-lib
 depends libcap
-depends makeself
+depends libIDL
 depends %CDR
-depends curl
 depends libvpx
+depends shared-mime-info
+depends zlib
+
+# depends libIDL
+# depends makeself
 
 optional_depends qt4        "" "--disable-qt"        "for UI (recommended)"
+optional_depends SDL_ttf    "" "--disable-sdl-ttf"   "for SDL TTF support"
 optional_depends lvm2       "" "--disable-devmapper" "for device mapper support"
 optional_depends sun-jdk    "" "--disable-java"      "for Java bindings"
+optional_depends mesa-lib   "" "--disable-opengl"    "for OpenGL support"
 optional_depends pulseaudio "" "--disable-pulse"     "for pulseaudio backend"
-optional_depends texlive    "" "--disable-docs"      "to build PDF documentation"
+optional_depends libvpx     "" "--disable-libvpx"    "for libvpx video capturing support"
+optional_depends texlive    "" "--disable-docs"      "for building PDF documentation"
+
+optional_depends vde2 \
+                 "--enable-vde" "" \
+                 "for Virtual Distributed Ethernet support"

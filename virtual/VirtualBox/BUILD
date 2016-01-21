@@ -1,17 +1,20 @@
 # Remove gcc version check
 sedit "s:^check_gcc$:#check_gcc:" configure &&
 
+# Use our CFLAGS
+echo "VBOX_GCC_OPT=$CXXFLAGS" >> LocalConfig.kmk
+
 # don't build tests
 echo "VBOX_WITH_TESTCASES =" >> LocalConfig.kmk &&
 echo "VBOX_WITH_TESTSUITE =" >> LocalConfig.kmk &&
 
-if in_depends $MODULE sun-jdk ; then
+if in_depends $MODULE sun-jdk; then
   # Location of javac
   . /etc/profile.d/sun-jdk.rc &&
   export VBOX_JAVA_HOME=$JAVA_HOME
 fi &&
 
-if in_depends $MODULE qt4 ; then
+if in_depends $MODULE qt4; then
   # We need the qt4 paths
   . /etc/profile.d/qt4.rc &&
   sedit "s:qt4/lib/pkgconfig:qt4/pkgconfig:g" configure
@@ -19,13 +22,18 @@ fi &&
 
 # Build VirtualBox
 # Disable hardening, so normal users can run it
-OPTS+=" --disable-hardening"  &&
-./configure $OPTS             &&
-source ./env.sh               &&
-if ! module_installed Linux-PAM ; then
+OPTS+=" --disable-hardening" &&
+
+OPTS+=" --disable-kmods" &&
+
+./configure $OPTS &&
+source ./env.sh &&
+
+if ! module_installed Linux-PAM; then
   sedit "s/VBOX_WITH_PAM/VBOX_WITHOUT_PAM/" Config.kmk
-fi   &&
-kmk  &&
+fi &&
+
+kmk &&
 
 # Build source package for kernel module
 pushd out/linux.*/release/bin/ &&
@@ -50,10 +58,10 @@ sedit 's:$INSTALL_DIR:'$MODULE_PREFIX':g' VirtualBox &&
 install -m 755 VirtualBox /usr/bin/ &&
 
 # Install the config file to let VirtualBox know it is installed
-echo "INSTALL_DIR=$MODULE_PREFIX" >  vbox.cfg &&
+echo "INSTALL_DIR=$MODULE_PREFIX" > vbox.cfg &&
 install -Dm 644 {,/etc/vbox/}vbox.cfg &&
 
-if in_depends $MODULE qt4 ; then
+if in_depends $MODULE qt4; then
   # File path for PDF, and make name more recognizable
   sed -i -e "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" \
          -e "s:Oracle VM VirtualBox:VirtualBox Oracle VM:1" \
@@ -68,9 +76,12 @@ if in_depends $MODULE qt4 ; then
   done
 fi &&
 
-if in_depends $MODULE texlive ; then
+if in_depends $MODULE texlive; then
   install -Dm 644 /usr/{lib/virtualbox,share/doc/VirtualBox}/UserManual.pdf
 fi &&
+
+install -Dm644 $SCRIPT_DIRECTORY/60-vboxguest.rules /etc/udev/rules.d/60-vboxdrv.rules &&
+install -Dm644 $SCRIPT_DIRECTORY/60-vboxguest.rules /etc/udev/rules.d/60-vboxguest.rules &&
 
 # Create the vboxusers group
 groupadd -f vboxusers
