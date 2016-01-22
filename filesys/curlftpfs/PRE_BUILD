@@ -1,0 +1,3 @@
+default_pre_build &&
+
+sedit "s:CURLOPT_INFILESIZE, -1);:CURLOPT_INFILESIZE, (curl_off_t)-1);:" ftpfs.c
