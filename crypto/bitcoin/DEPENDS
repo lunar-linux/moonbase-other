@@ -1,13 +1,25 @@
 depends boost
 depends openssl
 
-optional_depends db "--with-incompatible-bdb --enable-wallet" "--disable-wallet" "build wallet support despite incompatible licenses"
+optional_depends db \
+                 "--with-incompatible-bdb --enable-wallet" \
+                 "--disable-wallet" \
+                 "build wallet support despite incompatible licenses"
 
-# yes, $3 is a space and that's ok!
-optional_depends qt5 "--with-gui=qt5" "--with-gui=no" "build bitcoin-qt interface (say no to dbus and qrencode if you say no here)"
+optional_depends qt5 \
+                 "--with-gui=qt5" \
+                 "--with-gui=no" \
+                 "build bitcoin-qt interface (say no to dbus and qrencode if you say no here)"
 
-optional_depends dbus "--with-qtdbus"   "--without-qtdbus"   "for notification support"
-optional_depends qrencode "--with-qrencode" "--without-qrencode" "for QRCode generator"
+optional_depends dbus \
+                 "--with-qtdbus" \
+                 "--without-qtdbus" \
+                 "for notification support"
+
+optional_depends qrencode \
+                 "--with-qrencode" \
+                 "--without-qrencode" \
+                 "for QRCode generator"
 
 # There is no such module in moonbase atm
 #optional_depends miniupnp "--with-miniupnpc" "--without-miniupnpc" "for UPnP port forwarding"
