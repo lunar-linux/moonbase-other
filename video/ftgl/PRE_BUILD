@@ -1,2 +1,7 @@
-mk_source_dir $SOURCE_DIRECTORY &&
-unpack $SOURCE
+default_pre_build &&
+
+patch_it $SOURCE2 0 &&
+patch_it $SOURCE3 0 &&
+
+# disable tests
+sedit 's/CPPUNIT="yes"/CPPUNIT="no"/' configure
