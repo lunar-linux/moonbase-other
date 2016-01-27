@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# the project uses restrict with c++
+# this is implementation specific, so replace it with gcc's version
+sedit 's/restrict/__restrict__/' include/IL/il.h &&
+sedit 's/restrict test/__restrict__ test/' configure{,.ac} m4/devil-definitions.m4

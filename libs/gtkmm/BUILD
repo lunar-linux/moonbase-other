@@ -1,3 +1,5 @@
+CXXFLAGS+=" -std=c++11" &&
+
 ./configure  --prefix=${GNOME210_PREFIX:-/usr} \
              --build=$BUILD       \
              --sysconfdir=/etc    \
