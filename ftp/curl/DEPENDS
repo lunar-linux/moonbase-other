@@ -1,9 +1,13 @@
 depends zlib
 depends libidn
 
-optional_depends openssl  "" "" "for https encrypted transport"
+optional_depends openssl "" "" "for https encrypted transport"
+optional_depends krb5    "" "" "for Kerberos support"
 
-optional_depends libssh2  "--with-libssh2" "--without-libssh2" "for support of C implementation of ssh"
+optional_depends libssh2 \
+                 "--with-libssh2" \
+                 "--without-libssh2" \
+                 "for support of C implementation of ssh"
 
 optional_depends openldap \
                  "--enable-ldap --enable-ldaps" \
