@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# libsigc++ since 2.5.4
+sedit 's@\(#include.*sigc++\)/object\.h@\1/trackable.h@' $(fgrep -rl "sigc++/object.h") &&
+sedit 's@\(#include.*sigc++\)/hide\.h@\1/adaptors/hide.h@' $(fgrep -rl "sigc++/hide.h")
+sedit '/#include.*sigc++\/retype\.h/ d' $(fgrep -rl "sigc++/retype.h")
