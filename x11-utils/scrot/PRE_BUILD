@@ -1,3 +1,9 @@
 default_pre_build &&
 
 sedit 's@/doc@/share/doc@' Makefile.{am,in}
+
+unpack $SOURCE2 &&
+
+for patch in $(<debian/patches/series); do
+  patch_it debian/patches/$patch 1
+done
