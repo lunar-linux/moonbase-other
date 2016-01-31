@@ -1,5 +1,3 @@
-(
 
-  default_cmake_build
-
-) > $C_FIFO 2>&1
+OPTS+=" -DWANT_PYTHON_WRAPPER=0" &&
+default_cmake_build
