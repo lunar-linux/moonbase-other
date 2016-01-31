@@ -1,5 +1,9 @@
+export PREFIX=/usr &&
+export SBINDIR=/usr/bin &&
 
-  sedit "s:UDEVDIR     = \$(DESTDIR):UDEVDIR     = \$(PREFIX):" Makefile &&
-  export PREFIX=/usr &&
+default_make &&
 
-  default_make
+cd $MODULE-data-$VERDATA &&
+make install &&
+
+install -m644 $SOURCE_CACHE/$SOURCE3 /etc/usb_modeswitch.setup
