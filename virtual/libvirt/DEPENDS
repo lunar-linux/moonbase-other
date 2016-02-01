@@ -4,12 +4,10 @@ depends libxml2
 depends libnl3
 depends Python
 depends openssl
-depends bridge-utils
 depends logrotate
-depends dnsmasq
 depends lvm2
-depends yajl
 depends libpciaccess
+depends yajl
 
 optional_depends avahi      "--with-avahi"    "--without-avahi"    "for avahi support"
 optional_depends gnutls     "--with-gnutls"   "--without-gnutls"   "for GNUTLS encryption support"
@@ -21,7 +19,12 @@ optional_depends fuse       "--with-fuse"     "--without-fuse"     "for FUSE sup
 optional_depends numactl    "--with-numactl"  "--without-numactl"  "for simple NUMA policy support"
 optional_depends pm-utils   "--with-pm-utils" "--without-pm-utils" "for power management support"
 optional_depends cyrus-sasl "--with-sasl"     "--without-sasl"     "for SASL support"
-optional_depends dmidecode  ""                ""                   "for SMBIOS info access"
+
+optional_depends dmidecode    "" "" "for SMBIOS info access"
+optional_depends ebtables     "" "" "for NAT networking"
+optional_depends dnsmasq      "" "" "for default NAT/DHCP for guests"
+optional_depends bridge-utils "" "" "for default bridged networking"
+optional_depends libiscsi     "" "" "for client ISCSI support"
 
 optional_depends qemu \
                  "--with-qemu --with-qemu-user=qemu --with-qemu-group=qemu" \
@@ -33,7 +36,6 @@ optional_depends glusterfs \
                  "--without-storage-gluster" \
                  "for gluster storage support"
 
-# libiscsi ?
 #optional_depends open-iscsi \
 #                 "--with-storage-iscsi" \
 #                 "--without-storage-iscsi" \
