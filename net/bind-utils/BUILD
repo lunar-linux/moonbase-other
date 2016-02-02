@@ -3,10 +3,7 @@ OPTS+=" --enable-threads --disable-static" &&
 # json-c breaks the compile
 OPTS+=" --without-libjson" &&
 
-./configure --build=$BUILD    \
-            --prefix=/usr     \
-            --sysconfdir=/etc \
-            $OPTS            &&
+default_build &&
 
 # We are only making the client programs
 make -C lib/isc    &&
