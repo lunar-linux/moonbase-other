@@ -1,4 +1,4 @@
-python setup.py build &&
+python setup.py build --with-ssl &&
 
 prepare_install &&
 
