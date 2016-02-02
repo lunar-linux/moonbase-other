@@ -1,21 +1,14 @@
-(
+if module_installed sun-jdk; then
+  . /etc/profile.d/sun-jdk.rc
+else
+  . /etc/profile.d/sun-jre.rc
+fi &&
 
-  if module_installed sun-jdk; then
-     . /etc/profile.d/sun-jdk.rc
-  else
-     . /etc/profile.d/sun-jre.rc
-  fi &&
+prepare_install &&
 
-  # apache-ant build will fail without junit since 1.7.0
-  sedit 's:depends="jars,test-jar":depends="jars":g' build.xml &&
+./build.sh -Ddist.dir=/usr/share/ant &&
+gather_docs TODO WHATSNEW welcome.html &&
 
-  prepare_install &&
-
-  ./build.sh -Ddist.dir=/usr/share/ant &&
-  gather_docs TODO WHATSNEW welcome.html &&
-
-  for each in ant antRun runant.pl runant.py complete-ant-cmd.pl ; do
-    ln -sf /usr/share/ant/bin/${each} /usr/bin/${each}
-  done
-
-) > $C_FIFO 2>&1
+for each in ant antRun runant.pl runant.py complete-ant-cmd.pl ; do
+  ln -sf /usr/share/ant/bin/${each} /usr/bin/${each}
+done
