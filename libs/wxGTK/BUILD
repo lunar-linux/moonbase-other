@@ -1,7 +1,6 @@
-(
+OPTS+=" --with-gtk=2 \
+        --enable-shared \
+        --enable-optimise \
+        --disable-static" &&
 
-  OPTS+=" --with-gtk --with-libpng --enable-shared --enable-optimise" &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
