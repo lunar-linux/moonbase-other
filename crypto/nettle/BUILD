@@ -1,8 +1,3 @@
-  OPTS+=" --enable-shared" &&
+OPTS+=" --enable-shared --disable-static" &&
 
-  # hack the statics away (unfortunately no --disable-static)
-  sedit "/LIBTARGETS = libnettle.a/d" Makefile.in  &&
-  sedit "s?../libnettle.a??g"  tools/Makefile.in testsuite/Makefile.in examples/Makefile.in  &&
-  sedit "s?../libhogweed.a??g" tools/Makefile.in testsuite/Makefile.in examples/Makefile.in  &&
-
-  default_build
+default_build

@@ -1,5 +1,7 @@
 script/build &&
+
 prepare_install &&
+
 install -Dm755 hub /usr/bin/hub &&
 install -d /usr/share/bash-completion/completions &&
 install -Dm644 etc/hub.bash_completion.sh /usr/share/bash-completion/completions/hub &&

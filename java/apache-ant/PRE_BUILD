@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# apache-ant build will fail without junit since 1.7.0
+sedit 's:depends="jars,test-jar":depends="jars":g' build.xml

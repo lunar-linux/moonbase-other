@@ -1,4 +1,4 @@
-OPTS+=" --release --use-system-boost --use-system-pcre" &&
+OPTS+=" --release --use-system-boost --use-system-pcre --disable-warnings-as-errors" &&
 
 add_priv_user mongodb:mongodb -d /var/lib/mongodb  &&
 
