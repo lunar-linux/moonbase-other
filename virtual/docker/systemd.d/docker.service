@@ -6,7 +6,7 @@ Requires=docker.socket
 
 [Service]
 Restart=on-failure
-ExecStart=/usr/bin/docker -d -H fd://
+ExecStart=/usr/bin/docker daemon -H fd:// --exec-opt native.cgroupdriver=cgroupfs
 LimitNOFILE=1048576
 LimitNPROC=1048576
 
