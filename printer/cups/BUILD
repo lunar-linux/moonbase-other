@@ -1,7 +1,16 @@
-default_build &&
+OPTS+=" --enable-raw-printing \
+        --enable-threads \
+        --with-cups-group=lp" &&
 
-install -D -m644 "$SCRIPT_DIRECTORY/cups.logrotate" /etc/logrotate.d/cups &&
+default_config &&
 
-if [ -e /etc/init.d/cups ] ; then
+sedit "s:-Os -g::" Makedefs &&
+sedit "s:-fstack-protector::" Makedefs &&
+
+default_make &&
+
+if [ -e /etc/init.d/cups ]; then
   rm -f /etc/init.d/cups
-fi
+fi &&
+
+add_priv_user lp:lp -d /dev/null -s /bin/false
