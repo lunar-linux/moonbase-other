@@ -1,29 +1,25 @@
-depends %UDEV
-
-optional_depends "Linux-PAM" \
+optional_depends Linux-PAM \
                  "--enable-pam=yes" \
                  "--disable-pam" \
                  "for pluggable authentication"
 
-optional_depends "openssl" \
+optional_depends openssl \
                  "--enable-ssl=yes" \
                  "--disable-ssl" \
                  "for encrypted communications"
 
-optional_depends "gnutls" \
+optional_depends gnutls \
                  "--enable-gnutls --enable-ssl=yes" \
                  "--disable-gnutls" \
                  "for encrypted communications"
 
-
-optional_depends "dbus"      "--enable-dbus"     "--disable-dbus"     "enable DBUS support"
-optional_depends "libpaper"  "--enable-libpaper" "--disable-libpaper" "for paper size library support"
-optional_depends "acl"       "--enable-acl"      "--disable-acl"      "for access control list support"
-optional_depends "usbutils"  "--enable-libusb"   "--disable-libusb"   "for usb device support"
-optional_depends "%JAVA_SDK" "--with-java"       "--without-java"     "for Java interpreter web interfaces"
-optional_depends "perl"      "--with-perl"       "--without-perl"     "for Perl interpreter web interfaces"
-optional_depends "%PHP"      "--with-php"        "--without-php"      "for PHP interpreter web interfaces"
-optional_depends "Python"    "--with-python"     "--without-python"   "for Python interpreter web interfaces"
-optional_depends "heimdal"   "--enable-gssapi"   "--disable-gssapi"   "for Heimdal support"
-optional_depends "avahi"     "--enable-avahi"    "--disable-avahi"    "for avahi support"
-
+optional_depends acl       "--enable-acl"      "--disable-acl"      "for access control list support"
+optional_depends dbus      "--enable-dbus"     "--disable-dbus"     "enable DBUS support"
+optional_depends libpaper  "--enable-libpaper" "--disable-libpaper" "for paper size library support"
+optional_depends usbutils  "--enable-libusb"   "--disable-libusb"   "for usb device support"
+optional_depends %JAVA_SDK "--with-java"       "--without-java"     "for Java interpreter web interfaces"
+optional_depends perl      "--with-perl"       "--without-perl"     "for Perl interpreter web interfaces"
+optional_depends %PHP      "--with-php"        "--without-php"      "for PHP interpreter web interfaces"
+optional_depends Python    "--with-python"     "--without-python"   "for Python interpreter web interfaces"
+optional_depends heimdal   "--enable-gssapi"   "--disable-gssapi"   "for Heimdal support"
+optional_depends avahi     "--enable-avahi"    "--disable-avahi"    "for avahi support"
