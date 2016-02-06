@@ -1,33 +1,26 @@
-OPTS+=" --release \
-        --use-system-boost \
+OPTS+=" --use-system-boost \
         --use-system-pcre \
         --use-system-zlib \
         --disable-warnings-as-errors" &&
 
 add_priv_user mongodb:mongodb -d /var/lib/mongodb  &&
 
-if [[ $arch == x86_64 ]]; then
-  OPTS+=" --use-system-wiredtiger"
-else
+if [[ "$(arch)" =~ ^i?86$ ]]; then
   # WiredTiger must be disabled manually when building for i686
   OPTS+=" --wiredtiger=off"
-  # Specifying --storageEngine is needed for i686
-  # OPTS+=" --storageEngine=mmapv1"
 fi &&
 
-scons -j${MAKES:=1} $OPTS all &&
+scons -j${MAKES:=1} core tools $OPTS &&
+
+# Due to a dependency bug in the SConstructs the installation may fail when the
+# install directory is a parent of the build directory (eg installing in /usr and building in /usr/src).
+# We temporarily install into $SOURCE_DIRECTORY/__mongodb and copy it to /usr as a workaround.
+scons -j${MAKES:=1} install --prefix=$SOURCE_DIRECTORY/__mongodb --nostrip $OPTS &&
 prepare_install &&
-scons -j${MAKES:=1} $OPTS install --full --prefix=/usr &&
+cp -rf --remove-destination $SOURCE_DIRECTORY/__mongodb/* /usr/ &&
 
 if [ ! -f /etc/mongodb.conf ]; then
-  install -m 644 $SOURCE_CACHE/$SOURCE2 /etc/mongodb.conf
-fi &&
-
-if module_installed systemd; then
-    # Manually create /run/mongodb now, systemd tmpfiles.d will handle this next boot
-  if [ ! -d /run/mongodb ]; then
-    install -d -o mongodb -g root -m 0755 /run/mongodb
-  fi
+  install -m 644 $SCRIPT_DIRECTORY/mongodb.conf /etc/mongodb.conf
 fi &&
 
 for i in /var/{lib,log}/mongodb; do

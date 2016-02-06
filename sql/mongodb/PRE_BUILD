@@ -1,9 +1,8 @@
 default_pre_build &&
 
-patch_it $SOURCE3 1 &&
+# Propagate Lunar ENV and honor CXXFLAGS, remove debugging symbols (ggdb)
+patch_it $SOURCE2 1 &&
 
-# NO, we _don't_ want to build the windows installer
-sedit '/installer\/msi\/SConscript/ d' src/mongo/SConscript &&
+# Boost fix
+patch_it $SOURCE3 1
 
-# boost 1.57 cleaned up this implicit include
-sedit '/#include <string.h>/ i #include <algorithm>' src/mongo/shell/linenoise_utf8.h
