@@ -1,4 +1,7 @@
 default_pre_build &&
 
 # avoid qt4's moc trying to understand boost
-fgrep -l "#include <boost/python.hpp>" libavogadro/src/* | xargs sed -i "s@.*include <boost/python\.hpp>.*@#ifndef Q_MOC_RUN\n\0\n#endif@"
+fgrep -l "#include <boost/python.hpp>" libavogadro/src/* | xargs sed -i "s@.*include <boost/python\.hpp>.*@#ifndef Q_MOC_RUN\n\0\n#endif@" &&
+
+# add missing libraries
+sedit 's/${QT_LIBRARIES}/${OPENBABEL2_LIBRARIES} \0/' libavogadro/src/python/CMakeLists.txt
