@@ -1,5 +1,3 @@
-sedit "s:\$(am__py_compile) --destdir \"\$(DESTDIR)\":\$(am__py_compile):" python/Makefile.in &&
-
 OPTS+=" --disable-doc \
         --disable-debug \
         --disable-gl \

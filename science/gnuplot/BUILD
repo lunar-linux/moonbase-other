@@ -1,14 +1,9 @@
-
-# It blows up on qt5
-if module_installed qt4 ; then
-  OPTS+=" --with-qt=qt4"
- else
-  OPTS+=" --with-qt=no"
+if in_depends $MODULE qt5; then
+  . /etc/profile.d/qt5.rc
+elif in_depends $MODULE qt4; then
+  . /etc/profile.d/qt4.rc
 fi &&
 
-# Lua-5.3 changed to luaL_checkinteger
-if in_depends $MODULE lua ; then
-  sedit "s:t_num = luaL_checkint:t_num = luaL_checkinteger:g" term/lua.trm
-fi &&
+OPTS+=" --libexecdir=/usr/lib" &&
 
 default_build
