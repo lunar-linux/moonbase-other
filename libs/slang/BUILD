@@ -1,11 +1,7 @@
-  ./configure  --prefix=/usr                \
-               --sysconfdir=/etc            \
-               --localstatedir=/var $OPTS  &&
+default_build &&
 
-  default_make  &&
-
-  if [ "$STATIC" == "y" ]; then
-    make clean &&
-    make static &&
-    make install-static
-  fi
+if [ "$STATIC" == "y" ]; then
+  make clean &&
+  make static &&
+  make install-static
+fi
