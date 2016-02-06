@@ -4,13 +4,3 @@ default_pre_build &&
 # also it just makes more sense to build files at _build_ time
 sedit 's@cups test@\0 man@' Makefile &&
 sedit 's@MAN8) html@MAN8)@' man/Makefile
-
-#Change some install perms from 555 to 755 444 to 644
-sedit 's:555:755:g' Makedefs.in &&
-sedit 's:444:644:g' Makedefs.in &&
-
-OPTS+=" --enable-raw-printing" &&
-
-if in_depends $MODULE systemd; then
-  OPTS+=" --with-systemd"
-fi
