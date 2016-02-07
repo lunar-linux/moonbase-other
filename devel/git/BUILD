@@ -1,4 +1,3 @@
-unpack $SOURCE2 &&
 make prefix=/usr CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS" NO_CROSS_DIRECTORY_HARDLINKS=1 $OPTS all &&
 prepare_install  &&
 make prefix=/usr CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS" NO_CROSS_DIRECTORY_HARDLINKS=1 $OPTS install &&
@@ -12,6 +11,6 @@ for i in man?; do
   install -m 644 $i/* /usr/share/man/$i/
 done &&
 
-if [ "`get_module_config DOCS`" = "y" ] ; then
+if [ "`get_module_config DOCS`" = "y" ]; then
   gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
 fi
