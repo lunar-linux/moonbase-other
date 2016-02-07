@@ -5,7 +5,7 @@ OPTS+=" --use-system-boost \
 
 add_priv_user mongodb:mongodb -d /var/lib/mongodb  &&
 
-if [[ "$(arch)" =~ ^i?86$ ]]; then
+if [[ "$(arch)" =~ ^i.86$ ]]; then
   # WiredTiger must be disabled manually when building for i686
   OPTS+=" --wiredtiger=off"
 fi &&

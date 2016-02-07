@@ -1,14 +1,23 @@
-depends  glib-2
-depends  zlib
-depends  libxml2
-#depends  XML-Parser
+depends glib-2
+depends libxml2
+depends zlib
+depends intltool
 
-optional_depends  "gdk-pixbuf" \
-                  "--with-gdk-pixbuf" \
-		  "--without-gdk-pixbuf" \
-		  "use gdk thumbnails"
+optional_depends gdk-pixbuf \
+                 "--with-gdk-pixbuf" \
+                 "--without-gdk-pixbuf" \
+                  "use gdk thumbnails"
 
-optional_depends  "pygtk"  \
-                  ""       \
-                  "--without-python"  \
-                  "for Python gsf support"
+optional_depends pygtk \
+                 "" "--without-python" \
+                 "for Python gsf support"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "for building documentation"
+
+optional_depends gobject-introspection \
+                 "--enable-introspection" \
+                 "--disable-introspection" \
+                 "for object introspection"
