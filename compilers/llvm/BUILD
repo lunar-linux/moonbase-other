@@ -1,7 +1,17 @@
-OPTS+=" --enable-shared --enable-targets=host-only" &&
+OPTS+=" --enable-shared" &&
 
-if in_depends $MODULE libffi; then
-   CPPFLAGS+=" -I/usr/lib/libffi-$(lvu installed libffi)/include"
+TARGETS="host" &&
+if [[ "$USE_R600" = "y" ]]; then
+  TARGETS+=",r600"
 fi &&
+
+OPTS+=" --enable-targets=$TARGETS" &&
+
+# ocaml bindings not supported on lunar right now
+OPTS+=" --disable-bindings" &&
+
+mkdir $MODULE-ootb &&
+cd $MODULE-ootb &&
+ln -s ../configure . &&
 
 default_build
