@@ -5,7 +5,7 @@
   rm -rf doc/guide/ &&
 #
 
-  default_cmake_build
+  default_cmake_build &&
 
   if in_depends $MODULE wxGTK ; then
     install ../src/GUI/babel*.* /usr/share/pixmaps &&
@@ -19,6 +19,5 @@ Exec=/usr/bin/obgui
 Icon=/usr/share/pixmaps/babel2.ico
 Categories=Science;
 EOF
-
-  install -D -m644 $MODULE.desktop /usr/share/applications/$MODULE.desktop
+    install -D -m644 $MODULE.desktop /usr/share/applications/$MODULE.desktop
   fi

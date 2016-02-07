@@ -1,19 +1,8 @@
 default_pre_build &&
 
-# Propagate Lunar ENV to scons
-patch_it $SOURCE3 1 &&
+# Propagate Lunar ENV and honor CXXFLAGS, remove debugging symbols (ggdb)
+patch_it $SOURCE2 1 &&
 
-# Honor CXXFLAGS and remove debugging symbols (ggdb)
-patch_it $SOURCE4 1 &&
+# Boost fix
+patch_it $SOURCE3 1
 
-# GCC 4.9 patch that fixes segfault in js
-patch_it $SOURCE5 1 &&
-
-# gcc 4.8 does find something to warn about ;)
-sedit "s:'-Werror':\0, '-Wno-unused-local-typedefs':" src/third_party/v8/SConscript &&
-
-# NO, we _don't_ want to build the windows installer
-sedit '/installer\/msi\/SConscript/ d' src/mongo/SConscript &&
-
-# boost 1.57 cleaned up this implicit include
-sedit '/#include <string.h>/ i #include <algorithm>' src/mongo/shell/linenoise_utf8.h

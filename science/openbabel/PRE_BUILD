@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# support modern gcc 
+sedit 's/__GNUC__ == 4/__GNUC__ >= 4/' include/openbabel/shared_ptr.h
