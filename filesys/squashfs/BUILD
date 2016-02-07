@@ -1,10 +1,8 @@
-(
+cd squashfs-tools && 
 
-  cd squashfs-tools && 
+make $OPTS &&
 
-  make &&
-  prepare_install &&
-  install -m 755 -s mksquashfs unsquashfs /usr/bin &&
-  gather_docs PERFORMANCE.README
+prepare_install &&
 
-) > $C_FIFO 2>&1
+install -m 755 -s mksquashfs unsquashfs /usr/bin
+#gather_docs PERFORMANCE.README
