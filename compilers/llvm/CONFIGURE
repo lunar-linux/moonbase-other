@@ -1,5 +1,5 @@
 mquery USE_CLANG "Do you want to build the clang (C compiler) front-end ?" n
 
-mquery USE_ASSERTS "Do you want to use assertions? (Not supported by OpenGTL)" n
+mquery USE_ASSERTS "Do you want to use assertions? (Not supported by OpenGTL)" n "--enable-assertions" "--disable-assertions"
 
-mquery USE_R600 "Do you want to enable the R600 radeon backend" y "" ""
+mquery USE_R600 "Do you want to enable the R600 radeon backend" n "--enable-experimental-targets=R600" ""
