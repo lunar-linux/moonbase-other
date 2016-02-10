@@ -1,18 +1,21 @@
           MODULE=sun-jre
-         VERSION=7u5
-        DVERSION=1.7.0_05
-          SOURCE=jre-$VERSION-linux-x64.tar.gz
-      SOURCE_URL="http://javadl.sun.com/webapps/download/AutoDL?BundleId=64147&/"
-      SOURCE_VFY=sha1:e363591ad93762a4f09fa73689d881b8a868556e
+         VERSION=8u74
+        FVERSION=$VERSION-b02
+        DVERSION=1.8.0_74
+     JDK_ARCHIVE=jre-$VERSION-linux-x64.tar.gz
+      JCE_POLICY=jce_policy-8.zip
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/jre$DVERSION
+     JRE_SHA_VFY=
+     JCE_SHA_VFY=f3020a3922efd6626c2fff45695d527f34a8020e938a49292561f18ad1320b59
         WEB_SITE=http://www.oracle.com/technetwork/java/javase/downloads/index.html
          LICENSE="proprietary"
          ENTERED=20061113
-         UPDATED=20120616
+         UPDATED=20160210
            FUZZY=off
        LDD_CHECK=off
          ARCHIVE=off
            SHORT="SUN java runtime environment"
+
 cat << EOF
 sun-jre is only the run time environment, should be sufficient for
 most users.
