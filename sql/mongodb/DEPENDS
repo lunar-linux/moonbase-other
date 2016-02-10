@@ -1,7 +1,22 @@
-depends boost
 depends scons
-depends libpcap
+depends boost
 depends pcre
+depends zlib
 
-optional_depends openssl "--ssl" "" "for SSL support"
-optional_depends cyrus-sasl "--use-sasl-client" "" "for SASL auth support in the client library"
+optional_depends libpcap "" "" "for building mongosniff"
+
+optional_depends snappy  \
+                 "--use-system-snappy" "" \
+                 "for snappy comp/decomp library support"
+
+optional_depends yaml-cpp \
+                 "--use-system-yaml" "" \
+                 "for YAML parser support"
+
+optional_depends openssl \
+                 "--ssl" "" \
+                 "for SSL support"
+
+optional_depends cyrus-sasl \
+                 "--use-sasl-client" "" \
+                 "for SASL auth support in the client library"

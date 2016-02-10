@@ -1,5 +1,5 @@
 OPTS+=" --disable-static" &&
 
-default_build  &&
+default_build &&
 
 ln -sf /usr/include/freetype2 /usr/include/freetype

@@ -15,7 +15,7 @@ if in_depends $MODULE lua; then
   LUAC="/usr/bin/luac"
 fi &&
 
-if in_depends $MODULE samba ; then
+if in_depends $MODULE samba; then
   export SMBCLIENT_LIBS+=" /usr/lib/libsmbclient.so" &&
   export SMBCLIENT_CFLAGS+=" -I/usr/include/libsmbclient.h"
 fi &&

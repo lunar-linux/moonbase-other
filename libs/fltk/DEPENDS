@@ -1,5 +1,14 @@
-optional_depends "zlib"   "--disable-localzlib"  "--enable-localzlib" "use system zlib"
-optional_depends "%JPEG"  "--disable-localjpeg"  "--enable-localjpeg" "use system jpeg"
-optional_depends "libpng" "--disable-localpng"   "--enable-localpng"  "use system png"
-optional_depends "cairo"  "--enable-cairo"       "--disable-cairo"    "for cairo support"
+depends glu
+depends desktop-file-utils
+depends hicolor-icon-theme
+depends xdg-utils
+depends mesa-lib
+depends alsa-lib
+depends libXinerama
+depends libXft
+depends libXcursor
 
+optional_depends zlib   "--disable-localzlib"  "--enable-localzlib" "use system zlib"
+optional_depends %JPEG  "--disable-localjpeg"  "--enable-localjpeg" "use system jpeg"
+optional_depends libpng "--disable-localpng"   "--enable-localpng"  "use system png"
+optional_depends cairo  "--enable-cairo"       "--disable-cairo"    "for cairo support"
