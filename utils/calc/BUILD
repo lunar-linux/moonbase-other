@@ -1,7 +1,3 @@
-(
-  
-  sedit "s/^LD_DEBUG=/LD_DEBUG= $LDFLAGS/" Makefile &&
-  default_make &&
-  gather_docs BUGS LIBRARY
+default_make &&
 
-) >$C_FIFO 2>&1
+gather_docs BUGS LIBRARY
