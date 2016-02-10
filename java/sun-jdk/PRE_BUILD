@@ -1,45 +1,29 @@
 CURDIR="`pwd`" &&
 cd $SOURCE_CACHE &&
 
-if [ "$(arch)" == "x86_64" ]; then
-   bits=x64
-else
-   bits=i586
-fi &&
-
-JDK_ARCHIVE=jdk-$VERSION-linux-$bits.tar.gz &&
-JDK_POLICY=jce_policy-8.zip &&
-
 if ! module_installed ca-certificates; then
-   message "${PROBLEM_COLOR}If the following downloads fail, please make sure you build wget with SSL support and and got ca-certificates installed${DEFAULT_COLOR}"
+  message "${PROBLEM_COLOR}If the following downloads fail, please make sure you build wget with SSL support and and got ca-certificates installed${DEFAULT_COLOR}"
 fi &&
 
 wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/$FVERSION/$JDK_ARCHIVE &&
-wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jce/8/$JDK_POLICY &&
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jce/8/$JCE_POLICY &&
 
-JCE_SHA1_VFY="7d25dcee3e6ef2c984d748a14614b37c18ce3507" &&
-JCE_SHA1_TST=`sha1sum $JDK_POLICY | awk '{print $1}'` &&
-if [ "$JCE_SHA1_VFY" != "$JCE_SHA1_TST" ]; then
-   message "Bad checksum for file $JDK_POLICY: $JCE_SHA1_TST - deleting file" &&
-   rm -f $JDK_POLICY # &&
-   false
+JCE_SHA_TST=`sha256sum $JCE_POLICY | awk '{print $1}'` &&
+if [ "$JCE_SHA_VFY" != "$JCE_SHA_TST" ]; then
+  message "Bad checksum for file $JCE_POLICY: $JCE_SHA_TST - deleting file" &&
+  rm -f $JCE_POLICY # &&
+  false
 fi &&
 
-if [ "$bits" = i586 ]; then
-   JDK_SHA1_VFY="a671b7195d769b052d931c7f9cc8cf408a6ad0b2"
-else
-   JDK_SHA1_VFY="7cfb221ae3d3939db24c4e88992ddd1a48388379"
-fi &&
-
-JDK_SHA1_TST=`sha1sum $JDK_ARCHIVE | awk '{print $1}'` &&
-if [ "$JDK_SHA1_VFY" != "$JDK_SHA1_TST" ]; then
-   message "Bad checksum for file $JDK_ARCHIVE: $JDK_SHA1_TST - deleting file" &&
-   rm -f $JDK_ARCHIVE &&
-   false
+JDK_SHA_TST=`sha256sum $JDK_ARCHIVE | awk '{print $1}'` &&
+if [ "$JDK_SHA_VFY" != "$JDK_SHA_TST" ]; then
+  message "Bad checksum for file $JDK_ARCHIVE: $JDK_SHA_TST - deleting file" &&
+  rm -f $JDK_ARCHIVE &&
+  false
 fi &&
 
 cd $BUILD_DIRECTORY &&
 tar -xzpvf $SOURCE_CACHE/$JDK_ARCHIVE &&
 cd $SOURCE_DIRECTORY/jre/lib/security &&
-unzip $SOURCE_CACHE/$JDK_POLICY &&
-cd "$CURDIR"
+unzip -o $SOURCE_CACHE/$JCE_POLICY &&
+cd $CURDIR
