@@ -1,4 +1,6 @@
-python setup.py build --with-ssl &&
+make &&
+
+python setup.py build $OPTS &&
 
 prepare_install &&
 
