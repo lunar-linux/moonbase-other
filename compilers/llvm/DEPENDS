@@ -1,3 +1,16 @@
-optional_depends libffi  "--enable-libffi"   "--disable-libffi"                 "for high level programming support"
-optional_depends ocaml   "--enable-bindings" "--disable-bindings"               "for ocaml bindings"
-#optional_depends doxygen "--enable-doxygen"  "--disable-doxygen --disable-docs" "for documentation support"
+optional_depends libxml2 "" "" "for XML support"
+
+optional_depends libffi \
+                 "-DLLVM_ENABLE_FFI=ON \
+                  -DFFI_INCLUDE_DIR=$(pkg-config --variable=includedir libffi)" \
+                 "-DLLVM_ENABLE_FFI=OFF" \
+                 "for FFI support"
+
+optional_depends doxygen \
+                 "-DLLVM_ENABLE_DOXYGEN=ON" \
+                 "-DLLVM_ENABLE_DOXYGEN=OFF" \
+                 "for documentation generation"
+
+optional_depends Sphinx "-DLLVM_ENABLE_SPHINX=ON" \
+                        "-DLLVM_ENABLE_SPHINX=OFF" \
+                        "for documentation building"
