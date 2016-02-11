@@ -1,5 +1,6 @@
 OPTS+=" --enable-raw-printing \
         --enable-threads \
+        --disable-static \
         --with-cups-group=lp" &&
 
 default_config &&
