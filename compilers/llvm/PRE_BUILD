@@ -10,9 +10,9 @@ if [[ "$USE_CLANG" = "y" ]]; then
   cd $SOURCE_DIRECTORY
 fi &&
 
-#  sedit 's;install-meta:: $(ObjDir)/META.llvm;install-meta:: META.llvm;' bindings/ocaml/llvm/Makefile &&
-
 sedit 's:/docs/llvm:/share/doc/llvm:' Makefile.config.in &&
+# this substitution doesn't work for some reason...
+sedit 's:@DOT_IMAGE_FORMAT@:png:g' docs/doxygen.cfg.in &&
 
 # this is fixed in the cmake build, but somehow missing in the regular Makefiles
 sedit '13 i ExtraLibs := -lLLVMSupport' unittests/Support/Makefile
