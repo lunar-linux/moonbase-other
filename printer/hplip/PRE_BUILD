@@ -1,0 +1,5 @@
+default_pre_build &&
+
+# Disable the HPLIP upgrade
+sedit "208i log.error\n clean exit(1)" upgrade.py
+
