@@ -1,7 +1,7 @@
-(
-  
-  sedit "s/^LD_DEBUG=/LD_DEBUG= $LDFLAGS/" Makefile &&
-  default_make &&
-  gather_docs BUGS LIBRARY
+if module_installed readline; then
+  make USE_READLINE="-DUSE_READLINE" READLINE_LIB="-lreadline" READLINE_EXTRAS="-lhistory -lncurses"
+fi &&
 
-) >$C_FIFO 2>&1
+default_make &&
+
+gather_docs BUGS LIBRARY

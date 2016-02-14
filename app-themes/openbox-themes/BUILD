@@ -1,7 +1,5 @@
-(
+prepare_install &&
 
-  prepare_install &&
-  mkdir -p /usr/share/themes &&
-  cp -R $SOURCE_DIRECTORY/* /usr/share/themes
-
-) > $C_FIFO 2>&1
+install -d /usr/share/themes
+rm -rf debian/
+cp -R * /usr/share/themes/

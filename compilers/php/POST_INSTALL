@@ -1,0 +1,11 @@
+if [ ! -e /etc/php.ini ]; then
+  cp $SOURCE_DIRECTORY/php.ini-production /etc/php.ini
+fi
+
+case $REGGLOBALS in
+  y|Y)
+    sedit "s/register_globals = Off/register_globals = On/" /etc/php.ini
+    ;;
+    *) true
+    ;;
+esac

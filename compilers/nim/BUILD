@@ -6,8 +6,8 @@ if ! ( ( module_installed nim ) && [ "$USE_BINARY" = "n" ] ); then
    ## build it
    cd build &&
    sh ./build.sh &&
-   cd ../ &&
 
+   cd ../ &&
    ./bin/nim c koch
 else
    nim c koch
@@ -34,4 +34,7 @@ cp -fR doc examples web /usr/share/nim/ &&
 cp lib/cycle.h /usr/lib/nim/ &&
 install -m644 lib/libnimrtl.so /usr/lib/libnimrtl.so &&
 install -m755 tools/nimgrep /usr/bin/ &&
-ln -sf /usr/bin/nim /usr/bin/nimrod
+ln -sf /usr/bin/nim /usr/bin/nimrod &&
+
+# Fix FS#48118, related to the doc2 command
+ln -sf /usr/share/nim/doc /usr/lib/nim/doc
