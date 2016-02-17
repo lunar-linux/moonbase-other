@@ -1,4 +1,3 @@
+OPTS+=" --disable-static --disable-documentation" &&
 
-  OPTS+=" --disable-static --disable-documentation" &&
-
-  default_build
+default_build
