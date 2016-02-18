@@ -3,6 +3,8 @@ rm -rf /usr/lib/j[rd][ek]1.?.0_* &&
 rm -rf /usr/lib/java &&
 rm -f /usr/lib/libjvm.so &&
 
+# remove old /usr/java home
+rm -rf /usr/java &&
 prepare_install &&
 
 # Install java
