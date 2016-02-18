@@ -3,10 +3,9 @@ if [ "`cd /usr/bin; pwd -P`" != "`cd /bin; pwd -P`" ]; then
   ln -sf /usr/bin/echo /bin/echo
 fi &&
 
-if [ ${STATIC:-n} == y ]
-then
-    LDFLAGS+=" --static"
-fi
+if [ ${STATIC:-n} == y ]; then
+  LDFLAGS+=" --static"
+fi &&
 
 make defconfig &&
 make &&
