@@ -1,7 +1,18 @@
-OPTS+=" --enable-shared --enable-targets=host-only" &&
+OPTS+=" -DBUILD_SHARED_LIBS=ON" &&
 
-if in_depends $MODULE libffi; then
-   CPPFLAGS+=" -I/usr/lib/libffi-$(lvu installed libffi)/include"
+# automatically build enabled docs
+OPTS+=" -DLLVM_BUILD_DOCS=1" &&
+
+# disabled for now
+OPTS+=" -DLLVM_ENABLE_SPHINX=0" &&
+
+# don't run doxygen at build AND install time
+OPTS+=" -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=1" &&
+
+TARGETS=X86 &&
+if [[ "$USE_AMDGPU" = "y" ]]; then
+  TARGETS+=";AMDGPU"
 fi &&
+OPTS+=" -DLLVM_TARGETS_TO_BUILD=${TARGETS}" &&
 
-default_build
+default_cmake_build
