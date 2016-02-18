@@ -1,11 +1,5 @@
-if in_depends $MODULE qt5; then
-  . /etc/profile.d/qt5.rc
-else
-  if in_depends $MODULE qt4; then
-    . /etc/profile.d/qt4.rc
-  else
-    OPTS+=" -DWITH_QT=OFF"
-  fi
+if in_depends $MODULE qt4; then
+  . /etc/profile.d/qt4.rc
 fi &&
 
 # bug: examples have to be build, if they (the sources) will be installed
@@ -15,9 +9,6 @@ else
   OPTS+=" -DBUILD_EXAMPLES=OFF"
 fi &&
 
-OPTS+=" -DBUILD_WITH_DEBUG_INFO=OFF \
-        -DBUILD_TESTS=OFF \
-        -DBUILD_PERF_TESTS=OFF
-        -DENABLE_SSE3=OFF" &&
+OPTS+=" -DBUILD_WITH_DEBUG_INFO=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF" &&
 
 default_cmake_build
