@@ -1,3 +1,5 @@
-export PREFIX="${DEFAULT_PREFIX}" &&
+make PREFIX=/usr $OPTS stat64=1 &&
 
-default_make
+prepare_install &&
+
+make PREFIX=/usr install
