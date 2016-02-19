@@ -1,7 +1,6 @@
+export slashlibdir=/usr &&
 
-  OPTS+=" --disable-man-pages "   &&
-  sedit 's/-Werror//g' configure  &&
-  sedit "s:slashlibdir=/lib:slashlibdir=/usr/lib:" configure &&
-  export slashlibdir=/usr &&
+OPTS+=" --disable-static \
+        --disable-man-pages" &&
 
-  default_build
+default_build
