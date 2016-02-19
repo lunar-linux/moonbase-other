@@ -65,7 +65,7 @@ cp -fR /usr/lib/java/latest/jre/lib/desktop/* /usr/share/ &&
 rm -fr /usr/lib/java/latest/jre/lib/desktop &&
 
 echo export JAVA_HOME=\"/usr/lib/java/latest\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
-echo export PATH=\"'$PATH':'$JAVA_HOME'/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
+echo export PATH=\"'$PATH':'$JAVA_HOME'/bin\"  >> $SOURCE_DIRECTORY/sun-jdk.rc &&
 install -m644 $SOURCE_DIRECTORY/sun-jdk.rc /etc/profile.d/ &&
 
 rm -rf /usr/lib/java/jdk${DVERSION}/jdk${DVERSION} &&
