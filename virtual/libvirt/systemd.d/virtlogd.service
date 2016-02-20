@@ -1,0 +1,11 @@
+[Unit]
+Description=Virtual machine log manager
+Requires=virtlogd.socket
+After=syslog.target
+
+[Service]
+ExecStart=/usr/sbin/virtlogd
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
