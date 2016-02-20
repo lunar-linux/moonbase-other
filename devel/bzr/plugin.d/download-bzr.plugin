@@ -19,12 +19,12 @@
 
 plugin_source_download_bzr() {
   # check if we can handle this URL format
-  if [ "${1:0:6}" != "bzr://" -a "${1:0:11}" != "bzr+http://" -a "${1:0:12}" != "bzr+https://" -a "${1:0:10}" != "bzr+ssh://" ] ; then
+  if [ "${1:0:6}" != "bzr://" -a "${1:0:11}" != "bzr+http://" -a "${1:0:12}" != "bzr+https://" -a "${1:0:10}" != "bzr+ssh://" ]; then
     return 2
   fi
   debug_msg "plugin_source_needrefresh_bzr($@)"
 
-  if ! module_installed bzr ; then
+  if ! module_installed bzr; then
     # full stop: we need to make sure the user sees this error:
     message "${PROBLEM_COLOR}! Cannot fetch BZR sources without \"bzr\" installed${DEFAULT_COLOR}"
     exit 1
@@ -42,12 +42,11 @@ plugin_source_download_bzr() {
   mk_source_dir $TMPDIR/$MODULE-$VERSION
   cd $TMPDIR/$MODULE-$VERSION
 
-  if [ -f "$3/$2" ] ; then
+  if [ -f "$3/$2" ]; then
     verbose_msg "Extracting local BZR copy"
     CD=$(pwd -P)
-    if ! unpack $2 ; then
+    if ! unpack $2; then
       message "${PROBLEM_COLOR}Warning: bad local BZR copy, checking out fresh BZR copy${DEFAULT_COLOR}"
-
       rm_source_dir $TMPDIR/$MODULE-$VERSION
       mk_source_dir $TMPDIR/$MODULE-$VERSION
     fi
@@ -102,8 +101,8 @@ plugin_source_needrefresh_bzr() {
   fi
 
   BZR_THRESHOLD=${BZR_THRESHOLD:-10}
-  if (( "BZR_THRESHOLD" > 0 )) ; then
-    if [ "$(find $3/$2 -amin +$BZR_THRESHOLD)" == "$3/$2" ] ; then
+  if (( "BZR_THRESHOLD" > 0 )); then
+    if [ "$(find $3/$2 -amin +$BZR_THRESHOLD)" == "$3/$2" ]; then
       # it is older:
       return 0
     else

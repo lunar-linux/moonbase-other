@@ -1,6 +1,6 @@
-(
+prepare_install &&
 
-  prepare_install  &&
-  python setup.py install
+python setup.py install &&
 
-) > $C_FIFO 2>&1
+install -dm 755 /usr/share/bash-completion/completions &&
+install -m 644 contrib/bash/bzr /usr/share/bash-completion/completions/
