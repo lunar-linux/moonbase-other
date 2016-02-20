@@ -1,3 +1,12 @@
-optional_depends libffi  "--enable-libffi"   "--disable-libffi"                 "for high level programming support"
-optional_depends ocaml   "--enable-bindings" "--disable-bindings"               "for ocaml bindings"
-#optional_depends doxygen "--enable-doxygen"  "--disable-doxygen --disable-docs" "for documentation support"
+optional_depends libffi "-DLLVM_ENABLE_FFI=1" \
+                        "-DLLVM_ENABLE_FFI=0" \
+                        "for high level programming support"
+
+optional_depends doxygen "-DLLVM_ENABLE_DOXYGEN=1" \
+                         "-DLLVM_ENABLE_DOXYGEN=0" \
+                         "build doxygen documentation"
+
+# atm not supported on lunar
+#optional_depends Sphinx "-DLLVM_ENABLE_SPHINX=1" \
+#                        "-DLLVM_ENABLE_SPHINX=0" \
+#                        "build Sphinx documentation"

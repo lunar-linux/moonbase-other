@@ -1,11 +1,7 @@
-(
+LDFLAGS+=" -lm" &&
 
-  LDFLAGS+=" -lm" &&
+OPTS+=" --enable-shared --disable-static --disable-silent-rules" &&
 
-  OPTS+="  --disable-static" &&
+./bootstrap.sh &&
 
-  ./bootstrap.sh &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
