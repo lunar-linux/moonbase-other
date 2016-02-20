@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# Fix path for test suite
+sedit "s;/bin/hostname;/usr&;g" src/os/os_test.go
