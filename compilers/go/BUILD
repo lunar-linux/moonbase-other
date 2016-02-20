@@ -27,9 +27,9 @@ if [[ "$RUN_TESTS" =~ [yY] ]]; then
   echo "Testing go..." &&
     for i in godoc goimports gomvpkg gorename gotype \
              benchcmp bundle callgraph digraph eg fiximports html2article oracle present ssadump stress stringer; do
-      $GOROOT/bin/go test -v -x golang.org/x/tools/cmd/$i
+      PATH="${GOBIN}:${PATH}" $GOROOT/bin/go test -v -x golang.org/x/tools/cmd/$i
     done &&
-    bash run.bash --no-rebuild
+    PATH="${GOBIN}:${PATH}" ./run.bash --no-rebuild
 fi &&
 
 prepare_install  &&
