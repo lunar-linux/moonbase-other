@@ -1,7 +1,4 @@
-# if go is already installed we'll use it for the bootstrap
-if ! ( ( module_installed go ) || (module_installed go-bootstrap) ); then
-  # install a minimal go compiler for the bootstrap
-  lin go-bootstrap
-fi &&
+default_pre_build &&
 
-default_pre_build
+# Fix path for test suite
+sedit "s;/bin/hostname;/usr&;g" src/os/os_test.go
