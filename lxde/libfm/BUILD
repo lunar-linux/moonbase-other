@@ -1,6 +1,5 @@
-OPTS+=" --sysconfdir=/etc \
-        --with-gnu-ld \
+OPTS+=" --with-gnu-ld \
         --disable-gtk-doc-html \
-        --disable-static"  &&
+        --disable-static" &&
 
 default_build
