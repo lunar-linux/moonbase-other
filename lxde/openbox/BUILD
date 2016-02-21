@@ -1,6 +1,4 @@
-OPTS+=" --sysconfdir=/etc \
-        --with-x \
-        --disable-static" &&
+OPTS+=" --libexecdir=/usr/lib/openbox --with-x --disable-static" &&
 
 default_build &&
 

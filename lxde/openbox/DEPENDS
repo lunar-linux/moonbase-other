@@ -1,23 +1,13 @@
 depends libSM
 depends pango
 depends libxml2
+depends libXinerama
+depends libXrandr
 
-optional_depends pyxdg "" "" "for openbox-xdg-autostart script"
-
-optional_depends libXcursor \
-                 "--enable-xcursor" \
-                 "--disable-xcursor" \
-                 "for X11 cursor support"
-
-optional_depends imlib2 \
-                 "--enable-imlib2" \
-                 "--disable-imlib2" \
-                 "for imlib2 support"
-
-optional_depends librsvg \
-                 "--enable-librsvg" \
-                 "--disable-librsvg" \
-                 "for SVG images support"
+optional_depends libXcursor "" "" "for X11 cursor support"
+optional_depends librsvg    "" "" "for SVG support"
+optional_depends imlib2     "" "" "for imlib2 support"
+optional_depends pyxdg      "" "" "for openbox-xdg-autostart script"
 
 optional_depends startup-notification \
                  "--enable-startup-notification"  \
