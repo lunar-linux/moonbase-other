@@ -1,7 +1,5 @@
+OPTS+=" --disable-dbus --disable-static"
 
-  patch_it $SOURCE2 1 &&
+autoreconf -fis &&
 
-  OPTS+=" --enable-dbus=no"
-
-  autoreconf -fis &&
-  default_build
+default_build
