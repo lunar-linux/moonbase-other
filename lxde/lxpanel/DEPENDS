@@ -1,10 +1,17 @@
+depends alsa-lib
+depends libfm
+depends lxmenu-data
+depends menu-cache
+depends intltool
 depends docbook-xml
 depends docbook-xsl
-depends alsa-lib
-depends libwnck
-depends startup-notification
-depends libfm
-depends keybinder
-depends lxmenu-data
 
-optional_depends wireless_tools "" "" "for wifi support"
+optional_depends keybinder3 \
+                 "--enable-gtk3" "" \
+                 "for GTK+ 3.x support -${PROBLEM_COLOR} choose this option or keybinder (gtk+-2), not both"
+optional_depends libwnck3   "" "" "for GTK+ 3.x support -${PROBLEM_COLOR} choose this option or libwnck (gtk+-2), not both"
+
+optional_depends keybinder "" "" "for GTK+ 2.x support -${PROBLEM_COLOR} choose keybinder3 (gtk+-3) or this option, not both"
+optional_depends libwnck   "" "" "for GTK+ 2.x support -${PROBLEM_COLOR} choose libwnck3 (gtk+-3) or this option, not both"
+
+optional_depends wireless_tools "" "" "for netstat plugin"
