@@ -1,3 +1,8 @@
 depends libevdev
 depends mtdev
 depends systemd
+
+optional_depends libwacom \
+                 "--enable-libwacom" \
+                 "--disable-libwacom" \
+                 " for tablet identification"
