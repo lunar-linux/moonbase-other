@@ -1,24 +1,29 @@
-default_pre_build &&
-
 CURDIR="`pwd`" &&
 cd $SOURCE_CACHE &&
 
-JDK_POLICY=UnlimitedJCEPolicyJDK7.zip &&
 if ! module_installed ca-certificates; then
-   message "${PROBLEM_COLOR}If the following download fails, please make sure you build wget with SSL support and and got ca-certificates installed${DEFAULT_COLOR}"
-fi
-wget -c --header "Cookie: gpw_e24=a" http://download.oracle.com/otn-pub/java/jce/7/$JDK_POLICY &&
-
-JCE_SHA1_VFY='7d3c9ee89536b82cd21c680088b1bced16017253  UnlimitedJCEPolicyJDK7.zip' &&
-JCE_SHA1_TST=`sha1sum UnlimitedJCEPolicyJDK7.zip` &&
-
-if [ "$JCE_SHA1_VFY" != "$JCE_SHA1_TST" ]; then
-   message "Bad checksum of $JDK_POLICY file - deleting"
-   rm -f $JDK_POLICY
-   exit 1
+  message "${PROBLEM_COLOR}If the following downloads fail, please make sure you build wget with SSL support and and got ca-certificates installed${DEFAULT_COLOR}"
 fi &&
 
-cd $SOURCE_DIRECTORY/lib/security &&
-unzip $SOURCE_CACHE/$JDK_POLICY &&
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/$FVERSION/$JRE_ARCHIVE &&
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jce/8/$JCE_POLICY &&
 
-cd "$CURDIR"
+JCE_SHA_TST=`sha256sum $JCE_POLICY | awk '{print $1}'` &&
+if [ "$JCE_SHA_VFY" != "$JCE_SHA_TST" ]; then
+  message "Bad checksum for file $JCE_POLICY: $JCE_SHA_TST - deleting file" &&
+  rm -f $JCE_POLICY # &&
+  false
+fi &&
+
+JRE_SHA_TST=`sha256sum $JRE_ARCHIVE | awk '{print $1}'` &&
+if [ "$JRE_SHA_VFY" != "$JRE_SHA_TST" ]; then
+  message "Bad checksum for file $JRE_ARCHIVE: $JRE_SHA_TST - deleting file" &&
+  rm -f $JRE_ARCHIVE &&
+  false
+fi &&
+
+cd $BUILD_DIRECTORY &&
+tar -xzpvf $SOURCE_CACHE/$JRE_ARCHIVE &&
+cd $SOURCE_DIRECTORY/lib/security &&
+unzip -o $SOURCE_CACHE/$JCE_POLICY &&
+cd $CURDIR
