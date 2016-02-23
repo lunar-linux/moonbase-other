@@ -1,4 +1,3 @@
+OPTS+=" --disable-dbus --disable-maintainer-flags --disable-static" &&
 
-  OPTS+=" --disable-dbus --disable-maintainer-flags --disable-static"
-
-  default_build
+default_build
