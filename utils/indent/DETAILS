@@ -1,17 +1,19 @@
           MODULE=indent
-         VERSION=2.2.10
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=$GNU_URL/$MODULE/
-      SOURCE_VFY=sha1:20fa8a7a4af6670c3254c8b87020291c3db37ed1
-        WEB_SITE=http://www.gnu.org/software/indent/
+         VERSION=2.2.11
+          SOURCE=${MODULE}_$VERSION.orig.tar.gz
+         SOURCE2=$MODULE-$VERSION-segfault.patch.bz2
+      SOURCE_URL=http://http.debian.net/debian/pool/main/i/$MODULE/
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha256:aaff60ce4d255efb985f0eb78cca4d1ad766c6e051666073050656b6753a0893
+     SOURCE2_VFY=sha256:d6c0db435338c918fe463d25db303ee027338520169f62359e26942548abcc2b
+        WEB_SITE=http://www.gnu.org/software/indent
          ENTERED=20020529
-         UPDATED=20101212
-           SHORT="used to make code easier to read."
-      MAINTAINER=csm@moongroup.com
+         UPDATED=20160224
+           SHORT="used to make code easier to read"
 
 cat << EOF
 GNU indent changes the appearance of a C program by inserting or
-deleting whitespace according to a plethora of options.  Some canned
-styles of formatting are supported as well.  GNU indent is a
+deleting whitespace according to a plethora of options. Some canned
+styles of formatting are supported as well. GNU indent is a
 descendant of BSD indent.
 EOF

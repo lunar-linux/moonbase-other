@@ -1,8 +1,8 @@
+export GOOS=linux
 export GOROOT=$SOURCE_DIRECTORY
 export GOBIN=$GOROOT/bin
-export GOROOT_FINAL=/usr/lib/go1.4
 export GOPATH=$BUILD_DIRECTORY
-export GOOS=linux
+export GOROOT_FINAL=/usr/lib/go1.4
 
 cd src &&
 bash make.bash &&
