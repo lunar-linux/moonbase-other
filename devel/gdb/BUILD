@@ -5,6 +5,8 @@ OPTS+=" --disable-werror" &&
 
 OPTS+=" --host=$BUILD \
         --libdir=$MODULE_PREFIX/lib/gdb \
-        --includedir=$MODULE_PREFIX/include/gdb" &&
+        --includedir=$MODULE_PREFIX/include/gdb\
+        --with-system-readline \
+        --with-system-zlib" &&
 
 default_build
