@@ -1,8 +1,8 @@
-perl Build.PL   &&
+perl Build.PL &&
 
-./Build         &&
+./Build &&
 
-./Build test    &&
+./Build test &&
 
 prepare_install &&
 
