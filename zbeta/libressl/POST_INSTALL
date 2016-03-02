@@ -6,8 +6,7 @@ if module_installed openssh; then
   lin -c openssh
 fi
 
-cat << 'EOT'
-
-If you've just switched from openssl, you will absolutely need to
-do a `lunar fix` right now."
-'EOT'
+if [ -f /var/state/lunar/migrating.from.openssl ]
+then
+    lunar fix $(lvu depends openssl)
+fi

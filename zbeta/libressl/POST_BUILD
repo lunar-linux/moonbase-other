@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+# Check to see if we're migrating from openssl to libressl
+if module_installed openssl
+then
+    lrm openssl
+    touch /var/state/lunar/migrating.from.openssl
+fi
