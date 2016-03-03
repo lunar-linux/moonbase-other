@@ -1,6 +1,8 @@
 # Needed to fix gcc-4.9 make failure.
 CFLAGS+=" -fno-lto" &&
 
+rm -f pango-view/pango-view.1.in
+
 # Unwanted doc
 rm -f README.win32 &&
 
