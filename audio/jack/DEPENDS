@@ -1,9 +1,8 @@
-depends  automake
-depends  autoconf
-depends  pkgconfig
-depends  alsa-lib
-depends  libsndfile
-depends  readline
-depends  db
+depends alsa-lib
+depends dbus-python
+depends libsamplerate
+depends pkgconfig
 
-optional_depends "doxygen" "" "" "for Documentation support"
+optional_depends opus   "" "" "for opus codec support"
+optional_depends celt   "" "" "for low-latency audio support"
+optional_depends eigen3 "" "" "for optimizations support"

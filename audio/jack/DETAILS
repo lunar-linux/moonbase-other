@@ -1,14 +1,15 @@
           MODULE=jack
-             PKG=jack-audio-connection-kit
-         VERSION=0.124.1
-          SOURCE=$PKG-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$PKG-$VERSION
-      SOURCE_URL=http://jackaudio.org/downloads
-      SOURCE_VFY=sha1:e9ba4a4c754ec95fbe653dcf7344edd6cc47cd60
+         VERSION=1.9.10
+          SOURCE=$MODULE-$VERSION.tar.bz2
+        SOURCE2=jack1_compat.patch.bz2
+      SOURCE_URL=http://dl.dropbox.com/u/28869550/
+     SOURCE2_URL=$PATCH_URL/
+      SOURCE_VFY=sha256:5bc6336e6ac9799e3cb241915e2ba5d01b030589bbb2afae39579a59ef0f2f56
+     SOURCE2_VFY=sha256:19897e121324ef87896a287dfb91c97370a92282afa73c17f41c90e447d92cb3
         WEB_SITE=http://jackaudio.org
          ENTERED=20020407
-         UPDATED=2014201
-           SHORT="A low-latency audio server"
+         UPDATED=20160305
+           SHORT="The next-generation JACK with SMP support"
 
 cat << EOF
 JACK is a low-latency audio server, written primarily for the Linux
