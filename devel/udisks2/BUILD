@@ -1,4 +1,3 @@
+OPTS+=" --disable-man" &&
 
-  OPTS+=" --disable-man" &&
-
-  default_build
+default_build
