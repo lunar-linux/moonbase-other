@@ -1,5 +1,6 @@
 depends gst-plugins-base-1.0
 depends libpcap
+depends libgudev
 
 optional_depends celt      "" "" "for low-latency audio support"
 optional_depends graphene  "" "" "for graphic canvas library support"
@@ -85,6 +86,10 @@ optional_depends libsrtp \
                  "--enable-srtp"  \
                  "--disable-srtp" \
                  "for Secure Real-time Transport Protocol support"
+
+optional_depends libvisual \
+                 "" "--disable-libvisual" \
+                 "for audio visualization support"
 
 optional_depends faac \
                  "" "--disable-faac" \
