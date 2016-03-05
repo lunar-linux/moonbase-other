@@ -1,9 +1,56 @@
 depends gst-plugins-base-1.0
 depends libpcap
 
+optional_depends celt      "" "" "for low-latency audio support"
+optional_depends graphene  "" "" "for graphic canvas library support"
+optional_depends libgcrypt "" "" "for general cryptographic support"
+optional_depends nettle    "" "" "for nettle cryptographic support"
+optional_depends openssl   "" "" "for SSL support"
+optional_depends libxml2   "" "" "for XML2 support"
+
+optional_depends %X \
+                 "--enable-x11" "" \
+                 "for X11 support"
+
+optional_depends wayland \
+                 "--enable-wayland" "" \
+                 "for Wayland support"
+
+optional_depends %GLX \
+                 "" "--disable-gl" \
+                 "for the GL video support"
+
 optional_depends SDL \
                  "" "--disable-sdl --disable-sdltest" \
                  "for the SDL video and audio sink"
+
+optional_depends librsvg \
+                 "" "--disable-rsvg" \
+                 "for the SVG support"
+
+optional_depends gtk+-3 \
+                 "" "--disable-gtk" \
+                 "for GTK+ 3.x support"
+
+optional_depends qt4 \
+                 "" "--disable-qt" \
+                 "for Qt 4.x support"
+
+optional_depends qt5 \
+                 "" "--disable-qt" \
+                 "for Qt 5.x support"
+
+optional_depends SDL \
+                 "" "--disable-sdl --disable-sdltest" \
+                 "for the SDL video and audio sink"
+
+optional_depends mpg123 \
+                 "" "--disable-mpg123" \
+                 "for mpg123 audio player support"
+
+optional_depends curl \
+                 "" "--disable-curl" \
+                 "for curl support"
 
 optional_depends xine-lib \
                  "--enable-vdpau"  \
@@ -14,25 +61,17 @@ optional_depends openal \
                  "" "--disable-openal" \
                  "for openal audio support"
 
-optional_depends faac \
-                 "" "--disable-faac" \
-                 "for the AAC encoder plugin"
-
-optional_depends faad \
-                 "" "--disable-faad" \
-                 "for the AAC decoder plugin"
-
-optional_depends DirectFB \
-                 "" "--disable-directfb" \
-                 "for the DirectFB video sink"
-
-optional_depends neon \
-                 "" "--disable-neon" \
-                 "for the neon HTTP client plugin"
-
 optional_depends xvidcore \
                  "" "--disable-xvid" \
                  "for the XviD video plugin"
+
+optional_depends x265 \
+                 "" "--disable-x265" \
+                 "for the x265 video support"
+
+optional_depends webp \
+                 "" "--disable-webp" \
+                 "for WebP support"
 
 optional_depends soundtouch \
                  "" "--disable-soundtouch" \
@@ -46,6 +85,62 @@ optional_depends libsrtp \
                  "--enable-srtp"  \
                  "--disable-srtp" \
                  "for Secure Real-time Transport Protocol support"
+
+optional_depends faac \
+                 "" "--disable-faac" \
+                 "for the AAC encoder plugin"
+
+optional_depends faad \
+                 "" "--disable-faad" \
+                 "for the AAC decoder plugin"
+
+optional_depends chromaprint \
+                 "" "--disable-chromaprint" \
+                 "for audio fingerprints extraction support"
+
+optional_depends fluidsynth \
+                 "" "--disable-fluidsynth" \
+                 "for real-time synthesizer support"
+
+optional_depends libmodplug \
+                 "" "--disable-modplug" \
+                 "for MOD playing support"
+
+optional_depends wildmidi \
+                 "" "--disable-wildmidi" \
+                 "for MIDI files playing support"
+
+optional_depends game-music-emu \
+                 "" "--disable-gme" \
+                 "for playing games music files"
+
+optional_depends neon \
+                 "" "--disable-neon" \
+                 "for the neon HTTP client plugin"
+
+optional_depends orc \
+                 "--enable-orc" "" \
+                 "for ORC parallel processing support"
+
+optional_depends opencv \
+                 "" "--disable-opencv" \
+                 "for Computer Vision support"
+
+optional_depends openexr \
+                 "" "--disable-openexr" \
+                 "for HDR images support"
+
+optional_depends libass \
+                 "" "--disable-assrender" \
+                 "for subtitles rendering support"
+
+optional_depends bluez-5 \
+                 "" "--disable-bluez" \
+                 "for Bluetooth support"
+
+optional_depends DirectFB \
+                 "" "--disable-directfb" \
+                 "for the DirectFB video sink"
 
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \
