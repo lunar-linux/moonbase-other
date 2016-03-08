@@ -1,19 +1,14 @@
-(
+DEJ=/usr/share/fonts/dejavu-ttf &&
 
-  DEJ=/usr/share/fonts/dejavu-ttf  &&
+prepare_install &&
 
-  prepare_install  &&
+mkdir -p $DEJ %%
 
-  if [ ! -d $DEJ ] ; then
-     mkdir -p $DEJ
-  fi  &&
-  
-  if [ -d old.libraries ] ; then
-    rmdir old.libraries
-  fi  &&
+if [ -d old.libraries ]; then
+  rmdir old.libraries
+fi &&
 
-  cp -f $SOURCE_DIRECTORY/ttf/* $DEJ  &&
-  cd $DEJ  &&
-  mkfontdir
+install -m 644 ttf/* $DEJ/ &&
 
-) > $C_FIFO 2>&1
+mkfontscale $DEJ &&
+mkfontdir $DEJ
