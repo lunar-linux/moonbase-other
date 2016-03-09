@@ -1,18 +1,13 @@
-#It seems like someone missed -lz here...
-sedit "s:\(librsyslog_la_LIBADD = \$(DL_LIBS) \$(RT_LIBS)\):\1 \$(ZLIB_LIBS):" runtime/Makefile.in
-
-OPTS+=" --enable-regexp      \
-        --enable-largefile   \
-        --enable-klog        \
-        --enable-inet        \
-        --enable-imfile      \
-        --enable-mail        \
-        --enable-fsstnd      \
-        --enable-rsyslogd    \
-        --enable-rsyslogrt   \
-        --enable-rsyslogd    \
-        --disable-rfc3195    \
-        --enable-cached-man-pages"  &&
+OPTS+=" --enable-regexp     \
+        --enable-largefile  \
+        --enable-klog       \
+        --enable-inet       \
+        --enable-mail       \
+        --enable-imfile     \
+        --enable-rsyslogd   \
+        --enable-rsyslogrt  \
+        --enable-omjournal  \
+        --disable-rfc3195" &&
 
 default_build  &&
 
