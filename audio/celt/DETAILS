@@ -1,0 +1,30 @@
+          MODULE=celt
+         VERSION=0.11.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://downloads.us.xiph.org/releases/$MODULE/
+      SOURCE_VFY=sha256:7e64815d4a8a009d0280ecd235ebd917da3abdcfd8f7d0812218c085f9480836
+        WEB_SITE=http://www.celt-codec.org/
+         ENTERED=20160305
+         UPDATED=20160305
+           SHORT="Low-latency audio communication codec"
+
+cat << EOF
+The CELT codec is a compression algorithm for audio. Like MP3, Vorbis, and AAC
+it is suitable for transmitting music with high quality. Unlike these formats
+CELT imposes very little delay on the signal, even less than is typical for
+speech centric formats like Speex, GSM, or G.729.
+CELT stands for "Constrained Energy Lapped Transform". It applies some of the
+CELP principles, but does everything in the frequency domain, which removes some
+of the limitations of CELP. CELT is suitable for both speech and music and
+currently features:
+  Ultra-low latency (typically from 5 to 22.5 ms)
+  Full audio bandwidth (≥20kHz; sample rates from 8 kHz to 48 kHz)
+  Support for both speech and music
+  A quality/bitrate trade-off competitive with widely used high delay codecs
+  Stereo support
+  Packet loss concealment
+  Constant bit-rates from 32 kbps to 128 kbps and above
+  A fixed-point version of the encoder and decoder
+The CELT codec is meant to bridge the gap between Vorbis and Speex for
+applications where both high quality audio and low delay are desired.
+EOF

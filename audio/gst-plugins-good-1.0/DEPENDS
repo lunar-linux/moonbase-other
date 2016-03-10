@@ -12,9 +12,11 @@ optional_depends taglib   "" "--disable-taglib"  "for the taglib ID3v2 tag write
 optional_depends libsoup  "" "--disable-soup"    "for http streaming support"
 optional_depends wavpack  "" "--disable-wavpack" "for wavpack support"
 
-optional_depends aalib "" "--disable-aalib --disable-aalibtest" "for the ASCII art image plugin"
-
 optional_depends libiec61883 "" "" "for Firewire support"
+
+optional_depends aalib \
+                 "" "--disable-aalib --disable-aalibtest" \
+                 "for the ASCII art image plugin"
 
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \

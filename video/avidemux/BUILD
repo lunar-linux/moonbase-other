@@ -1,8 +1,3 @@
-sedit 's|#include "ADM_files.h"|#include "ADM_files.h"\n#include "ADM_toolkitGtk.h"|'  avidemux/gtk/ADM_userInterfaces/ui_support.cpp
-
-sedit "s:avidemux2_gtk:avidemux3_qt4:"          avidemux2.desktop &&
-sedit "s:Icon=avidemux:Icon=avidemux_icon.png:" avidemux2.desktop &&
-
 B_OPT=" --with-core --with-cli" &&
 
 #if in_depends $MODULE gtk+-3; then

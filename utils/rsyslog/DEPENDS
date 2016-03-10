@@ -2,11 +2,13 @@ depends libee
 depends libestr
 depends json-c
 depends liblogging
+depends libfastjson
+depends zlib
 
-optional_depends zlib \
-                 "--enable-zlib" \
-                 "--disable-zlib" \
-                 "for zlib compression support"
+optional_depends jemalloc \
+                 "--enable-jemalloc" \
+                 "--disable-jemalloc" \
+                 "for jemalloc support"
 
 optional_depends %MYSQL \
                  "--enable-mysql" \
@@ -42,3 +44,5 @@ optional_depends gnutls \
                  "--enable-gnutls" \
                  "--disable-gnutls" \
                  "for GnuTLS support"
+
+optional_depends systemd "--enable-imjournal" "" "for systemd support"
