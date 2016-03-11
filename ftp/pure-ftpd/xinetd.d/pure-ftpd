@@ -5,8 +5,8 @@ service ftp
    wait        = no
    user        = root
    disable     = no
-   server      = /usr/sbin/pure-ftpd
-   server_args = -b 
+   server      = /usr/bin/pure-ftpd
+   server_args = -b
    per_source  = 8
    log_type    = FILE /var/log/xinetd/pure-ftpd
    log_on_success = PID HOST USERID EXIT DURATION
