@@ -10,4 +10,6 @@ default_build &&
 if module_installed systemd; then
   mkdir -p /run/named &&
   chown bind:bind /run/named
-fi
+fi  &&
+
+install -D -m644 $SCRIPT_DIRECTORY/sysusers.d/bind.conf /usr/lib/sysusers.d/bind.conf
