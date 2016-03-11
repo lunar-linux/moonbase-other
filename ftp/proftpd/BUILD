@@ -1,3 +1,6 @@
+OPTS+=" --sbindir=/usr/bin \
+        --libexecdir=/usr/lib/$MODULE" &&
+
 if module_installed systemd; then
   OPTS+=" --localstatedir=/run/proftpd"
 fi
