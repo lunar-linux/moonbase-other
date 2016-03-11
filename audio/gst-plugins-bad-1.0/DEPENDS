@@ -21,10 +21,6 @@ optional_depends %GLX \
                  "" "--disable-gl" \
                  "for the GL video support"
 
-optional_depends SDL \
-                 "" "--disable-sdl --disable-sdltest" \
-                 "for the SDL video and audio sink"
-
 optional_depends librsvg \
                  "" "--disable-rsvg" \
                  "for the SVG support"
@@ -107,22 +103,6 @@ optional_depends fluidsynth \
                  "" "--disable-fluidsynth" \
                  "for real-time synthesizer support"
 
-optional_depends libmodplug \
-                 "" "--disable-modplug" \
-                 "for MOD playing support"
-
-optional_depends wildmidi \
-                 "" "--disable-wildmidi" \
-                 "for MIDI files playing support"
-
-optional_depends game-music-emu \
-                 "" "--disable-gme" \
-                 "for playing games music files"
-
-optional_depends neon \
-                 "" "--disable-neon" \
-                 "for the neon HTTP client plugin"
-
 optional_depends orc \
                  "--enable-orc" "" \
                  "for ORC parallel processing support"
@@ -143,9 +123,29 @@ optional_depends bluez-5 \
                  "" "--disable-bluez" \
                  "for Bluetooth support"
 
+optional_depends SDL \
+                 "" "--disable-sdl --disable-sdltest" \
+                 "for the SDL video and audio sink"
+
 optional_depends DirectFB \
                  "" "--disable-directfb" \
                  "for the DirectFB video sink"
+
+optional_depends libmodplug \
+                 "" "--disable-modplug" \
+                 "for MOD playing support"
+
+optional_depends wildmidi \
+                 "" "--disable-wildmidi" \
+                 "for MIDI files playing support"
+
+optional_depends game-music-emu \
+                 "" "--disable-gme" \
+                 "for playing games music files"
+
+optional_depends neon \
+                 "" "--disable-neon" \
+                 "for the neon HTTP client plugin"
 
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \
