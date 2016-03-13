@@ -36,5 +36,5 @@ install -m644 lib/libnimrtl.so /usr/lib/libnimrtl.so &&
 install -m755 tools/nimgrep /usr/bin/ &&
 ln -sf /usr/bin/nim /usr/bin/nimrod &&
 
-# Fix FS#48118, related to the doc2 command
+# Fix an error related to the doc2 command
 ln -sf /usr/share/nim/doc /usr/lib/nim/doc
