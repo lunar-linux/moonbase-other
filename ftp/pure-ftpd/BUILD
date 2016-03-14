@@ -1,19 +1,14 @@
-(
+OPTS+=" --with-everything \
+        --bindir=/usr/bin \
+        --sbindir=/usr/bin" &&
 
-  if module_installed Linux-PAM;  then
-    OPTS+=" --with-pam"
-  fi
+default_build &&
 
-  ./configure  --sysconfdir=/etc        \
-               --prefix=/usr            \
-               --mandir=/usr/share/man  \
-               --localstatedir=/var     \
-               --with-everything        \
-               $OPTS                   &&
-  default_make  &&
-  gather_docs *.conf  &&
-  if [ ! -f /etc/ftpusers ]; then
-    cp pam/ftpusers /etc
-  fi
+gather_docs *.conf &&
 
-) > $C_FIFO 2>&1
+if [ ! -f /etc/ftpusers ]; then
+  cp pam/ftpusers /etc
+fi
+
+install -Dm755 configuration-file/pure-config.pl /usr/bin/pure-config.pl
+install -Dm644 -t /etc/pure-ftpd/ configuration-file/pure-ftpd.conf $SCRIPT_DIRECTORY/welcome.msg
