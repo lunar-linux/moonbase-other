@@ -1,16 +1,17 @@
           MODULE=fail2ban
-         VERSION=0.9.3
+         VERSION=0.9.4
           SOURCE=$MODULE-$VERSION.tar.gz
- SOURCE_URL_FULL=https://github.com/fail2ban/fail2ban/archive/$VERSION.tar.gz
-      SOURCE_VFY=sha256:b3a0793d9ed3b4e341e568388c65bb07a904f77ac8044186376cab3e58e5b2c9
+ SOURCE_URL_FULL=http://github.com/fail2ban/fail2ban/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:870b99dd0110f10d705d0ca5743d42d358e0b5a0a4de8b69ed1d41b40dd98fa4
         WEB_SITE=http://www.fail2ban.org/
          ENTERED=20140806
-         UPDATED=20150803
+         UPDATED=20160312
            SHORT="Log file scanner to detect malicious activity"
+
 cat << EOF
 Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs
 that show the malicious signs -- too many password failures, seeking for
 exploits, etc. Generally Fail2Ban is then used to update firewall rules
 to reject the IP addresses for a specified amount of time, although any
-arbitrary other action (e.g. sending an email) could also be configured. 
+arbitrary other action (e.g. sending an email) could also be configured.
 EOF

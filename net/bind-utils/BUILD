@@ -15,4 +15,5 @@ make -C lib/lwres  &&
 make -C bin/dig    &&
 
 prepare_install &&
-make -C bin/dig install
+make -C bin/dig install &&
+
