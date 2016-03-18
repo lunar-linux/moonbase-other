@@ -1,18 +1,12 @@
-(
+./autogen.sh &&
 
-  ./autogen.sh &&
+cp $SCRIPT_DIRECTORY/term.sh . &&
 
-  cp $SCRIPT_DIRECTORY/term.sh .  &&
+OPTS+="  --with-sys-screenrc=/etc/screenrc" &&
 
-  ./configure  --with-sys-screenrc=/etc/screenrc  \
-               --prefix=/usr                      \
-               --infodir=/usr/share/info          \
-               --mandir=/usr/share/man           &&
-  default_make &&
+default_build &&
 
-  gather_docs doc/FAQ TODO NEWS.* etc/screenrc &&
-  if [ ! -e /etc/screenrc ] ; then
-    cp -p etc/etcscreenrc /etc/screenrc
-  fi
-
-) > $C_FIFO 2>&1
+gather_docs doc/FAQ TODO NEWS.* etc/screenrc &&
+if [ ! -e /etc/screenrc ] ; then
+  cp -p etc/etcscreenrc /etc/screenrc
+fi
