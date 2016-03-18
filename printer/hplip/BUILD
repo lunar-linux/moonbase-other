@@ -2,7 +2,7 @@ if in_depends $MODULE PyQt4; then
   . /etc/profile.d/qt4.rc
 fi &&
 
-if in_depends $MODULE systemd; then
+if module_installed systemd; then
   OPTS+=" --enable-udev_sysfs_rules"
 fi &&
 
@@ -11,5 +11,10 @@ fi &&
 # Or this error:
 # sh: hpijs: command not found
 OPTS+=" --enable-hpijs-install" &&
+
+# Disable the HPLIP upgrade
+sedit "208i log.error\n clean exit(1)" upgrade.py &&
+
+OPTS+=" --disable-static" &&
 
 default_build
