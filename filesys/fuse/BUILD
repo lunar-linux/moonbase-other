@@ -1,9 +1,11 @@
-  sedit "s:/etc/udev:/usr/lib/udev:" configure  &&
+./makeconf.sh &&
 
-  OPTS+="   --enable-lib --enable-util"  &&
+sedit "s:/etc/udev:/usr/lib/udev:" configure &&
 
-  default_build &&
+OPTS+=" --enable-lib --enable-util --disable-static --sbindir=/usr/bin" &&
 
-  if ! module_installed sysvinit; then
-    rm -f /etc/init.d/fuse
-  fi
+default_build &&
+
+if ! module_installed sysvinit; then
+  rm -f /etc/init.d/fuse
+fi

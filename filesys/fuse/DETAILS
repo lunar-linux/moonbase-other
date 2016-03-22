@@ -1,16 +1,17 @@
           MODULE=fuse
-         VERSION=2.9.4
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=$SFORGE_URL/$MODULE
-      SOURCE_VFY=sha256:6be9c0bff6af8c677414935f31699ea5a7f8f5f791cfa5205be02ea186b97ce1
+         VERSION=2_9_5
+          SOURCE=${MODULE}_$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libfuse-${MODULE}_$VERSION
+      SOURCE_URL=http://github.com/libfuse/libfuse/archive/
+      SOURCE_VFY=sha256:ccea9c00f7572385e9064bc55b2bfefd8d34de487ba16d9eb09672202b5440ec
         WEB_SITE=http://fuse.sourceforge.net
          ENTERED=20040422
-         UPDATED=20150524
+         UPDATED=20160118
            SHORT="File system in userspace"
 
 cat << EOF
-Filesystem in Userspace is a simple interface for userspace programs
-to export a virtual filesystem to the Linux kernel. It also aims to
-provide a secure method for non privileged users to create and mount
-their own filesystem implementations.
+Filesystem in Userspace is a simple interface for userspace programs to export a
+virtual filesystem to the Linux kernel. It also aims to provide a secure method
+for non privileged users to create and mount their own filesystem
+implementations.
 EOF
