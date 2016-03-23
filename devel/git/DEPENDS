@@ -4,6 +4,12 @@ depends openssl
 depends rsync
 depends Python
 
+if [ "$(get_module_config DOCS)" == "y" ]
+then
+    depends asciidoc
+    depends xmlto
+fi
+
 optional_depends pcre \
                  "USE_LIBPCRE=1" "" \
                  "for perl regexp support in git-grep"
