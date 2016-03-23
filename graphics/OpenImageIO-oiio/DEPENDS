@@ -1,4 +1,3 @@
-depends hdf5
 depends glew
 depends %JPEG
 depends tiff
@@ -7,14 +6,17 @@ depends openexr
 depends boost
 depends libwebp
 
-optional_depends "giflib"    "-DUSE_GIF=ON"          "-DUSE_GIF=OFF"          "for gif image support"
-optional_depends "LibRaw"    "-DUSE_LIBRAW=ON"       "-DUSE_LIBRAW=OFF"       "for raw image support"
-optional_depends "Python"    "-DUSE_PYTHON=ON"       "-DUSE_PYTHON=OFF"       "for Python bindings support"
-optional_depends "opencv"    "-DUSE_OPENCV=ON"       "-DUSE_OPENCV=OFF"       "for open computer vision support"
-optional_depends "openssl"   "-DUSE_OPENSSL=ON"      "-DUSE_OPENSSL=OFF"      "for ssl support"
-optional_depends "openjpeg"  "-DUSE_OPENJPEG=ON"     "-DUSE_OPENJPEG=OFF"     "for openjpeg graphics support"
-optional_depends "freetype2" "-DUSE_FREETYPE=ON"     "-DUSE_FREETPE=OFF"      "for freetype font support"
-optional_depends "qt4"       "-DUSE_QT=ON"           "-DUSE_QT=OFF"           "for image viewing tools support"
+optional_depends giflib      "-DUSE_GIF=ON"      "-DUSE_GIF=OFF"      "for gif image support"
+optional_depends LibRaw      "-DUSE_LIBRAW=ON"   "-DUSE_LIBRAW=OFF"   "for raw image support"
+optional_depends Python      "-DUSE_PYTHON=ON"   "-DUSE_PYTHON=OFF"   "for Python bindings support"
+optional_depends opencv      "-DUSE_OPENCV=ON"   "-DUSE_OPENCV=OFF"   "for open computer vision support"
+optional_depends openssl     "-DUSE_OPENSSL=ON"  "-DUSE_OPENSSL=OFF"  "for ssl support"
+optional_depends openjpeg    "-DUSE_OPENJPEG=ON" "-DUSE_OPENJPEG=OFF" "for openjpeg graphics support"
+optional_depends freetype2   "-DUSE_FREETYPE=ON" "-DUSE_FREETPE=OFF"  "for freetype font support"
+optional_depends qt4         "-DUSE_QT=ON"       "-DUSE_QT=OFF"       "for image viewing tools support"
+optional_depends OpenColorIO "-DUSE_OCIO=ON"     "-DUSE_OCIO=OFF"     "for OpenColorIO color management support"
 
-optional_depends "imageworks-OpenColorIO" "-DUSE_OCIO=ON"    "-DUSE_OCIO=OFF"    "for OpenColorIO color management support"
-optional_depends "imageworks-Field3D"     "-DUSE_FIELD3D=ON" "-DUSE_FIELD3D=OFF" "for voxel data storage support"
+optional_depends Field3D \
+                 "-DUSE_FIELD3D=ON" \
+                 "-DUSE_FIELD3D=OFF" \
+                 "for voxel data storage support"

@@ -1,3 +1,7 @@
 default_pre_build &&
 
+# don't verify the hostname
+sedit "s:CURLOPT_SSL_VERIFYHOST, 1);:CURLOPT_SSL_VERIFYHOST, 0):" ftpfs.c
+
+# io error
 sedit "s:CURLOPT_INFILESIZE, -1);:CURLOPT_INFILESIZE, (curl_off_t)-1);:" ftpfs.c
