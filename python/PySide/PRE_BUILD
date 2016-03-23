@@ -5,6 +5,6 @@ sedit 's/QT_PHONON_FOUND/QT_PHONON_INCLUDE_DIR/' sources/pyside/PySide/CMakeList
 
 # currently broken / requires additional unchecked modules
 #if ! in_depends $MODULE Sphinx || ! in_depends $MODULE MarkupSafe; then
-#  # autodetection doesn't check for MarkupSafe
+# autodetection doesn't check for MarkupSafe
   sedit 's/find_program(SPHINX.*/set(SPHINX FALSE)/' sources/shiboken/doc/CMakeLists.txt
 #fi
