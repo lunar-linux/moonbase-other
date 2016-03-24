@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# `make desktop-install` shouldn't update caches...
+sedit "s/if test -z \"\$(DESTDIR)\"; then/if false; then/" Makefile.am &&
+
+# adding -lz -lm to LDFLAGS can break the build
+sedit 's/LDFLAGS=.*$/LIBS=\"-lz -lm\"/' configure.in
