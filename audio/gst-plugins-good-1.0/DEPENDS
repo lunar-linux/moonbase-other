@@ -13,13 +13,14 @@ optional_depends speex      "" "--disable-speex"      "for the Speex sound plugi
 optional_depends taglib     "" "--disable-taglib"     "for the taglib ID3v2 tag writer plugin"
 optional_depends libsoup    "" "--disable-soup"       "for http streaming support"
 optional_depends wavpack    "" "--disable-wavpack"    "for wavpack support"
-optional_depends orc        "" "--disable-orc"        "for runtime compiler support"
 optional_depends jack       "" "--disable-jack"       "for jack audio mixer support"
 optional_depends pulseaudio "" "--disable-pulse"      "for pulseaudio support"
 optional_depends libvpx     "" "--disable-vpx"        "for VPX decoder support"
 optional_depends libshout   "" "--disable-shout2"     "for icecast support"
 optional_depends libcaca    "" "--disable-libcaca"    "for the libcaca plugin"
 optional_depends libacv1394 "" "--disable-dv1394"     "for AV/C FireWare devices support"
+
+optional_depends orc "--enable-orc" "" "for runtime compiler support"
 
 optional_depends v4l-utils \
                  "--with-libv4l2" \
