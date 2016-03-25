@@ -1,18 +1,31 @@
 depends gst-plugins-base-1.0
+depends bzip2
+depends zlib
 
-optional_depends libshout "" "--disable-shout2"  "for icecast support"
-optional_depends cairo    "" "--disable-cairo"   "for the cairo graphics plugin"
-optional_depends flac     "" "--disable-flac"    "for the FLAC audio codec plugin"
-optional_depends %JPEG    "" "--disable-jpeg"    "for the JPEG image plugin"
-optional_depends libcaca  "" "--disable-libcaca" "for the libcaca plugin"
-optional_depends libdv    "" "--disable-libdv"   "for the DV/Video decoder plugin"
-optional_depends libpng   "" "--disable-libpng"  "for the PNG image plugin"
-optional_depends speex    "" "--disable-speex"   "for the Speex sound plugin"
-optional_depends taglib   "" "--disable-taglib"  "for the taglib ID3v2 tag writer plugin"
-optional_depends libsoup  "" "--disable-soup"    "for http streaming support"
-optional_depends wavpack  "" "--disable-wavpack" "for wavpack support"
+optional_depends libX11     "" "--disable-x"          "for X11 support"
+optional_depends gdk-pixbuf "" "--disable-gdk_pixbuf" "for GDK pixbuf support"
+optional_depends cairo      "" "--disable-cairo"      "for the cairo graphics plugin"
+optional_depends flac       "" "--disable-flac"       "for the FLAC audio codec plugin"
+optional_depends %JPEG      "" "--disable-jpeg"       "for the JPEG image plugin"
+optional_depends libdv      "" "--disable-libdv"      "for the DV/Video decoder plugin"
+optional_depends libpng     "" "--disable-libpng"     "for the PNG image plugin"
+optional_depends speex      "" "--disable-speex"      "for the Speex sound plugin"
+optional_depends taglib     "" "--disable-taglib"     "for the taglib ID3v2 tag writer plugin"
+optional_depends libsoup    "" "--disable-soup"       "for http streaming support"
+optional_depends wavpack    "" "--disable-wavpack"    "for wavpack support"
+optional_depends jack       "" "--disable-jack"       "for jack audio mixer support"
+optional_depends pulseaudio "" "--disable-pulse"      "for pulseaudio support"
+optional_depends libvpx     "" "--disable-vpx"        "for VPX decoder support"
+optional_depends libshout   "" "--disable-shout2"     "for icecast support"
+optional_depends libcaca    "" "--disable-libcaca"    "for the libcaca plugin"
+optional_depends libacv1394 "" "--disable-dv1394"     "for AV/C FireWare devices support"
 
-optional_depends libiec61883 "" "" "for Firewire support"
+optional_depends orc "--enable-orc" "" "for runtime compiler support"
+
+optional_depends v4l-utils \
+                 "--with-libv4l2" \
+                 "--disable-gst_v4l2" \
+                 "for Video 4 Linux support"
 
 optional_depends aalib \
                  "" "--disable-aalib --disable-aalibtest" \

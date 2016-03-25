@@ -1,4 +1,10 @@
-depends bzip2
 depends gst-plugins-base-1.0
 depends yasm
+depends bzip2
 
+optional_depends orc "--enable-orc" "" "for runtime compiler support"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc --disable-gtk-doc-html" \
+                 "for documentation support"

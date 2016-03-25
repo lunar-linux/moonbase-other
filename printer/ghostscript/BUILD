@@ -1,9 +1,11 @@
 ./autogen.sh $OPTS &&
 
 OPTS+=" --enable-dynamic \
-        --disable-compile-initsc
+        --with-ijs \
+        --without-omni \
         --without-luratech \
-        --without-omni" &&
+        --disable-compile-inits" &&
+
 
 default_build &&
 
