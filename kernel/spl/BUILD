@@ -1,10 +1,11 @@
-OPTS+=" --with-linux=$BUILD_DIRECTORY/linux \
-        --with-linux-obj=$BUILD_DIRECTORY/linux \
-        --with-config=all"
+OPTS+=" --disable-static \
+        --with-config=all \
+        --with-linux=$BUILD_DIRECTORY/linux \
+        --with-linux-obj=$BUILD_DIRECTORY/linux" &&
 
 if [ "$(arch)" == "i686" ]; then
   OPTS+=" --enable-atomic-spinlocks"
-fi 
+fi &&
 
 default_config &&
 make &&
