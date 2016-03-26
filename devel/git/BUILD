@@ -35,7 +35,7 @@ install -m 755 contrib/gitview/gitview /usr/bin/ &&
 install -m 644 contrib/completion/git-completion.bash /usr/share/bash-completion/completions/git &&
 
 # fancy git prompt
-# install -m 644 contrib/completion/git-prompt.sh /etc/profile.d/git-prompt.rc &&
+install -m 644 contrib/completion/git-prompt.sh /etc/profile.d/git-prompt.rc &&
 
 # subtree installation
 make -C contrib/subtree \
