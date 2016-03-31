@@ -2,4 +2,9 @@ cd /usr/src &&
 unpack $SOURCE &&
 
 cd $SOURCE_DIRECTORY &&
-unpack $SOURCE2
+mkdir -p rules &&
+cd rules &&
+unpack $SOURCE2 &&
+
+cd $SOURCE_DIRECTORY &&
+unpack $SOURCE3
