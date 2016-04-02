@@ -18,12 +18,12 @@
 
 plugin_source_download_git() {
   # check if we can handle this URL format
-  if [ "${1:0:6}" != "git://" -a "${1:0:11}" != "git+http://" -a "${1:0:12}" != "git+https://" -a "${1:0:12}" != "git+rsync://" -a "${1:0:10}" != "git+ssh://" ] ; then
+  if [ "${1:0:6}" != "git://" -a "${1:0:11}" != "git+http://" -a "${1:0:12}" != "git+https://" -a "${1:0:12}" != "git+rsync://" -a "${1:0:10}" != "git+ssh://" ]; then
     return 2
   fi
   debug_msg "plugin_source_needrefresh_git($@)"
 
-  if [ ! -x `which git` ] ; then
+  if [ ! -x `which git` ]; then
     # full stop: we need to make sure the user sees this error:
     message "${PROBLEM_COLOR}! Cannot fetch git sources without \"git\" installed${DEFAULT_COLOR}"
     exit 1
@@ -44,12 +44,12 @@ plugin_source_download_git() {
   SBASE=$(source_basename $2)
   mk_source_dir $TMPDIR/$MODULE-$VERSION
   cd $TMPDIR/$MODULE-$VERSION
-  if [ -f "$3/$2" ] ; then
+  if [ -f "$3/$2" ]; then
     verbose_msg "Extracting local GIT copy"
     # unpacking
     CD=$(pwd -P)
     cd $CD
-    if ! unpack $2 ; then
+    if ! unpack $2; then
       message "${PROBLEM_COLOR}Warning: bad local GIT copy, checking out fresh GIT copy${DEFAULT_COLOR}"
       rm_source_dir $TMPDIR/$MODULE-$VERSION
       mk_source_dir $TMPDIR/$MODULE-$VERSION
@@ -61,15 +61,15 @@ plugin_source_download_git() {
       NUM_RETRY=1000
   fi
 
-  for (( TRY=1 ; $TRY<$NUM_RETRY+1 ; TRY++ )) ; do
-    if [ -d "$SBASE/.git" ] ; then
+  for (( TRY=1 ; $TRY<$NUM_RETRY+1 ; TRY++ )); do
+    if [ -d "$SBASE/.git" ]; then
       cd $SBASE
       verbose_msg "[${TRY}] git pull"
       git pull && git gc && GOT_GIT="yes" 
       message "${MESSAGE_COLOR}Init and update the submodules${DEFAULT_COLOR}"
       git submodule init
       git submodule update
-      if [ -n "$GIT_BRANCH" ] ; then
+      if [ -n "$GIT_BRANCH" ]; then
         message "${MESSAGE_COLOR}Checking out branch ${FILE_COLOR}$GIT_BRANCH${DEFAULT_COLOR}"
         git checkout $GIT_BRANCH || activity_log "lget" "$MODULE" "$VERSION" "failed" "Could not checkout branch $GIT_BRANCH of \"$1\""
       fi
@@ -81,21 +81,21 @@ plugin_source_download_git() {
       message "${MESSAGE_COLOR}Init and update the submodules${DEFAULT_COLOR}"
       git submodule init
       git submodule update
-      if [ -n "$GIT_BRANCH" ] ; then
+      if [ -n "$GIT_BRANCH" ]; then
         message "${MESSAGE_COLOR}Checking out branch ${FILE_COLOR}$GIT_BRANCH${DEFAULT_COLOR}"
         git checkout $GIT_BRANCH || activity_log "lget" "$MODULE" "$VERSION" "failed" "Could not checkout branch $GIT_BRANCH of \"$1\""
       fi
       cd $TMPDIR/$MODULE-$VERSION
     fi
 
-    if [ "$?" == "0" ] ; then
+    if [ "$?" == "0" ]; then
       break
     fi
 
     sleep 2
   done
 
-  if [ "$GOT_GIT" == "yes" ] ; then
+  if [ "$GOT_GIT" == "yes" ]; then
     message "${MESSAGE_COLOR}Creating ${FILE_COLOR}$2${DEFAULT_COLOR}"
     # pack
     tar cjf $3/$2 $SBASE
@@ -122,7 +122,7 @@ plugin_source_needrefresh_git() {
 
   REPOSITORY_THRESHOLD=${REPOSITORY_THRESHOLD:-10}
   if (( "REPOSITORY_THRESHOLD" > 0 )) ; then
-    if [ "$(find $3/$2 -amin +$REPOSITORY_THRESHOLD)" == "$3/$2" ] ; then
+    if [ "$(find $3/$2 -amin +$REPOSITORY_THRESHOLD)" == "$3/$2" ]; then
       # it is older:
       return 0
     else

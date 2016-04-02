@@ -1,3 +1,5 @@
+OPTS+=" --disable-static" &&
+
 default_build &&
 
 if [ ! -f  /etc/snort.conf ]; then

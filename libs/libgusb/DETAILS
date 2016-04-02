@@ -1,13 +1,17 @@
           MODULE=libgusb
-         VERSION=0.2.6
+         VERSION=0.2.9
           SOURCE=$MODULE-$VERSION.tar.xz
       SOURCE_URL=http://people.freedesktop.org/~hughsient/releases/
-      SOURCE_VFY=sha256:6f638bdbc4e77643c0a198a300e50b592ad326e56bddf359de15e04689209c06
-        WEB_SITE=https://gitorious.org/gusb/
+      SOURCE_VFY=sha256:7320bdcd0ab1750d314fa86f48bd2cc186b9e33332314403779af9772fedde14
+        WEB_SITE=https://github.com/hughsie/libgusb/
          ENTERED=20121102
-         UPDATED=20150805
+         UPDATED=20160327
            SHORT="GObject wrapper for libusb"
 
 cat << EOF
-GObject wrapper for libusb.
+GUsb is a GObject wrapper for libusb1 that makes it easy to do
+asynchronous control, bulk and interrupt transfers with proper
+cancellation and integration into a mainloop.
+This makes it easy to integrate low level USB transfers with your
+high-level application or system daemon.
 EOF

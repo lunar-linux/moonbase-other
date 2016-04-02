@@ -1,13 +1,14 @@
           MODULE=daq
          VERSION=2.0.6
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=$MIRROR_URL
+   SOURCE_URL[0]=http://www.snort.org/downloads/snort/
+   SOURCE_URL[1]=$MIRROR_URL
       SOURCE_VFY=sha256:b40e1d1273e08aaeaa86e69d4f28d535b7e53bdb3898adf539266b63137be7cb
         WEB_SITE=http://www.snort.org
          ENTERED=20101005
          UPDATED=20150731
            SHORT="Data Aquisition Library for snort"
-PSAFE=no
+           PSAFE=no
 
 cat << EOF
 Daq is the Data Acquisition library, for packet I/O. The DAQ replaces direct
