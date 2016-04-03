@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# This API as been removed in ffmpeg 3.0
+sedit "s:<libavutil/audioconvert.h:<libavutil/channel_layout.h:" a52/pcm_a52.c
