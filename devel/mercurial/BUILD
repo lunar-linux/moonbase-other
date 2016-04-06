@@ -1,4 +1,4 @@
-prepare_install  &&
+prepare_install &&
 
 python setup.py install --force &&
 cp -p contrib/hgk /usr/bin &&
