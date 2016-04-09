@@ -6,7 +6,6 @@ if module_installed openssh; then
   lin -c openssh
 fi
 
-if [ -f /var/state/lunar/migrating.from.openssl ]
-then
-    lunar fix $(lvu depends openssl)
+if [ -f /var/state/lunar/migrating.from.openssl ]; then
+  lunar fix $(lvu depends openssl)
 fi
