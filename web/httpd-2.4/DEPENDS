@@ -7,6 +7,11 @@ optional_depends openssl \
                  "--without-ssl" \
                  "for mod_ssl module"
 
+optional_depends nghttp2 \
+                 "--with-nghttp2 --enable-http2" \
+                 "--without-nghttp2" \
+                 "for HTTP/2 support"
+
 optional_depends db \
                  "--with-berkeley-db" \
                  "--without-berkeley-db" \
