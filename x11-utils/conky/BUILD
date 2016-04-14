@@ -4,4 +4,9 @@ OPTS+=" -D CMAKE_BUILD_TYPE=Release \
         -D BUILD_PORT_MONITORS=ON \
         -D CMAKE_INSTALL_PREFIX=/usr" &&
 
-default_cmake_build
+default_cmake_build &&
+
+cd $SOURCE_DIRECTORY &&
+
+install -Dm644 extras/vim/syntax/conkyrc.vim /usr/share/vim/vimfiles/syntax/conkyrc.vim &&
+install -Dm644 extras/vim/ftdetect/conkyrc.vim /usr/share/vim/vimfiles/ftdetect/conkyrc.vim
