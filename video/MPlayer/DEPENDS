@@ -2,11 +2,6 @@
 depends freetype2
 depends yasm
 
-optional_depends MPlayer-essentials \
-                 "" \
-                 "" \
-                 "installs gcc-3.3.6 for dlls"
-
 optional_depends DirectFB \
                  "--enable-directfb" \
                  "--disable-directfb" \
@@ -20,11 +15,10 @@ optional_depends SDL \
 optional_depends libcaca \
                  "--enable-caca" \
                  "--disable-caca" \
-                 "enable CACA video output support"
+                 "enable ASCII video output support"
 
 optional_depends libdvdread \
-                 "" \
-                 "--disable-dvdread" \
+                 "" "--disable-dvdread" \
                  "use system library to read DVDs"
 
 optional_depends alsa-utils \
@@ -38,8 +32,7 @@ optional_depends mpg123 \
                  "for mp3 audio format"
 
 optional_depends libvorbis \
-                 "" \
-                 "--disable-libvorbis" \
+                 "" "--disable-libvorbis" \
                  "to use ogg audio format"
 
 optional_depends faad \
@@ -72,10 +65,6 @@ optional_depends gtk+-2 \
                  "--disable-gui" \
                  "for MPlayer GTK gui support"
 
-optional_depends MPlayer-all \
-                 "" \
-                 "" \
-                 "to install more foreign codecs"
 
 optional_depends libggi \
                  "--enable-ggi" \
@@ -98,16 +87,8 @@ optional_depends amrwb \
                  "AMR wideband support"
 
 optional_depends mpeg2dec \
-                 "" \
-                 "--disable-libmpeg2" \
+                 "" "--disable-libmpeg2" \
                  "use system library for mpeg-1 and mpeg-2 support"
-
-## live removed the obsolete synchronous client interface
-## which MPlayer still requires
-#optional_depends live555 \
-#                 "" \
-#                 "--disable-live" \
-#                 "for RTP/RTCP, RTSP, SIP support"
 
 # MPlayer needs to use x264 *via* ffmpeg
 optional_depends ffmpeg \
@@ -121,6 +102,15 @@ optional_depends libbs2b \
                  "for better sound via headphones"
 
 optional_depends fribidi \
-                 "" \
-                 "--disable-fribidi" \
+                 "" "--disable-fribidi" \
                  "support right-to-left scripts"
+
+optional_depends MPlayer-essentials "" "" "installs gcc-3.3.6 for dlls"
+optional_depends MPlayer-all        "" "" "to install more foreign codecs"
+
+## live removed the obsolete synchronous client interface
+## which MPlayer still requires
+#optional_depends live555 \
+#                 "" "--disable-live" \
+#                 "for RTP/RTCP, RTSP, SIP support"
+
