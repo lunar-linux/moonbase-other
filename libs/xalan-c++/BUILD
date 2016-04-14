@@ -1,11 +1,7 @@
-(
+export XALANCROOT=$SOURCE_DIRECTORY/c
 
-  export XALANCROOT=$SOURCE_DIRECTORY/c
+cd $XALANCROOT &&
 
-  cd $XALANCROOT &&
+./runConfigure -p linux -c gcc -x g++ -P /usr &&
 
-  ./runConfigure -p linux -c gcc -x g++ -P /usr &&
-
-  default_make
-
-) > $C_FIFO 2>&1
+default_make
