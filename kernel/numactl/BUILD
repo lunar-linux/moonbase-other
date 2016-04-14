@@ -1,4 +1,3 @@
+./autogen.sh &&
 
-  ./autogen.sh &&
-
-  default_build
+default_build
