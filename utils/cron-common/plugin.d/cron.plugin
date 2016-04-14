@@ -20,7 +20,7 @@ plugin_cron_post_build()
     if [ -d "$SCRIPT_DIRECTORY/$DIR" ]; then
       verbose_msg "Handling '$DIR' files"
       invoke_installwatch
-      
+
       [ -d /etc/$DIR ] || mkdir -p /etc/$DIR
 
       for FILE in $SCRIPT_DIRECTORY/$DIR/*; do
@@ -36,7 +36,7 @@ plugin_cron_post_build()
       devoke_installwatch
     fi
   done
-  
+
   return 2
 }
 
