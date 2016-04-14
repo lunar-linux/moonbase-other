@@ -1,5 +1,7 @@
 OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)" &&
 
+OPTS+=" --libexecdir=/usr/lib/qemu" &&
+
 AUDIO_LIST="oss" &&
 
 in_depends $MODULE alsa-lib && AUDIO_LIST+=",alsa"
@@ -11,7 +13,6 @@ add_priv_group kvm &&
 
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --libexecdir=/usr/lib/qemu \
             --localstatedir=/var \
             --audio-drv-list="$AUDIO_LIST" \
             $OPTS &&
