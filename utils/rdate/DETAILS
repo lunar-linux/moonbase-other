@@ -1,20 +1,17 @@
           MODULE=rdate
          VERSION=1.5
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=rdate-1.5.patch
-      SOURCE_URL=http://www.corpit.ru/ftp/rdate/
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:28a57f580b52e503cbd03646e91b1b1e4fb01e18
-     SOURCE2_VFY=sha1:d19f1b68e6f75149805a0833e3e10e360fd3a80f
-        WEB_SITE=http://www.corpit.ru/
+      SOURCE_URL=http://www.aelius.com/njh/$MODULE/
+      SOURCE_VFY=sha256:6e800053eaac2b21ff4486ec42f0aca7214941c7e5fceedd593fa0be99b9227d
+        WEB_SITE=http://www.aelius.com/njh/$MODULE/
          ENTERED=20020212
          UPDATED=20050630
-           SHORT="The rdate utility retrieves the date and time from another machine on your network"
+           SHORT="Retrieves the date and time from another machine on your network"
+
 cat << EOF
-The rdate utility retrieves the date and time from another machine on
-your network, using the protocol described in RFC 868.  If you run
-rdate as root, it will set your machine's local time to the time of
-the machine that you queried.  Note that rdate isn't scrupulously
-accurate.  If you are worried about milliseconds, install the ntp
-module, which includes the ntpd daemon, instead.
+The rdate utility retrieves the date and time from another machine on your
+network, using the protocol described in RFC 868. If you run rdate as root,
+it will set your machine's local time to the time of the machine that you
+queried. Note that rdate isn't scrupulously accurate. If you are worried about
+milliseconds, install the ntp module, which includes the ntpd daemon, instead.
 EOF
