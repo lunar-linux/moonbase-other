@@ -1,8 +1,6 @@
-(
+./autogen.sh &&
 
-  autoreconf         &&
-  libtoolize --force &&
+default_build &&
 
-  default_build
-
-) > $C_FIFO 2>&1
+# remove the static lib
+rm /usr/lib/libuptimed.a
