@@ -1,5 +1,0 @@
-default_pre_build &&
-
-# here's the proper fix: https://github.com/boostorg/graph/commit/1d5f43d9f6e8a5295bad7593db942cc755eb664c
-# here's a simpler workaround until the next release:
-sedit '/type_traits.hpp/ a #include <boost/type_traits/ice.hpp>' boost/graph/adjacency_matrix.hpp
