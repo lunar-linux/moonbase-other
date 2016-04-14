@@ -1,19 +1,16 @@
           MODULE=symlinks
-         VERSION=1.4
+         VERSION=1.4.3
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=$MODULE-1.2-pathfix.patch.bz2
-      SOURCE_URL=http://www.ibiblio.org/pub/linux/utils/file
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha1:10038cf12e510fd5b7266811622e05361e2b6e40
-        WEB_SITE=Unknown
+ SOURCE_URL_FULL=http://github.com/brandt/symlinks/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:27105b2898f28fd53d52cb6fa77da1c1f3b38e6a0fc2a66bf8a25cd546cb30b2
+        WEB_SITE=http://github.com/brandt/symlinks/
          ENTERED=20030828
-         UPDATED=20101018
-           SHORT="utils that scans for broken symlinks"
+         UPDATED=20160414
+           SHORT="Utils that scans for broken symlinks"
 
 cat << EOF
-Scans directories for symbolic links, and identifies danglind,
-relative, absolute, messy, and other_fs links. Can optionally
-change absolute links to relative within a given filesystem.
-Recommended for use by anyone developing and/or maintaining
-a Linux FTP site or distribtion or CD-ROM.
+Scans directories for symbolic links, and identifies danglind, relative,
+absolute, messy, and other_fs links. Can optionally change absolute links
+to relative within a given filesystem. Recommended for use by anyone
+developing and/or maintaining a Linux FTP site or distribtion or CD-ROM.
 EOF

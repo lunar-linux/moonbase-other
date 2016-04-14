@@ -1,6 +1,9 @@
-(
+make &&
 
-  patch_it  $SOURCE_CACHE/$SOURCE2  1  &&
-  default_make
+prepare_install &&
 
-) > $C_FIFO 2>&1
+install -dm755 /usr/bin &&
+install -m755 symlinks /usr/bin/ &&
+
+install -dm755 /usr/share/man/man8 &&
+install -m644 symlinks.8 /usr/share/man/man8
