@@ -1,0 +1,11 @@
+default_pre_build &&
+
+patch_it $SOURCE_CACHE/$SOURCE2 1 &&
+patch_it $SOURCE_CACHE/$SOURCE3 1 &&
+patch_it $SOURCE_CACHE/$SOURCE4 0 &&
+patch_it $SOURCE_CACHE/$SOURCE5 1 &&
+
+sedit "s/doc//"      Makefile.am &&
+sedit "s/doc//"      Makefile.in &&
+sedit "s/examples//" Makefile.am &&
+sedit "s/examples//" Makefile.in
