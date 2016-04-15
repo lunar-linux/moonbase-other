@@ -1,13 +1,14 @@
           MODULE=at
-         VERSION=3.1.13
+         VERSION=3.1.18
           SOURCE=at_$VERSION.orig.tar.gz
-      SOURCE_URL=ftp://ftp.debian.org/debian/pool/main/a/$MODULE
-      SOURCE_VFY=sha1:9873e0c38403ef58364912d0b505fd20798fd400
-        WEB_SITE=unknown
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=http://http.debian.net/debian/pool/main/a/$MODULE/
+      SOURCE_VFY=sha256:dbd5c8cb8edd53ef467363c3af0391c08769f1dbbd4d5002c59a4cd4cac11d52
+        WEB_SITE=http://packages.qa.debian.org/a/at.html
          ENTERED=20011011
-         UPDATED=20110918
-        SHORT="A periodic scheduler"
-PSAFE=no
+         UPDATED=20160415
+           SHORT="A periodic scheduler"
+           PSAFE=no
 
 cat << EOF
 at contains at and batch which are daemons that allow processes to be
