@@ -1,6 +1,3 @@
-(
-  cd $SOURCE_DIRECTORY/build/gcc &&
+cd $SOURCE_DIRECTORY/build/gcc &&
 
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
