@@ -7,5 +7,5 @@ prepare_install &&
 make docdir=/usr/share/doc install &&
 
 if [ ! -e /etc/at.deny ]; then
-   install -m644 at.deny /etc/
+  install -m644 at.deny /etc/
 fi

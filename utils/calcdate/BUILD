@@ -1,19 +1,15 @@
-(
-  # setup all the necessary paths
-  MODPATH=$MOONBASE/utils/$MODULE                  &&
-  SHARELOC=/usr/share/doc/calcdate                 &&
-  PREFIX=/usr                                      &&
-  BINDIR=$PREFIX/bin                               &&
-  
-  # begin build
-  prepare_install                                  &&
-  gcc calcdate.c -o calcdate                       &&
-  mv calcdate $BINDIR                              &&
-  chmod 0755 $BINDIR/$MODULE                       &&
-  chown root.root $BINDIR/$MODULE                  &&
+# setup all the necessary paths
+SHARELOC=/usr/share/doc/calcdate &&
+PREFIX=/usr &&
+BINDIR=$PREFIX/bin &&
 
-  # setup the docs                       
-  mkdir -p $SHARELOC                               &&
-  cp $MODPATH/calcdate.c $MODPATH/README $SHARELOC 
+# begin build
+prepare_install &&
+gcc calcdate.c -o calcdate &&
+mv calcdate $BINDIR &&
+chmod 0755 $BINDIR/$MODULE &&
+chown root.root $BINDIR/$MODULE &&
 
-) > $C_FIFO 2>&1
+# setup the docs
+mkdir -p $SHARELOC &&
+cp $SCRIPT_DIRECTORY/calcdate.c $SCRIPT_DIRECTORY/README $SHARELOC
