@@ -1,12 +1,12 @@
           MODULE=uptimed
-         VERSION=0.3.16
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://podgorny.cz/uptimed/releases
-      SOURCE_VFY=sha1:1579ae801277597b18a814d0dcf5613a1eb9ecfd
-        WEB_SITE=http://podgorny.cz/moin/Uptimed
+         VERSION=0.4.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=http://github.com/rpodgorny/uptimed/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:26891965bb499065e34072cecd3eb8087102b1c05f530c8fe8504a07c722f9bf
+        WEB_SITE=http://github.com/rpodgorny/uptimed/
          ENTERED=20040329
-         UPDATED=20100712
-           SHORT="simple system uptime record daemon"
+         UPDATED=20160414
+           SHORT="A simple system uptime record daemon"
 
 cat << EOF
 Uptimed is a simple uptime record daemon that is started at boot
@@ -15,4 +15,3 @@ with a console front-end to parse the records and can also send you a
 short e-mail when a milestone or record has been broken. uptimed is
 started at boot and 'uprecords' is the log viewer.
 EOF
-

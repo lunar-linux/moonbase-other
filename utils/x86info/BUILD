@@ -1,9 +1,6 @@
-(
+make $MODULE CFLAGS="$CFLAGS" &&
 
-  make $MODULE CFLAGS="$CFLAGS" &&
-  
-  prepare_install                 &&
-  install -m0755 x86info /usr/bin &&
-  install -m0644 x86info.1 /usr/man/man1
+prepare_install &&
 
-) > $C_FIFO 2>&1
+install -m0755 x86info /usr/bin &&
+install -m0644 x86info.1 /usr/share/man/man1

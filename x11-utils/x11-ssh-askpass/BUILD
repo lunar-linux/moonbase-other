@@ -5,5 +5,3 @@ xmkmf &&
 make includes &&
 default_make &&
 make install.man
-
-

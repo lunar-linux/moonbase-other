@@ -2,18 +2,17 @@
          VERSION=1.30
           SOURCE=$MODULE-$VERSION.tgz
       SOURCE_URL=http://www.codemonkey.org.uk/projects/$MODULE/
-      SOURCE_VFY=sha1:a5c63b1f4b2bf70db0919316198f6871d940fc0c
-        WEB_SITE=http://www.codemonkey.org.uk/projects/x86info/
+      SOURCE_VFY=sha256:fe3009850e93a9c5fa38ed6bf74d72686043329fead8f1b2be4b5943d4fc9428
+        WEB_SITE=http://www.codemonkey.org.uk/projects/$MODULE/
          ENTERED=20011122
          UPDATED=20121009
-           SHORT="probes CPU for information and diagnostics"
+           SHORT="Probes CPU for information and diagnostics"
 
 cat << EOF
 Unlike other cpuinfo tools which just parse /proc/cpuinfo, x86info
 probes the CPU registers to find out a lot more information. It can
 discover the contents of model-specific registers, discover CPU silicon
 revisions, and lots more.
-
 For complete information make sure you have cpu/*/msr and cpu/*/cpuid
 compiled into or as loaded modules for your running kernel.
 EOF

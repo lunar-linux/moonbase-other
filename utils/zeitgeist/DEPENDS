@@ -1,12 +1,18 @@
-depends %UDEV
-depends sqlite
+depends gtk+-3
 depends rdflib
-depends XML-Parser
 depends raptor
 depends xapian-core
 depends vala
 depends libzeitgeist
 depends json-glib
 
-optional_depends "gobject-introspection" "--enable-introspection" "--disable-introspection" "For introspection support" y
-optional_depends "telepathy-glib"        "--enable-telepathy"     "--disable-telepathy"     "For telepathy glib bindings support" y
+optional_depends gobject-introspection \
+                 "--enable-introspection" \
+                 "--disable-introspection" \
+                 "for introspection support" y
+
+# Borks the make
+#optional_depends telepathy-glib \
+#                 "--enable-telepathy" \
+#                 "--disable-telepathy" \
+#                 "for telepathy glib bindings support" y

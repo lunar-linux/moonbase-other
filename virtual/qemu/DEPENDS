@@ -1,16 +1,18 @@
 depends perl
 
-optional_depends %BLUEZ     "--enable-bluez"   "--disable-bluez"   "for bluetooth support"
-optional_depends curl       "--enable-curl"    "--disable-curl"    "for curl support"
-optional_depends SDL        "--enable-sdl"     "--disable-sdl"     "for GUI support"
-optional_depends spice      "--enable-spice"   "--disable-spice"   "for SPICE support"
-optional_depends libusb     "--enable-libusb"  "--disable-libusb"  "for USB passthrough"
+optional_depends %BLUEZ     "--enable-bluez"     "--disable-bluez"     "for bluetooth support"
+optional_depends curl       "--enable-curl"      "--disable-curl"      "for curl support"
+optional_depends SDL        "--enable-sdl"       "--disable-sdl"       "for GUI support"
+optional_depends libusb     "--enable-libusb"    "--disable-libusb"    "for USB passthrough"
+optional_depends libaio     "--enable-linux-aio" "--disable-linux-aio" "for Linux asynchronous native I/O library support"
+optional_depends spice      "--enable-spice"     "--disable-spice"     "for SPICE support"
 
 optional_depends alsa-lib   "" "" "for ALSA sound support"
-optional_depends esound     "" "" "for esound sound support"
 optional_depends pulseaudio "" "" "for pulseaudio sound support"
+optional_depends esound     "" "" "for esound sound support"
 optional_depends gnutls     "" "" "for GNUTLS support"
-optional_depends vde2       "" "" "for virtual distributed ethernet support"
 optional_depends %JPEG      "" "" "for JPEG support"
 optional_depends libpng     "" "" "for PNG support"
+optional_depends vde2       "" "" "for virtual distributed ethernet support"
 
+optional_depends libiscsi "--enable-libscsi" "" "for iSCSI protocol support"

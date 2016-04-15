@@ -1,12 +1,12 @@
+sedit "271,278d" configure.ac &&
 
-  sedit "271,278d" configure.ac &&
+autoreconf -fi &&
 
-  sedit "s:zeitgeist-daemon:zeitgeist-daemon -r:" data/org.gnome.zeitgeist.service.in &&
-  sedit "3i Restart=on-failure" data/org.gnome.zeitgeist.service.in &&
+OPTS+=" --enable-fts \
+        --enable-datahub \
+        --enable-explain-queries \
+        --disable-telepathy" &&
 
-  autoreconf -fi &&
+OPTS+=" --libexecdir=/usr/lib/$MODULE" &&
 
-  OPTS+=" --enable-datahub --enable-fts --enable-explain-queries \
-          --with-session-bus-services-dir=/usr/share/dbus-1/services" &&
-
-  default_build
+default_build
