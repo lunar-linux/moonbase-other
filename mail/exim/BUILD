@@ -62,11 +62,6 @@ done &&
 
 mkdir -p /etc/mail &&
 cd ../src &&
-sedit "s|/etc/aliases|/etc/mail/aliases|g" configure.default &&
-sedit "s|SYSTEM_ALIASES_FILE|/etc/mail/aliases|g" configure.default &&
-sedit "s:var/mail:var/spool/mail:" configure.default &&
-sedit "s/\# group = mail/  group = mail/" configure.default &&
-sedit "s/\# mode = 0660/  mode = 0660/" configure.default &&
 cp configure.default /etc/mail/exim.conf &&
 cp $SCRIPT_DIRECTORY/aliases /etc/mail/ &&
 
