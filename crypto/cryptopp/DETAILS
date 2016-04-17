@@ -1,12 +1,13 @@
           MODULE=cryptopp
-         VERSION=562
-          SOURCE=$MODULE$VERSION.zip
-      SOURCE_URL=http://www.cryptopp.com/
+         VERSION=5.6.3
+          PKGVER=${VERSION//./}
+          SOURCE=$MODULE$PKGVER.zip
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
-      SOURCE_VFY=sha1:ddc18ae41c2c940317cd6efe81871686846fa293
+      SOURCE_URL=http://www.cryptopp.com/
+      SOURCE_VFY=sha256:9390670a14170dd0f48a6b6b06f74269ef4b056d4718a1a329f6f6069dc957c9
         WEB_SITE=http://www.cryptopp.com/
          ENTERED=20101220
-         UPDATED=20130605
+         UPDATED=20160417
            SHORT="C++ class library of cryptographic schemes"
 
 cat << EOF
