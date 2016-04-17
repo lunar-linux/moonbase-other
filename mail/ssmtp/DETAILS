@@ -1,0 +1,19 @@
+          MODULE=ssmtp
+         VERSION=2.64
+          SOURCE=${MODULE}_$VERSION.orig.tar.bz2
+      SOURCE_URL=http://ftp.debian.org/debian/pool/main/s/$MODULE/
+      SOURCE_VFY=sha256:22c37dc90c871e8e052b2cab0ad219d010fa938608cd66b21c8f3c759046fa36
+        WEB_SITE=http://packages.debian.org/stable/mail/ssmtp/
+         ENTERED=20160417
+         UPDATED=20160417
+           SHORT="Extremely simple MTA to get mail off the system to a mailhub"
+
+cat << EOF
+A secure, effective and simple way of getting mail off a system to your mail hub.
+It contains no suid-binaries or other dangerous things - no mail spool to poke
+around in, and no daemons running in the background. Mail is simply forwarded to
+the configured mailhost. Extremely easy configuration.
+
+WARNING: the above is all it does; it does not receive mail, expand aliases or
+manage a queue. That belongs on a mail hub with a system administrator.
+EOF
