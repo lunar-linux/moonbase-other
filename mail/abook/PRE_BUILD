@@ -1,0 +1,7 @@
+default_pre_build &&
+
+aclocal && automake --add-missing && autoconf &&
+
+sedit 's/0.18/0.19/g' -i po/Makefile.in.in &&
+
+patch_it $SOURCE_CACHE/$SOURCE2 1
