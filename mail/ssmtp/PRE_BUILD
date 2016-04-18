@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# fix linking error
+sedit "s:$LIBS -lssl:$LIBS -lssl -lcrypto:" configure.in

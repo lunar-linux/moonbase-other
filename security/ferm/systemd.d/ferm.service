@@ -5,8 +5,8 @@ Description=Ferm
 Type=oneshot
 RemainAfterExit=yes
 EnvironmentFile=/etc/ferm.conf
-ExecStart=/usr/sbin/ferm ${CONFIG_FILE}
-ExecStop=/usr/sbin/ferm -F ${CONFIG_FILE}
+ExecStart=/usr/bin/ferm ${CONFIG_FILE}
+ExecStop=/usr/bin/ferm -F ${CONFIG_FILE}
 
 [Install]
 WantedBy=multi-user.target

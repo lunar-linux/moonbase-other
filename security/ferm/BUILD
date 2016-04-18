@@ -1,6 +1,11 @@
-(
+prepare_install &&
 
-  prepare_install &&
-  make install 
+make install &&
 
-) > $C_FIFO 2>&1
+# remove fancy docs
+rm /usr/share/doc/ferm/ferm.{html,txt} &&
+
+# setup default config
+if [ ! -f "/etc/ferm.conf" ]; then
+  install -Dm 644 examples/workstation.ferm /etc/ferm.conf
+fi
