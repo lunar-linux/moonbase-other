@@ -39,5 +39,4 @@ prepare_install &&
         $OPTS \
         install &&
 
-chmod -fR 644 /usr/include/boost/* &&
 rm /usr/lib/libboost_*.a
