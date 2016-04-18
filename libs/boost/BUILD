@@ -5,7 +5,7 @@ export EXPAT_INCLUDE=/usr/include/ &&
 export EXPAT_LIBPATH=/usr/lib/ &&
 
 ./b2 -q ${MAKES:+-j$MAKES} \
-        threading=multi \
+        threading=single,multi \
         runtime-link=shared \
         link=shared \
         variant=release \
@@ -13,7 +13,7 @@ export EXPAT_LIBPATH=/usr/lib/ &&
         optimization=speed \
         toolset=gcc \
         --prefix=/usr \
-        --layout=system \
+        --layout=tagged \
         --includedir="/usr/include" \
         --libdir="/usr/lib" \
         cxxflags=-fno-strict-aliasing \
@@ -23,7 +23,7 @@ export EXPAT_LIBPATH=/usr/lib/ &&
 prepare_install &&
 
 ./b2 -q ${MAKES:+-j$MAKES} \
-        threading=multi \
+        threading=single,multi \
         runtime-link=shared \
         link=shared \
         variant=release \
@@ -31,7 +31,7 @@ prepare_install &&
         optimization=speed \
         toolset=gcc \
         --prefix=/usr \
-        --layout=system \
+        --layout=tagged \
         --includedir="/usr/include" \
         --libdir="/usr/lib" \
         cxxflags=-fno-strict-aliasing \
