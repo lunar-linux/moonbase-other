@@ -9,4 +9,7 @@ sedit 's:\"-lxvidcore:\"-pthread -lxvidcore:g' configure &&
 sedit 's:swfdec-0.3:swfdec-0.8:g' configure &&
 
 # fix build with libvpx 1.4+
-sedit '/define VPX_IMG_FMT_I420/ d' ext/vp8/gstvp8utils.h
+sedit '/define VPX_IMG_FMT_I420/ d' ext/vp8/gstvp8utils.h &&
+
+# fix build with changed libmodplug API
+sedit 's@stdafx\.h@libmodplug/\0@' ext/modplug/gstmodplug.cc
