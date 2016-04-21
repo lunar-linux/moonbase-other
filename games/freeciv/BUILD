@@ -1,6 +1,3 @@
-OPTS+=" --enable-shared" &&
-
-sedit "s:\$datadir/locale:/usr/share/locale:" configure              &&
-sedit "s:\$(datadir)/icons:/usr/share/icons:" data/icons/Makefile.in &&
+OPTS+=" --enable-shared --enable-aimodules --disable-static" &&
 
 default_game_build
