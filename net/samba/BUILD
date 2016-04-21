@@ -6,15 +6,16 @@
     export TALLOC=installed
   fi &&
 
-  cd  source3 &&
-
   LDFLAGS+=" -Wl,--no-as-needed" &&
 
- ./configure  --prefix=/usr             \
+
+  ./buildtools/bin/waf configure        \
+               --prefix=/usr            \
                --sysconfdir=/etc        \
                --localstatedir=/var     \
                --with-piddir=/var/run   \
                --mandir=/usr/share/man  \
+               --enable-fhs             \
                $OPTS                    &&
 
   mkdir -p /etc/samba /usr/share/samba /var/log/samba  &&
