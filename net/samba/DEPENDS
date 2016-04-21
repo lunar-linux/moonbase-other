@@ -1,32 +1,37 @@
-depends  Python
-depends  ncurses
-depends  readline
+depends Python
+depends ncurses
+depends readline
 
-optional_depends "cups"                         \
-                 "--enable-cups"                \
-                 "--disable-cups"               \
+optional_depends cups \
+                 "--enable-cups" \
+                 "--disable-cups" \
                  "CUPS printing support"
-optional_depends "avahi"                        \
-                 "--enable-avahi"               \
-                 "--disable-avahi"              \
+
+optional_depends avahi \
+                 "--enable-avahi" \
+                 "--disable-avahi" \
                  "for service discovery support"
-optional_depends "heimdal"                      \
-                 "--with-dnsupdate"             \
-                 "--without-dnsupdate"          \
+
+optional_depends heimdal \
+                 "--with-dnsupdate" \
+                 "--without-dnsupdate" \
                  "for Samba support of DNS updates"
-optional_depends "openldap"                     \
-                 "--with-ldap --with-ads"       \
+
+optional_depends openldap \
+                 "--with-ldap --with-ads" \
                  "--without-ldap --without-ads" \
                  "for Active Directory support"
-optional_depends "gnutls"                       \
-                 ""                             \
-                 "--without-ad-dc"              \
-                 "For Active Directory Domain Controller support"
-optional_depends "acl"                          \
-                 "--with-acl-support"           \
-                 "--without-acl-support"        \
+
+optional_depends gnutls \
+                 "" "--without-ad-dc" \
+                 "for Active Directory Domain Controller support"
+
+optional_depends acl \
+                 "--with-acl-support" \
+                 "--without-acl-support" \
                  "for access control list support"
-optional_depends "Linux-PAM"                    \
-                 "--with-pam"                   \
-                 "--without-pam"                \
+
+optional_depends Linux-PAM \
+                 "--with-pam" \
+                 "--without-pam" \
                  "for PAM support"

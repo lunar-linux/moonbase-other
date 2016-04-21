@@ -1,0 +1,15 @@
+default_pre_build &&
+
+# Fix header locations
+sedit 's|asm/io.h|sys/io.h|' -i findchip/{winbond,smc,nsc}.c pcmcia/ircard_cs.c &&
+sedit 's|inline ||g' irdadump/*.c &&
+
+# Fix paths
+sedit 's|$(PREFIX)/usr/man|$(ROOT)/usr/share/man|' -i man/Makefile &&
+sedit 's|/usr/sbin/|$(ROOT)/usr/bin|' -i irnetd/Makefile &&
+
+# Avoid tekram
+sedit 's|tekram ||' Makefile &&
+
+# /usr/sbin -> /usr/bin
+sedit 's|sbin|bin|' -i {irdaping,irdadump,findchip,irattach,smcinit}/Makefile
