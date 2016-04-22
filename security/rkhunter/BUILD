@@ -1,6 +1,3 @@
-(
-  
-  prepare_install  &&
-  ./installer.sh --layout '/usr' --install
+prepare_install &&
 
-) > $C_FIFO 2>&1
+./installer.sh --layout '/usr' --install
