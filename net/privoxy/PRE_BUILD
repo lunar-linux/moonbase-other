@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# Use Lunar's initscript instead
+sedit "s:\[ -w \$(DESTDIR)/etc/init\.d \]:\[ 0 = 1 \]:1" GNUmakefile.in
