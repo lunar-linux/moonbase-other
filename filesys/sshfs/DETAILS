@@ -1,13 +1,13 @@
           MODULE=sshfs
-         VERSION=2.6
+         VERSION=2.7
           SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${MODULE}_${VERSION/./_}
- SOURCE_URL_FULL=http://github.com/libfuse/sshfs/archive/sshfs_${VERSION/./_}.tar.gz
-      SOURCE_VFY=sha256:17e7a90600de7a48f80b006fd1a61177ca7859dd8bc2f5d1c29b6ad716cf2831
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
+      SOURCE_URL=https://github.com/libfuse/sshfs/archive/
+      SOURCE_VFY=sha256:6a82b1c37e76bf70ef88a5024d5bf24de6e8d98362d9bbf5f01cbedd63d53307
         WEB_SITE=http://github.com/libfuse/sshfs/
       MAINTAINER=elangelo@lunar-linux.org
          ENTERED=20060301
-         UPDATED=20160216
+         UPDATED=20160422
            SHORT="Filesystem client based on the SSH File Transfer Protocol"
 
 cat << EOF
