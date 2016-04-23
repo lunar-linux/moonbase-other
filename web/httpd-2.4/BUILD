@@ -1,8 +1,6 @@
-OPTS=" --prefix=/etc/httpd          \
-       --sysconfdir=/etc/httpd/conf \
-       --exec-prefix=/usr           \
-       --sbindir=/usr/sbin          \
-       --libexecdir=/usr/libexec/httpd/modules \
+OPTS=" --prefix=/etc/httpd             \
+       --sysconfdir=/etc/httpd/conf    \
+       --exec-prefix=/usr              \
        --datadir=/var/www              \
        --sharedstatedir=/var/run/httpd \
        --localstatedir=/var            \
@@ -15,7 +13,10 @@ OPTS=" --prefix=/etc/httpd          \
        --enable-usertrack              \
        --with-apr=/usr                 \
        --with-apr-util=/usr            \
-       $OPTS" &&
+       $OPTS"                         &&
+
+OPTS+=" --sbindir=/usr/sbin \
+        --libexecdir=/usr/libexec/httpd/modules" &&
 
 if [ "$USE_WORKER" == "n" ]; then
   OPTS+=" --with-mpm=prefork"
