@@ -1,4 +1,4 @@
-add_priv_user ftp:ftp -s /bin/false &&
+add_priv_user ftp:ftp -d /var/empty -s /bin/false &&
 
 OPTS+=" --enable-nls \
         --enable-cap \
