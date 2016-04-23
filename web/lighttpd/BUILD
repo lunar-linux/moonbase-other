@@ -4,9 +4,9 @@ OPTS+=" --libdir=/usr/lib/lighttpd \
         --sysconfdir=/etc/lighttpd" &&
 
 # configure the lighttpd.conf file
-sedit "s:/srv/www:/srv/http:" doc/config/lighttpd.conf &&
-sedit "s:/var/run:/run:"      doc/config/lighttpd.conf &&
-sedit 's:"lighttpd":"http":g' doc/config/lighttpd.conf &&
+sedit "s:/srv/www:/srv/http:g" doc/config/lighttpd.conf &&
+sedit "s:/var/run:/run:g"      doc/config/lighttpd.conf &&
+sedit 's:"lighttpd":"http":g'  doc/config/lighttpd.conf &&
 
 default_build &&
 
