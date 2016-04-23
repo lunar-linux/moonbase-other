@@ -1,3 +1,3 @@
-OPTS+=" --with-installbuilddir=/usr/libexec/apr --disable-static" &&
+OPTS+=" --with-installbuilddir=/usr/lib/apr --disable-static" &&
 
 default_build
