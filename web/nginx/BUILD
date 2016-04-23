@@ -1,4 +1,4 @@
-add_priv_user http:http -s /bin/false &&
+add_priv_user http:http -d /var/empty -s /bin/false &&
 
 mkdir -p /var/log/nginx  &&
 mkdir -p /srv/http/htdocs &&
