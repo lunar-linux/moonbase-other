@@ -10,13 +10,12 @@
 # pidfile:     /var/run/proftpd.pid
 
 extended-status () {
-	ftpcount
-	ftpwho
+  ftpcount
+  ftpwho
 }
 
 usage () {
-	echo "Usage: $0 {start|stop|reload|probe|restart|status|extended-status}"
+  echo "Usage: $0 {start|stop|reload|probe|restart|status|extended-status}"
 }
 
 . /lib/lsb/init-functions
-

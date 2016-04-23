@@ -1,8 +1,16 @@
+add_priv_user ftp:ftp -s /bin/false &&
+
+OPTS+=" --enable-nls \
+        --enable-cap \
+        --enable-ipv6 \
+        --enable-facl \
+        --enable-ctrls" &&
+
 OPTS+=" --sbindir=/usr/bin \
         --libexecdir=/usr/lib/$MODULE" &&
 
 if module_installed systemd; then
-  OPTS+=" --localstatedir=/run/proftpd"
+  OPTS+=" --localstatedir=/run/proftpd --with-systemd"
 fi
 
 PROFTPD_MODULES="mod_ifsession mod_ldap mod_radius mod_ratio mod_readme mod_rewrite mod_tls mod_wrap"
@@ -36,10 +44,18 @@ if module_installed Linux-PAM; then
   OPTS+=" --enable-shadow $ENABLE_PAM"
 fi
 
-sedit  "s/\tstandalone/\tinetd/" sample-configurations/basic.conf
-cp -r sample-configurations doc
+sedit "s/\tstandalone/\tinetd/" sample-configurations/basic.conf &&
+sedit "s:\#DefaultRoot ~:DefaultRoot /srv/ftp:" sample-configurations/basic.conf &&
+sedit "s:nobody:ftp:g" sample-configurations/*.conf &&
+sedit "s:nogroup:ftp:g" sample-configurations/*.conf &&
 
-default_build
+default_build &&
+
+mkdir -p /usr/share/doc/proftpd &&
+cp -r sample-configurations /usr/share/doc/proftpd &&
+
+mkdir -p /srv/ftp &&
+chown ftp:ftp /srv/ftp &&
 
 if module_installed systemd; then
   mkdir -p /run/proftpd
