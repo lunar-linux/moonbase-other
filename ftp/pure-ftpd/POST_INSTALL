@@ -7,8 +7,6 @@ sedit 's|# /usr/sbin/pure-config.pl /usr/etc/pure-ftpd.conf|# /usr/bin/pure-conf
 sedit 's|#PIDFile\s.*/var/run/pure-ftpd.pid|PIDFile /run/pure-ftpd.pid|' /etc/pure-ftpd/pure-ftpd.conf
 sedit 's|# AltLog\s.*clf:/var/log/pureftpd.log|AltLog clf:/var/log/pureftpd.log|' /etc/pure-ftpd/pure-ftpd.conf
 sedit 's|# TLS\s.*1|TLS 1|' /etc/pure-ftpd/pure-ftpd.conf
-sedit 's|# TLSCipherSuite\s.*HIGH|TLSCipherSuite HIGH:MEDIUM:+TLSv1|' /etc/pure-ftpd/pure-ftpd.conf
 sedit 's|# CertFile\s.*/etc/ssl/private/pure-ftpd.pem|CertFile /etc/ssl/private/pure-ftpd.pem|' /etc/pure-ftpd/pure-ftpd.conf
 sedit "/# FortunesFile/a FortunesFile \/etc\/pure-ftpd\/welcome.msg" /etc/pure-ftpd/pure-ftpd.conf
-
-#sedit 's|SyslogFacility\s.*ftp|SyslogFacility none|' /etc/pure-ftpd/pure-ftpd.conf
+sedit 's|# TLSCipherSuite\s.*HIGH|TLSCipherSuite HIGH:MEDIUM:+TLSv1|' /etc/pure-ftpd/pure-ftpd.conf

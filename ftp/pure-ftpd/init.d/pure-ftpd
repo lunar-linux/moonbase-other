@@ -10,15 +10,15 @@
 PURE_PID=/var/run/pure-ftpd.pid
 
 case $1 in
-   start|restart) echo   "$1ing pure-ftpd, ftp daemon.."
-                  [ -e "$PURE_PID" ] && kill `cat $PURE_PID`
-                  pure-ftpd -b -B
-                  ;;
+  start|restart) echo   "$1ing pure-ftpd, ftp daemon.."
+                 [ -e "$PURE_PID" ] && kill `cat $PURE_PID`
+                 pure-ftpd -b -B
+                 ;;
 
-            stop) echo   "$1ping pure-ftpd."
-                  [ -e "$PURE_PID" ] && kill `cat $PURE_PID`
-                  ;;
+           stop) echo   "$1ping pure-ftpd."
+                 [ -e "$PURE_PID" ] && kill `cat $PURE_PID`
+                 ;;
 
-               *) echo   "Usage: $0 {start|stop|restart}"
-                  ;;
+              *) echo   "Usage: $0 {start|stop|restart}"
+                 ;;
 esac
