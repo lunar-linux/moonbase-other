@@ -1,3 +1,9 @@
+add_priv_user http:http -s /bin/false &&
+
+# set default user
+sedit 's#User daemon#User http#'   docs/conf/httpd.conf.in &&
+sedit 's#Group daemon#Group http#' docs/conf/httpd.conf.in &&
+
 OPTS=" --datadir=/srv/http              \
        --localstatedir=/var             \
        --sharedstatedir=/run/httpd      \
@@ -25,6 +31,8 @@ echo "CFLAGS=$CFLAGS" &&
 echo "OPTS=$OPTS" &&
 
 default_build &&
+
+chown http:http /srv/http /var/log/httpd &&
 
 if [ ! -e /usr/sbin/httpsd ]; then
   ln -s /usr/sbin/httpd /usr/sbin/httpsd
