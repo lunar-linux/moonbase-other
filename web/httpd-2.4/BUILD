@@ -15,8 +15,7 @@ OPTS=" --prefix=/etc/httpd             \
        --with-apr-util=/usr            \
        $OPTS"                         &&
 
-OPTS+=" --sbindir=/usr/sbin \
-        --libexecdir=/usr/libexec/httpd/modules" &&
+OPTS+=" --libexecdir=/usr/libexec/httpd/modules" &&
 
 if [ "$USE_WORKER" == "n" ]; then
   OPTS+=" --with-mpm=prefork"
