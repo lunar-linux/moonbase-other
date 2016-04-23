@@ -1,21 +1,19 @@
-OPTS=" --prefix=/etc/httpd             \
-       --sysconfdir=/etc/httpd/conf    \
-       --exec-prefix=/usr              \
-       --datadir=/var/www              \
-       --sharedstatedir=/var/run/httpd \
-       --localstatedir=/var            \
-       --includedir=/usr/include/httpd \
-       --enable-so                     \
-       --enable-rewrite                \
-       --enable-mime-magic             \
-       --enable-exception-hook         \
-       --enable-layout=GNU             \
-       --enable-usertrack              \
-       --with-apr=/usr                 \
-       --with-apr-util=/usr            \
-       $OPTS"                         &&
+OPTS=" --datadir=/srv/http              \
+       --localstatedir=/var             \
+       --sharedstatedir=/run/httpd      \
+       --includedir=/usr/include/httpd  \
+       --sysconfdir=/etc/httpd/conf     \
+       --enable-so                      \
+       --enable-rewrite                 \
+       --enable-usertrack               \
+       --enable-mime-magic              \
+       --enable-layout=GNU              \
+       --enable-layout=Lunar            \
+       --enable-exception-hook          \
+       --with-apr=/usr/bin/apr-1-config \
+       --with-apr-util=/usr/bin/apu-1-config" &&
 
-OPTS+=" --libexecdir=/usr/libexec/httpd/modules" &&
+cat $SCRIPT_DIRECTORY/lunar.layout >> config.layout &&
 
 if [ "$USE_WORKER" == "n" ]; then
   OPTS+=" --with-mpm=prefork"
