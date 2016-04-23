@@ -1,17 +1,22 @@
-add_priv_user lighttpd:lighttpd -s /bin/false -c "lighttpd" &&
+add_priv_user http:http -s /bin/false &&
 
 OPTS+=" --libdir=/usr/lib/lighttpd \
         --sysconfdir=/etc/lighttpd" &&
+
+# configure the lighttpd.conf file
+sedit "s:/srv/www:/srv/http:" doc/config/lighttpd.conf &&
+sedit "s:/var/run:/run:"      doc/config/lighttpd.conf &&
+sedit 's:"lighttpd":"http":g' doc/config/lighttpd.conf &&
 
 default_build &&
 
 devoke_installwatch &&
 
 mkdir -p /var/log/lighttpd &&
-mkdir -p /srv/www/htdocs   &&
+mkdir -p /srv/http/htdocs  &&
 mkdir -p /var/lib/lighttpd &&
 mkdir -p /etc/lighttpd/conf.d &&
-chown lighttpd:lighttpd /srv/www /var/log/lighttpd &&
+chown http:http /srv/http /var/log/lighttpd &&
 
 if [ ! -f /etc/lighttpd/lighttpd.conf ]; then
   install doc/config/lighttpd.conf /etc/lighttpd/
@@ -24,4 +29,3 @@ fi &&
 if [[ -z "$(ls -A /etc/lighttpd/conf.d/)" ]]; then
   install doc/config/conf.d/*.conf /etc/lighttpd/conf.d
 fi
-
