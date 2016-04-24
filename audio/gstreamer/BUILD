@@ -3,4 +3,6 @@ OPTS+=" --disable-static \
         --disable-tests  \
         --disable-valgrind" &&
 
+OPTS+=" --libexecdir=/usr/lib" &&
+
 default_build
