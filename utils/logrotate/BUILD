@@ -1,15 +1,11 @@
-# Logrotate craps out without this
-unset CPP &&
+./autogen.sh
 
-make RPM_OPT_FLAGS="${CFLAGS}" &&
+OPTS+=" --mandir=/usr/share/man" &&
+
+default_build &&
 
 # We don't want the status file tracked
 touch /var/lib/logrotate.status &&
-
-prepare_install &&
-make install &&
-
-mkdir -p /etc/logrotate.d &&
 
 if [ ! -e /etc/logrotate.conf ]; then
   install -m 0644 examples/logrotate-default /etc/logrotate.conf

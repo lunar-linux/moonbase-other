@@ -4,6 +4,5 @@ default_pre_build &&
 sedit 's:^dateext:#&:;s:^#compress:compress:;/^compress/acompresscmd /usr/bin/bzip2' examples/logrotate-default &&
 sedit '/^compresscmd/acompressext .bz2' examples/logrotate-default &&
 
-# Fix man pages path
-sedit 's:BASEDIR)/man:BASEDIR)/share/man:' Makefile
-
+# Use /usr/bin instead of /bin
+sedit 's:"/bin:"/usr/bin:g' config.h

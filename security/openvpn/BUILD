@@ -1,3 +1,3 @@
-OPTS+=" --enable-plugins" &&
+OPTS+=" --enable-plugins --enable-pasword-save" &&
 
 default_build
