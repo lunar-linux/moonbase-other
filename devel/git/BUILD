@@ -1,3 +1,15 @@
+default_config &&
+
+if [ "`get_module_config DOCS`" = "y" ]; then
+  DOCS=" doc"
+else
+  DOCS=""
+fi
+
+if in_depends $MODULE pcre; then
+  OPTS="USE_LIBPCRE=1"
+fi
+
 make prefix=/usr \
      gitexecdir=/usr/lib/git-core \
      CFLAGS="$CFLAGS" \
@@ -5,20 +17,22 @@ make prefix=/usr \
      NO_CROSS_DIRECTORY_HARDLINKS=1 \
      MAN_BOLD_LITERAL=1 \
      $OPTS \
-     all doc &&
+     all $DOCS &&
 
 make -C contrib/subtree \
      prefix=/usr \
      gitexecdir=/usr/lib/git-core \
      $OPTS \
-     all doc &&
-
-if in_depends $MODULE gnome-keyring; then
-  make -C contrib/credential/gnome-keyring
-fi &&
+     all $DOCS &&
 
 prepare_install &&
-mkdir -p /usr/share/git &&
+
+if [ "`get_module_config DOCS`" = "y" ]; then
+  DOCS=" install-doc"
+  gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
+else
+  DOCS=""
+fi
 
 make prefix=/usr \
      gitexecdir=/usr/lib/git-core \
@@ -27,9 +41,12 @@ make prefix=/usr \
      NO_CROSS_DIRECTORY_HARDLINKS=1 \
      MAN_BOLD_LITERAL=1 \
      $OPTS \
-     install install-doc &&
+     install $DOCS &&
 
-install -m 755 contrib/gitview/gitview /usr/bin/ &&
+for i in man?; do
+  [ -d /usr/share/man/$i ] || mkdir -p /usr/share/man/$i &&
+  install -m 644 $i/* /usr/share/man/$i/
+done &&
 
 # bash completion
 install -m 644 contrib/completion/git-completion.bash /usr/share/bash-completion/completions/git &&
@@ -42,24 +59,18 @@ make -C contrib/subtree \
      prefix=/usr \
      gitexecdir=/usr/lib/git-core \
      DESTDIR=/ \
-     install install-doc &&
+     install $DOCS &&
 
 if in_depends $MODULE gnome-keyring; then
   # gnome credentials helper
+  make -C contrib/credential/gnome-keyring &&
   install -m755 contrib/credential/gnome-keyring/git-credential-gnome-keyring \
     /usr/lib/git-core/git-credential-gnome-keyring
 fi &&
 
-for i in man?; do
-  [ -d /usr/share/man/$i ] || mkdir -p /usr/share/man/$i &&
-  install -m 644 $i/* /usr/share/man/$i/
-done &&
-
 if [ "`get_module_config CONTRIB`" = "y" ]; then
-  # the rest of the contrib stuff
+  # the contrib stuff
+  mkdir -p /usr/share/git &&
+  install -m 755 contrib/gitview/gitview /usr/bin/ &&
   cp -a ./contrib/* /usr/share/git/
-fi &&
-
-if [ "`get_module_config DOCS`" = "y" ]; then
-  gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
 fi
