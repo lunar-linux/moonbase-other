@@ -29,7 +29,6 @@ prepare_install &&
 
 if [ "`get_module_config DOCS`" = "y" ]; then
   DOCS=" install-doc"
-  gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
 else
   DOCS=""
 fi
@@ -73,4 +72,8 @@ if [ "`get_module_config CONTRIB`" = "y" ]; then
   mkdir -p /usr/share/git &&
   install -m 755 contrib/gitview/gitview /usr/bin/ &&
   cp -a ./contrib/* /usr/share/git/
+fi
+
+if [ "`get_module_config DOCS`" = "y" ]; then
+  gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
 fi
