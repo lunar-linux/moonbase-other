@@ -1,23 +1,31 @@
           MODULE=cscope
          VERSION=15.8a
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-      SOURCE_URL=http://surfnet.dl.sourceforge.net/sourceforge/cscope/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:00f76825791b895532778f720c509cd13b9d6846
-        WEB_SITE="http://cscope.sourceforge.net"
-         ENTERED=20100123
-         UPDATED=20120910
-           SHORT="source code browser"
-cat <<EOF
-Cscope is a developer's tool for browsing source code.  Allows
-searching code for: - all references to a symbol - global definitions -
-functions called by a function - functions calling a function - text
-string - regular expression pattern - a file - files including a file
-Features: - Curses based (text screen) - An information database is
-generated for faster searches and later reference - The fuzzy parser
-supports C, but is flexible enough to be useful for C++ and Java,
-and for use as a generalized 'grep database' (use it to browse large
-text documents!)  - Has a command line mode for inclusion in scripts
-or as a backend to a GUI/frontend - Runs on all flavors of Unix,
-plus most monopoly-controlled operating systems.
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE/
+      SOURCE_VFY=sha256:eb736ac40d5abebe8fa46820c7a8eccc8a17966a9a5f70375367b77177874d1e
+        WEB_SITE=http://cscope.sourceforge.net/
+         ENTERED=20160426
+         UPDATED=20160426
+           SHORT="A developers tool for browsing program code"
+
+cat << EOF
+scope is a developer's tool for browsing source code.
+Features:
+ - Allows searching code for:
+     - all references to a symbol
+     - global definitions
+     - functions called by a function
+     - functions calling a function
+     - text string
+     - regular expression pattern
+     - a file
+     - files including a file
+ - Curses based (text screen)
+ - An information database is generated for faster searches and later reference
+ - The fuzzy parser supports C, but is flexible enough to be useful for C++ and
+   Java, and for use as a generalized 'grep database' (use it to browse large
+   text documents!)
+ - Has a command line mode for inclusion in scripts or as a backend to a
+   GUI/frontend
+ - Runs on all flavors of Unix, plus most monopoly-controlled operating systems.
 EOF
