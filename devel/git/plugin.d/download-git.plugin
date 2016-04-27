@@ -58,7 +58,7 @@ plugin_source_download_git() {
 
   NUM_RETRY=${NUM_RETRY:-5}
   if [ "$NUM_RETRY" -eq 0 ]; then
-      NUM_RETRY=1000
+    NUM_RETRY=1000
   fi
 
   for (( TRY=1 ; $TRY<$NUM_RETRY+1 ; TRY++ )); do

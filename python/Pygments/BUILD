@@ -8,4 +8,3 @@ if in_depends $MODULE Python-3; then
   prepare_install &&
   python3 setup.py install --root=/
 fi
-

@@ -1,15 +1,18 @@
-depends zlib
-depends curl
+depends Python
 depends %OSSL
 depends rsync
-depends Python
-depends xmlto
-depends asciidoc
+depends zlib
 
-optional_depends pcre \
-                 "USE_LIBPCRE=1" "" \
-                 "for perl regexp support in git-grep"
+optional_depends curl  "--with-curl"    "" "for http(s):// transports" y
+optional_depends expat "--with-expat"   "" "for git-push using http(s):// via WebDAV" y
+optional_depends pcre  "--with-libpcre" "" "for perl regexp support in git-grep" y
+optional_depends tk    "--with-tcltk"   "" "for a Tk front-end git tool" n
 
 optional_depends gnome-keyring "" "" "for GNOME keyring credential helper"
-optional_depends cvsps         "" "" "for CVS repository support"
-optional_depends tk            "" "" "for a TK front-end git tool"
+optional_depends cvsps         "" "" "for CVS repository import" n
+optional_depends subversion    "" "" "for git-svn subversion repository support" n
+
+if [ "`get_module_config DOCS`" = "y" ]; then
+  depends xmlto
+  depends asciidoc
+fi
