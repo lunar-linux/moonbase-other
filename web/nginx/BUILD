@@ -28,7 +28,7 @@ chmod 750 /var/log/nginx &
             --with-http_flv_module \
             --with-http_mp4_module \
             --with-http_sub_module \
-            --with-http_realip_module \
+            --with-http_gunzip_module \
             --with-http_realip_module \
             --with-http_addition_module \
             --with-http_degradation_module \
