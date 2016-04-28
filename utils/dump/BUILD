@@ -1,10 +1,11 @@
-(
+autoreconf &&
 
-  patch_it $SOURCE2 1 &&
+OPTS+=" --sysconfdir=/etc \
+        --with-manowner=root \
+        --with-mangrp=root \
+        --with-manmode=644 \
+        --with-bingrp=root \
+        --disable-readline \
+        --disable-rmt" &&
 
-  autoreconf &&
-
-  default_build
-
-) > $C_FIFO 2>&1
-
+default_build
