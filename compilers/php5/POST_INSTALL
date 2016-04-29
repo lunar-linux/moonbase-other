@@ -4,8 +4,8 @@ if [ -f /etc/httpd/conf/httpd.conf ]; then
     cat >> /etc/httpd/conf/httpd.conf << EOF
 
 # AddType required for php to work:
-AddType  application/x-httpd-php        .php .php5 .php4 .php3 .phtml
-AddType  application/x-httpd-php-source .phps
+AddType application/x-httpd-php        .php .php5 .php4 .php3 .phtml
+AddType application/x-httpd-php-source .phps
 
 EOF
   fi
@@ -22,3 +22,7 @@ case $REGGLOBALS in
     *) true
     ;;
 esac
+
+if [ "$USE_SUHOSIN" == "y" ]; then
+  lin suhosin
+fi
