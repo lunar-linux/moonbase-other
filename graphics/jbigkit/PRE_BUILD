@@ -1,0 +1,10 @@
+default_pre_build &&
+
+export CFLAGS+=" -fPIC" &&
+
+# make -e is nonstandard and produces headaches when debugging problems...
+sedit "s/ -e//" Makefile &&
+
+# use our compile flags
+sedit "/CFLAGS =/ d" Makefile libjbig/Makefile pbmtools/Makefile &&
+sedit "s@CPPFLAGS = @CPPFLAGS += @" pbmtools/Makefile
