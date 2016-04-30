@@ -1,4 +1,5 @@
+OPTS+=" -DBUILD_SHARED_LIBS=ON \
+        -DWITH_MP4=ON \
+        -DWITH_ASF=ON" &&
 
-  sedit "s:TAGLIB_MINOR_VERSION 7:TAGLIB_MINOR_VERSION 8:" taglib/toolkit/taglib.h &&
-
-  default_cmake_build
+default_cmake_build
