@@ -25,5 +25,6 @@ elif module_installed apache2; then
 fi
 
 if module_installed suhosin; then
-  lrm suhosin
+  lrm suhosin &&
+  rm -fr /usr/lib/php
 fi
