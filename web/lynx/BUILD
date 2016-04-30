@@ -1,19 +1,15 @@
 mkdir -p /var/lib/lynx &&
 
-OPTS+=" --host=$BUILD            \
-        --prefix=/usr            \
-        --libdir=/var/lib/lynx   \
-        --mandir=/usr/share/man  \
-        --enable-cgi-links       \
-        --enable-nsl-fork        \
-        --enable-read-eta        \
-        --enable-color-style     \
-        --enable-scrollbar       \
-        --with-screen=ncursesw   \
-        --enable-widec           \
-        --with-zlib              \
-        --sysconfdir=/etc        \
-        --enable-gzip-help"     &&
+OPTS+=" --libdir=/var/lib/lynx \
+        --enable-widec         \
+        --enable-cgi-links     \
+        --enable-nsl-fork      \
+        --enable-read-eta      \
+        --enable-scrollbar     \
+        --enable-gzip-help     \
+        --enable-color-style   \
+       --with-screen=ncursesw  \
+       --with-zlib" &&
 
 default_config &&
 
@@ -26,6 +22,5 @@ default_make &&
 make install-help &&
 make install-doc  &&
 
-cp -bp lynx.cfg /var/lib/lynx/lynx.cfg &&
-ln -sf /var/lib/lynx/lynx.cfg /etc/lynx.cfg &&
+cp -bp lynx.cfg /etc/lynx.cfg &&
 rm -f /usr/bin/lynx.old
