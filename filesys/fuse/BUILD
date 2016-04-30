@@ -1,8 +1,8 @@
-./makeconf.sh &&
-
-sedit "s:/etc/udev:/usr/lib/udev:" configure &&
-
-OPTS+=" --enable-lib --enable-util --disable-static --sbindir=/usr/bin" &&
+OPTS+=" --enable-lib \
+        --enable-util \
+        --disable-static \
+        --disable-example \
+        --sbindir=/usr/bin" &&
 
 default_build &&
 

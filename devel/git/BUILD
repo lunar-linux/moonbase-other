@@ -53,6 +53,10 @@ install -m 644 contrib/completion/git-completion.bash /usr/share/bash-completion
 # fancy git prompt
 install -m 644 contrib/completion/git-prompt.sh /etc/profile.d/git-prompt.rc &&
 
+# for compatibility with arch linux common home directory .bashrc file
+mkdir -p /usr/share/git &&
+install -m 644 contrib/completion/git-prompt.sh /usr/share/git/git-prompt.sh &&
+
 # subtree installation
 make -C contrib/subtree \
      prefix=/usr \
@@ -69,7 +73,6 @@ fi &&
 
 if [ "`get_module_config CONTRIB`" = "y" ]; then
   # the contrib stuff
-  mkdir -p /usr/share/git &&
   install -m 755 contrib/gitview/gitview /usr/bin/ &&
   cp -a ./contrib/* /usr/share/git/
 fi
@@ -77,3 +80,4 @@ fi
 if [ "`get_module_config DOCS`" = "y" ]; then
   gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
 fi
+

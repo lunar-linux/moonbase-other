@@ -1,11 +1,13 @@
 depends ncurses
 
 optional_depends %OSSL     "--with-openssl" "" "for SSL connections"
+optional_depends libxml2   "--with-libxml"  "" "for XML support"
 optional_depends perl      "--with-perl"    "" "for perl programming"
 optional_depends Python    "--with-python"  "" "for python programming"
 optional_depends Linux-PAM "--with-pam"     "" "for user authentication"
 optional_depends heimdal   "--with-gssapi"  "" "for gssapi support"
 optional_depends openldap  "--with-ldap"    "" "for ldap support"
+optional_depends krb5      "--with-krb5"    "" "for Kerberos support"
 
 optional_depends zlib "" "--without-zlib" "for compression support"
 

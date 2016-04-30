@@ -1,0 +1,13 @@
+mk_source_dir $SOURCE_DIRECTORY &&
+cd $SOURCE_DIRECTORY &&
+for dir in '3.1 4.1 4.2 4.3 4.5'
+do mkdir $dir; done &&
+unzip $SOURCE_CACHE/$SOURCE  -d $SOURCE_DIRECTORY/3.1 &&
+unzip $SOURCE_CACHE/$SOURCE2 -d $SOURCE_DIRECTORY/4.1 &&
+unzip $SOURCE_CACHE/$SOURCE3 -d $SOURCE_DIRECTORY/4.2 &&
+unzip $SOURCE_CACHE/$SOURCE4 -d $SOURCE_DIRECTORY/4.3 &&
+unzip $SOURCE_CACHE/$SOURCE5 -d $SOURCE_DIRECTORY/4.5 &&
+CENTRALIZED=/etc/sgml/catalog
+for DOCBOOK_INSTALL_DIR in `ls -d /usr/share/sgml/docbook/{3*,4*,docbook-sgml*,sgml} 2>/dev/null`
+do install-catalog -r $CENTRALIZED $DOCBOOK_INSTALL_DIR/catalog; done
+rm -rf /usr/share/sgml/docbook/{3*,4*,docbook-sgml-*,old.libraries,sgml}

@@ -18,4 +18,6 @@ Libs: -L${libdir} -lcryptopp
 Cflags: -I${includedir}
 EOF
 
-install -m644 libcrypto++.pc /usr/lib/pkgconfig/libcrypto++.pc
+install -m644 libcrypto++.pc /usr/lib/pkgconfig/libcrypto++.pc &&
+
+rm -f /usr/lib/libcryptopp.a
