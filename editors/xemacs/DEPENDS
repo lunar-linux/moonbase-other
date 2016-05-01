@@ -1,17 +1,27 @@
-depends  gdbm
-depends  db
-depends  xemacs-base
-depends  xemacs-efs
+depends libXaw
+depends libXft
+depends xbitmaps
+depends desktop-file-utils
+depends zlib
 
-optional_depends  "openMotif"                                               \
-                  ""                                                        \
-                  ""                                                        \
-                  "for OSF/Motif standard GUI"
-optional_depends  "libpng"                                                  \
-                  "--with-png"                                              \
-                  ""                                                        \
-                  "for PNG image support"
-optional_depends  "%JPEG"                                                    \
-                  "--with-jpeg"                                             \
-                  ""                                                        \
-                  "for JPEG image support"
+optional_depends gpm      "--with-gpm"     "" "for mouse for console support"
+optional_depends ncurses  "--with-ncurses" "" "for ncurses console support"
+optional_depends libpng   "--with-png"     "" "for PNG image support"
+optional_depends %JPEG    "--with-jpeg"    "" "for JPEG image support"
+optional_depends tiff     "--with-tiff"    "" "for TIFF image support"
+optional_depends giflib   "--with-gif"     "" "for GIF image support"
+optional_depends openldap "--with-ldap"    "" "for LDAP support"
+
+optional_depends gdbm \
+                 "--with-database=gdbm" \
+                 "--with-database=no" \
+                 "for gdbm database support"
+
+optional_depends postgresql \
+                 "--with-postgresql" \
+                 "--without-postgresql" \
+                 "for PostgreSQL support"
+
+optional_depends krb5 \
+                 "--with-kerberos" "" \
+                 "for Kerberos authenticated mail pop support"
