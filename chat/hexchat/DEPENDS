@@ -1,16 +1,15 @@
 depends pciutils
-depends desktop-file-utils
 depends intltool
+
+if [ "$ENABLE_GUI" == "y" ]; then
+  depends desktop-file-utils
+  depends gtk+-2
+fi
 
 optional_depends %OSSL \
                  "--enable-openssl"  \
                  "--disable-openssl" \
                  "enable support for openSSL"
-
-optional_depends gtk+-2 \
-                 "--enable-gtkfe"  \
-                 "--disable-gtkfe" \
-                 "enable GTK+ 2.x frontend"
 
 optional_depends Python \
                  "--enable-python=python2" \
