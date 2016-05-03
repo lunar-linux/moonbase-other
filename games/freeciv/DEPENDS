@@ -1,26 +1,26 @@
 depends curl
+depends libtool
 
-if [ "`get_module_config SDL`" = "y" ]; then
-  depends "gtk+-2"    "" "" "for gtk+-2 client"
+if [ "`get_module_config GTK`" = "y" ]; then
+  optional_depends gtk+-3 "--enable-client=gtk3 --enable-fcmp=gtk3" "" "for gtk+-3 client"
+  optional_depends gtk+-2 "--enable-client=gtk2" "" "for gtk+-2 client"
 fi
 
 if [ "`get_module_config SDL`" = "y" ]; then
-  depends "SDL_image" "" "" "for SDL client"
-  depends "SDL_ttf"   "" "" "for SDL client"
+  depends SDL_image
+  depends SDL_ttf
+  depends SDL_gfx
 
-  optional_depends "SDL_mixer"          \
-                   "--enable-sdl-mixer" \
-                   ""                   \
+  optional_depends SDL_mixer \
+                   "--enable-sdl-mixer" "" \
                    "to use SDL mixer with SDL client"
 fi
 
-optional_depends "sqlite"                \
-                 "--enable-fcdb=sqlite3" \
-                 ""                      \
+optional_depends sqlite \
+                 "--enable-fcdb=sqlite3"  "" \
                  "to use sqlite"
 
 # It's not compatible with lua >= 5.3
-#optional_depends "lua"              \
-#                 "--enable-sys-lua" \
-#                 ""                 \
-#                 "to system installed lua"
+#optional_depends lua \
+#                 "--enable-sys-lua"  "" \
+#                 "to use system installed lua"

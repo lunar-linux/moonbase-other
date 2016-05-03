@@ -1,19 +1,35 @@
-depends gtk+-2
+depends pciutils
+depends intltool
+
+if [ "$ENABLE_GUI" == "y" ]; then
+  depends desktop-file-utils
+  depends gtk+-2
+fi
+
+optional_depends %OSSL \
+                 "--enable-openssl"  \
+                 "--disable-openssl" \
+                 "enable support for openSSL"
 
 optional_depends Python \
-                 "--enable-python" \
+                 "--enable-python=python2" \
                  "--disable-python" \
-                 "enable support for python plugins"
+                 "enable support for Python 2.x plugins"
+
+optional_depends Python-3 \
+                 "--enable-python=python3" \
+                 "--disable-python" \
+                 "enable support for Python 3.x plugins"
 
 optional_depends perl \
                  "--enable-perl" \
                  "--disable-perl" \
                  "enable support for perl plugins"
 
-optional_depends openssl \
-                 "--enable-openssl" \
-                 "--disable-openssl" \
-                 "enable support for openSSL"
+optional_depends lua \
+                 "--enable-lua" \
+                 "--disable-lua" \
+                 "enable support for lua plugins"
 
 optional_depends dbus-glib \
                  "--enable-dbus" \
@@ -34,3 +50,8 @@ optional_depends libproxy \
                  "--enable-libproxy" \
                  "--disable-libproxy" \
                  "enable proxy support"
+
+optional_depends iso-codes \
+                 "--enable-isocodes" \
+                 "--disable-isocodes" \
+                 "enable iso-codes for spellcheck"

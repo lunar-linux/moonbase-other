@@ -1,0 +1,34 @@
+          MODULE=source-highlight
+         VERSION=3.1.8
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=ftp://ftp.gnu.org/gnu/src-highlite/
+      SOURCE_VFY=sha256:01336a7ea1d1ccc374201f7b81ffa94d0aecb33afc7d6903ebf9fbf33a55ada3
+        WEB_SITE=http://www.gnu.org/software/src-highlite/
+         ENTERED=20160426
+         UPDATED=20160426
+           SHORT="Convert source code to syntax highlighted document"
+
+cat << EOF
+This program, given a source file, produces a document with syntax highlighting.
+It also provides a C++ highlight library. Source-highlight reads source language
+specifications dynamically, thus it can be easily extended (without recompiling
+the sources) for handling new languages.
+It also reads output format specifications dynamically, and thus it can be easily
+extended (without recompiling the sources) for handling new output formats. The
+syntax for these specifications is quite easy (take a look at the manual).
+Source-highlight is a command line program, and it can also be used as a CGI.
+Notice that source-highlight can also be used as a formatter (i.e., without
+highlighting): you can, for instance, format a txt file in HTML (and it will take
+care of translating special characters, such as, <, >, &).
+Source-highlight can also generate cross references; in order to do this it relies
+on GNU Ctags. These are the output formats already supported:
+  HTML HTML5 XHTML
+  LATEX
+  MediaWiki
+  ODF
+  TEXINFO
+  ANSI color escape sequences (you can use this feature with less)
+  DocBook
+  S-expressions
+  Groff.
+EOF

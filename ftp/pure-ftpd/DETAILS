@@ -15,4 +15,9 @@ and is especially designed for modern kernels. Features include PAM support,
 IPv6, chroot()ed home directories, virtual domains, built-in 'ls', FXP protocol,
 anti-warez system, bandwidth throttling, bounded ports for passive downloads,
 an LDAP backend, XML output, and more.
+
+After install to create ftp virtual users database you need to add a first
+user. For example:
+  pure-pw useradd mike -u ftp -g ftp -d /srv/ftp/mike
+  pure-pw mkdb
 EOF

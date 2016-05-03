@@ -1,0 +1,42 @@
+# All docbook packages are NOT cumulative so do NOT replace old releases with new one
+# If you need to add new docbook release add it as another SOURCE.
+# You have to review all scripts in this module to modify them to add another source.
+          MODULE=docbook-sgml
+             MOD=docbook
+         VERSION=4.5
+           SOURCE=docbk31.zip
+          SOURCE2=docbk41.zip
+          SOURCE3=$MOD-4.2.zip
+          SOURCE4=$MOD-4.3.zip
+          SOURCE5=$MOD-$VERSION.zip
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/sgml
+      SOURCE5_URL[0]=http://www.oasis-open.org/docbook/sgml/4.5
+      SOURCE5_URL[1]=http://www.docbook.org/sgml/4.5
+      SOURCE4_URL[0]=http://www.oasis-open.org/docbook/sgml/4.3
+      SOURCE4_URL[1]=http://www.docbook.org/sgml/4.3
+      SOURCE3_URL[0]=http://www.oasis-open.org/docbook/sgml/4.2
+      SOURCE3_URL[1]=http://www.docbook.org/sgml/4.2
+      SOURCE2_URL[0]=http://www.oasis-open.org/docbook/sgml/4.1
+      SOURCE2_URL[1]=http://www.docbook.org/sgml/4.1
+       SOURCE_URL[0]=http://www.oasis-open.org/docbook/sgml/3.1
+       SOURCE_URL[1]=http://www.docbook.org/sgml/3.1
+      SOURCE_VFY=sha1:75a5bb4f17b17ff0f7dd1cc2db7112bad0fb89e6
+     SOURCE2_VFY=sha1:3009fcc364511d186da40e828bf0d5d1556c020e
+     SOURCE3_VFY=sha1:98afcae616ed24edb30e40baa4ddd8cd8731f2c7
+     SOURCE4_VFY=sha1:c64759d07514a7ab4347b1fc03457664cdf98b3f
+     SOURCE5_VFY=sha1:5efeb22936ea30cdaf88053337de7966dfda02bd
+        WEB_SITE=http://www.oasis-open.org/docbook/sgml
+         ENTERED=20030103
+         UPDATED=20100814
+           SHORT="The DocBook SGML DTD pack"
+cat << EOF
+
+DocBook is an XML/SGML vocabulary particularly well suited to books
+and papers about computer hardware and software (though it is by no
+means limited to these applications).
+
+The DocBook Technical Committee maintains the DocBook schema.
+DocBook is officially available as a Document Type Definition (DTD)
+for both XML and SGML. It is unofficially available in other forms
+as well.
+EOF

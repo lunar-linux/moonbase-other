@@ -12,7 +12,6 @@ OPTS+=" --sbindir=/usr/bin \
         --with-config-file-path=/etc/php \
         --with-config-file-scan-dir=/etc/php/conf.d \
         --disable-rpath \
-        --mandir=/usr/share/man \
         --enable-zend-signals" &&
 
 OPTS+=" --enable-ftp=shared \

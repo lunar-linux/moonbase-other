@@ -1,15 +1,17 @@
           MODULE=xemacs
-         VERSION=21.4.22
-          SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=http://ftp.xemacs.org/$MODULE-${VERSION%.*}/
-   SOURCE_URL[1]=http://ftp.sunet.se/pub/gnu/xemacs/stable/
-   SOURCE_URL[2]=http://ftp.freenet.de/pub/ftp.xemacs.org/tux/xemacs/stable/
-      SOURCE_VFY=sha1:67876eb2bbedc02e7b660db8b4c31b5b98be865e
+         VERSION=21.5.34
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-c11.patch
+      SOURCE_URL=http://ftp.xemacs.org/pub/xemacs/beta/
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha256:33cc54a6a9a45224a64b6c57c8138b5a5f0f1be368951a6d9ec8c0aec5993ee5
+     SOURCE2_VFY=sha256:b0ad1de85b26709168112caa3b0b1dea6d4cdc153b1d758ac714e5825da79fe6
         WEB_SITE=http://www.xemacs.org/
          ENTERED=20011112
-         UPDATED=20121006
-           SHORT="highly customizable open source text editor and application development system."
+         UPDATED=20160501
+           SHORT="A highly customizable application development system"
            PSAFE="no"
+
 cat << EOF
 XEmacs is a highly customizable open source text editor and application
 development system. It is protected under the GNU Public License and

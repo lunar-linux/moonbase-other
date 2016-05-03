@@ -1,6 +1,7 @@
           MODULE=samba
-         VERSION=3.6.25
+         VERSION=4.4.3
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-4.4.2-libsystemd.patch
    SOURCE_URL[0]=http://us1.samba.org/$MODULE/ftp/stable
    SOURCE_URL[1]=http://us2.samba.org/$MODULE/ftp/stable
    SOURCE_URL[2]=http://us3.samba.org/$MODULE/ftp/stable
@@ -8,12 +9,14 @@
    SOURCE_URL[4]=ftp://se.samba.org/pub/$MODULE
    SOURCE_URL[5]=ftp://de.samba.org/samba.org
    SOURCE_URL[6]=http://us1.samba.org/$MODULE/ftp/old-versions
-      SOURCE_VFY=sha256:8f2c8a7f2bd89b0dfd228ed917815852f7c625b2bc0936304ac3ed63aaf83751
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha256:031e6ada6d15deae6850845eed41497af32207fb679d6c6c74f19acc99d437ba
+     SOURCE2_VFY=sha256:6b46ace92c2954fe70420754e70fcfa71dd2d3e0cf64cf5b86ea13b827547b7c
         WEB_SITE=http://www.samba.org
          ENTERED=20010922
-         UPDATED=20150227
+         UPDATED=20160502
            SHORT="Samba provides file and print services to SMB/CIFS clients"
-PSAFE=no
+           PSAFE=no
 
 cat << EOF
 SMB server to provide Windows NT and LAN manager-style file and print

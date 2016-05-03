@@ -2,7 +2,7 @@ depends pcre
 depends apr-util
 depends zlib
 
-optional_depends openssl \
+optional_depends %OSSL \
                  "--with-ssl" \
                  "--without-ssl" \
                  "for mod_ssl module"
@@ -36,6 +36,3 @@ optional_depends luajit \
                  "--enable-luajit"  \
                  "--disable-luajit" \
                  "for luajit support"
-
-optional_depends lynx  "" "" "for apachectl status"
-optional_depends links "" "" "for apachectl status"

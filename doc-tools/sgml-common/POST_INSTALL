@@ -1,0 +1,11 @@
+CENTRALIZED="/etc/sgml/catalog"
+
+if ! [ -e "$CENTRALIZED" ]; then
+     echo "Creating $CENTRALIZED"
+     mkdir -p /etc/sgml
+     touch $CENTRALIZED
+fi
+
+/usr/bin/install-catalog --add $CENTRALIZED /usr/share/sgml/sgml-iso-entities-8879.1986/catalog
+/usr/bin/install-catalog --add $CENTRALIZED /usr/share/sgml/xml-iso-entities-8879.1986/catalog
+/usr/bin/install-catalog --remove $CENTRALIZED /etc/sgml/catalog

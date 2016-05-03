@@ -1,7 +1,10 @@
-depends zlib
 depends pcre
 
-optional_depends openssl \
+optional_depends %OSSL \
                  "--with-imap_ssl_module --with-http_ssl_module" \
                  "--without-imap_ssl_module --without-http_ssl_module" \
                  "for creating SSL connections"
+
+optional_depends geoip \
+                 "--with-http_geoip_module" "" \
+                 "for IP geolocation module support"

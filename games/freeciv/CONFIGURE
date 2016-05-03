@@ -3,7 +3,7 @@ mquery CLIENTS "Build clients?" y
 CLIST=""
 
 if [ "`get_module_config CLIENTS`" = "y" ]; then
-  mquery GTK "Build gtk+-2 client?" y
+  mquery GTK "Build GTK client?" y
   if [ "`get_module_config GTK`" = "y" ]; then
     CLIST="${CLIST}gtk,"
   fi
@@ -20,7 +20,5 @@ else
   OPTS="$OPTS --enable-client=$CLIST"
 fi
 
-mquery  SERV  "Build freeciv server (needed for solo games, too)?" \
-              y                                                    \
-              "--enable-server"                                    \
-              "--disable-server"
+mquery SERV "Build freeciv server (needed for solo games, too)?" y \
+            "--enable-server" "--disable-server"

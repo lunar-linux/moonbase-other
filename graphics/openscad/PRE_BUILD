@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# don't compile with -DDEBUG
+sedit '/DEFINES += DEBUG/ d' openscad.pro &&
+
+# nonsense, this compiles fine
+sedit '/EIGEN_DONT_ALIGN/ d' eigen.pri

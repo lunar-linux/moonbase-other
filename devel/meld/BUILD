@@ -1,3 +1,7 @@
-make prefix=/usr localstatedir=/var sysconfdir=/etc  &&
-prepare_install   &&
-make prefix=/usr localstatedir=/var sysconfdir=/etc install
+python setup.py build &&
+
+prepare_install &&
+
+python2 setup.py --no-update-icon-cache \
+                 --no-compile-schemas \
+                 install --prefix=/usr --optimize=1

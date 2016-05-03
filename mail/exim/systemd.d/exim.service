@@ -5,8 +5,8 @@ Conflicts=postfix.service
 
 [Service]
 PrivateTmp=true
-ExecStart=/usr/sbin/exim -bd -q30m
-
+PIDFile=/var/run/exim.pid
+ExecStart=/usr/bin/exim -bd -q30m
 
 [Install]
 WantedBy=multi-user.target
