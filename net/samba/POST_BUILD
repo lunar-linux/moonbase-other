@@ -8,3 +8,10 @@ if [ "$TALLOC" = 'installed' ]; then
   lin talloc
 fi
 unset TALLOC
+
+# Create a samba.conf file to create a needed directory
+cat > $MODULE.conf << EOF &&
+d /run/samba 0755 root root -
+d /run/samba 0755 root root -
+EOF
+cp $MODULE.conf /etc/tmpfiles.d/
