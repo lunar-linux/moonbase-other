@@ -1,20 +1,7 @@
-(
+prepare_install &&
 
-  gzip -9 makeself.1                                    &&
-  prepare_install                                       &&
-
-  install -m 0755 makeself.sh /usr/bin                  &&
-  install -m 0755 makeself-header.sh /usr/bin           &&
-  mkdir -p /usr/share/doc/makeself                      &&
-  install -m 0644 makeself.lsm /usr/share/doc/makeself  &&
-  install -m 0644 makeself.1.gz /usr/man/man1
-  
-  pushd .  &&
-  cd /usr/bin  &&
-  # To be recognized by VirtualBox 4.
-  # These .sh extensions should eventually be removed from /usr/bin/
-  ln -sfn makeself.sh makeself  &&
-  ln -sfn makeself-header.sh makeself-header  &&
-  popd
-
-) > $C_FIFO 2>&1
+install -d /usr/{bin,share/{$MODULE,man/man1}} &&
+install -m644 makeself.lsm README /usr/share/$MODULE &&
+install -m644 makeself.1 /usr/share/man/man1/ &&
+install -m755 makeself.sh /usr/bin/makeself &&
+install -m755 makeself-header.sh /usr/share/$MODULE

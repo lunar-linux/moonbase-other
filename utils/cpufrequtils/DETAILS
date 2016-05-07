@@ -1,0 +1,20 @@
+          MODULE=cpufrequtils
+         VERSION=008
+          SOURCE=$MODULE-$VERSION.tar.xz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+   SOURCE_URL[0]=$KERNEL_URL/pub/linux/utils/kernel/cpufreq
+   SOURCE_URL[1]=http://mirror.linux.org.au/linux/utils/kernel/cpufreq
+      SOURCE_VFY=sha256:a2149db551f83112209b1a8e79bd50d386979bbf64edbc69126f4e0b4f0a4cab
+        WEB_SITE=http://www.kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html
+         ENTERED=20060221
+         UPDATED=20151010
+           SHORT="easier access to the kernel cpufreq subsystem and cpufreq userspace tools"
+           PSAFE=no
+
+cat << EOF
+To make access to the Linux kernel cpufreq subsystem easier for users and
+cpufreq userspace tools, a cpufrequtils package was created. It contains
+a library used by other programs (libcpufreq), command line tools to
+determine current CPUfreq settings and to modify them (cpufreq-info and
+cpufreq-set), and debug tools. It is licensed under the GPLv2.
+EOF

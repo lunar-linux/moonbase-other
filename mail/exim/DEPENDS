@@ -1,7 +1,8 @@
 depends db
 depends gawk
+depends pcre
+depends Linux-PAM
 
 optional_depends %CROND "" "" "to periodically attempt to resend undelivered mail"
-optional_depends %MYSQL ""  ""  "for mysql lookup tables"
-optional_depends %X "" "" "Build exim monitor with x11 support"
-optional_depends %SSL "" "" "for SSl/TLS-encryption support"
+optional_depends %X     "" "" "build exim monitor with x11 support"
+optional_depends %SSL   "" "" "for SSl/TLS-encryption support"

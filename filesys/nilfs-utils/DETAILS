@@ -1,11 +1,11 @@
           MODULE=nilfs-utils
-         VERSION=2.0.17
-          SOURCE=${MODULE}-${VERSION}.tar.bz2
-   SOURCE_URL[0]=http://www.nilfs.org/download/
-      SOURCE_VFY=sha1:eff76604fd32461e94120bf54fccf59fad52d22a
-        WEB_SITE=http://www.nilfs.org/en/about_nilfs.html
+         VERSION=2.2.4
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://nilfs.sourceforge.net/download/
+      SOURCE_VFY=sha256:15b63eeba3b0ad7a438e03be8c05060a875dbfa570384e661caffc665c8695fb
+        WEB_SITE=http://nilfs.sourceforge.net/en/
          ENTERED=20100313
-         UPDATED=20100313
+         UPDATED=20160501
            SHORT="log-structured file system"
 
 cat << EOF
@@ -14,7 +14,5 @@ continuous snapshotting. In addition to versioning capability of the entire
 file system, users can even restore files mistakenly overwritten or destroyed
 just a few seconds ago. Since NILFS can keep consistency like conventional LFS,
 it achieves quick recovery after system crashes.
-
 Refer to Documentation/filesystems/nilfs2.txt found in the kernel source.
-
 EOF

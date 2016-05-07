@@ -1,10 +1,7 @@
-if in_depends $MODULE qt4; then
-  . /etc/profile.d/qt4.rc
+if in_depends $MODULE qt5; then
+  . /etc/profile.d/qt5.rc
 fi &&
 
-OPTS+=" --enable-fallback-curses --enable-pinentry-curses" &&
-
-# This is still needed
-sedit 's/gulong/gsize/g' gtk+-2/gtksecentry.c  &&
+OPTS+=" --enable-fallback-curses --enable-pinentry-curses --disable-rpath" &&
 
 default_build

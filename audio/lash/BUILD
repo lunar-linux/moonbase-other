@@ -1,6 +1,9 @@
 
-  patch_it $SOURCE2 0 &&
+  patch_it $SOURCE2 1 &&
+  patch_it $SOURCE3 0 &&
 
-  LDFLAGS+=" -luuid -lm -ldl" &&
+  sedit "29i #include <uuid/uuid.h>" lashd/server.h &&
+
+  LDFLAGS+=" -lm -ldl" &&
 
   default_build

@@ -1,0 +1,14 @@
+default_pre_build &&
+
+# fix the Makefile
+sedit "s:\# RM_C:RM_C:" src/EDITME &&
+sedit "s:\# MV_C:MV_C:" src/EDITME &&
+sedit "s:\# MAKE_S:MAKE_S:" src/EDITME &&
+sedit "s:=/bin/:=:g" Makefile src/EDITME &&
+
+# prepare the exim.conf file
+sedit "s|/etc/aliases|/etc/mail/aliases|g" src/configure.default &&
+sedit "s|SYSTEM_ALIASES_FILE|/etc/mail/aliases|g" src/configure.default &&
+sedit "s:var/mail:var/spool/mail:" src/configure.default &&
+sedit "s/\# group = mail/  group = mail/" src/configure.default &&
+sedit "s/\# mode = 0660/  mode = 0660/" src/configure.default
