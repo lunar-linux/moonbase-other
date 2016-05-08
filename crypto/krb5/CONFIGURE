@@ -19,22 +19,22 @@ echo "if openssh is installed or, after installing kerberos rcp -x command"
 echo "to accomplish this securely"
 echo "************"
 
-if query "do you want to have xinetd run any of the kerberized daemons" n; then
+if   query "do you want to have xinetd run any of the kerberized daemons" n ; then
   mkdir $SCRIPT_DIRECTORY/xinetd.d
   for i in ftpd telnetd kshd klogind
   do {
-    if query "do you want to have xinetd run $i" n; then
+    if query "do you want to have xinetd run $i" n ; then
       cp $SCRIPT_DIRECTORY/xinetd.configs/$i $SCRIPT_DIRECTORY/xinetd.d
     fi
   } done
 fi
 
-if query "Will this machine be serving as a KDC?" n; then
-  cp $SCRIPT_DIRECTORY/krb5.sh /etc/init.d/krb5.sh
-  [ -f /etc/kdc.conf ] || \
-  sed 's/local\///' src/config-files/kdc.conf > /etc/kdc.conf
+if   query "Will this machine be serving as a KDC?" n
+  then cp $SCRIPT_DIRECTORY/krb5.sh /etc/init.d/krb5.sh
+  [  -f  /etc/kdc.conf   ]  || \
+   sed 's/local\///' src/config-files/kdc.conf >  /etc/kdc.conf
 fi
 
-if query "Will this machine be serving as the Master KDC" n; then
-  sedit 's/krb5kdc/krb5kdc kadmind/' /etc/init.d/krb5.sh
-fi
+if   query "Will this machine be serving as the Master KDC" n
+  then sedit 's/krb5kdc/krb5kdc kadmind/' /etc/init.d/krb5.sh
+fi 
