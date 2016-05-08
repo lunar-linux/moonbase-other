@@ -1,11 +1,20 @@
           MODULE=socat
-         VERSION=1.7.3.0
+         VERSION=1.7.3.1
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=socat-1.7.3.1-add-missing-checks.patch
+         SOURCE3=socat-1.7.3.0-filan-build.patch
+         SOURCE4=socat-1.7.3.1-stddef_h.patch
       SOURCE_URL=http://www.dest-unreach.org/$MODULE/download/
-      SOURCE_VFY=sha256:0767e850c0329b9fdf711c6cd468565cbbb28786ba1a8a1cbd5531d4016b3e04
+     SOURCE2_URL=PATCH_URL
+     SOURCE3_URL=https://gitweb.gentoo.org/repo/gentoo.git/plain/net-misc/socat/files/
+     SOURCE4_URL=https://gitweb.gentoo.org/repo/gentoo.git/plain/net-misc/socat/files/
+      SOURCE_VFY=sha256:d2da659540c38139f388e9437bfaae16bb458d174d056cb3228432a8f489fbaa
+     SOURCE2_VFY=sha256:94cfa1462e56c224792fac0fcfb3bb534e4c6be2fe03aa086f8eb7e8e2a4e65b
+     SOURCE3_VFY=sha256:1916386401f633c4d4e74aa61ca3039580cb69b6d89e69e73e0eaf9d463c1c15
+     SOURCE4_VFY=sha256:3401aaadd8b837fea293105431d8f939bf8ee15cc76039726fd7c91add16063f
         WEB_SITE=http://www.dest-unreach.org/socat/
          ENTERED=20070422
-         UPDATED=20151123
+         UPDATED=20160506
            SHORT="SOcket CAT"
 
 cat << EOF
