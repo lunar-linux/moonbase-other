@@ -26,5 +26,5 @@ if [ "$COMPAT" != n ]; then
   ln -sf /usr/bin/cdda2wav /usr/bin/icedax &&
   ln -sf /usr/bin/readcd   /usr/bin/readom &&
   ln -sf /usr/bin/cdrecord /usr/bin/wodim  &&
-  ln -sf /usr/bin/rscsi    /usr/bin/netscsid
+  ln -sf /usr/sbin/rscsi /usr/bin/netscsid
 fi
