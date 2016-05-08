@@ -1,7 +1,7 @@
 mkdir -p $SOURCE_DIRECTORY &&
 
 for _database_name in GeoIP GeoIPv6; do
-  gunzip -c $SOURCE_CACHE/$_database_name-$VERSION.dat.gz >$SOURCE_DIRECTORY/$_database_name.dat
+  gunzip -c $SOURCE_CACHE/$_database_name.dat.gz >$SOURCE_DIRECTORY/$_database_name.dat
 done &&
 
 cd $SOURCE_DIRECTORY
