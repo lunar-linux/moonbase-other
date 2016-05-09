@@ -19,8 +19,10 @@ chmod 750 /var/log/nginx &
             --http-uwsgi-temp-path=/var/spool/nginx/uwsgi \
             --user=http  \
             --group=http \
+            --with-mail \
             --with-imap  \
             --with-ipv6  \
+            --with-threads \
             --with-pcre-jit \
             --with-file-aio \
             --with-http_v2_module \
