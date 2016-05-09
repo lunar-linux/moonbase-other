@@ -2,3 +2,31 @@ default_pre_build &&
 
 # otherwise their only .a is not compiled with pic
 sedit '/vtk_add_library/ a set_target_properties(${vtk-module} PROPERTIES COMPILE_FLAGS -fPIC)' Wrapping/Tools/CMakeLists.txt
+
+OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
+        -DVTK_USE_SYSTEM_EXPAT=ON    \
+        -DVTK_USE_SYSTEM_LIBXML2=ON  \
+        -DVTK_USE_SYSTEM_PNG=ON      \
+        -DVTK_USE_SYSTEM_TIFF=ON     \
+        -DVTK_USE_SYSTEM_FREETYPE=ON \
+        -DVTK_USE_SYSTEM_ZLIB=ON     \
+        -DVTK_WRAP_PYTHON=ON         \
+        -DVTK_USE_SYSTEM_JSONCPP=ON  \
+        -DCMAKE_CXX_FLAGS="-D__STDC_CONSTANT_MACROS" \
+        -DVTK_USE_SYSTEM_OGGTHEORA=ON"
+
+# This is a similar issue as found in the graphviz BUILD; so lunar fix
+# does not complain over the inability to find some shared ojbects.
+if in_depends $MODULE %JAVA_SDK; then
+  if module_installed sun-jdk; then
+    . /etc/profile.d/sun-jdk.rc
+  else
+    . /etc/profile.d/sun-jre.rc
+  fi &&
+  OPTS+=" -DVTK_WRAP_JAVA=ON -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-rpath,/usr/lib/java/latest/jre/lib/amd64 -DCMAKE_SHARED_LINKER_FLAGS_RELEASE=-Wl,-rpath,/usr/lib/java/latest/jre/lib/amd64"
+fi &&
+
+if in_depends $MODULE qt5; then
+  . /etc/profile.d/qt5.rc &&
+  OPTS+=" -DVTK_INSTALL_QT_PLUGIN_DIR=${QT_PLUGIN_PATH}/designer -DVTK_QT_VERSION:STRING=5"
+fi
