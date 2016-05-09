@@ -29,6 +29,8 @@ optional_depends "jemalloc"   "-DWITH_MEM_JEMALLOC=1"    "-DWITH_MEM_JEMALLOC=0"
 optional_depends "OpenColorIO" "-DWITH_OPENCOLORIO=1" "-DWITH_OPENCOLORIO=0" "For color management support"
 optional_depends "OpenImageIO-oiio" "-DOPENIMAGEIO_ROOT_DIR=/usr -DWITH_CYCLES=1" "-DWITH_CYCLES=0" "For cycles support"
 
+optional_depends "OpenCOLLADA" "-DWITH_OPENCOLLADA=1" "-DWITH_OPENCOLLADA=0" "support the COLLADA 3d file format"
+
 # This does have -D switch but we do not know if numpy has been compiled with Python-3 support
 # so this will be checked in build
 optional_depends "numpy" "" "" "To support high-performance numerical calculations"

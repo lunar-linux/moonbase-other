@@ -1,0 +1,18 @@
+default_pre_build     &&
+
+patch_it $SOURCE2 1 &&
+patch_it $SOURCE3 1 &&
+patch_it $SOURCE4 1 &&
+patch_it $SOURCE5 1 &&
+
+OPTS+=" dbus_export=yes manbuild=no chrpath=no" &&
+
+if in_depends $MODULE qt4 ; then
+  . /etc/profile.d/qt4.rc
+fi &&
+
+if in_depends $MODULE systemd ; then
+  OPTS+=" systemd=yes"
+   else
+  OPTS+=" systemd=no"
+fi
