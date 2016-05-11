@@ -1,10 +1,3 @@
-# if module_installed ppp; then
-#   sedit "s:/etc/resolv.conf:/etc/ppp/resolv.conf:" src/dns_internal.c
-# fi
-
-
-sedit "s:\$(DEFAULT_LOG_PREFIX)/squid\.pid:/var/run/squid\.pid:" src/Makefile.in &&
-
 set -x &&
 
 ./configure --prefix=/usr                    \
@@ -26,4 +19,4 @@ if [ -e /etc/init.d/squid.sh ]; then
 fi &&
 
 devoke_installwatch &&
-chown  -R  nobody.nogroup  /var/cache/squid
+chown -R  nobody.nogroup /var/cache/squid
