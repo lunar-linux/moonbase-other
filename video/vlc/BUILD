@@ -17,7 +17,7 @@ fi &&
 
 if in_depends $MODULE samba; then
   export SMBCLIENT_LIBS+=" /usr/lib/libsmbclient.so" &&
-  export SMBCLIENT_CFLAGS+=" -I/usr/include/libsmbclient.h"
+  export SMBCLIENT_CFLAGS+=" -I/usr/include/samba-4.0/libsmbclient.h"
 fi &&
 
 if module_installed live555; then
