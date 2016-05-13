@@ -1,51 +1,42 @@
+depends vala
 depends cmake
 
 optional_depends Python \
-                 "-DWITH_PYTHON=ON" \
-                 "-DWITH_PYTHON=OFF" \
+                 "-DWITH_PYTHON=1" \
+                 "-DWITH_PYTHON=0" \
                  "for the Python bindings"
 
 optional_depends perl \
-                 "-DWITH_PERL=ON" \
-                 "-DWITH_PERL=OFF" \
+                 "-DWITH_PERL=1" \
+                 "-DWITH_PERL=0" \
                  "for Perl bindings"
 
-optional_depends vala \
-                 "-DWITH_VALA=ON" \
-                 "-DWITH_VALA=OFF" \
-                 "for vala bindings"
-
 optional_depends kdelibs \
-                 "-DWITH_KDE4=ON" \
-                 "-DWITH_KDE4=OFF" \
-                 "for KDE bindings. Circular dependency, compile without first."
+                 "-DWITH_KDE=1" \
+                 "-DWITH_KDE=0" \
+                 "for KDE bindings. ${PROBLEM_COLOR}Circular dependency, compile without first${DEFAULT_COLOR}"
 
-optional_depends %GECKO_RENDERER \
-                 "-DWITH_MOZJS=ON" \
-                 "-DWITH_MOZJS=OFF" \
+optional_depends %MOZJS \
+                 "-DWITH_MOZJS=1" \
+                 "-DWITH_MOZJS=0" \
                  "for Mozilla javascript bindings"
 
-optional_depends webkitgtk3 \
-                 "-DWITH_WEBKIT3=ON" \
-                 "-DWITH_WEBKIT3=OFF" \
-                 "webkitgtk3 (circular dependency - compile without webkitgtk3 first)"
+optional_depends webkit2gtk3 \
+                 "-DWITH_WEBKIT3=1" \
+                 "-DWITH_WEBKIT3=0" \
+                 "webkitgtk3 ${PROBLEM_COLOR}(circular dependency - compile without webkitgtk3 first)${DEFAULT_COLOR}"
 
-optional_depends GConf \
-                 "-DWITH_GNOME=ON" \
-                 "-DWITH_GNOME=OFF" \
-                 "for Gnome/GConf bindings"
+optional_depends GConf   \
+                 "-DWITH_GNOME2=1"   \
+                 "-DWITH_GNOME2=0"   \
+                 "for Gnome2/GConf bindings"
 
 optional_depends gtk+-3 \
-                 "-DWITH_GNOME3=ON" \
-                 "-DWITH_GNOME3=OFF" \
-                 "for Gnome/GConf bindings"
+                 "-DWITH_GNOME3=1" \
+                 "-DWITH_GNOME3=0" \
+                 "for Gnome3/GConf bindings"
 
 optional_depends NetworkManager \
-                 "-DWITH_NM=ON" \
-                 "-DWITH_NM=off" \
+                 "-DWITH_NM=1" \
+                 "-DWITH_NM=0" \
                  "for NetworkManager support"
-
-optional_depends mono \
-                 "-DWITH_DOTNET=ON" \
-                 "-DWITH_DOTNET=off" \
-                 "for dot net support"
