@@ -10,7 +10,12 @@ if [ "$USE_UNLOCK" == "y" ] ; then
   CFLAGS+=" -DSQLITE_ENABLE_UNLOCK_NOTIFY"
 fi &&
 
-export CFLAGS+=" -DSQLITE_ENABLE_FTS3=1 \
+# enabling fts4 (Full Text Search) covers versions 4 and 3
+# https://bugzilla.mozilla.org/show_bug.cgi?id=414102 gives a clue
+# why system provided sqlite can cause problems with those apps such
+# firefox, etal.
+export CFLAGS+=" -DSQLITE_ENABLE_FTS4=1 \
+                 -DSQLITE_ENABLE_FTS3_TOKENIZER=1 \
                  -DSQLITE_ENABLE_COLUMN_METADATA=1 \
                  -DSQLITE_ENABLE_DBSTAT_VTAB=1 \
                  -DSQLITE_ENABLE_RTREE=1" &&
