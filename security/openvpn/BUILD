@@ -1,3 +1,6 @@
-OPTS+=" --enable-plugins --enable-pasword-save" &&
+OPTS+=" --enable-plugins \
+        --libexecdir=/usr/lib" &&
+
+#        --enable-small
 
 default_build
