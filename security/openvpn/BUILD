@@ -1,6 +1,3 @@
-OPTS+=" --enable-plugins \
-        --libexecdir=/usr/lib" &&
-
-#        --enable-small
+OPTS+=" --enable-plugins " &&
 
 default_build
