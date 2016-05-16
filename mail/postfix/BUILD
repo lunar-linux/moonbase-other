@@ -1,5 +1,3 @@
-sedit "s:#mail_spool_directory = .*:mail_spool_directory = /var/spool/mail:" conf/main.cf
-
 add_priv_user postdrop:postdrop &&
 add_priv_user postfix:postfix &&
 add_priv_user mail:mail &&
@@ -36,6 +34,11 @@ if in_depends $MODULE postgresql; then
   CCARGS+=" -DHAS_PGSQL -I/usr/include/postgresql"
 fi &&
 
+if in_depends $MODULE tinycdb; then
+  AUXLIBS=$AUXLIBS" -lcdb"
+  CCARGS+=" -DHAS_CDB"
+fi &&
+
 if in_depends $MODULE cyrus-sasl; then
   AUXLIBS=$AUXLIBS" -lsasl2 -lssl -lcrypto"
   CCARGS+=" -DUSE_CYRUS_SASL -DUSE_SASL_AUTH -I/usr/include/sasl -DUSE_TLS -I/usr/include/openssl"
@@ -50,7 +53,12 @@ AUXLIBS+=" -lpthread" &&
 echo CCARGS=$CCARGS   &&
 echo AUXLIBS=$AUXLIBS &&
 
-make makefiles DEBUG='' pie=yes shared=yes CCARGS="$CCARGS" AUXLIBS="$AUXLIBS" OPT="$CFLAGS $LDFLAGS" &&
+make makefiles DEBUG='' \
+               pie=yes \
+               shared=yes \
+               CCARGS="$CCARGS" \
+               AUXLIBS="$AUXLIBS" \
+               OPT="$CFLAGS $LDFLAGS" &&
 make &&
 prepare_install &&
 
