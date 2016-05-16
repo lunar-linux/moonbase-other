@@ -1,8 +1,0 @@
-# There is a circular dependency of menu-cache with libfm.
-# In order to solve it we install libfm-extra if libfm is not already installed.
-
-if !(module_installed libfm || module_installed libfm-extra); then
-  lin libfm-extra
-fi
-
-default_pre_build
