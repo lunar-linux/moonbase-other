@@ -1,3 +1,6 @@
+OPTS+=" --exec-prefix=/usr \
+        --libexecdir=/usr/lib/gnupg" &&
+
 default_build &&
 
 ln -sf /usr/bin/gpg2  /usr/bin/gpg

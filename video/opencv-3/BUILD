@@ -4,20 +4,21 @@ else
   if in_depends $MODULE qt4; then
     . /etc/profile.d/qt4.rc
   else
-    OPTS+=" -DWITH_QT=OFF"
+    OPTS+=" -DWITH_QT=0"
   fi
 fi &&
 
 # bug: examples have to be build, if they (the sources) will be installed
 if [[ "`get_module_config EXAMPLES`" = "y" ]]; then
-  OPTS+=" -DBUILD_EXAMPLES=ON"
+  OPTS+=" -DBUILD_EXAMPLES=1"
 else
-  OPTS+=" -DBUILD_EXAMPLES=OFF"
+  OPTS+=" -DBUILD_EXAMPLES=0"
 fi &&
 
-OPTS+=" -DBUILD_WITH_DEBUG_INFO=OFF \
-        -DBUILD_TESTS=OFF \
-        -DBUILD_PERF_TESTS=OFF
-        -DENABLE_SSE3=OFF" &&
+OPTS+=" -DBUILD_WITH_DEBUG_INFO=0 \
+        -DBUILD_TESTS=0 \
+        -DBUILD_PERF_TESTS=0 \
+        -DBUILD_SHARED_LIBS=1 \
+        -DENABLE_SSE3=0" &&
 
 default_cmake_build

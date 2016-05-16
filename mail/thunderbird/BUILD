@@ -1,27 +1,6 @@
   # this breaks a symbol check in the build scripts
   LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
 
-  export MOZ_CO_PROJECT=mail  &&
-  export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
-  export MOZILLA_OFFICIAL=1  &&
-  export BUILD_OFFICIAL=1  &&
-  export MOZ_MAKE_FILES=$MAKES  &&
-  export MOZ_THUNDERBIRD=1 &&
-  export MOZ_OPTIMIZE_FLAGS="$CFLAGS" &&
-  export MOZ_DEBUG_FLAGS="$CFLAGS" &&
-
-  cp $SCRIPT_DIRECTORY/mozconfig .  &&
-  export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
-  mkdir -p ${MOZ_OBJDIR}  &&
-
-  for flag in $OPTS; do
-  echo "ac_add_options $flag" >> mozconfig
-  done &&
-
-  if in_depends $MODULE sun-jdk ; then
-    echo "ac_add_options --with-java-bin-path=/usr/java/default/bin" >> mozconfig
-  fi  &&
-
   setterm -bfreq -blength &&
 
   #Finally, the build!

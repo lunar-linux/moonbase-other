@@ -1,10 +1,7 @@
-(
 
   if module_installed systemd ; then
-     OPTS+=" --with-udev-dir=/usr/lib/udev/rules.d"
+     OPTS+=" --with-udev-dir=/usr/lib/udev/"
   fi &&
 
   default_build
-
-) > $C_FIFO 2>&1
 

@@ -1,6 +1,6 @@
 ./bootstrap &&
 
-OPTS+=" --disable-static   \
+OPTS+=" --disable-static \
         --enable-tile-path \
         --enable-python-extension" &&
 

@@ -3,8 +3,8 @@ if [ -f /var/phpMyAdmin/config.inc.php ]; then
 fi &&
 
 prepare_install &&
-mkdir -p /var/${MODULE}  &&
-cp -av * /var/${MODULE}/ &&
+mkdir -p /var/$MODULE  &&
+cp -av * /var/$MODULE/ &&
 
 if [ -f /tmp/config.inc.php ]; then
   cp /var/phpMyAdmin/config.inc.php /var/phpMyAdmin/config.inc.php.old &&

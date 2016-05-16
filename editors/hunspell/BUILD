@@ -1,4 +1,4 @@
-OPTS+=" --disable-static" &&
+OPTS+=" --disable-static --enable-threads=posix" &&
 
 default_build &&
 

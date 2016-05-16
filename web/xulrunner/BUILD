@@ -1,6 +1,11 @@
   # this breaks a symbol check in the build scripts
   LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
 
+  sedit "3i libdir=\%libdir\%" xulrunner/installer/libxul.pc.in &&
+  sedit "78i -e \"s|%libdir%|\$(installdir)|\\\" " xulrunner/installer/Makefile.in &&
+  sedit "s:-DXP_UNIX: -I\$\{includedir\}/js -DXP_UNIX:" xulrunner/installer/mozilla-js.pc.in &&
+  sedit "458i freetype/ftfntfmt.h" config/system-headers &&
+
   export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
   mkdir -p ${MOZ_OBJDIR}  &&
 
@@ -34,8 +39,10 @@
           --enable-optimize \
           --disable-necko-wifi \
           --enable-tree-freetype \
+          --disable-startupcache \
           --enable-startup-notification" &&
 
+  export MOZ_PKG_FATAL_WARNINGS=0 &&
   export MOZ_CO_PROJECT=xulrunner &&
   export MOZILLA_OFFICIAL=1 &&
   export BUILD_OFFICIAL=1 &&

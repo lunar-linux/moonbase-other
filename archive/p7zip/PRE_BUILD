@@ -1,0 +1,14 @@
+default_pre_build &&
+
+sedit 's:\/usr\/local:\/usr:' makefile install.sh &&
+
+# Fix doc permissions - "find... -exec chmod" in install.sh has no effect
+chmod 644 ChangeLog README &&
+find DOC -type d -print0 | xargs -0 chmod 755 &&
+find DOC -type f -print0 | xargs -0 chmod 644 &&
+
+if [[ `arch` == "x86_64" ]]; then
+  cp makefile.linux_amd64_asm makefile.machine
+else
+  cp makefile.linux_x86_asm_gcc_4.X makefile.machine
+fi

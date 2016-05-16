@@ -1,19 +1,20 @@
-(
+KERNEL_DIR="$SOURCE_DIRECTORY" &&
 
-  KERNEL_DIR="$SOURCE_DIRECTORY"
+# Ready the headers
+cd ${KERNEL_DIR} &&
 
-  # Ready the headers
-  cd ${KERNEL_DIR}
-  make headers_check
-  make INSTALL_HDR_PATH=${SOURCE_DIRECTORY}/kernel-headers-$VERSION-x86_64 headers_install
+make mrproper &&
+make headers_check &&
 
-  # Remove some of them since they are provided by glibc already
-  rm -rf $SOURCE_DIRECTORY/kernel-headers-$VERSION-x86_64/include/scsi
+make INSTALL_HDR_PATH=${SOURCE_DIRECTORY}/kernel-headers-$VERSION-x86_64 headers_install &&
 
-  prepare_install
+# Remove some of them since they are provided by glibc already
+rm -rf $SOURCE_DIRECTORY/kernel-headers-$VERSION-x86_64/include/scsi &&
 
-  tar cjvf kernel-headers-$VERSION-x86_64.tar.bz2 kernel-headers-$VERSION-x86_64  &&
+# clean-up unnecessary files generated during install
+find \( -name .install -o -name ..install.cmd \) -delete &&
 
-  install -m644 $SOURCE_DIRECTORY/kernel-headers-$VERSION-x86_64.tar.bz2 $SOURCE_CACHE/
+prepare_install &&
 
-) > $C_FIFO 2>&1
+tar cjvf kernel-headers-$VERSION-x86_64.tar.bz2 kernel-headers-$VERSION-x86_64 &&
+install -m644 $SOURCE_DIRECTORY/kernel-headers-$VERSION-x86_64.tar.bz2 $SOURCE_CACHE/
