@@ -4,11 +4,13 @@
   mkdir -p /var/lib/sddm &&
 
   add_priv_group sddm &&
-  add_priv_user sddm -d /var/lib/sddm -g sddm &&
+  add_priv_user sddm -d /var/lib/sddm -g sddm sddm &&
 
   OPTS+=" -DDBUS_CONFIG_FILENAME=org.freedesktop.sddm.conf" &&
 
   default_cmake_build
+
+  chown -R sddm:sddm /var/lib/sddm > /dev/null &&
 
 # Tweak some PAM stuff
   sedit "s:system-login:system-auth:g" /etc/pam.d/sddm &&

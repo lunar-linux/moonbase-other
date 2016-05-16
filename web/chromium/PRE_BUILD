@@ -75,11 +75,12 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
           -Dpython_ver=${PYTHON_VER}                            \
           -Dfastbuild=1                                         \
           -Dlinux_strip_binary=1                                \
+          -Dremove_webcore_debug_symbols=1                      \
           -Dffmpeg_branding=Chrome                              \
           -DENABLE_MEDIA_CAPTURE=1                              \
           -Duse_system_bzip2=1                                  \
           -Duse_system_flac=1                                   \
-          -Duse_system_vpx=1                                    \
+          -Duse_system_libvpx=1                                 \
           -Duse_system_harfbuzz=1                               \
           -Duse_system_icu=1                                    \
           -Duse_system_jsoncpp=1                                \
@@ -96,9 +97,9 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
           -Duse_system_speex=1                                  \
           -Duse_system_xdg_utils=1                              \
           -Duse_system_zlib=0                                   \
+          -Denable_spellcheck=1                                 \
           -Dlinux_link_libspeechd=1                             \
           -Dlibspeechd_h_prefix=speech-dispatcher/              \
-          -Dremove_webcore_debug_symbols=1                      \
           -Dusb_ids_path=/usr/share/usb.ids                     \
           -Duse_gnome_keyring=1                                 \
           -Dlinux_link_gnome_keyring=1                          \
@@ -121,11 +122,7 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
 
   third_party/libaddressinput/chromium/tools/update-strings.py &&
 
-# The 100 percent avatar png was causing tools/grit/grit.py to tank on its chunkability 
-# Don't care 200 percent is bigger, just copy one to the other and press on.
-#  cp chrome/app/theme/default_200_percent/common/avatar_menu_profile.png chrome/app/theme/default_100_percent/common/avatar_menu_profile.png &&
-
-  # https://groups.google.com/a/chromium.org/d/topic/chromium-packagers/9JX1N2nf4PU/discussion
+# https://groups.google.com/a/chromium.org/d/topic/chromium-packagers/9JX1N2nf4PU/discussion
   touch chrome/test/data/webui/i18n_process_css_test.html &&
 
 # https://code.google.com/p/chromium/issues/detail?id=541273
