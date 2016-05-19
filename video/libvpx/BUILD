@@ -2,6 +2,7 @@ CFLAGS="-fPIC" &&
 
 OPTS+=" --prefix=/usr               \
         --as=yasm                   \
+        --extra-cflags="${CFLAGS}"  \
         --enable-pic                \
         --enable-vp8                \
         --enable-vp9                \
@@ -10,7 +11,9 @@ OPTS+=" --prefix=/usr               \
         --enable-postproc           \
         --enable-vp9-postproc       \
         --enable-runtime-cpu-detect \
+        --enable-multi-res-encoding \
         --disable-examples          \
+        --disable-docs              \
         --disable-install-docs"    &&
 
 # This option breaks compilation on 32 bits systems
