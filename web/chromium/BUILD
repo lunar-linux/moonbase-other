@@ -1,16 +1,10 @@
 export LDFLAGS="$(echo $LDFLAGS | sed 's;-z now;-Wl,-znow;g;s;-z relro;-Wl,-zrelro;g')"
+export -n CFLAGS CXXFLAGS
 
-# Lets do some ffmpeg stuff
-pushd third_party/ffmpeg > /dev/null &&
-  chromium/scripts/build_ffmpeg.py linux ${FFMPEG_OPTS} --branding=Chrome &&
-  chromium/scripts/copy_config.sh &&
-  chromium/scripts/generate_gyp.py &&
-popd > /dev/null &&
-
-build/linux/unbundle/replace_gyp_files.py $OPTS &&
+build/linux/unbundle/replace_gyp_files.py $OPTS -Drelease_extra_cflags="$CFLAGS" &&
 
 # This is the configure step
-build/gyp_chromium build/all.gyp --depth=. $OPTS &&
+build/gyp_chromium build/all.gyp --depth=. $OPTS -Drelease_extra_cflags="$CFLAGS" &&
 
 # This is the make step. According to its --help the default -j is
 # derived from your number of CPUs.
@@ -44,6 +38,7 @@ ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium-browser &&
 ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium &&
 
 install -Dm644 LICENSE /usr/share/licenses/chromium/LICENSE &&
+install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat &&
 
 # symlink to lunar location for browser plugins, should be /usr/lib/lunar/plugins
 ln -sf /usr/lib/lunar/plugins ${CHROMIUM_HOME}/plugins &&
