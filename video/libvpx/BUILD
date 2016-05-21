@@ -10,8 +10,12 @@ OPTS+=" --prefix=/usr               \
         --enable-webm-io            \
         --enable-postproc           \
         --enable-vp9-postproc       \
+        --enable-vp9-highbitdepth   \
         --enable-runtime-cpu-detect \
         --enable-multi-res-encoding \
+        --enable-vp9-temporal-denoising \
+        --enable-coefficient-range-checking \
+        --enable-onthefly-bitpacking \
         --disable-examples          \
         --disable-docs              \
         --disable-install-docs"    &&
