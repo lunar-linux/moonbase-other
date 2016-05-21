@@ -25,16 +25,16 @@ make &&
 cd ../tsscan &&
 make &&
 
-cd $SOURCE_DIRECTORY &&
+cd $SOURCE_DIRECTORY/install &&
 prepare_install &&
 
-cp -R install/usr/bin/* /usr/bin/ &&
-cp -R install/usr/include/* /usr/include/ &&
-cp -R install/usr/lib/* /usr/lib/ &&
-cp -R install/usr/share/* /usr/share/ &&
+cp -R usr/bin/* /usr/bin/ &&
+cp -R usr/include/* /usr/include/ &&
+cp -R usr/lib64/* /usr/lib/ &&
+cp -R usr/share/* /usr/share/ &&
 
-install addons/ad2_vcdimager/ad2_vcdimager /usr/bin/ &&
-install addons/aviscan/aviscan /usr/bin/ &&
-install addons/tsscan/tsscan /usr/bin/ &&
+install $SOURCE_DIRECTORY/addons/ad2_vcdimager/ad2_vcdimager /usr/bin/ &&
+install $SOURCE_DIRECTORY/addons/aviscan/aviscan /usr/bin/ &&
+install $SOURCE_DIRECTORY/addons/tsscan/tsscan /usr/bin/ &&
 install $SOURCE_DIRECTORY/avidemux2.desktop /usr/share/applications/ &&
 install $SOURCE_DIRECTORY/avidemux_icon.png /usr/share/icons/
