@@ -4,5 +4,5 @@ default_pre_build &&
 sedit 's:^dateext:#&:;s:^#compress:compress:;/^compress/acompresscmd /usr/bin/bzip2' examples/logrotate-default &&
 sedit '/^compresscmd/acompressext .bz2' examples/logrotate-default &&
 
-# Use /usr/bin instead of /bin
-sedit 's:"/bin:"/usr/bin:g' config.h
+# Fix path to mail
+sedit '/DEFAULT_MAIL_COMMAND/s;/bin;/usr&;' config.h
