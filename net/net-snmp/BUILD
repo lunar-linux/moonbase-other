@@ -1,15 +1,18 @@
-  SYS_CONTACT="--with-sys-contact=root@`hostname -f`"
-  PERSISTENT="--with-persistent-directory=/var/state/ucd-snmp"
-  DEFAULTS="--with-defaults"
+
+  patch_it $SOURCE2 1 &&
+
+  SYS_CONTACT="--with-sys-contact=root@`hostname -f`" &&
+  PERSISTENT="--with-persistent-directory=/var/state/ucd-snmp" &&
+  DEFAULTS="--with-defaults" &&
 
 # This takes care of the cannot find libperl.so rebuild that
 # happens on a lunar fix.
-  PERL_MAJ_VER="`lvu version perl |cut -c 1`"
-  PERL_VER="`lvu version perl`"
-  PERL_SO_PATH="/usr/lib/perl$PERL_MAJ_VER/$PERL_VER/`arch`-linux-thread-multi/CORE/"
+  PERL_MAJ_VER="`lvu version perl |cut -c 1`" &&
+  PERL_VER="`lvu version perl`" &&
+  PERL_SO_PATH="/usr/lib/perl$PERL_MAJ_VER/$PERL_VER/`arch`-linux-thread-multi/CORE/" &&
 
 # So lets put all that together.
-  LDFLAGS="$LDFLAGS -Wl,-rpath,${PERL_SO_PATH}"
+  LDFLAGS="$LDFLAGS -Wl,-rpath,${PERL_SO_PATH}" &&
 
   OPTS+=" --disable-static"  &&
 
