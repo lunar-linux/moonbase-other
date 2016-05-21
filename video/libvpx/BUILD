@@ -9,6 +9,8 @@ OPTS+=" --prefix=/usr               \
         --enable-shared             \
         --enable-webm-io            \
         --enable-postproc           \
+        --enable-experimental       \
+        --enable-spatial-svc        \
         --enable-vp9-postproc       \
         --enable-vp9-highbitdepth   \
         --enable-runtime-cpu-detect \
