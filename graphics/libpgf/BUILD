@@ -1,6 +1,9 @@
+  cd $SOURCE_DIRECTORY/Codec &&
 
-  dos2unix configure.ac configure.ac.new &&
-  cp configure.ac.new configure.ac &&
-  ./autogen.sh &&
+  touch NEWS && touch AUTHORS
+  libtoolize --copy --force &&
+  aclocal &&
+  automake --gnu --add-missing --copy &&
+  autoconf &&
 
   default_build
