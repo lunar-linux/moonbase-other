@@ -10,6 +10,11 @@ if in_depends $MODULE swfdec ; then
   sedit 's:swfdec-0.3:swfdec-0.8:g' configure
 fi
 
+if in_depends $MODULE opencv-3 ; then
+  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/" &&
+  sedit "s:opencv < 2.5.0:opencv <= 3.1.0:" configure
+fi &&
+
 OPTS+=" --disable-static \
         --disable-valgrind \
         --disable-debug \
