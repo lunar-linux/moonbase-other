@@ -7,13 +7,9 @@ depends gdbus-codegen
 depends at-spi2-atk
 depends libepoxy
 
-optional_depends rest \
-                 "--enable-cloudprint" \
-                 "--disable-cloudprint" \
-                 "for Google Cloud Print Support"
-
-optional_depends json-glib "" "" "also required by cloudprint"
-optional_depends colord    "" "" "for color profiles support"
+optional_depends json-glib "--enable-cloudprint"      "--disable-cloudprint"      "also required by cloudprint"
+optional_depends colord    "--enable-colord=yes"      "--enable-colord=no"        "for color profiles support"
+optional_depends rest      "--enable-cloudprint"      "--disable-cloudprint"      "for Google Cloud Print Support"
 
 # GI _is_ optional here. making it a hard dependency breaks setups without GI.
 # If some project further down the line requires gtk+'s GI files,
