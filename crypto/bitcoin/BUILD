@@ -6,4 +6,6 @@ OPTS+=" --disable-tests" &&
 
 CXXFLAGS+=" -DBOOST_VARIANT_USE_RELAXED_GET_BY_DEFAULT=1" &&
 
+./autogen.sh &&
+
 default_build
