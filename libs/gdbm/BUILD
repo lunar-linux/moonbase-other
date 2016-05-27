@@ -1,3 +1,3 @@
-OPTS+=" --disable-static --enable-libgdm-compat" &&
+OPTS+=" --disable-static" &&
 
 default_build
