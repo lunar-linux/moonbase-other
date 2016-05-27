@@ -27,7 +27,7 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
 
   if query "Would you like to select arch targets? If not selected, all targets will be installed." y ; then
     TARGETLIST=`select_targets`
-    TEMP=`grep -v "TARGETLIST="          $MODULE_CONFIG
+    TEMP=`grep -v "TARGETLIST="          $MODULE_CONFIG`
     echo "$TEMP"                       > $MODULE_CONFIG
     echo "TARGETLIST=\"$TARGETLIST\"" >> $MODULE_CONFIG
   fi
@@ -37,6 +37,7 @@ if ! grep -q CONFIGURED $MODULE_CONFIG; then
 fi
 
 mquery ENABLE_KVM "Enable KVM support?" y "--enable-kvm" "--disable-kvm"
-mquery ENABLE_VNC "Enable VNC server?" y "--enable-vnc" "--disable-vnc"
-mquery ENABLE_VHD "Enable Microsoft VHDX image support?" y "--enable-vhdx" "--disable-vhdx"
+mquery ENABLE_VNC "Enable VNC server?"  y "--enable-vnc" "--disable-vnc"
+mquery ENABLE_VHD "Enable Microsoft VHDX image support?" n "--enable-vhdx" "--disable-vhdx"
 mquery ENABLE_DOC "Enable documentation?" n "--enable-docs" "--disable-docs"
+

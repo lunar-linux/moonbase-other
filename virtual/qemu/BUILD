@@ -27,6 +27,12 @@ add_priv_group kvm &&
 
 default_make &&
 
+if module_installed systemd; then
+  install -D -m644 $SCRIPT_DIRECTORY/udev/65-kvm.rules /usr/lib/udev/rules.d/65-kvm.rules
+else
+  install -D -m644 $SCRIPT_DIRECTORY/udev/65-kvm.rules /etc/udev/rules.d/65-kvm.rules
+fi &&
+
 # bridge_helper needs suid
 chmod u+s "/usr/lib/qemu/qemu-bridge-helper" &&
 
