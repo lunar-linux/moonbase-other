@@ -1,4 +1,13 @@
+depends xz
+depends zlib
+depends bzip2
 depends uudeview
 depends %OSSL
 depends acl
 depends attr
+
+optional_depends lz4      "--with-lz4"    "--without-lz4"    "for lz4 compression support"
+optional_depends lzma-sdk "--with-lzma"   "--without-lzma"   "for lzma compression support"
+optional_depends lzo      "--with-lzo2"   "--without-lzo2"   "for lzo compression support"
+optional_depends nettle   "--with-nettle" "--without-nettle" "for crypto support using nettle"
+
