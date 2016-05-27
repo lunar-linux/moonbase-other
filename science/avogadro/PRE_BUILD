@@ -1,5 +1,7 @@
 default_pre_build &&
 
+patch_it $SOURCE2 1 &&
+
 # avoid qt4's moc trying to understand boost
 fgrep -l "#include <boost/python.hpp>" libavogadro/src/* | xargs sed -i "s@.*include <boost/python\.hpp>.*@#ifndef Q_MOC_RUN\n\0\n#endif@" &&
 
