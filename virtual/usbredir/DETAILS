@@ -1,0 +1,25 @@
+          MODULE=usbredir
+         VERSION=0.7
+          SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=http://spice-space.org/download/usbredir/
+      SOURCE_VFY=sha256:0a63a0712b5dc62be9cca44f97270fea5d1ec1fe7dde0c11dc74a01c8e2006aa
+        WEB_SITE=http://www.spice-space.org/page/UsbRedir/
+         ENTERED=20160527
+         UPDATED=20160527
+           SHORT="USB traffic redirection protocol"
+
+cat <<EOF
+usbredir is the name of a network protocol for sending usb device traffic over
+a network connection. It is also the name of the software package offering a
+parsing library, a usbredirhost library and several utilities implementing this
+protocol.
+usbredir was created for use with Spice but the protocol and the usbredirhost
+are completely independent of spice, they could for example also be used to
+create a vnc extension for redirecting usb devices over a vnc connection to a
+qemu virtual machine.
+The usbguest side is currently only implemented for qemu, and shipped as part of
+qemu (enabling this in qemu requires the libusbredirparser library to be
+available when building qemu).
+usbredir supports USB device filtering configurable by a filter string.
+EOF
