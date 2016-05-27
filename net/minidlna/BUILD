@@ -15,7 +15,7 @@
   fi &&
 
   add_priv_group minidlna &&
-  add_priv_user minidlna -d /var/lib/minidlna -g minidlna &&
+  add_priv_user minidlna -d /var/lib/minidlna -d /var/run/minidlna -g minidlna &&
   mkdir -p /var/{lib,log,run,cache}/minidlna &&
   chown minidlna:minidlna /var/{lib,log,run,cache}/minidlna &&
   touch /var/log/minidlna/minidlna.log &&
