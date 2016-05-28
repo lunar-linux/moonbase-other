@@ -1,11 +1,10 @@
-./autogen.sh
+OPTS+=" --mandir=/usr/share/man"
 
-OPTS+=" --mandir=/usr/share/man" &&
+./autogen.sh &&
 
 default_build &&
 
-# We don't want the status file tracked
-touch /var/lib/logrotate.status &&
+install -dm0755 /etc/logrotate.d &&
 
 if [ ! -e /etc/logrotate.conf ]; then
   install -m 0644 examples/logrotate-default /etc/logrotate.conf

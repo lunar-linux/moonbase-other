@@ -24,8 +24,12 @@ if module_installed live555; then
   CPPFLAGS_live555="-I/usr/lib/live/liveMedia -I/usr/lib/live/groupsock -I/usr/lib/live/BasicUsageEnvironment -I/usr/lib/live/UsageEnvironment"
 fi &&
 
-if in_depends vlc qt4; then
+if in_depends $MODULE qt4; then
  . /etc/profile.d/qt4.rc
+fi &&
+
+if in_depends $MODULE opencv-3 ; then
+ export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/"
 fi &&
 
 OPTS+=" --enable-xvideo --enable-realrtsp --disable-sid" &&

@@ -1,11 +1,17 @@
 default_pre_build &&
 
+if in_depends $MODULE qt5 ; then
+  OPTS+=" -DPARAVIEW_QT_VERSION=5 -DVTK_QT_VERSION=5 -DQT_QMAKE_EXECUTABLE=/usr/lib/qt5/bin/qmake VTK_Group_Qt=1"
+fi &&
+
 # This would be nice, but does not work over here...
 #OPTS+=" -DUSE_EXTERNAL_VTK=1" &&
 
 OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
         -DVTK_USE_SYSTEM_ZLIB=1                \
+        -DVTK_USE_SYSTEM_GL2PS=1               \
         -DVTK_USE_SYSTEM_TIFF=1                \
+        -DVTK_USE_SYSTEM_LIBXML2=1             \
         -DVTK_USE_SYSTEM_PNG=1                 \
         -DVTK_USE_SYSTEM_JPEG=1                \
         -DVTK_USE_SYSTEM_GLEW=1                \
@@ -22,5 +28,5 @@ OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
 sedit "84i #  include <cstring>" VTK/ThirdParty/xdmf2/vtkxdmf2/libsrc/XdmfObject.h &&
 
 sedit "s:TryExec=:Exec=/usr/bin/:" Applications/ParaView/paraview.desktop.in &&
-sedit "s:Icon=paraview:Icon=/usr/share/icons/paraview.png:" Applications/ParaView/paraview.desktop.in &&
-sedit "4i Categories=Qt;KDE;Education;Science;" Applications/ParaView/paraview.desktop.in
+sedit "s:Icon=paraview:Icon=/usr/share/icons/pvIcon.ico:" Applications/ParaView/paraview.desktop.in &&
+sedit "4i Categories=KDE;Education;Science;" Applications/ParaView/paraview.desktop.in

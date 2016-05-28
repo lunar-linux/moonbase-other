@@ -1,14 +1,5 @@
   default_pre_build &&
 
-  # Fix some ICU issues in the bundled one; header files get picked up
-  # from here instead of the system ones.
-  find third_party/icu -type f \! -regex '.*\.\(gyp\|gypi\|isolate\)' -delete &&
-
-  patch_it $SOURCE2 0 &&
-
-  # Fix BoringSSL build with glibc 2.22
-  sedit 's;#define _POSIX_SOURCE;#define _POSIX_C_SOURCE 20112L;' third_party/boringssl/src/crypto/bio/socket_helper.c &&
-
   export CHROMIUM_HOME=/usr/lib/$MODULE &&
 
   QA_FLAGS_IGNORED=".*\.nexe" &&
@@ -18,24 +9,11 @@
   PYTHON_VER=`module_version Python | cut -c 1-3` &&
   ln -s /usr/bin/python2 python2-path/python &&
 
-  sedit "s/'-Werror'/''/" build/common.gypi  &&
   sedit "s:/bin/echo:/usr/bin/echo:g" build/common.gypi &&
   sedit "s:-Wno-#pragma-messages::g" third_party/opus/opus.gyp &&
 
 # When using pepperflash gets rid of; ERROR:audio_manager_base.cc(422)] Not implemented reached
   sedit "s:NOTIMPLEMENTED();::" media/audio/audio_manager_base.cc &&
-
-  echo "Fixing CPU optimizations please wait..." &&
-  find . -type f -print0 | xargs -0 sed -i \
-  -e 's/-mcpu=/-march=/g' \
-  -e 's/-mtune=/-march=/g' \
-  -e 's/=pentium4/=native/g' \
-  -e 's/=i386/=native/g' \
-  -e 's/=i486/=native/g' \
-  -e 's/=core2/=native/g' \
-  -e 's/=pentiumpro/=native/g' \
-  -e 's/=pentium/=native/g' \
-  -e 's/=k6/=native/g' &&
 
   if ! grep -q sse2 /proc/cpuinfo ; then
      OPTS+=" -Ddisable_sse2=0"
@@ -46,10 +24,8 @@
   # set the target arch here
   if [ `arch` == "x86_64" ]; then
     OPTS+=" -Dtarget_arch=x64 -Dffmpeg_target_arch=x64 -Dsystem_libdir=lib64"
-    FFMPEG_OPTS+=" x64"
   else
     OPTS+=" -Dtarget_arch=ia32 -Dffmpeg_target_arch=ia32"
-    FFMPEG_OPTS+=" ia32"
   fi &&
 
 
@@ -71,7 +47,6 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
           -Ddisable_fatal_linker_warnings=1                     \
           -Dlinux_sandbox_path=${CHROMIUM_HOME}/chrome-sandbox  \
           -Dlinux_sandbox_chrome_path=${CHROMIUM_HOME}/chrome   \
-          -Drelease_extra_cflags=${CFLAGS}                      \
           -Dpython_ver=${PYTHON_VER}                            \
           -Dfastbuild=1                                         \
           -Dlinux_strip_binary=1                                \
@@ -82,7 +57,7 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
           -Duse_system_flac=1                                   \
           -Duse_system_libvpx=1                                 \
           -Duse_system_harfbuzz=1                               \
-          -Duse_system_icu=1                                    \
+          -Duse_system_icu=0                                    \
           -Duse_system_jsoncpp=1                                \
           -Duse_system_libjpeg=1                                \
           -Duse_system_libpng=1                                 \
@@ -92,12 +67,12 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
           -Duse_system_minizip=1                                \
           -Duse_system_nspr=1                                   \
           -Duse_system_protobuf=0                               \
-          -Duse_system_re2=1                                    \
           -Duse_system_snappy=1                                 \
           -Duse_system_speex=1                                  \
           -Duse_system_xdg_utils=1                              \
           -Duse_system_zlib=0                                   \
           -Denable_spellcheck=1                                 \
+          -Duse_system_ffmpeg=0                                 \
           -Dlinux_link_libspeechd=1                             \
           -Dlibspeechd_h_prefix=speech-dispatcher/              \
           -Dusb_ids_path=/usr/share/usb.ids                     \
@@ -106,14 +81,20 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
           -Dlinux_link_gsettings=1                              \
           -Dlinux_link_libpci=1                                 \
           -Duse_mojo=0                                          \
+          -Duse_sysroot=0                                       \
           -Dclang=0                                             \
           -Dhost_clang=0                                        \
-          -Dicu_use_data_file_flag=0                            \
+          -Dicu_use_data_file_flag=1                            \
           -Dlinux_use_seccomp_sandbox=1                         \
           -Dlinux_use_bundled_binutils=0                        \
           -Dlinux_use_bundled_gold=0                            \
           -Dlinux_use_gold_flags=0                              \
           -Dlogging_like_official_build=1                       \
+          -Dtracing_like_official_build=1                       \
+          -Dfieldtrial_testing_like_official_build=1            \
+          -Denable_hangout_services_extension=1                 \
+          -Ddisable_fatal_linker_warnings=1                     \
+          -Ddisable_glibc=1                                     \
           -Ddisable_nacl=1" &&
 
 # A little jiggle for adboe/flash

@@ -1,4 +1,5 @@
 
 default_cmake_build &&
 
-install ../Applications/ParaView/pvIcon-32x32.png /usr/share/icons/paraview.png
+mv -f /usr/XdmfConfig.cmake /usr/lib/cmake/paraview-5.0/ &&
+install ../Applications/ParaView/pvIcon* /usr/share/icons/

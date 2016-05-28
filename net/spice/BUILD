@@ -1,7 +1,5 @@
-
-OPTS+=" --disable-smartcard \
+OPTS+=" --disable-static \
         --disable-tunnel \
-        --disable-static-linkage \
         --enable-client"
 
 default_build
