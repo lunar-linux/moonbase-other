@@ -1,6 +1,6 @@
 yes | perl Makefile.PL PREFIX=/usr &&
 make &&
-make test &&
+#make test &&
 prepare_install &&
 make install
 
