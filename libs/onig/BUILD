@@ -1,7 +1,4 @@
-(
 
-  OPTS+=" --disable-static" &&
+  OPTS+=" -DINSTALL_VERSION=1" &&
 
-  default_build
-
-) > $C_FIFO 2>&1
+  default_cmake_build
