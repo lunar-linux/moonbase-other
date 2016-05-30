@@ -39,6 +39,10 @@ optional_depends postgresql "-DModule_vtkIOPostgreSQL=ON"  \
                             "-DModule_vtkIOPostgreSQL=OFF" \
                             "for postgresql database support"
 
+optional_depends qt4 "-DVTK_Group_Qt=ON" \
+                     "-DVTK_Group_Qt=OFF" \
+                     "for Qt support ${PROBLEM_COLOR}choose qt4 OR qt5, not both"
+
 optional_depends qt5 "-DVTK_Group_Qt=ON" \
                      "-DVTK_Group_Qt=OFF" \
                      "for Qt support"
