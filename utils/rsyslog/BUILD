@@ -1,4 +1,5 @@
-OPTS+=" --enable-regexp     \
+OPTS+=" --exec-prefix=/usr  \
+        --enable-regexp     \
         --enable-largefile  \
         --enable-klog       \
         --enable-inet       \
@@ -9,14 +10,16 @@ OPTS+=" --enable-regexp     \
         --enable-omjournal  \
         --disable-rfc3195" &&
 
-default_build  &&
+default_build &&
 
 if [ ! -f /etc/rsyslog.conf ]; then
   install -m 644 $SCRIPT_DIRECTORY/rsyslog.conf /etc/rsyslog.conf
 fi &&
+
 if [ ! -d /etc/rsyslog.d/20-default.conf ]; then
   install -Dm0644 $SCRIPT_DIRECTORY/20-default.conf /etc/rsyslog.d/20-default.conf
 fi &&
+
 mkdir -p /usr/share/doc/rsyslog/scripts/{mysql,pqsql} &&
 install -m 644 plugins/ommysql/createDB.sql /usr/share/doc/rsyslog/scripts/mysql/ &&
 install -m 644 plugins/ompgsql/createDB.sql /usr/share/doc/rsyslog/scripts/pqsql/ &&
