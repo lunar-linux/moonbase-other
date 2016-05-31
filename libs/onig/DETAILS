@@ -1,11 +1,12 @@
           MODULE=onig
-         VERSION=5.9.3
+         VERSION=v6.0.0
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://www.geocities.jp/kosako3/oniguruma/archive/
-      SOURCE_VFY=sha1:235e0ec46582e4dbd12c44aeba97d1219aed6702
-        WEB_SITE=http://www.geocities.jp/kosako3/oniguruma/
+      SOURCE_URL=https://github.com/kkos/oniguruma/archive/$VERSION
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/oniguruma-${VERSION#v*}
+      SOURCE_VFY=sha256:3018fe512fbf90e583bc43754be59c92685f02cb4eaab299472da0d0759b5cda
+        WEB_SITE=https://github.com/kkos/oniguruma
          ENTERED=20110206
-         UPDATED=20130115
+         UPDATED=20160528
            SHORT="regular expressions library"
 
 cat << EOF
