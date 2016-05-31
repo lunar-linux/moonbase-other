@@ -7,5 +7,5 @@ prepare_install &&
 python setup.py install --root=/ --optimize=1
 
 if module_installed Python-3; then
-  python3 setup.py install --optimize=1
+  python3 setup.py install --root=/ --optimize=1
 fi
