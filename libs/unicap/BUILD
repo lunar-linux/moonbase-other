@@ -11,4 +11,6 @@
 # "...SYSFS{}= will be removed in a future udev version, please use ATTR{}..."
   sedit "s:SYSFS:ATTR:g" data/50-euvccam.rules &&
 
+  sedit "s:/etc/udev/rules.d:/usr/lib/udev/rules.d:" data/Makefile.* &&
+
   default_build
