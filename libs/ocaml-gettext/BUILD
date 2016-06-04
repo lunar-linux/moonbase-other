@@ -1,4 +1,3 @@
-
-OPTS+=" --disable-doc"
+OPTS+=" --disable-doc" &&
 
 default_build

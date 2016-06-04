@@ -1,9 +1,7 @@
-(
+  sedit "s:= mp4ff.h mp4ffint.h:mp4ff.h mp4ffint.h mp4ff_int_types.h:" common/mp4ff/Makefile.am &&
+
+  CFLAGS="$CFLAGS -fPIC" &&
 
   OPTS+=" --disable-static" &&
 
-  CFLAGS="$CFLAGS -fPIC"
-
   default_build
-
-) > $C_FIFO 2>&1
