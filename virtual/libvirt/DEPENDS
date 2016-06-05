@@ -1,14 +1,14 @@
+depends Python
 depends iproute2
 depends iptables
 depends libxml2
 depends libnl3
-depends Python
-depends %OSSL
-depends logrotate
+depends openssl
 depends lvm2
+depends libpcap
 depends libpciaccess
-depends yajl
 
+optional_depends %UDEV      "--with-udev "    "--without-udev "    "for udev support"
 optional_depends avahi      "--with-avahi"    "--without-avahi"    "for avahi support"
 optional_depends gnutls     "--with-gnutls"   "--without-gnutls"   "for GNUTLS encryption support"
 optional_depends attr       "--with-attr"     "--without-attr"     "for extended fs attributes support"
@@ -19,11 +19,17 @@ optional_depends fuse       "--with-fuse"     "--without-fuse"     "for FUSE sup
 optional_depends numactl    "--with-numactl"  "--without-numactl"  "for simple NUMA policy support"
 optional_depends pm-utils   "--with-pm-utils" "--without-pm-utils" "for power management support"
 optional_depends cyrus-sasl "--with-sasl"     "--without-sasl"     "for SASL support"
+optional_depends libcap-ng  "--with-capng"    "--without-capng"    "for libcap-ng support"
+optional_depends readline   "--with-readline" "--without-readline" "for readline support"
+optional_depends yajl       "--with-yajl"     "--without-yajl"     "for JSON support"
+optional_depends polkit     "--with-polkit"   "--without-polkit"   "for PolicyKit support"
 
+optional_depends libgcrypt    "" "" "for libgcrypt support"
 optional_depends dmidecode    "" "" "for SMBIOS info access"
 optional_depends ebtables     "" "" "for NAT networking"
 optional_depends dnsmasq      "" "" "for default NAT/DHCP for guests"
 optional_depends bridge-utils "" "" "for default bridged networking"
+optional_depends radvd        "" "" "for IPV6 router advertisement support"
 optional_depends libiscsi     "" "" "for client ISCSI support"
 
 optional_depends qemu \
@@ -31,13 +37,16 @@ optional_depends qemu \
                  "--without-qemu" \
                  "for QEMU support"
 
+optional_depends lvm2   "--with-storage-lvm"  "" "for LVM2 backend for storage driver support"
+optional_depends parted "--with-storage-disk" "" "for GParted backend for storage driver support"
+optional_depends zfs    "--with-storage-zfs"  "" "for ZFS backend for storage driver support"
+
 optional_depends glusterfs \
                  "--with-storage-gluster" \
                  "--without-storage-gluster" \
-                 "for gluster storage support"
+                 "for gluster backend for storage driver support"
 
 #optional_depends open-iscsi \
 #                 "--with-storage-iscsi" \
 #                 "--without-storage-iscsi" \
 #                 "for iscsi storage support"
-
