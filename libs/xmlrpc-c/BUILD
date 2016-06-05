@@ -1,9 +1,5 @@
-(
+OPTS+=" --disable-docs"
 
-  OPTS+=" --disable-docs"
+aclocal &&
 
-  aclocal &&
-
-  default_build
-
-)
+default_build
