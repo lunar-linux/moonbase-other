@@ -1,7 +1,10 @@
 depends readline
+depends libedit
 
 optional_depends libcap \
                  "--enable-libuxcaps" "" \
                  "use POSIX 1003.1e capabilities"
 
-optional_depends systemd "" "" "for systemd style init services"
+optional_depends openssl \
+                 "--with-crypto" "" \
+                 "use SSL crypting"

@@ -1,20 +1,13 @@
 #if you're gonna change something in here make doggone sure you
 #eyeball the init script too!
 
-sedit "s: | MOD_NANO::"  ntpd/ntp_loopfilter.c &&
+OPTS+=" --enable-ntp-signd \
+        --disable-static   \
+        --localstatedir=/var/cache" &&
 
-./configure --build=$BUILD              \
-            --prefix=/usr               \
-            --bindir=/usr/sbin          \
-            --sbindir=/usr/sbin         \
-            --datadir=/usr/share        \
-            --infodir=/usr/share/info   \
-            --mandir=/usr/share/man     \
-            --sysconfdir=/etc           \
-            --enable-ntp-signd          \
-            --localstatedir=/var/cache &&
+OPTS+=" --libexecdir=/usr/lib" &&
 
-default_make &&
+default_build &&
 
 if [ -e "/etc/init.d/ntp.sh" ]; then
   rm -f /etc/init.d/ntp.sh
