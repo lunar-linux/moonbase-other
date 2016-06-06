@@ -1,2 +1,5 @@
 default_pre_build &&
-patch_it $SOURCE2 1
+patch_it $SOURCE2 1 &&
+
+sedit "808,810d" src/ptclib/pssl.cxx &&
+sedit "s|case SSLv23:|case SSLv23: \n case SSLv3:|" src/ptclib/pssl.cxx
