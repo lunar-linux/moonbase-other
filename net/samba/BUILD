@@ -8,6 +8,8 @@ mkdir -p /etc/samba /usr/share/samba /var/log/samba &&
 
 LDFLAGS+=" -Wl,--no-as-needed" &&
 
+OPTS+=" --libexecdir=/usr/lib" &&
+
 ./buildtools/bin/waf configure \
        --prefix=/usr           \
        --sysconfdir=/etc       \
