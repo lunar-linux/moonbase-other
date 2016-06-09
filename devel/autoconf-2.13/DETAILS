@@ -1,0 +1,23 @@
+          MODULE=autoconf-2.13
+         VERSION=2.13
+          SOURCE=${MODULE%-*}-$VERSION.tar.gz
+      SOURCE_URL=ftp://ftp.gnu.org/pub/gnu/${MODULE%-*}
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%-*}-$VERSION
+      SOURCE_VFY=sha256:f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e
+        WEB_SITE=http://ctags.sourceforge.net/
+         ENTERED=20160608
+         UPDATED=20160608
+           SHORT="Produces shell scripts which configure source code"
+PSAFE=no
+cat << EOF
+NOTE: This module is strickly for those apps that are hardcoded for
+the version of this module. For now firefox-47.0 is the only mozilla app that
+has a problem with autoconf-2.69. The real issue is the lack of interest/motivation
+by the moz dev folks to use more current versions ot autoconf.
+
+See: https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Mozilla_build_FAQ
+
+This "problem" will most likely show up as newer versions of other moz apps are released.
+
+This module does not conflict with core/autoconf.
+EOF
