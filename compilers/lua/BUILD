@@ -30,4 +30,7 @@ make install &&
 
 ln -s /usr/lib/liblua.so.${VERSION%.*} /usr/lib/liblua.so &&
 
+MAJORVER=${VERSION%.*}
+cp -f $SCRIPT_DIRECTORY/lua.pc ./lua.pc &&
+sedit "s/%VER%/$MAJORVER/g;s/%REL%/$VERSION/g" ./lua.pc
 install -Dm0644 lua.pc /usr/lib/pkgconfig/

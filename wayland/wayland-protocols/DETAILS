@@ -1,0 +1,20 @@
+          MODULE=wayland-protocols
+         VERSION=1.4
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=http://wayland.freedesktop.org/releases
+      SOURCE_VFY=sha256:014a9a23c21ed14f49b1005b3e8efa66d6337d4ceafc97f7b0d6707e7e3df572
+        WEB_SITE=http://wayland.freedesktop.org
+         ENTERED=20160310
+         UPDATED=20160612
+           SHORT="Specifications of extended Wayland protocols"
+
+cat << EOF
+wayland-protocols contains Wayland protocols that adds functionality not
+available in the Wayland core protocol. Such protocols either adds
+completely new functionality, or extends the functionality of some other
+protocol either in Wayland core, or some other protocol in
+wayland-protocols.
+A protocol in wayland-protocols consists of a directory containing a set
+of XML files containing the protocol specification, and a README file
+containing detailed state and a list of maintainers.
+EOF
