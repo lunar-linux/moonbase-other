@@ -1,10 +1,7 @@
-./configure  --prefix=/usr    \
-             --shared-zlib    \
-             --shared-openssl \
-             --shared-libuv   \
-             --without-npm   &&
+./configure --prefix=/usr \
+            --without-npm &&
 
-#           --shared-v8
+#          --shared-v8
 
 default_make &&
 
