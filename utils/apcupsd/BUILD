@@ -1,7 +1,5 @@
 OPTS+=" --sysconfdir=/etc/$MODULE \
-        --disable-net-snmp" &&
-
-OPTS+=" --libexecdir=/usr/lib/$MODULE" &&
+        --libexecdir=/usr/lib/$MODULE" &&
 
 if [[ "$USE_USB" = "y" ]]; then
   OPTS+=" --with-upstype=usb --with-upscable=usb"
