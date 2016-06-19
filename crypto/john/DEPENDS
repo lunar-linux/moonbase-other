@@ -1,0 +1,17 @@
+optional_depends %OSSL   "" "--without-openssl" "for SSL support"
+optional_depends libpcap "" "--disable-pcap"    "for PCAP helpers"
+
+optional_depends ruby   "" "" "for executing the ruby scripts at /usr/share/john"
+optional_depends NVIDIA "" "" "for NVIDIA OpenCL support"
+
+optional_depends ocl-icd \
+                 "" "--disable-opencl" \
+                 "for OpenCL support"
+
+optional_depends openmpi \
+                 "--enable-mpi" "" \
+                 "for OpenMPI support"
+
+optional_depends CUDA-OpenCL-headers \
+                 "" "--disable-cuda" \
+                 "for CUDA support"
