@@ -1,0 +1,19 @@
+          MODULE=libnfnetlink
+         VERSION=1.0.1
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=http://www.netfilter.org/projects/$MODULE/files/
+      SOURCE_VFY=sha256:f270e19de9127642d2a11589ef2ec97ef90a649a74f56cf9a96306b04817b51a
+        WEB_SITE=http://www.netfilter.org/projects/libnfnetlink/
+         ENTERED=20160620
+         UPDATED=20160620
+           SHORT="Low-level library for netfilter related kernel/userspace communication"
+
+cat << EOF
+libnfnetlink is the low-level library for netfilter related kernel/userspace
+communication.
+It provides a generic messaging infrastructure for in-kernel netfilter subsystems
+(such as nfnetlink_log, nfnetlink_queue,nfnetlink_conntrack) and their respective
+users and/or management tools in userspace. This library is not meant as a public
+API for application developers. It is only used by other netfilter.org projects,
+such as libnetfilter_log, libnetfilter_queue or libnetfilter_conntrack.
+EOF
