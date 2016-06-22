@@ -3,6 +3,4 @@ OPTS+=" --disable-static \
         --with-coroutine=gthread \
         --enable-smartcard=no" &&
 
-#OPTS+=" --sbindir=/usr/bin" &&
-
 default_build
