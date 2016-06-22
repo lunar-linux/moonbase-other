@@ -1,9 +1,17 @@
+optional_depends alsa-lib "" "" "for ALSA support"
+
 optional_depends %JPEG \
                  "--with-jpeg" \
-                 "--without-jpeg"  \
+                 "--without-jpeg" \
                  "for JPEG support"
 
-optional_depends qt5 \
-                 "--enable-qv4l2"  \
-                 "--disable-qv4l2" \
-                 "for Qt5 support"
+# broken
+#optional_depends qt5 \
+#                 "--enable-qv4l2" \
+#                 "--disable-qv4l2" \
+#                 "for Qt5 support"
+
+optional_depends %UDEV \
+                 "--with-libudev" \
+                 "--without-libudev" \
+                 "for udev device name support"
