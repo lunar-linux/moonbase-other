@@ -9,7 +9,7 @@ cd ghc-bin &&
 
 # work around broken NEEDED libtinfo.so.5 (due to ncurses bump) in provided ghc binary
 # remove this once provided binaries link against ncurses 6
-ln -s /lib/libncurses.so $SOURCE_DIRECTORY/install/lib/libtinfo.so.5 &&
+ln -s /lib/libncursesw.so $SOURCE_DIRECTORY/install/lib/libtinfo.so.5 &&
 sedit "/^\(.*\)echo 'exedir=/ a \\\\techo 'export LD_LIBRARY_PATH=\"$SOURCE_DIRECTORY/install/lib/:\$\$\$\$LD_LIBRARY_PATH\"' >> \"\$\$(WRAPPER)\"" rules/shell-wrapper.mk &&
 
 # prepare binaries for use
