@@ -1,5 +1,7 @@
 default_pre_build &&
 
+mkdir -p $SOURCE_DIRECTORY/install/lib &&
+
 ### install the binary boostrap compiler
 unpack $SOURCE2 &&
 mv ghc-$BINVERSION ghc-bin
@@ -7,7 +9,6 @@ cd ghc-bin &&
 
 # work around broken NEEDED libtinfo.so.5 (due to ncurses bump) in provided ghc binary
 # remove this once provided binaries link against ncurses 6
-mkdir -p $SOURCE_DIRECTORY/install/lib &&
 ln -s /lib/libncurses.so $SOURCE_DIRECTORY/install/lib/libtinfo.so.5 &&
 sedit "/^\(.*\)echo 'exedir=/ a \\\\techo 'export LD_LIBRARY_PATH=\"$SOURCE_DIRECTORY/install/lib/:\$\$\$\$LD_LIBRARY_PATH\"' >> \"\$\$(WRAPPER)\"" rules/shell-wrapper.mk &&
 
@@ -16,6 +17,8 @@ sedit "/^\(.*\)echo 'exedir=/ a \\\\techo 'export LD_LIBRARY_PATH=\"$SOURCE_DIRE
 
 # the additional path is required for the above workaround
 LD_LIBRARY_PATH="$SOURCE_DIRECTORY/install/lib:$LD_LIBRARY_PATH" \
+ldconfig
+
 make install &&
 
 cd $SOURCE_DIRECTORY
