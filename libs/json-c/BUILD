@@ -1,3 +1,8 @@
+CFLAGS+=" -Wno-error=unused-but-set-variable" &&
+opts+="  --enable-rdrand" &&
 
-  CFLAGS+=" -Wno-error=unused-but-set-variable" &&
-  default_build
+default_build &&
+
+# remove the static library
+rm -f /usr/lib/libjson-c.a
+

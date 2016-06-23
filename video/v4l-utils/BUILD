@@ -3,7 +3,6 @@ if in_depends $MODULE qt5; then
 fi &&
 
 OPTS+=" --exec-prefix=/usr \
-        --sbindir=/usr/bin \
         --disable-static" &&
 
 default_build

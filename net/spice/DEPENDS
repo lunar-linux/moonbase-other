@@ -9,6 +9,9 @@ depends libXfixes
 depends %OSSL
 depends zlib
 
+# avoid circular depend on qemu
+#depends qemu
+
 optional_depends cyrus-sasl "--with-sasl" "--without-sasl" "for SASL authentication support"
 
 optional_depends celt051 \

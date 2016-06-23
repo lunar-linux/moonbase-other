@@ -5,7 +5,3 @@ rm rebar &&
 ln -sf /usr/bin/rebar rebar &&
 
 default_make
-
-
-
-

@@ -1,12 +1,62 @@
 depends gtk+-3
-depends pixman
-depends Python
-depends pyparsing
-depends spice-protocol
-depends pulseaudio
+depends spice
 depends libsoup
+depends usbutils
+depends intltool
 
-optional_depends dbus       "--enable-dbus=yes" "--enable-dbus=no" "for desktop integration support"
-optional_depends cyrus-sasl "--with-sasl"       "--without-sasl"   "for SASL authentication support"
+optional_depends cyrus-sasl "--with-sasl" "--without-sasl" "for SASL authentication support"
 
-optional_depends gobject-introspection "--enable-introspection" "--disable-introspection" "for introspection support"
+optional_depends dbus-glib \
+                 "--enable-dbus=yes" \
+                 "--enable-dbus=no" \
+                 "for desktop integration support"
+
+optional_depends gstreamer \
+                 "--enable-gstaudio=yes --enable-gstvideo=yes" \
+                 "--enable-gstaudio=no --enable-gstvideo=no" \
+                 "for gstreamer audio/video support"
+
+optional_depends polkit \
+                 "--enable-polkit=yes" \
+                 "--enable-polkit=no" \
+                 "for polkit policy support"
+
+optional_depends pulseaudio \
+                 "--enable-pulse=yes" \
+                 "--enable-pulse=no" \
+                 "for pulseaudio support"
+
+optional_depends celt051 \
+                 "--enable-celt051=yes" \
+                 "--enable-celt051=no" \
+                 "for celt audio communication support"
+
+optional_depends libcacard \
+                 "--enable-smartcard=yes" \
+                 "--enable-smartcard=no" \
+                 "for smartcard support"
+
+optional_depends usbredir \
+                 "--enable-usbredir=yes" \
+                 "--enable-usbredir=no" \
+                 "for USB redirection support"
+
+optional_depends vala \
+                 "--enable-vala=yes" \
+                 "--enable-vala=no" \
+                 "for vala support"
+
+optional_depends lz4 \
+                 "--enable-lz4=yes" \
+                 "--enable-lz4=no" \
+                 "for LZ4 compression support"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "for building documentation"
+
+optional_depends gobject-introspection \
+                 "--enable-introspection" \
+                 "--disable-introspection" \
+                 "for object introspection support"

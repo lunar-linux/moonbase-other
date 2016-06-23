@@ -1,8 +1,4 @@
-if [ -d /usr/lib64 ]; then
-  ./waf configure --prefix=/usr --libdir=/usr/lib64
-else
-  ./waf configure --prefix=/usr
-fi &&
+./waf configure --prefix=/usr &&
 
 ./waf build &&
 
