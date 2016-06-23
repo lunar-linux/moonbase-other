@@ -1,16 +1,14 @@
 depends zlib
 depends libidn
 
-optional_depends %OSSL "" "" "for https encrypted transport"
-optional_depends krb5  "" "" "for Kerberos support"
+optional_depends %OSSL \
+                 "--with-ssl" \
+                 "--without-ssl" \
+                 "for SSL encrypted transport"
 
 optional_depends libssh2 \
                  "--with-libssh2" \
                  "--without-libssh2" \
                  "for support of C implementation of ssh"
 
-optional_depends openldap \
-                 "--enable-ldap --enable-ldaps" \
-                 "--disable-ldap --disable-ldaps" \
-                 "for LDAP support ${PROBLEM_COLOR}Saying yes here can cause weird problems with gnutls, defaulting to no${DEFAULT_COLOR}" n
-
+optional_depends krb5  "" "" "for Kerberos support"
