@@ -4,11 +4,31 @@ depends libidn
 optional_depends %OSSL \
                  "--with-ssl" \
                  "--without-ssl" \
-                 "for SSL encrypted transport"
+                 "for SSL encrypted transport" y
+
+optional_depends gnutls \
+                 "--with-gnutls" \
+                 "--without-gnutls" \
+                 "for nss encrypted transport" n
+
+optional_depends nss \
+                 "--with-nss" \
+                 "--without-nss" \
+                 "for nss encrypted transport" n
 
 optional_depends libssh2 \
                  "--with-libssh2" \
                  "--without-libssh2" \
                  "for support of C implementation of ssh"
 
-optional_depends krb5  "" "" "for Kerberos support"
+optional_depends nghttp2 \
+                 "--with-nghttp2" \
+                 "--without-nghttp22" \
+                 "for support of HTTP2 protocol"
+
+optional_depends openldap \
+                 "--enable-ldap --enable-ldaps" \
+                 "--disable-ldap --disable-ldaps" \
+                 "for LDAP support ${PROBLEM_COLOR}Saying yes here can cause weird problems with gnutls, defaulting to no${DEFAULT_COLOR}" n
+
+optional_depends krb5  "" "" "for Kerberos support" n

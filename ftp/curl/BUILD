@@ -2,6 +2,7 @@ echo '/* not used */' > include/curl/types.h &&
 
 OPTS+=" --disable-static \
         --with-zlib \
+        --with-libidn \
         --with-random=/dev/urandom" &&
 
 default_build &&
