@@ -4,17 +4,17 @@ depends libidn
 optional_depends %OSSL \
                  "--with-ssl" \
                  "--without-ssl" \
-                 "for SSL encrypted transport" y
+                 "for SSL encrypted transport ${PROBLEM_COLOR}(Choose only openssl OR gnutls OR nss)" y
 
 optional_depends gnutls \
                  "--with-gnutls" \
                  "--without-gnutls" \
-                 "for nss encrypted transport" n
+                 "for nss encrypted transport ${PROBLEM_COLOR}(Choose only openssl OR gnutls OR nss)" n
 
 optional_depends nss \
                  "--with-nss" \
                  "--without-nss" \
-                 "for nss encrypted transport" n
+                 "for nss encrypted transport ${PROBLEM_COLOR}(Choose only openssl OR gnutls OR nss)" n
 
 optional_depends libssh2 \
                  "--with-libssh2" \
