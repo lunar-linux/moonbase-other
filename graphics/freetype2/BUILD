@@ -2,7 +2,7 @@
 if module_installed harfbuzz; then
   OPTS+=" --with-harfbuzz
 else
-  OPTS+=" --without-harfbuzz
+  OPTS+=" --without-harfbuzz"
 fi &&
 
 OPTS+=" --disable-static" &&
