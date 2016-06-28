@@ -1,5 +1,5 @@
-./configure --libexecdir=/usr/libexec \
-            --mandir=/usr/share/man  &&
+./configure --libexecdir=/usr/lib \
+            --mandir=/usr/share/man &&
 
 xmkmf &&
 make includes &&
