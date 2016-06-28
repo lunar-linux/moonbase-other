@@ -10,4 +10,6 @@ OPTS+=" --disable-schemas-install \
 default_build &&
 
 # Remove GConf schema file
-rm /etc/gconf/schemas/purple.schemas
+if [ -f /etc/gconf/schemas/purple.schemas ]; then
+  rm /etc/gconf/schemas/purple.schemas
+fi
