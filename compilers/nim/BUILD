@@ -4,6 +4,8 @@ if ! ( module_installed nim ); then
    ./bootstrap.sh
 fi &&
 
+sedit ":/opt/nimble:/var/lib/nimble:" install.sh &&
+
 prepare_install &&
 
 ./install.sh /usr/bin
