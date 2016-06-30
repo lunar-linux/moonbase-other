@@ -3,7 +3,9 @@ if in_depends $MODULE qt5; then
 fi &&
 
 if module_installed jsoncpp; then
-  OPTS+="--system-jsoncpp"
+  OPTS+=" --system-jsoncpp"
+else
+  OPTS+=" --no-system-jsoncpp"
 fi &&
 
 ./bootstrap --prefix=/usr \
