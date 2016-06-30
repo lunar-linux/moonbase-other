@@ -5,6 +5,8 @@ if ! kernel_option_present CONFIG_INOTIFY_USER; then
   message "Then recompile your kernel and try 'lin -c cronie' again."
   message ""
   exit 1
-fi
+fi &&
 
-default_pre_build
+default_pre_build &&
+
+sedit '/^dist_pam_DATA/d' Makefile.am
