@@ -9,5 +9,5 @@ optional_depends expat      "--system-expat"      "--no-system-expat"      "Use 
 optional_depends libarchive "--system-libarchive" "--no-system-libarchive" "Use system provided libarchive"
 optional_depends qt5        "--qt-gui"            "--no-qt-gui"            "For qt gui support"
 
-# circular depend on jsoncpp
-optional_depends jsoncpp "--system-jsoncpp" "--no-system-jsoncpp" "Use system provided jsoncpp"
+# avoid circular depend on jsoncpp
+# optional_depends jsoncpp "--system-jsoncpp" "--no-system-jsoncpp" "Use system provided jsoncpp"
