@@ -4,8 +4,6 @@ fi &&
 
 if module_installed jsoncpp; then
   OPTS+="--system-jsoncpp"
-else
-  OPTS+="--no-system-json-cpp"
 fi &&
 
 ./bootstrap --prefix=/usr \
