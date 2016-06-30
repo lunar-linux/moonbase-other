@@ -1,4 +1,4 @@
-if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
+if [ ! -e /usr/include/cairo/cairo-tee.h ]; then
   message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -rc cairo" &&
   message "${MESSAGE_COLOR}To recompile cairo with tee(libX11) support, which is required by firefox.${DEFAULT_COLOR}" &&
   false
@@ -16,7 +16,7 @@ CFLAGS+=" -mno-avx" &&
 
 sedit 's/@PRE_RELEASE_SUFFIX@//g' browser/base/content/browser.xul &&
 
-export MOZ_CO_PROJECT=browser  &&
+export MOZ_CO_PROJECT=browser &&
 export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
 export MOZILLA_OFFICIAL=1  &&
 export BUILD_OFFICIAL=1  &&
@@ -28,8 +28,8 @@ export MOZ_JEMALLOC=1 &&
 # This export is for their hardcoding of autoconf-2.13
 export AUTOCONF=autoconf-mozilla &&
 
-cp $SCRIPT_DIRECTORY/mozconfig .  &&
-export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
+cp $SCRIPT_DIRECTORY/mozconfig . &&
+export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla" &&
 mkdir -p ${MOZ_OBJDIR}  &&
 
 for flag in $OPTS; do

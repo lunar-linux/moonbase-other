@@ -8,30 +8,78 @@ depends alsa-lib
 depends libvpx
 depends freetype2
 
-optional_depends GConf "--enable-gconf" "--disable-gconf" "GConf support"
+optional_depends GConf \
+                 "--enable-gconf" \
+                 "--disable-gconf" \
+                 "GConf support"
 
-optional_depends libpng "--enable-system-libpng" "--disable-system-libpng" "Build with system libpng"
-optional_depends cairo  "--enable-system-cairo"  "--disable-system-cairo"  "Build with system cairo ${PROBLEM_COLOR}(unstable)"
+optional_depends libpng \
+                 "--enable-system-libpng" \
+                 "--disable-system-libpng" \
+                 "Build with system libpng"
 
-optional_depends "Python"           ""  ""  "Needed to do a Profile Guided Optimization build"
-optional_depends "%FLASH"           ""  ""  "To enable Flash plugin"
-optional_depends "hunspell"         "--enable-system-hunspell"  "--disable-system-hunspell"  "Use system spelling support"
-optional_depends "libevent"         "--with-system-libevent"  "--without-system-libevent"  "Use system event library"
-optional_depends "dbus-glib"        "--enable-dbus"  "--disable-dbus"  "For dbus support"
-optional_depends "libffi"           "--enable-system-ffi"  "--disable-system-ffi"  "Use system libffi"
-optional_depends "icu4c"            "--with-system-icu" "--without-system-icu" "Use system icu4c library"
+optional_depends cairo \
+                 "--enable-system-cairo" \
+                 "--disable-system-cairo" \
+                 "Build with system cairo ${PROBLEM_COLOR}(unstable)"
 
-optional_depends "sun-jdk"          "--with-java-bin-path=/usr/lib/java/latest/bin" "" "For java support"
-optional_depends "pulseaudio"       "--enable-pulseaudio" "--disable-pulseaudio"  "Build PulseAudio sound backend"
+optional_depends Python "" "" "Needed to do a Profile Guided Optimization build"
+optional_depends %FLASH "" "" "To enable Flash plugin"
 
-optional_depends gst-plugins-base-1.0 "--enable-gstreamer=1.0" "--disable-gstreamer" "Media playback through GStreamer"
+optional_depends hunspell \
+                 "--enable-system-hunspell" \
+                 "--disable-system-hunspell" \
+                 "Use system spelling support"
+
+optional_depends libevent \
+                 "--with-system-libevent" \
+                 "--without-system-libevent" \
+                 "Use system event library"
+
+optional_depends dbus-glib \
+                 "--enable-dbus" \
+                 "--disable-dbus" \
+                 "For dbus support"
+
+optional_depends libffi \
+                 "--enable-system-ffi" \
+                 "--disable-system-ffi" \
+                 "Use system libffi"
+
+optional_depends icu4c \
+                 "--with-system-icu" \
+                 "--without-system-icu" \
+                 "Use system icu4c library"
+
+optional_depends sun-jdk \
+                 "--with-java-bin-path=/usr/lib/java/latest/bin" "" \
+                 "For java support"
+
+optional_depends pulseaudio \
+                 "--enable-pulseaudio" \
+                 "--disable-pulseaudio"  \
+                 "Build PulseAudio sound backend"
+
+optional_depends gst-plugins-base-1.0 \
+                 "--enable-gstreamer=1.0" \
+                 "--disable-gstreamer" \
+                 "Media playback through GStreamer"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
-optional_depends "libjpeg-turbo"    "--with-system-jpeg" "--without-system-jpeg" "Use system jpeg library"
+optional_depends libjpeg-turbo \
+                 "--with-system-jpeg" \
+                 "--without-system-jpeg" \
+                 "Use system jpeg library"
 
 # https://bugzilla.mozilla.org/show_bug.cgi?id=512940
 # Comment 9:  "System SQLite isn't supported by Mozilla (in fact we discourage its use)"
-optional_depends "sqlite"  "--enable-system-sqlite"  "--disable-system-sqlite"   "Use system sqlite ${PROBLEM_COLOR}(discouraged)"
+optional_depends sqlite \
+                 "--enable-system-sqlite" \
+                 "--disable-system-sqlite" \
+                 "Use system sqlite ${PROBLEM_COLOR}(discouraged)"
 
 # This seems to break mozilla, most other distros do not use this.
-#  optional_depends "gnome-vfs"        "--enable-gnomevfs"  "--disable-gnomevfs"  "For Gnome VFS support"
+#  optional_depends gnome-vfs \
+#                   "--enable-gnomevfs" \
+#                   "--disable-gnomevfs" \
+#                   "For Gnome VFS support"
