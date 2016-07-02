@@ -1,3 +1,19 @@
+depends desktop-file-utils
 depends gtk+-3
-depends gtk-vnc
-depends spice-gtk
+depends spice
+depends intltool
+
+optional_depends libvirt-glib \
+                 "--with-libvirt" \
+                 "--without-libvirt" \
+                 "for libvirt support"
+
+optional_depends spice-gtk \
+                 "--with-spice-gtk" \
+                 "--without-spice-gtk" \
+                 "for spice GTK support"
+
+optional_depends gtk-vnc \
+                 "--with-gtk-vnc" \
+                 "--without-gtk-vnc" \
+                 "for GTK VNC support"

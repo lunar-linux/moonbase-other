@@ -1,5 +1,3 @@
-OPTS+=" --with-gtk=3.0 \
-        --with-gtk-vnc \
-        --with-spice-gtk"
+OPTS+=" --with-gtk=3.0" &&
 
 default_build
