@@ -38,5 +38,5 @@ chown polkitd:polkitd /usr/share/polkit-1/rules.d &&
 chmod 700 /usr/share/polkit-1/rules.d &&
 
 if module_installed Linux-PAM; then
-  sedit "4i  account            required        pam_nologin.so" /etc/pam.d/polkit-1
+  sedit "4i  account    required     pam_nologin.so" /etc/pam.d/polkit-1
 fi
