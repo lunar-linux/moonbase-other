@@ -15,6 +15,11 @@ if in_depends $MODULE opencv-3 ; then
   sedit "s:opencv < 2.5.0:opencv <= 3.1.0:" configure
 fi &&
 
+# qbasicatomic.h:61:4: error: #error "Qt requires C++11 support
+if in_depends $MODULE qt5 ; then
+  CXXFLAGS+=" -std=c++11"
+fi &&
+
 OPTS+=" --disable-static \
         --disable-valgrind \
         --disable-debug \
