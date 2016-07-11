@@ -1,6 +1,6 @@
 default_pre_build &&
 
-mkdir -p $SOURCE_DIRECTORY/install/lib &&
+sedit "$ a html_theme = 'default'" utils/haddock/doc/conf.py &&
 
 ### install the binary boostrap compiler
 unpack $SOURCE2 &&
@@ -9,6 +9,7 @@ cd ghc-bin &&
 
 # work around for NEEDED libtinfo.so.5 (due to ncurses bump) in ghc bootstrap binary
 # remove this once provided binaries link against ncurses 6
+mkdir -p $SOURCE_DIRECTORY/install/lib &&
 ln -s /lib/libncursesw.so $SOURCE_DIRECTORY/install/lib/libtinfo.so.5 &&
 sedit "/^\(.*\)echo 'exedir=/ a \\\\techo 'export LD_LIBRARY_PATH=\"$SOURCE_DIRECTORY/install/lib/:\$\$\$\$LD_LIBRARY_PATH\"' >> \"\$\$(WRAPPER)\"" rules/shell-wrapper.mk &&
 
@@ -16,9 +17,6 @@ sedit "/^\(.*\)echo 'exedir=/ a \\\\techo 'export LD_LIBRARY_PATH=\"$SOURCE_DIRE
 ./configure --prefix=$SOURCE_DIRECTORY/install &&
 
 # the additional path is required for the above workaround
-LD_LIBRARY_PATH="$SOURCE_DIRECTORY/install/lib:$LD_LIBRARY_PATH" \
-ldconfig
-
-make install &&
+export LD_LIBRARY_PATH="$SOURCE_DIRECTORY/install/lib:$LD_LIBRARY_PATH" make install &&
 
 cd $SOURCE_DIRECTORY
