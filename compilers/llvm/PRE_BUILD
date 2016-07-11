@@ -10,5 +10,6 @@ if [[ "$USE_CLANG" = "y" ]]; then
   cd clang/tools &&
   unpack $SOURCE3 &&
   mv -f clang-tools-extra-${VERSION}.src extra &&
+  sedit 's:DESTINATION docs/html:DESTINATION share/doc/llvm/clang-extra:' extra/docs/CMakeLists.txt &&
   cd $SOURCE_DIRECTORY
 fi
