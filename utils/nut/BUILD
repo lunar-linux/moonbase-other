@@ -1,5 +1,3 @@
-(
-
 
   OPTS="--with-group=nut --with-user=nut --sysconfdir=/etc/$MODULE" &&
 
@@ -8,5 +6,3 @@
   sedit "s:BUS:SUBSYSTEM:" scripts/udev/nut-usbups.rules.in &&
 
   default_build
-
-) > $C_FIFO 2>&1

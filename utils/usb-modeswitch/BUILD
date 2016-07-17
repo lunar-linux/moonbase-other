@@ -1,5 +1,7 @@
 export PREFIX=/usr &&
 export SBINDIR=/usr/bin &&
+export UDEVDIR=/usr/lib/udev &&
+export RULESDIR=/usr/lib/udev/rules.d &&
 
 default_make &&
 
