@@ -26,6 +26,10 @@ optional_depends gnutls \
                  "" "--without-ad-dc" \
                  "for Active Directory Domain Controller support"
 
+optional_depends tdb \
+                 "--bundled-libraries=!tdb" "" \
+                 "for tdb database support"
+
 optional_depends acl \
                  "--with-acl-support" \
                  "--without-acl-support" \
