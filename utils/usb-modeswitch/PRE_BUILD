@@ -4,4 +4,6 @@ sedit "s:UDEVDIR     = \$(DESTDIR):UDEVDIR     = \$(PREFIX):" Makefile &&
 sedit "s:/usr/sbin/usb_mode:/usr/bin/usb_mode:g" usb_modeswitch.{conf,tcl,sh} &&
 
 unpack $SOURCE2 &&
-sedit "s: rules-reload::" $MODULE-data-$VERDATA/Makefile
+sedit "s: rules-reload::" $MODULE-data-$VERDATA/Makefile &&
+
+sedit "s:\$(DESTDIR)/lib:/usr/lib:" usb-modeswitch-data-20160612/Makefile

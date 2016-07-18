@@ -28,10 +28,14 @@ optional_depends alsa-oss \
                  "--disable-oss-output --disable-oss-wrapper" \
                  "optional OSS output support"
 
+optional_depends tdb \
+                 "--with=database=tdb" "" \
+                 "for tdb database support"
+
 optional_depends webrtc-audio-processing \
                  "--enable-webrtc-aec"   \
                  "--disable-webrtc-aec"  \
-                 "For WebRTC echo cancellation support"
+                 "for WebRTC echo cancellation support"
 
 # We take care of which bluez to enable in the BUILD
 optional_depends %BLUEZ "" "" "optional BlueZ support"
