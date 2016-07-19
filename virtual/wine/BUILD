@@ -14,5 +14,5 @@ default_make &&
 
 # Font aliasing settings for Win32 applications
 install -d /etc/fonts/conf.{avail,d} &&
-install -m644 $SCRIPT_DIRECTORY/30-win32-aliases.conf /etc/fonts/conf.avail
+install -m644 $SCRIPT_DIRECTORY/30-win32-aliases.conf /etc/fonts/conf.avail &&
 ln -sf ../conf.avail/30-win32-aliases.conf /etc/fonts/conf.d/30-win32-aliases.conf
