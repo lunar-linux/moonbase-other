@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit "s:from __future__ import nested_scopes::g" src/SOAPpy/Client.py src/SOAPpy/Server.py src/SOAPpy/Types.py &&
+sedit "1i from __future__ import nested_scopes" src/SOAPpy/Client.py src/SOAPpy/Server.py src/SOAPpy/Types.py
