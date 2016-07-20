@@ -1,6 +1,9 @@
+depends %JPEG
 depends libwebp
-depends lcms
+depends lcms2
 depends setuptools
 
 optional_depends sane-backends "" "" "for scanning support"
-optional_depends PyQt          "" "" "for ImageQt support"
+optional_depends openjpeg-2    "" "" "for JPEG support" n
+optional_depends PyQt          "" "" "for ImageQt support" n
+optional_depends tk            "" "" "for the ImageTK module" n
