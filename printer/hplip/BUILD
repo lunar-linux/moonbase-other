@@ -1,20 +1,8 @@
-if in_depends $MODULE PyQt4; then
-  . /etc/profile.d/qt4.rc
-fi &&
 
-if module_installed systemd; then
-  OPTS+=" --enable-udev_sysfs_rules"
-fi &&
+default_build &&
 
-# Install /usr/bin/hpijs so don't get this error:
-# (/usr/lib/cups/filter/foomatic-rip-hplip) stopped with status 3!
-# Or this error:
-# sh: hpijs: command not found
-OPTS+=" --enable-hpijs-install" &&
+# HAL is no more
+rm -rf /usr/share/hal &&
 
-# Disable the HPLIP upgrade
-sedit "208i log.error\n clean exit(1)" upgrade.py &&
-
-OPTS+=" --disable-static" &&
-
-default_build
+# It should live there
+mv -f /etc/udev/rules.d/56-hpmud_sysfs.rules /usr/lib/udev/rules.d
