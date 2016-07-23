@@ -7,13 +7,19 @@ if in_depends $MODULE PyQt5; then
   . /etc/profile.d/qt5.rc
 fi &&
 
+if in_depends $MODULE PyQt4; then
+  . /etc/profile.d/qt4.rc
+fi &&
+
 if module_installed systemd; then
   OPTS+=" --enable-udev_sysfs_rules"
 fi &&
 
-OPTS+=" --enable-cups-drv-install      \
-        --enable-new-hpcups            \
-        --enable-cups-ppd-install      \
+OPTS+=" --disable-qt3 \
+        --disable-static \
+        --enable-new-hpcups \
+        --enable-cups-drv-install \
+        --enable-cups-ppd-install \
+        --disable-hpijs-install   \
         --disable-foomatic-ppd-install \
-        --disable-hpijs-install        \
         --disable-foomatic-drv-install"
