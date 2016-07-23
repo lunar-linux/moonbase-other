@@ -1,2 +1,3 @@
-prepare_install  &&
+prepare_install &&
+
 python ./setup.py install
