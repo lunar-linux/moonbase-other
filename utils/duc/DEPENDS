@@ -1,0 +1,14 @@
+depends cairo
+depends pango
+depends ncurses
+
+optional_depends leveldb  "--with-db-backend=leveldb" "" \
+                          "Use leveldb database libs for storing disk usage." y
+optional_depends sqlite   "--with-db-backend=sqlite3" "" \
+                          "Use the sqlite database libs for storing disk usage." n
+optional_depends libX11   "--enable-x11 --disable-opengl" "" \
+                          "Use the X11-based interface, disables OpenGL-based." y
+optional_depends mesalib  "--disable-x11 --enable-opengl" "" \
+                          "For the OpenGL-based interface, disables X11-based." n
+optional_depends glfw     "--disable-x11 --enable-opengl" "" \
+                          "For the OpenGL-based interface, disables X11-based." n
