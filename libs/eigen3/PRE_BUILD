@@ -1,6 +1,4 @@
 # they add hg commit sums to the folder name - we don't want that here
 mk_source_dir &&
 cd $SOURCE_DIRECTORY &&
-tar -x --strip-components=1 -f $SOURCE_CACHE/$SOURCE &&
-
-sedit 's:-I${INCLUDE_INSTALL_DIR}:-I${CMAKE_INSTALL_PREFIX}/${INCLUDE_INSTALL_DIR}:' eigen3.pc.in
+tar -x --strip-components=1 -f $SOURCE_CACHE/$SOURCE

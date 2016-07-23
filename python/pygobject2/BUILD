@@ -5,4 +5,6 @@ fi &&
 #use --disable-introspection to avoid file conflict with pygobject3
 OPTS+=" --disable-introspection" &&
 
+OPTS+=" --enable-cairo" &&
+
 default_build

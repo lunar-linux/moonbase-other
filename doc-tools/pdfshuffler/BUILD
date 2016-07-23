@@ -1,7 +1,5 @@
-(
+python setup.py config &&
 
-  python setup.py config &&
-  prepare_install &&
-  python setup.py install
+prepare_install &&
 
-) > $C_FIFO 2>&1
+python setup.py install

@@ -13,7 +13,7 @@ if in_depends $MODULE qt4; then
   export POPPLER_QT4_TEST_LIBS+=" -L$QTDIR/lib -lQtCore -lQtGui -lQtXml"
 fi &&
 
-  default_build &&
+default_build &&
 
 
 # If in depends we will now build qt5 libs

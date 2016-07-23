@@ -1,8 +1,12 @@
 depends %UDEV
 depends %JPEG
 depends cups
-depends dbus
 depends libusb-compat
+
+optional_depends dbus \
+                 "--enable-dbus-build" \
+                 "--disable-dbus-build" \
+                 "for dbus support"
 
 optional_depends polkit \
                  "--enable-policykit" \
@@ -14,9 +18,14 @@ optional_depends sane-backends \
                  "--disable-scan-build" \
                  "for builtin scanner support"
 
+optional_depends PyQt5 \
+                 "--enable-qt5" \
+                 "--disable-qt5" \
+                 "for HP Qt5 GUI Support"
+
 optional_depends PyQt \
-                 "--enable-qt4 --disable-qt3" \
-                 "--disable-qt4 --disable-qt3" \
+                 "--enable-qt4" \
+                 "--disable-qt4" \
                  "for HP Qt4 GUI Support"
 
 optional_depends rpcbind \
@@ -25,7 +34,6 @@ optional_depends rpcbind \
                  "for network printing support"
 
 optional_depends reportlab "" "" "for PDF and Fax cover page support"
-optional_depends gobject-introspection   "" "" "for running hp-toolbox"
 optional_depends net-snmp  "" "" "for SNMP support"
-
-#optional_depends pillow    "" "" "for command line scanning support"
+optional_depends Pillow    "" "" "for command line scanning support"
+optional_depends pygobject "" "" "for running hp-toolbox"
