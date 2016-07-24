@@ -2,12 +2,12 @@ mquery SPLASH     "Build Splash graphics backend? (evas_generic_loaders need it)
                   "--enable-splash-output" \
                   "--disable-splash-output"
 
-mquery CPPWRAPPER "Build poppler cpp wrapper? (cups-filters needs it)" n \
+mquery CPPWRAPPER "Build poppler cpp wrapper? (cups-filters needs it)" y \
                   "--enable-poppler-cpp" \
                   "--disable-poppler-cpp"
 
-mquery UTILS      "Build command line utils?" n \
+mquery UTILS      "Build command line utils?" y \
                   "--enable-utils" \
                   "--disable-utils"
 
-mquery DOCS       "Build docs?" n
+mquery CMYK       "Enable cmyk rasterization?" y "--enable-cmyk" "--disable-cmyk"
