@@ -1,7 +1,11 @@
 prepare_install &&
 
 mkdir -p /usr/share/fonts/X11/Type1 &&
-install -m644 *.afm /usr/share/fonts/X11/Type1/ &&
+install -m644 *.?f? /usr/share/fonts/X11/Type1/ &&
+mkfontscale /usr/share/fonts/X11/Type1 &&
+mkfontdir /usr/share/fonts/X11/Type1 &&
 
 mkdir -p /usr/share/fonts/X11/TTF &&
-install -m644 *.ttf /usr/share/fonts/X11/TTF/
+install -m644 *.ttf /usr/share/fonts/X11/TTF/ &&
+mkfontscale /usr/share/fonts/X11/TTF &&
+mkfontdir /usr/share/fonts/X11/TTF
