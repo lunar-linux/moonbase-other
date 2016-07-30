@@ -1,22 +1,17 @@
-(
-   
-    if [ $SUIDINSTALL == "y" ]; then
-      MAKE_INSTALL="make suidinstall"
-    else
-      MAKE_INSTALL="make install"
-    fi &&
+if [ $SUIDINSTALL == "y" ]; then
+  MAKE_INSTALL="make suidinstall"
+else
+  MAKE_INSTALL="make install"
+fi &&
 
-    ./configure --prefix=/usr              \
-                --build=$BUILD             \
-                --sysconfdir=/etc/kismet   \
-                --mandir=/usr/share/man    \
-                --infodir=/usr/share/info  \
-                --datadir=/usr/share       \
-                --localstatedir=/var       \
-                 $OPTS                    &&
-    make dep                              && 
-    make                                  &&
-    prepare_install                       &&
-    $MAKE_INSTALL
+OPTS+=" --datadir=/usr/share \
+        --localstatedir=/var \
+        --sysconfdir=/etc/kismet" &&
 
-) > $C_FIFO 2>&1
+default_config &&
+make dep plugins &&
+make &&
+
+prepare_install &&
+
+$MAKE_INSTALL
