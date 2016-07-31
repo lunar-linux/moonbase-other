@@ -1,6 +1,12 @@
 python setup.py build &&
 prepare_install &&
-python setup.py install --optimize=1 &&
+python setup.py install --install-data=tmp --install-scripts=tmp --optimize=1 --root=/ &&
+
+if in_depends $MODULE Python-3; then
+  python3 setup.py build &&
+  prepare_install &&
+  python3 setup.py install --install-data=tmp --install-scripts=tmp --optimize=1 --root=/
+fi
 
 install -dm755 /etc/fonts/conf.d &&
 install -dm755 /etc/fonts/conf.avail &&
@@ -13,4 +19,3 @@ install -Dm644 powerline/bindings/vim/plugin/powerline.vim /usr/share/vim/vimfil
 install -Dm644 powerline/bindings/zsh/powerline.zsh /usr/share/zsh/contrib/powerline.zsh &&
 install -Dm644 powerline/bindings/tmux/powerline.conf /usr/share/tmux/powerline.conf &&
 install -Dm644 powerline/bindings/bash/powerline.sh /usr/share/bash/powerline.sh
-
