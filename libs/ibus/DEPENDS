@@ -1,15 +1,30 @@
-depends intltool
+depends dbus
 depends hicolor-icon-theme
+depends iso-codes
 depends pygobject
 depends vala
-depends iso-codes
 depends libnotify4
+depends librsvg
 depends gnome-common
-depends gtk-doc
+depends intltool
 
-optional_depends gtk+-2 "--enable-gtk2"  "--disable-gtk2"  "build gtk2 im module"
-optional_depends gtk+-3 "--enable-gtk3"  "--disable-gtk3"  "build gtk3 im module"
+optional_depends qt5 "" "" "build Qt 5.x im module"
+
+optional_depends gtk+-3 "--enable-gtk3"  "--disable-gtk3"  "build GTK 3.x im module"
+optional_depends gtk+-2 "--enable-gtk2"  "--disable-gtk2"  "build GTK 2.x im module"
 optional_depends dconf  "--enable-dconf" "--disable-dconf" "dconf support"
 optional_depends GConf  "--enable-gconf" "--disable-gconf" "required for dconf support"
-optional_depends wayland "--enable-wayland" "--disable-wayland" "for wayland support"
-optional_depends Python "--enable-python-library" "--disable-python-library" "For python support"
+
+optional_depends Python-3 \
+                 "--with-python=python3" "" \
+                 "for Python 3.x support"
+
+optional_depends wayland \
+                 "--enable-wayland" \
+                 "--disable-wayland" \
+                 "for wayland support"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "for building documentation"

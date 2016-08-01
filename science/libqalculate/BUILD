@@ -1,6 +1,5 @@
-(
+autoconf &&
 
-  autoconf &&
-  default_build
+OPTS+=" --disable-static" &&
 
-) > $C_FIFO 2>&1
+default_build

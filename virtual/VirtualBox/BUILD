@@ -80,8 +80,8 @@ if in_depends $MODULE texlive; then
   install -Dm 644 /usr/{lib/virtualbox,share/doc/VirtualBox}/UserManual.pdf
 fi &&
 
-install -Dm644 $SCRIPT_DIRECTORY/60-vboxguest.rules /etc/udev/rules.d/60-vboxdrv.rules &&
-install -Dm644 $SCRIPT_DIRECTORY/60-vboxguest.rules /etc/udev/rules.d/60-vboxguest.rules &&
+install -Dm644 {$SCRIPT_DIRECTORY,/etc/udev/rules.d}/60-vboxdrv.rules &&
+install -Dm644 {$SCRIPT_DIRECTORY,/etc/udev/rules.d}/60-vboxguest.rules &&
 
 # Create the vboxusers group
 groupadd -f vboxusers

@@ -1,7 +1,11 @@
 ./autogen.sh &&
 
 if module_installed systemd; then
-  OPTS+=" --without-rcstop --without-rcstart --without-rclevels --without-rcdir"
+  OPTS+=" --without-rcstop \
+          --without-rcstart \
+          --without-rclevels \
+          --without-rcdir \
+          --with-cups-rundir=/run/cups"
 fi &&
 
 OPTS+=" --disable-static \

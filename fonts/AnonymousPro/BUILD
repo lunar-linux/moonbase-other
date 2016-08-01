@@ -1,18 +1,14 @@
+APFONTS=/usr/share/fonts/X11/TTF/$MODULE &&
 
-  APFONTS=/usr/share/fonts/$MODULE &&
+prepare_install &&
 
-  prepare_install &&
+mkdir -p $APFONTS &&
 
-  if [ ! -d $APFONTS ] ; then
-     mkdir -p $APFONTS
-  fi &&
-  
-  if [ -d old.libraries ] ; then
-    rmdir old.libraries
-  fi &&
+if [ -d old.libraries ]; then
+  rmdir old.libraries
+fi &&
 
-  gather_docs &&
+install -m644 *.ttf $APFONTS &&
 
-  cp -f $SOURCE_DIRECTORY/*.ttf $APFONTS &&
-  cd $APFONTS &&
-  mkfontdir
+mkfontscale $APFONTS &&
+mkfontdir $APFONTS

@@ -1,3 +1,6 @@
+
+patch_it $SOURCE2 1 &&
+
 # Needed to fix gcc-4.9 make failure
 CFLAGS+=" -fno-lto" &&
 CXXFLAGS+=" -fno-lto" &&

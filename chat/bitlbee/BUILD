@@ -1,4 +1,4 @@
-if in_depends $MODULE openssl; then
+if in_depends $MODULE %OSSL; then
   OPTS+=" --ssl=openssl"
 else
   OPTS+=" --ssl=gnutls"

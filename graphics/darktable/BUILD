@@ -1,5 +1,5 @@
 
-#Looks for lua-5.2, we have 5.3
-OPTS+=" -DUSE_LUA=0" &&
+# GnomeKeyring is only supported for versions older than 3.12.0, version 3.12.0 found. Please use libsecret instead
+OPTS+=" -DUSE_GNOME_KEYRING=0 -DBUILD_USERMANUAL=0 -DDONT_USE_INTERNAL_LUA=0" &&
 
 default_cmake_build
