@@ -1,6 +1,8 @@
 # this breaks a symbol check in the build scripts
 LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
 
+SHELL="${SHELL:-/bin/bash}" &&
+
 if [ "$PGO" == "y" ]; then
   #CCache breaks the pgo build
   export CCACHE_DISABLE=1 &&
