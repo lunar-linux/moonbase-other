@@ -1,5 +1,7 @@
 
-  . /etc/profile.d/qt4.rc &&
+  . /etc/profile.d/qt5.rc &&
+
+  CXXFLAGS+=" -std=c++11" &&
 
   sedit "s:Application;::" misc/xca.desktop &&
 
