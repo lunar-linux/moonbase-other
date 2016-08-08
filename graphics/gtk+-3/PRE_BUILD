@@ -1,0 +1,7 @@
+default_pre_build &&
+
+rm -f /usr/lib/gtk-3.0/3.0.0/immodules.cache &&
+
+# Skip the testsuite, demos and examples, not needed. However, the test subdir is.
+sedit "s:testsuite examples::" Makefile.{am,in} &&
+sedit "s:demos::" Makefile.{am,in}
