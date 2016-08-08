@@ -7,6 +7,7 @@ depends libnotify4
 depends librsvg
 depends gnome-common
 depends intltool
+depends gtk-doc
 
 optional_depends qt5 "" "" "build Qt 5.x im module"
 
@@ -24,7 +25,8 @@ optional_depends wayland \
                  "--disable-wayland" \
                  "for wayland support"
 
-optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
-                 "for building documentation"
+# we have to see if we can make it optional
+#optional_depends gtk-doc \
+#                 "--enable-gtk-doc" \
+#                 "--disable-gtk-doc" \
+#                 "for building documentation"
