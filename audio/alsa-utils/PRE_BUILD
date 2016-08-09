@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit "s:oneshop:oneshot:" alsactl/alsa-restore.service.in &&
+sedit "s:@sbindir@:/usr/sbin:" alsactl/90-alsa-restore.rules.in

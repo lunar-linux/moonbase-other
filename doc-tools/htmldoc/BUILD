@@ -3,7 +3,7 @@
   CXX="g++" &&
   CPP="gcc -E" &&
 
-  OPTS+=" -disable-cdsassl --disable-ssl --disable-openssl" &&
+  OPTS+=" -disable-cdsassl --disable-ssl" &&
 
   sedit "30i #include <errno.h>" htmldoc/http-addrlist.c &&
   sedit "27i #include <errno.h>" htmldoc/http-private.h &&

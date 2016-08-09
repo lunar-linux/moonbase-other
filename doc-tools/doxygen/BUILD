@@ -1,4 +1,8 @@
 
+  if in_depends $MODULE qt5 ; then
+    . /etc/profile.d/qt5.rc
+  fi &&
+
 # See; http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-doc/doxygen/files/doxygen-1.8.4-libreoffice.patch
   sedit "s:FileNamespaces:FileConstantGroups:" src/layout.cpp &&
 

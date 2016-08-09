@@ -1,6 +1,11 @@
 echo '/* not used */' > include/curl/types.h &&
 
-OPTS+=" --disable-static \
+OPTS+=" --enable-manual \
+        --enable-threaded-resolver \
+        --enable-versioned-symbols \
+        --disable-static \
+        --without-libpsl \
+        --without-librtmp \
         --with-zlib \
         --with-libidn \
         --with-random=/dev/urandom" &&

@@ -14,8 +14,8 @@ optional_depends GConf \
                  "GConf support"
 
 optional_depends libpng \
-                 "--enable-system-libpng" \
-                 "--disable-system-libpng" \
+                 "--with-system-png" \
+                 "--without-system-libpng" \
                  "Build with system libpng"
 
 optional_depends cairo \
@@ -60,11 +60,6 @@ optional_depends pulseaudio \
                  "--disable-pulseaudio"  \
                  "Build PulseAudio sound backend"
 
-optional_depends gst-plugins-base-1.0 \
-                 "--enable-gstreamer=1.0" \
-                 "--disable-gstreamer" \
-                 "Media playback through GStreamer"
-
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends libjpeg-turbo \
                  "--with-system-jpeg" \
@@ -76,10 +71,13 @@ optional_depends libjpeg-turbo \
 optional_depends sqlite \
                  "--enable-system-sqlite" \
                  "--disable-system-sqlite" \
-                 "Use system sqlite ${PROBLEM_COLOR}(discouraged)"
+                 "Use system sqlite ${PROBLEM_COLOR}(discouraged)" n
 
-# This seems to break mozilla, most other distros do not use this.
-#  optional_depends gnome-vfs \
-#                   "--enable-gnomevfs" \
-#                   "--disable-gnomevfs" \
-#                   "For Gnome VFS support"
+optional_depends webrtc-audio-processing  \
+                 "--enable-webrtc"        \
+                 "--disable-webrtc"       \
+                 "For real time communication support"
+optional_depends cups         \
+                 "--enable-printing" \
+                 "--disable-printing" \
+                 "For printing support"

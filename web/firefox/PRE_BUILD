@@ -8,13 +8,13 @@ default_pre_build &&
 
 # To skirt around this make failure in libxul.so:
 # ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
-CFLAGS+=" -lbz2" &&
+#CFLAGS+=" -lbz2" &&
 
 # Evidently AVX can break mozilla builds on newer hardware
 # Removing it until it can be fixed somehow
-CFLAGS+=" -mno-avx" &&
+#CFLAGS+=" -mno-avx" &&
 
-sedit 's/@PRE_RELEASE_SUFFIX@//g' browser/base/content/browser.xul &&
+sedit 's/configuration.mChild/configuration.mChild.get()/' widget/qt/nsWindow.cpp &&
 
 export MOZ_CO_PROJECT=browser &&
 export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
