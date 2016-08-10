@@ -15,10 +15,11 @@ fi &&
 # why system provided sqlite can cause problems with those apps such
 # firefox, etal.
 export CFLAGS+=" -DSQLITE_ENABLE_FTS4=1 \
-                 -DSQLITE_ENABLE_FTS3_TOKENIZER=1 \
-                 -DSQLITE_ENABLE_COLUMN_METADATA=1 \
+                 -DSQLITE_ENABLE_JSON1=1 \
+                 -DSQLITE_ENABLE_RTREE=1 \
                  -DSQLITE_ENABLE_DBSTAT_VTAB=1 \
-                 -DSQLITE_ENABLE_RTREE=1" &&
+                 -DSQLITE_ENABLE_FTS3_TOKENIZER=1 \
+                 -DSQLITE_ENABLE_COLUMN_METADATA=1" &&
 default_build &&
 
 install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1
