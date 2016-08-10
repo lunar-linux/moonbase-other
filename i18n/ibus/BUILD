@@ -1,5 +1,6 @@
 OPTS+=" --enable-ui \
         --enable-python-library \
+        --disable-emoji-dict \
         --disable-memconf" &&
 
 touch INSTALL &&
