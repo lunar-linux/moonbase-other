@@ -1,25 +1,31 @@
-export AUTO_GOPATH=1
+export AUTO_GOPATH=1 DOCKER_BUILDTAGS="seccomp"
 export DOCKER_GITCOMMIT
+hack/make.sh dynbinary &&
 
-add_priv_group docker &&
-
-#if [[ $(arch) == i686 ]]; then
-#  mv vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/{jump_amd64.go,jump_linux.go} &&
-#  sedit 's/,amd64//' vendor/src/github.com/opencontainers/runc/libcontainer/seccomp/jump_linux.go
-#fi &&
-
-./hack/make.sh dynbinary &&
+if in_depends $MODULE go-md2man; then
+  man/md2man-all.sh 2> /dev/null
+fi &&
 
 prepare_install &&
 
-install -Dm0755 bundles/$VERSION/dynbinary/docker-$VERSION /usr/bin/docker &&
-install -Dm0755 bundles/$VERSION/dynbinary/dockerinit-$VERSION /usr/lib/docker/dockerinit &&
+# Docker files
+install -Dm0755 bundles/$VERSION/dynbinary-client/docker-$VERSION /usr/bin/docker &&
+install -Dm0755 bundles/$VERSION/dynbinary-daemon/dockerd-$VERSION /usr/bin/dockerd &&
+install -Dm0755 bundles/$VERSION/dynbinary-daemon/docker-proxy-$VERSION /usr/bin/docker-proxy &&
+
+# useful symlinks
+for i in containerd containerd-shim ctr runc; do
+  ln -sf $i /usr/bin/docker-${i}
+done &&
+
 install -Dm0644 contrib/completion/bash/docker /usr/share/bash-completion/completions/docker
 install -Dm0644 $SCRIPT_DIRECTORY/$MODULE.conf /usr/lib/sysusers.d/ &&
 
-if module_installed go-md2man; then
-  # man pages generation and install
-  man/md2man-all.sh &&
-  install -dm755 /usr/share/man
-  mv man/man* /usr/share/man
+# Systemd services
+install -Dm0644 contrib/init/systemd/docker.service /usr/lib/systemd/system/docker.service &&
+install -Dm0644 contrib/init/systemd/docker.socket /usr/lib/systemd/system/docker.socket &&
+install -Dm0644 $SCRIPT_DIRECTORY/docker.conf /usr/lib/sysusers.d/docker.conf &&
+
+if in_depends $MODULE go-md2man; then
+  cp -r man/man*/ /usr/share/man
 fi
