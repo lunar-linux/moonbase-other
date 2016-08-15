@@ -26,7 +26,7 @@ install -Dm644 out/Release/chrome.1 /usr/share/man/man1/chromium.1 &&
 
 install -m 0644 -D $SCRIPT_DIRECTORY/chromium.desktop /usr/share/applications/chromium.desktop &&
 
-if [ -d /usr/share/icons/hicolor/ ] ; then 
+if [ -d /usr/share/icons/hicolor/ ]; then
   for size in 22 24 48 64 128 256; do
     install -m 0644 -D \
     chrome/app/theme/chromium/product_logo_${size}.png /usr/share/icons/hicolor/${size}x${size}/apps/chromium.png
@@ -47,7 +47,7 @@ ln -sf /usr/lib/lunar/plugins ${CHROMIUM_HOME}/plugins &&
 mkdir -p /usr/share/themes/Chromium &&
 cp -a $SOURCE_DIRECTORY/chrome/app/theme /usr/share/themes/Chromium/ &&
 
-if [ ! -f /etc/$MODULE/chromium.default ] ; then
+if [ ! -f /etc/$MODULE/chromium.default ]; then
   mkdir -p /etc/$MODULE &&
   echo "# Default settings for chromium. This file is sourced by /bin/bash from" > /etc/$MODULE/chromium.default &&
   echo "# the chromium launcher." >> /etc/$MODULE/chromium.default &&
