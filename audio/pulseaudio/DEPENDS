@@ -6,6 +6,7 @@ depends speexdsp
 depends json-c
 depends sbc
 
+optional_depends %UDEV         "--enable-udev"       "--disable-udev"       "optional UDEV support" y
 optional_depends fftw3         "--with-fftw"         "--without-fftw"       "for FFTW-using modules (equalizer) support"
 optional_depends alsa-lib      "--enable-alsa"       "--disable-alsa"       "for ALSA support"
 optional_depends jack          "--enable-jack"       "--disable-jack"       "for jack support"
@@ -14,7 +15,6 @@ optional_depends libasyncns    "--enable-asyncns"    "--disable-asyncns"    "for
 optional_depends libcap        "--with-caps"         "--without-caps"       "for POSIX 1003.1e support"
 optional_depends avahi         "--enable-avahi"      "--disable-avahi"      "for ZeroConf support"
 optional_depends dbus          "--enable-dbus"       "--disable-dbus"       "optional D-Bus support"
-optional_depends %UDEV         "--enable-udev"       "--disable-udev"       "optional UDEV support"
 optional_depends lirc          "--enable-lirc"       "--disable-lirc"       "optional LIRC support"
 optional_depends GConf         "--enable-gconf"      "--disable-gconf"      "optional GConf support"
 optional_depends gtk+-3        "--enable-gtk3"       "--disable-gtk3"       "optional Gtk+ 3 support"
