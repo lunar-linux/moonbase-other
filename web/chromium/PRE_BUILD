@@ -92,12 +92,15 @@ OPTS+=" -Dgoogle_api_key=$google_api_key \
         -Dtracing_like_official_build=1                       \
         -Dfieldtrial_testing_like_official_build=1            \
         -Denable_hangout_services_extension=1                 \
-        -Ddisable_fatal_linker_warnings=1                     \
+        -Ddisable_nacl=1                                      \
         -Ddisable_glibc=1                                     \
-        -Ddisable_nacl=1" &&
-# A little jiggle for adboe/flash
+        -Ddisable_fatal_linker_warnings=1" &&
+# A little jiggle for adobe/flash
 echo > third_party/adobe/flash/flapper_version.h &&
 OPTS+=" -Dflapper_version_h_file=flapper_version.h" &&
+
+# Until the system sqlite will work we force the use of the internal provided one
+OPTS+=" -Duse_system_sqlite=0" &&
 
 third_party/libaddressinput/chromium/tools/update-strings.py &&
 
