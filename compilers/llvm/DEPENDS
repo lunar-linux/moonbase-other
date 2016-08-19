@@ -1,12 +1,12 @@
-optional_depends libffi "-DLLVM_ENABLE_FFI=1" \
-                        "-DLLVM_ENABLE_FFI=0" \
+optional_depends libffi "-DLLVM_ENABLE_FFI=ON" \
+                        "-DLLVM_ENABLE_FFI=OFF" \
                         "for high level programming support"
 
-optional_depends doxygen "-DLLVM_ENABLE_DOXYGEN=1" \
-                         "-DLLVM_ENABLE_DOXYGEN=0" \
+optional_depends doxygen "-DLLVM_ENABLE_DOXYGEN=ON" \
+                         "-DLLVM_ENABLE_DOXYGEN=OFF" \
                          "build doxygen documentation"
 
 # atm not supported on lunar
-#optional_depends Sphinx "-DLLVM_ENABLE_SPHINX=1" \
-#                        "-DLLVM_ENABLE_SPHINX=0" \
+#optional_depends Sphinx "-DLLVM_ENABLE_SPHINX=ON -DSPHINX_WARNINGS_AS_ERRORS=OFF" \
+#                        "-DLLVM_ENABLE_SPHINX=OFF" \
 #                        "build Sphinx documentation"
