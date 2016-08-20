@@ -1,10 +1,24 @@
 depends gettext
 
-optional_depends libdrm "--enable-drm" "--disable-drm" "for DRM support"
-optional_depends libxcb "--enable-randr" "--disable-randr" "for RandR support"
-optional_depends libXxf86vm "--enable-vidmode" "--disable-vidmode" "for X11 VidMode support"
+optional_depends libdrm \
+                 "--enable-drm" \
+                 "--disable-drm" \
+                 "for DRM support"
 
-optional_depends geoclue2 "--enable-geoclue2" "--disable-geoclue2" "enable Geoclue2 location provider"
+optional_depends libxcb \
+                 "--enable-randr" \
+                 "--disable-randr" \
+                 "for RandR support"
+
+optional_depends libXxf86vm \
+                 "--enable-vidmode" \
+                 "--disable-vidmode" \
+                 "for X11 VidMode support"
+
+optional_depends geoclue2 \
+                 "--enable-geoclue2" \
+                 "--disable-geoclue2" \
+                 "enable Geoclue2 location provider"
 
 # this requires some python3 stuff we did not package yet
 #optional_depends pygobject "--enable-gui" "--disable-gui" "support GTK interface"
