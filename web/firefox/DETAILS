@@ -1,8 +1,11 @@
           MODULE=firefox
          VERSION=48.0.1
           SOURCE=$MODULE-$VERSION.source.tar.xz
+         SOURCE2=$MODULE-46.0.1-no-libnotify.patch
       SOURCE_URL=http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/$VERSION/source/
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha256:fcc08696dd40e42dc2bc2de99aed9ed9f15ac581364375b6bef2501c06ac5fe7
+     SOURCE2_VFY=sha256:e4ebdd14096d177d264a7993dbd5df46463605ff45f783732c26d30b9caa53a7
         WEB_SITE=http://www.mozilla.org/projects/firefox
          ENTERED=20110814
          UPDATED=20160823
@@ -10,7 +13,6 @@
 
 cat << EOF
 Mozilla Firefox is the successor of Mozilla Firebird.
-
 Firefox includes:
   * comprehensive popup controls to keep unwanted advertising off
     your desktop

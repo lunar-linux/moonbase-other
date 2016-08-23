@@ -1,48 +1,43 @@
 depends zip
-depends autoconf-mozilla
 depends unzip
+depends yasm
+depends autoconf-mozilla
+depends dbus-glib
 depends gtk+-2
 depends nss
 depends curl
 depends alsa-lib
 depends libvpx
+depends ffmpeg
 depends freetype2
-
-optional_depends GConf \
-                 "--enable-gconf" \
-                 "--disable-gconf" \
-                 "GConf support"
-
-optional_depends libpng \
-                 "--with-system-png" "" \
-                 "Build with system libpng"
-
-optional_depends cairo \
-                 "--enable-system-cairo" \
-                 "--disable-system-cairo" \
-                 "Build with system cairo ${PROBLEM_COLOR}(unstable)"
-
-optional_depends %FLASH "" "" "To enable Flash plugin"
-
-optional_depends hunspell \
-                 "--enable-system-hunspell" \
-                 "--disable-system-hunspell" \
-                 "Use system spelling support"
+depends mesa-lib
+depends mime-types
+depends startup-notification
 
 optional_depends libevent \
                  "--with-system-libevent" \
                  "--without-system-libevent" \
                  "Use system event library"
 
-optional_depends dbus-glib \
-                 "--enable-dbus" \
-                 "--disable-dbus" \
-                 "For dbus support"
-
 optional_depends libffi \
                  "--enable-system-ffi" \
                  "--disable-system-ffi" \
                  "Use system libffi"
+
+optional_depends libpng \
+                 "--with-system-png" "" \
+                 "Build with system libpng"
+
+# firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
+optional_depends libjpeg-turbo \
+                 "--with-system-jpeg" \
+                 "--without-system-jpeg" \
+                 "Use system jpeg library"
+
+optional_depends hunspell \
+                 "--enable-system-hunspell" \
+                 "--disable-system-hunspell" \
+                 "Use system spelling support"
 
 optional_depends icu4c \
                  "--with-system-icu" \
@@ -58,19 +53,6 @@ optional_depends pulseaudio \
                  "--disable-pulseaudio"  \
                  "Build PulseAudio sound backend"
 
-# firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
-optional_depends libjpeg-turbo \
-                 "--with-system-jpeg" \
-                 "--without-system-jpeg" \
-                 "Use system jpeg library"
-
-# https://bugzilla.mozilla.org/show_bug.cgi?id=512940
-# Comment 9:  "System SQLite isn't supported by Mozilla (in fact we discourage its use)"
-optional_depends sqlite \
-                 "--enable-system-sqlite" \
-                 "--disable-system-sqlite" \
-                 "Use system sqlite ${PROBLEM_COLOR}(discouraged)" n
-
 optional_depends webrtc-audio-processing \
                  "--enable-webrtc" \
                  "--disable-webrtc" \
@@ -80,3 +62,20 @@ optional_depends cups \
                  "--enable-printing" \
                  "--disable-printing" \
                  "For printing support"
+
+optional_depends GConf \
+                 "--enable-gconf" \
+                 "--disable-gconf" \
+                 "GConf support"
+
+optional_depends %FLASH "" "" "To enable Flash plugin"
+
+# https://bugzilla.mozilla.org/show_bug.cgi?id=512940
+# Comment 9:  "System SQLite isn't supported by Mozilla (in fact we discourage its use)"
+optional_depends sqlite \
+                 "--enable-system-sqlite" \
+                 "--disable-system-sqlite" \
+                 "Use system sqlite ${PROBLEM_COLOR}(discouraged)" n
+
+#optional_depends upower "" "" "For battery API"
+#optional_depends NetworkManager "" "" "For location detection via available WiFi networks"
