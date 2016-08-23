@@ -15,7 +15,6 @@ OPTS+=" --enable-gpl        \
         --enable-swscale    \
         --enable-avfilter   \
         --enable-avresample \
-        --enable-nonfree    \
         --enable-x11grab"  &&
 
 if [ -n $CPU ] ; then
