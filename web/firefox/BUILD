@@ -1,6 +1,3 @@
-# this breaks a symbol check in the build scripts
-LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
-
 SHELL="${SHELL:-/bin/bash}" &&
 
 if [ "$PGO" == "y" ]; then
@@ -18,6 +15,7 @@ prepare_install &&
 make install &&
 
 install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/firefox.desktop &&
+install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/lib/firefox/browser/defaults/preferences/}/vendor.js
 
 for s in 16 22 24 32 48 256; do
   install -Dm 644 $SOURCE_DIRECTORY/browser/branding/official/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/firefox.png
