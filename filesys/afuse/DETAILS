@@ -1,19 +1,24 @@
-        MODULE=afuse
-       VERSION=0.2
-        SOURCE=$MODULE-$VERSION.tar.gz
-    SOURCE_URL=$SFORGE_URL/$MODULE
-    SOURCE_VFY=sha1:c42b1cee671ac4e98c882e33adc0834c4553f24a
-      WEB_SITE=http://afuse.sourceforge.net
-       ENTERED=20060919
-       UPDATED=20130202
-         SHORT="automounter for fuse filesystems"
+          MODULE=afuse
+         VERSION=0.4.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/pcarrier/afuse/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:8c7950cdeb24cdff828cdd3807537ee12cab87b18ecef4496b7bdedb2b8bd0e9
+        WEB_SITE=http://github.com/pcarrier/afuse/
+         ENTERED=20060919
+         UPDATED=20160828
+           SHORT="Automounting file system using FUSE"
 
 cat << EOF
-Afuse is an automounting file system implemented in user-space using
-FUSE. Afuse currently implements the most basic functionality that can
-be expected by an automounter; that is it manages a directory of
-virtual directories. If one of these virtual directories is accessed
-and is not already automounted, afuse will attempt to mount a filesystem
-onto that directory. If the mount succeeds the requested access proceeds
-as normal, otherwise it will fail with an error.
+afuse is an automounting file system implemented in user-space using FUSE.
+afuse currently implements the most basic functionality that can be expected by
+an automounter; that is it manages a directory of virtual directories. If one
+of these virtual directories is accessed and is not already automounted, afuse
+will attempt to mount a filesystem onto that directory. If the mount succeeds
+the requested access proceeds as normal, otherwise it will fail with an error.
+See the example below for a specific usage scenario.
+The advantage of using afuse over traditional automounters is afuse runs
+entirely in user-space by individual users. Thus it can take advantage of the
+invoking users environment, for example allowing access to an ssh-agent for
+password-less sshfs mounts, or allowing access to a graphical environment to
+get user input to complete a mount such as asking for a password.
 EOF
