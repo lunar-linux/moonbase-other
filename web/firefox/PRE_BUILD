@@ -1,3 +1,6 @@
+# disable the use of the system installed sqlite
+OPTS+=" --disable-system-sqlite" &&
+
 if [ ! -e /usr/include/cairo/cairo-tee.h ]; then
   message "${PROBLEM_COLOR}Run: ${MODULE_COLOR}lin -rc cairo" &&
   message "${MESSAGE_COLOR}To recompile cairo with tee(libX11) support, which is required by firefox.${DEFAULT_COLOR}" &&
@@ -6,6 +9,9 @@ fi &&
 
 default_pre_build &&
 
+# this breaks a symbol check in the build scripts
+LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
+
 # To skirt around this make failure in libxul.so:
 # ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
 #CFLAGS+=" -lbz2" &&
@@ -13,6 +19,9 @@ default_pre_build &&
 # Evidently AVX can break mozilla builds on newer hardware
 # Removing it until it can be fixed somehow
 #CFLAGS+=" -mno-avx" &&
+
+# for GCC 6.x
+CXXFLAGS+=" -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2"
 
 sedit 's/configuration.mChild/configuration.mChild.get()/' widget/qt/nsWindow.cpp &&
 
@@ -36,9 +45,13 @@ for flag in $OPTS; do
   echo "ac_add_options $flag" >> mozconfig
 done &&
 
-# turn off this #$ bell during build
-setterm -bfreq -blength &&
-
 if [ -n "${MAKES}" ]; then
   echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
 fi
+
+# turn off this #$ bell during build
+setterm -bfreq -blength &&
+
+# Notifications with libnotify are broken
+# https://bugzilla.mozilla.org/show_bug.cgi?id=1236150
+patch_it $SOURCE2 1
