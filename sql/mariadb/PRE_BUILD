@@ -7,4 +7,4 @@ sedit 's;^INSTALL(.*data/test.*;# &;' sql/CMakeLists.txt &&
 sedit 's;^ADD_SUB.*solaris.*;# &;' CMakeLists.txt
 
 # Remove const qualifier and fix crash with wsrep
-sedit 's;static const wsrep_uuid_t cluster_uuid;static wsrep_uuid_t cluster_uuid;' sql/wsrep_muysqld.cc
+sedit 's;static const wsrep_uuid_t cluster_uuid;static wsrep_uuid_t cluster_uuid;' sql/wsrep_mysqld.cc
