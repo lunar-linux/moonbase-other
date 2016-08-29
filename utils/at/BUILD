@@ -1,8 +1,12 @@
 OPTS+=" --with-jobdir=/var/spool/atd \
         --with-atspool=/var/spool/atd" &&
 
+if module_installed systemd; then
+  OPTS+=" --with-systemdsystemunitdir=/usr/lib/systemd/system"
+fi &&
+
 default_config &&
-make &&
+CFLAGS="$CFLAGS -w" make &&
 prepare_install &&
 make docdir=/usr/share/doc install &&
 
