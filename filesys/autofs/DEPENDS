@@ -1,19 +1,19 @@
 depends kmod
 depends libxml2
 
-optional_depends "krb5" ""  ""  "for Kerberos network authentification support"
+optional_depends krb5 "" "" "for Kerberos network authentification support"
 
-optional_depends "systemd"            \
-                 "--with-systemd"     \
-                 "--without-systemd"  \
-                 "for systemd support"
-
-optional_depends "openldap"            \
-                 "--with-openldap"     \
-                 "--without-openldap"  \
+optional_depends openldap \
+                 "--with-openldap" \
+                 "--without-openldap" \
                  "for openldap support"
 
-optional_depends "libtirpc"            \
-                 "--with-libtirpc"     \
-                 "--without-libtirpc"  \
+optional_depends libtirpc \
+                 "--with-libtirpc" \
+                 "--without-libtirpc" \
                  "for Transport-Independent RPC support"
+
+optional_depends systemd \
+                 "--with-systemd" \
+                 "--without-systemd" \
+                 "for systemd support"

@@ -1,0 +1,6 @@
+optional_depends nss    "" "--disable-crypto-engine-nss"     "for NSS crypto engine support"
+optional_depends gnutls "" "--disable-crypto-engine-gnutls"  "for GnuTLS crypto engine support"
+
+optional_depends openssl \
+                 "" "--disable-openssl --disable-crypto-engine-openssl" \
+                 "for OpenSSL crypto engine support"

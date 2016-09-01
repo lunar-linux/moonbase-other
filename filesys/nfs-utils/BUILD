@@ -3,7 +3,7 @@ OPTS+=" --without-tcp-wrappers \
         --with-start-statd=/usr/bin/start-statd \
         --enable-libmount-mount \
         --enable-mountconfig"
-        
+
 add_priv_user nfs:daemon &&
 
 default_build &&
@@ -26,5 +26,5 @@ if [ ! -f /etc/exports ]; then
 fi &&
 
 mkdir -p /etc/exports.d &&
-#mkdir -m 555 /var/lib/nfs/rpc_pipefs &&
+mkdir -m 555 /var/lib/nfs/rpc_pipefs &&
 mkdir /var/lib/nfs/v4recovery
