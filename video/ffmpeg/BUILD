@@ -6,16 +6,17 @@ fi &&
 # https://trac.macports.org/ticket/25803
 sedit "s:texi2html -monolithic -number:texi2html -monolithic:" Makefile &&
 
-OPTS+=" --enable-gpl        \
-        --enable-shared     \
-        --disable-static    \
-        --enable-pthreads   \
-        --enable-zlib       \
-        --enable-postproc   \
-        --enable-swscale    \
-        --enable-avfilter   \
-        --enable-avresample \
-        --enable-x11grab"  &&
+OPTS+=" --disable-static  \
+        --enable-gpl      \
+        --enable-zlib     \
+        --enable-shared   \
+        --enable-swscale  \
+        --enable-x11grab  \
+        --enable-nonfree  \
+        --enable-pthreads \
+        --enable-postproc \
+        --enable-avfilter \
+        --enable-avresample" &&
 
 if [ -n $CPU ] ; then
   OPTS+=" --cpu=$CPU"

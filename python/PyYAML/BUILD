@@ -1,11 +1,12 @@
+python setup.py build &&
 
-  python setup.py build    &&
-  prepare_install          &&
-  python setup.py install --optimize=1 &&
+prepare_install &&
 
-# Now for the Python-3 part
-  if in_depends $MODULE Python-3 ; then
-      python3 setup.py build    &&
-      prepare_install          &&
-      python3 setup.py install --optimize=1
-  fi
+python setup.py install --optimize=1 &&
+
+# Now for Python-3
+if in_depends $MODULE Python-3; then
+  python3 setup.py build &&
+  prepare_install &&
+  python3 setup.py install --optimize=1
+fi
