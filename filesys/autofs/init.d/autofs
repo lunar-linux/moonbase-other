@@ -30,7 +30,6 @@ FLAGS="defaults 21"
 DAEMON=/usr/sbin/automount
 PROG=$(basename $DAEMON)
 
-
 #
 # We can add local options here
 # e.g. localoptions='rsize=8192,wsize=8192'
@@ -51,7 +50,7 @@ function getschemes()
 }
 function catnismap()
 {
-    if [ -z "$1" ] ; then
+    if [ -z "$1" ]; then
         map="auto_master"
     else
         map="$1"
@@ -60,7 +59,7 @@ function catnismap()
 }
 function getfilemounts()
 {
-    if [ -f /etc/auto.master ] ; then
+    if [ -f /etc/auto.master ]; then
         cat /etc/auto.master | grep -v '^\+' | sed -e '/^#/d' -e '/^$/d'
         for nismap in `cat /etc/auto.master | grep '^\+' | sed -e '/^#/d' -e '/^$/d'`; do
             catnismap `echo "$nismap" | sed -e 's/^\+//'`
@@ -77,24 +76,24 @@ function getldapmounts()
 }
 function getrawmounts()
 {
-    for scheme in `getschemes` ; do
+    for scheme in `getschemes`; do
         case "$scheme" in
             files)
-                if [ -z "$filescheme" ] ; then
+                if [ -z "$filescheme" ]; then
                     getfilemounts
                     filescheme=1
                     export filescheme
                 fi
                 ;;
             nis)
-                if [ -z "$nisscheme" ] ; then
+                if [ -z "$nisscheme" ]; then
                     getnismounts
                     nisscheme=1
                     export nisscheme
                 fi
                 ;;
             ldap*)
-                if [ -z "$ldapscheme" ] ; then
+                if [ -z "$ldapscheme" ]; then
                     getldapmounts
                     ldapscheme=1
                     export ldapscheme
@@ -119,7 +118,7 @@ function getmounts()
             # These checks screen out duplicates and skip over directories
             # where the map is '-'.
             # We can't do empty or direct host maps, so don't bother trying.
-            if [ ! -z "$map" -a "$map" = "-hosts" ] ; then
+            if [ ! -z "$map" -a "$map" = "-hosts" ]; then
                 continue
             fi
             if [ ! -z "$dir" -a ! -z "$map" \
@@ -140,7 +139,7 @@ function getmounts()
                 # Break up the maptype and map, if the map type is specified
                 maptype=`echo $map | cut -f1 -d:`
                 # Handle degenerate map specifiers
-                if [ "$maptype" = "$map" ] ; then
+                if [ "$maptype" = "$map" ]; then
                     if [ -x "$map" ]; then
                         maptype=program
                     elif [ -x "/etc/$map" ]; then
@@ -151,10 +150,10 @@ function getmounts()
                     elif [ -f "/etc/$map" ]; then
                         maptype=file
                         map=`echo /etc/$map | sed 's^//^/^g'`
-                    elif [ "$map" = "hesiod" -o "$map" = "userhome" ] ; then
+                    elif [ "$map" = "hesiod" -o "$map" = "userhome" ]; then
                         maptype=$map
                         map=
-                    elif [ "$map" = "multi" ] ; then
+                    elif [ "$map" = "multi" ]; then
                         maptype=$map
                         map=
                     else
@@ -211,7 +210,7 @@ start() {
         TMP=`mktemp /tmp/autofs.XXXXXX` || { echo $"could not make temp file" >& 2; exit 1; }
         getmounts | tee $TMP | sh
         RETVAL=$?
-        if [ -s $TMP ] ; then
+        if [ -s $TMP ]; then
             success "$PROG startup" || failure "$PROG startup"
             [ $RETVAL = 0 ] && touch /var/lock/autofs
         else
@@ -231,7 +230,7 @@ stop() {
                 RETVAL=$?
         fi
         count=0
-        while [ -n "`pidof $DAEMON`" -a $count -lt 8 ] ; do
+        while [ -n "`pidof $DAEMON`" -a $count -lt 8 ]; do
             kill -USR2 `pidof $DAEMON`
             RETVAL=$?
             [ $RETVAL = 0 -a -z "`pidof $DAEMON`" ] || sleep ${count+1}
@@ -272,4 +271,3 @@ reload() {
 }
 
 . /lib/lsb/init-functions
-
