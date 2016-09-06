@@ -1,3 +1,5 @@
-OPTS+=" --disable-static --disable-schemas-compile --disable-upower"  &&
+OPTS+=" --disable-static \
+        --disable-upower \
+        --disable-schemas-compile" &&
 
 default_build
