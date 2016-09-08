@@ -20,12 +20,12 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DENABLED_LOCAL_INFILE=ON \
         -DDEFAULT_CHARSET=utf8 \
         -DDEFAULT_COLLATION=utf8_general_ci \
-        -DCMAKE_EXE_LINKER_FLAGS='-L/usr/lib/libjemalloc.so' \
+        -DCMAKE_EXE_LINKER_FLAGS='-ljemalloc' \
         -DWITH_ZLIB=system \
         -DWITH_READLINE=ON \
         -DWITH_EXTRA_CHARSETS=complex \
         -DWITH_LIBWRAP=OFF \
-        -DWITH_JEMALLOC=system \
+        -DWITH_JEMALLOC=ON \
         -DWITH_PCRE=system \
         -DWITH_INNOBASE_STORAGE_ENGINE=1 \
         -DWITH_MYISAMMRG_STORAGE_ENGINE=1 \
@@ -53,4 +53,5 @@ fi &&
 for i in analyze repair optimize; do
   ln -sf /usr/bin/mysql{check,$i}
 done &&
+
 ln -sf /usr/bin/{mysql,mariadb}_config
