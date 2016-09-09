@@ -10,8 +10,8 @@ AUXLIBS="$LDFLAGS" &&
 CCARGS="$CFLAGS" &&
 
 if in_depends $MODULE openldap; then
-  AUXLIBS="-lldap -llber"
-  CCARGS+="-DHAS_LDAP"
+  AUXLIBS=" -lldap -llber"
+  CCARGS+=" -DHAS_LDAP"
 fi &&
 
 if in_depends $MODULE Linux-PAM; then
