@@ -1,4 +1,4 @@
-OPTS+=" --disable-static" &&
+OPTS+=" --disable-static --enable-fts5" &&
 
 LDFLAGS+=" -ldl" &&
 
