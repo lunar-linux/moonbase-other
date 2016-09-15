@@ -17,6 +17,7 @@ OPTS+=" --prefix=/usr               \
         --enable-coefficient-range-checking \
         --disable-examples       \
         --disable-docs           \
+        --disable-static         \
         --disable-install-docs" &&
 
 # Avoid experimental options
