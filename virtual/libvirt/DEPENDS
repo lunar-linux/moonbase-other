@@ -7,6 +7,7 @@ depends openssl
 depends lvm2
 depends libpcap
 depends libpciaccess
+depends yajl
 
 optional_depends %UDEV      "--with-udev "    "--without-udev "    "for udev support"
 optional_depends avahi      "--with-avahi"    "--without-avahi"    "for avahi support"
@@ -21,7 +22,6 @@ optional_depends pm-utils   "--with-pm-utils" "--without-pm-utils" "for power ma
 optional_depends cyrus-sasl "--with-sasl"     "--without-sasl"     "for SASL support"
 optional_depends libcap-ng  "--with-capng"    "--without-capng"    "for libcap-ng support"
 optional_depends readline   "--with-readline" "--without-readline" "for readline support"
-optional_depends yajl       "--with-yajl"     "--without-yajl"     "for JSON support"
 optional_depends polkit     "--with-polkit"   "--without-polkit"   "for PolicyKit support"
 
 optional_depends libgcrypt    "" "" "for libgcrypt support"
