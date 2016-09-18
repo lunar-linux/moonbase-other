@@ -16,9 +16,4 @@ if [[ "$USE_AMDGPU" = "y" ]]; then
 fi &&
 OPTS+=" -DLLVM_TARGETS_TO_BUILD=${TARGETS}" &&
 
-default_cmake_build &&
-
-# Move analyzer scripts out of /usr/libexec
-mv /usr/libexec/{ccc,c++}-analyzer /usr/lib/clang/ &&
-sedit 's|libexec|lib/clang|' /usr/bin/scan-build &&
-rmdir /usr/libexec
+default_cmake_build
