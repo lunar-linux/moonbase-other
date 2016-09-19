@@ -7,6 +7,7 @@ echo "VBOX_GCC_OPT=$CXXFLAGS" >> LocalConfig.kmk
 # don't build tests
 echo "VBOX_WITH_TESTCASES =" >> LocalConfig.kmk &&
 echo "VBOX_WITH_TESTSUITE =" >> LocalConfig.kmk &&
+echo "VBOX_WITH_WARNINGS_AS_ERRORS =" >> LocalConfig.kmk &&
 
 if in_depends $MODULE sun-jdk; then
   # Location of javac
