@@ -1,9 +1,9 @@
   default_pre_build &&
 
   if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
-    message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo"
-    message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by Thunderbird.${DEFAULT_COLOR}"
-     exit 1
+    message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo" &&
+    message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by Thunderbird.${DEFAULT_COLOR}" &&
+    false
   fi &&
 
   if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
@@ -28,7 +28,7 @@
   fi &&
 
   for flag in $OPTS; do
-  echo "ac_add_options $flag" >> mozconfig
+    echo "ac_add_options $flag" >> mozconfig
   done &&
 
   # To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
