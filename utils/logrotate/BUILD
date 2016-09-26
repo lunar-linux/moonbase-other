@@ -1,13 +1,11 @@
-OPTS+=" --mandir=/usr/share/man"
+./autogen.sh
 
-./autogen.sh &&
+OPTS+=" --mandir=/usr/share/man" &&
 
 default_build &&
 
-install -dm0755 /etc/logrotate.d &&
-
 if [ ! -e /etc/logrotate.conf ]; then
-  install -m 0644 examples/logrotate-default /etc/logrotate.conf
+  install -m 0644 $SCRIPT_DIRECTORY/logrotate.conf /etc/logrotate.conf
 fi &&
 
 gather_docs examples
