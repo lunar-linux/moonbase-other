@@ -1,15 +1,19 @@
           MODULE=mongodb
-         VERSION=3.2.8
+         VERSION=3.2.9
           SOURCE=$MODULE-src-r$VERSION.tar.gz
-         SOURCE2=mongodb-boost160.patch
+         # DO NOT REMOVE THIS PATCH, CONSULT Ratler IF YOU ARE UNSARE WHY IT IS THERE
+         SOURCE2=mongodb-3.2.1-fix-cxxflags_ldflags_remove_ggdb.patch
+         SOURCE3=mongodb-boost160.patch
       SOURCE_URL=http://downloads.mongodb.org/src
      SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-src-r$VERSION
-      SOURCE_VFY=sha256:5501e0e90c9358358e9ee20d4814643e910b847827627ed7ca1a9d90d220c0a7
-     SOURCE2_VFY=sha256:38f75f52145672ec55932a8721ea061471fb25680bff258cc1ec322449a31514
+      SOURCE_VFY=sha256:25f8817762b784ce870edbeaef14141c7561eb6d7c14cd3197370c2f9790061b
+     SOURCE2_VFY=sha256:d71b4ab02d95dd1128d20e124ca496fb6ad560fbcf6c10e938c0c9a506f3c24b
+     SOURCE3_VFY=sha256:38f75f52145672ec55932a8721ea061471fb25680bff258cc1ec322449a31514
         WEB_SITE=http://www.mongodb.org/
          ENTERED=20101205
-         UPDATED=20160728
+         UPDATED=20160929
            SHORT="A scalable, high-performance, key-value store, document-oriented database"
 
 cat << EOF
