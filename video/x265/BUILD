@@ -6,4 +6,8 @@ fi &&
 
 cmake source/ $OPTS &&
 
-default_make
+default_make &&
+
+# remove the static lib
+rm -f /usr/lib/libx265.a
+
