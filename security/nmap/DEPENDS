@@ -1,6 +1,12 @@
-depends pcre
-depends libdnet
-depends libpcap
+optional_depends pcre \
+                 "--with-libpcre=/usr" \
+                 "--with-libpcre=included" \
+                 "for PCRE support"
+
+optional_depends libpcap \
+                 "--with-libpcap=/usr" \
+                 "--with-libpcap=included" \
+                 "for pcap support"
 
 optional_depends %OSSL \
                  "--with-openssl" \
@@ -12,4 +18,4 @@ optional_depends pygtk \
                  "--without-zenmap" \
                  "for the Zenmap GUI"
 
-#depends lua
+# optional_depends lua
