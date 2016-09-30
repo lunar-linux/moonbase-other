@@ -10,6 +10,7 @@ depends glew
 depends eigen3
 depends shared-mime-info
 depends hicolor-icon-theme
+depends git
 
 optional_depends lzma-sdk "-DWITH_LZMA=1"   "-DWITH_LZMA=0"   "for lzma compression support for pointcache"
 optional_depends lzo      "-DWITH_LZO=1"    "-DWITH_LZO=0"    "for real-time data compression support for pointcache"
@@ -25,6 +26,7 @@ optional_depends libsndfile "-DWITH_CODEC_SNDFILE=1"   "-DWITH_CODEC_SNDFILE=0" 
 optional_depends openjpeg   "-DWITH_SYSTEM_OPENJPEG=1" "-DWITH_SYSTEM_OPENJPEG=0" "for openjpeg support, say yes for system provided"
 optional_depends jemalloc   "-DWITH_MEM_JEMALLOC=1"    "-DWITH_MEM_JEMALLOC=0"    "use jemalloc instead of malloc"
 
+optional_depends libspnav    "-DWITH_INPUT_NDOF=1"  "-DWITH_INPUT_NDOF=0"  "for NDOF input devices support"
 optional_depends OpenCOLLADA "-DWITH_OPENCOLLADA=1" "-DWITH_OPENCOLLADA=0" "for COLLADA 3d file format support"
 optional_depends OpenColorIO "-DWITH_OPENCOLORIO=1" "-DWITH_OPENCOLORIO=0" "for color management support"
 
@@ -38,6 +40,6 @@ optional_depends fftw3 \
                  "-DWITH_FFTW3=0 -DWITH_MOD_OCEANSIM=0" \
                   "for Fast Fourier Tranform support for ocean modifier, smoke and sounds effects"
 
-# This does have -D switch but we do not know if numpy has been compiled with Python-3 support
-# so this will be checked in build
+# This does have -D switch but we do not know if numpy has been compiled
+# with Python-3 support so this will be checked in build
 optional_depends numpy "" "" "to support high-performance numerical calculations"
