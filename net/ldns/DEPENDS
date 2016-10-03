@@ -1,2 +1,4 @@
 depends %OSSL
 depends libpcap
+
+optional_depends dnssec-anchors "--with-trust-anchor=/etc/trusted-key.key" "" "install support for DNSSEC trust anchors for the root zone" y
