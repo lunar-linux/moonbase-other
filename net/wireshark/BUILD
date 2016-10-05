@@ -6,8 +6,7 @@ fi &&
 OPTS+=" -without-lua" &&
 
 OPTS+=" --with-ssl \
-        --disable-static \
-        --enable-usr-local=no" &&
+        --disable-static" &&
 
 default_build &&
 
