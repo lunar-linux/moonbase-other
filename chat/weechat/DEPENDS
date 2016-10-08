@@ -2,6 +2,7 @@ depends ncurses
 depends cmake
 depends libgcrypt
 depends curl
+depends pkgconfig
 
 optional_depends perl   "-DENABLE_PERL=ON"   "-DENABLE_PERL=OFF"   "to compile the perl plugin"
 optional_depends Python "-DENABLE_PYTHON=ON" "-DENABLE_PYTHON=OFF" "to compile the Python plugin"
@@ -13,5 +14,7 @@ optional_depends aspell "-DENABLE_ASPELL=ON" "-DENABLE_ASPELL=OFF" "for spelling
 optional_depends gnutls "-DENABLE_GNUTLS=ON" "-DENABLE_GNUTLS=OFF" "for TLS encryption support"
 
 optional_depends asciidoc \
-                "-DENABLE_MAN=ON _DENABLE_DOC=ON" "" \
-                "for manual and documentation"
+                 "-DENABLE_MAN=ON -DENABLE_DOC=ON" "" \
+                 "for manual and documentation"
+
+optional_depends source-highlight "" "" "use syntax highlighted for manual and documentation"
