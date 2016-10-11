@@ -9,7 +9,6 @@ optional_depends libX11         "-D BUILD_X11=ON"        "" "for X11 support"
 optional_depends libXdamage     "-D BUILD_XDAMAGE=ON"    "" "for libXdamage support"
 optional_depends libXinerama    "-D BUILD_XINERAMA=ON"   "" "for libXinerama support"
 optional_depends libXft         "-D BUILD_XFT=ON"        "" "for libXft support"
-optional_depends imlib2         "-D BUILD_IMLIB2=ON"     "" "for images display support"
 optional_depends curl           "-D BUILD_CURL=ON"       "" "for curl support"
 optional_depends wireless_tools "-D BUILD_WLAN=ON"       "" "for WLAN/WiFi support"
 optional_depends hddtemp        "-D BUILD_HDDTEMP=ON"    "" "for hdd temperature support"
@@ -22,7 +21,8 @@ optional_depends docbook2X "-D BUILD_MAINTAINER_MODE=ON" "" "for generating the 
 
 #optional_depends toluapp "" "" "for embeded Lua suport - needed for Cairo graphics"
 
-# Broken
+# Broken - use the internal libs (at least for imlib and cairo)
 #optional_depends librsvg   "-D BUILD_RSVG=ON"       "" "for SVG support"
+#optional_depends imlib2    "-D BUILD_IMLIB2=ON"     "" "for images display support"
 #optional_depends cairo     "-D BUILD_LUA_CAIRO=ON"  "" "for graphics support"
 #optional_depends audacious "-D BUILD_AUDACIOUS=ON"  "" "for audacious audio player support"
