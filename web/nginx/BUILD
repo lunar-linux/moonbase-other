@@ -1,6 +1,6 @@
 add_priv_user http:http -d /var/empty -s /bin/false &&
 
-mkdir -p /var/log/nginx  &&
+mkdir -p /var/log/nginx &&
 mkdir -p /srv/http/htdocs &&
 chown http:http /srv/http /var/log/nginx &&
 chmod 750 /var/log/nginx &
@@ -21,7 +21,6 @@ chmod 750 /var/log/nginx &
             --group=http \
             --with-mail \
             --with-imap  \
-            --with-ipv6  \
             --with-threads \
             --with-pcre-jit \
             --with-file-aio \
