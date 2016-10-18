@@ -9,13 +9,14 @@ in_depends $MODULE esound && AUDIO_LIST+=",esd"
 in_depends $MODULE pulseaudio && AUDIO_LIST+=",pa"
 in_depends $MODULE SDL && AUDIO_LIST+=",sdl"
 
-add_priv_group qemu:qemu -G kvm &&
+add_priv_user qemu:qemu -G kvm &&
 
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var \
             --audio-drv-list="$AUDIO_LIST" \
             --enable-attr \
+            --enable-modules \
             --enable-vhost-net \
             $OPTS &&
 
