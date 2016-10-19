@@ -1,9 +1,5 @@
-(
+OPTS+=" --with-linux-headers=/usr/include"
 
-  OPTS+=" --with-linux-headers=/usr/include"
+autoconf &&
 
-  autoconf &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
