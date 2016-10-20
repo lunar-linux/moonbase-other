@@ -11,7 +11,7 @@ wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://downl
 JCE_SHA_TST=`sha256sum $JCE_POLICY | awk '{print $1}'` &&
 if [ "$JCE_SHA_VFY" != "$JCE_SHA_TST" ]; then
   message "Bad checksum for file $JCE_POLICY: $JCE_SHA_TST - deleting file" &&
-  rm -f $JCE_POLICY # &&
+#  rm -f $JCE_POLICY # &&
   false
 fi &&
 
