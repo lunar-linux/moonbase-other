@@ -1,5 +1,3 @@
-sedit "s:PREFIX=/usr/local:PREFIX=/usr:" Makefile &&
-
-make &&
+PREFIX=/usr make &&
 prepare_install &&
 make install
