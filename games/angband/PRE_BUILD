@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sh autogen.sh &&
+
+sedit "s:/games/:/:" configure &&
+sedit "s:xtra/icon/:icons/:" lib/icons/*.desktop
