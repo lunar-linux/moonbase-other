@@ -1,4 +1,5 @@
-
-patch_it $SOURCE2 1 &&
+OPTS+=" --enable-sdl-dlopen \
+        --disable-arts \
+        --disable-rpath" &&
 
 default_build
