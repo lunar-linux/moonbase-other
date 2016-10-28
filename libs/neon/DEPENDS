@@ -1,12 +1,13 @@
 depends %XMLRENDERER
 depends %SSL
+depends zlib
 
-optional_depends "libproxy"             \
-                 "--with-libproxy"      \
-                 "--without-libproxy"   \
+optional_depends libproxy \
+                 "--with-libproxy" \
+                 "--without-libproxy" \
                  "for libproxy support"
 
-optional_depends "heimdal"              \
-                 "--with-gssapi"        \
-                 "--without-gssapi"     \
+optional_depends heimdal \
+                 "--with-gssapi" \
+                 "--without-gssapi" \
                  "for heimdal support"
