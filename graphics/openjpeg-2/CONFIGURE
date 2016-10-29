@@ -1,4 +1,4 @@
-mquery BUILD_MJ2   "Build mj2 binaries?" y "--enable-mj2" "--disable-mj2"
-mquery BUILD_JPWL  "Build JPWL library?" y "--enable-jpwl" "--disable-jpwl"
-mquery ENABLE_JPIP "Build jpip library? (Needed if yes to JPIP server" y "--enable-jpip" "--disable-jpip"
-mquery ENABLE_JPIP_SERVER "Build jpip server?" n "--enable-jpip-server" "--disable-jpip-server"
+mquery BUILD_MJ2   "Build mj2 binaries?" y "-DBUILD_MJ2=1" ""
+mquery BUILD_JPWL  "Build jpwl library?" y "-DBUILD_JPWL=1" ""
+mquery ENABLE_JPIP "Build jpip library? (Needed if yes to JPIP server" y "-DBUILD_JPIP=1" ""
+mquery ENABLE_JPIP_SERVER "Build jpip server?" n "-DBUILD_JPIP_SERVER=1" ""

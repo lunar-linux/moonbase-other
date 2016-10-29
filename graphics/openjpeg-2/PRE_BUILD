@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# Install doxygen docs to the right directory
+sedit "s:DESTINATION\ share/doc:DESTINATION\ share/doc/$MODULE:" doc/CMakeLists.txt
