@@ -1,16 +1,7 @@
-(
-
-  # Remove finalize_desktop call or the file tracker will catch all mime/application files
-  sedit '/finalize_desktop$/s,.*,true,g' install &&
-  sedit '/finalize_desktop.*null.*/s,.*,true,' install &&
-
-  prepare_install &&
-  ./install --prefix /usr --unattended --quiet --force &&
-
-  cat >> /usr/share/opera/defaults/pluginpath.ini << EOF
-
-; Lunar plugin directory
-/usr/lib/lunar/plugins=1
-EOF
-
-) > $C_FIFO 2>&1
+# Move stuff before install
+mv $SOURCE_DIRECTORY/usr/lib/*-linux-gnu/opera $SOURCE_DIRECTORY/usr/lib/ &&
+rm -rf "$SOURCE_DIRECTORY/usr/lib/"*-linux-gnu/ &&
+prepare_install &&
+cp -rfv --remove-destination $SOURCE_DIRECTORY/usr / &&
+chmod 4755 /usr/lib/opera/opera_sandbox &&
+install -m0755 $SCRIPT_DIRECTORY/opera /usr/bin/opera
