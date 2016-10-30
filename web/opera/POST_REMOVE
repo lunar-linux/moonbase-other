@@ -9,3 +9,7 @@ fi
 if available update-mime-database; then
   update-mime-database /usr/share/mime &> /dev/null
 fi
+
+if available gtk-update-icon-cache; then
+  gtk-update-icon-cache -tq /usr/share/icons/hicolor
+fi
