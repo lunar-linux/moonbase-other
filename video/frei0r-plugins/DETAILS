@@ -1,8 +1,7 @@
-          MODULE=frei0r
+          MODULE=frei0r-plugins
          VERSION=1.4
-          SOURCE=$MODULE-plugins-$VERSION.tar.gz
-         SOURCE2=frei0r-plugins-1.4-opencv3.patch
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-plugins-$VERSION
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-1.4-opencv3.patch
       SOURCE_URL=https://files.dyne.org/frei0r/releases/
      SOURCE2_URL=http://data.gpo.zugaina.org/gentoo/media-plugins/frei0r-plugins/files/
       SOURCE_VFY=sha256:8470fcabde9f341b729be3be16385ffc8383d6f3328213907a43851b6e83be57
@@ -10,7 +9,8 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-plugins-$VERSION
         WEB_SITE=http://frei0r.dyne.org/
          ENTERED=20100210
          UPDATED=20130803
-           SHORT="plugin API for video sources and filters"
+           SHORT="Plugin API for video sources and filters"
+
 cat << EOF
 Frei0r is a minimalistic plugin API for video sources and filters. The behaviour
 of the effects can be controlled from the host by simple parameters. The intent
