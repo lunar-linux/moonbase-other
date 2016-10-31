@@ -1,6 +1,6 @@
 # setting the ssl option
 if in_depends $MODULE openssl; then
-  OPTS+=" --with-ssl=openssl"
+  OPTS+=" --with-ssl=openssl --enable-threadsafe-ssl"
 elif in_depends $MODULE gnutls; then
   OPTS+=" --with-ssl=gnutls"
 else
@@ -15,6 +15,10 @@ if in_depends $MODULE libxml2; then
   OPTS+=" --with-expat --without-libxml2"
 else
   OPTS+=" --without-libxml2 --without-expat"
+fi &&
+
+if module_installed ca-certificates; then
+  OPTS+=" --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt"
 fi &&
 
 OPTS+=" --enable-shared --disable-static" &&
