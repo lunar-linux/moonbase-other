@@ -1,8 +1,5 @@
-CFLAGS="-fPIC" &&
-
 OPTS+=" --prefix=/usr               \
         --as=yasm                   \
-        --extra-cflags="${CFLAGS}"  \
         --enable-pic                \
         --enable-vp8                \
         --enable-vp9                \
@@ -30,6 +27,5 @@ fi &&
 mkdir build-$MODULE &&
 cd build-$MODULE
 
-../configure $OPTS &&
-
+../configure $OPTS --extra-cflags="$CFLAGS" &&
 default_make
