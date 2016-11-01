@@ -15,14 +15,12 @@ OPTS+=" --prefix=/usr               \
         --enable-onthefly-bitpacking \
         --enable-vp9-temporal-denoising \
         --enable-coefficient-range-checking \
+        --enable-experimental    \
+        --enable-spatial-svc     \
         --disable-examples       \
         --disable-docs           \
         --disable-static         \
         --disable-install-docs" &&
-
-# Avoid experimental options
-#        --enable-experimental       \
-#        --enable-spatial-svc        \
 
 # This option breaks compilation on 32 bits systems
 if [ `arch` == "x86_64" ]; then
