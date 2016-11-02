@@ -1,25 +1,31 @@
 depends e2fsprogs
-depends libxml2
+depends util-linux
 depends sqlite
 depends pkgconfig
 
-optional_depends %OSSL     "--with-openssl"   "--without-openssl"   "for SSL support"
-optional_depends %MYSQL    "--with-mysql"     "--without-mysql"     "for MySQL support, also provides libev support for fdevent handlers"
-optional_depends gdbm      "--with-gdbm"      "--without-gdbm"      "for storage for mod_trigger_b4_dl support"
+optional_depends bzip2     "--with-bzip2"     "--without-bzip2"     "for bzip2 mod_compress support"
+optional_depends zlib      "--with-zlib"      "--without-zlib"      "for compression support"
 optional_depends attr      "--with-attr"      "--without-attr"      "for EA for XFS support"
 optional_depends pcre      "--with-pcre"      "--without-pcre"      "for regular expression support"
-optional_depends bzip2     "--with-bzip2"     "--without-bzip2"     "for bzip2 mod_compress"
-optional_depends zlib      "--with-zlib"      "--without-zlib"      "for compression support"
-optional_depends libev     "--with-libev"     "--without-libev"     "for libev support"
+optional_depends %OSSL     "--with-openssl"   "--without-openssl"   "for SSL support"
+optional_depends %MYSQL    "--with-mysql"     "--without-mysql"     "for MySQL support, also provides libev support for fdevent handlers"
+optional_depends gdbm      "--with-gdbm"      "--without-gdbm"      "use gdbm storage for mod_trigger_b4_dl support"
+optional_depends geoip     "--with-geoip"     "--without-geoip"     "for IP-based geolocation lookup"
+optional_depends libev     "--with-libev"     "--without-libev"     "for libev support on fdevent handlers"
 optional_depends gamin     "--with-fam"       "--without-fam"       "for FAM/Gamin filesystem monitoring"
 optional_depends openldap  "--with-ldap"      "--without-ldap"      "for LDAP support"
-optional_depends krb5      "--with-kerberos5" "--without-kerberos5" "for for Kerberos support"
-optional_depends memcached "--with-memcache"  "--without-memcache"  "for for mod_trigger_b4_dl support"
+optional_depends krb5      "--with-krb5"      "--without-krb5"      "for Kerberos support"
+optional_depends memcached "--with-memcached" "--without-memcached" "for mod_trigger_b4_dl support"
 optional_depends valgrind  "--with-valgrind"  "--without-valgrind"  "for valgrind debugger support"
-optional_depends libunwind "--with-libunwind" "--without-libunwind" "for backtraces on assert support"
+optional_depends libunwind "--with-libunwind" "--without-libunwind" "for backtraces on assert failures support"
+
+optional_depends libxml2 \
+                 "--with-webdav-props --with-libxml " \
+                 "--without-libxml" \
+                 "use libxml2 for properties in mod_webdav"
 
 # Broken - it needs lua 5.1
-#optional_depends lua "--with-lua" "--without-lua" "for Lua engine for mod_cml"
+#optional_depends lua "--with-lua" "--without-lua" "use Lua engine for mod_cml"
 
 optional_depends fcgi "" "" "for CGI support"
 optional_depends %PHP "" "" "for PHP support"
