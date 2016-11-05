@@ -1,5 +1,13 @@
-depends Python
+depends util-linux
 
 optional_depends asciidoc "" "" "for man pages regeneration"
 
-optional_depends libsodium "--with-libsodium" "--without-libsodium" "for NACL based crypto support"
+optional_depends libpgm \
+                 "--with-pgm" \
+                 "--without-pgm" \
+                 "for Pragmatic General Multicast (PGM) protocol support"
+
+optional_depends libsodium \
+                 "--with-libsodium" \
+                 "--without-libsodium" \
+                 "for NACL based crypto support"
