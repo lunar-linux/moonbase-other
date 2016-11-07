@@ -1,7 +1,17 @@
+depends dbus-glib
 depends gtk+-2
 depends libetpan
 depends gnutls
 depends libgcrypt
+depends poppler
+depends desktop-file-utils
+depends hicolor-icon-theme
+depends startup-notification
 
-optional_depends gpgme  "" "" "for PGP encryption support"
-optional_depends clamav "" "" "for building the clamav plugin"
+optional_depends curl        "" "" "for vcalendar, rssyl and spamreport support"
+optional_depends gpgme       "" "" "for PGP encryption support"
+optional_depends clamav      "" "" "for building the clamav plugin"
+optional_depends ghostscript "" "" "for pdf viewer support"
+optional_depends libarchive  "" "" "for archive support"
+optional_depends libcanberra "" "" "for notification support"
+optional_depends libnotify   "" "" "for notification support"
