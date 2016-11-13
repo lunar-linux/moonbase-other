@@ -1,0 +1,23 @@
+for km in \
+  CONFIG_EFI_PARTITION \
+  CONFIG_EFI \
+  CONFIG_EFI_STUB \
+  CONFIG_EFI_VARS \
+  CONFIG_EFI_VARS_PSTORE \
+  CONFIG_EFIVAR_FS
+do
+  if ! kernel_option_present $km; then
+    FAIL=1
+    message "${MESSAGE_COLOR}Required kernel option not present: ${PROBLEM_COLOR}${km}${DEFAULT_COLOR}${MESSAGE_COLOR}"
+  fi
+done
+
+if [ -n "$FAIL" ]; then
+  message "Please ensure the kernel options above are enabled, then try again.${DEFAULT_COLOR}"
+  if ! query "Ignore this warning?" n ; then
+    exit 1
+  fi
+fi
+
+default_pre_build &&
+patch_it $SOURCE2 1

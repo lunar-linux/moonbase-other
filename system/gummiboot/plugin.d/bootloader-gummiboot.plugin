@@ -1,0 +1,58 @@
+#!/bin/bash
+################################################################
+#                                                              #
+# bootloader-systemd.plugin - Gummiboot UEFI bootloader plugin #
+#                                                              #
+################################################################
+#                                                              #
+# Copyright (C) 2015 Stefan Wold under GPLv2                   #
+#                                                              #
+################################################################
+
+plugin_kernel_updatebootloader_gummiboot() {
+  local ENTRY
+
+  # Preferred bootloader check
+  if [ -n "$BOOTLOADER" -a "$BOOTLOADER" != "gummiboot" ]; then
+    return 2
+  fi
+  debug_msg "plugin_kernel_updatebootloader_gummiboot($@)"
+
+  if [ ! -d /boot/EFI/gummiboot ]; then
+    message "${PROBLEM_COLOR}WARNING: Gummiboot bootloader not properly initialized, see 'man gummiboot' for help."
+    return 1
+  fi
+
+  ENTRY="/boot/loader/entries/lunar-$2.conf"
+
+  # Check and rename entry for an old kernel when the same version is detected
+  if [ -f "$ENTRY" ]; then
+    mv -f $ENTRY /boot/loader/entries/lunar-$2-old.conf
+    sed -i '/^initrd/s;.img;.old.img;g;/^title/s;.*;& (old);;/^linux/s;.*;&.old;' /boot/loader/entries/lunar-$2-old.conf
+  fi
+
+  new_entry() {
+    ARCH=$(arch)
+    echo -e "title\tLunar Linux $2"
+    echo -e "linux\t/vmlinuz-$1-${ARCH}"
+    echo -e "initrd\t/initramfs-$1-${ARCH}.img"
+
+    ROOT=$(awk '($2 == "/"){print $1}' /etc/mtab)
+    ROOT_UUID=$(blkid -o udev $ROOT | awk -F= '/^ID_FS_UUID=/ { print $2 }')
+    echo -e "options\t${BOOT_CMDLINE:-loglevel=3 root=UUID=${ROOT_UUID} ro}"
+  }
+
+  new_entry $1 $2 > /boot/loader/entries/lunar-$2.conf
+
+  # Update default kernel entry
+  if [ ! -f /boot/loader/loader.conf ]; then
+    echo -e "timeout 5\ndefault lunar-$2" > /boot/loader/loader.conf
+  else
+    sed -i "s;^default.*;default lunar-$2;" /boot/loader/loader.conf
+  fi
+
+  return 2
+}
+
+
+plugin_register KERNEL_UPDATEBOOTLOADER plugin_kernel_updatebootloader_gummiboot
