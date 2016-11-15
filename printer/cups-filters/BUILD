@@ -18,7 +18,7 @@ if module_installed systemd; then
   sedit "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service &&
   sedit "s:/usr/sbin/cups-browsed:/usr/bin/cups-browsed:" utils/cups-browsed.service &&
   install -Dm644 utils/cups-browsed.service /usr/lib/systemd/system/cups-browsed.service
-fi
+fi &&
 
 # use lp group for cups
 chgrp -R lp /etc/cups
