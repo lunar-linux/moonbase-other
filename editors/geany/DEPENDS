@@ -1,10 +1,15 @@
-depends gtk+-2
 depends desktop-file-utils
 depends hicolor-icon-theme
 depends XML-Parser
 depends intltool
 
-optional_depends vte \
-                 "--enable-vte" \
-                 "--disable-vte" \
-                 "to enable virtual terminal support"
+optional_depends gtk+-3 "--enable-gtk3" "" "for GTK+ 3.x support"
+optional_depends gtk+-2 ""              "" "for GTK+ 2.x support"
+
+if [ "$USE_VTE" == "y" ]; then
+  if in_depends $MODULE gtk+-3; then
+    depends vte3
+  else
+    depends vte
+  fi
+fi
