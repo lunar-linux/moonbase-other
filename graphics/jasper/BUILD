@@ -1,16 +1,9 @@
-(
+autoreconf -fvi &&
 
-  export CFLAGS="$CFLAGS -fPIC"
+export CFLAGS="$CFLAGS -fPIC"
 
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+OPTS+="--localstatedir=/var \
+       --disable-static \
+       --enable-shared" &&
 
-  ./configure  --prefix=/usr            \
-               --sysconfdir=/etc        \
-               --mandir=/usr/share/man  \
-               --localstatedir=/var     \
-               --disable-static         \
-               --enable-shared         &&
-
-  default_make
-
-) > $C_FIFO 2>&1
+default_build
