@@ -7,11 +7,11 @@ depends gdbus-codegen
 depends at-spi2-atk
 depends libepoxy
 
-optional_depends json-glib "--enable-cloudprint"      "--disable-cloudprint"      "also required by cloudprint"
-optional_depends colord    "--enable-colord=yes"      "--enable-colord=no"        "for color profiles support"
-optional_depends rest      "--enable-cloudprint"      "--disable-cloudprint"      "for Google Cloud Print Support"
+optional_depends json-glib "--enable-cloudprint" "--disable-cloudprint" "also required by cloudprint"
+optional_depends colord    "--enable-colord"     "--disable-colord"     "for color profiles support"
+optional_depends rest      "--enable-cloudprint" "--disable-cloudprint" "for Google Cloud Print Support"
 
-# GI _is_ optional here. making it a hard dependency breaks setups without GI.
+# GI _is_ optional here. Making it a hard dependency breaks setups without GI.
 # If some project further down the line requires gtk+'s GI files,
 # then _that_ module should have a hard dep on introspection
 optional_depends gobject-introspection \
@@ -19,7 +19,7 @@ optional_depends gobject-introspection \
                  "--disable-introspection" \
                  "for introspection support"
 
-optional_depends wayland-protocols           \
-                 "--enable-wayland-backend"  \
+optional_depends wayland-protocols \
+                 "--enable-wayland-backend" \
                  "--disable-wayland-backend" \
                  "Enable the waylany backend"
