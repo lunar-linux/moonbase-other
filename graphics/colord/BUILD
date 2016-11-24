@@ -4,7 +4,8 @@ add_priv_user colord -d /var/run/colord -g colord &&
 OPTS+=" --sysconfdir=/etc/$MODULE \
         --with-daemon-user=colord \
         --disable-systemd-login   \
-        --enable-libcolordcompat  \
         --disable-argyllcms-sensor" &&
+
+OPTS+=" --libexecdir=/usr/lib/$MDULE" &&
 
 default_build
