@@ -1,25 +1,25 @@
 optional_depends %OSSL \
-                 "--with-ssl"    \
+                 "--with-ssl" \
                  "--without-ssl" \
                  "for encryption (HTTPS)"
 
 optional_depends libevent\
-                 "--with-libevent"    \
+                 "--with-libevent" \
                  "--without-libevent" \
                  "for libevent support"
 
 optional_depends gpm \
-                 "--with-gpm"    \
+                 "--with-gpm" \
                  "--without-gpm" \
                  "for gpm mouse support (needed for Framebuffer graphics mode)"
 
 optional_depends bzip2 \
-                 "--with-bzip2"    \
+                 "--with-bzip2" \
                  "--without-bzip2" \
                  "to speed up webpages using bzip2 compression"
 
 optional_depends zlib \
-                 "--with-zlib"    \
+                 "--with-zlib" \
                  "--without-zlib" \
                  "to speed up webpages using zlib compression"
 
@@ -38,17 +38,17 @@ if [ "`get_module_config GRAPHICS`" = "y" ]; then
                  "for XOrg support"
 
   optional_depends tiff \
-                   "--with-libtiff"    \
+                   "--with-libtiff" \
                    "--without-libtiff" \
                    "to display TIFF images in graphics mode"
 
   optional_depends %JPEG \
-                   "--with-libjpeg"    \
+                   "--with-libjpeg" \
                    "--without-libjpeg" \
                    "to display JPEG images in graphics mode"
 
   optional_depends librsvg \
-                   "--with-librsvg"    \
+                   "--with-librsvg" \
                    "--without-librsvg" \
                    "to display SVG images in graphics mode"
 fi
