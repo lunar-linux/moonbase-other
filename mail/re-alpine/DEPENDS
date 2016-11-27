@@ -1,16 +1,20 @@
 depends ncurses
+
 optional_depends %OSSL \
                  "--with-ssl-dir=/usr" \
                  "--without-ssl" \
                  "for SSL support"
+
 optional_depends openldap \
                  "--with-ldap-dir=/usr" \
                  "--without-ldap" \
                  "for LDAP support"
+
 optional_depends heimdal \
                  "--with-krb5-dir=/usr" \
                  "--without-krb5" \
                  "for kerberos5 (GSSAPI) support"
+
 optional_depends gettext \
                  "--enable-nls" \
                  "--disable-nls" \
