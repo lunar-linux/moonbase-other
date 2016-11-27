@@ -1,7 +1,4 @@
 default_pre_build &&
 
-# build without static lib
-sedit '/liblz4\.a/ d' lib/Makefile &&
-
 # don't build 32bit on 64bit platforms
 sedit 's/bins m32/bins/' programs/Makefile
