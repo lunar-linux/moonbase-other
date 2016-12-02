@@ -32,4 +32,12 @@
   done &&
 
   # To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
-  CFLAGS+=" -lbz2"
+  CFLAGS+=" -lbz2" &&
+
+  sed -e '/#include/i\
+      print OUT "#define _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
+      -i mozilla/nsprpub/config/make-system-wrappers.pl &&
+
+  sed -e '/#include/a\
+      print OUT "#undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
+      -i mozilla/nsprpub/config/make-system-wrappers.pl
