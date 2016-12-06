@@ -3,11 +3,10 @@ cd src &&
 export CFLAGS+=" -fPIC -fno-strict-aliasing -fstack-protector-all" &&
 export CPPFLAGS+=" -I/usr/include/et" &&
 
-OPTS+=" --enable-shared  \
-        --with-system-et \
+OPTS+=" --with-system-et \
         --with-system-ss \
         --disable-rpath  \
-        --enable-dns-for-realm \
+        --enable-shared  \
         --enable-dns-for-realm \
         --infodir=/usr/share   \
         --without-system-verto" &&
