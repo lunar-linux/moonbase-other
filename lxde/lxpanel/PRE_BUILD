@@ -1,7 +1,6 @@
 default_pre_build &&
 
 if module_installed gtk+-3; then
-  patch_it $SOURCE2 0 &&
   # Disable pager plugin as it breaks panel layout with GTK+ 3
   # https://sourceforge.net/p/lxde/bugs/773/
   sedit '/pager.c/d' plugins/Makefile.am &&
