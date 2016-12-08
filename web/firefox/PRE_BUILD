@@ -14,8 +14,6 @@ default_pre_build &&
 # Removing it until it can be fixed somehow
 #CFLAGS+=" -mno-avx" &&
 
-sedit 's/configuration.mChild/configuration.mChild.get()/' widget/qt/nsWindow.cpp &&
-
 export MOZ_CO_PROJECT=browser &&
 export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
 export MOZILLA_OFFICIAL=1  &&
