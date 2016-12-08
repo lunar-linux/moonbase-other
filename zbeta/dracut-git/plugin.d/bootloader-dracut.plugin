@@ -1,0 +1,34 @@
+#!/bin/bash
+#############################################################
+#                                                           #
+# bootloader-dracut.plugin - plugin that generate initramfs #
+#                                                           #
+#############################################################
+#                                                           #
+# Copyright 2012 by Peter de Ridder under GPLv2             #
+#                                                           #
+#############################################################
+
+
+plugin_kernel_updatebootloader_dracut()
+{
+  local KVERSION
+
+  debug_msg "plugin_kernel_updatebootloader_dracut ($@)"
+
+  KVERSION="$1-$(arch)"
+
+  # create an old copy of the previous initramfs
+  if [ -f "/boot/initramfs-$KVERSION.img" ]; then
+    cp -p "/boot/initramfs-$KVERSION.img" "/boot/initramfs-$KVERSION.old.img"
+  fi
+
+  # we can force dracut as we copied the old initramfs
+  dracut -L 2 -f "/boot/initramfs-$KVERSION.img" "$1"
+
+  # right now we want to have it run all bootloaders?
+  return 2
+}
+
+
+plugin_register KERNEL_UPDATEBOOTLOADER plugin_kernel_updatebootloader_dracut

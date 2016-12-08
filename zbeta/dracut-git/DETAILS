@@ -1,0 +1,19 @@
+           MODULE=dracut-git
+          VERSION=dev
+           SOURCE=$MODULE-$VERSION.tar.bz2
+       SOURCE_URL=git://github.com/dracutdevs/dracut.git
+ SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+         WEB_SITE=https://dracut.wiki.kernel.org/index.php/Main_Page
+          ENTERED=20161208
+          UPDATED=$(date -u +%Y%m%d)
+            SHORT="Initramfs generator using udev"
+COMPRESS_MANPAGES=off # If we compress them it will mess up an upgrade for this module due to symlinks
+
+cat <<EOF
+Dracut contains tools to generate a bootable initramfs for 2.6 Linux
+kernels or later. Unlike exisiting implementations, dracut try
+hard-code as little as possible into the initramfs. Dracut contains
+various modules which are driven by the event-based udev. Having root
+on MD, DM, LVM2, LUKS is support as well as NFS, iSCSI, NBD with the
+dracut-network package.
+EOF
