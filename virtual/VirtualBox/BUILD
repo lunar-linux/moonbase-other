@@ -15,10 +15,8 @@ if in_depends $MODULE sun-jdk; then
   export VBOX_JAVA_HOME=$JAVA_HOME
 fi &&
 
-if in_depends $MODULE qt4; then
-  # We need the qt4 paths
-  . /etc/profile.d/qt4.rc &&
-  sedit "s:qt4/lib/pkgconfig:qt4/pkgconfig:g" configure
+if in_depends $MODULE qt5; then
+  . /etc/profile.d/qt5.rc
 fi &&
 
 # Build VirtualBox
@@ -62,7 +60,7 @@ install -m 755 VirtualBox /usr/bin/ &&
 echo "INSTALL_DIR=$MODULE_PREFIX" > vbox.cfg &&
 install -Dm 644 {,/etc/vbox/}vbox.cfg &&
 
-if in_depends $MODULE qt4; then
+if in_depends $MODULE qt5; then
   # File path for PDF, and make name more recognizable
   sed -i -e "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" \
          -e "s:Oracle VM VirtualBox:VirtualBox Oracle VM:1" \
