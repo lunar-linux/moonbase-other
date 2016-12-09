@@ -1,8 +1,10 @@
 mkdir -p /usr/lib/lunar/plugins &&
 prepare_install &&
 
-install opt/google/chrome/PepperFlash/* /usr/lib/lunar/plugins &&
-install opt/google/chrome/libwidevine* /usr/lib/lunar/plugins &&
+install -Dm0755 libpepflashplayer.so /usr/lib/lunar/plugins &&
+
+#install opt/google/chrome/PepperFlash/* /usr/lib/lunar/plugins &&
+#install opt/google/chrome/libwidevine* /usr/lib/lunar/plugins &&
 
 # So you don't need to fiddle with this yourself.
 mkdir -p /etc/chromium &&

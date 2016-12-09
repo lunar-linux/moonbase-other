@@ -1,7 +1,4 @@
 mk_source_dir $SOURCE_DIRECTORY &&
 validate_source_dir $SOURCE_DIRECTORY &&
-cp $SOURCE_CACHE/$SOURCE  $SOURCE_DIRECTORY/ &&
 cd $SOURCE_DIRECTORY &&
-ar x $SOURCE &&
-xz -d data.tar.xz &&
-tar xf data.tar
+tar xf $SOURCE_CACHE/$SOURCE
