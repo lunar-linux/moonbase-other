@@ -1,4 +1,3 @@
-
   default_cmake_config &&
 
   make &&
@@ -13,5 +12,3 @@
    sedit "s:/opt/google/chrome/PepperFlash/:/usr/lib/lunar/plugins/:" ../data/freshwrapper.conf.example &&
    install -Dm644 ../data/freshwrapper.conf.example /etc/freshwrapper.conf
   fi
-
-
