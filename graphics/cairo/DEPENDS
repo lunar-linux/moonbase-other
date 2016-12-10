@@ -1,15 +1,11 @@
+depends glib-2
 depends pixman
 depends libpng
 
-optional_depends glib-2 \
-                 "--enable-gobject" \
-                 "--disable-gobject" \
-                 "for gobject functions" y
-
-optional_depends zlib \
-                 "--enable-ps --enable-pdf" \
-                 "--disable-ps --disable-pdf" \
-                 "for PostScript and PDF surface backend (recommended)"
+optional_depends librsvg \
+                 "--enable-svg" \
+                 "--disable-svg" \
+                 "for SVG support"
 
 optional_depends libXext \
                  "--enable-xlib --enable-xcb --enable-xlib-xcb --enable-tee" \
@@ -21,7 +17,7 @@ optional_depends libXrender \
                  "--disable-xlib-xrender" \
                  "for Xlib Xrender surface backend (requires Xlib)"
 
-optional_depends qt4 \
+optional_depends %QT \
                  "--enable-qt" \
                  "--disable-qt" \
                  "for Qt surface backend (Experimental)" n
@@ -30,17 +26,6 @@ optional_depends DirectFB \
                  "--enable-directfb" \
                  "--disable-directfb" \
                  "for DirectFB surface backend (experimental)" n
-
-# this is broken quite badly at the moment
-#optional_depends libdrm \
-#                 "--enable-drm" \
-#                 "--disable-drm" \
-#                 "for DRM surface backend (experimental)"
-
-optional_depends mesa-lib \
-                 "--enable-gl" \
-                 "--disable-gl" \
-                 "for OpenGL surface backend (if using NVIDIA blobs, say N else gtk+-2 segfaults)" n
 
 optional_depends freetype2 \
                  "--enable-ft" \
@@ -56,3 +41,15 @@ optional_depends fontconfig \
 #optional_depends ghostscript "" "" "for ps surface backend"
 #optional_depends libspectre  "" "" "for ps testing"
 #optional_depends poppler     "" "" "for pdf testing"
+#optional_depends mesa-lib    "" "" "for OpenGL surface backend"
+
+# broken badly
+#optional_depends libdrm \
+#                 "--enable-drm" \
+#                 "--disable-drm" \
+#                 "for DRM surface backend (experimental)"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "for building documentation"
