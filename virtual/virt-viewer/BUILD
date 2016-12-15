@@ -1,3 +1,3 @@
-OPTS+=" --with-gtk=3.0" &&
+OPTS+=" --disable-update-mimedb" &&
 
 default_build
