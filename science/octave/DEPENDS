@@ -1,3 +1,5 @@
+depends lzip
+
 depends gnuplot
 depends lapack
 
@@ -6,7 +8,7 @@ optional_depends fftw3 \
                  "--without-fftw3 --without-fftw3f" \
                  "for system fftw support"
 
-optional_depends qt4       "--enable-gui"      "--disable-gui"      "build Qt-GUI"
+optional_depends qt5       "--enable-gui"      "--disable-gui"      "build Qt-GUI"
 optional_depends arpack-ng "--with-arpack"     "--without-arpack"   "for eigenvalue operations"
 optional_depends qhull     "--with-qhull"      "--without-qhull"    "for qhull support"
 optional_depends qrupdate  "--with-qrupdate"   "--without-qrupdate" "for fast QR & Cholesky updating functions"
