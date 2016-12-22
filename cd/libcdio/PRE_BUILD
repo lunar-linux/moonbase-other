@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# Unbreak symbol versioning
+sedit '/AM_INIT_AUTOMAKE/s/subdir-objects//' configure.ac
