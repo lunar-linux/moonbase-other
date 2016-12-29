@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# don't install scripts automatically
+sedit 's/scripts/d' CMakeLists.txt
+
+# fix unicode strings
+sedit '251 s/ line_length/ prior_curor - offset/' src/text.cpp
