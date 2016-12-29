@@ -4,4 +4,4 @@ default_pre_build &&
 sedit 's/scripts/d' CMakeLists.txt &&
 
 # fix unicode strings
-sedit '251 s/ line_length/ prior_cursor - offset/' src/text.cpp
+sedit '251 s,line_length,prior_cursor - offset,' src/text.cpp
