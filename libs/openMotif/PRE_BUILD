@@ -1,5 +1,5 @@
-  default_pre_build &&
+default_pre_build &&
 
 # Lets forgo demos
-  sed -i -e '/^SUBDIRS/{:x;/\\$/{N;bx;};s/[ \t\n\\]*demos//;}' Makefile.am &&
-  sedit "s:demos::" Makefile.in
+sed -i -e '/^SUBDIRS/{:x;/\\$/{N;bx;};s/[ \t\n\\]*demos//;}' Makefile.am &&
+sedit "s:demos::" Makefile.in

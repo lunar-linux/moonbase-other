@@ -1,5 +1,4 @@
+unset CPP  &&
+CPPFLAGS+=" $PCFLAGS -fPIC" &&
 
-  unset CPP  &&
-  CPPFLAGS+=" $PCFLAGS -fPIC" &&
-
-  default_build
+default_build
