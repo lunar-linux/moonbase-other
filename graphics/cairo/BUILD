@@ -24,6 +24,6 @@ if [ "`get_module_config DOCS`" = "n" ]; then
 fi &&
 
 # LIBS is needed for cairo-sphinx and others with --as-needed
-LIBS+=" -lstdc++" &&
+LIBS+=" -lstdc++ -lz" &&
 
 default_build
