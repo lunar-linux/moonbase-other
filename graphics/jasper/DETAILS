@@ -1,9 +1,12 @@
           MODULE=jasper
-         VERSION=1.900.31
+         VERSION=2.0.10
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-1.900.1-fix_filename_buffer_overflow.patch.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-version-$VERSION
  SOURCE_URL_FULL=http://github.com/mdadams/jasper/archive/version-$VERSION.tar.gz
-      SOURCE_VFY=sha256:0099084dce9fa0a318b48a5ed2a12ac7cff3324f3fd4459833e6fe2ff583fb2c
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha256:d48193de3b82e7f5792fe933fba2ef6714228de4d904ce98f3d69217ed7a85ec
+     SOURCE2_VFY=sha256:0ce383f4f3cd020551ec4b6d96d5657bb60e862876d259d856552799aa21deb1
         WEB_SITE=http://www.ece.uvic.ca/~mdadams/jasper/
          ENTERED=20050902
          UPDATED=20161123

@@ -1,9 +1,9 @@
-autoreconf -fvi &&
-
 export CFLAGS="$CFLAGS -fPIC"
 
-OPTS+="--localstatedir=/var \
-       --disable-static \
-       --enable-shared" &&
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DCMAKE_SKIP+PATH=ON \
+        -DJAS_ENABLE_SHARED=ON \
+        -DJAS_ENABLE_AUTOMATIC_DEPENDENCIES=OFF"
 
-default_build
+default_cmake_build
