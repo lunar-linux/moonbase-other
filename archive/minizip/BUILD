@@ -1,7 +1,7 @@
+export CFLAGS="$CFLAGS -fPIC" &&
 
-  export CFLAGS="$CFLAGS -fPIC"  &&
+cd contrib/minizip &&
+libtoolize -cfi &&
+autoreconf -fis &&
 
-  cd contrib/minizip &&
-  libtoolize -cfi &&
-  autoreconf -fis &&
-  default_build
+default_build
