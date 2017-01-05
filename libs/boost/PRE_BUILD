@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# https://github.com/boostorg/ublas/pull/46
+sedit 's@<boost/serialization/array.hpp>@<boost/serialization/array_wrapper.hpp>@' boost/numeric/ublas/storage.hpp
