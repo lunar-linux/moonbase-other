@@ -3,12 +3,14 @@
 if in_depends $MODULE bluez; then
   OPTS+=" --enable-bluez4 --disable-bluez5"
 elif in_depends $MODULE bluez-5; then
-  OPTS+=" --enable-bluez5 --disable-bluez4"
+  OPTS+=" --enable-bluez5 --enable-bluez4"
 fi &&
 
 if module_installed systemd; then
   OPTS+=" --with-udev-rules-dir=/usr/lib/udev/rules.d"
 fi &&
+
+OPTS+=" --libexecdir=/usr/lib" &&
 
 OPTS+=" --disable-hal-compat \
         --disable-tcpwrap \
