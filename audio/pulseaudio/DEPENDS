@@ -3,8 +3,6 @@ depends libsndfile
 depends libatomic_ops
 depends gdbm
 depends speexdsp
-depends json-c
-depends sbc
 
 optional_depends fftw3         "--with-fftw"         "--without-fftw"       "for FFTW-using modules (equalizer) support"
 optional_depends alsa-lib      "--enable-alsa"       "--disable-alsa"       "for ALSA support"
@@ -18,7 +16,7 @@ optional_depends %UDEV         "--enable-udev"       "--disable-udev"       "opt
 optional_depends lirc          "--enable-lirc"       "--disable-lirc"       "optional LIRC support"
 optional_depends GConf         "--enable-gconf"      "--disable-gconf"      "optional GConf support"
 optional_depends gtk+-3        "--enable-gtk3"       "--disable-gtk3"       "optional Gtk+ 3 support"
-optional_depends libsamplerate "--enable-samplerate" "--disable-samplerate" "optional libsamplerate support, ${PROBLEM_COLOR} this is depreciated by Pulseaudio${DEFAULT_COLOR}" n
+optional_depends libsamplerate "--enable-samplerate" "--disable-samplerate" "optional libsamplerate support, ${PROBLEM_COLOR} this is deprecated by Pulseaudio${DEFAULT_COLOR}" n
 optional_depends openssl       "--enable-openssl"    "--disable-openssl"    "for OpenSSL support"
 optional_depends orc           "--enable-orc"        "--disable-orc"        "for orc support"
 optional_depends esound        "--enable-esound"     "--disable-esound"     "for esound support"
@@ -35,3 +33,7 @@ optional_depends webrtc-audio-processing \
 
 # We take care of which bluez to enable in the BUILD
 optional_depends %BLUEZ "" "" "optional BlueZ support"
+
+if ( in_depends $MODULE bluez-5 ) || ( in_depends $MODULE bluez ); then
+  depends sbc
+fi
