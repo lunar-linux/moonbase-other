@@ -1,7 +1,5 @@
-(
+xmkmf -a      &&
 
-  xmkmf -a      &&
-  default_make  &&
-  make install.man
+default_make  &&
 
-) > $C_FIFO 2>&1
+make install.man
