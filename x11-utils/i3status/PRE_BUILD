@@ -1,7 +1,7 @@
 default_pre_build &&
 
 # build i3status without pulseaudio
-sedit /ifeq ($(OS),OpenBSD)/d Makefile &&
+sedit /ifeq (\$\(OS),OpenBSD)/d Makefile &&
 sedit '82 i PULSE ?= 1\n ifeq ($(PULSE),0)' Makefile &&
 sedit 's|LIBS=$(filter-out -lpulse, $(LIBS))|a\else\nCPPFLAGS+=-DPULSE|' Makefile &&
 sedit 's|#ifndef __OpenBSD__|#if !defined(__OpenBSD__) && defined(PULSE)|' src/print_volume.c
