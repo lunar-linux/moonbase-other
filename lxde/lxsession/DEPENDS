@@ -3,13 +3,8 @@ depends polkit
 depends vala
 depends intltool
 
-if [ "$UNIQUE" == "y" ]; then
-  optional_depends libunique-3 "--enable-gtk3" "" "for GTK+ 3.x support"
-  optional_depends libunique    ""             "" "for GTK+ 2.x support"
-else
-  optional_depends gtk+-3 "--enable-gtk3" "" "for GTK+ 3.x support"
-  optional_depends gtk+-2 ""              "" "for GTK+ 2.x support"
-fi
+optional_depends gtk+-3 "--enable-gtk3" "" "for GTK+ 3.x support"
+optional_depends gtk+-2 ""              "" "for GTK+ 2.x support"
 
 optional_depends docbook-xsl \
                  "--enable-man" \
