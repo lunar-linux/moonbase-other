@@ -4,6 +4,6 @@ default_pre_build &&
 sedit '/ifeq ($(OS),OpenBSD)/d' Makefile &&
 sedit '82 i PULSE ?= 1\n ifeq ($(PULSE),0)' Makefile &&
 sedit 's/LIBS=$(filter-out -lpulse, $(LIBS))/a\nelse\nCPPFLAGS+=-DPULSE/' Makefile &&
-sedit 's/#ifndef __OpenBSD__/a\ && defined PULSE/' src/print_volume.c &&
+sedit 's|#ifndef __OpenBSD__|#ifndef __OpenBSD__ && defined PULSE|' src/print_volume.c &&
 sedit '1 i #if defined PULSE' src/pulse.c &&
 sedit 's/#include <pulse/pulseaudio>/#ifeq($(PULSE),0)\n#include <pulse/pulseaudio.h>\n#endif/' src/pulse.c
