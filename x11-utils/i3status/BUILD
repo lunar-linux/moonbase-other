@@ -1,6 +1,5 @@
-if ! in_depends $MODULE pulseaudio; then
-  MAKE_ARGS="PULSE=0"
-fi &&
-make $MAKE_ARGS
-prepare_install &&
+debug_msg "make ${MAKES:+-j${MAKES}} $OPTS"    &&
+verbose_msg "running \"make\""
+make ${MAKES:+-j${MAKES}} $OPTS    &&
+prepare_install                    &&
 make install
