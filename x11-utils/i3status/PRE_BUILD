@@ -1,2 +1,5 @@
 default_pre_build &&
-patch_it $SOURCE2 1
+
+# build i3status without pulseaudio
+sedit '86 i ifeq ($(OS),Linux)\nOBJS:=$(filter-out src/pulse.o, $(OBJS))\nLIBS:=$(filter-out -lpulse, $(LIBS)) -lpthread\nendif\n' Makefile &&
+sedit 's/ifndef __OpenBSD__/if !defined(__OPENBSD__) && !defined(__LINUX__)/' src/print_volume.c
