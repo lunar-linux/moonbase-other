@@ -1,3 +1,6 @@
-OPTS+=" --enable-debug=no" &&
+OPTS+=" --enable-debug=no"
 
-default_build
+default_config &&
+
+cd $(arch)-pc-linux-gnu &&
+default_make
