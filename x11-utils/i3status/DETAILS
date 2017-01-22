@@ -1,11 +1,14 @@
           MODULE=i3status
-         VERSION=2.10
+         VERSION=2.11
           SOURCE=$MODULE-$VERSION.tar.bz2
+		 SOURCE2=$MODULE-$VERSION-without_pulseaudio.patch
       SOURCE_URL=http://i3wm.org/i3status/
-      SOURCE_VFY=sha256:daf5d07611b054a43da1a3d28850b05e2dbdbd6d25fd5e25ede98bb1b66e2791
+	 SOURCE2_URL=https://github.com/bsfc1685/patches/raw/master/
+      SOURCE_VFY=sha256:98db7e730f0ce908eb656ac10d713ae6a885676621391d54f00b719752f18c5f
+     SOURCE2_VFY=sha1:dd066c17b1b69583efdcb2e6a90340e5cde5c199
         WEB_SITE=http://i3wm.org/i3status
          ENTERED=20131228
-         UPDATED=20160529
+         UPDATED=20170122
            SHORT="i3status is a small program for generating a status bar"
 
 cat <<EOF
