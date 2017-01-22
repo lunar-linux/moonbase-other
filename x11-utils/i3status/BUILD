@@ -1,1 +1,1 @@
-default_make
+default_make $OPTS
