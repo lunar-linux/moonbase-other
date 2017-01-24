@@ -1,10 +1,11 @@
           MODULE=PyQt
-         VERSION=x11-gpl-4.11.4
-          SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-${VERSION##*-}
+         VERSION=4.12
+          SOURCE=${MODULE}4_gpl_x11-$VERSION.tar.gz
+   SOURCE_URL[0]=http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-$VERSION
    SOURCE_URL[1]=http://spacehopper.org/mirrors
    SOURCE_URL[2]=$MIRROR_URL
-      SOURCE_VFY=sha256:fc1fe77495432ba3b0d74ff5cb164d375a97f5dddb728256330f615a7cdcf407
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}4_gpl_x11-$VERSION
+      SOURCE_VFY=sha256:3c1d4b55314adb3e1132de8fc2a92eed216d37e58aceed41294dbca210ca88db
    MODULE_PREFIX=${QT4_PREFIX:-/usr}
         WEB_SITE=http://www.riverbankcomputing.co.uk/news
          ENTERED=20080102
