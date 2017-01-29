@@ -1,7 +1,9 @@
 depends glib-2
 depends pixman
 depends libpng
-depends poppler
+
+optional_depends poppler "--enable-pdf" "--disable-pdf" \
+                 "for PDF support" y
 
 optional_depends librsvg \
                  "--enable-svg" \
