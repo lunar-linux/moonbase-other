@@ -28,7 +28,7 @@ make linux &&
 prepare_install &&
 make install &&
 
-ln -s /usr/lib/liblua.so.${VERSION%.*} /usr/lib/liblua.so &&
+ln -sf /usr/lib/liblua.so.${VERSION%.*} /usr/lib/liblua.so &&
 
 MAJORVER=${VERSION%.*}
 cp -f $SCRIPT_DIRECTORY/lua.pc ./lua.pc &&
