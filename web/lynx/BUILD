@@ -13,7 +13,7 @@ OPTS+=" --libdir=/var/lib/lynx \
 
 default_config &&
 
-if in_depends $MODULE openssl; then
+if in_depends $MODULE %OSSL; then
   sedit 's/.*USE_OPENSSL_INCL.*/#define USE_OPENSSL_INCL 1/' lynx_cfg.h
 fi &&
 
