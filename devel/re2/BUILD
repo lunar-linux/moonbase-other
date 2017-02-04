@@ -1,4 +1,4 @@
-
-  sedit "s:/usr/local:/usr:" Makefile &&
-
-  default_make
+make prefix=/usr &&
+prepare_install &&
+make prefix=/usr install &&
+gather_docs LICENSE
