@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# the (superfluous) define broke qt5
+sedit '/doesnt_exist/ d' include/openssl/ssl.h
