@@ -11,14 +11,13 @@ prepare_install &&
 # Docker files
 install -Dm0755 bundles/$VERSION/dynbinary-client/docker-$VERSION /usr/bin/docker &&
 install -Dm0755 bundles/$VERSION/dynbinary-daemon/dockerd-$VERSION /usr/bin/dockerd &&
-install -Dm0755 bundles/$VERSION/dynbinary-daemon/docker-proxy-$VERSION /usr/bin/docker-proxy &&
 
 # useful symlinks
 for i in containerd containerd-shim ctr runc; do
   ln -sf $i /usr/bin/docker-${i}
 done &&
 
-install -Dm0644 contrib/completion/bash/docker /usr/share/bash-completion/completions/docker
+install -Dm0644 contrib/completion/bash/docker /usr/share/bash-completion/completions/docker &&
 install -Dm0644 $SCRIPT_DIRECTORY/$MODULE.conf /usr/lib/sysusers.d/ &&
 
 # Systemd services
@@ -27,5 +26,5 @@ install -Dm0644 contrib/init/systemd/docker.socket /usr/lib/systemd/system/docke
 install -Dm0644 $SCRIPT_DIRECTORY/docker.conf /usr/lib/sysusers.d/docker.conf &&
 
 if in_depends $MODULE go-md2man; then
-  cp -r man/man*/ /usr/share/man
+  cp -r man/man* /usr/share/man/
 fi
