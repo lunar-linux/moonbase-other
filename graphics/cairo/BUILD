@@ -2,7 +2,10 @@
 CFLAGS+=" -fno-lto" &&
 CXXFLAGS+=" -fno-lto" &&
 
-OPTS+=" --disable-static --enable-gobject" &&
+OPTS+=" --disable-static \
+        --enable-pdf=yes \
+        --enable-svg \
+        --enable-gobject" &&
 
 if module_installed mesa-lib; then
   if module_installed NVIDIA; then
@@ -11,12 +14,6 @@ if module_installed mesa-lib; then
   else
     OPTS+=" --enable-gl"
   fi
-fi &&
-
-if module_installed ghostscript; then
-  OPTS+=" --enable-ps --enable-pdf"
-else
-  OPTS+=" --disable-ps --disable-pdf"
 fi &&
 
 if [ "`get_module_config DOCS`" = "n" ]; then
