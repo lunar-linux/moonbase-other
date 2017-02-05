@@ -1,6 +1,5 @@
-OPTS+=" --disable-valgrind \
-        --disable-debug \
+OPTS+=" --disable-debug \
         --disable-examples \
-        --with-gudev" &&
+        --disable-valgrind"
 
 default_build
