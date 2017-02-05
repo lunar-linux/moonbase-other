@@ -1,6 +1,6 @@
 OPTS+=" --disable-static" &&
 
-CXXFLAGS+=" -Wno-error" &&
+CXXFLAGS+=" -Wno-error -fpermissive" &&
 
 LDFLAGS+=" -lm" &&
 

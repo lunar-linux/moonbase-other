@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# support libressl 2.5.1
+sedit 's/handle->options |= SSL_OP_NO_TLSv1/SSL_CTX_set_options(handle, SSL_OP_NO_TLSv1)/' WWW/Library/Implementation/HTTP.c
