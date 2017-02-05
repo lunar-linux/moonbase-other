@@ -11,7 +11,6 @@ OPTS+=" --disable-static  \
         --enable-zlib     \
         --enable-shared   \
         --enable-swscale  \
-        --enable-x11grab  \
         --enable-nonfree  \
         --enable-pthreads \
         --enable-postproc \
