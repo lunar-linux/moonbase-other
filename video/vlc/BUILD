@@ -32,8 +32,8 @@ if in_depends $MODULE opencv-3 ; then
  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/"
 fi &&
 
-OPTS+=" --enable-xvideo --enable-realrtsp --disable-sid" &&
-
+OPTS+=" --enable-xvideo --enable-realrtsp --disable-sid --disable-rpath" &&
+export PKG_CONFIG_PATH="/usr/lib/ffmpeg2.8/pkgconfig" &&
 #autoreconf -if &&
 default_build &&
 
