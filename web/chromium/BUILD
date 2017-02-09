@@ -1,14 +1,8 @@
 export LDFLAGS="$(echo $LDFLAGS | sed 's;-z now;-Wl,-znow;g;s;-z relro;-Wl,-zrelro;g')"
-export -n CFLAGS CXXFLAGS
-
-build/linux/unbundle/replace_gyp_files.py $OPTS -Drelease_extra_cflags="$CFLAGS" &&
-
-# This is the configure step
-build/gyp_chromium build/all.gyp --depth=. $OPTS -Drelease_extra_cflags="$CFLAGS" &&
 
 # This is the make step. According to its --help the default -j is
 # derived from your number of CPUs.
-ninja -v -C out/Release chrome chrome_sandbox chromedriver &&
+ninja -v -C out/Release chrome chrome_sandbox chromedriver widevinecdmadapter &&
 
 prepare_install &&
 
@@ -17,7 +11,7 @@ install -D out/Release/chrome ${CHROMIUM_HOME}/chrome &&
 install -Dm4755 -o root -g root out/Release/chrome_sandbox ${CHROMIUM_HOME}/chrome-sandbox &&
 install -D out/Release/chromedriver ${CHROMIUM_HOME}/chromedriver &&
 
-cp out/Release/{*.pak,*.bin} ${CHROMIUM_HOME} &&
+cp out/Release/{*.pak,*.bin,libwidevinecdmadapter.so} ${CHROMIUM_HOME} && 
 cp -a out/Release/locales out/Release/resources ${CHROMIUM_HOME}/ &&
 
 find ${CHROMIUM_HOME}/ -name '*.d' -type f -delete &&
@@ -36,6 +30,7 @@ fi &&
 install -m 755 $SCRIPT_DIRECTORY/chromium-launcher.sh ${CHROMIUM_HOME} &&
 ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium-browser &&
 ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium &&
+ln -sf ${CHROMIUM_HOME}/chromedriver /usr/bin/chromedriver &&
 
 install -Dm644 LICENSE /usr/share/licenses/chromium/LICENSE &&
 install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat &&

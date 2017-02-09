@@ -1,6 +1,7 @@
 depends zlib
 depends minizip
-#depends libvpx
+depends libvpx
+depends yasm
 depends ninja
 depends snappy
 depends gperf
@@ -8,7 +9,6 @@ depends re2
 depends xdg-utils
 depends %JPEG
 depends alsa-lib
-depends libxml2
 depends libxslt
 depends jsoncpp
 depends libpng
@@ -29,13 +29,10 @@ depends speex
 depends libXScrnSaver
 depends libexif
 depends speech-dispatcher
+depends snappy
+depends ffmpeg
+depends git
 
-optional_depends libevent   "-Duse_system_libevent=1"   "-Duse_system_libevent=0"   "To use system provided libevent library"
-optional_depends yasm       "-Duse_system_yasm=1"       "-Duse_system_yasm=0"       "To use system yasm to compile assembler parts"
-optional_depends cups       "-Duse_cups=1"              "-Duse_cups=0"              "To use system provided cups"
-optional_depends GConf      "-Duse_gconf=1"             "-Duse_gconf=0"             "To use system provided GConf"
-optional_depends pulseaudio "-Dlinux_link_pulseaudio=1" "-Duse_pulseaudio=0"        "For pulse audio support"
-optional_depends heimdal    "-Duse_kerberos=1"          "-Duse_kerberos=0"          "To use system provided heimdal (kerberos) support"
-
-# Still breaks the build
-#optional_depends sqlite     "-Duse_system_sqlite=1"     "-Duse_system_sqlite=0"     "To use system provided sqlite"
+optional_depends cups       "use_cups=true"              "use_cups=false"              "To use system provided cups"
+optional_depends pulseaudio "link_pulseaudio=true use_pulseaudio=true" "use_pulseaudio=false"        "For pulse audio support"
+optional_depends heimdal    "use_kerberos=true"          "use_kerberos=false"          "To use system provided heimdal (kerberos) support"
