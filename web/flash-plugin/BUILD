@@ -1,10 +1,12 @@
 prepare_install &&
 install -Dm755 libflashplayer.so /usr/lib/lunar/plugins/libflashplayer.so &&
-install -m755 usr/bin/flash-player-properties /usr/bin &&
-install -Dm755 usr/share/pixmaps/flash-player-properties.png /usr/share/pixmaps/flash-player-properties.png &&
-install -dm755 /usr/share/applications/ &&
-install -m644 usr/share/applications/flash-player-properties.desktop /usr/share/applications/ &&
-cp -af usr/share/icons /usr/share/ &&
+install -dm755 usr/bin/flash-player-properties /usr/bin &&
+for size in 16x16 22x22 24x24 32x32 48x48;
+do
+  install -dm644 usr/share/icons/hicolor/$size/apps/flash-player-properties.png /usr/share/icons/hicolor/$size/apps
+done &&
+install -dm755 /usr/share/applications &&
+install -dm644 usr/share/applications/flash-player-properties.desktop /usr/share/applications &&
 
 if module_installed kdelibs; then
   cp -af usr/share/kde4/services/* /usr/share/kde4/services/ &&

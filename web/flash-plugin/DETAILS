@@ -1,0 +1,18 @@
+          MODULE=flash-plugin
+         VERSION=24.0.0.194
+          SOURCE=$MODULE-$VERSION.i386.tar.gz
+ SOURCE_URL_FULL=http://fpdownload.adobe.com/pub/flashplayer/pdc/$VERSION/flash_player_npapi_linux.i386.tar.gz
+      SOURCE_VFY=sha256:f461cbabc965cb5fa6d2271259e166340e8b20833f6a9ce60a81a04021e72ed3
+        WEB_SITE=http://www.adobe.com/products/flashplayer.html
+         ENTERED=20110305
+         UPDATED=20170210
+           SHORT="Adobe Flash plugin for web browsers"
+
+cat << EOF
+Adobe Flash plugin for web browsers.
+Configuration is in /etc/adobe/mms.cfg
+To show the version, run:
+  strings /usr/lib/lunar/plugins/libflashplayer.so | grep FlashPlayer_
+  or visit the webpage:
+  http://www.adobe.com/software/flash/about/
+EOF
