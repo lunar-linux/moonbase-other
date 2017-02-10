@@ -1,0 +1,5 @@
+default_pre_build &&
+
+cp src/portaudio19.h src/portaudio.h &&
+
+sedit 's:\(0xc2\),\(0xba\):static_cast<char>(\1),static_cast<char>(\2):' src/tr_languages.cpp
