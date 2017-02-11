@@ -1,0 +1,4 @@
+default_pre_build &&
+sedit 's;/lib;/usr/lib;;s;sbin;bin;g' setup.py &&
+sedit "/for dir in/s;/usr/bin;/usr/sbin;" setup.py &&
+sedit 's;/sbin/iptables;/usr&;g' src/util.py
