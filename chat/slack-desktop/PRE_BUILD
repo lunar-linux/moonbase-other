@@ -1,0 +1,12 @@
+if [ "$(arch)" != "x86_64" ]; then
+  message "${PROBLEM_COLOR}WARNING: ${MESSAGE_COLOR}slack-desktop only works on x86_64 platforms"
+  exit 1
+fi &&
+validate_source_dir $SOURCE_DIRECTORY &&
+mk_source_dir $SOURCE_DIRECTORY &&
+cd $SOURCE_DIRECTORY &&
+ar -x $SOURCE_CACHE/$SOURCE &&
+tar xf data.tar.xz &&
+
+# Change some paths and preload libcurl.so.3
+sedit 's;^Exec=;&env LD_PRELOAD=/usr/lib/libcurl.so3 ;;s;Icon=.*;Icon=slack;' usr/share/applications/slack.desktop
