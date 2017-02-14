@@ -53,8 +53,13 @@ cp -R out/linux.*/release/bin/* $MODULE_PREFIX/ &&
 cp $SCRIPT_DIRECTORY/VirtualBox . &&
 # Substitute $INSTALL_DIR with the module prefix
 sedit 's:$INSTALL_DIR:'$MODULE_PREFIX':g' VirtualBox &&
-# Install the startup script to /usr/bin
-install -m 755 VirtualBox /usr/bin/ &&
+
+# Install wrapper and useful symlinks
+install -m755 out/linux.*/release/bin/VBox.sh /usr/bin/VBox &&
+for i in VBoxHeadless VBoxManage VBoxSDL VirtualBox vboxwebsrv VBoxBalloonCtrl; do
+  ln -sf VBox /usr/bin/$i
+  ln -sf VBox /usr/bin/${i,,}
+done &&
 
 # Install the config file to let VirtualBox know it is installed
 echo "INSTALL_DIR=$MODULE_PREFIX" > vbox.cfg &&
