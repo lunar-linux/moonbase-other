@@ -1,12 +1,14 @@
           MODULE=libressl
          VERSION=2.5.1
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=Makefile.openssl-certs
+         SOURCE2=0001-Define-values-for-SSL_CTRL_SET_GROUPS-_LIST-and-wire.patch.gz
       SOURCE_URL=http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/
+     SOURCE2_URL=$PATCH_URL
      SOURCE_VFY=sha256:f71ae0a824b78fb1a47ffa23c9c26e9d96c5c9b29234eacedce6b4c7740287cd
+    SOURCE2_VFY=sha256:a3c3cbabf62b7b6b120c8ee40320710c544c1a0d7ee910338cbc877a37e81212
         WEB_SITE=http://www.libressl.org
          ENTERED=20160301
-         UPDATED=20170204
+         UPDATED=20170318
            SHORT="A version of the TLS/crypto stack forked from OpenSSL"
 
 cat << EOF

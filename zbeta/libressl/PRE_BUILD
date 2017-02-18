@@ -1,4 +1,4 @@
 default_pre_build &&
 
-# the (superfluous) define broke qt5
-sedit '/doesnt_exist/ d' include/openssl/ssl.h
+# fix compatibility with qt5
+patch_it $SOURCE2 1
