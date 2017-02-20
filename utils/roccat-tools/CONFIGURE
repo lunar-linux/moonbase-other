@@ -1,0 +1,31 @@
+ROCCAT_INPUT_DEVICES="arvo isku iskufx kiro kone koneplus konepure konepuremilitary konepureoptical konextd konextdoptical kovaplus kova2016 lua nyth pyra ryosmk ryostkl savu tyon"
+
+create_device_list() {
+  for device in $ROCCAT_INPUT_DEVICES; do
+    echo "\"$device\" \"$device\" \"off\""
+  done
+}
+
+select_devices() {
+  BACKTITLE="Roccat Tool Device Configuration"
+  TITLE="Select Devices"
+  HELP="Select the Roccat devices to build tools for"
+  create_device_list | xargs \
+  dialog --backtitle "$BACKTITLE" \
+         --title "$TITLE" \
+         --stdout \
+         --separate-output \
+         --checklist "$HELP" \
+         0 0 0
+}
+
+if ! grep -q CONFIGURED $MODULE_CONFIG; then
+  if query "Would you like to select which Roccat devices to support? If not selected, tools for all devices will be installed." n; then
+    DEVICE_LIST=$(select_devices)
+    echo "DEVICE_LIST=\"${DEVICE_LIST:-$ROCCAT_INPUT_DEVICES}\"" >> $MODULE_CONFIG
+  else
+    echo "DEVICE_LIST=\"$ROCCAT_INPUT_DEVICES\"" >> $MODULE_CONFIG
+  fi
+
+  echo "CONFIGURED=y" >> $MODULE_CONFIG
+fi
