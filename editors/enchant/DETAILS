@@ -1,12 +1,13 @@
           MODULE=enchant
-         VERSION=1.6.0
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://www.abisource.com/downloads/$MODULE/$VERSION
-      SOURCE_VFY=sha256:2fac9e7be7e9424b2c5570d8affe568db39f7572c10ed48d4e13cddf03f7097f
-        WEB_SITE=http://www.abisource.com/projects/enchant
+         VERSION=1.6.1
+          SOURCE=$MODULE-${VERSION//./-}.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-${VERSION//./-}
+      SOURCE_URL=https://github.com/AbiWord/$MODULE/archive
+      SOURCE_VFY=sha256:ed2b11211a571ab5f963debf4c3bf3fc46541bb9cbb441b2997bd871ba8618d4
+        WEB_SITE=https://abiword.github.io/enchant
          ENTERED=20070312
-         UPDATED=20100524
-           SHORT="a generic spell checking library"
+         UPDATED=20170219
+           SHORT="A generic spell checking library"
 
 cat << EOF
 Enchant is a generic spell checking library that acts more like a
