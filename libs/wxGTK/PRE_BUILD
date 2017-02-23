@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# fix build with gcc6.3
+sedit 's/abs(pt1/std::abs(pt1/; /stdlib\.h/ i #include <cmath>' src/stc/scintilla/src/Editor.cxx
