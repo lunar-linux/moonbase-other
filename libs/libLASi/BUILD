@@ -1,5 +1,4 @@
+OPTS+=" -DCMAKE_BUILD_TYPE=Release" &&
 
-  OPTS+=" -DCMAKE_BUILD_TYPE=Release" &&
-
-  default_cmake_build
+default_cmake_build
 

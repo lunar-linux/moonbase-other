@@ -1,5 +1,8 @@
-default_config  &&
-make      &&
-make opt  &&
-prepare_install  &&
+default_config &&
+
+make &&
+make opt &&
+
+prepare_install &&
+
 make old-install

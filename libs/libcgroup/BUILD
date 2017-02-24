@@ -1,4 +1,3 @@
-
 OPTS+=" --enable-opaque-hierarchy=name=systemd" &&
 
 default_build &&
