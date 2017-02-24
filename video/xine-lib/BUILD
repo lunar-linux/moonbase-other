@@ -1,6 +1,7 @@
-OPTS+=" --enable-static --with-xv-path=/usr/X11/lib --enable-mmap --enable-antialiasing"  &&
+OPTS+=" --enable-mmap \
+        --enable-static \
+        --enable-antialiasing \
+        --disable-optimizations \
+        --with-xv-path=/usr/X11/lib"
 
-cp $SOURCE_CACHE/$SOURCE2 src/xine-engine/  &&
-default_build &&
-cp $SOURCE_CACHE/$SOURCE2 /usr/include/xine/
-
+default_build

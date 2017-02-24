@@ -1,32 +1,33 @@
-depends  %X
-depends  libcdio
-depends  vcdimager
-depends  ffmpeg
-depends  libmpcdec
+depends %X
+depends libcdio
+depends vcdimager
+depends ffmpeg
+depends libmpcdec
 
-optional_depends "alsa-utils"  "--with-alsa"        "--without-alsa"        "for ALSA sound support"
-optional_depends "speex"       "--with-speex"       "--without-speex"       "for Speex audio decoder"
-optional_depends "aalib"       "--enable-aalib"     "--disable-aalib"       "for ascii art library support"
-optional_depends "libmng"      "--enable-mng"       "--disable-mng"         "for mng library support"
-optional_depends "libXvMC"     "--enable-xvmc"      "--disable-xvmc"        "for hw accelerated playback on supported cards"
-optional_depends "libcaca"     "--with-caca"        "--without-caca"        "for text support"
-optional_depends "ImageMagick" "--with-imagemagick" "--without-imagemagick" "for ImageMagick image decoder"
-optional_depends "libtheora"   "--with-theora"      "--without-theora"      "for Theora video decoder"
-optional_depends "SDL"         "--with-sdl"         "--without-sdl"         "for SDL video output"
-optional_depends "jack"        "--with-jack"        "--without-jack"        "for jack audio plugin"
-optional_depends "mesa-lib"    ""                   ""                      "for opengl plugin"
-optional_depends "faad"        "--enable-faad"      "--disable-faad"        "for faad2 plugin"
-optional_depends "libmodplug"  "--enable-modplug"   "--disable-modplug"     "for modplug plugin"
-optional_depends "libdca"      "--enable-dts"       "--disable-dts"         "for DTS (dca) audio plugin"
-optional_depends "a52dec"      "--enable-a52dec"    "--disable-a52dec"      "for a52 video plugin"
-optional_depends "libmad"      "--enable-mad"       "--disable-mad"         "for mad and mp3 plugin"
-optional_depends "libmpcdec"   "--enable-musepack"  "--disable-musepack"    "for musepack plugin"
-optional_depends "libbluray"   "--enable-bluray"    "--disable-bluray"      "for bluray plugin"
-optional_depends "gnome-vfs"   "--enable-gnomevfs"  "--disable-gnomevfs"    "for gnome vfs plugin"
-optional_depends "libvdpau"    "--enable-vdpau"     "--disable-vdpau"       "for VDPAU output plugin"
-optional_depends "libva"       "--enable-vaapi"     "--disable-vaapi"       "for VAAPI output plugin"
-optional_depends "gdk-pixbuf"  "--enable-gdkpixbuf" "--disable-gdkpixbuf"   "for gdk-pixbuf plugin"
-optional_depends "wavpack"     "--with-wavpack"     "--without-wavpack"     "for wavpack decoder support"
-optional_depends "pulseaudio"  "--with-pulseaudio"  "--without-pulseaudio"  "for pulseaudio support"
-optional_depends "libvorbis"   "--with-vorbis"      "--without-vorbis"      "for vorbis/ogg support"
-optional_depends "freetype2"   "--with-freetype"    "--without-freetype"    "for truetype font support"
+optional_depends mesa-lib "" "" "for opengl plugin"
+
+optional_depends alsa-utils  "--with-alsa"        "--without-alsa"        "for ALSA sound support"
+optional_depends speex       "--with-speex"       "--without-speex"       "for Speex audio decoder"
+optional_depends aalib       "--enable-aalib"     "--disable-aalib"       "for ascii art library support"
+optional_depends libmng      "--enable-mng"       "--disable-mng"         "for mng library support"
+optional_depends libXvMC     "--enable-xvmc"      "--disable-xvmc"        "for hw accelerated playback on supported cards"
+optional_depends libcaca     "--with-caca"        "--without-caca"        "for text support"
+optional_depends ImageMagick "--with-imagemagick" "--without-imagemagick" "for ImageMagick image decoder"
+optional_depends libtheora   "--with-theora"      "--without-theora"      "for Theora video decoder"
+optional_depends SDL         "--with-sdl"         "--without-sdl"         "for SDL video output"
+optional_depends jack        "--with-jack"        "--without-jack"        "for jack audio plugin"
+optional_depends faad        "--enable-faad"      "--disable-faad"        "for faad2 plugin"
+optional_depends libmodplug  "--enable-modplug"   "--disable-modplug"     "for modplug plugin"
+optional_depends libdca      "--enable-dts"       "--disable-dts"         "for DTS (dca) audio plugin"
+optional_depends a52dec      "--enable-a52dec"    "--disable-a52dec"      "for a52 video plugin"
+optional_depends libmad      "--enable-mad"       "--disable-mad"         "for mad and mp3 plugin"
+optional_depends libmpcdec   "--enable-musepack"  "--disable-musepack"    "for musepack plugin"
+optional_depends libbluray   "--enable-bluray"    "--disable-bluray"      "for bluray plugin"
+optional_depends gnome-vfs   "--enable-gnomevfs"  "--disable-gnomevfs"    "for gnome vfs plugin"
+optional_depends libvdpau    "--enable-vdpau"     "--disable-vdpau"       "for VDPAU output plugin"
+optional_depends libva       "--enable-vaapi"     "--disable-vaapi"       "for VAAPI output plugin"
+optional_depends gdk-pixbuf  "--enable-gdkpixbuf" "--disable-gdkpixbuf"   "for gdk-pixbuf plugin"
+optional_depends wavpack     "--with-wavpack"     "--without-wavpack"     "for wavpack decoder support"
+optional_depends pulseaudio  "--with-pulseaudio"  "--without-pulseaudio"  "for pulseaudio support"
+optional_depends libvorbis   "--with-vorbis"      "--without-vorbis"      "for vorbis/ogg support"
+optional_depends freetype2   "--with-freetype"    "--without-freetype"    "for truetype font support"
