@@ -50,10 +50,6 @@ mkdir -p $MODULE_PREFIX &&
 # Install contents of the build directory
 cp -R out/linux.*/release/bin/* $MODULE_PREFIX/ &&
 
-cp $SCRIPT_DIRECTORY/VirtualBox . &&
-# Substitute $INSTALL_DIR with the module prefix
-sedit 's:$INSTALL_DIR:'$MODULE_PREFIX':g' VirtualBox &&
-
 # Install wrapper and useful symlinks
 install -m755 out/linux.*/release/bin/VBox.sh /usr/bin/VBox &&
 for i in VBoxHeadless VBoxManage VBoxSDL VirtualBox vboxwebsrv VBoxBalloonCtrl; do
