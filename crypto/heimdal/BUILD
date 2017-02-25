@@ -18,24 +18,21 @@ OPTS+=" --prefix=/usr \
         --with-hdbdir=/var/lib/heimdal \
         --sysconfdir=/etc \
         --enable-shared \
+        --enable-kcm \
+        --disable-osfc2 \
         --with-readline=/usr \
         --with-openssl=/usr \
-        --disable-otp" &&
+        --with-sqlite3=/usr \
+        --enable-pthread-support" &&
 
 mkdir -p $SOURCE_DIRECTORY/__heimdest/ &&
 
-sh autogen.sh &&
-LIBS="-lpthread" default_config &&
+default_config &&
 make &&
 INSTALL_CATPAGES="no" make DESTDIR=$SOURCE_DIRECTORY/__heimdest/ install &&
 
-# Rename files that otherwise would conflict
-for i in rshd telnetd ftpd; do
-  mv -f $SOURCE_DIRECTORY/__heimdest/usr/sbin/{,k}${i} &&
-  mv -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man8/{,k}${i}.8
-done &&
 
-for i in rsh su telnet ftp login rcp; do
+for i in su ; do
   if [ -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/${i}.1 ]; then
     mv -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/{,k}${i}.1
   fi &&
