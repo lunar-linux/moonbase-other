@@ -13,7 +13,9 @@ default_build &&
 
 install profiles/*/*.conf /etc/bluetooth/ &&
 install src/main.conf /etc/bluetooth/ &&
-install attrib/gatttool /usr/bin &&
+
+# it does not exist for version 5.44
+#install attrib/gatttool /usr/bin &&
 
 if [[ "$ENABLE_EXPER" == "y" ]]; then
   install tools/hex2hcd /usr/bin/ &&
