@@ -1,4 +1,5 @@
-  OPTS+=" --disable-static" &&
+OPTS+=" --disable-static" &&
 
-  ./bootstrap         &&
-  default_build
+./bootstrap &&
+
+default_build
