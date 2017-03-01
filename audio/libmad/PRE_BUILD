@@ -1,0 +1,6 @@
+default_pre_build &&
+
+patch_it $SOURCE2 1 &&
+
+# GCC since 4.3 doesn't have -fforce-mem
+sedit 's:-fforce-mem::g' configure.ac
