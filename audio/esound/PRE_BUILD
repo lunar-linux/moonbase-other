@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# alsa drain fix
+sedit 's/drain/drop/' audio_alsa09.c

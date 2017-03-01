@@ -1,14 +1,11 @@
-(
+OPTS+=" --disable-static --disable-artstest --enable-alsa"
+CFLAGS+=" -lm"
 
+default_config &&
 
-  default_config &&
-  sedit "s:CFLAGS = :CFLAGS = -lm:" Makefile &&
+# Disable docs from building
+echo -e "all:\ninstall:\n" > docs/Makefile &&
 
-  # Disable docs from building
-  echo -e "all:\ninstall:\n" > docs/Makefile &&
+default_make &&
 
-  default_make &&
-
-  gather_docs TIPS
-  
-) > $C_FIFO 2>&1
+gather_docs TIPS
