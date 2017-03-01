@@ -1,6 +1,3 @@
-(
+default_build &&
 
-  default_build &&
-  gather_docs AUTHORS THANKS
-
-) > $C_FIFO 2>&1
+gather_docs AUTHORS THANKS
