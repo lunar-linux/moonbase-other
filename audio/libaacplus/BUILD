@@ -1,9 +1,5 @@
-(
+touch INSTALL &&
 
-  touch INSTALL &&
+./autogen.sh --prefix=/usr --without-downloader $OPTS &&
 
-  ./autogen.sh --prefix=/usr --without-downloader $OPTS &&
-
-  default_make
-
-) > $C_FIFO 2>&1
+default_make
