@@ -1,5 +1,3 @@
-(
-
 cat > id3tag.pc << "EOF"
 prefix=/usr
 exec_prefix=${prefix}
@@ -15,8 +13,5 @@ Libs: -L${libdir} -lid3tag
 Cflags: -I${includedir}
 EOF
 
-
-  default_build
-  install -v -m644 id3tag.pc /usr/lib/pkgconfig
-
-) > $C_FIFO 2>&1
+default_build
+install -v -m644 id3tag.pc /usr/lib/pkgconfig
