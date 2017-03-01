@@ -1,7 +1,5 @@
-(
+cd src/ &&
 
-  cd src/  &&
-  prepare_install  &&
-  make install
+prepare_install &&
 
-) > $C_FIFO 2>&1
+make install
