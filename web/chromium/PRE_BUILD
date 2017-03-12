@@ -3,7 +3,6 @@ default_pre_build &&
 # Build fixes from gentoo
 patch_it $SOURCE2 1 &&
 patch_it $SOURCE3 1 &&
-patch_it $SOURCE4 1 &&
 
 # Missing header?
 sedit '/<utility>/a #include <algorithm>' gpu/config/gpu_control_list.cc &&
