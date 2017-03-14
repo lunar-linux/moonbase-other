@@ -1,11 +1,17 @@
 ## build it
-cd src &&
+pushd src &&
 nim c -d:release nimble.nim &&
 
-## install it
 prepare_install &&
+
+## install it
 install -Dm755 nimble /usr/bin/nimble &&
+popd &&
+
+install -Dm 644 *.markdown -t /usr/share/doc/nimble &&
+install -Dm 644 nimble.bash-completion /usr/share/bash-completion/completions/nimble &&
 
 # Nimble looks for nimscriptapi.nim in /usr/bin/nimblepkg/, of all places.
-cp -r nimblepkg /usr/share/$MODULE/ &&
-ln -s /usr/share/$MODULE /usr/bin/nimblepkg
+mkdir -p /usr/share/$MODULE &&
+cp -r src/nimblepkg/* /usr/share/$MODULE/ &&
+ln -sf /usr/share/$MODULE /usr/bin/nimblepkg
