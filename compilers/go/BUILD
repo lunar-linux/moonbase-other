@@ -51,7 +51,7 @@ find /usr/lib/go/src -type f -executable -delete &&
 
 # For gox
 install -Dm755 src/make.bash /usr/lib/go/src/make.bash &&
-install -Dm755 src/run.bash  /usr/lib/go/src/run.bash  &&
+install -Dm755 src/run.bash /usr/lib/go/src/run.bash  &&
 ln -sf /usr/share/go/misc /usr/lib/go/misc &&
 
 # For godoc
