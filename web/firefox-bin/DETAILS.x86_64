@@ -1,16 +1,16 @@
           MODULE=firefox-bin
-         VERSION=52.0
+         VERSION=52.0.1
           SOURCE=firefox-$VERSION.tar.bz2
-      SOURCE_URL=https://download-installer.cdn.mozilla.net/pub/firefox/releases/$VERSION/linux-x86_64/en-US
-      SOURCE_VFY=sha256:0808bf05ac7b6058d1b729d6dd4a1bd7a8069c439d276dcf8cc567bf74a7b7d4
+      SOURCE_URL=http://download-installer.cdn.mozilla.net/pub/firefox/releases/$VERSION/linux-i686/en-US
+      SOURCE_VFY=sha256:086aba1a19a395d189d04ea951e7555e44c06ccf9a5fd77ce005108559808dcc
         WEB_SITE=http://www.mozilla.org/projects/firefox
          ENTERED=20091207
-         UPDATED=20170307
+         UPDATED=20170318
          ARCHIVE=off
            SHORT="A speedy, full-featured web browser"
 
 cat << EOF
-This is the pre-compiled binary version of firefox. It installs into /opt by
+This is the pre-compiled binary version of firefox. It installs into /usr/lib by
 default. It does NOT conflict with the regular lunar firefox module. Only works
 with kernels and glibc that provide Thread Local Storage (TLS).
 EOF
