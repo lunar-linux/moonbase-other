@@ -1,8 +1,7 @@
-(
+./waf configure --prefix=/usr &&
 
-  ./waf configure --prefix=/usr &&
-  ./waf build     &&
-  prepare_install &&
-  ./waf install
+./waf build &&
 
-) > $C_FIFO 2>&1
+prepare_install &&
+
+./waf install
