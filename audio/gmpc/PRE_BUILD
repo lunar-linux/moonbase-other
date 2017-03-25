@@ -1,0 +1,5 @@
+default_pre_build &&
+
+#floor function is not linked...
+sedit "s:-lz:-lz -lm:" src/Makefile.in
+
