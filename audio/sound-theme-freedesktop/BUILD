@@ -1,4 +1,3 @@
+./autogen.sh $OPTS &&
 
-  ./autogen.sh $OPTS &&
-
-  default_build
+default_build
