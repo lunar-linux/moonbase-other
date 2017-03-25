@@ -4,6 +4,6 @@ else
   INST_TOOLS="n"
 fi &&
 
-perl  Makefile.PL -$INST_TOOLS &&
+perl Makefile.PL -$INST_TOOLS &&
 
 default_make

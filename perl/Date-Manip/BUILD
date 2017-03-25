@@ -17,4 +17,3 @@ cp man3/*.3 /usr/share/man/man3/ &&
 
 rm lib/Date/.exists
 cp -r lib/Date /usr/lib/perl5/site_perl/$PERL_VERSION/
-

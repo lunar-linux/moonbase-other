@@ -1,10 +1,10 @@
-perl Build.PL    &&
+perl Build.PL &&
 
-./Build          &&
+./Build &&
 
-prepare_install  &&
+prepare_install &&
 
-./Build install  &&
+./Build install &&
 
 sleep 3 &&
 

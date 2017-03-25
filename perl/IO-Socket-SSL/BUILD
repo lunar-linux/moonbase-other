@@ -1,3 +1,3 @@
-echo n | perl  Makefile.PL &&
+echo n | perl Makefile.PL &&
 
 default_make
