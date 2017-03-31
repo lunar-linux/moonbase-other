@@ -1,5 +1,5 @@
-  unset CC CXX                                      &&
+unset CC CXX &&
 
-  LDFLAGS=$(echo $LDFLAGS | sed "s/-z combreloc//") &&
+LDFLAGS=$(echo $LDFLAGS | sed "s/-z combreloc//") &&
 
-  default_build
+default_build
