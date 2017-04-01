@@ -10,12 +10,12 @@ depends lensfun
 depends librsvg
 depends gtk-engines2
 
-optional_depends "colord-gtk"       "-DCOLORD=1"             "-DCOLORD=0"             "For libcolord support"
-optional_depends "flickcurl"        "-DUSE_FLICKR=1"         "-DUSE_FLICKR=0"         "For Flickr API support"
-optional_depends "openjpeg"         "-DUSE_OPENJPEG=1"       "-DUSE_OPENJPEG=0"       "For openjpeg graphics support"
-optional_depends "libgphoto2"       "-DUSE_CAMERA_SUPPORT=1" "-DUSE_CAMERA_SUPPORT=0" "For Camera support"
-optional_depends "libsecret"        "-DUSE_LIBSECRET=1"      "-DUSE_LIBSECRET=0"      "For storing and retrieving passwords"
-optional_depends "kwallet"          "-DUSE_KWALLET=1"        "-DUSE_KWALLET=0"        "Use kwallet password manager" n
+optional_depends colord-gtk "-DCOLORD=1"             "-DCOLORD=0"             "For libcolord support"
+optional_depends flickcurl  "-DUSE_FLICKR=1"         "-DUSE_FLICKR=0"         "For Flickr API support"
+optional_depends openjpeg   "-DUSE_OPENJPEG=1"       "-DUSE_OPENJPEG=0"       "For openjpeg graphics support"
+optional_depends libgphoto2 "-DUSE_CAMERA_SUPPORT=1" "-DUSE_CAMERA_SUPPORT=0" "For Camera support"
+optional_depends libsecret  "-DUSE_LIBSECRET=1"      "-DUSE_LIBSECRET=0"      "For storing and retrieving passwords"
+optional_depends kwallet    "-DUSE_KWALLET=1"        "-DUSE_KWALLET=0"        "Use kwallet password manager" n
 
 # They want lua-5.2, so we have to use -DDONT_USE_INTERNAL_LUA=Off
 #optional_depends "lua"              "-DUSE_LUA=1"            "-DUSE_LUA=0"            "For lua scripting support"
