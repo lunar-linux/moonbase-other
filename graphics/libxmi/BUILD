@@ -1,7 +1,5 @@
-(
+OPTS="--includedir=/usr/include/libxmi \
+      --libdir=/usr/lib/libxmi \
+      --disable-static" &&
 
-  OPTS="--includedir=/usr/include/libxmi --libdir=/usr/lib/libxmi" &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
