@@ -1,4 +1,3 @@
+CFLAGS+=" -lgthread-2.0" &&
 
-  CFLAGS+=" -lgthread-2.0" &&
-
-  default_build
+default_build
