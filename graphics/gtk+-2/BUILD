@@ -1,4 +1,4 @@
-bad_flags -mssse3      &&
+bad_flags -mssse3 &&
 bad_flags -mfpmath=sse &&
 
 # Fixes mysterious drag and drop crash in gtk+-2
@@ -15,7 +15,7 @@ esac &&
 
 patch_it $SOURCE2 1 &&
 
-if [ "`get_module_config DOCS`" = "n" ] ; then
+if [ "`get_module_config DOCS`" = "n" ]; then
   sedit "s/docs m4macros build/m4macros build/g" Makefile.in
 fi &&
 
