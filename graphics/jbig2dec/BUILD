@@ -1,7 +1,5 @@
+OPTS+=" --disable-static" &&
 
-  OPTS+=" --disable-static" &&
+./autogen.sh &&
 
-  patch_it $SOURCE2 1 &&
-
-  ./autogen.sh &&
-  default_build
+default_build
