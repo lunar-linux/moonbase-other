@@ -1,3 +1,4 @@
-OPTS+=" --enable-editing"
+OPTS+=" --enable-editing \
+        --disable-static"
 
 default_build
