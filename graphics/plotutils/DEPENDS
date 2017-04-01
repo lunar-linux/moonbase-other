@@ -1,3 +1,8 @@
+depends libpng
 depends libxmi
 depends libXpm
-depends openMotif
+
+optional_depends openMotif \
+                 "--with-motif" \
+                 "--without-motif" \
+                 "for Motif support"
