@@ -1,3 +1,3 @@
 OPTS+=" --enable-ILU --enable-ILUT" &&
 
-default_build
+default_cmake_build
