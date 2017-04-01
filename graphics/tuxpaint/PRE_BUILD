@@ -1,0 +1,11 @@
+default_pre_build &&
+
+sedit "s@\(linux_ARCH_LINKS:=.*\)\$@\1 \$(PNG) -lm@" Makefile &&
+#sedit "s@-g3@@" Makefile &&
+sedit "s@Art\;@Art\;Graphics@" src/tuxpaint.desktop &&
+
+# fullscreen
+sedit 's:# fu:fu:' src/tuxpaint.conf &&
+
+# libpng16 fix
+find -name '*.png' -exec optipng -quiet -force -fix {} +
