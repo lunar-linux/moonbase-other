@@ -6,14 +6,14 @@ sedit "s:extra_\([^=]*\)=\(\\\$.*\)$:extra_\1=\"\$extra_\1 \2\":" configure &&
 # using CFLAGS other than MPlayer's auto-detected will break
 bad_flags compiler &&
 
-./configure --prefix=/usr                 \
-            --mandir=/usr/share/man       \
-            --codecsdir=/usr/lib/win32    \
-            --confdir=/etc/mplayer        \
-            --datadir=/usr/share/mplayer  \
-            --enable-dynamic-plugins      \
-            --disable-live                \
-            $OPTS                        &&
+./configure --prefix=/usr                \
+            --mandir=/usr/share/man      \
+            --codecsdir=/usr/lib/win32   \
+            --confdir=/etc/mplayer       \
+            --datadir=/usr/share/mplayer \
+            --enable-dynamic-plugins     \
+            --disable-live               \
+            $OPTS                       &&
 
 sedit 's/-mtune=native//' config.mak &&
 
