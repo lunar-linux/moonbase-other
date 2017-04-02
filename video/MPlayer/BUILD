@@ -1,8 +1,3 @@
-sedit '1s@/usr/bin/awk@/bin/awk@' vidix/pci_db2c.awk &&
-
-# --extra_* are expected only once, but we might need more
-sedit "s:extra_\([^=]*\)=\(\\\$.*\)$:extra_\1=\"\$extra_\1 \2\":" configure &&
-
 # using CFLAGS other than MPlayer's auto-detected will break
 bad_flags compiler &&
 
@@ -13,6 +8,8 @@ bad_flags compiler &&
             --datadir=/usr/share/mplayer \
             --enable-dynamic-plugins     \
             --disable-live               \
+            --disable-ggi                \
+            --disable-ggiwmh             \
             $OPTS                       &&
 
 sedit 's/-mtune=native//' config.mak &&
@@ -22,6 +19,7 @@ default_make &&
 gather_docs etc/* &&
 
 install -d /etc/mplayer &&
+install -d /usr/share/mplayer &&
 install -m644 etc/codecs.conf /usr/share/mplayer/ &&
 install -m644 etc/example.conf /etc/mplayer/mplayer.conf &&
 install -m644 etc/input.conf /etc/mplayer/ &&
