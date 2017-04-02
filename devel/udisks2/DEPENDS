@@ -1,13 +1,27 @@
 depends polkit
-depends sg3_utils
 depends libatasmart
-depends %UDEV
 depends libgudev
-depends parted
-depends lvm2
 depends gdbus-codegen
+depends intltool
+depends util-linux
+depends systemd
+depends intltool
 
-optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
-                 "for building documentation"
+optional_depends dosfstools  "" "" "for VFAT filesystem management support"
+optional_depends ntfs-3g     "" "" "for NTFS filesystem management support"
+optional_depends lvm2        "" "" "for LVM2 filesystem support"
+optional_depends btrfs-progs "" "" "for BTRFS filesystem support"
+optional_depends sg3_utils   "" "" "for SCSI support"
+optional_depends parted      "" "" "for partition management support"
+#optional_depends gpfdisk     "" "" "for GUID partition table support"
+
+depends gtk-doc
+#optional_depends gtk-doc \
+#                 "--enable-gtk-doc" \
+#                 "--disable-gtk-doc" \
+#                 "for building documentation"
+
+optional_depends gobject-introspection \
+                 "--enable-introspection" \
+                 "--disable-introspection" \
+                 "for object introspection"
