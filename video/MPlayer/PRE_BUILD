@@ -12,6 +12,8 @@ unpack $SOURCE3 &&
 unpack $SOURCE4 &&
 unpack $SOURCE5 &&
 
+cd $SOURCE_DIRECTORY &&
+
 sedit '1s@/usr/bin/awk@/bin/awk@' vidix/pci_db2c.awk &&
 
 # --extra_* are expected only once, but we might need more
