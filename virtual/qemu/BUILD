@@ -1,6 +1,5 @@
-OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)" &&
-
 OPTS+=" --libexecdir=/usr/lib/qemu" &&
+OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)" &&
 
 AUDIO_LIST="oss" &&
 
