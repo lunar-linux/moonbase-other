@@ -22,7 +22,9 @@ sedit "s:system=MP-RAS-\`awk '{print }' /etc/.relid'\`:system=MP-RAS-\`awk '{pri
 ./configure --prefix=/usr \
             --mandir=/usr/share/man \
             --with-tcl=../tcl$VERSION/unix &&
+
 default_make &&
+
 make install-private-headers &&
 
 ln -sf wish${TK_VER} /usr/bin/wish

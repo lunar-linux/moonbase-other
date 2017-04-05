@@ -9,7 +9,9 @@ sedit "s:system=MP-RAS-\`awk '{print }' /etc/.relid'\`:system=MP-RAS-\`awk '{pri
 
 ./configure --prefix=/usr \
             --mandir=/usr/share/man &&
+
 default_make &&
+
 make install-private-headers &&
 
 ln -sf tclsh${TCL_VER} /usr/bin/tclsh
