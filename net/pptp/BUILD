@@ -1,2 +1,3 @@
-default_make  &&
+default_make &&
+
 gather_docs Documentation/*
