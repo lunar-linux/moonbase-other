@@ -1,10 +1,12 @@
-(
+OPTS+=" --with-initdir=/etc/init.d \
+        --disable-xmltoman \
+        --disable-subversion" &&
 
-  sedit "s:#include <sys/types.h>::" src/interface.c
-  sedit "24i #include <sys/types.h>" src/interface.c
-  default_build &&
+default_build &&
 
-  install -m0750 $SCRIPT_DIRECTORY/ifplugd-lunar.action /etc/ifplugd/ &&
-  install -m0755 $SCRIPT_DIRECTORY/ifplugd /etc/init.d/
+install -m0750 $SCRIPT_DIRECTORY/ifplugd-lunar.action /etc/ifplugd/ &&
+install -m0755 $SCRIPT_DIRECTORY/ifplugd-daemon /usr/bin/ifplugd-daemon &&
 
-) > $C_FIFO 2>&1
+if module_installed systemd; then
+  install -m0644 $SCRIPT_DIRECTORY/systemd.d/ifplugd@.service /usr/lib/systemd/system/ifplugd@.service
+fi

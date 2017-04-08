@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sedit "s:#include <sys/types.h>::" src/interface.c &&
+sedit "24i #include <sys/types.h>" src/interface.c &&
+
+patch_it $SOURCE2 1

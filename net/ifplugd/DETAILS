@@ -1,16 +1,19 @@
           MODULE=ifplugd
          VERSION=0.28
-          SOURCE=${MODULE}-${VERSION}.tar.gz
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-lunar_init.patch
       SOURCE_URL=http://0pointer.de/lennart/projects/ifplugd/
-      SOURCE_VFY=sha1:0f00e6b544c0b7ed6c66fc58cb74f038d3fba77a
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha256:474754ac4ab32d738cbf2a4a3e87ee0a2c71b9048a38bdcd7df1e4f9fd6541f0
+     SOURCE2_VFY=sha256:ff7c9ce46c88dcb7bea0e5b3ada8c6d41b826d585ea0a280124251d80733ccdc
         WEB_SITE=http://0pointer.de/lennart/projects/ifplugd/
          ENTERED=20060317
-         UPDATED=20070407
-           SHORT="a daemon which automatically configures your ethernet device"
+         UPDATED=20170408
+           SHORT="A daemon which automatically configures your ethernet device"
+
 cat << EOF
-ifplugd is a Linux daemon which will automatically configure your
-ethernet device when a cable is plugged in and automatically
-unconfigure it if the cable is pulled. This is useful on laptops
-with onboard network adapters, since it will only configure the
-interface when a cable is really connected.
+ifplugd is a Linux daemon which will automatically configure your ethernet
+device when a cable is plugged in and automatically unconfigure it if the
+cable is pulled. This is useful on laptops with onboard network adapters,
+since it will only configure the interface when a cable is really connected.
 EOF
