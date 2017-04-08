@@ -1,14 +1,7 @@
-(
+make SYS=posix CRYPTO="OPENSSL" &&
 
-  sedit "s:/usr/local:/usr:" Makefile librtmp/Makefile &&
-  sedit "s:-Wall:-Wall -fPIC:" Makefile librtmp/Makefile &&
+prepare_install &&
 
-  make SYS=posix CRYPTO="OPENSSL"  &&
+make install &&
 
-  prepare_install &&
-
-  make install    &&
-
-  install rtmpdump rtmpgw rtmpsrv rtmpsuck /usr/bin
-
-) > $C_FIFO 2>&1
+install rtmpdump rtmpgw rtmpsrv rtmpsuck /usr/bin
