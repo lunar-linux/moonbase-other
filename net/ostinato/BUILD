@@ -1,17 +1,15 @@
-(
+. /etc/profile.d/qt4.rc &&
 
-  . /etc/profile.d/qt4.rc &&
+qmake -config release PREFIX=/usr $OPTS &&
 
-  qmake -config release  PREFIX=/usr $OPTS &&
+default_make &&
 
-  default_make &&
+prepare_install &&
 
-  prepare_install &&
+mkdir /usr/share/$MODULE &&
+install client/icons/name.png /usr/share/$MODULE &&
 
-  mkdir /usr/share/$MODULE &&
-  install client/icons/name.png /usr/share/$MODULE &&
-
-  cat > ${MODULE}.desktop << EOF  &&
+cat > ${MODULE}.desktop << EOF &&
 [Desktop Entry]
 Name=Ostinato
 Comment=Network packet crafter/traffic generator and analyze
@@ -22,6 +20,4 @@ Type=Application
 Categories=Application;Network;
 EOF
 
-  install -D -m644 ${MODULE}.desktop ${MODULE_PREFIX}/share/applications/${MODULE}.desktop
-
-) > $C_FIFO 2>&1
+install -D -m644 ${MODULE}.desktop ${MODULE_PREFIX}/share/applications/${MODULE}.desktop
