@@ -1,3 +1,5 @@
+depends jansson
+
 optional_depends curl      ""     "--without-curl"      "for URL syntax support"
 optional_depends ncurses   ""     "--witout-curses"     "for text terminal support"
 optional_depends mysql     ""     "--without-mysql"     "for mysql database support"
@@ -24,7 +26,4 @@ optional_depends libvorbis ""     "--without-vorbis"    "for lossy audio support
 optional_depends alsa-lib  ""     "--without-asound"    "for alsa sound support"
 optional_depends imap      ""     "--without-imap"      "for IMAP4 protocol support"
 
-optional_depends libusb-compat    \
-                 ""               \
-                 "--without-usb"  \
-                 "for usb device support"
+optional_depends libusb-compat "" "--without-usb" "for usb device support"
