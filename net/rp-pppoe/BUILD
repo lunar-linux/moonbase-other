@@ -1,5 +1,5 @@
-sedit "s/read a/a=0/" scripts/pppoe-setup.in
 cd src
+
 ./configure --build=$BUILD          \
             --prefix=/usr           \
             --sysconfdir=/etc       \
@@ -28,5 +28,3 @@ case $CONFIG_PPPOE in
   y|Y|j|J) sh scripts/pppoe-setup ;;
         *) true ;;
 esac
-
-) > $C_FIFO 2>&1
