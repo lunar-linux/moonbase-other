@@ -1,7 +1,3 @@
-(
+OPTS+=" --disable-xtest --disable-glibtest" &&
 
-  OPTS+=" --disable-xtest --disable-glibtest" &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
