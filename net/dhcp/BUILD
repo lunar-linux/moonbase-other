@@ -1,5 +1,6 @@
 CFLAGS+=" -D_GNU_SOURCE "
 CFGHOME="/etc/config.d"
+
 OPTS+=" --with-srv-lease-file=/var/state/dhcp/dhcpd.leases \
         --with-srv6-lease-file=/var/state/dhcp/dhcpd6.leases \
         --with-cli-lease-file=/var/state/dhclient/dhclient.leases \

@@ -1,6 +1,5 @@
 add_priv_user dnsmasq &&
 
-sedit '/^#ifdef DNSMASQ_COMPILE_OPTS/ i#define HAVE_DBUS' src/config.h &&
 make "CFLAGS=$CFLAGS" "LDFLAGS=$LDFLAGS" &&
 prepare_install &&
 make PREFIX=/usr BINDIR=/usr/bin install &&

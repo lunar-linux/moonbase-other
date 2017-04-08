@@ -1,0 +1,3 @@
+default_pre_build &&
+
+sedit '/^#ifdef DNSMASQ_COMPILE_OPTS/ i#define HAVE_DBUS' src/config.h
