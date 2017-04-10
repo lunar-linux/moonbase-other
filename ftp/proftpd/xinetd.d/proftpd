@@ -4,7 +4,7 @@ service ftp
   protocol       = tcp
   wait           = no
   user           = ftp
-  server         = /usr/bin/proftpd
+  server         = /usr/sbin/proftpd
   per_source     = 8
   log_type       = FILE /var/log/xinetd/proftpd
   log_on_success = PID HOST USERID EXIT DURATION

@@ -5,7 +5,7 @@ After=network.target nss-lookup.target local-fs.target remote-fs.target
 [Service]
 Type=forking
 PIDFile=/run/proftpd/proftpd.pid
-ExecStart=/usr/bin/proftpd
+ExecStart=/usr/sbin/proftpd
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
