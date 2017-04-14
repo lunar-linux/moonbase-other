@@ -1,8 +1,3 @@
-patch_it $SOURCE4 1  &&
-patch_it $SOURCE5 1  &&
-
-./regen.sh -q &&
-
 case `arch` in
   x86_64)
     OPTS+=" --with-afs-sysname=amd64_linux26"
@@ -27,9 +22,13 @@ fi  &&
              --infodir=/usr/share/info  \
              --mandir=/usr/share/man    \
              --enable-supergroups       \
+             --enable-bitmap-later      \
              --disable-kernel-module    \
              --disable-fuse-client      \
              $OPTS                     &&
+
+# Temporary fix for missing -lasn1
+sedit "/^KRB5_LIBS =/s;$; -lasn1;" src/config/Makefile.config &&
 make all_nolibafs                      &&
 prepare_install                        &&
 
