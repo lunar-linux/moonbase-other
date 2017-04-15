@@ -2,7 +2,7 @@ LDFLAGS+=" -Wl,--no-as-needed" &&
 
 OPTS+=" --libexecdir=/usr/lib" &&
 
-BUNDLED_LIBRARIES="!talloc,!popt" &&
+BUNDLED_LIBRARIES="!talloc,!pytalloc-util,!popt" &&
 
 if in_depends $MODULE tdb; then
   BUNDLED_LIBRARIES+=",!tdb"
