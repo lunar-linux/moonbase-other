@@ -1,6 +1,6 @@
-# override defaults, because else there would be conflicts with samba
-OPTS+=" --includedir=/usr/include/$MODULE \
-        --libdir=/usr/lib/$MODULE \
+OPTS+=" --sysconfdir=/etc/samba \
+        --localstatedir=/var \
+        --bundled-libraries=NONE \
         --builtin-libraries=replace \
         --enable-talloc-compat1" &&
 
