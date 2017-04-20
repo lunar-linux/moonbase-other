@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# upstream patch, should be part of 1.1.5+
+sedit 's/#if defined(__x86_64__) || defined(_M_X64)/#ifdef __SSE2__/' snappy.cc
