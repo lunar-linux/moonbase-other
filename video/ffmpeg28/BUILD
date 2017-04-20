@@ -37,5 +37,6 @@ make &&
 prepare_install &&
 make install-libs install-headers &&
 if [ ! -f /etc/ld.so.conf.d/ffmpeg28.conf ]; then
+  mkdir -p /etc/ld.so.conf.d &&
   echo "/usr/lib/ffmpeg2.8/" > /etc/ld.so.conf.d/ffmpeg2.8.conf 
 fi
