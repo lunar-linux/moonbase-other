@@ -2,6 +2,7 @@ depends %UDEV
 depends %JPEG
 depends cups
 depends libusb-compat
+depends rpcbind
 
 optional_depends dbus \
                  "--enable-dbus-build" \
@@ -28,7 +29,7 @@ optional_depends PyQt \
                  "--disable-qt4" \
                  "for HP Qt4 GUI Support"
 
-optional_depends rpcbind \
+optional_depends net-snmp \
                  "--enable-network-build" \
                  "--disable-network-build" \
                  "for network printing support"
