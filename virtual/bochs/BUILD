@@ -1,6 +1,6 @@
-# 4.X kernel is basically 3.20
-  sedit "s:2\.6\*|3\.\*:2\.6\*|3\.\*|4\.\*:" configure &&
+bad_flags -malign-double &&
 
-#  bad_flags -malign-double  &&
+OPTS+=" --disable-docbook \
+        --enable-cpu-level=6" &&
 
-  default_build
+default_build

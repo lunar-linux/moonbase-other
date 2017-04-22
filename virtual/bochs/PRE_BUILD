@@ -1,3 +1,6 @@
 default_pre_build &&
 
-sedit 's/wx-config/wx-config-2.8/' configure gui/Makefile.in
+sedit 's/wx-config/wx-config-2.8/' configure gui/Makefile.in &&
+
+# 4.X kernel is basically 3.20
+sedit "s:2\.6\*|3\.\*:2\.6\*|3\.\*|4\.\*:" configure
