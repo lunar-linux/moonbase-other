@@ -1,0 +1,20 @@
+depends fribidi
+depends libxml2
+depends m17n-db
+
+optional_depends libXft \
+                 "--with-x" \
+                 "--without-x" \
+                 " for X11 support"
+
+optional_depends gd \
+                 "--with-gd" \
+                 "--without-gd" \
+                 "for graphic device support"
+
+optional_depends libotf \
+                 "--with-libotf" \
+                 "--without-libotf" \
+                 "for OpenType Font support"
+
+optional_depends anthy "" "" "to use the anthy input method"
