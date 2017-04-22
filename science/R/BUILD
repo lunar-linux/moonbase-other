@@ -1,3 +1,5 @@
+OPTS+=" --prefix=/usr --enable-R-shlib --sysconfdir=/etc/R" &&
+
 default_build &&
 
 # This is needed so cantor-15.04.1 will build
