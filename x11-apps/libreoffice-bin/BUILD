@@ -6,7 +6,7 @@ message "${MESSAGE_COLOR}Unpacking base RPMs and installing...${DEFAULT_COLOR}" 
 for pack in RPMS/*.rpm ; do rpm2cpio $pack > `basename $pack .rpm`.cpio ; done &&
 for i in `ls *.cpio`; do cpio -idmuV < $i ;done &&
 
-desktopfiles="base calc draw impress math startcenter writer xsltfilter"  &&
+desktopfiles="base calc draw impress math startcenter writer xsltfilter" &&
 
 prepare_install &&
 cp -dfR opt/* /usr/lib/ &&
