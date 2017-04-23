@@ -1,3 +1,5 @@
+autoreconf -vi &&
+
 OPTS+=" --with-lib-preference=system \
         --with-libsndfile=system \
         --with-expat=system \
