@@ -7,13 +7,21 @@ depends popt
 depends boost
 
 optional_depends lcms \
-                 "--enable-lcms" \
-                 "--disable-lcms" \
+                 "-DENABLE_LCMS=ON" \
+                 "-DENABLE_LCMS=OFF" \
                  "enable LittleCms for color management"
 
 optional_depends poppler \
-                 "--enable-poppler-cairo" \
-                 "--disable-poppler-cairo" \
+                 "-DENABLE_POPPLER_CAIRO=ON" \
+                 "-DENABLE_POPPLER_CAIRO=OFF" \
                  "for poppler support"
 
-optional_depends "libwpg" "" "" "for Wordperfect graphics support"
+optional_depends ImageMagick \
+                 "-DWITH_IMAGE_MAGICK=ON" \
+                 "-DWITH_IMAGE_MAGICK=ON" \
+                 "support for raster extensions and import resolution"
+
+optional_depends "libwpg" \
+                 "-DWITH_LIBWPG=ON" \
+                 "-DWITH_LIBWPG=OFF" \
+                 "for Wordperfect graphics support"
