@@ -11,7 +11,7 @@ install -D out/Release/chrome ${CHROMIUM_HOME}/chrome &&
 install -Dm4755 -o root -g root out/Release/chrome_sandbox ${CHROMIUM_HOME}/chrome-sandbox &&
 install -D out/Release/chromedriver ${CHROMIUM_HOME}/chromedriver &&
 
-cp out/Release/{*.pak,*.bin,libwidevinecdmadapter.so} ${CHROMIUM_HOME} && 
+cp out/Release/{*.pak,*.bin,libwidevinecdmadapter.so} ${CHROMIUM_HOME} &&
 cp -a out/Release/locales out/Release/resources ${CHROMIUM_HOME}/ &&
 
 find ${CHROMIUM_HOME}/ -name '*.d' -type f -delete &&
