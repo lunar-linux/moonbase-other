@@ -1,0 +1,8 @@
+mkfontdir /usr/share/fonts/TTF &&
+mkfontscale /usr/share/fonts/TTF &&
+
+mkfontdir /usr/share/fonts/BDF &&
+mkfontscale /usr/share/fonts/BDF &&
+
+message "${MESSAGE_COLOR}Running fc-cache please be patient${DEFAULT_COLOR}" &&
+fc-cache -f
