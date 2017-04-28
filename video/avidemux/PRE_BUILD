@@ -1,6 +1,7 @@
 default_pre_build &&
 
-sedit 's|#include "ADM_files.h"|#include "ADM_files.h"\n#include "ADM_toolkitGtk.h"|'  avidemux/gtk/ADM_userInterfaces/ui_support.cpp
+sedit 's|../avidemux/qt4|../avidemux/qt4 -DLRELEASE_EXECUTABLE=/usr/lib/qt5/bin/lrelease|' bootStrap.bash &&
 
-sedit "s:avidemux2_gtk:avidemux3_qt4:"          avidemux2.desktop &&
-sedit "s:Icon=avidemux:Icon=avidemux_icon.png:" avidemux2.desktop
+cp avidemux2.desktop avidemux-qt.desktop &&
+sed -ri 's|(Name=).*|\1avidemux (Qt)|' avidemux-qt.desktop &&
+sed -ri 's|(Exec=).*|\1avidemux3_qt5|' avidemux-qt.desktop
