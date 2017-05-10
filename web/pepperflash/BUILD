@@ -12,4 +12,4 @@ echo "--ppapi-flash-version=$(module_version pepperflash)\"" >> pepper-flash &&
 install pepper-flash /etc/chromium/ &&
 
 # so that we don't have to play games with the default path freshplayer is looking at
-ln -s /usr/lib/lunar/plugins /usr/lib/adobe-flashplugin
+ln -fs /usr/lib/lunar/plugins /usr/lib/adobe-flashplugin
