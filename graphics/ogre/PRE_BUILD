@@ -1,9 +1,4 @@
 # they add hg commit sums to the folder name - we don't want that here
 mk_source_dir &&
 cd $SOURCE_DIRECTORY &&
-tar -x --strip-components=1 -f $SOURCE_CACHE/$SOURCE &&
-
-# gcc5.3 doesn't catch this template instantiation
-# looks like a bug in some optimization code
-sedit '/::addIndexData(/ i template void ProgressiveMeshGenerator::addIndexDataImpl<unsigned short>(unsigned short*,const unsigned short*, VertexLookupList&, unsigned short);' \
-   OgreMain/src/OgreProgressiveMeshGenerator.cpp
+tar -x --strip-components=1 -f $SOURCE_CACHE/$SOURCE
