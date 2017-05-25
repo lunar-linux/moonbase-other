@@ -1,11 +1,10 @@
+depends libX11
 depends pkgconfig
 depends xz
 
 optional_depends alsa-lib "" "" "for alsa support"
 optional_depends jack     "" "" "for jack audio server support"
 optional_depends flite    "" "" "for text to speech support"
-
-optional_depends libX11 "--enable-x11grab" "" "for X support"
 
 optional_depends libxcb \
                  "--enable-libxcb \
@@ -80,7 +79,7 @@ optional_depends openh264 \
                  "--disable-libopenh264" \
                  "for open H.264 video encoding and decoding support"
 
-optional_depends x264-snapshot \
+optional_depends x264 \
                  "--enable-libx264 --extra-libs=-lx264" \
                  "--disable-libx264" \
                  "for H.264 video encoding support"
