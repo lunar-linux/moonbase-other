@@ -9,7 +9,7 @@ if in_depends $MODULE qt5; then
 fi &&
 
 default_config &&
-./drake -j${MAKES} &&
+rake $MAKEFLAGS &&
 
 prepare_install &&
-./drake install
+rake install
