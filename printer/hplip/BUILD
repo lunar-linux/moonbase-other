@@ -3,7 +3,7 @@ OPTS+=" --disable-qt3 \
         --enable-new-hpcups \
         --enable-cups-drv-install \
         --enable-cups-ppd-install \
-        --disable-hpijs-install   \
+        --enable-hpijs-install   \
         --disable-foomatic-ppd-install \
         --disable-foomatic-drv-install" &&
 
