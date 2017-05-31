@@ -7,10 +7,13 @@ OPTS+=" --sbindir=/usr/bin" &&
 
 autoconf &&
 
-default_build
+printf '\n\n' | default_build &&
 
 #install -D -m644 ssmtp.conf.5 "/usr/share/man/man5/ssmtp.conf.5 &&
 
-ln -s /usr/bin/ssmtp /usr/bin/mailq &&
-ln -s /usr/bin/ssmtp /usr/bin/sendmail &&
-ln -s /usr/bin/ssmtp /usr/bin/newaliases
+# might already be provided by another module
+if [[ ! -e /usr/bin/mailq ]]; then
+  ln -s /usr/bin/ssmtp /usr/bin/mailq &&
+  ln -s /usr/bin/ssmtp /usr/bin/sendmail &&
+  ln -s /usr/bin/ssmtp /usr/bin/newaliases
+fi
