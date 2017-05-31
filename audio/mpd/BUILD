@@ -1,3 +1,5 @@
+OPTS+="--with-systemdsystemunitdir=yes" &&
+
 default_build &&
 
 if [[ ! -e /etc/mpd.conf ]]; then
