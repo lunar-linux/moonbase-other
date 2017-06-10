@@ -14,9 +14,7 @@ sedit 's@EXPORT_SSLLIBS="$SSLLIBS"@EXPORT_SSLLIBS=""@' config-scripts/cups-ssl.m
 # fix the local state directory
 sedit 's@$localstatedir/run/cups@/run/cups@' config-scripts/cups-directories.m4 &&
 
-# Change org.cups.cupsd.service to notify
-sedit "s:Type=simple:Type=notify:" scheduler/org.cups.cupsd.service.in &&
-sedit "4i After=network.target" scheduler/org.cups.cupsd.service.in &&
+patch_it $SOURCE2 1 &&
 
 # Fix some perms
 sedit "s:444:644:g" Makedefs.in &&
