@@ -6,7 +6,7 @@ make install-etcppp &&
 mkdir -p /etc/ppp/{peers,chat} &&
 
 if ! [ -f /etc/resolv.conf ]; then
-  touch /etc/ppp/resolv.conf
+  touch /etc/ppp/resolv.conf &&
   ln -f /etc/ppp/resolv.conf /etc/resolv.conf
 fi &&
 
@@ -22,7 +22,7 @@ fi &&
 
 chown -R root:ppp /usr/sbin/pppd /etc/ppp &&
 chmod 4750 /usr/sbin/pppd  &&
-chmod 600 /etc/ppp/*-secrets
+chmod 600 /etc/ppp/*-secrets &&
 
 if module_installed systemd; then
   install -D -m644 $SCRIPT_DIRECTORY/system.d/ppp.service /usr/lib/systemd/system/ppp@.service
