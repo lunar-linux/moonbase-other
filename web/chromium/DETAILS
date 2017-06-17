@@ -1,20 +1,23 @@
           MODULE=chromium
-         VERSION=58.0.3029.110
+         VERSION=59.0.3071.104
           SOURCE=$MODULE-$VERSION.tar.xz
-         SOURCE2=chromium-system-ffmpeg-r4.patch
+         SOURCE2=chromium-system-ffmpeg-r6.patch
          SOURCE3=chromium-widevine-r1.patch
-         SOURCE4=chromium-gn-bootstrap-r2.patch
+         SOURCE4=0001-ClientNativePixmapFactoryDmabuf-uses-ioctl-instead-o.patch
+         SOURCE5=0001-Fix-kernel-version-condition-for-including-dma-buf.h.patch
       SOURCE_URL=http://gsdview.appspot.com/chromium-browser-official/
      SOURCE2_URL=$PATCH_URL
      SOURCE3_URL=$PATCH_URL
      SOURCE4_URL=$PATCH_URL
-      SOURCE_VFY=sha256:f24cef3dd2acf9dd5ccdeeca47fea42d1c1ddff32b7375dc9e0cd35a4e8d78ff
-     SOURCE2_VFY=sha256:e3c474dbf3822a0be50695683bd8a2c9dfc82d41c1524a20b4581883c0c88986
+     SOURCE5_URL=$PATCH_URL
+      SOURCE_VFY=sha256:a949fa166cdcdbd8419fbdb4583804613d9845130f0c851e4c647d79a4c300d0
+     SOURCE2_VFY=sha256:2fc21f48b95f9f2c2bd8576742fcf8028a8877c6b6e96c04d88184915982234e
      SOURCE3_VFY=sha256:c05800f823b3e9522be70645de6a9b482856030f43fd56273bb4f0bbc319d158
-     SOURCE4_VFY=sha256:64d743c78183c302c42d1f289863e34c74832fca57443833e46a0a3157e2b5de
+     SOURCE4_VFY=sha256:9c081c84a4f85dbef82a9edf34cf0b1e8377c563874fd9c1b4efddf1476748f9
+     SOURCE5_VFY=sha256:42eb6ada30d5d507f2bda2d2caece37e397e7086bc0d430db776fad143562fb6
         WEB_SITE=http://www.chromium.org/Home
          ENTERED=20100104
-         UPDATED=20170531
+         UPDATED=20170617
            SHORT="Open-source version of Google Chrome web browser"
 
 cat << EOF
