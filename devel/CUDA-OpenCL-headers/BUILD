@@ -1,4 +1,3 @@
-
   rm -rf old.libraries &&
   prepare_install &&
   mkdir -p /usr/include/{CL,cuda} &&
