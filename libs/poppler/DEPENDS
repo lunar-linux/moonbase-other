@@ -3,6 +3,8 @@ depends icu4c
 
 optional_depends gtk+-2 "" "" "for GTK wrapper support"
 
+optional_depends poppler-data "" "" "for support of additional file encodings"
+
 optional_depends curl \
                  "--enable-libcurl" \
                  "--disable-libcurl" \
@@ -14,14 +16,9 @@ optional_depends zlib \
                  "for zlib compression support (not totally safe)"
 
 optional_depends %JPEG \
-                 "--enable-libjpeg" \
-                 "--disable-libjpeg" \
+                 "--enable-dctdecoder=libjpeg" \
+                 "--enable-dctdecoder=none" \
                  "for JPEG image support (recommended)"
-
-#optional_depends openjpeg \
-#                 "--enable-libopenjpeg=openjpeg2" \
-#                 "--disable-libopenjpeg" \
-#                 "for JPEG 2000 image support (recommended)"
 
 optional_depends libpng \
                  "--enable-libpng" \
@@ -32,10 +29,6 @@ optional_depends lcms2 \
                  "--enable-cms=auto" \
                  "--enable-cms=none" \
                  "for the color management system (needed by cups_filters)"
-
-optional_depends poppler-data \
-                 "" "" \
-                 "for support of additional file encodings"
 
 optional_depends cairo \
                  "--enable-cairo-output --enable-poppler-glib" \

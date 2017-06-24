@@ -1,9 +1,5 @@
 OPTS+=" --disable-static --disable-gtk-test --enable-xpdf-headers" &&
 
-if in_depends $MODULE qt5; then
-  OPTS+=" --disable-poppler-qt5"
-fi &&
-
 if in_depends $MODULE qt4; then
   . /etc/profile.d/qt4.rc &&
   export POPPLER_QT4_LIBS+=" -L$QTDIR/lib/qt4 -lQtCore -lQtGui -lQtXml" &&
