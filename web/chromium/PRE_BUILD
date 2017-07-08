@@ -1,5 +1,9 @@
 default_pre_build &&
 
+# https://groups.google.com/a/chromium.org/d/msg/chromium-packagers/wuInaKJkosg/kMfIV_7wDgAJ
+unpack $SOURCE9 &&
+mv chromium-freetype2 third_party/freetype/src &&
+
 # Build fixes from gentoo
 patch_it $SOURCE2 1 &&
 patch_it $SOURCE3 1 &&
@@ -7,6 +11,17 @@ patch_it $SOURCE3 1 &&
 # https://bugs.chromium.org/p/chromium/issues/detail?id=707604
 patch_it $SOURCE4 1 &&
 patch_it $SOURCE5 1 &&
+
+# https://bugs.chromium.org/p/skia/issues/detail?id=6663
+pushd third_party/skia &&
+patch_it $SOURCE6 1 &&
+popd &&
+
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=853347
+patch_it $SOURCE7 1 &&
+
+# https://bugs.chromium.org/p/chromium/issues/detail?id=614289
+patch_it $SOURCE8 1 &&
 
 # Build now requires nodejs
 mkdir -p third_party/node/linux/node-linux-x64/bin &&
