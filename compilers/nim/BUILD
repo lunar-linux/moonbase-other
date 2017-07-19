@@ -27,7 +27,8 @@ prepare_install &&
 
 install -d /usr/lib/nim &&
 cp -a nim/lib/* /usr/lib/nim &&
-cp -a nim/compiler{,.nimble} /usr/lib/nim &&
+cp -a nim/compiler /usr/lib/nim &&
+install -Dm 644 compiler.nimble /usr/lib/nim/compiler &&
 install -m 755 nim/lib/libnimrtl.so /usr/lib/libnimrtl.so &&
 
 # fix a bug related to the doc2 command
