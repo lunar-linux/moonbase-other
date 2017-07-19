@@ -1,3 +1,3 @@
-OPTS+=" --enable-video" &&
+OPTS+=" -DEXIV2_ENABLE_VIDEO=ON" &&
 
-default_build
+default_cmake_build
