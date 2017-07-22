@@ -6,6 +6,6 @@ OPTS+=" --enable-lib \
 
 default_build &&
 
-if ! module_installed sysvinit; then
+if module_installed systemd; then
   rm -f /etc/init.d/fuse
 fi
