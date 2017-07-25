@@ -7,6 +7,8 @@ OPTS+=" --enable-ntp-signd \
 
 OPTS+=" --libexecdir=/usr/lib" &&
 
+CPPFLAGS+=" -fPIC" &&
+
 default_build &&
 
 if [ -e "/etc/init.d/ntp.sh" ]; then
