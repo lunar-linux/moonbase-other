@@ -14,12 +14,6 @@ default_pre_build &&
 # Removing it until it can be fixed somehow
 #CFLAGS+=" -mno-avx" &&
 
-# fix build with current cargo
-sedit '/dependencies/ i build = false' media/libstagefright/binding/mp4parse_capi/Cargo.toml &&
-
-# fix namespace issue
-sedit 's/ipc::/mozilla::ipc::/' dom/media/webrtc/MediaEngine.h &&
-
 export MOZ_CO_PROJECT=browser &&
 export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
 export MOZILLA_OFFICIAL=1  &&
