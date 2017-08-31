@@ -4,9 +4,10 @@ sedit "s: getty@tty1.service plymouth-quit.service::" services/sddm.service.in &
 mkdir -p /var/lib/sddm &&
 
 add_priv_group sddm &&
-add_priv_user sddm -d /var/lib/sddm -g sddm sddm &&
+add_priv_user sddm:sddm -d /var/lib/sddm -g sddm &&
 
-OPTS+=" -DDBUS_CONFIG_FILENAME=org.freedesktop.sddm.conf" &&
+OPTS+=" -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf \
+        -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/sddm" &&
 
 default_cmake_build
 
