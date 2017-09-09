@@ -4,4 +4,9 @@ depends zlib
 depends texinfo
 
 optional_depends Python "" "" "for Python related components"
-optional_depends guile  "" "--without-guile" "for Scheme support"
+
+# guile breaks the build
+#optional_depends guile \
+#                 "--with-guile=guile-2.2" \
+#                 "--without-guile" \
+#                 "for Scheme support"
