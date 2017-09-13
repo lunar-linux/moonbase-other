@@ -22,8 +22,11 @@ install -m 0644 -D $SCRIPT_DIRECTORY/chromium.desktop /usr/share/applications/ch
 
 if [ -d /usr/share/icons/hicolor/ ]; then
   for size in 22 24 48 64 128 256; do
-    install -m 0644 -D \
-    chrome/app/theme/chromium/product_logo_${size}.png /usr/share/icons/hicolor/${size}x${size}/apps/chromium.png
+    install -m 0644 -D chrome/app/theme/chromium/product_logo_${size}.png /usr/share/icons/hicolor/${size}x${size}/apps/chromium.png
+  done &&
+
+  for size in 16 32; do
+    install -Dm644 chrome/app/theme/default_100_percent/chromium/product_logo_${size}.png /usr/share/icons/hicolor/${size}x${size}/apps/chromium.png
   done
 fi &&
 

@@ -12,13 +12,12 @@ case `arch` in
     ;;
 esac &&
 
-./regen.sh -q &&
+#./regen.sh -q &&
 ./configure   --prefix=/usr                   \
               --sysconfdir=/etc               \
               --localstatedir=/var/lib        \
               --infodir=/usr/share/info       \
               --mandir=/usr/share/man         \
-              --with-afs-sysname=$sysname     \
               $OPTS                           &&
 make only_libafs &&
 prepare_install &&
