@@ -2,14 +2,17 @@
          VERSION=46
           SOURCE=$MODULE.$VERSION.tar.gz
          SOURCE2=bluez-5-use-obexd-without-systemd-in-user-session.patch
+         SOURCE3=CVE-2017-1000250.patch
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
       SOURCE_URL=http://www.kernel.org/pub/linux/bluetooth
      SOURCE2_URL=$PATCH_URL
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
+     SOURCE3_URL=$PATCH_URL
       SOURCE_VFY=sha256:58ed09268a19c89fc6dc39200e88dd5056d81bec1cebd20bec4905be40372c38
      SOURCE2_VFY=sha256:d2283cf99facb0f8da4ab08d572e33f9692fb807419fcc33177ef04fd78e2df8
+     SOURCE3_VFY=sha256:56e6b225c8d0e9557b5e01b484a587596e58b289f87ecb9577cc1e847ccb5d70
         WEB_SITE=http://www.bluez.org
          ENTERED=20140805
-         UPDATED=20170731
+         UPDATED=20170913
            SHORT="Support for core Bluetooth layers and protocols"
 
 cat << EOF
