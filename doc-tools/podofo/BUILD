@@ -1,5 +1,3 @@
-. /etc/profile.d/qt5.rc &&
-
 LDFLAGS+=" -ldl" &&
 
 if [ `arch` == "x86_64" ] ; then
