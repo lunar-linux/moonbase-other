@@ -1,7 +1,4 @@
-
   bad_flags -fomit-frame-pointer &&
-
-  LDFLAGS+=" -lz" &&
 
   ./autogen.sh &&
 
