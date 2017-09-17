@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# zeromq *has no* cmake profile and only the version number is needed
+sedit "s/find_package(ZeroMQ.*/set(ZeroMQ_VERSION $(module_version zeromq))/" CMakeLists.txt
