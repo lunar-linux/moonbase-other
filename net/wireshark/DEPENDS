@@ -1,4 +1,5 @@
 depends glib-2
+depends zlib
 
 optional_depends libcap    "--with-libcap"     "--without-libcap"    "for POSIX 1003.1e support"
 optional_depends libpcap   "--with-pcap"       "--without-pcap"      "for libpcap support"
@@ -11,11 +12,20 @@ optional_depends libnl3    "--with-libnl=3"    "--without-libnl"     "for libnl3
 optional_depends c-ares    "--with-c-ares"     "--without-c-ares"    "for asynchronious DNS support"
 optional_depends geoip     "--with-geoip"      "--without-geoip"     "for GeoIP support"
 
-optional_depends gtk+-3 "--enable-wireshark" "" "for GTK 3.x based frontend (select this or the next one gtk+-2, not both)"
-optional_depends gtk+-2 "--enable-wireshark" "" "for GTK 2.x based frontend (select this or the previous one gtk+-3, not both)"
+optional_depends gtk+-3 \
+                 "--enable-wireshark --with-gtk=3" "" \
+                 "for GTK 3.x based frontend (select this or the next one gtk+-2, not both)"
+
+optional_depends gtk+-2 "--enable-wireshark --with-gtk=2" "" "for GTK 2.x based frontend (select this or the previous one gtk+-3, not both)"
 
 # Broken -fPIC problem reported (both with and without it)
-optional_depends qt5    "--enable-wireshark" "" "for Qt 5.x based frontend"
+optional_depends qt5 \
+                 "--enable-wireshark --with-qt=5" "" \
+                 "for Qt 5.x based frontend"
+
+optional_depends qt4 \
+                 "--enable-wireshark --with-qt=4" "" \
+                 "for Qt 4.x based frontend"
 
 # Broken - needs lua 5.2.x
-#optional_depends lua       "--with-lua"        "--without-lua"       "for Lua support"
+#optional_depends lua "--with-lua" "--without-lua" "for Lua support"
