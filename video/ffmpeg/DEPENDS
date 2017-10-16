@@ -2,21 +2,21 @@ depends libX11
 depends pkgconfig
 depends xz
 
-optional_depends alsa-lib "" "" "for alsa support"
-optional_depends jack     "" "" "for jack audio server support"
-optional_depends flite    "" "" "for text to speech support"
+optional_depends flite "" "" "for text to speech support"
 
 optional_depends libxcb \
                  "--enable-libxcb \
-                  --enable-libxcb-shape \
                   --enable-libxcb-shm \
+                  --enable-libxcb-shape \
                   --enable-libxcb-xfixes" \
                   "--disable-libxcb" \
                   "for xcb support"
 
+optional_depends jack     "--enable-jack"   "" "for jack audio server support"
+optional_depends alsa-lib "--enable-alsa"   "" "for alsa support"
 optional_depends mesa-lib "--enable-opengl" "" "for Mesa GL support"
 
-optional_depends yasm         "--enable-yasm"            "--disable-yasm"            "for yasm assembly support"
+optional_depends yasm         "--enable-x86asm"          "--disable-x86asm"          "for yasm assembly support"
 optional_depends bzip2        "--enable-bzlib"           "--disable-bzlib"           "for bzip2 compression support"
 optional_depends snappy       "--enable-libsnappy"       "--disable-libsnappy"       "for snappy compression support"
 optional_depends %OSSL        "--enable-openssl"         "--disable-openssl"         "for openssl support"
@@ -40,7 +40,6 @@ optional_depends libtheora    "--enable-libtheora"       "--disable-libtheora"  
 optional_depends libwebp      "--enable-libwebp"         "--disable-libwebp"         "for WebP support"
 optional_depends libilbc      "--enable-libilbc"         "--disable-libilbc"         "for iLBC codec support"
 optional_depends openjpeg-2   "--enable-libopenjpeg"     "--disable-libopenjpeg"     "for JPEG 2000 decoding support"
-optional_depends schroedinger "--enable-libschroedinger" "--disable-libschroedinger" "for Dirac codec support"
 optional_depends rtmpdump     "--enable-librtmp"         "--disable-librtmp"         "for RTMP[E] support"
 optional_depends libva        "--enable-vaapi"           "--disable-vaapi"           "for hardware-accelerated video"
 optional_depends SDL2         "--enable-ffplay"          "--disable-ffplay"          "for the ffplay media player"
@@ -51,7 +50,6 @@ optional_depends libbluray    "--enable-libbluray"       "--disable-libbluray"  
 optional_depends libcaca      "--enable-libcaca"         "--disable-libcaca"         "for output represented with ASCII text support"
 optional_depends opus         "--enable-libopus"         "--disable-libopus"         "for interactive speech and audio transmission via Internet"
 optional_depends zvbi         "--enable-libzvbi"         "--disable-libzvbi"         "for VBI (teletex) capture and decoding support"
-optional_depends netcdf       "--enable-netcdf"          "--disable-netcdf"          "for Network Common Data Form support"
 optional_depends libdc1394    "--enable-libdc1394"       "--disable-libdc1394"       "for IIDC-1394 grabbing (firewire) support"
 optional_depends libiec61883  "--enable-libiec61883"     "--disable-libiec61883"     "for media reception and transmission for DV, MPEG2-TS, and AMDTP support, ${PROBLEM_COLOR}if you say yes here then say yes to libavc1394 else configure fails${DEFAULT_COLOR}"
 
