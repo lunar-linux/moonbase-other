@@ -1,13 +1,15 @@
 mquery SPLASH     "Build Splash graphics backend? (evas_generic_loaders need it)" y \
-                  "--enable-splash-output" \
-                  "--disable-splash-output"
+                  "-DENABLE_SPASH=ON" \
+                  "-DENABLE_SPASH=OFF"
 
 mquery CPPWRAPPER "Build poppler cpp wrapper? (cups-filters needs it)" y \
-                  "--enable-poppler-cpp" \
-                  "--disable-poppler-cpp"
+                  "-DENABLE_CPP=ON" \
+                  "-DENABLE_CPP=OFF"
 
 mquery UTILS      "Build command line utils?" y \
-                  "--enable-utils" \
-                  "--disable-utils"
+                  "-DENABLE_UTILS=ON" \
+                  "-DENABLE_UTILS=OFF"
 
-mquery CMYK       "Enable cmyk rasterization?" y "--enable-cmyk" "--disable-cmyk"
+mquery CMYK       "Enable CMYK rasterization?" y \
+                   "-DSPLASH_CMYK=ON" \
+                   "-DSPLASH_CMYK=OFF"

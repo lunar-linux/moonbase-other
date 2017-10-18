@@ -1,7 +1,7 @@
-OPTS+=" --disable-static \
-        --disable-gtk-doc \
-        --disable-gtk-test \
-        --enable-xpdf-headers" &&
+OPTS+=" -DBUILD_SHARED_LIBS=ON \
+        -DENABLE_GTK_DOC=OFF \
+        -DBUILD_GTK_TESTS=OFF \
+        -DENABLE_XPDF_HEADERS=ON" &&
 
 if in_depends $MODULE qt4; then
   . /etc/profile.d/qt4.rc &&
@@ -18,7 +18,7 @@ if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc
 fi &&
 
-default_build &&
+default_cmake_build &&
 
 if [ "$SPLASH" == "y" ]; then
   ln -sf /usr/include/poppler/splash /usr/include/splash
