@@ -1,6 +1,8 @@
 OPTS+=" --disable-static \
         --disable-egl \
-        --enable-demo-clients-install" &&
+        --disable-simple-egl-clients \
+        --disable-simple-dmabuf-drm-client \
+        --enable-clients" &&
 
 OPTS+=" --libexecdir=/usr/lib/$MODULE" &&
 

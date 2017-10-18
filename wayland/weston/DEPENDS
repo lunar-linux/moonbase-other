@@ -1,13 +1,15 @@
+depends Linux-PAM
 depends poppler
 depends glu
 depends pango
 depends libinput
+depends libxkbcommon
 depends wayland-protocols
 
-optional_depends libxkbcommon "" "" "libxkbcommon support"
-optional_depends colord       "" "" "colord support"
-optional_depends lcms2        "" "" "lcms support"
-optional_depends libunwind    "" "" "unwind support"
-optional_depends libwebp      "" "" "WebP support"
-optional_depends dbus         "" "" "dbus support"
-optional_depends cairo        "" "" "cairo support"
+optional_depends colord    "" "--disable-colord"    "colord support"
+optional_depends lcms2     "" "--disable-lcms"      "lcms support"
+optional_depends libunwind "" "--disable-libunwind" "unwind support"
+optional_depends libwebp   "" "--without-webp"      "WebP support"
+optional_depends dbus      "" "--disable-dbus"      "dbus support"
+
+optional_depends systemd "--enable-systemd-login" "" "systemd support"
