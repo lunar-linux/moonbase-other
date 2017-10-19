@@ -1,9 +1,6 @@
 depends glib-2
-
-optional_depends tiff \
-                 "--with-libtiff"    \
-                 "--without-libtiff" \
-                 "for TIFF image loader"
+depends shared-mime-info
+depends tiff
 
 optional_depends %JPEG \
                  "--with-libjpeg"    \
