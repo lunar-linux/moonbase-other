@@ -36,7 +36,9 @@ ln -sf ${CHROMIUM_HOME}/chromium-launcher.sh /usr/bin/chromium &&
 ln -sf ${CHROMIUM_HOME}/chromedriver /usr/bin/chromedriver &&
 
 install -Dm644 LICENSE /usr/share/licenses/chromium/LICENSE &&
-install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat &&
+if ! in_depends $MODULE icu4c; then
+  install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat
+fi &&
 
 # symlink to lunar location for browser plugins, should be /usr/lib/lunar/plugins
 ln -sf /usr/lib/lunar/plugins ${CHROMIUM_HOME}/plugins &&
