@@ -2,12 +2,13 @@ depends libevdev
 depends libunwind
 depends mtdev
 depends %UDEV
+depends meson
 
 optional_depends libwacom \
-                 "--enable-libwacom" \
-                 "--disable-libwacom" \
+                 "-Dlibwacom=true" \
+                 "-Dlibwacom=false" \
                  " for tablet identification"
 
 optional_depends doxygen \
-                 "--enable-documentation" \
-                 "--disable-documentation"
+                 "-Ddocumentation=true" \
+                 "-Ddocumentation=false"

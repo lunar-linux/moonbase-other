@@ -1,3 +1,8 @@
-OPTS+=" --disable-static --libexecdir=/usr/lib" &&
+OPTS+=" --prefix /usr --libexecdir /usr/lib"
 
-default_build
+meson build -Dtests=false $OPTS &&
+ninja -C build &&
+
+prepare_install &&
+
+ninja -C build install
