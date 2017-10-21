@@ -1,0 +1,54 @@
+depends desktop-file-utils
+depends ffmpeg
+depends hicolor-icon-theme
+depends libXScrnSaver
+depends mesa-lib
+depends libXinerama
+#depends lcms2
+#depends xdg-utils
+
+optional_depends libcaca    "--enable-caca"  "--disable-caca"   "for libcaca support"
+optional_depends pulseaudio "--enable-pulse" "--disable-pulse"  "for pulseaudio support"
+optional_depends jack       "--enable-jack"  "--disable-jack"   "for jack audio support"
+optional_depends libXv      "--enable-xv"    "--disable-xv"     "for libXv support"
+
+optional_depends libcdio-paranoia \
+                 "--enable-cdda"  \
+                 "--disable-cdda" \
+                 "for cdda support"
+
+optional_depends libarchive \
+                 "--enable-libarchive" \
+                 "--disable-libarchive" \
+                 "for archive support"
+
+optional_depends libdvdnav \
+                 "--enable-dvdnav --enable-dvdread"  \
+                 "--disable-dvdnav --disable-dvdread" \
+                 "for DVD support"
+
+optional_depends libbluray \
+                 "--enable-libbluray"  \
+                 "--disable-libbluray" \
+                 "for Bluray DVD support"
+
+optional_depends samba \
+                 "--enable-libsmbclient" \
+                 "--disable-libsmbclient" \
+                 "for Samba support"
+
+optional_depends libvdpau \
+                 "--enable-vdpau --enable-vdpau-gl-x11" \
+                 "--disable-vdpau --disable-vdpau-gl-x11" \
+                 "for libvdpau support"
+
+optional_depends lua "" "" "for lua support"
+
+optional_depends youtube-dl "" "" "for video-sharing websites playback (needs lua)"
+
+#optional_depends v4l-utils \
+#                 "--enable-libv4l2 --enable-tv-v4l2" \
+#                 "--disable-libv4l2 --disable-tv-v4l2" \
+#                 "for video4linux2 device support"
+
+#optional_depends rubberband "" "" "for rubberband support"
