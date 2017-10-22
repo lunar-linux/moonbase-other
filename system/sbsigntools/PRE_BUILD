@@ -1,0 +1,7 @@
+default_pre_build &&
+patch_it $SOURCE2 1 &&
+
+# Libressl fix
+sedit '/^#if OPENSSL_VERSION_NUMBER/s/$/ || defined(LIBRESSL_VERSION_NUMBER)/g' src/sbverify.c &&
+
+NOCONFIGURE=1 ./autogen.sh
