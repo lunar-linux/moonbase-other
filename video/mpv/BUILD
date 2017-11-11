@@ -5,6 +5,7 @@ install -m755 $SOURCE_CACHE/$SOURCE2 waf &&
                 --enable-libmpv-shared \
                 --enable-shm \
                 --enable-cdda \
+                --enable-encoding \
                 --disable-rsound \
                 --disable-opensles \
                 --disable-oss-audio \
