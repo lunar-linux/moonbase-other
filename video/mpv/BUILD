@@ -10,7 +10,8 @@ install -m755 $SOURCE_CACHE/$SOURCE2 waf &&
                 --disable-opensles \
                 --disable-oss-audio \
                 --disable-rubberband \
-                --disable-vapoursynth
+                --disable-vapoursynth \
+                --disable-vapoursynth-lazy
 
 ./waf build &&
 
