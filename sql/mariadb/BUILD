@@ -26,7 +26,7 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DWITH_EXTRA_CHARSETS=complex \
         -DWITH_LIBWRAP=OFF \
         -DWITH_JEMALLOC=system \
-        -DWITH_PCRE=system \
+        -DWITH_PCRE=bundled \
         -DWITH_INNOBASE_STORAGE_ENGINE=1 \
         -DWITH_MYISAMMRG_STORAGE_ENGINE=1 \
         -DWITH_MYISAM_STORAGE_ENGINE=1 \
