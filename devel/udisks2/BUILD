@@ -1,7 +1,8 @@
 OPTS+=" --disable-man \
-        --disable-static" &&
+        --disable-static \
+        --enable-available-modules" &&
 
-OPTS+=" --sbindir=/usr/bin --libexecdir=/usr/lib" &&
+OPTS+=" --libexecdir=/usr/lib" &&
 
 ./autogen.sh &&
 
