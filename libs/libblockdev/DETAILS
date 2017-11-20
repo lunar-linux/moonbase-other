@@ -1,0 +1,16 @@
+          MODULE=libblockdev
+         VERSION=2.14-1
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/storaged-project/libblockdev/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:de4e7f6e8f632122843c176932331e8e87ba2b0bbfa97bb1c906e115a47514ad
+        WEB_SITE=https://github.com/storaged-project/libblockdev
+         ENTERED=20170811
+         UPDATED=20171120
+           SHORT="A library for manipulating block devices"
+
+cat << EOF
+Libblockdev is a C library supporting GObject introspection for manipulation of
+block devices. It has a plugin-based architecture where each technology (like
+LVM, Btrfs, MD RAID, Swap,...) is implemented in a separate plugin, possibly
+with multiple implementations (e.g. using LVM CLI or the new LVM DBus API).
+EOF
