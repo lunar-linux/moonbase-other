@@ -2,5 +2,7 @@ OPTS+=" --disable-static" &&
 
 autoreconf -vi &&
 
-default_build
+default_build &&
+
+ rm /usr/share/info/dir
 
