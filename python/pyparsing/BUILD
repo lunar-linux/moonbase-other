@@ -1,9 +1,11 @@
-python setup.py build &&
+python3 setup.py build &&
 
 prepare_install &&
 
-python setup.py install --optimize=1
+python3 setup.py install --root=/ &&
 
-if module_installed Python-3; then
-  python3 setup.py install --optimize=1
+# Do the Python2 part if installed
+if module_installed Python; then
+  python setup.py build &&
+  python setup.py install --root=/
 fi
