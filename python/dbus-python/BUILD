@@ -1,20 +1,15 @@
-# Do the python3 install first
-mkdir python2 &&
-pushd python2 &&
-PYTHON=/usr/bin/python3 ../configure --prefix=/usr &&
-
 prepare_install &&
 
+mkdir python2 &&
+pushd python2 &&
+PYTHON=/usr/bin/python ../configure --prefix=/usr &&
 make &&
+make -C python2 install
 popd &&
-make -C python3 install
 
-# Now the python2 stuff
-if in_depends $MODULE Python; then
-  mkdir python2 &&
-  pushd python2 &&
-  PYTHON=/usr/bin/python ../configure --prefix=/usr &&
-  make &&
-  popd &&
-  make -C python2 install
-fi
+mkdir python3 &&
+pushd python3 &&
+PYTHON=/usr/bin/python3 ../configure --prefix=/usr &&
+make &&
+make -C python3 install &&
+popd 
