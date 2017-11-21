@@ -1,6 +1,6 @@
 OPTS+=" --disable-static" &&
 
-rm lib/scanner.c &&
+autoreconf -vi &&
 
 default_build
 
