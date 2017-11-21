@@ -1,10 +1,10 @@
-python setup.py config &&
-prepare_install &&
-python setup.py install --install-scripts=zope --root=/ &&
+python3 setup.py config &&
 
-if in_depends $MODULE Python-3; then
-  devoke_installwatch &&
-  python3 setup.py config &&
-  prepare_install &&
-  python3 setup.py install --install-scripts=zope --root=/
+prepare_install &&
+
+python3 setup.py install --install-scripts=zope --root=/ &&
+
+if module_installed Python; then
+  python setup.py config &&
+  python setup.py install --install-scripts=zope --root=/
 fi
