@@ -1,10 +1,9 @@
-python3 setup.py build &&
+# Do Python2 build
+python3 configure.py &&
+default_make &&
 
-prepare_install &&
-
-python3 setup.py install --optimize=1
-
+# Do Python2 build
 if in_depends $MODULE Python; then
-  python setup.py build &&
-  python setup.py install --optimize=1
+  python configure.py &&
+  default_make
 fi
