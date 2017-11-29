@@ -1,3 +1,9 @@
+#For now this skirts around runtime error: file file:/usr/share/sgml/docbook/xsl-stylesheets-1.79.2/lib/lib.xsl line 56 element variable
+#xsltApplySequenceConstructor: A potential infinite template recursion was detected; thus tanking the build.
+#The current default is 3000 and apparently not enough 
+XSLTPROC="xsltproc --maxdepth 15000" &&
+export XSLTPROC &&
+
 # Samba build will break if talloc is installed
 if module_installed talloc; then
   lrm talloc
