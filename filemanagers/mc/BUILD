@@ -1,6 +1,16 @@
 OPTS+=" --enable-largefile \
-        --disable-tests" &&
+        --enable-charset \
+        --enable-vfs-tar \
+        --enable-vfs-ftp \
+        --enable-vfs-sftp \
+        --enable-mclib \
+        --enable-threads=posix \
+        --disable-tests \
+        --with-mmap \
+        --with-subshell \
+        --libexecdir=/usr/lib" &&
 
-OPTS+=" --libexecdir=/usr/lib" &&
+default_build &&
 
-default_build
+# Replace mc.keymap symlink with target file to fix backup mechanism
+rm /etc/mc/mc.keymap && cp /etc/mc/mc{.default,}.keymap
