@@ -1,5 +1,3 @@
-mkdir -p /usr/share/catdoc/ascii.specchars &&
-
-autoconf -f &&
+mkdir -p /usr/share/catdoc &&
 
 default_build
