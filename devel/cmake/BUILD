@@ -8,7 +8,7 @@ else
   OPTS+=" --no-system-jsoncpp"
 fi &&
 
-./bootstrap --prefix=/usr \
+./configure --prefix=/usr  \
             --docdir=/share/doc/cmake \
             $OPTS &&
 
