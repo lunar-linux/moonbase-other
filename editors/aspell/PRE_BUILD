@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit 's: top.do_check ==: *top.do_check ==:' modules/filter/tex.cpp &&
+sedit 's:if (word == :if (*word == :' prog/check_funs.cpp
