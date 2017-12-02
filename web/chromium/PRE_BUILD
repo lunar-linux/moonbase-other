@@ -40,7 +40,7 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
 echo > third_party/adobe/flash/flapper_version.h &&
 
 # Remove bundled libraries, we will use system provided ones instead (using arch's approach)
-libs=(flac harfbuzz-ng yasm libxslt libwebp libjpeg opus libxml re2 zlib icu)
+libs=(flac harfbuzz-ng yasm libxslt libwebp libjpeg opus libxml re2 zlib)
 for lib in ${libs[@]} libjpeg_turbo; do
   find -type f -path "*third_party/${lib}/*" \
        \! -path "*third_party/${lib}/chromium/*" \
