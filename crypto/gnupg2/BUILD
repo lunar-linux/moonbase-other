@@ -3,5 +3,5 @@ OPTS+=" --exec-prefix=/usr \
 
 default_build &&
 
-ln -sf /usr/bin/gpg2  /usr/bin/gpg &&
-ln -sf /usr/bin/gpgv2 /usr/bin/gpgv
+ln -sf /usr/bin/gpg  /usr/bin/gpg2 &&
+ln -sf /usr/bin/gpgv /usr/bin/gpgv2
