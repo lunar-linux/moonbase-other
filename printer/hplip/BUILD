@@ -1,4 +1,5 @@
 OPTS+=" --disable-qt3 \
+        --disable-qt4 \
         --disable-static \
         --enable-new-hpcups \
         --enable-cups-drv-install \
