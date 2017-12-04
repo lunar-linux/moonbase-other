@@ -7,7 +7,7 @@ Type=forking
 PIDFile=/var/run/samba.pid
 LimitNOFILE=16384
 EnvironmentFile=-/etc/config.d/samba
-ExecStart=/usr/bin/samba $SAMBAOPTIONS
+ExecStart=/usr/sbin/samba $SAMBAOPTIONS
 ExecReload=/usr/bin/kill -HUP $MAINPID
 
 [Install]
