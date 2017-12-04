@@ -1,3 +1,5 @@
 default_pre_build &&
 
-patch_it $SOURCE2 0
+patch_it $SOURCE2 1 &&
+
+CXXFLAGS+=" -std=c++98"

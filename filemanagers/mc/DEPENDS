@@ -1,6 +1,10 @@
 depends glib-2
 depends ncurses
 
+optional_depends pcre \
+                 "--with-pcre" "" \
+                 "for slang as interface instead of ncurses"
+
 optional_depends slang \
                  "--with-screen=slang" \
                  "--with-screen=ncurses" \
@@ -10,6 +14,11 @@ optional_depends e2fsprogs \
                  "--enable-vfs-undelfs" \
                  "--disable-vfs-undelfs" \
                  "for ext2 undel operation"
+
+optional_depends samba \
+                 "--enable-vfs-smb" \
+                 "--disable-vfs-smb" \
+                 "for SMB support"
 
 optional_depends gpm \
                  "--with-gpm-mouse" \

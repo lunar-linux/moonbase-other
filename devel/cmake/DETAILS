@@ -1,13 +1,13 @@
           MODULE=cmake
-         VERSION=3.9.6
+         VERSION=3.10.0
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://cmake.org/files/v${VERSION::3}
-      SOURCE_VFY=sha256:7410851a783a41b521214ad987bb534a7e4a65e059651a2514e6ebfc8f46b218
+      SOURCE_URL=https://cmake.org/files/v${VERSION%.*}/
+      SOURCE_VFY=sha256:b3345c17609ea0f039960ef470aa099de9942135990930a57c14575aae884987
         WEB_SITE=http://cmake.org/
          ENTERED=20060725
-         UPDATED=20171110
+         UPDATED=20171129
            SHORT="Cross-platform make system"
-
+PSAFE=no
 cat << EOF
 Welcome to CMake, the cross-platform, open-source make system. CMake is used to
 control the software compilation process using simple platform and compiler

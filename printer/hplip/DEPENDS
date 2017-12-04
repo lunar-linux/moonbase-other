@@ -1,13 +1,9 @@
 depends %UDEV
+depends dbus
 depends %JPEG
 depends cups
 depends libusb-compat
 depends rpcbind
-
-optional_depends dbus \
-                 "--enable-dbus-build" \
-                 "--disable-dbus-build" \
-                 "for dbus support"
 
 optional_depends polkit \
                  "--enable-policykit" \
@@ -23,11 +19,6 @@ optional_depends PyQt5 \
                  "--enable-qt5" \
                  "--disable-qt5" \
                  "for HP Qt5 GUI Support"
-
-optional_depends PyQt \
-                 "--enable-qt4" \
-                 "--disable-qt4" \
-                 "for HP Qt4 GUI Support"
 
 optional_depends net-snmp \
                  "--enable-network-build" \
