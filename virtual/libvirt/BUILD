@@ -1,6 +1,7 @@
 add_priv_user qemu:qemu -G kvm &&
 
 OPTS+=" --disable-static \
+        --without-wireshark-dissector \
         --without-xen \
         --without-hal \
         --without-netcf \
