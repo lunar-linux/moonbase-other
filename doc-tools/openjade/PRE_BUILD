@@ -1,5 +1,7 @@
 default_pre_build &&
 
+export CXXFLAGS="$CXXFLAGS -fno-lifetime-dse" &&
+
 # See http://web.archiveorange.com/archive/v/a7O9XzsYMZ7Ivf8H8oHV
 # Fixes a make failure on an Undefined subroutine &main::Getopts.
 sed -i "7i use Getopt::Std;" msggen.pl &&
