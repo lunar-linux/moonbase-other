@@ -1,4 +1,5 @@
-autoreconf -i &&
+touch INSTALL &&
+autoreconf -if &&
 
 OPTS+=" --with-sdplay=no \
         --disable-examples \
