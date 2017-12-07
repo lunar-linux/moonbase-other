@@ -4,7 +4,9 @@ sedit "s:# *include <glib/[^>]*>:#include <glib.h>:" charset/* lib/* &&
 sedit "s:bin doc test:bin test:" Makefile.am &&
 # Don't need this
 rm bootstrap &&
+
 # So it doens't bark about missing
+touch INSTALL &&
 mkdir m4 &&
 autoreconf -i &&
 OPTS+=" --with-glib=yes" &&
