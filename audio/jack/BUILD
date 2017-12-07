@@ -1,5 +1,8 @@
 python waf configure --prefix=/usr \
                      --alsa &&
+
+python waf build &&
+
 prepare_install &&
 
 python waf install &&
