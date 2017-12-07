@@ -1,9 +1,5 @@
-(
+OPTS+="  --with-authdaemonvar=/run/authdaemon"
 
-  default_config                        &&
-  make                                  &&
-  prepare_install                       &&
-  make install                          &&
-  make install-configure
+default_build &&
 
-) > $C_FIFO 2>&1
+make install-configure
