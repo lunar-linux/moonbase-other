@@ -1,4 +1,4 @@
-OPTS+="  --with-authdaemonvar=/run/authdaemon"
+OPTS+=" --with-authdaemonvar=/run/authdaemon"
 
 default_build &&
 
