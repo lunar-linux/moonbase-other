@@ -16,11 +16,14 @@ else
 fi &&
 
 OPTS+=" -DBUILD_WITH_DEBUG_INFO=0 \
+        -DBUILD_DOCS=0 \
         -DBUILD_TESTS=0 \
         -DBUILD_PERF_TESTS=0 \
         -DBUILD_SHARED_LIBS=1 \
         -DBUILD_WITH_DYNAMIC_IPP=1 \
+        -DLAPACK_CBLAS_H="/usr/include/cblas.h" \
         -DOPENCV_EXTRA_MODULES_PATH="../opencv_contrib-$VERSION/modules" \
+        -DLAPACK_LIBRARIES=/usr/lib/liblapack.so;/usr/lib/libblas.so;/usr/lib/libcblas.so \
         -DCMAKE_SKIP_RPATH=1" &&
 
 default_cmake_build

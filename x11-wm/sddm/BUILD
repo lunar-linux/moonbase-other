@@ -1,3 +1,5 @@
+. /etc/profile.d/qt5.rc   &&
+
 sedit "4d" services/sddm.service.in &&
 sedit "s: getty@tty1.service plymouth-quit.service::" services/sddm.service.in &&
 
