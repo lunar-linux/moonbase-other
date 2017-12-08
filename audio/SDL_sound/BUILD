@@ -1,9 +1,9 @@
-OPTS+=" --disable-static" &&
 
-unset CFLAGS &&
+#unset CFLAGS &&
 
 OPTS+=" --build=$BUILD    \
         --sysconfdir=/etc \
-        --localstatedir=/var" &&
+        --localstatedir=/var \
+        --disable-static" &&
 
 default_build
