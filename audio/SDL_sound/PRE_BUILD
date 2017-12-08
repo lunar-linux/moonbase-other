@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sedit 's|$(TIMIDITY_LIB) $(MPGLIB_LIB)|$(TIMIDITY_LIB) $(MPGLIB_LIB)\\ \n -lm|g' Makefile.am &&
+sedit 's|AM_CONFIG_HEADER(config.h)|AC_CONFIG_HEADERS(config.h)|g' configure.in &&
+
+patch_it $SOURCE2 1
