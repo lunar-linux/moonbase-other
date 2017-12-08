@@ -1,3 +1,5 @@
+touch INSTALL &&
+
 autoreconf -i &&
 
 find . -name ".pyc" -delete &&
