@@ -18,9 +18,12 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DINSTALL_MYSQLTESTDIR=share/mysql/mysql-test \
         -DINSTALL_MYSQLDATADIR=/var/lib/mysql \
         -DENABLED_LOCAL_INFILE=ON \
-        -DDEFAULT_CHARSET=utf8 \
-        -DDEFAULT_COLLATION=utf8_general_ci \
+        -DDEFAULT_CHARSET=utf8mb4 \
+        -DDEFAULT_COLLATION=utf8mb4_unicode_ci \
         -DCMAKE_EXE_LINKER_FLAGS='-L/usr/lib/libjemalloc.so' \
+        -DPLUGIN_MROONGA=NO \
+        -DPLUGIN_AUTH_GSSAPI=NO \
+        -DAUTH_GSSAPI_PLUGIN_TYPE=OFF \
         -DWITH_ZLIB=system \
         -DWITH_READLINE=ON \
         -DWITH_EXTRA_CHARSETS=complex \
@@ -52,5 +55,4 @@ fi &&
 # Setting up links for mysqlcheck multi-call binary
 for i in analyze repair optimize; do
   ln -sf /usr/bin/mysql{check,$i}
-done &&
-ln -sf /usr/bin/{mysql,mariadb}_config
+done
