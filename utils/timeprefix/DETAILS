@@ -1,0 +1,19 @@
+          MODULE=timeprefix
+         VERSION=2
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/maandree/timeprefix/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:00961089a5c56b41b0bf53da23818874dfeeb7644cf32a4e126df788d6f4d2e1
+        WEB_SITE=https://github.com/maandree/timeprefix
+         ENTERED=20171210
+         UPDATED=20171210
+           SHORT="Prefix each line with the time it as written"
+
+cat << EOF
+timeprefix ignores all arguments. It reads stdin line by line and prefix the
+current time (at the point the line has been fully read) to each line and prints
+the prefixed line to stdout.
+The timestamp is written in both decimal boot time and human-readable real time
+(in UTC), with with boot time first so that muliple generated log files can
+merged into one with sort --merge.
+timeprefix also marks when the program started and terminated.
+EOF
