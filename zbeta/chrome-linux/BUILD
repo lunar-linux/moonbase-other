@@ -7,7 +7,7 @@
   cp -av $SOURCE_DIRECTORY/* /usr/lib/chrome-linux/ &&
   find /usr/lib/chrome-linux -type f -exec chmod go+r {} \; &&
   find /usr/lib/chrome-linux -type d -exec chmod go+rx {} \; &&
-  chmod go+x /usr/lib/chrome-linux/{chrome,chrome_sandbox,chrome-wrapper,libffmpegsumo.so,xdg-settings} &&
+  chmod go+x /usr/lib/chrome-linux/{chrome,chrome_sandbox,chrome-wrapper,xdg-settings} &&
   chmod 4711 /usr/lib/chrome-linux/nacl_helper_bootstrap &&
 
   ln -sf /usr/lib/lunar/plugins /usr/lib/${MODULE}/plugins &&
@@ -25,7 +25,7 @@
   ln -sf /usr/lib/libssl3.so /usr/lib/${MODULE}/libssl3.so.1d         &&
 
   # copy the man page
-  cp -a chrome.1 /usr/share/man/man1/chrome-linux.1 &&
+  #cp -a chrome.1 /usr/share/man/man1/chrome-linux.1 &&
 
   # install the chrome icon
   cp -a product_logo_48.png /usr/share/pixmaps/chrome-linux.png
