@@ -4,6 +4,9 @@
    sedit "s:<netpbm::g" $file
   done &&
 
+  sedit "s: -O3::" util/makefile.common &&
+  sedit "s: -fomit-frame-pointer::" util/makefile.common &&
   sedit "s:/ups:/usr/share/astrometry/ups:g" Makefile &&
   sedit "s:/examples:/usr/share/astrometry/examples:" Makefile &&
-  sedit "s:cairo.h:cairo/cairo.h:" util/cairoutils.c
+  sedit "s:cairo.h:cairo/cairo.h:" util/cairoutils.c &&
+  sedit "8i #include <stdlib.h>" util/test_qsort_r.c
