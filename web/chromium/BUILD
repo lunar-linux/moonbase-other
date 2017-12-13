@@ -53,4 +53,6 @@ if [ ! -f /etc/$MODULE/chromium.default ]; then
   echo "# the chromium launcher." >> /etc/$MODULE/chromium.default &&
   echo "# Options to pass to chromium." >> /etc/$MODULE/chromium.default &&
   echo "#CHROMIUM_FLAGS=\"\"" >> /etc/$MODULE/chromium.default
-fi
+fi &&
+
+install -Dm644 libwidevinecdm.so /usr/lib/chromium/libwidevinecdm.so
