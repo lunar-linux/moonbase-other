@@ -12,6 +12,10 @@ OPTS+=" --exec-prefix=/usr  \
 
 default_build &&
 
+# The rsyslog.conf defaults to /var/spool/rsyslog, so lets mk it else
+#it's service file barks about its WorkDirectory missing
+mkdir -p /var/spool/rsyslog &&
+
 if [ ! -f /etc/rsyslog.conf ]; then
   install -m 644 $SCRIPT_DIRECTORY/rsyslog.conf /etc/rsyslog.conf
 fi &&
