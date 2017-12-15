@@ -1,3 +1,4 @@
+touch INSTALL &&
 autoreconf -fvi &&
 
 default_build &&
