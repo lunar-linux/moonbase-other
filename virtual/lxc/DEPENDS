@@ -1,7 +1,10 @@
+depends perl
 depends Python
 depends libcap
 depends libseccomp
 depends rsync
+
+optional_depends dnsmasq "" "" "for lxc-net.service"
 
 optional_depends lua \
                  "--enable-lua"  \
