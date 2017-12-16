@@ -6,22 +6,26 @@ depends gc
 depends popt
 depends boost
 
+optional_depends dbus "-DWITH_DBUS=ON" \
+                      "-DWITH_DBUS=OFF" \
+                      "use inkscape in interactive scripts which manipulate images" y
+
 optional_depends lcms \
                  "-DENABLE_LCMS=ON" \
                  "-DENABLE_LCMS=OFF" \
-                 "enable LittleCms for color management"
+                 "enable LittleCms for color management" y
 
 optional_depends poppler \
                  "-DENABLE_POPPLER_CAIRO=ON" \
                  "-DENABLE_POPPLER_CAIRO=OFF" \
-                 "for poppler support"
+                 "for poppler support" y
 
 optional_depends ImageMagick \
                  "-DWITH_IMAGE_MAGICK=ON" \
-                 "-DWITH_IMAGE_MAGICK=ON" \
-                 "support for raster extensions and import resolution"
+                 "-DWITH_IMAGE_MAGICK=OFF" \
+                 "support for raster extensions and import resolution" y
 
 optional_depends "libwpg" \
                  "-DWITH_LIBWPG=ON" \
                  "-DWITH_LIBWPG=OFF" \
-                 "for Wordperfect graphics support"
+                 "for Wordperfect graphics support" y
