@@ -1,3 +1,8 @@
+# qemu vs. make 4 == bad
+export ARFLAGS=rv
+
+CFLAGS+=" -fPIC"
+
 OPTS+=" --libexecdir=/usr/lib/qemu" &&
 OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)" &&
 
@@ -13,11 +18,15 @@ add_priv_user qemu:qemu -G kvm &&
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var \
+            --libexecdir=/usr/lib/$MODULE \
             --audio-drv-list="$AUDIO_LIST" \
             --enable-attr \
             --enable-modules \
             --enable-vhost-net \
             $OPTS &&
+
+# fix a cpp error
+sedit "s: -c::" pc-bios/Makefile
 
 default_make &&
 

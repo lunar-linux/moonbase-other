@@ -8,10 +8,13 @@ optional_depends SDL2 \
                  "--disable-sdl" \
                  "for SDL GUI support"
 
-optional_depends gtk+-3 "--with-gtkabi=3.0" "" "for GTK 3.x support"
+optional_depends gtk+-3 \
+                 "--enable-gtk --with-gtkabi=3.0" \
+                 "--disable-gtk" \
+                 "for GTK 3.x support"
 
 optional_depends vte3       "--enable-vte"       "--disable-vte"       "for vte support at the GTK UI"
-optional_depends jemalloc  "--enable-jemalloc"   "--disable-jemalloc"  "for jemalloc support"
+optional_depends jemalloc   "--enable-jemalloc"  "--disable-jemalloc"  "for jemalloc support"
 optional_depends %BLUEZ     "--enable-bluez"     "--disable-bluez"     "for bluetooth support"
 optional_depends curl       "--enable-curl"      "--disable-curl"      "for curl support"
 optional_depends libusb     "--enable-libusb"    "--disable-libusb"    "for USB passthrough"
@@ -40,4 +43,4 @@ optional_depends virglrenderer \
                  "for the host 3D GPU rendering acceleration support"
 
 # to be added ???
-#optional_depends ceph      "--enable rbd"       "--disable-rbd"       "for ceph distributed filesystem support"
+#optional_depends ceph "--enable rbd" "--disable-rbd" "for ceph distributed filesystem support"
