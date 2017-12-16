@@ -1,29 +1,19 @@
+depends libpng
+depends %JPEG
+depends gdal
+depends lapack
+depends tbb
 depends cmake
-
-optional_depends libpng \
-                 "-DWITH_PNG=ON" \
-                 "-DWITH_PNG=OFF" \
-                 "for png graphics support"
 
 optional_depends tiff \
                  "-DWITH_TIFF=ON" \
                  "-DWITH_TIFF=OFF" \
                  "for tiff graphics support"
 
-optional_depends %JPEG \
-                 "-DWITH_JPEG=ON" \
-                 "-DWITH_JPEG=OFF" \
-                 "for jpeg graphics support"
-
 optional_depends jasper \
                  "-DWITH_JASPER=ON" \
                  "-DWITH_JASPER=OFF" \
                  "for JPEG-2000 Part-1 support"
-
-optional_depends gdal \
-                 "-DWITH_GDAL=ON" \
-                 "-DWITH_GDAL=OFF" \
-                 "for geospatial data abstraction support"
 
 optional_depends libwebp \
                  "-DWITH_WEBP=ON" \
@@ -73,14 +63,14 @@ optional_depends openexr \
 optional_depends gtk+-2 \
                  "-DWITH_GTK_2_X=ON" \
                  "-DWITH_GTK_2_X=OFF" \
-                 "for gtk+-2 graphics support"
+                 "for gtk+-2 graphics support" n
 
 optional_depends gtk+-3 \
                  "-DWITH_GTK=ON" \
                  "-DWITH_GTK=OFF" \
-                 "for gtk+-3 graphics support"
+                 "for gtk+-3 graphics support" y
 
-optional_depends qt4 \
+optional_depends qt5 \
                  "-DWITH_QT=ON" "" \
                  "Build with Qt Backend support"
 
@@ -97,11 +87,6 @@ optional_depends unicap \
                  "-DWITH_UNICAP=ON" \
                  "-DWITH_UNICAP=OFF" \
                  "for additional video capture support"
-
-optional_depends tbb \
-                 "-DWITH_TBB=ON" \
-                 "-DWITH_TBB=OFF" \
-                 "for threaded building block support"
 
 optional_depends CUDA-OpenCL-headers \
                  "-DWITH_CUDA=ON" \

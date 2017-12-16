@@ -1,14 +1,8 @@
 if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc
-else
-  if in_depends $MODULE qt4; then
-    . /etc/profile.d/qt4.rc
-  else
-    OPTS+=" -DWITH_QT=0"
-  fi
 fi &&
 
-# bug: examples have to be build, if they (the sources) will be installed
+# bug: examples have to be build, if the (the sources) will be installed
 if [[ "`get_module_config EXAMPLES`" = "y" ]]; then
   OPTS+=" -DBUILD_EXAMPLES=1"
 else
