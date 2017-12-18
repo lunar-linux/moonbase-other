@@ -1,9 +1,0 @@
-# wget will be temporarily out of commission after installing libressl,
-# so download a copy of its source code now while it still works
-download_module wget
-
-# Check to see if we're migrating from openssl to libressl
-if module_installed openssl; then
-  lrm openssl
-  touch /var/state/lunar/migrating.from.openssl
-fi
