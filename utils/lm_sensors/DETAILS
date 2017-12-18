@@ -1,10 +1,9 @@
           MODULE=lm_sensors
          VERSION=3.4.0
-          SOURCE=$MODULE-$VERSION.tar.bz2
-   SOURCE_URL[0]=http://dl.lm-sensors.org/lm-sensors/releases/
-   SOURCE_URL[1]=ftp://ftp.netroedge.com/pub/lm-sensors/
-   SOURCE_URL[2]=https://ftp.gwdg.de/pub/linux/misc/lm-sensors/
-      SOURCE_VFY=sha256:e0579016081a262dd23eafe1d22b41ebde78921e73a1dcef71e05e424340061f
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/lm-sensors-${VERSION//\./-}
+ SOURCE_URL_FULL=https://github.com/groeck/lm-sensors/archive/V${VERSION//\./-}.tar.gz
+      SOURCE_VFY=sha256:e334c1c2b06f7290e3e66bdae330a5d36054701ffd47a5dde7a06f9a7402cb4e
         WEB_SITE=http://www.lm-sensors.org
          ENTERED=20011021
          UPDATED=20150626
