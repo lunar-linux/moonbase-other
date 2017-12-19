@@ -4,7 +4,7 @@ prepare_install &&
 
 python3 setup.py install --install-scripts=zope --root=/ &&
 
-if module_installed Python; then
+if module_installed setuptools; then
   python setup.py config &&
   python setup.py install --install-scripts=zope --root=/
 fi
