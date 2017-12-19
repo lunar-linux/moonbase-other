@@ -4,7 +4,7 @@ prepare_install &&
 
 python3 setup.py install --root=/ &&
 
-if in_depends $MODULE Python; then
+if module_installed $MODULE Python; then
   python setup.py config &&
   python setup.py install --root=/
 fi
