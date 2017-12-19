@@ -12,4 +12,4 @@ pushd python3 &&
 PYTHON=/usr/bin/python3 ../configure --prefix=/usr &&
 make &&
 make python3 install &&
-popd 
+popd
