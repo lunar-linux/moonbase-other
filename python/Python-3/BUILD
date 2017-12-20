@@ -1,7 +1,7 @@
-OPTS+=" --enable-shared --with-threads"  &&
+OPTS+=" --enable-shared --with-threads" &&
 
 # Makes sure shipped expat is not used when we want system expat
-if in_depends $MODULE expat ; then
+if in_depends $MODULE expat; then
   rm -fr Modules/expat
 fi &&
 
