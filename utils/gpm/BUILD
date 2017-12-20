@@ -5,13 +5,13 @@
 # link ncurses to bash which is needed at init time! If you
 # move it you could break your system!
 
-NEWMSG="A new config file (mouse.new) has been installed in /etc/config.d. SA please check for new options."  &&
-BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA please configure!"                &&
+NEWMSG="A new config file (mouse.new) has been installed in /etc/config.d. SA please check for new options." &&
+BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA please configure!" &&
 
 ./autogen.sh  &&
 
 # To fix bug report http://bugs.lunar-linux.org/view.php?id=442
-if [ `arch` == "x86_64" ] ;then
+if [ `arch` == "x86_64" ]; then
   CFLAGS="-fPIC"
 fi &&
 
