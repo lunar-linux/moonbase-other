@@ -1,0 +1,10 @@
+default_pre_build &&
+
+. /etc/profile.d/qt5.rc &&
+
+# sip: Deprecation warning: the -T flag is ignored and deprecated
+sedit "s:-T::" configure.py &&
+
+# Thanks to the arch folks for finding this, it had trouble finding
+# /usr/lib/dbus-1.0/include/dbus/dbus-arch-deps.h
+sedit '/target_config.dbus_inc_dirs = \[\]/d' configure.py
