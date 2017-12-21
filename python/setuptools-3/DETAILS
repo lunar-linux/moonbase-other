@@ -1,0 +1,25 @@
+          MODULE=setuptools-3
+         VERSION=28.8.0
+          SOURCE=setuptools-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/setuptools-$VERSION
+      SOURCE_URL=https://pypi.io/packages/source/s/setuptools/
+      SOURCE_VFY=sha256:432a1ad4044338c34c2d09b0ff75d509b9849df8cf329f4c1c7706d9c2ba3c61
+        WEB_SITE=http://packages.python.org/distribute/
+         ENTERED=20071221
+         UPDATED=20171221
+           SHORT="A simplified packaging system for Python 3.x"
+
+cat << EOF
+setuptools is a collection of enhancements to the Python distutils
+that allow you to more easily build and distribute Python packages,
+especially ones that have dependencies on other packages.
+
+Packages built and distributed using setuptools look to the user like
+ordinary Python packages based on the distutils. Your users don't
+need to install or even know about setuptools in order to use them,
+and you don't have to include the entire setuptools package in your
+distributions. By including just a single bootstrap module (an 8K .py
+file), your package will automatically download and install setuptools
+if the user is building your package from source and doesn't have a
+suitable version already installed.
+EOF
