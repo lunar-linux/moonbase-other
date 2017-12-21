@@ -4,6 +4,7 @@
 sedit "s:Qt_5_9_3}:Qt_5_9_3 Qt_5_10_0}:" sip/QtCore/QtCoremod.sip &&
 
 OPTS+=" --no-timestamp \
+        --no-sip-files \
         --assume-shared \
         --confirm-license \
         --qmake=/usr/lib/qt5/bin/qmake" &&

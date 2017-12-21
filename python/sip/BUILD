@@ -1,4 +1,3 @@
-# Do Python2 build
 python3 configure.py &&
 default_make &&
 
