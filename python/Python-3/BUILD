@@ -1,4 +1,6 @@
-OPTS+=" --enable-shared --with-threads" &&
+OPTS+=" --enable-shared \
+        --with-threads \
+        --without-ensurepip" &&
 
 # Makes sure shipped expat is not used when we want system expat
 if in_depends $MODULE expat; then
