@@ -1,5 +1,9 @@
 
 patch_it $SOURCE2 1 &&
+
+# Else it borks on SSLv3
+sedit "193,195d" Library/src/SSL/HTSSL.c &&
+
 OPTS+="--enable-shared --disable-static --with-zlib --with-md5   \
        --with-dav --with-expat --with-extension" &&
 
