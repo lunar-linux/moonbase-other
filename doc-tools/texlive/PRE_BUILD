@@ -1,6 +1,10 @@
 
   default_pre_build &&
 
+  patch_it $SOURCE3 1 &&
+  patch_it $SOURCE4 1 &&
+  patch_it $SOURCE5 1 &&
+
   # Use /usr/share as root
   sedit 's:^\(TEXMFROOT = \)\$SELFAUTOPARENT:\1 /usr/share:' texk/kpathsea/texmf.cnf &&
   sedit 's:$SELFAUTOGRANDPARENT:/usr/share:g' texk/kpathsea/texmf.cnf &&
@@ -66,6 +70,7 @@
           --with-teckit-includes=/usr/include/teckit \
           --with-system-freetype2        \
           --with-system-poppler          \
+          --with-system-xpdf             \
           --with-system-fontconfig       \
           --with-system-icu              \
           --with-system-graphite2        \
