@@ -4,7 +4,7 @@ depends pbzip2
 optional_depends graphite \
                  "--with-graphite2" \
                  "--without-graphite2" \
-                 "for additional shapers support"
+                 "for additional shapers support" y
 
 optional_depends freetype2 \
                  "--with-freetype=yes" \
@@ -14,7 +14,7 @@ optional_depends freetype2 \
 optional_depends cairo \
                  "--with-cairo=yes" \
                  "--with-cairo=no" \
-                 "for cairo support"
+                 "for cairo support" y
 
 optional_depends icu4c \
                  "--with-icu=yes" \
@@ -24,9 +24,9 @@ optional_depends icu4c \
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \
                  "--disable-gtk-doc" \
-                 "for building documentation"
+                 "for building documentation" n
 
 optional_depends gobject-introspection \
                  "--with-gobject=yes --enable-introspection=yes" \
                  "--with-gobject=no  --enable-introspection=no" \
-                 "for gobject introspection support"
+                 "for gobject introspection support" y
