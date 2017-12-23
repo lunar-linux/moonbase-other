@@ -21,12 +21,12 @@ optional_depends icu4c \
                  "--with-icu=no" \
                  "for icu support ${PROBLEM_COLOR}webkitgtk3 requires harfbuzz to be compiled with this ${DEFAULT_COLOR}" y
 
-optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
-                 "for building documentation" n
-
 optional_depends gobject-introspection \
                  "--with-gobject=yes --enable-introspection=yes" \
                  "--with-gobject=no  --enable-introspection=no" \
                  "for gobject introspection support" y
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "for building documentation" n
