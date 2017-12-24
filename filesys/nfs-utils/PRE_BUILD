@@ -1,8 +1,5 @@
 default_pre_build &&
 
-# Put everything in /usr/bin
-sedit 's;sbindir = /sbin;sbindir = /usr/bin;g' utils/*/Makefile.am &&
-
 # patch to use librpcsecgss header files
 #sedit "s:rpc/auth_gss.h:rpcsecgss/rpc/auth_gss.h:" utils/gssd/context_mit.c utils/gssd/context.c utils/gssd/krb5_util.h utils/gssd/krb5_util.c
 #sedit "s:rpc/rpc.h:rpcsecgss/rpc/rpc.h:" utils/gssd/context_mit.c utils/gssd/context.c utils/gssd/krb5_util.h utils/gssd/krb5_util.c
