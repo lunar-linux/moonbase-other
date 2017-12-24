@@ -48,6 +48,7 @@
   # since a lot of am and in files get a sed thought it would be a good idea to run its provided reautoconf.
   # Doing so almost doubles the compile time with it spent traversing the whole tree.
   # ./reautoconf &&
+
   OPTS+=" --build=$BUILD                 \
           --host=$BUILD                  \
           --prefix=/usr                  \
@@ -62,6 +63,7 @@
           --enable-compiler-warnings=no  \
           --with-gs=gs                   \
           --with-system-zlib             \
+          --with-system-mpfr             \
           --with-system-zziplib          \
           --with-system-libpng           \
           --with-system-gd               \
