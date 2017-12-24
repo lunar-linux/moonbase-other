@@ -1,4 +1,4 @@
-./bootstrap &&
+./bootstrap --force &&
 
 OPTS+=" --disable-static \
         --enable-tile-path \
