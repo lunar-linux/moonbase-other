@@ -1,3 +1,4 @@
 default_pre_build &&
 
-sedit "s:/bin/cp:/usr/bin/cp:" module/Makefile.in
+sedit "s:/bin/cp:/usr/bin/cp:" module/Makefile.in &&
+patch_it $SOURCE2 1
