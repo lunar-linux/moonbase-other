@@ -9,6 +9,7 @@ OPTS+=" --with-linux=$BUILD_DIRECTORY/linux \
 default_config &&
 make &&
 make DESTDIR=$SOURCE_DIRECTORY/__pkg install &&
+mv $SOURCE_DIRECTORY/__pkg/sbin/mount.zfs $SOURCE_DIRECTORY/__pkg/usr/sbin
 prepare_install &&
 cd $SOURCE_DIRECTORY/__pkg &&
 tar cf - . | (cd / && tar xvf -)
