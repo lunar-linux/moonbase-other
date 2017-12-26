@@ -1,3 +1,4 @@
+cd ttf &&
 prepare_install &&
 
 mkdir -p /usr/share/fonts/TTF &&
