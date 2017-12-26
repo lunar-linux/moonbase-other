@@ -1,9 +1,6 @@
-(
 
   OPTS+=" --sysconfdir=/etc/$MODULE" &&
 
-  patch_it $SOURCE2 1 &&
+  autoreconf -fi &&
 
   default_build
-
-) > $C_FIFO 2>&1

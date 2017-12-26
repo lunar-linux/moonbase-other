@@ -1,4 +1,7 @@
-optional_depends "%JPEG"      "--with-jpeg-mmx" "--without-jpeg-mmx" "for optimized jpeg handling"
-optional_depends "ffmpeg"     "--with-ffmpeg"   "--without-ffmpeg"   "to encode mpeg movies realtime"
-optional_depends "%MYSQL"     "--with-mysql"    "--without-mysql"    "for mysql support"
-optional_depends "postgresql" "--with-pgsql"    "--without-pgsql"    "for postgresql support"
+depends %JPEG
+depends libwebp
+
+optional_depends "ffmpeg"     "--with-ffmpeg"   "--without-ffmpeg"   "to encode mpeg movies realtime" y
+optional_depends "sqlite"     "--with-sqlite3"  "--without-sqlite3"  "for sqlite support" y
+optional_depends "%MYSQL"     "--with-mysql"    "--without-mysql"    "for mysql support" n
+optional_depends "postgresql" "--with-pgsql"    "--without-pgsql"    "for postgresql support" n
