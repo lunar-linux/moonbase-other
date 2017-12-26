@@ -1,11 +1,17 @@
           MODULE=vlc
          VERSION=2.2.8
           SOURCE=$MODULE-$VERSION.tar.xz
+         SOURCE2=vlc-2.2.8-freerdp-2.patch
+         SOURCE3=qt4-select.patch
       SOURCE_URL=http://download.videolan.org/pub/videolan/vlc/$VERSION
+     SOURCE2_URL=https://gitweb.gentoo.org/repo/gentoo.git/plain/media-video/vlc/files/
+     SOURCE3_URL=https://gitweb.gentoo.org/repo/gentoo.git/plain/media-video/vlc/files/
       SOURCE_VFY=sha256:9bf046848fb56d93518881b39099b8288ee005d5ba0ddf705b6f6643b8d562ec
+     SOURCE2_VFY=sha256:526c272edadf2e0a190c38c656e804d7980582231481b37ee687706c59328479
+     SOURCE3_VFY=sha256:30c76f06553d0a341224009c3130e54624a266cd77a034340e39d2b922c60d69
         WEB_SITE=http://www.videolan.org/
          ENTERED=20011113
-         UPDATED=20171122
+         UPDATED=20171226
            SHORT="Videolan client multimedia player"
 
 cat << EOF
