@@ -1,7 +1,7 @@
 
-  OPTS+=" --with-wx-config=/usr/bin/wx-config" &&
-  CXXFLAGS+=" -Wall -DNDEBUG" &&
-  default_build &&
+  OPTS+=" -DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-config" &&
+#  CXXFLAGS+=" -Wall -DNDEBUG" &&
+  default_cmake_build &&
 
     # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
