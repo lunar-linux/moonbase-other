@@ -1,5 +1,5 @@
-patch_it $SOURCE2 1 &&
 
-OPTS+=" --config=Linux --unbundled --no-samples --no-tests" &&
+# Else it used its own stuff
+OPTS+=" -DPOCO_UNBUNDLED=1" &&
 
-default_build
+default_cmake_build
