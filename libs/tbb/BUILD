@@ -1,3 +1,5 @@
+  export CXXFLAGS+=" -fno-lifetime-dse" &&
+
   # copied the pc from debian, they don't provide it upstream
   cat $SCRIPT_DIRECTORY/tbb.pc.in | sed "s/%VERSION%/${VERSION}/" > tbb.pc &&
 
