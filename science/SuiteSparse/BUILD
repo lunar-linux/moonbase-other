@@ -2,12 +2,14 @@
   cd metis-4.0 &&
   make  &&
 
+  cd $SOURCE_DIRECTORY/ &&
+
   if in_depends $MODULE tbb ; then
-    CLFAGS+=" ${CFLAGS} -DHAVE_TBB"
+    make 
+   else
+    make
   fi &&
 
-  cd $SOURCE_DIRECTORY/ &&
-  make CFLAGS+=" -fPIC" library &&
   prepare_install  &&
   make install     &&
 
