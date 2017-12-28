@@ -1,3 +1,5 @@
+patch_it $SOURCE2 1 &&
+
 touch INSTALL &&
 
 autoreconf -i &&
