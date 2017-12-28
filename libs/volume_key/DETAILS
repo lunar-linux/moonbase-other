@@ -1,12 +1,15 @@
           MODULE=volume_key
          VERSION=0.3.9
           SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=0001-Stop-using-crypt_get_error.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
       SOURCE_URL=http://github.com/felixonmars/volume_key/archive/
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha256:0586cdb41e6f623f0f76ef2bbf08c3e84354990b02aec1c1cc242fdbb88355d2
+     SOURCE2_VFY=sha256:d54424b483e27c8890a6e9aff07389ef72c4f0903bb68f0ae0140aec4fc2aa93
         WEB_SITE=https://pagure.io/volume_key
          ENTERED=20170811
-         UPDATED=20170811
+         UPDATED=20171228
            SHORT="A library for manipulating storage volume encryption keys"
 
 cat << EOF
