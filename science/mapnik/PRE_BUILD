@@ -1,0 +1,20 @@
+default_pre_build &&
+
+
+cd $SOURCE_DIRECTORY/ &&
+
+sedit "s:call('ldconfig'):pass:" src/build.py &&
+
+OPTS+=" PREFIX=/usr \
+        XMLPARSER=libxml2 \
+        LINKING=shared \
+        RUNTIME_LINK=shared \
+        INPUT_PLUGINS=all \
+        ICU_INCLUDES=/usr/include/unicode \
+        ICU_LIBS=/usr/lib \
+        PROJ_INCLUDES=/usr/include \
+        PROJ_LIBS=/usr/lib \
+        SYSTEM_FONTS=/usr/share/fonts \
+        CUSTOM_CXXFLAGS=$CXXFLAGS \
+        CUSTOM_CFLAGS=$CFLAGS \
+        JOBS=${MAKES}"

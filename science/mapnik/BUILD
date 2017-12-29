@@ -1,9 +1,7 @@
-(
 
-  python scons/scons.py configure PREFIX=/usr DEBUG=False &&
-  python scons/scons.py &&
+  PYTHON=python3 ./configure $OPTS &&
+
+  make PYTHON=python3 -j${MAKES} &&
 
   prepare_install &&
-  python scons/scons.py install 
-
-) > $C_FIFO 2>&1
+  make install
