@@ -1,13 +1,14 @@
           MODULE=confuse
-         VERSION=2.7
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-      SOURCE_URL=http://savannah.nongnu.org/download/confuse
-      SOURCE_VFY=sha1:b3f74f9763e6c9012476dbd323d083af4be34cad
-        WEB_SITE="http://www.nongnu.org/confuse/"
+         VERSION=3.2.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/martinh/libconfuse/archive/v3.2.1.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libconfuse-$VERSION
+      SOURCE_VFY=sha256:2eff8e3c300c4ed1d67fdb13f9d31a72a68e31874b4640db15334305bc40cebd
+        WEB_SITE=https://github.com/martinh/libconfuse
          ENTERED=20131008
-         UPDATED=20131008
+         UPDATED=20171229
            SHORT="A configuration file parser library"
-cat <<EOF
+cat << EOF
 libConfuse is a configuration file parser library, licensed under
 the terms of the ISC license, and written in C. It supports sections
 and (lists of) values (strings, integers, floats, booleans or other
