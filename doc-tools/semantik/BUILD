@@ -1,9 +1,9 @@
 
-  . /etc/profile.d/qt4.rc &&
-  . /etc/profile.d/kde4.rc &&
- 
-  ./waf configure --prefix=$QTDIR   \
-                  --qtlibs=$QTDIR/lib/qt4 &&
+  . /etc/profile.d/qt5.rc &&
+
+  ./waf configure --prefix=/usr   \
+                  --qtlibs=/usr/lib/qt5 \
+                  $OPTS &&
 
   ./waf            &&
 
