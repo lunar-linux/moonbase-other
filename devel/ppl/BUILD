@@ -1,9 +1,5 @@
-(
 
-  export CCACHE_DISABLE=1 &&
 
-  OPTS+=" --disable-static" &&
+  OPTS+=" --enable-arch=$(arch) --disable-static" &&
 
   default_build
-
-) > $C_FIFO 2>&1
