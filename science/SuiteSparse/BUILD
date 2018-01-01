@@ -1,16 +1,10 @@
-
-  cd metis-4.0 &&
-  make  &&
+  cd metis-$VERSION &&
+  make $METIS_OPTS &&
+  default_make &&
 
   cd $SOURCE_DIRECTORY/ &&
 
-  if in_depends $MODULE tbb ; then
-    make 
-   else
-    make
-  fi &&
+  make $SS_BUILD_OPTS &&
 
-  prepare_install  &&
-  make install     &&
-
-  install metis-4.0/libmetis.a /usr/lib/
+  prepare_install &&
+  make $SS_INSTALL_OPTS install

@@ -1,16 +1,15 @@
-  mk_source_dir &&
-  unpack $SOURCE  &&
-  cd $SOURCE_DIRECTORY &&
-  unpack $SOURCE2      &&
-  mv metis-4.0.3 metis-4.0 &&
+default_pre_build &&
+mk_source_dir &&
+unpack $SOURCE  &&
 
-  CFLAGS+=" -fPIC -O3 -I../Include"   &&
-  CXXFLAGS+=" -fPIC -O3 -I../Include" &&
+cd $SOURCE_DIRECTORY &&
 
-  sedit "s:/usr/local/:/usr/:" SuiteSparse_config/SuiteSparse_config.mk &&
-  sedit "s:CC = cc:CC = gcc:" metis-4.0/Makefile.in &&
-  sedit "s:OPTFLAGS = -O2:OPTFLAGS = -O3 -fPIC:" metis-4.0/Makefile.in &&
+if in_depends $MODULE tbb; then
+ sedit "s:TBB ?=:TBB = -ltbb -DSPQR_CONFIG=-DHAVE_TBB:" SuiteSparse_config/SuiteSparse_config.mk
+fi
 
-  if in_depends $MODULE tbb; then
-    sedit 's@^SPQR_CONFIG =@\0 -DHAVE_TBB@; s@^TBB =@\0 -ltbb@' SuiteSparse_config/SuiteSparse_config.mk
-  fi
+METIS_OPTS+=" config shared=1 prefix=/usr" &&
+
+SS_BUILD_OPTS+=" BLAS=-lblas MY_METIS_INC=$SOURCE_DIRECTORY/metis-$VERSION/include/ MY_METIS_LIB=/usr/lib/libmetis.so" &&
+
+SS_INSTALL_OPTS+=" BLAS=-lblas INSTALL_LIB=/usr/lib INSTALL_INCLUDE=/usr/include"
