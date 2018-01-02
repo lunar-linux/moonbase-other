@@ -1,4 +1,4 @@
-# for systems without /bin -> /usr/bin symlink
+# for systems with /bin -> /usr/bin symlink
 if [ "`cd /usr/bin; pwd -P`" != "`cd /bin; pwd -P`" ]; then
   ln -sf /usr/bin/echo /bin/echo
 fi &&
