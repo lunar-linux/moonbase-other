@@ -1,12 +1,12 @@
           MODULE=ParaView
-         VERSION=v5.0.1
-          SOURCE=$MODULE-$VERSION-source.tar.gz
-SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-$VERSION-source
-      SOURCE_URL=http://www.paraview.org/files/v5.0/ 
-      SOURCE_VFY=sha256:caddec83ec284162a2cbc46877b0e5a9d2cca59fb4ab0ea35b0948d2492950bb
+         VERSION=5.4.1
+          SOURCE=$MODULE-v$VERSION.tar.gz
+      SOURCE_URL=http://paraview.org/files/v${VERSION%.*}/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-v$VERSION
+      SOURCE_VFY=sha256:390d0f5dc66bf432e202a39b1f34193af4bf8aad2355338fa5e2778ea07a80e4
         WEB_SITE=http://www.paraview.org/
          ENTERED=20101121
-         UPDATED=20160525
+         UPDATED=20180103
            SHORT="data analysis and visualization application"
 
 cat << EOF
@@ -20,4 +20,3 @@ ParaView was developed to analyze extremely large datasets using distributed
 memory computing resources. It can be run on supercomputers to analyze datasets
 of terascale as well as on laptops for smaller data.
 EOF
-

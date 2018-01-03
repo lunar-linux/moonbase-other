@@ -1,15 +1,17 @@
 default_pre_build &&
 
 if in_depends $MODULE qt5 ; then
-  OPTS+=" -DPARAVIEW_QT_VERSION=5 -DVTK_QT_VERSION=5 -DQT_QMAKE_EXECUTABLE=/usr/lib/qt5/bin/qmake VTK_Group_Qt=1"
+  . /etc/profile.d/qt5.rc &&
+  OPTS+=" -DPARAVIEW_QT_VERSION=5 -DVTK_QT_VERSION=5 -DQT_QMAKE_EXECUTABLE=/usr/lib/qt5/bin/qmake -DVTK_Group_Qt=1"
 fi &&
 
 # This would be nice, but does not work over here...
 #OPTS+=" -DUSE_EXTERNAL_VTK=1" &&
+# Doesn't like out version of gl2ps
+#        -DVTK_USE_SYSTEM_GL2PS=1               \
 
 OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
         -DVTK_USE_SYSTEM_ZLIB=1                \
-        -DVTK_USE_SYSTEM_GL2PS=1               \
         -DVTK_USE_SYSTEM_TIFF=1                \
         -DVTK_USE_SYSTEM_LIBXML2=1             \
         -DVTK_USE_SYSTEM_PNG=1                 \
@@ -19,10 +21,14 @@ OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
         -DVTK_USE_SYSTEM_HDF5=1                \
         -DVTK_USE_SYSTEM_JSONCPP=1             \
         -DVTK_USE_SYSTEM_EXPAT=1               \
+        -DVTK_USE_SYSTEM_OGGTHEORA=1           \
         -DBUILD_SHARED_LIBS=1                  \
-        -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=1 \ 
         -DVTK_Group_StandAlone=1               \
+        -DVTK_RENDERING_BACKEND=OpenGL2        \
+        -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=1 \
+        -DVTK_PYTHON_FULL_THREADSAFE=1         \
         -DPARAVIEW_ENABLE_PYTHON=1"            &&
+
 
 sedit "84i #  include <cstring>" VTK/ThirdParty/xdmf2/vtkxdmf2/libsrc/XdmfObject.h &&
 
