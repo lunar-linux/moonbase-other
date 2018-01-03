@@ -9,7 +9,7 @@ OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
         -DVTK_USE_SYSTEM_OGGTHEORA=ON \
         -DVTK_WRAP_PYTHON=ON         \
         -DCMAKE_CXX_FLAGS="-D__STDC_CONSTANT_MACROS" \
-        -DVTK_RENDERING_BACKEND=OpenGL \
+        -DVTK_RENDERING_BACKEND=OpenGL2 \
         -DBUILD_SHARED_LIBS=ON \
         -DBUILD_EXAMPLES=OFF \
         -DVTK_LEGACY_REMOVE=ON" &&
@@ -26,12 +26,9 @@ if in_depends $MODULE %JAVA_SDK; then
           -DCMAKE_SHARED_LINKER_FLAGS_RELEASE=-Wl,-rpath,$JAVA_HOME/jre/lib/amd64"
 fi &&
 
-if in_depends $MODULE qt4; then
-  . /etc/profile.d/qt4.rc &&
-  OPTS+=" -DVTK_INSTALL_QT_PLUGIN_DIR=${QT_PLUGIN_PATH}/designer"
-elif in_depends $MODULE qt5; then
+if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc &&
   OPTS+=" -DVTK_INSTALL_QT_PLUGIN_DIR=${QT_PLUGIN_PATH}/designer -DVTK_QT_VERSION:STRING=5"
-fi
+fi &&
 
 default_cmake_build
