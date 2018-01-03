@@ -1,0 +1,5 @@
+default_pre_build &&
+
+# Copy and prepare custom pkg-config file
+cp $SCRIPT_DIRECTORY/libargon2.pc libargon2.pc &&
+sedit "s/@UPSTREAM_VER@/$VERSION/" libargon2.pc

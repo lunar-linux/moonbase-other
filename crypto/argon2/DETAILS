@@ -1,0 +1,40 @@
+          MODULE=argon2
+         VERSION=20171227
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/phc-winner-$MODULE-$VERSION
+ SOURCE_URL_FULL=https://github.com/P-H-C/phc-winner-argon2/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:eaea0172c1f4ee4550d1b6c9ce01aab8d1ab66b4207776aa67991eb5872fdcd8
+        WEB_SITE=https://github.com/P-H-C/phc-winner-argon2
+         ENTERED=20180103
+         UPDATED=20180103
+           SHORT="A password-hashing function"
+
+cat << EOF
+This is the reference C implementation of Argon2, the password-hashing function
+that won the Password Hashing Competition (PHC).
+Argon2 is a password-hashing function that summarizes the state of the art in
+the design of memory-hard functions and can be used to hash passwords for
+credential storage, key derivation, or other applications.
+
+It has a simple design aimed at the highest memory filling rate and effective
+use of multiple computing units, while still providing defense against tradeoff
+attacks (by exploiting the cache and memory organization of the recent
+processors).
+
+Argon2 has three variants: Argon2i, Argon2d, and Argon2id. Argon2d is faster and
+uses data-depending memory access, which makes it highly resistant against GPU
+cracking attacks and suitable for applications with no threats from side-channel
+timing attacks (eg. cryptocurrencies). Argon2i instead uses data-independent
+memory access, which is preferred for password hashing and password-based key
+derivation, but it is slower as it makes more passes over the memory to protect
+from tradeoff attacks. Argon2id is a hybrid of Argon2i and Argon2d, using a
+combination of data-depending and data-independent memory accesses, which gives
+some of Argon2i's resistance to side-channel cache timing attacks and much of
+Argon2d's resistance to GPU cracking attacks.
+
+Argon2i, Argon2d, and Argon2id are parametrized by:
+  - A time cost, which defines the amount of computation realized and therefore
+    the execution time, given in number of iterations
+  - A memory cost, which defines the memory usage, given in kibibytes
+  - A parallelism degree, which defines the number of parallel threads.
+EOF
