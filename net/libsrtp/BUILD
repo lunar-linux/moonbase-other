@@ -6,6 +6,4 @@ make libsrtp.a shared_library &&
 
 prepare_install &&
 
-make install &&
-
-rm /usr/lib/libsrtp.a
+make install
