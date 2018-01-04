@@ -1,17 +1,15 @@
-CFLAGS+=" -Wno-error" &&
+./autogen.sh &&
 
-OPTS+=" --disable-gsm \
-        --enable-video \
-        --disable-static \
-        --disable-tests \
+export CFLAGS="$CFLAGS -DMS2_GIT_VERSION=\"\\\"unknown\\\"\"" &&
+
+OPTS+=" --disable-gsm     \
+        --enable-video    \
+        --enable-debug=no \
+        --disable-static  \
+        --disable-tests   \
+        --with-srtp=/usr  \
         --disable-strict" &&
 
-default_config &&
+sedit "s:/bin/echo:/usr/bin/echo:g" src/Makefile.am &&
 
-# Fixes a make failure related to its confusion about some paths. (still needed).
-find . -name Makefile -print0 | xargs -0 sed -i -e 's:-Iyes/:-I/:g' \
-                                                -e 's:-Lyes/:-L/:g' \
-                                                -e 's:-Lno/:-L/:g'  \
-                                                -e 's:-Ino/:-I/:g'  &&
-
-default_make
+default_build
