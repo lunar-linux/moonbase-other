@@ -1,3 +1,2 @@
-OPTS+=" --disable-static" &&
 
-default_build
+default_cmake_build

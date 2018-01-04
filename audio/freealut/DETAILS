@@ -1,12 +1,14 @@
           MODULE=freealut
-         VERSION=1.1.0
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-      SOURCE_URL=http://pkgs.fedoraproject.org/repo/pkgs/freealut/$MODULE-$VERSION.tar.gz/e089b28a0267faabdb6c079ee173664a/
-      SOURCE_VFY=sha256:60d1ea8779471bb851b89b49ce44eecb78e46265be1a6e9320a28b100c8df44f
-        WEB_SITE="http://www.openal.org"
+         VERSION=1_1_0
+          SOURCE=${MODULE}\_${VERSION}.tar.gz
+      SOURCE_URL=https://github.com/vancegroup/freealut/archive/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE\_$VERSION
+      SOURCE_VFY=sha256:c3880d7dbb90c7db54e1d6b88aa0a34dd9e2d828fd389be0d2cbb2632b0885dd
+        WEB_SITE=https://github.com/vancegroup/freealut
          ENTERED=20131112
-         UPDATED=20131112
+         UPDATED=20180104
            SHORT="OpenAL Utility Toolkit (ALUT)"
 
-cat <<EOF
+cat << EOF
+Freealut is a free implementation of OpenAL's ALUT standard.
 EOF
