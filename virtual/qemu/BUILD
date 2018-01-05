@@ -35,7 +35,7 @@ else
 fi &&
 
 # bridge_helper needs suid
-chmod u+s "/usr/lib/qemu/qemu-bridge-helper" &&
+chmod u+s "/usr/libexec/qemu-bridge-helper" &&
 
 # qemu-doc.html may not exist, but it will be ignored if that is the case
 gather_docs TODO qemu-doc.html
