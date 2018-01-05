@@ -1,5 +1,3 @@
-OPTS+=" --libexecdir=/usr/lib" &&
-
 OPTS+=" --enable-static=no" &&
 
 if [ "`get_module_config DOCS`" = "n" ]; then

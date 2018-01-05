@@ -4,6 +4,4 @@ OPTS+=" --disable-static \
         --disable-simple-dmabuf-drm-client \
         --enable-clients" &&
 
-OPTS+=" --libexecdir=/usr/lib/$MODULE" &&
-
 default_build

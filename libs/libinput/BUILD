@@ -1,4 +1,4 @@
-OPTS+=" --prefix /usr --libexecdir /usr/lib"
+OPTS+=" --prefix /usr"
 
 meson build -Dtests=false $OPTS &&
 ninja -C build &&

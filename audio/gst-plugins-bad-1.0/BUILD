@@ -1,4 +1,3 @@
-
 OPTS+=" --disable-static \
         --disable-valgrind \
         --disable-debug \

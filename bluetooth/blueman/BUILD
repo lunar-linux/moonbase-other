@@ -1,4 +1,3 @@
-OPTS+=" --libexecdir=/usr/lib/$MODULE \
-        --disable-schemas-compile" &&
+OPTS+=" --disable-schemas-compile" &&
 
 default_build

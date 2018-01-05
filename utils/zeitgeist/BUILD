@@ -4,7 +4,6 @@ autoreconf -fi &&
 
 OPTS+=" --enable-fts \
         --enable-datahub \
-        --enable-explain-queries \
-        --libexecdir=/usr/lib/$MODULE" &&
+        --enable-explain-queries" &&
 
 default_build

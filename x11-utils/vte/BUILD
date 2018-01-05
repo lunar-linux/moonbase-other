@@ -1,5 +1,3 @@
-OPTS+=" --libexecdir=/usr/lib/vte" &&
-
 OPTS+=" --disable-static" &&
 
 if [ "`get_module_config DOCS`" = "n" ]; then

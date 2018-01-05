@@ -7,8 +7,7 @@ OPTS+=" --enable-largefile \
         --enable-threads=posix \
         --disable-tests \
         --with-mmap \
-        --with-subshell \
-        --libexecdir=/usr/lib" &&
+        --with-subshell" &&
 
 default_build &&
 

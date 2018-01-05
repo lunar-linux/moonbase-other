@@ -1,5 +1,4 @@
-OPTS+=" --sysconfdir=/etc/$MODULE \
-        --libexecdir=/usr/lib/$MODULE" &&
+OPTS+=" --sysconfdir=/etc/$MODULE" &&
 
 if [[ "$USE_USB" = "y" ]]; then
   OPTS+=" --with-upstype=usb --with-upscable=usb"

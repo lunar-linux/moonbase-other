@@ -6,8 +6,6 @@ OPTS+=" --enable-nls \
         --enable-facl \
         --enable-ctrls" &&
 
-OPTS+=" --libexecdir=/usr/lib/$MODULE" &&
-
 if module_installed systemd; then
   OPTS+=" --localstatedir=/run/proftpd --with-systemd"
 fi

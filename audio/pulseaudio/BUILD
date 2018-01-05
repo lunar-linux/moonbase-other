@@ -18,8 +18,6 @@ if ! module_installed systemd; then
           --disable-systemd-journal"
 fi &&
 
-OPTS+=" --libexecdir=/usr/lib" &&
-
 default_config &&
 make &&
 prepare_install &&
