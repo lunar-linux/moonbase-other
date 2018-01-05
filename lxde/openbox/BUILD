@@ -1,5 +1,3 @@
-OPTS+=" --libexecdir=/usr/lib/openbox" &&
-
 OPTS+=" --with-x --disable-static" &&
 
 default_build &&

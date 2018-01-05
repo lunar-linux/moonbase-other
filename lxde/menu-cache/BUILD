@@ -1,5 +1,3 @@
-OPTS+=" --libexecdir=/usr/lib" &&
-
 cp $SCRIPT_DIRECTORY/menu-cache-gen.h $SOURCE_DIRECTORY/menu-cache-gen/ &&
 
 default_build &&

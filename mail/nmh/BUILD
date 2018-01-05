@@ -1,8 +1,4 @@
-(
+# By default, nmh fills /usr/lib with a bunch of binaries
+OPTS+=" --libdir=${MODULE_PREFIX}/libexec"
 
-  # By default, nmh fills /usr/lib with a bunch of binaries 
-  OPTS+=" --libdir=${MODULE_PREFIX}/libexec"
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build

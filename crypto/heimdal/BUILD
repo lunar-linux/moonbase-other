@@ -1,10 +1,8 @@
-
 export CFLAGS+=" -I/usr/include/et" &&
 export CXXFLAGS+=" -I/usr/include/et" &&
 
-
 # When -O1 and --as-needed are set together for the linker you get both
-#  -Wl,-O1,--as-needed and -Wl,--as-needed.  The --as-needed causes heimdal
+#  -Wl,-O1,--as-needed and -Wl,--as-needed. The --as-needed causes heimdal
 # to fail linking.  Instead of adding 2 bad_flags to we just need a , in front
 # of --as-needed to fix it.
 
@@ -25,12 +23,11 @@ OPTS+=" --prefix=/usr \
         --with-sqlite3=/usr \
         --enable-pthread-support" &&
 
-mkdir -p $SOURCE_DIRECTORY/__heimdest/ &&
+mkdir -p $SOURCE_DIRECTORY/_heimdest/ &&
 
 default_config &&
 make &&
-INSTALL_CATPAGES="no" make DESTDIR=$SOURCE_DIRECTORY/__heimdest/ install &&
-
+INSTALL_CATPAGES="no" make DESTDIR=$SOURCE_DIRECTORY/_heimdest/ install &&
 
 for i in su ; do
   if [ -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/${i}.1 ]; then

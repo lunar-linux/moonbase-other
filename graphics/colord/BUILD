@@ -6,6 +6,4 @@ OPTS+=" --sysconfdir=/etc/$MODULE \
         --disable-systemd-login   \
         --disable-argyllcms-sensor" &&
 
-OPTS+=" --libexecdir=/usr/lib/$MDULE" &&
-
 default_build

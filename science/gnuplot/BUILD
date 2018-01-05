@@ -7,6 +7,4 @@ fi &&
 OPTS+=" --with-bitmap-terminals \
         --with-gihdir=/usr/share/gnuplot" &&
 
-OPTS+=" --libexecdir=/usr/lib" &&
-
 default_build

@@ -4,7 +4,6 @@ EDITOR=`which nano` &&
 OPTS+=" --enable-tmpfiles.d \
         --with-editor=$EDITOR \
         --with-rundir=/run/sudo \
-        --with-vardir=/var/db/sudo \
-        --libexecdir=/usr/lib" &&
+        --with-vardir=/var/db/sudo" &&
 
 default_build

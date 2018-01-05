@@ -18,7 +18,6 @@ add_priv_user qemu:qemu -G kvm &&
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var \
-            --libexecdir=/usr/lib/$MODULE \
             --audio-drv-list="$AUDIO_LIST" \
             --enable-attr \
             --enable-modules \

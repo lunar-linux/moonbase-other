@@ -5,8 +5,6 @@ OPTS+=" --enable-ntp-signd \
         --disable-static   \
         --localstatedir=/var/cache" &&
 
-OPTS+=" --libexecdir=/usr/lib" &&
-
 CPPFLAGS+=" -fPIC" &&
 
 default_build &&

@@ -1,5 +1,4 @@
-OPTS+=" --exec-prefix=/usr \
-        --libexecdir=/usr/lib/gnupg" &&
+OPTS+=" --exec-prefix=/usr" &&
 
 default_build &&
 
