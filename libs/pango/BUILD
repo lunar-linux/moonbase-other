@@ -4,7 +4,6 @@ cd build &&
 
 meson --prefix=/usr \
       --buildtype=release \
-      --libexecdir=/usr/lib \
        -Denable_docs=false &&
 
 ninja &&
