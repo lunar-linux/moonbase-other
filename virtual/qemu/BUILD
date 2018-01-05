@@ -3,7 +3,6 @@ export ARFLAGS=rv
 
 CFLAGS+=" -fPIC"
 
-OPTS+=" --libexecdir=/usr/lib/qemu" &&
 OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)" &&
 
 AUDIO_LIST="oss" &&
