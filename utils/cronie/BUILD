@@ -9,6 +9,14 @@ OPTS+=" --exec-prefix=/usr \
 
 default_build &&
 
-chmod 6711 /usr/bin/crontab &&
+chmod u+s /usr/bin/crontab &&
+
+install -d /var/spool/{ana,}cron &&
+install -d /etc/cron.{d,hourly,daily,weekly,monthly} &&
+install -Dm644 $SCRIPT_DIRECTORY/deny /etc/cron.deny &&
+
+install -Dm644 contrib/anacrontab /etc/anacrontab &&
+install -Dm644 contrib/0hourly /etc/cron.d/0hourly &&
+install -Dm755 contrib/0anacron /etc/cron.hourly/0anacron &&
 
 [ -d /var/spool/cron ] || install -d -m 0700 /var/spool/cron
