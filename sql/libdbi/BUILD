@@ -1,7 +1,3 @@
-(
+OPTS+=" --disable-static"
 
-  OPTS+=" --disable-docs"
-
-  default_build
-
-)
+default_build
