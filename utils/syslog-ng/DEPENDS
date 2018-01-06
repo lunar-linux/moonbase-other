@@ -1,0 +1,20 @@
+depends six
+depends gawk
+depends libxslt
+depends libdbi
+
+optional_depends json-c "--with-jsonc=system"  "" "for JSON support"
+optional_depends curl   "--enable-http"        "" "for HTTP suport"
+optional_depends redis  "--enable-redis"       "" "for redis DB support"
+optional_depends geoip  "--enable-geoip"       "" "for GeoIP support"
+optional_depends libcap "--enable-linux-caps"  "" "for Linux capabilities support"
+
+optional_depends mongo \
+                 "--enable-mongodb" \
+                 "--disable-mongodb" \
+                 "for MongoDB support"
+
+optional_depends %UDEV \
+                 "--enable-systemd  --with-systemd-journal=system" \
+                 "--disable-systemd --with-systemd-journal=no" \
+                 "for systemd support"

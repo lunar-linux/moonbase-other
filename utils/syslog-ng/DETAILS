@@ -1,0 +1,19 @@
+          MODULE=syslog-ng
+         VERSION=3.13.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-json-c-0.13.patch
+#SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
+      SOURCE_URL=https://github.com/balabit/syslog-ng/releases/download/$MODULE-$VERSION/
+SOURCE2_URL_FULL=https://github.com/balabit/syslog-ng/commit/1b824dd6.patch
+      SOURCE_VFY=sha256:9a3d31df93698080180057ca9bd57b59d06b74fc426c602ce102a2a5437ad3e8
+     SOURCE2_VFY=sha256:6c1b29e18e502ca670b8f6e519fc6f5525fc384632ea3a036167d68b7f69ccc5
+        WEB_SITE=https://github.com/balabit/syslog-ng
+         ENTERED=20180106
+         UPDATED=20180106
+           SHORT="Next-generation log daemon"
+
+cat << EOF
+syslog-ng is an enhanced log daemon, supporting a wide range of input and output
+methods: syslog, unstructured text, message queues, databases (SQL and NoSQL
+alike) and more.
+EOF
