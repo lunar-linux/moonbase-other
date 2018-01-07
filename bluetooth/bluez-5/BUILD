@@ -1,13 +1,12 @@
 mkdir -p /etc/bluetooth &&
 
 if module_installed systemd; then
-  OPTS+=" --enable-systemd --disable-udev"
+  OPTS+=" --enable-systemd"
 else
-  OPTS+=" --enable-udev --disable-systemd"
+  OPTS+=" --disable-systemd"
 fi &&
 
-OPTS+=" --enable-threads --enable-library --enable-tools" &&
-OPTS+=" --libexecdir=/usr/bin" &&
+OPTS+=" --enable-threads --enable-tools --enable-library" &&
 
 default_build &&
 

@@ -10,5 +10,6 @@ optional_depends cups \
                  "to enable cups printing support"
 
 optional_depends %UDEV \
-                 "" "--disable-udev --disable-systemd" \
-                 "for udev/systemd support"
+                 "--enable-udev" \
+                 "--disable-udev" \
+                 "for udev/eudev support"
