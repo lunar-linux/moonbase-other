@@ -5,6 +5,7 @@ depends lua
 depends git
 
 optional_depends ncurses        "-D BUILD_NCURSES=ON"    "" "for ncurses support"
+optional_depends imlib2         "-D BUILD_IMLIB2=ON"     "" "for images display support"
 optional_depends libX11         "-D BUILD_X11=ON"        "" "for X11 support"
 optional_depends libXdamage     "-D BUILD_XDAMAGE=ON"    "" "for libXdamage support"
 optional_depends libXinerama    "-D BUILD_XINERAMA=ON"   "" "for libXinerama support"
@@ -12,17 +13,17 @@ optional_depends libXft         "-D BUILD_XFT=ON"        "" "for libXft support"
 optional_depends curl           "-D BUILD_CURL=ON"       "" "for curl support"
 optional_depends wireless_tools "-D BUILD_WLAN=ON"       "" "for WLAN/WiFi support"
 optional_depends hddtemp        "-D BUILD_HDDTEMP=ON"    "" "for hdd temperature support"
+optional_depends pulseaudio     "-D BUILD_PULSEAUDIO=ON" "" "for pulseaudio support"
 optional_depends mpd            "-D BUILD_MPD=ON"        "" "for mpd support"
 optional_depends cmus           "-D BUILD_CMUS=ON"       "" "for cmus support"
-optional_depends pulseaudio     "-D BUILD_PULSEAUDIO=ON" "" "for pulseaudio support"
-optional_depends imlib2         "-D BUILD_IMLIB2=ON"     "" "for images display support"
 
 optional_depends docbook2X "-D BUILD_MAINTAINER_MODE=ON" "" "for generating the documentation"
 
-# Broken - use the internal libs (at least for imlib and cairo)
-#optional_depends toluapp "" "" "for embeded Lua suport - needed for Cairo graphics"
+# Broken - use the internal libs (at least for cairo)
 #optional_depends cairo     "-D BUILD_LUA_CAIRO=ON"  "" "for graphics support"
 #optional_depends audacious "-D BUILD_AUDACIOUS=ON"  "" "for audacious audio player support"
+
+#optional_depends toluapp "" "" "for embeded Lua suport - needed for Cairo graphics"
 
 # To be added
 #optional_depends libxnvctrl     "-D BUILD_NVIDIA=ON"     "" "for NVIDIA support"
