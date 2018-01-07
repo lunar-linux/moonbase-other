@@ -1,8 +1,8 @@
-  if [ ! -e /etc/sddm.conf ] ; then
+if [ ! -e /etc/sddm.conf ]; then
     sddm --example-config > /etc/sddm.conf &&
 # Initially sddm starts on VT1. We'll sedit this to VT7
 # then you can make it what you want.
     sedit "s:MinimumVT=1:MinimumVT=7:" /etc/sddm.conf
-  fi
+fi
 
   

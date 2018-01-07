@@ -2,3 +2,11 @@ depends libX11
 depends libXcursor
 depends qt5
 depends extra-cmake-modules
+
+optional_depends docutils "-DBUILD_MAN_PAGES=ON" "" "for installing man pages"
+#optional_depends elogind  "-DUSE_ELOGIND=yes"    "" "for elogind support"
+
+optional_depends systemd \
+                 "-DNO_SYSTEMD=no" \
+                 "-DNO_SYSTEMD=yes" \
+                 "for systemd support"
