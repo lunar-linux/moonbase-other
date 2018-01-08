@@ -9,11 +9,11 @@ trap ":" INT QUIT TSTP
 
 echo "Init: leaving runlevel $PREVLEVEL"
 
-if [ "$PREVLEVEL" != "N" ] ; then
-	for SCRIPT in /etc/rc${RUNLEVEL}.d/K* ; do
+if [ "$PREVLEVEL" != "N" ]; then
+	for SCRIPT in /etc/rc${RUNLEVEL}.d/K*; do
  		if [ -e "$SCRIPT" ]; then
 			SCRIPTBASE=${SCRIPT:14}
-			if [ ! -e /etc/rc${PREFLEVEL}.d/K??${SCRIPTBASE} ] ; then
+			if [ ! -e /etc/rc${PREFLEVEL}.d/K??${SCRIPTBASE} ]; then
 			
 				$SCRIPT stop
 			fi
@@ -23,14 +23,13 @@ fi
 
 echo "Init: leaving runlevel $PREVLEVEL complete, entering runlevel $RUNLEVEL"
 
-for SCRIPT in ls -1d /etc/rc${RUNLEVEL}.d/S* ; do
+for SCRIPT in ls -1d /etc/rc${RUNLEVEL}.d/S*; do
  	if [ -e "$SCRIPT" ]; then
 		SCRIPTBASE=${SCRIPT:14}
-		if [ ! -e /etc/rc${PREVLEVEL}.d/S??${SCRIPTBASE} ] ; then
+		if [ ! -e /etc/rc${PREVLEVEL}.d/S??${SCRIPTBASE} ]; then
 			$SCRIPT start
 		fi
 	fi
 done
 
 echo "Init: entering runlevel $RUNLEVEL complete"
-
