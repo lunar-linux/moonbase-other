@@ -1,3 +1,4 @@
+depends autoconf-archive
 depends pciutils
 depends intltool
 
@@ -10,11 +11,6 @@ optional_depends %OSSL \
                  "--enable-openssl"  \
                  "--disable-openssl" \
                  "enable support for openSSL"
-
-optional_depends Python \
-                 "--enable-python=python2" \
-                 "--disable-python" \
-                 "enable support for Python 2.x plugins"
 
 optional_depends Python-3 \
                  "--enable-python=python3" \
