@@ -1,3 +1,6 @@
+# Fix build with glibc-2.26
+sed -e '/xlocale.h/d' -i liveMedia/include/Locale.hh &&
+
 # No need for the use of arch
 sedit 's;^C_FLAGS.*;& -fPIC $(CFLAGS);;s;\(^CPLUSPLUS_FLAGS.*$(COMPILE_OPTS)\).*;\1 -fPIC $(CXXFLAGS);' config.linux &&
 
