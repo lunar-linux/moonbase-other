@@ -1,4 +1,7 @@
 depends libevent
 depends ncurses
 
-optional_depends libutempter "" "" "for session logging in utmp and wtmp files"
+optional_depends libutempter \
+                 "--enable-utempter" \
+                 "--disable-utempter" \
+                 "for session logging in utmp and wtmp files"
