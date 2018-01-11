@@ -1,8 +1,10 @@
-(
+# Borrow the code from Arch Linux
+gcc -Wall $CFLAGS -o intel-microcode2ucode intel-microcode2ucode.c &&
 
-   prepare_install &&
-   mkdir -p /lib/firmware &&
-   install -m644 $MODULE.dat /lib/firmware/ &&
-   ln -sf /lib/firmware/$MODULE.dat /etc/microcode.dat
+./intel-microcode2ucode ./microcode.dat &&
 
-) > $C_FIFO 2>&1
+prepare_install &&
+
+mkdir -p kernel/x86/microcode &&
+mv microcode.bin kernel/x86/microcode/GenuineIntel.bin
+echo kernel/x86/microcode/GenuineIntel.bin | bsdcpio -o -H newc -R 0:0 > /boot/intel-ucode.img
