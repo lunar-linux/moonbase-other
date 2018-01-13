@@ -51,8 +51,8 @@ optional_depends libdc1394 \
                  "for firewire support" y
 
 optional_depends v4l-utils \
-                 "-DWITH_V4L=ON" \
-                 "-DWITH_V4L=OFF" \
+                 "-DWITH_LIBV4L=ON" \
+                 "-DWITH_LIBV4L=OFF" \
                  "for v4l video support" y
 
 optional_depends openexr \
@@ -63,7 +63,7 @@ optional_depends openexr \
 optional_depends gtk+-2 \
                  "-DWITH_GTK_2_X=ON" \
                  "-DWITH_GTK_2_X=OFF" \
-                 "for gtk+-2 graphics support" n
+                 "for gtk+-2 graphics support.${PROBLEM_COLOR}If yes here then no to gtk3 and qt5${DEFAULT_COLOR}" n
 
 optional_depends gtk+-3 \
                  "-DWITH_GTK=ON" \
@@ -73,7 +73,7 @@ optional_depends gtk+-3 \
 optional_depends qt5 \
                  "-DWITH_QT=ON" \
                  "-DWITH_QT=OFF" \
-                 "Build with Qt Backend support"
+                 "Build with Qt Backend support" y
 
 optional_depends eigen2 \
                  "-DWITH_EIGEN=ON" \
@@ -90,10 +90,10 @@ optional_depends CUDA-OpenCL-headers \
                  "-DWITH_CUDA=OFF" \
                  "for NVidia Cuda Runtime support" y
 
-optional_depends VTK \
-                 "-DWITH_VTK=ON" \
-                 "-DWITH_VTK=OFF" \
-                 "build visualization framework" n
+#optional_depends VTK \
+#                 "-DWITH_VTK=ON" \
+#                 "-DWITH_VTK=OFF" \
+#                 "build visualization framework" n
 
 optional_depends Sphinx \
                  "-DBUILD_DOCS=ON" \
