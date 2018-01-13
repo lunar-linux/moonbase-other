@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 OPTS+=" --disable-static" &&
 
 if module_installed vcdimager; then
