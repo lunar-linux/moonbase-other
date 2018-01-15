@@ -1,4 +1,4 @@
-export LDFLAGS="$(echo $LDFLAGS | sed 's;-z now;-Wl,-znow;g;s;-z relro;-Wl,-zrelro;g')"
+export LDFLAGS="$(echo $LDFLAGS | sed 's;-z now;-Wl,-znow;g;s;-z relro;-Wl,-zrelro;g')" &&
 
 # This is the make step. According to its --help the default -j is
 # derived from your number of CPUs.
@@ -38,7 +38,7 @@ ln -sf ${CHROMIUM_HOME}/chromedriver /usr/bin/chromedriver &&
 install -Dm644 LICENSE /usr/share/licenses/chromium/LICENSE &&
 
 # Don't forget to comment out this line below when readding icu4c system dependency (keeps breaking between releases)
-install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat
+install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat &&
 
 # symlink to lunar location for browser plugins, should be /usr/lib/lunar/plugins
 ln -sf /usr/lib/lunar/plugins ${CHROMIUM_HOME}/plugins &&
