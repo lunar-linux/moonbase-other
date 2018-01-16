@@ -5,7 +5,7 @@ depends tiff
 optional_depends %JPEG \
                  "--with-libjpeg"    \
                  "--without-libjpeg" \
-                 "for JPEG image loader"
+                 "for JPEG image loader" y
 
 optional_depends libpng \
                  "--with-libpng"    \
@@ -15,19 +15,19 @@ optional_depends libpng \
 optional_depends jasper \
                  "--with-libjasper"    \
                  "--without-libjasper" \
-                 "for JPEG 2000 image loader"
+                 "for JPEG 2000 image loader" y
 
 optional_depends libX11 \
                  "--with-x11"    \
                  "--without-x11" \
-                 "for X11 support (needed by Adobe Acrobat Reader)"
+                 "for X11 support (needed by Adobe Acrobat Reader)" y
 
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \
                  "--disable-gtk-doc" \
-                 "for building documentation"
+                 "for building documentation" n
 
 optional_depends gobject-introspection \
                  "--enable-introspection"  \
                  "--disable-introspection" \
-                 "for gobject introspection support"
+                 "for gobject introspection support" Y
