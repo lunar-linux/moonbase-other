@@ -1,7 +1,7 @@
-OPTS+=" --disable-static \
-        --disable-egl \
-        --disable-simple-egl-clients \
-        --disable-simple-dmabuf-drm-client \
-        --enable-clients" &&
+OPTS+=" --disable-static --enable-clients --enable-demo-clients-install" &&
+
+if in_depends $MODULE systemd; then
+  OPTS+=" --enable-systemd-notify --enable-systemd-login"
+fi &&
 
 default_build
