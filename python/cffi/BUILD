@@ -3,10 +3,10 @@ python3 ./setup.py build &&
 
 prepare_install &&
 
-python3 setup.py install --root=/ --optimize=1
+python3 setup.py install --root=/ --optimize=1 &&
 
 # Python2 build
-if in_depends setuptools; then
+if module_installed setuptools; then
   python ./setup.py build &&
   python setup.py install --root=/ --optimize=1
 fi

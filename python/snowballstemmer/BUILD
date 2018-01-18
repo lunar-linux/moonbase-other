@@ -2,9 +2,9 @@ python3 setup.py build &&
 
 prepare_install &&
 
-python3 setup.py install --optimize=1
+python3 setup.py install --optimize=1 &&
 
-if in_depends setuptools; then
+if module_installed setuptools; then
   python setup.py build &&
   python setup.py install --optimize=1
 fi
