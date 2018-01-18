@@ -4,6 +4,6 @@ prepare_install &&
 
 python3 setup.py install --optimize=1 &&
 
-if in_depends $MODULE setuptools; then
+if module_installed setuptools; then
   python setup.py install --optimize=1
 fi

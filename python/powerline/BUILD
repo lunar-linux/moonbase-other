@@ -4,10 +4,10 @@ prepare_install &&
 
 python3 setup.py install --install-data=usr --install-scripts=usr/bin --optimize=1 --root=/ &&
 
-if in_depends setuptools; then
+if module_installed setuptools; then
   python setup.py build &&
   python setup.py install --install-data=usr --install-scripts=usr/bin --optimize=1 --root=/
-fi
+fi &&
 
 install -dm755 /etc/fonts/conf.d &&
 install -dm755 /etc/fonts/conf.avail &&
