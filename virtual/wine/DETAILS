@@ -1,15 +1,11 @@
           MODULE=wine
-         VERSION=2.22
+         VERSION=3.0
           SOURCE=$MODULE-$VERSION.tar.xz
-         SOURCE2=$MODULE-2.0-winhlp32_fix_a_bug_in_flex.patch.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=http://dl.winehq.org/wine/source/2.x/
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha256:db5c7e7f652405d927b3ba43cc09e4e2f5726a2c7cbf9445a0d01d1b335e8b73
-     SOURCE2_VFY=sha256:390e5861a10605c805b7d20a2273f8eb436f20aab70b4299bc363cd1a57b2ac2
+      SOURCE_URL=http://dl.winehq.org/wine/source/${VERSION%3}/
+      SOURCE_VFY=sha256:346a050aca5cd0d9978a655af11c30e68c201a58aea0c70d5e4c4f1b63c2fbec
         WEB_SITE=http://www.winehq.com
          ENTERED=20010925
-         UPDATED=20171125
+         UPDATED=20180119
            SHORT="Runs Microsoft Windows programs"
 
 cat << EOF
