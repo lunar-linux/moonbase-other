@@ -1,3 +1,4 @@
+./autogen.sh &&
 
   if in_depends $MODULE apache-ant; then
      CFLAGS+=" -I/usr/lib/java/latest/include/linux" &&
