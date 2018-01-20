@@ -1,0 +1,25 @@
+         MODULE=libdvbcsa
+        VERSION=1.1.0
+         SOURCE=$MODULE-$VERSION.tar.gz
+     SOURCE_URL=https://download.videolan.org/pub/videolan/libdvbcsa/$VERSION/
+     SOURCE_VFY=sha256:4db78af5cdb2641dfb1136fe3531960a477c9e3e3b6ba19a2754d046af3f456d
+       WEB_SITE=https://www.videolan.org/developers/libdvbcsa.html
+        ENTERED=20180120
+        UPDATED=20180120
+          SHORT="free implementation of the DVB Common Scrambling Algorithm"
+
+cat << EOF
+libdvbcsa is a free implementation of the DVB Common Scrambling Algorithm - DVB/CSA - with encryption and decryption capabilities.
+Features
+
+Portability. This library has been successfully tested on different processors with 32 bits, 64 bits and 128 bits word width,
+little-endian and big-endian bytes ordering.
+
+Performance. It comes in two flavors: a classical single packet implementation and a faster parallel bitslice implementation.
+The parallel implementation can take advantages of MMX, SSE or Altivec instruction sets. Parallel implementation can process
+Mpeg TS packets at 300Mbps or more on recent processors.
+
+Freedom. libdvbcsa is released under the General Public License, ensuring it will stay free, and used only for free software products.
+
+Simplicity. The API comes with only 5 functions for the single packet implementation, and 6 functions for the parallel bit-slice implementation.
+EOF
