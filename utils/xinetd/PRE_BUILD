@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# fix CVE-2013-4342
+sedit "s|exec_server(nserp);|child_process(nserp);|" xinetd/builtins.c
