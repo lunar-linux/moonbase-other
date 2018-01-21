@@ -1,9 +1,16 @@
-export CXXFLAGS+=" -fno-lifetime-dse"
+  export CXXFLAGS+=" -fno-lifetime-dse" &&
 
-make &&
+  # copied the pc from debian, they don't provide it upstream
+  cat $SCRIPT_DIRECTORY/tbb.pc.in | sed "s/%VERSION%/${VERSION}/" > tbb.pc &&
 
-prepare_install &&
+  make &&
 
-rm include/tbb/*.html &&
-cp -a include/tbb /usr/include &&
-install -m644 build/linux_*/*.so* /usr/lib
+  prepare_install &&
+
+  # we don't want to install html files in /usr/include
+  rm {include,include/tbb}/index.html &&
+  cp -rv include/* /usr/include/ &&
+
+  install -Dm0644 tbb.pc /usr/lib/pkgconfig/ &&
+
+  install build/linux_intel*release/*.so* /usr/lib/

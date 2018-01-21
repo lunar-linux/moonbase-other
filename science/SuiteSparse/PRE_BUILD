@@ -4,7 +4,7 @@ unpack $SOURCE  &&
 
 cd $SOURCE_DIRECTORY &&
 
-if in_depends $MODULE tbb; then
+if in_depends $MODULE intel-tbb; then
  sedit "s:TBB ?=:TBB = -ltbb -DSPQR_CONFIG=-DHAVE_TBB:" SuiteSparse_config/SuiteSparse_config.mk
 fi
 
