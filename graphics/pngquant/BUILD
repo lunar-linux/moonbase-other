@@ -1,13 +1,12 @@
-OPTS+=" --build=$BUILD" &&
 
 # It's configure is pretty dumb, doesn't know what to do with our --build
 pushd lib > /dev/null
 ./configure --prefix=/usr &&
-make &&
-popd > /dev/null
+make shared &&
+popd > /dev/null &&
 
-./configure --prefix=/usr &&
-default_make
+./configure --prefix=/usr --with-lcms2 --with-libpng=/usr/lib/libpng.so &&
+default_make &&
 
 mkdir -p /usr/include/$MODULE &&
 install -m 755 lib/*.h /usr/include/$MODULE &&
