@@ -1,12 +1,11 @@
+depends zlib
+depends libpng
+depends %JPEG
+depends boost
+depends nose
+depends fftw3
+depends tiff
 depends cmake
-
-optional_depends fftw3  ""  ""  "fast C FFT library"
-optional_depends nose   ""  ""  "for test discovery unittest"
-optional_depends zlib   ""  ""  "compression support"
-optional_depends libpng ""  ""  "for png support"
-optional_depends %JPEG  ""  ""  "for jpeg support"
-optional_depends tiff   ""  ""  "for tiff support"
-optional_depends boost  ""  ""  "for boost support"
 
 optional_depends Sphinx \
                  "-DPYTHON_SPHINX=ON" \
