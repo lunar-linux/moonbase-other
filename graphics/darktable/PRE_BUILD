@@ -1,4 +1,0 @@
-default_pre_build &&
-
-# Fixes jpeg 9 problems - libjpeg-turbo doesn't need this
-sedit "/#include [<\"]jpeglib.h[>\"]/ i typedef int boolean;\n#define HAVE_BOOLEAN" src/external/rawspeed/RawSpeed/StdAfx.h
