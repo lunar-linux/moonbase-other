@@ -23,11 +23,11 @@ OPTS+=" --prefix=/usr \
         --with-sqlite3=/usr \
         --enable-pthread-support" &&
 
-mkdir -p $SOURCE_DIRECTORY/_heimdest/ &&
+mkdir -p $SOURCE_DIRECTORY/__heimdest/ &&
 
 default_config &&
 make &&
-INSTALL_CATPAGES="no" make DESTDIR=$SOURCE_DIRECTORY/_heimdest/ install &&
+INSTALL_CATPAGES="no" make DESTDIR=$SOURCE_DIRECTORY/__heimdest/ install &&
 
 for i in su ; do
   if [ -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/${i}.1 ]; then
