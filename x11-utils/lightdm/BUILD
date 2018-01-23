@@ -13,4 +13,3 @@ chmod +t /var/{cache/lightdm,lib/lightdm{,-data}} &&
 chown -R lightdm:lightdm /var/lib/lightdm{,-data} &&
 chgrp lightdm /var/log/lightdm &&
 install -m0755 $SCRIPT_DIRECTORY/Xsession /etc/lightdm/
-
