@@ -9,4 +9,9 @@
   sedit "s:/ups:/usr/share/astrometry/ups:g" Makefile &&
   sedit "s:/examples:/usr/share/astrometry/examples:" Makefile &&
   sedit "s:cairo.h:cairo/cairo.h:" util/cairoutils.c &&
-  sedit "8i #include <stdlib.h>" util/test_qsort_r.c
+  sedit "8i #include <stdlib.h>" util/test_qsort_r.c &&
+
+# Since astrometry depends on cfitsio and both modules conflicts on these two programs we can stop this here.
+# You maight want to lin cfitsio afterwards to resolve the conflict.
+  sedit "s:fitscopy::" blind/Makefile &&
+  sedit "s:imcopy::" blind/Makefile
