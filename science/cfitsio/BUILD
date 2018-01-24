@@ -1,6 +1,3 @@
-sedit "s:/bin/::g" Makefile.in &&
-
-OPTS+=" --enable-reentrant" &&
 
 default_config &&
 make shared &&

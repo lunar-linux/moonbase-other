@@ -1,0 +1,13 @@
+default_pre_build &&
+
+sedit "s:/bin/::g" Makefile.in &&
+
+if grep -q sse2 /proc/cpuinfo; then
+  OPTS+=" --enable-sse2"
+fi &&
+
+if grep -q sse3 /proc/cpuinfo; then
+  OPTS+=" --enable-ssse3"
+fi &&
+
+OPTS+=" --enable-reentrant"
