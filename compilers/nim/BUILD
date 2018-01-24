@@ -21,6 +21,9 @@ pushd tools &&
 nim c -d:release nimgrep.nim
 popd &&
 
+# build nimsuggest
+nim c -d:release nimsuggest/nimsuggest.nim &&
+
 prepare_install &&
 
 ./koch install $SOURCE_DIRECTORY &&
@@ -35,7 +38,7 @@ install -m 755 nim/lib/libnimrtl.so /usr/lib/libnimrtl.so &&
 ln -sf /usr/share/nim/doc /usr/lib/nim/doc &&
 
 install -Dm 644 nim/config/* -t /etc &&
-install -Dm 755 nim/bin/* tools/nimgrep -t /usr/bin &&
+install -Dm 755 nim/bin/* tools/nimgrep nimsuggest/nimsuggest -t /usr/bin &&
 
 # fix the unusual placement of header files
 install -d /usr/include &&
