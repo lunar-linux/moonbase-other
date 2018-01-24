@@ -1,7 +1,5 @@
-(
+export CFLAGS="$CFLAGS -fPIC"
 
-  export CFLAGS="$CFLAGS -fPIC"
-  OPTS+=" --enable-shared=yes --enable-static=no "  &&
-  default_build
+OPTS+=" --enable-shared=yes --enable-static=no " &&
 
-) > $C_FIFO 2>&1
+default_build
