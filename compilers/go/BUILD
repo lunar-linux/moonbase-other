@@ -18,8 +18,6 @@ esac &&
 cd src &&
 bash make.bash --no-clean &&
 
-#cd $SOURCE_DIRECTORY &&
-
 $GOROOT/bin/go get -d golang.org/x/tools/cmd/godoc &&
 $GOROOT/bin/go build -o $SOURCE_DIRECTORY/godoc golang.org/x/tools/cmd/godoc &&
 for i in vet cover; do
@@ -30,18 +28,21 @@ done &&
 prepare_install &&
 
 cd $SOURCE_DIRECTORY &&
-install -Dm0755 godoc /usr/bin/godoc &&
-mkdir -p /usr/{share/go,lib/go/src,lib/go/site/src} &&
+
+mkdir -p /usr/{share/go,lib/go/{bin,src,site/src}} &&
+install -Dm0755 godoc /usr/lib/go/bin/godoc &&
 cp -r doc misc /usr/share/go/ &&
 ln -sf /usr/share/go/doc /usr/lib/go/doc &&
-cp -a bin /usr/ &&
-cp -a pkg /usr/lib/go/ &&
+cp -a {bin,pkg}   /usr/lib/go/ &&
 cp -a $GOROOT/src /usr/lib/go/ &&
 cp -a $GOROOT/lib /usr/lib/go/ &&
 
 install -Dm0644 src/Make.* /usr/lib/go/src/ &&
 
-ln -sf /usr/bin /usr/lib/go/bin &&
+# add the symlinks to /usr/bin
+for f in /usr/lib/go/bin/*; do
+   ln -sf $f "/usr/bin/${f##*/}" 
+done &&
 
 # Remove object files from target src dir
 find /usr/lib/go/src/ -type f -name '*.[ao]' -delete &&
