@@ -1,27 +1,36 @@
 default_pre_build &&
 
-unzip $SOURCE_CACHE/$SOURCE6 &&
+unzip $SOURCE_CACHE/$SOURCE2 &&
 
 # Enable support for the Widevine CDM plugin
-patch_it $SOURCE2 1 &&
-
-# Build fix with glibc 2.26
 patch_it $SOURCE3 1 &&
 
-# Fix incorrect inclusion of <string_view> in modes other than >= C++17
-pushd third_party/crc32c/src &&
+# https://chromium-review.googlesource.com/c/chromium/src/+/712575
 patch_it $SOURCE4 1 &&
-popd &&
+
+# https://crbug.com/772655
+patch_it $SOURCE5 1 &&
+
+# https://crbug.com/789163
+patch_it $SOURCE6 1 &&
+
+# https://crbug.com/skia/6663#c10
+patch_it $SOURCE7 4 &&
 
 # Fixes from Gentoo
-patch_it $SOURCE5 1 &&
+patch_it $SOURCE8 1 &&
+patch_it $SOURCE9 1 &&
+patch_it $SOURCE10 1 &&
+
+# These flags are not supported by clang
+sedit '/"-Wno-enum-compare-switch"/d;/"-Wno-null-pointer-arithmetic"/d;/"-Wno-tautological-unsigned-zero-compare"/d;/"-Wno-tautological-constant-compare"/d' build/config/compiler/BUILD.gn &&
 
 # Build now requires nodejs
 mkdir -p third_party/node/linux/node-linux-x64/bin &&
 ln -s /usr/bin/node third_party/node/linux/node-linux-x64/bin/node &&
 
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=833524 / https://gcc.gnu.org/bugzilla/show_bug.cgi?id=68853#c2
-sedit '/config("compiler")/ a cflags_cc = [ "-fno-delete-null-pointer-checks" ]' build/config/linux/BUILD.gn &&
+# sedit '/config("compiler")/ a cflags_cc = [ "-fno-delete-null-pointer-checks" ]' build/config/linux/BUILD.gn &&
 
 export CHROMIUM_HOME=/usr/lib/$MODULE &&
 
@@ -42,12 +51,14 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
 echo > third_party/adobe/flash/flapper_version.h &&
 
 # Remove bundled libraries, we will use system provided ones instead (using arch's approach)
-libs=(flac harfbuzz-ng yasm libxslt libwebp libjpeg opus libxml re2 zlib)
+libs=(flac yasm libxslt libwebp libjpeg opus re2 zlib icu snappy)
 for lib in ${libs[@]} libjpeg_turbo; do
   find -type f -path "*third_party/${lib}/*" \
        \! -path "*third_party/${lib}/chromium/*" \
        \! -path "*third_party/${lib}/google/*" \
        \! -path "*base/third_party/icu/*" \
+       \! -path './third_party/freetype/src/src/psnames/pstables.h' \
+       \! -path './third_party/yasm/run_yasm.py' \
        \! -regex '.*\.\(gn\|gni\|isolate\|py\)' \
        -delete
 done &&
@@ -56,9 +67,10 @@ python2 build/linux/unbundle/replace_gn_files.py --system-libraries "${libs[@]}"
 python2 third_party/libaddressinput/chromium/tools/update-strings.py &&
 
 local _flags=(
-  'is_clang=false'
+  'custom_toolchain="//build/toolchain/linux/unbundle:default"'
+  'host_toolchain="//build/toolchain/linux/unbundle:default"'
+  'is_clang=true'
   'clang_use_chrome_plugins=false'
-  'symbol_level=0'
   'is_debug=false'
   'fatal_linker_warnings=false'
   'treat_warnings_as_errors=false'
@@ -69,6 +81,7 @@ local _flags=(
   'use_gconf=false'
   'use_gnome_keyring=false'
   'use_gold=false'
+  'use_lld=false'
   'use_sysroot=false'
   'use_custom_libcxx=false'
   'linux_use_bundled_binutils=false'
@@ -77,7 +90,7 @@ local _flags=(
   'enable_widevine=true'
   'enable_nacl=false'
   'enable_swiftshader=false'
-  'enable_nacl_nonsfi=false'
+  'exclude_unwind_tables=true'
   "google_api_key=\"${google_api_key}\""
   "google_default_client_id=\"${google_default_client_id}\""
   "google_default_client_secret=\"${google_default_client_secret}\""
@@ -86,6 +99,11 @@ local _flags=(
 for o in $OPTS; do
   _flags+=( "$o" )
 done &&
+
+export CC=clang &&
+export CXX=clang++ &&
+export AR=ar &&
+export NM=nm &&
 
 python2 tools/gn/bootstrap/bootstrap.py --gn-gen-args "${_flags[*]}" &&
 out/Release/gn gen out/Release --args="${_flags[*]}" --script-executable=/usr/bin/python2
