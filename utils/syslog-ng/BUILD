@@ -8,6 +8,7 @@ OPTS+=" --prefix=/usr \
         --with-pidfile-dir=/run \
         --disable-amqp \
         --disable-java \
+        --disable-fava-modules \
         --disable-spoof-source \
         --enable-ipv6 \
         --enable-manpages" &&
