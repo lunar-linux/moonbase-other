@@ -12,4 +12,3 @@ gzip wl.ko &&
 
 install -Dm644 wl.ko.gz /usr/lib/modules/$KERNEL_VERSION/extra/broadcom/wl.ko.gz &&
 install -Dm644 $SCRIPT_DIRECTORY/modprobe.d /usr/lib/modprobe.d/broadcom-wl.conf
-#ln -sf /usr/lib/modules/extramodules-$KERNEL_MAJOR /usr/lib/modules/$KERNEL_VERSION/extramodules
