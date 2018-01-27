@@ -1,4 +1,8 @@
 export LDFLAGS="$(echo $LDFLAGS | sed 's;-z now;-Wl,-znow;g;s;-z relro;-Wl,-zrelro;g')" &&
+export CC=clang &&
+export CXX=clang++ &&
+export AR=ar &&
+export NM=nm &&
 
 # This is the make step. According to its --help the default -j is
 # derived from your number of CPUs.
@@ -9,15 +13,13 @@ prepare_install &&
 # installing
 install -D out/Release/chrome ${CHROMIUM_HOME}/chrome &&
 install -Dm4755 -o root -g root out/Release/chrome_sandbox ${CHROMIUM_HOME}/chrome-sandbox &&
-install -D out/Release/chromedriver ${CHROMIUM_HOME}/chromedriver &&
+cp out/Release/{chrome_{100,200}_percent,resources}.pak out/Release/{*.bin,chromedriver,libwidevinecdmadapter.so} ${CHROMIUM_HOME} &&
+install -Dm644 -t ${CHROMIUM_HOME}/locales out/Release/locales/*.pak &&
 
-cp out/Release/{*.pak,*.bin,libwidevinecdmadapter.so} ${CHROMIUM_HOME} &&
-cp -a out/Release/locales out/Release/resources ${CHROMIUM_HOME}/ &&
+#find ${CHROMIUM_HOME}/ -name '*.d' -type f -delete &&
 
-find ${CHROMIUM_HOME}/ -name '*.d' -type f -delete &&
-
-install -Dm644 out/Release/chrome.1 /usr/share/man/man1/chromium.1 &&
-
+install -Dm644 chrome/app/resources/manpage.1.in /usr/share/man/man1/chromium.1 &&
+sedit "s/@@MENUNAME@@/Chromium/g;s/@@PACKAGE@@/chromium/g;s/@@USR_BIN_SYMLINK_NAME@@/chromium/g" /usr/share/man/man1/chromium.1 &&
 install -m 0644 -D $SCRIPT_DIRECTORY/chromium.desktop /usr/share/applications/chromium.desktop &&
 
 if [ -d /usr/share/icons/hicolor/ ]; then
@@ -38,14 +40,10 @@ ln -sf ${CHROMIUM_HOME}/chromedriver /usr/bin/chromedriver &&
 install -Dm644 LICENSE /usr/share/licenses/chromium/LICENSE &&
 
 # Don't forget to comment out this line below when readding icu4c system dependency (keeps breaking between releases)
-install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat &&
+# install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat &&
 
 # symlink to lunar location for browser plugins, should be /usr/lib/lunar/plugins
 ln -sf /usr/lib/lunar/plugins ${CHROMIUM_HOME}/plugins &&
-
-# theme installation
-mkdir -p /usr/share/themes/Chromium &&
-cp -a $SOURCE_DIRECTORY/chrome/app/theme /usr/share/themes/Chromium/ &&
 
 if [ ! -f /etc/$MODULE/chromium.default ]; then
   mkdir -p /etc/$MODULE &&
