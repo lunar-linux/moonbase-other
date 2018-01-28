@@ -8,6 +8,7 @@ OPTS+=" --disable-gsm     \
         --disable-static  \
         --disable-tests   \
         --with-srtp=/usr  \
+        --enable-non-free-codecs \
         --disable-strict" &&
 
 sedit "s:/bin/echo:/usr/bin/echo:g" src/Makefile.am &&
