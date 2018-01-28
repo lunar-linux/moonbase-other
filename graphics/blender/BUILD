@@ -23,5 +23,4 @@ make &&
 # We need to do it this way else make tanks and still needed with 2.72a
 python3 ../doc/manpage/blender.1.py bin/blender bin/blender.1 &&
 
-prepare_install &&
-make install
+default_install
