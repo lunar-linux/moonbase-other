@@ -6,7 +6,6 @@ depends lua
 depends git
 
 optional_depends ncurses        "-D BUILD_NCURSES=ON"    "" "for ncurses support"
-optional_depends imlib2         "-D BUILD_IMLIB2=ON"     "" "for images display support"
 optional_depends libX11         "-D BUILD_X11=ON"        "" "for X11 support"
 optional_depends libXdamage     "-D BUILD_XDAMAGE=ON"    "" "for libXdamage support"
 optional_depends libXinerama    "-D BUILD_XINERAMA=ON"   "" "for libXinerama support"
@@ -19,6 +18,10 @@ optional_depends mpd            "-D BUILD_MPD=ON"        "" "for mpd support"
 optional_depends cmus           "-D BUILD_CMUS=ON"       "" "for cmus support"
 
 optional_depends docbook2X "-D BUILD_MAINTAINER_MODE=ON" "" "for generating the documentation"
+
+optional_depends imlib2 \
+                 "-D BUILD_IMLIB2=ON -D BUILD_LUA_IMLIB2=ON" \
+                 "" "for images display support"
 
 # Broken - use the internal libs (at least for cairo)
 #optional_depends cairo     "-D BUILD_LUA_CAIRO=ON"  "" "for graphics support"
