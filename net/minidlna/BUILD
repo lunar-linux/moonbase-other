@@ -11,6 +11,9 @@ else
   install -Dm644 minidlna.conf /etc/minidlna/minidlna.conf.new
 fi &&
 
+add_priv_group minidlna &&
+add_priv_user minidlna:minidlna -d /var/lib/minidlna -d /var/run/minidlna -g minidlna &&
+
 default_build &&
 
 mkdir -p /var/{lib,log,run,cache}/minidlna &&
@@ -20,5 +23,6 @@ touch /var/log/minidlna/minidlna.log &&
 chmod 644 /var/log/minidlna/minidlna.log &&
 chown minidlna:minidlna /var/log/minidlna/minidlna.log &&
 
-add_priv_group minidlna &&
-add_priv_user minidlna:minidlna -d /var/lib/minidlna -d /var/run/minidlna -g minidlna
+if [[ ! -f /etc/minidlna/minidlna.conf ]]; then
+ install -Dm644 minidlna.conf /etc/minidlna/minidlna.conf
+fi
