@@ -3,7 +3,7 @@ Description=Periodic Command Scheduler
 After=syslog.target
 
 [Service]
-ExecStart=/usr/bin/crond -n
+ExecStart=/usr/sbin/crond -n
 ExecReload=/usr/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=always
