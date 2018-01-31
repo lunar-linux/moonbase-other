@@ -19,6 +19,9 @@ make &&
 prepare_install &&
 make altinstall &&
 
+# libixion (libreoffice-bin) need this
+ln -sf /usr/lib/pkgconfig/python-3.6.pc /usr/lib/pkgconfig/python3.pc &&
+
 # Till Python 3 based apps catch up we need a symlink from python3.3 to python3
 ln -sf /usr/bin/python3.`lvu version Python-3 | cut -c 1` /usr/bin/python3 &&
 
