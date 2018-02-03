@@ -1,8 +1,32 @@
-depends rpmunpack
+depends apr
 depends cpio
-depends gtk+-2
+depends clucene
+depends dbus-glib
+depends desktop-file-utils
 depends hicolor-icon-theme
 depends shared-mime-info
+depends glew
+depends %JPEG
+depends graphite
+depends harfbuzz
+depends hunspell
+depends lcms2
+depends libatomic_ops
+depends poppler
+depends pango
+depends libxslt
+depends libwps
+depends libvisio
+depends libwpg
 depends cups
 depends libwps
 depends liborcus
+depends rpmunpack
+
+optional_depends gtk+-3  "" "" "for GTK 3.x integration"
+optional_depends gtk+-2  "" "" "for GTK 2.x integration"
+optional_depends kdelibs "" "" "for KDE integration" 
+
+optional_depends %JAVA_SDK "" "" "for Java support"
+
+optional_depends gst-plugins-base-1.0 "" "" "for multimedia content"
