@@ -1,9 +1,10 @@
 depends alsa-lib
-depends bzip2
+depends dbus
 depends desktop-file-utils
 depends flac
 depends cups
 depends json-glib
+depends xz
 depends gtk+-3
 depends harfbuzz
 depends hicolor-icon-theme
@@ -25,6 +26,7 @@ depends re2
 depends minizip
 depends snappy
 depends xdg-utils
-depends libgnome-keyring
 depends mesa-lib
-depends systemd
+depends %UDEV 
+
+optional_depends libgnome-keyring "" "for storing passwords in GNOME keyring"
