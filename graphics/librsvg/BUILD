@@ -1,4 +1,5 @@
-OPTS+=" --disable-static" &&
+OPTS+=" --enable-vala \
+        --disable-static" &&
 
 autoreconf -i &&
 
