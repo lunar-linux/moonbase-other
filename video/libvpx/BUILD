@@ -7,6 +7,7 @@ OPTS+=" --prefix=/usr               \
         --enable-webm-io            \
         --enable-postproc           \
         --enable-vp9-postproc       \
+        --enable-vp9-highbitdepth   \
         --enable-runtime-cpu-detect \
         --enable-multi-res-encoding \
         --enable-onthefly-bitpacking \
