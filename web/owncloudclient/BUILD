@@ -7,7 +7,7 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
 
 default_cmake_build &&
 
-if in_depends doxygen; then
+if in_depends doxygen $MODULE; then
   make doc-man &&
   make install
 fi
