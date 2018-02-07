@@ -1,10 +1,7 @@
-. /etc/profile.d/qt4.rc &&
-default_cmake_build &&
+. /etc/profile.d/qt5.rc &&
 
-if in_depends $MODULE qt5; then
-  devoke_installwatch &&
-  cd "$SOURCE_DIRECTORY" &&
-  rm -rf "$MODULE-oosb" &&
-  . /etc/profile.d/qt5.rc &&
-  default_cmake_build
-fi
+OPTS=" -DCMAKE_INSTALL_PREFIX=/usr \
+       -DCMAKE_INSTALL_LIBDIR=lib  \
+       -DCMAKE_BUILD_TYPE=Release"
+
+default_cmake_build

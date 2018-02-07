@@ -1,4 +1,11 @@
 depends cmake
-depends qt4
+depends qt5
 
-optional_depends qt5 "" " " "for Qt5 module"
+optional_depends kwallet "" "" "for kwallet backend"
+
+optional_depends libsecret \
+                 "-DLIBSECRET_SUPPORT=ON" \
+                 "-DLIBSECRET_SUPPORT=OFF" \
+                 "for libsecret backend"
+
+optional_depends gnome-keyring "" "" "for GMOME keyring backend"
