@@ -1,3 +1,13 @@
-. /etc/profile.d/qt4.rc &&
-OPTS+=" -DBUILD_WITH_QT4=1" &&
-default_cmake_build
+. /etc/profile.d/qt5.rc &&
+
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib  \
+        -DCMAKE_BUILD_TYPE=Release  \
+        -DCMAKE_INSTALL_SYSCONFDIR=/etc/$MODULE" &&
+
+default_cmake_build &&
+
+if in_depends doxygen; then
+  make doc-man &&
+  make install
+fi
