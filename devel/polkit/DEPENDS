@@ -1,6 +1,11 @@
+depends autoconf-archive
 depends spidermonkey
-depends systemd
 depends intltool
+
+optional_depends elogind \
+                 "--enable-libelogind=yes --with-os-type=gentoo" \
+                 "--enable-libelogind=no" \
+                 "for elogind support on non-systemd systems"
 
 optional_depends Linux-PAM \
                  "--with-authfw=pam" \
@@ -12,12 +17,17 @@ optional_depends expat \
                  "--without-expat" \
                  "for XML parsing support"
 
-optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
-                 "for gtk-doc support"
+optional_depends systemd \
+                 "--enable-libsystemd-login=yes" \
+                 "--enable-libsystemd-login=no" \
+                 "for systemd support"
 
 optional_depends gobject-introspection \
                  "--enable-introspection" \
                  "--disable-introspection" \
                  "for API collection support"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "for gtk-doc support"

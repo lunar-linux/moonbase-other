@@ -2,6 +2,13 @@ depends glib-2
 depends gdbus-codegen
 depends polkit
 depends vala
-depends systemd
 
-optional_depends "gobject-introspection" "--enable-introspection" "--disable-introspection" "for introspection support"
+optional_depends systemd \
+                 "--enable-systemd" \
+                 "--disable-systemd" \
+                 "for systemd support"
+
+optional_depends gobject-introspection \
+                "--enable-introspection" \
+                "--disable-introspection" \
+                "for introspection support"

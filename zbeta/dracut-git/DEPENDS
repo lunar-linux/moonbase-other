@@ -1,15 +1,15 @@
 depends bash
 depends coreutils
 depends cpio
-depends systemd
-depends systemd-sysv
 depends util-linux
 depends gzip
 depends bzip2
 depends xz
 depends kmod
 depends libcap
+depends %UDEV
 
+optional_depends systemd-sysv "" "" "for systemd support"
 optional_depends btrfs-progs "" "" "for btrfs filesystem support"
 optional_depends xfsprogs "" "" "for XFS filesystem support"
 optional_depends jfsutils "" "" "for JFS filesystem support"

@@ -3,6 +3,7 @@ depends flex
 depends gawk
 depends libxslt
 depends libdbi
+depends %UDEV
 
 optional_depends json-c "--with-jsonc=system"  "" "for JSON support"
 optional_depends curl   "--enable-http"        "" "for HTTP suport"
@@ -15,7 +16,7 @@ optional_depends mongo \
                  "--disable-mongodb" \
                  "for MongoDB support"
 
-optional_depends %UDEV \
+optional_depends systemd \
                  "--enable-systemd  --with-systemd-journal=system" \
                  "--disable-systemd --with-systemd-journal=no" \
                  "for systemd support"
