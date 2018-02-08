@@ -1,4 +1,3 @@
-(
   MYSQL_PLUGINS="heap federated partition archive blackhole"
   PLUG="innobase,ndbcluster"
   for mp in $MYSQL_PLUGINS; do
@@ -9,20 +8,20 @@
 
   OPTS+=" --with-plugins=${PLUG}" &&
 
-  add_priv_user mysql:mysql  &&
-  devoke_installwatch        &&
+  add_priv_user mysql:mysql &&
+  devoke_installwatch       &&
 
   if [ "`arch`" == "alpha" ]; then
       export CFLAGS="$CFLAGS -fPIC"
       export CXXFLAGS="$CXXFLAGS -fPIC"
-  fi  &&
+  fi &&
 
   if [ "`arch`" == "x86_64" ]; then
       export CFLAGS="$CFLAGS -fPIC"
       export CXXFLAGS="$CXXFLAGS -fPIC"
-  fi  &&
+  fi &&
 
-  export CXX='gcc'  &&
+  export CXX='gcc' &&
 
   ./configure  --prefix=/usr \
                --disable-dependency-tracking \
@@ -59,14 +58,12 @@
     message ""
     exit $MYSQL_EXIT;
   }
-  prepare_install                    &&
-  mkdir -p /var/lib/mysql            &&
-  make  pkglibdir=/usr/lib  install  &&
-  rm    -rf  /usr/mysql-test         &&
+  prepare_install                   &&
+  mkdir -p /var/lib/mysql           &&
+  make  pkglibdir=/usr/lib  install &&
+  rm    -rf  /usr/mysql-test        &&
 
-  if  [ -x /etc/init.d/mysql.server ]; then
+  if [ -x /etc/init.d/mysql.server ]; then
     rm -f /etc/init.d/mysql.server
     rm -f /etc/rc?.d/???mysql.server
   fi
-
-) > $C_FIFO 2>&1
