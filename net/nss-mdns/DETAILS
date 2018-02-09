@@ -1,11 +1,11 @@
           MODULE=nss-mdns
-         VERSION=0.10
+         VERSION=0.11
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://www.slackware.org.uk/slacky/slackware64-13.1/network/nss-mdns/0.10/src/
-      SOURCE_VFY=sha256:1e683c2e7c3921814706d62fbbd3e9cbf493a75fa00255e0e715508d8134fa6d
+ SOURCE_URL_FULL=https://github.com/lathiat/nss-mdns/archive/v0.11.tar.gz
+      SOURCE_VFY=sha256:c58128c2e82d65b10fc6760f2e32d2cf0b7cb01cf2291ddb4ca8faa47b049f7f
         WEB_SITE=http://0pointer.de/lennart/projects/nss-mdns/
          ENTERED=20071021
-         UPDATED=20071021
+         UPDATED=20180208
            SHORT="A plugin for the GNU Name Service Switch"
 
 cat << EOF
@@ -14,4 +14,8 @@ the GNU C Library (glibc) providing host name resolution via Multicast DNS
 (aka Zeroconf, aka Apple Rendezvous, aka Apple Bonjour), effectively
 allowing name resolution by common Unix/Linux programs in the ad-hoc mDNS
 domain .local.
+
+To work the host entry in /etc/nsswitch.conf should look something like this;
+
+hosts:          files mdns4_minimal [NOTFOUND=return] dns mdns4
 EOF
