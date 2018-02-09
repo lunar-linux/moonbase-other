@@ -1,9 +1,6 @@
 KERNEL_VERSION=$(module_version linux) &&
 echo "kernel version -> "$KERNEL_VERSION
 
-#KERNEL_MAJOR=${KERNEL_VERSION%.*} &&
-#echo "kernel major version -> "$KERNEL_MAJOR
-
 prepare_install &&
 
 make -C /usr/lib/modules/$KERNEL_VERSION/build M=`pwd` &&
