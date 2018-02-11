@@ -1,18 +1,13 @@
 default_pre_build &&
 
+
 patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 1 &&
-patch_it $SOURCE4 1 &&
-patch_it $SOURCE5 1 &&
 
-sedit "s:FLAC/FLAC:FLAC:g" modules/codec/flac.c &&
-
-# for vaapi compatibility
-sedit "39i #include <va/va_compat.h>" modules/codec/avcodec/vaapi.c &&
-
-sedit 's:10800:10623:' modules/services_discovery/upnp.cpp &&
+rm m4/lt* m4/libtool.m4 &&
 
 autoreconf -fi &&
+
+ export CXXFLAGS+=" -std=c++11" &&
 
 if in_depends $MODULE lua; then
   sedit "40i #define LUA_COMPAT_APIINTCASTS" modules/lua/vlc.h &&
@@ -22,8 +17,7 @@ if in_depends $MODULE lua; then
 fi &&
 
 if in_depends $MODULE samba; then
-  export SMBCLIENT_LIBS+=" /usr/lib/libsmbclient.so" &&
-  export SMBCLIENT_CFLAGS+=" -I/usr/include/samba-4.0"
+  export CFLAGS+=" -I/usr/include/samba-4.0"
 fi &&
 
 if module_installed live555; then
@@ -32,8 +26,6 @@ fi &&
 
 if in_depends $MODULE qt5; then
  . /etc/profile.d/qt5.rc &&
- export QT_CFLAGS+=" $(pkg-config --cflags /usr/lib/qt5/pkgconfig/{Qt5Core,Qt5Gui,Qt5Widgets,Qt5X11Extras}.pc)" &&
- export QT_LIBS+=" -L/usr/lib/qt5 -lQt5Widgets -lQt5Gui -lQt5Core -lQt5X11Extras" &&
  export RCC=/usr/lib/qt5/bin/rcc &&
  export MOC=/usr/lib/qt5/bin/moc &&
  export UIC=/usr/lib/qt5/bin/uic
