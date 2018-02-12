@@ -2,6 +2,7 @@ mkdir -p /usr/lib/node_modules &&
 chown -R root /usr/lib/node_modules &&
 
 # install it in a temp directory
+mkdir -p $SOURCE_DIRECTORY/man/man1 &&
 mkdir -p $SOURCE_DIRECTORY/npm_build &&
 make DESTDIR=$SOURCE_DIRECTORY/npm_build install &&
 
