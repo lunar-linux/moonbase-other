@@ -3,14 +3,27 @@ install -m755 $SOURCE_CACHE/$SOURCE2 waf &&
 ./waf configure --prefix=/usr \
                 --confdir=/etc/mpv \
                 --enable-libmpv-shared \
+                --enable-gl \
+                --enable-drm \
                 --enable-shm \
                 --enable-cdda \
+                --enable-alsa \
+                --enable-zlib \
                 --enable-encoding \
+                --disable-rpi \
+                --disable-uwp \
+                --disable-test \
+                --disable-wasapi \
                 --disable-rsound \
+                --disable-android \
                 --disable-opensles \
                 --disable-oss-audio \
+                --disable-coreaudio \
+                --disable-audiounit \
                 --disable-rubberband \
                 --disable-vapoursynth \
+                --disable-debug-build \
+                --disable-static-build \
                 --disable-vapoursynth-lazy
 
 ./waf build &&

@@ -1,20 +1,28 @@
+depends alsa-lib
 depends desktop-file-utils
 depends ffmpeg
 depends hicolor-icon-theme
+depends xdg-utils
 depends libXScrnSaver
-depends mesa-lib
 depends libXinerama
+depends mesa-lib
 depends docutils
-depends lcms2
-#depends xdg-utils
+depends zlib
 
-optional_depends lua "" "" "for lua support"
-
+optional_depends lcms2      "--enable-lcms"   "--disable-lcms"   "for lcms2 support"
 optional_depends libcaca    "--enable-caca"   "--disable-caca"   "for libcaca support"
 optional_depends pulseaudio "--enable-pulse"  "--disable-pulse"  "for pulseaudio support"
 optional_depends jack       "--enable-jack"   "--disable-jack"   "for jack audio support"
-optional_depends libas      "--enable-libass" "--disable-libass" "for SSA/ASS support"
+optional_depends openal     "--enable-openal" "--disable-openal"  "for OpenAL audio support"
+optional_depends libass     "--enable-libass" "--disable-libass" "for SSA/ASS support"
+optional_depends %JPEG      "--enable-jpeg"   "--disable-jpeg"   "for JPEG support"
 optional_depends libXv      "--enable-xv"     "--disable-xv"     "for libXv support"
+optional_depends libvdpau   "--enable-vdpau"  "--disable-vdpau"  "for VDPAU support"
+
+optional_depends lua \
+                 "-- enable-lua --lua='52arch'" \
+                 "--disable-lua" \
+                 "for lua support"
 
 optional_depends libcdio-paranoia \
                  "--enable-cdda"  \
@@ -46,11 +54,10 @@ optional_depends libvdpau \
                  "--disable-vdpau --disable-vdpau-gl-x11" \
                  "for libvdpau support"
 
-optional_depends youtube-dl "" "" "for video-sharing websites playback (needs lua)"
-
 #optional_depends v4l-utils \
 #                 "--enable-libv4l2 --enable-tv-v4l2" \
 #                 "--disable-libv4l2 --disable-tv-v4l2" \
 #                 "for video4linux2 device support"
 
 #optional_depends rubberband "" "" "for rubberband support"
+#optional_depends youtube-dl "" "" "for video-sharing websites playback (needs lua)"
