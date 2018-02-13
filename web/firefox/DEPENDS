@@ -20,9 +20,10 @@ optional_depends libpng \
                  "Build with system libpng"
 
 optional_depends cairo \
-                 "--enable-system-cairo" \
-                 "--disable-system-cairo" \
-                 "Build with system cairo ${PROBLEM_COLOR}(unstable)"
+                 "--enable-system-cairo --enable-system-pixman" \
+                 "--disable-system-cairo --disable-system-pixman" \
+                 "Build with system cairo ${PROBLEM_COLOR}(unstable)" \
+                 n
 
 optional_depends %FLASH "" "" "To enable Flash plugin"
 

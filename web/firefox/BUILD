@@ -3,19 +3,12 @@ LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
 
 SHELL="${SHELL:-/bin/bash}" &&
 
-if [ "$PGO" == "y" ]; then
-  #CCache breaks the pgo build
-  export CCACHE_DISABLE=1 &&
-  echo "mk_add_options PROFILE_GEN_SCRIPT='python $MOZ_OBJDIR/_profile/pgo/profileserver.py'" >> mozconfig  &&
 
-  make -f client.mk profiledbuild
-else
-  make -f client.mk build
-fi  &&
+./mach build &&
 
-cd ${MOZ_OBJDIR} &&
 prepare_install &&
-make install &&
+
+./mach install &&
 
 install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/firefox.desktop &&
 
