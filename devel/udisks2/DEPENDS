@@ -1,14 +1,15 @@
 depends polkit
 depends libatasmart
 depends libgudev
-depends gdbus-codegen
+#depends gdbus-codegen
 depends intltool
 depends util-linux
-depends %UDEV
 depends intltool
 depends gnome-common
-depends mdadm
-depends libblockdev
+#depends mdadm
+#depends dmraid
+depends libblockdev # compiled with dmraid depend
+depends gtk-doc
 
 optional_depends dosfstools  "" "" "for VFAT filesystem management support"
 optional_depends ntfs-3g     "" "" "for NTFS filesystem management support"
@@ -17,12 +18,6 @@ optional_depends btrfs-progs "" "" "for BTRFS filesystem support"
 optional_depends sg3_utils   "" "" "for SCSI support"
 optional_depends parted      "" "" "for partition management support"
 #optional_depends gpfdisk     "" "" "for GUID partition table support"
-
-depends gtk-doc
-#optional_depends gtk-doc \
-#                 "--enable-gtk-doc" \
-#                 "--disable-gtk-doc" \
-#                 "for building documentation"
 
 optional_depends gobject-introspection \
                  "--enable-introspection" \
