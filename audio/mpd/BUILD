@@ -1,4 +1,6 @@
-OPTS+="--with-systemdsystemunitdir=yes" &&
+if module_installed systemd; then
+  OPTS+=" --enable-systemd-daemon --with-systemdsystemunitdir=yes"
+fi &&
 
 default_build &&
 
