@@ -1,15 +1,18 @@
           MODULE=mpv
-         VERSION=0.27.0
-     WAF_VERSION=1.8.12
+         VERSION=0.27.1
+     WAF_VERSION=1.9.8
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=waf-$WAF_VERSION
+         SOURCE3=$MODULE-vaapi-Use-libva2-message-callbacks.patch
  SOURCE_URL_FULL=http://github.com/mpv-player/mpv/archive/v$VERSION.tar.gz
      SOURCE2_URL=http://www.freehackers.org/~tnagy/release/
-      SOURCE_VFY=sha256:341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c
-     SOURCE2_VFY=sha256:01bf2beab2106d1558800c8709bc2c8e496d3da4a2ca343fe091f22fca60c98b
+     SOURCE3_URL=$PATCH_URL
+     SOURCE_VFY=sha256:836299f1c33c46c8b8615fb84b99ecb05f048431a921e8dc9603aed9eb88af9c
+     SOURCE2_VFY=sha256:167dc42bab6d5bd823b798af195420319cb5c9b571e00db7d83df2a0fe1f4dbf
+     SOURCE3_VFY=sha256:75482b9bfecf090afe02a7ad4bf5fc4060ff5d8ee721eb2a29cb7d9ffc2060a0
         WEB_SITE=http://mpv.io/
          ENTERED=20150924
-         UPDATED=20170913
+         UPDATED=20180213
            SHORT="Video player based on MPlayer/mplayer2"
 
 cat << EOF
