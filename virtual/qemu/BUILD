@@ -5,7 +5,7 @@ CFLAGS+=" -fPIC"
 
 OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)" &&
 
-AUDIO_LIST="alsa"
+AUDIO_LIST="alsa" &&
 
 in_depends $MODULE pulseaudio && AUDIO_LIST+=",pa"
 in_depends $MODULE SDL && AUDIO_LIST+=",sdl"
