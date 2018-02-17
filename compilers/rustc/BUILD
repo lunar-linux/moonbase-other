@@ -4,8 +4,7 @@
             --docdir=/usr/share/doc \
             --mandir=/usr/share/man \
             --enable-local-rebuild \
-            --local-rust-root=$SOURCE_DIRECTORY/install \
-            &&
+            --local-rust-root=$SOURCE_DIRECTORY/install &&
 
 make ${MAKES:+-j$MAKES} &&
 
