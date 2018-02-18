@@ -1,7 +1,4 @@
-perl Build.PL &&
+perl Makefile.PL &&
 
-./Build &&
+default_make
 
-prepare_install &&
-
-./Build install
