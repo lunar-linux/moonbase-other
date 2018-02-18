@@ -1,8 +1,13 @@
+add_priv_user rpc:rpc &&
+
 OPTS+=" --with-rpcuser=rpc \
         --enable-warmstarts \
         --with-statedir=/var/lib/rpcbind" &&
 
-add_priv_user rpc:rpc &&
+if ! module_installed systemd; then
+  OPTS+=" --with-systemdsystemunitdir=no"
+fi &&
+
 default_build &&
 
 install -m644 man/rpcinfo.8 /usr/share/man/man8 &&

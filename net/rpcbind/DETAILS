@@ -1,14 +1,17 @@
           MODULE=rpcbind
          VERSION=0.2.4
           SOURCE=$MODULE-$VERSION.tar.bz2
+         SOURCE2=$MODULE-CVE-2017-8779.patch
       SOURCE_URL=$SFORGE_URL/$MODULE
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha256:074a9a530dc7c11e0d905aa59bcb0847c009313f02e98d3d798aa9568f414c66
+     SOURCE2_VFY=sha256:5d9e997a3f3c730b93d3b8ddeba8c5a782e22508db5608dc897fd372c88437ca
         WEB_SITE=http://rpcbind.sourceforge.net
            SHORT="portmap replacement which supports RPC over various protocols"
          ENTERED=20140111
-         UPDATED=20161206
+         UPDATED=20180218
 
 cat << EOF
-The rpcbind utility is a server that converts RPC program numbers into universal
-addresses.
+The rpcbind utility is a server that converts RPC program numbers into
+universal addresses.
 EOF
