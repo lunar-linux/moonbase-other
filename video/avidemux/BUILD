@@ -1,4 +1,4 @@
-OPTS=" --with-core --with-cli --with-plugins" &&
+OPTS=" --with-core --with-cli --with-plugins --with-system-libass --with-system-liba52 --with-system-libmad --with-system-libmp4v2" &&
 
 echo "***> Build options: "$B_OPT &&
 
