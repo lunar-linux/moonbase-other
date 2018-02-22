@@ -7,8 +7,13 @@ OPTS+=" --exec-prefix=/usr  \
         --enable-imfile     \
         --enable-rsyslogd   \
         --enable-rsyslogrt  \
+        --enable-imjournal  \
         --enable-omjournal  \
-        --disable-rfc3195" &&
+        --enable-omprog     \
+        --enable-impstats   \
+        --enable-imptcp     \
+        --disable-rfc3195   \
+        --with-systemdsystemunitdir=/usr/lib/systemd/system" &&
 
 default_build &&
 
