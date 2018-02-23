@@ -1,5 +1,3 @@
-cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -DSHARED_ONLY=true
+OPTS+=" -DUSE_BUILTIN_TZDATA=0 -DICAL_BUILD_DOCS=0" &&
 
-default_make
+default_cmake_build
