@@ -1,8 +1,10 @@
 depends cmake
 depends icu4c
+depends timezone-data
 
 optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
+                 "-DGOBJECT_INTROSPECTION=1" \
+                 "-DGOBJECT_INTROSPECTION=0" \
                  "for object introspection"
+
 
