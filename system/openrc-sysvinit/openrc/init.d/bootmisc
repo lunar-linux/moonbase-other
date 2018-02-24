@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# bootmisc - system startup script
+#
+
+if [ -x /usr/bin/setfont ]; then
+  CONSOLETOOL="/usr/bin/setfont";
+else
+  CONSOLETOOL="/bin/consolechars -f";
+fi
+
+case $1 in
+  start)
+    dmesg > /var/log/dmesg
+	dmesg -n4
+    touch /var/run/utmp /var/run/wtmp
+    [ ! -f /etc/LOCALE ] || . /etc/LOCALE
+    [ ! -f /etc/keymap ] || loadkeys -q $(cat /etc/keymap)
+    if [ -f /etc/charmap ] && [ -x /usr/bin/setfont ]; then
+	[ ! -f /etc/consolefont ] || /usr/bin/setfont $(cat /etc/consolefont) -m $(cat /etc/charmap)
+	/usr/bin/mapscrn $(cat /etc/charmap)
+	for tty in /dev/tty[1-6]; do
+	    echo -n -e "\033(K" > $tty
+	done
+    else
+	[ ! -f /etc/consolefont ] || $CONSOLETOOL $(cat /etc/consolefont)
+    fi
+    ;;
+esac
