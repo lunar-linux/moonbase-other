@@ -1,0 +1,11 @@
+default_pre_build &&
+
+SEDARGS=(-e "s|/bin/udevadm|/usr/bin/udevadm|g" ) 
+SEDARGS+=(-e "s|/sbin/udevd|/usr/bin/udevd|g" )
+SEDARGS+=(-e 's|#!/sbin/openrc-run|#!/usr/bin/openrc-run|g')
+
+for f in $SOURCE_DIRECTORY/init.d/*; do
+   sed ${SEDARGS[@]} -i "$f"
+done &&
+
+sedit 's|/etc||' Makefile
