@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit 's:0444:0644:' mk/sys.mk &&
+sedit 's|/sbin|/usr/bin|g' support/sysvinit/inittab
