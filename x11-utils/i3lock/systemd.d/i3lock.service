@@ -1,0 +1,12 @@
+[Unit]
+Description=Lock the screen automatically after a timeout
+Before sleep.target
+
+[Service]
+Type=forking
+User=%I
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/i3lock -c 000000
+
+[Install]
+WantedBy=graphical.target

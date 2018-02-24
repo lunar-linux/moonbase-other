@@ -1,15 +1,17 @@
           MODULE=dmenu
-         VERSION=4.6
-          SOURCE=${MODULE}-${VERSION}.tar.gz
+         VERSION=4.7
+          SOURCE=$MODULE-$VERSION.tar.gz
+         SOURCE2=$MODULE-$VERSION-lineheight.patch
       SOURCE_URL=http://dl.suckless.org/tools/
-      SOURCE_VFY=sha256:4a7a24008a621c3cd656155ad91ab8136db8f0d3b9ec56dafeec518cabda96b3
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha256:a75635f8dc2cbc280deecb906ad9b7594c5c31620e4a01ba30dc83984881f7b9
+     SOURCE2_VFY=sha256:bb1a46c59a068d68436d929610a8146328a32586671c048cd4a571af8786edd2
         WEB_SITE=http://tools.suckless.org/dmenu
          ENTERED=20130518
-         UPDATED=20160815
+         UPDATED=20180224
            SHORT="A suckless dynamic menu for X"
 
 cat << EOF
-dmenu is a dynamic menu for X, originally designed
-for dwm. It manages large numbers of user-defined
-menu items efficiently.
+dmenu is a dynamic menu for X, originally designed for dwm.
+It manages large numbers of user-defined menu items efficiently.
 EOF
