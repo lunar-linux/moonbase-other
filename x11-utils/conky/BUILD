@@ -1,13 +1,14 @@
 OPTS+=" -D CMAKE_BUILD_TYPE=Release \
         -D BUILD_RSS=ON \
         -D BUILD_I18N=ON \
-        -D BUILD_IPV6=ON \
         -D BUILD_XDBE=ON \
         -D BUILD_IOSTATS=ON \
         -D BUILD_OLD_CONFIG=ON \
-        -D BUILD_PORT_MONITORS=ON \
         -D BUILD_BUILTIN_CONFIG=ON \
-        -D CMAKE_INSTALL_PREFIX=/usr" &&
+        -D CMAKE_INSTALL_PREFIX=/usr"
+
+OPTS+=" -D DEFAULTNETDEV=enp4s0f1"
+OPTS+=" -D BUILD_PORT_MONITORS=OFF"
 
 if module_installed systemd; then
     OPTS+=" -D BUILD_JOURNAL=ON"
