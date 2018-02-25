@@ -1,17 +1,25 @@
           MODULE=p7zip
          VERSION=16.02
           SOURCE=${MODULE}_${VERSION}_src_all.tar.bz2
+         SOURCE2=$MODULE-CVE-2016-9296.patch
+         SOURCE3=$MODULE-CVE-2017-17969.patch
+         SOURCE4=$MODULE-CVE-2018-5996.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}_${VERSION}
-      SOURCE_URL=$SFORGE_URL/$MODULE/
+      SOURCE_URL=https://ftp.osuosl.org/pub/blfs/conglomeration/$MODULE/
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
+     SOURCE4_URL=$PATCH_URL
       SOURCE_VFY=sha256:5eb20ac0e2944f6cb9c2d51dd6c4518941c185347d4089ea89087ffdd6e2341f
+     SOURCE2_VFY=sha256:f9bcbf21d4aa8938861a6cba992df13dec19538286e9ed747ccec6d9a4e8f983
+     SOURCE3_VFY=sha256:b01ca4a334c0eabd36ef0ecb25d0ecdac170d8ea5c96da58ef88173691749265
+     SOURCE4_VFY=sha256:e844b7fdf2d63639230f44a63be2d0774298828e43c09781c876344700111463
         WEB_SITE=http://p7zip.sourceforge.net/
          ENTERED=20060922
-         UPDATED=20160717
+         UPDATED=20180225
            SHORT="A quick port of the command-line version of 7zip"
 
 cat << EOF
-p7zip is a quick port of 7z.exe and 7za.exe (command-line version
-of 7zip, see www.7-zip.org) for Unix. 7-Zip is a file archiver with
-highest compression ratio. Since 4.10, p7zip (like 7-zip) supports
-little-endian and big-endian machines.
+p7zip is a quick port of 7z.exe and 7za.exe (command-line version of 7zip) for
+Unix. 7-Zip is a file archiver with the highest compression ratio.
+Since 4.10, p7zip (like 7-zip) supports little-endian and big-endian machines.
 EOF

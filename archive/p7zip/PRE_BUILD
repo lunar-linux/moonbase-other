@@ -1,5 +1,9 @@
 default_pre_build &&
 
+patch_it $SOURCE2 1 &&
+patch_it $SOURCE3 1 &&
+patch_it $SOURCE4 1 &&
+
 sedit 's:\/usr\/local:\/usr:' makefile install.sh &&
 
 # Fix doc permissions - "find... -exec chmod" in install.sh has no effect
