@@ -1,4 +1,4 @@
-unset LDFLAGS &&
+export LDFLAGS="-Wall -shared" &&
 
 python3 setup.py build &&
 
