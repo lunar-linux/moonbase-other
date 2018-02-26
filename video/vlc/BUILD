@@ -1,5 +1,9 @@
-
-OPTS+=" --enable-xvideo --enable-avcodec --enable-realrtsp --disable-sid --disable-rpath" &&
+OPTS+=" --enable-xvideo \
+        --enable-avcodec \
+        --enable-ncurses \
+        --enable-realrtsp \
+        --disable-sid \
+        --disable-rpath" &&
 
 default_build &&
 

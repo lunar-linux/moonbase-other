@@ -19,7 +19,7 @@ depends libshout
 depends flac
 depends ffmpeg
 
-optional_depends systemd       ""  "--disable-udev" "for udev support" y
+optional_depends %UDEV         ""  "--disable-udev" "for udev support" y
 optional_depends dbus          ""  "--disable-dbus --disable-dbus-control" "for dbus support" y
 optional_depends neon          ""  "--disable-neon" "for neon optimizations spport" y
 optional_depends libnotify     "--enable-notify"  "" "for notify support" y
@@ -37,7 +37,6 @@ optional_depends pulseaudio    ""  "--disable-pulse"  "for Pulse Audio support" 
 optional_depends libssh2       "--enable-sftp"  "--disable-sftp" "for sftp support" y
 optional_depends v4l-utils     "--enable-v4l2" "--disable-v4l2" "for v4l support" y
 optional_depends fribidi       ""  "--disable-fribidi" "for Fribidi bidirectional text support"
-optional_depends ncurses       "--enable-ncurses"  "--disable-ncurses" "for ncurses support" y
 optional_depends librsvg       "" "--disable-svg" "for svg support" y
 optional_depends faad2         "--enable-faad"  ""  "for faad support" y
 optional_depends jack          "--enable-jack"  ""   "for jack support"

@@ -1,13 +1,12 @@
 default_pre_build &&
 
-
 patch_it $SOURCE2 1 &&
 
 rm m4/lt* m4/libtool.m4 &&
 
 autoreconf -fi &&
 
- export CXXFLAGS+=" -std=c++11" &&
+export CXXFLAGS+=" -std=c++11" &&
 
 if in_depends $MODULE lua; then
   sedit "40i #define LUA_COMPAT_APIINTCASTS" modules/lua/vlc.h &&
@@ -33,4 +32,6 @@ fi &&
 
 if in_depends $MODULE opencv-3 ; then
  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/"
-fi
+fi &&
+
+sedit 's:truetype/ttf-dejavu:TTF:g' -i modules/visualization/projectm.cpp
