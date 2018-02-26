@@ -1,4 +1,4 @@
 unset CPP  &&
-CPPFLAGS+=" $PCFLAGS -fPIC" &&
+CPPFLAGS+=" $CFLAGS -fPIC" &&
 
 default_build
