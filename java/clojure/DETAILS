@@ -1,24 +1,25 @@
           MODULE=clojure
          VERSION=1.9.0
-          SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
-      SOURCE_URL=http://github.com/clojure/clojure/archive/
-      SOURCE_VFY=sha256:0afe362713f0c51daf9c12bc582ed7f84bed9b3dd7c59bacde62fc4238fb4b76
+         TOOLVER=315
+          SOURCE=$MODULE-tools-$VERSION.$TOOLVER.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-tools
+      SOURCE_URL=https://download.clojure.org/install/
+      SOURCE_VFY=sha256:c9eba2fe2d151f9eb0635c997232c9637c8af4799f8dd0e93634d594ede80949
         WEB_SITE=http://clojure.org/
          ENTERED=20150713
-         UPDATED=20171211
+         UPDATED=20180227
            SHORT="LISP for the JVM"
 
 cat << EOF
-Clojure is a dynamic programming language that targets the Java Virtual
-Machine (and the CLR, and JavaScript). It is designed to be a general-purpose
-language, combining the approachability and interactive development of a
-scripting language with an efficient and robust infrastructure for
-multithreaded programming. Clojure is a compiled language - it compiles
-directly to JVM bytecode, yet remains completely dynamic. Every feature
-supported by Clojure is supported at runtime. Clojure provides easy access to
-the Java frameworks, with optional type hints and type inference, to ensure
-that calls to Java can avoid reflection.
+Clojure is a dynamic programming language that targets the Java Virtual Machine
+(and the CLR, and JavaScript).
+It is designed to be a general-purpose language, combining the approachability
+and interactive development of a scripting language with an efficient and
+robust infrastructure for multithreaded programming. Clojure is a compiled
+language - it compiles directly to JVM bytecode, yet remains completely dynamic.
+Every feature supported by Clojure is supported at runtime. Clojure provides
+easy access to the Java frameworks, with optional type hints and type inference,
+to ensure that calls to Java can avoid reflection.
 
 Clojure is a dialect of Lisp, and shares with Lisp the code-as-data philosophy
 and a powerful macro system. Clojure is predominantly a functional programming

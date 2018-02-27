@@ -1,9 +1,8 @@
-DEST_DIR=/usr/share/java/$MODULE &&
-
-mvn package -Dmaven.test.skip=true -Dmaven.repo.local=m2 &&
-
 prepare_install &&
 
-install -Dm755 clojure-tools/clojure /usr/bin/clojure &&
-install -Dm755 clojure-tools/clj /usr/bin/clj &&
-install -Dm644 target/$MODULE-$VERSION.jar $DEST_DIR/$MODULE.jar
+install -Dm755 clj /usr/bin/clj &&
+install -Dm755 clojure /usr/bin/clojure &&
+install -Dm644 deps.edn /usr/share/java/clojure/deps.edn &&
+install -Dm644 example-deps.edn /usr/share/java/clojure/example-deps.edn &&
+install -Dm644 clojure-tools-$VERSION.$TOOLVER.jar \
+            /usr/share/java/clojure/libexec/clojure-tools-$VERSION.$TOOLVER.jar
