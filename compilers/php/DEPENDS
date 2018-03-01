@@ -1,5 +1,6 @@
 depends pcre
 depends libxml2
+depends gd
 
 optional_depends gettext \
                  "--with-gettext=shared" "" \
@@ -60,10 +61,6 @@ optional_depends unixODBC \
 optional_depends freetype2 \
                  "--with-freetype-dir=/usr" "" \
                  "for freetype2 support"
-
-optional_depends gd \
-                 "--with-gd=shared,/usr --enable-gd-native-ttf" "" \
-                 "external gd for on-the-fly graphics"
 
 optional_depends curl \
                  "--with-curl=shared" "" \
