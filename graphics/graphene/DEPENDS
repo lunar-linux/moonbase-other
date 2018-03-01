@@ -1,2 +1,12 @@
 depends glib-2
-depends gobject-introspection
+depends meson
+
+optional_depends gtk-doc \
+                 "-Dgtk-doc=true" \
+                 "-Dgtk-doc=false" \
+                 "for building documentation"
+
+optional_depends gobject-introspection \
+                 "-Dintrospection=true" \
+                 "-Dintrospection-false" \
+                 "for object introspection"

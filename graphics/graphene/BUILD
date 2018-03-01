@@ -1,5 +1,13 @@
-./autogen.sh &&
+mkdir build &&
 
-OPTS+=" --disable-gtk-doc" &&
+meson build \
+      --prefix=/usr \
+      -Dtests=false \
+      -Dbenchmarks=false \
+      $OPTS &&
 
-default_build
+ninja -C build &&
+
+prepare_install &&
+
+ninja -C build install
