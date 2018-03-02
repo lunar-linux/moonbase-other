@@ -16,7 +16,7 @@ cp -fr $SOURCE_DIRECTORY/man npm_build/usr/share/ &&
 
 prepare_install &&
 
-cp -fr npm_build/usr/* /usr/ &&
+cp -r --remove-destination npm_build/usr/* /usr/ &&
 
 # Make symlink for node-gyp
 ln -sf /usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js /usr/bin/node-gyp
