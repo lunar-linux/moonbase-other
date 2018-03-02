@@ -6,7 +6,7 @@ OPTS+=" --sbindir=/usr/bin \
         --with-user-clamav  \
         --with-group=clamav \
         --disable-rpath \
-        --disable-llvmi \
+        --disable-llvm \
         --enable-clamdtop \
         --enable-zlib-vcheck" &&
 
