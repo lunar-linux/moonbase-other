@@ -1,6 +1,6 @@
 # backup old files
 cp /etc/protocols /etc/protocols.bak &&
-cp /etc/services  /etc/services.bak &&
+cp /etc/services  /etc/services.bak  &&
 
 prepare_install &&
 
