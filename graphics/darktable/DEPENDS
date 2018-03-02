@@ -16,6 +16,4 @@ optional_depends openjpeg   "-DUSE_OPENJPEG=1"       "-DUSE_OPENJPEG=0"       "F
 optional_depends libgphoto2 "-DUSE_CAMERA_SUPPORT=1" "-DUSE_CAMERA_SUPPORT=0" "For Camera support"
 optional_depends libsecret  "-DUSE_LIBSECRET=1"      "-DUSE_LIBSECRET=0"      "For storing and retrieving passwords"
 optional_depends kwallet    "-DUSE_KWALLET=1"        "-DUSE_KWALLET=0"        "Use kwallet password manager" n
-
-# They want lua-5.2, so we have to use -DDONT_USE_INTERNAL_LUA=Off
-#optional_depends "lua"              "-DUSE_LUA=1"            "-DUSE_LUA=0"            "For lua scripting support"
+optional_depends "lua"      "-DUSE_LUA=1"            "-DUSE_LUA=0"            "For lua scripting support"
