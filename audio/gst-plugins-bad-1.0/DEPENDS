@@ -10,7 +10,7 @@ optional_depends %OSSL     "" "" "for SSL support"
 optional_depends libxml2   "" "" "for XML2 support"
 
 optional_depends libX11  "--enable-x11"     "" "for X11 support"
-optional_depends wayland "--enable-wayland" "" "for Wayland support"
+optional_depends wayland "--enable-wayland" "--disable-wayland" "for Wayland support" n 
 optional_depends orc     "--enable-orc"     "" "for ORC parallel processing support"
 
 optional_depends SDL \
@@ -50,11 +50,6 @@ optional_depends libmodplug     "" "--disable-modplug"     "for MOD playing supp
 optional_depends wildmidi       "" "--disable-wildmidi"    "for MIDI files playing support"
 optional_depends neon           "" "--disable-neon"        "for the neon HTTP client plugin"
 optional_depends game-music-emu "" "--disable-gme"         "for playing games music files"
-
-optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc --disable-gtk-doc-html" \
-                 "for documentation support"
 
 optional_depends gobject-introspection \
                  "--enable-introspection" \
