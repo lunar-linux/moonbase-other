@@ -1,13 +1,9 @@
+depends gtk+-3
 depends libevdev
 depends libunwind
 depends mtdev
 depends %UDEV
 depends meson
-
-optional_depends gtk+-3 \
-                 "-Ddebug-ui=true" \
-                 "-Ddebug-ui=false" \
-                 "for debug-ui support" n
 
 optional_depends libwacom \
                  "-Dlibwacom=true" \

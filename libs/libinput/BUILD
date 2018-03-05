@@ -1,4 +1,5 @@
 OPTS+=" --prefix=/usr \
+        -Ddebug-ui=false \
         -Dtests=false"
 
 mkdir -p build &&
