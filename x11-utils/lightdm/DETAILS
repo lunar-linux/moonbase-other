@@ -1,29 +1,24 @@
           MODULE=lightdm
-         VERSION=1.19.5
+         VERSION=1.24.1
           SOURCE=$MODULE-$VERSION.tar.xz
          SOURCE2=lightdm-1.19.5-remove-init-apparmor.patch
-      SOURCE_URL=http://launchpad.net/lightdm/${VERSION%.*}/$VERSION/+download/
+      SOURCE_URL=https://github.com/CanonicalLtd/lightdm/releases/download/$VERSION/
      SOURCE2_URL=$PATCH_URL
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha256:3fe4b0452c0d37a890100800e88f683a981954c57136ba1fcf084a1aa6447f3d
+      SOURCE_VFY=sha256:49bd981970c7584b3c34d19c1e4ee1235263c7d1dda9cb9cce3ade48a1ed4d26
      SOURCE2_VFY=sha256:4061b204b77c7ed8697c116450c7503b49d86c9ce547d2bef1c73592bd5e6c40
         WEB_SITE=http://www.freedesktop.org/wiki/Software/LightDM
          ENTERED=20121231
-         UPDATED=20161030
+         UPDATED=20180307
            SHORT="A light, fast, extensible and multi-desktop display manager"
 
 cat <<EOF
-LightDM is a cross-desktop display manager that aims is to be the
-standard display manager for the X.org X server. The motivation for
-this project is there have been many new display managers written since
-XDM (often based on the XDM source). The main difference between these
-projects is in the GUIs (e.g. different toolkits) and performance -
-this could be better accomplished with a common display manager that
-allows these differences.
-
-Key features are:
-
-A well-defined greeter API allowing multiple GUIs Support for all
-display manager use cases, with plugins where appropriate Low code
-complexity Fast performance
+LightDM is a cross-desktop display manager that aims is to be the standard
+display manager for the X.org X server. The motivation for this project is
+there have been many new display managers written since XDM (often based on
+the XDM source). The main difference between these projects is in the GUIs
+(e.g. different toolkits) and performance - this could be better accomplished
+with a common display manager that allows these differences.
+t have a well-defined greeter API allowing multiple GUIs Support for all
+display manager use cases, with plugins where appropriate Low code complexity
+Fast performance
 EOF
