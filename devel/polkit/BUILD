@@ -35,8 +35,6 @@ chmod 700 /etc/polkit-1/rules.d &&
 chown polkitd:polkitd /usr/share/polkit-1/rules.d &&
 chmod 700 /usr/share/polkit-1/rules.d &&
 
-install -m0644 $SCRIPT_DIRECTORY/99-cromnix.rules /etc/polkit-1/rules.d &&
-
 if module_installed systemd; then
     sedit "s:--no-debug::" /usr/lib/systemd/system/polkit.service
 fi &&
