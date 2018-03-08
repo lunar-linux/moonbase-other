@@ -1,5 +1,4 @@
-OPTS+=" --sbindir=/usr/bin \
-        --disable-static \
+OPTS+=" --disable-static \
         --disable-gtk-doc-html" &&
 
 # If expat is yes the make tanks on "line 5975: cd: yes/lib: No such file or directory"
@@ -16,6 +15,8 @@ autoconf &&
 default_build &&
 
 add_priv_user polkitd:polkitd -d / -s /bin/false &&
+
+install -d -o root -g 102 -m 750 /{etc,usr/share}/polkit-1/rules.d &&
 
 #The file /usr/lib/polkit-1/polkit-agent-helper-1 must be owned
 #by root and have mode 4755 (setuid root binary)
