@@ -1,10 +1,5 @@
 default_pre_build &&
 
 sedit '/vtkAppendPolyData/ i #include <vtkVersionMacros.h>' modules/viz/src/precomp.hpp &&
-sedit "s:OpenGL:OpenGL2:" cmake/OpenCVDetectVTK.cmake &&
 
-tar xf $SOURCE_CACHE/$SOURCE2 &&
-
-if in_depends $MODULE unicap; then
-  CXXFLAGS+=" -lunicap -lrt"
-fi
+tar xf $SOURCE_CACHE/$SOURCE2

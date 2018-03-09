@@ -1,101 +1,119 @@
-depends libpng
-depends %JPEG
-depends gdal
-depends lapack
-depends intel-tbb
 depends cmake
+
+optional_depends libpng \
+                 "-DWITH_PNG=ON" \
+                 "-DWITH_PNG=OFF" \
+                 "for png graphics support"
 
 optional_depends tiff \
                  "-DWITH_TIFF=ON" \
                  "-DWITH_TIFF=OFF" \
-                 "for tiff graphics support" y
+                 "for tiff graphics support"
+
+optional_depends %JPEG \
+                 "-DWITH_JPEG=ON" \
+                 "-DWITH_JPEG=OFF" \
+                 "for jpeg graphics support"
 
 optional_depends jasper \
                  "-DWITH_JASPER=ON" \
                  "-DWITH_JASPER=OFF" \
-                 "for JPEG-2000 Part-1 support" y
+                 "for JPEG-2000 Part-1 support"
+
+optional_depends gdal \
+                 "-DWITH_GDAL=ON" \
+                 "-DWITH_GDAL=OFF" \
+                 "for geospatial data abstraction support"
 
 optional_depends libwebp \
                  "-DWITH_WEBP=ON" \
                  "-DWITH_WEBP=OFF" \
-                 "for WebP image support" y
+                 "for WebP image support"
 
 optional_depends libgphoto2 \
                  "-DWITH_GPHOTO2=ON" \
                  "-DWITH_GPHOTO2=OFF" \
-                 "for digital cameras access support" y
+                 "for digital cameras access support"
 
 optional_depends ffmpeg \
                  "-DWITH_FFMPEG=ON" \
                  "-DWITH_FFMPEG=OFF" \
-                 "for ffmpeg video support" y
+                 "for ffmpeg video support"
 
 optional_depends mesa-lib \
                  "-DWITH_OPENCL=ON -DWITH_OPENGL=ON" \
                  "-DWITH_OPENCL=OFF -DWITH_OPENGL=OFF" \
-                 "for coding with OpenCL" y
+                 "for coding with OpenCL"
 
 optional_depends gstreamer \
                  "-DWITH_GSTREAMER=ON" \
                  "-DWITH_GSTREAMER=OFF" \
-                 "for gstreamer support" y
+                 "for gstreamer support"
 
 optional_depends xine-lib \
                 "-DWITH_XINE=ON" \
                 "-DWITH_XINE=OFF" \
-                "for xine video support" n
+                "for xine video support"
 
 optional_depends libdc1394 \
                  "-DWITH_1394=ON" \
                  "-DWITH_1394=OFF" \
-                 "for firewire support" y
+                 "for firewire support"
 
 optional_depends v4l-utils \
-                 "-DWITH_LIBV4L=ON" \
-                 "-DWITH_LIBV4L=OFF" \
-                 "for v4l video support" y
+                 "-DWITH_V4L=ON" \
+                 "-DWITH_V4L=OFF" \
+                 "for v4l video support"
 
 optional_depends openexr \
                  "-DWITH_OPENEXR=ON" \
                  "-DWITH_OPENEXR=OFF" \
-                 "for IML support" y
+                 "for IML support"
 
 optional_depends gtk+-2 \
                  "-DWITH_GTK_2_X=ON" \
                  "-DWITH_GTK_2_X=OFF" \
-                 "for gtk+-2 graphics support.${PROBLEM_COLOR}If yes here then no to gtk3 and qt5${DEFAULT_COLOR}" n
+                 "for gtk+-2 graphics support"
 
 optional_depends gtk+-3 \
                  "-DWITH_GTK=ON" \
                  "-DWITH_GTK=OFF" \
-                 "for gtk+-3 graphics support" y
+                 "for gtk+-3 graphics support"
+
+optional_depends qt4 \
+                 "-DWITH_QT=ON" "" \
+                 "Build with Qt Backend support"
 
 optional_depends qt5 \
-                 "-DWITH_QT=ON" \
-                 "-DWITH_QT=OFF" \
-                 "Build with Qt Backend support" y
+                 "-DWITH_QT=ON" "" \
+                 "Build with Qt Backend support"
 
 optional_depends eigen2 \
                  "-DWITH_EIGEN=ON" \
                  "-DWITH_EIGEN=OFF" \
-                 "for linear algebra libraries support" y
+                 "for linear algebra libraries support"
 
 optional_depends unicap \
                  "-DWITH_UNICAP=ON" \
                  "-DWITH_UNICAP=OFF" \
-                 "for additional video capture support" y
+                 "for additional video capture support"
+
+optional_depends tbb \
+                 "-DWITH_TBB=ON" \
+                 "-DWITH_TBB=OFF" \
+                 "for threaded building block support"
 
 optional_depends CUDA-OpenCL-headers \
                  "-DWITH_CUDA=ON" \
                  "-DWITH_CUDA=OFF" \
-                 "for NVidia Cuda Runtime support" y
+                 "for NVidia Cuda Runtime support"
 
-#optional_depends VTK \
-#                 "-DWITH_VTK=ON" \
-#                 "-DWITH_VTK=OFF" \
-#                 "build visualization framework" n
+optional_depends VTK \
+                 "-DWITH_VTK=ON" \
+                 "-DWITH_VTK=OFF" \
+                 "build visualization framework"
 
 optional_depends Sphinx \
                  "-DBUILD_DOCS=ON" \
                  "-DBUILD_DOCS=OFF" \
-                 "build documentation" n
+                 "build documentation"
