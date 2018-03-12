@@ -1,5 +1,3 @@
-prepare_install &&
-
 OPTS+=" --prefix=/usr \
         --sysconfdir=/etc/syslog-ng \
         --localstatedir=/var/lib/syslog-ng \
