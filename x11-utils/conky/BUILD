@@ -2,6 +2,7 @@ OPTS+=" -D CMAKE_BUILD_TYPE=Release \
         -D BUILD_RSS=ON \
         -D BUILD_I18N=ON \
         -D BUILD_XDBE=ON \
+        -D BUILD_XSHAPE=ON \
         -D BUILD_IOSTATS=ON \
         -D BUILD_OLD_CONFIG=ON \
         -D BUILD_BUILTIN_CONFIG=ON \
