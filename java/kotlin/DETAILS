@@ -1,0 +1,21 @@
+          MODULE=kotlin
+         VERSION=1.2.30
+          SOURCE=$MODULE-compiler-${VERSION/_/-}.zip
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}c
+      SOURCE_URL=https://github.com/JetBrains/kotlin/releases/download/v${VERSION/_/-}/
+      SOURCE_VFY=sha256:4d6965877301d44241ca6de36480140992dc8a6b1c1884baeb5239ce2c43e071
+        WEB_SITE=https://kotlinlang.org/
+         ENTERED=20180314
+         UPDATED=20180314
+           SHORT="Statically typed programming language for JVM"
+
+cat <<EOF
+Kotlin is a multiplatform project allows you to build multiple tiers of your
+application – backend, frontend and Android app – from the same codebase.
+Such a project contains both common modules, which contain platform-independent
+code, as well as platform-specific modules, which contain code for a specific
+platform (JVM or JS) and can use platform-specific libraries.
+To call platform-specific code from a common module, you can specify expected
+declarations – declarations for which all platform-specific modules need to
+provide actual implementations.
+EOF
