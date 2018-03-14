@@ -1,4 +1,8 @@
 default_pre_build &&
 
 sedit 's:0444:0644:' mk/sys.mk &&
-sedit 's|/sbin|/usr/bin|g' support/sysvinit/inittab
+sedit 's|/sbin|/usr/bin|g' support/sysvinit/inittab &&
+
+# fix the rc.log path bug
+sedit 's|#rc_log_path|rc_log_path|' etc/rc.conf &&
+sedit 's|\"/rc.log|\"/var/log/rc.log|' src/rc/rc-logger.c
