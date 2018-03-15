@@ -1,7 +1,3 @@
 optional_depends libffi "-DLLVM_ENABLE_FFI=ON -DFFI_INCLUDE_DIR=$(pkg-config --variable=includedir libffi)" \
                         "-DLLVM_ENABLE_FFI=OFF" \
                         "for high level programming support"
-
-optional_depends doxygen "-DLLVM_ENABLE_DOXYGEN=ON" \
-                         "-DLLVM_ENABLE_DOXYGEN=OFF" \
-                         "build doxygen documentation"

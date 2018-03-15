@@ -1,6 +1,7 @@
 OPTS+=" -DLLVM_ENABLE_RTTI=ON \
         -DLLVM_INSTALL_UTILS=ON \
         -DLLVM_ENABLE_SPHINX=OFF \
+        -DLLVM_ENABLE_DOXYGEN=OFF \
         -DBUILD_SHARED_LIBS=ON" &&
 
 # don't run doxygen at build AND install time
