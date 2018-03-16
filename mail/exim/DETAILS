@@ -1,13 +1,16 @@
           MODULE=exim
          VERSION=4.90.1
           SOURCE=$MODULE-$VERSION.tar.xz
+         SOURCE2=$MODULE-CVE-2018-6789.patch
    SOURCE_URL[0]=http://ftp.exim.org/pub/exim/exim4
    SOURCE_URL[1]=ftp://mirror.easyname.at/exim-ftp/exim/exim4/
    SOURCE_URL[2]=ftp://ftp.nl.uu.net/pub/unix/mail/exim/exim/exim4
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha256:5c98dfd12043be5751b88ef64d5363cd99284236eaeec6316b062a7628c2f726
+     SOURCE2_VFY=sha256:8fa7998b45e82f367ddb0bcc4950527b930ef84a9ab88d7d072089d9fd1925c3
         WEB_SITE=http://www.exim.org
          ENTERED=20030923
-         UPDATED=20180214
+         UPDATED=20180316
       MAINTAINER=tchan@lunar-linux.org
            SHORT="Email server"
            PSAFE=no
