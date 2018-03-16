@@ -1,5 +1,7 @@
 default_pre_build &&
 
+patch_it $SOURCE2 1 &&
+
 if in_depends $MODULE qt5 ; then
   . /etc/profile.d/qt5.rc &&
   OPTS+=" -DPARAVIEW_QT_VERSION=5 -DVTK_QT_VERSION=5 -DQT_QMAKE_EXECUTABLE=/usr/lib/qt5/bin/qmake -DVTK_Group_Qt=1"
