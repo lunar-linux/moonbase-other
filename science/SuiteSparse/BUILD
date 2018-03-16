@@ -1,4 +1,4 @@
-  cd metis-$VERSION &&
+  cd metis-5.1.0 &&
   make $METIS_OPTS &&
   default_make &&
 
