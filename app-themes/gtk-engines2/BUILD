@@ -6,6 +6,6 @@ sedit "s:#include <glib/gtimer.h>:#include <glib.h>:" engines/clearlooks/src/ani
 # activated by the user in the grkrc file) and enables the
 # lua based scritping engine (uses an internal version of lua,
 # no outside depends needed)
-OPTS+="  --enable-animation  --enable-lua" &&
+OPTS+=" --enable-animation --enable-lua" &&
 
 default_build
