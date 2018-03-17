@@ -1,18 +1,19 @@
           MODULE=gdbus-codegen
-         VERSION=2.54.3
+         VERSION=2.56.0
           SOURCE=glib-$VERSION.tar.xz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/glib-${VERSION}
    SOURCE_URL[0]=$GNOME_URL/sources/glib/${VERSION%.*}
    SOURCE_URL[1]=http://ftp.gtk.org/pub/glib/${VERSION%.*}
-      SOURCE_VFY=sha256:963fdc6685dc3da8e5381dfb9f15ca4b5709b28be84d9d05a9bb8e446abac0a8
+      SOURCE_VFY=sha256:ecef6e17e97b8d9150d0e8a4b3edee1ac37331213b8a2a87a083deea408a0fc7
         WEB_SITE=http://library.gnome.org/devel/glib
          ENTERED=20120711
-         UPDATED=20180109
+         UPDATED=20180316
            SHORT="D-Bus code and documentation generator"
 
 cat << EOF
 gdbus-codegen is used to generate code and/or documentation for one or more
 D-Bus interfaces. The tool reads D-Bus Introspection XML files and generates
-output files. The tool currently supports generating C code (via
---generate-c-code) and Docbook XML (via --generate-docbook).
+output files.
+The tool currently supports generating C code (via --generate-c-code) and
+Docbook XML (via --generate-docbook).
 EOF
