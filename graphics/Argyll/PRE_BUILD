@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit 's:^TEST=="/lib/udev/usb-db", IMPORT{program}="usb-db %p":IMPORT{builtin}="hwdb --subsystem=usb":' usb/55-Argyll.rules
+sedit 's/-j${NUMBER_OF_PROCESSORS:-2}/$MAKEFLAGS/' makeall.sh
