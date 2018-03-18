@@ -1,9 +1,13 @@
-OPTS+=" --prefix=/usr --default-library=shared --strip --buildtype=release --backend=ninja" &&
+OPTS+=" --prefix=/usr \
+        -Dtests=false \
+        -Ddocs=false"
 
-meson BuildDir $OPTS &&
-pushd BuildDir &&
-ninja &&
+mkdir -p build &&
+
+meson build $OPTS &&
+
+ninja -C build &&
 
 prepare_install &&
-ninja install &&
-popd
+
+ninja -C build install

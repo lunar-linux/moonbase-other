@@ -1,5 +1,9 @@
 depends Python-3
-depends meson
 depends ninja
 depends libusb
-depends gobject-introspection
+depends meson
+
+optional_depends gobject-introspection \
+                 "-Denable-introspection=true" \
+                 "-Denable-introspection=false" \
+                 "for introspection support"
