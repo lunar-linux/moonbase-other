@@ -1,5 +1,11 @@
-if [ "`get_module_config DOCS`" = "n" ]; then
-  sedit "s/SUBDIRS = atk tests docs po/SUBDIRS = atk tests po/g" Makefile.in
-fi &&
+mkdir -p build &&
 
-default_build
+OPTS+=" --prefix /usr"
+
+meson build $OPTS &&
+
+ninja -C build &&
+
+prepare_install &&
+
+ninja -C build install
