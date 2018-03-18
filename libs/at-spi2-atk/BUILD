@@ -1,6 +1,6 @@
 mkdir -p build &&
 
-OPTS+=" --prefix /usr -Denable_docs=false"
+OPTS+=" --prefix /usr"
 
 meson build $OPTS &&
 
