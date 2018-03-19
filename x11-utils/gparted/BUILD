@@ -1,6 +1,6 @@
 OPTS+=" --sbindir=/usr/bin \
         --enable-online-resize \
         --enable-libparted-dmraid \
-        --disable-static" &&
+        --disable-static"
 
 default_build
