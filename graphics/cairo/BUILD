@@ -2,10 +2,7 @@
 CFLAGS+=" -fno-lto" &&
 CXXFLAGS+=" -fno-lto" &&
 
-OPTS+=" --disable-static \
-        --enable-pdf=yes \
-        --enable-svg \
-        --enable-gobject" &&
+OPTS+=" --disable-static --enable-gobject=yes" &&
 
 if module_installed mesa-lib; then
   if module_installed NVIDIA; then
