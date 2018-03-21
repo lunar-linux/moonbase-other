@@ -1,0 +1,31 @@
+Submitted By: Bruce Dubbs <bdubbs_AT_linuxfromscratch_DOT_org>
+Date: 2011-11-16
+Origin: DJ Lucas <dj_AT_linuxfromscratch_DOT_org>
+Initial Package Version: 9.8.1-P1
+Description: allow use of ip command instead of ifconfig for test suite
+Upstream Status: Not applicable
+
+--- ./bin/tests/system/ifconfig.sh	2013-05-17 06:01:18.000000000 +0200
++++ ./bin/tests/system/ifconfig.sh	2013-06-01 17:38:04.653403696 +0200
+@@ -88,8 +88,8 @@
+ 			fi
+ 			;;
+ 		    *-*-linux*)
+-			ifconfig lo:$int 10.53.0.$ns up netmask 255.255.255.0
+-			ifconfig lo inet6 add fd92:7065:b8e:ffff::$ns/64
++			ip addr add 10.53.0.$ns/24             label lo:$int  dev lo
++			ip addr add fd92:7065:b8e:ffff::$ns/64 label lo:$int6 dev lo
+ 			;;
+ 		    *-unknown-freebsd*)
+ 			ifconfig lo0 10.53.0.$ns alias netmask 0xffffffff
+@@ -173,8 +173,8 @@
+ 			fi
+ 			;;
+ 		    *-*-linux*)
+-			ifconfig lo:$int 10.53.0.$ns down
+-			ifconfig lo inet6 del fd92:7065:b8e:ffff::$ns/64
++			ip addr del 10.53.0.$ns/24             label lo:$int  dev lo
++			ip addr del fd92:7065:b8e:ffff::$ns/64 label lo:$int6 dev lo
+ 			;;
+ 		    *-unknown-freebsd*)
+ 			ifconfig lo0 10.53.0.$ns delete
