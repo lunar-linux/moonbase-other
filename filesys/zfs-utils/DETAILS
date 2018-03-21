@@ -1,23 +1,20 @@
           MODULE=zfs-utils
-         VERSION=0.7.6
+         VERSION=0.7.7
           SOURCE=zfs-$VERSION.tar.gz
-         SOURCE2=zfs-dracut-0.7.1.patch
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/zfs-$VERSION
       SOURCE_URL=http://github.com/zfsonlinux/zfs/releases/download/zfs-$VERSION/
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha256:1687f4041a990e35caccc4751aa736e8e55123b81d5f5a35b11916d9e580c23d
-     SOURCE2_VFY=sha256:f42a0377734789747350e10720aa606e974e393b96cf8c2d773ef8d459457581
+      SOURCE_VFY=sha256:db8ca69dc1d257175421a86bc81c861b2b24cc48db0832c954d9553fe50d0bb9
       MAINTAINER=ratler@lunar-linux.org
         WEB_SITE=http://zfsonlinux.org/
          LICENSE=cddl
          ENTERED=20130212
-         UPDATED=20180207
+         UPDATED=20180320
            SHORT="The ZFS file system utilities"
 
 cat << EOF
-ZFS is an advanced file system and volume manager which was originally
-developed for Solaris. It has been successfully ported to FreeBSD and
-now there is a functional Linux ZFS kernel port too. The port currently
-includes a fully functional and stable SPA, DMU, and ZVOL with a ZFS
-Posix Layer (ZPL) on the way.
+ZFS is an advanced file system and volume manager which was originally developed
+for Solaris.
+It has been successfully ported to FreeBSD and now there is a functional Linux
+ZFS kernel port too. The port currently includes a fully functional and stable
+SPA, DMU, and ZVOL with a ZFS Posix Layer (ZPL) on the way.
 EOF
