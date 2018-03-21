@@ -1,0 +1,52 @@
+--- ./configure.ac.orig	2015-11-06 17:09:52.000000000 +0200
++++ ./configure.ac	2016-07-03 19:52:36.104023173 +0300
+@@ -94,12 +94,6 @@
+ AC_SUBST(X_CFLAGS)
+ AC_SUBST(X_LDFLAGS)
+ 
+-dnl ***
+-dnl * GTK DOC
+-dnl ***
+-
+-GTK_DOC_CHECK([1.14], [--flavour no-tmpl])
+-
+ dnl ****************************************************************************
+ dnl * --------------------------------------------------------------------------
+ dnl ****************************************************************************
+@@ -107,8 +101,6 @@
+ Makefile
+ libkeybinder/Makefile
+ libkeybinder/$PACKAGE_NAME.pc
+-docs/Makefile
+-docs/version.info
+ ])
+ 
+ echo
+@@ -119,7 +111,6 @@
+ echo GTK version ......... : $gtk_version
+ echo libkeybinder ........ : yes
+ echo gobject-introspection : $found_introspection
+-echo gtk-doc ............. : $enable_gtk_doc
+ echo 
+ 
+ echo "Now type make to compile"
+--- ./Makefile.am.orig	2015-11-06 17:09:52.000000000 +0200
++++ ./Makefile.am	2016-07-03 19:38:49.713228786 +0300
+@@ -1,4 +1,4 @@
+-SUBDIRS = libkeybinder docs
++SUBDIRS = libkeybinder
+ 
+ EXTRA_DIST = \
+ 	examples/Makefile  \
+@@ -16,9 +16,8 @@
+ DISTCLEANFILES = \
+ 	intltool-extract \
+ 	intltool-merge \
+-	intltool-update \
+-	gnome-doc-utils.make
++	intltool-update
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-DISTCHECK_CONFIGURE_FLAGS = --enable-introspection --enable-gtk-doc
++DISTCHECK_CONFIGURE_FLAGS = --enable-introspection
