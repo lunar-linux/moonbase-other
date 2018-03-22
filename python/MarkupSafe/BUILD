@@ -1,12 +1,10 @@
-# This part does Python-3
 python3 setup.py build &&
 
 prepare_install &&
 
-python3 setup.py install --optimize=1 --root=/
+python3 setup.py install --skip-build --optimize=1 --root=/ &&
 
-# Now do Python2 part, they can live together
 if module_installed setuptools; then
   python setup.py build &&
-  python setup.py install --optimize=1 --root=/
+  python setup.py install --skip-build --optimize=1 --root=/
 fi
