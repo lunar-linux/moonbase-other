@@ -1,5 +1,3 @@
-  OPTS+=" --with-world --enable-shared" &&
-
   if in_depends $MODULE sun-jdk; then
     if [[ `arch` == "x86_64" ]] ; then
       JAVA_ARCH=amd64
@@ -12,4 +10,6 @@
 
   export LD_LIBRARY_PATH="/usr/lib/swipl-`lvu version swi-prolog`" &&
 
-  default_build 
+  ./configure --with-world --prefix=/usr --enable-readline $OPTS &&
+  
+  default_make 

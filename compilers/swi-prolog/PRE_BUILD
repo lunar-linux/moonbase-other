@@ -1,19 +1,6 @@
 default_pre_build &&
 
-# looks like they use a different uudecode... don't use ours
-sedit "s:^if uudecode.*$:if false; then:" packages/jpl/configure &&
-
-# no idea why they catch those flags here - this breaks
-# a lot.. let's just remove the catch statement
-# doing so produces 'unrecognized...' warnings"
-# because the configure in src/ doesn't know any --without-XYZ flags,
-# but we need to pass them on to packages/configure
-sedit "/--without-/ { N;N;N;N;d }" configure &&
-
 # otherwise swipl will be linked against the installed libswipl.so
 if module_installed $MODULE; then
   lrm --upgrade $MODULE
-fi &&
-
-# javadoc complains about invalid html... -.-
-sedit 's/<p>//g; s/<\(.*@.*\)>/\1/g' $(find packages/jpl/src/java/ -name '*.java')
+fi
