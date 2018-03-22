@@ -45,8 +45,8 @@ if [ -d /usr/lib/java/latest/lib/amd64 ]; then
   ln -sf /usr/lib/java/latest/lib/amd64/server/libjvm.so /usr/lib/
   ln -sf /usr/lib/java/latest/lib/amd64/libnpjp2.so /usr/lib/lunar/plugins/
 else
-  ln -sf /usr/lib/java/latest/lib/i386/server/libjvm.so /usr/lib/
-  ln -sf /usr/lib/java/latest/lib/i386/libnpjp2.so /usr/lib/lunar/plugins/
+  ln -sf /usr/lib/java/latest/lib/jre-$VERSION/server/libjvm.so /usr/lib/
+  ln -sf /usr/lib/java/latest/lib/jre-$VERSION/libnpjp2.so /usr/lib/lunar/plugins/
 fi &&
 
 cd /usr/lib/java/jre-$VERSION/lib/security &&
