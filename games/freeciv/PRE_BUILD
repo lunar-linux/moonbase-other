@@ -1,4 +1,6 @@
 default_pre_build &&
 
 sedit "s:\$datadir/locale:/usr/share/locale:" configure &&
-sedit "s:\$(datadir)/icons:/usr/share/icons:" data/icons/Makefile.in
+sedit "s:\$(datadir)/icons:/usr/share/icons:" data/icons/Makefile.in &&
+
+autoreconf -fi
