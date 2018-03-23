@@ -8,6 +8,8 @@ OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
         -DVTK_USE_SYSTEM_ZLIB=ON     \
         -DVTK_USE_SYSTEM_JSONCPP=ON  \
         -DVTK_USE_SYSTEM_OGGTHEORA=ON \
+        -DVTK_USE_SYSTEM_SIX=ON      \
+        -DVTK_USE_SYSTEM_HDF5=ON     \
         -DVTK_WRAP_JAVA=OFF           \
         -DVTK_WRAP_PYTHON=ON         \
         -DCMAKE_CXX_FLAGS="-D__STDC_CONSTANT_MACROS" \
@@ -18,7 +20,7 @@ OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
 
 if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc &&
-  OPTS+=" -DVTK_INSTALL_QT_PLUGIN_DIR=${QT_PLUGIN_PATH}/designer -DVTK_QT_VERSION:STRING=5"
+  OPTS+=" -DVTK_QT_VERSION:STRING=5"
 fi &&
 
 default_cmake_build
