@@ -34,4 +34,8 @@ if in_depends $MODULE opencv-3 ; then
  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/"
 fi &&
 
-sedit 's:truetype/ttf-dejavu:TTF:g' -i modules/visualization/projectm.cpp
+sedit 's:truetype/ttf-dejavu:TTF:g' -i modules/visualization/projectm.cpp &&
+
+sed -e 's|-Werror-implicit-function-declaration||g' -i configure &&
+# Add a needed qt5 include
+sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp

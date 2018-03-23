@@ -3,6 +3,7 @@ OPTS+=" --enable-xvideo \
         --enable-ncurses \
         --enable-realrtsp \
         --disable-sid \
+        --disable-update-check \
         --disable-rpath" &&
 
 default_build &&
