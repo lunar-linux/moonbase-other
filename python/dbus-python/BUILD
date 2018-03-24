@@ -2,7 +2,7 @@ prepare_install &&
 
 mkdir python2 &&
 pushd python2 &&
-PYTHON=/usr/bin/python ../configure --prefix=/usr &&
+PYTHON=/usr/bin/python ../configure --prefix=/usr PYTHON_VERSION=2 &&
 make &&
 make python2 install
 popd
