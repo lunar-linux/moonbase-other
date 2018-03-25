@@ -1,15 +1,16 @@
           MODULE=libwacom
-         VERSION=0.27
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/linuxwacom
-      SOURCE_VFY=sha256:f340d0010cc5dece8e4523b1e3220a98cba7939450ddbc017e86a134ceaece14
-        WEB_SITE=http://sourceforge.net/apps/mediawiki/linuxwacom/index.php?title=Libwacom
+         VERSION=0.29
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
+      SOURCE_URL=https://github.com/linuxwacom/libwacom/archive/
+      SOURCE_VFY=sha256:8edc5a0342fa63c2c8d80cb02e172b4f26232b28e0f3f557ac291b3a66a362f4
+        WEB_SITE=https://github.com/linuxwacom/libwacom/
          ENTERED=20130217
-         UPDATED=20180123
+         UPDATED=20180326
            SHORT="Library to identify Wacom tablets and their features"
 
 cat <<EOF
-Libwacom supplies metadata about Wacome tablets including whether or not they are
-connected to your system, the list of styli it supports, as well as information
-about the styli themselves.
+Libwacom supplies metadata about Wacome tablets including whether or not they
+are connected to your system, the list of styli it supports, as well as
+information about the styli themselves.
 EOF
