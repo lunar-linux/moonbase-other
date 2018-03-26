@@ -2,6 +2,10 @@ depends gst-plugins-base-1.0
 
 optional_depends libid3tag "" "" "for MP3 id3 tag support (required for libmad support)"
 
+optional_depends srt  \
+                 "" "--disable-srt" \
+                 "for Secure Reliable Transport support"
+
 optional_depends a52dec \
                  "" "--disable-a52dec" \
                  "for AC-3 support"
