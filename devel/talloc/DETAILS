@@ -1,18 +1,18 @@
           MODULE=talloc
-         VERSION=2.1.11
+         VERSION=2.1.12
           SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=http://samba.org/ftp/$MODULE
-      SOURCE_VFY=sha256:639eb35556a0af999123c4d883e79be05ff9f00ab4f9e4ac2e5775f9c5eeeed3
+      SOURCE_VFY=sha256:987c0cf6815e948d20caaca04eba9b823e67773f361ffafe676e24b953cc604b
         WEB_SITE=http://talloc.samba.org/talloc/doc/html
          ENTERED=20101010
-         UPDATED=20180117
+         UPDATED=20180326
            SHORT="A hierarchical, reference counted memory pool system with destructors"
 
 cat << EOF
 talloc is a small wrapper around malloc that makes memory hierarchical. It is
-similar to a standard memory pool system, but much more powerful as any
-pointer returned by talloc is also a pool. This allows you to hang structures
-off other structures in an intuitive fashion, and free up a whole subtree of
-memory with one call. talloc also features type safety, destructors, and many
-helper functions.
+similar to a standard memory pool system, but much more powerful as any pointer
+returned by talloc is also a pool. This allows you to hang structures off other
+structures in an intuitive fashion, and free up a whole subtree of memory with
+one call. talloc also features type safety, destructors, and many helper
+functions.
 EOF
