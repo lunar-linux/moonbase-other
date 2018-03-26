@@ -10,4 +10,6 @@ sedit 's/AM_CONFIG_HEADER(/AC_CONFIG_HEADERS(/' configure.ac &&
 sedit "s@http://docbook2x.sf.net/latest@/usr/share/docbook2X@g" perl/db2x_xsltproc.pl
 
 # avoid collision with docbook-utils
-sedit "s:docbook2man:db2x_docbook2man:; s:docbook2texi:db2x_docbook2texi:" perl/Makefile.{am,in}
+sedit "s:docbook2man:db2x_docbook2man:; s:docbook2texi:db2x_docbook2texi:" perl/Makefile.{am,in} &&
+
+autoreconf -fi
