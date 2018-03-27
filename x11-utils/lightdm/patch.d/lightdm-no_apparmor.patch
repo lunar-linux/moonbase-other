@@ -1,0 +1,28 @@
+--- ./data/Makefile.am.orig	2018-02-13 05:27:04.000000000 +0200
++++ ./data/Makefile.am	2018-03-27 06:24:31.309074037 +0300
+@@ -1,6 +1,3 @@
+-initdir = ${sysconfdir}/init
+-dist_init_DATA = init/lightdm.conf
+-
+ confdir = $(sysconfdir)/lightdm
+ dist_conf_DATA = lightdm.conf users.conf keys.conf
+ 
+@@ -15,18 +12,6 @@
+ completionsdir = $(datadir)/bash-completion/completions
+ dist_completions_DATA = bash-completion/dm-tool bash-completion/lightdm
+ 
+-lightdm-guest-session: $(srcdir)/apparmor/lightdm-guest-session.in
+-	sed -e 's|@libexecdir[@]|$(libexecdir)|g' $< >$@
+-
+-apparmor_profiledir = $(sysconfdir)/apparmor.d
+-apparmor_profile_DATA = \
+-    lightdm-guest-session
+-
+-apparmor_profile_abstractionsdir = $(apparmor_profiledir)/abstractions
+-dist_apparmor_profile_abstractions_DATA = \
+-    apparmor/abstractions/lightdm \
+-    apparmor/abstractions/lightdm_chromium-browser
+-
+ accountsservice_interface = org.freedesktop.DisplayManager.AccountsService.xml
+ 
+ dbusdir = $(datadir)/dbus-1/interfaces

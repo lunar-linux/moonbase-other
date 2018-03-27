@@ -1,8 +1,6 @@
 export MOC5="/usr/lib/qt5/bin/moc"
 export MOC4="/usr/lib/qt4/bin/moc"
 
-OPTS+=" --sbindir=/usr/bin"
-
 OPTS+=" --disable-static \
         --disable-tests  \
         --with-greeter-user=lightdm" 
