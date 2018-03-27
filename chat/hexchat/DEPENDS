@@ -1,6 +1,10 @@
 depends autoconf-archive
+depends iso-codes
 depends pciutils
+depends dbus-glib
+depends pango
 depends intltool
+depends meson
 
 if [ "$ENABLE_GUI" == "y" ]; then
   depends desktop-file-utils
@@ -8,46 +12,44 @@ if [ "$ENABLE_GUI" == "y" ]; then
 fi
 
 optional_depends %OSSL \
-                 "--enable-openssl"  \
-                 "--disable-openssl" \
+                 "-Dwith-ssl=true"  \
+                 "-Dwith-ssl=false" \
                  "enable support for openSSL"
 
 optional_depends Python-3 \
-                 "--enable-python=python3" \
-                 "--disable-python" \
+                 "-Dwith-python=python3" \
+                 "-Dwith-python=false" \
                  "enable support for Python 3.x plugins"
 
 optional_depends perl \
-                 "--enable-perl" \
-                 "--disable-perl" \
+                 "-Dwith-perl=true" \
+                 "-Dwith-perl=false" \
                  "enable support for perl plugins"
 
-optional_depends lua \
-                 "--enable-lua" \
-                 "--disable-lua" \
-                 "enable support for lua plugins"
+if module_installed luajit; then
+   optional_depends lua \
+                    "-Dwith-lua=luajit" \
+                    "-D-with-lua=false" \
+                    "enable support for lua plugins"
 
-optional_depends dbus-glib \
-                 "--enable-dbus" \
-                 "--disable-dbus" \
-                 "enable support for a DBus remote interface"
+else
+   optional_depends lua \
+                    "-Dwith-lua=lua" \
+                    "-D-with-lua=false" \
+                    "enable support for lua plugins"
+fi
 
 optional_depends libnotify \
-                 "--enable-libnotify" \
-                 "--disable-libnotify" \
+                 "-Dwith-libnotify=true" \
+                 "-Dwith-libnotify=false" \
                  "enable support for notifications"
 
 optional_depends libcanberra \
-                 "--enable-libcanberra" \
-                 "--disable-libcanberra" \
+                 "-Dwith-libcanberra=true" \
+                 "-Dwith-libcanberra=false" \
                  "enable support for sounds"
 
 optional_depends libproxy \
-                 "--enable-libproxy" \
-                 "--disable-libproxy" \
+                 "-Dwith-libproxy=true" \
+                 "-Dwith-libproxy=false" \
                  "enable proxy support"
-
-optional_depends iso-codes \
-                 "--enable-isocodes" \
-                 "--disable-isocodes" \
-                 "enable iso-codes for spellcheck"
