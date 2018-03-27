@@ -5,4 +5,10 @@ fi &&
 
 OPTS+=" --with-libgd --with-fontconfig --without-cgraph" &&
 
+if module_installed librsvg; then
+   OPTS+=" --with-rsvg"
+else
+   OPTS+=" --without-rsvg"
+fi &&
+
 default_build

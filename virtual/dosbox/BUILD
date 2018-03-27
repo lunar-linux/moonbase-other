@@ -1,9 +1,4 @@
-(
+default_build &&
 
-  OPTS+=" --enable-core-inline" &&
-
-  sed -i "20i #include <stddef.h>" include/dos_inc.h &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+install -Dm644 $SCRIPT_DIRECTORY/$MODULE.png /usr/share/pixmaps/$MODULE.png &&
+install -Dm644 $SCRIPT_DIRECTORY/$MODULE.desktop /usr/share/applications/$MODULE.desktop
