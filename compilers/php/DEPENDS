@@ -1,6 +1,7 @@
 depends pcre
 depends libxml2
 depends gd
+depends enchant
 
 optional_depends gettext \
                  "--with-gettext=shared" "" \
@@ -13,10 +14,6 @@ optional_depends readline \
 optional_depends aspell \
                  "--with-pspell=shared" "" \
                  "for aspell spelling functions"
-
-optional_depends enchant \
-                 "--with-enchant=shared,/usr" "" \
-                 "for enchant spelling functions"
 
 optional_depends mhash \
                  "--with-mhash" "" \
