@@ -1,0 +1,17 @@
+--- ./src/Makefile.orig	2018-01-06 03:18:08.510623177 +0200
++++ ./src/Makefile	2018-01-06 03:19:03.570624261 +0200
+@@ -192,10 +192,10 @@
+ 		ln -sf halt $(ROOT)/sbin/reboot
+ 		ln -sf halt $(ROOT)/sbin/poweroff
+ 		ln -sf init $(ROOT)/sbin/telinit
+-		ln -sf /sbin/killall5 $(ROOT)/bin/pidof
+-		if [ ! -f $(ROOT)/usr/bin/lastb ]; then \
+-			ln -sf $(ROOT)/usr/bin/lastb; \
+-		fi
++#		ln -sf /sbin/killall5 $(ROOT)/bin/pidof
++#		if [ ! -f $(ROOT)/usr/bin/lastb ]; then \
++#			ln -sf $(ROOT)/usr/bin/lastb; \
++#		fi
+ 		$(INSTALL_DIR) $(ROOT)/usr/include/
+ 		$(INSTALL_DATA) initreq.h $(ROOT)/usr/include/
+ 		$(INSTALL_DIR) $(ROOT)$(MANDIR)/man1/

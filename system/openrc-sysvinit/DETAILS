@@ -1,17 +1,17 @@
           MODULE=openrc-sysvinit
-         VERSION=2.88dsf
+         VERSION=2.89
           SOURCE=sysvinit-$VERSION.tar.bz2
       SOURCE_URL=http://download.savannah.gnu.org/releases/sysvinit
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/sysvinit-$VERSION
-      SOURCE_VFY=sha256:60bbc8c1e1792056e23761d22960b30bb13eccc2cabff8c7310a01f4d5df1519
+      SOURCE_VFY=sha256:820dfed3ec55638919cefb56ac77423c808c111a7981846b73ec66f11e2dbc65
         WEB_SITE=http://savannah.nongnu.org/projects/sysvinit
          ENTERED=20171105
-         UPDATED=20171105
+         UPDATED=20180329
            SHORT="Sysvinit patched to use alternate inittab for openrc"
 
 cat << EOF
-Init is the parent of all processes. Its primary role is to create
-processes from a script stored in the file /etc/openrc/inittab. This package
-also contains well-known and used utilities like reboot, shutdown,
+Init is the parent of all processes. Its primary role is to create processes
+from a script stored in the file /etc/openrc/inittab.
+This package also contains well-known and used utilities like reboot, shutdown,
 killall, poweroff, tellinit, sulogin, wall, etc.
 EOF

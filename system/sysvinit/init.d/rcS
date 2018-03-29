@@ -3,8 +3,8 @@
 umask 022
 trap ":" INT QUIT TSTP
 
-for SCRIPT in /etc/rcS.d/S*; do
-  if [ -x $SCRIPT ]; then
-     $SCRIPT start
-  fi
+for SCRIPT in /etc/rcS.d/S* ; do
+  if [ -x $SCRIPT ] ; then
+	  $SCRIPT start
+	fi
 done
