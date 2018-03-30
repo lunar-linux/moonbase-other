@@ -1,0 +1,24 @@
+depends libtool
+depends libcap
+depends eudev
+depends dbus
+depends intltool
+depends meson
+
+optional_depends Linux-PAM \
+                 "-Dpam=true" \
+                 "-Dpam=false" \
+                 "for PAM support"
+
+optional_depends acl \
+                 "-Dacl=true" \
+                 "-Dacl=false" \
+                 "for ACL support"
+
+optional_depends libseccomp \
+                 "-Dseccomp=true" \
+                 "-Dseccomp=false" \
+                 "for libseccomp support"
+
+optional_depends docbook-xsl "" "" "for documetation install"
+optional_depends lxml        "" "" "for building the indices"

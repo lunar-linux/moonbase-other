@@ -1,0 +1,10 @@
+lin -c dbus
+
+# relin polkit with elogind support (avoid a circular depend on it)
+if module_installed polkit; then
+  lin -c polkit
+fi
+
+if module_installed openrc; then
+   lin -c openrc-elogind
+fi
