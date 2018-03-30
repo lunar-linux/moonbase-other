@@ -1,0 +1,13 @@
+depends kmod
+depends gperf
+depends util-linux
+depends intltool
+
+optional_depends gobject-introspection \
+                 "--enable-introspection" \
+                 "--disable-introspection" \
+                 "for introspection support"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" "" \
+                 "for building documentation"

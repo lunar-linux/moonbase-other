@@ -1,0 +1,8 @@
+default_pre_build &&
+
+sed -e 's/GROUP="dialout"/GROUP="uucp"/' \
+    -e 's/GROUP="tape"/GROUP="storage"/' \
+    -e 's/GROUP="cdrom"/GROUP="optical"/' \
+    -i rules/*.rules &&
+
+sedit "s|\$(LN_S|echo OK # \$(LN_S|" src/udev/Makefile.am
