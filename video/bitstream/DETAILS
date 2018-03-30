@@ -1,0 +1,23 @@
+          MODULE=bitstream
+         VERSION=1.3
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=https://get.videolan.org/bitstream/$VERSION/
+      SOURCE_VFY=sha256:f8a90b0ae517ccb295760317f7809ff097ae220ef75b05b0fc2b813debc4a8b7
+        WEB_SITE=https://www.videolan.org/developers/bitstream.html
+         ENTERED=20180330
+         UPDATED=20180330
+           SHORT="headers allowing a simpler access to binary structures"
+
+cat << EOF
+biTStream is a set of C headers allowing a simpler access to binary structures such as
+specified by MPEG, DVB, IETF, SMPTE, IEEE, SCTE, etc.
+
+biTStream vs. libdvbpsi
+libdvbpsi converts binary structures to C structures. Lists are implemented with chained lists of C structures.
+
+biTStream is lower level, and more efficient: fewer memory allocations, fewer memory copies.
+It also features a better separation between layers and specifications.
+liba52 is a free library for decoding ATSC A/52 streams. The A/52 standard is
+used in a variety of applications, including digital television and DVD. It is
+also known as AC-3.
+EOF

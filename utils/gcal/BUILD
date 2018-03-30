@@ -1,4 +1,10 @@
 
-  OPTS+=" --with-included-regex" &&
+  CPPFLAGS+=" -D_GNU_SOURCE" &&
 
-  default_build
+if [ $ENABLE_UNI == "y" ] ; then
+  CFLAGS+=" -lunistring"
+fi &&
+
+OPTS+=" --with-included-regex" &&
+
+default_build
