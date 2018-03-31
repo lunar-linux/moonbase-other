@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# Taken from https://github.com/wbsoft/python-poppler-qt5/pull/3/commits/faf4d1308f89560b0d849671226e3080dfc72e79?diff=split
+sedit "12d" poppler-qt5.sip &&
+sedit "8i %Feature QTXML_AVAILABLE" poppler-qt5.sip &&
+sedit 's:QtGuimod.sip:QtGuimod.sip\n%If(QTXML_AVAILABLE)\n%Import QtXml/QtXmlmod.sip\n%End:' poppler-qt5.sip
+

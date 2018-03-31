@@ -1,7 +1,9 @@
-. /etc/profile.d/qt4.rc &&
+. /etc/profile.d/qt5.rc &&
 
-python setup.py build &&
+CXXFLAGS+=" -std=c++11" &&
+
+#python setup.py build  &&
 
 prepare_install &&
 
-python setup.py install --prefix /usr --root=/
+python setup.py install --prefix=/usr --root=/
