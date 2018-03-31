@@ -4,4 +4,8 @@ default_pre_build &&
 sedit '/DEFINES += DEBUG/ d' openscad.pro &&
 
 # nonsense, this compiles fine
-sedit '/EIGEN_DONT_ALIGN/ d' eigen.pri
+sedit '/EIGEN_DONT_ALIGN/ d' eigen.pri &&
+
+sed -i "s/QMAKE_CXXFLAGS_RELEASE = .*//g" ${MODULE}.pro &&
+sed -i "s/\/usr\/local/\/usr/g" ${MODULE}.pro
+#sed -i 's/-lmpfr/& -lX11/' CMakeFiles/openscad_nogui.dir/link.txt

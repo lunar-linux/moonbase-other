@@ -1,4 +1,4 @@
-. /etc/profile.d/qt4.rc &&
+. /etc/profile.d/qt5.rc &&
 
-qmake openscad.pro PREFIX=/usr CONFIG+=deploy QMAKE_CXXFLAGS+=" -DNDEBUG ${CXXFLAGS}" &&
+/usr/lib/qt5/bin/qmake openscad.pro PREFIX=/usr CONFIG+=deploy QMAKE_CXXFLAGS+=" -DNDEBUG ${CXXFLAGS}" &&
 default_build
