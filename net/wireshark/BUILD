@@ -7,6 +7,7 @@ OPTS+=" -without-lua" &&
 
 OPTS+=" --with-ssl \
         --with-zlib \
+        --disable-warnings-as-errors \
         --disable-static" &&
 
 default_build &&
