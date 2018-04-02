@@ -1,5 +1,4 @@
-NOCONFIGURE=1 ./autogen.sh &&
-
-OPTS+=" --with-glib=yes --disable-docs" &&
-
-default_build
+OPTS+=" --disable-docs"
+default_config &&
+sedit 's; -shared ; -Wl,-O1,--as-needed\0;g' libtool &&
+default_make
