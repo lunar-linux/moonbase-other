@@ -6,6 +6,13 @@ fi &&
 
 default_pre_build &&
 
+# Google API keys (see http://www.chromium.org/developers/how-tos/api-keys)
+# The keys below are for Lunar Linux use ONLY. If you are maintaining chromium for
+# another distribution, please get your own set of keys.
+google_api_key=AIzaSyDhObDIVsBGV5fleLgLq6ZpfKldIVMvrG4 &&
+
+echo -n "$google_api_key" > google_api_key &&
+
 # To skirt around this make failure in libxul.so:
 # ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
 #CFLAGS+=" -lbz2" &&
@@ -34,8 +41,10 @@ for flag in $OPTS; do
   echo "ac_add_options $flag" >> mozconfig
 done &&
 
+echo "ac_add_options --with-google-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
+
 # turn off this #$ bell during build
-setterm -bfreq -blength &&
+setterm -bfreq -blength &> /dev/null &&
 
 if [ -n "${MAKES}" ]; then
   echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
