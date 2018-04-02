@@ -1,11 +1,12 @@
 prepare_install &&
 
-install -Dm0755 $SOURCE /usr/bin/colorgcc &&
+install -Dm755 colorgcc.pl /usr/bin/colorgcc &&
+install -Dm644  $SOURCE2 /etc/colorgcc/colorgccrc &&
 
 # prepare overlay for colorgcc
 install -dm0755 /usr/lib/colorgcc &&
 for x in gcc g++ cc cpp; do
-  ln -s /usr/bin/colorgcc /usr/lib/colorgcc/$x
+  ln -sf /usr/bin/colorgcc /usr/lib/colorgcc/$x
 done &&
 
-gather_docs $SOURCE2
+gather_docs README
