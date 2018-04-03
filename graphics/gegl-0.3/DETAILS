@@ -1,13 +1,13 @@
           MODULE=gegl-0.3
-         VERSION=28
+         VERSION=30
           SOURCE=$MODULE.$VERSION.tar.bz2
-   SOURCE_URL[0]=https://download.gimp.org/pub/gegl/${VERSION#-*}/
-   SOURCE_URL[1]=https://ftp.gtk.org/pub/gegl/${VERSION#-*}/
+   SOURCE_URL[0]=https://download.gimp.org/pub/gegl/${MODULE##*-}/
+   SOURCE_URL[1]=https://ftp.gtk.org/pub/gegl/${MODULE##*-}/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
-      SOURCE_VFY=sha256:152f87604a5a191775329dfb63764efa1d5c32403d1438da68e242f96b7d23ff
+      SOURCE_VFY=sha256:f8b4a93ad2c5187efcc7d9a665ef626a362587eb701eebccf21b13616791e551
         WEB_SITE=http://gegl.org
          ENTERED=20081016
-         UPDATED=20180301
+         UPDATED=20180403
            SHORT="Generic Graphics Library"
 
 cat << EOF
