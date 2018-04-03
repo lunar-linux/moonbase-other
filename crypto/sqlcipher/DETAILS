@@ -1,0 +1,26 @@
+          MODULE=sqlcipher
+         VERSION=3.4.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/sqlcipher/sqlcipher/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:69897a5167f34e8a84c7069f1b283aba88cdfa8ec183165c4a5da2c816cfaadb
+        WEB_SITE=https://github.com/sqlcipher/sqlcipher/
+         ENTERED=20160218
+         UPDATED=20180404
+           SHORT="SQLite extension that provides encryption of database files"
+
+cat << EOF
+SQLCipher is an open source extension to SQLite that provides transparent
+256-bit AES encryption of database files.
+Pages are encrypted before being written to disk and are decrypted when
+read back. Due to the small footprint and great performance it’s ideal for
+protecting embedded application databases and is well suited for mobile
+development.
+Features:
+  Fast performance with as little as 5-15% overhead for encryption on many
+  operations.
+  100% of data in the database file is encrypted.
+  Good security practices (CBC mode, key derivation).
+  Zero-configuration and application level cryptography.
+  Algorithms provided by the peer reviewed OpenSSL crypto library.
+  Configurable crypto providers.
+EOF
