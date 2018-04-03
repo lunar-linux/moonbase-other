@@ -1,7 +1,7 @@
 OPTS+="--sysconfdir=/etc/autofs \
        --sbindir=/usr/bin \
        --without-hesiod \
-       --enable-ignore-busy" &&
+       --enable-ignore-busy"
 
 default_config &&
 make &&
