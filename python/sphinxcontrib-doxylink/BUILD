@@ -1,8 +1,10 @@
+cd doxylink &&
+
 python3 setup.py build &&
 
 prepare_install &&
 
-python3 setup.py install --optimize=1
+python3 setup.py install --optimize=1 &&
 
 if module_installed setuptools; then
   python setup.py build &&
