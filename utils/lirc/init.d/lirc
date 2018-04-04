@@ -12,9 +12,9 @@
 case "$1" in
     start|restart) echo "$1ing lircd deamon."
         pkill "^lircmd$"
-	pkill "^lircd$"
-	/usr/sbin/lircd --device=/dev/lirc
-	/usr/sbin/lircmd
+        pkill "^lircd$"
+        /usr/bin/lircd --device=/dev/lirc
+        /usr/bin/lircmd
         ;;
     stop) echo "$1ing down lircd deamon."
         pkill "^lircmd$"
