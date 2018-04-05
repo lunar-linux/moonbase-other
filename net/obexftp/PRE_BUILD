@@ -1,5 +1,5 @@
-default_pre_build &&
+default_pre_build
 
 sedit "2 d; 4 i find_package ( PythonLibs \${PYTHON_VERSION_STRING} REQUIRED ) " swig/python/CMakeLists.txt &&
 sedit "s:^#define ESOCKTNOSUPPORT.*:#ifndef ESOCKTNOSUPPORT\n\0\n#endif:" obexftp/client.c
-sedit "s: -Wl,-rpath=@prefix@/lib::" swig/perl/Makefile.PL.in
+sedit 's:${PERL_VENDOR_ARCH_DIR}:/usr/lib/perl5/5.26.1/x86_64-linux-thread-multi/:g' swig/perl/CMakeLists.txt

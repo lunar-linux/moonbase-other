@@ -1,3 +1,3 @@
-OPTS+=" -DCMAKE_CONFIGURATION_TYPES=Release" &&
+OPTS+=" -DCMAKE_CONFIGURATION_TYPES=Release -DCMAKE_SKIP_RPATH=ON" &&
 
 default_cmake_build
