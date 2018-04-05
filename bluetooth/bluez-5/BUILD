@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 mkdir -p /etc/bluetooth &&
 
 if module_installed systemd; then

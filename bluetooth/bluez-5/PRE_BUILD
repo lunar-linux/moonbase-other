@@ -1,6 +1,4 @@
 default_pre_build &&
 
 sedit "s:_SERVICE:_SERVICE CAP_NET_RAW:" src/bluetooth.service.in &&
-sedit "s:libexecdir@/bluetooth:libexecdir@:" Makefile.in Makefile.am &&
-
-patch_it $SOURCE2 1
+sedit "s:libexecdir@/bluetooth:libexecdir@:" Makefile.in Makefile.am
