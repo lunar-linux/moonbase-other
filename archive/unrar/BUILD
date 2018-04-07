@@ -16,4 +16,7 @@ mkdir -p $DOCUMENT_DIRECTORY/unrar &&
 cp readme.txt license.txt $DOCUMENT_DIRECTORY/unrar
 
 ln -sf libunrar.so.$VERSION /usr/lib/libunrar.so.5 &&
-ln -sf libunrar.so.$VERSION /usr/lib/libunrar.so
+ln -sf libunrar.so.$VERSION /usr/lib/libunrar.so &&
+
+#Needed by unrardll (python)
+install -Dm644 dll.hpp /usr/include/unrar/dll.hpp
