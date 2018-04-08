@@ -1,5 +1,5 @@
-default_pre_build    &&
-patch_it $SOURCE2 1  &&
-patch_it $SOURCE3 1  &&
-patch_it $SOURCE4 1  &&
-patch_it $SOURCE5 0
+default_pre_build &&
+
+sedit 's:#include <linux/fd.h>:#include <linux/fd.h>\n#include <sys/sysmacros.h>:' mkudffs/main.c &&
+sed -i 's|/lib/|$(libdir)/|' pktsetup/Makefile.am &&
+./autogen.sh
