@@ -1,6 +1,3 @@
-(
+  OPTS+=" --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt" &&
 
-  sedit '/AuthConfig.h/ a#include <ostream>' src/AuthConfig.cc  &&
   default_build
-
-) > $C_FIFO 2>&1
