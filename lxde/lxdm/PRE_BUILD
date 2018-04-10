@@ -1,7 +1,0 @@
-default_pre_build &&
-
-if module_installed gtk+-3; then
-  patch_it $SOURCE2 0 &&
-  sedit "s:=ClearLooks:=Adwaita:" data/lxdm.conf &&
-  sedit "s:bg=/:#bg=/:" data/lxdm.conf
-fi
