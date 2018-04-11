@@ -1,5 +1,11 @@
-python setup.py build
+python3 setup.py build &&
 
 prepare_install &&
 
-python setup.py install
+python3 setup.py install --optimize=1 &&
+
+# Now for Python2
+if module_installed setuptools; then
+  python setup.py build &&
+  python setup.py install --optimize=1
+fi
