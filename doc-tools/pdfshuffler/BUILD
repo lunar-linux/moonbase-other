@@ -1,5 +1,5 @@
-python setup.py config &&
+python2 setup.py config &&
 
 prepare_install &&
 
-python setup.py install
+python2 setup.py install

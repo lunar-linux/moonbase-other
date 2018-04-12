@@ -1,3 +1,3 @@
 prepare_install &&
 
-python setup.py install --optimize=1
+python2 setup.py install --optimize=1

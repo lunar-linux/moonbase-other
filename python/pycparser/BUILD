@@ -2,10 +2,10 @@ prepare_install &&
 
 # Do Python2 build
 if module_installed setuptools; then
-  python ./setup.py build &&
+  python2 ./setup.py build &&
 
   pushd pycparser &&
-  python _build_tables.py &&
+  python2 _build_tables.py &&
   popd &&
 
   python setup.py install --root=/ --optimize=1

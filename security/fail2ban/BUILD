@@ -1,8 +1,8 @@
-python setup.py build_ext -i &&
+python2 setup.py build_ext -i &&
 
 prepare_install &&
 
-python setup.py install --prefix /usr --optimize=1 &&
+python2 setup.py install --prefix /usr --optimize=1 &&
 
 for man in man/*.1 man/*.5; do
   install -Dm644 $man /usr/share/man/man${man##*.}/${man#*/}

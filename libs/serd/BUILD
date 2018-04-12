@@ -1,10 +1,10 @@
 sed -i "/ldconfig/d" wscript &&
 
-python ./waf configure --prefix=/usr \
+python2 ./waf configure --prefix=/usr \
                         --mandir=/usr/share/man
 
-python ./waf build &&
+python2 ./waf build &&
 
 prepare_install &&
 
-python ./waf install
+python2 ./waf install

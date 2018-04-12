@@ -1,5 +1,5 @@
-if in_depends $MODULE Python; then
-  VER=`lvu version Python | cut -c 1-3` &&
+if in_depends $MODULE Python-2; then
+  VER=`lvu version Python-2 | cut -c 1-3` &&
   OPTS="-DBUILD_PYTHON=/usr/bin/python$VER"
 else
   OPTS="-DWITH_PYTHON=OFF"

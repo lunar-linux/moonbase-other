@@ -2,7 +2,7 @@
 
  export JOBS=${MAKES} &&
 
-  PYTHON=python
+  PYTHON=python2
   scons configure \
     PREFIX="/usr" \
     INPUT_PLUGINS=all \

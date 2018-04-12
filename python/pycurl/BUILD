@@ -4,8 +4,8 @@ fi &&
 
 make &&
 
-python setup.py build $OPTS &&
+python2 setup.py build $OPTS &&
 
 prepare_install &&
 
-python setup.py install
+python2 setup.py install

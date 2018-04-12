@@ -10,7 +10,7 @@ start ()
 {
   echo -n "Starting pymsnt jabber transport: "
   cd /usr/lib/pymsnt &&
-  exec python ./PyMSNt.py -c /etc/jabber/pymsnt.xml &> /dev/null &
+  exec python2 ./PyMSNt.py -c /etc/jabber/pymsnt.xml &> /dev/null &
   if [ $? -eq 0 ]; then
     echo -e "$RESULT_OK"
   else

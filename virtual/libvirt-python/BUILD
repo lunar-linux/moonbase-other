@@ -1,6 +1,6 @@
-python setup.py config &&
+python2 setup.py config &&
 prepare_install &&
-python setup.py install --root=/ &&
+python2 setup.py install --root=/ &&
 
 if in_depends $MODULE Python-3; then
   devoke_installwatch &&

@@ -6,4 +6,4 @@ CXXFLAGS+=" -std=c++11" &&
 
 prepare_install &&
 
-python setup.py install --prefix=/usr --root=/
+python2 setup.py install --prefix=/usr --root=/

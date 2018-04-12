@@ -1,3 +1,3 @@
 prepare_install &&
 
-python setup.py install --prefix=/usr --optimize=1
+python2 setup.py install --prefix=/usr --optimize=1
