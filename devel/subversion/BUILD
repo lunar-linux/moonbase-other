@@ -6,11 +6,14 @@ sedit "370 s/install = tools/install = apache-mod/" build.conf &&
 
 if in_depends $MODULE sun-jdk; then
   . /etc/profile.d/sun-jdk.rc &&
-  OPTS+=" --with-jdk=$JAVA_HOME" &&
-  BINDINGS_MAKE+=" javahl"
+  OPTS+=" --with-jdk=$JAVA_HOME"
+# broken for sun-jdk 10 related to javah removal
+#  BINDINGS_MAKE+=" javahl"
 fi &&
 
-OPTS+=" --disable-static --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` --with-apr-util=`which apu-$(installed_version apr-util | cut -d. -f1)-config`" &&
+OPTS+=" --disable-static \
+        --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` \
+        --with-apr-util=`which apu-$(installed_version apr-util | cut -d. -f1)-config`"
 
 if in_depends $MODULE swig; then
   if module_installed perl; then
@@ -28,6 +31,8 @@ fi &&
 
 if [ -n "$BINDINGS_MAKE" ]; then
   default_config &&
+  # sun-jdk 10 removed javah
+  sedit 's:/bin/javah:/bin/javac -h:g' Makefile &&
   make &&
   make $BINDINGS_MAKE &&
   prepare_install &&
