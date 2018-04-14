@@ -1,5 +1,5 @@
 ./configure --prefix=/usr \
             --localstatedir=/var \
-             --sysconfdir=/etc/samba &&
+            --sysconfdir=/etc/samba &&
 
 default_make
