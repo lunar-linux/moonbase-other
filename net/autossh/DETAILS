@@ -1,15 +1,15 @@
           MODULE=autossh
-         VERSION=1.4e
+         VERSION=1.4f
           SOURCE=$MODULE-$VERSION.tgz
       SOURCE_URL=http://www.harding.motd.ca/autossh/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha256:9e8e10a59d7619176f4b986e256f776097a364d1be012781ea52e08d04679156
+      SOURCE_VFY=sha256:0172e5e1bea40c642e0ef025334be3aadd4ff3b4d62c0b177ed88a8384e2f8f2
         WEB_SITE=http://www.harding.motd.ca/autossh
          ENTERED=20130520
-         UPDATED=20170408
+         UPDATED=20180415
            SHORT="Automatically restart SSH sessions and tunnels"
 
-cat <<EOF
+cat << EOF
 Start a copy of ssh and monitor it, restarting it as necessary should it die
 or stop passing traffic. The idea is from rstunnel (Reliable SSH Tunnel), but
 implemented in C.
