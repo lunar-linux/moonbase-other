@@ -18,9 +18,24 @@ OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
         -DBUILD_EXAMPLES=OFF \
         -DVTK_LEGACY_REMOVE=ON" &&
 
+#Maybe a little overkill but just to make sure if qt4 is installed there
+#is no confusion
 if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc &&
-  OPTS+=" -DVTK_QT_VERSION:STRING=5"
+  OPTS+=" -DVTK_QT_VERSION:STRING=5  \
+          -DVTK_USE_QVTK=ON   \
+          -DVTK_USE_QVTK_OPENGL=ON \
+          -DVTK_USE_QVTK_QTOPENGL=ON \
+          -DQT_WRAP_CPP=ON \
+          -DQT_WRAP_UI=ON \
+          -DVTK_INSTALL_QT_DIR="/usr/lib/qt5/plugins/designer" \
+          -DDESIRED_QT_VERSION=5 \
+          -DVTK_QT_VERSION=5 \
+          -DQT_MOC_EXECUTABLE="/usr/lib/qt5/bin/moc" \
+          -DQT_UIC_EXECUTABLE="/usr/lib/qt5/bin/uic" \
+          -DQT_INCLUDE_DIR="/usr/include/qt5" \
+          -DQT_QMAKE_EXECUTABLE="/usr/lib/qt5/bin/qmake" \
+          -DVTK_Group_Qt=ON"
 fi &&
 
 default_cmake_build
