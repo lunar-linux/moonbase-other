@@ -1,6 +1,6 @@
 default_pre_build &&
 
-patch_it $SOURCE2 1 &&
+#patch_it $SOURCE2 1 &&
 
 if in_depends $MODULE qt5 ; then
   . /etc/profile.d/qt5.rc &&
@@ -9,7 +9,7 @@ fi &&
 
 # This would be nice, but does not work over here...
 #OPTS+=" -DUSE_EXTERNAL_VTK=1" &&
-# Doesn't like out version of gl2ps
+# Doesn't like out version of gl2ps and as of version 5.5.0 still the case
 #        -DVTK_USE_SYSTEM_GL2PS=1               \
 
 OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
@@ -30,7 +30,6 @@ OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
         -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=1 \
         -DVTK_PYTHON_FULL_THREADSAFE=1         \
         -DPARAVIEW_ENABLE_PYTHON=1"            &&
-
 
 sedit "84i #  include <cstring>" VTK/ThirdParty/xdmf2/vtkxdmf2/libsrc/XdmfObject.h &&
 
