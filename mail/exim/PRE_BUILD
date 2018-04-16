@@ -11,7 +11,4 @@ sedit "s|/etc/aliases|/etc/mail/aliases|g" src/configure.default &&
 sedit "s|SYSTEM_ALIASES_FILE|/etc/mail/aliases|g" src/configure.default &&
 sedit "s:var/mail:var/spool/mail:" src/configure.default &&
 sedit "s/\# group = mail/  group = mail/" src/configure.default &&
-sedit "s/\# mode = 0660/  mode = 0660/" src/configure.default &&
-
-# fix CVE-2018-6789
-patch_it $SOURCE2 1
+sedit "s/\# mode = 0660/  mode = 0660/" src/configure.default
