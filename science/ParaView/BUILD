@@ -1,3 +1,5 @@
+# Disable, else stomps on Pygments
+OPTS+=" -DModule_Pygments=OFF" &&
 
 default_cmake_build &&
 
