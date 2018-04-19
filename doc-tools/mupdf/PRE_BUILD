@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# fix includes for jbig2dec
+sedit '/^JBIG2DEC_CFLAGS :=/s|$| -I./include/mupdf|' -i Makethird
