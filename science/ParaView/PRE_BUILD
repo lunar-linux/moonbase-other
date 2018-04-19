@@ -10,7 +10,8 @@ fi &&
 # Doesn't like out version of gl2ps and as of version 5.5.0 still the case
 #        -DVTK_USE_SYSTEM_GL2PS=1               \
 # Need to specify pygments here else it use included pygments thus
-# stomping on system pygemetns
+# stomping on system pygments. Have the same clobber with protobuf.
+
 OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
         -DVTK_USE_SYSTEM_ZLIB=1                \
         -DVTK_USE_SYSTEM_TIFF=1                \
@@ -23,12 +24,13 @@ OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
         -DVTK_USE_SYSTEM_JSONCPP=1             \
         -DVTK_USE_SYSTEM_EXPAT=1               \
         -DVTK_USE_SYSTEM_OGGTHEORA=1           \
+        -DVTK_USE_SYSTEM_PYGMENTS=1            \
+        -DVTK_USE_SYSTEM_PROTOBUF=1            \
         -DBUILD_SHARED_LIBS=1                  \
         -DVTK_Group_StandAlone=1               \
         -DVTK_RENDERING_BACKEND=OpenGL2        \
         -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=1 \
         -DVTK_PYTHON_FULL_THREADSAFE=1         \
-        -DVTK_USE_SYSTEM_LIB+=-DVTK_USE_SYSTEM_PYGMENTS=ON \
         -DPARAVIEW_ENABLE_PYTHON=1"            &&
 
 sedit "84i #  include <cstring>" VTK/ThirdParty/xdmf2/vtkxdmf2/libsrc/XdmfObject.h &&
