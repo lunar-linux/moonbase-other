@@ -37,7 +37,7 @@ popd > /dev/null &&
 
 message "${MESSAGE_COLOR}Building containerd${DEFAULT_COLOR}" &&
 _go_build_path containerd-$_CONTAINERD_COMMIT github.com/containerd/containerd &&
-LDFLAGS= make &&
+make &&
 popd > /dev/null &&
 
 message "${MESSAGE_COLOR}Building docker-proxy${DEFAULT_COLOR}" &&

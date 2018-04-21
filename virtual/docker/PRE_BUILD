@@ -21,15 +21,20 @@ fi
 default_pre_build &&
 
 # Verify commit ID sanity with upstream docker
-. components/engine/hack/dockerfile/binaries-commits &&
-for c in RUNC CONTAINERD LIBNETWORK TINI; do
-  local_commit=_${c}_COMMIT
-  docker_commit=${c}_COMMIT
-  if [[ ${!local_commit} != ${!docker_commit} ]]; then
-    message "Invalid commit for ${c}_COMMIT, is ${!local_commit} and should be ${!docker_commit}"
-    exit 1
-  fi
-done
+(
+  local cfile local_commit docker_commit
+  for cfile in runc containerd tini proxy; do
+    . "components/engine/hack/dockerfile/install/${cfile}.installer"
+  done
+  for c in RUNC CONTAINERD LIBNETWORK TINI; do
+    local_commit=_${c}_COMMIT
+    docker_commit=${c}_COMMIT
+    if [[ ${!local_commit} != ${!docker_commit} ]]; then
+      message "Invalid commit for ${c}_COMMIT, is ${!local_commit} and should be ${!docker_commit}"
+      return 1
+    fi
+  done
+) &&
 
 # Unpack all packages
 unpack $SOURCE2 &&
