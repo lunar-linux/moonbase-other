@@ -2,6 +2,9 @@ default_pre_build &&
 
 unzip $SOURCE_CACHE/$SOURCE2 &&
 
+# https://crbug.com/832283
+tar xfC $SOURCE_CACHE/$SOURCE7 third_party/blink/tools/ &&
+
 # Allow building against system libraries in official builds
 sedit 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' tools/generate_shim_headers/generate_shim_headers.py &&
 
@@ -11,22 +14,11 @@ patch_it $SOURCE3 1 &&
 # https://crbug.com/822820
 patch_it $SOURCE4 1 &&
 
-# https://crbug.com/817400
+# https://crbug.com/821881
 patch_it $SOURCE5 1 &&
 
-# https://crbug.com/821881
-patch_it $SOURCE6 1 &&
-
 # https://crbug.com/skia/6663#c10
-patch_it $SOURCE7 4 &&
-
-# https://crbug.com/797708
-patch_it $SOURCE8 1 &&
-
-# Fixes from Gentoo
-patch_it $SOURCE9 1 &&
-patch_it $SOURCE10 1 &&
-patch_it $SOURCE11 1 &&
+patch_it $SOURCE6 4 &&
 
 # Build now requires nodejs
 mkdir -p third_party/node/linux/node-linux-x64/bin &&
