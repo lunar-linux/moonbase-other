@@ -1,17 +1,25 @@
 depends lcms2
+depends libgusb
+depends polkit
+depends sqlite
+depends dconf
+depends dbus
+depends libgudev
+depends shared-mime-info
+depends docbook2X
+depends Argyll
+depends gobject-introspection
+depends meson
+
+optional_depends sane-backends "-Dsane=true" "-Dsane=false" "for scanner support"
+optional_depends vala          "-Dvapi=true" "-Dvapi=false" "for vala bindings support"
 
 optional_depends bash-completion \
-                 "--enable-bash-completion" \
-                 "--disable-bash-completion" \
+                 "-Dbash_completion=true" \
+                 "-Dbash_completion=false" \
                  "for bash completion support"
 
-optional_depends sane-backends "--enable-sane"   "--disable-sane"   "for scanner support"
-optional_depends libgudev      "--enable-udev"   "--disable-udev"   "for udev support"
-optional_depends libgusb       "--enable-gusb"   "--disable-gusb"   "for gusb support"
-optional_depends polkit        "--enable-polkit" "--disable-polkit" "for policy kit support"
-optional_depends vala          "--enable-vala"   "--disable-vala"   "for vala bindings support"
-
-optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
-                 "for introspection support"
+optional_depends gtk-doc \
+                 "-Ddocs=true" \
+                 "-Ddocs=false" \
+                 "for documentsation install"
