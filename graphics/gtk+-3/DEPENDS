@@ -16,6 +16,12 @@ optional_depends wayland-protocols \
                  "--disable-wayland-backend" \
                  "for the waylany backend"
 
+# broken
+#optional_depends gtk-doc \
+#                 "--enable-gtk-doc" \
+#                 "--disable-gtk-doc" \
+#                 "for building documentation"
+
 # GI _is_ optional here. Making it a hard dependency breaks setups without GI.
 # If some project further down the line requires gtk+'s GI files,
 # then _that_ module should have a hard dep on introspection
