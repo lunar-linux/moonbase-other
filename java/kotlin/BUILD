@@ -7,9 +7,9 @@ prepare_install &&
 
 # Executables
 install -Dm755 bin/kotlin      /usr/bin/kotlin &&
+install -Dm755 bin/kotlin      /usr/bin/kotlinc &&
 install -Dm755 bin/kotlinc-js  /usr/bin/kotlinc-js &&
 install -Dm755 bin/kotlinc-jvm /usr/bin/kotlinc-jvm &&
-install -Dm755 bin/kotlinc     /usr/bin/kotlinc &&
 
 # jar files
 install -d /usr/share/java/$MODULE/lib
