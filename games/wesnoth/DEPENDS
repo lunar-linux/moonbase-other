@@ -2,14 +2,13 @@ depends cmake
 depends boost
 depends fontconfig
 
-depends cairo
-#pango needs to be build with cairo suppport
+depends cairo # pango needs to be build with cairo suppport
 depends pango
 
-depends SDL_image
-depends SDL_mixer
-depends SDL_net
-depends SDL_ttf
+depends SDL2_image
+depends SDL2_mixer
+depends SDL2_net
+depends SDL2_ttf
 
 optional_depends dbus \
                  "-DENABLE_NOTIFICATIONS=ON"  \
