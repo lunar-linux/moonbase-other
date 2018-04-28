@@ -3,7 +3,8 @@ OPTS+=" -DBINDIR=games \
         -DDESKTOPDIR=${MODULE_PREFIX}/share/applications \
         -DICONDIR=${MODULE_PREFIX}/share/pixmaps \
         -DMANDIR=${MODULE_PREFIX}/share/man \
-        -DDOCDIR=${MODULE_PREFIX}/share/doc/$MODULE" &&
+        -DDOCDIR=${MODULE_PREFIX}/share/doc/$MODULE \
+        -DFIFO_DIR=/var/run/wesnothd"
 
 # fribidi is pretty much obsolete
 OPTS+=" -DENABLE_FRIBIDI=OFF" &&
