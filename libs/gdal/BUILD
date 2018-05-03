@@ -1,3 +1,6 @@
+# Needed for poppler-0.64
+sedit 's:GooString\* gooString:const GooString\* gooString:' frmts/pdf/pdfobject.cpp &&
+
 # Fixes error of installing etc stuff into /usr/etc
 OPTS+=" --sysconfdir=/etc" &&
 
