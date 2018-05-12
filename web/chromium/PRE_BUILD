@@ -2,9 +2,6 @@ default_pre_build &&
 
 unzip $SOURCE_CACHE/$SOURCE2 &&
 
-# https://crbug.com/832283
-tar xfC $SOURCE_CACHE/$SOURCE7 third_party/blink/tools/ &&
-
 # Allow building against system libraries in official builds
 sedit 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' tools/generate_shim_headers/generate_shim_headers.py &&
 
