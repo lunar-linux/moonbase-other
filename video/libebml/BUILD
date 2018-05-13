@@ -1,3 +1,1 @@
-autoreconf -fiv &&
-
-default_build
+default_cmake_build
