@@ -1,3 +1,6 @@
+libtoolize &&
+autoconf &&
+
 OPTS+=" --enable-largefile \
         --enable-xinerama \
         --enable-threads \
