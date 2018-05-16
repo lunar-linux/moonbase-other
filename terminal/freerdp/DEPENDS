@@ -1,6 +1,8 @@
 depends cmake
 depends %OSSL
+depends gst-plugins-base-1.0
 
-optional_depends "cups" "-DWITH_CUPS=ON" "-DWITH_CUPS=OFF" "Enable printer support?"
-optional_depends "alsa-lib" "-DWITH_ALSA=ON" "-DWITH_ALSA=OFF" "Enable sound?"
-optional_depends "ffmpeg" "-DWITH_FFMPEG=ON" "-DWITH_FFMPEG=OFF" "Enable ffmpeg support?"
+optional_depends "cups"     "-DWITH_CUPS=ON"     "-DWITH_CUPS=OFF"     "Enable printer support?"
+optional_depends "alsa-lib" "-DWITH_ALSA=ON"     "-DWITH_ALSA=OFF"     "Enable sound?"
+optional_depends "ffmpeg"   "-DWITH_FFMPEG=ON"   "-DWITH_FFMPEG=OFF"   "Enable ffmpeg support?"
+optional_depends "xsltproc" "-DWITH_MANPAGES=ON" "-DWITH_MANPAGES=OFF" "Build man pages"
