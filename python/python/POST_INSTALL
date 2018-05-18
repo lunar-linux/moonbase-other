@@ -5,7 +5,7 @@ message "on a major version change like 3.0 to 3.1 Minor version numbers,"
 message "like 3.3.0, to 3.3.1 are usually safe without recompiling.${DEFAULT_COLOR}"
 
 if query "Do you want lunar to attempt to upgrade your Python modules?" ${ASK_FOR_REBUILDS:-y}; then
-  PYTHONMODS="$( lvu from /usr/lib/python3*/site-packages | cut -d: -f1 | uniq | grep -v Python)"
+  PYTHONMODS="$( lvu from /usr/lib/python3*/site-packages | cut -d: -f1 | uniq | grep -v '^[pP]ython')"
   for PYTHONMOD in $(sort_by_dependency $PYTHONMODS); do
     lin -c $PYTHONMOD || true
   done
