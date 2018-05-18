@@ -1,0 +1,11 @@
+depends perl
+depends libxslt
+
+# fails with llvm 3.5
+#optional_depends llvm "" " " "build ghc with LLVM backend"
+
+# currently broken
+optional_depends libffi \
+                 "--with-system-libffi" \
+                 "--without-system-libffi" \
+                 "use system libffi"
