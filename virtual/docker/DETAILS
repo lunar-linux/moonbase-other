@@ -1,10 +1,10 @@
             MODULE=docker
-           VERSION=18.04.0
-    _DOCKER_COMMIT=3d479c0af67cb9ea43a9cfc1bf2ef097e06a3470
+           VERSION=18.05.0
+    _DOCKER_COMMIT=f150324782643a5268a04e7d1a675587125da20e
       _RUNC_COMMIT=4fc53a81fb7c994640722ac585fa9ca548971871
 _CONTAINERD_COMMIT=773c489c9c1b21a6d78b5c538cd395416ec50f88
       _TINI_COMMIT=949e6facb77383876aeff8a6944dde66b3089574
-_LIBNETWORK_COMMIT=1b91bc94094ecfdae41daa465cc0c8df37dfb3dd
+_LIBNETWORK_COMMIT=c15b372ef22125880d378167dde44f4b134e1a77
             SOURCE=$MODULE-$VERSION.tar.gz
            SOURCE2=runc-$_RUNC_COMMIT.tar.gz
            SOURCE3=containerd-$_CONTAINERD_COMMIT.tar.gz
@@ -18,10 +18,10 @@ _LIBNETWORK_COMMIT=1b91bc94094ecfdae41daa465cc0c8df37dfb3dd
        SOURCE4_URL=git+https://github.com/docker/libnetwork.git:$_LIBNETWORK_COMMIT
        SOURCE5_URL=git+https://github.com/krallin/tini.git:$_TINI_COMMIT
        SOURCE6_URL=git+https://github.com/spf13/cobra.git
-        SOURCE_VFY=sha256:7bd16f2a97dcfaa450e42d5f5d838e490feb1db3933fa187859b487c45fee253
+        SOURCE_VFY=sha256:cc29408b382774b9f5967ee33851e97bcb7463aa7358d60004f28b836a70ba75
           WEB_SITE=http://www.docker.com/
            ENTERED=20140607
-           UPDATED=20180421
+           UPDATED=20180519
              SHORT="Pack, ship and run any application as a lightweight container"
 
 GARBAGE=off
