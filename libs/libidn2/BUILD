@@ -1,2 +1,3 @@
-OPTS+=" --disable-doc"
+OPTS+=" --disable-gtk-doc"
+
 default_build

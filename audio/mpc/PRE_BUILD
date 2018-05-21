@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# we don't have the required Sphinx modules
+sedit '/if sphinx\.found/ s/.*/if false/' doc/meson.build
