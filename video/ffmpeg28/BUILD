@@ -1,8 +1,8 @@
-if in_depends $MODULE openjpeg ; then
+if in_depends $MODULE openjpeg; then
   CFLAGS+=" -I/usr/include/openjpeg-`lvu installed openjpeg | cut -c1-3`/"
 fi &&
 
-if module_installed  opencv-3 ; then
+if module_installed opencv-3; then
    OPTS+=" --disable-libopencv"
 fi &&
 
@@ -25,13 +25,14 @@ OPTS+=" --prefix=/usr \
         --enable-pthreads \
         --enable-postproc \
         --enable-avfilter \
-        --enable-avresample" &&
+        --enable-avresample \
+        --enable-avresample"
 
-if [ -n $CPU ] ; then
+if [ -n $CPU ]; then
   OPTS+=" --cpu=$CPU"
 fi &&
 
-if [[ $USE_OPENCV == "y" ]] ; then
+if [[ $USE_OPENCV == "y" ]]; then
  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/"
 fi &&
 
