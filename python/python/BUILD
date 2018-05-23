@@ -23,7 +23,12 @@ make altinstall &&
 ln -sf /usr/lib/pkgconfig/python-3.6.pc /usr/lib/pkgconfig/python3.pc &&
 
 # Till Python 3 based apps catch up we need a symlink from python3.3 to python3
-ln -sf /usr/bin/python3.`lvu version Python-3 | cut -c 1` /usr/bin/python3 &&
+ln -sf /usr/bin/python3.`lvu version python | cut -c 2 -d.` /usr/bin/python3 &&
+
+if [[ $SYS_PYTHON == "y" ]]
+then
+    ln -sf /usr/bin/python3 /usr/bin/python
+fi
 
 # Some apps look for /usr/bin/python3-config
-ln -sf /usr/bin/python3.`lvu version Python-3 | cut -c 1`m-config /usr/bin/python3-config
+ln -sf /usr/bin/python3.`lvu version python | cut -c 2 -d.`m-config /usr/bin/python3-config
