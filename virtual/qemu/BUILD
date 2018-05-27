@@ -22,7 +22,7 @@ add_priv_user qemu:qemu -G kvm &&
             $OPTS &&
 
 # fix a cpp error
-sedit "s: -c::" pc-bios/Makefile
+sedit "s: -c::" pc-bios/optionrom/Makefile &&
 
 default_make &&
 
