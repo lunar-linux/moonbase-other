@@ -9,13 +9,9 @@ depends help2man
 depends meson
 
 optional_depends libthai "" "" "for Thai language support"
-
-optional_depends libXft \
-                 "--with-xft=yes" \
-                 "--with-xft=no"  \
-                 "for the Xft backend"
+optional_depends libXft  "" "" "for the Xft backend"
 
 optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
+                 "-D gir=true" \
+                 "-D gir=false" \
                  "for gobject introspection support" y
