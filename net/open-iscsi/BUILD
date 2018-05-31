@@ -1,7 +1,3 @@
-cd $SOURCE_DIRECTORY/utils/open-isns &&
-./configure --with-slp --with-security=no &&
-
-cd $SOURCE_DIRECTORY &&
 OPTFLAGS=$CFLAGS make user &&
 
 prepare_install &&
