@@ -1,6 +1,6 @@
 OPTS+=" --with-initdir=/etc/init.d \
         --disable-xmltoman \
-        --disable-subversion" &&
+        --disable-subversion"
 
 default_build &&
 
