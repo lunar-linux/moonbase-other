@@ -34,6 +34,9 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DWITHOUT_EXAMPLE_STORAGE_ENGINE=ON \
         -DWITHOUT_TOKUDB_STORAGE_ENGINE=ON \
         -DWITHOUT_PBXT_STORAGE_ENGINE=ON \
+        -DPLUGIN_AUTH_GSSAPI=NO \
+        -DAUTH_GSSAPI_PLUGIN_TYPE=OFF \
+        -DAWS_SDK_EXTERNAL_PROJECT=OFF \
         -DWITH_EMBEDDED_SERVER=ON"
 
 if module_installed systemd; then
@@ -56,6 +59,5 @@ fi &&
 # Setting up links for mysqlcheck multi-call binary
 for i in analyze repair optimize; do
   ln -sf /usr/bin/mysql{check,$i}
-done &&
+done
 
-ln -sf /usr/bin/{mysql,mariadb}_config
