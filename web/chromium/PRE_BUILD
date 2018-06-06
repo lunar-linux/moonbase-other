@@ -5,17 +5,20 @@ unzip $SOURCE_CACHE/$SOURCE2 &&
 # Allow building against system libraries in official builds
 sedit 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' tools/generate_shim_headers/generate_shim_headers.py &&
 
-# Enable support for the Widevine CDM plugin
-patch_it $SOURCE3 1 &&
+# https://crbug.com/skia/6663#c10
+patch_it $SOURCE3 4 &&
 
-# https://crbug.com/822820
+# Fixes from Gentoo
 patch_it $SOURCE4 1 &&
-
-# https://crbug.com/821881
 patch_it $SOURCE5 1 &&
 
-# https://crbug.com/skia/6663#c10
-patch_it $SOURCE6 4 &&
+# https://crbug.com/731766
+patch_it $SOURCE6 1 &&
+
+# https://crbug.com/707721
+patch_it $SOURCE7 1 &&
+
+sedit '/"-Wno-ignored-pragma-optimize"/d' build/config/compiler/BUILD.gn &&
 
 # Build now requires nodejs
 mkdir -p third_party/node/linux/node-linux-x64/bin &&
@@ -37,14 +40,12 @@ google_default_client_id=1081365520390-t7vsmo6kde87fvbjoue2ea412vsjkvu0.apps.goo
 google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
 
 # Remove bundled libraries, we will use system provided ones instead (using arch's approach)
-libs=(flac yasm libxslt libwebp libjpeg opus re2 zlib icu snappy freetype)
+libs=(ffmpeg fontconfig flac yasm libxslt libwebp libjpeg opus re2 zlib snappy freetype)
 for lib in ${libs[@]} libjpeg_turbo; do
-  find -type f -path "*third_party/${lib}/*" \
-       \! -path "*third_party/${lib}/chromium/*" \
-       \! -path "*third_party/${lib}/google/*" \
-       \! -path "./base/third_party/icu/*" \
-       \! -path './third_party/pdfium/third_party/freetype/include/pstables.h' \
-       \! -path './third_party/yasm/run_yasm.py' \
+  find "third_party/${lib}" -type f \
+       \! -path "third_party/${lib}/chromium/*" \
+       \! -path "third_party/${lib}/google/*" \
+       \! -path "third_party/yasm/run_yasm.py" \
        \! -regex '.*\.\(gn\|gni\|isolate\)' \
        -delete
 done &&
@@ -57,6 +58,7 @@ local _flags=(
   'host_toolchain="//build/toolchain/linux/unbundle:default"'
   'is_clang=true'
   'clang_use_chrome_plugins=false'
+  'is_official_build=true'
   'is_debug=false'
   'fatal_linker_warnings=false'
   'treat_warnings_as_errors=false'
@@ -64,8 +66,6 @@ local _flags=(
   'remove_webcore_debug_symbols=true'
   'ffmpeg_branding="Chrome"'
   'proprietary_codecs=true'
-  'use_gold=false'
-  'use_lld=false'
   'use_sysroot=false'
   'use_custom_libcxx=false'
   'linux_use_bundled_binutils=false'
