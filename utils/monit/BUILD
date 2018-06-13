@@ -1,4 +1,4 @@
-OPTS+=" --enable-optimized" &&
+OPTS+=" --enable-optimized"
 
 default_build &&
 
