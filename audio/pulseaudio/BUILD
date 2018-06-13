@@ -6,11 +6,12 @@ elif in_depends $MODULE bluez-5; then
   OPTS+=" --enable-bluez5 --enable-bluez4"
 fi &&
 
-OPTS+=" --disable-rpath \
+OPTS+=" --enable-glib2 \
+        --disable-rpath \
         --disable-tcpwrap \
         --disable-hal-compat \
         --disable-default-build-tests \
-        --with-udev-rules-dir=/usr/lib/udev/rules.d" &&
+        --with-udev-rules-dir=/usr/lib/udev/rules.d"
 
 if ! module_installed systemd; then
   OPTS+=" --disable-systemd-login \
