@@ -7,7 +7,7 @@
             --local-rust-root=$SOURCE_DIRECTORY/install &&
 
 # disable docs because it broke the build
-sedit 's|#docs = true|docs = false|' config.toml &&
+#sedit 's|#docs = true|docs = false|' config.toml &&
 
 make ${MAKES:+-j$MAKES} &&
 
