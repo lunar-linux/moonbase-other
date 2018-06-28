@@ -5,7 +5,7 @@ export CXXFLAGS="${CXXFLAGS} -DNDEBUG -fPIC" &&
 make libcryptopp.so &&
 default_make &&
 
-cat > libcrypto++.pc << EOF  &&
+cat > libcrypto++.pc << EOF &&
   # Written by Alexander Rødseth <rodseth@gmail.com>
   # Modified by Dennis Veatch <dennisveatch@bellsouth.net>
   # to use the version variable from the module

@@ -1,7 +1,7 @@
-depends pkgconfig
+depends %PKGCONF
 depends libmowgli
 
-optional_depends  "GConf"            \
-                  "--enable-gconf"   \
-                  "--disable-gconf"  \
-                  "for GConf support"
+optional_depends GConf \
+                 "--enable-gconf" \
+                 "--disable-gconf" \
+                 "for GConf support"

@@ -1,7 +1,7 @@
 depends libxml2
 depends libxslt
-depends pkgconfig
-optional_depends %OSSL "" "--without-openssl" "for OpenSSL support"
+depends %PKGCONF
+dptional_depends %OSSL "" "--without-openssl" "for OpenSSL support"
 optional_depends gnutls "" "--without-gnutls" "for GnuTLS support"
 optional_depends nss "" "--without-nss" "for NSS support"
 optional_depends libgcrypt "" "--without-gcrypt" "for gcrypt support (required if you said yes to GnuTLS)"
