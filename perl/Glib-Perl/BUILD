@@ -1,3 +1,3 @@
-perl Makefile.PL &&
+perl -I$(pwd) Makefile.PL &&
 
-default_make
+PERLLIB=$(pwd) default_make
