@@ -20,9 +20,8 @@ OPTS+=" -DBUILD_WITH_DEBUG_INFO=OFF \
         -DCMAKE_SKIP_RPATH=ON \
         -DBUILD_PERF_TESTS=OFF \
         -DBUILD_SHARED_LIBS=ON \
-        -DINSTALL_C_EXAMPLES=ON \
         -DBUILD_WITH_DYNAMIC_IPP=ON \
         -DINSTALL_PYTHON_EXAMPLES=OFF \
-        -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-$VERSION/modules" &&
+        -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-$VERSION/modules"
 
 default_cmake_build
