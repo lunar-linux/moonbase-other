@@ -1,9 +1,13 @@
-depends gtk+-2
+depends glib-networking
+depends alsa-lib
+depends dbus-glib
 depends libart_lgpl
 depends fontconfig
-depends intltool
-depends gegl-0.3
+depends iso-codes
+depends mypaint-brushes
 depends XML-Parser
+depends curl
+depends intltool
 
 optional_depends libmng \
                  "" "--without-libmng" \
@@ -18,23 +22,19 @@ optional_depends pygtk \
                  "--disable-python" \
                  "for Python support"
 
-optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
-                 "for GIMP help files"
-
 optional_depends librsvg \
                  "--with-librsvg" \
                  "--without-librsvg" \
                  "for SVG support"
 
+optional_depends openexr \
+                 "--with-openexr" \
+                 "--without-openexr" \
+                 "for remote file support"
+
 optional_depends gvfs \
                  "" "--without-gvfs" \
                  "for remote file support"
-
-optional_depends webkitgtk3 \
-                 "" "--without-webkit" \
-                 "for help browser support"
 
 optional_depends poppler \
                  "" "--without-poppler" \
@@ -49,3 +49,8 @@ optional_depends ghostscript \
                  "--with-gs" \
                  "--without-gs" \
                  "for Ghostscript support"
+
+optional_depends gtk-doc \
+                 "--enable-gtk-doc" \
+                 "--disable-gtk-doc" \
+                 "for GIMP help files"
