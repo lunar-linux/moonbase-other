@@ -1,29 +1,16 @@
-# DO NOT UPDATE TO 0.3 UNTIL gimp SUPPORTS THIS RELEASE
           MODULE=gegl
-         VERSION=0.2.0
+         VERSION=0.4.4
           SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-$VERSION-ffmpeg.patch
-         SOURCE3=$MODULE-$VERSION-v4l2.patch
-         SOURCE4=$MODULE-$VERSION-CVE-2012-4433.patch
-   SOURCE_URL[0]=http://ftp.gimp.org/pub/gegl/${VERSION%.*}
-   SOURCE_URL[1]=http://ftp.gtk.org/pub/gegl/${VERSION%.*}
-     SOURCE2_URL=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
-     SOURCE4_URL=$PATCH_URL
-      SOURCE_VFY=sha256:df2e6a0d9499afcbc4f9029c18d9d1e0dd5e8710a75e17c9b1d9a6480dd8d426
-     SOURCE2_VFY=sha256:13a0e3d129aa167ecd619e93e21cad362f1a7a993f0f6a4f98fae60d6b79ddc1
-     SOURCE3_VFY=sha256:35b76d535c1ecea403a87cdddc175533d355e51e3d3aa21a3fedcf81ddebf874
-     SOURCE4_VFY=sha256:78949c22fc67b8173821bb4c14973002e81b4aa3abd27cb10292c3fdef8bf022
+      SOURCE_URL=git+https://gitlab.gnome.org/GNOME/gegl
+#      SOURCE_VFY=sha256:
         WEB_SITE=http://gegl.org
          ENTERED=20081016
-         UPDATED=20151122
+         UPDATED=20180705
            SHORT="Generic Graphics Library"
 
 cat << EOF
-GEGL (Generic Graphics Library) is a graph based image processing
-framework.
-GEGL provides infrastructure to do demand based cached non destructive
-image editing on larger than RAM buffers. Through babl it provides
-support for a wide range of color models and pixel storage formats
-for input and output.
+GEGL (Generic Graphics Library) is a graph based image processing framework.
+GEGL provides infrastructure to do demand based cached non destructive image
+editing on larger than RAM buffers. Through babl it provides support for a wide
+range of color models and pixel storage formats for input and output.
 EOF
