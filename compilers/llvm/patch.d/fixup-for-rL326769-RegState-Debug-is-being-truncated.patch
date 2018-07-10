@@ -14,10 +14,8 @@ git-svn-id: https://llvm.org/svn/llvm-project/llvm/trunk@326780 91177308-0d34-04
  lib/CodeGen/LiveDebugVariables.cpp | 7 +++++--
  1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/lib/CodeGen/LiveDebugVariables.cpp b/lib/CodeGen/LiveDebugVariables.cpp
-index f3fcd004defd..8c547cdcff33 100644
---- a/lib/CodeGen/LiveDebugVariables.cpp
-+++ b/lib/CodeGen/LiveDebugVariables.cpp
+--- ./lib/CodeGen/LiveDebugVariables.cpp
++++ ./lib/CodeGen/LiveDebugVariables.cpp
 @@ -557,8 +557,11 @@ bool LDVImpl::handleDebugValue(MachineInstr &MI, SlotIndex Idx) {
        getUserValue(Var, Expr, MI.getDebugLoc());
    if (!Discard)

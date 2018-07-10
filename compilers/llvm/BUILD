@@ -3,7 +3,7 @@ OPTS+=" -DLLVM_ENABLE_RTTI=ON \
         -DLLVM_BUILD_LLVM_DYLIB=ON \
         -DLLVM_LINK_LLVM_DYLIB=ON \
         -DLLVM_ENABLE_SPHINX=OFF \
-        -DLLVM_ENABLE_DOXYGEN=OFF" &&
+        -DLLVM_ENABLE_DOXYGEN=OFF"
 
 # don't run doxygen at build AND install time
 OPTS+=" -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON" &&
