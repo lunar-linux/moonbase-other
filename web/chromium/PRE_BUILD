@@ -18,6 +18,9 @@ patch_it $SOURCE6 1 &&
 # https://crbug.com/707721
 patch_it $SOURCE7 1 &&
 
+# https://crbug.com/736026
+patch_it $SOURCE8 1 &&
+
 sedit '/"-Wno-ignored-pragma-optimize"/d' build/config/compiler/BUILD.gn &&
 
 # Build now requires nodejs
