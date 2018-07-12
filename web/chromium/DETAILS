@@ -1,5 +1,5 @@
           MODULE=chromium
-         VERSION=67.0.3396.62
+         VERSION=67.0.3396.99
           SOURCE=$MODULE-$VERSION.tar.xz
          SOURCE2=1.4.8.1008-linux-x64.zip
          SOURCE3=chromium-skia-harmony.patch
@@ -7,6 +7,7 @@
          SOURCE5=chromium-ffmpeg-r1.patch
          SOURCE6=remove-dependency-on-ffmpeg-internals-for-start-time.patch
          SOURCE7=x11-fix-mixup-between-DIP-pixel-coordinates.patch
+         SOURCE8=blink-disable-XML-catalogs-at-runtime.patch
       SOURCE_URL=http://gsdview.appspot.com/chromium-browser-official/
      SOURCE2_URL=https://dl.google.com/widevine-cdm/
      SOURCE3_URL=$PATCH_URL
@@ -14,16 +15,18 @@
      SOURCE5_URL=$PATCH_URL
      SOURCE6_URL=$PATCH_URL
      SOURCE7_URL=$PATCH_URL
-      SOURCE_VFY=sha256:d5ee63932ff1c8c4a5f69c834f6577e7127b416681eddd23bc54886caffd770d
+     SOURCE8_URL=$PATCH_URL
+      SOURCE_VFY=sha256:452d6b9d8df6c88600aaeff3fad4c065574fd6dbee804e628b70e73a39c0a02a
      SOURCE2_VFY=sha256:fe04a5b56eac6674f1eda2c8eb28a0183ec1a66d80f72db618291e33078eb17d
      SOURCE3_VFY=sha256:feca54ab09ac0fc9d0626770a6b899a6ac5a12173c7d0c1005bc3964ec83e7b3
      SOURCE4_VFY=sha256:02c69bb3954087db599def7f5b6d65cf8f7cf2ed81dfbdaa4bb7b51863b4df15
      SOURCE5_VFY=sha256:aa885330bc4180b78d915f9dfdfc3210038a0acab7b16735ea9828ab6a633bde
      SOURCE6_VFY=sha256:2cc80f5ed8a9b42495a0f3ab3c1bae026b9081972269a1b6d407331d33f7d257
      SOURCE7_VFY=sha256:e2c2754536243a60fa70541bbd4121715eccd83caa8f1fb1873bd994cd81f871
+     SOURCE8_VFY=sha256:98a5c41cf9687c52ee380d2b683c95387334c76254479c347bdb733646dab815
         WEB_SITE=http://www.chromium.org/Home
          ENTERED=20100104
-         UPDATED=20180605
+         UPDATED=20180711
            SHORT="Open-source version of Google Chrome web browser"
 
 cat << EOF

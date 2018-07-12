@@ -5,6 +5,7 @@ SHELL="${SHELL:-/bin/bash}" &&
 
 
 ./mach build &&
+./mach buildsymbols &&
 
 prepare_install &&
 
