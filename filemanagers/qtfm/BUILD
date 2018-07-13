@@ -1,5 +1,5 @@
+. /etc/profile.d/qt5.rc &&
 
-. /etc/profile.d/qt4.rc &&
+qmake CONFIG+=release PREFIX=/usr &&
 
-qmake &&
 default_make
