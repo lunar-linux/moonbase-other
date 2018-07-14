@@ -1,11 +1,11 @@
 depends libvorbis
 depends file
-depends libebml
-depends libmatroska
 depends ruby
 depends zlib
 depends docbook-xsl
-depends cmark
+
+optional_depends libebml     "" "" "use external libebml"
+optional_depends libmatroska "" "" "use external libmatroska"
 
 optional_depends flac  "--with-flac"  "--without-flac"  "for flac audio codec"
 optional_depends boost "--with-boost" "--without-boost" "for boost support"
