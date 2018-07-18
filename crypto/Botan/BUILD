@@ -7,6 +7,6 @@ OPTS+="  --prefix=/usr  \
          --with-sqlite3 \
          --with-zlib"  &&
 
-python configure.py $OPTS &&
+CXXFLAGS="$CXXFLAGS -O3" ./configure.py $OPTS &&
 
 default_make
