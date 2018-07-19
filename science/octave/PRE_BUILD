@@ -14,4 +14,7 @@ sedit "321i libinterp_corefcn_libcorefcn_la_LIBADD = \$(Z_LIBS)" libinterp/coref
 # Detect qscintilla-qt5
 sedit "s:qt5scintilla2:qt5scintilla2 qscintilla2:" m4/acinclude.m4 &&
 
+# qt5-.11 fix
+sedit "37i #include <QButtonGroup>" libgui/src/settings-dialog.cc &&
+
 autoreconf -fi
