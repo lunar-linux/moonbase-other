@@ -1,4 +1,4 @@
 
-  OPTS+=" --disable-static --with-java=no" &&
+  OPTS+=" --disable-static" &&
 
   default_build
