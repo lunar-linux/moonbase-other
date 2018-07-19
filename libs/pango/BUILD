@@ -4,7 +4,7 @@ cd build &&
 
 meson --prefix=/usr \
       --buildtype=release \
-       -Denable_docs=false &&
+       -D enable_docs=false &&
 
 ninja &&
 
