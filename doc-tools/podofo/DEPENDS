@@ -1,13 +1,23 @@
+depends cmake
+depends freetype2
 depends fontconfig
 depends libidn
-depends %JPEG
-depends tiff
-depends cmake
+depends lua
 depends %OSSL
 
-optional_depends boost "-DWANT_BOOST=1" "-DWANT_BOOST=0" "for boost libraries support"
+optional_depends %JPEG \
+                 "-DPODOFO_HAVE_JPEG_LIB=ON" \
+                 "-DPODOFO_HAVE_JPEG_LIB=OFF" \
+                 " for JPEG support"
 
-optional_depends lua "" "" "for scripting support"
+optional_depends tiff \
+                 "-DPODOFO_HAVE_TIFF_LIB=ON" \
+                 "-DPODOFO_HAVE_TIFF_LIB=OFF" \
+                 " for TIFF support"
 
-# it breaks the compile
-# optional_depends cppunit "" "" "for C++ unit framework support"
+optional_depends libpng \
+                 "-DPODOFO_HAVE_PNG_LIB=ON" \
+                 "-DPODOFO_HAVE_PNG_LIB=OFF" \
+                 " for PNG support"
+
+#optional_depends boost "-DWANT_BOOST=1" "-DWANT_BOOST=0" "for boost libraries support"
