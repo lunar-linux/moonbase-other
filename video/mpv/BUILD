@@ -2,14 +2,13 @@ install -m755 $SOURCE_CACHE/$SOURCE2 waf &&
 
 ./waf configure --prefix=/usr \
                 --confdir=/etc/mpv \
+                --color=yes \
                 --enable-libmpv-shared \
                 --enable-gl \
                 --enable-drm \
-                --enable-shm \
                 --enable-cdda \
                 --enable-alsa \
                 --enable-zlib \
-                --enable-encoding \
                 --disable-rpi \
                 --disable-uwp \
                 --disable-test \
