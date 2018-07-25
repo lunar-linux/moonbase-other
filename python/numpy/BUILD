@@ -8,6 +8,6 @@ python3 setup.py install --root=/ &&
 
 # If installed do the Python2 install
 if module_installed setuptools; then
-  python setup.py build &&
-  python setup.py install --root=/
+  python2 setup.py build &&
+  python2 setup.py install --root=/
 fi

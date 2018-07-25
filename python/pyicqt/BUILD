@@ -25,5 +25,5 @@ import re
 compileall.compile_dir('$python_dir', rx=re.compile('/[.]svn'), force=True)
 EOF
 
-python /tmp/$$-compileall.py &&
+python2 /tmp/$$-compileall.py &&
 rm -f /tmp/$$-compileall.py

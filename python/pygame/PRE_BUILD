@@ -3,7 +3,7 @@ mk_source_dir &&
 cd $SOURCE_DIRECTORY &&
 tar -x --strip-components=1 -f $SOURCE_CACHE/$SOURCE &&
 
-yes | python config.py &&
+yes | python2 config.py &&
 
 #linux removed v4l1 support -> camera is broken
 #see e.g. http://lists.fedoraproject.org/pipermail/devel/2011-February/148519.html

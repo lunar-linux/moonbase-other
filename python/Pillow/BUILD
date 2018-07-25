@@ -5,6 +5,6 @@ prepare_install &&
 python3 setup.py install --root=/ &&
 
 if module_installed setuptools; then
-  python setup.py config &&
-  python setup.py install --root=/
+  python2 setup.py config &&
+  python2 setup.py install --root=/
 fi

@@ -1,3 +1,3 @@
 prepare_install &&
 
-python setup.py install --root=/
+python2 setup.py install --root=/

@@ -15,5 +15,5 @@ import re
 compileall.compile_dir('/usr/lib/pymsnt', rx=re.compile('/[.]svn'), force=True)
 EOF
 
-python /tmp/$$-compileall.py &&
+python2 /tmp/$$-compileall.py &&
 rm -f /tmp/$$-compileall.py

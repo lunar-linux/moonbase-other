@@ -1,4 +1,4 @@
-python configure.py --bootstrap &&
+python2 configure.py --bootstrap &&
 
 # test it
 ./ninja ninja_test &&

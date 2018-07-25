@@ -10,7 +10,7 @@
               --with-var-prefix=/var/mailman   \
               --with-username=mailman          \
               --with-groupname=mailman         \
-              --with-python=/usr/bin/python    \
+              --with-python=/usr/bin/python2   \
               --with-mail-gid=$MAIL_GID        \
               --with-cgi-gid=$MAILMAN_GID     &&
               
