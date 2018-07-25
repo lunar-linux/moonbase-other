@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# /usr/bin/pip conflicts with python-pip, do not install it
+sedit '/pip=pip.*:main/d' setup.py
