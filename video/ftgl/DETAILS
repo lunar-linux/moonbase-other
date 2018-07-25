@@ -3,16 +3,19 @@
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=ftgl-2.1.3_rc5-gentoo.patch
          SOURCE3=ftgl-2.1.3_rc5-underlink.patch
+         SOURCE4=ftgl-2.1.3_rc5-freetype_pkgconfig.patch
       SOURCE_URL=$SFORGE_URL/$MODULE
-     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-libs/ftgl/files/
-     SOURCE3_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-libs/ftgl/files/
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
+     SOURCE4_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION%-*}~${VERSION#*-}
-      SOURCE_VFY=sha1:b9c11d3a594896333f1bbe46e10d8617713b4fc6
-     SOURCE2_VFY=sha1:48c85d76ae5d812b70310d0cd365d838b502dad6
-     SOURCE3_VFY=sha1:c23b435506295a1c123974cfd13bf0994a1ab3cc
+      SOURCE_VFY=sha256:5458d62122454869572d39f8aa85745fc05d5518001bcefa63bd6cbb8d26565b
+     SOURCE2_VFY=sha256:1c5d8e3e0d37db1174bc00e9876c306fbda1491ec6216c5bd3f3e2856d629f58
+     SOURCE3_VFY=sha256:9a3540ff4705476f22718a5614aa3a7f64b8e748839e92d1bcbc8a29364ca590
+     SOURCE4_VFY=sha256:bec731680cc8b1656ce5e4046c284bc3f9b5c52414c5a7f95a516afcaa2329b4
         WEB_SITE=http://homepages.paradise.net.nz/henryj/code/
          ENTERED=20060712
-         UPDATED=20140803
+         UPDATED=20180725
            SHORT="font rendering library for OpenGL"
 
 cat << EOF

@@ -2,6 +2,8 @@ default_pre_build &&
 
 patch_it $SOURCE2 0 &&
 patch_it $SOURCE3 0 &&
+patch_it $SOURCE4 1 &&
 
-# disable tests
-sedit 's/CPPUNIT="yes"/CPPUNIT="no"/' configure
+
+sed -e "s/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/" -i configure.ac &&
+./autogen.sh
