@@ -6,7 +6,7 @@ export CXXFLAGS+=" -I/usr/include/et" &&
 # to fail linking.  Instead of adding 2 bad_flags to we just need a , in front
 # of --as-needed to fix it.
 
-bad_flags ",--as-needed" &&
+bad_flags "-Wl,--as-needed" &&
 
 OPTS+=" --prefix=/usr \
         --without-x \
