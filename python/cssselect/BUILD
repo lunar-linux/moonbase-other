@@ -1,4 +1,4 @@
-# Python-3 build
+# python build
 python3 ./setup.py build &&
 
 prepare_install &&
