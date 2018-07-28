@@ -14,6 +14,7 @@ install -m755 $SOURCE_CACHE/$SOURCE2 waf &&
                 --disable-test \
                 --disable-wasapi \
                 --disable-rsound \
+                --disable-vulkan \
                 --disable-android \
                 --disable-opensles \
                 --disable-oss-audio \
