@@ -9,7 +9,6 @@ optional_depends nettle    "" "" "for nettle cryptographic support"
 optional_depends %OSSL     "" "" "for SSL support"
 optional_depends libxml2   "" "" "for XML2 support"
 
-optional_depends libX11  "--enable-x11"     "" "for X11 support"
 optional_depends wayland "--enable-wayland" "--disable-wayland" "for Wayland support" n 
 optional_depends orc     "--enable-orc"     "" "for ORC parallel processing support"
 
@@ -30,12 +29,10 @@ optional_depends libvdpau       "" "--disable-vdpau"       "for NVIDIA video sup
 optional_depends openal         "" "--disable-openal"      "for openal audio support"
 optional_depends libsndfile     "" "--disable-sndfile"     "for sound files support"
 optional_depends soundtouch     "" "--disable-soundtouch"  "for audio processing support"
-optional_depends xvidcore       "" "--disable-xvid"        "for the XviD video plugin"
 optional_depends x265           "" "--disable-x265"        "for the x265 video support"
 optional_depends libwebp        "" "--disable-webp"        "for WebP support"
 optional_depends libmms         "" "--disable-libmms"      "for mms streaming plugin"
 optional_depends libsrtp        "" "--disable-srtp"        "for Secure Real-time Transport Protocol support"
-optional_depends libvisual      "" "--disable-libvisual"   "for audio visualization support"
 optional_depends faac           "" "--disable-faac"        "for the AAC encoder plugin"
 optional_depends faad2          "" "--disable-faad"        "for the AAC decoder plugin"
 optional_depends chromaprint    "" "--disable-chromaprint" "for audio fingerprints extraction support"
@@ -55,5 +52,3 @@ optional_depends gobject-introspection \
                  "--enable-introspection" \
                  "--disable-introspection" \
                  "for introspection support"
-
-### --disable-vulkan
