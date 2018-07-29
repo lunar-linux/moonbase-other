@@ -7,6 +7,8 @@
     PREFIX="/usr" \
     INPUT_PLUGINS=all \
     XMLPARSER=libxml2 \
+    FREETYPE_INCLUDES=/usr/include/freetype2 \
+    FREETYPE_LIBS=/usr/lib \
     CUSTOM_CXXFLAGS="$CXXFLAGS" \
     CUSTOM_LDFLAGS="$LDFLAGS" &&
     
