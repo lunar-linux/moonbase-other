@@ -5,7 +5,7 @@ depends mpeg2dec
 depends libcddb
 depends libmpcdec
 depends a52dec
-depends libmatroska
+#depends libmatroska
 depends libdvdread
 depends libdvdnav
 depends libmad
@@ -20,6 +20,7 @@ depends libshout
 depends flac
 depends ffmpeg
 
+optional_depends libmatroska   ""  "--disable-matroska" "For matroska support" n
 optional_depends srt           ""  "--disable-srt"  "Secure Reliable Transport support" y
 optional_depends %UDEV         ""  "--disable-udev" "for udev support" y
 optional_depends dbus          ""  "--disable-dbus --disable-dbus-control" "for dbus support" y
