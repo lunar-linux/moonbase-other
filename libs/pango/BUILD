@@ -1,16 +1,7 @@
-mkdir build &&
+OPTS+=" --buildtype=release \
+        -D enable_docs=false"
 
-cd build &&
-
-meson --prefix=/usr \
-      --buildtype=release \
-       -D enable_docs=false &&
-
-ninja &&
-
-prepare_install &&
-
-ninja install &&
+default_meson_build &&
 
 ln -sf /usr/include/pango-1.0 /usr/include/pango &&
 rm -fR /usr/lib/installed-tests
