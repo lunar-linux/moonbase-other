@@ -1,3 +1,2 @@
-autoreconf -i &&
 
-default_build
+default_meson_build
