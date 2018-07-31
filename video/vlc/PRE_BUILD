@@ -30,6 +30,11 @@ if in_depends $MODULE opencv-3 ; then
  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/"
 fi &&
 
+if in_depends $MODULE freerdp ; then
+  export FREERDP_CFLAGS+=" -I/usr/include/freerdp2/ -I/usr/include/winpr2" &&
+  export FREERDP_LIBS+=" -L/usr/lib64 -lfreerdp2"
+fi &&
+
 sedit 's:truetype/ttf-dejavu:TTF:g' modules/visualization/projectm.cpp &&
 
 sedit 's|-Werror-implicit-function-declaration||g' configure.ac &&
