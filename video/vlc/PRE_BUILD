@@ -2,12 +2,10 @@ default_pre_build &&
 
 rm m4/lt* m4/libtool.m4 &&
 
-autoreconf -fi &&
-
 export CXXFLAGS+=" -std=c++11" &&
 
 if in_depends $MODULE lua; then
-  sedit "40i #define LUA_COMPAT_APIINTCASTS" modules/lua/vlc.h &&
+  sedit 's:<vlc_demux.h>:<vlc_demux.h>\n #define LUA_COMPAT_APIINTCASTS:' modules/lua/vlc.h &&
   export LUA_LIBS+=" `pkg-config --libs lua`" &&
   export LUA_CFLAGS+=" -DLUA_COMPAT_ALL=1"
   LUAC="/usr/bin/luac"
@@ -32,8 +30,10 @@ if in_depends $MODULE opencv-3 ; then
  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/"
 fi &&
 
-sedit 's:truetype/ttf-dejavu:TTF:g' -i modules/visualization/projectm.cpp &&
+sedit 's:truetype/ttf-dejavu:TTF:g' modules/visualization/projectm.cpp &&
 
-sed -e 's|-Werror-implicit-function-declaration||g' -i configure &&
+sedit 's|-Werror-implicit-function-declaration||g' configure.ac &&
 # Add a needed qt5 include
-sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp
+sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp &&
+
+autoreconf -fi
