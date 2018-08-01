@@ -1,0 +1,5 @@
+default_pre_build &&
+# Do not install /usr/bin/easy_install (conflicts with python-setuptools)
+sedit '/yield "easy_install =/d' setup.py &&
+
+python2 bootstrap.py

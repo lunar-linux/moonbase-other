@@ -1,4 +1,4 @@
-PYTHON_VER="$(installed_version Python-3 | cut -d. -f1)" &&
+PYTHON_VER="$(installed_version python | cut -d. -f1)" &&
 
 if in_depends $MODULE numpy && [ -f /usr/bin/f2py3 ]; then
   OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=ON"

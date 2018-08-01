@@ -1,8 +1,14 @@
-depends pygtk
+depends gtk+-3
 depends ca-certificates
 depends desktop-file-utils
-depends pyasn1
-depends pyopenssl
-depends pycrypto
-depends dbus-python
+depends python-pycairo
+depends python-pyasn1
+depends python-pyopenssl
+depends python-pygobject
+depends python-dbus
 depends intltool
+
+optional_depends gspell "" "" "spellchecking of composed messages"
+optional_depends alsa-utils "" "" "play notification sounds"
+optional_depends python-pillow "" "" "support of WebP avatars"
+optional_depends python-pycrypto "" "" "for encrypted chat messages"
