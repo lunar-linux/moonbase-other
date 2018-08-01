@@ -1,0 +1,12 @@
+#  Reinstall site-packages
+message "${MESSAGE_COLOR}Any Python module previously installed may now be broken due to the way Python"
+message "handles modules. They may need to be recompiled in order to work, especially"
+message "on a major version change like 2.6 to 2.7 Minor version numbers,"
+message "like 2.5.1, to 2.5.2 are usually safe without recompiling.${DEFAULT_COLOR}"
+
+if query "Do you want lunar to attempt to upgrade your Python modules?" ${ASK_FOR_REBUILDS:-y}; then
+  PYTHONMODS="$( lvu from /usr/lib/python2*/site-packages | cut -d: -f1 | sort -u | egrep -v '^(python2|Python)$')"
+  for PYTHONMOD in $(sort_by_dependency $PYTHONMODS); do
+    lin -c $PYTHONMOD || true
+  done
+fi

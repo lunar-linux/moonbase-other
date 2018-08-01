@@ -8,6 +8,7 @@ OPTS+=" --enable-ui \
         --disable-memconf \
         --disable-schemas-install \
         --with-ucd-dir=/usr/share/unicode \
+        --with-python=python3 \
         --disable-unicode-dict" &&
 
 default_build

@@ -1,0 +1,17 @@
+default_pre_build &&
+
+sedit 's|{INSTALL} -m 555|{INSTALL} -m 755|' Makefile.pre.in &&
+
+# See http://bugs.python.org/issue10835 for upstream report
+sed -i "/progname =/s/python/python${VERSION%.*}/" Python/pythonrun.c &&
+
+# Ensure that we link against system libraries
+rm -rf Modules/{expat,zlib} &&
+rm -rf Modules/_ctypes/{darwin,libffi}* &&
+
+for f in $(find . -name '*.py'); do
+  sedit "s;#[ ]*![ ]*/usr/bin/env python$;#!/usr/bin/env python2;" $f
+done &&
+
+# Workaround after changing shebangs above
+touch Include/Python-ast.h Python/Python-ast.c Python/opcode_targets.h

@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# Fix C compiler error
+sedit 's;^inline size_t true_sun_len;static &;' client/powerline.c 
