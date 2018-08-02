@@ -2,8 +2,9 @@ if [ "`get_module_config DOCS`" = "n" ]; then
   sedit "s/SUBDIRS = docs codegen/SUBDIRS = codegen/g" Makefile.in
 fi &&
 
-OPTS+=" --with-python=python2 --enable-cairo" &&
-DESTDIR=$SOURCE_DIRECTORY/__dest
+OPTS+=" --with-python=python2 --enable-cairo"
+
+DESTDIR=$SOURCE_DIRECTORY/_dest
 default_config &&
 make &&
 make DESTDIR=$DESTDIR install &&
