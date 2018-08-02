@@ -1,4 +1,4 @@
-DESTDIR=$SOURCE_DIRECTORY/__dest
+DESTDIR=$SOURCE_DIRECTORY/_dest
 mkdir python2 &&
 pushd python2 &&
 ../configure --prefix=/usr PYTHON_VERSION=2 &&
