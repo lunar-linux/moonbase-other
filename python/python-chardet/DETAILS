@@ -1,0 +1,27 @@
+          MODULE=python-chardet
+         VERSION=3.0.4
+          SOURCE=chardet-$VERSION.tar.gz
+ SOURCE_URL_FULL=http://github.com/chardet/chardet/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:d5620025cfca430f6c2e28ddbc87c3c66a5c82fa65570ae975c92911c2190189
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/chardet-$VERSION
+        WEB_SITE=https://github.com/chardet/chardet/
+         ENTERED=20160810
+         UPDATED=20171122
+            TYPE=python3
+        REPLACES=chardet
+           SHORT="Python module for character encoding auto-detection"
+
+cat << EOF
+Chardet: The Universal Character Encoding Detector.
+Detects:
+  ASCII, UTF-8, UTF-16 (2 variants), UTF-32 (4 variants)
+  Big5, GB2312, EUC-TW, HZ-GB-2312, ISO-2022-CN (Traditional and Simplified Chinese)
+  EUC-JP, SHIFT_JIS, CP932, ISO-2022-JP (Japanese)
+  EUC-KR, ISO-2022-KR (Korean)
+  KOI8-R, MacCyrillic, IBM855, IBM866, ISO-8859-5, windows-1251 (Cyrillic)
+  ISO-8859-5, windows-1251 (Bulgarian)
+  ISO-8859-1, windows-1252 (Western European languages)
+  ISO-8859-7, windows-1253 (Greek)
+  ISO-8859-8, windows-1255 (Visual and Logical Hebrew)
+  TIS-620 (Thai)
+EOF
