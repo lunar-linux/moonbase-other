@@ -18,4 +18,5 @@ for s in 16 22 24 32 48 256; do
 done &&
 
 # symlink plugins folder
-ln -sfn /usr/lib/lunar/plugins "/usr/lib/firefox/browser/plugins"
+mkdir -p /usr/lib/lunar/plugins &&
+ln -sfn /usr/lib/firefox/browser/plugins /usr/lib/lunar/plugins
