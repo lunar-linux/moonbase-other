@@ -1,3 +1,3 @@
-OPTS+=" --datadir=/usr/share"
+OPTS+=" --sharedstatedir=/usr/share"
 
 default_build
