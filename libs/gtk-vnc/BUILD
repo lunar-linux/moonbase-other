@@ -1,5 +1,5 @@
 OPTS+=" --disable-static \
-        --with-gtk=3.0 \
-        --with-python" &&
+        --disable-werror \
+        --without-examples"
 
 default_build
