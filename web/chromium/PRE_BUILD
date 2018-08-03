@@ -23,6 +23,10 @@ patch_it $SOURCE8 1 &&
 
 sedit '/"-Wno-ignored-pragma-optimize"/d' build/config/compiler/BUILD.gn &&
 
+# Make sure python2 is used
+sedit '1s;python$;&2;' third_party/dom_distiller_js/protoc_plugins/*.py &&
+
+
 # Build now requires nodejs
 mkdir -p third_party/node/linux/node-linux-x64/bin &&
 ln -s /usr/bin/node third_party/node/linux/node-linux-x64/bin/node &&
@@ -30,7 +34,7 @@ ln -s /usr/bin/node third_party/node/linux/node-linux-x64/bin/node &&
 export CHROMIUM_HOME=/usr/lib/$MODULE &&
 
 mkdir python2-path &&
-PYTHON_VER=`module_version Python | cut -c 1-3` &&
+PYTHON_VER=`module_version python2 | cut -c 1-3` &&
 ln -s /usr/bin/python2 python2-path/python &&
 
 sedit "s:/bin/echo:/usr/bin/echo:g" build/common.gypi &&
