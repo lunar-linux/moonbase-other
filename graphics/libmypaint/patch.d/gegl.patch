@@ -1,0 +1,52 @@
+--- ./gegl/Makefile.in.orig	2016-12-02 01:18:16.000000000 +0200
++++ ./gegl/Makefile.in		2018-07-05 19:39:27.210125900 +0300
+@@ -419,7 +419,7 @@
+ @ENABLE_GEGL_TRUE@INTROSPECTION_GIRS = $(am__append_1)
+ @ENABLE_GEGL_TRUE@INTROSPECTION_SCANNER_ARGS = \
+ @ENABLE_GEGL_TRUE@    --warn-all \
+-@ENABLE_GEGL_TRUE@    --pkg="gegl-0.3" \
++@ENABLE_GEGL_TRUE@    --pkg="gegl-0.4" \
+ @ENABLE_GEGL_TRUE@    --pkg="glib-2.0" \
+ @ENABLE_GEGL_TRUE@    --namespace="MyPaintGegl" \
+ @ENABLE_GEGL_TRUE@    --nsversion="$(LIBMYPAINT_MAJOR_VERSION).$(LIBMYPAINT_MINOR_VERSION)" \
+@@ -444,7 +444,7 @@
+ @ENABLE_GEGL_TRUE@@HAVE_INTROSPECTION_TRUE@	../glib/mypaint-gegl-glib.c	\
+ @ENABLE_GEGL_TRUE@@HAVE_INTROSPECTION_TRUE@	mypaint-gegl-surface.c
+ 
+-@ENABLE_GEGL_TRUE@@HAVE_INTROSPECTION_TRUE@MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_INCLUDES = GObject-2.0 MyPaint-$(LIBMYPAINT_MAJOR_VERSION).$(LIBMYPAINT_MINOR_VERSION) Gegl-0.3
++@ENABLE_GEGL_TRUE@@HAVE_INTROSPECTION_TRUE@MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_INCLUDES = GObject-2.0 MyPaint-$(LIBMYPAINT_MAJOR_VERSION).$(LIBMYPAINT_MINOR_VERSION) Gegl-0.4
+ @ENABLE_GEGL_TRUE@@HAVE_INTROSPECTION_TRUE@MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_CFLAGS = $(AM_CFLAGS) $(AM_CPPFLAGS) -I. -I..
+ @ENABLE_GEGL_TRUE@@HAVE_INTROSPECTION_TRUE@MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_LIBS = libmypaint-gegl.la ../libmypaint.la
+ @ENABLE_GEGL_TRUE@@HAVE_INTROSPECTION_TRUE@MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_FILES = $(introspection_sources)
+
+--- ./gegl/Makefile.am.orig	2016-11-29 05:49:30.000000000 +0200
++++ ./gegl/Makefile.am	2018-07-05 19:42:01.517813299 +0300
+@@ -11,7 +11,7 @@
+ INTROSPECTION_GIRS =
+ INTROSPECTION_SCANNER_ARGS = \
+     --warn-all \
+-    --pkg="gegl-0.3" \
++    --pkg="gegl-0.4" \
+     --pkg="glib-2.0" \
+     --namespace="MyPaintGegl" \
+     --nsversion="$(LIBMYPAINT_MAJOR_VERSION).$(LIBMYPAINT_MINOR_VERSION)" \
+@@ -38,7 +38,7 @@
+ 	mypaint-gegl-surface.c
+ 
+ MyPaintGegl-@LIBMYPAINT_MAJOR_VERSION@.@LIBMYPAINT_MINOR_VERSION@.gir: libmypaint-gegl.la Makefile
+-MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_INCLUDES = GObject-2.0 MyPaint-$(LIBMYPAINT_MAJOR_VERSION).$(LIBMYPAINT_MINOR_VERSION) Gegl-0.3
++MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_INCLUDES = GObject-2.0 MyPaint-$(LIBMYPAINT_MAJOR_VERSION).$(LIBMYPAINT_MINOR_VERSION) Gegl-0.4
+ MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_CFLAGS = $(AM_CFLAGS) $(AM_CPPFLAGS) -I. -I..
+ MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_LIBS = libmypaint-gegl.la ../libmypaint.la
+ MyPaintGegl_@LIBMYPAINT_MAJOR_VERSION@_@LIBMYPAINT_MINOR_VERSION@_gir_FILES = $(introspection_sources)
+
+--- ./gegl/libmypaint-gegl.pc.in.orig	2018-07-05 19:30:54.880086657 +0300
++++ ./gegl/libmypaint-gegl.pc.in	2018-07-05 19:29:35.726235101 +0300
+@@ -6,6 +6,6 @@
+ Name: libmypaint
+ Description: MyPaint brush engine library, with GEGL integration.
+ Version: @LIBMYPAINT_VERSION@
+-Requires: gegl-0.3 libmypaint
++Requires: gegl-0.4 libmypaint
+ Cflags: -I${includedir}/libmypaint-gegl
+ Libs: -L${libdir} -lmypaint-gegl
