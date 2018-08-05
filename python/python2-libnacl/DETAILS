@@ -1,0 +1,19 @@
+          MODULE=python2-libnacl
+         VERSION=1.6.1
+            TYPE=python2
+          SOURCE=libnacl-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/saltstack/libnacl/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:0bde24d0a601464af4d3cc3117cf98b94046bfb01fe632f417a447b6899b11b3
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libnacl-$VERSION
+        WEB_SITE=http://libnacl.readthedocs.org
+         ENTERED=20150427
+         UPDATED=20180805
+           SHORT="Python bindings for libsodium"
+
+cat << EOF
+This library is used to gain direct access to the functions exposed by Daniel J. Bernstein
+nacl library via libsodium or tweetnacl. It has been constructed to maintain extensive
+documentation on how to use nacl as well as being completely portable. The file in
+libnacl/__init__.py can be pulled out and placed directly in any project to give a single
+file binding to all of nacl.
+EOF

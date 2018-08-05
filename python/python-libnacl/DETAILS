@@ -1,11 +1,14 @@
-          MODULE=libnacl
-         VERSION=1.4.5
-          SOURCE=$MODULE-$VERSION.tar.gz
+          MODULE=python-libnacl
+         VERSION=1.6.1
+            TYPE=python3
+        REPLACES=libnacl
+          SOURCE=libnacl-$VERSION.tar.gz
  SOURCE_URL_FULL=https://github.com/saltstack/libnacl/archive/v$VERSION.tar.gz
-      SOURCE_VFY=sha256:ac373a673a17ea179023966484bd054e6d763473bcc568a318b6375033bc35cd
+      SOURCE_VFY=sha256:0bde24d0a601464af4d3cc3117cf98b94046bfb01fe632f417a447b6899b11b3
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libnacl-$VERSION
         WEB_SITE=http://libnacl.readthedocs.org
          ENTERED=20150427
-         UPDATED=20171122
+         UPDATED=20180805
            SHORT="Python bindings for libsodium"
 
 cat << EOF
