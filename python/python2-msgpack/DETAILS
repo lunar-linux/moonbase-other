@@ -1,10 +1,12 @@
-          MODULE=msgpack
+          MODULE=python2-msgpack
          VERSION=0.5.5
-          SOURCE=$MODULE-$VERSION.tar.gz
+          SOURCE=msgpack-$VERSION.tar.gz
 SOURCE_URL_FULL=https://github.com/msgpack/msgpack-python/archive/${VERSION}.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-python-$VERSION
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/msgpack-python-$VERSION
       SOURCE_VFY=sha256:256fc5c303a4389ae92abefda7caeb4b6dbddf2c5ef4d3375280c764c13bea39
         WEB_SITE=https://msgpack.org/
+            TYPE=python2
+        REPLACES=msgpack
          ENTERED=20180213
          UPDATED=20180401
            SHORT="an efficient binary serialization format"
