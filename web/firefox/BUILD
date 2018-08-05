@@ -19,4 +19,4 @@ done &&
 
 # symlink plugins folder
 mkdir -p /usr/lib/lunar/plugins &&
-ln -sfn /usr/lib/firefox/browser/plugins /usr/lib/lunar/plugins
+ln -sfn /usr/lib/firefox/browser /usr/lib/lunar/plugins
