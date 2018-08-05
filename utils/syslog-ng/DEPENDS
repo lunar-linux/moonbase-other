@@ -1,10 +1,10 @@
-depends six
 depends flex
 depends gawk
 depends libxslt
 depends libdbi
 depends %UDEV
 
+optional_depends python ""                     "" "for Python plugin support"
 optional_depends json-c "--with-jsonc=system"  "" "for JSON support"
 optional_depends curl   "--enable-http"        "" "for HTTP suport"
 optional_depends redis  "--enable-redis"       "" "for redis DB support"
