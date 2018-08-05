@@ -1,9 +1,12 @@
-          MODULE=kitchen
+          MODULE=python-kitchen
          VERSION=1.2.5
-          SOURCE=${MODULE#python-}-$VERSION.tar.gz
+          SOURCE=kitchen-$VERSION.tar.gz
  SOURCE_URL_FULL=https://github.com/fedora-infra/kitchen/archive/v$VERSION.tar.gz
       SOURCE_VFY=sha256:1258af80868fc8c30170a43040b1eb5434bc5ffa5ff4ab98ffb9ee3d3c1e2f76
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/kitchen-$VERSION
         WEB_SITE=https://github.com/fedora-infra/kitchen/
+            TYPE=python3
+        REPLACES=kitchen
          ENTERED=20160615
          UPDATED=20171210
            SHORT="A collection of useful python snippets"
