@@ -2,4 +2,4 @@ python3 setup.py build &&
 
 prepare_install &&
 
-python3 setup.py install --optimize=1 --root=/ &&
+python3 setup.py install --optimize=1 --root=/ 
