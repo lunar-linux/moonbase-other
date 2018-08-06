@@ -1,11 +1,7 @@
 depends libusb
 depends desktop-file-utils
 depends xmlto
-depends pycups
-#depends notify-python
-
+depends python-pycups
+depends python-pycurl
 
 optional_depends "%UDEV"    "--with-udev-rules"           "--without-udev-rules"           "for udev and automatic USB print queue configuration support"
-
-# runtime depends
-depends pycurl

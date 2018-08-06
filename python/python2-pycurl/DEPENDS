@@ -1,0 +1,6 @@
+depends python2
+depends curl
+
+optional_depends %OSSL  "--with-ssl"    "" "for SSL support ${PROBLEM_COLOR}(Choose only openssl OR gnutls OR nss, the same as curl)" y
+optional_depends gnutls "--with-gnutls" "" "for TLS support ${PROBLEM_COLOR}(Choose only openssl OR gnutls OR nss, the same as curl)" n
+optional_depends nss    "--with-nss"    "" "for NSS support ${PROBLEM_COLOR}(Choose only openssl OR gnutls OR nss, the same as curl)" n

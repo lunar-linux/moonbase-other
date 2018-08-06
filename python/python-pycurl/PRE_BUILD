@@ -1,0 +1,4 @@
+default_pre_build &&
+find . -name '*.py' -exec sed -i -e "s|#! /usr/bin/env python|#!/usr/bin/env python3|" {} +
+sed -i 's/"share", "doc", PACKAGE/"share", "doc", "python-pycurl"/' setup.py &&
+sedit '/pyflakes/d' Makefile
