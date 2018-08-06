@@ -1,9 +1,6 @@
-default_pre_build &&
-
-sedit '/pyflakes/d' Makefile &&
-
 if in_depends $MODULE openssl || in_depends $MODULE libressl; then
   export PYCURL_SSL_LIBRARY="openssl"
 fi &&
-
-make
+OPTS+=" -O1"
+make &&
+default_python2_build
