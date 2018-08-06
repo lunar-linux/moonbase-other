@@ -1,11 +1,14 @@
-          MODULE=pydot
-         VERSION=1.2.3
-          SOURCE=$MODULE-$VERSION.tar.gz
+          MODULE=python-pydot
+         VERSION=1.2.4
+          SOURCE=pydot-$VERSION.tar.gz
  SOURCE_URL_FULL=https://github.com/erocarrera/pydot/archive/v$VERSION.tar.gz
-      SOURCE_VFY=sha256:5e63808fd1945ac6600e80518f72d6ecc367273bb7bd1054dceb863a90e7b84b
+      SOURCE_VFY=sha256:00f6353bcce4201f38a642a589ac97ef2ede1c29cf57117e83002de021a1ef4e
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/pydot-$VERSION
         WEB_SITE=http://pydot.googlecode.com/
+            TYPE=python3
+        REPLACES=pydot
          ENTERED=20120727
-         UPDATED=20161203
+         UPDATED=20180806
            SHORT="Python interface to Graphviz's Dot language"
 
 cat << EOF
