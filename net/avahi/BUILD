@@ -1,3 +1,5 @@
+export PYTHON=/usr/bin/python2 &&
+
 NOCONFIGURE=1 ./autogen.sh &&
 
 if module_installed qt5; then
@@ -13,6 +15,7 @@ add_priv_group netdev &&
 
 OPTS+=" --enable-compat-howl \
         --enable-compat-libdns_sd \
+        --enable-libgdbm-compat \
         --disable-stack-protector \
         --disable-monodoc \
         --disable-static \
