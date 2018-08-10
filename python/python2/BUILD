@@ -28,7 +28,7 @@ ln -sf ../../libpython${_BASEVER}.so "$_PYDESTDIR"/usr/lib/python${_BASEVER}/con
 ln -sf python-${_BASEVER}.1 "$_PYDESTDIR"/usr/share/man/man1/python2.1 &&
 
 # Fix conflicts with python
-mv $_PYDESTDIR/usr/bin/smtpd.py /usr/lib/python${_BASEVER}/ &&
+mv $_PYDESTDIR/usr/bin/smtpd.py "$_PYDESTDIR"/usr/lib/python${_BASEVER}/ &&
 mv $_PYDESTDIR/usr/bin/idle{,2} &&
 mv $_PYDESTDIR/usr/bin/pydoc{,2} &&
 mv $_PYDESTDIR/usr/bin/2to3{,-$_BASEVER} &&
