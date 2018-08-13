@@ -1,20 +1,30 @@
+default_cmake_config &&
 
-  cd libpit &&
-  default_build &&
+make &&
+prepare_install &&
 
-  cd ../heimdall &&
-  default_build  &&
+if in_depends $MODULE qt5 ; then
+  install -Dm755 bin/* /usr/bin/
+ else
+  install -Dm755 bin/* /usr/bin/
+fi &&
 
-  mkdir -p /usr/share/doc/heimdall-suite/Linux &&
-  install ../Linux/README /usr/share/doc/heimdall-suite/Linux/README &&
+install -Dm644 ../heimdall/60-heimdall.rules /usr/lib/udev/rules.d/60-heimdall.rules &&
 
-  if module_installed qt4; then
-    cd ../heimdall-frontend &&
-    export OUTPUTDIR="/usr/bin" &&
-    qmake heimdall-frontend.pro &&
-    default_make
-  fi &&
+cat > $MODULE.desktop << EOF &&
+[Desktop Entry]
+Version=1.0
+Name=Heimdall
+Type=Application
+Comment=Firmware flasher for Samsung mobile devices
+Terminal=false
+Exec=heimdall-frontend
+Icon=phone
+Categories=Development;
+EOF
 
-  if module_installed udev; then
+install -m644 -D $MODULE.desktop /usr/share/applications/$MODULE.desktop &&
+
+if module_installed udev; then
     udevadm control --reload-rules
-  fi
+fi
