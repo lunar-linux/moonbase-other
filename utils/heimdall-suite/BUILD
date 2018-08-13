@@ -4,12 +4,7 @@ make &&
 prepare_install &&
 
 if in_depends $MODULE qt5 ; then
-  install -Dm755 bin/* /usr/bin/
- else
-  install -Dm755 bin/* /usr/bin/
-fi &&
-
-install -Dm644 ../heimdall/60-heimdall.rules /usr/lib/udev/rules.d/60-heimdall.rules &&
+  install -Dm755 bin/* /usr/bin/ &&
 
 cat > $MODULE.desktop << EOF &&
 [Desktop Entry]
@@ -23,7 +18,12 @@ Icon=phone
 Categories=Development;
 EOF
 
-install -m644 -D $MODULE.desktop /usr/share/applications/$MODULE.desktop &&
+install -m644 -D $MODULE.desktop /usr/share/applications/$MODULE.desktop
+ else
+  install -Dm755 bin/* /usr/bin/
+fi &&
+
+install -Dm644 ../heimdall/60-heimdall.rules /usr/lib/udev/rules.d/60-heimdall.rules &&
 
 if module_installed udev; then
     udevadm control --reload-rules
