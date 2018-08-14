@@ -1,3 +1,19 @@
+ # Change to use python2
+SAVEIFS=${IFS}
+IFS=$(echo -en "\n\b")
+PYTHON_CALLERS="$(find . -name '*.py')
+                $(find . -name 'wscript*')
+                $(find . -name 'configure.ac')
+                $(find . -name 'upgrade_from_s3')
+                $(find ./buildtools -type f)
+                $(find ./source4/scripting -type f)"
+sed -i -e "s|/usr/bin/env python$|/usr/bin/env python2|" \
+       -e "s|python-config|python2-config|" \
+       -e "s|bin/python|bin/python2|" \
+       ${PYTHON_CALLERS}
+IFS=${SAVEIFS}
+export PYTHON=/usr/bin/python2 &&
+
 #For now this skirts around runtime error: file file:/usr/share/sgml/docbook/xsl-stylesheets-1.79.2/lib/lib.xsl line 56 element variable
 #xsltApplySequenceConstructor: A potential infinite template recursion was detected; thus tanking the build.
 #The current default is 3000 and apparently not enough 
