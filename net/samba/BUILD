@@ -4,12 +4,6 @@
 XSLTPROC="xsltproc --maxdepth 15000" &&
 export XSLTPROC &&
 
-# Samba build will break if talloc is installed
-if module_installed talloc; then
-  lrm talloc
-  export TALLOC=installed
-fi &&
-
 mkdir -p /etc/samba /usr/share/samba /var/log/samba &&
 
 LDFLAGS+=" -Wl,--no-as-needed" &&
