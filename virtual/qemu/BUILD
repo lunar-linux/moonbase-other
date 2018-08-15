@@ -19,10 +19,10 @@ add_priv_user qemu:qemu -G kvm &&
             --enable-attr \
             --enable-modules \
             --enable-vhost-net \
-            $OPTS &&
+            $OPTS
 
 # fix a cpp error
-sedit "s: -c::" pc-bios/optionrom/Makefile &&
+sedit "s: -c::" pc-bios/Makefile
 
 default_make &&
 
@@ -31,9 +31,6 @@ if module_installed systemd; then
 else
   install -D -m644 $SCRIPT_DIRECTORY/udev/65-kvm.rules /etc/udev/rules.d/65-kvm.rules
 fi &&
-
-# bridge_helper needs suid
-chmod u+s "/usr/libexec/qemu-bridge-helper" &&
 
 # qemu-doc.html may not exist, but it will be ignored if that is the case
 gather_docs TODO qemu-doc.html
