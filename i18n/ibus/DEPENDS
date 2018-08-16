@@ -1,11 +1,7 @@
-depends dconf
-depends GConf
 depends hicolor-icon-theme
 depends iso-codes
 depends python-dbus
-depends python2-dbus
 depends python-pygobject
-depends python2-pygobject
 depends vala
 depends libnotify
 depends librsvg
@@ -13,6 +9,9 @@ depends gnome-common
 depends intltool
 depends unicode-character-database
 depends gtk-doc
+
+optional_depends dconf "--enable-dconf" "--disable-dconf" "for building with dconf support"
+optional_depends GConf "--enable-gconf" "--disable-gconf" "for building with GConf support"
 
 optional_depends qt5 "" "" "build Qt 5.x im module"
 
