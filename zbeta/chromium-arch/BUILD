@@ -4,4 +4,4 @@ prepare_install &&
 
 cp -fR usr/* /usr/
 
-# rm /usr/lib/chromium/libwidevinecdmadapter.so
+chmod 4775 /usr/lib/chromium/chrome-sandbox
