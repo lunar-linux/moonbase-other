@@ -13,7 +13,8 @@ LDFLAGS="$LDFLAGS -Wl,-rpath,${PERL_SO_PATH}" &&
 
 OPTS+=" --disable-static"  &&
 
-./configure  --prefix=/usr         \
+PYTHONPROG=/usr/bin/python2 \
+             ./configure --prefix=/usr \
              --sysconfdir=/etc     \
              --localstatedir=/var  \
              --with-python-modules \
