@@ -2,7 +2,7 @@ if in_depends $MODULE python ; then
     # use bootstrap so we can use their supplied bjam/b2.
     PY_VER=`lvu version python|cut -d. -f1-2` &&
     ./bootstrap.sh --with-toolset=gcc --with-icu --with-python=/usr/bin/python3 --with-python-version=$PY_VER --with-python-root=/usr/lib/python$PY_VER &&
-   PY_INCLD=-I/usr/include/python$PY_VER
+   PY_INCLD=-I/usr/include/python${PY_VER}m
   else
     ./bootstrap.sh --with-toolset=gcc --with-icu &&
    PY_INCLD=""
