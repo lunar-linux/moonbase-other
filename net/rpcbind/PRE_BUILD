@@ -1,6 +1,4 @@
 default_pre_build &&
 
-patch_it $SOURCE2 1 &&
-
 # patch for iana services file
 sedit '/servname\[\]/ s;rpcbind;sunrpc;' src/rpcbind.c

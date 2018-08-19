@@ -2,7 +2,7 @@ add_priv_user rpc:rpc &&
 
 OPTS+=" --with-rpcuser=rpc \
         --enable-warmstarts \
-        --with-statedir=/var/lib/rpcbind" &&
+        --with-statedir=/var/lib/rpcbind"
 
 if ! module_installed systemd; then
   OPTS+=" --with-systemdsystemunitdir=no"
