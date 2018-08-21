@@ -1,0 +1,18 @@
+depends qt5
+depends cmake
+depends python
+
+optional_depends dbus \
+                 "-WITH_DBUS=ON" \
+                 "-WITH_DBUS=OFF" \
+                 "for dbus support"
+
+optional_depends openssl \
+                 "-WITH_OPENSSL=ON" \
+                 "-WITH_OPENSSL=OFF" \
+                 "for openssl support"
+
+optional_depends snorenotify \
+                 "" \
+                 "" \
+                 "for notification support"
