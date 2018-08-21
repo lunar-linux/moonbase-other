@@ -1,0 +1,31 @@
+          MODULE=ntfs-3g
+         VERSION=2017.3.23
+          SOURCE=${MODULE}_ntfsprogs-$VERSION.tgz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}_ntfsprogs-$VERSION
+      SOURCE_URL=http://tuxera.com/opensource
+      SOURCE_VFY=sha256:3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5
+        WEB_SITE=http://www.tuxera.com/community/ntfs-3g-download
+         ENTERED=20070621
+         UPDATED=20170329
+           SHORT="NTFS driver for Linux"
+
+cat << EOF
+The NTFS-3G driver is an open source, freely available read/write NTFS driver
+for Linux, FreeBSD, OS X, and NetBSD. It provides safe and fast handling of
+the Windows XP, Windows Server 2003, Windows 2000 and Windows Vista file
+systems. Most POSIX file system operations are supported, with the exception
+of full file ownership and access right support.
+Usage:
+ If there was no error during installation then the NTFS volume can be mounted
+ in read-write mode for everybody as follows. Unmount the volume if it had
+ already been mounted, replace /dev/hda1 and /mnt/windows, if needed
+    mount -t ntfs-3g /dev/hda1 /mnt/windows
+
+ You may also need to set the 'locale' option to make all file names with national
+ characters visible. Replace the below hu_HU.utf8 with the  appropriate setting
+    mount -t ntfs-3g /dev/hda1 /mnt/windows -o locale=hu_HU.utf8
+
+ You can also make NTFS to be mounted during boot by adding the following line to
+ the end of the /etc/fstab file:
+    /dev/hda1 /mnt/windows ntfs-3g defaults 0 0
+EOF
