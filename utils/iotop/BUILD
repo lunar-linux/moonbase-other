@@ -1,5 +1,6 @@
-python setup.py build &&
+# Install binary to /usr/bin
+sedit '7,13d' setup.py &&
 
-prepare_install &&
+default_python3_build &&
 
-python setup.py install --optimize=1
+chmod 644 /usr/share/man/man8/iotop.8
