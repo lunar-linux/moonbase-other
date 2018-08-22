@@ -6,7 +6,12 @@ depends fontconfig
 depends iso-codes
 depends mypaint-brushes
 depends XML-Parser
+depends lcms2
+depends gexiv2
+depends librsvg
 depends curl
+depends poppler-data
+depends poppler
 depends intltool
 
 optional_depends libmng \
@@ -17,28 +22,10 @@ optional_depends aalib \
                  "" "--without-aa" \
                  "for ASCII art support"
 
-optional_depends pygtk \
-                 "--enable-python" \
-                 "--disable-python" \
-                 "for Python support"
-
-optional_depends librsvg \
-                 "--with-librsvg" \
-                 "--without-librsvg" \
-                 "for SVG support"
-
 optional_depends openexr \
                  "--with-openexr" \
                  "--without-openexr" \
                  "for remote file support"
-
-optional_depends gvfs \
-                 "" "--without-gvfs" \
-                 "for remote file support"
-
-optional_depends poppler \
-                 "" "--without-poppler" \
-                 "for pdf support"
 
 optional_depends libgudev \
                  "--with-gudev" \
@@ -49,6 +36,11 @@ optional_depends ghostscript \
                  "--with-gs" \
                  "--without-gs" \
                  "for Ghostscript support"
+
+optional_depends pygtk \
+                 "--enable-python" \
+                 "--disable-python" \
+                 "for Python support"
 
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \
