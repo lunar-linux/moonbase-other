@@ -1,3 +1,4 @@
-  OPTS+=" --disable-static" &&
+OPTS+=" -D installed_tests=false \
+        -D static_modules=false"
 
-  default_build
+default_meson_build

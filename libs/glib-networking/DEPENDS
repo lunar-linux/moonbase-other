@@ -1,10 +1,16 @@
 depends glib-2
 depends ca-certificates
+depends gnutls
 depends intltool
+depends gsettings-desktop-schemas
+depends meson
 
-optional_depends gnutls   "--with-gnutls"   "--without-gnutls"   "support GnuTLS encryption"
-optional_depends libproxy "--with-libproxy" "--without-libproxy" "support libproxy"
-optional_depends p11-kit  "--with-pkcs11"   "--without-pkcs11"   "support for pkcs11"
+optional_depends libproxy \
+                 "-D libproxy_support=true" \
+                 "-D libproxy_support=false" \
+                 "for proxy support"
 
-# unfortunately no flag, but optional
-optional_depends "gsettings-desktop-schemas" "" "" "for gnome desktop schema support"
+optional_depends p11-kit \
+                 "-D pkcs11_support=true" \
+                 "-D pkcs11_support=false" \
+                 "for pkcs11 support"
