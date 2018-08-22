@@ -1,4 +1,5 @@
 depends zlib
-depends ilmbase
 
-optional_depends "fltk" "" "" "to build the exrdisplay FLTK application"
+optional_depends fltk \
+                 "-D OPENEXR_BUILD_VIEWERS" "" \
+                 "to build the exrdisplay FLTK application"
