@@ -1,5 +1,5 @@
 depends zlib
 
 optional_depends fltk \
-                 "-D OPENEXR_BUILD_VIEWERS" "" \
-                 "to build the exrdisplay FLTK application"
+                 "-DOPENEXR_BUILD_VIEWERS=1" "-DOPENEXR_BUILD_VIEWERS=0" \
+                 "to build the exrdisplay FLTK application, ${PROBLEM_COLOR}Viewers are currently out of order.${DEFAULT_COLOR}" n

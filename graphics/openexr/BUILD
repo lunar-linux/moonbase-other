@@ -3,8 +3,6 @@
 bad_flags ',--as-needed' &&
 
 # needs boost compiled with python 2.7.x support
-OPTS+=" -D OPENEXR_BUILD_PYTHON_LIBS=OFF"
-
-OPTS+=" -D OPENEXR_BUILD_TESTS=OFF"
+OPTS+=" -DOPENEXR_BUILD_TESTS=0 -DOPENEXR_BUILD_PYTHON_LIBS=0" &&
 
 default_cmake_build
