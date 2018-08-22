@@ -17,4 +17,6 @@ if module_installed systemd; then
   OPTS+=" --with-init-script=systemd"
 fi &&
 
+autoreconf &&
+
 default_build
