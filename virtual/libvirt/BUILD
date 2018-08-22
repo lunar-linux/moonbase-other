@@ -6,7 +6,6 @@ OPTS+=" --disable-static \
         --without-hal \
         --without-netcf \
         --with-udev \
-        --with-yajl \
         --with-network \
         --with-secrets \
         --with-libvirtd \
