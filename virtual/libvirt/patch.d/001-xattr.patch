@@ -1,0 +1,39 @@
+diff --git a/m4/virt-attr.m4 b/m4/virt-attr.m4
+index c55bd7dbd8..478549c17f 100644
+--- a/m4/virt-attr.m4
++++ b/m4/virt-attr.m4
+@@ -5,7 +5,7 @@ AC_DEFUN([LIBVIRT_ARG_ATTR],[
+ ])
+ 
+ AC_DEFUN([LIBVIRT_CHECK_ATTR],[
+-  LIBVIRT_CHECK_LIB([ATTR], [attr], [getxattr], [attr/xattr.h])
++  LIBVIRT_CHECK_LIB([ATTR], [attr], [getxattr], [sys/xattr.h])
+ ])
+ 
+ AC_DEFUN([LIBVIRT_RESULT_ATTR],[
+diff --git a/tests/securityselinuxhelper.c b/tests/securityselinuxhelper.c
+index 22b6709554..fe6f2b5fd9 100644
+--- a/tests/securityselinuxhelper.c
++++ b/tests/securityselinuxhelper.c
+@@ -34,7 +34,7 @@
+ #include <string.h>
+ #include <sys/vfs.h>
+ #include <unistd.h>
+-#include <attr/xattr.h>
++#include <sys/xattr.h>
+ 
+ #ifndef NFS_SUPER_MAGIC
+ # define NFS_SUPER_MAGIC 0x6969
+diff --git a/tests/securityselinuxlabeltest.c b/tests/securityselinuxlabeltest.c
+index c684989fd2..48fee7cd28 100644
+--- a/tests/securityselinuxlabeltest.c
++++ b/tests/securityselinuxlabeltest.c
+@@ -28,7 +28,7 @@
+ 
+ #include <selinux/selinux.h>
+ #include <selinux/context.h>
+-#include <attr/xattr.h>
++#include <sys/xattr.h>
+ 
+ #include "internal.h"
+ #include "testutils.h"
