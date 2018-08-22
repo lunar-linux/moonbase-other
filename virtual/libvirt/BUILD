@@ -6,7 +6,6 @@ OPTS+=" --disable-static \
         --without-hal \
         --without-netcf \
         --with-udev \
-        --with-yajl \
         --with-network \
         --with-secrets \
         --with-libvirtd \
@@ -16,5 +15,7 @@ OPTS+=" --disable-static \
 if module_installed systemd; then
   OPTS+=" --with-init-script=systemd"
 fi &&
+
+autoreconf &&
 
 default_build
