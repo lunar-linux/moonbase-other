@@ -5,11 +5,12 @@ unpack $SOURCE  &&
 cd $SOURCE_DIRECTORY &&
 
 if in_depends $MODULE intel-tbb; then
- sedit "s:TBB ?=:TBB = -ltbb -DSPQR_CONFIG=-DHAVE_TBB:" SuiteSparse_config/SuiteSparse_config.mk
+  export TBB=-ltbb &&
+  export SPQR_CONFIG=-DHAVE_TBB
 fi
 
 METIS_OPTS+=" config shared=1 prefix=/usr" &&
 
-SS_BUILD_OPTS+=" BLAS=-lblas MY_METIS_INC=$SOURCE_DIRECTORY/metis-$VERSION/include/ MY_METIS_LIB=/usr/lib/libmetis.so" &&
+SS_BUILD_OPTS+=" BLAS=-lblas MY_METIS_INC=$SOURCE_DIRECTORY/metis-5.1.0/include/ MY_METIS_LIB=/usr/lib/libmetis.so" &&
 
 SS_INSTALL_OPTS+=" BLAS=-lblas INSTALL_LIB=/usr/lib INSTALL_INCLUDE=/usr/include"
