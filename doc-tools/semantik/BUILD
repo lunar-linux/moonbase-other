@@ -1,9 +1,9 @@
-
   . /etc/profile.d/qt5.rc &&
 
-  ./waf configure --prefix=/usr   \
-                  --qtlibs=/usr/lib/qt5 \
-                  $OPTS &&
+PYTHON=python3 PYTHON_VERSION=3.6  \
+      ./waf configure --prefix=/usr   \
+      --qtlibs=/usr/lib/qt5 \
+      $OPTS &&
 
   ./waf            &&
 
