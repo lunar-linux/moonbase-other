@@ -13,6 +13,6 @@ OPTS+=" -DBUILD_WITH_DEBUG_INFO=0  \
         -DBUILD_TESTS=0            \
         -DBUILD_PERF_TESTS=0       \
         -DINSTALL_TO_MANGLED_PATHS=1 \
-        -DCMAKE_SKIP_RPATH=1" &&
+        -DCMAKE_SKIP_RPATH=1"
 
 default_cmake_build
