@@ -1,6 +1,9 @@
 depends cmake
 depends fontconfig
 depends icu4c
+depends openjpeg-2
+depends %JPEG
+
 
 optional_depends gtk+-2 "" "" "for GTK wrapper support"
 
@@ -15,16 +18,6 @@ optional_depends zlib \
                  "-DENABLE_ZLIB=ON" \
                  "-DENABLE_ZLIB=OFF" \
                  "for zlib compression support (not totally safe)"
-
-optional_depends openjpeg-2 \
-                 "-DENABLE_LIBOPENJPEG=openjpeg2" \
-                 "-DENABLE_LIBOPENJPEG=none" \
-                 "for JPEG 2000 image support"
-
-optional_depends %JPEG \
-                 "-DENABLE_DCTDECODER=libjpeg" \
-                 "-DENABLE_DCTDECODER=none" \
-                 "for JPEG image support (recommended)"
 
 optional_depends libpng \
                  "-DENABLE_LIBPNG=ON" \
