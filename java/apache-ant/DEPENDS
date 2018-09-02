@@ -1,1 +1,5 @@
-depends sun-jdk
+if module_installed sun-jdk8; then
+  depends sun-jdk8
+else
+  depends sun-jdk
+fi
