@@ -5,8 +5,8 @@ if ! module_installed ca-certificates; then
   message "${PROBLEM_COLOR}If the following downloads fail, please make sure you build wget with SSL support and and got ca-certificates installed${DEFAULT_COLOR}"
 fi &&
 
-wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/$FVERSION/$HASH/$JDK_ARCHIVE &&
-wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jce/8/$JCE_POLICY &&
+wget -c --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/$FVERSION/$HASH/$JDK_ARCHIVE &&
+wget -c --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jce/8/$JCE_POLICY &&
 
 JCE_SHA_TST=`sha256sum $JCE_POLICY | awk '{print $1}'` &&
 if [ "$JCE_SHA_VFY" != "$JCE_SHA_TST" ]; then
