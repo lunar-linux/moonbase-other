@@ -1,0 +1,29 @@
+CURDIR="`pwd`" &&
+cd $SOURCE_CACHE &&
+
+if ! module_installed ca-certificates; then
+  message "${PROBLEM_COLOR}If the following downloads fail, please make sure you build wget with SSL support and and got ca-certificates installed${DEFAULT_COLOR}"
+fi &&
+
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/$FVERSION/$HASH/$JRE_ARCHIVE &&
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jce/8/$JCE_POLICY &&
+
+JCE_SHA_TST=`sha256sum $JCE_POLICY | awk '{print $1}'` &&
+if [ "$JCE_SHA_VFY" != "$JCE_SHA_TST" ]; then
+  message "Bad checksum for file $JCE_POLICY: $JCE_SHA_TST - deleting file" &&
+  rm -f $JCE_POLICY # &&
+  false
+fi &&
+
+JRE_SHA_TST=`sha256sum $JRE_ARCHIVE | awk '{print $1}'` &&
+if [ "$JRE_SHA_VFY" != "$JRE_SHA_TST" ]; then
+  message "Bad checksum for file $JRE_ARCHIVE: $JRE_SHA_TST - deleting file" &&
+  rm -f $JRE_ARCHIVE &&
+  false
+fi &&
+
+cd $BUILD_DIRECTORY &&
+tar -xzpvf $SOURCE_CACHE/$JRE_ARCHIVE &&
+cd $SOURCE_DIRECTORY/lib/security &&
+unzip -o $SOURCE_CACHE/$JCE_POLICY &&
+cd $CURDIR
