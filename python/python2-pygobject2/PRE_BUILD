@@ -1,0 +1,3 @@
+default_pre_build &&
+find . \( -name '*.py' -o -name '*.py.in' \) -exec sed -i '1s|python$|&2|' {} + &&
+autoreconf -fvi
