@@ -1,7 +1,13 @@
 if module_installed sun-jdk; then
   . /etc/profile.d/sun-jdk.rc
-else
+fi &&
+
+if module_installed sun-jre; then
   . /etc/profile.d/sun-jre.rc
+fi &&
+
+if module_installed sun-jdk8; then
+  . /etc/profile.d/sun-jdk.rc
 fi &&
 
 prepare_install &&
