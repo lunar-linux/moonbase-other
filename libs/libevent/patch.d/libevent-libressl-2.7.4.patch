@@ -1,0 +1,11 @@
+--- openssl-compat.h.orig	2018-09-06 16:36:35.869357121 +0800
++++ openssl-compat.h	2018-09-06 16:36:20.887004737 +0800
+@@ -32,4 +32,8 @@
+ 
+ #endif /* OPENSSL_VERSION_NUMBER < 0x10100000L */
+ 
++#if defined(LIBRESSL_VERSION_NUMBER)
++#define BIO_get_init(b) (b)->init
++#endif
++
+ #endif /* OPENSSL_COMPAT_H */
