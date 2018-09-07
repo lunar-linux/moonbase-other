@@ -1,16 +1,15 @@
-depends python2
 depends iproute2
 depends iptables
 depends libxml2
 depends libnl3
-depends %OSSL
-depends lvm2
+depends openssl
 depends libpcap
 depends libpciaccess
-depends gnutls
+depends yajl
 
 optional_depends %UDEV      "--with-udev "    "--without-udev "    "for udev support"
 optional_depends avahi      "--with-avahi"    "--without-avahi"    "for avahi support"
+optional_depends gnutls     "--with-gnutls"   "--without-gnutls"   "for GNUTLS encryption support"
 optional_depends attr       "--with-attr"     "--without-attr"     "for extended fs attributes support"
 optional_depends dbus       "--with-dbus"     "--without-dbus"     "for DBUS support"
 optional_depends curl       "--with-curl"     "--without-curl"     "for CURL support"
@@ -31,11 +30,6 @@ optional_depends bridge-utils "" "" "for default bridged networking"
 optional_depends radvd        "" "" "for IPV6 router advertisement support"
 optional_depends libiscsi     "" "" "for client ISCSI support"
 
-optional_depends qemu \
-                 "--with-qemu --with-qemu-user=qemu --with-qemu-group=qemu" \
-                 "--without-qemu" \
-                 "for QEMU support"
-
 optional_depends lvm2   "--with-storage-lvm"  "" "for LVM2 backend for storage driver support"
 optional_depends parted "--with-storage-disk" "" "for GParted backend for storage driver support"
 optional_depends zfs    "--with-storage-zfs"  "" "for ZFS backend for storage driver support"
@@ -44,6 +38,11 @@ optional_depends glusterfs \
                  "--with-storage-gluster" \
                  "--without-storage-gluster" \
                  "for gluster backend for storage driver support"
+
+optional_depends qemu \
+                 "--with-qemu" \
+                 "--without-qemu" \
+                 "for QEMU support"
 
 #optional_depends open-iscsi \
 #                 "--with-storage-iscsi" \
