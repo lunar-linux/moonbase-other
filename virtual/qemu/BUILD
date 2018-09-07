@@ -19,7 +19,7 @@ add_priv_user qemu:qemu -G kvm &&
             --enable-attr \
             --enable-modules \
             --enable-vhost-net \
-            $OPTS
+            $OPTS &&
 
 # fix a cpp error
 sedit "s: -c::" pc-bios/{,optionrom/}Makefile
