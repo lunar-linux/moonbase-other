@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit '/namespace_string.h/ a #include <boost/next_prior.hpp>' \
+  src/mongo/client/{command_writer.cpp,wire_protocol_writer.cpp}
