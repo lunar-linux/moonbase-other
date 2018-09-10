@@ -1,14 +1,14 @@
 OPTS+=" --docdir=/usr/share/doc/zsh \
         --htmldir=/usr/share/doc/zsh/html \
         --enable-multibyte \
+        --enable-etcdir=/etc/zsh \
         --enable-maildir-support \
         --enable-function-subdirs \
         --enable-fndir=/usr/share/zsh/functions \
         --enable-scriptdir=/usr/share/zsh/scripts \
-        --enable-zsh-secure-free" &&
+        --enable-zsh-secure-free"
 
 # Other options to consider
-#        --enable-etcdir=/etc/zsh \
 #        --enable-zshenv=/etc/zsh/zshenv \
 #        --enable-zlogin=/etc/zsh/zlogin \
 #        --enable-zlogout=/etc/zsh/zlogout \
