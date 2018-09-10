@@ -4,6 +4,7 @@ mkdir -p build{,-py2,-pyqt5-py2} &&
 pushd build-py2 &&
 python2 ../configure.py CFLAGS="$CFLAGS" LFLAGS="$LDFLAGS" &&
 make &&
+prepare_install &&
 make DESTDIR=$DESTDIR install &&
 # Remove conflicts with python-sip
 rm "$DESTDIR"/usr/bin/sip &&
@@ -11,6 +12,7 @@ popd &&
 pushd build-pyqt5-py2 &&
 python2 ../configure.py CFLAGS="$CFLAGS" LFLAGS="$LDFLAGS" --sip-module PyQt5.sip --no-tools &&
 make &&
+prepare_install &&
 make DESTDIR=$DESTDIR install &&
 popd &&
 
