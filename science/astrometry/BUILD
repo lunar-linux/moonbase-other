@@ -4,6 +4,7 @@
   prepare_install &&
 
   export INSTALL_DIR=/usr  &&
+  export DOC_INSTALL_DIR=/usr/share/doc/astrometry &&
   export BIN_INSTALL_DIR=/usr/bin &&
   export DATA_INSTALL_DIR=/usr/share/astrometry/data &&
   export LIB_INSTALL_DIR=/usr/lib &&
