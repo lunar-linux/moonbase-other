@@ -1,10 +1,14 @@
 depends libevent
 depends lvm2
 depends keyutils
+depends libtirpc
 
 optional_depends sqlite \
                  "--enable-nfsdcltrack" \
                  "--disable-nfsdcltrack" \
                  "build NFSv4 clientid tracking programs"
 
-optional_depends krb5 "--enable-gss" "--disable-gss" "support for Kerberos"
+optional_depends krb5 \
+                 "--enable-gss" \
+                 "--disable-gss" \
+                 "support for Kerberos"
