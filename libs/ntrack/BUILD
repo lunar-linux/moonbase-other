@@ -3,6 +3,7 @@
     . /etc/profile.d/qt4.rc
   fi &&
 
-  OPTS+=" --disable-static --enable-backend=libnl" &&
+# qt4 is defunct.
+  OPTS+=" --disable-static --enable-backend=libnl --without-qt4" &&
 
   default_build

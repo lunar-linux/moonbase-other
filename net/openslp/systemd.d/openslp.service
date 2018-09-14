@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 ExecStart=/usr/sbin/slpd -c /etc/slp/slp.conf -r /etc/slp/slp.reg -s /etc/slp/slp.spi -l /var/log/slpd.log -d
-ExecReload=/bin/kill -HUP $MAINPID
+ExecReload=/usr/bin/kill -HUP $MAINPID
 
 [Install]
 WantedBy=network.target
