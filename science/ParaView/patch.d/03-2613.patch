@@ -1,0 +1,30 @@
+From bbc94a0f8113febdca71f9332cad6fd4edfa47f0 Mon Sep 17 00:00:00 2001
+From: Eli Schwartz <eschwartz@archlinux.org>
+Date: Thu, 26 Jul 2018 04:47:04 +0000
+Subject: [PATCH] fix build on python 3.7
+
+PyUnicode_AsUTF8 is a const now, cf.
+https://bugs.python.org/issue28769
+https://docs.python.org/3/whatsnew/3.7.html#c-api-changes
+
+Fix by casting to `char *` in order to maintain compatibility.
+---
+ Qt/Python/pqPythonSyntaxHighlighter.cxx | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Qt/Python/pqPythonSyntaxHighlighter.cxx b/Qt/Python/pqPythonSyntaxHighlighter.cxx
+index 36e704e7d5..6883a73987 100644
+--- a/Qt/Python/pqPythonSyntaxHighlighter.cxx
++++ b/Qt/Python/pqPythonSyntaxHighlighter.cxx
+@@ -194,6 +194,8 @@ void pqPythonSyntaxHighlighter::rehighlightSyntax()
+ #if PY_MAJOR_VERSION == 2
+     vtkSmartPyObject resultingTextBytes(PyUnicode_AsUTF8String(resultingText));
+     char* resultingTextAsCString = PyString_AsString(resultingTextBytes);
++#elif PY_VERSION_HEX >= 0x03070000
++    char* resultingTextAsCString = const_cast<char*>(PyUnicode_AsUTF8(resultingText));
+ #else
+     char* resultingTextAsCString = PyUnicode_AsUTF8(resultingText);
+ #endif
+-- 
+2.18.0
+

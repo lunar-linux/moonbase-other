@@ -1,5 +1,5 @@
 mkdir BUILD &&
-cd BUILD    &&
+cd BUILD &&
 
 ../configure --host=$BUILD             \
              --enable-languages=c++    \
@@ -14,9 +14,9 @@ cd BUILD    &&
              --with-system-zlib        \
              --enable-shared          &&
 
-make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean  &&
+make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean &&
 
-prepare_install                            &&
+prepare_install &&
 
 make DESTDIR=$(pwd -P)/ROOT install-target-libstdc++-v3 &&
 

@@ -3,7 +3,7 @@ default_pre_build &&
 # Remove local libs so we'll always use system libs,
 # and don't waste configure / compile time on them.
 verbose_msg "Removing unneeded local libs" &&
-rm -rf cups/libs freetype jbig2dec jpeg lcms2 libpng tiff zlib Resource/CMap &&
+rm -rf cups/libs expat freetype ijs jbig2dec jpeg lcms2mt libpng openjpeg tiff zlib Resource/CMap &&
 
 # So it will use our system zlib
 sedit "s:ZLIBDIR=src:ZLIBDIR=\$includedir:" configure.ac configure &&
