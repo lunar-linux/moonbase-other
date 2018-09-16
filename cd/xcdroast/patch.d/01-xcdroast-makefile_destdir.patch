@@ -1,0 +1,17 @@
+--- xcdroast-1.18/src/Makefile.am	2017-05-06 12:09:24.000000000 +0200
++++ xcdroast-1.18/src/Makefile.am	2017-12-27 14:30:32.596688999 +0100
+@@ -14,11 +14,11 @@
+ 
+ # Create sysconfdir
+ install-data-local:
+-	$(MKDIR_P) $(sysconfdir)
++	$(MKDIR_P) $(DESTDIR)$(sysconfdir)
+ 
+ # set suid bit on xcdrwrap
+ install-data-hook:
+-	chmod 4711 $(XCDRLIB_PREFIX)/bin/xcdrwrap
++	chmod 4711 $(DESTDIR)$(XCDRLIB_PREFIX)/bin/xcdrwrap
+  
+ pkgbindir = $(XCDRLIB_PREFIX)/bin
+ pkgiconsdir = $(XCDRLIB_PREFIX)/icons
+ 
