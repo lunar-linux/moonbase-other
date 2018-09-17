@@ -1,0 +1,17 @@
+@@@ patch file for xcdroast-1.18
+--- xcdroast-1.18/src/xtools.c	2017-11-15 18:56:45.000000000 +0100
++++ xcdroast-1.18/src/xtools.c	2018-05-10 09:53:18.617148861 +0200
+@@ -903,10 +903,10 @@
+ 			len = strlen(img_ext[i]);
+ 			len2 = strlen(ent->d_name);
+ 
+-			/* skip to short filenames */
++			/* skip too short filenames */
+ 			if (len2 < len) continue;
+ 
+-			if (strncmp((ent->d_name)+len2-len,img_ext[i],len) == 0) {
++			if (strncasecmp((ent->d_name)+len2-len,img_ext[i],len) == 0) {
+ 				/* we found a match */
+ 				analyze_imgfile(path,ent->d_name,retlist);			
+ 			}
+ 

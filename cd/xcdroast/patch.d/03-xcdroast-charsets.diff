@@ -1,0 +1,333 @@
+diff -Naur xcdroast-1.18.orig/src/create.c xcdroast-1.18/src/create.c
+--- xcdroast-1.18.orig/src/create.c	2017-11-16 00:56:45.000000000 +0700
++++ xcdroast-1.18/src/create.c	2018-06-16 23:12:34.020036066 +0700
+@@ -105,6 +105,8 @@
+ static GtkWidget *isoopt_omenu;
+ static GtkWidget *isoopt_cmenu;
+ static GtkWidget *isoopt_cmenu2;
++static GtkWidget *isoopt_centry;
++static GtkWidget *isoopt_centry2;
+ static GtkWidget *bootable_frame1;
+ static GtkWidget *bootable_frame2;
+ static GtkWidget *isoheader[7];
+@@ -4921,9 +4923,26 @@
+ 	/* set joilet charset */
+ 	gtk_option_menu_set_history(GTK_OPTION_MENU(isoopt_cmenu), 
+ 		masterparam.charset);
++        if (masterparam.cust_charset != NULL) {
++		gtk_entry_set_text(GTK_ENTRY(isoopt_centry),
++			masterparam.cust_charset);
++	}
++	if (strcmp(charset_types[masterparam.charset],"custom") == 0) {
++                gtk_widget_set_sensitive(isoopt_centry,TRUE);
++	} else {
++                gtk_widget_set_sensitive(isoopt_centry,FALSE);
++	}
+ 	gtk_option_menu_set_history(GTK_OPTION_MENU(isoopt_cmenu2), 
+ 		masterparam.outcharset);
+-
++        if (masterparam.cust_outcharset != NULL) {
++		gtk_entry_set_text(GTK_ENTRY(isoopt_centry2),
++			masterparam.cust_outcharset);
++	}
++	if (strcmp(charset_types[masterparam.outcharset],"custom") == 0) {
++                gtk_widget_set_sensitive(isoopt_centry2,TRUE);
++	} else {
++                gtk_widget_set_sensitive(isoopt_centry2,FALSE);
++	}
+ }
+ 
+ 
+@@ -4970,8 +4989,26 @@
+ 	/* set joilet charset */
+ 	gtk_option_menu_set_history(GTK_OPTION_MENU(isoopt_cmenu), 
+ 		masterparam.charset);
++        if (masterparam.cust_charset != NULL) {
++		gtk_entry_set_text(GTK_ENTRY(isoopt_centry),
++			masterparam.cust_charset);
++	}
++	if (strcmp(charset_types[masterparam.charset],"custom") == 0) {
++                gtk_widget_set_sensitive(isoopt_centry,TRUE);
++	} else {
++                gtk_widget_set_sensitive(isoopt_centry,FALSE);
++	}
+ 	gtk_option_menu_set_history(GTK_OPTION_MENU(isoopt_cmenu2), 
+ 		masterparam.outcharset);
++        if (masterparam.cust_outcharset != NULL) {
++		gtk_entry_set_text(GTK_ENTRY(isoopt_centry2),
++			masterparam.cust_outcharset);
++	}
++	if (strcmp(charset_types[masterparam.outcharset],"custom") == 0) {
++                gtk_widget_set_sensitive(isoopt_centry2,TRUE);
++	} else {
++                gtk_widget_set_sensitive(isoopt_centry2,FALSE);
++	}
+ }
+ 
+ 
+@@ -5003,11 +5040,33 @@
+ static void csetopts_selected(GtkWidget *item, gpointer nr) {
+ 
+ 	masterparam.charset = GPOINTER_TO_INT(nr);
++
++	if (strcmp(charset_types[masterparam.charset],"custom") == 0) {
++                gtk_widget_set_sensitive(isoopt_centry,TRUE);
++	} else {
++                gtk_widget_set_sensitive(isoopt_centry,FALSE);
++	}
+ }
+ 
+ static void cset2opts_selected(GtkWidget *item, gpointer nr) {
+ 
+ 	masterparam.outcharset = GPOINTER_TO_INT(nr);
++
++	if (strcmp(charset_types[masterparam.outcharset],"custom") == 0) {
++                gtk_widget_set_sensitive(isoopt_centry2,TRUE);
++	} else {
++                gtk_widget_set_sensitive(isoopt_centry2,FALSE);
++	}
++}
++
++static void cset_entry_callback(GtkWidget *widget, gpointer data) {
++gchar **p;
++
++	/* get pointer to char variable, so that we can update it directly */
++	p = (gchar **) data;
++
++	g_free(*p);
++	*p = g_strdup(gtk_entry_get_text(GTK_ENTRY(widget)));
+ }
+ 
+ 
+@@ -5049,6 +5108,7 @@
+ GtkWidget *l1,*l2,*tbl;
+ GtkWidget *omenu, *cmenu, *check;
+ GtkWidget *menu, *menu_item;
++GtkWidget *centry;
+ static const gchar *master_texts[] = MASTER_TEXTS;
+ gint i;
+ 
+@@ -5104,7 +5164,7 @@
+ 	gtk_box_pack_start(GTK_BOX(vbox),f1,TRUE,TRUE,0);
+ 	gtk_widget_show(f1);
+ 
+-	tbl = gtk_table_new(7,8,TRUE);
++	tbl = gtk_table_new(8,8,TRUE);
+ 	gtk_table_set_col_spacing(GTK_TABLE(tbl), 1, 10);
+ 	gtk_table_set_col_spacing(GTK_TABLE(tbl), 5, 10);
+ 	gtk_container_set_border_width(GTK_CONTAINER (tbl),5);
+@@ -5137,6 +5197,22 @@
+         gtk_table_attach_defaults(GTK_TABLE(tbl),cmenu,2,4,6,7);
+         gtk_widget_show(cmenu);
+ 
++        l2 = rightjust_gtk_label_new(_("Custom charset:"));
++        gtk_table_attach_defaults(GTK_TABLE(tbl),l2,0,2,7,8);
++        gtk_widget_show(l2);
++
++	centry = gtk_entry_new_with_max_length(256);
++	isoopt_centry = centry;
++        gtk_signal_connect(GTK_OBJECT(centry), "changed",
++                GTK_SIGNAL_FUNC(cset_entry_callback), &masterparam.cust_charset);
++        if (masterparam.cust_charset != NULL) {
++                gtk_entry_set_text(GTK_ENTRY(centry), masterparam.cust_charset);
++	}
++	define_tooltip(centry, _("Specify here the custom local charset name which will be used if the menu option above is set to 'custom'. For the syntax and possible charset specifications see `man mkisofs` and `iconv -l`."));
++
++        gtk_table_attach_defaults(GTK_TABLE(tbl),centry,2,4,7,8);
++	gtk_widget_show(centry);
++
+ 	/* -output-charset CHARSET */
+         l2 = rightjust_gtk_label_new(_("Output charset:"));
+         gtk_table_attach_defaults(GTK_TABLE(tbl),l2,4,6,6,7);
+@@ -5161,6 +5237,22 @@
+         gtk_table_attach_defaults(GTK_TABLE(tbl),cmenu,6,8,6,7);
+         gtk_widget_show(cmenu);
+ 
++        l2 = rightjust_gtk_label_new(_("Custom charset:"));
++        gtk_table_attach_defaults(GTK_TABLE(tbl),l2,4,6,7,8);
++        gtk_widget_show(l2);
++
++	centry = gtk_entry_new_with_max_length(256);
++	isoopt_centry2 = centry;
++        gtk_signal_connect(GTK_OBJECT(centry), "changed",
++                GTK_SIGNAL_FUNC(cset_entry_callback), &masterparam.cust_outcharset);
++        if (masterparam.cust_outcharset != NULL) {
++                gtk_entry_set_text(GTK_ENTRY(centry), masterparam.cust_outcharset);
++	}
++	define_tooltip(centry, _("Specify here the custom output charset name which will be used if the menu option above is set to 'custom'. For the syntax and possible charset specifications see `man mkisofs` and `iconv -l`."));
++
++        gtk_table_attach_defaults(GTK_TABLE(tbl),centry,6,8,7,8);
++	gtk_widget_show(centry);
++
+ 
+ 	/* -r anon rockridge */
+         check = gtk_check_button_new_with_label(_("Rock Ridge (anonymous)"));
+diff -Naur xcdroast-1.18.orig/src/init.c xcdroast-1.18/src/init.c
+--- xcdroast-1.18.orig/src/init.c	2017-12-17 20:01:03.000000000 +0700
++++ xcdroast-1.18/src/init.c	2018-06-16 23:12:34.040036067 +0700
+@@ -285,7 +285,9 @@
+ 	masterparam.old_session_size = 0;
+ 	masterparam.session_size = 0;
+ 	masterparam.charset = 0;
++	masterparam.cust_charset = g_strdup("");
+ 	masterparam.outcharset = 0;
++	masterparam.cust_outcharset = g_strdup("");
+ 	masterparam.redirtype = 2;
+ 	masterparam.lastredirpath = g_strdup("");
+ 	masterparam.redirtype2 = 0;
+diff -Naur xcdroast-1.18.orig/src/io.c xcdroast-1.18/src/io.c
+--- xcdroast-1.18.orig/src/io.c	2017-12-17 19:39:19.000000000 +0700
++++ xcdroast-1.18/src/io.c	2018-06-16 23:12:34.050036067 +0700
+@@ -1078,12 +1078,21 @@
+ 
+ 
+ /*
++ * compare charset names (for qsort)
++ */
++static int sort_charsets (const void *a, const void *b)
++{
++	return strverscmp (*(char * const *)a, *(char *const *)b);
++}
++
++
++/*
+  * call mkisofs -input-charset help
+  */
+ void scancharsets() {
+ gchar line[MAXLINE];
+ FILE *fpin;
+-gint start,count,backcount;
++gint start,count,tcount,i;
+ gchar **tmp_types;
+ 
+ 	/* allocate memory */
+@@ -1123,20 +1132,26 @@
+ 		}
+         }
+ 
+-	tmp_types[count] = g_strdup("default");
+-	
+         if (pclose(fpin) == -1) {
+                 g_error("pclose error\n");
+         }
+ 
+-	/* now the types list is reversed, make it right */
+-	backcount = count;
++	/* now sort charsets, adding a few special types into right places */
++	qsort(tmp_types,count,sizeof(*tmp_types),sort_charsets);
++
++	tcount = count;
+ 	count = 0;
+-	while(backcount >= 0) {
+-		charset_types[count] = tmp_types[backcount];
++	charset_types[count] = g_strdup("default");
++	count++;
++	charset_types[count] = g_strdup("utf-8");
++	count++;
++	for (i=0;i<tcount;i++) {
++		charset_types[count] = tmp_types[i];
+ 		count++;
+-		backcount--;
+ 	}
++	charset_types[count] = g_strdup("custom");
++	count++;
++
+ 	g_free(tmp_types);
+ 
+ 	if (debug) print_charsets();
+@@ -8736,9 +8751,15 @@
+         g_snprintf(tmp,MAXLINE,"IN_CHARSET = \"%s\"\n",
+ 		charset_types[masterparam.charset]);
+         fputs(tmp,fd);
++        g_snprintf(tmp,MAXLINE,"CUST_IN_CHARSET = \"%s\"\n",
++		masterparam.cust_charset);
++        fputs(tmp,fd);
+         g_snprintf(tmp,MAXLINE,"OUT_CHARSET = \"%s\"\n",
+ 		charset_types[masterparam.outcharset]);
+         fputs(tmp,fd);
++        g_snprintf(tmp,MAXLINE,"CUST_OUT_CHARSET = \"%s\"\n",
++		masterparam.cust_outcharset);
++        fputs(tmp,fd);
+ 
+ 	g_snprintf(tmp,MAXLINE,"SHOW_ONLY_DIRS = %d\n", 
+ 			masterparam.show_only_dirs);
+@@ -8813,6 +8834,9 @@
+                                 i++;
+                         }
+                 }
++                if (strncmp("CUST_IN_CHARSET",id,12) == 0) {
++                        strcpy(masterparam.cust_charset,value);
++                }
+                 if (strncmp("OUT_CHARSET",id,7) == 0) {
+                         masterparam.outcharset = 0;
+                         i = 0;
+@@ -8824,6 +8848,9 @@
+                                 i++;
+                         }
+                 }
++                if (strncmp("CUST_OUT_CHARSET",id,12) == 0) {
++                        strcpy(masterparam.cust_outcharset,value);
++                }
+ 
+ 		if (strcmp("SHOW_ONLY_DIRS",id) == 0) {
+ 			masterparam.show_only_dirs = atoi(value);
+@@ -9077,12 +9104,32 @@
+ 	}
+ 	if (masterparam.charset != 0) {
+                 strcat(tmp2,"-input-charset ");
+-                strcat(tmp2,charset_types[masterparam.charset]);
++		if (strcmp(charset_types[masterparam.charset],"utf-8") == 0) {
++			strcat(tmp2,"iconv:UTF-8");
++		} else if (strcmp(charset_types[masterparam.charset],"custom") == 0) {
++			if (masterparam.cust_charset != NULL && strlen(masterparam.cust_charset) > 0) {
++				strcat(tmp2,masterparam.cust_charset);
++			} else {
++				strcat(tmp2,"default");
++			}
++		} else {
++			strcat(tmp2,charset_types[masterparam.charset]);
++		}
+                 strcat(tmp2," ");
+ 	}
+ 	if (masterparam.outcharset != 0) {
+                 strcat(tmp2,"-output-charset ");
+-                strcat(tmp2,charset_types[masterparam.outcharset]);
++		if (strcmp(charset_types[masterparam.outcharset],"utf-8") == 0) {
++			strcat(tmp2,"iconv:UTF-8");
++		} else if (strcmp(charset_types[masterparam.outcharset],"custom") == 0) {
++			if (masterparam.cust_outcharset != NULL && strlen(masterparam.cust_outcharset) > 0) {
++				strcat(tmp2,masterparam.cust_outcharset);
++			} else {
++				strcat(tmp2,"default");
++			}
++		} else {
++			strcat(tmp2,charset_types[masterparam.outcharset]);
++		}
+                 strcat(tmp2," ");
+ 	}
+ 	if (masterparam.opt[2]) {
+diff -Naur xcdroast-1.18.orig/src/menus.c xcdroast-1.18/src/menus.c
+--- xcdroast-1.18.orig/src/menus.c	2017-12-23 20:35:58.000000000 +0700
++++ xcdroast-1.18/src/menus.c	2018-06-16 23:12:34.060036067 +0700
+@@ -87,7 +87,6 @@
+ extern GtkCList *cdlist, *imglist2;
+ extern gchar configdir[MAXLINE];
+ extern GtkWidget *isoopts[24];
+-extern master_param_t masterparam;
+ extern GtkWidget *mkisofs_calc_timeout_dialog;
+ extern img_logo_t img;
+ 
+diff -Naur xcdroast-1.18.orig/src/xcdrdata.h xcdroast-1.18/src/xcdrdata.h
+--- xcdroast-1.18.orig/src/xcdrdata.h	2017-11-16 00:56:45.000000000 +0700
++++ xcdroast-1.18/src/xcdrdata.h	2018-06-16 23:12:34.060036067 +0700
+@@ -292,7 +292,9 @@
+ 	gint old_session_size;	/* in 2048 byte blocks */
+ 	gint session_size;	/* in 2048 byte blocks */
+ 	gint charset;
++	gchar *cust_charset;
+ 	gint outcharset;
++	gchar *cust_outcharset;
+ 	gint redirtype;
+ 	gchar *lastredirpath;
+ 	gint redirtype2;
+ 
