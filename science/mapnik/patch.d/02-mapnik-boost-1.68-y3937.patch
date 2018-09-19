@@ -1,0 +1,137 @@
+From aca42e2845990c6057586e93e00256f53be16ab4 Mon Sep 17 00:00:00 2001
+From: Jan Beich <jbeich@FreeBSD.org>
+Date: Wed, 11 Jul 2018 02:50:53 +0000
+Subject: [PATCH] Unbreak with boost 1.68
+
+In file included from src/save_map.cpp:40:
+include/mapnik/image_filter.hpp:169:23: error: no member named 'bits32f' in namespace 'boost::gil'
+    using boost::gil::bits32f;
+          ~~~~~~~~~~~~^
+include/mapnik/image_filter.hpp:170:5: error: unknown type name 'bits32f'
+    bits32f out_value =
+    ^
+In file included from deps/agg/src/agg_pixfmt_rgba.cpp:7:
+deps/boost/gil/extension/toolbox/hsv.hpp:47:35: error: too few arguments provided to function-like macro invocation
+GIL_DEFINE_ALL_TYPEDEFS( 32f, hsv )
+                                  ^
+/usr/local/include/boost/gil/typedefs.hpp:89:9: note: macro 'GIL_DEFINE_ALL_TYPEDEFS' defined here
+        ^
+---
+ deps/boost/gil/extension/toolbox/hsl.hpp | 10 ++++++++++
+ deps/boost/gil/extension/toolbox/hsv.hpp | 11 +++++++++++
+ include/mapnik/image_filter.hpp          | 12 ++++++++++++
+ 3 files changed, 33 insertions(+)
+
+diff --git a/deps/boost/gil/extension/toolbox/hsl.hpp b/deps/boost/gil/extension/toolbox/hsl.hpp
+index b1b9c1bf55..b67ee73328 100644
+--- a/deps/boost/gil/extension/toolbox/hsl.hpp
++++ b/deps/boost/gil/extension/toolbox/hsl.hpp
+@@ -44,7 +44,11 @@ typedef mpl::vector3< hsl_color_space::hue_t
+ typedef layout<hsl_t> hsl_layout_t;
+ 
+ 
++#if BOOST_VERSION >= 106800
++GIL_DEFINE_ALL_TYPEDEFS( 32f, float32_t, hsl );
++#else
+ GIL_DEFINE_ALL_TYPEDEFS( 32f, hsl );
++#endif
+ 
+ /// \ingroup ColorConvert
+ /// \brief RGB to HSL
+@@ -55,6 +59,9 @@ struct default_color_converter_impl< rgb_t, hsl_t >
+    void operator()( const P1& src, P2& dst ) const
+    {
+       using namespace hsl_color_space;
++#if BOOST_VERSION >= 106800
++      using bits32f = float32_t;
++#endif
+ 
+       // only bits32f for hsl is supported
+       bits32f temp_red   = channel_convert<bits32f>( get_color( src, red_t()   ));
+@@ -157,6 +164,9 @@ struct default_color_converter_impl<hsl_t,rgb_t>
+    void operator()( const P1& src, P2& dst) const
+    {
+       using namespace hsl_color_space;
++#if BOOST_VERSION >= 106800
++      using bits32f = float32_t;
++#endif
+ 
+       bits32f red, green, blue;
+ 
+diff --git a/deps/boost/gil/extension/toolbox/hsv.hpp b/deps/boost/gil/extension/toolbox/hsv.hpp
+index dc6e14e24d..79b2e4802e 100644
+--- a/deps/boost/gil/extension/toolbox/hsv.hpp
++++ b/deps/boost/gil/extension/toolbox/hsv.hpp
+@@ -44,7 +44,11 @@ typedef mpl::vector3< hsv_color_space::hue_t
+ typedef layout<hsv_t> hsv_layout_t;
+ 
+ 
++#if BOOST_VERSION >= 106800
++GIL_DEFINE_ALL_TYPEDEFS( 32f, float32_t, hsv )
++#else
+ GIL_DEFINE_ALL_TYPEDEFS( 32f, hsv )
++#endif
+ 
+ /// \ingroup ColorConvert
+ /// \brief RGB to HSV
+@@ -55,6 +59,9 @@ struct default_color_converter_impl< rgb_t, hsv_t >
+    void operator()( const P1& src, P2& dst ) const
+    {
+       using namespace hsv_color_space;
++#if BOOST_VERSION >= 106800
++      using bits32f = float32_t;
++#endif
+ 
+       // only bits32f for hsv is supported
+       bits32f temp_red   = channel_convert<bits32f>( get_color( src, red_t()   ));
+@@ -136,6 +143,10 @@ struct default_color_converter_impl<hsv_t,rgb_t>
+    void operator()( const P1& src, P2& dst) const
+    {
+       using namespace hsv_color_space;
++#if BOOST_VERSION >= 106800
++      using bits32f = float32_t;
++      using bits32 = uint32_t;
++#endif
+ 
+       bits32f red, green, blue;
+ 
+diff --git a/include/mapnik/image_filter.hpp b/include/mapnik/image_filter.hpp
+index 87250e3f86..e53796570b 100644
+--- a/include/mapnik/image_filter.hpp
++++ b/include/mapnik/image_filter.hpp
+@@ -165,7 +165,11 @@ struct double_buffer
+ template <typename Src, typename Dst, typename Conv>
+ void process_channel_impl (Src const& src, Dst & dst, Conv const& k)
+ {
++#if BOOST_VERSION >= 106800
++    using bits32f = boost::gil::float32_t;
++#else
+     using boost::gil::bits32f;
++#endif
+ 
+     bits32f out_value =
+         k[0]*src[0] + k[1]*src[1] + k[2]*src[2] +
+@@ -210,7 +214,11 @@ void process_channel (Src const& src, Dst & dst, mapnik::filter::edge_detect)
+ template <typename Src, typename Dst>
+ void process_channel (Src const& src, Dst & dst, mapnik::filter::sobel)
+ {
++#if BOOST_VERSION >= 106800
++    using bits32f = boost::gil::float32_t;
++#else
+     using boost::gil::bits32f;
++#endif
+ 
+     bits32f x_gradient = (src[2] + 2*src[5] + src[8])
+         - (src[0] + 2*src[3] + src[6]);
+@@ -230,7 +238,11 @@ void process_channel (Src const& src, Dst & dst, mapnik::filter::sobel)
+ template <typename Src, typename Dst, typename Filter>
+ void apply_convolution_3x3(Src const& src_view, Dst & dst_view, Filter const& filter)
+ {
++#if BOOST_VERSION >= 106800
++    using bits32f = boost::gil::float32_t;
++#else
+     using boost::gil::bits32f;
++#endif
+     using boost::gil::point2;
+ 
+     // p0 p1 p2
