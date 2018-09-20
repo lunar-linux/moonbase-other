@@ -1,9 +1,9 @@
 add_priv_user bind:bind
 
-OPTS+=" --enable-threads --disable-static" &&
+OPTS+=" --disable-static"
 
 # json-c breaks the compile
-OPTS+=" --without-libjson" &&
+OPTS+=" --without-libjson"
 
 default_build &&
 
