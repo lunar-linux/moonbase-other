@@ -1,2 +1,3 @@
+./autogen.sh &&
 
- default_cmake_build
+default_build
