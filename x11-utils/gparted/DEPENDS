@@ -4,14 +4,14 @@ depends e2fsprogs
 depends parted
 depends gtkmm
 
+optional_depends polkit        ""  "" "for direct menu support"
 optional_depends btrfs-progs   ""  "" "for btrfs filesystem support"
 optional_depends mtools        ""  "" "for fat and fat32 filesystem support"
 optional_depends dosfstools    ""  "" "for MS-DOS filesystem support"
 optional_depends xfsprogs      ""  "" "for XFS filesystem support"
-optional_depends jfsutils      ""  "" "for JFS filesystem support"
 optional_depends ntfs-3g       ""  "" "for NTFS filesystem support"
 optional_depends reiserfsprogs ""  "" "for Reiser filesystem support"
-optional_depends polkit        ""  "" "for direct menu support"
+optional_depends jfsutils      ""  "" "for JFS filesystem support"
 
 optional_depends lvm2 \
                  "--enable-libparted-dmraid" "" \
