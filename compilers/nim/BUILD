@@ -28,7 +28,7 @@ install -m 755 lib/libnimrtl.so /usr/lib/libnimrtl.so &&
 rm lib/libnimrtl.so &&
 
 install -d /usr/lib/nim &&
-cp -a lib /usr/lib/nim &&
+cp -a lib/* /usr/lib/nim &&
 
 cp -a compiler /usr/lib/nim &&
 install -Dm 644 compiler.nimble /usr/lib/nim/compiler &&
@@ -41,7 +41,8 @@ install -d /usr/include &&
 cp -a lib/*.h /usr/include &&
 
 install -d /usr/share/nim &&
-cp -a examples web /usr/share/nim &&
+cp -a doc examples web /usr/share/nim &&
 
 # fix a bug related to the doc2 command
-ln -sf /usr/share/doc/nim/doc /usr/lib/nim/doc
+rm -f /usr/lib/nim/doc &&
+ln -sf /usr/share/nim/doc /usr/lib/nim/doc
