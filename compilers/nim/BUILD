@@ -44,4 +44,4 @@ install -d /usr/share/nim &&
 cp -a examples web /usr/share/nim &&
 
 # fix a bug related to the doc2 command
-ln -sf /usr/share/nim/doc /usr/lib/nim/doc
+ln -sf /usr/share/doc/nim/doc /usr/lib/nim/doc
