@@ -1,0 +1,48 @@
+--- ./meson.build.old	2018-09-29 13:10:18.941561591 +0300
++++ ./meson.build	2018-09-29 13:11:14.385184955 +0300
+@@ -534,8 +534,8 @@
+ #include <uchar.h>
+ #include <linux/ethtool.h>
+ #include <linux/fib_rules.h>
+-//#include <linux/stat.h>
+-//#include <sys/stat.h>
++#include <linux/stat.h>
++#include <sys/stat.h>
+ '''
+ # FIXME: key_serial_t is only defined in keyutils.h, this is bound to fail
+ 
+@@ -935,21 +935,6 @@
+ #if 1 /// additional elogind debug mode
+ enable_debug_elogind = false
+ #endif // 1
+-if debug != ''
+-        foreach name : debug.split(',')
+-                if name == 'hashmap'
+-                        enable_debug_hashmap = true
+-                elif name == 'mmap-cache'
+-                        enable_debug_mmap_cache = true
+-#if 1 /// additional elogind debug mode
+-                elif name == 'elogind'
+-                        enable_debug_elogind = true
+-#endif // 1
+-                else
+-                        message('unknown debug option "@0@", ignoring'.format(name))
+-                endif
+-        endforeach
+-endif
+ conf.set10('ENABLE_DEBUG_HASHMAP', enable_debug_hashmap)
+ conf.set10('ENABLE_DEBUG_MMAP_CACHE', enable_debug_mmap_cache)
+ #if 1 /// additional elogind debug mode
+--- ./meson_options.txt.old	2018-06-25 17:41:00.000000000 +0300
++++ ./meson_options.txt		2018-09-29 13:11:24.408570720 +0300
+@@ -82,8 +82,8 @@
+ # option('memory-accounting-default', type : 'boolean',
+ #        description : 'enable MemoryAccounting= by default')
+ #else
+-option('debug', type : 'string',
+-       description : 'enable extra debugging (elogind,hashmap,mmap-cache)')
++#option('debug', type : 'string',
++#       description : 'enable extra debugging (elogind,hashmap,mmap-cache)')
+ #endif // 0
+ 
+ option('utmp', type : 'boolean',

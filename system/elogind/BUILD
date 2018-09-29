@@ -1,18 +1,16 @@
-OPTS+=" -Drootlibdir=/usr/lib \
-        -Drootlibexecdir=/usr/libexec/elogind \
-        -Ddbuspolicydir=/usr/share/dbus-1/system.d \
-        -Dcgroup-controller=openrc \
-        -Ddefault-hierarchy=hybrid \
-        -Ddefault-kill-user-processes=false"
+OPTS+=" -D rootlibdir=/usr/lib \
+        -D rootlibexecdir=/usr/libexec/elogind \
+        -D dbuspolicydir=/usr/share/dbus-1/system.d \
+        -D docdir=/usr/share/doc/elogind \
+        -D cgroup-controller=openrc \
+        -D default-hierarchy=hybrid \
+        -D default-kill-user-processes=false"
 
 # Avoid a circular dependend with polkit
 if module_installed polkit; then
-   OPTS+=" -Dpolkit=true"
+   OPTS+=" -D polkit=true"
 else
-   OPTS+=" -Dpolkit=false"
+   OPTS+=" -D polkit=false"
 fi &&
 
-mkdir -p build &&
-meson build $OPTS &&
-prepare_install &&
-ninja -C build install
+default_meson_build
