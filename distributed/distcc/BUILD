@@ -1,6 +1,3 @@
+OPTS+=" --disable-Werror"
 
-  ./autogen.sh &&
-
-  OPTS+=" --disable-Werror" &&
-
-  default_build
+default_build
