@@ -32,7 +32,7 @@ cd $SOURCE_DIRECTORY &&
 mkdir -p /usr/{share/go,lib/go/{bin,src,site/src}} &&
 install -Dm0755 godoc /usr/lib/go/bin/godoc &&
 cp -r doc misc /usr/share/go/ &&
-ln -sf /usr/share/go/doc /usr/lib/go/doc &&
+ln -sf /usr/share/go/doc /usr/lib/go/ &&
 cp -a {bin,pkg}   /usr/lib/go/ &&
 cp -a $GOROOT/src /usr/lib/go/ &&
 cp -a $GOROOT/lib /usr/lib/go/ &&
@@ -52,8 +52,8 @@ find /usr/lib/go/src -type f -executable -delete &&
 
 # For gox
 install -Dm755 src/make.bash /usr/lib/go/src/make.bash &&
-install -Dm755 src/run.bash /usr/lib/go/src/run.bash  &&
-ln -sf /usr/share/go/misc /usr/lib/go/misc &&
+install -Dm755 src/run.bash /usr/lib/go/src/run.bash &&
+ln -sf /usr/share/go/misc /usr/lib/go/ &&
 
 # For godoc
 install -Dm644 favicon.ico /usr/lib/go/favicon.ico &&
