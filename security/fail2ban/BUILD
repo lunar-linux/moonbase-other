@@ -1,8 +1,6 @@
-python setup.py build_ext -i &&
+./fail2ban-2to3 &&
 
-prepare_install &&
-
-python setup.py install --prefix /usr --optimize=1 &&
+default_python3_build &&
 
 for man in man/*.1 man/*.5; do
   install -Dm644 $man /usr/share/man/man${man##*.}/${man#*/}
