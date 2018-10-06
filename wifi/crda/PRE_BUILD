@@ -1,0 +1,5 @@
+default_pre_build &&
+
+sedit "s| -Werror||" Makefile &&
+sedit 's|^#!/usr/bin/env python|#!/usr/bin/python2|' utils/key2pub.py &&
+sedit "s|except ImportError, e:|except ImportError as e:|" utils/key2pub.py

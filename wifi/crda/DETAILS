@@ -1,0 +1,16 @@
+          MODULE=crda
+         VERSION=4.14
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=https://git.kernel.org/pub/scm/linux/kernel/git/mcgrof/crda.git/snapshot/
+      SOURCE_VFY=sha256:5a8f35bb8b27474f466b0e75d451ba917433d8aab1889678a64d9c4e72a8b8c2
+        WEB_SITE=https://wireless.wiki.kernel.org/en/developers/regulatory/crda/
+         ENTERED=20181006
+         UPDATED=20181006
+           SHORT="Central Regulatory Domain Agent for wireless networks"
+
+cat << EOF
+CRDA acts as the udev helper for communication between the kernel and
+userspace for regulatory compliance. It relies on nl80211 for communication.
+CRDA is intended to be run only through udev communication from the kernel.
+The user should never have to run it manually except if debugging udev issues.
+EOF
