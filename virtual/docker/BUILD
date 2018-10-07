@@ -18,8 +18,9 @@ popd > /dev/null
 
 message "${MESSAGE_COLOR}Building daemon${DEFAULT_COLOR}"
 _go_build_path components/engine github.com/docker/docker &&
-DOCKER_GITCOMMIT=$_DOCKER_COMMIT DOCKER_BUILDTAGS="seccomp journald" VERSION=$VERSION-ce hack/make.sh dynbinary
+#DOCKER_GITCOMMIT=$_DOCKER_COMMIT DOCKER_BUILDTAGS="seccomp journald" VERSION=$VERSION-ce hack/make.sh dynbinary
 popd > /dev/null
+DOCKER_GITCOMMIT=$(git rev-parse --short HEAD) DOCKER_BUILDTAGS="seccomp journald" VERSION=$VERSION-ce hack/make.sh dynbinary
 
 if in_depends $MODULE go-md2man; then
   message "${MESSAGE_COLOR}Generating man pages${DEFAULT_COLOR}" &&
