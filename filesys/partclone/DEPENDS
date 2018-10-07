@@ -2,9 +2,11 @@ depends e2fsprogs
 depends ncurses
 
 optional_depends "ntfs-3g"       "--enable-ntfs"     "--disable-ntfs"     "for ntfs support"
-optional_depends "xfsprogs"      "--enable-xfs"      "--disable-xfs"      "for xfs support"
-optional_depends "jfsutils"      "--enable-jfs"      "--disable-jfs"      "for jfs support"
 optional_depends "btrfs-progs"   "--enable-btrfs"    "--disable-btrfs"    "for btrfs support"
 optional_depends "hfsutils"      "--enable-hfsp"     "--disable-hfsp"     "for hfs plus support"
-optional_depends "reiserfsprogs" "--enable-reiserfs" "--disable-reiserfs" "for reiserfs support"
 optional_depends "dosfstools"    "--enable-fat --enable-exfat" "" "for fat/exfat support"
+
+# These fields need to be blank else configure gets confused
+optional_depends "reiserfsprogs" "" "" "for reiserfs support"
+optional_depends "jfsutils"      "" "" "for jfs support"
+optional_depends "xfsprogs"      "" "" "for xfs support"
