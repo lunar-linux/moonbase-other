@@ -1,14 +1,5 @@
 default_pre_build &&
 
-# Disable the HPLIP upgrade
-#sedit "209i log.error\n clean exit(1)" upgrade.py &&
-
 if in_depends $MODULE PyQt5; then
   . /etc/profile.d/qt5.rc
-fi &&
-
-if in_depends $MODULE PyQt4; then
-  . /etc/profile.d/qt4.rc
-fi &&
-
-patch_it $SOURCE2 1
+fi
