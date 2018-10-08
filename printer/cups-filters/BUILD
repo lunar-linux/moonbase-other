@@ -1,8 +1,6 @@
-./autogen.sh &&
-
 if module_installed systemd; then
   OPTS+=" --without-rcstop --without-rcstart --without-rclevels --without-rcdir"
-fi &&
+fi
 
 OPTS+=" --disable-static \
         --disable-mutool \
@@ -10,7 +8,7 @@ OPTS+=" --disable-static \
         --with-pdftops=gs \
         --enable-auto-setup-driverless \
         --with-browseremoteprotocols=DNSSD,CUPS \
-        --with-test-font-path=/usr/share/fonts/dejavu-ttf/DejaVuSans.ttf" &&
+        --with-test-font-path=/usr/share/fonts/dejavu-ttf/DejaVuSans.ttf"
 
 default_build &&
 
