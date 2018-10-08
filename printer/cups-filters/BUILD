@@ -17,7 +17,6 @@ default_build &&
 if module_installed systemd; then
   # add upstream systemd support file
   sedit "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service &&
-#  sedit "s:/usr/sbin/cups-browsed:/usr/bin/cups-browsed:" utils/cups-browsed.service &&
   install -Dm644 utils/cups-browsed.service /usr/lib/systemd/system/cups-browsed.service
 fi &&
 
