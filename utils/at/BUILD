@@ -1,3 +1,5 @@
+autoreconf &&
+
 OPTS+=" --with-jobdir=/var/spool/atd \
         --with-atspool=/var/spool/atd" &&
 
