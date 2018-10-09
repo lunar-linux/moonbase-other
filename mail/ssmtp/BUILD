@@ -13,7 +13,7 @@ printf '\n\n' | default_build &&
 
 # might already be provided by another module
 if [[ ! -e /usr/bin/mailq ]]; then
-  ln -s /usr/bin/ssmtp /usr/bin/mailq &&
-  ln -s /usr/bin/ssmtp /usr/bin/sendmail &&
-  ln -s /usr/bin/ssmtp /usr/bin/newaliases
+  ln -sf /usr/sbin/ssmtp /usr/bin/mailq &&
+  ln -sf /usr/sbin/ssmtp /usr/bin/sendmail &&
+  ln -sf /usr/sbin/ssmtp /usr/bin/newaliases
 fi
