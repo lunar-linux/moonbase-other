@@ -1,14 +1,14 @@
           MODULE=kexec-tools
-         VERSION=2.0.3
+         VERSION=2.0.17
           SOURCE=${MODULE}-${VERSION}.tar.xz
       SOURCE_URL=http://kernel.org/pub/linux/utils/kernel/kexec/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:0fcdc502a1e5b5f5ff1c0af120b84ce178f16649
+      SOURCE_VFY=sha256:504c816b769da573167b63f3b6d4fce3740f231c98d8db0c4fda47a4b90482a9
         WEB_SITE=http://kernel.org/pub/linux/utils/kernel/kexec/README.html
          ENTERED=20070716
-         UPDATED=20121007
+         UPDATED=20181009
            SHORT="Execute (boot) a new linux kernel from within one"
-cat <<EOF
+cat << EOF
 kexec is a set of systems call that allows you to load another kernel
 from the currently executing Linux kernel.  The current implementation
 has only been tested, and had the kinks worked out on x86, but the
