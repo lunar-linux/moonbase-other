@@ -1,5 +1,8 @@
+depends expat
 depends fribidi
 depends curl
-depends gtk+-2
-depends liblinebreak
+depends libunibreak
 depends sqlite
+
+optional_depends gtk+-2 "" "" "For gtk UI, ${PROBLEM_COLOR}If yes here then say no to qt5${DEFAULT_COLOR}" n
+optional_depends qt5    "" "" "For the qt5 UI" y

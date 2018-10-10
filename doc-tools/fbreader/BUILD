@@ -1,18 +1,17 @@
-(
+export TARGET_ARCH=desktop &&
+export TARGET_STATUS=release &&
+#export UI_TYPE=$USE_QT5_UI &&
+export UI_TYPE=qt4 &&
 
-  # Compile with gcc 4.5.1
-  patch_it $SOURCE_CACHE/$SOURCE2 1  &&
+#if [ "USE_QT5_UI" == qt4 ] ; then
+  . /etc/profile.d/qt5.rc &&
+  export MOC=/usr/lib/qt5/bin/moc &&
+sedit 's:-I \$(shell pkg-config --cflags QtCore):-DQT_CORE_LIB -I/usr/include/qt5/QtCore -I/usr/include/qt5:' makefiles/arch/desktop.mk  &&
+#  export ULIBS=$(pkg-config --libs /usr/lib/qt5/pkgconfig/Qt5Core.pc) &&
+sedit 's:\$(shell pkg-config --libs QtCore QtGui QtNetwork):-L/usr/lib/qt5 -lQt5Core -lQt5Gui -lQt5Network:' makefiles/arch/desktop.mk &&
+#fi &&
 
-  # Sensible browser default, based on http://koji.fedoraproject.org/koji/packageinfo?packageID=5070
-  sedit "s:mozilla:firefox:" fbreader/data/default/external.desktop.xml  &&
+default_build  &&
 
-  # From http://repos.archlinux.org/wsvn/community/fbreader/trunk/PKGBUILD
-  export TARGET_ARCH=desktop  &&
-  export UI_TYPE=gtk  &&
-  export TARGET_STATUS=release  &&
+ln -sfn /usr/bin/FBReader /usr/bin/fbreader
 
-  default_build  &&
-
-  ln -sfn /usr/bin/FBReader /usr/bin/fbreader
-
-) > $C_FIFO 2>&1
