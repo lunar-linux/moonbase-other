@@ -1,9 +1,10 @@
-. /etc/profile.d/qt4.rc &&
+. /etc/profile.d/qt5.rc &&
 
-qmake -config release PREFIX=/usr $OPTS &&
+sedit '19i syntax = "proto2";' common/protocol.proto &&
+
+qmake -config release PREFIX=/usr ost.pro $OPTS &&
 
 default_make &&
-
 prepare_install &&
 
 mkdir /usr/share/$MODULE &&
