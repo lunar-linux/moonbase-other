@@ -1,0 +1,5 @@
+default_pre_build &&
+
+sed -i -e '/^AM_PROG_CC_STDC/d' \
+       -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' \
+       configure.in

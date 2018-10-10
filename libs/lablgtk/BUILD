@@ -1,4 +1,9 @@
+export OCAMLPATH="$(camlp5 -where)"&&
+
+autoreconf &&
+
 OPTS+=" --prefix=/usr  \
+        --disable-static \
         --without-gnomeui \
         --without-gnomecanvas \
         --without-panel \
@@ -11,5 +16,4 @@ make world &&
 make opt &&
 
 prepare_install &&
-
 make install
