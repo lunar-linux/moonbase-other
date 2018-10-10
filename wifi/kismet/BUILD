@@ -6,7 +6,7 @@ fi &&
 
 OPTS+=" --datadir=/usr/share \
         --localstatedir=/var \
-        --sysconfdir=/etc/kismet" &&
+        --sysconfdir=/etc/kismet"
 
 default_config &&
 make dep plugins &&
