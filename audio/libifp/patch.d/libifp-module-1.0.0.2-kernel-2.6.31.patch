@@ -1,0 +1,26 @@
+// Linux kernel's API functions for nls unicode char translations changed in
+// kernel 2.6.31. This patch tries to match libfpi driver sources to the changes.
+// n.b.: endianness parameter is just a guess, I don't know if it should be different
+// n.b.: this is not tested, except for a successful compilation on a Gentoo amd64 system
+diff -ur libifp-1.0.0.2.old/src/ifp_os_linux.c libifp-1.0.0.2/src/ifp_os_linux.c
+--- libifp-1.0.0.2.old/src/ifp_os_linux.c	2009-09-25 17:19:39.000000000 +0300
++++ libifp-1.0.0.2/src/ifp_os_linux.c	2009-09-25 17:56:01.000000000 +0300
+@@ -20,7 +20,7 @@
+ 	//'buf' from being overrun.  (We can tell afterwards, but by
+ 	//then it's too late.)
+ 
+-	i = utf8_mbstowcs((wchar_t *)ob, ib, max_i);
++	i = utf8s_to_utf16s(ib, max_i, (wchar_t *)ob);
+ 	BUG_ON(i > max_o/sizeof(wchar_t));
+ 
+ 	return 0;
+@@ -29,7 +29,8 @@
+ {
+ 	int i = 0;
+ 
+-	i = utf8_wcstombs(ob, (wchar_t *)ib, max_o);
++       // Patcher's note: UTF16_HOST_ENDIAN may not work right -- todo: fixme
++	i = utf16s_to_utf8s((wchar_t *)ib, max_i, UTF16_HOST_ENDIAN, ob, max_o);
+ 	BUG_ON(i >= max_o);
+ 	ob[i] = '\0';
+ 
