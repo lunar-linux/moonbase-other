@@ -3,12 +3,11 @@ if in_depends $MODULE qt5; then
 fi &&
 
 # The Lua support is broken now as it neeed Lua 5.2.x version
-OPTS+=" -without-lua" &&
+OPTS+=" -without-lua"
 
-OPTS+=" --with-ssl \
-        --with-zlib \
+OPTS+=" --with-zlib \
         --disable-warnings-as-errors \
-        --disable-static" &&
+        --disable-static"
 
 default_build &&
 

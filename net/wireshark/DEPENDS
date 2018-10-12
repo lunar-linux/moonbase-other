@@ -4,19 +4,20 @@ depends zlib
 
 optional_depends libcap    "--with-libcap"     "--without-libcap"    "for POSIX 1003.1e support"
 optional_depends libpcap   "--with-pcap"       "--without-pcap"      "for libpcap support"
-optional_depends %OSSL     "--with-ssl"        "--without-ssl"       "for SSL support"
 optional_depends gnutls    "--with-gnutls=yes" "--with-gnutls=no"    "for SSL/TLS support"
+optional_depends libssh    "--with-libssh"     "--without-libssh"    "for SSH support"
 optional_depends krb5      "--with-krb5"       "--without-krb5"      "for Kerberos 5 support"
 optional_depends portaudio "--with-portaudio"  "--without-portaudio" "enable RPC playback support (needed for VoIP sniffing)"
 optional_depends libnl3    "--with-libnl=3"    "--without-libnl"     "for libnl3 support"
 optional_depends c-ares    "--with-c-ares"     "--without-c-ares"    "for asynchronious DNS support"
-optional_depends geoip     "--with-geoip"      "--without-geoip"     "for GeoIP support"
 
 optional_depends gtk+-3 \
                  "--enable-wireshark --with-gtk=3" "" \
                  "for GTK 3.x based frontend (select this or the next one gtk+-2, not both)"
 
-optional_depends gtk+-2 "--enable-wireshark --with-gtk=2" "" "for GTK 2.x based frontend (select this or the previous one gtk+-3, not both)"
+optional_depends gtk+-2 \
+                "--enable-wireshark --with-gtk=2" "" \
+		"for GTK 2.x based frontend (select this or the previous one gtk+-3, not both)"
 
 # Broken -fPIC problem reported (both with and without it)
 optional_depends qt5 \
