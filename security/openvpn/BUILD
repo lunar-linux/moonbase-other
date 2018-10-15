@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 OPTS+=" --enable-plugins \
         --enable-x509-alt-username"
 
