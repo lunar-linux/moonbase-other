@@ -1,5 +1,5 @@
 autoreconf &&
 
-OPTS+=" --disable-samples --enable-webserver --without-documentation" &&
+OPTS+=" --enable-reuseaddr --enable-postwrite --disable-samples --without-documentation" &&
 
 default_build
