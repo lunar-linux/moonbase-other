@@ -1,8 +1,8 @@
 bad_flags -fomit-frame-pointer &&
 
-OPTS+=" --enable-pthread --enable-shared" &&
+OPTS+=" --enable-pthread --enable-shared"
 
-default_build  &&
+default_build &&
 
 make install-doc &&
 
