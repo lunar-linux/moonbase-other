@@ -6,15 +6,12 @@ depends libgudev
 depends libgusb
 depends polkit 
 depends shared-mime-info
+depends Argyll
 
 optional_depends bash-completion \
                  "-Dbash_completion=true" \
                  "-Dbash_completion=false" \
                  "for bash completion support"
-
-optional_depends Argyll "-Dargyllcms_sensor=true" \
-                        "-Dargyllcms_sensor=false" \
-                        "for argyll sensor support"
 
 optional_depends %UDEV         "-Dsystemd=true" "-Dsystemd=false" "for systemd support"
 optional_depends sane-backends "-Dsane=true"    "-Dsane=false"    "for scanner support"
