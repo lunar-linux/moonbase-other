@@ -20,7 +20,7 @@ if in_depends $MODULE swig; then
     BINDINGS_MAKE+=" swig-pl"
   fi &&
 
-  if module_installed Python; then
+  if module_installed python; then
     BINDINGS_MAKE+=" swig-py"
   fi &&
 
