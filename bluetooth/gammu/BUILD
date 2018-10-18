@@ -1,10 +1,3 @@
-if in_depends $MODULE Python; then
-  VER=`lvu version python2 | cut -c 1-3` &&
-  OPTS="-DBUILD_PYTHON=/usr/bin/python$VER"
-else
-  OPTS="-DWITH_PYTHON=OFF"
-fi &&
-
 sedit "s:etc/sysconfig:etc:g" contrib/init/gammu-smsd.service &&
 sedit "s:/bin/rm:/usr/bin/rm:" contrib/init/gammu-smsd.service &&
 
