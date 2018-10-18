@@ -8,6 +8,7 @@ OPTS+=" --sysconfdir==/etc/$MODULE \
         -Ddaemon_user=colord \
         -Ddocs=false  \
         -Dman=false   \
+        -Dargyllcms_sensor=true \
         -Dlibcolordcompat=true \
         -Dprint_profiles=true" &&
 
