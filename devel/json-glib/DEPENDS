@@ -1,7 +1,7 @@
 depends glib-2
+depends meson
 
 optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
+                 "-D introspection=true" \
+                 "-D introspection=false" \
                  "for introspection support"
-
