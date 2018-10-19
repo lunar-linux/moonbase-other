@@ -1,11 +1,13 @@
           MODULE=tidy
-         VERSION=08232010
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$MIRROR_URL
-      SOURCE_VFY=sha1:f225e13b1d802652e8ea5e8d92f1f1c156fff562
-        WEB_SITE=http://tidy.sourceforge.net
+         VERSION=5.6.0
+          SOURCE=$MODULE-html5-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/htacg/tidy-html5/archive/$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-html5-$VERSION
+      SOURCE_VFY=sha256:08a63bba3d9e7618d1570b4ecd6a7daa83c8e18a41c82455b6308bc11fe34958
+        WEB_SITE=http://tidy.sourceforge.net/
+            TYPE=cmake
          ENTERED=20020711
-         UPDATED=20100823
+         UPDATED=20181019
            SHORT="tidy up sloppy html editing into nicely layed out markup"
 
 cat << EOF
