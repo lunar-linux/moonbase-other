@@ -1,4 +1,3 @@
-OPTS+=" --enable-custom-modes \
-        --enable-ambisonics"
+OPTS+=" --enable-custom-modes"
 
 default_build
