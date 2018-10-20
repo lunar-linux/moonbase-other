@@ -1,5 +1,3 @@
-(
-
   ./configure --prefix=/usr --enable-static=no $OPTS &&
 
   make without_doc          &&
@@ -11,5 +9,3 @@
   if [[ -f /usr/lib/libt1x.so.$VERSION ]] ; then
     chmod 755 /usr/lib/libt1x.so.$VERSION
   fi
-
-) > $C_FIFO 2>&1
