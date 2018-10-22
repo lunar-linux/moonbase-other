@@ -5,7 +5,10 @@ if in_depends $MODULE qt5; then
   OPTS+=" --disable-qv4l2"
 fi &&
 
-OPTS+=" --exec-prefix=/usr \
-        --disable-static" &&
+OPTS+=" --exec-prefix=/usr    \
+        --disable-static      \
+        --disable-doxygen-html\
+        --disable-doxygen-ps  \
+        --disable-doxygen-pdf" &&
 
 default_build
