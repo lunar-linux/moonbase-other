@@ -13,6 +13,6 @@ if [[ "$USE_AMDGPU" = "y" ]]; then
   TARGETS+=";AMDGPU"
 fi &&
 
-OPTS+=" -DLLVM_TARGETS_TO_BUILD=${TARGETS}" &&
+OPTS+=" -DLLVM_TARGETS_TO_BUILD=${TARGETS};BPF" &&
 
 default_cmake_build
