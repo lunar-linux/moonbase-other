@@ -1,19 +1,18 @@
 depends cmake
 depends fpc
-depends qt4
-depends SDL
-depends SDL_net
-depends SDL_mixer
-depends SDL_image
-depends SDL_ttf
+depends qt5
+depends SDL2
+depends SDL2_net
+depends SDL2_mixer
+depends SDL2_image
+depends SDL2_ttf
+depends physfs
 
 # lua 5.2 is not supported yet
-#depends lua
+depends lua
 
-# They require physfs 2.1 which is not released yet
-#depends physfs
 
 optional_depends libpng   "-DNOPNG=0" "-DNOPNG=1" "for compressed screenshots"
 
-optional_depends ffmpeg   ""          "-DNOVIDEOREC=1" "for video recording (say yes to freeglut as well)"
+optional_depends ffmpeg   ""          "-DNOVIDEOREC=1" "for video recording${PROBLEM_COLOR} (say yes to freeglut as well)${DEFAULT_COLOR}"
 optional_depends freeglut ""          "-DNOVIDEOREC=1" "for video recording"

@@ -1,9 +1,1 @@
-default_pre_build &&
-
-# bundled liblua is missing in the tarball...
-unpack $SOURCE2 &&
-
-sedit "s/COMMAND if.*//" tools/CMakeLists.txt &&
-
-sedit "/QT4_ADD_TRANSLATION/ i find_package(Qt4 REQUIRED QUIET)" share/hedgewars/Data/Locale/CMakeLists.txt &&
-sedit 's:"bin":"games":' CMakeLists.txt
+default_pre_build
