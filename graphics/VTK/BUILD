@@ -18,7 +18,7 @@ OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
         -DBUILD_EXAMPLES=OFF \
         -DVTK_LEGACY_REMOVE=ON" &&
 
-#Maybe a little overkill but just to make sure if qt4 is installed there
+#Maybe a little overkill but just to make sure if qt5 is installed there
 #is no confusion
 if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc &&
