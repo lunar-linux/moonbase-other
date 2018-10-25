@@ -1,0 +1,5 @@
+default_pre_build &&
+
+sed -e 's|/usr/bin/env python|/usr/bin/env python2|' -i plugins/telepathy-gabble-xmpp-console &&
+
+OPTS+=" --disable-Werror"
