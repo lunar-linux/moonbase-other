@@ -10,25 +10,22 @@ patch_it $SOURCE3 4 &&
 
 # Fixes from Gentoo
 patch_it $SOURCE4 1 &&
-patch_it $SOURCE5 1 &&
-patch_it $SOURCE10 1 &&
-patch_it $SOURCE11 1 &&
-patch_it $SOURCE12 1 &&
-
-# https://crbug.com/707721
 patch_it $SOURCE6 1 &&
 
-# https://crbug.com/736026
+# https://bugs.gentoo.org/661880#c21
 patch_it $SOURCE7 1 &&
 
-# https://crbug.com/866290
-patch_it $SOURCE8 1 &&
-patch_it $SOURCE9 1 &&
+# https://crbug.com/879900
+patch_it $SOURCE5 1 &&
 
-sedit '/"-Wno-ignored-pragma-optimize"/d' build/config/compiler/BUILD.gn &&
+# https://crbug.com/893950
+sedit 's/\<xmlMalloc\>/malloc/;s/\<xmlFree\>/free/' \
+      third_party/blink/renderer/core/xml/*.cc \
+      third_party/blink/renderer/core/xml/parser/xml_document_parser.cc \
+      third_party/libxml/chromium/libxml_utils.cc
 
 # Make sure python2 is used
-sedit '1s;python$;&2;' third_party/dom_distiller_js/protoc_plugins/*.py &&
+sedit '1s;python$;&2;' third_party/dom_distiller_js/protoc_plugins/*.py build/util/version.py &&
 
 # Build now requires nodejs
 mkdir -p third_party/node/linux/node-linux-x64/bin &&
@@ -47,7 +44,7 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
 
 # Remove bundled libraries, we will use system provided ones instead (using arch's approach)
 local _libs _lib &&
-_libs=(ffmpeg fontconfig flac yasm libxslt libwebp libjpeg opus re2 zlib snappy freetype) &&
+_libs=(ffmpeg fontconfig flac yasm libxslt libwebp libjpeg opus re2 zlib snappy freetype harfbuzz-ng) &&
 for _lib in ${_libs[@]} libjpeg_turbo; do
   find "third_party/${_lib}" -type f \
        \! -path "third_party/${_lib}/chromium/*" \
@@ -58,18 +55,15 @@ for _lib in ${_libs[@]} libjpeg_turbo; do
 done &&
 
 python2 build/linux/unbundle/replace_gn_files.py --system-libraries "${_libs[@]}" &&
-python2 third_party/libaddressinput/chromium/tools/update-strings.py &&
 
 local _flags=(
   'custom_toolchain="//build/toolchain/linux/unbundle:default"'
   'host_toolchain="//build/toolchain/linux/unbundle:default"'
-  'is_clang=true'
+  'is_official_build=true'
   'clang_use_chrome_plugins=false'
-  'is_debug=false'
   'fatal_linker_warnings=false'
   'treat_warnings_as_errors=false'
   'fieldtrial_testing_like_official_build=true'
-  'remove_webcore_debug_symbols=true'
   'ffmpeg_branding="Chrome"'
   'proprietary_codecs=true'
   'use_sysroot=false'
@@ -98,5 +92,4 @@ export CFLAGS+='   -Wno-builtin-macro-redefined'
 export CXXFLAGS+=' -Wno-builtin-macro-redefined'
 export CPPFLAGS+=' -D__DATE__=  -D__TIME__=  -D__TIMESTAMP__='
 
-python2 tools/gn/bootstrap/bootstrap.py -s --no-clean &&
-out/Release/gn gen out/Release --args="${_flags[*]}" --script-executable=/usr/bin/python2
+gn gen out/Release --args="${_flags[*]}" --script-executable=/usr/bin/python2
