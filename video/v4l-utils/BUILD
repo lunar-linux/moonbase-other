@@ -7,8 +7,8 @@ fi &&
 
 OPTS+=" --exec-prefix=/usr    \
         --disable-static      \
-        --disable-doxygen-html\
         --disable-doxygen-ps  \
+        --disable-doxygen-html\
         --disable-doxygen-pdf" &&
 
 default_build
