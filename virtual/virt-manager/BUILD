@@ -1,5 +1,1 @@
-python2 setup.py build &&
-
-prepare_install &&
-
-python2 setup.py --no-compile-schemas install
+default_python3_build
