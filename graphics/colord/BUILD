@@ -4,8 +4,7 @@ sed -i 's/fur/ur/' po/LINGUAS &&
 add_priv_group colord &&
 add_priv_user colord -d /var/run/colord -g colord &&
 
-OPTS+=" --sysconfdir==/etc/$MODULE \
-        -Ddaemon_user=colord \
+OPTS+=" -Ddaemon_user=colord \
         -Ddocs=false  \
         -Dman=false   \
         -Dargyllcms_sensor=true \
