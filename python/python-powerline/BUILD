@@ -1,5 +1,7 @@
 OPTS+=" --install-data=usr --install-scripts=usr/bin --optimize=1"
+
 default_python3_build &&
+
 install -dm755 /etc/fonts/conf.d &&
 install -dm755 /etc/fonts/conf.avail &&
 install -Dm644 font/PowerlineSymbols.otf /usr/share/fonts/OTF/PowerlineSymbols.otf &&
