@@ -1,5 +1,9 @@
 depends ncurses
 depends zlib
 
-optional_depends %OSSL   ""         ""            "for SSL support"
-optional_depends libX11  "--with-x" "--without-x" "for XOrg support"
+optional_depends %OSSL"" "" "for SSL support"
+
+optional_depends libX11 \
+                 "--with-x --enable-x11=yes" \
+		 "--without-x --enable-x11=no" \
+		 "for XOrg support"
