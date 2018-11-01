@@ -1,5 +1,3 @@
-./autogen.sh &&
-
 OPTS+=" --prefix=/usr \
         --with-rootprefix=/usr \
         --sysconfdir=/etc \
