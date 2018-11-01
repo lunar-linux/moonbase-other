@@ -13,4 +13,6 @@ else
    OPTS+=" -D polkit=false"
 fi &&
 
-default_meson_build
+default_meson_build &&
+
+sedit 's:lib/elogind:libexec/elogind:' /etc/conf.d/elogind
