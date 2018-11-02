@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sedit 's:libsystemd-daemon:libsystemd:' configure.ac &&
+sedit 's:libsystemd-journal:libsystemd:' configure.ac &&
+
+autoreconf -fi
