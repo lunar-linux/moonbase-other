@@ -1,20 +1,15 @@
           MODULE=fwbuilder
-         VERSION=5.1.0.3599
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-         SOURCE2=fwbuilder-5.1.0.3599-gcc47.patch
-      SOURCE_URL=$SFORGE_URL/$MODULE
-     SOURCE2_URL=ftp://ftp.uwsg.indiana.edu/linux/gentoo-rsync/net-firewall/fwbuilder/files/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha256:452514a1ec0be1416bfca93603e6c89deb91d1a3a19671c64b5a8868a3743daf
-     SOURCE2_VFY=sha256:91d7ef708f94d31efecb1af6663efb825072ea77b0b4494a82afd3c6df3c74dd
-        WEB_SITE="http://www.fwbuilder.org/"
+         VERSION=5.3.7
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/fwbuilder/fwbuilder/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:aba1ed8f690e9e4659c0e981120ea68da7ee327d6cf81260d51329351addf91e
+        WEB_SITE=http://www.fwbuilder.org/
       MAINTAINER=ratler@lunar-linux
          ENTERED=20120804
-         UPDATED=20120804
+         UPDATED=20181103
            SHORT="Makes firewall management easy by providing a drag-and-drop GUI application"
 cat << EOF
-Firewall Builder makes firewall management easy by providing a
-drag-and-drop GUI application that can be used to configure Linux
-iptables, Cisco ASA and PIX, Cisco FWSM, Cisco router access lists,
-pf, ipfw and ipfilter for BSD, and HP ProCurve ACL firewalls.
+Firewall Builder makes firewall management easy by providing a drag-and-drop GUI application
+that can be used to configure Linux iptables, Cisco ASA and PIX, Cisco FWSM, Cisco router
+access lists, pf, ipfw and ipfilter for BSD, and HP ProCurve ACL firewalls.
 EOF

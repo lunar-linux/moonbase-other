@@ -1,7 +1,12 @@
-(
+. /etc/profile.d/qt5.rc &&
 
-  patch_it $SOURCE2 1 &&
-  ./autogen.sh &&
-  default_build
-  
-) > $C_FIFO 2>&1 
+sed -i -e '/dnl.*AM_INIT_AUTOMAKE/d' configure.in &&
+sed -i -e "/runqmake.sh/d" configure.in &&
+mv configure.in configure.ac &&
+
+export CXXFLAGS="$CXXFLAGS -fno-var-tracking-assignments" &&
+
+./autogen.sh --prefix=/usr $OPTS &&
+
+/usr/bin/qmake-qt5 $OPTS &&
+default_make
