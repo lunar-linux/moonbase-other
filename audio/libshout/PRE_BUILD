@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# patch for use openssl-1.1.x
+sedit 's/SSLeay_add_all_algorithms/OpenSSL_add_all_algorithms/g' -i src/tls.c
