@@ -1,0 +1,23 @@
+--- ./config.h.in.orig	2011-01-04 11:22:19.000000000 +0200
++++ ./config.h.in	2018-11-04 10:53:50.698245942 +0200
+@@ -84,7 +84,6 @@
+ #undef INET6
+ #undef HAVE_SOCKLEN_T
+ #undef HAVE_OLD_SS_FAMILY
+-#define USE_EGD
+ #define ENABLE_REMOVE_TRAILINGSPACES
+ #undef MENU_THIN_FRAME
+ #undef USE_RAW_SCROLL
+--- ./url.c.orig	2011-01-04 11:22:24.000000000 +0200
++++ ./url.c		2018-11-04 10:52:14.081032117 +0200
+@@ -268,10 +268,6 @@
+     if (RAND_status())
+ 	return;
+     if ((file = RAND_file_name(buffer, sizeof(buffer)))) {
+-#ifdef USE_EGD
+-	if (RAND_egd(file) > 0)
+-	    return;
+-#endif
+ 	RAND_load_file(file, -1);
+     }
+     if (RAND_status())
