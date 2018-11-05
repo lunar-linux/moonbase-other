@@ -3,12 +3,13 @@
 
   setterm -bfreq -blength &&
 
-  #Finally, the build!
-  make -f client.mk build ${MAKES:+-j${MAKES}}  &&
+  ./mach configure &&
+  ./mach build &&
+  ./mach buildsymbols &&
 
   cd ${MOZ_OBJDIR}  &&
   prepare_install   &&
-  make install      &&
+  ../mach install    &&
 
   # Now the .desktop file and icons
   install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/thunderbird.desktop  &&
