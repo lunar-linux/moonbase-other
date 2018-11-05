@@ -1,20 +1,22 @@
-       MODULE=xar
-      VERSION=1.5.2
-       SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_URL[0]=http://xar.googlecode.com/files/
-   SOURCE_VFY=sha1:eb411a92167387aa5d06a81970f7e929ec3087c9
-     WEB_SITE=http://code.google.com/p/xar/
-      ENTERED=20080129
-      UPDATED=20080202
-        SHORT="eXtensible ARchiver. Tools for *.xar files"
+          MODULE=xar
+         VERSION=1.6.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=https://github.com/downloads/mackyle/xar/
+      SOURCE_VFY=sha256:ee46089968457cf710b8cf1bdeb98b7ef232eb8a4cdeb34502e1f16ef4d2153e
+        WEB_SITE=http://code.google.com/p/xar/
+         ENTERED=20080129
+         UPDATED=20181105
+           SHORT=eXtensible ARchiver Tools for xar files
 cat << EOF
-The XAR project aims to provide an easily extensible archive format.
-Important design decisions include an easily extensible XML table of
-contents for random access to archived files, storing the toc at the
-beginning of the archive to allow for efficient handling of streamed
-archives, the ability to handle files of arbitrarily large sizes,
-the ability to choose independent encodings for individual files
-in the archive, the ability to store checksums for individual files
-in both compressed and uncompressed form, and the ability to query
-the table of content's rich meta-data.
+A fork/clone of the subversion xar repository from http://xar.googlecode.com/svn/ that
+includes several enhancements and bug fixes including very basic command line signature
+support (master branch). 
+
+The XAR project aims to provide an easily extensible archive format. Important design
+decisions include an easily extensible XML table of contents for random access to archived
+files, storing the toc at the beginning of the archive to allow for efficient handling of
+streamed archives, the ability to handle files of arbitrarily large sizes, the ability to
+choose independent encodings for individual files in the archive, the ability to store
+checksums for individual files in both compressed and uncompressed form, and the ability
+to query the table of content's rich meta-data.
 EOF
