@@ -1,0 +1,3 @@
+OPTS+=" -DREGISTER_INSTALL_PREFIX=OFF -DBUILD_SHARED_LIBS=ON" &&
+
+default_cmake_build
