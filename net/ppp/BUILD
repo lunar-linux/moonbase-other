@@ -12,11 +12,11 @@ fi &&
 
 install -m755 $SCRIPT_DIRECTORY/pon $SCRIPT_DIRECTORY/poff /usr/bin &&
 
-if [ ! -e /etc/ppp/peers/isp ];  then
+if [ ! -e /etc/ppp/peers/isp ]; then
   install -m644  $SCRIPT_DIRECTORY/peers /etc/ppp/peers/isp
 fi &&
 
-if [ ! -e /etc/ppp/chat/isp  ]; then
+if [ ! -e /etc/ppp/chat/isp ]; then
   install -m644 $SCRIPT_DIRECTORY/isp /etc/ppp/chat/isp
 fi &&
 
