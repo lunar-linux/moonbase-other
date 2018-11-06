@@ -2,7 +2,4 @@ default_pre_build &&
 unpack $SOURCE2 &&
 unpack $SOURCE3 &&
 
-sedit 's:CFLAGS=": CFLAGS="-fPIC -std=gnu++03:' configure &&
-
-# gcc 6.2 got stricter
-sedit '4517,4539 s/0x8/(signed char)0x8/g' internal/dcraw_common.cpp
+autoreconf -fi
