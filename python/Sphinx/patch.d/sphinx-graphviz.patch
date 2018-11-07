@@ -1,0 +1,30 @@
+From d9f93f77d1884416d006868101d955ae1d8f0b2d Mon Sep 17 00:00:00 2001
+From: Jeroen Demeyer <jdemeyer@cage.ugent.be>
+Date: Tue, 16 Oct 2018 11:18:23 +0200
+Subject: [PATCH] Correctly deal with non-existing static dir in graphviz
+ extension
+
+---
+ sphinx/ext/graphviz.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+--- ./sphinx/ext/graphviz.py
++++ ./sphinx/ext/graphviz.py
+@@ -27,7 +27,7 @@
+ from sphinx.locale import _, __
+ from sphinx.util import logging
+ from sphinx.util.docutils import SphinxDirective
+-from sphinx.util.fileutil import copy_asset_file
++from sphinx.util.fileutil import copy_asset
+ from sphinx.util.i18n import search_image_for_language
+ from sphinx.util.osutil import ensuredir, ENOENT, EPIPE, EINVAL
+ 
+@@ -413,7 +413,7 @@ def on_build_finished(app, exc):
+     if exc is None:
+         src = path.join(sphinx.package_dir, 'templates', 'graphviz', 'graphviz.css')
+         dst = path.join(app.outdir, '_static')
+-        copy_asset_file(src, dst)
++        copy_asset(src, dst)
+ 
+ 
+ def setup(app):
