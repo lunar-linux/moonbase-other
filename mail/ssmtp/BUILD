@@ -1,9 +1,8 @@
 OPTS+=" --exec-prefix=/usr \
+        --sbindir=/usr/bin \
         --mandir=/usr/share/man \
         --enable-inet6 \
         --enable-md5auth"
-
-OPTS+=" --sbindir=/usr/bin"
 
 autoconf &&
 
