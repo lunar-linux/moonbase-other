@@ -1,0 +1,8 @@
+default_pre_build &&
+
+touch src/cpp/empty.cpp &&
+
+sed -i -e 's/flann_cpp SHARED \"\"/flann_cpp SHARED \"empty\.cpp\"/g' src/cpp/CMakeLists.txt &&
+sed -i -e 's/flann SHARED \"\"/flann SHARED \"empty\.cpp\"/g' src/cpp/CMakeLists.txt &&
+
+OPTS+=" -DBUILD_EXAMPLES=0"
