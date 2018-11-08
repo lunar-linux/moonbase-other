@@ -1,0 +1,13 @@
+[Unit]
+Description=Monkey http server deamon
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/monkey
+PIDFile=/var/run/monkey/monkey.pid.80
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
