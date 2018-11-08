@@ -20,4 +20,9 @@ fi &&
 # qbasicatomic.h:61:4: error: #error "Qt requires C++11 support
 if in_depends $MODULE qt5 ; then
   CXXFLAGS+=" -std=c++11"
+fi &&
+
+if in_depends $MODULE openexr ; then
+  export OPENEXR_LIBS+=" -lImath-2_3 -lIexMath-2_3 -lHalf-2_3 -lIex-2_3 -lIlmThread-2_3 -pthread" &&
+  export OPENEXR_CFLAGS+=" -pthread -I/usr/include/OpenEXR"
 fi
