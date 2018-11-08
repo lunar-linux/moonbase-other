@@ -7,7 +7,7 @@ Before=httpd.service postfix.service
 Type=simple
 PIDFile=/var/lib/mysql/mysqld.pid
 ExecStart=/usr/libexec/mysqld --user=mysql --pid-file=/var/lib/mysql/mysqld.pid --socket=/var/lib/mysql/mysql.sock
-ExecStop=/bin/kill -15 $MAINPID
+ExecStop=/usr/bin/kill -15 $MAINPID
 Restart=always
 
 [Install]

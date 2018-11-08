@@ -6,7 +6,7 @@ After=network.target nmbd.service
 Type=forking
 PIDFile=/var/run/winbindd.pid
 ExecStart=/usr/sbin/winbindd -D
-ExecReload=/bin/kill -HUP $MAINPID
+ExecReload=/usr/bin/kill -HUP $MAINPID
 
 [Install]
 WantedBy=multi-user.target

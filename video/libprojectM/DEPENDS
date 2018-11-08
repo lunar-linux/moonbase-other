@@ -1,4 +1,5 @@
 depends ftgl
 depends libvisual
 
-optional_depends pulseaudio "-DINCLUDE-PROJECTM-PULSEAUDIO=ON" "-DINCLUDE-PROJECTM-PULSEAUDIO=OFF" "build pulseaudio client"
+optional_depends SDL2 "--enable-sdl" "--disalbe-sdl" "To build the SDL2 app"
+optional_depends qt5  "--enable-qt"  "--disable-qt"  "For qt5 support"
