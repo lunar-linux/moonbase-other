@@ -13,7 +13,7 @@ After=virtlogd.service
 
 [Service]
 ExecStart=/usr/sbin/libvirtd
-ExecReload=/bin/kill -HUP $MAINPID
+ExecReload=/usr/bin/kill -HUP $MAINPID
 KillMode=process
 # Override the maximum number of opened files
 #LimitNOFILE=2048

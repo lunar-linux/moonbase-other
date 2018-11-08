@@ -5,7 +5,7 @@ After=network.target
 [Service]
 ExecStartPre=/usr/sbin/lighttpd -t -f /etc/lighttpd/lighttpd.conf
 ExecStart=/usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
-ExecReload=/bin/kill -HUP $MAINPID
+ExecReload=/usr/bin/kill -HUP $MAINPID
 
 [Install]
 WantedBy=multi-user.target
