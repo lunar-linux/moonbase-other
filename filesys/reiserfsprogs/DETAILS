@@ -1,20 +1,22 @@
           MODULE=reiserfsprogs
          VERSION=3.6.27
           SOURCE=$MODULE-$VERSION.tar.xz
+	 SOURCE2=$MODULE-$VERSION-loff_t.patch
    SOURCE_URL[0]=https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v$VERSION/
    SOURCE_URL[1]=$MIRROR_URL
+     SOURCE2_URL=$PATCH_URL
       SOURCE_VFY=sha256:0e95b67fa7746a3c2d59145e9b9c2feb4a6be52853e83b497b182eae508e62e3
+     SOURCE2_VFY=sha256:c447865b20a480bed686582951a682ac1066681e634c41bc4d395ac4432add8e
         WEB_SITE=http://www.namesys.com
          ENTERED=20010922
-         UPDATED=20171110
+         UPDATED=20181108
            SHORT="Tools for using the reiser file system"
 
 cat << EOF
-reiserfs is a revolutionary new approach to file system design which
-stores not just filenames but the files themselves in a B*-tree. It is a
-generation ahead of alternatives which use older plain B-tree
-technology, and cannot store the files themselves in the tree. Reiserfs
-doesn't suffer from log congestion either, you can effectively use it
-for quickly creating a 100,000 entry directory, and it is fairly unique
-in that.
+reiserfs is a revolutionary new approach to file system design which stores not
+just filenames but the files themselves in a B*-tree. It is a generation ahead
+of alternatives which use older plain B-tree technology, and cannot store the
+files themselves in the tree. Reiserfs doesn't suffer from log congestion
+either, you can effectively use it for quickly creating a 100,000 entry
+directory, and it is fairly unique in that.
 EOF
