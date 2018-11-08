@@ -1,3 +1,9 @@
 default_pre_build &&
 
-./autogen.sh
+autoreconf --force --install --verbose &&
+
+if in_depends $MODULE openexr ; then
+  sedit 's:2_2:2_3:g' operations/external/exr-save.cc &&
+  export OPENEXR_CFLAGS+=" -pthread -I/usr/include/OpenEXR $CFLAGS" &&
+  export OPENEXR_LIBS+=" -lImath-2_3 -lIexMath-2_3 -lHalf-2_3 -lIex-2_3 -lIlmThread-2_3 -pthread $LIBS"
+fi
