@@ -1,8 +1,6 @@
 
-OPTS+=" --disable-cuda \
-        --disable-debug \
-        --disable-vulkan \
-         --disable-static \
+OPTS+=" --disable-debug \
+        --disable-static \
         --disable-gtk-doc \
         --disable-examples \
         --disable-valgrind \
