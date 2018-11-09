@@ -4,8 +4,14 @@ default_pre_build &&
 # but just delete the offender.
 #sedit "90d" doc/deghosting_mask.pod &&
 
-CFLAGS+=" -fno-lto -fno-devirtualize" &&
-CPPFLAGS+=" -fno-lto -fno-devirtualize" &&
-CXXFLAGS+=" -fno-lto -fno-devirtualize" &&
+#CFLAGS+=" -fno-lto -fno-devirtualize" &&
+#CPPFLAGS+=" -fno-lto -fno-devirtualize" &&
+#CXXFLAGS+=" -fno-lto -fno-devirtualize" &&
 
-OPTS+=" -DBUILD_HSI=1"
+VER+=`lvu version openexr|cut -d. -f1-2 | sed 's/\./_/g'` &&
+
+OPTS+=" -DOPENEXR_HALF_LIBRARY=/usr/lib/libHalf-${VER}.so           \
+        -DOPENEXR_IEX_LIBRARY=/usr/lib/libIex-${VER}.so             \
+        -DOPENEXR_ILMIMF_LIBRARY=/usr/lib/libIlmImf-${VER}.so       \
+        -DOPENEXR_ILMTHREAD_LIBRARY=/usr/lib/libIlmThread-${VER}.so \
+        -DOPENEXR_IMATH_LIBRARY=/usr/lib/libImath-${VER}.so"
