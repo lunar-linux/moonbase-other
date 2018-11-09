@@ -1,9 +1,11 @@
 # compile the sources using the boostrap compiler
-OPTS+=" --prefix=/usr" &&
-OPTS+=" --with-ghc=$SOURCE_DIRECTORY/install/bin/ghc" &&
-OPTS+=" --host=$BUILD --enable-unregisterised" &&
+OPTS+=" --prefix=/usr \
+        --host=$BUILD \
+        --enable-unregisterised \
+        --with-system-libffi \
+        --with-ghc=$SOURCE_DIRECTORY/install/bin/ghc"
 
-perl boot &&
+python boot &&
 
 default_config &&
 
@@ -16,6 +18,5 @@ cp mk/build.mk{.sample,} &&
 #fi &&
 
 make &&
-
 prepare_install &&
-make install
+make -j1 install
