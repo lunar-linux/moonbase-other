@@ -1,0 +1,77 @@
+From 35e60f607c83056e787237b469ae96c0fe27bcf7 Mon Sep 17 00:00:00 2001
+From: Christoph Hertzberg <chtz@informatik.uni-bremen.de>
+Date: Tue, 24 Jul 2018 21:59:15 +0200
+Subject: [PATCH] fix warnings for doc-eigen-prerequisites
+
+---
+ doc/snippets/MatrixBase_cwiseEqual.cpp          | 2 +-
+ doc/snippets/MatrixBase_cwiseNotEqual.cpp       | 2 +-
+ unsupported/Eigen/src/IterativeSolvers/DGMRES.h | 2 +-
+ unsupported/doc/examples/FFT.cpp                | 6 +++---
+ 4 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/doc/snippets/MatrixBase_cwiseEqual.cpp b/doc/snippets/MatrixBase_cwiseEqual.cpp
+index eb3656f4c..469af642c 100644
+--- a/doc/snippets/MatrixBase_cwiseEqual.cpp
++++ b/doc/snippets/MatrixBase_cwiseEqual.cpp
+@@ -3,5 +3,5 @@ m << 1, 0,
+      1, 1;
+ cout << "Comparing m with identity matrix:" << endl;
+ cout << m.cwiseEqual(MatrixXi::Identity(2,2)) << endl;
+-int count = m.cwiseEqual(MatrixXi::Identity(2,2)).count();
++Index count = m.cwiseEqual(MatrixXi::Identity(2,2)).count();
+ cout << "Number of coefficients that are equal: " << count << endl;
+diff --git a/doc/snippets/MatrixBase_cwiseNotEqual.cpp b/doc/snippets/MatrixBase_cwiseNotEqual.cpp
+index 6a2e4fb6c..7f0a105d6 100644
+--- a/doc/snippets/MatrixBase_cwiseNotEqual.cpp
++++ b/doc/snippets/MatrixBase_cwiseNotEqual.cpp
+@@ -3,5 +3,5 @@ m << 1, 0,
+      1, 1;
+ cout << "Comparing m with identity matrix:" << endl;
+ cout << m.cwiseNotEqual(MatrixXi::Identity(2,2)) << endl;
+-int count = m.cwiseNotEqual(MatrixXi::Identity(2,2)).count();
++Index count = m.cwiseNotEqual(MatrixXi::Identity(2,2)).count();
+ cout << "Number of coefficients that are not equal: " << count << endl;
+diff --git a/unsupported/Eigen/src/IterativeSolvers/DGMRES.h b/unsupported/Eigen/src/IterativeSolvers/DGMRES.h
+index eff2dc8ad..eae717aa2 100644
+--- a/unsupported/Eigen/src/IterativeSolvers/DGMRES.h
++++ b/unsupported/Eigen/src/IterativeSolvers/DGMRES.h
+@@ -173,7 +173,7 @@ class DGMRES : public IterativeSolverBase<DGMRES<_MatrixType,_Preconditioner> >
+   /** 
+    * Set the restart value (default is 30)  
+    */
+-  Index set_restart(const Index restart) { m_restart=restart; }
++  void set_restart(const Index restart) { m_restart=restart; }
+   
+   /** 
+    * Set the number of eigenvalues to deflate at each restart 
+diff --git a/unsupported/doc/examples/FFT.cpp b/unsupported/doc/examples/FFT.cpp
+index fcbf81276..85e8a0241 100644
+--- a/unsupported/doc/examples/FFT.cpp
++++ b/unsupported/doc/examples/FFT.cpp
+@@ -61,14 +61,14 @@ template <typename T>
+ void RandomFill(std::vector<T> & vec)
+ {
+     for (size_t k=0;k<vec.size();++k)
+-        vec[k] = T( rand() )/T(RAND_MAX) - .5;
++        vec[k] = T( rand() )/T(RAND_MAX) - T(.5);
+ }
+ 
+ template <typename T>
+ void RandomFill(std::vector<std::complex<T> > & vec)
+ {
+     for (size_t k=0;k<vec.size();++k)
+-        vec[k] = std::complex<T> ( T( rand() )/T(RAND_MAX) - .5, T( rand() )/T(RAND_MAX) - .5);
++        vec[k] = std::complex<T> ( T( rand() )/T(RAND_MAX) - T(.5), T( rand() )/T(RAND_MAX) - T(.5));
+ }
+ 
+ template <typename T_time,typename T_freq>
+@@ -85,7 +85,7 @@ void fwd_inv(size_t nfft)
+     vector<T_time> timebuf2;
+     fft.inv(timebuf2,freqbuf);
+ 
+-    long double rmse = mag2(timebuf - timebuf2) / mag2(timebuf);
++    T_time rmse = mag2(timebuf - timebuf2) / mag2(timebuf);
+     cout << "roundtrip rmse: " << rmse << endl;
+ }
+ 
