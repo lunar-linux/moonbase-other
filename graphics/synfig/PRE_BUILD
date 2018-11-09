@@ -1,3 +1,7 @@
 default_pre_build &&
 
 sedit "s@!isnan@!std::isnan@" src/synfig/time.cpp
+
+CXXFLAGS+=" -std=c++11" &&
+
+OPTS+=" --enable-gl"
