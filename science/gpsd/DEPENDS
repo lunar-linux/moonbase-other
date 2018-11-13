@@ -1,11 +1,10 @@
 depends dbus
-depends ntp
+depends libusb-compat
+depends python
 depends scons
 
-optional_depends python2        "python=yes" "python=no" "Python support and modules"
 optional_depends "ncurses"       "ncurses=yes" "ncurses=no" "for ncurses terminal support"
 optional_depends "%UDEV"         "" "" "for udev (hotplug) support"
-optional_depends "libusb-compat" "usb=yes" "usb=no" "for usb device support"
-optional_depends "qt4"           "qt=yes" "qt=no" "for Qt C++ wrapper support"
-optional_depends "%PHP"          "" "" "for web page display support"
 optional_depends "%BLUEZ"        "bluez=yes" "bluez=no" "for bluetooth support"
+optional_depends "qt5"           "qt_versioned=5" "" "for Qt C++ wrapper support"
+optional_depends "%PHP"          "" "" "for web page display support"
