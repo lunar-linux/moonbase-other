@@ -1,10 +1,7 @@
 default_pre_build &&
 
 patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 1 &&
-patch_it $SOURCE4 1 &&
-patch_it $SOURCE5 1 &&
 
 sedit "s:log_message(2:log_message(0:" dao/main.cc &&
-sedit 's|char CdrDriver::REMOTE_MSG_|unsigned char CdrDriver::REMOTE_MSG_|' dao/CdrDriver.cc &&
-sedit "s:static char REMOTE_MSG:static unsigned char REMOTE_MSG:" dao/CdrDriver.h
+
+autoreconf -fi
