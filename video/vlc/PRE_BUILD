@@ -41,4 +41,7 @@ sedit 's|-Werror-implicit-function-declaration||g' configure.ac &&
 # Add a needed qt5 include
 sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp &&
 
+# libplacebo 0.6 API
+sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' -i modules/video_output/opengl/vout_helper.c
+
 autoreconf -fi
