@@ -1,8 +1,10 @@
 Original Author: Johannes Frankenau
 https://github.com/i3/i3lock/commit/4d85b886fc16376c85c9ea444ca6b9c0a65cccc5
 
---- ./i3lock.1
-+++ ./i3lock.1
+diff --git a/i3lock.1 b/i3lock.1
+index 55af52d..0f00e20 100644
+--- a/i3lock.1
++++ b/i3lock.1
 @@ -28,6 +28,7 @@ i3lock \- improved screen locker
  .RB [\|\-u\|]
  .RB [\|\-e\|]
@@ -11,7 +13,7 @@ https://github.com/i3/i3lock/commit/4d85b886fc16376c85c9ea444ca6b9c0a65cccc5
  
  .SH DESCRIPTION
  .B i3lock
-@@ -93,6 +93,11 @@ your computer with the enter key.
+@@ -105,6 +106,11 @@ your computer with the enter key.
  .B \-f, \-\-show-failed-attempts
  Show the number of failed attempts, if any.
  
@@ -23,8 +25,10 @@ https://github.com/i3/i3lock/commit/4d85b886fc16376c85c9ea444ca6b9c0a65cccc5
  .TP
  .B \-\-debug
  Enables debug logging.
---- ./i3lock.c
-+++ ./i3lock.c
+diff --git a/i3lock.c b/i3lock.c
+index 87a77b1..7b787fa 100644
+--- a/i3lock.c
++++ b/i3lock.c
 @@ -15,6 +15,7 @@
  #include <stdbool.h>
  #include <stdint.h>
@@ -41,7 +45,7 @@ https://github.com/i3/i3lock/commit/4d85b886fc16376c85c9ea444ca6b9c0a65cccc5
  
  /* isutf, u8_dec © 2005 Jeff Bezanson, public domain */
  #define isutf(c) (((c)&0xC0) != 0x80)
-@@ -420,6 +420,21 @@ static void handle_key_press(xcb_key_press_event_t *event) {
+@@ -413,6 +415,21 @@ static void handle_key_press(xcb_key_press_event_t *event) {
          n = xkb_keysym_to_utf8(ksym, buffer, sizeof(buffer));
      }
  
@@ -63,7 +67,7 @@ https://github.com/i3/i3lock/commit/4d85b886fc16376c85c9ea444ca6b9c0a65cccc5
      switch (ksym) {
          case XKB_KEY_j:
          case XKB_KEY_m:
-@@ -858,6 +858,7 @@ int main(int argc, char *argv[]) {
+@@ -835,6 +852,7 @@ int main(int argc, char *argv[]) {
          {"ignore-empty-password", no_argument, NULL, 'e'},
          {"inactivity-timeout", required_argument, NULL, 'I'},
          {"show-failed-attempts", no_argument, NULL, 'f'},
@@ -80,7 +84,7 @@ https://github.com/i3/i3lock/commit/4d85b886fc16376c85c9ea444ca6b9c0a65cccc5
      while ((o = getopt_long(argc, argv, optstring, longopts, &longoptind)) != -1) {
          switch (o) {
              case 'v':
-@@ -924,9 +924,12 @@ int main(int argc, char *argv[]) {
+@@ -900,9 +918,12 @@ int main(int argc, char *argv[]) {
              case 'f':
                  show_failed_attempts = true;
                  break;
