@@ -11,5 +11,4 @@ default_config &&
 make &&
 make DESTDIR=$SOURCE_DIRECTORY/__pkg install &&
 prepare_install &&
-cd $SOURCE_DIRECTORY/__pkg &&
-tar cf - . | (cd / && tar xvf -)
+cp -rfv --remove-destination $SOURCE_DIRECTORY/__pkg/* /
