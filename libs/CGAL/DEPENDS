@@ -1,7 +1,8 @@
 depends gmp
 depends boost
 depends mpfr
-depends lapack
 depends qt5
 
-optional_depends zlib "" "" "for file compression support"
+optional_depends eigen3 "-DWITH_Eigen3=1" "-DWITH_Eigen3=0" "use system eigen3" y
+optional_depends zlib   "-DWITH_ZLIB=1"   "-DWITH_ZLIB=0"   "use system zlib" y
+optional_depends lapack "-DWITH_LAPACK=1" "-DWITH_LAPACK=0" "use system lapack" y

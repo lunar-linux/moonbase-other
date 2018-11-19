@@ -1,0 +1,11 @@
+default_pre_build &&
+
+. /etc/profile.d/qt5.rc &&
+
+if module_installed libglvnd ; then
+  OPTS+=" -DWITH_OpenGL=1"
+fi &&
+
+OPTS+=" -DBUILD_SHARED_LIBS=1        \
+        -DCMAKE_BUILD_TYPE=Release   \
+        -DWITH_GMPXX=1"
