@@ -10,19 +10,14 @@ fi &&
 #but it compiles just fine with the current version
 if in_depends $MODULE swfdec ; then
   sedit 's:swfdec-0.3:swfdec-0.8:g' configure
-fi &&
+fi
 
-if in_depends $MODULE opencv-3 ; then
-  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/" &&
-  sedit "s:opencv < 2.5.0:opencv <= 3.1.0:" configure
-fi &&
+#if in_depends $MODULE opencv-3 ; then
+#  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/" &&
+#  sedit "s:opencv < 2.5.0:opencv <= 3.1.0:" configure
+#fi &&
 
 # qbasicatomic.h:61:4: error: #error "Qt requires C++11 support
 if in_depends $MODULE qt5 ; then
   CXXFLAGS+=" -std=c++11"
-fi &&
-
-if in_depends $MODULE openexr ; then
-  export OPENEXR_LIBS+=" -lImath-2_3 -lIexMath-2_3 -lHalf-2_3 -lIex-2_3 -lIlmThread-2_3 -pthread" &&
-  export OPENEXR_CFLAGS+=" -pthread -I/usr/include/OpenEXR"
 fi
