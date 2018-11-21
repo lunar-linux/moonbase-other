@@ -30,7 +30,7 @@ fi &&
             --enable-spline=cubic \
             $OPTS &&
 
-default_make &&
+default_make
 
 mkdir -p /usr/share/timidity &&
 install -m0664 $SOURCE_CACHE/$SOURCE2 /usr/share/timidity/timidity.cfg
