@@ -1,4 +1,3 @@
-
 touch INSTALL &&
 NOCONFIGURE=1 ./autogen.sh &&
 
