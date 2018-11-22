@@ -5,7 +5,7 @@ SAVEIFS=${IFS}
 IFS=$(echo -en "\n\b")
 PYTHON_CALLERS="$(find . -name '*.py' -o \
                          -name 'wscript*' -o \
-                         -name 'configure.ac' -o
+                         -name 'configure.ac' -o \
                          -name 'upgrade_from_s3')
                 $(find ./buildtools -type f)
                 $(find ./source4/scripting -type f)"
