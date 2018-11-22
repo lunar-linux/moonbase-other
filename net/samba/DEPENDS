@@ -4,6 +4,7 @@ depends readline
 depends popt
 depends libaio
 depends talloc
+depends lmdb
 
 optional_depends cups \
                  "--enable-cups" \
@@ -35,3 +36,13 @@ optional_depends Linux-PAM \
                  "--with-pam" \
                  "--without-pam" \
                  "for PAM support"
+
+optional_depends gpgme \
+                 "--with-gpgme" \
+                 "--without-gpgme" \
+                 "for the GPG encrypted password sync feature"
+
+optional_depends libarchive \
+                 "--with-libarchive" \
+                 "--without-libarchive" \
+                 "for the smbclient tar-file mode"
