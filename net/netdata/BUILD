@@ -1,8 +1,6 @@
-./autogen.sh
-
 OPTS+=" --sbindir=/usr/bin \
         --with-zlib \
         --with-math \
-        --with-user=netdata" &&
+        --with-user=netdata"
 
 default_build

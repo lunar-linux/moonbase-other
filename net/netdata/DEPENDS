@@ -1,6 +1,9 @@
+depends libmnl
 depends libnetfilter_acct
 depends zlib
 
 optional_depends lm_sensors "" "" "for sensors support"
-
-optional_depends node "" "" "for Webbox plugin support"
+optional_depends iproute2   "" "" "for monitoring Linux QoS"
+optional_depends hddtemp    "" "" "for monitoring hdd temperature"
+optional_depends iw         "" "" "for monitoring Linux as access point"
+optional_depends apcupsd    "" "" "for monitoring APC UPS"
