@@ -1,11 +1,8 @@
 export MOC5="/usr/lib/qt5/bin/moc"
-export MOC4="/usr/lib/qt4/bin/moc"
 
 OPTS+=" --disable-static \
         --disable-tests  \
-        --with-greeter-user=lightdm" 
-
-#        --with-greeter-session=lightdm-gtk-greeter"
+        --with-greeter-user=lightdm" &&
 
 add_priv_user lightdm:lightdm -d /var/lib/lightdm -g lightdm -s /sbin/nologin &&
 
