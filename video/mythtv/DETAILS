@@ -1,12 +1,14 @@
           MODULE=mythtv
-         VERSION=0.27.4
+         VERSION=29.1
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://sourceforge.net/project/mythtv.mirror/MythTV%200.27.4/
-   SOURCE_URL[1]=http://fossies.org/linux/misc/
-      SOURCE_VFY=sha1:efab737a15afd2758dde9a7d6799c976ac3f1247
+         SOURCE2=$MODULE-$VERSION-freetype2.patch
+ SOURCE_URL_FULL=https://github.com/MythTV/mythtv/archive/v$VERSION.tar.gz
+     SOURCE2_URL=$PATCH_URL
+      SOURCE_VFY=sha256:e40ec8111d39fd059a9ec741b10016683bcc66ee3b33c4cdaab93d60851f5d3e
+     SOURCE2_VFY=sha256:4451cbb28513e03cc2f62c50581daeb436d027f8a0968ba5d99a3b05da103343
         WEB_SITE=http://www.mythtv.org
          ENTERED=20040304
-         UPDATED=20150328
+         UPDATED=20181125
            SHORT="PVR suite"
 
 cat << EOF
