@@ -1,0 +1,17 @@
+          MODULE=openmp
+         VERSION=7.0.0
+          SOURCE=$MODULE-$VERSION.src.tar.xz
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-$VERSION.src
+      SOURCE_URL=http://releases.llvm.org/${VERSION}
+      SOURCE_VFY=sha256:30662b632f5556c59ee9215c1309f61de50b3ea8e89dcc28ba9a9494bba238ff
+        WEB_SITE=http://openmp.llvm.org/
+         ENTERED=20181127
+         UPDATED=20181127
+            TYPE=cmake
+           SHORT="LLVM's implementation of OpenMP"
+
+cat << EOF
+The OpenMP subproject of LLVM contains the components
+required to build an executable OpenMP program
+that are outside the compiler itself.
+EOF
