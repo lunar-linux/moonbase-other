@@ -1,6 +1,0 @@
-default_pre_build &&
-
-patch_it $SOURCE2 1 &&
-
-# fix unresolved variable in pc file
-sedit "s/LIBJPEG='\(.*\)'$/LIBJPEG=\"\1\"/" configure.ac
