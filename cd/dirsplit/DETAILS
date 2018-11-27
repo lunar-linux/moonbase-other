@@ -1,0 +1,21 @@
+          MODULE=dirsplit
+         VERSION=0.3.3
+# If you are module maintainer read packaging.txt inside
+# archive to learn how to update it.
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=$PATCH_URL
+      SOURCE_VFY=sha256:716133e9722dd5933c1d48cb9df7befdef7ecedd4fb25e4bc4572be2a486986b
+         ENTERED=20100515
+         UPDATED=20181127
+           SHORT="Splits directory into multiple with equal size"
+
+cat << EOF
+displit is designed to for a simple purpose: convert a directory with many
+multiple files (which are all smaller than a certain medium, eg. DVD) and
+"splits" it into "volumes", looking for the optimal order to get the best
+space/medium-number efficiency.
+The actual action is either adding the files to mkisofs catalogs or real
+moving of files into new directories (or creating links or symlinks).
+The method is not limited to files, whole directories can also be handled
+this way (see various filesystem exploration modes).
+EOF
