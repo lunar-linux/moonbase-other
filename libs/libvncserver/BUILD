@@ -1,5 +1,5 @@
+touch INSTALL &&
 
- touch INSTALL &&
- ./autogen.sh &&
+./autogen.sh &&
 
- default_build
+default_build
