@@ -59,7 +59,7 @@
  dnl ---------------------------------------------------------------------------
 --- ./src/polkit/Makefile.am
 +++ ./src/polkit/Makefile.am
-@@ -86,19 +86,26 @@ if HAVE_LIBSYSTEMD
+@@ -85,19 +85,26 @@ if HAVE_LIBSYSTEMD
  libpolkit_gobject_1_la_SOURCES += \
  	polkitunixsession-systemd.c		polkitunixsession.h
  else
@@ -110,7 +110,7 @@
  	$(LIBJS_CFLAGS)							\
          $(NULL)
 
-@@ -59,6 +65,7 @@ libpolkit_backend_1_la_CXXFLAGS = $(libpolkit_backend_1_la_CFLAGS)
+@@ -59,6 +63,7 @@ libpolkit_backend_1_la_CXXFLAGS = $(libpolkit_backend_1_la_CFLAGS)
  libpolkit_backend_1_la_LIBADD =                               		\
          $(GLIB_LIBS)							\
  	$(LIBSYSTEMD_LIBS)						\

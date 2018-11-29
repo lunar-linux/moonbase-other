@@ -1,6 +1,3 @@
-OPTS+=" --disable-static \
-        --disable-gtk-doc-html" &&
-
 # If expat is yes the make tanks on "line 5975: cd: yes/lib: No such file or directory"
 sedit "s:\$withval/:/usr/:g" configure.ac &&
 
@@ -12,6 +9,10 @@ rm -rf /usr/libexec/polkit-agent-helper-1 &&
 rm -rf /usr/bin/pkexec &&
 
 autoconf &&
+
+OPTS+=" --disable-static \
+        --disable-gtk-doc-html"
+
 default_build &&
 
 add_priv_user polkitd:polkitd -d / -s /bin/false &&
@@ -37,7 +38,7 @@ chown polkitd:polkitd /usr/share/polkit-1/rules.d &&
 chmod 700 /usr/share/polkit-1/rules.d &&
 
 if module_installed systemd; then
-    sedit "s:--no-debug::" /usr/lib/systemd/system/polkit.service
+  sedit "s:--no-debug::" /usr/lib/systemd/system/polkit.service
 fi &&
 
 if module_installed Linux-PAM; then
