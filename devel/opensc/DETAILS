@@ -1,13 +1,14 @@
           MODULE=opensc
-         VERSION=0.14.0
+         VERSION=0.19.0
           SOURCE=${MODULE}-${VERSION}.tar.gz
-      SOURCE_URL=$SFORGE_URL/opensc/
-      SOURCE_VFY=sha256:facdca215f74d999b286ae246ada8d8fcb97ce58f0a6dd30d8b1c180101e9bf0
+      SOURCE_URL_FULL=https://github.com/OpenSC/OpenSC/archive/$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/OpenSC-$VERSION
+      SOURCE_VFY=sha256:c0b803ba36aac9b5fef7f249adb9dffaf3f298db85304531b6a0574519743cf2
         WEB_SITE="https://github.com/OpenSC/OpenSC/wiki"
          ENTERED=20131012
-         UPDATED=20140921
+         UPDATED=20181130
            SHORT="Libraries and applications to access smartcards"
-cat <<EOF
+cat << EOF
 OpenSC provides a set of libraries and utilities to work with
 smart cards. Its main focus is on cards that support cryptographic
 operations, and facilitate their use in security applications such
