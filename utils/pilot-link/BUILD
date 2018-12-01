@@ -1,15 +1,12 @@
-patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 0 &&
+sed -i -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' configure.ac &&
+export LDFLAGS+=" $LDFLAGS -lm" &&
 
-bad_flags -Werror &&
+autoreconf -fi &&
 
-OPTS+=" --enable-conduits --enable-threads " &&
+OPTS+=" --with-readline --enable-conduits --enable-threads --without-tcl --includedir=/usr/include/libpisock" &&
 
 if [ "`arch`" == "x86_64" ]; then
   export CFLAGS="$CFLAGS -fPIC"
 fi  &&
 
-LDFLAGS+=" $LDFLAGS -lm " &&
-default_config &&
-default_make &&
-gather_docs doc/*
+default_build
