@@ -4,7 +4,7 @@ OPTS+=" --docdir=/usr/share/doc/gambit-c \
         --enable-single-host \
         --enable-c-opt \
         --enable-shared \
-        --enable-versioned-shared-libs" &&
+        --enable-versioned-shared-libs"
 
 if module_installed ghostscript; then
   # preserve the already installed gsc application
