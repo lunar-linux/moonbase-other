@@ -5,8 +5,16 @@ depends sed
 optional_depends glu   "" "" "for GL support"
 optional_depends wxGTK "" "" "for WxGTK support"
 
-optional_depends ncurses   "--with-termcap"       "--without-termcap"     "for ncurses support"
-optional_depends zlib      "--enable-shared-zlib" "--enable-builtin-zlib" "for zlib support"
-optional_depends %OSSL     "--with-ssl"           "--without-ssl"         "for ssl support"
-optional_depends %JAVA_SDK "--with-javac"         "--without-javac"       "for java support"
-optional_depends unixODBC  "--enable-odbc"        "--disable-odbc"        "for ODBC support"
+optional_depends ncurses \
+                 "--with-termcap" \
+                 "--without-termcap" \
+                 "for ncurses support"
+
+optional_depends zlib \
+                 "--enable-shared-zlib" \
+                 "--enable-builtin-zlib" \
+                 "for zlib support"
+
+optional_depends %OSSL     "--with-ssl"    "--without-ssl"   "for ssl support"
+optional_depends %JAVA_SDK "--with-javac"  "--without-javac" "for java support"
+optional_depends unixODBC  "--enable-odbc" "--disable-odbc"  "for ODBC support"
