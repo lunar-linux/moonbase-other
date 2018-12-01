@@ -1,5 +1,5 @@
 # for some reason this is on by default...
-OPTS+=" -DPYCLINGO_USER_INSTALL=OFF" &&
+OPTS+=" -DPYCLINGO_USER_INSTALL=OFF"
 
 default_cmake_build &&
 
