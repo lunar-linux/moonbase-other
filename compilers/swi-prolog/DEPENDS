@@ -1,11 +1,12 @@
-optional_depends %OSSL   "" "--without-ssl"   "for ssl package"
-optional_depends zlib    "" "--without-zlib"  "for zlib package"
+optional_depends %OSSL "" "--without-ssl"  "for ssl package"
+optional_depends zlib  "" "--without-zlib" "for zlib package"
 
-optional_depends libX11 "" "--without-xpce"   "for graphical IDE (also say 'y' to jpeg and xpm)"
-optional_depends %JPEG  "" ""   "for graphical IDE"
-optional_depends libXpm "" ""   "for graphical IDE"
+optional_depends libX11 "" "--without-xpce" "for graphical IDE (also say 'y' to jpeg and xpm)"
 
-optional_depends unixODBC  "" "--without-odbc" "for odbc database package"
+optional_depends %JPEG  "" "" "for graphical IDE"
+optional_depends libXpm "" "" "for graphical IDE"
+
+optional_depends unixODBC "" "--without-odbc" "for odbc database package"
 
 # no the sun-jre is not enough
 optional_depends sun-jdk "" "--without-jpl" "for the java<->prolog interface jpl"
