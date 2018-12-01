@@ -1,5 +1,5 @@
 ./configure --prefix=/usr \
-            $OPTS src    &&
+            $OPTS src &&
 
 cd src &&
 
