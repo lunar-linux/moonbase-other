@@ -1,4 +1,4 @@
-OPTS+=" --config=release --prefix=/usr" &&
+OPTS+=" --config=release --prefix=/usr"
 
 ./configure.sh $OPTS &&
 
