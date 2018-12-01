@@ -1,0 +1,12 @@
+--- ./src/cmd/go/internal/work/init.go
++++ ./src/cmd/go/internal/work/init.go
+@@ -123,7 +123,8 @@ func buildModeInit() {
+ 		ldBuildmode = "c-shared"
+ 	case "default":
+ 		switch platform {
+-		case "android/arm", "android/arm64", "android/amd64", "android/386":
++		case "linux/amd64", "linux/arm", "linux/arm64", "linux/386", "linux/ppc64le",
++			"android/arm", "android/arm64", "android/amd64", "android/386":
+ 			codegenArg = "-shared"
+ 			ldBuildmode = "pie"
+ 		case "darwin/arm", "darwin/arm64":
