@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit "s:SSLv2_method:SSLv23_method:" modules/native/feathers/socket/socket_sys_unix.cpp &&
+sedit "s:SSLv3_method:SSLv23_method:g" modules/native/feathers/socket/socket_sys_unix.cpp
