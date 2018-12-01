@@ -1,6 +1,4 @@
 default_pre_build &&
 
-patch_it $SOURCE2 0 &&
-
 #sedit "s:lua5.2 lua-5.2:lua5.3 lua-5.3 lua5.2 lua-5.2:" cmake/ConkyPlatformChecks.cmake
 sedit "s:WANT_TOLUA true:WANT_TOLUA false:g" cmake/ConkyPlatformChecks.cmake
