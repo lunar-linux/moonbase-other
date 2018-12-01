@@ -1,14 +1,13 @@
 # allow seamless upgrade/downgrade from/to gcc <=> gcc3
-if module_installed gcc ; then
+if module_installed gcc; then
   remove_module gcc
 fi
 
-cd /usr/lib/gcc/$BUILD/$VERSION                          &&
-ln    -sf /usr/bin/cpp cpp                               &&
-cd /lib/                                                 &&
-ln    -sf /usr/bin/cpp cpp                               && 
+cd /usr/lib/gcc/$BUILD/$VERSION &&
+ln -sf /usr/bin/cpp cpp &&
+cd /lib/ &&
+ln -sf /usr/bin/cpp cpp &&
 
-if [ ! -e /usr/bin/cc ] ; then
+if [ ! -e /usr/bin/cc ]; then
   ln -s gcc /usr/bin/cc
 fi || true
-
