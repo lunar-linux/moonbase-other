@@ -1,11 +1,14 @@
 depends %UDEV
 depends libusb
-depends %BLUEZ
+depends bluez-5
 depends libdbi
 depends curl
 depends cmake
 
-optional_depends python2     "" "" "for Python support"
-optional_depends %MYSQL     "" "" "for mysql database support"
-optional_depends postgresql "" "" "for database support"
-optional_depends doxygen    "" "" "for documentation install"
+optional_depends libdbi     "-DWITH_LibDBI=1"  "-DWITH_LibDBI=0"   "For LibDBI support"
+optional_depends %MYSQL     "-DWITH_MySQL=1"   "-DWITH_MySQL=0"    "For mysql database support"
+optional_depends postgresql "-DWITH_Postres=1" "-DWITH_Postgres=0" "For PostgreSQL database support"
+
+optional_depends doxygen    "-DWITH_Doxygen=1 -DINSTALL_DOC=1" \
+                            "-DWITH_Doxygen=0 -DINSTALL_DOC=0" \
+                            "For documentation install"
