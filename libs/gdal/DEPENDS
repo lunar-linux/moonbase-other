@@ -1,14 +1,27 @@
-depends python
+depends proj
+depends python-numpy
 
-optional_depends cryptopp "--with-cryptopp" "--without-cryptopp" "for crypto support" n
-optional_depends xz      "--with-liblzma" "--without-liblzma" "for xz support"
-optional_depends expat   "--with-expat"   "--without-expat"   "for XML support"
-optional_depends curl    "--with-curl"    "--without-curl"    "for curl support"
-optional_depends geos    "--with-geos"    "--without-geos"    "for Geometry Engine support"
-optional_depends giflib  "--with-gif"     "--without-gif"     "for gif graphics support"
-optional_depends libwebp "--with-webp"    "--without-webp"    "for lossy compression for photographic images support"
-optional_depends libpng  "--with-png"     "--without-png"     "for png graphics support"
-optional_depends jasper  "--with-jasper"  "--without-jasper"  "for JPEG-2000 Part-1 support"
+optional_depends cryptopp "--with-cryptopp=yes" "--without-cryptopp" "for crypto support" n
+optional_depends geos     "--with-geos=yes"     "--without-geos"     "for Geometry Engine support"
+optional_depends libwebp  "--with-webp=yes"     "--without-webp"     "for lossy compression for photographic images support"
+optional_depends qhull    "--with-qhull=yes"    "--without-qhull"    "for qhull support"
+optional_depends expat    "--with-expat"        "--without-expat"    "for XML support"
+optional_depends curl     "--with-curl"         "--without-curl"     "for curl support"
+optional_depends giflib   "--with-gif"          "--without-gif"      "for gif graphics support"
+optional_depends libpng   "--with-png"          "--without-png"      "for png graphics support"
+optional_depends jasper   "--with-jasper"       "--without-jasper"   "for JPEG-2000 Part-1 support"
+optional_depends perl     "--with-perl"         "--without-perl"     "for perl scripting support"
+optional_depends hdf5     "--with-hdf5"         "--without-hdf5"     "for Hierarchical Data Format support"
+optional_depends freexl   "--with-freexl"       "--without-freexl"   "for xls import support"
+optional_depends xerces-c "--with-xerces"       "--without-xerces"   "for C++ parsing support"
+optional_depends netcdf   "--with-netcdf"       "--without-netcdf"   "for CDF support"
+optional_depends cfitsio  "--with-cfitsio"      "--without-cfitsio"  "for C and Fortran subroutine support"
+optional_depends poppler  "--with-poppler"      "--without-poppler"  "for poppler graphics support ${PROBLEM_COLOR}If yes here, say no to podofo${QUERY_COLOR}"
+optional_depends podofo   "--with-podofo"       "--without-podofo"   "for POrtable DOcument FOrmat support"
+optional_depends sqlite   "--with-sqlite3"      "--without-sqlite3"  "for sqlite database support"
+optional_depends %MYSQL   "--with-mysql"        "--without-mysql"    "for mysql database support"
+
+optional_depends postgresql   "" "" "for Postgresql database support"
 
 optional_depends %JPEG \
                  "--with-jpeg" \
@@ -26,25 +39,9 @@ optional_depends tiff\
                  "for system tiff graphics support"
 
 optional_depends libgeotiff \
-                 "--with-geotiff" \
+                 "--with-geotiff=yes" \
                  "--with-geotiff=internal" \
                  "for system geotiff graphics support"
-
-optional_depends perl     "--with-perl"     "--without-perl"     "for perl scripting support"
-optional_depends curl     "--with-curl"     "--without-curl"     "for curl files transfer support"
-optional_depends hdf5     "--with-hdf5"     "--without-hdf5"     "for Hierarchical Data Format support"
-optional_depends freexl   "--with-freexl"   "--without-freexl"   "for xls import support"
-optional_depends xerces-c "--with-xerces"   "--without-xerces"   "for C++ parsing support"
-optional_depends netcdf   "--with-netcdf"   "--without-netcdf"   "for CDF support"
-optional_depends cfitsio  "--with-cfitsio"  "--without-cfitsio"  "for C and Fortran subroutine support"
-optional_depends poppler  "--with-poppler"  "--without-poppler"  "for poppler graphics support ${PROBLEM_COLOR}If yes here, say no to podofo${QUERY_COLOR}"
-optional_depends podofo   "--with-podofo"   "--without-podofo"   "for POrtable DOcument FOrmat support"
-optional_depends sqlite   "--with-sqlite3"  "--without-sqlite3"  "for sqlite database support"
-optional_depends %MYSQL   "--with-mysql"    "--without-mysql"    "for mysql database support"
-
-optional_depends postgresql   "" "" "for Postgresql database support"
-optional_depends python-numpy "" "" "for python numerical support"
-optional_depends proj         "" "" "transform data types"
 
 optional_depends spatialindex \
                  "--with-spatialite" \
@@ -52,7 +49,7 @@ optional_depends spatialindex \
                  "for indexing support"
 
 # Broke, not fix atm
-#optional_depends python \
-#                 "--with-python=/usr/bin/python3" \
-#                 "--without-python" \
-#                 "for python3 scripting support"
+optional_depends python \
+                 "--with-python=yes" \
+                 "--without-python" \
+                 "for python3 scripting support"
