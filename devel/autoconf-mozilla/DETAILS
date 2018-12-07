@@ -1,7 +1,8 @@
           MODULE=autoconf-mozilla
          VERSION=2.13
           SOURCE=${MODULE%-*}-$VERSION.tar.gz
-      SOURCE_URL=ftp://ftp.gnu.org/pub/gnu/${MODULE%-*}
+      SOURCE_URL[0]=ftp://ftp.gnu.org/pub/gnu/${MODULE%-*}
+      SOURCE_URL[1]=https://mirrors.ustc.edu.cn/gnu/${MODULE%-*}
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%-*}-$VERSION
       SOURCE_VFY=sha256:f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e
         WEB_SITE=http://www.gnu.org/software/autoconf
