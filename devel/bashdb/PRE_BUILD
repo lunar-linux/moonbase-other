@@ -1,3 +1,7 @@
 default_pre_build &&
 
-sedit "s#'4.2' | '4.1'#'4.3' | '4.2' | '4.1'#" configure
+sedit "s#'4.2' | '4.1'#'4.3' | '4.2' | '4.1'#" configure &&
+
+export slashlibdir=/usr &&
+
+OPTS+=" --disable-static -C"
