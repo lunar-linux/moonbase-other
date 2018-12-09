@@ -1,3 +1,5 @@
 default_pre_build &&
 
-sedit "s:\$(libdir)/\$\$libisl-gdb.py:\$(libexecdir)/\$\$libisl-gdb.py:" Makefile.in Makefile.am
+sedit "s:\$(libdir)/\$\$libisl-gdb.py:\$(libexecdir)/\$\$libisl-gdb.py:" Makefile.in Makefile.am &&
+
+autoreconf -fi
