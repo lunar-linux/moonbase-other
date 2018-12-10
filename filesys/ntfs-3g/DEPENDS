@@ -1,0 +1,5 @@
+optional_depends attr       "--enable-xattr-mappings" "--disable-xattr-mappings"   "For extended attributes mappings support" y
+optional_depends acl        "--enable-posix-acls "    "--disable-posix-acls"       "For POSIX ACL support" n
+optional_depends util-linux "--with-uuid"             "--without-uuid"             "To generate DCE compliant UUIDs" y
+optional_depends fuse       "--with-fuse=external"    "--with-fuse=internal"       "If yes, use system provided fuse, else internal is used" n
+optional_depends libgcrypt  "--with-libgcrypt-prefix" "--without-libgcrypt-prefix" "For encrypted disk support" y
