@@ -1,2 +1,7 @@
 depends gpgme
 depends fuse
+
+optional_depends dracut     "--with-dracut"   "--without-dracut"   "For initramfs support"
+optional_depends curl       "--with-curl"     "--without-curl"     "For curl support"
+optional_depends libsoup    "--with-soup"     "--without-soup"     "For SOAP support"
+optional_depends util-linux "--with-libmount" "--without-libmount" "For mount support"
