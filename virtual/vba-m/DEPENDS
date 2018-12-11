@@ -1,0 +1,16 @@
+depends SDL2
+depends wxGTK
+depends zlib
+depends libpng
+depends cmake
+depends git
+
+optional_depends ffmpeg \
+        "--enable-ffmpeg" \
+        "--disable-ffmpeg" \
+        "for game recording"
+
+optional_depends openal \
+        "--enable-openal" \
+        "--disable-openal" \
+        "a sound interface"
