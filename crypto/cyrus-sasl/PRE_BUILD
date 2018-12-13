@@ -1,28 +1,10 @@
 default_pre_build &&
 
-patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 1 &&
-patch_it $SOURCE4 1 &&
-patch_it $SOURCE5 1 &&
-patch_it $SOURCE6 1 &&
-patch_it $SOURCE7 0 &&
-patch_it $SOURCE8 0 &&
-patch_it $SOURCE9 1 &&
-patch_it $SOURCE10 0 &&
-patch_it $SOURCE11 0 &&
-patch_it $SOURCE12 0 &&
-patch_it $SOURCE13 1 &&
-patch_it $SOURCE14 1 &&
-patch_it $SOURCE15 1 &&
-
 # Remove solaris gcc switch -R or gcc >=4.6 bails out
-sedit '/LIB_SQLITE.*-R/s; -R[^"]*;;g' configure.in &&
+sedit '/LIB_SQLITE.*-R/s; -R[^"]*;;g' configure.ac &&
 
-sedit 's;AM_CONFIG_HEADER;AC_CONFIG_HEADERS;g' configure.in &&
+sed -i -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:g' \
+       -e 's:AC_CONFIG_MACRO_DIR:AC_CONFIG_MACRO_DIRS:g' \
+       configure.ac  &&
 
-# fix more strict syntax with modern autotools
-sedit 's:\[cmulocal\] \[config\]:[cmulocal], [config]:' configure.in &&
-sedit 's:\[\.\./cmulocal\] \[\.\./config\]:[../cmulocal], [../config]:' saslauthd/configure.in &&
-
-# fix broken pkg-config file
-sedit '1 i prefix = @prefix@\nexec_prefix = @exec_prefix@' libsasl2.pc.in
+sedit 's:\[cmulocal\] \[config\]:[cmulocal], [config]:' configure.ac

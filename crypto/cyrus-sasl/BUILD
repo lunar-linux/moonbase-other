@@ -1,3 +1,5 @@
+autoreconf &&
+
 export CFLAGS+=" -fPIC"
   
 OPTS+=" --disable-static \
@@ -39,25 +41,8 @@ else
   OPTS+=" --with-dblib=none"
 fi &&
 
-# Autoconf stuff
-rm -f config/config.guess config/config.sub &&
-rm -f config/ltconfig config/ltmain.sh config/libtool.m4 &&
-rm -fr autom4te.cache &&
-libtoolize -c &&
-aclocal -I config -I cmulocal &&
-automake -a -c &&
-autoheader &&
-autoconf &&
-
 pushd saslauthd &&
-rm -f config/config.guess config/config.sub &&
-rm -f config/ltconfig config/ltmain.sh config/libtool.m4 &&
-rm -fr autom4te.cache &&
-libtoolize -c &&
-aclocal -I config -I ../cmulocal -I ../config &&
-automake -a -c &&
-autoheader &&
-autoconf &&
+autoreconf
 popd &&
 
 default_build &&
