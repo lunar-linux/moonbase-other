@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 SYS_CONTACT="--with-sys-contact=root@`hostname -f`" &&
 PERSISTENT="--with-persistent-directory=/var/state/ucd-snmp" &&
 DEFAULTS="--with-defaults" &&
@@ -23,7 +25,11 @@ PYTHONPROG=/usr/bin/python2 \
              $DEFAULTS             \
              $OPTS                &&
 
+sedit "s:DESTDIR         =:DESTDIR         = /:" Makefile &&
+
 default_make &&
+#make &&
+#prepare_install &&
 
 if [ ! -e /etc/config.d/snmpd ]; then
   install -m644 $SCRIPT_DIRECTORY/snmpd /etc/config.d/snmpd
