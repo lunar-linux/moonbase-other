@@ -1,4 +1,5 @@
 export GOOS=linux
+export GOCHACHE=off
 export GOROOT=$SOURCE_DIRECTORY
 export GOBIN=$GOROOT/bin
 export GOROOT_FINAL=/usr/lib/go
@@ -41,7 +42,7 @@ install -Dm0644 src/Make.* /usr/lib/go/src/ &&
 
 # add the symlinks to /usr/bin
 for f in /usr/lib/go/bin/*; do
-   ln -sf $f "/usr/bin/${f##*/}" 
+   ln -sf $f "/usr/bin/${f##*/}"
 done &&
 
 # Remove object files from target src dir
