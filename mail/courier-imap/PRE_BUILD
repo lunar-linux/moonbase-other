@@ -1,6 +1,0 @@
-default_pre_build &&
-
-# fix a tiny bug
-sedit \
-  's|--with-authchangepwdir=/var/tmp/dev/null|--with-authchangepwdir="$libexecdir"/authlib|' \
-  configure && chmod 755 configure
