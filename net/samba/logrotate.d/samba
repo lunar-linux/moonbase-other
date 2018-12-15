@@ -4,6 +4,6 @@
    sharedscripts
    copytruncate
    postrotate
-      /bin/kill -HUP `cat /var/run/samba/*.pid 2>/dev/null` 2>/dev/null || true
+      /usr/bin/kill -HUP `cat /var/run/samba/*.pid 2>/dev/null` 2>/dev/null || true
    endscript
 }
