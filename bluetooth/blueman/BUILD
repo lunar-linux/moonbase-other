@@ -1,3 +1,3 @@
-OPTS+=" --disable-schemas-compile" &&
+OPTS+=" --disable-schemas-compile"
 
 default_build
