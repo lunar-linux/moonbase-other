@@ -1,5 +1,3 @@
-autoreconf -fi &&
-
 SYS_CONTACT="--with-sys-contact=root@`hostname -f`" &&
 PERSISTENT="--with-persistent-directory=/var/state/ucd-snmp" &&
 DEFAULTS="--with-defaults" &&
@@ -13,23 +11,21 @@ PERL_SO_PATH="/usr/lib/perl$PERL_MAJ_VER/$PERL_VER/`arch`-linux-thread-multi/COR
 # So lets put all that together.
 LDFLAGS="$LDFLAGS -Wl,-rpath,${PERL_SO_PATH}" &&
 
-OPTS+=" --disable-static"  &&
+OPTS+=" --disable-static"
 
 PYTHONPROG=/usr/bin/python2 \
-             ./configure --prefix=/usr \
-             --sysconfdir=/etc     \
-             --localstatedir=/var  \
-             --with-python-modules \
-             $SYS_CONTACT          \
-             $PERSISTENT           \
-             $DEFAULTS             \
-             $OPTS                &&
+           ./configure --prefix=/usr \
+           --sysconfdir=/etc     \
+           --localstatedir=/var  \
+           --with-python-modules \
+           $SYS_CONTACT          \
+           $PERSISTENT           \
+           $DEFAULTS             \
+           $OPTS                &&
 
-sedit "s:DESTDIR         =:DESTDIR         = /:" Makefile &&
+sedit "s:install --basedir=\$\$dir:install --basedir=\$\$dir --root=/usr:" Makefile &&
 
 default_make &&
-#make &&
-#prepare_install &&
 
 if [ ! -e /etc/config.d/snmpd ]; then
   install -m644 $SCRIPT_DIRECTORY/snmpd /etc/config.d/snmpd
