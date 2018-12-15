@@ -9,38 +9,38 @@ optional_depends gtk+-2 "" "" "for GTK wrapper support"
 optional_depends poppler-data "" "" "for support of additional file encodings"
 
 optional_depends curl \
-                 "-DENABLE_LIBCURL=ON" \
-                 "-DENABLE_LIBCURL=OFF" \
+                 "-D ENABLE_LIBCURL=ON" \
+                 "-D ENABLE_LIBCURL=OFF" \
                  "for curl based HTTP support"
 
 optional_depends zlib \
-                 "-DENABLE_ZLIB=ON" \
-                 "-DENABLE_ZLIB=OFF" \
+                 "-D ENABLE_ZLIB=ON" \
+                 "-D ENABLE_ZLIB=OFF" \
                  "for zlib compression support (not totally safe)"
 
 optional_depends libpng \
-                 "-DENABLE_LIBPNG=ON" \
-                 "-DENABLE_LIBPNG=OFF" \
+                 "-D ENABLE_LIBPNG=ON" \
+                 "-D ENABLE_LIBPNG=OFF" \
                  "for PNG image support"
 
 optional_depends tiff \
-                 "-DENABLE_LIBTIFF=ON" \
-                 "-DENABLE_LIBTIFF=OFF" \
+                 "-D ENABLE_LIBTIFF=ON" \
+                 "-D ENABLE_LIBTIFF=OFF" \
                  "for TIFF image support"
 
 optional_depends lcms2 \
-                 "-DENABLE_CMS=lcms2" \
-                 "-DENABLE_CMS=none" \
+                 "-D ENABLE_CMS=lcms2" \
+                 "-D ENABLE_CMS=none" \
                  "for the color management system (needed by cups_filters)"
 
 optional_depends cairo \
-                 "-DENABLE_GLIB=ON" \
-                 "-DENABLE_GLIB=OFF" \
+                 "-D ENABLE_GLIB=ON" \
+                 "-D ENABLE_GLIB=OFF" \
                  "for the cairo graphics backend"
 
 optional_depends qt5 \
-                 "-DENABLE_QT5=ON" \
-                 "-DENABLE_QT5=OFF" \
+                 "-D ENABLE_QT5=ON" \
+                 "-D ENABLE_QT5=OFF" \
                  "for Qt5 wrapper support"
 
 optional_depends gobject-introspection "" "" "for introspection support"
