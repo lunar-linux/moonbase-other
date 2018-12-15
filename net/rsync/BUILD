@@ -1,6 +1,6 @@
 OPTS+=" --with-included-popt=no \
         --with-included-zlib=no \
-        --disable-debug" &&
+        --disable-debug"
 
 default_build &&
 

@@ -6,7 +6,7 @@ OPTS+=" --with-rpcuser=rpc \
 
 if ! module_installed systemd; then
   OPTS+=" --with-systemdsystemunitdir=no"
-fi &&
+fi
 
 default_build &&
 
