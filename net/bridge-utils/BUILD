@@ -1,4 +1,5 @@
-OPTS+=" --with-linux-headers=/usr/include"
+OPTS+=" --exec-prefix=/usr \
+        --with-linux-headers=/usr/include"
 
 autoconf &&
 
