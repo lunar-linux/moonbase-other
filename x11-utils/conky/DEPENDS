@@ -17,21 +17,15 @@ optional_depends pulseaudio     "-D BUILD_PULSEAUDIO=ON" "" "for pulseaudio supp
 optional_depends mpd            "-D BUILD_MPD=ON"        "" "for mpd support"
 optional_depends cmus           "-D BUILD_CMUS=ON"       "" "for cmus support"
 
-optional_depends docbook2X "-D BUILD_MAINTAINER_MODE=ON" "" "for generating the documentation"
 
-optional_depends librsvg    "-D BUILD_LUA_RSVG=ON" "" "for RSVG display support"
+optional_depends toluapp "" "" "for embeded Lua suport - needed for Cairo graphics"
 
-optional_depends imlib2     "-D BUILD_IMLIB2=ON -D BUILD_LUA_IMLIB2=ON" ""\
-                            "for images display support"
+# BROKEN - use the internal libs (at least for cairo)
+#optional_depends librsvg "-D BUILD_LUA_RSVG=ON" "" "for RSVG display support"
 
-# Broken - use the internal libs (at least for cairo)
-#optional_depends cairo     "-D BUILD_LUA_CAIRO=ON"  "" "for graphics support"
-#optional_depends audacious "-D BUILD_AUDACIOUS=ON"  "" "for audacious audio player support"
+#optional_depends imlib2 "-D BUILD_IMLIB2=ON -D BUILD_LUA_IMLIB2=ON" ""\
+#                        "for images display support"
 
-#optional_depends imlib2     "-D BUILD_IMLIB2=ON -D BUILD_LUA_IMLIB2=ON" \
-#                            "" "for images display support"
+#optional_depends cairo "-D BUILD_LUA_CAIRO=ON" "" "for graphics support"
 
-#optional_depends toluapp "" "" "for embeded Lua suport - needed for Cairo graphics"
-
-# To be added
-#optional_depends libxnvctrl     "-D BUILD_NVIDIA=ON"     "" "for NVIDIA support"
+#optional_depends audacious "-D BUILD_AUDACIOUS=ON" "" "for audacious audio player support"
