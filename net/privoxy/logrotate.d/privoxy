@@ -3,6 +3,6 @@
    notifempty
    compress
    postrotate
-     /bin/kill -HUP `cat /var/run/privoxy.pid 2>/dev/null` 2> /dev/null || true
+     /usr/bin/kill -HUP `cat /var/run/privoxy.pid 2>/dev/null` 2> /dev/null || true
    endscript
 }
