@@ -1,4 +1,7 @@
-OPTS+=" --disable-static --enable-shared --enable-mp3rtp --disable-gtktest --enable-nasm" &&
+OPTS+=" --enable-shared \
+        --enable-mp3rtp \
+        --disable-static \
+        --disable-gtktest"
 
 default_build &&
 
