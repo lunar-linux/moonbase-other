@@ -10,6 +10,7 @@ OPTS+=" --enable-threads --enable-tools --enable-library"
 
 default_build &&
 
+mkdir -p /etc/bluetooth &&
 install -Dm644 profiles/*/*.conf /etc/bluetooth/ &&
 install -Dm644 src/main.conf /etc/bluetooth/ &&
 
