@@ -2,7 +2,7 @@ OPTS+=" --enable-lib \
         --enable-util \
         --disable-static \
         --disable-example \
-        --sbindir=/usr/bin" &&
+        --sbindir=/usr/bin"
 
 default_build &&
 
