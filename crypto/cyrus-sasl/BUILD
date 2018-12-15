@@ -1,7 +1,5 @@
-autoreconf &&
-
 export CFLAGS+=" -fPIC"
-  
+
 OPTS+=" --disable-static \
         --disable-krb4 \
         --disable-srp \
@@ -11,7 +9,6 @@ OPTS+=" --disable-static \
         --enable-ntlm \
         --enable-otp \
         --enable-auth-sasldb \
-        --without-sqlite \
         --with-devrandom=/dev/urandom \
         --with-dbpath=/var/lib/sasl/sasl.db  \
         --with-pwcheck=/run/saslauthd \
@@ -23,14 +20,14 @@ if module_installed Linux-PAM; then
   OPTS+=" --with-pam"
 else
   OPTS+=" --without-pam"
-fi &&
+fi
 
 # Enable sql if any of the following databases is a dependency
 if in_depends $MODULE sqlite || in_depends $MODULE postgresql || in_depends $MODULE %MYSQL; then
   OPTS+=" --enable-sql"
 else
   OPTS+=" --disable-sql"
-fi &&
+fi
 
 # gdbm first if both gdbm and db was enabled
 if in_depends $MODULE gdbm; then
@@ -39,7 +36,7 @@ elif in_depends $MODULE db; then
   OPTS+=" --with-dblib=berkeley"
 else
   OPTS+=" --with-dblib=none"
-fi &&
+fi
 
 pushd saslauthd &&
 autoreconf

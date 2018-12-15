@@ -7,4 +7,6 @@ sed -i -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:g' \
        -e 's:AC_CONFIG_MACRO_DIR:AC_CONFIG_MACRO_DIRS:g' \
        configure.ac  &&
 
-sedit 's:\[cmulocal\] \[config\]:[cmulocal], [config]:' configure.ac
+sedit 's:\[cmulocal\] \[config\]:[cmulocal], [config]:' configure.ac &&
+
+autoreconf -fi
