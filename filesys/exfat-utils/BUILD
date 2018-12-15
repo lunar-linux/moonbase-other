@@ -1,4 +1,4 @@
-autoreconf -i &&
+OPTS+=" --sbindir=/usr/bin"
 
 default_build &&
 
