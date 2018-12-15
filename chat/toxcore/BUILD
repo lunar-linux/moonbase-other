@@ -1,9 +1,7 @@
-autoreconf -if &&
-
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DDHT_BOOTSTRAP=on \
         -DBOOTSTRAP_DAEMON=on \
-        -DBUILD_NTOX=off" &&
+        -DBUILD_NTOX=off"
 
 default_cmake_build &&
 
