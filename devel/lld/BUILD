@@ -12,5 +12,7 @@ cmake .. -G Ninja \
       -DBUILD_SHARED_LIBS=ON \
       $OPTS
 ninja &&
+
 prepare_install &&
+
 ninja install
