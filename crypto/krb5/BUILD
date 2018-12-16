@@ -7,9 +7,9 @@ OPTS+=" --with-system-et \
         --with-system-ss \
         --disable-rpath  \
         --enable-shared  \
+        --infodir=/usr/share \
         --enable-dns-for-realm \
-        --infodir=/usr/share   \
-        --without-system-verto" &&
+        --without-system-verto"
 
 default_build &&
 
