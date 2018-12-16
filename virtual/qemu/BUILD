@@ -3,14 +3,13 @@ export ARFLAGS=rv
 
 CFLAGS+=" -fPIC"
 
-OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
+add_priv_user qemu:qemu -G kvm &&
 
 AUDIO_LIST="alsa"
-
 in_depends $MODULE pulseaudio && AUDIO_LIST+=",pa"
 in_depends $MODULE SDL && AUDIO_LIST+=",sdl"
 
-add_priv_user qemu:qemu -G kvm &&
+OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
 
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
