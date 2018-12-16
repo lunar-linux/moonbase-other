@@ -21,6 +21,6 @@ CXXFLAGS=-fpermissive
 # checking for mpfprintln in -lbeecrypt... no
 # checking whether to build with BeeCrypt library... no
 # configure: error: mandatory BeeCrypt library not found
-OPTS+=" --disable-openmp"
+OPTS+=" --disable-openmp --disable-static"
 
 default_build
