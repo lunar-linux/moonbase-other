@@ -2,16 +2,14 @@ mkdir -p /var/lib/lynx &&
 
 OPTS+=" --libdir=/var/lib/lynx \
         --enable-widec         \
-        --enable-externs       \
         --enable-cgi-links     \
-        --enable-nsl-fork      \
+        --enable-nsl           \
         --enable-read-eta      \
         --enable-scrollbar     \
         --enable-gzip-help     \
         --enable-color-style   \
-        --enable-included-msgs \
         --with-screen=ncursesw \
-        --with-zlib" &&
+        --with-zlib"
 
 default_config &&
 
