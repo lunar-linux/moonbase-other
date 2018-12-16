@@ -4,4 +4,7 @@ default_pre_build &&
 sedit 's;^HIGHLEVEL_PACKAGE.*;HIGHLEVEL_PACKAGE_MANAGER=lin;;s;^LOWLEVEL_PACK.*;LOWLEVEL_PACKAGE_MANAGER="lunar";' etckeeper.conf &&
 
 # Set default user or it error out sometimes
-sedit 's;^USER=;&root;' commit.d/50vcs-commit
+sedit 's;^USER=;&root;' commit.d/50vcs-commit &&
+
+# install it in /usr
+sedit "s:=/lib:=/usr/lib:" Makefile
