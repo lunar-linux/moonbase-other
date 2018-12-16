@@ -1,5 +1,8 @@
 default_pre_build &&
 
-sed -i -e '/AM_CFLAGS/s:-Werror::g' src/Makefile.{am,in} &&
+sedit 's/-number/-number-sections/' doc/Makefile.in &&
 
-autoreconf -fi
+# -Os inlines is_reserved{,_cc} incorrectly with gcc
+# that breaks the build... use current gperf instead
+rm src/gperf.c src/gperf-cc.c &&
+sedit '204 s/unsigned int/size_t/; 218 s/unsigned int/size_t/' src/lexi.c

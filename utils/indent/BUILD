@@ -1,4 +1,4 @@
-OPTS+=" --docdir=/usr/share/doc" &&
+OPTS+=" --docdir=/usr/share/doc"
 
 default_config &&
 make &&
