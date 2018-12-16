@@ -1,5 +1,4 @@
-OPTS+=" --buildtype=release \
-        -D enable_docs=false"
+OPTS+=" -D enable_docs=false"
 
 default_meson_build &&
 
