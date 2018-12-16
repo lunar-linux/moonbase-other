@@ -1,4 +1,11 @@
 optional_depends icu4c "" "" "for unicode support"
 
-optional_depends python2   "--with-python" "--without-python" "for Python support"
-optional_depends %JAVA_SDK "--with-java"   "--without-java"   "for Java support"
+optional_depends python2 \
+                 "--with-python=python2" \
+                 "--without-python" \
+                 "for Python 2.x support"
+
+optional_depends %JAVA_SDK \
+                 "--with-java" \
+                 "--without-java" \
+                 "for Java support"
