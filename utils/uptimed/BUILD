@@ -1,5 +1,3 @@
-./autogen.sh &&
-
 default_build &&
 
 # remove the static lib
