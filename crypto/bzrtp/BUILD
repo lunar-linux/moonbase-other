@@ -1,3 +1,3 @@
-./autogen.sh &&
-OPTS+=" --disable-strict" &&
+OPTS+=" --disable-strict"
+
 default_build

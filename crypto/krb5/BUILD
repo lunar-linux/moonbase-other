@@ -1,15 +1,15 @@
 cd src &&
 
-export CFLAGS+=" -fPIC -fno-strict-aliasing -fstack-protector-all" &&
-export CPPFLAGS+=" -I/usr/include/et" &&
+export CFLAGS+=" -fPIC -fno-strict-aliasing -fstack-protector-all"
+export CPPFLAGS+=" -I/usr/include/et"
 
 OPTS+=" --with-system-et \
         --with-system-ss \
         --disable-rpath  \
         --enable-shared  \
+        --infodir=/usr/share \
         --enable-dns-for-realm \
-        --infodir=/usr/share   \
-        --without-system-verto" &&
+        --without-system-verto"
 
 default_build &&
 

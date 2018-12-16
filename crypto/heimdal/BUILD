@@ -21,7 +21,7 @@ OPTS+=" --prefix=/usr \
         --with-readline=/usr \
         --with-openssl=/usr \
         --with-sqlite3=/usr \
-        --enable-pthread-support" &&
+        --enable-pthread-support"
 
 mkdir -p $SOURCE_DIRECTORY/__heimdest/ &&
 
