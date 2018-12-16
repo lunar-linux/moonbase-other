@@ -1,11 +1,6 @@
-aclocal     &&
-autoheader  &&
-automake -a &&
-autoconf    &&
-
 OPTS+=" --exec-prefix=/usr \
-        --enable-anacron   \
-        --with-inotify"   &&
+        --enable-anacron \
+        --with-inotify"
 
 default_build &&
 
@@ -19,9 +14,9 @@ install -Dm644 contrib/anacrontab /etc/anacrontab &&
 install -Dm644 contrib/0hourly /etc/cron.d/0hourly &&
 install -Dm755 contrib/0anacron /etc/cron.hourly/0anacron &&
 
-[ -d /var/spool/cron ] || install -d -m 0700 /var/spool/cron
+[ -d /var/spool/cron ] || install -d -m 0701 /var/spool/cron &&
 
 if module_installed openrc; then
-  rm -fR /etc/rc.0
-  rm -f  /etc/init.d/crond
+   install -m645 $SCRIPT_DIRECTORY/cronie /etc/init.d/cronie &&
+   rm -f /etc/init.d/crond
 fi

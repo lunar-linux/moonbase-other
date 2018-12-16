@@ -9,4 +9,9 @@ fi &&
 
 default_pre_build &&
 
-sedit '/^dist_pam_DATA/d' Makefile.am
+sedit '/^dist_pam_DATA/d' Makefile.am &&
+
+aclocal     &&
+autoheader  &&
+automake -a &&
+autoconf
