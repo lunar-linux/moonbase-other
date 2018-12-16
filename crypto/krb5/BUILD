@@ -1,7 +1,7 @@
 cd src &&
 
-export CFLAGS+=" -fPIC -fno-strict-aliasing -fstack-protector-all" &&
-export CPPFLAGS+=" -I/usr/include/et" &&
+export CFLAGS+=" -fPIC -fno-strict-aliasing -fstack-protector-all"
+export CPPFLAGS+=" -I/usr/include/et"
 
 OPTS+=" --with-system-et \
         --with-system-ss \
