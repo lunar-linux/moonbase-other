@@ -2,10 +2,9 @@
 Description=Apply CPU microcode
 
 [Service]
-ExecStart=/usr/sbin/microcode_ctl -qu -f /lib/firmware/microcode.dat
+ExecStart=echo 1 > /sys/devices/system/cpu/microcode/reload
 Type=oneshot
 RemainAfterExit=yes
 
 [Install]
 WantedBy=default.target
-
