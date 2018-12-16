@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sedit "s:cp -a:cp -aL:" src/arch/linux/Makefile.main
+sed -ie '/yyget_leng/ s/int/size_t/' src/base/init/lexer.h
+sed -ie 's/((no_instrument_function/&,optimize("no-stack-protector")/' \
+          src/arch/linux/async/sigsegv.c src/arch/linux/async/signal.c

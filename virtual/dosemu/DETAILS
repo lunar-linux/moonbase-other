@@ -1,18 +1,19 @@
           MODULE=dosemu
          VERSION=1.4.0
           SOURCE=$MODULE-$VERSION.tgz
-         SOURCE2=$MODULE-freedos-b9r5-bin.tgz
+         SOURCE2=$MODULE-freedos-1.2-bin.tgz
       SOURCE_URL=$SFORGE_URL/$MODULE
-      SOURCE_VFY=sha1:202311b6bd54708fb10a59f87599488cbfafd55b
-     SOURCE2_URL=$SFORGE_URL/$MODULE
-     SOURCE2_VFY=md5:34c0015398f35b30d4d8e484ced3be17
+      SOURCE_VFY=sha256:fc92f77186498e9fd13882748a764df863f118d4cfaffab39cea564178e53f50
+     SOURCE2_URL=https://chungy.keybase.pub/dosemu/
+     SOURCE2_VFY=sha256:ee830804e658bb04235eb26eb44f2a5011d6497102cdb465e082ed9758ed9e91
         WEB_SITE=http://dosemu.org
          ENTERED=20040421
-         UPDATED=20070510
+         UPDATED=20180326
            SHORT="A DOS emulator"
+
 cat << EOF
-DOSEMU stands for DOS Emulation, and allows you to run DOS and many
-DOS programs, inlcuding many DPMI applications such as DOOM and
-Windows 3.1, under Linux.
-NOTE: this module also builds the GUI xdosemu
+DOSEMU stands for DOS Emulation, and allows you to run DOS and many DOS
+programs, inlcuding many DPMI applications such as DOOM and Windows 3.1,
+under Linux.
+NOTE: this module also builds the GUI xdosemu.
 EOF
