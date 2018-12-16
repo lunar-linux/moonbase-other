@@ -6,4 +6,6 @@ OPTS+=" --enable-tmpfiles.d \
         --with-rundir=/run/sudo \
         --with-vardir=/var/db/sudo"
 
+OPTS+=" --sbindir=/usr/bin"
+
 default_build
