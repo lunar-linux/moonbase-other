@@ -2,7 +2,7 @@ add_priv_user http:http -d /var/empty -s /bin/false &&
 
 OPTS+=" --libdir=/usr/lib/lighttpd \
         --sysconfdir=/etc/lighttpd \
-        --with-sqlite" &&
+        --with-sqlite"
 
 # configure the lighttpd.conf file
 sedit "s:/srv/www:/srv/http:g" doc/config/lighttpd.conf &&
