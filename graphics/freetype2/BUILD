@@ -5,7 +5,7 @@ else
   OPTS+=" --without-harfbuzz"
 fi &&
 
-OPTS+=" --disable-static" &&
+OPTS+=" --disable-static --enable-freetype-config" &&
 
 default_build &&
 
