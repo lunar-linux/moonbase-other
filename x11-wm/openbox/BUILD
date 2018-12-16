@@ -1,4 +1,4 @@
-OPTS+=" --with-x --disable-static" &&
+OPTS+=" --with-x --disable-static"
 
 default_build &&
 

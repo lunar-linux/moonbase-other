@@ -1,0 +1,26 @@
+Description: Fix spelling-error-in-binary
+Author: Mateusz Łukasik <mati75@linuxmint.pl>
+Last-Update: 2016-11-23
+
+--- ./openbox/openbox.c
++++ ./openbox/openbox.c
+@@ -602,7 +602,7 @@ static void parse_env(void)
+         if (ob_sm_id) g_free(ob_sm_id);
+         ob_sm_id = g_strdup(id);
+         ob_debug_type(OB_DEBUG_SM,
+-                      "DESKTOP_AUTOSTART_ID %s supercedes --sm-client-id\n",
++                      "DESKTOP_AUTOSTART_ID %s supersedes --sm-client-id\n",
+                       ob_sm_id);
+     }
+ }
+--- ./openbox/session.c
++++ ./openbox/session.c
+@@ -442,7 +442,7 @@ static void sm_save_yourself(SmcConn con
+     free(vendor);
+ 
+     if (!SmcRequestSaveYourselfPhase2(conn, sm_save_yourself_2, savedata)) {
+-        ob_debug_type(OB_DEBUG_SM, "Requst for phase 2 failed");
++        ob_debug_type(OB_DEBUG_SM, "Request for phase 2 failed");
+         g_slice_free(ObSMSaveData, savedata);
+         SmcSaveYourselfDone(conn, FALSE);
+     }

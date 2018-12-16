@@ -1,0 +1,25 @@
+by Nico Golde <nion@debian.org>, slightly modified version
+from Eugenio Paolantonio <me@medesimo.eu>
+Do not build filename if a working full path is given.
+Fixes #644756.
+Index: openbox-3.5.0/obt/xml.c
+===================================================================
+--- ./obt/xml.c	2011-10-30 14:13:07.000000000 +0100
++++ ./obt/xml.c	2011-10-30 14:13:10.000000000 +0100
+@@ -144,10 +144,13 @@
+         gchar *path;
+         struct stat s;
+ 
+-        if (!domain && !filename) /* given a full path to the file */
++        if (!domain && !filename){ /* given a full path to the file */
+             path = g_strdup(it->data);
+-        else
++        } else if(filename && filename[0] == '/' && stat(filename, &s) >= 0) {
++            path = g_strdup(filename);
++        } else {
+             path = g_build_filename(it->data, domain, filename, NULL);
++        }
+ 
+         if (stat(path, &s) >= 0) {
+             /* XML_PARSE_BLANKS is needed apparently, or the tree can end up
+

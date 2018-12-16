@@ -1,0 +1,45 @@
+Description: Fix showing startup notification
+Author: Andrej N. Gritsenko <andrej@rep.kiev.ua>
+Bug-Debian: http://bugs.debian.org/719620
+
+--- ./configure.ac
++++ ./configure.ac
+@@ -135,7 +135,7 @@ AC_ARG_ENABLE(startup-notification,
+ )
+ 
+ if test "$enable_sn" = yes; then
+-PKG_CHECK_MODULES(LIBSN, [libstartup-notification-1.0 >= 0.8],
++PKG_CHECK_MODULES(LIBSN, [libstartup-notification-1.0 >= 0.8 xi],
+   [
+     AC_DEFINE(USE_LIBSN, [1], [Use startup-notification])
+     AC_SUBST(LIBSN_CFLAGS)
+--- ./openbox/screen.c
++++ ./openbox/screen.c
+@@ -40,6 +40,7 @@
+ #include "obt/prop.h"
+ 
+ #include <X11/Xlib.h>
++#include <X11/extensions/XInput2.h>
+ #ifdef HAVE_UNISTD_H
+ #  include <sys/types.h>
+ #  include <unistd.h>
+@@ -1879,12 +1879,15 @@ const Rect* screen_physical_area_primary(gboolean fixed)
+ 
+ void screen_set_root_cursor(void)
+ {
++    int pointer_id;
++    if (!XIGetClientPointer(obt_display, None, &pointer_id))
++        return;
+     if (sn_app_starting())
+-        XDefineCursor(obt_display, obt_root(ob_screen),
+-                      ob_cursor(OB_CURSOR_BUSYPOINTER));
++        XIDefineCursor(obt_display, pointer_id, obt_root(ob_screen),
++                       ob_cursor(OB_CURSOR_BUSYPOINTER));
+     else
+-        XDefineCursor(obt_display, obt_root(ob_screen),
+-                      ob_cursor(OB_CURSOR_POINTER));
++        XIDefineCursor(obt_display, pointer_id, obt_root(ob_screen),
++                       ob_cursor(OB_CURSOR_POINTER));
+ }
+ 
+ guint screen_find_monitor_point(guint x, guint y)
