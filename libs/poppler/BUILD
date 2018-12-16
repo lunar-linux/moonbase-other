@@ -1,7 +1,7 @@
-OPTS+=" -D BUILD_SHARED_LIBS=ON \
-        -D ENABLE_GTK_DOC=OFF \
-        -D BUILD_GTK_TESTS=OFF \
-        -D ENABLE_XPDF_HEADERS=ON"
+OPTS+=" -DBUILD_SHARED_LIBS=ON \
+        -DENABLE_GTK_DOC=OFF \
+        -DBUILD_GTK_TESTS=OFF \
+        -DENABLE_XPDF_HEADERS=ON"
 
 # If in depends we will now build qt5 libs
 if in_depends $MODULE qt5; then
