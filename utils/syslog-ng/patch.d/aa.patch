@@ -1,0 +1,22 @@
+--- ./cmake/openssl_functions.cmake.old	2018-06-18 18:06:54.000000000 +0300
++++ ./cmake/openssl_functions.cmake	2018-11-05 09:05:03.929641756 +0200
+@@ -30,8 +30,7 @@
+     openssl/evp.h
+     openssl/dh.h
+     openssl/ssl.h
+-    openssl/x509v3.h
+-    openssl/bn.h)
++    openssl/x509v3.h)
+ 
+   set (symbol_list
+     EVP_MD_CTX_reset
+@@ -39,8 +38,7 @@
+     SSL_CTX_get0_param
+     X509_STORE_CTX_get0_cert
+     X509_get_extension_flags
+-    DH_set0_pqg
+-    BN_get_rfc3526_prime_2048)
++    DH_set0_pqg)
+ 
+   foreach (symbol ${symbol_list})
+     string(TOUPPER ${symbol} SYMBOL_UPPERCASE)

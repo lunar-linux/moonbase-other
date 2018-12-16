@@ -2,13 +2,15 @@ OPTS+=" --prefix=/usr \
         --sysconfdir=/etc/syslog-ng \
         --localstatedir=/var/lib/syslog-ng \
         --datadir=/usr/share \
-        --with-criterion=no \
-        --with-pidfile-dir=/run \
         --disable-amqp \
         --disable-java \
+        --disable-riemann \
         --disable-spoof-source \
         --enable-ipv6 \
-        --enable-manpages"
+        --enable-manpages \
+        --with-criterion=no \
+        --with-pidfile-dir=/run \
+        --with-embedded-crypto"
 
 if module_installed systemd; then
    OPTS+="--enable-systemd --with-systemd-journal=system"
