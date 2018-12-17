@@ -23,7 +23,7 @@ PYTHONPROG=/usr/bin/python2 \
            $DEFAULTS             \
            $OPTS                &&
 
-sedit "s:install --basedir=\$\$dir:install --basedir=\$\$dir --root=/usr:" Makefile &&
+sedit "s:DESTDIR         =:DESTDIR         = /:" Makefile &&
 
 default_make &&
 
