@@ -1,8 +1,7 @@
-(
+default_python2_build &&
 
-  cd src &&
-  python setup.py build &&
-  prepare_install &&
-  python setup.py install
+install -D -m644 README /usr/share/conkyforecast/ &&
 
-) > $C_FIFO 2>&1
+# Make sure we call python2 to run conkyforecast
+sedit 's|/usr/bin/python|/usr/bin/python2|' /usr/share/conkyforecast/conkyForecast.py &&
+sedit 's|/usr/bin/python|/usr/bin/python2|' /usr/bin/conkyForecast
