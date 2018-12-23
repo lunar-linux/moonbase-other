@@ -7,4 +7,9 @@ fi &&
 default_pre_build &&
 
 # Fix path for test suite
-sedit "s;/bin/hostname;/usr&;g" src/os/os_test.go
+sedit "s;/bin/hostname;/usr&;g" src/os/os_test.go &&
+
+# Build a PIE enabled version?
+if [[ "$GO_PIE" = "y" ]]; then
+   patch_it $SOURCE2 0
+fi

@@ -17,7 +17,7 @@ case "$(arch)" in
 esac &&
 
 cd src &&
-bash make.bash --no-clean &&
+bash make.bash --no-clean -v &&
 
 $GOROOT/bin/go get -d golang.org/x/tools/cmd/godoc &&
 $GOROOT/bin/go build -o $SOURCE_DIRECTORY/godoc golang.org/x/tools/cmd/godoc &&
