@@ -1,5 +1,9 @@
 depends userspace-rcu
 
+optional_depends fuse \
+                 "--enable-fusermount" \
+                 "--disable-fusermount" \
+                 "FUSE Asyncronus I/O support"
+
 optional_depends rpcbind "" "" "NFS server support"
-optional_depends fuse "--enable-fusermount" "--disable-fusermount" "Asyncronus I/O support"
-optional_depends libaio "" "" "Asyncronus I/O support"
+optional_depends libaio  "" "" "Asyncronus I/O support"
