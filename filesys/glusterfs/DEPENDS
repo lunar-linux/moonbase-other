@@ -1,9 +1,14 @@
+depends attr
 depends userspace-rcu
+depends libxml2
+depends bison
+depends flex
+depends python2
+
+optional_depends rpcbind "" "" "NFS server support"
+optional_depends libaio  "" "" "Asyncronus I/O support"
 
 optional_depends fuse \
                  "--enable-fusermount" \
                  "--disable-fusermount" \
-                 "FUSE Asyncronus I/O support"
-
-optional_depends rpcbind "" "" "NFS server support"
-optional_depends libaio  "" "" "Asyncronus I/O support"
+                 "use the system fusermount"
