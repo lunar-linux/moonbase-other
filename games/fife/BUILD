@@ -1,7 +1,3 @@
-OPTS+=" --prefix=/usr "
+export PYTHON=python2
 
-scons $OPTS fife-python &&
-
-prepare_install &&
-
-scons $OPTS install-python
+default_cmake_build
