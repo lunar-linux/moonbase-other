@@ -5,8 +5,5 @@ cd lib-src/enet &&
 sedit 's/lib_LIBRARIES/noinst_LIBRARIES/' Makefile.am &&
 sedit 's/.*_HEADERS =/noinst_HEADERS =/' include/enet/Makefile.am &&
 
-mv configure.in configure.ac &&
 touch AUTHORS NEWS ChangeLog COPYING &&
-rm missing &&
-autoreconf -i &&
-cd ../..
+rm missing
