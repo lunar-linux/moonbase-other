@@ -1,4 +1,4 @@
-sh sys/unix/setup.sh &&
+sh sys/unix/setup.sh sys/unix/hints/linux &&
 
 default_make &&
 
