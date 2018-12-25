@@ -1,16 +1,11 @@
-#libvorbis moved the important function
-sedit 's:vorbis:vorbisfile:' configure.ac &&
-sedit 's:HAVE_LIBVORBIS:HAVE_LIBVORBISFILE:' src/sound.c &&
-autoreconf . &&
-
 default_game_build &&
 
-bmptopnm graphics/paraicon.bmp > paraicon.pnm  &&
-pnmtopng paraicon.pnm > $MODULE.png  &&
+bmptopnm graphics/paraicon.bmp > paraicon.pnm &&
+pnmtopng paraicon.pnm > $MODULE.png &&
 install -D -m644 $MODULE.png /usr/share/pixmaps/$MODULE.png &&
 
 # Desktop menu entry
-cat > $MODULE.desktop << EOF  &&
+cat > $MODULE.desktop << EOF &&
 [Desktop Entry]
 Type=Application
 Name=Freedroid

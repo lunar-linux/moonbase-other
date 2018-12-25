@@ -1,0 +1,6 @@
+default_pre_build &&
+
+#libvorbis moved the important function
+sedit 's:vorbis:vorbisfile:' configure.ac &&
+sedit 's:HAVE_LIBVORBIS:HAVE_LIBVORBISFILE:' src/sound.c &&
+autoreconf -fi .
