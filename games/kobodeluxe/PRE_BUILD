@@ -1,0 +1,5 @@
+default_pre_build &&
+
+# avoid collision with glibc symbols
+sedit 's/pipe1/pipeone/g' enemies.h enemy.cpp &&
+sedit 's/pipe2/pipetwo/g' enemies.h enemy.cpp
