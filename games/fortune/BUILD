@@ -1,6 +1,11 @@
-make $OFF all &&
-prepare_install &&
-make $OFF install &&
+OPTS=" -DCMAKE_INSTALL_PREFIX=/usr \
+       -DNO_OFFENSIVE=OFF \
+       -DLOCALDIR=/usr/share/games/fortunes/ \
+       -DLOCALODIR=/usr/share/games/fortunes/off/ \
+       -DCOOKIEDIR=/usr/share/games/fortunes/ \
+       -DOCOOKIEDIR=/usr/share/games/fortunes/off/"
+
+default_cmake_build &&
 
 # Remove the .u8 simlinks from the main cookie directory
 # and the offensive directory (if it exists)
