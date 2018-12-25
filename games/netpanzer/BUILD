@@ -10,12 +10,10 @@ cp -rv cache maps pics powerups scripts sound units wads /usr/share/games/netpan
 chmod -R o+r /usr/share/games/netpanzer/ &&
 find /usr/share/games/netpanzer/ -type d -exec chmod o+x {} \; &&
 
-install -Dm0644 netpanzer.xpm /usr/share/icons/hicolor/32x32/apps/ &&
 install -Dm0644 netpanzer.png /usr/share/icons/hicolor/48x48/apps/ &&
+install -Dm0644 support/icon/netpanzer.xpm /usr/share/pixmaps/ &&
+install -Dm0644 netpanzer.png /usr/share/pixmaps/ &&
 
-install -Dm644 support/win32/netpanzer.desktop /usr/share/applications/ &&
-install -Dm644 netpanzer.png /usr/share/pixmaps/ &&
-
-install -Dm0644 docs/netpanzer.6 /usr/man/man6/ &&
+install -Dm0644 support/win32/netpanzer.desktop /usr/share/applications/ &&
 
 unzip $SOURCE_CACHE/$SOURCE2 -d /usr/share/games/netpanzer/
