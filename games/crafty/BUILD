@@ -1,7 +1,7 @@
-make target=UNIX CFLAGS="$CFLAGS"                     \
-     CXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS -lstdc++"  \
-     opt=' -DCOMPACT_ATTACKS -DUSE_ATTACK_FUNCTIONS   \
-     -DUSE_ASSEMBLY_A -DUSE_ASSEMBLY_B -DFAST'        \
+make target=UNIX CFLAGS="$CFLAGS"                    \
+     CXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS -lstdc++" \
+     opt=' -DCOMPACT_ATTACKS -DUSE_ATTACK_FUNCTIONS  \
+     -DUSE_ASSEMBLY_A -DUSE_ASSEMBLY_B -DFAST'       \
      asm=X86-elf.o crafty-make &&
 
 prepare_install &&
