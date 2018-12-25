@@ -1,3 +1,3 @@
-prepare_install &&
-python2 setup.py install &&
+default_python3_build &&
+
 chmod 0644 /etc/ufw/*.rules
