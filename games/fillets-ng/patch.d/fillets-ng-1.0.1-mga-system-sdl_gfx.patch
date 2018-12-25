@@ -1,0 +1,94 @@
+diff -aur fillets-ng-1.0.1/configure.in fillets-ng-1.0.1~patched/configure.in
+--- fillets-ng-1.0.1/configure.in	2011-09-08 20:10:22.000000000 +0200
++++ fillets-ng-1.0.1~patched/configure.in	2014-12-27 16:30:03.013197922 +0100
+@@ -94,6 +94,12 @@
+              [AC_MSG_ERROR([*** SDL_ttf-devel library not found!])],
+              $SDL_CFLAGS $SDL_LIBS
+ )
++# SDL_gfx
++AC_CHECK_LIB([SDL_gfx], [pixelColor],
++             SDL_LIBS="-lSDL_gfx $SDL_LIBS",
++             [AC_MSG_ERROR([*** SDL_gfx-devel library not found!])],
++             $SDL_CFLAGS $SDL_LIBS
++)
+ 
+ ###################################################
+ # Test X11
+@@ -197,7 +203,6 @@
+ AC_OUTPUT([
+            Makefile
+            src/Makefile
+-           src/SDL_gfx/Makefile
+            src/gengine/Makefile
+            src/effect/Makefile
+            src/widget/Makefile
+diff -aur fillets-ng-1.0.1/src/game/Makefile.am fillets-ng-1.0.1~patched/src/game/Makefile.am
+--- fillets-ng-1.0.1/src/game/Makefile.am	2006-09-20 22:52:11.000000000 +0200
++++ fillets-ng-1.0.1~patched/src/game/Makefile.am	2014-12-27 16:30:03.015197827 +0100
+@@ -1,7 +1,4 @@
+-SDL_GFX_CFLAGS = -I@top_srcdir@/src/SDL_gfx
+-SDL_GFX_LIBS = ../SDL_gfx/libSDL_gfx.a
+-
+-INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect -I@top_srcdir@/src/widget -I@top_srcdir@/src/plan -I@top_srcdir@/src/option -I@top_srcdir@/src/state -I@top_srcdir@/src/level -I@top_srcdir@/src/menu $(SDL_GFX_CFLAGS) $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
++INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect -I@top_srcdir@/src/widget -I@top_srcdir@/src/plan -I@top_srcdir@/src/option -I@top_srcdir@/src/state -I@top_srcdir@/src/level -I@top_srcdir@/src/menu $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
+ 
+ bin_PROGRAMS = fillets
+ 
+@@ -18,4 +15,4 @@
+ endif
+ 
+ 
+-fillets_LDADD = $(ICON_LIBS) ../menu/libmenu.a ../level/liblevel.a ../state/libstate.a ../option/liboption.a ../plan/libplan.a ../widget/libwidget.a ../effect/libeffect.a ../gengine/libgengine.a $(SDL_GFX_LIBS) $(SDL_LIBS) $(LUA_LIBS) $(BOOST_LIBS) $(FRIBIDI_LIBS) $(X_LIBS)
++fillets_LDADD = $(ICON_LIBS) ../menu/libmenu.a ../level/liblevel.a ../state/libstate.a ../option/liboption.a ../plan/libplan.a ../widget/libwidget.a ../effect/libeffect.a ../gengine/libgengine.a $(SDL_LIBS) $(LUA_LIBS) $(BOOST_LIBS) $(FRIBIDI_LIBS) $(X_LIBS)
+diff -aur fillets-ng-1.0.1/src/level/Makefile.am fillets-ng-1.0.1~patched/src/level/Makefile.am
+--- fillets-ng-1.0.1/src/level/Makefile.am	2008-12-25 15:58:54.000000000 +0100
++++ fillets-ng-1.0.1~patched/src/level/Makefile.am	2014-12-27 16:30:03.014197875 +0100
+@@ -1,6 +1,4 @@
+-SDL_GFX_CFLAGS = -I@top_srcdir@/src/SDL_gfx
+-
+-INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect -I@top_srcdir@/src/widget -I@top_srcdir@/src/plan -I@top_srcdir@/src/option -I@top_srcdir@/src/state $(SDL_GFX_CFLAGS) $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
++INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect -I@top_srcdir@/src/widget -I@top_srcdir@/src/plan -I@top_srcdir@/src/option -I@top_srcdir@/src/state $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
+ 
+ noinst_LIBRARIES = liblevel.a
+ 
+diff -aur fillets-ng-1.0.1/src/Makefile.am fillets-ng-1.0.1~patched/src/Makefile.am
+--- fillets-ng-1.0.1/src/Makefile.am	2004-08-11 22:24:06.000000000 +0200
++++ fillets-ng-1.0.1~patched/src/Makefile.am	2014-12-27 16:30:03.013197922 +0100
+@@ -1,3 +1,3 @@
+ 
+-SUBDIRS = SDL_gfx gengine effect widget plan option state level menu game
++SUBDIRS = gengine effect widget plan option state level menu game
+ 
+diff -aur fillets-ng-1.0.1/src/menu/Makefile.am fillets-ng-1.0.1~patched/src/menu/Makefile.am
+--- fillets-ng-1.0.1/src/menu/Makefile.am	2005-09-28 22:21:46.000000000 +0200
++++ fillets-ng-1.0.1~patched/src/menu/Makefile.am	2014-12-27 16:30:03.018197685 +0100
+@@ -1,6 +1,4 @@
+-SDL_GFX_CFLAGS = -I@top_srcdir@/src/SDL_gfx
+-
+-INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect -I@top_srcdir@/src/widget -I@top_srcdir@/src/plan -I@top_srcdir@/src/option -I@top_srcdir@/src/state -I@top_srcdir@/src/level $(SDL_GFX_CFLAGS) $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
++INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect -I@top_srcdir@/src/widget -I@top_srcdir@/src/plan -I@top_srcdir@/src/option -I@top_srcdir@/src/state -I@top_srcdir@/src/level $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
+ 
+ noinst_LIBRARIES = libmenu.a
+ 
+diff -aur fillets-ng-1.0.1/src/option/Makefile.am fillets-ng-1.0.1~patched/src/option/Makefile.am
+--- fillets-ng-1.0.1/src/option/Makefile.am	2005-09-28 22:21:46.000000000 +0200
++++ fillets-ng-1.0.1~patched/src/option/Makefile.am	2014-12-27 16:30:03.018197685 +0100
+@@ -1,6 +1,4 @@
+-SDL_GFX_CFLAGS = -I@top_srcdir@/src/SDL_gfx
+-
+-INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect -I@top_srcdir@/src/widget -I@top_srcdir@/src/plan $(SDL_GFX_CFLAGS) $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
++INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect -I@top_srcdir@/src/widget -I@top_srcdir@/src/plan $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
+ 
+ noinst_LIBRARIES = liboption.a
+ 
+diff -aur fillets-ng-1.0.1/src/widget/Makefile.am fillets-ng-1.0.1~patched/src/widget/Makefile.am
+--- fillets-ng-1.0.1/src/widget/Makefile.am	2005-09-28 22:21:46.000000000 +0200
++++ fillets-ng-1.0.1~patched/src/widget/Makefile.am	2014-12-27 16:30:03.018197685 +0100
+@@ -1,6 +1,4 @@
+-SDL_GFX_CFLAGS = -I@top_srcdir@/src/SDL_gfx
+-
+-INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect $(SDL_GFX_CFLAGS) $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
++INCLUDES = -I@top_srcdir@/src/gengine -I@top_srcdir@/src/effect $(SDL_CFLAGS) $(LUA_CFLAGS) $(BOOST_CFLAGS) $(FRIBIDI_CFLAGS)
+ 
+ noinst_LIBRARIES = libwidget.a
+ 
