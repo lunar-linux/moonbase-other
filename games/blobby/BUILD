@@ -1,6 +1,3 @@
-#needed with RC1
-sedit "s:#pragma once:#pragma once\n#include <cassert>:" src/CrossCorrelation.h &&
-
 default_cmake_build &&
 
 # Desktop menu entry
