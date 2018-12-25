@@ -1,12 +1,10 @@
-(
+make target=UNIX CFLAGS="$CFLAGS"                     \
+     CXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS -lstdc++"  \
+     opt=' -DCOMPACT_ATTACKS -DUSE_ATTACK_FUNCTIONS   \
+     -DUSE_ASSEMBLY_A -DUSE_ASSEMBLY_B -DFAST'        \
+     asm=X86-elf.o crafty-make &&
 
-  make target=UNIX CFLAGS="$CFLAGS"                     \
-       CXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS -lstdc++"  \
-       opt=' -DCOMPACT_ATTACKS -DUSE_ATTACK_FUNCTIONS   \
-       -DUSE_ASSEMBLY_A -DUSE_ASSEMBLY_B -DFAST'        \
-       asm=X86-elf.o crafty-make                       &&
-  prepare_install                                      &&
-  install -m755 crafty /usr/games                      &&
-  install -m755 $SCRIPT_DIRECTORY/craftyx /usr/games   
+prepare_install &&
 
-) > $C_FIFO 2>&1
+install -m755 crafty /usr/games &&
+install -m755 $SCRIPT_DIRECTORY/craftyx /usr/games

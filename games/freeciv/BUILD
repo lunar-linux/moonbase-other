@@ -1,5 +1,3 @@
-OPTS+=" --enable-shared --enable-aimodules --disable-static" &&
-
-autoreconf -vi &&
+OPTS+=" --enable-shared --enable-aimodules --disable-static"
 
 default_game_build

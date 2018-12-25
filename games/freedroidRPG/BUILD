@@ -1,4 +1,4 @@
-OPTS+=" --with-embedded-lua" &&
+OPTS+=" --with-embedded-lua"
 
 default_game_build &&
 

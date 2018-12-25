@@ -1,11 +1,11 @@
-validate_source_dir $SOURCE_DIRECTORY   &&
-mk_source_dir       $SOURCE_DIRECTORY   &&
-unpack              $SOURCE             &&
-unpack              $SOURCE2            &&
+validate_source_dir $SOURCE_DIRECTORY &&
+mk_source_dir       $SOURCE_DIRECTORY &&
+unpack              $SOURCE  &&
+unpack              $SOURCE2 &&
 
 cd $SOURCE_DIRECTORY &&
 
-# first patch for lua 5.2 
+# first patch for lua 5.2
 # https://lists.fedoraproject.org/pipermail/scm-commits/Week-of-Mon-20130513/1020417.html
 patch_it $SOURCE3 1 &&
 

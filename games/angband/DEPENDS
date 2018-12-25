@@ -1,14 +1,14 @@
-depends "autoconf"
-depends "docutils"
+depends autoconf
+depends docutils
 
-optional_depends "ncurses" "--enable-curses" "--disable-curses" "for curses frontend"
-optional_depends "libX11"  "--enable-x11"    "--disable-x11"    "for simple X frontend"
-optional_depends "SDL"     "--enable-sdl"    "--disable-sdl"    "for SDL frontend"
+optional_depends ncurses "--enable-curses" "--disable-curses" "for curses frontend"
+optional_depends libX11  "--enable-x11"    "--disable-x11"    "for simple X frontend"
+optional_depends SDL     "--enable-sdl"    "--disable-sdl"    "for SDL frontend"
 
 if in_depends "$MODULE" "SDL"; then
-   depends "SDL_image"
-   depends "SDL_ttf"
-   optional_depends "SDL_mixer" \
+   depends SDL_image
+   depends SDL_ttf
+   optional_depends SDL_mixer \
                     "--enable-sdl-mixer" \
                     "--disable-sdl-mixer" \
                     "for SDL mixer support"
