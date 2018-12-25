@@ -1,6 +1,9 @@
+cd ./"Alien Arena" &&
+chmod u+x ./configure &&
+
 default_game_build &&
 
-if in_depends $MODULE mesa-lib ; then
+if in_depends $MODULE mesa-lib; then
    # Desktop icon
    install -Dm 644 {,/usr/share/pixmaps/}$MODULE.png &&
 
