@@ -1,8 +1,8 @@
 OPTS+=" --with-setgid=games \
-        --sysconfdir=/etc   \
-        --docdir=/usr/doc/$MODULE  \
+        --sysconfdir=/etc \
         --localstatedir=/var/games \
-        --datarootdir=/usr/share/games"
+        --datarootdir=/usr/share/games \
+        --docdir=/usr/share/doc/$MODULE"
 
 default_game_build &&
 
