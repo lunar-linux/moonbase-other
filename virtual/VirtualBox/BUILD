@@ -23,7 +23,8 @@ fi &&
 # Disable hardening, so normal users can run it
 OPTS+=" --disable-hardening"
 
-OPTS+=" --disable-kmods"
+OPTS+=" --disable-kmods \
+        --disable-docs"
 
 ./configure $OPTS &&
 source ./env.sh &&
@@ -56,6 +57,9 @@ for i in VBoxHeadless VBoxManage VBoxSDL VirtualBox vboxwebsrv VBoxBalloonCtrl; 
   ln -sf VBox /usr/bin/$i
   ln -sf VBox /usr/bin/${i,,}
 done &&
+
+# useless scripts
+install -m0755 VBoxCreateUSBNode.sh VBoxSysInfo.sh -t /usr/share/virtualbox/ &&
 
 # Install the config file to let VirtualBox know it is installed
 echo "INSTALL_DIR=$MODULE_PREFIX" > vbox.cfg &&
