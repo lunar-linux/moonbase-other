@@ -8,15 +8,15 @@
 NEWMSG="A new config file (mouse.new) has been installed in /etc/config.d. SA please check for new options." &&
 BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA please configure!" &&
 
-./autogen.sh  &&
-
 # To fix bug report http://bugs.lunar-linux.org/view.php?id=442
 if [ `arch` == "x86_64" ]; then
    CFLAGS="-fPIC"
 fi
 
-OPTS+=" --build=$BUILD" &&
-LDFLAGS="-lm" &&
+OPTS+=" --build=$BUILD \
+        --disable-static"
+
+LDFLAGS="-lm"
 
 default_build &&
 
@@ -36,8 +36,8 @@ fi &&
 
 chmod 0644 /etc/config.d/mouse &&
 
-cp $SCRIPT_DIRECTORY/lmouse /usr/sbin/lmouse &&
-chmod +x /usr/sbin/lmouse &&
+cp $SCRIPT_DIRECTORY/lmouse /usr/bin/lmouse &&
+chmod +x /usr/bin/lmouse &&
 
 if [ -e /etc/rcS.d/???rpm ]; then
    rm -f /etc/rcS.d/???rpm
@@ -47,4 +47,11 @@ if ! [ -d "/var/lock/subsys" ]; then
    mkdir -p /var/lock/subsys
 fi &&
 
-install -D -m644 $SCRIPT_DIRECTORY/systemd.d/gpm.service /usr/lib/systemd/system/gpm.service
+if module_installed systemd; then
+   install -D -m644 $SCRIPT_DIRECTORY/systemd.d/gpm.service /usr/lib/systemd/system/gpm.service
+fi &&
+
+# library fixes
+cd /usr/lib/ &&
+ln -sf libgpm.so.2.* libgpm.so &&
+chmod 0755 /usr/lib/libgpm.so.*
