@@ -12,8 +12,8 @@ BASEMSG="A mouse configuration file has been installed in /etc/config.d. SA plea
 
 # To fix bug report http://bugs.lunar-linux.org/view.php?id=442
 if [ `arch` == "x86_64" ]; then
-  CFLAGS="-fPIC"
-fi &&
+   CFLAGS="-fPIC"
+fi
 
 OPTS+=" --build=$BUILD" &&
 LDFLAGS="-lm" &&
@@ -21,17 +21,17 @@ LDFLAGS="-lm" &&
 default_build &&
 
 if [ -d "/etc/config.d" ]; then
-  if [ -e /etc/config.d/mouse ]; then
-     cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse.new
-     echo $NEWMSG
+   if [ -e /etc/config.d/mouse ]; then
+      cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse.new
+      echo $NEWMSG
    else
-     cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse
-     echo $BASEMSG
-  fi
+      cp $SCRIPT_DIRECTORY/mouse /etc/config.d/mouse
+      echo $BASEMSG
+   fi
 else
-  mkdir -p /etc/config.d
-  cp $SCRIPT_DIRECTORY/mouse /etc/config.d
-  echo $BASEMSG
+   mkdir -p /etc/config.d
+   cp $SCRIPT_DIRECTORY/mouse /etc/config.d
+   echo $BASEMSG
 fi &&
 
 chmod 0644 /etc/config.d/mouse &&
