@@ -58,9 +58,6 @@ for i in VBoxHeadless VBoxManage VBoxSDL VirtualBox vboxwebsrv VBoxBalloonCtrl; 
   ln -sf VBox /usr/bin/${i,,}
 done &&
 
-# useless scripts
-install -m0755 VBoxCreateUSBNode.sh VBoxSysInfo.sh -t /usr/share/virtualbox/ &&
-
 # Install the config file to let VirtualBox know it is installed
 echo "INSTALL_DIR=$MODULE_PREFIX" > vbox.cfg &&
 install -Dm 644 {,/etc/vbox/}vbox.cfg &&
