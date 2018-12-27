@@ -4,6 +4,8 @@ rm m4/lt* m4/libtool.m4 &&
 
 export CXXFLAGS+=" -std=c++11" &&
 
+sedit 's|-Werror-implicit-function-declaration||g' configure.ac &&
+
 if in_depends $MODULE lua; then
   sedit 's:<vlc_demux.h>:<vlc_demux.h>\n #define LUA_COMPAT_APIINTCASTS:' modules/lua/vlc.h &&
   export LUA_LIBS+=" `pkg-config --libs lua`" &&
@@ -33,11 +35,10 @@ fi &&
 
 sedit 's:truetype/ttf-dejavu:TTF:g' modules/visualization/projectm.cpp &&
 
-sedit 's|-Werror-implicit-function-declaration||g' configure.ac &&
 # Add a needed qt5 include
 sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp &&
 
 # libplacebo 0.6 API
-sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' -i modules/video_output/opengl/vout_helper.c
+sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' modules/video_output/opengl/vout_helper.c &&
 
 autoreconf -fi
