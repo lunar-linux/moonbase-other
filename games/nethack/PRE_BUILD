@@ -23,8 +23,7 @@ if in_depends $MODULE libXpm; then
 	 /NetHack\.tombstone/       c NetHack.tombstone: rip.xpm' win/X11/NetHack.ad
 fi &&
 
-sedit '/# *define HACKDIR "\/usr/             c #define HACKDIR  "/usr/lib/games/nethack"
-       /#define COMPRESS "\/usr\/bin\/compress"/ c #define COMPRESS "/bin/gzip"
+sedit '/#define COMPRESS "\/usr\/bin\/compress"/ c #define COMPRESS "/bin/gzip"
        /#define COMPRESS_EXTENSION.*/         c #define COMPRESS_EXTENSION ".gz"
        /#define DLB/                          c #define DLB' include/config.h &&
 
@@ -32,12 +31,13 @@ sedit '/#define LINUX/          c #define LINUX
        /#define TIMED_DELAY/    c #define TIMED_DELAY
        /#define VAR_PLAYGROUND/ c #define VAR_PLAYGROUND "/var/games/nethack"' include/unixconf.h &&
 
-sedit '/^WINTTYLIB =/  c WINTTYLIB = -lncurses' sys/unix/Makefile.src &&
-
 sedit '/GAMEGRP *= bin/   c GAMEGRP = games
        /GAMEPERM = 04755/ c GAMEPERM = 02755
        /FILEPERM = 0644/  c FILEPERM = 0664
        /DIRPERM = 0755/   c DIRPERM = 0775
        /GAMEDIR *=/       c GAMEDIR = /usr/lib/games/nethack
        /VARDIR *=/        c VARDIR = /var/games/nethack
-       /^VARDATND =/      c VARDATND = x11tiles NetHack.ad pet_mark.xbm rip.xpm' sys/unix/Makefile.top
+       /^VARDATND =/      c VARDATND = x11tiles NetHack.ad pet_mark.xbm rip.xpm' sys/unix/Makefile.top &&
+
+sedit '/^PREFIX=.*/ c PREFIX=/usr
+       /^VARFILEPERM.*/ c VARFILEPERM=0660' sys/unix/hints/linux
