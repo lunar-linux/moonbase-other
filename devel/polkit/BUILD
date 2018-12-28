@@ -11,7 +11,7 @@ rm -rf /usr/bin/pkexec &&
 autoconf &&
 
 OPTS+=" --disable-static \
-        --disable-gtk-doc-html"
+        --disable-gtk-doc-html" &&
 
 default_build &&
 
