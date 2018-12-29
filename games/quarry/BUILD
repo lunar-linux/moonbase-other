@@ -1,5 +1,3 @@
-#CFLAGS+=" -std=gnu89"
-
 OPTS+=" --prefix=/usr \
         --bindir=/usr/games"
 
