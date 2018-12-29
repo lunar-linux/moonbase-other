@@ -1,4 +1,4 @@
-OPTS+=" --enable-sio1" &&
+OPTS+=" --enable-sio1"
 
 ./autogen.sh &&
 

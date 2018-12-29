@@ -1,3 +1,8 @@
-CFLAGS+=" -std=gnu89" &&
+#CFLAGS+=" -std=gnu89"
 
-default_build
+OPTS+=" --prefix=/usr \
+        --bindir=/usr/games"
+
+./configure $OPTS &&
+make html &&
+default_make

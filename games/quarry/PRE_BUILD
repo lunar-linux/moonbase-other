@@ -1,0 +1,7 @@
+default_pre_build &&
+
+sedit "s:datadir)/quarry:datadir)/games/quarry:" data/{,markup-themes/,textures/}Makefile.{am,in}
+sedit "s:datadir)/@PACKAGE@:datadir)/games/@PACKAGE@:" data/{,markup-themes/,textures/}Makefile.in
+
+sedit "s:datadir)/quarry:datadir)/games/quarry:" help/{,C/,de/}Makefile.{am,in}
+sedit "s:datadir)/@PACKAGE@:datadir)/games/@PACKAGE@:" help/{,C/,de/}Makefile.in
