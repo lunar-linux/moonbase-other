@@ -1,4 +1,6 @@
-rm -fr Source/Lib* Source/ZLib Source/OpenEXR &&
+rm -fr Source/Lib* \
+       Source/ZLib \
+       Source/OpenEXR &&
 
 default_make &&
 
