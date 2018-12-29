@@ -10,19 +10,22 @@ patch_it $SOURCE3 4 &&
 
 # Fixes from Gentoo
 patch_it $SOURCE4 1 &&
-patch_it $SOURCE6 1 &&
+patch_it $SOURCE5 1 &&
 
 # https://bugs.gentoo.org/661880#c21
-patch_it $SOURCE7 1 &&
+patch_it $SOURCE6 1 &&
 
-# https://crbug.com/879900
-patch_it $SOURCE5 1 &&
+# https://crbug.com/913220
+patch_it $SOURCE7 1 &&
 
 # https://crbug.com/893950
 sedit 's/\<xmlMalloc\>/malloc/;s/\<xmlFree\>/free/' \
       third_party/blink/renderer/core/xml/*.cc \
       third_party/blink/renderer/core/xml/parser/xml_document_parser.cc \
       third_party/libxml/chromium/libxml_utils.cc
+
+# Remove unsupported compiler flags
+sedit '/"-Wno-defaulted-function-deleted"/d' build/config/compiler/BUILD.gn &&
 
 # Make sure python2 is used
 sedit '1s;python$;&2;' third_party/dom_distiller_js/protoc_plugins/*.py build/util/version.py &&
