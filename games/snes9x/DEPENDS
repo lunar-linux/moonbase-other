@@ -1,10 +1,52 @@
-depends SDL
-depends zlib
-depends gtk+-2
-depends libglade
+depends git
+depends nasm
+depends libpng
+depends SDL2
+depends gdk-pixbuf
+depends intltool
+depends meson
 
-optional_depends "%GLX"       "--with-opengl"     "--without-opengl"     "with OpenGL support"
-optional_depends "libpng"     "--with-screenshot" "--without-screenshot" "enable screenshot support"
+optional_depends %GLX \
+                 "-D opengl=true" \
+                 "-D opengl=false" \
+                 "with OpenGL support" y
 
-optional_depends "portaudio"  "--with-portaudio"  "--without-portaudio"  "for PortAudio support"
-optional_depends "pulseaudio" "--with-pulseaudio" "--without-pulseaudio" "for PulseAudio support"
+optional_depends alsa-lib \
+                 "-D alsa=true" \
+                 "-D alsa=false" \
+                 "for ALSA audio support"
+
+optional_depends pulseaudio \
+                 "-D pulseaudio=true" \
+                 "-D pulseaudio=false" \
+                 "for PulseAudio support"
+
+optional_depends portaudio \
+                 "-D portaudio=true" \
+                 "-D portaudio=false" \
+                 "for PortAudio support"
+
+optional_depends zlib \
+                 "-D zlib=true" \
+                 "-D zlib=false" \
+                 "for gzip compression support"
+
+optional_depends minizip \
+                 "-D system-zip=true" \
+                 "-D system-zip=false" \
+                 "for minizip library support"
+
+optional_depends wayland \
+                 "-D wayland=true" \
+                 "-D wayland=false" \
+                 "for Wayland support"
+
+optional_depends gtk+-3 \
+                 "-D gtk3=true" \
+                 "-D gtk3=false" \
+                 "for GTK 3.x support" y
+
+optional_depends gtk+-2 \
+                 "-D gtk2=true" \
+                 "-D gtk2=false" \
+                 "for GTK 2.x support" n
