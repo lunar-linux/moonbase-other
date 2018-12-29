@@ -1,6 +1,4 @@
 OPTS+=" -DCEGUI_SAMPLES_ENABLED=0 \
-        -DPYTHON_EXECUTABLE=/usr/bin/python2 \
-        -DCEGUI_BUILD_PYTHON_MODULES=ON \
         -DCEGUI_BUILD_XMLPARSER_TINYXML=0"
 
 # this is ridiculous, but they load modules dynamically

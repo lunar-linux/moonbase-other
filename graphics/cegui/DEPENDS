@@ -1,8 +1,6 @@
-depends python2
-depends cmake
 depends expat
+depends cmake
 depends libxml2
-depends boost
 depends fribidi
 depends graphviz
 depends glew
@@ -14,8 +12,11 @@ depends minizip
 depends xerces-c
 depends tinyxml
 
-# in theory optional, in practice required
+# it's a hard depends (even if it's specified as optional)
 depends freetype2
+
+# it's not detected
+#depends boost
 
 optional_depends pcre \
                  "-DCEGUI_HAS_PCRE_REGEX=1" \
@@ -32,7 +33,13 @@ optional_depends FreeImage \
                  "-DCEGUI_BUILD_IMAGECODEC_FREEIMAGE=0" \
                  "for FreeImage based ImageCodecs"
 
+### broken options
 optional_depends ogre \
                  "-DCEGUI_BUILD_RENDERER_OGRE=1" \
                  "-DCEGUI_BUILD_RENDERER_OGRE=0" \
-                 "build Ogre renderer module"
+                 "build Ogre renderer module" n
+
+optional_depends python2 \
+                 "-DPYTHON_EXECUTABLE=/usr/bin/python2 -DCEGUI_BUILD_PYTHON_MODULES=ON" \
+                 "-DCEGUI_BUILD_PYTHON_MODULES=OFF" \
+                 "for Python 2.x support" n
