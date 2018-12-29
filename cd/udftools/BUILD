@@ -1,3 +1,3 @@
-OPTS+=" --sbindir=/usr/bin" &&
+OPTS+=" --mandir=/usr/share/man"
 
 default_build

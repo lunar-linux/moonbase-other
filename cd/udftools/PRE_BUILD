@@ -1,5 +1,6 @@
 default_pre_build &&
 
 sedit 's:#include <linux/fd.h>:#include <linux/fd.h>\n#include <sys/sysmacros.h>:' mkudffs/main.c &&
-sed -i 's|/lib/|$(libdir)/|' pktsetup/Makefile.am &&
+sedit 's|/lib/|$(libdir)/|' pktsetup/Makefile.am &&
+
 ./autogen.sh
