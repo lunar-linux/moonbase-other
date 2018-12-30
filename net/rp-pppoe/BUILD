@@ -1,11 +1,11 @@
 cd src
 
-./configure --build=$BUILD          \
-            --prefix=/usr           \
-            --sysconfdir=/etc       \
-            --localstatedir=/var    \
+./configure --build=$BUILD \
+            --prefix=/usr \
+            --sysconfdir=/etc \
+            --localstatedir=/var \
             --mandir=/usr/share/man \
-            $OPTS                  &&
+            $OPTS &&
 
 sedit "s/docdir=\/usr\/doc/docdir=\/usr\/share\/doc/" Makefile &&
 make         &&
