@@ -1,5 +1,7 @@
 export CFLAGS+=" -fPIC"
 
+bad_flags ",--as-needed"
+
 OPTS+=" --disable-static \
         --disable-krb4 \
         --disable-srp \
