@@ -32,11 +32,11 @@ cd $SOURCE_DIRECTORY &&
 
 mkdir -p /usr/{share/go,lib/go/{bin,src,site/src}} &&
 install -Dm0755 godoc /usr/lib/go/bin/godoc &&
-cp -r doc misc /usr/share/go/ &&
+cp -fr doc misc /usr/share/go/ &&
 ln -sf /usr/share/go/doc /usr/lib/go/ &&
-cp -a {bin,pkg}   /usr/lib/go/ &&
-cp -a $GOROOT/src /usr/lib/go/ &&
-cp -a $GOROOT/lib /usr/lib/go/ &&
+cp -fa {bin,pkg}   /usr/lib/go/ &&
+cp -fa $GOROOT/src /usr/lib/go/ &&
+cp -fa $GOROOT/lib /usr/lib/go/ &&
 
 install -Dm0644 src/Make.* /usr/lib/go/src/ &&
 
