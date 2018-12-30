@@ -361,3 +361,28 @@ index 896af4a..5448c4b 100644
  						   const char *key);
  
  
+diff --git a/src/gui-gtk/quarry-text-buffer.c b/src/gui-gtk/quarry-text-buffer.c
+--- a/src/gui-gtk/quarry-text-buffer.c
++++ b/src/gui-gtk/quarry-text-buffer.c
+@@ -983,7 +983,7 @@ 
+ }
+ 
+ 
+-inline gboolean
++gboolean
+ quarry_text_buffer_undo_entry_is_empty
+   (const QuarryTextBufferUndoEntry *undo_entry)
+ {
+diff -U3 a/src/sgf/ugf-parser.c b/src/sgf/ugf-parser.c
+--- a/src/sgf/ugf-parser.c        2011-06-05 22:25:51.000000000 +0200
++++ b/src/sgf/ugf-parser.c        2018-12-29 23:35:15.526992777 +0100
+@@ -85,7 +85,7 @@
+ static SgfError    ugf_parse_label (SgfParsingData *data, int x, int y, const char *label_string);
+ /*static SgfError    ugf_parse_simple_text (SgfParsingData *data); */
+
+-inline SgfType     get_sgf_property(const char *name);
++SgfType     get_sgf_property(const char *name);
+
+
+ const SgfParserParameters ugf_parser_defaults = {
+

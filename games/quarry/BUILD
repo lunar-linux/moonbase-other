@@ -1,5 +1,6 @@
 OPTS+=" --prefix=/usr \
-        --bindir=/usr/games"
+        --disable-scrollkeeper-update \
+        --disable-mime-database-update" &&
 
 ./configure $OPTS &&
 make html &&
