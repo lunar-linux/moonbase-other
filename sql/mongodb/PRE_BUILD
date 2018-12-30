@@ -1,7 +1,4 @@
 default_pre_build &&
 
-# Propagate Lunar ENV and honor CXXFLAGS, remove debugging symbols (ggdb)
-patch_it $SOURCE2 1 &&
-
-# Boost fix
-patch_it $SOURCE3 1
+# Broken tls13 support, removing to fix build
+sedit '/counts.tls13/d' src/mongo/util/net/ssl_manager_openssl.cpp

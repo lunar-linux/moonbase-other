@@ -1,14 +1,16 @@
+add_priv_user mongodb:mongodb -d /var/lib/mongodb &&
+
 OPTS+=" --use-system-boost \
         --use-system-pcre \
+        --use-system-yaml \
         --use-system-zlib \
-        --disable-warnings-as-errors" &&
-
-add_priv_user mongodb:mongodb -d /var/lib/mongodb  &&
+        --use-system-snappy\
+        --disable-warnings-as-errors"
 
 if [[ "$(arch)" =~ ^i.86$ ]]; then
   # WiredTiger must be disabled manually when building for i686
   OPTS+=" --wiredtiger=off"
-fi &&
+fi
 
 scons -j${MAKES:=1} core tools $OPTS &&
 
@@ -16,7 +18,9 @@ scons -j${MAKES:=1} core tools $OPTS &&
 # install directory is a parent of the build directory (eg installing in /usr and building in /usr/src).
 # We temporarily install into $SOURCE_DIRECTORY/__mongodb and copy it to /usr as a workaround.
 scons -j${MAKES:=1} install --prefix=$SOURCE_DIRECTORY/__mongodb --nostrip $OPTS &&
+
 prepare_install &&
+
 cp -rf --remove-destination $SOURCE_DIRECTORY/__mongodb/* /usr/ &&
 
 if [ ! -f /etc/mongodb.conf ]; then

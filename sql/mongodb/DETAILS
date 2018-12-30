@@ -1,26 +1,18 @@
           MODULE=mongodb
-         VERSION=3.4.2
+         VERSION=4.0.5
           SOURCE=$MODULE-src-r$VERSION.tar.gz
-         # DO NOT REMOVE THIS PATCH, consult Ratler if you are unsure why it's there
-         SOURCE2=mongodb-3.4.2-fix-cxxflags_ldflags_remove_ggdb.patch
-         SOURCE3=mongodb-3.2.10-boost-1.62.patch
       SOURCE_URL=http://downloads.mongodb.org/src
-     SOURCE2_URL=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-src-r$VERSION
-      SOURCE_VFY=sha256:29b60f6c5331fd2ff5242171a65c03e3b47c1ff957fa317bfaa2ddccd8d51b59
-     SOURCE2_VFY=sha256:24af3770404e0a8d591c7835bddd6e9dae2ac80d6aa836db40d594941b07c395
-     SOURCE3_VFY=sha256:bf373d1514b7947dc4747e11babf87a4bd8e7d581781c6771a844e69c1c4d273
+      SOURCE_VFY=sha256:d967098fc91d105cdb0f400c8b837e5c2795c3638d7720392bc47afb1efe1c10
         WEB_SITE=http://www.mongodb.org/
          ENTERED=20101205
-         UPDATED=20170219
-           SHORT="A scalable, high-performance, key-value store, document-oriented database"
+         UPDATED=20181230
+           SHORT="A scalable, high-performance, key-values, document-oriented database"
 
 cat << EOF
 MongoDB bridges the gap between key-value stores (which are fast and
 highly scalable) and traditional RDBMS systems (which provide rich
 queries and deep functionality).
-
 MongoDB (from "humongous") is a scalable, high-performance, open
 source, document-oriented database. Written in C++, MongoDB features:
 - Document-oriented storage
