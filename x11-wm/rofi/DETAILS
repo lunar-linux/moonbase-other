@@ -1,0 +1,41 @@
+          MODULE=rofi
+         VERSION=1.5.2
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=https://github.com/DaveDavenport/rofi/releases/download/$VERSION/
+      SOURCE_VFY=sha256:f2b289d693d469ed8d61fbc7b1911d0024c100ce32752e636e116f243350ca9d
+        WEB_SITE=https://github.com/DaveDavenport/rofi/
+         ENTERED=20181230
+         UPDATED=20181230
+           SHORT="A window switcher, application launcher and dmenu replacement"
+
+cat <<EOF
+Rofi, like dmenu, will provide the user with a textual list of options where
+one or more can be selected. This can either be, running an application
+selecting a window or options provided by an external script.
+Its main features are:
+  - fully configurable keyboard navigation
+  - type to filter
+    - tokenized: type any word in any order to filter
+    - (togglable) case insensitive
+    - support for fuzzy-, regex-, and glob matching
+  - UTF-8 enabled
+    - UTF-8-aware string collating
+    - international keyboard support (`e -> è)
+  - RTL language support
+  - Cairo drawing and Pango font rendering
+  - built-in modes:
+    - window switcher mode
+      - EWMH compatible WM
+    - application launcher
+    - desktop file application launcher
+    - SSH launcher mode
+    - Combi mode, allowing several modes to be merged into one list
+  - history-based ordering — last 25 choices are ordered on top based on use (optional)
+  - Levenshtein distance ordering of matches (optional)
+  - drop-in dmenu replacement
+    - many added improvements
+  - easily extensible using scripts
+  - theming
+Rofi has several built-in modes implementing common use cases and can be
+extended by scripts (either called from Rofi or calling Rofi).
+EOF
