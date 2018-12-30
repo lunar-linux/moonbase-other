@@ -1,15 +1,18 @@
-depends  %GLX
-depends  gtkglext
-depends  SDL
-depends  SDL_ttf
-depends  SDL_mixer
-depends  libvorbis
-depends  zlib
-depends  curl
-depends  libpng
-depends  %JPEG
+depends %GLX
+depends gtkglext
+depends SDL
+depends SDL_ttf
+depends SDL_mixer
+depends libvorbis
+depends zlib
+depends curl
+depends libpng
+depends %JPEG
 
-optional_depends gtksourceview2 "--enable-uforadiant" "--disable-uforadiant" "Build Map Editor"
+optional_depends gtksourceview2 \
+                 "--enable-uforadiant" \
+                 "--disable-uforadiant" \
+                 "build the Map Editor"
 
 # this is no build option, but ufoai might only show a blank screen without this
 optional_depends libtxc_dxtn "" " " "full s3tc (texture compression) support"

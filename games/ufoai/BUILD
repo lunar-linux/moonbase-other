@@ -1,12 +1,12 @@
 # configure is a bit 'special'
-./configure  --prefix=/usr                  \
-             --bindir=/usr/games            \
-             --libdir=/usr/lib              \
+./configure  --prefix=/usr \
+             --bindir=/usr/games \
+             --libdir=/usr/lib \
              --datadir=/usr/share/games/ufoai \
-             --localedir=/usr/share/games/ufoai/base/i18n  \
-             --enable-release               \
-             --disable-testall              \
-             $OPTS                         &&
+             --localedir=/usr/share/games/ufoai/base/i18n \
+             --enable-release \
+             --disable-testall \
+             $OPTS &&
 
 default_make &&
 
