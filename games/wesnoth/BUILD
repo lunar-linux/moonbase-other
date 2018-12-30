@@ -7,12 +7,12 @@ OPTS+=" -DBINDIR=games \
         -DFIFO_DIR=/var/run/wesnothd"
 
 # fribidi is pretty much obsolete
-OPTS+=" -DENABLE_FRIBIDI=OFF" &&
+OPTS+=" -DENABLE_FRIBIDI=OFF"
 
 # boost tanks the build over here
-OPTS+=" -DENABLE_BOOST_FILESYSTEM=OFF" &&
+OPTS+=" -DENABLE_BOOST_FILESYSTEM=OFF"
 
 # I hate -Werror...
-OPTS+=" -DENABLE_STRICT_COMPILATION=OFF" &&
+OPTS+=" -DENABLE_STRICT_COMPILATION=OFF"
 
 default_cmake_build
