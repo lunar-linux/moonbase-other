@@ -72,7 +72,7 @@ diff -Naur a/texk/web2c/luatexdir/lua/lepdflib.cc b/texk/web2c/luatexdir/lua/lep
 -    gs = ((in *) uin->d)->function();                          \
 +    gs = (GooString *)((in *) uin->d)->function();             \
      if (gs != NULL)                                            \
-         lua_pushlstring(L, gs->getCString(), gs->getLength()); \
+         lua_pushlstring(L, gs->c_str(), gs->getLength()); \
      else                                                       \
 @@ -1813,7 +1813,7 @@
      if (uin->pd != NULL && uin->pd->pc != uin->pc)
@@ -80,7 +80,7 @@ diff -Naur a/texk/web2c/luatexdir/lua/lepdflib.cc b/texk/web2c/luatexdir/lua/lep
      if (((Object *) uin->d)->isString()) {
 -        gs = ((Object *) uin->d)->getString();
 +        gs = (GooString *)((Object *) uin->d)->getString();
-         lua_pushlstring(L, gs->getCString(), gs->getLength());
+         lua_pushlstring(L, gs->c_str(), gs->getLength());
      } else
          lua_pushnil(L);
 diff -Naur a/texk/web2c/pdftexdir/pdftoepdf-newpoppler.cc b/texk/web2c/pdftexdir/pdftoepdf-newpoppler.cc
@@ -117,8 +117,8 @@ diff -Naur a/texk/web2c/pdftexdir/pdftoepdf-newpoppler.cc b/texk/web2c/pdftexdir
          charset = fontdesc.dictLookup("CharSet");
          if (!charset.isNull() &&
              charset.isString() && is_subsetable(fontmap))
--            epdf_mark_glyphs(fd, charset.getString()->getCString());
-+            epdf_mark_glyphs(fd, (char *)charset.getString()->getCString());
+-            epdf_mark_glyphs(fd, charset.getString()->c_str());
++            epdf_mark_glyphs(fd, (char *)charset.getString()->c_str());
          else
              embed_whole_font(fd);
          addFontDesc(fontdescRef.getRef(), fd);
@@ -137,7 +137,7 @@ diff -Naur a/texk/web2c/pdftexdir/pdftoepdf-newpoppler.cc b/texk/web2c/pdftexdir
      } else if (obj->isString()) {
 -        s = obj->getString();
 +        s = (GooString *)obj->getString();
-         p = s->getCString();
+         p = s->c_str();
          l = s->getLength();
          if (strlen(p) == (unsigned int) l) {
 @@ -589,7 +589,7 @@
@@ -156,8 +156,8 @@ diff -Naur a/texk/web2c/pdftexdir/pdftosrc-newpoppler.cc b/texk/web2c/pdftexdir/
              fprintf(stderr, "No SourceName found\n");
              exit(1);
          }
--        outname = srcName.getString()->getCString();
-+        outname = (char *)srcName.getString()->getCString();
+-        outname = srcName.getString()->c_str();
++        outname = (char *)srcName.getString()->c_str();
          // We cannot free srcName, as objname shares its string.
          // srcName.free();
      } else if (objnum > 0) {

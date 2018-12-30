@@ -1,0 +1,138 @@
+--- a/texk/web2c/pdftexdir/pdftoepdf-newpoppler.cc	2018-12-30 17:28:48.633840695 +0100
++++ b/texk/web2c/pdftexdir/pdftoepdf-newpoppler.cc	2018-12-30 17:40:23.360490624 +0100
+@@ -275,7 +275,7 @@
+ 
+ static void copyObject(Object *);
+ 
+-static void copyName(char *s)
++static void copyName(const char *s)
+ {
+     pdf_puts("/");
+     for (; *s != 0; s++) {
+@@ -310,7 +310,7 @@
+ static void copyFontDict(Object * obj, InObj * r)
+ {
+     int i, l;
+-    char *key;
++    const char *key;
+     if (!obj->isDict())
+         pdftex_fail("PDF inclusion: invalid dict type <%s>",
+                     obj->getTypeName());
+@@ -382,7 +382,7 @@
+     return false;
+ }
+ 
+-static void copyFont(char *tag, Object * fontRef)
++static void copyFont(const char *tag, Object * fontRef)
+ {
+     Object fontdict, subtype, basefont, fontdescRef, fontdesc, charset,
+         stemV;
+@@ -467,7 +467,7 @@
+     pdf_puts(">>\n");
+ }
+
+-static void copyOtherResources(Object * obj, char *key)
++static void copyOtherResources(Object * obj, const char *key)
+ {
+     // copies all other resources (write_epdf handles Fonts and ProcSets),
+ 
+@@ -554,7 +554,7 @@
+     Object obj1;
+     int i, l, c;
+     Ref ref;
+-    char *p;
++    const char *p;
+     GString *s;
+     if (obj->isBool()) {
+         pdf_printf("%s", obj->getBool()? "true" : "false");
+@@ -655,7 +655,8 @@
+ static void writeEncodings()
+ {
+     UsedEncoding *r, *n;
+-    char *glyphNames[256], *s;
++    char *glyphNames[256];
++	 const char *s;
+     int i;
+     for (r = encodingList; r != 0; r = r->next) {
+         for (i = 0; i < 256; i++) {
+@@ -665,7 +666,7 @@
+                      " (try to disable font replacement to fix this)");
+             }
+             if ((s = ((Gfx8BitFont *) r->font)->getCharName(i)) != 0)
+-                glyphNames[i] = s;
++                glyphNames[i] = (char*)s;
+             else
+                 glyphNames[i] = notdef;
+         }
+@@ -683,7 +684,7 @@
+ }
+ 
+ // get the pagebox according to the pagebox_spec
+-static PDFRectangle *get_pagebox(Page * page, int pagebox_spec)
++static const PDFRectangle *get_pagebox(Page * page, int pagebox_spec)
+ {
+     if (pagebox_spec == pdfboxspecmedia)
+         return page->getMediaBox();
+@@ -715,7 +716,7 @@
+ {
+     PdfDocument *pdf_doc;
+     Page *page;
+-    PDFRectangle *pagebox;
++    const PDFRectangle *pagebox;
+ #ifdef POPPLER_VERSION
+     int pdf_major_version_found, pdf_minor_version_found;
+ #else
+@@ -822,7 +823,7 @@
+     Object groupDict;
+     bool writeSepGroup = false;
+     Object info;
+-    char *key;
++    const char *key;
+     char s[256];
+     int i, l;
+     int rotate;
+@@ -849,7 +850,7 @@
+     pageObj = xref->fetch(pageRef->num, pageRef->gen);
+     pageDict = pageObj.getDict();
+     rotate = page->getRotate();
+-    PDFRectangle *pagebox;
++    const PDFRectangle *pagebox;
+     // write the Page header
+     pdf_puts("/Type /XObject\n");
+     pdf_puts("/Subtype /Form\n");
+@@ -978,7 +978,7 @@
+             }
+             l = dic1.getLength();
+             for (i = 0; i < l; i++) {
+-                groupDict.dictAdd(copyString(dic1.getKey(i)),
++                groupDict.dictAdd((const char*)copyString(dic1.getKey(i)),
+                                   dic1.getValNF(i));
+             }
+ // end modification
+--- a/texk/web2c/xetexdir/pdfimage.cpp	2018-12-30 17:28:48.633840695 +0100
++++ b/texk/web2c/xetexdir/pdfimage.cpp	2018-12-30 17:40:23.360490624 +0100
+@@ -82,19 +82,19 @@
+ 	switch (pdf_box) {
+ 		default:
+ 		case pdfbox_crop:
+-			r = page->getCropBox();
++			r = (PDFRectangle*) page->getCropBox();
+ 			break;
+ 		case pdfbox_media:
+-			r = page->getMediaBox();
++			r = (PDFRectangle*) page->getMediaBox();
+ 			break;
+ 		case pdfbox_bleed:
+-			r = page->getBleedBox();
++			r = (PDFRectangle*) page->getBleedBox();
+ 			break;
+ 		case pdfbox_trim:
+-			r = page->getTrimBox();
++			r = (PDFRectangle*) page->getTrimBox();
+ 			break;
+ 		case pdfbox_art:
+-			r = page->getArtBox();
++			r = (PDFRectangle*) page->getArtBox();
+ 			break;
+ 	}
+ 
