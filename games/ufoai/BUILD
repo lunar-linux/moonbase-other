@@ -1,4 +1,11 @@
 # configure is a bit 'special'
+
+OPTS+=" --disable-dependency-tracking \
+	--disable-paranoid \
+	--disable-memory \
+	--disable-ufomodel \
+	--disable-ufoslicer"
+
 ./configure --prefix=/usr \
             --bindir=/usr/games \
             --libdir=/usr/lib \
