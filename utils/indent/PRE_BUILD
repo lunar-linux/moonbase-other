@@ -1,7 +1,5 @@
 default_pre_build &&
 
-sedit 's/-number/-number-sections/' doc/Makefile.in &&
-
 # -Os inlines is_reserved{,_cc} incorrectly with gcc
 # that breaks the build... use current gperf instead
 rm src/gperf.c src/gperf-cc.c &&
