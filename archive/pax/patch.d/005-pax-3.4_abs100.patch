@@ -1,6 +1,6 @@
 --- pax-3.4/src/tar.c.abs100	2005-08-01 18:17:58.000000000 +0200
 +++ pax-3.4/src/tar.c	2007-06-20 10:44:54.000000000 +0200
-@@ -1181,6 +1181,14 @@ name_split (name, len)
+@@ -1187,6 +1187,14 @@ name_split (name, len)
     * prefix we can find)
     */
    start = name + len - TNMSZ;
@@ -14,4 +14,4 @@
 +    ++start;
    while ((*start != '\0') && (*start != '/'))
      ++start;
- 
+
