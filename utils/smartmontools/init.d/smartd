@@ -8,26 +8,26 @@
 
 start ()
 {
-	echo -n "Starting smartd: "
-	/usr/sbin/smartd -n &&
-	echo -e $RESULT_OK || echo -e $RESULT_FAIL
+  echo -n "Starting smartd: "
+  /usr/bin/smartd -n &&
+  echo -e $RESULT_OK || echo -e $RESULT_FAIL
 }
 
 stop ()
 {
-	echo -n "Stopping smartd: "
-	/bin/pkill -P 1 smartd &&
-	echo -e $RESULT_OK || echo -e $RESULT_FAIL
+  echo -n "Stopping smartd: "
+  /bin/pkill -P 1 smartd &&
+  echo -e $RESULT_OK || echo -e $RESULT_FAIL
 }
 
 status ()
 {
-	echo -n "Service smartd: "
-	if [ -n "$(/bin/pgrep -P 1 smartd)" ] ; then
-		echo -e $RESULT_OK
-	else
-		echo -e $RESULT_FAIL
-	fi
+  echo -n "Service smartd: "
+  if [ -n "$(/bin/pgrep -P 1 smartd)" ] ; then
+    echo -e $RESULT_OK
+  else
+    echo -e $RESULT_FAIL
+  fi
 }
 
 . /lib/lsb/init-functions

@@ -1,11 +1,18 @@
-OPTS+=" --with-smartdplugindir=/usr/share/smartmontools/smartd_warning.d \
-        --with-smartdscriptdir=/usr/share/smartmontools \
+OPTS+=" --prefix=/usr \
         --with-drivedbdir \
-        --prefix=/usr" &&
+        --with-libcap-ng=yes \
+        --with-initscriptdir=/etc/init.d \
+        --with-smartdscriptdir=/usr/share/smartmontools \
+        --with-smartdplugindir=/usr/share/smartmontools/smartd_warning.d"
 
-sed -i -e "s:sysconfig/smartmontools:conf.d/smartd:g" smartd.service.in &&
-sed -i -e "s:smartd_opts:SMARTD_ARGS:g" smartd.service.in &&
+if module_installed systemd; then
+   OPTS+=" --with-libsystemd \
+           --with-systemdsystemunitdir=/usr/lib/systemd/system"
+fi
 
 default_build &&
 
-install -Dm644 smartd.conf /etc/conf.d/smartd
+if module_installed sysvinit; then
+    rm -f /etc/init.d/smartd
+    rm -f /etc/rc?.d/???smartd
+fi
