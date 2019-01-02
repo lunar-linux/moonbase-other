@@ -1,5 +1,6 @@
 OPTS+=' --psfdir=/usr/share/kbd/consolefonts \
-        --x11dir=/usr/share/fonts/terminus' &&
+        --x11dir=/usr/share/fonts/terminus'
+
 chmod +x configure &&
 
 default_build &&
