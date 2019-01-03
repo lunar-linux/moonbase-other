@@ -1,3 +1,3 @@
-OPTS+=" --disable-test --disable-doc" &&
+OPTS+=" --disable-test --disable-doc"
 
 default_build
