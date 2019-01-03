@@ -15,17 +15,17 @@ GPMPID="/var/run/gpm.pid"
 
 start ()
 {
-        echo -n "Starting gpm: "
-	gpm -m $DEVICE -t $MOUSETYPE $OPTIONS &> /dev/null &&
-        echo -e $RESULT_OK || echo -e $RESULT_FAIL
+  echo -n "Starting gpm: "
+  gpm -m $DEVICE -t $MOUSETYPE $OPTIONS &> /dev/null &&
+  echo -e $RESULT_OK || echo -e $RESULT_FAIL
 }
 
 stop ()
 {
-        echo -n "Stopping gpm: "
-	/bin/pkill -P 1 gpm &&
-        echo -e $RESULT_OK || echo -e $RESULT_FAIL
-	[ -e $GPMPID ] && rm -f $GPMPID
+  echo -n "Stopping gpm: "
+  /usr/bin/pkill -P 1 gpm &&
+  echo -e $RESULT_OK || echo -e $RESULT_FAIL
+  [ -e $GPMPID ] && rm -f $GPMPID
 }
 
 . /lib/lsb/init-functions

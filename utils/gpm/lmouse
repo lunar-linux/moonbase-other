@@ -10,10 +10,9 @@
 
 # exit if executor is not root!
 
-if [ $LOGNAME != root ]
-then
-	echo "User must have root privileges to run this program"
-	exit 1
+if [ $LOGNAME != root ]; then
+  echo "User must have root privileges to run this program"
+  exit 1
 fi
 
 clear
@@ -34,47 +33,47 @@ echo -e "Are you sure you want to do this? [y] \c "
 
 read JUNK
 case $JUNK in
-	[nN])
-		echo "Exiting..."
-		exit 1
-		;;
+  [nN])
+    echo "Exiting..."
+    exit 1
+    ;;
 esac
 
 while true; do  # start main question loop
 
-	echo
-	clear
+  echo
+  clear
 
-	cat << EOF
+  cat << EOF
 
 You will now be asked what device your mouse is connected to.  Typically
 you would use /dev/mouse and symlink the real port to /dev/mouse.
 This is the default and is recommended.
 
-EOF
+  EOF
 
-	echo -e " Enter device name [/dev/mouse]:\c "
-	read DEVICE
+  echo -e " Enter device name [/dev/mouse]:\c "
+  read DEVICE
 
-	if [ -z "$DEVICE" ]; then
-		DEVICE=/dev/mouse
-	fi
+  if [ -z "$DEVICE" ]; then
+    DEVICE=/dev/mouse
+  fi
 
-	clear
-	cat << EOF
+  clear
+  cat << EOF
 
 You will now be asked what kind of mouse you have.  Usually this
 question may be answered by flipping the mouse over and reading the
 model information from the bottom of the mouse.  If you leave this one
 blank the system will try to detect your mousetype.  Here is a list of
 the more common possibilities:
-	
-EOF
 
-	echo " Press enter to continue"
-	read JUNK
-	clear
-	cat << EOF
+  EOF
+
+  echo " Press enter to continue"
+  read JUNK
+  clear
+  cat << EOF
   name     description                                                 synonym
 
   mman     The "MouseMan" and similar devices (3/4 bytes per packet).  Synonyms: Mouseman
@@ -99,46 +98,46 @@ EOF
   syn      The "Synaptics" serial TouchPad.                            Synonyms: synaptics
   synps2   The "Synaptics" PS/2 TouchPad                               Synonyms: synaptics_ps2
 
-EOF
+  EOF
 
-	echo -e " What type of mouse do you have? [pnp]\c"
-	read MOUSETYPE
+  echo -e " What type of mouse do you have? [pnp]\c"
+  read MOUSETYPE
 
-	if [ -z "$MOUSETYPE" ]; then
-		MOUSETYPE=pnp
-	fi
-	clear
+  if [ -z "$MOUSETYPE" ]; then
+    MOUSETYPE=pnp
+  fi
+  clear
 
-	cat << EOF
+  cat << EOF
 
 It is possible to add additional options to your mouse configuration.
 
 In most cases this is not necessary so unless you know you need it you
 should leave this blank.
 
-EOF
+  EOF
 
-	echo -e " What additional options do you require? []\c"
-	read OPTIONS
+  echo -e " What additional options do you require? []\c"
+  read OPTIONS
 
-	clear
+  clear
 
-	echo " Based upon the information you provided your gpm"
-	echo " command string will look like this:"
-	echo ""
-	echo "            gpm $OPTIONS -t $MOUSETYPE -m $DEVICE"
-	echo ""
-	echo -e " Is this correct? [n] \c "
+  echo " Based upon the information you provided your gpm"
+  echo " command string will look like this:"
+  echo ""
+  echo "            gpm $OPTIONS -t $MOUSETYPE -m $DEVICE"
+  echo ""
+  echo -e " Is this correct? [n] \c "
 
-	read ANSWER
+  read ANSWER
 
-	case $ANSWER in
-		[yY])
-			if [ -e "/etc/config.d/mouse" ]; then
-        			mv /etc/config.d/mouse /etc/config.d/mouse.old 
-				echo " /etc/config.d/mouse has been saved as /etc/config.d/mouse.old"
-        	 	fi
-		 cat > /etc/config.d/mouse << EOF
+  case $ANSWER in
+    [yY])
+      if [ -e "/etc/config.d/mouse" ]; then
+        mv /etc/config.d/mouse /etc/config.d/mouse.old
+        echo " /etc/config.d/mouse has been saved as /etc/config.d/mouse.old"
+      fi
+      cat > /etc/config.d/mouse << EOF
 
  # /etc/config.d/mouse
  # this is the config file for the gpm mouse.
@@ -152,14 +151,13 @@ EOF
 
  DEVICE=$DEVICE
 
-EOF
-		 /etc/init.d/gpm restart
+      EOF
+      /etc/init.d/gpm restart
 
-		 exit 0
-        	 ;;
-	       *)
-		echo " Restarting.... "
-		
-		;;
-	esac
+      exit 0
+      ;;
+    *)
+      echo " Restarting.... "
+      ;;
+  esac
 done;

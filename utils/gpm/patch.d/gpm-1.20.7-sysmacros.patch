@@ -1,0 +1,13 @@
+--- ./src/daemon/open_console.c	2012-10-26 16:21:38.000000000 -0500
++++ ./src/daemon/open_console.c	2017-10-10 13:40:39.896316258 -0500
+@@ -23,6 +23,10 @@
+ #include <sys/stat.h>               /* stat()            */
+ #include <sys/ioctl.h>              /* ioctl             */
+ 
++#ifdef HAVE_SYS_SYSMACROS_H
++#include <sys/sysmacros.h>          /* major() w/newer glibc */
++#endif
++
+ /* Linux specific (to be outsourced in gpm2 */
+ #include <linux/serial.h>           /* for serial console check */
+ #include <asm/ioctls.h>            /* for serial console check */
