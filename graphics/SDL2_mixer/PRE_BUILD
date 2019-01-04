@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sedit "s|/etc/timidity|/etc/timidity++|g" timidity/options.h &&
+sedit "s|/etc/timidity++.cfg|/etc/timidity++/timidity.cfg|g" timidity/options.h &&
+
+./autogen.sh
