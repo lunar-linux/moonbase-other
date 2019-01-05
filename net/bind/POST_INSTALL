@@ -1,4 +1,3 @@
-
 # lets create user and group if they are not avail
 mkdir -p /var/named
 
@@ -7,12 +6,12 @@ mkdir -p /var/named
 cp $SCRIPT_DIRECTORY/named.root /var/named/
 
 # if we do not have a named.conf already, copy the default
-if [ ! -e /var/named/named.conf ] ; then
+if [ ! -e /var/named/named.conf ]; then
   cp $SCRIPT_DIRECTORY/named.conf /var/named/
 fi
 
 # and make the softlink!
-if [ ! -e /etc/named.conf ] ; then
+if [ ! -e /etc/named.conf ]; then
   ln -sf /var/named/named.conf /etc/
 fi
 
@@ -22,21 +21,21 @@ chmod 644 /var/named/named.conf
 chmod 644 /var/named/named.root
 
 # lets create an rndc key if none avail
-if [ ! -e /etc/rndc.key ] ; then
+if [ ! -e /etc/rndc.key ]; then
   rndc-confgen -a
 fi
 
 # lets copy a sample rndc.conf if none avail
-if [ ! -e /etc/rndc.conf ] ; then
+if [ ! -e /etc/rndc.conf ]; then
   cp $SOURCE_DIRECTORY/bin/rndc/rndc.conf /etc/rndc.conf.sample
 fi
 
 cat << EOF
 ISC has added a patch to BIND intended to prevent domain registrars from misusing
-'wildcard' or 'synthesized' data. (E.g. Versign's attempt to direct mistyped 
+'wildcard' or 'synthesized' data. (E.g. Versign's attempt to direct mistyped
 domains to their own sites by adding wildcard records for .com and .net.
 
-To use this new bind feature for disabling verisign's .com, .net wildcards, add 
+To use this new bind feature for disabling verisign's .com, .net wildcards, add
 the following zones to a caching or recursive nameserver (/etc/named.conf):
 
 zone "net" {
