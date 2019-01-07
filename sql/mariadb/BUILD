@@ -3,7 +3,7 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DMYSQL_UNIX_ADDR=/run/mysqld/mysqld.sock \
         -DBUILD_CONFIG=mysql_release \
         -DINSTALL_BINDIR=bin \
-        -DINSTALL_SBINDIR=bin \
+        -DINSTALL_SBINDIR=sbin \
         -DINSTALL_INFODIR=share/info \
         -DINSTALL_MANDIR=share/man \
         -DINSTALL_PLUGINDIR=lib/mysql/plugin \
@@ -53,11 +53,10 @@ default_cmake_build &&
 
 # Default config
 if [ ! -e "/etc/mysql/my.cnf" ]; then
-  install -Dm644 /usr/share/mysql/my-medium.cnf /etc/mysql/my.cnf
+  install -Dm644 $SCRIPT_DIRECTORY/my-medium.cnf /etc/mysql/my.cnf
 fi &&
 
 # Setting up links for mysqlcheck multi-call binary
 for i in analyze repair optimize; do
   ln -sf /usr/bin/mysql{check,$i}
 done
-
