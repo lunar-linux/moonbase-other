@@ -1,14 +1,3 @@
-# Remove gcc version check
-sedit "s:^check_gcc$:#check_gcc:" configure &&
-
-# Use our CFLAGS
-echo "VBOX_GCC_OPT=$CXXFLAGS" >> LocalConfig.kmk
-
-# don't build tests
-echo "VBOX_WITH_TESTCASES =" >> LocalConfig.kmk &&
-echo "VBOX_WITH_TESTSUITE =" >> LocalConfig.kmk &&
-echo "VBOX_WITH_WARNINGS_AS_ERRORS =" >> LocalConfig.kmk &&
-
 if in_depends $MODULE sun-jdk; then
   # Location of javac
   . /etc/profile.d/sun-jdk.rc &&
@@ -25,6 +14,9 @@ OPTS+=" --disable-hardening"
 
 OPTS+=" --disable-kmods \
         --disable-docs"
+
+# this removes 32 bit simulation support
+OPTS+=" --disable-vmmraw"
 
 ./configure $OPTS &&
 source ./env.sh &&
@@ -81,8 +73,8 @@ if in_depends $MODULE texlive; then
   install -Dm 644 /usr/{lib/virtualbox,share/doc/VirtualBox}/UserManual.pdf
 fi &&
 
-install -Dm644 {$SCRIPT_DIRECTORY,/etc/udev/rules.d}/60-vboxdrv.rules &&
-install -Dm644 {$SCRIPT_DIRECTORY,/etc/udev/rules.d}/60-vboxguest.rules &&
+install -Dm644 {$SCRIPT_DIRECTORY/udev.d,/etc/udev/rules.d}/60-vboxdrv.rules &&
+install -Dm644 {$SCRIPT_DIRECTORY/udev.d,/etc/udev/rules.d}/60-vboxguest.rules &&
 
 # Create the vboxusers group
 groupadd -f vboxusers

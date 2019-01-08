@@ -23,6 +23,9 @@ OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
 # fix a cpp error
 sedit "s: -c::" pc-bios/{,optionrom/}Makefile
 
+source ./env.sh &&
+kmk &&
+
 default_make &&
 
 if module_installed systemd; then

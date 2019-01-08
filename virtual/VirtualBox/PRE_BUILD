@@ -1,0 +1,18 @@
+default_pre_build &&
+
+# Remove gcc version check
+sedit "s:^check_gcc$:#check_gcc:" configure &&
+
+# Applying local config
+cp "$SCRIPT_DIRECTORY/LocalConfig.kmk" . &&
+
+# Use our CFLAGS
+echo "VBOX_GCC_OPT=$CXXFLAGS" >> LocalConfig.kmk &&
+
+# Use our CFLAGS
+echo "VBOX_GCC_OPT=$CXXFLAGS" >> LocalConfig.kmk
+
+# don't build tests
+echo "VBOX_WITHOUT_TESTCASES =" >> LocalConfig.kmk &&
+echo "VBOX_WITHiOUT_TESTSUITE =" >> LocalConfig.kmk &&
+echo "VBOX_WITH_WARNINGS_AS_ERRORS =" >> LocalConfig.kmk
