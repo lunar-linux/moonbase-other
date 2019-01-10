@@ -1,8 +1,3 @@
 default_pre_build &&
 
-sedit 's|-Werror||' cmake/ConkyBuildOptions.cmake &&
-
-sed -i \
-    -e 's|\(LUA REQUIRED\) lua5.1 lua-5.1 lua51 lua|\1 lua>=5.3|' \
-    -e 's|\(NOT LUA_VERSION VERSION_LESS\) 5.2.0|\1 5.4.0|' \
-    cmake/ConkyPlatformChecks.cmake
+sedit 's|-Werror||' cmake/ConkyBuildOptions.cmake
