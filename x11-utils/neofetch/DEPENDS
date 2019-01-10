@@ -1,21 +1,8 @@
 depends xprop
 
-optional_depends scrot \
-    "--enable-scrot" \
-    "--disable-scrot" \
-    "for screenshot support"
-
-optional_depends curl \
-    "--enable-curl" \
-    "--disable-curl" \
-    "for screenshot uploading"
-
-optional_depends xrandr \
-    "--enable-xrandr" \
-    "--disable-xrandr" \
-    "for resolution details"
-
-optional_depends feh \
-    "--enable-feh" \
-    "--disable-feh" \
-    "for wallpaper info support (not needed if using Xfce, Gnome, Cinnamon or MATE)"
+optional_depends ImageMagick "" "" "for  Image cropping /Thumbnail creation /Take a screenshot support"
+optional_depends feh         "" "" "for wallpaper display support"
+optional_depends catimg      "" "" "for images display in therminal"
+optional_depends libcaca     "" "" "for images display in terminal"
+optional_depends w3m         "" "" "for images diaplay"
+optional_depends xdpyinfo    "" "" "for resolution detection details (Single Monitor)"
