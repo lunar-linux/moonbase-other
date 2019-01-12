@@ -1,13 +1,3 @@
-# build shared object
-sedit "s@CFLAGS=@CFLAGS+=@" src/Makefile &&
-CFLAGS+=" -fPIC -DLUA_COMPAT_5_2 -DLUA_COMPAT_5_1" &&
-sedit "s:TO_LIB=:\0 liblua.so.${VERSION%.*}:" Makefile &&
-
-sedit "s:/usr/local:/usr:" Makefile src/luaconf.h &&
-sedit "s:/man/man1:/share/man/man1:" Makefile &&
-sedit "s:lib/lua/\$V:lib:" Makefile &&
-sedit "s:share/lua/\$V:share:" Makefile &&
-
 (
 cat > lua.pc <<EOF
 prefix=/usr
@@ -24,15 +14,20 @@ Cflags: -I\${includedir}
 EOF
 ) &&
 
-make linux &&
-prepare_install &&
-make install &&
-
-ln -sf /usr/lib/liblua.so.${VERSION%.*} /usr/lib/liblua.so &&
-
 MAJORVER=${VERSION%.*}
-cp -f $SCRIPT_DIRECTORY/lua.pc ./lua.pc &&
-sedit "s/%VER%/$MAJORVER/g;s/%REL%/$VERSION/g" ./lua.pc
+
+# quite a lot of packages still use lua 5.1 and 5.2 API, enable 5.1 and 5.2 compat mode
+make MYCFLAGS="$CFLAGS -fPIC -DLUA_COMPAT_5_2 -DLUA_COMPAT_5_1" MYLDFLAGS="$LDFLAGS" linux &&
+
+prepare_install &&
+
+make \
+  TO_LIB="liblua.a liblua.so liblua.so.$MAJORVER liblua.so.$VERSION" \
+  INSTALL_DATA='cp -d' \
+  INSTALL_TOP=/usr \
+  INSTALL_MAN=/usr/share/man/man1 \
+  install &&
+
 install -Dm0644 lua.pc /usr/lib/pkgconfig/
 
 install -Dm0644 $SCRIPT_DIRECTORY/bit.lua /usr/lib/lua/$MAJORVER/
