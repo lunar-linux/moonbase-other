@@ -11,9 +11,9 @@ sedit '/target_link_libraries(${PROJECT_NAME} ${PAM_LIBRARY})/ a target_link_lib
 # https://bugs.freedesktop.org/show_bug.cgi?id=62866
 # Lennart: no, you mustn't reuse a process after it used PAM once.
 # So we disable the internal restart completely
-if in_depends $MODULE "Linux-PAM"; then
-  sedit 's/\([^:]\)RestartServer/\1Exit/g' app.cpp &&
-  sedit "/void Exit/ d; /void RestartServer/ a void Exit();" app.h
+if in_depends $MODULE Linux-PAM; then
+   sedit 's/\([^:]\)RestartServer/\1Exit/g' app.cpp &&
+   sedit "/void Exit/ d; /void RestartServer/ a void Exit();" app.h
 fi &&
 
 # fix their broken sample configuration
@@ -21,6 +21,8 @@ sedit 's/^sessions.*/#\0/; T; a sessiondir /usr/share/xsessions' slim.conf &&
 
 # provide simple default session support
 sedit '/sessions\.clear()/ a sessions.push_back(pair<string,string>("default",""));' cfg.cpp &&
+
+sedit '/slim.conf/d' CMakeLists.txt &&
 
 # don't install systemd files here
 # we provide them separately
