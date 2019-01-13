@@ -1,3 +1,3 @@
-OPTS+=" --disable-static --enable-widec" &&
+OPTS+=" --disable-static --enable-widec"
 
 default_build
