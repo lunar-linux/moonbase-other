@@ -6,7 +6,10 @@ else
   OPTS+=" --disable-systemd"
 fi
 
-OPTS+=" --enable-threads --enable-tools --enable-library"
+OPTS+=" --enable-tools \
+        --enable-library \
+        --enable-threads \
+        --enable-sixaxis"
 
 default_build &&
 
