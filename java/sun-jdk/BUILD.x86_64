@@ -37,7 +37,8 @@ for file in /usr/lib/java/latest/bin/*; do
 done &&
 
 mkdir -p /usr/lib/lunar/plugins &&
-rm -f /usr/lib/lunar/plugins/{libjavaplugin_oji.so,libnpjp2.so} &&
+#rm -f /usr/lib/lunar/plugins/{libjavaplugin_oji,libnpjp2}.so &&
+rm -f /usr/lib/lunar/plugins/libjavaplugin_oji.so &&
 
 # Always use new plugin.
 # Firefox 3, Seamonkey 2, Google chrome/ium use it
