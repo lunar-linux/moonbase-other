@@ -1,10 +1,8 @@
 depends gst-plugins-base
 
 optional_depends libid3tag "" "" "for MP3 id3 tag support (required for libmad support)"
-
-optional_depends srt  \
-                 "" "--disable-srt" \
-                 "for Secure Reliable Transport support"
+optional_depends srt "" "" "for Secure Reliable Transport support"
+optional_depends lame "" "" "for additional MP3 support"
 
 optional_depends a52dec \
                  "" "--disable-a52dec" \
@@ -17,10 +15,6 @@ optional_depends libdvdread \
 optional_depends libcdio \
                  "" "--disable-cdio" \
                  "for CD control support"
-
-optional_depends lame \
-                 "" "--disable-lame" \
-                 "for additional MP3 support"
 
 optional_depends twolame \
                  "" "--disable-twolame" \
