@@ -1,3 +1,5 @@
+OPTS+=" -DCMAKE_WITH_NLS=ON"
+
 default_cmake_build &&
 
 gather_docs HACKING &&
