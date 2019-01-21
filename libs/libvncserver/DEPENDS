@@ -1,5 +1,10 @@
-depends zlib
+depends cmake
 depends gnutls
 depends libgcrypt
 depends %JPEG
 depends libpng
+depends %OSSL
+depends zlib
+
+optional_depends SDL2 "-DWITH-SDL=ON" "_DWITH_SDL=OFF" "to build an example SDL VNC client"
+optional_depends systemd "-DWITH SYSTEMD=ON" "-DWITH_SYSTEMD=OFF" "for systemd support"
