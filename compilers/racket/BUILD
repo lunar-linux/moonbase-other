@@ -4,7 +4,7 @@ if [ "$(arch)" = "x86_64" ]; then
    export CFLAGS+=" -fPIC"
 fi &&
 
-OPTS+=" --sysconfdir=/etc --disable-static --enable-shared" &&
+OPTS+=" --sysconfdir=/etc --disable-static --enable-shared"
 
 default_build &&
 
