@@ -1,1 +1,24 @@
-depends gstreamer
+depends meson
+
+optional_depends gnutls \
+                 "-D crypto-library=gnutls" "" \
+                 "for GNU TLS support (use this or openssl, but not both)" n
+
+optional_depends %OSSL \
+                 "-D crypto-library=openssl" "" \
+                 "for GNU SSL support (use this or gnutls, but not both)" n
+
+optional_depends gstreamer \
+                 "-D gstreamer=enabled" \
+                 "-D gstreamer=disabled" \
+                 "for GStreamer plugins support"
+
+optional_depends gtk-doc \
+                 "-D gtk-doc=enabled" \
+                 "-D gtk-doc=disabled" \
+                 "for building documentation" n
+
+optional_depends gobject-introspection \
+                 "-D introspection=enabled" \
+                 "-D introspection=disabled" \
+                 "for object introspection"

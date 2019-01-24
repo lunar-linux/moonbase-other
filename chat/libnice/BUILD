@@ -1,3 +1,3 @@
-OPTS+=" --disable-static" &&
+OPTS+=" -D tests=disabled -D examples=disabled"
 
-default_build
+default_meson_build
