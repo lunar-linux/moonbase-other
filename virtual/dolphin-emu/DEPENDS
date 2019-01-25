@@ -1,0 +1,20 @@
+depends git
+depends cmake
+depends wxGTK
+depends gtk+-2
+
+optional_depends xrandr \
+        "--enable-xrandr" \
+        "--disable-xrandr" \
+        "for switching desktop resolution in fullscreen mode"
+        
+optional_depends pulseaudio \
+        "--enable-pulseaudio" \
+        "--disable-pulseaudio" \
+        "for pulseaudio sound backend"
+        
+optional_depends alsa-lib \
+        "--enable-alsa-lib" \
+        "--disable-alsa-lib" \
+        "for alsa sound backend"
+  
