@@ -11,6 +11,8 @@ in_depends $MODULE SDL && AUDIO_LIST+=",sdl"
 
 OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
 
+OPTS+=" --sbindir=/usr/bin"
+
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var \
@@ -22,9 +24,6 @@ OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
 
 # fix a cpp error
 sedit "s: -c::" pc-bios/{,optionrom/}Makefile
-
-source ./env.sh &&
-kmk &&
 
 default_make &&
 
