@@ -4,14 +4,14 @@ depends libcap
 depends intltool
 depends python-pygobject
 
-optional_depends nss-mdns "" "" "for Name Switching Services Support"
 optional_depends systemd  "" "" "for systemd Support"
+optional_depends nss-mdns "" "" "for Name Switching Services Support"
 optional_depends pygtk    "" "" "for avahi-bookmarks"
 
-optional_depends gdbm   "--enable-gdbm"  "--disable-gdbm"  "for extensible hashing support"
-optional_depends qt5    "--enable-qt5"   "--disable-qt5"   "building of Qt5 mainloop integration" n
-optional_depends gtk+-2 "--enable-gtk"   "--disable-gtk"   "for the use of GTK+ 2.x" n
-optional_depends gtk+-3 "--enable-gtk3"  "--disable-gtk3"  "for the use of GTK+ 3.x" y
+optional_depends gdbm   "--enable-gdbm" "--disable-gdbm" "for extensible hashing support"
+optional_depends qt5    "--enable-qt5"  "--disable-qt5"  "for Qt5 support" n
+optional_depends gtk+-3 "--enable-gtk3" "--disable-gtk3" "for GTK+ 3.x support" y
+optional_depends gtk+-2 "--enable-gtk"  "--disable-gtk"  "for GTK+ 2.x support" n
 
 optional_depends python-dbus \
                  "--enable-python-dbus" \
