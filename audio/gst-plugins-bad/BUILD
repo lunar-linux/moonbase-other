@@ -1,4 +1,3 @@
-
 OPTS+=" --disable-debug \
         --disable-static \
         --disable-gtk-doc \
