@@ -5,11 +5,11 @@ OPTS+=" --disable-qt3 \
         --enable-cups-drv-install \
         --enable-cups-ppd-install \
         --disable-foomatic-ppd-install \
-        --disable-foomatic-drv-install" &&
+        --disable-foomatic-drv-install"
 
 if module_installed systemd; then
   OPTS+=" --enable-udev_sysfs_rules"
-fi &&
+fi
 
 default_build &&
 
