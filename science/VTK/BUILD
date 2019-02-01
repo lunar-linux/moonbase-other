@@ -16,7 +16,7 @@ OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
         -DVTK_RENDERING_BACKEND=OpenGL2 \
         -DBUILD_SHARED_LIBS=ON \
         -DBUILD_EXAMPLES=OFF \
-        -DVTK_LEGACY_REMOVE=ON" &&
+        -DVTK_LEGACY_REMOVE=ON"
 
 #Maybe a little overkill but just to make sure if qt5 is installed there
 #is no confusion
