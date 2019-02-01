@@ -36,17 +36,17 @@ for file in /usr/lib/java/latest/bin/*; do
 done &&
 
 mkdir -p /usr/lib/lunar/plugins &&
-rm -f /usr/lib/lunar/plugins/libjavaplugin_oji.so &&
+rm -f /usr/lib/lunar/plugins/libjavaplugin_oji.so
 
 # Always use new plugin.
 # Firefox 3, Seamonkey 2, Google chrome/ium use it
 # KDE3/4 Konqueror and Opera always uses Java directly so do not use any plugin
 if [ -d /usr/lib/java/latest/lib/amd64 ]; then
   ln -sf /usr/lib/java/latest/lib/amd64/server/libjvm.so /usr/lib/
-  ln -sf /usr/lib/java/latest/lib/amd64/libnpjp2.so /usr/lib/lunar/plugins/
+#  ln -sf /usr/lib/java/latest/lib/amd64/libnpjp2.so /usr/lib/lunar/plugins/
 else
   ln -sf /usr/lib/java/latest/lib/i386/server/libjvm.so /usr/lib/
-  ln -sf /usr/lib/java/latest/lib/i386/libnpjp2.so /usr/lib/lunar/plugins/
+#  ln -sf /usr/lib/java/latest/lib/i386/libnpjp2.so /usr/lib/lunar/plugins/
 fi &&
 
 cd /usr/lib/java/jre${DVERSION}/lib/security &&
