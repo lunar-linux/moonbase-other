@@ -13,7 +13,7 @@ OPTS+=" --enable-mousewheel \
         --enable-utmp \
         --enable-wtmp \
         --enable-xim \
-        --enable-lastlog" &&
+        --enable-lastlog"
 
 default_build &&
 chmod 644 README* Changes INSTALL &&
