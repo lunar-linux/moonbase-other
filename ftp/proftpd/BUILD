@@ -4,7 +4,7 @@ OPTS+=" --enable-nls \
         --enable-cap \
         --enable-ipv6 \
         --enable-facl \
-        --enable-ctrls" &&
+        --enable-ctrls"
 
 if module_installed systemd; then
   OPTS+=" --localstatedir=/run/proftpd --with-systemd"
@@ -35,10 +35,6 @@ MODS=`echo $MODS|sed -re 's%^:%%'`
 
 if [ -n "$MODS" ]; then
   OPTS+=" --with-modules=$MODS"
-fi
-
-if module_installed Linux-PAM; then
-  OPTS+=" --enable-shadow $ENABLE_PAM"
 fi
 
 sedit "s/\tstandalone/\tinetd/" sample-configurations/basic.conf &&

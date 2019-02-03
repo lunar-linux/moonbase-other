@@ -1,0 +1,22 @@
+From 8946c7c07dd5305dfb53d5b43aa63dba649def46 Mon Sep 17 00:00:00 2001
+From: TJ Saunders <tj@castaglia.org>
+Date: Tue, 18 Jul 2017 23:02:06 -0700
+Subject: [PATCH] Remove now-unnecessary variable.
+
+---
+ modules/mod_facl.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/modules/mod_facl.c b/modules/mod_facl.c
+index 258708cf5..d334accb7 100644
+--- a/modules/mod_facl.c
++++ b/modules/mod_facl.c
+@@ -1284,8 +1284,6 @@ static void unmount_facl(void) {
+     defined(HAVE_POSIX_ACL)
+ static void facl_mod_unload_ev(const void *event_data, void *user_data) {
+   if (strcmp("mod_facl.c", (const char *) event_data) == 0) {
+-    pr_fs_t *fs;
+-
+     pr_event_unregister(&facl_module, NULL, NULL);
+     unmount_facl();
+   }

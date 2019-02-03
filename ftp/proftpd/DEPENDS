@@ -1,10 +1,10 @@
 depends libcap
 
-optional_depends %MYSQL     "" "" "for MySQL support"
-optional_depends postgresql "" "" "for postgreSQL support"
-
 optional_depends pcre  "--enable-pcre"    "" "for PCRE support"
 optional_depends %OSSL "--enable-openssl" "" "for SSLL support"
+
+optional_depends %MYSQL     "" "" "for mysql support"
+optional_depends postgresql "" "" "for postgresql support"
 
 optional_depends Linux-PAM \
                  "--enable-shadow --enable-autoshadow --enable-auth-pam" "" \
