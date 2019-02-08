@@ -1,0 +1,5 @@
+default_pre_build &&
+
+sedit 's/QMAKE=qmake/QMAKE=qmake-qt5/' src/makefile &&
+sedit 's/QMAKE_CC = clang/QMAKE_CC = gcc/' src/gui-qt/highlight.pro &&
+sedit 's/QMAKE_CXX = clang++/QMAKE_CXX = g++/' src/gui-qt/highlight.pro
