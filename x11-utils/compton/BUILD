@@ -1,4 +1,4 @@
-default_make &&
+default_meson_build &&
 
 mkdir -p /etc/xdg &&
 install -D -m644 compton.sample.conf /etc/xdg/compton.conf.example
