@@ -1,9 +1,12 @@
-depends libcap-ng
 depends libvirt
-depends vala
-depends intltool
+
+optional_depends vala \
+                 "--enable-vala" \
+                 "--disable-vala" \
+                 "for vala support (needed for gnome-boxes), also you have to enable introspection in the next question"
 
 optional_depends gobject-introspection \
                  "--enable-introspection" \
                  "--disable-introspection" \
                  "for object introspection support"
+
