@@ -18,7 +18,7 @@ diff --git a/lib/url.c b/lib/url.c
 index bdb472999..bc47685db 100644
 --- a/lib/url.c
 +++ b/lib/url.c
-@@ -964,6 +964,7 @@ static bool extract_if_dead(struct connectdata *conn,
+@@ -965,6 +965,7 @@ static bool extract_if_dead(struct connectdata *conn,
        /* The protocol has a special method for checking the state of the
           connection. Use it to check if the connection is dead. */
        unsigned int state;
@@ -26,6 +26,6 @@ index bdb472999..bc47685db 100644
        state = conn->handler->connection_check(conn, CONNCHECK_ISDEAD);
        dead = (state & CONNRESULT_DEAD);
      }
--- 
+--
 2.20.1
 
