@@ -1,13 +1,4 @@
-mkdir build &&
+OPTS+="-D tests=false \
+       -D benchmarks=false"
 
-meson build \
-      --prefix=/usr \
-      -Dtests=false \
-      -Dbenchmarks=false \
-      $OPTS &&
-
-ninja -C build &&
-
-prepare_install &&
-
-ninja -C build install
+default_meson_build
