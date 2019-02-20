@@ -1,5 +1,6 @@
 depends libtool
 depends libvorbis
+depends gtk+-3
 
 optional_depends %UDEV "--enable-udev" "--disable-udev" "for udev support"
 
@@ -8,7 +9,7 @@ optional_depends alsa-utils \
                  "--enable-oss --disable-alsa" \
                  "for ALSA sound support"
 
-optional_depends gtk+-3     "--enable-gtk3"      "--disable-gtk3"      "to enable GTK+3 support"
+#optional_depends gtk+-3     "--enable-gtk3"      "--disable-gtk3"      "to enable GTK+3 support"
 optional_depends gtk+-2     "--enable-gtk"       "--disable-gtk"       "to enable GTK+2 support"
 optional_depends gstreamer  "--enable-gstreamer" "--disable-gstreamer" "to enable GStreamer support"
 optional_depends pulseaudio "--enable-pulse"     "--disable-pulse"     "to enable PulseAudio support"
