@@ -1,27 +1,19 @@
-# If you bump this module also bump bind-utils please kthx!
-
-          MODULE=bind
-         VERSION=9.13.6
-          SOURCE=$MODULE-$VERSION.tar.gz
+          MODULE=bind-utils
+         VERSION=9.13.7
+          SOURCE=bind-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/bind-$VERSION
       SOURCE_URL=http://ftp.isc.org/isc/bind9/$VERSION/
-      SOURCE_VFY=sha256:ae771f209fd807d6cb9db20e16ee96ec4ba44b2052cda8c4487ddacae124870e
+      SOURCE_VFY=sha256:e7f2065c790419d642dc0a32c5652a53b68a7f17c188fe25a20c5984ddfb74e6
         WEB_SITE=http://www.isc.org/products/BIND
-         ENTERED=20010922
-         UPDATED=20190212
-           SHORT="ISC's DNS (domain name system) server"
+         ENTERED=20050513
+         UPDATED=20190222
+           SHORT="Collection of BIND related client programs"
            PSAFE=no
 
 cat << EOF
-BIND (Berkeley Internet Name Domain) is an implementation of the Domain Name
-System (DNS) protocols and provides an openly redistributable reference
-implementation of the major components of the Domain Name System, including:
-    * a Domain Name System server (named)
-    * a Domain Name System resolver library
-    * tools for verifying the proper operation of the DNS server
-The BIND DNS Server is used on the vast majority of name serving machines on
-the Internet, providing a robust and stable architecture on top of which an
-organization's naming architecture can be built. The resolver library included
-in the BIND distribution provides the standard APIs for translation between
-domain names and Internet addresses and is intended to be linked with
-applications requiring name service.
+bind-utils is not a separate package, it is a collection of the client side
+programs that are included with BIND. The BIND package includes the client side
+programs nslookup, dig and host. If you install BIND server, these programs will
+be installed automatically. This module is for those users who don't need the
+complete BIND server, but need these client side applications.
 EOF
