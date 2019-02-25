@@ -1,3 +1,5 @@
-  make  init       &&
-  prepare_install  &&
-  make    install
+make init &&
+
+prepare_install &&
+
+make   install
