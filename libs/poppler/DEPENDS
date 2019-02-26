@@ -1,12 +1,17 @@
 depends cmake
 depends fontconfig
-depends icu4c
-depends openjpeg-2
-depends libjpeg-turbo
-
-optional_depends gtk+-2 "" "" "for GTK wrapper support"
 
 optional_depends poppler-data "" "" "for support of additional file encodings"
+
+optional_depends openjpeg2 \
+                 "-DENABLE_LIBOPENJPEG=openjpeg2" \
+                 "-DENABLE_LIBOPENJPEG=none" \
+                 "for using system's libopenjpeg for JPX streams"
+
+optional_depends %JPEG \
+                 "-DENABLE_DCTDECODER=libjpeg" \
+                 "-DENABLE_DCTDECODER=none" \
+                 "for using system's jpeg library for DCT streams"
 
 optional_depends curl \
                  "-DENABLE_LIBCURL=ON" \
