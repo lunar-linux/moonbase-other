@@ -1,5 +1,4 @@
 export GOOS=linux
-export GOCHACHE=off
 export GOROOT=$SOURCE_DIRECTORY
 export GOBIN=$GOROOT/bin
 export GOROOT_FINAL=/usr/lib/go
