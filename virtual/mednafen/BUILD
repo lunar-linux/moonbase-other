@@ -1,1 +1,3 @@
-default_build
+./configure &&
+make &&
+make install
