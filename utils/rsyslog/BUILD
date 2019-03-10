@@ -13,7 +13,7 @@ OPTS+=" --exec-prefix=/usr  \
         --enable-impstats   \
         --enable-imptcp     \
         --disable-rfc3195   \
-        --with-systemdsystemunitdir=/usr/lib/systemd/system" &&
+        --with-systemdsystemunitdir=/usr/lib/systemd/system"
 
 default_build &&
 
