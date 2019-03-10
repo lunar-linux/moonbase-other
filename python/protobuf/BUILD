@@ -1,5 +1,3 @@
-./autogen.sh &&
-
 default_build &&
 
 if in_depends $MODULE python-setuptools; then
