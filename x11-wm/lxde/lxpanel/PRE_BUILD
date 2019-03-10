@@ -6,4 +6,6 @@ if module_installed gtk+-3; then
   sedit '/pager.c/d' plugins/Makefile.am &&
   sedit '/STATIC_PAGER/d' src/private.h &&
   sedit 's/libwnck-3.0//' configure.ac
-fi
+fi &&
+
+autoreconf -fi
