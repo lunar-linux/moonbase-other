@@ -48,4 +48,6 @@ setterm -bfreq -blength &> /dev/null &&
 
 if [ -n "${MAKES}" ]; then
   echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
-fi
+fi &&
+
+sedit '/deny.*missing_docs/ d' $(grep -rl "deny.*missing_docs" servo)
