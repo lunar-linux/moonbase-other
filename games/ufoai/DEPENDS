@@ -1,7 +1,6 @@
 depends libvorbis
 depends openal
 depends %GLX
-depends gtkglext
 depends SDL
 depends SDL_ttf
 depends SDL_mixer
@@ -11,6 +10,8 @@ depends curl
 depends libpng
 depends %JPEG
 depends zlib
+
+optional_depends gtkglext "" "" "build the Map Editor"
 
 optional_depends gtksourceview2 \
                  "--enable-uforadiant" \
