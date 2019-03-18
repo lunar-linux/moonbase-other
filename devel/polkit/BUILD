@@ -10,8 +10,7 @@ rm -rf /usr/bin/pkexec &&
 
 autoconf &&
 
-OPTS+=" --disable-static \
-        --disable-gtk-doc-html" &&
+OPTS+=" --disable-static --disable-gtk-doc-html --disable-gtk-doc --disable-gtk-doc-pdf --disable-man-pages" &&
 
 default_build &&
 
