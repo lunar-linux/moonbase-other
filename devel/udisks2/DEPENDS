@@ -4,12 +4,12 @@ depends libgudev
 depends gdbus-codegen
 depends intltool
 depends util-linux
-depends mdadm
 depends dmraid
-depends libblockdev # compiled with dmraid depend
+depends libblockdev
 depends intltool
 depends gnome-common
 depends gtk-doc
+depends gobject-introspection
 
 optional_depends dosfstools  "" "" "for VFAT filesystem management support"
 optional_depends ntfs-3g     "" "" "for NTFS filesystem management support"
@@ -20,8 +20,3 @@ optional_depends parted      "" "" "for partition management support"
 #optional_depends gpfdisk     "" "" "for GUID partition table support"
 
 optional_depends systemd "" "--with-systemdsystemunitdir=no" "for systemd support"
-
-optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
-                 "for object introspection"
