@@ -1,3 +1,9 @@
-default_pre_build &&
+if ! in_depends libblockdev mdadm; then
+  message "${PROBLEM_COLOR}libblockdev needs to be built with mdadm support"
+  message "${PROBLEM_COLOR}please run:"
+  message "            lin -rc libblockdev  \#select y to mdadm support"
+  false
+fi
 
+default_pre_build &&
 ./autogen.sh
