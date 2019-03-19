@@ -2,6 +2,6 @@
 
 OPTS+=" --disable-static \
         --enable-tile-path \
-        --enable-python-extension" &&
+        --enable-python-extension"
 
 default_build
