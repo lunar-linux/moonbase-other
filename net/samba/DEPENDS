@@ -26,8 +26,6 @@ optional_depends gnutls \
                  "--enable-gnutls" "--without-ad-dc" \
                  "for Active Directory Domain Controller support"
 
-optional_depends tdb "" "" "for tdb database support"
-
 optional_depends acl \
                  "--with-acl-support" \
                  "--without-acl-support" \
@@ -48,7 +46,4 @@ optional_depends libarchive \
                  "--without-libarchive" \
                  "for the smbclient tar-file mode"
 
-optional_depends jansson \
-                 "--with-json-audit" \
-                 "--without-json-audit" \
-                 "for the JSON formatted audit log feature and the AD DC"
+optional_depends tdb "" "" "for tdb database support"

@@ -1,16 +1,20 @@
-export PYTHON=/usr/bin/python2 &&
+export PYTHON=/usr/bin/python2
 
 #For now this skirts around runtime error: file file:/usr/share/sgml/docbook/xsl-stylesheets-1.79.2/lib/lib.xsl line 56 element variable
 #xsltApplySequenceConstructor: A potential infinite template recursion was detected; thus tanking the build.
-#The current default is 3000 and apparently not enough 
+#The current default is 3000 and apparently not enough
 export XSLTPROC="xsltproc --maxdepth 15000" &&
 
 LDFLAGS+=" -Wl,--no-as-needed" &&
-BUNDLED_LIBRARIES="!talloc,!pytalloc-popt,!popt" &&
+BUNDLED_LIBRARIES="!talloc,!pytalloc-popt,!popt"
 
 if in_depends $MODULE tdb; then
   BUNDLED_LIBRARIES+=",!tdb"
-fi &&
+fi
+
+if module_installed systemd; then
+   OPTS+=" --with-systemd"
+fi
 
 ./buildtools/bin/waf configure \
        --prefix=/usr           \
@@ -21,7 +25,6 @@ fi &&
        --enable-fhs            \
        --bundled-libraries=$BUNDLED_LIBRARIES \
        --disable-rpath-install \
-       --with-systemd \
        --with-piddir=/var/run  \
        --with-configdir=/etc/samba \
        --with-lockdir=/var/cache/samba \
