@@ -1,5 +1,3 @@
-export PYTHON=/usr/bin/python2
-
 #For now this skirts around runtime error: file file:/usr/share/sgml/docbook/xsl-stylesheets-1.79.2/lib/lib.xsl line 56 element variable
 #xsltApplySequenceConstructor: A potential infinite template recursion was detected; thus tanking the build.
 #The current default is 3000 and apparently not enough
@@ -25,10 +23,10 @@ fi
        --enable-fhs            \
        --bundled-libraries=$BUNDLED_LIBRARIES \
        --disable-rpath-install \
-       --with-piddir=/var/run  \
+       --with-piddir=/run  \
        --with-configdir=/etc/samba \
+       --with-sockets-dir=/run/samba \
        --with-lockdir=/var/cache/samba \
-       --with-sockets-dir=/var/run/samba \
        --with-pammodulesdir=/usr/lib/security \
        $OPTS &&
 
