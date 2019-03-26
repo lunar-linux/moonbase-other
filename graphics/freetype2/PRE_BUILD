@@ -1,9 +1,5 @@
 default_pre_build &&
 
-patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 1 &&
-patch_it $SOURCE4 1 &&
-
 sed -i -r 's:.*(#.*SYSTEM_ZLIB.*) .*:\1:' include/freetype/config/ftoption.h &&
 sed -i -r 's:.*(#.*USE_BZIP2.*) .*:\1:'   include/freetype/config/ftoption.h &&
 
