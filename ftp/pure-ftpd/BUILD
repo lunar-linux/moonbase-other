@@ -8,7 +8,7 @@ OPTS+=" --docdir=/usr/share/doc/pure-ftpd \
         --with-puredb \
         --with-quotas \
         --with-virtualhosts \
-        --with-peruserlimits" &&
+        --with-peruserlimits"
 
 OPTS+=" --sbindir=/usr/bin" &&
 
