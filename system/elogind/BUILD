@@ -1,4 +1,5 @@
-OPTS+=" -D rootlibdir=/usr/lib \
+OPTS+=" -D rootprefix=/usr \
+        -D rootlibdir=/usr/lib \
         -D rootlibexecdir=/usr/libexec/elogind \
         -D dbuspolicydir=/usr/share/dbus-1/system.d \
         -D docdir=/usr/share/doc/elogind \
@@ -11,8 +12,6 @@ if module_installed polkit; then
    OPTS+=" -D polkit=true"
 else
    OPTS+=" -D polkit=false"
-fi &&
+fi
 
-default_meson_build &&
-
-sedit 's:lib/elogind:libexec/elogind:' /etc/conf.d/elogind
+default_meson_build
