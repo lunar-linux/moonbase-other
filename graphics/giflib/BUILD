@@ -1,5 +1,7 @@
-export CC="gcc"
+make &&
 
-OPTS+=" --disable-static" &&
+prepare_install
 
-default_build
+make PREFIX=/usr install &&
+
+rm -f /usr/lib/libgif.a
