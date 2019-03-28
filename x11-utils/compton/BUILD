@@ -1,3 +1,6 @@
+OPTS+=" -D sanitize=true \
+        -D build_docs=true"
+
 default_meson_build &&
 
 mkdir -p /etc/xdg &&
