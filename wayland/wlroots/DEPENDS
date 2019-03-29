@@ -1,0 +1,14 @@
+depends libinput
+depends libxkbcommon
+depends glu
+depends pixman
+depends xcb-util-errors
+depends xcb-util-image
+depends xcb-util-wm
+depends wayland-protocols
+depends meson
+
+optional_depends systemd \
+                 "-Dlogind=enabled -Dlogind-provider=systemd" \
+                 "-Dlogind=disabled" \
+                 "for systemd support on login"
