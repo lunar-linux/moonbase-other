@@ -1,7 +1,5 @@
-OPTS+=" --disable-static --enable-clients --enable-demo-clients-install" &&
+OPTS+=" -D simple-dmabuf-drm=auto \
+        -D backend-default=wayland \
+        -D backend-rdp=false"
 
-if in_depends $MODULE systemd; then
-  OPTS+=" --enable-systemd-notify --enable-systemd-login"
-fi &&
-
-default_build
+default_meson_build

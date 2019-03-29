@@ -6,10 +6,27 @@ depends libinput
 depends libxkbcommon
 depends wayland-protocols
 
-optional_depends colord    "" "--disable-colord"    "colord support"
-optional_depends lcms2     "" "--disable-lcms"      "lcms support"
-optional_depends libunwind "" "--disable-libunwind" "unwind support"
-optional_depends libwebp   "" "--without-webp"      "WebP support"
-optional_depends dbus      "" "--disable-dbus"      "dbus support"
+optional_depends colord \
+                 "-D color-management-colord=true" \
+                 "-D color-management-colord=false" \
+                 "for colord support"
 
-optional_depends systemd "--enable-systemd-login" "" "systemd support"
+optional_depends lcms2 \
+                 "-D color-management-lcms=true" \
+                 "-D color-management-lcms=false" \
+                 "for lcms support"
+
+optional_depends %JPEG \
+                 "-D image-jpeg=true" \
+                 "-D image-jpeg=false" \
+                 "for JPEG support"
+
+optional_depends libwebp \
+                 "-D image-webp=true" \
+                 "-D image-webp=false" \
+                 "for WebP support"
+
+optional_depends systemd \
+                 "-D systemd=true -D launcher-logind=true" \
+                 "-D systemd=false -D launcher-logind=false" \
+                 "for systemd support"
