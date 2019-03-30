@@ -1,6 +1,3 @@
 default_pre_build &&
 
-# -Os inlines is_reserved{,_cc} incorrectly with gcc
-# that breaks the build... use current gperf instead
-rm src/gperf.c src/gperf-cc.c &&
-sedit '204 s/unsigned int/size_t/; 218 s/unsigned int/size_t/' src/lexi.c
+sedit '/AM_CFLAGS/s:-Werror::g' src/Makefile.{am,in}

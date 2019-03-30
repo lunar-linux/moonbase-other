@@ -1,6 +1,8 @@
 OPTS+=" --docdir=/usr/share/doc"
 
-default_config &&
+#default_config &&
+
+./configure --prefix=/usr $OPTS &&
 make &&
 prepare_install &&
 make docdir=/usr/share/doc/indent install &&
