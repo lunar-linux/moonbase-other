@@ -1,6 +1,8 @@
 depends wayland-protocols
 depends meson
 
+optional_depends scdoc "" "" "for man paged install"
+
 optional_depends systemd "-D logind-provider=systemd" "" "for systemd logind support"
 optional_depends elogind "-D logind-provider=elogind" "" "for elogind support"
 
