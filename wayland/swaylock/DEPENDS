@@ -1,0 +1,17 @@
+depends Linux-PAM
+depends cairo
+depends libxkbcommon
+depends wayland-protocols
+depends meson
+
+optional_depends gdk-pixbuf "" "" "for images other than png format"
+
+optional_depends bash-completion \
+                 "-D bash-completions=true" \
+                 "-D bash-completions=false" \
+                 "for bash completions install"
+
+optional_depends zsh \
+                 "-D zsh-completions=true" \
+                 "-D zsh-completions=false" \
+                 "for zsh completions install"
