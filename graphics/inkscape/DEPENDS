@@ -1,10 +1,10 @@
 depends cmake
 depends boost
 depends gc
-depends popt
 depends gsl
+depends popt
 depends gtkmm
-depends libxml2
+depends libxslt
 depends libart_lgpl
 depends desktop-file-utils
 depends hicolor-icon-theme
@@ -18,7 +18,7 @@ optional_depends dbus \
 optional_depends poppler \
                  "-DENABLE_POPPLER=ON -DENABLE_POPPLER_CAIRO=ON" \
                  "-DENABLE_POPPLER=OFF -DENABLE_POPPLER_CAIRO=OFF" \
-                 "for poppler support" y
+                 "for poppler support" n
 
 optional_depends ImageMagick \
                  "-DWITH_IMAGE_MAGICK=ON" \
@@ -28,12 +28,12 @@ optional_depends ImageMagick \
 optional_depends lcms \
                  "-DENABLE_LCMS=ON" \
                  "-DENABLE_LCMS=OFF" \
-                 "enable LittleCMS for color management" y
+                 "enable LittleCMS for color management" n
 
 optional_depends gvfs \
                  "-DWITH_DBUS=ON" \
                  "-DWITH_DBUS=OFF" \
-                 "enable GNOME VFS support " n
+                 "enable GNOME VFS support" n
 
 optional_depends libwpg \
                  "-DWITH_LIBWPG=ON" \
