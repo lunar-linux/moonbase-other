@@ -1,10 +1,6 @@
 depends glib-2
 depends pbzip2
-
-optional_depends graphite \
-                 "--with-graphite2" \
-                 "--without-graphite2" \
-                 "for additional shapers support" y
+depends python-setuptools
 
 optional_depends freetype2 \
                  "--with-freetype=yes" \
@@ -15,6 +11,11 @@ optional_depends cairo \
                  "--with-cairo=yes" \
                  "--with-cairo=no" \
                  "for cairo support" y
+
+optional_depends graphite \
+                 "--with-graphite2" \
+                 "--without-graphite2" \
+                 "for additional shapers support" y
 
 optional_depends icu4c \
                  "--with-icu=yes" \
