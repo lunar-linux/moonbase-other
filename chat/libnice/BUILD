@@ -1,3 +1,4 @@
-OPTS+=" -D tests=disabled -D examples=disabled"
+OPTS+=" -Dtests=disabled \
+        -Dexamples=disabled"
 
 default_meson_build

@@ -3,15 +3,15 @@ depends meson
 
 optional_depends scdoc "" "" "for man paged install"
 
-optional_depends systemd "-D logind-provider=systemd" "" "for systemd logind support"
-optional_depends elogind "-D logind-provider=elogind" "" "for elogind support"
+optional_depends systemd "-Dlogind-provider=systemd" "" "for systemd logind support"
+optional_depends elogind "-Dlogind-provider=elogind" "" "for elogind support"
 
 optional_depends bash-completion \
-                 "-D bash-completions=true" \
-                 "-D bash-completions=false" \
+                 "-Dbash-completions=true" \
+                 "-Dbash-completions=false" \
                  "for bash completions install"
 
 optional_depends zsh \
-                 "-D zsh-completions=true" \
-                 "-D zsh-completions=false" \
+                 "-Dzsh-completions=true" \
+                 "-Dzsh-completions=false" \
                  "for zsh completions install"

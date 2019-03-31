@@ -1,4 +1,4 @@
-OPTS+=" -D enable_docs=false"
+OPTS+=" -Denable_docs=false"
 
 default_meson_build &&
 

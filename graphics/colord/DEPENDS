@@ -1,4 +1,3 @@
-depends meson
 depends lcms2
 depends sqlite
 depends libgudev
@@ -8,23 +7,24 @@ depends Argyll
 depends docbook2X
 depends shared-mime-info
 depends gobject-introspection
+depends meson
 
 optional_depends bash-completion \
-                 "-D bash_completion=true" \
-                 "-D bash_completion=false" \
+                 "-Dbash_completion=true" \
+                 "-Dbash_completion=false" \
                  "for bash completion support"
 
 optional_depends vala \
-                 "-D vapi=true" \
-                 "-D vapi=false" \
+                 "-Dvapi=true" \
+                 "-Dvapi=false" \
                   "for vala bindings support"
 
 optional_depends sane-backends \
-                 "-D sane=true" \
-                 "-D sane=false" \
+                 "-Dsane=true" \
+                 "-Dsane=false" \
                  "for scanner support"
 
 optional_depends gtk-doc \
-                 "-D docs=true" \
-                 "-D docs=false" \
+                 "-Ddocs=true" \
+                 "-Ddocs=false" \
                  "for documentsation install"

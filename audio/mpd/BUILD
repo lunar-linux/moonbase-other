@@ -1,7 +1,9 @@
-OPTS+=" -D zlib=enabled"
+OPTS+=" -Dzlib=enabled"
 
 if module_installed systemd; then
-  OPTS+=" -D documentation=false -D systemd=enabled -D systemd_system_unit_dir=enabled"
+  OPTS+=" -Ddocumentation=false \
+          -Dsystemd=enabled \
+          -Dsystemd_system_unit_dir=enabled"
 fi
 
 default_meson_build &&

@@ -1,7 +1,7 @@
 pushd gtk &&
-  OPTS+=" -D debugger=false \
-          -D oss=false \
-          -D appdatadir=/usr/share/games/snes9x"
+  OPTS+=" -Ddebugger=false \
+          -Doss=false \
+          -Dappdatadir=/usr/share/games/snes9x"
   default_meson_build &&
   mkdir -p /usr/games &&
   mv -f /usr/bin/snes9x-gtk /usr/games/ &&

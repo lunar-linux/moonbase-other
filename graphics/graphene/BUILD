@@ -1,4 +1,4 @@
-OPTS+="-D tests=false \
-       -D benchmarks=false"
+OPTS+="-Dtests=false \
+       -Dbenchmarks=false"
 
 default_meson_build

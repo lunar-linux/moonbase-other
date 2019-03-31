@@ -1,3 +1,4 @@
-OPTS+=" -D python=python3 -D pycairoi=true"
+OPTS+=" -Dpython=python3 \
+        -Dpycairoi=true"
 
 default_meson_build

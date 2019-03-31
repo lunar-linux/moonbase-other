@@ -1,5 +1,5 @@
-OPTS+=" -D sanitize=true \
-        -D build_docs=true"
+OPTS+=" -Dsanitize=true \
+        -Dbuild_docs=true"
 
 default_meson_build &&
 

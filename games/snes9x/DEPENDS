@@ -7,46 +7,46 @@ depends intltool
 depends meson
 
 optional_depends %GLX \
-                 "-D opengl=true" \
-                 "-D opengl=false" \
+                 "-Dopengl=true" \
+                 "-Dopengl=false" \
                  "with OpenGL support" y
 
 optional_depends alsa-lib \
-                 "-D alsa=true" \
-                 "-D alsa=false" \
+                 "-Dalsa=true" \
+                 "-Dalsa=false" \
                  "for ALSA audio support"
 
 optional_depends pulseaudio \
-                 "-D pulseaudio=true" \
-                 "-D pulseaudio=false" \
+                 "-Dpulseaudio=true" \
+                 "-Dpulseaudio=false" \
                  "for PulseAudio support"
 
 optional_depends portaudio \
-                 "-D portaudio=true" \
-                 "-D portaudio=false" \
+                 "-Dportaudio=true" \
+                 "-Dportaudio=false" \
                  "for PortAudio support"
 
 optional_depends zlib \
-                 "-D zlib=true" \
-                 "-D zlib=false" \
+                 "-Dzlib=true" \
+                 "-Dzlib=false" \
                  "for gzip compression support"
 
 optional_depends minizip \
-                 "-D system-zip=true" \
-                 "-D system-zip=false" \
+                 "-Dsystem-zip=true" \
+                 "-Dsystem-zip=false" \
                  "for minizip library support"
 
 optional_depends wayland \
-                 "-D wayland=true" \
-                 "-D wayland=false" \
+                 "-Dwayland=true" \
+                 "-Dwayland=false" \
                  "for Wayland support"
 
 optional_depends gtk+-3 \
-                 "-D gtk3=true" \
-                 "-D gtk3=false" \
+                 "-Dgtk3=true" \
+                 "-Dgtk3=false" \
                  "for GTK 3.x support" y
 
 optional_depends gtk+-2 \
-                 "-D gtk2=true" \
-                 "-D gtk2=false" \
+                 "-Dgtk2=true" \
+                 "-Dgtk2=false" \
                  "for GTK 2.x support" n

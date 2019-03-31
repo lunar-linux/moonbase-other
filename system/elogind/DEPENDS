@@ -6,19 +6,19 @@ depends intltool
 depends meson
 
 optional_depends Linux-PAM \
-                 "-D pam=true" \
-                 "-D pam=false" \
+                 "-Dpam=true" \
+                 "-Dpam=false" \
                  "for PAM support"
 
 optional_depends acl \
-                 "-D acl=true" \
-                 "-D acl=false" \
+                 "-Dacl=true" \
+                 "-Dacl=false" \
                  "for ACL support"
 
 optional_depends libseccomp \
-                 "-D seccomp=true" \
-                 "-D seccomp=false" \
+                 "-Dseccomp=true" \
+                 "-Dseccomp=false" \
                  "for libseccomp support"
 
 optional_depends docbook-xsl "" "" "for documetation install"
-optional_depends python2-lxml        "" "" "for building the indices"
+optional_depends python2-lxml"" "" "for building the indices"
