@@ -1,9 +1,0 @@
-mk_source_dir &&
-validate_source_dir &&
-cd $SOURCE_DIRECTORY &&
-
-tar xf $SOURCE_CACHE/$SOURCE --no-same-owner \
-                             --no-same-permissions \
-                             --strip-component=2
-
-# sedit 's:_BSD_SOURCE:_DEFAULT_SOURCE:' Makefile
