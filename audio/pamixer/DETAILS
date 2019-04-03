@@ -1,0 +1,25 @@
+          MODULE=pamixer
+         VERSION=1.4
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/cdemoulins/pamixer/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:d8c7175dd844e458f4222fd24367e16d2b6cc4edb450bfa8bb9b3dec538cbdea
+        WEB_SITE=https://github.com/cdemoulins/pamixer/
+         ENTERED=20190403
+         UPDATED=20190403
+           SHORT="Pulseaudio command-line mixer like amixer"
+
+cat << EOF
+pamixer is like amixer but for pulseaudio.
+It can control the volume levels of the sinks.
+Also, this project can provide you a small C++ library to control pulseaudio.
+Features:
+ - Get the current volume of the default sink, the default source or a selected
+   one by his id
+ - Set the volume for the default sink, the default source or any other device
+ - List the sinks
+ - List the sources
+ - Increase / Decrease the volume for a device (using gamma correction
+   optionally)
+ - Mute or unmute a device.
+EOF
+
