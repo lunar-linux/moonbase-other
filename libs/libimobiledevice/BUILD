@@ -6,12 +6,10 @@ sedit "s:SSLv3_method:SSLv23_method:" src/idevice.c &&
 if in_depends $MODULE cython; then
   mkdir -p build-py &&
   pushd build-py &&
-  PYTHON=/usr/bin/python CYTHON=/usr/bin/cython ../configure $OPTS --prefix=/usr &&
+  PYTHON=/usr/bin/python2 CYTHON=/usr/bin/cython2 ../configure $OPTS --prefix=/usr &&
   default_make &&
   popd
-fi &&
-
-default_build
-#  make &&
-#  prepare_install &&
-#  make install
+ else 
+  PYTHON=/usr/bin/python2 ../configure $OPTS --prefix=/usr &&
+  default_make
+fi
