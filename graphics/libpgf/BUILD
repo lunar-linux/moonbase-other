@@ -1,4 +1,4 @@
-cd $SOURCE_DIRECTORY/Codec &&
+cd $SOURCE_DIRECTORY/PGF/Codec &&
 
 touch NEWS && touch AUTHORS
 libtoolize --copy --force &&
