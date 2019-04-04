@@ -24,6 +24,7 @@ optional_depends mpcdec     "-Dmpcdec=enabled"     "-Dmpcdec=disabled"    "to en
 optional_depends curl       "-Dcurl=enabled"       "-Dcurl=disabled"      "to play HTTP streams"
 optional_depends libmms     "-Dmms=enabled"        "-Dmms=disabled"       "to enable MMS protocol support"
 optional_depends libid3tag  "-Did3tag=enabled"     "-Did3tag=disabled"    "to enable support for ID3 tags"
+optional_depends libupnp    "-Dupnp=enabled"       "-Dupnp=disabled"      "to enable UPnP client support"
 optional_depends libnfs     "-Dnfs=enabled"        "-Dnfs=disabled"       "to enable NFS support"
 optional_depends samba      "-Dsmbclient=enabled"  "-Dsmbclient=disabled" "to enable SMB support"
 
@@ -58,8 +59,8 @@ optional_depends chromaprint \
                  "to enable the ChromaPrint/AcousticID support"
 
 optional_depends libvorbis \
-                 "-Dvorbis=enabled -Dvorbisenc=enabled" \
-                 "-Dvorbis=disabled -Dvorbisenc=disabled" \
+                 "-Dvorbis=enabled -D vorbisenc=enabled" \
+                 "-Dvorbis=disabled -D vorbisenc=disabled" \
                  "to enable vorbis codec support"
 
 optional_depends libsamplerate \
