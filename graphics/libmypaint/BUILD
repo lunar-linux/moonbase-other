@@ -1,3 +1,6 @@
-OPTS+=" --disable-static --enable-gegl"
+OPTS+=" --disable-static \
+        --disable-debug \
+		--disable-docs \
+        --disable-profiling"
 
 default_build
