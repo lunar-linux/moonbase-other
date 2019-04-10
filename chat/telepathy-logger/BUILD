@@ -1,4 +1,5 @@
+PYTHON=python2 ./configure --prefix=/usr &&
+
 OPTS+=" --disable-static" &&
 
-default_build
-
+default_make
