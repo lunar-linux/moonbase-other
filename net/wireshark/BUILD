@@ -9,7 +9,7 @@ OPTS+=" --with-zlib \
         --disable-warnings-as-errors \
         --disable-static"
 
-default_build &&
+default_cmake_build &&
 
 if [[ "`get_module_config DUMP_PRIV`" = "y" ]]; then
   setcap 'CAP_NET_RAW+eip CAP_NET_ADMIN+eip' /usr/bin/dumpcap
