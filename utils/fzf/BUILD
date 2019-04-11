@@ -1,4 +1,3 @@
-export GOPATH=$SOURCE_DIRECTORY
 sedit 's/^REVISION.*/REVISION := ""/' Makefile &&
 bad_flags "-z now" "-z relro" &&
 
