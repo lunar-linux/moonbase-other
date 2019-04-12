@@ -1,4 +1,4 @@
-./configure --mandir=/usr/share/man \
+./configure --mandir=/usr/share/man --prefix=/usr \
             --with-app-defaults-dir=/usr/share/X11/app-defaults &&
 
 xmkmf &&
