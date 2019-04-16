@@ -1,0 +1,122 @@
+depends cmake
+depends python-numpy
+
+optional_depends libpng \
+                 "-DWITH_PNG=ON" \
+                 "-DWITH_PNG=OFF" \
+                 "for png graphics support" y
+
+optional_depends tiff \
+                 "-DWITH_TIFF=ON" \
+                 "-DWITH_TIFF=OFF" \
+                 "for tiff graphics support" y
+
+optional_depends %JPEG \
+                 "-DWITH_JPEG=ON" \
+                 "-DWITH_JPEG=OFF" \
+                 "for jpeg graphics support" y
+
+optional_depends jasper \
+                 "-DWITH_JASPER=ON" \
+                 "-DWITH_JASPER=OFF" \
+                 "for JPEG-2000 Part-1 support" y
+
+optional_depends gdal \
+                 "-DWITH_GDAL=ON" \
+                 "-DWITH_GDAL=OFF" \
+                 "for geospatial data abstraction support" y
+
+optional_depends libwebp \
+                 "-DWITH_WEBP=ON" \
+                 "-DWITH_WEBP=OFF" \
+                 "for WebP image support" y
+
+optional_depends libgphoto2 \
+                 "-DWITH_GPHOTO2=ON" \
+                 "-DWITH_GPHOTO2=OFF" \
+                 "for digital cameras access support" y
+
+optional_depends ffmpeg \
+                 "-DWITH_FFMPEG=ON" \
+                 "-DWITH_FFMPEG=OFF" \
+                 "for ffmpeg video support" y
+
+optional_depends mesa-lib \
+                 "-DWITH_OPENCL=ON -DWITH_OPENGL=ON" \
+                 "-DWITH_OPENCL=OFF -DWITH_OPENGL=OFF" \
+                 "for coding with OpenCL" y
+
+optional_depends gstreamer \
+                 "-DWITH_GSTREAMER=ON" \
+                 "-DWITH_GSTREAMER=OFF" \
+                 "for gstreamer support" y
+
+optional_depends xine-lib \
+                "-DWITH_XINE=ON" \
+                "-DWITH_XINE=OFF" \
+                "for xine video support"
+
+optional_depends libdc1394 \
+                 "-DWITH_1394=ON" \
+                 "-DWITH_1394=OFF" \
+                 "for firewire support"
+
+optional_depends v4l-utils \
+                 "-DWITH_V4L=ON" \
+                 "-DWITH_V4L=OFF" \
+                 "for v4l video support" y
+
+optional_depends openexr \
+                 "-DWITH_OPENEXR=ON" \
+                 "-DWITH_OPENEXR=OFF" \
+                 "for IML support" y
+
+optional_depends gtk+-2 \
+                 "-DWITH_GTK_2_X=ON" \
+                 "-DWITH_GTK_2_X=OFF" \
+                 "for gtk+-2 graphics support"
+
+optional_depends gtk+-3 \
+                 "-DWITH_GTK=ON" \
+                 "-DWITH_GTK=OFF" \
+                 "for gtk+-3 graphics support" y
+
+optional_depends qt5 \
+                 "-DWITH_QT=ON" \
+                 "-DWITH_QT=OFF" \
+                 "Build with Qt Backend support"
+
+optional_depends eigen3 \
+                 "-DWITH_EIGEN=ON" \
+                 "-DWITH_EIGEN=OFF" \
+                 "for linear algebra libraries support" y
+
+optional_depends unicap \
+                 "-DWITH_UNICAP=ON" \
+                 "-DWITH_UNICAP=OFF" \
+                 "for additional video capture support"
+
+optional_depends intel-tbb \
+                 "-DWITH_TBB=ON" \
+                 "-DWITH_TBB=OFF" \
+                 "for threaded building block support" y
+
+optional_depends CUDA-OpenCL-headers \
+                 "-DWITH_CUDA=ON" \
+                 "-DWITH_CUDA=OFF" \
+                 "for NVidia Cuda Runtime support"
+
+optional_depends VTK \
+                 "-DWITH_VTK=ON" \
+                 "-DWITH_VTK=OFF" \
+                 "build visualization framework"
+
+optional_depends Sphinx \
+                 "-DBUILD_DOCS=ON" \
+                 "-DBUILD_DOCS=OFF" \
+                 "build documentation"
+
+optional_depends lapack \
+                 "-DWITH_LAPACK=ON" \
+                 "-DWITH_LAPACK=OFF" \
+                 "for linear algebra support"
