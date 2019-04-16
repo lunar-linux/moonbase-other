@@ -1,5 +1,9 @@
 default_pre_build &&
 
+if module_installed CUDA-OpenCL-headers ; then
+  OPTS+=" --disable-cuda --disable-nvdec --disable-nvenc"
+fi &&
+
 #xvidcore doesn't use pkgconfig, and gstreamer doesn't use -pthread
 #This leaves us to fix the problem
 if in_depends $MODULE xvidcore; then
