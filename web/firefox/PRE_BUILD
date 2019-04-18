@@ -41,7 +41,8 @@ for flag in $OPTS; do
   echo "ac_add_options $flag" >> mozconfig
 done &&
 
-echo "ac_add_options --with-google-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
+echo "ac_add_options --with-google-location-service-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
+echo "ac_add_options --with-google-safebrowsing-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
 
 # turn off this #$ bell during build
 setterm -bfreq -blength &> /dev/null &&
