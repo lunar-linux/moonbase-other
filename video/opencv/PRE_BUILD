@@ -1,14 +1,18 @@
 default_pre_build &&
 
-#if in_depends $MODULE lapack ; then
-#  OPTS+=" -DLAPACK_LIBRARIES=/usr/lib/liblapack.so;/usr/lib/libblas.so;/usr/lib/libcblas.so \
-#          -DLAPACK_CBLAS_H=/usr/include/lapack/cblas.h \
-#          -DLAPACK_LAPACKE_H=/usr/include/lapack/lapacke.h"
-#fi &&
+tar xf $SOURCE_CACHE/$SOURCE2 && 
 
-#if in_depends $MODULE libpng ; then
-#  OPTS+=" -DPNG_PNG_INCLUDE_DIR=/usr/include/libpng16"
-#fi &&
+sedit 's|-I${includedir_old} ||' cmake/templates/opencv-XXX.pc.in &&
+
+if in_depends $MODULE lapack ; then
+  OPTS+=" -DLAPACK_LIBRARIES=/usr/lib/liblapack.so;/usr/lib/libblas.so;/usr/lib/libcblas.so \
+          -DLAPACK_CBLAS_H=/usr/include/lapack/cblas.h \
+          -DLAPACK_LAPACKE_H=/usr/include/lapack/lapacke.h"
+fi &&
+
+if in_depends $MODULE libpng ; then
+  OPTS+=" -DPNG_PNG_INCLUDE_DIR=/usr/include/libpng16"
+fi &&
 
 if module_installed libglvnd ; then
   OTPS+=" -DOpenGL_GL_PREFERENCE=GLVND"
@@ -20,6 +24,8 @@ OPTS+=" -DBUILD_WITH_DEBUG_INFO=OFF \
         -DBUILD_PERF_TESTS=OFF \
         -DBUILD_SHARED_LIBS=ON \
         -DBUILD_WITH_DYNAMIC_IPP=ON \
-        -DINSTALL_PYTHON_EXAMPLES=OFF"
- 
-#       -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-$VERSION/modules"
+        -DOPENCV_GENERATE_PKGCONFIG=ON \
+        -DINSTALL_PYTHON_EXAMPLES=OFF \
+        -DOPENCV_ENABLE_NONFREE=ON \
+        -DCMAKE_CXX_FLAGS=-std=c++11 \
+        -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-$VERSION/modules "
