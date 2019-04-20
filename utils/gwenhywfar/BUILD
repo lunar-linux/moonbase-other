@@ -1,3 +1,6 @@
+
+autoreconf -fi &&
+
 if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc &&
   OPTS+=" --with-qt5-qmake=/usr/lib/qt5/bin/qmake   \
