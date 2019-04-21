@@ -10,6 +10,6 @@ if in_depends $MODULE cython; then
   default_make &&
   popd
  else 
-  PYTHON=/usr/bin/python2 ../configure $OPTS --prefix=/usr &&
+  PYTHON=/usr/bin/python2 ./configure $OPTS --prefix=/usr &&
   default_make
 fi
