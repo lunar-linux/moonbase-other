@@ -1,3 +1,6 @@
-OPTS+=" --disable-test --disable-doc"
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DURIPARSER_BUILD_DOCS=OFF \
+        -DURIPARSER_BUILD_TESTS=OFF"
 
-default_build
+default_cmake_build
