@@ -1,5 +1,3 @@
-OPTS+=" --sbindir=bin"
-
 default_meson_build &&
 
 if module_installed systemd; then
