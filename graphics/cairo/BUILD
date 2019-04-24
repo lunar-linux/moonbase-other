@@ -2,16 +2,11 @@
 CFLAGS+=" -fno-lto" &&
 CXXFLAGS+=" -fno-lto" &&
 
-OPTS+=" --disable-static --enable-gobject=yes --disable-qt" &&
-
-if module_installed mesa-lib; then
-  if module_installed NVIDIA; then
-    # disable gl option if using NVIDIA blobs (gtk+-2 segfaults)
-    OPTS+=" --disable-gl"
-  else
-    OPTS+=" --enable-gl"
-  fi
+if [ -f /usr/include/GL/gl.h ] ; then
+  OPTS+=" --enable-gl"
 fi &&
+
+OPTS+=" --disable-static --enable-gobject=yes" &&
 
 if [ "`get_module_config DOCS`" = "n" ]; then
   sedit 's/SUBDIRS = src doc util/SUBDIRS = src util/g' Makefile.in
