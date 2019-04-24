@@ -1,11 +1,13 @@
           MODULE=frei0r-plugins
          VERSION=1.6.1
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=https://files.dyne.org/frei0r/
-      SOURCE_VFY=sha256:e0c24630961195d9bd65aa8d43732469e8248e8918faa942cfb881769d11515e
-        WEB_SITE=http://frei0r.dyne.org/
+ SOURCE_URL_FULL=https://github.com/dyne/frei0r/archive/v$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%-*}-$VERSION
+      SOURCE_VFY=sha256:dae0ca623c83173788ce4fc74cb67ac7e50cf33a4412ee3d33bed284da1a8437
+        WEB_SITE=https://github.com/dyne/frei0r
+            TYPE=cmake
          ENTERED=20100210
-         UPDATED=20171208
+         UPDATED=20190424
            SHORT="Plugin API for video sources and filters"
 
 cat << EOF
