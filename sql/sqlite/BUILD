@@ -14,7 +14,10 @@ export CPPFLAGS+=" -DSQLITE_ENABLE_DBSTAT_VTAB=1 \
                    -DSQLITE_ENABLE_BATCH_ATOMIC_WRITE=1 \
                    -DSQLITE_MAX_VARIABLE_NUMBER=250000 \
                    -DSQLITE_MAX_EXPR_DEPTH=10000 \
-                   -DSQLITE_ENABLE_COLUMN_METADATA=1"
+                   -DSQLITE_ENABLE_COLUMN_METADATA=1 \
+                   -DSQLITE_ENABLE_FTS3=1 \
+                   -DSQLITE_ENABLE_FTS4=1 \
+                   -DSQLITE_ENABLE_FTS5=1" &&
 
 OPTS+="	--disable-static \
 	--enable-fts3 \
