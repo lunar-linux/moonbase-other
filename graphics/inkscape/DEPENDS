@@ -25,14 +25,14 @@ optional_depends ImageMagick \
                  "-DWITH_IMAGE_MAGICK=OFF" \
                  "support for raster extensions and import resolution" y
 
-optional_depends lcms \
+optional_depends lcms2 \
                  "-DENABLE_LCMS=ON" \
                  "-DENABLE_LCMS=OFF" \
                  "enable LittleCMS for color management" n
 
 optional_depends gvfs \
-                 "-DWITH_DBUS=ON" \
-                 "-DWITH_DBUS=OFF" \
+                 "-DWITH_GNOME_VFS=ON" \
+                 "-DWITH_GNOME_VFS=OFF" \
                  "enable GNOME VFS support" n
 
 optional_depends libwpg \
@@ -44,3 +44,5 @@ optional_depends libvisio \
                  "-DWITH_LIBVISIO=ON" \
                  "-DWITH_LIBVISIO=OFF" \
                  "for MSoft Visio diagrams support" n
+
+optional_depends potrace "" "" "For bitmap transformation into vector file formats"
