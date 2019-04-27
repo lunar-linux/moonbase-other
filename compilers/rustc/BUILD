@@ -13,7 +13,7 @@ make ${MAKES:+-j$MAKES} &&
 
 prepare_install &&
 
-./x.py install -v &&
+python ./x.py install -v &&
 
 ./standalone/install.sh --prefix=/usr --components=cargo &&
 install -Dm0644 standalone/cargo/etc/bash_completion.d/cargo /etc/bash_completion.d/
