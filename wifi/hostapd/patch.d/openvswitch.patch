@@ -1,6 +1,7 @@
---- ./src/drivers/drivers.mak
-+++ ./src/drivers/drivers.mak
-@@ -152,6 +152,10 @@ DRV_WPA_OBJS += ../src/drivers/driver_wext.o
+diff -wbBur hostapd-2.8.q/src/drivers/drivers.mak hostapd-2.8/src/drivers/drivers.mak
+--- hostapd-2.8.q/src/drivers/drivers.mak	2019-04-21 10:10:22.000000000 +0300
++++ hostapd-2.8/src/drivers/drivers.mak	2019-04-25 15:05:36.981411804 +0300
+@@ -136,6 +136,10 @@
  NEED_RFKILL=y
  endif
  
@@ -11,9 +12,10 @@
  ifdef NEED_NETLINK
  DRV_OBJS += ../src/drivers/netlink.o
  endif
---- ./src/drivers/drivers.mk
-+++ ./src/drivers/drivers.mk
-@@ -137,6 +137,10 @@ DRV_WPA_OBJS += src/drivers/driver_wext.c
+diff -wbBur hostapd-2.8.q/src/drivers/drivers.mk hostapd-2.8/src/drivers/drivers.mk
+--- hostapd-2.8.q/src/drivers/drivers.mk	2019-04-21 10:10:22.000000000 +0300
++++ hostapd-2.8/src/drivers/drivers.mk	2019-04-25 15:05:36.981411804 +0300
+@@ -128,6 +128,10 @@
  NEED_RFKILL=y
  endif
  
@@ -24,10 +26,11 @@
  ifdef NEED_NETLINK
  DRV_OBJS += src/drivers/netlink.c
  endif
---- ./src/drivers/linux_ioctl.c
-+++ ./src/drivers/linux_ioctl.c
-@@ -14,6 +14,69 @@
- #include "utils/common.h"
+diff -wbBur hostapd-2.8.q/src/drivers/linux_ioctl.c hostapd-2.8/src/drivers/linux_ioctl.c
+--- hostapd-2.8.q/src/drivers/linux_ioctl.c	2019-04-21 10:10:22.000000000 +0300
++++ hostapd-2.8/src/drivers/linux_ioctl.c	2019-04-25 15:05:36.981411804 +0300
+@@ -15,6 +15,69 @@
+ #include "common/linux_bridge.h"
  #include "linux_ioctl.h"
  
 +#ifdef CONFIG_OPENVSWITCH
@@ -96,15 +99,7 @@
  
  int linux_set_iface_flags(int sock, const char *ifname, int dev_up)
  {
-@@ -118,7 +181,6 @@ int linux_set_ifhwaddr(int sock, const char *ifname, const u8 *addr)
- 	return 0;
- }
- 
--
- #ifndef SIOCBRADDBR
- #define SIOCBRADDBR 0x89a0
- #endif
-@@ -162,6 +224,11 @@ int linux_br_add_if(int sock, const char *brname, const char *ifname)
+@@ -152,6 +215,11 @@
  	struct ifreq ifr;
  	int ifindex;
  
@@ -116,7 +111,7 @@
  	ifindex = if_nametoindex(ifname);
  	if (ifindex == 0)
  		return -1;
-@@ -184,6 +251,11 @@ int linux_br_del_if(int sock, const char *brname, const char *ifname)
+@@ -177,6 +245,11 @@
  	struct ifreq ifr;
  	int ifindex;
  
@@ -128,7 +123,7 @@
  	ifindex = if_nametoindex(ifname);
  	if (ifindex == 0)
  		return -1;
-@@ -206,6 +278,11 @@ int linux_br_get(char *brname, const char *ifname)
+@@ -199,6 +272,11 @@
  	char path[128], brlink[128], *pos;
  	ssize_t res;
  
@@ -140,8 +135,3 @@
  	os_snprintf(path, sizeof(path), "/sys/class/net/%s/brport/bridge",
  		    ifname);
  	res = readlink(path, brlink, sizeof(brlink));
-@@ -242,3 +242,4 @@ int linux_br_get(char *brname, const char *ifname)
- 	os_strlcpy(brname, pos, IFNAMSIZ);
- 	return 0;
- }
-+
