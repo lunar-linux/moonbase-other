@@ -1,6 +1,9 @@
 depends node
 depends llvm
 depends zip
+depends freetype2
+depends graphite
+depends harfbuzz
 depends autoconf-mozilla
 depends unzip
 depends gtk+-3
@@ -8,7 +11,6 @@ depends nss
 depends curl
 depends alsa-lib
 depends libvpx
-depends freetype2
 depends cbindgen
 depends python
 
@@ -22,12 +24,11 @@ optional_depends libpng \
                  "--without-system-libpng" \
                  "Build with system libpng"
 
-# Saying yes gives; 0:22.25 DEBUG: configure: error: --enable-system-cairo is not supported
 #optional_depends cairo \
 #                 "--enable-system-cairo --enable-system-pixman" \
 #                 "--disable-system-cairo --disable-system-pixman" \
-#                 "Build with system cairo ${PROBLEM_COLOR}(unstable)" \
-#                 n
+#                 "Build with system cairo" \
+#                 y
 
 optional_depends %FLASH "" "" "To enable Flash plugin"
 
