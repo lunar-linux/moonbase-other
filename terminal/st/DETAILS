@@ -1,0 +1,34 @@
+          MODULE=st
+         VERSION=0.8.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=http://dl.suckless.org/st/
+      SOURCE_VFY=sha256:aeb74e10aa11ed364e1bcc635a81a523119093e63befd2f231f8b0705b15bf35
+        WEB_SITE=http://st.suckless.org
+         ENTERED=20180618
+         UPDATED=20190325
+           SHORT="A simple virtual terminal emulator for X"
+
+cat << EOF
+st is a simple terminal implementation for X.
+
+Things that have already been implemented are
+  most VT10X escape sequences
+  serial line support
+  XIM support
+  utmp via utmp(1)
+  clipboard handling
+  mouse and keyboard shortcuts (via config.h)
+  UTF-8
+  wide-character support
+  resize
+  256 colors and true colors
+  antialiased fonts (using fontconfig)
+  fallback fonts
+  line drawing
+
+Terminal-specific mappings
+  Scroll through history -- Shift+PageUp/PageDown or Shift+Mouse wheel
+  Increase/decrease font size -- Shift+Alt+PageUp/PageDown
+  Return to default font size -- Shift+Alt+Home
+  Paste -- Shift+Insert
+EOF

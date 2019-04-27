@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# skip terminfo which conflicts with nsurses
+sedit '/tic /d' Makefile &&
+
+cp $SCRIPT_DIRECTORY/config.h $BUILD_DIRECTORY/
