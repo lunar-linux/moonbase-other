@@ -15,4 +15,4 @@ if in_depends $MODULE bash-completion; then
   install -Dm644 shell/completion.bash /usr/share/bash-completion/completions/fzf
 fi &&
 
-install -Dm755 shell/key-bindings.bash /etc/profile.d/fzf.rc
+install -Dm644 shell/key-bindings.bash /etc/profile.d/fzf.rc
