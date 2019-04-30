@@ -16,4 +16,7 @@ sedit "s:\$srcdir/configure:echo:" autogen.sh &&
 
 # don't forget to install gserrors.h
 sedit '/ierrors\.h/ a\
-\	$(INSTALL_DATA) $(GLSRC)gserrors.h $(DESTDIR)$(gsincludedir)gserrors.h' base/unix-dll.mak
+\	$(INSTALL_DATA) $(GLSRC)gserrors.h $(DESTDIR)$(gsincludedir)gserrors.h' base/unix-dll.mak &&
+
+gcc base/genarch.c -o genarch &&
+./genarch base/arch.h
