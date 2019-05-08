@@ -24,7 +24,7 @@ prepare_install &&
 
 #./koch install $SOURCE_DIRECTORY/ &&
 
-install -m 755 lib/libnimrtl.so /usr/lib/libnimrtl.so &&
+install -m 755 lib/libnimrtl.so /usr/lib/ &&
 rm lib/libnimrtl.so &&
 
 install -d /usr/lib/nim &&
