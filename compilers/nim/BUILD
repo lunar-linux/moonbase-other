@@ -22,8 +22,6 @@ popd &&
 
 prepare_install &&
 
-#./koch install $SOURCE_DIRECTORY/ &&
-
 install -m 755 lib/libnimrtl.so /usr/lib/ &&
 rm lib/libnimrtl.so &&
 
@@ -39,6 +37,7 @@ install -Dm 755 bin/* -t /usr/bin &&
 # fix the unusual placement of header files
 install -d /usr/include &&
 cp -a lib/*.h /usr/include &&
+rm -f /usr/lib/nim/*.h &&
 
 install -d /usr/share/nim &&
 cp -a doc examples web /usr/share/nim &&
