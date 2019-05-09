@@ -1,0 +1,26 @@
+          MODULE=fd
+         VERSION=7.3.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/sharkdp/fd/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:fbd48cc83c90a0ab09fc3bbe865708a3a528876a99f8304a17d07af7fb378170
+        WEB_SITE=https://github.com/sharkdp/fd/
+         ENTERED=20190509
+         UPDATED=20190509
+           SHORT="Simple, fast and user-friendly alternative to find"
+
+cat << EOF
+While it does not seek to mirror all of find's powerful functionality, it
+provides sensible (opinionated) defaults for 80% of the use cases.
+Features:
+  Convenient syntax: fd PATTERN instead of find -iname '*PATTERN*'.
+  Colorized terminal output (similar to ls).
+  It's fast (see benchmarks below).
+  Smart case: the search is case-insensitive by default.
+  It switches to case-sensitive if the pattern contains an uppercase character*.
+  Ignores hidden directories and files, by default.
+  Ignores patterns from your .gitignore, by default.
+  Regular expressions.
+  Unicode-awareness.
+  The command name is 50% shorter* than find :-).
+  Parallel command execution with a syntax similar to GNU Parallel.
+EOF

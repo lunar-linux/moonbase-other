@@ -1,2 +1,3 @@
-OPTS+=" -DENABLE_STATIC=0" &&
+OPTS+=" -DENABLE_STATIC=0"
+
 default_cmake_build
