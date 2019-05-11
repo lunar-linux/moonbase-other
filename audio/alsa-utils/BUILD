@@ -1,11 +1,11 @@
+UDEV_DIR=/usr/lib/udev/rules.d
 if module_installed systemd; then
-  UDEV_DIR=/usr/lib/udev/rules.d
-  OPTS+=" --with-udev-rules-dir=$UDEV_DIR"
-else
-  UDEV_DIR=/lib/udev/rules.d
-fi &&
+  OPTS+=" --with-udev-rules-dir=$UDEV_DIR \
+          --with-systemdsystemunitdir=/usr/lib/systemd/system"
+fi
 
-OPTS+=" --exec-prefix=/usr --sbindir=/usr/sbin" &&
+OPTS+=" --exec-prefix=/usr \
+        --disable-alsaconf"
 
 default_build &&
 
