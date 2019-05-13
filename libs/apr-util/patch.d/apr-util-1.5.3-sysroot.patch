@@ -16,7 +16,7 @@ the compiler already knows how to locate
  
  LIBS="@APRUTIL_EXPORT_LIBS@"
  INCLUDES="@APRUTIL_INCLUDES@"
-@@ -166,7 +166,7 @@ while test $# -gt 0; do
+@@ -162,7 +162,7 @@ while test $# -gt 0; do
      --link-ld)
      if test "$location" = "installed"; then
          ### avoid using -L if libdir is a "standard" location like /usr/lib
@@ -25,7 +25,7 @@ the compiler already knows how to locate
      else
          flags="$flags -L$APU_BUILD_DIR -l$APRUTIL_LIBNAME"
      fi
-@@ -182,7 +182,7 @@ while test $# -gt 0; do
+@@ -178,7 +178,7 @@ while test $# -gt 0; do
          ### avoid using -L if libdir is a "standard" location like /usr/lib
          # Since the user is specifying they are linking with libtool, we
          # *know* that -R will be recognized by libtool.
