@@ -7,7 +7,7 @@ OPTS+=" --host=$BUILD \
         --libdir=$MODULE_PREFIX/lib/gdb \
         --includedir=$MODULE_PREFIX/include/gdb\
         --with-system-gdbinit=/etc/gdb/gdbinit \
-	--with-python=/usr/bin/python3 \
+    	--with-python=/usr/bin/python3 \
         --with-system-readline \
         --with-system-zlib"
 
