@@ -1,5 +1,7 @@
-sedit 's|( \$\(CFLAGS\))|\1 $(LDFLAGS)|g' Makefile
+make owl documentation &&
 
-default_make &&
+prepare_install &&
 
-install -Dm 644 fasl/* -t /var/lib/$MODULE/fasl
+make install &&
+install -Dm 644 fasl/* -t /var/lib/$MODULE/fasl &&
+install -Dm 644 README.md manual.md -t /usr/share/doc/$MODULE

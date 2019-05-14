@@ -1,0 +1,9 @@
+default_pre_build &&
+
+sedit 's|( \$\(CFLAGS\))|\1 $(LDFLAGS)|g' Makefile &&
+
+# make build reproducible, we compress ourselves
+sed -e 's|gzip -9|@echo|g' -e 's|\.gz||g' -i Makefile &&
+
+# fix missing Makefile entry
+sedit 's|manual.md:|manual.md: bin/ol|' Makefile
