@@ -29,6 +29,8 @@ if in_depends $MODULE swig; then
   fi
 fi &&
 
+autoconf
+
 if [ -n "$BINDINGS_MAKE" ]; then
   default_config &&
   # sun-jdk 10 removed javah
