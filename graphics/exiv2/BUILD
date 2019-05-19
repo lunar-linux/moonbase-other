@@ -1,6 +1,6 @@
 OPTS+=" -DEXIV2_ENABLE_VIDEO=ON \
         -DEXIV2_ENABLE_BUILD_PO=ON \
         -DEXIV2_ENABLE_BUILD_SAMPLES=OFF \
-        -DCMAKE_INSTALL_LIBDIR=lib" &&
+        -DCMAKE_INSTALL_LIBDIR=lib"
 
 default_cmake_build
