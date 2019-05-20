@@ -1,0 +1,24 @@
+          MODULE=pixz
+         VERSION=1.0.6
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=https://github.com/vasi/pixz/releases/download/v$VERSION/
+      SOURCE_VFY=sha256:c54a406dddc6c2226779aeb4b5d5b5649c1d3787b39794fbae218f7535a1af63
+        WEB_SITE=https://github.com/vasi/pixz/
+         ENTERED=20190520
+         UPDATED=20190520
+           SHORT="Parallel, indexed xz compressor"
+
+cat << EOF
+A parallel, indexing version of xz.
+Differences to xz:
+  pixz automatically indexes tarballs during compression
+  pixz supports parallel decompression, which xz does not
+  pixz defaults to using all available CPU cores, while xz defaults to using one
+  pixz provides -i and -o command line options to specify input and output file
+  pixz does not support the command line option -z or --compress
+  pixz does not support the command line option -c or --stdout
+  -f command line option is incompatible
+  -l command line option output differs
+  -q command line option is incompatible
+  -t command line option is incompatible
+EOF
