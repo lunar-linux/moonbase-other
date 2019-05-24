@@ -1,3 +1,6 @@
 default_pre_build &&
 
-./autogen.sh
+NOCONFIGURE=1 ./autogen.sh &&
+
+sedit 's|1po|po|g' po/Makefile.in.in &&
+sedit 's|2po|po|g' po/Makefile.in.in
