@@ -1,6 +1,7 @@
 python2 waf configure --prefix=/usr \
                       --alsa \
-                      --dbus &&
+                      --dbus \
+                      --classic &&
 
 python2 waf build &&
 
