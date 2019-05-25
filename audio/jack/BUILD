@@ -1,11 +1,12 @@
-python waf configure --prefix=/usr \
-                     --alsa &&
+python2 waf configure --prefix=/usr \
+                      --alsa \
+                      --dbus &&
 
-python waf build &&
+python2 waf build &&
 
 prepare_install &&
 
-python waf install &&
+python2 waf install &&
 
 # configure realtime access/scheduling
 install -Dm644 $SCRIPT_DIRECTORY/99-audio.conf /etc/security/limits.d/99-audio.conf &&

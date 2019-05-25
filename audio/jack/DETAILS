@@ -1,18 +1,18 @@
           MODULE=jack
          VERSION=1.9.12
-          SOURCE=$MODULE-$VERSION.tar.xz
-      SOURCE_URL=$MIRROR_URL
-      SOURCE_VFY=sha256:b1ff9ca6a190779db474b6b4133619d58f9b1ee73662458ef58480039bb72d87
+          SOURCE=${MODULE}2-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}2-$VERSION
+      SOURCE_URL=https://github.com/jackaudio/jack2/releases/download/v$VERSION/
+      SOURCE_VFY=sha256:deefe2f936dc32f59ad3cef7e37276c2035ef8a024ca92118f35c9a292272e33
         WEB_SITE=http://jackaudio.org
          ENTERED=20020407
-         UPDATED=20171206
-           SHORT="The next-generation JACK with SMP support"
+         UPDATED=20190525
+           SHORT="A low-latency audio server"
 
 cat << EOF
-JACK is a low-latency audio server, written primarily for the Linux
-operating system. It can connect a number of different applications to
-an audio device, as well as allowing them to share audio between
-themselves. Its clients can run in their own processes (ie. as a normal
-application), or can they can run within a JACK server (ie. as a
-plugin).
+JACK is a low-latency audio server, written primarily for the Linux operating
+system. It can connect a number of different applications to an audio device,
+as well as allowing them to share audio between themselves. Its clients can run
+in their own processes (ie. as a normal application), or can they can run within
+a JACK server (ie. as a plugin).
 EOF
