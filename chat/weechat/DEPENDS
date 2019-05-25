@@ -4,21 +4,21 @@ depends libgcrypt
 depends curl
 depends pkgconf
 
-optional_depends perl   "-D ENABLE_PERL=ON"   "-D ENABLE_PERL=OFF"   "to compile the perl plugin"
-optional_depends lua    "-D ENABLE_LUA=ON"    "-D ENABLE_LUA=OFF"    "to compile the lua plugin"
-optional_depends ruby   "-D ENABLE_RUBY=ON"   "-D ENABLE_RUBY=OFF"   "to compile the ruby plugin"
-optional_depends tcl    "-D ENABLE_TCL=ON"    "-D ENABLE_TCL=OFF"    "to compile the tcl plugin"
-optional_depends guile  "-D ENABLE_GUILE=ON"  "-D ENABLE_GUILE=OFF"  "to compile the guile plugin"
-optional_depends aspell "-D ENABLE_ASPELL=ON" "-D ENABLE_ASPELL=OFF" "for spelling support"
-optional_depends gnutls "-D ENABLE_GNUTLS=ON" "-D ENABLE_GNUTLS=OFF" "for TLS encryption support"
+optional_depends perl   "-DENABLE_PERL=ON"   "-DENABLE_PERL=OFF"   "to compile the perl plugin"
+optional_depends lua    "-DENABLE_LUA=ON"    "-DENABLE_LUA=OFF"    "to compile the lua plugin"
+optional_depends ruby   "-DENABLE_RUBY=ON"   "-DENABLE_RUBY=OFF"   "to compile the ruby plugin"
+optional_depends tcl    "-DENABLE_TCL=ON"    "-DENABLE_TCL=OFF"    "to compile the tcl plugin"
+optional_depends guile  "-DENABLE_GUILE=ON"  "-DENABLE_GUILE=OFF"  "to compile the guile plugin"
+optional_depends aspell "-DENABLE_ASPELL=ON" "-DENABLE_ASPELL=OFF" "for spelling support"
+optional_depends gnutls "-DENABLE_GNUTLS=ON" "-DENABLE_GNUTLS=OFF" "for TLS encryption support"
 
 optional_depends python2 \
-                 "-D ENABLE_PYTHON=ON -D PYTHON_EXECUTABLE=/usr/bin/python2" \
-                 "-D ENABLE_PYTHON=OFF" \
+                 "-DENABLE_PYTHON=ON -DPYTHON_EXECUTABLE=/usr/bin/python2" \
+                 "-DENABLE_PYTHON=OFF" \
                  "to compile the Python plugin"
 
 optional_depends asciidoc \
-                 "-D ENABLE_MAN=ON -D ENABLE_DOC=ON" "" \
+                 "-DENABLE_MAN=ON -DENABLE_DOC=ON" "" \
                  "for manual and documentation"
 
 optional_depends source-highlight "" "" "use syntax highlighted for manual and documentation"
