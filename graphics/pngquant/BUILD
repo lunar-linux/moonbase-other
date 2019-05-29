@@ -1,6 +1,6 @@
-
 rm -rf lib &&
 ln -sf libimagequant-$VERSION lib &&
+
 pushd lib > /dev/null &&
 ./configure --prefix=/usr &&
 make shared &&
