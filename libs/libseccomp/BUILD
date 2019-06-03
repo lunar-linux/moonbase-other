@@ -1,6 +1,4 @@
-OPTS+=" --enable-shared" &&
-
-./autogen.sh &&
+OPTS+=" --enable-shared"
 
 default_build &&
 
