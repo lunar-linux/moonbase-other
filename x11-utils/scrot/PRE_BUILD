@@ -1,5 +1,7 @@
 default_pre_build &&
 
+autoreconf -fiv &&
+
 sedit 's@/doc@/share/doc@' Makefile.{am,in}
 
 unpack $SOURCE2 &&
