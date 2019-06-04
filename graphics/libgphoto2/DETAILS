@@ -1,11 +1,12 @@
           MODULE=libgphoto2
-         VERSION=2.5.22
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/gphoto
-      SOURCE_VFY=sha256:15d7327aa9a986af1e1dbfd8f15ba81352b67450d30e44562ce768ff9435ce58
+         VERSION=2.5.23
+          SOURCE=$MODULE-${VERSION//./$'_'}-release.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-${VERSION//./$'_'}-release
+      SOURCE_URL=https://github.com/gphoto/libgphoto2/archive/
+      SOURCE_VFY=sha256:8de52fd997aceda895abad5d8d95a888bce24a1c739079cff64dae1da7039dde
         WEB_SITE=http://gphoto.sourceforge.net
          ENTERED=20030108
-         UPDATED=20190114
+         UPDATED=20190604
            SHORT="The libraries for gphoto"
 
 cat << EOF
