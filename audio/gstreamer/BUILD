@@ -1,6 +1,6 @@
 OPTS+=" --disable-static \
         --disable-debug  \
         --disable-tests  \
-        --disable-valgrind" &&
+        --disable-valgrind"
 
 default_build
