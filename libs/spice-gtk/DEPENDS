@@ -1,3 +1,4 @@
+depends gst-plugins-base
 depends gtk+-3
 depends spice
 depends libsoup
@@ -14,11 +15,6 @@ optional_depends dbus-glib \
                  "--enable-dbus=yes" \
                  "--enable-dbus=no" \
                  "for desktop integration support"
-
-optional_depends gstreamer \
-                 "--enable-gstaudio=yes --enable-gstvideo=yes" \
-                 "--enable-gstaudio=no --enable-gstvideo=no" \
-                 "for gstreamer audio/video support"
 
 optional_depends polkit \
                  "--enable-polkit=yes" \
