@@ -9,10 +9,15 @@ depends libXfixes
 depends %OSSL
 depends zlib
 
+
 optional_depends gstreamer \
                  "--enable-gstreamer=1.0" \
                  "--enable-gstreamer=no" \
                  "for Gstreamer support"
+
+if in_depends $MODULE gstreamer; then
+   depends orc
+fi
 
 optional_depends cyrus-sasl \
                  --with-sasl \
