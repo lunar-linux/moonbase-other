@@ -1,6 +1,8 @@
 depends glib-2
 depends meson
 
+optional_depends docbook-xsl "" "-Dman=false" "install the man page" n
+
 optional_depends gobject-introspection \
                  "-D introspection=true" \
                  "-D introspection=false" \

@@ -2,9 +2,13 @@ depends gtk+-3
 depends spice
 depends libsoup
 depends usbutils
+depends json-glib
 depends intltool
 
-optional_depends cyrus-sasl "--with-sasl" "--without-sasl" "for SASL authentication support"
+optional_depends cyrus-sasl \
+                 "--with-sasl" \
+                 "--without-sasl" \
+                 "for SASL authentication support"
 
 optional_depends dbus-glib \
                  "--enable-dbus=yes" \

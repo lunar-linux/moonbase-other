@@ -1,4 +1,3 @@
-OPTS+=" -Ddocs=false \
-        -Dman=true"
+OPTS+=" -Ddocs=false"
 
 default_meson_build
