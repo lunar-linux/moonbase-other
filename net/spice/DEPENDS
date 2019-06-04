@@ -1,7 +1,6 @@
 depends alsa-lib
 depends spice-protocol
-depends python2-pyparsing
-depends python2-six
+depends python-pyparsing
 depends %JPEG
 depends pixman
 depends libXrandr
@@ -10,7 +9,15 @@ depends libXfixes
 depends %OSSL
 depends zlib
 
-optional_depends cyrus-sasl "--with-sasl" "--without-sasl" "for SASL authentication support"
+optional_depends cyrus-sasl \
+                 --with-sasl \
+                 --without-sasl \
+                "for SASL authentication support"
+
+optional_depends opus \
+                 "--enable-opus" \
+                 "--disable-opus" \
+                 "for Internet audio support"
 
 optional_depends celt051 \
                  "--enable-celt051" \
