@@ -1,8 +1,6 @@
 OPTS+=" --with-linux=$BUILD_DIRECTORY/linux \
         --with-linux-obj=$BUILD_DIRECTORY/linux \
         --with-config=user \
-        --with-spl=$BUILD_DIRECTORY/spl \
-        --with-spl-obj=$BUILD_DIRECTORY/spl \
         --disable-sysvinit \
         --disable-static"
 
