@@ -1,8 +1,7 @@
 depends expat
-depends cmake
-depends alsa-lib
 depends libxml2
 depends lua
+depends cmake
 depends git
 
 optional_depends ncurses        "-D BUILD_NCURSES=ON"    "" "for ncurses support"
@@ -24,6 +23,6 @@ optional_depends imlib2 "-D BUILD_IMLIB2=ON -D BUILD_LUA_IMLIB2=ON" ""\
 
 optional_depends cairo "-D BUILD_LUA_CAIRO=ON" "" "for graphics support"
 
-# BROKEN - use the internal libs (at least for cairo)
+# BROKEN - use the internal libs
 #optional_depends librsvg   "-D BUILD_LUA_RSVG=ON"  "" "for RSVG display support"
 #optional_depends audacious "-D BUILD_AUDACIOUS=ON" "" "for audacious audio player support"
