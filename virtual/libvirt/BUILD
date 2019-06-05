@@ -16,4 +16,7 @@ if module_installed systemd; then
   OPTS+=" --with-init-script=systemd"
 fi
 
-default_build
+default_build &&
+
+# Fix permission
+chmod 600 /etc/libvirt/nwfilter/*.xml /etc/libvirt/qemu/networks/default.xml
