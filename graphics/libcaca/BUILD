@@ -1,12 +1,12 @@
-OPTS+=" --disable-doc \
-        --disable-debug \
-        --disable-gl \
-        --disable-csharp \
+OPTS+=" --disable-gl \
+        --disable-doc \
         --disable-cxx \
-        --disable-static" &&
+        --disable-debug \
+        --disable-csharp \
+        --disable-static"
 
 #java bindings are broken
-OPTS+=" --disable-java" &&
+OPTS+=" --disable-java"
 
 bad_flags "-Wl,-O1,--as-needed" &&
 bad_flags "-Wl,--as-needed" &&
