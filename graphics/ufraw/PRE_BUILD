@@ -1,7 +1,3 @@
-default_pre_build &&
+default_pre_build
 
-sedit 's:if ((cp = strchr (sp="nbrkStqmHAC", opt))):if ((cp = (char *) strchr (sp="nbrkStqmHACg", opt))):' dcraw.cc &&
-sedit 's:\(#include <jpeglib.h>\):typedef int boolean;\n#define HAVE_BOOLEAN\n\1:' dcraw.cc &&
-
-# address type error
-sedit 's/[ic] = find_green/float \0/' dcraw.cc
+sedit '16i #include <iostream>' ufraw_exiv2.cc
