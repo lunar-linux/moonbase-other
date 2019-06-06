@@ -9,8 +9,9 @@ OPTS+=" --enable-xcb \
         --enable-ncurses \
         --enable-realrtsp \
         --disable-sid \
-        --disable-update-check \
-        --disable-rpath"
+        --disable-rpath \
+        --disable-libplacebo \
+        --disable-update-check"
 
 default_build &&
 
