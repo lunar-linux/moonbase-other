@@ -1,4 +1,4 @@
 OPTS+=" --standard-lib \
         --install-data=/usr/share"
 
-default_python3_build
+default_python_build
