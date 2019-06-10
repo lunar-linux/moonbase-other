@@ -1,3 +1,3 @@
-autoreconf -vi &&
+OPTS+=" --disable-static"
 
 default_build
