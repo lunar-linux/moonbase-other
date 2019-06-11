@@ -1,4 +1,4 @@
 touch INSTALL &&
-NOCONFIGURE=1 ./autogen.sh &&
+./autogen.sh &&
 
 default_build
