@@ -1,4 +1,4 @@
-make &&
+make CFLAGS+="-DSVR4 -DHAVE_inotify -D_XOPEN_SOURCE=500" &&
 
 prepare_install &&
 
