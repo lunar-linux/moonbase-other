@@ -23,10 +23,10 @@ default_pre_build &&
 # Verify commit ID sanity with upstream docker
 (
   local cfile local_commit docker_commit
-  for cfile in runc containerd tini proxy; do
+  for cfile in tini proxy; do
     . "components/engine/hack/dockerfile/install/${cfile}.installer"
   done
-  for c in RUNC CONTAINERD LIBNETWORK TINI; do
+  for c in LIBNETWORK TINI; do
     local_commit=_${c}_COMMIT
     docker_commit=${c}_COMMIT
     if [[ ${!local_commit} != ${!docker_commit} ]]; then
@@ -39,6 +39,4 @@ default_pre_build &&
 # Unpack all packages
 unpack $SOURCE2 &&
 unpack $SOURCE3 &&
-unpack $SOURCE4 &&
-unpack $SOURCE5 &&
-unpack $SOURCE6
+unpack $SOURCE4

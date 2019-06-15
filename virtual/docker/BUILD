@@ -30,16 +30,6 @@ if in_depends $MODULE go-md2man; then
   popd > /dev/null
 fi &&
 
-message "${MESSAGE_COLOR}Building runc${DEFAULT_COLOR}" &&
-_go_build_path runc-$_RUNC_COMMIT github.com/opencontainers/runc &&
-make BUILDTAGS="seccomp" &&
-popd > /dev/null &&
-
-message "${MESSAGE_COLOR}Building containerd${DEFAULT_COLOR}" &&
-_go_build_path containerd-$_CONTAINERD_COMMIT github.com/containerd/containerd &&
-make &&
-popd > /dev/null &&
-
 message "${MESSAGE_COLOR}Building docker-proxy${DEFAULT_COLOR}" &&
 _go_build_path libnetwork-$_LIBNETWORK_COMMIT github.com/docker/libnetwork &&
 go build -ldflags='-linkmode=external' github.com/docker/libnetwork/cmd/proxy
@@ -53,10 +43,6 @@ popd > /dev/null &&
 
 prepare_install &&
 
-install -Dm755 runc-$_RUNC_COMMIT/runc /usr/bin/docker-runc &&
-install -Dm755 containerd-$_CONTAINERD_COMMIT/bin/containerd /usr/bin/docker-containerd &&
-install -Dm755 containerd-$_CONTAINERD_COMMIT/bin/containerd-shim /usr/bin/docker-containerd-shim &&
-install -Dm755 containerd-$_CONTAINERD_COMMIT/bin/ctr /usr/bin/docker-containerd-ctr &&
 install -Dm755 libnetwork-$_LIBNETWORK_COMMIT/proxy /usr/bin/docker-proxy &&
 install -Dm755 tini-$_TINI_COMMIT/tini-static /usr/bin/docker-init &&
 
