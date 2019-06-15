@@ -1,0 +1,4 @@
+default_pre_build &&
+mkdir -p src/github.com/containerd &&
+ln -rTsf . src/github.com/containerd/containerd &&
+sedit 's;/usr/local;/usr;' containerd.service
