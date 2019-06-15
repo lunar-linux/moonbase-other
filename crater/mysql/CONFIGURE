@@ -1,6 +1,0 @@
-MYSQL_PLUGINS="heap federated partition archive blackhole"
-
-for mp in $MYSQL_PLUGINS; do
-  mquery USE_$mp "Enable $mp support?" n
-done
-mquery USE_BIGTABLE "Support tables with more than 4 G rows even on 32 bit platforms?" n --with-big-tables --without-big-tables
