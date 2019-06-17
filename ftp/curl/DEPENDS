@@ -17,7 +17,8 @@ optional_depends nss \
                  "for nss encrypted transport ${PROBLEM_COLOR}(Choose only openssl OR gnutls OR nss)" n
 
 optional_depends libssh2 \
-                 "" "--without-libssh2" \
+                 "--with-libssh2" \
+                 "--without-libssh2" \
                  "for support of C implementation of ssh"
 
 optional_depends nghttp2 \

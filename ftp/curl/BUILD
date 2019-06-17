@@ -1,9 +1,9 @@
 echo '/* not used */' > include/curl/types.h &&
 
-OPTS+=" --enable-manual \
-        --enable-threaded-resolver \
+OPTS+=" --enable-threaded-resolver \
         --enable-versioned-symbols \
         --disable-curldebug \
+        --disable-manual \
         --disable-static \
         --without-libpsl \
         --without-librtmp \
