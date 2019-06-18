@@ -1,4 +1,6 @@
-LIBTTF=/usr/share/fonts/liberation-fonts-ttf
+sedit "s:python23:python2:" Makefile &&
+
+LIBTTF=/usr/share/fonts/liberation-fonts-ttf &&
 
 make  &&
 prepare_install  &&
