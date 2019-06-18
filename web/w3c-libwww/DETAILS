@@ -1,14 +1,15 @@
           MODULE=w3c-libwww
-         VERSION=5.4.0
+         VERSION=5.4.2
           SOURCE=$MODULE-$VERSION.tgz
          SOURCE2=w3c-libwww-mysql-01.patch
-      SOURCE_URL=http://www.w3.org/Library/Distribution/old
+ SOURCE_URL_FULL=https://github.com/w3c/libwww/archive/$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libwww-$VERSION
      SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha256:64841cd99a41c84679cfbc777ebfbb78bdc2a499f7f6866ccf5cead391c867ef
+      SOURCE_VFY=sha256:2ee1c82237c9c182d2e2b3333de69cf5e0753ac3a93bd4f906d6850bf0dd0f64
      SOURCE2_VFY=sha256:381161627dc556287c99b43bc15a786897d6d6c49c41358d25032ab635159b36
         WEB_SITE=http://www.w3.org/Library/
          ENTERED=20011106
-         UPDATED=20150703
+         UPDATED=20190617
            SHORT="A general-purpose client-side Web API provided by W3C"
 
 cat << EOF
