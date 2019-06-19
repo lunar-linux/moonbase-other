@@ -3,7 +3,6 @@ depends sqlite
 depends libgudev
 depends libgusb
 depends polkit
-depends Argyll
 depends docbook2X
 depends shared-mime-info
 depends gobject-introspection
@@ -14,10 +13,15 @@ optional_depends bash-completion \
                  "-Dbash_completion=false" \
                  "for bash completion support"
 
+optional_depends Argyll \
+                 "-Dargyllcms_sensor=true -Dlibcolorcompat=true -Dprint_profiles=true" \
+                 "-Dargyllcms_sensor=false -Dlibcolorcompat=false -Dprint_profiles=false" \
+                 "for ArgyllCMS sensor support"
+
 optional_depends vala \
                  "-Dvapi=true" \
                  "-Dvapi=false" \
-                  "for vala bindings support"
+                 "for vala bindings support"
 
 optional_depends sane-backends \
                  "-Dsane=true" \
