@@ -1,9 +1,6 @@
-(
 
-  OPTS+=" --disable-doxygen-html --disable-doxygen-dot --disable-doxygen-doc" &&
+  cd $MODULE &&
 
-  export CFLAGS="$CFLAGS -fPIC" &&
+  ./autogen.sh &&
 
   default_build
-
-) > $C_FIFO 2>&1
