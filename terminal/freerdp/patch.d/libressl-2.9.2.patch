@@ -1,0 +1,21 @@
+diff -rU3 FreeRDP-2.0.0-rc4.orig/libfreerdp/crypto/tls.c FreeRDP-2.0.0-rc4/libfreerdp/crypto/tls.c
+--- FreeRDP-2.0.0-rc4.orig/libfreerdp/crypto/tls.c	2019-06-25 11:55:00.694318228 +0200
++++ FreeRDP-2.0.0-rc4/libfreerdp/crypto/tls.c	2019-06-25 12:00:03.658583821 +0200
+@@ -656,7 +656,7 @@
+ #endif
+ 
+ 
+-#if OPENSSL_VERSION_NUMBER >= 0x10100000L || defined(LIBRESSL_VERSION_NUMBER)
++#if OPENSSL_VERSION_NUMBER >= 0x10100000L && !defined(LIBRESSL_VERSION_NUMBER)
+ 	SSL_CTX_set_security_level(tls->ctx, settings->TlsSecLevel);
+ #endif
+ 
+@@ -1026,7 +1026,7 @@
+ 	 * FIXME: The following code does not work on OpenSSL > 1.1.0 because the
+ 	 *        SSL struct is opaqe now
+ 	 */
+-#if OPENSSL_VERSION_NUMBER < 0x10100000L || defined(LIBRESSL_VERSION_NUMBER)
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ 
+ 	if (tls->alertDescription != TLS_ALERT_DESCRIPTION_CLOSE_NOTIFY)
+ 	{
