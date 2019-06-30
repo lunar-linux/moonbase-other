@@ -4,6 +4,7 @@ OPTS+=" --prefix=/usr \
         --datadir=/usr/share \
         --disable-amqp \
         --disable-java \
+        --disable-kafka \
         --disable-riemann \
         --disable-spoof-source \
         --enable-ipv6 \
