@@ -4,13 +4,15 @@ OPTS+=" --prefix=/usr \
         --datadir=/usr/share \
         --disable-amqp \
         --disable-java \
+        --disable-kafka \
         --disable-riemann \
         --disable-spoof-source \
         --enable-ipv6 \
         --enable-manpages \
+        --with-python=3 \
         --with-criterion=no \
-        --with-pidfile-dir=/run \
-        --with-embedded-crypto"
+        --with-embedded-crypto \
+        --with-pidfile-dir=/run"
 
 if module_installed systemd; then
    OPTS+="--enable-systemd --with-systemd-journal=system"
