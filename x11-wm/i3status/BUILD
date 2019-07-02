@@ -1,7 +1,9 @@
-if ! in_depends $MODULE pulseaudio; then
-  MAKE_ARGS="PULSE=0"
-fi &&
+OPTS+=" --prefix=/usr \
+        --sysconfdir=/etc \
+        --disable-sanitizers"
 
-make $MAKE_ARGS
-prepare_install &&
-make install
+mkdir build && cd build &&
+
+../configure $OPTS &&
+
+default_make
