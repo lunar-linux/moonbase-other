@@ -1,0 +1,23 @@
+          MODULE=tmux-continuum
+         VERSION=3.1.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/tmux-plugins/tmux-continuum/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:311dddeebbf7b803cd19c339ab887784b715fd8ef206ec430028cabb8574de87
+        WEB_SITE=https://github.com/tmux-plugins/tmux-continuum
+         ENTERED=20190708
+         UPDATED=20190708
+           SHORT="Continuous saving of tmux environment"
+
+cat << EOF
+Features:
+  continuous saving of tmux environment
+  automatic tmux start when computer/server is turned on
+  automatic restore when tmux is started
+
+Together these features enable uninterrupted tmux usage. No matter the computer
+or server restarts, if the machine is on, tmux will be there how you left it off
+the last time it was used.
+
+Add this line to the bottom of .tmux.conf:
+run-shell /usr/share/tmux-continuum/continuum.tmux
+EOF

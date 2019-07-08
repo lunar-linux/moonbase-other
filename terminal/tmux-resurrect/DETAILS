@@ -1,0 +1,23 @@
+          MODULE=tmux-resurrect
+         VERSION=2.4.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/tmux-plugins/tmux-resurrect/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:801b9099f3ee891baea39a239c82cbc3a9c9f1a62c1b867a78bc1bfbfd506ce5
+        WEB_SITE=https://github.com/tmux-plugins/tmux-resurrect/
+         ENTERED=20190708
+         UPDATED=20190708
+           SHORT="Persist tmux environment across system restarts"
+
+cat << EOF
+Restore tmux environment after system restart.
+Tmux is great, except when you have to restart the computer. You lose all the
+running programs, working directories, pane layouts etc. There are helpful
+management tools out there, but they require initial configuration and
+continuous updates as your workflow evolves or you start new projects.
+tmux-resurrect saves all the little details from your tmux environment so it
+can be completely restored after a system restart (or when you feel like it).
+No configuration is required. You should feel like you never quit tmux.
+
+Add this line to the bottom of .tmux.conf:
+run-shell /usr/share/tmux-resurrect/resurrect.tmux
+EOF
