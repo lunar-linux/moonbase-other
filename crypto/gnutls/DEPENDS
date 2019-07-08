@@ -7,7 +7,12 @@ depends libunistring
 optional_depends p11-kit \
                  "--with-p11-kit" \
                  "--without-p11-kit" \
-                 "for PKCS 11 support"
+                 "for PKCS 11 support" y
+
+optional_depends libidn2 \
+                 "--with-idn" \
+                 "--without-idn" \
+                 "for IDNA2008, Punycode and TR46 support" y
 # broken
 #optional_depends guile \
 #                 "--enable-guile --with-guile-site-dir=no" \
