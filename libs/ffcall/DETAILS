@@ -1,16 +1,15 @@
           MODULE=ffcall
-         VERSION=1.10
-          SOURCE=$MODULE-$VERSION.tar.gz
+         VERSION=2.1
+          SOURCE=libffcall-$VERSION.tar.gz
          SOURCE2=ffcall-make-jN.patch
-      SOURCE_URL=ftp://ftp.gnustep.org/pub/gnustep/libs/
-     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/dev-libs/ffcall/files/
-      SOURCE_VFY=sha256:6f1b5b8fc84b2c0051637fb1e4e4f8b975f5f98bff8fe053c1992347baa4983d
-     SOURCE2_VFY=sha256:041cbdd322c16e4292448fe9e721441ec663abe8b380737005b7ad533d6ed02b
-        WEB_SITE=http://www.haible.de/bruno/packages-ffcall-README.html
+      SOURCE_URL=https://ftp.gnu.org/gnu/libffcall/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libffcall-$VERSION
+      SOURCE_VFY=sha256:a091fb8bbabf17c94a2dae2d41161b96a08ab92b5f75d3364157a2c34d538c47
+        WEB_SITE=https://www.gnu.org/software/libffcall/
          ENTERED=20021225
-         UPDATED=20050928
+         UPDATED=20190708
            SHORT="foreign function call interfaces in embedded interpreters"
-
+PSAFE=no
 cat << EOF
 A collection of four libraries used to build foreign function call interfaces
 in embedded interpreters. The packages are: avcall - calling C functions with
