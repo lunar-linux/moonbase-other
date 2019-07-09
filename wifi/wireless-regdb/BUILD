@@ -20,6 +20,7 @@ install -D -m644 regulatory.db.p7s /usr/lib/firmware/regulatory.db.p7s &&
 install -D -m644 regulatory.db.5 /usr/share/man/man5/regulatory.db.5 &&
 
 if [ -f /etc/conf.d/wireless-regdom ]; then
+  mkdir -p /etc/conf.d
   echo "Installing /etc/conf.d/wireless-regdom"
   for dom in $(grep ^country db.txt | cut -d' ' -f2 | sed 's|:||g'); do
      echo "#WIRELESS_REGDOM=\"${dom}\"" >> /etc/conf.d/wireless-regdom.tmp
