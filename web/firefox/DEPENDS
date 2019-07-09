@@ -13,6 +13,9 @@ depends alsa-lib
 depends libvpx
 depends cbindgen
 depends python
+depends pixman
+depends libffi
+depends nasm
 
 optional_depends GConf \
                  "--enable-gconf" \
@@ -23,12 +26,6 @@ optional_depends libpng \
                  "--with-system-png" \
                  "--without-system-libpng" \
                  "Build with system libpng"
-
-#optional_depends cairo \
-#                 "--enable-system-cairo --enable-system-pixman" \
-#                 "--disable-system-cairo --disable-system-pixman" \
-#                 "Build with system cairo" \
-#                 y
 
 optional_depends %FLASH "" "" "To enable Flash plugin"
 
@@ -42,19 +39,14 @@ optional_depends dbus-glib \
                  "--disable-dbus" \
                  "For dbus support"
 
-optional_depends libffi \
-                 "--enable-system-ffi" \
-                 "--disable-system-ffi" \
-                 "Use system libffi"
-
 optional_depends icu4c \
                  "--with-system-icu" \
                  "--without-system-icu" \
                  "Use system icu4c library"
 
 optional_depends pulseaudio \
-                 "--enable-pulseaudio" \
-                 "--disable-pulseaudio"  \
+                 "--enable-pulseaudio --disable-alsa" \
+                 "--disable-pulseaudio --enable-alsa"  \
                  "Build PulseAudio sound backend"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
