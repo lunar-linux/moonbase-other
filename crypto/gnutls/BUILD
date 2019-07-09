@@ -1,6 +1,6 @@
 OPTS+=" --disable-static \
+        --disable-guile \
         --with-zlib \
-        --without-included-libtasn1 \
-        --disable-guile"
+        --without-included-libtasn1"
 
 default_build

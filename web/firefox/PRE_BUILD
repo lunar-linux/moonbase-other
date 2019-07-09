@@ -13,14 +13,6 @@ google_api_key=AIzaSyDhObDIVsBGV5fleLgLq6ZpfKldIVMvrG4 &&
 
 echo -n "$google_api_key" > google_api_key &&
 
-# To skirt around this make failure in libxul.so:
-# ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
-#CFLAGS+=" -lbz2" &&
-
-# Evidently AVX can break mozilla builds on newer hardware
-# Removing it until it can be fixed somehow
-#CFLAGS+=" -mno-avx" &&
-
 export MOZ_CO_PROJECT=browser &&
 export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
 export MOZILLA_OFFICIAL=1  &&
