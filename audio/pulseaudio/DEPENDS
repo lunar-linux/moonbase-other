@@ -1,7 +1,6 @@
 depends liboil
 depends libsndfile
 depends libatomic_ops
-depends gdbm
 depends speexdsp
 depends json-c
 depends sbc
@@ -34,3 +33,5 @@ optional_depends webrtc-audio-processing \
 
 # We take care of which bluez to enable in the BUILD
 optional_depends %BLUEZ "" "" "optional BlueZ support"
+
+optional_depends gdbm "" "--with-database=auto" "use gdbm for database support" n
