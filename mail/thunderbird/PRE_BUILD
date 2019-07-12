@@ -35,4 +35,6 @@
 
   sed -e '/#include/a\
       print OUT "#undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
-      -i nsprpub/config/make-system-wrappers.pl
+      -i nsprpub/config/make-system-wrappers.pl &&
+
+  sedit '/deny.*missing_docs/ d' $(grep -rl "deny.*missing_docs" servo)
