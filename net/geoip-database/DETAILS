@@ -2,15 +2,16 @@
          VERSION=20181031
           SOURCE=GeoIP.dat.gz
          SOURCE2=GeoIPv6.dat.gz
-      SOURCE_URL=http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/
-     SOURCE2_URL=http://geolite.maxmind.com/download/geoip/database/
+      SOURCE_URL=$MIRRORS_URL
+     SOURCE2_URL=$MIRRORS_URL
       SOURCE_VFY=sha256:b9c05eb8bfcf90a6ddfdc6815caf40a8db2710f0ce3dd48fbd6c24d485ae0449
-     SOURCE2_VFY=sha256:364481bcc19fd4e744b151cfb8bbb99ccaf840bfaae667d1b70984e40935f006
+     SOURCE2_VFY=sha256:1072c972cb079871a774f333bfd12117a21c10552dc84ef147d400727b3ef79c
        WEB_SITE=http://dev.maxmind.com/geoip/legacy/downloadable/
          ENTERED=20151002
-         UPDATED=20181104
+         UPDATED=20190713
         SHORT="GeoLite country geolocation database compiled by MaxMind"
 
 cat << EOF
 GeoLite country geolocation database compiled by MaxMind.
+The database was discontinued by MaxMind.
 EOF
