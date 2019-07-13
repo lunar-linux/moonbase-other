@@ -1,40 +1,40 @@
-  default_pre_build &&
+default_pre_build &&
 
-  if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
-    message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo" &&
-    message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by Thunderbird.${DEFAULT_COLOR}" &&
-    false
-  fi &&
+if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
+  message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo" &&
+  message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by Thunderbird.${DEFAULT_COLOR}" &&
+  false
+fi &&
 
-  if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
-        set_module_config OLD_VER "`installed_version $MODULE`"
-  fi &&
+if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
+    set_module_config OLD_VER "`installed_version $MODULE`"
+fi &&
 
-  export MOZ_CO_PROJECT=mail  &&
-  export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
-  export MOZILLA_OFFICIAL=1  &&
-  export BUILD_OFFICIAL=1  &&
-  export MOZ_MAKE_FILES=$MAKES  &&
-  export MOZ_THUNDERBIRD=1 &&
-  export AUTOCONF=/usr/bin/autoconf-mozilla &&
+export MOZ_CO_PROJECT=mail  &&
+export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
+export MOZILLA_OFFICIAL=1  &&
+export BUILD_OFFICIAL=1  &&
+export MOZ_MAKE_FILES=$MAKES  &&
+export MOZ_THUNDERBIRD=1 &&
+export AUTOCONF=/usr/bin/autoconf-mozilla &&
 
-  cp $SCRIPT_DIRECTORY/mozconfig .  &&
-  export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
-  mkdir -p ${MOZ_OBJDIR}  &&
+cp $SCRIPT_DIRECTORY/mozconfig .  &&
+export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
+mkdir -p ${MOZ_OBJDIR}  &&
 
-  for flag in $OPTS; do
-    echo "ac_add_options $flag" >> mozconfig
-  done &&
+for flag in $OPTS; do
+  echo "ac_add_options $flag" >> mozconfig
+done &&
 
-  # To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
-  CFLAGS+=" -lbz2" &&
+# To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
+CFLAGS+=" -lbz2" &&
 
-  sed -e '/#include/i\
-      print OUT "#define _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
-      -i nsprpub/config/make-system-wrappers.pl &&
+sed -e '/#include/i\
+    print OUT "#define _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
+    -i nsprpub/config/make-system-wrappers.pl &&
 
-  sed -e '/#include/a\
-      print OUT "#undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
-      -i nsprpub/config/make-system-wrappers.pl &&
+sed -e '/#include/a\
+    print OUT "#undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
+    -i nsprpub/config/make-system-wrappers.pl &&
 
-  sedit '/deny.*missing_docs/ d' $(grep -rl "deny.*missing_docs" servo)
+sedit '/deny.*missing_docs/ d' $(grep -rl "deny.*missing_docs" servo)
