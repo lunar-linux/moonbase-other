@@ -1,3 +1,7 @@
+sed -i "s/-Werror//g" src/core/CMakeLists.txt &&
+sed -i "s/-Werror//g" src/pyglue/CMakeLists.txt &&
+sed -i "s/push(hidden)/push(default)/g" src/core/OCIOYaml.cpp &&
+
 OPTS+=" -DUSE_EXTERNAL_LCMS=1    \
         -DUSE_EXTERNAL_YAML=0    \
         -DUSE_EXTERNAL_TINYXML=1 \
