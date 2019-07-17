@@ -1,6 +1,5 @@
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DENABLE_HDR10_PLUS=TRUE"
+        -DCMAKE_BUILD_TYPE=Release"
 
 if [[ $(arch) == x86_64 ]]; then
   OPTS+=" -DHIGH_BIT_DEPTH=TRUE"
