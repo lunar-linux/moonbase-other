@@ -1,4 +1,0 @@
-
-./autobuild &&
-
-default_build

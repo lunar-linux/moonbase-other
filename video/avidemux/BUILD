@@ -17,5 +17,5 @@ install -Dm 644 avidemux_icon.png /usr/share/pixmaps/avidemux.png
 if module_installed qt5; then
   make -C buildQt5 install &&
   make -C buildPluginsQt5 install &&
-  install -Dm 644 avidemux-qt.desktop -t /usr/share/applications
+  install -Dm 644 appImage/avidemux.desktop -t /usr/share/applications
 fi
