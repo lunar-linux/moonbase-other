@@ -1,7 +1,9 @@
 OPTS+=" --exec-prefix=/usr \
+        --enable-pam \
         --enable-seccomp \
         --enable-capabilities \
-        --disable-doc"
+        --disable-doc \
+        --disable-apparmor"
 
 OPTS+=" --sbindir=/usr/bin"
 
