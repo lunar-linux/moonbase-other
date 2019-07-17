@@ -2,8 +2,10 @@ default_pre_build &&
 
 sedit 's|../avidemux/qt4|../avidemux/qt4 -DLRELEASE_EXECUTABLE=/usr/lib/qt5/bin/lrelease|' bootStrap.bash &&
 
-cp avidemux2.desktop avidemux-qt.desktop &&
-sed -ri 's|(Name=).*|\1avidemux (Qt)|' avidemux-qt.desktop &&
-sed -ri 's|(Exec=).*|\1avidemux3_qt5|' avidemux-qt.desktop &&
+#cp avidemux2.desktop avidemux-qt.desktop &&
+#sed -ri 's|(Name=).*|\1avidemux (Qt)|' avidemux-qt.desktop &&
+#sed -ri 's|(Exec=).*|\1avidemux3_qt5|' avidemux-qt.desktop &&
 
-sedit 's:#define POW10(x)  pow10f(x):#define POW10(x) exp10f(x):g' avidemux/common/ADM_audioFilter/src/audiofilter_normalize.cpp
+#sedit 's:#define POW10(x)  pow10f(x):#define POW10(x) exp10f(x):g' avidemux/common/ADM_audioFilter/src/audiofilter_normalize.cpp
+
+sedit 's:0.19:1.0:'  avidemux_plugins/ADM_videoFilters6/ass/CMakeLists.txt
