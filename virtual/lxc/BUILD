@@ -1,4 +1,5 @@
 OPTS+=" --exec-prefix=/usr \
+        --enable-pam \
         --enable-seccomp \
         --enable-capabilities \
         --disable-doc \
