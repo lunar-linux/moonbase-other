@@ -1,11 +1,11 @@
 OPTS+=" --disable-static \
         --disable-rpath  \
         --with-ssl=openssl \
-        --with-moduledir=/usr/lib/dovecot/modules" &&
+        --with-moduledir=/usr/lib/dovecot/modules"
 
 if module_installed systemd; then
   OPTS+=" --with-systemdsystemunitdir=/usr/lib/systemd/system"
-fi &&
+fi
 
 add_priv_user dovecot:dovecot &&
 
