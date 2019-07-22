@@ -18,7 +18,7 @@ if in_depends $MODULE samba; then
 fi &&
 
 if module_installed live555; then
-  CPPFLAGS_live555="-I/usr/lib/libliveMedia -I/usr/lib/libgroupsock -I/usr/lib/libBasicUsageEnvironment -I/usr/lib/libUsageEnvironment"
+  LIVE555_CFLAGS="-I/usr/lib/libliveMedia -I/usr/lib/libgroupsock -I/usr/lib/libBasicUsageEnvironment -I/usr/lib/libUsageEnvironment"
 fi &&
 
 if in_depends $MODULE qt5; then
@@ -39,6 +39,4 @@ sedit 's:truetype/ttf-dejavu:TTF:g' modules/visualization/projectm.cpp &&
 sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp &&
 
 # libplacebo 0.6 API
-sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' modules/video_output/opengl/vout_helper.c &&
-
-autoreconf -fi
+sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' modules/video_output/opengl/vout_helper.c
