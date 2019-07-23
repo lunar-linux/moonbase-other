@@ -1,6 +1,6 @@
+
 OPTS+=" --sysconfdir=/etc    \
-        --localstatedir=/var \
-        --enable-doc-dir=$DOCUMENT_DIRECTORY/$MODULE" &&
+        --localstatedir=/var" &&
 
 default_build &&
 
