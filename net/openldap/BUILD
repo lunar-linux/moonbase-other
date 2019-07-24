@@ -20,15 +20,14 @@ OPTS+=" --build=$BUILD    \
         --enable-rewrite  \
         --enable-ldap     \
         --enable-meta     \
+        --enable-dnssrv   \
         --enable-monitor  \
         --enable-null     \
         --enable-passwd   \
         --enable-shell    \
         --enable-ipv6     \
-        --enable-dnssrv   \
-        --enable-ndb=no   \
-        --enable-sql=no   \
-        --enable-bdb=yes  \
+        --disable-sql     \
+        --disable-ndb     \
         --disable-static"
 
 default_build &&
