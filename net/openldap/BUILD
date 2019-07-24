@@ -1,5 +1,3 @@
-autoconf &&
-
 bad_flags ALL
 export CPPFLAGS=-D_GNU_SOURCE
 
@@ -31,7 +29,7 @@ OPTS+=" --build=$BUILD    \
         --enable-ndb=no   \
         --enable-sql=no   \
         --enable-bdb=yes  \
-        --disable-static" &&
+        --disable-static"
 
 default_build &&
 
