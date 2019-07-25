@@ -1,0 +1,11 @@
+--- ./lib/Makefile.orig	2019-06-29 02:07:55.000000000 +0300
++++ ./lib/Makefile	2019-07-25 07:01:09.082856285 +0300
+@@ -273,7 +273,7 @@
+ # install the link-time (.so) links to the runtime libraries
+ 	cd $(PKGDIR)/link ; \
+           rm -f libnetpbm.$(NETPBMLIBSUFFIX); \
+-          $(SYMLINK) ../lib/libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ) \
++          $(SYMLINK) libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ) \
+             libnetpbm.$(NETPBMLIBSUFFIX)
+ endif
+ ifeq ($(NETPBMLIBTYPE),dll)
