@@ -87,4 +87,7 @@ rmdir doc  &&
 chmod 644 INSTALL README* USERDOC &&
 gather_docs USERDOC &&
 
-rm -rf /tmp/netpbm
+rm -rf /tmp/netpbm &&
+rm -fR /usr/share/man/web &&
+rm -f /usr/lib/libnetpbm.a
+
