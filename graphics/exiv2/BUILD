@@ -1,7 +1,6 @@
-
 if module_installed openssh ; then
   OPTS+=" -DEXIV2_ENABLE_SSH=ON"
-fi &&
+fi
 
 OPTS+=" -DEXIV2_ENABLE_VIDEO=ON \
         -DEXIV2_BUILD_PO=ON \
