@@ -1,8 +1,7 @@
-OPTS+=" --with-docdir=/usr/share/doc/$MODULE \
-        --with-lockdir=/run/lock/sane \
+OPTS+=" --with-lockdir=/run/lock/sane \
         --with-group=usb \
         --disable-rpath  \
-        --enable-pthread" &&
+        --enable-pthread"
 
 default_build &&
 
