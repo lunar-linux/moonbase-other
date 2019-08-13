@@ -1,0 +1,20 @@
+          MODULE=libuninameslist
+         VERSION=20190701
+          SOURCE=$MODULE-dist-$VERSION.tar.gz
+      SOURCE_URL=https://github.com/fontforge/libuninameslist/releases/download/$VERSION/
+      SOURCE_VFY=sha256:168b0d0877f275c1622fd075e6a1d072c52113dcf5da530536a2f2803ebb89a1
+        WEB_SITE=https://github.com/fontforge/libuninameslist/
+         ENTERED=20190813
+         UPDATED=20190813
+           SHORT="A Library of Unicode names and annotation data"
+
+cat << EOF
+In Nameslist.txt the Unicode consortium provides a file containing annotations
+on many unicode characters. This library contains a compiled version of this
+file so that programs can access this data quickly and easily.
+ListeDesNoms.txt is a seperate file which is translated from Nameslist.txt,
+These libraries contain very large (sparse) arrays with one entry for each
+unicode code point (U+0000–U+10FFFF). Each entry contains two strings, a name
+and an annotation. Either or both may be NULL. Both libraries also contain a
+(much smaller) list of all the Unicode blocks.
+EOF
