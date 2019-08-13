@@ -1,3 +1,9 @@
 default_pre_build &&
 
+## some python3 compatibility patches not used (yet)
+#sedit "s@allow_python_fallback = False@allow_python_fallback = True@" setup.py &&
+#
+#sedit "s@\(except.*\), *e@\1 as e@" bzrlib/commands.py &&
+#sedit "/print '/ d" bzrlib/commands.py &&
+
 sedit 's|man/man1|share/man/man1|' setup.py
