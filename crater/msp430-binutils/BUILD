@@ -23,4 +23,3 @@ done &&
 
 prepare_install &&
 cp -rf --remove-destination $SOURCE_DIRECTORY/__DESTDIR/usr /
-

@@ -12,4 +12,3 @@ OPTS+=" -DNO_SHARED=ON \
 default_cmake_build &&
 
 rm -fr /usr/share/examples
-

@@ -7,4 +7,3 @@
 prepare_install &&
 
 ./waf install
-

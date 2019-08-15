@@ -1,9 +1,10 @@
-script/build &&
+LDFLAGS=' -extldflags "'"$LDFLAGS"'"' script/build &&
 
 prepare_install &&
 
 install -Dm755 bin/hub /usr/bin/hub &&
 install -d /usr/share/bash-completion/completions &&
 install -Dm644 etc/hub.bash_completion.sh /usr/share/bash-completion/completions/hub &&
-install -Dm644 man/hub.1 /usr/share/man/man1/hub.1 &&
+LANG=en_US.UTF-8 make man-pages &&
+install -Dm644 share/man/man1/*.1 /usr/share/man/man1 &&
 gather_docs LICENSE

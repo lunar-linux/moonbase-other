@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit 's@\(LIBINSTALL_FILES =\)@\1 curses.cmx@' Makefile.in &&
+sedit 's@all: byte@all: byte native-code-library native-code@' Makefile.in
