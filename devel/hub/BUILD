@@ -1,4 +1,4 @@
-script/build &&
+script/build -o bin/hub &&
 
 prepare_install &&
 
