@@ -10,5 +10,3 @@ mkdir -p /usr/share/{fonts,licenses/mathjax} &&
   mv /usr/share/mathjax/fonts /usr/share/fonts/mathjax &&
   ln -s /usr/share/fonts/mathjax /usr/share/mathjax/fonts &&
   mv LICENSE /usr/share/licenses/mathjax/LICENSE
-
-

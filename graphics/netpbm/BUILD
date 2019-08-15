@@ -90,4 +90,3 @@ gather_docs USERDOC &&
 rm -rf /tmp/netpbm &&
 rm -fR /usr/share/man/web &&
 rm -f /usr/lib/libnetpbm.a
-

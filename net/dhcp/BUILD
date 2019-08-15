@@ -25,4 +25,3 @@ install -D -m 0644 server/dhcpd.conf.example /etc/dhcpd.conf.example &&
 install -D -m 0644 doc/examples/dhcpd-dhcpv6.conf /etc/dhcpd6.conf.sample &&
 install -D -m 0644 client/dhclient.conf.example /etc/dhclient.conf.example &&
 install -D -m 0644 doc/examples/dhclient-dhcpv6.conf /etc/dhclient6.conf.sample
-

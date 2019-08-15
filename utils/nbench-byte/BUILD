@@ -8,4 +8,3 @@
   install NNET.DAT /usr/share/nbench-byte/
 
 ) > $C_FIFO 2>&1
-

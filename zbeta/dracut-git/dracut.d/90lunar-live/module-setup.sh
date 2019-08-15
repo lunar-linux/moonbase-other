@@ -13,4 +13,3 @@ depends() {
 install() {
   inst_rules 60-cdrom_id.rules
 }
-
