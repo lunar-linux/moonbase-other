@@ -4,4 +4,3 @@ default_pre_build &&
 sedit "12d" poppler-qt5.sip &&
 sedit "8i %Feature QTXML_AVAILABLE" poppler-qt5.sip &&
 sedit 's:QtGuimod.sip:QtGuimod.sip\n%If(QTXML_AVAILABLE)\n%Import QtXml/QtXmlmod.sip\n%End:' poppler-qt5.sip
-
