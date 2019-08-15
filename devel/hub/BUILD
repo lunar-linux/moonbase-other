@@ -1,4 +1,4 @@
-script/build -o bin/hub &&
+LDFLAGS=' -extldflags "'"$LDFLAGS"'"' script/build &&
 
 prepare_install &&
 
