@@ -9,8 +9,8 @@ depends dmraid
 depends libblockdev  # compiled with mdadm and dmraid support
 depends intltool
 depends gnome-common
-depends gtk-doc
 
+optional_depends gtk-doc "--enable-gtk-doc" "--disable-gtk-doc" "for building documentation"
 optional_depends dosfstools  "" "" "for VFAT filesystem management support"
 optional_depends ntfs-3g     "" "" "for NTFS filesystem management support"
 optional_depends lvm2        "" "" "for LVM2 filesystem support"
