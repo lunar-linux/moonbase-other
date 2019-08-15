@@ -9,15 +9,15 @@ depends dmraid
 depends libblockdev  # compiled with mdadm and dmraid support
 depends intltool
 depends gnome-common
-depends gtk-doc
 
+optional_depends gtk-doc "--enable-gtk-doc" "--disable-gtk-doc" "for building documentation"
 optional_depends dosfstools  "" "" "for VFAT filesystem management support"
 optional_depends ntfs-3g     "" "" "for NTFS filesystem management support"
 optional_depends lvm2        "" "" "for LVM2 filesystem support"
 optional_depends btrfs-progs "" "" "for BTRFS filesystem support"
 optional_depends sg3_utils   "" "" "for SCSI support"
 optional_depends parted      "" "" "for partition management support"
-optional_depends gpfdisk     "" "" "for GUID partition table support"
+optional_depends gptfdisk     "" "" "for GUID partition table support"
 
 optional_depends systemd "" "--with-systemdsystemunitdir=no" "for systemd support"
 
