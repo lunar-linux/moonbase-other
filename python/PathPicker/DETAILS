@@ -1,0 +1,21 @@
+          MODULE=PathPicker
+         VERSION=0.9.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/facebook/PathPicker/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:4b3deac0100fb9405adca17a1c75e133359a6cbb1351c392276a55ef8ef40857
+        WEB_SITE=https://facebook.github.io/PathPicker/
+            TYPE=python3
+         ENTERED=20190901
+         UPDATED=20190901
+           SHORT="PathPicker accepts a wide range of input"
+
+cat << EOF
+PathPicker is a simple command line tool that solves the perpetual problem of
+selecting files out of bash output. PathPicker will:
+ - Parse all incoming lines for entries that look like files
+ - Present the piped input in a convenient selector UI
+ - Allow you to either:
+ - Edit the selected files in your favorite $EDITOR
+ - Execute an arbitrary command with them.
+The installed script is named 'fpp'.
+EOF
