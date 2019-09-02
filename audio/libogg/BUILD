@@ -1,4 +1,4 @@
-OPTS+=" --disable-static"
+OPTS+=" -DBUILD_SHARED_LIBS=ON"
 
-default_build
+default_cmake_build
 
