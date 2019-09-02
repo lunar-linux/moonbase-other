@@ -7,16 +7,18 @@ if [ '$(arch)' == "x86_64" ]; then
   sedit 's|^LDFLAGS =\(.*\)|LDFLAGS =\1 -lm|' Makefile &&
   sedit 's|-m486||g' Makefile
 else
-  sed -i 's|CFLAGS = -c -Wall -O2|CFLAGS = -c -Wall -O2 -march=i686 -DJOHN_SYSTEMWIDE=1|' Makefile
+  sedit 's|CFLAGS = -c -Wall -O2|CFLAGS = -c -Wall -O2 -march=i686 -DJOHN_SYSTEMWIDE=1|' Makefile
 fi &&
 
-sed -i 's|LIBS = -ldes|LIBS = -ldes -Ldes|' Makefile &&
+sedit 's|LIBS = -ldes|LIBS = -ldes -Ldes|' Makefile &&
 
 make clean &&
 make &&
 prepare_install &&
 
-cd ../run
+mkdir -p /etc/$MODULE &&
+mkdir -p /usr/share/$MODULE &&
+cd $BUILD_DIRECTORY/run &&
 
 # config file
 sedit 's|$JOHN/john.local.conf|/etc/john/john.local.conf|g' john.conf &&
