@@ -1,3 +1,3 @@
-OPTS+=" --with-module-suffix=.so" &&
+OPTS+=" --enable-int-quality"
 
 default_build
