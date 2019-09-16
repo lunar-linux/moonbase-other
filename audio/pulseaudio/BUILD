@@ -4,7 +4,7 @@ if in_depends $MODULE bluez; then
   OPTS+=" --enable-bluez4 --disable-bluez5"
 elif in_depends $MODULE bluez-5; then
   OPTS+=" --enable-bluez5 --enable-bluez4"
-fi &&
+fi
 
 OPTS+=" --enable-glib2 \
         --disable-rpath \
@@ -17,7 +17,7 @@ if ! module_installed systemd; then
   OPTS+=" --disable-systemd-login \
           --disable-systemd-daemon \
           --disable-systemd-journal"
-fi &&
+fi
 
 default_config &&
 make &&
