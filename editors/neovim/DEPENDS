@@ -1,0 +1,15 @@
+depends luv
+depends msgpack-c-cpp
+depends libtermkey
+depends libvterm
+depends lpeg-lua51
+depends libmpack-lua51
+depends gperf
+
+optional_depends jemalloc \
+                 "-DENABLE_JEMALLOC=ON" \
+                 "-DENABLE_JEMALLOC=OFF" \
+                 "for jemalloc support"
+
+optional_depends xclip "" "" "for clipboard support"
+optional_depends xsel  "" "" "for clipboard support"
