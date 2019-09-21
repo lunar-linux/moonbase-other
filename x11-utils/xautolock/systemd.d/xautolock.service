@@ -1,0 +1,12 @@
+[Unit]
+Description=Lock the screen automatically after a timeout
+
+[Service]
+Type=simple
+User=meskarune
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/xautolock -time 5 -locker /usr/bin/i3lock -detectsleep
+
+[Install]
+WantedBy=graphical.target
+
