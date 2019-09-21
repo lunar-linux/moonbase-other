@@ -1,0 +1,23 @@
+depends dbus
+depends rustc
+depends libgcrypt
+depends libgpg-error
+depends libXau
+depends libxcb
+depends libXdmcp
+depends lz4
+depends xz
+
+optional_depends alsa-utils      "" "" "for the volume block" y
+optional_depends Font-Awesome    "" "" "for the Awesome icons" y
+optional_depends lm_sensors      "" "" "for the temperature block"
+optional_depends speedtest-cli   "" "" "for the speedtest block"
+optional_depends powerline-fonts "" "" "for the themes using the Powerline arrow char" y
+
+if in_depends $MODULE alsa-utils; then
+   depends pulseaudio
+   depends libogg
+   depends libvorbis
+   depends libsndfile
+fi
+
