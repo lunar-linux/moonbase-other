@@ -13,4 +13,6 @@ fi
 
 default_pre_build &&
 
-sedit 's@\(`./vsf_findlibs.sh`\)@\1 -lssl -lcrypto@' Makefile
+if [[ "$USE_SSL" -eq "y" ]]; then
+	sedit 's@\(`./vsf_findlibs.sh`\)@\1 -lssl -lcrypto@' Makefile
+fi
