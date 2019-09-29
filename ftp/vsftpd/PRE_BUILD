@@ -11,4 +11,6 @@ else
   chmod og-w ~ftp
 fi
 
-default_pre_build
+default_pre_build &&
+
+sedit 's@\(`./vsf_findlibs.sh`\)@\1 -lssl -lcrypto@' Makefile
