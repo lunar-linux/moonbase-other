@@ -1,8 +1,0 @@
-depends libffi
-depends glib-2
-
-# actually this is an optdep, but most introspection modules
-# will fail without cairo support
-optional_depends cairo   "" "" "for cairo graphics support${PROBLEM_COLOR} While this defaults to yes, you should say no on a clean install, else you will have troubles${DEFAULT_COLOR}" y
-
-optional_depends python2  ""  ""  "for Python support"

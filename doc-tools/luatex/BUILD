@@ -11,4 +11,3 @@ install -m755 build/texk/web2c/luatex /usr/bin/ &&
 ln -sf luatex /usr/bin/lualatex &&
 ln -sf luatex /usr/bin/texlua   &&
 ln -sf luatex /usr/bin/texluac
-

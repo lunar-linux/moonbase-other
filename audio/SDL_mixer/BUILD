@@ -7,4 +7,3 @@ default_build &&
 cp -r timidity /usr/lib &&
 
 rm /usr/lib/libSDL_mixer.a
-

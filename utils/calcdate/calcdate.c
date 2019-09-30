@@ -414,5 +414,3 @@ fprintf(stdout, "%d\n", curr_offset);
 return(0);
 }
 /* end of calcdate.c  -=gordon=- */
-
-

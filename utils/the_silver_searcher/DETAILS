@@ -1,15 +1,27 @@
           MODULE=the_silver_searcher
-         VERSION=2.1.0
-          SOURCE=the_silver_searcher-$VERSION.tar.gz
- SOURCE_URL_FULL=https://github.com/ggreer/the_silver_searcher/archive/${VERSION}.tar.gz
-      SOURCE_VFY=sha256:cb416a0da7fe354a009c482ae709692ed567f8e7d2dad4d242e726dd7ca202f0
-        WEB_SITE=https://github.com/ggreer/the_silver_searcher
-         ENTERED=20150302
-         UPDATED=20180310
-           SHORT="A really fast code searching tool"
+         VERSION=2.2.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/aswild/the_silver_searcher/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:6a0a19ca5e73b2bef9481c29a508d2413ca1a0a9a5a6b1bd9bbd695a7626cbf9
+        WEB_SITE=https://github.com/aswild/the_silver_searcher/
+         ENTERED=20190820
+         UPDATED=20190820
+           SHORT="A fork of ag"
 
-cat << EOF
-The Silver Searcher is a tool for searching code. It started off as a clone of
-Ack, but their feature sets have since diverged slightly. In typical usage, it
-is 5-10x faster than Ack.
+cat <<EOF
+A code searching tool similar to ack, with a focus on speed.
+
+Ag features:
+- It is an order of magnitude faster than ack.
+- It ignores file patterns from your .gitignore and .hgignore.
+- If there are files in your source repo you don't want to search, just add
+  their patterns to a .ignore file. (*cough* *.min.js *cough*).
+- The command name is 33% shorter than ack, and all keys are on the home row.
+
+This fork's features:
+- Requires libpcre2, pcre version 1 is no longer supported
+- Support for a .agrc file which may contain arbitrary options, one per line.
+  Default is ~/.agrc, and can be set with --agrc=<file> on the command line.
+- Various memory leaks fixed, plus a script for testing with LLVM Sanitizers.
+- Various cosmetic and usability tweaks.
 EOF

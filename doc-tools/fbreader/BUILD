@@ -14,4 +14,3 @@ sedit 's:\$(shell pkg-config --libs QtCore QtGui QtNetwork):-L/usr/lib/qt5 -lQt5
 default_build  &&
 
 ln -sfn /usr/bin/FBReader /usr/bin/fbreader
-

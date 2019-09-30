@@ -1,0 +1,25 @@
+          MODULE=python-xlib
+         VERSION=0.25
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=https://github.com/python-xlib/python-xlib/releases/download/$VERSION/
+      SOURCE_VFY=sha256:204f280b549352af6cbdaff43405186822ae05749518dd9be209bd88a0088f99
+        WEB_SITE=https://github.com/python-xlib/python-xlib/
+            TYPE=python3
+         ENTERED=20190901
+         UPDATED=20190901
+           SHORT="A fully functional X client library for Python programs"
+
+cat << EOF
+The Python X Library is intended to be a fully functional X client library for
+Python programs. It is written entirely in Python, in contrast to earlier X
+libraries for Python (the ancient X extension and the newer plxlib) which were
+interfaces to the C Xlib.
+There are three advantages of implementing a pure Python library:
+ - Integration: The library can make use of the wonderful object system in
+   Python, providing an easy-to-use class hierarchy.
+ - Portability: The library will be usable on (almost) any computer which have
+   Python installed. A C interface could be problematic to port to non-Unix
+   systems, such as MS Windows or OpenVMS.
+ - Maintainability: It is much easier to develop and debug native Python modules
+   than modules written in C.
+EOF

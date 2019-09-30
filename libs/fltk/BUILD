@@ -11,4 +11,3 @@ default_build &&
 
 # remove static libs
 rm /usr/lib/libfltk*.a
-

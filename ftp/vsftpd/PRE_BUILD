@@ -11,4 +11,8 @@ else
   chmod og-w ~ftp
 fi
 
-default_pre_build
+default_pre_build &&
+
+if [[ "$USE_SSL" -eq "y" ]]; then
+	sedit 's@\(`./vsf_findlibs.sh`\)@\1 -lssl -lcrypto@' Makefile
+fi

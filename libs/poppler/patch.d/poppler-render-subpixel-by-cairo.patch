@@ -1,0 +1,171 @@
+From: Jeffrey Feng <galago1992@gmail.com>
+Subject: 
+  Modify Cairo font engine in poppler to hint subpixel.
+  Thanks to Yichao Zhou for his subpixel patch of previous poppler-0.43.
+---
+git diff --stat
+ poppler/CairoFontEngine.cc  |  6 +++---
+ poppler/CairoOutputDev.cc   |  8 ++++++++
+ poppler/Gfx.cc              | 31 +++++++++++++++++++++++++++++++
+ poppler/Gfx.h               |  3 +++
+ poppler/Page.cc             | 12 ++++++++++++
+ poppler/Page.h              |  3 +++
+ 6 files changed, 60 insertions(+), 3 deletions(-)
+
+diff --git a/poppler/CairoFontEngine.cc b/poppler/CairoFontEngine.cc
+index bf6bd88d..d9e42304 100644
+--- a/poppler/CairoFontEngine.cc
++++ b/poppler/CairoFontEngine.cc
+@@ -124,7 +124,7 @@ CairoFont::getSubstitutionCorrection(GfxFont *gfxFont)
+ 	cairo_matrix_t m;
+ 	cairo_matrix_init_identity(&m);
+ 	cairo_font_options_t *options = cairo_font_options_create();
+-	cairo_font_options_set_hint_style(options, CAIRO_HINT_STYLE_NONE);
++	cairo_font_options_set_hint_style(options, CAIRO_HINT_STYLE_SLIGHT);
+ 	cairo_font_options_set_hint_metrics(options, CAIRO_HINT_METRICS_OFF);
+ 	cairo_scaled_font_t *scaled_font = cairo_scaled_font_create(cairo_font_face, &m, &m, options);
+ 
+@@ -182,7 +182,7 @@ _ft_new_face_uncached (FT_Library lib,
+   }
+ 
+   font_face = cairo_ft_font_face_create_for_ft_face (face,
+-							  FT_LOAD_NO_HINTING |
++							  FT_LOAD_TARGET_LIGHT |
+ 							  FT_LOAD_NO_BITMAP);
+   if (cairo_font_face_set_user_data (font_face,
+ 				     &_ft_cairo_key,
+@@ -351,7 +351,7 @@ _ft_new_face (FT_Library lib,
+   _ft_open_faces = l;
+ 
+   l->font_face = cairo_ft_font_face_create_for_ft_face (tmpl.face,
+-							  FT_LOAD_NO_HINTING |
++							  FT_LOAD_TARGET_LIGHT |
+ 							  FT_LOAD_NO_BITMAP);
+   if (cairo_font_face_set_user_data (l->font_face,
+ 				     &_ft_cairo_key,
+diff --git a/poppler/CairoOutputDev.cc b/poppler/CairoOutputDev.cc
+index 68927636..1605f4d3 100644
+--- a/poppler/CairoOutputDev.cc
++++ b/poppler/CairoOutputDev.cc
+@@ -1431,6 +1431,7 @@ void CairoOutputDev::drawChar(GfxState *state, double x, double y,
+ void CairoOutputDev::endString(GfxState *state)
+ {
+   int render;
++  cairo_operator_t prev_op = cairo_get_operator(cairo);
+ 
+   if (!currentFont)
+     return;
+@@ -1448,6 +1449,12 @@ void CairoOutputDev::endString(GfxState *state)
+     goto finish;
+   }
+ 
++  // CAIRO_OPERATOR_DEST_OVER for subpixel purpose doesnot fit type3 font
++  if (state->getFont()->getType() == fontType3
++      && this->antialias == CAIRO_ANTIALIAS_SUBPIXEL) {
++    cairo_set_operator(cairo, CAIRO_OPERATOR_SOURCE);
++  }
++
+   if (!(render & 1)) {
+     LOG (printf ("fill string\n"));
+     cairo_set_source (cairo, fill_pattern);
+@@ -1496,6 +1503,7 @@ void CairoOutputDev::endString(GfxState *state)
+       cairo_new_path (cairo_shape);
+     }
+   }
++  cairo_set_operator(cairo, prev_op);
+ 
+ finish:
+   gfree (glyphs);
+diff --git a/poppler/Gfx.cc b/poppler/Gfx.cc
+index a9b93b61..1d94913b 100644
+--- a/poppler/Gfx.cc
++++ b/poppler/Gfx.cc
+@@ -4610,6 +4610,37 @@ void Gfx::doImage(Object *ref, Stream *str, bool inlineImg) {
+   error(errSyntaxError, getPos(), "Bad image parameters");
+ }
+ 
++bool Gfx::checkNormalBlendModeOnly(Object *str) {
++  bool onlyNormalBlendMode = true;
++  int numArgs = 0;
++  Object argObj;
++  Parser myParser(xref, str, false);
++  Object obj = myParser.getObj();
++
++  while (!obj.isEOF()) {
++    if (obj.isCmd()) {
++      const char *cmd = obj.getCmd();
++      if (strcmp(cmd, "gs") == 0) {
++        Object obj1, obj2;
++        GfxBlendMode mode;
++        obj1 = res->lookupGState(argObj.getName());
++        if (!obj1.isNull() && !(obj2 = obj1.dictLookup("BM")).isNull()) {
++          if (state->parseBlendMode(&obj2, &mode)) {
++            onlyNormalBlendMode &= (mode == gfxBlendNormal);
++          }
++        }
++      }
++      numArgs = 0;
++    } else if ((numArgs++) == 0) {
++      argObj = obj.copy();
++    }
++    obj = myParser.getObj();
++  }
++
++  return onlyNormalBlendMode;
++}
++
++
+ bool Gfx::checkTransparencyGroup(Dict *resDict) {
+   // check the effect of compositing objects as a group:
+   // look for ExtGState entries with ca != 1 or CA != 1 or BM != normal
+diff --git a/poppler/Gfx.h b/poppler/Gfx.h
+index 19462e8d..b0bbd11c 100644
+--- a/poppler/Gfx.h
++++ b/poppler/Gfx.h
+@@ -192,6 +192,9 @@ public:
+   // Get the current graphics state object.
+   GfxState *getState() { return state; }
+ 
++  // Check whether a stream only contains normal blend mode (to enable subpixel rendering)
++  bool checkNormalBlendModeOnly(Object *str);
++
+   bool checkTransparencyGroup(Dict *resDict);
+ 
+   void drawForm(Object *str, Dict *resDict, const double *matrix, const double *bbox,
+diff --git a/poppler/Page.cc b/poppler/Page.cc
+index d137ec4b..5131a69a 100644
+--- a/poppler/Page.cc
++++ b/poppler/Page.cc
+@@ -336,6 +336,18 @@ Dict *Page::getResourceDictCopy(XRef *xrefA) {
+   return dict ? dict->copy(xrefA) : nullptr;
+ }
+ 
++bool Page::suitSubpixelRendering(OutputDev *out) {
++  PDFRectangle box;
++  bool suited = false;
++  Object obj = contents.fetch(xref);
++
++  if (!obj.isNull()) {
++    Gfx gfx(doc, out, attrs->getResourceDict(), &box, NULL);
++    suited = gfx.checkNormalBlendModeOnly(&obj);
++  }
++  return suited;
++}
++
+ void Page::replaceXRef(XRef *xrefA) {
+   Object obj1;
+   Dict *pageDict = pageObj.getDict()->copy(xrefA);
+diff --git a/poppler/Page.h b/poppler/Page.h
+index 01f056f9..81b1d01c 100644
+--- a/poppler/Page.h
++++ b/poppler/Page.h
+@@ -183,6 +183,9 @@ public:
+   Object *getResourceDictObject();
+   Dict *getResourceDictCopy(XRef *xrefA);
+ 
++  // Whether the content in this page suits subpixel rendering (lcdfilter)
++  bool suitSubpixelRendering(OutputDev *out);
++
+   // Get annotations array.
+   Object getAnnotsObject(XRef *xrefA = nullptr) { return annotsObj.fetch(xrefA ? xrefA : xref); }
+   // Add a new annotation to the page

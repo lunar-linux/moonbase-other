@@ -1,5 +1,1 @@
-OPTS+=" --enable-shared"  &&
-
-./autogen.sh &&
-
-default_build
+default_cmake_build

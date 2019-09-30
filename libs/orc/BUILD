@@ -1,3 +1,2 @@
-OPTS+=" --disable-static"
+default_meson_build
 
-default_build
