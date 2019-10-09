@@ -1,6 +1,7 @@
 OPTS+=" --enable-vala \
-        --disable-static" &&
+        --disable-static"
 
-autoreconf -i &&
+#autoreconf -i &&
 
 default_build
+
