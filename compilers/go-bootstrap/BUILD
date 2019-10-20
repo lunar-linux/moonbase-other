@@ -21,10 +21,5 @@ cd $SOURCE_DIRECTORY &&
 mkdir -p /usr/lib/go1.4/bin &&
 cp -a bin/* /usr/lib/go1.4/bin/ &&
 cp -a {src,lib,pkg} /usr/lib/go1.4/ &&
-chmod -R +x /usr/lib/go1.4/pkg/tool &&
-
-# add the symlinks to /usr/bin
-for f in /usr/lib/go1.4/bin/*; do
-   ln -sf $f /usr/bin/
-done
+chmod -R +x /usr/lib/go1.4/pkg/tool
 
