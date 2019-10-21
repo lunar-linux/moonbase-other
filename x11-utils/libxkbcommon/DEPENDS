@@ -1,1 +1,7 @@
-depends libevdev
+depends libxcb
+depends meson
+
+optional_depends wayland-protocols \
+                 "-Denable-wayland=true" \
+		 "-Denable-wayland=false" \
+		 "for Wayland support"
