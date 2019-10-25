@@ -23,8 +23,7 @@ install -m755 $SOURCE_CACHE/$SOURCE2 waf &&
                 --disable-rubberband \
                 --disable-vapoursynth \
                 --disable-debug-build \
-                --disable-static-build \
-                --disable-vapoursynth-lazy
+                --disable-static-build
 
 ./waf build &&
 
