@@ -1,4 +1,4 @@
-OPTS+=" --with-linux-kernel-headers=/usr/src/linux" &&
+OPTS+=" --with-linux-kernel-headers=/usr/src/linux"
 
 case `arch` in
   x86_64)
@@ -13,12 +13,15 @@ case `arch` in
 esac &&
 
 #./regen.sh -q &&
-./configure   --prefix=/usr                   \
-              --sysconfdir=/etc               \
-              --localstatedir=/var/lib        \
-              --infodir=/usr/share/info       \
-              --mandir=/usr/share/man         \
-              $OPTS                           &&
+./configure   --prefix=/usr             \
+              --sysconfdir=/etc         \
+              --localstatedir=/var/lib  \
+              --infodir=/usr/share/info \
+              --mandir=/usr/share/man   \
+	      --without-swig            \
+	      --disable-fuse-client     \
+              $OPTS &&
+
 make only_libafs &&
 prepare_install &&
 
