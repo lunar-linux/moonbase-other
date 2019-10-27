@@ -6,17 +6,26 @@ unzip $SOURCE_CACHE/$SOURCE2 &&
 sedit 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' tools/generate_shim_headers/generate_shim_headers.py &&
 
 # https://crbug.com/skia/6663#c10
-patch_it $SOURCE3 4 &&
+patch_it $SOURCE3 0 &&
+
+# Load widevine cdm
+patch_it $SOURCE4 1 &&
 
 # Fixes from Gentoo
-patch_it $SOURCE4 1 &&
 patch_it $SOURCE5 1 &&
-
-# https://bugs.gentoo.org/661880#c21
 patch_it $SOURCE6 1 &&
 
-# https://crbug.com/913220
+# https://crbug.com/819294
 patch_it $SOURCE7 1 &&
+
+# https://groups.google.com/a/chromium.org/d/msg/chromium-packagers/UyJsVJ5QqWo/jSv5z7-rEQAJ
+patch_it $SOURCE8 1 &&
+
+# https://crbug.com/980025
+patch_it $SOURCE9 1 &&
+
+# https://crbug.com/992832
+patch_it $SOURCE10 1 &&
 
 # https://crbug.com/893950
 sedit 's/\<xmlMalloc\>/malloc/;s/\<xmlFree\>/free/' \
@@ -28,15 +37,13 @@ sedit 's/\<xmlMalloc\>/malloc/;s/\<xmlFree\>/free/' \
 sedit '/"-Wno-defaulted-function-deleted"/d' build/config/compiler/BUILD.gn &&
 
 # Make sure python2 is used
-sedit '1s;python$;&2;' third_party/dom_distiller_js/protoc_plugins/*.py build/util/version.py &&
+sedit '1s;python$;&2;' third_party/dom_distiller_js/protoc_plugins/*.py &&
 
 # Build now requires nodejs
 mkdir -p third_party/node/linux/node-linux-x64/bin &&
 ln -s /usr/bin/node third_party/node/linux/node-linux-x64/bin/node &&
 
 export CHROMIUM_HOME=/usr/lib/$MODULE &&
-
-sedit "s:/bin/echo:/usr/bin/echo:g" build/common.gypi &&
 
 # Google API keys (see http://www.chromium.org/developers/how-tos/api-keys)
 # The keys below are for Lunar Linux use ONLY. If you are maintaining chromium for
@@ -76,6 +83,7 @@ local _flags=(
   'enable_widevine=true'
   'enable_nacl=false'
   'enable_swiftshader=false'
+  'symbol_level=0'
   "google_api_key=\"${google_api_key}\""
   "google_default_client_id=\"${google_default_client_id}\""
   "google_default_client_secret=\"${google_default_client_secret}\""

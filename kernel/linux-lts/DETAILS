@@ -1,5 +1,5 @@
           MODULE=linux-lts
-         VERSION=4.19.74
+         VERSION=4.19.80
             BASE=$(echo $VERSION | cut -d. -f1,2)
           SOURCE=linux-$BASE.tar.xz
 if [ -n "$(echo $VERSION | cut -d. -f3)" ] ; then
@@ -11,10 +11,10 @@ fi
   SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v4.x
   SOURCE2_URL[1]=https://www.kernel.org/pub/linux/kernel/v4.x
       SOURCE_VFY=sha256:0c68f5655528aed4f99dae71a5b259edc93239fa899e2df79c055275c21749a1
-     SOURCE2_VFY=sha256:f42df8811951bfe8db9dd5c1b213c9d7c4dfc7d730f5e312499289bc51e49a80
+     SOURCE2_VFY=sha256:4147e43cba6b8195fe0cc6a0c9907b71bbf5869654d7aaddd5e84eaee8d8229e
          WEB_SITE=https://www.kernel.org/
          ENTERED=20111121
-         UPDATED=20190919
+         UPDATED=20191019
            SHORT="The core of a Linux GNU Operating System"
      KEEP_SOURCE=on
            TMPFS=off
