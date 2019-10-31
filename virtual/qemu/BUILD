@@ -3,7 +3,7 @@ export ARFLAGS=rv
 
 CFLAGS+=" -fPIC"
 
-add_priv_user qemu:qemu -G kvm &&
+add_priv_user qemu:qemu &&
 
 AUDIO_LIST="alsa"
 in_depends $MODULE pulseaudio && AUDIO_LIST+=",pa"
