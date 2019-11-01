@@ -1,0 +1,18 @@
+depends glib-2
+depends gtk+-3
+depends colord
+
+optional_depends gtk+-2 \
+                 "-Dgtk2=true" \
+                 "-Dgtk2=false" \
+                 "include GTK+-2 support"
+
+optional_depends vala \
+                 "-Dvapi=true" \
+                 "-Dvapi=false" \
+                 "Build vala bindings"
+                 		
+optional_depends gtk-doc \
+                 "-Ddocs=true" \
+                 "-Ddocs=false" \
+                 "Generate documentation"
