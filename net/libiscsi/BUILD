@@ -1,6 +1,6 @@
-OPTS+=" --disable-static" &&
+OPTS+=" --disable-static"
 
-CFLAGS+=" -Wno-error" &&
+CFLAGS+=" -Wno-error"
 
 ./autogen.sh &&
 
