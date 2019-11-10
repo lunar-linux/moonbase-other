@@ -1,5 +1,7 @@
 CFLAGS="$CFLAGS -fPIC" &&
 
-OPTS+=" --disable-static" &&
+OPTS+=" --disable-static"
+
+./bootstrap &&
 
 default_build
