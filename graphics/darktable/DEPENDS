@@ -1,21 +1,40 @@
-depends SDL
-depends exiv2
+##website says these are required
+depends sqlite
+depends openjpeg-2
+depends libpng
 depends pugixml
-depends json-glib
-depends openexr
-depends ilmbase
-depends gtk+-2
+depends gtk+-3
+depends cairo
 depends lcms2
+depends exiv2
+depends tiff
+depends curl
+depends gphoto2
+depends dbus-glib
+depends openexr
+depends libsoup
+
+# looks for these duing configure,
+# but website doesn't list them as requirements.
+# should probably include them, because they're
+# super useful to functionality
+
+depends libxslt
+depends gettext
 depends lensfun
 depends librsvg
-depends gtk-engines2
+depends libxml2
+depends json-glib
+depends pango
+depends openmp
+depends zlib
+depends libwebp
+depends GraphicsMagick
 
-depends python-jsonschema
 
-optional_depends colord-gtk "-DUSE_COLORD=1"         "-DUSE_COLORD=0"         "For libcolord support"
-optional_depends flickcurl  "-DUSE_FLICKR=1"         "-DUSE_FLICKR=0"         "For Flickr API support"
-optional_depends openjpeg   "-DUSE_OPENJPEG=1"       "-DUSE_OPENJPEG=0"       "For openjpeg graphics support"
-optional_depends libgphoto2 "-DUSE_CAMERA_SUPPORT=1" "-DUSE_CAMERA_SUPPORT=0" "For Camera support"
-optional_depends libsecret  "-DUSE_LIBSECRET=1"      "-DUSE_LIBSECRET=0"      "For storing and retrieving passwords"
+optional_depends colord-gtk "-DUSE_COLORD=1"         "-DUSE_COLORD=0"         "For color management support" y
+optional_depends luajit      "-DUSE_LUA=1"            "-DUSE_LUA=0"            "For lua scripting support" y
+
+optional_depends flickcurl  "-DUSE_FLICKR=1"         "-DUSE_FLICKR=0"         "For Flickr API support" n
+optional_depends libsecret  "-DUSE_LIBSECRET=1"      "-DUSE_LIBSECRET=0"      "For storing and retrieving passwords" n
 optional_depends kwallet    "-DUSE_KWALLET=1"        "-DUSE_KWALLET=0"        "Use kwallet password manager" n
-optional_depends "lua"      "-DUSE_LUA=1"            "-DUSE_LUA=0"            "For lua scripting support"
