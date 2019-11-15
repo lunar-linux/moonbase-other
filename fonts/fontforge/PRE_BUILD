@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# Fix linking to python 3.8
+sedit 's|python-"${PYTHON_VERSION}"|python-"${PYTHON_VERSION}"-embed|g' m4/fontforge_arg_enable.m4
