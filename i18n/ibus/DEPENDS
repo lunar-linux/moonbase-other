@@ -1,4 +1,3 @@
-depends dconf
 depends GConf
 depends hicolor-icon-theme
 depends iso-codes
@@ -9,6 +8,7 @@ depends libnotify
 depends gnome-common
 depends unicode-character-database
 
+optional_depends dconf "--enable-dconf" "--disable-dconf" "for low level configuration system support, ${PROBLEM_COLOR}Borks build, say no for now.${DEFAULT_COLOR}" n
 optional_depends qt5 "" "" "build Qt 5.x im module"
 
 optional_depends gtk+-3 "--enable-gtk3"  "--disable-gtk3"  "build GTK 3.x im module"

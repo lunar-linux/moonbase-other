@@ -1,3 +1,7 @@
 default_pre_build &&
 
-sedit 's|$(libibus) $(libibus_emoji_dialog)|$(libibus_emoji_dialog) $(libibus)|' ui/gtk3/Makefile.am
+sedit 's|$(libibus) $(libibus_emoji_dialog)|$(libibus_emoji_dialog) $(libibus)|' ui/gtk3/Makefile.am &&
+
+sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' data/dconf/org.freedesktop.ibus.gschema.xml &&
+
+rm -f tools/main.c
