@@ -1,13 +1,14 @@
           MODULE=libsignon-glib
-         VERSION=1.12
-          SOURCE=$MODULE-$VERSION.tar.xz
-      SOURCE_URL=$MIRROR_URL
-      SOURCE_VFY=sha256:4d0bfaf130b44e4d22b98f96e68ab5af5029ae58e18dc642daa539057a82f15b
-        WEB_SITE=http://farsight.freedesktop.org/wiki
+         VERSION=2.1
+          SOURCE=$MODULE-VERSION_${VERSION}.tar.bz2
+      SOURCE_URL=https://gitlab.com/accounts-sso/libsignon-glib/-/archive/VERSION_${VERSION}/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libsignon-glib-VERSION_$VERSION
+      SOURCE_VFY=sha256:4c259e054d0456480a4e96ed30b1f121e7f8508ed7bee6da7367d5592c3fa4a1
+        WEB_SITE=https://gitlab.com/accounts-sso/libsignon-glib
+            TYPE=meson
          ENTERED=20151201
-         UPDATED=20151201
+         UPDATED=20191115
            SHORT="glib client library handling account authentication"
-PSAFE=no
 cat << EOF
 GLib-based client library for applications handling account
 authentication through the Online Accounts Single Sign-On service

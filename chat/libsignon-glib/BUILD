@@ -1,6 +1,3 @@
+cp libsignon-glib/*.xml libsignon-glib/interfaces &&
 
- sedit "s:--warnings=all::" autogen.sh &&
- touch INSTALL &&
- ./autogen.sh &&
-
- default_build
+default_meson_build
