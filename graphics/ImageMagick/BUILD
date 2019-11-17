@@ -1,4 +1,4 @@
-OPTS+=" --enable-shared --disable-static" &&
+OPTS+=" --enable-shared --disable-static"
 
 # see CONFIGURE
 OPTS+=" --disable-hdri" &&
