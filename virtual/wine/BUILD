@@ -1,10 +1,10 @@
 OPTS+=" --prefix=/usr \
         --libdir=/usr/lib \
-        --with-x" &&
+        --with-x"
 
 if [ $(arch) == x86_64 ]; then
   OPTS+=" --enable-win64"
-fi &&
+fi
 
 mkdir $MODULE-build &&
 cd $MODULE-build &&
