@@ -15,6 +15,7 @@ fi &&
             --system-bzip2 \
             --system-zlib \
             --system-liblzma \
+            --parallel=$MAKES \
             $OPTS &&
 
 default_make
