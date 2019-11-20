@@ -1,9 +1,8 @@
 
 # The install phase gets confused if this is present
-  rm -rf /usr/include/plist/cython &&
+# Still the case with version 2.1.0
+rm -rf /usr/include/plist/cython &&
 
-default_build &&
+PYTHON=/usr/bin/python2 ./autogen.sh --prefix=/usr $OPTS &&
 
-# Cython header and pxd does not get installed
-  mkdir -p /usr/include/plist/cython &&
-  cp cython/*.h cython/plist.pxd /usr/include/plist/cython/
+default_make

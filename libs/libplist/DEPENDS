@@ -1,4 +1,5 @@
 depends glib-2
 
 # The --with-cython has to be left blank, else it gets confused and thinks you don't want it.
-optional_depends "cython" "" "" "For Python bindings support using Cython, needed by libimobiledevice"
+# without cython does work as of version 2.1.0 and python2 bindings are not built.
+optional_depends "cython2" "" "--without-cython" "For Python 2.x bindings support using Cython, needed by libimobiledevice"
