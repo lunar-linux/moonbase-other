@@ -1,12 +1,12 @@
 default_pre_build &&
 
 # Fixes error of installing etc stuff into /usr/etc
-OPTS+=" --sysconfdir=/etc" &&
+OPTS+=" --sysconfdir=/etc"
 
 # Fix mandir
 sedit "s|^mandir=.*|mandir='\${prefix}/share/man'|" configure &&
 
-#sed -i "8d" scripts/GNUmakefile &&
+sed -i "8d" scripts/GNUmakefile &&
 sed -i "s:\$(DESTDIR)\${prefix}::" scripts/GNUmakefile &&
 
 export CFLAGS="$CFLAGS -fno-strict-aliasing" &&
