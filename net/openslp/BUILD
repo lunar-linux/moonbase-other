@@ -1,3 +1,3 @@
-OPTS+=" --sysconfdir=/etc/slp" &&
+OPTS+=" --sysconfdir=/etc/slp"
 
 default_build
