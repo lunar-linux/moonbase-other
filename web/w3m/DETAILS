@@ -1,29 +1,16 @@
           MODULE=w3m
          VERSION=0.5.3
           SOURCE=$MODULE-$VERSION.tar.gz
-         SOURCE2=w3m-0.5.2-gc72.patch
-         SOURCE3=w3m-0.5.3-parallel-make.patch
-         SOURCE4=w3m-0.5.3-glibc214.patch
-         SOURCE5=w3m-0.5.3-gdk-pixbuf.patch
-      SOURCE_URL=$SFORGE_URL/$MODULE
-     SOURCE2_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/www-client/w3m/files/
-     SOURCE3_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/www-client/w3m/files/
-     SOURCE4_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/www-client/w3m/files/
-     SOURCE5_URL=http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/www-client/w3m/files/
-      SOURCE_VFY=sha1:444b6c8cf7094ee95f8e9de96b37f814b9d83237
-     SOURCE2_VFY=sha1:d0332b8dcdf3fac1f91485d6858ad8c8b25ada69
-     SOURCE3_VFY=sha1:218c40f0c6bcc016c257188b85c0a423c423e136
-     SOURCE4_VFY=sha1:c0270149250c180cbfc88eacb917cbe5f0ed5fa9
-     SOURCE5_VFY=sha1:e63b3a202b0fce0260cc5c911087c746b1ad9041
+ SOURCE_URL_FULL=git+https://salsa.debian.org/debian/w3m
+#      SOURCE_VFY=sha256:
         WEB_SITE=http://w3m.sourceforge.net
          ENTERED=20011217
-         UPDATED=20141007
-           SHORT="pager and text-based WWW browser"
+         UPDATED=20191125
+           SHORT="A pager and text-based WWW browser"
 
 cat << EOF
-w3m is a pager/text-based WWW browser. It is similar to Lynx, but has
-several features Lynx doesn't have. It can render tables, frames (by
-converting frames into tables), display a document given from standard
-input, be navigated by mouse in an xterm or in a gpm driven console,
-and it is small.
+w3m is a pager/text-based WWW browser. It is similar to Lynx, but has several
+features Lynx doesn't have. It can render tables, frames (by converting frames
+into tables), display a document given from standard input, be navigated by
+mouse in an xterm or in a gpm driven console, and it is small.
 EOF

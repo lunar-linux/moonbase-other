@@ -4,7 +4,7 @@ OPTS+=" --with-browser=/usr/bin/xdg-open \
     	--enable-image=fb"
 
 if module_installed libXext; then
-  OPTS+=",X11"
+  OPTS+=",x11"
 fi
 
 default_build
