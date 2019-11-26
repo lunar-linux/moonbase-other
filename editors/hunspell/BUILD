@@ -1,4 +1,4 @@
-OPTS+=" --disable-static --enable-threads=posix" &&
+OPTS+=" --disable-static" &&
 
 autoreconf -vfi &&
 
