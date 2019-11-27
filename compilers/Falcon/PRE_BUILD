@@ -1,4 +1,6 @@
 default_pre_build &&
 
 sedit "s:SSLv2_method:SSLv23_method:" modules/native/feathers/socket/socket_sys_unix.cpp &&
-sedit "s:SSLv3_method:SSLv23_method:g" modules/native/feathers/socket/socket_sys_unix.cpp
+sedit "s:SSLv3_method:SSLv23_method:g" modules/native/feathers/socket/socket_sys_unix.cpp &&
+
+sed '20 i #include <server/mysql.h>' -i modules/native/dbi/mysql/mysql_mod.cpp
