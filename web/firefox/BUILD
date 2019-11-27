@@ -3,6 +3,8 @@ LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
 
 SHELL="${SHELL:-/bin/bash}" &&
 
+CFLAGS="${CFLAGS/-fno-plt/}" &&
+CXXFLAGS="${CXXFLAGS/-fno-plt/}" &&
 
 ./mach build &&
 ./mach buildsymbols &&
