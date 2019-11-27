@@ -1,3 +1,6 @@
 depends %GLX
 depends libXi
 depends libXmu
+depends cmake
+
+optional_depends libglvnd "-DOpenGL_GL_PREFERENCE=GLVND" "-DOpenGL_GL_PREFERENCE=LEGACY" "If no then use legacy mode" y
