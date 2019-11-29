@@ -1,6 +1,6 @@
 prepare_install &&
 
-python2 setup.py install --force &&
+python setup.py install --force &&
 cp -p contrib/hgk /usr/bin &&
 gather_docs CONTRIBUTORS PKG-INFO hgweb*.cgi doc/*.html doc/*.txt &&
 
