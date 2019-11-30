@@ -1,0 +1,17 @@
+         MODULE=btrfs-snapshot
+        VERSION=3.3.3
+         SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_URL_FULL=https://github.com/YHNdnzj/btrfs-snapshot/archive/$VERSION.tar.gz
+     SOURCE_VFY=sha256:77eede63b03607679275786914f1be2994bb2513df94482f4aa51c066576fbef
+       WEB_SITE=https://github.com/YHNdnzj/btrfs-snapshot/
+        ENTERED=20191130
+        UPDATED=20191130
+          SHORT="Tool for creating btrfs snapshots"
+
+cat << EOF
+Tool for creating btrfs snapshots.
+Enable systemd timer
+# systemctl enable --now btrfs-snapshot.timer
+or
+# systemctl enable --now btrfs-snapshot@root.timer
+EOF

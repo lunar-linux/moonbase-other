@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sed -e 's|\(^_f_functions\)=.*|\1=/usr/lib/btrfs-snapshot/functions|' \
+    -e 's|\(^_d_configs\)=.*|\1=/etc/btrfs-snapshot|' \
+    -e "s|%VERSION%|$VERSION|g" \
+    -i btrfs-snapshot
