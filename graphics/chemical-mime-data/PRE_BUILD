@@ -1,3 +1,5 @@
 default_pre_build &&
 
-sedit 's:$< $\*_:$< -o $*_:' icons/hicolor/Makefile.{am,in}
+sedit 's:$< $\*_:$< -o $*_:' icons/hicolor/Makefile.am &&
+
+./autogen.sh
