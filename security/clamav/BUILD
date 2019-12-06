@@ -8,7 +8,7 @@ OPTS+=" --sbindir=/usr/bin \
         --disable-rpath \
         --disable-llvm \
         --enable-clamdtop \
-        --enable-zlib-vcheck" &&
+        --enable-zlib-vcheck"
 
 default_build &&
 
