@@ -5,7 +5,7 @@ CFLAGS+=" -Werror"
 
 prepare_install &&
 
-make -C /lib/modules/$KERNEL_VERSION/build M=`pwd` &&
+make -C /usr/src/linux M=`pwd` &&
 
 gzip wl.ko &&
 
