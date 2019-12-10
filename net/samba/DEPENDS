@@ -6,6 +6,7 @@ depends libaio
 depends talloc
 depends lmdb
 depends jansson
+depends gnutls
 
 optional_depends cups \
                  "--enable-cups" \
@@ -21,10 +22,6 @@ optional_depends openldap \
                  "--with-ldap --with-ads" \
                  "--without-ldap --without-ads" \
                  "for Active Directory support"
-
-optional_depends gnutls \
-                 "--enable-gnutls" "--without-ad-dc" \
-                 "for Active Directory Domain Controller support"
 
 optional_depends acl \
                  "--with-acl-support" \
