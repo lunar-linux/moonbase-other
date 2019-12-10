@@ -1,3 +1,3 @@
-OPTS+=" --disable-strict"
+OPTS+=" -DENABLE_STRICT=0 -DENABLE_STATIC=0"
 
-default_build
+default_cmake_build
