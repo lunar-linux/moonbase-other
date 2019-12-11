@@ -9,13 +9,19 @@ else
   OPTS+=" --no-system-jsoncpp"
 fi &&
 
+OLD_MAKES="${MAKES}" && unset MAKES &&
+
 ./configure --prefix=/usr  \
             --docdir=/share/doc/cmake \
             --mandir=/share/man \
             --system-bzip2 \
             --system-zlib \
             --system-liblzma \
-            --parallel=$MAKES \
+            --parallel=${OLD_MAKES} \
             $OPTS &&
 
-default_make
+export MAKES="${OLD_MAKES}" &&
+
+make &&
+
+default_install
