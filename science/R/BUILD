@@ -1,4 +1,4 @@
-OPTS+=" --prefix=/usr --enable-R-shlib --sysconfdir=/etc/R" &&
+OPTS+=" --prefix=/usr --enable-R-shlib --sysconfdir=/etc/R"
 
 default_build &&
 
