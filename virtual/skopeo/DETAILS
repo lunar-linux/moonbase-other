@@ -1,0 +1,42 @@
+          MODULE=skopeo
+         VERSION=0.1.40
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/containers/skopeo/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:ee1e33245938fcb622f5864fac860e2d8bfa2fa907af4b5ffc3704ed0db46bbf
+        WEB_SITE=https://github.com/containers/skopeo/
+         ENTERED=20191214
+         UPDATED=20191214
+           SHORT="A cli utility for various operations on container images and image repositories"
+
+cat << EOF
+skopeo can work with OCI images as well as the original Docker v2 images.
+Skopeo works with API V2 registries such as Docker registries, the Atomic
+registry, private registries, local directories and local OCI-layout
+directories. Skopeo does not require a daemon to be running to perform
+these operations:
+ - Copying an image from and to various storage mechanisms.
+ - Inspecting a remote image showing its properties including its layers,
+   without requiring you to pull the image to the host.
+ - Deleting an image from an image repository.
+ - When required by the repository, skopeo can pass the appropriate
+   credentials and certificates for authentication.
+Skopeo operates on the following image and repository types:
+ - containers-storage:docker-reference An image located in a local
+   containers/storage image store. Location and image store specified in
+   /etc/containers/storage.conf
+ - dir:path An existing local directory path storing the manifest, layer
+   tarballs and signatures as individual files. This is a non-standardized
+   format, primarily useful for debugging or noninvasive container inspection.
+ - docker://docker-reference An image in a registry implementing the "Docker
+   Registry HTTP API V2". By default, uses the authorization state in
+   $HOME/.docker/config.json, which is set e.g. using (docker login).
+ - docker-archive:path[:docker-reference] An image is stored in the docker save
+   formated file. docker-reference is only used when creating such a file, and
+   it must not contain a digest.
+ - docker-daemon:docker-reference An image docker-reference stored in the docker
+   daemon internal storage. docker-reference must contain either a tag or a
+   digest. Alternatively, when reading images, the format can also be
+   docker-daemon:algo:digest (an image ID).
+ - oci:path:tag An image tag in a directory compliant with "Open Container Image
+   Layout Specification" at path.
+EOF
