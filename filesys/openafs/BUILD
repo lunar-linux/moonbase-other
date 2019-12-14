@@ -8,35 +8,37 @@ case `arch` in
   *)
     OPTS+=" --with-afs-sysname=`arch`_linux26"
     ;;
-esac  &&
+esac
 
 if module_installed Linux-PAM; then
   OPTS+=" --enable-pam"
 else
   OPTS+=" --disable-pam"
-fi  &&
+fi
 
-./configure  --prefix=/usr              \
-             --sysconfdir=/etc          \
-             --localstatedir=/var/lib   \
-             --infodir=/usr/share/info  \
-             --mandir=/usr/share/man    \
-             --enable-supergroups       \
-             --enable-bitmap-later      \
-             --disable-kernel-module    \
-             --disable-fuse-client      \
-             $OPTS                     &&
+./configure  --prefix=/usr             \
+             --sysconfdir=/etc         \
+             --localstatedir=/var/lib  \
+             --infodir=/usr/share/info \
+             --mandir=/usr/share/man   \
+             --enable-supergroups      \
+             --enable-bitmap-later     \
+             --disable-kernel-module   \
+             --disable-fuse-client     \
+	     --disable-kauth           \
+	     --without-swig            \
+             $OPTS                    &&
 
 # Temporary fix for missing -lasn1
 sedit "/^KRB5_LIBS =/s;$; -lasn1;" src/config/Makefile.config &&
-make all_nolibafs                      &&
-prepare_install                        &&
+make all_nolibafs &&
+prepare_install   &&
 
 if [ ! -d /etc/openafs ]; then
   mkdir -p /etc/openafs/server
-fi  &&
+fi &&
 
-make install_nolibafs  &&
+make install_nolibafs &&
 
 # Creating needed dirs if not existing
 if [ ! -d /var/cache/openafs ]; then
@@ -49,25 +51,25 @@ if [ ! -d /var/lib/openafs ]; then
   mkdir -p /var/lib/openafs/{logs,db}
   chmod 700 /var/lib/openafs/db
   chmod 755 /var/lib/openafs/logs
-fi  &&
+fi &&
 
 if [ ! -d /afs ]; then
   mkdir /afs &&
   chmod 755 /afs
-fi  &&
+fi &&
 
 # Installing some db files
 if [ ! -f /etc/openafs/CellServDB ]; then
   install -p -m 644 $SOURCE_CACHE/CellServDB /etc/openafs/CellServDB
-fi  &&
-install -p -m 755 $SOURCE_CACHE/$SOURCE3 /usr/sbin/killafs  &&
-touch /etc/openafs/SuidCells  &&
+fi &&
+install -p -m 755 $SOURCE_CACHE/$SOURCE3 /usr/sbin/killafs &&
+touch /etc/openafs/SuidCells &&
 
-# Default to openafs.org unless custom cell has been chosen 
+# Default to openafs.org unless custom cell has been chosen
 if [ ! -f /etc/openafs/ThisCell ]; then
   echo "${AFSCELL:-openafs.org}" > /etc/openafs/ThisCell &&
   touch /etc/openafs/ThisCell
-fi  &&
+fi &&
 
 # Create cacheinfo file, 200Mb size
 if [ ! -f /etc/openafs/cacheinfo ]; then
