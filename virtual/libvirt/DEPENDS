@@ -1,26 +1,31 @@
 depends python
+depends e2fsprogs
 depends iproute2
 depends iptables
-depends libxml2
+depends libxslt
 depends libnl3
-depends %OSSL
 depends libpcap
 depends libpciaccess
 depends gnutls
+depends libssh2
+
+optional_depends qemu \
+                 "--with-qemu --with-qemu-user=qemu --with-qemu-group=qemu" \
+                 "--without-qemu" \
+                 "for QEMU support"
 
 optional_depends %UDEV      "--with-udev "    "--without-udev "    "for udev support"
-optional_depends avahi      "--with-avahi"    "--without-avahi"    "for avahi support"
 optional_depends attr       "--with-attr"     "--without-attr"     "for extended fs attributes support"
 optional_depends dbus       "--with-dbus"     "--without-dbus"     "for DBUS support"
 optional_depends curl       "--with-curl"     "--without-curl"     "for CURL support"
 optional_depends lxc        "--with-lxc"      "--without-lxc"      "for lxc container support"
 optional_depends fuse       "--with-fuse"     "--without-fuse"     "for FUSE support"
-optional_depends numactl    "--with-numactl"  "--without-numactl"  "for simple NUMA policy support"
-optional_depends pm-utils   "--with-pm-utils" "--without-pm-utils" "for power management support"
 optional_depends cyrus-sasl "--with-sasl"     "--without-sasl"     "for SASL support"
 optional_depends libcap-ng  "--with-capng"    "--without-capng"    "for libcap-ng support"
 optional_depends readline   "--with-readline" "--without-readline" "for readline support"
 optional_depends polkit     "--with-polkit"   "--without-polkit"   "for PolicyKit support"
+optional_depends numactl    "--with-numactl"  "--without-numactl"  "for simple NUMA policy support"
+optional_depends pm-utils   "--with-pm-utils" "--without-pm-utils" "for power management support"
 
 optional_depends libgcrypt    "" "" "for libgcrypt support"
 optional_depends dmidecode    "" "" "for SMBIOS info access"
@@ -29,11 +34,7 @@ optional_depends dnsmasq      "" "" "for default NAT/DHCP for guests"
 optional_depends bridge-utils "" "" "for default bridged networking"
 optional_depends radvd        "" "" "for IPV6 router advertisement support"
 optional_depends libiscsi     "" "" "for client ISCSI support"
-
-optional_depends qemu \
-                 "--with-qemu --with-qemu-user=qemu --with-qemu-group=qemu" \
-                 "--without-qemu" \
-                 "for QEMU support"
+optional_depends netcat       "" "" "for remote management over SSH"
 
 optional_depends lvm2   "--with-storage-lvm"  "" "for LVM2 backend for storage driver support"
 optional_depends parted "--with-storage-disk" "" "for GParted backend for storage driver support"

@@ -1,22 +1,25 @@
-add_priv_user qemu:qemu -G kvm &&
+add_priv_user qemu:qemu &&
+
+echo "BUILD_DIRECTORY->"$BUILD_DIRECTORY
+echo "SOURCE_DIRECTORY->"$SOURCE_DIRECTORY
 
 OPTS+=" --disable-static \
-        --without-wireshark-dissector \
-        --without-hal \
-        --without-xen \
-        --without-netcf \
-        --with-udev \
         --with-network \
         --with-secrets \
         --with-libvirtd \
         --with-interface \
-        --with-init-script=none"
+        --without-hal \
+        --without-netcf \
+        --with-init-script=none \
+        --without-wireshark-dissector"
 
 if module_installed systemd; then
-  OPTS+=" --with-init-script=systemd"
+   OPTS+=" --with-init-script=systemd"
 fi
 
-default_build &&
+mkdir build && cd build &&
+../configure --prefix=/usr $OPTS &&
+default_make &&
 
 # Fix permission
 chmod 600 /etc/libvirt/nwfilter/*.xml /etc/libvirt/qemu/networks/default.xml
