@@ -1,0 +1,24 @@
+          MODULE=libostree
+         VERSION=2019.6
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=https://github.com/ostreedev/ostree/releases/download/v$VERSION/
+      SOURCE_VFY=sha256:5482b8fc179c6d2861acb176a1c379e4d02f709bffa92e63f5360f65e57219ae
+        WEB_SITE=https://github.com/ostreedev/ostree/
+         ENTERED=20191214
+         UPDATED=20191214
+           SHORT="Operating system and container binary deployment and upgrades"
+
+cat << EOF
+libostree is both a shared library and suite of command line tools that combines
+a "git-like" model for committing and downloading bootable filesystem trees,
+along with a layer for deploying them and managing the bootloader configuration.
+Features:
+ - Transactional upgrades and rollback for the system
+ - Replicating content incrementally over HTTP via GPG signatures and "pinned
+   TLS" support
+ - Support for parallel installing more than just 2 bootable roots
+ - Binary history on the server side (and client)
+ - Introspectable shared library API for build and deployment systems
+ - Flexible support for multiple branches and repositories, supporting projects
+   like flatpak which use libostree for applications, rather than hosts.
+EOF
