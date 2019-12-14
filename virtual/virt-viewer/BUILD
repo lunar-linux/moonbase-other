@@ -1,3 +1,3 @@
-OPTS+=" --disable-update-mimedb" &&
+OPTS+=" --disable-update-mimedb"
 
 default_build
