@@ -1,0 +1,23 @@
+            MODULE=podman
+           VERSION=1.6.4
+            SOURCE=libpod-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libpod-$VERSION
+   SOURCE_URL_FULL=https://github.com/containers/libpod/archive/v$VERSION.tar.gz
+        SOURCE_VFY=sha256:6e59821320b435543bc7554e73faa66d5956e4ad3f7e7f4ea03bebd6726758e9
+          WEB_SITE=https://github.com/containers/libpod/
+           ENTERED=20191214
+           UPDATED=20191214
+             SHORT="Tool and library for running OCI-based containers in pods"
+
+cat <<EOF
+At a high level, the scope of libpod and Podman is the following:
+ - Support multiple image formats including the OCI and Docker image formats.
+ - Support for multiple means to download images including trust & image
+   verification.
+ - Container image management (managing image layers, overlay filesystems, etc).
+ - Full management of container lifecycle.
+ - Support for pods to manage groups of containers together.
+ - Resource isolation of containers and pods.
+ - Support for a Docker-compatible CLI interface through Podman.
+ - Integration with CRI-O to share containers and backend code.
+EOF
