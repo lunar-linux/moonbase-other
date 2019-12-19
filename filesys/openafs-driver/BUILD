@@ -18,8 +18,6 @@ esac &&
               --localstatedir=/var/lib  \
               --infodir=/usr/share/info \
               --mandir=/usr/share/man   \
-	      --without-swig            \
-	      --disable-fuse-client     \
               $OPTS &&
 
 make only_libafs &&
@@ -28,4 +26,4 @@ prepare_install &&
 MODDIR=$(expr $SOURCE_DIRECTORY/src/libafs/MODLOAD-*) &&
 KVER=$(echo ${MODDIR##*/} | awk -F- '{ print $2 }') &&
 
-install -D -m 644 $MODDIR/libafs.ko /lib/modules/${KVER}/kernel/fs/openafs/libafs.ko
+install -D -m 644 $MODDIR/libafs.ko /lib/modules/${KVER}/kernel/fs/openafs/openafs.ko

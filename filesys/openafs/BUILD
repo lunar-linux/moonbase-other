@@ -10,12 +10,6 @@ case `arch` in
     ;;
 esac
 
-if module_installed Linux-PAM; then
-  OPTS+=" --enable-pam"
-else
-  OPTS+=" --disable-pam"
-fi
-
 ./configure  --prefix=/usr             \
              --sysconfdir=/etc         \
              --localstatedir=/var/lib  \
@@ -25,12 +19,11 @@ fi
              --enable-bitmap-later     \
              --disable-kernel-module   \
              --disable-fuse-client     \
-	     --disable-kauth           \
-	     --without-swig            \
+             --disable-kauth           \
+             --without-swig            \
+             --with-roken=internal     \
              $OPTS                    &&
 
-# Temporary fix for missing -lasn1
-sedit "/^KRB5_LIBS =/s;$; -lasn1;" src/config/Makefile.config &&
 make all_nolibafs &&
 prepare_install   &&
 
