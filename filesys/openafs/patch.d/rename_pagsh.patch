@@ -1,0 +1,21 @@
+diff -Naur openafs-1.8.5-lunar/src/log/Makefile.in openafs-1.8.5/src/log/Makefile.in
+--- openafs-1.8.5-lunar/src/log/Makefile.in	2019-10-22 22:30:17.000000000 +0100
++++ openafs-1.8.5/src/log/Makefile.in	2019-12-19 23:15:28.554925371 +0000
+@@ -80,7 +80,7 @@
+ 	${INSTALL_PROGRAM} tokens.krb ${DESTDIR}${bindir}/tokens.krb
+ 	${INSTALL_PROGRAM} tokens ${DESTDIR}${afssrvbindir}/tokens
+ 	${INSTALL_PROGRAM} tokens.krb ${DESTDIR}${afssrvbindir}/tokens.krb
+-	${INSTALL_PROGRAM} pagsh ${DESTDIR}${bindir}/pagsh
++	${INSTALL_PROGRAM} pagsh ${DESTDIR}${bindir}/pagsh.afs
+ 	${INSTALL_PROGRAM} pagsh.krb ${DESTDIR}${bindir}/pagsh.krb
+ 
+ 
+@@ -93,7 +93,7 @@
+ 	${INSTALL_PROGRAM} tokens.krb ${DEST}/bin/tokens.krb
+ 	${INSTALL_PROGRAM} tokens ${DEST}/root.server/usr/afs/bin/tokens
+ 	${INSTALL_PROGRAM} tokens.krb ${DEST}/root.server/usr/afs/bin/tokens.krb
+-	${INSTALL_PROGRAM} pagsh ${DEST}/bin/pagsh
++	${INSTALL_PROGRAM} pagsh ${DEST}/bin/pagsh.afs
+ 	${INSTALL_PROGRAM} pagsh.krb ${DEST}/bin/pagsh.krb
+ #
+ # Misc. targets

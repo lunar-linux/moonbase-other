@@ -1,17 +1,19 @@
 [Unit]
 Description=OpenAFS Client Service
 After=syslog.target network.target
+Before=remote-fs.target
 
 [Service]
 Type=forking
-ExecStartPre=/sbin/modprobe libafs
+RemainAfterExit=true
+ExecStartPre=/sbin/modprobe openafs
 ExecStart=/usr/sbin/afsd -dynroot -fakestat -afsdb
 ExecStartPost=/usr/bin/fs setcrypt on
 ExecStop=/usr/sbin/killafs TERM
 ExecStop=/usr/sbin/killafs KILL
 ExecStop=/bin/umount /afs
 ExecStop=/usr/sbin/afsd -shutdown
-ExecStop=/sbin/rmmod libafs
+ExecStop=/sbin/rmmod openafs
 KillMode=none
 
 [Install]

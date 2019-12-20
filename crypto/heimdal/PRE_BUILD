@@ -6,9 +6,6 @@ fi &&
 
 default_pre_build &&
 
-# Fix ASN segfault issue (cname being null)
-patch_it $SOURCE2 1 &&
-
 # Change default datadir (hardcoded)
 sedit "s;var/heimdal;var/lib/heimdal;g" configure doc/vars.texi \
   doc/setup.texi doc/heimdal.info kadmin/kadmind.8 kdc/kdc.8 \
