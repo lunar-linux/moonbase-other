@@ -21,6 +21,13 @@ export MOZ_MAKE_FILES=$MAKES  &&
 export MOZ_OPTIMIZE_FLAGS="$CFLAGS" &&
 export MOZ_DEBUG_FLAGS="$CFLAGS" &&
 export MOZ_JEMALLOC=1 &&
+export MOZ_ADDON_SIGNING=1 &&
+export MOZ_REQUIRE_SIGNING=0 &&
+export CC=clang &&
+export CXX=clang++ &&
+export AR=llvm-ar &&
+export NM=llvm-nm &&
+export RANLIB=llvm-ranlib &&
 
 # This export is for their hardcoding of autoconf-2.13
 export AUTOCONF=autoconf-mozilla &&

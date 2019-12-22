@@ -6,6 +6,7 @@ SHELL="${SHELL:-/bin/bash}" &&
 CFLAGS="${CFLAGS/-fno-plt/}" &&
 CXXFLAGS="${CXXFLAGS/-fno-plt/}" &&
 
+./mach configure &&
 ./mach build &&
 ./mach buildsymbols &&
 
