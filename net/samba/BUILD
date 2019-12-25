@@ -14,7 +14,7 @@ if module_installed systemd; then
    OPTS+=" --with-systemd"
 fi
 
-./buildtools/bin/waf configure \
+./configure \
        --prefix=/usr           \
        --sysconfdir=/etc       \
        --localstatedir=/var    \
