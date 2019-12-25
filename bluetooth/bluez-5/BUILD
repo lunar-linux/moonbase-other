@@ -6,8 +6,8 @@ else
   OPTS+=" --disable-systemd"
 fi
 
-OPTS+=" --enable-tools \
-        --enable-library \
+OPTS+=" --enable-mesh \
+	--enable-tools \
         --enable-threads \
         --enable-sixaxis"
 
