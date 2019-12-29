@@ -51,8 +51,8 @@ python setup.py install --prefix=/usr \
                         --skip-build \
                         --optimize=1 \
                         --standard-lib \
-			--no-install-bat \
-			--no-install-man \
+                        --no-install-bat \
+                        --no-install-man \
                         --install-data=/usr/share &&
 
 # install the man pages
