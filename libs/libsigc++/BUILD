@@ -1,9 +1,2 @@
-(
-
-  cp /usr/share/automake/config.sub $SOURCE_DIRECTORY/scripts/ &&
-
-  sed -i "5i #include <string.h>" tests/signals/convert_slot_test.cc && 
-
-  default_build
-
-) > $C_FIFO 2>&1
+OPTS+=" -Dbuild-examples=false -Dbuild-deprecated-api=false -Dbenchmark=false"
+default_meson_build
