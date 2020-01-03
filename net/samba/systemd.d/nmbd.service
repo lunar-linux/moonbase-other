@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=forking
-PIDFile=/var/run/nmbd.pid
+PIDFile=/run/nmbd.pid
 ExecStart=/usr/sbin/nmbd -D
 ExecReload=/usr/bin/kill -HUP $MAINPID
 
