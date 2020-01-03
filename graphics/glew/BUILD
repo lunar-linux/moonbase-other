@@ -1,9 +1,9 @@
 
-OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr" &&
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib" &&
 
 cd auto &&
 
-make PYTHON=python2 &&
+make PYTHON=python &&
 
 cd ../ &&
 cmake build/cmake/. $OPTS &&
