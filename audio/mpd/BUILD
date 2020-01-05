@@ -3,17 +3,14 @@ OPTS+=" -Dzlib=enabled \
         -Dsndio=disabled \
         -Dadplug=disabled \
         -Dsidplay=disabled \
-        -Dtremor=disabled"
+        -Dtremor=disabled \
+        -Ddocumentation=false" &&
 
 if module_installed systemd; then
-    OPTS+=" -Ddocumentation=false \
-            -Dsystemd=enabled \
-            -Dsystemd_system_unit_dir=enabled"
+    OPTS+=" -Dsystemd=enabled"
   else
-    OPTS+=" -Ddocumentation=false \
-            -Dsystemd=disabled \
-            -Dsystemd_system_unit_dir=disabled"
-fi
+    OPTS+=" -Dsystemd=disabled"
+fi &&
 
 default_meson_build &&
 
