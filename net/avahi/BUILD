@@ -2,8 +2,6 @@ if [ -f /usr/share/applications ] ; then
     rm -f /usr/share/applications
 fi &&
 
-export PYTHON=/usr/bin/python2 &&
-
 NOCONFIGURE=1 ./autogen.sh &&
 
 if module_installed qt5; then
