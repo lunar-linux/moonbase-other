@@ -6,10 +6,12 @@ else
   OPTS+=" --disable-systemd"
 fi
 
+#--enable-library: This switch enables building the BlueZ 4 compatibility library which is required by some applications
 OPTS+=" --enable-mesh \
 	--enable-tools \
         --enable-threads \
-        --enable-sixaxis"
+        --enable-library \
+        --enable-sixaxis" &&
 
 default_build &&
 
