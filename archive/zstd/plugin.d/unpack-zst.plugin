@@ -1,0 +1,51 @@
+#!/bin/bash
+####################################################################
+#                                                                  #
+# unpack-zst.plugin - generic plugin that unpacks:                 #
+# tar.zst and .zst files                                           #
+#                                                                  #
+####################################################################
+#                                                                  #
+# Copyright 2020 by Florin Braescu under GPLv2                     #
+#                                                                  #
+# Parts of code of this plugin are "borrowed" from                 #
+# unpack-*.plugin by Auke Kok                                      #
+####################################################################
+
+
+plugin_unpack_zst() {
+  case $1 in
+    *.tar.zst)
+      if [ ! -x /usr/bin/tar ]; then
+        message "${PROBLEM_COLOR}! Cannot unpack tar.zst file without ${MODULE_COLOR}tar${DEFAULT_COLOR}${PROBLEM_COLOR} installed${DEFAULT_COLOR}";
+        exit 1
+      fi
+      if [ ! -x /usr/bin/zstd ]; then
+        message "${PROBLEM_COLOR}! Cannot unpack tar.zst file without ${MODULE_COLOR}zstd${DEFAULT_COLOR}${PROBLEM_COLOR} installed${DEFAULT_COLOR}";
+        exit 1
+      fi
+      debug_msg "Unpacking zst file \"$1\""
+      zstd -df $1  || return 1
+      tar xf ${1%.*} --no-same-owner --no-same-permissions || return 1
+      rm -f ${1%.*} || return 1
+      ;;
+    *.zst)
+      if [ ! -x /usr/bin/zstd ]; then
+        message "${PROBLEM_COLOR}! Cannot unpack zst file without ${MODULE_COLOR}zstd${DEFAULT_COLOR}${PROBLEM_COLOR} installed${DEFAULT_COLOR}";
+        exit 1
+      fi
+      debug_msg "Unpacking zst file \"$1\""
+      cp $1 .      || return 1
+      zstd -df $1  || return 1
+      ;;
+    *)
+      # fallback: we don't know what to do!
+      return 2
+      ;;
+  esac
+  # return success!
+  return 0
+}
+
+
+plugin_register SOURCE_UNPACK plugin_unpack_zst
