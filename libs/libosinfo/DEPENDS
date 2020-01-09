@@ -2,16 +2,21 @@ depends libxslt
 depends libsoup
 depends check
 depends intltool
-depends vala
+depends meson
 
 #depends osinfo-db
 
+optional_depends vala \
+                 "-Denable-vala=enabled" \
+                 "-Denable-vala=disabled" \
+                 "for vala support"
+
 optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
+                 "-Denable-gtk-doc=true" \
+                 "-Denable-gtk-doc=false" \
                  "for building documentation"
 
 optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
+                 "-Denable-introspection=enabled" \
+                 "-Denable-introspection=disabled" \
                  "for object introspection"
