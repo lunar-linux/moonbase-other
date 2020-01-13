@@ -3,13 +3,14 @@ ac_add_options --with-user-appdir=".firefox"
 ac_add_options --with-system-zlib
 ac_add_options --with-system-bz2
 ac_add_options --with-ccache
+ac_add_options --with-unsigned-addon-scopes=app,system
 ac_add_options --enable-application=browser
 ac_add_options --enable-default-toolkit=cairo-gtk3
 ac_add_options --enable-linker=gold
 ac_add_options --enable-release
 ac_add_options --enable-hardening
 ac_add_options --enable-rust-simd
-#ac_add_options --enable-optimize
+ac_add_options --enable-optimize
 ac_add_options --enable-strip
 ac_add_options --enable-install-strip
 ac_add_options --enable-official-branding
@@ -21,22 +22,18 @@ ac_add_options --enable-dbus
 ac_add_options --enable-replace-malloc
 ac_add_options --disable-debug
 ac_add_options --disable-debug-symbols
-ac_add_options --disable-accessibility
 ac_add_options --disable-updater
 ac_add_options --disable-crashreporter
 ac_add_options --disable-necko-wifi
 
 # startupcache deterministically segfaults on *some* systems. Just leave it disabled.
-ac_add_options --disable-startupcache
+#ac_add_options --disable-startupcache
 
 # Disabling tests breaks PGO so having CONFIGURE set it
-#ac_add_options --disable-tests
-
-# atm this breaks the build
-#ac_add_options --disable-logging
+ac_add_options --disable-tests
 
 #DEBUG: configure: error: --enable-system-cairo is not supported
-ac_add_options --disable-system-cairo
+#ac_add_options --disable-system-cairo
 
 # The following is taken from the Linux From Scratch folks;
 # The following option unsets Telemetry Reporting. With the Addons Fiasco,
