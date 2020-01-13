@@ -1,5 +1,5 @@
 export GOPATH="$SOURCE_DIRECTORY"
-export BUILDTAGS='seccomp ostree varlink containers_image_ostree_stub systemd'
+export BUILDTAGS='seccomp varlink systemd'
 export CGO_LDFLAGS=$LDFLAGS
 export GOFLAGS="-trimpath"
 
