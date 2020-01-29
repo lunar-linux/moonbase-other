@@ -1,8 +1,6 @@
 export CXXFLAGS+=" -fPIC" &&
 
 make clean &&
-# make sfx &&
-# make clean &&
 make unrar lib &&
 
 prepare_install &&
