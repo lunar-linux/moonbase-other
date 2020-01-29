@@ -11,7 +11,7 @@ sedit "s:-fstack-protector::" Makedefs &&
 
 default_make &&
 
-add_priv_user lp:lp -d /dev/null -s /bin/false &&
+add_priv_user lp:lp -d /dev/null -s /usr/bin/false &&
 
 if [ -e /etc/init.d ]; then
    # kill some sysv stuff
