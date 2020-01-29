@@ -14,7 +14,7 @@ OPTS+=" --disable-static --disable-gtk-doc-html --disable-gtk-doc --disable-gtk-
 
 default_build &&
 
-add_priv_user polkitd:polkitd -d / -s /bin/false &&
+add_priv_user polkitd:polkitd -d / -s /usr/bin/false &&
 
 install -d -o root -g 102 -m 750 /{etc,usr/share}/polkit-1/rules.d &&
 
