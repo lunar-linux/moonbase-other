@@ -1,4 +1,4 @@
-add_priv_user http:http -d /var/empty -s /bin/false &&
+add_priv_user http:http -d /var/empty -s /usr/bin/false &&
 
 # set default user
 sedit 's#User daemon#User http#'   docs/conf/httpd.conf.in &&
