@@ -1,4 +1,5 @@
 export CFLAGS+=" -fPIC"
-autoreconf -fi &&
+
+autoreconf -vif -Ipatches &&
 
 default_build
