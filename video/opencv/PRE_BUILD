@@ -2,7 +2,9 @@ default_pre_build &&
 
 tar xf $SOURCE_CACHE/$SOURCE2 && 
 
-sedit 's|-I${includedir_old} ||' cmake/templates/opencv-XXX.pc.in &&
+sed -e '/ocv_tbb_cmake_guess(HAVE_TBB)/d' -i cmake/OpenCVDetectTBB.cmake &&
+
+sedit '6d' cmake/templates/opencv-XXX.pc.in &&
 
 if in_depends $MODULE lapack ; then
   OPTS+=" -DLAPACK_LIBRARIES=/usr/lib/liblapack.so;/usr/lib/libblas.so;/usr/lib/libcblas.so \
@@ -29,5 +31,6 @@ OPTS+=" -DBUILD_WITH_DEBUG_INFO=OFF \
         -DINSTALL_PYTHON_EXAMPLES=ON \
         -DOPENCV_ENABLE_NONFREE=ON \
         -DCMAKE_CXX_FLAGS=-std=c++11 \
+        -DWITH_TBB=ON \
         -DENABLE_CXX11=ON \
         -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-$VERSION/modules "
