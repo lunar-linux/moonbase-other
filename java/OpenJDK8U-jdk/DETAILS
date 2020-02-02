@@ -1,0 +1,23 @@
+          MODULE=sun-jdk8
+         VERSION=8u202
+        FVERSION=$VERSION-b08
+        DVERSION=1.8.0_202
+            HASH=1961070e4c9b4e26a04e7f5a083f551e
+     JDK_ARCHIVE=jdk-$VERSION-linux-i586.tar.gz
+      JCE_POLICY=jce_policy-8.zip
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/jre$DVERSION
+     JDK_SHA_VFY=f2dd10a94c6b05e8b475a3a45233150440c10f3020d44ad3c00d37de441ad7a6
+     JCE_SHA_VFY=f3020a3922efd6626c2fff45695d527f34a8020e938a49292561f18ad1320b59
+        WEB_SITE=http://www.oracle.com/technetwork/java/javase/downloads/index.html
+         LICENSE="proprietary"
+         ENTERED=20061113
+         UPDATED=20190124
+           FUZZY=off
+       LDD_CHECK=off
+         ARCHIVE=off
+           SHORT="SUN java runtime environment"
+
+cat << EOF
+sun-jre is only the run time environment, should be sufficient for
+most users.
+EOF
