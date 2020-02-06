@@ -4,7 +4,6 @@
           SOURCE=linux-$BASE.tar.xz
 if [ -n "$(echo $VERSION | cut -d. -f3)" ] ; then
          SOURCE2=patch-$VERSION.xz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/linux-$VERSION
 fi
    SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v5.x
    SOURCE_URL[1]=https://www.kernel.org/pub/linux/kernel/v5.x
