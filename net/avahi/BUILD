@@ -10,8 +10,8 @@ if module_installed qt5; then
   QT5_LIBS="-L/usr/lib/qt5 -lQt5Core"
 fi &&
 
-add_priv_user avahi:avahi -d /dev/null -s /bin/false &&
-add_priv_user avahi-autoipd:avahi-autoipd -d /dev/null -s /bin/false &&
+add_priv_user avahi:avahi -d /dev/null -s /usr/bin/false &&
+add_priv_user avahi-autoipd:avahi-autoipd -d /dev/null -s /usr/bin/false &&
 # Add this missing group. It is used in /etc/dbus-1/system.d/avahi-dbus.conf
 add_priv_group netdev &&
 

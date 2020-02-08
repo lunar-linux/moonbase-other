@@ -1,20 +1,19 @@
           MODULE=linux-lts
-         VERSION=4.19.96
+         VERSION=5.4.18
             BASE=$(echo $VERSION | cut -d. -f1,2)
           SOURCE=linux-$BASE.tar.xz
 if [ -n "$(echo $VERSION | cut -d. -f3)" ] ; then
          SOURCE2=patch-$VERSION.xz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/linux-$VERSION
 fi
-   SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v4.x
-   SOURCE_URL[1]=https://www.kernel.org/pub/linux/kernel/v4.x
-  SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v4.x
-  SOURCE2_URL[1]=https://www.kernel.org/pub/linux/kernel/v4.x
-      SOURCE_VFY=sha256:0c68f5655528aed4f99dae71a5b259edc93239fa899e2df79c055275c21749a1
-     SOURCE2_VFY=sha256:2a3b7fc1b76efb3841ca3ffbaa6b3b761c4e07203fe1f3d8757658e6d76c8513
+   SOURCE_URL[0]=$KERNEL_URL/pub/linux/kernel/v5.x
+   SOURCE_URL[1]=https://www.kernel.org/pub/linux/kernel/v5.x
+  SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v5.x
+  SOURCE2_URL[1]=https://www.kernel.org/pub/linux/kernel/v5.x
+      SOURCE_VFY=sha256:bf338980b1670bca287f9994b7441c2361907635879169c64ae78364efc5f491
+     SOURCE2_VFY=sha256:88a35b9b03bf4ffe5b043baccc9655a80c24e67a64f2dcd7f9bb29c8faa37f3f
          WEB_SITE=https://www.kernel.org/
          ENTERED=20111121
-         UPDATED=20200115
+         UPDATED=20200206
            SHORT="The core of a Linux GNU Operating System"
      KEEP_SOURCE=on
            TMPFS=off

@@ -1,4 +1,4 @@
-add_priv_user redis:redis -G redis -d /var/lib/redis -s /bin/false &&
+add_priv_user redis:redis -G redis -d /var/lib/redis -s /usr/bin/false &&
 
 make &&
 prepare_install &&

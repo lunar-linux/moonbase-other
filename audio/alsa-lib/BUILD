@@ -1,3 +1,3 @@
-OPTS+=" --without-debug" &&
+OPTS+=" --without-debug"
 
 default_build

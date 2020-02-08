@@ -1,4 +1,4 @@
-add_priv_user clamav:clamav -s /bin/false -c "clamav" &&
+add_priv_user clamav:clamav -s /usr/bin/false -c "clamav" &&
 
 OPTS+=" --sbindir=/usr/bin \
         --sysconfdir=/etc/clamav \

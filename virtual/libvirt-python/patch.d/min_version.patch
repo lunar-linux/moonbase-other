@@ -1,0 +1,27 @@
+--- ./setup.py.old	2019-11-06 16:42:17.000000000 +0200
++++ ./setup.py	2020-02-07 21:15:14.321065474 +0200
+@@ -17,8 +17,8 @@
+ import shutil
+ import time
+ 
+-MIN_LIBVIRT = "0.9.11"
+-MIN_LIBVIRT_LXC = "1.0.2"
++#MIN_LIBVIRT = "0.9.11"
++#MIN_LIBVIRT_LXC = "1.0.2"
+ 
+ # Hack to stop 'pip install' failing with error
+ # about missing 'build' dir.
+@@ -39,13 +39,11 @@
+ def check_minimum_libvirt_version():
+     spawn([get_pkgcfg(),
+            "--print-errors",
+-           "--atleast-version=%s" % MIN_LIBVIRT,
+            "libvirt"])
+ 
+ def have_libvirt_lxc():
+     try:
+         spawn([get_pkgcfg(),
+-               "--atleast-version=%s" % MIN_LIBVIRT_LXC,
+              "libvirt"])
+         return True
+     except DistutilsExecError:

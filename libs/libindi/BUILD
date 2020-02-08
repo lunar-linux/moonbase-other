@@ -5,8 +5,4 @@
    OPTS+=" -DINDI_BUILD_QT5_CLIENT=ON"
   fi &&
 
-  mkdir -p /usr/src/indi-$VERSION/$MODULE-oosb &&
-  cd /usr/src/indi-$VERSION/$MODULE-oosb &&
-  cmake -DCMAKE_INSTALL_PREFIX=/usr $OPTS ../libindi &&
-
-  default_build
+  default_cmake_build

@@ -1,4 +1,4 @@
-add_priv_user http:http -d /var/empty -s /bin/false &&
+add_priv_user http:http -d /var/empty -s /usr/bin/false &&
 
 OPTS+=" --libdir=/usr/lib/lighttpd \
         --sysconfdir=/etc/lighttpd \

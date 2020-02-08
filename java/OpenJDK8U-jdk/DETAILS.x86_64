@@ -1,0 +1,19 @@
+          MODULE=OpenJDK8U-jdk
+         VERSION=8u242
+        FVERSION=$VERSION-b08
+          SOURCE=$MODULE\_x64_linux_hotspot_${VERSION}b08.tar.gz
+      SOURCE_URL=https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk$FVERSION/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/jdk$FVERSION
+      SOURCE_VFY=sha256:f39b523c724d0e0047d238eb2bb17a9565a60574cf651206c867ee5fc000ab43
+        WEB_SITE=https://adoptopenjdk.net/index.html?variant=openjdk8&jvmVariant=hotspot
+         ENTERED=20200202
+         UPDATED=20200202
+           FUZZY=off
+       LDD_CHECK=off
+         ARCHIVE=off
+           SHORT="AdoptOpenJDK gpl version of sun java"
+
+cat << EOF
+All AdoptOpenJDK binaries and scripts are open source licensed and available for free.
+https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08/OpenJDK8U-jdk_x64_linux_hotspot_8u242b08.tar.gz
+EOF
