@@ -1,5 +1,6 @@
 
-make prefix=/usr install
+cat <<-EOF > version
+	${VERSION}
+	EOF
 
-prepare_install &&
-make install
+default_cmake_build
