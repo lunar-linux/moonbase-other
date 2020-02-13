@@ -3,6 +3,7 @@ OPTS+=" --with-lockdir=/run/lock/sane \
         --disable-rpath  \
         --enable-pthread"
 
+add_priv_user scanner:scanner -d /var/lib/sane -s /usr/bin/false &&
 default_build &&
 
 # their build system hoses the udev part
