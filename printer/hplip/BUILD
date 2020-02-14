@@ -1,3 +1,6 @@
+# Fix build with python 3.8
+export CFLAGS+=" $(python3-config --includes)" &&
+
 OPTS+=" --disable-qt3 \
         --disable-qt4 \
         --disable-static \
