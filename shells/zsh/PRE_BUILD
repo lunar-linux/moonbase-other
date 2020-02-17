@@ -12,7 +12,7 @@ for _fpath in AIX BSD Cygwin Darwin Debian Mandriva openSUSE Redhat Solaris; do
   sedit "s#\s*Completion/$_fpath/\*/\*##g" Src/Zle/complete.mdd
 done &&
 
-rm Completion/Linux/Command/_{pkgtool,rpmbuild} &&
+rm Completion/Linux/Command/_pkgtool &&
 
 # patch to avoid glibc bug concerning include order in 2.18
 sedit "\@xattr\.h@ d; \@#include \"attr\.mdh\"@ i #include <sys/xattr.h>" Src/Modules/attr.c
