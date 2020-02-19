@@ -9,6 +9,7 @@
   #  sedit 's:$(LIBGS_LIBS):\0 -ldl:' texk/dvisvgm/dvisvgm-src/src/Makefile.{am,in} &&
 
   # Use /usr/share as root
+  sedit 's:^\(TEXMFROOT = \)\$SELFAUTOPARENT:\1 /usr/share:' texk/kpathsea/texmf.cnf &&
   sedit 's:$SELFAUTOGRANDPARENT:/usr/share:g' texk/kpathsea/texmf.cnf &&
 
   # Fonts dir
@@ -78,7 +79,6 @@
           --with-system-mpfr             \
           --with-system-pixman           \
           --with-system-zlib             \
-          --with-system-kpathsea         \
           --disable-dvisvgm              \
           --disable-multiplatform        \
           --disable-native-texlive-build \
