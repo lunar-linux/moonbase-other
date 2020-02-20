@@ -1,6 +1,3 @@
-OPTS+=" --disable-static \
-        --disable-debug  \
-        --disable-tests  \
-        --disable-valgrind"
+OPTS+=" -Dgst_debug=false -Dtools=auto" &&
 
 default_build
