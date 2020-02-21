@@ -1,9 +1,8 @@
-OPTS+=" --disable-debug \
-        --disable-static \
-        --disable-gtk-doc \
-        --disable-examples \
-        --disable-valgrind \
-        --disable-gtk-doc-html \
-        --disable-fatal-warnings"
+if module_installed qt5; then
+  . /etc/profile.d/qt5.rc
+fi &&
+
+OPTS+=" -Dexamples=disabled \
+        -Dtests=disabled" &&
 
 default_build

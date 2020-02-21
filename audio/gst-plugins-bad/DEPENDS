@@ -4,51 +4,41 @@ depends libgudev
 
 optional_depends celt      "" "" "for low-latency audio support"
 optional_depends graphene  "" "" "for graphic canvas library support"
-optional_depends libgcrypt "" "" "for general cryptographic support"
-optional_depends nettle    "" "" "for nettle cryptographic support"
-optional_depends %OSSL     "" "" "for SSL support"
+
+optional_depends libgcrypt "-Dhls-crypto=libgcrypt" " " "for cryptographic support in HTTP Live Streaming (only choose one)"
+optional_depends nettle    "-Dhls-crypto=nettle" " " "for cryptographic support in HTTP Live Streaming (only choose one)"
+optional_depends %OSSL     "-Dhls-crypto=openssl" " " "for cryptographic support in HTTP Live Streaming (only choose one)"
+
+# required by multiple plugins
 optional_depends libxml2   "" "" "for XML2 support"
 
-optional_depends wayland "--enable-wayland" "--disable-wayland" "for Wayland support" n
-optional_depends orc     "--enable-orc"     "" "for ORC parallel processing support"
+optional_depends wayland "-Dwayland=enabled" "-Dwayland=disabled" "for Wayland support in vulkan video sink"
+optional_depends orc     "-Dorc=enabled"     "-Dorc=disabled" "for ORC parallel processing support"
 
-optional_depends SDL \
-                 "" "--disable-sdl --disable-sdltest" \
-                 "for the SDL video and audio sink"
+optional_depends mesa-lib       "-Dgl=enabled" "-Dgl=disabled"          "for the GL video support"
+optional_depends librsvg        "-Drsvg=enabled" "-Drsvg=disabled"        "for the SVG support"
+optional_depends curl           "-Dcurl=enabled" "-Dcurl=disabled"        "for curl support"
+optional_depends libvdpau       "-Dvdpau=enabled" "-Dvdpau=disabled"       "for NVIDIA video support"
+optional_depends openal         "-Dopenal=enabled" "-Dopenal=disabled"      "for openal audio support"
+optional_depends libsndfile     "-Dsndfile=enabled" "-Dsndfile=disabled"     "for sound files support"
+optional_depends soundtouch     "-Dsoundtouch=enabled" "-Dsoundtouch=disabled"  "for audio processing support"
+optional_depends x265           "-Dx265=enabled" "-Dx265=disabled"        "for H265 video encoder support"
+optional_depends libwebp        "-Dwebp=enabled" "-Dwebp=disabled"        "for WebP support"
+optional_depends libmms         "-Dlibmms=enabled" "-Dlibmms=disabled"      "for mms streaming plugin"
+optional_depends libsrtp        "-Dsrtp=enabled" "-Dsrtp=disabled"        "for Secure Real-time Transport Protocol support"
+optional_depends faac           "-Dfaac=enabled" "-Dfaac=disabled"        "for the AAC encoder plugin"
+optional_depends faad2          "-Dfaad=enabled" "-Dfaad=disabled"        "for the AAC decoder plugin"
+optional_depends chromaprint    "-Dchromaprint=enabled" "-Dchromaprint=disabled" "for audio fingerprints extraction support"
+optional_depends fluidsynth     "-Dfluidsynth=enabled" "-Dfluidsynth=disabled"  "for real-time synthesizer support"
+optional_depends opus           "-Dopus=enabled" "-Dopus=disabled"        "for interactive speech on internet support"
+optional_depends opencv         "-Dopencv=enabled" "-Dopencv=disabled"      "for computer vision support"
+optional_depends openexr        "-Dopenexr=enabled" "-Dopenexr=disabled"     "for HDR images support"
+optional_depends libass         "-Dassrender=enabled" "-Dassrender=disabled"   "for subtitles rendering support"
+optional_depends bluez-5        "-Dbluez=enabled" "-Dbluez=disabled"       "for Bluetooth support"
+optional_depends DirectFB       "-Ddirectfb=enabled" "-Ddirectfb=disabled"    "for the DirectFB video sink"
+optional_depends libmodplug     "-Dmodplug=enabled" "-Dmodplug=disabled"     "for MOD playing support"
+optional_depends wildmidi       "-Dwildmidi=enabled" "-Dwildmidi=disabled"    "for MIDI files playing support"
+optional_depends neon           "-Dneon=enabled" "-Dneon=disabled"        "for the neon HTTP client plugin"
+optional_depends game-music-emu "-Dgme=enabled" "-Dgme=disabled"         "for playing games music files"
 
-optional_depends gtk+-3 \
-                 "--with-gtk=3.0" "--disable-gtk" \
-                 "for GTK+ 3.x support"
-
-optional_depends mesa-lib       "" "--disable-gl"          "for the GL video support"
-optional_depends librsvg        "" "--disable-rsvg"        "for the SVG support"
-optional_depends qt5            "" "--disable-qt"          "for Qt 5.x support"
-optional_depends mpg123         "" "--disable-mpg123"      "for mpg123 audio player support"
-optional_depends curl           "" "--disable-curl"        "for curl support"
-optional_depends libvdpau       "" "--disable-vdpau"       "for NVIDIA video support"
-optional_depends openal         "" "--disable-openal"      "for openal audio support"
-optional_depends libsndfile     "" "--disable-sndfile"     "for sound files support"
-optional_depends soundtouch     "" "--disable-soundtouch"  "for audio processing support"
-optional_depends x265           "" "--disable-x265"        "for H265 video encoder support"
-optional_depends libwebp        "" "--disable-webp"        "for WebP support"
-optional_depends libmms         "" "--disable-libmms"      "for mms streaming plugin"
-optional_depends libsrtp        "" "--disable-srtp"        "for Secure Real-time Transport Protocol support"
-optional_depends faac           "" "--disable-faac"        "for the AAC encoder plugin"
-optional_depends faad2          "" "--disable-faad"        "for the AAC decoder plugin"
-optional_depends chromaprint    "" "--disable-chromaprint" "for audio fingerprints extraction support"
-optional_depends fluidsynth     "" "--disable-fluidsynth"  "for real-time synthesizer support"
-optional_depends opus           "" "--disable-opus"        "for interactive speech on internet support"
-optional_depends opencv         "" "--disable-opencv"      "for computer vision support"
-optional_depends openexr        "" "--disable-openexr"     "for HDR images support"
-optional_depends libass         "" "--disable-assrender"   "for subtitles rendering support"
-optional_depends bluez-5        "" "--disable-bluez"       "for Bluetooth support"
-optional_depends DirectFB       "" "--disable-directfb"    "for the DirectFB video sink"
-optional_depends libmodplug     "" "--disable-modplug"     "for MOD playing support"
-optional_depends wildmidi       "" "--disable-wildmidi"    "for MIDI files playing support"
-optional_depends neon           "" "--disable-neon"        "for the neon HTTP client plugin"
-optional_depends game-music-emu "" "--disable-gme"         "for playing games music files"
-
-optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
-                 "for introspection support"
+optional_depends gobject-introspection "-Dintrospection=enabled" "-Dintrospection=disabled" "for introspection support"
