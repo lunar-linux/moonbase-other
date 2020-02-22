@@ -1,3 +1,3 @@
-OPTS+=" -Dgst_debug=false -Dtools=auto" &&
+OPTS+=" -Dgst_debug=false -Dtools=auto"
 
-default_build
+default_meson_build
