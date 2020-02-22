@@ -3,10 +3,6 @@ if module_installed qt5 ; then
   OPTS+=" --with-moc=/usr/bin/moc-qt5"
 fi
 
-OPTS+=" --disable-debug \
-        --disable-static \
-        --disable-examples \
-        --disable-valgrind \
-        --with-gudev"
+OPTS+=" --dexamples=disabled"
 
-default_build
+default_meson_build

@@ -1,37 +1,24 @@
-depends gst-plugins-base
 depends bzip2
 depends zlib
+depends gst-plugins-base
 
-optional_depends libX11     "" "--disable-x"          "for X11 support"
-optional_depends gdk-pixbuf "" "--disable-gdk_pixbuf" "for GDK pixbuf support"
-optional_depends cairo      "" "--disable-cairo"      "for the cairo graphics plugin"
-optional_depends flac       "" "--disable-flac"       "for the FLAC audio codec plugin"
-optional_depends %JPEG      "" "--disable-jpeg"       "for the JPEG image plugin"
-optional_depends libdv      "" "--disable-libdv"      "for the DV/Video decoder plugin"
-optional_depends libpng     "" "--disable-libpng"     "for the PNG image plugin"
-optional_depends speex      "" "--disable-speex"      "for the Speex sound plugin"
-optional_depends taglib     "" "--disable-taglib"     "for the taglib ID3v2 tag writer plugin"
-optional_depends libsoup    "" "--disable-soup"       "for http streaming support"
-optional_depends wavpack    "" "--disable-wavpack"    "for wavpack support"
-optional_depends jack       "" "--disable-jack"       "for jack audio mixer support"
-optional_depends pulseaudio "" "--disable-pulse"      "for pulseaudio support"
-optional_depends libvpx     "" "--disable-vpx"        "for VPX decoder support"
-optional_depends libshout   "" "--disable-shout2"     "for icecast support"
-optional_depends libcaca    "" "--disable-libcaca"    "for color ASCII art support"
-optional_depends libavc1394 "" "--disable-dv1394"     "for AV/C FireWare devices support"
-
-optional_depends orc "--enable-orc" "" "for runtime compiler support"
-
-optional_depends v4l-utils \
-                 "--with-libv4l2" \
-                 "--disable-gst_v4l2" \
-                 "for Video 4 Linux support"
-
-optional_depends aalib \
-                 "" "--disable-aalib --disable-aalibtest" \
-                 "for the ASCII art image suport"
-
-optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc --disable-gtk-doc-html" \
-                 "for documentation support"
+optional_depends aalib      "-Daalib=enabled"      "" "for the ASCII art image suport"
+optional_depends cairo      "-Dcairo=enabled"      "" "for the cairo graphics plugin"
+optional_depends flac       "-Dflac=enabled"       "" "for the FLAC audio codec plugin"
+optional_depends %JPEG      "-Djpeg=enabled"       "" "for the JPEG image plugin"
+optional_depends libdv      "-Ddv=enabled"         "" "for the DV/Video decoder plugin"
+optional_depends libpng     "-Dpng=enabled"        "" "for the PNG image plugin"
+optional_depends speex      "-Dspeex=enabled"      "" "for the Speex sound plugin"
+optional_depends taglib     "-Dtaglib=enabled"     "" "for the taglib ID3v2 tag writer plugin"
+optional_depends libsoup    "-Dsoup=enabled"       "" "for http streaming support"
+optional_depends wavpack    "-Dwavpack=enabled"    "" "for wavpack support"
+optional_depends jack       "-Djack=enabled"       "" "for jack audio mixer support"
+optional_depends pulseaudio "-Dpulse=enabled"      "" "for pulseaudio support"
+optional_depends orc        "-Dorc=enabled"        "" "for runtime compiler support"
+optional_depends libvpx     "-Dvpx=enabled"        "" "for VPX decoder support"
+optional_depends libshout   "-Dshout2=enabled"     "" "for icecast support"
+optional_depends libcaca    "-Dlibcaca=enabled"    "" "for color ASCII art support"
+optional_depends v4l-utils   "-D4l2=enabled"       "" "for Video 4 Linux support"
+optional_depends libavc1394 "-Ddv1394=enabled"     "" "for AV/C FireWare devices support"
+optional_depends gdk+-3     "-Dgtk+-3=enabled"     "" "for GTK+-3 support"
+optional_depends gdk-pixbuf "-Dgdk_pixbuf=enabled" "" "for GDK pixbuf support"
