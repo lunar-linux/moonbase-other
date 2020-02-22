@@ -5,4 +5,4 @@ fi &&
 OPTS+=" -Dexamples=disabled \
         -Dtests=disabled" &&
 
-default_build
+default_meson_build
