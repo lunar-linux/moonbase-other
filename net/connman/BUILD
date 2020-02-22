@@ -10,7 +10,7 @@ OPTS+=" --bindir=/usr/bin \
         --enable-nmcompat"
 
 if module_installed systemd; then
-  OPTS+=" --with-systemdunitdir=/usr/lib/systemd/system"
+   OPTS+=" --with-systemdunitdir=/usr/lib/systemd/system"
 fi
 
 default_build
