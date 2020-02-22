@@ -1,6 +1,1 @@
-OPTS+=" --disable-static \
-        --disable-valgrind \
-        --disable-fatal-warnings \
-        --without-system-libav"
-
-default_build
+default_meson_build
