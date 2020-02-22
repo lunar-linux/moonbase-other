@@ -3,6 +3,7 @@ if module_installed qt5; then
 fi &&
 
 OPTS+=" -Dexamples=disabled \
-        -Dtests=disabled" &&
+        -Dtremor=disabled \
+        -Dtests=disabled"
 
-default_build
+default_meson_build
