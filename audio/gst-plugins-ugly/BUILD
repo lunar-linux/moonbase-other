@@ -1,5 +1,3 @@
-OPTS+=" --disable-debug \
-        --disable-examples \
-        --disable-valgrind"
+OPTS+=" -Dexamples=disabled"
 
-default_build
+default_meson_build

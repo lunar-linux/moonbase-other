@@ -1,50 +1,10 @@
 depends gst-plugins-base
 
-optional_depends libid3tag "" "" "for MP3 id3 tag support (required for libmad support)"
-optional_depends srt "" "" "for Secure Reliable Transport support"
-optional_depends lame "" "" "for additional MP3 support"
-
-optional_depends a52dec \
-                 "" "--disable-a52dec" \
-                 "for AC-3 support"
-
-optional_depends libdvdread \
-                 "" "--disable-dvdread" \
-                 "for DVD support"
-
-optional_depends libcdio \
-                 "" "--disable-cdio" \
-                 "for CD control support"
-
-optional_depends twolame \
-                 "" "--disable-twolame" \
-                 "for MP2 encoder support"
-
-optional_depends mpg123 \
-                 "" "--disable-mpg123" \
-                 "for mpg123 audio decoder support"
-
-optional_depends mpeg2dec \
-                 "" "--disable-mpeg2dec" \
-                 "for mpeg-2 and 1 video support"
-
-optional_depends x264-snapshot \
-                 "" "--disable-x264" \
-                 "for H264 video support"
-
-optional_depends orc \
-                 "--enable-orc" "" \
-                 "for runtime compiler support"
-
-optional_depends amrnb \
-                 "" "--disable-amrnb" \
-                 "for amr narrowband support"
-
-optional_depends amrwb \
-                 "" "--disable-amrwb" \
-                 "for amr wideband support"
-
-optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc --disable-gtk-doc-html" \
-                 "for documentation support"
+optional_depends a52dec        "-Da52dec=enabled"   "" "for AC-3 support"
+optional_depends libdvdread    "-Ddvdread=enabled"  "" "for DVD support"
+optional_depends libcdio       "-Dcdio=enabled"     "" "for CD control support"
+optional_depends mpeg2dec      "-Dmpeg2dec=enabled" "" "for MPEG-2 video support"
+optional_depends x264-snapshot "-Dx264=enabled"     "" "for H264 video support"
+optional_depends orc           "-Dorc=enabled"      "" "for runtime compiler support"
+optional_depends amrnb         "-Damrnb=enabled"    "" "for AMR narrowband support"
+optional_depends amrwb         "-Damrwb=enabled"    "" "for AMR wideband support"
