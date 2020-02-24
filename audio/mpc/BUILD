@@ -1,8 +1,3 @@
-meson --prefix /usr . build &&
+OPTS+=" -Ddocumentation=disabled" &&
 
-cd build
-ninja &&
-prepare_install &&
-ninja install &&
-
-install -Dm644 ../contrib/mpc-completion.bash /usr/share/bash-completion/completions/mpc
+default_build

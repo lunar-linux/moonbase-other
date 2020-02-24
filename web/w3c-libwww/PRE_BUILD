@@ -1,11 +1,6 @@
 default_pre_build &&
 
-#sedit "s:SSL_library_init:OPENSSL_init_ssl:" configure.ac &&
-
 autoreconf &&
 
-#It's listed twice
-sedit "410d" Library/src/Makefile.am &&
-
-# Else it borks on SSLv3
-sedit "193,195d" Library/src/SSL/HTSSL.c
+## HTBind.h is listed twice in BUILD_SOURCES
+sedit "410d" Library/src/Makefile.am

@@ -5,10 +5,10 @@ OPTS+=" --enable-shared \
         --with-dav \
         --with-expat \
         --with-extension \
-        --without-ssl"
+        --without-ssl" &&
 
 # --as-needed bug in library order
-sedit "/^LDADD =/ s:\(../src/libwwwfile.la\):\1 ../src/libwwwdir.la ../src/libwwwhtml.la:" Library/Examples/Makefile.in &&
+sedit "s:\(../src/libwwwfile.la\):\1 ../src/libwwwdir.la ../src/libwwwhtml.la:" Library/Examples/Makefile.in &&
 
 sedit "s:/lib/mysql/:/lib/:g" configure  &&
 sedit "s/(char\ \*)//g" Library/src/HTMethod.c  &&

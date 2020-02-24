@@ -1,3 +1,6 @@
 default_pre_build &&
 
-OPTS+=" -DBUILD_EXAMPLES=0 -DBUILD_UNIT_TESTS=0 -DBUILD_PACKAGE=0 -DBUILD_DOCUMENTATION=0" 
+# headers should be readable by everyone
+sedit 's:PERMISSIONS OWNER_READ::' CMake/utility.cmake &&
+
+OPTS+=" -DBUILD_EXAMPLES=0 -DBUILD_UNIT_TESTS=0 -DBUILD_PACKAGE=0 -DBUILD_DOCUMENTATION=0"

@@ -8,6 +8,7 @@ OPTS+=" --with-lib-preference=system \
         --with-libsamplerate=no \
         --with-libsoxr=system \
         --with-portaudio=local \
+        --with-portmidi=local \
         --with-widgetextra=local \
         --with-midi=local \
         --enable-nyquist=local \
