@@ -1,5 +1,5 @@
 default_pre_build &&
 
-autoreconf --force --install --verbose &&
+OPTS+=" -Ddocs=false" &&
 
-OPTS+=" --disable-docs"
+sedit 's@#include [<"]\(Im.*\)[">]@#include <OpenEXR/\1>@' operations/external/exr-load.cpp operations/external/exr-save.cc
