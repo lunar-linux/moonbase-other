@@ -73,7 +73,6 @@ fi &&
 
 if [ "`get_module_config CONTRIB`" = "y" ]; then
   # the contrib stuff
-  install -m 755 contrib/gitview/gitview /usr/bin/ &&
   cp -a ./contrib/* /usr/share/git/
 fi
 
