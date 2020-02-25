@@ -1,0 +1,9 @@
+default_pre_build &&
+
+# these paths should be absolute according to some downstream errors, e.g., gimp
+sedit 's:exec_prefix=:\0${prefix}/:;
+       s:libdir=:\0${prefix}/:;
+       s:includedir=:\0${prefix}/:' \
+         OpenEXR/OpenEXR.pc.in \
+         IlmBase/IlmBase.pc.in \
+         PyIlmBase/PyIlmBase.pc.in
