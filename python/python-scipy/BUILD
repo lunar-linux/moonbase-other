@@ -1,2 +1,2 @@
-export LDFLAGS="-Wall -shared"
-default_python3_build
+export LDFLAGS="-Wall -shared" &&
+default_build
