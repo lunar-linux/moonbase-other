@@ -1,6 +1,8 @@
-# emulate a release
+# emulate a release as they apparently want this filled in at build time...
+# see `scons --version`
+#         script: v__VERSION__.__BUILD__, __DATE__, by __DEVELOPER__ on __BUILDSYS__
 local _copyright='Copyright (c) 2001 - 2019 The SCons Foundation'
-local _date_of_release="$(grep "RELEASE ${pkgver}" src/CHANGES.txt | cut -d ',' -f2)"
+local _date_of_release="$(grep "RELEASE ${VERSION}" src/CHANGES.txt | cut -d ',' -f2)"
 local _date="$(date -d "${_date_of_release}" +'%Y-%m-%d %H:%M:%S')"
 
 # change globals in all scripts
@@ -11,7 +13,7 @@ for _script in $(find src/ -type f -iname "*.py"); do
         -e "s|__DATE__|${_date}|g" \
         -e 's/__BUILDSYS__/none/g' \
         -e 's/__DEVELOPER__/none/g' \
-        -e "s/__VERSION__/${pkgver}/g" \
+        -e "s/__VERSION__/${VERSION}/g" \
         -i "${_script}"
 done &&
 
