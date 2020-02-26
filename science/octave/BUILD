@@ -1,5 +1,8 @@
 OPTS+=" --enable-atomic-refcount" &&
 
+# broken for sun-jdk 13.0.2
+OPTS+=" --disable-java" &&
+
 if in_depends $MODULE SuiteSparse; then
   export LIBS+=" -lmetis"
 fi &&
