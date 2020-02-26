@@ -6,4 +6,7 @@ OPTS+=" --sysconfdir=/etc/openmpi \
         --disable-static \
         --without-slurm" &&
 
+# required for valgrind 3.15.0
+OPTS+=" --enable-mpi1-compatibility" &&
+
 default_build
