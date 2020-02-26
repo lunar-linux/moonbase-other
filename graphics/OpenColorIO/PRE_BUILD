@@ -1,0 +1,8 @@
+default_pre_build &&
+
+sedit "s/-Werror//g" src/core/CMakeLists.txt src/pyglue/CMakeLists.txt &&
+sedit "s/push(hidden)/push(default)/g" src/core/OCIOYaml.cpp &&
+
+# incompatibility between libvnd and glew
+# luckily the header can just be dropped
+sedit '/#include <GL\/glext.h>/ d' src/apps/ociodisplay/main.cpp
