@@ -8,12 +8,12 @@ _conkyvar="/usr/share/conkywx"
 
 # install script
 install -D -m755 conkywx.bin   /usr/bin/conkywx &&
-install -D -m755 lib/wxmp.bin  /usr/bin/wxmp &&
-install -D -m755 lib/wxrss.bin /usr/bin/wxrss &&
+install -D -m755 lib/wxmp.bin  /usr/bin/wxmp    &&
+install -D -m755 lib/wxrss.bin /usr/bin/wxrss   &&
 
 mkdir -p ${_conkyvar}/lang
-mkdir -p /usr/share/fonts/TTF/conkywx
 mkdir -p ${_conkyvar}/examples
+mkdir -p /usr/share/fonts/TTF/conkywx
 mkdir -p ${_conkyvar}/images/daynight
 mkdir -p ${_conkyvar}/images/windrose-2
 mkdir -p ${_conkyvar}/images/lua_clock
