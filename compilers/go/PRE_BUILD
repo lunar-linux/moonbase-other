@@ -11,5 +11,6 @@ sedit "s;/bin/hostname;/usr&;g" src/os/os_test.go &&
 
 # Build a PIE enabled version?
 if [[ "$GO_PIE" = "y" ]]; then
-   patch_it $SOURCE2 0
+   patch_it $SOURCE2 1
+#   patch -p1 -i $SOURCE_CACHE/$SOURCE
 fi
