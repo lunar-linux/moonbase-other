@@ -1,7 +1,7 @@
 export GOFLAGS="-trimpath"
 export CGO_LDFLAGS="$LDFLAGS"
 
-make binary-local BUILDTAGS='containers_image_ostree_stub ostree' &&
+make binary-local BUILDTAGS='containers_image_ostree_stub' &&
 make docs
 
 prepare_install &&
