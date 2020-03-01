@@ -41,27 +41,30 @@ optional_depends usbredir \
                  "--enable-usbredir=no" \
                  "for USB redirection support"
 
-optional_depends vala \
-                 "--enable-vala=yes" \
-                 "--enable-vala=no" \
-                 "for vala support"
+optional_depends opus \
+                 "--enable-opus" \
+                 "--disable-opus" \
+                 "for opus audio codecing format support"
 
 optional_depends lz4 \
                  "--enable-lz4=yes" \
                  "--enable-lz4=no" \
                  "for LZ4 compression support"
 
+optional_depends vala \
+                 "--enable-vala=yes" \
+                 "--enable-vala=no" \
+                 "for vala support" \
+                 "y"
+
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \
                  "--disable-gtk-doc" \
-                 "for building documentation"
+                 "for building documentation" \
+                 "n"
 
 optional_depends gobject-introspection \
                  "--enable-introspection" \
                  "--disable-introspection" \
-                 "for object introspection support"
-
-optional_depends opus \
-                 "--enable-opus" \
-                 "--disable-opus" \
-                 "for opus audio codecing format support"
+                 "for object introspection support" \
+                 "y"
