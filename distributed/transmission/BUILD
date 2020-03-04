@@ -1,5 +1,5 @@
-OPTS+=" --disable-static" &&
+OPTS+=" -DWITH_CRYPTO=openssl \ 
+        -DENABLE_TESTS=OFF \
+        -DUSE_SYSTEM_EVENT2=ON"
 
-rm -f m4/glib-gettext.m4 &&
-
-default_build
+default_cmake_build
