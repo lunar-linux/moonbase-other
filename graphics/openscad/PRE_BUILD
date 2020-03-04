@@ -3,6 +3,8 @@ default_pre_build &&
 # don't compile with -DDEBUG
 sedit '/DEFINES += DEBUG/ d' openscad.pro &&
 
-sed -i "s/QMAKE_CXXFLAGS_RELEASE = .*//g" ${MODULE}.pro &&
-sed -i "s/\/usr\/local/\/usr/g" ${MODULE}.pro
+sedit "s/QMAKE_CXXFLAGS_RELEASE = .*//g" ${MODULE}.pro &&
+sedit "s/\/usr\/local/\/usr/g" ${MODULE}.pro &&
+
+sedit "/sstream/ a #include <stack>" src/parser.y
 #sed -i 's/-lmpfr/& -lX11/' CMakeFiles/openscad_nogui.dir/link.txt
