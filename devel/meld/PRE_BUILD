@@ -1,4 +1,6 @@
 default_pre_build &&
 
 # Fix unknown-text in meld-dark style
-sedit 's:background="#aaaaaa":foreground="#aaaaaa":' data/styles/meld-dark.xml
+sedit 's:background="#aaaaaa":foreground="#aaaaaa":' data/styles/meld-dark.xml &&
+
+sedit "s/platform.system() == 'Linux'/False/" meld/build_helpers.py
