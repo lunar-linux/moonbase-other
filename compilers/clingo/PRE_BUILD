@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# support python 3.8
+sedit 's@nullptr\(.*tp_print\)@0\1@' libpyclingo/pyclingo.cc
