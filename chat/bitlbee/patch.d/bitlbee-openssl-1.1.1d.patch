@@ -1,0 +1,32 @@
+--- a/lib/ssl_openssl.c	2020-03-04 21:06:46.957292826 +0100
++++ b/lib/ssl_openssl.c	2020-03-04 21:08:01.825898701 +0100
+@@ -300,20 +300,20 @@
+                         const unsigned char *iv, unsigned char **res)
+ {
+ 	int output_length = 0;
+-	EVP_CIPHER_CTX ctx;
++	EVP_CIPHER_CTX* ctx= EVP_CIPHER_CTX_new();
+ 
+ 	*res = g_new0(unsigned char, 72);
+ 
+ 	/* Don't set key or IV because we will modify the parameters */
+-	EVP_CIPHER_CTX_init(&ctx);
+-	EVP_CipherInit_ex(&ctx, EVP_des_ede3_cbc(), NULL, NULL, NULL, 1);
+-	EVP_CIPHER_CTX_set_key_length(&ctx, key_len);
+-	EVP_CIPHER_CTX_set_padding(&ctx, 0);
++	EVP_CIPHER_CTX_init(ctx);
++	EVP_CipherInit_ex(ctx, EVP_des_ede3_cbc(), NULL, NULL, NULL, 1);
++	EVP_CIPHER_CTX_set_key_length(ctx, key_len);
++	EVP_CIPHER_CTX_set_padding(ctx, 0);
+ 	/* We finished modifying parameters so now we can set key and IV */
+-	EVP_CipherInit_ex(&ctx, NULL, NULL, key, iv, 1);
+-	EVP_CipherUpdate(&ctx, *res, &output_length, input, input_len);
+-	EVP_CipherFinal_ex(&ctx, *res, &output_length);
+-	EVP_CIPHER_CTX_cleanup(&ctx);
++	EVP_CipherInit_ex(ctx, NULL, NULL, key, iv, 1);
++	EVP_CipherUpdate(ctx, *res, &output_length, input, input_len);
++	EVP_CipherFinal_ex(ctx, *res, &output_length);
++	EVP_CIPHER_CTX_cleanup(ctx);
+ 	//EVP_cleanup();
+ 
+ 	return output_length;

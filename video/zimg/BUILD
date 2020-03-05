@@ -1,4 +1,4 @@
 OPTS+=" --enable-x86simd \
-        --disable-static"
+        --disable-static" &&
 
 default_build
