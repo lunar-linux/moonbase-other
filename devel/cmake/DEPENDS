@@ -8,7 +8,12 @@ optional_depends curl       "--system-curl"       "--no-system-curl"       "Use 
 optional_depends expat      "--system-expat"      "--no-system-expat"      "Use system provided expat"
 optional_depends libuv      "--system-libuv"      "--no-system-libuv"      "Use system provided libuv"
 optional_depends libarchive "--system-libarchive" "--no-system-libarchive" "Use system provided libarchive"
-optional_depends qt5        "--qt-gui"            "--no-qt-gui"            "For qt gui support"
+
+optional_depends qt5 \
+                 "--qt-gui" \
+                 "--no-qt-gui" \
+                 "For qt gui support" \
+                 "n"
 
 # avoid circular depend on jsoncpp
 # optional_depends jsoncpp "--system-jsoncpp" "" "Use system provided jsoncpp"
