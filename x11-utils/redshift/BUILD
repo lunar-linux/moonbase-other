@@ -1,5 +1,5 @@
 ./bootstrap &&
 
-OPTS+=" --disable-gui" &&
+OPTS+=" --disable-gui"
 
 default_build

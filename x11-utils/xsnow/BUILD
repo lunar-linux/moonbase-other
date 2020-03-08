@@ -1,5 +1,5 @@
-xmkmf -a      &&
+xmkmf -a &&
 
-default_make  &&
+default_make &&
 
 make install.man

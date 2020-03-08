@@ -1,4 +1,4 @@
-OPTS+=" --with-gui=x11" &&
+OPTS+=" --with-gui=x11"
 
 ./autogen.sh &&
 default_build
