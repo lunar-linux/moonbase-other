@@ -1,4 +1,4 @@
-CFLAGS+=" -Wno-error" &&
+CFLAGS+=" -Wno-error"
 
 autoreconf -fi &&
 

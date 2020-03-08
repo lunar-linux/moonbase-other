@@ -4,9 +4,9 @@ export FORCE_UNSAFE_CONFIGURE=1
 export CFLAGS+=" -static"
 export LDFLAGS+=" -static"
 
-./configure  --prefix=/usr              \
-             --infodir=/usr/share/info  \
-             --disable-nls              &&
+./configure --prefix=/usr \
+            --disable-nls \
+            --infodir=/usr/share/info &&
 make &&
 prepare_install &&
 cp  src/tar  /usr/bin/tar-static &&

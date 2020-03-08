@@ -1,6 +1,3 @@
-(
+prepare_install &&
 
-  prepare_install   &&
-  cp unace /usr/bin 
-
-) > $C_FIFO 2>&1
+cp unace /usr/bin
