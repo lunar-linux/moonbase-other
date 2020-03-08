@@ -1,8 +1,8 @@
 Index: decoder_plugins/ffmpeg/ffmpeg.c
 ===================================================================
---- decoder_plugins/ffmpeg/ffmpeg.c	(revisión: 2963)
-+++ decoder_plugins/ffmpeg/ffmpeg.c	(copia de trabajo)
-@@ -697,7 +697,7 @@
+--- ./decoder_plugins/ffmpeg/ffmpeg.c	(revisión: 2963)
++++ ./decoder_plugins/ffmpeg/ffmpeg.c	(copia de trabajo)
+@@ -984,7 +984,7 @@
  	 * FFmpeg/LibAV in use.  For some versions this will be caught in
  	 * *_find_stream_info() above and misreported as an unfound codec
  	 * parameters error. */
@@ -11,7 +11,7 @@ Index: decoder_plugins/ffmpeg/ffmpeg.c
  		decoder_error (&data->error, ERROR_FATAL, 0,
  				"The codec is experimental and may damage MOC: %s",
  				data->codec->name);
-@@ -705,8 +705,8 @@
+@@ -993,8 +993,8 @@
  	}
  
  	set_downmixing (data);
@@ -22,7 +22,7 @@ Index: decoder_plugins/ffmpeg/ffmpeg.c
  
  	if (avcodec_open2 (data->enc, data->codec, NULL) < 0)
  	{
-@@ -725,7 +725,7 @@
+@@ -1025,7 +1025,7 @@
  
  	data->sample_width = sfmt_Bps (data->fmt);
  
