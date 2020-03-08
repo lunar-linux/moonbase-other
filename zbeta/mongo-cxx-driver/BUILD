@@ -1,4 +1,7 @@
-OPTS+=" --prefix=/usr --release --sharedclient --disable-warnings-as-errors" &&
+OPTS+=" --prefix=/usr \
+        --release \
+        --sharedclient \
+        --disable-warnings-as-errors"
 
 scons -j${MAKES:=1} $OPTS driver &&
 prepare_install &&

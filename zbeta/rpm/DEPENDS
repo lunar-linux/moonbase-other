@@ -6,4 +6,7 @@ optional_depends "zlib"     ""  ""  "optional for gzipped rpmfiles"
 optional_depends "bzip2"    ""  ""  "optional for bzip2 compressed rpms"
 optional_depends "gnupg"    ""  ""  "optional for signed rpm package support"
 
-optional_depends "pcre"     "--with-pcre=external" "--without-pcre" "for regular expression support"
+optional_depends pcre \
+                 "--with-pcre=external" \
+                 "--without-pcre" \
+                 "for regular expression support"
