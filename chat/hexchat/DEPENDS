@@ -21,12 +21,6 @@ optional_depends python \
                  "-Dwith-python=false" \
                  "enable support for Python 3.x plugins"
 
-#Fails build on version 2.14.2
-#optional_depends perl \
-#                 "-Dwith-perl=true" \
-#                 "-Dwith-perl=false" \
-#                 "enable support for perl plugins"
-
 if module_installed luajit; then
    optional_depends lua \
                     "-Dwith-lua=luajit" \
@@ -54,3 +48,11 @@ optional_depends libproxy \
                  "-Dwith-libproxy=true" \
                  "-Dwith-libproxy=false" \
                  "enable proxy support"
+
+#Fails build on version 2.14.2
+#optional_depends perl \
+#                 "-Dwith-perl=true" \
+#                 "-Dwith-perl=false" \
+#                 "enable support for perl plugins"
+
+
