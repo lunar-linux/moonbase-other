@@ -1,3 +1,3 @@
-OPTS+=" --with-gnu-ld" &&
+OPTS+=" --with-gnu-ld"
 
 default_build

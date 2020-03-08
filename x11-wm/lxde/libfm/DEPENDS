@@ -3,14 +3,15 @@ depends menu-cache
 depends shared-mime-info
 depends intltool
 
-optional_depends gtk+-3 "--with-gtk=3" "" "for GTK+ 3.x support"
-optional_depends gtk+-2 ""             "" "for GTK+ 2.x support"
+optional_depends gtk+-3 "--with-gtk=3" "" "for GTK+ 3.x support" "y"
+optional_depends gtk+-2 ""             "" "for GTK+ 2.x support" "n"
 
 optional_depends libexif "--enable-exif"    "--disable-exif"    "for faster thumbnail loading"
-optional_depends udisks2 "--enable-udisks"  "--disable-udisks"  "for udisks support"
 optional_depends vala    "--enable-actions" "--disable-actions" "for custom actions in menu context"
+optional_depends udisks2 "--enable-udisks"  "--disable-udisks"  "for udisks support"
 
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \
                  "--disable-gtk-doc" \
-                 "for building documentation"
+                 "for building documentation" \
+                 "n"

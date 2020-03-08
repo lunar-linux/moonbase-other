@@ -1,4 +1,6 @@
 default_pre_build &&
 
 # Update xarchiver option
-sedit 's/create=xarchiver --add-to %F/create=xarchiver --compress %F/' data/archivers.list
+sedit 's/create=xarchiver --add-to %F/create=xarchiver --compress %F/' data/archivers.list &&
+
+autoreconf -fi

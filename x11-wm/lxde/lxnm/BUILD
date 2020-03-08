@@ -1,5 +1,4 @@
-OPTS+=" --exec-prefix=/usr"
-
-OPTS+=" --sbindir=/usr/bin"
+OPTS+=" --exec-prefix=/usr \
+        --sbindir=/usr/bin"
 
 default_build

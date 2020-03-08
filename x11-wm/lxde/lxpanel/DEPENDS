@@ -4,12 +4,12 @@ depends menu-cache
 depends libfm
 depends intltool
 
-optional_depends keybinder3 "--enable-gtk3" "" "for GTK+ 3.x support -${PROBLEM_COLOR} choose this option or keybinder (gtk+-2), not both"
-optional_depends libwnck3   "" "" "for GTK+ 3.x support -${PROBLEM_COLOR} choose this option or libwnck (gtk+-2), not both"
+optional_depends keybinder3 "--enable-gtk3" "" "for GTK+ 3.x support -${PROBLEM_COLOR} choose this option or keybinder (for gtk+-2), not both" "y"
+optional_depends libwnck3   "" "" "for GTK+ 3.x support -${PROBLEM_COLOR} choose this option or libwnck (for gtk+-2), not both" "y"
 
-optional_depends keybinder "" "" "for GTK+ 2.x support -${PROBLEM_COLOR} choose keybinder3 (gtk+-3) or this option, not both"
-optional_depends libwnck   "" "" "for GTK+ 2.x support -${PROBLEM_COLOR} choose libwnck3 (gtk+-3) or this option, not both"
+optional_depends keybinder "" "" "for GTK+ 2.x support -${PROBLEM_COLOR} choose keybinder3 (gtk+-3) or this option, not both" "n"
+optional_depends libwnck   "" "" "for GTK+ 2.x support -${PROBLEM_COLOR} choose libwnck3 (gtk+-3) or this option, not both" "n"
 
 optional_depends wireless_tools "" "" "for netstat plugin"
 
-optional_depends docbook-xsl "" "" "for documentation install"
+optional_depends docbook-xsl "" "" "for documentation install" "n"

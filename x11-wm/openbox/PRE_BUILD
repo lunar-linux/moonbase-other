@@ -7,4 +7,6 @@ sedit "s:app->title \&\&:app->title \&\& self->title \&\&:" openbox/client.c
 sedit "s:elif which gnome-settings-daemon >/dev/null:elif which gnome-settings-daemon >/dev/null 2>\&1:" data/autostart/autostart.in
 
 # set the system default language
-sedit "s:#LANG=en_CA.UTF8:LANG=${LANG}.utf8:" data/environment
+sedit "s:#LANG=en_CA.UTF8:LANG=${LANG}.utf8:" data/environment &&
+
+autoreconf -fi
