@@ -1,16 +1,12 @@
-(
- 
-  TITLE="Docbook: The Definitive Guide"
-  TARGET=$DOCUMENT_DIRECTORY/$MODULE
-  
-  prepare_install                                              &&
-  mkdir -p             $TARGET                                 &&
-  cp    -r  tdg/en/*   $TARGET                                 &&
+TITLE="Docbook: The Definitive Guide"
+TARGET=$DOCUMENT_DIRECTORY/$MODULE
 
-  # Let the user know where they can find their book.
-  message ""
-  message "${MESSAGE_COLOR}The index page for your new reference: \"$TITLE\""
-  message "can be found at $TARGET/html/docbook.html${DEFAULT_COLOR}"
-  message ""
+prepare_install &&
+mkdir -p           $TARGET &&
+cp    -r tdg/en/*  $TARGET &&
 
-) > $C_FIFO 2>&1  
+# Let the user know where they can find their book.
+message ""
+message "${MESSAGE_COLOR}The index page for your new reference: \"$TITLE\""
+message "can be found at $TARGET/html/docbook.html${DEFAULT_COLOR}"
+message ""
