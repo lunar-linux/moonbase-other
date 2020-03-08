@@ -1,7 +1,7 @@
 # fix function for openjpeg
 sedit "s/__OPENJPEG__VERSION__/2.3/" source/fitz/load-jpx.c &&
 
-OPTS="prefix=/usr build=release" &&
+OPTS="prefix=/usr build=release"
 
 make $OPTS CURL_LIBS='-lcurl -lpthread' &&
 

@@ -4,7 +4,7 @@ PTEXTD="$CATALOGDIR/pubtext" &&
 OPTS+=" --enable-http \
         --disable-static \
         --enable-default-catalog=/etc/sgml/catalog \
-        --enable-default-search-path=/usr/share/sgml" &&
+        --enable-default-search-path=/usr/share/sgml"
 
 default_build &&
 

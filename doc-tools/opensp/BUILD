@@ -6,7 +6,7 @@ OPTS+=" --enable-http \
         --disable-static \
         --enable-xml-messages \
         --enable-default-catalog=/etc/sgml/catalog \
-        --enable-default-search-path=/usr/share/sgml" &&
+        --enable-default-search-path=/usr/share/sgml"
 
 default_build &&
 

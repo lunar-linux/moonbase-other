@@ -5,7 +5,7 @@ install-catalog -r $CENTRALIZED /etc/sgml/catalog &&
 
 autoreconf &&
 
-OPTS+=" --sysconfdir=/etc --mandir=/usr/share/man" &&
+OPTS+=" --sysconfdir=/etc --mandir=/usr/share/man"
 
 mkdir -p /usr/share/doc/$MODULE/html &&
 

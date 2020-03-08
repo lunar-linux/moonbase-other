@@ -2,7 +2,7 @@ perl Makefile.PL &&
 
 prepare_install &&
 
-make
+make &&
 
 cp ./script/sgmlspl.pl /usr/bin/ &&
 ln -sf /usr/bin/sgmlspl.pl /usr/bin/sgmlspl &&

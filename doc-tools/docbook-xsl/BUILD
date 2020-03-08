@@ -1,4 +1,4 @@
-TARGET=/usr/share/sgml/docbook/xsl-stylesheets-$VERSION &&
+TARGET=/usr/share/sgml/docbook/xsl-stylesheets-$VERSION
 
 prepare_install &&
 if ! [ -d "$TARGET" ]; then

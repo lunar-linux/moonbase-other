@@ -1,4 +1,4 @@
-DBTARGET="/usr/share/doc/docbook-dsssl-doc" &&
+DBTARGET="/usr/share/doc/docbook-dsssl-doc"
 
 prepare_install &&
 if [ -d $DBTARGET ]; then

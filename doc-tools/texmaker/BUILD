@@ -1,5 +1,5 @@
-  . /etc/profile.d/qt5.rc &&
+. /etc/profile.d/qt5.rc &&
 
-  /usr/lib/qt5/bin/qmake PREFIX=/usr texmaker.pro &&
+/usr/lib/qt5/bin/qmake PREFIX=/usr texmaker.pro &&
 
-  default_make
+default_make
