@@ -2,4 +2,7 @@ default_pre_build &&
 
 if in_depends $MODULE PyQt5; then
   . /etc/profile.d/qt5.rc
-fi
+fi &&
+
+export AUTOMAKE='automake --foreign' &&
+autoreconf --force --install

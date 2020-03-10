@@ -14,6 +14,7 @@ if module_installed systemd; then
   OPTS+=" --enable-udev_sysfs_rules"
 fi
 
+export CFLAGS+=" $(python3-config --includes)" # Fix build with python 3.8
 default_build &&
 
 # HAL is no more
