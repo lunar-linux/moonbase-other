@@ -1,11 +1,11 @@
           MODULE=memcached
-         VERSION=1.5.18
+         VERSION=1.6.0
           SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=http://www.memcached.org/files/
-      SOURCE_VFY=sha256:9ebdd6705b06da70eb6f68245686554b1cb689f00b9bff6e33672c1a0125ef88
+      SOURCE_VFY=sha256:1a29d75a4004ebee92e19ad96b20100f45713c34594e25f8e8db0aecfff43e05
         WEB_SITE=http://memcached.org/
          ENTERED=20060904
-         UPDATED=20190922
+         UPDATED=20200310
            SHORT="Distributed memory object caching system"
 
 cat << EOF
@@ -15,6 +15,6 @@ by alleviating database load.
 It uses libevent to scale to any number of open connections (using epoll on
 Linux, if available at runtime), uses non-blocking network I/O, refcounts
 internal objects (so objects can be in multiple states to multiple clients), and
-uses its own slab allocator and hash table so virtual memory never gets 
+uses its own slab allocator and hash table so virtual memory never gets
 externally fragmented and allocations are guaranteed O(1).
 EOF
