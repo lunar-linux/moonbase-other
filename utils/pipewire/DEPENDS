@@ -1,5 +1,38 @@
-depends ffmpeg
-depends gst-plugins-base
 depends rtkit
 depends sbc
 
+optional_depends "xmltoman" \
+                 "-Dman=true" \
+                 "-Dman=false" \
+                 "build man pages" \
+                 "n"
+
+optional_depends "jack" \
+                 "-Djack=true -Dpipewire-jack=true" \
+                 "-Djack=false -Dpipewire-jack=false" \
+                 "enable jack integration" \
+                 "n"
+
+optional_depends "pulseaudio" \
+                 "-Dpipewire-pulseaudio=true" \
+                 "-Dpipewire-pulseaudio=false" \
+                 "enable pulseaudio integration" \
+                 "y"
+
+optional_depends "alsa-lib" \
+                 "-Dalsa=true -Dpipewire-alsa=true" \
+                 "-Dalsa=false -Dpipewire-alsa=false" \
+                 "enable alsa integration" \
+                 "n"
+
+optional_depends "gstreamer" \
+                 "-Dgstreamer=true" \
+                 "-Dgstreamer=false" \
+                 "enable GStreamer integration" \
+                 "y"
+
+optional_depends "ffmpeg" \
+                 "-Dffmpeg=true" \
+                 "-Dffmpeg=false" \
+                 "enable FFMPEG integration" \
+                 "y"
