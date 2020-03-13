@@ -5,4 +5,11 @@ depends timezone-data
 optional_depends gobject-introspection \
                  "-DGOBJECT_INTROSPECTION=1" \
                  "-DGOBJECT_INTROSPECTION=0" \
-                 "for object introspection"
+                 "for object introspection" \
+                 "y"
+
+optional_depends vala \
+                 "-DICAL_GLIB_VAPI=1" \
+                 "-DICAL_GLIB_VAPI=0" \
+                 "for vala support" \
+                 "y"
