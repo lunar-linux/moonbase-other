@@ -20,16 +20,25 @@ fi &&
 
 #do not build a debug version
 #DEBUG_CONFIG="--disable-strip --enable-debug --enable-debug-symbols"
-DEBUG_CONFIG="--enable-strip --disable-debug-symbols"
+DEBUG_CONFIG="--enable-strip --disable-debug --disable-debug-symbols"
 
-LOCAL_PACKAGES_CONFIG="--with-intl-api --with-system-zlib --with-system-icu --with-system-nspr --disable-jemalloc"
+LOCAL_PACKAGES_CONFIG="--with-intl-api \
+                       --with-system-zlib \
+                       --with-system-icu \
+                       --with-system-nspr \
+                       --disable-jemalloc"
 
 if module_installed ccache; then
   if [[ $ENABLE_CCACHE == "y" ]]; then
-    message "Build mozjs with ccache support"
-    LOCAL_PACKAGES_CONFIG+=" --with-ccache"
+     message "Build mozjs with ccache support"
+     LOCAL_PACKAGES_CONFIG+=" --with-ccache"
   fi
-fi  &&
+fi &&
+
+OPTS+=" --enable-readline \
+        --enable-optimize \
+        --enable-hardening \
+        --disable-tests"
 
 ../js/src/configure --prefix=/usr \
 ${LOCAL_PACKAGES_CONFIG} \
