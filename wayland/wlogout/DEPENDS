@@ -5,14 +5,19 @@ optional_depends sway-lock "" "" "for default buttons"
 optional_depends systemd   "" "" "for systemd support"
 
 optional_depends bash-completion \
-                 "-Dbash-completion=true" \
-                 "-Dbash-completion=false" \
+                 "-Dbash-completions=true" \
+                 "-Dbash-completions=false" \
                  "for bash completion support"
 
 optional_depends zsh \
-                 "-Dzsh-completion=true" \
-                 "-Dzsh-completion=false" \
+                 "-Dzsh-completions=true" \
+                 "-Dzsh-completions=false" \
                  "for zsh completion support"
+
+optional_depends fish \
+                 "-Dfish-completions=true" \
+                 "-Dfish-completions=false" \
+                 "for fish completion support"
 
 optional_depends sdoc \
                  "-Dman-pages=enabled" \
