@@ -1,5 +1,22 @@
+depends alsa-lib
+depends libsndfile
+depends dbus
 depends ffmpeg
 depends gst-plugins-base
 depends rtkit
 depends sbc
+depends meson
 
+
+optional_depends doxygen \
+                 "-Ddocs=true" \
+                 "-Ddocs=false" \
+                 "for documentation install" \
+                 "n"
+
+
+optional_depends xmltoman \
+                "-Dman=true" \
+                "-Dman=false" \
+                "for man pages install" \
+                "n"
