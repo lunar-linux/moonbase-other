@@ -1,7 +1,8 @@
-./bootstrap --force &&
+OPTS+=" -DENABLE_MAINTAINER_TOOLS=TRUE \
+		-DENABLE_FONTFORGE_EXTRAS=TRUE \
+        -DENABLE_LIBSPIRO=FALSE \
+        -DENABLE_WOFF2=FALSE \
+		-DENABLE_X11=TRUE \
+		-DUNIX=TRUE" 
 
-OPTS+=" --disable-static \
-        --enable-tile-path \
-        --enable-python-extension"
-
-default_build
+default_cmake_build
