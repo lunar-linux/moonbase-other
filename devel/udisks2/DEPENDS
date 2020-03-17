@@ -23,10 +23,12 @@ optional_depends systemd "" "--with-systemdsystemunitdir=no" "for systemd suppor
 optional_depends gobject-introspection \
                  "--enable-introspection" \
                  "--disable-introspection" \
-                 "for object introspection"
+                 "for object introspection" \
+                 "y"
 
 depends gtk-doc # not optional at the moment
 #optional_depends gtk-doc \
 #                 "--enable-gtk-doc" \
 #                 "--disable-gtk-doc" \
-#                 "for building documentation"
+#                 "for building documentation" \
+#                 "n"
