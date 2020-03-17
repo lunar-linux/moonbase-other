@@ -1,7 +1,8 @@
-OPTS+=" -Dvulkan=false -Djack=false"
+OPTS+=" -Dvulkan=false"
 
 CFLAGS+="-Wformat"
 
-env
+# https://github.com/mesonbuild/meson/issues/6431
+# Have to see how to avoid this issue
 
 default_meson_build
