@@ -13,19 +13,30 @@ patch_it $SOURCE4 1 &&
 
 # Fixes from Gentoo
 patch_it $SOURCE5 1 &&
-patch_it $SOURCE6 1 &&
 
-# https://crbug.com/819294
+
+# https://crbug.com/957519
+patch_it $SOURCE6 1 &&
 patch_it $SOURCE7 1 &&
 
-# https://groups.google.com/a/chromium.org/d/msg/chromium-packagers/UyJsVJ5QqWo/jSv5z7-rEQAJ
+# https://crbug.com/1027929
 patch_it $SOURCE8 1 &&
 
-# https://crbug.com/980025
-patch_it $SOURCE9 1 &&
+# https://crbug.com/989153
+#patch_it $SOURCE9 1 &&
 
-# https://crbug.com/992832
+# https://crbug.com/977964
 patch_it $SOURCE10 1 &&
+
+# https://crbug.com/1005508
+patch_it $SOURCE11 1 &&
+
+# https://crbug.com/1043042
+patch_it $SOURCE12 1 &&
+
+# https://crbug.com/1049258
+patch_it $SOURCE13 1 &&
+patch_it $SOURCE14 1 &&
 
 # https://crbug.com/893950
 sedit 's/\<xmlMalloc\>/malloc/;s/\<xmlFree\>/free/' \
@@ -54,7 +65,7 @@ google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
 
 # Remove bundled libraries, we will use system provided ones instead (using arch's approach)
 local _libs _lib &&
-_libs=(ffmpeg fontconfig flac yasm libxslt libwebp libjpeg opus re2 zlib snappy freetype harfbuzz-ng) &&
+_libs=(ffmpeg fontconfig flac yasm libxslt libxml libwebp libjpeg opus re2 zlib snappy freetype harfbuzz-ng) &&
 for _lib in ${_libs[@]} libjpeg_turbo; do
   find "third_party/${_lib}" -type f \
        \! -path "third_party/${_lib}/chromium/*" \
@@ -95,12 +106,16 @@ done &&
 
 export CC=clang &&
 export CXX=clang++ &&
-export AR=ar &&
+export AR=llvm-ar &&
 export NM=nm &&
 
 # Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
 export CFLAGS+='   -Wno-builtin-macro-redefined'
 export CXXFLAGS+=' -Wno-builtin-macro-redefined'
 export CPPFLAGS+=' -D__DATE__=  -D__TIME__=  -D__TIMESTAMP__='
+
+# Silence unknown warning options
+CFLAGS+=' -Wno-unknown-warning-option'
+CXXFLAGS+=' -Wno-unknown-warning-option'
 
 gn gen out/Release --args="${_flags[*]}" --script-executable=/usr/bin/python2
