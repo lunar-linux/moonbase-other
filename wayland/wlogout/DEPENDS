@@ -1,0 +1,32 @@
+depends gtk-layer-shell
+depends meson
+
+optional_depends sway-lock "" "" "for default buttons"
+optional_depends systemd   "" "" "for systemd support"
+
+optional_depends bash-completion \
+                 "-Dbash-completions=true" \
+                 "-Dbash-completions=false" \
+                 "for bash completion support"
+
+optional_depends zsh \
+                 "-Dzsh-completions=true" \
+                 "-Dzsh-completions=false" \
+                 "for zsh completion support"
+
+optional_depends fish \
+                 "-Dfish-completions=true" \
+                 "-Dfish-completions=false" \
+                 "for fish completion support"
+
+optional_depends sdoc \
+                 "-Dman-pages=enabled" \
+                 "-Dman-pages=disabled" \
+                 "for man pages install" \
+                 "n"
+
+optional_depends gobject-introspection \
+                 "-D introspection=true" \
+                 "-D introspection=false" \
+                 "for object introspection" \
+                 "y"

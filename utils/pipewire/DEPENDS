@@ -1,38 +1,53 @@
+depends libsndfile
+depends dbus
 depends rtkit
 depends sbc
+depends meson
 
-optional_depends "xmltoman" \
-                 "-Dman=true" \
-                 "-Dman=false" \
-                 "build man pages" \
-                 "n"
+optional_depends systemd \
+                 "-Dsystemd=true" \
+                 "-Dsystemd=false" \
+                 "for systemd support"
 
-optional_depends "jack" \
-                 "-Djack=true -Dpipewire-jack=true" \
-                 "-Djack=false -Dpipewire-jack=false" \
-                 "enable jack integration" \
-                 "n"
-
-optional_depends "pulseaudio" \
-                 "-Dpipewire-pulseaudio=true" \
-                 "-Dpipewire-pulseaudio=false" \
-                 "enable pulseaudio integration" \
-                 "y"
-
-optional_depends "alsa-lib" \
-                 "-Dalsa=true -Dpipewire-alsa=true" \
+optional_depends alsa-lib \
+                 "-Dalsa=true  -Dpipewire-alsa=true" \
                  "-Dalsa=false -Dpipewire-alsa=false" \
-                 "enable alsa integration" \
-                 "n"
+                 "for ALSA sound support"
 
-optional_depends "gstreamer" \
+optional_depends gst-plugins-good \
                  "-Dgstreamer=true" \
                  "-Dgstreamer=false" \
-                 "enable GStreamer integration" \
-                 "y"
+                 "for gstreamer audio support"
 
 optional_depends "ffmpeg" \
                  "-Dffmpeg=true" \
                  "-Dffmpeg=false" \
                  "enable FFMPEG integration" \
                  "y"
+
+optional_depends pulseaudio \
+                 "-Dpipewire-pulseaudio=true" \
+                 "-Dpipewire-pulseaudio=false" \
+                 "for pulseudio support"
+
+optional_depends jack \
+                 "-Djack=true" \
+                 "-Djack=false" \
+                 "for jack audio support"
+
+optional_depends bluez5 \
+                 "-Dbluez5=true" \
+                 "-Dbluez5=false" \
+                 "for Bluetooth support"
+
+optional_depends doxygen \
+                 "-Ddocs=true" \
+                 "-Ddocs=false" \
+                 "for documentation install" \
+                 "n"
+
+optional_depends xmltoman \
+                "-Dman=true" \
+                "-Dman=false" \
+                "for man pages install" \
+                "n"

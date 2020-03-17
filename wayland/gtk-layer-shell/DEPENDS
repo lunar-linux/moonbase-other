@@ -1,0 +1,15 @@
+depends gtk+-3
+depends wayland
+depends meson
+
+optional_depends gtk-doc \
+                 "-D docs=true" \
+                 "-D docs=false" \
+                 "for building the documentation" \
+                 "n"
+
+optional_depends gobject-introspection \
+                 "-D introspection=true" \
+                 "-D introspection=false" \
+                 "for object introspection" \
+                 "y"

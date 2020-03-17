@@ -4,13 +4,17 @@ sedit "s:\$withval/:/usr/:g" configure.ac &&
 # Yes its a hammer but want to make sure the old polkit stuff is gone,
 # especially when this version does not use or have /var.
 rm -rf /etc/polkit-1 &&
+rm -rf /usr/bin/pkexec &&
 rm -rf /var/lib/polkit-1 &&
 rm -rf /usr/libexec/polkit-agent-helper-1 &&
-rm -rf /usr/bin/pkexec &&
 
 autoconf &&
 
-OPTS+=" --disable-static --disable-gtk-doc-html --disable-gtk-doc --disable-gtk-doc-pdf --disable-man-pages" &&
+OPTS+=" --disable-static \
+        --disable-gtk-doc \
+        --disable-man-pages \
+        --disable-gtk-doc-pdf \
+        --disable-gtk-doc-html"
 
 default_build &&
 

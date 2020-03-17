@@ -4,7 +4,6 @@ OPTS+=" --enable-mclib \
         --enable-vfs-ftp \
         --enable-vfs-sftp \
         --enable-largefile \
-        --enable-threads=posix \
         --disable-tests \
         --with-pic \
         --with-mmap \

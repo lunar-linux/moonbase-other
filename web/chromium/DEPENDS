@@ -11,6 +11,7 @@ depends xdg-utils
 depends %JPEG
 depends alsa-lib
 depends libxslt
+depends libxml2
 depends expat
 depends libwebp
 depends gtk+-3
@@ -39,3 +40,4 @@ optional_depends pulseaudio "link_pulseaudio=true use_pulseaudio=true" "use_puls
 optional_depends heimdal    "use_kerberos=true"          "use_kerberos=false"          "To use system provided heimdal (kerberos) support"
 optional_depends libu2f-host "" "" "For FIDO U2F authentication support"
 optional_depends gnome-keyring "use_gnome_keyring=true" "use_gnome_keyring=false" "for storing passwords in GNOME keyring"
+optional_depends pipewire      "rtc_use_pipewire=true"  "rtc_use_pipewire=false"  "for WebRTC desktop sharing under Wayland"

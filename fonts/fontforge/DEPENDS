@@ -1,22 +1,46 @@
 depends python
+depends libtool
 depends pango
+depends freetype2
 depends libXi
 depends libxkbui
 depends libxml2
 depends hicolor-icon-theme
 depends desktop-file-utils
-depends readline
+depends cmake
+depends zlib
 
-optional_depends %JPEG  "--with-libjpeg" "--without-libjpeg" "for JPEG support"
-optional_depends giflib "--with-giflib"  "--without-giflib"  "for GIF support"
-optional_depends libpng "--with-libpng"  "--without-libpng"  "for PNG support"
-optional_depends tiff   "--with-libtiff" "--without-libtiff" "for TIFF support"
-optional_depends czmq   "--with-libzmq"  "--without-libzmq"  "for czmq C binding and ZeroMQ TLS support"
-optional_depends cairo  "--with-cairo"   "--without-cairo"   "for cairo support"
+optional_depends %JPEG  "-DENABLE_LIBJPEG=TRUE" \
+                        "-DENABLE_LIBJPEG=FALSE" \
+                        "for JPEG support"
+
+optional_depends giflib "-DENABLE_LIBGIF=TRUE" \
+                        "-DENABLE_LIBGIF=FALSE" \
+                        "for GIF support"
+
+optional_depends libpng "-DENABLE_LIBPNG=TRUE" \
+                        "-DENABLE_LIBPNG=FALSE" \
+                        "for PNG support"
+
+optional_depends tiff "-DENABLE_LIBTIFF=TRUE" \
+                      "-DENABLE_LIBTIFF=FALSE" \
+                      "for TIFF support"
 
 optional_depends libuninameslist \
-                 "--with-libuninameslist" \
-                 "--without-libuninameslist" \
+                 "-DENABLE_LIBUNINAMESLIST=TRUE" \
+                 "-DENABLE_LIBUNINAMESLIST=FALSE" \
                  "for Unicode names list support"
 
-optional_depends gtk+-3 "--enable-gdk" "" "for GTK support"
+optional_depends readline \
+                 "-DENABLE_LIBREADLINE=TRUE" \
+                 "-DENABLE_LIBREADLINE=FALSE" \
+                 "for readline support"
+
+optional_depends gtk+-3 "-DENABLE_GUI=TRUE" \
+                        "-DENABLE_GUI=FALSE" \
+                        "for GTK+ GUI support"
+
+optional_depends Sphinx \
+                 "-DENABLE_DOCS=TRUE" \
+                 "-DENABLE_DOCS=FALSE" \
+                 "for documentation install"

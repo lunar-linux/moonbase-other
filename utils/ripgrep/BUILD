@@ -13,4 +13,9 @@ if module_installed zsh; then
    install -Dm644 complete/_rg /usr/share/zsh/site-functions/
 fi &&
 
+if module_installed fish; then
+   install -Dm644 complete/_rg.fish /usr/share/fish/vendor_completions.d/
+fi &&
+
+
 install -Dm644 target/release/build/ripgrep-*/out/rg.1 /usr/share/man/man1/
