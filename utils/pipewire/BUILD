@@ -1,4 +1,7 @@
-CFLAGS+="-Wformat" &&
-LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now" &&
+OPTS+=" -Dvulkan=false -Djack=false"
+
+CFLAGS+="-Wformat"
+
+env
 
 default_meson_build
