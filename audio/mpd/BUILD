@@ -4,7 +4,9 @@ OPTS+=" -Dzlib=enabled \
         -Dadplug=disabled \
         -Dsidplay=disabled \
         -Dtremor=disabled \
-        -Ddocumentation=false" &&
+        -Ddocumentation=false"
+
+add_priv_user mpd:mpd
 
 if module_installed systemd; then
     OPTS+=" -Dsystemd=enabled"

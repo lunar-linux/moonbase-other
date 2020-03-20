@@ -1,9 +1,9 @@
 #if you're gonna change something in here make doggone sure you
 #eyeball the init script too!
 
-OPTS+=" --enable-ntp-signd \
-        --disable-static   \
-        --localstatedir=/var/cache" &&
+OPTS+=" --disable-static   \
+        --enable-ntp-signd \
+        --localstatedir=/var/cache"
 
 CPPFLAGS+=" -fPIC" &&
 
