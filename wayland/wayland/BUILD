@@ -1,4 +1,2 @@
-OPTS+=" --disable-static \
-        --disable-documentation"
-
-default_build
+OPTS+=" -Ddocumentation=false" &&
+default_meson_build

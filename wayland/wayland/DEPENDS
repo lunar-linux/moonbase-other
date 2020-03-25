@@ -1,1 +1,11 @@
-depends libffi
+optional_depends "libffi" \
+                 "-Dlibraries=true" \
+                 "-Dlibraries=false" \
+                 "enable installation of Wayland libraries/include files" \
+                 "y"
+
+optional_depends "libxml2" \
+                 "-Ddtd_validation=true" \
+                 "-Ddtd_validation=false" \
+                 "enable support for dtd protocol validation"  \
+                 "n"
