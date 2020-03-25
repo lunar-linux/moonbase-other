@@ -92,7 +92,7 @@ fi
 
 # There is an argument, so kill the pppd started on that provider.
 PEER=$(echo $1 | sed -e 's#/#\\/#g')
-PID=$(ps -o pid,cmd axw | awk "/^ *[0-9]* *(\/usr\/sbin\/)?pppd call $PEER( |\$)/ {print \$1}")
+PID=$(ps -o pid,cmd axw | awk "/^ *[0-9]* *(\/usr\/bin\/)?pppd call $PEER( |\$)/ {print \$1}")
 
 if [ "$PID" ]; then
     $KILL -$SIG $PID || {
