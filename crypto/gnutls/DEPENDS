@@ -13,8 +13,7 @@ optional_depends libidn2 \
                  "--with-idn" \
                  "--without-idn" \
                  "for IDNA2008, Punycode and TR46 support" y
-# broken
-#optional_depends guile \
-#                 "--enable-guile --with-guile-site-dir=no" \
-#                 "--disable-guile" \
-#                 "for Guile bindings"
+optional_depends guile-2 \
+                 "--enable-guile --with-guile-site-dir=no" \
+                 "--disable-guile" \
+                 "for Guile bindings"
