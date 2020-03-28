@@ -4,7 +4,7 @@ if in_depends $MODULE numpy && [ -f /usr/bin/f2py3 ]; then
   OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=ON"
 else
   OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=OFF"
-fi &&
+fi
 
 OPTS+=" -DWITH_IMAGE_REDCODE=1 \
         -DWITH_PYTHON_INSTALL=0 \
@@ -15,7 +15,7 @@ OPTS+=" -DWITH_IMAGE_REDCODE=1 \
         -DWITH_PLAYER=1 \
         -DWITH_GAMEENGINE=1 \
         -DWITH_INSTALL_PORTABLE=0 \
-        -DPYTHON_VERSION=${PYTHON_VER}" &&
+        -DPYTHON_VERSION=${PYTHON_VER}"
 
 default_cmake_config &&
 

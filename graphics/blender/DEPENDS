@@ -11,6 +11,7 @@ depends glew
 depends eigen3
 depends shared-mime-info
 depends hicolor-icon-theme
+depends python-numpy
 depends git
 
 optional_depends lzma-sdk "-DWITH_LZMA=1"   "-DWITH_LZMA=0"   "for lzma compression support for pointcache"
@@ -40,7 +41,3 @@ optional_depends fftw3 \
                  "-DWITH_FFTW3=1 -DWITH_MOD_OCEANSIM=1" \
                  "-DWITH_FFTW3=0 -DWITH_MOD_OCEANSIM=0" \
                   "for Fast Fourier Tranform support for ocean modifier, smoke and sounds effects"
-
-# This does have -D switch but we do not know if numpy has been compiled
-# with python support so this will be checked in build
-optional_depends python-numpy "" "" "to support high-performance numerical calculations"
