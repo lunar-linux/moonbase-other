@@ -1,0 +1,18 @@
+         MODULE=samurai
+        VERSION=1.1
+         SOURCE=$MODULE-$VERSION.tar.gz
+     SOURCE_URL=https://github.com/michaelforney/samurai/releases/download/$VERSION/
+     SOURCE_VFY=sha256:cb3ce624f26eb6f0ec0118a02b8f5f7953c3b644e229f50043698fc458f2c98e
+       WEB_SITE=https://github.com/michaelforney/samurai/
+        ENTERED=20200404
+        UPDATED=20200404
+          SHORT="A ninja-compatible build tool written in C"
+
+cat << EOF
+samurai is a ninja-compatible build tool written in C99 with a focus on
+simplicity, speed, and portability.
+samurai implements the ninja build language through version 1.9.0 except for
+MSVC dependency handling (deps = msvc). It uses the same format for .ninja_log
+and .ninja_deps as ninja, currently version 5 and 4 respectively.
+It is feature-complete and supports most of the same options as ninja.
+EOF
