@@ -1,0 +1,130 @@
+From 7215a4915d5291e1d19837fca61077e9566b2216 Mon Sep 17 00:00:00 2001
+From: Dylan Araps <dylan.araps@gmail.com>
+Date: Fri, 21 Feb 2020 18:12:32 +0200
+Subject: [PATCH] sowm: Rounded corners
+
+---
+ Makefile     |  2 +-
+ config.def.h |  1 +
+ sowm.c       | 42 ++++++++++++++++++++++++++++++++++++++++++
+ sowm.h       |  1 +
+ 4 files changed, 45 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 3450a85..ed361f9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -10,7 +10,7 @@ config.h:
+ 	cp config.def.h config.h
+ 
+ sowm:
+-	$(CC) -O3 $(CFLAGS) -o sowm sowm.c -lX11 $(LDFLAGS)
++	$(CC) -O3 $(CFLAGS) -o sowm sowm.c -lX11 -lXext $(LDFLAGS) 
+ 
+ install: all
+ 	install -Dm755 sowm $(DESTDIR)$(BINDIR)/sowm
+diff --git a/config.def.h b/config.def.h
+index cae2009..32cf193 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -2,6 +2,7 @@
+ #define CONFIG_H
+ 
+ #define MOD Mod4Mask
++#define ROUND_CORNERS 20
+ 
+ const char* menu[]    = {"dmenu_run",      0};
+ const char* term[]    = {"st",             0};
+diff --git a/sowm.c b/sowm.c
+index 509e28f..16d7424 100644
+--- a/sowm.c
++++ b/sowm.c
+@@ -4,6 +4,7 @@
+ #include <X11/XF86keysym.h>
+ #include <X11/keysym.h>
+ #include <X11/XKBlib.h>
++#include <X11/extensions/shape.h>
+ #include <stdlib.h>
+ #include <signal.h>
+ #include <unistd.h>
+@@ -61,6 +62,9 @@ void notify_motion(XEvent *e) {
+         wy + (mouse.button == 1 ? yd : 0),
+         MAX(1, ww + (mouse.button == 3 ? xd : 0)),
+         MAX(1, wh + (mouse.button == 3 ? yd : 0)));
++  
++    if (mouse.button == 3)
++        win_round_corners(mouse.subwindow, ROUND_CORNERS);
+ }
+ 
+ void key_press(XEvent *e) {
+@@ -142,6 +146,41 @@ void win_fs(const Arg arg) {
+     } else {
+         XMoveResizeWindow(d, cur->w, cur->wx, cur->wy, cur->ww, cur->wh);
+     }
++  
++    win_round_corners(cur->w, cur->f ? 0 : ROUND_CORNERS);
++}
++
++void win_round_corners(Window w, int rad) {
++    unsigned int ww, wh, dia = 2 * rad;
++
++    win_size(w, &(int){1}, &(int){1}, &ww, &wh);
++
++    if (ww < dia || wh < dia) return;
++
++    Pixmap mask = XCreatePixmap(d, w, ww, wh, 1);
++
++    if (!mask) return;
++
++    XGCValues xgcv;
++    GC shape_gc = XCreateGC(d, mask, 0, &xgcv);
++
++    if (!shape_gc) {
++        XFreePixmap(d, mask);
++        return;
++    }
++
++    XSetForeground(d, shape_gc, 0);
++    XFillRectangle(d, mask, shape_gc, 0, 0, ww, wh);
++    XSetForeground(d, shape_gc, 1);
++    XFillArc(d, mask, shape_gc, 0, 0, dia, dia, 0, 23040);
++    XFillArc(d, mask, shape_gc, ww-dia-1, 0, dia, dia, 0, 23040);
++    XFillArc(d, mask, shape_gc, 0, wh-dia-1, dia, dia, 0, 23040);
++    XFillArc(d, mask, shape_gc, ww-dia-1, wh-dia-1, dia, dia, 0, 23040);
++    XFillRectangle(d, mask, shape_gc, rad, 0, ww-dia, wh);
++    XFillRectangle(d, mask, shape_gc, 0, rad, ww, wh-dia);
++    XShapeCombineMask(d, w, ShapeBounding, 0, 0, mask, ShapeSet);
++    XFreePixmap(d, mask);
++    XFreeGC(d, shape_gc);
+ }
+ 
+ void win_to_ws(const Arg arg) {
+@@ -205,6 +244,8 @@ void configure_request(XEvent *e) {
+         .sibling    = ev->above,
+         .stack_mode = ev->detail
+     });
++
++    win_round_corners(ev->window, ROUND_CORNERS);
+ }
+ 
+ void map_request(XEvent *e) {
+@@ -217,6 +258,7 @@ void map_request(XEvent *e) {
+ 
+     if (wx + wy == 0) win_center((Arg){0});
+ 
++    win_round_corners(w, ROUND_CORNERS);
+     XMapWindow(d, w);
+     win_focus(list->prev);
+ }
+diff --git a/sowm.h b/sowm.h
+index 455ed93..d35c2f4 100644
+--- a/sowm.h
++++ b/sowm.h
+@@ -51,6 +51,7 @@ void win_focus(client *c);
+ void win_kill(const Arg arg);
+ void win_prev(const Arg arg);
+ void win_next(const Arg arg);
++void win_round_corners(Window w, int rad);
+ void win_to_ws(const Arg arg);
+ void ws_go(const Arg arg);
+ 

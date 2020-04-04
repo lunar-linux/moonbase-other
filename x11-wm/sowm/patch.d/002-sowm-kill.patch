@@ -1,0 +1,30 @@
+From 3ed647f467b3c2bfc3994c9639c4ec91ba5ff0e6 Mon Sep 17 00:00:00 2001
+From: Dylan Araps <dylan.araps@gmail.com>
+Date: Thu, 20 Feb 2020 18:02:11 +0200
+Subject: [PATCH] sowm: simpler kill
+
+---
+ sowm.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/sowm.c b/sowm.c
+index 509e28f..7217e1a 100644
+--- a/sowm.c
++++ b/sowm.c
+@@ -122,7 +122,15 @@ void win_del(Window w) {
+ }
+ 
+ void win_kill(const Arg arg) {
+-    if (cur) XKillClient(d, cur->w);
++    if (!cur) return;
++
++    XSendEvent(d, cur->w, False, NoEventMask, &(XEvent){
++        .type                 = ClientMessage,
++        .xclient.window       = cur->w,
++        .xclient.message_type = XInternAtom(d, "WM_PROTOCOLS", True),
++        .xclient.data.l[0]    = XInternAtom(d, "WM_DELETE_WINDOW", True),
++        .xclient.data.l[1]    = CurrentTime
++    });
+ }
+ 
+ void win_center(const Arg arg) {
