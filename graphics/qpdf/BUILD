@@ -1,4 +1,7 @@
-OPTS+=" --disable-static"
+OPTS+=" --disable-static \
+        --enable-crypto-gnutls \
+        --disable-crypto-openssl \
+        --disable-implicit-crypto"
 
 default_build &&
 
