@@ -13,36 +13,43 @@ depends intltool
 optional_depends dbus \
                  "-DWITH_DBUS=ON" \
                  "-DWITH_DBUS=OFF" \
-                 "use inkscape in interactive scripts which manipulate images" y
+                 "use inkscape in interactive scripts which manipulate images" \
+                 "y"
 
 optional_depends poppler \
                  "-DENABLE_POPPLER=ON -DENABLE_POPPLER_CAIRO=ON" \
                  "-DENABLE_POPPLER=OFF -DENABLE_POPPLER_CAIRO=OFF" \
-                 "for poppler support" n
+                 "for poppler support" \
+                 "y"
 
 optional_depends ImageMagick \
                  "-DWITH_IMAGE_MAGICK=ON" \
                  "-DWITH_IMAGE_MAGICK=OFF" \
-                 "support for raster extensions and import resolution" y
+                 "support for raster extensions and import resolution" \
+                 "y"
 
 optional_depends lcms2 \
                  "-DENABLE_LCMS=ON" \
                  "-DENABLE_LCMS=OFF" \
-                 "enable LittleCMS for color management" n
+                 "enable LittleCMS for color management" \
+                 "n"
 
 optional_depends gvfs \
                  "-DWITH_GNOME_VFS=ON" \
                  "-DWITH_GNOME_VFS=OFF" \
-                 "enable GNOME VFS support" n
+                 "enable GNOME VFS support" \
+                 "n"
 
 optional_depends libwpg \
                  "-DWITH_LIBWPG=ON" \
                  "-DWITH_LIBWPG=OFF" \
-                 "for Wordperfect graphics support" n
+                 "for Wordperfect graphics support" \
+                 "n"
 
 optional_depends libvisio \
                  "-DWITH_LIBVISIO=ON" \
                  "-DWITH_LIBVISIO=OFF" \
-                 "for MSoft Visio diagrams support" n
+                 "for MSoft Visio diagrams support" \
+                 "n"
 
 optional_depends potrace "" "" "for bitmap transformation into vector file formats"
