@@ -1,0 +1,9 @@
+mquery BROADWAY "Enable broadway HTML5 backend? (Run GTK+ apps in a browser)" n \
+                "-Dbroadway-backend=true" \
+                "-Dbroadway-backend=false"
+
+# Do not propose enabling media support by default, this will increase the number of 
+# modules that will have to be installed for GTK in a fresh lunar installation.
+# User can rebuild GTK module after s/he install a graphical backend (wayland or X11)
+mquery GSTREAMER "Enable gstreamer media backend? (will add gstreamer as hard dependency)" n
+mquery FFMPEG "Enable ffmpeg media backend? (will add ffmpeg as hard dependency)" n
