@@ -1,0 +1,59 @@
+depends at-spi2-atk
+depends pango
+depends gdk-pixbuf
+depends gdbus-codegen
+depends libxkbcommon
+depends libepoxy
+depends graphene
+
+optional_depends cups \
+                 "-Dprint-backends=file,cups" \
+                 "-Dprint-backends=file" \
+                 "enable CUPS as print backend"
+
+if module_installed cups; then
+   depends colord
+fi
+
+optional_depends %X \
+                 "-Dx11-backend=true" \
+                 "-Dx11-backend=false" \
+                 "for the X11 backend (recommended)"
+
+#optional_depends json-glib \
+#                 "-Dprint_backends=cloudprint" \
+#                 "--disable-cloudprint" \
+#                 "required by cloudprint"
+
+optional_depends wayland-protocols \
+                 "-Dwayland-backend=true" \
+                 "-Dwayland-backend=false" \
+                 "for the waylany backend" \
+                 "y"
+
+# Documentation and introspection
+optional_depends man \
+                 "-Dman-pages=true" \
+                 "-Dman-pages=false" \
+                 "for building manual pages" \
+		        "n"
+
+optional_depends gtk-doc \
+                 "-Dgtk_doc=true" \
+                 "-Dgtk_doc=false" \
+                 "for building documentation" \
+                 "n"
+
+optional_depends gobject-introspection \
+                 "-Dintrospection=true" \
+                 "-Dintrospection=false" \
+                 "for introspection support" \
+                 "y"
+
+if [ "`get_module_config GSTREAMER`" = "y" ]; then
+depends gstreamer
+fi
+
+if [ "`get_module_config FFMPEG`" = "y" ]; then
+depends ffmpeg
+fi
