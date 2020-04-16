@@ -2,7 +2,7 @@
   default_pre_build &&
 
   # Fix symlinks in /usr/share/man/man1/
-  sed -i -e "s:link\.1:link\.1\.gz:g" -e "s:file\.1:file\.1\.gz:g" {texk/kpathsea/man,texk/texlive/tl_scripts,texk/web2c/man}/Makefile.{am,in}  &&
+  sed -i -e "s:link\.1:link\.1\.gz:g" -e "s:file\.1:file\.1\.gz:g" {texk/kpathsea/man,texk/texlive/tl_support,texk/web2c/man}/Makefile.{am,in}  &&
   sed -i -e "s:dvilj2p.1 dvilj4.1 dvilj4l.1 dvilj6.1:dvilj2p.1.gz dvilj4.1.gz dvilj4l.1.gz dvilj6.1.gz:1" -e "s:LN_S) dvilj\.1:LN_S) dvilj.1.gz:" texk/dviljk/Makefile.{am,in}  &&
 
   # -Os compatible
@@ -89,7 +89,7 @@
           --disable-lcdf-typetools"     &&
 
   # the etex binary is _not_ compatible with pdftex
-  sedit "s:^etex pdftex:etex etex:" texk/texlive/tl_scripts/fmtutil.cnf &&
+  sedit "s:^etex pdftex:etex etex:" texk/texlive/tl_support/fmtutil.cnf &&
 
   # compatibility with poppler 0.72
   sedit ' s:gTrue:true:g
