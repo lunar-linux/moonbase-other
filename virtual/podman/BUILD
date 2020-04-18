@@ -1,7 +1,8 @@
 export BUILDTAGS='seccomp varlink systemd'
-export CGO_LDFLAGS=$LDFLAGS
-export GOFLAGS="-trimpath -buildmode=pie"
 export CFLAGS="$CFLAGS -Wl,-z,relro -Wl,-z,now"
+export CGO_LDFLAGS="$LDFLAGS"
+export CGO_CFLAGS="$CFLAGS"
+export GOFLAGS="-trimpath -buildmode=pie"
 
 default_make &&
 
