@@ -1,3 +1,3 @@
-OPTS+=" --with-pam-dir=/lib/security" &&
+OPTS+=" --with-pam-dir=/lib/security"
 
 default_build
