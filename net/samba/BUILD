@@ -20,14 +20,14 @@ fi
        --localstatedir=/var    \
        --with-piddir=/var/run  \
        --mandir=/usr/share/man \
-       --enable-fhs            \
-       --bundled-libraries=$BUNDLED_LIBRARIES \
        --disable-rpath-install \
-       --with-piddir=/run  \
+       --enable-fhs            \
+       --with-piddir=/run      \
        --with-configdir=/etc/samba \
        --with-sockets-dir=/run/samba \
        --with-lockdir=/var/cache/samba \
        --with-pammodulesdir=/usr/lib/security \
+       --bundled-libraries=$BUNDLED_LIBRARIES \
        $OPTS &&
 
 default_make &&
