@@ -4,11 +4,38 @@ depends cmake
 depends libgcrypt
 depends pkgconf
 
-optional_depends perl   "-DENABLE_PERL=ON"   "-DENABLE_PERL=OFF"   "to compile the perl plugin"
-optional_depends lua    "-DENABLE_LUA=ON"    "-DENABLE_LUA=OFF"    "to compile the lua plugin"
-optional_depends ruby   "-DENABLE_RUBY=ON"   "-DENABLE_RUBY=OFF"   "to compile the ruby plugin"
-optional_depends aspell "-DENABLE_ASPELL=ON" "-DENABLE_ASPELL=OFF" "for spelling support"
-optional_depends gnutls "-DENABLE_GNUTLS=ON" "-DENABLE_GNUTLS=OFF" "for TLS encryption support"
+optional_depends asciidoctor \
+                 "-DENABLE_MAN=ON -DENABLE_DOC=ON" \
+                 "-DENABLE_MAN=OFF -DENABLE_DOC=OFF" \
+                 "for spelling support"
+
+optional_depends aspell \
+                 "-DENABLE_ASPELL=ON" \
+                 "-DENABLE_ASPELL=OFF" \
+                 "for spelling support"
+
+optional_depends gnutls \
+                 "-DENABLE_GNUTLS=ON" \
+                 "-DENABLE_GNUTLS=OFF" \
+                 "for TLS encryption support"
+
+optional_depends ruby \
+                 "-DENABLE_RUBY=ON" \
+                 "-DENABLE_RUBY=OFF" \
+                 "to compile the ruby plugin" \
+                 "n"
+
+optional_depends lua \
+                 "-DENABLE_LUA=ON" \
+                 "-DENABLE_LUA=OFF" \
+                 "to compile the lua plugin" \
+                 "n"
+
+optional_depends perl \
+                 "-DENABLE_PERL=ON" \
+                 "-DENABLE_PERL=OFF" \
+                 "to compile the perl plugin" \
+                 "n"
 
 optional_depends guile-2 \
                  "-DENABLE_GUILE=ON" \
