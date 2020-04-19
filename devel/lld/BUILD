@@ -1,8 +1,8 @@
 OPTS+=" -DLLVM_LINK_LLVM_DYLIB=ON \
-        -DLLVM_INCLUDE_TESTS=ON \
         -DLLVM_BUILD_TESTS=OFF \
-        -DLLVM_ENABLE_SPHINX=OFF \
-        -DLLVM_EXTERNAL_LIT=/usr/bin/lit"
+        -DLLVM_INCLUDE_TESTS=ON \
+        -DLLVM_EXTERNAL_LIT=/usr/bin/lit \
+        -DPYTHON_EXECUTABLE=/usr/bin/python"
 
 mkdir build &&
 cd build &&
