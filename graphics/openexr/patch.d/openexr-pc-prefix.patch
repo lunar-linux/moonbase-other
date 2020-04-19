@@ -1,0 +1,48 @@
+From 0b26a9dedda4924841323677f1ce0bce37bfbeb4 Mon Sep 17 00:00:00 2001
+From: Kimball Thurston <kdt3rd@gmail.com>
+Date: Tue, 5 Nov 2019 21:42:45 +1300
+Subject: [PATCH] Fix #595 and others, issue with pkgconfig generation under
+ cmake
+
+autoconf seems to automatically insert the ${prefix} variable reference
+when emitting the pkg-config file. Make cmake rules conform to that
+pattern.
+---
+ IlmBase/config/CMakeLists.txt | 6 +++---
+ OpenEXR/config/CMakeLists.txt | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/IlmBase/config/CMakeLists.txt b/IlmBase/config/CMakeLists.txt
+index 508176a4..a6bff04a 100644
+--- a/IlmBase/config/CMakeLists.txt
++++ b/IlmBase/config/CMakeLists.txt
+@@ -71,9 +71,9 @@ if(ILMBASE_INSTALL_PKG_CONFIG)
+   # use a helper function to avoid variable pollution, but pretty simple
+   function(ilmbase_pkg_config_help pcinfile)
+     set(prefix ${CMAKE_INSTALL_PREFIX})
+-    set(exec_prefix ${CMAKE_INSTALL_BINDIR})
+-    set(libdir ${CMAKE_INSTALL_LIBDIR})
+-    set(includedir ${CMAKE_INSTALL_INCLUDEDIR})
++    set(exec_prefix "\${prefix}")
++    set(libdir "\${exec_prefix}/${CMAKE_INSTALL_LIBDIR}")
++    set(includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
+     set(LIB_SUFFIX_DASH ${ILMBASE_LIB_SUFFIX})
+     if(TARGET Threads::Threads)
+       # hrm, can't use properties as they end up as generator expressions
+diff --git a/OpenEXR/config/CMakeLists.txt b/OpenEXR/config/CMakeLists.txt
+index 1ef829a2..8d6d7ac8 100644
+--- a/OpenEXR/config/CMakeLists.txt
++++ b/OpenEXR/config/CMakeLists.txt
+@@ -72,9 +72,9 @@ if(OPENEXR_INSTALL_PKG_CONFIG)
+   # use a helper function to avoid variable pollution, but pretty simple
+   function(openexr_pkg_config_help pcinfile)
+     set(prefix ${CMAKE_INSTALL_PREFIX})
+-    set(exec_prefix ${CMAKE_INSTALL_BINDIR})
+-    set(libdir ${CMAKE_INSTALL_LIBDIR})
+-    set(includedir ${CMAKE_INSTALL_INCLUDEDIR})
++    set(exec_prefix "\${prefix}")
++    set(libdir "\${exec_prefix}/${CMAKE_INSTALL_LIBDIR}")
++    set(includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
+     set(LIB_SUFFIX_DASH ${OPENEXR_LIB_SUFFIX})
+     if(TARGET Threads::Threads)
+       # hrm, can't use properties as they end up as generator expressions
