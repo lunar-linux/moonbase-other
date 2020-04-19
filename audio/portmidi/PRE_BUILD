@@ -1,0 +1,13 @@
+mk_source_dir "$SOURCE_DIRECTORY" &&
+cd "$SOURCE_DIRECTORY" &&
+
+unzip $SOURCE_CACHE/$SOURCE &&
+mv portmidi/* . &&
+
+# do not break working CMake paths
+sedit 's/UNIX/0/' CMakeLists.txt &&
+
+# Java build is horribly broken and outdated
+sedit 's/add_subdirectory(pm_java)/#\0/' CMakeLists.txt &&
+
+sedit 's@/usr/local@/usr@g' $(grep -rl /usr/local --include CMakeLists.txt .)
