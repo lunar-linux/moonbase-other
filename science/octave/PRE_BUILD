@@ -5,15 +5,6 @@ fi &&
 
 default_pre_build &&
 
-# fix "Quantum not found" issue
-sedit '/#include <Magick/ a using namespace Magick;' libinterp/corefcn/__magick_read__.cc &&
-
-# Prevent zlib underlinking
-sedit "321i libinterp_corefcn_libcorefcn_la_LIBADD = \$(Z_LIBS)" libinterp/corefcn/module.mk &&
-
-# Detect qscintilla-qt5
-sedit "s:qt5scintilla2:qt5scintilla2 qscintilla2:" m4/acinclude.m4 &&
-
 # qt5-.11 fix
 sedit "37i #include <QButtonGroup>" libgui/src/settings-dialog.cc &&
 
