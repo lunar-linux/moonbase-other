@@ -1,4 +1,4 @@
-CCARGS="-DXBOARD" &&
+CCARGS="-DXBOARD"
 
 default_game_build &&
 
