@@ -1,12 +1,11 @@
           MODULE=R
-         VERSION=3.6.3
+         VERSION=4.0.0
           SOURCE=$MODULE-$VERSION.tar.gz
-#Note: Automatic redirection to servers worldwide, currently sponsored by Rstudio
-      SOURCE_URL=https://cloud.r-project.org/src/base/R-3/
-      SOURCE_VFY=sha256:89302990d8e8add536e12125ec591d6951022cf8475861b3690bc8bf1cefaa8f
+      SOURCE_URL=https://cran.r-project.org/src/base/R-${VERSION%%.*}/
+      SOURCE_VFY=sha256:06beb0291b569978484eb0dcb5d2339665ec745737bdfb4e873e7a5a75492940
         WEB_SITE=http://www.r-project.org
          ENTERED=20021010
-         UPDATED=20200301
+         UPDATED=20200425
            SHORT="Language and environment for statistical computing and graphics"
 
 cat << EOF
