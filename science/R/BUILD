@@ -1,6 +1,8 @@
 OPTS+=" --prefix=/usr \
         --enable-R-shlib \
-        --sysconfdir=/etc/R"
+        --sysconfdir=/etc/R \
+        F77=gfortran \
+		LIBnn=lib
 
 default_build &&
 
