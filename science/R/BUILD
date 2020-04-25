@@ -2,10 +2,10 @@ OPTS+=" --prefix=/usr \
         --enable-R-shlib \
         --sysconfdir=/etc/R \
         rsharedir=/usr/share/R/ \
-	    rincludedir=/usr/include/R/ \
-  	    rdocdir=/usr/share/doc/R/ \
+        rincludedir=/usr/include/R/ \
+        rdocdir=/usr/share/doc/R/ \
         F77=gfortran \
-		LIBnn=lib
+        LIBnn=lib"
 
 default_build &&
 
