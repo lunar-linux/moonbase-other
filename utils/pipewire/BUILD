@@ -1,8 +1,8 @@
 unset LDFLAGS LD CFLAGS CPPFLAGS &&
 
-OPTS+=" -Dvulkan=false"
+OPTS+=" -Dvulkan=false" &&
 
-CFLAGS+="-Wformat"
+CFLAGS+="-Wformat" &&
 
 # https://github.com/mesonbuild/meson/issues/6431
 # Have to see how to avoid this issue
