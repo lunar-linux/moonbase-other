@@ -1,6 +1,6 @@
 crontab -u mailman /var/mailman/cron/crontab.in
 
 if [ ! -d /var/mailman/lists/mailman ]; then
-        /var/mailman/bin/newlist -q mailman postmaster@`hostname` password
-        echo "Do not forget to add the aliases for the mailman list"
+   /var/mailman/bin/newlist -q mailman postmaster@`hostname` password
+   echo "Do not forget to add the aliases for the mailman list"
 fi

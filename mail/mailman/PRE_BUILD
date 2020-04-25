@@ -1,0 +1,5 @@
+default_pre_build &&
+
+# some files in mailman doesn't use configure parameter
+find . -type f -exec \
+    sedit '1s,^#! \?/usr/bin/\(env \|\)python$,#!/usr/bin/python2,' {} \;
