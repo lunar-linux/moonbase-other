@@ -8,7 +8,6 @@ fi &&
 # This would be nice, but does not work over here...
 #OPTS+=" -DUSE_EXTERNAL_VTK=1" &&
 # Doesn't like out version of gl2ps and as of version 5.5.0 still the case
-#        -DVTK_USE_SYSTEM_GL2PS=1               \
 # Need to specify pygments here else it use included pygments thus
 # stomping on system pygments. Have the same clobber with protobuf.
 
@@ -26,15 +25,10 @@ OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
         -DVTK_USE_SYSTEM_OGGTHEORA=1           \
         -DVTK_USE_SYSTEM_PYGMENTS=1            \
         -DVTK_USE_SYSTEM_PROTOBUF=1            \
+        -DVTK_USE_SYSTEM_GL2PS=1               \
         -DBUILD_SHARED_LIBS=1                  \
         -DVTK_Group_StandAlone=1               \
         -DVTK_RENDERING_BACKEND=OpenGL2        \
         -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=1 \
         -DVTK_PYTHON_FULL_THREADSAFE=1         \
-        -DPARAVIEW_ENABLE_PYTHON=1"            &&
-
-sedit "84i #  include <cstring>" VTK/ThirdParty/xdmf2/vtkxdmf2/libsrc/XdmfObject.h &&
-
-sedit "s:TryExec=:Exec=/usr/bin/:" Applications/ParaView/paraview.desktop.in &&
-sedit "s:Icon=paraview:Icon=/usr/share/icons/pvIcon.ico:" Applications/ParaView/paraview.desktop.in &&
-sedit "4i Categories=KDE;Education;Science;" Applications/ParaView/paraview.desktop.in
+        -DPARAVIEW_ENABLE_PYTHON=1"
