@@ -1,5 +1,3 @@
-export PYTHON=/usr/bin/python2 &&
+OPTS+=" -DZZIPDOCS=OFF"
 
-OPTS+=" --disable-static" &&
-
-default_build
+default_cmake_build

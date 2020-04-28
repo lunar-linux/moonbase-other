@@ -1,9 +1,10 @@
 depends zlib
 depends xmlto
-depends python2
+depends python
+depends cmake
 
 optional_depends SDL \
-                 "--enable-sdl"  \
-                 "--disable-sdl" \
-                 "for SDL" \
+                 "-DZZIPSDL=ON"  \
+                 "-DZZIPSDL=OFF" \
+                 "for SDL support" \
                  "n"
