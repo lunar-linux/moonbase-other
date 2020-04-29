@@ -14,11 +14,11 @@ optional_depends gtk+-3 \
                  "--disable-gtk" \
                  "for GTK 3.x support"
 
+#optional_depends %BLUEZ     "--enable-bluez"     "--disable-bluez"     "for bluetooth support"
 optional_depends vte3       "--enable-vte"       "--disable-vte"       "for vte support at the GTK UI"
 optional_depends Linux-PAM  "--enable-auth-pam"  "--disable-auth-pam"  "for PAM authentication support"
 optional_depends libxml2    "--enable-libxml2"   "--disable-libxml2"   "for XML support"
 optional_depends jemalloc   "--enable-jemalloc"  "--disable-jemalloc"  "for jemalloc support"
-optional_depends %BLUEZ     "--enable-bluez"     "--disable-bluez"     "for bluetooth support"
 optional_depends curl       "--enable-curl"      "--disable-curl"      "for curl support"
 optional_depends libusb     "--enable-libusb"    "--disable-libusb"    "for USB passthrough"
 optional_depends usbredir   "--enable-usb-redir" "--disable-usb-redir" "for USB traffic redirection protocol"
