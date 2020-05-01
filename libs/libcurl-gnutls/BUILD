@@ -9,7 +9,7 @@ OPTS+=" --disable-ldap \
         --without-ssl \
         --with-gnutls=/usr \
         --with-random=/dev/urandom \
-        --with-ca-bundle=/etc/ssl/certs/ca-certifictates.crt"
+        --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt"
 
 default_config &&
 make -C lib &&
