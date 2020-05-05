@@ -1,5 +1,3 @@
-OPTS+=" --disable-static \
-        --disable-tunnel \
-        --enable-client"
+OPTS+=" -Dmanual=false"
 
-default_build
+default_meson_build

@@ -8,11 +8,11 @@ depends libXinerama
 depends libXfixes
 depends %OSSL
 depends zlib
-
+depends meson
 
 optional_depends gstreamer \
-                 "--enable-gstreamer=1.0" \
-                 "--enable-gstreamer=no" \
+                 "-Dgstreamer=1.0" \
+                 "-Dgstreamer=no" \
                  "for Gstreamer support"
 
 if in_depends $MODULE gstreamer; then
@@ -20,26 +20,26 @@ if in_depends $MODULE gstreamer; then
 fi
 
 optional_depends cyrus-sasl \
-                 --with-sasl \
-                 --without-sasl \
+                 -Dsasl=true \
+                 -Dsasl=false \
                 "for SASL authentication support"
 
 optional_depends opus \
-                 "--enable-opus" \
-                 "--disable-opus" \
+                 "-Dopus=enabled" \
+                 "-Dopus=disabled" \
                  "for Internet audio support"
 
 optional_depends celt051 \
-                 "--enable-celt051" \
-                 "--disable-celt051" \
+                 "-Dcelt051=enabled" \
+                 "-Dcelt051=disabled" \
                  "for celt audio communication support"
 
 optional_depends libcacard \
-                 "--enable-smartcard=yes" \
-                 "--enable-smartcard=no" \
+                 "-Dsmartcard=enabled" \
+                 "-Dsmartcard=disabled" \
                  "for smartcard support"
 
 optional_depends lz4 \
-                 "--enable-lz4=yes" \
-                 "--enable-lz4=no" \
+                 "-Dlz4=true" \
+                 "-Dlz4=false" \
                  "for LZ4 compression support"
