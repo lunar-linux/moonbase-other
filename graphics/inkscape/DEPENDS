@@ -1,55 +1,68 @@
-depends cmake
-depends boost
-depends gc
+depends harfbuzz
+depends pango
+depends fontconfig
+depends freetype2
 depends gsl
-depends popt
-depends gtkmm
+depends libsoup
+depends double-conversion
+depends gc
+depends cairo
+depends %JPEG
+depends zlib
+depends libpng
+depends potrace
+depends gtk+-3
+depends gtkmm3
+depends gdk-pixbuf
+depends gdl
+depends boost
+depends aspell
 depends libxslt
-depends libart_lgpl
-depends desktop-file-utils
-depends hicolor-icon-theme
-depends intltool
-
-optional_depends dbus \
-                 "-DWITH_DBUS=ON" \
-                 "-DWITH_DBUS=OFF" \
-                 "use inkscape in interactive scripts which manipulate images" \
-                 "y"
+depends libxml2
+depends gettext
+depends libsigc++2
+depends gzip
+depends python-numpy
+depends python-lxml
 
 optional_depends poppler \
-                 "-DENABLE_POPPLER=ON -DENABLE_POPPLER_CAIRO=ON" \
-                 "-DENABLE_POPPLER=OFF -DENABLE_POPPLER_CAIRO=OFF" \
-                 "for poppler support" \
-                 "y"
+        "-DENABLE_POPPLER=ON" \
+        "-DENABLE_POPPLER=OFF" \
+        "for PDF support (highly recommended)"
 
-optional_depends ImageMagick \
-                 "-DWITH_IMAGE_MAGICK=ON" \
-                 "-DWITH_IMAGE_MAGICK=OFF" \
-                 "support for raster extensions and import resolution" \
-                 "y"
+optional_depends openmp \
+        "-DWITH_OPENMP=ON" \
+        "-DWITH_OPENMP=OFF" \
+        "for multithread processing support (highly recommended)"
 
 optional_depends lcms2 \
-                 "-DENABLE_LCMS=ON" \
-                 "-DENABLE_LCMS=OFF" \
-                 "enable LittleCMS for color management" \
-                 "n"
+        "-DENABLE_LCMS=ON" \
+        "-DENABLE_LCMS=OFF" \
+        "for Colour Management support"
 
-optional_depends gvfs \
-                 "-DWITH_GNOME_VFS=ON" \
-                 "-DWITH_GNOME_VFS=OFF" \
-                 "enable GNOME VFS support" \
-                 "n"
+optional_depends dbus \
+        "-DWITH_DBUS=ON" \
+        "-DWITH_DBUS=OFF" \
+        "for dbus support"
 
-optional_depends libwpg \
-                 "-DWITH_LIBWPG=ON" \
-                 "-DWITH_LIBWPG=OFF" \
-                 "for Wordperfect graphics support" \
-                 "n"
+optional_depends gtkspell3 \
+        "-DWITH_GTKSPELL=ON" \
+        "-DWITH_GTKSPELL=OFF" \
+        "for spelling support"
 
 optional_depends libvisio \
-                 "-DWITH_LIBVISIO=ON" \
-                 "-DWITH_LIBVISIO=OFF" \
-                 "for MSoft Visio diagrams support" \
-                 "n"
+        "-DWITH_LIBVISIO=ON" \
+        "-DWITH_LIBVISIO=OFF" \
+        "for visio diagram support"
 
-optional_depends potrace "" "" "for bitmap transformation into vector file formats"
+optional_depends libwpg \
+        "-DWITH_LIBWPG=ON" \
+        "-DWITH_LIBWPG=OFF" \
+        "for WordPerfect Graphics support"
+
+optional_depends jemalloc \
+        "-DWITH_JEMALLOC=ON" \
+        "-DWITH_JEMALLOC=OFF" \
+        "for memory allocation support"
+
+
