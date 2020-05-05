@@ -1,8 +1,5 @@
-OPTS+=" -DCMAKE_WITH_NLS=ON"
+OPTS+=" -DWITH_NLS=ON \
+        -DWITH_CDR=OFF \
+        -DWITH_GRAPHICS_MAGICK=OFF"
 
-default_cmake_build &&
-
-gather_docs HACKING &&
-
-# No headers for these so they are useless
-rm -v /usr/lib/inkscape/lib*_LIB.a
+default_cmake_build
