@@ -54,4 +54,4 @@ a command line argument to use another file in the /etc/ppp/peers/ directory."
 fi
 
 [ "$QUICK" ] && touch /var/run/ppp-quick
-exec /usr/bin/pppd call $PROVIDER "$@"
+exec /usr/sbin/pppd call $PROVIDER "$@"

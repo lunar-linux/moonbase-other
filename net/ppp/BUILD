@@ -20,8 +20,8 @@ if [ ! -e /etc/ppp/chat/isp ]; then
   install -m644 $SCRIPT_DIRECTORY/isp /etc/ppp/chat/isp
 fi &&
 
-chown -R root:ppp /usr/bin/pppd /etc/ppp &&
-chmod 4750 /usr/bin/pppd  &&
+chown -R root:ppp /usr/sbin/pppd /etc/ppp &&
+chmod 4750 /usr/sbin/pppd  &&
 chmod 600 /etc/ppp/*-secrets &&
 
 if module_installed systemd; then
