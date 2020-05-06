@@ -11,6 +11,7 @@ OPTS+=" --disable-static \
         --without-hal \
         --without-netcf \
         --with-init-script=none \
+        --with-runstatedir=/run \
         --without-wireshark-dissector"
 
 if module_installed systemd; then
