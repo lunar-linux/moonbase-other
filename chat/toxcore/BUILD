@@ -3,6 +3,7 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DBOOTSTRAP_DAEMON=on \
         -DBUILD_NTOX=off"
 
+sedit 's:/var/run:/run:' other/bootstrap_daemon/tox-bootstrapd.service &&
 default_cmake_build &&
 
 rm -f /usr/lib/libtox*.a &&
