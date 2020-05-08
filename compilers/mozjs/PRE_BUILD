@@ -1,4 +1,8 @@
 tar xf $SOURCE_CACHE/$SOURCE -C $BUILD_DIRECTORY &&
 
 # This export is for their hardcoding of autoconf-2.13
-export AUTOCONF=autoconf-mozilla
+export AUTOCONF=autoconf-mozilla &&
+
+# looks for rustc, but doesn't actually use it.
+# Remove the requirement, avoid an unnecessary dependency.
+sed '21,+4d' -i $SOURCE_DIRECTORY/js/moz.configure
