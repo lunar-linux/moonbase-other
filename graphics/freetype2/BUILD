@@ -1,11 +1,13 @@
-# there's a circular depend on harfbuzz
+# There's a circular depend on harfbuzz
 if module_installed harfbuzz; then
   OPTS+=" --with-harfbuzz"
 else
   OPTS+=" --without-harfbuzz"
-fi &&
+fi
 
-OPTS+=" --disable-static --enable-freetype-config" &&
+OPTS+=" --disable-static \
+        --enable-freetype-config \
+        --without-brotli"
 
 default_build &&
 
