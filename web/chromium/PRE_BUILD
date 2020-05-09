@@ -11,38 +11,21 @@ patch_it $SOURCE3 0 &&
 # Load widevine cdm
 patch_it $SOURCE4 1 &&
 
-# Fixes from Gentoo
+# https://crbug.com/1049258
 patch_it $SOURCE5 1 &&
-
-
-# https://crbug.com/957519
 patch_it $SOURCE6 1 &&
+
+# https://chromium-review.googlesource.com/c/chromium/src/+/2145261
 patch_it $SOURCE7 1 &&
 
-# https://crbug.com/1027929
-patch_it $SOURCE8 1 &&
-
-# https://crbug.com/989153
-#patch_it $SOURCE9 1 &&
-
-# https://crbug.com/977964
-patch_it $SOURCE10 1 &&
-
-# https://crbug.com/1005508
-patch_it $SOURCE11 1 &&
-
-# https://crbug.com/1043042
-patch_it $SOURCE12 1 &&
-
-# https://crbug.com/1049258
-patch_it $SOURCE13 1 &&
-patch_it $SOURCE14 1 &&
+# https://crbug.com/v8/10393
+patch -Np3 -d v8 < $SOURCE_CACHE/$SOURCE8 &&
 
 # https://crbug.com/893950
 sedit 's/\<xmlMalloc\>/malloc/;s/\<xmlFree\>/free/' \
       third_party/blink/renderer/core/xml/*.cc \
       third_party/blink/renderer/core/xml/parser/xml_document_parser.cc \
-      third_party/libxml/chromium/libxml_utils.cc
+      third_party/libxml/chromium/*.cc &&
 
 # Remove unsupported compiler flags
 sedit '/"-Wno-defaulted-function-deleted"/d' build/config/compiler/BUILD.gn &&
@@ -82,11 +65,11 @@ local _flags=(
   'host_toolchain="//build/toolchain/linux/unbundle:default"'
   'is_official_build=true'
   'clang_use_chrome_plugins=false'
-  'fatal_linker_warnings=false'
   'treat_warnings_as_errors=false'
   'fieldtrial_testing_like_official_build=true'
   'ffmpeg_branding="Chrome"'
   'proprietary_codecs=true'
+  'use_gnome_keyring=false'
   'use_sysroot=false'
   'use_custom_libcxx=false'
   'linux_use_bundled_binutils=false'
