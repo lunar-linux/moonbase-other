@@ -1,3 +1,4 @@
+depends python
 depends node
 depends llvm
 depends zip
@@ -10,7 +11,6 @@ depends curl
 depends alsa-lib
 depends libvpx
 depends cbindgen
-depends python
 depends pixman
 depends libffi
 depends nasm
@@ -58,7 +58,7 @@ optional_depends webrtc-audio-processing  \
                  "--disable-webrtc"       \
                  "For real time communication support"
 
-optional_depends cups         \
+optional_depends cups \
                  "--enable-printing" \
                  "--disable-printing" \
                  "For printing support"
