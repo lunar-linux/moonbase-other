@@ -13,12 +13,6 @@ optional_depends libsecret \
                  "--disable-libsecret" \
                  "cache passphrases with libsecret"
 
-optional_depends gcr \
-                 "--enable-pinentry-gnome3" \
-                 "--disable-pinentry-gnome3" \
-                 "for gnome graphical UI support - ${PROBLEM_COLOR}Circular dependency - say no, install gcr separately first${DEFAULT_COLOR}" \
-                 "n"
-
 optional_depends qt5 \
                  "--enable-pinentry-qt" \
                  "--disable-pinentry-qt5" \
@@ -29,3 +23,10 @@ optional_depends gtk+-2 \
                  "--disable-pinentry-gtk2" \
                  "for Gtk+-2 support" \
                  "n"
+
+# circular depend (through gnupg)
+#optional_depends gcr \
+#                 "--enable-pinentry-gnome3" \
+#                 "--disable-pinentry-gnome3" \
+#                 "for gnome graphical UI support - ${PROBLEM_COLOR}Circular dependency - say no, install gcr separately first${DEFAULT_COLOR}" \
+#                 "n"
