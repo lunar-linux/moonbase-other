@@ -1,2 +1,21 @@
-optional_depends Linux-PAM "--with-pam"  "--without-pam"  "for optional pluggable authentication"
-optional_depends openldap  "--with-ldap" "--without-ldap" "for LDAP support"
+optional_depends zlib \
+                 "--enable-zlib" "" \
+                 "for zlib comopression support"
+
+optional_depends libgcrypt \
+                 "--enable-gcrypt" "" \
+                 "for libgcrypt support"
+
+optional_depends cyrus-sasl \
+                 "--enable-sasl" "" \
+                 "for SASL support"
+
+optional_depends Linux-PAM \
+                 "--with-pam" \
+                 "--without-pam" \
+                 "for optional pluggable authentication"
+
+optional_depends openldap \
+                 "--with-ldap --with-ldap-conf-file=/etc/openldap/ldap.conf" \
+                 "--without-ldap" \
+                 "for LDAP support"
