@@ -1,6 +1,8 @@
 unset LDFLAGS LD CFLAGS CPPFLAGS &&
 
-OPTS+=" -Dvulkan=false"
+OPTS+=" -Dvulkan=false \
+	-D docs=true \
+        -D man=true"
 
 CFLAGS+=" -Wformat"
 
