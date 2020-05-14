@@ -30,14 +30,16 @@ fi &&
 
 if module_installed openssl; then
   echo "SUPPORT_TLS=yes"        >> Local/Makefile
+  echo "USE_OPENSSL=yes"        >> Local/Makefile
   echo "USE_OPENSSL_PC=openssl" >> Local/Makefile
 fi &&
 
-if module_installed gnutls; then
-  echo "SUPPORT_TLS=yes"      >> Local/Makefile
-  echo "USE_GNUTLS=yes"       >> Local/Makefile
-  echo "USE_GNUTLS_PC=gnutls" >> Local/Makefile
-fi &&
+# does not work with gnutls 3.x
+#if module_installed gnutls; then
+#  echo "SUPPORT_TLS=yes"      >> Local/Makefile
+#  echo "USE_GNUTLS=yes"       >> Local/Makefile
+#  echo "USE_GNUTLS_PC=gnutls" >> Local/Makefile
+#fi &&
 
 echo "EXIM_USER=mail"                     >> Local/Makefile
 echo "BIN_DIRECTORY=/usr/bin"             >> Local/Makefile
@@ -46,8 +48,9 @@ echo "SPOOL_DIRECTORY=/var/spool/mail"    >> Local/Makefile
 echo "CFLAGS=$CFLAGS"                     >> Local/Makefile
 echo "AUTH_CRAM_MD5=yes"                  >> Local/Makefile
 echo "AUTH_PLAINTEXT=yes"                 >> Local/Makefile
-echo "LOOKUP_NIS=yes"                     >> Local/Makefile
 echo "SUPPORT_MAILDIR=yes"                >> Local/Makefile
+# breaks the build
+#echo "LOOKUP_NIS=yes"                     >> Local/Makefile
 
 make &&
 prepare_install &&
