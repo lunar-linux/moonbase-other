@@ -2,9 +2,8 @@
 rm -rf /usr/lib/j[rd][ek]1.?.0_* &&
 rm -rf /usr/lib/java &&
 rm -f /usr/lib/libjvm.so &&
-
-# remove old /usr/java home
 rm -rf /usr/java &&
+
 prepare_install &&
 
 # Install java
@@ -37,13 +36,12 @@ for file in /usr/lib/java/latest/bin/*; do
 done &&
 
 mkdir -p /usr/lib/lunar/plugins &&
-rm -f /usr/lib/lunar/plugins/{libjavaplugin_oji,libnpjp2}.so
-#rm -f /usr/lib/lunar/plugins/libjavaplugin_oji.so
+rm -f /usr/lib/lunar/plugins/{libjavaplugin_oji.so,libnpjp2.so}
 
 # Always use new plugin.
 # Firefox 3, Seamonkey 2, Google chrome/ium use it
 # KDE3/4 Konqueror and Opera always uses Java directly so do not use any plugin
-if [ -d /usr/lib/java/latest/jre/lib/amd64 ]; then
+if [ -d /usr/lib/java/latest/lib/amd64 ]; then
   ln -sf /usr/lib/java/latest/jre/lib/amd64/server/libjvm.so /usr/lib/
 #  ln -sf /usr/lib/java/latest/jre/lib/amd64/libnpjp2.so /usr/lib/lunar/plugins/
 else
@@ -51,7 +49,7 @@ else
 #  ln -sf /usr/lib/java/latest/jre/lib/i386/libnpjp2.so /usr/lib/lunar/plugins/
 fi &&
 
-cd /usr/lib/java/jdk${DVERSION}/jre/lib/security &&
+cd /usr/lib/java/jdk${DVERSION}/lib/security &&
 if [ $JCEYES == "y" ]; then
   rm -f US_export_policy.jar local_policy.jar
   ln -s UnlimitedJCEPolicyJDK8/US_export_policy.jar US_export_policy.jar
@@ -63,10 +61,10 @@ cd - &&
 
 # Move .desktops + icons to /usr/share
 cp -fR /usr/lib/java/latest/jre/lib/desktop/* /usr/share/ &&
-rm -fr /usr/lib/java/latest/jre/lib/desktop &&
+rm -fr /usr/lib/java/latest/lib/desktop &&
 
 echo export JAVA_HOME=\"/usr/lib/java/latest\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
-echo export PATH=\"'$PATH':'$JAVA_HOME'/bin\"  >> $SOURCE_DIRECTORY/sun-jdk.rc &&
+echo export PATH=\"'$PATH':'$JAVA_HOME'/bin\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
 install -m644 $SOURCE_DIRECTORY/sun-jdk.rc /etc/profile.d/ &&
 
 rm -rf /usr/lib/java/jdk${DVERSION}/jdk${DVERSION} &&
