@@ -7,7 +7,9 @@ export MODULE_DIR=/lib/modules/$KERN_VER/misc
 ln -sf ../vboxdrv    ./vboxdrv/vboxdrv &&
 ln -sf ../vboxnetadp ./vboxnetadp/vboxnetadp &&
 ln -sf ../vboxnetflt ./vboxnetflt/vboxnetflt &&
-ln -sf ../vboxpci    ./vboxpci/vboxpci &&
+#ln -sf ../vboxpci    ./vboxpci/vboxpci &&
+
+rm -fR vboxpci &&
 
 default_make &&
 
