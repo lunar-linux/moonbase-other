@@ -1,6 +1,6 @@
 OPTS+=" --enable-nls \
         --enable-thread-safety \
-        --enable-integer-datetimes" &&
+        --enable-integer-datetimes"
 
 add_priv_user postgres:postgres &&
 

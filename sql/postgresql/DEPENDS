@@ -12,8 +12,10 @@ optional_depends zlib "" "--without-zlib" "for compression support"
 optional_depends timezone-data \
                  "--with-system-tzdata=/usr/share/zoneinfo" \
                  "--without-system-tzdata" \
-                 "use system timezone data"
+                 "use system timezone data" \
+                 "y"
 
 optional_depends tcl \
                  "--with-tcl --with-tclconfig=/usr/lib" "" \
-                 "for tcl scripting"
+                 "for tcl scripting" \
+                 "n"
