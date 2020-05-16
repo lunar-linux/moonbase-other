@@ -1,0 +1,17 @@
+          MODULE=xlayoutdisplay
+         VERSION=1.1.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/alex-courtis/xlayoutdisplay/archive/v${VERSION}.tar.gz
+      SOURCE_VFY=sha256:93175a25224c0e9f6c3be5014d05183114b46f6bf3115efdc86ea8756848dc25
+        WEB_SITE=https://github.com/alex-courtis/xlayoutdisplay/
+         ENTERED=20200516
+         UPDATED=20200516
+           SHORT="Detects and arranges linux display outputs"
+
+cat << EOF
+Detects and arranges outputs for an X display, using XRandR for detection and
+xrandr for arrangement.
+Highest refresh rate of the output's preferred resolution are used.
+Left-to-right ordering is used, unless the user specifies mirrorred outputs.
+Laptop displays (eDP*) are disabled when the lid is closed.
+EOF
