@@ -2,14 +2,15 @@ depends perl
 depends e2fsprogs
 depends Linux-PAM
 
-optional_depends openldap \
-                 "--with-ldap" "" \
-                 "for openldap support"
-
 optional_depends readline \
                  "--with-readline" "" \
                  "for readline support"
 
+optional_depends openldap \
+                 "--with-ldap" "" \
+                 "for openldap support"
+
 optional_depends tcl \
                  "--with-tcl" "" \
-                 "for running test programs"
+                 "for running test programs" \
+                 "n"
