@@ -4,6 +4,8 @@ fi &&
 
 OPTS+=" -Dexamples=disabled \
         -Dtremor=disabled \
-        -Dtests=disabled"
+        -Dtests=disabled \
+        -Dglib-checks=enabled \
+        -Dglib-asserts=enabled"
 
 default_meson_build
