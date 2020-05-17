@@ -10,13 +10,13 @@ fi &&
 
 # Build VirtualBox
 # Disable hardening, so normal users can run it
-OPTS+=" --disable-hardening"
+OPTS+=" --disable-hardening" &&
 
 OPTS+=" --disable-kmods \
-        --disable-docs"
+        --disable-docs" &&
 
 # this removes 32 bit simulation support
-OPTS+=" --disable-vmmraw"
+OPTS+=" --disable-vmmraw" &&
 
 ./configure $OPTS &&
 source ./env.sh &&
@@ -46,7 +46,7 @@ cp -R out/linux.*/release/bin/* $MODULE_PREFIX/ &&
 # Install wrapper and useful symlinks
 install -m755 out/linux.*/release/bin/VBox.sh /usr/bin/VBox &&
 for i in VBoxHeadless VBoxManage VBoxSDL VirtualBox vboxwebsrv VBoxBalloonCtrl; do
-   ln -sf VBox /usr/bin/$i
+   ln -sf VBox /usr/bin/$i &&
    ln -sf VBox /usr/bin/${i,,}
 done &&
 
