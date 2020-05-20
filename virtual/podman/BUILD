@@ -6,6 +6,10 @@ export GOFLAGS="-buildmode=pie -trimpath"
 
 default_make &&
 
+if ! module_installed docker; then
+   install docker /usr/bin/
+fi &&
+
 if module_installed bash-completion; then
    install  -m 644 completions/bash/podman /usr/share/bash-completion/completions/
 fi &&
