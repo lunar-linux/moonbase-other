@@ -1,5 +1,5 @@
 export CGO_LDFLAGS=$LDFLAGS
-export GOFLAGS="-trimpath"
+export GOFLAGS="-buildmode=pie -trimpath"
 
 export CFLAGS="$CFLAGS -Wl,-z,relro -Wl,-z,now"
 
