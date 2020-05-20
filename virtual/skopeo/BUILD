@@ -1,4 +1,4 @@
-export GOFLAGS="-trimpath"
+export GOFLAGS="-trimpath -mod=readonly -modcacherw -buildmode=pie"
 export CGO_LDFLAGS="$LDFLAGS"
 
 make binary-local BUILDTAGS='containers_image_ostree_stub' &&
