@@ -28,9 +28,42 @@ optional_depends gnutls \
                  "--disable-gnutls" \
                  "for encrypted communications"
 
-optional_depends acl       "--enable-acl"      "--disable-acl"      "for access control list support"
-optional_depends libpaper  "--enable-libpaper" "--disable-libpaper" "for paper size library support"
-optional_depends libusb    "--enable-libusb"   "--disable-libusb"   "for usb device support"
-optional_depends avahi     "--enable-avahi"    "--disable-avahi"    "for avahi support"
-optional_depends heimdal   "--enable-gssapi"   "--disable-gssapi"   "for Heimdal support"
-optional_depends xinetd    "--with-xinetd"     "--without-xinetd"   "for xinetd support"
+optional_depends acl \
+                 "--enable-acl" \
+                 "--disable-acl" \
+                "for access control list support"
+
+optional_depends libpaper \
+                 "--enable-libpaper" \
+                 "--disable-libpaper" \
+                 "for paper size library support"
+
+optional_depends libusb \
+                 "--enable-libusb" \
+                 "--disable-libusb" \
+                 "for usb device support"
+
+optional_depends avahi \
+                 "--enable-avahi"  \
+                 "--disable-avahi" \
+                 "for avahi support" \
+                 "n"
+
+optional_depends krb5 \
+                 "--enable-gssapi" \
+                 "--disable-gssapi" \
+                 "for Kerberos support (choose krb5 or heimdal only)" \
+                 "n"
+
+optional_depends heimdal \
+                 "--enable-gssapi" \
+                 "--disable-gssapi" \
+                 "for Heimdal Kerberos support (choose heimdal or krb5 only)" \
+                 "n"
+
+optional_depends xinetd \
+                 "--with-xinetd" \
+                 "--without-xinetd" \
+                 "for xinetd support" \
+                 "n"
+

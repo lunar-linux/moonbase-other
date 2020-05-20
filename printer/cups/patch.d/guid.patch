@@ -2,7 +2,7 @@ diff --git a/scheduler/cups-exec.c b/scheduler/cups-exec.c
 index aab43a797..46c549075 100644
 --- a/scheduler/cups-exec.c
 +++ b/scheduler/cups-exec.c
-@@ -133,8 +133,13 @@ main(int  argc,				/* I - Number of command-line args */
+@@ -129,8 +129,13 @@ main(int  argc,				/* I - Number of command-line args */
      if (setgid(gid))
        exit(errno + 100);
  
@@ -21,7 +21,7 @@ diff --git a/scheduler/util.c b/scheduler/util.c
 index 19ebf069b..4638562bd 100644
 --- a/scheduler/util.c
 +++ b/scheduler/util.c
-@@ -300,7 +300,16 @@ cupsdPipeCommand(int        *pid,	/* O - Process ID or 0 on error */
+@@ -296,7 +296,16 @@ cupsdPipeCommand(int        *pid,	/* O - Process ID or 0 on error */
      */
  
      if (!getuid() && user)

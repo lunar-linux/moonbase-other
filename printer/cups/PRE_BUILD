@@ -14,6 +14,6 @@ sedit 's@EXPORT_SSLLIBS="$SSLLIBS"@EXPORT_SSLLIBS=""@' config-scripts/cups-ssl.m
 # fix the local state directory
 sedit 's@$localstatedir/run/cups@/run/cups@' config-scripts/cups-directories.m4 &&
 
-# Fix some perms
+# fix some perms
 sedit "s:444:644:g" Makedefs.in &&
 sedit "s:555:755:g" Makedefs.in

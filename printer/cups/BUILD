@@ -1,8 +1,12 @@
-OPTS+=" --enable-threads \
+add_priv_user lp:lp -d /dev/null -s /usr/bin/false &&
+
+OPTS+=" --disable-static \
+        --enable-threads \
         --enable-raw-printing \
-        --disable-static \
-        --with-cups-group=lpi \
-        --with-exe-file-perm=0755"
+        --with-cups-user=lp \
+        --with-cups-group=lp \
+        --with-exe-file-perm=0755 \
+        --with-logdir=/var/log/cups"
 
 default_config &&
 
@@ -10,8 +14,6 @@ sedit "s:-Os -g::" Makedefs &&
 sedit "s:-fstack-protector::" Makedefs &&
 
 default_make &&
-
-add_priv_user lp:lp -d /dev/null -s /usr/bin/false &&
 
 if [ -e /etc/init.d ]; then
    # kill some sysv stuff
