@@ -1,7 +1,10 @@
 sh autogen.sh &&
 
 # RIP ggi
-OPTS+=" --disable-static --disable-video-ggi" &&
+OPTS+=" --disable-nasm \
+	--disable-rpath \
+        --disable-static \
+	--disable-video-ggi"
 
 default_build &&
 
