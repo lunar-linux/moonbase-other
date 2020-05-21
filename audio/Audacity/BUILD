@@ -1,5 +1,3 @@
-autoreconf -vi &&
-
 OPTS+=" --with-lib-preference=system \
         --with-libsndfile=system \
         --with-expat=system \
@@ -12,6 +10,6 @@ OPTS+=" --with-lib-preference=system \
         --with-widgetextra=local \
         --with-midi=local \
         --enable-nyquist=local \
-        --with-portmixer" &&
+        --with-portmixer"
 
 default_build
