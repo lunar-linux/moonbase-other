@@ -15,15 +15,15 @@ OPTS+=" --disable-static  \
         --enable-pthreads \
         --enable-postproc \
         --enable-avfilter \
-        --enable-avresample" &&
+        --enable-avresample"
 
 if [ -n $CPU ] ; then
   OPTS+=" --cpu=$CPU"
-fi &&
+fi
 
 if [[ $USE_OPENCV == "y" ]] ; then
  export LDFLAGS+=" -L/usr/share/OpenCV/3rdparty/lib/"
-fi &&
+fi
 
 # With default_build, get error:  Unknown option "--build=i686-pc-linux-gnu"
 ./configure --prefix=/usr $OPTS &&
