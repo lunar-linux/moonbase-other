@@ -1,0 +1,8 @@
+default_pre_build &&
+
+sedit '/^Icon=/ s/$/-qt/' qt/transmission-qt.desktop &&
+
+# no pt_PT.po file
+sedit '/pt_PT/d' po/CMakeLists.txt &&
+
+rm -f m4/glib-gettext.m4
