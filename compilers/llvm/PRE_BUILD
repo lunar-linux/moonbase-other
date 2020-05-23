@@ -14,4 +14,7 @@ sedit 's:DESTINATION docs/html:DESTINATION share/doc/llvm/clang-extra:' extra/do
 
 cd $SOURCE_DIRECTORY &&
 sedit 's:libexec:lib/clang:' $SOURCE_DIRECTORY/tools/clang/tools/scan-build/bin/scan-build &&
-sedit 's:/libexec/:/lib/clang/:g' $SOURCE_DIRECTORY/tools/clang/tools/CMakeLists.txt
+sedit 's:/libexec/:/lib/clang/:g' $SOURCE_DIRECTORY/tools/clang/tools/CMakeLists.txt &&
+
+# Remove libclangHandleLLVM; breaks zig
+sedit '/add_clang_subdirectory(handle-llvm)/d' tools/clang/tools/clang-fuzzer/CMakeLists.txt
