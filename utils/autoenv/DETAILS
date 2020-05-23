@@ -1,0 +1,22 @@
+          MODULE=autoenv
+         VERSION=0.2.1
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+ SOURCE_URL_FULL=https://github.com/inishchith/autoenv/archive/v${VERSION}.tar.gz
+      SOURCE_VFY=sha256:d10ee4d916a11a664453e60864294fec221c353f8ad798aa0aa6a2d2c5d5b318
+        WEB_SITE=https://github.com/inishchith/autoenv
+         ENTERED=20200523
+         UPDATED=20200523
+           SHORT="Directory based enviroments"
+
+cat << EOF
+Magic per-project shell environments.
+If a directory contains a .env file, it will automatically be executed when
+you cd into it. When enabled (set AUTOENV_ENABLE_LEAVE to a non-null string),
+if a directory contains a .env.leave file, it will automatically be executed
+when you leave it.
+This is great for:
+  auto-activating virtualenvs
+  auto-deactivating virtualenvs
+  project-specific environment variables
+  making millions.
+EOF
