@@ -17,7 +17,7 @@ export CPPFLAGS+=" -DSQLITE_ENABLE_DBSTAT_VTAB=1 \
                    -DSQLITE_ENABLE_COLUMN_METADATA=1 \
                    -DSQLITE_ENABLE_FTS3=1 \
                    -DSQLITE_ENABLE_FTS4=1 \
-                   -DSQLITE_ENABLE_FTS5=1" &&
+                   -DSQLITE_ENABLE_FTS5=1"
 
 OPTS+="	--disable-static \
 	--enable-fts3 \
@@ -28,4 +28,4 @@ OPTS+="	--disable-static \
 
 default_build &&
 
-install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1
+install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1/
