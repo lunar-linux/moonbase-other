@@ -12,7 +12,7 @@ fi
 
 default_build &&
 
-if module_installed sysvinit; then
-    rm -f /etc/init.d/smartd
-    rm -f /etc/rc?.d/???smartd
+if ! module_installed sysvinit; then
+   rm -f /etc/init.d/smartd
+   rm -f /etc/rc?.d/???smartd
 fi
