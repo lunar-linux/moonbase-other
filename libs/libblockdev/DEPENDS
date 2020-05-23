@@ -1,6 +1,6 @@
 depends parted
 depends libbytesize
-depends volume_key 
+depends volume_key
 depends ndctl
 depends %UDEV
 depends yaml
@@ -8,7 +8,7 @@ depends yaml
 optional_depends xfsprogs   "" "" "for XFS support"
 optional_depends dosfstools "" "" "for ms-dos filesystem support"
 
-optional_depends python    "--with-python3" "" "for Python 3.x support"
+optional_depends python     "--with-python3"  "" "for Python 3.x support"
 
 optional_depends btrfs-progs "--with-btrfs"   "" "for btrfs support"
 optional_depends lvm2        "--with-lvm"     "" "for LVM2 support"
@@ -19,4 +19,5 @@ optional_depends dmraid      "--with-dm"      "--without-dm"     "for LVM RAID s
 optional_depends gobject-introspection \
                  "--enable-introspection" \
                  "--disable-introspection" \
-                 "for object introspection"
+                 "for object introspection" \
+                 "y"
