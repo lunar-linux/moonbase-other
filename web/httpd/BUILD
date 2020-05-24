@@ -35,5 +35,5 @@ default_build &&
 chown http:http /srv/http /var/log/httpd &&
 
 if [ ! -e /usr/sbin/httpsd ]; then
-  ln -s /usr/bin/httpd /usr/bin/httpsd
+  ln -s /usr/sbin/httpd /usr/bin/httpsd
 fi
