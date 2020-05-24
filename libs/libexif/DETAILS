@@ -1,11 +1,12 @@
           MODULE=libexif
-         VERSION=0.6.21
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=$SFORGE_URL/$MODULE
-      SOURCE_VFY=sha256:16cdaeb62eb3e6dfab2435f7d7bccd2f37438d21c5218ec4e58efa9157d4d41a
-        WEB_SITE=http://sourceforge.net/projects/libexif
+         VERSION=0.6.22
+        MVERSION=${VERSION//./_}
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=https://github.com/libexif/libexif/releases/download/${MODULE}-${MVERSION}-release/
+      SOURCE_VFY=sha256:5048f1c8fc509cc636c2f97f4b40c293338b6041a5652082d5ee2cf54b530c56
+        WEB_SITE=https://github.com/libexif/libexif/
          ENTERED=20030108
-         UPDATED=20200210
+         UPDATED=20200524
            SHORT="A library for parsing, editing, and saving EXIF data"
 
 cat << EOF
