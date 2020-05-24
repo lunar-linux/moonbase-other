@@ -1,1 +1,43 @@
-mquery ARM64 "Generate code for AArch64 (needed for zig)?" n "" ""
+# only lin -r gcc will trigger the language selector!
+if [ -n "$RECONFIGURE" ]; then
+  TARGETS=$(get_module_config TARGETS) &&
+  if [ -z "$TARGETS" ]; then
+    TARGETS=${TARGETS:="X86;AMDGPU;BPF"}
+  fi &&
+
+  if query "Do you want to select additional compiler targets (zig needs all)? " n; then
+    OPTIONS=(
+      "AMDGPU"      "AMD GPU"     "on"
+      "BPF"         "BPF"         "on"
+      "AArch64"     "AArch 64"    "off"
+      "ARM"         "ARM"         "off"
+      "WebAssembly" "WebAssembly" "off"
+      "RISCV"       "RiscV"       "off"
+      "Mips"        "Mips"        "off"
+      "Sparc"       "Sparc"       "off"
+      "PowerPC"     "PowerPC"     "off"
+      "Hexagon"     "Hexagon"     "off"
+      "Lanai"       "Lanai"       "off"
+      "NVPTX"       "NVIDIA PTX"  "off"
+      "MSP430"      "MSP430"      "off"
+      "SystemZ"     "SystemZ"     "off"
+      "XCore"       "XCore"       "off"
+    ) &&
+    RESULT=`dialog --title "Select additional compiler targets" \
+                   --stdout                                     \
+                   --separate-output                            \
+                   --checklist  "Available additional targets:" \
+                    0 0 0                                       \
+                   "${OPTIONS[@]}"` &&
+
+    TARGETS="X86;$(echo $RESULT | sed 's/ /;/g')" &&
+    set_module_config TARGETS "$TARGETS"
+  else
+    TARGETS=$(get_module_config TARGETS) &&
+    if [ -z "$TARGETS" ]; then
+      TARGETS=${TARGETS:="X86;AMDGPU;BPF"}
+    fi &&
+    set_module_config TARGETS "$TARGETS"
+  fi
+fi
+clear
