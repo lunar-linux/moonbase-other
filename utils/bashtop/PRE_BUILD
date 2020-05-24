@@ -1,3 +1,6 @@
 default_pre_build &&
 
-sedit 's:/usr/local:/usr:' Makefile
+sedit 's:/usr/local:/usr:' Makefile &&
+
+# disable update check
+sed -ri 's,^update_check="true"$,update_check="false",' bashtop
