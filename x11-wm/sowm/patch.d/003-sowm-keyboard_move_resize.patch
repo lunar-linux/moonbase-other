@@ -1,0 +1,68 @@
+From 8351f78779d71991560b80b561e07732c319dbdb Mon Sep 17 00:00:00 2001
+From: Felix H W <felixhow@icloud.com>
+Date: Wed, 11 Mar 2020 22:41:41 +0100
+Subject: [PATCH] sowm: Keyboard move/resize
+
+---
+ config.def.h | 10 ++++++++++
+ sowm.c       | 13 +++++++++++++
+ sowm.h       |  1 +
+ 3 files changed, 24 insertions(+)
+
+diff --git a/config.def.h b/config.def.h
+index cae2009..13352ca 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -18,6 +18,16 @@ static struct key keys[] = {
+     {MOD,      XK_c,   win_center, {0}},
+     {MOD,      XK_f,   win_fs,     {0}},
+
++    {MOD,           XK_k,  win_move,  {.com = (const char*[]){"move",   "n"}, .i = 10}},
++    {MOD,           XK_j,  win_move,  {.com = (const char*[]){"move",   "s"}, .i = 10}},
++    {MOD,           XK_l,  win_move,  {.com = (const char*[]){"move",   "e"}, .i = 10}},
++    {MOD,           XK_h,  win_move,  {.com = (const char*[]){"move",   "w"}, .i = 10}},
++
++    {MOD|ShiftMask, XK_k,  win_move,  {.com = (const char*[]){"resize", "n"}, .i = 10}},
++    {MOD|ShiftMask, XK_j,  win_move,  {.com = (const char*[]){"resize", "s"}, .i = 10}},
++    {MOD|ShiftMask, XK_l,  win_move,  {.com = (const char*[]){"resize", "e"}, .i = 10}},
++    {MOD|ShiftMask, XK_h,  win_move,  {.com = (const char*[]){"resize", "w"}, .i = 10}},
++
+     {Mod1Mask,           XK_Tab, win_next,   {0}},
+     {Mod1Mask|ShiftMask, XK_Tab, win_prev,   {0}},
+
+diff --git a/sowm.c b/sowm.c
+index 8b21dc6..2c7d54e 100644
+--- a/sowm.c
++++ b/sowm.c
+@@ -31,6 +31,19 @@ static void (*events[LASTEvent])(XEvent *e) = {
+
+ #include "config.h"
+
++void win_move(const Arg arg) {
++    int  r = arg.com[0][0] == 'r';
++    char m = arg.com[1][0];
++
++    win_size(cur->w, &wx, &wy, &ww, &wh);
++
++    XMoveResizeWindow(d, cur->w, \
++        wx + (r ? 0 : m == 'e' ?  arg.i : m == 'w' ? -arg.i : 0),
++        wy + (r ? 0 : m == 'n' ? -arg.i : m == 's' ?  arg.i : 0),
++        MAX(10, ww + (r ? m == 'e' ?  arg.i : m == 'w' ? -arg.i : 0 : 0)),
++        MAX(10, wh + (r ? m == 'n' ? -arg.i : m == 's' ?  arg.i : 0 : 0)));
++}
++
+ void win_focus(client *c) {
+     cur = c;
+     XSetInputFocus(d, cur->w, RevertToParent, CurrentTime);
+--- a/sowm.h
++++ b/sowm.h
+@@ -51,6 +51,7 @@
+ void win_kill(const Arg arg);
+ void win_prev(const Arg arg);
+ void win_next(const Arg arg);
++void win_move(const Arg arg);
+ void win_round_corners(Window w, int rad);
+ void win_to_ws(const Arg arg);
+ void ws_go(const Arg arg);
+
+
