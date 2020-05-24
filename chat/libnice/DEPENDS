@@ -1,17 +1,19 @@
 depends meson
 
-optional_depends gnutls \
-                 "-Dcrypto-library=gnutls" "" \
-                 "for GNU TLS support (use this or openssl, but not both)" n
-
-optional_depends %OSSL \
-                 "-Dcrypto-library=openssl" "" \
-                 "for GNU SSL support (use this or gnutls, but not both)" n
-
 optional_depends gstreamer \
                  "-Dgstreamer=enabled" \
                  "-Dgstreamer=disabled" \
                  "for GStreamer plugins support"
+
+optional_depends gnutls \
+                 "-Dcrypto-library=gnutls" "" \
+                 "for GNU TLS support (use this or openssl, but not both)" \
+                 "n"
+
+optional_depends %OSSL \
+                 "-Dcrypto-library=openssl" "" \
+                 "for GNU SSL support (use this or gnutls, but not both)" \
+                 "n"
 
 optional_depends gtk-doc \
                  "-Dgtk-doc=enabled" \
