@@ -10,23 +10,24 @@ if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ];
     set_module_config OLD_VER "`installed_version $MODULE`"
 fi &&
 
-export MOZ_CO_PROJECT=mail  &&
+export MOZ_CO_PROJECT=mail &&
 export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
-export MOZILLA_OFFICIAL=1  &&
-export BUILD_OFFICIAL=1  &&
-export MOZ_MAKE_FILES=$MAKES  &&
+export MOZILLA_OFFICIAL=1 &&
+export BUILD_OFFICIAL=1 &&
+export MOZ_MAKE_FILES=$MAKES &&
 export MOZ_THUNDERBIRD=1 &&
 export AUTOCONF=/usr/bin/autoconf-mozilla &&
 
-cp $SCRIPT_DIRECTORY/mozconfig .  &&
-export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla"  &&
-mkdir -p ${MOZ_OBJDIR}  &&
+cp $SCRIPT_DIRECTORY/mozconfig . &&
+export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla" &&
+mkdir -p ${MOZ_OBJDIR} &&
 
 for flag in $OPTS; do
   echo "ac_add_options $flag" >> mozconfig
 done &&
 
-# To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
+# To skirt around this make failure in ftbzip2.c:183:
+# undefined reference to `BZ2_bzDecompressInit'
 CFLAGS+=" -lbz2" &&
 
 sed -e '/#include/i\
