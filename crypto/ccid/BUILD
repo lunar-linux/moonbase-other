@@ -1,4 +1,5 @@
-OPTS+=" --enable-twinserial --enable-serialconfdir=/etc/reader.conf.d"
+OPTS+=" --enable-twinserial \
+	--enable-serialconfdir=/etc/reader.conf.d"
 
 default_build &&
 
