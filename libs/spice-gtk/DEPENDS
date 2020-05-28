@@ -4,67 +4,69 @@ depends spice
 depends libsoup
 depends usbutils
 depends json-glib
+depends spice-protocol
 depends intltool
+depends meson
+
+optional_depends libjpeg-turbo \
+                 "-Dbuiltin-mjpeg=true" \
+                 "-Dbuiltin-mjpeg=false" \
+                 "for JPEG support (mjpeg video decoder)"
 
 optional_depends cyrus-sasl \
-                 "--with-sasl" \
-                 "--without-sasl" \
+                 "-Dsasl=enabled" \
+                 "-Dsasl=disabled" \
                  "for SASL authentication support"
 
-optional_depends dbus-glib \
-                 "--enable-dbus=yes" \
-                 "--enable-dbus=no" \
-                 "for desktop integration support"
-
 optional_depends polkit \
-                 "--enable-polkit=yes" \
-                 "--enable-polkit=no" \
+                 "-Dpolkit=enabled" \
+                 "-Dpolkit=disabled" \
                  "for polkit policy support"
 
 optional_depends pulseaudio \
-                 "--enable-pulse=yes" \
-                 "--enable-pulse=no" \
+                 "-Dpulse=enabled" \
+                 "-Dpulse=disabled" \
                  "for pulseaudio support"
 
 optional_depends celt051 \
-                 "--enable-celt051=yes" \
-                 "--enable-celt051=no" \
+                 "-Dcelt051=enabled" \
+                 "-Dcelt051=disabled" \
                  "for celt audio communication support"
 
 optional_depends libcacard \
-                 "--enable-smartcard=yes" \
-                 "--enable-smartcard=no" \
+                 "-Dsmartcard=enabled" \
+                 "-Dsmartcard=disabled" \
                  "for smartcard support"
 
 optional_depends usbredir \
-                 "--enable-usbredir=yes" \
-                 "--enable-usbredir=no" \
+                 "-Dusbredir=enabled" \
+                 "-Dusbredir=disabled" \
                  "for USB redirection support"
 
 optional_depends opus \
-                 "--enable-opus" \
-                 "--disable-opus" \
+                 "-Dopus=enabled" \
+                 "-Dopus=disabled" \
                  "for opus audio codecing format support"
 
 optional_depends lz4 \
-                 "--enable-lz4=yes" \
-                 "--enable-lz4=no" \
+                 "-Dlz4=enabled" \
+                 "-Dlz4=disabled" \
                  "for LZ4 compression support"
 
 optional_depends vala \
-                 "--enable-vala=yes" \
-                 "--enable-vala=no" \
+                 "-Dvapi=enabled" \
+                 "-Dvapi=disabled" \
                  "for vala support" \
                  "y"
 
 optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
+                 "-Dgtk_doc=enabled" \
+                 "-Dgtk_doc=disabled" \
                  "for building documentation" \
                  "n"
 
 optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
+                 "-Dintrospection=enabled" \
+                 "-Dintrospection=disabled" \
                  "for object introspection support" \
                  "y"
