@@ -1,15 +1,12 @@
-default_build &&
+default_config &&
+default_make &&
 
-if in_depends $MODULE python-setuptools; then
-  pushd python &&
-  python3 setup.py install --root=/ &&
-  popd
-fi &&
+pushd python &&
+python setup.py install --root=/ --cpp_implementation &&
+popd &&
 
-if in_depends $MODULE python2-setuptools; then
-  pushd python &&
-  python2 setup.py install --root=/ &&
-  popd
-fi &&
+install -Dm644 editors/protobuf-mode.el /usr/share/emacs/site-lisp/ &&
 
-install -Dm644 editors/protobuf-mode.el /usr/share/emacs/site-lisp/protobuf-mode.el
+if module_installed vim; then
+   install -vDm 644 editors/proto.vim -t "/usr/share/vim/vimfiles/syntax"
+fi
