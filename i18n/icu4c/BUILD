@@ -1,3 +1,3 @@
-cd $MODULE/source &&
+cd source &&
 
 default_build
