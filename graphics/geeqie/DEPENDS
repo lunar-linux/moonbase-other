@@ -3,13 +3,14 @@ depends tiff
 
 optional_depends gtk+-2 \
     "" \
-    "--disable-gtk3" \
+    "" \
     "use GTK2 UI - choose this or gtk+-3 (next)"
 
 optional_depends gtk+-3 \
     "--enable-gtk3" \
     "" \
     "use GTK3 UI"
+
 optional_depends exiv2 \
     "" \
     "--disable-exiv2" \
@@ -20,11 +21,6 @@ optional_depends lirc \
     "--disable-lirc" \
     "for lirc support"
 
-optional_depends doxygen \
-    "" \
-    "--disable-doxygen-doc" \
-    "for documentation support"
-
 optional_depends luajit \
     "" \
     "--disable-lua" \
@@ -34,6 +30,16 @@ optional_depends clutter \
     "" \
     "--disable-gpu-accel" \
     "for GPU accelerated display"
+
+optional_depends lcms2 \
+    "" \
+    "--disable-lcms" \
+    "color management support"
+
+optional_depends poppler \
+    "" \
+    "--disable-pdf" \
+    "for pdf support"
 
 optional_depends ffmpegthumbnailer \
     "" \
@@ -53,12 +59,7 @@ optional_depends libwmf \
 optional_depends Image-ExifTool  \
     "" \
     "" \
-    "For the jpeg extraction plugin - requires lcms2"
-
-optional_depends lcms2 \
-    "" \
-    "--disable-lcms" \
-    "color management support"
+    "For the jpeg info extraction plugin"
 
 optional_depends libheif \
     "" \
@@ -75,3 +76,7 @@ optional_depends djvulibre  \
     "" \
     "for DjVu image display"
 
+optional_depends doxygen \
+    "" \
+    "--disable-doxygen-doc" \
+    "for documentation support"
