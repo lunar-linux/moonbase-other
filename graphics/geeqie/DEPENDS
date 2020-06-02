@@ -1,5 +1,77 @@
-depends gtk+-2
+depends %JPEG
+depends tiff
 
-optional_depends lcms  "" "--disable-lcms"  "color management support"
-optional_depends exiv2 "" "--disable-exiv2" "enhanced exif support"
-optional_depends lirc  "" "--disable-lirc"  "for lirc support"
+optional_depends gtk+-2 \
+    "" \
+    "--disable-gtk3" \
+    "use GTK2 UI - choose this or gtk+-3 (next)"
+
+optional_depends gtk+-3 \
+    "--enable-gtk3" \
+    "" \
+    "use GTK3 UI"
+optional_depends exiv2 \
+    "" \
+    "--disable-exiv2" \
+    "enhanced exif support"
+
+optional_depends lirc \
+    "" \
+    "--disable-lirc" \
+    "for lirc support"
+
+optional_depends doxygen \
+    "" \
+    "--disable-doxygen-doc" \
+    "for documentation support"
+
+optional_depends luajit \
+    "" \
+    "--disable-lua" \
+    "for lua scripting support"
+
+optional_depends clutter \
+    "" \
+    "--disable-gpu-accel" \
+    "for GPU accelerated display"
+
+optional_depends ffmpegthumbnailer \
+    "" \
+    "" \
+    "to display thumbnails of video files"
+
+optional_depends librsvg \
+    "" \
+    "" \
+    "for SVG image support"
+
+optional_depends libwmf \
+    "" \
+    "" \
+    "for wmf image support"
+
+optional_depends Image-ExifTool  \
+    "" \
+    "" \
+    "For the jpeg extraction plugin - requires lcms2"
+
+optional_depends lcms2 \
+    "" \
+    "--disable-lcms" \
+    "color management support"
+
+optional_depends libheif \
+    "" \
+    "" \
+    "for HEIF file display"
+
+optional_depends libwebp \
+    "" \
+    "" \
+    "for WEBP image display"
+
+optional_depends djvulibre  \
+    "" \
+    "" \
+    "for DjVu image display"
+
