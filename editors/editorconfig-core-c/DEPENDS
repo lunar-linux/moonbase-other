@@ -1,0 +1,7 @@
+depends pcre2
+depends cmake
+
+optional_depends doxygen \
+                 "-DBUILD_DOCUMENTATION=ON -INSTALL_HTML_DOC=OFF" \
+                 "-DBUILD_DOCUMENTATION=OFF -INSTALL_HTML_DOC=OFF" \
+                 "for installing the man pages"
