@@ -1,0 +1,24 @@
+
+# HG changeset patch
+# User Phil Thompson <phil@riverbankcomputing.com>
+# Date 1587554299 -3600
+# Node ID 812b5e26df96228519358e1c8d551b65bd1c53a3
+# Parent  b5f2f60e72e56db0f5e503baa9e09e88ba827e55
+Fixed a race condition when calling the PyQt5-specific meta-call helper.
+
+diff -r b5f2f60e72e5 -r 812b5e26df96 sipgen/gencode.c
+--- a/sipgen/gencode.c	Sun Apr 12 12:44:53 2020 +0100
++++ b/sipgen/gencode.c	Wed Apr 22 12:18:19 2020 +0100
+@@ -7182,7 +7182,11 @@
+ "    _id = %S::qt_metacall(_c,_id,_a);\n"
+ "\n"
+ "    if (_id >= 0)\n"
++"    {\n"
++"        SIP_BLOCK_THREADS\n"
+ "        _id = sip_%s_qt_metacall(sipPySelf,sipType_%C,_c,_id,_a);\n"
++"        SIP_UNBLOCK_THREADS\n"
++"    }\n"
+ "\n"
+ "    return _id;\n"
+ "}\n"
+
