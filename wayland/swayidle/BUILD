@@ -1,5 +1,3 @@
-OPTS+=" -Dfish-completions=false"
-
 default_meson_build &&
 
 mkdir -p /usr/share/doc/$MODULE/ &&
