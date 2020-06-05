@@ -3,5 +3,8 @@ depends curl
 depends %OSSL
 depends zlib
 
-optional_depends libssh2     "" "" "for SSH support"
-optional_depends http-parser "" "" "for system installed http-parser support"
+optional_depends libssh2 "" "" "for SSH support"
+
+optional_depends http-parser \
+                 "-DUSE_HTTP_PARSER=system" "" \
+                 "for system installed http-parser support"
