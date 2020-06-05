@@ -35,8 +35,25 @@ depends fontconfig
 depends ffmpeg
 depends gn
 
-optional_depends cups       "use_cups=true"              "use_cups=false"              "To use system provided cups"
-optional_depends pulseaudio "link_pulseaudio=true use_pulseaudio=true" "use_pulseaudio=false"        "For pulse audio support"
-optional_depends heimdal    "use_kerberos=true"          "use_kerberos=false"          "To use system provided heimdal (kerberos) support"
+optional_depends cups \
+                 "use_cups=true" \
+                 "use_cups=false" \
+                 "To use system provided cups"
+
+optional_depends pulseaudio \
+                 "link_pulseaudio=true use_pulseaudio=true" \
+                 "use_pulseaudio=false" \
+                 "For pulse audio support"
+
+optional_depends heimdal \
+                 "use_kerberos=true" \
+                 "use_kerberos=false" \
+                 "To use system provided heimdal (kerberos) support"
+
+optional_depends pipewire \
+                 "rtc_use_pipewire=true" \
+                 "rtc_use_pipewire=false" \
+                 "for WebRTC desktop sharing under Wayland"
+
 optional_depends libu2f-host "" "" "For FIDO U2F authentication support"
-optional_depends pipewire      "rtc_use_pipewire=true"  "rtc_use_pipewire=false"  "for WebRTC desktop sharing under Wayland"
+optional_depends pepperflash "" "" "For Flash content support"
