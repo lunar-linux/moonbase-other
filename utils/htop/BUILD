@@ -1,7 +1,7 @@
 ./autogen.sh &&
 
-OPTS+=" --enable-unicode \
-        --enable-delayacct \
-        --enable-cgroup"
+OPTS+=" --enable-cgroup \
+        --enable-unicode \
+        --enable-delayacct"
 
 default_build
