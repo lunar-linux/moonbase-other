@@ -1,11 +1,14 @@
 autoreconf --install &&
 
+OPTS+=" --enable-ofono"
+
 mkdir build &&
 cd build &&
 
 ../configure --prefix=/usr \
              --sysconfdir=/etc \
-             --enable-aac \
-             --enable-ofono &&
+	     $OPTS &&
 
-default_make
+default_make &&
+
+install -Dm0644 $SCRIPT_DIRECTORY/bluealsa.conf /etc/default/bluealsa
