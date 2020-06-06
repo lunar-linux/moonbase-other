@@ -1,4 +1,5 @@
-OPTS+=" --enable-ofono"
+OPTS+=" --enable-ofono \
+	--enable-msbc"
 
 default_build &&
 

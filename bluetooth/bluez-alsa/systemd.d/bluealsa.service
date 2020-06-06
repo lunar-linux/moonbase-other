@@ -1,8 +1,8 @@
 [Unit]
 Description=Bluealsa daemon
 Documentation=https://github.com/Arkq/bluez-alsa/
-After=dbus-org.bluez.service
-Requires=dbus-org.bluez.service
+After=dbus.service bluetooth.service
+Requires=dbus.service
 
 [Service]
 Type=dbus
@@ -16,7 +16,7 @@ PrivateTmp=true
 PrivateDevices=true
 RemoveIPC=true
 RestrictAddressFamilies=AF_UNIX AF_BLUETOOTH
-; Also non-privileged can user be used
+; Also non-privileged user can be used
 ; this example assumes a user and group called 'bluealsa' exist
 ;User=bluealsa
 ;Group=bluealsa
