@@ -1,5 +1,11 @@
+depends ncurses
 depends alsa-lib
 depends bluez-5
 depends sbc
 
-optional_depends fdk-aac  "--enable-aac"     "" "for AAC support"
+optional_depends lame    "--enable-mp3lame" "" "for MP3 support"
+optional_depends mpg123  "--enable-mpg123"  "" "for MPEG support"
+optional_depends fdk-aac "--enable-aac"     "" "for AAC support"
+
+optional_depends readline "--enable-rfcomm"  "" "for rfcomm install"
+#optional_depends libbsd   "--enable-hcitop"  "" "for hcitop install"
