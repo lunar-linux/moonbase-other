@@ -3,16 +3,18 @@ depends libdaemon
 depends libcap
 depends intltool
 
-optional_depends python-pygobject "" "--disable-python --disable-pygobject" "enable python scripts"
+optional_depends python-pygobject \
+                 "" "--disable-python --disable-pygobject" \
+                 "enable python scripts"
 
 optional_depends systemd  "" "" "for systemd Support"
 optional_depends nss-mdns "" "" "for Name Switching Services Support"
 optional_depends pygtk    "" "" "for avahi-bookmarks"
 
-optional_depends gdbm   "--enable-gdbm" "--disable-gdbm" "for extensible hashing support"
-optional_depends qt5    "--enable-qt5"  "--disable-qt5"  "for Qt5 support" n
-optional_depends gtk+-3 "--enable-gtk3" "--disable-gtk3" "for GTK+ 3.x support" n
-optional_depends gtk+-2 "--enable-gtk"  "--disable-gtk"  "for GTK+ 2.x support" n
+optional_depends gdbm   "--enable-gdbm" "--disable-gdbm" "for extensible hashing support" "n"
+optional_depends qt5    "--enable-qt5"  "--disable-qt5"  "for Qt5 support" "n"
+optional_depends gtk+-3 "--enable-gtk3" "--disable-gtk3" "for GTK+ 3.x support" "n"
+optional_depends gtk+-2 "--enable-gtk"  "--disable-gtk"  "for GTK+ 2.x support" "n"
 
 optional_depends python-dbus \
                  "--enable-python-dbus" \
@@ -27,9 +29,11 @@ optional_depends xmltoman \
 optional_depends gtk-sharp \
                  "--enable-mono" \
                  "--disable-mono" \
-                  "to build the Mono/.NET avahi-sharp library" n
+                 "to build the Mono/.NET avahi-sharp library" \
+                 "n"
 
 optional_depends gobject-introspection \
                  "--enable-introspection=yes" \
                  "--enable-introspection=no" \
-                 "for introspection support" y
+                 "for introspection support" \
+                 "y"
