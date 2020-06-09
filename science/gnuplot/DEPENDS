@@ -2,9 +2,9 @@ depends %JPEG
 depends cairo
 depends gnutls
 
-optional_depends gd  "--with-gd"  "--without-gd"  "for additional graphics support"
-optional_depends %X  "--with-x"   "--without-x"   "Use X window system"
-optional_depends lua "--with-lua" "--without-lua" "for Lua scripting support"
+optional_depends libgd "--with-gd"  "--without-gd"  "for additional graphics support"
+optional_depends %X    "--with-x"   "--without-x"   "Use X window system"
+optional_depends lua   "--with-lua" "--without-lua" "for Lua scripting support"
 
 optional_depends qt5 "--with-qt=qt5" "" "for Qt 5.x support"
 
@@ -16,14 +16,17 @@ optional_depends readline \
 optional_depends libcaca \
                  "--with-caca" \
                  "--without-caca" \
-                 "for ASCII art terminal support"
+                 "for ASCII art terminal support" \
+                 "n"
 
 optional_depends texlive \
                  "--with-latex" \
                  "--without-latex" \
-                 "for latex support"
+                 "for latex support" \
+                 "n"
 
 optional_depends wxGTK \
                  "--enable-wxwidgets" \
                  "--disable-wxwidgets" \
-                 "for WxGtk support"
+                 "for WxGtk support" \
+                 "n"
