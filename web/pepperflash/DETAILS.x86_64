@@ -1,23 +1,24 @@
           MODULE=pepperflash
-         VERSION=32.0.0.371
+         VERSION=32.0.0.387
           SOURCE=$MODULE-$VERSION.tar.gz
  SOURCE_URL_FULL=https://fpdownload.adobe.com/pub/flashplayer/pdc/$VERSION/flash_player_ppapi_linux.x86_64.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha256:aaaaab6d4c757035904786f006d96cbb08be8788481ffffec542cf203484dc68
+      SOURCE_VFY=sha256:9cb692cdeced9a6f71eb8bd3fb73580e2e826974a293f0918b718d5a8ceba675
         WEB_SITE=https://get.adobe.com/flashplayer/otherversions/
          ENTERED=20140903
-         UPDATED=20200512
+         UPDATED=20200609
            SHORT="Pepper Flash plugin for Chromium"
 
 cat << EOF
-This module downloads the current version of Chromium for Linux to extract the pepperflash library
-and other required files. It does not install Chromium.
+This module downloads the current version of Chromium for Linux to extract the
+pepperflash library and other required files. It does not install Chromium.
 
-Adobe has stopped maitaining flash for linux execpt for security updates. This means the current Linux
-version, 11.x will not have any new functionality nor will it have other changes needed to operate
-correctly as the underlying operating system improves.
+Adobe has stopped maitaining flash for linux execpt for security updates.
+This means the current Linux version will not have any new functionality nor
+will it have other changes needed to operate correctly as the underlying
+operating system improves.
 
-Google and Adobe have teamed up to make their newer version of flash function under Googles Chromium browser.
-Unfortunately this leaves the rest of the Linux browsers hanging out to dry. The purpose of this module
-is to be a hard dependency for the freshplayerplugin.
+Google and Adobe have teamed up to make their newer version of flash function
+under Googles Chromium browser.
+Unfortunately this leaves the rest of the Linux browsers hanging out to dry.
 EOF
