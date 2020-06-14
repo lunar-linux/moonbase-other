@@ -45,4 +45,18 @@ cp -a doc examples /usr/share/nim &&
 
 # fix a bug related to the doc2 command
 rm -f /usr/lib/nim/doc &&
-ln -sf /usr/share/nim/doc /usr/lib/nim/doc
+ln -sf /usr/share/nim/doc /usr/lib/nim/doc &&
+
+# bash completions
+if module_installed bash-completion; then
+   for comp in tools/*.bash-completion; do
+       install -Dm 644 "${comp}" "/usr/share/bash-completion/completions/$(basename "${comp/.bash-completion}")"
+  done
+fi &&
+
+# zsh completions
+if module_installed zsh; then
+   for comp in tools/*.zsh-completion; do
+       install -Dm 644 "${comp}" "/usr/share/zsh/site-functions/_$(basename "${comp/.zsh-completion}")"
+  done
+fi
