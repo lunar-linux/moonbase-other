@@ -9,7 +9,7 @@ OPTS+=" --datadir=/usr/share \
         --sysconfdir=/etc/kismet"
 
 default_config &&
-make dep plugins &&
+make all plugins &&
 make &&
 
 prepare_install &&

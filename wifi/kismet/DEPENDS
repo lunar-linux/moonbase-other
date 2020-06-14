@@ -1,8 +1,12 @@
 depends libcap
 depends ncurses
+depends libmicrohttpd
+depends protobuf-c
 
 optional_depends pcre    "" "--disable-pcre" "for PCRE support"
 optional_depends libpcap "" "--disable-pcap" "for network packets capture support"
+
+optional_depends NetworkManager "" "" "for NetworkManager control"
 
 optional_depends libnl3    "" "" "for mac80211 wireless cards control"
 optional_depends ruby      "" "" "for ruby interface"
