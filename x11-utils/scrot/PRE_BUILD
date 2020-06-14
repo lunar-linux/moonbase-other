@@ -3,9 +3,3 @@ default_pre_build &&
 autoreconf -fiv &&
 
 sedit 's@/doc@/share/doc@' Makefile.{am,in}
-
-unpack $SOURCE2 &&
-
-for patch in $(<debian/patches/series); do
-  [[ ! ( $patch == "fix-makefile" ) ]] && patch_it debian/patches/$patch 1
-done
