@@ -1,5 +1,8 @@
 depends bison
 
-optional_depends "%OSSL" "--with-ssl=/usr" "--without-ssl" "for SSL/TLS support"
+optional_depends "%OSSL" \
+                 "--with-ssl=/usr" \
+                 "--without-ssl" \
+                 "for SSL/TLS support"
 
-optional_depends python "" "" "for fetchmailconf support"
+optional_depends python-future "" "" "for fetchmailconf support"
