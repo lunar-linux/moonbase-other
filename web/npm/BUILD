@@ -12,11 +12,11 @@ rm -fr npm_build/usr/share/man &&
 rm -fr npm_build/usr/lib/node_modules/npm/man
 
 # copy the man pages directory to it's place
-cp -fr $SOURCE_DIRECTORY/man npm_build/usr/share/ &&
+cp -fr $SOURCE_DIRECTORY/man $SOURCE_DIRECTORY/npm_build/usr/share/ &&
 
 prepare_install &&
 
-cp -r --remove-destination npm_build/usr/* /usr/ &&
+cp -r --remove-destination $SOURCE_DIRECTORY/npm_build/usr/* /usr/ &&
 
 # Make symlink for node-gyp
 ln -sf /usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js /usr/bin/node-gyp
