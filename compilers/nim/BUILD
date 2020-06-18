@@ -1,9 +1,7 @@
 export PATH=$SOURCE_DIRECTORY/bin:$PATH
 
 # building nim
-pushd csources &&
-sh build.sh
-popd &&
+sh build_all.sh
 
 # building koch
 nim c -d:release koch &&
