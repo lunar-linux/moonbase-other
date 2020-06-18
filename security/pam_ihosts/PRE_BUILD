@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sedit '/$(INSTALL) -d $(DESTDIR)$(bindir)/d' Makefile.in &&
+sedit 's|$(CFLAGS)|$(CFLAGS) $(LDFLAGS) $(CPPFLAGS)|;s| -fno-stack-protector ||' Makefile.in
