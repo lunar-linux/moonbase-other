@@ -1,7 +1,7 @@
-OPTS+=" --disable-static \
-	--enable-fixed-rrset \
-        --enable-full-report \
-	--with-zlib"
+OPTS+=" --disable-static"
+
+# json-c breaks the compile
+OPTS+=" --without-libjson"
 
 default_build &&
 
