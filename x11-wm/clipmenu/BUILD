@@ -1,8 +1,8 @@
 prepare_install &&
 
-install -D -m755 clipdel /usr/bin/ &&
-install -D -m755 clipmenu /usr/bin/ &&
-install -D -m755 clipmenud /usr/bin/clipmenud &&
+for _executable in clip{menu,menud,del,fsck,ctl}; do
+    install -D -m755 "${_executable}" "/usr/bin/${_executable}"
+done &&
 
 if module_installed systemd; then
    install -D -m644 init/clipmenud.service /usr/lib/systemd/user/
