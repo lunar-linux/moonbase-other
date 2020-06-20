@@ -1,0 +1,28 @@
+          MODULE=cronutils
+         VERSION=1.9
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-version-$VERSION
+ SOURCE_URL_FULL=https://github.com/google/cronutils/archive/version/${VERSION}.tar.gz
+      SOURCE_VFY=sha256:0109f165b193d3482ebf470e5d19fcef13bb692b173f65c966b0b8b8ebc79238
+        WEB_SITE=https://github.com/google/cronutils/
+         ENTERED=20020620
+         UPDATED=20200620
+           SHORT="Utilities to assist running batch processing jobs"
+
+cat << EOF
+cronutils is a set of tools to assist the reliable running of periodic and
+batch jobs.
+  runalarm: Limit the running time of a process.
+  runlock: Prevent concurrent runs of a process.
+  runstat: Export statistics about a process's execution.
+  runcron: Simple wrapper around the above tools.
+
+Used together, they can be used to specify overrun policies for periodic jobs,
+for example:
+  Allow overrun -- let the first job run to completion
+  Kill older job -- specify a timeout on the older job to limit its execution.
+
+Additionally, metrics can be exported to your favourite metrics collector at
+the termination of the job's run, so that abnormal behaviour can be monitored
+for and alerted on.
+EOF
