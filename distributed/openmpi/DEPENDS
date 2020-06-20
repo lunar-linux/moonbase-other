@@ -1,15 +1,20 @@
 depends inetutils
+depends zlib
 
 optional_depends libevent \
                  "--with-libevent=/usr" "" \
                  "for system libevent library support"
 
-optional_depends hwloc \
-                 "--with-hwloc=/usr" "" \
-                 "for hwloc library support"
-
 optional_depends libtool \
                  "--with-libltdl=/usr" "" \
                  "for the system provided libltdl library"
 
-optional_depends valgrind "--with-valgrind" "" "for valgrind support"
+optional_depends hwloc \
+                 "--with-hwloc=/usr" "" \
+                 "for hwloc library support"
+
+optional_depends valgrind \
+                 "--with-valgrind" \
+                 "--without-valgrind" \
+                 "for valgrind support" \
+                 "n"
