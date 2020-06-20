@@ -10,7 +10,20 @@ if module_installed systemd; then
   OPTS+=" --localstatedir=/run/proftpd --with-systemd"
 fi
 
-PROFTPD_MODULES="mod_ifsession mod_ldap mod_radius mod_ratio mod_readme mod_rewrite mod_tls mod_wrap"
+PROFTPD_MODULES="mod_dynmasq \
+                 mod_facl \
+                 mod_ifsession \
+                 mod_ldap \
+                 mod_quotatab \
+                 mod_radius \
+                 mod_ratio \
+                 mod_readme \
+                 mod_rewrite \
+                 mod_sftp \
+                 mod_tls"
+#                 mod_quotatab_file \ # conflicts with mod_quotatab
+#                 mod_wrap \ # breaks the compile
+
 MODS=""
 
 for mod in $PROFTPD_MODULES; do
@@ -21,14 +34,24 @@ done
 
 # ProFTPD only support one backend at a time
 # We default to MySQL if both are enabled
-if in_depends $MODULE mysql; then
+if [ in_depends $MODULE mysql ] || [ in_depends $MODULE mariadb ]; then
   MODS="$MODS:mod_sql:mod_sql_mysql"
   OPTS+=" --with-includes=/usr/include/mysql"
+  if [ $(eval echo \$MOD_quotatab) = "n" ]; then
+    MODS="$MODS:mod_quotatab_sql"
+  fi
 else
   if in_depends $MODULE postgresql; then
     MODS="$MODS:mod_sql:mod_sql_postgres"
     OPTS+=" --with-includes=/usr/include/postgresql"
+    if [ $(eval echo \$MOD_quotatab) = "n" ]; then
+      MODS="$MODS:mod_quotatab_sql"
+    fi
   fi
+fi
+
+if in_depends $MODULE openldap; then
+  MODS="$MODS:mod_ldap"
 fi
 
 MODS=`echo $MODS|sed -re 's%^:%%'`
