@@ -1,22 +1,22 @@
           MODULE=rsync
-         VERSION=3.1.3
+         VERSION=3.2.0
           SOURCE=$MODULE-$VERSION.tar.gz
    SOURCE_URL[0]=http://rsync.samba.org/ftp/$MODULE
    SOURCE_URL[1]=ftp://rsync.samba.org/pub/$MODULE
-      SOURCE_VFY=sha256:55cc554efec5fdaad70de921cd5a5eeb6c29a95524c715f3bbf849235b0800c0
+      SOURCE_VFY=sha256:90127fdfb1a0c5fa655f2577e5495a40907903ac98f346f225f867141424fa25
         WEB_SITE=http://rsync.samba.org
          ENTERED=20010922
-         UPDATED=20180130
+         UPDATED=20200620
            SHORT="A replacement for rcp"
            PSAFE=no
 
 cat << EOF
 rsync is a replacement for rcp (and scp) that has many more features.
-It uses the "rsync algorithm" which provides a very fast method for
-remote files into sync. It does this by sending just the differences
-in the files across the link, without requiring that both sets of files
-are present at one of the ends of the link beforehand.
+It uses the "rsync algorithm" which provides a very fast method for remote files
+into sync. It does this by sending just the differences in the files across the
+link, without requiring that both sets of files are present at one of the ends
+of the link beforehand.
 
-NOTE: rsync as of 2.6.0, now defaults to using ssh. openssh is now a
-required depends of rsync.
+NOTE: rsync as of 2.6.0, now defaults to using ssh. openssh is now a required
+depends of rsync.
 EOF

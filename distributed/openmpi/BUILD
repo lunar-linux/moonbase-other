@@ -9,7 +9,7 @@ OPTS+=" --sysconfdir=/etc/openmpi \
 
 LDFLAGS="${LDFLAGS} -Wl,-z,noexecstack"
 
-if [ -f /usr/bin/gfortran ] && [ "$FORTRAN" == "y" ]; then
+if [ -f /usr/bin/gfortran ] && [ "$FORTRAN" = "y" ]; then
    FC=/usr/bin/gfortran
 fi &&
 
