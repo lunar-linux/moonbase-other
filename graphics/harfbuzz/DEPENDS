@@ -1,33 +1,46 @@
 depends glib-2
 depends pbzip2
 depends python-setuptools
+depends meson
 
 optional_depends freetype2 \
-                 "--with-freetype=yes" \
-                 "--with-freetype=no" \
-                 "for freetype support" y
+                 "-Dfreetype=enabled" \
+                 "-Dfreetype=disabled" \
+                 "for freetype support" \
+                 "y"
 
 optional_depends cairo \
-                 "--with-cairo=yes" \
-                 "--with-cairo=no" \
-                 "for cairo support" y
+                 "-Dcairo=enabled" \
+                 "-Dcairo=disabled" \
+                 "for cairo support" \
+                 "y"
+
+optional_depends fontconfig \
+                 "-Dfontconfig=enabled" \
+                 "-Dfontconfig=disabled" \
+                 "for fontconfig support" \
+                 "y"
 
 optional_depends graphite \
-                 "--with-graphite2" \
-                 "--without-graphite2" \
-                 "for additional shapers support" n
+                 "-Dgraphite=enabled" \
+                 "-Dgraphite=disabled" \
+                 "for additional shapers support" \
+                 "n"
 
 optional_depends icu4c \
-                 "--with-icu=yes" \
-                 "--with-icu=no" \
-                 "for icu support ${PROBLEM_COLOR}webkitgtk3 requires harfbuzz to be compiled with this ${DEFAULT_COLOR}" y
+                 "-Dicu=enabled" \
+                 "-Dicu=disabled" \
+                 "for icu support ${PROBLEM_COLOR}webkitgtk3 requires harfbuzz to be compiled with this ${DEFAULT_COLOR}" \
+                 "y"
 
 optional_depends gobject-introspection \
-                 "--with-gobject=yes --enable-introspection=yes" \
-                 "--with-gobject=no  --enable-introspection=no" \
-                 "for gobject introspection support"
+                 "-Dgobject=enabled -Dintrospection=enabled" \
+                 "-Dgobject=disabled  -Dintrospection=disabled" \
+                 "for gobject introspection support" \
+                 "y"
 
 optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
-                 "for building documentation" n
+                 "-Dgtk-doc=enabled" \
+                 "-Dgtk-doc=disabled" \
+                 "for building documentation" \
+                 "n"
