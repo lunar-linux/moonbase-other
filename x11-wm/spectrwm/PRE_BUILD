@@ -1,0 +1,7 @@
+default_pre_build &&
+
+sedit 's|\"/usr/local/lib/libswmhack.so\"|\"libswmhack.so\"|' spectrwm.c
+sedit 's/verbose_layout = false;/verbose_layout = true;/' spectrwm.c
+sedit 's/# modkey = Mod1/modkey = Mod4/' spectrwm.conf
+
+sedit 's:/usr/local:/usr:g' Makefile linux/Makefile
