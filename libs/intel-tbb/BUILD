@@ -13,4 +13,4 @@
 
   install -Dm0644 tbb.pc /usr/lib/pkgconfig/ &&
 
-  install build/linux_intel*release/*.so* /usr/lib/
+  install build/linux_i*release/*.so* /usr/lib/
