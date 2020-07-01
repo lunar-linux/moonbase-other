@@ -1,6 +1,4 @@
 default_pre_build &&
 
 sedit "s:/man/man1:/share/man/man1:" Makefile &&
-
-# Lua 5.3.4 has wrong release version in its Makefile. Fix it.
-sedit "s/^R= \$V.4/R= \$V.5/" Makefile
+sedit "s:/usr/local:/usr:g" Makefile
