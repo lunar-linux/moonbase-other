@@ -1,0 +1,35 @@
+          MODULE=bbswitch
+         VERSION=0.8
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/Bumblebee-Project/bbswitch/archive/v${VERSION}.tar.gz
+      SOURCE_VFY=sha256:76cabd3f734fb4fe6ebfe3ec9814138d0d6f47d47238521ecbd6a986b60d1477
+        WEB_SITE=http://github.com/Bumblebee-Project/bbswitch/
+         ENTERED=20200712
+         UPDATED=20200712
+           SHORT="Kernel module allowing to switch dedicated graphics card"
+
+cat << EOF
+bbswitch is a kernel module which automatically detects the required ACPI calls
+for two kinds of Optimus laptops. It has been verified to work with "real"
+Optimus and "legacy" Optimus laptops (at least, that is how I call them).
+The machines on which these tests has performed are:
+   Clevo B7130 - GT 425M ("real" Optimus, Lekensteyns laptop)
+   Dell Vostro 3500 - GT 310M ("legacy" Optimus, Samsagax' laptop)
+(note: there is no need to add more supported laptops here as the universal
+calls should work for every laptop model supporting either Optimus calls).
+It's preferred over manually hacking with the acpi_call module because it can
+detect the correct handle preceding _DSM and has some built-in safeguards:
+ - You're not allowed to disable a card if a driver (nouveau, nvidia) is loaded.
+ - Before suspend, the card is automatically enabled. When resuming, it's
+   disabled again if that was the case before suspending. Hibernation should'
+   work, but it not tested.
+Precautionary measure :
+  - On some machines, turning off the card is permanent and the card does not
+    reappear on subsequents reboots, which can result into the screen staying
+    black all the time, including the BIOS screen. If it occurs, first try to
+    shutdown, unplug power cord, remove battery, wait 30s, then put everything
+    back in and boot. If it's not solved, then the solution is to reset the BIOS
+    to factory settings. Before executing bbswitch for the first time, it is
+    therefore recommended to take note of the full key sequence in the BIOS to
+    do a reset.
+EOF

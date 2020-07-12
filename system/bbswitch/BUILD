@@ -2,14 +2,10 @@ export KERNEL_VERSION=$(installed_version linux)
 export KERNEL_DIR=/usr/src/linux-$KERNEL_VERSION
 export MODULE_DIR=/lib/modules/$KERNEL_VERSION/extra
 
-CFLAGS+=" -Werror"
+make KDIR="${KERNEL_DIR}" &&
 
 prepare_install &&
 
-make -C "${KERNEL_DIR}" &&
-
 find . -name '*.ko' -exec strip --strip-debug {} + &&
-gzip wl.ko &&
-
-install -Dm644 $SCRIPT_DIRECTORY/broadcom-wl.conf /usr/lib/modprobe.d/
-install -Dm644 wl.ko.gz "${MODULE_DIR}"/wl.ko.gz
+find . -name '*.ko' -exec gzip {} + &&
+install -Dm644 *.ko.gz "${MODULE_DIR}"/
