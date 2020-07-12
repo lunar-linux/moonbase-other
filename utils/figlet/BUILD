@@ -1,14 +1,7 @@
-(
+mkdir -p /usr/share/figlet &&
 
-  sedit "s:/usr/local:/usr:g" Makefile
-  sedit "s/^CFLAGS *= *.*$/CFLAGS = $CXXFLAGS/" Makefile
-  sedit "s:^DEFAULTFONTDIR[ ]*=[ ]*.*$:DEFAULTFONTDIR = /usr/share/figlet:g" Makefile
+#make DEFAULTFONTDIR=/usr/share/figlet/fonts all &&
 
-  # showfigfonts isnt chmod +x for some reason o_O
-  chmod 0775 showfigfonts    &&
-  mkdir -p /usr/share/figlet &&
-  make all                   &&
-  prepare_install            &&
-  make install
+prepare_install &&
 
-) > $C_FIFO 2>&1
+make BINDIR=/usr/bin MANDIR=/usr/share/man install
