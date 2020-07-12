@@ -18,11 +18,11 @@ prepare_install &&
 
 # Install main app
 make install DESTDIR="/usr" \
-     completiondir=/usr/share/bash-completion/completions
+     completiondir=/usr/share/bash-completion/completions &&
 
 # Blacklist nvidia and nouveau modules
 # Reference: https://github.com/Bumblebee-Project/Bumblebee/issues/719
-install -Dm644 "${SCRIPT_DIRECTORY}/bumblebee.conf" "/usr/lib/modprobe.d/"
+install -Dm644 "${SCRIPT_DIRECTORY}/bumblebee.conf" /usr/lib/modprobe.d/ &&
 
 if module_installed systed; then
    # Install systemd unit
