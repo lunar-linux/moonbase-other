@@ -8,4 +8,6 @@ prepare_install &&
 
 find . -name '*.ko' -exec strip --strip-debug {} + &&
 find . -name '*.ko' -exec gzip {} + &&
+
+mkdir -p "${MODULE_DIR}" &&
 install -Dm644 *.ko.gz "${MODULE_DIR}"/
