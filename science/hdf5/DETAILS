@@ -1,11 +1,13 @@
           MODULE=hdf5
          VERSION=1.12.0
-          SOURCE=$MODULE-$VERSION.tar.bz2
+          SOURCE=CMake-$MODULE-$VERSION.tar.gz
       SOURCE_URL=https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-${VERSION%.*}/hdf5-$VERSION/src/
-      SOURCE_VFY=sha256:97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/CMake-$MODULE-$VERSION
+      SOURCE_VFY=sha256:01b9c01c45cc8c66da86e69c510e17f3cff0706a65d8683cd86af405eaf75397
         WEB_SITE=https://portal.hdfgroup.org/display/support
          ENTERED=20091122
          UPDATED=20200427
+            TYPE=cmake
            SHORT="Data model, library, and file format for storing and managing data"
 
 cat << EOF
