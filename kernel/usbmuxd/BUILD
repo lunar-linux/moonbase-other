@@ -4,5 +4,6 @@
   ./autogen.sh &&
 
   OPTS+=" --without-preflight" &&
+  export libplist_LIBS="-lplist-2.0" &&
 
   default_build
