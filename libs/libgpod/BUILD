@@ -1,6 +1,10 @@
+sedit 's:m}+:m}=:g' tools/90-libgpod.rules.in &&
 
-  if module_installed systemd ; then
-     OPTS+=" --with-udev-dir=/usr/lib/udev/"
-  fi &&
+sed -e 's|libplist >= 1.0|libplist-2.0 >= 2.2|' -i configure.ac # support libplist 2.2 &&
+autoreconf -vi &&
 
-  default_build
+if module_installed systemd ; then
+   OPTS+=" --with-udev-dir=/usr/lib/udev/"
+fi &&
+
+default_build
