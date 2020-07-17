@@ -7,4 +7,3 @@ sedit "s/QMAKE_CXXFLAGS_RELEASE = .*//g" ${MODULE}.pro &&
 sedit "s/\/usr\/local/\/usr/g" ${MODULE}.pro &&
 
 sedit "/sstream/ a #include <stack>" src/parser.y
-#sed -i 's/-lmpfr/& -lX11/' CMakeFiles/openscad_nogui.dir/link.txt
