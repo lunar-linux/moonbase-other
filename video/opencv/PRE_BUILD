@@ -21,16 +21,18 @@ if module_installed libglvnd ; then
 fi &&
 
 OPTS+=" -DBUILD_WITH_DEBUG_INFO=OFF \
+        -DBUILD_DOCS=OFF \
         -DBUILD_EXAMPLES=OFF \
         -DBUILD_TESTS=OFF \
         -DBUILD_PERF_TESTS=OFF \
-        -DINSTALL_C_EXAMPLES=ON \
+        -DINSTALL_C_EXAMPLES=OFF \
         -DBUILD_SHARED_LIBS=ON \
         -DBUILD_WITH_DYNAMIC_IPP=ON \
         -DOPENCV_GENERATE_PKGCONFIG=ON \
-        -DINSTALL_PYTHON_EXAMPLES=ON \
+        -DINSTALL_PYTHON_EXAMPLES=OFF \
         -DOPENCV_ENABLE_NONFREE=ON \
         -DCMAKE_CXX_FLAGS=-std=c++11 \
+        -DCMAKE_C_FLAGS=-std=c++11\
         -DWITH_TBB=ON \
         -DENABLE_CXX11=ON \
         -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-$VERSION/modules "
