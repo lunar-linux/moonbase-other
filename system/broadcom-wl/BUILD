@@ -8,10 +8,10 @@ CFLAGS+=" -Werror"
 
 KBUILD_NOPEDANTIC=1 make -C "${KBUILD_DIR}" M=`pwd` &&
 find . -name '*.ko' -exec strip --strip-debug {} + &&
+find . -name '*.ko' -exec gzip {} + &&
 
 prepare_install &&
 
-gzip wl.ko &&
 install -m 644 wl.ko.gz "${MDEST_DIR}/" &&
 
 mkdir -p /usr/lib/modprobe.d &&
