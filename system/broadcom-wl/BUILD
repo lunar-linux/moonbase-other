@@ -5,9 +5,9 @@ echo "Linux kernel version -> "$KERNEL_VERSION
 
 CFLAGS+=" -Werror"
 
-prepare_install &&
+make -C "${KERNEL_DIR}"  M=`pwd` &&
 
-make -C "${KERNEL_DIR}" &&
+prepare_install &&
 
 find . -name '*.ko' -exec strip --strip-debug {} + &&
 gzip wl.ko &&
