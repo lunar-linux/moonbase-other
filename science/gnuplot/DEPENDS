@@ -2,12 +2,17 @@ depends %JPEG
 depends cairo
 depends gnutls
 
-optional_depends libcerf "--with-libcerf" "--without-libcerf" "for additional support of complex error functions" y
 optional_depends libgd "--with-gd"  "--without-gd"  "for additional graphics support"
 optional_depends %X    "--with-x"   "--without-x"   "Use X window system"
 optional_depends lua   "--with-lua" "--without-lua" "for Lua scripting support"
 
 optional_depends qt5 "--with-qt=qt5" "" "for Qt 5.x support"
+
+optional_depends libcerf \
+                 "--with-libcerf" \
+                 "--without-libcerf" \
+                 "for additional support of complex error functions" \
+                 "n"
 
 optional_depends readline \
                  "--with-readline=gnu" \
