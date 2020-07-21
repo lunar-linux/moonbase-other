@@ -21,18 +21,7 @@ depends gtk+-2
 # This pulls in nspr and that's good
 depends nss 
 
-optional_depends GConf \
-                 "--enable-gconf" \
-                 "--disable-gconf" \
-                 "For GConf support"
-
 optional_depends pulseaudio \
                  "--enable-pulseaudio" \
                  "--disable-pulseaudio" \
                  "Build the pulseaudio backend"
-
-optional_depends sqlite \
-                 "--with-system-sqlite" \
-                 "--without-system-sqlite" \
-                 "Use system sqlite. ${PROBLEM_COLOR}Not recommended${DEFAULT_COLOR}" \
-                 "n"

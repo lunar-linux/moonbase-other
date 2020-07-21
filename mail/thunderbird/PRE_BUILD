@@ -38,4 +38,8 @@ sed -e '/#include/a\
     print OUT "#undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
     -i nsprpub/config/make-system-wrappers.pl &&
 
-sedit '/deny.*missing_docs/ d' $(grep -rl "deny.*missing_docs" servo)
+sedit '/deny.*missing_docs/ d' $(grep -rl "deny.*missing_docs" servo) &&
+
+#error: options `-C embed-bitcode=no` and `-C lto` are incompatible
+#https://www.linuxquestions.org/questions/slackware-14/thunderbird-78-0-a-4175678965/
+sed -i "s|-Clto$||" config/makefiles/rust.mk
