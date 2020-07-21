@@ -5,6 +5,7 @@ export NSS_ENABLE_WERROR=0 &&
 export NSPR_INCLUDE_DIR=/usr/include/nspr &&
 export NSPR_LIB_DIR=/usr/lib &&
 export USE_SYSTEM_ZLIB=1     &&
+export ZLIB_LIBS=-lz         &&
 export NSDISTMODE=copy       &&
 export NSS_ENABLE_ECC=1      &&
 export FREEBL_NO_DEPEND=1    &&
@@ -20,6 +21,7 @@ sedit 's/\$(MKSHLIB) -o/\$(MKSHLIB) \$(LDFLAGS) -o/g' coreconf/rules.mk &&
 if [ "`arch`" == "x86_64" ]; then
   export USE_64=1
 fi &&
+
 
 make &&
 
