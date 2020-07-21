@@ -1,4 +1,6 @@
 default_pre_build &&
 
 #It seems like someone missed -lz here...
-sedit "s:\(librsyslog_la_LIBADD = \$(DL_LIBS) \$(RT_LIBS)\):\1 \$(ZLIB_LIBS):" runtime/Makefile.in
+sedit "s:\(librsyslog_la_LIBADD = \$(DL_LIBS) \$(RT_LIBS)\):\1 \$(ZLIB_LIBS):" runtime/Makefile.am &&
+
+./autogen.sh
