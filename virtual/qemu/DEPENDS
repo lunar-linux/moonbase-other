@@ -40,6 +40,11 @@ optional_depends xfsprogs   "--enable-xfsctl"    "--disable-xfsctl"    "for XFS 
 optional_depends libnfs     "--enable-libnfs"    "--disable-libnfs"    "for NFS support"
 optional_depends glusterfs  "--enable-glusterfs" "--disable-glusterfs" "for glusterfs cluster filesytem support"
 
+optional_depends liburing \
+                 "--enable-linux-io-uring" \
+                 "--disable-linux-io-uring" \
+                 "for Linux io_uring I/O access support"
+
 optional_depends virglrenderer \
                  "--enable-opengl" "--disable-opengl" \
                  "for the host 3D GPU rendering acceleration support"
