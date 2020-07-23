@@ -6,8 +6,6 @@ OPTS+=" --disable-static \
         --disable-mutool \
         --with-rcdir=no \
         --with-pdftops=gs \
-        --enable-auto-setup-driverless \
-        --enable-ijs \
         --with-browseremoteprotocols=DNSSD,CUPS \
         --with-test-font-path=/usr/share/fonts/dejavu-ttf/DejaVuSans.ttf"
 
