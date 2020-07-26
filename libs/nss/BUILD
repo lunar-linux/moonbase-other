@@ -22,7 +22,6 @@ if [ "`arch`" == "x86_64" ]; then
   export USE_64=1
 fi &&
 
-
 make &&
 
 export NSS_LINUXDIR=$(basename `ls -d $WORKINGDIR/dist/Linux*`) &&
