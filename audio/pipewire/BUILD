@@ -1,8 +1,7 @@
 unset LDFLAGS LD CFLAGS CPPFLAGS &&
 
 OPTS+=" -Dvulkan=false \
-	-D docs=true \
-        -D man=true"
+        -D udevrulesdir=/etc/udev/rules.d"
 
 CFLAGS+=" -Wformat"
 
