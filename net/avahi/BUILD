@@ -12,12 +12,12 @@ fi &&
 
 add_priv_user avahi:avahi -d /dev/null -s /usr/bin/false &&
 add_priv_user avahi-autoipd:avahi-autoipd -d /dev/null -s /usr/bin/false &&
+
 # Add this missing group. It is used in /etc/dbus-1/system.d/avahi-dbus.conf
 add_priv_group netdev &&
 
 OPTS+=" --enable-compat-howl \
         --enable-compat-libdns_sd \
-        --enable-libgdbm-compat \
         --disable-stack-protector \
         --disable-monodoc \
         --disable-static \
