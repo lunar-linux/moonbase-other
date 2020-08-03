@@ -1,5 +1,6 @@
 default_pre_build &&
 
-sedit "s:/usr/local:/usr:g" smartd.service.in
-sedit "s:/sbin:/bin:g" smartd.service.in
-sedit "s:-/usr::" smartd.service.in
+sedit "s:-/usr/local/etc:/etc:" smartd.service.in
+sedit "s:/bin/kill:/usr/bin/kill:g" smartd.service.in
+sedit "s:sysconfig/smartmontools:smartd.conf:g" smartd.service.in
+sedit "s:smartd_opts:SMARTD_ARGS:g" smartd.service.in
