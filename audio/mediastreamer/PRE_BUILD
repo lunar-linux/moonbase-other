@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# Replace wrong function
+sed -i '/failed to connect to server/s/getSocketErrorWithCode(optVal/getSocketError(/' src/voip/turn_tcp.cpp
