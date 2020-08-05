@@ -1,10 +1,8 @@
 depends zlib
+depends libpng
+depends tiff
+depends lcms2
 depends cmake
-depends curl
-depends pkgconf
 
-optional_depends libpng "" "" "for PNG support"
-optional_depends tiff   "" "" "for TIFF support"
-optional_depends lcms2  "" "" "for LCMS2 support"
-
-optional_depends doxygen "-DBUILD_DOC=1" "" "for documentation install"
+optional_depends astyle    "-DWITH_ASTYLE=ON" "-DWITH_ASTYLE=OFF" "For source code formatting support"
+optional_depends %JAVA_SDK ""  ""  "For java support"
