@@ -1,5 +1,6 @@
 ./autogen.sh &&
 
+export CFLAGS+=" -fcommon"
 if in_depends $MODULE python2 ; then
   OPTS+=" --disable-static" &&
   PYTHON=/usr/bin/python2 ./configure --prefix=/usr --enable-python $OPTS
