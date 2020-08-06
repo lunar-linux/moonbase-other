@@ -5,6 +5,8 @@ OPTS+=" --enable-tivo     \
         --with-db-path=/var/lib/minidlna  \
         --with-log-path=/var/log/minidlna" &&
 
+CFLAGS+=" -fcommon" &&
+
 if [ ! -f /etc/minidlna/minidlna.conf ]; then
   install -Dm644 minidlna.conf /etc/minidlna/minidlna.conf
 else
