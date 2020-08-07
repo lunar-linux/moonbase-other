@@ -4,3 +4,7 @@ sedit "s:-/usr/local/etc:/etc:" smartd.service.in
 sedit "s:/bin/kill:/usr/bin/kill:g" smartd.service.in
 sedit "s:sysconfig/smartmontools:smartd.conf:g" smartd.service.in
 sedit "s:smartd_opts:SMARTD_ARGS:g" smartd.service.in
+
+#Standard output type syslog is obsolete, automatically updating to journal.
+#Please update your unit file, and consider removing the setting altogether.
+sedit "10d" smartd.service.in
