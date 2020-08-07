@@ -6,4 +6,6 @@
   OPTS+=" --without-preflight" &&
   export libplist_LIBS="-lplist-2.0" &&
 
-  default_build
+  default_build &&
+
+  install -Dm644 $SCRIPT_DIRECTORY/usbmuxd.sysusers /usr/lib/sysusers.d/usbmuxd.conf
