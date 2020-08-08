@@ -19,5 +19,5 @@ if ! module_installed sysvinit; then
 fi
 
 if module_installed cron-commom || module_installed cronie ; then
-   install -Dm644 $SCRIPT_DIRECTORY/updatesmartdrivedb /etc/cron.monthly
+   install $SCRIPT_DIRECTORY/updatesmartdrivedb /etc/cron.monthly/
 fi
