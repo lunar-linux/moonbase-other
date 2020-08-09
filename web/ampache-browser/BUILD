@@ -1,3 +1,3 @@
 . /etc/profile.d/qt5.rc &&
 
-default_cmake_build 
+default_cmake_build

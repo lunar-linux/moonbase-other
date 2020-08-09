@@ -1,17 +1,16 @@
            MODULE=fcgi
-          VERSION=2.4.0
+          VERSION=2.4.2
            SOURCE=$MODULE-$VERSION.tar.gz
-       SOURCE_URL=http://pkgs.fedoraproject.org/repo/pkgs/fcgi/$MODULE-$VERSION.tar.gz/d15060a813b91383a9f3c66faf84867e/
-       SOURCE_VFY=sha1:2329404159e8b8315e524b9eaf1de763202c6e6a
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/fcgi2-${VERSION}
+  SOURCE_URL_FULL=https://github.com/FastCGI-Archives/fcgi2/archive/${VERSION}.tar.gz
+       SOURCE_VFY=sha256:1fe83501edfc3a7ec96bb1e69db3fd5ea1730135bd73ab152186fd0b437013bc
          WEB_SITE=http://fastcgi.com
           ENTERED=20060513
-          UPDATED=20060513
+          UPDATED=20200809
             SHORT="Scalable high performance extension to CGI"
-       MAINTAINER=jannis@lunar-linux.org
 
 PSAFE=no
 cat << EOF
-FastCGI  is a language independent, scalable, open extension to
-CGI that provides high performance without the limitations of
-server specific APIs.
+FastCGI  is a language independent, scalable, open extension to CGI that
+provides high performance without the limitations of server specific APIs.
 EOF
