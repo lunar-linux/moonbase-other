@@ -1,4 +1,3 @@
-
 ./bootstrap &&
 
 OPTS+=" --with-udevdir=/usr/lib/udev --with-udev-rules"

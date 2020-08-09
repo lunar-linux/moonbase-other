@@ -1,4 +1,4 @@
 OPTS+=" --disable-static \
-        --disable-static-genppd" &&
+        --disable-static-genppd"
 
 default_build
