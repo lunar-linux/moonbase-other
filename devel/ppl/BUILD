@@ -1,5 +1,3 @@
+OPTS+=" --enable-arch=$(arch) --disable-static"
 
-
-  OPTS+=" --enable-arch=$(arch) --disable-static" &&
-
-  default_build
+default_build
