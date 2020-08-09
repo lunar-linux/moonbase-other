@@ -1,0 +1,16 @@
+default_pre_build &&
+
+# In lieu of a one line patch
+sedit 's:extern char \* stpcpy();::' lib/xstrrpl.c &&
+# This was the only thing needed from the 4.13 security patch, all others from that were
+# applied in this version.
+sedit 's:res->flag_output_is_printer = false;:res->flag_output_is_printer = true;:' lib/printers.c &&
+
+# Could not find our rm
+sedit "s:/bin/rm:/usr/bin/rm:" afm/make_fonts_map.sh &&
+for file in $(find . -name '*'.in |cut -c 3-50) ; do
+   sedit "s:/bin/rm:/usr/bin/rm:g" $file
+done &&
+for file in $(find . -name '*'.in |cut -c 3-50) ; do
+   sedit "s:-rm:/usr/bin/rm:g" $file
+done
