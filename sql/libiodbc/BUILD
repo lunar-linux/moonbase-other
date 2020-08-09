@@ -1,10 +1,9 @@
-
 # Else it stomps on unixODBC
-  OPTS+=" --includedir=/usr/include/$MODULE --libdir=/usr/lib/$MODULE  \
-          --with-iodbc-inidir=/etc/$MODULE --with-iodbc-filedsnpath=/etc/$MODULE" &&
+OPTS+=" --includedir=/usr/include/$MODULE --libdir=/usr/lib/$MODULE  \
+        --with-iodbc-inidir=/etc/$MODULE --with-iodbc-filedsnpath=/etc/$MODULE"
 
-  mkdir -p /etc/$MODULE &&
+mkdir -p /etc/$MODULE &&
 
-  default_build &&
+default_build &&
 
-  cp -r etc/*.sample /etc/$MODULE/
+cp -r etc/*.sample /etc/$MODULE/
