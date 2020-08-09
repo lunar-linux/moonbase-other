@@ -1,6 +1,7 @@
-
  ./autogen.sh &&
 
- OPTS+=" --enable-shared --disable-examples --disable-static" &&
+ OPTS+=" --enable-shared \
+         --disable-examples \
+         --disable-static"
 
  default_build
