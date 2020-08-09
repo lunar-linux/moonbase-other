@@ -1,3 +1,3 @@
-cd worker
+cd worker &&
 
 default_python3_build

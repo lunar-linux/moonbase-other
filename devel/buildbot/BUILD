@@ -1,3 +1,3 @@
-cd master
+cd master &&
 
 default_python3_build
