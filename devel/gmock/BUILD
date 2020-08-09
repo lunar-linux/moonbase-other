@@ -1,5 +1,4 @@
-
-OPTS+=" -DBUILD_GTEST=1 -DBUILD_SHARED_LIBS=1" &&
+OPTS+=" -DBUILD_GTEST=1 -DBUILD_SHARED_LIBS=1"
 
 default_cmake_build
 
