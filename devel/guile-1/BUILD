@@ -1,4 +1,4 @@
-OPTS+=" --disable-error-on-warning --disable-static --program-suffix=-1.8" &&
+OPTS+=" --disable-error-on-warning --disable-static --program-suffix=-1.8"
 
 LDFLAGS+=" -lpthread" &&
 

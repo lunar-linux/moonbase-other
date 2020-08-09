@@ -1,3 +1,3 @@
-OPTS+=" --disable-gcc-warnings --disable-silent-rules" &&
+OPTS+=" --disable-gcc-warnings --disable-silent-rules"
 
 default_build

@@ -1,4 +1,4 @@
-OPTS+=" --disable-error-on-warning --disable-static" &&
+OPTS+=" --disable-error-on-warning --disable-static"
 
 default_build &&
 

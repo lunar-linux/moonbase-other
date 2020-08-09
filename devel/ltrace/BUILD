@@ -1,4 +1,3 @@
+OPTS+=" --disable-werror --disable-static"
 
-  OPTS+=" --disable-werror --disable-static" &&
-
-  default_build
+default_build
