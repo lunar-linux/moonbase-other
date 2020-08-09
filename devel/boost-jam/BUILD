@@ -1,16 +1,13 @@
-(
+./build.sh &&
+prepare_install &&
 
-  ./build.sh  &&
-  prepare_install  &&
-
-  if [ "`arch`" = "x86_64" ]; then
+if [ "`arch`" = "x86_64" ]; then
    BJDIR="bin.linuxx86_64"
-  else
+else
    BJDIR="bin.linuxx86"
-  fi  &&
+fi &&
 
-  cd $BJDIR  &&
-  install -m755 bjam /usr/bin
+cd $BJDIR  &&
+install -m755 bjam /usr/bin
 
-  # need to add doc ...
-) > $C_FIFO 2>&1
+# need to add doc ...

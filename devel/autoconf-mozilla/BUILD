@@ -4,9 +4,9 @@ sedit "s:datadir)/autoconf:datadir)/autoconf-mozilla:" Makefile.in &&
 # We don't need info
 sedit "s:installdirs install-info:installdirs:" Makefile.in &&
 
-OPTS+=" --prefix=/usr      \
-        --libdir=$MODULE   \
-        --disable-docs     \
+OPTS+=" --prefix=/usr    \
+        --libdir=$MODULE \
+        --disable-docs   \
         --program-suffix=-mozilla" &&
 
 default_build
