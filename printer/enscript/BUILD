@@ -1,9 +1,6 @@
-(
+unset CC &&
 
-  unset CC &&
+OPTS+=" --with-media \
+        --sysconfdir=/etc/enscript"
 
-  OPTS+=" --with-media" &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build
