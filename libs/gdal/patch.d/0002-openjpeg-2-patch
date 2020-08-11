@@ -1,0 +1,20 @@
+--- frmts/jpeg2000/jpeg2000dataset.cpp.orig	2020-08-10 11:53:40.001176368 -0400
++++ frmts/jpeg2000/jpeg2000dataset.cpp	2020-08-10 11:55:38.271666418 -0400
+@@ -484,7 +484,7 @@
+     /* the JP2 boxes match the ones of the code stream */
+     if (nBands != 0)
+     {
+-        if (nBands != jas_image_numcmpts( psImage ))
++        if (nBands != static_cast<int>(jas_image_numcmpts( psImage )))
+         {
+             CPLError(CE_Failure, CPLE_AppDefined,
+                      "The number of components indicated in the IHDR box (%d) mismatch "
+@@ -595,7 +595,7 @@
+ 
+ {
+     int         iFormat;
+-    char        *pszFormatName = nullptr;
++    const char *pszFormatName = nullptr;
+ 
+     if (!Identify(poOpenInfo))
+         return nullptr;
