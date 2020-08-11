@@ -40,4 +40,6 @@ sedit '/GAMEGRP *= bin/   c GAMEGRP = games
        /^VARDATND =/      c VARDATND = x11tiles NetHack.ad pet_mark.xbm rip.xpm' sys/unix/Makefile.top &&
 
 sedit '/^PREFIX=.*/ c PREFIX=/usr
-       /^VARFILEPERM.*/ c VARFILEPERM=0660' sys/unix/hints/linux
+       /^VARFILEPERM.*/ c VARFILEPERM=0660' sys/unix/hints/linux &&
+
+sedit 's/NEARDATA winid WIN_STATUS/extern \0/' src/windows.c
