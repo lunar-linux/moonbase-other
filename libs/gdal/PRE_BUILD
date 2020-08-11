@@ -1,8 +1,5 @@
 default_pre_build &&
 
-# Fixes error of installing etc stuff into /usr/etc
-OPTS+=" --sysconfdir=/etc"
-
 # Fix mandir
 sedit "s|^mandir=.*|mandir='\${prefix}/share/man'|" configure &&
 
