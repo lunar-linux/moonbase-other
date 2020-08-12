@@ -10,13 +10,13 @@ fi &&
 
 # Build VirtualBox
 # Disable hardening, so normal users can run it
-OPTS+=" --disable-hardening" &&
+OPTS+=" --disable-hardening"
 
 OPTS+=" --disable-kmods \
-        --disable-docs" &&
+        --disable-docs"
 
 # this removes 32 bit simulation support
-OPTS+=" --disable-vmmraw" &&
+OPTS+=" --disable-vmmraw"
 
 ./configure $OPTS &&
 source ./env.sh &&
