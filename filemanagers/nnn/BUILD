@@ -1,5 +1,7 @@
 default_make &&
 
+make PREFIX=/usr install-desktop &&
+
 if module_installed bash-completion; then
    install -Dm644 misc/auto-completion/bash/nnn-completion.bash /usr/share/bash-completion/completions/nnn
 fi &&
