@@ -4,5 +4,10 @@ if in_depends $MODULE PyQt5; then
   . /etc/profile.d/qt5.rc
 fi &&
 
+#Fix menu and icon locations
+echo "Categories=Qt;KDE;Utility;" >> hp-uiscan.desktop.in &&
+echo "Comment=SANE-based scan utility for HPLIP supported all-in-one/mfp devices" >> hp-uiscan.desktop.in &&
+sedit 's:/usr/share/icons/Humanity/devices/48/printer.svg:/usr/share/hplip/data/images/devices/default_printer.png:' hp-uiscan.desktop.in &&
+
 export AUTOMAKE='automake --foreign' &&
 autoreconf --force --install
