@@ -31,4 +31,8 @@ OPTS+=" -DPARAVIEW_ENABLE_XDMF3=1              \
         -DVTK_RENDERING_BACKEND=OpenGL2        \
         -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=1 \
         -DVTK_PYTHON_FULL_THREADSAFE=1         \
-        -DPARAVIEW_ENABLE_PYTHON=1"
+        -DPARAVIEW_ENABLE_PYTHON=1"           &&
+
+default_cmake_build
+
+echo "Categories=Qt;KDE;Science;" >> /usr/share/applications/org.paraview.ParaView.desktop
