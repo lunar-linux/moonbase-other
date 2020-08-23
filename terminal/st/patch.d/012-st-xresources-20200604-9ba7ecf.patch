@@ -1,21 +1,20 @@
-From 9f80f67b6238c58d2e3e209ed1c4f872d9ea7ccd Mon Sep 17 00:00:00 2001
-From: Sai Praneeth Reddy <spr.mora04@gmail.com>
-Date: Sat, 5 Jan 2019 18:13:04 +0530
-Subject: [PATCH] Update base patch to 0.8.1
+From 2752a599ee01305a435729bfacf43b1dde7cf0ef Mon Sep 17 00:00:00 2001
+From: Benji Encalada Mora <benji@encalada.dev>
+Date: Thu, 4 Jun 2020 00:41:10 -0500
+Subject: [PATCH] fix: replace xfps and actionfps variables
 
-Read borderpx from Xresources too
 ---
  config.def.h | 36 ++++++++++++++++++++++++
  x.c          | 78 +++++++++++++++++++++++++++++++++++++++++++++++++---
  2 files changed, 110 insertions(+), 4 deletions(-)
 
 diff --git a/config.def.h b/config.def.h
-index 823e79f..f960cac 100644
+index 6f05dce..9b99782 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -150,6 +150,42 @@ static unsigned int mousebg = 0;
+@@ -168,6 +168,42 @@ static unsigned int defaultattr = 11;
   */
- static unsigned int defaultattr = 11;
+ static uint forcemousemod = ShiftMask;
  
 +/*
 + * Xresources preferences to load at startup
@@ -43,8 +42,8 @@ index 823e79f..f960cac 100644
 +		{ "cursorColor",  STRING,  &colorname[258] },
 +		{ "termname",     STRING,  &termname },
 +		{ "shell",        STRING,  &shell },
-+		{ "xfps",         INTEGER, &xfps },
-+		{ "actionfps",    INTEGER, &actionfps },
++		{ "minlatency",   INTEGER, &minlatency },
++		{ "maxlatency",   INTEGER, &maxlatency },
 +		{ "blinktimeout", INTEGER, &blinktimeout },
 +		{ "bellvolume",   INTEGER, &bellvolume },
 +		{ "tabspaces",    INTEGER, &tabspaces },
@@ -57,7 +56,7 @@ index 823e79f..f960cac 100644
   * Internal mouse shortcuts.
   * Beware that overloading Button1 will disable the selection.
 diff --git a/x.c b/x.c
-index 0422421..6e9b061 100644
+index 210f184..76f167f 100644
 --- a/x.c
 +++ b/x.c
 @@ -14,6 +14,7 @@
@@ -66,9 +65,9 @@ index 0422421..6e9b061 100644
  #include <X11/XKBlib.h>
 +#include <X11/Xresource.h>
  
- static char *argv0;
+ char *argv0;
  #include "arg.h"
-@@ -43,6 +44,19 @@ typedef struct {
+@@ -45,6 +46,19 @@ typedef struct {
  	signed char appcursor; /* application cursor */
  } Key;
  
@@ -88,7 +87,7 @@ index 0422421..6e9b061 100644
  /* X modifiers */
  #define XK_ANY_MOD    UINT_MAX
  #define XK_NO_MOD     0
-@@ -783,8 +797,8 @@ xclear(int x1, int y1, int x2, int y2)
+@@ -828,8 +842,8 @@ xclear(int x1, int y1, int x2, int y2)
  void
  xhints(void)
  {
@@ -99,7 +98,7 @@ index 0422421..6e9b061 100644
  	XWMHints wm = {.flags = InputHint, .input = 1};
  	XSizeHints *sizeh;
  
-@@ -1005,8 +1019,6 @@ xinit(int cols, int rows)
+@@ -1104,8 +1118,6 @@ xinit(int cols, int rows)
  	pid_t thispid = getpid();
  	XColor xmousefg, xmousebg;
  
@@ -108,7 +107,7 @@ index 0422421..6e9b061 100644
  	xw.scr = XDefaultScreen(xw.dpy);
  	xw.vis = XDefaultVisual(xw.dpy, xw.scr);
  
-@@ -1870,6 +1882,59 @@ run(void)
+@@ -1964,6 +1976,59 @@ run(void)
  	}
  }
  
@@ -168,7 +167,7 @@ index 0422421..6e9b061 100644
  void
  usage(void)
  {
-@@ -1943,6 +2008,11 @@ run:
+@@ -2037,6 +2102,11 @@ run:
  
  	setlocale(LC_CTYPE, "");
  	XSetLocaleModifiers("");
@@ -181,5 +180,5 @@ index 0422421..6e9b061 100644
  	rows = MAX(rows, 1);
  	tnew(cols, rows);
 -- 
-2.20.1
+2.26.2
 
