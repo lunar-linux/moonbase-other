@@ -7,4 +7,9 @@ sedit "s:smartd_opts:SMARTD_ARGS:g" smartd.service.in
 
 #Standard output type syslog is obsolete, automatically updating to journal.
 #Please update your unit file, and consider removing the setting altogether.
-sedit "10d" smartd.service.in
+sedit "10d" smartd.service.in &&
+
+# make sure to use `uname -n` instead of `hostname`
+sedit "/^os_hostname/c os_hostname=\"'uname -n'\"" configure.ac &&
+
+autoreconf -fi
