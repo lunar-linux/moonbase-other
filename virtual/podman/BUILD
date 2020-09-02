@@ -4,7 +4,9 @@ export CGO_LDFLAGS="$LDFLAGS"
 export CGO_CFLAGS="$CFLAGS"
 export GOFLAGS="-buildmode=pie -trimpath"
 
-default_make &&
+make EXTRA_LDFLAGS='-s -w -linkmode=external' &&
+prepare_install &&
+make install &&
 
 if ! module_installed docker; then
    install docker /usr/bin/
