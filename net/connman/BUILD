@@ -2,11 +2,11 @@ autoreconf --install -v &&
 
 OPTS+=" --bindir=/usr/bin \
         --enable-pie      \
+        --enable-pptp     \
         --enable-tools    \
         --enable-client   \
         --enable-ethernet \
         --enable-loopback \
-        --enable-threads  \
         --enable-nmcompat"
 
 if module_installed systemd; then
