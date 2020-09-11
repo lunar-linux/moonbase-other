@@ -15,4 +15,7 @@ ninja &&
 
 prepare_install &&
 
-ninja install
+ninja install &&
+
+# install the man page
+install -Dm644 -t /usr/share/man/man1/ ../docs/ld.lld.1
