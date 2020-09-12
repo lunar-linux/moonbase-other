@@ -1,7 +1,7 @@
-OPTS+=" -Dtools=auto \
-        -Dgst_debug=false \
-        -Dglib-checks=enabled \
-        -Dglib-asserts=enabled \
+OPTS+=" -D tools=auto \
+        -D gst_debug=false \
+        -D glib-checks=enabled \
+        -D glib-asserts=enabled \
         -D dbghelp=disabled \
         -D gobject-cast-checks=disabled"
 

@@ -2,28 +2,28 @@ depends gstreamer
 depends liboil
 depends meson
 
-optional_depends iso-codes  "-Diso-codes=enabled"  "-Diso-codes=disabled"  "for iso-code support"
-optional_depends pango      "-Dpango=enabled"      "-Dpango=disabled"      "for Pango font rendering support"
-optional_depends alsa-lib   "-Dalsa=enabled"       "-Dalsa=disabled"       "for ALSA output support"
-optional_depends libogg     "-Dogg=enabled"        "-Dogg=disabled"        "for OGG support"
-optional_depends libvorbis  "-Dvorbis=enabled"     "-Dvorbis=disabled"     "for Vorbis audio codec support"
-optional_depends libtheora  "-Dtheora=enabled"     "-Dtheora=disabled"     "for Theora video codec support"
-optional_depends cdparanoia "-Dcdparanoia=enabled" "-Dcdparanoia=disabled" "for CDDA support"
-optional_depends libvisual  "-Dlibvisual=enabled"  "-Dlibvisual=disabled"  "for visualization support"
-optional_depends libX11     "-Dx11=enabled"        "-Dx11=disabled"        "for X plugin support"
-optional_depends libXv      "-Dxvideo=enabled"     "-Dxvideo=disabled"     "for the X11 XVideo extensions"
-optional_depends opus       "-Dopus=enabled"       "-Dopus=disabled"       "for interactive speech on internet support"
-optional_depends orc        "-Dorc=enabled"        "-Dorc=disabled"        "for runtime compiler support"
+optional_depends iso-codes  "-D iso-codes=enabled"  "-D iso-codes=disabled"  "for iso-code support"
+optional_depends pango      "-D pango=enabled"      "-D pango=disabled"      "for Pango font rendering support"
+optional_depends alsa-lib   "-D alsa=enabled"       "-D alsa=disabled"       "for ALSA output support"
+optional_depends libogg     "-D ogg=enabled"        "-D ogg=disabled"        "for OGG support"
+optional_depends libvorbis  "-D vorbis=enabled"     "-D vorbis=disabled"     "for Vorbis audio codec support"
+optional_depends libtheora  "-D theora=enabled"     "-D theora=disabled"     "for Theora video codec support"
+optional_depends cdparanoia "-D cdparanoia=enabled" "-D cdparanoia=disabled" "for CDDA support"
+optional_depends libvisual  "-D libvisual=enabled"  "-D libvisual=disabled"  "for visualization support"
+optional_depends libX11     "-D x11=enabled"        "-D x11=disabled"        "for X plugin support"
+optional_depends libXv      "-D xvideo=enabled"     "-D xvideo=disabled"     "for the X11 XVideo extensions"
+optional_depends opus       "-D opus=enabled"       "-D opus=disabled"       "for interactive speech on internet support"
+optional_depends orc        "-D orc=enabled"        "-D orc=disabled"        "for runtime compiler support"
 
 optional_depends gtk-doc \
-                 "-Dgtk_doc=enabled" \
-                 "-Dgtk_doc=disabled" \
+                 "-D gtk_doc=enabled" \
+                 "-D gtk_doc=disabled" \
                  "for documentation support" \
                  "n"
 
 optional_depends gobject-introspection \
-                 "-Dintrospection=enabled" \
-                 "-Dintrospection=disabled" \
+                 "-D introspection=enabled" \
+                 "-D introspection=disabled" \
                  "for introspection support"
 
 # circular depends on qt5
