@@ -8,7 +8,12 @@ if module_installed qt5; then
   . /etc/profile.d/qt5.rc
 fi &&
 
-OPTS+=" -Dexamples=disabled \
-        -Dtests=disabled" &&
+OPTS+=" -D doc-disabled \
+        -D examples=disabled \
+        -D magicleap=disabled \
+        -D wasapi2=disabled \
+        -D wasapi=disabled \
+        -D wpe=disabled \
+        -D tests=disabled" &&
 
 default_meson_build
