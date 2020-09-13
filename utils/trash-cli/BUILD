@@ -1,5 +1,1 @@
-python setup.py build &&
-
-prepare_install &&
-
-python setup.py install --optimize=1
+default_python3_build
