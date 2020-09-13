@@ -1,0 +1,5 @@
+default_pre_build &&
+
+sedit 's filename="./build/mapping.txt" filename="/usr/share/icons-in-terminal/mapping.txt" ' print_icons.sh &&
+./scripts/generate_fontconfig.sh > "30-$MODULE.conf" &&
+sedit 's:B&H:BH:' "30-$MODULE.conf"
