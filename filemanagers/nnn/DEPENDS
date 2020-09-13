@@ -1,11 +1,13 @@
 depends ncurses
 depends readline
 depends pkgconf
-depends icons-in-terminal
+
+optional_depends icons-in-terminal "O_ICONS=1" "" "for terminal icons support"
 
 optional_depends libarchive "" "" "for archive formats support"
 optional_depends zip        "" "" "for zip archives support"
 optional_depends unzip      "" "" "for zip archives support"
 optional_depends sshfs      "" "" "for remote mounts support"
 optional_depends fuse       "" "" "for unmount remotes support"
+optional_depends trash-cli  "" "" "for "trash files support
 optional_depends xdg-utils  "" "" "for desktop opener support"
