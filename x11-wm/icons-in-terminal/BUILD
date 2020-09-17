@@ -1,4 +1,8 @@
+TTF_DIR="/usr/share/fonts/TTF"
+
 prepare_install &&
+
+mkdir -p $TTF_DIR &&
 
 install -dm755 "/usr/share/$MODULE" &&
 
@@ -16,4 +20,4 @@ fi &&
 
 install -Dm644 README.md "/usr/share/$MODULE/" &&
 install -Dm755 print_icons.sh "/usr/bin/$MODULE" &&
-install -Dm644 "build/$MODULE.ttf" "/usr/share/fonts/TTF/"
+install -Dm644 "build/$MODULE.ttf" "$TTF_DIR/"
