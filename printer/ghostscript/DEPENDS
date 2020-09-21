@@ -1,8 +1,8 @@
 depends dbus
+depends tiff
 depends %JPEG
 depends libpng
 depends libidn
-depends tiff
 depends lcms2
 depends zlib
 
@@ -15,10 +15,6 @@ optional_depends freetype2 \
                  "--enable-freetype" \
                  "--disable-freetype" \
                  "for freetype font rasterization"
-
-optional_depends tiff \
-                 "--with-system-libtiff" "" \
-                 "for TIFF support"
 
 optional_depends openjpeg \
                  "--enable-openjpeg" \
@@ -59,3 +55,9 @@ optional_depends libpaper \
                  "--with-libpaper" \
                  "--without-libpaper" \
                  "for additional paper size support"
+
+#optional_depends tiff \
+#                 "--with-system-libtiff" "" \
+#                 "for TIFF support"
+
+

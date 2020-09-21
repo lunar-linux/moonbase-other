@@ -2,6 +2,7 @@
 
 OPTS+=" --enable-dynamic \
         --without-luratech \
+        --with-system-libtiff \
         --disable-compile-inits"
 
 default_build &&
