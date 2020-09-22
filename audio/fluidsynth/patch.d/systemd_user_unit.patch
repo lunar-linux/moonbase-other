@@ -1,0 +1,33 @@
+From 777f9ea5b4a9d757a3e6634e700dd96703ea5b45 Mon Sep 17 00:00:00 2001
+From: David Runge <dave@sleepmap.de>
+Date: Mon, 21 Sep 2020 20:45:09 +0200
+Subject: [PATCH] Set the systemd unit target to default.target
+
+fluidsynth.service.in:
+The [Install] section [1] in systemd unit declares in which target the
+service will be started.
+The `multi-user.target` [2] - managed by the systemd _system_ service
+manager - is used in the `fluidsynth.service`.
+However, as it is a _user_ unit it needs to be pulled in by the
+`default.target` [3] instead, which is the main target for the user
+session (as started by `user@.service` [4]).
+
+[1] https://www.freedesktop.org/software/systemd/man/systemd.unit.html#%5BInstall%5D%20Section%20Options
+[2] https://www.freedesktop.org/software/systemd/man/systemd.special.html#multi-user.target
+[3] https://www.freedesktop.org/software/systemd/man/systemd.special.html#default.target1
+[4] https://www.freedesktop.org/software/systemd/man/user@.service.html
+---
+ fluidsynth.service.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/fluidsynth.service.in b/fluidsynth.service.in
+index 7a035e96..3cd27ca8 100644
+--- a/fluidsynth.service.in
++++ b/fluidsynth.service.in
+@@ -11,5 +11,5 @@ EnvironmentFile=-%h/.config/fluidsynth
+ ExecStart=@CMAKE_INSTALL_PREFIX@/@BIN_INSTALL_DIR@/fluidsynth -is $OTHER_OPTS $SOUND_FONT
+ 
+ [Install]
+-WantedBy=multi-user.target
++WantedBy=default.target
+ 
