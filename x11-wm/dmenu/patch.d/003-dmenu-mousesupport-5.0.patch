@@ -1,20 +1,12 @@
-From 27f62488ceb466f73f682f5104825c60712bb5ff Mon Sep 17 00:00:00 2001
-From: Hiltjo Posthuma <hiltjo@codemadness.org>
-Date: Fri, 9 Jun 2017 13:00:06 +0200
-Subject: [PATCH] dmenu mouse support
-
----
- dmenu.c | 119 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 118 insertions(+), 1 deletion(-)
-
 diff --git a/dmenu.c b/dmenu.c
-index d605ab4..0c8500b 100644
+index 65f25ce..dfa59db 100644
 --- a/dmenu.c
 +++ b/dmenu.c
-@@ -588,6 +588,119 @@ keypress(XKeyEvent *ev)
+@@ -500,6 +500,119 @@ draw:
+ 	drawmenu();
  }
  
- static void
++static void
 +buttonpress(XEvent *e)
 +{
 +	struct item *item;
@@ -127,21 +119,20 @@ index d605ab4..0c8500b 100644
 +	}
 +}
 +
-+static void
+ static void
  paste(void)
  {
- 	char *p, *q;
-@@ -756,6 +756,9 @@ run(void)
- 		if (XFilterEvent(&ev, win))
- 			continue;
- 		switch(ev.type) {
+@@ -561,6 +674,9 @@ run(void)
+ 				break;
+ 			cleanup();
+ 			exit(1);
 +		case ButtonPress:
 +			buttonpress(&ev);
 +			break;
  		case Expose:
  			if (ev.xexpose.count == 0)
  				drw_map(drw, win, 0, 0, mw, mh);
-@@ -857,7 +857,8 @@ setup(void)
+@@ -658,7 +774,8 @@ setup(void)
  	/* create menu window */
  	swa.override_redirect = True;
  	swa.background_pixel = scheme[SchemeNorm][ColBg].pixel;
@@ -151,6 +142,3 @@ index d605ab4..0c8500b 100644
  	win = XCreateWindow(dpy, parentwin, x, y, mw, mh, 0,
  	                    CopyFromParent, CopyFromParent, CopyFromParent,
  	                    CWOverrideRedirect | CWBackPixel | CWEventMask, &swa);
--- 
-2.12.2
-
