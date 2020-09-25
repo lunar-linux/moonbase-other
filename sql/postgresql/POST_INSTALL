@@ -1,8 +1,6 @@
 # Time to initialize the database
 PGROOT=/var/lib/pgsql
 
-add_priv_user postgres -d /var/lib/pgsql -s /bin/bash -g postgres
-
 if [ ! -d $PGROOT ]; then
   install -dm0700 -o postgres -g postgres $PGROOT
   install -dm0700 -o postgres -g postgres $PGROOT/data
