@@ -1,4 +1,4 @@
-add_priv_user mongodb:mongodb -d /var/lib/mongodb &&
+add_priv_user mongodb:mongodb -d /var/lib/mongodb -s /usr/bin/false &&
 
 OPTS+=" --use-system-boost \
         --use-system-pcre \

@@ -47,7 +47,7 @@ fi
 CFLAGS="-fPIC ${CFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -fomit-frame-pointer -fno-delete-null-pointer-checks"
 CXXFLAGS="-fPIC ${CXXFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -felide-constructors -fno-rtti -fno-delete-null-pointer-checks"
 
-add_priv_user mysql:mysql &&
+add_priv_user mysql:mysql -s /usr/bin/false &&
 
 default_cmake_build &&
 
