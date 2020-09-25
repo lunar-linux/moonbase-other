@@ -2,7 +2,7 @@ OPTS+=" --enable-nls \
         --enable-thread-safety \
         --enable-integer-datetimes"
 
-add_priv_user postgres -d /var/lib/pgsql -s /bin/bash -g postgres &&
+add_priv_user postgres -d /var/lib/pgsql -s /usr/bin/false -g postgres &&
 
 default_build &&
 
