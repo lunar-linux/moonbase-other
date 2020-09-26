@@ -1,0 +1,21 @@
+--- a/Makefile.in.old	2016-02-27 01:58:00.000000000 +0200
++++ b/Makefile.in	2020-09-26 10:41:47.103438068 +0300
+@@ -796,7 +796,6 @@
+ 	  && ../../configure \
+ 	    $(AM_DISTCHECK_CONFIGURE_FLAGS) \
+ 	    $(DISTCHECK_CONFIGURE_FLAGS) \
+-	    --srcdir=../.. --prefix="$$dc_install_base" \
+ 	  && $(MAKE) $(AM_MAKEFLAGS) \
+ 	  && $(MAKE) $(AM_MAKEFLAGS) dvi \
+ 	  && $(MAKE) $(AM_MAKEFLAGS) check \
+--- a/configure.ac.old	2016-02-24 00:34:08.000000000 +0200
++++ b/configure.ac	2020-09-26 10:44:19.531231717 +0300
+@@ -359,7 +359,7 @@
+ 
+ pkgconfigdir="\$(libdir)/pkgconfig"
+ if test "${prefix}" = "/usr"; then
+-	rootsbindir="/sbin"
++	rootsbindir="/usr/sbin"
+ else
+ 	rootsbindir="\$(sbindir)"
+ fi

@@ -1,0 +1,33 @@
+depends python
+depends gettext
+depends libgcrypt
+depends intltool
+depends swig
+depends keyutils
+
+optional_depends Linux-PAM \
+                 "--enable-pam" \
+                 "--disable-pam" \
+                 "for PAM support" \
+                 "y"
+
+optional_depends gpgme \
+                 "--enable-gpg" \
+                 "--disable-gpg" \
+                 "for GPG support"
+
+optional_depends nss \
+                 "--enable-nss" \
+                 "--disable-nss" \
+                 "for NSS support"
+
+optional_depends %OSSL \
+                 "--enable-openssl" \
+                 "--disable-openssl" \
+                 "for SSL support"
+
+#broken
+#optional_depends pkcs11-helper \
+#                 "--enable-pkcs11-helper" \
+#                 "--disable-pkcs11-helper" \
+#                 "for PKCS#11 support"
