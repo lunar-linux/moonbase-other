@@ -14,8 +14,6 @@ sedit 's:-z $FTSRCDIR:x"$FTSRCDIR" = x"src":' configure.ac configure &&
 # Will run ./configure with Lunar's options, in default_build
 sedit "s:\$srcdir/configure:echo:" autogen.sh &&
 
-sedit '57 s@1/!!@!!@' base/gxcindex.h &&
-
 # don't forget to install gserrors.h
 sedit '/ierrors\.h/ a\
 \	$(INSTALL_DATA) $(GLSRC)gserrors.h $(DESTDIR)$(gsincludedir)gserrors.h' base/unix-dll.mak &&
