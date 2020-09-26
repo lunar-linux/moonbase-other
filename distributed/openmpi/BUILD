@@ -5,7 +5,10 @@ OPTS+=" --sysconfdir=/etc/openmpi \
         --enable-builtin-atomics \
         --disable-static \
         --without-slurm \
-        --without-lfs"
+        --without-moab \
+        --without-sge"
+
+#        --without-lfs"
 
 LDFLAGS="${LDFLAGS} -Wl,-z,noexecstack"
 
@@ -13,10 +16,9 @@ if [ -f /usr/bin/gfortran ] && [ "$FORTRAN" = "y" ]; then
    FC=/usr/bin/gfortran
 fi &&
 
-if in_depends $MODULE valgrind; then
-   # required for valgrind 3.15.0
-   OPTS+=" --enable-mpi1-compatibility \
-           --enable-memchecker"
-fi &&
+default_build &&
 
-default_build
+install -dm 755 /usr/lib/pkgconfig
+for i in ompi-c.pc ompi-cxx.pc ompi-f77.pc ompi-f90.pc ompi.pc; do
+    ln -sf "/usr/lib/openmpi/pkgconfig/${i}" /usr/lib/pkgconfig/
+done
