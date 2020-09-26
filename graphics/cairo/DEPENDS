@@ -6,32 +6,37 @@ depends lzo
 optional_depends libXext \
                  "--enable-xlib --enable-xcb --enable-xlib-xcb --enable-tee" \
                  "--disable-xlib --disable-xlib-xcb" \
-                 "for Xlib/XCB surface backend (strongly recommended)" y
+                 "for Xlib/XCB surface backend (strongly recommended)" \
+                 "y"
 
 optional_depends libXrender \
                  "--enable-xlib-xrender" \
                  "--disable-xlib-xrender" \
-                 "for Xlib Xrender surface backend (requires Xlib)"
-
-optional_depends DirectFB \
-                 "--enable-directfb" \
-                 "--disable-directfb" \
-                 "for DirectFB surface backend (experimental)" n
+                 "for Xlib Xrender surface backend (requires Xlib)" \
+                 "y"
 
 optional_depends freetype2 \
                  "--enable-ft" \
                  "--disable-ft" \
-                 "for FreeType font backend" y
+                 "for FreeType font backend" \
+                 "y"
 
 optional_depends fontconfig \
                  "--enable-ft --enable-fc" \
                  "--disable-fc" \
-                 "for Fontconfig font backend (enables FreeType)" y
+                 "for Fontconfig font backend (enables FreeType)" \
+                 "y"
 
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \
                  "--disable-gtk-doc" \
                  "for building documentation" \
+                 "n"
+
+optional_depends DirectFB \
+                 "--enable-directfb" \
+                 "--disable-directfb" \
+                 "for DirectFB surface backend (experimental)" \
                  "n"
 
 # circular dependencies
