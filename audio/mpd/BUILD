@@ -1,18 +1,19 @@
-OPTS+=" -Dzlib=enabled \
-        -Dzzip=disabled \
-        -Dshine=disabled \
-        -Dsndio=disabled \
-        -Dadplug=disabled \
-        -Dtremor=disabled \
-        -Dsidplay=disabled \
-        -Ddocumentation=false"
+OPTS+=" -D zlib=enabled \
+        -D zzip=disabled \
+        -D shine=disabled \
+        -D sndio=disabled \
+        -D adplug=disabled \
+        -D tremor=disabled \
+        -D sidplay=disabled \
+        -D mpcdec=disabled \
+        -D documentation=disabled"
 
 add_priv_user mpd:mpd
 
 if module_installed systemd; then
-    OPTS+=" -Dsystemd=enabled"
+    OPTS+=" -D systemd=enabled"
   else
-    OPTS+=" -Dsystemd=disabled"
+    OPTS+=" -D systemd=disabled"
 fi
 
 default_meson_build &&
