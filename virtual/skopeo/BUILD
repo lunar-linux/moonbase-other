@@ -1,7 +1,7 @@
 export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
 export CGO_LDFLAGS="$LDFLAGS"
 
-make binary-local BUILDTAGS='containers_image_ostree_stub' &&
+make bin/skopeo BUILDTAGS='containers_image_ostree_stub' &&
 make docs
 
 prepare_install &&
