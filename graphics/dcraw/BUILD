@@ -1,11 +1,6 @@
-mkdir -p build &&
-
-# This is so you can see what flags were used to build with in lvu compile dcraw
-echo $CFLAGS &&
-
 gcc $CFLAGS $LDFLAGS -O4 -o dcraw dcraw.c \
     -Wall -Wno-unused-result -Wno-array-bounds \
-    -lm -ljasper -ljpeg -llcms &&
+    -lm -ljasper -ljpeg -llcms2 &&
 
 prepare_install &&
 
