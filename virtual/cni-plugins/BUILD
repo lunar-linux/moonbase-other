@@ -2,7 +2,7 @@
 
 prepare_install &&
 
-cd $SOURCE_DIRECTORY/bin &&
+cd bin &&
 for bin in *; do
    install -Dm755 $bin /usr/lib/cni/$bin
 done
