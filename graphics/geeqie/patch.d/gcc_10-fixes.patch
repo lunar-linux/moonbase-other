@@ -1,0 +1,49 @@
+/* http://geeqie.org/cgi-bin/gitweb.cgi?p=geeqie.git;a=commitdiff;h=3ea5fa39d37e56443907255fbc81cb1b83dc9978;hp=82b897ca7ada468b9100b912d5f04912e1c343de
+*/
+
+---
+diff --git a/src/bar_exif.h b/src/bar_exif.h
+index 63c30d4..1395e84 100644 (file)
+--- a/src/bar_exif.h
++++ b/src/bar_exif.h
+@@ -28,9 +28,6 @@
+ void bar_pane_exif_entry_add_from_config(GtkWidget *pane, const gchar **attribute_names, const gchar **attribute_values);
+ 
+ /* these are exposed for when duplication of the exif bar's text is needed */
+-
+-const gchar **bar_exif_key_list;
+-const gint bar_exif_key_count;
+ GList *bar_pane_exif_list();
+ 
+ #endif
+---
+diff --git a/src/options.c b/src/options.c
+index 9945938..bab26ac 100644 (file)
+--- a/src/options.c
++++ b/src/options.c
+@@ -32,6 +32,9 @@
+ #include "ui_fileops.h"
+ #include "window.h"
+ 
++ConfOptions *options;
++CommandLine *command_line;
++
+ ConfOptions *init_options(ConfOptions *options)
+ {
+        gint i;
+---
+diff --git a/src/options.h b/src/options.h
+index fcfe961..02ff8fa 100644 (file)
+--- a/src/options.h
++++ b/src/options.h
+@@ -321,8 +321,8 @@
+        GList *disabled_plugins;
+ };
+ 
+-ConfOptions *options;
+-CommandLine *command_line;
++extern ConfOptions *options;
++extern CommandLine *command_line;
+ 
+ ConfOptions *init_options(ConfOptions *options);
+ void setup_default_options(ConfOptions *options);
