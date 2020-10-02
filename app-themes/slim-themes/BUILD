@@ -1,4 +1,4 @@
-THEMES="capernoited flower2 isolated lotus-sage lotus-midnight mindlock parallel-dimensions" &&
+THEMES="capernoited flower2 isolated lotus-sage lotus-midnight mindlock parallel-dimensions"
 
 prepare_install &&
 
