@@ -7,6 +7,6 @@ sedit "s:installdirs install-info:installdirs:" Makefile.in &&
 OPTS+=" --prefix=/usr    \
         --libdir=$MODULE \
         --disable-docs   \
-        --program-suffix=-mozilla" &&
+        --program-suffix=-$VERSION"
 
 default_build
