@@ -12,6 +12,7 @@ find . -name '*.ko' -exec gzip {} + &&
 
 prepare_install &&
 
+mkdir -p "${MDEST_DIR}"
 install -m 644 wl.ko.gz "${MDEST_DIR}/" &&
 
 mkdir -p /usr/lib/modprobe.d &&
