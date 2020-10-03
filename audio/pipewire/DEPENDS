@@ -1,7 +1,7 @@
 depends libsndfile
 depends dbus
 depends ffmpeg
-depends rtkit
+#depends rtkit
 depends sbc
 depends meson
 
@@ -15,25 +15,30 @@ optional_depends alsa-lib \
                  "-D alsa=false -D pipewire-alsa=false" \
                  "for ALSA sound support"
 
-optional_depends gst-plugins-good \
-                 "-D gstreamer=true" \
-                 "-D gstreamer=false" \
-                 "for gstreamer audio support"
-
-optional_depends pulseaudio \
-                 "-D pipewire-pulseaudio=true" \
-                 "-D pipewire-pulseaudio=false" \
-                 "for pulseudio support"
-
-optional_depends jack \
-                 "-D jack=true -D pipewire-jack=true" \
-                 "-D jack=false -D pipewire-jack=false" \
-                 "for jack audio support"
-
 optional_depends bluez-5 \
                  "-D bluez5=true" \
                  "-D bluez5=false" \
                  "for Bluetooth support"
+
+optional_depends gst-plugins-good \
+                 "-D gstreamer=true" \
+                 "-D gstreamer=false" \
+                 "for gstreamer audio support" \
+                 "n"
+
+optional_depends pulseaudio \
+                 "-D pipewire-pulseaudio=true" \
+                 "-D pipewire-pulseaudio=false" \
+                 "for pulseudio support" \
+                 "n"
+
+optional_depends jack \
+                 "-D jack=true -D pipewire-jack=true" \
+                 "-D jack=false -D pipewire-jack=false" \
+                 "for jack audio support" \
+                 "n"
+
+optional_depends rtkit "" "" "for realtime policy support"
 
 optional_depends doxygen \
                  "-D docs=true" \
