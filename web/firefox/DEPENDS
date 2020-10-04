@@ -1,10 +1,9 @@
-depends python
-depends node
-depends llvm
-depends zip
-depends freetype2
 depends autoconf-mozilla
-depends unzip
+depends python
+depends llvm
+depends rustc
+depends lld
+depends freetype2
 depends gtk+-2
 depends gtk+-3
 depends nss
@@ -15,13 +14,15 @@ depends cbindgen
 depends pixman
 depends libffi
 depends nasm
+depends node
+depends unzip
+depends mesa-lib
+depends zip
 
 optional_depends libpng \
                  "--with-system-png" \
                  "--without-system-libpng" \
                  "Build with system libpng"
-
-optional_depends %FLASH "" "" "To enable Flash plugin"
 
 optional_depends libevent \
                  "--with-system-libevent" \
@@ -38,16 +39,26 @@ optional_depends icu4c \
                  "--without-system-icu" \
                  "Use system icu4c library"
 
+optional_depends pipewire \
+                 "--enable-pipewire" \
+                 "--disable-pipewire"  \
+                 "Build pipewire sound backend"
+
 optional_depends pulseaudio \
-                 "--enable-pulseaudio --disable-alsa" \
-                 "--disable-pulseaudio --enable-alsa"  \
-                 "Build PulseAudio sound backend"
+                 "--enable-pulseaudio" \
+                 "--disable-pulseaudio"  \
+                 "Build pulseAudio sound backend"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends libjpeg-turbo \
                  "--with-system-jpeg" \
                  "--without-system-jpeg" \
                  "Use system jpeg library"
+
+optional_depends harfbuzz \
+                 "--with-system-harfbuzz" \
+                 "--without-system-harfbuzz" \
+                 "Use system harfbuzz library"
 
 optional_depends webrtc-audio-processing  \
                  "--enable-webrtc"        \
@@ -58,3 +69,5 @@ optional_depends cups \
                  "--enable-printing" \
                  "--disable-printing" \
                  "For printing support"
+
+optional_depends %FLASH "" "" "To enable Flash plugin"

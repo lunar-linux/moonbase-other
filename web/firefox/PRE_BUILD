@@ -7,8 +7,8 @@ fi &&
 default_pre_build &&
 
 # Google API keys (see http://www.chromium.org/developers/how-tos/api-keys)
-# The keys below are for Lunar Linux use ONLY. If you are maintaining chromium for
-# another distribution, please get your own set of keys.
+# The keys below are for Lunar Linux use ONLY. If you are maintaining chromium
+# for another distribution, please get your own set of keys.
 google_api_key=AIzaSyDhObDIVsBGV5fleLgLq6ZpfKldIVMvrG4 &&
 
 echo -n "$google_api_key" > google_api_key &&
@@ -23,6 +23,7 @@ export MOZ_DEBUG_FLAGS="$CFLAGS" &&
 export MOZ_JEMALLOC=1 &&
 export MOZ_ADDON_SIGNING=1 &&
 export MOZ_REQUIRE_SIGNING=0 &&
+export MACH_USE_SYSTEM_PYTHON=1 &&
 export CC=clang &&
 export CXX=clang++ &&
 export AR=llvm-ar &&
@@ -43,6 +44,25 @@ done &&
 echo "ac_add_options --with-google-location-service-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
 echo "ac_add_options --with-google-safebrowsing-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
 
+# General settings
+ac_add_options --prefix=/usr
+ac_add_options --enable-release
+ac_add_options --enable-optimize
+ac_add_options --disable-elf-hack
+ac_add_options --enable-hardening
+ac_add_options --enable-rust-simd
+ac_add_options --enable-linker=lld
+
+# System libraries
+ac_add_options --with-system-nspr
+ac_add_options --with-system-nss
+
+# Features
+ac_add_options --enable-alsa
+ac_add_options --enable-crashreporter
+ac_add_options --disable-updater
+ac_add_options --disable-tests
+
 # turn off this #$ bell during build
 setterm -bfreq -blength &> /dev/null &&
 
@@ -53,5 +73,4 @@ fi &&
 sedit '/deny.*missing_docs/ d' $(grep -rl "deny.*missing_docs" servo) &&
 
 #error: options `-C embed-bitcode=no` and `-C lto` are incompatible
-#https://www.linuxquestions.org/questions/slackware-14/thunderbird-78-0-a-4175678965/
 sed -i "s|-Clto$||" config/makefiles/rust.mk
