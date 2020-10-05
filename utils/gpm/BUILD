@@ -47,10 +47,6 @@ if ! [ -d "/var/lock/subsys" ]; then
    mkdir -p /var/lock/subsys
 fi &&
 
-if module_installed systemd; then
-   install -D -m644 $SCRIPT_DIRECTORY/systemd.d/gpm.service /usr/lib/systemd/system/gpm.service
-fi &&
-
 # library fixes
 cd /usr/lib/ &&
 ln -sf libgpm.so.2.* libgpm.so &&
