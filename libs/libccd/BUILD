@@ -1,0 +1,2 @@
+OPTS+=" -DENABLE_DOUBLE_PRECISION=ON" &&
+default_build
