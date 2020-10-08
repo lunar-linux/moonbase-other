@@ -1,5 +1,6 @@
-sedit 's/^REVISION.*/REVISION := ""/' Makefile &&
 bad_flags "-z now" "-z relro" &&
+
+export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw -ldflags=-linkmode=external" &&
 
 make install &&
 prepare_install &&
