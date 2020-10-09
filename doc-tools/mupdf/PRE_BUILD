@@ -1,4 +1,18 @@
 default_pre_build &&
 
 # fix includes for jbig2dec
-sedit '/^JBIG2DEC_CFLAGS :=/s|$| -I./include/mupdf|' -i Makethird
+sedit '/^JBIG2DEC_CFLAGS :=/s|$| -I./include/mupdf|' Makethird &&
+
+# fix function for openjpeg
+sedit "s/__OPENJPEG__VERSION__/2.3/" source/fitz/load-jpx.c &&
+
+# fix the instrall path prefix
+sedit 's:/usr/local:/usr:g' Makefile &&
+
+# remove bundled packages, we want our system libraries
+rm -rf thirdparty/{freeglut,freetype,harfbuzz,jbig2dec,libjpeg,openjpeg,zlib} &&
+
+#fix some libs option
+sedit 's|GUMBO := yes|GUMBO := no|' Makethird &&
+sedit 's|LEPTONICA := yes|LEPTONICA := no|' Makethird &&
+sedit 's|TESSERACT := yes|TESSERACT := no|' Makethird

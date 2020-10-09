@@ -1,15 +1,15 @@
-# fix function for openjpeg
-sedit "s/__OPENJPEG__VERSION__/2.3/" source/fitz/load-jpx.c &&
+FLAGS+=' -fPIC'
+CXXFLAGS+=' -fPIC'
+export CFLAGS CXXFLAGS &&
 
-OPTS="prefix=/usr build=release"
+USE_SYSTEM_LIBS='yes'
+export USE_SYSTEM_LIBS &&
 
-make $OPTS CURL_LIBS='-lcurl -lpthread' &&
+OPTS="prefix=/usr build=release CURL_LIBS='-lcurl -lpthread'"
 
-sedit 's/-mupdf//g' Makefile &&
-
-prepare_install &&
-
-make $OPTS install &&
+default_make &&
 
 install -Dm644 $SCRIPT_DIRECTORY/mupdf.desktop /usr/share/applications/mupdf.desktop &&
-install -Dm644 $SCRIPT_DIRECTORY/mupdf.xpm /usr/share/pixmaps/mupdf.xpm
+install -Dm644 $SCRIPT_DIRECTORY/mupdf.xpm /usr/share/pixmaps/mupdf.xpm &&
+
+ln -sf /usr/bin/mupdf-x11 /usr/bin/mupdf
