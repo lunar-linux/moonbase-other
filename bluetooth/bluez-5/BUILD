@@ -12,7 +12,7 @@ OPTS+=" --enable-mesh \
         --enable-threads \
         --enable-library \
         --enable-hid2hci \
-        --enable-sixaxis" &&
+        --enable-sixaxis"
 
 default_build &&
 
