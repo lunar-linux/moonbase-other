@@ -1,13 +1,12 @@
-          MODULE=alsa-lib
-         VERSION=1.2.3.2
-          SOURCE=$MODULE-$VERSION.tar.bz2
-          SOURCE_URL[0]=https://www.mirrorservice.org/sites/ftp.alsa-project.org/pub/lib/
-      SOURCE_URL=ftp://ftp.alsa-project.org/pub/lib
-      SOURCE_VFY=sha256:e81fc5b7afcaee8c9fd7f64a1e3043e88d62e9ad2c4cff55f578df6b0a9abe15
-        WEB_SITE=http://www.alsa-project.org
-         ENTERED=20010922
-         UPDATED=20200718
-           SHORT="ALSA library provides an API for the Advanced Linux Sound Architecture"
+           MODULE=alsa-lib
+          VERSION=1.2.4
+           SOURCE=$MODULE-$VERSION.tar.gz
+   SOURCE_URL_FULL=https://github.com/alsa-project/${MODULE}/archive/v${VERSION}.tar.gz
+       SOURCE_VFY=sha256:76ce8898b95e6c8708a85533ac8279fb3d6a3894809ea2dd8faa723a453feffd
+         WEB_SITE=http://www.alsa-project.org
+          ENTERED=20010922
+o          UPDATED=20201018
+             SHORT="ALSA library provides an API for the Advanced Linux Sound Architecture"
 
 cat << EOF
 From http://www.alsa-project.org/intro.php3
@@ -19,6 +18,6 @@ Primary goals:
 1. Create a fully modularized sound driver which supports kerneld and kmod.
 2. Create the ALSA Kernel API which surpasses the current OSS API.
 3. Maintain compatibility with most OSS/Lite binaries.
-4. Create the ALSA Library (C, C++), which simplifies ALSA application development.
+4. Create the ALSA Library (C, C++), which simplify ALSA application development.
 5. Create the ALSA Manager, an interactive configuration program for the driver.
 EOF
