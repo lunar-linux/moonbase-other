@@ -2,6 +2,10 @@ if [ -e "/etc/init.d/xinetd.sh" ]; then
   rm -f /etc/init.d/xinetd.sh /etc/rc?.d/???xinetd.sh
 fi &&
 
+OPTS+=" --without-libwrap"
+#CFLAGS+=" -I/usr/include/tirpc"
+LDFLAGS+=" -ltirpc"
+
 default_config &&
 mkdir -p /var/log/xinetd /etc/xinetd &&
 default_make &&
