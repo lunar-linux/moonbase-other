@@ -1,3 +1,3 @@
-OPTS+=" --without-libgnome " &&
+OPTS+=" --without-libgnome"
 
 default_build
