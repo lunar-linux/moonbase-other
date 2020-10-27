@@ -1,9 +1,11 @@
-depends python-setuptools
 depends perl
-depends libcap
-depends libseccomp
+depends python-setuptools
 depends rsync
 depends wget
+
+optional_depends Linux-PAM  "--enable-pam"          "" "for PAM support"
+optional_depends libcap     "--enable-capabilities" "" "for capabilities support"
+optional_depends libseccomp "--enable-seccomp"      "" "for seccomp support"
 
 optional_depends dnsmasq "" "" "for lxc-net.service"
 optional_depends lua     "" "" "for lxc-top"
