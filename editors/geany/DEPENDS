@@ -3,13 +3,12 @@ depends hicolor-icon-theme
 depends XML-Parser
 depends intltool
 
-optional_depends gtk+-3 "--enable-gtk3" "" "for GTK+ 3.x support"
-optional_depends gtk+-2 ""              "" "for GTK+ 2.x support"
+optional_depends gtk+-3 "" "" "for GTK+ 3.x support" "y"
+optional_depends gtk+-2 "--enable-gtk2"              "" "for GTK+ 2.x support" "n"
+optional_depends docutils "" "" "for documentation support" "n"
 
-if [ "$USE_VTE" == "y" ]; then
-  if in_depends $MODULE gtk+-3; then
+if in_depends $MODULE gtk+-3; then
     depends vte3
   else
     depends vte
   fi
-fi
