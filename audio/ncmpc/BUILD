@@ -1,3 +1,3 @@
-OPTS+=" -Dhtml_manual=false"
+OPTS+=" -D html_manual=false"
 
 default_meson_build

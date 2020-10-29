@@ -3,5 +3,12 @@ depends ncurses
 depends libmpdclient
 depends meson
 
-optional_depends lirc "-Dlirc=enabled" "-Dlirc=disabled" "for remote control support"
-optional_depends Sphinx "-Ddocumentation=enabled" "-Ddocumentation=disabled" "build documentation"
+optional_depends lirc \
+                 "-D lirc=enabled" \
+                 "-D lirc=disabled" \
+                 "for remote control support"
+
+optional_depends Sphinx \
+                 "-D documentation=enabled" \
+                 "-D documentation=disabled" \
+                 "build documentation"
