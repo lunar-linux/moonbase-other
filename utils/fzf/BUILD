@@ -1,6 +1,8 @@
 bad_flags "-z now" "-z relro" &&
 
 export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw -ldflags=-linkmode=external" &&
+export FZF_VERSION="$VERSION" &&
+
 
 make install &&
 prepare_install &&
