@@ -1,6 +1,8 @@
+export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw" &&
+
 cd cmd/shfmt &&
 
-go build -trimpath -ldflags "-extldflags ${LDFLAGS}" . &&
+go build . &&
 
 prepare_install &&
 
