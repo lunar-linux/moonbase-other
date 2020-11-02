@@ -22,7 +22,6 @@ depends libvisio
 depends libmspub
 depends cups
 depends libwps
-depends liborcus
 depends libodfgen
 depends libnumbertext
 depends rpmunpack
@@ -34,3 +33,9 @@ optional_depends gtk+-2  "" "" "for GTK 2.x integration" "n"
 optional_depends %JAVA_SDK "" "" "for Java support"
 
 optional_depends gst-plugins-base "" "" "for multimedia content"
+
+optional_depends liborcus \
+                 "--with-system-orcus" \
+                 "--without-system-orcus" \
+                 "for import filter for spreadheet support (don't use it for a 32 bits build)" \
+                 "n"
