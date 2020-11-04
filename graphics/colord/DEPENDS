@@ -2,32 +2,39 @@ depends lcms2
 depends sqlite
 depends libgudev
 depends libgusb
-depends polkit
 depends shared-mime-info
 depends gobject-introspection
 depends meson
 
+
 optional_depends bash-completion \
-                 "-Dbash_completion=true" \
-                 "-Dbash_completion=false" \
+                 "-D bash_completion=true" \
+                 "-D bash_completion=false" \
                  "for bash completion support"
 
-optional_depends Argyll \
-                 "-Dargyllcms_sensor=true -Dlibcolorcompat=true -Dprint_profiles=true" \
-                 "-Dargyllcms_sensor=false -Dlibcolorcompat=false -Dprint_profiles=false" \
-                 "for ArgyllCMS sensor support"
-
 optional_depends vala \
-                 "-Dvapi=true" \
-                 "-Dvapi=false" \
+                 "-D vapi=true" \
+                 "-D vapi=false" \
                  "for vala bindings support"
 
+optional_depends Argyll \
+                 "-D argyllcms_sensor=true -Dlibcolorcompat=true -Dprint_profiles=true" \
+                 "-D argyllcms_sensor=false -Dlibcolorcompat=false -Dprint_profiles=false" \
+                 "for ArgyllCMS sensor support"
+
 optional_depends sane-backends \
-                 "-Dsane=true" \
-                 "-Dsane=false" \
+                 "-D sane=true" \
+                 "-D sane=false" \
                  "for scanner support"
 
+optional_depends polkit \
+                 "-D daemon=true" \
+                 "-D daemon=false" \
+                 "for daemon build and install" \
+                 "n"
+
 optional_depends gtk-doc \
-                 "-Ddocs=true" \
-                 "-Ddocs=false" \
-                 "for documentsation install"
+                 "-D docs=true" \
+                 "-D docs=false" \
+                 "for documentsation install" \
+                 "n"
