@@ -1,5 +1,5 @@
 OPTS+=" --disable-static \
         --enable-libpst-shared \
-        --enable-dii" &&
+        --enable-dii"
 
 default_build
