@@ -93,7 +93,7 @@ diff --git a/src/cmd/dist/test.go b/src/cmd/dist/test.go
 index a83ae3529366..5ea5c81656de 100644
 --- a/src/cmd/dist/test.go
 +++ b/src/cmd/dist/test.go
-@@ -1106,8 +1106,9 @@ func (t *tester) cgoTest(dt *distTest) error {
+@@ -1104,8 +1104,9 @@ func (t *tester) cgoTest(dt *distTest) error {
  
  		cmd := t.addCmd(dt, "misc/cgo/test", t.goTest())
  		cmd.Env = append(os.Environ(), "GOFLAGS=-ldflags=-linkmode=external")
