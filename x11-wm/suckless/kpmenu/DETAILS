@@ -1,0 +1,29 @@
+          MODULE=kpmenu
+         VERSION=1.2.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/AlessioDP/kpmenu/archive/v${VERSION}.tar.gz
+      SOURCE_VFY=sha256:8525d8adddf4ad1af37fb468c2d55b53cc06351012c76d89e56674e9e9d960c2
+        WEB_SITE=https://github.com/huijunchen9260/dmenufm/
+         ENTERED=20201108
+         UPDATED=20201108
+           SHORT="A simple file manager using dmenu"
+
+cat << EOF
+Kpmenu is a tool written in Go used to view a KeePass database via a dmenu, or
+rofi, menu. Features
+ - Supports KDBX v3.1 and v4.0 (based on gokeepasslib)
+ - Pretty fast database decode thanks to Go
+ - Interfaced with dmenu or rofi
+ - Customize dmenu/rofi with additional command arguments
+ - Kpmenu can be started as a daemon, so you don't need to re-insert credentials
+ - By default the first instance of kpmenu will enter in daemon mode (cache
+   option) for 60 seconds
+ - You can start a permanent daemon with --daemon option (it won't ask open the
+   database)
+ - Even if the cache times out, the daemon won't be killed
+ - Automatically put selected value into the clipboard (for a custom time)
+ - xsel and wl-clipboard supported
+ - By default it will use xsel, you can override it via config or
+   --clipboardTool option
+ - Hidden password typing.
+EOF
