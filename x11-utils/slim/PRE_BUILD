@@ -1,8 +1,5 @@
 default_pre_build &&
 
-patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 1 &&
-
 sedit 's@FREETYPE_INCLUDE_DIR_freetype2@FREETYPE_INCLUDE_DIR_ft2build@' CMakeLists.txt &&
 
 # link against pam with USE_PAM

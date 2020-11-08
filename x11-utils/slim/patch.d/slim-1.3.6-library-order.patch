@@ -1,0 +1,30 @@
+--- ./CMakeLists.txt	2013-10-02 00:38:05.000000000 +0200
++++ ./CMakeLists.txt.orig	2013-10-23 23:38:00.581170934 +0200
+@@ -90,8 +90,11 @@
+ endif(USE_CONSOLEKIT)
+ 
+ add_executable(${PROJECT_NAME} ${slim_srcs})
++target_link_libraries(${PROJECT_NAME} libslim)
++
+ if(BUILD_SLIMLOCK)
+     add_executable(slimlock ${slimlock_srcs})
++    target_link_libraries(slimlock libslim)
+ endif(BUILD_SLIMLOCK)
+ 
+ #Set the custom CMake module directory where our include/lib finders are
+@@ -199,7 +199,6 @@
+ 	${FREETYPE_LIBRARY}
+ 	${JPEG_LIBRARIES}
+ 	${PNG_LIBRARIES}
+-    libslim
+ )
+ 
+ if(BUILD_SLIMLOCK)
+@@ -217,7 +217,6 @@
+         ${JPEG_LIBRARIES}
+         ${PNG_LIBRARIES}
+         ${CMAKE_THREAD_LIBS_INIT}
+-        libslim
+     )
+ endif(BUILD_SLIMLOCK)
+ 

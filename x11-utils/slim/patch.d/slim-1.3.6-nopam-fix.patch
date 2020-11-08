@@ -1,0 +1,14 @@
+--- ./CMakeLists.txt	2013-10-02 00:38:05.000000000 +0200
++++ ./CMakeLists.txt.orig	2013-10-23 23:48:17.586125658 +0200
+@@ -223,7 +223,10 @@
+ ####### install
+ # slim
+ install(TARGETS slim RUNTIME DESTINATION bin)
+-install(TARGETS slimlock RUNTIME DESTINATION bin)
++
++if (BUILD_SLIMLOCK)
++    install(TARGETS slimlock RUNTIME DESTINATION bin)
++endif (BUILD_SLIMLOCK)
+ 
+ if (BUILD_SHARED_LIBS)
+ 	set_target_properties(libslim PROPERTIES
