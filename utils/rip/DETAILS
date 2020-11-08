@@ -1,0 +1,18 @@
+          MODULE=rip
+         VERSION=0.13.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/nivekuil/rip/archive/${VERSION}.tar.gz
+      SOURCE_VFY=sha256:73acdc72386242dced117afae43429b6870aa176e8cc81e11350e0aaa95e6421
+        WEB_SITE=https://github.com/nivekuil/rip/
+         ENTERED=20201108
+         UPDATED=20201108
+           SHORT="A safer alternative to rm"
+
+cat << EOF
+rip is a command-line deletion tool focused on safety, ergonomics, and
+performance. It favors a simple interface, and does not implement the xdg-
+trash spec or attempt to achieve the same goals.
+Deleted files get sent to the graveyard (/tmp/graveyard-$USER by default,
+giving you a chance to recover them. No data is overwritten. If files that
+share the same path are deleted, they will be renamed as numbered backups.
+EOF
