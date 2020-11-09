@@ -1,0 +1,20 @@
+          MODULE=osdbattery
+         VERSION=1.4
+          SOURCE=${MODULE}_$VERSION.tar.gz
+      SOURCE_URL=$SFORGE_URL/$MODULE/
+  SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}_$VERSION
+      SOURCE_VFY=sha256:b1f775c746cd78b6aa7fc9ee75ecf2806ef3da93a42dd806c0414dcae55aed9f
+        WEB_SITE=http://osdbattery.sourceforge.net/
+         ENTERED=20020802
+         UPDATED=20201108
+           SHORT="Displays battery information in the OSD style"
+
+cat << EOF
+osdbatery is a simple application which shows battery info for laptops.
+This program parses ACPI kernel info and shows it in an on-screen display.
+It is very useful for notebooks when using full screen applications,
+since it allows you to monitor your battery state in all applications.
+It shows a status bar, the percentage of battery power left, and maximum,
+minimum, and current voltage. It has a configuration file to specify placement
+on the desktop, font, color, and update interval.
+EOF
