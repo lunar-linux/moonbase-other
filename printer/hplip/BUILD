@@ -1,8 +1,11 @@
 # Fix build with python 3.8
 export CFLAGS+=" $(python3-config --includes)" &&
 
-OPTS+=" --disable-qt3 \
-        --disable-qt4 \
+if modules_installed qt5; then
+  OPTS+=" --enable-qt5"
+fi &&
+
+OPTS+=" --disable-qt4 \
         --disable-static \
         --enable-new-hpcups \
         --enable-cups-drv-install \

@@ -9,5 +9,10 @@ echo "Categories=Qt;KDE;Utility;" >> hp-uiscan.desktop.in &&
 echo "Comment=SANE-based scan utility for HPLIP supported all-in-one/mfp devices" >> hp-uiscan.desktop.in &&
 sedit 's:/usr/share/icons/Humanity/devices/48/printer.svg:/usr/share/hplip/data/images/devices/default_printer.png:' hp-uiscan.desktop.in &&
 
+sedit 's:SAVE_CPPFLAGS:save_CFLAGS:' configure.in &&
+
+ https://bugs.gentoo.org/750116, avahi is now a depends.
+sedit 's:avahiDiscovery.h:protocol/discovery/avahiDiscovery.h:' scan/sane/hpaio.c &&
+
 export AUTOMAKE='automake --foreign' &&
 autoreconf --force --install
