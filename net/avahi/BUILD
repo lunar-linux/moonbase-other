@@ -19,6 +19,7 @@ add_priv_group netdev &&
 OPTS+=" --enable-compat-howl \
         --enable-compat-libdns_sd \
         --disable-stack-protector \
+        --disable-mono \
         --disable-monodoc \
         --disable-static \
         --disable-qt3 \
