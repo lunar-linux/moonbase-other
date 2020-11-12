@@ -1,3 +1,5 @@
-make SHARED=1 no_test &&
-prepare_install &&
-make install
+OPTS+=" -DCMAKE_VERBOSE_MAKEFILE=ON \
+        -DUSE_SHARED_MBEDTLS_LIBRARY=ON \
+        -DCMAKE_INSTALL_RPATH="
+
+default_cmake_build
