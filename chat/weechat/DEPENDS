@@ -1,6 +1,7 @@
 depends ncurses
 depends curl
 depends cmake
+depends gnutls
 depends libgcrypt
 depends pkgconf
 
@@ -13,11 +14,6 @@ optional_depends aspell \
                  "-DENABLE_ASPELL=ON" \
                  "-DENABLE_ASPELL=OFF" \
                  "for spelling support"
-
-optional_depends gnutls \
-                 "-DENABLE_GNUTLS=ON" \
-                 "-DENABLE_GNUTLS=OFF" \
-                 "for TLS encryption support"
 
 optional_depends ruby \
                  "-DENABLE_RUBY=ON" \
