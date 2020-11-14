@@ -1,8 +1,8 @@
-OPTS+=" -Dlibcap=enabled \
-        -Dxcb-errors=enabled \
-        -Dxcb-icccm=enabled \
-        -Dxcb-xkb=enabled \
-        -Dxwayland=enabled \
-        -Dx11-backend=enabled"
+OPTS+=" -D libseat=disabled \
+        -D xcb-errors=enabled \
+        -D xcb-icccm=enabled \
+        -D xcb-xkb=enabled \
+        -D xwayland=enabled \
+        -D x11-backend=enabled"
 
 default_meson_build
