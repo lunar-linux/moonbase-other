@@ -78,27 +78,6 @@ diff '--color=auto' -up ../dmenu-4.9/dmenu.c ./dmenu.c
  int
  main(int argc, char *argv[])
  {
-@@ -715,15 +760,15 @@ main(int argc, char *argv[])
- 		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
- 			prompt = argv[++i];
- 		else if (!strcmp(argv[i], "-fn"))  /* font or font set */
--			fonts[0] = argv[++i];
-+			tempfonts = argv[++i];
- 		else if (!strcmp(argv[i], "-nb"))  /* normal background color */
--			colors[SchemeNorm][ColBg] = argv[++i];
-+			colortemp[0] = argv[++i];
- 		else if (!strcmp(argv[i], "-nf"))  /* normal foreground color */
--			colors[SchemeNorm][ColFg] = argv[++i];
-+			colortemp[1] = argv[++i];
- 		else if (!strcmp(argv[i], "-sb"))  /* selected background color */
--			colors[SchemeSel][ColBg] = argv[++i];
-+			colortemp[2] = argv[++i];
- 		else if (!strcmp(argv[i], "-sf"))  /* selected foreground color */
--			colors[SchemeSel][ColFg] = argv[++i];
-+			colortemp[3] = argv[++i];
- 		else if (!strcmp(argv[i], "-w"))   /* embedding window id */
- 			embed = argv[++i];
- 		else
 @@ -743,8 +788,23 @@ main(int argc, char *argv[])
  		die("could not get embedding window attributes: 0x%lx",
  		    parentwin);
