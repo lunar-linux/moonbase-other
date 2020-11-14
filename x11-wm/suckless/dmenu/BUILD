@@ -1,4 +1,5 @@
 make &&
+strip dmenu &&
 
 prepare_install &&
 
