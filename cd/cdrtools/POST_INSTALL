@@ -25,4 +25,9 @@ mod_ide_scsi()  {
 case  $IDE_SCSI  in
   y|Y|j|J)  mod_ide_scsi ;;
         *)  true         ;;
-esac
+esac &&
+
+# Runtime settings
+setcap cap_sys_resource,cap_dac_override,cap_sys_admin,cap_sys_nice,cap_net_bind_service,cap_ipc_lock,cap_sys_rawio+ep /usr/bin/cdrecord
+setcap cap_dac_override,cap_sys_admin,cap_sys_nice,cap_net_bind_service,cap_sys_rawio+ep /usr/bin/cdda2wav
+setcap cap_dac_override,cap_sys_admin,cap_net_bind_service,cap_sys_rawio+ep /usr/bin/readcd
