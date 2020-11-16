@@ -1,10 +1,4 @@
-OPTS+=" --enable-debug=no --disable-sanitizers"
+OPTS+=" -D docs=true \
+        -D mans=true"
 
-default_config &&
-
-cd $(arch)-pc-linux-gnu &&
-make CPPFLAGS+="-U_FORTIFY_SOURCE" &&
-
-prepare_install &&
-
-make install
+default_meson_build
