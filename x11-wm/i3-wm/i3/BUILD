@@ -1,6 +1,4 @@
-OPTS+=" --enable-debug=no"
+OPTS+=" -D docs=true \
+        -D mans=true"
 
-default_config &&
-
-cd $(arch)-pc-linux-gnu &&
-default_make
+default_meson_build
