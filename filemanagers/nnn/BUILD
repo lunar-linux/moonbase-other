@@ -1,3 +1,5 @@
+OPTS+=" O_ICONS=1"
+
 make $OPTS && 
 prepare_install &&
 make PREFIX=/usr install install-desktop &&
