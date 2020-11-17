@@ -1,7 +1,7 @@
 depends autoconf-mozilla
 depends python
 depends llvm
-depends rustc
+depends cbindgen
 depends lld
 depends freetype2
 depends gtk+-2
@@ -39,10 +39,10 @@ optional_depends icu4c \
                  "--without-system-icu" \
                  "Use system icu4c library"
 
-optional_depends pipewire \
-                 "--enable-pipewire" \
-                 "--disable-pipewire"  \
-                 "Build pipewire sound backend"
+#optional_depends pipewire \
+#                 "--enable-pipewire" \
+#                 "--disable-pipewire"  \
+#                 "Build pipewire sound backend"
 
 optional_depends pulseaudio \
                  "--enable-pulseaudio" \
@@ -70,4 +70,4 @@ optional_depends cups \
                  "--disable-printing" \
                  "For printing support"
 
-optional_depends %FLASH "" "" "To enable Flash plugin"
+optional_depends flash-plugin "" "" "To enable Flash plugin"
