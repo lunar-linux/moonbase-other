@@ -1,7 +1,6 @@
 depends libsndfile
 depends dbus
 depends ffmpeg
-#depends rtkit
 depends sbc
 depends meson
 
@@ -23,8 +22,7 @@ optional_depends bluez-5 \
 optional_depends gst-plugins-good \
                  "-D gstreamer=true" \
                  "-D gstreamer=false" \
-                 "for gstreamer audio support" \
-                 "n"
+                 "for gstreamer audio support"
 
 optional_depends pulseaudio \
                  "-D pipewire-pulseaudio=true" \

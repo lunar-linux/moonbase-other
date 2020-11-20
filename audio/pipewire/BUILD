@@ -6,7 +6,7 @@ OPTS+=" -D vulkan=false \
 CFLAGS+=" -Wformat"
 
 default_meson_build &&
-
+exit 1
 mkdir -p /etc/alsa/conf.d
 ln -sft /etc/alsa/conf.d /usr/share/alsa/alsa.conf.d/50-pipewire.conf &&
 ln -sft /etc/alsa/conf.d /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf
