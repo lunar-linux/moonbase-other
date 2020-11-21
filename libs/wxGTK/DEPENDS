@@ -1,8 +1,11 @@
 depends nasm
-depends bison
 depends flex
-depends gtk+-2
+depends bison
 depends libSM
+depends libnotify
+
+optional_depends gtk+-3 "--with-gtk=3" "" "for GTK 3.x support" "y"
+optional_depends gtk+-2 "--with-gtk=2" "" "for GTK 2.x support" "n"
 
 optional_depends zlib  "--with-zlib"  "--without-zlib"  "for LZW compression via zlib"
 optional_depends expat "--with-expat" "--without-expat" "for XML support via expat"
@@ -18,7 +21,7 @@ optional_depends mesa-lib \
                  "--without-opengl" \
                  "for OpenGL support (needed for hugin)"
 
-optional_depends webkitgtk3 \
+optional_depends webkit2gtk3 \
                  "--enable-webview" \
                  "--disable-webview" \
                  "for webview support"

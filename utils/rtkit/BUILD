@@ -1,6 +1,3 @@
-
-autoreconf --force --install --symlink &&
-
 default_build &&
 
 add_priv_group rtkit &&

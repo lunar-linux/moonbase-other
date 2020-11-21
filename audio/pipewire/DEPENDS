@@ -2,6 +2,7 @@ depends libsndfile
 depends dbus
 depends ffmpeg
 depends sbc
+depends rtkit
 depends meson
 
 optional_depends systemd \
@@ -19,7 +20,7 @@ optional_depends bluez-5 \
                  "-D bluez5=false" \
                  "for Bluetooth support"
 
-optional_depends gst-plugins-good \
+optional_depends gst-plugins-base \
                  "-D gstreamer=true" \
                  "-D gstreamer=false" \
                  "for gstreamer audio support"
@@ -35,8 +36,6 @@ optional_depends jack \
                  "-D jack=false -D pipewire-jack=false" \
                  "for jack audio support" \
                  "n"
-
-optional_depends rtkit "" "" "for realtime policy support"
 
 optional_depends doxygen \
                  "-D docs=true" \

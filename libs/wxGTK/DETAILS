@@ -1,19 +1,18 @@
           MODULE=wxGTK
-         VERSION=3.0.2.0
-# NOTE: leave source the same as wxPython to save dl bw
-          SOURCE=wxPython-src-$VERSION.tar.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/wxPython-src-$VERSION
-      SOURCE_URL=$SFORGE_URL/wxpython
-      SOURCE_VFY=sha256:d54129e5fbea4fb8091c87b2980760b72c22a386cb3b9dd2eebc928ef5e8df61
-        WEB_SITE=http://www.wxwidgets.org
+         VERSION=3.0.5.1
+          SOURCE=wxWidgets-$VERSION.tar.bz2
+          SOURCE_DIRECTORY=$BUILD_DIRECTORY/wxWidgets-$VERSION
+      SOURCE_URL=https://github.com/wxWidgets/wxWidgets/releases/download/v${VERSION}/
+      SOURCE_VFY=sha256:440f6e73cf5afb2cbf9af10cec8da6cdd3d3998d527598a53db87099524ac807
+        WEB_SITE=http://www.wxwidgets.org/
          ENTERED=20011217
-         UPDATED=20160204
+         UPDATED=20201121
            SHORT="GTK+ version of wxWindows API"
 
 cat << EOF
 wxGTK - GTK+ implementation of wxWindows API for GUI's.
-wxWindows provides online help, network programming, streams, clipboard
-and drag and drop, multithreading, image loading and saving in a variety
-of formats, database support, HTML viewing and printing.
+wxWindows provides online help, network programming, streams, clipboard and
+drag and drop, multithreading, image loading and saving in a varietyof formats,
+database support, HTML viewing and printing.
 Quite good for a GUI API.
 EOF
