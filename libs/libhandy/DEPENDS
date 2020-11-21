@@ -8,7 +8,14 @@ optional_depends gobject-introspection \
                  "introspection support" \
                  y
 
+optional_depends vala \
+                 "-Dvapi=true" \
+                 "-Dvapi=false" \
+                 "vala support" \
+                 n
+
 optional_depends gtk-doc \
                  "-Dgtk_doc=true" \
                  "-Dgtk_doc=false" \
-                 "generate documentation"
+                 "generate documentation" \
+                 n
