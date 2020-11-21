@@ -6,6 +6,4 @@ OPTS+=" --enable-utf8 \
         --disable-static \
         --disable-precomp-headers"
 
-default_build &&
-
-rm -r /usr/{include,share,lib/libwx_base*,bin/wxrc*}
+default_build
