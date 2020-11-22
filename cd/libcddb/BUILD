@@ -1,3 +1,3 @@
-OPTS+=" --disable-static" &&
+OPTS+=" --disable-static"
 
 default_build
