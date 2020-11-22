@@ -1,3 +1,4 @@
-OPTS+="-Denable-x11=true -Denable-docs=false"
+OPTS+=" -D enable-x11=true \
+        -D enable-docs=false"
 
 default_meson_build
