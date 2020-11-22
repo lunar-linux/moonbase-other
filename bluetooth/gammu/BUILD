@@ -1,9 +1,4 @@
-sedit "s:etc/sysconfig:etc:g" contrib/init/gammu-smsd.service &&
-sedit "s:/bin/rm:/usr/bin/rm:" contrib/init/gammu-smsd.service &&
-sedit "s:/bin/kill:/usr/bin/kill:g" contrib/init/gammu-smsd.service &&
-sedit "s:/var/run:/run:g" contrib/init/gammu-smsd.service &&
-
-OPTS+=" -DINSTALL_PHP_EXAMPLES=0 -DINSTALL_MEDIA=0" &&
+OPTS+=" -DINSTALL_PHP_EXAMPLES=0 -DINSTALL_MEDIA=0"
 
 default_cmake_build &&
 
@@ -13,7 +8,7 @@ add_priv_user smsd -d /run/gammu-smsd.pid -g smsd
 if in_depends $MODULE systemd; then
   install ../contrib/udev/45-nokiadku2.rules /usr/lib/udev/rules.d &&
   install ../contrib/udev/69-gammu-acl.rules /usr/lib/udev/rules.d
-fi
+fi &&
 
 if [ ! -f /etc/smsdrc ] ; then
   cp ../docs/config/smsdrc /etc/smsdrc &&

@@ -1,0 +1,6 @@
+default_pre_build &&
+
+sedit "s:etc/sysconfig:etc:g" contrib/init/gammu-smsd.service &&
+sedit "s:/bin/rm:/usr/bin/rm:" contrib/init/gammu-smsd.service &&
+sedit "s:/bin/kill:/usr/bin/kill:g" contrib/init/gammu-smsd.service &&
+sedit "s:/var/run:/run:g" contrib/init/gammu-smsd.service
