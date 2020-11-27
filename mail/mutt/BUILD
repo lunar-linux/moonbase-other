@@ -7,7 +7,7 @@ OPTS+=" --enable-pop  \
         --enable-sidebar \
         --disable-nls \
         --with-mailpath=/var/spool/mail \
-        --with-docdir=/usr/share/doc/$MODULE" &&
+        --with-docdir=/usr/share/doc/$MODULE"
 
 default_build &&
 
