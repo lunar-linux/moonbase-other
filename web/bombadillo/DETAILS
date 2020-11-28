@@ -1,0 +1,29 @@
+          MODULE=bombadillo
+         VERSION=2.3.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=git+https://tildegit.org/sloum/bombadillo:${VERSION}
+#      SOURCE_VFY=sha256:
+        WEB_SITE=https://bombadillo.colorfield.space/
+         ENTERED=20201128
+         UPDATED=20201128
+           SHORT="A non-web browser for the terminal"
+
+cat << EOF
+Bombadillo features a full terminal user interface, vim-like keybindings,
+document pager, configurable settings, and a robust command selection.
+Currently, Bombadillo supports the following protocols as first class citizens:
+  gopher
+  gemini
+  finger
+  local (a user’s file system)
+Support for the following protocols is also available via integration with 3rd
+party applications:
+  telnet
+    Links are opened in a telnet application run as a subprocess.
+  http/https
+    Web support is opt-in (turned off by default).
+    Links can be opened in a user’s default web browser when in a graphical
+    environment.
+    Web pages can be rendered directly in Bombadillo if Lynx, w3m, or elinks
+    are installed on the system to handle the document parsing.
+EOF
