@@ -1,7 +1,6 @@
 depends python
 depends perl
 depends libffi
-
 # currently broken
 #optional_depends libffi "--with-system-libffi" "--without-system-libffi" "use system libffi"
 
@@ -12,3 +11,5 @@ depends certifi
 depends urllib3 
 depends python-packaging
 depends python-sphinxcontrib-qthelp
+optional_depends llvm "" " " "build ghc with LLVM backend"
+depends idna
