@@ -1,0 +1,29 @@
+          MODULE=kitty
+         VERSION=0.19.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/kovidgoyal/kitty/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:7bad5787e05ebc9989b15c8759c09c5754c5c10dbd072fa777bca3e9ec2800d5
+        WEB_SITE=https://sw.kovidgoyal.net/kitty/
+            TYPE=python3
+         ENTERED=20190110
+         UPDATED=20201205
+           SHORT="A GPU based terminal emulator"
+
+cat << EOF
+kitty is designed for power keyboard users. To that end all its controls work
+with the keyboard (although it fully supports mouse interactions as well).
+Its configuration is a simple, human editable, single file for easy
+reproducibility (I like to store configuration in source control).
+
+The code in kitty is designed to be simple, modular and hackable. It is written
+in a mix of C (for performance sensitive parts) and Python (for easy
+hackability of the UI). It does not depend on any large and complex UI toolkit,
+using only OpenGL for rendering everything.
+
+Finally, kitty is designed from the ground up to support all modern terminal
+features, such as unicode, true color, bold/italic fonts, text formatting, etc.
+It even extends existing text formatting escape codes, to add support for
+features not available elsewhere, such as colored and styled (curly) underlines.
+One of the design goals of kitty is to be easily extensible so that new features
+can be added in the future with relatively less effort.
+EOF
