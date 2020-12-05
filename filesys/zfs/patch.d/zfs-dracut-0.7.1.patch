@@ -1,0 +1,20 @@
+diff -C 3 -r zfs-0.7.1.orig/contrib/dracut/90zfs/module-setup.sh.in zfs-0.7.1/contrib/dracut/90zfs/module-setup.sh.in
+*** zfs-0.7.1.orig/contrib/dracut/90zfs/module-setup.sh.in	2017-08-09 07:58:21.000000000 +0900
+--- zfs-0.7.1/contrib/dracut/90zfs/module-setup.sh.in	2017-12-25 17:02:08.618377380 +0900
+***************
+*** 48,54 ****
+  		dracut_install "/usr/lib/gcc/$(s=$(gcc-config -c); echo ${s%-*}/${s##*-})/libgcc_s.so.1"
+  	else
+  		# Fallback: Guess the path and include all matches
+! 		dracut_install /usr/lib/gcc/*/*/libgcc_s.so*
+  	fi
+  	dracut_install @sbindir@/mount.zfs
+  	dracut_install @udevdir@/vdev_id
+--- 48,54 ----
+  		dracut_install "/usr/lib/gcc/$(s=$(gcc-config -c); echo ${s%-*}/${s##*-})/libgcc_s.so.1"
+  	else
+  		# Fallback: Guess the path and include all matches
+! 		dracut_install /usr/lib/libgcc_s.so*
+  	fi
+  	dracut_install @sbindir@/mount.zfs
+  	dracut_install @udevdir@/vdev_id
