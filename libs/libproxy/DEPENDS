@@ -1,15 +1,16 @@
 depends vala
 depends cmake
 
-optional_depends python2 \
-                 "-DWITH_PYTHON2=1" \
-                 "-DWITH_PYTHON2=0" \
-                 "for the python2 bindings"
-
 optional_depends python \
                  "-DWITH_PYTHON3=1" \
                  "-DWITH_PYTHON3=0" \
-                 "for the python2 bindings"
+                 "for the Python 3.x bindings"
+
+optional_depends python2 \
+                 "-DWITH_PYTHON2=1" \
+                 "-DWITH_PYTHON2=0" \
+                 "for the pythPn 2.x bindings" \
+                 "n"
 
 optional_depends perl \
                  "-DWITH_PERL=1" \
