@@ -1,4 +1,4 @@
-OPTS+=" PREFIX=/usr" &&
+OPTS+=" PREFIX=/usr"
 
 make -C lib $OPTS &&
 make -C programs $OPTS lz4 lz4c &&
