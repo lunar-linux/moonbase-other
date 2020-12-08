@@ -1,5 +1,5 @@
 OPTS+=" -Dwin32-backend=false" \
-OPTS+=" -Ddemos=false -Dbuild-examples=false -Dbuild-tests=false -Dinstall-tests=false"
+OPTS+=" -Ddemos=true -Dbuild-examples=false -Dbuild-tests=false -Dinstall-tests=false"
 
 if [[ "$FFMPEG" == "y" ]]; then
   if [[ "$GSTREAMER" == "y" ]]; then
