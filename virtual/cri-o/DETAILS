@@ -1,0 +1,24 @@
+          MODULE=cri-o
+         VERSION=1.19.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/cri-o/cri-o/archive/v${VERSION}.tar.gz
+      SOURCE_VFY=sha256:fc8a8e61375e3ce30563eeb0fd6534c4f48fc20300a72e6ff51cc99cb2703516
+        WEB_SITE=https://github.com/cri-o/cri-o/
+         ENTERED=20200930
+         UPDATED=20201209
+           SHORT="OCI implementation of Kubernetes Container Runtime Interface"
+
+cat << EOF
+CRI-O is meant to provide an integration path between OCI conformant runtimes
+and the kubelet. Specifically, it implements the Kubelet Container Runtime
+Interface (CRI) using OCI conformant runtimes. The scope of CRI-O is tied to
+the scope of the CRI.
+At a high level, we expect the scope of CRI-O to be restricted to the following functionalities:
+ - Support multiple image formats including the existing Docker image format
+ - Support for multiple means to download images including trust & image
+   verification
+ - Container image management (managing image layers, overlay filesystems, etc)
+ - Container process lifecycle management
+ - Monitoring and logging required to satisfy the CRI
+ - Resource isolation as required by the CRI.
+EOF
