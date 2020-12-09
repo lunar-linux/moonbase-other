@@ -29,5 +29,5 @@ for i in $HOSTS
 do
 cmake --install $SOURCE_DIRECTORY/gmic-qt/build-$i &&
 install -Dm644 $SOURCE_DIRECTORY/gmic-qt/gmic_qt.desktop /usr/share/applications/ &&
-install -Dm644 $SOURCE_DIRECTORY/gmic-qt/icons/application/gmic_qt.svg /usr/share/icons/hicolor/scalable/apps;
+install -Dm644 $SOURCE_DIRECTORY/gmic-qt/icons/application/gmic_qt.svg /usr/share/pixmaps;
 done
