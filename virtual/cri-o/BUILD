@@ -11,6 +11,10 @@ prepare_install &&
 
 make install install.systemd PREFIX=/usr &&
 
+# install CNI configs
+install -vDm 644 contrib/cni/10-crio-bridge.conf /etc/cni/net.d/100-crio-bridge.conf &&
+install -vDm 644 contrib/cni/99-loopback.conf /etc/cni/net.d/199-crio-loopback.conf &&
+
 # modules
 install -vDm 644 "$SCRIPT_DIRECTORY/modules-${MODULE}.conf" /usr/lib/modules-load.d/ &&
 
