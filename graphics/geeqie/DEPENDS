@@ -2,58 +2,73 @@ depends %JPEG
 depends tiff
 depends gtk+-3
 
+optional_depends lcms2 \
+    "" \
+    "--disable-lcms" \
+    "color management support"
+
 optional_depends exiv2 \
-    ""  "--disable-exiv2" \
+    "" \
+    "--disable-exiv2" \
     "enhanced exif support"
 
 optional_depends lirc \
-    "" "--disable-lirc" \
+    "" \
+    "--disable-lirc" \
     "for lirc support"
 
+#broken for now? https://github.com/BestImageViewer/geeqie/issues/829
+#optional_depends clutter-gtk \
+#   "" \
+#   "--disable-gpu-accel" \
+#   "for GPU accelerated display"
+
 optional_depends luajit \
-    "" "--disable-lua" \
+    "" \
+    "--disable-lua" \
     "for lua scripting support"
-
-optional_depends clutter \
-    "" "--disable-gpu-accel" \
-    "for GPU accelerated display"
-
-optional_depends lcms2 \
-    "" "--disable-lcms" \
-    "color management support"
-
-optional_depends poppler \
-    "" "--disable-pdf" \
-    "for pdf support"
-
-optional_depends doxygen \
-    "" "--disable-doxygen-doc" \
-    "for documentation support"
-
-optional_depends ffmpegthumbnailer \
-    "" "" \
-    "to display thumbnails of video files"
-
+    
 optional_depends librsvg \
-    "" "" \
+    "" \
+    "" \
     "for SVG image support"
 
 optional_depends libwmf \
-    "" "" \
+    "" \
+    "" \
     "for wmf image support"
 
-optional_depends Image-ExifTool \
-    "" "" \
-    "for the jpeg info extraction plugin"
+optional_depends ffmpegthumbnailer \
+    "" \
+    "" \
+    "to display thumbnails of video files"
+    
+optional_depends poppler \
+    "" \
+    "--disable-pdf" \
+    "for pdf support"
+
+optional_depends Image-ExifTool  \
+    "" \
+    "" \
+    "For the jpeg info extraction plugin"
 
 optional_depends libheif \
-    "" "" \
+    "" \
+    "" \
     "for HEIF file display"
 
 optional_depends libwebp \
-    "" "" \
+    "" \
+    "" \
     "for WEBP image display"
 
-optional_depends djvulibre \
-    "" "" \
+optional_depends djvulibre  \
+    "" \
+    "" \
     "for DjVu image display"
+
+optional_depends doxygen \
+    "" \
+    "--disable-doxygen-doc" \
+    "for documentation support"
