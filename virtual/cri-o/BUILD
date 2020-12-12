@@ -4,12 +4,17 @@ export GOFLAGS="-buildmode=pie \
                 -mod=readonly \
                 -ldflags=-linkmode=external"
 
-#./build_linux.sh &&
+export GO_MD2MAN=/usr/bin/go-md2man
+
 make &&
 
 prepare_install &&
 
-make install install.systemd PREFIX=/usr &&
+if module_installed systemd; then
+  make install install.systemd PREFIX=/usr
+else
+  make install PREFIX=/usr
+fi &&
 
 # install CNI configs
 install -vDm 644 contrib/cni/10-crio-bridge.conf /etc/cni/net.d/100-crio-bridge.conf &&

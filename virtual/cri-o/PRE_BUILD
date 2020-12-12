@@ -4,8 +4,7 @@ default_pre_build &&
 sed -e 's|/var/run|/run|g' \
     -i crictl.yaml pkg/config/config{,_unix}.go \
     docs/*.md crio-umount.conf \
-    vendor/github.com/containers/conmon/runner/config/config_unix.go \
-    vendor/github.com/containers/storage/{storage.conf,store.go}
+    vendor/github.com/containers/conmon/runner/config/config_unix.go
 
 # make sure that /usr/bin is used in systemd units
 sed -e 's|/usr/local|/usr|g' \
