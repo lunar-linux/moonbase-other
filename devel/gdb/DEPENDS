@@ -5,6 +5,12 @@ depends texinfo
 depends zlib
 depends xz
 
+optional_depends source-highlight \
+                 "--enable-source-highlight" \
+                 "--disable-source-highlight" \
+                 "enable Source Highlighting while debuging (will trigger boost compilation)" \
+                 "n"
+
 # guile breaks the build
 #optional_depends guile \
 #                 "--with-guile=guile-2.0" \
