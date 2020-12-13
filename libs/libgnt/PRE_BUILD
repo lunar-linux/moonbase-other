@@ -1,0 +1,5 @@
+default_pre_build &&
+
+if ! module_installed gtk-doc; then
+  patch_it $SCRIPT_DIRECTORY/no_gtk_doc.patch 0
+fi
