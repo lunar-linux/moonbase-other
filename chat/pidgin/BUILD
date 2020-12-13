@@ -2,8 +2,7 @@ CFLAGS+=" -lm" &&
 
 OPTS+=" --disable-schemas-install \
         --disable-gestures \
-        --disable-mono \
-        --disable-vv"
+        --disable-mono""
 
 default_build &&
 
