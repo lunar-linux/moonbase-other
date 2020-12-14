@@ -24,14 +24,14 @@ optional_depends esound        "--enable-esound"     "--disable-esound"     "for
 optional_depends alsa-oss \
                  "--enable-oss-output --enable-oss-wrapper"   \
                  "--disable-oss-output --disable-oss-wrapper" \
-                 "optional OSS output support"
+                 "for optional OSS output support"
 
 optional_depends webrtc-audio-processing \
                  "--enable-webrtc-aec"   \
                  "--disable-webrtc-aec"  \
-                 "For WebRTC echo cancellation support"
+                 "for WebRTC echo cancellation support"
 
 # We take care of which bluez to enable in the BUILD
-optional_depends %BLUEZ "" "" "optional BlueZ support"
+optional_depends %BLUEZ "" "" "for optional BlueZ support"
 
 optional_depends gdbm "" "--with-database=auto" "use gdbm for database support" n
