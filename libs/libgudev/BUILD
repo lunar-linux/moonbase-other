@@ -1,3 +1,3 @@
-OPTS+=" --disable-umockdev" &&
+OPTS+=" --disable-umockdev"
 
 default_build
