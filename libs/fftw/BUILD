@@ -4,7 +4,7 @@
             --enable-shared  \
             --enable-float   \
             --enable-threads \
-            $OPTS           &&
+            $OPTS &&
 
 default_make &&
 make distclean &&
@@ -12,7 +12,7 @@ make distclean &&
 ./configure --prefix=/usr    \
             --enable-shared  \
             --enable-threads \
-            $OPTS           &&
+            $OPTS &&
 
 default_make &&
 make distclean &&
@@ -21,7 +21,7 @@ make distclean &&
             --enable-shared  \
             --enable-threads \
             --enable-quad-precision \
-            $OPTS           &&
+            $OPTS &&
 
 default_make &&
 make distclean &&
@@ -31,6 +31,6 @@ make distclean &&
             --enable-shared  \
             --enable-threads \
             --enable-long-double \
-            $OPTS           &&
+            $OPTS &&
 
 default_make
