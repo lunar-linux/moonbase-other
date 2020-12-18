@@ -1,8 +1,16 @@
 [Unit]
 Description=Hardware RNG Entropy Gatherer Daemon
+DefaultDependencies=no
+Before=sysinit.target shutdown.target
 
 [Service]
-ExecStart=/usr/sbin/rngd -f --rng-device=/dev/urandom
+EnvironmentFile=/etc/conf.d/rngd
+ExecStart=/usr/sbin/rngd $RNGD_OPTS
+NoNewPrivileges=on
+PrivateNetwork=on
+PrivateTmp=on
+ProtectSystem=full
+ProtectHome=on
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=sysinit.target
