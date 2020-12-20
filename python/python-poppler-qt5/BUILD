@@ -2,7 +2,7 @@
 
 CXXFLAGS+=" -std=c++11"
 
-#python setup.py build &&
+python setup.py build &&
 
 prepare_install &&
 
