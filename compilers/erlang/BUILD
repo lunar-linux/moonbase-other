@@ -1,8 +1,5 @@
 ./otp_build setup &&
 
-# enable SMP
-OPTS+=" --enable-smp-support"
-
 default_build &&
 
 mkdir -p /etc/config.d &&
