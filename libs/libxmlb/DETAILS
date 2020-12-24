@@ -1,0 +1,16 @@
+          MODULE=libxmlb
+         VERSION=0.2.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/hughsie/libxmlb/archive/$VERSION.tar.gz
+      SOURCE_VFY=sha256:2bf0cae179f1a9b6a63d294c06d324ea97266fc34656589b2865535ab2322529
+        WEB_SITE=https://github.com/hughsie/libxmlb
+         ENTERED=20201224
+         UPDATED=20201224
+            TYPE=meson
+           SHORT="converts XML to a structured binary representation with a deduplicated string table"
+
+cat << EOF
+XML is slow to parse and strings inside the document cannot be memory mapped as they do not
+have a trailing NUL char. The libxmlb library takes XML source, and converts it to a structured
+binary representation with a deduplicated string table -- where the strings have the NULs included.
+EOF
