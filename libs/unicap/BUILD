@@ -1,6 +1,3 @@
-
-  patch_it $SOURCE2 1 &&
-
 # Removing some headers that don't exist and adding one.
   sedit "s:#include <linux/videodev.h>::" cpi/v4l/v4l.c && 
   sedit "s:#include <linux/videodev.h>::" cpi/v4l2cpi/uvcvideo.h &&
