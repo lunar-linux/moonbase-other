@@ -1,9 +1,18 @@
-optional_depends libtasn1 \
-                 "--with-libtasn1" \
-                 "--without-libtasn1" \
-                 "for libtasn1 support" \
-                 "y"
+depends libtasn1
+depends meson
 
-optional_depends libffi "" "--without-libffi" "for libffi support" "n"
+optional_depends libffi \
+                 "-D libffi=enabled" \
+                 "-D libffi=disabled" \
+                 "for libffi support" \
+                 "n"
 
-optional_depends systemd "" "" "for systemd support"
+optional_depends bash-completion \
+                 "-D bash_completion=enabled" \
+                 "-D bash_completion=disabled" \
+                 "for bash completion support" \
+
+optional_depends systemd \
+                 "-D systemd=enabled" \
+                 "-D systemd=disabled" \
+                 "for systemd support"
