@@ -8,6 +8,7 @@ optional_depends fftw \
                  "--without-fftw3 --without-fftw3f" \
                  "for system fftw support"
 
+optional_depends %JAVA_SDK "--enable-java"     "--disable-java"     "for java support"
 optional_depends fltk      "--with-fltk"       "--without-fltk"     "for fltk support"
 optional_depends qt5       "--with-qt=5"       "--without-qt"       "build Qt-GUI"
 optional_depends arpack-ng "--with-arpack"     "--without-arpack"   "for eigenvalue operations"
@@ -21,10 +22,10 @@ optional_depends texlive   "--enable-docs"     "--disable-docs"     "to generate
 optional_depends gperf "" "" "if you need to recreate oct-gperf.h"
 optional_depends gl2ps "" "" "for OpenGL printing support" n
 
-optional_depends ImageMagick \
-                 "--with-magick=ImageMagick" \
+optional_depends GraphicsMagick \
+                 "--with-magick=GraphicsMagick" \
                  "--without-magick" \
-                 "for reading/writing images"
+                 "for reading and writing images"
 
 optional_depends SuiteSparse \
                  "--with-amd --with-camd --with-colamd --with-ccolamd --with-cholmod --with-cxsparse --with-umfpack" \
