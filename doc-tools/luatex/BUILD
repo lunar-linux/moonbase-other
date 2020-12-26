@@ -1,7 +1,7 @@
 # From http://www.gentoo-portage.com/dev-tex/luatex
 export LC_ALL=C  &&
 
-./build.sh  &&
+./build.sh &&
 prepare_install  &&
 
 # Install executable
