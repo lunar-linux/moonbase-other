@@ -1,4 +1,6 @@
 
+  PY_VER=`lvu version python|cut -d. -f1-2` &&
+
   make SYSTEM_GSL=yes all py extra &&
 
   prepare_install &&
@@ -10,8 +12,8 @@
   export LIB_INSTALL_DIR=/usr/lib &&
   export EXAMPLE_INSTALL_DIR=/usr/share/astrometry/examples &&
   export ETC_INSTALL_DIR=/etc/astrometry &&
-  export PY_BASE_INSTALL_DIR=/usr/lib/python3.6/dist-packages/astrometry.net &&
-  export PY_BASE_LINK_DIR=../lib/python3.6/site-packages/astrometry \
+  export PY_BASE_INSTALL_DIR=/usr/lib/python${PY_VER}/dist-packages/astrometry.net &&
+  export PY_BASE_LINK_DIR=../lib/python${PY_VER}/site-packages/astrometry \
   export DATA_FINAL_DIR=/usr/share/astrometry &&
 
   make install &&
@@ -20,4 +22,4 @@
 
   sed -e "s|/usr/share/astrometry|/usr/share/astrometry/data|" -i /etc/astrometry/astrometry.cfg &&
 
-  ln -sf /usr/lib/python3.6/dist-packages/astrometry.net/blind/plotann.py /usr/bin/plotann.py
+  ln -sf /usr/lib/python${PY_VER}/dist-packages/astrometry.net/blind/plotann.py /usr/bin/plotann.py
