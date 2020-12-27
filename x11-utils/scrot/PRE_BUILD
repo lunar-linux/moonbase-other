@@ -1,5 +1,5 @@
 default_pre_build &&
 
-autoreconf -fiv &&
+./autogen.sh &&
 
 sedit 's@/doc@/share/doc@' Makefile.{am,in}
