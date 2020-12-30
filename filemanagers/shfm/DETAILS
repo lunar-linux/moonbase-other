@@ -1,0 +1,48 @@
+          MODULE=shfm
+         VERSION=0.4.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/dylanaraps/shfm/archive/${VERSION}.tar.gz
+      SOURCE_VFY=sha256:3861d1130cefbeef4306da686997143c95386c6b5a229472b11053a2da0ddfe4
+        WEB_SITE=https://github.com/dylanaraps/shfm/
+         ENTERED=20201230
+         UPDATED=20201230
+           SHORT="A file manager written in posix shell"
+
+cat << EOF
+A file manager written in posix shell.
+Features
+ *  no dependencies other than a POSIX shell + POSIX [, printf, dd and stty ***
+ * tiny
+ * single file
+ * no compilation needed
+ * correctly handles files with funky names (newlines, etc)
+ * works with very small terminal sizes.
+ * cd on exit
+ * works when run in subshell $(shfm)
+
+keybinds
+ j - down
+ k - up
+ l - open file or directory
+ h - go up level
+ g - go to top
+ G - go to bottom
+ q - quit
+ : - cd to <input>
+/ - search current directory <input>*
+- - go to last directory
+  ~ - go home
+  ! - spawn shell
+  . - toggle hidden files
+  ? - show help
+
+  Also supported:
+
+  down arrow  - down
+  up arrow    - up
+  left arrow  - go up level
+  right arrow - open file or directory
+
+  backspace   - up
+  enter       - open file or directory]
+EOF
