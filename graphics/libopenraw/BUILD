@@ -1,6 +1,2 @@
-#If libjpeg-turbo is installed this sedit will cause the make to barf.
-if in_depends $MODULE jpeg; then
-  sedit "s/TRUE/JPEG::TRUE/" lib/jfifcontainer.cpp
-fi &&
-
+OPTS+=" --disable-static" &&
 default_build
