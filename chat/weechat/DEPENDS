@@ -1,8 +1,10 @@
 depends ncurses
 depends curl
 depends cmake
+depends gnutls
 depends libgcrypt
 depends pkgconf
+depends zlib
 
 optional_depends asciidoctor \
                  "-DENABLE_MAN=ON -DENABLE_DOC=ON" \
@@ -10,14 +12,9 @@ optional_depends asciidoctor \
                  "for spelling support"
 
 optional_depends aspell \
-                 "-DENABLE_ASPELL=ON" \
-                 "-DENABLE_ASPELL=OFF" \
+                 "-DENABLE_SPELL=ON" \
+                 "-DENABLE_SPELL=OFF" \
                  "for spelling support"
-
-optional_depends gnutls \
-                 "-DENABLE_GNUTLS=ON" \
-                 "-DENABLE_GNUTLS=OFF" \
-                 "for TLS encryption support"
 
 optional_depends ruby \
                  "-DENABLE_RUBY=ON" \
