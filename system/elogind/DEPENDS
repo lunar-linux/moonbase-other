@@ -1,24 +1,31 @@
 depends libtool
 depends libcap
 depends eudev
-depends dbus
 depends intltool
 depends meson
 
+optional_depends dbus \
+        "-D dbuspolicydir=/usr/share/dbus-1/system.d " \
+        "" \
+        "for DBus support"
+
 optional_depends Linux-PAM \
-                 "-Dpam=true" \
-                 "-Dpam=false" \
+                 "-D pam=true" \
+                 "-D pam=false" \
                  "for PAM support"
 
 optional_depends acl \
-                 "-Dacl=true" \
-                 "-Dacl=false" \
+                 "-D acl=true" \
+                 "-D acl=false" \
                  "for ACL support"
 
 optional_depends libseccomp \
-                 "-Dseccomp=true" \
-                 "-Dseccomp=false" \
+                 "-D seccomp=true" \
+                 "-D seccomp=false" \
                  "for libseccomp support"
 
-optional_depends docbook-xsl "" "" "for documetation install"
-optional_depends python2-lxml"" "" "for building the indices"
+optional_depends gtk-doc \
+                 "-D gtk_doc=true" \
+                 "-D gtk_doc=false" \
+                 "for building documentation" \
+                 "n"
