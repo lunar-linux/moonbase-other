@@ -1,0 +1,24 @@
+diff --git a/config.def.h b/config.def.h
+--- ./config.h
++++ ./config.h
+@@ -220,3 +220,5 @@ static Button buttons[] = {
+ 	{ OnAny,        0,              9,      clicknavigate,  { .i = +1 },    1 },
+ 	{ OnMedia,      MODKEY,         1,      clickexternplayer, { 0 },       1 },
+ };
++
++#define HOMEPAGE "https://startpage.com/"
+diff --git a/surf.c b/surf.c
+--- ./surf.c
++++ ./surf.c
+@@ -2153,7 +2153,11 @@ main(int argc, char *argv[])
+ 	if (argc > 0)
+ 		arg.v = argv[0];
+ 	else
++#ifdef HOMEPAGE
++		arg.v = HOMEPAGE;
++#else
+ 		arg.v = "about:blank";
++#endif
+ 
+ 	setup();
+ 	c = newclient(NULL);
