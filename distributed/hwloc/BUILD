@@ -1,3 +1,5 @@
-OPTS+=" --enable-plugins"
+autoreconf -fiv &&
+
+OPTS+=" --enable-plugins" &&
 
 default_build
