@@ -12,4 +12,6 @@ fi
 
 default_meson_build &&
 
-chmod 644 /usr/share/bash-completion/completions/colormgr
+if in_depends $MODULE bash-completion; then
+	chmod -f 644 /usr/share/bash-completion/completions/colormgr
+fi
