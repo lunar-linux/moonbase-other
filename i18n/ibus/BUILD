@@ -5,14 +5,14 @@ if [[ $GSCHEMAS_SUPPORT == "y" ]]; then
   OPTS+=" --enable-schemas-install"
 else
   OPTS+=" --disable-schemas-install"
-fi
+fi &&
 
 OPTS+=" --enable-ui \
         --enable-python-library \
-        --disable-emoji-dict \
         --disable-memconf \
         --with-ucd-dir=/usr/share/unicode \
         --with-python=python3 \
-        --disable-unicode-dict"
+        --with-unicode-emoji-dir=$SOURCE_DIRECTORY \
+        --with-emoji-annotation-dir=$SOURCE_DIRECTORY/cldr-emoji-annotation/annotations" &&
 
 default_build

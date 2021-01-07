@@ -4,4 +4,9 @@ sedit 's|$(libibus) $(libibus_emoji_dialog)|$(libibus_emoji_dialog) $(libibus)|'
 
 sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' data/dconf/org.freedesktop.ibus.gschema.xml &&
 
-rm -f tools/main.c
+rm -f tools/main.c &&
+
+cp $SOURCE_CACHE/$SOURCE2 $SOURCE_DIRECTORY/ &&
+
+mkdir cldr-emoji-annotation &&
+tar -x --strip-components=1 -C cldr-emoji-annotation -f $SOURCE_CACHE/$SOURCE3
