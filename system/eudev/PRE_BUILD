@@ -1,6 +1,7 @@
 default_pre_build &&
 
 cp -fr $SCRIPT_DIRECTORY/50-udev-default.rules rules/ &&
+cp -fr $SCRIPT_DIRECTORY/78-sound-card.rules rules/ &&
 
 sed -e 's/GROUP="dialout"/GROUP="uucp"/' \
     -e 's/GROUP="cdrom"/GROUP="optical"/' \
