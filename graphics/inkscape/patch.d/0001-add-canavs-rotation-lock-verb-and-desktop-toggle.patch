@@ -1,0 +1,138 @@
+From 9c35798ba0ab653495b20cf3cb849e6e74de7aa8 Mon Sep 17 00:00:00 2001
+From: "byte[]" <byteslice@airmail.cc>
+Date: Fri, 8 May 2020 05:04:21 -0400
+Subject: [PATCH] add canavs rotation lock verb and desktop toggle
+
+---
+ share/ui/menus.xml         | 1 +
+ src/desktop.cpp            | 1 +
+ src/desktop.h              | 4 ++++
+ src/ui/desktop/menubar.cpp | 6 +++++-
+ src/ui/tools/tool-base.cpp | 4 ++--
+ src/verbs.cpp              | 5 +++++
+ src/verbs.h                | 1 +
+ 7 files changed, 19 insertions(+), 3 deletions(-)
+
+diff --git a/share/ui/menus.xml b/share/ui/menus.xml
+index 4e19948e55..b113b54f0e 100644
+--- a/share/ui/menus.xml
++++ b/share/ui/menus.xml
+@@ -131,6 +131,7 @@
+        <verb verb-id="ViewXRayToggle" check="yes" />
+        <verb verb-id="ToggleGrid" check="yes" />
+        <verb verb-id="ToggleGuides" check="yes" />
++       <verb verb-id="ToggleRotation" check="yes" />
+        <verb verb-id="ViewCmsToggle" check="yes" />
+        <separator/>
+        <submenu name="Sh_ow/Hide">
+diff --git a/src/desktop.cpp b/src/desktop.cpp
+index 5cedbbc815..14b0c997eb 100644
+--- a/src/desktop.cpp
++++ b/src/desktop.cpp
+@@ -135,6 +135,7 @@ SPDesktop::SPDesktop()
+     , interaction_disabled_counter(0)
+     , waiting_cursor(false)
+     , showing_dialogs(false)
++    , rotation_locked(false)
+     , guides_active(false)
+     , gr_item(nullptr)
+     , gr_point_type(POINT_LG_BEGIN)
+diff --git a/src/desktop.h b/src/desktop.h
+index 74245d71d8..fd45541b0f 100644
+--- a/src/desktop.h
++++ b/src/desktop.h
+@@ -194,6 +194,7 @@ public:
+     unsigned int interaction_disabled_counter;
+     bool waiting_cursor;
+     bool showing_dialogs;
++    bool rotation_locked;
+     /// \todo fixme: This has to be implemented in different way */
+     guint guides_active : 1;
+ 
+@@ -366,6 +367,9 @@ public:
+     /** \brief  Returns whether the desktop is in quick zoom mode or not */
+     bool quick_zoomed() { return _quick_zoom_enabled; }
+ 
++    void toggle_rotation_lock() { rotation_locked = !rotation_locked; }
++    bool get_rotation_lock() const { return rotation_locked; }
++
+     void zoom_grab_focus();
+ 
+     void rotate_absolute_keep_point   (Geom::Point const &c, double const rotate);
+diff --git a/src/ui/desktop/menubar.cpp b/src/ui/desktop/menubar.cpp
+index 00c51fd490..1f64b1a92a 100644
+--- a/src/ui/desktop/menubar.cpp
++++ b/src/ui/desktop/menubar.cpp
+@@ -266,7 +266,11 @@ checkitem_update(Gtk::CheckMenuItem* menuitem, SPAction* action)
+         } else if (id == "ToggleGuides") {
+             active = dt->namedview->getGuides();
+ 
+-        } else if (id == "ViewCmsToggle") {
++        } else if (id == "ToggleRotation") {
++            active = dt->get_rotation_lock();
++
++        }
++        else if (id == "ViewCmsToggle") {
+             active = dt->colorProfAdjustEnabled();
+         }
+         else if (id == "ViewSplitModeToggle") {
+diff --git a/src/ui/tools/tool-base.cpp b/src/ui/tools/tool-base.cpp
+index d095be4d91..bf98ebd713 100644
+--- a/src/ui/tools/tool-base.cpp
++++ b/src/ui/tools/tool-base.cpp
+@@ -397,7 +397,7 @@ bool ToolBase::root_handler(GdkEvent* event) {
+             break;
+ 
+         case 2:
+-            if (event->button.state & GDK_CONTROL_MASK) {
++            if (event->button.state & GDK_CONTROL_MASK && !desktop->get_rotation_lock()) {
+                 // On screen canvas rotation preview
+ 
+                 // Grab background before doing anything else
+@@ -790,7 +790,7 @@ bool ToolBase::root_handler(GdkEvent* event) {
+         gdouble delta_x = 0;
+         gdouble delta_y = 0;
+ 
+-        if (ctrl & shift) {
++        if ((ctrl & shift) && !desktop->get_rotation_lock()) {
+             /* ctrl + shift, rotate */
+ 
+             double rotate_inc = prefs->getDoubleLimited(
+diff --git a/src/verbs.cpp b/src/verbs.cpp
+index d202d776ee..399af73bb8 100644
+--- a/src/verbs.cpp
++++ b/src/verbs.cpp
+@@ -1964,6 +1964,9 @@ void ZoomVerb::perform(SPAction *action, void *data)
+         case SP_VERB_ZOOM_CENTER_PAGE:
+             dt->zoom_center_page();
+             break;
++        case SP_VERB_TOGGLE_ROTATION:
++            dt->toggle_rotation_lock();
++            break;
+         case SP_VERB_ROTATE_CW:
+         {
+             gint mul = 1 + Inkscape::UI::Tools::gobble_key_events( GDK_KEY_parenleft, 0);
+@@ -3041,6 +3044,8 @@ Verb *Verb::_base_verbs[] = {
+                  INKSCAPE_ICON("show-grid")),
+     new ZoomVerb(SP_VERB_TOGGLE_GUIDES, "ToggleGuides", N_("G_uides"),
+                  N_("Show or hide guides (drag from a ruler to create a guide)"), INKSCAPE_ICON("show-guides")),
++    new ZoomVerb(SP_VERB_TOGGLE_ROTATION, "ToggleRotation", N_("Lock Rotation"),
++                 N_("Lock canvas rotation"), nullptr),
+     new ZoomVerb(SP_VERB_TOGGLE_SNAPPING, "ToggleSnapGlobal", N_("Snap"), N_("Enable snapping"), INKSCAPE_ICON("snap")),
+     new ZoomVerb(SP_VERB_TOGGLE_COMMANDS_TOOLBAR, "ToggleCommandsToolbar", N_("_Commands Bar"),
+                  N_("Show or hide the Commands bar (under the menu)"), nullptr),
+diff --git a/src/verbs.h b/src/verbs.h
+index 81b1a667fa..f317155b68 100644
+--- a/src/verbs.h
++++ b/src/verbs.h
+@@ -270,6 +270,7 @@ enum {
+     SP_VERB_TOGGLE_SCROLLBARS,
+     SP_VERB_TOGGLE_GRID,
+     SP_VERB_TOGGLE_GUIDES,
++    SP_VERB_TOGGLE_ROTATION,
+     SP_VERB_TOGGLE_SNAPPING,
+     SP_VERB_TOGGLE_COMMANDS_TOOLBAR,
+     SP_VERB_TOGGLE_SNAP_TOOLBAR,
+-- 
+2.30.0
+

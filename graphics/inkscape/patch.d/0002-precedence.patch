@@ -1,0 +1,25 @@
+From 2f0db4d6dd4d514bd32e4ccbce3a08c6b6746e65 Mon Sep 17 00:00:00 2001
+From: "byte[]" <byteslice@airmail.cc>
+Date: Fri, 8 May 2020 05:12:08 -0400
+Subject: [PATCH] precedence
+
+---
+ src/ui/tools/tool-base.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/ui/tools/tool-base.cpp b/src/ui/tools/tool-base.cpp
+index bf98ebd713..cf65b5223a 100644
+--- a/src/ui/tools/tool-base.cpp
++++ b/src/ui/tools/tool-base.cpp
+@@ -397,7 +397,7 @@ bool ToolBase::root_handler(GdkEvent* event) {
+             break;
+ 
+         case 2:
+-            if (event->button.state & GDK_CONTROL_MASK && !desktop->get_rotation_lock()) {
++            if ((event->button.state & GDK_CONTROL_MASK) && !desktop->get_rotation_lock()) {
+                 // On screen canvas rotation preview
+ 
+                 // Grab background before doing anything else
+-- 
+2.30.0
+

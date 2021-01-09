@@ -6,16 +6,13 @@ depends gsl
 depends libsoup
 depends double-conversion
 depends gc
-depends cairo
 depends %JPEG
 depends zlib
 depends libpng
 depends potrace
 depends gtk+-3
 depends gtkmm3
-depends gdk-pixbuf
 depends gdl
-depends boost
 depends aspell
 depends libxslt
 depends libxml2
@@ -25,6 +22,11 @@ depends gzip
 depends python-numpy
 depends python-lxml
 
+optional_depends GraphicsMagick \
+      "-DWITH_GRAPHICS_MAGICK=ON" \
+      "" \
+      "for raster graphic extensions and filters?"
+
 optional_depends poppler \
         "-DENABLE_POPPLER=ON" \
         "-DENABLE_POPPLER=OFF" \
@@ -33,7 +35,7 @@ optional_depends poppler \
 optional_depends openmp \
         "-DWITH_OPENMP=ON" \
         "-DWITH_OPENMP=OFF" \
-        "for multithread processing support (highly recommended)"
+        "for multithread processing with filters support (highly recommended)"
 
 optional_depends lcms2 \
         "-DENABLE_LCMS=ON" \

@@ -1,0 +1,32 @@
+From 4acf76c2b505bff2cfd41a26cd7ffbb8d1438373 Mon Sep 17 00:00:00 2001
+From: "byte[]" <byteslice@airmail.cc>
+Date: Fri, 8 May 2020 08:11:25 -0400
+Subject: [PATCH] put lock item inside the canvas orientation submenu
+
+---
+ share/ui/menus.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/share/ui/menus.xml b/share/ui/menus.xml
+index 3dae11038a..6976a13e73 100644
+--- a/share/ui/menus.xml
++++ b/share/ui/menus.xml
+@@ -124,6 +124,7 @@
+          <verb verb-id="FlipHorizontal" check="yes"/>
+          <verb verb-id="FlipVertical" check="yes"/>
+          <separator/>
++         <verb verb-id="ToggleRotationLock" check="yes" />
+          <verb verb-id="RotateZero"/>
+        </submenu>
+        <separator/>
+@@ -131,7 +132,6 @@
+        <verb verb-id="ViewXRayToggle" check="yes" />
+        <verb verb-id="ToggleGrid" check="yes" />
+        <verb verb-id="ToggleGuides" check="yes" />
+-       <verb verb-id="ToggleRotationLock" check="yes" />
+        <verb verb-id="ViewCmsToggle" check="yes" />
+        <separator/>
+        <submenu name="Sh_ow/Hide">
+-- 
+2.30.0
+

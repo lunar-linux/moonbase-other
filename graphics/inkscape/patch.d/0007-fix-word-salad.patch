@@ -1,0 +1,28 @@
+From 5049329da8d3d3d3a6ad3b938c121ed0a6b1971b Mon Sep 17 00:00:00 2001
+From: "byte[]" <byteslice@airmail.cc>
+Date: Fri, 8 May 2020 17:15:30 -0400
+Subject: [PATCH] fix word salad
+
+---
+ src/ui/dialog/inkscape-preferences.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/ui/dialog/inkscape-preferences.cpp b/src/ui/dialog/inkscape-preferences.cpp
+index 169d8d1b39..6fe1bbd6e6 100644
+--- a/src/ui/dialog/inkscape-preferences.cpp
++++ b/src/ui/dialog/inkscape-preferences.cpp
+@@ -1098,9 +1098,9 @@ void InkscapePreferences::initPageUI()
+     _page_ui.add_line( false, "", _ui_yaxisdown, "",
+                        _("When off, origin is at lower left corner and y-axis points up"), true);
+ 
+-    _ui_rotationlock.init(_("Lock documentation rotation by default"), "/options/rotationlock", false);
++    _ui_rotationlock.init(_("Lock canvas rotation by default"), "/options/rotationlock", false);
+     _page_ui.add_line(false, "", _ui_rotationlock, "",
+-                       _("When enabled, common actions which normally rotate the document no longer do so by default"), true);
++                       _("When enabled, common actions which normally rotate the canvas no longer do so by default"), true);
+ 
+     
+     _mouse_grabsize.init("/options/grabsize/value", 1, 7, 1, 2, 3, 0);
+-- 
+2.30.0
+

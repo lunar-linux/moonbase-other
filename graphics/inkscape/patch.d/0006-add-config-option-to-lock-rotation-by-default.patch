@@ -1,0 +1,55 @@
+From 30358fef182c512f850530ccf4c4285b8996d549 Mon Sep 17 00:00:00 2001
+From: "byte[]" <byteslice@airmail.cc>
+Date: Fri, 8 May 2020 09:45:08 -0400
+Subject: [PATCH] add config option to lock rotation by default
+
+---
+ src/desktop.cpp                        | 3 +++
+ src/ui/dialog/inkscape-preferences.cpp | 4 ++++
+ src/ui/dialog/inkscape-preferences.h   | 1 +
+ 3 files changed, 8 insertions(+)
+
+diff --git a/src/desktop.cpp b/src/desktop.cpp
+index 14b0c997eb..5743b989f6 100644
+--- a/src/desktop.cpp
++++ b/src/desktop.cpp
+@@ -251,6 +251,9 @@ SPDesktop::init (SPNamedView *nv, SPCanvas *aCanvas, Inkscape::UI::View::EditWid
+         setDisplayModeNormal();
+     }
+ 
++    // Get default locked status
++    rotation_locked = prefs->getBool("/options/rotationlock");
++
+     // The order in which these canvas items are added determines the z-order. It's therefore
+     // important to add the tempgroup (which will contain the snapindicator) before adding the
+     // controls. Only this way one will be able to quickly (before the snap indicator has
+diff --git a/src/ui/dialog/inkscape-preferences.cpp b/src/ui/dialog/inkscape-preferences.cpp
+index 69aa7c4889..169d8d1b39 100644
+--- a/src/ui/dialog/inkscape-preferences.cpp
++++ b/src/ui/dialog/inkscape-preferences.cpp
+@@ -1098,6 +1098,10 @@ void InkscapePreferences::initPageUI()
+     _page_ui.add_line( false, "", _ui_yaxisdown, "",
+                        _("When off, origin is at lower left corner and y-axis points up"), true);
+ 
++    _ui_rotationlock.init(_("Lock documentation rotation by default"), "/options/rotationlock", false);
++    _page_ui.add_line(false, "", _ui_rotationlock, "",
++                       _("When enabled, common actions which normally rotate the document no longer do so by default"), true);
++
+     
+     _mouse_grabsize.init("/options/grabsize/value", 1, 7, 1, 2, 3, 0);
+     _page_ui.add_line(false, _("_Handle size:"), _mouse_grabsize, "",
+diff --git a/src/ui/dialog/inkscape-preferences.h b/src/ui/dialog/inkscape-preferences.h
+index 4a7cb31ef4..24a4f5e0d5 100644
+--- a/src/ui/dialog/inkscape-preferences.h
++++ b/src/ui/dialog/inkscape-preferences.h
+@@ -388,6 +388,7 @@ protected:
+     UI::Widget::PrefCheckButton _ui_partialdynamic;
+     UI::Widget::ZoomCorrRulerSlider _ui_zoom_correction;
+     UI::Widget::PrefCheckButton _ui_yaxisdown;
++    UI::Widget::PrefCheckButton _ui_rotationlock;
+ 
+     //Spellcheck
+     UI::Widget::PrefCombo       _spell_language;
+-- 
+2.30.0
+

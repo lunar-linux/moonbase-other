@@ -1,0 +1,76 @@
+From 25b6d3a76fa72b6f3ac6245fa017c8e64caaf22d Mon Sep 17 00:00:00 2001
+From: "byte[]" <byteslice@airmail.cc>
+Date: Fri, 8 May 2020 05:58:14 -0400
+Subject: [PATCH] change verb name
+
+---
+ share/ui/menus.xml         | 2 +-
+ src/ui/desktop/menubar.cpp | 2 +-
+ src/verbs.cpp              | 4 ++--
+ src/verbs.h                | 2 +-
+ 4 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/share/ui/menus.xml b/share/ui/menus.xml
+index b113b54f0e..3dae11038a 100644
+--- a/share/ui/menus.xml
++++ b/share/ui/menus.xml
+@@ -131,7 +131,7 @@
+        <verb verb-id="ViewXRayToggle" check="yes" />
+        <verb verb-id="ToggleGrid" check="yes" />
+        <verb verb-id="ToggleGuides" check="yes" />
+-       <verb verb-id="ToggleRotation" check="yes" />
++       <verb verb-id="ToggleRotationLock" check="yes" />
+        <verb verb-id="ViewCmsToggle" check="yes" />
+        <separator/>
+        <submenu name="Sh_ow/Hide">
+diff --git a/src/ui/desktop/menubar.cpp b/src/ui/desktop/menubar.cpp
+index 1f64b1a92a..e8f2261e8a 100644
+--- a/src/ui/desktop/menubar.cpp
++++ b/src/ui/desktop/menubar.cpp
+@@ -266,7 +266,7 @@ checkitem_update(Gtk::CheckMenuItem* menuitem, SPAction* action)
+         } else if (id == "ToggleGuides") {
+             active = dt->namedview->getGuides();
+ 
+-        } else if (id == "ToggleRotation") {
++        } else if (id == "ToggleRotationLock") {
+             active = dt->get_rotation_lock();
+ 
+         }
+diff --git a/src/verbs.cpp b/src/verbs.cpp
+index 399af73bb8..15b99e5fa1 100644
+--- a/src/verbs.cpp
++++ b/src/verbs.cpp
+@@ -1964,7 +1964,7 @@ void ZoomVerb::perform(SPAction *action, void *data)
+         case SP_VERB_ZOOM_CENTER_PAGE:
+             dt->zoom_center_page();
+             break;
+-        case SP_VERB_TOGGLE_ROTATION:
++        case SP_VERB_TOGGLE_ROTATION_LOCK:
+             dt->toggle_rotation_lock();
+             break;
+         case SP_VERB_ROTATE_CW:
+@@ -3044,7 +3044,7 @@ Verb *Verb::_base_verbs[] = {
+                  INKSCAPE_ICON("show-grid")),
+     new ZoomVerb(SP_VERB_TOGGLE_GUIDES, "ToggleGuides", N_("G_uides"),
+                  N_("Show or hide guides (drag from a ruler to create a guide)"), INKSCAPE_ICON("show-guides")),
+-    new ZoomVerb(SP_VERB_TOGGLE_ROTATION, "ToggleRotation", N_("Lock Rotation"),
++    new ZoomVerb(SP_VERB_TOGGLE_ROTATION_LOCK, "ToggleRotationLock", N_("Lock rotation"),
+                  N_("Lock canvas rotation"), nullptr),
+     new ZoomVerb(SP_VERB_TOGGLE_SNAPPING, "ToggleSnapGlobal", N_("Snap"), N_("Enable snapping"), INKSCAPE_ICON("snap")),
+     new ZoomVerb(SP_VERB_TOGGLE_COMMANDS_TOOLBAR, "ToggleCommandsToolbar", N_("_Commands Bar"),
+diff --git a/src/verbs.h b/src/verbs.h
+index f317155b68..c8f4b7ae9b 100644
+--- a/src/verbs.h
++++ b/src/verbs.h
+@@ -270,7 +270,7 @@ enum {
+     SP_VERB_TOGGLE_SCROLLBARS,
+     SP_VERB_TOGGLE_GRID,
+     SP_VERB_TOGGLE_GUIDES,
+-    SP_VERB_TOGGLE_ROTATION,
++    SP_VERB_TOGGLE_ROTATION_LOCK,
+     SP_VERB_TOGGLE_SNAPPING,
+     SP_VERB_TOGGLE_COMMANDS_TOOLBAR,
+     SP_VERB_TOGGLE_SNAP_TOOLBAR,
+-- 
+2.30.0
+

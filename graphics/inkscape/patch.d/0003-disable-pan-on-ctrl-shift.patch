@@ -1,0 +1,25 @@
+From 8b70165de7025a609cb494c7e3e3ea86faa3c0b8 Mon Sep 17 00:00:00 2001
+From: "byte[]" <byteslice@airmail.cc>
+Date: Fri, 8 May 2020 05:20:49 -0400
+Subject: [PATCH] disable pan on ctrl+shift
+
+---
+ src/ui/tools/tool-base.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/ui/tools/tool-base.cpp b/src/ui/tools/tool-base.cpp
+index cf65b5223a..4a12a7b829 100644
+--- a/src/ui/tools/tool-base.cpp
++++ b/src/ui/tools/tool-base.cpp
+@@ -827,7 +827,7 @@ bool ToolBase::root_handler(GdkEvent* event) {
+                 desktop->rotate_relative_keep_point(scroll_dt, rotate_inc);
+             }
+ 
+-        } else if (event->scroll.state & GDK_SHIFT_MASK) {
++        } else if (shift && !ctrl) {
+            /* shift + wheel, pan left--right */
+ 
+             switch (event->scroll.direction) {
+-- 
+2.30.0
+
