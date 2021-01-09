@@ -1,5 +1,3 @@
-if [[ "$IPV6" == "y" ]]; then
-  OPTS+=" --enable-ipv6"
-fi &&
+OPTS+=" -Wno-dev"
 
-default_build
+default_cmake_build
