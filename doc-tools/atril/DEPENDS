@@ -1,0 +1,34 @@
+depends gtk+-3
+depends libspectre
+depends poppler
+
+
+optional_depends ghostscript \
+   "" \
+   "--disable-ps" \
+   "for postscript file support"
+
+optional_depends djvulibre \
+   "" \
+   "--disable-djvu" \
+   "for Djvu file support"
+   
+optional_depends texlive \
+  "" \
+  "--disable-dvi" \
+ "for dvi file support"
+
+optional_depends unrar \
+   "--enable-comics" \
+   "" \
+   "for CBR comic file support"
+
+optional_depends gobject-introspection \
+   "--enable-introspection" \
+   "" \
+   "support gobject-introspection?"
+   
+optional_depends gtk-doc \
+   "--enable-gtk-doc" \
+   "" \
+   "include documentation?"
