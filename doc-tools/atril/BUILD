@@ -1,3 +1,5 @@
-OPTS+=" --disable-caja --enable-pixbuf --enable-epub --disable-synctex --disable-tests"
-
+OPTS+=" --disable-caja \
+       --disable-synctex \
+       --disable-static \
+       --enable-epub"
 default_build
