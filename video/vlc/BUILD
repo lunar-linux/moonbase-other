@@ -1,6 +1,6 @@
 autoreconf -fi
 
-export CXXFLAGS+=" -std=c++11"
+export CXXFLAGS+=" -std=c++11" &&
 
 unset LUA_LIBS &&
 unset LUA_CFLAGS &&
