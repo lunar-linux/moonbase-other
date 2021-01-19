@@ -1,0 +1,29 @@
+--- ann_1.1.2/Make-config	2010-01-28 05:40:01.000000000 +0100
++++ ann_1.1.2.patched/Make-config	2021-01-19 11:05:59.300437367 +0100
+@@ -68,6 +68,15 @@
+ #-----------------------------------------------------------------------------
+ 
+ #					Linux using g++
++
++linux-shared:
++	$(MAKE) targets \
++	"ANNLIB = libANN.so" \
++	"C++ = g++" \
++	"CFLAGS = -O3 -fPIC" \
++	"MAKELIB = gcc -shared -o" \
++	"RANLIB = true"
++
+ linux-g++:
+ 	$(MAKE) targets \
+ 	"ANNLIB = libANN.a" \
+--- ann_1.1.2/Makefile	2010-01-28 05:40:01.000000000 +0100
++++ ann_1.1.2.patched/Makefile	2021-01-19 11:10:45.817877672 +0100
+@@ -56,7 +56,7 @@
+ #-----------------------------------------------------------------------------
+ # main make entry point
+ #-----------------------------------------------------------------------------
+-alpha-g++ macosx-g++ linux-g++ sgi sunos4 sunos4-g++ sunos5 sunos5-g++ sunos5-g++-sl authors-debug authors-perf:
++alpha-g++ macosx-g++ linux-g++ linux-shared sgi sunos4 sunos4-g++ sunos5 sunos5-g++ sunos5-g++-sl authors-debug authors-perf:
+ 	cd src ; $(MAKE) $@
+ 	cd test ; $(MAKE) $@
+ 	cd sample ; $(MAKE) $@
