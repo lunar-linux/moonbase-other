@@ -1,5 +1,5 @@
           MODULE=linux-lts
-         VERSION=5.4.91
+         VERSION=5.4.92
             BASE=$(echo $VERSION | cut -d. -f1,2)
           SOURCE=linux-$BASE.tar.xz
 if [ -n "$(echo $VERSION | cut -d. -f3)" ] ; then
@@ -10,10 +10,10 @@ fi
   SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v5.x
   SOURCE2_URL[1]=https://www.kernel.org/pub/linux/kernel/v5.x
       SOURCE_VFY=sha256:bf338980b1670bca287f9994b7441c2361907635879169c64ae78364efc5f491
-     SOURCE2_VFY=sha256:e843852a5151561f8f3cb7d50811931602db57bf57b7eb60facc449553ca5ea6
+     SOURCE2_VFY=sha256:58c8a5b6a95ae32568f8ca693fcd9e1445cd3fe4592ba867628e068be09369f7
          WEB_SITE=https://www.kernel.org/
          ENTERED=20111121
-         UPDATED=20210120
+         UPDATED=20210123
            SHORT="The core of a Linux GNU Operating System"
      KEEP_SOURCE=on
            TMPFS=off
