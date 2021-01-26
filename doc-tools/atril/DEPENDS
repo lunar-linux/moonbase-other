@@ -1,0 +1,52 @@
+depends gtk+-3
+depends libsecret
+
+optional_depends dbus \
+   "" \
+   "--disable-dbus" \
+   "for dbus support"
+   
+optional_depends poppler \
+   "" \
+   "--disable-pdf" \
+   "for pdf support"
+   
+optional_depends libspectre\
+   "" \
+   "--disable-ps" \
+   "for postscript document support"
+   
+optional_depends tiff \
+   "" \
+   "--disable-tiff" \
+   "for multipage tiff support"
+   
+optional_depends djvulibre \
+   "" \
+   "--disable-djvu" \
+   "for djvu document support"
+   
+optional_depends texlive \
+   "" \
+   "--disable-dvi" \
+   "for dvi support"
+
+optional_depends gdk-pixbuf \
+   "--enable-pixbuf" \
+   "" \
+   "for pixbuf support"
+
+optional_depends unrar \
+   "--enable-comics" \
+   "" \
+   "for CBR comic support"
+
+optional_depends gtk-doc \
+   "--enable-gtk-doc" \
+   "" \
+   "for documentation"
+   
+optional_depends gobject-introspection \
+   "--enable-introspection" \
+   "" \
+   "for introspection support"
