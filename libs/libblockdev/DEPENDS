@@ -13,7 +13,7 @@ optional_depends python     "--with-python3"  "" "for Python 3.x support"
 optional_depends btrfs-progs "--with-btrfs"   "" "for btrfs support"
 optional_depends lvm2        "--with-lvm"     "" "for LVM2 support"
 
-optional_depends mdadm       "--with-mdraid"  "--without-mdraid" "for RAID support"
+optional_depends mdadm       "--with-mdraid"  "--without-mdraid" "for RAID support;$PROBLEM_COLOR udisks2 needs this else compile fails$DEFAULT_COLOR"
 optional_depends dmraid      "--with-dm"      "--without-dm"     "for LVM RAID support"
 
 optional_depends gobject-introspection \
