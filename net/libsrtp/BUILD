@@ -1,4 +1,4 @@
-autoreconf -fvi &&
+autoupdate &&
 
 default_config &&
 
