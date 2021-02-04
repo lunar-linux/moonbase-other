@@ -8,7 +8,7 @@ rm -rf /usr/bin/pkexec &&
 rm -rf /var/lib/polkit-1 &&
 rm -rf /usr/libexec/polkit-agent-helper-1 &&
 
-autoconf &&
+autoreconf &&
 
 OPTS+=" --disable-static \
         --disable-gtk-doc \
