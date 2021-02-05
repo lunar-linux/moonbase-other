@@ -1,6 +1,7 @@
 export CGO_CPPFLAGS="-D_FORTIFY_SOURCE=2"
 export CGO_LDFLAGS="-Wl,-z,relro,-z,now"
-export EXTRA_FLAGS="-gcflags all=-trimpath=${PWD} -asmflags all=-trimpath=${PWD}"
+#export EXTRA_FLAGS="-gcflags all=-trimpath=${PWD} -asmflags"
+export GOFLAGS="-trimpath -mod=readonly -modcacherw"
 export BUILDTAGS="seccomp"
 
 cd src/github.com/opencontainers/runc &&
