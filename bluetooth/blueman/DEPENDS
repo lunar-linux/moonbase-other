@@ -1,11 +1,14 @@
 depends %BLUEZ
 depends gtk+-3
+depends XML-Parser
 depends libnotify
 depends python-pygobject
 depends python-dbus
 depends cython
 
 optional_depends pulseaudio "" "--disable-pulseaudio" " for pulseaudio support"
+
+optional_depends polkit "" "" "for processes authorization"
 
 optional_depends dnsmasq "" "" "for Network Acess Point support"
 
