@@ -1,4 +1,5 @@
 default_pre_build &&
 
 cp "${SCRIPT_DIRECTORY}/config.h" . &&
-
+sedit 's/CFLAGS =/CFLAGS +=/' config.mk &&
+sedit 's:/local::' config.mk
