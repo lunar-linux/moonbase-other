@@ -1,5 +1,3 @@
-./build.sh --prefix=/usr/ --enable-pretty &&
+OPTS_=" --enable-pretty"
 
-prepare_install &&
-
-make install
+default_build

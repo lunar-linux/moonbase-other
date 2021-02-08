@@ -1,4 +1,5 @@
-autoreconf &&
+export LIBPOSTFIX=/
+export CXXFLAGS+=' -fPIC -fpermissive' &&
 
 if in_depends $MODULE %JAVA_SDK; then
   --with-javaincludedir=/usr/lib/java/latest/include/ &&

@@ -45,7 +45,7 @@ fi
 
 # A few of these flags are necessary when building mariadb with gcc >= 4.4
 CFLAGS="-fPIC ${CFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -fomit-frame-pointer -fno-delete-null-pointer-checks"
-CXXFLAGS="-fPIC ${CXXFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -felide-constructors -fno-rtti -fno-delete-null-pointer-checks"
+CXXFLAGS="-fPIC ${CXXFLAGS} -fno-strict-aliasing -DBIG_JOINS=1 -felide-constructors -fno-delete-null-pointer-checks"
 
 add_priv_user mysql:mysql -d /var/lib/mysql -s /usr/bin/false &&
 

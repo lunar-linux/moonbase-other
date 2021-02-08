@@ -1,7 +1,13 @@
+if module_installed systemd; then
+   OPTS+=" --systemd-unit"
+fi
+
 python2 waf configure --prefix=/usr \
                       --alsa \
                       --dbus \
-                      --classic &&
+                      --autostart=none \
+                      --classic \
+                      $OPTS &&
 
 python2 waf build &&
 

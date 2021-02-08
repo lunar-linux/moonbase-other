@@ -1,4 +1,6 @@
 default_pre_build &&
 
 # adjust error ids to current ghostscript
-sedit 's/ e_/ gs_error_/' plugin/gs/gvloadimage_gs.c
+sedit 's/ e_/ gs_error_/' plugin/gs/gvloadimage_gs.c &&
+
+./autogen.sh NOCONFIG

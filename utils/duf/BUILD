@@ -4,7 +4,7 @@ go build \
     -mod=readonly \
     -modcacherw \
     -ldflags "-X main.Version=$VERSION -linkmode external -extldflags \"${LDFLAGS}\"" \
-    -o "$pkgname" . &&
+    -o "$NODULE" . &&
 
 go clean -modcache &&
 

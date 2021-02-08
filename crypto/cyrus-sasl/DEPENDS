@@ -11,7 +11,4 @@ optional_depends sqlite "--with-sqlite3" "--without-sqlite3" "for SQLite 3.x sup
 
 optional_depends postgresql "--with-pgsql" "--without-pgsql" "for postgreSQL support"
 
-optional_depends heimdal \
-                 "--enable-gssapi --with-gss_impl=heimdal --enable-gss_mutexes" \
-                 "--disable-gssapi" \
-                 "for GSSAPI support"
+optional_depends %KERBEROS  "" "" "for GSSAPI support"
