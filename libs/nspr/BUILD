@@ -1,4 +1,4 @@
-[[ "`arch`" == "x86_64" ]] && OPTS+=" --enable-64bit" &&
+[[ "`arch`" == "x86_64" ]] && OPTS+=" --enable-64bit"
 
 OPTS+=" --libdir=/usr/lib --with-mozilla --with-pthreads --enable-strip" &&
 
