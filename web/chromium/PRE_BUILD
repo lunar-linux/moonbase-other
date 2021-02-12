@@ -2,38 +2,34 @@ default_pre_build &&
 
 unzip $SOURCE_CACHE/$SOURCE2 &&
 
-# Allow building against system libraries in official builds
-sedit 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' tools/generate_shim_headers/generate_shim_headers.py &&
-
 # https://crbug.com/skia/6663#c10
 patch_it $SOURCE3 0 &&
 
 # Load widevine cdm
 patch_it $SOURCE4 1 &&
 
-# https://crbug.com/1049258
-patch_it $SOURCE5 1 &&
-patch_it $SOURCE6 1 &&
-
-# https://chromium-review.googlesource.com/c/chromium/src/+/2145261
-patch_it $SOURCE7 1 &&
-
-# https://crbug.com/v8/10393
-patch -Np3 -d v8 < $SOURCE_CACHE/$SOURCE8 &&
-
-# https://crbug.com/893950
-sedit 's/\<xmlMalloc\>/malloc/;s/\<xmlFree\>/free/' \
-      third_party/blink/renderer/core/xml/*.cc \
-      third_party/blink/renderer/core/xml/parser/xml_document_parser.cc \
-      third_party/libxml/chromium/*.cc &&
-
 # Remove unsupported compiler flags
 sedit '/"-Wno-defaulted-function-deleted"/d' build/config/compiler/BUILD.gn &&
 
 # Make sure python2 is used
+# chromium has there own guards for it, but this one breaks
 sedit '1s;python$;&2;' third_party/dom_distiller_js/protoc_plugins/*.py &&
+sedit '/proto_library(/ a   run_under_python2 = true' third_party/dom_distiller_js/BUILD.gn &&
 
-# Build now requires nodejs
+# ../../components/viz/service/display/delegated_ink_point_renderer_base.h:92:54:
+# error: field has incomplete type 'viz::DelegatedInkTrailData'
+# note: in instantiation of template class 'std::unordered_map<int, viz::DelegatedInkTrailData, ...>' requested here
+sedit '/include.*viz_service_export\.h/ a #include "components/viz/service/display/delegated_ink_trail_data.h"' components/viz/service/display/delegated_ink_point_renderer_base.h &&
+
+# ../../ui/accessibility/ax_tree_serializer.h:652
+# missing declaration of std::time, did you mean `time`?
+sedit '/include <vector>/ a #include <ctime>' ui/accessibility/ax_tree_serializer.h &&
+
+# ../../components/autofill/core/browser/data_model/contact_info.h:108:14:
+# error: no template named 'unique_ptr' in namespace 'std'
+sedit '/include <vector>/ a #include <memory>' components/autofill/core/browser/data_model/contact_info.h &&
+
+# Build requires nodejs / use the system version
 mkdir -p third_party/node/linux/node-linux-x64/bin &&
 ln -s /usr/bin/node third_party/node/linux/node-linux-x64/bin/node &&
 
@@ -46,24 +42,15 @@ google_api_key=AIzaSyDhObDIVsBGV5fleLgLq6ZpfKldIVMvrG4 &&
 google_default_client_id=1081365520390-t7vsmo6kde87fvbjoue2ea412vsjkvu0.apps.googleusercontent.com &&
 google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
 
-# Remove bundled libraries, we will use system provided ones instead (using arch's approach)
-local _libs _lib &&
-_libs=(ffmpeg fontconfig flac yasm libxslt libxml libwebp libjpeg opus re2 zlib snappy freetype harfbuzz-ng) &&
-for _lib in ${_libs[@]} libjpeg_turbo; do
-  find "third_party/${_lib}" -type f \
-       \! -path "third_party/${_lib}/chromium/*" \
-       \! -path "third_party/${_lib}/google/*" \
-       \! -path "third_party/yasm/run_yasm.py" \
-       \! -regex '.*\.\(gn\|gni\|isolate\)' \
-       -delete
-done &&
-
-python2 build/linux/unbundle/replace_gn_files.py --system-libraries "${_libs[@]}" &&
-
 local _flags=(
   'custom_toolchain="//build/toolchain/linux/unbundle:default"'
   'host_toolchain="//build/toolchain/linux/unbundle:default"'
   'is_official_build=true'
+  'chrome_pgo_phase=0'
+  'is_clang=true'
+  'use_lld=true'
+  'use_gold=false'
+#  'is_component_build=true'
   'clang_use_chrome_plugins=false'
   'treat_warnings_as_errors=false'
   'fieldtrial_testing_like_official_build=true'
@@ -72,7 +59,6 @@ local _flags=(
   'use_gnome_keyring=false'
   'use_sysroot=false'
   'use_custom_libcxx=false'
-  'linux_use_bundled_binutils=false'
   'enable_hangout_services_extension=true'
   'enable_widevine=true'
   'enable_nacl=false'
@@ -93,12 +79,12 @@ export AR=llvm-ar &&
 export NM=nm &&
 
 # Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
-export CFLAGS+='   -Wno-builtin-macro-redefined'
-export CXXFLAGS+=' -Wno-builtin-macro-redefined'
-export CPPFLAGS+=' -D__DATE__=  -D__TIME__=  -D__TIMESTAMP__='
+export CFLAGS+='   -Wno-builtin-macro-redefined' &&
+export CXXFLAGS+=' -Wno-builtin-macro-redefined' &&
+export CPPFLAGS+=' -D__DATE__=  -D__TIME__=  -D__TIMESTAMP__=' &&
 
 # Silence unknown warning options
-CFLAGS+=' -Wno-unknown-warning-option'
-CXXFLAGS+=' -Wno-unknown-warning-option'
+CFLAGS+=' -Wno-unknown-warning-option' &&
+CXXFLAGS+=' -Wno-unknown-warning-option' &&
 
-gn gen out/Release --args="${_flags[*]}" --script-executable=/usr/bin/python2
+gn gen out/Release --args="${_flags[*]}" --script-executable=/usr/bin/python3

@@ -8,9 +8,7 @@ if [ "$USE_CCACHE" = "y" ]; then
   export CCACHE_SLOPPINESS=time_macros
 fi
 
-# This is the make step. According to its --help the default -j is
-# derived from your number of CPUs.
-ninja -v -C out/Release chrome chrome_sandbox chromedriver &&
+ninja -v ${MAKES:+-j${MAKES}} -C out/Release chrome chrome_sandbox chromedriver &&
 
 prepare_install &&
 
