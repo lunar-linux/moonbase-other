@@ -11,12 +11,12 @@ OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
         -DVTK_USE_SYSTEM_SIX=ON      \
         -DVTK_USE_SYSTEM_HDF5=ON     \
         -DVTK_WRAP_JAVA=OFF           \
-        -DVTK_WRAP_PYTHON=ON         \
+        -DVTK_WRAP_PYTHON=OFF         \
         -DCMAKE_CXX_FLAGS="-D__STDC_CONSTANT_MACROS" \
         -DVTK_RENDERING_BACKEND=OpenGL2 \
         -DBUILD_SHARED_LIBS=ON \
         -DBUILD_EXAMPLES=OFF \
-        -DVTK_LEGACY_REMOVE=ON"
+        -DVTK_LEGACY_REMOVE=OFF" &&
 
 #Maybe a little overkill but just to make sure if qt5 is installed there
 #is no confusion
