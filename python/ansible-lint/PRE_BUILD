@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# stop setuptools from using the scm version which doesn't exist in this context
+sedit "/^\[metadata\]/a version = ${pkgver}" setup.cfg
