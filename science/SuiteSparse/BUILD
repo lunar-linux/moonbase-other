@@ -1,10 +1,7 @@
-  cd metis-5.1.0 &&
-  make $METIS_OPTS &&
-  default_make &&
 
-  cd $SOURCE_DIRECTORY/ &&
+INSTALL_OPTS+=" INSTALL_LIB=/usr/lib INSTALL_INCLUDE=/usr/include" &&
 
-  make $SS_BUILD_OPTS &&
+make &&
 
-  prepare_install &&
-  make $SS_INSTALL_OPTS install
+prepare_install &&
+make install $INSTALL_OPTS
