@@ -8,11 +8,15 @@ depends libnotify
 depends gnome-common
 depends unicode-character-database
 
-optional_depends dconf "--enable-dconf" "--disable-dconf" "for low level configuration system support, ${PROBLEM_COLOR}Borks build, say no for now.${DEFAULT_COLOR}" n
 optional_depends qt5 "" "" "build Qt 5.x im module"
-
 optional_depends gtk+-3 "--enable-gtk3"  "--disable-gtk3"  "build GTK 3.x im module"
-optional_depends gtk+-2 "--enable-gtk2"  "--disable-gtk2"  "build GTK 2.x im module"
+optional_depends gtk+-2 "--enable-gtk2"  "--disable-gtk2"  "build GTK 2.x im module" "n"
+
+optional_depends dconf \
+                 "--enable-dconf" \
+                 "--disable-dconf" \
+                 "for low level configuration system support, ${PROBLEM_COLOR}Borks build, say no for now.${DEFAULT_COLOR}" \
+                 "n"
 
 optional_depends wayland \
                  "--enable-wayland" \
@@ -23,7 +27,7 @@ optional_depends python2 \
                  "--enable-python2" \
                  "--disable-python2" \
                  "Enable Python2 bindings" \
-                 n
+                 "n"
 
 if in_depends $MODULE "python2"; then
   depends python2-dbus
@@ -33,4 +37,5 @@ fi
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \
                  "--disable-gtk-doc" \
-                 "for building documentation"
+                 "for building documentation" \
+                 "n"
