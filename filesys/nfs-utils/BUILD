@@ -29,5 +29,5 @@ if [ ! -f /etc/exports ]; then
 fi &&
 
 mkdir -p /etc/exports.d &&
-mkdir -m 555 /var/lib/nfs/rpc_pipefs &&
+mkdir -p -m 555 /var/lib/nfs/rpc_pipefs &&
 mkdir /var/lib/nfs/v4recovery
