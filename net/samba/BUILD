@@ -18,7 +18,6 @@ fi
        --prefix=/usr           \
        --sysconfdir=/etc       \
        --localstatedir=/var    \
-       --with-piddir=/var/run  \
        --mandir=/usr/share/man \
        --disable-rpath-install \
        --enable-fhs            \
@@ -29,6 +28,7 @@ fi
        --with-pammodulesdir=/usr/lib/security \
        --bundled-libraries=$BUNDLED_LIBRARIES \
        $OPTS &&
+#       --with-piddir=/var/run  \
 
 default_make &&
 
