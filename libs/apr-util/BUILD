@@ -1,5 +1,5 @@
 mv configure.{in,ac} &&
-autoreconf &&
+autoreconf -i &&
 libtoolize &&
 
 OPTS+=" --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` \
