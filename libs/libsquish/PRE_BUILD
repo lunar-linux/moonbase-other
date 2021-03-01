@@ -1,3 +1,5 @@
 default_pre_build 
 
 tar xf $SOURCE_CACHE/$MODULE-$VERSION.tgz -C $SOURCE_DIRECTORY
+
+OPTS+=" -DBUILD_SHARED_LIBS=ON"
