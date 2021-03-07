@@ -1,6 +1,7 @@
-export GOPATH="${SOURCE_DIRECTORY}" &&
 go get -v github.com/zquestz/s &&
+
+make &&
 
 prepare_install &&
 
-install -Dm 775 ${SOURCE_DIRECTORY}/bin/${MODULE} /usr/bin/${MODULE}
+install -Dm 775 ${MODULE} /usr/bin/
