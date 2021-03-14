@@ -27,11 +27,6 @@ if [ "`get_module_config GRAPHICS`" = "y" ]; then
 
   depends libpng
 
-  optional_depends DirectFB \
-                 "--with-directfb" \
-                 "--without-directfb" \
-                 "for DirectFB graphics mode"
-
   optional_depends libX11 \
                  "--with-x" \
                  "--without-x" \
@@ -51,4 +46,11 @@ if [ "`get_module_config GRAPHICS`" = "y" ]; then
                    "--with-librsvg" \
                    "--without-librsvg" \
                    "to display SVG images in graphics mode"
+
+  optional_depends DirectFB \
+                 "--with-directfb" \
+                 "--without-directfb" \
+                 "for DirectFB graphics mode" \
+                 "n"
+
 fi
