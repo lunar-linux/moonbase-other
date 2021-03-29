@@ -1,5 +1,4 @@
-OPTS+=" -D enable_docs=false \
-        -D sysprof=disabled"
+OPTS+=" -D sysprof=disabled"
 
 default_meson_build &&
 
