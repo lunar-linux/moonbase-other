@@ -1,4 +1,3 @@
-#autoreconf &&
 
 OPTS+=" --enable-reuseaddr \
         --enable-postwrite \
