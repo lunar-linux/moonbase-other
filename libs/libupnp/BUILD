@@ -1,8 +1,7 @@
-autoreconf &&
+#autoreconf &&
 
 OPTS+=" --enable-reuseaddr \
         --enable-postwrite \
-        --disable-samples \
-        --without-documentation"
+        --disable-samples " &&
 
 default_build
