@@ -1,0 +1,4 @@
+default_pre_build &&
+
+#updates the check for LLVM
+sed -i 's/find_llvm("/find_llvm("11.1;/g' CMakeLists.txt
