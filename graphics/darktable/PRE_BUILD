@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# we know our llvm is newer than 3.8
+sedit 's/\sfind_llvm(.*$/find_package(LLVM CONFIG)/g' CMakeLists.txt
