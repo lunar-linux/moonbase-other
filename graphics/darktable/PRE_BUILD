@@ -1,4 +1,4 @@
 default_pre_build &&
 
-#updates the check for LLVM
-sed -i 's/find_llvm("/find_llvm("11.1;/g' CMakeLists.txt
+# we know our llvm is newer than 3.8
+sedit 's/\sfind_llvm(.*$/find_package(LLVM CONFIG)/g' CMakeLists.txt
