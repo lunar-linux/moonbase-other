@@ -4,8 +4,6 @@ OPTS+=" --disable-static \
         --enable-builtin=libidn2 \
         --enable-runtime=libidn2 \
         --with-psl-file=/usr/share/publicsuffix/effective_tld_names.dat \
-        --with-psl-testfile=/usr/share/publicsuffix/test_psl.txt"
-        
+        --with-psl-testfile=/usr/share/publicsuffix/test_psl.txt" &&
 
-LC_CTYPE=en_US.UTF-8 
-default_build
+LC_CTYPE=en_US.UTF-8 default_build
