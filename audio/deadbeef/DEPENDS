@@ -1,27 +1,23 @@
-depends intltool
 depends XML-Parser
 depends yasm
 depends zip
 depends ffmpeg
 depends jansson
+depends gtk+-3
 
 optional_depends alsa-lib "" "--disable-alsa" "for ALSA output support"
 optional_depends alsa-oss "" "--disable-oss" "for Open Sound System output support"
 optional_depends pulseaudio "" "--disable-pulse" "for Pulseaudio output support"
-optional_depends gtk+-3 "" "--disable-gtk3" "for GTK3 version of gtkui support"
-optional_depends gtk+-2 "" "--disable-gtk2" "for GTK2 version of gtkui support"
 optional_depends libvorbis "" "--disable-vorbis" "for Ogg Vorbis player support"
 optional_depends flac "" "--disable-flac" "for FLAC player support"
 optional_depends libsndfile "" "--disable-sndfile" "for libsndfile plugin for PCM wave files support"
 optional_depends wavpack "" "--disable-wavpack" "for wavpack support"
-optional_depends libnotify "" "--disable-notify" "for notification-daemon support"
 optional_depends libmpcdec "" "--disable-musepack" "for Musepack support"
 optional_depends wildmidi "" "--disable-wildmidi" "for wildmidi support"
 optional_depends libdca "" "--disable-dca" "for dca (DTS audio) support"
-optional_depends faad2 "" "--enable-faad"  "for faad support"
+optional_depends faad2 "" "--disable-faad"  "for faad support"
 optional_depends libmms "" "--disable-mms" "for MMS streaming vfs support"
-optional_depends libsamplerate "" "--enable-src" "for libsamplerate (SRC) support"
-optional_depends imlib2 "" "--enable-artwork-imlib2" "for imlib2 in artwork in support"
-optional_depends dumb "" "--enable-dumb" "for DUMB support"
-
+optional_depends libsamplerate "" "--disable-src" "for libsamplerate (SRC) support"
+optional_depends imlib2 "" "--disable-artwork-imlib2" "for imlib2 in artwork in support"
+optional_depends dumb "" "--disable-dumb" "for DUMB support"
 optional_depends libmad "" ""  "for mpeg(mad) support"
