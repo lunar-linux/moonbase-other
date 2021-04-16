@@ -14,6 +14,7 @@ depends hicolor-icon-theme
 depends python-numpy
 depends intel-tbb
 depends git
+depends embree
 
 optional_depends lzma-sdk "-DWITH_LZMA=1"   "-DWITH_LZMA=0"   "for lzma compression support for pointcache"
 optional_depends lzo      "-DWITH_LZO=1"    "-DWITH_LZO=0"    "for real-time data compression support for pointcache"
@@ -31,7 +32,7 @@ optional_depends jemalloc   "-DWITH_MEM_JEMALLOC=1"    "-DWITH_MEM_JEMALLOC=0"  
 
 optional_depends libspnav    "-DWITH_INPUT_NDOF=1"  "-DWITH_INPUT_NDOF=0"  "for NDOF input devices support"
 optional_depends OpenCOLLADA "-DWITH_OPENCOLLADA=1" "-DWITH_OPENCOLLADA=0" "for COLLADA 3d file format support"
-optional_depends OpenColorIO "-DWITH_OPENCOLORIO=1" "-DWITH_OPENCOLORIO=0" "for color management support"
+optional_depends OpenColorIO "-DWITH_OPENCOLORIO=1" "-DWITH_OPENCOLORIO=0" "for color management support,${PROBLEM_COLOR}Say no for now, no work around${DEFAULT_COLOR}"
 
 optional_depends OpenImageIO-oiio \
                  "-DOPENIMAGEIO_ROOT_DIR=/usr -DWITH_CYCLES=1" \
