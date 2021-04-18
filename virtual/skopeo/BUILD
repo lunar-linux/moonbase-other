@@ -1,12 +1,12 @@
 export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
 export CGO_LDFLAGS="$LDFLAGS"
 
-make bin/skopeo BUILDTAGS='containers_image_ostree_stub' &&
+make PREFIX=/usr bin/skopeo BUILDTAGS='containers_image_ostree_stub' &&
 make docs
 
 prepare_install &&
 
-make install &&
+make PREFIX=/usr DESTDOR=/usr install &&
 
 mkdir -p /etc/containers &&
 for conf in registries.conf storage.conf seccomp.json; do
