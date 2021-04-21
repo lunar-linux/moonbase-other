@@ -3,9 +3,9 @@ Set SONAME and unbreak compilation on Darwin
 Author: Fabian Groffen <grobian@gentoo.org>
 Author: Dennis Schridde <devurandom@gmx.net>
 
---- a/GDALmake.opt.in	2008-02-02 18:25:48.000000000 -0800
-+++ b/GDALmake.opt.in	2008-02-02 18:54:53.000000000 -0800
-@@ -143,6 +143,14 @@
+--- a/GDALmake.opt.in
++++ b/GDALmake.opt.in
+@@ -97,6 +97,14 @@
  GDAL_SLIB	=	$(GDAL_ROOT)/libgdal.$(SO_EXT)
  GDAL_SLIB_LINK	=	-L$(GDAL_ROOT) -lgdal
  
@@ -22,7 +22,7 @@ Author: Dennis Schridde <devurandom@gmx.net>
  
 --- a/GNUmakefile
 +++ b/GNUmakefile
-@@ -264,7 +264,7 @@ else
+@@ -208,7 +208,7 @@ else
  
  ifeq ($(HAVE_LD_SHARED),yes)
  
@@ -31,7 +31,7 @@ Author: Dennis Schridde <devurandom@gmx.net>
  
  install-lib:
  
-@@ -272,14 +272,14 @@ install-lib:
+@@ -216,14 +216,14 @@ install-lib:
  ifeq ($(MACOSX_FRAMEWORK),yes)
  	$(INSTALL_LIB) $(GDAL_SLIB) $(DESTDIR)$(INST_LIB)/GDAL
  else
