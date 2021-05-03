@@ -12,7 +12,7 @@ diff --git a/glib/poppler-page.cc b/glib/poppler-page.cc
 index 7e21c717..7372d3a0 100644
 --- a/glib/poppler-page.cc
 +++ b/glib/poppler-page.cc
-@@ -319,6 +319,14 @@ static void _poppler_page_render(PopplerPage *page, cairo_t *cairo, bool printin
+@@ -321,6 +321,14 @@ static void _poppler_page_render(PopplerPage *page, cairo_t *cairo, bool printin
          page->text = new TextPage(false);
          output_dev->setTextPage(page->text);
      }
@@ -27,7 +27,7 @@ index 7e21c717..7372d3a0 100644
      /* NOTE: instead of passing -1 we should/could use cairo_clip_extents()
       * to get a bounding box */
      cairo_save(cairo);
-@@ -2427,3 +2427,12 @@ GList *poppler_page_get_text_attributes_for_area(PopplerPage *page, PopplerRecta
+@@ -2541,3 +2541,12 @@ GList *poppler_page_get_text_attributes_for_area(PopplerPage *page, PopplerRecta
  
      return g_list_reverse(attributes);
  }
