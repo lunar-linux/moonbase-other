@@ -1,6 +1,16 @@
 depends git
+depends lua
 depends pipewire
 depends meson
+
+optional_depends systemd \
+                 "-Dsystemd=enabled \
+                   -Dsystemd-system-service=true \
+                   -Dsystemd-user-service=true" \
+                 "-Dsystemd=disabled \
+                   -Dsystemd-system-service=false \
+                   -Dsystemd-user-service=false" \
+                 "for systemd support"
 
 optional_depends gobject-introspection \
                  "-Dintrospection=enabled" \
