@@ -1,5 +1,10 @@
 add_priv_group ppp &&
 
+OPTS+=" --disable-static \
+        --enable-hashes=strong,glibc \
+        --enable-obsolete-api=no \
+        --disable-failure-tokens"
+
 default_build &&
 make install-etcppp &&
 
