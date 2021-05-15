@@ -6,7 +6,6 @@ depends glib-2
 depends libgcrypt
 depends libxml2
 depends perl
-depends qt5
 
 optional_depends libcap    "-DENABLE_CAP=true"      "-DENABLE_CAP=false" \
                              "Allow packet captures without running as root"
@@ -24,6 +23,8 @@ optional_depends libssh    "-DENABLE_LIBSSH=true"   "-DENABLE_LIBSSH=false" \
                              "for extcap remote SSH interfaces (sshdump, ciscodump)"
 optional_depends libnl3    "-DENABLE_NETLINK=true"  "-DENABLE_NETLINK=false" \
                              "support for managing wireless 802.11 interfaces"
+optional_depends lua       "-DENABLE_LUA=true"      "-DENABLE_LUA=false" \
+                             "for Lua support"
 optional_depends minizip   "-DENABLE_MINIZIP=true"  "-DENABLE_MINIZIP=false" \
                              "support for profiles import/export"
 optional_depends nghttp2   "-DENABLE_NGHTTP2=true"  "-DENABLE_NGHTTP2=false" \
@@ -42,6 +43,7 @@ optional_depends zlib      "-DENABLE_ZLIB=true"   "-DENABLE_ZLIB=false" \
                              "for zlib support"
 optional_depends zstd      "-DENABLE_ZSTD=true"   "-DENABLE_ZSTD=false" \
                              "for zstd support"
+optional_depends qt5       "-DBUILD_wireshark=ON" "-DBUILD_wireshark=OFF" \
+                             "for the graphical interface"
 
 # Broken - needs lua 5.2.x
-#optional_depends lua "-DENABLE_LUA=true" "-DENABLE_LUA=false" "for Lua support"
