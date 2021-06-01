@@ -5,22 +5,17 @@ if [ "$USE_REGGLOBALS" == "y" ]; then
   OPTS+=" "
 fi
 
-OPTS+=" --sbindir=/usr/bin \
+OPTS+=" 
+        --sbindir=/usr/bin \
         --sysconfdir=/etc/php \
         --localstatedir=/var \
         --with-layout=GNU \
         --with-config-file-path=/etc/php \
         --with-config-file-scan-dir=/etc/php/conf.d \
         --disable-rpath \
-        --enable-zend-signals" &&
-
-OPTS+=" --enable-ftp=shared \
-        --enable-zip=shared \
-        --enable-dba=shared \
-        --enable-exif=shared \
-        --enable-intl=shared \
-        --enable-bcmath=shared \
-        --enable-sockets=shared \
-        --enable-calendar=shared" &&
+        --with-system-ciphers \
+        --with-external-pcre \
+        --with-pear=no \
+        --with-zlib" &&
 
 default_build

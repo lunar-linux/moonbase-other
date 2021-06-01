@@ -1,93 +1,119 @@
-depends pcre
+depends pcre2
 depends libxml2
-depends libgd
-depends enchant
-depends libzip
-
-optional_depends gettext \
-                 "--with-gettext=shared" "" \
-                 "for GNU gettext support"
-
-optional_depends readline \
-                 "--with-readline" "" \
-                 "for readline support"
-
-optional_depends aspell \
-                 "--with-pspell=shared" "" \
-                 "for aspell spelling functions"
-
-optional_depends mhash \
-                 "--with-mhash" "" \
-                 "for hash functions support"
-
-optional_depends mcrypt \
-                 "--with-mcrypt=shared" "" \
-                 "for crypto library"
-
-optional_depends gmp \
-                 "--with-gmp=shared" "" \
-                 "GNU math lib support"
-
-optional_depends %OSSL \
-                 "--with-openssl" "" \
-                 "for SSL support"
-
-optional_depends gdbm \
-                 "--with-gdbm" "" \
-                 "for GNU dbm support"
-
-optional_depends db \
-                 "--with-db4=/usr" "" \
-                 "for Berkeley DB4 support"
-
-optional_depends sqlite \
-                 "--with-sqlite3=shared,/usr --with-pdo-sqlite=shared,/usr" "" \
-                 "for PDO SQLite support"
-
-optional_depends %MYSQL \
-                 "--with-mysqli=shared,mysqlnd --with-pdo-mysql=shared,mysqlnd" "" \
-                 "for native MySQL support"
-
-optional_depends postgresql \
-                 "--with-pgsql=shared --with-pdo-pgsql=shared" "" \
-                 "for PostgreSQL support"
-
-optional_depends unixODBC \
-                 "--with-unixODBC=shared,/usr --with-pdo-odbc=shared,unixODBC,/usr" "" \
-                 "for unixODBC support"
-
-optional_depends freetype2 \
-                 "--with-freetype-dir=/usr" "" \
-                 "for freetype2 support"
-
-optional_depends curl \
-                 "--with-curl=shared" "" \
-                 "for cURL support"
-
-optional_depends libxslt \
-                 "--with-xsl=shared,/usr" "" \
-                 "for DOM XSLT support"
-
-optional_depends openldap \
-                 "--with-ldap=shared" "" \
-                 "for ldap support"
-
-optional_depends libzip \
-                 "--with-libzip=/usr" "" \
-                 "for libzip support"
-
-optional_depends bzip2 \
-                 "--with-bz2=shared" "" \
-                 "for bzip2 support"
-
-optional_depends postfix \
-                 "--with-imap=shared" "" \
-                 "for IMAP support"
-
-optional_depends krb5 \
-                 "--with-kerberos=/usr" "" \
-                 "for Kerberos authentification support"
 
 optional_depends httpd \
-                 "--with-apxs2" "" \
-                 "To build the apache2 DSO"
+  "--with-apxs2 " "" \
+  "To build the apache2 DSO"
+  
+optional_depends %OSSL \
+  "--with-openssl=shared " "" \
+  "for SSL support"
+
+optional_depends krb5 \
+  "--with-kerberos=/usr " "" \
+  "for Kerberos authentification support"
+  
+optional_depends curl \
+  "--with-curl=shared " "" \
+  "for cURL support"
+  
+optional_depends vsftpd \
+  "--enable-ftp=shared " "" \
+  "for ftp support"
+
+optional_depends postfix \
+  "--with-imap=shared " "" \
+  "for IMAP support" 
+
+optional_depends openldap \
+   "--with-ldap " "" \
+   "for ldap support"  
+
+optional_depends %MYSQL \
+  "--with-mysqli=shared --with-pdo-mysql=shared " "" \
+  "for native MySQL support" 
+
+optional_depends gdbm \
+  "--with-gdbm " "" \
+  "for GNU dbm support"
+  
+optional_depends db \
+  "--with-db4=/usr " "" \
+  "for Berkeley DB4 support"
+
+optional_depends unixODBC \
+  "--with-unixODBC=shared --with-pdo-odbc=shared,unixODBC " "" \
+  "for unixODBC support"  
+
+optional_depends freetds \
+   "--with-pdo-dblib=shared" \
+   "" \
+   "for DBLIB-DB support"
+   
+optional_depends sqlite \
+  "--with-sqlite3=shared --with-pdo-sqlite=shared " "" \
+  "for PDO SQLite support"
+
+optional_depends postgresql \
+  "--with-pgsql=shared --with-pdo-pgsql=shared " "" \
+  "for PostgreSQL support" 
+
+optional_depends gmp \
+  "--with-gmp=shared " "" \
+  "GNU math lib support"
+
+optional_depends mhash \
+  "--with-mhash " "" \
+  "for hash functions support"
+  
+optional_depends gettext \
+  "--with-gettext=shared " "" \
+  "for GNU gettext support"
+ 
+optional_depends freetype2 \
+  "--with-freetype-dir=/usr" "" \
+  "for freetype2 support"
+  
+optional_depends aspell \
+  "--with-pspell=shared " "" \
+  "for aspell spelling functions"
+  
+optional_depends enchant \
+  "--with-enchant=shared " "" \
+  "for enchant spellchecking support"
+
+optional_depends libxslt \
+  "--with-xsl=shared " "" \
+  "for DOM XSLT support"
+   
+optional_depends libsodium \
+   "--with-sodium=shared " "" \
+   "for sodium crypto support"
+   
+optional_depends libffi \
+  "--with-ffi=shared " "" \
+  "for FFI support"  
+  
+optional_depends oniguruma \
+   "--enable-mbregex " "" \
+   "for multibyte regular expression support"
+
+optional_depends libzip \
+   "--with-zip=shared " "" \
+   "for zip support"
+   
+optional_depends bzip2 \
+  "--with-bz2=shared " "" \
+  "for bzip2 support"
+  
+optional_depends libgd \
+  "--enable-gd=shared --with-external-gd " "" \
+  "for GD support"   
+  
+optional_depends libexif \
+  "--enable-exif=shared " "" \
+  "for exif support"
+
+optional_depends valgrind \
+   "--with-valgrind=shared " "" \
+   "for valgrind support"
