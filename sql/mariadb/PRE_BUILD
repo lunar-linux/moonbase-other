@@ -4,7 +4,4 @@ default_pre_build &&
 sedit 's;^INSTALL(.*data/test.*;# &;' sql/CMakeLists.txt &&
 
 # Don't install solaris scripts
-sedit 's;^ADD_SUB.*solaris.*;# &;' CMakeLists.txt &&
-
-# Fix flow control statement in libmariadb
-sedit 's:END():ENDIF():' libmariadb/cmake/ConnectorName.cmake
+sedit 's;^ADD_SUB.*solaris.*;# &;' CMakeLists.txt
