@@ -2,6 +2,12 @@ depends libpcap
 depends libgudev
 depends gst-plugins-base
 
+optional_depends gobject-introspection \
+                 "-D introspection=enabled" \
+                 "-D introspection=disabled" \
+                 "for introspection support" \
+                 "y"
+
 # required by multiple plugins
 optional_depends libxml2   "" "" "for XML2 support"
 
@@ -39,15 +45,10 @@ optional_depends opencv      "-D opencv=enabled"    "-D opencv=disabled"     "fo
 optional_depends openexr     "-D openexr=enabled"   "-D openexr=disabled"    "for HDR images support"
 optional_depends libass      "-D assrender=enabled" "-D assrender=disabled" "for subtitles rendering support"
 optional_depends bluez-5     "-D bluez=enabled"     "-D bluez=disabled"      "for Bluetooth support"
-optional_depends DirectFB    "-D directfb=enabled"  "-D directfb=disabled"   "for the DirectFB video sink"
 optional_depends libmodplug  "-D modplug=enabled"   "-D modplug=disabled"    "for MOD playing support"
 optional_depends wildmidi    "-D wildmidi=enabled"  "-D wildmidi=disabled"   "for MIDI files playing support"
 optional_depends neon        "-D neon=enabled"      "-D neon=disabled"       "for the neon HTTP client plugin"
 optional_depends libbs2b     "-D bs2b=enabled"      "-D bs2b=disabled"       "for sterophonic-to-binaural support"
+optional_depends DirectFB    "-D directfb=enabled"  "-D directfb=disabled"   "for the DirectFB video sink" "n"
 
 optional_depends game-music-emu "-D gme=enabled" "-D gme=disabled" "for playing games music files"
-
-optional_depends gobject-introspection \
-                 "-D introspection=enabled" \
-                 "-D introspection=disabled" \
-                 "for introspection support"
