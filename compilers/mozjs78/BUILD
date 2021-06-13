@@ -1,4 +1,13 @@
-OPTS+=" --with-system-nspr \
+
+if in_depends $MODULE lld; then
+  export CC=clang
+  export CXX=clang++
+  export AR=llvm-ar
+  export NM=llvm-nm
+  export RANLIB=llvm-ranlib
+fi &&
+
+OPTS+="  --with-system-nspr \
          --with-system-icu \
          --with-system-zlib \
          --with-intl-api \
@@ -8,11 +17,10 @@ OPTS+=" --with-system-nspr \
          --enable-strip \
          --disable-jemalloc"
 
-cd $BUILD_DIRECTORY/$SOURCE_DIRECTORY/js/src &&
+cd js/src &&
 mkdir -p lunar_build &&
 cd lunar_build &&
 
-../configure --prefix=/usr \
-${OPTS} &&
+../configure --prefix=/usr $OPTS &&
 
 default_make
