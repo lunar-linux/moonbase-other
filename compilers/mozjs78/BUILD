@@ -17,7 +17,7 @@ OPTS+="  --with-system-nspr \
          --enable-strip \
          --disable-jemalloc"
 
-cd js/src &&
+cd $BUILD_DIRECTORY/$SOURCE_DIRECTORY/js/src &&
 mkdir -p lunar_build &&
 cd lunar_build &&
 
