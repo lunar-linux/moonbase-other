@@ -6,10 +6,11 @@ depends json-c
 depends sbc
 
 optional_depends fftw          "--with-fftw"         "--without-fftw"       "for FFTW-using modules (equalizer) support"
+optional_depends soxr          "--with-soxr"         "--without-soxr"       "for resampling support"
+optional_depends libcap        "--with-caps"         "--without-caps"       "for POSIX 1003.1e support"
 optional_depends alsa-lib      "--enable-alsa"       "--disable-alsa"       "for ALSA support"
 optional_depends jack          "--enable-jack"       "--disable-jack"       "for jack support"
 optional_depends libasyncns    "--enable-asyncns"    "--disable-asyncns"    "for asynchronous name server"
-optional_depends libcap        "--with-caps"         "--without-caps"       "for POSIX 1003.1e support"
 optional_depends avahi         "--enable-avahi"      "--disable-avahi"      "for ZeroConf support"
 optional_depends dbus          "--enable-dbus"       "--disable-dbus"       "optional D-Bus support"
 optional_depends %UDEV         "--enable-udev"       "--disable-udev"       "optional UDEV support" n
@@ -20,6 +21,7 @@ optional_depends libsamplerate "--enable-samplerate" "--disable-samplerate" "opt
 optional_depends %OSSL         "--enable-openssl"    "--disable-openssl"    "for OpenSSL support"
 optional_depends orc           "--enable-orc"        "--disable-orc"        "for orc support"
 optional_depends esound        "--enable-esound"     "--disable-esound"     "for esound support"
+optional_depends %BLUEZ        "--enable-bluez5"     "--disable-bluez5"     "for optional bluetooth support"
 
 optional_depends alsa-oss \
                  "--enable-oss-output --enable-oss-wrapper"   \
@@ -31,7 +33,5 @@ optional_depends webrtc-audio-processing \
                  "--disable-webrtc-aec"  \
                  "for WebRTC echo cancellation support"
 
-# We take care of which bluez to enable in the BUILD
-optional_depends %BLUEZ "" "" "for optional BlueZ support"
 
 optional_depends gdbm "" "--with-database=auto" "use gdbm for database support" n
