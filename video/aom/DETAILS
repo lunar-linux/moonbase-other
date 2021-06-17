@@ -1,13 +1,14 @@
           MODULE=aom
-         VERSION=3.0.0
+         VERSION=3.1.1
+         _COMMIT=7fadc0e77130efb05f52979b0deaba9b6a1bba6d
           SOURCE=$MODULE-$VERSION.tar.gz
- SOURCE_URL_FULL=https://aomedia.googlesource.com/aom/+archive/v${VERSION}.tar.gz
-      SOURCE_VFY=sha256:b6cfe4ab1d55e2be6d4e858812196e462d389ff9d8e7ad670d0302081ea6c411
+      SOURCE_URL_FULL=git+https://aomedia.googlesource.com/aom:$_COMMIT
+#      SOURCE_VFY=sha256:75902ed7477bf9d661f0a4e6be4b58288bd87d595b735da3cd1c502b48f15893
         WEB_SITE=https://aomedia.org/
          ENTERED=20210117
-         UPDATED=20210409
+         UPDATED=20210616
            SHORT="Alliance for Open Media video codec"
-
+PSAFE=no
 cat << EOF
 The AV1 Codec Library.
 EOF
