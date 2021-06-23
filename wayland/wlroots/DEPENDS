@@ -1,5 +1,6 @@
 depends libinput
 depends libxkbcommon
+depends seatd
 depends glu
 depends pixman
 depends xcb-util-errors
@@ -7,8 +8,3 @@ depends xcb-util-image
 depends xcb-util-wm
 depends wayland-protocols
 depends meson
-
-optional_depends systemd \
-                 "-D logind=enabled -D logind-provider=systemd" \
-                 "-D logind=disabled" \
-                 "for systemd support on login"

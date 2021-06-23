@@ -1,5 +1,4 @@
-OPTS+=" -D libseat=disabled \
-        -D xcb-errors=enabled \
+OPTS+=" -D xcb-errors=enabled \
         -D xcb-icccm=enabled \
         -D xcb-xkb=enabled \
         -D xwayland=enabled \
