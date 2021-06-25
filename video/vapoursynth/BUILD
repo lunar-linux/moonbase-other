@@ -1,3 +1,5 @@
+export LDFLAGS="$LDFLAGS -lpthread" &&
+
 OPTS+=" --prefix=/usr \
         --disable-static \
         --disable-eedi3 \
