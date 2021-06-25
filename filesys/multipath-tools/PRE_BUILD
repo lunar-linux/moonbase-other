@@ -1,7 +1,0 @@
-default_pre_build
-
-# Fix systemd version detection in Makefile
-sed -i 's/sed -n .*$/head -n1 | cut -d" " -f2\)/g' Makefile.inc
-
-# Fix bindir in Makefile
-sed -i 's|$(exec_prefix)/sbin|$(exec_prefix)/bin|g' Makefile.inc
