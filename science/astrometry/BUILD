@@ -1,7 +1,10 @@
 
   PY_VER=`lvu version python|cut -d. -f1-2` &&
 
-  make SYSTEM_GSL=yes all py extra &&
+  make -C util config &&
+  make SYSTEM_GSL=yes all &&
+  make SYSTEM_GSL=yes py &&
+  make SYSTEM_GSL=yes extra &&
 
   prepare_install &&
 
@@ -20,6 +23,6 @@
 
   mkdir -p /usr/share/astrometry/data &&
 
-  sed -e "s|/usr/share/astrometry|/usr/share/astrometry/data|" -i /etc/astrometry/astrometry.cfg &&
+  sed -e "s|/usr/share/astrometry|/usr/share/astrometry/data|" -i /etc/astrometry/astrometry.cfg
 
-  ln -sf /usr/lib/python${PY_VER}/dist-packages/astrometry.net/blind/plotann.py /usr/bin/plotann.py
+#  ln -sf /usr/lib/python${PY_VER}/dist-packages/astrometry.net/blind/plotann.py /usr/bin/plotann.py
