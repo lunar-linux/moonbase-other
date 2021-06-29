@@ -1,6 +1,8 @@
 unset LDFLAGS LD CFLAGS CPPFLAGS &&
 
-OPTS+=" -D vulkan=disabled \
+OPTS+=" -D roc=disabled \
+        -D vulkan=disabled \
+        -D libcamera=disabled \
         -D udevrulesdir=/usr/lib/udev/rules.d"
 
 CFLAGS+=" -Wformat"
