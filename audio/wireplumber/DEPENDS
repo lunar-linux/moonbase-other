@@ -4,6 +4,11 @@ depends pipewire
 depends doxygen
 depends meson
 
+optional_depends lua \
+                 "-Dsystem-lua=true" \
+                 "-Dsystem-lua=false" \
+                 "for Lua support"
+
 optional_depends systemd \
                  "-Dsystemd=enabled \
                    -Dsystemd-system-service=true \
