@@ -1,0 +1,23 @@
+--- ./contrib/dracut/90zfs/module-setup.sh.in.orig	2021-07-03 04:29:29.637963685 +0300
++++ ./contrib/dracut/90zfs/module-setup.sh.in	2021-07-03 04:36:22.775435379 +0300
+@@ -49,16 +49,16 @@
+ 		# On systems with gcc-config (Gentoo, Funtoo, etc.):
+ 		# Use the current profile to resolve the appropriate path
+ 		s="$(gcc-config -c)"
+-		dracut_install "/usr/lib/gcc/${s%-*}/${s##*-}/libgcc_s.so"*
++!		dracut_install "/usr/lib/gcc/${s%-*}/${s##*-}/libgcc_s.so"*
+ 	elif [ "$(echo /usr/lib/libgcc_s.so*)" != "/usr/lib/libgcc_s.so*" ]; then
+ 		# Try a simple path first
+-		dracut_install /usr/lib/libgcc_s.so*
++!		dracut_install /usr/lib/libgcc_s.so*
+ 	elif [ "$(echo /lib*/libgcc_s.so*)" != "/lib*/libgcc_s.so*" ]; then
+ 		# SUSE
+-		dracut_install /lib*/libgcc_s.so*
++!		dracut_install /lib*/libgcc_s.so*
+ 	else
+ 		# Fallback: Guess the path and include all matches
+-		dracut_install /usr/lib*/gcc/**/libgcc_s.so*
++!		dracut_install /usr/lib*/gcc/**/libgcc_s.so*
+ 	fi
+ 	dracut_install @mounthelperdir@/mount.zfs
+ 	dracut_install @udevdir@/vdev_id
