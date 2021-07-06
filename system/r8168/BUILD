@@ -4,8 +4,13 @@ export KBASE=/lib/modules/$KVERSION
 export MDEST_DIR=${KBASE}/extramodules
 
 make -C "${KBUILD_DIR}" M=`pwd`/src \
-      EXTRA_CFLAGS="-DCONFIG_R8168_NAPI -DCONFIG_R8168_VLAN" \
-      modules
+        ENABLE_USE_FIRMWARE_FILE=y \
+        CONFIG_R8168_NAPI=y \
+        CONFIG_R8168_VLAN=y \
+        CONFIG_ASPM=y \
+        ENABLE_S5WOL=y \
+        ENABLE_EEE=y \
+        modules
 
 find ./src -name '*.ko' -exec strip --strip-debug {} + &&
 find ./src -name '*.ko' -exec gzip {} + &&
