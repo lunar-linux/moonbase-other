@@ -1,12 +1,13 @@
-          MODULE=jack
-         VERSION=1.9.18
-          SOURCE=${MODULE}2-$VERSION.tar.gz
+          MODULE=jack2
+         VERSION=1.9.19
+          SOURCE=${MODULE}-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}2-$VERSION
  SOURCE_URL_FULL=https://github.com/jackaudio/jack2/archive/v${VERSION}.tar.gz
-      SOURCE_VFY=sha256:5a1d64118034d58529d68a9af42710f9d4843536257c496118065ea3d3e4ae2c
+      SOURCE_VFY=sha256:9030f4dc11773351b6ac96affd9c89803a5587ebc1b091e5ff866f433327e4b0
+        REPLACES=jack
         WEB_SITE=http://jackaudio.org
          ENTERED=20020407
-         UPDATED=20210416
+         UPDATED=20210716
            SHORT="A low-latency audio server"
 
 cat << EOF
