@@ -1,8 +1,6 @@
-(
 
-  cp /usr/share/automake/config.sub $SOURCE_DIRECTORY &&
+cp /usr/share/automake/config.sub $SOURCE_DIRECTORY &&
 
-  unset CC CXX
-  default_build
+unset CC CXX
 
-) > $C_FIFO 2>&1
+default_build
