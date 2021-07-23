@@ -5,8 +5,6 @@ else
   OPTS+=" -D harfbuzz=disabled"
 fi
 
-OPTS+=" -D brotli=disabled"
-
 default_meson_build &&
 
 ln -sf /usr/include/freetype2 /usr/include/freetype
