@@ -1,14 +1,12 @@
 # There's a circular depend on harfbuzz
 if module_installed harfbuzz; then
-  OPTS+=" --with-harfbuzz"
+  OPTS+=" -D harfbuzz=enabled"
 else
-  OPTS+=" --without-harfbuzz"
+  OPTS+=" -D harfbuzz=disabled"
 fi
 
-OPTS+=" --disable-static \
-        --enable-freetype-config \
-        --without-brotli"
+OPTS+=" -D brotli=disabled"
 
-default_build &&
+default_meson_build &&
 
 ln -sf /usr/include/freetype2 /usr/include/freetype
