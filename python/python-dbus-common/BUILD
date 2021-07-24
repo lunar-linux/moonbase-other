@@ -1,7 +1,7 @@
 DESTDIR=$SOURCE_DIRECTORY/__dest
 mkdir python3 &&
 pushd python3 &&
-../configure --prefix=/usr &&
+../configure --prefix=/usr $OPTS &&
 sedit 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
 make &&
 make DESTDIR=$DESTDIR install-data &&
