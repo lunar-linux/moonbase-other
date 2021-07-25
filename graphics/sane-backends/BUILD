@@ -1,3 +1,13 @@
+# create version files, so that autotools macros can use them:
+# https://gitlab.com/sane-project/backends/-/issues/440
+  echo "${VERSION}" > .tarball-version
+  echo "${VERSION}" > .version
+
+./autogen.sh &&
+
+# circumvent overlinking in libraries
+sed -e 's/ -shared / -Wl,-O1,--as-needed\0/g' -i libtool &&
+
 OPTS+=" --with-lockdir=/run/lock/sane \
         --with-group=usb \
         --disable-rpath  \
