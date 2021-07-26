@@ -1,10 +1,9 @@
-OPTS+=" --enable-shared --disable-static"
+# While this; https://github.com/libvips/libvips/issues/418 deals with a different app.
+# I see the same issue with dvdauthor. 
+OPTS+=" --enable-shared --disable-static --with-modules"
 
 # see CONFIGURE
 OPTS+=" --disable-hdri"
-
-# They say to run this if you got dirty.
-#autoreconf &&
 
 default_config &&
 
