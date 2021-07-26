@@ -1,4 +1,4 @@
 
-OPTS+=" -DBUILD_SHARED_LIBS=1" &&
+OPTS+=" -DBUILD_SHARED_LIBS=ON -DLEVELDB_BUILD_TESTS=OFF" &&
 
 default_cmake_build
