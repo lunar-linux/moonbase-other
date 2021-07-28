@@ -26,6 +26,7 @@ OPTS+=" --build=$BUILD    \
         --enable-passwd   \
         --enable-shell    \
         --enable-ipv6     \
+        --disable-wt      \
         --disable-sql     \
         --disable-ndb     \
         --disable-static"
