@@ -1,4 +1,4 @@
-eval "$(./version/version.sh)" &&
+#eval "$(./version/version.sh)" &&
 
 export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CFLAGS="${CFLAGS}"
