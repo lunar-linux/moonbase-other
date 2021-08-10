@@ -1,3 +1,7 @@
+./autogen.sh &&
+
+rm -r lib/{libebml,libmatroska,pugixml} &&
+
 CFLAGS+=" -DBOOST_FILESYSTEM_VERSION=3" &&
 CXXFLAGS+=" -DBOOST_FILESYSTEM_VERSION=3" &&
 
@@ -10,8 +14,10 @@ fi &&
 
 export LCONVERT=/usr/bin/lconvert-qt5 &&
 
+OPTS+=" --disable-update-check" &&
+
 default_config &&
-rake $MAKEFLAGS &&
+rake V=1 -j${MAKES} &&
 
 prepare_install &&
 rake install
