@@ -1,8 +1,6 @@
 # this breaks a symbol check in the build scripts
 LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
 
-setterm -bfreq -blength &&
-
 ./mach configure &&
 ./mach build &&
 ./mach buildsymbols &&
