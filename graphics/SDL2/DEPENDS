@@ -21,15 +21,22 @@ optional_depends pulseaudio \
                  "--disable-pulseaudio" \
                  "for PulseAudio audio support"
 
+optional_depends pipewire \
+                 "--enable-pipewire-shared" \
+                 "--disable-pipewire" \
+                 "for PulseAudio audio support"
+
 optional_depends esound \
                  "--enable-esd-shared" \
                  "--disable-esd" \
-                 "for Enlighted Sound Daemon support"
+                 "for Enlighted Sound Daemon support" \
+                 "n"
 
 optional_depends nas \
                  "--enable-nas-shared" \
                  "--disable-nas" \
-                 "for Network Audio System support"
+                 "for Network Audio System support" \
+                 "n"
 
 optional_depends libX11 \
                  "--enable-video-x11 --enable-x11-shared" \
@@ -49,4 +56,5 @@ optional_depends wayland \
 optional_depends DirectFB \
                  "--enable-video-directfb --enable-directfb-shared" \
                  "--disable-video-directfb" \
-                 "for DirectFB video driver"
+                 "for DirectFB video driver" \
+                 "n"
