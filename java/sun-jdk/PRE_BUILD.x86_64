@@ -10,14 +10,14 @@ wget -c --no-check-certificate --header "Cookie: oraclelicense=accept-secureback
 JCE_SHA_TST=`sha256sum $JCE_POLICY | awk '{print $1}'` &&
 if [ "$JCE_SHA_VFY" != "$JCE_SHA_TST" ]; then
   message "Bad checksum for file $JCE_POLICY: $JCE_SHA_TST - deleting file" &&
-#  rm -f $JCE_POLICY # &&
+  rm -f $JCE_POLICY # &&
   false
 fi &&
 
 JDK_SHA_TST=`sha256sum $JDK_ARCHIVE | awk '{print $1}'` &&
 if [ "$JDK_SHA_VFY" != "$JDK_SHA_TST" ]; then
   message "Bad checksum for file $JDK_ARCHIVE: $JDK_SHA_TST - deleting file" &&
-#  rm -f $JDK_ARCHIVE &&
+  rm -f $JDK_ARCHIVE &&
   false
 fi &&
 
