@@ -18,7 +18,7 @@ fi &&
 JRE_SHA_TST=`sha256sum $JRE_ARCHIVE | awk '{print $1}'` &&
 if [ "$JRE_SHA_VFY" != "$JRE_SHA_TST" ]; then
   message "Bad checksum for file $JRE_ARCHIVE: $JRE_SHA_TST - deleting file" &&
-#  rm -f $JRE_ARCHIVE &&
+  rm -f $JRE_ARCHIVE &&
   false
 fi &&
 
