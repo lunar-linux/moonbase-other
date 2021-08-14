@@ -39,16 +39,6 @@ optional_depends libdvdnav \
                  "--disable-dvdnav --disable-dvdread" \
                  "for DVD support"
 
-optional_depends libbluray \
-                 "--enable-libbluray"  \
-                 "--disable-libbluray" \
-                 "for Bluray DVD support"
-
-optional_depends samba \
-                 "--enable-libsmbclient" \
-                 "--disable-libsmbclient" \
-                 "for Samba support"
-
 optional_depends libvdpau \
                  "--enable-vdpau --enable-vdpau-gl-x11" \
                  "--disable-vdpau --disable-vdpau-gl-x11" \
@@ -59,7 +49,19 @@ optional_depends vapoursynth \
                  "--disable-vapoursynth" \
                  "for vapoursynth support"
 
-optional_depends mujs "" "" "for JavaScript support"
+optional_depends libbluray \
+                 "--enable-libbluray"  \
+                 "--disable-libbluray" \
+                 "for Bluray DVD support" \
+                 "n"
+
+optional_depends samba \
+                 "--enable-libsmbclient" \
+                 "--disable-libsmbclient" \
+                 "for Samba support" \
+                 "n"
+
+optional_depends mujs "" "" "for JavaScript support" "n"
 
 #optional_depends v4l-utils \
 #                 "--enable-libv4l2 --enable-tv-v4l2" \
