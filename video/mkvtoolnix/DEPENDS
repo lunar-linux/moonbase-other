@@ -12,6 +12,11 @@ optional_depends flac       "--with-flac"    "--without-flac"    "for flac audio
 optional_depends boost      "--with-boost"   "--without-boost"   "for boost support"
 optional_depends libdvdread "--with-dvdread" "--without-dvdread" "for reading chapters from DVDs"
 
-optional_depends qt5 "--enable-qt5 --disable-qt6"\
+optional_depends qt5 "--enable-qt5"\
                      "--disable-qt5"\
-                     "for Qt based GUI"
+                     "for Qt 5.x based GUI" \
+                     "n"
+
+optional_depends qt6 "--enable-qt6"\
+                     "--disable-qt6"\
+                     "for Qt 6.x based GUI"
