@@ -1,4 +1,4 @@
-if in_depends $MODULE sun-jdk; then
+if in_depends $MODULE $(expand_alias %JAVA_SDK); then
    # Location of javac
    . /etc/profile.d/sun-jdk.rc &&
    export VBOX_JAVA_HOME=$JAVA_HOME
