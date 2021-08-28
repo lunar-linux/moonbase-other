@@ -62,7 +62,7 @@ install -Dm755 src/make.bash /usr/lib/go/src/make.bash &&
 install -Dm755 src/run.bash /usr/lib/go/src/run.bash &&
 
 # For godoc
-install -Dm644 favicon.ico /usr/lib/go/favicon.ico &&
+#install -Dm644 favicon.ico /usr/lib/go/favicon.ico &&
 rm -f /usr/share/go/doc/articles/wiki/get.bin &&
 
 find /usr/lib/go/pkg -type f -exec touch '{}' +
