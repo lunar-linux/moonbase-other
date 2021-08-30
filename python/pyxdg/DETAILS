@@ -1,12 +1,13 @@
           MODULE=pyxdg
-         VERSION=0.26
+         VERSION=0.27
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=https://files.pythonhosted.org/packages/source/${MODULE::1}/$MODULE/
-      SOURCE_VFY=sha256:fe2928d3f532ed32b39c32a482b54136fe766d19936afc96c8f00645f9da1a06
+ SOURCE_URL_FULL=https://github.com/takluyver/pyxdg/archive/refs/tags/rel-$VERSION.tar.gz
+      SOURCE_VFY=sha256:a05786e758e3dc81d56c85d2132830fd23c156cadc160d664e486db0ca6e6932
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-rel-$VERSION
         WEB_SITE=http://freedesktop.org/wiki/Software/pyxdg
             TYPE=python3
          ENTERED=20070321
-         UPDATED=20180803
+         UPDATED=20210830
            SHORT="Python bindings for the XDG libraries"
 
 cat << EOF
