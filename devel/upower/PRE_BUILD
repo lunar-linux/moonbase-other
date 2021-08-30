@@ -1,4 +1,3 @@
 default_pre_build &&
 
-sedit 's/-Werror//g' configure &&
-sedit "s:slashlibdir=/lib:slashlibdir=/usr/lib:" configure
+$NOCONFIGURE=1 ./autogen.sh
