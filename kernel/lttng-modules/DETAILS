@@ -1,0 +1,16 @@
+          MODULE=lttng-modules
+         VERSION=2.13.0
+          SOURCE=$MODULE-$VERSION.tar.bz2
+      SOURCE_URL=https://lttng.org/files/lttng-modules/
+      SOURCE_VFY=sha256:5ebf2b3cd128b3a1c8afaea1e98d5a6f7f0676fd524fcf72361c34d9dc603356
+        WEB_SITE=https://lttng.org/
+         ENTERED=20210831
+         UPDATED=20210831
+           SHORT="Modules for the LTTng system tracer"
+
+cat << EOF
+This is the kernel module collection for the LTTng system tracer.
+
+NOTE; CONFIG_KALLSYMS_ALL needs to be enabled so probe "writeback" will work.
+If not enabled rebuild your kernel with this configuration option enabled in order to trace this subsystem.
+EOF
