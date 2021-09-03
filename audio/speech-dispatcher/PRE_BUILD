@@ -6,4 +6,11 @@ sedit 's/\(help2man\)/\1 --no-discard-stderr/' src/api/python/speechd_config/Mak
 # configure.ac:35: but the definition used by this AM_INIT_AUTOMAKE
 # configure.ac:35: comes from Automake 1.16.2.  You should recreate
 # configure.ac:35: aclocal.m4 with aclocal and run automake again.
-aclocal
+aclocal &&
+
+OPTS+=" --with-kali=no \
+        --with-baratinoo=no \
+        --with-ibmtts=no \
+        --with-voxin=no \
+        --without-ivona"
+     
