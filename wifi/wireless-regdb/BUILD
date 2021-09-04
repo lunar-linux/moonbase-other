@@ -1,17 +1,8 @@
 prepare_install &&
 
 # Install and verify regulatory.bin file
-echo "Installing and verifying the regulatory.bin file ..."
+echo "Installing the regulatory.bin file"
 install -D -m644 regulatory.bin /usr/lib/crda/regulatory.bin &&
-
-if module_installed crda; then
-  if /usr/bin/regdbdump /usr/lib/crda/regulatory.bin > /dev/null; then
-      echo "Regulatory database verification was succesful."
-  else
-      echo "Regulatory database verification failed."
-      return 1
-  fi
-fi &&
 
 install -D -m644 sforshee.key.pub.pem /usr/lib/crda/pubkeys/sforshee.key.pub.pem &&
 install -D -m644 regulatory.bin.5 /usr/share/man/man5/regulatory.bin.5 &&
