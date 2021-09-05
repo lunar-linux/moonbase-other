@@ -19,10 +19,11 @@
   export PY_BASE_LINK_DIR=../lib/python${PY_VER}/site-packages/astrometry \
   export DATA_FINAL_DIR=/usr/share/astrometry &&
 
+# Stomps on cfitiso
+  make &&
+  rm solver/fitscopy solver/imcopy &&
+  prepare_install &&
   make install &&
 
   mkdir -p /usr/share/astrometry/data &&
-
   sed -e "s|/usr/share/astrometry|/usr/share/astrometry/data|" -i /etc/astrometry/astrometry.cfg
-
-#  ln -sf /usr/lib/python${PY_VER}/dist-packages/astrometry.net/blind/plotann.py /usr/bin/plotann.py
