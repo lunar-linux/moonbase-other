@@ -19,11 +19,11 @@
   export PY_BASE_LINK_DIR=../lib/python${PY_VER}/site-packages/astrometry \
   export DATA_FINAL_DIR=/usr/share/astrometry &&
 
-# Stomps on cfitiso
+# Stomps on cfitis, hammer time
   make &&
-  rm solver/fitscopy solver/imcopy &&
   prepare_install &&
   make install &&
+  rm /usr/bin/fitscopy /usr/bin/imcopy &&
 
   mkdir -p /usr/share/astrometry/data &&
   sed -e "s|/usr/share/astrometry|/usr/share/astrometry/data|" -i /etc/astrometry/astrometry.cfg
