@@ -1,13 +1,13 @@
           MODULE=python-dnspython
-         VERSION=1.16.0
-          SOURCE=dnspython-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/dnspython-$VERSION
-      SOURCE_URL=http://www.dnspython.org/kits/$VERSION/
-      SOURCE_VFY=sha256:4bf5c5c12a4478ee7860ab176659cf64c4899ee76752d826b082f8af723c5cf9
+         VERSION=2.1.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/rthalley/dnspython/archive/refs/tags/v$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*-}-$VERSION
+      SOURCE_VFY=sha256:7406a6f754abad3f47309d808f14d544f7e3cc50094d6232bbe1ddb1cfc408a2
         WEB_SITE=http://www.dnspython.org/
             TYPE=python3
          ENTERED=20181210
-         UPDATED=20181210
+         UPDATED=20210905
            SHORT="A DNS toolkit for Python"
 
 cat << EOF
