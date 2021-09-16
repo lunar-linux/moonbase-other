@@ -3,8 +3,6 @@ OPTS+=" --enable-libwebpmux \
         --enable-libwebpdecoder \
         --enable-libwebpextras  \
         --enable-swap-16bit-csp \
-        --disable-static" &&
-
-./autogen.sh &&
+        --disable-static"
 
 default_build
