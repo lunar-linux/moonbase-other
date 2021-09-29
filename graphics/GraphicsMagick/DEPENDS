@@ -6,6 +6,9 @@ depends libwebp
 depends freetype2
 depends libXext
 depends libSM
+depends %JPEG
+depends ghostscript
+depends openmp
 
 optional_depends gperf "" "" "for improved memory allocator"
 optional_depends lcms2    ""  ""  "for color management"
@@ -16,5 +19,4 @@ optional_depends libwmf   ""  ""  "for Windows Metafile support"
 optional_depends libfpx   ""  ""  "for flash pix support"
 optional_depends libopenraw    ""  ""  "for RAW image support"
 optional_depends sane-backends "" "" "for scanner support"
-optional_depends graphviz "" "" "for graph drawing support. Requires ghostscript (next)"
-optional_depends ghostscript "" "" "for PDF support"
+optional_depends graphviz "" "" "for graph drawing support."
