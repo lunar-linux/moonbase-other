@@ -8,7 +8,7 @@ make PREFIX="/usr" docs &&
 
 prepare_install &&
 
-install -Dt /usr/bin build/janet jpm &&
+install -Dt /usr/bin build/janet &&
 install -Dm644 -t /usr/include/janet src/include/janet.h &&
 
 install -Dm644 -t /usr/lib build/libjanet.so &&
