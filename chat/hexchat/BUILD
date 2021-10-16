@@ -1,8 +1,8 @@
 OPTS+=" --prefix /usr \
-        -Dwith-text=true \
         -Dwith-dbus=true \
         -Dwith-plugin=true \
-        -Dwith-sysinfo=true"
+        -Dwith-sysinfo=true \
+        -Dtext-frontend=true"
 
 default_meson_build &&
 
