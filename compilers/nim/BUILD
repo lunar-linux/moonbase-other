@@ -38,8 +38,7 @@ cp -a lib/*.h /usr/include &&
 rm -f /usr/lib/nim/*.h &&
 
 install -d /usr/share/nim &&
-#cp -a doc examples web /usr/share/nim &&
-cp -a doc examples /usr/share/nim &&
+#cp -a doc /usr/share/nim &&
 
 # fix a bug related to the doc2 command
 rm -f /usr/lib/nim/doc &&
