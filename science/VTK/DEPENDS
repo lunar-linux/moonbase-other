@@ -1,0 +1,47 @@
+depends zlib
+depends python2
+depends python2-six
+depends python2-zope.interface
+depends python2-matplotlib
+depends python2-twisted
+depends boost
+depends libtheora
+depends jsoncpp
+depends cmake
+depends libpng
+depends tiff
+depends %JPEG
+depends glew
+depends expat
+depends libxml2
+depends freetype2
+depends proj
+depends hdf5
+
+optional_depends ffmpeg "-DVTK_USE_FFMPEG_ENCODER=ON"  \
+                        "-DVTK_USE_FFMPEG_ENCODER=OFF" \
+                        "for ffmpeg support"
+
+optional_depends qt5 "-DVTK_Group_Qt=ON" \
+                     "-DVTK_Group_Qt=OFF" \
+                     "for Qt support"
+
+optional_depends %MYSQL "-DModule_vtkIOMySQL=ON" \
+                        "-DModule_vtkIOMySQL=OFF" \
+                        "for MySQL database support"
+
+optional_depends postgresql "-DModule_vtkIOPostgreSQL=ON"  \
+                            "-DModule_vtkIOPostgreSQL=OFF" \
+                            "for postgresql database support"
+
+optional_depends netcdf-cxx "-DVTK_USE_SYSTEM_NETCDF=ON" \
+                            "-DVTK_USE_SYSTEM_NETCDF=OFF" \
+                            "for network Common Data Form support"
+
+optional_depends unixODBC "-DModule_vtkIOODBC=ON"  \
+                          "-DModule_vtkIOODBC=OFF" \
+                          "for ODBC support"
+
+optional_depends tcl "-DVTK_WRAP_TCL=ON"  \
+                     "-DVTK_WRAP_TCL=OFF" \
+                     "for tcl wrappers support"
