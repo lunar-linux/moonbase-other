@@ -21,8 +21,8 @@ depends gl2ps
 
 # build with the internal VTK for now
 #depends vtk
-optional_depends qt5    "-DPARAVIEW_BUILD_QT_GUI=1"  "-DPARAVIEW_BUILD_QT_GUI=0"  "Build Qt5 GUI" y
+optional_depends qt5    "-DPARAVIEW_USE_QT=ON"  "-DPARAVIEW_USE_QT=OFF"  "Build Qt5 GUI" y
 
-optional_depends ffmpeg "-DPARAVIEW_ENABLE_FFMPEG=1 -DVTK_USE_FFMPEG_ENCODER=1" \
-                        "-DPARAVIEW_ENABLE_FFMPEG=0 -DVTK_USE_FFMPEG_ENCODER=0" \
+optional_depends ffmpeg "-DPARAVIEW_ENABLE_FFMPEG=ON -DVTK_USE_FFMPEG_ENCODER=1" \
+                        "-DPARAVIEW_ENABLE_FFMPEG=OFF -DVTK_USE_FFMPEG_ENCODER=0" \
                         "For FFMPEG video support" y
