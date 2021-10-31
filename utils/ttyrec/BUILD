@@ -1,5 +1,5 @@
 make CFLAGS+="-DSVR4 -DHAVE_inotify -D_XOPEN_SOURCE=500" &&
-
+make &&
 prepare_install &&
 
 install -Dm0755 tty{play,rec,time} /usr/bin/ &&
