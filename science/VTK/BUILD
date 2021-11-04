@@ -11,7 +11,7 @@ OPTS+=" -DVTK_MODULE_USE_EXTERNAL_VTK_png=ON      \
         -DVTK_VERSIONED_INSTALL=OFF \
         -DCMAKE_SKIP_RPATH=OFF \
         -DCMAKE_SKIP_INSTALL_RPATH=ON \
-        -DVTK_WRAP_JAVA=ON           \
+        -DVTK_WRAP_JAVA=OFF          \
         -DVTK_PYTHON_VERSION=3 \
         -DVTK_WRAP_PYTHON=ON         \
         -DBUILD_SHARED_LIBS=ON \
