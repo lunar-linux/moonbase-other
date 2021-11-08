@@ -1,6 +1,0 @@
-default_pre_build &&
-
-sedit "s:\$(LIBS) \$(IMGLDFLAGS):\$(LIBS) -lX11 \$(IMGLDFLAGS):" Makefile.in &&
-sedit "s:termcap ncurses:termcap tinfo ncurses:g" acinclude.m4 &&
-
-autoconf
