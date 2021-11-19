@@ -1,6 +1,6 @@
 OPTS+=" --prefix /usr \
-        -Dwith-dbus=true \
-        -Dwith-plugin=true \
+        -Ddbus=enabled \
+        -Dplugin=true \
         -Dwith-sysinfo=true \
         -Dtext-frontend=true"
 
