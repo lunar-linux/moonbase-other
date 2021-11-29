@@ -1,8 +1,0 @@
-default_pre_build &&
-
-patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 0 &&
-
-sedit "22i #include <cstring>" src/main/cpp/socketoutputstream.cpp src/examples/cpp/console.cpp &&
-sedit "22i #include <cstdio>" src/examples/cpp/console.cpp &&
-sedit "22i #include <string.h>" src/main/cpp/inputstreamreader.cpp src/main/cpp/socketoutputstream.cpp
