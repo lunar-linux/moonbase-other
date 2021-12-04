@@ -1,5 +1,6 @@
 # libsamplerate is depreciated.
 OPTS+=" -D udevrulesdir=/usr/lib/udev/rules.d  \
+        -D alsa=enabled \
         -D samplerate=disabled  \
         -D system_group=pulse \
         -D system_user=pulse "
