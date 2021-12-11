@@ -1,16 +1,16 @@
           MODULE=python-m2crypto
-         VERSION=0.31.0
-          SOURCE=M2Crypto-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/M2Crypto-$VERSION
- SOURCE_URL=https://files.pythonhosted.org/packages/0a/d3/ecef6a0eaef77448deb6c9768af936fec71c0c4b42af983699cfa1499962/
-      SOURCE_VFY=sha256:fd59a9705275d609948005f4cbcaf25f28a4271308237eb166169528692ce498
+         VERSION=0.38.0
+          SOURCE=${MODULE#*-}-$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*-}-$VERSION
+      SOURCE_URL=https://gitlab.com/m2crypto/m2crypto/-/archive/$VERSION/
+      SOURCE_VFY=sha256:4c679fe9f2414086cd4cc2beee72811892ead1228614183d5d2e3f2f3d166f03
         WEB_SITE=https://gitlab.com/m2crypto/m2crypto/
             TYPE=python3
          ENTERED=20210420
-         UPDATED=20210420
+         UPDATED=20211211
            SHORT="Python wrapper for OpenSSL"
 
-cat <<EOF
+cat << EOF
 M2Crypto is the most complete Python wrapper for OpenSSL featuring RSA,
 DSA, DH, HMACs, message digests, symmetric ciphers (including AES);
 SSL functionality to implement clients and servers; HTTPS extensions to
