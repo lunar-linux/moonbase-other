@@ -1,17 +1,16 @@
           MODULE=python-txaio
-             MOD=txaio
-         VERSION=18.8.1
-          SOURCE=$MOD-$VERSION.tar.gz
-      SOURCE_URL=https://pypi.io/packages/source/t/$MOD
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
-      SOURCE_VFY=sha256:67e360ac73b12c52058219bb5f8b3ed4105d2636707a36a7cdafb56fe06db7fe
+         VERSION=21.2.1
+          SOURCE=txaio-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/crossbario/txaio/archive/refs/tags/v$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/txaio-$VERSION
+      SOURCE_VFY=sha256:ca6f62d244ec3581b71c5c1f808a8b4a48f35cc02591b2c7c1eba7970d76cb6c
         WEB_SITE=https://github.com/crossbario/txaio
-         ENTERED=20181217
-         UPDATED=20181217
             TYPE=python3
+         ENTERED=20181217
+         UPDATED=20211211
            SHORT="A helper library that runs unmodified on both Twisted and asyncio"
 
-cat <<EOF
+cat << EOF
 txaio is a helper library for writing code that runs unmodified on both Twisted
 and asyncio.
 EOF

@@ -1,17 +1,17 @@
           MODULE=python-pycurl
-         VERSION=7.44.0
+         VERSION=7.44.1
           SOURCE=pycurl-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/pycurl-REL_${VERSION//./_}
  SOURCE_URL_FULL=http://github.com/pycurl/pycurl/archive/REL_${VERSION//./_}.tar.gz
-      SOURCE_VFY=sha256:6c8d051c95c7dfa29d803be3967d27a73947a73be20149d0f39892db368d0e37
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/pycurl-REL_${VERSION//./_}
+      SOURCE_VFY=sha256:9dfc8bb1c1bd2ad9194336e7b263afe513cbc468a669a269ee4a9a852019c3a3
         WEB_SITE=http://pycurl.sourceforge.net/
             TYPE=python3
         REPLACES=pycurl
          ENTERED=20100502
-         UPDATED=20200811
+         UPDATED=20211211
            SHORT="Python interface to libcurl"
 
-cat <<EOF
+cat << EOF
 PycURL can be used to fetch objects identified by a URL from a Python
 program, similar to the urllib  Python module. PycURL is mature,very
 fast, and supports a lot of features.
