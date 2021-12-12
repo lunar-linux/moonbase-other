@@ -1,14 +1,14 @@
           MODULE=python-psycopg2
-         VERSION=2.9.1
-          SOURCE=$MODULE-$VERSION.tar.gz
- SOURCE_URL_FULL=https://github.com/psycopg/psycopg2/archive/refs/tags/2_9_1.tar.gz
-      SOURCE_VFY=sha256:3203b5b1bd903c5565e31af44b9206b9478463ea4bcf92809ad6d72261e08aaa
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/psycopg2-2_9_1
+         VERSION=2.9.2
+          SOURCE=${MODULE#*-}-$VERSION.tar.gz
+      SOURCE_URL=http://initd.org/psycopg/tarballs/PSYCOPG-2-8/
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/psycopg2-$VERSION
+      SOURCE_VFY=sha256:a84da9fa891848e0270e8e04dcca073bc9046441eeb47069f5c0e36783debbea
         WEB_SITE=http://initd.org/psycopg/
             TYPE=python3
         REPLACES=psycopg2
          ENTERED=20140802
-         UPDATED=20180324
+         UPDATED=20211212
            SHORT="PostgreSQL adapter for the Python"
 
 cat << EOF
