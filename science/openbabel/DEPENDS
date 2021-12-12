@@ -1,5 +1,10 @@
 depends cmake
 depends cairo
 depends eigen3
+depends swig
 
-optional_depends "wxGTK" "-DBUILD_GUI=1" "-DBUILD_GUI=0" "Used to provide GUI support"
+optional_depends "wxGTK"     "-DBUILD_GUI=1"       "-DBUILD_GUI=0"       "Used to provide GUI support"
+optional_depends "%JAVA_SDK" "-DJAVA_BINDINGS=1"   "-DJAVA_BINDINGS=0"   "for java bindings support"
+optional_depends "perl"      "-DPERL_BINDINGS=1"   "-DPERL_BINDINGS=0"   "for perl bindings support"
+optional_depends "python"    "-DPYTHON_BINDINGS=1" "-DPYTHON_BINDINGS=0" "for python bindings support"
+optional_depends "ruby"      "-DRUBY_BINDINGS=1"   "-DRUBY_BINDINGS=0"   "for ruby bindings support"
