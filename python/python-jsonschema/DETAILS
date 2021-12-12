@@ -1,13 +1,13 @@
           MODULE=python-jsonschema
          VERSION=3.2.0
-          SOURCE=jsonschema-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/jsonschema-$VERSION
-      SOURCE_URL=https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212
-      SOURCE_VFY=sha256:c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a
-        WEB_SITE=http://github.com/Julian/jsonschema
+          SOURCE=${MODULE#*-}-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/Julian/jsonschema/archive/refs/tags/v$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*-}-$VERSION
+      SOURCE_VFY=sha256:026ffa0674256c9b0fda123ea84774d6650a949bb71eebf5d87f90ec255b7c9e
+        WEB_SITE=https://github.com/Julian/jsonschema
             TYPE=python3
          ENTERED=20180905
-         UPDATED=20200226
+         UPDATED=20211212
            SHORT="JSON Schema validation"
 
 cat << EOF
