@@ -1,5 +1,8 @@
 default_pre_build &&
 
+# https://bugs.ghostscript.com/show_bug.cgi?id=704405
+sed -i "s/gscms_transformm_color_const/gscms_transform_color_const/" base/gsicc_lcms2.c &&
+
 # Remove local libs so we'll always use system libs,
 # and don't waste configure / compile time on them.
 verbose_msg "Removing unneeded local libs" &&
