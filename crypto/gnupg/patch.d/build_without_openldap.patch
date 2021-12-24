@@ -1,6 +1,6 @@
 --- ./dirmngr/dirmngr.c.orig	2021-05-26 19:50:15.000000000 +0300
 +++ ./dirmngr/dirmngr.c	2021-06-19 10:28:51.246062962 +0300
-@@ -743,7 +743,7 @@
+@@ -779,7 +779,7 @@
          p = pargs->r.ret_str;
          if (!strncmp (p, "ldap:", 5) && !(p[5] == '/' && p[6] == '/'))
            p += 5;
@@ -9,7 +9,7 @@
          server = ldapserver_parse_one (p, NULL, 0);
          if (server)
            {
-@@ -756,6 +756,7 @@
+@@ -792,6 +792,7 @@
              server->next = opt.ldapservers;
              opt.ldapservers = server;
            }
