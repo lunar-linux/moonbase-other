@@ -4,7 +4,7 @@ if module_installed qt5 ; then
 fi &&
 
 if module_installed gtk+-3 ; then
-  OPTS+=" -D gtk+=enabled"
+  OPTS+=" -D gtk3=enabled"
 fi
 
 OPTS+=" -D doc=disabled \
