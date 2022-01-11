@@ -8,11 +8,12 @@ fi
 
 #--enable-library: This switch enables building the BlueZ 4 compatibility library which is required by some applications
 OPTS+=" --enable-mesh \
-	--enable-tools \
+        --enable-tools \
         --enable-threads \
         --enable-library \
         --enable-hid2hci \
-        --enable-sixaxis"
+        --enable-sixaxis \
+        --disable-manpages"
 
 default_build &&
 
