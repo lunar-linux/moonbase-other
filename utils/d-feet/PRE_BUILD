@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# don't update infrastructure manually, Lunar has to do that separately
+sedit '/import sys/ a sys.exit(0)' meson_post_install.py
