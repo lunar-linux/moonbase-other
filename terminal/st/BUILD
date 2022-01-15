@@ -3,5 +3,5 @@ strip st &&
 
 prepare_install &&
 
-make PREFIX="/usr" install &&
-install -m755 "$SCRIPT_DIRECTORY/externalpipe_buffer.sh" /usr/bin/
+make PREFIX="/usr" install
+#install -m755 "$SCRIPT_DIRECTORY/externalpipe_buffer.sh" /usr/bin/
