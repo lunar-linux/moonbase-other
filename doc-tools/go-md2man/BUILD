@@ -1,3 +1,5 @@
+export GOFLAGS="-mod=vendor -trimpath"
+
 #export GOPATH=$(readlink -f .)
 repo=src/github.com/cpuguy83
 
@@ -5,9 +7,7 @@ mkdir -p $repo &&
 ln -sf $SOURCE_DIRECTORY $repo/go-md2man &&
 cd "$repo/go-md2man" &&
 
-go get ./... || true &&
-go build -v -o go-md2man github.com/cpuguy83/go-md2man &&
-
+go build -v -o go-md2man . &&
 ./go-md2man -in=go-md2man.1.md -out=go-md2man.1 &&
 
 prepare_install &&
