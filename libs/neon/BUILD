@@ -1,5 +1,3 @@
-./autogen.sh &&
-
 # setting the ssl option
 if in_depends $MODULE openssl; then
   OPTS+=" --with-ssl=openssl --enable-threadsafe-ssl"
