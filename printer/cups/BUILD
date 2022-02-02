@@ -1,7 +1,6 @@
 add_priv_user lp:lp -d /dev/null -s /usr/bin/false &&
 
 OPTS+=" --disable-static \
-        --enable-threads \
         --enable-raw-printing \
         --with-cups-user=lp \
         --with-cups-group=lp \
@@ -10,6 +9,7 @@ OPTS+=" --disable-static \
 
 default_config &&
 
+sedit "s:-strong ::" Makedefs &&
 sedit "s:-Os -g::" Makedefs &&
 sedit "s:-fstack-protector::" Makedefs &&
 

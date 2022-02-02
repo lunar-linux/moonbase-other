@@ -3,9 +3,11 @@ depends tiff
 depends inetutils
 depends hicolor-icon-theme
 
+optional_depends gnutls "" "" "for encrypted communications"
+
 optional_depends Linux-PAM \
                  "--enable-pam=yes" \
-                 "--disable-pam" \
+                 "--enable-pam=no" \
                  "for pluggable authentication"
 
 optional_depends systemd \
@@ -15,18 +17,8 @@ optional_depends systemd \
 
 optional_depends dbus \
                  "--enable-dbus=yes --with-dbusdir=/etc/dbus-1" \
-                 "--disable-dbus" \
+                 "--enable-dbus=no" \
                  "for DBUS support"
-
-optional_depends %OSSL \
-                 "--enable-ssl=yes" \
-                 "--disable-ssl" \
-                 "for encrypted communications"
-
-optional_depends gnutls \
-                 "--enable-gnutls --enable-ssl=yes" \
-                 "--disable-gnutls" \
-                 "for encrypted communications"
 
 optional_depends acl \
                  "--enable-acl" \
@@ -42,12 +34,6 @@ optional_depends libusb \
                  "--enable-libusb" \
                  "--disable-libusb" \
                  "for usb device support"
-
-optional_depends avahi \
-                 "--enable-avahi"  \
-                 "--disable-avahi" \
-                 "for avahi support" \
-                 "n"
 
 optional_depends krb5 \
                  "--enable-gssapi" \
@@ -67,3 +53,4 @@ optional_depends xinetd \
                  "for xinetd support" \
                  "n"
 
+optional_depends avahi "" "" "for avahi support" "n"
