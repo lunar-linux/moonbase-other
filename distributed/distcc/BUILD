@@ -1,3 +1,3 @@
-OPTS+=" --disable-Werror"
+OPTS+=" --disable-Werror" &&
 
 default_build
