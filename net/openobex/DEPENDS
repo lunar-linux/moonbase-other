@@ -1,6 +1,6 @@
 depends cmake
 depends docbook-xsl
 
-optional_depends usbutils   "--enable-usb"       "--disable-usb"       "for usb support"
-optional_depends %BLUEZ     "--enable-bluetooth" "--disable-bluetooth" "for bluetooth support"
-optional_depends irda-utils "--enable-irda"      "--disable-irda"      "for IrDA support"
+optional_depends usbutils   "-DOPENOBEX_USB=1"       "-DOPENOBEX_USB=0"       "for usb support"
+optional_depends %BLUEZ     "-DOPENOBEX_BLUETOOTH=1" "-DOPENOBEX_BLUETOOTH=0" "for bluetooth support"
+optional_depends irda-utils "-DOPENOBEX_IRDA=1"      "-DOPENOBEX_IRDA=0"      "for IrDA support"
