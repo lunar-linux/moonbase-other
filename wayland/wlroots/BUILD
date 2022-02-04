@@ -1,7 +1,6 @@
 OPTS+=" -D xcb-errors=enabled \
-        -D xcb-icccm=enabled \
-        -D xcb-xkb=enabled \
         -D xwayland=enabled \
-        -D x11-backend=enabled"
+        -D x11-backend=enabled \
+        -D examples=false"
 
 default_meson_build
