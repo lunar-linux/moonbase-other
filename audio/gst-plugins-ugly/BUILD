@@ -1,4 +1,4 @@
 OPTS+=" -D doc=disabled \
-        -D examples=disabled"
+        -D gpl=enabled"
 
 default_meson_build
