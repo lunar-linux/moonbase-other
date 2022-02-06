@@ -1,7 +1,5 @@
 OPTS+=" -D xcb-errors=enabled \
-        -D xcb-icccm=enabled \
-        -D xcb-xkb=enabled \
         -D xwayland=enabled \
-        -D x11-backend=enabled"
+        -D backends=x11,drm,libinput"
 
 default_meson_build
