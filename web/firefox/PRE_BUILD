@@ -27,5 +27,10 @@ for flag in $OPTS; do
   echo "ac_add_options $flag" >> mozconfig
 done &&
 
+# use our chosen number of jobs
+if [ -n "${MAKES}" ]; then
+  echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
+fi &&
+
 # turn off this #$ bell during build
 setterm -bfreq -blength &> /dev/null
