@@ -1,11 +1,11 @@
            MODULE=firefox
-          VERSION=97.0
+          VERSION=94.0.2
            SOURCE=$MODULE-$VERSION.source.tar.xz
        SOURCE_URL=https://archive.mozilla.org/pub/firefox/releases/$VERSION/source
-       SOURCE_VFY=sha256:6c8a7dcb47122d033383fd62a1bcaefff0290a6c23d057898e8ff9c72749df28
+       SOURCE_VFY=sha256:899ba1c806549034793d7e8ca53f4c845d783c810338f314f3d653d39649e575
          WEB_SITE=https://www.mozilla.org/en-US/firefox/
           ENTERED=20110814
-          UPDATED=20220208
+          UPDATED=20211124
             SHORT="A speedy, full-featured web browser"
 cat << EOF
 Mozilla Firefox is the successor of Mozilla Firebird.
@@ -26,4 +26,10 @@ Firefox includes:
     configurable
   * a large variety of free downloadable extensions and themes that
     add specific functionality and visual changes to the browser
+
+------- NOTE -------
+The Lunar version of Firefox has crypto enabled and uses only gtk+-2.
+NOTHING ELSE IS CONFIGURED IN! No mail, irc, composer, gpg, calendar,
+MathML, Javascript debugger, html code inspector, LDAP, help support.
+If you want any of that use the regular seamonkey module.
 EOF

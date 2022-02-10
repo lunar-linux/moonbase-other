@@ -1,31 +1,68 @@
 depends autoconf-mozilla
-depends python-cffi
-depends python-pycparser
-depends python-psutil
+depends python
+depends llvm
 depends cbindgen
 depends lld
+depends freetype2
+depends gtk+-2
 depends gtk+-3
 depends nss
+depends curl
 depends alsa-lib
 depends libvpx
+depends cbindgen
+depends pixman
+depends libffi
 depends nasm
 depends node
-depends dbus-glib
-depends libjpeg-turbo
-depends libevent
-depends icu4c
+depends unzip
+depends mesa-lib
+depends zip
+
+optional_depends libpng \
+                 "--with-system-png" \
+                 "--without-system-libpng" \
+                 "Build with system libpng"
+
+optional_depends libevent \
+                 "--with-system-libevent" \
+                 "--without-system-libevent" \
+                 "Use system event library"
+
+optional_depends dbus-glib \
+                 "--enable-dbus" \
+                 "--disable-dbus" \
+                 "For dbus support"
+
+optional_depends icu4c \
+                 "--with-system-icu" \
+                 "--without-system-icu" \
+                 "Use system icu4c library"
+
+#optional_depends pipewire \
+#                 "--enable-pipewire" \
+#                 "--disable-pipewire"  \
+#                 "Build pipewire sound backend"
 
 optional_depends pulseaudio \
-                 "" \
+                 "--enable-pulseaudio" \
                  "--disable-pulseaudio"  \
                  "Build pulseAudio sound backend"
 
+# firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
+optional_depends libjpeg-turbo \
+                 "--with-system-jpeg" \
+                 "--without-system-jpeg" \
+                 "Use system jpeg library"
+
 optional_depends webrtc-audio-processing  \
-                 ""        \
+                 "--enable-webrtc"        \
                  "--disable-webrtc"       \
                  "For real time communication support"
 
 optional_depends cups \
-                 "" \
+                 "--enable-printing" \
                  "--disable-printing" \
                  "For printing support"
+
+optional_depends flash-plugin "" "" "To enable Flash plugin"

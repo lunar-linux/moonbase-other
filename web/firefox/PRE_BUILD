@@ -6,31 +6,52 @@ fi &&
 
 default_pre_build &&
 
+# Google API keys (see http://www.chromium.org/developers/how-tos/api-keys)
+# The keys below are for Lunar Linux use ONLY. If you are maintaining chromium
+# for another distribution, please get your own set of keys.
+google_api_key=AIzaSyDhObDIVsBGV5fleLgLq6ZpfKldIVMvrG4 &&
+
+echo -n "$google_api_key" > google_api_key &&
+
+export MOZ_CO_PROJECT=browser &&
+export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
+export MOZILLA_OFFICIAL=1 &&
+export BUILD_OFFICIAL=1 &&
+export MOZ_MAKE_FILES=$MAKES &&
+export MOZ_OPTIMIZE_FLAGS="$CFLAGS" &&
+export MOZ_DEBUG_FLAGS="$CFLAGS" &&
+export MOZ_JEMALLOC=1 &&
+export MOZ_ADDON_SIGNING=1 &&
+#export MOZ_REQUIRE_SIGNING=0 &&
+export MACH_USE_SYSTEM_PYTHON=1 &&
+export CC=clang &&
+export CXX=clang++ &&
+export AR=llvm-ar &&
+export NM=llvm-nm &&
+export RANLIB=llvm-ranlib &&
+
 # This export is for their hardcoding of autoconf-2.13
 export AUTOCONF=autoconf-mozilla &&
 
 cp $SCRIPT_DIRECTORY/mozconfig . &&
-export MOZBUILD_STATE_PATH="${SOURCE_DIRECTORY}/build-mozilla" &&
-mkdir -p ${MOZBUILD_STATE_PATH} &&
+export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla" &&
+mkdir -p ${MOZ_OBJDIR} &&
 
-# Google API keys: 
-# This api key is for Lunar Linux use ONLY.
-# See http://www.chromium.org/developers/how-tos/api-keys
-# to get your own set of keys.
-
-cp $SCRIPT_DIRECTORY/google_api_key . &&
-echo "ac_add_options --with-google-location-service-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
-echo "ac_add_options --with-google-safebrowsing-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
-
-# add optionals from DEPENDS to mozconfig
 for flag in $OPTS; do
   echo "ac_add_options $flag" >> mozconfig
 done &&
 
-# use our chosen number of jobs
+echo "ac_add_options --with-google-location-service-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
+echo "ac_add_options --with-google-safebrowsing-api-keyfile=$SOURCE_DIRECTORY/google_api_key" >> mozconfig &&
+
+# turn off this #$ bell during build
+setterm -bfreq -blength &> /dev/null &&
+
 if [ -n "${MAKES}" ]; then
   echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
 fi &&
 
-# turn off this #$ bell during build
-setterm -bfreq -blength &> /dev/null
+sedit '/deny.*missing_docs/ d' $(grep -rl "deny.*missing_docs" servo) &&
+
+#error: options `-C embed-bitcode=no` and `-C lto` are incompatible
+sed -i "s|-Clto$||" config/makefiles/rust.mk
