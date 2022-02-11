@@ -12,7 +12,4 @@ sedit 's:/usr/share/icons/Humanity/devices/48/printer.svg:/usr/share/hplip/data/
 sedit 's:SAVE_CPPFLAGS:save_CFLAGS:' configure.in &&
 
 # avahi is now a depends.
-sedit 's:avahiDiscovery.h:protocol/discovery/avahiDiscovery.h:' scan/sane/hpaio.c &&
-
-export AUTOMAKE='automake --foreign' &&
-autoreconf --force --install
+sedit 's:avahiDiscovery.h:protocol/discovery/avahiDiscovery.h:' scan/sane/hpaio.c

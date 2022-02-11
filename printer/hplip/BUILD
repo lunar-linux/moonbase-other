@@ -1,3 +1,6 @@
+export AUTOMAKE='automake --foreign' &&
+autoreconf --force --install &&
+
 # Fix build with python 3.8
 export CFLAGS+=" $(python3-config --includes)" &&
 
