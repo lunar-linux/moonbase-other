@@ -4,7 +4,9 @@ OPTS+=" --enable-hashes=strong,glibc \
         --enable-obsolete-api=no \
         --disable-failure-tokens \
         --disable-static \
+        --disable-werror \
         --libdir=/usr/lib/$MODULE \
-        --includedir=/usr/include/$MODULE"
+        --includedir=/usr/include/$MODULE \
+        " &&
 
 default_build
