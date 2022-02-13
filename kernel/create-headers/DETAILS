@@ -1,6 +1,6 @@
           MODULE=create-headers
-         KERNVER=5.10
-        PATCHVER=14
+         KERNVER=5.16
+        PATCHVER=9
          VERSION=$KERNVER.$PATCHVER
           SOURCE=linux-$KERNVER.tar.xz
          SOURCE2=patch-$VERSION.xz
@@ -9,11 +9,11 @@ SOURCE_DIRECTORY=$BUILD_DIRECTORY/linux-$KERNVER
    SOURCE_URL[1]=http://www.kernel.org/pub/linux/kernel/v5.x/
   SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v5.x/
   SOURCE2_URL[1]=http://www.kernel.org/pub/linux/kernel/v5.x/
-      SOURCE_VFY=sha256:dcdf99e43e98330d925016985bfbc7b83c66d367b714b2de0cbbfcbf83d8ca43
-     SOURCE2_VFY=sha256:9541437bd4a68d10d1f40f91080683fb6b8d99def258681b2fa74540d4f74082
+      SOURCE_VFY=sha256:027d7e8988bb69ac12ee92406c3be1fe13f990b1ca2249e226225cd1573308bb
+     SOURCE2_VFY=sha256:88fafac886d72598ca5d62aea3d1afbd4a85e5da8d2e34124b238c6fc8074cc1
         WEB_SITE=http://www.lunar-linux.org/
          ENTERED=20100711
-         UPDATED=20210208
+         UPDATED=20220213
            SHORT="Creates the latest kernel headers package"
 
 cat << EOF
