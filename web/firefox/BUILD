@@ -1,10 +1,7 @@
-# this breaks a symbol check in the build scripts
-LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
-
-SHELL="${SHELL:-/bin/bash}" &&
-
-CFLAGS="${CFLAGS/-fno-plt/}" &&
-CXXFLAGS="${CXXFLAGS/-fno-plt/}" &&
+CFLAGS="${CFLAGS/-fno-plt/}"
+CXXFLAGS="${CXXFLAGS/-fno-plt/}"
+CC="clang"
+CXX="clang++"
 
 # LTO needs more open files
 ulimit -n 4096

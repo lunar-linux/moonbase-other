@@ -1,23 +1,19 @@
 depends autoconf-mozilla
-depends python
-depends llvm
+depends python-cffi
+depends python-pycparser
+depends python-psutil
 depends cbindgen
 depends lld
-depends freetype2
-depends gtk+-2
 depends gtk+-3
 depends nss
-depends curl
 depends alsa-lib
 depends libvpx
-depends cbindgen
-depends pixman
-depends libffi
 depends nasm
 depends node
-depends unzip
-depends mesa-lib
-depends zip
+depends dbus-glib
+depends libjpeg-turbo
+depends libevent
+depends icu4c
 
 optional_depends libpng \
                  "--with-system-png" \
@@ -39,17 +35,11 @@ optional_depends icu4c \
                  "--without-system-icu" \
                  "Use system icu4c library"
 
-#optional_depends pipewire \
-#                 "--enable-pipewire" \
-#                 "--disable-pipewire"  \
-#                 "Build pipewire sound backend"
-
 optional_depends pulseaudio \
                  "--enable-pulseaudio" \
                  "--disable-pulseaudio"  \
                  "Build pulseAudio sound backend"
 
-# firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends libjpeg-turbo \
                  "--with-system-jpeg" \
                  "--without-system-jpeg" \
@@ -64,5 +54,3 @@ optional_depends cups \
                  "--enable-printing" \
                  "--disable-printing" \
                  "For printing support"
-
-optional_depends flash-plugin "" "" "To enable Flash plugin"
