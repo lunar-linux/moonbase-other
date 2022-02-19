@@ -3,7 +3,7 @@ export GOFLAGS="-trimpath -mod=readonly -modcacherw"
 make VERSION=v$VERSION REVISION=
 make VERSION=v$VERSION man
 prepare_install &&
-make install DESTDIR=/usr &&
+make install PREFIX=/usr &&
 
 install -Dm644 man/*.8 -t /usr/share/man/man8/ &&
 install -Dm644 man/*.5 -t /usr/share/man/man5/ &&
