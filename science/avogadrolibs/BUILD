@@ -6,6 +6,9 @@
    CXXFLAGS+=' -DH5_USE_110_API'
   fi &&
 
-  OPTS+=" -DUSE_SPGLIB=OFF -DBUILD_GPL_PLUGINS=ON" &&
+  OPTS+=" -DBUILD_GPL_PLUGINS=ON" &&
 
   default_cmake_build
+
+# Cleaning up
+  rm -rf /usr/src/{crystals,molecules}
