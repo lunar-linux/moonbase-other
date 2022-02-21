@@ -1,6 +1,6 @@
-# WHEN UPDATING THIS MODULE, ALSO UPDATE THE "openmp" MODULE
+# WHEN UPDATING THIS MODULE, ALSO UPDATE THE "openmp" and "compiler-rt" MODULES
           MODULE=llvm
-         VERSION=12.0.1
+         VERSION=13.0.1
           SOURCE=$MODULE-$VERSION.src.tar.xz
          SOURCE2=clang-$VERSION.src.tar.xz
          SOURCE3=clang-tools-extra-$VERSION.src.tar.xz
@@ -8,12 +8,12 @@ SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-${VERSION}.src
       SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
      SOURCE2_URL=$SOURCE_URL
      SOURCE3_URL=$SOURCE_URL
-      SOURCE_VFY=sha256:7d9a8405f557cefc5a21bf5672af73903b64749d9bc3a50322239f56f34ffddf
-     SOURCE2_VFY=sha256:6e912133bcf56e9cfe6a346fa7e5c52c2cde3e4e48b7a6cc6fcc7c75047da45f
-     SOURCE3_VFY=sha256:65659efdf97dbed70ae0caee989936b731f249dddc46f1cb4225b2f49b232ae5
+      SOURCE_VFY=sha256:ec6b80d82c384acad2dc192903a6cf2cdbaffb889b84bfb98da9d71e630fc834
+     SOURCE2_VFY=sha256:787a9e2d99f5c8720aa1773e4be009461cd30d3bd40fdd24591e473467c917c9
+     SOURCE3_VFY=sha256:cc2bc8598848513fa2257a270083e986fd61048347eccf1d801926ea709392d0
         WEB_SITE=http://www.llvm.org
          ENTERED=20090128
-         UPDATED=20210811
+         UPDATED=20220221
            SHORT="Low Level Virtual Machine"
 
 cat << EOF
