@@ -2,7 +2,8 @@
 OPTS+=" -D udevrulesdir=/usr/lib/udev/rules.d  \
         -D samplerate=disabled  \
         -D system_group=pulse \
-        -D system_user=pulse "
+        -D system_user=pulse \
+        -D tcpwrap=disabled"
 
 default_meson_build &&
 
