@@ -1,6 +1,0 @@
-default_pre_build &&
-
-./autogen.sh &&
-
-# qt5 (for some reason...) requires PIC instead of PIE
-sedit 's/-pie/-pic/g; s/-fPIE/-fPIC/g' configure{,.ac}
