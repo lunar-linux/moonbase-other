@@ -1,6 +1,6 @@
-default_pre_build &&
-
-tar xvf /var/spool/lunar/$SOURCE2
-
+validate_source_dir $SOURCE_DIRECTORY &&
+mk_source_dir $SOURCE_DIRECTORY &&
+cd $SOURCE_DIRECTORY &&
+unpack $SOURCE  &&
+unpack $SOURCE2 &&
 mv libunwind{-$VERSION.src,}
-cp -r libunwind/include/ .
