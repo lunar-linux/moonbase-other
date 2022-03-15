@@ -1,7 +1,4 @@
-validate_source_dir $SOURCE_DIRECTORY &&
-mk_source_dir       $SOURCE_DIRECTORY &&
-cd                  $SOURCE_DIRECTORY &&
-tar zxvf            $SOURCE_CACHE/libaom-$VERSION.tar.gz &&
+default_pre_build &&
 
-#Need the build shared and config_shared to get a shared lib
+#Need build shared and config_shared to get a shared lib
 OPTS+=" -DBUILD_SHARED_LIBS=1 -DENABLE_DOCS=0 -DENABLE_TESTS=0 -DCONFIG_PIC=1 -DCONFIG_SHARED=1"
