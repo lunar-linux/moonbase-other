@@ -1,3 +1,8 @@
+if in_depends $MODULE llvm; then
+  export CC=clang &&
+  export CXX=clang++
+fi &&
+
 PYTHON_VER="$(installed_version python | cut -d. -f1-2)" &&
 
 OPTS+=" -DWITH_PYTHON=ON \
@@ -13,10 +18,7 @@ OPTS+=" -DWITH_PYTHON=ON \
         -DCMAKE_CXX_FLAGS=-I /usr/include/python$PYTHON_VER \
         -DWITH_SYSTEM_GLEW=ON \
         -DWITH_SYSTEM_EIGEN3=ON \
-        -DWITH_SYSTEM_LZO=ON"
+        -DWITH_SYSTEM_LZO=ON \
+      " &&
 
-default_cmake_config &&
-
-make &&
-
-default_install
+default_cmake_build
