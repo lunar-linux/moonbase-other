@@ -1,7 +1,5 @@
-(
+sed -i -e 's|gcc|gcc ${CFLAGS}|g' Makefile &&
 
-  make &&
-  prepare_install &&
-  install -m0755 nrg2iso /usr/bin/
-
-) > $C_FIFO 2>&1
+make &&
+prepare_install &&
+install -m0755 nrg2iso /usr/bin/

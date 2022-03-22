@@ -1,4 +1,11 @@
 default_pre_build &&
 
+if in_depends $MODULE qhull; then
+  # update for qhull 2020.2
+  sedit 's/-lqhull/-lqhull_r/g' configure
+fi &&
+
 export CFLAGS="$CFLAGS -fno-strict-aliasing" &&
 export LDFLAGS="$LDFLAGS -Wl,--as-needed"
+
+autoreconf -fi

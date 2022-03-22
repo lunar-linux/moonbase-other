@@ -20,6 +20,8 @@ set -x &&
             --with-pid-file=/run/squid.pid   \
             $OPTS &&
 
+#            --with-default-user squid \
+
 set +x &&
 
 default_make &&

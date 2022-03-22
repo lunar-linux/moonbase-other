@@ -1,12 +1,12 @@
           MODULE=cmark
-         VERSION=0.29.0
+         VERSION=0.30.2
           SOURCE=$MODULE-$VERSION.tar.gz
  SOURCE_URL_FULL=https://github.com/commonmark/cmark/archive/$VERSION.tar.gz
-      SOURCE_VFY=sha256:2558ace3cbeff85610de3bda32858f722b359acdadf0c4691851865bb84924a6
+      SOURCE_VFY=sha256:6c7d2bcaea1433d977d8fed0b55b71c9d045a7cdf616e3cd2dce9007da753db3
         WEB_SITE=https://github.com/commonmark/cmark/
             TYPE=cmake
          ENTERED=20180216
-         UPDATED=20200505
+         UPDATED=20211029
            SHORT="CommonMark parsing and rendering library and program in C"
 
 cat << EOF
@@ -19,15 +19,21 @@ the AST. It also provides a command-line program (cmark) for parsing and
 rendering CommonMark documents.
 
 Advantages of this library:
-  Portable. The library and program are written in standard C99 and have no external dependencies. They have been tested with MSVC, gcc, tcc, and clang.
+  Portable. The library and program are written in standard C99 and have no external dependencies. 
+  They have been tested with MSVC, gcc, tcc, and clang.
 
-  Fast. cmark can render a Markdown version of War and Peace in the blink of an eye (127 milliseconds on a ten year old laptop, vs. 100-400 milliseconds for an eye blink). In our benchmarks, cmark is 10,000 times faster than the original Markdown.pl, and on par with the very fastest available Markdown processors.
+  Fast. cmark can render a Markdown version of War and Peace in the blink of an eye 
+  (127 milliseconds on a ten year old laptop, vs. 100-400 milliseconds for an eye blink).
+  In our benchmarks, cmark is 10,000 times faster than the original Markdown.pl, and on
+  par with the very fastest available Markdown processors.
 
   Accurate. The library passes all CommonMark conformance tests.
 
-  Standardized. The library can be expected to parse CommonMark the same way as any other conforming parser. So, for example, you can use commonmark.js on the client to preview content that will be rendered on the server using cmark.
+  Standardized. The library can be expected to parse CommonMark the same way as any other conforming parser.
+  So, for example, you can use commonmark.js on the client to preview content that will be rendered on the server using cmark.
 
-  Robust. The library has been extensively fuzz-tested using american fuzzy lop. The test suite includes pathological cases that bring many other Markdown parsers to a crawl (for example, thousands-deep nested bracketed text or block quotes).
+  Robust. The library has been extensively fuzz-tested using american fuzzy lop. The test suite includes pathological
+  cases that bring many other Markdown parsers to a crawl (for example, thousands-deep nested bracketed text or block quotes).
 
   Flexible. CommonMark input is parsed to an AST which can be manipulated programmatically prior to rendering.
 

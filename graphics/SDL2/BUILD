@@ -1,6 +1,5 @@
-OPTS+=" --enable-sdl-dlopen \
-        --disable-arts \
-        --disable-rpath" &&
+OPTS+=" --disable-arts \
+        --disable-rpath"
 
 default_build &&
 

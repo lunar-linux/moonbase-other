@@ -1,5 +1,5 @@
 OPTS+=" --disable-static --disable-gch --disable-debug" &&
 
-CPPFLAGS+=" -Wno-narrowing" &&
+CXXFLAGS="$CXXFLAGS -Wno-narrowing" &&
 
 default_build

@@ -15,12 +15,6 @@ optional_depends cairo \
                  "for cairo support" \
                  "y"
 
-optional_depends fontconfig \
-                 "-Dfontconfig=enabled" \
-                 "-Dfontconfig=disabled" \
-                 "for fontconfig support" \
-                 "y"
-
 optional_depends graphite \
                  "-Dgraphite=enabled" \
                  "-Dgraphite=disabled" \
@@ -34,13 +28,13 @@ optional_depends icu4c \
                  "y"
 
 optional_depends gobject-introspection \
-                 "-Dgobject=enabled -Dintrospection=enabled" \
-                 "-Dgobject=disabled  -Dintrospection=disabled" \
+                 "-Dintrospection=enabled" \
+                 "-Dintrospection=disabled" \
                  "for gobject introspection support" \
                  "y"
 
 optional_depends gtk-doc \
-                 "-Dgtk-doc=enabled" \
-                 "-Dgtk-doc=disabled" \
+                 "-Ddocs=enabled" \
+                 "-Ddocs=disabled" \
                  "for building documentation" \
                  "n"

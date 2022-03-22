@@ -15,9 +15,9 @@ OPTS+=" --prefix=/usr \
         --with-pidfile-dir=/run"
 
 if module_installed systemd; then
-   OPTS+="--enable-systemd --with-systemd-journal=system"
+   OPTS+=" --enable-systemd --with-systemd-journal=system"
 else
-   OPTS+="--disable-systemd --with-systemd-journal=no"
+   OPTS+=" --disable-systemd --with-systemd-journal=no"
 fi
 
 default_build &&
@@ -26,4 +26,6 @@ install -dm755 /var/lib/syslog-ng /etc/syslog-ng/patterndb.d &&
 install -Dm644 $SCRIPT_DIRECTORY/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf &&
 
 # See http://lists.balabit.hu/pipermail/syslog-ng/2016-February/022667.html
-rm -r /usr/share/syslog-ng/include/scl/cim
+rm -r /usr/share/syslog-ng/include/scl/cim &&
+
+add_priv_group log

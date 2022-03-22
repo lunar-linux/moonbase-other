@@ -1,14 +1,10 @@
-if in_depends $MODULE sun-jdk; then
-  if [[ `arch` == "x86_64" ]] ; then
-     JAVA_ARCH=amd64
-  else
-     JAVA_ARCH=i586
-  fi &&
-    LDFLAGS+=" -Wl,-rpath,$JAVA_HOME/jre/lib/$JAVA_ARCH,-rpath,$JAVA_HOME/jre/lib/$JAVA_ARCH/server"
+if in_depends $MODULE qt5 ; then
+  . /etc/profile.d/qt5.rc
 fi &&
 
-export LD_LIBRARY_PATH="/usr/lib/swipl-`lvu version swi-prolog`" &&
+OPTS+=" -DHAVE_LIBATOMIC=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr"
 
-./configure --with-world --prefix=/usr --enable-readline $OPTS &&
-
-default_make
+cmake -B build -S . -G Ninja $OPTS -Wno-dev &&
+cmake --build build &&
+prepare_install &&
+cmake --install build

@@ -1,7 +1,7 @@
+patch -d . -Rp1 < $SCRIPT_DIRECTORY/system-c-ares.patch &&
+
 ./configure --prefix=/usr \
             --without-npm &&
-
-#          --shared-v8
 
 default_make &&
 

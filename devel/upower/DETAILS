@@ -1,11 +1,13 @@
           MODULE=upower
-         VERSION=0.99.11
-          SOURCE=$MODULE-$VERSION.tar.xz
-      SOURCE_URL=http://upower.freedesktop.org/releases
-      SOURCE_VFY=sha256:64b5ffbfccd5bdb15d925777979a4dbee1a957f9eaeb158dc76175267eddbdef
+         VERSION=0.99.17
+          SOURCE=$MODULE-$VERSION.tar.bz2
+ SOURCE_URL_FULL=https://gitlab.freedesktop.org/upower/upower/-/archive/v$VERSION/upower-v$VERSION.tar.bz2
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-v$VERSION
+      SOURCE_VFY=sha256:de7177deb2ee23d9c505046c74a856564acab8fd1d39aa1541d123af5a99ca8d
         WEB_SITE=http://upower.freedesktop.org
+            TYPE=meson
          ENTERED=20100403
-         UPDATED=20200317
+         UPDATED=20220310
            SHORT="enumerates power devices and listens to device events"
 
 cat << EOF

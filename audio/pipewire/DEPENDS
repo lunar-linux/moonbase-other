@@ -1,8 +1,10 @@
+depends ncurses
 depends libsndfile
+depends libusb
 depends dbus
 depends sbc
-depends meson
 #depends rtkit
+depends meson
 
 optional_depends systemd \
                  "-Dsystemd=enabled" \
@@ -25,12 +27,12 @@ optional_depends gst-plugins-base \
                  "for gstreamer audio support"
 
 optional_depends pulseaudio \
-                 "-D pipewire-pulseaudio=enabled" \
-                 "-D pipewire-pulseaudio=disabled" \
+                 "-D libpulse=enabled" \
+                 "-D libpulse=disabled" \
                  "for pulseudio support" \
                  "n"
 
-optional_depends jack \
+optional_depends jack2 \
                  "-D jack=enabled -D pipewire-jack=enabled" \
                  "-D jack=disabled -D pipewire-jack=disabled" \
                  "for jack audio support" \

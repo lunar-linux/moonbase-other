@@ -1,5 +1,5 @@
-python2 setup.py build &&
+python setup.py build &&
 
 prepare_install &&
 
-python2 setup.py install --root=/
+python setup.py install --root=/

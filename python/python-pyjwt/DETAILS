@@ -1,16 +1,15 @@
           MODULE=python-pyjwt
-             MOD=pyjwt
-         VERSION=1.7.1
-          SOURCE=$VERSION.tar.gz
-      SOURCE_URL=https://github.com/jpadilla/$MOD/archive/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
-      SOURCE_VFY=sha256:aeadd62d894ac7005beaa747c2bc077a1f1169bdb145c536cae33bf20824faa4
+         VERSION=2.3.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/jpadilla/pyjwt/archive/refs/tags/$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*-}-$VERSION
+      SOURCE_VFY=sha256:02cafea05d3869fc096fb48e0ce9c4579bff2522f5876e2f1ea07656257c9baa
         WEB_SITE=https://github.com/jpadilla/pyjwt
-         ENTERED=20181217
-         UPDATED=20181217
             TYPE=python3
+         ENTERED=20181217
+         UPDATED=20211211
            SHORT="JSON Web Token implementation in Python"
 
-cat <<EOF
+cat << EOF
 JSON Web Token implementation in Python
 EOF

@@ -21,8 +21,12 @@ install -m755 $SOURCE_CACHE/$SOURCE2 waf &&
                 --disable-build-date \
                 --disable-rubberband \
                 --disable-vapoursynth \
+                --disable-pdf-build \
+                --disable-html-build \
                 --disable-debug-build \
-                --disable-static-build
+                --disable-static-build \
+                --disable-libmpv-static \
+                --disable-clang-database
 
 ./waf build &&
 

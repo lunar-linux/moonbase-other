@@ -27,6 +27,7 @@ OPTS+=" -D doc=disabled \
         -D voamrwbenc=disabled \
         -D wasapi2=disabled \
         -D wasapi=disabled \
+        -D gpl=enabled \
         -D gobject-cast-checks=disabled"
 
 default_meson_build

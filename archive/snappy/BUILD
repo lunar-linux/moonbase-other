@@ -1,4 +1,6 @@
-OPTS+=" -DBUILD_SHARED_LIBS=yes" &&
+OPTS+=" -DBUILD_SHARED_LIBS=yes \
+        -DSNAPPY_BUILD_TESTS=OFF \
+        -DSNAPPY_BUILD_BENCHMARKS=OFF"
 
 # compile without assertions
 CXXFLAGS+=\ -DNDEBUG

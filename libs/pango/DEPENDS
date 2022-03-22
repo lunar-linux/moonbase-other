@@ -12,14 +12,8 @@ optional_depends help2man "" "" "for manpages build and install" "n"
 optional_depends libthai  "" "" "for Thai language support" "n"
 optional_depends libXft   "" "" "for the Xft backend"
 
-optional_depends gtk-doc \
-                 "-D gtk_doc=true" \
-                 "-D gtk_doc=false" \
-                 "for building documentation" \
-                 "n"
-
 optional_depends gobject-introspection \
-                 "-D gir=true" \
-                 "-D gir=false" \
-                 "for gobject introspection support" \
+                 "-D introspection=enabled" \
+                 "-D introspection=disabled" \
+                 "for object introspection" \
                  "y"

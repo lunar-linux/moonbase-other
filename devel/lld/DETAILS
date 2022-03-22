@@ -1,14 +1,15 @@
           MODULE=lld
-         VERSION=11.1.0
+         VERSION=13.0.1
           SOURCE=$MODULE-$VERSION.src.tar.xz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION}.src
+         SOURCE2=libunwind-$VERSION.src.tar.xz
       SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
-      SOURCE_VFY=sha256:017a788cbe1ecc4a949abf10755870519086d058a2e99f438829aef24f0c66ce
+     SOURCE2_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
+      SOURCE_VFY=sha256:666af745e8bf7b680533b4d18b7a31dc7cab575b1e6e4d261922bbafd9644cfb
+     SOURCE2_VFY=sha256:e206dbf1bbe058a113bffe189386ded99a160b2443ee1e2cd41ff810f78551ba
         WEB_SITE=https://lld.llvm.org/
          ENTERED=20180407
-         UPDATED=20210219
+         UPDATED=20220228
            SHORT="Linker from the LLVM project"
-
 cat << EOF
 Linker from the LLVM project.
 EOF

@@ -15,24 +15,25 @@ depends python-numpy
 depends intel-tbb
 depends git
 depends embree
+depends eigen3
 
 optional_depends lzma-sdk "-DWITH_LZMA=1"   "-DWITH_LZMA=0"   "for lzma compression support for pointcache"
 optional_depends lzo      "-DWITH_LZO=1"    "-DWITH_LZO=0"    "for real-time data compression support for pointcache"
 optional_depends openal   "-DWITH_OPENAL=1" "-DWITH_OPENAL=0" "for 3D Audio support"
 optional_depends SDL2     "-DWITH_SDL=1"    "-DWITH_SDL=0"    "for low-level access to hardware support for joystick and sound"
-optional_depends jack     "-DWITH_JACK=1"   "-DWITH_JACK=0"   "for low-latency audio support"
-optional_depends llvm     "-DWITH_LLVM=1"   "-DWITH_LLVM=0"   "for Low Level Virtual Machine support"
+optional_depends jack2    "-DWITH_JACK=1"   "-DWITH_JACK=0"   "for low-latency audio support"
+optional_depends llvm     "-DWITH_LLVM=1 -DWITH_CLANG=1"   "-DWITH_LLVM=0"   "for Low Level Virtual Machine support"
+optional_depends lld      "-DWITH_LINKER_GOLD=0 -DWITH_LINKER_LLD=1" "-DWITH_LINKER_GOLD=1 -DWITH_LINKER_LLD=0" "use lld linker"
 
 optional_depends tiff       "-DWITH_IMAGE_TIFF=1"      "-DWITH_IMAGE_TIFF=0"      "for tiff graphcis support"
 optional_depends openexr    "-DWITH_IMAGE_OPENEXR=1"   "-DWITH_IMAGE_OPENEXR=0"   "for exr support"
 optional_depends ffmpeg     "-DWITH_CODEC_FFMPEG=1"    "-DWITH_CODEC_FFMPEG=0"    "for ffmpeg audio/video support"
 optional_depends libsndfile "-DWITH_CODEC_SNDFILE=1"   "-DWITH_CODEC_SNDFILE=0"   "for sound file audio support"
-optional_depends openjpeg   "-DWITH_SYSTEM_OPENJPEG=1" "-DWITH_SYSTEM_OPENJPEG=0" "for openjpeg support, say yes for system provided"
 optional_depends jemalloc   "-DWITH_MEM_JEMALLOC=1"    "-DWITH_MEM_JEMALLOC=0"    "use jemalloc instead of malloc"
 
 optional_depends libspnav    "-DWITH_INPUT_NDOF=1"  "-DWITH_INPUT_NDOF=0"  "for NDOF input devices support"
 optional_depends OpenCOLLADA "-DWITH_OPENCOLLADA=1" "-DWITH_OPENCOLLADA=0" "for COLLADA 3d file format support"
-optional_depends OpenColorIO "-DWITH_OPENCOLORIO=1" "-DWITH_OPENCOLORIO=0" "for color management support,${PROBLEM_COLOR}Say no for now, no work around${DEFAULT_COLOR}"
+optional_depends OpenColorIO "-DWITH_OPENCOLORIO=1" "-DWITH_OPENCOLORIO=0" "for color management support"
 
 optional_depends OpenImageIO-oiio \
                  "-DOPENIMAGEIO_ROOT_DIR=/usr -DWITH_CYCLES=1" \

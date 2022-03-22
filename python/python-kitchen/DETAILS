@@ -1,14 +1,14 @@
           MODULE=python-kitchen
-         VERSION=1.2.5
-          SOURCE=kitchen-$VERSION.tar.gz
- SOURCE_URL_FULL=https://github.com/fedora-infra/kitchen/archive/v$VERSION.tar.gz
-      SOURCE_VFY=sha256:1258af80868fc8c30170a43040b1eb5434bc5ffa5ff4ab98ffb9ee3d3c1e2f76
+         VERSION=1.2.6
+          SOURCE=${MODULE#*-}-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/fedora-infra/kitchen/archive/refs/tags/$VERSION.tar.gz
+      SOURCE_VFY=sha256:6963dd84819713aafdd55e5314dcce6df5a37430b62fd9c48770e9f1a467b2b0
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/kitchen-$VERSION
         WEB_SITE=https://github.com/fedora-infra/kitchen/
             TYPE=python3
         REPLACES=kitchen
          ENTERED=20160615
-         UPDATED=20171210
+         UPDATED=20211211
            SHORT="A collection of useful python snippets"
 
 cat << EOF

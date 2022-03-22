@@ -9,7 +9,7 @@ sedit 's@MAN8) html@MAN8)@' man/Makefile &&
 sedit 's@.gz@@g' config-scripts/cups-manpages.m4 &&
 
 # do not export ssllibs
-sedit 's@EXPORT_SSLLIBS="$SSLLIBS"@EXPORT_SSLLIBS=""@' config-scripts/cups-ssl.m4 &&
+#sedit 's@EXPORT_SSLLIBS="$SSLLIBS"@EXPORT_SSLLIBS=""@' config-scripts/cups-ssl.m4 &&
 
 # fix the local state directory
 sedit 's@$localstatedir/run/cups@/run/cups@' config-scripts/cups-directories.m4 &&
@@ -17,3 +17,7 @@ sedit 's@$localstatedir/run/cups@/run/cups@' config-scripts/cups-directories.m4 
 # fix some perms
 sedit "s:444:644:g" Makedefs.in &&
 sedit "s:555:755:g" Makedefs.in
+
+# rebuild the configure script
+aclocal -I config-scripts
+autoconf -I config-scripts

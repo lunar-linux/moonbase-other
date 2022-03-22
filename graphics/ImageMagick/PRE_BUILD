@@ -1,3 +1,6 @@
 default_pre_build &&
 
-sedit 's:ImfCRgbaFile.h:OpenEXR/ImfCRgbaFile.h:; s:OpenEXRConfig.h:OpenEXR/OpenEXRConfig.h:' coders/exr.c
+sedit 's:ImfCRgbaFile.h:OpenEXR/ImfCRgbaFile.h:; s:OpenEXRConfig.h:OpenEXR/OpenEXRConfig.h:' coders/exr.c &&
+
+# Lunar does not maintain la files, so forward directly to the so
+sedit 's:\.la:.so:g' MagickCore/module.c

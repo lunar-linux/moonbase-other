@@ -1,21 +1,21 @@
 # The recent sun-jdk bump does not containt javah, disabling
-OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
-        -DVTK_USE_SYSTEM_EXPAT=ON    \
-        -DVTK_USE_SYSTEM_LIBXML2=ON  \
-        -DVTK_USE_SYSTEM_PNG=ON      \
-        -DVTK_USE_SYSTEM_TIFF=ON     \
-        -DVTK_USE_SYSTEM_FREETYPE=ON \
-        -DVTK_USE_SYSTEM_ZLIB=ON     \
-        -DVTK_USE_SYSTEM_JSONCPP=ON  \
-        -DVTK_USE_SYSTEM_OGGTHEORA=ON \
-        -DVTK_USE_SYSTEM_SIX=ON      \
-        -DVTK_USE_SYSTEM_HDF5=ON     \
-        -DVTK_WRAP_JAVA=OFF           \
-        -DVTK_WRAP_PYTHON=OFF         \
-        -DCMAKE_CXX_FLAGS="-D__STDC_CONSTANT_MACROS" \
-        -DVTK_RENDERING_BACKEND=OpenGL2 \
+OPTS+=" -DVTK_MODULE_USE_EXTERNAL_VTK_png=ON      \
+        -DVTK_MODULE_USE_EXTERNAL_VTK_expat=ON    \
+        -DVTK_MODULE_USE_EXTERNAL_VTK_libxml2=ON  \
+        -DVTK_MODULE_USE_EXTERNAL_VTK_tiff=ON     \
+        -DVTK_MODULE_USE_EXTERNAL_VTK_zlib=ON     \
+        -DVTK_MODULE_USE_EXTERNAL_VTK_jsoncpp=ON  \
+        -DVTK_MODULE_USE_EXTERNAL_VTK_theora=ON \
+        -DVTK_MODULE_USE_EXTERNAL_VTK_hdf5=ON     \
+        -DVTK_MODULE_USE_EXTERNAL_VTK_libproj=ON \
+        -DVTK_VERSIONED_INSTALL=OFF \
+        -DCMAKE_SKIP_RPATH=OFF \
+        -DCMAKE_SKIP_INSTALL_RPATH=ON \
+        -DVTK_WRAP_JAVA=OFF          \
+        -DVTK_PYTHON_VERSION=3 \
+        -DVTK_WRAP_PYTHON=ON         \
         -DBUILD_SHARED_LIBS=ON \
-        -DBUILD_EXAMPLES=OFF \
+        -DVTK_BUILD_EXAMPLES=OFF \
         -DVTK_LEGACY_REMOVE=OFF" &&
 
 #Maybe a little overkill but just to make sure if qt5 is installed there
@@ -23,19 +23,7 @@ OPTS+=" -DVTK_USE_SYSTEM_PNG=ON      \
 if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc &&
   OPTS+=" -DVTK_QT_VERSION:STRING=5  \
-          -DVTK_USE_QVTK=ON   \
-          -DVTK_USE_QVTK_OPENGL=ON \
-          -DVTK_USE_QVTK_QTOPENGL=ON \
-          -DQT_WRAP_CPP=ON \
-          -DQT_WRAP_UI=ON \
-          -DVTK_INSTALL_QT_DIR="/usr/lib/qt5/plugins/designer" \
-          -DDESIRED_QT_VERSION=5 \
-          -DVTK_QT_VERSION=5 \
-          -DQT_MOC_EXECUTABLE="/usr/lib/qt5/bin/moc" \
-          -DQT_UIC_EXECUTABLE="/usr/lib/qt5/bin/uic" \
-          -DQT_INCLUDE_DIR="/usr/include/qt5" \
-          -DQT_QMAKE_EXECUTABLE="/usr/lib/qt5/bin/qmake" \
-          -DVTK_Group_Qt=ON"
+          -DVTK_QT_VERSION=5"
 fi &&
 
 default_cmake_build

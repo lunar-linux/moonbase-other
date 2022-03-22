@@ -4,10 +4,11 @@ depends file
 depends ruby
 depends zlib
 depends docbook-xsl
+depends %QT
 
 optional_depends libebml     "" "" "use external libebml"
 optional_depends libmatroska "" "" "use external libmatroska"
 
-optional_depends flac  "--with-flac"  "--without-flac"  "for flac audio codec"
-optional_depends boost "--with-boost" "--without-boost" "for boost support"
-optional_depends qt5   "--enable-qt"  "--disable-qt"    "for Qt based GUI"
+optional_depends flac       "--with-flac"    "--without-flac"    "for flac audio codec"
+optional_depends boost      "--with-boost"   "--without-boost"   "for boost support"
+optional_depends libdvdread "--with-dvdread" "--without-dvdread" "for reading chapters from DVDs"

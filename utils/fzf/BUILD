@@ -1,6 +1,10 @@
 bad_flags "-z now" "-z relro" &&
 
 export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw -ldflags=-linkmode=external" &&
+export CGO_LDFLAGS="${LDFLAGS}"
+export CGO_CFLAGS="${CFLAGS}"
+export CGO_CPPFLAGS="${CPPFLAGS}"
+export CGO_CXXFLAGS="${CXXFLAGS}"
 export FZF_VERSION="$VERSION" &&
 
 
@@ -23,6 +27,7 @@ if module_installed fish; then
 fi &&
 
 if module_installed vim; then
+  mkdir -p /usr/share/vim/vimfiles/plugin/ &&
   install -Dm644 plugin/fzf.vim /usr/share/vim/vimfiles/plugin/ &&
   install -Dm644 doc/fzf.txt /usr/share/vim/vimfiles/doc/fzf.txt
 fi &&

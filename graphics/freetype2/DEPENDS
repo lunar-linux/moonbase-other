@@ -1,6 +1,10 @@
-optional_depends zlib   "--with-zlib"  "--without-zlib"  "for system zlib compression support"
-optional_depends bzip2  "--with-bzip2" "--without-bzip2" "for support of bzip2 compressed fonts"
-optional_depends libpng "--with-png"   "--without-png"   "for support of png compressed OpenType embeded bitmaps"
+depends meson
+
+optional_depends zlib   "-D zlib=enabled"  "-D zlib=disabled"  "for system zlib compression support"
+optional_depends bzip2  "-D bzip2=enabled" "-D bzip2=disabled" "for support of bzip2 compressed fonts"
+optional_depends libpng "-D png=enabled"   "-D png=disabled"   "for support of png compressed OpenType embeded bitmaps"
+
+optional_depends brotli "-D brotli=enabled" "-D brotli=disabled" "for brotli compression support"
 
 # circular depend on harfbuzz
-#optional_depends harfbuzz "--with-harfbuzz" "--without-harfbuzz" "for improved OpenType features auto-hinting"
+#optional_depends harfbuzz "-D harfbuzz=enabled" "-D harfbuzz=disabled" "for improved OpenType features auto-hinting"

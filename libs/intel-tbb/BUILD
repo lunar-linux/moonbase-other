@@ -1,16 +1,12 @@
-  export CXXFLAGS+=" -fno-lifetime-dse" &&
 
-  # copied the pc from debian, they don't provide it upstream
-  cat $SCRIPT_DIRECTORY/tbb.pc.in | sed "s/%VERSION%/${VERSION}/" > tbb.pc &&
+sedit 's:-Werror:-Wno-error:g' cmake/compilers/GNU.cmake &&
+sedit 's:-Wfatal-errors:-Wno-error:' cmake/compilers/GNU.cmake &&
 
-  make &&
+default_cmake_build &&
 
-  prepare_install &&
+# copied the pc from debian, they don't provide it upstream
+cat $SCRIPT_DIRECTORY/tbb.pc.in | sed "s/%VERSION%/${VERSION}/" > tbb.pc &&
 
-  # we don't want to install html files in /usr/include
-  rm {include,include/tbb}/index.html &&
-  cp -rv include/* /usr/include/ &&
-
-  install -Dm0644 tbb.pc /usr/lib/pkgconfig/ &&
-
-  install build/linux_i*release/*.so* /usr/lib/
+make &&
+prepare_install &&
+install -Dm0644 tbb.pc /usr/lib/pkgconfig/
