@@ -1,3 +1,3 @@
-OPTS+=" --enable-shared --enable-dap-netcdf --disable-examples --enable-netcdf-4" &&
+OPTS+=" --enable-shared --enable-dap --disable-examples" &&
 
 default_build
