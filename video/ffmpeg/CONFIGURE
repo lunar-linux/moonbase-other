@@ -2,7 +2,7 @@ mquery VERSION3 "Enable version 3 features?" y "--enable-version3" ""
 mquery NONFREE  "Compile non-free codecs?"   y "--enable-nonfree"  "--disable-nonfree"
 
 if module_installed opencv; then
-  mquery USE_OPENCV "Enable OpenCV library support? " y "--enable-libopencv" "--disable-libopencv"
+  mquery USE_OPENCV "Enable OpenCV library support? " n "--enable-libopencv" "--disable-libopencv"
 fi
 
 if module_installed frei0r; then
