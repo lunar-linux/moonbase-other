@@ -1,3 +1,3 @@
 OPTS+=" --disable-static"
 
-default_make
+default_build
