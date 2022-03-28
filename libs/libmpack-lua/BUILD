@@ -3,4 +3,4 @@ gcc -shared -lmpack -o mpack.so lmpack.o &&
 
 prepare_install &&
 
-install -Dm755 mpack.so /usr/lib/lua/5.3/
+install -Dm755 mpack.so /usr/lib/lua/$(lvu version lua |cut -d. -f1-2)
