@@ -1,6 +1,5 @@
 default_pre_build &&
 
-# broken in 4.2.5
-sedit 's/include(ClangFormat)//' CMakeLists.txt &&
+./autogen.sh &&
 
-sedit 's:doc/zmq:share/doc/zmq:' CMakeLists.txt
+OPTS+=" --disable-Werror"
