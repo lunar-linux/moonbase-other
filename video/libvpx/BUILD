@@ -1,3 +1,6 @@
+CFLAGS+=' -ffat-lto-objects'
+CXXFLAGS+=' -ffat-lto-objects'
+
 OPTS+=" --prefix=/usr \
         --as=yasm \
         --enable-pic \
@@ -24,5 +27,5 @@ fi
 mkdir build-$MODULE &&
 cd build-$MODULE
 
-../configure $OPTS --extra-cflags="$CFLAGS" &&
+../configure $OPTS &&
 default_make
