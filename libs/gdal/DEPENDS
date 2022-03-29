@@ -48,8 +48,8 @@ optional_depends spatialindex \
                  "--without-spatialite" \
                  "for indexing support"
 
-# Broke, not fix atm
-optional_depends python \
+# gdal needs this, not python so pull python indirectly
+optional_depends python-setuptools \
                  "--with-python=yes" \
                  "--without-python" \
                  "for python3 scripting support. ${PROBLEM_COLOR}Provides osgeo stopping qgis from barking about it missing.${DEFAULT_COLOR}"
