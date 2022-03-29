@@ -1,5 +1,6 @@
 default_pre_build &&
 
+#Their cmake implementation is broken/convoluted
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DBUILD_SHARED_LIBS=ON \
         -DBUILD_STATIC_LIBS=OFF \
@@ -8,5 +9,8 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DHDF5_ENABLE_DEPRECATED_SYMBOLS=ON \
         -DHDF5_BUILD_HL_LIB=ON \
         -DHDF5_BUILD_CPP_LIB=ON \
-        -DHDF5_BUILD_FORTRAN=ON \
-        -DHDF5_ENABLE_Z_LIB_SUPPORT=ON"
+        -DHDF5_BUILD_EXAMPLES=OFF \
+        -DHDF5_ENABLE_ALL_WARNINGS=OFF \
+        -DHDF5_ENABLE_Z_LIB_SUPPORT=ON" &&
+
+./autogen.sh
