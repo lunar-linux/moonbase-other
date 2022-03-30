@@ -1,7 +1,7 @@
 . /etc/profile.d/qt5.rc &&
 
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
-    -DENABLE_DYNAMIC_LINKING=ON"
+        -DENABLE_DYNAMIC_LINKING=ON"
 
 HOSTS+="none"
 
