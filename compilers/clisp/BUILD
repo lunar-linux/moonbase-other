@@ -1,9 +1,11 @@
-./configure --prefix=/usr \
-            $OPTS src &&
+# The default stack size on your platform is insufficient
+# and must be increased to at least 16384.
+ulimit -s 16384 &&
+
+./configure --prefix=/usr --prefix=/usr --with-readline --with-ffcall $OPTS src &&
 
 cd src &&
-
-default_config &&
+./makemake --prefix=/usr --with-readline --with-ffcall --with-dynamic-ffi > Makefile &&
 
 # fixes; gcc: error: unrecognized option '-R'
 sedit "s:-R/:-L/:g" cflags.h Makefile gllib/Makefile &&
