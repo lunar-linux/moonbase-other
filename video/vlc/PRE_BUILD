@@ -39,6 +39,4 @@ sedit 's:truetype/ttf-dejavu:TTF:g' modules/visualization/projectm.cpp &&
 sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp &&
 
 # libplacebo 0.6 API
-sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' modules/video_output/opengl/vout_helper.c &&
-
-autoreconf -vf
+sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' modules/video_output/opengl/vout_helper.c
