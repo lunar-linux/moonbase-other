@@ -1,5 +1,9 @@
-make PREFIX=/usr &&
+OPTS+=" --libexecdir lib \
+	--sbindir bin \
+	--buildtype plain \
+	--auto-features enabled \
+	-D b_lto=true -D b_pie=true \
+	-D docs=man -D docs-build=true \
+        -D udevrulesdir=/etc/udev"
 
-prepare_install &&
-
-make UDEVDIR=/usr/lib/udev PREFIX=/usr SBINDIR=/usr/bin install-spec
+default_meson_build
