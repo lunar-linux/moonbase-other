@@ -1,14 +1,12 @@
-mkdir build && cd build
+OPTS+=" -DBUILD_DOCUMENTATION=OFF \
+        -DBUILD_FULL=ON \
+        -DBINDINGS=ALL \
+        -DTOOLS=ALL \
+        -DPLUGINS=ALL \
+        -DCMAKE_C_FLAGS=-fcommon \
+        -DCMAKE_CXX_FLAGS=-fcommon \
+        -DBUILD_STATIC=ON \
+        -DENABLE_KDB_TESTING=OFF \
+        -DINSTALL_SYSTEM_FILES=ON"
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DPLUGINS="ALL" \
-      -DTOOLS="ALL" \
-      -DBUILD_STATIC=OFF \
-      -DBINDINGS="ALL" \
-      -DSWIG_EXECUTABLE="/usr/bin/swig" \
-      -DCMAKE_C_FLAGS:STRING=" -fcommon" \
-      -DCMAKE_CXX_FLAGS:STRING=" -fcommon" \
-      -DLUA_INCLUDE_DIR=/usr/include \
-      -DLUA_LIBRARY=/usr/lib/liblua.so ..
-
-default_make
+default_cmake_build
