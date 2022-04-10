@@ -2,30 +2,33 @@ depends alsa-lib
 depends desktop-file-utils
 depends hicolor-icon-theme
 
-optional_depends giflib      "--with-gif"             "--without-gif"         "for GIF support if you use faces"
-optional_depends %JPEG       "--with-jpeg"            "--without-jpeg"        "for JPEG support if you use faces"
-optional_depends tiff        "--with-tiff"            "--without-tiff"        "for TIFF support if you use faces"
-optional_depends libpng      "--with-png"             "--without-png"         "for PNG support if you use faces"
-optional_depends librsvg     "--with-rsvg"            "--without-rsvg"        "for SVG image support"
-optional_depends libXpm      "--with-x --with-xpm"    "--without-xpm"         "for XPM support if you use faces"
-optional_depends libXft      "--with-xft"             "--without-xft"         "for anti alias font support"
-optional_depends lcms2       "--with-lcms2"           "--without-lcms2"       "for colour management support"
-optional_depends cairo       "--with-cairo"           "--without-cairo"       "for cairo drawing support"
-optional_depends harfbuzz    "--with-harfbuzz"        "--without-harfbuzz"    "for text shaping support"
-optional_depends libxml2     "--with-xml2"            "--without-xml2"        "for XML parsing support"
-optional_depends dbus        "--with-dbus"            "--without-dbus"        "for D-BUS support"
-optional_depends gnutls      "--with-gnutls"          "--without-gnutls"      "for GnuTLS support"
-optional_depends ImageMagick "--with-imagemagick"     "--without-imagemagick" "for ImageMagick support"
-optional_depends gpm         "--with-gpm"             "--without-gpm"         "for terminal mouse support"
-optional_depends zlib        "--with-zlib"            "--without-zlib"        "for zlib decompression support"
-optional_depends mailutils   "--with-mailutils"       "--without-mailutils"   "for using GNU Mailutils to retrieve email"
-optional_depends systemd     ""                       "--disable-libsystemd"  "for systemd socket-launching support"
+optional_depends libXpm      "--with-xpm"         "--without-xpm"         "for XPM support if you use faces"
+optional_depends giflib      "--with-gif"         "--without-gif"         "for GIF support if you use faces"
+optional_depends %JPEG       "--with-jpeg"        "--without-jpeg"        "for JPEG support if you use faces"
+optional_depends tiff        "--with-tiff"        "--without-tiff"        "for TIFF support if you use faces"
+optional_depends libpng      "--with-png"         "--without-png"         "for PNG support if you use faces"
+optional_depends librsvg     "--with-rsvg"        "--without-rsvg"        "for SVG image support"
+optional_depends libXft      "--with-xft"         "--without-xft"         "for anti alias font support"
+optional_depends lcms2       "--with-lcms2"       "--without-lcms2"       "for colour management support"
+optional_depends cairo       "--with-cairo"       "--without-cairo"       "for cairo drawing support"
+optional_depends harfbuzz    "--with-harfbuzz"    "--without-harfbuzz"    "for text shaping support"
+optional_depends libxml2     "--with-xml2"        "--without-xml2"        "for XML parsing support"
+optional_depends dbus        "--with-dbus"        "--without-dbus"        "for D-BUS support"
+optional_depends gnutls      "--with-gnutls"      "--without-gnutls"      "for GnuTLS support"
+optional_depends ImageMagick "--with-imagemagick" "--without-imagemagick" "for ImageMagick support"
+optional_depends gpm         "--with-gpm"         "--without-gpm"         "for terminal mouse support"
+optional_depends zlib        "--with-zlib"        "--without-zlib"        "for zlib decompression support"
+optional_depends mailutils   "--with-mailutils"   "--without-mailutils"   "for using GNU Mailutils to retrieve email"
+optional_depends systemd     ""                   "--disable-libsystemd"  "for systemd socket-launching support"
 
 optional_depends jansson "" "" "for native JSON support"
 
-optional_depends gtk+-3    "--with-x-toolkit=gtk3"  "" "for gtk+ support GUI"
-optional_depends gtk+-2    "--with-x-toolkit=gtk2"  "" "for gtk+ support GUI"
-optional_depends openMotif "--with-x-toolkit=motif" "" "for OSF/Motif standard GUI"
+optional_depends libXaw "--with-x" "--with-x-toolkit=no"   "for X support GUI"
+if in_depends $MODULE libXaw; then
+   optional_depends gtk+-3    "--with-x-toolkit=gtk3"  "" "for gtk+ support GUI"
+   optional_depends gtk+-2    "--with-x-toolkit=gtk2"  "" "for gtk+ support GUI"
+   optional_depends openMotif "--with-x-toolkit=motif" "" "for OSF/Motif standard GUI"
+fi
 
 # to be added
 # libotf m17n-lib
