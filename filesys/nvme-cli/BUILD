@@ -4,6 +4,6 @@ OPTS+=" --libexecdir lib \
 	--auto-features enabled \
 	-D b_lto=true -D b_pie=true \
 	-D docs=man -D docs-build=true \
-        -D udevrulesdir=/etc/udev"
+        -D udevrulesdir=lib/udev/rules.d"
 
 default_meson_build
