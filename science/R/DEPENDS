@@ -1,14 +1,10 @@
 # it needs gcc-fortran
 depends ncurses
 depends pcre2
+depends libjpeg-turbo
+depends readline
+depends libpng
 
-optional_depends readline \
-                 "--with-readline" \
-                 "--without-readline" \
-                 "for libpng support"
-
-optional_depends %JPEG  "--with-jpeglib" "--without-jpeglib" "for jpeg graphics support"
-optional_depends libpng "--with-libpng"  "--without-libpng"  "for libpng support"
 optional_depends tiff   "--with-libtiff" "--without-libtiff" "for tiff graphics support"
 optional_depends tk     "--with-tcltk"   "--without-tcltk"   "for gui, recommended"
 optional_depends icu4c  "--with-ICU"     "--without-ICU"     "for Unicode support"
