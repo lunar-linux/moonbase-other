@@ -19,5 +19,8 @@ if in_depends $MODULE krita; then
   cmake --install $SOURCE_DIRECTORY/gmic-qt/build-krita
 fi &&
 
-install -Dm644 $SOURCE_DIRECTORY/gmic-qt/gmic_qt.desktop /usr/share/applications/ &&
-install -Dm644 $SOURCE_DIRECTORY/gmic-qt/icons/application/gmic_qt.svg /usr/share/pixmaps/
+install -Dm644 $SOURCE_DIRECTORY/$MODULE/gmic_qt.desktop /usr/share/applications/ &&
+install -Dm644 $SOURCE_DIRECTORY/$MODULE/icons/application/gmic_qt.svg /usr/share/pixmaps/ &&
+
+mkdir -p /usr/share/$MODULE &&
+install -Dm644 $SOURCE_DIRECTORY/$MODULE/icons/*.png /usr/share/$MODULE/
