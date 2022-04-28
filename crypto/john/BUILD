@@ -1,13 +1,21 @@
 cd src
 
+unset CPP 
+
+sed 's|$prefix/bin|/usr/lib/john|' -i configure.ac &&
+
+autoreconf -fiv &&
 default_config &&
 
+OPTS+=" --enable-pkg-config --enable-nt-full-unicode --with-systemwide"
+
+# https://wiki.gentoo.org/wiki/Gcc_10_porting_notes/fno_common
 if [ '$(arch)' == "x86_64" ]; then
-  sedit 's|CFLAGS = -c -Wall -O2|CFLAGS = -c -Wall -O2 -march=x86-64 -DJOHN_SYSTEMWIDE=1|' Makefile &&
+  sedit 's|CFLAGS = -c -Wall -O2|CFLAGS = -c -Wall -O2 -march=x86-64 -DJOHN_SYSTEMWIDE=1 -fcommon|' Makefile &&
   sedit 's|^LDFLAGS =\(.*\)|LDFLAGS =\1 -lm|' Makefile &&
   sedit 's|-m486||g' Makefile
 else
-  sedit 's|CFLAGS = -c -Wall -O2|CFLAGS = -c -Wall -O2 -march=i686 -DJOHN_SYSTEMWIDE=1|' Makefile
+  sedit 's|CFLAGS = -c -Wall -O2|CFLAGS = -c -Wall -O2 -march=i686 -DJOHN_SYSTEMWIDE=1 -fcommon|' Makefile
 fi &&
 
 sedit 's|LIBS = -ldes|LIBS = -ldes -Ldes|' Makefile &&
@@ -16,9 +24,10 @@ make clean &&
 make &&
 prepare_install &&
 
-mkdir -p /etc/$MODULE &&
-mkdir -p /usr/share/$MODULE &&
-cd $BUILD_DIRECTORY/run &&
+mkdir -p /etc/john &&
+mkdir -p /usr/share/john &&
+
+cd $SOURCE_DIRECTORY/run &&
 
 # config file
 sedit 's|$JOHN/john.local.conf|/etc/john/john.local.conf|g' john.conf &&
@@ -42,7 +51,6 @@ john_scripts=(benchmark-unify \
               lion2john.pl \
               netntlm.pl \
               netscreen.py \
-              odf2john.py \
               pass_gen.pl \
               radius2john.pl \
               sap2john.pl \
