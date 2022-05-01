@@ -1,5 +1,11 @@
 depends cmake
+depends flac
+depends libogg
+depends libvorbis
 
-optional_depends alsa-lib "" "--disable-alsa"          "for ALSA support"
-optional_depends sqlite   "" "--disable-sqlite"        "for sqlite database support"
-optional_depends flac     "" "--disable-external-libs" "for FLAC, Ogg and Vorbis audio support"
+optional_depends alsa-lib "" ""  "for ALSA support"
+optional_depends sqlite   "" ""  "for sqlite database support"
+optional_depends opus     "" ""  "for speach and audio support" y
+optional_depends mpg123   "" ""  "for console player support" y
+optional_depends lame     "" ""  "for mp3 analyzer support" y
+optional_depends speex    "" ""  "for audio compression support"

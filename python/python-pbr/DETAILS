@@ -1,16 +1,15 @@
           MODULE=python-pbr
-             MOD=pbr
-         VERSION=5.4.5
+         VERSION=5.8.0
           SOURCE=$MOD-$VERSION.tar.gz
-  SOURCE_URL_FULL=https://github.com/openstack-dev/$MOD/archive/$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
-      SOURCE_VFY=sha256:bf823f1ae9cb28f4685a388ca2fb88ca6ed7109661383a0565160b186a8396fb
-        WEB_SITE=https://docs.openstack.org/pbr/latest/
+  SOURCE_URL_FULL=https://github.com/openstack/pbr/archive/refs/tags/$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*-}-$VERSION
+      SOURCE_VFY=sha256:d2a654aaf975a311d469e58a1aa83d9b1f07f36a80e992ca384245f9f06528b7
+        WEB_SITE=https://pypi.org/project/pbr/
+            TYPE=python3
          ENTERED=20181217
          UPDATED=20200711
-            TYPE=python3
            SHORT="Python Build Reasonableness"
 
-cat <<EOF
+cat << EOF
 Python Build Reasonableness
 EOF

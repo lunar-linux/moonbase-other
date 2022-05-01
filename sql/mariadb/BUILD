@@ -40,7 +40,7 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DWITH_EMBEDDED_SERVER=ON"
 
 if module_installed systemd; then
-  OPTS+=" --DWITH_SYSTEMD=yes"
+  OPTS+=" -DWITH_SYSTEMD=yes"
 fi
 
 # A few of these flags are necessary when building mariadb with gcc >= 4.4

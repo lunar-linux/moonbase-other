@@ -8,6 +8,7 @@ OPTS+=" --with-srv-lease-file=/var/state/dhcp/dhcpd.leases \
 
 default_build  &&
 
+sedit 's@/sbin/ip@/usr/sbin/ip@' client/scripts/linux &&
 install -D -m0755 client/scripts/linux /usr/sbin/dhclient-script &&
 
 mkdir -p /var/state/{dhcp,dhclient} &&

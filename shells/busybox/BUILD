@@ -7,6 +7,9 @@ if [ ${STATIC:-n} == y ]; then
   LDFLAGS+=" --static"
 fi &&
 
+# reproducible build
+export KCONFIG_NOTIMESTAMP=1
+
 make defconfig &&
 make &&
 prepare_install &&

@@ -5,4 +5,6 @@
    OPTS+=" -DINDI_BUILD_QT5_CLIENT=ON"
   fi &&
 
-  default_cmake_build
+  default_cmake_build &&
+
+  add_priv_group plugdev

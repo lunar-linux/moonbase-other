@@ -17,6 +17,7 @@ export BUILD_OFFICIAL=1 &&
 export MOZ_MAKE_FILES=$MAKES &&
 export MOZ_THUNDERBIRD=1 &&
 export AUTOCONF=/usr/bin/autoconf-mozilla &&
+export MACH_USE_SYSTEM_PYTHON=1 &&
 
 cp $SCRIPT_DIRECTORY/mozconfig . &&
 export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla" &&
@@ -24,22 +25,4 @@ mkdir -p ${MOZ_OBJDIR} &&
 
 for flag in $OPTS; do
   echo "ac_add_options $flag" >> mozconfig
-done &&
-
-# To skirt around this make failure in ftbzip2.c:183:
-# undefined reference to `BZ2_bzDecompressInit'
-CFLAGS+=" -lbz2" &&
-
-sed -e '/#include/i\
-    print OUT "#define _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
-    -i nsprpub/config/make-system-wrappers.pl &&
-
-sed -e '/#include/a\
-    print OUT "#undef _GLIBCXX_INCLUDE_NEXT_C_HEADERS\\n"\;' \
-    -i nsprpub/config/make-system-wrappers.pl &&
-
-sedit '/deny.*missing_docs/ d' $(grep -rl "deny.*missing_docs" servo) &&
-
-#error: options `-C embed-bitcode=no` and `-C lto` are incompatible
-#https://www.linuxquestions.org/questions/slackware-14/thunderbird-78-0-a-4175678965/
-sed -i "s|-Clto$||" config/makefiles/rust.mk
+done 

@@ -1,0 +1,32 @@
+          MODULE=dwl
+         VERSION=0.2.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/djpohly/dwl/archive/v${VERSION}.tar.gz
+      SOURCE_VFY=sha256:c629fa7f38050db9850dc0cdf487191c725e6fc68f0c497f6297b48e873c9e5e
+        WEB_SITE=https://github.com/djpohly/dwl/
+         ENTERED=20210228
+         UPDATED=20220213
+           SHORT="dwl - dwm for Wayland"
+
+cat << EOF
+dwl is a compact, hackable compositor for Wayland based on wlroots.
+It is intended to fill the same space in the Wayland world that dwm does in X11,
+primarily in terms of philosophy, and secondarily in terms of functionality.
+Like dwm, dwl is:
+ - Easy to understand, hack on, and extend with patches
+ - One C source file (or a very small number) configurable via config.h
+ - Limited to 2000 SLOC to promote hackability
+ - Tied to as few external dependencies as possible
+ - dwl is not meant to provide every feature under the sun. Instead, like dwm,
+   it sticks to features which are necessary, simple, and straightforward to
+   implement given the base on which it is built.
+Implemented default features are:
+ - Any features provided by dwm/Xlib: simple window borders, tags, keybindings,
+   client rules, mouse move/resize. The built-in status bar is an exception to
+   avoid taking a dependency on FreeType or Pango and increasing the SLOC.
+ - Configurable multi-monitor layout support, including position and rotation.
+ - Configurable HiDPI/multi-DPI support.
+ - Various Wayland protocols.
+ - XWayland support as provided by wlroots.
+ - Zero flickering. Wayland users naturally expect that "every frame is perfect"
+EOF

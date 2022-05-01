@@ -17,4 +17,7 @@ fi &&
 
 if [ ! -f /etc/gammurc ] ; then
   cp ../docs/config/gammurc /etc/gammurc
-fi
+fi &&
+
+# There do not need the executable bit
+chmod -x /usr/lib/udev/rules.d/45-nokiadku2.rules /usr/lib/udev/rules.d/69-gammu-acl.rules

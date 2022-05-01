@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# Update paths
+ sedit 's;/etc;/etc/powerpanel;' \
+       conf/pwrstatd.conf \
+       script/pwrstatd-powerfail.sh \
+       script/pwrstatd-lowbatt.sh

@@ -1,6 +1,6 @@
 ac_add_options --prefix=/usr
+
 ac_add_options --with-user-appdir=".thunderbird"
-ac_add_options --enable-optimize="-O2"
 ac_add_options --with-system-zlib
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-nspr
@@ -8,6 +8,8 @@ ac_add_options --with-system-libevent
 ac_add_options --with-system-nss
 ac_add_options --with-system-icu
 ac_add_options --with-system-libvpx
+
+ac_add_options --enable-optimize="$CFLAGS"
 ac_add_options --enable-release
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
@@ -17,12 +19,17 @@ ac_add_options --enable-strip
 ac_add_options --enable-jemalloc
 ac_add_options --enable-install-strip
 ac_add_options --enable-official-branding
+ac_add_options --enable-rust-simd
+
 ac_add_options --disable-tests
 ac_add_options --disable-jack
 ac_add_options --disable-updater
 ac_add_options --disable-crashreporter
 ac_add_options --disable-debug-symbols
 ac_add_options --disable-webrtc
+
+ac_add_options --allow-addon-sideload
+
 STRIP_FLAGS="--strip-debug"
 
 # Still no like this, 20140922

@@ -1,37 +1,22 @@
-depends liboil
+depends meson
 depends libsndfile
-depends libatomic_ops
 depends speexdsp
 depends json-c
 depends sbc
 
-optional_depends fftw          "--with-fftw"         "--without-fftw"       "for FFTW-using modules (equalizer) support"
-optional_depends alsa-lib      "--enable-alsa"       "--disable-alsa"       "for ALSA support"
-optional_depends jack          "--enable-jack"       "--disable-jack"       "for jack support"
-optional_depends libasyncns    "--enable-asyncns"    "--disable-asyncns"    "for asynchronous name server"
-optional_depends libcap        "--with-caps"         "--without-caps"       "for POSIX 1003.1e support"
-optional_depends avahi         "--enable-avahi"      "--disable-avahi"      "for ZeroConf support"
-optional_depends dbus          "--enable-dbus"       "--disable-dbus"       "optional D-Bus support"
-optional_depends %UDEV         "--enable-udev"       "--disable-udev"       "optional UDEV support" n
-optional_depends lirc          "--enable-lirc"       "--disable-lirc"       "optional LIRC support"
-optional_depends GConf         "--enable-gconf"      "--disable-gconf"      "optional GConf support"
-optional_depends gtk+-3        "--enable-gtk3"       "--disable-gtk3"       "optional Gtk+ 3 support"
-optional_depends libsamplerate "--enable-samplerate" "--disable-samplerate" "optional libsamplerate support, ${PROBLEM_COLOR} this is depreciated by Pulseaudio${DEFAULT_COLOR}" n
-optional_depends %OSSL         "--enable-openssl"    "--disable-openssl"    "for OpenSSL support"
-optional_depends orc           "--enable-orc"        "--disable-orc"        "for orc support"
-optional_depends esound        "--enable-esound"     "--disable-esound"     "for esound support"
-
-optional_depends alsa-oss \
-                 "--enable-oss-output --enable-oss-wrapper"   \
-                 "--disable-oss-output --disable-oss-wrapper" \
-                 "for optional OSS output support"
-
-optional_depends webrtc-audio-processing \
-                 "--enable-webrtc-aec"   \
-                 "--disable-webrtc-aec"  \
-                 "for WebRTC echo cancellation support"
-
-# We take care of which bluez to enable in the BUILD
-optional_depends %BLUEZ "" "" "for optional BlueZ support"
-
-optional_depends gdbm "" "--with-database=auto" "use gdbm for database support" n
+optional_depends alsa-oss   "-D alsa=enabled"    "-D alsa=disabled"    "for ALSA support"
+optional_depends fftw       "-D fftw=enabled"    "-D fftw=disabled"    "for FFTW-using modules (equalizer) support"
+optional_depends soxr       "-D soxr=enabled"    "-D soxr=disabled"    "for resampling support"
+optional_depends jack2      "-D jack=enabled"    "-D jack=disabled"    "for jack support"
+optional_depends libasyncns "-D asyncns=enabled" "-D asyncns=disabled" "for asynchronous name server"
+optional_depends avahi      "-D avahi=enabled"   "-D avahi=disabled"   "for ZeroConf support"
+optional_depends dbus       "-D dbus=enabled"    "-D dbus=disabled"    "optional D-Bus support"
+optional_depends %UDEV      "-D udev=enabled"    "-D udev=disabled"    "optional UDEV support"
+optional_depends gtk+-3     "-D gtk=enabled"     "-D gtk=disabled"     "optional Gtk+ 3 support"
+optional_depends %OSSL      "-D openssl=enabled" "-D openssl=disabled" "for OpenSSL support"
+optional_depends orc        "-D orc=enabled"     "-D orc=disabled"     "for orc support"
+optional_depends %BLUEZ     "-D bluez5=enabled"  "-D bluez5=disabled"  "for optional bluetooth support"
+optional_depends gdbm       "-D database=gdbm"   "-D database=simple"  "use gdbm for database support,${PROBLEM_COLOR} say no here and to tdb to use a simple database${DEFAULT_COLOR}" n
+optional_depends tdb        "-D database=tdb"    "-D database=simple"  "use tdb for database support, ${PROBLEM_COLOR}say no here and prior gdbm to use a simple database${DEFAULT_COLOR}" n
+optional_depends doxygen    "-D doxygen=true"    "-D doxygen=false"    "for documentation support" n
+optional_depends elogind    "-D elogind=enabled" "-D elogind=disabled" "for elogind support" n

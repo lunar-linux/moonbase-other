@@ -1,23 +1,22 @@
           MODULE=gpsd
-         VERSION=3.18.1
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=https://download.savannah.gnu.org/releases/gpsd/
-      SOURCE_VFY=sha256:5cb1e6d880ec9a52c62492dd0e3d77451b7c7ad625895bd652f6354215aec23e
+         VERSION=3.22
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=https://download-mirror.savannah.gnu.org/releases/gpsd/
+      SOURCE_VFY=sha256:68d2a04e237a02ce42158ceda462a24afe11eeaa2b13482e94ac7ef66693f3a0
         WEB_SITE=http://catb.org/gpsd/
          ENTERED=20070609
-         UPDATED=20181113
+         UPDATED=20210805
            SHORT="daemon that monitors one or more GPSes"
 
 cat << EOF
-gpsd is a service daemon that monitors one or more GPSes attached
-to a host computer through serial or USB ports, making all data on
-the location/course/velocity of the sensors available to be queried
-on TCP port 2947 of the host computer. With gpsd, multiple GPS client
-applications (such as navigational and wardriving software) can share
-access to GPSes without contention or loss of data. Also, gpsd responds
-to queries with a format that is substantially easier to parse than
-the NMEA 0183 emitted by most GPSes. The gpsd distribution includes a
-linkable C service library, a C++ wrapper class, and a Python module
-that developers of gpsd-aware applications can use to encapsulate all
-communication with gpsd.
+gpsd is a service daemon that monitors one or more GPSes attached to a host computer through 
+serial or USB ports, making all data on the location/course/velocity of the sensors available
+to be queried on TCP port 2947 of the host computer.
+
+With gpsd, multiple GPS client applications (such as navigational and wardriving software) can share
+access to GPSes without contention or loss of data. Also, gpsd responds to queries with a format that
+is substantially easier to parse than the NMEA 0183 emitted by most GPSes. 
+
+The gpsd distribution includes a linkable C service library, a C++ wrapper class, and a Python module
+that developers of gpsd-aware applications can use to encapsulate all communication with gpsd.
 EOF

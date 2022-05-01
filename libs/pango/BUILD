@@ -1,5 +1,4 @@
-OPTS+=" -D enable_docs=false \
-        -D sysprof=disabled"
+OPTS+=" -D sysprof=disabled -D gtk_doc=false"
 
 default_meson_build &&
 

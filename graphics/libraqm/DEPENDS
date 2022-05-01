@@ -3,6 +3,7 @@ depends harfbuzz
 depends fribidi
 
 optional_depends gtk-doc \
-   "--enable-gtk-doc-html" \
-   "--disable-gtk-doc-html" \
-   "for documentation"
+                 "-D docs=true" \
+                 "-D docs=false" \
+                 "for documentation install" \
+                 "n"

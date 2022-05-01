@@ -1,16 +1,20 @@
           MODULE=gmic
-         VERSION=2.9.4
-         SOURCE=${MODULE}_${VERSION}.tar.gz
+         VERSION=3.0.2.2
+          SOURCE=${MODULE}_${VERSION}.tar.gz
+ SOURCE_URL_FULL=https://github.com/amyspark/gmic/archive/refs/tags/v$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
- SOURCE_URL=https://gmic.eu/files/source/
-      SOURCE_VFY=sha256:790bee48f496765f6b59067dfb10dc34e1eb576caf9a95f30af0d567026eacc7
+      SOURCE_VFY=sha256:9d43bca2a6d301b9cae1fe4e6743bd6e77e1d2306bba6bda6fc4933d7a09d812
         WEB_SITE=https://gmic.eu
          ENTERED=20201208
-         UPDATED=20201223
+         UPDATED=20220423
            SHORT="A Full-Featured Open-Source Framework for Image Processing"
 
 cat << EOF
- GMIC is a full-featured open-source framework for digital image processing, distributed under the CeCILL free software licenses (LGPL-like and/or GPL-compatible). It provides several user interfaces to convert / process / visualize generic image datasets, ranging from 1D scalar signals to 3D+t sequences of multi-spectral volumetric images, hence including 2D color images. 
- 
- This module only contains the GMIC libraries and the command line interface. For GUI interfaces, install gmic-qt as well.
+GMIC is a full-featured open-source framework for digital image processing, distributed under the
+CeCILL free software licenses (LGPL-like and/or GPL-compatible). It provides several user interfaces
+to convert / process / visualize generic image datasets, ranging from 1D scalar signals to 3D+t
+sequences of multi-spectral volumetric images, hence including 2D color images. 
+
+This module only contains the GMIC libraries and the command line interface. 
+For GUI interfaces, install gmic-qt as well.
 EOF

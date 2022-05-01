@@ -23,14 +23,14 @@ optional_depends zlib \
                  "--without-zlib" \
                  "to speed up webpages using zlib compression"
 
+optional_depends brotli \
+                 "--with-brotli" \
+                 "--without-brotli" \
+                 "to speed up webpages using brotli compression"
+
 if [ "`get_module_config GRAPHICS`" = "y" ]; then
 
   depends libpng
-
-  optional_depends DirectFB \
-                 "--with-directfb" \
-                 "--without-directfb" \
-                 "for DirectFB graphics mode"
 
   optional_depends libX11 \
                  "--with-x" \
@@ -51,4 +51,11 @@ if [ "`get_module_config GRAPHICS`" = "y" ]; then
                    "--with-librsvg" \
                    "--without-librsvg" \
                    "to display SVG images in graphics mode"
+
+  optional_depends DirectFB \
+                 "--with-directfb" \
+                 "--without-directfb" \
+                 "for DirectFB graphics mode" \
+                 "n"
+
 fi

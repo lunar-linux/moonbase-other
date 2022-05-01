@@ -1,6 +1,22 @@
 depends git
+depends lua
 depends pipewire
+depends doxygen
 depends meson
+
+optional_depends lua \
+                 "-Dsystem-lua=true" \
+                 "-Dsystem-lua=false" \
+                 "for Lua support"
+
+optional_depends systemd \
+                 "-Dsystemd=enabled \
+                   -Dsystemd-system-service=true \
+                   -Dsystemd-user-service=true" \
+                 "-Dsystemd=disabled \
+                   -Dsystemd-system-service=false \
+                   -Dsystemd-user-service=false" \
+                 "for systemd support"
 
 optional_depends gobject-introspection \
                  "-Dintrospection=enabled" \

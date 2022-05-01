@@ -12,8 +12,8 @@ if [ "$ENABLE_GUI" == "y" ]; then
 fi
 
 optional_depends %OSSL \
-                 "-Dwith-ssl=true"  \
-                 "-Dwith-ssl=false" \
+                 "-Dtls=enabled"  \
+                 "-Dtls=disabled" \
                  "enable support for openSSL"
 
 optional_depends python \
@@ -24,7 +24,7 @@ optional_depends python \
 if module_installed luajit; then
    optional_depends lua \
                     "-Dwith-lua=luajit" \
-                    "-D-with-lua=false" \
+                    "-Dwith-lua=false" \
                     "enable support for lua plugins"
 
 else
@@ -34,23 +34,13 @@ else
                     "enable support for lua plugins"
 fi
 
-optional_depends libnotify \
-                 "-Dwith-libnotify=true" \
-                 "-Dwith-libnotify=false" \
-                 "enable support for notifications"
-
 optional_depends libcanberra \
-                 "-Dwith-libcanberra=true" \
-                 "-Dwith-libcanberra=false" \
+                 "-Dlibcanberra=enabled" \
+                 "-Dlibcanberra=disabled" \
                  "enable support for sounds"
-
-optional_depends libproxy \
-                 "-Dwith-libproxy=true" \
-                 "-Dwith-libproxy=false" \
-                 "enable proxy support"
 
 #Fails build on version 2.14.2
 #optional_depends perl \
-#                 "-Dwith-perl=true" \
+#                 "-Dwith-perl=perl" \
 #                 "-Dwith-perl=false" \
 #                 "enable support for perl plugins"

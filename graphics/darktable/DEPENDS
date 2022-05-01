@@ -1,21 +1,56 @@
-depends SDL
-depends exiv2
+# hard requirements
+depends sqlite
+depends libjpeg-turbo
+depends libpng
 depends pugixml
-depends json-glib
-depends openexr
-depends gtk+-2
-depends lcms2
-depends lensfun
+depends gtk+-3
+depends cairo
 depends librsvg
-depends gtk-engines2
+depends lcms2
+depends exiv2
+depends tiff
+depends curl
+depends gphoto2
+depends libsoup
+depends dbus-glib
+depends isl
+depends openmp
 
-depends python-jsonschema
 depends python-pyrsistent
 
-optional_depends colord-gtk "-DUSE_COLORD=1"         "-DUSE_COLORD=0"         "For libcolord support"
-optional_depends flickcurl  "-DUSE_FLICKR=1"         "-DUSE_FLICKR=0"         "For Flickr API support"
-optional_depends openjpeg   "-DUSE_OPENJPEG=1"       "-DUSE_OPENJPEG=0"       "For openjpeg graphics support"
-optional_depends libgphoto2 "-DUSE_CAMERA_SUPPORT=1" "-DUSE_CAMERA_SUPPORT=0" "For Camera support"
-optional_depends libsecret  "-DUSE_LIBSECRET=1"      "-DUSE_LIBSECRET=0"      "For storing and retrieving passwords"
-optional_depends kwallet    "-DUSE_KWALLET=1"        "-DUSE_KWALLET=0"        "Use kwallet password manager" n
-optional_depends "lua"      "-DUSE_LUA=1"            "-DUSE_LUA=0"            "For lua scripting support"
+# not hard requirements, but
+# important to functionality
+depends libxslt
+depends gettext
+depends lensfun
+depends libxml2
+depends json-glib
+depends zlib
+depends libwebp
+depends GraphicsMagick
+depends colord-gtk
+
+# optional
+
+optional_depends gmic \
+  "-DUSE_GMIC=1" \
+  "-DUSE_GMIC=0" \
+  "for 3D LUT support"
+  
+optional_depends openexr \
+   "-DUSE_OPENEXR=1" \
+   "-DUSE_OPENEXR=0" \
+   "for EXR format support" 
+
+optional_depends flickcurl \
+      "-DUSE_FLICKR=1" \
+      "-DUSE_FLICKR=0" \
+      "For Flickr API support" n
+optional_depends libsecret \
+      "-DUSE_LIBSECRET=1" \
+      "-DUSE_LIBSECRET=0" \
+      "For storing and retrieving passwords" n
+optional_depends kwallet \
+      "-DUSE_KWALLET=1" \
+      "-DUSE_KWALLET=0" \
+      "Use kwallet password manager" n

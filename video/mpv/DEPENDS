@@ -12,7 +12,7 @@ depends zlib
 optional_depends lcms2      "--enable-lcms"   "--disable-lcms"   "for lcms2 support"
 optional_depends libcaca    "--enable-caca"   "--disable-caca"   "for ASCII graphical support"
 optional_depends pulseaudio "--enable-pulse"  "--disable-pulse"  "for pulseaudio support"
-optional_depends jack       "--enable-jack"   "--disable-jack"   "for jack audio support"
+optional_depends jack2      "--enable-jack"   "--disable-jack"   "for jack audio support"
 optional_depends openal     "--enable-openal" "--disable-openal" "for OpenAL audio support"
 optional_depends libass     "--enable-libass" "--disable-libass" "for SSA/ASS support"
 optional_depends %JPEG      "--enable-jpeg"   "--disable-jpeg"   "for JPEG support"
@@ -39,16 +39,6 @@ optional_depends libdvdnav \
                  "--disable-dvdnav --disable-dvdread" \
                  "for DVD support"
 
-optional_depends libbluray \
-                 "--enable-libbluray"  \
-                 "--disable-libbluray" \
-                 "for Bluray DVD support"
-
-optional_depends samba \
-                 "--enable-libsmbclient" \
-                 "--disable-libsmbclient" \
-                 "for Samba support"
-
 optional_depends libvdpau \
                  "--enable-vdpau --enable-vdpau-gl-x11" \
                  "--disable-vdpau --disable-vdpau-gl-x11" \
@@ -59,7 +49,19 @@ optional_depends vapoursynth \
                  "--disable-vapoursynth" \
                  "for vapoursynth support"
 
-optional_depends mujs "" "" "for JavaScript support"
+optional_depends libbluray \
+                 "--enable-libbluray"  \
+                 "--disable-libbluray" \
+                 "for Bluray DVD support" \
+                 "n"
+
+optional_depends samba \
+                 "--enable-libsmbclient" \
+                 "--disable-libsmbclient" \
+                 "for Samba support" \
+                 "n"
+
+optional_depends mujs "" "" "for JavaScript support" "n"
 
 #optional_depends v4l-utils \
 #                 "--enable-libv4l2 --enable-tv-v4l2" \

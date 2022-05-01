@@ -1,12 +1,13 @@
 depends %UDEV
+depends meson
 
 optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
+                 "-Dgtk_doc=true" \
+                 "-Dgtk_doc=false" \
                  "for gtk-doc support" \
                  "n"
 
 optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
+                 "-Dintrospection=enabled" \
+                 "-Dintrospection=disabled" \
                  "for gobject introspection"

@@ -1,6 +1,5 @@
+  OPTS+=" -DWXM_INCLUDE_FONTS=NO -DWXM_INTERPROCEDURAL_OPTIMIZATION=ON" &&
 
-  OPTS+=" -DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-config" &&
-#  CXXFLAGS+=" -Wall -DNDEBUG" &&
   default_cmake_build &&
 
     # Desktop menu entry

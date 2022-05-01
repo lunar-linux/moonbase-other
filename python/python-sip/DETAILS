@@ -1,21 +1,15 @@
           MODULE=python-sip
-         VERSION=4.19.24
+         VERSION=6.5.0
           SOURCE=sip-$VERSION.tar.gz
+      SOURCE_URL=https://pypi.python.org/packages/source/s/sip/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/sip-$VERSION
-      SOURCE_URL=https://www.riverbankcomputing.com/static/Downloads/sip/$VERSION/
-     SOURCE_VFY=sha256:edcd3790bb01938191eef0f6117de0bf56d1136626c0ddb678f3a558d62e41e5
+     SOURCE_VFY=sha256:a1cf8431a8eb9392b3ff6dc61d832d0447bfdcae5b3e4256a5fa74dbc25b0734
         WEB_SITE=http://www.riverbankcomputing.co.uk/software/sip/intro
-         ENTERED=20020520
-         UPDATED=20200828
-        REPLACES=sip
-           SHORT="Create Python bindings for C++ libraries"
+            TYPE=python3
+         ENTERED=20201213
+         UPDATED=20211202
+           SHORT="create Python bindings for C and C++ libraries"
 
 cat << EOF
-SIP is a tool that makes it very easy to create Python bindings for C++
-libraries. It was originally developed to create PyQt, the Python bindings
-for the Qt toolkit, but can be used to create bindings for any C++ library.
-SIP comprises a code generator and a Python module. The code generator
-processes a set of specification files and generates C++ code which is then
-compiled to create the bindings extension module. The SIP Python module
-provides support functions to the automatically generated code.
+A tool that makes it easy to create Python bindings for C and C++ libraries.
 EOF

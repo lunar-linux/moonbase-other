@@ -1,0 +1,17 @@
+[Unit]
+Description=System Logger Daemon
+Documentation=man:syslog-ng(8)
+Wants=network.target network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/sbin/syslog-ng -F $SYSLOGNG_OPTS -p /run/syslogd.pid
+ExecReload=/bin/kill -HUP $MAINPID
+EnvironmentFile=-/etc/config.d/syslog-ng
+StandardOutput=journal
+StandardError=journal
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

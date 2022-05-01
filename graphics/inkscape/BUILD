@@ -1,5 +1,6 @@
-OPTS+=" -DWITH_NLS=ON \
-        -DWITH_CDR=OFF \
-        -DWITH_GRAPHICS_MAGICK=OFF"
+## CDR = Corel Draw. This file doesn't exist in Lunar
+## 2Geom libs are not in Lunar yet
+
+OPTS+=" -DCMAKE_BUILD_TYPE=Release -DWITH_LIBCDR=OFF -DWITH_INTERNAL_2GEOM=ON"
 
 default_cmake_build

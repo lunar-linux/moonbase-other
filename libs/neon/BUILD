@@ -21,6 +21,6 @@ if module_installed ca-certificates; then
   OPTS+=" --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt"
 fi &&
 
-OPTS+=" --enable-shared --disable-static" &&
+OPTS+=" --enable-shared --disable-static --disable-nls" &&
 
 default_build

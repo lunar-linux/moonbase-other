@@ -2,12 +2,7 @@ if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc
 fi &&
 
-# The Lua support is broken now as it neeed Lua 5.2.x version
-OPTS+=" -without-lua"
-
-OPTS+=" --with-zlib \
-        --disable-warnings-as-errors \
-        --disable-static"
+OPTS+=" -DDISABLE_WERROR=ON" &&
 
 default_cmake_build &&
 

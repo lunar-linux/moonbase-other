@@ -1,14 +1,12 @@
 . /etc/profile.d/qt5.rc &&
 
-sedit '19i syntax = "proto2";' common/protocol.proto &&
-
-qmake -config release PREFIX=/usr ost.pro $OPTS &&
+QT_SELECT=qt5 qmake PREFIX=/usr -config release $OPTS &&
 
 default_make &&
 prepare_install &&
 
-mkdir /usr/share/$MODULE &&
-install client/icons/name.png /usr/share/$MODULE &&
+mkdir -p /usr/share/$MODULE &&
+install -D -m755 client/icons/*.* /usr/share/$MODULE/ &&
 
 cat > ${MODULE}.desktop << EOF &&
 [Desktop Entry]

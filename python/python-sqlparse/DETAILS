@@ -1,16 +1,15 @@
           MODULE=python-sqlparse
-             MOD=sqlparse
-         VERSION=0.2.4
-          SOURCE=$VERSION.tar.gz
-      SOURCE_URL=https://github.com/andialbrecht/$MOD/archive/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
-      SOURCE_VFY=sha256:7087a2bd385c06ac1a5cf343e2e5ea7ce2bb6386849e59ef214e02af68f73fb4
+         VERSION=0.4.2
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/andialbrecht/sqlparse/archive/refs/tags/$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*-}-$VERSION
+      SOURCE_VFY=sha256:8108dd2a7b038cc947320ae5d947e8e3d99bb520d81749d3bd419dabcbdf5ed3
         WEB_SITE=https://github.com/andialbrecht/sqlparse
+            TYPE=python3
          ENTERED=20181217
          UPDATED=20181217
-            TYPE=python3
            SHORT="Non-validating SQL parser for Python"
 
-cat <<EOF
+cat << EOF
 Non-validating SQL parser for Python
 EOF

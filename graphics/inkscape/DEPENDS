@@ -1,68 +1,72 @@
-depends harfbuzz
-depends pango
-depends fontconfig
-depends freetype2
-depends gsl
-depends libsoup
 depends double-conversion
-depends gc
-depends cairo
-depends %JPEG
-depends zlib
-depends libpng
-depends potrace
 depends gtk+-3
-depends gtkmm3
-depends gdk-pixbuf
-depends gdl
-depends boost
-depends aspell
-depends libxslt
-depends libxml2
-depends gettext
+depends gsl
 depends libsigc++2
-depends gzip
+depends libsoup
+depends gc
+depends potrace
+depends libxml2
+depends libxslt
+depends lcms2
+depends poppler
+depends libpng
+depends gtkmm3
+depends boost
 depends python-numpy
 depends python-lxml
-
-optional_depends poppler \
-        "-DENABLE_POPPLER=ON" \
-        "-DENABLE_POPPLER=OFF" \
-        "for PDF support (highly recommended)"
-
-optional_depends openmp \
-        "-DWITH_OPENMP=ON" \
-        "-DWITH_OPENMP=OFF" \
-        "for multithread processing support (highly recommended)"
-
-optional_depends lcms2 \
-        "-DENABLE_LCMS=ON" \
-        "-DENABLE_LCMS=OFF" \
-        "for Colour Management support"
-
-optional_depends dbus \
-        "-DWITH_DBUS=ON" \
-        "-DWITH_DBUS=OFF" \
-        "for dbus support"
-
-optional_depends gtkspell3 \
-        "-DWITH_GTKSPELL=ON" \
-        "-DWITH_GTKSPELL=OFF" \
-        "for spelling support"
-
-optional_depends libvisio \
-        "-DWITH_LIBVISIO=ON" \
-        "-DWITH_LIBVISIO=OFF" \
-        "for visio diagram support"
-
-optional_depends libwpg \
-        "-DWITH_LIBWPG=ON" \
-        "-DWITH_LIBWPG=OFF" \
-        "for WordPerfect Graphics support"
+depends %JPEG
+depends libpng
+depends tiff
+depends python-urllib3
+depends python-requests
+depends python-appdirs
+depends python-pillow
 
 optional_depends jemalloc \
-        "-DWITH_JEMALLOC=ON" \
-        "-DWITH_JEMALLOC=OFF" \
-        "for memory allocation support"
+    "-DWITH_JEMALLOC=ON" \
+    "-DWITH_JEMALLOC=OFF" \
+    "for memory allocation support"
+    
+optional_depends openmp \
+    "-DWITH_OPENMP=ON" \
+    "-DWITH_OPENMP=OFF" \
+    "for multithread filter rendering (highly recommended)"
+      
+optional_depends dbus-glib \
+    "-DWITH_DBUS=ON" \
+    "-DWITH_DBUS=OFF" \
+    "for dbus support"
+
+optional_depends gspell \
+    "-DWITH_GSPELL=ON" \
+    "-DWITH_GSPELL=OFF" \
+    "for spelling support"
+    
+optional_depends scour \
+    "" \
+    "" \
+    "for optimizing SVG save files"  
+      
+optional_depends libvisio \
+    "-DWITH_LIBVISIO=ON" \
+    "-DWITH_LIBVISIO=OFF" \
+    "for visio diagram support"
+
+optional_depends libwpg \
+    "-DWITH_LIBWPG=ON" \
+    "-DWITH_LIBWPG=OFF" \
+    "for WordPerfect Graphics support"
+
+
+optional_depends GraphicsMagick \
+    "-DWITH_GRAPHICS_MAGICK=ON" \
+    "-DWITH_GRAPHICS_MAGICK=OFF" \
+   "for extra graphic filters" 
+    
+optional_depends ragel \
+  "" \
+  "" \
+  "for advanced svg path parser"
+        
 
 

@@ -1,0 +1,4 @@
+CFLAGS="$CFLAGS -fomit-frame-pointer"
+CXXFLAGS="$CXXFLAGS -fomit-frame-pointer"
+
+default_make

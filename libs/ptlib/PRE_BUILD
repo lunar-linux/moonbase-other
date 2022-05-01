@@ -1,8 +1,8 @@
 default_pre_build &&
 
 sed -i "s/sbin\.Right(1) == '\\\\0')/strlen(sbin\.Right(1)) == 0)/" src/ptclib/podbc.cxx &&
-    
 sed -i '/\/ioctl.h/a#include <sys/uio.h>' src/ptlib/unix/channel.cxx &&
+sed 's/\\#/#/' -i make/common.mak &&
 
 if module_installed ffmpeg ; then
   OPTS+=" --enable-ffvdev"
@@ -10,4 +10,4 @@ if module_installed ffmpeg ; then
   OPTS+=" --disable-ffvdev"
 fi &&
 
-OPTS+=" --disable-odbc --disable-openssl"
+OPTS+=" --disable-odbc"

@@ -1,0 +1,5 @@
+default_pre_build &&
+
+# don't depend on thirdparty copies of the stdlib
+find tests -type f -name "*.py" -exec \
+           sed -i 's/^import mock$/from unittest import mock/;s/from mock /fromunittest.mock /' {} +

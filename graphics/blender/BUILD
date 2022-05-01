@@ -1,27 +1,24 @@
+if in_depends $MODULE llvm; then
+  export CC=clang &&
+  export CXX=clang++
+fi &&
+
 PYTHON_VER="$(installed_version python | cut -d. -f1-2)" &&
 
-if in_depends $MODULE numpy && [ -f /usr/bin/f2py3 ]; then
-  OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=ON"
-else
-  OPTS+=" -DWITH_PYTHON_INSTALL_NUMPY=OFF"
-fi
+OPTS+=" -DWITH_PYTHON=ON \
+        -WITH_SYSTEM_EIGEN3=ON \
+        -DWITH_INSTALL_PORTABLE=OFF \
+        -DWITH_STATIC_LIBS=OFF \
+        -DWITH_PYTHON_INSTALL=OFF \
+        -DPYTHON_VERSION=$PYTHON_VER \
+        -DPYTHON_LIBPATH=/usr/lib \
+        -DPYTHON_LIBRARY=python$PYTHON_VER \
+        -DWITH_PYTHON_INSTALL_NUMPY=ON \
+        -DPYTHON_INCLUDE_DIRS=/usr/include/python$PYTHON_VER \
+        -DCMAKE_CXX_FLAGS=-I /usr/include/python$PYTHON_VER \
+        -DWITH_SYSTEM_GLEW=ON \
+        -DWITH_SYSTEM_EIGEN3=ON \
+        -DWITH_SYSTEM_LZO=ON \
+      " &&
 
-OPTS+=" -DWITH_IMAGE_REDCODE=1 \
-        -DWITH_PYTHON_INSTALL=0 \
-        -DWITH_STATIC_LIBS=0 \
-        -DWITH_PYTHON=1 \
-        -DWITH_SYSTEM_LZO=1 \
-        -DWITH_OPENMP=0 \
-        -DWITH_PLAYER=1 \
-        -DWITH_GAMEENGINE=1 \
-        -DWITH_INSTALL_PORTABLE=0 \
-        -DPYTHON_VERSION=${PYTHON_VER}"
-
-default_cmake_config &&
-
-make &&
-
-# We need to do it this way else make tanks and still needed with 2.72a
-python3 ../doc/manpage/blender.1.py bin/blender bin/blender.1 &&
-
-default_install
+default_cmake_build

@@ -1,4 +1,4 @@
-depends cmake
+depends dbus
 depends %OSSL
 depends gst-plugins-base
 depends libXcursor
@@ -9,6 +9,7 @@ depends libXinerama
 depends libxkbfile
 depends libXrender
 depends libXv
+depends cmake
 
 optional_depends cups       "-DWITH_CUPS=ON"  "-DWITH_CUPS=OFF"  "Enable printer support?"
 optional_depends alsa-lib   "-DWITH_ALSA=ON"  "-DWITH_ALSA=OFF"  "Enable sound?"
@@ -18,3 +19,7 @@ optional_depends ffmpeg \
                  "-DWITH_FFMPEG=ON -DWITH_DSP_FFMPEG=ON" \
                  "-DWITH_FFMPEG=OFF -DWITH_DSP_FFMPEG=OFF" \
                  "Enable ffmpeg support?"
+
+optional_depends wayland "" "" "Enable Wayland support"
+
+optional_depends docbook-xsl "" "" "for manpage install"

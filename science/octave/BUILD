@@ -1,3 +1,4 @@
+autoreconf -fi &&
 
 if in_depends $MODULE SuiteSparse; then
   export LIBS+=" -lmetis"

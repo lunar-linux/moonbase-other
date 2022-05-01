@@ -1,18 +1,17 @@
           MODULE=lha
-         VERSION=1.14i
-          SOURCE=$MODULE-114i.tar.gz
-         SOURCE2=$MODULE-$VERSION-security.patch.bz2
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-114i
-   SOURCE_URL=http://www2m.biglobe.ne.jp/~dolphin/lha/prog/
-  SOURCE2_URL=$PATCH_URL
-     SOURCE_VFY=sha256:ffe9bbd437f47a960d714032f61da26b5dd38e3ef4ddc9c3763cc28c4983c091
-    SOURCE2_VFY=sha256:9c05aacd4b683b27fe31020fb0e17e2edeef9efdd94be347491558418e14061c
-      WEB_SITE=http://www2m.biglobe.ne.jp/~dolphin/lha/lha.htm
+         VERSION=20211125
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/jca02266/lha/archive/refs/tags/release-20211125.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/lha-release-20211125
+      SOURCE_VFY=sha256:8761edac9613cf1c06cbc341259fb2abd804f8f5bb8ba25970779062701e8a46
+        WEB_SITE=https://github.com/jca02266/lha
          ENTERED=20020420
-         UPDATED=20020918
+         UPDATED=20220221
            SHORT="An utility that [un]compresses .lha packages"
 
 cat << EOF
 lha for UNIX is a console-based utility that uncompresses and compresses
 .lha packages.
+
+Note: http://www2m.biglobe.ne.jp/~dolphin/lha/lha.htm is 404.
 EOF

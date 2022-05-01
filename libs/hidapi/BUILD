@@ -1,2 +1,0 @@
-./bootstrap &&
-default_build

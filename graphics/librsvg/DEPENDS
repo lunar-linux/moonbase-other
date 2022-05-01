@@ -1,16 +1,6 @@
 depends gdk-pixbuf
-depends pango      # needs pango with cairo enabled
+depends pango
 depends rustc
 depends intltool
-depends gtk-doc
-
-optional_depends vala \
-                 "--enable-vala" \
-                 "--disable-vala" \
-                 "for vala support"
-
-optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--enable-introspection" \
-                 "for introspection support" \
-                 "y"
+depends gobject-introspection
+depends vala

@@ -9,7 +9,7 @@ sed -e 's/GROUP="dialout"/GROUP="uucp"/' \
     -e 's/@GROUP_RENDER_MODE@/0666/' \
     -e 's/@DEV_KVM_MODE@/0666/' \
     -e 's|@rootbindir@/udevadm|/usr/bin/udevadm|' \
-    -i rules/*.rules && 
+    -i rules/*.rules &&
 
 sedit "s|\$(LN_S|echo OK # \$(LN_S|" src/udev/Makefile.am &&
 

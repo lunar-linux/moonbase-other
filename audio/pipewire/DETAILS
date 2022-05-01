@@ -1,19 +1,20 @@
           MODULE=pipewire
-         VERSION=0.3.21
+         VERSION=0.3.49
           SOURCE=$MODULE-$VERSION.tar.gz
  SOURCE_URL_FULL=https://github.com/PipeWire/pipewire/archive/$VERSION.tar.gz
-      SOURCE_VFY=sha256:228e744f7acfac92e4c7a2606ed7f6ecd7460f53ec735e7c01176539e386432b
+      SOURCE_VFY=sha256:0400b422eb96eaa84229dfe121810281594561b22d69c17af95f7fea1f6edb5e
         WEB_SITE=https://github.com/PipeWire/pipewire
          ENTERED=20190820
-         UPDATED=20210204
+         UPDATED=20220330
            SHORT="Server and user space API to deal with multimedia pipelines"
 
 cat << EOF
-PipeWire is a server and user space API to deal with multimedia pipelines. This includes:
-
-    Making available sources of video (such as from a capture devices or application provided streams) and multiplexing this with clients.
-    Accessing sources of video for consumption.
-    Generating graphs for audio and video processing.
-
-Nodes in the graph can be implemented as separate processes, communicating with sockets and exchanging multimedia content using fd passing.
+PipeWire is a server and user space API to deal with multimedia pipelines.
+This includes:
+  - Making available sources of video (such as from a capture devices or
+    application provided streams) and multiplexing this with clients.
+  - Accessing sources of video for consumption.
+  - Generating graphs for audio and video processing.
+Nodes in the graph can be implemented as separate processes, communicating with
+sockets and exchanging multimedia content using fd passing.
 EOF

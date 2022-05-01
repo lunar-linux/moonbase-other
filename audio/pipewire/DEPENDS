@@ -1,49 +1,51 @@
+depends ncurses
 depends libsndfile
+depends libusb
 depends dbus
 depends sbc
-depends meson
 #depends rtkit
+depends meson
 
 optional_depends systemd \
-                 "-Dsystemd=true" \
-                 "-Dsystemd=false" \
+                 "-Dsystemd=enabled" \
+                 "-Dsystemd=disabled" \
                  "for systemd support"
 
 optional_depends alsa-lib \
-                 "-D alsa=true  -D pipewire-alsa=true" \
-                 "-D alsa=false -D pipewire-alsa=false" \
+                 "-D alsa=enabled  -D pipewire-alsa=enabled" \
+                 "-D alsa=disabled -D pipewire-alsa=disabled" \
                  "for ALSA sound support"
 
 optional_depends bluez-5 \
-                 "-D bluez5=true" \
-                 "-D bluez5=false" \
+                 "-D bluez5=enabled" \
+                 "-D bluez5=disabled" \
                  "for Bluetooth support"
 
 optional_depends gst-plugins-base \
-                 "-D gstreamer=true" \
-                 "-D gstreamer=false" \
+                 "-D gstreamer=enabled" \
+                 "-D gstreamer=disabled" \
                  "for gstreamer audio support"
 
 optional_depends pulseaudio \
-                 "-D pipewire-pulseaudio=true" \
-                 "-D pipewire-pulseaudio=false" \
+                 "-D libpulse=enabled" \
+                 "-D libpulse=disabled" \
                  "for pulseudio support" \
                  "n"
 
-optional_depends jack \
-                 "-D jack=true -D pipewire-jack=true" \
-                 "-D jack=false -D pipewire-jack=false" \
+optional_depends jack2 \
+                 "-D jack=enabled -D pipewire-jack=enabled" \
+                 "-D jack=disabled -D pipewire-jack=disabled" \
                  "for jack audio support" \
                  "n"
 
 optional_depends doxygen \
-                 "-D docs=true" \
-                 "-D docs=false" \
+                 "-D docs=enabled" \
+                 "-D docs=disabled" \
                  "for documentation install" \
                  "n"
 
 optional_depends xmltoman \
-                "-D man=true" \
-                "-D man=false" \
+                "-D man=enabled" \
+                "-D man=disabled" \
                 "for man pages install" \
                 "n"

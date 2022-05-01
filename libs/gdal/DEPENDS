@@ -4,7 +4,7 @@ depends python-numpy
 optional_depends cryptopp "--with-cryptopp=yes" "--without-cryptopp" "for crypto support" n
 optional_depends geos     "--with-geos=yes"     "--without-geos"     "for Geometry Engine support"
 optional_depends libwebp  "--with-webp=yes"     "--without-webp"     "for lossy compression for photographic images support"
-optional_depends qhull    "--with-qhull=yes"    "--without-qhull"    "for qhull support"
+optional_depends qhull    "--with-qhull=yes"    "--with-qhull=internal"    "for qhull support ${PROBLEM_COLOR}For now say no to use internal qhull${DEFAULT_COLOR}"
 optional_depends expat    "--with-expat"        "--without-expat"    "for XML support"
 optional_depends curl     "--with-curl"         "--without-curl"     "for curl support"
 optional_depends giflib   "--with-gif"          "--without-gif"      "for gif graphics support"
@@ -48,8 +48,8 @@ optional_depends spatialindex \
                  "--without-spatialite" \
                  "for indexing support"
 
-# Broke, not fix atm
-optional_depends python \
+# gdal needs this, not python so pull python indirectly
+optional_depends python-setuptools \
                  "--with-python=yes" \
                  "--without-python" \
                  "for python3 scripting support. ${PROBLEM_COLOR}Provides osgeo stopping qgis from barking about it missing.${DEFAULT_COLOR}"

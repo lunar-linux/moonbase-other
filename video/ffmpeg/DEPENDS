@@ -13,7 +13,9 @@ optional_depends libxcb \
                   "--disable-libxcb" \
                   "for xcb support"
 
-optional_depends jack     "--enable-libjack" "" "for jack audio server support"
+optional_depends SVT-AV1  "--enable-libsvtav1" "" "for scalable AV1 encoder/decoder support" n
+optional_depends dav1d    "--enable-libdav1d"  "" "for AV1 support" n
+optional_depends jack2    "--enable-libjack" "" "for jack audio server support"
 optional_depends alsa-lib "--enable-alsa"    "" "for alsa support"
 optional_depends mesa-lib "--enable-opengl"  "" "for Mesa GL support"
 
@@ -45,6 +47,7 @@ optional_depends libilbc      "--enable-libilbc"      "--disable-libilbc"      "
 optional_depends openjpeg-2   "--enable-libopenjpeg"  "--disable-libopenjpeg"  "for JPEG 2000 decoding support"
 optional_depends rtmpdump     "--enable-librtmp"      "--disable-librtmp"      "for RTMP[E] support"
 optional_depends libva        "--enable-vaapi"        "--disable-vaapi"        "for hardware-accelerated video"
+optional_depends librsvg      "--enable-librsvg"      "--disable-librsvg"      "for SVG image support"
 optional_depends SDL2         "--enable-ffplay"       "--disable-ffplay"       "for the ffplay media player"
 optional_depends v4l-utils    "--enable-libv4l2"      "--disable-libv4l2"      "for video4linux2 device support"
 optional_depends libmodplug   "--enable-libmodplug"   "--disable-libmodplug"   "for decoding mod audio file support"

@@ -1,1 +1,3 @@
-default_make
+autoreconf -fi &&
+
+default_build

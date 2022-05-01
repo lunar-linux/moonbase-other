@@ -3,7 +3,7 @@ go build \
     -buildmode=pie \
     -mod=readonly \
     -modcacherw \
-    -ldflags "-X main.Version=$pkgver -linkmode external -extldflags \"${LDFLAGS}\"" \
+    -ldflags "-X main.Version=${VERSION} -linkmode external -extldflags \"${LDFLAGS}\"" \
     -o "$MODULE" . &&
 
 prepare_install &&

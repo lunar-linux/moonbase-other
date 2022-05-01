@@ -1,30 +1,49 @@
-depends perl
+depends bison
+depends c-ares
+depends cmake
+depends flex
 depends glib-2
 depends libgcrypt
-depends cmake
-depends zlib
+depends libxml2
+depends perl
 
-optional_depends libcap    "--with-libcap"     "--without-libcap"    "for POSIX 1003.1e support"
-optional_depends libpcap   "--with-pcap"       "--without-pcap"      "for libpcap support"
-optional_depends gnutls    "--with-gnutls=yes" "--with-gnutls=no"    "for SSL/TLS support"
-optional_depends libssh    "--with-libssh"     "--without-libssh"    "for SSH support"
-optional_depends krb5      "--with-krb5"       "--without-krb5"      "for Kerberos 5 support"
-optional_depends portaudio "--with-portaudio"  "--without-portaudio" "enable RPC playback support (needed for VoIP sniffing)"
-optional_depends libnl3    "--with-libnl=3"    "--without-libnl"     "for libnl3 support"
-optional_depends c-ares    "--with-c-ares"     "--without-c-ares"    "for asynchronious DNS support"
-
-optional_depends gtk+-3 \
-                 "--enable-wireshark --with-gtk=3" "" \
-                 "for GTK 3.x based frontend (select this or the next one gtk+-2, not both)"
-
-optional_depends gtk+-2 \
-                "--enable-wireshark --with-gtk=2" "" \
-		"for GTK 2.x based frontend (select this or the previous one gtk+-3, not both)"
-
-# Broken -fPIC problem reported (both with and without it)
-optional_depends qt5 \
-                 "--enable-wireshark --with-qt=5" "" \
-                 "for Qt 5.x based frontend"
+optional_depends libcap    "-DENABLE_CAP=true"      "-DENABLE_CAP=false" \
+                             "Allow packet captures without running as root"
+optional_depends libpcap   "-DENABLE_PCAP=true"     "-DENABLE_PCAP=false" \
+                             "for libpcap support"
+optional_depends brotli    "-DENABLE_BROTLI=true"   "-DENABLE_BROTLI=false" \
+                             "for brotli support"
+optional_depends gnutls    "-DENABLE_GNUTLS=true"   "-DENABLE_GNUTLS=false" \
+                             "for SSL/TLS support"
+optional_depends krb5      "-DENABLE_KERBEROS=true" "-DENABLE_KERBEROS=false" \
+                             "for Kerberos 5 support"
+optional_depends ilbc      "-DENABLE_ILBC=true"     "-DENABLE_ILBC=false" \
+                             "support for iLBC codec in RTP player"
+optional_depends libssh    "-DENABLE_LIBSSH=true"   "-DENABLE_LIBSSH=false" \
+                             "for extcap remote SSH interfaces (sshdump, ciscodump)"
+optional_depends libnl3    "-DENABLE_NETLINK=true"  "-DENABLE_NETLINK=false" \
+                             "support for managing wireless 802.11 interfaces"
+optional_depends lua       "-DENABLE_LUA=true"      "-DENABLE_LUA=false" \
+                             "for Lua support"
+optional_depends minizip   "-DENABLE_MINIZIP=true"  "-DENABLE_MINIZIP=false" \
+                             "support for profiles import/export"
+optional_depends nghttp2   "-DENABLE_NGHTTP2=true"  "-DENABLE_NGHTTP2=false" \
+                             "for header decompression in HTTP2"
+optional_depends opus      "-DENABLE_OPUS=true"     "-DENABLE_OPUS=false" \
+                             "support for opus codec in RTP player"
+optional_depends sbc       "-DENABLE_SBC=true"    "-DENABLE_SBC=false" \
+                             "support for playing SBC codec in RTP player"
+optional_depends snappy    "-DENABLE_SNAPPY=true" "-DENABLE_SNAPPY=false" \
+                             "for Snappy decompression in CQL and Kafka dissectors"
+optional_depends spandsp   "-DENABLE_SPANDSP=true" "-DENABLE_SPANDSP=false" \
+                             "support for G.722 and G.726 codecs in RTP player"
+optional_depends lz4       "-DENABLE_LZ4=true"    "-DENABLE_LZ4=false"  \
+                             "for LZ4 decompression in CQL and Kafka dissectors"
+optional_depends zlib      "-DENABLE_ZLIB=true"   "-DENABLE_ZLIB=false" \
+                             "for zlib support"
+optional_depends zstd      "-DENABLE_ZSTD=true"   "-DENABLE_ZSTD=false" \
+                             "for zstd support"
+optional_depends qt5       "-DBUILD_wireshark=ON" "-DBUILD_wireshark=OFF" \
+                             "for the graphical interface"
 
 # Broken - needs lua 5.2.x
-#optional_depends lua "--with-lua" "--without-lua" "for Lua support"

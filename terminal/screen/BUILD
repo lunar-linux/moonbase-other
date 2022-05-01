@@ -1,9 +1,9 @@
-./autogen.sh &&
-
 cp $SCRIPT_DIRECTORY/term.sh . &&
 
+./autogen.sh &&
+
 OPTS+=" --enable-colors256 \
-        --with-sys-screenrc=/etc/screenrc" &&
+        --with-sys-screenrc=/etc/screenrc"
 
 default_build &&
 

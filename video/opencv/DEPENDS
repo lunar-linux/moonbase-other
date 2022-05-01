@@ -12,7 +12,7 @@ optional_depends tiff \
                  "-DWITH_TIFF=OFF" \
                  "for tiff graphics support" y
 
-optional_depends %JPEG \
+optional_depends libjpeg-turbo \
                  "-DWITH_JPEG=ON" \
                  "-DWITH_JPEG=OFF" \
                  "for jpeg graphics support" y
@@ -91,11 +91,6 @@ optional_depends eigen3 \
                  "-DWITH_EIGEN=ON" \
                  "-DWITH_EIGEN=OFF" \
                  "for linear algebra libraries support" y
-
-optional_depends unicap \
-                 "-DWITH_UNICAP=ON" \
-                 "-DWITH_UNICAP=OFF" \
-                 "for additional video capture support"
 
 optional_depends intel-tbb \
                  "-DWITH_TBB=ON" \

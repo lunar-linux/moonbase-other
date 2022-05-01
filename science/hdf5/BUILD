@@ -1,8 +1,6 @@
+#Yeah. Their cmake implementation is broken/convoluted
+OPTS+=" -DDEFAULT_API_VERSION=v18" &&
 
-mkdir $MODULE-oosb &&
+default_cmake_config &&
 
-cd hdf5-oosb &&
-
-cmake ../hdf5-1.12.0/ $OPTS &&
-
-default_make
+default_build

@@ -9,7 +9,7 @@ optional_depends openjpeg-2 \
                  "-DENABLE_LIBOPENJPEG=none" \
                  "for using system's libopenjpeg for JPX streams"
 
-optional_depends %JPEG \
+optional_depends libjpeg-turbo \
                  "-DENABLE_DCTDECODER=libjpeg" \
                  "-DENABLE_DCTDECODER=none" \
                  "for using system's jpeg library for DCT streams"
@@ -48,5 +48,10 @@ optional_depends qt5 \
                  "-DENABLE_QT5=ON" \
                  "-DENABLE_QT5=OFF" \
                  "for Qt5 wrapper support"
+
+optional_depends qt6-base \
+                 "-DENABLE_QT6=ON" \
+                 "-DENABLE_QT6=OFF" \
+                 "for Qt6 wrapper support"
 
 optional_depends gobject-introspection "" "" "for introspection support"

@@ -18,13 +18,21 @@ if [ -n "$FAIL" ]; then
   fi
 fi
 
-default_pre_build &&
+validate_source_dir $SOURCE_DIRECTORY   &&
+mk_source_dir $SOURCE_DIRECTORY         &&
+cd $SOURCE_DIRECTORY                    &&
+unpack $SOURCE  &&
+unpack $SOURCE2 &&
+unpack $SOURCE3 &&
+unpack $SOURCE4 &&
+unpack $SOURCE5 &&
+unpack $SOURCE6 &&
 
 # Verify commit ID sanity with upstream docker
 (
   local cfile local_commit docker_commit
   for cfile in tini proxy; do
-    . "components/engine/hack/dockerfile/install/${cfile}.installer"
+    . "moby-$VERSION/hack/dockerfile/install/${cfile}.installer"
   done
   for c in LIBNETWORK TINI; do
     local_commit=_${c}_COMMIT
@@ -34,9 +42,4 @@ default_pre_build &&
       return 1
     fi
   done
-) &&
-
-# Unpack all packages
-unpack $SOURCE2 &&
-unpack $SOURCE3 &&
-unpack $SOURCE4
+)

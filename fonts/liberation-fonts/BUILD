@@ -2,7 +2,8 @@ sedit "s:python23:python2:" Makefile &&
 
 LIBTTF=/usr/share/fonts/liberation-fonts-ttf &&
 
-make  &&
+make build &&
+
 prepare_install  &&
 
 if [ ! -d $LIBTTF ] ; then

@@ -1,6 +1,5 @@
 OPTS+=" --sbindir=/usr/bin \
-        --libexecdir=/usr/lib/sshguard \
-        --with-firewall=iptables"
+        --libexecdir=/usr/lib/sshguard"
 
 default_build &&
 

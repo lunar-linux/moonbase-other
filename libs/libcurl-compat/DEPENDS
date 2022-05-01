@@ -1,5 +1,7 @@
 depends curl
-depends libidn
-depends %OSSL
+depends libidn2
+depends %SSL
 depends zlib
 depends libssh2
+
+optional_depends brotli "--with-brotli" "--without-brotli" "for generic lossless compression support"

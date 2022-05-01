@@ -1,6 +1,13 @@
 depends libpcap
 depends libgudev
+depends gdbus-codegen
 depends gst-plugins-base
+
+optional_depends gobject-introspection \
+                 "-D introspection=enabled" \
+                 "-D introspection=disabled" \
+                 "for introspection support" \
+                 "y"
 
 # required by multiple plugins
 optional_depends libxml2   "" "" "for XML2 support"
@@ -20,17 +27,15 @@ optional_depends orc     "-D orc=enabled"     "-Dorc=disabled"     "for ORC para
 optional_depends mesa-lib    "-D gl=enabled"      "-D gl=disabled"      "for the GL video support"
 optional_depends librsvg     "-D rsvg=enabled"    "-D rsvg=disabled"    "for the SVG support"
 optional_depends curl        "-D curl=enabled"    "-D curl=disabled"    "for curl support"
-optional_depends libvdpau    "-D vdpau=enabled"   "-D vdpau=disabled"   "for NVIDIA video support"
 optional_depends openal      "-D openal=enabled"  "-D openal=disabled"  "for openal audio support"
 optional_depends libsndfile  "-D sndfile=enabled" "-D sndfile=disabled" "for sound files support"
 optional_depends x265        "-D x265=enabled"    "-D x265=disabled"    "for H265 video encoder support"
 optional_depends libwebp     "-D webp=enabled"    "-D webp=disabled"    "for WebP support"
-optional_depends libmms      "-D libmms=enabled"  "-D libmms=disabled"  "for mms streaming plugin"
 optional_depends libsrtp     "-D srtp=enabled"    "-D srtp=disabled"    "for Secure Real-time Transport Protocol support"
 optional_depends faac        "-D faac=enabled"    "-D faac=disabled"    "for the AAC encoder plugin"
 optional_depends faad2       "-D faad=enabled"    "-D faad=disabled"    "for the AAC decoder plugin"
 
-optional_depends soundtouch  "-D soundtouch=enabled"  "-D soundtouch=disabled"  "for audio processing support"
+optional_depends soundtouch  "-D soundtouch=enabled"  "-D soundtouch=disabled"  "for audio processing support,${PROBLEM_COLOR} say no for now${DEFAULT_COLOR}" n 
 optional_depends chromaprint "-D chromaprint=enabled" "-D chromaprint=disabled" "for audio fingerprints extraction support"
 optional_depends fluidsynth  "-D fluidsynth=enabled"  "-D fluidsynth=disabled"  "for real-time synthesizer support"
 
@@ -39,14 +44,10 @@ optional_depends opencv      "-D opencv=enabled"    "-D opencv=disabled"     "fo
 optional_depends openexr     "-D openexr=enabled"   "-D openexr=disabled"    "for HDR images support"
 optional_depends libass      "-D assrender=enabled" "-D assrender=disabled" "for subtitles rendering support"
 optional_depends bluez-5     "-D bluez=enabled"     "-D bluez=disabled"      "for Bluetooth support"
-optional_depends DirectFB    "-D directfb=enabled"  "-D directfb=disabled"   "for the DirectFB video sink"
 optional_depends libmodplug  "-D modplug=enabled"   "-D modplug=disabled"    "for MOD playing support"
 optional_depends wildmidi    "-D wildmidi=enabled"  "-D wildmidi=disabled"   "for MIDI files playing support"
 optional_depends neon        "-D neon=enabled"      "-D neon=disabled"       "for the neon HTTP client plugin"
+optional_depends libbs2b     "-D bs2b=enabled"      "-D bs2b=disabled"       "for sterophonic-to-binaural support"
+optional_depends DirectFB    "-D directfb=enabled"  "-D directfb=disabled"   "for the DirectFB video sink" "n"
 
 optional_depends game-music-emu "-D gme=enabled" "-D gme=disabled" "for playing games music files"
-
-optional_depends gobject-introspection \
-                 "-D introspection=enabled" \
-                 "-D introspection=disabled" \
-                 "for introspection support"

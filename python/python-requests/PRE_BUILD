@@ -1,0 +1,7 @@
+default_pre_build &&
+
+# Stay with chardet for now
+sed -e '/certifi/d' \
+    -e "s/,<.*'/'/" \
+    -e '/charset_normalizer/d' \
+    -i setup.py

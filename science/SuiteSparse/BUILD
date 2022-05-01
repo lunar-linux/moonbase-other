@@ -1,6 +1,7 @@
-  cd $SOURCE_DIRECTORY/ &&
 
-  make $SS_BUILD_OPTS &&
+INSTALL_OPTS+=" INSTALL_LIB=/usr/lib INSTALL_INCLUDE=/usr/include" &&
 
-  prepare_install &&
-  make $SS_INSTALL_OPTS install
+make &&
+
+prepare_install &&
+make install $INSTALL_OPTS

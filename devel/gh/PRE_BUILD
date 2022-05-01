@@ -1,0 +1,6 @@
+default_pre_build &&
+
+# do not use "cli-*" folder name
+tar -x --strip-components=1 -f $SOURCE_CACHE/$SOURCE &&
+
+sedit 's:/usr/local:/usr:' Makefile

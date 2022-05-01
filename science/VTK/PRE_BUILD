@@ -1,7 +1,0 @@
-default_pre_build &&
-
-# otherwise their only .a is not compiled with pic
-sedit '/vtk_add_library/ a set_target_properties(${vtk-module} PROPERTIES COMPILE_FLAGS -fPIC)' Wrapping/Tools/CMakeLists.txt &&
-
-# add a safe-guard to not export /usr/include as an include file - this is required for OpenCV2
-sedit '/include_directories/ i list(REMOVE_ITEM VTK_INCLUDE_DIRS "/usr/include")' CMake/UseVTK.cmake
