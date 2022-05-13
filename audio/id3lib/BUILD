@@ -1,3 +1,8 @@
+libtoolize -fc &&
+aclocal &&
+autoconf &&
+automake --add-missing --copy &&
+
 OPTS+=" --disable-static" &&
 
 default_config &&
