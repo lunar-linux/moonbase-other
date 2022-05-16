@@ -41,7 +41,8 @@ optional_depends db \
                  "for Berkeley DB4 support"
 
 optional_depends sqlite \
-                 "--with-sqlite3=shared,/usr --with-pdo-sqlite=shared,/usr" "" \
+                 "--with-sqlite3=shared,/usr --with-pdo-sqlite=shared,/usr" \
+				 "--without-sqlite3 --without-pdo-sqlite" \
                  "for PDO SQLite support"
 
 optional_depends %MYSQL \
@@ -49,7 +50,8 @@ optional_depends %MYSQL \
                  "for native MySQL support"
 
 optional_depends postgresql \
-                 "--with-pgsql=shared --with-pdo-pgsql=shared" "" \
+                 "--with-pgsql=shared --with-pdo-pgsql=shared" \
+				 "--without-pgsql --without-pdo-pgsql" \
                  "for PostgreSQL support"
 
 optional_depends unixODBC \
