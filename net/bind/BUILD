@@ -1,6 +1,7 @@
 add_priv_user bind:bind
 
 OPTS+=" --disable-static \
+        --disable-doh \
         --enable-fixed-rrset \
         --enable-full-report \
         --with-zlib"
