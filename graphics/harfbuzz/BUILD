@@ -1,3 +1,6 @@
+export CFLAGS="${CFLAGS/-fexceptions/}"
+export CXXFLAGS="${CXXFLAGS/-fexceptions/}"
+
 OPTD+=" -D tests=disabled \
         -D benchmark=disabled"
 
