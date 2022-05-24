@@ -30,6 +30,9 @@ if [[ "$ENABLE_EXPER" == "y" ]]; then
   install tools/bdaddr  /usr/bin/
 fi &&
 
+#bluez systemd service fails without localstatedir present
+mkdir -p /var/lib/bluetooth
+
 # Needed by libpcap
 install lib/mgmt.h /usr/include/bluetooth &&
 
