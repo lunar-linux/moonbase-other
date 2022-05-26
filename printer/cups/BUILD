@@ -9,9 +9,8 @@ OPTS+=" --disable-static \
 
 default_config &&
 
-sedit "s:-strong ::" Makedefs &&
-sedit "s:-Os -g::" Makedefs &&
-sedit "s:-fstack-protector::" Makedefs &&
+sedit "s:-fstack-protector-strong ::" Makedefs &&
+sedit "s:-Os -g ::" Makedefs &&
 
 default_make &&
 

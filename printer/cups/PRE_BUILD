@@ -2,11 +2,7 @@ default_pre_build &&
 
 # mantohtml segfaults over here when used with installwatch
 # also it just makes more sense to build files at _build_ time
-sedit 's@cups test@\0 man@' Makefile &&
-sedit 's@MAN8) html@MAN8)@' man/Makefile &&
-
-# do not gzip man pages
-sedit 's@.gz@@g' config-scripts/cups-manpages.m4 &&
+sedit 's@MAN8) mantohtml@MAN8)@' man/Makefile &&
 
 # do not export ssllibs
 #sedit 's@EXPORT_SSLLIBS="$SSLLIBS"@EXPORT_SSLLIBS=""@' config-scripts/cups-ssl.m4 &&
