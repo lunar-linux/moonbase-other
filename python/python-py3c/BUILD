@@ -1,0 +1,10 @@
+sed -i 's/install: py3c.pc/install:/' Makefile &&
+python setup.py build &&
+make prefix=/usr py3c.pc &&
+
+sedit 's:/usr/local:/usr:' py3c.pc &&
+sedit 's|#Requires: python3|Requires: python3|' py3c.pc
+
+prepare_install &&
+python setup.py install --root=/ &&
+make prefix=/usr install
