@@ -3,7 +3,7 @@ cd $SOURCE_DIRECTORY/$MODULE-$VERSION.src/build &&
 cmake .. -G Ninja \
          -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
          -DCMAKE_BUILD_TYPE=RELEASE \
-         -DSYSCONF_INSTALL_DIR:PATH=/etc \
+         -DSYSCONF_INSTALL_DIR=/etc \
          -DBUILD_TESTING=0 \
          -DLLVM_LINK_LLVM_DYLIB=ON \
          -DLLVM_BUILD_TESTS=OFF \
