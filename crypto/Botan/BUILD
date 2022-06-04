@@ -3,9 +3,8 @@ OPTS+="  --prefix=/usr  \
          --with-boost   \
          --with-bzip2   \
          --with-lzma    \
-         --with-openssl \
          --with-sqlite3 \
-         --with-os-feature=getrandom \
+         --with-os-feature=getrandom,getentropy \
          --with-zlib"
 
 CXXFLAGS="$CXXFLAGS -O3" ./configure.py $OPTS &&
