@@ -2,20 +2,19 @@ default_pre_build &&
 
 tar xf $SOURCE_CACHE/$SOURCE2 && 
 
-sed -e 's|HAVE_QT5|HAVE_QT|' -i opencv_contrib-$VERSION/modules/cvv/CMakeLists.txt &&
-
-sed -e '/ocv_tbb_cmake_guess(HAVE_TBB)/d' -i cmake/OpenCVDetectTBB.cmake &&
-
-sedit '6d' cmake/templates/opencv-XXX.pc.in &&
-
 if in_depends $MODULE lapack ; then
   OPTS+=" -DLAPACK_LIBRARIES=/usr/lib/liblapack.so;/usr/lib/libblas.so;/usr/lib/libcblas.so \
           -DLAPACK_CBLAS_H=/usr/include/lapack/cblas.h \
           -DLAPACK_LAPACKE_H=/usr/include/lapack/lapacke.h"
 fi &&
 
-if in_depends $MODULE qt5 ; then
-  . /etc/profile.d/qt5.rc
+#This is temporary until they provide a way to choose which qt(5,6) to use.
+#With both installed it defaults to qt6 and the compile tanks.
+if in_depends $MODULE qt5 || module_installed qt6-base ; then
+#  . /etc/profile.d/qt5.rc &&
+#  OPTS+=" -DWITH_QT=ON"
+# else
+  OPTS+=" -DWITH_QT=OFF"
 fi &&
 
 if in_depends $MODULE libpng ; then

@@ -1,5 +1,10 @@
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
 export LIBPOSTFIX=/
 export CXXFLAGS+=' -fPIC -fpermissive' &&
+
+#graphviz does not support php-8.x
+OPTS+=" --disable-php"
 
 if in_depends $MODULE %JAVA_SDK; then
   --with-javaincludedir=/usr/lib/java/latest/include/ &&

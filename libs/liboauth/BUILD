@@ -1,4 +1,5 @@
+autoreconf -fi &&
 
-  OPTS+=" --enable-nss --disable-static" &&
+OPTS+=" --enable-nss --disable-static" &&
 
-  default_build
+default_build
