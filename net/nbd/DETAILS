@@ -1,0 +1,21 @@
+          MODULE=nbd
+         VERSION=3.24
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
+      SOURCE_URL=https://github.com/NetworkBlockDevice/nbd/archive/refs/tags/
+      SOURCE_VFY=sha256:d9d365c569ee83af767707907e6deab964c74bacf9441f432bf56a3f8db1f4ae
+        WEB_SITE=https://nbd.sourceforge.io/
+         ENTERED=20220730
+         UPDATED=20220730
+           SHORT="Allows using a remote server as one of its block devices"
+
+cat << EOF
+What is it: With this compiled into your kernel, Linux can use a remote server
+as one of its block devices. Every time the client computer wants to read
+/dev/nbd0, it will send a request to the server via TCP, which will reply with
+the data requested. This can be used for stations with low disk space (or even
+diskless - if you use an initrd) to borrow disk space from other computers.
+Unlike NFS, it is possible to put any file system on it. But (also unlike NFS),
+if someone has mounted NBD read/write, you must assure that no one else will
+have it mounted.
+EOF
