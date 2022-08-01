@@ -4,6 +4,6 @@
   cd rbutil/rbutilqt/ &&
   sedit "s:/usr/local:/usr:g" rbutilqt.pro &&
 
-  qmake &&
+  qmake-qt5 &&
 
   default_make
