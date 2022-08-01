@@ -1,6 +1,6 @@
 . /etc/profile.d/qt5.rc &&
 
-QT_SELECT=qt5 qmake PREFIX=/usr -config release $OPTS &&
+QT_SELECT=qt5 qmake-qt5 PREFIX=/usr -config release $OPTS &&
 
 default_make &&
 prepare_install &&
