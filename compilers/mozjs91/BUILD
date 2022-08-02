@@ -22,7 +22,7 @@ mk_add_options MOZ_OBJDIR=$SOURCE_DIRECTORY/obj
 mk_add_options MOZ_NOSPAM=1
 END
 
-if in_depends $MODULE llvm; then
+if in_depends $MODULE lld; then
   export CC=clang
   export CXX=clang++
   export AR=llvm-ar
