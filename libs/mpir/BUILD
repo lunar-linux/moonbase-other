@@ -1,6 +1,4 @@
-default_pre_build
-
-autoreconf -vfi &&
-
 # mpirxx.h is needed by libalkimia
 OPTS+=" --enable-cxx"
+
+default_build
