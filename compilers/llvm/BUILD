@@ -2,6 +2,7 @@ TARGETS="${TARGETS:=X86;AMDGPU;BPF}" &&
 
 OPTS+=" -DLLVM_ENABLE_RTTI=ON \
         -DLLVM_BUILD_TESTS=OFF \
+        -DLLVM_INCLUDE_BENCHMARKS=OFF \
         -DLLVM_INSTALL_UTILS=ON \
         -DLLVM_ENABLE_SPHINX=OFF \
         -DLLVM_ENABLE_DOXYGEN=OFF \
@@ -16,7 +17,6 @@ OPTS+=" -DLLVM_ENABLE_RTTI=ON \
 default_cmake_build &&
 
 #This is needed by lld
-  pushd ../utils/lit &&
-  python3 setup.py install --root=/ -O1 &&
-  popd
-
+pushd ../utils/lit &&
+python3 setup.py install --root=/ -O1 &&
+popd
