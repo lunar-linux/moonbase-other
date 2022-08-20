@@ -27,6 +27,7 @@ OPTS+=" --enable-compat-howl \
         --disable-static \
         --disable-qt3 \
         --disable-qt4 \
+        --disable-manpages \
         --with-distro=none \
         --sbindir=/usr/bin" &&
 
