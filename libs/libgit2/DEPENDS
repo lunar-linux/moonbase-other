@@ -2,8 +2,7 @@ depends cmake
 depends curl
 depends %OSSL
 depends zlib
-
-optional_depends libssh2 "" "" "for SSH support"
+depends libssh2
 
 optional_depends http-parser \
                  "-DUSE_HTTPS=ON -DUSE_HTTP_PARSER=system" "" \
