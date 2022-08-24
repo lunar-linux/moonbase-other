@@ -17,10 +17,6 @@ else
   OPTS+=" --without-libxml2 --without-expat"
 fi &&
 
-if module_installed ca-certificates; then
-  OPTS+=" --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt"
-fi &&
-
-OPTS+=" --enable-shared --disable-static --disable-nls" &&
+OPTS+=" --with-ca-bundle=/etc/ssl/certs/ca-certificates.crt --enable-shared --disable-static"
 
 default_build
