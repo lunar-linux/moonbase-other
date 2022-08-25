@@ -1,3 +1,6 @@
+# A gcc-12.1.1 tweak
+sedit '39i #include <ctime>' include/openbabel/obutil.h &&
+
 OPTS+=" -DBUILD_MIXED=ON -DOPTIMIZE_NATIVE=ON -DENABLE_TESTS=OFF -DWITH_MAEPARSER=OFF"
 
   default_cmake_build &&
