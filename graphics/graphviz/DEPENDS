@@ -10,9 +10,7 @@ depends pkgconf
 optional_depends urw-fonts "" "" "extra fonts for XOrg X11"
 
 optional_depends ghostscript "--with-ghostscript" "--without-ghostscript" "for Postscript support"
-optional_depends %JAVA_SDK "--enable-java"    "--disable-java"    "for java support"
-optional_depends python    "--enable-python3" "--disable-python3" "for Python 3.x support"
-optional_depends python2   "--enable-python"  "--disable-python"  "for Python 2.x support"
+optional_depends %JAVA_SDK   "--enable-java=yes"  "--disable-java"        "for java support"
 
 optional_depends perl    "--enable-perl" "--disable-perl"  "perl support"
 optional_depends R       "--enable-r"    "--disable-r"     "for R language support"
@@ -21,6 +19,7 @@ optional_depends glitz   "--with-glitz"  "--without-glitz" "for OpenGL image com
 optional_depends libLASi "--with-lasi"   "--without-lasi"  "for C++ stream output to create Postscript documents"
 optional_depends libwebp "--with-webp"   "--without-webp"  "for WebP image support"
 optional_depends qt5     "--with-qt=yes" "--with-qt=no"    "for Qt5 support" "n"
+optional_depends ming    "--with-ming"   "--without-ming"  "for flash support"
 
 optional_depends cairo "" "" "for 2D vector graphics library"
 optional_depends pango "" "" "for text layout/rendering library"
@@ -31,7 +30,6 @@ optional_depends swig  "" "--disable-swig"  "for swig support"
 optional_depends guile "" "--disable-guile" "for guile support"
 optional_depends ocaml "" "--disable-ocaml" "for ocaml support"
 
-optional_depends ming "--with-ming"   "--without-ming" "for flash support"
 
 optional_depends devil "--with-devil --with-devillibdir=/usr/lib/ \
                         --with-devilincludedir=/usr/include/IL/" "" \
@@ -42,3 +40,5 @@ optional_depends ruby "--enable-ruby" "--disable-ruby" "for ruby support" "n"
 
 # Circular depend with vala
 #optional_depends librsvg "--with-rsvg" "--without-rsvg" "for SVG graphics support"
+
+optional_depends python "--enable-python3 --disable-python --enable-lefty" "--disable-python3" "for Python 3.x support"
