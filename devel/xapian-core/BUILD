@@ -1,0 +1,3 @@
+CXXFLAGS=${CXXFLAGS/-Wp,-D_GLIBCXX_ASSERTIONS}
+
+default_build
