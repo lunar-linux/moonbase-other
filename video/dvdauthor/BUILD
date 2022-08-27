@@ -1,5 +1,5 @@
-  sed -e 's|freetype-config|pkg-config freetype2|' -i configure.ac &&
+sed -e 's|freetype-config|pkg-config freetype2|' -i configure.ac &&
 
-  autoreconf &&
+autoreconf -fi &&
 
-  default_build
+default_build
