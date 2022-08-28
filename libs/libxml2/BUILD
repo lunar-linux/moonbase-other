@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 OPTS+=" --prefix=/usr --with-history --with-threads --disable-static" &&
 mkdir build-py3 &&
 pushd build-py3 &&
