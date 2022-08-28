@@ -4,4 +4,4 @@ cd build/gio/gdbus-2.0/codegen &&
 
 prepare_install &&
 
-python setup.py install
+python3 setup.py install
