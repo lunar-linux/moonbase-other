@@ -3,7 +3,7 @@ chown -R root /usr/lib/node_modules &&
 
 # install it in a temp directory
 mkdir -p $SOURCE_DIRECTORY/man/man1 &&
-mkdir -p $SOURCE_DIRECTORY/npm_build &&
+mkdir -p $SOURCE_DIRECTORY/npm_build/usr/share &&
 make DESTDIR=$SOURCE_DIRECTORY/npm_build install &&
 
 # remove some unneeded directories
