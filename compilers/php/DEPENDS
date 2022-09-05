@@ -21,10 +21,6 @@ optional_depends mhash \
                  "--with-mhash" "" \
                  "for hash functions support"
 
-optional_depends mcrypt \
-                 "--with-mcrypt=shared" "" \
-                 "for crypto library"
-
 optional_depends gmp \
                  "--with-gmp=shared" "" \
                  "GNU math lib support"
@@ -60,7 +56,7 @@ optional_depends unixODBC \
                  "for unixODBC support"
 
 optional_depends freetype2 \
-                 "--with-freetype-dir=/usr" "" \
+                 "--with-freetype" "--without-freetype" \
                  "for freetype2 support"
 
 optional_depends curl \
@@ -74,10 +70,6 @@ optional_depends libxslt \
 optional_depends openldap \
                  "--with-ldap=shared" "" \
                  "for ldap support"
-
-optional_depends libzip \
-                 "--with-libzip=/usr" "" \
-                 "for libzip support"
 
 optional_depends bzip2 \
                  "--with-bz2=shared" "" \
