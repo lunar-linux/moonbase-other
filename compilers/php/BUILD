@@ -15,7 +15,7 @@ OPTS+=" --sbindir=/usr/bin \
         --enable-zend-signals" &&
 
 OPTS+=" --enable-ftp=shared \
-        --enable-zip=shared \
+        --with-zip \
         --enable-dba=shared \
         --enable-exif=shared \
         --enable-intl=shared \
