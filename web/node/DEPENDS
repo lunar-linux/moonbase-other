@@ -2,9 +2,10 @@ depends python
 depends procps
 depends c-ares
 
-optional_depends libuv "--shared-libuv"   "" "for system installed libuv"
-optional_depends %OSSL "--shared openssl" "" "for system installed openssl"
-optional_depends zlib  "--shared-zlib"    "" "for system installed zlib"
+optional_depends libuv  "--shared-libuv"   "" "for system installed libuv"
+optional_depends %OSSL  "--shared openssl" "" "for system installed openssl"
+optional_depends zlib   "--shared-zlib"    "" "for system installed zlib"
+optional_depends brotli "--shared-brotli"  "" "for system installed brotli"
 
 optional_depends icu4c \
                  "--with-intl=system-icu" "" \
