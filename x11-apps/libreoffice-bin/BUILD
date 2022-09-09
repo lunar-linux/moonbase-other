@@ -1,9 +1,8 @@
 # not sure what this rpm is for, but its not there in 32bit OO, so I removed it
-#rm -rf userland &&
-LO_OPT_DIR="/usr/lib/libreoffice${VERSION::3}"
+LO_OPT_DIR="/usr/lib/libreoffice${VERSION%.*}"
 
 message "${MESSAGE_COLOR}Unpacking base RPMs and installing...${DEFAULT_COLOR}" &&
-for pack in RPMS/*.rpm ; do rpm2cpio $pack > `basename $pack .rpm`.cpio ; done &&
+for pack in RPMS/*.rpm ; do bsdtar -xf $pack > `basename $pack .rpm` ; done &&
 for i in `ls *.cpio`; do cpio -idmuV < $i ;done &&
 
 desktopfiles="base calc draw impress math startcenter writer xsltfilter" &&
