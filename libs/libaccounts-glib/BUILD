@@ -1,6 +1,3 @@
-#touch INSTALL &&
+export XML_CATALOG_FILES=/etc/xml/catalog &&
 
-#./autogen.sh &&
-
-#default_build
 default_meson_build
