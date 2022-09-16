@@ -1,3 +1,4 @@
+sedit 's:@SBIN_DIR@:/usr/sbin:' contrib/Fedora/haveged.service &&
 default_build &&
 
 if module_installed systemd; then
