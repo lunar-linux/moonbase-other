@@ -1,0 +1,15 @@
+          MODULE=media-types
+         VERSION=8.0.0
+          SOURCE=${MODULE}_$VERSION.tar.xz
+      SOURCE_URL=http://deb.debian.org/debian/pool/main/m/$MODULE/
+      SOURCE_VFY=sha256:85f9b3ccbb6bc8dc0fff47105726ca1877ac2011cc7e8244ab276d5583f4890e
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE
+        WEB_SITE=https://packages.debian.org/sid/media-types
+         ENTERED=20220613
+         UPDATED=20220613
+        REPLACES=mime-types
+           SHORT="Provides /etc/mime.types"
+
+cat << EOF
+Provides the file /etc/mime.types.
+EOF
