@@ -22,11 +22,15 @@
   export PY_BASE_LINK_DIR=../lib/python${PY_VER}/site-packages/astrometry \
   export DATA_FINAL_DIR=/usr/share/astrometry &&
 
-# Stomps on cfitis, hammer time
-  make &&
-  prepare_install &&
-  make install &&
-  rm /usr/bin/fitscopy /usr/bin/imcopy &&
+# They stomp on those provided by cfitsio and astormetry depends
+# on cfitsio so we just prevent them being build
+  sedit 's:imcopy::' solver/Makefile &&
+  sedit 's:fitscopy::' solver/Makefile &&
+
+  default_make &&
+
+# lunar fix says its missing even though its not
+  install -Dm755 plot/plotann.py /usr/bin/plotann.py &&  
 
   mkdir -p /usr/share/astrometry/data &&
   sed -e "s|/usr/share/astrometry|/usr/share/astrometry/data|" -i /etc/astrometry/astrometry.cfg
