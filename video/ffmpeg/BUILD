@@ -15,7 +15,6 @@ OPTS+=" --disable-static  \
         --enable-pthreads \
         --enable-postproc \
         --enable-avfilter \
-        --enable-avresample \
         --disable-libopencv"
 
 if [ -n $CPU ] ; then
