@@ -12,6 +12,7 @@ if in_depends $MODULE sun-jdk; then
 fi &&
 
 OPTS+=" --disable-static \
+        --with-utf8proc=internal \
         --with-apr=`which apr-$(installed_version apr | cut -d. -f1)-config` \
         --with-apr-util=`which apu-$(installed_version apr-util | cut -d. -f1)-config`"
 
