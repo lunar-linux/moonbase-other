@@ -1,6 +1,7 @@
 depends libpng
+depends %JPEG
 depends SDL2
 
-optional_depends %JPEG   "--enable-jpeg-shared" "--disable-jpeg" "support JPG images"
 optional_depends tiff    "--enable-tif-shared"  "--disable-tif"  "support TIFF images"
 optional_depends libwebp "--enable-webp-shared" "--disable-webp" "support WEBP images"
+optional_depends libavif "--enable-avif-shared" "--disable-avif" "support AVIF images"
