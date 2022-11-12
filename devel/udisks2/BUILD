@@ -1,5 +1,4 @@
 OPTS+=" --disable-man \
-        --disable-static \
-        --enable-available-modules"
+        --disable-static"
 
 default_build

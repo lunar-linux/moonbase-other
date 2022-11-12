@@ -1,0 +1,10 @@
+depends docbook-utils
+depends autoconf-archive
+
+optional_depends gnutls \
+                 "--with-gnutls" "--without-gnutls" \
+                 "For encryption support with gnutls"
+
+optional_depends libnl3 \
+                 "--with-libnl" "--without-libnl" \
+                 "For support for netlink sockets"

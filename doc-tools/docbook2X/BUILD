@@ -1,6 +1,8 @@
-autoreconf -i -f &&
+./configure \
+    --prefix=/usr \
+    --mandir=/usr/share/man \
+    --with-xslt-processor=libxslt \
+    --program-transform-name 's,docbook2,db2x_docbook2,' \
+    $OPTS &&
 
-OPTS+=" --mandir=/usr/share/man \
-        --program-transform-name 's,db2x_d,d,'"
-
-default_build
+default_make

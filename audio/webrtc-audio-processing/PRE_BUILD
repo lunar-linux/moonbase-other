@@ -1,3 +1,7 @@
 default_pre_build &&
 
-sed -i 's!absl_flags_registry!absl_flags_reflection!g' meson.build
+sed -i 's!absl_flags_registry!absl_flags_reflection!g' meson.build &&
+
+sed -i '/vector/a #include <memory>' webrtc/modules/audio_processing/aec3/reverb_model_estimator.h &&
+
+OPTS+=" -Dc_std=c17 -Dcpp_std=c++17"

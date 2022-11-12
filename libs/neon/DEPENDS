@@ -1,15 +1,8 @@
-depends %XMLRENDERER
 depends %SSL
 depends zlib
+depends ca-certificates
+depends expat
 
-optional_depends libproxy \
-                 "--with-libproxy" \
-                 "--without-libproxy" \
-                 "for libproxy support" \
-                 "n"
-
-optional_depends %KERBEROS \
-                 "--with-gssapi" \
-                 "--without-gssapi" \
-                 "for heimdal support" \
-                 "n"
+optional_depends libproxy "--with-libproxy" "--without-libproxy" "for libproxy support" "n"
+optional_depends pakchois "--with-pakchois" "--without-pakchois" "for PKCS #11 wrapper support" "n"
+optional_depends krb5     "--with-gssapi"   "--without-gssapi"   "for heimdal support" "n"

@@ -1,3 +1,5 @@
+export XML_CATALOG_FILES=/etc/xml/catalog
+
 make PREFIX="/usr" VARPREFIX="/var" CONFIGDIR="/etc" isolate isolate.1 &&
 
 prepare_install &&

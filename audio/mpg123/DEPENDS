@@ -1,3 +1,9 @@
-optional_depends alsa-utils \
-                 "--with-audio=alsa" "" \
-                 "use ALSA audio output sub-system"
+optional_depends portaudio  "" "" "for portaudio support"
+optional_depends alsa-utils "" "" "for ALSA audio output sub-system"
+optional_depends alsa-oss   "" "" "for alsa-oss support"
+optional_depends nas        "" "" "for network audio support"
+optional_depends openal     "" "" "for openal audio support"
+optional_depends pulseaudio "" "" "for pulseaudio support"
+optional_depends jack2      "" "" "for jack2 audio support"
+
+optional_depends yasm       "--enable-runtime-tables=yes" "" "use yasm for AVX?"

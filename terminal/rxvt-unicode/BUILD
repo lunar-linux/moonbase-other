@@ -8,12 +8,8 @@ OPTS+=" --enable-mousewheel \
         --enable-rxvt-scroll \
         --enable-combining \
         --enable-unicode3 \
-        --enable-lastlog \
         --enable-fading \
-        --enable-utmp \
-        --enable-wtmp \
-        --enable-xim \
-        --enable-lastlog"
+        --enable-xim"
 
 default_build &&
 chmod 644 README* Changes INSTALL &&

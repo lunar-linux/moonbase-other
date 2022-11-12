@@ -12,7 +12,6 @@ optional_depends %JAVA_SDK "--enable-java"     "--disable-java"     "for java su
 optional_depends fltk      "--with-fltk"       "--without-fltk"     "for fltk support"
 optional_depends qt5       "--with-qt=5"       "--without-qt"       "build Qt-GUI"
 optional_depends arpack-ng "--with-arpack"     "--without-arpack"   "for eigenvalue operations"
-optional_depends qhull     "--with-qhull"      "--without-qhull"    "for qhull support"
 optional_depends qrupdate  "--with-qrupdate"   "--without-qrupdate" "for fast QR & Cholesky updating functions"
 optional_depends readline  "--enable-readline" "--disable-readline" "for readline support"
 optional_depends curl      "--with-curl"       "--without-curl"     "for curl support"
@@ -28,6 +27,8 @@ optional_depends GraphicsMagick \
                  "for reading and writing images"
 
 optional_depends SuiteSparse \
-                 "--with-amd --with-camd --with-colamd --with-ccolamd --with-cholmod --with-cxsparse --with-umfpack" \
-                 "--without-amd --without-camd --without-colamd --without-ccolamd --without-cholmod --without-cxsparse --without-umfpack" \
+                 "--with-suitesparseconfig-includedir=/usr/include" \
+                 "--without-suitesparseconfig" \
                  "for matrix support (Recommended)"
+
+optional_depends qhull "--with-qhull_r-libdir=/usr/lib" "--without-qhull_r" "for qhull support"

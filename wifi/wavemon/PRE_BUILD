@@ -1,7 +1,7 @@
 default_pre_build &&
 
-# Lets forgo demos
-sedit '/^SUBDIRS/{:x;/\\$/{N;bx;};s/[ \t\n\\]*demos//;}' Makefile.in &&
-sedit "s:demos::" Makefile.in &&
+sed -e '/^CFLAGS=/d' -i configure.ac
+sed -r 's|(/share)|\1/doc|g' -i Makefile.in
+sed -r 's|\?=|=|g' -i Makefile.in
 
 autoreconf -fiv

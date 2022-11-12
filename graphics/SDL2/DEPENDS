@@ -6,7 +6,7 @@ optional_depends dbus \
                  "--disable-dbus" \
                  "for D-Bus support"
 
-optional_depends %UDEV \
+optional_depends systemd \
                  "--enable-libudev" \
                  "--disable-libudev" \
                  "for udev support"
@@ -56,5 +56,4 @@ optional_depends wayland \
 optional_depends DirectFB \
                  "--enable-video-directfb --enable-directfb-shared" \
                  "--disable-video-directfb" \
-                 "for DirectFB video driver" \
-                 "n"
+                 "for DirectFB video driver ${PROBLEM_COLOR}Say no if you want to compile ogre ${DEFAULT_COLOR}"

@@ -16,8 +16,12 @@ depends libffi
 depends nasm
 depends node
 depends unzip
+depends diffutils
 depends mesa-lib
+depends yasm
 depends zip
+depends python-setuptools
+depends python-zstandard
 
 optional_depends libpng \
                  "--with-system-png" \
@@ -38,11 +42,6 @@ optional_depends icu4c \
                  "--with-system-icu" \
                  "--without-system-icu" \
                  "Use system icu4c library"
-
-#optional_depends pipewire \
-#                 "--enable-pipewire" \
-#                 "--disable-pipewire"  \
-#                 "Build pipewire sound backend"
 
 optional_depends pulseaudio \
                  "--enable-pulseaudio" \

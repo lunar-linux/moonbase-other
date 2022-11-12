@@ -1,10 +1,3 @@
-sed -i "/ldconfig/d" wscript &&
+OPTS+=" -D docs=disabled"
 
-python ./waf configure --prefix=/usr \
-                        --mandir=/usr/share/man
-
-python ./waf build &&
-
-prepare_install &&
-
-python ./waf install
+default_meson_build
