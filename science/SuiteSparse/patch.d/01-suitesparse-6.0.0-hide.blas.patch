@@ -1,0 +1,345 @@
+From 769870a0d3304d93097d346dc466e8015bf4bab9 Mon Sep 17 00:00:00 2001
+From: Tim Davis <DrTimothyAldenDavis@gmail.com>
+Date: Fri, 11 Nov 2022 17:39:19 -0500
+Subject: [PATCH] hide BLAS definitions from user applications
+
+---
+ CHOLMOD/CMakeLists.txt                         |  2 +-
+ CHOLMOD/Doc/ChangeLog                          |  4 ++++
+ CHOLMOD/Doc/cholmod_version.tex                |  2 +-
+ CHOLMOD/Include/cholmod.h                      |  2 +-
+ CHOLMOD/Include/cholmod_internal.h             |  1 +
+ CHOLMOD/Tcov/cm.h                              |  1 +
+ ChangeLog                                      |  6 ++++++
+ README.md                                      |  2 +-
+ SPQR/CMakeLists.txt                            |  2 +-
+ SPQR/Doc/ChangeLog                             |  4 ++++
+ SPQR/Doc/spqr_version.tex                      |  2 +-
+ SPQR/Include/SuiteSparseQR_definitions.h       |  2 +-
+ SPQR/Include/spqr.hpp                          |  1 +
+ SPQR/Tcov/qrtestc.c                            |  1 -
+ SuiteSparse_config/CMakeLists.txt              |  2 +-
+ .../Config/SuiteSparse_config.h.in             | 16 ++++++++++++++++
+ SuiteSparse_config/SuiteSparse_config.h        | 18 +++++++++++++++++-
+ UMFPACK/CMakeLists.txt                         |  2 +-
+ UMFPACK/Doc/ChangeLog                          |  4 ++++
+ UMFPACK/Doc/umfpack_version.tex                |  2 +-
+ UMFPACK/Include/umfpack.h                      |  2 +-
+ UMFPACK/Source/umf_internal.h                  |  1 +
+ 22 files changed, 66 insertions(+), 13 deletions(-)
+
+diff --git a/CHOLMOD/CMakeLists.txt b/CHOLMOD/CMakeLists.txt
+index fcbc5c425..aff0c7a25 100644
+--- a/CHOLMOD/CMakeLists.txt
++++ b/CHOLMOD/CMakeLists.txt
+@@ -15,7 +15,7 @@ cmake_minimum_required ( VERSION 3.22 )
+ set ( CHOLMOD_DATE "Nov 12, 2022" )
+ set ( CHOLMOD_VERSION_MAJOR 4 )
+ set ( CHOLMOD_VERSION_MINOR 0 )
+-set ( CHOLMOD_VERSION_SUB   0 )
++set ( CHOLMOD_VERSION_SUB   1 )
+ 
+ message ( STATUS "Building CHOLMOD version: v"
+     ${CHOLMOD_VERSION_MAJOR}.
+diff --git a/CHOLMOD/Doc/ChangeLog b/CHOLMOD/Doc/ChangeLog
+index 864aec531..3f7995fc5 100644
+--- a/CHOLMOD/Doc/ChangeLog
++++ b/CHOLMOD/Doc/ChangeLog
+@@ -1,3 +1,7 @@
++Nov 12, 2022: version 4.0.1
++
++    * BLAS definitions: no longer exposed to the user application
++
+ Nov 12, 2022: version 4.0.0
+ 
+     * using CMake build system
+diff --git a/CHOLMOD/Doc/cholmod_version.tex b/CHOLMOD/Doc/cholmod_version.tex
+index 194eb45b9..0daae1043 100644
+--- a/CHOLMOD/Doc/cholmod_version.tex
++++ b/CHOLMOD/Doc/cholmod_version.tex
+@@ -1,2 +1,2 @@
+ % version of SuiteSparse/CHOLMOD
+-\date{VERSION 4.0.0, Nov 12, 2022}
++\date{VERSION 4.0.1, Nov 12, 2022}
+diff --git a/CHOLMOD/Include/cholmod.h b/CHOLMOD/Include/cholmod.h
+index 4769b3024..d0c8981b5 100644
+--- a/CHOLMOD/Include/cholmod.h
++++ b/CHOLMOD/Include/cholmod.h
+@@ -100,7 +100,7 @@
+ #define CHOLMOD_DATE "Nov 12, 2022"
+ #define CHOLMOD_MAIN_VERSION   4
+ #define CHOLMOD_SUB_VERSION    0
+-#define CHOLMOD_SUBSUB_VERSION 0
++#define CHOLMOD_SUBSUB_VERSION 1
+ 
+ /* make it easy for C++ programs to include CHOLMOD */
+ #ifdef __cplusplus
+diff --git a/CHOLMOD/Include/cholmod_internal.h b/CHOLMOD/Include/cholmod_internal.h
+index 379be06e6..763f020b2 100644
+--- a/CHOLMOD/Include/cholmod_internal.h
++++ b/CHOLMOD/Include/cholmod_internal.h
+@@ -30,6 +30,7 @@
+ #ifndef CHOLMOD_INTERNAL_H
+ #define CHOLMOD_INTERNAL_H
+ 
++#define SUITESPARSE_BLAS_DEFINITIONS
+ #include "cholmod.h"
+ 
+ /* ========================================================================== */
+diff --git a/CHOLMOD/Tcov/cm.h b/CHOLMOD/Tcov/cm.h
+index c47a46bdf..b8655544f 100644
+--- a/CHOLMOD/Tcov/cm.h
++++ b/CHOLMOD/Tcov/cm.h
+@@ -8,6 +8,7 @@
+ 
+ //------------------------------------------------------------------------------
+ 
++#define SUITESPARSE_BLAS_DEFINITIONS
+ #include "cholmod.h"
+ #include <stdlib.h>
+ #include <stdio.h>
+diff --git a/ChangeLog b/ChangeLog
+index 722a3bf06..ae3f43462 100644
+--- a/ChangeLog
++++ b/ChangeLog
+@@ -1,3 +1,9 @@
++Nov 12, 2022: SuiteSparse 6.0.1
++
++    * BLAS: C prototypes for the Fortan BLAS were unintentionally exposed to
++        the user application.  Removed.  If you want to use them, see the
++        instructions in SuiteSparse_config.h.
++
+ Nov 12, 2022: SuiteSparse 6.0.0
+ 
+     * major update: using CMake build system for all packages
+diff --git a/README.md b/README.md
+index 7e8cd7b6c..43cdce36c 100644
+--- a/README.md
++++ b/README.md
+@@ -2,7 +2,7 @@
+ SuiteSparse:  A Suite of Sparse matrix packages at http://suitesparse.com
+ -----------------------------------------------------------------------------
+ 
+-Nov 12, 2022.  SuiteSparse VERSION 6.0.0
++Nov 12, 2022.  SuiteSparse VERSION 6.0.1
+ 
+ SuiteSparse is a set of sparse-matrix-related packages written or co-authored
+ by Tim Davis, available at https://github.com/DrTimothyAldenDavis/SuiteSparse .
+diff --git a/SPQR/CMakeLists.txt b/SPQR/CMakeLists.txt
+index 2e9f3cb8e..af5ec8de6 100644
+--- a/SPQR/CMakeLists.txt
++++ b/SPQR/CMakeLists.txt
+@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 3.22 )
+ set ( SPQR_DATE "Nov 12, 2022" )
+ set ( SPQR_VERSION_MAJOR 3 )
+ set ( SPQR_VERSION_MINOR 0 )
+-set ( SPQR_VERSION_SUB   0 )
++set ( SPQR_VERSION_SUB   1 )
+ 
+ message ( STATUS "Building SPQR version: v"
+     ${SPQR_VERSION_MAJOR}.
+diff --git a/SPQR/Doc/ChangeLog b/SPQR/Doc/ChangeLog
+index 98a4ea95a..35a430381 100644
+--- a/SPQR/Doc/ChangeLog
++++ b/SPQR/Doc/ChangeLog
+@@ -1,3 +1,7 @@
++Nov 12, 2022: version 3.0.1
++
++    * BLAS definitions: no longer exposed to the user application
++
+ Nov 12, 2022: version 3.0.0
+ 
+     * using CMake build system
+diff --git a/SPQR/Doc/spqr_version.tex b/SPQR/Doc/spqr_version.tex
+index 9a3e397e3..cdd59169e 100644
+--- a/SPQR/Doc/spqr_version.tex
++++ b/SPQR/Doc/spqr_version.tex
+@@ -1,2 +1,2 @@
+ % version of SuiteSparse/SPQR
+-\date{VERSION 3.0.0, Nov 12, 2022}
++\date{VERSION 3.0.1, Nov 12, 2022}
+diff --git a/SPQR/Include/SuiteSparseQR_definitions.h b/SPQR/Include/SuiteSparseQR_definitions.h
+index 764aa9376..d8cd08be8 100644
+--- a/SPQR/Include/SuiteSparseQR_definitions.h
++++ b/SPQR/Include/SuiteSparseQR_definitions.h
+@@ -65,7 +65,7 @@
+ #define SPQR_DATE "Nov 12, 2022"
+ #define SPQR_MAIN_VERSION   3
+ #define SPQR_SUB_VERSION    0
+-#define SPQR_SUBSUB_VERSION 0
++#define SPQR_SUBSUB_VERSION 1
+ 
+ #define SPQR_VER_CODE(main,sub) ((main) * 1000 + (sub))
+ #define SPQR_VERSION SPQR_VER_CODE(SPQR_MAIN_VERSION,SPQR_SUB_VERSION)
+diff --git a/SPQR/Include/spqr.hpp b/SPQR/Include/spqr.hpp
+index 47386b9b7..adba2a977 100644
+--- a/SPQR/Include/spqr.hpp
++++ b/SPQR/Include/spqr.hpp
+@@ -15,6 +15,7 @@
+ // include files
+ // -----------------------------------------------------------------------------
+ 
++#define SUITESPARSE_BLAS_DEFINITIONS
+ #include "SuiteSparseQR.hpp"
+ #include <stdlib.h>
+ #include <math.h>
+diff --git a/SPQR/Tcov/qrtestc.c b/SPQR/Tcov/qrtestc.c
+index 12b358b40..33377bcdb 100644
+--- a/SPQR/Tcov/qrtestc.c
++++ b/SPQR/Tcov/qrtestc.c
+@@ -10,7 +10,6 @@
+ /* Test the C wrapper functions. */
+ 
+ #include "SuiteSparseQR_C.h"
+-#define int64_t int64_t
+ 
+ #define MAX(a,b) (((a) > (b)) ? (a) : (b))
+ 
+diff --git a/SuiteSparse_config/CMakeLists.txt b/SuiteSparse_config/CMakeLists.txt
+index caa903787..bf526e51c 100644
+--- a/SuiteSparse_config/CMakeLists.txt
++++ b/SuiteSparse_config/CMakeLists.txt
+@@ -17,7 +17,7 @@ cmake_minimum_required ( VERSION 3.22 )
+ set ( SUITESPARSE_DATE "Nov 12, 2022" )
+ set ( SUITESPARSE_VERSION_MAJOR 6 )
+ set ( SUITESPARSE_VERSION_MINOR 0 )
+-set ( SUITESPARSE_VERSION_SUB   0 )
++set ( SUITESPARSE_VERSION_SUB   1 )
+ 
+ message ( STATUS "Building SuiteSparse_config version: v"
+     ${SUITESPARSE_VERSION_MAJOR}.
+diff --git a/SuiteSparse_config/Config/SuiteSparse_config.h.in b/SuiteSparse_config/Config/SuiteSparse_config.h.in
+index 3e65ef246..c9cf2188c 100644
+--- a/SuiteSparse_config/Config/SuiteSparse_config.h.in
++++ b/SuiteSparse_config/Config/SuiteSparse_config.h.in
+@@ -689,6 +689,20 @@ int SuiteSparse_version     // returns SUITESPARSE_VERSION
+ // See https://netlib.org/blas/ and https://netlib.org/lapack/ for the
+ // definitions of the inputs/outputs of these functions.
+ 
++// These prototypes need to be found by UMFPACK, CHOLMOD, and SPQR, and to do
++// so, they need to appear in this public header to ensure the correct BLAS
++// library and integer size is used.  However, these definitions should not
++// (normally) be exposed to the user application.
++
++// If a user application wishes to use these definitions, simply add
++
++//      #define SUITESPARSE_BLAS_DEFINITIONS
++//      #include "SuiteSparse_config.h"
++
++// prior to #include'ing any SuiteSparse headers (amd.h, and so on).
++
++#if defined ( SUITESPARSE_BLAS_DEFINITIONS )
++
+ void SUITESPARSE_BLAS_DGEMV         // Y = alpha*A*x + beta*Y
+ (
+     // input:
+@@ -1447,6 +1461,8 @@ void SUITESPARSE_LAPACK_ZLARF       // apply Householder reflector
+     }                                                                         \
+ }
+ 
++#endif
++
+ //------------------------------------------------------------------------------
+ // SuiteSparse_BLAS_library: return name of BLAS library found
+ //------------------------------------------------------------------------------
+diff --git a/SuiteSparse_config/SuiteSparse_config.h b/SuiteSparse_config/SuiteSparse_config.h
+index 078260e1d..00beef1a1 100644
+--- a/SuiteSparse_config/SuiteSparse_config.h
++++ b/SuiteSparse_config/SuiteSparse_config.h
+@@ -488,7 +488,7 @@ int SuiteSparse_version     // returns SUITESPARSE_VERSION
+ #define SUITESPARSE_DATE "Nov 12, 2022"
+ #define SUITESPARSE_MAIN_VERSION    6
+ #define SUITESPARSE_SUB_VERSION     0
+-#define SUITESPARSE_SUBSUB_VERSION  0
++#define SUITESPARSE_SUBSUB_VERSION  1
+ 
+ #define SUITESPARSE_VER_CODE(main,sub) ((main) * 1000 + (sub))
+ #define SUITESPARSE_VERSION \
+@@ -689,6 +689,20 @@ int SuiteSparse_version     // returns SUITESPARSE_VERSION
+ // See https://netlib.org/blas/ and https://netlib.org/lapack/ for the
+ // definitions of the inputs/outputs of these functions.
+ 
++// These prototypes need to be found by UMFPACK, CHOLMOD, and SPQR, and to do
++// so, they need to appear in this public header to ensure the correct BLAS
++// library and integer size is used.  However, these definitions should not
++// (normally) be exposed to the user application.
++
++// If a user application wishes to use these definitions, simply add
++
++//      #define SUITESPARSE_BLAS_DEFINITIONS
++//      #include "SuiteSparse_config.h"
++
++// prior to #include'ing any SuiteSparse headers (amd.h, and so on).
++
++#if defined ( SUITESPARSE_BLAS_DEFINITIONS )
++
+ void SUITESPARSE_BLAS_DGEMV         // Y = alpha*A*x + beta*Y
+ (
+     // input:
+@@ -1447,6 +1461,8 @@ void SUITESPARSE_LAPACK_ZLARF       // apply Householder reflector
+     }                                                                         \
+ }
+ 
++#endif
++
+ //------------------------------------------------------------------------------
+ // SuiteSparse_BLAS_library: return name of BLAS library found
+ //------------------------------------------------------------------------------
+diff --git a/UMFPACK/CMakeLists.txt b/UMFPACK/CMakeLists.txt
+index c3a0e07d1..8f746ec33 100644
+--- a/UMFPACK/CMakeLists.txt
++++ b/UMFPACK/CMakeLists.txt
+@@ -15,7 +15,7 @@ cmake_minimum_required ( VERSION 3.22 )
+ set ( UMFPACK_DATE "Nov 12, 2022" )
+ set ( UMFPACK_VERSION_MAJOR 6 )
+ set ( UMFPACK_VERSION_MINOR 0 )
+-set ( UMFPACK_VERSION_SUB   0 )
++set ( UMFPACK_VERSION_SUB   1 )
+ 
+ message ( STATUS "Building UMFPACK version: v"
+     ${UMFPACK_VERSION_MAJOR}.
+diff --git a/UMFPACK/Doc/ChangeLog b/UMFPACK/Doc/ChangeLog
+index 051bb2129..d40c1d0f0 100644
+--- a/UMFPACK/Doc/ChangeLog
++++ b/UMFPACK/Doc/ChangeLog
+@@ -1,3 +1,7 @@
++Nov 12, 2022: version 6.0.1
++
++    * BLAS definitions: no longer exposed to the user application
++
+ Nov 12, 2022: version 6.0.0
+ 
+     * using CMake build system
+diff --git a/UMFPACK/Doc/umfpack_version.tex b/UMFPACK/Doc/umfpack_version.tex
+index cf30e6113..9528c7c98 100644
+--- a/UMFPACK/Doc/umfpack_version.tex
++++ b/UMFPACK/Doc/umfpack_version.tex
+@@ -1,2 +1,2 @@
+ % version of SuiteSparse/UMFPACK
+-\date{VERSION 6.0.0, Nov 12, 2022}
++\date{VERSION 6.0.1, Nov 12, 2022}
+diff --git a/UMFPACK/Include/umfpack.h b/UMFPACK/Include/umfpack.h
+index d05ab8459..c3053893c 100644
+--- a/UMFPACK/Include/umfpack.h
++++ b/UMFPACK/Include/umfpack.h
+@@ -85,7 +85,7 @@ extern "C" {
+ #define UMFPACK_DATE "Nov 12, 2022"
+ #define UMFPACK_MAIN_VERSION   6
+ #define UMFPACK_SUB_VERSION    0
+-#define UMFPACK_SUBSUB_VERSION 0
++#define UMFPACK_SUBSUB_VERSION 1
+ 
+ #define UMFPACK_VER_CODE(main,sub) ((main) * 1000 + (sub))
+ #define UMFPACK_VER UMFPACK_VER_CODE(UMFPACK_MAIN_VERSION,UMFPACK_SUB_VERSION)
+diff --git a/UMFPACK/Source/umf_internal.h b/UMFPACK/Source/umf_internal.h
+index 28c2cef1d..d1fc1c336 100644
+--- a/UMFPACK/Source/umf_internal.h
++++ b/UMFPACK/Source/umf_internal.h
+@@ -91,6 +91,7 @@
+ /* -------------------------------------------------------------------------- */
+ 
+ /* stdio.h, stdlib.h, limits.h, and math.h, NDEBUG definition, assert.h */
++#define SUITESPARSE_BLAS_DEFINITIONS
+ #include "amd_internal.h"
+ 
+ /* -------------------------------------------------------------------------- */

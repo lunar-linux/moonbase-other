@@ -1,7 +1,5 @@
+export CXXFLAGS+=" -ffat-lto-objects"
 
-INSTALL_OPTS+=" INSTALL_LIB=/usr/lib INSTALL_INCLUDE=/usr/include" &&
+export CMAKE_OPTIONS="-DBLA_VENDOR=Generic -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=None" &&
 
-make &&
-
-prepare_install &&
-make install $INSTALL_OPTS
+default_make
