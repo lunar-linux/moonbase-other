@@ -1,0 +1,7 @@
+npm install --no-optional &&
+bin/rapydscript self --complete &&
+rm -rf release/ && mv dev/ release/ &&
+
+prepare_install &&
+mkdir -p /usr/{bin,lib/node_modules/rapydscript-ng/}
+cp -r * /usr/lib/node_modules/rapydscript-ng/
