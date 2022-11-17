@@ -1,6 +1,6 @@
 prepare_install &&
-
 make &&
+
 python setup.py linux-package --prefix=/usr --update-check-interval=0 &&
 
 # completions
