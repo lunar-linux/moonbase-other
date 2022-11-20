@@ -1,4 +1,3 @@
-
 OPTS+=" --enable-reuseaddr \
         --enable-postwrite \
         --disable-samples " &&
