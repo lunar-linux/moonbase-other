@@ -1,4 +1,4 @@
+python -m build -wn &&
 
 prepare_install &&
-
-pip install tomli
+python -m installer -d / dist/*.whl
