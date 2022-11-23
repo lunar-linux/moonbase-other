@@ -1,6 +1,6 @@
 add_priv_user redis:redis -G redis -d /var/lib/redis -s /usr/bin/false &&
 
-make &&
+make USE_SYSTEMD=yes BUILD_TLS=yes &&
 prepare_install &&
 make PREFIX=/usr install &&
 

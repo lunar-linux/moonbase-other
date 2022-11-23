@@ -1,14 +1,7 @@
-default_python3_build &&
+#https://github.com/ansible/ansible/pull/79399
+sed -e 's/resolvelib.*/resolvelib/' -i requirements.txt &&
+python -m build --wheel --no-isolation &&
 
-install -d /usr/share/ansible/doc &&
-cp -dpr --no-preserve=ownership ./examples /usr/share/ansible/doc/ &&
+prepare_install &&
+python -m installer --destdir=/ dist/*.whl
 
-install -d /usr/share/ansible/doc &&
-cp -dpr --no-preserve=ownership ./examples /usr/share/ansible/doc/ &&
-
-if [ ! -f /etc/ansible/ansible.cfg ]; then
-    install -Dm644 examples/ansible.cfg /etc/ansible/ansible.cfg
-fi &&
-
-install -d /usr/share/man/man1 &&
-cp -dpr --no-preserve=ownership docs/man/man1/*.1 /usr/share/man/man1/

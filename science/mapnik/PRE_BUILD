@@ -6,7 +6,7 @@ sedit "s:call('ldconfig'):pass:" src/build.py &&
 sedit '129d' SConstruct &&
 sedit 's:from collections import Iterable:from collections.abc import Iterable:' scons/scons-local-3.0.1/SCons/Util.py &&
 
-OPTS+=" PREFIX="/usr" \
+OPTS+=" PREFIX=/usr \
         XMLPARSER=libxml2 \
         LINKING=shared \
         RUNTIME_LINK=shared \
