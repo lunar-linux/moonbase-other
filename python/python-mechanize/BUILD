@@ -1,5 +1,4 @@
-python setup.py build &&
-python run_tests.py &&
+python -m build &&
 
 prepare_install &&
-python setup.py install --root=/ --optimize=1
+python -m installer --destdir=/ dist/*.whl
