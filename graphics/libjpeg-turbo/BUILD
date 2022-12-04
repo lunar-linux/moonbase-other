@@ -6,4 +6,6 @@ if in_depends $MODULE sun-jdk; then
   export JNI_CFLAGS='-I/usr/lib/java/default/include -I/usr/lib/java/default/include/linux'
 fi &&
 
-default_cmake_build
+default_cmake_build &&
+
+install -vDm 644 ../jpegint.h /usr/include

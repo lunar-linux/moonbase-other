@@ -1,3 +1,5 @@
 default_pre_build &&
 
+grep -v '^AM_INIT_AUTOMAKE$' configure.ac > configure.ac.new &&
+mv configure.ac.new configure.ac &&
 autoreconf -fi
