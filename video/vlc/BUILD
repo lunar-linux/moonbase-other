@@ -1,6 +1,7 @@
 autoreconf -fi
 
 export CXXFLAGS+=" -std=c++11" &&
+export PKG_CONFIG_PATH="/usr/lib/ffmpeg-4/pkgconfig"
 
 unset LUA_LIBS &&
 unset LUA_CFLAGS &&
