@@ -1,4 +1,3 @@
-# Disable treating all warnings as errors
-OPTS+=" -DENABLE_STRICT=OFF -DENABLE_STATIC=OFF"
+OPTS+=" -DENABLE_DOC=OFF -DENABLE_STRICT=OFF -DENABLE_STATIC=OFF -DENABLE_UNIT_TESTS=OFF"
 
 default_cmake_build
