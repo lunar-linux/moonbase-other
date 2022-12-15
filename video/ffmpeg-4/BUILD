@@ -14,6 +14,7 @@ OPTS+=" --disable-static    \
         --disable-libopencv \
         --disable-debug     \
         --disable-doc       \
+        --enable-rpath      \
         --enable-gpl        \
         --enable-zlib       \
         --enable-shared     \
