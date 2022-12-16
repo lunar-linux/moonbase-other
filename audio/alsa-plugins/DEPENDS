@@ -1,7 +1,5 @@
 depends alsa-lib
 
 optional_depends pulseaudio "--enable-pulseaudio" "--disable-pulseaudio" "for PulseAudio support"
-optional_depends jack2       "--enable-jack"       "--disable-jack"       "for low latency audio support"
-
-# Broke with ffmpeg 3.0
-#optional_depends ffmpeg     "--enable-avcodec"    "--disable-avcodec"    "for AC-3 (ATSC A/52 streams) support"
+optional_depends jack2       "--enable-jack"      "--disable-jack"        "for low latency audio support"
+optional_depends ffmpeg      "--enable-avcodec"   "--disable-avcodec"     "for AC-3 (ATSC A/52 streams) support"
