@@ -1,3 +1,16 @@
 default_pre_build &&
 
-OPTS+=" -DENABLE_STRICT=OFF -DENABLE_DOC=OFF -DENABLE_NON_FREE_CODECS=ON -DENABLE_UNIT_TESTS=OFF"
+OPTS+=" -DENABLE_STRICT=OFF \
+        -DENABLE_DOC=OFF    \
+        -DENABLE_STATIC=OFF \
+        -DENABLE_NON_FREE_CODECS=ON \
+        -DENABLE_UNIT_TESTS=OFF"
+
+if in_depends $MODULE ffmpeg-4; then
+   OPTS+=" -DLIBAVCODEC_INCLUDE_DIRS=/usr/include/ffmpeg4 \
+           -DLIBAVUTIL_INCLUDE_DIRS=/usr/include/ffmpeg4 \
+           -DLIBSWSCALE_INCLUDE_DIRS=/usr/include/ffmpeg4 \
+           -DLIBAVCODEC_LIBRARIES=/usr/lib/ffmpeg4/libavcodec.so \
+           -DLIBAVUTIL_LIBRARIES=/usr/lib/ffmpeg4/libavutil.so \
+           -DLIBSWSCALE_LIBRARIES=/usr/lib/ffmpeg4/libswscale.so"
+fi
