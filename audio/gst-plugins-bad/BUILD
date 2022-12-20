@@ -1,8 +1,7 @@
-
 # https://gitlab.freedesktop.org/search?group_id=&project_id=1351&repository_ref=&scope=merge_requests&search=neon
-if in_depends $MODULE neon ; then
-  sedit 's:30.99:32.00:' ext/neon/meson.build
-fi &&
+#if in_depends $MODULE neon ; then
+#  sedit 's:30.99:32.00:' ext/neon/meson.build
+#fi &&
 
 if module_installed qt5; then
   . /etc/profile.d/qt5.rc
@@ -23,8 +22,6 @@ OPTS+=" -D doc=disabled \
         -D openni2=disabled \
         -D opensles=disabled \
         -D tinyalsa=disabled \
-        -D voaacenc=disabled \
-        -D voamrwbenc=disabled \
         -D wasapi2=disabled \
         -D wasapi=disabled \
         -D gpl=enabled \
