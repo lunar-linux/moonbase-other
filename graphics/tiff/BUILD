@@ -1,4 +1,4 @@
-OPTS+=" --with-docdir=/usr/share/doc/$MODULE --disable-static"
+OPTS+=" --with-docdir=/usr/share/doc/$MODULE --disable-static --disable-docs"
 
 default_build &&
 
