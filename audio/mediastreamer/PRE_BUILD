@@ -7,6 +7,9 @@ OPTS+=" -DENABLE_STRICT=OFF \
         -DENABLE_UNIT_TESTS=OFF"
 
 if in_depends $MODULE ffmpeg-4; then
+ export CXXFLAGS=-I/usr/include/ffmpeg4
+ export CFLAGS=-I/usr/include/ffmpeg4
+ export LDFLAGS="`pkgconf --libs /usr/lib/ffmpeg4/pkgconfig/*.pc`"
    OPTS+=" -DLIBAVCODEC_INCLUDE_DIRS=/usr/include/ffmpeg4 \
            -DLIBAVUTIL_INCLUDE_DIRS=/usr/include/ffmpeg4 \
            -DLIBSWSCALE_INCLUDE_DIRS=/usr/include/ffmpeg4 \
