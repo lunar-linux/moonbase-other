@@ -1,4 +1,4 @@
-python -m build --wheel --no-isolation &&
+python -m build -w &&
 
 prepare_install &&
 
