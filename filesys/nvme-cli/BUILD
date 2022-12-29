@@ -1,3 +1,5 @@
+export XML_CATALOG_FILES=/etc/xml/catalog &&
+
 OPTS+=" --libexecdir lib \
 	--sbindir bin \
 	--buildtype plain \
