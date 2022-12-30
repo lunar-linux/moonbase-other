@@ -1,0 +1,21 @@
+          MODULE=ffmpeg-4
+         VERSION=4.4.3
+          SOURCE=${MODULE%-*}-$VERSION.tar.xz
+      SOURCE_URL=http://www.ffmpeg.org/releases
+      SOURCE_VFY=sha256:6c5b6c195e61534766a0b5fe16acc919170c883362612816d0a1c7f4f947006e
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%-*}-$VERSION
+        WEB_SITE=http://www.ffmpeg.org/
+         ENTERED=20221211
+         UPDATED=20221211
+           SHORT="ffmpeg is an avi decoder"
+
+cat << EOF
+FFmpeg is the first complete and free Internet Live Audio and Video Broadcasting
+solution. FFMpeg aims at being the command line tool to handle audio and video.
+It is a "three-in-one" solution. FFmpeg is capable of recording, encoding in
+many different formats simultaneously and streaming multimedia audio and video.
+FFmpeg generates streaming files, in many popular formats simultaneously, faster
+than any other solution.
+
+NOTE; The change in build prevents this collbering ffmpeg-5.x
+EOF

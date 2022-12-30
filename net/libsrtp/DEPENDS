@@ -1,7 +1,7 @@
 depends libnl3
 depends libpcap
 depends procps
+depends meson
 
-optional_depends %OSSL \
-                 "--enable-openssl" ""\
-                 "for SSL support"
+optional_depends %OSSL "-Dcrypto-library=openssl" "" "for SSL support,${PROBLEM_COLOR}If yes here say no to nss${DEFAULT_COLOR}"
+optional_depends nss   "-Dcrypto-library=nss"     "" "for nss based crypto support"
