@@ -1,6 +1,4 @@
-./autogen.sh &&
-sed -e 's/pandoc/diSaBlEd/' -i ac/pandoc.m4 &&
-autoreconf &&
+autoupdate -fv &&
 
 rm -r lib/{libebml,libmatroska} &&
 
@@ -24,8 +22,7 @@ fi
 OPTS+=" --with-boost=/usr  \
         --with-boost-libdir=/usr/lib \
         --with-boost=yes \
-        --disable-update-check \
-        --with-po4a-translate=false"
+        --disable-update-check"
 
 default_config &&
 rake V=1 &&
