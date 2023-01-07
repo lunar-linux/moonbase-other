@@ -5,4 +5,5 @@ sedit "s:\$(DESTDIR)\$(gdk_pixbuf_cache_file):dummyfile:" gdk-pixbuf-loader/Make
 
 # Drop the manditory doc creation nonsense.
 sed -i -e '/SUBDIRS =/s/ doc//' Makefile.in Makefile.am &&
+
 autoreconf -fi
