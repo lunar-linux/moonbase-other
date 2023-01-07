@@ -3,5 +3,11 @@ depends python
 depends curl
 depends libffi
 depends jemalloc
+depends musl
 
 optional_depends valgrind "" "" "for valgrind support" "n"
+
+optional_depends lld      \
+                 "-DLLVM_LINK_LLVM_DYLIB=ON" \
+                 "-DLLVM_LINK_LLVM_DYLIB=OFF" \
+                 "say yes to use system llvm?"
