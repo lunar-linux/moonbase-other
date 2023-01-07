@@ -1,12 +1,8 @@
-#./build.sh &&
+export LDFLAGS+=' -lgit2'
 
-cargo fetch --offline &&
-
-cargo build --release --frozen &&
+cargo build --release --frozen --manifest-path Cargo.toml &&
+cargo cbuild --release --frozen --prefix=/usr --manifest-path Cargo.toml &&
 
 prepare_install &&
-
-cargo install --frozen --offline --no-track --path .  --root /usr
-
-#strip target/debug/$MODULE &&
-#install -Dm755 target/debug/$MODULE /usr/bin/
+cargo install --frozen --offline --no-track --path . --root /usr &&
+cargo cinstall --release --frozen --prefix /usr

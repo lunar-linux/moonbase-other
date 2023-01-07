@@ -1,0 +1,6 @@
+default_pre_build &&
+
+mkdir -p $MODULE &&
+cp -f $SCRIPT_DIRECTORY/Cargo.lock Cargo.lock &&
+
+cargo fetch --locked --manifest-path Cargo.toml
