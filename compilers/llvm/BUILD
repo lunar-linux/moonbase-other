@@ -17,6 +17,6 @@ OPTS+=" -DLLVM_ENABLE_RTTI=ON \
 default_cmake_build &&
 
 #This is needed by lld
-pushd ../utils/lit &&
-python3 setup.py install --root=/ -O1 &&
-popd
+unset OPTS &&
+cd ../utils/lit &&
+default_python3_build
