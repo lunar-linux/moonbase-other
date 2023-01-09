@@ -1,7 +1,7 @@
 default_pre_build &&
 
-# libjxl stomps on zlib/usr/include/zconf.h and /usr/include/zlib.h
-# so the BUILD is adjusted to install these includes elsewhere 
+# libjxl stomps on /usr/include/zconf.h and /usr/include/zlib.h
+# so the BUILD OPTS is adjusted such that these headers are not installed 
 if module_installed libjxl; then 
   lrm libjxl &&
   lunar fix zlib
