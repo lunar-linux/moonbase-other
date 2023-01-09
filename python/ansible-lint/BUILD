@@ -1,5 +1,5 @@
-python -c "from setuptools import setup; setup();" build &&
+python -m build --wheel --skip-dependency-check --no-isolation &&
 
 prepare_install &&
 
-python -c "from setuptools import setup; setup();" install --optimize=1
+python -m installer --destdir=/root dist/*.whl
