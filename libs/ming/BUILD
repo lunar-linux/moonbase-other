@@ -1,5 +1,7 @@
 ./autogen.sh &&
 
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 export CFLAGS+=" -fcommon"
 if in_depends $MODULE python2 ; then
   OPTS+=" --disable-static" &&
