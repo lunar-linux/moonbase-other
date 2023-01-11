@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 if [ -f /usr/share/applications ] ; then
     rm -f /usr/share/applications
 fi &&
