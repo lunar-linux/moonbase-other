@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 prepare_install &&
 
 python setup.py install --force --optimize=1 &&
