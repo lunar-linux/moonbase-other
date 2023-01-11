@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 #https://github.com/ansible/ansible/pull/79399
 sed -e 's/resolvelib.*/resolvelib/' -i requirements.txt &&
 python -m build --wheel --no-isolation &&
