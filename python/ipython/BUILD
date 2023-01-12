@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 python -m build  &&
 
 prepare_install &&
