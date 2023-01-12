@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 sed -i '/setuptools/d' setup.cfg &&
 python -m build --wheel --skip-dependency-check --no-isolation &&
 
