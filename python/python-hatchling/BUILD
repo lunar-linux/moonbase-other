@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 python -m build --wheel --no-isolation backend &&
 
 prepare_install &&
