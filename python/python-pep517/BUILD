@@ -1,3 +1,4 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
 # Copied from openSUSE: 
 # Remove what appears to be overly cautious flag that causes tests to require internet, both here
 # and the test suites of any dependencies. Tracking at: https://github.com/pypa/pep517/issues/101

@@ -1,5 +1,7 @@
-python -m build backend &&
+export PYTHONDONTWRITEBYTECODE=1 &&
+
+python -m build --wheel --no-isolation backend &&
 
 prepare_install &&
 
-PIP_CONFIG_FILE=/dev/null pip install --isolated --root=/ --ignore-installed --no-deps backend/dist/*.whl
+python -m installer --destdir=/ backend/dist/*.whl

@@ -1,6 +1,5 @@
-python build_dists.py &&
-
-PYTHONPATH=flit_core python -m flit build --format wheel
+python -m build --wheel --skip-dependency-check --no-isolation &&
 
 prepare_install &&
-PIP_CONFIG_FILE=/dev/null pip install --isolated --root=/ --ignore-installed --no-deps dist/*.whl
+
+python -m installer --destdir=/ dist/*.whl

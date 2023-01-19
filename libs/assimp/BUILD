@@ -5,6 +5,6 @@ default_cmake_build &&
 sed -i "s|includedir=.*|includedir=/usr/include/assimp|" /usr/lib/pkgconfig/assimp.pc  &&
 
 cd $SOURCE_DIRECTORY/port/PyAssimp &&
-python3 setup.py build &&
-prepare_install &&
-python3 setup.py install --root=/
+
+unset OPTS &&
+default_python3_build
