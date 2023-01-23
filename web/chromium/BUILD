@@ -1,13 +1,10 @@
+# Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
 export LDFLAGS="$(echo $LDFLAGS | sed 's;-z now;-Wl,-znow;g;s;-z relro;-Wl,-zrelro;g')" &&
-export CC=clang &&
-export CXX=clang++ &&
-export AR=ar &&
-export NM=nm &&
+export CFLAGS+=' -Wno-unknown-warning-option'
+export CXXFLAGS+=' -Wno-unknown-warning-option'
+export CPPFLAGS+=' -D__DATE__=  -D__TIME__=  -D__TIMESTAMP__='
 
-if [ "$USE_CCACHE" = "y" ]; then
-  export CCACHE_SLOPPINESS=time_macros
-fi
-
+ulimit -n 2048 &&
 # This is the make step. According to its --help the default -j is
 # derived from your number of CPUs.
 ninja -v -C out/Release chrome chrome_sandbox chromedriver &&
@@ -44,7 +41,7 @@ ln -sf ${CHROMIUM_HOME}/chromedriver /usr/bin/chromedriver &&
 install -Dm644 LICENSE /usr/share/licenses/chromium/LICENSE &&
 
 # Don't forget to comment out this line below when readding icu4c system dependency (keeps breaking between releases)
-install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat &&
+#install -Dm644 out/Release/icudtl.dat /usr/lib/chromium/icudtl.dat &&
 
 # symlink to lunar location for browser plugins, should be /usr/lib/lunar/plugins
 ln -sf /usr/lib/lunar/plugins ${CHROMIUM_HOME}/plugins &&
@@ -55,6 +52,6 @@ if [ ! -f /etc/$MODULE/chromium.default ]; then
   echo "# the chromium launcher." >> /etc/$MODULE/chromium.default &&
   echo "# Options to pass to chromium." >> /etc/$MODULE/chromium.default &&
   echo "#CHROMIUM_FLAGS=\"\"" >> /etc/$MODULE/chromium.default
-fi &&
+fi
 
-install -Dm644 libwidevinecdm.so /usr/lib/chromium/libwidevinecdm.so
+#install -Dm644 libwidevinecdm.so /usr/lib/chromium/libwidevinecdm.so
