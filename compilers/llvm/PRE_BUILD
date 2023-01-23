@@ -18,7 +18,7 @@ sedit 's:/libexec/:/lib/clang/:g' $SOURCE_DIRECTORY/tools/clang/tools/CMakeLists
 
 cd $SOURCE_DIRECTORY/
 unpack $SOURCE4 &&
-mv cmake{-$VERSION.src,} &&
+cp -f cmake-$VERSION.src/Modules/*.cmake cmake/modules/
 
 # Remove libclangHandleLLVM; breaks zig
 sedit '/add_clang_subdirectory(handle-llvm)/d' tools/clang/tools/clang-fuzzer/CMakeLists.txt &&
