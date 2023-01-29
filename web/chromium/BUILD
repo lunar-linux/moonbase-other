@@ -1,7 +1,7 @@
 # Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
 export LDFLAGS="$(echo $LDFLAGS | sed 's;-z now;-Wl,-znow;g;s;-z relro;-Wl,-zrelro;g')" &&
 export CFLAGS+=' -Wno-unknown-warning-option'
-export CXXFLAGS+=' -Wno-unknown-warning-option'
+export CXXFLAGS+=' -Wno-unknown-warning-option -Wp,-D_GLIBCXX_ASSERTIONS'
 export CPPFLAGS+=' -D__DATE__=  -D__TIME__=  -D__TIMESTAMP__='
 
 ulimit -n 2048 &&
