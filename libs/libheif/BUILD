@@ -1,3 +1,3 @@
-OPTS+=" --enable-static=no --disable-visibility --disable-examples --disable-tests --disable-go" &&
+OPTS+=" -DWITH_EXAMPLES=OFF" &&
 
-default_build
+default_cmake_build
