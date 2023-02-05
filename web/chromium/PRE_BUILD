@@ -37,6 +37,12 @@ done &&
 
 ./build/linux/unbundle/replace_gn_files.py --system-libraries "${_libs[@]}" &&
 
+pushd third_party/ffmpeg &&
+chromium/scripts/build_ffmpeg.py linux x64 --branding Chrome
+chromium/scripts/copy_config.sh
+chromium/scripts/generate_gn.py
+popd &&
+
 export CC=clang &&
 export CXX=clang++ &&
 export AR=llvm-ar &&
@@ -61,7 +67,6 @@ local _flags=(
   'treat_warnings_as_errors=false'
   'fatal_linker_warnings=false'
   'ffmpeg_branding="Chrome"'
-  'link_pulseaudio=true'
   'proprietary_codecs=true'
   'use_gnome_keyring=false'
   'use_system_libffi=true'
