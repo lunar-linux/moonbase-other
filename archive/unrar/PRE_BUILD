@@ -1,3 +1,7 @@
 default_pre_build &&
 
-sed -e '/CXXFLAGS=/d' -e '/LDFLAGS=/d' -i makefile
+sed -e '/CXXFLAGS=/d' -e '/LDFLAGS=/d' -i makefile &&
+
+# rename the soname
+sedit "s:-shared -o:-shared -Wl,-soname,libunrar.so -o:" makefile &&
+sedit "s: libunrar.so: libunrar.so.$VERSION:" makefile

@@ -13,7 +13,7 @@ make install-lib &&
 mkdir -p $DOCUMENT_DIRECTORY/unrar &&
 cp readme.txt license.txt $DOCUMENT_DIRECTORY/unrar
 
-ln -sf libunrar.so.$VERSION /usr/lib/libunrar.so.5 &&
+ln -sf libunrar.so.$VERSION /usr/lib/libunrar.so.6 &&
 ln -sf libunrar.so.$VERSION /usr/lib/libunrar.so &&
 
 #Needed by unrardll (python)
