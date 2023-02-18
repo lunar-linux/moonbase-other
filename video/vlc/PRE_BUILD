@@ -14,7 +14,8 @@ if in_depends $MODULE lua; then
 fi &&
 
 if in_depends $MODULE samba; then
-  export CFLAGS+=" -I/usr/include/samba-4.0"
+  export CFLAGS+=" -I/usr/include/samba-4.0 -ffat-lto-objects"
+  export CPPFLAGS+=" -I/usr/include/samba-4.0"
 fi &&
 
 if module_installed live555; then

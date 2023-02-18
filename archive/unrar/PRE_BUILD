@@ -1,7 +1,6 @@
 default_pre_build &&
 
-# cp makefile.unix Makefile &&
-sedit '/^CXXFLAGS/d' makefile &&
+sed -e '/CXXFLAGS=/d' -e '/LDFLAGS=/d' -i makefile &&
 
 # rename the soname
 sedit "s:-shared -o:-shared -Wl,-soname,libunrar.so -o:" makefile &&

@@ -9,7 +9,6 @@ depends tinyxml
 depends zziplib
 depends graphviz
 depends dejavu-ttf
-depends openexr
 depends bzip2
 depends pugixml
 
@@ -21,7 +20,7 @@ optional_depends FreeImage \
 optional_depends openexr \
                  "-DOGRE_BUILD_PLUGIN_EXRCODEC=TRUE" \
                  "-DOGRE_BUILD_PLUGIN_EXRCODEC=FALSE" \
-                 "for EXR plugin support"
+                 "for EXR plugin support,${PROBLEM_COLOR} say yes to use imath${DEFAULT_COLOR}" y
 
 optional_depends imath "-DOPENEXR_Half_LIBRARY=/usr/include/Imath/" "" "for imath support"
 

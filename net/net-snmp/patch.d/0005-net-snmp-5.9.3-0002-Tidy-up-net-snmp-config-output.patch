@@ -1,6 +1,20 @@
+https://github.com/net-snmp/net-snmp/pull/493
+
+From a73bda5ca7afbeaf3cf3b73101f7541cf92147ef Mon Sep 17 00:00:00 2001
+From: Sam James <sam@gentoo.org>
+Date: Fri, 2 Dec 2022 02:27:21 +0000
+Subject: [PATCH 2/4] Tidy up net-snmp-config output
+
+`net-snmp-config --libs` should return only the needed libraries linked to
+libraries which external consumers should use.
+
+Gentoo has been carrying this patch for a while, as has Fedora.
+
+Bug: https://bugs.gentoo.org/693970
+Signed-off-by: Sam James <sam@gentoo.org>
 --- a/net-snmp-config.in
 +++ b/net-snmp-config.in
-@@ -190,13 +190,13 @@
+@@ -193,13 +193,13 @@ else
      #################################################### client lib
      --libs)
        # use this one == --netsnmp-libs + --external-libs
@@ -16,7 +30,7 @@
        ;;
      #################################################### agent lib
      --base-agent-libs)
-@@ -207,13 +207,13 @@
+@@ -210,13 +210,13 @@ else
        ;;
      --agent-libs)
        # use this one == --netsnmp-agent-libs + --external-libs
@@ -32,3 +46,6 @@
        ;;
      ####################################################
      --version|--ver*)
+-- 
+2.38.1
+

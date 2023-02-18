@@ -1,7 +1,12 @@
+export LC_CTYPE="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+sedit 's:/usr/local:/usr:' Makefile &&
+
 LIBDIR="/usr/lib/rabbitmq/lib/rabbitmq_server-${VERSION}"
 add_priv_user rabbitmq:rabbitmq -d /var/lib/rabbitmq &&
 
-make all docs_all &&
+make all &&
 
 prepare_install &&
 

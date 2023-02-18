@@ -6,14 +6,12 @@ export MOZ_MAKE_FILES=$MAKES
 export MOZ_NOSPAM=1
 export MOZBUILD_STATE_PATH="$SOURCE_DIRECTORY/mozbuild"
 export LANG=C
-
+export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
 
 # LTO needs more open files
 ulimit -n 8192 &&
 
-#./mach configure &&
 ./mach build &&
-./mach buildsymbols &&
 
 prepare_install &&
 

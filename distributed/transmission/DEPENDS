@@ -1,19 +1,11 @@
+depends %OSSL
 depends curl
 depends libevent
+depends npm
+depends ninja
 depends cmake
 depends intltool
-depends %OSSL
 
-#depends gsettings-desktop-schemas
-
-optional_depends gtk+-3 \
-                 "-DENABLE_GTK=ON" \
-                 "-DENABLE_GTK=OFF" \
-                 "for the GTK+ GUI interface"
-
-optional_depends qt5 \
-                 "-DENABLE_QT5=ON -DUSE_QT5=ON" \
-                 "-DENABLE_QT5=OFF" \
-                 "for the Qt GUI interface"
-
-optional_depends libnotify "-DWITH_INOTIFY=ON" "" " for inotify support"
+optional_depends gtk4      "-DENABLE_GTK=ON"                   "-DENABLE_GTK=OFF"   "for the GTK+ GUI interface,${PROBLEM_COLOR}Not merged to moonbase, say no for now${DEFAULT_COLOR}" n
+optional_depends qt6-tools "-DENABLE_QT=ON -DUSE_QT_VERSION=6" "-DENABLE_QT=OFF"    "for the Qt GUI interface"
+optional_depends libnotify "-DWITH_INOTIFY=ON"                 "-DWITH_INOTIFY=OFF" " for inotify support"
