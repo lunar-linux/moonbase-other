@@ -1,6 +1,13 @@
-  OPTS+=" -DWXM_INCLUDE_FONTS=NO -DWXM_INTERPROCEDURAL_OPTIMIZATION=ON" &&
+OPTS+=" -DWXM_INCLUDE_FONTS=OFF  \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DWXM_INTERPROCEDURAL_OPTIMIZATION=OFF \
+        -DwxWidgets_LIBRARIES=/usr/lib/"
 
-  default_cmake_build &&
+cmake . -B $MODULE -G Ninja $OPTS &&
+cmake --build $MODULE &&
+prepare_install &&
+cmake --install $MODULE &&
 
     # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
@@ -9,7 +16,7 @@ Type=Application
 Name=wxMaxima
 Comment=A computer algebra system
 Exec=/usr/bin/wxmaxima
-Icon=/usr/share/wxMaxima/wxmaxima.png
+Icon=/usr/share/doc/wxmaxima/wxMaximaLogo.png
 Categories=Science;Application;;
 EOF
 
