@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 if [ `arch` == x86_64 ] ; then
     cp /usr/share/automake/config.guess auxdir/ &&
     cp /usr/share/automake/config.sub auxdir/
