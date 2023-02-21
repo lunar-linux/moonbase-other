@@ -5,6 +5,10 @@ depends enchant
 depends libzip
 depends icu4c
 
+optional_depends expat \
+                "--with-expat" "--without-expat" \
+                "for XML support with expat instead of libxml2"
+
 optional_depends libsodium \
                 "--with-sodium=shared" "--without-sodium" \
                 "for support with libsodium"
