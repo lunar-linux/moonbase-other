@@ -1,10 +1,6 @@
-autoreconf -fi &&
+sed -e '/xine_set_flags/s/XINE_PROTECTED//' -i include/xine.h &&
 
-sed -i 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
-
-OPTS+=" --enable-mmap \
-        --enable-static \
-        --with-external-dvdnav \
-        --enable-antialiasing" &&
+# We use external dvdnav because the internal cannot decrypt DVD
+OPTS+=" --with-external-dvdnav --enable-antialiasing"
 
 default_build
