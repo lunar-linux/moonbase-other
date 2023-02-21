@@ -1,6 +1,5 @@
 depends zlib
 depends python
-depends python2
 depends minizip
 depends yasm
 depends ninja
@@ -9,7 +8,7 @@ depends gperf
 depends re2
 depends xdg-utils
 depends %JPEG
-depends alsa-lib
+depends libffi
 depends libxslt
 depends libxml2
 depends expat
@@ -32,8 +31,12 @@ depends icu4c
 depends snappy
 depends lld
 depends fontconfig
-depends ffmpeg
+#Disable for now
+#depends ffmpeg
+depends openh264
 depends gn
+depends brotli
+depends dav1d
 
 optional_depends cups \
                  "use_cups=true" \
@@ -41,14 +44,14 @@ optional_depends cups \
                  "use system provided cups"
 
 optional_depends pulseaudio \
-                 "link_pulseaudio=true use_pulseaudio=true" \
+                 "use_pulseaudio=true link_pulseaudio=true" \
                  "use_pulseaudio=false" \
                  "for pulse audio support"
 
-optional_depends heimdal \
+optional_depends krb5 \
                  "use_kerberos=true" \
                  "use_kerberos=false" \
-                 "use system provided heimdal (kerberos) support"
+                 "use system provided heimdal (kerberos) support" n
 
 optional_depends pipewire \
                  "rtc_use_pipewire=true" \
