@@ -10,9 +10,9 @@ ac_add_options --disable-bootstrap
 ac_add_options --disable-debug
 ac_add_options --disable-debug-symbols
 ac_add_options --disable-jemalloc
-ac_add_options --disable-strip
+ac_add_options --enable-strip
 ac_add_options --with-system-zlib
-ac_add_options --without-system-icu
+ac_add_options --with-system-icu
 ac_add_options --with-system-nspr
 ac_add_options --enable-shared-js
 ac_add_options --enable-tests
