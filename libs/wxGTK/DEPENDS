@@ -8,8 +8,7 @@ depends gtk+-3
 depends cmake
 depends gst-plugins-base
 
-optional_depends qt5   "" "" "for Qt5 toolkit support,${PROBLEM_COLOR} the gtk3 toolkit will still be built${DEFAULT_COLOR}"
-
+optional_depends qt5         "-DwxBUILD_TOOLKIT=qt" "" "the qt5 wxWidget toolkit will be built, ${PROBLEM_COLOR}the gtk3 toolkit will still be built${DEFAULT_COLOR}"
 optional_depends zlib        "-DwxUSE_ZLIB=sys"    "-DwxUSE_ZLIB=builtin"    "for LZW compression via zlib,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
 optional_depends expat       "-DwxUSE_EXPAT=sys"   "-DwxUSE_EXPAT=builtin"   "for XML support via expat,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
 optional_depends libpng      "-DwxUSE_LIBPNG=sys"  "-DwxUSE_LIBPNG=builtin"  "for PNG image support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
@@ -18,4 +17,6 @@ optional_depends tiff        "-DwxUSE_LIBTIFF=sys" "-DwxUSE_LIBTIFF=builtin" "fo
 optional_depends mesa-lib    "-DwxUSE_OPENGL=ON"   "-DwxUSE_OPENGL=OFF"      "for OpenGL support (needed for hugin)"
 optional_depends SDL2        "-DwxUSE_LIBSDL=ON"   "-DwxUSE_LIBSDL=OFF"      "for SDL2 audio support"
 
-optional_depends webkit2gtk3 "-DwxUSE_WEBVIEW=ON -DwxUSE_WEBVIEW_WEBKIT=ON"  "-DwxUSE_WEBVIEW=OFF"     "for webview support"
+optional_depends webkit2gtk3 "-DwxUSE_WEBVIEW=ON -DwxUSE_WEBVIEW_WEBKIT=ON" \
+                             "-DwxUSE_WEBVIEW=OFF" \
+                             "for webview support,${MODULE_COLOR}Needed by wxMaxima${DEFAULT_COLOR}" y
