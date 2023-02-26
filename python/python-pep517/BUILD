@@ -9,4 +9,4 @@ python -m build --wheel --no-isolation --skip-dependency-check &&
 
 prepare_install &&
 
-python -m installer --destdir=/ dist/*.whl
+python -m installer --destdir=/ dist/*.wh
