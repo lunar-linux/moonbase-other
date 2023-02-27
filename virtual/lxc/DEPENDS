@@ -3,15 +3,6 @@ depends python-setuptools
 depends rsync
 depends wget
 
-optional_depends Linux-PAM  "--enable-pam"          "" "for PAM support"
-optional_depends libcap     "--enable-capabilities" "" "for capabilities support"
-optional_depends libseccomp "--enable-seccomp"      "" "for seccomp support"
-
-optional_depends dnsmasq "" "" "for lxc-net.service"
-optional_depends lua     "" "" "for lxc-top"
-
-# broken
-#optional_depends docbook2X \
-#                 "--enable-doc" \
-#                 "--disable-doc" \
-#                 "build man-pages"
+optional_depends Linux-PAM  "-Dpam-cgroup=true"   "" "for PAM cgroup support"
+optional_depends libcap     "-Dcapabilities=true" "" "for capabilities support"
+optional_depends libseccomp "-Dseccomp=true"      "" "for seccomp support"

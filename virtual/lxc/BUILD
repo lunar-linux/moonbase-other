@@ -1,13 +1,8 @@
-OPTS+=" --exec-prefix=/usr \
-        --disable-doc \
-        --disable-werror \
-        --disable-apparmor" &&
-
-OPTS+=" --sbindir=/usr/bin" &&
+OPTS+=" -Dapparmor=false -Dexamples=false -Dman=false -Dtests=false" &&
 
 if module_installed systemd; then
-   OPTS+=" --with-init-script=systemd \
-           --with-systemdsystemunitdir=/usr/lib/systemd/system"
+   OPTS+=" -Dinit-script=systemd \
+           -Dsystemd-unitdir=/usr/lib/systemd/system"
 fi &&
 
-default_build
+default_meson_build
