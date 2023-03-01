@@ -5,8 +5,8 @@ export PYTHONDONTWRITEBYTECODE=1 &&
   sed -i "s/ '--ignore-installed',//" pep517/envbuild.py &&
   sed -i '/--flake8/d' pytest.ini &&
 
-python -m build --wheel --no-isolation --skip-dependency-check &&
+python -m build --wheel &&
 
 prepare_install &&
 
-python -m installer --destdir=/ dist/*.wh
+python -m installer --destdir=/ dist/*.whl
