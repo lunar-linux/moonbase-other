@@ -1,4 +1,4 @@
-OPTS+=" -DCMAKE_BUILD_TYPE=Releas -Wno-dev -DCMAKE_INSTALL_PREFIX=/usr"
+OPTS+=" -DCMAKE_BUILD_TYPE=Release -Wno-dev -DCMAKE_INSTALL_PREFIX=/usr"
 
 cmake -B $MODULE-$VERSION -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
