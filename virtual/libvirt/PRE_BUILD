@@ -10,6 +10,4 @@ sedit 's|/usr/libexec/qemu-bridge-helper|/usr/lib/qemu/qemu-bridge-helper|g' \
     src/qemu/qemu.conf \
     src/qemu/test_libvirtd_qemu.aug.in &&
 
-sedit 's/notify/simple/' src/remote/libvirtd.service.in &&
-
-autoreconf -vi
+sedit 's/notify/simple/' src/remote/libvirtd.service.in
