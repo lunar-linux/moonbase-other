@@ -1,10 +1,5 @@
 default_pre_build &&
 
-sedit \
-    's|"\\"-//Davenport//DTD DocBook V3.0//EN\\""|"\\"-//OASIS//DTD DocBook XML\\" \\"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd\\""|' \
-        configure.ac &&
+sed -i "s|if sanitize == 'none'|if false|g" src/lxc/cmd/meson.build &&
 
-sedit 's|\${prefix}/||g' lxc.pc.in &&
-sedit 's|dirlen,|dirlen=0,|' src/lxc/storage/overlay.c &&
-
-autoreconf -fi
+sedit 's|dirlen,|dirlen=0,|' src/lxc/storage/overlay.c

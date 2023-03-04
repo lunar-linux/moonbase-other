@@ -1,17 +1,18 @@
           MODULE=angband
-         VERSION=4.2.0
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://rephial.org/downloads/${VERSION:0:3}/
-      SOURCE_VFY=sha256:d3e1495c7cc2a4ee66de7b4e612d3b133048072e37504bd2e58a2351ab0fb56d
+         VERSION=4.2.4
+          SOURCE=${MODULE/a/A}-$VERSION.tar.gz
+      SOURCE_URL=https://github.com/$MODULE/$MODULE/releases/download/${VERSION}/
+      SOURCE_VFY=sha256:a07c78c1dd05e48ddbe4d8ef5d1880fcdeab55fd05f1336d9cba5dd110b15ff3
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE/a/A}-$VERSION
         WEB_SITE=http://www.rephial.org/
          ENTERED=20050524
-         UPDATED=20190821
+         UPDATED=20230301
            SHORT="A classic rogue-like game based on the books of JRR Tolkien"
 
 cat << EOF
 Angband is a freeware computer dungeon exploration game based (loosely)
 on the books of J.R.R.Tolkien. You explore a very deep dungeon, kill
-monsters, try to equip yourself with the best weapons and armor you can\
+monsters, try to equip yourself with the best weapons and armor you can
 find, and finally face Morgoth - "The Dark Enemy."
 
 Angband has a very long history. It started 1990 as an improved and
