@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 add_priv_user qemu:qemu &&
 
 OPTS+=" -Ddriver_secrets=enabled \
