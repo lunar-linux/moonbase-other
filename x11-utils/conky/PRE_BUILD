@@ -5,5 +5,4 @@ sedit 's|-Werror||' cmake/ConkyBuildOptions.cmake &&
 sedit 's|<\(ncurses\.h>\)|<ncursesw/\1|' src/conky.cc src/nc.h &&
 
 # disable HSV gradients
-rm tests/test-hsv.cc &&
 sedit 's/set(test_srcs ${test_srcs} test-hsv.cc)//g' tests/CMakeLists.txt
