@@ -16,7 +16,7 @@ OPTS=" --datadir=/srv/http              \
        --enable-layout=GNU              \
        --enable-layout=Lunar            \
        --enable-exception-hook          \
-	   --with-mpm=event                 \
+       --with-mpm=event                 \
        --with-apr=/usr/bin/apr-1-config \
        --with-apr-util=/usr/bin/apu-1-config" &&
 
