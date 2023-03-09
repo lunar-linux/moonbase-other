@@ -1,3 +1,6 @@
+add_priv_group network &&
+add_priv_user openvpn:openvpn &&
+
 OPTS+=" --enable-plugins \
         --enable-x509-alt-username"
 
