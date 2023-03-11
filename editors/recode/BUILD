@@ -1,7 +1,3 @@
-cp /usr/share/automake/config.sub $SOURCE_DIRECTORY &&
-
-#export SED="/bin/sed" &&
-export max_cmd_len=32768 &&
 
 default_build &&
 

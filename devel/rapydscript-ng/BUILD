@@ -1,4 +1,4 @@
-npm install --no-optional &&
+npm install --omit=optional &&
 bin/rapydscript self --complete &&
 rm -rf release/ && mv dev/ release/ &&
 

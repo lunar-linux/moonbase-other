@@ -1,0 +1,24 @@
+--- openvpn-2.6.1/distro/systemd/openvpn-client@.service.in	2023-03-08 09:24:53.000000000 -0500
++++ openvpn-2.6.1/distro/systemd/openvpn-client@.service.in.orig	2023-03-09 05:38:37.286532686 -0500
+@@ -11,6 +11,9 @@
+ PrivateTmp=true
+ WorkingDirectory=/etc/openvpn/client
+ ExecStart=@sbindir@/openvpn --suppress-timestamps --nobind --config %i.conf
++User=openvpn
++Group=network
++AmbientCapabilities=CAP_IPC_LOCK CAP_NET_ADMIN CAP_NET_RAW CAP_SETGID CAP_SETUID CAP_SYS_CHROOT CAP_DAC_OVERRIDE
+ CapabilityBoundingSet=CAP_IPC_LOCK CAP_NET_ADMIN CAP_NET_RAW CAP_SETGID CAP_SETUID CAP_SETPCAP CAP_SYS_CHROOT CAP_DAC_OVERRIDE
+ LimitNPROC=10
+ DeviceAllow=/dev/null rw
+--- openvpn-2.6.1/distro/systemd/openvpn-server@.service.in	2023-03-08 09:24:53.000000000 -0500
++++ openvpn-2.6.1/distro/systemd/openvpn-server@.service.in.orig	2023-03-09 05:39:14.553591456 -0500
+@@ -11,6 +11,9 @@
+ PrivateTmp=true
+ WorkingDirectory=/etc/openvpn/server
+ ExecStart=@sbindir@/openvpn --status %t/openvpn-server/status-%i.log --status-version 2 --suppress-timestamps --config %i.conf
++User=openvpn
++Group=network
++AmbientCapabilities=CAP_IPC_LOCK CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW CAP_SETGID CAP_SETUID CAP_SYS_CHROOT CAP_DAC_OVERRIDE CAP_AUDIT_WRITE
+ CapabilityBoundingSet=CAP_IPC_LOCK CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW CAP_SETGID CAP_SETUID CAP_SETPCAP CAP_SYS_CHROOT CAP_DAC_OVERRIDE CAP_AUDIT_WRITE
+ LimitNPROC=10
+ DeviceAllow=/dev/null rw
