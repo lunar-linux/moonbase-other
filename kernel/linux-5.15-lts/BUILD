@@ -7,7 +7,7 @@ MYARCH="`arch | grep -qw i.86 && echo i386 || arch`"
 PATCH_VERSION=$(echo $VERSION | cut -d . -f 3)
 FULL_VERSION=$(echo $VERSION | cut -d . -f 1,2).${PATCH_VERSION:-0}-lts
 echo | make oldconfig
-LD_PRELOAD= cp .config $CONFIG_CACHE/.config-lts
+LD_PRELOAD= cp .config $CONFIG_CACHE/.config-${BASE}-lts
 rm -f arch/${MYARCH}/boot/bzImage
 
 make ${MAKES:+-j$MAKES} bzImage
