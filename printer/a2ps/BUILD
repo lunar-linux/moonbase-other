@@ -1,4 +1,7 @@
-autoreconf -fi &&
+libtoolize --force --copy &&
+autoreconf -fi -I m4 &&
+
+mkdir -p auxdir &&
 
 if [ `arch` == x86_64 ] ; then
     cp /usr/share/automake/config.guess auxdir/ &&
@@ -7,7 +10,7 @@ fi &&
 
 touch doc/*.info &&
 
-./configure  --build=$BUILD            \
+LIBS+=" -lm" ./configure  --build=$BUILD \
              --prefix=/usr             \
              --sysconfdir=/etc/a2ps    \
              --localstatedir=/var      \
