@@ -1,13 +1,3 @@
-OLD_VER="`get_module_config OLD_VER`"
-NEW_VER="`get_module_config NEW_VER`"
-SMNKEY_LIBDIR=seamonkey-$VERSION
-
-if [ ! -z "$OLD_VER" ] && [ "$OLD_VER" != "$NEW_VER" ] ; then
-  rm -rf /usr/lib/seamonkey-$OLD_VER
-  rm -rf /usr/include/seamonkey-$OLD_VER
-  rm -rf /usr/share/idl/seamonkey-$OLD_VER
-fi
-unset_module_config OLD_VER
 
 ln -snf /usr/lib/lunar/plugins /usr/lib/$MODULE-$VERSION/plugins
 
