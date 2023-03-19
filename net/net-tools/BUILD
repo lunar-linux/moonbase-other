@@ -20,6 +20,6 @@ sedit "s:HAVE_HWSTRIP 1:HAVE_HWSTRIP 0:" config.h &&
 make &&
 prepare_install &&
 
-make BASEDIR=/usr install &&
+make BASEDIR=/ install &&
 install -m 755 $SCRIPT_DIRECTORY/ifup   /usr/sbin &&
 install -m 755 $SCRIPT_DIRECTORY/ifdown /usr/sbin
