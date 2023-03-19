@@ -17,6 +17,7 @@ fi &&
 # curent kernel and kernel-headers do not contain linux/if_strip.h
 sedit "s:HAVE_HWSTRIP 1:HAVE_HWSTRIP 0:" config.h &&
 
+export BINDIR='/usr/bin' SBINDIR='/usr/bin'
 make &&
 prepare_install &&
 
