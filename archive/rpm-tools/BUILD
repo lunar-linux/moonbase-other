@@ -7,4 +7,7 @@ OPTS+=" --enable-python \
         --with-cap \
         --program-prefix=rpmtools-"
 
-default_build
+default_build &&
+
+ln -sf /usr/bin/rpmtools-rpm /usr/bin/rpmverify &&
+ln -sf /usr/bin/rpmtools-rpm /usr/bin/rpmquery
