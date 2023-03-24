@@ -1,5 +1,3 @@
-#!/bin/bash
-
 default_config &&
 
 make ${MAKES:+-j${MAKES}} &&
