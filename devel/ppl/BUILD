@@ -1,7 +1,7 @@
 autoreconf -fi &&
 
-OPTS+=" --enable-arch=$(arch) --disable-static --enable-interfaces="c,cxx,swi_prolog""
+export CFLAGS+=" ${CFLAGS} -L/usr/lib/swipl/lib/x86_64-linux"
 
-CPPFLAGS+="$(pkgconf --cflags-only-I swipl)"
+OPTS+=" --enable-arch=$(arch) --disable-static --enable-interfaces=c,cxx,swi_prolog"
 
 default_build
