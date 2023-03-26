@@ -32,7 +32,7 @@ OPTS+=" -DwxBUILD_TOOLKIT=gtk3 \
         -DwxUSE_WEBVIEW=ON  \
         -DwxBUILD_COMPATIBILITY=2.8"
 
-cmake . -B $MODULE -G Ninja $OPTS &&
-cmake  --build $MODULE &&
+cmake . -B $MODULE-gtk -G Ninja $OPTS &&
+cmake  --build $MODULE-gtk &&
 prepare_install &&
-cmake --install $MODULE
+cmake --install $MODULE-gtk

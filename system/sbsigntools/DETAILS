@@ -1,15 +1,13 @@
           MODULE=sbsigntools
-         VERSION=0.9.4
+         VERSION=0.9.5
+         _commit=8445b18f64e60137408a4867fbcbb9ba112c583a
           SOURCE=${MODULE}-${VERSION}.tar.gz
-         SOURCE2=0001-sbsigntools-fix-autogen.sh-for-build-service.patch
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_URL=git+https://git.kernel.org/pub/scm/linux/kernel/git/jejb/sbsigntools.git:v$VERSION
-     SOURCE2_URL=$PATCH_URL
-     SOURCE2_VFY=sha256:9085ad181f67ac911918864783a9804af456d33c4631659e6acaaa27987786d7
+      SOURCE_URL=git+https://git.kernel.org/pub/scm/linux/kernel/git/jejb/sbsigntools.git:${_commit}
+#      SOURCE_VFY=sha256:0ba8a4fc7b664be989748fd2d8447d69c46a492807754530dc97e9cc1274f314
         WEB_SITE=https://build.opensuse.org/package/show/home:jejb1:UEFI/sbsigntools
          ENTERED=20171022
-         UPDATED=20221030
-         SHORT="Tools to add signatures to EFI binaries and drivers"
+         UPDATED=20230320
+           SHORT="Tools to add signatures to EFI binaries and drivers"
 
 cat << EOF
 Tools to add signatures to EFI binaries and drivers.

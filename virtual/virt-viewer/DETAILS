@@ -1,15 +1,16 @@
           MODULE=virt-viewer
-         VERSION=7.0
-          SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://virt-manager.org/download/sources/virt-viewer/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha256:47c2cfaa376f5f20968c0addfd65c62b90cab4e6336febf2bc44499d4cdcc903
-        WEB_SITE=http://virt-manager.org/
+         VERSION=11.0
+          SOURCE=$MODULE-v$VERSION.tar.bz2
+      SOURCE_URL=https://gitlab.com/virt-viewer/virt-viewer/-/archive/v$VERSION/
+      SOURCE_VFY=sha256:9928f91c55029aaba270c0d29d31936d873e0e5b8fd073716d58401120d99e23
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-v$VERSION
+        WEB_SITE=https://gitlab.com/virt-viewer/virt-viewer
+            TYPE=meson
          ENTERED=20130203
-         UPDATED=20181029
+         UPDATED=20230324
            SHORT="Virtual Machine Viewer"
 
-cat <<EOF
+cat << EOF
 The "Virtual Machine Viewer" application (virt-viewer for short
 package name) is a lightweight interface for interacting with the
 graphical display of virtualized guest OS.

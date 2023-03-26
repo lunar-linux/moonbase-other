@@ -11,7 +11,8 @@ export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
 # LTO needs more open files
 ulimit -n 8192 &&
 
-./mach build &&
+./mach configure || ./mach configure &&
+./mach build --verbose &&
 
 prepare_install &&
 
