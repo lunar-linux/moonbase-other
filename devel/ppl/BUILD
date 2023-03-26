@@ -1,7 +1,9 @@
+sed -i 's,== 201103L,>= 201103L,g' m4/ac_check_cxx11.m4 &&
+
 autoreconf -fi &&
 
-export CFLAGS+=" ${CFLAGS} -L/usr/lib/swipl/lib/x86_64-linux"
-
-OPTS+=" --enable-arch=$(arch) --disable-static --enable-interfaces=c,cxx,swi_prolog"
+OPTS+="  --disable-debug \
+         --disable-static \
+         --enable-arch=$(arch)"
 
 default_build
