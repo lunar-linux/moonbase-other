@@ -21,8 +21,8 @@ sedit '416i codegen-units-std = 1' config.toml &&
 # disable docs because it broke the build
 sedit 's|#docs = true|docs = false|' config.toml &&
 
-CARGO_BUILD_JOBS="${MAKES}"
-python3 ./x.py build --exclude miri --jobs ${MAKES} &&
+CARGO_BUILD_JOBS="${MAKES:-1}"
+python3 ./x.py build --exclude miri --jobs $CARGO_BUILD_JOBS &&
 make ${MAKES:+-j$MAKES} &&
 
 prepare_install &&
