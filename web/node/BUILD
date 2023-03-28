@@ -1,6 +1,5 @@
-patch -d . -Rp1 < $SCRIPT_DIRECTORY/system-c-ares.patch &&
-
 ./configure --prefix=/usr \
+            --shared-cares \
             --without-npm &&
 
 default_make &&

@@ -1,4 +1,4 @@
-make release &&
+make release shared &&
 
 prepare_install &&
 

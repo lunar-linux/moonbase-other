@@ -1,0 +1,2 @@
+USE_SHARED_BROTLI=1 default_python3_build
+

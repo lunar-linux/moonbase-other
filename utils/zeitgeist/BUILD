@@ -3,7 +3,7 @@ sed -i '1s/python$/python2/' data/ontology2code &&
 
 autoreconf -fi &&
 
-export PYTHON=/usr/bin/python2 &&
+export PYTHON=/usr/bin/python &&
 
 OPTS+=" --enable-fts \
         --disable-docs \

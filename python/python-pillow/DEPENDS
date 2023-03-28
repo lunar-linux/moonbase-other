@@ -1,9 +1,15 @@
 depends python-setuptools
-depends %JPEG
-depends libwebp
-depends libraqm
+depends python-build
+depends python-installer
+depends python-wheel
+depends freetype2
 depends lcms2
+depends tiff
+depends libraqm
+depends libwebp
+depends %JPEG
 
-optional_depends sane-backends "" "" "for SANE scanning support" n
-optional_depends openjpeg-2    "" "" "for JPEG support" n
-optional_depends tk            "" "" "for the ImageTK module" n
+optional_depends sane-backends "" "" "for SANE scanning support"
+optional_depends openjpeg-2    "" "" "for JPEG support"
+optional_depends tk            "" "" "for the ImageTK module"
+optional_depends PyQt5         "" "" "for ImageQt module support"

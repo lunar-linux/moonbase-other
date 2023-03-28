@@ -1,5 +1,5 @@
 if [ ! -e /etc/php/php.ini ]; then
-  [ -d /etc/php ] || mkdir /etc/php
+  [ -d /etc/php ] || mkdir -p /etc/php/conf.d
   cp $SOURCE_DIRECTORY/php.ini-production /etc/php/php.ini
 fi
 

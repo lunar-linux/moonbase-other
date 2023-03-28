@@ -1,18 +1,12 @@
           MODULE=synergy
-         VERSION=1.4.15
-          SOURCE=$MODULE-$VERSION-Source.tar.gz
-         SOURCE2=synergy-1.4.12-pthread.patch
-         SOURCE3=synergy-1.4.15-cryptopp.patch
-      SOURCE_URL=http://${MODULE}.googlecode.com/files/
-     SOURCE2_URL=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
-      SOURCE_VFY=sha1:0766bc3d95d6971746764d30e0853db14926ae73
-     SOURCE2_VFY=sha1:cf03f35c86fa9085bc9b78460688bfa33e5cfe41
-     SOURCE3_VFY=sha1:b114b15c28d59d7f644945e1c89812539b8c427f
-        WEB_SITE=http://synergy2.sourceforge.net/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-${VERSION}-Source
+         VERSION=1.14.5.23
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/symless/synergy-core/archive/refs/tags/$VERSION.tar.gz
+      SOURCE_VFY=sha256:75f17c2abd4d006ecee6c6aee207b9e78839b2f9b5b1ffdacf190463d7e06753
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-core-${VERSION}
+        WEB_SITE=https://symless.com/synergy
          ENTERED=20040304
-         UPDATED=20140613
+         UPDATED=20220921
            SHORT="lets you easily share a single mouse and keyboard between multiple computers"
 
 cat << EOF

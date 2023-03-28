@@ -1,6 +1,8 @@
-prepare_install &&
+export PYTHONDONTWRITEBYTECODE=1 &&
 
 make &&
+prepare_install &&
+
 python setup.py linux-package --prefix=/usr --update-check-interval=0 &&
 
 # completions
@@ -13,7 +15,3 @@ if module_installed fish ; then
 fi &&
 
 install -Dm644 /usr/share/icons/hicolor/256x256/apps/kitty.png /usr/share/pixmaps/kitty.png
-
-# terminfo for kitty
-#mkdir -p /usr/share/terminfo &&
-#tic -x -o /usr/share/terminfo terminfo/kitty.terminfo

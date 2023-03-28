@@ -9,14 +9,4 @@ if [ `arch` == "x86_64" ]; then
   CFLAGS+=" -fPIC"
 fi
 
-flag-false
-if module_installed lua; then
-   lrm lua
-   flag=true
-fi
-
-default_cmake_build &&
-
-if [ flag ]; then
-   lin lua
-fi
+default_cmake_build

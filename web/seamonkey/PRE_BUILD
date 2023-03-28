@@ -1,45 +1,14 @@
 default_pre_build &&
 
-if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
-  message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo"
-  message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by Seamonkey.${DEFAULT_COLOR}"
-  exit 1
-fi &&
+export MOZ_CO_PROJECT=suitex &&
+export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
+export MOZILLA_OFFICIAL=1 &&
+export BUILD_OFFICIAL=1 &&
 
-sedit 's/@PRE_RELEASE_SUFFIX@//g' mozilla/browser/base/content/browser.xul &&
+cp $SCRIPT_DIRECTORY/mozconfig . &&
+export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla" &&
+mkdir -p ${MOZ_OBJDIR} &&
 
-if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
-     set_module_config OLD_VER "`installed_version $MODULE`"
-fi &&
-
-#Can't find pixman.h
-sedit "s:\$(MOZ_ZLIB_CFLAGS):\$(MOZ_ZLIB_CFLAGS) \$(MOZ_PIXMAN_CFLAGS):" config/config.mk &&
-
-# To skirt around this make failure in ftbzip2.c:183: undefined reference to `BZ2_bzDecompressInit'
- CFLAGS+=" -lbz2" &&
-
- export MOZ_CO_PROJECT=suitex &&
- export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
- export MOZILLA_OFFICIAL=1 &&
- export BUILD_OFFICIAL=1 &&
- export MOZ_MAKE_FILES=$MAKES &&
- export MOZ_OPTIMIZE_FLAGS="$CFLAGS" &&
- export MOZ_DEBUG_FLAGS="$CFLAGS" &&
-
- cp $SCRIPT_DIRECTORY/mozconfig . &&
- export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla" &&
- mkdir -p ${MOZ_OBJDIR} &&
-
- for flag in $OPTS; do
+for flag in $OPTS; do
    echo "ac_add_options $flag" >> mozconfig
- done &&
-
- if [ "$SAFE" == "y" ] ; then
-   echo "ac_add_options --enable-safe-browsing" >> mozconfig
- fi  &&
-
- setterm -bfreq -blength &&
-
- if [ -n "${MAKES}" ]; then
-   echo "mk_add_options MOZ_MAKE_FLAGS='-j${MAKES}'" >> mozconfig
- fi
+done

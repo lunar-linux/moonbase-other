@@ -12,4 +12,6 @@ default_cmake_build &&
 rm -f /usr/share/games/fortunes/*.u8 &&
 rm -f /usr/share/games/fortunes/off/*.u8 &&
 
+ln -sfv strfile.1.gz /usr/share/man/man1/unstr.1.gz &&
+
 gather_docs Notes cookie-files Offensive

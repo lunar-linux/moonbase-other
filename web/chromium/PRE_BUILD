@@ -1,43 +1,19 @@
 default_pre_build &&
 
-unzip $SOURCE_CACHE/$SOURCE2 &&
-
 # Allow building against system libraries in official builds
-sedit 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' tools/generate_shim_headers/generate_shim_headers.py &&
-
-# https://crbug.com/skia/6663#c10
-patch_it $SOURCE3 0 &&
-
-# Load widevine cdm
-patch_it $SOURCE4 1 &&
-
-# https://crbug.com/1049258
-patch_it $SOURCE5 1 &&
-patch_it $SOURCE6 1 &&
-
-# https://chromium-review.googlesource.com/c/chromium/src/+/2145261
-patch_it $SOURCE7 1 &&
-
-# https://crbug.com/v8/10393
-patch -Np3 -d v8 < $SOURCE_CACHE/$SOURCE8 &&
+sed -i 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' tools/generate_shim_headers/generate_shim_headers.py &&
 
 # https://crbug.com/893950
-sedit 's/\<xmlMalloc\>/malloc/;s/\<xmlFree\>/free/' \
-      third_party/blink/renderer/core/xml/*.cc \
-      third_party/blink/renderer/core/xml/parser/xml_document_parser.cc \
-      third_party/libxml/chromium/*.cc &&
-
-# Remove unsupported compiler flags
-sedit '/"-Wno-defaulted-function-deleted"/d' build/config/compiler/BUILD.gn &&
-
-# Make sure python2 is used
-sedit '1s;python$;&2;' third_party/dom_distiller_js/protoc_plugins/*.py &&
+  sed -i -e 's/\<xmlMalloc\>/malloc/' -e 's/\<xmlFree\>/free/' \
+    third_party/blink/renderer/core/xml/*.cc \
+    third_party/blink/renderer/core/xml/parser/xml_document_parser.cc \
+    third_party/libxml/chromium/*.cc \
+    third_party/maldoca/src/maldoca/ole/oss_utils.h &&
 
 # Build now requires nodejs
 mkdir -p third_party/node/linux/node-linux-x64/bin &&
 ln -s /usr/bin/node third_party/node/linux/node-linux-x64/bin/node &&
-
-export CHROMIUM_HOME=/usr/lib/$MODULE &&
+ln -s /usr/bin/java third_party/jdk/current/bin/ &&
 
 # Google API keys (see http://www.chromium.org/developers/how-tos/api-keys)
 # The keys below are for Lunar Linux use ONLY. If you are maintaining chromium for
@@ -47,36 +23,63 @@ google_default_client_id=1081365520390-t7vsmo6kde87fvbjoue2ea412vsjkvu0.apps.goo
 google_default_client_secret=mz6fvViZFucQ5QVggWaqOjYX &&
 
 # Remove bundled libraries, we will use system provided ones instead (using arch's approach)
-local _libs _lib &&
-_libs=(ffmpeg fontconfig flac yasm libxslt libxml libwebp libjpeg opus re2 zlib snappy freetype harfbuzz-ng) &&
-for _lib in ${_libs[@]} libjpeg_turbo; do
-  find "third_party/${_lib}" -type f \
-       \! -path "third_party/${_lib}/chromium/*" \
-       \! -path "third_party/${_lib}/google/*" \
+local _libs &&
+_libs=(brotli dav1d fontconfig freetype flac jsoncpp libaom libavif libpng woff2 libxml libxslt libwebp re2 icu opus zlib snappy harfbuzz-ng) &&
+for _lib in ${_libs[@]}; do
+  find "third_party/$_lib" -type f \
+       \! -path "third_party/$_lib/chromium/*" \
+       \! -path "third_party/$_lib/google/*" \
        \! -path "third_party/yasm/run_yasm.py" \
+       \! -path "third_party/harfbuzz-ng/utils/hb_scoped.h" \
        \! -regex '.*\.\(gn\|gni\|isolate\)' \
        -delete
 done &&
 
-python2 build/linux/unbundle/replace_gn_files.py --system-libraries "${_libs[@]}" &&
+./build/linux/unbundle/replace_gn_files.py --system-libraries "${_libs[@]}" &&
 
+pushd third_party/ffmpeg &&
+chromium/scripts/build_ffmpeg.py linux x64 --branding Chrome
+chromium/scripts/copy_config.sh
+chromium/scripts/generate_gn.py
+popd &&
+
+export CC=clang &&
+export CXX=clang++ &&
+export AR=llvm-ar &&
+export NM=nm &&
+
+#gnome_keyring is depreciated hence its set to false below.
+#pseudolocales is only for testing, set to false
+#If compiling on AMD then add devtools_skip_typecheck=false, don't have such
+#a system to test.
 local _flags=(
+  'clang_base_path="/usr"'
+  'chrome_pgo_phase=0'
+  'blink_symbol_level=0'
+  'is_debug=false'
+  'is_component_build=false'
+  'is_official_build=true'
+  'v8_symbol_level=0'
   'custom_toolchain="//build/toolchain/linux/unbundle:default"'
   'host_toolchain="//build/toolchain/linux/unbundle:default"'
-  'is_official_build=true'
+  'icu_use_data_file=false'
   'clang_use_chrome_plugins=false'
   'treat_warnings_as_errors=false'
-  'fieldtrial_testing_like_official_build=true'
+  'fatal_linker_warnings=false'
   'ffmpeg_branding="Chrome"'
   'proprietary_codecs=true'
   'use_gnome_keyring=false'
+  'use_system_libffi=true'
   'use_sysroot=false'
+  'use_gold=false'
   'use_custom_libcxx=false'
-  'linux_use_bundled_binutils=false'
+  'disable_fieldtrial_testing_config=true'
+  'blink_enable_generated_code_formatting=false'
   'enable_hangout_services_extension=true'
   'enable_widevine=true'
+  'enable_pseudolocales=false'
   'enable_nacl=false'
-  'enable_swiftshader=false'
+  'gtk_version=3'
   'symbol_level=0'
   "google_api_key=\"${google_api_key}\""
   "google_default_client_id=\"${google_default_client_id}\""
@@ -87,18 +90,11 @@ for o in $OPTS; do
   _flags+=( "$o" )
 done &&
 
-export CC=clang &&
-export CXX=clang++ &&
-export AR=llvm-ar &&
-export NM=nm &&
+if module_installed qt5; then
+  source /etc/profile.d/qt5.rc &&
+  OPTS+=" --enable-features=AllowQ"
+fi &&
 
-# Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
-export CFLAGS+='   -Wno-builtin-macro-redefined'
-export CXXFLAGS+=' -Wno-builtin-macro-redefined'
-export CPPFLAGS+=' -D__DATE__=  -D__TIME__=  -D__TIMESTAMP__='
+export CHROMIUM_HOME=/usr/lib/$MODULE &&
 
-# Silence unknown warning options
-CFLAGS+=' -Wno-unknown-warning-option'
-CXXFLAGS+=' -Wno-unknown-warning-option'
-
-gn gen out/Release --args="${_flags[*]}" --script-executable=/usr/bin/python2
+gn gen out/Release --args="${_flags[*]}"

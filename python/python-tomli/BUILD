@@ -1,4 +1,6 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
+python -m build -wn --skip-dependency-check &&
 
 prepare_install &&
-
-pip install tomli
+python -m installer -d / dist/*.whl

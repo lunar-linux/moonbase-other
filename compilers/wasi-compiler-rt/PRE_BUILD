@@ -1,0 +1,8 @@
+default_pre_build &&
+
+cd $SOURCE_DIRECTORY/ &&
+unpack $SOURCE2 &&
+mkdir -p cmake/Platform &&
+cp -r cmake-$VERSION.src/Modules/*.cmake cmake/Modules/ &&
+cp $SCRIPT_DIRECTORY/WASI.cmake cmake/Platform
+cp $SCRIPT_DIRECTORY/wasi-toolchain.cmake .

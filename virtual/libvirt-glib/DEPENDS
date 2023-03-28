@@ -1,12 +1,13 @@
+depends meson
 depends libvirt
 
 optional_depends vala \
-                 "--enable-vala" \
-                 "--disable-vala" \
+                 "-Dvapi=enabled" \
+                 "-Dvapi=disabled" \
                  "for vala support (needed for gnome-boxes), also you have to enable introspection in the next question"
 
 optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
+                 "-Dintrospection=enabled" \
+                 "-D-introspection=disabled" \
                  "for object introspection support" \
                  "y"

@@ -1,22 +1,15 @@
           MODULE=path.py
-         VERSION=16.2.0
-          SOURCE=$MODULE-$VERSION.tar.gz
- SOURCE_URL_FULL=https://github.com/jaraco/path/archive/refs/tags/v$VERSION.tar.gz
+         VERSION=16.6.0
+          SOURCE=path-$VERSION.tar.gz
+      SOURCE_URL=https://files.pythonhosted.org/packages/source/p/path/
+      SOURCE_VFY=sha256:bea3816e1d54f4e33aac78d2031a0b0ed2f95e69db85b45d51f17df97071da69
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/path-$VERSION
-      SOURCE_VFY=sha256:f2966055c0fad1728e40c46f084e50ef2e354b9eb56a94cf8f66b0834d6402cd
-        WEB_SITE=https://github.com/jaraco/path.py
-            TYPE=python3
+        WEB_SITE=https://pypi.org/project/path/#description
          ENTERED=20151010
-         UPDATED=20211212
+         UPDATED=20230301
            SHORT="A Python module wrapper for os.path"
 
 cat << EOF
-path.py implements a path objects as first-class
-entities, allowing common operations on files to be
+path.py implements a path objects as first-class entities, allowing common operations on files to be
 invoked on those path objects directly.
-For example:
-> from path import Path
-> d = Path('/home/guido/bin')
-> for f in d.files('*.py'):
->     f.chmod(0755)
 EOF

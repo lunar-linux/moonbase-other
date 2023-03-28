@@ -7,6 +7,8 @@ fi &&
 sedit "s:texi2html -monolithic -number:texi2html -monolithic:" Makefile &&
 
 OPTS+=" --disable-static  \
+        --disable-debug   \
+        --disable-doc     \
         --enable-gpl      \
         --enable-zlib     \
         --enable-shared   \
@@ -15,7 +17,6 @@ OPTS+=" --disable-static  \
         --enable-pthreads \
         --enable-postproc \
         --enable-avfilter \
-        --enable-avresample \
         --disable-libopencv"
 
 if [ -n $CPU ] ; then
@@ -25,4 +26,8 @@ fi
 # With default_build, get error:  Unknown option "--build=i686-pc-linux-gnu"
 ./configure --prefix=/usr $OPTS &&
 
-default_make
+#This utility rearranges a Quicktime file such that the moov atom
+#is in front of the data, thus facilitating network streaming.
+make tools/qt-faststart &&
+default_make &&
+install -Dm 755 tools/qt-faststart /usr/bin/

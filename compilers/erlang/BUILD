@@ -1,9 +1,10 @@
-./otp_build setup &&
+export CFLAGS+=' -ffat-lto-objects'
 
-# enable SMP
-OPTS+=" --enable-smp-support"
+OPTS+=" --enable-smp-support --prefix=/usr --enable-pie"
 
-default_build &&
+./configure $OPTS &&
+
+default_make &&
 
 mkdir -p /etc/config.d &&
 install -Dm644 $SCRIPT_DIRECTORY/epmd.conf /etc/config.d/epmd

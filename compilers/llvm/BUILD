@@ -1,7 +1,10 @@
 TARGETS="${TARGETS:=X86;AMDGPU;BPF}" &&
 
-OPTS+=" -DLLVM_ENABLE_RTTI=ON \
+OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+        -DLLVM_ENABLE_RTTI=ON \
         -DLLVM_BUILD_TESTS=OFF \
+        -DCLANG_DEFAULT_PIE_ON_LINUX=ON \
+        -DLLVM_ENABLE_FFI=ON \
         -DLLVM_INCLUDE_BENCHMARKS=OFF \
         -DLLVM_INSTALL_UTILS=ON \
         -DLLVM_ENABLE_SPHINX=OFF \
@@ -10,13 +13,13 @@ OPTS+=" -DLLVM_ENABLE_RTTI=ON \
         -DLLVM_LINK_LLVM_DYLIB=ON \
         -DLLVM_BUILD_LLVM_DYLIB=ON \
         -DCLANG_LINK_CLANG_DYLIB=ON \
-        -DSPHINX_WARNINGS_AS_ERRORS=OFF \
         -DLLVM_TARGETS_TO_BUILD=$TARGETS \
         -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON"
 
+
 default_cmake_build &&
 
-#This is needed by lld
-pushd ../utils/lit &&
-python3 setup.py install --root=/ -O1 &&
-popd
+unset OPTS &&
+
+cd ../utils/lit &&
+default_python3_build

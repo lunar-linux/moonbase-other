@@ -1,5 +1,6 @@
-  ./autogen.sh &&
+./autogen.sh &&
 
-  OPTS+=" --disable-static" &&
+OPTS+=" --disable-static" &&
+sed -i 's|-Werror||g' src/Makefile.* &&
 
-  default_build
+default_build

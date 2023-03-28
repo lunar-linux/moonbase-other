@@ -19,7 +19,10 @@ cd src &&
 ./make.bash --no-clean -v &&
 
 PATH="$GOBIN:$PATH" go install -v -buildmode=shared std &&
-PATH="$GOBIN:$PATH" go install -v -race std &&
+case "$GOARCH" in
+  amd64) PATH="$GOBIN:$PATH" go install -v -race std ;;
+  386)   PATH="$GOBIN:$PATH" go install -v       std ;;
+esac &&
 
 prepare_install &&
 

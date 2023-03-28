@@ -1,40 +1,17 @@
           MODULE=net-tools
-         VERSION=1.60
-          SOURCE=$MODULE-$VERSION.tar.bz2
-         SOURCE2=$MODULE-$VERSION-gcc-3.3-fix1.patch.bz2
-         SOURCE3=gcc34_net-tools_lunar.patch
-         SOURCE4=$MODULE-autoconf.patch.gz
-         SOURCE5=$MODULE-$VERSION-fixes.patch.gz
-         SOURCE6=$MODULE-1.60-no-hostname.patch
-   SOURCE_URL[0]=http://www.tazenda.demon.co.uk/phil/net-tools/
-  SOURCE2_URL[0]=$PATCH_URL
-     SOURCE3_URL=$PATCH_URL
-     SOURCE4_URL=$PATCH_URL
-     SOURCE5_URL=$PATCH_URL
-     SOURCE6_URL=$PATCH_URL
-      SOURCE_VFY=sha256:7ae4dd6d44d6715f18e10559ffd270511b6e55a8900ca54fbebafe0ae6cf7d7b
-     SOURCE2_VFY=sha256:1609b18ef3a99f8aad2d2c21a5de91d28552bb14c28e5080c080b6d3a9d2807e
-     SOURCE3_VFY=sha256:c34dd2960151517af7afce3f7a82e7912d2a750d74273783b976d73a23cd9f8f
-     SOURCE4_VFY=sha256:9d615d362742b3374617533849d1359bf6a82ec99cb738d25387f132af709654
-     SOURCE5_VFY=sha256:6d4c306c8340f3a72dcc7bf5ac645da59dfcf55447051c16ef8942e19fcfeb6c
-     SOURCE6_VFY=sha256:088397ce49e698e693101b90e183539fb371e009727ea205401bf335642d09b5
-        WEB_SITE=http://www.tazenda.demon.co.uk/phil/net-tools
+         VERSION=2.10
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/ecki/net-tools/archive/refs/tags/v2.10.tar.gz
+      SOURCE_VFY=sha256:8e186f65f0ff304989b3dc8b0067c3a07d36ae777da60667bdd6ccb2730908d2
+        WEB_SITE=https://github.com/ecki/net-tools
          ENTERED=20010922
-         UPDATED=20140119
+         UPDATED=20230319
            SHORT="net-tools contains essential tools for networking."
-PSAFE=no
-LUNAR_RESTART_SERVICES=off
+           PSAFE=no
+           LUNAR_RESTART_SERVICES=off
 
 cat << EOF
-The Net-tools package contains the arp, hostname, ifconfig, netstat,
-plipconfig rarp, route, and slattach programs.
-
-arp is used to manipulate the kernel's ARP cache, usually to add or
-delete an entry, or to dump the ARP cache.
-
-hostname, with its symlinks domainname, dnsdomainname, nisdomainname,
-ypdomainname, and nodename, is used to set or show the system's hostname
-(or other, depending on the symlink used).
+The Net-tools package contains the ifconfig, netstat, and route programs.
 
 The ifconfig command is the general command used to configure network
 interfaces.
@@ -43,14 +20,6 @@ netstat is a multi-purpose tool used to print the network connections,
 routing tables, interface statistics, masquerade connections, and
 multicast memberships.
 
-plipconfig is used to fine-tune the PLIP device parameters, hopefully
-making it faster.
-
-rarp, akin to the arp program, manipulates the system's RARP table.
-
 route is the general utility which is used to manipulate the IP routing
 table.
-
-slattach attaches a network interface to a serial line, i.e.. puts a
-normal terminal line into one of several "network" modes.
 EOF

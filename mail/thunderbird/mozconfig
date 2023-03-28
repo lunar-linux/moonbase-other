@@ -1,40 +1,42 @@
-ac_add_options --prefix=/usr
+ac_add_options --disable-necko-wifi
 
-ac_add_options --with-user-appdir=".thunderbird"
-ac_add_options --with-system-zlib
-ac_add_options --with-system-jpeg
-ac_add_options --with-system-nspr
+# Comment out following options if you have not installed
+# recommended dependencies:
 ac_add_options --with-system-libevent
+ac_add_options --with-system-libvpx
+ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
 ac_add_options --with-system-icu
-ac_add_options --with-system-libvpx
 
-ac_add_options --enable-optimize="$CFLAGS"
-ac_add_options --enable-release
+# The elf-hack causes failed installs on some machines.
+# It is supposed to improve startup time and it shrinks libxul.so
+# by a few MB - comment this if you know your machine is not affected.
+ac_add_options --disable-elf-hack
+
+ac_add_options --prefix=/usr
+ac_add_options --enable-application=comm/mail
+
+ac_add_options --disable-crashreporter
+ac_add_options --disable-updater
+ac_add_options --disable-debug
+ac_add_options --disable-debug-symbols
+ac_add_options --disable-tests
+
+ac_add_options --enable-optimize=-O2
+ac_add_options --enable-linker=gold
+ac_add_options --enable-strip
+ac_add_options --enable-install-strip
+
+ac_add_options --enable-official-branding
+
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
-ac_add_options --enable-application=comm/mail
-ac_add_options --enable-default-toolkit=cairo-gtk3
-ac_add_options --enable-strip
-ac_add_options --enable-jemalloc
-ac_add_options --enable-install-strip
-ac_add_options --enable-official-branding
-ac_add_options --enable-rust-simd
 
-ac_add_options --disable-tests
-ac_add_options --disable-jack
-ac_add_options --disable-updater
-ac_add_options --disable-crashreporter
-ac_add_options --disable-debug-symbols
-ac_add_options --disable-webrtc
+ac_add_options --with-system-jpeg
+ac_add_options --with-system-png
+ac_add_options --with-system-zlib
 
-ac_add_options --allow-addon-sideload
-
-STRIP_FLAGS="--strip-debug"
-
-# Still no like this, 20140922
-#ac_add_options --disable-shared-js
-
-# Disabling. There is a 10+ year history of people having problems with this
-# and seems like one solution never quite fixes the problem from one version to the next
-ac_add_options --disable-startupcache
+# Using sandboxed wasm libraries has been moved to all builds instead
+# of only mozilla automation builds. It requires extra llvm packages
+# and was reported to seriously slow the build. Disable it.
+ac_add_options --without-wasm-sandboxed-libraries

@@ -1,4 +1,7 @@
 default_pre_build &&
 
-#remove the underquoted definition
-sedit 's/AM_PATH_SMPEG,/[AM_PATH_SMPEG],/' smpeg.m4
+./autogen.sh &&
+
+CFLAGS+=" -Wno-error=narrowing" &&
+
+OPTS+=" --disable-static"

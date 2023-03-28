@@ -1,0 +1,21 @@
+          MODULE=libjxl
+         VERSION=0.8.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/libjxl/libjxl/archive/refs/tags/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:60f43921ad3209c9e180563025eda0c0f9b1afac51a2927b9ff59fff3950dc56
+        WEB_SITE=https://github.com/libjxl/libjxl
+            TYPE=cmake
+         ENTERED=20221214
+         UPDATED=20230213
+           SHORT="reference implementation of JPEG XL encoder and decoder"
+
+cat << EOF
+This repository contains a reference implementation of JPEG XL (encoder and decoder), called libjxl.
+This software library is used by many applications that support JPEG XL.
+
+JPEG XL is in the final stages of standardization and its codestream and file format are frozen.
+
+The library API, command line options, and tools in this repository are subject to change, however
+files encoded with cjxl conform to the JPEG XL format specification and can be decoded with current
+and future djxl decoders or libjxl decoding library.
+EOF

@@ -1,14 +1,14 @@
           MODULE=lxc
-         VERSION=4.0.8
+         VERSION=5.0.2
           SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=https://linuxcontainers.org/downloads/lxc/
-      SOURCE_VFY=sha256:ac55852bcc7b828e82cfa4afec794dd030a030c728b7b56c0c6b671fb5af0b9b
+      SOURCE_VFY=sha256:bea08d2e49efcee34fa58acd2bc95c0adc64d291c07f4cfaf4ac1d8ac5a36f45
         WEB_SITE=http://lxc.sourceforge.net/
          ENTERED=20120901
-         UPDATED=20210501
+         UPDATED=2023022
            SHORT="container namespace cgroup virtualisation"
 
-cat <<EOF
+cat << EOF
 The container technology is actively being pushed into the mainstream linux
 kernel. It provides the resource management through the control groups aka
 process containers and resource isolation through the namespaces.
@@ -22,4 +22,27 @@ developers involved in the containers project and especially to continue working
 on the Checkpoint/Restart new features. The lxc is small enough to easily manage
 a container with simple command lines and complete enough to be used for other
 purposes.
+
+NOTE: The following kernel modules need to be enabled for lxc as noted by gentoo;
+
+NETPRIO_CGROUP
+CGROUPS
+CGROUP_CPUACCT
+CGROUP_DEVICE
+CGROUP_FREEZER
+
+CGROUP_SCHED
+CPUSETS
+IPC_NS
+MACVLAN
+
+MEMCG
+NAMESPACES
+NET_NS
+PID_NS
+
+POSIX_MQUEUE
+USER_NS
+UTS_NS
+VETH"
 EOF
