@@ -1,9 +1,9 @@
           MODULE=fuse-3
-         VERSION=14.0
-          SOURCE=$MODULE.$VERSION.tar.xz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
-      SOURCE_URL=https://github.com/libfuse/libfuse//releases/download/fuse-3.${VERSION}/
-      SOURCE_VFY=sha256:96115b2a8ff34bd1e0c7b00c5dfd8297571d7e165042b94498c9a26356a9a70a
+         VERSION=3.14.1
+          SOURCE=${MODULE%-*}-${VERSION}.tar.xz
+      SOURCE_URL=https://github.com/libfuse/libfuse//releases/download/${MODULE%-*}-${VERSION}/
+      SOURCE_VFY=sha256:126919d72b46b3e0eb58a9c6933a2a50c36f2ea69f61fe9e78bdba9f463ffa20
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%-*}-$VERSION
         WEB_SITE=http://fuse.sourceforge.net
          ENTERED=20170711
          UPDATED=20230217
