@@ -1,5 +1,7 @@
 ./bootstrap &&
 
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 export XML_CATALOG_FILES=/etc/xml/catalog &&
 
 OPTS+=" --with-udevdir=/usr/lib/udev --with-udev-rules"
