@@ -2,51 +2,10 @@ depends glib-2
 depends pixman
 depends libpng
 depends lzo
+depends zlib
+depends libxcb
+depends libXext
+depends libXrender
 
-optional_depends libXext \
-                 "--enable-xlib --enable-xcb --enable-xlib-xcb --enable-tee" \
-                 "--disable-xlib --disable-xlib-xcb" \
-                 "for Xlib/XCB surface backend (strongly recommended)" \
-                 "y"
-
-optional_depends libXrender \
-                 "--enable-xlib-xrender" \
-                 "--disable-xlib-xrender" \
-                 "for Xlib Xrender surface backend (requires Xlib)" \
-                 "y"
-
-optional_depends freetype2 \
-                 "--enable-ft" \
-                 "--disable-ft" \
-                 "for FreeType font backend" \
-                 "y"
-
-optional_depends fontconfig \
-                 "--enable-ft --enable-fc" \
-                 "--disable-fc" \
-                 "for Fontconfig font backend (enables FreeType)" \
-                 "y"
-
-optional_depends gtk-doc \
-                 "--enable-gtk-doc" \
-                 "--disable-gtk-doc" \
-                 "for building documentation" \
-                 "n"
-
-optional_depends DirectFB \
-                 "--enable-directfb" \
-                 "--disable-directfb" \
-                 "for DirectFB surface backend (experimental)" \
-                 "n"
-
-# circular dependencies
-#optional_depends ghostscript "" "" "for ps surface backend"
-#optional_depends libspectre  "" "" "for ps testing"
-#optional_depends poppler     "" "" "for pdf testing"
-#optional_depends mesa-lib    "" "" "for OpenGL surface backend"
-
-# broken badly
-#optional_depends libdrm \
-#                 "--enable-drm" \
-#                 "--disable-drm" \
-#                 "for DRM surface backend (experimental)"
+optional_depends freetype2  "-Dfreetype=enabled"   "-Dfreetype=disabled"   "for FreeType font backend" "y"
+optional_depends fontconfig "-Dfontconfig=enabled" "-Dfontconfig=disabled" "for Fontconfig font backend (enables FreeType)" "y"

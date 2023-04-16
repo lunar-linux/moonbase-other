@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 OPTS+=" --disable-gl \
         --disable-doc \
         --disable-cxx \
