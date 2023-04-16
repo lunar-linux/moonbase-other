@@ -1,0 +1,10 @@
+default_pre_build &&
+
+# Removal of SSL2 and fixes CVE-2004-2771 and CVE-2014-7844
+patch_it $SOURCE2 1 &&
+
+# Removal of SSL3
+patch_it $SOURCE3 1 &&
+
+# support libressl
+sedit "/include <openssl\/rand\.h>/ a #ifdef OPENSSL_NO_EGD\nint RAND_egd(const char* x){return 0;}\n#endif"  openssl.c

@@ -1,0 +1,26 @@
+          MODULE=heirloom-mailx
+         VERSION=12.5
+          SOURCE=${MODULE}_${VERSION}.orig.tar.gz
+         SOURCE2=heirloom-mailx-12.5-fixes-1.patch
+         SOURCE3=heirloom-mailx-12.5-remove-ssl3.patch
+      SOURCE_URL=http://ftp.debian.org/debian/pool/main/h/heirloom-mailx
+     SOURCE2_URL=$PATCH_URL
+     SOURCE3_URL=$PATCH_URL
+      SOURCE_VFY=sha256:015ba4209135867f37a0245d22235a392b8bbed956913286b887c2e2a9a421ad
+     SOURCE2_VFY=sha256:6c21fba61cbc9c626e4557a2460586ef3a302affaf81540666905d855674b7f1
+     SOURCE3_VFY=sha256:b0c4389b43d3d5108df1ee961ede549b1ba63bf0339d78e36c2b4e23d5ac9763
+        WEB_SITE=http://heirloom.sourceforge.net/mailx.html
+         ENTERED=20070401
+         UPDATED=20160326
+           SHORT="A plain command line mail program"
+PSAFE=no
+
+cat << EOF
+The Heirloom mailx package (formerly known as the Nail  package)
+contains mailx, a command-line Mail User Agent derived from Berkeley
+Mail which is intended to provide the functionality of the POSIX mailx
+command with additional support for MIME messages, IMAP (including
+caching), POP3, SMTP, S/MIME, message threading/sorting, scoring,
+and filtering. Heirloom mailx is especially useful for writing scripts
+and batch processing.
+EOF
