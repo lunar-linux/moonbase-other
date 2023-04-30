@@ -1,3 +1,7 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
+OPTS+=" -DCMAKE_CXX_STANDARD=17 \
+        -DBUILD_PYTHON_BINDINGS=ON \
+        -DGDAL_ENABLE_PLUGINS=ON"
+
 default_cmake_build
