@@ -1,6 +1,6 @@
 OPTS+=" --enable-wired \
-  	    --enable-hwsim \
-	    --disable-tools \
+        --enable-hwsim \
+        --disable-tools \
         --localstatedir=/var"
 
 if ! module_installed systemd; then
