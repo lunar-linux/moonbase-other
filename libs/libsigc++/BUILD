@@ -1,3 +1,5 @@
+CFLAGS+=" -fno-exceptions"
+
 OPTS+=" -Dbuild-examples=false \
         -Dbuild-tests=false \
         -Dbuild-pdf=false \
