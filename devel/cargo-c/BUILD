@@ -1,12 +1,11 @@
 export CFLAGS+=' -ffat-lto-objects'
-    export RUSTUP_TOOLCHAIN='stable'
-    export CARGO_TARGET_DIR="target"
-    cargo build --release --frozen --all-features --manifest-path=Cargo.toml &&
+export RUSTUP_TOOLCHAIN='stable'
+export CARGO_TARGET_DIR="target"
+export LIBSSH2_SYS_USE_PKG_CONFIG=1
+export LIBGIT2_SYS_USE_PKG_CONFIG=1
 
-#cargo build -r  --features=vendored-openssl &&
+cargo build --release --all-features --manifest-path=Cargo.toml &&
 
 prepare_install &&
 
-find target/release -maxdepth 1 -type f -executable -exec install -D -m755 -t /usr/bin {} +
-
-#cargo install --path . --features=vendored-openssl
+cargo install --offline --no-track --path . --root /usr
