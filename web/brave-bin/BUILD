@@ -1,4 +1,3 @@
-
 prepare_install &&
 
 mkdir -p /usr/lib/brave &&
