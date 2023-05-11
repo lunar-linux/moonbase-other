@@ -1,4 +1,7 @@
+export LINKFLAGS="$LDFLAGS"
+
 ./waf configure --prefix=/usr &&
-./waf &&
+./waf build &&
+
 prepare_install &&
 ./waf install
