@@ -1,6 +1,7 @@
 TARGETS="${TARGETS:=X86;AMDGPU;BPF}" &&
 
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
         -DLLVM_ENABLE_RTTI=ON \
         -DLLVM_BUILD_TESTS=OFF \
         -DCLANG_DEFAULT_PIE_ON_LINUX=ON \
@@ -13,13 +14,20 @@ OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DLLVM_LINK_LLVM_DYLIB=ON \
         -DLLVM_BUILD_LLVM_DYLIB=ON \
         -DCLANG_LINK_CLANG_DYLIB=ON \
+        -DLLVM_INCLUDE_DOCS=OFF 
+        -DLLVM_INCLUDE_EXAMPLES=OFF \
         -DLLVM_TARGETS_TO_BUILD=$TARGETS \
         -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON"
 
 
-default_cmake_build &&
+cmake -B build -S . -G Ninja $OPTS &&
+cmake --build build &&
 
-unset OPTS &&
+prepare_install &&
 
-cd ../utils/lit &&
-default_python3_build
+cmake --install build &&
+
+# Needed by other projects, applications
+pushd utils/lit &&
+python3 setup.py install --root=/ &&
+popd
