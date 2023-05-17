@@ -2,6 +2,7 @@ TARGETS="${TARGETS:=X86;AMDGPU;BPF}" &&
 
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_SKIP_RPATH=ON \
         -DLLVM_ENABLE_RTTI=ON \
         -DLLVM_BUILD_TESTS=OFF \
         -DCLANG_DEFAULT_PIE_ON_LINUX=ON \
@@ -29,5 +30,6 @@ cmake --install build &&
 
 # Needed by other projects, applications
 pushd utils/lit &&
-python3 setup.py install --root=/ &&
+unset OPTS &&
+default_python3_build &&
 popd
