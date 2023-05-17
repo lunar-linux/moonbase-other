@@ -2,17 +2,16 @@
 OPTS+="  -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
          -DCMAKE_BUILD_TYPE=RELEASE \
          -DBUILD_SHARED_LIBS=ON \
-         -DCLANG_DEFAULT_PIE_ON_LINUX=ON \
          -DLLVM_LINK_LLVM_DYLIB=ON \
          -DLLVM_INCLUDE_TESTS=ON \
          -DLLVM_EXTERNAL_LIT=/usr/bin/lit \
-         -DLLVM_MAIN_SRC_DIR=build \
+         -DLLVM_MAIN_SRC_DIR=$MODULE-$VERSION \
          -Wno-dev"
 
 
-cmake -B build -S . -G Ninja $OPTS &&
-cmake --build build &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
 prepare_install &&
 
-cmake --install build
+cmake --install $MODULE-$VERSION
