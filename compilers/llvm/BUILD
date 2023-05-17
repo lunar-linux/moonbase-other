@@ -29,5 +29,6 @@ cmake --install build &&
 
 # Needed by other projects, applications
 pushd utils/lit &&
-python3 setup.py install --root=/ &&
+unset OPTS &&
+default_python3_build &&
 popd
