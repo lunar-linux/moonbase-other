@@ -1,8 +1,11 @@
+export RUST_BACKTRACE=full
 export LDFLAGS+=' -lgit2'
+export CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_DEBUG=true 
 
-cargo build --release --frozen --manifest-path Cargo.toml &&
-cargo cbuild --release --frozen --prefix=/usr --manifest-path Cargo.toml &&
+cargo fetch &&
+cargo build --release --frozen --locked &&
+#cargo cbuild --release &&
 
 prepare_install &&
-cargo install --frozen --offline --no-track --path . --root /usr &&
-cargo cinstall --release --frozen --prefix /usr
+cargo install --offline --no-track --path . --root /usr
+#cargo cinstall --release --frozen --prefix /usr

@@ -1,0 +1,21 @@
+          MODULE=embree3
+         VERSION=3.13.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/embree/embree/archive/refs/tags/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:b8c22d275d9128741265537c559d0ea73074adbf2f2b66b0a766ca52c52d665b
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%3*}-$VERSION
+        WEB_SITE=https://www.embree.org/
+         ENTERED=20230417
+         UPDATED=20230417
+           SHORT="collection of high-performance ray tracing kernels"
+
+cat << EOF
+Intel® Embree is a collection of high-performance ray tracing kernels, developed at Intel. The target users of
+Intel® Embree are graphics application engineers who want to improve the performance of their photo-realistic
+rendering application by leveraging Embree’s performance-optimized ray tracing kernels. The kernels are optimized
+for the latest Intel® processors with support for SSE, AVX, AVX2, and AVX-512 instructions. Intel® Embree supports
+runtime code selection to choose the traversal and build algorithms that best matches the instruction set of your
+CPU. We recommend using Intel® Embree through its API to get the highest benefit from future improvements.
+
+Intel® Embree is released as Open Source under the Apache 2.0 license.
+EOF

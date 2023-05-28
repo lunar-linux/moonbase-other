@@ -1,0 +1,22 @@
+From 101a9775ca3620f4a307a1159a41777115e8a04d Mon Sep 17 00:00:00 2001
+From: Alberto Fanjul <albertofanjul@gmail.com>
+Date: Fri, 22 May 2020 15:04:00 +0200
+Subject: [PATCH] Read boolean value
+
+---
+ src/xlsparse.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/xlsparse.c b/src/xlsparse.c
+index ed1e169..96830be 100644
+--- a/src/xlsparse.c
++++ b/src/xlsparse.c
+@@ -339,7 +339,7 @@ void process_item (int rectype, int reclen, unsigned char *rec) {
+ 			if (rec[6]==1) {
+ 				/*boolean*/
+ 				char buf[2]="0";
+-				buf[0]+=rec[9];
++				buf[0]+=rec[8];
+ 				*pcell=(unsigned char *)strdup(buf);
+ 			} else if (rec[6]==2) {
+ 				/*error*/
