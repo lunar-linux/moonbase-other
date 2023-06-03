@@ -55,6 +55,9 @@ cd tex-build    &&
 ../configure --prefix=/usr $OPTS &&
 default_make    &&
 
+# Needs this symlink
+ln -sf /usr/share/texmf-dist/scripts/context/lua/mtxrun.lua /usr/bin/mtxrun &&
+
 # This does not get installed and causes the Can't locate TeXLive/TLUtils.pm after the BUILD
 mkdir -p /usr/share/tlpkg/TeXLive &&
 install -m644 $SOURCE_DIRECTORY/texk/tests/TeXLive/*.pm /usr/share/tlpkg/TeXLive &&
