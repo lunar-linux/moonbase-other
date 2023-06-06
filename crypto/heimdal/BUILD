@@ -16,3 +16,10 @@ OPTS+=" --prefix=/usr/heimdal \
         --enable-pthread-support"
 
 default_build
+
+mkdir -p /etc/heimdal &&
+if [! -f /etc/heimdal/krb5.conf ]; then
+  install -Dm664 krb5.conf /etc/heimdal/krb5.conf
+ else
+   install -Dm664 krb5.conf /etc/heimdal/krb5.conf.new
+fi
