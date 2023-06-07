@@ -1,11 +1,7 @@
 # https://github.com/heimdal/heimdal/issues/852, disabling otp, has the possibility
 # of being dropped.
-# The "preferred" kerberos is krb5 and more or less default for many things. So to
-# remove conflicts heimdal gets installed this way. Not ideal IMV but it is the 
-# default location IAW https://github.com/heimdal/heimdal/wiki/Building-and-installing
-
-OPTS+=" --prefix=/usr/heimdal \
-        --sbindir=/usr/heimdal/bin \
+OPTS+=" --prefix=/usr \
+        --sbindir=/usr/bin \
         --sysconfdir=/etc/heimdal \
         --disable-otp \
         --enable-kcm \
