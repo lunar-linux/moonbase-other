@@ -1,0 +1,10 @@
+# We dont want /var/lib/heimdal tracked
+
+if [ ! -d /var/lib/heimdal ]; then
+   mkdir /var/lib/heimdal
+fi
+
+DEPS=$(sort_by_dependency $(grep ':heimdal:on' $DEPENDS_STATUS | cut -d: -f1))
+if [ -n "$DEPS" ]; then
+  lunar fix $DEPS
+fi
