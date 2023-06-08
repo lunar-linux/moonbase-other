@@ -5,7 +5,7 @@ export CXXFLAGS+=" -I/usr/include/et" &&
 # of being dropped.
 OPTS+=" --prefix=/usr \
         --sbindir=/usr/bin \
-        --sysconfdir=/etc/heimdal \
+        --sysconfdir=/etc \
         --libexecdir=/usr/sbin \
         --datadir=/var/lib/heimdal \
         --localstatedir=/var/lib/heimdal \
@@ -21,8 +21,8 @@ OPTS+=" --prefix=/usr \
 default_build
 
 mkdir -p /etc/heimdal &&
-if [! -f /etc/heimdal/krb5.conf ]; then
-  install -Dm664 krb5.conf /etc/heimdal/krb5.conf
+if [! -f /etc/krb5.conf ]; then
+  install -Dm664 krb5.conf /etc/krb5.conf
  else
-   install -Dm664 krb5.conf /etc/heimdal/krb5.conf.new
+   install -Dm664 krb5.conf /etc/krb5.conf.new
 fi
