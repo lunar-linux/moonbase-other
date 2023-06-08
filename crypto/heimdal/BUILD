@@ -1,8 +1,15 @@
+export CFLAGS+=" -I/usr/include/et" &&
+export CXXFLAGS+=" -I/usr/include/et" &&
+
 # https://github.com/heimdal/heimdal/issues/852, disabling otp, has the possibility
 # of being dropped.
 OPTS+=" --prefix=/usr \
         --sbindir=/usr/bin \
         --sysconfdir=/etc/heimdal \
+        --libexecdir=/usr/sbin \
+        --datadir=/var/lib/heimdal \
+        --localstatedir=/var/lib/heimdal \
+        --with-hdbdir=/var/lib/heimdal \
         --disable-otp \
         --enable-kcm \
         --enable-shared \
