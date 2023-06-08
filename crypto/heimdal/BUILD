@@ -18,9 +18,8 @@ OPTS+=" --prefix=/usr \
         --with-sqlite3=/usr \
         --enable-pthread-support"
 
-default_build
+default_build &&
 
-mkdir -p /etc/heimdal &&
 if [! -f /etc/krb5.conf ]; then
   install -Dm664 krb5.conf /etc/krb5.conf
  else
