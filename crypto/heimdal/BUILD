@@ -20,7 +20,7 @@ OPTS+=" --prefix=/usr \
 
 default_build &&
 
-if [! -f /etc/krb5.conf ]; then
+if [ ! -f "/etc/krb5.conf" ]; then
   install -Dm664 krb5.conf /etc/krb5.conf
  else
    install -Dm664 krb5.conf /etc/krb5.conf.new
