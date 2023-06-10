@@ -1,55 +1,17 @@
 depends expat
-depends wxGTK
+depends %JPEG
+depends flac
+depends libid3tag
+depends lame
+depends mpg123
+depends libogg
+depends opusfile
 depends libsndfile
-depends soxr
+depends libvorbis
+depends wavpack
+depends portaudio
+depends lilv
+depends alsa-lib
+depends vamp-plugin-sdk
 
-optional_depends ffmpeg \
-                 "--with-ffmpeg=system" \
-                 "--without-ffmpeg" \
-                 "for ffmpeg support"
-
-optional_depends libid3tag \
-                 "--with-libid3tag=system" \
-                 "--without-libid3tag" \
-                 "enable id3 support"
-
-optional_depends lame \
-                 "--with-lame=system" \
-                 "--without-lame" \
-                 "enable mp3 support"
-
-optional_depends twolame \
-                 "--with-libtwolame=system" \
-                 "--without-libtwolame" \
-                 "enable mp2 support"
-
-optional_depends libvorbis \
-                 "--with-libvorbis=system" \
-                 "--without-libvorbis" \
-                 "enable ogg support"
-
-optional_depends libmad \
-                 "--with-libmad=system" \
-                 "--without-libmad" \
-                 "for fast mp3 decoding"
-
-optional_depends flac \
-                 "--with-libflac=system" \
-                 "--without-libflac" \
-                 "for flac encoding"
-
-optional_depends ladspa_sdk \
-                 "--enable-ladspa" \
-                 "--disable-ladspa" \
-                 "for ladspa plugin support"
-
-optional_depends soundtouch \
-                 "--with-soundtouch=system" \
-                 "--without-soundtouch" \
-                 "for pitch and tempo changing"
-
-#audacity bundles a patched version of portaudio 19
-#optional_depends portaudio \
-#                 "--with-portaudio= --with-portmixer" \
-#                 "--with-portaudio --without-portmixer" \
-#                 "for portaudio support"
+optional_depends ffmpeg "" "" "for additional export/import capabilities"
