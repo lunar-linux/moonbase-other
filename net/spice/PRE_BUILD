@@ -1,4 +1,6 @@
 default_pre_build &&
 
 sed -i "s/if not version_info.contains('git')/if version_info.length() >= 4/" server/meson.build &&
-sed -i "/meson-dist/d" meson.build
+sed -i "/meson-dist/d" meson.build &&
+
+OPTS+=" -Dmanual=false"
