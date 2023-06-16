@@ -1,48 +1,8 @@
+depends curl
+depends gsettings-desktop-schemas
+depends gobject-introspection
 depends vala
-depends cmake
+depends curl
+depends duktape
 
-optional_depends python \
-                 "-DWITH_PYTHON3=1" \
-                 "-DWITH_PYTHON3=0" \
-                 "for the Python 3.x bindings"
-
-optional_depends python2 \
-                 "-DWITH_PYTHON2=1" \
-                 "-DWITH_PYTHON2=0" \
-                 "for the pythPn 2.x bindings" \
-                 "n"
-
-optional_depends perl \
-                 "-DWITH_PERL=1" \
-                 "-DWITH_PERL=0" \
-                 "for Perl bindings"
-
-optional_depends kconfig \
-                 "-DWITH_KDE=1" \
-                 "-DWITH_KDE=0" \
-                 "for KDE/KF5 support"
-
-optional_depends %MOZJS \
-                 "-DWITH_MOZJS=1" \
-                 "-DWITH_MOZJS=0" \
-                 "for Mozilla javascript bindings"
-
-optional_depends webkit2gtk3 \
-                 "-DWITH_WEBKIT3=1" \
-                 "-DWITH_WEBKIT3=0" \
-                 "webkitgtk3 ${PROBLEM_COLOR}(circular dependency - compile without webkitgtk3 first)${DEFAULT_COLOR}"
-
-optional_depends GConf   \
-                 "-DWITH_GNOME2=1"   \
-                 "-DWITH_GNOME2=0"   \
-                 "for Gnome2/GConf bindings"
-
-optional_depends gtk+-3 \
-                 "-DWITH_GNOME3=1" \
-                 "-DWITH_GNOME3=0" \
-                 "for Gnome3/GConf bindings"
-
-optional_depends NetworkManager \
-                 "-DWITH_NM=1" \
-                 "-DWITH_NM=0" \
-                 "for NetworkManager support"
+optional_depends systemsettings "-Dconfig-kde=true" "-Dconfig-kde=false" "for KDE/KF5 support"
