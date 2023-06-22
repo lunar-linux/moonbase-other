@@ -1,13 +1,17 @@
+depends zlib
 depends python-ply
 depends libuv
 depends libtool
-depends Sphinx
-depends zlib
+depends sphinxcontrib-devhelp
+depends sphinxcontrib-applehelp
+depends sphinxcontrib-htmlhelp
+depends sphinxcontrib-serializinghtml
+depends sphinxcontrib-qthelp
 
 optional_depends json-c  "--with-json-c"       "--without-json-c"     "for JSON support"
 optional_depends %OSSL   "--with-openssl"      "--without-openssl"    "for DNSSEC part in bind-utils"
 optional_depends libxml2 "--with-libxml2"      "--without-libxml2"    "for XML2 support"
-optional_depends heimdal "--with-gssapi"       "--without-gssapi"     "for heimdal support"
+optional_depends %KERBEROS "--with-gssapi"       "--without-gssapi"     "for gssapi support"
 optional_depends geoip   "--enable-geoip"      "--disable-geoip"      "for geoip support"
 optional_depends libcap  "--enable-linux-caps" "--disable-linux-caps" "for linux capabilities"
 

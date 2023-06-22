@@ -12,7 +12,7 @@ OPTS+=" -DWITH_PYTHON=ON \
         -DPYTHON_VERSION=$PYTHON_VER \
         -DPYTHON_LIBPATH=/usr/lib \
         -DPYTHON_LIBRARY=python$PYTHON_VER \
-        -DCMAKE_CXX_FLAGS=-I /usr/include/python$PYTHON_VER \
+        -DCMAKE_CXX_FLAGS=-I/usr/include/python$PYTHON_VER \
         -DWITH_PYTHON_INSTALL_NUMPY=ON \
         -DWITH_SYSTEM_GLEW=ON \
         -DWITH_SYSTEM_EIGEN3=ON \
