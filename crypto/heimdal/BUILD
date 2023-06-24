@@ -6,7 +6,7 @@ export CXXFLAGS+=" -I/usr/include/et" &&
 OPTS+=" --prefix=/usr \
         --sbindir=/usr/bin \
         --sysconfdir=/etc \
-        --libexecdir=/usr/sbin \
+        --libexecdir=/usr/bin \
         --datadir=/var/lib/heimdal \
         --localstatedir=/var/lib/heimdal \
         --with-hdbdir=/var/lib/heimdal \
