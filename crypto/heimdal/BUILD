@@ -1,8 +1,6 @@
 export CFLAGS+=" -I/usr/include/et" &&
 export CXXFLAGS+=" -I/usr/include/et" &&
 
-# https://github.com/heimdal/heimdal/issues/852, disabling otp, has the possibility
-# of being dropped.
 OPTS+=" --prefix=/usr \
         --sbindir=/usr/bin \
         --sysconfdir=/etc \
@@ -18,7 +16,26 @@ OPTS+=" --prefix=/usr \
         --with-sqlite3=/usr \
         --enable-pthread-support"
 
-default_build &&
+mkdir -p $SOURCE_DIRECTORY/__heimdest/ &&
+
+default_config &&
+make &&
+
+INSTALL_CATPAGES="no" make DESTDIR=$SOURCE_DIRECTORY/__heimdest/ install &&
+
+for i in su ; do
+  if [ -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/${i}.1 ]; then
+    mv -f $SOURCE_DIRECTORY/__heimdest/usr/share/man/man1/{,k}${i}.1
+  fi &&
+  mv -f $SOURCE_DIRECTORY/__heimdest/usr/bin/{,k}${i}
+done &&
+
+prepare_install &&
+cp -rf --remove-destination $SOURCE_DIRECTORY/__heimdest/usr / &&
+
+for i in ksu otp; do
+  [ ! -f /usr/bin/${i} ] || chmod 4711 /usr/bin/${i}
+done
 
 if [ ! -f "/etc/krb5.conf" ]; then
   install -Dm664 krb5.conf /etc/krb5.conf
