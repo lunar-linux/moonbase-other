@@ -1,6 +1,6 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
-python -m build --wheel &&
+python -m build --wheel --skip-dependency-check &&
 
 prepare_install &&
 
