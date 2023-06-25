@@ -1,3 +1,6 @@
+export READLINE_CFLAGS=$(pkgconf --cflags /lib/pkgconfig/readline.pc) &&
+export READLINE_LIBS=$(pkgconf --libs /lib/pkgconfig/readline.pc) &&
+
 OPTS+=" --enable-wired \
         --enable-hwsim \
         --disable-tools \
