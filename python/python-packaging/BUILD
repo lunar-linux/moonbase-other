@@ -1,6 +1,6 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
-python -m build -nw &&
+python -m build --wheel &&
 
 prepare_install &&
 
