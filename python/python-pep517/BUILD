@@ -1,5 +1,4 @@
-#PY_VER=$(lvu version python | cut -d. -f1-2) &&
+pip3 wheel -w dist --no-build-isolation --no-deps $PWD &&
+
 prepare_install &&
-python -m pip install pep517
-#install -Dm 644 -d /usr/lib/python${PY_VER}/site-packages/ &&
-#cp -Rp * /usr/lib/python${PY_VER}/site-packages/
+pip3 install --no-index --find-links=dist wheel
