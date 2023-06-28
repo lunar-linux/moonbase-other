@@ -1,5 +1,4 @@
-PY_VER=$(lvu version python | cut -d. -f1-2) &&
-prepare_install &&
+pip3 wheel -w dist --no-build-isolation --no-deps $PWD &&
 
-install -Dm 644 -d /usr/lib/python${PY_VER}/site-packages/ &&
-cp -Rp * /usr/lib/python${PY_VER}/site-packages/
+prepare_install &&
+pip3 install --no-index --find-links=dist wheel
