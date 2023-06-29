@@ -1,12 +1,12 @@
 depends libtool
 depends iptables
 depends libxml2
+depends libgcript
 
 optional_depends curl        "--with-libcurl"          "--without-libcurl"        "for apache, ascent, curl, nginx and write_http plugins?"
 optional_depends libdbi      "--with-libdbi"           "--without-libdbi"         "for DBI plugin?"
 optional_depends libesmtp    "--with-libesmtp"         "--without-libesmtp"       "for notify_email plugin?"
 optional_depends memcached   "--with-libmemcached"     "--without-libmemcached"   "for memcachec plugin?"
-optional_depends libgcrypt   "--with-libgcrypt"        "--without-libgcrypt"      "for encryption and authentication for network plugin?"
 optional_depends libmnl      "--enable-netlink"        "--disable-netlink"        "for netlink plugin?"
 optional_depends net-snmp    "--with-libnetsnmp"       "--without-libnetsnmp"     "for snmmp plugin?"
 optional_depends libnotify   "--enable-notify_desktop" "--disable-notify_desktop" "for notify_desktop plugin?"
