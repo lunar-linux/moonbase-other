@@ -1,9 +1,9 @@
 depends libtool
 depends iptables
 depends libxml2
-depends libgcrypt
 
 optional_depends curl        "--with-libcurl"          "--without-libcurl"        "for apache, ascent, curl, nginx and write_http plugins?"
+optional_depends libgcrypt   "--with-libgcrypt"        "--without-libgcrypt"      "for encryption and authentication for network plugin?"
 optional_depends libdbi      "--with-libdbi"           "--without-libdbi"         "for DBI plugin?"
 optional_depends libesmtp    "--with-libesmtp"         "--without-libesmtp"       "for notify_email plugin?"
 optional_depends memcached   "--with-libmemcached"     "--without-libmemcached"   "for memcachec plugin?"
