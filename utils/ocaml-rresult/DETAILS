@@ -1,0 +1,16 @@
+          MODULE=ocaml-rresult
+         VERSION=0.7.0
+          SOURCE=${MODULE#-*}-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/dbuenzli/rresult/archive/refs/tags/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:aac93e7bdf080008599c1b4e002947766b33f42b394b3c37dfd1eeba55e4de7c
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/rresult-$VERSION
+        WEB_SITE=https://erratique.ch/software/rresult
+         ENTERED=20230624
+         UPDATED=20230624
+           SHORT="handling computation results and errors for ocaml"
+
+cat << EOF
+Rresult is an OCaml module for handling computation results and errors in an explicit and
+declarative manner, without resorting to exceptions. It defines combinators to operate on
+the result type available from OCaml 4.03 in the standard library.
+EOF
