@@ -1,4 +1,4 @@
-TARGETS="coq-core,coq-stdlib,coq"
+TARGETS="coq"
 
 _opts=" -prefix /usr \
         -configdir /etc/xdg/coq \
@@ -14,4 +14,4 @@ make DUNEOPT="--display=short --profile release" VERBOSE=1 dunestrap &&
 dune build -p $TARGETS &&
 
 prepare_install &&
-dune install --prefix=/usr coq-core coq-stdlib coq --docdir=/usr/share/doc
+dune install --prefix=/usr $TARGETS --docdir=/usr/share/doc
