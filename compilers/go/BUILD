@@ -16,7 +16,8 @@ case "$(arch)" in
 esac &&
 
 cd src &&
-./make.bash --no-clean -v &&
+#--no-clean is deprecated and has no effect
+./make.bash -v &&
 
 PATH="$GOBIN:$PATH" go install -v -buildmode=shared std &&
 case "$GOARCH" in
