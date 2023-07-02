@@ -1,6 +1,7 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
 add_priv_user qemu:qemu &&
+add_priv_user libvirt:libvirt &&
 
 OPTS+=" -Ddriver_secrets=enabled \
         -Ddriver_libvirtd=enabled \
