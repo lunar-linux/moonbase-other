@@ -1,0 +1,17 @@
+# ...
+#
+[ "$VERBOSE" = "on" ] && VERBOSARG="-v" || VERBOSARG=
+# At first, check for root's leftover files
+[ -f /root/.duc.db -o  -d /root/.duc.db ] && 
+    rm -rf $VERBOSARG /root/.duc.db
+
+
+# Narrow directories in /home with any of those with system users (first field only)
+for UDIR in $(find /home -maxdepth 1 -type d | sed '/^\/home$/d;s@/home/@@'); do
+	awk -F: '{ print $1 }' /etc/passwd |grep $UDIR 2>&1 >/dev/null
+	[ $? -eq 0 ] && {
+		# rem duc configured at installation with leveldb uses .duc.db as a directory
+		# and configured with sqlite uses it as file
+		rm -rf $VERBOSARG /home/$UDIR/.duc.db
+	}
+done
