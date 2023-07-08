@@ -5,9 +5,9 @@ export GOROOT_FINAL=/usr/lib/go
 export GOPATH=$BUILD_DIRECTORY
 
 if module_installed go; then
-  export GOROOT_BOOTSTRAP=/usr/lib/go
-#else
-#  export GOROOT_BOOTSTRAP=/usr/lib/go1.4
+  export GOROOT_BOOTSTRAP=$GOROOT_FINAL
+else
+  export GOROOT_BOOTSTRAP=/usr/lib/go1.19
 fi &&
 
 case "$(arch)" in
@@ -29,36 +29,36 @@ prepare_install &&
 
 cd $SOURCE_DIRECTORY &&
 
-mkdir -p /usr/lib/go &&
-cp -a bin pkg src lib misc api test /usr/lib/go/ &&
-install -Dm644 VERSION /usr/lib/go/VERSION &&
+mkdir -p $GOROOT_FINAL &&
+cp -a bin pkg src lib misc api test $GOROOT_FINAL/ &&
+install -Dm644 VERSION $GOROOT_FINAL/VERSION &&
 
 mkdir -p /usr/share/doc/go &&
 cp -r doc/* /usr/share/doc/go/ &&
 
-ln -sf /usr/share/doc/go /usr/lib/go/doc &&
+ln -sf /usr/share/doc/go $GOROOT_FINAL/doc &&
 # add the symlinks to /usr/bin
-for f in /usr/lib/go/bin/*; do
+for f in $GOROOT_FINAL/bin/*; do
    ln -sf $f /usr/bin/
 done &&
 
-rm -rf /usr/lib/go/pkg/bootstrap /usr/lib/go/pkg/tool/*/api &&
+rm -rf $GOROOT_FINAL/pkg/bootstrap $GOROOT_FINAL/pkg/tool/*/api &&
 
 # TODO: Figure out if really needed
-rm -rf /usr/lib/go/pkg/obj/go-build/* &&
+rm -rf $GOROOT_FINAL/pkg/obj/go-build/* &&
 
 # Remove object files from target src dir
-find /usr/lib/go/src/ -type f -name '*.[ao]' -delete &&
+find $GOROOT_FINAL/src/ -type f -name '*.[ao]' -delete &&
 
 # Remove all executable source files
-find /usr/lib/go/src -type f -executable -delete &&
+find $GOROOT_FINAL/src -type f -executable -delete &&
 
 # For gox
-install -Dm755 src/make.bash /usr/lib/go/src/make.bash &&
-install -Dm755 src/run.bash /usr/lib/go/src/run.bash &&
+install -Dm755 src/make.bash $GOROOT_FINAL/src/make.bash &&
+install -Dm755 src/run.bash $GOROOT_FINAL/src/run.bash &&
 
 # For godoc
-#install -Dm644 favicon.ico /usr/lib/go/favicon.ico &&
+#install -Dm644 favicon.ico $GOROOT_FINAL/favicon.ico &&
 rm -f /usr/share/go/doc/articles/wiki/get.bin &&
 
-find /usr/lib/go/pkg -type f -exec touch '{}' +
+find $GOROOT_FINAL/pkg -type f -exec touch '{}' +
