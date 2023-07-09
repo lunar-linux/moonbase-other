@@ -4,4 +4,8 @@ unpack $SOURCE  &&
 unpack $SOURCE2 &&
 mv libunwind{-$VERSION.src,}
 unpack $SOURCE3 &&
-mv cmake{-$VERSION.src,}
+mv cmake{-$VERSION.src,} &&
+
+if ! module_installed llvm || module_installed llvm; then
+  lin llvm
+fi

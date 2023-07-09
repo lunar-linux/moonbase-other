@@ -1,0 +1,16 @@
+          MODULE=ocaml-fpath
+         VERSION=0.7.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/dbuenzli/fpath/archive/refs/tags/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:a61b508d847a15985a4aea6f80e36321506567deba482b8556dcd791865fc3ba
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*-}-$VERSION
+        WEB_SITE=https://erratique.ch/software/fpath
+         ENTERED=20230703
+         UPDATED=20230703
+           SHORT="ocaml package manager"
+
+cat << EOF
+Topkg is a packager for distributing OCaml software. It provides an API to describe the
+files a package installs in a given build configuration and to specify information about
+the package's distribution creation and publication procedures.
+EOF

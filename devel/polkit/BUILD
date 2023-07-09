@@ -5,4 +5,8 @@ OPTS+=" -D examples=false \
         -D session_tracking=libsystemd-login \
         -D tests=false"
 
-default_meson_build
+default_meson_build &&
+
+#Error opening rules directory, needs this permission
+chmod 755 /usr/share/polkit-1/rules.d &&
+chmod 755 /etc/polkit-1/rules.d

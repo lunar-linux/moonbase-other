@@ -1,4 +1,7 @@
+cd lib/ &&
 
-  ./configure --faciledir /usr/lib/ocaml/facile &&
+make $OPTS &&
 
-  default_make
+prepare_install &&
+
+install -Dm644 facile.cmxa facile.cmi facile.cma facile.a -t /usr/lib/ocaml/facile

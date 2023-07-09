@@ -1,7 +1,4 @@
-jbuilder build &&
-
-#So build doesn't fail over incorrect locations
-sedit '1264,1268d' _build/default/camomile.install &&
+dune build &&
 
 prepare_install &&
-jbuilder install --destdir=/usr --libdir=/usr/lib/ocaml
+dune install --prefix=/usr --mandir=/usr/share/man --docdir=/usr/share/doc --libdir="$(ocamlfind printconf destdir)"
