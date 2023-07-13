@@ -1,6 +1,8 @@
+depends zlib
 depends cmake
 depends boost
 depends fontconfig
+depends gobject-introspection
 
 optional_depends poppler-data "" "" "for support of additional file encodings"
 
@@ -18,11 +20,6 @@ optional_depends curl \
                  "-DENABLE_LIBCURL=ON" \
                  "-DENABLE_LIBCURL=OFF" \
                  "for curl based HTTP support"
-
-optional_depends zlib \
-                 "-DENABLE_ZLIB=ON -DENABLE_ZLIB_UNCOMPRESS=ON" \
-                 "-DENABLE_ZLIB=OFF" \
-                 "for zlib compression support (not totally safe)"
 
 optional_depends libpng \
                  "-DENABLE_LIBPNG=ON" \
@@ -53,5 +50,3 @@ optional_depends qt6-base \
                  "-DENABLE_QT6=ON" \
                  "-DENABLE_QT6=OFF" \
                  "for Qt6 wrapper support"
-
-optional_depends gobject-introspection "" "" "for introspection support"

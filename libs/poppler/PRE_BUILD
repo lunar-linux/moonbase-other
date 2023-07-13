@@ -1,7 +1,0 @@
-default_pre_build &&
-
-sedit "s:priv->quality, true: priv->quality, TRUE:" goo/JpegWriter.cc &&
-
-if [ "`get_module_config DOCS`" = "n" ]; then
-  sedit "s/SUBDIRS = . reference demo/SUBDIRS = . demo/g" glib/Makefile.in
-fi
