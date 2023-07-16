@@ -14,6 +14,7 @@ OPTS+=" --disable-static    \
         --disable-libopencv \
         --disable-debug     \
         --disable-doc       \
+        --disable-stripping \
         --enable-rpath      \
         --enable-gpl        \
         --enable-zlib       \
