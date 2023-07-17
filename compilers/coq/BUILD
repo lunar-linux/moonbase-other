@@ -1,4 +1,4 @@
-TARGETS="coq"
+TARGETS="coq coqide"
 
 _opts=" -prefix /usr \
         -configdir /etc/xdg/coq \
@@ -10,6 +10,7 @@ _opts=" -prefix /usr \
         
 ./configure $_opts &&
 
+make -C doc/tools/coqrst/notations &&
 make DUNEOPT="--display=short --profile release" VERBOSE=1 dunestrap &&
 dune build -p $TARGETS &&
 
