@@ -1,27 +1,24 @@
 depends nasm
+depends pcre2
 depends flex
 depends bison
 depends libSM
 depends libnotify
+depends gtk+-3
+depends cmake
+depends gst-plugins-base
 
-optional_depends gtk+-3 "--with-gtk=3" "" "for GTK 3.x support" "y"
-optional_depends gtk+-2 "--with-gtk=2" "" "for GTK 2.x support" "n"
+optional_depends qt5         "-DwxBUILD_TOOLKIT=qt" "" "the qt5 wxWidget toolkit will be built, ${PROBLEM_COLOR}the gtk3 toolkit will still be built${DEFAULT_COLOR}"
 
-optional_depends zlib  "--with-zlib"  "--without-zlib"  "for LZW compression via zlib"
-optional_depends expat "--with-expat" "--without-expat" "for XML support via expat"
-optional_depends SDL   "--with-sdl"   "--without-sdl"   "for audio support via SDL"
+optional_depends zlib        "-DwxUSE_ZLIB=sys"     "-DwxUSE_ZLIB=builtin"    "for LZW compression via zlib,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
+optional_depends expat       "-DwxUSE_EXPAT=sys"    "-DwxUSE_EXPAT=builtin"   "for XML support via expat,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
+optional_depends libpng      "-DwxUSE_LIBPNG=sys"   "-DwxUSE_LIBPNG=builtin"  "for PNG image support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
+optional_depends %JPEG       "-DwxUSE_LIBJPEG=sys"  "-DwxUSE_LIBJPEG=builtin" "for JPEG image support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
+optional_depends tiff        "-DwxUSE_LIBTIFF=sys"  "-DwxUSE_LIBTIFF=builtin" "for TIFF image support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
+optional_depends mesa-lib    "-DwxUSE_OPENGL=ON"    "-DwxUSE_OPENGL=OFF"      "for OpenGL support (needed for hugin)"
+optional_depends SDL2        "-DwxUSE_LIBSDL=ON"    "-DwxUSE_LIBSDL=OFF"      "for SDL2 audio support"
+optional_depends libmspack   "-DwxUSE_LIBMSPACK=ON" "-DwxUSE_LIBMSPACK=OFF"   "for Microsoft compression/decompression support"
 
-optional_depends libpng "--with-libpng=sys"  "--without-libjpeg" "for PNG image support"
-optional_depends %JPEG  "--with-libjpeg=sys" "--without-libjpeg" "for JPEG image support"
-optional_depends tiff   "--with-libtiff=sys" "--without-libtiff" "for TIFF image support"
-optional_depends libXpm "--with-libxpm=sys"  "--without-libxpm"  "for XPM image support"
-
-optional_depends mesa-lib \
-                 "--with-opengl" \
-                 "--without-opengl" \
-                 "for OpenGL support (needed for hugin)"
-
-optional_depends webkit2gtk3 \
-                 "--enable-webview" \
-                 "--disable-webview" \
-                 "for webview support"
+optional_depends webkit2gtk3 "-DwxUSE_WEBVIEW=ON -DwxUSE_WEBVIEW_WEBKIT=ON" \
+                             "-DwxUSE_WEBVIEW=OFF" \
+                             "for webview support,${MODULE_COLOR}Needed by wxMaxima${DEFAULT_COLOR}" y

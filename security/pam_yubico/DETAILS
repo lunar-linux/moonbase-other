@@ -1,13 +1,14 @@
           MODULE=pam_yubico
-         VERSION=2.26
+         VERSION=2.27
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=http://opensource.yubico.com/yubico-pam/releases/
-      SOURCE_VFY=sha256:2de96495963fefd72b98243952ca5d5ec513e702c596e54bc667ef6b5e252966
+ SOURCE_URL_FULL=https://github.com/Yubico/yubico-pam/archive/refs/tags/$VERSION.tar.gz
+      SOURCE_VFY=sha256:04f5a3698c877bd36391ef052c2975ff86e5655610b82276b307146c17787b1d
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/yubico-pam-$VERSION
         WEB_SITE=http://yubico.com/
          ENTERED=20131006
-         UPDATED=20180421
+         UPDATED=20230612
            SHORT="Yubico Pluggable Authentication Module (PAM)"
 
-cat <<EOF
+cat << EOF
 Yubico Pluggable Authentication Module (PAM).
 EOF

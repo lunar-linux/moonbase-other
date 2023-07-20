@@ -23,7 +23,8 @@ OPTS+=" --prefix=/usr \
         --with-fontpath=/usr/share/fonts/gsfonts \
         --enable-openjpeg \
         --enable-freetype \
-        --with-libpaper"
+        --with-libpaper \
+        --disable-hidden-visibility"
 
 ./autogen.sh $OPTS &&
 

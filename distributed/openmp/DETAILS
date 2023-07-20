@@ -1,12 +1,15 @@
           MODULE=openmp
-         VERSION=14.0.6
+         VERSION=15.0.7
           SOURCE=$MODULE-$VERSION.src.tar.xz
-SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-$VERSION.src
+         SOURCE2=cmake-$VERSION.src.tar.xz
       SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
-      SOURCE_VFY=sha256:4f731ff202add030d9d68d4c6daabd91d3aeed9812e6a5b4968815cfdff0eb1f
+     SOURCE2_URL=$SOURCE_URL
+      SOURCE_VFY=sha256:3f168d38e7a37b928dcb94b33ce947f75d81eef6fa6a4f9d16b6dc5511c07358
+     SOURCE2_VFY=sha256:8986f29b634fdaa9862eedda78513969fe9788301c9f2d938f4c10a3e7a3e7ea
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-$VERSION.src
         WEB_SITE=http://openmp.llvm.org/
          ENTERED=20181127
-         UPDATED=20220817
+         UPDATED=20230121
             TYPE=cmake
            SHORT="LLVM's implementation of OpenMP"
 

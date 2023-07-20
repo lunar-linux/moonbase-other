@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 mkdir -p /etc/bluetooth &&
 
 if module_installed systemd; then
@@ -32,9 +34,6 @@ fi &&
 
 #bluez systemd service fails without localstatedir present
 mkdir -p /var/lib/bluetooth
-
-# Needed by libpcap
-install lib/mgmt.h /usr/include/bluetooth &&
 
 mkdir -p /usr/lib/modules-load.d &&
 install -Dm644 $SCRIPT_DIRECTORY/bluez.conf /usr/lib/modules-load.d/ &&

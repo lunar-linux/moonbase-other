@@ -1,0 +1,10 @@
+mquery VERSION3 "Enable version 3 features?" y "--enable-version3" ""
+mquery NONFREE  "Compile non-free codecs?"   y "--enable-nonfree"  "--disable-nonfree"
+
+if module_installed frei0r; then
+  mquery USE_FREI0R "Enable frei0r library support" y "--enable-frei0r" "--disable-frei0r"
+fi
+
+if module_installed pulseaudio; then
+  mquery USE_PULSE "Enable pulseaudio support?" y "--enable-libpulse" "--disable-libpulse"
+fi

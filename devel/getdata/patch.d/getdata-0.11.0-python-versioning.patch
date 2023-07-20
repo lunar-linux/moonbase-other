@@ -1,0 +1,12 @@
+## From https://github.com/ketiltrout/getdata/pull/7/commits/46aa6bccda10dcad7fd6dfa1fdffb4864be1b3a1
+--- getdata-0.11.0/m4/python.m4-orig	2021-11-02 19:13:52.000000000 -0400
++++ getdata-0.11.0/m4/python.m4	2023-03-01 13:27:31.539169820 -0500
+@@ -161,7 +161,7 @@
+ AC_MSG_RESULT([$have_python3])
+ 
+ AC_MSG_CHECKING([$PYTHON version])
+-PYTHON_VERSION=`$PYTHON -c "import sys; print (sys.version[[:3]])"`
++PYTHON_VERSION=`$PYTHON -c "import sys; print('{v[[0]]}.{v[[1]]}'.format(v=sys.version_info))"`
+ AC_MSG_RESULT([$PYTHON_VERSION])
+ AC_SUBST([PYTHON_VERSION])
+ 

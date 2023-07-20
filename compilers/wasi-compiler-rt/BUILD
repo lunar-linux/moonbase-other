@@ -1,0 +1,17 @@
+OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_C_COMPILER_WORKS=ON \
+    -DCMAKE_CXX_COMPILER_WORKS=ON \
+    -DCMAKE_TOOLCHAIN_FILE=wasi-toolchain.cmake \
+    -DCOMPILER_RT_BAREMETAL_BUILD=On \
+    -DCOMPILER_RT_INCLUDE_TESTS=OFF \
+    -DCOMPILER_RT_HAS_FPIC_FLAG=OFF \
+    -DCOMPILER_RT_DEFAULT_TARGET_ONLY=On \
+    -DCOMPILER_RT_OS_DIR=wasi \
+    -DWASI_SDK_PREFIX=/usr \
+    -DCMAKE_INSTALL_PREFIX=/usr/lib/clang/$VERSION/"
+
+
+cmake -B $MODULE -G Ninja $OPTS &&
+cmake --build $MODULE &&
+prepare_install &&
+cmake --install $MODULE

@@ -25,7 +25,10 @@ OPTS+=" --sbindir=/usr/bin"
 # fix a cpp error
 sedit "s: -c::" pc-bios/{,optionrom/}Makefile
 
-default_make &&
+make ${MAKES:+-j${MAKES}} &&
+prepare_install &&
+install -m 755 build/qemu-bundle/usr/bin/qemu-keymap /usr/bin &&
+default_install &&
 
 if module_installed systemd; then
   install -D -m644 $SCRIPT_DIRECTORY/udev/65-kvm.rules /usr/lib/udev/rules.d/65-kvm.rules

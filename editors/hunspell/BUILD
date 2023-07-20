@@ -1,7 +1,5 @@
 OPTS+=" --disable-static" &&
 
-autoreconf -vfi &&
-
 default_build &&
 
 # add generic hunspell.so for development and projects not using pkgconfig flags

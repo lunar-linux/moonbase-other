@@ -37,7 +37,8 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DPLUGIN_AUTH_GSSAPI=NO \
         -DAUTH_GSSAPI_PLUGIN_TYPE=OFF \
         -DAWS_SDK_EXTERNAL_PROJECT=OFF \
-        -DWITH_EMBEDDED_SERVER=ON"
+        -DWITH_EMBEDDED_SERVER=ON \
+        -DCOMPILATION_COMMENT='Lunar Linux'"
 
 if module_installed systemd; then
   OPTS+=" -DWITH_SYSTEMD=yes"

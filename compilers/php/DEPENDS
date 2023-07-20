@@ -5,6 +5,14 @@ depends enchant
 depends libzip
 depends icu4c
 
+optional_depends expat \
+                "--with-expat" "--without-expat" \
+                "for XML support with expat instead of libxml2"
+
+optional_depends libsodium \
+                "--with-sodium=shared" "--without-sodium" \
+                "for support with libsodium"
+
 optional_depends gettext \
                  "--with-gettext=shared" "" \
                  "for GNU gettext support"
@@ -79,7 +87,7 @@ optional_depends postfix \
                  "--with-imap=shared" "" \
                  "for IMAP support"
 
-optional_depends krb5 \
+optional_depends %KERBEROS \
                  "--with-kerberos=/usr" "" \
                  "for Kerberos authentification support"
 

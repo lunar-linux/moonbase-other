@@ -1,5 +1,0 @@
-default_pre_build
-
-# enable flags for non-embedded systems
-sedit 's|//\(#define MBEDTLS_THREADING_C\)|\1|' include/mbedtls/mbedtls_config.h &&
-sedit 's|//\(#define MBEDTLS_THREADING_PTHREAD\)|\1|' include/mbedtls/mbedtls_config.h

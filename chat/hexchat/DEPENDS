@@ -1,3 +1,5 @@
+depends desktop-file-utils
+depends gdk-pixbuf
 depends autoconf-archive
 depends iso-codes
 depends pciutils
@@ -10,6 +12,7 @@ if [ "$ENABLE_GUI" == "y" ]; then
   depends desktop-file-utils
   depends gtk+-2
 fi
+
 
 optional_depends %OSSL \
                  "-Dtls=enabled"  \
@@ -39,8 +42,7 @@ optional_depends libcanberra \
                  "-Dlibcanberra=disabled" \
                  "enable support for sounds"
 
-#Fails build on version 2.14.2
-#optional_depends perl \
-#                 "-Dwith-perl=perl" \
-#                 "-Dwith-perl=false" \
-#                 "enable support for perl plugins"
+optional_depends perl \
+                 "-Dwith-perl=perl" \
+                 "-Dwith-perl=false" \
+                 "enable support for perl plugins"

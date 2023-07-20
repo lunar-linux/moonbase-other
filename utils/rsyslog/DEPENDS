@@ -17,7 +17,7 @@ optional_depends gnutls \
 
 optional_depends librelp \
                  "--enable-relp" \
-                 "--disable-replp" \
+                 "--disable-relp" \
                  "for Reliable Event Logging Protocol support" \
                  "n"
 
@@ -39,7 +39,7 @@ optional_depends libdbi \
                  "for libdbi database support" \
                  "n"
 
-optional_depends heimdal \
+optional_depends %KERBEROS \
                  "--enable-gssapi-krb5" \
                  "--disable-gssapi-krb5" \
                  "for kerberos support" \
@@ -49,10 +49,4 @@ optional_depends net-snmp \
                  "--enable-snmp" \
                  "--disable-snmp" \
                  "for SNMP support" \
-                 "n"
-
-optional_depends librelp \
-                 "--enable-relp" \
-                 "--disable-relp" \
-                 "for reliable logging (RELP) support" \
                  "n"

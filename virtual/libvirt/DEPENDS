@@ -1,4 +1,5 @@
 depends python
+depends meson
 depends e2fsprogs
 depends iproute2
 depends iptables
@@ -11,22 +12,21 @@ depends libssh2
 depends yajl
 
 optional_depends qemu \
-                 "--with-qemu --with-qemu-user=qemu --with-qemu-group=qemu" \
-                 "--without-qemu" \
+                 "-Ddriver_qemu=enabled -Dqemu_user=qemu -Dqemu_group=qemu" \
+                 "-Ddriver_qemu=disabled" \
                  "for QEMU support"
 
-optional_depends systemd      "--with-udev "    "--without-udev "    "for udev support"
-optional_depends attr       "--with-attr"     "--without-attr"     "for extended file attributes support"
-optional_depends dbus       "--with-dbus"     "--without-dbus"     "for DBUS support"
-optional_depends curl       "--with-curl"     "--without-curl"     "for CURL support"
-optional_depends fuse       "--with-fuse"     "--without-fuse"     "for FUSE support"
-optional_depends cyrus-sasl "--with-sasl"     "--without-sasl"     "for SASL support"
-optional_depends libcap-ng  "--with-capng"    "--without-capng"    "for libcap-ng support"
-optional_depends readline   "--with-readline" "--without-readline" "for readline support"
-optional_depends polkit     "--with-polkit"   "--without-polkit"   "for PolicyKit support"
-optional_depends lxc        "--with-lxc"      "--without-lxc"      "for lxc container support"
-optional_depends numactl    "--with-numactl"  "--without-numactl"  "for simple NUMA policy support"
-optional_depends pm-utils   "--with-pm-utils" "--without-pm-utils" "for power management support"
+optional_depends systemd    "-Dudev=enabled "      "-Dudev=disabled "      "for udev support"
+optional_depends attr       "-Dattr=enabled"       "-Dattr=disabled"       "for extended file attributes support"
+optional_depends curl       "-Dcurl=enabled"       "-Dcurl=disabled"       "for CURL support"
+optional_depends fuse       "-Dfuse=enabled"       "-Dfuse=disabled"       "for FUSE support"
+optional_depends cyrus-sasl "-Dsasl=enabled"       "-Dsasl=disabled"       "for SASL support"
+optional_depends libcap-ng  "-Dcapng=enabled"      "-Dcapng=disabled"      "for libcap-ng support"
+optional_depends readline   "-Dreadline=enabled"   "-Dreadline=disabled"   "for readline support"
+optional_depends polkit     "-Dpolkit=enabled"     "-Dpolkit=disabled"     "for PolicyKit support"
+optional_depends lxc        "-Ddriver_lxc=enabled" "-Ddriver_lxc=disabled" "for lxc container support"
+optional_depends numactl    "-Dnumactl=enabled"    "-Dnumactl=disabled"    "for simple NUMA policy support"
+optional_depends pm-utils   "-Dpm_utils=enabled"   "-Dpm_utils=disabled"   "for power management support"
 
 optional_depends libgcrypt    "" "" "for libgcrypt support"
 optional_depends dmidecode    "" "" "for SMBIOS info access"
@@ -37,16 +37,7 @@ optional_depends radvd        "" "" "for IPV6 router advertisement support"
 optional_depends libiscsi     "" "" "for client ISCSI support"
 optional_depends netcat       "" "" "for remote management over SSH"
 
-optional_depends lvm2   "--with-storage-lvm"  "" "for LVM2 backend for storage driver support"
-optional_depends parted "--with-storage-disk" "" "for GParted backend for storage driver support"
-optional_depends zfs    "--with-storage-zfs"  "" "for ZFS backend for storage driver support"
-
-optional_depends glusterfs \
-                 "--with-storage-gluster" \
-                 "--without-storage-gluster" \
-                 "for gluster backend for storage driver support"
-
-#optional_depends open-iscsi \
-#                 "--with-storage-iscsi" \
-#                 "--without-storage-iscsi" \
-#                 "for iscsi storage support"
+optional_depends lvm2       "-Dstorage_lvm=enabled"     "-Dstorage_lvm=disabled"     "for LVM2 backend for storage driver support"
+optional_depends zfs        "-Dstorage_zfs=enabled"     "-Dstorage_zfs=disabled"     "for ZFS backend for storage driver support"
+optional_depends glusterfs  "-Dstorage_gluster=enabled" "-Dstorage_gluster=disabled" "for gluster backend for storage driver support"
+optional_depends open-iscsi "-Dstorage_iscsi=enabled"   "-Dstorage_iscsi=disabled"   "for iscsi storage support"

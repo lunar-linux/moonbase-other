@@ -1,3 +1,3 @@
-default_build &&
+export XML_CATALOG_FILES=/etc/xml/catalog &&
 
-gather_docs shared-mime-info-spec.xml
+default_meson_build

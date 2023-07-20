@@ -1,3 +1,4 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
 autoreconf -fi &&
 
 OPTS+=" --prefix=/usr --with-history --with-threads --disable-static" &&

@@ -25,10 +25,11 @@ if [ ! -e /etc/rndc.key ]; then
   rndc-confgen -a
 fi
 
+# a rndc.conf.sample is no longer provided in the tarbal
 # lets copy a sample rndc.conf if none avail
-if [ ! -e /etc/rndc.conf ]; then
-  cp $SOURCE_DIRECTORY/bin/rndc/rndc.conf /etc/rndc.conf.sample
-fi
+#if [ ! -e /etc/rndc.conf ]; then
+#  cp $SOURCE_DIRECTORY/bin/rndc/rndc.conf /etc/rndc.conf.sample
+#fi
 
 cat << EOF
 ISC has added a patch to BIND intended to prevent domain registrars from misusing

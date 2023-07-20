@@ -10,18 +10,11 @@ if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ];
     set_module_config OLD_VER "`installed_version $MODULE`"
 fi &&
 
-export MOZ_CO_PROJECT=mail &&
-export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION &&
-export MOZILLA_OFFICIAL=1 &&
-export BUILD_OFFICIAL=1 &&
-export MOZ_MAKE_FILES=$MAKES &&
-export MOZ_THUNDERBIRD=1 &&
-export AUTOCONF=/usr/bin/autoconf-mozilla &&
-export MACH_USE_SYSTEM_PYTHON=1 &&
-
 cp $SCRIPT_DIRECTORY/mozconfig . &&
 export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla" &&
 mkdir -p ${MOZ_OBJDIR} &&
+
+sed -i '/ROOT_CLIP_CHAIN/d' gfx/webrender_bindings/webrender_ffi.h &&
 
 for flag in $OPTS; do
   echo "ac_add_options $flag" >> mozconfig

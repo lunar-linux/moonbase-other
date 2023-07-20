@@ -1,13 +1,14 @@
           MODULE=camlp5
-         VERSION=rel706
+         VERSION=8.00.04
           SOURCE=$MODULE-$VERSION.tar.gz
- SOURCE_URL_FULL=https://github.com/camlp5/camlp5/archive/$VERSION.tar.gz
-      SOURCE_VFY=sha256:bea3fba40305b6299a4a65a26f8e1f1caf844abec61588ff1c500e9c05047922
-        WEB_SITE=http://camlp5.gforge.inria.fr
+ SOURCE_URL_FULL=https://github.com/camlp5/camlp5/archive/rel$VERSION.tar.gz
+      SOURCE_VFY=sha256:bddbcb5c3c2d410c9a61c4dfb6e46e3bbe984d25ac68221a7a65c82a29956b1d
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-rel${VERSION}
+        WEB_SITE=https://camlp5.github.io/
          ENTERED=20110829
-         UPDATED=20180922
+         UPDATED=20230624
            SHORT="Camlp5 is a preprocessor-pretty-printer of OCaml"
-
+PSAFE=no
 cat << EOF
 Camlp5 is a preprocessor-pretty-printer of OCaml.
 EOF

@@ -1,4 +1,4 @@
-python2 ./build/gen.py &&
+python ./build/gen.py &&
 ninja -C out gn &&
 
 prepare_install &&

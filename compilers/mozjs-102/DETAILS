@@ -1,0 +1,17 @@
+          MODULE=mozjs-102
+         VERSION=102.11.0
+          SOURCE=firefox-${VERSION}esr.source.tar.xz
+      SOURCE_URL=https://archive.mozilla.org/pub/firefox/releases/${VERSION}esr/source/
+      SOURCE_VFY=sha256:e7f120e7967ea283909c1ec7cfdbf422bba515163842e739bfa1a608808cce33
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/firefox-${VERSION}
+        WEB_SITE=http://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases/24/
+         ENTERED=20230317
+         UPDATED=20230519
+           SHORT="JavaScript interpreter and libraries"
+
+cat << EOF
+This is SpiderMonkey, Mozilla's C implementation of JavaScript.
+SpiderMonkey is written in C and contains a compiler, interpreter, decompiler,
+garbage collector, and standard classes. It is intended to be embedded in other
+applications that provide host environments for JavaScript.
+EOF

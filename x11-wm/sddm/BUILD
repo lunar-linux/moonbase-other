@@ -1,5 +1,7 @@
 . /etc/profile.d/qt5.rc &&
 
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 if in_depends $MODULE systemd ; then
   OPTS+=" -DENABLE_JOURNALD=ON"
  else OPTS+=" -DENABLE_JOURNALD=OFF"

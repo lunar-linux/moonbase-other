@@ -1,3 +1,8 @@
+autoreconf -fiv &&
+
+export CFLAGS="${CFLAGS/-fno-plt/} -ffat-lto-objects"
+export LDFLAGS="${LDFLAGS/,-z,now/}"
+
 OPTS+=" --prefix=/usr \
         --libdir=/usr/lib \
         --with-x"
@@ -10,6 +15,7 @@ mkdir $MODULE-build &&
 cd $MODULE-build &&
 
 ../configure $OPTS &&
+make depend &&
 default_make &&
 
 # Font aliasing settings for Win32 applications

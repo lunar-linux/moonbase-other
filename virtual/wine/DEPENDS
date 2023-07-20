@@ -7,42 +7,37 @@ depends libXcursor
 depends libXrandr
 depends libXdamage
 depends libXxf86vm
+depends libXinerama
+depends libXcomposite
 depends glu
 depends fontconfig
 depends libpcap
 depends desktop-file-utils
 depends libxml2
-
-optional_depends libXinerama \
-                 "--with-xinerama" \
-                 "--without-xinerama" \
-                 "for multi-monitor support"
+depends libusb-compat
+depends llvm
+depends Vulkan-Loader
 
 optional_depends gst-plugins-base \
                  "--with-gstreamer" \
                  "--without-gstreamer" \
                  "for gstreamer media support"
 
-optional_depends gnutls      "--with-gnutls" "--without-gnutls" "for schannel support"
-optional_depends openldap    "--with-ldap"   "--without-ldap" "provide ldap dll"
-optional_depends lcms2       "--with-cms"    "--without-cms" "provide color management dll"
-optional_depends %JPEG       "--with-jpeg"   "--without-jpeg" "for jpeg image support"
-optional_depends libpng      "--with-png"    "--without-png" "for png image support"
-optional_depends v4l-utils   "--with-v4l2"   "--without-v4l2" "for video capturing dlls"
-optional_depends alsa-lib    "--with-alsa"   "--without-alsa" "for ALSA audio support"
-optional_depends pulseaudio  "--with-pulse"  "--without-pulse" "for PulseAudio support"
-optional_depends openal      "--with-openal" "--without-openal" "for openal (3D audio) dll"
-optional_depends mpg123      "--with-mpg123" "--without-mpg123" "for mp3 codec support"
-optional_depends mesa-lib    "--with-opengl" "--without-opengl" "for D3D and OpenGL dlls"
-optional_depends libxslt     "--with-xslt"   "--without-xslt" "for XSLT support in msxml3.dll"
-optional_depends ncurses     "--with-curses" "--without-curses" "for curses command line support"
-optional_depends cups        "--with-cups"   "--without-cups" "printer support"
-optional_depends samba       "--with-netapi" "--without-netapi" "for netapi dll"
+#These five have no switches but are looked for during configure
+optional_depends openldap    ""   "" "provide ldap dll"
+optional_depends lcms2       ""   "" "provide color management dll"
+optional_depends %JPEG       ""   "" "for jpeg image support"
+optional_depends mpg123      ""   "" "for mp3 codec support"
+optional_depends libxslt     ""   "" "for XSLT support in msxml3.dll"
 
-optional_depends libXcomposite \
-                 "--with-xcomposite" \
-                 "--without-xcomposite" \
-                 "use Xcomposite extension"
+optional_depends gnutls      "--with-gnutls" "--without-gnutls" "for schannel support"
+optional_depends libpng      "--with-png"    "--without-png"    "for png image support"
+optional_depends v4l-utils   "--with-v4l2"   "--without-v4l2"   "for video capturing dlls"
+optional_depends alsa-lib    "--with-alsa"   "--without-alsa"   "for ALSA audio support"
+optional_depends pulseaudio  "--with-pulse"  "--without-pulse"  "for PulseAudio support"
+optional_depends mesa-lib    "--with-opengl" "--without-opengl" "for D3D and OpenGL dlls"
+optional_depends cups        "--with-cups"   "--without-cups"   "printer support"
+optional_depends samba       "--with-netapi" "--without-netapi" "for netapi dll"
 
 #optional_depends CUDA-OpenCL-headers \
 #                 "--with-opencl" \

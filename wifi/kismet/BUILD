@@ -12,6 +12,8 @@ default_config &&
 make all plugins &&
 make &&
 
+add_priv_group kismet $$
+
 prepare_install &&
 
 $MAKE_INSTALL

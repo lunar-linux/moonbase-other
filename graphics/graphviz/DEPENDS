@@ -28,17 +28,16 @@ optional_depends tk    "" "" "for building extra tcl/tk tools"
 optional_depends lua   "" "--disable-lua"   "for lua support"
 optional_depends swig  "" "--disable-swig"  "for swig support"
 optional_depends guile "" "--disable-guile" "for guile support"
-optional_depends ocaml "" "--disable-ocaml" "for ocaml support"
-
+optional_depends ocaml "" "--disable-ocaml" "for ocaml support, ${PROBLEM_COLOR}For now say no${DEFAULT_COLOR}" n
 
 optional_depends devil "--with-devil --with-devillibdir=/usr/lib/ \
                         --with-devilincludedir=/usr/include/IL/" "" \
                        "for additional graph file format support"
 
-# Breaks the compile
-optional_depends ruby "--enable-ruby" "--disable-ruby" "for ruby support" "n"
+optional_depends php "--enable-php" "--disable-php" "for PHP support"
+optional_depends ruby "--enable-ruby" "--disable-ruby" "for ruby support"
+optional_depends python "--enable-python3 --disable-python --enable-lefty" "--disable-python3" "for Python 3.x support"
 
 # Circular depend with vala
 #optional_depends librsvg "--with-rsvg" "--without-rsvg" "for SVG graphics support"
 
-optional_depends python "--enable-python3 --disable-python --enable-lefty" "--disable-python3" "for Python 3.x support"

@@ -10,8 +10,8 @@ optional_depends ocl-icd \
                  "for OpenCL support ${PROBLEM_COLOR}Say NO for now ${DEFAULT_COLOR}" n
 
 optional_depends openmpi \
-                 "--enable-mpi" "" \
-                 "for OpenMPI support"
+                 "--enable-mpi" "--disable-mpi" \
+                 "for OpenMPI support ${PROBLEM_COLOR} Say NO for now ${DEFAULT_COLOR}" n
 
 optional_depends CUDA-OpenCL-headers \
                  "" "--disable-cuda" \

@@ -1,3 +1,3 @@
-autoconf &&
+autoreconf -fi &&
 
 default_build

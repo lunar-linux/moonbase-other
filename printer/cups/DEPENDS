@@ -2,6 +2,7 @@ depends bc
 depends tiff
 depends inetutils
 depends hicolor-icon-theme
+depends libexif
 
 optional_depends gnutls "" "" "for encrypted communications"
 
@@ -35,7 +36,7 @@ optional_depends libusb \
                  "--disable-libusb" \
                  "for usb device support"
 
-optional_depends krb5 \
+optional_depends %KERBEROS \
                  "--enable-gssapi" \
                  "--disable-gssapi" \
                  "for Kerberos support (choose krb5 or heimdal only)" \

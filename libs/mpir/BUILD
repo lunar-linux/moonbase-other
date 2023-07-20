@@ -1,3 +1,5 @@
+./autogen.sh &&
+
 # mpirxx.h is needed by libalkimia
 OPTS+=" --enable-cxx"
 

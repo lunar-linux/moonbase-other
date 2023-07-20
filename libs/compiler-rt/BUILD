@@ -1,12 +1,9 @@
-OPTS+=" -G Ninja"
-__DEST=${SOURCE_DIRECTORY}/__inst
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release"
 
-default_cmake_config &&
-ninja &&
-DESTDIR=$__DEST ninja install &&
-mkdir -p ${__DEST}/usr/lib/clang/${VERSION}/{lib,share} &&
-mv "${__DEST}"/usr/lib/{linux,clang/${VERSION}/lib/} &&
-mv "${__DEST}"/usr/{share/*.txt,lib/clang/${VERSION}/share/}
+cmake -B build -S . -G Ninja $OPTS &&
+cmake --build build &&
 
 prepare_install &&
-cp -rf --remove-destination $__DEST/* /
+
+cmake --install build

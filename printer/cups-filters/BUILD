@@ -1,3 +1,6 @@
+#Needed due to qpdf-11.3.0.
+CXXFLAGS+=" -std=c++17"
+
 if module_installed systemd; then
   OPTS+=" --without-rcstop --without-rcstart --without-rclevels --without-rcdir"
 fi
