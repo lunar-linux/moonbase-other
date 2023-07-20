@@ -1,7 +1,10 @@
 touch INSTALL README &&
-./autogen.sh &&
 
-OPTS+=" --without-rtlsdr" &&
+autoreconf -fi &&
+
+#./autogen.sh &&
+
+OPTS+=" --without-rtlsdr --sbindir=/usr/bin --disable-jitterentropy" &&
 
 default_build &&
 

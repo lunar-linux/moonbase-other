@@ -1,12 +1,12 @@
           MODULE=bluez-5
-         VERSION=63
-          SOURCE=$MODULE.$VERSION.tar.xz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE.$VERSION
-      SOURCE_URL=http://www.kernel.org/pub/linux/bluetooth
-      SOURCE_VFY=sha256:9349e11e8160bb3d720835d271250d8a7424d3690f5289e6db6fe07cc66c6d76
+         VERSION=5.67
+          SOURCE=${MODULE%-*}-$VERSION.tar.xz
+      SOURCE_URL=http://www.kernel.org/pub/linux/bluetooth/
+      SOURCE_VFY=sha256:eac6071ec4fbbe032ee703d0ba3e7458730bfdb68befa486a787e840e1dbd53c
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE%-*}-$VERSION
         WEB_SITE=http://www.bluez.org
          ENTERED=20140805
-         UPDATED=20220118
+         UPDATED=20230630
            SHORT="Support for core Bluetooth layers and protocols"
 
 cat << EOF

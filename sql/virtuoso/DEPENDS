@@ -1,20 +1,16 @@
 depends zlib
 depends readline
-depends %UDEV
+depends systemd
 depends unixODBC
 depends net-tools
 depends libiodbc
 
-optional_depends perl        "--enable-perl"           "--disable-perl"        "for perl hosting support" y
+optional_depends perl        "--enable-perl"           "--disable-perl"        "for perl hosting support" n
 optional_depends libedit     "--with-editline"         "--with-editline=no"    "for editline support" y
-optional_depends python2      "--enable-python"         "--disable-python"      "for python hosting support" y
+optional_depends python      "--enable-python"         "--disable-python"      "for python hosting support" n
 optional_depends ruby        "--enable-ruby"           "--disable-ruby"        "for ruby hosting support" y
 optional_depends ImageMagick "--enable-imagemagick"    "--disable-imagemagick" "for ImageMagick plugin" n
 optional_depends %PHP        "--enable-php5"           "--disable-php5 "       "for PHP extension support" n
 optional_depends openldap    "--enable-openldap"       "--disable-openldap"    "for openldap support" n
 optional_depends %OSSL       "--enable-openssl"        "--disable-openssl"     "for openssl support" y
-optional_depends heimdal     "--enable-krb"            "--disable-krb"         "for Kerberos extension support" n
-optional_depends libwbxml    "--enable-wbxml2"         "--disable-wbxml2"      "for Wireless Binary XML support" n
-
-# broken due to missing *internal* libgc include
-#optional_depends mono        "--enable-mono"           "--disable-mono"        "for mono extension support"
+optional_depends %KERBEROS   "--enable-krb"            "--disable-krb"         "for Kerberos extension support"

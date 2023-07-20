@@ -24,11 +24,10 @@ export CPPFLAGS+=" -DSQLITE_ENABLE_DBSTAT_VTAB=1 \
                    -DSQLITE_ENABLE_FTS5=1"
 
 OPTS+="	--disable-static \
-	    --enable-fts3 \
-	    --enable-fts4 \
-	    --enable-fts5 \
-	    --enable-rtree \
-	    --enable-json1"
+        --enable-fts3 \
+        --enable-fts4 \
+        --enable-fts5 \
+        --enable-rtree"
 
 default_build &&
 

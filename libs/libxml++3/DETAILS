@@ -1,0 +1,16 @@
+          MODULE=libxml++3
+         VERSION=3.2.4
+          SOURCE=${MODULE%3}-$VERSION.tar.xz
+      SOURCE_URL=$GNOME_URL/sources/${MODULE%3}/${VERSION%.*}
+      SOURCE_VFY=sha256:ba53f5eaca45b79f4ec1b3b28bc8136fce26873cd38f2e381d9355289e432405
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libxml++-$VERSION
+        WEB_SITE=http://libxmlplusplus.sf.net
+            TYPE=meson
+         ENTERED=20230504
+         UPDATED=20230504
+           SHORT="A C++ interface for working with XML files"
+
+cat << EOF
+libxml++ is a C++ interface for working with XML files, using libxml2 to
+parse and write the actual XML files. It has a simple but complete API.
+EOF

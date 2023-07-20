@@ -1,3 +1,3 @@
-OPTS+=" -DUSE_SYSTEM_DEPS=ON"
+sedit 's:/usr/local:/usr:' Makefile &&
 
-default_cmake_build
+default_make

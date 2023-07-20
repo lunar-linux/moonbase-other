@@ -1,12 +1,13 @@
           MODULE=libesmtp
-         VERSION=1.0.6-4
+         VERSION=1.1.0
           SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-debian-$VERSION
- SOURCE_URL_FULL=http://github.com/jbouse-debian/libesmtp/archive/debian/$VERSION.tar.gz
-      SOURCE_VFY=sha256:c7967aa2382322bb73946669386d247925395ae0051562cf1b0417ef2b3047d4
-        WEB_SITE=http://www.stafford.uklinux.net/libesmtp
+ SOURCE_URL_FULL=https://github.com/libesmtp/libESMTP/archive/refs/tags/v$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libESMTP-$VERSION
+      SOURCE_VFY=sha256:32bc3614ca12d21c7d933f32d43410e8744b6f91fdca7732da9877a385e4e6c3
+        WEB_SITE=https://libesmtp.github.io/
+            TYPE=meson
          ENTERED=20010922
-         UPDATED=20160305
+         UPDATED=20220601
            SHORT="A library to manage posting mail using SMTP"
 
 cat << EOF

@@ -1,12 +1,12 @@
           MODULE=squashfs
-         VERSION=4.3
-          SOURCE=$MODULE${VERSION}.tar.gz
-      SOURCE_URL=$SFORGE_URL/$MODULE
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE${VERSION}
-      SOURCE_VFY=sha256:0d605512437b1eb800b4736791559295ee5f60177e102e4d4ccd0ee241a5f3f6
+         VERSION=4.6
+          SOURCE=$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/plougher/squashfs-tools/archive/refs/tags/$VERSION.tar.gz
+      SOURCE_VFY=sha256:afc157495fa90d2042172fc642237afe1956f1a5beb141058bba3256b8d92013
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-tools-$VERSION
         WEB_SITE=http://squashfs.sourceforge.net
          ENTERED=20100808
-         UPDATED=20190213
+         UPDATED=20230320
           SHORT="System utilities for squashfs"
 
 cat << EOF

@@ -1,14 +1,18 @@
           MODULE=lld
-         VERSION=13.0.1
+         VERSION=15.0.7
           SOURCE=$MODULE-$VERSION.src.tar.xz
          SOURCE2=libunwind-$VERSION.src.tar.xz
+         SOURCE3=cmake-$VERSION.src.tar.xz
       SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
-     SOURCE2_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
-      SOURCE_VFY=sha256:666af745e8bf7b680533b4d18b7a31dc7cab575b1e6e4d261922bbafd9644cfb
-     SOURCE2_VFY=sha256:e206dbf1bbe058a113bffe189386ded99a160b2443ee1e2cd41ff810f78551ba
+     SOURCE2_URL=$SOURCE_URL
+     SOURCE3_URL=$SOURCE_URL
+      SOURCE_VFY=sha256:dba5c70c3fe88b3a38b9180df82fbc9d1dfd55d68f41fddd6a90f9e17f8e5df9
+     SOURCE2_VFY=sha256:406d199ae3a16add84017f40458a5e7c31f9412937fcb518715af0a0eeafbc0c
+     SOURCE3_VFY=sha256:8986f29b634fdaa9862eedda78513969fe9788301c9f2d938f4c10a3e7a3e7ea
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION.src
         WEB_SITE=https://lld.llvm.org/
          ENTERED=20180407
-         UPDATED=20220228
+         UPDATED=20230516
            SHORT="Linker from the LLVM project"
 cat << EOF
 Linker from the LLVM project.

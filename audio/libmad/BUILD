@@ -1,3 +1,5 @@
+sed -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/' -i configure.ac  &&
+
 OPTS+=" --disable-debugging --enable-accuracy --disable-static" &&
 
 if [ `arch` == "x86_64" ] ; then

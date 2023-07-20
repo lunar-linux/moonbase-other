@@ -1,11 +1,4 @@
 depends libsigsegv
-
-optional_depends ffcall \
-                 "--with-ffcall --with-dynamic-ffi" \
-                 "--without-ffcall" \
-                 "for FFI support"
-
-optional_depends readline \
-                 "--with-readline" \
-                 "--without-readline" \
-                 "for readline support"
+depends libunistring
+depends readline
+depends ffcall

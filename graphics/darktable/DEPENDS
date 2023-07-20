@@ -1,6 +1,6 @@
 # hard requirements
 depends sqlite
-depends %JPEG
+depends libjpeg-turbo
 depends libpng
 depends pugixml
 depends gtk+-3
@@ -15,7 +15,6 @@ depends libsoup
 depends dbus-glib
 depends isl
 depends openmp
-
 depends python-pyrsistent
 
 # not hard requirements, but
@@ -29,9 +28,9 @@ depends zlib
 depends libwebp
 depends GraphicsMagick
 depends colord-gtk
+depends libavif
 
 # optional
-
 optional_depends gmic \
   "-DUSE_GMIC=1" \
   "-DUSE_GMIC=0" \

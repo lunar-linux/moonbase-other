@@ -1,0 +1,24 @@
+depends meson
+depends gobject-introspection
+depends adwaita-icon-theme
+depends desktop-file-utils
+depends shared-mime-info
+depends fontconfig
+depends fribidi
+depends dconf
+depends gdk-pixbuf
+depends glib-2
+depends graphene
+depends harfbuzz
+depends iso-codes
+depends libepoxy
+depends cairo
+depends pango
+depends gstreamer
+
+optional_depends cups   "-D print-cups=enabled" "-D print-cups=disabled" "enable CUPS as print backend"
+optional_depends colord "-D colord=enabled"     "-D colord=disabled"     "enable colord support for CUPS"
+optional_depends %X     "-D x11-backend=true"   "-D x11-backend=false"    "for the X11 backend${PROBLEM_COLOR} (recommended)${DEFAULT_COLOR}" "y"
+
+optional_depends wayland-protocols "-D wayland-backend=true"   "-D wayland-backend=false"   "for the wayland backend"
+optional_depends libcloudproviders "-D cloudproviders=enabled" "-D cloudproviders=disabled" "for cloud storage support"

@@ -1,7 +1,11 @@
 default_pre_build &&
-patch_it $SOURCE2 1 &&
+
+git submodule init &&
+git config submodule."lib/ccan.git".url "$srcdir/ccan" &&
+git -c protocol.file.allow=always submodule update &&
 
 # Libressl fix
 sedit '/^#if OPENSSL_VERSION_NUMBER/s/$/ || defined(LIBRESSL_VERSION_NUMBER)/g' src/sbverify.c &&
+sedit '/-Werror/s/$/ -Wno-deprecated-declarations/' src/Makefile.am &&
 
 NOCONFIGURE=1 ./autogen.sh

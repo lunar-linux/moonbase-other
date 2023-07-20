@@ -7,6 +7,8 @@ OPTS+=" --prefix=/usr \
         F77=gfortran \
         LIBnn=lib"
 
+touch NEWS.log &&
+
 default_build &&
 
 # This is needed so cantor-15.04.1 will build

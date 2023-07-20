@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 touch INSTALL &&
 
 autoreconf -i &&

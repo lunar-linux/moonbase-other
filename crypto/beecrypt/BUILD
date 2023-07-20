@@ -15,7 +15,7 @@ if [[ $(arch) == i686 ]] ; then
   sedit "s:ASM_ARCH=\$bc_target_arch:ASM_ARCH=i686:" configure
 fi &&
 
-CXXFLAGS=-fpermissive
+CXXFLAGS='-fpermissive -std=c++11'
 
 # Fixes compilation of rpm - http://rpm5.org/cvs/tktview?tn=51
 # checking for mpfprintln in -lbeecrypt... no

@@ -1,0 +1,3 @@
+export export SETUPTOOLS_SCM_PRETEND_VERSION=$VERSION
+
+default_python3_build

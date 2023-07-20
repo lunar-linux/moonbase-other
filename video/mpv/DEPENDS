@@ -19,10 +19,12 @@ optional_depends %JPEG      "--enable-jpeg"   "--disable-jpeg"   "for JPEG suppo
 optional_depends libXv      "--enable-xv"     "--disable-xv"     "for libXv support"
 optional_depends libvdpau   "--enable-vdpau"  "--disable-vdpau"  "for VDPAU support"
 
+optional_depends rubberband "--enable-rubberband" "--disable-rubberband" "for time and pitch shifting support"
+
 optional_depends luajit \
-                 "-- enable-lua --lua='52arch'" \
+                 "-- enable-lua --lua=auto" \
                  "--disable-lua" \
-                 "for lua support"
+                 "for lua support,${PROBLEM_COLOR}say yes here if yes to youtube-dl ${DEFAULT_COLOR}"
 
 optional_depends libcdio-paranoia \
                  "--enable-cdda"  \
@@ -63,10 +65,9 @@ optional_depends samba \
 
 optional_depends mujs "" "" "for JavaScript support" "n"
 
-#optional_depends v4l-utils \
-#                 "--enable-libv4l2 --enable-tv-v4l2" \
-#                 "--disable-libv4l2 --disable-tv-v4l2" \
-#                 "for video4linux2 device support"
+optional_depends v4l-utils \
+                 "--enable-libv4l2 --enable-tv-v4l2" \
+                 "--disable-libv4l2 --disable-tv-v4l2" \
+                 "for video4linux2 device support"
 
-#optional_depends rubberband "" "" "for rubberband support"
-#optional_depends youtube-dl "" "" "for video-sharing websites playback (needs lua)"
+optional_depends youtube-dl "" "" "for video-sharing websites playback"

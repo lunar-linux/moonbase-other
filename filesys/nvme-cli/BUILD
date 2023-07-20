@@ -1,5 +1,9 @@
-make PREFIX=/usr &&
+export XML_CATALOG_FILES=/etc/xml/catalog &&
 
-prepare_install &&
+OPTS+=" -Dsysconfdir=/etc \
+        --auto-features=enabled \
+        -Db_lto=true -Db_pie=true \
+        -Ddocs=man -Ddocs-build=false \
+        -Dudevrulesdir=lib/udev/rules.d"
 
-make UDEVDIR=/usr/lib/udev PREFIX=/usr SBINDIR=/usr/bin install-spec
+default_meson_build

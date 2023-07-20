@@ -1,5 +1,3 @@
-./bootstrap.sh
-
 OPTS+=" --disable-static --disable-rpath"
 
 if in_depends $MODULE pngquant; then

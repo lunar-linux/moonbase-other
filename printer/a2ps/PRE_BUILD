@@ -1,16 +1,5 @@
 default_pre_build &&
 
-# In place of a one line patch
-sedit 's:extern char \* stpcpy();::' lib/xstrrpl.c &&
-
-# This was the only thing needed from the 4.13 security patch, all others from that were
-# applied in this version.
-sedit 's:res->flag_output_is_printer = false;:res->flag_output_is_printer = true;:' lib/printers.c &&
-
-sed -i -e '/^AM_C_PROTOTYPES/d' -e '/^AUTOMAKE_OPTIONS.*ansi2knr/d' \
-    -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' -e 's:AM_PROG_CC_STDC:AC_PROG_CC:' \
-        configure.in {contrib/sample,lib,src}/Makefile.am m4/protos.m4 &&
-
 # Could not find our rm
 sedit "s:/bin/rm:/usr/bin/rm:" afm/make_fonts_map.sh &&
 for file in $(find . -name '*'.in |cut -c 3-50) ; do
@@ -19,6 +8,3 @@ done &&
 for file in $(find . -name '*'.in |cut -c 3-50) ; do
    sedit "s:-rm:/usr/bin/rm:g" $file
 done
-
-libtoolize --force --copy &&
-autoreconf --force --install -I m4

@@ -1,5 +1,3 @@
+OPTS+=" --disable-mono --disable-geos --without-debug --with-pthreads --program-transform-name='s/isql*/vt-isql/'" &&
 
-  OPTS+=" --without-debug --with-pthreads --program-transform-name='s/isql*/vt-isql/'" &&
-  OPTS+=" --disable-mono" &&
-
-  default_build 
+default_build 

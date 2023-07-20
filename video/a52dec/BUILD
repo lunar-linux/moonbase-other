@@ -1,5 +1,3 @@
-export CFLAGS="$CFLAGS -fPIC"
-
-OPTS+=" --enable-shared=yes --enable-static=no"
+OPTS+=" --enable-shared"
 
 default_build

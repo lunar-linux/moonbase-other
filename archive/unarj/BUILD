@@ -1,5 +1,7 @@
-make &&
+sed 's|CFLAGS =|CFLAGS +=|' -i Makefile &&
+sed 's|-o unarj|$(LDFLAGS) -o unarj|' -i Makefile &&
 
+make &&
 prepare_install &&
 
-cp unarj /usr/bin
+install -Dm 755 unarj -t /usr/bin

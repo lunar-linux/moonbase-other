@@ -71,11 +71,11 @@ if in_depends $MODULE gnome-keyring; then
     /usr/lib/git-core/git-credential-gnome-keyring
 fi &&
 
-if [ "`get_module_config CONTRIB`" = "y" ]; then
+if [ "$(get_module_config CONTRIB)" = "y" ]; then
   # the contrib stuff
-  cp -a ./contrib/* /usr/share/git/
+  cp -r --preserve=mode,ownership ./contrib/* /usr/share/git/
 fi
 
-if [ "`get_module_config DOCS`" = "y" ]; then
+if [ "$(get_module_config DOCS)" = "y" ]; then
   gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
 fi

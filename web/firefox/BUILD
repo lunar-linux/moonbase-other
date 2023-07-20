@@ -1,17 +1,18 @@
-# this breaks a symbol check in the build scripts
-LDFLAGS=$(echo $LDFLAGS | sed "s/-s//") &&
+bad_flags "-fno-plt"
 
-SHELL="${SHELL:-/bin/bash}" &&
-
-CFLAGS="${CFLAGS/-fno-plt/}" &&
-CXXFLAGS="${CXXFLAGS/-fno-plt/}" &&
+export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
+export MOZILLA_OFFICIAL=1
+export MOZ_MAKE_FILES=$MAKES
+export MOZ_NOSPAM=1
+export MOZBUILD_STATE_PATH="$SOURCE_DIRECTORY/mozbuild"
+export LANG=C
+export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
 
 # LTO needs more open files
-ulimit -n 4096
+ulimit -n 8192 &&
 
-./mach configure &&
-./mach build &&
-./mach buildsymbols &&
+./mach configure || ./mach configure &&
+./mach build --verbose &&
 
 prepare_install &&
 

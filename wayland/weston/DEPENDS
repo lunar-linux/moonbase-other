@@ -1,3 +1,5 @@
+depends xcb-util-cursor
+depends libxcb
 depends Linux-PAM
 depends poppler
 depends glu
@@ -6,11 +8,7 @@ depends libinput
 depends pipewire
 depends libxkbcommon
 depends wayland-protocols
-
-optional_depends colord \
-                 "-D color-management-colord=true" \
-                 "-D color-management-colord=false" \
-                 "for colord support"
+depends seatd
 
 optional_depends lcms2 \
                  "-D color-management-lcms=true" \
@@ -28,6 +26,6 @@ optional_depends libwebp \
                  "for WebP support"
 
 optional_depends systemd \
-                 "-D systemd=true -D launcher-logind=true" \
-                 "-D systemd=false -D launcher-logind=false" \
-                 "for systemd support"
+                 "-D systemd=true 
+                 "-D systemd=false"
+                 for systemd support"

@@ -1,7 +1,7 @@
- cd libraries/liblmdb/ &&
+cd libraries/liblmdb/ &&
 
- sedit "s:/usr/local:/usr:" Makefile &&
+sedit "s:/usr/local:/usr:" Makefile &&
 
- default_make &&
+default_make &&
 
- rm /usr/lib/liblmdb.a
+install -Dm644 $SCRIPT_DIRECTORY/lmdb.pc /usr/lib/pkgconfig/lmdb.pc

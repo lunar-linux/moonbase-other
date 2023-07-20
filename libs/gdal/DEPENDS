@@ -1,55 +1,67 @@
+depends xz
+depends lz4
+depends python-setuptools
+depends pcre2
+depends libxml2
+depends %OSSL
+depends cmake
+depends giflib
+depends libpng
+depends openjpeg-2
+depends jasper
 depends proj
 depends python-numpy
+depends expat
+depends poppler
+depends curl
+depends openexr
 
-optional_depends cryptopp "--with-cryptopp=yes" "--without-cryptopp" "for crypto support" n
-optional_depends geos     "--with-geos=yes"     "--without-geos"     "for Geometry Engine support"
-optional_depends libwebp  "--with-webp=yes"     "--without-webp"     "for lossy compression for photographic images support"
-optional_depends qhull    "--with-qhull=yes"    "--with-qhull=internal"    "for qhull support ${PROBLEM_COLOR}For now say no to use internal qhull${DEFAULT_COLOR}"
-optional_depends expat    "--with-expat"        "--without-expat"    "for XML support"
-optional_depends curl     "--with-curl"         "--without-curl"     "for curl support"
-optional_depends giflib   "--with-gif"          "--without-gif"      "for gif graphics support"
-optional_depends libpng   "--with-png"          "--without-png"      "for png graphics support"
-optional_depends jasper   "--with-jasper"       "--without-jasper"   "for JPEG-2000 Part-1 support"
-optional_depends perl     "--with-perl"         "--without-perl"     "for perl scripting support"
-optional_depends hdf5     "--with-hdf5"         "--without-hdf5"     "for Hierarchical Data Format support"
-optional_depends freexl   "--with-freexl"       "--without-freexl"   "for xls import support"
-optional_depends xerces-c "--with-xerces"       "--without-xerces"   "for C++ parsing support"
-optional_depends netcdf   "--with-netcdf"       "--without-netcdf"   "for CDF support"
-optional_depends cfitsio  "--with-cfitsio"      "--without-cfitsio"  "for C and Fortran subroutine support"
-optional_depends poppler  "--with-poppler"      "--without-poppler"  "for poppler graphics support ${PROBLEM_COLOR}If yes here, say no to podofo${QUERY_COLOR}" n
-optional_depends podofo   "--with-podofo"       "--without-podofo"   "for POrtable DOcument FOrmat support" y
-optional_depends sqlite   "--with-sqlite3"      "--without-sqlite3"  "for sqlite database support"
-optional_depends %MYSQL   "--with-mysql"        "--without-mysql"    "for mysql database support"
+optional_depends podofo     "-DGDAL_USE_PODOFO=ON"   "-DGDAL_USE_PODOFO=OFF"   "for pdf support,${PROBLEM_COLOR} Say no for now${DEFAULT_COLOR}" n
+optional_depends cfitsio    "-DGDAL_USE_CFITSIO=ON"  "-DGDAL_USE_CFITSIO=OFF"  "for C and Fortran subroutine support"
+optional_depends cryptopp   "-DGDAL_USE_CRYPTOPP=ON" "-DGDAL_USE_CRYPTOPP=OFF" "for crypto support"
+optional_depends freexl     "-DGDAL_USE_FREEXL=ON"   "-DGDAL_USE_FREEXL=OFF"   "for xls import support"
+optional_depends geos       "-DGDAL_USE_GEOS=ON"     "-DGDAL_USE_GEOS=OFF"     "for Geometry Engine support"
+optional_depends libheif    "-DGDAL_USE_HEIF=ON"     "-DGDAL_USE_HEIF=OFF"     "for HEIF support"
+optional_depends libwebp    "-DGDAL_USE_WEBP=ON"     "-DGDAL_USE_WEBP=OFF"     "for lossy compression for photographic images support"
+optional_depends hdf5       "-DGDAL_USE_HDF5=ON"     "-DGDAL_USE_HDF5=OFF"     "for Hierarchical Data Format support"
+optional_depends xerces-c   "-DGDAL_USE_XERCESC=ON"  "-DGDAL_USE_XERCESC=OFF"  "for C++ parsing support"
+optional_depends netcdf     "-DGDAL_USE_NETCDF=ON"   "-DGDAL_USE_NETCDF=OFF"   "for CDF support"
+optional_depends libiodbc   "-DGDAL_USE_ODBC=ON"     "-DGDAL_USE_ODBC=OFF"     "for ODBC support"
+optional_depends sqlite     "-DGDAL_USE_SQLITE3=ON"  "-DGDAL_USE_SQLITE3=OFF"  "for sqlite database support"
+optional_depends %MYSQL     "-DGDAL_USE_MYSQL=ON"    "-DGDAL_USE_MYSQL=OFF"    "for mysql database support"
+optional_depends blosc      "-DGDAL_USE_BLOSC=ON"    "-DGDAL_USE_BLOSC=OFF"    "for meta-compressor support"
 
-optional_depends postgresql   "" "" "for Postgresql database support"
+optional_depends postgresql \
+                "-DGDAL_USE_POSTGRESQL=ON" \
+                "-DGDAL_USE_POSTGRESQL=OFF" \
+                "for postgresql database support"
+
+optional_depends qhull  \
+                 "-DGDAL_USE_QHULL=ON -DGDAL_USE_QHULL_INTERNAL=OFF"   \
+                 "-DGDAL_USE_QHULL=OFF -DGDAL_USE_QHULL_INTERNAL=ON"   \
+                 "for qhull support,${PROBLEM_COLOR}Say no to use internal${DEFAULT_COLOR}"
+
+optional_depends libpng \
+                 "-DGDAL_USE_PNG=ON -DGDAL_USE_PNG_INTERNAL=OFF" \
+                 "-DGDAL_USE_PNG=OFF GDAL_USE_PNG_INTERNAL=ON"   \
+                 "for png graphics support, ${PROBLEM_COLOR}Say no to use internal${DEFAULT_COLOR}"
 
 optional_depends %JPEG \
-                 "--with-jpeg" \
-                 "--with-jpeg=internal" \
-                 "for system jpeg graphics support"
+                 "-DGDAL_USE_JPEG=ON -DGDAL_USE_JPEG_INTERNAL=OFF" \
+                 "-DGDAL_USE_JPEG=OFF -DGDAL_USE_JPEG_INTERNAL=ON" \
+                 "for system jpeg graphics support, ${PROBLEM_COLOR} Say no to use internal${DEFAULT_COLOR}"
 
-optional_depends openjpeg-2 \
-                 "--with-openjpeg" \
-                 "--without-openjpeg" \
-                 "for openjpeg graphics support"
+optional_depends jsoncpp \
+                 "-DGDAL_USE_JSONC=ON -DGDAL_USE_JSONC_INTERNAL=OFF" \
+                 "-DGDAL_USE_JSONC=OFF -DGDAL_USE_JSONC_INTERNAL=ON" \
+                 "for json support, ${PROBLEM_COLOR}Say not to use internal${DEFAULT_COLOR}"
 
 optional_depends tiff\
-                 "--with-libtiff" \
-                 "--with-libtiff=internal" \
-                 "for system tiff graphics support"
+                 "-DGDAL_USE_TIFF=ON -DGDAL_USE_TIFF_INTERNAL=OFF" \
+                 "-DGDAL_USE_TIFF=OFF -DGDAL_USE_TIFF_INTERNAL=ON" \
+                 "for system tiff graphics support, ${PROBLEM_COLOR}Say no to use internal${DEFAULT_COLOR}"
 
 optional_depends libgeotiff \
-                 "--with-geotiff=yes" \
-                 "--with-geotiff=internal" \
-                 "for system geotiff graphics support"
-
-optional_depends spatialindex \
-                 "--with-spatialite" \
-                 "--without-spatialite" \
-                 "for indexing support"
-
-# Broke, not fix atm
-optional_depends python \
-                 "--with-python=yes" \
-                 "--without-python" \
-                 "for python3 scripting support. ${PROBLEM_COLOR}Provides osgeo stopping qgis from barking about it missing.${DEFAULT_COLOR}"
+                 "-DGDAL_USE_GEOTIFF=ON -DGDAL_USE_GEOTIFF_INTERNAL=OFF" \
+                 "-DGDAL_USE_GEOTIFF=ON -DGDAL_USE_GEOTIFF_INTERNAL=ON" \
+                 "for system geotiff graphics support,${PROBLEM_COLOR}Say no to use internal${DEFAULT_COLOR}"

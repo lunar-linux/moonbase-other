@@ -1,0 +1,4 @@
+default_pre_build &&
+
+sed -i 's|/usr/bin/gtk-lshw|/usr/sbin/gtk-lshw|' src/gui/integration/gtk-lshw.desktop &&
+sed -i '/^LDFLAGS=$/d' src/core/Makefile src/gui/Makefile

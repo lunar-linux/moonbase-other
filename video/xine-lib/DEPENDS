@@ -3,6 +3,8 @@ depends libcdio
 depends vcdimager
 depends ffmpeg
 depends libmpcdec
+depends libdvdnav
+depends libdvdread
 
 optional_depends mesa-lib "" "" "for opengl plugin"
 
@@ -15,7 +17,7 @@ optional_depends libcaca     "--with-caca"        "--without-caca"        "for t
 optional_depends ImageMagick "--with-imagemagick" "--without-imagemagick" "for ImageMagick image decoder"
 optional_depends libtheora   "--with-theora"      "--without-theora"      "for Theora video decoder"
 optional_depends SDL         "--with-sdl"         "--without-sdl"         "for SDL video output"
-optional_depends jack2        "--with-jack"        "--without-jack"        "for jack audio plugin"
+optional_depends jack2       "--with-jack"        "--without-jack"        "for jack audio plugin"
 optional_depends faad2       "--enable-faad"      "--disable-faad"        "for faad2 plugin"
 optional_depends libmodplug  "--enable-modplug"   "--disable-modplug"     "for modplug plugin"
 optional_depends libdca      "--enable-dts"       "--disable-dts"         "for DTS (dca) audio plugin"
@@ -31,3 +33,4 @@ optional_depends wavpack     "--with-wavpack"     "--without-wavpack"     "for w
 optional_depends pulseaudio  "--with-pulseaudio"  "--without-pulseaudio"  "for pulseaudio support"
 optional_depends libvorbis   "--with-vorbis"      "--without-vorbis"      "for vorbis/ogg support"
 optional_depends freetype2   "--with-freetype"    "--without-freetype"    "for truetype font support"
+optional_depends dav1d       "--with-dav1d"       "--without-dav1d"       "for AV1 decoding support"

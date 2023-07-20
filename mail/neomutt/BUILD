@@ -1,5 +1,3 @@
-OPTS+=" --autocrypt"
+OPTS+=" --autocrypt --disable-doc"
 
-default_build &&
-
-gather_docs doc/Muttrc
+default_build

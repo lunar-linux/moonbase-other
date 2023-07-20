@@ -1,4 +1,3 @@
-OPTS+=" --disable-static \
-        --disable-gtk-doc-html"
+OPTS+=" --disable-gtk-doc --disable-static --enable-vala"
 
 default_build

@@ -2,7 +2,9 @@ depends kmod
 depends util-linux
 depends json-c
 depends xmlto
-depends %UDEV
+depends systemd
+depends asciidoctor
+depends iniparser
 
-optional_depends systemd  "--with-systemd"  "--without-systemd"  "for systemd support"
-optional_depends keyutils "--with-keyutils" "--without-keyutils" "for key management support"
+optional_depends systemd  "-D systemd=enabled" "-D systemd=disabled"  "for systemd support"
+optional_depends keyutils "-D keyutils=enabled" "-D keyutils=disabled" "for key management support"

@@ -1,6 +1,7 @@
 depends glib-2
 depends pbzip2
 depends python-setuptools
+depends ragel
 depends meson
 
 optional_depends freetype2 \
@@ -16,10 +17,10 @@ optional_depends cairo \
                  "y"
 
 optional_depends graphite \
-                 "-Dgraphite=enabled" \
-                 "-Dgraphite=disabled" \
-                 "for additional shapers support" \
-                 "n"
+                 "-Dgraphite2=enabled" \
+                 "-Dgraphite2=disabled" \
+                 "for additional shapers support, ${PROBLEM_COLOR}needed by texlive ${DEFAULT_COLOR}" \
+                 "y"
 
 optional_depends icu4c \
                  "-Dicu=enabled" \
@@ -32,9 +33,3 @@ optional_depends gobject-introspection \
                  "-Dintrospection=disabled" \
                  "for gobject introspection support" \
                  "y"
-
-optional_depends gtk-doc \
-                 "-Ddocs=enabled" \
-                 "-Ddocs=disabled" \
-                 "for building documentation" \
-                 "n"

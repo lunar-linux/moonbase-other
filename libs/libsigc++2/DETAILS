@@ -1,14 +1,13 @@
           MODULE=libsigc++2
-             MOD=libsigc++
-         VERSION=2.10.8
-          SOURCE=$MOD-$VERSION.tar.xz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
-   SOURCE_URL[0]=$GNOME_URL/sources/$MOD/${VERSION%.*}
-   SOURCE_URL[1]=http://ftp.gnome.org/pub/GNOME/sources/libsigc++/$MAJOR
-      SOURCE_VFY=sha256:235a40bec7346c7b82b6a8caae0456353dc06e71f14bc414bcc858af1838719a
+         VERSION=2.12.0
+          SOURCE=${MODULE%2*}-$VERSION.tar.xz
+      SOURCE_URL=https://download.gnome.org/sources/libsigc++/2.12/
+      SOURCE_VFY=sha256:1c466d2e64b34f9b118976eb21b138c37ed124d0f61497df2a90ce6c3d9fa3b5
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libsigc++-$VERSION
         WEB_SITE=http://libsigc.sourceforge.net
+            TYPE=meson
          ENTERED=20021225
-         UPDATED=20220211
+         UPDATED=20230502
            SHORT="library for type-safe callbacks in C++"
 
 cat << EOF

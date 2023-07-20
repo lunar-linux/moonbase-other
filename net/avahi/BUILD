@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 if [ -f /usr/share/applications ] ; then
     rm -f /usr/share/applications
 fi &&
@@ -27,6 +29,7 @@ OPTS+=" --enable-compat-howl \
         --disable-static \
         --disable-qt3 \
         --disable-qt4 \
+        --disable-manpages \
         --with-distro=none \
         --sbindir=/usr/bin" &&
 

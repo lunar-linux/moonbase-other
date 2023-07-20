@@ -1,6 +1,8 @@
+#!/usr/bin/bash
+
 depends perl
 depends attr
-depends libcap
+depends libcap-ng
 depends alsa-lib
 depends zlib
 
@@ -16,7 +18,6 @@ optional_depends gtk+-3 \
 
 optional_depends vte3       "--enable-vte"       "--disable-vte"       "for vte support at the GTK UI"
 optional_depends Linux-PAM  "--enable-auth-pam"  "--disable-auth-pam"  "for PAM authentication support"
-optional_depends libxml2    "--enable-libxml2"   "--disable-libxml2"   "for XML support"
 optional_depends curl       "--enable-curl"      "--disable-curl"      "for curl support"
 optional_depends libusb     "--enable-libusb"    "--disable-libusb"    "for USB passthrough"
 optional_depends usbredir   "--enable-usb-redir" "--disable-usb-redir" "for USB traffic redirection protocol"
@@ -28,15 +29,14 @@ optional_depends snappy     "--enable-snappy"    "--disable-snappy"    "for snap
 optional_depends libseccomp "--enable-seccomp"   "--disable-seccomp"   "for seccomp security support"
 optional_depends cyrus-sasl "--enable-vnc-sasl"  "--disable-vnc-sasl"  "for SASL encryption for VNC server"
 optional_depends %JPEG      "--enable-vnc-jpeg"  "--disable-vnc-jpeg"  "for JPEG compression for VNC server"
-optional_depends libpng     "--enable-vnc-png"   "--disable-vnc-png"   "for PNG compression for VNC server"
+optional_depends libpng     "--enable-png"       "--disable-png"       "for PNG compression for VNC server"
 optional_depends gnutls     "--enable-gnutls"    "--disable-gnutls"    "for GNUTLS crypto support"
 optional_depends nettle     "--enable-nettle"    "--disable-nettle"    "for nettle crypto support -${PROBLEM_COLOR} choose this option or libgcrypt, not both"
 optional_depends libgcrypt  "--enable-gcrypt"    "--disable-gcrypt"    "for libgcrypt support -${PROBLEM_COLOR} choose this option or nettle, not both" n
-optional_depends vde2       "--enable-vde"       "--disable-vde"       "for virtual distributed ethernet support"
+optional_depends vde-2      "--enable-vde"       "--disable-vde"       "for virtual distributed ethernet support"
 optional_depends libcap-ng  "--enable-cap-ng"    "--disable-cap-ng"    "for easier POSIX capabilities support"
 optional_depends libcacard  "--enable-smartcard" "--disable-smartcard" "for smartcards support"
 optional_depends libiscsi   "--enable-libiscsi"  "--disable-libiscsi"  "for iSCSI protocol support"
-optional_depends xfsprogs   "--enable-xfsctl"    "--disable-xfsctl"    "for XFS support"
 optional_depends libnfs     "--enable-libnfs"    "--disable-libnfs"    "for NFS support"
 optional_depends glusterfs  "--enable-glusterfs" "--disable-glusterfs" "for glusterfs cluster filesytem support"
 

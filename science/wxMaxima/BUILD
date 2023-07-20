@@ -1,7 +1,16 @@
+OPTS+=" -DWXM_INCLUDE_FONTS=OFF  \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=None \
+        -DCMAKE_CXX_STANDARD=14 \
+        -DCMAKE_CXX_COMPILER=g++ \
+        -DWXM_DISABLE_WEBVIEW=ON \
+        -DwxWidgets_LIBRARIES=/usr/lib/ \
+        -Wno-dev"
 
-  OPTS+=" -DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-config" &&
-#  CXXFLAGS+=" -Wall -DNDEBUG" &&
-  default_cmake_build &&
+cmake . -B $MODULE-$VERSION -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
+prepare_install &&
+cmake --install $MODULE-$VERSION &&
 
     # Desktop menu entry
   cat > ${MODULE}.desktop << EOF  &&
@@ -10,7 +19,7 @@ Type=Application
 Name=wxMaxima
 Comment=A computer algebra system
 Exec=/usr/bin/wxmaxima
-Icon=/usr/share/wxMaxima/wxmaxima.png
+Icon=/usr/share/doc/wxmaxima/wxMaximaLogo.png
 Categories=Science;Application;;
 EOF
 

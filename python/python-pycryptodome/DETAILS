@@ -1,13 +1,14 @@
           MODULE=python-pycryptodome
-         VERSION=3.14.1
+         VERSION=3.16.0
           SOURCE=pycryptodome-$VERSION.tar.gz
- SOURCE_URL_FULL=https://github.com/Legrandin/pycryptodome/archive/v$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*-}-$VERSION
-      SOURCE_VFY=sha256:2da3d5c2ecd3c3b73946ef00dc585d590e869deacdfe464cefba96f50d13682f
+      SOURCE_URL=https://files.pythonhosted.org/packages/source/p/pycryptodome/
+      SOURCE_VFY=sha256:0e45d2d852a66ecfb904f090c3f87dc0dfb89a499570abad8590f10d9cffb350
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/pycryptodome-$VERSION
         WEB_SITE=https://github.com/Legrandin/pycryptodome
             TYPE=python3
          ENTERED=20200425
-         UPDATED=20220306
+         UPDATED=20221222
+        REPLACES=python-pycrypto
            SHORT="Cryptographic algorithms and protocols in Python"
 
 cat << EOF

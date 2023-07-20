@@ -1,9 +1,5 @@
-CXXFLAGS+=" -w -std=c++98"
+default_config &&
+sedit 's:cp -prf:cp -R:' Makefile &&
 
-cd src &&
-
-cp portaudio19.h portaudio.h
-
-default_make &&
-
-chmod 644 /usr/lib/libespeak.a
+make src/espeak-ng src/speak-ng &&
+default_make

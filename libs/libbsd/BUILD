@@ -1,3 +1,5 @@
+CFLAGS+=' -ffat-lto-objects' &&
+
 default_build &&
 
 rm -f /usr/lib/libbsd.a &&

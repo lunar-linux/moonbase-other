@@ -4,7 +4,6 @@ KERNEL_DIR="$SOURCE_DIRECTORY" &&
 cd ${KERNEL_DIR} &&
 
 make mrproper &&
-make headers_check &&
 
 make INSTALL_HDR_PATH=${SOURCE_DIRECTORY}/kernel-headers-$VERSION headers_install &&
 

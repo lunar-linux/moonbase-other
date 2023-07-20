@@ -10,7 +10,10 @@ OPTS+=" -DSTOP_ON_WARNING=OFF   \
         -DOIIO_BUILD_TESTS=OFF  \
         -DUSE_EXTERNAL_PUGIXML=ON \
         -DVERBOSE=ON              \
-        -Dpybind11_DIR=/usr/lib/python3.9/site-packages/pybind11/share/cmake/pybind11/ \
-        -DINSTALL_DOCS=OFF" &&
+        -DBUILD_DOCS=OFF \
+        -DINSTALL_DOCS=OFF \
+        -DBUILD_MISSING_FMT=ON \
+        -DBUILD_ROBINMAP_FORCE=ON"
+#        -Dpybind11_DIR=/usr/lib/python3.10/site-packages/pybind11/share/cmake/pybind11" &&
 
 default_cmake_build

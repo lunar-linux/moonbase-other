@@ -1,33 +1,26 @@
 . /etc/profile.d/qt5.rc &&
 
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
-    -DENABLE_DYNAMIC_LINKING=ON"
-
-HOSTS+="none"
-
-if in_depends gmic gimp; then
-HOSTS+="gimp"
-fi &&
-if in_depends gmic krita; then
-HOSTS+="krita"
-fi &&
-if in_depends gmic digikam; then
-HOSTS+="digikam"
-fi &&
+        -DENABLE_DYNAMIC_LINKING=ON"
 
 cd $SOURCE_DIRECTORY/gmic-qt &&
 
-for i in $HOSTS
-do
-   cmake -B build-$i -DGMIC_QT_HOST=$i $OPTS &&
-   cmake --build build-$i;
-done
+if in_depends $MODULE gimp; then
+  cmake -B build-gimp -DGMIC_QT_HOST=gimp $OPTS &&
+  cmake --build build-gimp &&
+  prepare_install &&
+  cmake --install $SOURCE_DIRECTORY/gmic-qt/build-gimp
+fi &&
 
-prepare_install &&
+if in_depends $MODULE krita; then
+  cmake -B build-krita -DGMIC_QT_HOST=krita-plugin $OPTS &&
+  cmake --build build-krita &&
+  prepare_install &&
+  cmake --install $SOURCE_DIRECTORY/gmic-qt/build-krita
+fi &&
 
-for i in $HOSTS
-do
-cmake --install $SOURCE_DIRECTORY/gmic-qt/build-$i &&
-install -Dm644 $SOURCE_DIRECTORY/gmic-qt/gmic_qt.desktop /usr/share/applications/ &&
-install -Dm644 $SOURCE_DIRECTORY/gmic-qt/icons/application/gmic_qt.svg /usr/share/pixmaps/;
-done
+install -Dm644 $SOURCE_DIRECTORY/$MODULE/gmic_qt.desktop /usr/share/applications/ &&
+install -Dm644 $SOURCE_DIRECTORY/$MODULE/icons/application/gmic_qt.svg /usr/share/pixmaps/ &&
+
+mkdir -p /usr/share/$MODULE &&
+install -Dm644 $SOURCE_DIRECTORY/$MODULE/icons/*.png /usr/share/$MODULE/

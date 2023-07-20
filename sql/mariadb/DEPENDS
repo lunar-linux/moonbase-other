@@ -6,4 +6,5 @@ depends lz4
 depends libxml2
 depends libaio
 
-optional_depends %OSSL "-DWITH_SSL=system" "-DWITHOUT_SSL=ON" "for SSL support"
+optional_depends %OSSL "-DWITH_SSL=system"   "-DWITHOUT_SSL=ON"     "for SSL support"
+optional_depends judy  "-DPLUGIN_OQGRAPH=YES" "-DPLUGIN_OQGRAPH=NO" "for sparse dynamic array (OQGraph storage engine) support"

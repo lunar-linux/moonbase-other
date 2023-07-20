@@ -1,0 +1,31 @@
+From 3613753da4cc47331f0cebd49445da357b8b5f75 Mon Sep 17 00:00:00 2001
+From: Alberto Fanjul <albertofanjul@gmail.com>
+Date: Fri, 22 May 2020 15:04:32 +0200
+Subject: [PATCH] Be more explicit about errors
+
+---
+ src/xlsparse.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/src/xlsparse.c b/src/xlsparse.c
+index 96830be..8f39fd2 100644
+--- a/src/xlsparse.c
++++ b/src/xlsparse.c
+@@ -343,8 +343,15 @@ void process_item (int rectype, int reclen, unsigned char *rec) {
+ 				*pcell=(unsigned char *)strdup(buf);
+ 			} else if (rec[6]==2) {
+ 				/*error*/
+-				char buf[6]="ERROR";
+-				*pcell=(unsigned char *)strdup(buf);
++				char buf[]="ERROR";
++				if (rec[8]==7)
++					*pcell=(unsigned char *)strdup("DIV/0!");
++				else if (rec[8]==15)
++					*pcell=(unsigned char *)strdup("NULL!");
++				else if (rec[8]==29)
++					*pcell=(unsigned char *)strdup("NAME?");
++				else
++					*pcell=(unsigned char *)strdup("ERROR");
+ 			} else if (rec[6]==0) {
+ 				saved_reference=pcell;
+ 			}   

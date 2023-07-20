@@ -1,3 +1,10 @@
 default_pre_build &&
 
-autoreconf -fi
+sedit 's:SUBDIRS = . doc tests:SUBDIRS = . tests:' Makefile.am &&
+
+autoreconf -fi &&
+
+CFLAGS+=' -fcommon'
+
+OPTS+=" --disable-debug"
+

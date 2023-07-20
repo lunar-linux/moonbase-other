@@ -1,26 +1,20 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 add_priv_user qemu:qemu &&
+add_priv_user libvirt:libvirt &&
 
-echo "BUILD_DIRECTORY->"$BUILD_DIRECTORY
-echo "SOURCE_DIRECTORY->"$SOURCE_DIRECTORY
-
-OPTS+=" --disable-static \
-        --with-network \
-        --with-secrets \
-        --with-libvirtd \
-        --with-interface \
-        --without-hal \
-        --without-netcf \
-        --with-init-script=none \
-        --with-runstatedir=/run \
-        --without-wireshark-dissector"
+OPTS+=" -Ddriver_secrets=enabled \
+        -Ddriver_libvirtd=enabled \
+        -Ddriver_interface=enabled \
+        -Dinit_script=none \
+        -Drunstatedir=/run \
+        -Dwireshark_dissector=disabled"
 
 if module_installed systemd; then
-   OPTS+=" --with-init-script=systemd"
-fi
+   OPTS+=" -Dinit_script=systemd"
+fi &&
 
-mkdir build && cd build &&
-../configure --prefix=/usr $OPTS &&
-default_make &&
+default_meson_build &&
 
 # Fix permission
 chmod 600 /etc/libvirt/nwfilter/*.xml /etc/libvirt/qemu/networks/default.xml

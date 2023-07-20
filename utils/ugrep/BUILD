@@ -1,3 +1,3 @@
-OPTS_=" --enable-pretty"
+OPTS+=" --enable-pretty"
 
 default_build

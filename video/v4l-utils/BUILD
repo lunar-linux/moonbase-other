@@ -2,7 +2,6 @@ sedit 's:typeof:_typeof_:g' utils/common/v4l2-tgp.patch &&
 
 if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc
-#  CXXFLAGS+=" -std=c++11"
   export "MOC = /usr/lib/qt5/bin/moc"
   export "UIC = /usr/lib/qt5/bin/uic"
   export "RCC = /usr/lib/qt5/bin/rcc"

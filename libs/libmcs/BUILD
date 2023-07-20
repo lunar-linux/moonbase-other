@@ -1,3 +1,9 @@
-OPTS+=" --disable-kconfig"
+./autogen.sh &&
 
-default_build
+OPTS+=" --disable-gconf --disable-kconfig"
+
+default_config &&
+make CPP=cpp &&
+
+prepare_install &&
+make install

@@ -1,73 +1,23 @@
 depends %JPEG
 depends tiff
 depends gtk+-3
+depends djvulibre
+depends poppler
+depends gspell
 
-optional_depends lcms2 \
-    "" \
-    "--disable-lcms" \
-    "color management support"
+optional_depends exiv2     "" "-Dexiv2=disabled"  "enhanced exif support"
+optional_depends luajit    "" "-Dlua=disabled"    "for lua scripting support"
+optional_depends libheif   "" "-Dheif=disabled"   "for SVG image support"
+optional_depends %JPEG     "" "-Djpeg=disabled"   "for wmf image support"
+optional_depends djvulibre "" "-Ddjvu=disabled"   "for document, image support"
+optional_depends lcms2     "" "-Dcms=disabled"    "for color management support"
+optional_depends libjxl    "" "-Djpegxl=disabled" "for the jpeg xl ecnoder/decoder support"
+optional_depends LibRaw    "" "-Dlibraw=disabled" "for raw file support"
+optional_depends libwebp   "" "-Dwebp=disabled"   "for WEBP image display"
 
-optional_depends exiv2 \
-    "" \
-    "--disable-exiv2" \
-    "enhanced exif support"
+optional_depends ffmpegthumbnailer "" "-Dvideothumbnailer=disabled" "to display thumbnails of video files"
 
-optional_depends lirc \
-    "" \
-    "--disable-lirc" \
-    "for lirc support"
-
-optional_depends clutter-gtk \
-   "" \
-   "--disable-gpu-accel" \
-   "for GPU accelerated display"
-
-optional_depends luajit \
-    "" \
-    "--disable-lua" \
-    "for lua scripting support"
-    
-optional_depends librsvg \
-    "" \
-    "" \
-    "for SVG image support"
-
-optional_depends libwmf \
-    "" \
-    "" \
-    "for wmf image support"
-
-optional_depends ffmpegthumbnailer \
-    "" \
-    "" \
-    "to display thumbnails of video files"
-    
-optional_depends poppler \
-    "" \
-    "--disable-pdf" \
-    "for pdf support"
-
-optional_depends Image-ExifTool  \
-    "" \
-    "" \
-    "For the jpeg info extraction plugin"
-
-optional_depends libheif \
-    "" \
-    "" \
-    "for HEIF file display"
-
-optional_depends libwebp \
-    "" \
-    "" \
-    "for WEBP image display"
-
-optional_depends djvulibre  \
-    "" \
-    "" \
-    "for DjVu image display"
-
-optional_depends doxygen \
-    "" \
-    "--disable-doxygen-doc" \
-    "for documentation support"
+optional_depends librsvg "" "" "for svg support"
+optional_depends ImageMagick "" "" "for additonal image support"
+optional_depends gphoto2 "" "" "for image support"
+optional_depends Image-ExifTool "" "" "for metadata support"

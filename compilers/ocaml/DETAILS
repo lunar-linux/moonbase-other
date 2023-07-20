@@ -1,16 +1,14 @@
           MODULE=ocaml
 # IF YOU UPDATE THIS VERSION MAKE SURE camlp4 IS UPDATED TO A COMPATIBLE VERSION TOO
-         VERSION=4.13.1
-          SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=http://caml.inria.fr/pub/distrib/$MODULE-${VERSION%.*}/
-   SOURCE_URL[1]=$MIRROR_URL
-      SOURCE_VFY=sha256:66a5353c5e7b33a8981446e857657aad45a3b82080ea5c67d4baa434eacfcf5f
+         VERSION=5.0.0
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=http://caml.inria.fr/pub/distrib/$MODULE-${VERSION%.*}/
+      SOURCE_VFY=sha256:cb17f0a534dd4b3fec93d011b0be1ba5c6087da033cf789e85a34b9641ecc65f
         WEB_SITE=http://caml.inria.fr
          ENTERED=20020512
-         UPDATED=20211212
+         UPDATED=20230624
            SHORT="The Objective Caml compiler"
-           PSAFE=no
-
+PSAFE=no
 cat << EOF
 Objective Caml belongs to the ML family of programming languages and has been
 implemented at INRIA Rocquencourt within the ``Cristal project'' group. Since

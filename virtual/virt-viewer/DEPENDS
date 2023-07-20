@@ -1,19 +1,9 @@
+depends meson
 depends desktop-file-utils
 depends gtk+-3
 depends spice
 depends intltool
+depends libvirt-glib
 
-optional_depends libvirt-glib \
-                 "--with-libvirt" \
-                 "--without-libvirt" \
-                 "for libvirt support"
-
-optional_depends spice-gtk \
-                 "--with-spice-gtk" \
-                 "--without-spice-gtk" \
-                 "for spice GTK support"
-
-optional_depends gtk-vnc \
-                 "--with-gtk-vnc" \
-                 "--without-gtk-vnc" \
-                 "for GTK VNC support"
+optional_depends gtk-vnc "-Dvnc=enabled" "-Dvnc=disabled" "for GTK VNC support"
+optional_depends vte3    "-Dvte=enabled" "-Dvte=disabled" "for virtual terminal support"

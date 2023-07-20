@@ -1,7 +1,5 @@
 depends alsa-lib
 
-optional_depends icu4c "" "" "for ICU support"
-
 optional_depends %JPEG \
                  "--with-jpeg" \
                  "--without-jpeg" \
@@ -12,7 +10,7 @@ optional_depends qt5 \
                  "--disable-qv4l2 --disable-qvidcap" \
                  "for Qt5 support"
 
-optional_depends %UDEV \
+optional_depends systemd \
                  "--with-udevdir=/usr/lib/udev" \
                  "--without-udevdir" \
                  "for udev device name support"

@@ -1,31 +1,9 @@
-depends autoconf-archive
-depends intltool
-depends mozjs78
+depends meson
+depends duktape
+depends expat
+depends gettext
+depends glib-2
+depends gobject-introspection
+depends systemd
 
-optional_depends systemd \
-                 "--enable-libsystemd-login=yes" \
-                 "--enable-libsystemd-login=no" \
-                 "for systemd support"
-
-optional_depends elogind \
-                 "--enable-libelogind=yes --with-os-type=gentoo" \
-                 "--enable-libelogind=no" \
-                 "for elogind support on non-systemd systems" \
-                 "n"
-
-optional_depends Linux-PAM \
-                 "--with-authfw=pam" \
-                 "--with-authfw=shadow" \
-                 "for authentication support.${PROBLEM_COLOR}If you say no it will use shadow.${QUERY_COLOR}" \
-                 "y"
-
-optional_depends expat \
-                 "--with-expat" \
-                 "--without-expat" \
-                 "for XML parsing support"
-
-optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
-                 "for API collection support" \
-                 "y"
+optional_depends Linux-PAM "" "" "for PAM support"

@@ -1,7 +1,6 @@
-OPTS+=" --enable-mmap \
-        --enable-static \
-        --enable-antialiasing \
-        --disable-optimizations \
-        --with-xv-path=/usr/X11/lib"
+sed -e '/xine_set_flags/s/XINE_PROTECTED//' -i include/xine.h &&
+
+# We use external dvdnav because the internal cannot decrypt DVD
+OPTS+=" --with-external-dvdnav --enable-antialiasing"
 
 default_build

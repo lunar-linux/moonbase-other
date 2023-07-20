@@ -1,5 +1,9 @@
+# A gcc issue.
+sedit '17i #include <cstring>' src/OpenColorIO/FileRules.cpp &&
+
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
-        -DOCIO_BUILD_STATIC=0    \
-        -DPYTHON_INCLUDE_DIR=/usr/include/python$(module_version python | cut -c1-3)" &&
+        -DCMAKE_CONFIGURATION_TYPES=Release \
+        -DOCIO_BUILD_TESTS=OFF
+        -DOCIO_BUILD_STATIC=OFF"
 
 default_cmake_build

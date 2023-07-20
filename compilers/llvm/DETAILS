@@ -1,19 +1,24 @@
-# WHEN UPDATING THIS MODULE, ALSO UPDATE THE "openmp" and "compiler-rt" MODULES
+# WHEN UPDATING THIS MODULE, ALSO UPDATE THE "openmp", "compiler-rt" and "lld" MODULES
+# Additionally, starting with versions 15.x.x, "llvm-cmake-15.x.x" is required and be
+# extracted to the cmake directory in $SOURCE_DIRECTORY/cmake.
           MODULE=llvm
-         VERSION=13.0.1
+         VERSION=15.0.7
           SOURCE=$MODULE-$VERSION.src.tar.xz
          SOURCE2=clang-$VERSION.src.tar.xz
          SOURCE3=clang-tools-extra-$VERSION.src.tar.xz
+         SOURCE4=cmake-$VERSION.src.tar.xz
 SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-${VERSION}.src
       SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
      SOURCE2_URL=$SOURCE_URL
      SOURCE3_URL=$SOURCE_URL
-      SOURCE_VFY=sha256:ec6b80d82c384acad2dc192903a6cf2cdbaffb889b84bfb98da9d71e630fc834
-     SOURCE2_VFY=sha256:787a9e2d99f5c8720aa1773e4be009461cd30d3bd40fdd24591e473467c917c9
-     SOURCE3_VFY=sha256:cc2bc8598848513fa2257a270083e986fd61048347eccf1d801926ea709392d0
-        WEB_SITE=http://www.llvm.org
+     SOURCE4_URL=$SOURCE_URL
+      SOURCE_VFY=sha256:4ad8b2cc8003c86d0078d15d987d84e3a739f24aae9033865c027abae93ee7a4
+     SOURCE2_VFY=sha256:a6b673ef15377fb46062d164e8ddc4d05c348ff8968f015f7f4af03f51000067
+     SOURCE3_VFY=sha256:809a2ef46d46be3b83ca389356404ac041fa6d8f5496cb02ec35d252afb64fd1
+     SOURCE4_VFY=sha256:8986f29b634fdaa9862eedda78513969fe9788301c9f2d938f4c10a3e7a3e7ea
+        WEB_SITE=http://www.llvm.org/
          ENTERED=20090128
-         UPDATED=20220221
+         UPDATED=20230517
            SHORT="Low Level Virtual Machine"
 
 cat << EOF

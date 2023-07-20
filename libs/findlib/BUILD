@@ -1,6 +1,9 @@
+./configure -bindir /usr/bin \
+            -mandir /usr/share/man \
+            -config /etc/findlib.conf \
+            -sitelib /usr/lib/ocaml &&
 
-  ./configure -bindir /usr/bin -mandir /usr/share/man/man1 -config /etc/findlib.conf -sitelib /usr/lib/ocaml &&
-
-  make all opt &&
-  prepare_install  &&
-  make install
+make -j ${MAKES:-1} all opt &&
+prepare_install  &&
+make install
+install -Dm755 src/findlib/ocamlfind_opt /usr/bin/ocamlfind_opt

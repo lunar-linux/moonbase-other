@@ -1,12 +1,15 @@
           MODULE=compiler-rt
-         VERSION=13.0.1
+         VERSION=15.0.7
           SOURCE=$MODULE-$VERSION.src.tar.xz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION}.src
+         SOURCE2=cmake-$VERSION.src.tar.xz
       SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
-       SOURCE_VFY=sha256:7b33955031f9a9c5d63077dedb0f99d77e4e7c996266952c1cec55626dca5dfc
+      SOURCE2_URL=$SOURCE_URL
+       SOURCE_VFY=sha256:353832c66cce60931ea0413b3c071faad59eefa70d02c97daa8978b15e4b25b7
+      SOURCE2_VFY=sha256:8986f29b634fdaa9862eedda78513969fe9788301c9f2d938f4c10a3e7a3e7ea
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION}.src
         WEB_SITE=https://compiler-rt.llvm.org/
          ENTERED=20181028
-         UPDATED=20220221
+         UPDATED=20230121
            SHORT="Compiler runtime libraries for clang"
 
 cat << EOF
