@@ -1,10 +1,9 @@
 prepare_install &&
 
-install -D -m755 "${MODULE}" "/usr/bin/"
+install -D -m755 "${MODULE}" "/usr/bin/" &&
 
 # install the scripts and examples
 mkdir -p "/usr/share/${MODULE}" &&
-cp *.bash "/usr/share/${MODULE}/" &&
 cp -R examples "/usr/share/${MODULE}/" &&
 
 # install the documentation

@@ -1,7 +1,7 @@
-(
+autoreconf -fvi &&
+OPTS+="  --program-transform-name='s/rapper*/rapper2/' --enable-release --disable-gtk-doc-html" &&
 
-  OPTS+="  --program-transform-name='s/rapper*/rapper2/'" &&
+default_config &&
 
-  default_build
-
-) > $C_FIFO 2>&1
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+default_make
