@@ -8,7 +8,7 @@ if in_depends $MODULE systemd ; then
 fi &&
 
 # So qt will automatically calculate DPI and such things when EnableHiDPI=true.
-sedit '327i qputenv("QT_USE_PHYSICAL_DPI", "1");' src/greeter/GreeterApp.cpp &&
+#sedit '327i qputenv("QT_USE_PHYSICAL_DPI", "1");' src/greeter/GreeterApp.cpp &&
 
 sedit "4d" services/sddm.service.in &&
 sedit "s: getty@tty1.service plymouth-quit.service::" services/sddm.service.in &&
@@ -17,7 +17,8 @@ add_priv_group sddm &&
 add_priv_user sddm -d /var/lib/sddm -g sddm &&
 
 OPTS+=" -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf \
-        -DCMAKE_INSTALL_PREFIX=/usr"
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DSDDM_INITIAL_VT=7"
 
 default_cmake_build
 
