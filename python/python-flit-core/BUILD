@@ -1,4 +1,4 @@
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD &&
+python -m build --wheel --skip-dependency-check --no-isolation &&
 
 prepare_install &&
-pip3 install --no-index --no-user --find-links dist flit_core
+python -m installer --destdir=/ dist/*.whl
