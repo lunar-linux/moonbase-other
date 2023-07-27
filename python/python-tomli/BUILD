@@ -1,5 +1,5 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD &&
+python -m build -wn --skip-dependency-check &&
 
 prepare_install &&
-pip3 install --no-index --no-user --find-links dist tomli
+python -m installer -d / dist/*.whl
