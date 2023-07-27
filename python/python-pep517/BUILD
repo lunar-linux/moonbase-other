@@ -1,4 +1,4 @@
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD &&
+python -m build --wheel --skip-dependency-check &&
 
 prepare_install &&
-pip3 install --no-index --find-links=dist pep517
+python -m installer -d / dist/*.whl
