@@ -1,6 +1,6 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD &&
+python -m build --wheel &&
 
 prepare_install &&
-pip3 install  --no-index --find-links=dist packaging
+python -m installer --destdir=/ dist/*.whl
