@@ -1,5 +1,5 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
-python -m build -wn --skip-dependency-check &&
+python -m build -w &&
 
 prepare_install &&
 python -m installer -d / dist/*.whl
