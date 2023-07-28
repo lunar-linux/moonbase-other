@@ -1,4 +1,4 @@
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD &&
+python -m build &&
 
 prepare_install &&
-pip3 install  --no-index --find-links=dist build
+python -m installer --destdir=/ dist/*.whl
