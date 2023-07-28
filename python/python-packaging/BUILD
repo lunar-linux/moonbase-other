@@ -1,6 +1,4 @@
-export PYTHONDONTWRITEBYTECODE=1 &&
-
 python -m build &&
 
 prepare_install &&
-python -m installer --destdir=/ dist/*.whl
+python -m installer --no-compile-bytecode --prefix=/usr dist/*.whl
