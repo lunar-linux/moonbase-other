@@ -1,0 +1,10 @@
+depends meson
+
+optional_depends fftw            "-Dfft=fftw" "-Dfft=builtin" "for FFT support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}" y
+optional_depends libsamplerate   "-Dresampler=libsamplerate" "-Dresampler=builtin" "for sampling rate support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}" y
+
+#If present will use
+optional_depends vamp-plugin-sdk "" "" "for audio processing support"
+optional_depends lv2             "" "" "for additional audio plugin support"
+optional_depends ladspa_sdk      "" "" "for additional audio support"
+
