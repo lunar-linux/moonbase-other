@@ -1,0 +1,15 @@
+          MODULE=libprocps
+         VERSION=3.3.17
+          SOURCE=${MODULE#*b}-v$VERSION.tar.bz2
+      SOURCE_URL=https://gitlab.com/procps-ng/procps/-/archive/v$VERSION/
+      SOURCE_VFY=sha256:8374d281f91e5fc9bb9ea8dc991b25331e3a2b0299b46f22c633f7fb6bcb0764
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*b}-v$VERSION
+        WEB_SITE=https://gitlab.com/procps-ng/procps
+         ENTERED=20230729
+         UPDATED=20230729
+           SHORT="procps 3.x libraries"
+
+cat << EOF
+Libraries for monitoring system and processes. This is 3.x version and does not
+get bumped to 4.x series. This module is needed primarily by xlayoutdisplay.
+EOF
