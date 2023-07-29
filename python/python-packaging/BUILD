@@ -1,4 +1,4 @@
-python -m build &&
+python -m build --wheel &&
 
 prepare_install &&
-python -m installer --no-compile-bytecode --destdir / dist/*.whl
+python -m installer --no-compile-bytecode --destdir=/ dist/*.whl
