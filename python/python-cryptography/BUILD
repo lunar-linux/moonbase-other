@@ -1,5 +1,4 @@
-export PYTHONDONTWRITEBYTECODE=1 &&
-python3 -m build -w &&
+python3 -m build &&
 
 prepare_install &&
-python3 -m pip install .
+python3 -m installer --no-compile-bytecode --destdir=/ dist/*.whl
