@@ -1,1 +1,2 @@
-default_cmake_build
+export PREFIX=/usr
+default_make
