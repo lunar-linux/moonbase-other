@@ -6,8 +6,12 @@ export GOPATH=$BUILD_DIRECTORY
 
 if module_installed go; then
   export GOROOT_BOOTSTRAP=$GOROOT_FINAL
+  # Fix path for test suite
+sedit "s;/bin/hostname;/usr&;g" src/os/os_test.go
 else
   export GOROOT_BOOTSTRAP=/usr/lib/go1.19
+  # Fix path for test suite
+  sedit "s;/bin/hostname;/usr&;g" src/os/os_test.go
 fi &&
 
 case "$(arch)" in
