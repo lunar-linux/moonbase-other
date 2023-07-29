@@ -1,3 +1,6 @@
+add_priv_group polkitd &&
+add_priv_user polkitd:polkitd &&
+
 OPTS+=" -D examples=false \
         -D gtk_doc=false \
         -D man=false \
