@@ -5,6 +5,4 @@ else
   OPTS+=" -D harfbuzz=disabled"
 fi
 
-default_meson_build &&
-
-ln -sf /usr/include/freetype2 /usr/include/freetype
+default_meson_build
