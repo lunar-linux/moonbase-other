@@ -1,7 +1,7 @@
-dune init project rresult &&
-cd rresult &&
-dune build -p rresult &&
+#dune init project &&
+#cd rresult &&
+pkg/pkg.ml build --pkg-name rresult &&
+#dune build -p rresult &&
 
 prepare_install &&
-
-dune install --prefix /usr --docdir /usr/share/doc --libdir ${pkgdir}$(ocamlfind printconf destdir)
+opam-installer --prefix=/usr --libdir=$(ocamlc -where) --docdir=/usr/share/doc
