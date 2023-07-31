@@ -1,0 +1,17 @@
+          MODULE=ocaml-result
+         VERSION=1.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/janestreet/result/archive/refs/tags/$VERSION.tar.gz
+      SOURCE_VFY=sha256:1072a8b0b35bd6df939c0670add33027f981e4f69a53233cb006b442fa12af30
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/result-$VERSION
+        WEB_SITE=https://github.com/janestreet/result
+         ENTERED=20230731
+         UPDATED=20230731
+           SHORT="ocaml compatibility result module"
+
+cat << EOF
+Compatibility Result module.
+
+Projects that want to use the new result type defined in OCaml >= 4.03 while staying
+compatible with older version of OCaml should use the Result module defined in this library.
+EOF
