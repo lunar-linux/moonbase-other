@@ -1,0 +1,7 @@
+default_pre_build &&
+
+autoreconf -fiv &&
+
+OPTS+=" --prefix=/usr --disable-static --enable-release"
+
+export PYTHONDONTWRITEBYTECODE=1

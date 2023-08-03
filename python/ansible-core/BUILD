@@ -1,9 +1,5 @@
-export PYTHONDONTWRITEBYTECODE=1 &&
-
-#https://github.com/ansible/ansible/pull/79399
-sed -e 's/resolvelib.*/resolvelib/' -i requirements.txt &&
 python -m build --wheel --no-isolation &&
 
 prepare_install &&
-python -m installer --destdir=/ dist/*.whl
+python -m installer --no-compile-bytecode --destdir=/ dist/*.whl
 
