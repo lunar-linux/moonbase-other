@@ -1,7 +1,7 @@
 # if go is already installed we'll use it for the bootstrap
-if ! ( ( module_installed go ) || (module_installed go-bootstrap2) ); then
-  # install a previous go compiler for the bootstrap
-  lin go-bootstrap2
+if ! ( ( module_installed go ) || (module_installed go-bootstrap) ); then
+  # install a minimal go compiler for the bootstrap
+  lin go-bootstrap
 fi &&
 
 default_pre_build &&
