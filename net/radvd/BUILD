@@ -1,5 +1,7 @@
 OPTS+=" --with-check \
-        --with-pidfile=/run/radvd.pid"
+        --with-pidfile=/run/radvd.pid" &&
+
+./autogen.sh &&
 
 default_build &&
 
