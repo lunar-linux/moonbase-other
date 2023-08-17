@@ -7,6 +7,4 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DJAS_ENABLE_SHARED=ON \
         -DJAS_ENABLE_AUTOMATIC_DEPENDENCIES=OFF"
 
-sed -i '/GLUT_glut_LIBRARY/s/^/#/' build/cmake/modules/JasOpenGL.cmake &&
-
 default_cmake_build
