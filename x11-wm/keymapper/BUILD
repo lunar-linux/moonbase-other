@@ -1,3 +1,7 @@
-default_cmake_build
+default_cmake_build &&
 
-#install -Dm0644 "$SCRIPT_DIRECTORY/$MODULE.desktop" /usr/share/applications/
+# Doesn't exist on the CI, so create it here
+if [ ! -d /usr/share/applications ]; then
+	mkdir -p /usr/share/applications
+fi &&
+install -Dm0644 "$SCRIPT_DIRECTORY/$MODULE.desktop" /usr/share/applications/
