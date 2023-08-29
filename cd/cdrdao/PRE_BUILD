@@ -1,7 +1,5 @@
 default_pre_build &&
 
-patch_it $SOURCE2 1 &&
-
 sedit "s:log_message(2:log_message(0:" dao/main.cc &&
 
 autoreconf -fi
