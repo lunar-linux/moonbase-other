@@ -28,10 +28,4 @@ unpack $SOURCE4 &&
 unpack $SOURCE5 &&
 unpack $SOURCE6 &&
 
-# Verify commit ID sanity with upstream docker
-(
-  local cfile local_commit docker_commit
-  for cfile in tini; do
-    . "moby-$VERSION/hack/dockerfile/install/${cfile}.installer"
-  done
-)
+. "moby-$VERSION/hack/dockerfile/install/tini.installer"
