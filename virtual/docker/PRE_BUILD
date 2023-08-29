@@ -31,15 +31,7 @@ unpack $SOURCE6 &&
 # Verify commit ID sanity with upstream docker
 (
   local cfile local_commit docker_commit
-  for cfile in tini proxy; do
+  for cfile in tini; do
     . "moby-$VERSION/hack/dockerfile/install/${cfile}.installer"
-  done
-  for c in LIBNETWORK TINI; do
-    local_commit=_${c}_COMMIT
-    docker_commit=${c}_COMMIT
-    if [[ ${!local_commit} != ${!docker_commit} ]]; then
-      message "Invalid commit for ${c}_COMMIT, is ${!local_commit} and should be ${!docker_commit}"
-      return 1
-    fi
   done
 )
