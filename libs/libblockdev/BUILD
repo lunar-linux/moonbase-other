@@ -1,3 +1,5 @@
+lin -c python-setuptools &&
+
 sedit 's:AX_CHECK_ENABLE_DEBUG(no, DEBUG, NDEBUG)::' configure
 
 OPTS+=" --prefix=/usr \
