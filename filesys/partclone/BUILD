@@ -1,5 +1,5 @@
-  OPTS+=" --disable-nls --enable-ncursesw --enable-extfs"  &&
+OPTS+=" --disable-nls --enable-ncursesw --enable-extfs"  &&
 
-  sedit "s:/usr/local:/usr:" configure fail-mbr/Makefile &&
+./autogen &&
 
-  default_build
+default_build
