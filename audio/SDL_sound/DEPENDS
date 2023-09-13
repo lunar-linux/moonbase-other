@@ -3,31 +3,12 @@ depends libvorbis
 depends SDL
 
 optional_depends flac \
-                 "--enable-flac"  \
-                 "--disable-flac" \
+                 "-DSDLSOUND_DECODER_FLAC=TRUE"  \
+                 "-DSDLSOUND_DECODER_FLAC=FALSE"  \
                  "for FLAC support"
 
-optional_depends libmikmod \
-                 "--enable-mikmod"  \
-                 "--disable-midmod" \
-                 "for MOD support"
-
 optional_depends libmodplug \
-                 "--enable-modplug"  \
-                 "--disable-modplug" \
+                 "-DSDLSOUND_DECODER_MODPLUG=TRUE"  \
+                 "-DSDLSOUND_DECODER_MODPLUG=FALSE"  \
                  "for modplug support"
 
-optional_depends speex \
-                 "--enable-speex"  \
-                 "--disable-speex" \
-                 "for SPX support"
-
-optional_depends smpeg \
-                 "--enable-smpeg"  \
-                 "--disable-smpeg" \
-                 "for MP3 support"
-
-optional_depends physfs \
-                 "--enable-physfs"  \
-                 "--disable-physfs" \
-                 "for various archives support"
