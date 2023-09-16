@@ -1,5 +1,9 @@
 depends bzip2
-depends lz4
 depends xz
 
-optional_depends pcre2 "" "" "for Perl regular expressions support"
+optional_depends pcre2 "--with-pcre2" "--without-pcre2" \
+        "for Perl regular expressions support"
+optional_depends lz4 "--with-lz4" "--without-lz4" \
+        "for zstd compression support"
+optional_depends zstd "--with-zstd" "--without-zstd" \
+        "for zstd compression support"

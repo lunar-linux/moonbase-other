@@ -1,4 +1,6 @@
-sedit 's:AX_CHECK_ENABLE_DEBUG(no, DEBUG, NDEBUG)::' configure
+./autogen.sh &&
+
+lin -c python-setuptools &&
 
 OPTS+=" --prefix=/usr \
         --disable-static \

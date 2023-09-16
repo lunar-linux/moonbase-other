@@ -18,6 +18,7 @@ OPTS+=" --sbindir=/usr/bin"
             --localstatedir=/var \
             --audio-drv-list="$AUDIO_LIST" \
             --enable-attr \
+            --enable-fdt=internal \
             --enable-modules \
             --enable-vhost-net \
             $OPTS &&

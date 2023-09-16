@@ -1,16 +1,13 @@
           MODULE=mspdebug
-         VERSION=0.21
+         VERSION=0.25
 	  SOURCE=$MODULE-$VERSION.tar.gz
-	 SOURCE2=mspdebug-0.21-missing-includes.patch
-      SOURCE_URL=$SFORGE_URL/mspdebug
-     SOURCE2_URL=$PATCH_URL
+ SOURCE_URL_FULL=https://github.com/dlbeer/mspdebug/archive/refs/tags/v$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
-      SOURCE_VFY=sha1:a439acd166e90bfd19ddf2c3459eee9643e55368
-     SOURCE2_VFY=sha1:2fcb6cf867a5acf1cedf07ef22e81e6a136a6b64
+      SOURCE_VFY=sha256:347b5ae5d0ab0cddb54363b72abe482f9f5d6aedb8f230048de0ded28b7d1503
         WEB_SITE=http://mspdebug.sourceforge.net/
       MAINTAINER=ratler@lunar-linux.org
          ENTERED=20131021
-         UPDATED=20131021
+         UPDATED=20230808
            SHORT="Debugger and gdb proxy for MSP430 microcontrollers"
 
 cat <<EOF

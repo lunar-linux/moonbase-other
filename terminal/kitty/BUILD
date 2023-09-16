@@ -1,4 +1,5 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
+export GOPROXY=https://proxy.golang.org &&
 
 make &&
 prepare_install &&

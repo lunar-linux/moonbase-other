@@ -1,11 +1,11 @@
 bad_flags "-z now" "-z relro" &&
-
-export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw -ldflags=-linkmode=external" &&
+export GOPROXY=https://proxy.golang.org
+export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw -ldflags=-linkmode=external"
 export CGO_LDFLAGS="${LDFLAGS}"
 export CGO_CFLAGS="${CFLAGS}"
 export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CXXFLAGS="${CXXFLAGS}"
-export FZF_VERSION="$VERSION" &&
+export FZF_VERSION="$VERSION"
 
 
 make install &&
