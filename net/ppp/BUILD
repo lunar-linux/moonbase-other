@@ -1,3 +1,5 @@
+./autogen.sh &&
+
 add_priv_group ppp &&
 
 OPTS+=" --disable-static \
@@ -6,7 +8,6 @@ OPTS+=" --disable-static \
         --disable-failure-tokens"
 
 default_build &&
-make install-etcppp &&
 
 mkdir -p /etc/ppp/{peers,chat} &&
 
