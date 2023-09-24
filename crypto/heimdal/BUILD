@@ -1,6 +1,7 @@
 export CFLAGS+=" -I/usr/include/et" &&
 export CXXFLAGS+=" -I/usr/include/et" &&
 
+
 OPTS+=" --prefix=/usr \
         --sbindir=/usr/bin \
         --sysconfdir=/etc \
@@ -14,6 +15,7 @@ OPTS+=" --prefix=/usr \
         --with-readline=/usr \
         --with-openssl=/usr \
         --with-sqlite3=/usr \
+        --enable-pk-init \
         --enable-pthread-support"
 
 mkdir -p $SOURCE_DIRECTORY/__heimdest/ &&
