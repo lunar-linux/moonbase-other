@@ -8,12 +8,12 @@ if [ "`get_module_config CLIENTS`" = "y" ]; then
     CLIST+="gtk"
   fi
 
-  mquery SDL "Build SDL client?" y
-  if [ "`get_module_config SDL`" = "y" ]; then
+  mquery SDL2 "Build SDL2 client?" y
+  if [ "`get_module_config SDL2`" = "y" ]; then
     if ! [ $CLIST == "" ]; then
       CLIST+=","
     fi
-    CLIST+="sdl"
+    CLIST+="sdl2"
   fi
 fi
 
@@ -21,8 +21,8 @@ if [ $CLIST = "" ]; then
   OPTS+=" --disable-client"
 else
   # the gtk client option is added in the DEPENDS file
-  if [ "`get_module_config SDL`" = "y" ]; then
-    OPTS+=" --enable-client=sdl"
+  if [ "`get_module_config SDL2`" = "y" ]; then
+    OPTS+=" --enable-client=sdl2"
   fi
 fi
 

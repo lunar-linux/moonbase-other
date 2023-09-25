@@ -1,3 +1,6 @@
+sed -i 's/-unknown//' autogen.sh &&
+autoreconf -fi &&
+
 export PYTHONDONTWRITEBYTECODE=1 &&
 
 if in_depends $MODULE qt5; then

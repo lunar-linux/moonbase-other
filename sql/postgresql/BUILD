@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 OPTS+=" --enable-nls \
         --enable-thread-safety \
         --enable-integer-datetimes"

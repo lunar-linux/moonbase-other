@@ -1,5 +1,3 @@
-#eval "$(./version/version.sh)" &&
-
 export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CFLAGS="${CFLAGS}"
 export CGO_CXXFLAGS="${CXXFLAGS}"

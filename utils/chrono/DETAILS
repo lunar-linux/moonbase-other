@@ -1,16 +1,17 @@
           MODULE=chrono
-         VERSION=0.2.43
-          SOURCE=$MODULE-$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
-      SOURCE_URL=https://github.com/esselfe/chrono/archive
-      SOURCE_VFY=sha256:8331242dd23f998c028dee2d652b285c63e2509526c24dbffdc805db4f782d1f
-        WEB_SITE=https://github.com/esselfe
+         VERSION=0.2.46
+          SOURCE=$MODULE-$VERSION.tar.xz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
+      SOURCE_URL=https://github.com/esselfe/$MODULE/releases/download/$MODULE-$VERSION
+      SOURCE_VFY=sha256:5f767ecfcd3055dbb283fe1d275a3704d7fe019a5c19d0837d8acfdabe45a3ba
+        WEB_SITE=https://github.com/esselfe/$MODULE
          ENTERED=20190618
-         UPDATED=20220620
+         UPDATED=20230830
            SHORT="A ncurses/X11 based chronometer"
 
 cat << EOF
 chrono is a ncurses-based and/or X11-based chronometer with millisecond
 precision, seconds, minutes, hours, days, months, years, pause, repeatable
-countdown and reset functions.
+countdown, beep and reset functions. It can also execute shell commands once
+the countdown reaches zero.
 EOF
