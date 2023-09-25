@@ -32,7 +32,7 @@ fi &&
 
 chown -R root:ppp /usr/bin/pppd /etc/ppp &&
 chmod 4750 /usr/bin/pppd  &&
-chmod 600 /etc/ppp/*-secrets &&
+chmod 600 /etc/ppp/ppp/*-secrets &&
 
 if module_installed systemd; then
   install -D -m644 $SCRIPT_DIRECTORY/system.d/ppp.service /usr/lib/systemd/system/ppp@.service
