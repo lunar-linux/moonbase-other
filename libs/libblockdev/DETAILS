@@ -1,8 +1,9 @@
           MODULE=libblockdev
          VERSION=3.0.3-1
-          SOURCE=$MODULE-$VERSION.tar.gz
- SOURCE_URL_FULL=https://github.com/storaged-project/libblockdev/archive/$VERSION.tar.gz
-      SOURCE_VFY=sha256:8226cf0dd920cd221de8a96de320486201d5306b39fa1c7f8ba09a9c20a7bdc2
+          SOURCE=$MODULE-${VERSION%-*}.tar.gz
+      SOURCE_URL=https://github.com/storaged-project/libblockdev/releases/download/$VERSION/
+      SOURCE_VFY=sha256:0f2872830293f3e222832903d80de4c38e06a9c3ea18915b3263272a72095ea8
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-${VERSION%-*}
         WEB_SITE=https://github.com/storaged-project/libblockdev
          ENTERED=20170811
          UPDATED=20230911
