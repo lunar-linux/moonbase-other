@@ -1,38 +1,14 @@
           MODULE=CUDA-OpenCL-headers
-         VERSION=7.5.18
-          SOURCE=cudatoolkit-$VERSION-linux-headers.tar.xz
-         SOURCE2=cl.h
-         SOURCE3=cl_d3d10.h
-         SOURCE4=cl_d3d11.h
-         SOURCE5=cl_dx9_media_sharing.h
-         SOURCE6=cl_egl.h
-         SOURCE7=cl_ext.h
-         SOURCE8=cl_gl.h
-         SOURCE9=cl_gl_ext.h
-        SOURCE10=cl_platform.h
-        SOURCE11=opencl.h
-        SOURCE12=cl_version.h
-        SOURCE13=cl_icd.h
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/cudatoolkit-$VERSION-linux-headers
-      SOURCE_URL=$PATCH_URL
-     SOURCE2_URL=https://raw.githubusercontent.com/KhronosGroup/OpenCL-Headers/master/CL/
-     SOURCE3_URL=$SOURCE2_URL
-     SOURCE4_URL=$SOURCE2_URL
-     SOURCE5_URL=$SOURCE2_URL
-     SOURCE6_URL=$SOURCE2_URL
-     SOURCE7_URL=$SOURCE2_URL
-     SOURCE8_URL=$SOURCE2_URL
-     SOURCE9_URL=$SOURCE2_URL
-    SOURCE10_URL=$SOURCE2_URL
-    SOURCE11_URL=$SOURCE2_URL
-    SOURCE12_URL=$SOURCE2_URL
-    SOURCE13_URL=$SOURCE2_URL
-      SOURCE_VFY=sha256:b18ee1df05c4afceb0427ffdebd079e202f0654817ebb18a10dbe70ae0c3c34c
-        WEB_SITE=http://developer.nvidia.com/object/gpucomputing.html
+         VERSION=2023.04.17
+          SOURCE=cudatoolkit-$VERSION-linux-headers.tar.gz
+ SOURCE_URL_FULL=https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2023.04.17.tar.gz
+      SOURCE_VFY=sha256:0ce992f4167f958f68a37918dec6325be18f848dee29a4521c633aae3304915d
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/OpenCL-Headers-$VERSION
+        WEB_SITE=https://github.com/KhronosGroup/OpenCL-Headers/
+            TYPE=cmake
          ENTERED=20101016
-         UPDATED=20210827
+         UPDATED=20230930
            SHORT="Nvidia CUDA and OpenCL headers extracted from SDK"
-CLEAR_CACHE=on
 cat << EOF
 Nvidia since 260 driver release stopped providing header files.
 Now CUDA headers are only present in CUDA Toolkit which weights
