@@ -2,6 +2,7 @@ OPTS+=" --prefix=/usr \
         --sysconfdir=/etc/syslog-ng \
         --localstatedir=/var/lib/syslog-ng \
         --datadir=/usr/share \
+        --with-ivykis=system \
         --disable-amqp \
         --disable-java \
         --disable-kafka \
