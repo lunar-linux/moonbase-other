@@ -11,11 +11,5 @@ depends bzip2
 optional_depends curl          "" "" "for curl support"
 optional_depends libusb-compat "" "" "for USB support"
 
-optional_depends openldap \
-                 "--with-ldap=/usr" \
-                 "--disable-ldap"   \
-                 "for LDAP support"
-
-optional_depends readline \
-                 "--with-readline=/usr" "" \
-                 "for readline support"
+optional_depends openldap "--with-ldap"     "--disable-ldap" "for LDAP support" n
+optional_depends readline "--with-readline" "--without-readline" "for readline support" y
