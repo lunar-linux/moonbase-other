@@ -1,3 +1,3 @@
-OPTS+=" -DWEBP_LINK_STATIC=OFF"
+OPTS+=" -DBUILD_SHARED_LIBS=ON"
 
 default_cmake_build
