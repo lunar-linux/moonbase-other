@@ -4,7 +4,7 @@ export CARGO_TARGET_DIR="target"
 export LIBSSH2_SYS_USE_PKG_CONFIG=1
 export LIBGIT2_SYS_USE_PKG_CONFIG=1
 
-sedit '68i [profile.release] \nstrip = "debuginfo"'
+sedit '64i [profile.release]\nstrip = "symbols"' Cargo.toml &&
 
 cargo build --release --all-features --manifest-path=Cargo.toml &&
 
