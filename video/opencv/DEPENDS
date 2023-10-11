@@ -94,10 +94,11 @@ optional_depends eigen3 \
                  "-DWITH_EIGEN=OFF" \
                  "for linear algebra libraries support" y
 
-optional_depends CUDA-OpenCL-headers \
-                 "-DWITH_CUDA=ON" \
-                 "-DWITH_CUDA=OFF" \
-                 "for NVidia Cuda Runtime support"
+# Not the right type of cuda headers
+#optional_depends CUDA-OpenCL-headers \
+#                 "-DWITH_CUDA=ON" \
+#                 "-DWITH_CUDA=OFF" \
+#                 "for NVidia Cuda Runtime support"
 
 optional_depends VTK \
                  "-DWITH_VTK=ON" \
