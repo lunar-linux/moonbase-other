@@ -1,3 +1,6 @@
+# A CI test
+lin -c meson &&
+
 # libsamplerate is depreciated.
 OPTS+=" -D udevrulesdir=/usr/lib/udev/rules.d  \
         -D samplerate=disabled  \
