@@ -4,7 +4,6 @@ OPTS+=" --sbindir=/usr/bin \
         --sysconfdir=/etc \
         --libexecdir=/usr/lib \
         --localstatedir=/var \
-        --with-zlib \
         --with-math \
         --without-bundled-protobuf \
         --with-user=netdata"
