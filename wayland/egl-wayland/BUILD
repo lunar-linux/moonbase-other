@@ -1,4 +1,5 @@
 sedit 's:-Werror::' meson.build &&
+sedit 's:-Wall::' meson.build &&
 
 default_meson_build &&
 
