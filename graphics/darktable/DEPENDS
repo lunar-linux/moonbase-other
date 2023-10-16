@@ -14,7 +14,6 @@ depends gphoto2
 depends libsoup
 depends dbus-glib
 depends isl
-depends openmp
 depends python-pyrsistent
 
 # not hard requirements, but
@@ -31,6 +30,11 @@ depends colord-gtk
 depends libavif
 
 # optional
+optional_depends portmidi \
+  "-DUSE_PORTMIDI=ON" \
+  "-DUSE_PORTMIDI=OFF" \
+  "support for hardware MIDI input devices"
+
 optional_depends gmic \
   "-DUSE_GMIC=1" \
   "-DUSE_GMIC=0" \
@@ -45,10 +49,12 @@ optional_depends flickcurl \
       "-DUSE_FLICKR=1" \
       "-DUSE_FLICKR=0" \
       "For Flickr API support" n
+
 optional_depends libsecret \
       "-DUSE_LIBSECRET=1" \
       "-DUSE_LIBSECRET=0" \
       "For storing and retrieving passwords" n
+
 optional_depends kwallet \
       "-DUSE_KWALLET=1" \
       "-DUSE_KWALLET=0" \
