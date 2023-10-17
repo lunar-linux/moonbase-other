@@ -1,14 +1,15 @@
-export LC_CTYPE="en_US.UTF-8"
+xport LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
 sedit 's:/usr/local:/usr:' Makefile &&
-
-LIBDIR="/usr/lib/rabbitmq/lib/rabbitmq_server-${VERSION}"
-add_priv_user rabbitmq:rabbitmq -d /var/lib/rabbitmq &&
-
 make all &&
 
+# For now this needs to be after the above make else
+# the build tanks.
+add_priv_user rabbitmq:rabbitmq -d /var/lib/rabbitmq &&
+
 prepare_install &&
+LIBDIR="/usr/lib/rabbitmq/lib/rabbitmq_server-${VERSION}"
 
 make install TARGET_DIR=$LIBDIR \
              SBIN_DIR=/usr/lib/rabbitmq/bin \
