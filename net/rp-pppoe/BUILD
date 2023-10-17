@@ -7,13 +7,6 @@ cd src
             --mandir=/usr/share/man \
             $OPTS &&
 
-sedit "s/docdir=\/usr\/doc/docdir=\/usr\/share\/doc/" Makefile &&
-make         &&
-cd ../gui    &&
-default_make &&
-cd ../src    &&
-make install &&
-
 ln -sf /usr/sbin/pppoe-start   /usr/sbin/adsl-start   &&
 ln -sf /usr/sbin/pppoe-stop    /usr/sbin/adsl-stop    &&
 ln -sf /usr/sbin/pppoe-status  /usr/sbin/adsl-status  &&
