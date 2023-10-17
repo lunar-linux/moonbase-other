@@ -1,3 +1,7 @@
+# This is for CI, compiles fine locally but CI needs a 
+# newer rustc
+sedit 's:strip = "symbols"::' Cargo.toml &&
+
 cargo build --release --locked &&
 
 prepare_install &&
