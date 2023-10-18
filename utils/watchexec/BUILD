@@ -1,6 +1,6 @@
 # This is for CI, compiles fine locally but CI needs a 
 # newer rustc
-sedit 's:strip = "symbols"::' Cargo.toml &&
+sedit '20d' Cargo.toml &&
 
 cargo build --release --locked &&
 
