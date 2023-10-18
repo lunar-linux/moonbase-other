@@ -1,8 +1,4 @@
-# This is for CI, compiles fine locally but CI needs a 
-# newer rustc
-sedit '20d' Cargo.toml &&
-
-cargo build --release --locked &&
+cargo build --release &&
 
 prepare_install &&
 
