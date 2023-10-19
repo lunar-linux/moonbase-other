@@ -1,4 +1,17 @@
 default_pre_build &&
 
 sed -i -r 's:.*(#.*SYSTEM_ZLIB.*) .*:\1:' include/freetype/config/ftoption.h &&
-sed -i -r 's:.*(#.*USE_BZIP2.*) .*:\1:'   include/freetype/config/ftoption.h
+sed -i -r 's:.*(#.*USE_BZIP2.*) .*:\1:'   include/freetype/config/ftoption.h &&
+
+if in_depends $MODULE libpng; then
+  sed -i -r 's:.*(#.*USE_PNG.*) .*:\1:'   include/freetype/config/ftoption.h
+fi &&
+
+if in_depends $MODULE brotli; then
+  sed -i -r 's:.*(#.*USE_BROTLI.*) .*:\1:'   include/freetype/config/ftoption.h
+fi &&
+
+if module_installed harfbuzz; then
+  sed -i -r 's:.*(#.*USE_HARFBUZZ.*) .*:\1:'   include/freetype/config/ftoption.h
+fi
+
