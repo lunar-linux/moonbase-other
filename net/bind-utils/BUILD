@@ -4,7 +4,7 @@ OPTS+=" --disable-static \
         --enable-full-report \
         --with-zlib"
 
-default_build &&
+default_config &&
 
 # We are only making the client programs
 make -C lib/isc    &&
