@@ -6,8 +6,6 @@ fi &&
 
 if in_depends $MODULE qt5; then
    . /etc/profile.d/qt5.rc
-  else
-   export VBOX_WITH_QTGUI=0
 fi &&
 
 # Build VirtualBox
