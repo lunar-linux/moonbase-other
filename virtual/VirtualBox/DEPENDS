@@ -14,7 +14,8 @@ depends acpica-unix
 depends opus
 depends zlib
 
-optional_depends qt5        "" "--build-headless"    "for UI (recommended), ${PROBLEM_COLOR}If no then it will be headless${DEFAULT_COLOR}"
+optional_depends qt5 "" "--build-headless --disable-qt"    "for UI (recommended), ${PROBLEM_COLOR}If no then it will be headless${DEFAULT_COLOR}"
+
 optional_depends lvm2       "" "--disable-devmapper" "for device mapper support"
 optional_depends mesa-lib   "" "--disable-opengl"    "for OpenGL support"
 optional_depends pulseaudio "" "--disable-pulse"     "for pulseaudio backend"
