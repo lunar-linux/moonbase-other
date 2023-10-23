@@ -1,3 +1,7 @@
+if in_depends $MODULE qt5; then
+  source /etc/profile.d/qt5.rc
+fi &&
+
 if in_depends $MODULE $(expand_alias %JAVA_SDK); then
    # Location of javac
    . /etc/profile.d/sun-jdk.rc &&
