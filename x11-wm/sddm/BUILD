@@ -10,8 +10,8 @@ fi &&
 # So qt will automatically calculate DPI and such things when EnableHiDPI=true.
 #sedit '327i qputenv("QT_USE_PHYSICAL_DPI", "1");' src/greeter/GreeterApp.cpp &&
 
-sedit "4d" services/sddm.service.in &&
-sedit "s: getty@tty1.service plymouth-quit.service::" services/sddm.service.in &&
+#sedit "4d" services/sddm.service.in &&
+#sedit "s: getty@tty1.service plymouth-quit.service::" services/sddm.service.in &&
 
 add_priv_group sddm &&
 add_priv_user sddm -d /var/lib/sddm -g sddm &&
