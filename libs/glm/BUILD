@@ -1,5 +1,6 @@
 # For unknown reasons they removed cmake install scripts
 # https://github.com/g-truc/glm/commit/5f352ecce21bb1ab37fa56fac0f383c779b351a3
+mkdir -p  /usr/lib/cmake/glm &&
 
 prepare_install &&
 
