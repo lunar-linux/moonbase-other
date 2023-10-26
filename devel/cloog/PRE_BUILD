@@ -1,4 +1,9 @@
 default_pre_build &&
 
-./autogen.sh
+./autogen.sh &&
 
+if module_installed isl; then
+  OPTS+=" --with-isl=system"
+fi &&
+
+OPTS+=" --with-osl=no"
