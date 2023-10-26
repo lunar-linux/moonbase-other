@@ -2,10 +2,4 @@ default_pre_build &&
 
 ./autogen.sh &&
 
-if module_installed isl; then
-  OPTS+=" --with-isl=system"
- else
-  OPTS+=" --with-isl=bundeled"
-fi &&
-
-OPTS+=" --with-osl=no"
+OPTS+=" --with-isl=bundeled --with-osl=no --with-gmp=system"
