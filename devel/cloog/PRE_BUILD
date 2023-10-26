@@ -4,6 +4,8 @@ default_pre_build &&
 
 if module_installed isl; then
   OPTS+=" --with-isl=system"
+ else
+  OPTS+=" --with-isl=bundeled"
 fi &&
 
 OPTS+=" --with-osl=no"
