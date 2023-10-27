@@ -1,4 +1,4 @@
 python -m ensurepip &&
 
 prepare_install &&
-pip install  build
+pip3 install  build
