@@ -1,6 +1,6 @@
 prepare_install &&
 
-cargo install --no-track --locked --no-default-features --features "wide,native-tls" --root /usr --path . &&
+cargo install --no-track --no-default-features --features "native_certs" --root /usr --path . &&
 
 mkdir -p /etc/${MODULE} &&
 install -Dm644 ./config.toml "/etc/${MODULE}/"
