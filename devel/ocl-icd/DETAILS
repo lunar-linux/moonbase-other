@@ -1,13 +1,14 @@
           MODULE=ocl-icd
-         VERSION=2.3.2
+         VERSION=2023.04.17
           SOURCE=$MODULE-$VERSION.tar.gz
- SOURCE_URL_FULL=https://github.com/OCL-dev/ocl-icd/archive/v$VERSION.tar.gz
-      SOURCE_VFY=sha256:ec47d7dcd961ea06695b067e8b7edb82e420ddce03e0081a908c62fd0b8535c5
-        WEB_SITE=https://github.com/OCL-dev/ocl-icd
+ SOURCE_URL_FULL=https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:173bdc4f321d550b6578ad2aafc2832f25fbb36041f095e6221025f74134b876
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/OpenCL-ICD-Loader-$VERSION
+        WEB_SITE=https://github.com/KhronosGroup/OpenCL-ICD-Loader/
+            TYPE=cmake
          ENTERED=20160610
-         UPDATED=20230611
+         UPDATED=20231030
            SHORT="OpenCL ICD loader"
-PSAFE=no
 cat << EOF
 OpenCL implementations are provided as ICD (Installable Client Driver).
 An OpenCL program can use several ICD thanks to the use of an ICD Loader
