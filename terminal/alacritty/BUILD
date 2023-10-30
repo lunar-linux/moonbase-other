@@ -19,7 +19,7 @@ fi &&
 
 mkdir -p /usr/share/appdata &&
 mkdir -p /usr/share/doc/alacritty/example &&
-install -D -m644 extra/linux/io.alacritty.Alacritty.appdata.xml /usr/share/appdata/ &&
+install -D -m644 extra/linux/org.alacritty.Alacritty.appdata.xml /usr/share/appdata/ &&
 install -D -m644 alacritty.yml /usr/share/doc/alacritty/example/ &&
 install -D -m644 extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg &&
 
