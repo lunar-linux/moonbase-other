@@ -1,3 +1,5 @@
+export XML_CATALOG_FILES=/etc/xml/catalog &&
+
 UDEV_DIR=/usr/lib/udev/rules.d
 if module_installed systemd; then
   OPTS+=" --with-udev-rules-dir=$UDEV_DIR \

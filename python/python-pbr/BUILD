@@ -1,3 +1,4 @@
-PBR_VERSION=5.1.1 python setup.py build &&
+python -m build --wheel &&
+
 prepare_install &&
-PBR_VERSION=5.1.1 python setup.py install
+python -m installer --destdir=/ dist/*.whl

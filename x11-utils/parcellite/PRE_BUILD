@@ -1,0 +1,11 @@
+default_pre_build &&
+
+touch src/config.simple.h &&
+
+aclocal --force --install &&
+intltoolize --copy --force --automake &&
+autoheader &&
+automake --add-missing --copy --gnu &&
+autoconf -f &&
+
+OPTS+=" --enable-appindicator=no"

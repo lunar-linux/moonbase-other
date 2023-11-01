@@ -1,6 +1,8 @@
-export CGO_CPPFLAGS="-D_FORTIFY_SOURCE=2"
-export CGO_LDFLAGS="-Wl,-z,relro,-z,now"
-#export EXTRA_FLAGS="-gcflags all=-trimpath=${PWD} -asmflags"
+export GOPROXY=https://proxy.golang.org
+export CGO_CPPFLAGS="${CPPFLAGS}"
+export CGO_CFLAGS="${CFLAGS}"
+export CGO_CXXFLAGS="${CXXFLAGS}"
+export CGO_LDFLAGS="${LDFLAGS}"
 export GOFLAGS="-trimpath -mod=readonly -modcacherw"
 export BUILDTAGS="seccomp"
 

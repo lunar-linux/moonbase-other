@@ -12,8 +12,7 @@ sedit 's@$localstatedir/run/cups@/run/cups@' config-scripts/cups-directories.m4 
 
 # fix some perms
 sedit "s:444:644:g" Makedefs.in &&
-sedit "s:555:755:g" Makedefs.in
 
 # rebuild the configure script
-aclocal -I config-scripts
+aclocal -I config-scripts &&
 autoconf -I config-scripts

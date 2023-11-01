@@ -18,6 +18,7 @@ OPTS+=" --sbindir=/usr/bin"
             --localstatedir=/var \
             --audio-drv-list="$AUDIO_LIST" \
             --enable-attr \
+            --enable-fdt=internal \
             --enable-modules \
             --enable-vhost-net \
             $OPTS &&
@@ -27,7 +28,6 @@ sedit "s: -c::" pc-bios/{,optionrom/}Makefile
 
 make ${MAKES:+-j${MAKES}} &&
 prepare_install &&
-install -m 755 build/qemu-bundle/usr/bin/qemu-keymap /usr/bin &&
 default_install &&
 
 if module_installed systemd; then

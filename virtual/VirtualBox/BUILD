@@ -9,12 +9,9 @@ if in_depends $MODULE qt5; then
 fi &&
 
 # Build VirtualBox
-# Disable hardening, so normal users can run it
-OPTS+=" --disable-hardening"
-OPTS+=" --disable-kmods --disable-docs"
-
-# this removes 32 bit simulation support
-OPTS+=" --disable-vmmraw" &&
+# Disable hardening, so normal users can run it and vmmrw to 
+# remove 32 bit simulation support
+OPTS+=" --disable-hardening --disable-kmods --disable-docs --disable-vmmraw"
 
 ./configure $OPTS &&
 source ./env.sh &&
@@ -29,7 +26,6 @@ kmk &&
 pushd out/linux.*/release/bin/ &&
 message "Building ${MODULE_COLOR}virtualbox-module-${VERSION_COLOR}${VERSION}${DEFAULT_COLOR}." &&
 message "This may take a while..." &&
-# tar -cjf $SOURCE_CACHE/virtualbox-module-$VERSION.tar.bz2 src &&
 popd &&
 
 # Prepare for installation

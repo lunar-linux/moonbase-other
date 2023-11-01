@@ -1,18 +1,18 @@
           MODULE=rabbitmq-server
-         VERSION=3.11.9
+         VERSION=3.12.6
           SOURCE=$MODULE-$VERSION.tar.gz
          SOURCE2=rabbitmq-script-wrapper-0.1
  SOURCE_URL_FULL=https://github.com/rabbitmq/rabbitmq-server/archive/refs/tags/v$VERSION.tar.gz
      SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha256:f549c0e41aedb8169cd4e9f973c81c90f159a56b77e7789a3304095f038cb69c
+      SOURCE_VFY=sha256:ffc3d10338171b755f8d459252ecbc8840407bf7d157b8b73644ac54ed4bdec9
      SOURCE2_VFY=sha256:ec31350a636347cef2e3aab097c6b483f20ca3b03cf2c21d08f1179a156cefe5
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
         WEB_SITE=http://www.rabbitmq.com/
       MAINTAINER=ratler@lunar-linux.org
          ENTERED=20100919
-         UPDATED=20230213
+         UPDATED=20231016
            SHORT="AMQP, the emerging standard for high performance enterprise messaging"
-
+PSAFE=no
 cat << EOF
 RabbitMQ is an implementation of AMQP, the emerging standard for high
 performance enterprise messaging. The RabbitMQ server is a robust

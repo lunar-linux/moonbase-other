@@ -1,7 +1,5 @@
 default_pre_build &&
 
-# Stay with chardet for now
-sed -e '/certifi/d' \
-    -e "s/,<.*'/'/" \
-    -e '/charset_normalizer/d' \
-    -i setup.py
+sedit 's:provides-extra:provides_extra:' setup.cfg &&
+sedit 's:requires-dist:requires_dist:' setup.cfg &&
+sedit 's:license_file:license_files:' setup.cfg

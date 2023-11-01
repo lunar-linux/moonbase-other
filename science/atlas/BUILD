@@ -1,7 +1,6 @@
+mkdir $MODULE-build &&
+cd $MODULE-build &&
 
-  mkdir $MODULE-build &&
-  cd $MODULE-build &&
+../configure -Fa alg -fPIC --shared --prefix=/usr --incdir=/usr/include --cripple-atlas-performance $OPTS &&
 
-  ../configure -Fa alg -fPIC --shared --prefix=/usr --incdir=/usr/include $OPTS &&
-
-  default_make 
+default_make 

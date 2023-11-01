@@ -1,4 +1,5 @@
 ./configure --prefix=/usr \
+            --shared \
             --shared-cares \
             --without-npm &&
 

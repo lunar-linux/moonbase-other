@@ -2,15 +2,13 @@ depends dbus
 depends glib-2
 depends iptables
 depends gnutls
-depends ppp
+depends pptp
+depends polkit
 
 optional_depends wpa_supplicant "--enable-wifi"        "--disable-wifi"        "for WiFi device support"
 optional_depends openconnect    "--enable-openconnect" "--disable-openconnect" "for Cisco's AnyConnect SSL VPN support"
 optional_depends ofono          "--enable-ofono"       "--disable-ofono"       "enable phone support"
 optional_depends %BLUEZ         "--enable-bluetooth"   "--disable-bluetooth"   "for Bluetooth device support"
-optional_depends polkit         "--enable-polkit"      "--disable-polkit"      "for PolicyKit authorization support"
 optional_depends xl2tpd         "--enable-l2tp"        "--disable-l2tp"        "for Layer 2 Tunneling support (VPN)"
 optional_depends openvpn        "--enable-openvpn"     "--disable-openvpn"     "for Virtual Private Network support"
 optional_depends iwd            "--enable-iwd"         "--disable-iwd"         "for WiFi devices support"
-
-optional_depends pptp "" "" "for PPP support" "n"

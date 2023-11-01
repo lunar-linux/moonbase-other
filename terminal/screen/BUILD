@@ -1,6 +1,6 @@
 cp $SCRIPT_DIRECTORY/term.sh . &&
 
-./autogen.sh &&
+[ -f "./configure" ] || ./autogen.sh &&
 
 OPTS+=" --enable-colors256 \
         --with-sys-screenrc=/etc/screenrc"

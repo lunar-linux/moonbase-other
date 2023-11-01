@@ -1,6 +1,8 @@
 depends cmake
 depends freeglut
 
-optional_depends SDL2_image "--enable-sdlimage --enable-sdl" "--disable-sdlimage --disable-sdl" "SDL support (required for fife)"
-optional_depends allegro-4 "--enable-allegro" "--disable-allegro" "Allegro support"
-optional_depends %GLX "--enable-opengl" "--disable-opengl" "OpenGL support (required for fife)"
+optional_depends SDL2_image "-DENABLE_SDL=ON" "-DENABLE_SDL=OFF" "SDL support (required for fife)"
+optional_depends SDL2_ttf "-DENABLE_SDL_CONTRIB=ON" "-DENABLE_SDL_CONTRIB=OFF" \
+                          "SDL contrib support"
+optional_depends allegro-4 "-DENABLE_ALLEGRO=ON" "-DENABLE_ALLEGRO=OFF" "Allegro support"
+optional_depends %GLX "-DENABLE_OPENGL=ON" "-DENABLE_OPENGL=OFF" "OpenGL support (required for fife)"

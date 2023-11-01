@@ -1,5 +1,5 @@
-python -m build --wheel --skip-dependency-check --no-isolation &&
+python -m build --wheel &&
 
 prepare_install &&
 
-python -m installer --destdir=/root dist/*.whl
+python -m installer dist/*.whl

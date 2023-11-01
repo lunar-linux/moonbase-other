@@ -1,9 +1,3 @@
+OPTS+=" -DSDLSOUND_BUILD_STATIC=FALSE" &&
 
-#unset CFLAGS &&
-
-OPTS+=" --build=$BUILD    \
-        --sysconfdir=/etc \
-        --localstatedir=/var \
-        --disable-static" &&
-
-default_build
+default_cmake_build

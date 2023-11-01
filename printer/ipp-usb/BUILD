@@ -1,4 +1,5 @@
-export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw" &&
+export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
+export GOPROXY=https://proxy.golang.org
 
 make &&
 

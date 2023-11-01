@@ -1,7 +1,7 @@
 add_priv_user motion:motion -d / -s /usr/bin/false &&
 
 OPTS+=" --sysconfdir=/etc/"
-
+export LDFLAGS="-Wl,--copy-dt-needed-entries"
 autoreconf -fi &&
 
 default_build &&

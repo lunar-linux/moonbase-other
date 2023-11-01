@@ -4,7 +4,7 @@ OPTS+=" --disable-static \
         --enable-full-report \
         --with-zlib"
 
-default_build &&
+default_config &&
 
 # We are only making the client programs
 make -C lib/isc    &&
@@ -20,4 +20,10 @@ make -C bin/dig    &&
 #make -C lib/lwres  &&
 
 prepare_install &&
-make -C bin/dig install
+make -C lib/isc    install &&
+make -C lib/dns    install &&
+make -C lib/ns     install &&
+make -C lib/isccfg install &&
+make -C lib/bind9  install &&
+make -C lib/irs    install &&
+make -C bin/dig    install
