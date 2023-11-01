@@ -1,4 +1,4 @@
-OPTS+=" --prefix=/usr/lib/musl
+OPTS+=" --prefix=/usr/lib/musl \
         --exec-prefix=/usr \
         --syslibdir=/usr/lib \
         --enable-wrapper=all"
