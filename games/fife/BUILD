@@ -1,4 +1,4 @@
-export PYTHON=python2
+export PYTHON=python
 
 default_cmake_build
 
