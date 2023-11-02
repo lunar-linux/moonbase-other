@@ -2,6 +2,6 @@
 
 ./bootstrap &&
 
-OPTS+=" --disable-static --with-java9"
+OPTS+=" --disable-static --disable-optimizations"
 
 default_build
