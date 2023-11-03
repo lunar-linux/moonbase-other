@@ -1,10 +1,8 @@
 . /etc/profile.d/qt5.rc &&
 
-pushd mythtv &&
-   patch_it $SOURCE2 1 &&
-   ./configure --prefix=/usr $OPTS &&
-   default_make &&
-popd &&
+cd $MODULE  &&
+./configure --prefix=/usr --cpu="$arch" $OPTS &&
+default_make &&
 
 mkdir -p /var/log/mythtv &&
 install -Dm644 $SCRIPT_DIRECTORY/sysusers.d/mythtv.conf /usr/lib/sysusers.d/mythtv.conf &&
