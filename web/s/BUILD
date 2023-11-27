@@ -1,3 +1,4 @@
+export GOPROXY=https://proxy.golang.org &&
 go get -v github.com/zquestz/s &&
 
 make &&

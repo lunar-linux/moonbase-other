@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 default_build &&
 
 prepare_install &&

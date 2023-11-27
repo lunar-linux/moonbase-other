@@ -1,4 +1,4 @@
-pip3 wheel -w dist $PWD &&
+python -m ensurepip &&
 
 prepare_install &&
-pip3 install  --no-index --find-links=dist build
+pip3 install  build

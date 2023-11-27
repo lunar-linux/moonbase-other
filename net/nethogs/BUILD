@@ -1,5 +1,6 @@
 unset CFLAGS
-unset CXXFLAGS
+export CXXFLAGS+=" -fPIC"
+
 make prefix="/usr" &&
 make prefix="/usr" libnethogs &&
 

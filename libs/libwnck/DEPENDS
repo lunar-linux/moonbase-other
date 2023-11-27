@@ -1,2 +1,9 @@
-depends gtk+-2
-depends startup-notification
+depends libXres
+depends libXt
+depends intltool
+depends meson
+
+optional_depends startup-notification \
+                 "-Dstartup_notification=enabled" \
+                 "-Dstartup_notification=disabled" \
+                 "for startup notification"

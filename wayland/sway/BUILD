@@ -19,7 +19,4 @@ else
    OPTS+=" -Dfish-completions=false"
 fi
 
-default_meson_build &&
-
-# On systems without logind, you need to suid the sway binary
-chmod a+s /usr/bin/sway
+default_meson_build

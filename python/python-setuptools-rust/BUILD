@@ -1,4 +1,4 @@
-pip3 wheel -w dist --isolated --no-deps $PWD &&
+python -m build --wheel &&
 
 prepare_install &&
-pip3 install  --no-deps --no-index --find-links=dist setuptools-rust
+python -m installer --destdir=/ dist/*.whl

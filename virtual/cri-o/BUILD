@@ -17,8 +17,8 @@ else
 fi &&
 
 # install CNI configs
-install -vDm 644 contrib/cni/10-crio-bridge.conf /etc/cni/net.d/100-crio-bridge.conf &&
-install -vDm 644 contrib/cni/99-loopback.conf /etc/cni/net.d/199-crio-loopback.conf &&
+install -vDm 644 contrib/cni/10-crio-bridge.conflist /etc/cni/net.d/100-crio-bridge.conf &&
+install -vDm 644 contrib/cni/99-loopback.conflist /etc/cni/net.d/199-crio-loopback.conf &&
 
 # modules
 install -vDm 644 "$SCRIPT_DIRECTORY/modules-${MODULE}.conf" /usr/lib/modules-load.d/ &&
@@ -31,7 +31,7 @@ install -vDm 644 {CONTRIBUTING,README,awesome,code-of-conduct,install,transfer,t
              -t "/usr/share/doc/${MODULE}/" &&
 install -vDm 644 tutorials/*.md \
              -t "/usr/share/doc/${MODULE}/tutorials/" &&
-install -vDm 644 contrib/cni/*.{conf,md} \
+install -vDm 644 contrib/cni/*.{conflist,md} \
              -t "/usr/share/doc/${MODULE}/examples/cni/" &&
 install -vDm 644 contrib/metrics-exporter/{Containerfile,*.{yaml,gif,json,go}} \
              -t "/usr/share/doc/${MODULE}/examples/metrics-exporter/"

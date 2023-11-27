@@ -1,5 +1,5 @@
-make release shared &&
+make prefix=/usr release  &&
 
 prepare_install &&
 
-make prefix='/usr' install-shared
+make prefix='/usr' install-common install-shared

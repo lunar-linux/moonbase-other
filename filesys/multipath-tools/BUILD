@@ -1,5 +1,9 @@
+sedit 's;prefix		:=;prefix		:=/usr;' Makefile.inc &&
 
+make prefix='/usr' \
+     bindir='/usr/bin' \
+     LIB='lib' \
+     FORTIFY_OPT='' &&
 
-OPTS+=" --prefix=/usr --exec_prefix=/usr --libdir=/usr/lib"
-
-default_build
+prepare_install &&
+make install

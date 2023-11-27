@@ -1,23 +1,18 @@
           MODULE=sun-jdk
-         VERSION=8u301
-        FVERSION=$VERSION-b09
-        DVERSION=1.8.0_301
-            HASH=d3c52aa6bfa54d3ca74e617f18309292
-     JDK_ARCHIVE=jdk-$VERSION-linux-i586.tar.gz
-      JCE_POLICY=jce_policy-8.zip
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/jre$DVERSION
-     JDK_SHA_VFY=9d970ba3743a89ca9b7b8b11131f258f68f77cb1ce8840f6b2d9256cf9de594c
-     JCE_SHA_VFY=9c64997edfce44e29296bfbd0cf90abf8b6b9ef2ea64733adae3bdac9ae2c5a6
-        WEB_SITE=http://www.oracle.com/technetwork/java/javase/downloads/index.html
+         VERSION=17.0.9
+         SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
+      SOURCE_VFY=sha256:ad45ac97b3bc65497376f98ee276f84f4ab55ef2f62ab7f82ac0013e5b17744a
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/jdk-$VERSION
+        WEB_SITE=https://www.oracle.com/java/technologies/downloads/#java17
          LICENSE="proprietary"
-         ENTERED=20061113
-         UPDATED=20210814
-           FUZZY=off
-       LDD_CHECK=off
-         ARCHIVE=off
+         ENTERED=20070210
+         UPDATED=20231103
            SHORT="SUN java runtime environment"
+FUZZY=off
+LDD_CHECK=off
+ARCHIVE=off
 
 cat << EOF
-sun-jre is only the run time environment, should be sufficient for
-most users.
+sun-jdk is a full features Java SDK including a Java runtime environment.
 EOF

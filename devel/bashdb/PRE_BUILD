@@ -1,6 +1,6 @@
 default_pre_build &&
 
-sedit "s#'4.2' | '4.1'#'4.3' | '4.2' | '4.1'#" configure &&
+sed -e "/^\s\+'5.0' / s:): | '5.1'&:g" -i 'configure' &&
 
 export slashlibdir=/usr &&
 

@@ -1,11 +1,6 @@
 depends libtasn1
+depends libffi
 depends meson
-
-optional_depends libffi \
-                 "-D libffi=enabled" \
-                 "-D libffi=disabled" \
-                 "for libffi support" \
-                 "n"
 
 optional_depends bash-completion \
                  "-D bash_completion=enabled" \

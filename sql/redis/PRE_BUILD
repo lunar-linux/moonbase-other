@@ -4,11 +4,3 @@ default_pre_build &&
 sedit '/bind 127/s;# ;;;
        /^tcp-keep/s;0;60;;
        /^dir/s;\./;/var/lib/redis/;' redis.conf
-
-# use system jemalloc lib
-#sedit "s:FINAL_CFLAGS+= -DUSE_JEMALLOC -I../deps/jemalloc/include: \
-#         FINAL_CFLAGS+= -DUSE_JEMALLOC -DJEMALLOC_NO_DEMANGLE -I/usr/include/jemalloc:" \
-#         src/Makefile &&
-
-#sedit "s:FINAL_LIBS+= ../deps/jemalloc/lib/libjemalloc.a -ldl: \
-#         FINAL_LIBS+= -ljemalloc -ldl:" src/Makefile

@@ -37,4 +37,9 @@ make distclean &&
             --disable-fortran \
             $OPTS &&
 
-default_make
+default_make &&
+
+sed -e 's/3.6.9/3.6.10/' -i CMakeLists.txt &&
+cmake . &&
+sed -e 's|\(IMPORTED_LOCATION_NONE\).*|\1 "/usr/lib/libfftw3.so.3"|' -i FFTW3LibraryDepends.cmake &&
+install -vDm 644 FFTW3LibraryDepends.cmake -t /usr/lib/cmake/fftw3/

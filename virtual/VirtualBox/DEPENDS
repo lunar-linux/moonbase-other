@@ -1,6 +1,7 @@
 depends curl
 depends xalan-c
 depends dev86
+depends glslang
 depends libxslt
 depends libXcursor
 depends alsa-lib
@@ -13,12 +14,15 @@ depends acpica-unix
 depends opus
 depends zlib
 
-optional_depends qt5        "" "--disable-qt"        "for UI (recommended)"
+optional_depends qt5 "" "--build-headless --disable-qt"    "for UI (recommended), ${PROBLEM_COLOR}If no then it will be headless${DEFAULT_COLOR}"
+
 optional_depends lvm2       "" "--disable-devmapper" "for device mapper support"
 optional_depends mesa-lib   "" "--disable-opengl"    "for OpenGL support"
 optional_depends pulseaudio "" "--disable-pulse"     "for pulseaudio backend"
-optional_depends SDL_ttf    "" "--disable-sdl"       "for SDL support"
+optional_depends SDL_ttf    "" "--disable-sdl-ttf"   "for SDL support"
 optional_depends libvpx     "" "--disable-libvpx"    "for libvpx video capturing support"
 optional_depends %JAVA_SDK  "" "--disable-java"      "for Java bindings"
 
 optional_depends vde-2  "--enable-vde" "" "for Virtual Distributed Etherne support"
+
+optional_depends gsoap "" "" "for gsoap compiler support"

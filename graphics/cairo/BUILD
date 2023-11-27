@@ -3,7 +3,6 @@ OPTS+=" -Dgtk_doc=false          \
         -Ddwrite=disabled        \
         -Dspectre=disabled       \
         -Dtests=disabled         \
-        -Dxml=enabled            \
         -Dtee=enabled            \
         -Dxlib-xcb=enabled"
 

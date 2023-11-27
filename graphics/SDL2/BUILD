@@ -1,8 +1,4 @@
 OPTS+=" --disable-arts \
-        --disable-rpath \
-        --disable-static"
+        --disable-rpath"
 
 default_build
-
-# remove the static libraries because --disable-static option is broken
-rm -f /usr/lib/libSDL2*.a

@@ -1,3 +1,4 @@
+
 prepare_install &&
 
-make all
+make prefix=/usr install

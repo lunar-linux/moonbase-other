@@ -1,3 +1,4 @@
-sedit 's:-Werror::g' generate/unix/iasl/Makefile generate/unix/Makefile.config &&
+NOWERROR=TRUE make &&
 
-default_make
+prepare_install &&
+make install
