@@ -1,9 +1,14 @@
-# A gcc issue.
-sedit '17i #include <cstring>' src/OpenColorIO/FileRules.cpp &&
+CXXFLAGS+=" -ffat-lto-objects"
 
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_CONFIGURATION_TYPES=Release \
-        -DOCIO_BUILD_TESTS=OFF
-        -DOCIO_BUILD_STATIC=OFF"
+        -DOCIO_BUILD_TESTS=OFF \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_SKIP_INSTALL_RPATH=YES \
+        -DOCIO_VERBOSE=ON \
+        -Wno-dev"
 
-default_cmake_build
+cmake -GNinja -B $MODULE-$VERSION $OPTS &&
+ninja -C $MODULE-$VERSION &&
+
+prepare_install &&
+ninja -C $MODULE-$VERSION install
