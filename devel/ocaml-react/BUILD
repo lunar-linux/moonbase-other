@@ -1,4 +1,6 @@
 ocaml pkg/pkg.ml build &&
 
+nativelibs=$(echo _build/src/react*.cm{x,xa,xs,ti} _build/src/react.a _build/src/react_cli.a) &&
+
 prepare_install &&
-opam-installer --prefix=/usr --libdir=/usr/lib/ocaml --docdir=/usr/share/doc
+ocamlfind install react _build/pkg/META _build/src/react.mli _build/src/react.cm{a,i} ${navtivelibs}
