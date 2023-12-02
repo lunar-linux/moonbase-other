@@ -5,6 +5,7 @@ depends attr
 depends libcap-ng
 depends alsa-lib
 depends zlib
+depends pixman
 
 optional_depends SDL2 \
                  "--enable-sdl" \
@@ -34,6 +35,7 @@ optional_depends gnutls     "--enable-gnutls"    "--disable-gnutls"    "for GNUT
 optional_depends nettle     "--enable-nettle"    "--disable-nettle"    "for nettle crypto support -${PROBLEM_COLOR} choose this option or libgcrypt, not both"
 optional_depends libgcrypt  "--enable-gcrypt"    "--disable-gcrypt"    "for libgcrypt support -${PROBLEM_COLOR} choose this option or nettle, not both" n
 optional_depends vde-2      "--enable-vde"       "--disable-vde"       "for virtual distributed ethernet support"
+optional_depends libslirp   "--enable-slirp"     "--disable-slirp"     "for user mode network backend support"
 optional_depends libcap-ng  "--enable-cap-ng"    "--disable-cap-ng"    "for easier POSIX capabilities support"
 optional_depends libcacard  "--enable-smartcard" "--disable-smartcard" "for smartcards support"
 optional_depends libiscsi   "--enable-libiscsi"  "--disable-libiscsi"  "for iSCSI protocol support"

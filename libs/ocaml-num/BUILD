@@ -1,2 +1,4 @@
+make CFLAGS="${CFLAGS} -nodynlink" &&
 
-default_make
+prepare_install &&
+make

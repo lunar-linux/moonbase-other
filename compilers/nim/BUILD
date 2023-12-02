@@ -21,28 +21,29 @@ popd &&
 prepare_install &&
 
 install -m 755 lib/libnimrtl.so /usr/lib/ &&
-rm lib/libnimrtl.so &&
+rm -f lib/libnimrtl.so &&
 
+rm -fR /usr/lib/nim &&
 install -d /usr/lib/nim &&
-cp -a lib/* /usr/lib/nim &&
+cp -r lib/* /usr/lib/nim/ &&
 
-cp -a compiler /usr/lib/nim &&
-install -Dm 644 compiler.nimble /usr/lib/nim/compiler &&
+cp -a compiler /usr/lib/nim/ &&
+install -Dm 644 nim.nimble /usr/lib/nim/compiler/ &&
 
 install -Dm 644 config/nim*.cfg -t /etc &&
-install -Dm 755 bin/* -t /usr/bin &&
+install -Dm 755 bin/* -t /usr/bin/ &&
 
 # fix the unusual placement of header files
 install -d /usr/include &&
-cp -a lib/*.h /usr/include &&
+cp -a lib/*.h /usr/include/ &&
 rm -f /usr/lib/nim/*.h &&
 
 install -d /usr/share/nim &&
-#cp -a doc /usr/share/nim &&
+#cp -a doc /usr/share/nim/ &&
 
 # fix a bug related to the doc2 command
 rm -f /usr/lib/nim/doc &&
-ln -sf /usr/share/nim/doc /usr/lib/nim/doc &&
+#ln -sf /usr/share/nim/doc /usr/lib/nim/doc &&
 
 # bash completions
 if module_installed bash-completion; then

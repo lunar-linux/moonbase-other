@@ -1,3 +1,11 @@
-OPTS+=" -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC -DCMAKE_BUILD_TYPE=Release -DLINK_APPS_SHARED=ON" &&
+cmake -B $MODULE-$VERSION \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_C_FLAGS="$CFLAGS -ffat-lto-objects" \
+    -DCMAKE_CXX_FLAGS="$CXXFLAGS -ffat-lto-objects" \
+    -DCMAKE_BUILD_TYPE=Release &&
 
-default_cmake_build
+cmake --build $MODULE-$VERSION &&
+cmake --build $MODULE-$VERSION --target libqhull &&
+prepare_install &&
+cp -P $MODULE-$VERSION/libqhull.so* /usr/lib/ &&
+cmake --install $MODULE-$VERSION

@@ -14,6 +14,7 @@ OPTS+=" --prefix=/usr \
         --enable-multi-res-encoding \
         --enable-onthefly-bitpacking \
         --enable-vp9-temporal-denoising \
+        --disable-unit-tests \
         --disable-examples \
         --disable-docs \
         --disable-static \

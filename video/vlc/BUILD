@@ -1,9 +1,6 @@
 autoreconf -fi
 
-export CXXFLAGS+=" -std=c++11" &&
-
-#unset LUA_LIBS &&
-#unset LUA_CFLAGS &&
+export CXXFLAGS+=" -std=c++14"
 
 OPTS+=" --enable-xcb \
         --enable-xvideo \
@@ -13,7 +10,6 @@ OPTS+=" --enable-xcb \
         --disable-sid \
         --disable-rpath \
         --disable-libplacebo \
-        --enable-chromecast \
         --disable-update-check"
 
 default_build &&

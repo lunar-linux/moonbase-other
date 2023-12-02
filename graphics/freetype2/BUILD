@@ -1,8 +1,8 @@
 # There's a circular depend on harfbuzz
 if module_installed harfbuzz; then
-  OPTS+=" -D harfbuzz=enabled"
+  OPTS+=" -Dharfbuzz=enabled"
 else
-  OPTS+=" -D harfbuzz=disabled"
+  OPTS+=" -Dharfbuzz=disabled"
 fi
 
 default_meson_build

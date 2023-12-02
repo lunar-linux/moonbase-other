@@ -1,4 +1,5 @@
 export GOFLAGS="-trimpath -mod=readonly -modcacherw"
+export GOPROXY=https://proxy.golang.org
 
 make VERSION=v$VERSION REVISION=
 make VERSION=v$VERSION man

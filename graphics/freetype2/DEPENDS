@@ -1,9 +1,8 @@
 depends meson
+depends zlib
+depends bzip2
 
-optional_depends zlib   "-D zlib=enabled"  "-D zlib=disabled"  "for system zlib compression support"
-optional_depends bzip2  "-D bzip2=enabled" "-D bzip2=disabled" "for support of bzip2 compressed fonts"
-optional_depends libpng "-D png=enabled"   "-D png=disabled"   "for support of png compressed OpenType embeded bitmaps"
-
+optional_depends libpng "-D png=enabled"    "-D png=disabled"    "for support of png compressed OpenType embeded bitmaps"
 optional_depends brotli "-D brotli=enabled" "-D brotli=disabled" "for brotli compression support"
 
 # circular depend on harfbuzz

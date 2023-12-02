@@ -1,9 +1,9 @@
-sedit 's:AX_CHECK_ENABLE_DEBUG(no, DEBUG, NDEBUG)::' configure
 
 OPTS+=" --prefix=/usr \
+        --with-python3  \
         --disable-static \
-        --disable-tests  \
         --without-gtk-doc \
-        --without-lvm_dbus"
+        --without-lvm_dbus \
+        --without-mpath"
 
 default_build

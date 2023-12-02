@@ -1,25 +1,23 @@
           MODULE=cloog
-         VERSION=0.20.0
+         VERSION=0.21.1
           SOURCE=$MODULE-$VERSION.tar.gz
    SOURCE_URL[0]=https://github.com/periscop/cloog/archive/refs/tags/
    SOURCE_URL[1]=https://www.bastoul.net/cloog/pages/download/
+     SOURCE_VFY=sha256:eace8938416a3240c073bdf935b12d2f9c115ec574d9bcbcc9423fe96ed530eb
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
-     SOURCE_VFY=sha256:e6bdbe02a409f216ec724e26317d122baa17467e05fe5ad3cc8591f2f0a5df47
         WEB_SITE=http://www.cloog.org
          ENTERED=20130517
-         UPDATED=20220819
+         UPDATED=20231024
            SHORT="CLooG generates code for scanning Z-polyhedra"
 
 cat << EOF
-CLooG is a free software and library to generate code for
-scanning Z-polyhedra. That is, it finds a code (e.g. in C,
-FORTRAN...) that reaches each integral point of one or more
-parameterized polyhedra. CLooG has been originally written to solve
-the code generation problem for optimizing compilers based on the
-polytope model. Nevertheless it is used now in various area e.g. to
-build control automata for high-level synthesis or to find the best
-polynomial approximation of a function. CLooG may help in any situation
-where scanning polyhedra matters. While the user has full control on
-generated code quality, CLooG is designed to avoid control overhead
-and to produce a very effective code.
+CLooG is a free software and library to generate code for scanning Z-polyhedra.
+That is, it finds a code (e.g. in C, FORTRAN...) that reaches each integral point
+of one or more parameterized polyhedra. CLooG has been originally written to solve
+the code generation problem for optimizing compilers based on the polytope model.
+Nevertheless it is used now in various area e.g. to build control automata for
+high-level synthesis or to find the best polynomial approximation of a function.
+CLooG may help in any situation where scanning polyhedra matters. While the user
+has full control on generated code quality, CLooG is designed to avoid control
+overhead and to produce a very effective code.
 EOF

@@ -3,7 +3,7 @@ LO_OPT_DIR="/usr/lib/libreoffice${VERSION%.*}"
 
 message "${MESSAGE_COLOR}Unpacking base RPMs and installing...${DEFAULT_COLOR}" &&
 for pack in RPMS/*.rpm ; do bsdtar -xf $pack > `basename $pack .rpm` ; done &&
-for i in `ls *.cpio`; do cpio -idmuV < $i ;done &&
+#for i in `ls *.cpio`; do cpio -idmuV < $i ;done &&
 
 desktopfiles="base calc draw impress math startcenter writer xsltfilter" &&
 

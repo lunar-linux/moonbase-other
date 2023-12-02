@@ -1,6 +1,6 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD &&
+pip3 wheel -w dist $PWD &&
 
 prepare_install &&
-pip3 install  --no-index --find-links=dist packaging
+pip3 install --find-links=dist packaging

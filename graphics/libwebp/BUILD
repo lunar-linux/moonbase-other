@@ -1,8 +1,3 @@
-OPTS+=" --enable-libwebpmux \
-        --enable-libwebpdemux \
-        --enable-libwebpdecoder \
-        --enable-libwebpextras  \
-        --enable-swap-16bit-csp \
-        --disable-static"
+OPTS+=" -DBUILD_SHARED_LIBS=ON"
 
-default_build
+default_cmake_build

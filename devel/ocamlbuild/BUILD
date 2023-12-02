@@ -1,5 +1,5 @@
-make -f Makefile \
-        PREFIX=/usr \
-        LIBDIR="$(ocamlc -where)" &&
+make configure PREFIX=/usr MANDIR=/usr/share/man &&
+make &&
 
-default_build
+prepare_install &&
+make install

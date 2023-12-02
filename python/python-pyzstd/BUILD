@@ -1,4 +1,4 @@
-python -m build -wn -C=--dynamic-link-zstd &&
+python -m build --wheel &&
 
 prepare_install &&
 python -m installer -d / dist/*.whl

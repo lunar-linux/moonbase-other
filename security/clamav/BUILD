@@ -3,7 +3,7 @@ add_priv_user clamav:clamav -s /usr/bin/false -c "clamav" &&
 OPTS+=" --sbindir=/usr/bin \
         --sysconfdir=/etc/clamav \
         --with-dbdir=/var/lib/clamav \
-        --with-user-clamav  \
+        --with-user=clamav  \
         --with-group=clamav \
         --disable-rpath \
         --disable-llvm \

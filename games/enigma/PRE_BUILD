@@ -6,4 +6,6 @@ sedit 's/lib_LIBRARIES/noinst_LIBRARIES/' Makefile.am &&
 sedit 's/.*_HEADERS =/noinst_HEADERS =/' include/enet/Makefile.am &&
 
 touch AUTHORS NEWS ChangeLog COPYING &&
-rm missing
+rm missing &&
+autoreconf -fi &&
+cd ../..

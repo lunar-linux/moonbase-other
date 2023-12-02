@@ -1,3 +1,9 @@
 default_pre_build &&
 
+# Taken from archlinux folks.
+sed -i \
+    -e '/^build: /a \\tpython3 -m build -wn' \
+    -e '/pip install/{s#pip install --root#installer -d#;s#\.$#dist/*.whl#}' \
+    Makefile.in
+
 autoconf

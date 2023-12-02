@@ -1,6 +1,6 @@
 autoconf &&
-autoreconf -i &&
-cd ../..
+
+CXXFLAGS+=" -std=gnu++14 -Wno-deprecated-declarations -Wno-format-security"
 
 OPTS=" --disable-sdltest --enable-optimize"
 
