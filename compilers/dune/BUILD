@@ -1,14 +1,15 @@
 _dune_release_pkgs=('dune' 'dune-action-plugin' 'dune-build-info' 'dune-configurator' 'dune-glob' 'dune-private-libs' 'dune-site' 'dune-rpc' 'dyn' 'stdune' 'ordering' 'xdg' 'chrome-trace' 'ocamlc-loc')
 
-./configure --libdir="$(ocamlc -where)" \
-            --mandir=/usr/share/man \
-            --datadir=/usr/share    \
-            --docdir=/usr/share/doc \
-            --sbindir=/usr/bin      \
-            --etcdir=/etc           \
-            --bindir=/usr/bin &&
+_opts+=" --libdir=$(ocamlc -where) \
+         --mandir=/usr/share/man   \
+         --datadir=/usr/share      \
+         --docdir=/usr/share/doc   \
+         --sbindir=/usr/bin        \
+         --etcdir=/etc             \
+         --bindir=/usr/bin"
 
-make _boot/dune.exe &&
+./configure $_opts &&
+ocaml boot/bootstrap.ml &&
 
 local dune_release_pkgs='dummy' &&
 for _pkg in "${_dune_release_pkgs[@]}"; do
@@ -22,5 +23,5 @@ for _pkg in "${_dune_release_pkgs[@]}"; do
 prepare_install &&
 
 for _pkg in "${_dune_release_pkgs[@]}"; do
-      ./dune.exe install "${_pkg}" --prefix=/usr --docdir=/usr/share/doc --libdir="$(ocamlfind printconf destdir)"
+      ./dune.exe install "${_pkg}" $_opts
 done
