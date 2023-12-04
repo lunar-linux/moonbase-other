@@ -1,6 +1,4 @@
-ocaml pkg/pkg.ml build --pkg-name fmt &&
-
-nativelibs=$(echo _build/src/fmt*.cm{x,xa,xs,ti} _build/src/fmt.a _build/src/fmt_cli.a) &&
+ocaml pkg/pkg.ml build --dev-pkg false --with-base-unix true --with-cmdliner true &&
 
 prepare_install &&
-ocamlfind install fmt _build/pkg/META _build/src/fmt.mli _build/src/fmt.cm{a,i} ${nativelibs}
+opam-installer --prefix="/usr" --libdir='lib/ocaml' --docdir='share/doc'
