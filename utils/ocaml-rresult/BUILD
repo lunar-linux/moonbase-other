@@ -1,7 +1,6 @@
-#dune init project &&
-#cd rresult &&
-pkg/pkg.ml build --pkg-name rresult &&
-#dune build -p rresult &&
+ocaml pkg/pkg.ml build --pkg-name ${MODULE#*-} &&
+
+nativelibs=$(echo _build/src/${MODULE#*-}*.cm{x,xa,xs,ti} _build/src/${MODULE#*-}*.a ) &&
 
 prepare_install &&
-opam-installer --prefix=/usr --libdir=$(ocamlc -where) --docdir=/usr/share/doc
+ocamlfind install ${MODULE#*-} _build/pkg/META _build/src/${MODULE#*-}.mli _build/src/${MODULE#*-}.cm{a,i} ${nativelibs}
