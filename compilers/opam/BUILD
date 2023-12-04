@@ -1,6 +1,5 @@
-./configure --prefix=/usr &&
-make lib-ext all -j1 OCAMLC='ocamlc -unsafe-string' OCAMLOPT='ocamlopt -unsafe-string' &&
-
+default_config &&
+make lib-ext -j1 &&
+dune build &&
 prepare_install &&
-
-make install
+dune install
