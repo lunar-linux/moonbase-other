@@ -1,4 +1,4 @@
-pkg/pkg.ml build --pkg-name bos &&
+ocaml pkg/pkg.ml build --dev-pkg false &&
 
 prepare_install &&
-opam-installer --prefix=/usr --libdir=$(ocamlc -where) --docdir=/usr/share/doc
+opam-installer --prefix="/usr" --libdir='lib/ocaml' --docdir='share/doc'
