@@ -7,6 +7,9 @@ fi &&
 
 if module_installed openrc; then
   sedit 's|DISPLAYMANAGER="xdm"|DISPLAYMANAGER="sddm"|' /etc/conf.d/xdm
-fi
+fi &&
+
+# Disable that silly virtualkeybord
+sed -e "/^InputMethod/s/qtvirtualkeyboard//" -i /etc/sddm.conf &&
 
 lunar fix python
