@@ -4,4 +4,8 @@ if in_depends $MODULE openssl ; then
   sedit "s:I\${with_openssl}/:I/usr/:" configure &&
   sedit "s:\${with_openssl}/libssl.a:/usr/lib/libssl.so:" configure &&
   sedit "s:\${with_openssl}/libcrypto.a:/usr/lib/libcrypto.so:" configure
-fi
+fi &&
+
+sedit '88i #include <libxml/parser.h>' openconnect-internal.h &&
+
+autoreconf
