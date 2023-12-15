@@ -1,3 +1,4 @@
+sedit '15i #include <libxml/parser.h>' src/object/uri.cpp &&
 ## CDR = Corel Draw. This file doesn't exist in Lunar
 ## 2Geom libs are not in Lunar yet
 
