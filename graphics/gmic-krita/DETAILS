@@ -1,0 +1,20 @@
+          MODULE=gmic-krita
+         VERSION=3.2.4.1
+          SOURCE=gmic-$VERSION-patched.tar.xz
+      SOURCE_URL=https://github.com/amyspark/gmic/releases/download/v$VERSION/
+      SOURCE_VFY=sha256:06659fe05f7735827a93d637de2267512efb28bb0d55ce573495fecb59172604
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/gmic-$VERSION-patched
+        WEB_SITE=https://github.com/amyspark/gmic
+         ENTERED=20231215
+         UPDATED=20231215
+           SHORT="krita GUI components for GMIC"
+
+cat << EOF
+ GMIC is a full-featured open-source framework for digital image processing, distributed under the
+ CeCILL free software licenses (LGPL-like and/or GPL-compatible). It provides several user interfaces
+ to convert / process / visualize generic image datasets, ranging from 1D scalar signals to 3D+t
+ sequences of multi-spectral volumetric images, hence including 2D color images. 
+
+NOTE: Until things change the tarball used here must be from this site and not the one used by
+modules gmic, gmic-qt and gmic-gimp.
+EOF
