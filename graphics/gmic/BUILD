@@ -10,4 +10,7 @@ cmake -B build -S .\
 cmake --build build &&
 
 prepare_install &&
-cmake --install build
+cmake --install build &&
+
+cp src/gmic.cpp /usr/include/
+ln -sf /usr/lib64/libgmic.so.1 /usr/lib64/libgmic.so
