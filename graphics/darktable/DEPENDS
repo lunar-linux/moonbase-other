@@ -1,4 +1,5 @@
 # hard requirements
+depends openmp
 depends python-setuptools
 depends sqlite
 depends libjpeg-turbo
@@ -12,10 +13,8 @@ depends exiv2
 depends tiff
 depends curl
 depends gphoto2
-depends libsoup
 depends dbus-glib
 depends isl
-depends openmp
 depends python-pyrsistent
 depends python-referencing
 
@@ -33,25 +32,7 @@ depends colord-gtk
 depends libavif
 
 # optional
-optional_depends gmic \
-  "-DUSE_GMIC=1" \
-  "-DUSE_GMIC=0" \
-  "for 3D LUT support"
-  
-optional_depends openexr \
-   "-DUSE_OPENEXR=1" \
-   "-DUSE_OPENEXR=0" \
-   "for EXR format support" 
-
-optional_depends flickcurl \
-      "-DUSE_FLICKR=1" \
-      "-DUSE_FLICKR=0" \
-      "For Flickr API support" n
-optional_depends libsecret \
-      "-DUSE_LIBSECRET=1" \
-      "-DUSE_LIBSECRET=0" \
-      "For storing and retrieving passwords" n
-optional_depends kwallet \
-      "-DUSE_KWALLET=1" \
-      "-DUSE_KWALLET=0" \
-      "Use kwallet password manager" n
+optional_depends gmic      "-DUSE_GMIC=ON"      "-DUSE_GMIC=OFF"      "for 3D LUT support"
+optional_depends openexr   "-DUSE_OPENEXR=ON"   "-DUSE_OPENEXR=OFF"   "for EXR format support" 
+optional_depends libsecret "-DUSE_LIBSECRET=ON" "-DUSE_LIBSECRET=OFF" "For storing and retrieving passwords"
+optional_depends kwallet   "-DUSE_KWALLET=ON"   "-DUSE_KWALLET=OFF"   "Use kwallet password manager"
