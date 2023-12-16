@@ -1,3 +1,8 @@
+# protobuf > 23 requires c++17
+sed -e 's|\# AX_CXX_COMPILE_STDCXX(17, noext, optional)|AX_CXX_COMPILE_STDCXX(17, noext, optional)|' -i configure.ac &&
+
+autoreconf -i &&
+
 add_priv_user netdata:netdata &&
 
 OPTS+=" --sbindir=/usr/bin \
