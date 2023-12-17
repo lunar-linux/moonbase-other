@@ -2,3 +2,8 @@ depends meson
 depends dbus
 depends wayland
 depends pango
+
+optional_depends gtk+-3 \
+                 "-Dgtk=enabled" \
+                 "-Dgtk=disabled" \
+                 "for Gtk 3.x support" "n"
