@@ -1,16 +1,3 @@
 depends alsa-lib
-
-optional_depends %JPEG \
-                 "--with-jpeg" \
-                 "--without-jpeg" \
-                 "for JPEG support"
-
-optional_depends qt5 \
-                 "--enable-qv4l2 --enable-qvidcap" \
-                 "--disable-qv4l2 --disable-qvidcap" \
-                 "for Qt5 support"
-
-optional_depends systemd \
-                 "--with-udevdir=/usr/lib/udev" \
-                 "--without-udevdir" \
-                 "for udev device name support"
+depends libjpeg-turbo
+depends meson
