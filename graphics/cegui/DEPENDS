@@ -1,6 +1,6 @@
+depends glm
 depends expat
 depends cmake
-depends libxml2
 depends fribidi
 depends graphviz
 depends glew
@@ -19,27 +19,26 @@ depends freetype2
 #depends boost
 
 optional_depends pcre \
-                 "-DCEGUI_HAS_PCRE_REGEX=1" \
-                 "-DCEGUI_HAS_PCRE_REGEX=0" \
+                 "-DCEGUI_HAS_PCRE_REGEX=ON" \
+                 "-DCEGUI_HAS_PCRE_REGEX=OFF" \
                  "for RegEx support"
 
 optional_depends devil \
-                 "-DCEGUI_BUILD_IMAGECODEC_DEVIL=1" \
-                 "-DCEGUI_BUILD_IMAGECODEC_DEVIL=0" \
+                 "-DCEGUI_BUILD_IMAGECODEC_DEVIL=ON" \
+                 "-DCEGUI_BUILD_IMAGECODEC_DEVIL=OFF" \
                  "for DevIL based ImageCodecs"
 
 optional_depends FreeImage \
-                 "-DCEGUI_BUILD_IMAGECODEC_FREEIMAGE=1" \
-                 "-DCEGUI_BUILD_IMAGECODEC_FREEIMAGE=0" \
+                 "-DCEGUI_BUILD_IMAGECODEC_FREEIMAGE=ON" \
+                 "-DCEGUI_BUILD_IMAGECODEC_FREEIMAGE=OFF" \
                  "for FreeImage based ImageCodecs"
 
-### broken options
 optional_depends ogre \
-                 "-DCEGUI_BUILD_RENDERER_OGRE=1" \
-                 "-DCEGUI_BUILD_RENDERER_OGRE=0" \
-                 "build Ogre renderer module" n
+                 "-DCEGUI_BUILD_RENDERER_OGRE=ON" \
+                 "-DCEGUI_BUILD_RENDERER_OGRE=OFF" \
+                 "build Ogre renderer module"
 
-optional_depends python2 \
-                 "-DPYTHON_EXECUTABLE=/usr/bin/python2 -DCEGUI_BUILD_PYTHON_MODULES=ON" \
+optional_depends python \
+                 "-DPYTHON_EXECUTABLE=/usr/bin/python3 -DCEGUI_BUILD_PYTHON_MODULES=ON" \
                  "-DCEGUI_BUILD_PYTHON_MODULES=OFF" \
-                 "for Python 2.x support" n
+                 "for Python 3.x support"

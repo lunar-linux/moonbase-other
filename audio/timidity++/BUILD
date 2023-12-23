@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 if [ "$INSTALL_EAW" == "y" ]; then
   set_module_config EAW y
 fi &&

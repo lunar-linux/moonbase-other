@@ -1,4 +1,4 @@
-ocaml pkg/pkg.ml build --pkg-name fmt &&
+ocaml pkg/pkg.ml build --dev-pkg false --with-base-unix true --with-cmdliner true &&
 
 prepare_install &&
-opam-installer --prefix=/usr --libdir=$(ocamlc -where) --docdir=/usr/share/doc
+opam-installer --prefix="/usr" --libdir='lib/ocaml' --docdir='share/doc'

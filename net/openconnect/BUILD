@@ -1,5 +1,11 @@
-OPTS+=" --disable-static \
+OPTS+=" --prefix=/usr \
+        --disable-static \
+        --disable-dsa-tests \
+        --disable-docs \
         --with-gnutls \
 	--with-vpnc-script=/etc/vpnc/vpnc-script" &&
 
-default_build
+PYTHON=/usr/bin/python ./configure $OPTS &&
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
+default_make

@@ -4,6 +4,7 @@ export READLINE_LIBS=$(pkgconf --libs /lib/pkgconfig/readline.pc) &&
 OPTS+=" --enable-wired \
         --enable-hwsim \
         --disable-tools \
+        --disable-manual-pages \
         --localstatedir=/var"
 
 if ! module_installed systemd; then

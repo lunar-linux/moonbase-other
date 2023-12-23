@@ -1,12 +1,18 @@
 if [ ! -e /etc/sddm.conf ]; then
-    sddm --example-config > /etc/sddm.conf &&
-# Initially sddm starts on VT1. We'll sedit this to VT7
-# then you can make it what you want.
-    sedit "s:MinimumVT=1:MinimumVT=7:" /etc/sddm.conf
+    sddm --example-config > /etc/sddm.conf
 fi &&
 
 if module_installed openrc; then
   sedit 's|DISPLAYMANAGER="xdm"|DISPLAYMANAGER="sddm"|' /etc/conf.d/xdm
-fi
+fi &&
+
+# Disable that silly virtualkeybord
+sed -e "/^InputMethod/s/qtvirtualkeyboard//" -i /etc/sddm.conf &&
+
+# A fresh install of lunar does not set a graphical target and sddm
+# while it will "start" if enabled ends up in a dead state. 
+if [ "$ENBL_GRAPHICAL" == "y" ];then
+  systemctl set-default graphical.target
+fi &&
 
 lunar fix python

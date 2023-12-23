@@ -1,22 +1,19 @@
             MODULE=rustc
-           VERSION=1.71.0
+           VERSION=1.74.0
             SOURCE=$MODULE-$VERSION-src.tar.gz
-           SOURCE2=rust-${VERSION%}-i686-unknown-linux-gnu.tar.gz
         SOURCE_URL=https://static.rust-lang.org/dist/
-       SOURCE2_URL=$SOURCE_URL
   SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-src
-        SOURCE_VFY=sha256:a667e4abdc5588ebfea35c381e319d840ffbf8d2dbfb79771730573642034c96
-       SOURCE2_VFY=sha256:ae5db6a5aaa625bcf445615f5ad87686a6b3e03e8ff0bee3be8660708370e615
+        SOURCE_VFY=sha256:882b584bc321c5dcfe77cdaa69f277906b936255ef7808fcd5c7492925cf1049
           WEB_SITE=https://www.rust-lang.org/
            ENTERED=20150916
-           UPDATED=20230720
+           UPDATED=20231127
              SHORT="Rust language compiler"
              BUILD=${BUILD/pc/unknown}
 
 cat << EOF
 Rust is a systems programming language that runs blazingly fast, prevents
 nearly all segfaults, and guarantees thread safety.
-Featuring:  ipython-7.17.0.tar.gz
+Featuring:
   * zero-cost abstractions
   * move semantics
   * guaranteed memory safety
