@@ -5,17 +5,19 @@ prepare_install &&
 install -Dm755 target/release/rg /usr/bin/ &&
 
 if module_installed bash-completion; then
-   install -Dm644 target/release/build/ripgrep-*/out/rg.bash \
-                 /usr/share/bash-completion/completions/rg
+   mkdir -p "/usr/share/bash-completion/completions"
+   target/release/rg --generate complete-bash > "/usr/share/bash-completion/completions/rg"
 fi &&
 
 if module_installed zsh; then
-   install -Dm644 complete/_rg /usr/share/zsh/site-functions/
+   mkdir -p "/usr/share/zsh/site-functions"
+   target/release/rg --generate complete-zsh > "/usr/share/zsh/site-functions/_rg"
 fi &&
 
 if module_installed fish; then
-   install -Dm644 complete/_rg.fish /usr/share/fish/vendor_completions.d/
+   mkdir -p "/usr/share/fish/vendor_completions.d"
+   target/release/rg --generate complete-fish > "/usr/share/fish/vendor_completions.d/rg.fish"
 fi &&
 
-
-install -Dm644 target/release/build/ripgrep-*/out/rg.1 /usr/share/man/man1/
+mkdir -p "/usr/share/man/man1"
+target/release/rg --generate man >  "/usr/share/man/man1/rg.1"
