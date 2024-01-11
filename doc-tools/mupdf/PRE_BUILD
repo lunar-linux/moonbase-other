@@ -1,11 +1,5 @@
 default_pre_build &&
 
-# fix includes for jbig2dec
-sedit '/^JBIG2DEC_CFLAGS :=/s|$| -I./include/mupdf|' Makethird &&
-
-# fix function for openjpeg
-sedit "s/__OPENJPEG__VERSION__/2.3/" source/fitz/load-jpx.c &&
-
 # fix the instrall path prefix
 sedit 's:/usr/local:/usr:g' Makefile &&
 

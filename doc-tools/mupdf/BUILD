@@ -5,7 +5,8 @@ export CFLAGS CXXFLAGS &&
 USE_SYSTEM_LIBS='yes'
 export USE_SYSTEM_LIBS &&
 
-OPTS="prefix=/usr build=release CURL_LIBS='-lcurl -lpthread'"
+OPTS="prefix=/usr build=release CURL_LIBS='-lcurl -lpthread'" &&
+OPTS+=" JBIG2DEC_CFLAGS='-I./include/mupdf'" &&
 
 default_make &&
 
