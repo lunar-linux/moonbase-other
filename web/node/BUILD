@@ -13,4 +13,5 @@ mkdir -p /usr/lib/node_modules &&
 
 default_make &&
 
-ln -sf /usr/lib/libnode.so.* /usr/lib/linode.so
+cd /usr/lib &&
+ln -s libnode.so.* linode.so
