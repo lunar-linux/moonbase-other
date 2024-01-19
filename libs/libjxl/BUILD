@@ -10,7 +10,7 @@ OPTS+=" -DJPEGXL_ENABLE_EXAMPLES=OFF      \
         -DJPEGXL_ENABLE_MANPAGES=OFF      \
         -DJPEGXL_ENABLE_PLUGINS=ON        "
 
-export CFLAGS+=' -ffat-lto-objects'
-export CXXFLAGS+=' -ffat-lto-objects'
+export CFLAGS+=' -DNDEBUG -ffat-lto-objects'
+export CXXFLAGS+=' -DNDEBUG -ffat-lto-objects -Wp,-U_GLIBCXX_ASSERTIONS'
 
 default_cmake_build
