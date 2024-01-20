@@ -5,6 +5,7 @@ for _f in UCD Unihan; do
    bsdtar -C /usr/share/unicode -x --no-same-owner --no-same-permissions -f /usr/share/unicode/$_f.zip
 done &&
 
-rm -f /usr/share/unicode/U*.zip &&
+# gucharmap looks for this zip file.
+cp -f $SOURCE_CACHE/$SOURCE2 /usr/share/unicode/ &&
 
 ln -fs /usr/share/unicode /usr/share/$MODULE
