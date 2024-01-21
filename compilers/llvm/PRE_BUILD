@@ -1,26 +1,18 @@
 default_pre_build &&
 
-sedit 's:DESTINATION docs/html:DESTINATION share/doc/llvm:' docs/CMakeLists.txt &&
+#clang
+tar xf $SOURCE_CACHE/$SOURCE2 &&
+mv clang-$VERSION.src tools/clang &&
 
-cd $SOURCE_DIRECTORY/tools &&
-unpack $SOURCE2 &&
-mv -f clang-${VERSION}.src clang &&
-sedit 's:DESTINATION docs/html:DESTINATION share/doc/llvm/clang:' clang/docs/CMakeLists.txt &&
+#clang-tools
+tar xf $SOURCE_CACHE/$SOURCE3 &&
 
-cd clang/tools &&
-unpack $SOURCE3 &&
-mv -f clang-tools-extra-${VERSION}.src extra &&
-sedit 's:DESTINATION docs/html:DESTINATION share/doc/llvm/clang-extra:' extra/docs/CMakeLists.txt &&
+#cmake/Module
+tar xf $SOURCE_CACHE/$SOURCE4 &&
+mv cmake-$VERSION.src/Modules cmake &&
+sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@/cmake@' -i CMakeLists.txt &&
 
-cd $SOURCE_DIRECTORY &&
-sedit 's:libexec:lib/clang:' $SOURCE_DIRECTORY/tools/clang/tools/scan-build/bin/scan-build &&
-sedit 's:/libexec/:/lib/clang/:g' $SOURCE_DIRECTORY/tools/clang/tools/CMakeLists.txt &&
-
-cd $SOURCE_DIRECTORY/
-unpack $SOURCE4 &&
-cp -f cmake-$VERSION.src/Modules/*.cmake cmake/modules/
-
-# Remove libclangHandleLLVM; breaks zig
-sedit '/add_clang_subdirectory(handle-llvm)/d' tools/clang/tools/clang-fuzzer/CMakeLists.txt &&
-
-grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'
+#third-party
+tar xf $SOURCE_CACHE/$SOURCE5 &&
+mv third-party-$VERSION.src third-party &&
+sedit 's:../third-party:third-party:' cmake/modules/HandleLLVMOptions.cmake

@@ -2,23 +2,26 @@
 # Additionally, starting with versions 15.x.x, "llvm-cmake-15.x.x" is required and be
 # extracted to the cmake directory in $SOURCE_DIRECTORY/cmake.
           MODULE=llvm
-         VERSION=15.0.7
+         VERSION=17.0.6
           SOURCE=$MODULE-$VERSION.src.tar.xz
          SOURCE2=clang-$VERSION.src.tar.xz
          SOURCE3=clang-tools-extra-$VERSION.src.tar.xz
          SOURCE4=cmake-$VERSION.src.tar.xz
-SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-${VERSION}.src
+         SOURCE5=third-party-$VERSION.src.tar.xz
       SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
      SOURCE2_URL=$SOURCE_URL
      SOURCE3_URL=$SOURCE_URL
      SOURCE4_URL=$SOURCE_URL
-      SOURCE_VFY=sha256:4ad8b2cc8003c86d0078d15d987d84e3a739f24aae9033865c027abae93ee7a4
-     SOURCE2_VFY=sha256:a6b673ef15377fb46062d164e8ddc4d05c348ff8968f015f7f4af03f51000067
-     SOURCE3_VFY=sha256:809a2ef46d46be3b83ca389356404ac041fa6d8f5496cb02ec35d252afb64fd1
-     SOURCE4_VFY=sha256:8986f29b634fdaa9862eedda78513969fe9788301c9f2d938f4c10a3e7a3e7ea
+     SOURCE5_URL=$SOURCE_URL
+      SOURCE_VFY=sha256:b638167da139126ca11917b6880207cc6e8f9d1cbb1a48d87d017f697ef78188
+     SOURCE2_VFY=sha256:a78f668a726ae1d3d9a7179996d97b12b90fb76ab9442a43110b972ff7ad9029
+     SOURCE3_VFY=sha256:aa774642415d338d7b77a66fcbad6fd1f77f382dabcb67422a6230614eff1ab9
+     SOURCE4_VFY=sha256:807f069c54dc20cb47b21c1f6acafdd9c649f3ae015609040d6182cab01140f4
+     SOURCE5_VFY=sha256:3054d0a9c9375dab1a4539cc2cc45ab340341c5d71475f9599ba7752e222947b
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-${VERSION}.src
         WEB_SITE=http://www.llvm.org/
          ENTERED=20090128
-         UPDATED=20230517
+         UPDATED=20240121
            SHORT="Low Level Virtual Machine"
 
 cat << EOF
