@@ -4,12 +4,20 @@ if module_installed icu-le-hb; then
   lin icu-le-hb
 fi
 
+if module_installed harfbuzz; then
+  lunar fix harfbuzz
+fi
+
 if module_installed libxml2; then
   lunar fix libxml2
 fi
 
 if module_installed boost; then
   lunar fix boost
+fi
+
+if module_installed texlive; then
+  lunar fix texlive
 fi
 
 if module_installed xfsprogs; then
@@ -58,14 +66,6 @@ fi
 
 if module_installed qt6-5compat; then
   lunar fix qt6-5compat
-fi
-
-if module_installed harfbuzz; then
-  lunar fix harfbuzz
-fi
-
-if module_installed texlive; then
-  lunar fix texlive
 fi
 
 if module_installed samba; then
