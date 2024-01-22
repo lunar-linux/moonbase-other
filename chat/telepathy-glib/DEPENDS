@@ -1,16 +1,10 @@
 depends dbus-glib
 depends libxslt
 depends python
+depends gobject-introspection
 
 optional_depends vala \
                  "--enable-vala-bindings" \
                  "--disable-vala-bindings" \
                  "for vala bindings support" \
                  "y"
-
-optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
-                 "for introspection support" \
-                 "y"
-
