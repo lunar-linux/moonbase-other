@@ -19,7 +19,8 @@ MAJORVER=${VERSION%.*}
 # quite a lot of packages still use backward compatibitity API, enable 5.{1,2,3} compat mode
 make MYCFLAGS="$CFLAGS -fPIC -g \
                        -DLUA_COMPAT_5_1 \
-                       -DLUA_COMPAT_5_2" \
+                       -DLUA_COMPAT_5_2 \
+                       -DLUA_COMPAT_5_3" \
                        MYLDFLAGS="$LDFLAGS" linux-readline &&
 
 prepare_install &&
