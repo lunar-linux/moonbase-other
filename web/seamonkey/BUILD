@@ -1,10 +1,20 @@
 unset LDFLAGS
+# Taken from LFS folks
+sed -e '1012 s/stderr=devnull/stderr=subprocess.DEVNULL/' \
+    -e '1013 s/OSError/(OSError, subprocess.CalledProcessError)/' \
+    -i third_party/python/distro/distro.py &&
 
-./mach configure || ./mach configure &&
+export CC=clang 
+export CXX=clang++
+export AR=llvm-ar
+export NM=llvm-nm
+export RANLIB=llvm-ranlib
+
+./mach configure &&
 ./mach build --verbose &&
 
 prepare_install  &&
-./mach install  || exit 1
+./mach install &&
 
 # Now the .desktop file and icons
 install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/seamonkey.desktop &&

@@ -1,0 +1,113 @@
+diff -Naur MPlayer-1.5/configure MPlayer-1.5-new/configure
+--- MPlayer-1.5/configure	2022-02-27 03:09:00.000000000 -0600
++++ MPlayer-1.5-new/configure	2023-03-06 22:19:46.220134696 -0600
+@@ -1591,26 +1591,26 @@
+ }
+ 
+ echocheck "ffmpeg/libavcodec/allcodecs.c"
+-libavdecoders_all=$(list_subparts_extern  AVCodec       decoder  codec/allcodecs.c)
+-libavencoders_all=$(list_subparts_extern  AVCodec       encoder  codec/allcodecs.c)
+-libavparsers_all=$(list_subparts_extern   AVCodecParser parser   codec/parsers.c)
++libavdecoders_all=$(list_subparts_extern  Codec       decoder  codec/allcodecs.c)
++libavencoders_all=$(list_subparts_extern  Codec       encoder  codec/allcodecs.c)
++libavparsers_all=$(list_subparts_extern   CodecParser parser   codec/parsers.c)
+ test $? -eq 0 && _list_subparts=found || _list_subparts="not found"
+ echores "$_list_subparts"
+ 
+ echocheck "ffmpeg/libavcodec/hwaccels.h"
+ libavhwaccels_all=$(list_subparts_extern  AVHWAccel hwaccel codec/hwaccels.h)
+-test $? -eq 0 || libavhwaccels_all=$(list_subparts  HWACCEL  hwaccel  codec/allcodecs.c)
++test $? -eq 0 || libavhwaccels_all=$(list_subparts  ACCEL  hwaccel  codec/allcodecs.c)
+ test $? -eq 0 && _list_subparts=found || _list_subparts="not found"
+ echores "$_list_subparts"
+ 
+ echocheck "ffmpeg/libavformat/allformats.c"
+-libavdemuxers_all=$(list_subparts_extern  AVInputFormat    demuxer  format/allformats.c)
+-libavmuxers_all=$(list_subparts_extern    AVOutputFormat   muxer    format/allformats.c)
++libavdemuxers_all=$(list_subparts_extern  InputFormat    demuxer  format/allformats.c)
++libavmuxers_all=$(list_subparts_extern    OutputFormat   muxer    format/allformats.c)
+ test $? -eq 0 && _list_subparts=found || _list_subparts="not found"
+ echores "$_list_subparts"
+ 
+ echocheck "ffmpeg/libavcodec/bitsteram_filters.c"
+-libavbsfs_all=$(list_subparts_extern AVBitStreamFilter bsf codec/bitstream_filters.c)
++libavbsfs_all=$(list_subparts_extern BitStreamFilter bsf codec/bitstream_filters.c)
+ test $? -eq 0 && _list_subparts_extern=found || _list_subparts_extern="not found"
+ echores "$_list_subparts_extern"
+ 
+diff -Naur MPlayer-1.5/libmpcodecs/ad_spdif.c MPlayer-1.5-new/libmpcodecs/ad_spdif.c
+--- MPlayer-1.5/libmpcodecs/ad_spdif.c	2021-05-01 12:45:31.000000000 -0500
++++ MPlayer-1.5-new/libmpcodecs/ad_spdif.c	2023-03-06 22:15:03.947106476 -0600
+@@ -79,7 +79,7 @@
+ 
+ static int init(sh_audio_t *sh)
+ {
+-    int i, x, in_size, srate, bps, *dtshd_rate, res;
++    int i, x, in_size, srate, bps, res;
+     unsigned char *start;
+     double pts;
+     static const struct {
+@@ -97,6 +97,7 @@
+     AVStream            *stream    = NULL;
+     const AVOption      *opt       = NULL;
+     struct spdifContext *spdif_ctx = NULL;
++    AVDictionary *opts = NULL;
+ 
+     spdif_ctx = av_mallocz(sizeof(*spdif_ctx));
+     if (!spdif_ctx)
+@@ -112,9 +113,6 @@
+     lavf_ctx->oformat = av_guess_format(FILENAME_SPDIFENC, NULL, NULL);
+     if (!lavf_ctx->oformat)
+         goto fail;
+-    lavf_ctx->priv_data = av_mallocz(lavf_ctx->oformat->priv_data_size);
+-    if (!lavf_ctx->priv_data)
+-        goto fail;
+     lavf_ctx->pb = avio_alloc_context(spdif_ctx->pb_buffer, OUTBUF_SIZE, 1, spdif_ctx,
+                             read_packet, write_packet, seek);
+     if (!lavf_ctx->pb)
+@@ -130,12 +128,17 @@
+             break;
+         }
+     }
+-    if ((res = avformat_write_header(lavf_ctx, NULL)) < 0) {
++    // FORCE USE DTS-HD
++    if (lavf_ctx->streams[0]->codecpar->codec_id == AV_CODEC_ID_DTS)
++        av_dict_set(&opts, "dtshd_rate", "768000" /* 192000*4 */, 0);
++    if ((res = avformat_write_header(lavf_ctx, opts)) < 0) {
++        av_dict_free(&opts);
+         if (res == AVERROR_PATCHWELCOME)
+             mp_msg(MSGT_DECAUDIO,MSGL_INFO,
+                "This codec is not supported by spdifenc.\n");
+         goto fail;
+     }
++    av_dict_free(&opts);
+     spdif_ctx->header_written = 1;
+ 
+     // get sample_rate & bitrate from parser
+@@ -177,13 +180,6 @@
+         sh->i_bps                       = bps;
+         break;
+     case AV_CODEC_ID_DTS: // FORCE USE DTS-HD
+-        opt = av_opt_find(&lavf_ctx->oformat->priv_class,
+-                          "dtshd_rate", NULL, 0, 0);
+-        if (!opt)
+-            goto fail;
+-        dtshd_rate                      = (int*)(((uint8_t*)lavf_ctx->priv_data) +
+-                                          opt->offset);
+-        *dtshd_rate                     = 192000*4;
+         spdif_ctx->iec61937_packet_size = 32768;
+         sh->sample_format               = AF_FORMAT_IEC61937_LE;
+         sh->samplerate                  = 192000; // DTS core require 48000
+diff -Naur MPlayer-1.5/libmpcodecs/ve_lavc.c MPlayer-1.5-new/libmpcodecs/ve_lavc.c
+--- MPlayer-1.5/libmpcodecs/ve_lavc.c	2021-05-14 14:56:16.000000000 -0500
++++ MPlayer-1.5-new/libmpcodecs/ve_lavc.c	2023-03-06 22:14:58.798125033 -0600
+@@ -441,8 +441,7 @@
+ 	    mp_msg(MSGT_MENCODER,MSGL_ERR,"error parsing vrc_q\n");
+             return 0;
+         }
+-        lavc_venc_context->rc_override=
+-            av_reallocp_array(lavc_venc_context->rc_override, i+1, sizeof(*lavc_venc_context->rc_override));
++        av_reallocp_array(&lavc_venc_context->rc_override, i+1, sizeof(*lavc_venc_context->rc_override));
+         lavc_venc_context->rc_override[i].start_frame= start;
+         lavc_venc_context->rc_override[i].end_frame  = end;
+         if(q>0){

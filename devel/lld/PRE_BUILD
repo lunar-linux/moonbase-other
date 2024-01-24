@@ -1,7 +1,10 @@
 default_pre_build &&
 
-unpack $SOURCE  &&
+#libunwind
 unpack $SOURCE2 &&
-mv libunwind{-$VERSION.src,}
+mv libunwind{-$VERSION.src,} &&
+
+#cmake
 unpack $SOURCE3 &&
-mv cmake{-$VERSION.src,}
+mv cmake-$VERSION.src/Modules cmake &&
+sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@/cmake@' -i CMakeLists.txt

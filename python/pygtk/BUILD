@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 OPTS+=" --prefix=/usr --enable-thread --disable-docs" &&
 
 ./configure $OPTS PYTHON=python2 &&

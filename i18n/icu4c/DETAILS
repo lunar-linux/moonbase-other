@@ -1,12 +1,12 @@
           MODULE=icu4c
-         VERSION=73_2
-          SOURCE=$MODULE-$VERSION-src.tgz
-      SOURCE_URL=https://github.com/unicode-org/icu/releases/download/release-73-2/
-      SOURCE_VFY=sha256:818a80712ed3caacd9b652305e01afc7fa167e6f2e94996da44b90c2ab604ce1
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/icu/source
+         VERSION=74.2
+          SOURCE=$MODULE-$VERSION-src.tar.gz
+ SOURCE_URL_FULL=https://github.com/unicode-org/icu/archive/refs/tags/release-${VERSION//./-}.tar.gz
+      SOURCE_VFY=sha256:27b8650a94df6f945cb3b686be3be320c2a32edf3ece2981672bf98bb3baa9e1
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/icu-release-${VERSION//./-}/${MODULE}/source/
         WEB_SITE=https://icu-project.org/
          ENTERED=20081025
-         UPDATED=20230715
+         UPDATED=20240119
            SHORT="Unicode and Globalization support for software applications"
 
 cat << EOF

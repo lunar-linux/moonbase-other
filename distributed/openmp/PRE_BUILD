@@ -1,9 +1,8 @@
 default_pre_build &&
 
-cd $SOURCE_DIRECTORY/
-unpack $SOURCE2 &&
-mkdir -p cmake/modules &&
-cp -fr cmake-$VERSION.src/Modules/* cmake/ &&
+tar xf $SOURCE_CACHE/$SOURCE2 &&
+mv cmake-$VERSION.src/Modules cmake &&
+sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@/cmake@' -i CMakeLists.txt
 
-sedit '40i #include <cstdlib>' libomptarget/include/Debug.h &&
-sedit '41i #include <string>' libomptarget/include/Debug.h 
+#sedit '40i #include <cstdlib>' libomptarget/include/Debug.h &&
+#sedit '41i #include <string>' libomptarget/include/Debug.h 
