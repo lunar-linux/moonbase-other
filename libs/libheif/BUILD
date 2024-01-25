@@ -1,3 +1,15 @@
-OPTS+=" -DWITH_EXAMPLES=OFF" &&
+OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+        -DWITH_DAV1D=ON \
+        -DWITH_RAV1E=ON \
+        -DWITH_FFMPEG_DECODER=ON \
+        -DWITH_FFMPEG_DECODER_PLUGIN=ON \
+        -DWITH_SvtEnc=ON \
+        -Wno-dev"
 
-default_cmake_build
+cmake -B $MODULE-$VERSION -S . $OPTS &&
+cmake --build $MODULE-$VERSION &&
+
+prepare_install &&
+cmake --install $MODULE-$VERSION
