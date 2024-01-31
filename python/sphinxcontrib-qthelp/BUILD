@@ -1,4 +1,4 @@
-python -m build --wheel --skip-dependency-check --no-isolation &&
+python -m build --wheel &&
 
 prepare_install &&
 
