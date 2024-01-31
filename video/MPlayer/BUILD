@@ -1,16 +1,20 @@
 # using CFLAGS other than MPlayer's auto-detected will break
-bad_flags compiler &&
+#bad_flags compiler &&
 
+#live555 is disabled by default and will be removed
+
+#Instead of using that bad_flags above, which still caused a build failure,
+#allow it to decided entirely what it wants to use by removing $OPTS.
+#MPlayer has always been very picky about these things.
 ./configure --prefix=/usr                \
             --mandir=/usr/share/man      \
             --codecsdir=/usr/lib/win32   \
             --confdir=/etc/mplayer       \
             --datadir=/usr/share/mplayer \
             --enable-dynamic-plugins     \
-            --disable-live               \
-            --disable-ggi                \
-            --disable-ggiwmh             \
-            $OPTS                       &&
+            --enable-menu                \
+            --enable-runtime-cpudetection \
+            --enable-gui                 &&
 
 sedit 's/-mtune=native//' config.mak &&
 

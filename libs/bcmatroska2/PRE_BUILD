@@ -1,3 +1,4 @@
 default_pre_build
 
-OPTS+=" -DCONFIG_DEBUGCHECKS=OFF -DENABLE_SHARED=OFF"
+LDFLAGS="-z muldefs"
+OPTS+=" -DENABLE_SHARED=ON"

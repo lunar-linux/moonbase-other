@@ -11,4 +11,9 @@ mkdir -p ${MOZ_OBJDIR} &&
 
 for flag in $OPTS; do
    echo "ac_add_options $flag" >> mozconfig
-done
+done &&
+
+# Correct system ICU, adapt the line break mapping for ICU-74.
+(for i in {43..47}; do
+   sed '/ZWJ/s/$/,CLASS_CHARACTER/' -i intl/lwbrk/LineBreaker.cpp || exit $?
+done)

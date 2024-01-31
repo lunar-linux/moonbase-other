@@ -16,3 +16,6 @@ sedit '1s@/usr/bin/awk@/bin/awk@' vidix/pci_db2c.awk &&
 
 # --extra_* are expected only once, but we might need more
 sedit "s:extra_\([^=]*\)=\(\\\$.*\)$:extra_\1=\"\$extra_\1 \2\":" configure
+
+patch -Np1 -i $SCRIPT_DIRECTORY/MPlayer-1.5-upstream_ffmpg6_fixes-1.patch &&
+patch -Np1 -d ffmpeg -i $SCRIPT_DIRECTORY/ffmpeg-6.0-binutils_2.41-1.patch

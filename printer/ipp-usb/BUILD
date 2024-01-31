@@ -1,6 +1,11 @@
-export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
 export GOPROXY=https://proxy.golang.org
+export CGO_CPPFLAGS="${CPPFLAGS}"
+export CGO_CFLAGS="${CFLAGS}"
+export CGO_CXXFLAGS="${CXXFLAGS}"
+export CGO_LDFLAGS="${LDFLAGS}"
+export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
 
+sed -i "s/sbin/bin/g" Makefile &&
 make &&
 
 prepare_install &&

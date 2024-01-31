@@ -1,3 +1,7 @@
 default_pre_build &&
 
-sedit "29i #include <uuid/uuid.h>" lashd/server.h
+patch -Np0 -i $SCRIPT_DIRECTORY/fix-manual-generation.patch &&
+
+sedit '25i #include <libxml/globals.h>' lashd/project.c &&
+
+autoreconf -fi

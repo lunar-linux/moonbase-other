@@ -1,0 +1,349 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Colin Clark <colin.clark@cclark.uk>
+Date: Mon, 4 Sep 2023 10:51:14 +0100
+Subject: [PATCH] Fix #1076: webp images show up as black
+
+https://github.com/BestImageViewer/geeqie/issues/1076
+
+Because if the problems with webp display, the in-house webp loader is
+reverted to.
+
+(cherry picked from commit 4b159311f17c666c51ceca994b63b12eee841a23)
+
+ Conflicts:
+	.github/workflows/appimage-aarch64.yml
+	.github/workflows/appimage-minimal-aarch64.yml
+	.github/workflows/appimage-minimal-x86_64.yml
+	.github/workflows/appimage-x86_64.yml
+	AppImageBuilder-aarch64.yml
+	AppImageBuilder-x86_64.yml
+	src/image-load.cc
+---
+ config.h.in            |   3 +
+ doxygen.conf           |   3 +-
+ meson.build            |  16 ++---
+ meson_options.txt      |   1 +
+ src/image-load-webp.cc | 152 +++++++++++++++++++++++++++++++++++++++++
+ src/image-load-webp.h  |  29 ++++++++
+ src/image-load.cc      |  11 +++
+ src/meson.build        |   3 +
+ 8 files changed, 209 insertions(+), 9 deletions(-)
+ create mode 100644 src/image-load-webp.cc
+ create mode 100644 src/image-load-webp.h
+
+diff --git a/config.h.in b/config.h.in
+index de5fc448..48638558 100644
+--- a/config.h.in
++++ b/config.h.in
+@@ -110,6 +110,9 @@
+ /* Define to enable use of custom tiff loader */
+ #mesondefine HAVE_TIFF
+ 
++/* Define to enable use of custom webp loader */
++#mesondefine HAVE_WEBP
++
+ /* Version number of package */
+ #mesondefine VERSION
+ 
+diff --git a/doxygen.conf b/doxygen.conf
+index f2484b79..052ba03a 100644
+--- a/doxygen.conf
++++ b/doxygen.conf
+@@ -2280,7 +2280,8 @@ PREDEFINED             = DEBUG=1 \
+                          HAVE_PDF=1 \
+                          HAVE_RAW=1 \
+                          HAVE_SPELL=1 \
+-                         HAVE_TIFF=1
++                         HAVE_TIFF=1 \
++                         HAVE_WEBP
+ 
+ # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
+ # tag can be used to specify a list of macro names that should be expanded. The
+diff --git a/meson.build b/meson.build
+index e91fe151..21532d0c 100644
+--- a/meson.build
++++ b/meson.build
+@@ -542,19 +542,19 @@ else
+     summary({'videothumbnailer' : ['disabled -thumbnails of video files supported', false]}, section : 'Configuration', bool_yn : true)
+ endif
+ 
+-# libpixbufloader-webp is not loaded as part of libgdk-pixbuf. Just issue
+-# a warning if not installed
+-libwebp_dir = dependency('gdk-pixbuf-2.0', method: 'pkg-config').get_variable(pkgconfig: 'gdk_pixbuf_moduledir', internal: 'gdk_pixbuf_moduledir')
+-
+-if libwebp_dir.contains('loaders')
+-    libwebp_dep = cc.find_library('pixbufloader-webp', dirs : libwebp_dir, required : false)
++libwebp_dep = []
++req_version = '>=0.6.1'
++option = get_option('webp')
++if not option.disabled()
++    libwebp_dep = dependency('libwebp', version : req_version, required : get_option('webp'))
+     if libwebp_dep.found()
++        conf_data.set('HAVE_WEBP', 1)
+         summary({'webp' : ['webp files supported:', true]}, section : 'Configuration', bool_yn : true)
+     else
+-        summary({'webp' : ['webp-pixbuf-loader not installed - webp files supported:', false]}, section : 'Configuration', bool_yn : true)
++        summary({'webp' : ['libwebp ' + req_version + ' not found - webp files supported:', false]}, section : 'Configuration', bool_yn : true)
+     endif
+ else
+-    summary({'webp' : ['webp-pixbuf-loader not installed - webp files supported:', false]}, section : 'Configuration', bool_yn : true)
++    summary({'webp' : ['disabled - webp files supported:', false]}, section : 'Configuration', bool_yn : true)
+ endif
+ 
+ # Check for nl_langinfo and _NL_TIME_FIRST_WEEKDAY
+diff --git a/meson_options.txt b/meson_options.txt
+index 82b08ef8..9bc8508a 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -45,4 +45,5 @@ option('pdf', type : 'feature', value : 'auto', description : 'pdf')
+ option('spell', type : 'feature', value : 'auto', description : 'spelling checks')
+ option('tiff', type : 'feature', value : 'auto', description : 'tiff')
+ option('videothumbnailer', type : 'feature', value : 'auto', description : 'video thumbnailer')
++option('webp', type : 'feature', value : 'auto', description : 'webp')
+ option('yelp-build', type : 'feature', value : 'auto', description : 'help files')
+diff --git a/src/image-load-webp.cc b/src/image-load-webp.cc
+new file mode 100644
+index 00000000..e9d767f7
+--- /dev/null
++++ b/src/image-load-webp.cc
+@@ -0,0 +1,152 @@
++/*
++ * Copyright (C) 20019 - The Geeqie Team
++ *
++ * Author: Colin Clark
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License along
++ * with this program; if not, write to the Free Software Foundation, Inc.,
++ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
++ */
++
++#include "main.h"
++
++#include "image-load.h"
++#include "image-load-webp.h"
++
++#ifdef HAVE_WEBP
++#include <webp/decode.h>
++
++typedef struct _ImageLoaderWEBP ImageLoaderWEBP;
++struct _ImageLoaderWEBP {
++	ImageLoaderBackendCbAreaUpdated area_updated_cb;
++	ImageLoaderBackendCbSize size_cb;
++	ImageLoaderBackendCbAreaPrepared area_prepared_cb;
++	gpointer data;
++	GdkPixbuf *pixbuf;
++	guint requested_width;
++	guint requested_height;
++	gboolean abort;
++};
++
++static void free_buffer(guchar *pixels, gpointer)
++{
++	g_free(pixels);
++}
++
++static gboolean image_loader_webp_load(gpointer loader, const guchar *buf, gsize count, GError **)
++{
++	auto ld = static_cast<ImageLoaderWEBP *>(loader);
++	gboolean res_info;
++	gint width, height;
++	guint8* data;
++	VP8StatusCode status_code;
++	WebPBitstreamFeatures features;
++
++	res_info = WebPGetInfo(buf, count, &width, &height);
++	if (!res_info)
++		{
++		log_printf("warning: webp reader error\n");
++		return FALSE;
++		}
++
++	status_code = WebPGetFeatures(buf, count, &features);
++	if (status_code != VP8_STATUS_OK)
++		{
++		log_printf("warning: webp reader error\n");
++		return FALSE;
++		}
++
++	if (features.has_alpha)
++		{
++		data = WebPDecodeRGBA(buf, count, &width, &height);
++		}
++	else
++		{
++		data = WebPDecodeRGB(buf, count, &width, &height);
++		}
++
++	ld->pixbuf = gdk_pixbuf_new_from_data(data, GDK_COLORSPACE_RGB, features.has_alpha, 8, width, height, width * (features.has_alpha ? 4 : 3), free_buffer, NULL);
++
++	ld->area_updated_cb(loader, 0, 0, width, height, ld->data);
++
++	return TRUE;
++}
++
++static gpointer image_loader_webp_new(ImageLoaderBackendCbAreaUpdated area_updated_cb, ImageLoaderBackendCbSize size_cb, ImageLoaderBackendCbAreaPrepared area_prepared_cb, gpointer data)
++{
++	auto loader = g_new0(ImageLoaderWEBP, 1);
++	loader->area_updated_cb = area_updated_cb;
++	loader->size_cb = size_cb;
++	loader->area_prepared_cb = area_prepared_cb;
++	loader->data = data;
++	return (gpointer) loader;
++}
++
++static void image_loader_webp_set_size(gpointer loader, int width, int height)
++{
++	auto ld = static_cast<ImageLoaderWEBP *>(loader);
++	ld->requested_width = width;
++	ld->requested_height = height;
++}
++
++static GdkPixbuf* image_loader_webp_get_pixbuf(gpointer loader)
++{
++	auto ld = static_cast<ImageLoaderWEBP *>(loader);
++	return ld->pixbuf;
++}
++
++static gchar* image_loader_webp_get_format_name(gpointer)
++{
++	return g_strdup("webp");
++}
++
++static gchar** image_loader_webp_get_format_mime_types(gpointer)
++{
++	static const gchar *mime[] = {"image/webp", nullptr};
++	return g_strdupv(const_cast<gchar **>(mime));
++}
++
++static gboolean image_loader_webp_close(gpointer, GError **)
++{
++	return TRUE;
++}
++
++static void image_loader_webp_abort(gpointer loader)
++{
++	auto ld = static_cast<ImageLoaderWEBP *>(loader);
++	ld->abort = TRUE;
++}
++
++static void image_loader_webp_free(gpointer loader)
++{
++	auto ld = static_cast<ImageLoaderWEBP *>(loader);
++	if (ld->pixbuf) g_object_unref(ld->pixbuf);
++	g_free(ld);
++}
++
++void image_loader_backend_set_webp(ImageLoaderBackend *funcs)
++{
++	funcs->loader_new = image_loader_webp_new;
++	funcs->set_size = image_loader_webp_set_size;
++	funcs->load = image_loader_webp_load;
++	funcs->write = NULL;
++	funcs->get_pixbuf = image_loader_webp_get_pixbuf;
++	funcs->close = image_loader_webp_close;
++	funcs->abort = image_loader_webp_abort;
++	funcs->free = image_loader_webp_free;
++	funcs->get_format_name = image_loader_webp_get_format_name;
++	funcs->get_format_mime_types = image_loader_webp_get_format_mime_types;
++}
++
++#endif
++/* vim: set shiftwidth=8 softtabstop=0 cindent cinoptions={1s: */
+diff --git a/src/image-load-webp.h b/src/image-load-webp.h
+new file mode 100644
+index 00000000..7e4c3a93
+--- /dev/null
++++ b/src/image-load-webp.h
+@@ -0,0 +1,29 @@
++/*
++ * Copyright (C) 20019 - The Geeqie Team
++ *
++ * Author: Colin Clark
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License along
++ * with this program; if not, write to the Free Software Foundation, Inc.,
++ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
++ */
++
++#ifndef IMAGE_LOAD_WEBP_H
++#define IMAGE_LOAD_WEBP_H
++
++#ifdef HAVE_WEBP
++void image_loader_backend_set_webp(ImageLoaderBackend *funcs);
++#endif
++
++#endif
++/* vim: set shiftwidth=8 softtabstop=0 cindent cinoptions={1s: */
+diff --git a/src/image-load.cc b/src/image-load.cc
+index e559b3d7..12e06f53 100644
+--- a/src/image-load.cc
++++ b/src/image-load.cc
+@@ -33,6 +33,7 @@
+ #include "image-load-heif.h"
+ #include "image-load-ffmpegthumbnailer.h"
+ #include "image-load-collection.h"
++#include "image-load-webp.h"
+ #include "image-load-zxscr.h"
+ #include "image-load-j2k.h"
+ #include "image-load-jpegxl.h"
+@@ -672,6 +673,16 @@ static void image_loader_setup_loader(ImageLoader *il)
+ 		}
+ 	else
+ #endif
++#ifdef HAVE_WEBP
++	if (il->bytes_total >= 12 &&
++		(memcmp(il->mapped_file, "RIFF", 4) == 0) &&
++		(memcmp(il->mapped_file + 8, "WEBP", 4) == 0))
++		{
++		DEBUG_1("Using custom webp loader");
++		image_loader_backend_set_webp(&il->backend);
++		}
++	else
++#endif
+ #ifdef HAVE_DJVU
+ 	if (il->bytes_total >= 16 &&
+ 		(memcmp(il->mapped_file, "AT&TFORM", 8) == 0) &&
+diff --git a/src/meson.build b/src/meson.build
+index 2930469f..28b5a335 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -124,6 +124,8 @@ main_sources = files('advanced-exif.cc',
+ 'image-load-svgz.h',
+ 'image-load-tiff.cc',
+ 'image-load-tiff.h',
++'image-load-webp.cc',
++'image-load-webp.h',
+ 'image-load-zxscr.cc',
+ 'image-load-zxscr.h',
+ 'image-overlay.cc',
+@@ -288,6 +290,7 @@ libjxl_dep,
+ libopenjp2_dep,
+ libraw_dep,
+ libunwind_dep,
++libwebp_dep,
+ lua_dep,
+ poppler_glib_dep,
+ thread_dep,
+-- 
+2.42.0
+

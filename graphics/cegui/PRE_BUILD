@@ -1,6 +1,6 @@
 default_pre_build &&
 
-sedit 's/ft2build\.h/\0 PATH_SUFFIXES freetype2/' cmake/FindFreetype.cmake &&
+sed -i 's/lib64/lib/g' CMakeLists.txt &&
 
 # don't break because of unescaped [ in apple setup code...
 sedit 's/if \[.*fi/"\0"/' cmake/CEGUIMacros.cmake &&
@@ -8,4 +8,6 @@ sedit 's/if \[.*fi/"\0"/' cmake/CEGUIMacros.cmake &&
 #http://www.cegui.org.uk/forum/viewtopic.php?f=10&t=7195#p34902
 sedit '/#include "tolua++.h"/{h;d};/#include "lauxlib.h"/G' "cegui/src/ScriptModules/Lua/support/tolua++bin/tolua.c" &&
 
-sedit 's:-std=c++03:-std=c++14:' CMakeLists.txt
+sedit 's:-std=c++03:-std=c++14:' CMakeLists.txt &&
+
+cp $SCRIPT_DIRECTORY/*.cmake cmake/

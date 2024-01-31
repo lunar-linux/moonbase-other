@@ -5,6 +5,4 @@ OPTS+=" --disable-static \
         --disable-gtk-doc-html \
         --disable-schemas-compile" &&
 
-PYTHON=python2 ./configure --prefix=/usr $OPTS &&
-
-default_make
+default_build
