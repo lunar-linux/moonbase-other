@@ -1,3 +1,4 @@
+CXXFLAGS="-fPIC"
 OPTS+=" -G Ninja"
 
 default_cmake_config &&
