@@ -1,3 +1,3 @@
-OPTS+=" -DBUILD_SHARED_LIBS=1"
+OPTS+=" -DBUILD_SHARED_LIBS=ON"
 
 default_cmake_build
