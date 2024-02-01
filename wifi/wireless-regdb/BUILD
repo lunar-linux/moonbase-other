@@ -1,5 +1,5 @@
-make install DESTDIR=/usr MANDIR=/usr/share/man FIRMWARE_PATH=/usr/lib/firmware &&
 prepare_install &&
+make install DESTDIR=/usr MANDIR=/usr/share/man FIRMWARE_PATH=/usr/lib/firmware &&
 
 # Install and verify regulatory.bin file
 echo "Installing the regulatory.bin file"
