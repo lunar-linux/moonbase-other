@@ -25,18 +25,10 @@ optional_depends python \
                  "-Dwith-python=false" \
                  "enable support for Python 3.x plugins"
 
-if module_installed luajit; then
-   optional_depends lua \
+optional_depends luajit \
                     "-Dwith-lua=luajit" \
                     "-Dwith-lua=false" \
                     "enable support for lua plugins"
-
-else
-   optional_depends lua \
-                    "-Dwith-lua=true" \
-                    "-D-with-lua=false" \
-                    "enable support for lua plugins"
-fi
 
 optional_depends libcanberra \
                  "-Dlibcanberra=enabled" \
