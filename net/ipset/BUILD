@@ -1,3 +1,5 @@
+OPTS+=" --with-kmod=no" &&
+
 default_build &&
 
 if module_installed bash-completion; then

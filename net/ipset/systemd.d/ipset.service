@@ -6,9 +6,9 @@ Wants=network-pre.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/ipset -f /etc/ipset.conf restore
-ExecReload=/usr/bin/ipset -f /etc/ipset.conf restore
-ExecStop=/usr/bin/ipset destroy
+ExecStart=/usr/sbin/ipset -f /etc/ipset.conf restore
+ExecReload=/usr/sbin/ipset -f /etc/ipset.conf restore
+ExecStop=/usr/sbin/ipset destroy
 
 [Install]
 WantedBy=multi-user.target
