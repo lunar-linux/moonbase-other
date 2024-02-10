@@ -25,5 +25,4 @@ cargo install --no-default-features \
 cargo cinstall --release \
                --no-default-features \
                --features binaries,asm,threading,signal_support \
-               --prefix /usr \
-               --destdir /usr
+               --prefix /usr
