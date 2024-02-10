@@ -3,13 +3,11 @@
 #export CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_DEBUG=true 
 
 cargo build --release \
-            --frozen \
             --no-default-features \
             --features binaries,asm,threading,signal_support \
             --manifest-path Cargo.toml &&
 
 cargo cbuild --release \
-             --frozen \
              --prefix=/usr \
              --no-default-features \
              --features binaries,asm,threading,signal_support \
@@ -17,8 +15,7 @@ cargo cbuild --release \
 
 prepare_install &&
 
-cargo install --frozen \
-              --no-default-features \
+cargo install --no-default-features \
               --features binaries,asm,threading,signal_support \
               --offline \
               --no-track \
@@ -26,7 +23,6 @@ cargo install --frozen \
               --root /usr &&
 
 cargo cinstall --release \
-               --frozen \
                --no-default-features \
                --features binaries,asm,threading,signal_support \
                --prefix /usr \

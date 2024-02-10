@@ -20,7 +20,7 @@ OPTS+=" --disable-static  \
         --disable-libopencv"
 
 if [ -n $CPU ] ; then
-  OPTS+=" --cpu=$CPU"
+  OPTS+=" --arch=$(arch)"
 fi
 
 # With default_build, get error:  Unknown option "--build=i686-pc-linux-gnu"
