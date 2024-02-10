@@ -1,14 +1,11 @@
 OPTS+=" --sysconfdir=/etc/openmpi \
         --libdir=/usr/lib/openmpi \
         --enable-shared \
-        --enable-mpi-cxx \
         --enable-builtin-atomics \
         --disable-static \
         --without-slurm \
         --without-moab \
         --without-sge"
-
-#        --without-lfs"
 
 LDFLAGS="${LDFLAGS} -Wl,-z,noexecstack"
 
