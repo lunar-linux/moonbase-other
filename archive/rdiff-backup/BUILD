@@ -1,6 +1,4 @@
-(
-   python setup.py build &&
-   prepare_install &&
-   python setup.py install
-        
-) > $C_FIFO 2>&1
+python -m build --wheel &&
+
+prepare_install &&
+python -m installer dist/*.whl
