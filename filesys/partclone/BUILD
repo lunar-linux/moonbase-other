@@ -1,5 +1,5 @@
 OPTS+=" --disable-nls --enable-ncursesw --enable-extfs"  &&
 
-./autogen &&
+autoreconf -fi &&
 
 default_build
