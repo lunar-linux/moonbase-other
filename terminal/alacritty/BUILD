@@ -5,7 +5,19 @@ prepare_install &&
 desktop-file-install -m 644 --dir /usr/share/applications/ extra/linux/Alacritty.desktop &&
 
 install -D -m755 target/release/alacritty /usr/bin/ &&
-install -D -m644 extra/alacritty.man /usr/share/man/man1/alacritty.1 &&
+
+if in_depends $MODULE scdoc ; then
+   cd extra/man
+   for f in *.1.scd; do
+       scdoc < $f > ${f//.scd}
+       install -D -m644 ${f//.scd} /usr/share/man/man1/
+   done
+   for f in *.5.scd; do
+       scdoc < $f > ${f//.scd}
+       install -D -m644 ${f//.scd} /usr/share/man/man5/
+   done
+   cd ../..
+fi &&
 
 if module_installed bash-completion ; then
    install -D -m644 extra/completions/alacritty.bash \
@@ -18,9 +30,8 @@ if module_installed fish ; then
 fi &&
 
 mkdir -p /usr/share/appdata &&
-mkdir -p /usr/share/doc/alacritty/example &&
 install -D -m644 extra/linux/org.alacritty.Alacritty.appdata.xml /usr/share/appdata/ &&
-install -D -m644 alacritty.yml /usr/share/doc/alacritty/example/ &&
+mkdir -p /usr/share/pixmaps &&
 install -D -m644 extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg &&
 
 # alacritty terminfo
