@@ -1,18 +1,11 @@
-unset CFLAGS CXXFLAGS &&
-
-make clean &&
-make mkProjectInfo &&
-
-if module_installed lablgtk; then
-  make UISTYLE=gtk2
+if in_depends $MODULE lablgtk; then
+  make UISTYLE=gtk3
 else
-  make UISTYLE=text
+  make UISTYLE=text DEBUGGING=false THREADS=true
 fi &&
 
 prepare_install &&
-strip unison &&
-cp unison /usr/bin/
+cp src/unison /usr/bin/ &&
+cp src/unison-* /usr/bin/ &&
 
-install -d /usr/share/{pixmaps,applications}
-convert win32rc/U.ico[1] /usr/share/pixmaps/$MODULE.png
-#install -m644 ../desktop /usr/share/applications/$MODULE.desktop
+install -Dm0644 icons/U.svg /usr/share/icons/hicolor/scalable/apps/$MODULE.svg
