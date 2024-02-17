@@ -3,9 +3,8 @@ depends kmod
 depends util-linux
 depends json-c
 depends xmlto
-depends systemd
-depends asciidoctor
 depends iniparser
+depends bash-completion
 
-optional_depends systemd  "-D systemd=enabled" "-D systemd=disabled"  "for systemd support"
-optional_depends keyutils "-D keyutils=enabled" "-D keyutils=disabled" "for key management support"
+optional_depends systemd  "-Dsystemd=enabled"  "-Dsystemd=disabled"  "for systemd support"
+optional_depends keyutils "-Dkeyutils=enabled" "-Dkeyutils=disabled" "for key management support"
