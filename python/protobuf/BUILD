@@ -12,7 +12,7 @@ cmake --build $MODULE-$VERSION &&
 cd python &&
 LDFLAGS+=" -Lbuild" 
 PROTOC=build/protoc
-python -m build --wheel --no-isolation &&
+python -m build --wheel &&
 cd ../
 
 prepare_install &&
