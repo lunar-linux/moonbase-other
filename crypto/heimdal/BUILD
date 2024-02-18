@@ -1,7 +1,7 @@
 export CFLAGS+=" -I/usr/include/et" &&
 export CXXFLAGS+=" -I/usr/include/et" &&
 
-
+# See https://github.com/heimdal/heimdal/issues/852 for disabling otp
 OPTS+=" --prefix=/usr \
         --sbindir=/usr/bin \
         --sysconfdir=/etc \
