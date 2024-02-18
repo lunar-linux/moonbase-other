@@ -10,9 +10,9 @@ cmake -B $MODULE-$VERSION -S . $OPTS &&
 cmake --build $MODULE-$VERSION &&
 
 cd python &&
-LDFLAGS+=" -Lbuild" 
-PROTOC=build/protoc
-python -m build --wheel &&
+#LDFLAGS+=" -Lbuild" 
+#PROTOC=build/protoc
+python -m build --wheel --no-isolation &&
 cd ../
 
 prepare_install &&
