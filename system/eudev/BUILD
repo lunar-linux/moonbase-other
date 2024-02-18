@@ -1,3 +1,5 @@
+export XML_CATALOG_FILES=/etc/xml/catalog &&
+
 OPTS+=" --prefix=/usr \
         --with-rootprefix=/usr \
         --sysconfdir=/etc \
