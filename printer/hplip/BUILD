@@ -4,7 +4,7 @@ autoreconf --force --install &&
 # Fix build with python 3.8
 export CFLAGS+=" $(python3-config --includes)" &&
 
-if modules_installed qt5; then
+if module_installed qt5; then
   OPTS+=" --enable-qt5"
 fi &&
 
