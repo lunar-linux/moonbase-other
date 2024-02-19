@@ -1,7 +1,13 @@
-. /etc/profile.d/qt5.rc &&
+source /etc/profile.d/qt6.rc &&
+export LANG='en_US.UTF-8'
 
-#CXXFLAGS+=" -std=c++11" &&
+OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DQTFIXEDVERSION=Qt6 \
+        -Wno-dev"
 
-OPTS+=" --docdir=/usr/share/doc/xca --with-qt-version=5 --disable-doc" &&
+cmake -B $MODULE-$VERSION -S . $OPTS  &&
+cmake --build $MODULE-$VERSION &&
+prepare_install &&
 
-default_build
+cmake --install $MODULE-$VERSION
