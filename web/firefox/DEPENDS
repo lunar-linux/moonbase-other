@@ -23,6 +23,7 @@ depends yasm
 depends zip
 depends python-setuptools
 depends python-zstandard
+depends pulseaudio
 
 optional_depends libpng \
                  "--with-system-png" \
@@ -43,11 +44,6 @@ optional_depends icu4c \
                  "--with-system-icu" \
                  "--without-system-icu" \
                  "Use system icu4c library"
-
-optional_depends pulseaudio \
-                 "--enable-pulseaudio" \
-                 "--disable-pulseaudio"  \
-                 "Build pulseAudio sound backend"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends libjpeg-turbo \
