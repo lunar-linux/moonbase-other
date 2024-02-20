@@ -2,6 +2,6 @@ make &&
 
 prepare_install
 
-make PREFIX=/usr install &&
+make PREFIX=/usr install
 
-rm -f /usr/lib/libgif.a
+#rm -f /usr/lib/libgif.a
