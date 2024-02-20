@@ -1,5 +1,5 @@
-python setup.py config &&
+
+python -m build --wheel &&
 
 prepare_install &&
-
-python setup.py install
+python -m installer --destdir=/ dist/*.whl
