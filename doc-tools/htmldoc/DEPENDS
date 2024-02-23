@@ -2,6 +2,9 @@ depends gnutls
 depends libXpm
 depends shared-mime-info
 depends zlib
+depends %JPEG
+depends libpng
+depends cups
 
 # Omit for now
 #optional_depends %SSL \
@@ -13,16 +16,6 @@ optional_depends zlib \
                  "--disable-localzlib" \
                  "--enable-localzlib" \
                  "use system ZLIB instead of htmldoc's"
-
-optional_depends %JPEG \
-                 "--disable-localjpeg" \
-                 "--enable-localjpeg" \
-                 "use system JPEG instead of htmldoc's"
-
-optional_depends libpng \
-                 "--disable-localpng" \
-                 "--enable-localpng" \
-                 "use system PNG instead of htmldoc's"
 
 optional_depends fltk \
                  "--with-gui" \

@@ -1,5 +1,6 @@
-export PYTHONDONTWRITEBYTECODE=1 &&
+touch NEWS &&
+autoreconf -fiv &&
 
-OPTS+=" --enable-static=no"
+export PYTHONDONTWRITEBYTECODE=1 &&
 
 default_build

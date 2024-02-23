@@ -1,4 +1,6 @@
 OPTS+=" --prefix=/usr \
+        --sbindir=/usr/bin \
+        --libexecdir=/usr/lib \
         --disable-static \
         --disable-dsa-tests \
         --disable-docs \

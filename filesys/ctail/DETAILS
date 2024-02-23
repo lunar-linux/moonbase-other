@@ -1,11 +1,12 @@
           MODULE=ctail
          VERSION=0.1.0
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://ctail.i-want-a-pony.com/downloads/
-      SOURCE_VFY=sha1:4bd0373df88136b48cac721c98d34cefda27aff9
-        WEB_SITE=http://ctail.i-want-a-pony.com/
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
+      SOURCE_URL=https://github.com/pquerna/$MODULE/archive/refs/tags/
+      SOURCE_VFY=sha256:864efb235a5d076167277c9f7812ad5678b477ff9a2e927549ffc19ed95fa911
+        WEB_SITE=https://github.com/pquerna/$MODULE
          ENTERED=20070714
-         UPDATED=20070714
+         UPDATED=20240215
            SHORT="a tool for using tail across remote machines"
 cat << EOF
 ctail is a tool for operating tail(1) across large clusters of

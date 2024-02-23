@@ -1,6 +1,5 @@
 ./configure -bindir /usr/bin \
             -mandir /usr/share/man \
-            -no-custom \
             -config /etc/findlib.conf \
             -sitelib /usr/lib/ocaml &&
 

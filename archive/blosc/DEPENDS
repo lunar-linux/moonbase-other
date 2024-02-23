@@ -2,4 +2,6 @@ depends cmake
 depends snappy
 depends zlib
 
-optional_depends lz4 "-DPREFER_EXTERNAL_LZ$=ON" "" "for system installed lz4 library"
+optional_depends lz4 "-DPREFER_EXTERNAL_LZ4=ON" "" "for system installed lz4 library"
+optional_depends zlib "-DPREFER_EXTERNAL_ZLIB=ON" "" "for system installed zlib library"
+optional_depends zstd "-DPREFER_EXTERNAL_ZSTD=ON" "" "for system installed zstd library"

@@ -1,5 +1,7 @@
-. /etc/profile.d/qt5.rc &&
+export LANG='en_US.UTF-8'
 
-/usr/lib/qt5/bin/qmake PREFIX=/usr texmaker.pro &&
+. /etc/profile.d/qt6.rc &&
+
+/usr/lib/qt6/bin/qmake PREFIX=/usr texmaker.pro &&
 
 default_make

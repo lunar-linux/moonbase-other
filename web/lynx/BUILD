@@ -22,5 +22,6 @@ default_make &&
 make install-help &&
 make install-doc  &&
 
-cp -bp lynx.cfg /etc/lynx.cfg &&
-rm -f /usr/bin/lynx.old
+if [ ! -e /etc/lynx.cfg ]; then
+  install -m 644 $SOURCE_DIRECTORY/lynx.cfg /etc/lynx.cfg
+fi

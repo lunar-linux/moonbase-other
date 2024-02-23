@@ -1,3 +1,0 @@
-OPTS+=" -DENABLE_STRICT=OFF -DENABLE_TESTS=OFF"
-
-default_cmake_build

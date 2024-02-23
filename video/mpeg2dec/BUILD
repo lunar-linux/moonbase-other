@@ -1,9 +1,5 @@
-(
+OPTS+=" --disable-static" &&
 
-  OPTS+=" --disable-static" &&
+CFLAGS+=" -fPIC" &&
 
-  CFLAGS+=" -fPIC" &&
-
-  default_build
-
-) > $C_FIFO 2>&1
+default_build

@@ -24,8 +24,10 @@ fi &&
 
 # Some distros say java is only library so install it in /usr/lib
 # We make symlink to help applications find java if they were developed in such environment
-ln -sf /usr/lib/java/jdk${FVERSION} /usr/lib/jdk${FDVERSION} &&
-
+#ln -sf /usr/lib/java/jdk${FVERSION} /usr/lib/jdk${FDVERSION} &&
+ln -sf /usr/lib/java/${FVERSION} /usr/lib/${FVERSION} &&
+#ln -sf /usr/lib/jave ${FVERSION}/lib/server/libjvm.so /usr/lib/libjvm.so &&
+ 
 # Some applications don't accept anything but /usr/bin
 for file in /usr/lib/java/latest/bin/*; do
   bfile=`basename $file`
@@ -42,26 +44,12 @@ rm -f /usr/lib/lunar/plugins/{libjavaplugin_oji.so,libnpjp2.so}
 # Firefox 3, Seamonkey 2, Google chrome/ium use it
 # KDE3/4 Konqueror and Opera always uses Java directly so do not use any plugin
 if [ -d /usr/lib/java/latest/lib/amd64 ]; then
-  ln -sf /usr/lib/java/latest/jre/lib/amd64/server/libjvm.so /usr/lib/
+  ln -sf /usr/lib/java/latest/lib/server/libjvm.so /usr/lib/libjvm.so
 #  ln -sf /usr/lib/java/latest/jre/lib/amd64/libnpjp2.so /usr/lib/lunar/plugins/
 else
-  ln -sf /usr/lib/java/latest/jre/lib/amd64/server/libjvm.so /usr/lib/
+  ln -sf /usr/lib/java/latest/lib/server/libjvm.so /usr/lib/libjvm.so
 #  ln -sf /usr/lib/java/latest/jre/lib/amd64/libnpjp2.so /usr/lib/lunar/plugins/
 fi &&
-
-#cd /usr/lib/java/jdk${DVERSION}/lib/security &&
-#if [ $JCEYES == "y" ]; then
-#  rm -f US_export_policy.jar local_policy.jar
-#  ln -s UnlimitedJCEPolicyJDK8/US_export_policy.jar US_export_policy.jar
-#  ln -s UnlimitedJCEPolicyJDK8/local_policy.jar local_policy.jar
-#else
-#  rm -rf UnlimitedJCEPolicyJDK8
-#fi &&
-#cd - &&
-
-# Move .desktops + icons to /usr/share
-#cp -fR /usr/lib/java/latest/jre/lib/desktop/* /usr/share/ &&
-#rm -fr /usr/lib/java/latest/lib/desktop &&
 
 echo export JAVA_HOME=\"/usr/lib/java/latest\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
 echo export PATH=\"'$PATH':'$JAVA_HOME'/bin\"  >> $SOURCE_DIRECTORY/sun-jdk.rc &&

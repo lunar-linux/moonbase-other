@@ -1,5 +1,9 @@
 rm -fR  $BUILD_DIRECTORY/icu-release-${VERSION//./-} &&
 
+if module_installed libxml2; then
+  lunar fix libxml2
+fi
+
 if module_installed icu-le-hb; then
   lin icu-le-hb
 fi
@@ -8,20 +12,36 @@ if module_installed harfbuzz; then
   lunar fix harfbuzz
 fi
 
-if module_installed libxml2; then
-  lunar fix libxml2
+if module_installed libical; then
+  lunar fix libical
 fi
 
 if module_installed boost; then
   lunar fix boost
 fi
 
-if module_installed texlive; then
-  lunar fix texlive
-fi
-
 if module_installed xfsprogs; then
   lunar fix xfsprogs
+fi
+
+if module_installed yaz; then
+  lunar fix yaz
+fi
+
+if module_installed m17n-lib; then
+  lunar fix m17n-lib
+fi
+
+if module_installed gspell; then
+  lunar fix gspell
+fi
+
+if module_installed samba; then
+  lunar fix samba
+fi
+
+if module_installed texlive; then
+  lunar fix texlive
 fi
 
 if module_installed python-PyICU; then
@@ -34,10 +54,6 @@ fi
 
 if module_installed xerces-c; then
   lunar fix xerces-c
-fi
-
-if module_installed yaz; then
-  lunar fix yaz
 fi
 
 if module_installed raptor2; then
@@ -68,12 +84,12 @@ if module_installed qt6-5compat; then
   lunar fix qt6-5compat
 fi
 
-if module_installed samba; then
-  lunar fix samba
-fi
-
 if module_installed qt5; then
   lunar fix qt5
+fi
+
+if module_installed qtwebengine; then
+  lunar fix qtwebengine
 fi
 
 if module_installed tulip; then
@@ -83,3 +99,8 @@ fi
 if module_installed firefox; then
   lunar fix firefox
 fi
+
+if module_installed geeqie; then
+  lunar fix geeqie
+fi
+
