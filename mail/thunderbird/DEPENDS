@@ -1,3 +1,6 @@
+depends node
+depends cbindgen
+depends lld
 depends autoconf-mozilla
 depends dbus-glib
 depends zip
@@ -18,11 +21,9 @@ depends gtk+-3
 depends zlib
 depends Botan
 depends gnupg
+depends alsa-lib
+depends pulseaudio
 
 # This pulls in nspr and that's good
 depends nss 
 
-optional_depends pulseaudio \
-                 "--enable-pulseaudio" \
-                 "--disable-pulseaudio" \
-                 "Build the pulseaudio backend"
