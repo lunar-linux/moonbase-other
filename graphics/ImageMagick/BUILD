@@ -2,9 +2,6 @@
 # I see the same issue with dvdauthor. 
 OPTS+=" --enable-shared --disable-static --with-modules"
 
-# see CONFIGURE
-OPTS+=" --disable-hdri"
-
 default_config &&
 
 make &&
