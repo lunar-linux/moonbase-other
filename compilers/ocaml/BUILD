@@ -9,6 +9,6 @@ _opts+=" --prefix=/usr \
 
 ./configure $_opts &&
 
-make world.opt &&
+make --debug=v world.opt &&
 prepare_install &&
 make install
