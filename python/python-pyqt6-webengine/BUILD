@@ -1,6 +1,6 @@
 source /etc/profile.d/qt6.rc &&
+export LANG='en_US.UTF-8'
 
-sip-build --build-dir build --qmake=/usr/lib/qt6/bin/qmake6 --no-make &&
-
+sip-build --qmake=/usr/lib/qt6/bin/qmake6 &&
 cd build &&
 default_make
