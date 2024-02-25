@@ -1,21 +1,9 @@
-rm -rf lib &&
-ln -sf libimagequant-$VERSION lib &&
+sed -i 's|, path = "lib/imagequant-sys"||' Cargo.toml &&
+cargo fetch --target "$CARCH-unknown-linux-gnu" &&
 
-pushd lib > /dev/null &&
-./configure --prefix=/usr &&
-make shared &&
-popd > /dev/null &&
+export RUSTUP_TOOLCHAIN=stable
+export CARGO_TARGET_DIR=target
+cargo build --release &&
 
-./configure --prefix=/usr --with-libpng=/usr/lib/libpng.so --with-lcms2 &&
-
-pushd libimagequant-$VERSION > /dev/null &&
-make shared imagequant.pc &&A
-popd > /dev/null &&
-
-default_make
-
-mkdir -p /usr/include/$MODULE &&
-install -m 644 lib/*.h /usr/include/$MODULE &&
-install -m 755 lib/libimagequant.so /usr/lib &&
-install -m 644 lib/imagequant.pc /usr/lib/pkgconfig &&
-ln -sf /usr/lib/libimagequant.so /usr/lib/libimagequant.so.0
+prepare_install &&
+install -Dm755 target/release/pngquant /usr/bin/pngquant
