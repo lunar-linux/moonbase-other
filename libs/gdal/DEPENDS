@@ -3,6 +3,7 @@ depends lz4
 depends ccache
 depends python-setuptools
 depends pcre2
+depends libgeotiff
 depends libxml2
 depends %OSSL
 depends cmake
@@ -63,8 +64,3 @@ optional_depends tiff\
                  "-DGDAL_USE_TIFF=ON -DGDAL_USE_TIFF_INTERNAL=OFF" \
                  "-DGDAL_USE_TIFF=OFF -DGDAL_USE_TIFF_INTERNAL=ON" \
                  "for system tiff graphics support, ${PROBLEM_COLOR}Say no to use internal${DEFAULT_COLOR}"
-
-optional_depends libgeotiff \
-                 "-DGDAL_USE_GEOTIFF=ON -DGDAL_USE_GEOTIFF_INTERNAL=OFF" \
-                 "-DGDAL_USE_GEOTIFF=ON -DGDAL_USE_GEOTIFF_INTERNAL=ON" \
-                 "for system geotiff graphics support,${PROBLEM_COLOR}Say no to use internal${DEFAULT_COLOR}"
