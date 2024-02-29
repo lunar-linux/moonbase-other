@@ -7,12 +7,9 @@ if in_depends $MODULE qt5 && [[ ! -f /usr/lib/cmake/QGpgme/QGpgmeConfig.cmake ]]
   . /etc/profile.d/qt5.rc
 fi &&
 
-if [ "$LARGE_FILES" == "n" ]; then
-  OPTS+=" --disable-largefile"
-fi
-
 OPTS+=" --disable-static \
         --disable-fd-passing \
+        --enable-largefile \
         --disable-gpgsm-test"
 
 default_build
