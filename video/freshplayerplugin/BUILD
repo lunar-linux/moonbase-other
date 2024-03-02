@@ -1,14 +1,16 @@
-  default_cmake_config &&
+# https://github.com/i-rinat/freshplayerplugin/issues/389
+OPTS+=" -DWITH_HWDEC=OFF"
 
-  make &&
-  prepare_install &&
+default_cmake_config &&
 
-  mkdir -p /usr/lib/lunar/plugins &&
-  install -m555 libfreshwrapper-*.so /usr/lib/lunar/plugins &&
+make &&
+prepare_install &&
 
-  install ../data/freshwrapper.conf.example /etc/ &&
-  
-  if [ ! -f /etc/freshwrapper.conf ] ; then
-   sedit "s:/opt/google/chrome/PepperFlash/:/usr/lib/lunar/plugins/:" ../data/freshwrapper.conf.example &&
-   install -Dm644 ../data/freshwrapper.conf.example /etc/freshwrapper.conf
-  fi
+mkdir -p /usr/lib/lunar/plugins &&
+install -m555 libfreshwrapper-*.so /usr/lib/lunar/plugins &&
+install ../data/freshwrapper.conf.example /etc/ &&
+
+if [ ! -f /etc/freshwrapper.conf ] ; then
+  sedit "s:/opt/google/chrome/PepperFlash/:/usr/lib/lunar/plugins/:" ../data/freshwrapper.conf.example &&
+  install -Dm644 ../data/freshwrapper.conf.example /etc/freshwrapper.conf
+fi
