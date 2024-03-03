@@ -1,0 +1,57 @@
+# core dependencies
+depends hicolor-icon-theme
+depends desktop-file-utils
+depends rapidjson
+depends spdlog
+depends libxslt
+depends libnfs
+depends tinyxml
+depends pcre
+depends curl
+depends mesa-lib
+depends libxkbcommon
+depends libXrandr
+depends libvdpau
+depends libva
+depends wayland-protocols
+depends waylandpp
+depends fmt
+depends libmicrohttpd
+depends libass
+depends libcec
+depends lzo
+depends %MYSQL
+depends libjpeg-turbo
+depends libmodplug
+depends libcdio
+depends libinput
+depends libplist
+depends pulseaudio
+depends pipewire
+depends python-pillow
+depends fstrcmp
+depends lcms2
+
+# base codecs
+depends sndio
+depends flac
+depends faad2
+depends libmad
+depends libogg
+depends libvorbis
+depends libtheora
+depends lame
+depends speex
+depends x264-snapshot
+depends wavpack
+depends mpeg2dec
+depends faac
+depends dav1d
+depends taglib
+
+optional_depends %MYSQL     "-DENABLE_MARIADBCLIENT=ON" "-DENABLE_MARIADBCLIENT=OFF" "for database support"
+
+
+optional_depends libbluray  "-DENABLE_BLURAY=ON"    "-DENABLE_BLURAY=OFF"    "Blueray DVD playback support"
+optional_depends avahi      "-DENABLE_AVAHI=ON"     "-DENABLE_AVAHI=OFF"     "Avahi support"
+optional_depends samba      "-DENABLE_SMBCLIENT=ON" "-DENABLE_SMBCLIENT=OFF" "SMB browsing support"
