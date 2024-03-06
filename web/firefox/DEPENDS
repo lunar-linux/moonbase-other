@@ -1,8 +1,7 @@
 depends autoconf-mozilla
 depends python
-depends llvm
-depends cbindgen
 depends lld
+depends cbindgen
 depends freetype2
 depends gtk+-2
 depends gtk+-3
@@ -25,20 +24,15 @@ depends python-setuptools
 depends python-zstandard
 depends pulseaudio
 
-optional_depends libpng \
-                 "--with-system-png" \
-                 "--without-system-png" \
-                 "Build with system libpng,${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}"
-
 optional_depends libevent \
                  "--with-system-libevent" \
                  "--without-system-libevent" \
-                 "Use system event library"
+                 "Use system event library" y
 
 optional_depends dbus-glib \
                  "--enable-dbus" \
                  "--disable-dbus" \
-                 "For dbus support"
+                 "For dbus support" y
 
 optional_depends icu4c \
                  "--with-system-icu" \
@@ -49,16 +43,14 @@ optional_depends icu4c \
 optional_depends libjpeg-turbo \
                  "--with-system-jpeg" \
                  "--without-system-jpeg" \
-                 "Use system jpeg library"
+                 "Use system jpeg library" y
 
 optional_depends webrtc-audio-processing  \
                  "--enable-webrtc"        \
                  "--disable-webrtc"       \
-                 "For real time communication support"
+                 "For real time communication support" y
 
 optional_depends cups \
                  "--enable-printing" \
                  "--disable-printing" \
-                 "For printing support"
-
-optional_depends flash-plugin "" "" "To enable Flash plugin"
+                 "For printing support" y
