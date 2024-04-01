@@ -11,6 +11,3 @@ sed "s/@VERSION@/$VERSION/" $SCRIPT_DIRECTORY/glm.pc.in > /usr/lib/pkgconfig/glm
 sed "s/@VERSION@/$VERSION/" $SCRIPT_DIRECTORY/glmConfigVersion.cmake.in > /usr/lib/cmake/glm/glmConfigVersion.cmake &&
 sed "s/@VERSION@/$VERSION/" $SCRIPT_DIRECTORY/glmConfig.cmake.in > /usr/lib/cmake/glm/glmConfig.cmake &&
 install -Dm644 $SCRIPT_DIRECTORY/glmTargets.cmake /usr/lib/cmake/glm/glmTargets.cmake
-
-
-

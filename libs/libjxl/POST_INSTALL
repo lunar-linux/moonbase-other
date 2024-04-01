@@ -1,4 +1,13 @@
-# Deal with sn name versioning.
+# Deal with soname versioning.
+
+if module_installed gdal; then
+  lunar fix gdal
+fi
+
+if module_installed ImageMagick; then
+  lunar fix ImageMagick
+fi
+
 if module_installed kimageformats; then
   lunar fix kimageformats
 fi
@@ -9,4 +18,8 @@ fi
 
 if module_installed darktable; then
   lunar fix darktable
+fi
+
+if module_installed GraphicsMagick; then
+  lunar fix GraphicsMagick
 fi

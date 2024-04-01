@@ -20,6 +20,9 @@ OPTS+=" --enable-mesh \
 default_build &&
 
 mkdir -p /etc/bluetooth &&
+# bluetooth.service wants ConfigurationDirectoryMode=0555
+chmod -v 555 /etc/bluetooth &&
+
 install -Dm644 profiles/*/*.conf /etc/bluetooth/ &&
 install -Dm644 src/main.conf /etc/bluetooth/ &&
 

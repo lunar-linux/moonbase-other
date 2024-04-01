@@ -4,4 +4,8 @@ sedit 's|../avidemux/qt4|../avidemux/qt4 -DLRELEASE_EXECUTABLE=/usr/lib/qt5/bin/
 
 sedit 's:0.19:1.0:'  avidemux_plugins/ADM_videoFilters6/ass/CMakeLists.txt &&
 
-sedit '11i #include <QPainterPath>' avidemux/qt4/ADM_UIs/src/T_RubberControl.cpp
+sedit '11i #include <QPainterPath>' avidemux/qt4/ADM_UIs/src/T_RubberControl.cpp &&
+
+patch -Np1 -i $SCRIPT_DIRECTORY/log.diff &&
+
+cp $SCRIPT_DIRECTORY/avidemux-binutils-2.41.patch avidemux_core/ffmpeg_package/patches/upstream

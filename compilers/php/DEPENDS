@@ -17,6 +17,10 @@ optional_depends gettext \
                  "--with-gettext=shared" "" \
                  "for GNU gettext support"
 
+optional_depends libedit \
+                 "--with-libedit" "--without-libedit" \
+                 "for libedit readline replacement (CLI/CGI only)"
+
 optional_depends readline \
                  "--with-readline" "" \
                  "for readline support"

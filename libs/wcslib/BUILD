@@ -1,6 +1,5 @@
+CFLAGS+=" -fPIC -ffat-lto-objects" &&
 
-  CFLAGS+=" -fPIC" &&
+export INCDIR=/usr/include/$MODULE &&
 
-  export INCDIR=/usr/include/$MODULE &&
-
-  default_build
+default_build

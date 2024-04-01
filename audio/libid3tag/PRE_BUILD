@@ -1,4 +1,0 @@
-default_pre_build &&
-
-# CVE-2008-2109
-sedit "s/while (end - *ptr > 0) {/while (end - *ptr > 0 && **ptr != '\0') {/" field.c

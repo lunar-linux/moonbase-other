@@ -7,7 +7,7 @@ export GOPATH=$BUILD_DIRECTORY
 if module_installed go; then
   export GOROOT_BOOTSTRAP=$GOROOT_FINAL
 else
-  export GOROOT_BOOTSTRAP=/usr/lib/go1.19
+  export GOROOT_BOOTSTRAP=/usr/lib/go1.20
 fi &&
 
 case "$(arch)" in

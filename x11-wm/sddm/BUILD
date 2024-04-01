@@ -1,5 +1,5 @@
-. /etc/profile.d/qt5.rc &&
-
+source /etc/profile.d/qt6.rc &&
+export LANG='en_US.UTF-8'
 export PYTHONDONTWRITEBYTECODE=1 &&
 
 if in_depends $MODULE systemd ; then
@@ -8,17 +8,32 @@ if in_depends $MODULE systemd ; then
 fi &&
 
 OPTS+=" -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
         -DDATA_INSTALL_DIR=/usr/share/sddm \
         -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/sddm \
-        -DDBUS_CONFIG_DIR=/usr/share/dbus-1/systemd.d"
+        -DDBUS_CONFIG_DIR=/usr/share/dbus-1/systemd.d \
+        -Wno-dev"
 
-default_cmake_build
+cmake -B $MODULE-qt6 -S . -DBUILD_WITH_QT6=ON $OPTS &&
+cmake --build $MODULE-qt6 &&
+
+source /etc/profile.d/qt5.rc &&
+cmake -B $MODULE-qt5 $OPTS &&
+cmake --build $MODULE-qt5/src/greeter &&
+cmake --build $MODULE-qt5/components &&
+
+prepare_install &&
 
 add_priv_group sddm &&
 add_priv_user sddm -d /var/lib/sddm -g sddm &&
 
 mkdir -p /var/lib/sddm &&
 chown -R sddm:sddm /var/lib/sddm > /dev/null &&
+
+cmake --install $MODULE-qt6 &&
+cmake --install $MODULE-qt5/src/greeter &&
+cmake --install $MODULE-qt5/components &&
 
 # Tweak some PAM stuff
 sedit "s:system-login:system-auth:g" /etc/pam.d/sddm &&
