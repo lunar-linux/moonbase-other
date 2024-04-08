@@ -1,5 +1,5 @@
           MODULE=linux-lts
-         VERSION=6.6.22
+         VERSION=6.6.25
             BASE=$(echo $VERSION | cut -d. -f1,2)
           SOURCE=linux-$BASE.tar.xz
 if [ -n "$(echo $VERSION | cut -d. -f3)" ] ; then
@@ -10,10 +10,10 @@ fi
   SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v6.x
   SOURCE2_URL[1]=https://www.kernel.org/pub/linux/kernel/v6.x
       SOURCE_VFY=sha256:d926a06c63dd8ac7df3f86ee1ffc2ce2a3b81a2d168484e76b5b389aba8e56d0
-     SOURCE2_VFY=sha256:a8a5380de3206b2aeed4cb0425e319655c2df0babbfb1cb2a4fdd7e8dbcc3c29
+     SOURCE2_VFY=sha256:2a569b39e5fea2c4f417b7ce3c017c90a5f57a9db2c2b19c8ec8c76788b22263
          WEB_SITE=https://www.kernel.org/
          ENTERED=20111121
-         UPDATED=20240320
+         UPDATED=20240408
            SHORT="The core of a Linux GNU Operating System"
      KEEP_SOURCE=on
            TMPFS=off
