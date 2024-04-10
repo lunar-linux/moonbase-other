@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 default_build &&
 
 install -m644 uulib/uudeview.h uulib/uustring.h /usr/include &&
