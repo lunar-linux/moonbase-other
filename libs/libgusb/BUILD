@@ -1,3 +1,5 @@
+export LANG='en_US.UTF-8'
+
 OPTS+=" --prefix=/usr \
         -Dtests=false \
         -Ddocs=false "
