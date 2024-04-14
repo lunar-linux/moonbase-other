@@ -18,10 +18,12 @@ OPTS+=" -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf \
 cmake -B $MODULE-qt6 -S . -DBUILD_WITH_QT6=ON $OPTS &&
 cmake --build $MODULE-qt6 &&
 
+if in_depends $MODULE qt5; then
 source /etc/profile.d/qt5.rc &&
 cmake -B $MODULE-qt5 $OPTS &&
 cmake --build $MODULE-qt5/src/greeter &&
-cmake --build $MODULE-qt5/components &&
+cmake --build $MODULE-qt5/components
+fi &&
 
 prepare_install &&
 
@@ -31,9 +33,11 @@ add_priv_user sddm -d /var/lib/sddm -g sddm &&
 mkdir -p /var/lib/sddm &&
 chown -R sddm:sddm /var/lib/sddm > /dev/null &&
 
-cmake --install $MODULE-qt6 &&
+if in_depends $MODULE qt5; then
 cmake --install $MODULE-qt5/src/greeter &&
-cmake --install $MODULE-qt5/components &&
+cmake --install $MODULE-qt5/components
+fi &&
+cmake --install $MODULE-qt6 &&
 
 # Tweak some PAM stuff
 sedit "s:system-login:system-auth:g" /etc/pam.d/sddm &&
