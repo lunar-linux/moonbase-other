@@ -1,3 +1,4 @@
+export LANG='en_US.UTF-8'
 add_priv_group colord &&
 add_priv_user colord -d /var/run/colord -g colord &&
 
