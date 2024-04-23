@@ -21,16 +21,7 @@ fi &&
 
 OPTS+=" --with-gdktarget=x11" &&
 
-# remove the existing NVIDIA or NVIDIA-beta module to prevent the installation failing
-#WITH_NV=""
-#if module_installed NVIDIA; then
-#  WITH_NV=NVIDIA
-#  lrm NVIDIA
-#elif module_installed NVIDIA-beta; then
-#  WITH_NV=NVIDIA-beta
-#  lrm NVIDIA-beta
-#fi &&
-#echo $WITH_NV >/tmp/WITH_NV &&
+NOCONFIGURE=1 ./autogen.sh &&
 
 default_build &&
 install -m0664 gdk/gdkconfig.h /usr/include/gtk-2.0/gdk/
