@@ -1,3 +1,3 @@
-OPTS+=" -D doc=disabled"
+OPTS+=" -Ddoc=disabled"
 
 default_meson_build
