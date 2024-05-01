@@ -1,5 +1,3 @@
-./fail2ban-2to3 &&
-
 default_python3_build &&
 
 for man in man/*.1 man/*.5; do
@@ -12,4 +10,6 @@ install -Dm644 files/fail2ban-logrotate /etc/logrotate.d/fail2ban
 install -Dm644 files/bash-completion /usr/share/bash-completion/completions/fail2ban
 
 # fix sendmail location
-sedit 's/sbin/bin/g' /etc/fail2ban/action.d/sendmail*.conf
+if [ -f "/etc/fail2ban/action.d/sendmail*.conf" ]; then
+   edit 's/sbin/bin/g' /etc/fail2ban/action.d/sendmail*.conf
+fi
