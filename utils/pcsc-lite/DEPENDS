@@ -1,5 +1,6 @@
 depends pkgconf
+depends meson
 depends systemd
 depends python
 
-optional_depends polkit "--enable-polkit" "--disable-polkit" "enable system polkit"
+optional_depends polkit "-D polkit=true" "-D polkit=false" "enable system polkit"
