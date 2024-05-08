@@ -1,7 +1,6 @@
 export LANG=en_US.UTF-8
 
-default_build &&
+python -m build --wheel &&
 
-# Required by libdrm
-ln -sf /usr/bin/rst2man.py /usr/bin/rst2man
-ln -sf /usr/bin/rst2html.py /usr/bin/rst2html
+prepare_install &&
+python -m installer --destdir=/ dist/*.whl
