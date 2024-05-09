@@ -1,6 +1,5 @@
+source /etc/profile.d/qt5.rc  &&
 
-  . /etc/profile.d/qt5.rc  &&
+default_cmake_build &&
 
-  default_cmake_build &&
-
-  rm -rf /usr/src/avogadro-i18n
+rm -rf /usr/src/avogadro-i18n
