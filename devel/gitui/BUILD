@@ -1,6 +1,7 @@
-cargo fetch &&
+cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')" &&
+
 CFLAGS+=" -ffat-lto-objects" &&
-cargo build --release &&
+cargo build --frozen --release &&
 
 prepare_install &&
 install -Dm 755 target/release/gitui -t /usr/bin/ &&
