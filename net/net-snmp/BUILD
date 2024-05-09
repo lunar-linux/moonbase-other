@@ -1,3 +1,5 @@
+autoreconf -if &&
+
 DEFAULTS="--with-defaults"
 PERSISTENT="--with-persistent-directory=/var/net-snmp"
 SYS_CONTACT="--with-sys-location='Unknown' \
