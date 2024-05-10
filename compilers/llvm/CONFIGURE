@@ -5,7 +5,7 @@ if [ -n "$RECONFIGURE" ]; then
     TARGETS=${TARGETS:="X86;AMDGPU;BPF"}
   fi &&
 
-  if query "Do you want to select additional compiler targets (zig needs all)? " n; then
+  if query "Do you want to select additional compiler targets (zig needs all and wasi-libc needs WebAssembly)? " n; then
     OPTIONS=(
       "AMDGPU"      "AMD GPU"     "on"
       "BPF"         "BPF"         "on"
