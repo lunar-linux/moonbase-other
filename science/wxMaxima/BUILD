@@ -1,6 +1,6 @@
 OPTS+=" -DWXM_INCLUDE_FONTS=OFF  \
         -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=None \
+        -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_CXX_STANDARD=14 \
         -DCMAKE_CXX_COMPILER=g++ \
         -DWXM_DISABLE_WEBVIEW=ON \
