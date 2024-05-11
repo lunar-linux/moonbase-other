@@ -1,21 +1,6 @@
-optional_depends pcre \
-                 "--with-libpcre=/usr" \
-                 "--with-libpcre=included" \
-                 "for PCRE support"
-
-optional_depends libpcap \
-                 "--with-libpcap=/usr" \
-                 "--with-libpcap=included" \
-                 "for pcap support"
-
-optional_depends %OSSL \
-                 "--with-openssl" \
-                 "--without-openssl" \
-                 "for SSL support"
-
-optional_depends pygtk \
-                 "--with-zenmap" \
-                 "--without-zenmap" \
-                 "for the Zenmap GUI"
-
-# optional_depends lua
+depends pcre2
+depends libpcap
+depends %OSSL
+depends pygtk
+depends lua
+depends libssh2
