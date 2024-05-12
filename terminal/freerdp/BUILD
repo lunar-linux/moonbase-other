@@ -1,4 +1,5 @@
 OPTS+=" -DWITH_SERVER=ON \
+        -DWITH_MANPAGES=OFF \
         -DWITH_SWSCALE=ON \
         -DWITH_CHANNELS=ON \
         -DWITH_DSP_FFMPEG=ON \
