@@ -1,2 +1,4 @@
+python -m build --wheel &&
+
 prepare_install &&
-pip3 install tomli
+python -m installer --destdir=/ dist/*.whl
