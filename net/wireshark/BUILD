@@ -1,8 +1,7 @@
-if in_depends $MODULE qt5; then
-  . /etc/profile.d/qt5.rc
+if in_depends $MODULE qt6-5compat; then
+  . /etc/profile.d/qt6.rc
+  OPTS=" -DUSE_qt6=ON"
 fi &&
-
-OPTS+=" -DDISABLE_WERROR=ON" &&
 
 default_cmake_build &&
 

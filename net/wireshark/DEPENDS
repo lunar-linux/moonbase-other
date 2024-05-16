@@ -44,7 +44,9 @@ optional_depends zlib      "-DENABLE_ZLIB=true"   "-DENABLE_ZLIB=false" \
                              "for zlib support"
 optional_depends zstd      "-DENABLE_ZSTD=true"   "-DENABLE_ZSTD=false" \
                              "for zstd support"
-optional_depends qt5       "-DBUILD_wireshark=ON" "-DBUILD_wireshark=OFF" \
+optional_depends lua52     "-DENABLE_LUA=true" "-DENABLE_LUA=false" \
+                             "for lua scripting support"
+
+optional_depends qt6-5compat "-DBUILD_wireshark=ON" "-DBUILD_wireshark=OFF" \
                              "for the graphical interface"
 
-# Broken - needs lua 5.2.x
