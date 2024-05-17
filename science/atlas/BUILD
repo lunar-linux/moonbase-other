@@ -1,6 +1,16 @@
+if [ ! -f /usr/bin/gfortran ]; then
+  OPTS+=" --nof77"
+fi &&
+
 mkdir $MODULE-build &&
 cd $MODULE-build &&
 
-../configure -Fa alg -fPIC --shared --prefix=/usr --incdir=/usr/include --cripple-atlas-performance $OPTS &&
+OPTS+=" --shared \
+        --prefix=/usr \
+        --incdir=/usr/include \
+        --cripple-atlas-performance \
+        --with-netlib-lapack-tarfile=/var/spool/lunar/lapack-`lvu version lapack`.tar.gz"
 
-default_make 
+../configure -Fa alg -fPIC  $OPTS &&
+
+default_make
