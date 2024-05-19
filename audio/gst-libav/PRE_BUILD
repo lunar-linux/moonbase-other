@@ -1,17 +1,8 @@
-default_pre_build &&
+default_pre_build
 
-sed -i '444a#if LIBAVUTIL_VERSION_MAJOR < 59' ext/libav/gstavcfg.c &&
-sed -i '446a#endif' ext/libav/gstavcfg.c &&
-sed -i '/ID_R210/d' ext/libav/gstavviddec.c &&
-sed -i 's/ID_V410\ ||/ID_V410\ ||\ in_plugin->id\ ==\ AV_CODEC_ID_R210/' ext/libav/gstavviddec.c &&
-sed -i '/ID_R210/a#if\ LIBAVCODEC_VERSION_MAJOR\ \<\ 61' ext/libav/gstavviddec.c &&
-sed -i '/ID_AYUV/a#endif' ext/libav/gstavviddec.c &&
-sed -i '/ID_R210/d' ext/libav/gstavvidenc.c &&
-sed -i 's/ID_V410\ ||/ID_V410\ ||\ in_plugin->id\ ==\ AV_CODEC_ID_R210/' ext/libav/gstavvidenc.c &&
-sed -i '/ID_R210/a#if\ LIBAVCODEC_VERSION_MAJOR\ \<\ 61' ext/libav/gstavvidenc.c &&
-sed -i '/ID_AYUV/a#endif' ext/libav/gstavvidenc.c &&
-sed -i ext/libav/gstavdemux.c -e '1375,1430d' \
-            -e '2058d' \
-            -e '2105,2140d' \
-            -e '2217,2221d' &&
+sed -e '1375,1430d' \
+    -e '2058d'      \
+    -e '2105,2140d' \
+    -e '2217,2221d' \
+    -i ext/libav/gstavdemux.c &&
 sed -i '2122aif (!gst_element_register (plugin, type_name, rank, type)) {' ext/libav/gstavdemux.c
