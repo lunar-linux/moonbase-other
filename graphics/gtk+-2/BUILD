@@ -15,13 +15,13 @@ esac &&
 
 patch_it $SOURCE2 1 &&
 
+autoreconf -fi &&
+
 if [ "`get_module_config DOCS`" = "n" ]; then
   sedit "s/docs m4macros build/m4macros build/g" Makefile.in
 fi &&
 
 OPTS+=" --with-gdktarget=x11" &&
-
-NOCONFIGURE=1 ./autogen.sh &&
 
 default_build &&
 install -m0664 gdk/gdkconfig.h /usr/include/gtk-2.0/gdk/
