@@ -15,8 +15,6 @@ esac &&
 
 patch_it $SOURCE2 1 &&
 
-autoreconf -fi &&
-
 if [ "`get_module_config DOCS`" = "n" ]; then
   sedit "s/docs m4macros build/m4macros build/g" Makefile.in
 fi &&
