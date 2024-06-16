@@ -1,3 +1,4 @@
+find -name Makefile.in -exec sed -i "s/-Werror//" {} \; &&
 
 OPTS+=" --prefix=/usr \
         --with-python3  \
