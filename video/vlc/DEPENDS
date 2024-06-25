@@ -46,7 +46,7 @@ optional_depends twolame       "" "--disable-twolame" "for MPEG Audio Layer 2 su
 optional_depends fluidsynth    "" "--disable-fluidsynth" "for MIDI synthetiser support" n
 optional_depends libtar        "" "--disable-libtar" "for skins2 support" n
 optional_depends zvbi          "" "--disable-zvbi" "for VBI including Teletext decoding support" n
-optional_depends lua           "" "--disable-lua" "for some interfaces rc telnet http support" y
+optional_depends lua52         "" "--disable-lua" "for some interfaces rc telnet http support" y
 optional_depends aalib         "" "--disable-aa" "for ascii art support" n
 optional_depends sqlite        "" "--disable-sqlite" "for sqlite database support" y
 optional_depends %SSL          "" "--disable-gnutls" "for ssl support" y
@@ -75,7 +75,7 @@ optional_depends libupnp       "--enable-upnp" "--disable-upnp" "Intel UPnp SDK 
 optional_depends libprojectM   "--enable-projectm" "--disable-projectm" "for visual effects support" n
 optional_depends libssh2       "--enable-sftp" "--disable-sftp" "for SFTP file transfer support" y
 optional_depends samba         "--enable-smbclient" "--disable-smbclient" "for smb/CIFS support" n
-optional_depends freerdp       "--enable-freerdp" "--disable-freerdp" "for rdp desktop support" n
+optional_depends freerdp       "--enable-freerdp" "--disable-freerdp" "for rdp desktop support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n
 optional_depends dav1d         "--enable-dav1d"   "--disable-dav1d" "for AV1 decoding" y
 optional_depends libarchive    "--enable-archive" "--disable-archive" "for various compression support"
 optional_depends protobuf      "--enable-chromecast" "--disable-chromecast" "for chromecast,${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n

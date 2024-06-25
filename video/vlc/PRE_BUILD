@@ -2,19 +2,19 @@ default_pre_build &&
 
 rm m4/lt* m4/libtool.m4 &&
 
-export CXXFLAGS+=" -std=c++11" &&
+export CXXFLAGS+=" -std=c++11"
 
 sedit 's|-Werror-implicit-function-declaration||g' configure.ac &&
 
 if in_depends $MODULE lua; then
-  sedit 's:<vlc_demux.h>:<vlc_demux.h>\n #define LUA_COMPAT_APIINTCASTS:' modules/lua/vlc.h &&
-  export LUA_LIBS+=" `pkg-config --libs lua`" &&
-  export LUA_CFLAGS+=" -DLUA_COMPAT_ALL=1"
-  LUAC="/usr/bin/luac"
+#  sedit 's:<vlc_demux.h>:<vlc_demux.h>\n #define LUA_COMPAT_APIINTCASTS:' modules/lua/vlc.h &&
+  export LUA_LIBS+=" `pkg-config --libs lua52`" &&
+  export LUA_CFLAGS+=" `pkg-config --cflags lua52`"
+  LUAC="/usr/bin/luac5.2"
 fi &&
 
 if in_depends $MODULE samba; then
-  export CFLAGS+=" -I/usr/include/samba-4.0 -ffat-lto-objects"
+  export CFLAGS+=" -I/usr/include/samba-4.0 -ffat-lto-objects -Wno-incompatible-pointer-types"
   export CPPFLAGS+=" -I/usr/include/samba-4.0"
 fi &&
 
@@ -41,3 +41,10 @@ sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' module
 
 # libplacebo 0.6 API
 sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' modules/video_output/opengl/vout_helper.c
+
+autoreconf -fi &&
+
+sed -e 's:truetype/ttf-dejavu:TTF:g' -i modules/visualization/projectm.cpp
+sed -e 's|-Werror-implicit-function-declaration||g' -i configure
+sed 's|whoami|echo builduser|g' -i configure
+sed 's|hostname -f|echo arch|g' -i configure

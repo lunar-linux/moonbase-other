@@ -1,6 +1,4 @@
-autoreconf -fi
-
-export CXXFLAGS+=" -std=c++14"
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
 
 OPTS+=" --enable-xcb \
         --enable-xvideo \
