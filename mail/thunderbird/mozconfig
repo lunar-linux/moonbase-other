@@ -1,5 +1,3 @@
-ac_add_options --disable-necko-wifi
-
 # Comment out following options if you have not installed
 # recommended dependencies:
 ac_add_options --with-system-libevent
@@ -9,6 +7,7 @@ ac_add_options --with-system-nss
 ac_add_options --with-system-icu
 ac_add_options --with-system-botan
 ac_add_options --with-system-jsonc
+ac_add_options --with-system-webp
 
 # The elf-hack causes failed installs on some machines.
 # It is supposed to improve startup time and it shrinks libxul.so
@@ -23,6 +22,9 @@ ac_add_options --disable-updater
 ac_add_options --disable-debug
 ac_add_options --disable-debug-symbols
 ac_add_options --disable-tests
+ac_add_options --disable-necko-wifi
+ac_add_options --disable-elf-hack
+ac_add_options --disable-rust-simd
 
 ac_add_options --enable-release
 ac_add_options --enable-linker=lld
@@ -38,10 +40,12 @@ ac_add_options --enable-alsa
 ac_add_options --enable-pulseaudio
 
 ac_add_options --with-system-jpeg
-#ac_add_options --with-system-png
+ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 
 # Using sandboxed wasm libraries has been moved to all builds instead
 # of only mozilla automation builds. It requires extra llvm packages
 # and was reported to seriously slow the build. Disable it.
 ac_add_options --without-wasm-sandboxed-libraries
+
+export LDFLAGS="$LDFLAGS -Wl,-z,pack-relative-relocs"
