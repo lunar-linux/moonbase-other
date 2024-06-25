@@ -1,10 +1,5 @@
+OPTS+=" -DUDEVRULES_INSTALL_DIR=/usr/lib/udev/rules.d" &&
 
-  OPTS+=" -DUDEVRULES_INSTALL_DIR=/usr/lib/udev/rules.d" &&
+default_cmake_build &&
 
-  if in_depends $MODULE qt5; then
-   OPTS+=" -DINDI_BUILD_QT5_CLIENT=ON"
-  fi &&
-
-  default_cmake_build &&
-
-  add_priv_group plugdev
+add_priv_group plugdev
