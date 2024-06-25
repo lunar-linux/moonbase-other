@@ -13,6 +13,7 @@ OPTS+=" -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf \
         -DDATA_INSTALL_DIR=/usr/share/sddm \
         -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/sddm \
         -DDBUS_CONFIG_DIR=/usr/share/dbus-1/systemd.d \
+        -DUID_MAX=60513 \
         -Wno-dev"
 
 cmake -B $MODULE-qt6 -S . -DBUILD_WITH_QT6=ON $OPTS &&
