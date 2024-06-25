@@ -1,28 +1,16 @@
-autoupdate -fv &&
+source /etc/profile.d/qt6.rc &&
 
-rm -r lib/{libebml,libmatroska} &&
+export MOC=/usr/lib/qt6/moc
+export RCC=/usr/lib/qt6/rcc
+export UIC=/usr/lib/qt6/uic
 
-if in_depends $MODULE qt5; then
-  . /etc/profile.d/qt5.rc &&
-  OPTS+=" --with-qmake=/usr/bin/qmake-qt5 \
-          --enable-qt5"
-else
-  OPTS+=" --disable-qt5"
-  if in_depends $MODULE qt6; then
-    . /etc/profile.d/qt5.rc &&
-    OPTS+=" --with-qmake=/usr/bin/qmake-qt6 \
-            --enable-qt6"
-  else
-    OPTS+=" --disable-qt6"
-    message "${PROBLEM_COLOR}Module qt5 or qt6 are not installed!${DEFAULT_COLOR}"
-    exit 1
-  fi
-fi
+./autogen.sh &&
 
 OPTS+=" --with-boost=/usr  \
         --with-boost-libdir=/usr/lib \
         --with-boost=yes \
-        --disable-update-check"
+        --disable-update-check \
+        --with-qmake6=/usr/lib/qt6/bin/qmake6"
 
 default_config &&
 rake V=1 &&
