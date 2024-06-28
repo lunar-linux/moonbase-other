@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 add_priv_group polkitd &&
 add_priv_user polkitd:polkitd &&
 
