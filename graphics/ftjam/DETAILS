@@ -1,14 +1,17 @@
           MODULE=ftjam
-         VERSION=2.5.3rc2
+         VERSION=2.5.2
           SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://david.freetype.org/jam/
-      SOURCE_VFY=sha256:a9f8a274049893a4d1f1ad82f7b04f3ebc2554635dd606185e20ba97cb4d64ec
+      SOURCE_URL=$SFORGE_URL/freetype/$MODULE/$VERSION
+      SOURCE_VFY=sha256:e89773500a92912de918e9febffabe4b6bce79d69af194435f4e032b8a6d66a3
         WEB_SITE=http://freetype.org/jam/
          ENTERED=20171001
-         UPDATED=20171001
+         UPDATED=20240630
            SHORT="An enhanced version of the Jam build tool"
 
 cat << EOF
+NOTE: Downgrading this as http://david.freetype.org/jam/ is not reachable.
+
+
 Jam is a small open-source build tool that is used as a replacement for Make.
 Even though Jam is a lot simpler to use than Make, it is far more powerful and
 easy to master. It already works on a large variety of platforms (Unix, Windows,
