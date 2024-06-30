@@ -1,0 +1,26 @@
+depends dbus
+depends %OSSL
+depends cmake
+depends cjson
+depends gst-plugins-base
+depends libXcursor
+depends libXdamage
+depends libXext
+depends libXfixes
+depends libXinerama
+depends libxkbfile
+depends libXrender
+depends libXv
+depends SDL2_ttf
+depends ffmpeg
+depends webkit2gtk4
+
+optional_depends cups       "-DWITH_CUPS=ON"  "-DWITH_CUPS=OFF"  "Enable printer support?"
+optional_depends alsa-lib   "-DWITH_ALSA=ON"  "-DWITH_ALSA=OFF"  "Enable sound?"
+optional_depends pulseaudio "-DWITH_PULSE=ON" "-DWITH_PULSE=OFF" "Enable PulseAudio support?"
+
+
+
+optional_depends wayland "" "" "Enable Wayland support"
+
+optional_depends docbook-xsl "" "" "for manpage install"
