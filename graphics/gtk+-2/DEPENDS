@@ -5,6 +5,7 @@ depends cairo
 depends shared-mime-info
 depends desktop-file-utils
 depends gtk-doc
+depends gobject-introspection
 
 # needed by X gdk target
 depends libXcomposite
@@ -22,8 +23,3 @@ optional_depends cups \
                  "--enable-cups" \
                  "--disable-cups" \
                  "for Common Unix Printing System backed"
-
-optional_depends gobject-introspection \
-                 "--enable-introspection" \
-                 "--disable-introspection" \
-                 "for gobject introspection" y
