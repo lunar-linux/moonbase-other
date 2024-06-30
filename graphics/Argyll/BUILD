@@ -1,8 +1,7 @@
 # From Gentoo argyllcms ebuild
 echo "LINKFLAGS += ${LDFLAGS} ;" >> Jamtop
-#echo "STDLIBS += -ldl -lrt -lX11 -lXext -lXxf86vm -lXinerama -lXrandr -lXau -lXdmcp -lXss -ltiff -ljpeg ;" >> Jamtop
-
 CCOPTFLAG="$CFLAGS" 
+
 ./makeall.sh &&
 ./makeinstall.sh &&
 ./makepackagebin.sh &&
