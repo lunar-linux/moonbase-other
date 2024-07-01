@@ -1,11 +1,5 @@
 default_pre_build &&
 
-patch -d . -p1 < $SCRIPT_DIRECTORY/protobuf-21.12-pep517.patch &&
-patch -d . -p1 < $SCRIPT_DIRECTORY/protobuf-undefined.patch &&
-patch -d . -p1 < $SCRIPT_DIRECTORY/soversion.patch &&
-
-sed -e 's|c++14|c++17|' -i $SOURCE_DIRECTORY/python/setup.py &&
-
 OPTS+=" -Dprotobuf_BUILD_SHARED_LIBS=ON \
         -Dprotobuf_BUILD_TESTS=OFF \
         -Dprotobuf_ALLOW_CCACHE=ON \
