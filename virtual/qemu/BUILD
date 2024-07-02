@@ -7,7 +7,7 @@ add_priv_user qemu:qemu &&
 
 AUDIO_LIST="alsa"
 in_depends $MODULE pulseaudio && AUDIO_LIST+=",pa"
-in_depends $MODULE SDL && AUDIO_LIST+=",sdl"
+in_depends $MODULE SDL2 && AUDIO_LIST+=",sdl"
 
 OPTS+=" --target-list=$(echo $TARGETLIST | sed s/\ /,/g)"
 
@@ -24,7 +24,7 @@ OPTS+=" --sbindir=/usr/bin"
             $OPTS &&
 
 # fix a cpp error
-sedit "s: -c::" pc-bios/{,optionrom/}Makefile
+sedit "s: -c::" pc-bios/optionrom/Makefile
 
 make ${MAKES:+-j${MAKES}} &&
 prepare_install &&
