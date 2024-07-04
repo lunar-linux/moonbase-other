@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 OPTS+=" --disable-static" &&
 
 CXXFLAGS+=" -Wno-error -fpermissive" &&
