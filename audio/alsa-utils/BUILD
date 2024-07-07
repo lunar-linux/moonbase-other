@@ -7,7 +7,9 @@ if module_installed systemd; then
 fi
 
 OPTS+=" --exec-prefix=/usr \
-        --disable-alsaconf"
+        --disable-alsaconf \
+        --disable-rst2man  \
+        --disable-xmlto"
 
 default_build &&
 
