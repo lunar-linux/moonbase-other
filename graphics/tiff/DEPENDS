@@ -1,10 +1,12 @@
 depends zlib
+depends cmake
 
-optional_depends %JPEG    "--enable-jpeg" "--disable-jpeg" "for IJG JPEG library usage (required for JPEG compression)"
-optional_depends zlib     "--enable-zlib" "--disable-zlib" "for Deflate compression"
-optional_depends jbigkit  "--enable-jbig" "--disable-jbig" "for ISO JBIG compression"
-optional_depends lzma-sdk "--enable-lzma" "--disable-lzma" "for LZMA2 compression"
-optional_depends zstd     "--enable-zstd" "--disable-zstd" "for ZSTD compression"
-optional_depends libwebp  "--enable-webp" "--disable-webp" "for libwebp support"
+optional_depends %JPEG    "-Djpeg=ON" "-Djpeg=OFF" "for IJG JPEG library usage (required for JPEG compression)"
+optional_depends jbigkit  "-Djbig=ON" "-Djbig=OFF" "for ISO JBIG compression"
+optional_depends lzma-sdk "-Dlzma=ON" "-Dlzma=OFF" "for LZMA2 compression"
+optional_depends zstd     "-Dzstd=ON" "-Dzstd=OFF" "for ZSTD compression"
+optional_depends libwebp  "-Dwebp=ON" "-Dwebp=OFF" "for libwebp support"
+
+optional_depends libdeflate "-Dlibdeflate=ON" "-Dlibdeflate=OFF" "for faster deflate support"
 
 optional_depends freeglut "" "" "for mesa OpenGL support"

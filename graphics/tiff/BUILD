@@ -1,5 +1,3 @@
-OPTS+=" --with-docdir=/usr/share/doc/$MODULE --disable-static --disable-docs"
+OPTS+=" -Dzlib=ON -Dtiff-docs=OFF"
 
-default_build &&
-
-ln -sf /usr/lib/pkgconfig/libtiff-4.pc /usr/lib/pkgconfig/libtiff.pc
+default_cmake_build
