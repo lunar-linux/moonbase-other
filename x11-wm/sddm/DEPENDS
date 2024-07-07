@@ -7,8 +7,6 @@ depends extra-cmake-modules
 
 optional_depends docutils  "-DBUILD_MAN_PAGES=ON" "" "for installing man pages"
 optional_depends elogind   "-DUSE_ELOGIND=yes"    "" "for elogind support"
-optional_depends qt5       "" "" "for qt5 support"
-
 
 if ! module_installed openrc; then
    optional_depends systemd \

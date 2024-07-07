@@ -13,18 +13,13 @@ OPTS+=" -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf \
         -DDATA_INSTALL_DIR=/usr/share/sddm \
         -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/sddm \
         -DDBUS_CONFIG_DIR=/usr/share/dbus-1/systemd.d \
+        -DBUILD_WITH_QT6=ON \
+        -DSDDM_INITIAL_VT=7 \
         -DUID_MAX=60513 \
         -Wno-dev"
 
-cmake -B $MODULE-qt6 -S . -DBUILD_WITH_QT6=ON $OPTS &&
+cmake -B $MODULE-qt6 -S . $OPTS &&
 cmake --build $MODULE-qt6 &&
-
-if in_depends $MODULE qt5; then
-source /etc/profile.d/qt5.rc &&
-cmake -B $MODULE-qt5 $OPTS &&
-cmake --build $MODULE-qt5/src/greeter &&
-cmake --build $MODULE-qt5/components
-fi &&
 
 prepare_install &&
 
@@ -34,10 +29,6 @@ add_priv_user sddm -d /var/lib/sddm -g sddm &&
 mkdir -p /var/lib/sddm &&
 chown -R sddm:sddm /var/lib/sddm > /dev/null &&
 
-if in_depends $MODULE qt5; then
-cmake --install $MODULE-qt5/src/greeter &&
-cmake --install $MODULE-qt5/components
-fi &&
 cmake --install $MODULE-qt6 &&
 
 # Tweak some PAM stuff
