@@ -1,4 +1,4 @@
-python -m build --wheel &&
+# Setting LC_CTYPE to workaround encoding issues
+export LC_CTYPE=en_US.UTF-8
 
-prepare_install &&
-python -m installer --destdir=/ dist/*.whl
+default_python3_build
