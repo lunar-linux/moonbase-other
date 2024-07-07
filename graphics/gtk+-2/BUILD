@@ -17,14 +17,7 @@ esac &&
 
 patch_it $SOURCE2 1 &&
 
-#sedit '145i README: README.md\n' Makefile.am &&
-
-#if [ "`get_module_config DOCS`" = "n" ]; then
-#  sedit "s/docs m4macros build/m4macros build/g" Makefile.in
-#fi &&
-
 OPTS+=" --with-gdktarget=x11" &&
-autoreconf -fvi &&
 
 default_build &&
 install -m0664 gdk/gdkconfig.h /usr/include/gtk-2.0/gdk/
