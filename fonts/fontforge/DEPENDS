@@ -11,6 +11,8 @@ depends desktop-file-utils
 depends cmake
 depends zlib
 
+optional_depends libspiro "-DENABLE_LIBSPIRO=ON" "-DENABLE_LIBSPIRO=OFF" "for curve tracing support"
+
 optional_depends woff2 "-DENABLE_WOFF2=ON" "-DENABLE_WOFF2=OFF" "for woff support"
 
 optional_depends libjpeg-turbo "-DENABLE_LIBJPEG=TRUE" \
