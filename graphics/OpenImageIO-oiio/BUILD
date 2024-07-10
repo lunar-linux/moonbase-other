@@ -1,9 +1,5 @@
 rm -f src/dicom.imageio &&
 
-if in_depends $MODULE qt5; then
-  source /etc/profile.d/qt5.rc
-fi &&
-
 if module_installed ffmpeg; then
   OPTS+=" -DUSE_FFMPEG=ON"
 fi &&
