@@ -1,0 +1,6 @@
+OPTS+=" -DAVIF_LIBYUV=LOCAL   \
+        -DAVIF_CODEC_LIBGAV1=LOCAL \
+        -DAVIF_BUILD_GDK_PIXBUF=ON \
+        -DAVIF_BUILD_APPS=ON"
+
+default_cmake_build

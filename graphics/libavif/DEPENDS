@@ -1,9 +1,21 @@
+depends cmake 
+
 optional_depends aom \
-    "-D AVIF_CODEC_AOM=ON" \
-    "" \
-    "for aom reference AV1 codec support"
+    "-DAVIF_CODEC_AOM=SYSTEM" \
+    "-DAVIF_CODEC_AOM=LOCAL" \
+    "for aom reference AV1 codec support, ${PROBLEM_COLOR}If no use local${DEFAULT_COLOR}"
     
 optional_depends dav1d \
-    "-D AVIF_CODEC_DAV1D=ON" \
-    "" \
-    "for dav1d decoder support"
+    "-DAVIF_CODEC_DAV1D=SYSTEM" \
+    "-DAVIF_CODEC_DAV1D=LOCAL" \
+    "for dav1d decoder support, ${PROBLEM_COLOR}If no use local${DEFAULT_COLOR}"
+
+optional_depends rav1e \
+    "-DAVIF_CODEC_RAV1E=SYSTEM" \
+    "-DAVIF_CODEC_RAV1E=LOCAL" \
+    "for rav1e encoding support, ${PROBLEM_COLOR}If no use local${DEFAULT_COLOR}"
+
+optional_depends SVT-AV1 \
+    "-DAVIF_CODEC_SVT=SYSTEM" \
+    "-DAVIF_CODEC_SVT=LOCAL" \
+    "for SVT-AV1 encoding support, ${PROBLEM_COLOR}If no use local${DEFAULT_COLOR}"
