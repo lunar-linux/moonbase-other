@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 ./configure --build=$BUILD \
             --prefix=/usr \
             --sysconfdir=/etc \
