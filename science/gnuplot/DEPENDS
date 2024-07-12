@@ -1,10 +1,14 @@
+depends texinfo
 depends %JPEG
 depends cairo
 depends gnutls
+depends qt6-base
+depends qt6-5compat
+depends qt6-svg
+depends qt6-tools
 
 optional_depends libgd "--with-gd"     "--without-gd"  "for additional graphics support"
-optional_depends lua   "--with-lua"    "--without-lua" "for Lua scripting support"
-optional_depends qt5   "--with-qt=qt5" "--without-qt"  "for Qt 5.x support"
+optional_depends lua53 "--with-lua"    "--without-lua" "for Lua scripting support"
 
 optional_depends libcerf \
                  "--with-libcerf" \
@@ -27,7 +31,6 @@ optional_depends texlive \
                  "--with-latex" \
                  "--without-latex" \
                  "for latex support" \
-                 "n"
 
 optional_depends wxGTK \
                  "--enable-wxwidgets" \

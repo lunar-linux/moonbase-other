@@ -1,8 +1,16 @@
-if in_depends $MODULE qt5; then
-  . /etc/profile.d/qt5.rc
-fi &&
+source /etc/profile.d/qt6.rc
 
-OPTS+=" --with-bitmap-terminals \
-        --with-gihdir=/usr/share/gnuplot" &&
+MAKEINFO=/usr/bin/makeinfo \
+     ./configure --prefix=/usr \
+                 --libexecdir=/usr/bin \
+                 --with-bitmap-terminals \
+                 --with-gihdir=/usr/share/gnuplot \
+                 --with-bitmap-terminals \
+                 --with-texdir=/usr/share/texmf/tex/latex/gnuplot &&
 
-default_build
+#make &&
+make pkglibexecdir=/usr/bin &&
+
+prepare_install
+make pkglibexecdir=/usr/bin DESTDIR=/ install
+#make install
