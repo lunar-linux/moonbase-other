@@ -4,8 +4,11 @@ depends sed
 depends perl
 depends xapian-core
 
+optional_depends spdlog "-Duse_sys_spdlog=ON"  "-Duse_sys_spdlog=OFF"   "${PROBLEM_COLOR}if yes use system${DEFAULT_COLOR}"
+optional_depends sqlite "-Duse_sys_sqlite3=ON" "-Duse_sys_sqlite3=OFF"  "${PROBLEM_COLOR}if yes use system${DEFAULT_COLOR}"
+
 optional_depends ghostscript "" "" "Formulas support"
 optional_depends graphviz    "" "" "Graphs support"
 optional_depends texlive     "" "" "LaTeX, Postscript and PDF output"
 
-optional_depends qt5 "-Dbuild_wizard=1" "-Dbuild_wizard=0" "Build the wizard" "n"
+optional_depends qt6-base "-Dbuild_wizard=1" "-Dbuild_wizard=0" "Build the wizard" "n"
