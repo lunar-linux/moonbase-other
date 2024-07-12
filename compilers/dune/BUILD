@@ -1,11 +1,7 @@
 _dune_release_pkgs=('dune' 'dune-action-plugin' 'dune-build-info' 'dune-configurator' 'dune-glob' 'dune-private-libs'
                     'dune-site' 'dune-rpc' 'dyn' 'stdune' 'ordering' 'xdg' 'chrome-trace' 'ocamlc-loc')
 
-# This allows `dune --version` to output the correct version
-# instead of "n/a"
-sed -i "/^(name dune)/a (version $VERSION)" dune-project &&
-
-_opts+=" --libdir=$(ocamlc -where) \
+_opts+=" --libdir=/usr/lib/ocaml   \
          --mandir=/usr/share/man   \
          --datadir=/usr/share      \
          --docdir=/usr/share/doc   \
@@ -14,6 +10,8 @@ _opts+=" --libdir=$(ocamlc -where) \
          --bindir=/usr/bin"
 
 ./configure $_opts &&
+make _boot/dune.exe &&
+
 ocaml boot/bootstrap.ml &&
 
 local dune_release_pkgs='dummy' &&
