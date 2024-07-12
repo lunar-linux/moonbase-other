@@ -1,11 +1,10 @@
-OPTS+=" --disable-docs"
+source /etc/profile.d/qt6.rc &&
+export LANG='en_US.UTF-8'
+export EGREP="grep -E"
+export MOC=/usr/lib/qt6/moc \
+       UIC=/usr/lib/qt6/uic \
+       RCC=/usr/lib/qt6/rcc
 
-#if in_depends $MODULE SuiteSparse; then
-#  export LIBS+=" -lmetis"
-#fi &&
-
-if in_depends $MODULE qt5; then
-  . /etc/profile.d/qt5.rc
-fi &&
+OPTS+=" --disable-docs --with-qt=6"
 
 default_build

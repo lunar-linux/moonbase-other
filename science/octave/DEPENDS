@@ -2,6 +2,8 @@ depends zlib
 depends lzip
 depends gnuplot
 depends lapack
+depends qt6-5compat
+depends qt6-tools 
 
 optional_depends fftw \
                  "--with-fftw3 --with-fftw3f" \
@@ -10,7 +12,6 @@ optional_depends fftw \
 
 optional_depends %JAVA_SDK "--enable-java"     "--disable-java"     "for java support"
 optional_depends fltk      "--with-fltk"       "--without-fltk"     "for fltk support"
-optional_depends qt5       "--with-qt=5"       "--without-qt"       "build Qt-GUI"
 optional_depends arpack-ng "--with-arpack"     "--without-arpack"   "for eigenvalue operations"
 optional_depends qrupdate  "--with-qrupdate"   "--without-qrupdate" "for fast QR & Cholesky updating functions"
 optional_depends readline  "--enable-readline" "--disable-readline" "for readline support"
