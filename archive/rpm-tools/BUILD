@@ -1,13 +1,15 @@
-CPPFLAGS="`pkg-config --cflags nss`"
-PYTHON=python
+OPTS+=" -DENABLE_BDB_RO=OFF \
+        -DENABLE_NDB=OFF \
+        -DENABLE_OPENMP=OFF \
+        -DENABLE_TESTSUITE=OFF\
+        -DENABLE_WERROR=OFF \
+        -DRPM_CONFIGDIR=/usr/lib/rpm \
+        -DWITH_AUDIT=OFF \
+        -DWITH_FAPOLICYD=OFF \
+        -DWITH_FSVERITY=OFF \
+        -DWITH_IMAEVM=OFF \
+        -DWITH_INTERNAL_OPENPGP=ON \
+        -DWITH_OPENSSL=OFF \
+        -DWITH_SELINUX=OFF"
 
-OPTS+=" --enable-python \
-        --with-external-db \
-        --with-lua \
-        --with-cap \
-        --program-prefix=rpmtools-"
-
-default_build &&
-
-ln -sf /usr/bin/rpmtools-rpm /usr/bin/rpmverify &&
-ln -sf /usr/bin/rpmtools-rpm /usr/bin/rpmquery
+default_cmake_build
