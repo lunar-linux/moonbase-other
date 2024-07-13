@@ -1,4 +1,6 @@
-export PYTHONDONTWRITEBYTECODE=1 &&
+export PYTHONDONTWRITEBYTECODE=1
+export LIBSSH2_SYS_USE_PKG_CONFIG=1
+export LIBSQLITE3_SYS_USE_PKG_CONFIG=1
 
 ./configure --build=$BUILD \
             --prefix=/usr \
@@ -9,7 +11,7 @@ export PYTHONDONTWRITEBYTECODE=1 &&
             --disable-debug \
             --enable-extended &&
 
-sedit 's:#download-ci-llvm = "if-available":download-ci-llvm = false:' config.toml &&
+cp $SCRIPT_DIRECTORY/config.toml . &&
 
 CARGO_BUILD_JOBS="${MAKES:-1}"
 python3 ./x.py build --jobs $CARGO_BUILD_JOBS &&
@@ -17,4 +19,4 @@ make ${MAKES:+-j$MAKES} &&
 
 prepare_install &&
 
-python ./x.py install -v
+python ./x.py install  --stage=1 -v
