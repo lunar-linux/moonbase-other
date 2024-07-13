@@ -1,6 +1,5 @@
 export PYTHONDONTWRITEBYTECODE=1
 export LIBSSH2_SYS_USE_PKG_CONFIG=1
-export LIBSQLITE3_SYS_USE_PKG_CONFIG=1
 
 ./configure --build=$BUILD \
             --prefix=/usr \
