@@ -2,6 +2,6 @@ depends %JPEG
 depends boost
 depends libxml2
 depends curl
+depends rustc
 
-optional_depends gdk-pixbuf "" "" "for GNOME support" y
-optional_depends rustc "" "" "for Canon CR3 support" n
+optional_depends gdk-pixbuf "--enable-gnome" "--disable-gnome" "for GNOME support"
