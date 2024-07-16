@@ -18,4 +18,4 @@ make ${MAKES:+-j$MAKES} &&
 
 prepare_install &&
 
-python ./x.py install  --stage=1 -v
+python ./x.py install -j $CARGO_BUILD_JOBS -v
