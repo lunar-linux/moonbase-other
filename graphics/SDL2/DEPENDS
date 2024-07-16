@@ -1,59 +1,55 @@
 depends cmake
 depends pkgconf
-
-optional_depends dbus \
-                 "--enable-dbus" \
-                 "--disable-dbus" \
-                 "for D-Bus support"
+depends dbus
 
 optional_depends systemd \
-                 "--enable-libudev" \
-                 "--disable-libudev" \
+                 "-DSDL_LIBUDEV=ON" \
+                 "-DSDL_LIBUDEV=OFF" \
                  "for udev support"
 
 optional_depends alsa-lib \
-                 "--enable-alsa-shared" \
-                 "--disable-alsa" \
+                 "-DSDL_ALSA_SHARED=ON" \
+                 "-DSDL_ALSA=OFF" \
                  "for Advanced Linux Sound Architecture support"
 
 optional_depends pulseaudio \
-                 "--enable-pulseaudio-shared" \
-                 "--disable-pulseaudio" \
+                 "-DSDL_PULSEAUDIO_SHARED=ON" \
+                 "-DSDL_PULSEAUDIO=OFF" \
                  "for PulseAudio audio support"
 
 optional_depends pipewire \
-                 "--enable-pipewire-shared" \
-                 "--disable-pipewire" \
+                 "-DSDL_PIPEWIRE_SHARED=ON" \
+                 "-DSDL_PIPEWIRE=OFF" \
                  "for PulseAudio audio support"
 
 optional_depends esound \
-                 "--enable-esd-shared" \
-                 "--disable-esd" \
+                 "-DSDL_ESD_SHARED=ON" \
+                 "-DSDL_ESD=OFF" \
                  "for Enlighted Sound Daemon support" \
                  "n"
 
 optional_depends nas \
-                 "--enable-nas-shared" \
-                 "--disable-nas" \
+                 "-DSDL_NAS_SHARED=ON" \
+                 "-DSDL_NAS=OFF" \
                  "for Network Audio System support" \
                  "n"
 
 optional_depends libX11 \
-                 "--enable-video-x11 --enable-x11-shared" \
-                 "--disable-video-x11" \
+                 "-DSDL_X11_SHARED=ON" \
+                 "-DSDL_X11_SHARED=OFF" \
                  "for X11 video driver"
 
 optional_depends mesa-lib \
-                 "--enable-video-opengl" \
-                 "--disable-video-opengl" \
+                 "-DSDL_OPENGL=ON" \
+                 "-DSDL_OPENGL=OFF" \
                  "for Mesa GL support"
 
 optional_depends wayland \
-                 "--enable-video-wayland --enable-wayland-shared" \
-                 "--disable-video-wayland" \
+                 "-DSDL_WAYLAND_SHARED=ON" \
+                 "-DSDL_WAYLAND_SHARED=OFF" \
                  "for Wayland video driver"
 
 optional_depends DirectFB \
-                 "--enable-video-directfb --enable-directfb-shared" \
-                 "--disable-video-directfb" \
+                 "-DSDL_DIRECTFB=ON" \
+                 "-DSDL_DIRECTFB=OFF" \
                  "for DirectFB video driver ${PROBLEM_COLOR}Say no if you want to compile ogre ${DEFAULT_COLOR}"

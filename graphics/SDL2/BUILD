@@ -1,4 +1,13 @@
-OPTS+=" --disable-arts \
-        --disable-rpath"
+CFLAGS+=" -ffat-lto-objects"
 
-default_build
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release  \
+        -DSDL_SHARED=ON             \
+        -DSDL_STATIC_PIC=ON         \
+        -Wno-dev" 
+
+cmake -B $MODULE-build -S . -G Ninja $OPTS &&
+cmake --build $MODULE-build &&
+
+prepare_install
+cmake --install $MODULE-build
