@@ -1,3 +1,11 @@
-OPTS+=" --enable-shared --enable-dap --disable-examples" &&
+OPTS+=" -DENABLE_BYTERANGE=ON \
+        -DENABLE_CDF5=ON \
+        -DENABLE_DAP_LONG_TESTS=ON \
+        -DENABLE_DAP_REMOTE_TESTS=ON \
+        -DENABLE_EXAMPLE_TESTS=ON \
+        -DENABLE_EXTRA_TESTS=ON \
+        -DENABLE_FILTER_TESTING=ON \
+        -DENABLE_LARGE_FILE_TESTS=ON \
+        -DENABLE_UNIT_TESTS=ON"
 
-default_build
+default_cmake_build

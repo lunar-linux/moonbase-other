@@ -1,3 +1,4 @@
+depends cmake
 depends zlib
 
-optional_depends hdf5 "--enable-netcdf-4 --enable-hdf5" "--disable-netcdf-4 --disable-hdf5" "build netcdf-4 module" y
+optional_depends hdf5 "-DENABLE_HDF5=ON" "-DENABLE_HDF5=OFF" "build netcdf-4 module" y
