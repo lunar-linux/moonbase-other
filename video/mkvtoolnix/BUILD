@@ -1,4 +1,9 @@
 source /etc/profile.d/qt6.rc &&
+export XML_CATALOG_FILES=/etc/xml/catalog
+
+# Use internal fmt for now should you have
+# system fmt installed
+export FMT_INTERNAL=yes
 
 export MOC=/usr/lib/qt6/moc
 export RCC=/usr/lib/qt6/rcc
