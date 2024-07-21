@@ -1,4 +1,3 @@
-
 OPTS+=" PREFIX=/usr" &&
 
 sedit 's:/usr/local:/usr:' Makefile &&
