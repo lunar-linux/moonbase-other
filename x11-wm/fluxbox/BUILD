@@ -1,4 +1,8 @@
-OPTS+=" --enable-nls" &&
+if [ "$WITH_NLS" == "y" ]; then
+  OPTS+=" --enable-nls"
+else
+  OPTS+=" --disable-nls"
+fi &&
 
 default_build &&
 
