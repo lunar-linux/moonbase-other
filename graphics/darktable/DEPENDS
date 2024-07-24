@@ -18,7 +18,7 @@ depends isl
 depends openmp
 depends python-pyrsistent
 depends python-referencing
-
+depends python-jsonschema-specifications
 # not hard requirements, but
 # important to functionality
 depends libxslt
@@ -43,14 +43,11 @@ optional_depends openexr \
    "-DUSE_OPENEXR=0" \
    "for EXR format support" 
 
-optional_depends flickcurl \
-      "-DUSE_FLICKR=1" \
-      "-DUSE_FLICKR=0" \
-      "For Flickr API support" n
 optional_depends libsecret \
       "-DUSE_LIBSECRET=1" \
       "-DUSE_LIBSECRET=0" \
       "For storing and retrieving passwords" n
+
 optional_depends kwallet \
       "-DUSE_KWALLET=1" \
       "-DUSE_KWALLET=0" \
