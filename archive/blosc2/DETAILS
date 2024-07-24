@@ -1,0 +1,20 @@
+          MODULE=blosc2
+         VERSION=2.15.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/Blosc/c-blosc2/archive/refs/tags/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:1e7d9d099963ad0123ddd76b2b715b5aa1ea4b95c491d3a11508e487ebab7307
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/c-$MODULE-$VERSION
+        WEB_SITE=https://github.com/Blosc/c-blosc2/
+         ENTERED=20240724
+         UPDATED=20240724
+           SHORT="A blocking, shuffling and loss-less compression library"
+
+cat << EOF
+Blosc is an extremely fast, multi-threaded, meta-compressor library.
+It is a high performance compressor optimized for binary data. It has been
+designed to transmit data to the processor cache faster than the traditional,
+non-compressed, direct memory fetch approach via a memcpy() OS call. Blosc is
+the first compressor (that I'm aware of) that is meant not only to reduce the
+size of large datasets on-disk or in-memory, but also to accelerate memory-bound
+computations.
+EOF
