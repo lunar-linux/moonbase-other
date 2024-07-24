@@ -66,4 +66,4 @@ install -m644 $SOURCE_DIRECTORY/texk/tests/TeXLive/*.pm /usr/share/tlpkg/TeXLive
 cp -f $SCRIPT_DIRECTORY/texlive-20100722-09-texlive-fonts.conf /etc/fonts/conf.d/09-texlive-fonts.conf &&
 
 # Some chmod +x are needed on these
-chmod +x /usr/share/texmf-dist/scripts/context/lua/mtxrun.lua &&
+chmod +x /usr/share/texmf-dist/scripts/context/lua/mtxrun.lua
