@@ -1,5 +1,10 @@
 depends zlib
 depends pciutils
+depends cmocka
 depends meson
 depends libftdi
 depends libusb-compat
+
+optional_depends dmidecode "-Duse_internal_dmi=false" \
+                           "-Duse_internal_dmi=true"  \
+                           "for DMI support, ${PROBLEM_COLOR}Say no to use internal${DEFAULT_COLOR}"
