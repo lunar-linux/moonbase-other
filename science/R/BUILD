@@ -1,4 +1,8 @@
+CFLAGS+=" -ffat-lto-objects"
+CXXFLAGS+=" -ffat-lto-objects"
+
 OPTS+=" --prefix=/usr \
+        --with-pcre2 \
         --enable-R-shlib \
         --sysconfdir=/etc/R \
         rsharedir=/usr/share/R/ \
@@ -7,8 +11,6 @@ OPTS+=" --prefix=/usr \
         F77=gfortran \
         LIBnn=lib"
 
-touch NEWS.log &&
-
 default_build &&
 
 # This is needed so cantor-15.04.1 will build
@@ -16,20 +18,3 @@ cd src/nmath/standalone &&
 make shared &&
 prepare_install &&
 make install &&
-
-cd $SOURCE_DIRECTORY &&
-
-if [[ "$DVI_DOCS" == "y" ]]; then
-   make dvi &&
-   make install-dvi
-fi &&
-
-if [[ "$PDF_DOCS" == "y" ]]; then
-  make pdf &&
-  make install-pdf
-fi &&
-
-if [[ "$INFO_DOCS" == "y" ]]; then
-  make info &&
-  make install-info
-fi

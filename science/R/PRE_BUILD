@@ -11,4 +11,6 @@ fi &&
 
 if [ -e /usr/lib64/R/doc ]; then
   rm -rf /usr/lib64/R/doc
-fi
+fi &&
+
+sed -i 's|$(rsharedir)/texmf|${datarootdir}/texmf|' share/Makefile.in
