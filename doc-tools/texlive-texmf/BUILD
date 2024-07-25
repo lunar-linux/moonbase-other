@@ -28,4 +28,7 @@ cp -R texmf-dist /usr/share/ &&
 if [ "`get_module_config DOCS`" = "y" ] ; then
   mkdir -p /usr/share/doc &&
   ln -sf /usr/share/texmf-dist/doc /usr/share/doc/texmf-dist
-fi
+fi &&
+
+# texlive needs this to be _x
+chmod +x /usr/share/texmf-dist/scripts/context/lua/mtxrun.lua
