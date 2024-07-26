@@ -1,11 +1,13 @@
           MODULE=mongo-cxx-driver
-         VERSION=legacy-1.1.2
-          SOURCE=$VERSION.tar.gz
-      SOURCE_URL=https://github.com/mongodb/mongo-cxx-driver/archive
-      SOURCE_VFY=sha256:96a59b3984692420aeb38383d287942037820e8b61ee53e90573e11dbe50fe12
+         VERSION=3.10.2
+          SOURCE=$MODULE-r$VERSION.tar.gz
+      SOURCE_URL=https://github.com/mongodb/mongo-cxx-driver/releases/download/r$VERSION/
+      SOURCE_VFY=sha256:52b99b2866019b5ea25d15c5a39e2a88c70fe1259c40f1091deff8bfae0194be
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-r$VERSION
         WEB_SITE=https://github.com/mongodb/mongo-cxx-driver
+            TYPE=cmake
          ENTERED=20140717
-         UPDATED=20180907
+         UPDATED=20240726
            SHORT="C++ driver for MongoDB"
 
 cat << EOF
