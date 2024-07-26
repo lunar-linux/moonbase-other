@@ -4,7 +4,6 @@ OPTS+=" -D BUILD_RSS=ON \
         -D BUILD_DOCS=OFF \
         -D BUILD_TESTS=OFF \
         -D BUILD_XSHAPE=ON \
-        -D BUILD_XSHAPE=ON \
         -D BUILD_IOSTATS=ON \
         -D BUILD_OLD_CONFIG=ON \
         -D BUILD_HSV_GRADIENT=OFF \
