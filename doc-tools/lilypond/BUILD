@@ -1,4 +1,4 @@
-OPTS+=" --disable-documentation --disable-texi2html"
+OPTS+=" --disable-documentation"
 
 ./autogen.sh --noconfigure &&
 
