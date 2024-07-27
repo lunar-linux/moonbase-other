@@ -38,6 +38,10 @@ optional_depends jack2 \
                  "for jack audio support" \
                  "n"
 
+if in_depends $MODULE "jack2"; then
+  optional_depends lilv "" "" "for lv2 plugin support"
+fi
+
 optional_depends doxygen \
                  "-D docs=enabled" \
                  "-D docs=disabled" \
@@ -49,3 +53,8 @@ optional_depends xmltoman \
                 "-D man=disabled" \
                 "for man pages install" \
                 "n"
+
+optional_depends webrtc-audio-processing \
+                 "-D echo-cancel-webrtc=enabled" \
+                 "-D echo-cancel-webrtc=disabled" \
+                 "for WebRTC based echo cancelling support"
