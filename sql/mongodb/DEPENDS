@@ -1,29 +1,22 @@
 depends readline
 depends ncurses
 depends scons
-depends boost
+depends gperftools
 depends pcre
 depends snappy
+depends mongo-c-driver
 depends yaml-cpp
-depends python2-yaml
-depends python2-cheetah
-depends python2-regex
-depends python2-typing
+depends rpds-py
+depends snowball
+depends python-jsonschema
+depends python-yaml
+depends python-cheetah3
+depends python-regex
+depends python-typing
+depends python-pymongo
 depends zlib
-
-optional_depends libpcap "" "" "for building mongosniff"
-
-optional_depends snappy  \
-                 "--use-system-snappy" "" \
-                 "for snappy comp/decomp library support"
-
-optional_depends yaml-cpp \
-                 "--use-system-yaml" "" \
-                 "for YAML parser support"
-
-optional_depends %OSSL \
-                 "--ssl" "" \
-                 "for SSL support"
+depends %OSSL
+depends libpcap
 
 optional_depends cyrus-sasl \
                  "--use-sasl-client" "" \
