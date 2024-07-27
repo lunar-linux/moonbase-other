@@ -1,11 +1,14 @@
+depends meson
 depends libxml2
-depends gtk+-2
+depends dbus-glib
+depends gtk+-3
 
-optional_depends qt5 \
-                 "--enable-qt" \
-                 "--disable-qt" \
-                 " for Qt GUI"
+optional_depends qt6-base \
+                 "-Dqt=true" \
+                 "-Dqt=false" \
+                 " for Qt6 GUI support"
 
-optional_depends dbus-glib \
-                 "" "--disable-dbus" \
-                 "for DBUS support, required for some Audacious functionality"
+if in_depends $MODULE qt6-base; then \
+  depends qt6-imageformats
+  depends qt6-svg
+fi
