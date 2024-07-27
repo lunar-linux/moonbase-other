@@ -1,15 +1,10 @@
-OPTS+=" --disable-adplug"
+OPTS+=" -Dadplug=false"
 
-if module_installed qt5; then
-  OPTS+=" --enable-qt"
+if module_installed qt6-base; then
+  source /etc/profile.d/qt6.rc &&
+  OPTS+=" -Dqtaudio=true"
 else
-  OPTS+=" --disable-qt"
+  OPTS+=" -Dqtaudio=false"
 fi
 
-if module_installed gtk+-2; then
-  OPTS+=" --enable-gtk"
-else
-  OPTS+=" --disable-gtk"
-fi
-
-default_build
+default_meson_build
