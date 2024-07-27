@@ -1,0 +1,6 @@
+default_pre_build
+
+sedit 's:printf( sf_strerror( NULL ) );:printf( "%s", sf_strerror( NULL ) );:' src/bs2bconvert.c &&
+sed -i 's/dist-lzma/dist-xz/g' configure.ac &&
+
+autoreconf -fvi
