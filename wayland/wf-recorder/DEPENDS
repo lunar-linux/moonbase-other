@@ -1,6 +1,7 @@
-depends x264-snapshot
-depends ffmpeg
-depends wayland-protocols
 depends meson
+depends x264-snapshot
+depends wayland-protocols
+depends ffmpeg
 
+optional_depends pulseaudio "-Dpulse=enabled" "-Dpulse=disabled" "for audio support"
 optional_depends slurp "" "" "limit recording to a part of the screen"
