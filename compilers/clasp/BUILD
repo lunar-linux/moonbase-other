@@ -1,7 +1,3 @@
-OPTS+=" --config=release --prefix=/usr"
+OPTS+=" -DCLASP_BUILD_APP=ON -DCLASP_BUILD_WITH_THREADS=ON"
 
-./configure.sh $OPTS &&
-
-cd build/release &&
-
-default_make
+default_cmake_build
