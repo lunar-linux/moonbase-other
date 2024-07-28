@@ -1,3 +1,4 @@
+depends meson
 depends alsa-lib
 depends confuse
 depends libnl3
@@ -5,5 +6,5 @@ depends yajl
 depends asciidoc
 depends xmlto
 
-optional_depends pulseaudio     "" "" "include support for pulseaudio"
+optional_depends pulseaudio     "-Dpulseaudio=true" "-Dpulseaudio=false" "include support for pulseaudio"
 optional_depends wireless_tools "" "" "include support for wireless tools"
