@@ -1,18 +1,40 @@
-depends yaml
+depends cmake
+depends judy
+depends pcre2
+depends snappy
 depends libmnl
 depends libnetfilter_acct
 depends %OSSL
+depends brotli
 depends which
 depends libuv
-depends json-c
 depends lz4
 depends zlib
-depends protobuf
+depends logrotate
+
+optional_depends json-c   "-DENABLE_BUNDLED_JSONC=OFF"    \
+                          "-DENABLE_BUNDLED_JSONC=ON"     \
+                          "for json C support, ${PROBLEM_COLOR}if NO use bundled ${DEFAULT_COLOR}"
+
+optional_depends protobuf "-DENABLE_BUNDLED_PROTOBUF=OFF" \
+                          "-DENABLE_BUNDLED_PROTOBUF=ON"  \
+                          "for structured data support, ${PROBLEM_COLOR}if NO use bundled ${DEFAULT_COLOR}"
+
+optional_depends yaml     "-DENABLE_BUNDLED_YAML=OFF"     \
+                          "-DENABLE_BUNDLED_YAML=ON"      \
+                          "for parsing support, ${PROBLEM_COLOR}if NO use bundled ${DEFAULT_COLOR}"
+
+optional_depends go       "-DENABLE_PLUGIN_GO=ON"         \
+                          "-DENABLE_PLUGIN_GO=OFF"        \
+                          "for collectors written in Go support, ${PROBLEM_COLOR}Recommended${DEFAULT_COLOR}"
+
+optional_depends %MYSQL   "-DENABLE_EXPORTER_MONGODB=ON"  \
+                          "-DENABLE_EXPORTER_MONGODB=OFF" \
+                          "for exporting to mysql"
 
 optional_depends lm_sensors "" "" "for sensors support"
 optional_depends iproute2   "" "" "for monitoring Linux QoS"
 optional_depends hddtemp    "" "" "for monitoring hdd temperature"
 optional_depends apcupsd    "" "" "for monitoring APC UPS"
-optional_depends judy       "" "" "for dictionary indexing support"
 
 optional_depends wireless_tools "" "" "for monitoring Linux as access point"
