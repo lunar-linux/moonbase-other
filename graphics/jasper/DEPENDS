@@ -1,6 +1,11 @@
 depends cmake
 depends libXmu
 
+optional_depends libheif \
+                 "-DJAS_ENABLE_HEIC_CODEC=ON" \
+                 "-DJAS_ENABLE_HEIC_CODEC=OFF" \
+                 "for HEIF decoder/encoder support"
+
 optional_depends %JPEG \
                  " -DJAS_ENABLE_LIBJPEG=ON" \
                  " -DJAS_ENABLE_LIBJPEG=OFF" \
