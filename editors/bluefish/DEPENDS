@@ -1,16 +1,8 @@
 depends gtk+-3
 depends intltool
 depends desktop-file-utils
-
-#depends %JPEG
-#depends tiff
-#depends giflib
-#depends libpng
-#depends pcre
+depends gucharmap
 
 optional_depends enchant "--enable-spell-check"  \
                          "--disable-spell-check" \
-                         "for spelling support"
-
-#optional_depends tidy "" "" "for tidying up one's HTML automatically"
-optional_depends gucharmap "" "" "for character map support"
+                         "for spelling support" y

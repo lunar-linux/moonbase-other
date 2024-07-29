@@ -1,3 +1,6 @@
-OPTS+=" --disable-update-databases --disable-xml-catalog-update" &&
+autoreconf -fvi &&
+
+OPTS+=" --disable-update-databases \
+        --disable-xml-catalog-update" &&
 
 default_build
