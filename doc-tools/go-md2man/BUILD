@@ -1,4 +1,5 @@
-export GOFLAGS="-mod=vendor -trimpath"
+export GOPROXY=https://proxy.golang.org
+export GOFLAGS="-buildmode=pie -trimpath"
 
 #export GOPATH=$(readlink -f .)
 repo=src/github.com/cpuguy83
