@@ -1,6 +1,8 @@
 bad_flags -mssse3 &&
 bad_flags -mfpmath=sse &&
 
+CFLAGS+=" -Wno-error=implicit-int -Wno-error=incompatible-pointer-types"
+
 # Fixes mysterious drag and drop crash in gtk+-2
 # gtk+-2 when compiled with -O2 or -O3 will compile well
 # but crash on drag and drop of bitmaps.
@@ -14,13 +16,6 @@ case "$CFLAGS" in
 esac &&
 
 patch_it $SOURCE2 1 &&
-
-sedit '145i README: README.md\n' Makefile.am &&
-autoreconf -fi &&
-
-if [ "`get_module_config DOCS`" = "n" ]; then
-  sedit "s/docs m4macros build/m4macros build/g" Makefile.in
-fi &&
 
 OPTS+=" --with-gdktarget=x11" &&
 
