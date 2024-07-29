@@ -18,8 +18,8 @@ prepare_install &&
 cmake --install $MODULE-build &&
 
 if [ ! -f "/etc/netdata/netdata.conf" ];then
-  install -Dm644 ../system/netdata.conf /etc/netdata/netdata.conf &&
-  install -Dm644 ../system/netdata.conf /etc/netdata/netdata.conf.default
+  install -Dm644 system/netdata.conf /etc/netdata/netdata.conf &&
+  install -Dm644 system/netdata.conf /etc/netdata/netdata.conf.default
 fi &&
 
 install -Dm0644 $MODULE-build/system/logrotate/netdata /etc/logrotate.d/netdata &&
