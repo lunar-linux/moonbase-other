@@ -1,5 +1,3 @@
 default_pre_build &&
 
-sedit 's/^#CONFIG_IEEE80211N=y/CONFIG_IEEE80211N=y/' hostapd/defconfig &&
-sedit 's/^#CONFIG_LIBNL32=y/CONFIG_LIBNL32=y/' hostapd/defconfig &&
 sedit 's#/etc/hostapd#/etc/hostapd/hostapd#' hostapd/hostapd.conf
