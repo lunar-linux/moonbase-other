@@ -1,4 +1,5 @@
 OPTS+=" --with-gui=x11"
 
-./autogen.sh &&
+autoreconf -fi &&
+
 default_build
