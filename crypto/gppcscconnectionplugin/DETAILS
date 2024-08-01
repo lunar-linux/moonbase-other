@@ -1,13 +1,16 @@
           MODULE=gppcscconnectionplugin
-         VERSION=1.1.0
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-      SOURCE_URL=$SFORGE_URL/globalplatform/GlobalPlatform%20Library
-      SOURCE_VFY=sha1:38eb3d739f1b75ba954f09a928a6e9db0178ea53
-        WEB_SITE="http://sourceforge.net/p/globalplatform/wiki/PC-SC%20Connection%20Plugin/"
+         VERSION=1.2.4
+          commit=9d89e9fda45286fe66c7ae88a30a950bd5320da8
+          SOURCE=$MODULE-$VERSION.tar.zip
+ SOURCE_URL_FULL=https://github.com/kaoh/globalplatform/archive/$commit.zip
+      SOURCE_VFY=sha256:2e5ce71291e42f649601fa0f6b7a46bb39cf0344f815dc021c9d82a6fb540f23
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/globalplatform-$commit 
+       WEB_SITE=https://github.com/kaoh/globalplatform
          ENTERED=20131012
-         UPDATED=20131012
+         UPDATED=20240801
            SHORT="PC/SC Connection Plugin for GPShell"
-cat <<EOF
+
+cat << EOF
 PC/SC is a standard for accessing smart cards. The PC/SC Connection
 Plugin uses this standard for accessing smart cards and is the default
 connection plugin used by [GPShell].
