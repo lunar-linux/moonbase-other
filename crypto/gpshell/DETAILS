@@ -1,13 +1,15 @@
           MODULE=gpshell
-         VERSION=1.4.4
-          SOURCE=${MODULE}-${VERSION}.tar.gz
-      SOURCE_URL=$SFORGE_URL/globalplatform/GPShell
-      SOURCE_VFY=sha256:11b3a893e0fca7775124146ee4a798d443eb2fd1058513f6fa6a0be7f73f47a5
-        WEB_SITE="http://sourceforge.net/p/globalplatform/wiki/Home/"
+         VERSION=2.4.0
+          commit=8d7587c78a8dac444491eb260edfe542359fb397
+          SOURCE=$MODULE-$VERSION.tar.zip
+ SOURCE_URL_FULL=https://github.com/kaoh/globalplatform/archive/$commit.zip
+      SOURCE_VFY=sha256:cec9287aaa162c70307298bdd3adcc4c58ccd77c83b41acf10e5e7c22a385abd
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/globalplatform-$commit/$MODULE
+        WEB_SITE=http://sourceforge.net/p/globalplatform/wiki/Home/
          ENTERED=20131012
-         UPDATED=20200823
+         UPDATED=20240801
            SHORT="A script interpreter which talks to a smart card"
-cat <<EOF
+cat << EOF
 GPShell is a script interpreter which talks to a smart card which
 complies to the [GlobalPlatform Card Specification].
 EOF
