@@ -1,0 +1,12 @@
+depends meson
+depends libuv
+
+optional_depends capstone "-Duse_sys_capstone=true -Duse_capstone_version=v5 -Dcapstone_in_builddir=false" \
+                           "" "for disassembly support, ${PROBLEM_COLOR}If no will clone it${DEFAULT_COLOR}"
+
+optional_depends zip    "-Duse_sys_zip=true"    "-Duse_sys_zip=false"    "for system zip compression/decompression support, ${PROBLEM_COLOR}If no use internal${DEFAULT_COLOR}"
+optional_depends zlib   "-Duse_sys_zlib=true"   "-Duse_sys_zlib=false"   "for system zlib support, ${PROBLEM_COLOR}If no use internal${DEFAULT_COLOR}"
+optional_depends lz4    "-Duse_sys_lz4=true"    "-Duse_sys_lz4=false"    "for system lz4 support, ${PROBLEM_COLOR}If no use internal${DEFAULT_COLOR}"
+optional_depends xxHash "-Duse_sys_xxhash=true" "-Duse_sys_xxhash=false" "for system xxHash support, ${PROBLEM_COLOR}If no use internal${DEFAULT_COLOR}"
+
+
