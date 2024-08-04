@@ -5,6 +5,9 @@ OPTS+=" --prefix=/usr               \
         --sysconfdir=/etc           \
         --localstatedir=/var        \
         --disable-start-stop-daemon \
+        --disable-static \
         $OPTS" &&
 
-default_build
+default_build &&
+
+rm /usr/lib/libdpkg.a
