@@ -1,3 +1,8 @@
-depends acl
-depends libcap
-depends oniguruma
+optional_depends acl "" "" \
+        "for Access Control List support"
+optional_depends libcap "" "" \
+        "for POSIX 1003.1e capabilities"
+optional_depends liburing "" "" \
+        "for liburing support"
+optional_depends oniguruma "" "" \
+        "for the oniguruma regular expressions library"
