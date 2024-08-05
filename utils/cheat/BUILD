@@ -1,4 +1,5 @@
 export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external -mod=readonly -modcacherw" &&
+export GOPROXY=https://proxy.golang.org,direct &&
 
 go build -v "./cmd/$MODULE" &&
 
@@ -31,4 +32,6 @@ find "cheatsheets" \
         -perm 644 \
         -exec \
             install -m644 "{}" \
-              "/usr/share/$MODULE/cheatsheets/community/" \;
+              "/usr/share/$MODULE/cheatsheets/community/" \; &&
+
+install -Dm644 doc/cheat.1 /usr/share/man/man1
