@@ -31,4 +31,6 @@ find "cheatsheets" \
         -perm 644 \
         -exec \
             install -m644 "{}" \
-              "/usr/share/$MODULE/cheatsheets/community/" \;
+              "/usr/share/$MODULE/cheatsheets/community/" \; &&
+
+install -Dm644 doc/cheat.1 /usr/share/man/man1
