@@ -1,4 +1,5 @@
 export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external -mod=readonly -modcacherw" &&
+export GOPROXY=https://proxy.golang.org,direct &&
 
 go build -v "./cmd/$MODULE" &&
 
