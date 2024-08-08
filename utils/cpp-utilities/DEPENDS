@@ -1,2 +1,5 @@
 depends cppunit
 depends cmake
+
+optional_depends libarchive "-DUSE_LIBARCHIVE=ON" "-DUSE_LIBARCHIVE=OFF" \
+        "for libarchive support, if disabled archiving utilities will not be available"
