@@ -1,6 +1,6 @@
 OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DMYSQL_DATADIR=/var/lib/mysql \
-        -DMYSQL_UNIX_ADDR=/run/mysqld/mysqld.sock \
+        -DMYSQL_UNIX_ADDR=/run/mysqld/mariadbd.sock \
         -DBUILD_CONFIG=mysql_release \
         -DINSTALL_BINDIR=bin \
         -DINSTALL_SBINDIR=sbin \

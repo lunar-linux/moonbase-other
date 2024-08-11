@@ -5,7 +5,7 @@ After=syslog.target
 [Service]
 User=mysql
 Group=mysql
-ExecStart=/usr/sbin/mysqld --pid-file=/run/mysqld/mysqld.pid
+ExecStart=/usr/sbin/mariadbd --pid-file=/run/mysqld/mariadbd.pid
 Restart=always
 PrivateTmp=true
 
