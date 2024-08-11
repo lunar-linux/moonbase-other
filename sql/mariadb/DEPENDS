@@ -1,4 +1,6 @@
+depends bison
 depends cmake
+depends curl
 depends zlib
 depends readline
 depends jemalloc
@@ -8,5 +10,9 @@ depends libaio
 depends snappy
 depends boost
 
-optional_depends %OSSL "-DWITH_SSL=system"   "-DWITHOUT_SSL=ON"     "for SSL support"
-optional_depends judy  "-DPLUGIN_OQGRAPH=YES" "-DPLUGIN_OQGRAPH=NO" "for sparse dynamic array (OQGraph storage engine) support"
+optional_depends %OSSL "-DWITH_SSL=system"   "-DWITHOUT_SSL=ON" \
+        "for SSL support"
+optional_depends judy  "-DPLUGIN_OQGRAPH=YES" "-DPLUGIN_OQGRAPH=NO" \
+        "for sparse dynamic array (OQGraph storage engine) support"
+optional_depends valgrind "-DWITH_VALGRIND=ON" "-DWITH_VALGRIND=OFF" \
+        "for valgrind instrumentation"
