@@ -5,8 +5,15 @@ depends pango
 depends libxml2
 
 optional_depends cgilib "" "--disable-rrdcgi" "for building rrdcgi"
-
+optional_depends lua \
+                 "--enable-lua-site-install" \
+                 "--disable-lua" \
+                 "for lua support"
 optional_depends ruby \
                  "--enable-ruby-site-install" \
                  "--disable-ruby" \
                  "for ruby support"
+optional_depends tcl \
+                 "--enable-tcl-site" \
+                 "--disable-tcl" \
+                 "for tcl support"
