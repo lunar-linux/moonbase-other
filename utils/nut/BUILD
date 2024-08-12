@@ -1,8 +1,5 @@
+OPTS="--with-group=nut --with-user=nut --sysconfdir=/etc/$MODULE" &&
 
-  OPTS="--with-group=nut --with-user=nut --sysconfdir=/etc/$MODULE" &&
+add_priv_user nut:nut -d /dev/null -s /usr/bin/false &&
 
-  add_priv_user nut:nut -d /dev/null -s /usr/bin/false &&
-
-  sedit "s:BUS:SUBSYSTEM:" scripts/udev/nut-usbups.rules.in &&
-
-  default_build
+default_build
