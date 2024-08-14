@@ -1,4 +1,4 @@
 default_pre_build &&
 
 sedit 's:/usr/local:/usr:' Makefile &&
-sedit 's:/man:/share/man/man.1:' Makefile
+sedit '/^MANDIR/s:/man:/share/man:' Makefile
