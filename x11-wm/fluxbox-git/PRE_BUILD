@@ -1,0 +1,5 @@
+default_pre_build &&
+
+autoreconf -fi &&
+
+sedit 's/\(text_prop.value\) > 0/\1 != NULL/' util/fluxbox-remote.cc
