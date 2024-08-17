@@ -5,7 +5,7 @@ export CGO_LDFLAGS="${LDFLAGS}"
 
 mkdir -p build &&
 
-CGO_ENABLED="0" go build -o build/wakatime-cli \
+CGO_ENABLED="1" go build -o build/wakatime-cli \
            -trimpath \
            -buildmode=pie \
            -mod=readonly \
