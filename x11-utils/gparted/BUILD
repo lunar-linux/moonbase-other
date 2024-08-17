@@ -1,6 +1,5 @@
-OPTS+=" --sbindir=/usr/bin"
-
-OPTS+=" --enable-xhost-root \
+OPTS+=" --sbindir=/usr/bin \
+        --enable-xhost-root \
         --enable-online-resize \
         --enable-libparted-dmraid \
         --disable-static"
