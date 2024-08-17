@@ -2,4 +2,4 @@ make prefix=/usr &&
 
 prepare_install &&
 
-make install
+make prefix=/usr install
