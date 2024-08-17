@@ -2,6 +2,7 @@ export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CFLAGS="${CFLAGS}"
 export CGO_CXXFLAGS="${CXXFLAGS}"
 export CGO_LDFLAGS="${LDFLAGS}"
+export GOPROXY=https://proxy.golang.org
 
 mkdir -p build &&
 
