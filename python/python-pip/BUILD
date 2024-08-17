@@ -1,8 +1,8 @@
 rm -rf /usr/bin/pip \
        /usr/bin/pip3 \
-       /usr/bin/pip3.11 \
-       /usr/lib/python3.11/site-packages/pip/* \
-       /usr/lib/python3.11/site-packages/pip-23.3.1.dist-info &&
+       /usr/bin/pip3.12 \
+       /usr/lib/python3.12/site-packages/pip/* \
+       /usr/lib/python3.12/site-packages/pip-24.0.dist-info &&
 
 python -m build --wheel --no-isolation &&
 
