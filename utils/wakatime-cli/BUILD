@@ -2,10 +2,11 @@ export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CFLAGS="${CFLAGS}"
 export CGO_CXXFLAGS="${CXXFLAGS}"
 export CGO_LDFLAGS="${LDFLAGS}"
+export GOPROXY=https://proxy.golang.org
 
 mkdir -p build &&
 
-CGO_ENABLED="0" go build -o build/wakatime-cli \
+CGO_ENABLED="1" go build -o build/wakatime-cli \
            -trimpath \
            -buildmode=pie \
            -mod=readonly \
