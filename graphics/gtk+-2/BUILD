@@ -1,5 +1,8 @@
 bad_flags -mssse3 &&
 bad_flags -mfpmath=sse &&
+sed -i 's#l \(gtk-.*\).sgml#& -o \1#' docs/{faq,tutorial}/Makefile.am &&
+
+autoreconf -fvi &&
 
 CFLAGS+=" -Wno-error=implicit-int -Wno-error=incompatible-pointer-types"
 
@@ -15,7 +18,6 @@ case "$CFLAGS" in
     ;;
 esac &&
 
-patch_it $SOURCE2 1 &&
 
 OPTS+=" --with-gdktarget=x11" &&
 
