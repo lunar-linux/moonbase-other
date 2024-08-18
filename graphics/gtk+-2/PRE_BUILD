@@ -7,4 +7,6 @@ if in_depends $MODULE gobject-introspection; then
   fi
 fi
 
-default_pre_build
+default_pre_build &&
+
+sed -i '/AM_INIT_AUTOMAKE/s/]/ foreign]/' configure.ac
