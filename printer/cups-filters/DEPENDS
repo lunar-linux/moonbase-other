@@ -1,5 +1,6 @@
 depends pkgconf
 depends zlib
+depends libppd
 depends ghostscript
 depends qpdf
 depends poppler
@@ -9,7 +10,6 @@ depends fontconfig
 depends ijs
 depends shared-mime-info
 depends glib-2
-depends dejavu-ttf
 
 # for print testing we use DejaVuSans-ttf
 depends dejavu-ttf
@@ -19,27 +19,9 @@ depends bc
 
 depends cups
 
-optional_depends  libjpeg-turbo \
-                  "--with-jpeg"  \
-                  "--without-jpeg" \
-                  "Support for JPEG filter"
-
-optional_depends  tiff  \
-                  "--with-tiff"  \
-                  "--without-tiff" \
-                  "Support for TIFF filter"
-
-optional_depends  libpng \
-                  "--with-png" \
-                  "--without-png" \
-                  "Support PNG filter"
-
 optional_depends ImageMagick \
                  "--enable-imagefilters" \
                  "--disable-imagefilters" \
                  "for image filters support"
 
-optional_depends avahi \
-                 "--enable-avahi" \
-                 "--disable-avahi" \
-                 "for DNS Service Discovery support using Avahi"
+optional_depends mupdf "--enable-mutool" "--disable-mutool" "for pdf viewing support".
