@@ -1,4 +1,4 @@
-OPTS+=" --with-embedded-lua"
+OPTS+=" --with-embedded-lua --docdir=/usr/share/doc/freedroidRPG"
 
 default_game_build &&
 

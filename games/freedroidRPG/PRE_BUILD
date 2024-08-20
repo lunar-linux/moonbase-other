@@ -1,4 +1,6 @@
 default_pre_build &&
 
 sedit "s:LUA_LIBS:LUA_LIBS -ldl:" configure.ac &&
-sedit "5 i freedroidRPG_CFLAGS = -I../lua" src/Makefile.am
+sedit "5 i freedroidRPG_CFLAGS = -I../lua -I/usr/include/SDL" src/Makefile.am &&
+
+autoreconf -fi
