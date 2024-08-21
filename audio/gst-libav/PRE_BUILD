@@ -1,8 +1,0 @@
-default_pre_build
-
-sed -e '1375,1430d' \
-    -e '2058d'      \
-    -e '2105,2140d' \
-    -e '2217,2221d' \
-    -i ext/libav/gstavdemux.c &&
-sed -i '2122aif (!gst_element_register (plugin, type_name, rank, type)) {' ext/libav/gstavdemux.c
