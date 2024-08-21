@@ -1,4 +1,10 @@
 default_pre_build &&
 
-rm -f po/fur.po
-sedit 's|fur||' po/LINGUAS
+rm -f po/fur.po &&
+sedit 's|fur||' po/LINGUAS &&
+
+#https://github.com/hughsie/colord/pull/167/commits/7374136d7f4aca784849227910a796a0d352408c
+sedit 's:RestrictAddressFamilies=AF_UNIX::' data/colord.service.in &&
+
+#https://github.com/hughsie/colord/commit/08a32b2379fb5582f4312e59bf51a2823df56276
+sedit '19i ConfigurationDirectory=colord\nStateDirectory=colord\nCacheDirectory=colord\n' data/colord.service.in
