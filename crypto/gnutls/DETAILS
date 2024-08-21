@@ -1,12 +1,13 @@
           MODULE=gnutls
-         VERSION=3.8.6
+         VERSION=3.8.7.1
           SOURCE=$MODULE-$VERSION.tar.xz
+SOURCE_DIRECTORY=gnutls-${VERSION%.*}
    SOURCE_URL[0]=https://www.gnupg.org/ftp/gcrypt/$MODULE/v${VERSION::3}
    SOURCE_URL[1]=$GNU_URL/$MODULE
-      SOURCE_VFY=sha256:2e1588aae53cb32d43937f1f4eca28febd9c0c7aa1734fc5dd61a7e81e0ebcdd
+      SOURCE_VFY=sha256:9ca0ddaccce28a74fa18d738744190afb3b0daebef74e6ad686bf7bef99abd60
         WEB_SITE=http://www.gnu.org/software/gnutls
          ENTERED=20020212
-         UPDATED=20240713
+         UPDATED=20240821
            SHORT="A TLS library"
 
 cat << EOF
