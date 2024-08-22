@@ -1,3 +1,3 @@
 CXXFLAGS+=" -fpermissive"
 
-default_game_build
+default_cmake_build
