@@ -3,6 +3,7 @@
 #gtk libraries and will not be compatible with wxMaxima causing it to fail its build.
 if in_depends $MODULE qt5; then
 OPTS+=" -DwxBUILD_TOOLKIT=qt \
+        -DwxUSE_UNICODE=ON \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DwxUSE_REGEX=sys      \
@@ -11,6 +12,7 @@ OPTS+=" -DwxBUILD_TOOLKIT=qt \
         -DwxBUILD_OPTIMISE=ON  \
         -DwxUSE_WEBVIEW_WEBKIT=ON \
         -DwxUSE_WEBVIEW=ON  \
+        -DwxUSE_UNICODE=ON
         -DwxBUILD_COMPATIBILITY=2.8"
 
 cmake . -B ${MODULE}-qt5 -G Ninja $OPTS &&
@@ -22,6 +24,7 @@ fi &&
 
 #-DwxBUILD_COMPATIBILITY=2.8 is required for erlang
 OPTS+=" -DwxBUILD_TOOLKIT=gtk3 \
+        -DwxUSE_UNICODE=ON \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DwxUSE_REGEX=sys      \
