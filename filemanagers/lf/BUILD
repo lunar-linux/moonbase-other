@@ -1,3 +1,5 @@
+export GOPROXY=https://proxy.golang.org
+
 go mod vendor &&
 version=r$pkgver ./gen/build.sh -mod=vendor -trimpath &&
 go clean -modcache &&
