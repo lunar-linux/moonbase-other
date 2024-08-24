@@ -1,5 +1,5 @@
 if ! grep -q perl_module /etc/httpd/conf/httpd.conf; then
-  echo -e "\n\n# mod_perl options, uncomment these to enable mod_perl:\n# LoadModule perl_module /usr/libexec/httpd/modules/mod_perl.so\n# PerlModule Apache2\n\n" >> /etc/httpd/conf/httpd.conf
+  echo -e "\n\n# mod_perl options, uncomment these to enable mod_perl:\n# LoadModule perl_module /usr/lib/httpd/modules/mod_perl.so\n# PerlModule Apache2\n\n" >> /etc/httpd/conf/httpd.conf
 fi
 
 message "${MESSAGE_COLOR}Dont forget to edit httpd.conf or ssl.conf!${DEFAULT_COLOR}"
