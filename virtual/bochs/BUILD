@@ -1,4 +1,6 @@
 OPTS+=" --build=$BUILD \
+        --host=uname -m \
+        --target=uname -m \
         --disable-docbook \
         --enable-long-phy-address \
         --enable-fpu \
