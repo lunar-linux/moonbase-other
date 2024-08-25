@@ -1,4 +1,5 @@
-OPTS+=" --disable-docbook \
+OPTS+=" --build=$BUILD \
+        --disable-docbook \
         --enable-long-phy-address \
         --enable-fpu \
         --enable-a20-pin \
