@@ -1,0 +1,33 @@
+Bug: https://bugs.gentoo.org/922445
+
+The change in libxml2 is not backwards compatibe.
+
+The upstream change is in include/libxml/xmlerror.h:
+
+ typedef xmlError *xmlErrorPtr;
+
+-typedef void (*xmlStructuredErrorFunc) (void *userData, xmlErrorPtr error);
++typedef void (*xmlStructuredErrorFunc) (void *userData, const xmlError *error);
+
+Upstream fixed it for dev-libs/libxml2-2.12.6, but we need the fix for 2.12.5 as well.
+
+--- a/src/VBox/Runtime/r3/xml.cpp
++++ b/src/VBox/Runtime/r3/xml.cpp
+@@ -1856,7 +1856,7 @@
+     va_end(args);
+ }
+ 
+-#if LIBXML_VERSION >= 21206
++#if LIBXML_VERSION >= 21205
+ static void xmlStructuredErrorFunc(void *userData, const xmlError *error)  RT_NOTHROW_DEF
+ {
+     NOREF(userData);
+@@ -1878,7 +1878,7 @@
+         throw std::bad_alloc();
+     /* per-thread so it must be here */
+     xmlSetGenericErrorFunc(NULL, xmlParserBaseGenericError);
+-#if LIBXML_VERSION >= 21206
++#if LIBXML_VERSION >= 21205
+     xmlSetStructuredErrorFunc(NULL, xmlStructuredErrorFunc);
+ #else
+     xmlSetStructuredErrorFunc(NULL, xmlParserBaseStructuredError);
