@@ -1,11 +1,14 @@
+depends cmake
+depends mesa-lib
 depends nasm
 depends pcre2
 depends flex
 depends bison
 depends libSM
+depends libsoup-3
 depends libnotify
+depends libmspack
 depends gtk+-3
-depends cmake
 depends gst-plugins-base
 
 optional_depends qt5         "-DwxBUILD_TOOLKIT=qt" "" "the qt5 wxWidget toolkit will be built, ${PROBLEM_COLOR}the gtk3 toolkit will still be built${DEFAULT_COLOR}"
@@ -15,10 +18,8 @@ optional_depends expat       "-DwxUSE_EXPAT=sys"    "-DwxUSE_EXPAT=builtin"   "f
 optional_depends libpng      "-DwxUSE_LIBPNG=sys"   "-DwxUSE_LIBPNG=builtin"  "for PNG image support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
 optional_depends %JPEG       "-DwxUSE_LIBJPEG=sys"  "-DwxUSE_LIBJPEG=builtin" "for JPEG image support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
 optional_depends tiff        "-DwxUSE_LIBTIFF=sys"  "-DwxUSE_LIBTIFF=builtin" "for TIFF image support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
-optional_depends mesa-lib    "-DwxUSE_OPENGL=ON"    "-DwxUSE_OPENGL=OFF"      "for OpenGL support (needed for hugin)"
 optional_depends SDL2        "-DwxUSE_LIBSDL=ON"    "-DwxUSE_LIBSDL=OFF"      "for SDL2 audio support"
-optional_depends libmspack   "-DwxUSE_LIBMSPACK=ON" "-DwxUSE_LIBMSPACK=OFF"   "for Microsoft compression/decompression support"
 
 optional_depends webkit2gtk3 "-DwxUSE_WEBVIEW=ON -DwxUSE_WEBVIEW_WEBKIT=ON" \
                              "-DwxUSE_WEBVIEW=OFF" \
-                             "for webview support,${MODULE_COLOR}Needed by wxMaxima${DEFAULT_COLOR}" y
+                             "for webview support,${MODULE_COLOR}Needed by wxMaxima${DEFAULT_COLOR}" n
