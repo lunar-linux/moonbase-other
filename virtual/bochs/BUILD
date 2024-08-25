@@ -1,6 +1,7 @@
 OPTS+=" --build=$BUILD \
-        --host=uname -m \
-        --target=uname -m \
+        --host=$(uname -m) \
+        --target=$(uname -m) \
+        --without-wx \ 
         --disable-docbook \
         --enable-long-phy-address \
         --enable-fpu \
