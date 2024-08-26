@@ -17,4 +17,4 @@ default_build &&
 cd src/nmath/standalone &&
 make shared &&
 prepare_install &&
-make install &&
+make install
