@@ -1,4 +1,3 @@
+OPTS+=" -DTARGET_ARCHITECTURE=auto -DBUILD_EXAMPLES=OFF"
 
-  OPTS+=" -DTARGET_ARCHITECTURE=auto -DBUILD_TESTING=0" &&
-
-  default_cmake_build
+default_cmake_build
