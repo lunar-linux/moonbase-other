@@ -1,0 +1,33 @@
+default_pre_build
+
+if grep -q avx /proc/cpuinfo; then
+  OPTS+=" -DUSE_AVX=ON"
+fi &&
+
+if grep -q sse2 /proc/cpuinfo; then
+  OPTS+=" -DUSE_SSE2=ON"
+fi &&
+
+if grep -q sse3 /proc/cpuinfo; then
+  OPTS+=" -DUSE_SSE3=ON"
+fi &&
+
+if grep -q sse4_1 /proc/cpuinfo; then
+  OPTS+=" -DUSE_SSE4_1=ON"
+fi &&
+
+if grep -q sse4_2 /proc/cpuinfo; then
+  OPTS+=" -DUSE_SSE4_2=ON"
+fi &&
+
+if grep -q sse4a /proc/cpuinfo; then
+  OPTS+=" -DUSE_SSE4a=ON"
+fi &&
+
+if grep -q fma4 /proc/cpuinfo; then
+  OPTS+=" -DUSE_FMA4=ON"
+fi &&
+
+if grep -q xop /proc/cpuinfo; then
+  OPTS+=" -DUSE_XOP=ON"
+fi
