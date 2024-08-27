@@ -7,22 +7,32 @@ depends libXcursor
 depends alsa-lib
 depends libcap
 depends libIDL
-depends libvpx
 depends shared-mime-info
 depends makeself
 depends acpica-unix
 depends opus
 depends zlib
 
-optional_depends qt5 "" "--build-headless --disable-qt"    "for UI (recommended), ${PROBLEM_COLOR}If no then it will be headless${DEFAULT_COLOR}"
+# Per LocalConfig.kmk headless stuff will be installed regardless,
+# so make this a depends
+depends qt5
 
-optional_depends lvm2       "" "--disable-devmapper" "for device mapper support"
-optional_depends mesa-lib   "" "--disable-opengl"    "for OpenGL support"
-optional_depends pulseaudio "" "--disable-pulse"     "for pulseaudio backend"
-optional_depends SDL_ttf    "" "--disable-sdl-ttf"   "for SDL support"
-optional_depends libvpx     "" "--disable-libvpx"    "for libvpx video capturing support"
-optional_depends %JAVA_SDK  "" "--disable-java"      "for Java bindings"
+optional_depends lvm2       "" "--disable-devmapper" "for device mapper support" y
+optional_depends mesa-lib   "" "--disable-opengl"    "for OpenGL support" y
+optional_depends pulseaudio "" "--disable-pulse"     "for pulseaudio backend" y
+optional_depends SDL        "" "--disable-sdl"       "for SDL support" y
+optional_depends libvpx     "" "--disable-libvpx"    "for libvpx video capturing support" y
 
-optional_depends vde-2  "--enable-vde" "" "for Virtual Distributed Etherne support"
+#Java 11 and newer have removed  wsimport and wsgen tools which virtaulbox needs
+optional_depends OpenJDK8U-jdk "" "--disable-java"      "for Java bindings" y
 
-optional_depends gsoap "" "" "for gsoap compiler support"
+optional_depends vde-2  "--enable-vde" "" "for Virtual Distributed Ethernet support" y
+
+# gsoap needs java
+if in_depends $MODULE OpenJDK8U-jdk; then
+  optional_depends gsoap "" "" "for webservices and xml application support"
+fi
+
+if in_depends $MODULE SDL; then
+  depends SDL_ttf
+fi
