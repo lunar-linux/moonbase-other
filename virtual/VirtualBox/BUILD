@@ -2,9 +2,9 @@ source /etc/profile.d/qt5.rc &&
 
 export XML_CATALOG_FILES=/etc/xml/catalog
 
-if in_depends $MODULE $(expand_alias %JAVA_SDK); then
+if in_depends $MODULE OpenJDK8U-jdk; then
    # Location of javac
-   . /etc/profile.d/sun-jdk.rc &&
+   source /etc/profile.d/sun-jdk.rc &&
    export VBOX_JAVA_HOME=$JAVA_HOME
 fi &&
 
