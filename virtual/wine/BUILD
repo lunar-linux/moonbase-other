@@ -22,3 +22,6 @@ default_make &&
 install -d /etc/fonts/conf.{avail,d} &&
 install -m644 $SCRIPT_DIRECTORY/30-win32-aliases.conf /etc/fonts/conf.avail &&
 ln -sf ../conf.avail/30-win32-aliases.conf /etc/fonts/conf.d/30-win32-aliases.conf
+
+#Some look for wine binary instead of wine64
+ln -sf /usr/bin/wine64 /usr/bin/wine
