@@ -1,21 +1,22 @@
-depends perl
-depends libpng
-depends libxml2
-depends tiff
-depends libwebp
-depends freetype2
 depends libXext
 depends libSM
+depends perl
+depends libxml2
+depends libpng
+depends tiff
+depends freetype2
 depends %JPEG
-depends ghostscript
+
+optional_depends jbigkit     "--with-jbig"  "--without-jbig"  "bi-level image compression" y
+optional_depends libwebp     "--with-webp"  "--without-webp"  "for lossy compression support" y
+optional_depends jasper      "--with-jp2"   "--without-jp2"   "JPEG-2000 support" y
+optional_depends lcms2       "--with-lcms2" "--without-lcms2" "for color management" Y
+optional_depends libfpx      "--with-fpx"   "--without-fpx"   "for flash pix support" y
+optional_depends libwmf      "--with-wmf"   "--without-wmf"   "for Windows Metafile support" y
+optional_depends ghostscript "--with-gs"    "--without-gs"    "for Ghostscript support" y
 
 optional_depends gperf "" "" "for improved memory allocator"
-optional_depends lcms2    ""  ""  "for color management"
 optional_depends gnuplot  ""  ""  "to read plot files"
-optional_depends jbigkit  ""  ""  "bi-level image compression"
-optional_depends jasper   ""  ""  "JPEG-2000 support"
-optional_depends libwmf   ""  ""  "for Windows Metafile support"
-optional_depends libfpx   ""  ""  "for flash pix support"
-optional_depends libopenraw    ""  ""  "for RAW image support"
+optional_depends dcraw    ""  ""  "for RAW image support"
 optional_depends sane-backends "" "" "for scanner support"
-optional_depends graphviz "" "" "for graph drawing support."
+optional_depends graphviz "" "" "for graph drawing support"
