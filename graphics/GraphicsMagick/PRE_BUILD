@@ -1,7 +1,3 @@
 default_pre_build &&
 
-sedit "s:png_access_version:png_access_version_number:" coders/png.c &&
-sedit "s:flags(png_ptr):flags(ping):" coders/png.c &&
-sedit "s:flags(png_ptr,:flags(ping,:" coders/png.c &&
-
 sedit "s:freetype_config='':freetype_config='/usr/bin/pkg-config freetype2':g" configure
