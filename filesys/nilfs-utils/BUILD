@@ -1,6 +1,5 @@
-OPTS+=" --sbindir=/usr/bin -with-libmount"
+OPTS+=" --sbindir=/usr/bin --with-libmount --disable-static"
 
 default_build &&
 
-# remove the static libs
-rm -f /usr/lib/libnilfs*.a
+mv /usr/sbin/nilfs-* /usr/bin/
