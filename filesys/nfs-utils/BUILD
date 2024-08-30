@@ -2,7 +2,8 @@ OPTS+=" --without-tcp-wrappers \
         --with-statedir=/var/lib/nfs \
         --with-start-statd=/usr/bin/start-statd \
         --enable-libmount-mount \
-        --enable-mountconfig"
+        --enable-mountconfig \
+        --disable-static"
 
 add_priv_user nfs:daemon &&
 
