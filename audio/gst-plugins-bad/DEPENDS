@@ -1,3 +1,6 @@
+depends libxml2
+depends celt
+depends graphene
 depends libpcap
 depends libgudev
 depends glib-2
@@ -10,12 +13,7 @@ optional_depends gobject-introspection \
                  "y"
 
 # required by multiple plugins
-optional_depends libxml2   "" "" "for XML2 support"
-
-optional_depends celt      "" "" "for low-latency audio support"
-optional_depends graphene  "" "" "for graphic canvas library support"
-
-optional_depends libX11 "-D x11=enabled" "-Dx11=disabled" "for X11 support"
+optional_depends libX11    "-D x11=enabled" "-Dx11=disabled" "for X11 support"
 
 optional_depends libgcrypt "-D hls-crypto=libgcrypt" "" "for cryptographic support in HTTP Live Streaming (only choose one)"
 optional_depends nettle    "-D hls-crypto=nettle"    "" "for cryptographic support in HTTP Live Streaming (only choose one)"
@@ -49,7 +47,7 @@ optional_depends wildmidi    "-D wildmidi=enabled"  "-D wildmidi=disabled"   "fo
 optional_depends neon        "-D neon=enabled"      "-D neon=disabled"       "for the neon HTTP client plugin"
 optional_depends libbs2b     "-D bs2b=enabled"      "-D bs2b=disabled"       "for sterophonic-to-binaural support"
 optional_depends DirectFB    "-D directfb=enabled"  "-D directfb=disabled"   "for the DirectFB video sink, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" "n"
+optional_depends zxing-cpp   "-D zxing=enabled"     "-D zxing=disabled"      "for QRcode support,${PROBLEM_COLOR} Say no for now${DEFAULT_COLOR}" n
 
 optional_depends game-music-emu "-D gme=enabled" "-D gme=disabled" "for playing games music files"
 
-optional_depends zxing-cpp      "-D zxing=enabled" "-D zxing=disabled" "for QRcode support,${PROBLEM_COLOR} Say no for now${DEFAULT_COLOR}" n
