@@ -1,4 +1,5 @@
 OPTS+=" -DWITH_SERVER=ON \
+        -DWITH_CAIRO=ON \
         -DWITH_MANPAGES=OFF \
         -DWITH_FFMPEG=ON \
         -DWITH_SWSCALE=ON \
