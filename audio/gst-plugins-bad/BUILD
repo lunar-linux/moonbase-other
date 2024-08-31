@@ -25,6 +25,7 @@ OPTS+=" -D doc=disabled \
         -D wasapi2=disabled \
         -D wasapi=disabled \
         -D gpl=enabled \
+        -D introspection=enabled \
         -D gobject-cast-checks=disabled"
 
 default_meson_build

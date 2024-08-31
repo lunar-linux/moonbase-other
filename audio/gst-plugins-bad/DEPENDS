@@ -1,16 +1,11 @@
 depends libxml2
+depends gobject-introspection
 depends celt
 depends graphene
 depends libpcap
 depends libgudev
 depends glib-2
 depends gst-plugins-base
-
-optional_depends gobject-introspection \
-                 "-D introspection=enabled" \
-                 "-D introspection=disabled" \
-                 "for introspection support" \
-                 "y"
 
 # required by multiple plugins
 optional_depends libX11    "-D x11=enabled" "-Dx11=disabled" "for X11 support"
