@@ -1,4 +1,5 @@
 depends glib-2
+depends gobject-introspection
 depends pbzip2
 depends python-setuptools
 depends ragel
@@ -26,10 +27,4 @@ optional_depends icu4c \
                  "-Dicu=enabled" \
                  "-Dicu=disabled" \
                  "for icu support ${PROBLEM_COLOR}webkitgtk3 requires harfbuzz to be compiled with this ${DEFAULT_COLOR}" \
-                 "y"
-
-optional_depends gobject-introspection \
-                 "-Dintrospection=enabled" \
-                 "-Dintrospection=disabled" \
-                 "for gobject introspection support" \
                  "y"
