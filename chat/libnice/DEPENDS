@@ -1,3 +1,4 @@
+depends gobject-introspection
 depends meson
 
 optional_depends gstreamer \
@@ -20,9 +21,3 @@ optional_depends gtk-doc \
                  "-Dgtk_doc=disabled" \
                  "for building documentation" \
                  "n"
-
-optional_depends gobject-introspection \
-                 "-Dintrospection=enabled" \
-                 "-Dintrospection=disabled" \
-                 "for object introspection" \
-                 "y"
