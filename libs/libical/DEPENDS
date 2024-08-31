@@ -1,12 +1,7 @@
+depends gobject-introspection
 depends cmake
 depends icu4c
 depends timezone-data
-
-optional_depends gobject-introspection \
-                 "-DGOBJECT_INTROSPECTION=1" \
-                 "-DGOBJECT_INTROSPECTION=0" \
-                 "for object introspection" \
-                 "y"
 
 optional_depends vala \
                  "-DICAL_GLIB_VAPI=1" \

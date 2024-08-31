@@ -1,4 +1,5 @@
 OPTS+=" -DUSE_BUILTIN_TZDATA=0 \
+        -DGOBJECT_INTROSPECTION=1 \
         -DICAL_BUILD_DOCS=0 \
         -DSHARED_ONLY=true"
 
