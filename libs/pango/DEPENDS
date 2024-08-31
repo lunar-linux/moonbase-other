@@ -1,4 +1,5 @@
 depends glib-2
+depends gobject-introspection
 depends fontconfig
 depends freetype2
 depends harfbuzz
@@ -11,9 +12,3 @@ depends ninja
 optional_depends help2man "" "" "for manpages build and install" "n"
 optional_depends libthai  "" "" "for Thai language support" "n"
 optional_depends libXft   "" "" "for the Xft backend"
-
-optional_depends gobject-introspection \
-                 "-D introspection=enabled" \
-                 "-D introspection=disabled" \
-                 "for object introspection" \
-                 "y"

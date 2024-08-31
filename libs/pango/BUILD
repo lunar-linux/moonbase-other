@@ -1,4 +1,4 @@
-OPTS+=" -D sysprof=disabled -D gtk_doc=false"
+OPTS+=" -D sysprof=disabled -D gtk_doc=false -D introspection=enabled"
 
 default_meson_build &&
 
