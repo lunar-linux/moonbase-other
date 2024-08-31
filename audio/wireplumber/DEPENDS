@@ -1,5 +1,6 @@
 depends git
 depends lua
+gobject-introspection
 depends pipewire
 depends doxygen
 depends meson
@@ -17,9 +18,3 @@ optional_depends systemd \
                    -Dsystemd-system-service=false \
                    -Dsystemd-user-service=false" \
                  "for systemd support"
-
-optional_depends gobject-introspection \
-                 "-Dintrospection=enabled" \
-                 "-Dintrospection=disabled" \
-                 "for object introspection" \
-                 "y"
