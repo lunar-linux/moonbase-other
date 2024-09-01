@@ -1,3 +1,5 @@
+depends docbook-xsl
+depends wayland
 depends dbus
 depends %OSSL
 depends cmake
@@ -22,7 +24,3 @@ optional_depends alsa-lib   "-DWITH_ALSA=ON"  "-DWITH_ALSA=OFF"  "Enable sound?"
 optional_depends pulseaudio "-DWITH_PULSE=ON" "-DWITH_PULSE=OFF" "Enable PulseAudio support?"
 optional_depends faad2      "-DWITH_FAAD2=ON" "-DWITH_FAAD2=OFF" "For faad2 audio support"
 optional_depends faac       "-DWITH_FAAC=ON"  "-DWITH_FAAC=OFF"  "For faac audrio support"
-
-optional_depends wayland "" "" "Enable Wayland support"
-
-optional_depends docbook-xsl "" "" "for manpage install"
