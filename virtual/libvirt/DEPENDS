@@ -14,7 +14,7 @@ depends yajl
 optional_depends qemu \
                  "-Ddriver_qemu=enabled -Dqemu_user=qemu -Dqemu_group=qemu" \
                  "-Ddriver_qemu=disabled" \
-                 "for QEMU support"
+                 "for QEMU support" y
 
 optional_depends systemd    "-Dudev=enabled "      "-Dudev=disabled "      "for udev support"
 optional_depends attr       "-Dattr=enabled"       "-Dattr=disabled"       "for extended file attributes support"
@@ -35,7 +35,6 @@ optional_depends dnsmasq      "" "" "for default NAT/DHCP for guests"
 optional_depends bridge-utils "" "" "for default bridged networking"
 optional_depends radvd        "" "" "for IPV6 router advertisement support"
 optional_depends libiscsi     "" "" "for client ISCSI support"
-optional_depends netcat       "" "" "for remote management over SSH"
 
 optional_depends lvm2       "-Dstorage_lvm=enabled"     "-Dstorage_lvm=disabled"     "for LVM2 backend for storage driver support"
 optional_depends zfs        "-Dstorage_zfs=enabled"     "-Dstorage_zfs=disabled"     "for ZFS backend for storage driver support"
