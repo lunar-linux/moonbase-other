@@ -13,7 +13,10 @@ OPTS+=" -Ddriver_secrets=enabled \
         -Drunstatedir=/run \
         -Ddocs=disabled \
         -Dtests=disabled \
-        -Dwireshark_dissector=disabled"
+        -Dwireshark_dissector=disabled \
+        -Ddriver_qemu=enabled \
+        -Dqemu_user=qemu \
+        -Dqemu_group=qemu"
 
 if module_installed systemd; then
    OPTS+=" -Dinit_script=systemd"

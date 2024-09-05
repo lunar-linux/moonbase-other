@@ -10,11 +10,7 @@ depends libpciaccess
 depends gnutls
 depends libssh2
 depends yajl
-
-optional_depends qemu \
-                 "-Ddriver_qemu=enabled -Dqemu_user=qemu -Dqemu_group=qemu" \
-                 "-Ddriver_qemu=disabled" \
-                 "for QEMU support" y
+depends qemu
 
 optional_depends systemd    "-Dudev=enabled "      "-Dudev=disabled "      "for udev support"
 optional_depends attr       "-Dattr=enabled"       "-Dattr=disabled"       "for extended file attributes support"
