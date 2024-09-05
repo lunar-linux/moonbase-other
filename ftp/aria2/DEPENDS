@@ -1,7 +1,9 @@
 depends ca-certificates
 
 optional_depends  "openssl"  "" "--without-openssl"   "for HTTPS/BitTorrent support"
-optional_depends  "libxml2"  "" "--without-libxml2"   "for Hash checking for Metalink"
+optional_depends  "libssh2"  "" "--without-libssh2"   "for libssh2 support"
+optional_depends  "expat"    "" "--without-expat"     "for expat instead of libxml2"
+optional_depends  "libxml2"  "" "--without-libxml2"   "for Hash checking for Metalink (say no if you said yes to expat)"
 optional_depends  "c-ares"   "" "--without-libcares"  "for asynchronous DNS support"
 optional_depends  "zlib"     "" "--without-libz"      "for gzip, deflate in HTTP"
 optional_depends  "sqlite"   "" "--without-sqlite3"   "for Firefox3 Cookie"
