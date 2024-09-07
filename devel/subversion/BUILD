@@ -1,5 +1,10 @@
+grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/' &&
 # fixes problems with neon
 LDFLAGS+=" -lgcrypt" &&
+
+touch build/generator/swig/*.py &&
+mv -v build-outputs.mk{,.old}   &&
+./autogen.sh --release &&
 
 # fix dependency bug in 1.7.6 (see r1374198)
 sedit "370 s/install = tools/install = apache-mod/" build.conf &&
