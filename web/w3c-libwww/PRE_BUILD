@@ -2,5 +2,7 @@ default_pre_build &&
 
 autoreconf &&
 
+sedit '17039i #include "zlib.h"' configure &&
+
 ## HTBind.h is listed twice in BUILD_SOURCES
 sedit "410d" Library/src/Makefile.am
