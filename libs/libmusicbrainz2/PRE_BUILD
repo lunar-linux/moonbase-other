@@ -1,5 +1,9 @@
 default_pre_build &&
 
-patch_it $SOURCE2 1 &&
+sedit '27i #include <cstring>' lib/c_wrapper.cpp &&
+sedit '12i #include <cstring>' lib/comhttpsocket.cpp &&
+sedit '32i #include <cstring>' lib/comsocket.cpp &&
+sedit '25i #include <cstring>' lib/http.cpp &&
+sedit '36i #include <cstring>' lib/sigclient.cpp &&
 
 CXXFLAGS+=" -std=c++98"
