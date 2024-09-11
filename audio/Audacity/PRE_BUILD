@@ -2,10 +2,15 @@ default_pre_build &&
 
 OPTS+=" -DCMAKE_BUILD_TYPE=Release   \
         -DAUDACITY_BUILD_LEVEL=2 \
+        -DCMAKE_INSTALL_PREFIX=/usr \
         -DSYSCONF_INSTALL_DIR=/etc/audactiy \
         -Daudacity_conan_enabled=OFF \
         -Daudacity_has_crashreports=OFF \
         -Daudacity_has_updates_check=OFF \
         -Daudacity_use_zlib=system \
+        -Daudacity_lib_preference=local \
         -Daudacity_use_wxwidgets=system \
-        -Daudacity_has_vst3=OFF"
+        -Daudacity_use_rapidjson=system \
+        -Daudacity_has_vst3=OFF \
+        -Daudacity_has_networking=OFF \
+        -Daudacity_has_sentry_reporting=OFF"
