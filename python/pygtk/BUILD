@@ -2,7 +2,7 @@ export PYTHONDONTWRITEBYTECODE=1 &&
 
 OPTS+=" --prefix=/usr --enable-thread --disable-docs" &&
 
-./configure $OPTS PYTHON=python2 &&
+CFLAGS+=" -fpermissive" CXXFLAGS+=" -fpermissive" ./configure $OPTS PYTHON=python2 &&
 
 default_make &&
 
