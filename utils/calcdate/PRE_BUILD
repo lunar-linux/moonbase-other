@@ -1,3 +1,6 @@
 mkdir -p $SOURCE_DIRECTORY &&
 cd $SOURCE_DIRECTORY &&
-cp $SCRIPT_DIRECTORY/$MODULE.c $SOURCE_DIRECTORY
+cp $SCRIPT_DIRECTORY/$MODULE.c $SOURCE_DIRECTORY &&
+
+sedit '30i #include <stdlib.h>' $MODULE.c &&
+sedit '31i #include <string.h>' $MODULE.c
