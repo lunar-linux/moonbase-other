@@ -5,10 +5,10 @@ BINDIR=$PREFIX/bin &&
 
 # begin build
 prepare_install &&
-gcc calcdate.c -o calcdate &&
+gcc -fpermissive calcdate.c -o calcdate &&
 mv calcdate $BINDIR &&
 chmod 0755 $BINDIR/$MODULE &&
-chown root.root $BINDIR/$MODULE &&
+chown root:root $BINDIR/$MODULE &&
 
 # setup the docs
 mkdir -p $SHARELOC &&
