@@ -3,7 +3,7 @@
 # Tell x.py the editors have reviewed the content of this file
 # and updated it to follow the major changes of the building system,
 # so x.py will not warn us to do such a review.
-change-id = 123711
+change-id = 127866
 
 [llvm]
 # by default, rust will build for a myriad of architectures
@@ -30,7 +30,9 @@ locked-deps = true
 # many crates from Internet, and makes the Rustc build more stable.
 vendor = true
 
-tools = [ "cargo", "clippy", "rustdoc", "rustfmt", "rust-analyzer-proc-macro-srv", "analysis", "src", "rust-demangler",]
+#tools = [ "cargo", "clippy", "rustdoc", "rustfmt", "rust-analyzer-proc-macro-srv", "analysis", "src",]
+# Don't use 'src' for tools, it will stomp on system llvm
+tools = [ "cargo", "clippy", "rustdoc", "rustfmt", "rust-analyzer-proc-macro-srv", "analysis",]
 
 [install]
 prefix = "/usr"
@@ -43,6 +45,8 @@ optimize = true
 # Enable the same optimizations as the official upstream build.
 lto = "thin"
 codegen-units = 1
+lld = false
+use-lld = "external"
 
 [target.x86_64-unknown-linux-gnu]
 # NB the output of llvm-config (i.e. help options) may be
