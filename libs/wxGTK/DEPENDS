@@ -21,6 +21,6 @@ optional_depends %JPEG       "-DwxUSE_LIBJPEG=sys"  "-DwxUSE_LIBJPEG=builtin" "f
 optional_depends tiff        "-DwxUSE_LIBTIFF=sys"  "-DwxUSE_LIBTIFF=builtin" "for TIFF image support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
 optional_depends SDL2        "-DwxUSE_LIBSDL=ON"    "-DwxUSE_LIBSDL=OFF"      "for SDL2 audio support"
 
-optional_depends webkit2gtk3 "-DwxUSE_WEBVIEW=ON -DwxUSE_WEBVIEW_WEBKIT=ON" \
-                             "-DwxUSE_WEBVIEW=OFF" \
-                             "for webview support,${MODULE_COLOR}Needed by wxMaxima${DEFAULT_COLOR}" n
+optional_depends webkit2gtk-4.1 "-DwxUSE_WEBVIEW=ON -DwxUSE_WEBVIEW_WEBKIT=ON" \
+                                "-DwxUSE_WEBVIEW=OFF" \
+                                "for webview support,${MODULE_COLOR}Needed by wxMaxima${DEFAULT_COLOR}" n
