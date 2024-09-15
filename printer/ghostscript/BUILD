@@ -1,18 +1,5 @@
-rm -rf tiff &&
-rm -rf expat &&
-rm -rf jpeg &&
-rm -rf jbig2dec &&
-rm -rf cups/libs &&
-rm -rf freetype &&
-rm -rf lcms2mt &&
-rm -rf libpng &&
-rm -rf zlib &&
-rm -rf openjpeg &&
-rm -rf Resource/CMap &&
-rm -rf ijs &&
-rm -rf tesseract &&
-rm -rf leptonica &&
-rm -rf gdpl &&
+# gcc14 buildfix
+export CFLAGS+=" -Wno-incompatible-pointer-types -Wno-int-conversion"
 
 OPTS+=" --prefix=/usr \
         --enable-dynamic \
@@ -31,3 +18,4 @@ OPTS+=" --prefix=/usr \
 default_make &&
 
 make install-so
+
