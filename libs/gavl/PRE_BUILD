@@ -1,3 +1,14 @@
 default_pre_build &&
 
+
+sedit '22i #include <string.h>' src/fill_test.c &&
 CFLAGS+=" -lm"
+
+sed -i -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' \
+       -e 's:-mfpmath=387::g' \
+       -e 's:-O3 -funroll-all-loops -fomit-frame-pointer -ffast-math::g' \
+       -e '/LDFLAGS=/d'	configure.ac &&
+
+autoreconf -fi &&
+
+OPTS+=" --without-cpuflags"
