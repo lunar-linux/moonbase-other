@@ -5,6 +5,8 @@ depends curl
 depends libffi
 depends jemalloc
 depends musl
-depends llvm
+
+# It wants this also, and pulls in llvm
+depends lld
 
 optional_depends ccache "--enable-ccache" "--disable-ccache" "for cache support"
