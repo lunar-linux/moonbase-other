@@ -1,3 +1,10 @@
 default_pre_build &&
 
-sedit "s:\$(am__py_compile) --destdir \"\$(DESTDIR)\":\$(am__py_compile):" python/Makefile.in
+#sedit "s:\$(am__py_compile) --destdir \"\$(DESTDIR)\":\$(am__py_compile):" python/Makefile.in &&
+
+#sed -i -e 's:-g -O2 -fno-strength-reduce -fomit-frame-pointer::' \
+#       -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' \
+#       configure.ac &&
+
+autoreconf -fi
+
