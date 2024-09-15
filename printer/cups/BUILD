@@ -1,5 +1,7 @@
 add_priv_user lp:lp -d /dev/null -s /usr/bin/false &&
 
+export CFLAGS+=" -Wno-implicit-function-declaration"
+
 OPTS+=" --disable-static \
         --enable-raw-printing \
         --with-cups-user=lp \
