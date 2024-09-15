@@ -1,4 +1,4 @@
-./autogen.sh &&
+autoreconf -fiv &&
 
 OPTS+=" --enable-alsa-mmap"
 
