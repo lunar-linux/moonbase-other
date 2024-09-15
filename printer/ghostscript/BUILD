@@ -17,5 +17,9 @@ OPTS+=" --prefix=/usr \
 
 default_make &&
 
-make install-so
+make install-so &&
+
+# This is useful for ghostscript to use the CMaps from poppler-data
+ln -s /usr/share/poppler/cMap /usr/share/ghostscript/$VERSION/Resource/CMap
+
 
