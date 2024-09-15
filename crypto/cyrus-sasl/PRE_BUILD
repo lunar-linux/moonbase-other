@@ -9,4 +9,8 @@ sed -i -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:g' \
 
 sedit 's:\[cmulocal\] \[config\]:[cmulocal], [config]:' configure.ac &&
 
+# some gcc-14 twiddles
+sedit '56i #include <time.h>' lib/saslutil.c &&
+sedit '51i #include <time.h>' plugins/cram.c &&
+
 autoreconf -fi
