@@ -5,8 +5,11 @@ default_pre_build &&
 sedit "s:curl_easy_setopt(handle, CURLOPT_MUTE, 1);::" ogg123/http_transport.c
 
 # Fix docdir
-sedit "s:/doc/\${PACKAGE}:/doc/\${PACKAGE_NAME}:" configure
-sedit "s:/doc/\$(PACKAGE)-\$(VERSION):/doc/\$(PACKAGE):" ogg123/Makefile.in
+#sedit "s:/doc/\${PACKAGE}:/doc/\${PACKAGE_NAME}:" configure
+#sedit "s:/doc/\$(PACKAGE)-\$(VERSION):/doc/\$(PACKAGE):" ogg123/Makefile.in
 
 # yes, you should link to libm when using sin()
 sedit "s:@I18N_LIBS@ @FLAC_LIBS@:\0 -lm:" oggenc/Makefile.{am,in}
+
+autoreconf -fi
+
