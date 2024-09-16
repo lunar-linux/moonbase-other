@@ -28,7 +28,6 @@ fi
        --with-pammodulesdir=/usr/lib/security \
        --bundled-libraries=$BUNDLED_LIBRARIES \
        $OPTS &&
-#       --with-piddir=/var/run  \
 
 default_make &&
 
