@@ -1,0 +1,52 @@
+diff --git a/flash-var.c b/flash-var.c
+index aa10ae6..863140d 100644
+--- a/flash-var.c
++++ b/flash-var.c
+@@ -10,7 +10,9 @@
+ #include <fcntl.h>
+ #include <unistd.h>
+ 
++#ifndef __STDC_VERSION__
+ #define __STDC_VERSION__ 199901L
++#endif
+ #include <efi.h>
+ 
+ #include <version.h>
+@@ -18,6 +20,9 @@
+ #include "efiauthenticated.h"
+ #include "variableformat.h"
+ 
++extern char *strptime (const char *__restrict __s,
++		       const char *__restrict __fmt, struct tm *__tp);
++
+ static void
+ usage(const char *progname)
+ {
+diff --git a/sign-efi-sig-list.c b/sign-efi-sig-list.c
+index 94bd7d4..dab9f4c 100644
+--- a/sign-efi-sig-list.c
++++ b/sign-efi-sig-list.c
+@@ -4,8 +4,13 @@
+  * see COPYING file
+  */
+ #include <stdint.h>
++#ifndef __STDC_VERSION__
+ #define __STDC_VERSION__ 199901L
++#endif
+ #include <efi.h>
++#ifndef __USE_XOPEN
++#define __USE_XOPEN
++#endif
+ #ifdef CONFIG_arm
+ /* FIXME:
+  * arm efi leaves a visibilit pragma pushed that won't work for
+@@ -28,6 +33,9 @@
+ #include <version.h>
+ #include <openssl_sign.h>
+ 
++extern char *strptime (const char *__restrict __s,
++		       const char *__restrict __fmt, struct tm *__tp);
++
+ static void
+ usage(const char *progname)
+ {
