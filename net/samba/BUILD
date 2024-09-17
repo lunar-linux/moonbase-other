@@ -1,3 +1,4 @@
+export XML_CATALOG_FILES=/etc/xml/catalog
 #For now this skirts around runtime error: file file:/usr/share/sgml/docbook/xsl-stylesheets-1.79.2/lib/lib.xsl line 56 element variable
 #xsltApplySequenceConstructor: A potential infinite template recursion was detected; thus tanking the build.
 #The current default is 3000 and apparently not enough
@@ -21,6 +22,7 @@ fi
        --mandir=/usr/share/man \
        --disable-rpath-install \
        --enable-fhs            \
+       --with-ads              \
        --with-piddir=/run      \
        --with-configdir=/etc/samba \
        --with-sockets-dir=/run/samba \
