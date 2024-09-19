@@ -4,4 +4,7 @@ sedit 's|#user=.*|user=minidlna|g' minidlna.conf &&
 
 #Some sites require the flac mimetype
 #https://sourceforge.net/p/minidlna/patches/176/
-sedit 's:FLAG_DLNA | FLAG_CAPTION_RES,:FLAG_DLNA | FLAG_CAPTION_RES | FLAG_MIME_FLAC_FLAC,:g' clients.c
+sedit 's:FLAG_DLNA | FLAG_CAPTION_RES,:FLAG_DLNA | FLAG_CAPTION_RES | FLAG_MIME_FLAC_FLAC,:g' clients.c &&
+
+#ffmpeg fix
+sedit 's:codecpar->channels:codecpar->ch_layout.nb_channels:' libav.h
