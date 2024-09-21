@@ -1,0 +1,16 @@
+diff -Naur a/configure.in b/configure.in
+--- a/configure.in	2020-03-10 08:02:10.000000000 +0000
++++ b/configure.in	2020-05-16 05:08:34.435771271 +0000
+@@ -252,10 +252,10 @@
+    epm_scan=\#
+    epm_class_driver=
+    epm_class_install=yes
+-   test `sh ./createPPD.sh -f` == 0
++   test "$(sh ./createPPD.sh -f)" = 0
+ else
+    AC_MSG_RESULT(no)
+-   test `sh ./createPPD.sh -q` == 0
++   test "$(sh ./createPPD.sh -q)" = 0
+ fi
+ AM_CONDITIONAL(HPLIP_CLASS_DRIVER, test x$class_driver = xyes)
+ 

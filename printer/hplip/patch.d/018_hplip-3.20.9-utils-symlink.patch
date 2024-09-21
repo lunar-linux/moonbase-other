@@ -1,0 +1,14 @@
+diff -Naur hplip-3.20.5_orig/base/utils.py hplip-3.20.5/base/utils.py
+--- hplip-3.20.5_orig/base/utils.py	2020-05-10 09:51:22.660145605 +0200
++++ hplip-3.20.5/base/utils.py	2020-05-10 09:52:13.738669066 +0200
+@@ -285,8 +285,8 @@
+                         except ValueError:
+                             yield fullname
+ 
+-        #if os.path.islink(fullname):
+-        #    fullname = os.path.realpath(os.readlink(fullname))
++        if os.path.islink(fullname) and os.path.isdir(os.readlink(fullname)):
++           continue
+ 
+         if recurse and os.path.isdir(fullname): # or os.path.islink(fullname):
+             for f in walkFiles(fullname, recurse, abs_paths, return_folders, pattern, path):

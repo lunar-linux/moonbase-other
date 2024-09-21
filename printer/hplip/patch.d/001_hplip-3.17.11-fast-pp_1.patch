@@ -1,0 +1,26 @@
+diff -Naur hplip-3.17.11_old/configure.in hplip-3.17.11/configure.in
+--- hplip-3.17.11_old/configure.in	2017-11-26 13:14:05.727985231 +0100
++++ hplip-3.17.11/configure.in	2017-11-26 13:14:51.326984313 +0100
+@@ -238,6 +238,7 @@
+ else
+    AC_MSG_RESULT(no)
+ fi
++AM_CONDITIONAL(PP_BUILD, test x$pp_build = xyes)
+ 
+ AC_MSG_CHECKING([for class driver])
+ AC_ARG_ENABLE(class_driver,
+diff -Naur hplip-3.17.11_old/Makefile.am hplip-3.17.11/Makefile.am
+--- hplip-3.17.11_old/Makefile.am	2017-11-26 13:14:05.712985232 +0100
++++ hplip-3.17.11/Makefile.am	2017-11-26 13:15:51.462983102 +0100
+@@ -115,6 +115,11 @@
+ libhpmud_la_LDFLAGS += -l$(SNMPLIB) -lcrypto
+ libhpmud_la_LIBADD  =  libhpdiscovery.la
+ endif
++
++if PP_BUILD
++libhpmud_la_LDFLAGS += -lrt
++endif
++
+ endif #HPLIP_CLASS_DRIVER
+ 
+ # ip library

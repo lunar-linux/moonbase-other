@@ -1,0 +1,12 @@
+diff -Naur hplip-3.20.5_orig/installer/core_install.py hplip-3.20.5/installer/core_install.py
+--- hplip-3.20.5_orig/installer/core_install.py	2020-05-10 09:51:22.685158104 +0200
++++ hplip-3.20.5/installer/core_install.py	2020-05-10 14:18:41.840472948 +0200
+@@ -762,7 +762,7 @@
+         self.native_cups = self.get_distro_ver_data('native_cups', False)
+ 
+         # Adjust required flag based on the distro ver ui_toolkit value
+-        ui_toolkit = self.get_distro_ver_data('ui_toolkit', 'qt4').lower()
++        ui_toolkit = self.get_distro_ver_data('ui_toolkit', 'qt5').lower()
+ 
+         if ui_toolkit == 'qt4':
+             log.debug("Default UI toolkit: Qt4")

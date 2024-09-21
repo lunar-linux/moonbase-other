@@ -1,0 +1,38 @@
+Description: Fix sni-qt compatibility in hp-systray
+ hp-systray tries for ~60seconds to find a systemtray and if it can not, then it throws
+ an error. The problem with this is that sni-qt is doing an async availability that can
+ happen rather late in the login and this asyncness requires a dbus signal to be delivered
+ via the event loop. However, since the systemtray waiting happens before app.exec is
+ called and because the relevant code is blocking the thread we need to manually trigger
+ event processing to make sure that sni-qt gets the expected signal and consequently can
+ make a systemtray available for use.
+Author: Harald Sitter <apachelogger@kubuntu.org>
+Origin: vendor
+Forwarded: no
+Reviewed-by: Rohan Garg <shadeslayer@kubuntu.org>, Jonathan Riddell <jriddell@kubuntu.org>, Aurélien Gâteau <agateau@kde.org>
+Last-Update: 2014-07-29
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: hplip-3.14.6/ui4/systemtray.py
+===================================================================
+--- hplip-3.14.6.orig/ui4/systemtray.py
++++ hplip-3.14.6/ui4/systemtray.py
+@@ -824,6 +824,18 @@ def run(read_pipe):
+     while i < 60:
+         if QSystemTrayIcon.isSystemTrayAvailable():
+             break
++        # StatusNotifierItem integration is async and requires signal delivery
++        # in order to actually become aware if a notifier host is started
++        # *after* the tray application. Since we are before exec_ and explicitly
++        # blocking the function we need to make sure that events are processed
++        # between the sleep periods as otherwise in a world without xembed
++        # (i.e. Plasma 5) we will never find a tray quite simply because the
++        # necessary integration bits never get executed for lack of signal
++        # delivery.
++        # Manually triggering the eventloop here should be relatively save as
++        # there is no reentrancy issues that could appear because technically we
++        # haven't started the event loop at this point anyway.
++        QApplication.processEvents()
+         time.sleep(1.0)
+         i += 1
+ 

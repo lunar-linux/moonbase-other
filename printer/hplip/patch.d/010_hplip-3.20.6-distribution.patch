@@ -1,0 +1,69 @@
+--- hplip-3.18.9/data/rules/56-hpmud.rules
++++ hplip-3.18.9/data/rules/56-hpmud.rules
+@@ -12,7 +12,4 @@
+ # ENV{ID_HPLIP}="1" is for Ubuntu udev-acl
+ ATTR{idVendor}=="03f0", ENV{ID_USB_INTERFACES}=="*:0701??:*|*:ffcc00:", OWNER="root", GROUP="lp", MODE="0664", ENV{libsane_matched}="yes", ENV{hp_test}="yes", ENV{ID_HPLIP}="1"
+ 
+-# This rule will check the smart install feature, plugin status and firmware download for the required printers.
+-ENV{hp_test}=="yes", PROGRAM="/bin/sh -c 'logger -p user.info loading HP Device $env{BUSNUM} $env{DEVNUM}'", RUN+="/bin/sh -c '/usr/bin/nohup /usr/bin/hp-config_usb_printer $env{BUSNUM}:$env{DEVNUM}'"
+-
+ LABEL="hpmud_rules_end"
+--- hplip-3.18.9/data/rules/56-hpmud_sysfs.rules
++++ hplip-3.18.9/data/rules/56-hpmud_sysfs.rules
+@@ -14,12 +14,6 @@
+ # For RHEL 5, centos 5..
+ ENV{hp_test}=="yes", PROGRAM="/bin/sh -c 'X=%k; X=$${X#usbdev}; B=$${X%%%%.*}; D=$${X#*.}; logger -p user.info loading HP Device $$B $$D; printf %%03i:%%03i $$B $$D'", RUN+="/bin/sh -c '/usr/bin/python hp-config_usb_printer %c '"
+ 
+-# This rule will add the printer and install plugin
+-ENV{hp_test}=="yes", PROGRAM="/bin/sh -c 'logger -p user.info loading HP Device $env{BUSNUM} $env{DEVNUM}'", RUN+="/bin/sh -c 'if [ -f /usr/bin/systemctl ]; then /usr/bin/systemctl --no-block start hplip-printer@$env{BUSNUM}:$env{DEVNUM}.service; else /usr/bin/nohup /usr/bin/python /usr/bin/hp-config_usb_printer $env{BUSNUM}:$env{DEVNUM} ; fi &'"
+-
+-# If sane-bankends is installed add hpaio backend support to dll.conf if needed.
+-ENV{sane_hpaio}=="yes", RUN+="/bin/sh -c 'grep -q ^#hpaio /etc/sane.d/dll.conf;if [ $$? -eq 0 ];then sed -i -e s/^#hpaio/hpaio/ /etc/sane.d/dll.conf;else grep -q ^hpaio /etc/sane.d/dll.conf;if [ $$? -ne 0 ];then echo hpaio >>/etc/sane.d/dll.conf;fi;fi'"
+-
+ # The following rule will disable USB autosuspend for the device
+ ENV{libsane_matched}=="yes", RUN+="/bin/sh -c 'test -e /sys/$env{DEVPATH}/power/level && echo on > /sys/$env{DEVPATH}/power/level'"
+ 
+--- hplip-3.18.9/hplip.list.in
++++ hplip-3.18.9/hplip.list.in
+@@ -296,8 +296,6 @@
+ @epm_full@f 644 root root $home/installer/dcheck.py installer/dcheck.py
+ @epm_full@f 644 root root $home/installer/core_install.py installer/core_install.py
+ @epm_full@f 644 root root $home/installer/pluginhandler.py installer/pluginhandler.py
+-@epm_full@f 755 root root $home/uninstall.py uninstall.py
+-@epm_full@f 755 root root $home/upgrade.py upgrade.py
+ @epm_full@f 755 root root $home/colorcal.py colorcal.py
+ @epm_full@d 775 root root $home/prnt -
+ @epm_full@f 644 root root $home/prnt/pcl.py prnt/pcl.py
+@@ -363,8 +361,6 @@
+ @epm_full@l 755 root root $bindir/hp-query ../share/hplip/query.py
+ @epm_full@l 755 root root $bindir/hp-wificonfig ../share/hplip/wificonfig.py
+ @epm_full@l 755 root root $bindir/hp-devicesettings ../share/hplip/devicesettings.py
+-@epm_full@l 755 root root $bindir/hp-uninstall ../share/hplip/uninstall.py
+-@epm_full@l 755 root root $bindir/hp-upgrade ../share/hplip/upgrade.py
+ @epm_full@l 755 root root $bindir/hp-config_usb_printer ../share/hplip/config_usb_printer.py
+ @epm_full@l 755 root root $bindir/hp-diagnose_queues ../share/hplip/diagnose_queues.py
+ 
+--- hplip-3.20.6/Makefile.am
++++ hplip-3.20.6/Makefile.am
+@@ -130,10 +130,6 @@
+ 	ip/xbi2gray.c ip/xcolrspc.c ip/xfakemono.c ip/xgray2bi.c ip/xinvert.c ip/xjpg_enc.c ip/xmatrix.c ip/xpnm.c ip/xscale.c ip/xthumb.c ip/xyxtract.c \
+ 	ip/hpip.h ip/ipdefs.h ip/xform.h ip/xjpg_dct.h ip/xjpg_huf.h ip/xjpg_mrk.h
+ 
+-#hpmud rules data dir
+-rulessystemdir=/usr/lib/systemd/system
+-dist_rulessystem_DATA =data/rules/hplip-printer@.service
+-
+ # hpmud.rules
+ if !HPLIP_CLASS_DRIVER
+ rulesdir = /etc/udev/rules.d
+@@ -177,8 +173,8 @@
+ if !HPLIP_CLASS_DRIVER
+ dist_cmd_SCRIPTS = align.py info.py print.py toolbox.py clean.py colorcal.py unload.py testpage.py makeuri.py check.py fab.py levels.py \
+ 	sendfax.py setup.py makecopies.py probe.py timedate.py firmware.py scan.py systray.py plugin.py linefeedcal.py pqdiag.py \
+-	faxsetup.py devicesettings.py printsettings.py query.py pkservice.py wificonfig.py diagnose_plugin.py uninstall.py \
+-	upgrade.py config_usb_printer.py diagnose_queues.py logcapture.py doctor.py uiscan.py
++	faxsetup.py devicesettings.py printsettings.py query.py pkservice.py wificonfig.py diagnose_plugin.py \
++	config_usb_printer.py diagnose_queues.py logcapture.py doctor.py uiscan.py
+ 
+ homedir = $(hplipdir)
+ dist_home_DATA =  check-plugin.py 
