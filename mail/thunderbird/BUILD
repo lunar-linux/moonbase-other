@@ -2,7 +2,7 @@ ulimit -n 16384 &&
 
 export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 export MOZILLA_OFFICIAL=1
-#export MOZ_MAKE_FILES=$MAKES
+export MOZ_MAKE_FILES=$MAKES
 export MOZ_NOSPAM=1
 export MOZBUILD_STATE_PATH="$SOURCE_DIRECTORY/mozbuild"
 export LANG=C
