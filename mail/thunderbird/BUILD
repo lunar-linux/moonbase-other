@@ -1,14 +1,18 @@
+ulimit -n 16384 &&
+
 export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 export MOZILLA_OFFICIAL=1
-export MOZ_MAKE_FILES=$MAKES
+#export MOZ_MAKE_FILES=$MAKES
 export MOZ_NOSPAM=1
 export MOZBUILD_STATE_PATH="$SOURCE_DIRECTORY/mozbuild"
 export LANG=C
 export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none 
 
-ulimit -n 8192 &&
+#For the STL portion of the build
+export CFLAGS="-fno-exceptions"
+export CXXFLAGS="-fno-exceptions"
 
-./mach build &&
+./mach build --verbose &&
 
 cd ${MOZ_OBJDIR} &&
 prepare_install  &&
