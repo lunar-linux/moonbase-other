@@ -7,7 +7,7 @@ depends rtkit
 depends meson
 
 optional_depends systemd \
-                 "-Dsystemd=enabled" \
+                 "-Dsystemd=enabled -Dsystemd-system-service=enabled -Dsystemd-user-service=enabled" \
                  "-Dsystemd=disabled" \
                  "for systemd support"
 
