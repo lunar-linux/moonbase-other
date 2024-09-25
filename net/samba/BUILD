@@ -12,7 +12,7 @@ if in_depends $MODULE tdb; then
 fi
 
 if module_installed systemd; then
-   OPTS+=" --with-systemd"
+   OPTS+=" --with-systemd --systemd-install-services"
 fi
 
 ./configure \
@@ -22,7 +22,6 @@ fi
        --mandir=/usr/share/man \
        --disable-rpath-install \
        --enable-fhs            \
-       --with-ads              \
        --with-piddir=/run      \
        --with-configdir=/etc/samba \
        --with-sockets-dir=/run/samba \
