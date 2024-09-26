@@ -1,16 +1,31 @@
           MODULE=lttng-modules
-         VERSION=2.13.11
+         VERSION=2.13.14
           SOURCE=$MODULE-$VERSION.tar.bz2
       SOURCE_URL=https://lttng.org/files/lttng-modules/
-      SOURCE_VFY=sha256:297211d6fda459c85793c1f498c90fad2939cda7939d503f3ec5eaaf5fbec3c7
+      SOURCE_VFY=sha256:c6449f7ff12ab644a630692a556304e51525ca37d98aebf826796918be0f5da6
         WEB_SITE=https://lttng.org/
          ENTERED=20210831
-         UPDATED=20240122
+         UPDATED=20240926
            SHORT="Modules for the LTTng system tracer"
 
 cat << EOF
 This is the kernel module collection for the LTTng system tracer.
 
 NOTE; CONFIG_KALLSYMS_ALL needs to be enabled so probe "writeback" will work.
-If not enabled rebuild your kernel with this configuration option enabled in order to trace this subsystem.
+If not enabled rebuild your kernel with this configuration option enabled in
+order to trace this subsystem.
+
+Regarding kernel configuration, these kernel modules are needed;
+
+CONFIG_MODULES: loadable module support (not strictly required when built into the kernel),
+
+CONFIG_KALLSYMS: see files in wrapper; this is necessary until the few required missing symbols
+                 are exported to GPL modules from mainline,
+
+CONFIG_HIGH_RES_TIMERS: needed for LTTng 2.x clock source,
+
+CONFIG_TRACEPOINTS: kernel tracepoint instrumentation (enabled as a side-effect of any of the
+perf/ftrace/blktrace instrumentation features).
+
+CONFIG_KPROBES 
 EOF
