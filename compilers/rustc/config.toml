@@ -32,7 +32,7 @@ vendor = true
 
 #tools = [ "cargo", "clippy", "rustdoc", "rustfmt", "rust-analyzer-proc-macro-srv", "analysis", "src",]
 # Don't use 'src' for tools, it will stomp on system llvm
-tools = [ "cargo", "clippy", "rustdoc", "rustfmt", "rust-analyzer-proc-macro-srv", "analysis",]
+tools = [ "cargo", "clippy", "rustdoc", "rustfmt"]
 
 [install]
 prefix = "/usr"
@@ -42,6 +42,7 @@ docdir = "share/doc/rustc"
 channel = "stable"
 description = "for Lunar-Linux"
 optimize = true
+
 # Enable the same optimizations as the official upstream build.
 lto = "thin"
 codegen-units = 1
