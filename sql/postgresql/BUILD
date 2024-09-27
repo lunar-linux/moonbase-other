@@ -1,7 +1,6 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
 OPTS+=" --enable-nls \
-        --enable-thread-safety \
         --enable-integer-datetimes"
 
 add_priv_user postgres -d /var/lib/pgsql -s /usr/bin/false -g postgres &&
