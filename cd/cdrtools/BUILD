@@ -1,3 +1,6 @@
+export GMAKE_NOWARN=true
+export CFLAGS="$CFLAGS -std=gnu89 -fno-strict-aliasing"
+
 make INS_BASE=/usr  \
      DEFINSUSR=root \
      DEFINSGRP=root \
