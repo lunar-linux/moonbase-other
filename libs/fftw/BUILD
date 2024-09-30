@@ -6,6 +6,8 @@
             --enable-threads \
             --disable-fortran \
             $OPTS &&
+# fix libtool overlinking
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
 
 default_make &&
 make distclean &&
@@ -15,6 +17,8 @@ make distclean &&
             --enable-threads \
             --disable-fortran \
             $OPTS &&
+# fix libtool overlinking
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
 
 default_make &&
 make distclean &&
@@ -25,6 +29,8 @@ make distclean &&
             --enable-quad-precision \
             --disable-fortran \
             $OPTS &&
+# fix libtool overlinking
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
 
 default_make &&
 make distclean &&
@@ -36,10 +42,20 @@ make distclean &&
             --enable-long-double \
             --disable-fortran \
             $OPTS &&
+# fix libtool overlinking
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
 
 default_make &&
 
 sed -e 's/3.6.9/3.6.10/' -i CMakeLists.txt &&
-cmake . &&
+_opts+=" -B build
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_BUILD_TYPE=None \
+    -D ENABLE_THREADS=ON \
+    -D ENABLE_FLOAT=ON \
+    -D ENABLE_LONG_DOUBLE=ON \
+    -D ENABLE_QUAD_PRECISION=ON"
+
+cmake . _opts &&
 sed -e 's|\(IMPORTED_LOCATION_NONE\).*|\1 "/usr/lib/libfftw3.so.3"|' -i FFTW3LibraryDepends.cmake &&
 install -vDm 644 FFTW3LibraryDepends.cmake -t /usr/lib/cmake/fftw3/
