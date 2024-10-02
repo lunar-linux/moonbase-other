@@ -4,4 +4,8 @@ default_pre_build &&
 sedit "s/^sleep 1/#sleep 1/g" configure.ac &&
 
 # checking for pangocairo is not enough if you include cairo via <cairo.h>
-sedit "s@dnl EX_CHECK_ALL(cairo@EX_CHECK_ALL(cairo@" configure.ac
+sedit "s@dnl EX_CHECK_ALL(cairo@EX_CHECK_ALL(cairo@" configure.ac &&
+
+#make ruby install to vendor_ruby instead of site_ruby
+sed -e 's/$(RUBY) ${abs_srcdir}\/ruby\/extconf.rb/& --vendor/' -i bindings/Makefile.am
+
