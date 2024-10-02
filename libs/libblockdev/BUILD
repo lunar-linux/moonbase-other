@@ -7,4 +7,9 @@ OPTS+=" --prefix=/usr \
         --without-lvm_dbus \
         --without-mpath"
 
-default_build
+default_config &&
+
+# prevent libtool from overlinking everything
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
+default_make
