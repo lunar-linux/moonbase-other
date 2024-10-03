@@ -1,5 +1,9 @@
-  sedit 's:/bin/true:/usr/bin/true:g' configure &&
-  sedit 's|\[:space:\]|\[\[:space:\]\]|g' configure &&
 export CXXFLAGS="${CXXFLAGS} -std=c++17"
-  OPTS+=" --enable-shared" &&
-  default_build
+OPTS+=" --enable-shared --disable-documentation"
+
+default_config &&
+
+#Prevent over linking
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
+default_make
