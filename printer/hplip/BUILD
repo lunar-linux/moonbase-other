@@ -19,8 +19,11 @@ if module_installed systemd; then
 fi
 
 export CFLAGS+=" $(python3-config --includes)" # Fix build with python 3.8
-default_build &&
+default_config &&
+# To prevent overlinking
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
 
+default_make &&
 # HAL is no more
 rm -rf /usr/share/hal &&
 
