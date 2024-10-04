@@ -1,10 +1,8 @@
-OPTS+=" --with-browser=/usr/bin/xdg-open \
+patch -Np1 -i $SCRIPT_DIRECTORY/w3m-0.5.3-bdwgc72-2.patch &&
+
+OPTS+=" --libexecdir=/usr/lib \
     	--with-termlib=ncurses \
     	--disable-w3mmailer \
-    	--enable-image=fb"
-
-if module_installed libXext; then
-  OPTS+=",x11"
-fi
+    	--enable-image=x11,fb"
 
 default_build
