@@ -25,22 +25,22 @@ make &&
 prepare_install &&
 
 mkdir -p /etc/john &&
-mkdir -p /usr/share/john &&
+mkdir -p /usr/share/john/rules &&
 
 cd $SOURCE_DIRECTORY/run &&
 
 # config file
 sedit 's|$JOHN/john.local.conf|/etc/john/john.local.conf|g' john.conf &&
 sedit 's|$JOHN|/usr/share/john|g' john.conf &&
-install -Dm644 john.conf /etc/john/john.conf &&
 
 # install password list, charset files
-install -d /usr/share/john/
+install -m644 *.conf /usr/share/john/ &&
 install -m644 password.lst /usr/share/john/ &&
 install -m644 dictionary.rfc2865 /usr/share/john/ &&
 install -m644 stats /usr/share/john/ &&
 install -m644 *.chr /usr/share/john/ &&
 install -m644 {dumb16,dumb32,dynamic}.conf /usr/share/john/ &&
+install -m644 rules/* /usr/share/john/rules/ &&
 
 # install scripts
 john_scripts=(benchmark-unify \
@@ -62,7 +62,6 @@ for john_script in "${john_scripts[@]}"; do
   install -m755 ${john_script} /usr/share/john
 done &&
 
-install -m644 dynamic.conf /etc/john/ &&
 install -Dm644 john.bash_completion /etc/bash_completion.d/john &&
 
 # install binaries
