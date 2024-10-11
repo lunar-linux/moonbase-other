@@ -3,6 +3,7 @@ depends procps
 depends cmake
 depends nasm
 depends json-c
+depends libcpuid
 
 optional_depends gtk+-3 \
                  "-DWITH_GTK=ON" \
@@ -13,11 +14,6 @@ optional_depends pciutils \
                  "-DWITH_LIBPCI=ON" \
                  "-DWITH_LIBPCI=OFF" \
                  "for PCI support"
-
-optional_depends libcpuid \
-                 "-DWITH_LIBCPUID=ON" \
-                 "-DWITH_LIBCPUID=OFF" \
-                 "for CPU ID support"
 
 optional_depends gettext \
                  "-DWITH_GETTEXT=ON" \
