@@ -2,9 +2,7 @@ depends %JPEG
 depends libwebp
 depends libmicrohttpd
 depends pkgconf
+depends sqlite
 
 optional_depends "ffmpeg"     "--with-ffmpeg"  "--without-ffmpeg"  "to encode mpeg movies realtime" y
-optional_depends "sqlite"     "--with-sqlite3" "--without-sqlite3" "for sqlite support" y
-optional_depends "%MYSQL"     "--with-mysql"   "--without-mysql"   "for mysql support" n
-optional_depends "postgresql" "--with-pgsql"   "--without-pgsql"   "for postgresql support" n
-optional_depends "v4l-utils"  "--with-v4l2"    "--without-v4l2"    "for Video4Linux device support"
+optional_depends "v4l-utils"  "--with-v4l2"    "--without-v4l2"    "for Video4Linux device support" y
