@@ -1,6 +1,8 @@
+mv configure.in configure.ac &&
+rm acinclude.m4 &&
+sed -i -e 's:-march=i[345]86 ::g' configure.ac &&
+touch ChangeLog NEWS &&
 
-cp /usr/share/automake/config.sub $SOURCE_DIRECTORY &&
-
-unset CC CXX
+autoreconf -fi &&
 
 default_build
