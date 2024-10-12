@@ -19,4 +19,9 @@ if in_depends $MODULE qt6-base; then
   OPTS+=" --enable-languages=cpp,qt6"
 fi &&
 
-default_build
+#https://dev.gnupg.org/T6673#174545, strongly recommend building in its own dir
+mkdir $MODULE-$VERSION &&
+cd $MODULE-$VERSION &&
+../configure --prefix=/usr $OPTS &&
+
+default_make

@@ -1,3 +1,5 @@
+# a gcc-14 tweak
+sedit 's:, (char:, (const char:g' prog/sensord/rrd.c &&
 make user &&
 prepare_install &&
 

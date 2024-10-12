@@ -1,8 +1,5 @@
 default_pre_build &&
 
-patch_it $SOURCE2 1 &&
-patch_it $SOURCE3 1 &&
-
 sedit 's|freetype-config|pkg-config freetype2|g' acinclude.m4 &&
 
 autoreconf -vif

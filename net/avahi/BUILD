@@ -7,7 +7,8 @@ fi &&
 #Fix a security vulnerabilty in avahi-daemon: 
 sedit '426a if (events & AVAHI_WATCH_HUP) {client_free(c);return;}' avahi-daemon/simple-protocol.c &&
 
-NOCONFIGURE=1 ./autogen.sh &&
+autoreconf -fiv &&
+#NOCONFIGURE=1 ./autogen.sh &&
 
 if module_installed qt5; then
   . /etc/profile.d/qt5.rc
@@ -30,7 +31,10 @@ OPTS+=" --enable-compat-howl \
         --disable-qt3 \
         --disable-qt4 \
         --disable-manpages \
+        --disable-core-docs \
         --with-distro=none \
+        --enable-python-dbus \
+        --enable-introspection=yes \
         --sbindir=/usr/bin" &&
 
 default_build &&

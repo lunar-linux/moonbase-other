@@ -1,18 +1,8 @@
 default_pre_build &&
 
+# SYSFS is depreciated, use ATTRS
+sedit 's:SYSFS:ATTRS:g' data/rules/56-hpmud_sysfs.rules &&
+
 if in_depends $MODULE PyQt5; then
   . /etc/profile.d/qt5.rc
-fi &&
-
-# fix menu and icon locations
-echo "Categories=Qt;KDE;Utility;" >> hp-uiscan.desktop.in &&
-echo "Comment=SANE-based scan utility for HPLIP supported all-in-one/mfp devices" >> hp-uiscan.desktop.in &&
-sedit 's:/usr/share/icons/Humanity/devices/48/printer.svg:/usr/share/hplip/data/images/devices/default_printer.png:' hp-uiscan.desktop.in &&
-
-sedit 's:SAVE_CPPFLAGS:save_CFLAGS:' configure.in &&
-
-# avahi is now a depends.
-sedit 's:avahiDiscovery.h:protocol/discovery/avahiDiscovery.h:' scan/sane/hpaio.c &&
-
-3 systemd-udevd[316]: /usr/lib/udev/rules.d/56-hpmud_sysfs.rules:12 Invalid key 'SYSFS'
-sedit 's:SYSFS:ATTRS:g' data/rules/56-hpmud_sysfs.rules
+fi

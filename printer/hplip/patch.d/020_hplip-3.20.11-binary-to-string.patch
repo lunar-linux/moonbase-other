@@ -1,0 +1,119 @@
+Fix binary to string conversion when python3 is used
+
+Python 2 -> 3 compatibility was not complete and hp-align failed as
+follows:
+
+Traceback (most recent call last):
+  File "/usr/bin/hp-align", line 207, in <module>
+    maint.AlignType10(d, tui.load_paper_prompt, type10and11and14Align)
+  File "/usr/share/hplip/base/maint.py", line 397, in AlignType10
+    alignType10Phase2(dev, values, pattern)
+  File "/usr/share/hplip/base/maint.py", line 433, in alignType10Phase2
+    i, p = 0, ''.join([pcl.UEL, '\n'])
+TypeError: sequence item 0: expected str instance, bytes found
+
+This happened because of using binary values within string's join.
+
+Signed-off-by: Andrew Savchenko <bircoph@gentoo.org>
+
+--- hplip-3.20.11/base/maint.py	2020-11-30 03:03:51.000000000 +0300
++++ /usr/share/hplip/base/maint.py	2021-02-21 19:23:19.850739910 +0300
+@@ -27,7 +27,7 @@
+ from . import status, pml
+ from prnt import pcl, ldl, colorcal
+ import time
+-from .sixext import to_bytes_utf8, StringIO
++from .sixext import to_bytes_utf8, to_string_utf8, StringIO
+ 
+ # ************************* LEDM Clean**************************************** #
+ CleanXML = """<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+@@ -430,15 +430,15 @@
+ 
+ 
+ def alignType10Phase2(dev, values, pattern):
+-    i, p = 0, ''.join([pcl.UEL, '\n'])
++    i, p = 0, ''.join([to_string_utf8(pcl.UEL), '\n'])
+ 
+     for x in values:
+         i += 1
+         if not x:
+             break
+-        p = ''.join([p, pcl.ESC, '*o5W\x1a', chr(i), '\x00', chr(pattern), chr(x), '\n'])
++        p = ''.join([p, to_string_utf8(pcl.ESC), '*o5W\x1a', chr(i), '\x00', chr(pattern), chr(x), '\n'])
+ 
+-    p = ''.join([p, pcl.UEL])
++    p = ''.join([p, to_string_utf8(pcl.UEL)])
+ 
+     dev.printData(p)
+     dev.closePrint()
+@@ -1239,30 +1239,30 @@
+                     }
+ 
+     if num_inks == 4:
+-        s = ''.join([pcl.UEL,
++        s = ''.join([to_string_utf8(pcl.UEL),
+               '@PJL ENTER LANGUAGE=PCL3GUI\n',
+-              pcl.RESET,
+-              pcl.ESC, '*o5W\x1a\x01', align_values1[a],
+-              pcl.ESC, '*o5W\x1a\x02', align_values2[a],
+-              pcl.ESC, '*o5W\x1a\x03', align_values1[b],
+-              pcl.ESC, '*o5W\x1a\x04', align_values1[b],
+-              pcl.ESC, '*o5W\x1a\x08', align_values1[c],
+-              pcl.ESC, '*o5W\x1a\x07', align_values1[d],
+-              pcl.RESET,
+-              pcl.UEL])
++              to_string_utf8(pcl.RESET),
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x01', align_values1[a],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x02', align_values2[a],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x03', align_values1[b],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x04', align_values1[b],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x08', align_values1[c],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x07', align_values1[d],
++              to_string_utf8(pcl.RESET),
++              to_string_utf8(pcl.UEL)])
+ 
+     else: # 6
+-        s = ''.join([pcl.UEL,
++        s = ''.join([to_string_utf8(pcl.UEL),
+               '@PJL ENTER LANGUAGE=PCL3GUI\n',
+-              pcl.RESET,
+-              pcl.ESC, '*o5W\x1a\x05', align_values1[a],
+-              pcl.ESC, '*o5W\x1a\x06', align_values3[a],
+-              pcl.ESC, '*o5W\x1a\x03', align_values1[b],
+-              pcl.ESC, '*o5W\x1a\x04', align_values1[b],
+-              pcl.ESC, '*o5W\x1a\x0a', align_values1[c],
+-              pcl.ESC, '*o5W\x1a\x09', align_values1[d],
+-              pcl.RESET,
+-              pcl.UEL])
++              to_string_utf8(pcl.RESET),
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x05', align_values1[a],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x06', align_values3[a],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x03', align_values1[b],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x04', align_values1[b],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x0a', align_values1[c],
++              to_string_utf8(pcl.ESC), '*o5W\x1a\x09', align_values1[d],
++              to_string_utf8(pcl.RESET),
++              to_string_utf8(pcl.UEL)])
+ 
+     dev.printData(s)
+     dev.closePrint()
+@@ -1577,13 +1577,13 @@
+                   7 : ('\x18\x9c', '\x0d\xac'),
+                 }
+ 
+-    s = ''.join([pcl.UEL,
++    s = ''.join([to_string_utf8(pcl.UEL),
+                   '@PJL ENTER LANGUAGE=PCL3GUI\n',
+-                  pcl.RESET,
+-                  pcl.ESC, '*o5W\x1a\x0c\x00', color_cal[value][0],
+-                  pcl.ESC, '*o5W\x1a\x0b\x00', color_cal[value][1],
+-                  pcl.RESET,
+-                  pcl.UEL])
++                  to_string_utf8(pcl.RESET),
++                  to_string_utf8(pcl.ESC), '*o5W\x1a\x0c\x00', color_cal[value][0],
++                  to_string_utf8(pcl.ESC), '*o5W\x1a\x0b\x00', color_cal[value][1],
++                  to_string_utf8(pcl.RESET),
++                  to_string_utf8(pcl.UEL)])
+ 
+     dev.printData(s)
+     dev.closePrint()

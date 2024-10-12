@@ -21,5 +21,10 @@ esac &&
 
 OPTS+=" --with-gdktarget=x11" &&
 
-default_build &&
+default_config &&
+#To prevent overlinking, our link optimization setting, Reduce;
+# -Wl,-as--needed, does not work in this case.
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
+default_make
 install -m0664 gdk/gdkconfig.h /usr/include/gtk-2.0/gdk/

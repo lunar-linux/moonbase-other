@@ -3,9 +3,6 @@ default_pre_build &&
 # Remove profiled make files
 rm -f $SOURCE_DIRECTORY/lib*/*_p.mk &&
 
-# Fix hardcoded paths
-sedit "s;opt/schily;usr;" $(find $SOURCE_DIRECTORY -type f -name \*.[0-9ch] -exec grep -l "opt/schily" "{}" "+") &&
-
 # We don't need static libaries
 sedit "s;include\t\t.*rules.lib;;" $(find $SOURCE_DIRECTORY -type f -exec grep -l "^include.\+rules\.lib" "{}" "+") &&
 
@@ -16,3 +13,7 @@ sedit "s:/bin/rm:rm:; s:/bin/mv:mv:" RULES/rules.prg &&
 sedit "s;/usr/src/linux/include;;g; \
        s;/opt/schily;/usr;g; \
        s;bin;root;g" DEFAULTS/Defaults.linux
+
+sed -i 's|/opt/schily|/usr|g' DEFAULTS/Defaults.linux &&
+sed -i 's|DEFINSGRP=.*|DEFINSGRP=root|' DEFAULTS/Defaults.linux &&
+sed -i 's|INSDIR=\s*sbin|INSDIR=bin|' rscsi/Makefile

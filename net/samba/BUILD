@@ -1,3 +1,4 @@
+export XML_CATALOG_FILES=/etc/xml/catalog
 #For now this skirts around runtime error: file file:/usr/share/sgml/docbook/xsl-stylesheets-1.79.2/lib/lib.xsl line 56 element variable
 #xsltApplySequenceConstructor: A potential infinite template recursion was detected; thus tanking the build.
 #The current default is 3000 and apparently not enough
@@ -11,7 +12,7 @@ if in_depends $MODULE tdb; then
 fi
 
 if module_installed systemd; then
-   OPTS+=" --with-systemd"
+   OPTS+=" --with-systemd --systemd-install-services"
 fi
 
 ./configure \
@@ -28,7 +29,6 @@ fi
        --with-pammodulesdir=/usr/lib/security \
        --bundled-libraries=$BUNDLED_LIBRARIES \
        $OPTS &&
-#       --with-piddir=/var/run  \
 
 default_make &&
 

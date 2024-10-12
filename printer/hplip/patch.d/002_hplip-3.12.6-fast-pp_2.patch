@@ -1,0 +1,831 @@
+Speed up HPLIP's parallel port I/O
+
+HPLIP should stop emulating IEE1284 ECP in userspace; that requires so many
+ioctls that it's uncomfortably (and sometimes unusably) slow, even on fast
+systems.  Instead, it should use ppdev read/write calls, working around ppdev
+quirks/bugs as necessary.
+
+Until now, we avoided this because we feared that using ppdev would make us
+susceptible to variations in PC parallel port hardware.  However, it turns out
+that the kernel already addresses that problem: on PCs, the kernel defaults to
+software-emulated ECP, which is exactly what the current HPLIP code does.
+Using the kernel code avoids the massive ioctl overhead, and it makes it
+possible to use hardware-accelerated ECP in those cases where it works.
+
+To apply this patch, 'cd' into the unpacked hplip source directory and run:
+$ patch -p1 <../hplip-fast-pp-v2.patch
+$ libtoolize --force
+$ AUTOMAKE="automake --foreign" autoreconf
+(Remember to use the --enable-pp-build option with ./configure)
+
+Patch by Daniel Gnoutcheff <daniel@gnoutcheff.name>
+Thanks to Daniel Pielmeir for figuring out the autotools bits
+
+diff -ur hplip-3.12.2/io/hpmud/pp.c hplip-3.12.2-fast-pp/io/hpmud/pp.c
+--- hplip-3.12.2/io/hpmud/pp.c	2012-02-01 06:53:52.000000000 -0500
++++ hplip-3.12.2-fast-pp/io/hpmud/pp.c	2012-02-20 19:28:27.990747569 -0500
+@@ -28,6 +28,8 @@
+ 
+ #include "hpmud.h"
+ #include "hpmudi.h"
++#include <signal.h>
++#include <time.h>
+ 
+ mud_device_vf __attribute__ ((visibility ("hidden"))) pp_mud_device_vf = 
+ {
+@@ -67,17 +69,6 @@
+    .channel_read = musb_dot4_channel_read
+ };
+ 
+-static int frob_control(int fd, unsigned char mask, unsigned char val)
+-{
+-   struct ppdev_frob_struct frob;
+-
+-   /* Convert ieee1284 control values to PC-style (invert Strobe, AutoFd and Select) . */
+-   frob.val = val ^ (mask & (PARPORT_CONTROL_STROBE | PARPORT_CONTROL_AUTOFD | PARPORT_CONTROL_SELECT));
+-
+-   frob.mask = mask;
+-   return ioctl(fd, PPFCONTROL, &frob);
+-}
+-
+ static unsigned char read_status(int fd)
+ {
+    unsigned char status;
+@@ -88,493 +79,6 @@
+    return (status ^ PARPORT_STATUS_BUSY); 
+ } 
+ 
+-static int wait_status(int fd, unsigned char mask, unsigned char val, int usec)
+-{
+-   struct timeval tmo, now;
+-   struct timespec min;
+-   unsigned char status;
+-   int cnt=0;
+-   
+-   gettimeofday (&tmo, NULL);
+-   tmo.tv_usec += usec;
+-   tmo.tv_sec += tmo.tv_usec / 1000000;
+-   tmo.tv_usec %= 1000000;
+-
+-   min.tv_sec = 0;
+-   min.tv_nsec = 5000000;  /* 5ms */
+-
+-   while (1)
+-   {
+-      status = read_status(fd);
+-      if ((status & mask) == val)
+-      {
+-	//         bug("found status=%x mask=%x val=%x cnt=%d: %s %d\n", status, mask, val, cnt, __FILE__, __LINE__);
+-         return 0;
+-      } 
+-      cnt++;
+-      //      nanosleep(&min, NULL);
+-      gettimeofday(&now, NULL);
+-      if ((now.tv_sec > tmo.tv_sec) || (now.tv_sec == tmo.tv_sec && now.tv_usec > tmo.tv_usec))
+-      {
+-         DBG("wait_status timeout status=%x mask=%x val=%x us=%d\n", status, mask, val, usec);
+-         return -1;   /* timeout */
+-      }
+-   }
+-}
+-
+-static int wait(int usec)
+-{
+-   struct timeval tmo, now;
+-   int cnt=0;
+-   
+-   gettimeofday (&tmo, NULL);
+-   tmo.tv_usec += usec;
+-   tmo.tv_sec += tmo.tv_usec / 1000000;
+-   tmo.tv_usec %= 1000000;
+-
+-   while (1)
+-   {
+-      cnt++;
+-      gettimeofday(&now, NULL);
+-      if ((now.tv_sec > tmo.tv_sec) || (now.tv_sec == tmo.tv_sec && now.tv_usec > tmo.tv_usec))
+-      {
+-         return 0;   /* timeout */
+-      }
+-   }
+-}
+-
+-static int ecp_is_fwd(int fd)
+-{
+-   unsigned char status;
+-
+-   status = read_status(fd);
+-   if ((status & PARPORT_STATUS_PAPEROUT) == PARPORT_STATUS_PAPEROUT)
+-      return 1;
+-   return 0;
+-}
+-
+-static int ecp_is_rev(int fd)
+-{
+-   unsigned char status;
+-
+-   status = read_status(fd);
+-   if ((status & PARPORT_STATUS_PAPEROUT) == 0)
+-      return 1;
+-   return 0;
+-}
+-
+-static int ecp_rev_to_fwd(int fd)
+-{
+-   int dir=0;
+-
+-   if (ecp_is_fwd(fd))
+-      return 0;
+-
+-   /* Event 47: write NReverseRequest/nInit=1 */
+-   frob_control(fd, PARPORT_CONTROL_INIT, PARPORT_CONTROL_INIT);
+-
+-   /* Event 48: wait PeriphClk/nAck=1, PeriphAck/Busy=0 */
+-   //   wait_status(fd, PARPORT_STATUS_PAPEROUT | PARPORT_STATUS_BUSY, PARPORT_STATUS_PAPEROUT, SIGNAL_TIMEOUT);
+-
+-   /* Event 49: wait nAckReverse/PError=1 */
+-   wait_status(fd, PARPORT_STATUS_PAPEROUT, PARPORT_STATUS_PAPEROUT, PP_SIGNAL_TIMEOUT);
+-
+-   ioctl(fd, PPDATADIR, &dir);
+-
+-   return 0;
+-}
+-
+-static int ecp_fwd_to_rev(int fd)
+-{
+-   int dir=1;
+-
+-   if (ecp_is_rev(fd))
+-      return 0;
+-
+-   /* Event 33: NPeriphRequest/nFault=0, PeriphAck/Busy=0 */
+-   wait_status(fd, PARPORT_STATUS_BUSY | PARPORT_STATUS_ERROR, 0, PP_DEVICE_TIMEOUT);
+-
+-   /* Event 38: write HostAck/nAutoFd=0 */
+-   ioctl(fd, PPDATADIR, &dir);
+-   frob_control(fd, PARPORT_CONTROL_AUTOFD, 0);
+-   wait(PP_SETUP_TIMEOUT);
+-   
+-   /* Event 39: write NReverseRequest/nInit=0 (start bus reversal) */
+-   frob_control(fd, PARPORT_CONTROL_INIT, 0);
+-
+-   /* Event 40: wait nAckReverse/PError=0 */
+-   wait_status(fd, PARPORT_STATUS_PAPEROUT, 0, PP_SIGNAL_TIMEOUT);
+-
+-   return 0;
+-}
+-
+-static int ecp_write_addr(int fd, unsigned char data)
+-{
+-   int cnt=0, len=0;
+-   unsigned d=(data | 0x80); /* set channel address bit */
+-
+-   ecp_rev_to_fwd(fd);
+-
+-   /* Event 33: PeriphAck/Busy=0 */
+-   if (wait_status(fd, PARPORT_STATUS_BUSY, 0, PP_SIGNAL_TIMEOUT))
+-   {
+-      BUG("ecp_write_addr transfer stalled\n"); 
+-      goto bugout;
+-   }
+-
+-   while (1)
+-   {   
+-      /* Event 34: write HostAck/nAutoFD=0 (channel command), data */
+-      frob_control(fd, PARPORT_CONTROL_AUTOFD, 0);
+-      ioctl(fd, PPWDATA, &d);
+-
+-      /* Event 35: write HostClk/NStrobe=0 */
+-      frob_control(fd, PARPORT_CONTROL_STROBE, 0);
+-
+-      /* Event 36: wait PeriphAck/Busy=1 */
+-      if (wait_status(fd, PARPORT_STATUS_BUSY, PARPORT_STATUS_BUSY, PP_SIGNAL_TIMEOUT))
+-      {
+-
+-         /* Event 72: write NReverseRequest/nInit=0 (Host Transfer Recovery) */
+-         frob_control(fd, PARPORT_CONTROL_INIT, 0);
+-
+-         /* Event 73: wait nAckReverse/PError=0 */
+-         wait_status(fd, PARPORT_STATUS_PAPEROUT, 0, PP_SIGNAL_TIMEOUT);
+-
+-         /* Event 74: write NReverseRequest/nInit=1 */
+-         frob_control(fd, PARPORT_CONTROL_INIT, PARPORT_CONTROL_INIT);
+-
+-         /* Event 75: wait nAckReverse/PError=1 */
+-         wait_status(fd, PARPORT_STATUS_PAPEROUT, PARPORT_STATUS_PAPEROUT, PP_SIGNAL_TIMEOUT);
+-
+-         cnt++;
+-         if (cnt > 4)
+-         {
+-            BUG("ecp_write_addr transfer stalled\n"); 
+-            goto bugout;
+-         }
+-         BUG("ecp_write_addr host transfer recovery cnt=%d\n", cnt); 
+-         continue;  /* retry */
+-      }
+-      break;  /* done */
+-   } /* while (1) */
+-
+-   len = 1;
+-      
+-bugout:
+-
+-   /* Event 37: write HostClk/NStrobe=1 */
+-   frob_control(fd, PARPORT_CONTROL_STROBE, PARPORT_CONTROL_STROBE);
+-
+-   return len;
+-}
+-
+-static int ecp_write_data(int fd, unsigned char data)
+-{
+-   int cnt=0, len=0;
+-
+-   //   ecp_rev_to_fwd(fd);
+-
+-   /* Event 33: check PeriphAck/Busy=0 */
+-   if (wait_status(fd, PARPORT_STATUS_BUSY, 0, PP_SIGNAL_TIMEOUT))
+-   {
+-      BUG("ecp_write_data transfer stalled\n"); 
+-      goto bugout;
+-   }
+-
+-   while (1)
+-   {   
+-      /* Event 34: write HostAck/nAutoFD=1 (channel data), data */
+-      frob_control(fd, PARPORT_CONTROL_AUTOFD, PARPORT_CONTROL_AUTOFD);
+-      ioctl(fd, PPWDATA, &data);
+-
+-      /* Event 35: write HostClk/NStrobe=0 */
+-      frob_control(fd, PARPORT_CONTROL_STROBE, 0);
+-
+-      /* Event 36: wait PeriphAck/Busy=1 */
+-      if (wait_status(fd, PARPORT_STATUS_BUSY, PARPORT_STATUS_BUSY, PP_SIGNAL_TIMEOUT))
+-      {
+-
+-         /* Event 72: write NReverseRequest/nInit=0 (Host Transfer Recovery) */
+-         frob_control(fd, PARPORT_CONTROL_INIT, 0);
+-
+-         /* Event 73: wait nAckReverse/PError=0 */
+-         wait_status(fd, PARPORT_STATUS_PAPEROUT, 0, PP_SIGNAL_TIMEOUT);
+-
+-         /* Event 74: write NReverseRequest/nInit=1 */
+-         frob_control(fd, PARPORT_CONTROL_INIT, PARPORT_CONTROL_INIT);
+-
+-         /* Event 75: wait nAckReverse/PError=1 */
+-         wait_status(fd, PARPORT_STATUS_PAPEROUT, PARPORT_STATUS_PAPEROUT, PP_SIGNAL_TIMEOUT);
+-
+-         cnt++;
+-         if (cnt > 4)
+-         {
+-            BUG("ecp_write_data transfer stalled\n"); 
+-            goto bugout;
+-         }
+-         BUG("ecp_write_data host transfer recovery cnt=%d\n", cnt); 
+-         continue;  /* retry */
+-      }
+-      break;  /* done */
+-   } /* while (1) */
+-
+-   len = 1;
+-      
+-bugout:
+-
+-   /* Event 37: write HostClk/NStrobe=1 */
+-   frob_control(fd, PARPORT_CONTROL_STROBE, PARPORT_CONTROL_STROBE);
+-
+-   return len;
+-}
+-
+-static int ecp_read_data(int fd, unsigned char *data)
+-{
+-   int len=0;
+-
+-   //   ecp_fwd_to_rev(fd);
+-
+-   /* Event 43: wait PeriphClk/NAck=0 */
+-   if (wait_status(fd, PARPORT_STATUS_ACK, 0, PP_SIGNAL_TIMEOUT))
+-   {
+-      len = -1;
+-      goto bugout;
+-   }
+-   ioctl(fd, PPRDATA, data);
+-
+-   /* Event 44: write HostAck/nAutoFd=1 */
+-   frob_control(fd, PARPORT_CONTROL_AUTOFD, PARPORT_CONTROL_AUTOFD);
+-
+-   /* Event 45: wait PeriphClk/NAck=1 */
+-   wait_status(fd, PARPORT_STATUS_ACK, PARPORT_STATUS_ACK, PP_SIGNAL_TIMEOUT);
+-
+-   /* Event 46: write HostAck/nAutoFd=0 */
+-   frob_control(fd, PARPORT_CONTROL_AUTOFD, 0);
+-
+-   len = 1;
+-      
+-bugout:
+-
+-   return len;
+-}
+-
+-static int ecp_read(int fd, void *buffer, int size, int usec)
+-{
+-   int i=0;
+-   unsigned char *p = (unsigned char *)buffer;
+-   
+-   ecp_fwd_to_rev(fd);
+-
+-   while (i < size)
+-   {
+-      if (ecp_read_data(fd, p+i) != 1)
+-      {
+-         usec-=PP_SIGNAL_TIMEOUT;
+-         if (usec > 0)
+-            continue;
+-
+-//         return -1;
+-         return -ETIMEDOUT;   /* timeout */
+-      }
+-      i++;
+-   }
+-   return i;
+-}
+-
+-static int ecp_write(int fd, const void *buffer, int size)
+-{
+-   int i;
+-   unsigned char *p = (unsigned char *)buffer;
+-   static int timeout=0;
+-
+-   if (timeout)
+-   {
+-      timeout=0;
+-      return -1;        /* report timeout */
+-   }
+-   
+-   ecp_rev_to_fwd(fd);
+-
+-   for (i=0; i < size; i++)
+-   {
+-      if (ecp_write_data(fd, p[i]) != 1)
+-      {
+-         if (i)
+-            timeout=1;  /* save timeout, report bytes written */
+-         else
+-            i=-1;       /* report timeout */
+-         break;
+-      }
+-   }
+-   return i;
+-}
+-
+-static int nibble_read_data(int fd, unsigned char *data)
+-{
+-   int len=0;
+-   unsigned char nibble;   
+-
+-   /* Event 7: write HostBusy/nAutoFd=0 */
+-   frob_control(fd, PARPORT_CONTROL_AUTOFD, 0);
+-
+-   /* Event 8: peripheral sets low-order nibble. */
+-
+-   /* Event 9: wait PtrClk/NAck=0 */
+-   if (wait_status(fd, PARPORT_STATUS_ACK, 0, PP_SIGNAL_TIMEOUT))
+-   {
+-      len = -1;
+-      goto bugout;
+-   }
+-   nibble = read_status(fd) >> 3;
+-   nibble = ((nibble & 0x10) >> 1) | (nibble & 0x7);
+-   *data = nibble;
+-
+-   /* Event 10: write HostBusy/nAutoFd=1 */
+-   frob_control(fd, PARPORT_CONTROL_AUTOFD, PARPORT_CONTROL_AUTOFD);
+-
+-   /* Event 11: wait PtrClk/NAck=1 */
+-   wait_status(fd, PARPORT_STATUS_ACK, PARPORT_STATUS_ACK, PP_SIGNAL_TIMEOUT);
+-
+-   /* Event 7: write HostBusy/nAutoFd=0 */
+-   frob_control(fd, PARPORT_CONTROL_AUTOFD, 0);
+-
+-   /* Event 8: peripheral sets high-order nibble. */
+-
+-   /* Event 9: wait PtrClk/NAck=0 */
+-   if (wait_status(fd, PARPORT_STATUS_ACK, 0, PP_SIGNAL_TIMEOUT))
+-   {
+-      len = -1;
+-      goto bugout;
+-   }
+-   nibble = read_status(fd) >> 3;
+-   nibble = ((nibble & 0x10) >> 1) | (nibble & 0x7);
+-   *data |= (nibble<<4);
+-
+-   /* Event 10: write HostBusy/nAutoFd=1 */
+-   frob_control(fd, PARPORT_CONTROL_AUTOFD, PARPORT_CONTROL_AUTOFD);
+-
+-   /* Event 11: wait PtrClk/NAck=1 */
+-   wait_status(fd, PARPORT_STATUS_ACK, PARPORT_STATUS_ACK, PP_SIGNAL_TIMEOUT);
+-
+-   len = 1;
+-      
+-bugout:
+-
+-   return len;
+-}
+-
+-static int nibble_read(int fd, int flag, void *buffer, int size, int usec)
+-{
+-   int i=0;
+-   unsigned char *p = (unsigned char *)buffer;
+-   int m = IEEE1284_MODE_NIBBLE | flag;
+-   int mc = IEEE1284_MODE_COMPAT;
+-   unsigned char status;
+-
+-   ioctl (fd, PPNEGOT, &mc);
+-   if (ioctl (fd, PPNEGOT, &m))
+-   {
+-      DBG("nibble_read negotiation failed: %m\n");
+-      return -1;
+-   }
+-
+-   while (i < size)
+-   {
+-      if (nibble_read_data(fd, p+i) != 1)
+-      {
+-         usec-=PP_SIGNAL_TIMEOUT;
+-         if (usec > 0)
+-            continue;
+-
+-//         return -1;
+-         return -ETIMEDOUT;   /* timeout */
+-      }
+-
+-      i++;
+-
+-      /* More data? */
+-      status = read_status(fd);
+-      if (status & PARPORT_STATUS_ERROR)
+-      {
+-         /* Event 7: write HostBusy/nAutoFd=0, idle phase */
+-         frob_control(fd, PARPORT_CONTROL_AUTOFD, 0);
+-         
+-         break;  /* done */
+-      }
+-   }
+-
+-   return i;
+-}
+-
+-static int compat_write_data(int fd, unsigned char data)
+-{
+-   int len=0;
+-
+-   /* wait Busy=0 */
+-   if (wait_status(fd, PARPORT_STATUS_BUSY, 0, PP_DEVICE_TIMEOUT))
+-   {
+-      BUG("compat_write_data transfer stalled\n"); 
+-      goto bugout;
+-   }
+-
+-   ioctl(fd, PPWDATA, &data);
+-   wait(PP_SETUP_TIMEOUT);
+-
+-   /* write NStrobe=0 */
+-   frob_control(fd, PARPORT_CONTROL_STROBE, 0);
+-
+-   /* wait Busy=1 */
+-   if (wait_status(fd, PARPORT_STATUS_BUSY, PARPORT_STATUS_BUSY, PP_SIGNAL_TIMEOUT))
+-   {
+-      BUG("compat_write_data transfer stalled\n"); 
+-      goto bugout;
+-   }
+-
+-   /* write nStrobe=1 */
+-   frob_control(fd, PARPORT_CONTROL_STROBE, PARPORT_CONTROL_STROBE);
+-
+-   len = 1;
+-      
+-bugout:
+-   return len;
+-}
+-
+-static int compat_write(int fd, const void *buffer, int size)
+-{
+-   int i=0;
+-   unsigned char *p = (unsigned char *)buffer;
+-   int m = IEEE1284_MODE_COMPAT;
+-   static int timeout=0;
+-
+-   if (timeout)
+-   {
+-      timeout=0;
+-      return -1;        /* report timeout */
+-   }
+-
+-   if (ioctl(fd, PPNEGOT, &m))
+-   {
+-      BUG("compat_write failed: %m\n");
+-      goto bugout;
+-   }
+-
+-   for (i=0; i < size; i++)
+-   {
+-      if (compat_write_data(fd, p[i]) != 1)
+-      {
+-         if (i)
+-            timeout=1;  /* save timeout, report bytes written */
+-         else
+-            i=-1;       /* report timeout */
+-         break;
+-      }
+-   }
+-
+-bugout:
+-   return i;
+-}
+-
+ static int claim_pp(int fd)
+ {
+    int stat=1;
+@@ -617,11 +121,23 @@
+ 
+ static int device_id(int fd, char *buffer, int size)
+ {
+-   int len=0, maxSize;
++   int len=0, maxSize, mode;
+ 
+    maxSize = (size > 1024) ? 1024 : size;   /* RH8 has a size limit for device id */
+ 
+-   len = nibble_read(fd, IEEE1284_DEVICEID, buffer, maxSize, 0);
++   /* reset (in case someone else stopped in the middle of reading the device
++    * ID) */
++   mode = IEEE1284_MODE_COMPAT;
++   ioctl(fd, PPNEGOT, &mode);
++
++   mode = IEEE1284_MODE_NIBBLE | IEEE1284_DEVICEID;
++   ioctl(fd, PPNEGOT, &mode);
++   len = read(fd, buffer, maxSize);
++
++   /* Reset (for safety) */
++   mode = IEEE1284_MODE_COMPAT;
++   ioctl(fd, PPNEGOT, &mode);
++
+    if (len < 0)
+    {
+       BUG("unable to read device-id ret=%d\n", len);
+@@ -720,24 +236,134 @@
+    return 0;
+ }
+ 
++static int ecp_write_addr(int fd, unsigned char addr)
++{
++   /* Currently, PPSETMODE always resets the kernel's idea of the current phase
++    * to equal that of the inital phase of the given mode (i.e.
++    * IEEE1284_PH_FWD_IDLE for ECP).  However, we're not actually changing the
++    * mode, we're just modifying the "send command bytes" flag; thus, we do
++    * *not* want the phase to change.  We workaround the kernel's bad behavor by
++    * forcibly refreshing its phase setting whenever we call PPSETMODE.
++    */ 
++   int mode, phase, cmdmode, len, retval;
++
++   /* To send an address, we send an ECP command byte with the high bit set
++    * and the address in the other 7 bits. */
++   unsigned char command = addr | 0x80;
++
++   /* Enable command mode */
++   ioctl(fd, PPGETMODE, &mode);
++   cmdmode = mode | IEEE1284_ADDR;
++   ioctl(fd, PPGETPHASE, &phase);
++   ioctl(fd, PPSETMODE, &cmdmode);
++   ioctl(fd, PPSETPHASE, &phase);
++
++   len = write(fd, &command, 1);
++
++   /* Restore original mode */
++   ioctl(fd, PPGETPHASE, &phase);
++   ioctl(fd, PPSETMODE, &mode);
++   ioctl(fd, PPSETPHASE, &phase);
++
++   if (len == 1)
++      retval = len;
++   else
++   {
++      BUG("ecp_write_addr transfer failed\n");
++      retval = -errno;
++   } 
++
++   return retval; 
++}
++
++static void setup_timeout(int timeout_usec, timer_t *timeout_timer)
++{ 
++   struct sigevent timeout_sigevent = 
++   {
++      .sigev_notify = SIGEV_NONE
++   };
++   struct itimerspec timeout = 
++   {
++      .it_value = 
++      {
++         .tv_sec = timeout_usec / 1000000,
++         .tv_nsec = (timeout_usec % 1000000) * 1000
++      },
++      .it_interval = 
++      {
++         .tv_sec = 0,
++         .tv_nsec = 0
++      }
++   };
++
++   timer_create(CLOCK_MONOTONIC, &timeout_sigevent, timeout_timer);
++   timer_settime(*timeout_timer, 0, &timeout, NULL);
++}
++
++static int timeout_not_expired(timer_t *timer)
++{
++   struct itimerspec timeout;
++   timer_gettime(*timer, &timeout);
++   return timeout.it_value.tv_sec > 0 || timeout.it_value.tv_nsec > 0;
++}
++
++enum io_operation
++{
++   IO_READ,
++   IO_WRITE
++};
++
++static int ppdev_io_with_timeout(enum io_operation operation, 
++      int fd, void *buf, int buf_size, int timeout_usec)
++{ 
++   /* As of Linux 2.6.39, ppdev's read and write implementations do not honor
++    * the timeout values given by PPSETTIME ioctls.  Furthermore, when using
++    * blocking IO, ppdev reads and writes will block forever until at least one
++    * byte is transfered, which is a problem if, say, the peripheral has lost
++    * power and will never respond.  To avoid these issues, we use non-blocking
++    * IO and we implement the timeout ourselves. */
++
++   int offset = 0, retval = 0, error = 0;
++   timer_t timeout_timer;
++
++   setup_timeout(timeout_usec, &timeout_timer);
++   
++   do {
++      switch (operation)
++      {
++         case IO_READ:
++            retval = read(fd, buf + offset, buf_size - offset);
++            break;
++         case IO_WRITE:
++            retval = write(fd, buf + offset, buf_size - offset);
++            break;
++      }
++
++      if (retval >= 0)
++         offset += retval;
++      else if (errno != EAGAIN)
++         error = errno;
++   } while (!error && offset < buf_size && timeout_not_expired(&timeout_timer));
++
++   timer_delete(timeout_timer);
++
++   if (error)
++      return -error;
++   else if (offset == 0)
++      return -ETIMEDOUT;
++   else
++      return offset;
++}
++
+ /*********************************************************************************************************************************
+  * Parallel port mud_device functions.
+  */
+ 
+ int __attribute__ ((visibility ("hidden"))) pp_write(int fd, const void *buf, int size, int usec)
+ {
+-   int len=0, m;
++   int len;
+ 
+-   ioctl(fd, PPGETMODE, &m);
+-
+-   if (m & (IEEE1284_MODE_ECPSWE | IEEE1284_MODE_ECP))
+-   {
+-      len = ecp_write(fd, buf, size);
+-   }
+-   else
+-   {  
+-      len = compat_write(fd, buf, size);
+-   }
++   len = ppdev_io_with_timeout(IO_WRITE, fd, (void *)buf, size, usec);
+ 
+    DBG("write fd=%d len=%d size=%d\n", fd, len, size);
+    DBG_DUMP(buf, len < 32 ? len : 32);
+@@ -747,19 +373,9 @@
+ 
+ int __attribute__ ((visibility ("hidden"))) pp_read(int fd, void *buf, int size, int usec)
+ {
+-   int len=0, m;
+-//   int sec = usec/1000000;
+-
+-   ioctl(fd, PPGETMODE, &m);
++   int len;
+ 
+-   if (m & (IEEE1284_MODE_ECPSWE | IEEE1284_MODE_ECP))
+-   {  
+-      len = ecp_read(fd, buf, size, usec);
+-   }
+-   else
+-   {
+-      len = nibble_read(fd, 0, buf, size, usec);
+-   }
++   len = ppdev_io_with_timeout(IO_READ, fd, buf, size, usec);
+ 
+    DBG("read fd=%d len=%d size=%d usec=%d\n", fd, len, size, usec);
+    DBG_DUMP(buf, len < 32 ? len : 32);
+@@ -779,9 +395,11 @@
+ 
+    if (pd->id[0] == 0)
+    {
+-      /* First client, open actual kernal device, use blocking i/o. */
++      /* First client, open actual kernal device, use non-blocking i/o. See
++       * comment in ppdev_io_with_timeout() for why we use non-blocking i/o.
++       */
+       hpmud_get_uri_datalink(pd->uri, dev, sizeof(dev));
+-      if ((fd = open(dev, O_RDWR | O_NOCTTY)) < 0)            
++      if ((fd = open(dev, O_RDWR | O_NOCTTY | O_NONBLOCK)) < 0)            
+       {
+          BUG("unable to open %s: %m\n", pd->uri);
+          goto bugout;
+@@ -1037,7 +655,7 @@
+          goto bugout;
+ 
+       /* Negotiate ECP mode. */
+-      m = IEEE1284_MODE_ECPSWE;
++      m = IEEE1284_MODE_ECP;
+       if (ioctl(pd->open_fd, PPNEGOT, &m)) 
+       {
+          BUG("unable to negotiate %s ECP mode: %m\n", pd->uri);
+@@ -1046,7 +664,7 @@
+ 
+       /* Enable MLC mode with ECP channel-77. */
+       ecp_write_addr(pd->open_fd, 78);
+-      ecp_write(pd->open_fd, "\0", 1);
++      write(pd->open_fd, "\0", 1);
+       ecp_write_addr(pd->open_fd, 77);
+ 
+       /* MLC initialize */
+@@ -1099,7 +717,7 @@
+       pd->mlc_up=0;
+ 
+       ecp_write_addr(pd->mlc_fd, 78);     /* disable MLC mode with ECP channel-78 */
+-      ecp_write(pd->mlc_fd, "\0", 1);
++      write(pd->mlc_fd, "\0", 1);
+ 
+       m = IEEE1284_MODE_NIBBLE;
+       ioctl(pd->mlc_fd, PPNEGOT, &m);
+@@ -1129,7 +747,7 @@
+          goto bugout;
+ 
+       /* Negotiate ECP mode. */
+-      m = IEEE1284_MODE_ECPSWE;
++      m = IEEE1284_MODE_ECP;
+       if (ioctl(pd->open_fd, PPNEGOT, &m)) 
+       {
+          BUG("unable to negotiate %s ECP mode: %m\n", pd->uri);
+@@ -1138,7 +756,7 @@
+ 
+       /* Enable MLC mode with ECP channel-77. */
+       ecp_write_addr(pd->open_fd, 78);
+-      ecp_write(pd->open_fd, "\0", 1);
++      write(pd->open_fd, "\0", 1);
+       ecp_write_addr(pd->open_fd, 77);
+ 
+       /* DOT4 initialize */
+@@ -1191,7 +809,7 @@
+       pd->mlc_up=0;
+ 
+       ecp_write_addr(pd->mlc_fd, 78);     /* disable MLC mode with ECP channel-78 */
+-      ecp_write(pd->mlc_fd, "\0", 1);
++      write(pd->mlc_fd, "\0", 1);
+ 
+       m = IEEE1284_MODE_NIBBLE;
+       ioctl(pd->mlc_fd, PPNEGOT, &m);
+diff -ur hplip-3.12.2/io/hpmud/pp.h hplip-3.12.2-fast-pp/io/hpmud/pp.h
+--- hplip-3.12.2/io/hpmud/pp.h	2012-02-01 06:53:52.000000000 -0500
++++ hplip-3.12.2-fast-pp/io/hpmud/pp.h	2012-02-20 19:28:27.990747569 -0500
+@@ -60,18 +60,11 @@
+  *   0 - Strobe *
+  * 
+  *              * inverted
+- *
+- * Notes:
+- *   For ECP mode use low-level parport ioctl instead of high-level parport read/writes because its more reliable. High-level support
+- *   for Compatible and Nibble modes are probably ok, but for consistency low-level parport ioctl is used.
+- *
+  */
+ 
+-#define PP_DEVICE_TIMEOUT 30000000   /* device timeout (us) */
+ //#define PP_SIGNAL_TIMEOUT 1000000   /* signal timeout (us), too long for 1ms timeout, DES 8/18/08  */
+ //#define PP_SIGNAL_TIMEOUT 1000   /* signal timeout (us), too short for DJ540, DES 8/18/08 */  
+ #define PP_SIGNAL_TIMEOUT 100000   /* signal timeout (us), DES 8/18/08 */
+-#define PP_SETUP_TIMEOUT 10   /* setup timeout (us) */
+ 
+ struct _mud_device;
+ struct _mud_channel;

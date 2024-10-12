@@ -1,0 +1,165 @@
+diff -Naur hplip-3.18.6_orig/common/utils.c hplip-3.18.6/common/utils.c
+--- hplip-3.18.6_orig/common/utils.c	2018-06-07 08:07:07.000000000 +0200
++++ hplip-3.18.6/common/utils.c	2018-08-18 15:37:04.690881071 +0200
+@@ -1,3 +1,7 @@
++#ifndef _GNU_SOURCE
++#define _GNU_SOURCE
++#endif
++
+ #include "utils.h"
+ #include "string.h"
+ #include <dlfcn.h>
+diff -Naur hplip-3.18.6_orig/io/hpmud/jd.c hplip-3.18.6/io/hpmud/jd.c
+--- hplip-3.18.6_orig/io/hpmud/jd.c	2018-06-07 08:06:46.000000000 +0200
++++ hplip-3.18.6/io/hpmud/jd.c	2018-08-18 15:37:04.722881070 +0200
+@@ -31,6 +31,7 @@
+ #endif
+ 
+ #include <signal.h>
++#include <stdlib.h>
+ #include "hpmud.h"
+ #include "hpmudi.h"
+ 
+diff -Naur hplip-3.18.6_orig/pcard/pcardext/pcardext.c hplip-3.18.6/pcard/pcardext/pcardext.c
+--- hplip-3.18.6_orig/pcard/pcardext/pcardext.c	2018-06-07 08:07:10.000000000 +0200
++++ hplip-3.18.6/pcard/pcardext/pcardext.c	2018-08-18 15:37:04.701881071 +0200
+@@ -36,6 +36,12 @@
+ #define PY_SSIZE_T_MIN INT_MIN
+ #endif
+ 
++#if PY_MAJOR_VERSION >= 3
++#define PyString_AsStringAndSize PyBytes_AsStringAndSize
++#define PyString_FromStringAndSize PyBytes_FromStringAndSize
++#define PyInt_AS_LONG PyLong_AS_LONG
++#endif
++
+ int verbose=0;
+ 
+ PyObject * readsectorFunc = NULL;
+@@ -78,8 +84,11 @@
+     
+     if( writesectorFunc )
+     {
++#if PY_MAJOR_VERSION >= 3
+         result = PyObject_CallFunction( writesectorFunc, "iis#", sector, nsector, buf, size );
+-        
++#else
++        result = PyObject_CallFunction( writesectorFunc, "iiy#", sector, nsector, buf, size );
++#endif
+         return PyInt_AS_LONG( result );
+     }
+ 
+@@ -233,6 +242,29 @@
+ 
+ static char pcardext_documentation[] = "Python extension for HP photocard services";
+ 
++#if PY_MAJOR_VERSION >= 3
++static struct PyModuleDef moduledef = {
++        .m_base = PyModuleDef_HEAD_INIT,
++        .m_name = "pcardext",
++        .m_doc = pcardext_documentation,
++        .m_size = -1,
++        .m_methods = pcardext_methods,
++        .m_slots = NULL,
++        .m_traverse = NULL,
++        .m_clear = NULL,
++        .m_free = NULL,
++};
++
++PyMODINIT_FUNC
++PyInit_pcardext( void )
++{
++	PyObject *module = PyModule_Create2(&moduledef, PYTHON_API_VERSION);
++
++	return module;
++}
++
++#else
++
+ void initpcardext( void )
+ {
+     PyObject * mod = Py_InitModule4( "pcardext", pcardext_methods, 
+@@ -243,4 +275,5 @@
+       return;
+ }
+ 
++#endif
+ 
+diff -Naur hplip-3.18.6_orig/protocol/hp_ipp.c hplip-3.18.6/protocol/hp_ipp.c
+--- hplip-3.18.6_orig/protocol/hp_ipp.c	2018-06-07 08:07:07.000000000 +0200
++++ hplip-3.18.6/protocol/hp_ipp.c	2018-08-18 15:37:04.703881071 +0200
+@@ -18,6 +18,9 @@
+ 
+ \******************************************************************************/
+ 
++#ifndef _GNU_SOURCE
++#define _GNU_SOURCE
++#endif
+ 
+ #include <cups/cups.h>
+ #include <cups/language.h>
+diff -Naur hplip-3.18.6_orig/protocol/hp_ipp.h hplip-3.18.6/protocol/hp_ipp.h
+--- hplip-3.18.6_orig/protocol/hp_ipp.h	2018-06-07 08:07:07.000000000 +0200
++++ hplip-3.18.6/protocol/hp_ipp.h	2018-08-18 15:37:04.703881071 +0200
+@@ -149,6 +149,7 @@
+ 
+ 
+ http_t*    acquireCupsInstance();
++void _releaseCupsInstance();
+ const char *getCupsErrorString(int status);
+ void freePrinterList(printer_t *list);
+  
+@@ -162,6 +163,11 @@
+ ipp_t * networkDoRequest(ipp_t *request, char* device_uri);
+ ipp_t * getDeviceStatusAttributes(char* device_uri,char* printer_name, int *count);
+ int     getCupsPrinters(printer_t **printer_list);
++int addCupsPrinter(char *name, char *device_uri, char *location, char *ppd_file,
++		   char *model, char *info);
++int delCupsPrinter(char *pr_name);
++int setDefaultCupsPrinter(char *pr_name);
++int controlCupsPrinter(char *pr_name, int op);
+ 
+ HPIPP_RESULT parseResponseHeader(char* header, int *content_length, int *chunked, int* header_size);
+ HPIPP_RESULT prepend_http_header(raw_ipp *raw_request);
+diff -Naur hplip-3.18.6_orig/scan/sane/bb_ledm.c hplip-3.18.6/scan/sane/bb_ledm.c
+--- hplip-3.18.6_orig/scan/sane/bb_ledm.c	2018-06-07 08:06:46.000000000 +0200
++++ hplip-3.18.6/scan/sane/bb_ledm.c	2018-08-18 15:37:04.716881070 +0200
+@@ -27,6 +27,7 @@
+ # include "xml.h"
+ # include <stdlib.h>
+ 
++# include <unistd.h>
+ # include <stdint.h>
+ 
+ # define _STRINGIZE(x) #x
+diff -Naur hplip-3.18.6_orig/scan/sane/http.c hplip-3.18.6/scan/sane/http.c
+--- hplip-3.18.6_orig/scan/sane/http.c	2018-06-07 08:06:46.000000000 +0200
++++ hplip-3.18.6/scan/sane/http.c	2018-08-18 15:37:04.716881070 +0200
+@@ -33,6 +33,7 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <unistd.h>
+ #include <string.h>
+ #include <syslog.h>
+ #include <ctype.h>
+diff -Naur hplip-3.18.6_orig/scan/sane/sclpml.c hplip-3.18.6/scan/sane/sclpml.c
+--- hplip-3.18.6_orig/scan/sane/sclpml.c	2018-06-07 08:06:46.000000000 +0200
++++ hplip-3.18.6/scan/sane/sclpml.c	2018-08-18 15:37:04.716881070 +0200
+@@ -25,11 +25,16 @@
+ 
+ \************************************************************************************/
+ 
++#ifndef _GNU_SOURCE
++#define _GNU_SOURCE
++#endif
++
+ #include <stdio.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <fcntl.h>
+ #include <string.h>
++#include <sys/time.h>
+ #include "sane.h"
+ #include "saneopts.h"
+ #include "common.h"

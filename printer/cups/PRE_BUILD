@@ -4,14 +4,17 @@ default_pre_build &&
 # also it just makes more sense to build files at _build_ time
 sedit 's@MAN8) mantohtml@MAN8)@' man/Makefile &&
 
-# do not export ssllibs
-#sedit 's@EXPORT_SSLLIBS="$SSLLIBS"@EXPORT_SSLLIBS=""@' config-scripts/cups-ssl.m4 &&
+# don't strip
+sedit 's@INSTALL_STRIP="-s"@@' config-scripts/cups-compiler.m4 &&
 
 # fix the local state directory
 sedit 's@$localstatedir/run/cups@/run/cups@' config-scripts/cups-directories.m4 &&
 
 # fix some perms
 sedit "s:444:644:g" Makedefs.in &&
+
+sed 's#^.SILENT:##g' -i Makedefs.in &&
+sed 's#-D_FORTIFY_SOURCE=3##g' -i config-scripts/cups-compiler.m4 &&
 
 # rebuild the configure script
 aclocal -I config-scripts &&

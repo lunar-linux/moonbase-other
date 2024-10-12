@@ -1,0 +1,16 @@
+diff -Naur hplip-3.17.9_old/setup.py hplip-3.17.9/setup.py
+--- hplip-3.17.9_old/setup.py	2017-09-26 19:58:51.045098207 +0200
++++ hplip-3.17.9/setup.py	2017-09-26 19:59:56.896095581 +0200
+@@ -554,10 +554,10 @@
+                             if file_path.endswith('.gz'):
+                                 nickname = gzip.GzipFile(file_path, 'r').read(4096)
+                             else:
+-                                nickname = open(file_path, 'r').read(4096)
++                                nickname = open(file_path, 'rb').read(4096)
+ 
+                             try:
+-                                desc = nickname_pat.search(nickname).group(1)
++                                desc = nickname_pat.search(nickname.decode('utf-8')).group(1)
+                             except AttributeError:
+                                 desc = ''
+ 

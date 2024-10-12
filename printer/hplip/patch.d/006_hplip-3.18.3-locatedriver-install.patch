@@ -1,0 +1,11 @@
+diff -Naur hplip-3.18.3_orig/Makefile.am hplip-3.18.3/Makefile.am
+--- hplip-3.18.3_orig/Makefile.am	2018-03-19 18:38:34.103138455 +0100
++++ hplip-3.18.3/Makefile.am	2018-03-19 18:39:22.683137477 +0100
+@@ -730,6 +730,7 @@
+ endif # FULL_BUILD
+ endif # HPLIP_BUILD
+ if HPLIP_CLASS_DRIVER
++	$(mkinstalldirs) $(DESTDIR)$(bindir)
+ 	ln -sf ../share/$(PACKAGE)/locatedriver $(DESTDIR)$(bindir)/hp-locatedriver
+ endif
+ 

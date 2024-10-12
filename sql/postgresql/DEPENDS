@@ -1,13 +1,19 @@
+depends zlib
+depends zstd
+depends lz4
+depends readline
 depends ncurses
+depends icu4c
+depends libxml2
 
+optional_depends llvm      "--with-llvm"    "" "build with LLVM based JIT support"
 optional_depends %OSSL     "--with-openssl" "" "for SSL connections"
 optional_depends perl      "--with-perl"    "" "for perl programming"
 optional_depends python    "--with-python"  "" "for python programming"
 optional_depends Linux-PAM "--with-pam"     "" "for user authentication"
-optional_depends %KERBEROS "--with-gssapi"  "" "for gssapi support"
+optional_depends %KERBEROS "--with-gssapi"  "" "for gssapi support" n
 optional_depends openldap  "--with-ldap"    "" "for ldap support"
-
-optional_depends zlib "" "--without-zlib" "for compression support"
+optional_depends Linux-PAM "--with-pam"     "" "build with PAM support"
 
 optional_depends timezone-data \
                  "--with-system-tzdata=/usr/share/zoneinfo" \

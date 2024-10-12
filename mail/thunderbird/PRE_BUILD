@@ -1,11 +1,5 @@
 default_pre_build &&
 
-if [ ! -e /usr/include/cairo/cairo-tee.h ] ; then
-  message "${PROBLEM_COLOR}Run:  ${MODULE_COLOR}lin -c cairo" &&
-  message "${MESSAGE_COLOR}To recompile cairo with tee support, which is required by Thunderbird.${DEFAULT_COLOR}" &&
-  false
-fi &&
-
 if module_is_expired $MODULE && [ "$VERSION" != "`installed_version $MODULE`" ]; then
     set_module_config OLD_VER "`installed_version $MODULE`"
 fi &&
@@ -14,38 +8,6 @@ cp $SCRIPT_DIRECTORY/mozconfig . &&
 export MOZ_OBJDIR="${SOURCE_DIRECTORY}/build-mozilla" &&
 mkdir -p ${MOZ_OBJDIR} &&
 
-sed -i '/ROOT_CLIP_CHAIN/d' gfx/webrender_bindings/webrender_ffi.h &&
-
 for flag in $OPTS; do
   echo "ac_add_options $flag" >> mozconfig
-done &&
-
-# Fix build with gcc-13.x
-sed -e '/<exception>/i#include <cstdint>' -i comm/third_party/rnp/src/libsexp/include/sexp/sexp-error.h
-
-# rust-bindgen trickery
-sed -e "/match cursor.kind()/a                                    \
-        CXCursor_LinkageSpec => return Err(ParseError::Recurse)," \
-    -i third_party/rust/bindgen/ir/item.rs                        &&
-
-cat >> Cargo.toml << EOF &&
-[patch.crates-io.bindgen_0_64_0]
-package = "bindgen"
-version = "0.64.0"
-path = "third_party/rust/bindgen"
-EOF
-
-# webrtc and clang > 18.x
-sed -r '/name = "bindgen"/,+5 s/^source|^checksum/#&/' \
-    -i Cargo.lock
-
-sed 's/uint32_t timestamp/uint64_t timestamp/'                \
-    -i dom/media/gmp-plugin-openh264/gmp-fake-openh264.cpp    \
-       dom/media/gtest/TestGMPRemoveAndDelete.cpp             \
-       dom/media/webrtc/libwebrtcglue/WebrtcGmpVideoCodec.cpp &&
-
-sed '/mInputImageMap/s/uint32_t/uint64_t/' \
-    -i dom/media/webrtc/libwebrtcglue/WebrtcGmpVideoCodec.h
-
-# Remove several lines of Rust code only useful for ARM and failing to compile with Rustc-1.78.0 or newer:
-sed '/cfg_attr/,/)]/d' -i gfx/qcms/src/lib.rs
+done

@@ -1,4 +1,5 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
+export CXXFLAGS="-std=c++11"
 
 OPTS+=" --disable-gl \
         --disable-doc \

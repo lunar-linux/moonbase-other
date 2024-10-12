@@ -1,0 +1,152 @@
+commit ac3af28d5f2011e1f9f3a22ab078d6c9366b1859
+Author: Florian Weimer <fweimer@redhat.com>
+Date:   Thu Nov 24 17:08:40 2022 +0100
+
+    : hplip-sclpml-strcasestr.patch
+    
+    Kludge to support building C99 mode.  This should no longer be needed
+    once glibc declares strcasestr by default, and not just with
+    -D_GNU_SOURCE.
+
+diff --git a/scan/sane/sclpml.c b/scan/sane/sclpml.c
+index dc8b32ce02ad1202..f2cacd53e86800ce 100644
+--- a/scan/sane/sclpml.c
++++ b/scan/sane/sclpml.c
+@@ -47,6 +47,9 @@
+ #define DEBUG_DECLARE_ONLY
+ #include "sanei_debug.h"
+ 
++/* This file is not built with _GNU_SOURCE. */
++char *strcasestr(const char *, const char *);
++
+ //# define  SCLPML_DEBUG
+ # ifdef SCLPML_DEBUG
+    # define _DBG(args...) syslog(LOG_INFO, __FILE__ " " STRINGIZE(__LINE__) ": " args)
+
+commit 2d2f55468d15b9390dd554423d5c61d2701bde9a
+Author: Florian Weimer <fweimer@redhat.com>
+Date:   Thu Nov 24 17:07:19 2022 +0100
+
+    : hplip-pcardext-disable.patch
+    
+    The pcardext Python extension cannot be loaded because it has not been
+    ported to Python 3:
+    
+    >>> import pcardext
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    ImportError: /usr/lib64/python3.11/site-packages/pcardext.so: undefined symbol: PyString_AsStringAndSize
+    >>>
+    
+    Stop building this extension because it breaks the build if the
+    compiler lacks support for implicit function declarations.
+    
+    Bug: <https://bugzilla.redhat.com/show_bug.cgi?id=2148210>
+
+diff --git a/Makefile.am b/Makefile.am
+index ddac16a9dd514008..15d953af9150c09e 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -307,13 +307,6 @@ if !HPLIP_CLASS_DRIVER
+ pcarddir = $(hplipdir)/pcard
+ dist_pcard_DATA = pcard/__init__.py pcard/photocard.py
+ 
+-# pcardext
+-pcardextdir = $(pyexecdir)
+-pcardext_LTLIBRARIES = pcardext.la
+-pcardext_la_LDFLAGS = -module -avoid-version
+-pcardext_la_SOURCES = pcard/pcardext/pcardext.c pcard/fat.c
+-pcardext_la_CFLAGS = -I$(PYTHONINCLUDEDIR)
+-
+ # prnt
+ prntdir = $(hplipdir)/prnt
+ dist_prnt_DATA = prnt/cups.py prnt/__init__.py prnt/ldl.py prnt/pcl.py prnt/colorcal.py
+commit cfedcfd98f9d54512673efef6ca52ec20ca56cc4
+Author: Florian Weimer <fweimer@redhat.com>
+Date:   Thu Nov 24 17:05:29 2022 +0100
+
+    : hplip-scan-orblite-c99.patch
+    
+    scan/sane/orblite: Include <dflcn.h> for function prototypes
+    
+    This is required for C99 compatibility.  Also delete the unused
+    bb_unload function because it calls a call to the undefined
+    _DBG function/macro.
+
+diff --git a/scan/sane/orblite.c b/scan/sane/orblite.c
+index ba86640c7528fc9c..ac59dda9c2dba593 100644
+--- a/scan/sane/orblite.c
++++ b/scan/sane/orblite.c
+@@ -20,6 +20,7 @@
+ #include "orblitei.h"
+ #include "orblite.h"//Added New
+ #include <math.h>
++#include <dlfcn.h>
+ #include "utils.h"
+ #include "io.h"
+ 
+@@ -193,27 +194,6 @@ bugout:
+ 
+ }
+ 
+-static int bb_unload(SANE_THandle ps)
+-{
+-   _DBG("Calling orblite bb_unload: \n");
+-   if (ps->bb_handle)
+-   {
+-      dlclose(ps->bb_handle);
+-      ps->bb_handle = NULL;
+-   }
+-   if (ps->hpmud_handle)
+-   {
+-      dlclose(ps->hpmud_handle);
+-      ps->hpmud_handle = NULL;
+-   }
+-//   if (ps->math_handle)
+-//   { 
+-//      dlclose(ps->math_handle);
+-//      ps->math_handle = NULL;
+-//   }
+-   return 0;
+-}
+-
+ SANE_Status 
+ orblite_init (SANE_Int * version_code, SANE_Auth_Callback authorize)
+ {
+
+commit d816b843b38f6df117dd8e729e9afac0f22e8a41
+Author: Florian Weimer <fweimer@redhat.com>
+Date:   Thu Nov 24 17:04:13 2022 +0100
+
+    : hplip-scan-hpaio-include.patch
+    
+    scam/sane/hpaio.c: Include orblite.h for more function prototypes
+    
+    Otherwise the build fails with compilers which do not support
+    implicit function declarations.
+
+diff --git a/scan/sane/hpaio.c b/scan/sane/hpaio.c
+index d342626822fc2190..57d1ddea32fb5816 100644
+--- a/scan/sane/hpaio.c
++++ b/scan/sane/hpaio.c
+@@ -50,6 +50,7 @@
+ #include "sclpml.h"
+ #include "escl.h"
+ #include "io.h"
++#include "orblite.h"
+ #include "orblitei.h"
+ 
+ 
+
+diff --git a/protocol/hp_ipp.c b/protocol/hp_ipp.c
+index 7853201..41892c6 100644
+--- a/protocol/hp_ipp.c
++++ b/protocol/hp_ipp.c
+@@ -18,6 +18,7 @@ Boston, MA 02110-1301, USA.
+ 
+ \******************************************************************************/
+ 
++#define _GNU_SOURCE
+ #include <cups/cups.h>
+ #include <cups/language.h>
+ #include <cups/ppd.h>

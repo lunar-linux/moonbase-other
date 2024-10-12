@@ -1,11 +1,14 @@
+depends openssl
 depends python
 depends procps
 depends c-ares
+depends sqlite
 
-optional_depends libuv  "--shared-libuv"   "" "for system installed libuv"
-optional_depends %OSSL  "--shared openssl" "" "for system installed openssl"
-optional_depends zlib   "--shared-zlib"    "" "for system installed zlib"
-optional_depends brotli "--shared-brotli"  "" "for system installed brotli"
+optional_depends libuv    "--shared-libuv"    "" "for system installed libuv"
+optional_depends zlib     "--shared-zlib"     "" "for system installed zlib"
+optional_depends brotli   "--shared-brotli"   "" "for system installed brotli"
+optional_depends simdjson "--shared-simdjson" "" "for fast json parsing support" y
+optional_depends simdutf  "--shared-simdutf"  "" "for fast utf parsing support"
 
 optional_depends icu4c \
                  "--with-intl=system-icu" "" \
@@ -16,5 +19,5 @@ optional_depends http-parser \
                  "for system installed http-parser"
 
 optional_depends nghttp2 \
-                 "--shared-nghttp2" \
+                 "--shared-nghttp2" "" \
                  "for system installed nghttp2"

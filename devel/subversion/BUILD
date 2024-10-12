@@ -9,11 +9,9 @@ mv -v build-outputs.mk{,.old}   &&
 # fix dependency bug in 1.7.6 (see r1374198)
 sedit "370 s/install = tools/install = apache-mod/" build.conf &&
 
-if in_depends $MODULE sun-jdk; then
-  . /etc/profile.d/sun-jdk.rc &&
+if in_depends $MODULE %JAVA_SDK; then
+  source /etc/profile.d/sun-jdk.rc &&
   OPTS+=" --with-jdk=$JAVA_HOME"
-# broken for sun-jdk 10 related to javah removal
-#  BINDINGS_MAKE+=" javahl"
 fi &&
 
 OPTS+=" --disable-static \

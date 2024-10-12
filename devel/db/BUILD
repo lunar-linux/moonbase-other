@@ -19,6 +19,7 @@ cd build_unix &&
                   --disable-java     \
                   --enable-shared    \
                   --disable-static   \
+                  --disable-mutexsupport \
                   $OPTS             &&
 
 sedit "s:LIBSO_LIBS=:LIBSO_LIBS=-lpthread :" Makefile &&

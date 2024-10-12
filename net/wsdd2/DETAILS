@@ -1,0 +1,19 @@
+          MODULE=wsdd2
+         VERSION=1.8.7
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/Netgear/wsdd2/archive/refs/tags/$VERSION.tar.gz
+      SOURCE_VFY=sha256:b0b6b31522f4a5e39d075b31d59d57af9a567f543e0b39b2fbdfec324d30310a
+        WEB_SITE=https://github.com/Netgear/wsdd2
+         ENTERED=20240925
+         UPDATED=20240925
+           SHORT="WSD/LLMNR Discovery/Name Service Daemon"
+
+cat << EOF
+With Microsoft turning off SMB1 feature completely on Windows 10, any Samba shares
+on the local network become invisible to Windows 10 computers. That's due to the
+fact that SMB1 is required for Computer Browser service to function.
+
+Newer Windows systems can use WSD (Web Services for Devices) to discover shares
+hosted on other Windows computers while Linux systems normally utilize mNDS/DNS-SD
+for service discovery. Microsoft is moving to support mDNS/DNS-SD, but not yet there.
+EOF

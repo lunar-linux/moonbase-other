@@ -1,6 +1,12 @@
-#Yeah. Their cmake implementation is broken/convoluted
-OPTS+=" -DDEFAULT_API_VERSION=v18" &&
+./autogen.sh &&
 
-default_cmake_config &&
+OPTS+=" --disable-static \
+        --disable-doxygen-errors \
+        --enable-deprecated-symbols \
+        --enable-build-mode=production \
+	--enable-cxx \
+        --enable-hl \
+        --enable-threadsafe \
+        --enable-unsupported"
 
 default_build
