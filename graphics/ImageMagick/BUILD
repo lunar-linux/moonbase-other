@@ -4,6 +4,9 @@ OPTS+=" --enable-shared --disable-static --with-modules"
 
 default_config &&
 
+#to prevent overlinking
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
 make &&
 prepare_install &&
 make install-strip
