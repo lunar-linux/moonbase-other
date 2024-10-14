@@ -1,7 +1,6 @@
 default_pre_build &&
 
 sedit 's/-j3/-j$(nproc)/g' build &&
-sed -i 's|"$LIBS -lavcodec -lavformat -lavutil -lswscale "`pkg-config libavcodec --libs`|`pkg-config libavcodec libavformat libavutil libswscale libswresample --libs`"$LIBS"|' configure.ac #ffmpeg avcodec fix &&
 sed -i 's|$LIBS $SDL_LIBS|$LIBS $SDL_LIBS -lm -lGL|' configure.ac  #fluidsynth fix &&
 
 autoreconf -fi

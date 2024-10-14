@@ -2,11 +2,13 @@ depends glu
 depends libpng
 depends libXrandr
 depends mesa-lib
-depends ffmpeg-4
+depends ffmpeg
 depends physfs
 depends libcap
 depends fluidsynth
-#depends SDL_net
+depends SDL2
 
 optional_depends libcap   "" ""  "needed for network access"
+optional_depends freetype2 "--enable-freetype" "--disable-freetype" \
+        "to enable fonts with freetype2"
 optional_depends libslirp "" ""  "needed to connect to the internet (rootless solution)"
