@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 make &&
 python setup.py build &&
 
