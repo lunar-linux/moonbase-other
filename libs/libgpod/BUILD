@@ -9,4 +9,10 @@ if module_installed systemd ; then
    OPTS+=" --with-udev-dir=/usr/lib/udev/"
 fi &&
 
-default_build
+export CFLAGS+=" -Wno-incompatible-pointer-types -Wno-implicit-int"
+
+default_config &&
+# Prevent overlinking
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
+default_make
