@@ -1,20 +1,24 @@
 add_priv_user clamav:clamav -s /usr/bin/false -c "clamav" &&
 
-OPTS+=" --sbindir=/usr/bin \
-        --sysconfdir=/etc/clamav \
-        --with-dbdir=/var/lib/clamav \
-        --with-user=clamav  \
-        --with-group=clamav \
-        --disable-rpath \
-        --disable-llvm \
-        --enable-clamdtop \
-        --enable-zlib-vcheck"
+OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_SBINDIR=bin \
+        -DAPP_CONFIG_DIRECTORY=/etc/clamav \
+        -DDATABASE_DIRECTORY=/var/lib/clamav \
+        -DENABLE_EXTERNAL_MSPACK=ON \
+        -DENABLE_MILTER=OFF \
+        -Wno-dev"
 
-default_build &&
+cmake -B $MODULE-$VERSION -S . $OPTS &&
+cmake --build $MODULE-$VERSION &&
+prepare_install &&
+cmake --install $MODULE-$VERSION
 
 mkdir -p -m 0755 /var/lib/clamav &&
 
-mkdir -p /etc/clamav &&
 install -Dm644 $SCRIPT_DIRECTORY/clamd.conf /etc/clamav/clamd.conf &&
 install -Dm644 $SCRIPT_DIRECTORY/freshclam.conf /etc/clamav/freshclam.conf &&
-install -Dm644 $SCRIPT_DIRECTORY/sysusers.d/clamav.conf /usr/lib/sysusers.d/clamav.conf
+install -Dm644 $SCRIPT_DIRECTORY/sysusers.d/clamav.conf /usr/lib/sysusers.d/clamav.conf &&
+
+#Fix clamav-daemon sbin pathing
+sedit 's:/usr/sbin:/usr/bin:' /usr/lib/systemd/system/clamav-daemon.service

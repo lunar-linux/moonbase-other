@@ -1,22 +1,13 @@
-depends %OSSL
+depends zlib
 depends bzip2
+depends %OSSL
+depends curl
+depends libxml2
+depends bzip2
+depends pcre2
 depends libtool
-
-optional_depends libxml2 "--with-xml=/usr"     "--disable-xml"  "for libxml2 support"
-optional_depends curl    "--with-libcurl=/usr" "--without-curl" "for curl support"
-
-optional_depends ncurses \
-                 "--with-libncurses-prefix=/usr" \
-                 "--without-libncurses-prefix" \
-                 "for ncurses support"
-
-optional_depends check \
-                 "--enable-check --with-libcheck-prefix=/usr" \
-                 "--without-libcheck-prefix" \
-                 "for check support"
-
-# Currently broken
-#optional_depends llvm \
-#                 "--enable-llvm --with-system-llvm" \
-#                 "--disable-llvm" \
-#                 "use system llvm for signature compile support, else use builtin"
+depends ncurses
+depends ninja
+depends cmake
+depends libmspack
+depends check
