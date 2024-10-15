@@ -1,0 +1,16 @@
+          MODULE=libmilter
+         VERSION=8.18.1
+          SOURCE=$MODULE$VERSION.tar.gz
+ SOURCE_URL_FULL=https://ftp.sendmail.org/sendmail.$VERSION.tar.gz
+      SOURCE_VFY=sha256:cbf1f309c38e4806f7cf3ead24260f17d1fe8fb63256d13edb3cdd1a098f0770
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/sendmail-$VERSION
+        WEB_SITE=https://www.proofpoint.com/us/sendmail-open-source
+         ENTERED=20241013
+         UPDATED=20241013
+           SHORT="Implementation of the sendmail Mail Filter API"
+PSAFE=no
+cat << EOF
+This version of libmilter is divorced from the rest of sendmail because
+holy shit that is the worst build system ever, how about we use some
+standardized gnu tools instead?
+EOF
