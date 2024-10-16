@@ -1,7 +1,7 @@
-  bad_flags -fomit-frame-pointer &&
+bad_flags -fomit-frame-pointer &&
 
-  ./autogen.sh &&
+autoreconf -fi &&
 
-  default_build  &&
+default_build  &&
 
-  gather_docs TODO
+gather_docs TODO
