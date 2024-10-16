@@ -4,4 +4,6 @@
 
  OPTS+=" --enable-threads"
 
+ autoreconf -fi &&
+
  default_build
