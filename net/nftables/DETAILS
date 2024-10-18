@@ -1,0 +1,18 @@
+          MODULE=nftables
+         VERSION=1.1.1
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=https://netfilter.org/projects/nftables/files/
+      SOURCE_VFY=sha256:6358830f3a64f31e39b0ad421d7dadcd240b72343ded48d8ef13b8faf204865a
+        WEB_SITE=https://netfilter.org/projects/nftables/
+         ENTERED=20241019
+         UPDATED=20241019
+           SHORT="A NetFilter-based replacement for iptables"
+
+cat << EOF
+nftables replaces the popular {ip,ip6,arp,eb}tables. This software
+provides a new in-kernel packet classification framework that is based
+on a network-specific Virtual Machine (VM) and a new nft userspace
+command line tool. nftables reuses the existing Netfilter subsystems
+such as the existing hook infrastructure, the connection tracking
+system, NAT, userspace queueing and logging subsystem.
+EOF
