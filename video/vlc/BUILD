@@ -1,4 +1,3 @@
-sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
 
 OPTS+=" --enable-xcb \
         --enable-xvideo \
@@ -10,7 +9,12 @@ OPTS+=" --enable-xcb \
         --disable-libplacebo \
         --disable-update-check"
 
-default_build &&
+default_config &&
+
+# prevent excessive overlinking due to libtool
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
+default_make &&
 
 sedit "s:Categories=:Categories=Multimedia;:" /usr/share/applications/vlc.desktop &&
 
