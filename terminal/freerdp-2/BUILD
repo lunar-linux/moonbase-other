@@ -1,8 +1,12 @@
+export CFLAGS+=" -Wno-incompatible-pointer-types -Wno-int-conversion"
+export CXXFLAGS+=" -Wno-incompatible-pointer-types -Wno-int-conversion"
+
 OPTS+=" -DWITH_SERVER=ON \
         -DWITH_MANPAGES=OFF \
         -DWITH_FFMPEG=ON \
         -DWITH_SWSCALE=ON \
         -DWITH_CHANNELS=ON \
+        -DWITH_PULSE=ON \
         -DWITH_DSP_FFMPEG=ON \
         -DWITH_CLIENT_CHANNELS=ON \
         -DWITH_SERVER_CHANNELS=ON \
