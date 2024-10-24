@@ -8,6 +8,8 @@ depends db
 #                 "-enable-bdb=no" \
 #                 "for db database support"
 
+optional_depends argon2 "--with-argon2" "--without-argon2" "for additional password hash support"
+
 optional_depends %OSSL "" "" "for encrypted communications"
 
 optional_depends cyrus-sasl \
