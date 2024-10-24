@@ -3,8 +3,7 @@ export PYTHONDONTWRITEBYTECODE=1 &&
 touch INSTALL &&
 
 autoreconf -i &&
-
-find . -name ".pyc" -delete &&
+export CFLAGS+=" $(python3-config --includes)"
 
 default_build &&
 
