@@ -15,4 +15,4 @@ install -Dm644 $SOURCE_DIRECTORY/scripts/zsh_completion/_bazel /usr/share/zsh/si
 mkdir -p /usr/share/bazel &&
 for d in $SOURCE_DIRECTORY/examples $SOURCE_DIRECTORY/third_party $SOURCE_DIRECTORY/tools; do
     cp -r ${d} /usr/share/bazel/
-  done
+done
