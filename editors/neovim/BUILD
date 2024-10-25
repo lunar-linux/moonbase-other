@@ -1,3 +1,7 @@
+# Refer to; https://github.com/neovim/neovim/issues/2557
+CFLAGS="-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2"
+CXXFLAGS="-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2"
+
 OPTS+=" -DCMAKE_BUILD_TYPE=Release"
 
 default_cmake_build &&
