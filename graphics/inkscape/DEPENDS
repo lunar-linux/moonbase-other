@@ -8,7 +8,6 @@ depends potrace
 depends libxml2
 depends libxslt
 depends lcms2
-depends poppler
 depends libpng
 depends gtkmm3
 depends boost
@@ -63,4 +62,6 @@ optional_depends GraphicsMagick \
     "-DWITH_GRAPHICS_MAGICK=OFF" \
    "for extra graphic filters" 
 
+
+optional_depends poppler "-DENABLE_POPPLER=ON" "-DENABLE_POPPLER=OFF" "for pdf support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n
 
