@@ -1,8 +1,9 @@
 depends keyutils
+depends talloc
 
 optional_depends %KERBEROS "" "" "for Kerberos support"
 
-optional_depends Linux-PAM "--enable-pam"         "--disable-pam"       "for PAM support"
-optional_depends libcap    "--with-libcap"        "--without-libcap"    "for libcap support"
-optional_depends libcap-ng "--with-libcap-ng=yes" "--without-libcap-ng" "for libcap-ng support"
-optional_depends systemd   "--enable-systemd"     "--disable-systemd"   "for systemd support"
+optional_depends Linux-PAM "--enable-pam"      "--disable-pam"       "for PAM support"
+optional_depends libcap-ng "--with-libcap-ng"  "--without-libcap-ng" "for libcap-ng support, ${PROBLEM_COLOR}If yes here(preferred), say no to libcap${DEFAULT_COLOR}" y
+optional_depends libcap    "--with-libcap"     "--without-libcap"    "for libcap support" n
+optional_depends systemd   "--enable-systemd"  "--disable-systemd"   "for systemd support"
