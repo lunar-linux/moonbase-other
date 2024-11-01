@@ -1,12 +1,13 @@
           MODULE=libxml++
-         VERSION=2.42.2
-          SOURCE=$MODULE-$VERSION.tar.xz
-      SOURCE_URL=$GNOME_URL/sources/$MODULE/${VERSION%.*}
-      SOURCE_VFY=sha256:a433987f54cc1ecaa84af26af047a62df9e884574e0d686e5ddc6f70441c152b
+         VERSION=2.42.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/libxmlplusplus/libxmlplusplus/archive/refs/tags/$VERSION.tar.gz
+      SOURCE_VFY=sha256:147f6bd3fc1d3e444af2b7bef046ebb04608da1c12b509b4e00aa707a9559646
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libxmlplusplus-$VERSION
         WEB_SITE=http://libxmlplusplus.sf.net
             TYPE=meson
          ENTERED=20030923
-         UPDATED=20230809
+         UPDATED=20241101
            SHORT="A C++ interface for working with XML files"
 
 cat << EOF
