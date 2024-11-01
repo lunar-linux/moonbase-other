@@ -1,3 +1,5 @@
+autoreconf -vfi &&
+
 export FFLAGS+=' -fallow-argument-mismatch'
 export FCFLAGS+=' -fallow-argument-mismatch'
 
