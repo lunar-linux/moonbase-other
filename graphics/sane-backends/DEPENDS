@@ -1,14 +1,8 @@
 depends %JPEG
 depends systemd
 depends autoconf-archive
+depends libusb-compat
 
-optional_depends avahi    "--enable-avahi" "--disable-avahi"   "for service discovery support"
+optional_depends avahi    "--with-avahi"   "--without-avahi"   "for service discovery support"
 optional_depends gphoto2  "--with-gphoto2" "--without-gphoto2" "for gphoto2 support"
 optional_depends net-snmp "--with-snmp"    "--without-snmp"    "for snmp support"
-
-optional_depends libusb-compat \
-                 "--with-usb"\
-                 "--without-usb" \
-                 "for usb scanners"
-
-optional_depends libieee1284 "" "" "for parallel port support"

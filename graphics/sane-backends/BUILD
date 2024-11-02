@@ -16,12 +16,15 @@ sed 's|@LDFLAGS@ ||' -i tools/*.pc.in
 
 
 OPTS+=" --with-lockdir=/run/lock/sane \
-        --with-group=usb \
+        --sbindir=/usr/bin \
         --disable-rpath  \
-        --enable-pthread"
+        --enable-pthread \
+        --with-poppler-glib \
+        --with-pic"
 
 add_priv_user scanner:scanner -d /var/lib/sane -s /usr/bin/false &&
 default_config &&
+
 # circumvent overlinking in libraries
 sed -e 's/ -shared / -Wl,-O1,--as-needed\0/g' -i libtool &&
 default_make &&
@@ -35,4 +38,6 @@ prepare_install &&
 
 make install &&
 install -D -m0644 udev/libsane.rules /usr/lib/udev/rules.d/49-sane.rules &&
-install -D -m0644 hotplug/libsane.usermap /usr/lib/udev/libsane.usermap
+install -D -m0644 hotplug/libsane.usermap /usr/lib/udev/libsane.usermap &&
+install $SCRIPT_DIRECTORY/66-saned.rules /usr/lib/udev/rules.d &&
+install $SCRIPT_DIRECTORY/sane.sysusers /usr/lib/sysusers.d/sane-backends.conf
