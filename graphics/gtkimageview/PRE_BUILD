@@ -1,3 +1,10 @@
-default_pre_build &&
+default_pre_build
 
-sedit "s:-Werror::" configure.in
+# Prevent excessive build failures due to gcc changes
+sed -e '/CFLAGS/s/-Werror //g' -i configure.in &&
+
+# Gold linker fix
+sed -e '/libtest.la/s:$: -lm:g' -i tests/Makefile.am &&
+
+# Don't rebuild gtk-doc
+sed "/^TARGET_DIR/i \GTKDOC_REBASE=true" -i gtk-doc.make
