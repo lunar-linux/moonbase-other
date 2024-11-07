@@ -2,10 +2,7 @@ if module_installed ffmpeg; then
   OPTS+=" -D ffmpeg=enabled"
 fi &&
 
-OPTS+=" -D roc=disabled \
-        -D vulkan=disabled \
-        -D libcamera=disabled \
-        -D session-managers=[] \
+OPTS+=" -D session-managers=[] \
         -D udevrulesdir=/usr/lib/udev/rules.d"
 
 default_meson_build &&
