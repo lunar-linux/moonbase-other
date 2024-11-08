@@ -5,10 +5,14 @@ _opts+=" --prefix=/usr \
          --bindir=/usr/bin \
          --mandir=/usr/share/man/man1 \
          --libdir=/usr/lib/ocaml \
-         --enable-frame-pointers"
+         --enable-frame-pointers \
+         --enable-flambda"
 
 ./configure $_opts &&
 
-make --debug=v world.opt &&
+make world.opt &&
+make opt &&
+make opt opt &&
+
 prepare_install &&
 make install
