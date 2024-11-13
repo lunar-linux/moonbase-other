@@ -2,6 +2,8 @@ sed -i 's/-Werror//' configure.ac &&
 
 autoreconf -fvi &&
 
+OPTS+=" --disable-static" &&
+
 default_config &&
 
 #Prevent overlinking
