@@ -2,6 +2,8 @@ TARGETS="${TARGETS:=X86;AMDGPU;BPF}" &&
 
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_SKIP_INSTALL_RPATH=ON \
+        -DCLANG_DEFAULT_PIE_ON_LINUX=ON \
         -DLLVM_ENABLE_RTTI=ON \
         -DLLVM_BUILD_TESTS=OFF \
         -DLLVM_ENABLE_FFI=ON \
@@ -17,9 +19,9 @@ OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DLLVM_TARGETS_TO_BUILD=$TARGETS \
         -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON \
         -DCLANG_DEFAULT_PIE_ON_LINUX=ON \
+        -DCLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \
         -DLLVM_BINUTILS_INCDIR=/usr/include \
         -Wno-dev"
-
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
