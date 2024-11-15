@@ -1,5 +1,7 @@
-default_pre_build &&
+default_pre_build
 
-cd $SOURCE_DIRECTORY/ &&
+git clone https://github.com/mapbox/variant.git deps/mapbox//variant/ &&
+git clone https://github.com/mapbox/geometry.hpp.git deps/mapbox/geometry/ &&
+git clone https://github.com/mapbox/polylabel.git deps/mapbox/polylabel/ &&
+git clone https://github.com/mapbox/protozero.git deps/mapbox/protozero/
 
-sedit 's:from collections import Iterable:from collections.abc import Iterable:' scons/scons-local-3.0.1/SCons/Util.py
