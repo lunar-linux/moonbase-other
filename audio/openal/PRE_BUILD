@@ -1,9 +1,0 @@
-default_pre_build &&
-
-sedit "s:\#format = AL_FORMAT_STEREO16:format = AL_FORMAT_STEREO16:" alsoftrc.sample &&
-sedit "s:\(libavformat>=52.111.0\):\1 libavutil>=50.43.0:" CMakeLists.txt &&
-
-# there's a typo in the CMakeLists.txt in 1.17.0
-sedit "927 s/PULSEAUDIO_LIBRARIES/JACK_LIBRARIES/" CMakeLists.txt &&
-
-OPTS+=" -DALSOFT_EXAMPLES=0"
