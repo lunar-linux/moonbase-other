@@ -1,16 +1,19 @@
-            MODULE=rustc
-           VERSION=1.81.0
-            SOURCE=$MODULE-$VERSION-src.tar.gz
-        SOURCE_URL=https://static.rust-lang.org/dist/
-        SOURCE_VFY=sha256:872448febdff32e50c3c90a7e15f9bb2db131d13c588fe9071b0ed88837ccfa7
-  SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-src
-          WEB_SITE=https://www.rust-lang.org/
-           ENTERED=20150916
-           UPDATED=20240926
-             SHORT="Rust language compiler"
-             BUILD=${BUILD/pc/unknown}
+          MODULE=rustc
+         VERSION=1.82.0
+          SOURCE=$MODULE-$VERSION-src.tar.xz
+      SOURCE_URL=https://static.rust-lang.org/dist/
+      SOURCE_VFY=sha256:1276a0bb8fa12288ba6fa96597d28b40e74c44257c051d3bc02c2b049bb38210
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-src
+        WEB_SITE=https://www.rust-lang.org/
+         ENTERED=20150916
+         UPDATED=20241109
+           SHORT="Rust language compiler"
+           BUILD=${BUILD/pc/unknown}
 
 cat << EOF
+NOTE: On version updates change the change_id value in config.toml shown by the
+last entry in src/bootstrap/src/utils/change_tracker.rs.
+
 Rust is a systems programming language that runs blazingly fast, prevents
 nearly all segfaults, and guarantees thread safety.
 Featuring:

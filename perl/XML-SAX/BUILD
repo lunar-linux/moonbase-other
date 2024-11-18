@@ -1,3 +1,4 @@
-yes | perl Makefile.PL &&
+PERL_MM_USE_DEFAULT=1 perl Makefile.PL &&
 
-default_make
+prepare_install &&
+PERLLIB=blib/lib make install

@@ -1,13 +1,9 @@
-scons configure PREFIX=/usr \
-        FAST=True \
-        XMLPARSER=libxml2 \
-        INPUT_PLUGINS=all \
-        CUSTOM_CXXFLAGS="$CXXFLAGS -ffat-lto-objects" \
-        CUSTOM_LDFLAGS="$LDFLAGS" \
-        CUSTOM_DEFINES="-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H=1 -DBOOST_PHOENIX_STL_TUPLE_H_" \
-        CXXFLAGS="-DU_USING_ICU_NAMESPACE=1" \
-        CUSTOM_CFLAGS="$CFLAGS" &&
+OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
+        -Wno-dev"
 
-scons ${MAKES:+-j${MAKES}} &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
+
 prepare_install &&
-scons install
+cmake --install $MODULE-$VERSION
