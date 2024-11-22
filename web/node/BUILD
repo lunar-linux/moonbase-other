@@ -18,7 +18,4 @@ OPTS+=" --shared --shared-cares --shared-sqlite --without-npm --shared-zlib --sh
 
 ./configure --prefix=/usr $OPTS &&
 
-default_make &&
-
-cd /usr/lib &&
-ln -s libnode.so.* linode.so
+default_make
