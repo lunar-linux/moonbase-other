@@ -21,4 +21,4 @@ OPTS+=" --shared --shared-cares --shared-sqlite --without-npm --shared-zlib --sh
 default_make &&
 
 cd /usr/lib &&
-ln -s libnode.so.* linode.so
+ln -s libnode.so.131 linode.so
