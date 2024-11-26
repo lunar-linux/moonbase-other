@@ -13,6 +13,8 @@ export CPPFLAGS+=" -DSQLITE_ENABLE_DBSTAT_VTAB=1 \
                    -DSQLITE_ENABLE_MATH_FUNCTIONS \
                    -DSQLITE_ENABLE_UNLOCK_NOTIFY \
                    -DSQLITE_ENABLE_STMTVTAB \
+                   -DSQLITE_ENABLE_SESSION \
+                   -DSQLITE_ENABLE_PREUPDATE_HOOK \
                    -DSQLITE_ENABLE_STAT4 \
                    -DSQLITE_SECURE_DELETE \
                    -DSQLITE_ENABLE_FTS3=1 \
@@ -23,7 +25,8 @@ OPTS+="	--disable-static \
         --enable-fts3 \
         --enable-fts4 \
         --enable-fts5 \
-        --enable-rtree"
+        --enable-rtree \
+        --enable-threadsafe"
 
 default_config &&
 
@@ -31,5 +34,4 @@ default_config &&
 sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
 
 default_make &&
-
 install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1/
