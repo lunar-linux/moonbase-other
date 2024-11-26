@@ -17,13 +17,17 @@ export CPPFLAGS+=" -DSQLITE_ENABLE_DBSTAT_VTAB=1 \
                    -DSQLITE_SECURE_DELETE \
                    -DSQLITE_ENABLE_FTS3=1 \
                    -DSQLITE_ENABLE_FTS4=1 \
-                   -DSQLITE_ENABLE_FTS5=1"
+                   -DSQLITE_ENABLE_FTS5=1 \
+                   -DSQLITE_ENABLE_SESSION \
+                   -DSQLITE_ENABLE_PREUPDATE_HOOK"
 
 OPTS+="	--disable-static \
         --enable-fts3 \
         --enable-fts4 \
         --enable-fts5 \
-        --enable-rtree"
+        --enable-rtree \
+        --enable-threadsafe \
+        --enable-readline"
 
 default_config &&
 
