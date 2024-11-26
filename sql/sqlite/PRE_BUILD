@@ -1,4 +1,6 @@
 default_pre_build &&
 
 # For "Version: 3.x.x" in /usr/lib/pkgconfig/sqlite3.pc
-sedit 's:@RELEASE@:@VERSION@:' sqlite3.pc.in
+sedit 's:@RELEASE@:@VERSION@:' sqlite3.pc.in &&
+
+unzip -o $SOURCE_CACHE/$SOURCE
