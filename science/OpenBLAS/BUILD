@@ -1,10 +1,12 @@
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DTARGET=CORE2 \
         -DBUILD_SHARED_LIBS=ON \
         -DBUILD_TESTING=OFF \
         -DNO_AFFINITY=ON \
         -DNO_WARMUP=1 \
         -DNUM_THREADS=64 \
-        -DDYNAMIC_ARCH=ON \
+        -DDYNAMIC_ARCH=OFF \
         -DINTERFACE64=1 \
         -Wno-dev"
 
