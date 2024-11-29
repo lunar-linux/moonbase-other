@@ -4,3 +4,8 @@ export PYTHONDONTWRITEBYTECODE=1 &&
 
 # For now disable python, has issues with python-pycairo
 OPTS+=" --disable-gtk-doc --disable-gtk-doc-html --disable-python"
+
+autoreconf -fi &&
+
+sed 's/-DGIMP_protect_DISABLE_DEPRECATED/-DGIMP_DISABLE_DEPRECATED/g' -i configure &&
+grep -F -q GIMP_DISABLE_DEPRECATED configure
