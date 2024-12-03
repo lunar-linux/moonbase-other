@@ -7,8 +7,4 @@ sedit 's;^HIGHLEVEL_PACKAGE.*;HIGHLEVEL_PACKAGE_MANAGER=lin;;s;^LOWLEVEL_PACK.*;
 sedit 's;^USER=;&root;' commit.d/50vcs-commit &&
 
 # install it in /usr
-sedit "s:=/lib:=/usr/lib:" Makefile &&
-
-# Fix python name
-sedit '/^PYTHON=/c PYTHON=python2' Makefile &&
-sedit '1s/python/python2/' zypper-etckeeper.py
+sedit "s:=/lib:=/usr/lib:" Makefile
