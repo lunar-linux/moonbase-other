@@ -1,3 +1,4 @@
+export GOPROXY=https://proxy.golang.org
 export GOFLAGS="-buildmode=pie \
                 -trimpath \
                 -modcacherw \
