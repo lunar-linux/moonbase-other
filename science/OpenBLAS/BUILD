@@ -7,6 +7,7 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DNO_WARMUP=1 \
         -DNUM_THREADS=64 \
         -DDYNAMIC_ARCH=OFF \
+        -DUSE_OPENMP=1 \
         -DINTERFACE64=1 \
         -Wno-dev"
 
