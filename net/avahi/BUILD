@@ -30,6 +30,7 @@ OPTS+=" --enable-compat-howl \
         --disable-static \
         --disable-qt3 \
         --disable-qt4 \
+        --enable-gtk \
         --disable-manpages \
         --disable-core-docs \
         --with-distro=none \
