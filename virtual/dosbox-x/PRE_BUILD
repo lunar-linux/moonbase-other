@@ -1,6 +1,5 @@
 default_pre_build &&
 
-sedit 's/-j3/-j$(nproc)/g' build &&
 sed -i 's|$LIBS $SDL_LIBS|$LIBS $SDL_LIBS -lm -lGL|' configure.ac  #fluidsynth fix &&
 
 autoreconf -fi
