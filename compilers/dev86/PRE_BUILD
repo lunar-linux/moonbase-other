@@ -1,8 +1,0 @@
-default_pre_build &&
-
-sedit "s/CFLAGS=  -O/CFLAGS=  $CFLAGS/1" Makefile &&
-sedit "s:(PREFIX)/man:(PREFIX)/share/man:1" Makefile &&
-sedit "s:cp -LpR:cp -LR:" libc/Makefile &&
-
-rm -rf /usr/lib/bcc/include/linuxmt &&
-rm -rf /usr/lib/bcc/include/arch
