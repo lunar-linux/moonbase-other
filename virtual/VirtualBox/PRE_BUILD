@@ -1,12 +1,11 @@
 default_pre_build &&
 
-# Borrowed from the gentoo folks;
 # Replace pointless GCC version check with something less stupid.
 # This is needed for the qt5 version check.
-sed -e 's@^check_gcc$@cc_maj="$(${CC} -dumpversion | cut -d. -f1)" ; cc_min="$(${CC} -dumpversion | cut -d. -f2)"@' -i configure &&
+sed -e '1615i cc_maj="$(${CC} -dumpversion | cut -d. -f1)" ; cc_min="$(${CC} -dumpversion | cut -d. -f2)"' -i configure &&
 
 # Remove gcc version check
-sedit "s:^check_gcc$:#check_gcc:" configure &&
+sedit "/&& check_gcc/d" configure &&
 
 # Applying local config
 cp "$SCRIPT_DIRECTORY/LocalConfig.kmk" .
