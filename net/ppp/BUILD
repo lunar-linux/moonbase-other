@@ -3,8 +3,6 @@
 add_priv_group ppp &&
 
 OPTS+=" --disable-static \
-        --enable-hashes=strong,glibc \
-        --disable-failure-tokens \
         --sbindir=/usr/bin  \
         --sysconfdir=/etc/ppp \
         --runstatedir=/run \
@@ -32,7 +30,11 @@ fi &&
 
 chown -R root:ppp /usr/bin/pppd /etc/ppp &&
 chmod 4750 /usr/bin/pppd  &&
-chmod 600 /etc/ppp/ppp/*-secrets &&
+
+# On my machine those files exist, but not on the CI environment, so add a check.
+if [ -f /etc/ppp/ppp/*-secrets ]; then
+  chmod 600 /etc/ppp/ppp/*-secrets
+fi &&
 
 if module_installed systemd; then
   install -D -m644 $SCRIPT_DIRECTORY/system.d/ppp.service /usr/lib/systemd/system/ppp@.service
