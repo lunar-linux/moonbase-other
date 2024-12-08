@@ -1,4 +1,4 @@
-OPTS+=" --with-kmod=no" &&
+OPTS+=" --with-kmod=no --disable-static" &&
 
 default_build &&
 
