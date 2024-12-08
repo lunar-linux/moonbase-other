@@ -8,7 +8,8 @@ OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DUSE_CCACHE=ON \
         -DENABLE_IPO=ON \
         -DGDAL_ENABLE_PLUGINS=ON \
-        -DGDAL_ENABLE_DRIVER_PDF=OFF
+        -DGDAL_ENABLE_DRIVER_PDF=OFF \
+        -DBUILD_TESTING=OFF \
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
