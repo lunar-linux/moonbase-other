@@ -4,7 +4,7 @@ Description=Berkeley Internet Name Domain (DNS)
 [Service]
 Type=forking
 PIDFile=/run/named/named.pid
-ExecStartPre=/usr/sbin/named-checkconf -z /etc/named.conf
+ExecStartPre=/usr/bin/named-checkconf -z /etc/named.conf
 ExecStart=/usr/sbin/named -u bind
 ExecReload=/usr/sbin/rndc reload
 ExecStop=/usr/sbin/rndc stop
