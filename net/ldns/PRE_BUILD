@@ -1,3 +1,6 @@
 default_pre_build &&
 
-sedit "s: install-manpages : :" Makefile.in
+# Move the man directory out of doc/ to prevent saving dupe manpages
+# in /usr/share/man and /usr/share/doc/ldns/doc/man
+sedit 's@doc/man/@man/@g' Makefile.in &&
+mv doc/man/ .
