@@ -8,5 +8,4 @@ make $OPTS &&
 prepare_install &&
 
 make $OPTS install &&
-cp iptraf-ng-logrotate.conf iptraf-ng &&
-install -Dm 644 iptraf-ng -t /etc/logrotate.d
+install -Dm 644 iptraf-ng-logrotate.conf /etc/logrotate.d/iptraf-ng
