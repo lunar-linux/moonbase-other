@@ -3,8 +3,6 @@
 add_priv_group ppp &&
 
 OPTS+=" --disable-static \
-        --enable-hashes=strong,glibc \
-        --disable-failure-tokens \
         --sbindir=/usr/bin  \
         --sysconfdir=/etc/ppp \
         --runstatedir=/run \
