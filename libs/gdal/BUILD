@@ -4,6 +4,9 @@ OPTS+=" -DCMAKE_CXX_STANDARD=20 \
         -DBUILD_PYTHON_BINDINGS=ON \
         -DGDAL_USE_MONGOCXX=OFF \
         -DUSE_CCACHE=ON \
+        -DCMAKE_INSTALL_INCLUDEDIR=include/gdal \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DGDAL_ENABLE_DRIVER_PDF=OFF \
         -DGDAL_ENABLE_PLUGINS=ON"
 
 default_cmake_build
