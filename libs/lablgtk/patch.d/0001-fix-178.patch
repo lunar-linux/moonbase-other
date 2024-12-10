@@ -1,0 +1,39 @@
+From c5419e79bc0d16bb9e9a8be539aa5737e8c481e4 Mon Sep 17 00:00:00 2001
+From: Jacques Garrigue <garrigue@math.nagoya-u.ac.jp>
+Date: Sun, 24 Mar 2024 20:37:36 +0900
+Subject: [PATCH] fix #178
+
+---
+ CHANGES.md   | 3 +++
+ src/ml_gtk.c | 2 +-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/CHANGES.md b/CHANGES.md
+index cc36573d..ab5cb920 100644
+--- a/CHANGES.md
++++ b/CHANGES.md
+@@ -1,5 +1,8 @@
+ LablGTK changes log
+ 
++2024.03.24 [Jacques]
++  * fix pointer incompatibility in ml_gtk_style_context_list_classes (#178)
++
+ ## In Lablgtk-3.1.4
+ 
+ 2024.01.31 [Jacques]
+diff --git a/src/ml_gtk.c b/src/ml_gtk.c
+index deb1b4c7..0dcc104e 100644
+--- a/src/ml_gtk.c
++++ b/src/ml_gtk.c
+@@ -233,7 +233,7 @@ ML_2 (gtk_style_context_add_class, GtkStyleContext_val, String_val, Unit)
+ ML_2 (gtk_style_context_remove_class, GtkStyleContext_val, String_val, Unit)
+ ML_2 (gtk_style_context_has_class, GtkStyleContext_val, String_val, Val_bool)
+ CAMLprim value ml_gtk_style_context_list_classes(value ctx)
+-{ return Val_GList(gtk_style_context_list_classes(GtkStyleContext_val(ctx)), Val_string); }
++{ return Val_GList(gtk_style_context_list_classes(GtkStyleContext_val(ctx)), (value_in)Val_string); }
+ 
+ /* gtkdata.h */
+ 
+-- 
+2.45.1
+
