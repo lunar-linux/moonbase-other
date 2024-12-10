@@ -1,10 +1,14 @@
-(
+export DEBUG=-DNDEBUG
 
-  export DEBUG=-DNDEBUG
+make configure &&
+./configure --prefix=/usr --exec-prefix=/usr --sbindir=/usr/sbin &&
 
-  make configure    &&
-  default_make      &&
-  make install-dev  &&
-  strip /usr/sbin/xfsdump /usr/sbin/xfsrestore
+sedit 's@^\(PKG_ROOT_SBIN_DIR = \)/sbin@\1/usr/sbin@' include/builddefs &&
 
-) > $C_FIFO 2>&1
+make &&
+
+prepare_install &&
+make install &&
+make install-dev &&
+
+strip /usr/sbin/xfsdump /usr/sbin/xfsrestore
