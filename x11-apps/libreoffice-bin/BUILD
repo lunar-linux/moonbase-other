@@ -25,5 +25,5 @@ for i in $desktopfiles; do
   ln -sf ${LO_OPT_DIR}/share/xdg/$i.desktop /usr/share/applications/libreoffice${VERSION%.*}-$i.desktop
 done &&
 
-rm -rf /usr/lib/libreoffice24.2/help/media/icon-themes/formula &&
-rm -rf /usr/lib/libreoffice24.2/share/config/soffice.cfg//formula/
+rm -rf /usr/lib/libreoffice24.8/help/media/icon-themes/formula &&
+rm -rf /usr/lib/libreoffice24.8/share/config/soffice.cfg/formula/
