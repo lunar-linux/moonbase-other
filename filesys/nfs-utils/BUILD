@@ -14,14 +14,14 @@ mkdir -p /usr/lib/modules-load.d
 echo "nfs" > /usr/lib/modules-load.d/nfs-utils.conf &&
 
 # Install systemd services
-if module_installed systemd; then
-  for service in systemd/{*.service,*.mount,*.target}; do
-    install -D -m644 $service /usr/lib/systemd/system/${service##*/}
-  done &&
-  install -D -m755 $SCRIPT_DIRECTORY/nfs-utils_env.sh /usr/lib/systemd/scripts/nfs-utils_env.sh
-fi &&
+for service in systemd/{*.service,*.mount,*.target}; do
+  install -D -m644 $service /usr/lib/systemd/system/${service##*/}
+done &&
+install -D -m755 $SCRIPT_DIRECTORY/nfs-utils_env.sh /usr/lib/systemd/scripts/nfs-utils_env.sh &&
 
-install -D -m644 utils/mount/nfsmount.conf /etc/nfsmount.conf &&
+if [ ! -f /etc/nfsmount.conf ]; then
+  install -D -m644 utils/mount/nfsmount.conf /etc/nfsmount.conf
+fi &&
 install -D -m644 $SCRIPT_DIRECTORY/id_resolver.conf /etc/request-key.d/id_resolver.conf &&
 
 # Default exports file
