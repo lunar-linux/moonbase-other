@@ -3,7 +3,7 @@ mkdir -p /var/lib/lynx &&
 OPTS+=" --libdir=/var/lib/lynx \
         --enable-widec         \
         --enable-cgi-links     \
-        --enable-nsl           \
+        --enable-nsl-fork      \
         --enable-read-eta      \
         --enable-scrollbar     \
         --enable-gzip-help     \
@@ -12,10 +12,6 @@ OPTS+=" --libdir=/var/lib/lynx \
         --with-zlib"
 
 default_config &&
-
-if in_depends $MODULE %OSSL; then
-  sedit 's/.*USE_OPENSSL_INCL.*/#define USE_OPENSSL_INCL 1/' lynx_cfg.h
-fi &&
 
 default_make &&
 
