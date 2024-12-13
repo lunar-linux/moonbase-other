@@ -11,4 +11,4 @@ fi &&
 
 default_cmake_build &&
 
-install -vDm 644 ../jpegint.h /usr/include
+install -vDm 644 ../src/jpegint.h /usr/include
