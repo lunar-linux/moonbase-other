@@ -30,11 +30,7 @@ make ${MAKES:+-j${MAKES}} &&
 prepare_install &&
 default_install &&
 
-if module_installed systemd; then
-  install -D -m644 $SCRIPT_DIRECTORY/udev/65-kvm.rules /usr/lib/udev/rules.d/65-kvm.rules
-else
-  install -D -m644 $SCRIPT_DIRECTORY/udev/65-kvm.rules /etc/udev/rules.d/65-kvm.rules
-fi &&
+install -D -m644 $SCRIPT_DIRECTORY/udev/65-kvm.rules /usr/lib/udev/rules.d/65-kvm.rules &&
 
 mkdir -p /usr/lib/modules-load.d &&
 install -m 644 $SCRIPT_DIRECTORY/qemu-modules.conf /usr/lib/modules-load.d/ &&
