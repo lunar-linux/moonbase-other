@@ -1,3 +1,4 @@
+CFLAGS+=" -Wno-incompatible-pointer-types"
 make &&
 
 prepare_install &&
