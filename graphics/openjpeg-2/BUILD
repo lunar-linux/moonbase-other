@@ -4,6 +4,7 @@ OPTS+=" -DBUILD_SHARED_LIBS=ON \
         -DBUILD_STATIC_LIBS=OFF \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
         -DBUILD_DOC=OFF"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
