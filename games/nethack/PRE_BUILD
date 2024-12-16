@@ -1,45 +1,7 @@
 default_pre_build &&
 
-if in_depends $MODULE libX11; then
-  sedit '/#define X11_GRAPHICS/ c #define X11_GRAPHICS' include/config.h &&
-
-  # add X11 makefile targets - no joke, this has to be done by hand
-  sedit '/^WINSRC = $(WINTTYSRC)/ c WINSRC = $(WINTTYSRC) $(WINX11SRC)
-         /^WINOBJ = $(WINTTYOBJ)/ c WINOBJ = $(WINTTYOBJ) $(WINX11OBJ)
-         /^WINLIB = $(WINTTYLIB)/ c WINLIB = $(WINTTYLIB) $(WINX11LIB)' sys/unix/Makefile.src &&
-
-  # modern xrdb complains about ' characters
-  sedit "s:':\`:g" win/X11/NetHack.ad
-fi &&
-
-if in_depends $MODULE libXpm; then
-  sedit '/\/\* # define USE_XPM/ c #define USE_XPM' include/config.h &&
-  # add -lXpm
-  sedit '/^WINX11LIB =/ c WINX11LIB = -lXaw -lXmu -lXext -lXt -lXpm -lX11' sys/unix/Makefile.src
-
-  sedit '/NetHack\.tile_file/       c NetHack.tile_file: x11tiles
-         /NetHack\.pet_mark_bitmap/ c NetHack.pet_mark_bitmap: pet_mark.xbm
-         /NetHack\.pet_mark_color/  c NetHack.pet_mark_color: Red
-	 /NetHack\.tombstone/       c NetHack.tombstone: rip.xpm' win/X11/NetHack.ad
-fi &&
-
-sedit '/#define COMPRESS "\/usr\/bin\/compress"/ c #define COMPRESS "/bin/gzip"
-       /#define COMPRESS_EXTENSION.*/         c #define COMPRESS_EXTENSION ".gz"
-       /#define DLB/                          c #define DLB' include/config.h &&
-
-sedit '/#define LINUX/          c #define LINUX
-       /#define TIMED_DELAY/    c #define TIMED_DELAY
-       /#define VAR_PLAYGROUND/ c #define VAR_PLAYGROUND "/var/games/nethack"' include/unixconf.h &&
-
-sedit '/GAMEGRP *= bin/   c GAMEGRP = games
-       /GAMEPERM = 04755/ c GAMEPERM = 02755
-       /FILEPERM = 0644/  c FILEPERM = 0664
-       /DIRPERM = 0755/   c DIRPERM = 0775
-       /GAMEDIR *=/       c GAMEDIR = /usr/lib/games/nethack
-       /VARDIR *=/        c VARDIR = /var/games/nethack
-       /^VARDATND =/      c VARDATND = x11tiles NetHack.ad pet_mark.xbm rip.xpm' sys/unix/Makefile.top &&
-
-sedit '/^PREFIX=.*/ c PREFIX=/usr
-       /^VARFILEPERM.*/ c VARFILEPERM=0660' sys/unix/hints/linux &&
-
-sedit 's/NEARDATA winid WIN_STATUS/extern \0/' src/windows.c
+# The ncurses installation in Lunar doesn't have libtinfo.so
+sedit 's/ -ltinfo//' sys/unix/hints/linux &&
+# Prevents installing in /root/nh/install/games/
+sedit '/wildcard/d' sys/unix/hints/linux &&
+sedit 's:^\#\(PREFIX=/usr\):\1:' sys/unix/hints/linux
