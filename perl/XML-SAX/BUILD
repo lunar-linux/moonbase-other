@@ -1,4 +1,3 @@
-PERL_MM_USE_DEFAULT=1 perl Makefile.PL &&
+export PERL_MM_USE_DEFAULT=1 
 
-prepare_install &&
-PERLLIB=blib/lib make install
+default_perl_build
