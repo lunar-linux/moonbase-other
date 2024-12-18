@@ -7,7 +7,7 @@ mv -v build-outputs.mk{,.old}   &&
 ./autogen.sh --release &&
 
 # fix dependency bug in 1.7.6 (see r1374198)
-sedit "370 s/install = tools/install = apache-mod/" build.conf &&
+sedit "438 s/install = tools/install = apache-mod/" build.conf &&
 
 if in_depends $MODULE %JAVA_SDK; then
   source /etc/profile.d/sun-jdk.rc &&
