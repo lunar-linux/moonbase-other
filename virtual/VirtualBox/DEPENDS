@@ -15,7 +15,9 @@ depends zlib
 
 # Per LocalConfig.kmk headless stuff will be installed regardless,
 # so make this a depends
-depends qt5
+depends qt6-base
+depends qt6-scxml
+depends qt6-tools
 
 optional_depends lvm2       "" "--disable-devmapper" "for device mapper support" y
 optional_depends mesa-lib   "" "--disable-opengl"    "for OpenGL support" y
