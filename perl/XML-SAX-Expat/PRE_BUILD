@@ -1,0 +1,6 @@
+default_pre_build
+
+if [ ! -r /usr/lib/perl5/site_perl/current/XML/SAX/ParserDetails.ini ]; then
+    perl -MXML::SAX -e "XML::SAX->add_parser(q(XML::SAX::Expat))->save_parsers()"
+fi
+
