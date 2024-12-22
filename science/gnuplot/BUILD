@@ -5,7 +5,6 @@ MAKEINFO=/usr/bin/makeinfo \
                  --libexecdir=/usr/bin \
                  --with-bitmap-terminals \
                  --with-gihdir=/usr/share/gnuplot \
-                 --with-bitmap-terminals \
                  --with-texdir=/usr/share/texmf/tex/latex/gnuplot &&
 
 #make &&
