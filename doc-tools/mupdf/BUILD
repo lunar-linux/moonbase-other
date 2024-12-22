@@ -1,4 +1,4 @@
-FLAGS+=' -fPIC'
+CFLAGS+=' -fPIC'
 CXXFLAGS+=' -fPIC'
 export CFLAGS CXXFLAGS &&
 
@@ -12,4 +12,6 @@ default_make &&
 install -Dm644 $SCRIPT_DIRECTORY/mupdf.desktop /usr/share/applications/mupdf.desktop &&
 install -Dm644 $SCRIPT_DIRECTORY/mupdf.xpm /usr/share/pixmaps/mupdf.xpm &&
 
-ln -sf /usr/bin/mupdf-x11 /usr/bin/mupdf
+ln -sf /usr/bin/mupdf-x11 /usr/bin/mupdf &&
+
+rm /usr/lib/libmupdf*.a
