@@ -1,7 +1,0 @@
-default_pre_build &&
-
-# fix bug concerning jpeg v9+
-sedit " 158 s/1/TRUE/; 340 s/1/TRUE/" src/Fl_JPEG_Image.cxx &&
-
-# this needs to be exported to be available in fltk_gl.so
-sedit "s/class Fl_XFont_On_Demand/class FL_EXPORT Fl_XFont_On_Demand/" FL/x.H
