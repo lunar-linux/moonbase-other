@@ -39,7 +39,8 @@ cp -R out/linux.*/release/bin/* $MODULE_PREFIX/ &&
 
 # Install wrapper and useful symlinks
 install -m755 out/linux.*/release/bin/VBox.sh /usr/bin/VBox &&
-for i in VBoxHeadless VBoxManage VBoxSDL VirtualBox vboxwebsrv VBoxBalloonCtrl; do
+for i in VBoxAudioTest VBoxAutostart VBoxHeadless VBoxManage \
+ VBoxSDL VirtualBox vboxwebsrv VBoxBalloonCtrl; do
    ln -sf VBox /usr/bin/$i &&
    ln -sf VBox /usr/bin/${i,,}
 done &&
@@ -48,20 +49,18 @@ done &&
 echo "INSTALL_DIR=$MODULE_PREFIX" > vbox.cfg &&
 install -Dm 644 {,/etc/vbox/}vbox.cfg &&
 
-if in_depends $MODULE qt5; then
-   # File path for PDF, and make name more recognizable
-   sed -i -e "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" \
-          -e "s:Oracle VM VirtualBox:VirtualBox Oracle VM:1" \
-          /usr/lib/virtualbox/virtualbox.desktop &&
-   # Install .desktop entry and icon
-   install -Dm 644 /usr/{lib/virtualbox,share/applications}/virtualbox.desktop &&
-   for x in `ls /usr/lib/virtualbox/icons/`; do
-      if [[ -f /usr/lib/virtualbox/icons/$x/virtualbox.png ]]; then
-         install -Dm 644 /usr/lib/virtualbox/icons/$x/virtualbox.png \
-                         /usr/share/icons/hicolor/$x/apps/virtualbox.png
-      fi
-   done
-fi &&
+# File path for PDF, and make name more recognizable
+sed -i -e "s:/opt/VirtualBox/:/usr/share/doc/VirtualBox/:" \
+       -e "s:Oracle VM VirtualBox:VirtualBox Oracle VM:1" \
+       /usr/lib/virtualbox/virtualbox.desktop &&
+# Install .desktop entry and icon
+install -Dm 644 /usr/{lib/virtualbox,share/applications}/virtualbox.desktop &&
+for x in `ls /usr/lib/virtualbox/icons/`; do
+   if [[ -f /usr/lib/virtualbox/icons/$x/virtualbox.png ]]; then
+      install -Dm 644 /usr/lib/virtualbox/icons/$x/virtualbox.png \
+                      /usr/share/icons/hicolor/$x/apps/virtualbox.png
+   fi
+done
 
 if in_depends $MODULE texlive; then
    install -Dm 644 /usr/{lib/virtualbox,share/doc/VirtualBox}/UserManual.pdf
