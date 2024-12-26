@@ -11,11 +11,9 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DINTERFACE64=1 \
         -Wno-dev"
 
-export ASMFLAGS=$CFLAGS
-export FFLAGS=${CFLAGS/ -Wformat -Werror=format-security/}
-export FC=gfortran 
-
+ASMFLAGS=$CFLAGS FFLAGS=${CFLAGS} FC=gfortran \
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+
 cmake --build $MODULE-$VERSION &&
 prepare_install &&
 
