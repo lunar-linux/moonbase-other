@@ -1,3 +1,3 @@
-OPTS+=" --disable-man"
+OPTS+=" --disable-static"
 
 default_build
