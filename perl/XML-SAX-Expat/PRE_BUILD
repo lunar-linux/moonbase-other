@@ -1,0 +1,6 @@
+# Temporary CI fix for the frequent failures with missing XML/Parser.pm perl module.
+# To be removed when the CI image is rebuilt.
+[ -e /usr/lib/perl5/site_perl/5.40.0/x86_64-linux-thread-multi/XML/Parser.pm ] ||
+    lin -c XML-Parser
+
+default_pre_build
