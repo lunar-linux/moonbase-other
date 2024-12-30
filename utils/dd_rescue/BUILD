@@ -1,3 +1,3 @@
-./autogen.sh &&
+autoreconf -fi &&
 
 default_build
