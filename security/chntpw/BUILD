@@ -1,4 +1,6 @@
 CFLAGS+=" -Wno-incompatible-pointer-types"
+sed -i 's/^CFLAGS= \(.*\) -m32 $/CFLAGS= \1 -Wno-incompatible-pointer-types/' Makefile &&
+
 make &&
 
 prepare_install &&
