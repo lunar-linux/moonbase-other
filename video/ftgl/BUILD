@@ -1,8 +1,7 @@
 ./autogen.sh &&
 
-
-OPTS+=" --with-pic" &&
-
+OPTS+=" --with-pic"
+export CPPFLAGS="-fpermissive"
 default_build &&
 
 # These two are overlooked during install
