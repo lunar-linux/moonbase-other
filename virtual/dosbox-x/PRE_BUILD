@@ -1,5 +1,6 @@
 default_pre_build &&
 
-sed -i 's|$LIBS $SDL_LIBS|$LIBS $SDL_LIBS -lm -lGL|' configure.ac  #fluidsynth fix &&
+# fluidsynth fix
+sedit 's|$LIBS $SDL_LIBS|$LIBS $SDL_LIBS -lm -lGL|' configure.ac &&
 
 autoreconf -fi
