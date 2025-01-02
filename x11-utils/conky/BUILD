@@ -8,14 +8,11 @@ OPTS+=" -D BUILD_RSS=ON \
         -D BUILD_OLD_CONFIG=ON \
         -D BUILD_HSV_GRADIENT=OFF \
         -D BUILD_BUILTIN_CONFIG=ON \
+        -D BUILD_JOURNAL=ON \
         -D CMAKE_INSTALL_PREFIX=/usr"
 
 #OPTS+=" -D DEFAULTNETDEV=wlp3s0"
 #OPTS+=" -D BUILD_PORT_MONITORS=OFF"
-
-if module_installed systemd; then
-  OPTS+=" -D BUILD_JOURNAL=ON"
-fi
 
 default_cmake_build &&
 
