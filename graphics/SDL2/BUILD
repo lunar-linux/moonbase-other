@@ -1,6 +1,7 @@
 CFLAGS+=" -ffat-lto-objects"
 
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib  \
         -DCMAKE_BUILD_TYPE=Release  \
         -DSDL_SHARED=ON             \
         -DSDL_STATIC_PIC=ON         \
