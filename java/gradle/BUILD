@@ -10,7 +10,6 @@ install -Dm 644 lib/*.jar /usr/share/java/$MODULE/lib/
 install -Dm 644 lib/plugins/*.jar /usr/share/java/$MODULE/lib/plugins/
 
 # copy across supporting text documentation and scripts
-install -m 644 *.html /usr/share/java/$MODULE/
 install -m 755 bin/gradle /usr/share/java/$MODULE/bin/
 install -m 644 init.d/*.* /usr/share/java/$MODULE/init.d
 
