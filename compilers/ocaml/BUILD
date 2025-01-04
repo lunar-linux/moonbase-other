@@ -1,3 +1,6 @@
+sed -i -e 's/\(^MKDLL=.*\)/\1 $(LDFLAGS)/' -e 's/\(^OC_CFLAGS=.*\)/\1 $(LDFLAGS)/' \
+-e 's/\(^OC_LDFLAGS=.*\)/\1 $(LDFLAGS)/' Makefile.config.in &&
+
 CFLAGS+=' -ffat-lto-objects'
 CXXFLAGS+=' -ffat-lto-objects'
 
