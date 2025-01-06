@@ -1,1 +1,3 @@
-default_make
+default_make &&
+
+rm /usr/lib/libxxhash.a
