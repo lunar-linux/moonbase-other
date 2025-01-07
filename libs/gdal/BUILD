@@ -1,3 +1,6 @@
+# Deal with poppler 24.12.0
+sedit '21i #include <sstream>' frmts/pdf/pdfsdk_headers_poppler.h
+
 export PYTHONDONTWRITEBYTECODE=1 &&
 
 OPTS+=" -DBUILD_PYTHON_BINDINGS=ON \
