@@ -1,3 +1,6 @@
+# For proper libgcrypt detection
+rm m4/libgcrypt.m4 &&
+
 ./bootstrap &&
 
 default_build &&
