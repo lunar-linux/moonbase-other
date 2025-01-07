@@ -1,0 +1,31 @@
+depends kernel-headers
+
+optional_depends acl "" "LIB_ACL=''" \
+        "for access control list support"
+
+optional_depends libaio "" "LIB_AIO=''" \
+        "for asynchronous IO support"
+
+optional_depends libbsd "" "LIB_BSD=''" \
+        "for BSD library support"
+
+optional_depends libglvnd "" "LIB_EGL=''" \
+        "for embedded graphics library support"
+
+optional_depends %JPEG "" "LIB_JPEG=''" \
+        "for JPEG image format support"
+
+optional_depends judy "" "LIB_JUDY=''" \
+        "for the Judy memory array technology"
+
+optional_depends kmod "" "LIB_KMOD=''" \
+        "for kernel module support"
+
+optional_depends libmd "" "LIB_MD=''" \
+        "for message digest support"
+
+optional_depends lksctp-tools "" "LIB_SCTP=''" \
+        "for the Stream Control Transmission Protocol"
+
+optional_depends xxHash "" "LIB_XXHASH=''" \
+        "for the extremely fast non-cryptographic hash algorithm"
