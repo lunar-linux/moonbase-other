@@ -1,4 +1,5 @@
 OPTS+=" --without-tcp-wrappers \
+        --disable-sbin-override \
         --with-statedir=/var/lib/nfs \
         --with-start-statd=/usr/bin/start-statd \
         --enable-libmount-mount \
