@@ -1,6 +1,8 @@
 OPTS+=" -DCMAKE_INSTALL_LIBDIR=lib \
         -DCMAKE_BUILD_TYPE=RELEASE \
         -DCMAKE_INSTALL_PREFIX=/usr \
+        -DFMT_TEST=OFF \
+        -DFMT_CUDA_TEST=OFF \
         -DBUILD_SHARED_LIBS=ON \
         -Wno-dev"
 
