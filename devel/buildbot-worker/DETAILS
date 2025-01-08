@@ -1,17 +1,16 @@
          MODULE=buildbot-worker
-            MOD=buildbot
-        VERSION=3.9.0
-         SOURCE=$MOD-$VERSION.tar.gz
-SOURCE_URL_FULL=https://github.com/buildbot/buildbot/archive/refs/tags/v$VERSION.tar.gz
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MOD-$VERSION
-     SOURCE_VFY=sha256:0bd2598f6877bd22ef20c7c56f1ab41684fbca4e25a93a572ff61f12d326fff3
+        VERSION=4.2.0
+         SOURCE=buildbot_worker-$VERSION.tar.gz
+     SOURCE_URL=https://github.com/buildbot/buildbot/releases/download/v$VERSION/
+     SOURCE_VFY=sha256:9610c0633b3340549dbb09a7fba208705233530e4e17e5082e1d1b6c8425be80
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/buildbot_worker-$VERSION
        WEB_SITE=http://buildbot.net
-        ENTERED=20181217
-        UPDATED=20230808
            TYPE=python3
+        ENTERED=20181217
+        UPDATED=20250108
           SHORT="Buildbot. The Continuous Integration Framework"
 
-cat <<EOF
+cat << EOF
 Buildbot supports distributed, parallel execution of jobs across multiple platforms,
 flexible integration with version-control systems, extensive status reporting, and more.
 EOF
