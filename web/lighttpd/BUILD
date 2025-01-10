@@ -9,6 +9,8 @@ sedit "s:/srv/www:/srv/http:g" doc/config/lighttpd.conf &&
 sedit "s:/var/run:/run:g"      doc/config/lighttpd.conf &&
 sedit 's:"lighttpd":"http":g'  doc/config/lighttpd.conf &&
 
+autoreconf -fi &&
+
 default_build &&
 
 devoke_installwatch &&
