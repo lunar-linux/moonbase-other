@@ -3,7 +3,8 @@ depends pcre
 depends expat
 depends %OSSL
 depends cmake
+depends libutf8proc
 
 optional_depends unixODBC "-DENABLE_DATA_ODBC=1"   "-DENABLE_DATA_ODBC=0"   "build Data/ODBC component. ${PROBLEM_COLOR}You probably only want one database${DEFAULT_COLOR}"
 optional_depends %MYSQL   "-DENABLE_DATA_MYSQL=1"  "-DENABLE_DATA_MYSQL=0"  "build Data/MySQL component"
-optional_depends sqlite   "-DENABLE_DATA_SQLITE=1" "-dENABLE_DATA_SQLITE=0" "build sqlite component"
+optional_depends sqlite   "-DENABLE_DATA_SQLITE=1" "-DENABLE_DATA_SQLITE=0" "build sqlite component"
