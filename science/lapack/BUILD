@@ -1,7 +1,6 @@
 # Adding install includedir so this does not conflict with blas stuff provided by Atlas
 
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
-        -DBUILD_DEPRECATED=ON \
         -DBUILD_SHARED_LIBS=ON \
         -DBUILD_TESTING=OFF \
         -DCMAKE_INSTALL_PREFIX=/usr \
