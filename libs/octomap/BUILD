@@ -1,17 +1,24 @@
+OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr"
+
 cd octomap &&
 
-OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=Release \
-        -Doctomap_DIR=/usr/share/octomap"
+cmake -B $MODULE-$VERSION -S . $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-cmake . $OPTS &&
-default_make &&
-
-cd ../octovis &&
+prepare_install &&
+cmake --install $MODULE-$VERSION &&
 
 if module_installed libglvnd ; then
-  OPTS+=" -DQGLViewer_FOUND=ON"
-fi &&
+  OPTS+=" -DQGLViewer_FOUND=ON \
+          -Doctomap_DIR=/usr/share/octomap \
+          -DOCTOMAP_INCLUDE_DIRS=/usr/include/octomap"
 
-cmake . $OPTS &&
-default_make
+  cd ../octovis &&
+
+  cmake -B octovis-$VERSION -S . $OPTS &&
+  cmake --build octovis-$VERSION &&
+
+  prepare_install &&
+  cmake --install octovis-$VERSION
+fi
