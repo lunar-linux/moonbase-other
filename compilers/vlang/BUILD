@@ -1,4 +1,6 @@
- export CFLAGS=""
+sedit 's:/bin/ls:/usr/bin/ls:' GNUmakefile &&
+
+export CFLAGS=""
 
 make &&
 
