@@ -18,7 +18,7 @@ if module_installed fish ]; then
     ./$MODULE completion fish > glow.fish
 fi &&
 
-if module_installed bash-zsh ]; then
+if module_installed zsh ]; then
     ./$MODULE completion zsh > glow.zsh
 fi &&
 
