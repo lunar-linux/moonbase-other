@@ -29,6 +29,11 @@ if module_installed fish ; then
 		    /usr/share/fish/vendor_completions.d/alacritty
 fi &&
 
+if module_installed zsh ; then
+   install -D -m644 extra/completions/_alacritty \
+		    /usr/share/zsh/site-functions/
+fi &&
+
 mkdir -p /usr/share/appdata &&
 install -D -m644 extra/linux/org.alacritty.Alacritty.appdata.xml /usr/share/appdata/ &&
 mkdir -p /usr/share/pixmaps &&
