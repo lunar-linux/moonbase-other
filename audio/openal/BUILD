@@ -1,5 +1,6 @@
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
+        -DCMAKE_INSTALL_LIBDIR=lib \
         -DCMAKE_MESSAGE_LOG_LEVEL=STATUS \
         -Wno-dev"
 
