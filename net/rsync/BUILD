@@ -6,4 +6,6 @@ default_build &&
 
 mkdir -p /srv/ftp &&
 
-install -Dm644 $SCRIPT_DIRECTORY/rsyncd.conf /etc/rsyncd.conf
+if [ ! -e /etc/rsyncd.conf ]; then
+  install -Dm644 $SCRIPT_DIRECTORY/rsyncd.conf /etc/rsyncd.conf
+fi
