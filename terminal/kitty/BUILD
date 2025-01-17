@@ -15,4 +15,9 @@ if module_installed fish ; then
       install -Dm644 /dev/stdin /usr/share/fish/vendor_completions.d/kitty.fish
 fi &&
 
+if module_installed zsh ; then
+   python __main__.py + complete setup zsh | \
+      install -Dm644 /dev/stdin /usr/share/zsh/site-functions/_kitty
+fi &&
+
 install -Dm644 /usr/share/icons/hicolor/256x256/apps/kitty.png /usr/share/pixmaps/kitty.png
