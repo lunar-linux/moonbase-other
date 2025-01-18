@@ -2,7 +2,7 @@ if [[ $(arch) == x86_64 ]]; then
   OPTS+=" --with-pic"
 fi &&
 
-OPTS+=" --mandir=/usr/share/man" &&
+OPTS+=" --mandir=/usr/share/man --disable-static" &&
 
 default_config &&
 
