@@ -26,6 +26,10 @@ if module_installed fish; then
    install -Dm644 shell/key-bindings.fish /usr/share/fish/vendor_functions.d/fzf_key_bindings.fish
 fi &&
 
+if module_installed zsh; then
+  install -Dm644 shell/completion.zsh /usr/share/zsh/site-functions/_fzf
+fi &&
+
 if module_installed vim; then
   mkdir -p /usr/share/vim/vimfiles/plugin/ &&
   install -Dm644 plugin/fzf.vim /usr/share/vim/vimfiles/plugin/ &&
