@@ -1,10 +1,10 @@
 sed -i 's/-Werror=/-W/g;s/-Werror//g' CMakeLists.txt &&
 sed -i 's#${test_dir}/../flatc#${test_dir}/../../build/flatc#' tests/PythonTest.sh &&
 
-OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+OPTS+=" -DCMAKE_BUILD_TYPE=Release  \
         -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_INSTALL_PREFIX=/usr \
-        -DFLATBUFFERS_BUILD_FLATLIB=OFF \
+        -DCMAKE_INSTALL_LIBDIR=lib  \
+        -DFLATBUFFERS_BUILD_FLATLIB=OFF  \
         -DFLATBUFFERS_BUILD_SHAREDLIB=ON \
         -Wno-dev"
 
