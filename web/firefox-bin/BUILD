@@ -3,7 +3,10 @@ message "${MESSAGE_COLOR}Installing Firefox ${VERSION}...${DEFAULT_COLOR}" &&
 cd /usr/lib &&
 unpack $SOURCE &&
 
-ln -snf /usr/lib/lunar/plugins /usr/lib/firefox/browser/plugins &&
+# symlink plugins folder
+mkdir -p /usr/lib/lunar/plugins &&
+ln -sfn /usr/lib/firefox/browser /usr/lib/lunar/plugins/ &&
+
 if [ ! -h /usr/bin/firefox ]; then
   ln -snf /usr/lib/firefox/firefox /usr/bin/firefox
 fi &&
