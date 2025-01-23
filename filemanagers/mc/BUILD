@@ -7,7 +7,6 @@ OPTS+=" --enable-mclib \
         --disable-static \
         --disable-tests \
         --with-pic \
-        --with-mmap \
         --with-subshell"
 
 default_build &&
