@@ -8,9 +8,9 @@ optional_depends slang \
                  "--with-screen=ncurses" \
                  "for slang as interface instead of ncurses" n
 
-optional_depends pcre \
-                 "--with-pcre --with-search-engine=pcre" "" \
-                 "for using pcre as a search engine" y
+optional_depends pcre2 \
+                 "--with-pcre2 --with-search-engine=pcre2" "" \
+                 "for using pcre2 as a search engine" y
 
 optional_depends gpm \
                  "--with-gpm-mouse" \
@@ -21,11 +21,6 @@ optional_depends e2fsprogs \
                  "--enable-vfs-undelfs" \
                  "--disable-vfs-undelfs" \
                  "for ext2 undel operation"
-
-optional_depends samba \
-                 "--enable-vfs-smb" \
-                 "--disable-vfs-smb" \
-                 "for SMB support"
 
 optional_depends libX11 \
                  "--with-x" \
