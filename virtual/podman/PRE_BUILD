@@ -1,6 +1,5 @@
 default_pre_build &&
 
-sedit '/^LDFLAGS_PODMAN ?=/s/$(LDFLAGS)//' Makefile &&
 sedit 's:/usr/local:/usr:' Makefile &&
 
 cd libpod
