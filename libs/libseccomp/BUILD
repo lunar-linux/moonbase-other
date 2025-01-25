@@ -1,6 +1,3 @@
-OPTS+=" --enable-shared"
+OPTS+=" --enable-shared --disable-static"
 
-default_build &&
-
-# remode the static lib
-rm -f /usr/lib/libseccomp.a
+default_build
