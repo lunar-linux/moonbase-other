@@ -1,6 +1,5 @@
 default_pre_build &&
 
-sedit '108,128d' configure.ac &&
-sedit '85i 		strtol strtoul tzset strptime getaddrinfo ffs __builtin_ffs sincos' configure.ac &&
+OPTS+=" --disable-static" &&
 
 autoreconf -fvi
