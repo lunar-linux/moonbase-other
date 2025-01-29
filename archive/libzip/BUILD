@@ -1,6 +1,7 @@
-OPTS+=" -DBUILD_DOCS=0 \
-        -DBUILD_EXAMPLES=0 \
-        -DBUILD_REGRESS=0 \
-        -DENABLE_GNUTLS=0"
+OPTS+=" -DBUILD_DOCS=OFF \
+        -DBUILD_EXAMPLES=OFF \
+        -DBUILD_REGRESS=OFF \
+        -DBUILD_OSSFUZZ=OFF \
+        -DENABLE_GNUTLS=OFF"
 
 default_cmake_build 
