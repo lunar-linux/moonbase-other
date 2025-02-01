@@ -1,7 +1,7 @@
 cat << END
 
 The static build of dash is installed and located at
-/bin/dash_static.
+/usr/bin/dash_static.
 
 This is NOT an ordinary shell. It is installed for
 rescue purposes.
@@ -9,5 +9,5 @@ rescue purposes.
 END
 
 if [ "$ROOTSHELL" == "y" ]; then
-  chsh -s /bin/dash_static root
+  chsh -s /usr/bin/dash_static root
 fi
