@@ -16,5 +16,7 @@ OPTS+=" -DCMAKE_BUILD_TYPE=RELEASE \
 
 cmake -B $MODULE-$VERSION -G Ninja $OPTS &&
 
-prepare_install &&
 cmake --build $MODULE-$VERSION
+
+prepare_install &&
+cmake --install $MODULE-$VERSION
