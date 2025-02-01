@@ -1,4 +1,4 @@
 # set root shell to normal bash again
-if [ `getent passwd root | cut -d: -f7` == "/bin/dash_static" ]; then
+if [ `getent passwd root | cut -d: -f7` == "/usr/bin/dash_static" ]; then
   chsh -s /bin/bash root
 fi
