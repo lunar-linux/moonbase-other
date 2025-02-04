@@ -1,3 +1,5 @@
+export CFLAGS+=" -fpermissive"
+
 default_build &&
 
 if in_depends $MODULE libX11; then
