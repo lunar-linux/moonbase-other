@@ -1,0 +1,4 @@
+default_pre_build &&
+
+# Put the pkgconfig file in the right place
+sedit '/pkgconfig/s@datadir@libdir@g' Makefile
