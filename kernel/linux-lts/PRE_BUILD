@@ -1,7 +1,8 @@
 validate_source_dir $SOURCE_DIRECTORY &&
 KEEP_SOURCE=off mk_source_dir $SOURCE_DIRECTORY &&
-rm -f /usr/src/linux &&
-ln -sf $SOURCE_DIRECTORY /usr/src/linux &&
+# This fails on the CI, so don't chain it
+rm -f /usr/src/linux
+ln -sf $SOURCE_DIRECTORY /usr/src/linux
 cd $SOURCE_DIRECTORY &&
 
 tar xf $SOURCE_CACHE/$SOURCE --no-same-owner --no-same-permissions --strip-components=1 &&
