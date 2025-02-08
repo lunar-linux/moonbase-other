@@ -32,6 +32,7 @@ cd $SOURCE_DIRECTORY &&
 mkdir -p $GOROOT_FINAL &&
 cp -a bin pkg src lib misc api test $GOROOT_FINAL/ &&
 install -Dm644 VERSION $GOROOT_FINAL/VERSION &&
+install -m644 go.env $GOROOT_FINAL/ &&
 
 mkdir -p /usr/share/doc/go &&
 cp -r doc/* /usr/share/doc/go/ &&
