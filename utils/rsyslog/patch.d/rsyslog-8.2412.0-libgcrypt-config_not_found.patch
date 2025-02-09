@@ -1,10 +1,12 @@
-# 2025-02-09 Stephane Fontaine (esselfe16@gmail.com)
+From: Stephane Fontaine (esselfe16@gmail.com)
+Date: 2025-02-09 11:39:00 +0000
+
 # Fix the configure script error about libgcrypt-config not being found,
 # and make it use the pkg-config function instead.
 # The error message was "configure: error: libgcrypt-config not found in PATH"
 diff -ur rsyslog-8.2412.0-orig/configure.ac rsyslog-8.2412.0-new/configure.ac
 --- rsyslog-8.2412.0-orig/configure.ac	2024-12-02 07:20:23.000000000 -0500
-+++ rsyslog-8.2412.0-new/configure.ac	2025-02-09 05:44:46.251199094 -0500
++++ rsyslog-8.2412.0-new/configure.ac	2025-02-09 06:35:28.199371165 -0500
 @@ -1191,29 +1191,29 @@
  
  # libgcrypt support
@@ -44,11 +46,11 @@ diff -ur rsyslog-8.2412.0-orig/configure.ac rsyslog-8.2412.0-new/configure.ac
 +	AC_CHECK_LIB(
 +	[gcrypt],
 +		[gcry_cipher_open],
-+		[LIBGCRYPT_CFLAGS="`${LIBGCRYPT_CONFIG} --cflags`"
-+		LIBGCRYPT_LIBS="`${LIBGCRYPT_CONFIG} --libs`"
++		[LIBGCRYPT_CFLAGS="`pkg-config --cflags libgcrypt`"
++		LIBGCRYPT_LIBS="`pkg-config --libs libgcrypt`"
 +		],
 +		[AC_MSG_FAILURE([libgcrypt is missing])],
-+		[`${LIBGCRYPT_CONFIG} --libs --cflags`]
++		[`pkg-config --libs --cflags libgcrypt`]
 +	)
  	AC_DEFINE([ENABLE_LIBGCRYPT], [1], [Indicator that LIBGCRYPT is present])
 +	fi
