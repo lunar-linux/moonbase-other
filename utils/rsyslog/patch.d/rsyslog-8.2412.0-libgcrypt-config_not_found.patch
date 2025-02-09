@@ -1,3 +1,7 @@
+# 2025-02-09 Stephane Fontaine (esselfe16@gmail.com)
+# Fix the configure script error about libgcrypt-config not being found,
+# and make it use the pkg-config function instead.
+# The error message was "configure: error: libgcrypt-config not found in PATH"
 diff -ur rsyslog-8.2412.0-orig/configure.ac rsyslog-8.2412.0-new/configure.ac
 --- rsyslog-8.2412.0-orig/configure.ac	2024-12-02 07:20:23.000000000 -0500
 +++ rsyslog-8.2412.0-new/configure.ac	2025-02-09 05:44:46.251199094 -0500
