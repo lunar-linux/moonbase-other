@@ -1,0 +1,74 @@
+# 2025-02-09 Stephane Fontaine (esselfe16@gmail.com)
+# Fix the configure script error about libgcrypt-config not being found,
+# and make it use the pkg-config function instead.
+# The error message was "configure: error: libgcrypt-config not found in PATH"
+diff -ur rsyslog-8.2412.0-orig/configure.ac rsyslog-8.2412.0-new/configure.ac
+--- rsyslog-8.2412.0-orig/configure.ac	2024-12-02 07:20:23.000000000 -0500
++++ rsyslog-8.2412.0-new/configure.ac	2025-02-09 05:44:46.251199094 -0500
+@@ -1191,29 +1191,29 @@
+ 
+ # libgcrypt support
+ AC_ARG_ENABLE(libgcrypt,
+-        [AS_HELP_STRING([--enable-libgcrypt],[Enable log file encryption support (libgcrypt) @<:@default=yes@:>@])],
+-        [case "${enableval}" in
+-         yes) enable_libgcrypt="yes" ;;
+-          no) enable_libgcrypt="no" ;;
+-           *) AC_MSG_ERROR(bad value ${enableval} for --enable-libgcrypt) ;;
+-         esac],
+-        [enable_libgcrypt=yes]
++	[AS_HELP_STRING([--enable-libgcrypt],[Enable log file encryption support (libgcrypt) @<:@default=yes@:>@])],
++	[case "${enableval}" in
++	 yes) enable_libgcrypt="yes" ;;
++	  no) enable_libgcrypt="no" ;;
++	   *) AC_MSG_ERROR(bad value ${enableval} for --enable-libgcrypt) ;;
++	 esac],
++	[enable_libgcrypt=yes]
+ )
+ if test "x$enable_libgcrypt" = "xyes"; then
+-	AC_PATH_PROG([LIBGCRYPT_CONFIG],[libgcrypt-config],[no])
+-        if test "x${LIBGCRYPT_CONFIG}" = "xno"; then
+-           AC_MSG_FAILURE([libgcrypt-config not found in PATH])
+-        fi
+-        AC_CHECK_LIB(
+-		[gcrypt],
+-        	[gcry_cipher_open],
+-        	[LIBGCRYPT_CFLAGS="`${LIBGCRYPT_CONFIG} --cflags`"
+-        	LIBGCRYPT_LIBS="`${LIBGCRYPT_CONFIG} --libs`"
+-        	],
+-        	[AC_MSG_FAILURE([libgcrypt is missing])],
+-        	[`${LIBGCRYPT_CONFIG} --libs --cflags`]
+-        	)
++PKG_CHECK_MODULES([LIBGCRYPT], [libgcrypt])
++	save_LIBS="$LIBS"
++	if test "x${LIBGCRYPT_CONFIG}" = "xyes"; then
++	AC_CHECK_LIB(
++	[gcrypt],
++		[gcry_cipher_open],
++		[LIBGCRYPT_CFLAGS="`${LIBGCRYPT_CONFIG} --cflags`"
++		LIBGCRYPT_LIBS="`${LIBGCRYPT_CONFIG} --libs`"
++		],
++		[AC_MSG_FAILURE([libgcrypt is missing])],
++		[`${LIBGCRYPT_CONFIG} --libs --cflags`]
++	)
+ 	AC_DEFINE([ENABLE_LIBGCRYPT], [1], [Indicator that LIBGCRYPT is present])
++	fi
+ fi
+ AM_CONDITIONAL(ENABLE_LIBGCRYPT, test x$enable_libgcrypt = xyes)
+ AM_CONDITIONAL(ENABLE_RSCRYUTIL, test x$enable_libgcrypt = xyes || test x$enable_openssl_crypto_provider = xyes)
+@@ -1221,6 +1221,7 @@
+ AC_SUBST(LIBGCRYPT_CFLAGS)
+ AC_SUBST(LIBGCRYPT_LIBS)
+ 
++
+ # libzstd support
+ AC_ARG_ENABLE(libzstd,
+         [AS_HELP_STRING([--enable-libzstd],[Enable log file compression support via libzstd @<:@default=no@:>@])],
+@@ -2975,7 +2976,7 @@
+ echo "    Unlimited select() support enabled:       $enable_unlimited_select"
+ echo "    uuid support enabled:                     $enable_uuid"
+ echo "    Log file signing support via KSI LS12:    $enable_ksi_ls12"
+-echo "    Log file gcry encryption support:         $enable_libgcrypt"
++echo "    Log file gcrypt encryption support:       $enable_libgcrypt"
+ echo "    Log file ossl encryption support:         $enable_openssl_crypto_provider"
+ echo "    Log file compression via zstd support:    $enable_libzstd"
+ echo "    anonymization support enabled:            $enable_mmanon"
