@@ -1,3 +1,5 @@
+autoreconf -fi &&
+
 OPTS+=" --exec-prefix=/usr  \
         --enable-regexp     \
         --enable-largefile  \
@@ -12,7 +14,7 @@ OPTS+=" --exec-prefix=/usr  \
         --enable-omprog     \
         --enable-impstats   \
         --enable-imptcp     \
-        --disable-rfc3195"
+        --disable-rfc3195" &&
 
 default_build &&
 
