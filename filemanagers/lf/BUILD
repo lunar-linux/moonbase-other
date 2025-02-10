@@ -20,6 +20,11 @@ if module_installed vim; then
   install -Dm644 etc/lf.vim /usr/share/vim/vimfiles/ftdetect/
 fi &&
 
+# bash
+if module_installed bash-completion; then
+  install -Dm644 etc/lf.bash /usr/share/bash-completion/completions/lf
+fi &&
+
 # fish
 if module_installed fish; then
    install -Dm644 -t /usr/share/fish/vendor_completions.d/ ./etc/lf.fish
