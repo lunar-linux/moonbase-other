@@ -6,6 +6,7 @@ OPTS+=" --disable-static   \
         --localstatedir=/var/cache"
 
 CPPFLAGS+=" -fPIC" &&
+CFLAGS+=" -fpermissive" &&
 
 default_build &&
 
