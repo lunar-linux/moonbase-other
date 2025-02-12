@@ -1,5 +1,6 @@
 default_pre_build &&
 cd $SOURCE_DIRECTORY &&
+sedit "s/def HAVE_STDLIB_H/ 1/;s/extern select/extern int select/" configure &&
 for f in ls chmod mkdir mv rm cp ln tar uname arch; do
   sedit "s:/bin/$f:$f:" {.,ncftp,sio,Strn,libncftp,vis}/Makefile.in Makefile.bin.in configure autoconf_local/aclocal.m4 sh/config.guess sh/autoconfall.sh ncftp/cmds.c libncftp/lglob.c sh_util/ncftpls.c doc/man/{ncftp,ncftpls}.1 doc/html/{ncftp,ncftpls}.html
 done
