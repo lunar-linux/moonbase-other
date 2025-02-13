@@ -1,5 +1,6 @@
 depends cmake
-depends python-psutil
+# Cyclic dependency here
+#depends python-psutil
 
 optional_depends libffi \
                  "-DLLVM_ENABLE_FFI=ON -DFFI_INCLUDE_DIR=$(pkg-config --variable=includedir libffi)" \
