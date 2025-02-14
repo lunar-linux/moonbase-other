@@ -1,7 +1,4 @@
-# Fix timestamps to avoid go tools to rebuild its files
-find /usr/lib/go1.4 -type f -exec touch -r /usr/lib/go1.4/pkg/*/runtime.a {} \;
-
 # add the symlinks to /usr/bin
-for f in /usr/lib/go1.4/bin/*; do
+for f in /usr/lib/go1.22/bin/*; do
    ln -sf $f /usr/bin/
 done

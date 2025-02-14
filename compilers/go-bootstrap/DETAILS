@@ -1,17 +1,14 @@
           MODULE=go-bootstrap
-         VERSION=1.4.3
-          SOURCE=go${VERSION}.src.tar.gz
-         SOURCE2=go-1.4.3-support_new_relocation.patch
+         VERSION=1.22.12
+          SOURCE=go$VERSION.linux-amd64.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/go
-      SOURCE_URL=http://storage.googleapis.com/golang
-     SOURCE2_URL=$PATCH_URL
-      SOURCE_VFY=sha256:9947fc705b0b841b5938c48b22dc33e9647ec0752bae66e50278df4f23f64959
-     SOURCE2_VFU=sha256:3bd901d920e53fed95b495a6daf012854826855993187a6d07970a7ef108ef28
-        WEB_SITE=http://golang.org/
+      SOURCE_URL=https://go.dev/dl
+      SOURCE_VFY=sha256:4fa4f869b0f7fc6bb1eb2660e74657fbf04cdd290b5aef905585c86051b34d43
+        WEB_SITE=https://golang.org/
          ENTERED=20140606
-         UPDATED=20210828
-           SHORT="A bootstrap Go compiler and tools"
+         UPDATED=20250214
+           SHORT="A prebuilt Go compiler and tools"
 
 cat << EOF
-Compiler and tools for the Go programming language from Google.
+Prebuilt compiler and tools for bootstrapping the Go compiler from Google.
 EOF
