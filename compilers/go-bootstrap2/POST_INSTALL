@@ -1,8 +1,0 @@
-rm -fR /usr/src/src
-
-# Fix timestamps in order to stop go from rebuilding lots of packages
-find /usr/lib/go -type f -exec touch -r /usr/lib/go/pkg/*/runtime.a {} \;
-
-if module_installed go-bootstrap; then
-  lrm go-bootstrap
-fi
