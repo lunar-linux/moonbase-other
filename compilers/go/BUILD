@@ -7,7 +7,7 @@ export GOPATH=$BUILD_DIRECTORY
 if module_installed go; then
   export GOROOT_BOOTSTRAP=$GOROOT_FINAL
 else
-  export GOROOT_BOOTSTRAP=/usr/lib/go1.20
+  export GOROOT_BOOTSTRAP=/usr/lib/go$(lvu version go-bootstrap | cut -d. -f1,2)
 fi &&
 
 case "$(arch)" in
