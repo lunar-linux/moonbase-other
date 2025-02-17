@@ -21,17 +21,17 @@ fi &&
 
 if module_installed bash-completion ; then
    install -D -m644 extra/completions/alacritty.bash \
-		    /usr/share/bash-completion/completions/alacritty
+     /usr/share/bash-completion/completions/alacritty
 fi &&
 
 if module_installed fish ; then
    install -D -m644 extra/completions/alacritty.fish \
-		    /usr/share/fish/vendor_completions.d/alacritty
+     /usr/share/fish/vendor_completions.d/alacritty
 fi &&
 
 if module_installed zsh ; then
    install -D -m644 extra/completions/_alacritty \
-		    /usr/share/zsh/site-functions/
+     /usr/share/zsh/site-functions/
 fi &&
 
 mkdir -p /usr/share/appdata &&
