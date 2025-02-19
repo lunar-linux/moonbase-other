@@ -23,4 +23,8 @@ install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/thunderbird.deskto
 
 for s in 16 22 24 32 48 256 ; do
     install -Dm 644 dist/thunderbird/chrome/icons/default/default${s}.png /usr/share/icons/hicolor/${s}x${s}/apps/thunderbird.png
-done
+done &&
+
+if [[ ! -f /usr/lib/thunderbird/defaults/pref/vendor-prefs.js ]] ;then
+  install -Dm 644 $SCRIPT_DIRECTORY/vendor-prefs.js /usr/lib/thunderbird/defaults/pref/vendor-prefs.js
+fi
