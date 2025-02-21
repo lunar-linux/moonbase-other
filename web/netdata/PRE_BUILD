@@ -1,7 +1,5 @@
-default_pre_build
+default_pre_build &&
 
-sed -i "s/CMAKE_CXX_STANDARD 14/CMAKE_CXX_STANDARD 17/" CMakeLists.txt &&
-sed -i "s|usr/sbin|usr/bin|g" CMakeLists.txt &&
-sed -i "s|usr/libexec|usr/lib|g" CMakeLists.txt &&
-sed -i "s|usr/libexec|usr/lib|g" CMakeLists.txt packaging/cmake/Modules/NetdataEBPFLegacy.cmake
-
+sedit "s/CMAKE_CXX_STANDARD 14/CMAKE_CXX_STANDARD 17/" CMakeLists.txt &&
+sedit "s|usr/sbin|usr/bin|g" CMakeLists.txt &&
+sedit "s|usr/libexec|usr/lib|g" CMakeLists.txt packaging/cmake/Modules/NetdataEBPFLegacy.cmake
