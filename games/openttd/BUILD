@@ -1,3 +1,5 @@
+LDFLAGS+=" -licuuc"
+
 default_cmake_build &&
 
 prepare_install &&
