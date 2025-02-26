@@ -3,4 +3,6 @@ sedit 's:/usr/local:/usr:' Makefile &&
 sedit 's: ~/.config/mdn:/etc/mdn:' Makefile &&
 
 prepare_install &&
-make install
+make install &&
+
+rm /usr/lib/libmandown.a
