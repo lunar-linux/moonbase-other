@@ -11,4 +11,7 @@ if in_depends $MODULE alsa-lib; then
 mkdir -p /etc/alsa/conf.d
 ln -sft /etc/alsa/conf.d /usr/share/alsa/alsa.conf.d/50-pipewire.conf &&
 ln -sft /etc/alsa/conf.d /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf
-fi
+fi &&
+
+add_priv_group pipewire &&
+add_priv_user pipewire -d /var/lib/pipewire -g pipewire
