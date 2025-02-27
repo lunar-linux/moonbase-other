@@ -40,4 +40,6 @@ make install &&
 install -D -m0644 udev/libsane.rules /usr/lib/udev/rules.d/49-sane.rules &&
 install -D -m0644 hotplug/libsane.usermap /usr/lib/udev/libsane.usermap &&
 install $SCRIPT_DIRECTORY/66-saned.rules /usr/lib/udev/rules.d &&
-install $SCRIPT_DIRECTORY/sane.sysusers /usr/lib/sysusers.d/sane-backends.conf
+install $SCRIPT_DIRECTORY/sane.sysusers /usr/lib/sysusers.d/sane-backends.conf &&
+
+chmod -x /usr/lib/udev/rules.d/66-saned.rules
