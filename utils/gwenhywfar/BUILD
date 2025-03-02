@@ -1,6 +1,6 @@
 autoreconf -fi &&
 
-OPTS+=" --with-guis=gtk3"
+OPTS+=" --with-guis=gtk3 --prefix=/usr --sysconfdir=/etc --enable-system-certs"
 
 if in_depends $MODULE qt5; then
   . /etc/profile.d/qt5.rc &&
@@ -10,4 +10,7 @@ if in_depends $MODULE qt5; then
            --with-guis=qt5"
 fi
 
-default_build
+./configure $OPTS &&
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
+default_make
