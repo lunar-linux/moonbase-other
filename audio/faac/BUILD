@@ -1,6 +1,5 @@
-OPTS+=" --disable-static" &&
+./bootstrap &&
 
-# work around outdated aclocal version
-autoreconf -i &&
+OPTS+=" --disable-static" &&
 
 default_build
