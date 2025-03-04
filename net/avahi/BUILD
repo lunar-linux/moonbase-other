@@ -8,7 +8,6 @@ fi &&
 sedit '426a if (events & AVAHI_WATCH_HUP) {client_free(c);return;}' avahi-daemon/simple-protocol.c &&
 
 autoreconf -fiv &&
-#NOCONFIGURE=1 ./autogen.sh &&
 
 if module_installed qt5; then
   . /etc/profile.d/qt5.rc
@@ -36,9 +35,16 @@ OPTS+=" --enable-compat-howl \
         --with-distro=none \
         --enable-python-dbus \
         --enable-introspection=yes \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --runstatedir=/run \
+        --localstatedir=/var \
         --sbindir=/usr/bin" &&
 
-default_build &&
+./configure $OPTS &&
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
+default_make &&
 
 if ! ( module_installed xmltoman ); then
   rm -f /usr/share/man/man1/avahi*
