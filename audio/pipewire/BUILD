@@ -3,6 +3,8 @@ if module_installed ffmpeg; then
 fi &&
 
 OPTS+=" -D session-managers=[] \
+        -D selinux=disabled \
+        -D snap=disabled \
         -D udevrulesdir=/usr/lib/udev/rules.d"
 
 default_meson_build &&
