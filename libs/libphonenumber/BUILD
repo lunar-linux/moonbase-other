@@ -5,7 +5,8 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DBUILD_TESTING=OFF         \
         -DUSE_BOOST=ON              \
         -DUSE_RE2=OFF               \
-        -DUSE_POSIX_THREAD=ON"
+        -DUSE_POSIX_THREAD=ON       \
+        -Wno-dev"
 
 cmake -S cpp -B $MODULE-$VERSION $OPTS &&
 
