@@ -5,7 +5,6 @@ OPTS+=" -DCMAKE_BUILD_TYPE=RELEASE \
         -DCMAKE_CXX_STANDARD=17 \
         -DCMAKE_SKIP_INSTALL_RPATH=ON \
         -DgRPC_PROTOBUF_PROVIDER=package \
-        -DgRPC_PROTOBUF_PACKAGE_TYPE= \
         -DgRPC_SSL_PROVIDER=package \
         -DgRPC_ABSL_PROVIDER=package \
         -DgRPC_ZLIB_PROVIDER=package \
