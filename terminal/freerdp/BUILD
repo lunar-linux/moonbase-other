@@ -1,4 +1,5 @@
-OPTS+=" -DWITH_SERVER=ON \
+OPTS+=" -DCMAKE_BUILD_TYPE=Release \
+        -DWITH_SERVER=ON \
         -DWITH_MANPAGES=OFF \
         -DWITH_FFMPEG=ON \
         -DWITH_SWSCALE=ON \
