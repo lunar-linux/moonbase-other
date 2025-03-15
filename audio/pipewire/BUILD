@@ -16,7 +16,6 @@ ln -sft /etc/alsa/conf.d /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf
 fi &&
 
 mkdir -p /var/lib/pipewire &&
-chown -R pipewire:pipewire /var/lib/pipewire &&
-
 add_priv_group pipewire &&
-add_priv_user pipewire -d /var/lib/pipewire -g pipewire
+add_priv_user pipewire -d /var/lib/pipewire -g pipewire &&
+chown -R pipewire:pipewire /var/lib/pipewire
