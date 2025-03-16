@@ -1,0 +1,38 @@
+depends cmake
+depends pkgconf
+depends dbus
+
+optional_depends systemd \
+                 "-DSDL_LIBUDEV=ON" \
+                 "-DSDL_LIBUDEV=OFF" \
+                 "for udev support"
+
+optional_depends alsa-lib \
+                 "-DSDL_ALSA_SHARED=ON" \
+                 "-DSDL_ALSA=OFF" \
+                 "for Advanced Linux Sound Architecture support"
+
+optional_depends pulseaudio \
+                 "-DSDL_PULSEAUDIO_SHARED=ON" \
+                 "-DSDL_PULSEAUDIO=OFF" \
+                 "for PulseAudio audio support"
+
+optional_depends pipewire \
+                 "-DSDL_PIPEWIRE_SHARED=ON" \
+                 "-DSDL_PIPEWIRE=OFF" \
+                 "for PulseAudio audio support"
+
+optional_depends libX11 \
+                 "-DSDL_X11_SHARED=ON" \
+                 "-DSDL_X11_SHARED=OFF" \
+                 "for X11 video driver"
+
+optional_depends mesa-lib \
+                 "-DSDL_OPENGL=ON" \
+                 "-DSDL_OPENGL=OFF" \
+                 "for Mesa GL support"
+
+optional_depends wayland \
+                 "-DSDL_WAYLAND_SHARED=ON" \
+                 "-DSDL_WAYLAND_SHARED=OFF" \
+                 "for Wayland video driver"
