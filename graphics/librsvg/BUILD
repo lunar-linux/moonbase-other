@@ -1,5 +1,5 @@
 export LANG='en_US.UTF-8'
 
-OPTS+=" --disable-gtk-doc --disable-static --enable-vala"
+OPTS+=" -Ddocs=disabled"
 
-default_build
+default_meson_build
