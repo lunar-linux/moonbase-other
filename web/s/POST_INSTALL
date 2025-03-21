@@ -1,0 +1,10 @@
+if module_installed bash-completion; then
+  if [[ ! -f /etc/bash_completion.d/s ]] ; then
+   bash -c "s --completion bash > /etc/bash_completion.d/s"
+  fi
+fi
+
+if module_installed fish; then
+   s --completion fish > /usr/share/fish/vendor-completions.d/s.fish
+fi
+
