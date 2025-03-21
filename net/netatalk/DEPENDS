@@ -1,15 +1,12 @@
+depends meson
 depends db
 depends tdb
 depends libevent
 depends libgcrypt
 depends dbus-glib
-depends python2
 
-optional_depends avahi     "--enable-zeroconf" "--disable-zeroconf" "For zeroconf support"
-optional_depends Linux-PAM "--with-pam"        "--without-pam"      "For PAM support"
-optional_depends openldap  "--with-ldap"       "--without-ldap"     "for LDAP support"
+optional_depends Linux-PAM "-Dwith-pam=true"      "-D-with-pam=false"     "For PAM support"
+optional_depends openldap  "-Dwith-ldap=true"     "-Dwith-ldap=false"     "for LDAP support"
 
-optional_depends cracklib \
-                 "--with-cracklib=/usr/share/cracklib" \
-                 "--without-cracklib" \
-                 "for cracklib support"
+optional_depends cracklib  "-Dwith-cracklib=true" "-Dwith-cracklib=false" "for cracklib support"
+optional_depends avahi     "-Dwith-zeroconf=true" "-Dwith-zeroconf=false" "For zeroconf support"
