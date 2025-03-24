@@ -4,6 +4,7 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
         -DCPUINFO_BUILD_PKG_CONFIG=ON \
         -DCPUINFO_BUILD_TOOLS=ON \
+        -DUSE_SYSTEM_LIBS=ON \
         -Wno-dev"
 
 cmake -B svt-av1 -S . -G Ninja $OPTS &&
