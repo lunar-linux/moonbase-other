@@ -11,6 +11,7 @@ OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DRDTK_FORCE_STATIC_BUILD=ON \
         -DUWAC_FORCE_STATIC_BUILD=ON \
         -DWITH_BINARY_VERSIONING=ON \
+        -DWITH_CLIENT_SDL3=OFF \
         -DPROXY_PLUGINDIR=/usr/lib/freerdp/server/proxy/plugins"
 
 default_cmake_build
