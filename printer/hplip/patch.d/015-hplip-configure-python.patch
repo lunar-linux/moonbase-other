@@ -1,7 +1,7 @@
-diff -Naur hplip-3.20.9_orig/configure.in hplip-3.20.9/configure.in
---- hplip-3.20.9_orig/configure.in	2020-10-05 19:08:41.297601241 +0200
-+++ hplip-3.20.9/configure.in	2020-10-05 19:10:38.617598878 +0200
-@@ -604,20 +604,31 @@
+diff -up hplip-3.20.9/configure.in.configure-python hplip-3.20.9/configure.in
+--- ./configure.in.configure-python	2020-09-23 07:24:27.000000000 +0200
++++ ./configure.in	2020-10-02 07:27:09.082331431 +0200
+@@ -604,17 +604,29 @@ if test "$class_driver" = "no" && test "
     fi
  fi
  
@@ -41,11 +41,8 @@ diff -Naur hplip-3.20.9_orig/configure.in hplip-3.20.9/configure.in
 +  LIBS="$SAVE_LIBS"
  fi
  
--#CFLAGS=`(python-config --includes)`
- if test "$class_driver" = "no" && test "$hpijs_only_build" = "no" && test "$lite_build" = "no" && test "$hpcups_only_build" = "no"; then
-    AC_ARG_VAR([PYTHON], [Python interpreter/compiler command])
-    AC_CHECK_PROGS(PYTHON,[python python3 python2])
-@@ -631,7 +642,6 @@
+ #CFLAGS=`(python-config --includes)`
+@@ -631,7 +643,6 @@ if test "$class_driver" = "no" && test "
     AS_IF([test "x$FOUND_HEADER" != "xyes"],
            [AC_MSG_ERROR([cannot find python-devel support], 6)])
  fi
