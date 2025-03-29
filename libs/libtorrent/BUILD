@@ -1,4 +1,4 @@
-bad_flags -fomit-frame-pointer &&
+sedit "1i #include <algorithm>" src/torrent/utils/directory_events.cc &&
 
 autoreconf -fi &&
 
