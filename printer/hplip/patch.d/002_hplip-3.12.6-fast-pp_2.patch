@@ -22,8 +22,8 @@ Patch by Daniel Gnoutcheff <daniel@gnoutcheff.name>
 Thanks to Daniel Pielmeir for figuring out the autotools bits
 
 diff -ur hplip-3.12.2/io/hpmud/pp.c hplip-3.12.2-fast-pp/io/hpmud/pp.c
---- ./io/hpmud/pp.c	2012-02-01 06:53:52.000000000 -0500
-+++ ./io/hpmud/pp.c	2012-02-20 19:28:27.990747569 -0500
+--- hplip-3.12.2/io/hpmud/pp.c	2012-02-01 06:53:52.000000000 -0500
++++ hplip-3.12.2-fast-pp/io/hpmud/pp.c	2012-02-20 19:28:27.990747569 -0500
 @@ -28,6 +28,8 @@
  
  #include "hpmud.h"
@@ -808,8 +808,8 @@ diff -ur hplip-3.12.2/io/hpmud/pp.c hplip-3.12.2-fast-pp/io/hpmud/pp.c
        m = IEEE1284_MODE_NIBBLE;
        ioctl(pd->mlc_fd, PPNEGOT, &m);
 diff -ur hplip-3.12.2/io/hpmud/pp.h hplip-3.12.2-fast-pp/io/hpmud/pp.h
---- ./io/hpmud/pp.h	2012-02-01 06:53:52.000000000 -0500
-+++ ./io/hpmud/pp.h	2012-02-20 19:28:27.990747569 -0500
+--- hplip-3.12.2/io/hpmud/pp.h	2012-02-01 06:53:52.000000000 -0500
++++ hplip-3.12.2-fast-pp/io/hpmud/pp.h	2012-02-20 19:28:27.990747569 -0500
 @@ -60,18 +60,11 @@
   *   0 - Strobe *
   * 

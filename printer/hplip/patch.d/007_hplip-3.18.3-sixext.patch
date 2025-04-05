@@ -1,0 +1,16 @@
+--- hplip-3.17.10/base/sixext.py	2015-06-16 16:40:00.369392772 +0530
++++ hplip-3.17.10/base/sixext.py	2015-07-31 15:36:08.011051408 +0530
+@@ -110,11 +110,11 @@
+ 
+ 
+     def to_string_utf8(s):
+-        return s.decode("utf-8")
++        return s.decode("utf-8", 'ignore')
+ 
+ 
+     def to_string_latin(s):
+-        return s.decode("latin-1")
++        return s.decode("latin-1", 'ignore')
+ 
+ 
+     def to_unicode(s, enc=None):

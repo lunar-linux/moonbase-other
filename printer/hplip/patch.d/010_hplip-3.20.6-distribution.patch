@@ -1,5 +1,5 @@
---- ./data/rules/56-hpmud.rules
-+++ ./data/rules/56-hpmud.rules
+--- hplip-3.18.9/data/rules/56-hpmud.rules
++++ hplip-3.18.9/data/rules/56-hpmud.rules
 @@ -12,7 +12,4 @@
  # ENV{ID_HPLIP}="1" is for Ubuntu udev-acl
  ATTR{idVendor}=="03f0", ENV{ID_USB_INTERFACES}=="*:0701??:*|*:ffcc00:", OWNER="root", GROUP="lp", MODE="0664", ENV{libsane_matched}="yes", ENV{hp_test}="yes", ENV{ID_HPLIP}="1"
@@ -8,8 +8,8 @@
 -ENV{hp_test}=="yes", PROGRAM="/bin/sh -c 'logger -p user.info loading HP Device $env{BUSNUM} $env{DEVNUM}'", RUN+="/bin/sh -c '/usr/bin/nohup /usr/bin/hp-config_usb_printer $env{BUSNUM}:$env{DEVNUM}'"
 -
  LABEL="hpmud_rules_end"
---- ./data/rules/56-hpmud_sysfs.rules
-+++ ./data/rules/56-hpmud_sysfs.rules
+--- hplip-3.18.9/data/rules/56-hpmud_sysfs.rules
++++ hplip-3.18.9/data/rules/56-hpmud_sysfs.rules
 @@ -14,12 +14,6 @@
  # For RHEL 5, centos 5..
  ENV{hp_test}=="yes", PROGRAM="/bin/sh -c 'X=%k; X=$${X#usbdev}; B=$${X%%%%.*}; D=$${X#*.}; logger -p user.info loading HP Device $$B $$D; printf %%03i:%%03i $$B $$D'", RUN+="/bin/sh -c '/usr/bin/python hp-config_usb_printer %c '"
@@ -23,8 +23,8 @@
  # The following rule will disable USB autosuspend for the device
  ENV{libsane_matched}=="yes", RUN+="/bin/sh -c 'test -e /sys/$env{DEVPATH}/power/level && echo on > /sys/$env{DEVPATH}/power/level'"
  
---- ./hplip.list.in
-+++ ./hplip.list.in
+--- hplip-3.18.9/hplip.list.in
++++ hplip-3.18.9/hplip.list.in
 @@ -296,8 +296,6 @@
  @epm_full@f 644 root root $home/installer/dcheck.py installer/dcheck.py
  @epm_full@f 644 root root $home/installer/core_install.py installer/core_install.py
@@ -43,8 +43,8 @@
  @epm_full@l 755 root root $bindir/hp-config_usb_printer ../share/hplip/config_usb_printer.py
  @epm_full@l 755 root root $bindir/hp-diagnose_queues ../share/hplip/diagnose_queues.py
  
---- ./Makefile.am
-+++ ./Makefile.am
+--- hplip-3.20.6/Makefile.am
++++ hplip-3.20.6/Makefile.am
 @@ -130,10 +130,6 @@
  	ip/xbi2gray.c ip/xcolrspc.c ip/xfakemono.c ip/xgray2bi.c ip/xinvert.c ip/xjpg_enc.c ip/xmatrix.c ip/xpnm.c ip/xscale.c ip/xthumb.c ip/xyxtract.c \
  	ip/hpip.h ip/ipdefs.h ip/xform.h ip/xjpg_dct.h ip/xjpg_huf.h ip/xjpg_mrk.h
