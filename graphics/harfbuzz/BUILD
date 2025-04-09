@@ -1,4 +1,5 @@
-#bad_flags -fexceptions
+CFLAGS="${CFLAGS/-fexceptions/}"
+CXXFLAGS="${CXXFLAGS/-fexceptions/}"
 
 OPTS+=" -Dtests=disabled \
         -Dbenchmark=disabled \
