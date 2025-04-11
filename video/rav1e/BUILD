@@ -17,7 +17,6 @@ prepare_install &&
 
 cargo install --no-default-features \
               --features binaries,asm,threading,signal_support \
-              --offline \
               --no-track \
               --path . \
               --root /usr &&
