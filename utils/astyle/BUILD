@@ -1,3 +1,5 @@
+source /etc/profile.d/sun-jdk.rc 
+
 OPTS+=" -Wno-dev \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr"
