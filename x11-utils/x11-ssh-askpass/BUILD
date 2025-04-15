@@ -1,7 +1,7 @@
 ./configure --mandir=/usr/share/man --prefix=/usr \
-            --with-app-defaults-dir=/usr/share/X11/app-defaults &&
-
-default_config &&
+            --with-app-defaults-dir=/usr/share/X11/app-defaults \
+            --libexecdir=/usr/lib/ssh \
+            $OPTS
 
 xmkmf &&
 make includes &&
