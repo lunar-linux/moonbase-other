@@ -8,6 +8,7 @@ OPTS+=" -DJPEGXL_ENABLE_EXAMPLES=OFF      \
         -DJPEGXL_BUNDLE_LIBPNG=OFF        \
         -DJPEGXL_ENABLE_BENCHMARK=OFF     \
         -DJPEGXL_ENABLE_MANPAGES=OFF      \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -DJPEGXL_ENABLE_PLUGINS=ON        "
 
 export CFLAGS+=' -DNDEBUG -ffat-lto-objects'
