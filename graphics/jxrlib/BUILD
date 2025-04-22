@@ -2,4 +2,6 @@ export CFLAGS="-Wno-endif-labels -Wno-implicit-function-declaration -Wno-incompa
 
 cp $SCRIPT_DIRECTORY/CMakeLists.txt $SOURCE_DIRECTORY &&
 
+OPTS+=" -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
 default_cmake_build
