@@ -1,7 +1,15 @@
+# cmake 4.x
+sed -e '/SET CMP0042 OLD/d' -i CMakeLists.txt &&
+
 # A gcc-12.1.1 tweak
 sedit '39i #include <ctime>' include/openbabel/obutil.h &&
 
-OPTS+=" -DBUILD_MIXED=ON -DOPTIMIZE_NATIVE=ON -DENABLE_TESTS=OFF -DWITH_MAEPARSER=OFF -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+OPTS+=" -DRUN_SWIG=ON \
+        -DBUILD_MIXED=ON \
+        -DOPTIMIZE_NATIVE=ON \
+        -DENABLE_TESTS=OFF \
+        -DWITH_MAEPARSER=OFF \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
   default_cmake_build &&
 
