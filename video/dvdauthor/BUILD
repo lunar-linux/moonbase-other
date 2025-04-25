@@ -1,5 +1,3 @@
-sed -e 's|freetype-config|pkg-config freetype2|' -i configure.ac &&
-
-autoreconf -fi &&
+export FREETYPECONFIG="pkgconf freetype2"
 
 default_build
