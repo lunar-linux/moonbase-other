@@ -1,7 +1,4 @@
-make configure PREFIX=/usr BINDIR=/usr/bin LIBDIR=/usr/lib MANDIR=/usr/share/man &&
-export CHECK_IF_PREINSTALLED=false
-sedit 's:/root/.opam/default:/usr:g' Makefile.config &&
-make &&
+make configure PREFIX=/usr BINDIR=/usr/bin LIBDIR=/usr/lib MANDIR=/usr/share/man $OPTS &&
+export CHECK_IF_PREINSTALLED=false &&
 
-prepare_install &&
-make install
+default_make
