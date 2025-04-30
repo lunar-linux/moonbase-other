@@ -1,0 +1,19 @@
+From: Stephane Fontaine <esselfe16@gmail.com>
+Date: 2025-04-30 10:07:00 +0000
+
+# Currently the build fails if git is not installed, so remove the code
+# since it only adds "-GIT" to the version string.
+
+--- libxml2-2.14.1-orig/meson.build	2025-04-03 10:34:12.000000000 -0400
++++ libxml2-2.14.1-new/meson.build	2025-04-30 06:03:31.204070148 -0400
+@@ -17,10 +17,6 @@
+ v_mic = v_array[2].to_int()
+ v_nbr = v_maj * 10000 + v_min * 100 + v_mic
+ v_extra = ''
+-r = run_command('git', 'describe', check: false)
+-if (r.returncode() == 0)
+-    v_extra = '-GIT' + r.stdout().strip()
+-endif
+ 
+ # install paths
+ dir_prefix = get_option('prefix')
