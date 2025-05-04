@@ -1,7 +1,4 @@
 default_pre_build &&
 
 # Fix docdir
-sedit "s:/usr/local:/usr:" Makefile &&
-
-# Fix mandir
-sedit "/^MANDIR/s@/man@/share/man@" Makefile
+sedit "s:/usr/local:/usr:" Makefile
