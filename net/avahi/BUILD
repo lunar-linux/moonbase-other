@@ -1,9 +1,5 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
-if [ -f /usr/share/applications ] ; then
-    rm -f /usr/share/applications
-fi &&
-
 #Fix a security vulnerabilty in avahi-daemon: 
 sedit '426a if (events & AVAHI_WATCH_HUP) {client_free(c);return;}' avahi-daemon/simple-protocol.c &&
 
@@ -35,6 +31,7 @@ OPTS+=" --enable-compat-howl \
         --with-distro=none \
         --enable-python-dbus \
         --enable-introspection=yes \
+        --with-avahi-priv-access-group=network
         --prefix=/usr \
         --sysconfdir=/etc \
         --runstatedir=/run \
