@@ -1,8 +1,10 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
-prepare_install &&
+python -m build --wheel &&
+make -C contrib/chg &&
 
-python setup.py install --force --optimize=1 &&
+prepare_install &&
+python -m installer dist/*.whl &&
 
 cp -p contrib/hgk /usr/bin &&
 gather_docs CONTRIBUTORS PKG-INFO hgweb*.cgi doc/*.html doc/*.txt &&
