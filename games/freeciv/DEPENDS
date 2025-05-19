@@ -1,5 +1,7 @@
 depends curl
 depends libtool
+depends readline
+depends pango
 
 if [ "`get_module_config GTK`" = "y" ]; then
   optional_depends gtk+-3 "--enable-client=gtk3 --enable-fcmp=gtk3" "" "for gtk+-3 client"
