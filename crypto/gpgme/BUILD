@@ -16,7 +16,7 @@ if in_depends $MODULE qt6-base; then
   export GPGME_QT6_LIBS=$(pkgconf --libs /usr/lib/qt6/pkgconfig/Qt6Core.pc)
   export GPGME_QT6_CFLAGS=$(pkgconf --cflags /usr/lib/qt6/pkgconfig/Qt6Core.pc)
   export MOC=/usr/lib/qt6/moc
-  OPTS+=" --enable-languages=cpp,qt"
+  OPTS+=" --enable-languages=cpp,qt6"
 fi &&
 
 #https://dev.gnupg.org/T6673#174545, strongly recommend building in its own dir
