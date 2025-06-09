@@ -10,6 +10,7 @@ OPTS+=" -DwxUSE_UNICODE=ON \
         -DwxUSE_NANOSVG=sys \
         -DwxBUILD_TOOLKIT=gtk3 \
         -DwxUSE_GTKPRINT=ON \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -Wno-dev"
 
 # Do the modules name; gtk
