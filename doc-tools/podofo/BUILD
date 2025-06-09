@@ -1,6 +1,5 @@
 OPTS+=" -DCMAKE_BUILD_TYPE=Release  \
         -DCMAKE_INSTALL_PREFIX=/usr \
-        -DPODOFO_BUILD_TOOLS=True   \
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . $OPTS &&
