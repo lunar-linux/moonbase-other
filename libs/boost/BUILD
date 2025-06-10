@@ -24,7 +24,7 @@ export EXPAT_LIBPATH=/usr/lib/ &&
         --includedir="/usr/include" \
         --libdir="/usr/lib" \
         cflags="$CFLAGS -fPIC $PY_INCLD" \
-        cxxflags="$CXXFLAGS -std=c++14 -fPIC -fno-strict-aliasing" \
+        cxxflags="$CXXFLAGS -std=c++17 -fPIC -fno-strict-aliasing" \
         $OPTS &&
 
 prepare_install &&
@@ -42,7 +42,7 @@ prepare_install &&
         --includedir="/usr/include" \
         --libdir="/usr/lib" \
         cflags="$CFLAGS -fPIC $PY_INCLD" \
-        cxxflags="$CXXFLAGS -std=c++14 -fPIC -fno-strict-aliasing" \
+        cxxflags="$CXXFLAGS -std=c++17 -fPIC -fno-strict-aliasing" \
         $OPTS \
         install &&
 
