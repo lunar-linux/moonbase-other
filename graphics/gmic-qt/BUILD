@@ -1,8 +1,11 @@
-source /etc/profile.d/qt5.rc &&
+source /etc/profile.d/qt6.rc &&
 
 cmake -B build-qt -S gmic-qt \
     -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release \
     -DENABLE_DYNAMIC_LINKING=ON \
+    -Wno-dev \
+    -DBUILD_WITH_QT6=ON \
     -DGMIC_QT_HOST=none &&
 
 cmake --build build-qt &&
