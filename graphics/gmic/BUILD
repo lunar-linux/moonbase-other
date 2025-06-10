@@ -2,9 +2,11 @@ cmake -B build -S .\
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DENABLE_DYNAMIC_LINKING=ON \
     -DBUILD_LIB_STATIC=OFF \
-    -DENABLE_OPENCV=ON \
+    -DENABLE_OPENCV=OFF \
     -DENABLE_FFTW=ON \
     -DENABLE_XSHM=ON \
+    -DBUILD_MAN=OFF \
+    -DCMAKE_BUILD_TYPE=Release \
     -Wno-dev &&
 
 cmake --build build &&

@@ -7,5 +7,6 @@ depends GraphicsMagick
 depends tiff
 depends %JPEG
 depends openexr
-depends opencv
 depends eigen3
+
+optional_depends opencv "-DENABLE_OPENCV=ON" "-DENABLE_OPENCV=OFF" "For realtime video support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}"
