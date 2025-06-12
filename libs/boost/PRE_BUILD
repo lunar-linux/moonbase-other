@@ -1,0 +1,5 @@
+default_pre_build
+
+patch -p2 < $SCRIPT_DIRECTORY/boost-1.88.0-restore.exception.state.patch &&
+
+sedit '16i #include <boost/type_traits/add_const.hpp>' boost/range/detail/any_iterator_buffer.hpp
