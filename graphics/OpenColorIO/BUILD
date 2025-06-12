@@ -1,4 +1,6 @@
-CXXFLAGS+=" -ffat-lto-objects"
+sedit '10i #include <ImfCompressor.h>' src/apps/ociolutimage/main.cpp &&
+
+export CXXFLAGS+=" -ffat-lto-objects"
 
 # For now disable java
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
