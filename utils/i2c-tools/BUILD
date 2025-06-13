@@ -1,3 +1,4 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
 make EXTRA="eeprog py-smbus" &&
 
 prepare_install &&
