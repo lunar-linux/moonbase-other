@@ -49,6 +49,7 @@ default_make &&
 
 sed -e 's/3.6.9/3.6.10/' -i CMakeLists.txt &&
 _opts+=" -B build
+    -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -D CMAKE_INSTALL_PREFIX=/usr \
     -D CMAKE_BUILD_TYPE=None \
     -D ENABLE_THREADS=ON \
@@ -56,6 +57,6 @@ _opts+=" -B build
     -D ENABLE_LONG_DOUBLE=ON \
     -D ENABLE_QUAD_PRECISION=ON"
 
-cmake . _opts &&
-sed -e 's|\(IMPORTED_LOCATION_NONE\).*|\1 "/usr/lib/libfftw3.so.3"|' -i FFTW3LibraryDepends.cmake &&
-install -vDm 644 FFTW3LibraryDepends.cmake -t /usr/lib/cmake/fftw3/
+cmake . $_opts &&
+sed -e 's|\(IMPORTED_LOCATION_NONE\).*|\1 "/usr/lib/libfftw3.so.3"|' -i build/FFTW3LibraryDepends.cmake &&
+install -vDm 644 build/FFTW3LibraryDepends.cmake -t /usr/lib/cmake/fftw3/
