@@ -11,10 +11,11 @@ fi &&
 #This is temporary until they provide a way to choose which qt(5,6) to use.
 #With both installed it defaults to qt6 and the compile tanks.
 if in_depends $MODULE qt5 || module_installed qt6-base ; then
+ sed -i 's/add_definitions(${Qt${QT_VERSION_MAJOR}${dt_dep}_DEFINITIONS})/link_libraries(${Qt${QT_VERSION_MAJOR}${dt_dep}})/' modules/highgui/CMakeLists.txt &&
 #  source /etc/profile.d/qt5.rc &&
 #  OPTS+=" -DWITH_QT=ON"
 # else
-  OPTS+=" -DWITH_QT=OFF"
+  OPTS+=" -DWITH_QT=ON"
 fi &&
 
 if in_depends $MODULE libpng ; then
@@ -24,6 +25,8 @@ fi &&
 if module_installed libglvnd ; then
   OTPS+=" -DOpenGL_GL_PREFERENCE=GLVND"
 fi &&
+
+sedit 's:2.8.12.2:3.5:' cmake/OpenCVGenPkgconfig.cmake &&
 
 OPTS+=" -DBUILD_WITH_DEBUG_INFO=OFF \
         -DBUILD_DOCS=OFF \
@@ -37,8 +40,13 @@ OPTS+=" -DBUILD_WITH_DEBUG_INFO=OFF \
         -DINSTALL_PYTHON_EXAMPLES=OFF \
         -DOPENCV_ENABLE_NONFREE=ON \
         -DWITH_TBB=ON \
+        -DCMAKE_CXX_STANDARD=17 \
         -DCMAKE_INSTALL_SHAREDSTATEDIR=/var/lib/opencv \
         -DCMAKE_INSTALL_RUNSTATEDIR=/run \
         -DCMAKE_CXX_FLAGS_RELEASE=-std=c++11 \
         -DENABLE_CXX11=ON \
-        -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-$VERSION/modules"
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DOPENCV_EXTRA_MODULES_PATH=opencv_contrib-$VERSION/modules \
+        -Wno-dev"
