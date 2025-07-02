@@ -1,15 +1,14 @@
           MODULE=daq
-         VERSION=2.0.7
+         VERSION=3.0.20
           SOURCE=$MODULE-$VERSION.tar.gz
-   SOURCE_URL[0]=https://www.snort.org/downloads/snort/
-   SOURCE_URL[1]=$MIRROR_URL
-      SOURCE_VFY=sha256:c86b17f1965f85bc6aedd2981013ec0fc19b3e3cba052a757dcabfb5817a32fd
+ SOURCE_URL_FULL=https://github.com/snort3/libdaq/archive/refs/tags/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:42730cb427695d4049deaa667623036b3915eaa651bcb91493ca450f06bb36b3
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/libdaq-$VERSION
         WEB_SITE=http://www.snort.org
          ENTERED=20101005
-         UPDATED=20200806
+         UPDATED=20250702
            SHORT="Data Aquisition Library for snort"
-           PSAFE=no
-
+PSAFE=no
 cat << EOF
 Daq is the Data Acquisition library, for packet I/O. The DAQ replaces direct
 calls to PCAP functions with an abstraction layer that facilitates operation
