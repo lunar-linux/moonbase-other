@@ -1,9 +1,9 @@
 prepare_install &&
 
-cd fonts &&
+mkdir -p /usr/share/metainfo &&
+mkdir -p /usr/share/fonts/gsfonts &&
+mkdir -p /usr/share/fonts/gsfonts &&
 
-mkdir -p /usr/share/fonts/TTF &&
-install -m644 *.ttf /usr/share/fonts/TTF/ &&
-
-mkdir -p /usr/share/fonts/OTF &&
-install -m644 *.otf /usr/share/fonts/OTF/
+install -vDm 644 fonts/*.ttf -t "/usr/share/fonts/gsfonts/" &&
+install -vDm 644 fonts/*.otf -t "/usr/share/fonts/gsfonts/" &&
+install -vDm 644 appstream/*.xml -t "/usr/share/metainfo"
