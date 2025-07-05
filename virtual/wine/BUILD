@@ -7,7 +7,7 @@ OPTS+=" --prefix=/usr \
         --libdir=/usr/lib \
         --with-x"
 
-if [ $(arch) == x86_64 ]; then
+if [ "$(arch)" == "x86_64" ]; then
   OPTS+=" --enable-win64"
 fi
 
@@ -24,5 +24,6 @@ install -d /etc/fonts/conf.{avail,d} &&
 install -m644 $SCRIPT_DIRECTORY/30-win32-aliases.conf /etc/fonts/conf.avail &&
 ln -sf ../conf.avail/30-win32-aliases.conf /etc/fonts/conf.d/30-win32-aliases.conf
 
-#Some look for wine binary instead of wine64
-ln -sf /usr/bin/wine64 /usr/bin/wine
+# Some look for wine64 binary instead of wine
+# Note that the 'wine64' program has been renamed 'wine'
+ln -sf wine /usr/bin/wine64
