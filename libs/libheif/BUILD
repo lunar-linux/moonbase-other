@@ -1,10 +1,11 @@
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+        -DBUILD_TESTING=OFF \
+        -DPLUGIN_DIRECTORY=/usr/lib64/libheif \
         -DWITH_DAV1D=ON \
         -DWITH_RAV1E=ON \
         -DWITH_FFMPEG_DECODER=ON \
-        -DWITH_FFMPEG_DECODER_PLUGIN=ON \
         -DWITH_SvtEnc=ON \
         -Wno-dev"
 
