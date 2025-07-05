@@ -1,3 +1,5 @@
 default_pre_build &&
 
 sedit '29 s/return false/return NULL/' dom/src/dae/daeMetaGroup.cpp
+
+OPTS+=" -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
