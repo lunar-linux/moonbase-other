@@ -1,6 +1,4 @@
-OPTS+=" --disable-static --enable-files"
+export NSS_CFLAGS="-Wno-pedantic"
+OPTS+=" --disable-static --enable-files --disable-ripemd160"
 
-default_config &&
-sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
-
-default_make
+default_build
