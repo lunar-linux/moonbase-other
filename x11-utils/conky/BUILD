@@ -19,6 +19,6 @@ default_cmake_build &&
 cd $SOURCE_DIRECTORY &&
 
 install -Dm755 extras/convert.lua /usr/bin/conky-convert.lua &&
-install -Dm644 extras/vim/syntax/conkyrc.vim.j2 /usr/share/vim/vimfiles/syntax/conkyrc.vim &&
+install -Dm644 $SCRIPT_DIRECTORY/conkyrc.vim /usr/share/vim/vimfiles/syntax/conkyrc.vim &&
 install -Dm644 extras/vim/ftdetect/conkyrc.vim /usr/share/vim/vimfiles/ftdetect/conkyrc.vim &&
 install -Dm644 extras/gedit/conky.lang /usr/share/gtksourceview-3.0/language-specs/conky.lang
