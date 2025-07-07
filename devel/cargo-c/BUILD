@@ -8,7 +8,7 @@ export LIBGIT2_SYS_USE_PKG_CONFIG=1
 
 
 #ln -sf "../Cargo.lock Cargo.lock &&
-cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')" --manifest-path=Cargo.toml &&
+cargo fetch --target "$(rustc -vV | sed -n 's/host: //p')" --manifest-path=Cargo.toml &&
 cargo build --release --frozen --manifest-path=Cargo.toml &&
 
 prepare_install
