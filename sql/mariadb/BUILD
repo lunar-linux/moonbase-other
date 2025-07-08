@@ -38,6 +38,7 @@ OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DAUTH_GSSAPI_PLUGIN_TYPE=OFF \
         -DAWS_SDK_EXTERNAL_PROJECT=OFF \
         -DWITH_EMBEDDED_SERVER=ON \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -DCOMPILATION_COMMENT='Lunar Linux'"
 
 if module_installed systemd; then
