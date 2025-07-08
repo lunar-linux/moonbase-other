@@ -2,9 +2,7 @@ TARGETS="${TARGETS:=X86;AMDGPU;BPF}" &&
 
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_SKIP_INSTALL_RPATH=ON \
         -DCMAKE_SKIP_RPATH=ON \
-        -DCLANG_DEFAULT_PIE_ON_LINUX=ON \
         -DCLANG_DEFAULT_PIE_ON_LINUX=ON \
         -DLLVM_ENABLE_RTTI=ON \
         -DLLVM_BUILD_TESTS=OFF \
@@ -29,7 +27,6 @@ cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
 
 prepare_install &&
-
 cmake --install $MODULE-$VERSION &&
 
 # Needed by other projects, applications

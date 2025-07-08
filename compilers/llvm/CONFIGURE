@@ -7,22 +7,24 @@ if [ -n "$RECONFIGURE" ]; then
 
   if query "Do you want to select additional compiler targets (zig needs all and wasi-libc needs WebAssembly)? " n; then
     OPTIONS=(
-      "AMDGPU"      "AMD GPU"     "on"
-      "BPF"         "BPF"         "on"
       "AArch64"     "AArch 64"    "off"
+      "AMDGPU"      "AMD GPU"     "on"
       "ARM"         "ARM"         "off"
       "AVR"         "AVR"         "off"
-      "VE"          "VE"          "off"
-      "WebAssembly" "WebAssembly" "off"
-      "RISCV"       "RiscV"       "off"
-      "Mips"        "Mips"        "off"
-      "Sparc"       "Sparc"       "off"
-      "PowerPC"     "PowerPC"     "off"
+      "BPF"         "BPF"         "on"
       "Hexagon"     "Hexagon"     "off"
       "Lanai"       "Lanai"       "off"
-      "NVPTX"       "NVIDIA PTX"  "off"
+      "LoongArch"   "LoongArch"   "off"
+      "Mips"        "Mips"        "off"
       "MSP430"      "MSP430"      "off"
+      "NVPTX"       "NVIDIA PTX"  "off"
+      "PowerPC"     "PowerPC"     "off"
+      "RISCV"       "RiscV"       "off"
+      "Sparc"       "Sparc"       "off"
       "SystemZ"     "SystemZ"     "off"
+      "VE"          "VE"          "off"
+      "WebAssembly" "WebAssembly" "on"
+      "X86"         "X86"         "off"
       "XCore"       "XCore"       "off"
     ) &&
     RESULT=`dialog --title "Select additional compiler targets" \
