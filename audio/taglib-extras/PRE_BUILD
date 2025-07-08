@@ -1,4 +1,3 @@
 default_pre_build &&
 
-# Need to sed this else it can't find taglib
-sedit "s:1.6:`lvu version taglib`:" CMakeLists.txt
+patch -p1 -i $SCRIPT_DIRECTORY/taglib-2.0.diff
