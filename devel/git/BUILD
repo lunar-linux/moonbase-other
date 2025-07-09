@@ -6,7 +6,7 @@ else
   DOCS=""
 fi
 
-if in_depends $MODULE pcre; then
+if in_depends $MODULE pcre2; then
   OPTS="USE_LIBPCRE=1"
 fi
 
@@ -49,6 +49,11 @@ done &&
 
 # bash completion
 install -m 644 contrib/completion/git-completion.bash /usr/share/bash-completion/completions/git &&
+
+# zsh completion
+if module_installed zsh; then
+  install -Dm 644 contrib/completion/git-completion.zsh /usr/share/zsh/site-functions/_git
+fi &&
 
 # fancy git prompt
 install -m 644 contrib/completion/git-prompt.sh /etc/profile.d/git-prompt.rc &&
