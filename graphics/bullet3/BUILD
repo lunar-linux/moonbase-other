@@ -6,6 +6,7 @@ OPTS+=" -DBUILD_SHARED_LIBS=1 \
         -DBUILD_EXTRAS=1 \
         -DINSTALL_LIBS=1 \
         -DINSTALL_EXTRA_LIBS=1 \
-        -DCMAKE_BUILD_TYPE=Release"
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 default_cmake_build
