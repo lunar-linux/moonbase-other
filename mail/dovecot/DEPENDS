@@ -1,10 +1,17 @@
 depends openssl
+depends expat
+depends sqlite
+depends xapian-core
+depends zlib
 
 optional_depends Linux-PAM  "--with-pam"    "--without-pam"    "for PAM support"
-optional_depends nss        "--with-nss"    "--without-nss"    "for NSS support"
-optional_depends shadow     "--with-shadow" "--without-shadow" "for shadow auth support"
-optional_depends zlib       "--with-zlib"   "--without-zlib"   "for zlib compression support"
+optional_depends zstd       "--with-zstd"   "--without-zstd"   "for zstd compression support"
+optional_depends lz4        "--with-lz4"    "--without-lz4"    "for LZ4 compression support"
+optional_depends libcap     "--with-libcap" "--without-libcap" "for POSIX capabilities support"
+optional_depends zstd       "--with-zstd"   "--without-zstd"   "for zstd compression support"
 optional_depends postgresql "--with-pgsql"  "--without-pgsql"  "for Postgresql support"
 optional_depends %MYSQL     "--with-mysql"  "--without-mysql"  "for Mysql support"
-optional_depends krb5       "--with-gssapi" "--without-gssapi" "for Mysql support"
-optional_depends openldap   "--with-ldap"   "--without-ldap"   "for openldap support"
+optional_depends krb5       "--with-gssapi" "--without-gssapi" "for Mysql support" n
+
+optional_depends lua53   "--with-lua=plugin"      "" "for Lua support"
+optional_depends openldap   "--with-ldap=plugin"  "" "for LDAP support" n

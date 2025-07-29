@@ -1,6 +1,7 @@
 OPTS+=" --disable-static \
         --disable-rpath  \
-        --with-ssl=openssl \
+        --libexecdir=/usr/lib \
+        --with-rundir=/run/dovecot \
         --with-moduledir=/usr/lib/dovecot/modules"
 
 if module_installed systemd; then
