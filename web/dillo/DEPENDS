@@ -1,9 +1,11 @@
 depends fltk1.3
-depends %JPEG
+depends libjpeg-turbo
 depends libpng
+depends libwebp
+depends libX11
 depends zlib
 
 optional_depends %OSSL \
                  "--enable-tls" \
                  "--disable-tls" \
-                 "Enable SSL support? ${PROBLEM_COLOR}(This is ALPHA code and does not implement security!)${QUERY_COLOR}"
+                 "Enable SSL support?" y
