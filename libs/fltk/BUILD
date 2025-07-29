@@ -7,4 +7,4 @@ OPTS+=" --enable-largefile \
 default_build
 
 # remove static libs
-#rm /usr/lib/libfltk*.a
+#rm -f /usr/lib/libfltk*.a
