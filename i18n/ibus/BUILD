@@ -10,6 +10,7 @@ fi &&
 OPTS+=" --enable-ui \
         --enable-python-library \
         --disable-memconf \
+        --disable-gtk2 \
         --with-ucd-dir=/usr/share/unicode \
         --with-python=python3 \
         --with-unicode-emoji-dir=$SOURCE_DIRECTORY \
