@@ -1,0 +1,6 @@
+default_pre_build &&
+
+install -dvm755 libbpf &&
+tar -C libbpf --strip-components=1 -xf $SOURCE_CACHE/$SOURCE2 &&
+
+sedit "s@/usr/local@/usr@g" src/Makefile
