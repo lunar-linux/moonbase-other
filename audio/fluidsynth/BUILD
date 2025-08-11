@@ -1,9 +1,7 @@
-OPTS+=" -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_INSTALL_PREFIX=/usr \
-        -DEMBREE_TUTORIALS=OFF \
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_LIBDIR=lib \
-        -DEMBREE_ISPC_SUPPORT=OFF \
-        -DBUILD_SHARED_LIBS=ON \
+        -DFLUID_DAEMON_ENV_FILE=/etc/conf.d/fluidsynth
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
