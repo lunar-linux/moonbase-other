@@ -1,5 +1,6 @@
 depends lzo
 depends cmake
+depends mold
 depends libpng
 depends freetype2
 depends %JPEG
@@ -16,6 +17,8 @@ depends intel-tbb
 depends git
 depends embree
 depends eigen3
+depends shaderc
+depends tiff
 
 optional_depends lzma-sdk "-DWITH_LZMA=1"   "-DWITH_LZMA=0"   "for lzma compression support for pointcache"
 optional_depends openal   "-DWITH_OPENAL=1" "-DWITH_OPENAL=0" "for 3D Audio support"
@@ -23,7 +26,6 @@ optional_depends SDL2     "-DWITH_SDL=1"    "-DWITH_SDL=0"    "for low-level acc
 optional_depends jack2    "-DWITH_JACK=1"   "-DWITH_JACK=0"   "for low-latency audio support"
 optional_depends lld      "-DWITH_LLVM=1 -DWITH_CLANG=1"   "-DWITH_LLVM=0"   "for Low Level Virtual Machine support"
 
-optional_depends tiff       "-DWITH_IMAGE_TIFF=1"      "-DWITH_IMAGE_TIFF=0"      "for tiff graphcis support"
 optional_depends openexr    "-DWITH_IMAGE_OPENEXR=1"   "-DWITH_IMAGE_OPENEXR=0"   "for exr support"
 optional_depends ffmpeg     "-DWITH_CODEC_FFMPEG=1"    "-DWITH_CODEC_FFMPEG=0"    "for ffmpeg audio/video support"
 optional_depends libsndfile "-DWITH_CODEC_SNDFILE=1"   "-DWITH_CODEC_SNDFILE=0"   "for sound file audio support"
