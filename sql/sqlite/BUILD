@@ -32,6 +32,9 @@ OPTS+="	--disable-static \
 
 default_config &&
 
+# fix the tcl related directrory name
+sedit 's|/zipfs:|usr|' Makefile &&
+
 default_make &&
 
 install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1/
