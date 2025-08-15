@@ -1,7 +1,3 @@
-touch INSTALL &&
-autoreconf -if &&
-
-OPTS+=" --disable-examples \
-        --disable-python-bindings" &&
+OPTS+=" --disable-examples"
 
 default_build
