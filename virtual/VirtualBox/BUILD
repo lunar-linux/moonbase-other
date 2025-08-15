@@ -9,9 +9,13 @@ if in_depends $MODULE OpenJDK8U-jdk; then
 fi &&
 
 # Build VirtualBox
-# Disable hardening, so normal users can run it and vmmrw to 
+# Disable hardening, so normal users can run it and vmmrw to
 # remove 32 bit simulation support
-OPTS+=" --disable-hardening --disable-kmods --disable-docs --disable-vmmraw"
+OPTS+=" --disable-hardening \
+        --disable-kmods \
+        --disable-docs \
+        --disable-vmmraw \
+        --with-makeself=/usr/bin/echo"
 
 ./configure $OPTS &&
 source ./env.sh &&
