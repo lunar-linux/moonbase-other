@@ -1,9 +1,5 @@
 default_pre_build &&
 
-# Replace pointless GCC version check with something less stupid.
-# This is needed for the qt5 version check.
-sed -e '1583i cc_maj="$(${CC} -dumpversion | cut -d. -f1)" ; cc_min="$(${CC} -dumpversion | cut -d. -f2)"' -i configure &&
-
 # Remove gcc version check
 sedit "/&& check_gcc/d" configure &&
 

@@ -13,7 +13,9 @@ fi &&
 # remove 32 bit simulation support
 OPTS+=" --disable-hardening --disable-kmods --disable-docs --disable-vmmraw"
 
-./configure $OPTS &&
+cc_maj="$(${CC} -dumpversion | cut -d. -f1)" \
+    cc_min="$(${CC} -dumpversion | cut -d. -f2)" \
+    ./configure $OPTS &&
 source ./env.sh &&
 
 if ! module_installed Linux-PAM; then
