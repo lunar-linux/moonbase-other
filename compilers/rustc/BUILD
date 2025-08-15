@@ -12,14 +12,16 @@ OPTS+=" --build=$BUILD \
         --mandir=/usr/share/man \
         --disable-docs \
         --disable-debug \
-        --tools=cargo,clippy,rustdoc,rustfmt, \
+        --tools=cargo,rustdoc,rustfmt, \
         --release-channel=stable"
+
+#        --tools=cargo,clippy,rustdoc,rustfmt, \
 
 # A config.toml will get created and placed in the source dir
 ./configure $OPTS &&
 
-python3 ./x.py build --jobs $CARGO_BUILD_JOBS &&
+python ./x.py build --jobs $CARGO_BUILD_JOBS &&
 
 prepare_install &&
-python3 ./x.py install -j $CARGO_BUILD_JOBS -v rustc std &&
-python3 ./x.py install --stage=1 cargo clippy rustfmt
+python ./x.py install -j $CARGO_BUILD_JOBS -v rustc std &&
+python ./x.py install --stage=1 cargo clippy rustfmt
