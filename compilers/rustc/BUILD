@@ -12,10 +12,8 @@ OPTS+=" --build=$BUILD \
         --mandir=/usr/share/man \
         --disable-docs \
         --disable-debug \
-        --tools=cargo,rustdoc,rustfmt, \
+        --tools=cargo,clippy,rustdoc,rustfmt, \
         --release-channel=stable"
-
-#        --tools=cargo,clippy,rustdoc,rustfmt, \
 
 # A config.toml will get created and placed in the source dir
 ./configure $OPTS &&
