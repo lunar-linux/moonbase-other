@@ -1,3 +1,5 @@
+CFLAGS+=" -std=gnu17"
+
 OPTS+=" --libexecdir=/usr/lib \
     	--with-termlib=ncurses \
     	--disable-w3mmailer \
