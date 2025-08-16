@@ -1,0 +1,6 @@
+default_pre_build
+
+patch -Np1 -i $SCRIPT_DIRECTORY/gcc15_error_unknown_type_name.patch &&
+patch -Np1 -i $SCRIPT_DIRECTORY/fix-deps+include-dirs.patch
+
+sedit 's:-lpng14:-lpng16:' GNUmakefile

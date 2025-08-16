@@ -1,6 +1,9 @@
-. /usr/share/GNUstep/Makefiles/GNUstep.sh &&
+source /usr/share/GNUstep/Makefiles/GNUstep.sh &&
 
-make -f Makefile release $OPTS &&
+chmod +x tools/mkmanifest.sh &&
+
+make -f Makefile release \
+    OBJCFLAGS+=" -Wno-error=incompatible-pointer-types -Wno-format-security" &&
 
 prepare_install &&
 
