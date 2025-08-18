@@ -27,6 +27,7 @@ OPTS+="	--disable-static \
         --enable-fts4 \
         --enable-fts5 \
         --enable-rtree \
+        --enable-geopoly \
         --enable-threadsafe \
         --enable-readline"
 
