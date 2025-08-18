@@ -1,6 +1,6 @@
 OPTS+=" --enable-shared \
         --disable-static \
-        --with-zlib \
+        --without-zlib \
         --with-md5   \
         --with-dav \
         --with-expat \
