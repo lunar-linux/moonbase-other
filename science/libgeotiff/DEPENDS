@@ -1,5 +1,6 @@
+depends cmake
 depends tiff
 depends proj
 depends libjpeg-turbo
 
-optional_depends "zlib"   "--with-libz"    "--without-libz"    "For compression support"
+optional_depends "zlib" "-DWITH_ZLIB=ON" "-DWITH_ZLIB=OFF" "For compression support"

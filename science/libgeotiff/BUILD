@@ -1,6 +1,10 @@
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DWITH_JPEG=ON \
+        -Wno-dev"
 
-  cd $MODULE &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-  ./autogen.sh &&
-
-  default_build
+prepare_install
+cmake --install $MODULE-$VERSION
