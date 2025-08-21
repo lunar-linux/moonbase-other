@@ -1,5 +1,8 @@
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
+        -DCMAKE_INSTALL_OLDINCLUDEDIR=/usr/include/$MODULE \
+        -DCMAKE_INSTALL_INCLUDEDIR=/usr/include/$MODULE \
+        -DCMAKE_INSTALL_LIBDIR=lib \
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
