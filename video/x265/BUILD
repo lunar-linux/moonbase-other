@@ -1,14 +1,18 @@
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
-        -DNATIVE_BUILD=TRUE \
         -DENABLE_SHARED=TRUE \
         -DENABLE_SVT_HEVC=TRUE \
-        -DENABLE_HDR10_PLUS=TRUE"
+        -DENABLE_HDR10_PLUS=TRUE \
+        -DCMAKE_VERBOSE_MAKEFILE=ON \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+        -Wno-dev"
 
 if [[ $(arch) == x86_64 ]]; then
   OPTS+=" -DHIGH_BIT_DEPTH=ON"
-fi
+fi &&
 
-cmake source/ $OPTS &&
+cmake -B $MODULE-$VERSION -S source/ -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-default_make
+prepare_install
+cmake --install $MODULE-$VERSION
