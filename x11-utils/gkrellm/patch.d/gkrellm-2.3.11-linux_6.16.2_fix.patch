@@ -1,0 +1,54 @@
+--- gkrellm-2.3.11-orig/src/sysdeps/linux.c	2019-07-25 09:50:12.000000000 -0400
++++ gkrellm-2.3.11-new/src/sysdeps/linux.c	2025-08-22 13:41:10.864057230 -0400
+@@ -1003,8 +1003,8 @@
+ void
+ gkrellm_sys_net_check_routes(void)
+ 	{
+-	static FILE		*f=NULL;
+-	static FILE		*f6=NULL;
++	FILE			*f=NULL;
++	FILE			*f6=NULL;
+ 	GList			*list;
+ 	NetUp			*net;
+ 	gchar			*s;
+@@ -1042,7 +1042,9 @@
+ 				net->cur_up = TRUE;
+ 				}
+ 			}
+-		rewind(f);
++		//rewind(f);
++		fclose(f);
++		f = NULL;
+ 		}
+ 	
+ 	if (f6 || (f6 = fopen(PROC_NET_IPV6ROUTE_FILE, "r")) != NULL)
+@@ -1078,7 +1080,9 @@
+ 				net->cur_up = TRUE;
+ 				}
+ 			}
+-		rewind(f6);
++		//rewind(f6);
++		fclose(f6);
++		f6 = NULL;
+ 		}
+ 
+ 	for (list = net_routed_list; list; list = list->next)
+@@ -1098,7 +1102,7 @@
+ void
+ gkrellm_sys_net_read_data(void)
+ 	{
+-	static FILE	*f;
++	FILE		*f;
+ 	gchar		buf[512];
+ 	gchar		*name, *s, *s1;
+ 	gint		i;
+@@ -1172,7 +1176,8 @@
+ 			}
+ 		gkrellm_net_assign_data(name, rx, tx);
+ 		}
+-	rewind(f);
++	//rewind(f);
++	fclose(f);
+ 	}
+ 
+ gboolean
