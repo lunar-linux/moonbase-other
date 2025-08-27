@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 OPTS+=" -DSYSCONFDIR=/etc/mysql \
         -DMYSQL_DATADIR=/var/lib/mysql \
         -DMYSQL_UNIX_ADDR=/run/mysqld/mariadbd.sock \
