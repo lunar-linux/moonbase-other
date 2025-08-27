@@ -7,6 +7,7 @@ make &&
 prepare_install &&
 
 make INSTALLDIR=/usr/bin \
+     INSTALLROOT=/usr \
      INCLUDEDIR=/usr/include \
      MANDIR=/usr/share/man/man1 \
      LOCALEDIR=/usr/share/locale \
