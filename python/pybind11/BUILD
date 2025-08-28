@@ -1,7 +1,12 @@
-PY_VER="`lvu version python|cut -d. -f1-2`"
-default_python3_build &&
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_PREFIX_PATH=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DDOWNLOAD_CATCH=ON \
+        -Wno-dev"
 
-#Some applications are not smart enough to look here.
-ln -sf /usr/lib/python${PY_VER}/site-packages/pybind11/share/cmake/pybind11/ /usr/lib/cmake/pybind11 &&
-ln -sf /usr/lib/python${PY_VER}/site-packages/pybind11/include/pybind11 /usr/include/pybind11 &&
-ln -sf /usr/lib/python${PY_VER}/site-packages/pybind11/share/pkgconfig/pybind11.pc /usr/lib/pkgconfig/pybind11.pc
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
+
+prepare_install
+cmake --install $MODULE-$VERSION
