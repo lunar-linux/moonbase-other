@@ -1,12 +1,13 @@
           MODULE=ming
          VERSION=0_4_8
+         _commit=04aee52363688426eab74f5d6180c149654a6473 
           SOURCE=$MODULE-$VERSION.tar.gz
-      SOURCE_URL=https://github.com/libming/libming/archive/
-      SOURCE_VFY=sha256:2a44cc8b7f6506adaa990027397b6e0f60ba0e3c1fe8c9514be5eb8e22b2375c
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/libming-ming-$VERSION
+      SOURCE_URL=git+https://github.com/libming/libming.git:${_commit}
+#      SOURCE_VFY=sha256:
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/ming-$VERSION
         WEB_SITE=http://ming.sourceforge.net
          ENTERED=20030519
-         UPDATED=20180514
+         UPDATED=20250828
            SHORT="c library for generating SWF (Flash) format movies"
 cat << EOF
 Ming is a c library for generating SWF ("Flash") format movies, plus a set

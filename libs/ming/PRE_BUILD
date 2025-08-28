@@ -1,9 +1,11 @@
 default_pre_build &&
 
-#sedit "s:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:" configure.in &&
-#mv configure.in configure.ac &&
-
 ./autogen.sh &&
+
+git describe --long | sed 's/^ming-//;s/\([^-]*-g\)/r\1/;s/[-_]/./g' &&
+git apply $SCRIPT_DIRECTORY/01-py3.patch &&
+git apply $SCRIPT_DIRECTORY/02-ming-0.4.8-swig-4.1.patch &&
+
 
 if in_depends $MODULE %PHP; then
   cd php_ext &&
@@ -16,3 +18,4 @@ if in_depends $MODULE tcl; then
   sedit "s:tcl8.4:tcl$TCL_VER:g" configure &&
   export TCL_LIB_DIR=/usr/lib/tcl$TCL_VER
 fi
+
