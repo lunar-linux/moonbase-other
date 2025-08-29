@@ -1,5 +1,9 @@
 depends pybind11
 depends lapack
+depends OpenBLAS
 depends python-wheel
 depends python-numpy
-depends python-pythran
+depends python-beniget
+
+optional_depends python-pythran "-Duse-pythran=true" "-Duse-pythran=false" "for numeric kernel support"
+
