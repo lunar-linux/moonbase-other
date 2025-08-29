@@ -1,17 +1,18 @@
           MODULE=python-service-identity
-         VERSION=24.1.0
+         VERSION=24.2.0
           SOURCE=$MODULE-$VERSION.tar.gz
  SOURCE_URL_FULL=https://github.com/pyca/service-identity/archive/refs/tags/$VERSION.tar.gz
+      SOURCE_VFY=sha256:49fe780f8b15153f23aca32bca763926c1575e1fbabc241eed5634cd21a9202d
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE#*-}-$VERSION
-      SOURCE_VFY=sha256:0a4d5c1e489fe71d379d7c091068a6a6e8e836567bd936006d2ba435a7e14141
         WEB_SITE=https://service-identity.readthedocs.io/en/stable/
-         ENTERED=20181217
-         UPDATED=20240219
             TYPE=python3
+         ENTERED=20181217
+         UPDATED=20250829
            SHORT="Service identity verification for pyOpenSSL"
 
 cat << EOF
-service_identity aspires to give you all the tools you need for verifying whether a certificate is valid for the intended purposes.
-
-In the simplest case, this means host name verification. However, service_identity implements RFC 6125 fully and plans to add other relevant RFCs too.
+service_identity aspires to give you all the tools you need for verifying whether
+a certificate is valid for the intended purposes. In the simplest case, this means
+host name verification. However, service_identity implements RFC 6125 fully and
+plans to add other relevant RFCs too.
 EOF
