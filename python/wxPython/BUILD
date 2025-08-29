@@ -1,5 +1,3 @@
-sed -i '\|sip/siplib/bool\.cpp|d' wscript &&
-
 #Rebuild some bundled sip files
 python build.py sip &&
 
