@@ -26,6 +26,7 @@ OPTS+=" -D LWS_WITH_HTTP2=ON \
         -D LWS_WITHOUT_TEST_PING=ON \
         -D LWS_WITHOUT_TEST_CLIENT=ON \
         -D LWS_BUILD_HASH=no_hash \
+        -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -Wno-dev"
 
 default_cmake_build
