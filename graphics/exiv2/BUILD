@@ -1,7 +1,3 @@
-if module_installed openssh ; then
-  OPTS+=" -DEXIV2_ENABLE_SSH=ON"
-fi
-
 OPTS+=" -DEXIV2_ENABLE_VIDEO=ON \
         -DCMAKE_SKIP_RPATH=ON \
         -DEXIV2_ENABLE_PNG=ON \
