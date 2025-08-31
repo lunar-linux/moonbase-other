@@ -3,6 +3,7 @@ Description=Git Daemon Instance
 
 [Service]
 User=git
+Group=git
 # The '-' is to ignore non-zero exit statuses
 ExecStart=-/usr/lib/git-core/git-daemon --inetd --export-all --base-path=/srv/git
 StandardInput=socket
