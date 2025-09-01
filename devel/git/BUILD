@@ -1,3 +1,5 @@
+add_priv_user git:git &&
+
 default_config &&
 
 if [ "`get_module_config DOCS`" = "y" ]; then
