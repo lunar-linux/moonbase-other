@@ -1,13 +1,13 @@
           MODULE=x264-snapshot
-         VERSION=20191217-2245
-          SOURCE=$MODULE-$VERSION-stable.tar.bz2
-   SOURCE_URL[0]=https://download.videolan.org/pub/videolan/x264/snapshots/
-   SOURCE_URL[1]=ftp://ftp.videolan.org/pub/videolan/x264/snapshots/
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION-stable
-      SOURCE_VFY=sha256:b2495c8f2930167d470994b1ce02b0f4bfb24b3317ba36ba7f112e9809264160
+         VERSION=20250908
+         _commit=b35605ace3ddf7c1a5d67a2eb553f034aef41d55
+          SOURCE=$MODULE-master.tar.bz2
+      SOURCE_URL=git+https://code.videolan.org/videolan/x264.git:$_commit
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-master
+#      SOURCE_VFY=sha256:
         WEB_SITE=http://www.videolan.org/developers/x264.html
          ENTERED=20080928
-         UPDATED=20200722
+         UPDATED=20250908
            SHORT="A library for encoding H264/AVC video streams"
 
 cat << EOF
