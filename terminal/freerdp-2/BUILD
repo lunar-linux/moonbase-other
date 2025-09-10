@@ -17,6 +17,7 @@ OPTS+=" -DWITH_SERVER=ON \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
         -DBUILD_TESTING=OFF \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
