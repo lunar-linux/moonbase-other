@@ -8,4 +8,4 @@ prepare_install &&
 rm -rf old.libraries &&
 mkdir -p /usr/share/sgml/docbook &&
 cp -rf $BUILD_DIRECTORY/xml /usr/share/sgml/docbook &&
-install -Dm755 $SCRIPT_DIRECTORY/buildDocBookCatalog /usr/bin
+install -m755 $SOURCE_CACHE/$SOURCE2 /usr/bin
