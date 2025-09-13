@@ -1,7 +1,8 @@
 default_pre_build &&
 
 sedit "s:UDEVDIR     = \$(DESTDIR):UDEVDIR     = \$(PREFIX):" Makefile &&
-sedit "s:/usr/sbin/usb_mode:/usr/bin/usb_mode:g" usb_modeswitch.{conf,tcl,sh} &&
+sedit "s:/usr/sbin/usb_mode:/usr/bin/usb_mode:g" usb_modeswitch.{conf,sh} &&
+sedit "s:/usr/sbin/usb_mode:/usr/bin/usb_mode:g" usb_modeswitch_dispatcher.tcl &&
 
 unpack $SOURCE2 &&
 sedit "s: rules-reload::" $MODULE-data-$VERDATA/Makefile &&
