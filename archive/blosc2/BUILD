@@ -1,3 +1,3 @@
-OPTS+=" -DBUILD_STATIC=OFF" &&
+OPTS+=" -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC=OFF" &&
 
 default_cmake_build
