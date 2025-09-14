@@ -28,13 +28,15 @@ OPTS+="	--disable-static \
         --enable-fts5 \
         --enable-rtree \
         --enable-geopoly \
-        --enable-threadsafe \
-        --enable-readline"
+        --enable-threadsafe"
 
 default_config &&
 
-# fix the tcl related directrory name
-sedit 's|/zipfs:|usr|' Makefile &&
+# fix the tcl related directory name
+if in_depends sqlite tcl
+then
+    sedit 's|/zipfs:|usr|' Makefile
+fi &&
 
 default_make &&
 
