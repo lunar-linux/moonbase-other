@@ -23,18 +23,16 @@ if module_installed live555; then
 fi &&
 
 if in_depends $MODULE qt5; then
- . /etc/profile.d/qt5.rc &&
- export RCC=/usr/lib/qt5/bin/rcc &&
- export MOC=/usr/lib/qt5/bin/moc &&
- export UIC=/usr/lib/qt5/bin/uic
+  . /etc/profile.d/qt5.rc &&
+  export RCC=/usr/lib/qt5/bin/rcc &&
+  export MOC=/usr/lib/qt5/bin/moc &&
+  export UIC=/usr/lib/qt5/bin/uic
 fi &&
 
 if in_depends $MODULE freerdp ; then
   export FREERDP_CFLAGS+=" -I/usr/include/freerdp2/ -I/usr/include/winpr2" &&
   export FREERDP_LIBS+=" -L/usr/lib64 -lfreerdp2"
 fi &&
-
-sedit 's:truetype/ttf-dejavu:TTF:g' modules/visualization/projectm.cpp &&
 
 # Add a needed qt5 include
 sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp &&
