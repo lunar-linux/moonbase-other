@@ -7,6 +7,9 @@ OPTS+=" --enable-xcb \
         --disable-sid \
         --disable-rpath \
         --disable-libplacebo \
+        --disable-chromaprint \
+        --disable-libplacebo \
+        --disable-opencv \
         --disable-update-check"
 
 default_config &&
