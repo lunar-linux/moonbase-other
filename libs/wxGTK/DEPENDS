@@ -11,9 +11,9 @@ depends libnotify
 depends libmspack
 depends gtk+-3
 depends gst-plugins-base
+depends gnome-vfs #No disable switch
 
 optional_depends qt5         "-DwxBUILD_TOOLKIT=qt" "" "the qt5 wxWidget toolkit will be built, ${PROBLEM_COLOR}the gtk3 toolkit will still be built${DEFAULT_COLOR}"
-
 optional_depends zlib        "-DwxUSE_ZLIB=sys"     "-DwxUSE_ZLIB=builtin"    "for LZW compression via zlib,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
 optional_depends expat       "-DwxUSE_EXPAT=sys"    "-DwxUSE_EXPAT=builtin"   "for XML support via expat,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
 optional_depends libpng      "-DwxUSE_LIBPNG=sys"   "-DwxUSE_LIBPNG=builtin"  "for PNG image support,${PROBLEM_COLOR} if no will use builtin${DEFAULT_COLOR}"
