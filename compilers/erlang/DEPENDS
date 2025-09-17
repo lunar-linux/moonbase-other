@@ -16,7 +16,7 @@ optional_depends zlib \
                  "y"
 
 optional_depends %OSSL \
-                 "--with-ssl" \
+                 "--with-ssl --enable-ssl=dynamic-ssl-lib --with-ssl-rpath=/usr/lib" \
                  "--without-ssl" \
                  "for ssl support"
 
