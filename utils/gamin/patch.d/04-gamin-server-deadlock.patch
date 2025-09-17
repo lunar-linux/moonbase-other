@@ -1,4 +1,4 @@
-From cc14440eface093548cb3bc7814da11d9a99d283 Mon Sep 17 00:00:00 2001
+From f9c67a13af33f389429e4e760f2023a23a9ac19f Mon Sep 17 00:00:00 2001
 From: Anssi Hannula <anssi@mageia.org>
 Date: Wed, 4 Jan 2012 00:23:55 +0200
 Subject: [PATCH] fix possible server deadlock in ih_sub_cancel
@@ -15,14 +15,9 @@ is an internal server header).
 This should fix the intermittent deadlocks I've been experiencing
 causing KDE applications to no longer start, and probably also
 http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=542361
-
-Origin: http://bugzilla-attachments.gnome.org/attachment.cgi?id=204537
-Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gamin/+bug/926862
-Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=542361
-
 ---
- server/inotify-helper.c |    7 ++-----
- server/inotify-helper.h |    1 -
+ server/inotify-helper.c | 7 ++-----
+ server/inotify-helper.h | 1 -
  2 files changed, 2 insertions(+), 6 deletions(-)
 
 diff --git a/server/inotify-helper.c b/server/inotify-helper.c
@@ -66,5 +61,5 @@ index 5d3b6d0..d36b5fd 100644
  /* Return FALSE from 'f' if the subscription should be cancelled */
  void		 ih_sub_foreach		(void *callerdata, gboolean (*f)(ih_sub_t *sub, void *callerdata));
 -- 
-1.7.7.2
+GitLab
 
