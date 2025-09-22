@@ -1,11 +1,7 @@
-make &&
+OPTS+=" -DCMAKE_INSTALL_LIBDIR=lib" &&
 
-pushd cli &&
-cargo build --release --locked --all-features
-popd &&
+cargo build --release --locked --all-features &&
 
-prepare_install &&
+default_cmake_build &&
 
-make PREFIX=/usr install &&
-
-rm /usr/lib/libtree-sitter.a
+install -Dm755 $SOURCE_DIRECTORY/target/release/tree-sitter /usr/bin/
