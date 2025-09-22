@@ -1,8 +1,8 @@
 depends %JAVA_SDK
 depends apache-ant
 
-optional_depends libxml2    "" "--without-libxml2"    "for libxml2 support"
-optional_depends freetype2  "" "--without-freetype"   "for freetype support"
-optional_depends fontconfig "" "--without-fontconfig" "for fontconfig support"
+optional_depends libxml2    "" "-Dlibxml2=false"    "for libxml2 support"
+optional_depends freetype2  "" "-Dfreetype=false"   "for freetype support"
+optional_depends fontconfig "" "-Dfontconfig=false" "for fontconfig support"
 
-optional_depends doxygen "" "" "for generating documentation"
+optional_depends doxygen "-Denable_docs=true" "" "for generating documentation"
