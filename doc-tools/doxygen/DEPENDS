@@ -4,12 +4,11 @@ depends sed
 depends perl
 depends xapian-core
 
-optional_depends spdlog "-Duse_sys_spdlog=ON"  "-Duse_sys_spdlog=OFF"   "${PROBLEM_COLOR}if yes use system${DEFAULT_COLOR}"
-optional_depends sqlite "-Duse_sys_sqlite3=ON" "-Duse_sys_sqlite3=OFF"  "${PROBLEM_COLOR}if yes use system${DEFAULT_COLOR}"
-
 optional_depends ghostscript "" "" "Formulas support"
 optional_depends graphviz    "" "" "Graphs support"
 optional_depends texlive     "" "" "LaTeX, Postscript and PDF output"
 
-optional_depends qt6-base "-Dbuild_wizard=ON" "-Dbuild_wizard=OFF" "Build the wizard" "n"
-optional_depends fmt      "-Duse_sys_fmt=ON"  "-Duse_sys_fmt=OFF" "use external FMT,${PROBLEM_COLOR} if no use internal${DEFAULT_COLOR}"
+optional_depends spdlog   "-Duse_sys_spdlog=ON"  "-Duse_sys_spdlog=OFF"   "${PROBLEM_COLOR}if yes use system${DEFAULT_COLOR}"
+optional_depends sqlite   "-Duse_sys_sqlite3=ON" "-Duse_sys_sqlite3=OFF"  "${PROBLEM_COLOR}if yes use system${DEFAULT_COLOR}"
+optional_depends fmt      "-Duse_sys_fmt=ON"     "-Duse_sys_fmt=OFF"      "use external FMT,${PROBLEM_COLOR} if no use internal${DEFAULT_COLOR}" n
+optional_depends qt6-base "-Dbuild_wizard=ON"    "-Dbuild_wizard=OFF"     "Build the wizard" "n"
