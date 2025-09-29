@@ -1,0 +1,40 @@
+From c7dcffdc86a2ac4fe8e176aac3a6b71cb79adbe4 Mon Sep 17 00:00:00 2001
+From: Matthias Clasen <mclasen@redhat.com>
+Date: Sun, 31 Aug 2025 08:20:27 +0200
+Subject: [PATCH] Don't crash with a family
+
+Handle the eventuality that pango_fc_font_map_get_family
+returns NULL, without crashing.
+---
+ pango/pangofc-fontmap.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/pango/pangofc-fontmap.c b/pango/pangofc-fontmap.c
+index 01010f4f0..6f3d83ab1 100644
+--- a/pango/pangofc-fontmap.c
++++ b/pango/pangofc-fontmap.c
+@@ -2367,13 +2367,15 @@ pango_fc_font_map_get_face (PangoFontMap *fontmap,
+   g_assert (res == FcResultMatch);
+ 
+   family = (PangoFcFamily *) pango_fc_font_map_get_family (fontmap, s);
+-
+-  ensure_faces (family);
+-
+-  for (int i = 0; i < family->n_faces; i++)
++  if (family)
+     {
+-      if (compare_face_pattern (family->faces[i]->pattern, fcfont->font_pattern) == 0)
+-        return PANGO_FONT_FACE (family->faces[i]);
++      ensure_faces (family);
++
++      for (int i = 0; i < family->n_faces; i++)
++        {
++          if (compare_face_pattern (family->faces[i]->pattern, fcfont->font_pattern) == 0)
++            return PANGO_FONT_FACE (family->faces[i]);
++        }
+     }
+ 
+   return NULL;
+-- 
+GitLab
+
