@@ -1,7 +1,10 @@
-OPTS+=" -DwxUSE_UNICODE=ON \
+if in_depends $MODULE qt5; then
+  source /etc/profile.d/qt5.rc
+fi
+
+OPTS+=" -DwxUSE_UNICODE_UTF8=ON \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_INSTALL_LIBDIR=lib \
         -DwxUSE_REGEX=sys      \
         -DwxUSE_PRIVATE_FONTS=ON \
         -DwxBUILD_OPTIMISE=ON  \
@@ -13,8 +16,8 @@ OPTS+=" -DwxUSE_UNICODE=ON \
         -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -Wno-dev"
 
-# Do the modules name; gtk
-cmake . -B $MODULE-gtk -G Ninja  $OPTS &&
-cmake  --build $MODULE-gtk &&
+cmake . -B $MODULE-$VERSION -G Ninja  $OPTS &&
+cmake  --build $MODULE-$VERSION &&
+
 prepare_install &&
-cmake --install $MODULE-gtk
+cmake --install $MODULE-$VERSION
