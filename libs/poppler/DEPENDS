@@ -8,9 +8,10 @@ depends gpgme
 
 optional_depends poppler-data "" "" "for support of additional file encodings"
 
-optional_depends boost "-DENABLE_BOOST=ON" \
-                       "-DENABLE_BOOST=OFF" \
-                       "Enable to use boost for Splash backend" n
+optional_depends boost \
+                 "-DENABLE_BOOST=ON" \
+                 "-DENABLE_BOOST=OFF" \
+                 "Enable to use boost for Splash backend" n
 
 optional_depends openjpeg-2 \
                  "-DENABLE_LIBOPENJPEG=openjpeg2" \
