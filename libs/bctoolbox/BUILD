@@ -4,9 +4,12 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DDTLS_SRTP_AVAILABLE=ON \
         -DBUILD_SHARED_LIBS=ON \
         -DDTLS_SRTP_AVAILABLE=ON \
-        -DENABLE_MBEDTLS=OFF \
         -DENABLE_OPENSSL=ON \
+        -DENABLE_MBEDTLS=OFF \
         -Wno-dev"
+
+export CFLAGS="-I/usr/include/mbedtls2"
+export LDFLAGS="-Wl,-rpath,/usr/lib/mbedtls2"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
