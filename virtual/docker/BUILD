@@ -43,7 +43,7 @@ _go_popd &&
 
 message "${MESSAGE_COLOR}Building docker-init${DEFAULT_COLOR}" &&
 _go_build_path tini-$_TINI_COMMIT github.com/krallin/tini &&
-cmake . &&
+cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 . &&
 make tini-static &&
 _go_popd &&
 
