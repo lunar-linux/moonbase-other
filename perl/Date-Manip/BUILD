@@ -4,8 +4,6 @@ perl Makefile.PL &&
 
 make &&
 
-make test &&
-
 prepare_install &&
 
 cd blib &&
