@@ -1,6 +1,6 @@
-export PYTHONDONTWRITEBYTECODE=1 &&
+export PYTHONDONTWRITEBYTECODE=1
 
-OPTS+=" -Dlegacy=enabled"
+OPTS+=" -Dpython=enabled -Dlegacy=enabled"
 
 default_meson_build &&
 
