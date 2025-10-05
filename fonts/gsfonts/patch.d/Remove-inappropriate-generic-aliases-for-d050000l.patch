@@ -1,0 +1,37 @@
+From 3c0ba3b5687632dfc66526544a4e811fe0ec0cd9 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ois=C3=ADn?= <denpashogai@gmail.com>
+Date: Sun, 12 Feb 2023 19:10:20 +0000
+Subject: [PATCH] Remove inappropriate generic aliases for d050000l
+
+The "D050000L" font was marked as an alias for "fantasy" but shouldn't be. According to the W3C CSS1 generic font-family definitions: "Fantasy fonts are primarily decorative or expressive fonts that contain decorative or expressive representations of characters. These do not include Pi or Picture fonts which do not represent actual characters."
+---
+ fontconfig/urw-d050000l.conf | 16 ----------------
+ 1 file changed, 16 deletions(-)
+
+diff --git a/fontconfig/urw-d050000l.conf b/fontconfig/urw-d050000l.conf
+index cd409bf..388e019 100644
+--- a/fontconfig/urw-d050000l.conf
++++ b/fontconfig/urw-d050000l.conf
+@@ -1,22 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+ <fontconfig>
+-  <!-- Generic name aliasing -->
+-  <alias>
+-    <family>fantasy</family>
+-    <prefer>
+-      <family>D050000L</family>
+-    </prefer>
+-  </alias>
+-
+-  <!-- Generic name assignment -->
+-  <alias>
+-    <family>D050000L</family>
+-    <default>
+-      <family>fantasy</family>
+-    </default>
+-  </alias>
+-
+   <!-- Original PostScript base font mapping -->
+   <alias binding="same">
+     <family>D050000L</family>
