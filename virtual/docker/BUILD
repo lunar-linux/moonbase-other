@@ -55,7 +55,6 @@ install -Dm755 cli-$VERSION/build/docker /usr/bin/docker &&
 install -Dm644 moby-$VERSION/contrib/init/systemd/docker.service /usr/lib/systemd/system/docker.service &&
 install -Dm644 moby-$VERSION/contrib/init/systemd/docker.socket /usr/lib/systemd/system/docker.socket &&
 install -Dm644 moby-$VERSION/contrib/udev/80-docker.rules /usr/lib/udev/rules.d/80-docker.rules &&
-install -Dm644 $SCRIPT_DIRECTORY/sysusers.d/docker.conf /usr/lib/sysusers.d/docker.conf &&
 install -Dm644 cli-$VERSION/contrib/completion/bash/docker /usr/share/bash-completion/completions/docker &&
 
 if in_depends $MODULE go-md2man; then
