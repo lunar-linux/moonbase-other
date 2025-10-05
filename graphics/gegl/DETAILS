@@ -1,13 +1,13 @@
           MODULE=gegl
-         VERSION=0.4.62
+         VERSION=0.4.64
           SOURCE=$MODULE-$VERSION.tar.bz2
- SOURCE_URL_FULL=https://gitlab.gnome.org/GNOME/gegl/-/archive/GEGL_0_4_62/gegl-GEGL_0_4_62.tar.bz2
-      SOURCE_VFY=sha256:948f346ef8d7e3ebf34056b6d9aaf93f98d7acebac17e00c216be3da3684171a
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-GEGL_0_4_62
-        WEB_SITE=http://gegl.org
+ SOURCE_URL_FULL=https://gitlab.gnome.org/GNOME/gegl/-/archive/GEGL_${VERSION//./_}/gegl-GEGL_${VERSION//./_}.tar.bz2
+      SOURCE_VFY=sha256:86e8805d041050457baf83066276cda45004fbe7c44a528d96712701ad5620d6
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-GEGL_${VERSION//./_}
+        WEB_SITE=http://gegl.org/
             TYPE=meson
          ENTERED=20081016
-         UPDATED=20250508
+         UPDATED=20251005
            SHORT="Generic Graphics Library"
 
 cat << EOF
