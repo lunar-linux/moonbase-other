@@ -4,12 +4,17 @@ pipeline {
     disableConcurrentBuilds()
   }
   stages {
+    stage('Hello') {
+      steps {
+       echo "Hello" 
+      }
+    }
     stage('Pull Request') {
       when {
         branch 'PR-*'
       }
       steps {
-        echo 'Test if this is triggered.'
+        echo "Test if this is triggered."
       }
     }
   }
