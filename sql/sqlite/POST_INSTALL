@@ -1,7 +1,10 @@
-if module_installed python; then
-  lin -c python
-fi
+if [[ ${REBUILD_PYTHON:-n} == y ]]
+then
+  if module_installed python; then
+    lin -c python
+  fi
 
-if module_installed python2; then
-  lin -c python2
+  if module_installed python2; then
+    lin -c python2
+  fi
 fi
