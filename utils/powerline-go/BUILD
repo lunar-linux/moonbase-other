@@ -1,4 +1,5 @@
 export GOPATH="$SOURCE_DIRECTORY/gopath"
+echo "$LDFLAGS"
 
 go build \
    -trimpath \
