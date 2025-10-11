@@ -1,6 +1,5 @@
 export GOPATH="$SOURCE_DIRECTORY/gopath"
 unset LDFLAGS
-#bad_flags "-Wl,-z,relro" "-Wl,-z,now" &&
 export LDFLAGS="-Wl,-z,relro,-z,now $LDFLAGS" &&
 
 go build \
