@@ -22,9 +22,9 @@ OPTS+=" -DDBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf \
 cmake -B $MODULE-qt6 -S . $OPTS &&
 cmake --build $MODULE-qt6 &&
 
-cmake -B $MODULE-qt5 -S . $OPTS &&
-cmake --build $MODULE-qt5/src/greeter &&
-cmake --build $MODULE-qt5/components &&
+#cmake -B $MODULE-qt5 -S . $OPTS &&
+#cmake --build $MODULE-qt5/src/greeter &&
+#cmake --build $MODULE-qt5/components &&
 
 prepare_install &&
 
@@ -38,8 +38,8 @@ cmake --install $MODULE-qt6 &&
 cmake --install $MODULE-qt6/src/greeter &&
 cmake --install $MODULE-qt6/components &&
 
-cmake --install $MODULE-qt5/src/greeter &&
-cmake --install $MODULE-qt5/components &&
+#cmake --install $MODULE-qt5/src/greeter &&
+#cmake --install $MODULE-qt5/components &&
 
 
 # Tweak some PAM stuff
