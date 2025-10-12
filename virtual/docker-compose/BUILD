@@ -1,4 +1,3 @@
-export GOPROXY=https://proxy.golang.org
 export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CFLAGS="${CFLAGS}"
 export CGO_CXXFLAGS="${CXXFLAGS}"
