@@ -8,7 +8,7 @@ OPTS+=" --build=$BUILD \
         --enable-extended \
         --enable-vendor \
         --sysconfdir=/etc \
-        --docdir=/usr/share/doc \
+        --docdir=/usr/share/doc/rustc \
         --mandir=/usr/share/man \
         --disable-docs \
         --disable-debug \
@@ -21,5 +21,4 @@ OPTS+=" --build=$BUILD \
 python ./x.py build --jobs $CARGO_BUILD_JOBS &&
 
 prepare_install &&
-python ./x.py install -j $CARGO_BUILD_JOBS -v rustc std &&
-python ./x.py install --stage=1 cargo clippy rustfmt
+python ./x.py install -j $CARGO_BUILD_JOBS
