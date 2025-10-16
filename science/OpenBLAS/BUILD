@@ -6,12 +6,12 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DNO_AFFINITY=ON \
         -DNO_WARMUP=1 \
         -DNUM_THREADS=64 \
-        -DDYNAMIC_ARCH=OFF \
+        -DDYNAMIC_ARCH=ON \
         -DUSE_OPENMP=1 \
         -DINTERFACE64=1 \
         -Wno-dev"
 
-ASMFLAGS=$CFLAGS FFLAGS=${CFLAGS} FC=gfortran \
+ASMFLAGS=$CFLAGS FFLAGS=${CFLAGS/ -Wformat -Werror=format-security/} FC=gfortran \
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 
 cmake --build $MODULE-$VERSION &&
