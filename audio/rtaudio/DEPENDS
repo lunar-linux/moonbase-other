@@ -2,4 +2,5 @@ depends cmake
 depends pulseaudio
 depends alsa-lib
 
-optional_depends jack2 "--with-jack" "--without-jack" "forlow-latency audio server support"
+optional_depends python "-DRTAUDIO_BUILD_PYTHON=ON" "-DRTAUDIO_BUILD_PYTHON=OFF" "for python bindings support"
+optional_depends jack2  "-DRTAUDIO_API_JACK=ON"     "-DRTAUDIO_API_JACK=OFF"     "for low-latency audio server support"
