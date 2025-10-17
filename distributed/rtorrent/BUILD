@@ -1,8 +1,3 @@
-
-bad_flags -fomit-frame-pointer &&
-
 autoreconf -fi &&
 
-default_build &&
-
-gather_docs TODO doc/rtorrent.rc
+default_build
