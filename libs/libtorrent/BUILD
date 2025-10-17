@@ -1,7 +1,7 @@
-sedit "1i #include <algorithm>" src/torrent/utils/directory_events.cc &&
+#sedit "1i #include <algorithm>" src/torrent/utils/directory_events.cc &&
 
 autoreconf -fi &&
 
-default_build  &&
+OPTS+=" --disable-debug"
 
-gather_docs TODO
+default_build
