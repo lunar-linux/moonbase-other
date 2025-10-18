@@ -1,6 +1,5 @@
 depends popt
 depends slang
 
-optional_depends python "--with-python=$(lvu version python|cut -d. -f1-2)" \
-                        "--without-python" "for Python support"
+optional_depends python "--with-python" "--without-python" "for Python support"
 optional_depends tcl    "--with-tcl"    "--without-tcl"    "for tcl support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}"
