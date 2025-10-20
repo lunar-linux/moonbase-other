@@ -74,4 +74,4 @@ install -Dm644 {$SCRIPT_DIRECTORY/udev.d,/etc/udev/rules.d}/60-vboxdrv.rules &&
 install -Dm644 {$SCRIPT_DIRECTORY/udev.d,/etc/udev/rules.d}/60-vboxguest.rules &&
 
 # Create the vboxusers group
-groupadd -f vboxusers
+add_priv_group vboxusers
