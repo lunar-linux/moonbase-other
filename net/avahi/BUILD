@@ -1,14 +1,12 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
 
-#Fix a security vulnerabilty in avahi-daemon: 
-sedit '426a if (events & AVAHI_WATCH_HUP) {client_free(c);return;}' avahi-daemon/simple-protocol.c &&
-
 autoreconf -fiv &&
 
-if module_installed qt5; then
-  . /etc/profile.d/qt5.rc
-  QT5_CFLAGS="-I/usr/include/qt5/QtCore -I/usr/include/qt5" &&
-  QT5_LIBS="-L/usr/lib/qt5 -lQt5Core"
+if in_depends $MODULE qt6-base; then
+  source /etc/profile.d/qt6.rc
+  QT6_CFLAGS="$(pkgconf --cflags /usr/lib/qt6/pkgconfig/Qt6Core.pc)" &&
+  QT6_LIBS="$(pkgconf --libs /usr/lib/qt6/pkgconfig/Qt6Core.pc)" &&
+  export MOC_QT6=/usr/lib/qt6/moc
 fi &&
 
 add_priv_user avahi:avahi -d /dev/null -s /usr/bin/false &&
@@ -29,8 +27,10 @@ OPTS+=" --enable-compat-howl \
         --disable-manpages \
         --disable-core-docs \
         --with-distro=none \
+        --with-systemdsystemunitdir=/usr/lib/systemd/system \
         --enable-python-dbus \
-        --enable-introspection=yes \
+        --enable-introspection \
+        
         --with-avahi-priv-access-group=network
         --prefix=/usr \
         --sysconfdir=/etc \
