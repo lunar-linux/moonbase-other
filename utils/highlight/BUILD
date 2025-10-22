@@ -1,9 +1,9 @@
-. /etc/profile.d/qt5.rc &&
+source /etc/profile.d/qt6.rc &&
 
-make QMAKE=qmake-qt5 &&
-make QMAKE=qmake-qt5 gui &&
+make QMAKE=qmake6 &&
+make QMAKE=qmake6 gui &&
 
 prepare_install &&
 
-make QMAKE=qmake-qt5 install &&
+make QMAKE=qmake6 install &&
 make install-gui
