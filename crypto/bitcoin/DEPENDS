@@ -11,7 +11,7 @@ optional_depends db \
 optional_depends qt5 \
                  "--with-gui=qt5" \
                  "--with-gui=no" \
-                 "build bitcoin-qt interface (say no to dbus and qrencode if you say no here)"
+                 "build bitcoin-qt interface (say no to dbus and qrencode if you say no here)" n
 
 optional_depends dbus \
                  "--with-qtdbus" \
@@ -22,6 +22,3 @@ optional_depends qrencode \
                  "--with-qrencode" \
                  "--without-qrencode" \
                  "for QRCode generator"
-
-# There is no such module in moonbase atm
-#optional_depends miniupnp "--with-miniupnpc" "--without-miniupnpc" "for UPnP port forwarding"
