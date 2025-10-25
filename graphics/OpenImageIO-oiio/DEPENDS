@@ -2,6 +2,7 @@ depends glew
 depends %JPEG
 depends tiff
 depends libpng
+depends libjxl
 depends pugixml
 depends openexr
 depends boost
@@ -11,7 +12,7 @@ depends libsquish
 depends pybind11
 depends qt6-base
 depends qt6-tools
-depends OpenImageIO-oiio
+depends OpenColorIO
 
 optional_depends giflib      "-DUSE_GIF=ON"      "-DUSE_GIF=OFF"      "for gif image support" y
 optional_depends LibRaw      "-DUSE_LIBRAW=ON"   "-DUSE_LIBRAW=OFF"   "for raw image support" 
@@ -19,5 +20,3 @@ optional_depends opencv      "-DUSE_OPENCV=ON"   "-DUSE_OPENCV=OFF"   "for open 
 optional_depends openjpeg    "-DUSE_OPENJPEG=ON" "-DUSE_OPENJPEG=OFF" "for openjpeg graphics support"y
 optional_depends freetype2   "-DUSE_FREETYPE=ON" "-DUSE_FREETPE=OFF"  "for freetype font support" y
 optional_depends ptex        "-DUSE_PTEX=ON"     "-DUSE_PTEX=OFF"     "for Per-Face Texture Mapping support" y
-
-optional_depends OpenColorIO ""     ""     "for OpenColorIO color management support"
