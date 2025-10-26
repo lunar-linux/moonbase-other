@@ -1,0 +1,23 @@
+          MODULE=bash-preexec
+         VERSION=0.6.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_URL_FULL=https://github.com/rcaloras/bash-preexec/archive/$VERSION.tar.gz
+     SOURCE_VFY=sha256:1a987c0ef0e9cfa0391389327c5aef30166325b32666adde3daa9b809850cdd1
+        WEB_SITE=https://github.com/rcaloras/bash-preexec
+         ENTERED=20251026
+         UPDATED=20251026
+           SHORT="preexec and precmd functions for Bash just like Zsh"
+
+cat << EOF
+bash-preexec provides hook functions for Bash that emulate Zsh's preexec and
+precmd functionality. It enables two main hooks:
+
+- preexec: Executes automatically after a command is entered but before it runs,
+  receiving the typed command as an argument
+- precmd: Triggers just before the shell prompt displays, functioning as a more
+  flexible alternative to PROMPT_COMMAND
+
+This is particularly useful for tools that need to track command execution,
+measure timing, or modify the environment before/after commands run. It is used
+by production applications including Bashhub, iTerm2, Fig, and Atuin.
+EOF
