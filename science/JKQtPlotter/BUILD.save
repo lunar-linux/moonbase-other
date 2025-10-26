@@ -1,0 +1,22 @@
+source /etc/profile.d/qt6.rc  &&
+
+# Fix cmake config install dir
+sed -e 's|lib/cmake|lib/cmake/${libsh_name}|g' -i lib/*/CMakeLists.txt
+
+OPTS+=" -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+        -DJKQtPlotter_BUILD_EXAMPLES=OFF \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -Wno-dev"
+
+
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
+
+prepare_install
+cmake --install $MODULE-$VERSION
+
+install -Dm644 LICENSE -t /usr/share/licenses/$MODULE
+
+# Fix doc install dir
+mv -f /usr/doc/$MODULE /usr/share/doc/
