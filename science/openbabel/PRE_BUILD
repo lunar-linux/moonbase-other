@@ -1,0 +1,6 @@
+default_pre_build
+
+patch -p1 < $SCRIPT_DIRECTORY/001-openbabel-3.1.1_p2024-fix_pybind.patch
+patch -p1 < $SCRIPT_DIRECTORY/002-openbabel-3.1.1_p2024-fix_examples.patch
+patch -p1 < $SCRIPT_DIRECTORY/003-openbabel-3.1.1_p2024-cmake4.patch
+patch -p1 < $SCRIPT_DIRECTORY/004-openbabel-3.1.1-fix-time-check-cmake.patch
