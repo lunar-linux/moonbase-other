@@ -1,0 +1,27 @@
+# Lunar configuration file for atuin server
+# /etc/config.d/atuin
+
+# The host address to bind to
+# Default: 127.0.0.1 (localhost only)
+# Use 0.0.0.0 to listen on all interfaces
+ATUIN_HOST="127.0.0.1"
+
+# The port to listen on
+# Default: 8888
+ATUIN_PORT="8888"
+
+# Allow new user registrations
+# Default: false
+# WARNING: Only set to true if you want to allow public registrations
+ATUIN_OPEN_REGISTRATION="false"
+
+# Database URI
+# PostgreSQL example:
+# ATUIN_DB_URI="postgres://atuin:password@localhost/atuin"
+# SQLite example:
+# ATUIN_DB_URI="sqlite:///var/lib/atuin/atuin.db"
+
+# Logging level
+# Options: error, warn, info, debug, trace
+# Default: info
+RUST_LOG="info,atuin_server=info"

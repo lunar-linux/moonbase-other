@@ -1,0 +1,26 @@
+[Unit]
+Description=Atuin server - magical shell history sync
+Documentation=https://docs.atuin.sh
+After=network.target
+
+[Service]
+Type=simple
+User=atuin
+Group=atuin
+Environment="ATUIN_HOST=127.0.0.1"
+Environment="ATUIN_PORT=8888"
+Environment="ATUIN_OPEN_REGISTRATION=false"
+EnvironmentFile=-/etc/config.d/atuin
+ExecStart=/usr/bin/atuin server start
+Restart=on-failure
+RestartSec=5s
+
+# Security hardening
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/atuin
+
+[Install]
+WantedBy=multi-user.target

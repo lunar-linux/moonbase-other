@@ -1,0 +1,17 @@
+# Create data directory (user/group created automatically by sysusers.d)
+mkdir -p /var/lib/atuin &&
+
+# Create config directory
+mkdir -p /etc/atuin &&
+
+message "${MESSAGE_COLOR}To run the atuin server:${DEFAULT_COLOR}"
+message "  1. Copy and configure /etc/atuin/server.toml.example to /etc/atuin/server.toml"
+message "  2. Optionally edit /etc/config.d/atuin for environment variables"
+message "  3. Enable and start the service: systemctl enable --now atuin.service"
+message ""
+message "${MESSAGE_COLOR}For PostgreSQL database setup:${DEFAULT_COLOR}"
+message "  createuser -U postgres atuin"
+message "  createdb -U postgres -O atuin atuin"
+message ""
+message "${MESSAGE_COLOR}For SQLite (simpler option):${DEFAULT_COLOR}"
+message "  Use: db_uri = \"sqlite:///var/lib/atuin/atuin.db\" in server.toml"

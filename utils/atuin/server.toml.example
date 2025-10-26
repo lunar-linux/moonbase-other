@@ -1,0 +1,44 @@
+# Atuin server configuration example
+# Place this file at ~/.config/atuin/server.toml (for user)
+# or /etc/atuin/server.toml (for system-wide server)
+
+# The address to bind to
+host = "127.0.0.1"
+
+# The port to listen on
+port = 8888
+
+# Allow new user registrations
+# IMPORTANT: Set to false in production unless you want public registrations
+open_registration = false
+
+# PostgreSQL database URI
+# Example: db_uri = "postgres://atuin:password@localhost/atuin"
+db_uri = "postgres://atuin:password@localhost/atuin"
+
+# Or use SQLite instead:
+# db_uri = "sqlite:///var/lib/atuin/atuin.db"
+
+# Optional: Path prefix for all routes
+# path = ""
+
+# Maximum number of history entries per user per day
+max_history_length = 8192
+
+# Maximum record size in bytes
+max_record_size = 1048576
+
+# Page size for pagination
+page_size = 100
+
+# Optional: TLS configuration
+# [tls]
+# enable = true
+# cert_path = "/path/to/cert.pem"
+# pkey_path = "/path/to/key.pem"
+
+# Optional: Metrics configuration
+# [metrics]
+# enable = true
+# host = "127.0.0.1"
+# port = 9001
