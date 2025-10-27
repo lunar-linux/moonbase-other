@@ -1,4 +1,4 @@
-source /etc/profile.d/qt6.rc  &&
+source /etc/profile.d/qt5.rc  &&
 
 default_cmake_build &&
 

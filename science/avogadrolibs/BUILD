@@ -1,4 +1,4 @@
-source /etc/profile.d/qt6.rc  &&
+source /etc/profile.d/qt5.rc  &&
 
 #Dummy dirs to trick cmake
 mkdir crystals fragments molecules &&
@@ -8,9 +8,7 @@ if module_installed hdf5 ; then
   CXXFLAGS+=' -DH5_USE_110_API'
 fi &&
 
-OPTS+=" -DUSE_QT=ON \
-        -DQT_VERSION=6 \
-        -DBUILD_GPL_PLUGINS=ON"
+OPTS+=" -DBUILD_GPL_PLUGINS=ON -DOpenBabel3_INCLUDE_DIR=/usr/include/openbabel3" &&
 
 default_cmake_build
 
