@@ -1,3 +1,5 @@
+sedit 's:LIBDIR}/cmake:LIBDIR}/cmake/maeparser:' CMakeLists.txt &&
+
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
         -Wno-dev"
