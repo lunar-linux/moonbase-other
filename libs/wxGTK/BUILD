@@ -8,7 +8,7 @@ OPTS+=" -DwxUSE_UNICODE_UTF8=ON \
         -DwxBUILD_OPTIMISE=ON  \
         -DwxUSE_WEBVIEW_WEBKIT=ON \
         -DwxUSE_WEBVIEW=ON  \
-        -DwxUSE_NANOSVG=sys \
+        -DwxUSE_NANOSVG=builtin \
         -DwxUSE_GTKPRINT=ON \
         -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -Wno-dev"
