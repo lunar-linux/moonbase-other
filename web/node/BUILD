@@ -1,3 +1,5 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
+
 # /usr/lib/libnode.so uses malloc_usable_size, which is incompatible with fortification level 3,
 # so lets avoid those who like to use faster, better optimizations.
 export CFLAGS="${CFLAGS/_FORTIFY_SOURCE=3/_FORTIFY_SOURCE=2}"
