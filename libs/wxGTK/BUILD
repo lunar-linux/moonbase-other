@@ -17,5 +17,5 @@ OPTS+=" -DwxUSE_UNICODE_UTF8=ON \
 cmake . -B $MODULE-$VERSION-gtk3 -G Ninja $OPTS -DwxBUILD_TOOLKIT=gtk3 &&
 cmake  --build $MODULE-$VERSION-gtk3 &&
 
-prepare_install &&
+prepare_install
 cmake --install $MODULE-$VERSION-gtk3
