@@ -1,12 +1,11 @@
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DTBB4PY_BUILD=ON \
+        -DTBB_STRICT=OFF \
+        -Wno-dev"
 
-sedit 's:-Werror:-Wno-error:g' cmake/compilers/GNU.cmake &&
-sedit 's:-Wfatal-errors:-Wno-error:' cmake/compilers/GNU.cmake &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-default_cmake_build &&
-
-# copied the pc from debian, they don't provide it upstream
-cat $SCRIPT_DIRECTORY/tbb.pc.in | sed "s/%VERSION%/${VERSION}/" > tbb.pc &&
-
-make &&
-prepare_install &&
-install -Dm0644 tbb.pc /usr/lib/pkgconfig/
+prepare_install
+cmake --install $MODULE-$VERSION
