@@ -1,18 +1,18 @@
+depends alsa-lib
 depends cmake
 depends libsamplerate
+depends libmad
 depends libsndfile
-depends jack2
 depends lilv
-depends fftw3
-depends rasqal
-depends redland
+depends fftw
 depends wavpack
 depends libogg
 depends libvorbis
 depends flac
-depends qt5
+depends portaudio
+depends jack2
+depends qt6-base
 
 optional_depends pulseaudio "-DWANT_PULSEAUDIO=1" "-DWANT_PULSEAUDIO=0" "for pulseaudio support"
-optional_depends libmad     "-DWANT_MP3_DECODE=1" "-DWANT_MP3_DECODE=0" "for MP3 read support"
-optional_depends lame       "-DWANT_MP3_ENCODE=1" "-DWANT_MP3_DECODE=0" "for MP3 write support"
+optional_depends lame       "-DWANT_MP3_ENCODE=1" "-DWANT_MP3_ENCODE=0" "for MP3 write support"
 optional_depends slv2       "-DWANT_LV2=1"        "-DWANT_LV2=0"        "if you intend to use LV2-plugins"
