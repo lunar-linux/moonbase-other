@@ -1,4 +1,3 @@
-
 cat <<-EOF > version
 	${VERSION}
 	EOF
