@@ -1,4 +1,4 @@
-make $OPTS &&
+make VERSION=$VERSION $OPTS &&
 
 prepare_install &&
-make prefix=/usr install
+make DESTDIR=/ prefix=/usr install
