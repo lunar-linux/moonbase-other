@@ -1,12 +1,24 @@
+depends avogadro-molecules
+depends libmsym
 depends libarchive
 depends glew
 depends mmtf-cpp
-depends molequeue
 depends eigen3
 depends spglib
 depends libmsym
 depends msgpack-cxx
 depends openbabel
-depends qt5
+depends qt6-tools
+depends qt6-svg
+depends JKQtPlotter
 
 optional_depends hdf5 "-DUSE_HDF5=ON" "-DUSE_HDF5=OFF" "for data modeling support"
+
+optional_depends pugixml "-DUSE_EXTERNAL_PUGIXML=ON"  \
+                         "-DUSE_EXTERNAL_PUGIXML=OFF" \
+                         "for xml processing support,${PROBLEM_COLOR}yes use external${DEFAULT_COLOR}"
+
+optional_depends nlohmann-json "-DUSE_EXTERNAL_NLOHMANN=ON"  \
+                               "-DUSE_EXTERNAL_NLOHMANN=OFF" \
+                               "for json c++ support,${PROBLEM_COLOR}yes use external${DEFAULT_COLOR}"
+
