@@ -1,16 +1,21 @@
-source /etc/profile.d/qt5.rc  &&
+source /etc/profile.d/qt6.rc  &&
 
 #Dummy dirs to trick cmake
-mkdir crystals fragments molecules &&
+mkdir -p crystals fragments molecules &&
 
-if module_installed hdf5 ; then
-  # Workaround for building with hdf5 1.12
-  CXXFLAGS+=' -DH5_USE_110_API'
-fi &&
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DQT_VERSION=6 \
+        -DUSE_PYTHON=ON \
+        -DBUILD_GPL_PLUGINS=ON \
+        -Wno-dev"
 
-OPTS+=" -DBUILD_GPL_PLUGINS=ON -DOpenBabel3_INCLUDE_DIR=/usr/include/openbabel3" &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-default_cmake_build
+prepare_install
+cmake --install $MODULE-$VERSION &&
 
 # Cleaning up
 rm -rf /usr/src/{crystals,molecules,fragments}
