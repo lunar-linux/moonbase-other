@@ -15,7 +15,7 @@ cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
 
 prepare_install
-cmake --install $MODULE-$VERSION
+cmake --install $MODULE-$VERSION &&
 
 # Cleaning up
 rm -rf /usr/src/{crystals,molecules,fragments}
