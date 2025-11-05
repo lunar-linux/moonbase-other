@@ -4,6 +4,7 @@ OPTS+=" -DAVIF_LIBYUV=LOCAL   \
         -DAVIF_BUILD_APPS=ON \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
+        -DAVIF_CODEC_AOM=SYSTEM \
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
