@@ -1,10 +1,6 @@
 depends cmake 
+depends aom
 
-optional_depends aom \
-    "-DAVIF_CODEC_AOM=SYSTEM" \
-    "-DAVIF_CODEC_AOM=LOCAL" \
-    "for aom reference AV1 codec support, ${PROBLEM_COLOR}If no use local${DEFAULT_COLOR}"
-    
 optional_depends dav1d \
     "-DAVIF_CODEC_DAV1D=SYSTEM" \
     "-DAVIF_CODEC_DAV1D=LOCAL" \
