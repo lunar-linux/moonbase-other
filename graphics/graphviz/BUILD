@@ -1,8 +1,6 @@
 export LIBPOSTFIX=/
 export CXXFLAGS+=' -fPIC -fpermissive' &&
 
-sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
-
 if in_depends $MODULE qt6-base; then
   source /etc/profile.d/qt6.rc &&
   export QTCORE_LIBS=$(pkgconf --libs /usr/lib/qt6/pkgconfig/Qt6Core.pc)
@@ -25,4 +23,7 @@ else
    OPTS+=" --without-rsvg"
 fi
 
-default_build
+default_config
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+
+default_make

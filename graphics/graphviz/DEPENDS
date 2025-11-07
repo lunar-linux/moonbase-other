@@ -1,3 +1,4 @@
+depends zlib
 depends automake
 depends autoconf
 depends expat
@@ -6,15 +7,15 @@ depends libgd
 depends gettext
 depends glib-2
 depends pkgconf
+depends poppler
 
 optional_depends qt6-base  "" "" "for qt6 support"
-optional_depends urw-fonts "" "" "extra fonts for XOrg X11"
 
 optional_depends ghostscript "--with-ghostscript" "--without-ghostscript" "for Postscript support"
-optional_depends %JAVA_SDK   "--enable-java=yes"  "--disable-java"        "for java support"
+optional_depends devil "--with-devil --with-devillibdir=/usr/lib/ \
+                        --with-devilincludedir=/usr/include/IL/" "" \
+                       "for additional graph file format support"
 
-optional_depends perl    "--enable-perl" "--disable-perl"  "perl support"
-optional_depends R       "--enable-r"    "--disable-r"     "for R language support"
 optional_depends gts     "--with-gts"    "--without-gts"   "for 3D surface support"
 optional_depends glitz   "--with-glitz"  "--without-glitz" "for OpenGL image compositing support"
 optional_depends libLASi "--with-lasi"   "--without-lasi"  "for C++ stream output to create Postscript documents"
@@ -23,20 +24,18 @@ optional_depends ming    "--with-ming"   "--without-ming"  "for flash support"
 
 optional_depends cairo "" "" "for 2D vector graphics library"
 optional_depends pango "" "" "for text layout/rendering library"
-optional_depends zlib  "" "" "for data compression library"
-optional_depends tk    "" "" "for building extra tcl/tk tools"
-optional_depends lua   "" "--disable-lua"   "for lua support"
-optional_depends swig  "" "--disable-swig"  "for swig support"
-optional_depends guile "" "--disable-guile" "for guile support"
-optional_depends ocaml "" "--disable-ocaml" "for ocaml support"
 
-optional_depends devil "--with-devil --with-devillibdir=/usr/lib/ \
-                        --with-devilincludedir=/usr/include/IL/" "" \
-                       "for additional graph file format support"
-
-optional_depends php "--enable-php" "--disable-php" "for PHP support"
-optional_depends ruby "--enable-ruby" "--disable-ruby" "for ruby support"
-optional_depends python "--enable-python3 --disable-python --enable-lefty" "--disable-python3" "for Python 3.x support"
+optional_depends swig  "" "--disable-swig"  "for swig support,${PROBLEM_COLOR} Must say yes if any bindings support are wanted${DEFAULT_COLOR}"
+optional_depends tk    "" "--disable-tcl"   "for building extra tcl/tk tools and bindings support"
+optional_depends lua   "" "--disable-lua"   "for lua bindings support"
+optional_depends guile "" "--disable-guile" "for guile bindings support"
+optional_depends ocaml "" "--disable-ocaml" "for ocaml bindings support"
+optional_depends perl  "--enable-perl" "--disable-perl"  "perl bindings support"
+optional_depends php   "--enable-php"  "--disable-php"  "for PHP bindings support"
+optional_depends ruby  "--enable-ruby" "--disable-ruby" "for ruby bindings support"
+optional_depends R     "--enable-r"    "--disable-r"    "for R language bindings support"
+optional_depends %JAVA_SDK "--enable-java=yes"  "--disable-java" "for java bindings support"
+optional_depends python "--enable-python3 --disable-python --enable-lefty" "--disable-python3" "for Python 3.x bindings support"
 
 # Circular depend with vala
 #optional_depends librsvg "--with-rsvg" "--without-rsvg" "for SVG graphics support"
