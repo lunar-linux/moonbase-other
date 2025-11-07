@@ -6,6 +6,8 @@ optional_depends leveldb  "--with-db-backend=leveldb" "" \
                           "Use leveldb database libs for storing disk usage" y
 optional_depends sqlite   "--with-db-backend=sqlite3" "" \
                           "Use the sqlite database libs for storing disk usage" n
+optional_depends kyotocabinet "--with-db-backend=kyotocabinet" "" \
+                          "Use the kyotocabinet database libs for storing disk usage" n
 optional_depends libX11   "--enable-x11 --disable-opengl" "" \
                           "Use the X11-based interface, disables OpenGL-based" y
 optional_depends mesa-lib "--disable-x11 --enable-opengl" "" \
