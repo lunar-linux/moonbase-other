@@ -1,5 +1,5 @@
-if in_depends $MODULE qt5 ; then
-  . /etc/profile.d/qt5.rc
+if in_depends $MODULE qt6-imageformats ; then
+  . /etc/profile.d/qt6.rc
 fi &&
 
 OPTS+=" -DHAVE_LIBATOMIC=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr"
