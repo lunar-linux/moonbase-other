@@ -1,5 +1,10 @@
 depends glib-2
 depends gobject-introspection
 depends libffi
-depends python-pycairo
 depends meson
+
+optional_depends python-pycairo \
+                 "-Dpycairo=enabled" \
+                 "-Dpycairo=disabled" \
+                 "for cairo graphics support (recommended)" \
+                 "y"
