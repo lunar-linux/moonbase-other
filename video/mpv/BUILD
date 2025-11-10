@@ -1,4 +1,9 @@
-OPTS+=" -Degl-x11=auto -Dgl-x11=auto -Dmanpage-build=disabled -Dcaca=disabled -Dlibmpv=true"
+OPTS+=" -Degl-x11=auto \
+        -Dgl-x11=auto \
+        -Dmanpage-build=disabled \
+        -Dcaca=disabled \
+        -Dlibmpv=true \
+        -Ddrm=auto"
 
 default_meson_build &&
 
