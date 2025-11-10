@@ -1,3 +1,7 @@
-OPTS+=" -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+CFLAGS+=' -fcommon'
 
-default_cmake_build
+autoreconf -fiv &&
+
+OPTS+=" --enable-update-database"
+
+default_build
