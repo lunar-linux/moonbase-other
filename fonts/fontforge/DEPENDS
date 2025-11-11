@@ -36,12 +36,7 @@ optional_depends readline \
                  "-DENABLE_LIBREADLINE=FALSE" \
                  "for readline support"
 
-optional_depends gtk+-3 "-DENABLE_GUI=TRUE" \
+optional_depends gtkmm3 "-DENABLE_GUI=TRUE" \
                         "-DENABLE_GUI=FALSE" \
                         "for GTK+ GUI support"
 
-optional_depends Sphinx \
-                 "-DENABLE_DOCS=TRUE" \
-                 "-DENABLE_DOCS=FALSE" \
-                 "for documentation install${PROBLEM_COLOR} Broken, say no${DEFAULT_COLOR}" \
-                 "n"
