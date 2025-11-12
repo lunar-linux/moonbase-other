@@ -1,9 +1,12 @@
 source /etc/profile.d/qt6.rc &&
+export LANG='en_US.UTF-8'
 
-make QMAKE=qmake6 &&
-make QMAKE=qmake6 gui &&
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -Wno-dev"
 
-prepare_install &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-make QMAKE=qmake6 install &&
-make install-gui
+prepare_install
+cmake --install $MODULE-$VERSION
