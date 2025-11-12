@@ -8,8 +8,10 @@ depends gettext
 depends glib-2
 depends pkgconf
 depends poppler
+depends cairo
+depends pango
 
-optional_depends qt6-base  "" "" "for qt6 support"
+optional_depends qt6-base  "--with-qt" "--without-qt" "for qt6 support"
 
 optional_depends ghostscript "--with-ghostscript" "--without-ghostscript" "for Postscript support"
 optional_depends devil "--with-devil --with-devillibdir=/usr/lib/ \
@@ -21,10 +23,6 @@ optional_depends glitz   "--with-glitz"  "--without-glitz" "for OpenGL image com
 optional_depends libLASi "--with-lasi"   "--without-lasi"  "for C++ stream output to create Postscript documents"
 optional_depends libwebp "--with-webp"   "--without-webp"  "for WebP image support"
 optional_depends ming    "--with-ming"   "--without-ming"  "for flash support"
-
-optional_depends cairo "" "" "for 2D vector graphics library"
-optional_depends pango "" "" "for text layout/rendering library"
-
 optional_depends swig  "" "--disable-swig"  "for swig support,${PROBLEM_COLOR} Must say yes if any bindings support are wanted${DEFAULT_COLOR}"
 optional_depends tk    "" "--disable-tcl"   "for building extra tcl/tk tools and bindings support"
 optional_depends lua   "" "--disable-lua"   "for lua bindings support"
@@ -34,9 +32,10 @@ optional_depends perl  "--enable-perl" "--disable-perl"  "perl bindings support"
 optional_depends php   "--enable-php"  "--disable-php"  "for PHP bindings support"
 optional_depends ruby  "--enable-ruby" "--disable-ruby" "for ruby bindings support"
 optional_depends R     "--enable-r"    "--disable-r"    "for R language bindings support"
-optional_depends %JAVA_SDK "--enable-java=yes"  "--disable-java" "for java bindings support"
+
+optional_depends %JAVA_SDK "--enable-java=yes" "--disable-java" "for java bindings support"
+
 optional_depends python "--enable-python3 --disable-python --enable-lefty" "--disable-python3" "for Python 3.x bindings support"
 
 # Circular depend with vala
 #optional_depends librsvg "--with-rsvg" "--without-rsvg" "for SVG graphics support"
-
