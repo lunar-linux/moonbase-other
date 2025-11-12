@@ -1,5 +1,6 @@
-CFLAGS+=" -Wno-error"
+sh Build.sh -r -tpax
 
-autoreconf -fi &&
-
-default_build
+prepare_install
+install -m755 pax -t /usr/bin
+ln -sf /usr/bin/pax /usr/bin/paxcpio
+ln -sf /usr/bin/pax /usr/bin/paxtar
