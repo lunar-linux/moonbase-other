@@ -3,8 +3,12 @@ depends libestr
 depends json-c
 depends liblogging
 depends libfastjson
-depends systemd
 depends zlib
+
+optional_depends systemd \
+                 "--enable-libsystemd" \
+                 "--disable-libsystemd" \
+                 "for systemd support"
 
 optional_depends jemalloc \
                  "--enable-jemalloc" \
