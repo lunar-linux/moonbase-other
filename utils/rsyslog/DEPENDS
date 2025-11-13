@@ -6,8 +6,8 @@ depends libfastjson
 depends zlib
 
 optional_depends systemd \
-                 "--enable-libsystemd" \
-                 "--disable-libsystemd" \
+                 "--enable-libsystemd --enable-imjournal"  \
+                 "--disable-libsystemd --disable-imjournal" \
                  "for systemd support"
 
 optional_depends jemalloc \

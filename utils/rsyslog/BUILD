@@ -9,7 +9,6 @@ OPTS+=" --exec-prefix=/usr  \
         --enable-imfile     \
         --enable-rsyslogd   \
         --enable-rsyslogrt  \
-        --enable-imjournal  \
         --enable-omjournal  \
         --enable-omprog     \
         --enable-impstats   \
