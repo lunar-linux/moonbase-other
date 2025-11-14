@@ -1,15 +1,23 @@
            MODULE=libconfig
-          VERSION=1.8
+          VERSION=1.8.1
            SOURCE=$MODULE-$VERSION.tar.gz
   SOURCE_URL_FULL=https://github.com/hyperrealm/libconfig/archive/v$VERSION.tar.gz
-       SOURCE_VFY=sha256:22e13253e652ec583ba0dd5b474bd9c7bd85dc724f2deb0d76a6299c421358ef
-         WEB_SITE=http://www.hyperrealm.com/libconfig/
+       SOURCE_VFY=sha256:e95798d2992a66ecd547ce3651d7e10642ff2211427c43a7238186ff4c372627
+         WEB_SITE=https://hyperrealm.github.io/libconfig/
           ENTERED=20140802
-          UPDATED=20250402
+          UPDATED=20251114
             SHORT="A simple library for processing structured configuration files"
 
 cat << EOF
 Libconfig is a simple library for processing structured configuration files.
 This file format is more compact and more readable than XML. And unlike XML, it
 is type-aware, so it is not necessary to do string parsing in application code.
+
+Libconfig is very compact – a fraction of the size of the expat XML parser
+library. This makes it well-suited for memory-constrained systems like handheld
+devices.
+
+The library includes bindings for both the C and C++ languages. It works on
+POSIX-compliant UNIX and UNIX-like systems (GNU/Linux, Mac OS X, FreeBSD),
+Android, and Windows (2000, XP and later).
 EOF
