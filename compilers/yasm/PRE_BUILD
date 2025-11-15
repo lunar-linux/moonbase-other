@@ -1,0 +1,18 @@
+default_pre_build
+
+# https://github.com/yasm/yasm/pull/148
+git cherry-pick --no-commit 0799f381d513e18f404654047fa1b412084968c8
+
+# https://github.com/yasm/yasm/pull/178
+git cherry-pick --no-commit 3e74376b5653102a3957f59005969fcdbbe5a89d
+
+# https://github.com/yasm/yasm/pull/198
+git cherry-pick --no-commit 61e374f24718975e8175f048e70afaaf0c4771a9
+
+# https://github.com/yasm/yasm/pull/287
+git cherry-pick --no-commit 64ef740eb262f329e55eebadf2ce276b146d44e9
+
+# generate version file
+echo "$VERSION" > version
+
+autoreconf -fvi
