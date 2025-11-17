@@ -20,8 +20,6 @@ export CFLAGS+=" -std=gnu99"
 
 OPTS+=" --prefix=/usr \
         --build=$BUILD     \
-        --bindir=/usr/bin/db5.3 \
-        --includedir=/usr/include/db5.3 \
         --enable-compat185 \
         --enable-cxx       \
         --enable-dbm       \
