@@ -5,6 +5,13 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_SKIP_RPATH=ON \
         -DJAS_ENABLE_DOC=OFF \
         -DJAS_ENABLE_SHARED=ON \
-        -DALLOW_IN_SOURCE_BUILD=ON"
+        -DALLOW_IN_SOURCE_BUILD=ON \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -Wno-dev"
 
-default_cmake_build
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
+
+prepare_install
+cmake --install $MODULE-$VERSION
