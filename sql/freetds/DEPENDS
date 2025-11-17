@@ -1,4 +1,5 @@
-optional_depends gnutls "--with-gnutls"  "--without-gnutls"  "for TLS support"
-optional_depends %OSSL  "--with-openssl" "--without-openssl" "for openssl support"
+optional_depends %KERBEROS "--enable-krb5" "--disable-krb5" "for network security support"
 
+optional_depends gnutls   "--with-gnutls"  "--without-gnutls"  "for TLS support"
+optional_depends %OSSL    "--with-openssl" "--without-openssl" "for openssl support"
 optional_depends unixODBC "--with-unixodbc=/usr" "" "for ODBC support"
