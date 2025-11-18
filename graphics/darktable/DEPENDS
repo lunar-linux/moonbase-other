@@ -34,6 +34,11 @@ depends colord-gtk
 depends libavif
 
 # optional
+optional_depends jasper \
+  "-DENABLE_JASPER=ON" \
+  "-DENABLE_JASPER=OFF" \
+  "for JPEG-2000 Part-1 support"
+
 optional_depends gmic \
   "-DUSE_GMIC=1" \
   "-DUSE_GMIC=0" \
