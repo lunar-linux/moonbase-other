@@ -1,6 +1,6 @@
 export PYTHONDONTWRITEBYTECODE=1
 
-OPTS+=" --with-legacy --with-zlib --without-debug --with-readline"
+OPTS+=" --with-python --with-legacy --with-zlib --without-debug --with-readline"
 
 default_build
 
