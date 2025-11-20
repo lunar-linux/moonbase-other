@@ -1,4 +1,4 @@
-export MOZILLA_HOME=/usr/lib/$MODULE
+export MOZILLA_HOME=/usr/lib/$MODULE-default
 export MOZILLA_OFFICIAL=1
 export MOZ_MAKE_FILES=$MAKES
 export MOZ_NOSPAM=1
@@ -30,4 +30,4 @@ done &&
 
 # symlink plugins folder
 mkdir -p /usr/lib/lunar/plugins &&
-ln -sfn /usr/lib/firefox/browser /usr/lib/lunar/plugins/
+ln -sfn /usr/lib/firefox-default/browser /usr/lib/lunar/plugins/
