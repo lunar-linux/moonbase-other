@@ -1,0 +1,10 @@
+default_pre_build
+
+# eigen 5.x compat
+sed -i "s|Eigen3 3.3|Eigen3|g" CMakeLists.txt
+sed -i "s|Eigen3 \${CERES_EIGEN_VERSION}|Eigen3|g" cmake/CeresConfig.cmake.in
+
+sed -e "s:/usr:${EPREFIX}/usr:g" -i cmake/*.cmake
+
+# remove Werror
+sed -e 's/-Werror=(all|extra)//g' -i CMakeLists.txt
