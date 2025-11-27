@@ -1,12 +1,12 @@
           MODULE=libdvdcss
          VERSION=1.5.0
           SOURCE=$MODULE-$VERSION.tar.bz2
- SOURCE_URL_FULL=https://code.videolan.org/videolan/libdvdcss/-/archive/master/libdvdcss-master.tar.bz2
-      SOURCE_VFY=sha256:fcf5a089af75ca1fd60ef53fa373152269093cc5dc7cf4669b9ae04cb71551c8
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-master
+ SOURCE_URL_FULL=git+https://code.videolan.org/videolan/libdvdcss.git:tag=$VERSION
+#      SOURCE_VFY=sha256:
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
         WEB_SITE=http://www.videolan.org
          ENTERED=20010927
-         UPDATED=20251004
+         UPDATED=20251127
            SHORT="A library for DVD CSS decrpytion"
 
 cat << EOF
