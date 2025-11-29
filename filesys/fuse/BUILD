@@ -8,7 +8,10 @@ OPTS+=" --enable-lib \
         --disable-example \
         --sbindir=/usr/bin"
 
-default_build &&
+export UDEV_RULES_PATH=/usr/lib/udev/rules.d
+export MOUNT_FUSE_PATH=/usr/bin 
+
+default_build  &&
 
 if module_installed systemd; then
   rm -f /etc/init.d/fuse
