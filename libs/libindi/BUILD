@@ -1,3 +1,5 @@
+source /etc/profile.d/qt6.rc
+
 OPTS+=" -DUDEVRULES_INSTALL_DIR=/usr/lib/udev/rules.d \
         -DINDI_BUILD_STATIC=OFF" &&
 
