@@ -12,13 +12,15 @@ depends libxml2
 depends proj
 depends hdf5
 
+optional_depends openmpi    "-DVTK_USE_MPI=ON" "-DVTK_USE_MPI=OFF" "${PROBLEM_COLOR}Say yes if it was enabled for HDF5${DEFAULT_COLOR}"
+
 optional_depends sqlite     "-DVTK_MODULE_USE_EXTERNAL_VTK_sqlite=ON" \
                             "-DVTK_MODULE_USE_EXTERNAL_VTK_sqlite=OFF" \
                             "for sqlite database support"
 
 optional_depends ffmpeg     "" "" "for ffmpeg support"
 
-optional_depends qt5        "-DVTK_GROUP_ENABLE_Qt=YES" \
+optional_depends qt6-tools  "-DVTK_QT_VERSION=6" \
                             "-DVTK_GROUP_ENABLE_Qt=NO" \
                             "for Qt support"
 
