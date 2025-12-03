@@ -1,15 +1,22 @@
-default_pre_build &&
+source /etc/profile.d/qt6.rc
 
-if in_depends $MODULE qt5 ; then
-  . /etc/profile.d/qt5.rc
-fi &&
+export LANG='en_US.UTF-8'
+export CFLAGS+=" -ffat-lto-objects"
+export CXXFLAGS+=" -ffat-lto-objects"
 
-OPTS+=" -DPARAVIEW_ENABLE_XDMF3=ON             \
-        -DPARAVIEW_ENABLE_XDMF2=ON             \
-        -DPARAVIEW_BUILD_SHARED_LIBS=ON        \
-        -DPARAVIEW_INSTALL_DEVELOPMENT_FILES=1 \
-        -DVTK_PYTHON_FULL_THREADSAFE=1"        &&
+OPTS+=" -DPARAVIEW_QT_VERSION=6          \
+        -DPARAVIEW_USE_QT=ON             \
+        -DPARAVIEW_USE_PYTHON=ON         \
+        -DCMAKE_INSTALL_PREFIX=/usr      \
+        -DCMAKE_BUILD_TYPE=Release       \
+        -DCMAKE_INSTALL_LIBDIR=lib       \
+        -DPARAVIEW_VERSIONED_INSTALL=OFF \
+        -DDCMAKE_CXX_STANDARD=17         \
+        -DDPARAVIEW_ENABLE_XDMF3=ON      \
+        -Wno-dev"
 
-default_cmake_build
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-echo "Categories=Qt;KDE;Science;" >> /usr/share/applications/org.paraview.ParaView.desktop
+prepare_install
+cmake --install $MODULE-$VERSION

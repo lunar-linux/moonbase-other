@@ -18,11 +18,10 @@ depends mesa-lib
 depends cmake
 depends hdf5
 depends gl2ps
+depends qt6-5compat
+depends qt6-tools
+depends qt6-svg
 
-# build with the internal VTK for now
-#depends vtk
-optional_depends qt5    "-DPARAVIEW_USE_QT=ON"  "-DPARAVIEW_USE_QT=OFF"  "Build Qt5 GUI" y
-
-optional_depends ffmpeg "-DPARAVIEW_ENABLE_FFMPEG=ON -DVTK_USE_FFMPEG_ENCODER=1" \
-                        "-DPARAVIEW_ENABLE_FFMPEG=OFF -DVTK_USE_FFMPEG_ENCODER=0" \
-                        "For FFMPEG video support" y
+optional_depends gdal    "-DPARAVIEW_ENABLE_GDAL=ON"   "-DPARAVIEW_ENABLE_GDAL=OFF"   "For Geospatial Data Abstraction support"
+optional_depends ffmpeg  "-DPARAVIEW_ENABLE_FFMPEG=ON" "-DPARAVIEW_ENABLE_FFMPEG=OFF" "For FFMPEG video support"
+optional_depends openmpi "-DPARAVIEW_USE_MPI=ON"       "-DPARAVIEW_USE_MPI=OFF"       "For parallel computing support"
