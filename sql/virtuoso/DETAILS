@@ -1,13 +1,12 @@
           MODULE=virtuoso
-            TYPE=opensource
-         VERSION=7.2.10
-          SOURCE=$MODULE-$TYPE-$VERSION.tar.gz
-      SOURCE_URL=https://github.com/openlink/virtuoso-opensource/releases/download/v$VERSION/
-      SOURCE_VFY=sha256:c02b0a966ff33f854a86f8f74caa8a5a957e22b510cc2f808e54ed34b4b27f0f
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$TYPE-$VERSION
-        WEB_SITE=https://vos.openlinksw.com/owiki/wiki/VOS/
+         VERSION=7.2.16.1
+          SOURCE=$MODULE-opensource-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/openlink/virtuoso-opensource/archive/refs/tags/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:36a1083d996c639c05d4cf39c034fd190155a4f10f107a35fb6a814c13475d9c
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-opensource-$VERSION
+        WEB_SITE=https://github.com/openlink/virtuoso-opensource
          ENTERED=20100116
-         UPDATED=20230814
+         UPDATED=20251204
            SHORT="high-performance object-relational SQL database"
 
 cat << EOF
