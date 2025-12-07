@@ -1,4 +1,6 @@
 default_pre_build &&
 
-sedit "s:/usr/local:/usr:" Makefile librtmp/Makefile &&
-sedit "s:-Wall:-Wall -fPIC:" Makefile librtmp/Makefile
+#sedit "s:/usr/local:/usr:" Makefile librtmp/Makefile &&
+#sedit "s:-Wall:-Wall -fPIC:" Makefile librtmp/Makefile
+
+sed -e 's/^CRYPTO=OPENSSL/#CRYPTO=OPENSSL/' -e 's/#CRYPTO=GNUTLS/CRYPTO=GNUTLS/' -i Makefile -i librtmp/Makefile
