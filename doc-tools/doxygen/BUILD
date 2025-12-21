@@ -10,7 +10,7 @@ fi &&
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_LIBDIR=lib \
-        -Duse_sys_fmt=ON \
+        -Duse_sys_fmt=OFF \
         -Dbuild_doc=OFF \
         -Wno-dev"
 
