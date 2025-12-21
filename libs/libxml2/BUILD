@@ -1,6 +1,9 @@
 export PYTHONDONTWRITEBYTECODE=1
 
-OPTS+=" -Dpython=enabled -Dlegacy=enabled -Dzlib=enabled -Dreadline=enabled"
+OPTS+=" -Dpython=enabled \
+        -Dlegacy=enabled \
+        -Dzlib=enabled \
+        -Dreadline=enabled"
 
 default_meson_build
 
