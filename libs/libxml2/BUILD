@@ -5,10 +5,10 @@ OPTS+=" -Dpython=enabled \
         -Dzlib=enabled \
         -Dreadline=enabled"
 
-default_meson_build
+default_meson_build &&
 
 # Needed by libreoffice-bin-25.2.4
-ln -sf /usr/lib/libxml2.so /usr/lib/libxml2.so.2
+ln -sf /usr/lib/libxml2.so /usr/lib/libxml2.so.2 &&
 
 #https://www.linuxfromscratch.org/blfs/view/svn/general/libxml2.html
 #Prevents unnecessarily rebuilding of other modules
