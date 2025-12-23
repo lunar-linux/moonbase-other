@@ -1,0 +1,30 @@
+          MODULE=libnbd
+         VERSION=1.24.0
+          SOURCE=$MODULE-$VERSION.tar.gz
+      SOURCE_URL=https://download.libguestfs.org/$MODULE/${VERSION%.*}-stable
+      SOURCE_VFY=sha256:f5bdafd6618dde23f0718ad594d63890a6e6d8caa1e4b00f3a435c700417e6ef
+        WEB_SITE=https://gitlab.com/nbdkit/libnbd
+         ENTERED=20251223
+         UPDATED=20251223
+           SHORT="NBD client library in userspace"
+
+cat << EOF
+NBD (Network Block Device) is a protocol for accessing Block Devices
+(hard disks and disk-like things) over a Network.  This is the NBD
+client library in userspace, a simple library for writing NBD clients.
+
+The key features are:
+* Synchronous API for ease of use.
+* Asynchronous API for writing non-blocking, multithreaded clients.
+  You can mix both APIs freely.
+* High performance.
+* Minimal dependencies for the basic library.
+* Well-documented, stable API.
+* Bindings in several programming languages.
+* Shell (nbdsh) for command line and scripting.
+* Copying tool (nbdcopy) for high performance copying and streaming.
+* Hexdump tool (nbddump) to print NBD content.
+* Query tool (nbdinfo) to query NBD servers.
+* FUSE support (nbdfuse) to mount NBD in the local filesystem.
+* Linux ublk support (nbdublk) to create the userspace block device.
+EOF

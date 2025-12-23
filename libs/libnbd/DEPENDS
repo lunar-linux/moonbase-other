@@ -1,0 +1,29 @@
+depends gnutls
+
+optional_depends libxml2 \
+                 "--with-libxml2" "--without-libxml2" \
+                 "for use of libxml2 for URI support"
+
+optional_depends fuse-3 \
+                 "--enable-fuse" "--disable-fuse" \
+                 "to build the nbdfuse program"
+
+optional_depends bash-completion \
+                 "--with-bash-completions" "--without-bash-completions" \
+                 "for installing bash completions"
+
+optional_depends go \
+                 "--enable-golang" "--disable-golang" \
+                 "for Go language bindings"
+
+optional_depends ocaml \
+                 "--enable-ocaml" "--disable-ocaml" \
+                 "for OCaml language bindings"
+
+optional_depends python \
+                 "--enable-python" "--disable-python" \
+                 "for Python 3 language bindings"
+
+optional_depends rustc \
+                 "--enable-rust" "--disable-rust" \
+                 "for Rust language bindings"
