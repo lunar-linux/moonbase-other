@@ -6,6 +6,8 @@ fi &&
 
 OPTS+=" --datadir=/usr/share \
         --localstatedir=/var \
+        --disable-librtlsdr \
+        --disable-mosquitto \
         --sysconfdir=/etc/kismet"
 
 default_config &&
