@@ -1,5 +1,6 @@
 OPTS+=" -DINSTALL_LIBENCFS=ON \
         -DBUILD_SHARED_LIBS=ON \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -DCMAKE_INSTALL_PREFIX=/usr" &&
 
 default_cmake_build
