@@ -1,10 +1,13 @@
 depends git
-depends lua
 depends gobject-introspection
 depends pipewire
-depends doxygen
 depends meson
 depends python-lxml
+
+optional_depends doxygen \
+                 "-Ddoc=enabled" \
+                 "-Ddoc=disabled" \
+                 "for documentation install" "n"
 
 optional_depends lua \
                  "-Dsystem-lua=true" \

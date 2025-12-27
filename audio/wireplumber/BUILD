@@ -1,5 +1,5 @@
 export LANG='en_US.UTF-8'
 
-OPTS+=" -Ddoc=disabled -Dintrospection=enabled"
+OPTS+=" -Dintrospection=auto"
 
 default_meson_build
