@@ -1,6 +1,13 @@
-depends cmake
 depends glu
-depends giflib
 depends libpng
 depends %JPEG
+depends cmake
+depends ninja
+
+optional_depends giflib \
+                   "-D WEBP_BUILD_GIF2WEBP=ON" \
+                   "-D WEBP_BUILD_GIF2WEBP=OFF" \
+                   "fo GIF images support"
+
+# circular dependency
 #depends tiff
