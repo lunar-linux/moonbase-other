@@ -21,7 +21,7 @@ make MYCFLAGS="$CFLAGS -fPIC -g \
                        -DLUA_COMPAT_5_1 \
                        -DLUA_COMPAT_5_2 \
                        -DLUA_COMPAT_5_3" \
-                       MYLDFLAGS="$LDFLAGS" linux-readline &&
+                       MYLDFLAGS="$LDFLAGS" &&
 
 prepare_install &&
 
