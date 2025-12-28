@@ -3,6 +3,9 @@ OPTS+=" -Degl-x11=auto \
         -Dmanpage-build=disabled \
         -Dcaca=disabled \
         -Dlibmpv=true \
+        -Dsdl2-audio=disabled \
+        -Dsdl2-video=disabled \
+        -Dsdl2-gamepad=disabled \
         -Ddrm=auto"
 
 default_meson_build &&
