@@ -3,6 +3,8 @@ export LANG='en_US.UTF-8'
 
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
+        -DLUA_INCLUDE_DIR=/usr/include \
+        -DLUA_LIBRARY=/usr/lib/liblua.so \
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
