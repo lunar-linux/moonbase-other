@@ -2,12 +2,19 @@
 CFLAGS="-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2"
 CXXFLAGS="-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2"
 
-OPTS+=" -DCMAKE_BUILD_TYPE=Release"
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DCACHE_PRG=OFF \
+        -Wno-dev"
 
-default_cmake_build &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
+
+prepare_install
+cmake --install $MODULE-$VERSION &&
 
 # Make vim modules work
-cd $SOURCE_DIRECTORY &&
 mkdir -p /usr/share/nvim &&
 
 echo "set runtimepath+=/usr/share/vim/vimfiles" > /usr/share/nvim/sysinit.vim &&
