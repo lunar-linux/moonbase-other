@@ -1,13 +1,12 @@
           MODULE=w3m
-         VERSION=0.5.3
-         _commit=edc602651c506aeeb60544b55534dd1722a340d3
-          SOURCE=$MODULE-debian-${VERSION}+git20230713-1.tar.bz2
-      SOURCE_URL=git+https://salsa.debian.org/debian/w3m.git:${_commit}
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/w3m-debian-0.5.3+git20230713-1
-#      SOURCE_VFY=sha256:cd81636e591b8befd6f072340f9816034b78615f31082ffd678d19ff5180ca08
-        WEB_SITE=http://w3m.sourceforge.net
+         VERSION=0.5.5
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://git.sr.ht/~rkta/w3m/archive/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:b271c86b13be2207700230cb3f9061271ea37fd1ace199f48b72ea542a529a0f
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-v$VERSION
+        WEB_SITE=https://git.sr.ht/~rkta/w3m
          ENTERED=20011217
-         UPDATED=20241129
+         UPDATED=20251229
            SHORT="A pager and text-based WWW browser"
 cat << EOF
 w3m is a pager/text-based WWW browser. It is similar to Lynx, but has several

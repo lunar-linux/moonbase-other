@@ -1,16 +1,9 @@
 depends libXext
-depends glib-2
+depends imlib2
 depends gdk-pixbuf
 depends gc
 depends ncurses
 depends xdg-utils
 depends zlib
 
-optional_depends imlib2 \
-                 "--with-imagelib=imlib2" "" \
-       		 "for image support"
-
-optional_depends %OSSL \
-                 "--with-ssl=/usr" \
-        	 "--without-ssl" \
-        	 "for SSL support"
+optional_depends %OSSL "--with-ssl=/usr" "--without-ssl" "for SSL support"
