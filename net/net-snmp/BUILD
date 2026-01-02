@@ -1,11 +1,11 @@
-autoreconf -if &&
+autoreconf -fvi &&
 
 DEFAULTS="--with-defaults"
 PERSISTENT="--with-persistent-directory=/var/net-snmp"
-SYS_CONTACT="--with-sys-location='Unknown' \
-             --with-sys-contact=root@`hostname -f`" &&
+SYS_CONTACT="--with-sys-location='Unknown' --with-sys-contact=root@`hostname -f`" &&
 
 OPTS+=" --disable-static \
+        --disable-manuals \
         --with-default-snmp-version=3 \
         --enable-ucd-snmp-compatibility \
         --with-logfile=/var/log/snmpd.log \
@@ -25,8 +25,6 @@ PYTHONPROG=/usr/bin/python3 \
            $PERSISTENT \
            $DEFAULTS \
            $OPTS &&
-
-sedit "s:DESTDIR         =:DESTDIR         = /:" Makefile &&
 
 default_make &&
 

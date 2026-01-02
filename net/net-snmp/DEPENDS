@@ -6,13 +6,12 @@ optional_depends pcre2 "" "--without-pcre" "for pcre process searching in the ag
 
 optional_depends python-setuptools \
                  "--with-python-modules" "" \
-                 "for the python modules support" n
+                 "for the python modules support"
 
 optional_depends perl \
                  "--with-perl-modules --enable-embedded-perl --enable-shared" "" \
-                 "for embed perl in the SNMP agent and install perl SNMP modules" n
+                 "for embed perl in the SNMP agent and install perl SNMP modules"
 
-# broken
-#optional_depends lm_sensors \
-#                 "--with-mib-modules=ucd-snmp/lmSensors,ucd-snmp/lmsensorsMib" ""\
-#                 "for sensors reading support"
+optional_depends lm_sensors \
+                 "--with-mib-modules=ucd-snmp/lmSensors,ucd-snmp/lmsensorsMib" ""\
+                 "for sensors reading support"
