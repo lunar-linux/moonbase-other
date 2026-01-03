@@ -20,6 +20,8 @@ OPTS+=" --with-lockdir=/run/lock/sane \
         --disable-rpath  \
         --enable-pthread \
         --with-poppler-glib \
+        --with-usb \
+        --with-libcurl \
         --with-pic"
 
 add_priv_user scanner:scanner -d /var/lib/sane -s /usr/bin/false &&
@@ -42,4 +44,16 @@ install -D -m0644 hotplug/libsane.usermap /usr/lib/udev/libsane.usermap &&
 install $SCRIPT_DIRECTORY/66-saned.rules /usr/lib/udev/rules.d &&
 install $SCRIPT_DIRECTORY/sane.sysusers /usr/lib/sysusers.d/sane-backends.conf &&
 
-chmod -x /usr/lib/udev/rules.d/66-saned.rules
+chmod -x /usr/lib/udev/rules.d/66-saned.rules &&
+
+cd ../ &&
+# generate udev udev+hwdb
+./tools/sane-desc -m udev+hwdb -s doc/descriptions/ > /usr/lib/udev/rules.d/65-$MODULE.rules &&
+./tools/sane-desc -m udev+hwdb -s doc/descriptions-external/ >> /usr/lib/udev/rules.d/65-$MODULE.rules &&
+
+# generate udev hwdb
+./tools/sane-desc -m hwdb -s doc/descriptions/ > /usr/lib/udev/hwdb.d/20-$MODULE.hwdb &&
+# NOTE: an empty new line is required between the two .desc collections
+printf "\n" >> /usr/lib/udev/hwdb.d/20-$MODULE.hwdb &&
+./tools/sane-desc -m hwdb -s doc/descriptions-external/ >> /usr/lib/udev/hwdb.d/20-$MODULE.hwdb
+
