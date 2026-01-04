@@ -1,6 +1,10 @@
-default_python3_build &&
+export PYTHONDONTWRITEBYTECODE=1 &&
 
-#chmod go+Xr -R /usr/lib/python3.8/site-packages/sshuttle-0.78.5-py3.8.egg-info
+python -m build --wheel &&
+
+prepare_install &&
+python -m installer --destdir=/ dist/*.whl &&
+
 
 install -d /etc/sshuttle &&
 install -m644 "$SCRIPT_DIRECTORY"/{tunnel.conf,prefixes.conf} /etc/sshuttle/
