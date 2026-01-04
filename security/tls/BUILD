@@ -1,7 +1,5 @@
-OPTS+=" --enable-threads --enable-shared --with-ssl-dir=/usr" &&
+autoreconf -fvi &&
 
-if [ "`arch`" = "x86_64" ]; then
-  OPTS+=" --enable-64bit"
-fi &&
+OPTS+=" --with-tcl=/usr/lib --disable-hardening"
 
 default_build
