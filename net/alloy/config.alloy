@@ -1,0 +1,21 @@
+// Grafana Alloy configuration
+// Documentation: https://grafana.com/docs/alloy/
+
+logging {
+  level  = "info"
+  format = "logfmt"
+}
+
+// Example: Uncomment to enable local Prometheus metrics scraping
+// prometheus.exporter.unix "default" { }
+//
+// prometheus.scrape "default" {
+//   targets    = prometheus.exporter.unix.default.targets
+//   forward_to = [prometheus.remote_write.default.receiver]
+// }
+//
+// prometheus.remote_write "default" {
+//   endpoint {
+//     url = "http://localhost:9009/api/prom/push"
+//   }
+// }
