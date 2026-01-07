@@ -13,4 +13,17 @@ done &&
 prepare_install &&
 
 install -Dm755 tailscale tailscaled -t /usr/bin &&
-install -Dm644 cmd/tailscaled/tailscaled.defaults /etc/default/tailscaled
+install -Dm644 cmd/tailscaled/tailscaled.defaults /etc/default/tailscaled &&
+
+# bash completion
+install -Dm644 /dev/stdin /usr/share/bash-completion/completions/tailscale &&
+
+# zsh completion
+if module_installed zsh; then
+   install -Dm644 /dev/stdin /usr/share/zsh/site-functions/_tailscale
+fi &&
+
+# fish completion
+if module_installed zsh; then
+  install -Dm644 /dev/stdin /usr/share/fish/vendor_completions.d/tailscale.fish 
+fi
