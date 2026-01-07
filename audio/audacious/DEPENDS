@@ -2,18 +2,11 @@ depends meson
 depends libxml2
 depends dbus-glib
 depends gtk+-3
-
-optional_depends qt6-base \
-                 "-Dqt=true" \
-                 "-Dqt=false" \
-                 " for Qt6 GUI support"
+depends qt6-base
+depends qt6-imageformats
+depends qt6-svg
 
 optional_depends "libarchive" \
                  "-Dlibarchive=true" \
                  "-Dlibarchive=false" \
                  "for archiving support"
-
-if in_depends $MODULE qt6-base; then \
-  depends qt6-imageformats
-  depends qt6-svg
-fi
