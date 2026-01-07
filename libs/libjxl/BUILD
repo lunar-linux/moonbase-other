@@ -12,6 +12,7 @@ OPTS+=" -DJPEGXL_ENABLE_EXAMPLES=OFF      \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
         -DJPEGXL_ENABLE_PLUGINS=ON \
+        -DBUILD_TESTING=OFF \
         -Wno-dev       "
 
 export CFLAGS+=' -DNDEBUG -ffat-lto-objects'
