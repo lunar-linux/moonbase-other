@@ -7,7 +7,15 @@ export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CFLAGS="${CFLAGS}"
 export CGO_CXXFLAGS="${CXXFLAGS}"
 export GOFLAGS="-buildmode=pie -trimpath -modcacherw"
+export GO_TAGS="netgo builtinassets promtail_journal_enabled"
 
+# Build UI first
+cd internal/web/ui &&
+npm install &&
+npm run build &&
+cd ../../.. &&
+
+# Build alloy binary
 make alloy &&
 
 prepare_install &&
