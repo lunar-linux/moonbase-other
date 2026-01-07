@@ -1,4 +1,8 @@
 depends dbus-glib
+depends alsa-lib
+depends mpg123
+depends flac
+depends faad2
 depends audacious
 
 optional_depends ampache-browser \
@@ -8,18 +12,6 @@ optional_depends ampache-browser \
 if in_depends $MODULE ampache-browser; then
   depends qt6-multimedia
 fi
-
-optional_depends alsa-lib \
-                 "" "-Dalsa=false" \
-                 "for ALSA output plugin"
-
-optional_depends mpg123 \
-                 "" "-Dmpg123=false" \
-                 "for MP3 playback"
-
-optional_depends flac \
-                 "" "-Dflac=false" \
-                 "for FLAC input plugin"
 
 optional_depends libvorbis \
                  "" "-Dvorbis=false" \
@@ -40,10 +32,6 @@ optional_depends libmodplug \
 optional_depends lirc \
                  "" "-Dlirc=false" \
                  "for LIRC plugin"
-
-optional_depends faad2 \
-                 "" "-Daac=false" \
-                 "for AAC support"
 
 optional_depends wavpack \
                  "" "-Dwavpack=false" \
