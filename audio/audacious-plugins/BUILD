@@ -1,10 +1,5 @@
-OPTS+=" -Dadplug=false"
+source /etc/profile.d/qt6.rc &&
 
-if module_installed qt6-base; then
-  source /etc/profile.d/qt6.rc &&
-  OPTS+=" -Dqtaudio=true"
-else
-  OPTS+=" -Dqtaudio=false"
-fi
+OPTS+=" -Dadplug=false -Dqtaudio=true"
 
 default_meson_build

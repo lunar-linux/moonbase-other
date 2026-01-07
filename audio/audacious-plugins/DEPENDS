@@ -1,25 +1,19 @@
+depends curl
 depends dbus-glib
+depends alsa-lib
+depends lame
+depends opusfile
+depends mpg123
+depends flac
+depends faad2
+depends qt6-base
 depends audacious
+depends ampache-browser
+depends qt6-multimedia
 
 optional_depends ampache-browser \
                  "" "-Dampache=false" \
                  "for ampache browser support plugin, requires qt6-multimedia"
-
-if in_depends $MODULE ampache-browser; then
-  depends qt6-multimedia
-fi
-
-optional_depends alsa-lib \
-                 "" "-Dalsa=false" \
-                 "for ALSA output plugin"
-
-optional_depends mpg123 \
-                 "" "-Dmpg123=false" \
-                 "for MP3 playback"
-
-optional_depends flac \
-                 "" "-Dflac=false" \
-                 "for FLAC input plugin"
 
 optional_depends libvorbis \
                  "" "-Dvorbis=false" \
@@ -41,10 +35,6 @@ optional_depends lirc \
                  "" "-Dlirc=false" \
                  "for LIRC plugin"
 
-optional_depends faad2 \
-                 "" "-Daac=false" \
-                 "for AAC support"
-
 optional_depends wavpack \
                  "" "-Dwavpack=false" \
                  "for wavpack support"
@@ -65,10 +55,9 @@ optional_depends libmms \
                  "" "-Dmms=false" \
                  "for mms transport support"
 
-optional_depends curl    "" "" "for audio scrobbler support"
-optional_depends lame    "" "" "for lame encoder support"
 optional_depends libcddb "" "" "access CDDB server"
 optional_depends ffmpeg  "" "" "for ffmpeg support"
 optional_depends libmtp  "" "" "for Media Transfer Protocol support"
 
 optional_depends libsamplerate "" "" "for samplerate conversion"
+
