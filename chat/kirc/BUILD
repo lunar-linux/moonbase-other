@@ -1,4 +1,4 @@
-sedit "s: all::" Makefile &&
-sedit "s:/usr/local:/usr:" Makefile &&
+make &&
 
-default_make
+prepare_install
+make PREFIX=/usr install
