@@ -1,8 +1,15 @@
-sed -i -e '/ADD_DEPENDENCIES(PACKAGE_SRC_TAR/d' CMakeLists.txt &&
-sed -i -e 's|@DOCDIR@|@CMAKE_INSTALL_PREFIX@/@DOCINSTALL@|' config/vigra-config.in &&
+sedit 's:from imp import reload:from importlib import reload:g' vigranumpy/lib/axistags.py &&
 
 OPTS+=" -DCMAKE_C_FLAGS=-DH5_USE_110_API \
         -DCMAKE_CXX_FLAGS=-DH5_USE_110_API \
-        -DDOCINSTALL=share/doc"
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DDOCINSTALL=share/doc \
+        -Wno-dev"
 
-default_cmake_build
+
+cmake -B $MODULE-$VERSION -S . $OPTS &&
+cmake --build $MODULE-$VERSION &&
+
+prepare_install &&
+cmake --install $MODULE-$VERSION
