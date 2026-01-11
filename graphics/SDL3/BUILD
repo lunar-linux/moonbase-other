@@ -3,6 +3,7 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release  \
         -DSDL_PTHREADS=ON           \
         -DSDL_SHARED=ON             \
+        -DSDL_X11_XSCRNSAVER=OFF    \
         -Wno-dev" 
 
 cmake -B $MODULE-build -S . -G Ninja $OPTS &&
