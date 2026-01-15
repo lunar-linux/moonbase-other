@@ -1,7 +1,6 @@
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
-        -DIMATH_ENABLE_LARGE_STACK=ON \
-        -DBUILD_TESTING=OFF \
+        -DCMAKE_INSTALL_LIBDIR=lib \
         -DPYTHON=ON \
         -Wno-dev"
 
