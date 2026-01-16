@@ -15,6 +15,7 @@ CXXFLAGS="${CXXFLAGS/-fexceptions/}"
 ulimit -n 8192 &&
 
 ./mach configure || ./mach configure &&
+./mach busted &&
 ./mach build --verbose &&
 
 prepare_install &&
