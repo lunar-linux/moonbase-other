@@ -38,6 +38,15 @@ then
     sedit 's|/zipfs:|usr|' Makefile
 fi &&
 
-default_make &&
+make &&
+# build additional tools - broken build: changeset rbu
+make dbdump dbhash dbtotxt index_usage scrub showdb showjournal showshm showstat4 showwal sqldiff \
+     sqlite3_analyzer sqlite3_checker sqlite3_expert sqlite3_rsync sqltclsh
+
+prepare_install
+make install
+
+install -m755 dbdump dbhash dbtotxt index_usage scrub showdb showjournal showshm \
+         showstat4 showwal sqldiff sqlite3_expert sqlite3_rsync /usr/bin/ &&
 
 install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1/
