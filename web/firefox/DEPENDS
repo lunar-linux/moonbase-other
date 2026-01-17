@@ -22,6 +22,7 @@ depends zip
 depends python-setuptools
 depends python-zstandard
 depends pulseaudio
+depends sqlite
 
 optional_depends libevent \
                  "--with-system-libevent" \
@@ -32,11 +33,6 @@ optional_depends dbus-glib \
                  "--enable-dbus" \
                  "--disable-dbus" \
                  "For dbus support" y
-
-#optional_depends icu4c \
-#                 "--with-system-icu" \
-#                 "--without-system-icu" \
-#                 "Use system icu4c library"
 
 # firefox requires jpeg-turbo extensions, so NO, libjpeg is not enough
 optional_depends libjpeg-turbo \
