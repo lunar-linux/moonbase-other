@@ -9,7 +9,6 @@ export CPPFLAGS+=" -DSQLITE_ENABLE_DBSTAT_VTAB=1 \
                    -DSQLITE_ENABLE_LOAD_EXTENSION \
                    -DSQLITE_ENABLE_COLUMN_METADATA=1 \
                    -DSQLITE_MAX_EXPR_DEPTH=10000 \
-                   -DSQLITE_MAX_VARIABLE_NUMBER=250000 \
                    -DSQLITE_ENABLE_MATH_FUNCTIONS \
                    -DSQLITE_ENABLE_UNLOCK_NOTIFY \
                    -DSQLITE_ENABLE_STMTVTAB \
@@ -28,6 +27,7 @@ OPTS+="	--disable-static \
         --enable-fts5 \
         --enable-rtree \
         --enable-geopoly \
+        --soname=legacy \
         --enable-threadsafe"
 
 default_config &&
