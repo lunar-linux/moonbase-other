@@ -1,10 +1,9 @@
-export CFLAGS="$CFLAGS -fPIC" &&
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -Wno-dev"
 
-cd contrib/minizip &&
-libtoolize -cfi &&
-autoreconf -fis &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-default_build &&
-
-# https://github.com/madler/zlib/pull/229
-rm /usr/include/minizip/crypt.h
+prepare_install
+cmake --install $MODULE-$VERSION
