@@ -1,3 +1,4 @@
+export PYTHONDONTWRITEBYTECODE=1 &&
 #Rebuild some bundled sip files
 python build.py sip &&
 
