@@ -5,12 +5,15 @@ depends libuv
 depends libtool
 depends libcap
 depends zlib
+depends python-roman-numerals
+depemds Spyinx
 depends sphinxcontrib-devhelp
 depends sphinxcontrib-applehelp
 depends sphinxcontrib-htmlhelp
 depends sphinxcontrib-serializinghtml
 depends sphinxcontrib-qthelp
 
+optional_depends nghttp2   "--enable-doh"    "--disable-doh"      "enable DNS over HTTPS"
 optional_depends json-c    "--with-json-c"   "--without-json-c"   "for JSON support"
 optional_depends %OSSL     "--with-openssl"  "--without-openssl"  "for DNSSEC part in bind-utils"
 optional_depends libxml2   "--with-libxml2"  "--without-libxml2"  "for XML2 support"
