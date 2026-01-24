@@ -1,5 +1,6 @@
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
+        -DBUILD_SHARED_LIBS=ON
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
