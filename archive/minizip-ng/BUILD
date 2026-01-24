@@ -1,14 +1,13 @@
-OPTS+=" -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_INSTALL_PREFIX=/usr \
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_INSTALL_LIBDIR=lib \
-        -DMZ_COMPAT=OFF \
-        -DBUILD_SHARED_LIBS=ON \
-        -G Ninja \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DMZ_LIB_SUFFIX=-ng  \
+        -DBUILD_SHARED_LIBS=ON
+        -DMZ_ZLIB_FLAVOR=zlib-ng \
         -Wno-dev"
 
-cmake -B $MODULE-$VERSION -S . $OPTS &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
 
-prepare_install &&
-
+prepare_install
 cmake --install $MODULE-$VERSION
