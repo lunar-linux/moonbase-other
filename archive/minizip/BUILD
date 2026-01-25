@@ -1,10 +1,13 @@
-OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DBUILD_SHARED_LIBS=ON
-        -Wno-dev"
+CFLAGS+=" -ffat-lto-objects"
 
-cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
-cmake --build $MODULE-$VERSION &&
+cd contrib/minizip
+autoreconf -fvi &&
+
+# https://github.com/madler/zlib/pull/229
+./configure --prefix=/usr --enable-static=no --includedir=/usr/include/minizip --libdir=/usr/lib/minizip &&
+make &&
 
 prepare_install
-cmake --install $MODULE-$VERSION
+make install 
+
+rm -f /usr/include/minizip/crypt.h
