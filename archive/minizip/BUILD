@@ -4,10 +4,12 @@ cd contrib/minizip
 autoreconf -fvi &&
 
 # https://github.com/madler/zlib/pull/229
-./configure --prefix=/usr --enable-static=no --includedir=/usr/include/minizip --libdir=/usr/lib/minizip &&
+./configure --prefix=/usr --enable-static=no --includedir=/usr/include --libdir=/usr/lib/minizip &&
 make &&
 
 prepare_install
 make install 
+
+ln -sf /usr/lib/minizip/pkgconfig/minizip.pc /usr/lib/pkgconfig/minizip.pc &&
 
 rm -f /usr/include/minizip/crypt.h
