@@ -1,3 +1,4 @@
+export CFLAGS+=" -Wno-incompatible-pointer-types"
 autoreconf -i &&
 
 export PYTHONDONTWRITEBYTECODE=1
