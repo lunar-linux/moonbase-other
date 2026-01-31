@@ -12,6 +12,7 @@ export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
 export CFLAGS="-fno-exceptions"
 export CXXFLAGS="-fno-exceptions"
 
+./mach configure &&
 ./mach build --verbose &&
 
 cd ${MOZ_OBJDIR} &&
