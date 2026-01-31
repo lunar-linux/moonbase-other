@@ -5,6 +5,9 @@ OPTS+=" -D xvfb=false \
         -D xcsecurity=true \
         -D dri3=true \
         -D glamor=true \
+        -D dpms=true \
+        -D drm=true \
+        -D glx=true \
         -D xkb_dir=/usr/share/X11/xkb \
         -D xkb_output_dir=/var/lib/xkb"
 
