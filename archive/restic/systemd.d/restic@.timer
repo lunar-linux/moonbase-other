@@ -1,0 +1,16 @@
+[Unit]
+Description=Restic backup timer (%i)
+
+[Timer]
+# Default: daily at midnight (with up to 1h random delay)
+# Override with: systemctl edit restic@<name>.timer
+# Examples:
+#   OnCalendar=weekly
+#   OnCalendar=*-*-* 02:00:00
+#   OnCalendar=Mon,Thu *-*-* 03:00:00
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target

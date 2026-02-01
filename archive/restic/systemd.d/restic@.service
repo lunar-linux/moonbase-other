@@ -1,0 +1,10 @@
+[Unit]
+Description=Restic backup (%i)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/config.d/restic-%i
+ExecStart=/usr/bin/restic backup $BACKUP_PATHS $BACKUP_OPTS
+ExecStartPost=/usr/bin/restic forget $FORGET_OPTS
