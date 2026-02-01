@@ -6,7 +6,8 @@
 
   sedit "s:system=MP-RAS-\`awk '{print }' /etc/.relid'\`:system=MP-RAS-\`awk '{print }' /etc/.relid\`:g" configure &&
 
-  ./configure --prefix=/usr \
+  ./configure ZIP_PROG=zip \
+              --prefix=/usr \
               --mandir=/usr/share/man
 ) &&
 
@@ -19,7 +20,8 @@ TK_VER=`lvu version tk | cut -d. -f1-2`
 
 sedit "s:system=MP-RAS-\`awk '{print }' /etc/.relid'\`:system=MP-RAS-\`awk '{print }' /etc/.relid\`:g" configure &&
 
-./configure --prefix=/usr \
+./configure ZIP_PROG=zip \
+            --prefix=/usr \
             --mandir=/usr/share/man \
             --with-tcl=../tcl$VERSION/unix &&
 
