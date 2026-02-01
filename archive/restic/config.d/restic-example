@@ -1,0 +1,25 @@
+# Restic backup configuration
+# Copy to /etc/config.d/restic-<name> and enable with:
+#   systemctl enable --now restic@<name>.timer
+#
+# To customize the backup schedule (default: daily):
+#   systemctl edit restic@<name>.timer
+# Examples:
+#   OnCalendar=weekly
+#   OnCalendar=*-*-* 02:00:00
+#   OnCalendar=Mon,Thu *-*-* 03:00:00
+
+# Repository location (local path, sftp://user@host/path, s3:url, etc.)
+RESTIC_REPOSITORY=/path/to/repo
+
+# Password file containing the repository password
+RESTIC_PASSWORD_FILE=/etc/restic/password
+
+# Paths to backup (space-separated)
+BACKUP_PATHS="/home /etc"
+
+# Additional backup options
+BACKUP_OPTS="--exclude-caches"
+
+# Retention policy and prune options
+FORGET_OPTS="--keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune"
