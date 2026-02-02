@@ -2,6 +2,10 @@ if in_depends $MODULE openjpeg ; then
   CFLAGS+=" -I/usr/include/openjpeg-`lvu installed openjpeg | cut -c1-3`/"
 fi &&
 
+# Fix compilation error:
+# https://trac.macports.org/ticket/25803
+sedit "s:texi2html -monolithic -number:texi2html -monolithic:" Makefile &&
+
 OPTS+=" --disable-static  \
         --disable-debug   \
         --disable-doc     \
@@ -11,6 +15,7 @@ OPTS+=" --disable-static  \
         --enable-swscale  \
         --enable-nonfree  \
         --enable-pthreads \
+        --enable-postproc \
         --enable-avfilter \
         --disable-libopencv"
 
