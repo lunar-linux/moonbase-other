@@ -1,14 +1,11 @@
 
 OPTS+=" --enable-xcb \
-        --enable-xvideo \
+        --disable-gst-decode \
+        --disable-projectm \
         --enable-avcodec \
         --enable-ncurses \
         --enable-realrtsp \
-        --disable-sid \
-        --disable-rpath \
-        --disable-libplacebo \
         --disable-chromaprint \
-        --disable-libplacebo \
         --disable-opencv \
         --disable-rpath \
         --disable-update-check"

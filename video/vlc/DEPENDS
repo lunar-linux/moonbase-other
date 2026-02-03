@@ -1,3 +1,4 @@
+depends xcb-util-keysyms
 depends ncurses
 depends libspatialaudio
 depends alsa-lib
@@ -28,8 +29,8 @@ optional_depends systemd \
                  "" "--disable-udev" \
                  "for udev support" y
 
-optional_depends libcdio "" "" "for CD-ROM control" y
 
+optional_depends libplacebo    "" "--disable-libplacebo" "for gpu acceration support"
 optional_depends neon          "" "--disable-neon" "for neon optimizations spport" n
 optional_depends libmatroska   "" "--disable-matroska" "for matroska support" y
 optional_depends taglib        "" "--disable-taglib" "for taglib support" y
@@ -46,7 +47,7 @@ optional_depends twolame       "" "--disable-twolame" "for MPEG Audio Layer 2 su
 optional_depends fluidsynth    "" "--disable-fluidsynth" "for MIDI synthetiser support" n
 optional_depends libtar        "" "--disable-libtar" "for skins2 support" n
 optional_depends zvbi          "" "--disable-zvbi" "for VBI including Teletext decoding support" n
-optional_depends lua52         "" "--disable-lua" "for some interfaces rc telnet http support" n
+optional_depends lua           "" "--disable-lua" "for some interfaces rc telnet http support" n
 optional_depends aalib         "" "--disable-aa" "for ascii art support" n
 optional_depends sqlite        "" "--disable-sqlite" "for sqlite database support" y
 optional_depends %SSL          "" "--disable-gnutls" "for ssl support" y
@@ -71,10 +72,9 @@ optional_depends libbluray     "--enable-bluray" "--disable-bluray" "for blueray
 optional_depends libdc1394     "--enable-dc1394" "--disable-dc1394" "for IEEE1394 cameras support needed for dv"
 optional_depends qt5           "--enable-qt" "--disable-qt --disable-skins2" "for Qt 5.x support"
 optional_depends libupnp       "--enable-upnp" "--disable-upnp" "Intel UPnp SDK support" n
-optional_depends libprojectM   "--enable-projectm" "--disable-projectm" "for visual effects support" n
 optional_depends libssh2       "--enable-sftp" "--disable-sftp" "for SFTP file transfer support" y
 optional_depends samba         "--enable-smbclient" "--disable-smbclient" "for smb/CIFS support" n
-optional_depends freerdp       "--enable-freerdp" "--disable-freerdp" "for rdp desktop support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n
+optional_depends freerdp-2     "--enable-freerdp" "--disable-freerdp" "for rdp desktop support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n
 optional_depends dav1d         "--enable-dav1d"   "--disable-dav1d" "for AV1 decoding" y
 optional_depends libarchive    "--enable-archive" "--disable-archive" "for various compression support"
 optional_depends protobuf      "--enable-chromecast" "--disable-chromecast" "for chromecast,${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n
@@ -84,5 +84,6 @@ optional_depends game-music-emu \
                  "--enable-gme" "" \
                  "for games music files playing support" n
 
-optional_depends gnutls      "" "" "for TLS/SSL support" y
-optional_depends libmicrodns "" "" "for mDNS services discovery (chromecast etc)" n
+optional_depends gnutls      "" "" "for TLS/SSL support"
+optional_depends libmicrodns "" "" "for mDNS services discovery (chromecast etc)"
+optional_depends libcdio "" "" "for CD-ROM control"

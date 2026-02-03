@@ -1,13 +1,6 @@
 default_pre_build &&
 
-rm m4/lt* m4/libtool.m4 &&
-
-export CXXFLAGS+=" -std=c++11"
-
-sedit 's|-Werror-implicit-function-declaration||g' configure.ac &&
-
 if in_depends $MODULE lua; then
-#  sedit 's:<vlc_demux.h>:<vlc_demux.h>\n #define LUA_COMPAT_APIINTCASTS:' modules/lua/vlc.h &&
   export LUA_LIBS+=" `pkg-config --libs lua52`" &&
   export LUA_CFLAGS+=" `pkg-config --cflags lua52`"
   LUAC="/usr/bin/luac5.2"
@@ -29,16 +22,16 @@ if in_depends $MODULE qt5; then
   export UIC=/usr/lib/qt5/bin/uic
 fi &&
 
-if in_depends $MODULE freerdp ; then
+if in_depends $MODULE freerdp-2 ; then
   export FREERDP_CFLAGS+=" -I/usr/include/freerdp2/ -I/usr/include/winpr2" &&
   export FREERDP_LIBS+=" -L/usr/lib64 -lfreerdp2"
 fi &&
 
 # Add a needed qt5 include
-sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp &&
+#sedit 's:#include <QString>:#include <QButtonGroup>\n#include <QString>:' modules/gui/qt/components/simple_preferences.cpp &&
 
 # libplacebo 0.6 API
-sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' modules/video_output/opengl/vout_helper.c
+#sedit 's|pl_shader_alloc(tc->pl_ctx, NULL, 0, 0);|pl_shader_alloc(tc->pl_ctx, NULL, 0);|' modules/video_output/opengl/vout_helper.c
 
 autoreconf -fi &&
 
