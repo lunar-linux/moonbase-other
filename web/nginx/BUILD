@@ -60,4 +60,6 @@ install man/nginx.8 /usr/share/man/man8/nginx.8 &&
 
 for i in ftdetect indent syntax; do
   install -Dm644 contrib/vim/${i}/nginx.vim /usr/share/vim/vimfiles/${i}/nginx.vim
-done
+done &&
+
+message "${MESSAGE_COLOR}If you also have the httpd module installed, you will need to change the default port from 80 to something else than what httpd is using. See /etc/nginx/nginx.conf for the 'Listen' option.${DEFAULT_COLOR}"
