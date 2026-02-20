@@ -7,8 +7,8 @@ depends rtkit
 depends meson
 
 optional_depends systemd \
-                 "-Dsystemd=enabled -Dsystemd-system-service=enabled -Dsystemd-user-service=enabled" \
-                 "-Dsystemd=disabled" \
+                 "-Dlibsystemd=enabled -Dsystemd-system-service=enabled -Dsystemd-user-service=enabled" \
+                 "-Dlibsystemd=disabled" \
                  "for systemd support"
 
 optional_depends alsa-lib \
