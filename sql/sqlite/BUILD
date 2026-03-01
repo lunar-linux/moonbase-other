@@ -47,6 +47,12 @@ prepare_install
 make install
 
 install -m755 dbdump dbhash dbtotxt index_usage scrub showdb showjournal showshm \
-         showstat4 showwal sqldiff sqlite3_expert sqlite3_rsync /usr/bin/ &&
+         showstat4 showwal sqldiff /usr/bin/ &&
+
+if in_depends $MODULE tcl
+then
+   install -m755 sqlite3_expert sqlite3_rsync
+fi &&
+
 
 install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1/
