@@ -3,6 +3,10 @@ name: Lint Check Modules
 on:
   pull_request:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -11,4 +15,4 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: lunar-linux/lunar-llint-action@v1
+      - uses: lunar-linux/lunar-llint-action@v2
