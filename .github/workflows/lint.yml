@@ -1,11 +1,9 @@
-name: Lint Check Modules
+name: Lint Modules
 
 on:
   pull_request:
-
-permissions:
-  contents: read
-  pull-requests: write
+  push:
+    branches: [master]
 
 jobs:
   lint:
@@ -15,4 +13,4 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: lunar-linux/lunar-llint-action@v2
+      - uses: lunar-linux/lunar-llint-action@v3

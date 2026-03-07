@@ -1,0 +1,65 @@
+# .github/workflows/lint-comment.yml
+#
+# Posts lint errors as a PR comment. Runs in the base repo context
+# (workflow_run), so it has write access even for fork PRs.
+# Never checks out or executes PR code — only reads a text artifact.
+
+name: Lint Comment
+
+on:
+  workflow_run:
+    workflows: [Lint Modules]
+    types: [completed]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  comment:
+    if: >-
+      github.event.workflow_run.event == 'pull_request'
+      && github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download lint output
+        uses: actions/download-artifact@v4
+        with:
+          name: llint-output
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+
+      - name: Find PR number
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pr=$(gh api "/repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}" \
+            --jq '.pull_requests[0].number')
+          echo "number=$pr" >> "$GITHUB_OUTPUT"
+
+      - name: Post comment
+        if: steps.pr.outputs.number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          errors=$(grep -vE '^::(group|endgroup)::' llint-output.txt | grep -v '^$' || true)
+
+          cat > /tmp/comment.md <<'COMMENT_EOF'
+          ## llint found issues
+
+          The following lint errors were found in this PR:
+
+          ```
+          COMMENT_EOF
+
+          echo "$errors" >> /tmp/comment.md
+
+          cat >> /tmp/comment.md <<'COMMENT_EOF'
+          ```
+
+          Run `llint --path <module-dir> --fix` locally to auto-fix fixable issues.
+          COMMENT_EOF
+
+          gh pr comment "${{ steps.pr.outputs.number }}" \
+            --repo "${{ github.repository }}" \
+            --body-file /tmp/comment.md
