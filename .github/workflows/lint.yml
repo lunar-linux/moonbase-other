@@ -1,0 +1,14 @@
+name: Lint Check Modules
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: lunar-linux/lunar-llint-action@v1
