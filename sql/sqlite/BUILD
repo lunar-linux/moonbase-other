@@ -35,7 +35,8 @@ default_config &&
 # fix the tcl related directory name
 if in_depends $MODULE tcl
 then
-    sedit 's|/zipfs:|usr|' Makefile
+    sedit 's|/zipfs:|usr|' Makefile &&
+    make sqlite3_expert
 fi &&
 
 make &&
