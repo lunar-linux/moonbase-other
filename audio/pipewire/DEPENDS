@@ -5,6 +5,8 @@ depends dbus
 depends sbc
 depends rtkit
 depends meson
+#This is a runtime dependency
+depends lilv
 
 optional_depends systemd \
                  "-Dlibsystemd=enabled -Dsystemd-system-service=enabled -Dsystemd-user-service=enabled" \
@@ -37,10 +39,6 @@ optional_depends jack2 \
                  "-D jack=disabled -D pipewire-jack=disabled" \
                  "for jack audio support" \
                  "n"
-
-if in_depends $MODULE "jack2"; then
-  optional_depends lilv "" "" "for lv2 plugin support"
-fi
 
 optional_depends doxygen \
                  "-D docs=enabled" \
