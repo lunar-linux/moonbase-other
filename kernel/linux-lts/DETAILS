@@ -1,5 +1,5 @@
           MODULE=linux-lts
-         VERSION=6.18.16
+         VERSION=6.18.17
             BASE=$(echo $VERSION | cut -d. -f1,2)
           SOURCE=linux-$BASE.tar.xz
 if [ -n "$(echo $VERSION | cut -d. -f3)" ] ; then
@@ -10,13 +10,13 @@ fi
   SOURCE2_URL[0]=$KERNEL_URL/pub/linux/kernel/v6.x
   SOURCE2_URL[1]=https://www.kernel.org/pub/linux/kernel/v6.x
       SOURCE_VFY=sha256:9106a4605da9e31ff17659d958782b815f9591ab308d03b0ee21aad6c7dced4b
-     SOURCE2_VFY=sha256:97e1fbb61c19c1d8073a585131518da460405688bd5d983b36cc20cd09a4c710
+     SOURCE2_VFY=sha256:b1a880f436d497ffc7a23e800a457cec5475d11599f501037e4b522d0c680d8b
         WEB_SITE=https://www.kernel.org/
          ENTERED=20111121
-         UPDATED=20260305
+         UPDATED=20260312
            SHORT="The core of a Linux GNU Operating System"
-     KEEP_SOURCE=on
            TMPFS=off
+KEEP_SOURCE=on
 
 cat << EOF
 This is the latest stable version the Linux kernel for Lunar Linux distro.
