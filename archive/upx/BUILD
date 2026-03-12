@@ -1,15 +1,10 @@
-export UCLDIR=/usr &&
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -Wno-dev"
 
-cd src &&
-make target=linux &&
-cd ../doc &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-make &&
-prepare_install &&
-
-gzip -9 upx.1 &&
-cp upx.1.gz /usr/share/man/man1 &&
-mkdir -p $DOCUMENT_DIRECTORY/upx &&
-cp upx-doc.html $DOCUMENT_DIRECTORY/upx &&
-cd .. &&
-cp build/debug/upx /usr/bin/upx
+prepare_install
+cmake --install $MODULE-$VERSION
