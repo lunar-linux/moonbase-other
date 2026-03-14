@@ -1,5 +1,3 @@
-cp $SOURCE_CACHE/Cargo.lock $SOURCE_DIRECTORY &&
-
 export CFLAGS+=' -ffat-lto-objects'
 export RUSTUP_TOOLCHAIN='stable'
 export CARGO_TARGET_DIR="target"
