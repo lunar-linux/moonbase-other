@@ -1,5 +1,6 @@
 depends dbus
 depends %OSSL
+depends jansson
 depends cmake
 depends cjson
 depends gst-plugins-base
@@ -21,3 +22,4 @@ optional_depends pulseaudio "-DWITH_PULSE=ON" "-DWITH_PULSE=OFF" "Enable PulseAu
 optional_depends faac       "-DWITH_FAAC=ON"  "-DWITH_FAAC=OFF"  "Enable faac audio support?"
 optional_depends faad2      "-DWITH_FAAD2=ON" "-DWITH_FAAD2=OFF" "Enable faad audio support"
 optional_depends lame       "-DWITH_LAME=ON"  "-DWITH_LAME=OFF"  "Enable lame support?"
+optional_depends krb5       "-DWITH_KRB5=ON"  "-DWITH_KRB5=OFF"  "for network security support" n
