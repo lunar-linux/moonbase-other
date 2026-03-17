@@ -1,0 +1,73 @@
+name: Auto Merge
+
+on:
+  pull_request_review:
+    types: [submitted]
+  check_run:
+    types: [completed]
+  status: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-merge approved PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          APPROVED_USERS="dagbrown esselfe Ratler stumbles lunar-linux-b01 florin65"
+
+          # Determine which PR(s) to evaluate
+          prs=""
+          if [ "${{ github.event_name }}" = "pull_request_review" ]; then
+            prs="${{ github.event.pull_request.number }}"
+          elif [ "${{ github.event_name }}" = "check_run" ]; then
+            prs=$(echo '${{ toJSON(github.event.check_run.pull_requests) }}' | jq -r '.[].number')
+          elif [ "${{ github.event_name }}" = "status" ]; then
+            # For commit statuses (Jenkins), find associated PRs
+            prs=$(gh pr list --repo "${{ github.repository }}" --state open \
+              --json number,headRefOid \
+              --jq ".[] | select(.headRefOid == \"${{ github.event.commit.sha }}\") | .number")
+          fi
+
+          for pr in $prs; do
+            echo "::group::Evaluating PR #$pr"
+
+            # Check PR author
+            author=$(gh pr view "$pr" --repo "${{ github.repository }}" --json author --jq '.author.login')
+            if ! echo "$APPROVED_USERS" | grep -qw "$author"; then
+              echo "PR author '$author' is not in the approved list. Skipping."
+              echo "::endgroup::"
+              continue
+            fi
+            echo "Author '$author' is approved."
+
+            # Check lint status
+            lint_status=$(gh pr checks "$pr" --repo "${{ github.repository }}" \
+              --json name,state --jq '.[] | select(.name == "lint") | .state')
+            if [ "$lint_status" != "SUCCESS" ]; then
+              echo "Lint check has not passed (status: ${lint_status:-pending}). Skipping."
+              echo "::endgroup::"
+              continue
+            fi
+            echo "Lint check passed."
+
+            # Check Jenkins status
+            head_sha=$(gh pr view "$pr" --repo "${{ github.repository }}" --json headRefOid --jq '.headRefOid')
+            jenkins_state=$(gh api "repos/${{ github.repository }}/commits/${head_sha}/statuses" \
+              --jq '[.[] | select(.context == "continuous-integration/jenkins/pr-head")] | first | .state')
+            if [ "$jenkins_state" != "success" ]; then
+              echo "Jenkins check has not passed (status: ${jenkins_state:-pending}). Skipping."
+              echo "::endgroup::"
+              continue
+            fi
+            echo "Jenkins check passed."
+
+            echo "All conditions met — merging PR #$pr"
+            gh pr merge "$pr" --repo "${{ github.repository }}" --merge --auto
+            echo "::endgroup::"
+          done
