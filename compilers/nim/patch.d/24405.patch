@@ -13,8 +13,8 @@ Subject: [PATCH 1/7] fixes #23668; migrates from pcre to pcre2
 
 diff --git a/lib/impure/nre.nim b/lib/impure/nre.nim
 index c5adf0e995830..0a43b92bed986 100644
---- ./lib/impure/nre.nim
-+++ ./lib/impure/nre.nim
+--- a/lib/impure/nre.nim
++++ b/lib/impure/nre.nim
 @@ -61,7 +61,7 @@ runnableExamples:
    assert find("uxabc", re"(?<=x|y)ab", start = 1).get.captures[-1] == "ab"
    assert find("uxabc", re"ab", start = 3).isNone
@@ -358,8 +358,8 @@ index c5adf0e995830..0a43b92bed986 100644
        if matchesCrLf and offset < (str.len - 1) and
 diff --git a/lib/impure/re.nim b/lib/impure/re.nim
 index b686c1f35a04c..fcd27516be611 100644
---- ./lib/impure/re.nim
-+++ ./lib/impure/re.nim
+--- a/lib/impure/re.nim
++++ b/lib/impure/re.nim
 @@ -36,7 +36,9 @@ runnableExamples:
      # can't match start of string since we're starting at 1
  
@@ -761,7 +761,7 @@ diff --git a/lib/wrappers/pcre2.nim b/lib/wrappers/pcre2.nim
 new file mode 100644
 index 0000000000000..b8f7b03fceece
 --- /dev/null
-+++ ./lib/wrappers/pcre2.nim
++++ b/lib/wrappers/pcre2.nim
 @@ -0,0 +1,683 @@
 +#
 +#
@@ -1448,8 +1448,8 @@ index 0000000000000..b8f7b03fceece
 +
 diff --git a/tests/stdlib/nre/init.nim b/tests/stdlib/nre/init.nim
 index f0c8e0a00f560..fd160f542a1b5 100644
---- ./tests/stdlib/nre/init.nim
-+++ ./tests/stdlib/nre/init.nim
+--- a/tests/stdlib/nre/init.nim
++++ b/tests/stdlib/nre/init.nim
 @@ -1,6 +1,8 @@
  import unittest
  include nre
@@ -1506,8 +1506,8 @@ Subject: [PATCH 2/7] fixes libpcre2-8.0.dylib on macosx
 
 diff --git a/lib/wrappers/pcre2.nim b/lib/wrappers/pcre2.nim
 index b8f7b03fceece..fa752848b976d 100644
---- ./lib/wrappers/pcre2.nim
-+++ ./lib/wrappers/pcre2.nim
+--- a/lib/wrappers/pcre2.nim
++++ b/lib/wrappers/pcre2.nim
 @@ -527,7 +527,7 @@ when not defined(usePcreHeader):
      else:
        const pcreDll = "pcre32.dll"
@@ -1529,8 +1529,8 @@ Subject: [PATCH 3/7] progress
 
 diff --git a/lib/impure/nre.nim b/lib/impure/nre.nim
 index 0a43b92bed986..1c47918ab31c7 100644
---- ./lib/impure/nre.nim
-+++ ./lib/impure/nre.nim
+--- a/lib/impure/nre.nim
++++ b/lib/impure/nre.nim
 @@ -231,7 +231,7 @@ when defined(gcDestructors):
  else:
    proc destroyRegex(pattern: Regex) =
@@ -1552,8 +1552,8 @@ Subject: [PATCH 4/7] try libpcre2-8-0.dll
 
 diff --git a/lib/wrappers/pcre2.nim b/lib/wrappers/pcre2.nim
 index fa752848b976d..92caee7e23008 100644
---- ./lib/wrappers/pcre2.nim
-+++ ./lib/wrappers/pcre2.nim
+--- a/lib/wrappers/pcre2.nim
++++ b/lib/wrappers/pcre2.nim
 @@ -520,12 +520,7 @@ type
  
  when not defined(usePcreHeader):
@@ -1582,8 +1582,8 @@ Subject: [PATCH 5/7] clean up
 
 diff --git a/lib/impure/nre.nim b/lib/impure/nre.nim
 index 1c47918ab31c7..56c55c8dd1a61 100644
---- ./lib/impure/nre.nim
-+++ ./lib/impure/nre.nim
+--- a/lib/impure/nre.nim
++++ b/lib/impure/nre.nim
 @@ -272,7 +272,7 @@ proc initRegex(pattern: string, flags: csize_t, options: uint32): Regex =
      errorCode: cint = 0
      errOffset: csize_t = 0
@@ -1604,8 +1604,8 @@ index 1c47918ab31c7..56c55c8dd1a61 100644
                            options,
 diff --git a/lib/impure/re.nim b/lib/impure/re.nim
 index fcd27516be611..c2f508a4bee06 100644
---- ./lib/impure/re.nim
-+++ ./lib/impure/re.nim
+--- a/lib/impure/re.nim
++++ b/lib/impure/re.nim
 @@ -83,7 +83,7 @@ proc rawCompile(pattern: string, flags: csize_t, options: uint32): ptr Pcre =
    var
      errorCode: cint = 0
@@ -1707,8 +1707,8 @@ index fcd27516be611..c2f508a4bee06 100644
      if res < 0'i32: break
 diff --git a/lib/wrappers/pcre2.nim b/lib/wrappers/pcre2.nim
 index 92caee7e23008..65a06c995a770 100644
---- ./lib/wrappers/pcre2.nim
-+++ ./lib/wrappers/pcre2.nim
+--- a/lib/wrappers/pcre2.nim
++++ b/lib/wrappers/pcre2.nim
 @@ -533,7 +533,7 @@ else:
  
  # Exported PCRE functions
@@ -1758,8 +1758,8 @@ Subject: [PATCH 6/7] progress
 
 diff --git a/lib/impure/nre.nim b/lib/impure/nre.nim
 index 56c55c8dd1a61..e5364ba67dfbe 100644
---- ./lib/impure/nre.nim
-+++ ./lib/impure/nre.nim
+--- a/lib/impure/nre.nim
++++ b/lib/impure/nre.nim
 @@ -1,6 +1,6 @@
  #
  #            Nim's Runtime Library
@@ -1770,8 +1770,8 @@ index 56c55c8dd1a61..e5364ba67dfbe 100644
  #    distribution, for details about the copyright.
 diff --git a/lib/impure/re.nim b/lib/impure/re.nim
 index c2f508a4bee06..deceb9739bae2 100644
---- ./lib/impure/re.nim
-+++ ./lib/impure/re.nim
+--- a/lib/impure/re.nim
++++ b/lib/impure/re.nim
 @@ -1,7 +1,7 @@
  #
  #
@@ -1804,8 +1804,8 @@ index c2f508a4bee06..deceb9739bae2 100644
    ## Constructor for extended regular expressions.
 diff --git a/lib/wrappers/pcre2.nim b/lib/wrappers/pcre2.nim
 index 65a06c995a770..0615cda0e627d 100644
---- ./lib/wrappers/pcre2.nim
-+++ ./lib/wrappers/pcre2.nim
+--- a/lib/wrappers/pcre2.nim
++++ b/lib/wrappers/pcre2.nim
 @@ -1,58 +1,19 @@
  #
  #
@@ -2019,8 +2019,8 @@ Subject: [PATCH 7/7] progress
 
 diff --git a/lib/impure/nre.nim b/lib/impure/nre.nim
 index e5364ba67dfbe..70b8d16fa1b9f 100644
---- ./lib/impure/nre.nim
-+++ ./lib/impure/nre.nim
+--- a/lib/impure/nre.nim
++++ b/lib/impure/nre.nim
 @@ -61,7 +61,7 @@ runnableExamples:
    assert find("uxabc", re"(?<=x|y)ab", start = 1).get.captures[-1] == "ab"
    assert find("uxabc", re"ab", start = 3).isNone
@@ -2150,8 +2150,8 @@ index deceb9739bae2..beb26b1ede562 100644
          raiseInvalidRegex("JIT compilation failed.")
 diff --git a/tests/stdlib/nre/init.nim b/tests/stdlib/nre/init.nim
 index fd160f542a1b5..57162fe8f26c9 100644
---- ./tests/stdlib/nre/init.nim
-+++ ./tests/stdlib/nre/init.nim
+--- a/tests/stdlib/nre/init.nim
++++ b/tests/stdlib/nre/init.nim
 @@ -1,7 +1,7 @@
  import unittest
  include nre
