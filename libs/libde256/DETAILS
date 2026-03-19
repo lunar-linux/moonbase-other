@@ -1,0 +1,13 @@
+    MODULE=libde256
+   VERSION=1.0.18
+    SOURCE=libde265-rs-0.2.1.tar.gz
+SOURCE_URL=https://github.com/Cykooz/libde265-rs/archive/v0.2.1.tar.gz
+SOURCE_VFY=sha256:29190f371b429ed1362b8c173b58e9f7a7e66ead0eb167740e7341400c83adbc
+  WEB_SITE=https://github.com/Cykooz/libde265-rs
+   ENTERED=20260319
+   UPDATED=20260319
+     SHORT="Rust bindings for libde265 H.265 video decoder"
+       CAT=libs
+default_pre_build &&
+./configure --prefix=/usr &&
+default_build
