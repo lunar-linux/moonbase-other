@@ -1,21 +1,18 @@
 export PATH=$SOURCE_DIRECTORY/bin:$PATH
+export SOURCE_DATE_EPOCH=$(git log -n 1 --format=%at)
 
 # building nim
 sh build_all.sh
 
-# building koch
-nim c -d:release koch &&
-./koch boot -d:release -d:nativeStacktrace -d:useGnuReadline &&
-
 # building libs
-pushd lib &&
+cd lib &&
 nim c --app:lib -d:createNimRtl -d:release nimrtl.nim
-popd &&
+cd ../ &&
 
-# build nimble
+ build nimble
 ./koch nimble &&
 
-# build tools
+ build tools
 ./koch tools &&
 
 prepare_install &&
