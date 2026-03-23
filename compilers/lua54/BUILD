@@ -44,5 +44,8 @@ cp -v doc/*.{html,css,gif,png} /usr/share/doc/lua-5.4.8 &&
 ln -s liblua5.4.so /usr/lib/liblua.so.5.4 &&
 ln -s liblua5.4.so /usr/lib/liblua.so.5.4.8
 
+#install -Dm0644 lua.pc /usr/lib/pkgconfig/ &&
+install -Dm0644 $SCRIPT_DIRECTORY/bit.lua /usr/lib/lua/5.4/ &&
+
 mv /usr/share/man/man1/{lua.1,lua5.4.8} &&
 mv /usr/share/man/man1/{luac.1,luac5.4.8}
