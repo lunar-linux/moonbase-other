@@ -21,6 +21,7 @@ make MYCFLAGS="$CFLAGS -fPIC -g \
                        -DLUA_COMPAT_5_1 \
                        -DLUA_COMPAT_5_2 \
                        -DLUA_COMPAT_5_3" \
+                       -DLUA_COMPAT_5_4" \
                        MYLDFLAGS="$LDFLAGS" &&
 
 prepare_install &&
