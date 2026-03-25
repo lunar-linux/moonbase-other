@@ -2,13 +2,11 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DBUILD_SHARED_LIBS=ON \
         -DCMAKE_BUILD_TYPE=Release \
-        -DCPUINFO_BUILD_PKG_CONFIG=ON \
-        -DCPUINFO_BUILD_TOOLS=ON \
-        -DUSE_SYSTEM_LIBS=ON \
+        -DNATIVE=ON \
         -Wno-dev"
 
-cmake -B svt-av1 -S . -G Ninja $OPTS &&
-cmake --build svt-av1 &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
 prepare_install
-cmake --install svt-av1
+cmake --install $MODULE-$VERSION
