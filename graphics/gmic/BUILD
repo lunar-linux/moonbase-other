@@ -12,4 +12,8 @@ cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
 
 prepare_install
-cmake --install $MODULE-$VERSION
+cmake --install $MODULE-$VERSION &&
+
+# Copy some missing headers and cpp
+cp src/*.cpp /usr/include/
+cp src/gmic_libc.h /usr/include/
