@@ -4,16 +4,11 @@ OPTS+=" -DASSIMP_BUILD_SAMPLES=OFF \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_INSTALL_LIBDIR=lib \
-        -DASSIMP_BUILD_ZLIB=OFF \
+        -DASSIMP_BUILD_ZLIB=ON \
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
 prepare_install &&
 
-cmake --install $MODULE-$VERSION &&
-
-cd port/PyAssimp &&
-
-unset OPTS &&
-default_python3_build
+cmake --install $MODULE-$VERSION
