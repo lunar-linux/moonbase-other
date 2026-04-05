@@ -1,12 +1,12 @@
           MODULE=libp11
-         VERSION=0.4.16
+         VERSION=0.4.18
           SOURCE=$MODULE-$VERSION.tar.gz
       SOURCE_URL=https://github.com/OpenSC/libp11/archive/
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$MODULE-$VERSION
-      SOURCE_VFY=sha256:1334eb6294a1a2e3e9038fa865fef5ee6383167753176be14d586147aa7632d6
+      SOURCE_VFY=sha256:eac0fdee8d42c3a997b8abdb50925bde04e930c46eb6c0422b8f08cee5fda59b
         WEB_SITE=https://github.com/OpenSC/libp11
          ENTERED=20200131
-         UPDATED=20250624
+         UPDATED=20260327
            SHORT="PKCS#11 wrapper library"
 
 cat << EOF
@@ -14,9 +14,11 @@ PKCS#11 wrapper library.
 
 This code repository produces two libraries:
 
-    libp11 provides a higher-level (compared to the PKCS#11 library) interface to access PKCS#11 objects.
-    It is designed to integrate with applications that use OpenSSL.
-    pkcs11 engine plugin for the OpenSSL library allows accessing PKCS#11 modules in a semi-transparent way.
+    libp11 provides a higher-level (compared to the PKCS#11 library) interface
+    to access PKCS#11 objects. It is designed to integrate with applications
+    that use OpenSSL. pkcs11 engine plugin for the OpenSSL library allows
+    accessing PKCS#11 modules in a semi-transparent way.
 
-The wiki page for this project is at https://github.com/OpenSC/libp11/wiki and includes a bug tracker and source browser.
+The wiki page for this project is at https://github.com/OpenSC/libp11/wiki and
+includes a bug tracker and source browser.
 EOF
