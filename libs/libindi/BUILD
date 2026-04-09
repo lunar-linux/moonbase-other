@@ -1,11 +1,16 @@
 source /etc/profile.d/qt6.rc
 
-OPTS+=" -DUDEVRULES_INSTALL_DIR=/usr/lib/udev/rules.d \
-        -DINDI_BUILD_STATIC=OFF" &&
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DUDEVRULES_INSTALL_DIR=/usr/lib/udev/rules.d \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DINDI_BUILD_STATIC=OFF \
+        -Wno-dev"
 
-default_cmake_build &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-sedit 's@/usr//usr@/usr@' /usr/lib/pkgconfig/libindi.pc
-rm /usr/lib/libindiAlignmentClient.a
+prepare_install
+cmake --install $MODULE-$VERSION
 
 add_priv_group plugdev
