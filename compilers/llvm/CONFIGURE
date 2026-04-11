@@ -2,7 +2,7 @@
 if [ -n "$RECONFIGURE" ]; then
   TARGETS=$(get_module_config TARGETS) &&
   if [ -z "$TARGETS" ]; then
-    TARGETS=${TARGETS:="X86;AMDGPU;BPF"}
+    TARGETS=${TARGETS:="X86;AMDGPU;BPF;WebAssembly"}
   fi &&
 
   if query "Do you want to select additional compiler targets (zig needs all and wasi-libc needs WebAssembly)? " n; then
