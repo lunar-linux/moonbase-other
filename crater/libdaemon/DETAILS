@@ -1,0 +1,26 @@
+          MODULE=libdaemon
+         VERSION=0.14
+          SOURCE=${MODULE}-${VERSION}.tar.gz
+   SOURCE_URL[0]=http://pkgs.fedoraproject.org/repo/pkgs/libdaemon/${SOURCE}/509dc27107c21bcd9fbf2f95f5669563/
+   SOURCE_URL[1]=http://0pointer.de/lennart/projects/libdaemon/
+      SOURCE_VFY=sha1:78a4db58cf3a7a8906c35592434e37680ca83b8f
+        WEB_SITE=http://0pointer.de/lennart/projects/libdaemon/
+         ENTERED=20060317
+         UPDATED=20091116
+           SHORT="A lightweight C library that eases the writing of UNIX daemons."
+cat << EOF
+libdaemon is a lightweight C library that eases the writing of UNIX
+daemons. It consists of the following parts:
+
+* A wrapper around fork() which does the correct daemonization procedure
+  of a process
+* A wrapper around syslog() for simpler and compatible log output to
+  Syslog or STDERR * An API for writing PID files
+* An API for serializing UNIX signals into a pipe for usage with
+  select() or poll()
+* An API for running subprocesses with STDOUT and STDERR redirected to
+  syslog.
+
+APIs like these are used in most daemon software available. It is not
+that simple to get it done right and code duplication is not a goal.
+EOF
