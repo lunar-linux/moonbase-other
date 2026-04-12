@@ -41,4 +41,3 @@ rm -fv "/usr/lib/vlc/plugins/plugins.dat"
 
 # delete leftover libtool stuff to properly empty plugin directories
 find "/usr/lib/vlc/" -type f -iname "*.la" -delete
-
