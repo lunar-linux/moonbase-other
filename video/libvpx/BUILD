@@ -2,7 +2,6 @@ CFLAGS+=' -ffat-lto-objects'
 CXXFLAGS+=' -ffat-lto-objects'
 
 OPTS+=" --prefix=/usr \
-        --as=yasm \
         --enable-pic \
         --enable-vp8 \
         --enable-vp9 \
@@ -14,6 +13,7 @@ OPTS+=" --prefix=/usr \
         --enable-multi-res-encoding \
         --enable-onthefly-bitpacking \
         --enable-vp9-temporal-denoising \
+        --enable-vp9-highbitdepth \
         --disable-unit-tests \
         --disable-examples \
         --disable-docs \
