@@ -1,4 +1,4 @@
-OPTS+=" -Dfastfloat=true -Dthreaded=true"
+OPTS+=" -Dfastfloat=true -Dthreaded=true -Dutils=true"
 
 default_meson_build &&
 
