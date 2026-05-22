@@ -7,8 +7,9 @@ cd ../ &&
 patch -p0 < $SCRIPT_DIRECTORY/povray-user-conf.patch &&
 autoreconf &&
 
-./configure COMPILED_BY="Lunar-Linux" --prefix=/usr --sysconfdir=/etc $OPTS &&
-make CXXFLAGS+='-std=c++11 -lboost_system -lboost_thread -DBOOST_BIND_GLOBAL_PLACEHOLDERS=1 -w' &&
+./configure COMPILED_BY="Lunar-Linux" --prefix=/usr --sysconfdir=/etc LIBS="-lboost_thread" 
+$OPTS &&
+make CXXFLAGS+='-std=c++11 -lboost_thread -DBOOST_BIND_GLOBAL_PLACEHOLDERS=1 -w' &&
 
 prepare_install &&
 make install &&
