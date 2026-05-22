@@ -1,6 +1,7 @@
 depends zlib
 depends automake
 depends autoconf
+depends python
 depends expat
 depends fontconfig
 depends libgd
@@ -28,14 +29,12 @@ optional_depends tk    "" "--disable-tcl"   "for building extra tcl/tk tools and
 optional_depends lua   "" "--disable-lua"   "for lua bindings support"
 optional_depends guile "" "--disable-guile" "for guile bindings support"
 optional_depends ocaml "" "--disable-ocaml" "for ocaml bindings support"
-optional_depends perl  "--enable-perl" "--disable-perl"  "perl bindings support"
-optional_depends php   "--enable-php"  "--disable-php"  "for PHP bindings support"
-optional_depends ruby  "--enable-ruby" "--disable-ruby" "for ruby bindings support"
-optional_depends R     "--enable-r"    "--disable-r"    "for R language bindings support"
+optional_depends perl  "--enable-perl" "--disable-perl"  "perl bindings support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n
+optional_depends php   "--enable-php"  "--disable-php"  "for PHP bindings support" n
+optional_depends ruby  "--enable-ruby" "--disable-ruby" "for ruby bindings support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n
+optional_depends R     "--enable-r"    "--disable-r"    "for R language bindings support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n
 
 optional_depends %JAVA_SDK "--enable-java=yes" "--disable-java" "for java bindings support"
-
-optional_depends python "--enable-python3 --disable-python --enable-lefty" "--disable-python3" "for Python 3.x bindings support"
 
 # Circular depend with vala
 #optional_depends librsvg "--with-rsvg" "--without-rsvg" "for SVG graphics support"
