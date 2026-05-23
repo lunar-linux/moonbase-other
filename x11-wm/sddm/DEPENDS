@@ -7,11 +7,3 @@ depends qt6-declarative
 depends extra-cmake-modules
 
 optional_depends docutils  "-DBUILD_MAN_PAGES=ON" "" "for installing man pages"
-optional_depends elogind   "-DUSE_ELOGIND=yes"    "" "for elogind support"
-
-if ! module_installed openrc; then
-   optional_depends systemd \
-                    "-DNO_SYSTEMD=OFF" \
-                    "-DNO_SYSTEMD=ON" \
-                    "for systemd support"
-fi
