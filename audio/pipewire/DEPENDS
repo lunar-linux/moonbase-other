@@ -3,7 +3,6 @@ depends libsndfile
 depends libusb
 depends dbus
 depends sbc
-depends rtkit
 depends meson
 #This is a runtime dependency
 depends lilv
@@ -12,6 +11,11 @@ optional_depends systemd \
                  "-Dlibsystemd=enabled -Dsystemd-system-service=enabled -Dsystemd-user-service=enabled" \
                  "-Dlibsystemd=disabled" \
                  "for systemd support"
+
+optional_depends rtkit \
+                 "-Dlegacy-rtkit=true" \
+                 "-Dlegacy-rtkit=false" \
+                 "for realtime dbus support"
 
 optional_depends alsa-lib \
                  "-D alsa=enabled  -D pipewire-alsa=enabled" \
