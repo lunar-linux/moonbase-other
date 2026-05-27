@@ -1,5 +1,5 @@
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=None \
+        -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DwxUSE_OPENGL=ON \
         -DwxUSE_GTKPRINT=ON \
@@ -20,4 +20,8 @@ cmake -B $MODULE-gtk3 -S . -G Ninja $OPTS &&
 cmake --build $MODULE-gtk3 &&
 
 prepare_install
-cmake --install $MODULE-gtk3
+cmake --install $MODULE-gtk3 &&
+
+if in_depends $MODULE webkit2gtk-4.1; then
+cp include/wx/webview.h /usr/include/wx-3.2/wx/
+fi
