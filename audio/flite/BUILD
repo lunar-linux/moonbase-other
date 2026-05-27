@@ -1,9 +1,6 @@
 OPTS+=" --enable-shared \
-        --with-audio=alsa \
-        --with-langvox=linux \
-        --with-vox=cmu_us_kal16" &&
+        --with-pic \
+        --with-audio=alsa"
+        --with-vox=cmu_us_kal16,cmu_grapheme_lang" &&
 
-default_build &&
-
-# remove the static libraries
-rm -f /usr/lib/libflite*.a
+default_build
