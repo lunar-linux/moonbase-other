@@ -1,0 +1,25 @@
+depends zlib
+depends libpng
+depends nanosvg
+depends expat
+depends tiff
+depends cmake
+depends gtk+-3
+depends mesa-lib
+depends libjpeg-turbo
+depends nasm
+depends pcre2
+depends flex
+depends bison
+depends libSM
+depends libsoup-3
+depends libnotify
+depends libmspack
+depends gst-plugins-base
+depends gnome-vfs #No disable switch
+
+optional_depends SDL2 "-DwxUSE_LIBSDL=ON" "-DwxUSE_LIBSDL=OFF" "for SDL2 audio support"
+
+optional_depends webkit2gtk-4.1 "-DwxUSE_WEBVIEW=ON -DwxUSE_WEBVIEW_WEBKIT=ON" \
+                                "-DwxUSE_WEBVIEW=OFF" \
+                                "for webview support,${MODULE_COLOR}Needed by wxMaxima${DEFAULT_COLOR}" n
