@@ -41,14 +41,15 @@ fi &&
 
 make &&
 # build additional tools - broken build: changeset rbu
-make dbdump dbhash dbtotxt index_usage scrub showdb showjournal showshm showstat4 showwal sqldiff \
-     sqlite3_analyzer sqlite3_checker sqlite3_expert sqlite3_rsync sqltclsh
+make dbdump dbhash dbtotxt index_usage showdb showjournal showshm \
+     showstat4 showwal sqldiff sqlite3_analyzer \
+     sqlite3_expert sqlite3_rsync sqltclsh
 
 prepare_install
 make install
 
-install -m755 dbdump dbhash dbtotxt index_usage scrub showdb showjournal showshm \
-         showstat4 showwal sqldiff /usr/bin/ &&
+install -m755 dbdump dbhash dbtotxt index_usage showdb showjournal showshm \
+         showstat4 showwal sqldiff sqlite3_expert sqlite3_rsync /usr/bin/ &&
 
 if in_depends $MODULE tcl
 then
