@@ -32,29 +32,28 @@ OPTS+="	--disable-static \
 
 default_config &&
 
-# fix the tcl related directory name
-if in_depends $MODULE tcl
-then
-    sedit 's|/zipfs:|usr|' Makefile &&
-    make sqlite3_expert
-fi &&
-
 make &&
+
 # build additional tools - broken build: changeset rbu
 make dbdump dbhash dbtotxt index_usage showdb showjournal showshm \
-     showstat4 showwal sqldiff sqlite3_analyzer \
-     sqlite3_expert sqlite3_rsync sqltclsh
+     showstat4 showwal sqldiff sqlite3_analyzer
+
+# fix the tcl related directory name
+if module_installed tcl ; then
+    sedit 's|/zipfs:|usr|' Makefile &&
+    make sqlite3_expert sqlite3_rsync sqltclsh
+fi &&
 
 prepare_install
 make install
 
 install -m755 dbdump dbhash dbtotxt index_usage showdb showjournal showshm \
-         showstat4 showwal sqldiff sqlite3_expert sqlite3_rsync /usr/bin/ &&
+         showstat4 showwal sqldiff /usr/bin/ &&
 
-if in_depends $MODULE tcl
-then
-   install -m755 sqlite3_expert sqlite3_rsync
+if module_installed tcli; then
+   install -m755 sqlite3_expert sqlite3_rsync /usr/bin/
 fi &&
 
 
 install -m 644 $SCRIPT_DIRECTORY/sqlite3.1 /usr/share/man/man1/
+
