@@ -4,7 +4,7 @@ OPTS+="  --prefix=/usr  \
          --with-bzip2   \
          --with-lzma    \
          --with-sqlite3 \
-         --with-os-feature=getrandom,getentropy \
+         --with-os-feature \
          --with-zlib"
 
 CXXFLAGS="$CXXFLAGS -O3" ./configure.py $OPTS &&
