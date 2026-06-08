@@ -2,6 +2,8 @@ depends zlib
 depends automake
 depends autoconf
 depends expat
+depends bison
+depends python
 depends fontconfig
 depends libgd
 depends gettext
@@ -34,8 +36,3 @@ optional_depends ruby  "--enable-ruby" "--disable-ruby" "for ruby bindings suppo
 optional_depends R     "--enable-r"    "--disable-r"    "for R language bindings support"
 
 optional_depends %JAVA_SDK "--enable-java=yes" "--disable-java" "for java bindings support"
-
-optional_depends python "--enable-python3 --disable-python --enable-lefty" "--disable-python3" "for Python 3.x bindings support"
-
-# Circular depend with vala
-#optional_depends librsvg "--with-rsvg" "--without-rsvg" "for SVG graphics support"

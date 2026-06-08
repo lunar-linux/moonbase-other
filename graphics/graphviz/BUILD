@@ -12,7 +12,7 @@ if in_depends $MODULE %JAVA_SDK; then
   export SWIGJAVA_CPPFLAGS="-I/usr/lib/java/latest/include -DSWIGJAVA"
 fi &&
 
-OPTS+=" --with-libgd --with-fontconfig --disable-man-pdfs"
+OPTS+=" --with-libgd --with-fontconfig --disable-man-pdfs --enable-python3 --disable-python --enable-lefty"
 
 if module_installed librsvg; then
    OPTS+=" --with-rsvg"
