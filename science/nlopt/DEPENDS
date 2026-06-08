@@ -1,1 +1,6 @@
-optional_depends guile "-DNLOPT_GUILE=1" "-DNLOPT_GUILE=0" "for guile bindings"
+depends python
+depends swig
+depends python-numpy
+
+optional_depends octave     "-DNLOPT_OCTAVE=ON" "-DNLOPT_OCTAVE=OFF" "for octave bindings support"
+optional_depends guile      "-DNLOPT_GUILE=ON"  "-DNLOPT_GUILE=OFF"  "for guile bindings support"
