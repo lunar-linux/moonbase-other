@@ -1,8 +1,9 @@
 prepare_install &&
 
 cargo build --release --locked &&
+target/release/just --man > "./${MODULE}.1" &&
 
-just --man > "./${MODULE}.1" &&
+install -Dm755 -t "/usr/bin/" "target/release/${MODULE}" &&
 install -Dm644 -t "/usr/share/man/man1/" "${MODULE}.1" &&
 install -Dm644 "completions/${MODULE}.bash" "/usr/share/bash-completion/completions/${MODULE}" &&
 
