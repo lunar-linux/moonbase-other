@@ -1,0 +1,129 @@
+diff -ruN gpm-1.20.7/src/headers/gpm.h patched/src/headers/gpm.h
+--- gpm-1.20.7/src/headers/gpm.h	2026-06-07 19:58:29.000000000 +0000
++++ patched/src/headers/gpm.h	2026-06-09 18:49:14.683333494 +0000
+@@ -268,7 +268,7 @@
+ /* libcurses.c */
+ /* #include <curses.h>  Hmm... seems risky */
+ 
+-extern int Gpm_Wgetch();
++extern int Gpm_Wgetch(void *win);
+ #define Gpm_Getch() (Gpm_Wgetch(NULL))
+ 
+ /* libxtra.c */
+diff -ruN gpm-1.20.7/src/lib/libcurses.c patched/src/lib/libcurses.c
+--- gpm-1.20.7/src/lib/libcurses.c	2026-06-07 19:58:29.000000000 +0000
++++ patched/src/lib/libcurses.c	2026-06-09 18:49:14.683669082 +0000
+@@ -43,14 +43,14 @@
+ 
+ #define GET(win) ((win) ? wgetch(win) : getch())
+ 
+-int Gpm_Wgetch(WINDOW *win)
++int Gpm_Wgetch(void *win)
+ {
+ fd_set selSet;
+ int max, flag, result;
+ int fd=STDIN_FILENO;
+ static Gpm_Event ev;
+ 
+-  if (!gpm_flag || gpm_fd==-1) return GET(win);
++  if (!gpm_flag || gpm_fd==-1) return GET((WINDOW *)win);
+   if (gpm_morekeys) return (*gpm_handler)(&ev,gpm_data);
+   gpm_hflag=0;
+ 
+@@ -73,7 +73,7 @@
+       while (!flag);
+ 
+       if (FD_ISSET(fd,&selSet))
+-	return GET(win);
++	return GET((WINDOW *)win);
+       
+       if (flag==-1)
+ 	continue;
+@@ -145,7 +145,7 @@
+       /* now, it surely is a mouse event */
+ 
+       for (c=0;c<3;c++) mdata[c]=GET(win);
+-      gpm_convert_event(mdata,&ev);
++      gpm_convert_event((char *)mdata,&ev);
+ 
+       if (gpm_handler && (result=(*gpm_handler)(&ev,gpm_data)))
+ 	{
+diff -ruN gpm-1.20.7/src/prog/gpm-root.y patched/src/prog/gpm-root.y
+--- gpm-1.20.7/src/prog/gpm-root.y	2026-06-07 19:58:29.000000000 +0000
++++ patched/src/prog/gpm-root.y	2026-06-09 18:49:14.684158462 +0000
+@@ -122,15 +122,18 @@
+ 
+ 
+ 
+-typedef struct DrawItem {
++typedef struct DrawItem DrawItem;
++typedef int (*DrawItemFun)(int mode, DrawItem *self, int uid);
++
++struct DrawItem {
+    short type;
+    short pad;
+    char *name;
+    char *arg;   /* a cmd string */
+    void *clientdata;  /* a (Draw *) for menus or whatever   */
+-   int (*fun)();
++   DrawItemFun fun;
+    struct DrawItem *next;
+-} DrawItem;
++};
+ 
+ typedef struct Draw {
+    short width;               /* length of longest item */
+@@ -159,7 +162,7 @@
+ int yylex(void);
+ 
+ DrawItem *cfg_cat(DrawItem *, DrawItem *);
+-DrawItem *cfg_makeitem(int mode, char *msg, int(*fun)(), void *detail);
++DrawItem *cfg_makeitem(int mode, char *msg, DrawItemFun fun, void *detail);
+ 
+ 
+ /*===================================================================*
+@@ -195,7 +198,7 @@
+       char *string;
+       Draw *draw;
+       DrawItem *item;
+-      int (*fun)();
++      DrawItemFun fun;
+       }
+ 
+ %token <string> T_STRING
+@@ -284,7 +287,7 @@
+ struct funcName {
+    char *name;
+    int token;
+-   int (*fun)();
++   DrawItemFun fun;
+    };
+ struct funcName funcList[] = {
+    {"f.debug",T_FUNC,f_debug},
+@@ -390,7 +393,7 @@
+ 
+ /*---------------------------------------------------------------------*/
+ /* malloc an empty DrawItem and fill it */
+-DrawItem *cfg_makeitem(int mode, char *msg, int(*fun)(), void *detail)
++DrawItem *cfg_makeitem(int mode, char *msg, DrawItemFun fun, void *detail)
+ {
+    DrawItem *new=calloc(1,sizeof(DrawItem));
+ 
+@@ -405,7 +408,7 @@
+ 
+       case 'F': /* a function without args */
+          new->fun=fun;
+-         if (fun) fun(F_CREATE,new);
++         if (fun) fun(F_CREATE,new,0);
+          break;
+ 
+       case 'M':
+@@ -1047,7 +1050,7 @@
+    }
+    /* sides and items */
+    for (item=draw->menu; y++, item; item=item->next) {
+-         if (item->fun) (*(item->fun))(F_POST,item);
++         if (item->fun) (*(item->fun))(F_POST,item,draw->uid);
+          GOTO(x,y); PUTC(VERLINE,draw->bord,draw->back);
+          for (i=0;i<item->pad;i++) PUTC(' ',draw->fore,draw->back);
+          PUTS(item->name,draw->fore,draw->back); i+=strlen(item->name);
