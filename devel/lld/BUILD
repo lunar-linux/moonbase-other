@@ -7,7 +7,6 @@ OPTS+="  -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
          -DLLVM_MAIN_SRC_DIR=$MODULE-$VERSION \
          -Wno-dev"
 
-
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
 
