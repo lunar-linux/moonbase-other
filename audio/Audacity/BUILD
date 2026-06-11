@@ -1,7 +1,6 @@
 OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DAUDACITY_BUILD_LEVEL=2 \
         -DCMAKE_INSTALL_PREFIX=/usr \
-        -DSYSCONF_INSTALL_DIR=/etc/audactiy \
         -Daudacity_conan_enabled=OFF \
         -Daudacity_has_crashreports=OFF \
         -Daudacity_has_updates_check=OFF \
