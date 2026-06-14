@@ -3,16 +3,14 @@ depends git
 depends go
 depends iptables
 depends libseccomp
-depends runc
-depends systemd
 depends cni-plugins
 depends conmon
 depends skopeo
 depends slirp4netns
 depends btrfs-progs
+depends systemd
 
 optional_depends go-md2man   "" "" "required to build man-pages" "y"
-optional_depends crun        "" "" "for unified cgroupsv2 support" "y"
 optional_depends catatonit   "" "" "for --init flag support" "y"
 optional_depends btrfs-progs "" "" "for btrfs backend devices support"
 optional_depends passt       "" "" "for alternate rootless network support"
