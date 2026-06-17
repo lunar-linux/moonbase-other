@@ -6,18 +6,18 @@ depends sbc
 depends XML-Parser
 depends libXtst
 
-optional_depends alsa-oss   "-D alsa=enabled"    "-D alsa=disabled"    "for ALSA support"
+optional_depends systemd    "-D udev=enabled"    "-D udev=disabled"    "optional UDEV support"
+optional_depends dbus       "-D dbus=enabled"    "-D dbus=disabled"    "optional D-Bus support"
+optional_depends %OSSL      "-D openssl=enabled" "-D openssl=disabled" "for OpenSSL support"
+optional_depends %BLUEZ     "-D bluez5=enabled"  "-D bluez5=disabled"  "for optional bluetooth support"
+optional_depends alsa-lib   "-D alsa=enabled"    "-D alsa=disabled"    "for ALSA support" y
 optional_depends fftw       "-D fftw=enabled"    "-D fftw=disabled"    "for FFTW-using modules (equalizer) support"
 optional_depends soxr       "-D soxr=enabled"    "-D soxr=disabled"    "for resampling support"
 optional_depends jack2      "-D jack=enabled"    "-D jack=disabled"    "for jack support"
-optional_depends libasyncns "-D asyncns=enabled" "-D asyncns=disabled" "for asynchronous name server"
+optional_depends libasyncns "-D asyncns=enabled" "-D asyncns=disabled" "for asynchronous sound server"
 optional_depends avahi      "-D avahi=enabled"   "-D avahi=disabled"   "for ZeroConf support"
-optional_depends dbus       "-D dbus=enabled"    "-D dbus=disabled"    "optional D-Bus support"
-optional_depends systemd      "-D udev=enabled"    "-D udev=disabled"    "optional UDEV support"
-optional_depends gtk+-3     "-D gtk=enabled"     "-D gtk=disabled"     "optional Gtk+ 3 support"
-optional_depends %OSSL      "-D openssl=enabled" "-D openssl=disabled" "for OpenSSL support"
 optional_depends orc        "-D orc=enabled"     "-D orc=disabled"     "for orc support"
-optional_depends %BLUEZ     "-D bluez5=enabled"  "-D bluez5=disabled"  "for optional bluetooth support"
+optional_depends gtk+-3     "-D gtk=enabled"     "-D gtk=disabled"     "optional Gtk+ 3 support"
 optional_depends gdbm       "-D database=gdbm"   "-D database=simple"  "use gdbm for database support,${PROBLEM_COLOR} say no here and to tdb to use a simple database${DEFAULT_COLOR}" n
 optional_depends tdb        "-D database=tdb"    "-D database=simple"  "use tdb for database support, ${PROBLEM_COLOR}say no here and prior gdbm to use a simple database${DEFAULT_COLOR}" n
 optional_depends doxygen    "-D doxygen=true"    "-D doxygen=false"    "for documentation support" n
