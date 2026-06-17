@@ -1,6 +1,8 @@
 # libsamplerate is depreciated.
 OPTS+=" -D udevrulesdir=/usr/lib/udev/rules.d  \
         -D samplerate=disabled  \
+        -D consolekit=disabled \
+        -D elogind=disabled \
         -D system_group=pulse \
         -D system_user=pulse \
         -D tcpwrap=disabled"
