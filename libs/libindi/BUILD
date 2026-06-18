@@ -1,10 +1,13 @@
-source /etc/profile.d/qt6.rc
+if in_depends $MODULE qt6-base; then
+  source /etc/profile.d/qt6.rc
+fi &&
 
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
         -DUDEVRULES_INSTALL_DIR=/usr/lib/udev/rules.d \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DINDI_BUILD_STATIC=OFF \
+        -DFIX_WARNINGS=OFF \
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
