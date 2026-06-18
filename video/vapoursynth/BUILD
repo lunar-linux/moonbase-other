@@ -1,3 +1,5 @@
-OPTS+=" --prefix=/usr --disable-static"
+export PYTHONDONTWRITEBYTECODE=1 &&
+python -m build --wheel 
 
-default_build
+prepare_install &&
+python -m installer --destdir=/ dist/*.whl
