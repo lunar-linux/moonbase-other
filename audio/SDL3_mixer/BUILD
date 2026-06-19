@@ -1,0 +1,4 @@
+OPTS+=" -D SDLMIXER_TESTS_INSTALL=OFF \
+        -D SDLMIXER_EXAMPLES_INSTALL=OFF"
+
+default_cmake_build
