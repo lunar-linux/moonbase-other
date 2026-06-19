@@ -1,0 +1,10 @@
+depends libpng
+depends libjxl
+depends SDL3
+
+optional_depends %JPEG   "" "-D SDLIMAGE_JPG=OFF"  "support JPEG images"
+optional_depends tiff    "" "-D SDLIMAGE_TIF=OFF"  "support TIFF images"
+optional_depends libwebp "" "-D SDLIMAGE_WEBP=OFF" "support WEBP images"
+optional_depends libavif "" "-D SDLIMAGE_AVIF=OFF" "support AVIF images"
+optional_depends librsvg "" "-D SDLIMAGE_SVG=OFF"  "support SVG images"
+optional_depends libpng  "" "-D SDLIMAGE_PNG=OFF"  "support PNG images"
