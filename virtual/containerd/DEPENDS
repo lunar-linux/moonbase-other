@@ -2,4 +2,12 @@ depends go
 depends git
 depends btrfs-progs
 depends libseccomp
-depends runc
+
+if module_installed runc; then
+    depends runc
+else
+    optional_depends crun "for unified cgroups v2 support" "y"
+    if ! in_depends $MODULE crun; then
+      depends runc
+    fi
+fi
