@@ -1,0 +1,126 @@
+diff --unified --recursive --text --new-file flashrom.orig/tests/chip.c flashrom/tests/chip.c
+--- flashrom.orig/tests/chip.c	2026-02-06 22:23:01.122513139 +0100
++++ flashrom/tests/chip.c	2026-02-06 22:23:25.955456182 +0100
+@@ -55,7 +55,7 @@
+ {
+ 	printf("Read chip called with start=0x%x, len=0x%x\n", start, len);
+ 
+-	assert_in_range(start + len, 0, MOCK_CHIP_SIZE);
++	assert_uint_in_range(start + len, 0, MOCK_CHIP_SIZE);
+ 
+ 	memcpy(buf, &g_chip_state.buf[start], len);
+ 	return 0;
+@@ -65,7 +65,7 @@
+ {
+ 	printf("Write chip called with start=0x%x, len=0x%x\n", start, len);
+ 
+-	assert_in_range(start + len, 0, MOCK_CHIP_SIZE);
++	assert_uint_in_range(start + len, 0, MOCK_CHIP_SIZE);
+ 
+ 	memcpy(&g_chip_state.buf[start], buf, len);
+ 	return 0;
+@@ -75,7 +75,7 @@
+ {
+ 	printf("Block erase called with blockaddr=0x%x, blocklen=0x%x\n", blockaddr, blocklen);
+ 
+-	assert_in_range(blockaddr + blocklen, 0, MOCK_CHIP_SIZE);
++	assert_uint_in_range(blockaddr + blocklen, 0, MOCK_CHIP_SIZE);
+ 
+ 	memset(&g_chip_state.buf[blockaddr], 0xff, blocklen);
+ 	return 0;
+diff --unified --recursive --text --new-file flashrom.orig/tests/erase_func_algo.c flashrom/tests/erase_func_algo.c
+--- flashrom.orig/tests/erase_func_algo.c	2026-02-06 22:23:01.122612850 +0100
++++ flashrom/tests/erase_func_algo.c	2026-02-06 22:23:27.040458717 +0100
+@@ -72,7 +72,7 @@
+ 	if (start < MOCK_CHIP_SIZE)
+ 		LOG_READ_WRITE_FUNC;
+ 
+-	assert_in_range(start + len, 0, MIN_REAL_CHIP_SIZE);
++	assert_uint_in_range(start + len, 0, MIN_REAL_CHIP_SIZE);
+ 
+ 	memcpy(buf, &g_state.buf[start], len);
+ 
+@@ -94,7 +94,7 @@
+ 	if (start < MOCK_CHIP_SIZE)
+ 		LOG_READ_WRITE_FUNC;
+ 
+-	assert_in_range(start + len, 0, MIN_REAL_CHIP_SIZE);
++	assert_uint_in_range(start + len, 0, MIN_REAL_CHIP_SIZE);
+ 
+ 	memcpy(&g_state.buf[start], buf, len);
+ 
+@@ -120,7 +120,7 @@
+ 		g_state.eraseblocks_actual_ind++;
+ 	}
+ 
+-	assert_in_range(blockaddr + blocklen, 0, MIN_REAL_CHIP_SIZE);
++	assert_uint_in_range(blockaddr + blocklen, 0, MIN_REAL_CHIP_SIZE);
+ 
+ 	memset(&g_chip_state.buf[blockaddr], ERASE_VALUE, blocklen);
+ 
+@@ -1440,7 +1440,7 @@
+ 		g_state.eraseblocks_actual_ind++;
+ 	}
+ 
+-	assert_in_range(blockaddr + blocklen, 0, MIN_REAL_CHIP_SIZE);
++	assert_uint_in_range(blockaddr + blocklen, 0, MIN_REAL_CHIP_SIZE);
+ 
+ 	// Check we are not trying to erase protected region. This should not happen,
+ 	// because the logic should handle protected regions and never invoke erasefn
+diff --unified --recursive --text --new-file flashrom.orig/tests/probe_spi.c flashrom/tests/probe_spi.c
+--- flashrom.orig/tests/probe_spi.c	2026-02-06 22:23:01.122612850 +0100
++++ flashrom/tests/probe_spi.c	2026-02-06 22:23:27.040458717 +0100
+@@ -214,8 +214,8 @@
+ 	// FIXME: change to assert_int_equal after caching is fully implemented.
+ 	// At the moment the number of opcode calls are greater than, because not all
+ 	// probing functions are using cache.
+-	assert_in_range(probe_io_state.opcode_counter, PROBE_COUNT_JEDEC_RDID_3, flashchips_size);
+-	assert_in_range(probe_io_state.counter, PROBE_COUNT_ALL_SPI_OPCODES, flashchips_size);
++	assert_uint_in_range(probe_io_state.opcode_counter, PROBE_COUNT_JEDEC_RDID_3, flashchips_size);
++	assert_uint_in_range(probe_io_state.counter, PROBE_COUNT_ALL_SPI_OPCODES, flashchips_size);
+ }
+ 
+ void probe_jedec_rdid3_no_matches_found(void **state)
+@@ -251,8 +251,8 @@
+ 	// FIXME: change to assert_int_equal after caching is fully implemented.
+ 	// At the moment the number of opcode calls are greater than, because not all
+ 	// probing functions are using cache.
+-	assert_in_range(probe_io_state.opcode_counter, PROBE_COUNT_JEDEC_RDID_3, flashchips_size);
+-	assert_in_range(probe_io_state.counter, PROBE_COUNT_ALL_SPI_OPCODES, flashchips_size);
++	assert_uint_in_range(probe_io_state.opcode_counter, PROBE_COUNT_JEDEC_RDID_3, flashchips_size);
++	assert_uint_in_range(probe_io_state.counter, PROBE_COUNT_ALL_SPI_OPCODES, flashchips_size);
+ }
+ 
+ void probe_jedec_res1_fixed_chipname(void **state)
+@@ -325,8 +325,8 @@
+ 	// FIXME: change to assert_int_equal after caching is fully implemented.
+ 	// At the moment the number of opcode calls are greater than, because not all
+ 	// probing functions are using cache.
+-	assert_in_range(probe_io_state.opcode_counter, PROBE_COUNT_JEDEC_RES_1, flashchips_size);
+-	assert_in_range(probe_io_state.counter, PROBE_COUNT_ALL_SPI_OPCODES, flashchips_size);
++	assert_uint_in_range(probe_io_state.opcode_counter, PROBE_COUNT_JEDEC_RES_1, flashchips_size);
++	assert_uint_in_range(probe_io_state.counter, PROBE_COUNT_ALL_SPI_OPCODES, flashchips_size);
+ }
+ 
+ void probe_jedec_res1_no_matches_found(void **state)
+@@ -362,8 +362,8 @@
+ 	// FIXME: change to assert_int_equal after caching is fully implemented.
+ 	// At the moment the number of opcode calls are greater than, because not all
+ 	// probing functions are using cache.
+-	assert_in_range(probe_io_state.opcode_counter, PROBE_COUNT_JEDEC_RES_1, flashchips_size);
+-	assert_in_range(probe_io_state.counter, PROBE_COUNT_ALL_SPI_OPCODES, flashchips_size);
++	assert_uint_in_range(probe_io_state.opcode_counter, PROBE_COUNT_JEDEC_RES_1, flashchips_size);
++	assert_uint_in_range(probe_io_state.counter, PROBE_COUNT_ALL_SPI_OPCODES, flashchips_size);
+ }
+ 
+ #else
+diff --unified --recursive --text --new-file flashrom.orig/tests/udelay.c flashrom/tests/udelay.c
+--- flashrom.orig/tests/udelay.c	2026-02-06 22:23:01.123220417 +0100
++++ flashrom/tests/udelay.c	2026-02-06 22:23:24.782453438 +0100
+@@ -61,5 +61,5 @@
+     default_delay(delay_us);
+     uint64_t elapsed = now_us() - start;
+ 
+-    assert_in_range(elapsed, delay_us, 10 * delay_us);
++    assert_uint_in_range(elapsed, delay_us, 10 * delay_us);
+ }
