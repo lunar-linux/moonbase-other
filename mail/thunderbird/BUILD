@@ -1,5 +1,3 @@
-#ulimit -n 16384 &&
-
 export MOZILLA_HOME=/usr/lib/$MODULE-$VERSION
 export MOZILLA_OFFICIAL=1
 export MOZ_MAKE_FILES=$MAKES
@@ -13,10 +11,6 @@ CFLAGS="${CFLAGS/_FORTIFY_SOURCE=3/_FORTIFY_SOURCE=2}"
 CFLAGS="${CFLAGS/-fexceptions/}"
 CXXFLAGS="${CXXFLAGS/_FORTIFY_SOURCE=3/_FORTIFY_SOURCE=2}"
 CXXFLAGS="${CXXFLAGS/-fexceptions/}"
-
-#For the STL portion of the build
-#export CFLAGS="-fno-exceptions"
-#export CXXFLAGS="-fno-exceptions"
 
 ./mach configure &&
 ./mach build --verbose &&
