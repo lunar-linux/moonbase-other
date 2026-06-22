@@ -5,7 +5,8 @@ OPTS+=" -DBUILD_CURVE_TOOLS=ON \
         -DENABLE_RAWSPEED=ON \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_LIBDIR=lib \
-        -DCMAKE_INSTALL_PREFIX=/usr"
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -Wno-dev"
 
 CC="clang" CXX="clang++"
 
