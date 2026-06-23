@@ -1,18 +1,21 @@
 depends xz
+depends tar
+depends cpio
 depends zlib
 depends bzip2
 depends uudeview
 depends %OSSL
 depends acl
 depends attr
+depends pcre2
+depends cmake
 
-optional_depends libxml2  "--with-xml2"   "--without-xml2"   "for XML2 support"
-optional_depends libb2    "--with-libb2"  "--without-libb2"  "for BLAKE2 hashing support"
-optional_depends lz4      "--with-lz4"    "--without-lz4"    "for lz4 compression support"
-optional_depends lzo      "--with-lzo2"   "--without-lzo2"   "for lzo compression support"
-optional_depends zstd     "--with-zstd"   "--without-zstd"   "for zstd compression support"
-optional_depends lzma-sdk "--with-lzma"   "--without-lzma"   "for lzma compression support"
-
-optional_depends mbedtls "--with-mbedtls" "--without-mbedtls" "for mbedtls support"
-
-#optional_depends nettle   "--with-nettle" "--without-nettle" "for nettle crypto support"
+optional_depends expat    "-DENABLE_EXPAT=ON"   "-DENABLE_EXPAT=OFF"   "Use system expat"
+optional_depends libxml2  "-DENABLE_LIBXML2=ON" "-DENABLE_LIBXML2=OFF" "use system XML2 support"
+optional_depends libb2    "-DENABLE_LIBB2=ON"   "-DENABLE_LIBB2=OFF"   "use system BLAKE2 hashing support"
+optional_depends lz4      "-DENABLE_LZ4=ON"     "-DENABLE_LZ4=OFF"     "use system lz4 compression support"
+optional_depends lzo      "-DENABLE_LZO=ON"     "-DENABLE_LZO=OFF"     "use system lzo compression support"
+optional_depends zstd     "-DENABLE_ZSTD=ON"    "-DENABLE_ZSTD=OFF"    "for zstd compression support"
+optional_depends lzma-sdk "-DENABLE_LZMA=ON"    "-DENABLE_LZMA=OFF"    "use system lzma compression support"
+optional_depends mbedtls  "-DENABLE_MBEDTLS=ON" "-DENABLE_MBEDTLS=OFF" "use system mbedtls support"
+optional_depends nettle   "-DENABLE_NETTLE=ON"  "-DENABLE_NETTLE=OFF"  "use system nettle crypto support"
