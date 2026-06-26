@@ -1,10 +1,5 @@
 OPTS+=" -DBUILD_SHARED_LIBS=ON \
         -DENABLE_GTK_DOC=OFF \
-        -DBUILD_GTK_TESTS=OFF \
-        -DBUILD_QT5_TESTS=OFF \
-        -DBUILD_QT6_TESTS=ON\
-        -DENABLE_QT5=OFF \
-        -DENABLE_LCMS=ON \
         -DENABLE_UNSTABLE_API_ABI_HEADERS=ON"
 
 # If in depends we will now build qt5 libs
