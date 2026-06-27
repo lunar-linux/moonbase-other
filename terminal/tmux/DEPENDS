@@ -1,6 +1,11 @@
 depends libevent
 depends ncurses
 
+optional_depends systemd \
+                 "--enable-systemd" \
+                 "--disable-systemd" \
+                 "for systemd support"
+
 optional_depends libutempter \
                  "--enable-utempter" \
                  "--disable-utempter" \
