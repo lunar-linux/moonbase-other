@@ -1,3 +1,8 @@
+if module_installed clang; then
+  export CC=clang
+  export CXX=clang++
+fi &&
+
 OPTS+="
   -DCMAKE_BUILD_TYPE=Release
   -DCMAKE_INSTALL_PREFIX=/usr

@@ -1,2 +1,11 @@
-lin -c compiler-rt openmp
+if module_installed lld; then
+  lin -c lld
+fi
 
+if module_installed compiler-rt; then
+  lin -c compiler-rt
+fi
+
+if module_installed openmp; then
+  lin -c openmp
+fi
