@@ -1,0 +1,47 @@
+# only lin -r gcc will trigger the language selector!
+if [ -n "$RECONFIGURE" ]; then
+  TARGETS=$(get_module_config TARGETS) &&
+  if [ -z "$TARGETS" ]; then
+    TARGETS=${TARGETS:="X86;AMDGPU;BPF;WebAssembly"}
+  fi &&
+
+  if query "Do you want to select additional compiler targets (zig needs all and wasi-libc needs WebAssembly)? " n; then
+    OPTIONS=(
+      "AArch64"     "AArch 64"    "off"
+      "AMDGPU"      "AMD GPU"     "on"
+      "ARM"         "ARM"         "off"
+      "AVR"         "AVR"         "off"
+      "BPF"         "BPF"         "on"
+      "Hexagon"     "Hexagon"     "off"
+      "Lanai"       "Lanai"       "off"
+      "LoongArch"   "LoongArch"   "off"
+      "Mips"        "Mips"        "off"
+      "MSP430"      "MSP430"      "off"
+      "NVPTX"       "NVIDIA PTX"  "off"
+      "PowerPC"     "PowerPC"     "off"
+      "RISCV"       "RiscV"       "off"
+      "Sparc"       "Sparc"       "off"
+      "SystemZ"     "SystemZ"     "off"
+      "VE"          "VE"          "off"
+      "WebAssembly" "WebAssembly" "on"
+      "X86"         "X86"         "on"
+      "XCore"       "XCore"       "off"
+    ) &&
+    RESULT=`dialog --title "Select additional compiler targets" \
+                   --stdout                                     \
+                   --separate-output                            \
+                   --checklist  "Available additional targets:" \
+                    0 0 0                                       \
+                   "${OPTIONS[@]}"` &&
+
+    TARGETS="X86;$(echo $RESULT | sed 's/ /;/g')" &&
+    set_module_config TARGETS "$TARGETS"
+  else
+    TARGETS=$(get_module_config TARGETS) &&
+    if [ -z "$TARGETS" ]; then
+      TARGETS=${TARGETS:="X86;AMDGPU;BPF"}
+    fi &&
+    set_module_config TARGETS "$TARGETS"
+  fi
+fi
+clear
