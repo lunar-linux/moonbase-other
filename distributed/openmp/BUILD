@@ -1,3 +1,16 @@
-OPTS+=" -DLIBOMP_INSTALL_ALIASES=OFF"
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
 
-default_cmake_build
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DLIBOMP_INSTALL_ALIASES=OFF"
+
+cd openmp &&
+
+cmake -S . -B build -G Ninja $OPTS &&
+cmake --build build -v &&
+
+prepare_install &&
+
+cmake --install build
+

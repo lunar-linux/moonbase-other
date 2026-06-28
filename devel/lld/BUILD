@@ -1,15 +1,22 @@
-OPTS+="  -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
-         -DCMAKE_BUILD_TYPE=RELEASE \
-         -DLLVM_LINK_LLVM_DYLIB=ON \
-         -DBUILD_SHARED_LIBS=ON \
-         -DLLVM_INCLUDE_TESTS=ON \
-         -DLLVM_EXTERNAL_LIT=/usr/bin/lit \
-         -DLLVM_MAIN_SRC_DIR=$MODULE-$VERSION \
-         -Wno-dev"
+OPTS+="
+  -DCMAKE_BUILD_TYPE=Release
+  -DCMAKE_INSTALL_PREFIX=/usr
+  -DCMAKE_SKIP_INSTALL_RPATH=ON
+  -DBUILD_SHARED_LIBS=ON
+  -DLLVM_DIR=/usr/lib/cmake/llvm"
 
-cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
-cmake --build $MODULE-$VERSION &&
+cd lld &&
+
+cmake -S . -B build -G Ninja $OPTS &&
+cmake --build build -v &&
 
 prepare_install &&
 
-cmake --install $MODULE-$VERSION
+cmake --install build &&
+
+# https://bugs.llvm.org/show_bug.cgi?id=42455
+install -Dm644 -t "/usr/share/man/man1" docs/ld.lld.1 &&
+
+# Remove documentation sources
+rm -rf /usr/share/doc/lld/html/{_sources,.buildinfo}
+

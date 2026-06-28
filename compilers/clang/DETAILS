@@ -1,4 +1,4 @@
-          MODULE=openmp
+          MODULE=clang
          VERSION=22.1.8
           SOURCE=llvm-project-$VERSION.src.tar.xz
       SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION
@@ -7,9 +7,10 @@ SOURCE_DIRECTORY=${BUILD_DIRECTORY}/llvm-project-${VERSION}.src
         WEB_SITE=https://www.llvm.org/
          ENTERED=20090128
          UPDATED=20260621
-           SHORT="LLVM's implementation of OpenMP"
+           SHORT="C language family frontend for LLVM"
 
 cat << EOF
-The OpenMP subproject of LLVM contains the components required to build an
-executable OpenMP program that are outside the compiler itself.
+Clang is a compiler front-end for the C family of languages (C, C++, Objective-C
+and Objective-C++) which can be built as a part of the LLVM compiler
+intrastructure project
 EOF

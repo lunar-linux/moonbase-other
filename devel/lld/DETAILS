@@ -1,21 +1,14 @@
           MODULE=lld
-         VERSION=21.1.8
-          SOURCE=$MODULE-$VERSION.src.tar.xz
-         SOURCE2=libunwind-$VERSION.src.tar.xz
-         SOURCE3=cmake-$VERSION.src.tar.xz
-      SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION/
-     SOURCE2_URL=$SOURCE_URL
-     SOURCE3_URL=$SOURCE_URL
-      SOURCE_VFY=sha256:d9524c5ee952500a2af92c27042a0d90ab089962af47816d4c85d0ebf76373d1
-      SOURCE2_VFY=sha256:03e8adc6c3bdde657dcaedc94886ea70d1f7d551d622fcd8a36a8300e5c36cbc
-     SOURCE3_VFY=sha256:85735f20fd8c81ecb0a09abb0c267018475420e93b65050cc5b7634eab744de9
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION.src
+         VERSION=22.1.8
+           SOURCE=llvm-project-$VERSION.src.tar.xz
+      SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION
+      SOURCE_VFY=sha256:922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/llvm-project-${VERSION}.src
         WEB_SITE=https://lld.llvm.org/
          ENTERED=20180407
-         UPDATED=20251228
+         UPDATED=20260621
            SHORT="Linker from the LLVM project"
 cat << EOF
 Linker from the LLVM project.
-
-NOTE: This should me in sync with llvm version.
+This use the same source archive as the llvm module.
 EOF
