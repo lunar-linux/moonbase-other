@@ -1,5 +1,5 @@
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
+export CC=clang
+export CXX=clang++
 
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
