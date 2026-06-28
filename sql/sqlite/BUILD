@@ -50,7 +50,7 @@ make install
 install -m755 dbdump dbhash dbtotxt index_usage showdb showjournal showshm \
          showstat4 showwal sqldiff /usr/bin/ &&
 
-if module_installed tcli; then
+if module_installed tcl; then
    install -m755 sqlite3_expert sqlite3_rsync /usr/bin/
 fi &&
 
