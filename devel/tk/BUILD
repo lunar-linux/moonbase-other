@@ -31,7 +31,9 @@ sedit "s:system=MP-RAS-\`awk '{print }' /etc/.relid'\`:system=MP-RAS-\`awk '{pri
             --with-tcl=../tcl$VERSION/unix \
             --enable-threads \
             --disable-rpath \
-            --enable-64bit $OPTS&&
+            --enable-64bit $OPTS &&
+
+export LD_LIBRARY_PATH="$PWD:$LD_LIBRARY_PATH" &&
 
 default_make &&
 
