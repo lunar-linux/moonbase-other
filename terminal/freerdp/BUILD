@@ -16,7 +16,6 @@ OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DPROXY_PLUGINDIR=/usr/lib/freerdp/server/proxy/plugins \
         -Wno-dev"
 
-
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
 
