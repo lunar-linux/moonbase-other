@@ -1,0 +1,16 @@
+depends clang
+depends ncurses
+depends libxml2
+depends python
+depends cmake
+depends ninja
+
+optional_depends Sphinx \
+                 "-DLLVM_ENABLE_SPHINX=ON" \
+                 "-DLLVM_ENABLE_SPHINX=OFF" \
+                 "for nstalling the documentation"
+
+optional_depends "libedit" \
+                 "-DLLVM_ENABLE_LIBEDIT=ON" \
+                 "-DLLVM_ENABLE_LIBEDIT=OFF" \
+                 "for line editing support"
