@@ -1,9 +1,14 @@
 optional_depends libidn \
                  "--with-libidn" \
                  "--without-libidn" \
-                 "for IDN support"
+                 "for IDN support" "y"
+
+optional_depends gsasl \
+                 "--with-libgsasl" \
+                 "--without-libgsasl" \
+                 "for SALS support" "y"
 
 optional_depends libsecret \
                  "--with-libsecret" \
                  "--without-libsecret" \
-                 "for GNOME password support"
+                 "for GNOME password support" "n"
