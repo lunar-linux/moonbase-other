@@ -1,0 +1,7 @@
+depends libidn
+depends gnutls
+
+optional_depends krb5 \
+                 "--with-gssapi-impl=mit" \
+                 "--disable-gssapi" \
+                 "for Kerberos authentication support" "n"
