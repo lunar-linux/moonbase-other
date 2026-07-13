@@ -13,7 +13,7 @@ if in_depends $MODULE pcre2; then
 fi
 
 # disable the rust depend
-OPTS="WITH_RUST=0"
+OPTS="NO_RUST=1"
 
 make prefix=/usr \
      gitexecdir=/usr/lib/git-core \
