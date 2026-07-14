@@ -15,4 +15,6 @@ git cherry-pick --no-commit 64ef740eb262f329e55eebadf2ce276b146d44e9
 # generate version file
 echo "$VERSION" > version
 
+sedit 's/enum boolean { false = FALSE, true = TRUE }/bool /' libyasm/bitvect.h &&
+
 autoreconf -fvi
