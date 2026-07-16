@@ -1,0 +1,17 @@
+          MODULE=libpathrs
+         VERSION=0.2.5
+          SOURCE=$MODULE-$VERSION.tar.xz
+      SOURCE_URL=https://github.com/cyphar/libpathrs/releases/download/v$VERSION
+      SOURCE_VFY=sha256:f8f4a9419eb839cd5decbd120b65f0495bf6eac07155477fe39a8c2a23da589d
+        WEB_SITE=https://github.com/cyphar/libpathrs
+         ENTERED=20260716
+         UPDATED=20260716
+           SHORT="An API to make path resolution safer on Linux"
+
+cat << EOF
+This library implements a set of C-friendly APIs (written in Rust) to make path
+resolution within a potentially-untrusted directory safe on GNU/Linux. There are
+countless examples of security vulnerabilities caused by bad handling of paths;
+this library provides an easy-to-use set of VFS APIs to avoid those kinds of
+issues.
+EOF
