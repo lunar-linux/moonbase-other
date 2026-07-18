@@ -11,7 +11,6 @@ OPTS+=" --exec-prefix=/usr  \
         --enable-rsyslogrt  \
         --enable-omjournal  \
         --enable-omprog     \
-        --enable-impstats   \
         --enable-imptcp     \
         --disable-rfc3195" &&
 

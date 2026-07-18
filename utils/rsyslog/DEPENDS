@@ -1,9 +1,16 @@
-depends xconsole
 depends libestr
 depends json-c
 depends liblogging
 depends libfastjson
 depends zlib
+
+optional_depends protobuf-c \
+                 "--enable-impstats --enable-impstats-push"  \
+                 "--disable-impstats --disable-impstats-push" \
+                 "for periodic output of internal counters, impstats (If you say yes here, also select snappy next)"
+
+optional_depends snappy "" "" \
+                 "for compression support with the impstats feature"
 
 optional_depends systemd \
                  "--enable-libsystemd --enable-imjournal"  \
@@ -60,3 +67,5 @@ optional_depends net-snmp \
                  "--disable-snmp" \
                  "for SNMP support" \
                  "n"
+
+optional_depends xconsole "" "" "for following logs through GUI"
