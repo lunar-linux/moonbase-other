@@ -1,4 +1,4 @@
-export CXXFLAGS="${CXXFLAGS} -std=c++17"
+export CXXFLAGS="${CXXFLAGS} -std=c++20"
 OPTS+=" --enable-shared --disable-documentation"
 
 default_config &&
