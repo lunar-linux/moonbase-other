@@ -1,11 +1,4 @@
-OPTS+=" -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_INSTALL_PREFIX=$MODULE_PREFIX \
-        -DCMAKE_INSTALL_LIBDIR=lib \
-        -DPYTHON=ON \
-        -Wno-dev"
+OPTS+=" -DCMAKE_INSTALL_LIBDIR=lib \
+        -DPYTHON=ON"
 
-cmake -B $MODULE-$VERSION -S . $OPTS &&
-cmake --build $MODULE-$VERSION &&
-
-prepare_install &&
-cmake --install $MODULE-$VERSION
+default_cmake_build
