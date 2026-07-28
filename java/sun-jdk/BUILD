@@ -52,20 +52,6 @@ else
 #  ln -sf /usr/lib/java/jdk-$VERSION/lib/libnpjp2.so /usr/lib/lunar/plugins/
 fi &&
 
-#cd /usr/lib/java/jdk-$VERSION/lib/security &&
-#if [ $JCEYES == "y" ]; then
-#  rm -f US_export_policy.jar local_policy.jar
-#  ln -s UnlimitedJCEPolicyJDK8/US_export_policy.jar US_export_policy.jar
-#  ln -s UnlimitedJCEPolicyJDK8/local_policy.jar local_policy.jar
-#else
-#  rm -rf UnlimitedJCEPolicyJDK8
-#fi &&
-#cd - &&
-
-# Move .desktops + icons to /usr/share
-#cp -fR /usr/lib/java/latest/lib/desktop/* /usr/share/ &&
-#rm -fr /usr/lib/java/latest/lib/desktop &&
-
 echo export JAVA_HOME=\"/usr/lib/java/latest\" >> $SOURCE_DIRECTORY/sun-jdk.rc &&
 echo export PATH=\"'$PATH':'$JAVA_HOME'/bin\"  >> $SOURCE_DIRECTORY/sun-jdk.rc &&
 install -m644 $SOURCE_DIRECTORY/sun-jdk.rc /etc/profile.d/ &&
