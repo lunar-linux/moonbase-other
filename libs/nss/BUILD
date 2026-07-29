@@ -9,6 +9,7 @@ export ZLIB_LIBS=-lz         &&
 export NSDISTMODE=copy       &&
 export NSS_ENABLE_ECC=1      &&
 export FREEBL_NO_DEPEND=1    &&
+export FREEBL_LOWHASH=1 &&
 export PKG_CONFIG_ALLOW_SYSTEM_LIBS=1   &&
 export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1 &&
 
