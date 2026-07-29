@@ -21,6 +21,8 @@ prepare_install &&
 
 ./mach install &&
 
+ln -sfv firefox-default /usr/bin/firefox &&
+
 install -Dm 644 {"$SCRIPT_DIRECTORY",/usr/share/applications}/firefox.desktop &&
 
 for s in 16 22 24 32 48 64 128 256; do
