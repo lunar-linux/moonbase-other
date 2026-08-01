@@ -1,4 +1,4 @@
 cargo build --release &&
 
 prepare_install &&
-install -Dvm target/release/bpftop /usr/bin/
+install -Dvm 755 target/release/bpftop /usr/sbin/bpftop
