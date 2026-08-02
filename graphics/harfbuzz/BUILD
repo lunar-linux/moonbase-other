@@ -2,10 +2,10 @@ CFLAGS="${CFLAGS/-fexceptions/}"
 CXXFLAGS="${CXXFLAGS/-fexceptions/}"
 
 OPTS+=" -Dtests=disabled \
-        -Dbenchmark=disabled \
         -Ddocs=disabled \
-        -Dintrospection=enabled \
         -Dcpp_std=c++17 \
-        -Dutilities=enabled"
+        -Dutilities=enabled \
+        -Dbenchmark=disabled \
+        -Dintrospection=enabled "
 
 default_meson_build
