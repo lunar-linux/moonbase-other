@@ -1,7 +1,7 @@
-./autogen.sh &&
+OPTS+=" -Dopenssl=enabled \
+        -Dgnutls=disabled \
+        -Dwith_tools=true \
+        -Dwith_python=true \
+        -Dtests=false"
 
-if in_depends $MODULE python2 ; then
-   export PYTHON=python2
-fi &&
-
-default_build
+default_meson_build
