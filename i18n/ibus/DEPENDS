@@ -1,37 +1,30 @@
-depends GConf
 depends hicolor-icon-theme
 depends iso-codes
-depends python-dbus
+depends graphene
+depends pango
 depends python-pygobject
-depends vala
 depends libnotify
-depends gnome-common
+depends libxkbcommon
+depends libXi
+depends libXfixes
+depends libdbusmenu-gtk3
+depends vala
 depends unicode-character-database
 
-optional_depends qt5 "" "" "build Qt 5.x im module"
-optional_depends gtk+-3 "--enable-gtk3"  "--disable-gtk3"  "build GTK 3.x im module"
+optional_depends gtk+-4 \
+                 "--enable-gtk4" \
+                 "" \
+                 "build GTK 4.x im module"
 
-optional_depends dconf \
-                 "--enable-dconf" \
-                 "--disable-dconf" \
-                 "for low level configuration system support, ${PROBLEM_COLOR}Borks build, say no for now.${DEFAULT_COLOR}" \
-                 "n"
+optional_depends gtk+-3 \
+                 "--enable-gtk3" \
+                 "--disable-gtk3" \
+                 "build GTK 3.x im module" "n"
 
 optional_depends wayland \
                  "--enable-wayland" \
                  "--disable-wayland" \
                  "for wayland support"
-
-optional_depends python2 \
-                 "--enable-python2" \
-                 "--disable-python2" \
-                 "Enable Python2 bindings" \
-                 "n"
-
-if in_depends $MODULE "python2"; then
-  depends python2-dbus
-  depends python2-pygobject
-fi
 
 optional_depends gtk-doc \
                  "--enable-gtk-doc" \

@@ -8,11 +8,12 @@ else
 fi &&
 
 OPTS+=" --enable-ui \
-        --enable-python-library \
         --disable-memconf \
+        --disable-dconf \
         --disable-gtk2 \
-        --with-ucd-dir=/usr/share/unicode \
+        --disable-python2 \
         --with-python=python3 \
+        --with-ucd-dir=/usr/share/unicode \
         --with-unicode-emoji-dir=$SOURCE_DIRECTORY \
         --with-emoji-annotation-dir=$SOURCE_DIRECTORY/cldr-emoji-annotation/annotations" &&
 
