@@ -1,4 +1,4 @@
-PYTHON=python2 ./configure --prefix=/usr &&
+PYTHON=python ./configure --prefix=/usr &&
 
 OPTS+=" --disable-static" &&
 
