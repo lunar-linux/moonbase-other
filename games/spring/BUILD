@@ -1,9 +1,11 @@
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DBINDIR=games \
-	-DDATADIR=share/games/$MODULE \
-	-DAI_LIBS_DIR=share/games/$MODULE \
-	-DDOCDIR=share/doc/$MODULE \
-        -DCMAKE_SKIP_RPATH=ON"
+	    -DDATADIR=share/games/$MODULE \
+	    -DAI_LIBS_DIR=share/games/$MODULE \
+	    -DDOCDIR=share/doc/$MODULE \
+        -DCMAKE_SKIP_RPATH=ON \
+        -DPRD_JSONCPP_INTERNAL=OFF \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 if in_depends sun-java; then
    OPTS+=" -DAI_TYPES=JAVA"

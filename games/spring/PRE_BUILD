@@ -1,3 +1,7 @@
 default_pre_build &&
 
 sedit 's@//CMakeLists.txt@/CMakeLists.txt@' rts/build/cmake/Util.cmake
+
+#remove bundled libraries
+rm -r tools/pr-downloader/src/lib/jsoncpp
+rm -r tools/pr-downloader/src/lib/minizip

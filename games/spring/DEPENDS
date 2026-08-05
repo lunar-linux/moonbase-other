@@ -1,23 +1,20 @@
 depends cmake
-depends boost
+depends curl
 depends SDL2
 depends devil
 depends openal
 depends freetype2
-depends libogg
 depends libvorbis
+depends libXcursor
 depends glew
-depends %GLX
 depends shared-mime-info
-depends xz
 depends p7zip
 depends zlib
+depends xz
 
 # this is required for man pages, but spring seems unable
 # to find docbook-xsl, so these will not be generated anyway
 #depends asciidoc
-
-optional_depends python2 "" "" "for AI Interfaces and Python based bots"
 
 optional_depends %JAVA_SDK \
                  "-DJAVA_HOME=/usr/lib/java/default" "" \
