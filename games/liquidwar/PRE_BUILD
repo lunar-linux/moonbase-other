@@ -1,6 +1,6 @@
 default_pre_build &&
 
-sedit 's|python |python2 |g' -i.bak doc/Makefile.in &&
+#sedit 's|python |python2 |g' -i.bak doc/Makefile.in &&
 
 sedit "s/fsqrt/fixsqrt/g" $(grep -rl 'fsqrt') &&
 sedit "s/fsin/fixsin/g" $(grep -rl 'fsin') &&

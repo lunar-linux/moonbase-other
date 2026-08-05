@@ -1,6 +1,6 @@
 OPTS+=" -DDOCDIR=/usr/share/doc \
         -DINFODIR=share/info \
-	-DMANDIR=share/man \
+    	-DMANDIR=share/man \
         -DWANT_X11=ON \
         -DWANT_OSS=OFF \
         -DWANT_ALSA=ON \
@@ -10,9 +10,8 @@ OPTS+=" -DDOCDIR=/usr/share/doc \
         -DWANT_LINUX_VGA=OFF \
         -DWANT_LINUX_FBCON=OFF \
         -DWANT_LINUX_CONSOLE=OFF \
-        -DWANT_LINUX_SVGALIB=OFF"
-
-# Temporary build fix
-OPTS+=" -DWANT_ALLEGROGL=OFF"
+        -DWANT_LINUX_SVGALIB=OFF \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5i \
+        -GNinja"
 
 default_cmake_build
