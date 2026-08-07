@@ -1,13 +1,12 @@
           MODULE=x265
-         VERSION=4.1
-            _tag=f21b135c3414ade4e22305d008bf07d23d0595fb
+         VERSION=4.3
           SOURCE=$MODULE-$VERSION.tar.gz
- SOURCE_URL_FULL=git+https://bitbucket.org/multicoreware/x265_git:${_tag}
-#      SOURCE_VFY=sha256:00ba6850cad2eb8294198d620fd3322d60d1e1478ac3b20c662df06358b398cf
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}-$VERSION
+ SOURCE_URL_FULL=https://github.com/Multicorewareinc/x265/releases/download/$VERSION/${MODULE}_$VERSION.tar.gz
+      SOURCE_VFY=sha256:83c53e4c8bbb8f1e33ed59e10a7d621d1d7801ca853910c3eb41f038b8ffb121
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/${MODULE}_$VERSION
         WEB_SITE=https://www.x265.org/
          ENTERED=20150304
-         UPDATED=20241031
+         UPDATED=20260807
            SHORT="Encoding video streams into the H.265"
 
 cat << EOF

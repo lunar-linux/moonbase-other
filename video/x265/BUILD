@@ -5,7 +5,7 @@ OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DENABLE_HDR10_PLUS=TRUE \
         -DCMAKE_VERBOSE_MAKEFILE=ON \
         -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
-        -Wno-dev"
+        -Wno-author"
 
 if [[ $(arch) == x86_64 ]]; then
   OPTS+=" -DHIGH_BIT_DEPTH=ON"
