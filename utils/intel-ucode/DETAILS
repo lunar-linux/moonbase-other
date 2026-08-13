@@ -17,4 +17,8 @@ While the regular approach to getting this microcode update is via a BIOS
 upgrade, Intel realizes that this can be an administrative hassle.
 The module creates a /boot/intel-ucode.img file which will be put by grub as
 the first initrd file at the next generation of the /boot/grub/grub.cfg file.
+
+Note that the "intel-ucode" and "microcode" modules are pratically the same,
+except that intel-ucode is loaded early by the bootloader, and microcode is
+loaded late by the kernel.
 EOF
