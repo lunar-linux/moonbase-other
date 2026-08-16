@@ -5,6 +5,12 @@ if in_depends $MODULE qt6-base; then
   source /etc/profile.d/qt6.rc
 fi &&
 
+# lunar fix cannot find libperl.so
+if in_depends $MODULE perl; then
+  PERL_SO_PATH="/usr/lib/perl5/$(lvu version perl)/$(arch)-linux-thread-multi/CORE"
+  LDFLAGS="$LDFLAGS -Wl,-rpath,${PERL_SO_PATH}"
+fi &&
+
 if in_depends $MODULE %JAVA_SDK; then
   source /etc/profile.d/sun-jdk.rc
   export JAVA_INCLUDES="/usr/lib/java/latest/include"
