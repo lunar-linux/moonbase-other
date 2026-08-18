@@ -1,8 +1,7 @@
-OPTS+=" -DWXM_INCLUDE_FONTS=OFF  \
-        -DCMAKE_INSTALL_LIBDIR=lib \
+OPTS+=" -DCMAKE_INSTALL_LIBDIR=lib \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_CXX_STANDARD=14 \
+        -DCMAKE_CXX_STANDARD=20 \
         -DCMAKE_CXX_COMPILER=g++ \
         -DWXM_DISABLE_WEBVIEW=ON \
         -DwxWidgets_LIBRARIES=/usr/lib/ \
