@@ -38,8 +38,12 @@ install -dm1777 /var/spool/samba &&
 install -dm700 /etc/samba/private &&
 mkdir -p /var/log/samba &&
 
-# fix logrotate
+# fix logrotate and pathing
 sedit 's|log.%m|%m.log|g' /etc/samba/smb.conf.default &&
+sedit 's:/usr/local/samba/var:/var/log/samba:' /etc/samba/smb.conf.default &&
+
+# fix script pathing
+sedit 's:/usr/sbin:/usr/bin:g' /etc/samba/smb.conf.default &&
 
 if module_installed cups; then
   ln -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
