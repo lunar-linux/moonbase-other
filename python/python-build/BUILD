@@ -1,4 +1,6 @@
-python -m build --wheel &&
+export PYTHONDONTWRITEBYTECODE=1
+
+python -m ensurepip &&
 
 prepare_install &&
-python -m installer --destdir=/ dist/*.whl
+pip3 install  build
