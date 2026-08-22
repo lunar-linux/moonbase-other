@@ -1,0 +1,16 @@
+diff --git a/python/volume_key.i b/python/volume_key.i
+--- ./python/volume_key.i
++++ ./python/volume_key.i
+@@ -30,8 +30,12 @@
+ #include "../../lib/libvolume_key.h"
+
+ #if PY_VERSION_HEX >= 0x03000000
++#undef PyString_AsString
+ #undef PyString_AsStringAndSize
++#undef PyString_FromString
+ #undef PyString_FromStringAndSize
++#define PyString_AsString(u) ((char *)PyUnicode_AsUTF8(u))
++#define PyString_FromString(u) PyUnicode_FromString(u)
+ static int
+ PyString_AsStringAndSize(PyObject *obj, char **buffer, Py_ssize_t *length)
+ {
