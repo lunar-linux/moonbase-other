@@ -1,9 +1,8 @@
-export PYTHONDONTWRITEBYTECODE=1 &&
-
 touch INSTALL &&
 
 autoreconf -i &&
-export CFLAGS+=" $(python3-config --includes)"
+
+OPTS+=" --without-python --without-python3" &&
 
 default_build &&
 
