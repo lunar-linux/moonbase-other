@@ -1,4 +1,4 @@
-cargo build --release &&
+cargo build --release --locked &&
 
 prepare_install &&
 
