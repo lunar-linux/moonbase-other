@@ -1,5 +1,4 @@
-# not sure what this rpm is for, but its not there in 32bit OO, so I removed it
-LO_OPT_DIR="/usr/lib/libreoffice${VERSION%.*}"
+LO_OPT_DIR="/usr/lib/libreoffice26.8"
 
 message "${MESSAGE_COLOR}Unpacking base RPMs and installing...${DEFAULT_COLOR}" &&
 for pack in RPMS/*.rpm ; do bsdtar -xf $pack > `basename $pack .rpm` ; done &&
@@ -18,11 +17,8 @@ ln -sf ${LO_OPT_DIR}/program/simpress /usr/bin/simpress &&
 ln -sf ${LO_OPT_DIR}/program/sbase    /usr/bin/sbase    &&
 ln -sf ${LO_OPT_DIR}/program/sdraw    /usr/bin/sdraw    &&
 ln -sf ${LO_OPT_DIR}/program/smath    /usr/bin/smath    &&
-ln -sf ${LO_OPT_DIR}/program/soffice  /usr/bin/libreoffice${VERSION%.*} &&
+ln -sf ${LO_OPT_DIR}/program/soffice  /usr/bin/libreoffice${VERSION} &&
 
 for i in $desktopfiles; do
-  ln -sf ${LO_OPT_DIR}/share/xdg/$i.desktop /usr/share/applications/libreoffice${VERSION%.*}-$i.desktop
-done &&
-
-rm -rf /usr/lib/libreoffice26.2/help/media/icon-themes/formula &&
-rm -rf /usr/lib/libreoffice26.2/share/config/soffice.cfg/formula/
+  ln -sf ${LO_OPT_DIR}/share/xdg/$i.desktop /usr/share/applications/libreoffice${VERSION}-$i.desktop
+done
