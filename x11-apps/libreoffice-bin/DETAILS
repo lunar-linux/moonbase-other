@@ -1,12 +1,12 @@
           MODULE=libreoffice-bin
-         VERSION=26.2.5
-          SOURCE=LibreOffice_${VERSION}_Linux_x86-64_rpm.tar.gz
-      SOURCE_URL=https://download.documentfoundation.org/libreoffice/stable/$VERSION/rpm/x86_64/
-      SOURCE_VFY=sha256:f62611c441ff1faa5cadb499abdbab119f5a9013eb6c0e32fc9aa65f6ff8b53d
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/LibreOffice\_$VERSION.2_Linux_x86-64_rpm/
+         VERSION=26.8.0.3
+          SOURCE=LibreOffice_${VERSION%.*}_Linux_x86-64_rpm.tar.gz
+      SOURCE_URL=https://download.documentfoundation.org/libreoffice/stable/${VERSION%.*}/rpm/x86_64/
+      SOURCE_VFY=sha256:24f08911b8c938a3318bd699e71bef034a5b4708499646d2d367e3c922d95137
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/LibreOffice\_${VERSION}_Linux_x86-64_rpm/
         WEB_SITE=https://www.libreoffice.org
          ENTERED=20110330
-         UPDATED=20260724
+         UPDATED=20260826
            SHORT="The open office suite for unix"
 
 LDD_CHECK=off
