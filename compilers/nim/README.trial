@@ -1,0 +1,20 @@
+Nim 2.2.10 — Lunar-style modernization trial v6
+
+Root cause fixed:
+- Nim 2.2.x expects the global configuration at /etc/nim/nim.cfg.
+- The old Lunar BUILD installed config/nim*.cfg directly into /etc.
+- During `koch boot`, the first iteration uses the installed Nim compiler.
+  Without the global nim.cfg, stdlib search paths such as $lib/pure are missing,
+  causing failures such as:
+      dist/checksums/src/checksums/sha1.nim Error: cannot open file: strutils
+
+Changes:
+1. Install config/nim*.cfg under /etc/nim/.
+2. Treat an installed Nim as reusable only if all of these exist:
+      /usr/bin/nim
+      /usr/lib/nim/lib/system.nim
+      /etc/nim/nim.cfg
+3. If the config is absent (as on the current migrated installation),
+   PRE_BUILD unpacks csources_v3 and BUILD performs one clean C bootstrap.
+
+DETAILS remains unchanged from v5. There is no DEPENDS file.

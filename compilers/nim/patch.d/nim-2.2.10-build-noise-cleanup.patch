@@ -1,0 +1,89 @@
+From: Lunar Linux build audit
+Subject: [PATCH] Remove avoidable build noise in Nim 2.2.10 tools
+
+A standard Nim 2.2.10 build reports several avoidable unused/duplicate
+import diagnostics and three dead declarations in the legacy IC test helper.
+
+The changes are intentionally mechanical:
+- remove unused imports from tools/deps.nim and nimsuggest/nimsuggest.nim;
+- avoid duplicate strutils/gitutils imports caused by categories.nim being
+  included into testament.nim;
+- remove two unused IC option constants and one unused local template.
+
+The IC helper declarations are specific to the 2.2.10-era implementation;
+current devel has since replaced that code. The import cleanups remain useful
+independently.
+
+diff --git a/tools/deps.nim b/tools/deps.nim
+--- ./tools/deps.nim
++++ ./tools/deps.nim
+@@ -1,4 +1,4 @@
+-import std/[os, uri, strformat, strutils]
++import std/[os, uri, strformat]
+ import std/private/gitutils
+ 
+ when defined(nimPreviewSlimSystem):
+diff --git a/nimsuggest/nimsuggest.nim b/nimsuggest/nimsuggest.nim
+--- ./nimsuggest/nimsuggest.nim
++++ ./nimsuggest/nimsuggest.nim
+@@ -8,11 +8,8 @@
+ #
+ 
+ import compiler/renderer
+ import compiler/types
+-import compiler/trees
+-import compiler/wordrecg
+-import compiler/sempass2
+ import strformat
+ import algorithm
+ import tables
+ import times
+diff --git a/testament/testament.nim b/testament/testament.nim
+--- ./testament/testament.nim
++++ ./testament/testament.nim
+@@ -20,7 +20,7 @@
+ import compiler/nodejs
+ import lib/stdtest/testutils
+ from lib/stdtest/specialpaths import splitTestFile
+-from std/private/gitutils import diffStrings
++from std/private/gitutils import diffStrings, diffFiles, retryCall
+ 
+ import ../dist/checksums/src/checksums/md5
+ 
+diff --git a/testament/categories.nim b/testament/categories.nim
+--- ./testament/categories.nim
++++ ./testament/categories.nim
+@@ -13,7 +13,7 @@
+ # included from testament.nim
+ 
+ import important_packages
+-import std/[strformat, strutils]
++import std/strformat
+ from std/sequtils import filterIt
+ 
+ const
+@@ -424,8 +424,6 @@
+   result = TTest(cat: cat, name: test, options: options, debugInfo: debugInfo,
+                 startTime: epochTime())
+ 
+-import std/private/gitutils
+-
+ proc testNimblePackages(r: var TResults; cat: Category; packageFilter: string) =
+   let nimbleExe = findExe("nimble")
+   doAssert nimbleExe != "", "Cannot run nimble tests: Nimble binary not found."
+@@ -488,15 +489,10 @@
+ proc icTests(r: var TResults; testsDir: string, cat: Category, options: string;
+              isNavigatorTest: bool) =
+   const
+     tooltests = ["compiler/nim.nim"]
+-    writeOnly = " --incremental:writeonly "
+-    readOnly = " --incremental:readonly "
+     incrementalOn = " --incremental:on -d:nimIcIntegrityChecks "
+     navTestConfig = " --ic:on -d:nimIcNavigatorTests --hint:Conf:off --warnings:off "
+ 
+-  template test(x: untyped) =
+-    testSpecWithNimcache(r, makeRawTest(file, x & options, cat), nimcache)
+-
+   template editedTest(x: untyped) =
+     var test = makeTest(file, x & options, cat)
+     if isNavigatorTest:

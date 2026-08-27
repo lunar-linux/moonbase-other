@@ -1,3 +1,11 @@
 default_pre_build &&
 
-rm bin/empty.txt
+# Bootstrap from C sources if there is no usable installed Nim environment.
+if ! module_installed nim ||
+   [ ! -x /usr/bin/nim ] ||
+   [ ! -f /usr/lib/nim/lib/system.nim ] ||
+   [ ! -f /etc/nim/nim.cfg ]; then
+  unpack "$SOURCE2" &&
+  rm -rf csources_v3 &&
+  mv "$(source_basename "$SOURCE2")" csources_v3
+fi
