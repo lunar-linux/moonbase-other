@@ -1,7 +1,5 @@
 . /etc/profile.d/sun-jdk.rc &&
 
-./bootstrap &&
+OPTS+=" -Denable_docs=false"
 
-OPTS+=" --disable-static --disable-optimizations --with-java9 --disable-bdjava-jar"
-
-default_build
+default_meson_build
