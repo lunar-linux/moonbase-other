@@ -1,3 +1,4 @@
 default_pre_build &&
 
-OPTS+=" -Dmaintainer-mode=true -Dbuild-documentation=false"
+# We specify the include dir to avoid conflicts with other "mm" modules
+OPTS+=" --includedir=/usr/include/libsigc++ -Dmaintainer-mode=true -Dbuild-documentation=false"
