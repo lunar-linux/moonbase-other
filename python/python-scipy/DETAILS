@@ -1,13 +1,12 @@
           MODULE=python-scipy
-         VERSION=1.17.1
-          SOURCE=scipy-$VERSION.tar.gz
-      SOURCE_URL=https://github.com/scipy/scipy/releases/download/v$VERSION/
-      SOURCE_VFY=sha256:95d8e012d8cb8816c226aef832200b1d45109ed4464303e997c5b13122b297c0
-SOURCE_DIRECTORY=$BUILD_DIRECTORY/scipy-$VERSION
+         VERSION=1.18.1
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=git+https://github.com/scipy/scipy:$VERSION
+#      SOURCE_VFY=sha256:dc0bd51a213c2e26e93f6182105d55aa3e065dde9a84db8e4044afbc5103c50b
         WEB_SITE=http://scipy.org/
         REPLACES=scipy
          ENTERED=20130810
-         UPDATED=20260303
+         UPDATED=20260831
            SHORT="Fundamental python library for scientific computing"
 
 cat << EOF
