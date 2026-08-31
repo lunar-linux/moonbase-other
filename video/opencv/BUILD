@@ -26,5 +26,5 @@ cmake --build $MODULE-$VERSION &&
 prepare_install &&
 cmake --install $MODULE-$VERSION &&
 
-ln -sf /usr/lib64/pkgconfig/opencv4.pc /usr/lib64/pkgconfig/opencv.pc &&
-ln -sf /usr/include/opencv4/opencv2 /usr/include/opencv2
+ln -sf /usr/lib64/pkgconfig/opencv5.pc /usr/lib64/pkgconfig/opencv.pc &&
+ln -sf /usr/include/opencv5/opencv2 /usr/include/opencv2
