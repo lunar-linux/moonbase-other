@@ -10,7 +10,6 @@ OPTS+=" -DSTOP_ON_WARNING=OFF \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DUSE_PYTHON=ON \
-        -DBUILD_FMT_FORCE=ON \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -Wno-dev"
 
