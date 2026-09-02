@@ -1,0 +1,5 @@
+default_pre_build
+
+sed -i -e '/-D_FORTIFY_SOURCE=2/d' CMakeLists.txt &&
+
+OPTS+=' -DCMAKE_INSTALL_SYSCONFDIR=/etc/multitail'
