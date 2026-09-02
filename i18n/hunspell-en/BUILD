@@ -16,14 +16,5 @@ pushd /usr/share/hunspell/
   done
 popd &&
 
-# the symlinks
-#install -dm755 /usr/share/myspell/dicts
-#pushd /usr/share/myspell/dicts
-#  for file in /usr/share/hunspell/*; do
-#    ln -sv /usr/share/hunspell/$(basename $file) .
-#  done
-#popd
-
-# docs
 install -dm755 /usr/share/doc/$MODULE &&
 install -m644 README_en_*.txt /usr/share/doc/$MODULE
