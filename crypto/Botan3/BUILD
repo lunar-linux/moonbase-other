@@ -5,6 +5,7 @@ OPTS+="  --prefix=/usr  \
          --with-lzma    \
          --with-sqlite3 \
          --with-os-feature \
+         --without-sphinx \
          --with-zlib"
 
 CXXFLAGS="$CXXFLAGS -O3" ./configure.py $OPTS &&
