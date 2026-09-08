@@ -1,0 +1,9 @@
+default_pre_build
+
+git submodule init
+
+git config submodule."lib/napi".url "${MODULE}"-napi
+git config submodule."tests/wast/spec".url "${MODULE}"-testsuite
+
+git -c protocol.file.allow=always submodule update
+
