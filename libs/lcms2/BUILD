@@ -1,5 +1,3 @@
-OPTS+=" -Dfastfloat=true -Dthreaded=true -Dutils=true"
+OPTS+=" -DLCMS2_WITH_FASTFLOAT=ON -DLCMS2_WITH_THREADED_PLUGIN=ON"
 
-default_meson_build &&
-
-gather_docs doc/LCMSAPI.TXT doc/TUTORIAL.TXT
+default_cmake_build
