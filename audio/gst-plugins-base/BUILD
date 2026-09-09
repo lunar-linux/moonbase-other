@@ -7,7 +7,8 @@ OPTS+=" -D doc=disabled \
         -D tremor=disabled \
         -D tests=disabled \
         -D glib-checks=enabled \
-        -D introspection=enabled \
+        -D doc=disabled \
+        -D introspection=disabled \
         -D glib-asserts=enabled"
 
 default_meson_build
