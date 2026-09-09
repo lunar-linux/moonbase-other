@@ -1,5 +1,5 @@
 export PYTHONDONTWRITEBYTECODE=1 &&
+python -m build --wheel &&
 
-OPTS+=" -Dpython=python3 "
-
-default_meson_build
+prepare_install &&
+python -m installer --destdir=/ dist/*.whl
