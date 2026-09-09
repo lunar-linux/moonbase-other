@@ -8,6 +8,7 @@ OPTS+=" -D doc=disabled \
         -D tests=disabled \
         -D glib-checks=enabled \
         -D doc=disabled \
+        -D introspection=disabled \
         -D glib-asserts=enabled"
 
 default_meson_build
