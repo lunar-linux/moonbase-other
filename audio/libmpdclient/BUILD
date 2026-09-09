@@ -1,5 +1,3 @@
-OPTS+=" -D test=false"
+OPTS+=" -D test=false -D documentation=false"
 
-default_meson_build &&
-
-gather_docs AUTHORS NEWS README
+default_meson_build
