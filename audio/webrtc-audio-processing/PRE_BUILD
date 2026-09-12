@@ -1,5 +1,6 @@
 default_pre_build &&
 
 sedit '30i #include <cstdint>' webrtc/rtc_base/event_tracer.h &&
-
+sedit '15i #include <cstdint>' webrtc/modules/audio_processing/aec3/multi_channel_content_detector.h &&
+sedit '31i #include <cstdint>' webrtc/rtc_base/trace_event.h &&
 OPTS+=" -Dcpp_std=c++17 -Dneon=disabled"
