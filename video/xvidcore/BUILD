@@ -10,6 +10,8 @@ fi &&
 export CFLAGS="$CFLAGS -fPIC" &&
 
 cd build/generic &&
+autoreconf -fiv &&
+export CFLAGS+=' -std=gnu17'
 
 ./configure --prefix=/usr             \
             --infodir=/usr/share/info \
