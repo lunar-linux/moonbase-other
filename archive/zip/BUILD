@@ -1,5 +1,6 @@
 # use ours
-sed -e "/^CFLAGS_NOOPT =/s/\$/ $CPPFLAGS $CFLAGS/" -i unix/Makefile &&
+sedit "/^CFLAGS_NOOPT =/s/\$/ $CPPFLAGS $CFLAGS/" unix/Makefile &&
+sedit 's/ -DNO_DIR//' unix/configure &&
 
 make -f unix/Makefile prefix=/usr generic_gcc CC="gcc -std=gnu89" &&
 
