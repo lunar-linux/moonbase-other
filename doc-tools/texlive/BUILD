@@ -7,6 +7,8 @@
   # since a lot of am and in files get a sed thought it would be a good idea to run its provided reautoconf.
   # Doing so almost doubles the compile time with it spent traversing the whole tree.
   # ./reautoconf &&
+export CFLAGS+=" -std=c++20"
+export CPPFLAGS+=" -std=c++20"
 
 OPTS+="   --build=$BUILD                 \
           --host=$BUILD                  \
