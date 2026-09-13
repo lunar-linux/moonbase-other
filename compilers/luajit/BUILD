@@ -4,4 +4,4 @@ prepare_install &&
 
 make install PREFIX=/usr
 
-ln -sf /usr/bin/luajit-2.1. /usr/bin/luajit
+ln -sf /usr/bin/luajit-1788856981 /usr/bin/luajit
