@@ -1,4 +1,4 @@
-export CFLAGS+=" -fPIC"
+export CFLAGS+=" -fPIC -std=gnu17"
 
 bad_flags ",--as-needed"
 
