@@ -27,7 +27,6 @@ OPTS+="   --build=$BUILD                 \
           --with-system-zziplib          \
           --with-system-libpng           \
           --with-system-gd               \
-          --with-system-t1lib            \
           --with-system-poppler          \
           --with-system-teckit           \
           --with-teckit-includes=/usr/include/teckit \
@@ -48,6 +47,7 @@ OPTS+="   --build=$BUILD                 \
           --disable-psutils              \
           --disable-t1utils              \
           --disable-lcdf-typetools"     &&
+#          --with-system-t1lib            \
 
 # They warn an in source build is a very bad idea, so
 mkdir tex-build &&
