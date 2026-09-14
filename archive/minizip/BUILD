@@ -1,15 +1,13 @@
 CFLAGS+=" -ffat-lto-objects"
 
-cd contrib/minizip
-autoreconf -fvi &&
+cd contrib/minizip &&
 
-# https://github.com/madler/zlib/pull/229
-./configure --prefix=/usr --enable-static=no --includedir=/usr/include &&
-make &&
+OPTS+=" -DMINIZIP_BUILD_STATIC=OFF \
+        -DCMAKE_INSTALL_INCLUDEDIR=include/minizip \
+        -DCMAKE_INSTALL_OLDINCLUDEDIR=/usr/include/minizip \
+        -DMINIZIP_BUILD_TESTING=OFF \
+        -DMINIZIP_ENABLE_BZIP2=OFF"
 
-prepare_install
-make install 
+default_cmake_build
 
-#ln -sf /usr/lib/minizip/pkgconfig/minizip.pc /usr/lib/pkgconfig/minizip.pc &&
-
-rm -f /usr/include/minizip/crypt.h
+ln -sf /usr/lib/minizip/pkgconfig/minizip.pc /usr/lib/pkgconfig/minizip.pc
