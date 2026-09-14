@@ -5,7 +5,7 @@ OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DWITH_NATIVE_INSTRUCTIONS=ON \
         -DWITH_GTEST=OFF \
-        -DWITH_CRC32_CHORBA=OFF
+        -DWITH_CRC32_CHORBA=OFF \
         -Wno-dev"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
