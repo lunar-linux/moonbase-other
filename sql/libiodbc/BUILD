@@ -1,9 +1,7 @@
 ./autogen.sh &&
 
-# Else it stomps on unixODBC
-OPTS+=" --includedir=/usr/include/$MODULE --libdir=/usr/lib/$MODULE  \
-        --with-iodbc-inidir=/etc/$MODULE --with-iodbc-filedsnpath=/etc/$MODULE \
-        --enable-odbc3 --enable-pthreads" &&
+# It stomps on unixODBC, disabling libodbc prevents libodbc.so symbolic link to avoid a conflict with unixODBC
+OPTS+=" --disable-static --disable-libodbc --disable-gui" &&
 
 mkdir -p /etc/$MODULE &&
 
