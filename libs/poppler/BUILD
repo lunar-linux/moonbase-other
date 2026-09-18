@@ -1,3 +1,9 @@
+if module_installed gobject-introspection; then
+  OPTS+=" -DWITH_GObjectIntrospection=ON"
+ else
+  OPTS+=" -DWITH_GObjectIntrospection=ON"
+fi &&
+
 OPTS+=" -DBUILD_SHARED_LIBS=ON \
         -DENABLE_GTK_DOC=OFF \
         -DENABLE_UNSTABLE_API_ABI_HEADERS=ON"
