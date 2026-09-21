@@ -4,6 +4,8 @@ depends keyutils
 depends libtirpc
 depends rpcsvc-proto
 
+optional_depends systemd "--with-systemd" "" "for systemd support"
+
 optional_depends sqlite \
                  "--enable-nfsdcltrack" \
                  "--disable-nfsdcltrack" \
@@ -12,6 +14,4 @@ optional_depends sqlite \
 optional_depends krb5 \
                  "--enable-gss" \
                  "--disable-gss" \
-                 "support for Kerberos"
-
-optional_depends systemd "--with-systemd" "" "for systemd support"
+                 "support for Kerberos" "n"
