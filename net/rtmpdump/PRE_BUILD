@@ -1,6 +1,3 @@
 default_pre_build &&
 
-#sedit "s:/usr/local:/usr:" Makefile librtmp/Makefile &&
-#sedit "s:-Wall:-Wall -fPIC:" Makefile librtmp/Makefile
-
-sed -e 's/^CRYPTO=OPENSSL/#CRYPTO=OPENSSL/' -e 's/#CRYPTO=GNUTLS/CRYPTO=GNUTLS/' -i Makefile -i librtmp/Makefile
+patch -Np1 -i $SCRIPT_DIRECTORY/rtmpdump-2.3-2.6.patch
