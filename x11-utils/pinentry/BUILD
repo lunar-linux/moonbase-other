@@ -11,4 +11,6 @@ else
    OPTS+=" --disable-pinentry-gnome3"
 fi
 
+export CXXFLAGS="$CXXFLAGS -std=gnu++17"
+
 default_build
