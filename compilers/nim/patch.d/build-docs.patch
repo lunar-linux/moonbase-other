@@ -1,0 +1,9 @@
+--- ./build_all.sh
++++ ./build_all.sh
+@@ -13,5 +13,6 @@ nimBuildCsourcesIfNeeded "$@"
+ 
+ echo_run bin/nim c --noNimblePath --skipUserCfg --skipParentCfg --hints:off koch
+ echo_run ./koch boot -d:release --skipUserCfg --skipParentCfg --hints:off
++echo_run ./koch docs --skipUserCfg --skipParentCfg --hints:off
+ echo_run ./koch tools --skipUserCfg --skipParentCfg --hints:off
+ 
