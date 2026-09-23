@@ -1,4 +1,4 @@
-python -m build -nw &&
+python -m build -w &&
 
 prepare_install &&
 
