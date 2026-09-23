@@ -9,7 +9,6 @@ OPTS+=" -DMZ_ZLIB_FLAVOR=zlib \
         -DOTIO_FIND_IMATH=ON \
         -DOTIO_DEPENDENCIES_INSTALL=OFF \
         -DOTIO_AUTOMATIC_SUBMODULES=OFF \
-        -DOTIO_FIND_RAPIDJSON=OFF \
         -Wno-author"
 
 default_cmake_build

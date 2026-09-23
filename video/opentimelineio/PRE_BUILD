@@ -1,6 +1,8 @@
 default_pre_build
 
-lget rapidjson &&
+git submodule init src/deps/rapidjson
+git submodule set-url src/deps/rapidjson "$srcdir"/opentimelineio-rapidjson
+git -c protocol.file.allow=always submodule update src/deps/rapidjson
 
-tar xf /var/spool/lunar/rapidjson-1.1.0.tar.gz -C src/deps/rapidjson
+sed -e '/cmake/d' -i pyproject.toml
 
