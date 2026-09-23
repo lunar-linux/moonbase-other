@@ -1,7 +1,3 @@
-git submodule init src/deps/rapidjson &&
-git submodule set-url src/deps/rapidjson opentimelineio-rapidjson &&
-git -c protocol.file.allow=always submodule update src/deps/rapidjson &&
-
 export CXXFLAGS+=" -I/usr/include/Imath"
 
 OPTS+=" -DMZ_ZLIB_FLAVOR=zlib \
@@ -16,10 +12,8 @@ OPTS+=" -DMZ_ZLIB_FLAVOR=zlib \
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
 
-python -m build --wheel &&
-
 prepare_install &&
+python -m build --wheel &&
+python -m installer --destdir=/ dist/*.whl &&
 
 cmake --install $MODULE-$VERSION
-
-python -m installer --destdir="$pkgdir" dist/*.whl
