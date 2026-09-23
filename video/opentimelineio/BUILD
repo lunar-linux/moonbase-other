@@ -9,6 +9,17 @@ OPTS+=" -DMZ_ZLIB_FLAVOR=zlib \
         -DOTIO_FIND_IMATH=ON \
         -DOTIO_DEPENDENCIES_INSTALL=OFF \
         -DOTIO_AUTOMATIC_SUBMODULES=OFF \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
         -Wno-author"
 
-default_cmake_build
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
+
+python -m build --wheel &&
+
+prepare_install &&
+
+cmake --install $MODULE-$VERSION
+
+python -m installer --destdir="$pkgdir" dist/*.whl
