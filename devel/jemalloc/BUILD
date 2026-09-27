@@ -1,6 +1,5 @@
 autoreconf -fi &&
 
-default_build &&
+OPTS+=" --enable-prof --enable-autogen --disable-static"
 
-# remove the static libs
-rm -f /usr/lib/lib${MODULE}*.a
+default_build
