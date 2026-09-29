@@ -11,6 +11,7 @@ fi
 export ICAL_LIBS="-lical -licalvcal"
 #--enable-library: This switch enables building the BlueZ 4 compatibility library which is required by some applications
 OPTS+=" --enable-mesh \
+        --enable-admin \
         --enable-tools \
         --enable-threads \
         --enable-library \
