@@ -1,12 +1,14 @@
 add_priv_user git:git &&
 
-default_config &&
-
 if [ "`get_module_config DOCS`" = "y" ]; then
+  if ! module_installed xmlto; then lin -c xmlto; fi
+  if ! module_installed asciidoc; then lin -c asciidoc; fi
   DOCS=" doc"
 else
   DOCS=""
-fi
+fi &&
+
+default_config &&
 
 if in_depends $MODULE pcre2; then
   OPTS="USE_LIBPCRE=1"
