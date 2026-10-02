@@ -32,7 +32,7 @@ make -C contrib/subtree \
 
 prepare_install &&
 
-if in_depends $MODULE asciidoc
+if in_depends $MODULE asciidoc; then
   DOCS=" install-doc"
 else
   DOCS=""
