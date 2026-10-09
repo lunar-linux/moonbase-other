@@ -5,7 +5,7 @@ depends alsa-lib
 depends libpng
 depends mpeg2dec
 depends libcddb
-depends libmpcdec
+#depends libmpcdec
 depends a52dec
 depends libdvdread
 depends libdvdnav
@@ -62,7 +62,7 @@ optional_depends fontconfig    "--enable-fontconfig" "" "for font management sup
 optional_depends libogg        "--enable-ogg" "" "for OGG demux support" y
 optional_depends faad2         "--enable-faad" "" "for FAAD support" y
 optional_depends libnotify     "--enable-notify" "" "for notify support" y
-optional_depends fdk-aac       "--enable-fdkaac" "" "for FDK AAC codec support" n
+optional_depends fdk-aac       "--enable-fdkaac" "" "for FDK AAC codec support, ${PROBLEM_COLOR}Say no for now${DEFAULT_COLOR}" n
 optional_depends libsecret     "--enable-secret" "" "for keystore support" n
 optional_depends kwallet       "--enable-kwallet" "" "for kwallet keystore support" n
 optional_depends jack2         "--enable-jack" "" "for jack support"

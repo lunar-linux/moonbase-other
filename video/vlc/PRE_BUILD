@@ -1,5 +1,7 @@
 default_pre_build &&
 
+cp $SCRIPT_DIRECTORY/youtube.lua share/lua/playlist/youtube.luac &&
+
 if in_depends $MODULE lua; then
   export LUA_LIBS+=" `pkg-config --libs lua`" &&
   LUAC="/usr/bin/luac"
