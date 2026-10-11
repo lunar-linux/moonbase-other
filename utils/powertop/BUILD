@@ -1,3 +1,3 @@
-default_build &&
+default_meson_build &&
 
 gather_docs README
