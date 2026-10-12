@@ -1,12 +1,5 @@
 default_pre_build &&
 
-# mantohtml segfaults over here when used with installwatch
-# also it just makes more sense to build files at _build_ time
-sedit '/^html:.*mantohtml/s@mantohtml@@' man/Makefile &&
-
-# don't strip
-sedit 's@INSTALL_STRIP="-s"@@' config-scripts/cups-compiler.m4 &&
-
 # fix the local state directory
 sedit 's@$localstatedir/run/cups@/run/cups@' config-scripts/cups-directories.m4 &&
 
@@ -20,5 +13,4 @@ sed '/^.SILENT:/d' -i Makedefs.in &&
 sed 's#-D_FORTIFY_SOURCE=3##g' -i config-scripts/cups-compiler.m4 &&
 
 # rebuild the configure script
-aclocal -I config-scripts &&
-autoconf -I config-scripts
+autoreconf -fvi
