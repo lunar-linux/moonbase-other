@@ -6,7 +6,8 @@ OPTS+=" -DCMAKE_BUILD_TYPE=Release \
         -DBUILD_TESTING=OFF \
         -DOCIO_BUILD_TESTS=OFF \
         -DCMAKE_SKIP_INSTALL_RPATH=YES \
-        -DCMAKE_CONFIGURATION_TYPES=Release"
+        -DCMAKE_CONFIGURATION_TYPES=Release \ 
+        -Wno-author"
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
