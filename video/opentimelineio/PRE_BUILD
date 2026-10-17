@@ -2,7 +2,5 @@ default_pre_build
 
 git submodule init src/deps/rapidjson &&
 git submodule set-url src/deps/rapidjson src/opentimelineio-rapidjson &&
-git -c protocol.file.allow=always submodule update src/deps/rapidjson &&
-
-sed -e '/cmake/d' -i pyproject.toml
+git -c protocol.file.allow=always submodule update src/deps/rapidjson
 
