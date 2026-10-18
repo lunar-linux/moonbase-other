@@ -1,0 +1,93 @@
+Fix for strict prototypes error: declarations are fine,
+definitions are missing void
+https://bugs.gentoo.org/949835
+
+Replace the deprecated init_module() and cleanup_module() entry points
+with the module_init() and module_exit() macros.
+https://bugs.gentoo.org/959282
+diff --git a/netatop.c b/netatop.c
+--- a/netatop.c
++++ b/netatop.c
+@@ -1053,7 +1053,7 @@ garbage_collector(void)
+ ** can be found at the head
+ */
+ static void
+-gctaskexit()
++gctaskexit(void)
+ {
+ 	unsigned long	flags;
+ 	struct taskinfo	*tip;
+@@ -1087,7 +1087,7 @@ gctaskexit()
+ ** cleanup sockinfo structures that are connected to finished processes
+ */
+ static void
+-gcsockinfo()
++gcsockinfo(void)
+ {
+ 	int		i;
+ 	struct sockinfo	*sip, *sipsave;
+@@ -1300,7 +1300,7 @@ gcsockinfo()
+ ** remove taskinfo structures of finished tasks from hash list
+ */
+ static void
+-gctaskinfo()
++gctaskinfo(void)
+ {
+ 	int		i;
+ 	struct taskinfo	*tip, *tipsave;
+@@ -1376,7 +1376,7 @@ gctaskinfo()
+ ** remove all sockinfo structs
+ */
+ static void
+-wipesockinfo()
++wipesockinfo(void)
+ {
+ 	struct sockinfo	*sip, *sipsave;
+ 	int 		i;
+@@ -1404,7 +1404,7 @@ wipesockinfo()
+ ** remove all taskinfo structs from hash list
+ */
+ static void
+-wipetaskinfo()
++wipetaskinfo(void)
+ {
+ 	struct taskinfo	*tip, *tipsave;
+ 	int 		i;
+@@ -1432,7 +1432,7 @@ wipetaskinfo()
+ ** remove all taskinfo structs from exit list
+ */
+ static void
+-wipetaskexit()
++wipetaskexit(void)
+ {
+ 	gctaskexit();
+ }
+@@ -1767,8 +1767,8 @@ static struct pernet_operations netatop_net_ops = {
+ /*
+ ** called when module loaded
+ */
+-int
+-init_module()
++static int __init
++netatop_init(void)
+ {
+ 	int i;
+ 
+@@ -1868,8 +1868,8 @@ init_module()
+ /*
+ ** called when module unloaded
+ */
+-void
+-cleanup_module()
++static void __exit
++netatop_exit(void)
+ {
+ 	/*
+  	** tell kernel daemon to stop
+@@ -1903,3 +1903,6 @@ cleanup_module()
+ 	kmem_cache_destroy(ticache);
+ 	kmem_cache_destroy(sicache);
+ }
++
++module_init(netatop_init)
++module_exit(netatop_exit)

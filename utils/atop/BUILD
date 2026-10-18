@@ -1,3 +1,4 @@
+export CFLAGS="-std=gnu17 -Wno-implicit-function-declaration"
 make &&
 
 prepare_install &&
