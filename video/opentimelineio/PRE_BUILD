@@ -1,6 +1,4 @@
 default_pre_build
 
-git submodule init src/deps/rapidjson &&
-git submodule set-url src/deps/rapidjson src/opentimelineio-rapidjson &&
-git -c protocol.file.allow=always submodule update src/deps/rapidjson
-
+lget rapidjson &&
+cp /var/spool/lunar/rapidjson-$(lvu version rapidjson).tar.gz src/deps/rapidjson/

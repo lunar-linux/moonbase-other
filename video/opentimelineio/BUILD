@@ -14,9 +14,9 @@ OPTS+=" -DMZ_ZLIB_FLAVOR=zlib \
 
 cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
 cmake --build $MODULE-$VERSION &&
-python -m build --wheel &&
+#python -m build --wheel &&
 
 prepare_install &&
 
 cmake --install $MODULE-$VERSION
-python -m installer --destdir=/ dist/*.whl
+#python -m installer --destdir=/ dist/*.whl
