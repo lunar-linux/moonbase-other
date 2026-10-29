@@ -1,6 +1,10 @@
 export CC=clang
 export CXX=clang++
 
+# Build only minimal debug info to reduce size
+CFLAGS=${CFLAGS/-g /-g1 }
+CXXFLAGS=${CXXFLAGS/-g /-g1 }
+
 OPTS+=" \
   -DCMAKE_INSTALL_PREFIX=/usr \
   -DCMAKE_BUILD_TYPE=Release \

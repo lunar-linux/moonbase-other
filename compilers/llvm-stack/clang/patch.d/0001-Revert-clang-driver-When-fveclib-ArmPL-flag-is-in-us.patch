@@ -13,9 +13,9 @@ This reverts commit 03019c687f00cdd9d05fc1ace329a438c3ff6364.
 
 diff --git a/clang/lib/Driver/ToolChains/CommonArgs.cpp b/clang/lib/Driver/ToolChains/CommonArgs.cpp
 index 8d3775de9be5..af3fab68a0c6 100644
---- ./clang/lib/Driver/ToolChains/CommonArgs.cpp
-+++ ./clang/lib/Driver/ToolChains/CommonArgs.cpp
-@@ -528,41 +528,6 @@ void tools::AddLinkerInputs(const ToolChain &TC, const InputInfoList &Inputs,
+--- a/clang/lib/Driver/ToolChains/CommonArgs.cpp
++++ b/clang/lib/Driver/ToolChains/CommonArgs.cpp
+@@ -501,41 +501,6 @@ void tools::AddLinkerInputs(const ToolChain &TC, const InputInfoList &Inputs,
      else
        A.renderAsInput(Args, CmdArgs);
    }
@@ -59,25 +59,25 @@ index 8d3775de9be5..af3fab68a0c6 100644
  const char *tools::getLDMOption(const llvm::Triple &T, const ArgList &Args) {
 diff --git a/clang/lib/Driver/ToolChains/MSVC.cpp b/clang/lib/Driver/ToolChains/MSVC.cpp
 index 7d31eea60308..00525de6c037 100644
---- ./clang/lib/Driver/ToolChains/MSVC.cpp
-+++ ./clang/lib/Driver/ToolChains/MSVC.cpp
-@@ -79,12 +79,6 @@ void visualstudio::Linker::ConstructJob(Compilation &C, const JobAction &JA,
+--- a/clang/lib/Driver/ToolChains/MSVC.cpp
++++ b/clang/lib/Driver/ToolChains/MSVC.cpp
+@@ -78,12 +78,6 @@
+     CmdArgs.push_back("-machine:arm64x");
    else if (TC.getTriple().isWindowsArm64EC())
      CmdArgs.push_back("-machine:arm64ec");
- 
+-
 -  if (const Arg *A = Args.getLastArg(options::OPT_fveclib)) {
 -    StringRef V = A->getValue();
 -    if (V == "ArmPL")
 -      CmdArgs.push_back(Args.MakeArgString("--dependent-lib=amath"));
 -  }
--
-   if (!Args.hasArg(options::OPT_nostdlib, options::OPT_nostartfiles) &&
-       !C.getDriver().IsCLMode() && !C.getDriver().IsFlangMode()) {
-     CmdArgs.push_back("-defaultlib:libcmt");
+ 
+   // SYCL requires dynamic CRT because STL objects cross DLL boundaries.
+   // Library dependency is added via --dependent-lib at compiler stage.
 diff --git a/clang/test/Driver/fveclib.c b/clang/test/Driver/fveclib.c
 index c57e9aa7a3cc..4e278285c925 100644
---- ./clang/test/Driver/fveclib.c
-+++ ./clang/test/Driver/fveclib.c
+--- a/clang/test/Driver/fveclib.c
++++ b/clang/test/Driver/fveclib.c
 @@ -130,26 +130,3 @@
  /* Verify no warning when math-errno is re-enabled for a different veclib (that does not imply -fno-math-errno). */
  // RUN: %clang -### --target=aarch64-linux-gnu -fveclib=ArmPL -fmath-errno -fveclib=Accelerate %s 2>&1 | FileCheck --check-prefix=CHECK-REPEAT-VECLIB %s

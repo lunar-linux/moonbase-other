@@ -3,6 +3,10 @@ if module_installed clang; then
   export CXX=clang++
 fi &&
 
+# Build only minimal debug info to reduce size
+CFLAGS=${CFLAGS/-g /-g1 }
+CXXFLAGS=${CXXFLAGS/-g /-g1 }
+
 OPTS+="
   -DCMAKE_BUILD_TYPE=Release
   -DCMAKE_INSTALL_PREFIX=/usr
