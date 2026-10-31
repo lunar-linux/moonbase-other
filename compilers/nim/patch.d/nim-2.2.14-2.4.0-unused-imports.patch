@@ -1,0 +1,41 @@
+From: Lunar Linux / LSS build audit
+Subject: [PATCH] Remove unused imports in Nim 2.2.14 and Nim 2.4.0
+
+Mechanical cleanup only. No feature change, no warning suppression.
+
+diff --git a/tools/deps.nim b/tools/deps.nim
+--- a/tools/deps.nim
++++ b/tools/deps.nim
+@@ -1,4 +1,4 @@
+-import std/[os, uri, strformat, strutils]
++import std/[os, uri, strformat]
+ import std/private/gitutils
+
+ when defined(nimPreviewSlimSystem):
+diff --git a/nimsuggest/nimsuggest.nim b/nimsuggest/nimsuggest.nim
+--- a/nimsuggest/nimsuggest.nim
++++ b/nimsuggest/nimsuggest.nim
+@@ -8,11 +8,8 @@
+ #
+
+ import compiler/renderer
+ import compiler/types
+-import compiler/trees
+-import compiler/wordrecg
+-import compiler/sempass2
+ import strformat
+ import algorithm
+ import tables
+ import times
+diff --git a/nimsuggest/procmonitor.nim b/nimsuggest/procmonitor.nim
+--- a/nimsuggest/procmonitor.nim
++++ b/nimsuggest/procmonitor.nim
+@@ -6,7 +6,7 @@
+ when defined(posix):
+   import posix_utils
+   import posix
+-  import std/[strutils, files]
++  import std/strutils
+ 
+ when defined(windows):
+   import winlean

@@ -17,7 +17,6 @@ cd lib &&
 nim c --app:lib -d:createNimRtl -d:release nimrtl.nim &&
 cd ../ &&
 
-./koch nimble &&
 ./koch tools &&
 
 prepare_install &&
