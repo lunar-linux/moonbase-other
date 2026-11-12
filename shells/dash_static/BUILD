@@ -1,4 +1,4 @@
-CC=musl-gcc ./configure --enable-static &&
+CC="musl-gcc -fno-link-libatomic" ./configure --enable-static &&
 
 make -j ${MAKES:-1} &&
 
