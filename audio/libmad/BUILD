@@ -1,18 +1,12 @@
-sed -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/' -i configure.ac  &&
+OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DBUILD_SHARED_LIBS=ON \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DNATIVE=ON \
+        -Wno-dev"
 
-OPTS+=" --disable-debugging --enable-accuracy --disable-static" &&
+cmake -B $MODULE-$VERSION -S . -G Ninja $OPTS &&
+cmake --build $MODULE-$VERSION &&
 
-if [ `arch` == "x86_64" ] ; then
-  OPTS+=" --enable-fpm=64bit"
-else
-  OPTS+=" --enable-fpm=intel"
-fi &&
-
-libtoolize --force --copy &&
-aclocal &&
-touch NEWS &&
-touch AUTHORS &&
-touch ChangeLog &&
-automake --add-missing &&
-autoreconf &&
-default_build
+prepare_install
+cmake --install $MODULE-$VERSION
