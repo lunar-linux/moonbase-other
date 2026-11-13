@@ -23,6 +23,7 @@ fi
        --disable-rpath-install \
        --enable-fhs            \
        --with-piddir=/run      \
+       --with-winbind          \
        --with-configdir=/etc/samba \
        --with-sockets-dir=/run/samba \
        --with-lockdir=/var/cache/samba \
