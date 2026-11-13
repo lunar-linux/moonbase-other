@@ -1,0 +1,28 @@
+# bpftrace module
+
+    MODULE=bpftrace
+   VERSION=0.27.1
+    SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_URL=https://github.com/bpftrace/bpftrace/releases/download/v$VERSION/$SOURCE
+SOURCE_VFY=sha256:1a7a8ba21762634353f83da8116b40f99c7a2d3987da44f044dea8fcbda6f4bc
+  WEB_SITE=https://github.com/bpftrace/bpftrace
+   ENTERED=20261025
+   UPDATED=20261025
+     SHORT="High-level tracing language for the Linux kernel"
+
+cat << EOF
+bpftrace is a high-level tracing language for the Linux kernel. It is based
+on the Linux BPF (Berkeley Packet Filter) feature and provides dynamic
+tracing capabilities for performance analysis, troubleshooting, and debugging.
+
+bpftrace allows users to write scripts to instrument the kernel without
+requiring kernel modifications or recompilation. It can trace system calls,
+kernel functions, userspace function calls, and other kernel events.
+
+Features:
+- High-level language with C-like syntax
+- Support for kernel and userspace tracing
+- Built-in functions for common operations
+- Maps and associative arrays for data aggregation
+- Low-overhead dynamic instrumentation
+EOF
