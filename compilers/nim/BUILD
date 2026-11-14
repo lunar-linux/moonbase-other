@@ -1,23 +1,14 @@
 export PATH=$SOURCE_DIRECTORY/bin:$PATH &&
 
-# Use the installed compiler only when both the current stdlib layout and
-# the current global configuration are present. Otherwise bootstrap from C.
-if module_installed nim &&
-   [ -x /usr/bin/nim ] &&
-   [ -f /usr/lib/nim/lib/system.nim ] &&
-   [ -f /etc/nim/nim.cfg ]; then
-  /usr/bin/nim c --noNimblePath --skipUserCfg --skipParentCfg --hints:off koch &&
-  ./koch boot -d:release --skipUserCfg --skipParentCfg --hints:off
-else
-  sh build_all.sh
-fi &&
+# Always bootstrap using the compiler built from this exact source tree.
+# Do not invoke an installed /usr/bin/nim (which may select /usr/lib/nim).
+# build_all.sh also builds the tools, so there is no separate koch tools pass.
+sh build_all.sh &&
 
 # building libs
 cd lib &&
 nim c --app:lib -d:createNimRtl -d:release nimrtl.nim &&
 cd ../ &&
-
-./koch tools &&
 
 prepare_install &&
 
