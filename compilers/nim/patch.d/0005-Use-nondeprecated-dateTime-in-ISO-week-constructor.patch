@@ -1,0 +1,28 @@
+From e6100364ddc777e5dced54f052d2d5e19408fcf8 Mon Sep 17 00:00:00 2001
+From: "LSS Audit (draft attribution)"
+ <draft-not-for-submission@example.invalid>
+Date: Sat, 31 Oct 2026 09:29:20 +0000
+Subject: [PATCH 8/9] Use nondeprecated dateTime in ISO week constructor
+
+---
+ lib/pure/times.nim | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/lib/pure/times.nim b/lib/pure/times.nim
+index 3b6889b..e03d628 100644
+--- a/lib/pure/times.nim
++++ b/lib/pure/times.nim
+@@ -2782,8 +2782,8 @@ proc initDateTime*(weekday: WeekDay, isoweek: IsoWeekRange, isoyear: IsoYear,
+     assert initDateTime(2, mJan, 2021, 00, 00, 00) == initDateTime(dSat, 53, 2020.IsoYear, 00, 00, 00)
+ 
+   # source https://webspace.science.uu.nl/~gent0113/calendar/isocalendar.htm
+-  let d = isoweek * 7 + weekday.int - initDateTime(4, mJan, isoyear.int, 00, 00, 00, zone).weekday.int - 4
+-  initDateTime(1, mJan, isoyear.int, hour, minute, second, nanosecond, zone) + initTimeInterval(days=d)
++  let d = isoweek * 7 + weekday.int - dateTime(isoyear.int, mJan, 4, 00, 00, 00, 0, zone).weekday.int - 4
++  dateTime(isoyear.int, mJan, 1, hour, minute, second, nanosecond, zone) + initTimeInterval(days=d)
+ 
+ proc initDateTime*(weekday: WeekDay, isoweek: IsoWeekRange, isoyear: IsoYear,
+                    hour: HourRange, minute: MinuteRange, second: SecondRange,
+-- 
+2.47.3
+

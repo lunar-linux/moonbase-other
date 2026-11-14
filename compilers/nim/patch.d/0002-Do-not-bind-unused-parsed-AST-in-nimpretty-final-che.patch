@@ -1,0 +1,26 @@
+From c19bef5d81db18ff46dedf3a000c6b4fba3414cf Mon Sep 17 00:00:00 2001
+From: "LSS audit (draft attribution)"
+ <draft-not-for-submission@example.invalid>
+Date: Sat, 31 Oct 2026 08:57:20 +0000
+Subject: [PATCH 5/9] Do not bind unused parsed AST in nimpretty final check
+
+---
+ nimpretty/nimpretty.nim | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/nimpretty/nimpretty.nim b/nimpretty/nimpretty.nim
+index ff19374..ded1b19 100644
+--- a/nimpretty/nimpretty.nim
++++ b/nimpretty/nimpretty.nim
+@@ -83,7 +83,7 @@ proc finalCheck(content: string; origAst: PNode): bool {.nimcall.} =
+   let fileIdx = fileInfoIdx(conf, AbsoluteFile "nimpretty_bug.nim")
+ 
+   openParser(parser, fileIdx, llStreamOpen(content), newIdentCache(), conf)
+-  let newAst = parseAll(parser)
++  discard parseAll(parser)
+   closeParser(parser)
+   result = conf.errorCounter == oldErrors # and goodEnough(newAst, origAst)
+ 
+-- 
+2.47.3
+

@@ -1,0 +1,30 @@
+From f771d10e0ce1c57340dcc626151781b607c91481 Mon Sep 17 00:00:00 2001
+From: "LSS Audit (draft attribution)"
+ <draft-not-for-submission@example.invalid>
+Date: Sat, 31 Oct 2026 09:29:19 +0000
+Subject: [PATCH 7/9] Spell out each initDuration default argument
+
+---
+ lib/pure/times.nim | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/lib/pure/times.nim b/lib/pure/times.nim
+index d2ab8f6..3b6889b 100644
+--- a/lib/pure/times.nim
++++ b/lib/pure/times.nim
+@@ -666,8 +666,10 @@ const DurationZero* = Duration() ## \
+   ##   doAssert initDuration(seconds = 0) == DurationZero
+   ##   ```
+ 
+-proc initDuration*(nanoseconds, microseconds, milliseconds,
+-                   seconds, minutes, hours, days, weeks: int64 = 0): Duration =
++proc initDuration*(nanoseconds: int64 = 0, microseconds: int64 = 0,
++                   milliseconds: int64 = 0, seconds: int64 = 0,
++                   minutes: int64 = 0, hours: int64 = 0,
++                   days: int64 = 0, weeks: int64 = 0): Duration =
+   ## Create a new `Duration <#Duration>`_.
+   runnableExamples:
+     let dur = initDuration(seconds = 1, milliseconds = 1)
+-- 
+2.47.3
+

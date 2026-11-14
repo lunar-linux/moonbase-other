@@ -35,7 +35,12 @@ install -Dm 644 nim.nimble /usr/lib/nim/compiler/ &&
 install -d /etc/nim &&
 install -m 644 config/nim*.cfg /etc/nim/ &&
 
-install -Dm 755 bin/* -t /usr/bin/ &&
+# Install host tools only; exclude bin/empty.txt, Windows .bat files, and
+# the temporary bin/nim_csources_<hash> C-bootstrap compiler.
+install -Dm 755 \
+  bin/atlas bin/nifler bin/nifmake bin/nim bin/nim-gdb bin/nim_dbg \
+  bin/nimble bin/nimgrep bin/nimpretty bin/nimsuggest bin/testament \
+  -t /usr/bin/ &&
 
 # fix the unusual placement of header files
 install -d /usr/include &&

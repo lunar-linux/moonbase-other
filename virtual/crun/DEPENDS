@@ -3,4 +3,13 @@ depends yajl
 depends libcap
 depends libseccomp
 depends go-md2man
-depends systemd
+
+optional_depends systemd \
+                   "--enable-systemd" \
+                   "--disable-systemd" \
+                   "for systemd support"
+
+#optional_depends criu \
+#                   "--enable-criu" \
+#                   "--disable-criu" \
+#                   "for checkpoint/restore support"

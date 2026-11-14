@@ -1,0 +1,52 @@
+From 5469d974e22f0a1f9540fb41803f9e37499fde2e Mon Sep 17 00:00:00 2001
+From: LSS trial <lss-trial@example.invalid>
+Date: Sat, 14 Nov 2026 11:27:43 +0000
+Subject: [PATCH] [LSS trial] Keep wordrecg when cleaning unused Nim 2.4.2
+ imports
+
+---
+ nimsuggest/nimsuggest.nim  | 2 --
+ nimsuggest/procmonitor.nim | 2 +-
+ tools/deps.nim             | 2 +-
+ 3 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/nimsuggest/nimsuggest.nim b/nimsuggest/nimsuggest.nim
+index da4b277..c465d8f 100644
+--- a/nimsuggest/nimsuggest.nim
++++ b/nimsuggest/nimsuggest.nim
+@@ -9,9 +9,7 @@
+ 
+ import compiler/renderer
+ import compiler/types
+-import compiler/trees
+ import compiler/wordrecg
+-import compiler/sempass2
+ import strformat
+ import algorithm
+ import tables
+diff --git a/nimsuggest/procmonitor.nim b/nimsuggest/procmonitor.nim
+index 809123b..492ad5c 100644
+--- a/nimsuggest/procmonitor.nim
++++ b/nimsuggest/procmonitor.nim
+@@ -6,7 +6,7 @@ import os
+ when defined(posix):
+   import posix_utils
+   import posix
+-  import std/[strutils, files]
++  import std/strutils
+ 
+ when defined(windows):
+   import winlean
+diff --git a/tools/deps.nim b/tools/deps.nim
+index 91eb4f4..52b44fe 100644
+--- a/tools/deps.nim
++++ b/tools/deps.nim
+@@ -1,4 +1,4 @@
+-import std/[os, uri, strformat, strutils]
++import std/[os, uri, strformat]
+ import std/private/gitutils
+ 
+ when defined(nimPreviewSlimSystem):
+-- 
+2.47.3
+
