@@ -1,5 +1,6 @@
 OPTS+=" --enable-shared \
+        --enable-dynamic \
         --disable-static \
-        --enable-dynamic"
+        --with-python-bindings"
 
 default_build
