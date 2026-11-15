@@ -1,0 +1,10 @@
+depends extra-cmake-modules
+depends libxcb
+depends xcb-util
+depends xcb-util-keysyms
+
+optional_depends uthash \
+                 "-DUSE_SYSTEM_UTHASH=ON" \
+                 "-DUSE_SYSTEM_UTHASH=OFF" \
+                 "use the system wide uthash instead of the bundled copy" \
+                 "n"

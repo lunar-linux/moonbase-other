@@ -1,0 +1,14 @@
+default_pre_build &&
+
+cd $SOURCE_DIRECTORY &&
+
+# third_party/yoga is a git submodule upstream, so it is missing from the
+# GitHub archive. Unpack the pinned commit where the build expects it.
+mkdir -p third_party/yoga &&
+tar xf $SOURCE_CACHE/yoga-042f5013152eb81c1552dec945b88f7b95ca350f.tar.gz \
+    -C   third_party/yoga --strip-components=1 &&
+
+# The English spelling dictionary is normally fetched by CMake at build time.
+# fcitx5_download() resolves its destination relative to the source
+# directory, so drop the tarball there to make the build reproducible.
+cp $SOURCE_CACHE/en_dict-20121020.tar.gz src/modules/spell/

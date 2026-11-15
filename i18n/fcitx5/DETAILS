@@ -1,0 +1,34 @@
+         MODULE=fcitx5
+        VERSION=5.1.23
+         SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_URL_FULL=https://github.com/fcitx/$MODULE/archive/refs/tags/$VERSION.tar.gz
+        SOURCE2=yoga-042f5013152eb81c1552dec945b88f7b95ca350f.tar.gz
+    SOURCE2_URL=https://github.com/facebook/yoga/archive/
+        SOURCE3=en_dict-20121020.tar.gz
+    SOURCE3_URL=https://download.fcitx-im.org/data/
+     SOURCE_VFY=sha256:adeeafdba468111573233fb09e5cabf2e2c240cdc85e74ead498c2d702c795b8
+    SOURCE2_VFY=sha256:4742f41722a16f181e3da37abf943390db1e928f00f26402cb154662ae7f110f
+    SOURCE3_VFY=sha256:c44a5d7847925eea9e4d2d04748d442cd28dd9299a0b572ef7d91eac4f5a6ceb
+       WEB_SITE=https://fcitx-im.org/
+        ENTERED=20261116
+        UPDATED=20261116
+          SHORT="Flexible and powerful input method framework"
+
+cat << EOF
+Fcitx5 is a lightweight and flexible input method framework which aims to
+be language independent and provides a clean and well designed API.
+
+It supports X11 (via XIM and the XCB input method protocol) as well as
+Wayland (via the input-method and virtual-keyboard protocols), and ships
+the following engines and user interfaces out of the box:
+
+  * keyboard layout engine
+  * classic (X11/Wayland) candidate window UI
+  * XIM server and XCB frontend
+  * DBus based configuration interface
+  * spell checking and emoji support
+
+Input method engines such as Pinyin are provided by
+fcitx5-chinese-addons, while toolkit glue lives in fcitx5-qt and
+fcitx5-gtk.
+EOF
