@@ -1,4 +1,9 @@
+autoreconf -fvi &&
+
+if module_installed qt6-base; then
 source /etc/profile.d/qt6.rc
+OPTS+=" --enable-pinentry-qt"
+fi &&
 
 OPTS+=" --enable-fallback-curses \
         --enable-pinentry-curses \

@@ -1,0 +1,14 @@
+--- libiodbc-3.52.16/iodbc/dlproc.h.orig	2023-05-02 12:00:00.000000000 +0200
++++ libiodbc-3.52.16/iodbc/dlproc.h	2023-05-02 12:00:01.000000000 +0200
+@@ -80,11 +80,7 @@
+
+ #include <dlf.h>
+
+-#if defined(_MAC) || defined (__cplusplus)
+ typedef SQLRETURN (* HPROC) (...);
+-#else
+-typedef SQLRETURN (* HPROC) ();
+-#endif
+
+ #ifdef	DLDAPI_SVR4_DLFCN
+ #include <dlfcn.h>

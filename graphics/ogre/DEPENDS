@@ -12,10 +12,10 @@ depends dejavu-ttf
 depends bzip2
 depends pugixml
 
-optional_depends FreeImage \
-                 "-DOGRE_BUILD_PLUGIN_FREEIMAGE=TRUE" \
-                 "-DOGRE_BUILD_PLUGIN_FREEIMAGE=FALSE" \
-                 "for FreeImage plugin support"
+optional_depends egl-wayland \
+                 "-DOGRE_USE_WAYLAND=ON" \
+                 "-DOGRE_USE_WAYLAND=OFF" \
+                 "for wayland window manager support"
 
 optional_depends openexr \
                  "-DOGRE_BUILD_PLUGIN_EXRCODEC=TRUE" \

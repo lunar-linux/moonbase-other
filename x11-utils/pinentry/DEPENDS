@@ -9,8 +9,8 @@ optional_depends libsecret \
 
 optional_depends qt6-base \
                  "--enable-pinentry-qt" \
-                 "--disable-pinentry-qt5" \
-                 "for Qt 6.x support"
+                 "--disable-pinentry-qt" \
+                 "for Qt 6.x support,${PROBLEM_COLOR}Also requires kwindowsystemand kguiaddons, best to wait, install Qt6 and KF5 profiles later${DEFAULT_COLOR}" n
 
 optional_depends gtk2-ng \
                  "--enable-pinentry-gtk2" \

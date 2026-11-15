@@ -1,12 +1,12 @@
 add_priv_user git:git &&
 
-default_config &&
-
-if [ "`get_module_config DOCS`" = "y" ]; then
+if in_depends $MODULE asciidoc; then
   DOCS=" doc"
 else
   DOCS=""
-fi
+fi &&
+
+default_config &&
 
 if in_depends $MODULE pcre2; then
   OPTS="USE_LIBPCRE=1"
@@ -32,7 +32,7 @@ make -C contrib/subtree \
 
 prepare_install &&
 
-if [ "`get_module_config DOCS`" = "y" ]; then
+if in_depends $MODULE asciidoc; then
   DOCS=" install-doc"
 else
   DOCS=""
@@ -86,6 +86,6 @@ if [ "$(get_module_config CONTRIB)" = "y" ]; then
   cp -r --preserve=mode,ownership ./contrib/* /usr/share/git/
 fi
 
-if [ "$(get_module_config DOCS)" = "y" ]; then
+if in_depends $MODULE asciidoc; then
   gather_docs Documentation/*.txt Documentation/howto/*.txt Documentation/technical/*.txt contrib/gitview/gitview.txt
 fi

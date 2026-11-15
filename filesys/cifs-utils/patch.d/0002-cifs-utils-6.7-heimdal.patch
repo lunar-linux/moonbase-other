@@ -2,7 +2,7 @@ https://bugs.gentoo.org/612584
 
 --- cifs-utils-6.7/cifs.upcall.c
 +++ cifs-utils-6.7/cifs.upcall.c
-@@ -75,11 +75,13 @@
+@@ -89,11 +89,13 @@
  #define KRB5_KEY_LENGTH(k)      ((k)->keyvalue.length)
  #define KRB5_KEY_DATA(k)        ((k)->keyvalue.data)
  #define KRB5_KEY_DATA_CAST      void
@@ -16,7 +16,7 @@ https://bugs.gentoo.org/612584
  #endif
  
  #ifdef HAVE_LIBCAP_NG
-@@ -358,7 +360,7 @@
+@@ -568,7 +568,7 @@
  		syslog(LOG_DEBUG, "%s: krb5_cc_get_full_name failed: %d\n", __func__, ret);
  	} else {
  		syslog(LOG_DEBUG, "%s: default ccache is %s\n", __func__, cachename);

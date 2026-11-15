@@ -10,11 +10,17 @@ export BUILDTYPE=Release
 # make the directory for modules install
 mkdir -p /usr/lib/node_modules &&
 
-OPTS+=" --shared --shared-cares --without-npm --shared-zlib --shared-openssl"
+if module_installed npm; then
+  OPTS+=" --with-npm"
+ else
+  OPTS+=" --without-npm"
+fi
+
+OPTS+=" --shared --shared-cares --shared-zlib --shared-openssl --shared-http-parser"
 
 ./configure --prefix=/usr $OPTS &&
 
 default_make &&
 
 cd /usr/lib &&
-ln -s libnode.so.147 linode.so
+ln -sf libnode.so.147 linode.so

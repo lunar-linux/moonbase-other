@@ -1,0 +1,26 @@
+From 365066cf5d59ce1cf519068d1762735b6692eba8 Mon Sep 17 00:00:00 2001
+From: "LSS Audit (draft attribution)"
+ <draft-not-for-submission@example.invalid>
+Date: Sat, 31 Oct 2026 09:29:18 +0000
+Subject: [PATCH 6/9] Remove redundant direct pathnorm import from std/os
+
+---
+ lib/pure/os.nim | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/pure/os.nim b/lib/pure/os.nim
+index 6853683..91f762b 100644
+--- a/lib/pure/os.nim
++++ b/lib/pure/os.nim
+@@ -53,7 +53,7 @@ import std/private/since
+ import std/cmdline
+ export cmdline
+ 
+-import std/[strutils, pathnorm]
++import std/strutils
+ 
+ when defined(nimPreviewSlimSystem):
+   import std/[syncio, assertions, widestrs]
+-- 
+2.47.3
+

@@ -1,7 +1,9 @@
+depends zip
 depends apr-util
 depends boost
 depends expat
 depends cmake
 
-optional_depends unixODBC "" "" "for database support"
-optional_depends libesmtp "" "" "for managing mail via smtp"
+optional_depends unixODBC "-DLOG4CXX_ENABLE_ODBC=ON"  "-DLOG4CXX_ENABLE_ODBC=OFF"  "for database support"
+optional_depends libesmtp "-DLOG4CXX_ENABLE_ESMTP=ON" "-DLOG4CXX_ENABLE_ESMTP=OFF" "for managing mail via smtp"
+optional_depends qt6-base "-DLOG4CXX_QT_SUPPORT=ON"   "-DLOG4CXX_QT_SUPPORT=OFF"   "Qt support/integration"

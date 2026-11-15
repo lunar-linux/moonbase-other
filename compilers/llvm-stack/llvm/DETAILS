@@ -1,0 +1,25 @@
+# WHEN UPDATING THIS MODULE, ALSO UPDATE THE "openmp", "clang", "compiler-rt",
+# "lld" and lldb MODULES
+          MODULE=llvm
+         VERSION=23.1.5
+          SOURCE=$MODULE-project-$VERSION.src.tar.xz
+      SOURCE_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-$VERSION
+      SOURCE_VFY=sha256:fb50b1eac93ddeb3aa8dab4cfe324dff74f4a9c2bdee6160c9e36188f8d06a6e
+SOURCE_DIRECTORY=${BUILD_DIRECTORY}/$MODULE-project-${VERSION}.src
+        WEB_SITE=https://www.llvm.org/
+         ENTERED=20090128
+         UPDATED=20261109
+           SHORT="Low Level Virtual Machine"
+
+cat << EOF
+LLVM is a robust system, particularly well suited for developing new mid-level
+language-independent analyses and optimizations of all sorts, including those
+that require extensive interprocedural analysis. LLVM is also a great target
+for front-end development for conventional or research programming languages,
+including those which require compile-time, link-time, or run-time optimization
+for effective implementation, proper tail calls or garbage collection.
+
+Clang is a compiler front-end for the C family of languages (C, C++, Objective-C
+and Objective-C++) which can be built as a part of the LLVM compiler
+intrastructure project
+EOF

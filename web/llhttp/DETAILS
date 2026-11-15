@@ -1,0 +1,41 @@
+          MODULE=llhttp
+         VERSION=9.4.3
+          SOURCE=$MODULE-$VERSION.tar.gz
+ SOURCE_URL_FULL=https://github.com/nodejs/llhttp/archive/refs/tags/release/v$VERSION.tar.gz
+      SOURCE_VFY=sha256:1eb813c7437b31a87496a1cd3ed79f00746720f5e7e29c79b42c02cb69f36c39
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-release-v$VERSION
+        WEB_SITE=https://github.com/nodejs/llhttp
+            TYPE=cmake
+         ENTERED=20261017
+         UPDATED=20201017
+           SHORT="Port of http_parser"
+
+cat << EOF
+NOTE: grab the tags identified as "release".
+
+This a port of http_parser and optional depends for node.
+
+This is a parser for HTTP messages written in C.
+It parses both requests and responses. The parser is designed to be used
+in performance HTTP applications. It does not make any syscalls nor
+allocations, it does not buffer data, it can be interrupted at anytime.
+Depending on your architecture, it only requires about 40 bytes of data
+per message stream (in a web server that is per connection).
+
+Features:
+  No dependencies
+  Handles persistent streams (keep-alive).
+  Decodes chunked encoding.
+  Upgrade support
+  Defends against buffer overflow attacks.
+
+The parser extracts the following information from HTTP messages:
+  Header fields and values
+  Content-Length
+  Request method
+  Response status code
+  Transfer-Encoding
+  HTTP version
+  Request URL
+  Message body
+EOF

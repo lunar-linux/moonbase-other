@@ -1,5 +1,4 @@
 OPTS+=" -DBUILD_SHARED_LIBS=ON \
-        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -DCMAKE_CXX_FLAGS=-fpic ${CMAKE_CXX_FLAGS}"
 
-default_build
+default_cmake_build

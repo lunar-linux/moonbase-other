@@ -4,6 +4,7 @@ depends procps
 depends c-ares
 depends sqlite
 depends zlib
+depends llhttp
 
 optional_depends libuv    "--shared-libuv"    "" "for system installed libuv"
 optional_depends brotli   "--shared-brotli"   "" "for system installed brotli"
@@ -13,10 +14,6 @@ optional_depends simdutf  "--shared-simdutf"  "" "for fast utf parsing support"
 optional_depends icu4c \
                  "--with-intl=system-icu" "" \
                  "for system installed icu library"
-
-optional_depends http-parser \
-                 "--experimental-http-parser" "" \
-                 "for system installed http-parser"
 
 optional_depends nghttp2 \
                  "--shared-nghttp2" "" \

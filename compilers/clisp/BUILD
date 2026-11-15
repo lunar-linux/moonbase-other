@@ -1,3 +1,4 @@
+export CFLAGS+="  -fno-tree-dce -fno-tree-dse -fno-tree-pta -std=gnu99"
 # The default stack size on your platform is insufficient
 # and must be increased to at least 16384.
 ulimit -s 16384 &&

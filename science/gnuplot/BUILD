@@ -1,5 +1,7 @@
 source /etc/profile.d/qt6.rc
 
+autoreconf -fvi &&
+
 OPTS+=" --prefix=/usr --libexecdir=/usr/bin --with-bitmap-terminals"
 MAKEINFO=/usr/bin/makeinfo \
  ./configure --with-gihdir=/usr/share/gnuplot \

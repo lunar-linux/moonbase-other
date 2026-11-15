@@ -1,5 +1,5 @@
-if module_installed qt5; then
-  . /etc/profile.d/qt5.rc
+if module_installed qt6-base; then
+  . /etc/profile.d/qt6.rc
 fi &&
 
 OPTS+=" -D doc=disabled \

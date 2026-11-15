@@ -1,0 +1,10 @@
+default_pre_build &&
+
+# Remove CMake find module for zstd; breaks if out of sync with upstream zstd
+rm llvm/cmake/modules/Findzstd.cmake
+
+sed -i 's/CREDITS.TXT/CREDITS/' libcxx/LICENSE.TXT libcxxabi/LICENSE.TXT
+# Build lld's libraries as shared objects (liblldELF.so etc.) without
+# # making every other library shared (BUILD_SHARED_LIBS would do that)
+sed -i 's/^  if(ARG_SHARED)$/  if(ARG_SHARED OR LLD_BUILD_SHARED)/' lld/cmake/modules/AddLLD.cmake
+

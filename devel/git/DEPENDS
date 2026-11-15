@@ -11,7 +11,5 @@ optional_depends gnome-keyring "" "" "for GNOME keyring credential helper"
 optional_depends cvsps         "" "" "for CVS repository import" n
 optional_depends subversion    "" "" "for git-svn subversion repository support" n
 
-if [ "`get_module_config DOCS`" = "y" ]; then
-  depends xmlto
-  depends asciidoc
-fi
+optional_depends asciidoc "" "" "for git-doc 6 documentation" n
+optional_depends_requires asciidoc xmlto

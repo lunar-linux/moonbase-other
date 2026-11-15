@@ -1,6 +1,9 @@
+unset CFLAGS
+
 OPTS+=" --prefix=/usr/lib/musl \
         --exec-prefix=/usr \
         --syslibdir=/usr/lib \
+        --enable-shared \
         --enable-wrapper=all"
 
 default_build &&

@@ -8,6 +8,7 @@ OPTS+=" --enable-xcb \
         --disable-chromaprint \
         --disable-opencv \
         --disable-rpath \
+        --disable-mpc \
         --disable-update-check"
 
 default_config &&

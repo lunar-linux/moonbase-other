@@ -1,3 +1,3 @@
-OPTS+=" -D tests=false -Dintrospection=disabled -Dgtk_doc=false"
+OPTS+=" -D tests=false -Dintrospection=enabled -Dgtk_doc=false"
 
 default_meson_build

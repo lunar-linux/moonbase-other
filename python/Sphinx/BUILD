@@ -1,6 +1,4 @@
-export PYTHONDONTWRITEBYTECODE=1 &&
-
-python3 -m build --wheel --skip-dependency-check --no-isolation &&
+python3 -m build --wheel &&
 
 prepare_install &&
 python3 -m installer --destdir=/ dist/*.whl

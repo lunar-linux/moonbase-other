@@ -1,5 +1,3 @@
-./autogen.sh &&
+sedit 's:/usr/local:/usr:' Makefile &&
 
-OPTS+=" --disable-static" &&
-
-default_build
+default_make
