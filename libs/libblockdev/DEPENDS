@@ -1,25 +1,17 @@
-depends parted
-depends libbytesize
-depends volume_key
-depends ndctl
-depends systemd
-depends yaml
-depends libnvme
-depends libatasmart
-
 optional_depends xfsprogs   "" "" "for XFS support"
 optional_depends dosfstools "" "" "for ms-dos filesystem support"
-
-optional_depends python     "--with-python3"  "--without-python3" "for Python 3.x support"
 
 optional_depends btrfs-progs "--with-btrfs"   "" "for btrfs support"
 optional_depends lvm2        "--with-lvm"     "" "for LVM2 support"
 
 optional_depends mdadm       "--with-mdraid"  "--without-mdraid" "for RAID support;$PROBLEM_COLOR udisks2 needs this else compile fails$DEFAULT_COLOR"
 optional_depends dmraid      "--with-dm"      "--without-dm"     "for LVM RAID support"
+optional_depends libnvme     "--with-nvme"    "--without-nvme"   "for nvme support,${PROBLEM_COLOR} needed by udisks2${DEFAULT_COLOR}"
+optional_depends volume_key  "--with-escrow"  "--without-escrow" "for volume key support"
+
+optional_depends smartmontools "--with-smartmontools" "--without-smartmontools" "for monitoring of storage" n
 
 optional_depends gobject-introspection \
                  "--enable-introspection" \
                  "--disable-introspection" \
-                 "for object introspection" \
-                 "y"
+                 "for object introspection${PROBLEM_COLOR} Say no for now${DEFAULT_COLOR}"
