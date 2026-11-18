@@ -1,3 +1,5 @@
+./autogen.sh &&
+
 CPPFLAGS+=" $CFLAGS -fPIC" &&
 
 OPTS+=" --libdir=/usr/lib"
