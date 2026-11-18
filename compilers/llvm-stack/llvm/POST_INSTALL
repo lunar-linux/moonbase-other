@@ -1,4 +1,12 @@
+if module_installed clang; then
+  # Remove the broken clang because of the LLVM upgrade
+  lrm clang &&
+  # Rebuild with gcc
+  lin -c clang &&
+  # Rebuild clang with the newly installed clang
+  lin -c clang
+fi &&
+
 if module_installed lld; then
   lin -c lld
 fi
-
