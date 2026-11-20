@@ -1,3 +1,5 @@
+# VLC still relies on an old lua version for its scripts (and compat for external scripts)
+export LUAC=/usr/bin/luac5.1
 
 OPTS+=" --enable-xcb \
         --disable-gst-decode \
