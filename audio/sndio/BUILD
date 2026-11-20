@@ -1,3 +1,3 @@
-./configure --prefix=/usr --enable-alsa --with-libbsd $OPTS &&
+./configure --prefix=/usr
 
 default_make
