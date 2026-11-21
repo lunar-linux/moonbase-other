@@ -36,7 +36,7 @@ make -C nss latest &&
 
 # Upstream writes one precise build directory name to dist/latest.
 [ -s dist/latest ] &&
-IFS= read -r objdir < dist/latest
+IFS= read -r objdir < dist/latest &&
 case "$objdir" in
   Linux*.OBJ) ;;
   *) echo "Unexpected NSS dist/latest: $objdir" >&2; exit 1 ;;
