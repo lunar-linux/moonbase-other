@@ -10,6 +10,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write # start Notify website after a merge
 
 jobs:
   auto-merge:
@@ -69,5 +70,11 @@ jobs:
 
             echo "All conditions met — merging PR #$pr"
             gh pr merge "$pr" --repo "${{ github.repository }}" --merge --auto
+            # A merge made with GITHUB_TOKEN doesn't trigger push workflows, so start the
+            # website notifier ourselves, once the merge has actually happened
+            if [ "$(gh pr view "$pr" --repo "${{ github.repository }}" --json state --jq .state)" = "MERGED" ]; then
+              gh workflow run notify-website.yml --repo "${{ github.repository }}" --ref master
+              echo "Started Notify website."
+            fi
             echo "::endgroup::"
           done
