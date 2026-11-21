@@ -1,0 +1,16 @@
+default_pre_build &&
+
+cd $SOURCE_DIRECTORY &&
+
+# kenlm is a git submodule upstream, so it is missing from the GitHub archive.
+# Unpack the pinned commit where the build expects it.
+mkdir -p src/libime/core/kenlm &&
+tar xf $SOURCE_CACHE/kenlm-4cb443e60b7bf2c0ddf3c745378f76cb59e254e5.tar.gz \
+    -C   src/libime/core/kenlm --strip-components=1 &&
+
+# The language model, dictionary and table data are normally fetched by CMake
+# at build time. fcitx5_download() resolves its destination relative to the
+# source directory, so drop them there to make the build reproducible.
+cp $SOURCE_CACHE/lm_sc.arpa-20260629.tar.zst \
+   $SOURCE_CACHE/dict-20260907.tar.zst \
+   $SOURCE_CACHE/table-20240108.tar.zst data/

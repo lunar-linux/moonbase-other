@@ -1,0 +1,39 @@
+depends extra-cmake-modules
+depends cairo
+depends pango
+depends gdk-pixbuf
+depends librsvg
+depends glib-2
+depends iso-codes
+depends libxkbcommon
+depends libxkbfile
+depends xkeyboard-config
+depends expat
+depends zlib
+depends dbus
+depends util-linux
+depends gettext
+depends libxcb
+depends xcb-util
+depends xcb-util-wm
+depends xcb-util-keysyms
+depends xcb-imdkit
+depends wayland
+depends wayland-protocols
+depends nlohmann-json
+
+optional_depends enchant \
+                 "-DENABLE_ENCHANT=ON" \
+                 "-DENABLE_ENCHANT=OFF" \
+                 "spell checking and word prediction support"
+
+optional_depends systemd \
+                 "-DUSE_SYSTEMD=ON" \
+                 "-DUSE_SYSTEMD=OFF" \
+                 "use systemd as the event loop and DBus backend"
+
+optional_depends doxygen \
+                 "-DENABLE_DOC=ON" \
+                 "-DENABLE_DOC=OFF" \
+                 "build the API documentation" \
+                 "n"
