@@ -1,0 +1,14 @@
+# Tells the website when modules land, so the "Arrivals at the moonbase" board on the homepage
+# refreshes within a minute or two. The workflow itself lives in lunar-linux/.github.
+name: Notify website
+
+on:
+  push:
+    branches: [master]
+
+permissions: {}
+
+jobs:
+  notify:
+    uses: lunar-linux/.github/.github/workflows/notify-website.yml@v1
+    secrets: inherit
