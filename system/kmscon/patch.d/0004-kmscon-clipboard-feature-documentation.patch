@@ -1,0 +1,84 @@
+diff --git a/docs/clipboard-bridge.md b/docs/clipboard-bridge.md
+new file mode 100644
+index 0000000..0604c3b
+--- /dev/null
++++ b/docs/clipboard-bridge.md
+@@ -0,0 +1,78 @@
++# Optional native clipboard bridge (X11 / Wayland)
++
++This proposal adds **an opt-in bridge** between the KMSCON Linux VT and
++one unprivileged desktop user session. It does **not** start a graphical
++clipboard service inside the privileged KMSCON process and does not
++require `xclip`, `wl-copy` or `wl-paste` at runtime.
++
++## Components
++
++- `src/clipboard_bridge.[ch]`: nonblocking Unix-domain socket client,
++  attached to the existing KMSCON event loop; timeouts and cancellation
++  are bounded. Clipboard operations are capped at 64 KiB and reject NUL.
++- `clipboard/x11/`: standalone user-session Xlib peer. Supports the
++  `CLIPBOARD` selection with UTF-8 text, a 1.5-second bound on an
++  unresponsive selection owner, and an isolated Xvfb recovery test.
++- `clipboard/wayland/`: standalone user-session Wayland peer using
++  `ext-data-control-v1`. Requires compositor support for this extension.
++- `Ctrl+Shift+C`: copies the existing mouse selection to the desktop
++  clipboard if a peer is configured; `Ctrl+Shift+V`: requests clipboard
++  text from that peer; if no peer is configured, invokes local selection
++  paste. The shortcuts ignore Caps Lock, but not unrelated modifiers.
++
++The ordinary middle-button local selection paste is retained.
++
++## Build the peers (independently of the KMSCON Meson build)
++
++From a KMSCON source tree that includes these changes:
++
++```sh
++make -C clipboard/x11
++make -C clipboard/x11 check        # requires Xvfb, Xlib and compiler
++make -C clipboard/wayland         # requires Wayland client, scanner,
++                                  # and wayland-protocols staging XML
++```
++
++KMSCON itself uses its existing Meson build; this patch adds the
++`clipboard_bridge.c` source to `src/meson.build`. Peer build integration
++with Meson and installation policy are left for upstream review, so that
++optional X11/Wayland dependencies are not forced on non-graphical builds.
++
++## Configuration and examples
++
++Run exactly one graphical peer as the **logged-in desktop user**:
++
++```sh
++# X11 example; path must be in a user-owned, private directory
++mkdir -p "$HOME/.cache"
++./clipboard/x11/kmscon-clipboard-x11 serve "$HOME/.cache/kmscon-clipboard-x11.sock"
++
++# Or Wayland (in a session supporting ext-data-control-v1)
++./clipboard/wayland/kmscon-clipboard-wayland serve     "$XDG_RUNTIME_DIR/kmscon-clipboard-wayland.sock"
++```
++
++Then set `KMSCON_CLIPBOARD_SOCKET` to the **same socket path** in the
++KMSCON process environment, through the service manager or launch script.
++The socket belongs to the desktop user and must not be world-readable;
++KMSCON validates its peer credentials and the socket metadata. Peer
++failures do not block the KMSCON event loop indefinitely.
++
++**Limitations:** this is a local, trusted-user bridging arrangement.
++KMSCON running with elevated permissions can transfer clipboard text
++between the VT and the configured user session; do not point it at an
++untrusted socket or share the private socket directory. Wayland support
++is compositor-dependent. This contribution uses `ext-data-control-v1`,
++not the general Wayland clipboard protocol. X11 supports only bounded
++nonempty text, not arbitrary binary data or INCR transfers.
++
++## Upstream discussion points
++
++1. Decide whether to expose a documented config setting in addition to
++   the environment variable and whether to integrate peers into Meson.
++2. Confirm the authorship and licensing of the new peer source files;
++   they originate from the contributor's experimental source archives.
++3. Review security assumptions when the privileged KMSCON service
++   connects to an unprivileged user's socket.
++4. Review events around a late X11 `SelectionNotify` after a timeout.
++5. Test on X11 and additional Wayland compositors before general support
++   is advertised.

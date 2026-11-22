@@ -1,0 +1,15 @@
+#!/bin/sh
+# Explicit opt-in XDG session launcher. No root, no system service.
+set -eu
+[ "$(id -u)" -ne 0 ] || { echo 'Refusing root session' >&2; exit 1; }
+[ -n "${XDG_RUNTIME_DIR:-}" ] && [ -d "$XDG_RUNTIME_DIR" ] || {
+  echo 'XDG_RUNTIME_DIR missing' >&2; exit 1;
+}
+[ -n "${WAYLAND_DISPLAY:-}" ] || { echo 'Not a Wayland session' >&2; exit 1; }
+sock="$XDG_RUNTIME_DIR/kmscon-clipboard-wayland-c4.sock"
+# Do not unlink/replace a peer owned by another process; diagnose it instead.
+if [ -e "$sock" ] || [ -S "$sock" ]; then
+  echo "Clipboard socket already exists: $sock" >&2
+  exit 1
+fi
+exec /usr/bin/kmscon-clipboard-wayland serve "$sock"

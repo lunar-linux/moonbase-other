@@ -1,0 +1,377 @@
+diff --git a/src/clipboard_bridge.c b/src/clipboard_bridge.c
+new file mode 100644
+index 0000000..c349e56
+--- /dev/null
++++ b/src/clipboard_bridge.c
+@@ -0,0 +1,196 @@
++/* Minimal asynchronous client of the KMSCON X11 clipboard peer protocol. */
++#include "clipboard_bridge.h"
++#include "shl/eloop.h"
++#include <arpa/inet.h>
++#include <errno.h>
++#include <fcntl.h>
++#include <stdint.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/socket.h>
++#include <sys/stat.h>
++#include <sys/un.h>
++#include <unistd.h>
++
++#define CLIP_LIMIT (64U * 1024U)
++#define CLIP_TIMEOUT_SEC 3
++
++enum phase { PH_CONNECT, PH_SEND, PH_RECEIVE };
++struct clipboard_bridge {
++    struct ev_eloop *loop;
++    struct ev_fd *watch;
++    struct ev_timer *timer;
++    int fd;
++    enum phase phase;
++    char operation;
++    char path[sizeof(((struct sockaddr_un *)0)->sun_path)];
++    unsigned char *out;
++    size_t out_len, out_at;
++    unsigned char *in;
++    size_t in_at, in_need;
++    clipboard_paste_cb on_paste;
++    void *owner;
++};
++
++void clipboard_bridge_cancel(struct clipboard_bridge *b)
++{
++    if (!b) return;
++    if (b->watch) { ev_eloop_rm_fd(b->watch); b->watch = NULL; }
++    if (b->fd >= 0) { close(b->fd); b->fd = -1; }
++    if (b->timer) { ev_timer_update(b->timer, NULL); ev_timer_disable(b->timer); }
++    free(b->out); b->out = NULL; b->out_len = b->out_at = 0;
++    free(b->in); b->in = NULL; b->in_at = b->in_need = 0;
++    b->operation = 0;
++}
++
++static void on_timeout(struct ev_timer *timer, uint64_t count, void *owner)
++{
++    (void)timer; (void)count;
++    clipboard_bridge_cancel(owner);
++}
++
++static void finish(struct clipboard_bridge *b)
++{
++    /* Callback is synchronous; copy into VTE before releasing the buffer. */
++    if (b->operation == 'P' && b->in_need >= 4 && b->in_at == b->in_need && b->in) {
++        uint32_t n;
++        memcpy(&n, b->in, 4);
++        n = ntohl(n);
++        if (n > 0 && n <= CLIP_LIMIT && b->on_paste && !memchr(b->in + 4, 0, n))
++            b->on_paste(b->owner, (const char *)b->in + 4, n);
++    }
++    clipboard_bridge_cancel(b);
++}
++
++static void on_socket(struct ev_fd *watch, int mask, void *owner)
++{
++    struct clipboard_bridge *b = owner;
++    (void)watch;
++    if (mask & EV_ERR) { clipboard_bridge_cancel(b); return; }
++    if (b->phase == PH_CONNECT && (mask & EV_WRITEABLE)) {
++        int error = 0; socklen_t len = sizeof(error);
++        struct ucred peer; socklen_t plen = sizeof(peer);
++        struct stat st;
++        if (getsockopt(b->fd, SOL_SOCKET, SO_ERROR, &error, &len) || error ||
++            getsockopt(b->fd, SOL_SOCKET, SO_PEERCRED, &peer, &plen) ||
++            lstat(b->path, &st) || !S_ISSOCK(st.st_mode) ||
++            st.st_uid != peer.uid || (st.st_mode & 0077) || peer.uid == 0) {
++            clipboard_bridge_cancel(b); return;
++        }
++        b->phase = PH_SEND;
++        ev_fd_update(b->watch, EV_WRITEABLE);
++    }
++    if (b->phase == PH_SEND && (mask & EV_WRITEABLE)) {
++        while (b->out_at < b->out_len) {
++            ssize_t n = send(b->fd, b->out + b->out_at, b->out_len - b->out_at, MSG_NOSIGNAL);
++            if (n < 0 && errno == EINTR) continue;
++            if (n < 0 && (errno == EAGAIN || errno == EWOULDBLOCK)) return;
++            if (n <= 0) { clipboard_bridge_cancel(b); return; }
++            b->out_at += (size_t)n;
++        }
++        b->phase = PH_RECEIVE;
++        ev_fd_update(b->watch, EV_READABLE);
++    }
++    if (b->phase == PH_RECEIVE && (mask & (EV_READABLE | EV_HUP))) {
++        if (b->operation == 'C') {
++            char ack;
++            ssize_t n = recv(b->fd, &ack, 1, 0);
++            if (n != 0 && n < 0 && (errno == EAGAIN || errno == EINTR)) return;
++            clipboard_bridge_cancel(b);
++            return;
++        }
++        for (;;) {
++            size_t want = b->in_need - b->in_at;
++            ssize_t n = recv(b->fd, b->in + b->in_at, want, 0);
++            if (n < 0 && errno == EINTR) continue;
++            if (n < 0 && (errno == EAGAIN || errno == EWOULDBLOCK)) return;
++            if (n <= 0) { clipboard_bridge_cancel(b); return; }
++            b->in_at += (size_t)n;
++            if (b->in_at != b->in_need) return;
++            if (b->in_need == 4) {
++                uint32_t size;
++                memcpy(&size, b->in, 4);
++                size = ntohl(size);
++                if (size == UINT32_MAX || size > CLIP_LIMIT) { clipboard_bridge_cancel(b); return; }
++                if (size == 0) { clipboard_bridge_cancel(b); return; }
++                b->in_need = 4 + size;
++                continue;
++            }
++            finish(b);
++            return;
++        }
++    }
++    if (mask & EV_HUP) clipboard_bridge_cancel(b);
++}
++
++struct clipboard_bridge *clipboard_bridge_new(struct ev_eloop *loop,
++                                               const char *path,
++                                               clipboard_paste_cb cb, void *owner)
++{
++    if (!loop || !path || !*path || strlen(path) >= sizeof(((struct clipboard_bridge *)0)->path))
++        return NULL;
++    struct clipboard_bridge *b = calloc(1, sizeof(*b));
++    if (!b) return NULL;
++    b->loop = loop; b->fd = -1;
++    b->on_paste = cb; b->owner = owner;
++    strcpy(b->path, path);
++    struct itimerspec initial = {0};
++    if (ev_eloop_new_timer(loop, &b->timer, &initial, on_timeout, b)) {
++        free(b); return NULL;
++    }
++    ev_timer_disable(b->timer);
++    return b;
++}
++
++static void begin(struct clipboard_bridge *b, char op, const char *data, size_t size)
++{
++    if (!b || (op == 'C' && (!data || size == 0 || size > CLIP_LIMIT || memchr(data, 0, size))))
++        return;
++    clipboard_bridge_cancel(b);
++    b->operation = op;
++    b->out_len = op == 'C' ? 5 + size : 1;
++    b->out = malloc(b->out_len);
++    if (!b->out) goto error;
++    b->out[0] = (unsigned char)op;
++    if (op == 'C') {
++        uint32_t net = htonl((uint32_t)size);
++        memcpy(b->out + 1, &net, 4);
++        memcpy(b->out + 5, data, size);
++    } else {
++        b->in = malloc(4 + CLIP_LIMIT);
++        if (!b->in) goto error;
++        b->in_need = 4;
++    }
++    b->fd = socket(AF_UNIX, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, 0);
++    if (b->fd < 0) goto error;
++    struct sockaddr_un addr = {.sun_family = AF_UNIX};
++    strcpy(addr.sun_path, b->path);
++    int connected = connect(b->fd, (const struct sockaddr *)&addr, sizeof(addr));
++    if (connected != 0 && errno != EINPROGRESS) goto error;
++    b->phase = PH_CONNECT;
++    if (ev_eloop_new_fd(b->loop, &b->watch, b->fd, EV_WRITEABLE, on_socket, b)) goto error;
++    struct itimerspec deadline = {.it_value = {.tv_sec = CLIP_TIMEOUT_SEC}};
++    if (ev_timer_update(b->timer, &deadline)) goto error;
++    ev_timer_enable(b->timer);
++    return;
++error:
++    clipboard_bridge_cancel(b);
++}
++
++void clipboard_bridge_copy(struct clipboard_bridge *b, const char *data, size_t len)
++{
++    begin(b, 'C', data, len);
++}
++
++void clipboard_bridge_paste(struct clipboard_bridge *b)
++{
++    begin(b, 'P', NULL, 0);
++}
++
++void clipboard_bridge_free(struct clipboard_bridge *b)
++{
++    if (!b) return;
++    clipboard_bridge_cancel(b);
++    ev_eloop_rm_timer(b->timer);
++    free(b);
++}
+diff --git a/src/clipboard_bridge.h b/src/clipboard_bridge.h
+new file mode 100644
+index 0000000..776adba
+--- /dev/null
++++ b/src/clipboard_bridge.h
+@@ -0,0 +1,16 @@
++/* Optional nonblocking link to an unprivileged graphical clipboard peer. */
++#ifndef KMSCON_CLIPBOARD_BRIDGE_H
++#define KMSCON_CLIPBOARD_BRIDGE_H
++#include <stddef.h>
++struct ev_eloop;
++struct clipboard_bridge;
++typedef void (*clipboard_paste_cb)(void *owner, const char *data, size_t length);
++struct clipboard_bridge *clipboard_bridge_new(struct ev_eloop *loop,
++                                              const char *socket_path,
++                                              clipboard_paste_cb paste_cb,
++                                              void *owner);
++void clipboard_bridge_copy(struct clipboard_bridge *b, const char *data, size_t length);
++void clipboard_bridge_paste(struct clipboard_bridge *b);
++void clipboard_bridge_cancel(struct clipboard_bridge *b);
++void clipboard_bridge_free(struct clipboard_bridge *b);
++#endif
+diff --git a/src/meson.build b/src/meson.build
+index 76b51d5..980011e 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -53,6 +53,7 @@ kmscon_srcs = [
+     'config.c',
+     'main.c',
+     'terminal.c',
++    'clipboard_bridge.c',
+ ]
+ kmscon_dep = [
+     xkbcommon_deps,
+diff --git a/src/terminal.c b/src/terminal.c
+index c1e7887..29e07e6 100644
+--- a/src/terminal.c
++++ b/src/terminal.c
+@@ -36,6 +36,8 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <xkbcommon/xkbcommon-keysyms.h>
++#include "clipboard_bridge.h"
+ #include "asciinema.h"
+ #include "conf.h"
+ #include "config.h"
+@@ -107,6 +109,7 @@ struct kmscon_terminal {
+ 	unsigned int font_size;
+ 
+ 	struct kmscon_pointer pointer;
++	struct clipboard_bridge *clipboard;
+ 
+ 	struct ev_timer *blink_timer;
+ 	struct ev_timer *blink_cursor;
+@@ -954,6 +957,23 @@ static void zoom_out(struct kmscon_terminal *term)
+ 	terminal_update_size_notify(term);
+ }
+ 
++static void paste_selection(struct kmscon_terminal *term);
++
++static void peer_paste(void *owner, const char *data, size_t size)
++{
++    struct kmscon_terminal *term = owner;
++    if (!term->opened || !term->awake ||
++        !kmscon_session_get_foreground(term->session))
++        return;
++    /* libtsm paste takes a terminated string, not a length. */
++    char *text = malloc(size + 1);
++    if (!text) return;
++    memcpy(text, data, size);
++    text[size] = '\0';
++    tsm_vte_paste(term->vte, text);
++    free(text);
++}
++
+ static void input_event(struct input *input, struct input_key_event *ev, void *data)
+ {
+ 	struct kmscon_terminal *term = data;
+@@ -967,6 +987,27 @@ static void input_event(struct input *input, struct input_key_event *ev, void *d
+ 	    !kmscon_session_get_foreground(term->session))
+ 		return;
+ 
++	/* Preserve local paste even if no graphical peer was configured. */
++    /* Caps Lock must not disable clipboard shortcuts; other modifiers must. */
++    if ((ev->mods & ~INPUT_LOCK_MASK) == (INPUT_CONTROL_MASK | INPUT_SHIFT_MASK) &&
++        ev->num_syms == 1 && ev->keysyms) {
++        if (ev->keysyms[0] == XKB_KEY_C || ev->keysyms[0] == XKB_KEY_c) {
++            if (term->clipboard && term->pointer.copy_len > 0 && term->pointer.copy)
++                clipboard_bridge_copy(term->clipboard, term->pointer.copy,
++                                      (size_t)term->pointer.copy_len);
++            ev->handled = true;
++            return;
++        }
++        if (ev->keysyms[0] == XKB_KEY_V || ev->keysyms[0] == XKB_KEY_v) {
++            if (term->clipboard)
++                clipboard_bridge_paste(term->clipboard);
++            else
++                paste_selection(term);
++            ev->handled = true;
++            return;
++        }
++    }
++
+ 	// reset mouse selection on keypress
+ 	tsm_screen_selection_reset(term->console);
+ 	kmscon_asciinema_stop(term->asciinema);
+@@ -1058,6 +1099,12 @@ static void copy_selection(struct kmscon_terminal *term)
+ 	term->pointer.copy_len = tsm_screen_selection_copy(term->console, &term->pointer.copy);
+ }
+ 
++static void paste_selection(struct kmscon_terminal *term)
++{
++    if (term->pointer.copy && term->pointer.copy_len > 0)
++        tsm_vte_paste(term->vte, term->pointer.copy);
++}
++
+ static void forward_pointer_event(struct kmscon_terminal *term, struct input_pointer_event *ev)
+ {
+ 	unsigned int event;
+@@ -1121,8 +1168,7 @@ static void handle_pointer_button(struct kmscon_terminal *term, struct input_poi
+ 		break;
+ 	case 1:
+ 		if (ev->pressed) {
+-			if (term->pointer.copy && term->pointer.copy_len)
+-				tsm_vte_paste(term->vte, term->pointer.copy);
++			paste_selection(term);
+ 			tsm_screen_selection_reset(term->console);
+ 		}
+ 		break;
+@@ -1323,6 +1369,7 @@ static int terminal_open(struct kmscon_terminal *term)
+ 
+ static void terminal_close(struct kmscon_terminal *term)
+ {
++	clipboard_bridge_cancel(term->clipboard);
+ 	kmscon_asciinema_pause(term->asciinema);
+ 	kmscon_pty_close(term->pty);
+ 	term->opened = false;
+@@ -1359,6 +1406,7 @@ void terminal_activate(struct kmscon_terminal *term)
+ 
+ void terminal_deactivate(struct kmscon_terminal *term)
+ {
++	clipboard_bridge_cancel(term->clipboard);
+ 	term->awake = false;
+ 	hw_cursor_hide(term);
+ 	if (term->conf->blink) {
+@@ -1373,6 +1421,7 @@ void terminal_destroy(struct kmscon_terminal *term)
+ 	log_debug("free terminal object %p", term);
+ 
+ 	terminal_close(term);
++	clipboard_bridge_free(term->clipboard);
+ 	rm_all_screens(term);
+ 	ev_eloop_rm_timer(term->blink_timer);
+ 	ev_eloop_rm_timer(term->blink_cursor);
+@@ -1452,6 +1501,12 @@ struct kmscon_terminal *terminal_new(struct kmscon_session *session, unsigned in
+ 	term->conf_ctx = conf_ctx;
+ 	term->conf = conf_ctx_get_mem(term->conf_ctx);
+ 
++	/* Explicit opt-in. Never guess a user session from a root process. */
++	const char *clip_path = getenv("KMSCON_CLIPBOARD_SOCKET");
++	if (clip_path && *clip_path)
++		term->clipboard = clipboard_bridge_new(eloop, clip_path, peer_paste, term);
++
++
+ 	ret = tsm_screen_new(&term->console, log_llog, NULL);
+ 	if (ret)
+ 		goto err_free;
+@@ -1548,6 +1603,7 @@ err_vte:
+ err_con:
+ 	tsm_screen_unref(term->console);
+ err_free:
++	clipboard_bridge_free(term->clipboard);
+ 	free(term);
+ 	return NULL;
+ }

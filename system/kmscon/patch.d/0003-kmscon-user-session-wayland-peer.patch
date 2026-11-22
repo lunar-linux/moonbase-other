@@ -1,0 +1,482 @@
+diff --git a/clipboard/wayland/Makefile b/clipboard/wayland/Makefile
+new file mode 100644
+index 0000000..febc77c
+--- /dev/null
++++ b/clipboard/wayland/Makefile
+@@ -0,0 +1,27 @@
++CC ?= cc
++CFLAGS ?= -O2 -g
++PKG_CONFIG ?= pkg-config
++WAYLAND_CFLAGS := $(shell $(PKG_CONFIG) --cflags wayland-client)
++WAYLAND_LIBS := $(shell $(PKG_CONFIG) --libs wayland-client)
++PROTO_BASE := $(shell $(PKG_CONFIG) --variable=pkgdatadir wayland-protocols 2>/dev/null)
++PROTO_XML := $(PROTO_BASE)/staging/ext-data-control/ext-data-control-v1.xml
++
++all: kmscon-clipboard-wayland
++
++ext-data-control-v1-client-protocol.h: $(PROTO_XML)
++	wayland-scanner client-header $< $@
++
++ext-data-control-v1-protocol.c: $(PROTO_XML)
++	wayland-scanner private-code $< $@
++
++kmscon-clipboard-wayland: kmscon-clipboard-wayland.c ext-data-control-v1-client-protocol.h ext-data-control-v1-protocol.c
++	$(CC) $(CFLAGS) -std=c11 -Wall -Wextra -Wpedantic -Werror $(WAYLAND_CFLAGS) -o $@ kmscon-clipboard-wayland.c ext-data-control-v1-protocol.c $(WAYLAND_LIBS)
++
++check-deps:
++	@set -e; test -r '$(PROTO_XML)' || { echo 'Missing protocol XML: $(PROTO_XML)' >&2; exit 1; }; \
++	 command -v wayland-scanner; $(PKG_CONFIG) --modversion wayland-client wayland-protocols
++
++clean:
++	rm -f kmscon-clipboard-wayland ext-data-control-v1-client-protocol.h ext-data-control-v1-protocol.c
++
++.PHONY: all check-deps clean
+diff --git a/clipboard/wayland/kmscon-clipboard-wayland.c b/clipboard/wayland/kmscon-clipboard-wayland.c
+new file mode 100644
+index 0000000..720af47
+--- /dev/null
++++ b/clipboard/wayland/kmscon-clipboard-wayland.c
+@@ -0,0 +1,443 @@
++/* KMSCON Wayland clipboard peer, experimental, ext-data-control-v1.
++ * Copy/Paste socket messages are byte-compatible with KMSCON C3/X11.
++ * Run only in the user's active Wayland session, never as root.
++ */
++#define _POSIX_C_SOURCE 200809L
++#include <wayland-client.h>
++#include "ext-data-control-v1-client-protocol.h"
++#include <arpa/inet.h>
++#include <errno.h>
++#include <fcntl.h>
++#include <poll.h>
++#include <signal.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/socket.h>
++#include <sys/stat.h>
++#include <sys/time.h>
++#include <sys/un.h>
++#include <time.h>
++#include <unistd.h>
++
++#define MAX_TEXT (64U * 1024U)
++#define MIME_UTF8 "text/plain;charset=utf-8"
++#define MIME_TEXT "text/plain"
++#define MAX_WRITES 16
++static volatile sig_atomic_t stopped;
++static void stop_handler(int sig) { (void)sig; stopped = 1; }
++
++static int write_all(int fd, const void *p, size_t n) {
++    const unsigned char *s = p;
++    while (n) {
++        ssize_t r = write(fd, s, n);
++        if (r < 0 && errno == EINTR) continue;
++        if (r <= 0) return -1;
++        s += r; n -= (size_t)r;
++    }
++    return 0;
++}
++static int read_all(int fd, void *p, size_t n) {
++    unsigned char *s = p;
++    while (n) {
++        ssize_t r = read(fd, s, n);
++        if (r < 0 && errno == EINTR) continue;
++        if (r <= 0) return -1;
++        s += r; n -= (size_t)r;
++    }
++    return 0;
++}
++static void timeout_socket(int fd) {
++    struct timeval tv = { .tv_sec = 2, .tv_usec = 0 };
++    (void)setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));
++    (void)setsockopt(fd, SOL_SOCKET, SO_SNDTIMEO, &tv, sizeof(tv));
++}
++static int answer_data(int fd, const unsigned char *data, uint32_t n) {
++    uint32_t len = htonl(n);
++    return write_all(fd, &len, 4) || (n != UINT32_MAX && n && write_all(fd, data, n));
++}
++struct backend;
++struct source {
++    struct backend *backend;
++    struct ext_data_control_source_v1 *proxy;
++    unsigned char *bytes;
++    size_t len;
++    struct source *next;
++};
++struct offer {
++    struct ext_data_control_offer_v1 *proxy;
++    int utf8, plain;
++};
++struct pending_write { int fd; const unsigned char *bytes; size_t len, pos; };
++struct backend {
++    struct wl_display *display;
++    struct wl_registry *registry;
++    struct wl_seat *seat;
++    struct ext_data_control_manager_v1 *manager;
++    struct ext_data_control_device_v1 *device;
++    struct offer *selection;
++    struct source *sources;
++    struct pending_write writes[MAX_WRITES];
++    int incoming_fd, paste_fd;
++    size_t incoming_len;
++    unsigned char incoming[MAX_TEXT];
++    int running;
++    struct timespec paste_started;
++};
++static void offer_mime(void *data, struct ext_data_control_offer_v1 *obj, const char *mime) {
++    (void)obj;
++    struct offer *o = data;
++    if (!strcmp(mime, MIME_UTF8)) o->utf8 = 1;
++    if (!strcmp(mime, MIME_TEXT)) o->plain = 1;
++}
++static const struct ext_data_control_offer_v1_listener offer_listener = { .offer = offer_mime };
++static void free_offer(struct offer *o) {
++    if (!o) return;
++    ext_data_control_offer_v1_destroy(o->proxy);
++    free(o);
++}
++static void device_offer(void *data, struct ext_data_control_device_v1 *obj,
++                         struct ext_data_control_offer_v1 *off) {
++    (void)data; (void)obj;
++    struct offer *o = calloc(1, sizeof(*o));
++    if (!o) { ext_data_control_offer_v1_destroy(off); return; }
++    o->proxy = off;
++    ext_data_control_offer_v1_add_listener(off, &offer_listener, o);
++}
++static void device_selection(void *data, struct ext_data_control_device_v1 *obj,
++                             struct ext_data_control_offer_v1 *off) {
++    (void)obj;
++    struct backend *b = data;
++    struct offer *old = b->selection;
++    b->selection = off ? ext_data_control_offer_v1_get_user_data(off) : NULL;
++    if (old && old != b->selection) free_offer(old);
++}
++static void device_finished(void *data, struct ext_data_control_device_v1 *obj) {
++    (void)obj;
++    struct backend *b = data;
++    b->running = 0;
++}
++static void device_primary(void *data, struct ext_data_control_device_v1 *obj,
++                           struct ext_data_control_offer_v1 *off) {
++    (void)data; (void)obj;
++    if (off) free_offer(ext_data_control_offer_v1_get_user_data(off));
++}
++static const struct ext_data_control_device_v1_listener device_listener = {
++    .data_offer = device_offer,
++    .selection = device_selection,
++    .finished = device_finished,
++    .primary_selection = device_primary
++};
++static void source_offer_send(void *data, struct ext_data_control_source_v1 *obj,
++                              const char *mime, int fd) {
++    (void)obj;
++    struct source *s = data;
++    struct backend *b = s->backend;
++    if (strcmp(mime, MIME_UTF8) && strcmp(mime, MIME_TEXT)) { close(fd); return; }
++    for (int i = 0; i < MAX_WRITES; i++) {
++        if (b->writes[i].fd < 0) {
++            int flags = fcntl(fd, F_GETFL, 0);
++            if (flags < 0 || fcntl(fd, F_SETFL, flags | O_NONBLOCK) < 0) break;
++            b->writes[i] = (struct pending_write) {fd, s->bytes, s->len, 0};
++            return;
++        }
++    }
++    close(fd);
++}
++static void source_cancelled(void *data, struct ext_data_control_source_v1 *obj) {
++    struct source *s = data;
++    struct backend *b = s->backend;
++    struct source **p = &b->sources;
++    while (*p && *p != s) p = &(*p)->next;
++    if (*p) *p = s->next;
++    /* Data may still be used by an in-progress nonblocking send. */
++    for (int i = 0; i < MAX_WRITES; i++) {
++        if (b->writes[i].fd >= 0 && b->writes[i].bytes == s->bytes) {
++            close(b->writes[i].fd); b->writes[i].fd = -1;
++        }
++    }
++    ext_data_control_source_v1_destroy(obj);
++    free(s->bytes);
++    free(s);
++}
++static const struct ext_data_control_source_v1_listener source_listener = {
++    .send = source_offer_send, .cancelled = source_cancelled
++};
++static void registry_global(void *data, struct wl_registry *registry, uint32_t name,
++                            const char *interface, uint32_t version) {
++    (void)version;
++    struct backend *b = data;
++    if (!strcmp(interface, wl_seat_interface.name) && !b->seat)
++        b->seat = wl_registry_bind(registry, name, &wl_seat_interface, 1);
++    if (!strcmp(interface, ext_data_control_manager_v1_interface.name) && !b->manager)
++        b->manager = wl_registry_bind(registry, name, &ext_data_control_manager_v1_interface, 1);
++}
++static void registry_remove(void *data, struct wl_registry *registry, uint32_t name) {
++    (void)data; (void)registry; (void)name;
++}
++static const struct wl_registry_listener registry_listener = {
++    .global = registry_global, .global_remove = registry_remove
++};
++static int own_selection(struct backend *b, const unsigned char *data, size_t len) {
++    struct source *s = calloc(1, sizeof(*s));
++    if (!s) return -1;
++    s->bytes = malloc(len);
++    if (!s->bytes) { free(s); return -1; }
++    memcpy(s->bytes, data, len);
++    s->len = len; s->backend = b;
++    s->proxy = ext_data_control_manager_v1_create_data_source(b->manager);
++    if (!s->proxy) { free(s->bytes); free(s); return -1; }
++    if (ext_data_control_source_v1_add_listener(s->proxy, &source_listener, s) < 0) {
++        ext_data_control_source_v1_destroy(s->proxy);
++        free(s->bytes); free(s); return -1;
++    }
++    s->next = b->sources; b->sources = s;
++    ext_data_control_source_v1_offer(s->proxy, MIME_UTF8);
++    ext_data_control_source_v1_offer(s->proxy, MIME_TEXT);
++    ext_data_control_device_v1_set_selection(b->device, s->proxy);
++    return wl_display_flush(b->display) < 0 && errno != EAGAIN ? -1 : 0;
++}
++static void finish_paste(struct backend *b, int valid) {
++    if (b->paste_fd >= 0) {
++        if (valid) answer_data(b->paste_fd, b->incoming, (uint32_t)b->incoming_len);
++        else answer_data(b->paste_fd, NULL, UINT32_MAX);
++        close(b->paste_fd); b->paste_fd = -1;
++    }
++    if (b->incoming_fd >= 0) close(b->incoming_fd);
++    b->incoming_fd = -1; b->incoming_len = 0;
++}
++static void read_incoming(struct backend *b) {
++    for (;;) {
++        if (b->incoming_len == MAX_TEXT) {
++            unsigned char ch;
++            ssize_t n = read(b->incoming_fd, &ch, 1);
++            if (n == 0) { finish_paste(b, 1); return; }
++            if (n > 0) { finish_paste(b, 0); return; }
++            if (errno == EINTR) continue;
++            if (errno == EAGAIN || errno == EWOULDBLOCK) return;
++            finish_paste(b, 0); return;
++        }
++        ssize_t n = read(b->incoming_fd, b->incoming + b->incoming_len,
++                         MAX_TEXT - b->incoming_len);
++        if (n > 0) { b->incoming_len += (size_t)n; continue; }
++        if (n == 0) { finish_paste(b, 1); return; }
++        if (errno == EINTR) continue;
++        if (errno == EAGAIN || errno == EWOULDBLOCK) return;
++        finish_paste(b, 0); return;
++    }
++}
++static void write_pending(struct pending_write *w) {
++    while (w->pos < w->len) {
++        ssize_t n = write(w->fd, w->bytes + w->pos, w->len - w->pos);
++        if (n > 0) { w->pos += (size_t)n; continue; }
++        if (n < 0 && errno == EINTR) continue;
++        if (n < 0 && (errno == EAGAIN || errno == EWOULDBLOCK)) return;
++        break;
++    }
++    close(w->fd); w->fd = -1;
++}
++static void start_paste(struct backend *b, int peer) {
++    if (b->paste_fd >= 0 || b->incoming_fd >= 0 || !b->selection ||
++        (!b->selection->utf8 && !b->selection->plain)) {
++        answer_data(peer, NULL, UINT32_MAX); close(peer); return;
++    }
++    int fds[2];
++    if (pipe(fds) < 0) { answer_data(peer, NULL, UINT32_MAX); close(peer); return; }
++    int flags = fcntl(fds[0], F_GETFL, 0);
++    if (flags < 0 || fcntl(fds[0], F_SETFL, flags | O_NONBLOCK) < 0) {
++        close(fds[0]); close(fds[1]); answer_data(peer, NULL, UINT32_MAX); close(peer); return;
++    }
++    const char *mime = b->selection->utf8 ? MIME_UTF8 : MIME_TEXT;
++    ext_data_control_offer_v1_receive(b->selection->proxy, mime, fds[1]);
++    close(fds[1]);
++    if (wl_display_flush(b->display) < 0 && errno != EAGAIN) {
++        close(fds[0]); answer_data(peer, NULL, UINT32_MAX); close(peer); return;
++    }
++    b->paste_fd = peer; b->incoming_fd = fds[0]; b->incoming_len = 0;
++    (void)clock_gettime(CLOCK_MONOTONIC, &b->paste_started);
++}
++static void handle_peer(struct backend *b, int peer) {
++    timeout_socket(peer);
++    char op;
++    if (read_all(peer, &op, 1) < 0) { close(peer); return; }
++    if (op == 'P') { start_paste(b, peer); return; }
++    if (op != 'C') { close(peer); return; }
++    uint32_t netlen;
++    if (read_all(peer, &netlen, 4) < 0) { close(peer); return; }
++    uint32_t len = ntohl(netlen);
++    if (!len || len > MAX_TEXT) { close(peer); return; }
++    unsigned char *buf = malloc(len);
++    if (!buf) { close(peer); return; }
++    if (read_all(peer, buf, len) == 0 && !memchr(buf, '\0', len)) {
++        char ack = own_selection(b, buf, len) == 0 ? 'K' : 'E';
++        (void)write_all(peer, &ack, 1);
++    }
++    free(buf); close(peer);
++}
++static int serve(const char *path) {
++    struct backend b = { .incoming_fd = -1, .paste_fd = -1, .running = 1 };
++    for (int i = 0; i < MAX_WRITES; i++) b.writes[i].fd = -1;
++    int fd = -1, result = 1, bound = 0;
++    struct sockaddr_un addr = { .sun_family = AF_UNIX };
++    if (strlen(path) >= sizeof(addr.sun_path)) { fprintf(stderr, "socket path too long\n"); return 1; }
++    strcpy(addr.sun_path, path);
++    if (geteuid() == 0) { fprintf(stderr, "refusing to run Wayland peer as root\n"); return 1; }
++    b.display = wl_display_connect(NULL);
++    if (!b.display) { fprintf(stderr, "cannot connect to Wayland display\n"); return 1; }
++    b.registry = wl_display_get_registry(b.display);
++    wl_registry_add_listener(b.registry, &registry_listener, &b);
++    if (wl_display_roundtrip(b.display) < 0 || !b.manager || !b.seat) {
++        fprintf(stderr, "ext-data-control-v1 or seat unavailable\n"); goto out;
++    }
++    b.device = ext_data_control_manager_v1_get_data_device(b.manager, b.seat);
++    if (!b.device || ext_data_control_device_v1_add_listener(b.device, &device_listener, &b) < 0 ||
++        wl_display_roundtrip(b.display) < 0) {
++        fprintf(stderr, "Wayland data-control initialization failed\n"); goto out;
++    }
++    fd = socket(AF_UNIX, SOCK_STREAM, 0);
++    if (fd < 0) { perror("socket"); goto out; }
++    struct stat st;
++    if (lstat(path, &st) == 0 || errno != ENOENT) {
++        fprintf(stderr, "socket path already exists: %s\n", path); goto out;
++    }
++    mode_t old = umask(0077);
++    int rc = bind(fd, (struct sockaddr *)&addr, sizeof(addr));
++    umask(old);
++    if (rc < 0) { perror("bind"); goto out; }
++    bound = 1;
++    if (listen(fd, 4) < 0) { perror("listen"); goto out; }
++    signal(SIGINT, stop_handler); signal(SIGTERM, stop_handler); signal(SIGPIPE, SIG_IGN);
++    fprintf(stderr, "Wayland clipboard peer ready: %s\n", path);
++    result = 0;
++    while (!stopped && b.running) {
++        if (wl_display_dispatch_pending(b.display) < 0) { result = 1; break; }
++        while (wl_display_prepare_read(b.display) != 0) {
++            if (wl_display_dispatch_pending(b.display) < 0) { result = 1; goto out; }
++        }
++        int flush = wl_display_flush(b.display);
++        if (flush < 0 && errno != EAGAIN) {
++            wl_display_cancel_read(b.display); result = 1; break;
++        }
++        struct pollfd fds[3 + MAX_WRITES];
++        int nfds = 2;
++        fds[0] = (struct pollfd) { .fd = fd, .events = POLLIN };
++        fds[1] = (struct pollfd) { .fd = wl_display_get_fd(b.display),
++                                   .events = POLLIN | (flush < 0 ? POLLOUT : 0) };
++        fds[2] = (struct pollfd) { .fd = b.incoming_fd, .events = POLLIN | POLLHUP };
++        if (b.incoming_fd >= 0) nfds = 3;
++        for (int i = 0; i < MAX_WRITES; i++) {
++            if (b.writes[i].fd >= 0)
++                fds[nfds++] = (struct pollfd){.fd = b.writes[i].fd, .events = POLLOUT};
++        }
++        int polled = poll(fds, (nfds_t)nfds, 500);
++        if (polled < 0) {
++            wl_display_cancel_read(b.display);
++            if (errno == EINTR) continue;
++            perror("poll"); result = 1; break;
++        }
++        if (fds[1].revents & (POLLIN | POLLHUP | POLLERR)) {
++            if (wl_display_read_events(b.display) < 0) { result = 1; break; }
++        } else wl_display_cancel_read(b.display);
++        if (fds[0].revents & POLLIN) {
++            int peer = accept(fd, NULL, NULL);
++            if (peer >= 0) handle_peer(&b, peer);
++        }
++        if (b.incoming_fd >= 0 && nfds >= 3 && fds[2].fd == b.incoming_fd &&
++            (fds[2].revents & (POLLIN | POLLHUP | POLLERR))) read_incoming(&b);
++        for (int i = 0; i < MAX_WRITES; i++) {
++            if (b.writes[i].fd >= 0) {
++                for (int j = 2; j < nfds; j++) {
++                    if (fds[j].fd == b.writes[i].fd &&
++                        (fds[j].revents & (POLLOUT | POLLHUP | POLLERR))) {
++                        write_pending(&b.writes[i]); break;
++                    }
++                }
++            }
++        }
++        /* Bound outstanding selection requests independently of IPC clients. */
++        if (b.paste_fd >= 0) {
++            struct timespec now;
++            if (clock_gettime(CLOCK_MONOTONIC, &now) == 0 &&
++                (now.tv_sec - b.paste_started.tv_sec) * 1000L +
++                (now.tv_nsec - b.paste_started.tv_nsec) / 1000000L > 1700L)
++                finish_paste(&b, 0);
++        }
++        if (b.paste_fd >= 0) {
++            struct pollfd p = { .fd = b.paste_fd, .events = 0 };
++            if (poll(&p, 1, 0) > 0 && (p.revents & (POLLHUP | POLLERR))) finish_paste(&b, 0);
++        }
++    }
++out:
++    if (b.paste_fd >= 0) finish_paste(&b, 0);
++    for (int i = 0; i < MAX_WRITES; i++) if (b.writes[i].fd >= 0) close(b.writes[i].fd);
++    while (b.sources) {
++        struct source *s = b.sources; b.sources = s->next;
++        ext_data_control_source_v1_destroy(s->proxy); free(s->bytes); free(s);
++    }
++    free_offer(b.selection);
++    if (b.device) ext_data_control_device_v1_destroy(b.device);
++    if (b.manager) ext_data_control_manager_v1_destroy(b.manager);
++    if (b.seat) wl_seat_destroy(b.seat);
++    if (b.registry) wl_registry_destroy(b.registry);
++    if (b.display) wl_display_disconnect(b.display);
++    if (fd >= 0) close(fd);
++    if (bound) unlink(path);
++    return result;
++}
++static int connect_peer(const char *path) {
++    struct sockaddr_un addr = { .sun_family = AF_UNIX };
++    if (strlen(path) >= sizeof(addr.sun_path)) return -1;
++    strcpy(addr.sun_path, path);
++    int fd = socket(AF_UNIX, SOCK_STREAM, 0);
++    if (fd < 0) return -1;
++    timeout_socket(fd);
++    if (connect(fd, (struct sockaddr *)&addr, sizeof(addr)) < 0) { close(fd); return -1; }
++    return fd;
++}
++static int client_copy(const char *path) {
++    unsigned char *data = malloc(MAX_TEXT + 1);
++    if (!data) return 1;
++    size_t n = 0;
++    while (n <= MAX_TEXT) {
++        size_t r = fread(data + n, 1, MAX_TEXT + 1 - n, stdin);
++        n += r;
++        if (!r) break;
++    }
++    if (ferror(stdin) || !n || n > MAX_TEXT || memchr(data, 0, n)) {
++        fprintf(stderr, "copy requires nonempty NUL-free text <=64KiB\n"); free(data); return 1;
++    }
++    int fd = connect_peer(path);
++    if (fd < 0) { perror("connect"); free(data); return 1; }
++    uint32_t size = htonl((uint32_t)n);
++    char op = 'C', ack = 0;
++    int ok = !write_all(fd, &op, 1) && !write_all(fd, &size, 4) &&
++             !write_all(fd, data, n) && !read_all(fd, &ack, 1) && ack == 'K';
++    if (!ok) fprintf(stderr, "Wayland copy failed\n");
++    close(fd); free(data);
++    return ok ? 0 : 1;
++}
++static int client_paste(const char *path) {
++    int fd = connect_peer(path);
++    if (fd < 0) { perror("connect"); return 1; }
++    char op = 'P'; uint32_t netlen;
++    int ok = !write_all(fd, &op, 1) && !read_all(fd, &netlen, 4);
++    uint32_t len = ok ? ntohl(netlen) : UINT32_MAX;
++    if (len > MAX_TEXT) ok = 0;
++    unsigned char *buf = ok ? malloc((size_t)len + 1) : NULL;
++    if (ok && buf && !read_all(fd, buf, len)) {
++        if (write_all(STDOUT_FILENO, buf, len)) ok = 0;
++    } else ok = 0;
++    if (!ok) fprintf(stderr, "Wayland paste failed/unsupported selection\n");
++    free(buf); close(fd);
++    return ok ? 0 : 1;
++}
++int main(int argc, char **argv) {
++    if (argc != 3) {
++        fprintf(stderr, "usage: %s serve|copy|paste SOCKET_PATH\n", argv[0]); return 2;
++    }
++    if (!strcmp(argv[1], "serve")) return serve(argv[2]);
++    if (!strcmp(argv[1], "copy")) return client_copy(argv[2]);
++    if (!strcmp(argv[1], "paste")) return client_paste(argv[2]);
++    return 2;
++}

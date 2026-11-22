@@ -1,0 +1,461 @@
+diff --git a/clipboard/x11/Makefile b/clipboard/x11/Makefile
+new file mode 100644
+index 0000000..189ab6c
+--- /dev/null
++++ b/clipboard/x11/Makefile
+@@ -0,0 +1,12 @@
++CC ?= cc
++CFLAGS ?= -O2 -g
++WARN = -std=c11 -Wall -Wextra -Wpedantic -Werror
++
++all: kmscon-clipboard-x11
++kmscon-clipboard-x11: kmscon-clipboard-x11.c
++	$(CC) $(CFLAGS) $(WARN) -o $@ $< -lX11
++check: kmscon-clipboard-x11
++	bash ./test-timeout.sh
++clean:
++	rm -f kmscon-clipboard-x11
++.PHONY: all check clean
+diff --git a/clipboard/x11/kmscon-clipboard-x11.c b/clipboard/x11/kmscon-clipboard-x11.c
+new file mode 100644
+index 0000000..33962ee
+--- /dev/null
++++ b/clipboard/x11/kmscon-clipboard-x11.c
+@@ -0,0 +1,354 @@
++/*
++ * KMSCON clipboard experiment: an unprivileged X11 peer.
++ * X11 selection protocol follows the small Xlib model used by st/x.c.
++ * No KMSCON integration in this file. GPL-compatible experimental source.
++ *
++ *   kmscon-clipboard-x11 serve SOCKET
++ *   printf 'text' | kmscon-clipboard-x11 copy SOCKET
++ *   kmscon-clipboard-x11 paste SOCKET
++ *
++ * The Unix socket is accessible to its owner (and privileged processes).
++ * The owning X11 session is the authority for clipboard operations.
++ */
++#define _POSIX_C_SOURCE 200809L
++#include <X11/Xatom.h>
++#include <X11/Xlib.h>
++#include <arpa/inet.h>
++#include <errno.h>
++#include <poll.h>
++#include <signal.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/socket.h>
++#include <sys/stat.h>
++#include <sys/time.h>
++#include <time.h>
++#include <sys/un.h>
++#include <unistd.h>
++
++#define MAX_TEXT (64U * 1024U)
++#define PASTE_TIMEOUT_MS 1500L
++static volatile sig_atomic_t stopped;
++static void stop_handler(int sig) { (void)sig; stopped = 1; }
++
++static int write_all(int fd, const void *p, size_t n)
++{
++    const unsigned char *s = p;
++    while (n) {
++        ssize_t r = write(fd, s, n);
++        if (r < 0 && errno == EINTR) continue;
++        if (r <= 0) return -1;
++        s += r;
++        n -= (size_t)r;
++    }
++    return 0;
++}
++
++static int read_all(int fd, void *p, size_t n)
++{
++    unsigned char *s = p;
++    while (n) {
++        ssize_t r = read(fd, s, n);
++        if (r < 0 && errno == EINTR) continue;
++        if (r <= 0) return -1;
++        s += r;
++        n -= (size_t)r;
++    }
++    return 0;
++}
++
++static void timeout_socket(int fd)
++{
++    struct timeval tv = { .tv_sec = 2, .tv_usec = 0 };
++    setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));
++    setsockopt(fd, SOL_SOCKET, SO_SNDTIMEO, &tv, sizeof(tv));
++}
++
++static int answer_data(int fd, const unsigned char *data, uint32_t size)
++{
++    uint32_t len = htonl(size);
++    return write_all(fd, &len, sizeof(len)) ||
++           (size != UINT32_MAX && size && write_all(fd, data, size));
++}
++
++struct backend {
++    Display *dpy;
++    Window win;
++    Atom clipboard, utf8, targets, text, property, incr;
++    unsigned char *owned;
++    uint32_t owned_len;
++    int paste_fd;
++    struct timespec paste_started;
++};
++
++static void selection_request(struct backend *b, const XSelectionRequestEvent *r)
++{
++    XEvent out = {0};
++    out.xselection.type = SelectionNotify;
++    out.xselection.display = b->dpy;
++    out.xselection.requestor = r->requestor;
++    out.xselection.selection = r->selection;
++    out.xselection.target = r->target;
++    out.xselection.time = r->time;
++    out.xselection.property = None;
++
++    Atom prop = r->property == None ? r->target : r->property;
++    if (r->selection == b->clipboard && b->owned) {
++        if (r->target == b->targets) {
++            Atom offered[] = { b->targets, b->utf8, b->text, XA_STRING };
++            int count = 4;
++            for (uint32_t i = 0; i < b->owned_len; ++i) {
++                if (b->owned[i] & 0x80) { count = 3; break; }
++            }
++            XChangeProperty(b->dpy, r->requestor, prop, XA_ATOM, 32,
++                            PropModeReplace, (unsigned char *)offered, count);
++            out.xselection.property = prop;
++        } else if (r->target == b->utf8 || r->target == b->text ||
++                   r->target == XA_STRING) {
++            /* UTF-8 is the primary format; XA_STRING is offered for ASCII
++             * compatibility, but cannot represent arbitrary Unicode. */
++            int ascii = 1;
++            for (uint32_t i = 0; i < b->owned_len; ++i) {
++                if (b->owned[i] & 0x80) { ascii = 0; break; }
++            }
++            if (r->target != XA_STRING || ascii) {
++                XChangeProperty(b->dpy, r->requestor, prop,
++                                r->target == XA_STRING ? XA_STRING : b->utf8,
++                                8, PropModeReplace, b->owned, (int)b->owned_len);
++                out.xselection.property = prop;
++            }
++        }
++    }
++    XSendEvent(b->dpy, r->requestor, False, 0, &out);
++    XFlush(b->dpy);
++}
++
++static void selection_notify(struct backend *b, const XSelectionEvent *s)
++{
++    if (b->paste_fd < 0 || s->requestor != b->win ||
++        s->selection != b->clipboard) return;
++
++    unsigned char *bytes = NULL;
++    unsigned long n = 0, after = 0;
++    int format = 0;
++    Atom type = None;
++    int ok = 0;
++    if (s->property != None &&
++        XGetWindowProperty(b->dpy, b->win, b->property, 0,
++                           (MAX_TEXT / 4) + 1, True, AnyPropertyType,
++                           &type, &format, &n, &after, &bytes) == Success &&
++        type != b->incr && format == 8 && after == 0 && n <= MAX_TEXT &&
++        (type == b->utf8 || type == XA_STRING)) {
++        ok = 1;
++    }
++    if (ok) answer_data(b->paste_fd, bytes, (uint32_t)n);
++    else answer_data(b->paste_fd, NULL, UINT32_MAX);
++    if (bytes) XFree(bytes);
++    close(b->paste_fd);
++    b->paste_fd = -1;
++}
++
++static int serve(const char *path)
++{
++    struct backend b = { .paste_fd = -1 };
++    int fd = -1, result = 1;
++    struct sockaddr_un addr = { .sun_family = AF_UNIX };
++    if (strlen(path) >= sizeof(addr.sun_path)) {
++        fprintf(stderr, "socket path too long\n");
++        return 1;
++    }
++    strcpy(addr.sun_path, path);
++    b.dpy = XOpenDisplay(NULL);
++    if (!b.dpy) { fprintf(stderr, "cannot open X11 display\n"); return 1; }
++    b.win = XCreateSimpleWindow(b.dpy, DefaultRootWindow(b.dpy),
++                                0, 0, 1, 1, 0, 0, 0);
++    b.clipboard = XInternAtom(b.dpy, "CLIPBOARD", False);
++    b.utf8 = XInternAtom(b.dpy, "UTF8_STRING", False);
++    b.targets = XInternAtom(b.dpy, "TARGETS", False);
++    b.text = XInternAtom(b.dpy, "TEXT", False);
++    b.property = XInternAtom(b.dpy, "KMSCON_CLIPBOARD_TRANSFER", False);
++    b.incr = XInternAtom(b.dpy, "INCR", False);
++
++    fd = socket(AF_UNIX, SOCK_STREAM, 0);
++    if (fd < 0) { perror("socket"); goto out; }
++    /* Never unlink an existing socket: avoid replacing a running instance. */
++    struct stat st;
++    if (lstat(path, &st) == 0 || errno != ENOENT) {
++        fprintf(stderr, "socket path already exists: %s\n", path);
++        goto out;
++    }
++    mode_t old_umask = umask(0077);
++    int bound = bind(fd, (struct sockaddr *)&addr, sizeof(addr));
++    umask(old_umask);
++    if (bound < 0) { perror("bind"); goto out; }
++    if (listen(fd, 4) < 0) { perror("listen"); goto cleanup_socket; }
++    signal(SIGINT, stop_handler);
++    signal(SIGTERM, stop_handler);
++    signal(SIGPIPE, SIG_IGN);
++    fprintf(stderr, "X11 clipboard peer ready: %s\n", path);
++    result = 0;
++
++    while (!stopped) {
++        while (XPending(b.dpy)) {
++            XEvent ev;
++            XNextEvent(b.dpy, &ev);
++            switch (ev.type) {
++            case SelectionRequest:
++                selection_request(&b, &ev.xselectionrequest);
++                break;
++            case SelectionNotify:
++                selection_notify(&b, &ev.xselection);
++                break;
++            case SelectionClear:
++                if (ev.xselectionclear.selection == b.clipboard) {
++                    free(b.owned); b.owned = NULL; b.owned_len = 0;
++                }
++                break;
++            default: break;
++            }
++        }
++        struct pollfd fds[] = {
++            { .fd = fd, .events = POLLIN },
++            { .fd = XConnectionNumber(b.dpy), .events = POLLIN },
++        };
++        int rc = poll(fds, 2, b.paste_fd >= 0 ? 100 : 500);
++        if (rc < 0) { if (errno == EINTR) continue; perror("poll"); result = 1; break; }
++        /* Bound the X11 selection lifetime independently of the IPC client:
++         * an unresponsive selection owner never sends SelectionNotify. */
++        if (b.paste_fd >= 0) {
++            struct timespec now;
++            if (clock_gettime(CLOCK_MONOTONIC, &now) != 0 ||
++                (now.tv_sec - b.paste_started.tv_sec) * 1000L +
++                (now.tv_nsec - b.paste_started.tv_nsec) / 1000000L >= PASTE_TIMEOUT_MS) {
++                answer_data(b.paste_fd, NULL, UINT32_MAX);
++                close(b.paste_fd);
++                b.paste_fd = -1;
++                XDeleteProperty(b.dpy, b.win, b.property);
++            }
++        }
++        if (!(fds[0].revents & POLLIN)) continue;
++        int peer = accept(fd, NULL, NULL);
++        if (peer < 0) continue;
++        timeout_socket(peer);
++        char op;
++        if (read_all(peer, &op, 1)) { close(peer); continue; }
++        if (op == 'C') {
++            uint32_t netlen;
++            if (!read_all(peer, &netlen, sizeof(netlen))) {
++                uint32_t len = ntohl(netlen);
++                if (len > 0 && len <= MAX_TEXT) {
++                    unsigned char *data = malloc((size_t)len + 1);
++                    if (data && !read_all(peer, data, len)) {
++                        data[len] = '\0';
++                        if (!memchr(data, '\0', len)) {
++                            free(b.owned);
++                            b.owned = data;
++                            b.owned_len = len;
++                            XSetSelectionOwner(b.dpy, b.clipboard, b.win, CurrentTime);
++                            XFlush(b.dpy);
++                            char ack = XGetSelectionOwner(b.dpy, b.clipboard) == b.win ? 'K' : 'E';
++                            write_all(peer, &ack, 1);
++                            data = NULL;
++                        }
++                    }
++                    free(data);
++                }
++            }
++            close(peer);
++        } else if (op == 'P') {
++            if (b.paste_fd >= 0) {
++                answer_data(peer, NULL, UINT32_MAX);
++                close(peer);
++            } else if (clock_gettime(CLOCK_MONOTONIC, &b.paste_started) != 0) {
++                answer_data(peer, NULL, UINT32_MAX);
++                close(peer);
++            } else {
++                b.paste_fd = peer;
++                XConvertSelection(b.dpy, b.clipboard, b.utf8,
++                                  b.property, b.win, CurrentTime);
++                XFlush(b.dpy);
++            }
++        } else close(peer);
++    }
++    if (b.paste_fd >= 0) { close(b.paste_fd); b.paste_fd = -1; }
++cleanup_socket:
++    unlink(path);
++out:
++    if (fd >= 0) close(fd);
++    free(b.owned);
++    XDestroyWindow(b.dpy, b.win);
++    XCloseDisplay(b.dpy);
++    return result;
++}
++
++static int connect_peer(const char *path)
++{
++    struct sockaddr_un addr = { .sun_family = AF_UNIX };
++    if (strlen(path) >= sizeof(addr.sun_path)) return -1;
++    strcpy(addr.sun_path, path);
++    int fd = socket(AF_UNIX, SOCK_STREAM, 0);
++    if (fd < 0) return -1;
++    timeout_socket(fd);
++    if (connect(fd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
++        close(fd); return -1;
++    }
++    return fd;
++}
++
++static int client_copy(const char *path)
++{
++    unsigned char *data = malloc(MAX_TEXT + 1);
++    if (!data) return 1;
++    size_t n = 0;
++    while (n <= MAX_TEXT) {
++        size_t r = fread(data + n, 1, MAX_TEXT + 1 - n, stdin);
++        n += r;
++        if (!r) break;
++    }
++    if (ferror(stdin) || n == 0 || n > MAX_TEXT || memchr(data, '\0', n)) {
++        fprintf(stderr, "copy needs nonempty, NUL-free text <= 64 KiB\n");
++        free(data); return 1;
++    }
++    int fd = connect_peer(path);
++    if (fd < 0) { perror("connect"); free(data); return 1; }
++    uint32_t size = htonl((uint32_t)n);
++    char op = 'C', ack;
++    int ok = !write_all(fd, &op, 1) && !write_all(fd, &size, 4) &&
++             !write_all(fd, data, n) && !read_all(fd, &ack, 1) && ack == 'K';
++    if (!ok) fprintf(stderr, "X11 copy failed\n");
++    close(fd); free(data);
++    return ok ? 0 : 1;
++}
++
++static int client_paste(const char *path)
++{
++    int fd = connect_peer(path);
++    if (fd < 0) { perror("connect"); return 1; }
++    char op = 'P';
++    uint32_t netlen;
++    int ok = !write_all(fd, &op, 1) && !read_all(fd, &netlen, 4);
++    uint32_t len = ok ? ntohl(netlen) : UINT32_MAX;
++    if (len > MAX_TEXT) ok = 0;
++    unsigned char *buf = ok ? malloc((size_t)len + 1) : NULL;
++    if (ok && buf && !read_all(fd, buf, len)) {
++        if (write_all(STDOUT_FILENO, buf, len)) ok = 0;
++    } else ok = 0;
++    if (!ok) fprintf(stderr, "X11 paste failed/unsupported selection\n");
++    free(buf);
++    close(fd);
++    return ok ? 0 : 1;
++}
++
++int main(int argc, char **argv)
++{
++    if (argc != 3) {
++        fprintf(stderr, "usage: %s serve|copy|paste SOCKET_PATH\n", argv[0]);
++        return 2;
++    }
++    if (!strcmp(argv[1], "serve")) return serve(argv[2]);
++    if (!strcmp(argv[1], "copy")) return client_copy(argv[2]);
++    if (!strcmp(argv[1], "paste")) return client_paste(argv[2]);
++    return 2;
++}
+diff --git a/clipboard/x11/silent-x11-owner.c b/clipboard/x11/silent-x11-owner.c
+new file mode 100644
+index 0000000..612e55b
+--- /dev/null
++++ b/clipboard/x11/silent-x11-owner.c
+@@ -0,0 +1,20 @@
++/* Deliberately unresponsive X11 CLIPBOARD owner for the isolated timeout test. */
++#include <X11/Xatom.h>
++#include <X11/Xlib.h>
++#include <stdio.h>
++#include <unistd.h>
++
++int main(void)
++{
++    Display *dpy = XOpenDisplay(NULL);
++    if (!dpy) return 1;
++    Window win = XCreateSimpleWindow(dpy, DefaultRootWindow(dpy),
++                                     0, 0, 1, 1, 0, 0, 0);
++    Atom clipboard = XInternAtom(dpy, "CLIPBOARD", False);
++    XSetSelectionOwner(dpy, clipboard, win, CurrentTime);
++    XFlush(dpy);
++    if (XGetSelectionOwner(dpy, clipboard) != win) return 2;
++    puts("SILENT_OWNER_READY");
++    fflush(stdout);
++    for (;;) pause(); /* Intentionally never deliver SelectionNotify. */
++}
+diff --git a/clipboard/x11/test-timeout.sh b/clipboard/x11/test-timeout.sh
+new file mode 100755
+index 0000000..458594d
+--- /dev/null
++++ b/clipboard/x11/test-timeout.sh
+@@ -0,0 +1,51 @@
++#!/usr/bin/env bash
++# Isolated, unprivileged X11 timeout/recovery regression (requires Xvfb, cc, Xlib).
++set -euo pipefail
++root=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
++peer="${KMSCON_X11_PEER:-$root/kmscon-clipboard-x11}"
++[[ -x "$peer" ]] || { echo "Build first: make -C clipboard/x11" >&2; exit 2; }
++for prog in Xvfb cc date; do
++    command -v "$prog" >/dev/null || { echo "Missing test dependency: $prog" >&2; exit 2; }
++done
++work=$(mktemp -d /tmp/kmscon-c2-r2.XXXXXXXX)
++backend_pid= owner_pid= xvfb_pid=
++cleanup() {
++    for pid in "$backend_pid" "$owner_pid" "$xvfb_pid"; do
++        if [[ -n "$pid" ]]; then kill "$pid" 2>/dev/null || :; wait "$pid" 2>/dev/null || :; fi
++    done
++    rm -rf -- "$work"
++}
++trap cleanup EXIT
++cc -std=c11 -O2 -Wall -Wextra -Wpedantic -Werror     "$root/silent-x11-owner.c" -lX11 -o "$work/silent-owner"
++Xvfb -displayfd 3 -screen 0 800x600x24 -nolisten tcp     3>"$work/display" >"$work/xvfb.log" 2>&1 &
++xvfb_pid=$!
++for i in {1..50}; do [[ -s "$work/display" ]] && break; sleep .1; done
++[[ -s "$work/display" ]] || { cat "$work/xvfb.log"; exit 1; }
++export DISPLAY=":$(cat "$work/display")"
++sock="$work/peer.sock"
++"$peer" serve "$sock" >"$work/peer.log" 2>&1 &
++backend_pid=$!
++for i in {1..50}; do [[ -S "$sock" ]] && break; sleep .1; done
++[[ -S "$sock" ]] || { cat "$work/peer.log"; exit 1; }
++"$work/silent-owner" >"$work/owner.log" 2>&1 &
++owner_pid=$!
++for i in {1..50}; do grep -q SILENT_OWNER_READY "$work/owner.log" && break; sleep .1; done
++grep -q SILENT_OWNER_READY "$work/owner.log"
++# Both requests must time out independently (rather than the second failing at once).
++for attempt in 1 2; do
++    before=$(date +%s%3N)
++    if "$peer" paste "$sock" >"$work/paste-$attempt.out" 2>"$work/paste-$attempt.err"; then
++        echo "X11_TIMEOUT_UNEXPECTED_SUCCESS=$attempt" >&2; exit 1
++    fi
++    elapsed=$(( $(date +%s%3N) - before ))
++    echo "X11_TIMEOUT_ATTEMPT_${attempt}_MS=$elapsed"
++    if ((elapsed < 1200 || elapsed > 2700)); then
++        echo "X11_TIMEOUT_RECOVERY=FAIL" >&2; exit 1
++    fi
++done
++kill "$owner_pid"; wait "$owner_pid" 2>/dev/null || :; owner_pid=
++printf '%s' 'KMSCON-R2-Bună ziua' | "$peer" copy "$sock"
++actual=$("$peer" paste "$sock")
++[[ "$actual" == 'KMSCON-R2-Bună ziua' ]] || { echo 'X11_ROUNDTRIP=FAIL' >&2; exit 1; }
++echo 'X11_TIMEOUT_RECOVERY=PASS'
++echo 'X11_ROUNDTRIP_AFTER_TIMEOUT=PASS'

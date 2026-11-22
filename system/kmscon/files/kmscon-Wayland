@@ -1,0 +1,10 @@
+# KMSCON Artix/dinit: manually enabled, dedicated tty8.
+# No automatic activation/restart. Verify VT ownership first.
+# The native clipboard peer runs separately in the user's desktop session.
+# KMSCON has libseat disabled; system dinit runs this service as root.
+
+type = process
+env-file = /etc/kmscon/clipboard-wayland.env
+command = /usr/bin/kmscon --vt=tty8 --no-switchvt --no-libseat --no-hwaccel --session-max=1
+restart = false
+log-type = buffer

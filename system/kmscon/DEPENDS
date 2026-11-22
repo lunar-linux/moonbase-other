@@ -1,0 +1,37 @@
+depends libdrm
+depends libtsm
+depends libxslt
+depends fontconfig
+depends ncurses
+depends zlib
+depends meson
+
+optional_depends systemd \
+                 "" "" \
+                 "for systemd support"
+
+optional_depends freetype2 \
+                 "-D font_freetype=enabled" \
+                 "-D font_freetype=disabled" \
+                 "for freetype font rendering"
+
+optional_depends pango \
+                 "-D font_pango=enabled" \
+                 "-D font_pango=disabled" \
+                 "for pango font rendering" "n"
+
+optional_depends libX11 \
+                 "" "" \
+                 "for XKB compose support"
+
+optional_depends wayland-protocols \
+                 "" "" \
+                 "for Wayland support"
+
+optional_depends libglvnd \
+                 "" "" \
+                 "for accelerated video output"
+
+optional_depends dbus \
+                 "" "" \
+                 "for dbus support"
