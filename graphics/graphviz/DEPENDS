@@ -1,38 +1,45 @@
-depends zlib
 depends automake
 depends autoconf
+depends glib-2
 depends expat
 depends bison
 depends python
 depends fontconfig
 depends libgd
 depends gettext
-depends glib-2
 depends pkgconf
 depends poppler
 depends cairo
 depends pango
+depends zlib
 
 optional_depends qt6-base  "--with-qt" "--without-qt" "for qt6 support"
 
-optional_depends ghostscript "--with-ghostscript" "--without-ghostscript" "for Postscript support"
+optional_depends ghostscript "--with-ghostscript" \
+                             "--without-ghostscript" \
+                             "for Postscript support"
+
 optional_depends devil "--with-devil --with-devillibdir=/usr/lib/ \
-                        --with-devilincludedir=/usr/include/IL/" "" \
+                       --with-devilincludedir=/usr/include/IL/" "" \
                        "for additional graph file format support"
 
-optional_depends gts     "--with-gts"    "--without-gts"   "for 3D surface support"
-optional_depends glitz   "--with-glitz"  "--without-glitz" "for OpenGL image compositing support"
-optional_depends libLASi "--with-lasi"   "--without-lasi"  "for C++ stream output to create Postscript documents"
 optional_depends libwebp "--with-webp"   "--without-webp"  "for WebP image support"
-optional_depends ming    "--with-ming"   "--without-ming"  "for flash support"
-optional_depends swig  "" "--disable-swig"  "for swig support,${PROBLEM_COLOR} Must say yes if any bindings support are wanted${DEFAULT_COLOR}"
-optional_depends tk    "" "--disable-tcl"   "for building extra tcl/tk tools and bindings support"
-optional_depends lua   "" "--disable-lua"   "for lua bindings support"
-optional_depends guile "" "--disable-guile" "for guile bindings support"
-optional_depends ocaml "" "--disable-ocaml" "for ocaml bindings support"
-optional_depends perl  "--enable-perl" "--disable-perl"  "perl bindings support"
-optional_depends php   "--enable-php"  "--disable-php"  "for PHP bindings support"
-optional_depends ruby  "--enable-ruby" "--disable-ruby" "for ruby bindings support"
-optional_depends R     "--enable-r"    "--disable-r"    "for R language bindings support"
+optional_depends perl    "--enable-perl" "--disable-perl"  "for perl bindings support"
+optional_depends ruby    "--enable-ruby" "--disable-ruby"  "for ruby bindings support"
+optional_depends lua     ""              "--disable-lua"   "for lua bindings support"
+optional_depends php     "--enable-php"  "--disable-php"   "for PHP bindings support"
+optional_depends guile   ""              "--disable-guile" "for guile bindings support"
+optional_depends R       "--enable-r"    "--disable-r"     "for R language bindings support"
 
-optional_depends %JAVA_SDK "--enable-java=yes" "--disable-java" "for java bindings support"
+optional_depends gts     "--with-gts"   "--without-gts"   "for 3D surface support" "n"
+optional_depends glitz   "--with-glitz" "--without-glitz" "for OpenGL image compositing support" "n"
+optional_depends libLASi "--with-lasi"  "--without-lasi"  "for C++ stream output to create Postscript documents" "n"
+optional_depends ming    "--with-ming"  "--without-ming"  "for flash support" "n"
+
+optional_depends swig  "" "--disable-swig"  "for swig support,${PROBLEM_COLOR} Must say yes if any bindings support are wanted${DEFAULT_COLOR}"
+optional_depends ocaml "" "--disable-ocaml" "for ocaml bindings support" "n"
+optional_depends tk    "" "--disable-tcl"   "for building extra tcl/tk tools and bindings support" "n"
+
+optional_depends %JAVA_SDK "--enable-java=yes" \
+                 "--disable-java" i\
+                 "for java bindings support" "n"
