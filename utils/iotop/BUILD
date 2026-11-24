@@ -1,6 +1,7 @@
 # Install binary to /usr/bin
 sedit '7,13d' setup.py &&
 
-default_python3_build &&
+python -m build --wheel &&
 
-chmod 644 /usr/share/man/man8/iotop.8
+prepare_install &&
+python -m installer --destdir=/ dist/*.whl
