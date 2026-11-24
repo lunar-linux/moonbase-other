@@ -1,8 +1,4 @@
-export PYTHONDONTWRITEBYTECODE=1
-export SETUPTOOLS_SCM_PRETEND_VERSION=$VERSION &&
-
-python -m build -wn &&
+python -m build --wheel &&
 
 prepare_install &&
-export SETUPTOOLS_SCM_PRETEND_VERSION=$VERSION &&
-python -m installer -d / dist/*.whl
+python -m installer --destdir=/ dist/*.whl
