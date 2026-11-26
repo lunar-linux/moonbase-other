@@ -4,11 +4,14 @@ OPTS+=" -D zlib=enabled \
         -D sndio=disabled \
         -D adplug=disabled \
         -D tremor=disabled \
-        -D sidplay=disabled \
         -D mpcdec=disabled \
+        -D sidplay=disabled \
+        -D tinyalsa=disabled \
+        -D io_uring=disabled \
+        -D vgmstream=disabled \
         -D documentation=disabled"
 
-add_priv_user mpd:mpd
+#add_priv_user mpd:mpd
 
 if module_installed systemd; then
     OPTS+=" -D systemd=enabled"

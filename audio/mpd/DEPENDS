@@ -1,13 +1,19 @@
-depends zlib
-depends boost
-depends meson
 depends fmt
+depends pcre2
+depends boost
+depends bzip2
+depends zlib
+depends meson
+
+optional_depends dbus \
+                 "-D dbus=enabled" \
+                 "-D dbus=disabled" \
+                 "to enable DBUS support"
 
 optional_depends alsa-lib   "-D alsa=enabled"       "-D alsa=disabled"      "to enable ALSA output"
-optional_depends pulseaudio "-D pulse=enabled"      "-D pulse=disabled"     "to enable PulseAudio output"
+optional_depends pipewire   "-D pipewire=enabled"   "-D pipewire=disabled"  "to enable ALSA output"
 optional_depends jack2      "-D jack=enabled"       "-D jack=disabled"      "to enable JACK output"
 optional_depends libao      "-D ao=enabled"         "-D ao=disabled"        "to enable AO output"
-optional_depends liburing   "-D io_uring=enabled"   "-D io_uring=disabled"  "Linux io_uring support using liburing"
 optional_depends openal     "-D openal=enabled"     "-D openal=disabled"    "to enable OpenAL output"
 optional_depends ffmpeg     "-D ffmpeg=enabled"     "-D ffmpeg=disabled"    "to enable support for multiple other input codecs"
 optional_depends lame       "-D lame=enabled"       "-D lame=disabled"      "to enable MP3 encoder support"
@@ -22,25 +28,17 @@ optional_depends libmad     "-D mad=enabled"        "-D mad=disabled"       "to 
 optional_depends wavpack    "-D wavpack=enabled"    "-D wavpack=disabled"   "to enable WavPack decoder support"
 optional_depends libmikmod  "-D mikmod=enabled"     "-D mikmod=disabled"    "to enable MOD input support"
 optional_depends wildmidi   "-D wildmidi=enabled"   "-D wildmidi=disabled"  "to enable MIDI input support"
-optional_depends curl       "-D curl=enabled"       "-D curl=disabled"      "to play HTTP streams"
-optional_depends libmms     "-D mms=enabled"        "-D mms=disabled"       "to enable MMS protocol support"
 optional_depends libid3tag  "-D id3tag=enabled"     "-D id3tag=disabled"    "to enable support for ID3 tags"
 optional_depends libupnp    "-D upnp=auto"          "-D upnp=disabled"      "to enable UPnP client support"
-optional_depends libnfs     "-D nfs=enabled"        "-D nfs=disabled"       "to enable NFS support"
-optional_depends samba      "-D smbclient=enabled"  "-D smbclient=disabled" "to enable SMB support"
 
 # Broken
 #optional_depends libmpcdec  "-D mpcdec=enabled"     "-D mpcdec=disabled"    "to enable Musepak decoder support"
+#optional_depends liburing   "-D io_uring=enabled"   "-D io_uring=disabled"  "Linux io_uring support using liburing"
 
 optional_depends fluidsynth \
                  "-D fluidsynth=enabled" \
                  "-D fluidsynth=disabled" \
                  "to enable MIDI decoder support"
-
-optional_depends dbus \
-                 "-D dbus=enabled" \
-                 "-D dbus=disabled" \
-                 "to enable DBUS support"
 
 optional_depends sqlite \
                  "-D sqlite=enabled" \
@@ -57,11 +55,6 @@ optional_depends icu4c \
                  "-D icu=disabled" \
                  "to enable Unicode support"
 
-optional_depends chromaprint \
-                 "-D chromaprint=enabled" \
-                 "-D chromaprint=disabled" \
-                 "to enable the ChromaPrint/AcousticID support"
-
 optional_depends libvorbis \
                  "-D vorbis=enabled  -D vorbisenc=enabled" \
                  "-D vorbis=disabled -D vorbisenc=disabled" \
@@ -77,12 +70,37 @@ optional_depends libcdio \
                  "-D iso9660=disabled" \
                  "enable libiso9660 archive plugin"
 
-#optional_depends libcdio-paranoia \
-#                 "-D cdio-paranoia=enabled" \
-#                 "-D cdio-paranoia=disabled" \
-#                 "to enable audio CD support"
+optional_depends chromaprint \
+                 "-D chromaprint=enabled" \
+                 "-D chromaprint=disabled" \
+                 "to enable the ChromaPrint/AcousticID support" "n"
+
+optional_depends curl \
+                 "-D curl=enabled" \
+                 "-D curl=disabled" \
+                 "to play HTTP streams"
+
+optional_depends libnfs \
+                 "-D nfs=enabled" \
+                 "-D nfs=disabled" \
+                 "to enable NFS support" "n"
+
+optional_depends samba \
+                 "-D smbclient=enabled" \
+                 "-D smbclient=disabled" \
+                 "to enable SMB support" "n"
 
 optional_depends avahi \
                  "-D zeroconf=avahi" \
                  "-D zeroconf=disabled" \
-                 "to enable ZeroConf support"
+                 "to enable ZeroConf support" "n"
+
+optional_depends pulseaudio \
+                 "-D pulse=enabled" \
+                 "-D pulse=disabled" \
+                 "to enable PulseAudio output" "n"
+
+#optional_depends libcdio-paranoia \
+#                 "-D cdio-paranoia=enabled" \
+#                 "-D cdio-paranoia=disabled" \
+#                 "to enable audio CD support"
