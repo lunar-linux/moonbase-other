@@ -1,3 +1,5 @@
+sedit 's:opencv4:opencv5:' cmake/FindOpenCV.cmake &&
+
 OPTS+=" -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_BUILD_TYPE=Release \
         -DENABLE_DYNAMIC_LINKING=ON \
