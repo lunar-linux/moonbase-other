@@ -1,3 +1,5 @@
 default_pre_build &&
 
-export CFLAGS="-Wno-error=use-after-free"
+export CFLAGS="-Wno-error=use-after-free -Wno-error=stringop-truncation"
+
+autoreconf -fvi -I /usr/share/gettext/m4
