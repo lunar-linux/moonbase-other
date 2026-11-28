@@ -1,0 +1,9 @@
+default_pre_build &&
+
+cd $SOURCE_DIRECTORY &&
+
+# The stroke and table data are normally fetched by CMake at build time.
+# fcitx5_download() resolves its destination relative to the source
+# directory, so drop them there to make the build reproducible.
+cp $SOURCE_CACHE/py_stroke-20250329.tar.gz \
+   $SOURCE_CACHE/py_table-20121124.tar.gz modules/pinyinhelper/

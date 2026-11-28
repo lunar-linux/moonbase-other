@@ -1,0 +1,30 @@
+         MODULE=libime
+        VERSION=1.1.17
+         SOURCE=$MODULE-$VERSION.tar.gz
+SOURCE_URL_FULL=https://github.com/fcitx/$MODULE/archive/refs/tags/$VERSION.tar.gz
+        SOURCE2=kenlm-4cb443e60b7bf2c0ddf3c745378f76cb59e254e5.tar.gz
+    SOURCE2_URL=https://github.com/kpu/kenlm/archive/
+        SOURCE3=lm_sc.arpa-20260629.tar.zst
+    SOURCE3_URL=https://download.fcitx-im.org/data/
+        SOURCE4=dict-20260907.tar.zst
+    SOURCE4_URL=https://download.fcitx-im.org/data/
+        SOURCE5=table-20240108.tar.zst
+    SOURCE5_URL=https://download.fcitx-im.org/data/
+     SOURCE_VFY=sha256:6af056717edf99be8d4b83717de01b6404398d2fc47a301b609ca7d31331cafb
+    SOURCE2_VFY=sha256:11df4f929b175f0b3bd26be7a5a83b3c17cdefa83baecab0b6e69f77430184ea
+    SOURCE3_VFY=sha256:06808333b9173e5374cf2cb5afc12d08f5625bf9abb536489cac376fc05f2e7f
+    SOURCE4_VFY=sha256:fb75a179065e690dfc4559ce1807cbaf4fbe4f0111a5005615be9f435e6b9d76
+    SOURCE5_VFY=sha256:3e9d87b04a393f131723472c8eaa860dd23c378a3d4f6a9005513b2a95b3614b
+       WEB_SITE=https://github.com/fcitx/libime
+        ENTERED=20261116
+        UPDATED=20261116
+          SHORT="Generic input method engine library used by Fcitx5"
+
+cat << EOF
+libime is the generic input method engine library behind Fcitx5. It
+provides the language model, the dictionary format and the pinyin/table
+decoders used by fcitx5-chinese-addons.
+
+The package also builds the Simplified Chinese language model, dictionary
+and table data that the pinyin engine needs at runtime.
+EOF
